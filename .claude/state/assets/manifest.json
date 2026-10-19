@@ -58623,7 +58623,15 @@
       "verifiedAt": "2026-10-18T21:56:39.241Z",
       "width": 1200,
       "height": 630,
-      "srcHash": "05d0876ab94d618a"
+      "srcHash": "05d0876ab94d618a",
+      "logicalPath": "content/site/standards-articles/chubu/special/chapters/10-10/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ]
     },
     "content/site/standards-articles/chubu/special/chapters/1-3/ogp.png": {
       "bucket": "public",
@@ -58636,7 +58644,15 @@
       "verifiedAt": "2026-10-18T21:56:39.243Z",
       "width": 1200,
       "height": 630,
-      "srcHash": "ac21446d150bd21d"
+      "srcHash": "ac21446d150bd21d",
+      "logicalPath": "content/site/standards-articles/chubu/special/chapters/1-3/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ]
     },
     "content/site/standards-articles/chubu/special/chapters/1-2/ogp.png": {
       "bucket": "public",
@@ -58649,7 +58665,15 @@
       "verifiedAt": "2026-10-18T21:56:39.252Z",
       "width": 1200,
       "height": 630,
-      "srcHash": "3a23bb62df836822"
+      "srcHash": "3a23bb62df836822",
+      "logicalPath": "content/site/standards-articles/chubu/special/chapters/1-2/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ]
     },
     "content/site/standards-articles/chubu/special/chapters/10-12/ogp.png": {
       "bucket": "public",
@@ -58662,7 +58686,15 @@
       "verifiedAt": "2026-10-18T21:56:39.257Z",
       "width": 1200,
       "height": 630,
-      "srcHash": "d2e30780f71dbe2a"
+      "srcHash": "d2e30780f71dbe2a",
+      "logicalPath": "content/site/standards-articles/chubu/special/chapters/10-12/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ]
     },
     "content/site/standards-articles/chubu/special/chapters/10-13/ogp.png": {
       "bucket": "public",
@@ -58675,7 +58707,15 @@
       "verifiedAt": "2026-10-18T21:56:39.259Z",
       "width": 1200,
       "height": 630,
-      "srcHash": "11ca4eb5e20db04a"
+      "srcHash": "11ca4eb5e20db04a",
+      "logicalPath": "content/site/standards-articles/chubu/special/chapters/10-13/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ]
     },
     "content/site/standards-articles/chubu/special/chapters/10-1/ogp.png": {
       "bucket": "public",
@@ -58688,7 +58728,15 @@
       "verifiedAt": "2026-10-18T21:56:39.288Z",
       "width": 1200,
       "height": 630,
-      "srcHash": "45d31cdd3759541e"
+      "srcHash": "45d31cdd3759541e",
+      "logicalPath": "content/site/standards-articles/chubu/special/chapters/10-1/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ]
     },
     "content/site/standards-articles/chubu/special/chapters/1-1/ogp.png": {
       "bucket": "public",
@@ -58701,7 +58749,15 @@
       "verifiedAt": "2026-10-18T21:56:39.290Z",
       "width": 1200,
       "height": 630,
-      "srcHash": "e48864446102f01a"
+      "srcHash": "e48864446102f01a",
+      "logicalPath": "content/site/standards-articles/chubu/special/chapters/1-1/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ]
     },
     "content/site/standards-articles/chubu/special/chapters/10-11/ogp.png": {
       "bucket": "public",
@@ -58714,7 +58770,15 @@
       "verifiedAt": "2026-10-18T21:56:39.490Z",
       "width": 1200,
       "height": 630,
-      "srcHash": "bb095622a7104b4c"
+      "srcHash": "bb095622a7104b4c",
+      "logicalPath": "content/site/standards-articles/chubu/special/chapters/10-11/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ]
     },
     "content/site/standards-articles/chubu/special/chapters/10-3/ogp.png": {
       "bucket": "public",
@@ -58727,7 +58791,15 @@
       "verifiedAt": "2026-10-18T21:56:40.662Z",
       "width": 1200,
       "height": 630,
-      "srcHash": "280727445e37d0ab"
+      "srcHash": "280727445e37d0ab",
+      "logicalPath": "content/site/standards-articles/chubu/special/chapters/10-3/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ]
     },
     "content/site/standards-articles/chubu/special/chapters/10-16/ogp.png": {
       "bucket": "public",
@@ -58740,7 +58812,15 @@
       "verifiedAt": "2026-10-18T21:56:40.691Z",
       "width": 1200,
       "height": 630,
-      "srcHash": "117933400647e979"
+      "srcHash": "117933400647e979",
+      "logicalPath": "content/site/standards-articles/chubu/special/chapters/10-16/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ]
     },
     "content/site/standards-articles/chubu/special/chapters/10-5/ogp.png": {
       "bucket": "public",
@@ -58753,7 +58833,15 @@
       "verifiedAt": "2026-10-18T21:56:40.752Z",
       "width": 1200,
       "height": 630,
-      "srcHash": "be2f5b2ef3ebe3bc"
+      "srcHash": "be2f5b2ef3ebe3bc",
+      "logicalPath": "content/site/standards-articles/chubu/special/chapters/10-5/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ]
     },
     "content/site/standards-articles/chubu/special/chapters/10-15/ogp.png": {
       "bucket": "public",
@@ -58766,7 +58854,15 @@
       "verifiedAt": "2026-10-18T21:56:40.760Z",
       "width": 1200,
       "height": 630,
-      "srcHash": "6c5ddf3947640f9a"
+      "srcHash": "6c5ddf3947640f9a",
+      "logicalPath": "content/site/standards-articles/chubu/special/chapters/10-15/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ]
     },
     "content/site/standards-articles/chubu/special/chapters/10-4/ogp.png": {
       "bucket": "public",
@@ -58779,7 +58875,15 @@
       "verifiedAt": "2026-10-18T21:56:40.788Z",
       "width": 1200,
       "height": 630,
-      "srcHash": "78682653f96c8679"
+      "srcHash": "78682653f96c8679",
+      "logicalPath": "content/site/standards-articles/chubu/special/chapters/10-4/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ]
     },
     "content/site/standards-articles/chubu/special/chapters/10-6/ogp.png": {
       "bucket": "public",
@@ -58792,7 +58896,15 @@
       "verifiedAt": "2026-10-18T21:56:40.939Z",
       "width": 1200,
       "height": 630,
-      "srcHash": "a6d39074119a430d"
+      "srcHash": "a6d39074119a430d",
+      "logicalPath": "content/site/standards-articles/chubu/special/chapters/10-6/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ]
     },
     "content/site/standards-articles/chubu/special/chapters/10-14/ogp.png": {
       "bucket": "public",
@@ -58805,7 +58917,15 @@
       "verifiedAt": "2026-10-18T21:56:41.006Z",
       "width": 1200,
       "height": 630,
-      "srcHash": "14eeae94febe0335"
+      "srcHash": "14eeae94febe0335",
+      "logicalPath": "content/site/standards-articles/chubu/special/chapters/10-14/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ]
     },
     "content/site/standards-articles/chubu/special/chapters/10-2/ogp.png": {
       "bucket": "public",
@@ -58818,7 +58938,15 @@
       "verifiedAt": "2026-10-18T21:56:41.699Z",
       "width": 1200,
       "height": 630,
-      "srcHash": "90f510441a5fd8a9"
+      "srcHash": "90f510441a5fd8a9",
+      "logicalPath": "content/site/standards-articles/chubu/special/chapters/10-2/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ]
     },
     "content/site/standards-articles/chubu/special/chapters/10-8/ogp.png": {
       "bucket": "public",
@@ -58831,7 +58959,15 @@
       "verifiedAt": "2026-10-18T21:56:42.140Z",
       "width": 1200,
       "height": 630,
-      "srcHash": "4f91a210794cb29a"
+      "srcHash": "4f91a210794cb29a",
+      "logicalPath": "content/site/standards-articles/chubu/special/chapters/10-8/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ]
     },
     "content/site/standards-articles/chubu/special/chapters/10-7/ogp.png": {
       "bucket": "public",
@@ -58844,7 +58980,15 @@
       "verifiedAt": "2026-10-18T21:56:42.140Z",
       "width": 1200,
       "height": 630,
-      "srcHash": "84a0b1cfa99f624b"
+      "srcHash": "84a0b1cfa99f624b",
+      "logicalPath": "content/site/standards-articles/chubu/special/chapters/10-7/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ]
     },
     "content/site/standards-articles/chubu/special/chapters/10-9/ogp.png": {
       "bucket": "public",
@@ -58857,7 +59001,15 @@
       "verifiedAt": "2026-10-18T21:56:42.144Z",
       "width": 1200,
       "height": 630,
-      "srcHash": "a7a0ff4884a61ab3"
+      "srcHash": "a7a0ff4884a61ab3",
+      "logicalPath": "content/site/standards-articles/chubu/special/chapters/10-9/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ]
     },
     "content/site/standards-articles/chubu/special/chapters/2-2/ogp.png": {
       "bucket": "public",
@@ -58870,7 +59022,15 @@
       "verifiedAt": "2026-10-18T21:56:42.207Z",
       "width": 1200,
       "height": 630,
-      "srcHash": "dcbd39026668675d"
+      "srcHash": "dcbd39026668675d",
+      "logicalPath": "content/site/standards-articles/chubu/special/chapters/2-2/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ]
     },
     "content/site/standards-articles/chubu/special/chapters/2-1/ogp.png": {
       "bucket": "public",
@@ -58883,7 +59043,15 @@
       "verifiedAt": "2026-10-18T21:56:42.281Z",
       "width": 1200,
       "height": 630,
-      "srcHash": "997587874abe0bb7"
+      "srcHash": "997587874abe0bb7",
+      "logicalPath": "content/site/standards-articles/chubu/special/chapters/2-1/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ]
     },
     "content/site/standards-articles/chubu/special/chapters/3-1/ogp.png": {
       "bucket": "public",
@@ -58896,7 +59064,15 @@
       "verifiedAt": "2026-10-18T21:56:42.423Z",
       "width": 1200,
       "height": 630,
-      "srcHash": "ab8bb63ae7daeb6b"
+      "srcHash": "ab8bb63ae7daeb6b",
+      "logicalPath": "content/site/standards-articles/chubu/special/chapters/3-1/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ]
     },
     "content/site/standards-articles/chubu/special/chapters/3-2/ogp.png": {
       "bucket": "public",
@@ -58909,7 +59085,15 @@
       "verifiedAt": "2026-10-18T21:56:42.465Z",
       "width": 1200,
       "height": 630,
-      "srcHash": "4a854c033b26b624"
+      "srcHash": "4a854c033b26b624",
+      "logicalPath": "content/site/standards-articles/chubu/special/chapters/3-2/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ]
     },
     "content/site/standards-articles/chubu/special/chapters/6-1/ogp.png": {
       "bucket": "public",
@@ -58922,7 +59106,15 @@
       "verifiedAt": "2026-10-18T21:56:43.246Z",
       "width": 1200,
       "height": 630,
-      "srcHash": "96e009d9aed8ef3e"
+      "srcHash": "96e009d9aed8ef3e",
+      "logicalPath": "content/site/standards-articles/chubu/special/chapters/6-1/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ]
     },
     "content/site/standards-articles/chubu/special/chapters/6-4/ogp.png": {
       "bucket": "public",
@@ -58935,7 +59127,15 @@
       "verifiedAt": "2026-10-18T21:56:43.543Z",
       "width": 1200,
       "height": 630,
-      "srcHash": "85a78c7e1a610451"
+      "srcHash": "85a78c7e1a610451",
+      "logicalPath": "content/site/standards-articles/chubu/special/chapters/6-4/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ]
     },
     "content/site/standards-articles/chubu/special/chapters/6-2/ogp.png": {
       "bucket": "public",
@@ -58948,7 +59148,15 @@
       "verifiedAt": "2026-10-18T21:56:43.546Z",
       "width": 1200,
       "height": 630,
-      "srcHash": "0fc49af9215e97fb"
+      "srcHash": "0fc49af9215e97fb",
+      "logicalPath": "content/site/standards-articles/chubu/special/chapters/6-2/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ]
     },
     "content/site/standards-articles/chubu/special/chapters/6-3/ogp.png": {
       "bucket": "public",
@@ -58961,7 +59169,15 @@
       "verifiedAt": "2026-10-18T21:56:43.579Z",
       "width": 1200,
       "height": 630,
-      "srcHash": "9a1eba150638424e"
+      "srcHash": "9a1eba150638424e",
+      "logicalPath": "content/site/standards-articles/chubu/special/chapters/6-3/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ]
     },
     "content/site/standards-articles/chubu/special/chapters/6-6/ogp.png": {
       "bucket": "public",
@@ -58974,7 +59190,15 @@
       "verifiedAt": "2026-10-18T21:56:43.660Z",
       "width": 1200,
       "height": 630,
-      "srcHash": "1350912e523ef318"
+      "srcHash": "1350912e523ef318",
+      "logicalPath": "content/site/standards-articles/chubu/special/chapters/6-6/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ]
     },
     "content/site/standards-articles/chubu/special/chapters/6-5/ogp.png": {
       "bucket": "public",
@@ -58987,7 +59211,15 @@
       "verifiedAt": "2026-10-18T21:56:43.738Z",
       "width": 1200,
       "height": 630,
-      "srcHash": "805708f5ea46d872"
+      "srcHash": "805708f5ea46d872",
+      "logicalPath": "content/site/standards-articles/chubu/special/chapters/6-5/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ]
     },
     "content/site/standards-articles/chubu/special/chapters/6-7/ogp.png": {
       "bucket": "public",
@@ -59000,7 +59232,15 @@
       "verifiedAt": "2026-10-18T21:56:43.895Z",
       "width": 1200,
       "height": 630,
-      "srcHash": "e451832c99fff7a1"
+      "srcHash": "e451832c99fff7a1",
+      "logicalPath": "content/site/standards-articles/chubu/special/chapters/6-7/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ]
     },
     "content/site/standards-articles/chubu/special/chapters/6-8/ogp.png": {
       "bucket": "public",
@@ -59013,7 +59253,15 @@
       "verifiedAt": "2026-10-18T21:56:43.943Z",
       "width": 1200,
       "height": 630,
-      "srcHash": "e883027125ed0460"
+      "srcHash": "e883027125ed0460",
+      "logicalPath": "content/site/standards-articles/chubu/special/chapters/6-8/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ]
     },
     "content/site/standards-articles/chubu/special/chapters/6-9/ogp.png": {
       "bucket": "public",
@@ -59026,7 +59274,15 @@
       "verifiedAt": "2026-10-18T21:56:44.701Z",
       "width": 1200,
       "height": 630,
-      "srcHash": "29f9375e5faaa5a0"
+      "srcHash": "29f9375e5faaa5a0",
+      "logicalPath": "content/site/standards-articles/chubu/special/chapters/6-9/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ]
     },
     "content/site/standards-articles/chubu/special/chapters/7-2/ogp.png": {
       "bucket": "public",
@@ -59039,7 +59295,15 @@
       "verifiedAt": "2026-10-18T21:56:44.909Z",
       "width": 1200,
       "height": 630,
-      "srcHash": "0d71e019d84695b7"
+      "srcHash": "0d71e019d84695b7",
+      "logicalPath": "content/site/standards-articles/chubu/special/chapters/7-2/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ]
     },
     "content/site/standards-articles/chubu/special/chapters/7-3/ogp.png": {
       "bucket": "public",
@@ -59052,7 +59316,15 @@
       "verifiedAt": "2026-10-18T21:56:44.992Z",
       "width": 1200,
       "height": 630,
-      "srcHash": "8a283794d85cfb3f"
+      "srcHash": "8a283794d85cfb3f",
+      "logicalPath": "content/site/standards-articles/chubu/special/chapters/7-3/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ]
     },
     "content/site/standards-articles/chubu/special/chapters/7-1/ogp.png": {
       "bucket": "public",
@@ -59065,7 +59337,15 @@
       "verifiedAt": "2026-10-18T21:56:45.003Z",
       "width": 1200,
       "height": 630,
-      "srcHash": "9b8a6c7017abfc80"
+      "srcHash": "9b8a6c7017abfc80",
+      "logicalPath": "content/site/standards-articles/chubu/special/chapters/7-1/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ]
     },
     "content/site/standards-articles/chubu/special/chapters/7-4/ogp.png": {
       "bucket": "public",
@@ -59078,7 +59358,15 @@
       "verifiedAt": "2026-10-18T21:56:45.051Z",
       "width": 1200,
       "height": 630,
-      "srcHash": "b49f12937ea4ffe4"
+      "srcHash": "b49f12937ea4ffe4",
+      "logicalPath": "content/site/standards-articles/chubu/special/chapters/7-4/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ]
     },
     "content/site/standards-articles/chubu/special/chapters/7-5/ogp.png": {
       "bucket": "public",
@@ -59091,7 +59379,15 @@
       "verifiedAt": "2026-10-18T21:56:45.208Z",
       "width": 1200,
       "height": 630,
-      "srcHash": "c218359f67a2571d"
+      "srcHash": "c218359f67a2571d",
+      "logicalPath": "content/site/standards-articles/chubu/special/chapters/7-5/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ]
     },
     "content/site/standards-articles/chubu/special/chapters/8-1/ogp.png": {
       "bucket": "public",
@@ -59104,7 +59400,15 @@
       "verifiedAt": "2026-10-18T21:56:45.352Z",
       "width": 1200,
       "height": 630,
-      "srcHash": "a9d9e4751f9caca6"
+      "srcHash": "a9d9e4751f9caca6",
+      "logicalPath": "content/site/standards-articles/chubu/special/chapters/8-1/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ]
     },
     "content/site/standards-articles/chubu/special/chapters/8-2/ogp.png": {
       "bucket": "public",
@@ -59117,7 +59421,15 @@
       "verifiedAt": "2026-10-18T21:56:45.478Z",
       "width": 1200,
       "height": 630,
-      "srcHash": "2fe55b03ec7642bc"
+      "srcHash": "2fe55b03ec7642bc",
+      "logicalPath": "content/site/standards-articles/chubu/special/chapters/8-2/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ]
     },
     "content/site/standards-articles/chubu/special/chapters/8-3/ogp.png": {
       "bucket": "public",
@@ -59130,7 +59442,15 @@
       "verifiedAt": "2026-10-18T21:56:46.193Z",
       "width": 1200,
       "height": 630,
-      "srcHash": "c6ac6cf39d9e3862"
+      "srcHash": "c6ac6cf39d9e3862",
+      "logicalPath": "content/site/standards-articles/chubu/special/chapters/8-3/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ]
     },
     "content/site/standards-articles/chubu/special/chapters/9-1/ogp.png": {
       "bucket": "public",
@@ -59143,7 +59463,15 @@
       "verifiedAt": "2026-10-18T21:56:46.290Z",
       "width": 1200,
       "height": 630,
-      "srcHash": "158d11325ce0947d"
+      "srcHash": "158d11325ce0947d",
+      "logicalPath": "content/site/standards-articles/chubu/special/chapters/9-1/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ]
     },
     "content/site/standards-articles/chubu/special/chapters/9-2/ogp.png": {
       "bucket": "public",
@@ -59156,7 +59484,15 @@
       "verifiedAt": "2026-10-18T21:56:46.385Z",
       "width": 1200,
       "height": 630,
-      "srcHash": "e2ac6eec65245822"
+      "srcHash": "e2ac6eec65245822",
+      "logicalPath": "content/site/standards-articles/chubu/special/chapters/9-2/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ]
     },
     "content/site/standards-articles/chubu/special/chapters/9-3/ogp.png": {
       "bucket": "public",
@@ -59169,7 +59505,15 @@
       "verifiedAt": "2026-10-18T21:56:46.388Z",
       "width": 1200,
       "height": 630,
-      "srcHash": "1063da13a05c9433"
+      "srcHash": "1063da13a05c9433",
+      "logicalPath": "content/site/standards-articles/chubu/special/chapters/9-3/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ]
     },
     "content/site/standards-articles/hokkaido/local/chapters/1-1/ogp.png": {
       "bucket": "public",
@@ -59182,7 +59526,15 @@
       "verifiedAt": "2026-10-18T21:56:46.592Z",
       "width": 1200,
       "height": 630,
-      "srcHash": "e06923c2aa532325"
+      "srcHash": "e06923c2aa532325",
+      "logicalPath": "content/site/standards-articles/hokkaido/local/chapters/1-1/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ]
     },
     "content/site/standards-articles/hokkaido/local/chapters/1-2/ogp.png": {
       "bucket": "public",
@@ -59195,7 +59547,15 @@
       "verifiedAt": "2026-10-18T21:56:46.647Z",
       "width": 1200,
       "height": 630,
-      "srcHash": "5ccc64cc6861bf94"
+      "srcHash": "5ccc64cc6861bf94",
+      "logicalPath": "content/site/standards-articles/hokkaido/local/chapters/1-2/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ]
     },
     "content/site/standards-articles/hokkaido/local/chapters/1-3/ogp.png": {
       "bucket": "public",
@@ -59208,7 +59568,15 @@
       "verifiedAt": "2026-10-18T21:56:46.792Z",
       "width": 1200,
       "height": 630,
-      "srcHash": "729b406dc11f0f85"
+      "srcHash": "729b406dc11f0f85",
+      "logicalPath": "content/site/standards-articles/hokkaido/local/chapters/1-3/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ]
     },
     "content/site/standards-articles/hokkaido/local/chapters/10-1/ogp.png": {
       "bucket": "public",
@@ -59221,7 +59589,15 @@
       "verifiedAt": "2026-10-18T21:56:46.961Z",
       "width": 1200,
       "height": 630,
-      "srcHash": "5e25f215a3eda495"
+      "srcHash": "5e25f215a3eda495",
+      "logicalPath": "content/site/standards-articles/hokkaido/local/chapters/10-1/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ]
     },
     "content/site/standards-articles/hokkaido/local/chapters/10-14/ogp.png": {
       "bucket": "public",
@@ -59234,7 +59610,15 @@
       "verifiedAt": "2026-10-18T21:56:47.667Z",
       "width": 1200,
       "height": 630,
-      "srcHash": "dd9c1fdc3b10554a"
+      "srcHash": "dd9c1fdc3b10554a",
+      "logicalPath": "content/site/standards-articles/hokkaido/local/chapters/10-14/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ]
     },
     "content/site/standards-articles/hokkaido/local/chapters/10-11/ogp.png": {
       "bucket": "public",
@@ -59247,7 +59631,15 @@
       "verifiedAt": "2026-10-18T21:56:47.736Z",
       "width": 1200,
       "height": 630,
-      "srcHash": "4a7d6c117833737d"
+      "srcHash": "4a7d6c117833737d",
+      "logicalPath": "content/site/standards-articles/hokkaido/local/chapters/10-11/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ]
     },
     "content/site/standards-articles/hokkaido/local/chapters/10-2/ogp.png": {
       "bucket": "public",
@@ -59260,7 +59652,15 @@
       "verifiedAt": "2026-10-18T21:56:47.804Z",
       "width": 1200,
       "height": 630,
-      "srcHash": "db701931f2878110"
+      "srcHash": "db701931f2878110",
+      "logicalPath": "content/site/standards-articles/hokkaido/local/chapters/10-2/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ]
     },
     "content/site/standards-articles/hokkaido/local/chapters/10-4/ogp.png": {
       "bucket": "public",
@@ -59273,7 +59673,15 @@
       "verifiedAt": "2026-10-18T21:56:47.867Z",
       "width": 1200,
       "height": 630,
-      "srcHash": "8b22ddad59452f03"
+      "srcHash": "8b22ddad59452f03",
+      "logicalPath": "content/site/standards-articles/hokkaido/local/chapters/10-4/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ]
     },
     "content/site/standards-articles/hokkaido/local/chapters/10-5/ogp.png": {
       "bucket": "public",
@@ -59286,7 +59694,15 @@
       "verifiedAt": "2026-10-18T21:56:48.022Z",
       "width": 1200,
       "height": 630,
-      "srcHash": "e996f12c05c4ed54"
+      "srcHash": "e996f12c05c4ed54",
+      "logicalPath": "content/site/standards-articles/hokkaido/local/chapters/10-5/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ]
     },
     "content/site/standards-articles/hokkaido/local/chapters/10-6/ogp.png": {
       "bucket": "public",
@@ -59299,7 +59715,15 @@
       "verifiedAt": "2026-10-18T21:56:48.070Z",
       "width": 1200,
       "height": 630,
-      "srcHash": "733e1e2862ed2961"
+      "srcHash": "733e1e2862ed2961",
+      "logicalPath": "content/site/standards-articles/hokkaido/local/chapters/10-6/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ]
     },
     "content/site/standards-articles/hokkaido/local/chapters/10-7/ogp.png": {
       "bucket": "public",
@@ -59312,7 +59736,15 @@
       "verifiedAt": "2026-10-18T21:56:48.214Z",
       "width": 1200,
       "height": 630,
-      "srcHash": "ab9bb6f9b4edc298"
+      "srcHash": "ab9bb6f9b4edc298",
+      "logicalPath": "content/site/standards-articles/hokkaido/local/chapters/10-7/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ]
     },
     "content/site/standards-articles/hokkaido/local/chapters/10-8/ogp.png": {
       "bucket": "public",
@@ -59325,7 +59757,15 @@
       "verifiedAt": "2026-10-18T21:56:48.428Z",
       "width": 1200,
       "height": 630,
-      "srcHash": "2aaeaa1960331478"
+      "srcHash": "2aaeaa1960331478",
+      "logicalPath": "content/site/standards-articles/hokkaido/local/chapters/10-8/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ]
     },
     "content/site/standards-articles/hokkaido/local/chapters/3-2/ogp.png": {
       "bucket": "public",
@@ -59338,7 +59778,15 @@
       "verifiedAt": "2026-10-18T21:56:49.182Z",
       "width": 1200,
       "height": 630,
-      "srcHash": "bb36db208710b376"
+      "srcHash": "bb36db208710b376",
+      "logicalPath": "content/site/standards-articles/hokkaido/local/chapters/3-2/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ]
     },
     "content/site/standards-articles/hokkaido/local/chapters/2-2/ogp.png": {
       "bucket": "public",
@@ -59351,7 +59799,15 @@
       "verifiedAt": "2026-10-18T21:56:49.224Z",
       "width": 1200,
       "height": 630,
-      "srcHash": "4eb9f89e441ae51a"
+      "srcHash": "4eb9f89e441ae51a",
+      "logicalPath": "content/site/standards-articles/hokkaido/local/chapters/2-2/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ]
     },
     "content/site/standards-articles/hokkaido/local/chapters/6-3/ogp.png": {
       "bucket": "public",
@@ -59364,7 +59820,15 @@
       "verifiedAt": "2026-10-18T21:56:49.268Z",
       "width": 1200,
       "height": 630,
-      "srcHash": "5afd023d0da65fa3"
+      "srcHash": "5afd023d0da65fa3",
+      "logicalPath": "content/site/standards-articles/hokkaido/local/chapters/6-3/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ]
     },
     "content/site/standards-articles/hokkaido/local/chapters/6-8/ogp.png": {
       "bucket": "public",
@@ -59377,7 +59841,15 @@
       "verifiedAt": "2026-10-18T21:56:49.481Z",
       "width": 1200,
       "height": 630,
-      "srcHash": "aab9fb6a05494006"
+      "srcHash": "aab9fb6a05494006",
+      "logicalPath": "content/site/standards-articles/hokkaido/local/chapters/6-8/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ]
     },
     "content/site/standards-articles/hokkaido/local/chapters/6-1/ogp.png": {
       "bucket": "public",
@@ -59390,7 +59862,15 @@
       "verifiedAt": "2026-10-18T21:56:49.489Z",
       "width": 1200,
       "height": 630,
-      "srcHash": "26d8b6b05cba1c34"
+      "srcHash": "26d8b6b05cba1c34",
+      "logicalPath": "content/site/standards-articles/hokkaido/local/chapters/6-1/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ]
     },
     "content/site/standards-articles/hokkaido/local/chapters/9-1/ogp.png": {
       "bucket": "public",
@@ -59403,7 +59883,15 @@
       "verifiedAt": "2026-10-18T21:56:49.514Z",
       "width": 1200,
       "height": 630,
-      "srcHash": "b5bbbc3828e7037c"
+      "srcHash": "b5bbbc3828e7037c",
+      "logicalPath": "content/site/standards-articles/hokkaido/local/chapters/9-1/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ]
     },
     "content/site/standards-articles/tohoku/special/chapters/1-1/ogp.png": {
       "bucket": "public",
@@ -59416,7 +59904,15 @@
       "verifiedAt": "2026-10-18T21:56:49.915Z",
       "width": 1200,
       "height": 630,
-      "srcHash": "65c41916d029ae74"
+      "srcHash": "65c41916d029ae74",
+      "logicalPath": "content/site/standards-articles/tohoku/special/chapters/1-1/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ]
     },
     "content/site/standards-articles/hokkaido/local/chapters/9-2/ogp.png": {
       "bucket": "public",
@@ -59429,7 +59925,15 @@
       "verifiedAt": "2026-10-18T21:56:50.115Z",
       "width": 1200,
       "height": 630,
-      "srcHash": "7c6a76b2693cacd1"
+      "srcHash": "7c6a76b2693cacd1",
+      "logicalPath": "content/site/standards-articles/hokkaido/local/chapters/9-2/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ]
     },
     "content/site/standards-articles/tohoku/special/chapters/1-2/ogp.png": {
       "bucket": "public",
@@ -59442,7 +59946,15 @@
       "verifiedAt": "2026-10-18T21:56:50.600Z",
       "width": 1200,
       "height": 630,
-      "srcHash": "2e232101797983e3"
+      "srcHash": "2e232101797983e3",
+      "logicalPath": "content/site/standards-articles/tohoku/special/chapters/1-2/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ]
     },
     "content/site/standards-articles/tohoku/special/chapters/10-1/ogp.png": {
       "bucket": "public",
@@ -59455,7 +59967,15 @@
       "verifiedAt": "2026-10-18T21:56:50.635Z",
       "width": 1200,
       "height": 630,
-      "srcHash": "45064686feaffb3d"
+      "srcHash": "45064686feaffb3d",
+      "logicalPath": "content/site/standards-articles/tohoku/special/chapters/10-1/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ]
     },
     "content/site/standards-articles/tohoku/special/chapters/10-2/ogp.png": {
       "bucket": "public",
@@ -59468,7 +59988,15 @@
       "verifiedAt": "2026-10-18T21:56:50.748Z",
       "width": 1200,
       "height": 630,
-      "srcHash": "51cf662326c52811"
+      "srcHash": "51cf662326c52811",
+      "logicalPath": "content/site/standards-articles/tohoku/special/chapters/10-2/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ]
     },
     "content/site/standards-articles/tohoku/special/chapters/10-4/ogp.png": {
       "bucket": "public",
@@ -59481,7 +60009,15 @@
       "verifiedAt": "2026-10-18T21:56:50.892Z",
       "width": 1200,
       "height": 630,
-      "srcHash": "3d17b7d5b1d2dfa5"
+      "srcHash": "3d17b7d5b1d2dfa5",
+      "logicalPath": "content/site/standards-articles/tohoku/special/chapters/10-4/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ]
     },
     "content/site/standards-articles/tohoku/special/chapters/10-3/ogp.png": {
       "bucket": "public",
@@ -59494,7 +60030,15 @@
       "verifiedAt": "2026-10-18T21:56:50.897Z",
       "width": 1200,
       "height": 630,
-      "srcHash": "e6166912fa10b222"
+      "srcHash": "e6166912fa10b222",
+      "logicalPath": "content/site/standards-articles/tohoku/special/chapters/10-3/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ]
     },
     "content/site/standards-articles/tohoku/special/chapters/10-5/ogp.png": {
       "bucket": "public",
@@ -59507,7 +60051,15 @@
       "verifiedAt": "2026-10-18T21:56:50.938Z",
       "width": 1200,
       "height": 630,
-      "srcHash": "fa5cffbb44d661a8"
+      "srcHash": "fa5cffbb44d661a8",
+      "logicalPath": "content/site/standards-articles/tohoku/special/chapters/10-5/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ]
     },
     "content/site/standards-articles/tohoku/special/chapters/2-1/ogp.png": {
       "bucket": "public",
@@ -59520,7 +60072,15 @@
       "verifiedAt": "2026-10-18T21:56:51.357Z",
       "width": 1200,
       "height": 630,
-      "srcHash": "833fe06ee65439d3"
+      "srcHash": "833fe06ee65439d3",
+      "logicalPath": "content/site/standards-articles/tohoku/special/chapters/2-1/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ]
     },
     "content/site/standards-articles/tohoku/special/chapters/3-1/ogp.png": {
       "bucket": "public",
@@ -59533,7 +60093,15 @@
       "verifiedAt": "2026-10-18T21:56:51.558Z",
       "width": 1200,
       "height": 630,
-      "srcHash": "858d3353b4828062"
+      "srcHash": "858d3353b4828062",
+      "logicalPath": "content/site/standards-articles/tohoku/special/chapters/3-1/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ]
     },
     "content/site/standards-articles/tohoku/special/chapters/3-2/ogp.png": {
       "bucket": "public",
@@ -59546,7 +60114,15 @@
       "verifiedAt": "2026-10-18T21:56:52.022Z",
       "width": 1200,
       "height": 630,
-      "srcHash": "6ec22fa68b45937f"
+      "srcHash": "6ec22fa68b45937f",
+      "logicalPath": "content/site/standards-articles/tohoku/special/chapters/3-2/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ]
     },
     "content/site/standards-articles/tohoku/special/chapters/7-1/ogp.png": {
       "bucket": "public",
@@ -59559,7 +60135,15 @@
       "verifiedAt": "2026-10-18T21:56:52.244Z",
       "width": 1200,
       "height": 630,
-      "srcHash": "d55cb92662fc4e89"
+      "srcHash": "d55cb92662fc4e89",
+      "logicalPath": "content/site/standards-articles/tohoku/special/chapters/7-1/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ]
     },
     "content/site/standards-articles/tohoku/special/chapters/8-1/ogp.png": {
       "bucket": "public",
@@ -59572,7 +60156,15 @@
       "verifiedAt": "2026-10-18T21:56:52.319Z",
       "width": 1200,
       "height": 630,
-      "srcHash": "1226cad5e5943122"
+      "srcHash": "1226cad5e5943122",
+      "logicalPath": "content/site/standards-articles/tohoku/special/chapters/8-1/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ]
     },
     "content/site/standards-articles/tohoku/special/chapters/6-1/ogp.png": {
       "bucket": "public",
@@ -59585,7 +60177,975 @@
       "verifiedAt": "2026-10-18T21:56:52.323Z",
       "width": 1200,
       "height": 630,
-      "srcHash": "f68406b4f852232d"
+      "srcHash": "f68406b4f852232d",
+      "logicalPath": "content/site/standards-articles/tohoku/special/chapters/6-1/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ]
+    },
+    "content/site/standards-articles/kyushu/hikkei-common-09/chapters/1-1/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/standards-articles/kyushu/hikkei-common-09/chapters/1-1/ogp.png",
+      "sha256": "5ab0a20d433fdc8779ac9bab45af0dd8878292433eddfb3a824e160445c2c66a",
+      "bytes": 67148,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-19T02:49:36.891Z",
+      "width": 1200,
+      "height": 630
+    },
+    "content/site/standards-articles/kyushu/hikkei-common-08/chapters/2-2/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/standards-articles/kyushu/hikkei-common-08/chapters/2-2/ogp.png",
+      "sha256": "fc688047fa96ac90accf099d7180942813132480a596c02a5bfd5fecc5ea531d",
+      "bytes": 69038,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-19T02:49:36.899Z",
+      "width": 1200,
+      "height": 630
+    },
+    "content/site/standards-articles/kyushu/hikkei-common-08/chapters/1-2/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/standards-articles/kyushu/hikkei-common-08/chapters/1-2/ogp.png",
+      "sha256": "c58c9f4e3644076e42f120888aad3390c57727de45070653032947ddacfc8b09",
+      "bytes": 67480,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-19T02:49:36.914Z",
+      "width": 1200,
+      "height": 630
+    },
+    "content/site/standards-articles/kyushu/hikkei-common-08/chapters/1-3/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/standards-articles/kyushu/hikkei-common-08/chapters/1-3/ogp.png",
+      "sha256": "c0c17b3614a8355477f5f386fef1d596a80cbf7b11a63479923ef68ef56d67aa",
+      "bytes": 68562,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-19T02:49:36.948Z",
+      "width": 1200,
+      "height": 630
+    },
+    "content/site/standards-articles/kyushu/hikkei-common-08/chapters/1-1/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/standards-articles/kyushu/hikkei-common-08/chapters/1-1/ogp.png",
+      "sha256": "8c97757c4369e282b088e247d5d2f7c24b0ac615113741d3227d9d96f0e35379",
+      "bytes": 66238,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-19T02:49:36.958Z",
+      "width": 1200,
+      "height": 630
+    },
+    "content/site/standards-articles/kyushu/hikkei-common-08/chapters/2-3/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/standards-articles/kyushu/hikkei-common-08/chapters/2-3/ogp.png",
+      "sha256": "96936b82075b5f4949fa3a93df27ff4d257a2341948af97aa4c5db346ee37ee4",
+      "bytes": 72048,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-19T02:49:37.025Z",
+      "width": 1200,
+      "height": 630
+    },
+    "content/site/standards-articles/kyushu/hikkei-common-08/chapters/2-1/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/standards-articles/kyushu/hikkei-common-08/chapters/2-1/ogp.png",
+      "sha256": "72ec0e13e7b300ecc7f47c22b3a914564ace6b5dd91da518ad2729e921120a7e",
+      "bytes": 71617,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-19T02:49:37.264Z",
+      "width": 1200,
+      "height": 630
+    },
+    "content/site/standards-articles/kyushu/hikkei-common-09/chapters/1-10/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/standards-articles/kyushu/hikkei-common-09/chapters/1-10/ogp.png",
+      "sha256": "ff69ca0a6a24ff19df3826144c9e6e1d0720bc77520704e81de7f6cbed7ab7f6",
+      "bytes": 67256,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-19T02:49:37.334Z",
+      "width": 1200,
+      "height": 630
+    },
+    "content/site/standards-articles/kyushu/hikkei-common-09/chapters/1-11/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/standards-articles/kyushu/hikkei-common-09/chapters/1-11/ogp.png",
+      "sha256": "0dc6bb8ceb58cec9fa8e3fb7bd6a7b6beffe9ac83e87a23055ed8b0d355c82f6",
+      "bytes": 73008,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-19T02:49:38.293Z",
+      "width": 1200,
+      "height": 630
+    },
+    "content/site/standards-articles/kyushu/hikkei-common-09/chapters/1-12/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/standards-articles/kyushu/hikkei-common-09/chapters/1-12/ogp.png",
+      "sha256": "0efb3a6020a03ce68dca5e82de2c72090afd3ca45c622dbd8f349104a0d2c6cd",
+      "bytes": 73589,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-19T02:49:38.440Z",
+      "width": 1200,
+      "height": 630
+    },
+    "content/site/standards-articles/kyushu/hikkei-common-09/chapters/1-13/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/standards-articles/kyushu/hikkei-common-09/chapters/1-13/ogp.png",
+      "sha256": "c412d2f297425c8bdac5f789f395b1ef5736635c71efecf99ba6c837fa69a19c",
+      "bytes": 67630,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-19T02:49:38.450Z",
+      "width": 1200,
+      "height": 630
+    },
+    "content/site/standards-articles/kyushu/hikkei-common-09/chapters/1-16/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/standards-articles/kyushu/hikkei-common-09/chapters/1-16/ogp.png",
+      "sha256": "307832119eea78831cb21c219e025b9e2a873b1c0fa62d0ccc4f1e4af0c41253",
+      "bytes": 71022,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-19T02:49:38.462Z",
+      "width": 1200,
+      "height": 630
+    },
+    "content/site/standards-articles/kyushu/hikkei-common-09/chapters/1-15/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/standards-articles/kyushu/hikkei-common-09/chapters/1-15/ogp.png",
+      "sha256": "b9c59ff217e274cc40c9c7532468d1f4c0b04626e025e7f310b53e4758f02efe",
+      "bytes": 70304,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-19T02:49:38.475Z",
+      "width": 1200,
+      "height": 630
+    },
+    "content/site/standards-articles/kyushu/hikkei-common-09/chapters/1-14/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/standards-articles/kyushu/hikkei-common-09/chapters/1-14/ogp.png",
+      "sha256": "9087a7d09f8df8b815a99eaa7fdfddb8fd30fc2fca231f23e79ae726fc360c57",
+      "bytes": 73400,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-19T02:49:38.519Z",
+      "width": 1200,
+      "height": 630
+    },
+    "content/site/standards-articles/kyushu/hikkei-common-09/chapters/1-17/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/standards-articles/kyushu/hikkei-common-09/chapters/1-17/ogp.png",
+      "sha256": "e54a0ae7dc034f8e1935d4d88fbe4a282433c69a04cdf6f8598a41e2f0072f75",
+      "bytes": 74331,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-19T02:49:38.668Z",
+      "width": 1200,
+      "height": 630
+    },
+    "content/site/standards-articles/kyushu/hikkei-common-09/chapters/1-18/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/standards-articles/kyushu/hikkei-common-09/chapters/1-18/ogp.png",
+      "sha256": "b70c26617f827c015802b28d2749e1df07efd06367feb54fcd29850aa9b88563",
+      "bytes": 68042,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-19T02:49:38.823Z",
+      "width": 1200,
+      "height": 630
+    },
+    "content/site/standards-articles/kyushu/hikkei-common-09/chapters/1-19/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/standards-articles/kyushu/hikkei-common-09/chapters/1-19/ogp.png",
+      "sha256": "d91834a2d12b488f03dd59a01fe8a3f9757fd3189fc0f066428e8402d8e10817",
+      "bytes": 72967,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-19T02:49:39.758Z",
+      "width": 1200,
+      "height": 630
+    },
+    "content/site/standards-articles/kyushu/hikkei-common-09/chapters/1-2/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/standards-articles/kyushu/hikkei-common-09/chapters/1-2/ogp.png",
+      "sha256": "1bffb4a717071c7b32b52b300abc4e108e8215586baa697d7973eae0129d26b9",
+      "bytes": 70028,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-19T02:49:39.856Z",
+      "width": 1200,
+      "height": 630
+    },
+    "content/site/standards-articles/kyushu/hikkei-common-09/chapters/1-3/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/standards-articles/kyushu/hikkei-common-09/chapters/1-3/ogp.png",
+      "sha256": "b85e53636bceff66ab71b86e9370e4be1d5502d6eae06334f343e41e268525da",
+      "bytes": 74552,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-19T02:49:39.920Z",
+      "width": 1200,
+      "height": 630
+    },
+    "content/site/standards-articles/kyushu/hikkei-common-09/chapters/1-5/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/standards-articles/kyushu/hikkei-common-09/chapters/1-5/ogp.png",
+      "sha256": "9ca538ace926e392c43bedf67eda95aef7a49330a4a2c1bdf089c2ceb96fff25",
+      "bytes": 67853,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-19T02:49:39.986Z",
+      "width": 1200,
+      "height": 630
+    },
+    "content/site/standards-articles/kyushu/hikkei-common-09/chapters/1-4/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/standards-articles/kyushu/hikkei-common-09/chapters/1-4/ogp.png",
+      "sha256": "06c920d56eecae1c199f9fa719bb07c578568535626d89b0f5a7513eaca12ca6",
+      "bytes": 74209,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-19T02:49:40.039Z",
+      "width": 1200,
+      "height": 630
+    },
+    "content/site/standards-articles/kyushu/hikkei-common-09/chapters/1-7/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/standards-articles/kyushu/hikkei-common-09/chapters/1-7/ogp.png",
+      "sha256": "68f6aa3afa1ba818f28f7a8ba2f13cb58461cd13a1bed0b764edc3c9739b5390",
+      "bytes": 63855,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-19T02:49:40.049Z",
+      "width": 1200,
+      "height": 630
+    },
+    "content/site/standards-articles/kyushu/hikkei-common-09/chapters/1-8/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/standards-articles/kyushu/hikkei-common-09/chapters/1-8/ogp.png",
+      "sha256": "5283a6960a3985a9378210bea24825532e206e6162dc77edb6214bd4f2f5383d",
+      "bytes": 67553,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-19T02:49:40.318Z",
+      "width": 1200,
+      "height": 630
+    },
+    "content/site/standards-articles/kyushu/hikkei-common-09/chapters/1-6/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/standards-articles/kyushu/hikkei-common-09/chapters/1-6/ogp.png",
+      "sha256": "7895a9da4e1cd673d136fb097bdb2460b360188454a0863c0effa68ef9a47ff3",
+      "bytes": 67786,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-19T02:49:40.790Z",
+      "width": 1200,
+      "height": 630
+    },
+    "content/site/standards-articles/kyushu/hikkei-common-10/chapters/1-1/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/standards-articles/kyushu/hikkei-common-10/chapters/1-1/ogp.png",
+      "sha256": "8bf2a08184c530c69e89fabe29983e780693ccbc9bd9ab222a5b890cb8b5fa8d",
+      "bytes": 63830,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-19T02:49:41.284Z",
+      "width": 1200,
+      "height": 630
+    },
+    "content/site/standards-articles/kyushu/hikkei-common-09/chapters/1-9/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/standards-articles/kyushu/hikkei-common-09/chapters/1-9/ogp.png",
+      "sha256": "74fed9c214c8117d09112df03b202cac8e63f883fd9622e75a77d4a962727031",
+      "bytes": 69301,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-19T02:49:41.300Z",
+      "width": 1200,
+      "height": 630
+    },
+    "content/site/standards-articles/kyushu/hikkei-common-10/chapters/1-2/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/standards-articles/kyushu/hikkei-common-10/chapters/1-2/ogp.png",
+      "sha256": "048d2748d5a122ae2fe2c20c781636f764044943138924038c047b7c920b4645",
+      "bytes": 64633,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-19T02:49:41.628Z",
+      "width": 1200,
+      "height": 630
+    },
+    "content/site/standards-articles/kyushu/hikkei-common-10/chapters/1-11/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/standards-articles/kyushu/hikkei-common-10/chapters/1-11/ogp.png",
+      "sha256": "ad537f925e73cc29da12553f64ac48506631b3b507c849b8e8acfdfc0ecc4463",
+      "bytes": 65947,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-19T02:49:41.682Z",
+      "width": 1200,
+      "height": 630
+    },
+    "content/site/standards-articles/kyushu/hikkei-common-10/chapters/1-3/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/standards-articles/kyushu/hikkei-common-10/chapters/1-3/ogp.png",
+      "sha256": "591a7198dc10b6bc0d1b5faeaecf6bc5a0b31d72addbe3f6d3908ff39845d0ec",
+      "bytes": 67686,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-19T02:49:41.793Z",
+      "width": 1200,
+      "height": 630
+    },
+    "content/site/standards-articles/kyushu/hikkei-common-10/chapters/1-12/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/standards-articles/kyushu/hikkei-common-10/chapters/1-12/ogp.png",
+      "sha256": "c484e2649d31eb97340649bf50f2be53edf8fdc9e8eaa85e7cf4e225c2a4763b",
+      "bytes": 75837,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-19T02:49:42.060Z",
+      "width": 1200,
+      "height": 630
+    },
+    "content/site/standards-articles/kyushu/hikkei-common-10/chapters/1-4/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/standards-articles/kyushu/hikkei-common-10/chapters/1-4/ogp.png",
+      "sha256": "f753b9f8288a4e20bd6f865b4f54010e1efd3bbb01f7e379913dd4a9475b5319",
+      "bytes": 64121,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-19T02:49:42.303Z",
+      "width": 1200,
+      "height": 630
+    },
+    "content/site/standards-articles/kyushu/hikkei-common-10/chapters/1-10/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/standards-articles/kyushu/hikkei-common-10/chapters/1-10/ogp.png",
+      "sha256": "ae65e0f98306e1b1624b48ced93ef1d2d4c2fe8c62de54be4cda000182390b04",
+      "bytes": 63602,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-19T02:49:42.373Z",
+      "width": 1200,
+      "height": 630
+    },
+    "content/site/standards-articles/kyushu/hikkei-common-10/chapters/1-5/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/standards-articles/kyushu/hikkei-common-10/chapters/1-5/ogp.png",
+      "sha256": "03f3d3ce010b729c7b5bbe7865b75d0960b80ee653012d351e5aa70b766079f1",
+      "bytes": 73062,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-19T02:49:42.700Z",
+      "width": 1200,
+      "height": 630
+    },
+    "content/site/standards-articles/kyushu/hikkei-common-10/chapters/1-6/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/standards-articles/kyushu/hikkei-common-10/chapters/1-6/ogp.png",
+      "sha256": "34faac86d6cb49038fdc72c4eb284c6f6c851af2d697004ce4347a5ce03202c4",
+      "bytes": 69707,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-19T02:49:42.717Z",
+      "width": 1200,
+      "height": 630
+    },
+    "content/site/standards-articles/kyushu/hikkei-common-10/chapters/1-7/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/standards-articles/kyushu/hikkei-common-10/chapters/1-7/ogp.png",
+      "sha256": "419d3376df72295901ed20bdcd53c7b7408e04bb54a1c01bfb75dca58efa35ab",
+      "bytes": 64960,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-19T02:49:43.032Z",
+      "width": 1200,
+      "height": 630
+    },
+    "content/site/standards-articles/kyushu/hikkei-common-10/chapters/1-8/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/standards-articles/kyushu/hikkei-common-10/chapters/1-8/ogp.png",
+      "sha256": "bf32e5bd90fd0abdb084c813dfd3619b483bbde8b088d4ec96b3116d0e8dd8ce",
+      "bytes": 61180,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-19T02:49:43.101Z",
+      "width": 1200,
+      "height": 630
+    },
+    "content/site/standards-articles/kyushu/hikkei-common-10/chapters/1-9/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/standards-articles/kyushu/hikkei-common-10/chapters/1-9/ogp.png",
+      "sha256": "38c7d6bfe461480b879a674430e9d2da2de0d66eca1051af70a10cf0d452b717",
+      "bytes": 62140,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-19T02:49:43.339Z",
+      "width": 1200,
+      "height": 630
+    },
+    "content/site/standards-articles/kyushu/hikkei-common-10/chapters/2-1/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/standards-articles/kyushu/hikkei-common-10/chapters/2-1/ogp.png",
+      "sha256": "006b0ae8d43552b0fb237e4a5c5c76f5b70001a56a02d28e8097990ab01efa48",
+      "bytes": 65902,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-19T02:49:43.450Z",
+      "width": 1200,
+      "height": 630
+    },
+    "content/site/standards-articles/kyushu/hikkei-common-10/chapters/2-2/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/standards-articles/kyushu/hikkei-common-10/chapters/2-2/ogp.png",
+      "sha256": "c22db3d8c1d05f55158d1d08daf79c62f0e7a507dda5a2a3cd961cc31f55f1f7",
+      "bytes": 66725,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-19T02:49:43.711Z",
+      "width": 1200,
+      "height": 630
+    },
+    "content/site/standards-articles/kyushu/hikkei-common-10/chapters/2-3/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/standards-articles/kyushu/hikkei-common-10/chapters/2-3/ogp.png",
+      "sha256": "47dd3f1fab9adb3af44f9d1a87bc2c5e1d3ae3df8570185ec234b8eaef272cbc",
+      "bytes": 69587,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-19T02:49:43.743Z",
+      "width": 1200,
+      "height": 630
+    },
+    "content/site/standards-articles/kyushu/hikkei-common-10/chapters/2-5/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/standards-articles/kyushu/hikkei-common-10/chapters/2-5/ogp.png",
+      "sha256": "a56c0e0fa5b06da98c88ea74c2e15e088a6714a40ba142d6628b4d809052a51c",
+      "bytes": 66359,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-19T02:49:44.147Z",
+      "width": 1200,
+      "height": 630
+    },
+    "content/site/standards-articles/kyushu/hikkei-common-10/chapters/2-4/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/standards-articles/kyushu/hikkei-common-10/chapters/2-4/ogp.png",
+      "sha256": "04cd512f08d19e480bf8e63cc76a72bd47a0fe5bab0946fe7e3a97dd5087bfdc",
+      "bytes": 74273,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-19T02:49:44.163Z",
+      "width": 1200,
+      "height": 630
+    },
+    "content/site/standards-articles/kyushu/hikkei-common-10/chapters/2-6/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/standards-articles/kyushu/hikkei-common-10/chapters/2-6/ogp.png",
+      "sha256": "a05aabd80af926b88fd626a33f7c1af784c8ae749be6af2301ec9443995b26ed",
+      "bytes": 63207,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-19T02:49:44.454Z",
+      "width": 1200,
+      "height": 630
+    },
+    "content/site/standards-articles/kyushu/hikkei-common-10/chapters/3-1/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/standards-articles/kyushu/hikkei-common-10/chapters/3-1/ogp.png",
+      "sha256": "40ffbef99d5eacaaf97674a9b23e6ffab8371f860f6e0ae8e6ab1431b83203fb",
+      "bytes": 76444,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-19T02:49:44.531Z",
+      "width": 1200,
+      "height": 630
+    },
+    "content/site/standards-articles/kyushu/hikkei-common-10/chapters/4-1/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/standards-articles/kyushu/hikkei-common-10/chapters/4-1/ogp.png",
+      "sha256": "9eda614695f1e324ce0e9e751885816ea67587ba4150f19629c10b3e25cdcee9",
+      "bytes": 66509,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-19T02:49:44.887Z",
+      "width": 1200,
+      "height": 630
+    },
+    "content/site/standards-articles/kyushu/hikkei-common-10/chapters/4-10/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/standards-articles/kyushu/hikkei-common-10/chapters/4-10/ogp.png",
+      "sha256": "7824cfa6da3784c9682dc9db3cc54977ca871a24f83c8014c77028aa2790fc9b",
+      "bytes": 66290,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-19T02:49:44.960Z",
+      "width": 1200,
+      "height": 630
+    },
+    "content/site/standards-articles/kyushu/hikkei-common-10/chapters/4-12/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/standards-articles/kyushu/hikkei-common-10/chapters/4-12/ogp.png",
+      "sha256": "43b37f403d745ad5bcdc3cd19e66d1e8873845b4975c79ed0773298ebc012b3e",
+      "bytes": 77778,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-19T02:49:45.078Z",
+      "width": 1200,
+      "height": 630
+    },
+    "content/site/standards-articles/kyushu/hikkei-common-10/chapters/4-11/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/standards-articles/kyushu/hikkei-common-10/chapters/4-11/ogp.png",
+      "sha256": "b3083cbd660ad3963e0a1190569d08fcc89589e5e81b73e9ca9a9adbf35dcfbe",
+      "bytes": 68566,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-19T02:49:45.125Z",
+      "width": 1200,
+      "height": 630
+    },
+    "content/site/standards-articles/kyushu/hikkei-common-10/chapters/4-2/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/standards-articles/kyushu/hikkei-common-10/chapters/4-2/ogp.png",
+      "sha256": "a32f938ef5e6e4fcb0542bc7baab48285b417242307acca069d36345aea00f36",
+      "bytes": 67356,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-19T02:49:45.556Z",
+      "width": 1200,
+      "height": 630
+    },
+    "content/site/standards-articles/kyushu/hikkei-common-10/chapters/4-3/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/standards-articles/kyushu/hikkei-common-10/chapters/4-3/ogp.png",
+      "sha256": "8f0cbe81855b20b6d8b0602ee75c1dbeb496a7710633512586d4ef3951dde7d7",
+      "bytes": 70145,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-19T02:49:45.567Z",
+      "width": 1200,
+      "height": 630
+    },
+    "content/site/standards-articles/kyushu/hikkei-common-10/chapters/4-4/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/standards-articles/kyushu/hikkei-common-10/chapters/4-4/ogp.png",
+      "sha256": "d075cab0617035f9485c7bb5ac7d2404e39a0abb4d211f6b63c00d37fa0666c6",
+      "bytes": 66878,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-19T02:49:45.877Z",
+      "width": 1200,
+      "height": 630
+    },
+    "content/site/standards-articles/kyushu/hikkei-common-10/chapters/4-5/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/standards-articles/kyushu/hikkei-common-10/chapters/4-5/ogp.png",
+      "sha256": "c1c25ec836c0755ee61fd3e80d4f379221471697ceebb2f7923732a7bd7cc7df",
+      "bytes": 74988,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-19T02:49:45.954Z",
+      "width": 1200,
+      "height": 630
+    },
+    "content/site/standards-articles/kyushu/hikkei-common-10/chapters/4-6/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/standards-articles/kyushu/hikkei-common-10/chapters/4-6/ogp.png",
+      "sha256": "1f36cfe1803c1c6d636c3c72a08f89d90e64fe7b69db19468c0f2af0045d77d9",
+      "bytes": 72484,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-19T02:49:46.255Z",
+      "width": 1200,
+      "height": 630
+    },
+    "content/site/standards-articles/kyushu/hikkei-common-10/chapters/4-7/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/standards-articles/kyushu/hikkei-common-10/chapters/4-7/ogp.png",
+      "sha256": "fad82d62bb9c3120a384d212befa3f79435e4477d47d65bb1699519e606a42a0",
+      "bytes": 67630,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-19T02:49:46.356Z",
+      "width": 1200,
+      "height": 630
+    },
+    "content/site/standards-articles/kyushu/hikkei-common-10/chapters/4-8/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/standards-articles/kyushu/hikkei-common-10/chapters/4-8/ogp.png",
+      "sha256": "59b98e8b7905a3c390eb68c3446a8fbc090cced8d4033e22fec5452e9bb0b671",
+      "bytes": 63825,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-19T02:49:46.475Z",
+      "width": 1200,
+      "height": 630
+    },
+    "content/site/standards-articles/kyushu/hikkei-common-10/chapters/4-9/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/standards-articles/kyushu/hikkei-common-10/chapters/4-9/ogp.png",
+      "sha256": "8cdd022af94bcc84073f92e6a66304adf7192f1d0cc2b6ebfc9c1fe290d355b4",
+      "bytes": 64675,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-19T02:49:46.709Z",
+      "width": 1200,
+      "height": 630
+    },
+    "content/site/standards-articles/kyushu/hikkei-common-10/chapters/5-1/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/standards-articles/kyushu/hikkei-common-10/chapters/5-1/ogp.png",
+      "sha256": "23cde8e9023dd841c07577d0c4696199fe2aacabf5302c64f144d4d91785e10d",
+      "bytes": 68503,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-19T02:49:46.989Z",
+      "width": 1200,
+      "height": 630
+    },
+    "content/site/standards-articles/kyushu/hikkei-common-10/chapters/5-2/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/standards-articles/kyushu/hikkei-common-10/chapters/5-2/ogp.png",
+      "sha256": "eaa3ebe4813fb13ea57fd4f22f34a766ebd543a67bea1d7434ebe61be4175854",
+      "bytes": 69222,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-19T02:49:47.000Z",
+      "width": 1200,
+      "height": 630
+    },
+    "content/site/standards-articles/kyushu/hikkei-common-10/chapters/5-3/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/standards-articles/kyushu/hikkei-common-10/chapters/5-3/ogp.png",
+      "sha256": "35d9c73eaba9e53ef535d0a770c32c93da325383b7ae4c04487df338cf7a19cc",
+      "bytes": 72257,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-19T02:49:47.313Z",
+      "width": 1200,
+      "height": 630
+    },
+    "content/site/standards-articles/kyushu/hikkei-common-10/chapters/5-4/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/standards-articles/kyushu/hikkei-common-10/chapters/5-4/ogp.png",
+      "sha256": "578ff9f01dba4cb44eba3656275357108a31976df888be789896aac3060aaf37",
+      "bytes": 76070,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-19T02:49:47.355Z",
+      "width": 1200,
+      "height": 630
+    },
+    "content/site/standards-articles/kyushu/hikkei-common-10/chapters/5-5/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/standards-articles/kyushu/hikkei-common-10/chapters/5-5/ogp.png",
+      "sha256": "9805afa6adb32102cf454ea9b9b7f30fcd82100798f76cb451de845c6e24c40b",
+      "bytes": 68868,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-19T02:49:47.809Z",
+      "width": 1200,
+      "height": 630
+    },
+    "content/site/standards-articles/kyushu/hikkei-common-10/chapters/5-6/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/standards-articles/kyushu/hikkei-common-10/chapters/5-6/ogp.png",
+      "sha256": "e41e686804a308ae7e9750f620d14871e50b5d673423231b713f58fae2d156cd",
+      "bytes": 65725,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-19T02:49:47.945Z",
+      "width": 1200,
+      "height": 630
+    },
+    "content/site/standards-articles/okinawa/hikkei-08/chapters/1-10/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/standards-articles/okinawa/hikkei-08/chapters/1-10/ogp.png",
+      "sha256": "8ef36f6781a63f184788ac4a20a78b7edb08792af168657e3dfe86c6607b1786",
+      "bytes": 66783,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-19T02:49:48.158Z",
+      "width": 1200,
+      "height": 630
+    },
+    "content/site/standards-articles/okinawa/hikkei-08/chapters/1-12/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/standards-articles/okinawa/hikkei-08/chapters/1-12/ogp.png",
+      "sha256": "0139d0ba45f62d6c90bc4aa957c218a60d76b6078631bbf253c9be7382a73e49",
+      "bytes": 79743,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-19T02:49:48.474Z",
+      "width": 1200,
+      "height": 630
+    },
+    "content/site/standards-articles/okinawa/hikkei-08/chapters/1-11/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/standards-articles/okinawa/hikkei-08/chapters/1-11/ogp.png",
+      "sha256": "01110c4bccb15a1a2a3719ef44bf7b372f2abfc731cf04d3276bd69256ccf33d",
+      "bytes": 69071,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-19T02:49:48.509Z",
+      "width": 1200,
+      "height": 630
+    },
+    "content/site/standards-articles/okinawa/hikkei-08/chapters/1-3/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/standards-articles/okinawa/hikkei-08/chapters/1-3/ogp.png",
+      "sha256": "5ff3c4239a36daa0b555c3c1b49dd6650be8c6e88ba46f578675f892ecbc2219",
+      "bytes": 70818,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-19T02:49:48.736Z",
+      "width": 1200,
+      "height": 630
+    },
+    "content/site/standards-articles/okinawa/hikkei-08/chapters/1-1/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/standards-articles/okinawa/hikkei-08/chapters/1-1/ogp.png",
+      "sha256": "6b6af9147790e6668cebbf3197d55820b4242dede4efcaa8720f753bf244ca78",
+      "bytes": 67010,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-19T02:49:49.057Z",
+      "width": 1200,
+      "height": 630
+    },
+    "content/site/standards-articles/okinawa/hikkei-08/chapters/1-4/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/standards-articles/okinawa/hikkei-08/chapters/1-4/ogp.png",
+      "sha256": "191ab7792320b6ce6f7de8b14a3ec0caad58485fc28f9a9cc31f2d50b0e23cbc",
+      "bytes": 67339,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-19T02:49:49.292Z",
+      "width": 1200,
+      "height": 630
+    },
+    "content/site/standards-articles/okinawa/hikkei-08/chapters/1-5/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/standards-articles/okinawa/hikkei-08/chapters/1-5/ogp.png",
+      "sha256": "f5e199e12832d7ddfded542b4d9ce05613e38fc8bcbeb655ecaf97ad7ff7ed17",
+      "bytes": 76672,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-19T02:49:49.360Z",
+      "width": 1200,
+      "height": 630
+    },
+    "content/site/standards-articles/okinawa/hikkei-08/chapters/1-2/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/standards-articles/okinawa/hikkei-08/chapters/1-2/ogp.png",
+      "sha256": "eda4ed00aefc02966ba7ebbe68e541ffbc093ee4bd884eb7922c340abcd0d41d",
+      "bytes": 67830,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-19T02:49:49.404Z",
+      "width": 1200,
+      "height": 630
+    },
+    "content/site/standards-articles/okinawa/hikkei-08/chapters/1-6/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/standards-articles/okinawa/hikkei-08/chapters/1-6/ogp.png",
+      "sha256": "b8466574b8885804a25425041d11c516fe0f01e0927ceaf5d269634f02900d66",
+      "bytes": 73168,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-19T02:49:49.556Z",
+      "width": 1200,
+      "height": 630
+    },
+    "content/site/standards-articles/okinawa/hikkei-08/chapters/1-8/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/standards-articles/okinawa/hikkei-08/chapters/1-8/ogp.png",
+      "sha256": "7a01fd59c2443a595faf6111a32cfc0cb30bcb95490985bbecf7b4d75250b874",
+      "bytes": 64207,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-19T02:49:49.942Z",
+      "width": 1200,
+      "height": 630
+    },
+    "content/site/standards-articles/okinawa/hikkei-08/chapters/1-7/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/standards-articles/okinawa/hikkei-08/chapters/1-7/ogp.png",
+      "sha256": "9445cefd5b56e798dd64f2864e5f7a5f340223d7d346ecdd8d70a4c3b30d5fb9",
+      "bytes": 68154,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-19T02:49:49.973Z",
+      "width": 1200,
+      "height": 630
+    },
+    "content/site/standards-articles/okinawa/hikkei-08/chapters/1-9/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/standards-articles/okinawa/hikkei-08/chapters/1-9/ogp.png",
+      "sha256": "d23276708768ad565efead4965c4e99c674e9dcf7e87dbecd1bc9c5893cb87ac",
+      "bytes": 65173,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-19T02:49:50.132Z",
+      "width": 1200,
+      "height": 630
+    },
+    "content/site/standards-articles/okinawa/hikkei-08/chapters/2-1/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/standards-articles/okinawa/hikkei-08/chapters/2-1/ogp.png",
+      "sha256": "76bcdbbce90c4d3a8c3615bfaf89a37883e8b8493f4fd605c6c2e62b3211a33b",
+      "bytes": 69090,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-19T02:49:50.513Z",
+      "width": 1200,
+      "height": 630
+    },
+    "content/site/standards-articles/okinawa/hikkei-08/chapters/2-3/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/standards-articles/okinawa/hikkei-08/chapters/2-3/ogp.png",
+      "sha256": "68b91fc1632fbffcdcae25e1ee1098687d87e9c2b7dec95f00572092c1b6083a",
+      "bytes": 73065,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-19T02:49:50.845Z",
+      "width": 1200,
+      "height": 630
+    },
+    "content/site/standards-articles/okinawa/hikkei-08/chapters/2-4/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/standards-articles/okinawa/hikkei-08/chapters/2-4/ogp.png",
+      "sha256": "5ceb2a69792d94e2f7b65d174265ad501a4282bd6a49ae349c879a5e852b06ee",
+      "bytes": 77893,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-19T02:49:50.999Z",
+      "width": 1200,
+      "height": 630
+    },
+    "content/site/standards-articles/okinawa/hikkei-08/chapters/2-2/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/standards-articles/okinawa/hikkei-08/chapters/2-2/ogp.png",
+      "sha256": "8b8122cd31062aa47f9391af390d19bbadff4d9c62a85359dd4f7ea2a706d2d9",
+      "bytes": 69857,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-19T02:49:51.100Z",
+      "width": 1200,
+      "height": 630
+    },
+    "content/site/standards-articles/okinawa/hikkei-08/chapters/2-5/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/standards-articles/okinawa/hikkei-08/chapters/2-5/ogp.png",
+      "sha256": "b3503720c020d749b8e56f9233212b9b1b5a2fc1bfa0779509f8285714e5445f",
+      "bytes": 69526,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-19T02:49:51.248Z",
+      "width": 1200,
+      "height": 630
+    },
+    "content/site/standards-articles/okinawa/hikkei-08/chapters/2-6/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/standards-articles/okinawa/hikkei-08/chapters/2-6/ogp.png",
+      "sha256": "904b2365358e70a7885e21f18abf2b43e9b0c858f4b8aea43fa26ab048a56163",
+      "bytes": 66248,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-19T02:49:51.479Z",
+      "width": 1200,
+      "height": 630
     }
   },
   "note": "DN-0111 Phase 3。秘密値・署名 URL・絶対パスを書かないこと。",
