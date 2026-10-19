@@ -352,6 +352,16 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-0774] .gitignore の追跡対象を点検する
+タグ: [インフラ・計測] [領域:サイト] [時期:2026-10] [種類:改善] [起票:2026-10-19]
+
+**起点**: obsidian の TODO マスタ ^t-0024（3リポ共通・2026-09-28 のメモ）を各リポへ展開（2026-10-19）。
+
+**やること**: .gitignore が「追跡すべきものを除外していないか」「除外すべきもの（生成物・秘密・大きいバイナリ）を追跡していないか」を点検する。git の外の側は `npm run check-local-data`（LOCAL-DATA.md）で申告済みなので、ここでは追跡されている側を見る。
+
+**完了条件**: 点検結果と直した .gitignore がコミットされ、`npm run check-local-data` が通っている。
+
+
 ### [DN-0773] CLAUDE.md と AGENTS.md の同期を自動化する
 タグ: [エージェント・SSOT] [領域:サイト] [時期:2026-10] [種類:改善] [起票:2026-10-19]
 
