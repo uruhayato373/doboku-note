@@ -11,6 +11,7 @@
   "scripts": {
     "policy:sync": "node .claude/shared-policy/sync.mjs --sync",
     "policy:check": "node .claude/shared-policy/sync.mjs --check",
+    "check-local-data": "node .claude/shared-policy/check-local-data.mjs",
     "a8-ui:fetch": "node scripts/fetch-a8-ui-csv.mjs",
     "a8-ui:normalize": "node scripts/normalize-a8-csv.mjs",
     "admin": "node scripts/kill-port.mjs 3021 && next dev tools/admin-app -p 3021 -H 127.0.0.1",
