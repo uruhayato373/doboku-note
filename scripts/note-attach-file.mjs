@@ -32,6 +32,7 @@ import { leanContextOptions } from './lib/playwright-launch.mjs';
 import { NOTE_BASE } from './lib/site-identity.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 import { listAttachedFiles, countEmbeds, saveAttachmentDraft } from './lib/note-attach.mjs';
+import { escapeRegExp } from './lib/regexp-escape.mjs';
 
 const PROFILE = resolveProfileDir('note', { cwd: ROOT, repoRoot: ROOT });
 const PROXY = process.env.HTTPS_PROXY || process.env.HTTP_PROXY || '';
@@ -294,7 +295,7 @@ if (COMMIT && exitCode === 0) {
       for (const n of readdirSync(d)) {
         if (!/^article(-[^/\\]+)?\.md$/.test(n)) continue;
         const raw = readFileSync(`${d}/${n}`, 'utf8');
-        if (new RegExp(`noteId:\\s*["']?${NOTE}["']?`).test(raw)) { hit = `${d}/${n}`; break; }
+        if (new RegExp(`noteId:\\s*["']?${escapeRegExp(NOTE)}["']?`).test(raw)) { hit = `${d}/${n}`; break; }
       }
       if (hit) break;
     }

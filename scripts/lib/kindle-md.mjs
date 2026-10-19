@@ -27,7 +27,7 @@ export function mdToXhtml(text) {
   const flushTable = () => {
     if (!table.length) return
     const rows = table
-      .filter((r) => !/^\|[\s:-]+\|/.test(r.replace(/\|/g, '|')))
+      .filter((r) => !/^\|[\s:-]+\|/.test(r))
       .filter((r) => !/^[|\s:-]+$/.test(r))
       .map((r) => r.replace(/^\||\|$/g, '').split('|').map((c) => `<td>${inlineMd(c.trim())}</td>`).join(''))
       .map((cells) => `<tr>${cells}</tr>`)

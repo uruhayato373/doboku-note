@@ -204,7 +204,7 @@ test("設定のディメンション作成日が GA4 desired state と一致す�
   const observed = JSON.stringify(ga4);
   for (const [param, date] of Object.entries(cfg.dimensionRegisteredAt)) {
     assert.ok(observed.includes(param), `${param} が ga4-admin-desired-state.json に無い`);
-    assert.ok(observed.includes(date.replace(/-/g, "-")), `${param} の作成日 ${date} が実機観測値と食い違う`);
+    assert.ok(observed.includes(date), `${param} の作成日 ${date} が実機観測値と食い違う`);
   }
 });
 
