@@ -42,11 +42,11 @@
       "caption": "技術士の総合技術監理部門と、1級・2級土木に合格した元発注者が、工程管理の書き方を解説します。",
       "visual": {
         "kind": "points",
-        "heading": "解説：架（かける）",
+        "heading": "経験を整理する視点",
         "items": [
-          "技術士（総合技術監理部門）",
-          "元・地方自治体の土木職（発注者）",
-          "1級・2級土木施工管理技士 合格"
+          "現場条件",
+          "自分の対応",
+          "確認記録"
         ]
       },
       "sourceRef": "src/config/author.ts"
@@ -332,7 +332,8 @@
   "imageDesign": {
     "mode": "codex-pop",
     "scope": "all-body",
-    "revision": "body-scenes-20261018",
-    "coverRevision": "cover-safe-20261018"
+    "revision": "diagram-led-20261019",
+    "coverRevision": "diagram-led-20261019-cover",
+    "layout": "diagram-led"
   }
 }

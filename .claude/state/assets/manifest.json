@@ -6722,7 +6722,13 @@
       "group": "note-cover-png",
       "verifiedAt": "2026-10-17T19:44:33.807Z",
       "width": 1280,
-      "height": 670
+      "height": 670,
+      "logicalPath": "content/note/コンクリート診断士/magazines/コンクリート診断士-記述式-模範答案集/解法ガイド/img/cover.png",
+      "mime": "image/png",
+      "generator": "scripts/generate-note-covers.mjs",
+      "requiredBy": [
+        "scripts/note-sync-routine.mjs（登録した版を保存）"
+      ]
     },
     "content/note/共通/AIで土木資格を攻略/img/cover.png": {
       "bucket": "private",

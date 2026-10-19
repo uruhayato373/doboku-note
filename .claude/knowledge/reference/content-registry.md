@@ -156,4 +156,4 @@ npm run media -- pull --work civil-construction-2/matome-2kyu-chokuzen
 
 ### 公開済み素材と未反映の改訂版
 
-`media promote --candidate --pub <公開ID> --commit` は `{exam}/{work}/work/candidate-{role}` の作品用素材だけを upsert する。公開行の素材参照、予定、外部ID、承認は保持する。作品詳細の「改訂版（YouTube未反映）」から確認できる。入力照合済みの候補動画もR12の対象で、台本・採用画像・表紙等の変更後は再生成が必要。公開・再予約は別の実操作として扱う。
+`media promote --candidate --pub <公開ID> --commit` は `{exam}/{work}/work/candidate-{role}` の作品用素材だけを upsert する。Shorts候補は `pop-image.json.candidateShortsRevision` の再現記録を検査し、`candidate-point-…-video` 等のvariant別の役割で保存する。公開行の素材参照、予定、外部ID、承認は保持する。作品詳細の「改訂版（YouTube未反映）」から確認できる。入力照合済みの通常動画の候補もR12の対象で、台本・採用画像・表紙等の変更後は再生成が必要。公開・再予約は別の実操作として扱う。

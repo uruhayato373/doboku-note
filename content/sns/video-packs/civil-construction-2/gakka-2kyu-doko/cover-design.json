@@ -10,22 +10,25 @@
       ],
       "accentLine": 1,
       "subtitle": "",
-      "character": {
-        "pose": "guide-pointer",
-        "frame": "waist"
-      },
       "design": "pop-poster-v3",
-      "pop": {
-        "variant": "explain",
-        "authority": "総監が制作"
-      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/work/cover-caption-safe.56f2a98e.png",
-        "sha256": "56f2a98e47966d1d7fa00851d059e08bb012ad76830b3f00a5324783b2f6f683",
-        "specSha256": "95a2f64ff576d129e3407816888c399a9fcd9bdea2e3829a2a113b6bc149ada8",
+        "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/work/gakka-2kyu-doko--cover.3f03299c.png",
+        "sha256": "3f03299c8e86a0db9076458740a855218db5aefdd500c4ddd61f9b87041f94ca",
         "width": 1920,
-        "height": 1080
-      }
+        "height": 1080,
+        "normalization": {
+          "mode": "full-frame-v1",
+          "sourceSha256": "4cf9387b62d3b8968dc8a0d2d14412d8e0e2d313b2fb37e5969d344f3460386f"
+        },
+        "source": {
+          "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/work/gakka-2kyu-doko--cover-raw.4cf9387b.png",
+          "sha256": "4cf9387b62d3b8968dc8a0d2d14412d8e0e2d313b2fb37e5969d344f3460386f",
+          "width": 1672,
+          "height": 941
+        },
+        "specSha256": "534dd60e3de894ec8635cab51bf1df4d027ea0b95714591c9dc955232bc2b368"
+      },
+      "layout": "diagram-led"
     },
     "point-overview-1": {
       "format": "shorts",

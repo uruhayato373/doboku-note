@@ -354,6 +354,18 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 
 
+### [DN-0767] 全文ライブラリの文字化けページ（地方版6文書51ページ）をページ画像から直し、検査で止める
+タグ: [コンテンツ品質] [領域:サイト] [時期:2026-11] [種類:不具合] [起票:2026-10-18]
+
+**起点**: 2026-10-18 に地方版（companion）61 文書のページ画像を作る途中で、全文ライブラリ（content/site/standards-library/）のテキスト層が文字化けしているページを見つけた。PDF 側のフォント対応表が壊れていて、pdftotext の出力が Latin-1 の記号列になる。U+FFFD ではないため、catalog の replacementCharacters 0 と既存の検査をすり抜けている。機械判定（日本語の文字が 2 割未満かつ Latin-1 が 1 割超）では 6 文書・51 ページ: kanto/manual 31p（p3,6,7,8,16,22,…）、kinki/hikkei 7p（184,473,609,617,651-653）、hokkaido/local 6p（4-9）、kyushu/management-manual 4p（2-5）、okinawa/hikkei-10 2p（4,10）、kyushu/hikkei-control-15 1p（5）。公開中の分冊ページにこの文字列がそのまま出ている。
+
+**やること**: (1) 文字化けを検出する検査を check-standard-articles か全文ライブラリの検査に足す（判定の対象ページ数と実検査数を出す）。(2) 該当ページを、Drive のページ画像（content/sources/standards/{agency}/{document}/manifest.json の pages/）を見て文字起こしし直す。全文ライブラリの visual-review と同じ扱いで記録する。
+
+**完了条件**: 検査が 6 文書の文字化けを 0 件と判定し、公開ページに Latin-1 の記号列が残っていない。
+
+
+
+
 
 
 

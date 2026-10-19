@@ -203,7 +203,7 @@
       "at": "2026-10-15T23:07:28.091Z"
     }
   },
-  "activeCoverRevision": "cover-safe-20261018",
+  "activeCoverRevision": "diagram-led-20261019-cover",
   "revisions": {
     "cover-safe-20261018": {
       "version": "pop-poster-v3",
@@ -866,7 +866,706 @@
           }
         }
       ]
+    },
+    "diagram-led-20261019": {
+      "version": "codex-pop-body-v1",
+      "date": "2026-10-19",
+      "purpose": "図解主体・控えめな配色。装飾キャラクターと著者名を除去。外部未反映。",
+      "layout": {
+        "mode": "diagram-led",
+        "canvas": {
+          "width": 1920,
+          "height": 1080
+        },
+        "subtitleSafeTop": 820
+      },
+      "images": [
+        {
+          "sceneId": "hook",
+          "inputSha256": "7d8383ed61e93f2402bfafb5f930de1aed52ed931774aab3610b2ccc2bf98c13",
+          "sourceCopy": {
+            "kind": "points",
+            "heading": "概要と本文を、3組で照合",
+            "items": [
+              "工種と、本文で扱う作業",
+              "工期・施工量と、本文の範囲",
+              "立場と、自分の判断・行動"
+            ]
+          },
+          "narration": "工事概要と本文が食い違っていませんか。工種、工期・施工量、立場の3つを照合する順序を説明します。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. ONE finished 16:9 educational diagram, intended 1920x1080. User direction: restrained POP accents, diagram is primary. The attached palette sheet has NO lesson content. Use only its white canvas, muted green/gray accents and calm linework. Do not copy its empty panels; draw the source relationship.\nScene koji-gaiyo-seigou/hook. Narration to illustrate faithfully, not all to print: 工事概要と本文が食い違っていませんか。工種、工期・施工量、立場の3つを照合する順序を説明します。\nSource wording (verbatim Japanese; select concise heading and up to 3 short labels only): {\"heading\":\"概要と本文を、3組で照合\",\"items\":[\"工種と、本文で扱う作業\",\"工期・施工量と、本文の範囲\",\"立場と、自分の判断・行動\"]}\nDesign a meaningful diagram: paired source rows become an illustrated side-by-side comparison; process becomes 3 large nodes linked by arrows; memo becomes 2 or 3 simple labeled fields with a concrete construction inset. Draw correct miniature civil-work situations ONLY if needed to explain the relationship. Use simple flat ink illustrations, not realistic scenery. Do not invent numbers, certification, official scoring criteria or conclusions. For fictional case label exactly 仮の例. Use ONLY the specified source wording, no extraneous terms.\nWHITE or near-white light-gray background across the whole canvas. Dark green restrained type and thin outlines. Main relationship occupies at least 70% of visual attention. Small pale green panels and emerald arrows. Yellow ONLY as a tiny selected-point highlight. No large landscapes, sky, trees, large character, face-only mascot, fictional name, qualification header, academic title, shouting text, heavy outlined text, slanted banners, speed lines, promotional poster, product advertisement or enclosing border. Figures must be natural working people only when needed; most scenes have no person. Heading modest, maximum 1-2 lines.\nCompose directly full-width 16:9. All diagram/text/important objects in x=100..1820 and y=80..800 of 1920x1080. The lower 240px remains the same continuous white/light-gray background for subtitles, no decorative strip and no added colored padding. Keep diagrams clear at 360px wide. No tiny paragraphs or full source sentences. Diagrams with arrows, comparisons and concrete relationships are primary. Do not shrink a finished poster into a bigger canvas.",
+            "references": [
+              {
+                "path": ".tmp/media/_brand/diagram-led/palette.f6f6543d.png",
+                "sha256": "f6f6543db0b0e2cfff0a49d0888b304ee4f67e5846ca1abd09462c4de063e5c6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/koji-gaiyo-seigou/work/koji-gaiyo-seigou--hook-raw.1e86cb75.png",
+              "sha256": "1e86cb75608db7d1c2c1b5bc12ab6919e6396f547a42db7d881887758bb5fc97",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T22:38:31.360Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/koji-gaiyo-seigou/work/koji-gaiyo-seigou--hook.b0a33082.png",
+            "sha256": "b0a33082a258b149116e929bf285093942a2e92b762f9877877d70eee2933a19",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "1e86cb75608db7d1c2c1b5bc12ab6919e6396f547a42db7d881887758bb5fc97"
+          },
+          "review": {
+            "status": "ok",
+            "by": "ai-image-fidelity-auditor",
+            "at": "2026-10-18T23:24:24.686Z",
+            "scope": "原寸・360px・本文/前後関係・字幕安全域",
+            "reason": "工種と作業、工期施工量と本文範囲、立場と判断行動の3組を工事概要と本文の対として示し原稿に一致。"
+          }
+        },
+        {
+          "sceneId": "authority",
+          "inputSha256": "916ba19079e1df32d1ef2cd905299f1caaeded13453c61e90a799d1943447ee3",
+          "sourceCopy": {
+            "kind": "points",
+            "heading": "経験を整理する視点",
+            "items": [
+              "現場条件",
+              "自分の対応",
+              "確認記録"
+            ]
+          },
+          "narration": "総合技術監理部門の技術士で、1級・2級土木に合格した元発注者が、書いた内容を見直す視点を解説します。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. Create ONE 16:9 wide quiet illustration with no text at all. On a white canvas, two ordinary civil-construction workers wearing white helmets and muted green safety clothing consult a construction plan and a work notebook at a simple desk. The plan and their pointing/checking action are the focus. Small natural human figures, NOT a mascot, no large portrait, no speech bubble, no name, no qualification, no credentials, no alphabet, no numbers, NO Japanese or other text anywhere. Fine green/gray outlines and very restrained pale accents, matching only the palette of the attached no-text style reference. No landscape or decoration. Use the central upper 70% of the full-width 16:9 frame, leaving lower 240px as continuous clean white for subtitles. Do not add an enclosing border or colored padding. This scene accompanies a narration about explaining from practical experience, but must contain ONLY the human checking action and useful plan/notebook props, no biography diagram or qualifications.",
+            "references": [
+              {
+                "path": ".tmp/media/_brand/diagram-led/palette.f6f6543d.png",
+                "sha256": "f6f6543db0b0e2cfff0a49d0888b304ee4f67e5846ca1abd09462c4de063e5c6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/koji-gaiyo-seigou/work/keiken-daizai-erabi--authority-raw.63fef5f2.png",
+              "sha256": "63fef5f2ac437399fe83496afe910cb22c2cadc2f1807fbdf348bff977abd759",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T22:20:50.791Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/koji-gaiyo-seigou/work/keiken-daizai-erabi--authority.61ac6ea0.png",
+            "sha256": "61ac6ea09f703b834319ae98faf8560d9cfd4c19b844fc472c244acc862a1cf5",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "63fef5f2ac437399fe83496afe910cb22c2cadc2f1807fbdf348bff977abd759"
+          },
+          "review": {
+            "status": "ok",
+            "by": "ai-image-fidelity-auditor",
+            "at": "2026-10-18T23:24:24.841Z",
+            "scope": "原寸・360px・本文/前後関係・字幕安全域",
+            "reason": "図面を指す人とノートへ記録する人の2人について腕・手の接続と作業動作を確認。装飾の先生・解説名・肩書き・指定外文字なし。"
+          }
+        },
+        {
+          "sceneId": "premise",
+          "inputSha256": "7b7c6e1728f26f237435bf639f4d73d08383e39a755e1a86b7e46ea6ad86bcdf",
+          "sourceCopy": {
+            "kind": "sheet",
+            "heading": "工事概要は、本文を読む前提",
+            "sheetTitle": "同じ工事として、つながりを確認",
+            "rows": [
+              {
+                "label": "工事概要",
+                "value": "どんな工事で、何を担当したか"
+              },
+              {
+                "label": "本文",
+                "value": "その工事で、何を考え、行ったか"
+              }
+            ]
+          },
+          "narration": "工事概要は、本文で扱う工事の前提です。欄を埋めたあと、同じ工事の話としてつながるかを確かめましょう。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. ONE finished 16:9 educational diagram, intended 1920x1080. User direction: restrained POP accents, diagram is primary. The attached palette sheet has NO lesson content. Use only its white canvas, muted green/gray accents and calm linework. Do not copy its empty panels; draw the source relationship.\nScene koji-gaiyo-seigou/premise. Narration to illustrate faithfully, not all to print: 工事概要は、本文で扱う工事の前提です。欄を埋めたあと、同じ工事の話としてつながるかを確かめましょう。\nSource wording (verbatim Japanese; select concise heading and up to 3 short labels only): {\"heading\":\"工事概要は、本文を読む前提\",\"rows\":[{\"label\":\"工事概要\",\"value\":\"どんな工事で、何を担当したか\"},{\"label\":\"本文\",\"value\":\"その工事で、何を考え、行ったか\"}]}\nDesign a meaningful diagram: paired source rows become an illustrated side-by-side comparison; process becomes 3 large nodes linked by arrows; memo becomes 2 or 3 simple labeled fields with a concrete construction inset. Draw correct miniature civil-work situations ONLY if needed to explain the relationship. Use simple flat ink illustrations, not realistic scenery. Do not invent numbers, certification, official scoring criteria or conclusions. For fictional case label exactly 仮の例. Use ONLY the specified source wording, no extraneous terms.\nWHITE or near-white light-gray background across the whole canvas. Dark green restrained type and thin outlines. Main relationship occupies at least 70% of visual attention. Small pale green panels and emerald arrows. Yellow ONLY as a tiny selected-point highlight. No large landscapes, sky, trees, large character, face-only mascot, fictional name, qualification header, academic title, shouting text, heavy outlined text, slanted banners, speed lines, promotional poster, product advertisement or enclosing border. Figures must be natural working people only when needed; most scenes have no person. Heading modest, maximum 1-2 lines.\nCompose directly full-width 16:9. All diagram/text/important objects in x=100..1820 and y=80..800 of 1920x1080. The lower 240px remains the same continuous white/light-gray background for subtitles, no decorative strip and no added colored padding. Keep diagrams clear at 360px wide. No tiny paragraphs or full source sentences. Diagrams with arrows, comparisons and concrete relationships are primary. Do not shrink a finished poster into a bigger canvas.",
+            "references": [
+              {
+                "path": ".tmp/media/_brand/diagram-led/palette.f6f6543d.png",
+                "sha256": "f6f6543db0b0e2cfff0a49d0888b304ee4f67e5846ca1abd09462c4de063e5c6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/koji-gaiyo-seigou/work/koji-gaiyo-seigou--premise-raw.1ca3cb04.png",
+              "sha256": "1ca3cb041e0f5323561da4b09922f325069b82eb2a0200ec85793b99e963e199",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T22:41:39.248Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/koji-gaiyo-seigou/work/koji-gaiyo-seigou--premise.57812532.png",
+            "sha256": "57812532ab931d626a47fcc35e5b8720ad16e911bfba4ac1788ee4831ec42f8e",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "1ca3cb041e0f5323561da4b09922f325069b82eb2a0200ec85793b99e963e199"
+          },
+          "review": {
+            "status": "ok",
+            "by": "ai-image-fidelity-auditor",
+            "at": "2026-10-18T23:24:24.930Z",
+            "scope": "原寸・360px・本文/前後関係・字幕安全域",
+            "reason": "概要・本文・両者のつながりを同じ橋梁工事の図と書類で示し、同じ工事として照合する説明に一致。"
+          }
+        },
+        {
+          "sceneId": "work-type",
+          "inputSha256": "88234dc139b30fcc3faae74898d9d8942d4f1727660e7ac92b4cc6b4ddfa1e15",
+          "sourceCopy": {
+            "kind": "points",
+            "heading": "照合1：本文の作業は、どの工種か",
+            "items": [
+              "本文の作業名に印を付ける",
+              "対応する概要の工種を探す",
+              "書き漏れ・別工事の混入を見直す"
+            ]
+          },
+          "narration": "1つ目は工種です。本文で取り上げた作業が、概要のどの工種に当たるか。まず、作業名に印を付けて照合します。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. ONE finished 16:9 educational diagram, intended 1920x1080. User direction: restrained POP accents, diagram is primary. The attached palette sheet has NO lesson content. Use only its white canvas, muted green/gray accents and calm linework. Do not copy its empty panels; draw the source relationship.\nScene koji-gaiyo-seigou/work-type. Narration to illustrate faithfully, not all to print: 1つ目は工種です。本文で取り上げた作業が、概要のどの工種に当たるか。まず、作業名に印を付けて照合します。\nSource wording (verbatim Japanese; select concise heading and up to 3 short labels only): {\"heading\":\"照合1：本文の作業は、どの工種か\",\"items\":[\"本文の作業名に印を付ける\",\"対応する概要の工種を探す\",\"書き漏れ・別工事の混入を見直す\"]}\nDesign a meaningful diagram: paired source rows become an illustrated side-by-side comparison; process becomes 3 large nodes linked by arrows; memo becomes 2 or 3 simple labeled fields with a concrete construction inset. Draw correct miniature civil-work situations ONLY if needed to explain the relationship. Use simple flat ink illustrations, not realistic scenery. Do not invent numbers, certification, official scoring criteria or conclusions. For fictional case label exactly 仮の例. Use ONLY the specified source wording, no extraneous terms.\nWHITE or near-white light-gray background across the whole canvas. Dark green restrained type and thin outlines. Main relationship occupies at least 70% of visual attention. Small pale green panels and emerald arrows. Yellow ONLY as a tiny selected-point highlight. No large landscapes, sky, trees, large character, face-only mascot, fictional name, qualification header, academic title, shouting text, heavy outlined text, slanted banners, speed lines, promotional poster, product advertisement or enclosing border. Figures must be natural working people only when needed; most scenes have no person. Heading modest, maximum 1-2 lines.\nCompose directly full-width 16:9. All diagram/text/important objects in x=100..1820 and y=80..800 of 1920x1080. The lower 240px remains the same continuous white/light-gray background for subtitles, no decorative strip and no added colored padding. Keep diagrams clear at 360px wide. No tiny paragraphs or full source sentences. Diagrams with arrows, comparisons and concrete relationships are primary. Do not shrink a finished poster into a bigger canvas.",
+            "references": [
+              {
+                "path": ".tmp/media/_brand/diagram-led/palette.f6f6543d.png",
+                "sha256": "f6f6543db0b0e2cfff0a49d0888b304ee4f67e5846ca1abd09462c4de063e5c6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/koji-gaiyo-seigou/work/koji-gaiyo-seigou--work-type-raw.5fe7ef78.png",
+              "sha256": "5fe7ef782902de50097d9d62443acf3dffc722e112b53c9a59959720714a5d15",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T22:41:39.236Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/koji-gaiyo-seigou/work/koji-gaiyo-seigou--work-type.41f191bc.png",
+            "sha256": "41f191bc8afa23477e776451b99f4a26276f4b59eeac22c0b5901a872a2067ce",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "5fe7ef782902de50097d9d62443acf3dffc722e112b53c9a59959720714a5d15"
+          },
+          "review": {
+            "status": "ok",
+            "by": "ai-image-fidelity-auditor",
+            "at": "2026-10-18T23:24:25.018Z",
+            "scope": "原寸・360px・本文/前後関係・字幕安全域",
+            "reason": "本文の作業名を印付け、概要の工種を探し、別工事の混入を見直す順序が書類と拡大鏡の図で原稿に一致。"
+          }
+        },
+        {
+          "sceneId": "work-example",
+          "inputSha256": "2788e81a6c7a1963e1b32100e89702250783766fc2ee4356f68b828efe0dc738",
+          "sourceCopy": {
+            "kind": "sheet",
+            "heading": "考え方の例：工事名だけで止めない",
+            "sheetTitle": "概要と本文の対応メモ（仮例）",
+            "rows": [
+              {
+                "label": "工事名",
+                "value": "道路改良工事",
+                "state": "done"
+              },
+              {
+                "label": "主な工種",
+                "value": "排水構造物工",
+                "state": "focus"
+              },
+              {
+                "label": "本文の作業",
+                "value": "排水路の掘削",
+                "state": "focus"
+              }
+            ]
+          },
+          "narration": "考え方の例です。道路改良工事で排水路の掘削を語るなら、概要にも、その排水構造物工が含まれるか確かめます。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. ONE finished 16:9 educational diagram, intended 1920x1080. User direction: restrained POP accents, diagram is primary. The attached palette sheet has NO lesson content. Use only its white canvas, muted green/gray accents and calm linework. Do not copy its empty panels; draw the source relationship.\nScene koji-gaiyo-seigou/work-example. Narration to illustrate faithfully, not all to print: 考え方の例です。道路改良工事で排水路の掘削を語るなら、概要にも、その排水構造物工が含まれるか確かめます。\nSource wording (verbatim Japanese; select concise heading and up to 3 short labels only): {\"heading\":\"考え方の例：工事名だけで止めない\",\"rows\":[{\"label\":\"工事名\",\"value\":\"道路改良工事\",\"state\":\"done\"},{\"label\":\"主な工種\",\"value\":\"排水構造物工\",\"state\":\"focus\"},{\"label\":\"本文の作業\",\"value\":\"排水路の掘削\",\"state\":\"focus\"}]}\nDesign a meaningful diagram: paired source rows become an illustrated side-by-side comparison; process becomes 3 large nodes linked by arrows; memo becomes 2 or 3 simple labeled fields with a concrete construction inset. Draw correct miniature civil-work situations ONLY if needed to explain the relationship. Use simple flat ink illustrations, not realistic scenery. Do not invent numbers, certification, official scoring criteria or conclusions. For fictional case label exactly 仮の例. Use ONLY the specified source wording, no extraneous terms.\nWHITE or near-white light-gray background across the whole canvas. Dark green restrained type and thin outlines. Main relationship occupies at least 70% of visual attention. Small pale green panels and emerald arrows. Yellow ONLY as a tiny selected-point highlight. No large landscapes, sky, trees, large character, face-only mascot, fictional name, qualification header, academic title, shouting text, heavy outlined text, slanted banners, speed lines, promotional poster, product advertisement or enclosing border. Figures must be natural working people only when needed; most scenes have no person. Heading modest, maximum 1-2 lines.\nCompose directly full-width 16:9. All diagram/text/important objects in x=100..1820 and y=80..800 of 1920x1080. The lower 240px remains the same continuous white/light-gray background for subtitles, no decorative strip and no added colored padding. Keep diagrams clear at 360px wide. No tiny paragraphs or full source sentences. Diagrams with arrows, comparisons and concrete relationships are primary. Do not shrink a finished poster into a bigger canvas.",
+            "references": [
+              {
+                "path": ".tmp/media/_brand/diagram-led/palette.f6f6543d.png",
+                "sha256": "f6f6543db0b0e2cfff0a49d0888b304ee4f67e5846ca1abd09462c4de063e5c6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/koji-gaiyo-seigou/work/koji-gaiyo-seigou--work-example-raw.b4d2fef7.png",
+              "sha256": "b4d2fef7ecfd4595f8a196b62a9525223a2f743ddc7796a52fbeb107b97e47fc",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T22:41:39.260Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/koji-gaiyo-seigou/work/koji-gaiyo-seigou--work-example.ad346b1d.png",
+            "sha256": "ad346b1dfd66046a5680ef7d6924eb1f0d0dcee287927a814ec5d4c77e1b1142",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "b4d2fef7ecfd4595f8a196b62a9525223a2f743ddc7796a52fbeb107b97e47fc"
+          },
+          "review": {
+            "status": "ok",
+            "by": "ai-image-fidelity-auditor",
+            "at": "2026-10-18T23:24:25.099Z",
+            "scope": "原寸・360px・本文/前後関係・字幕安全域",
+            "reason": "道路改良工事→排水構造物工→排水路の掘削の関係が原稿の仮例と一致。"
+          }
+        },
+        {
+          "sceneId": "quantity",
+          "inputSha256": "f2bf6947bc2b5a862f9c88711fafeab53498ad47ace94c0cea92eb2083856cc9",
+          "sourceCopy": {
+            "kind": "sheet",
+            "heading": "照合2：数量が示す範囲を区別",
+            "sheetTitle": "範囲・数量・単位を照合",
+            "rows": [
+              {
+                "label": "工事概要",
+                "value": "工事全体の工種別数量・単位"
+              },
+              {
+                "label": "本文",
+                "value": "扱う区間・作業の数量・単位"
+              }
+            ]
+          },
+          "narration": "2つ目は工期と施工量です。工事全体の数量と、本文で扱う区間の数量を区別し、数値だけでなく単位も照合します。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. ONE finished 16:9 educational diagram, intended 1920x1080. User direction: restrained POP accents, diagram is primary. The attached palette sheet has NO lesson content. Use only its white canvas, muted green/gray accents and calm linework. Do not copy its empty panels; draw the source relationship.\nScene koji-gaiyo-seigou/quantity. Narration to illustrate faithfully, not all to print: 2つ目は工期と施工量です。工事全体の数量と、本文で扱う区間の数量を区別し、数値だけでなく単位も照合します。\nSource wording (verbatim Japanese; select concise heading and up to 3 short labels only): {\"heading\":\"照合2：数量が示す範囲を区別\",\"rows\":[{\"label\":\"工事概要\",\"value\":\"工事全体の工種別数量・単位\"},{\"label\":\"本文\",\"value\":\"扱う区間・作業の数量・単位\"}]}\nDesign a meaningful diagram: paired source rows become an illustrated side-by-side comparison; process becomes 3 large nodes linked by arrows; memo becomes 2 or 3 simple labeled fields with a concrete construction inset. Draw correct miniature civil-work situations ONLY if needed to explain the relationship. Use simple flat ink illustrations, not realistic scenery. Do not invent numbers, certification, official scoring criteria or conclusions. For fictional case label exactly 仮の例. Use ONLY the specified source wording, no extraneous terms.\nWHITE or near-white light-gray background across the whole canvas. Dark green restrained type and thin outlines. Main relationship occupies at least 70% of visual attention. Small pale green panels and emerald arrows. Yellow ONLY as a tiny selected-point highlight. No large landscapes, sky, trees, large character, face-only mascot, fictional name, qualification header, academic title, shouting text, heavy outlined text, slanted banners, speed lines, promotional poster, product advertisement or enclosing border. Figures must be natural working people only when needed; most scenes have no person. Heading modest, maximum 1-2 lines.\nCompose directly full-width 16:9. All diagram/text/important objects in x=100..1820 and y=80..800 of 1920x1080. The lower 240px remains the same continuous white/light-gray background for subtitles, no decorative strip and no added colored padding. Keep diagrams clear at 360px wide. No tiny paragraphs or full source sentences. Diagrams with arrows, comparisons and concrete relationships are primary. Do not shrink a finished poster into a bigger canvas.",
+            "references": [
+              {
+                "path": ".tmp/media/_brand/diagram-led/palette.f6f6543d.png",
+                "sha256": "f6f6543db0b0e2cfff0a49d0888b304ee4f67e5846ca1abd09462c4de063e5c6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/koji-gaiyo-seigou/work/koji-gaiyo-seigou--quantity-raw.0d58e246.png",
+              "sha256": "0d58e2468d3404b3ebc8547c6f9273cfe276b09619c15e129484dd291ee49457",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T22:41:39.340Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/koji-gaiyo-seigou/work/koji-gaiyo-seigou--quantity.f07f9cfb.png",
+            "sha256": "f07f9cfbe12384795ac06062327adff2f7893dbc5618d2e0fa3ebdf1badf3db7",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "0d58e2468d3404b3ebc8547c6f9273cfe276b09619c15e129484dd291ee49457"
+          },
+          "review": {
+            "status": "ok",
+            "by": "ai-image-fidelity-auditor",
+            "at": "2026-10-18T23:24:25.186Z",
+            "scope": "原寸・360px・本文/前後関係・字幕安全域",
+            "reason": "工事全体と本文で扱う区間の範囲を大小の区間表示と数量単位欄で区別し、原稿に一致。"
+          }
+        },
+        {
+          "sceneId": "period",
+          "inputSha256": "5af28bcfcc8132d1678666781494bb0c8f2af9b5b9e75ba569f3da231e51520c",
+          "sourceCopy": {
+            "kind": "sheet",
+            "heading": "作業時期は、工期の中にあるか",
+            "sheetTitle": "記録と照らす項目",
+            "rows": [
+              {
+                "label": "工事概要",
+                "value": "工期の始まりと終わり",
+                "state": "done"
+              },
+              {
+                "label": "本文",
+                "value": "取り上げた作業の時期",
+                "state": "focus"
+              },
+              {
+                "label": "工事記録",
+                "value": "実際の施工日・季節",
+                "state": "focus"
+              }
+            ]
+          },
+          "narration": "工期については、本文の作業時期がその期間に入るか確認します。冬の作業を語るなら、実際の施工日も記録で確かめます。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. ONE finished 16:9 educational diagram, intended 1920x1080. User direction: restrained POP accents, diagram is primary. The attached palette sheet has NO lesson content. Use only its white canvas, muted green/gray accents and calm linework. Do not copy its empty panels; draw the source relationship.\nScene koji-gaiyo-seigou/period. Narration to illustrate faithfully, not all to print: 工期については、本文の作業時期がその期間に入るか確認します。冬の作業を語るなら、実際の施工日も記録で確かめます。\nSource wording (verbatim Japanese; select concise heading and up to 3 short labels only): {\"heading\":\"作業時期は、工期の中にあるか\",\"rows\":[{\"label\":\"工事概要\",\"value\":\"工期の始まりと終わり\",\"state\":\"done\"},{\"label\":\"本文\",\"value\":\"取り上げた作業の時期\",\"state\":\"focus\"},{\"label\":\"工事記録\",\"value\":\"実際の施工日・季節\",\"state\":\"focus\"}]}\nDesign a meaningful diagram: paired source rows become an illustrated side-by-side comparison; process becomes 3 large nodes linked by arrows; memo becomes 2 or 3 simple labeled fields with a concrete construction inset. Draw correct miniature civil-work situations ONLY if needed to explain the relationship. Use simple flat ink illustrations, not realistic scenery. Do not invent numbers, certification, official scoring criteria or conclusions. For fictional case label exactly 仮の例. Use ONLY the specified source wording, no extraneous terms.\nWHITE or near-white light-gray background across the whole canvas. Dark green restrained type and thin outlines. Main relationship occupies at least 70% of visual attention. Small pale green panels and emerald arrows. Yellow ONLY as a tiny selected-point highlight. No large landscapes, sky, trees, large character, face-only mascot, fictional name, qualification header, academic title, shouting text, heavy outlined text, slanted banners, speed lines, promotional poster, product advertisement or enclosing border. Figures must be natural working people only when needed; most scenes have no person. Heading modest, maximum 1-2 lines.\nCompose directly full-width 16:9. All diagram/text/important objects in x=100..1820 and y=80..800 of 1920x1080. The lower 240px remains the same continuous white/light-gray background for subtitles, no decorative strip and no added colored padding. Keep diagrams clear at 360px wide. No tiny paragraphs or full source sentences. Diagrams with arrows, comparisons and concrete relationships are primary. Do not shrink a finished poster into a bigger canvas.",
+            "references": [
+              {
+                "path": ".tmp/media/_brand/diagram-led/palette.f6f6543d.png",
+                "sha256": "f6f6543db0b0e2cfff0a49d0888b304ee4f67e5846ca1abd09462c4de063e5c6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/koji-gaiyo-seigou/work/koji-gaiyo-seigou--period-raw.6c27255f.png",
+              "sha256": "6c27255fa04034d077fa45d880208a81ade14c3ffefc93fbb79593617bdf792e",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T22:41:39.404Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/koji-gaiyo-seigou/work/koji-gaiyo-seigou--period.c545e57b.png",
+            "sha256": "c545e57b644b318f4f1659116f8e21423b1934a97d5d1b44f24302ee3afd193a",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "6c27255fa04034d077fa45d880208a81ade14c3ffefc93fbb79593617bdf792e"
+          },
+          "review": {
+            "status": "ok",
+            "by": "ai-image-fidelity-auditor",
+            "at": "2026-10-18T23:24:25.275Z",
+            "scope": "原寸・360px・本文/前後関係・字幕安全域",
+            "reason": "工期の始終、取り上げた作業の時期、実施工日と季節の照合を記録の図で示し指定文字に一致。"
+          }
+        },
+        {
+          "sceneId": "role",
+          "inputSha256": "b1968171c60983cc503162f702f4f2e7d6b62912069952aa9257936200170762",
+          "sourceCopy": {
+            "kind": "sheet",
+            "heading": "照合3：誰の判断・行動か",
+            "sheetTitle": "立場と担当の整理",
+            "rows": [
+              {
+                "label": "概要の立場",
+                "value": "自分の担当範囲",
+                "state": "focus"
+              },
+              {
+                "label": "本文の判断",
+                "value": "誰が決めたか",
+                "state": "todo"
+              },
+              {
+                "label": "本文の行動",
+                "value": "自分が何をしたか",
+                "state": "todo"
+              }
+            ]
+          },
+          "narration": "3つ目は立場です。概要に書いた担当と、本文の判断や行動を照合します。上司や他の担当者が実施したことと分けます。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. ONE finished 16:9 educational diagram, intended 1920x1080. User direction: restrained POP accents, diagram is primary. The attached palette sheet has NO lesson content. Use only its white canvas, muted green/gray accents and calm linework. Do not copy its empty panels; draw the source relationship.\nScene koji-gaiyo-seigou/role. Narration to illustrate faithfully, not all to print: 3つ目は立場です。概要に書いた担当と、本文の判断や行動を照合します。上司や他の担当者が実施したことと分けます。\nSource wording (verbatim Japanese; select concise heading and up to 3 short labels only): {\"heading\":\"照合3：誰の判断・行動か\",\"rows\":[{\"label\":\"概要の立場\",\"value\":\"自分の担当範囲\",\"state\":\"focus\"},{\"label\":\"本文の判断\",\"value\":\"誰が決めたか\",\"state\":\"todo\"},{\"label\":\"本文の行動\",\"value\":\"自分が何をしたか\",\"state\":\"todo\"}]}\nDesign a meaningful diagram: paired source rows become an illustrated side-by-side comparison; process becomes 3 large nodes linked by arrows; memo becomes 2 or 3 simple labeled fields with a concrete construction inset. Draw correct miniature civil-work situations ONLY if needed to explain the relationship. Use simple flat ink illustrations, not realistic scenery. Do not invent numbers, certification, official scoring criteria or conclusions. For fictional case label exactly 仮の例. Use ONLY the specified source wording, no extraneous terms.\nWHITE or near-white light-gray background across the whole canvas. Dark green restrained type and thin outlines. Main relationship occupies at least 70% of visual attention. Small pale green panels and emerald arrows. Yellow ONLY as a tiny selected-point highlight. No large landscapes, sky, trees, large character, face-only mascot, fictional name, qualification header, academic title, shouting text, heavy outlined text, slanted banners, speed lines, promotional poster, product advertisement or enclosing border. Figures must be natural working people only when needed; most scenes have no person. Heading modest, maximum 1-2 lines.\nCompose directly full-width 16:9. All diagram/text/important objects in x=100..1820 and y=80..800 of 1920x1080. The lower 240px remains the same continuous white/light-gray background for subtitles, no decorative strip and no added colored padding. Keep diagrams clear at 360px wide. No tiny paragraphs or full source sentences. Diagrams with arrows, comparisons and concrete relationships are primary. Do not shrink a finished poster into a bigger canvas.",
+            "references": [
+              {
+                "path": ".tmp/media/_brand/diagram-led/palette.f6f6543d.png",
+                "sha256": "f6f6543db0b0e2cfff0a49d0888b304ee4f67e5846ca1abd09462c4de063e5c6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/koji-gaiyo-seigou/work/koji-gaiyo-seigou--role-raw.48c8c4cf.png",
+              "sha256": "48c8c4cf8fe4a4c6259ad56ef17bb870277b3a4e50d6d442274c0d3d3a849f71",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T22:41:39.414Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/koji-gaiyo-seigou/work/koji-gaiyo-seigou--role.060a859c.png",
+            "sha256": "060a859c820412e82ae33f7f08c17b3a111a7d09a09178473ad289a20bcf40e3",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "48c8c4cf8fe4a4c6259ad56ef17bb870277b3a4e50d6d442274c0d3d3a849f71"
+          },
+          "review": {
+            "status": "ok",
+            "by": "ai-image-fidelity-auditor",
+            "at": "2026-10-18T23:24:25.360Z",
+            "scope": "原寸・360px・本文/前後関係・字幕安全域",
+            "reason": "担当範囲・誰が決めたか・自分が何をしたかの3区分と相談・水平確認の行動が原稿に対応。"
+          }
+        },
+        {
+          "sceneId": "verb",
+          "inputSha256": "5abab6a0ba45544033bf79dcab025d917b2434a13125ccbbf3618367df73e7f0",
+          "sourceCopy": {
+            "kind": "sheet",
+            "heading": "実際の担当に合う動詞を使う",
+            "sheetTitle": "担当による書き分けの例",
+            "rows": [
+              {
+                "label": "実施した場合",
+                "value": "自分が測定した"
+              },
+              {
+                "label": "指示した場合",
+                "value": "測定を指示した"
+              }
+            ]
+          },
+          "narration": "自分が測定したのか、測定を指示したのか。どちらも同じ言葉で済ませず、実際の担当に合う動詞で書き分けましょう。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. ONE finished 16:9 educational diagram, intended 1920x1080. User direction: restrained POP accents, diagram is primary. The attached palette sheet has NO lesson content. Use only its white canvas, muted green/gray accents and calm linework. Do not copy its empty panels; draw the source relationship.\nScene koji-gaiyo-seigou/verb. Narration to illustrate faithfully, not all to print: 自分が測定したのか、測定を指示したのか。どちらも同じ言葉で済ませず、実際の担当に合う動詞で書き分けましょう。\nSource wording (verbatim Japanese; select concise heading and up to 3 short labels only): {\"heading\":\"実際の担当に合う動詞を使う\",\"rows\":[{\"label\":\"実施した場合\",\"value\":\"自分が測定した\"},{\"label\":\"指示した場合\",\"value\":\"測定を指示した\"}]}\nDesign a meaningful diagram: paired source rows become an illustrated side-by-side comparison; process becomes 3 large nodes linked by arrows; memo becomes 2 or 3 simple labeled fields with a concrete construction inset. Draw correct miniature civil-work situations ONLY if needed to explain the relationship. Use simple flat ink illustrations, not realistic scenery. Do not invent numbers, certification, official scoring criteria or conclusions. For fictional case label exactly 仮の例. Use ONLY the specified source wording, no extraneous terms.\nWHITE or near-white light-gray background across the whole canvas. Dark green restrained type and thin outlines. Main relationship occupies at least 70% of visual attention. Small pale green panels and emerald arrows. Yellow ONLY as a tiny selected-point highlight. No large landscapes, sky, trees, large character, face-only mascot, fictional name, qualification header, academic title, shouting text, heavy outlined text, slanted banners, speed lines, promotional poster, product advertisement or enclosing border. Figures must be natural working people only when needed; most scenes have no person. Heading modest, maximum 1-2 lines.\nCompose directly full-width 16:9. All diagram/text/important objects in x=100..1820 and y=80..800 of 1920x1080. The lower 240px remains the same continuous white/light-gray background for subtitles, no decorative strip and no added colored padding. Keep diagrams clear at 360px wide. No tiny paragraphs or full source sentences. Diagrams with arrows, comparisons and concrete relationships are primary. Do not shrink a finished poster into a bigger canvas.",
+            "references": [
+              {
+                "path": ".tmp/media/_brand/diagram-led/palette.f6f6543d.png",
+                "sha256": "f6f6543db0b0e2cfff0a49d0888b304ee4f67e5846ca1abd09462c4de063e5c6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/koji-gaiyo-seigou/work/koji-gaiyo-seigou--verb-raw.c655e4f0.png",
+              "sha256": "c655e4f094a92502282cc2c69620c9287db91aa70413618dd2ed6cbe749da22c",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T22:41:22.227Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/koji-gaiyo-seigou/work/koji-gaiyo-seigou--verb.fc1334cd.png",
+            "sha256": "fc1334cde89f5e061ea243a3ac5ecac13a19acce2b0d09706483a8b1151422cf",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "c655e4f094a92502282cc2c69620c9287db91aa70413618dd2ed6cbe749da22c"
+          },
+          "review": {
+            "status": "ok",
+            "by": "ai-image-fidelity-auditor",
+            "at": "2026-10-18T23:24:25.448Z",
+            "scope": "原寸・360px・本文/前後関係・字幕安全域",
+            "reason": "自分が測定した場合と測定を指示した場合を別の作業員動作で示し、指定文言と人体の接続を確認。"
+          }
+        },
+        {
+          "sceneId": "own-work",
+          "inputSha256": "8a5343a09f8d4e3812c27d6c220e9bdc7d4cc042c990d9bbe27d8108c4704a5d",
+          "sourceCopy": {
+            "kind": "points",
+            "heading": "自分の答案で、線を結んでみる",
+            "items": [
+              "工種と作業が対応しているか",
+              "時期・数量の範囲が合っているか",
+              "担当と行動が一致しているか"
+            ]
+          },
+          "narration": "自分の答案で、工種、時期と数量、担当を線で結んでみましょう。迷う箇所は工事記録に戻り、思い込みで補いません。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. ONE finished 16:9 educational diagram, intended 1920x1080. User direction: restrained POP accents, diagram is primary. The attached palette sheet has NO lesson content. Use only its white canvas, muted green/gray accents and calm linework. Do not copy its empty panels; draw the source relationship.\nScene koji-gaiyo-seigou/own-work. Narration to illustrate faithfully, not all to print: 自分の答案で、工種、時期と数量、担当を線で結んでみましょう。迷う箇所は工事記録に戻り、思い込みで補いません。\nSource wording (verbatim Japanese; select concise heading and up to 3 short labels only): {\"heading\":\"自分の答案で、線を結んでみる\",\"items\":[\"工種と作業が対応しているか\",\"時期・数量の範囲が合っているか\",\"担当と行動が一致しているか\"]}\nDesign a meaningful diagram: paired source rows become an illustrated side-by-side comparison; process becomes 3 large nodes linked by arrows; memo becomes 2 or 3 simple labeled fields with a concrete construction inset. Draw correct miniature civil-work situations ONLY if needed to explain the relationship. Use simple flat ink illustrations, not realistic scenery. Do not invent numbers, certification, official scoring criteria or conclusions. For fictional case label exactly 仮の例. Use ONLY the specified source wording, no extraneous terms.\nWHITE or near-white light-gray background across the whole canvas. Dark green restrained type and thin outlines. Main relationship occupies at least 70% of visual attention. Small pale green panels and emerald arrows. Yellow ONLY as a tiny selected-point highlight. No large landscapes, sky, trees, large character, face-only mascot, fictional name, qualification header, academic title, shouting text, heavy outlined text, slanted banners, speed lines, promotional poster, product advertisement or enclosing border. Figures must be natural working people only when needed; most scenes have no person. Heading modest, maximum 1-2 lines.\nCompose directly full-width 16:9. All diagram/text/important objects in x=100..1820 and y=80..800 of 1920x1080. The lower 240px remains the same continuous white/light-gray background for subtitles, no decorative strip and no added colored padding. Keep diagrams clear at 360px wide. No tiny paragraphs or full source sentences. Diagrams with arrows, comparisons and concrete relationships are primary. Do not shrink a finished poster into a bigger canvas.\nPREVIOUS SCENE CONTEXT (not to print): {\"sceneId\":\"verb\",\"start\":88,\"end\":99,\"narration\":\"自分が測定したのか、測定を指示したのか。どちらも同じ言葉で済ませず、実際の担当に合う動詞で書き分けましょう。\",\"caption\":\"自分が測定したのか、測定を指示したのか。どちらも同じ言葉で済ませず、実際の担当に合う動詞で書き分けましょう。\",\"visual\":{\"kind\":\"sheet\",\"heading\":\"実際の担当に合う動詞を使う\",\"sheetTitle\":\"担当による書き分けの例\",\"rows\":[{\"label\":\"実施した場合\",\"value\":\"自分が測定した\"},{\"label\":\"指示した場合\",\"value\":\"測定を指示した\"}]},\"sourceRef\":\"content/sns/video-packs/civil-construction-2/koji-gaiyo-seigou/script.md\"}\nNEXT SCENE CONTEXT (not to print): {\"sceneId\":\"summary\",\"start\":110,\"end\":122,\"narration\":\"まとめです。工種と作業、工期・施工量と本文の範囲、立場と行動。この3組を、経験した事実に照らして見直します。\",\"caption\":\"まとめです。工種と作業、工期・施工量と本文の範囲、立場と行動。この3組を、経験した事実に照らして見直します。\",\"visual\":{\"kind\":\"points\",\"heading\":\"3組を、経験した事実で確かめる\",\"items\":[\"工種 ↔ 本文の作業\",\"工期・施工量 ↔ 本文の範囲\",\"立場 ↔ 自分の判断・行動\"]},\"sourceRef\":\"content/note/1級・2級土木/2級土木/工事概要の書き方/article.md\"}\nMANDATORY CORRECTION: Show ONLY three large pairs of document icons for 工種と作業が対応しているか / 時期・数量の範囲が合っているか / 担当と行動が一致しているか. Each pair uses one horizontal bidirectional arrow. NO crossing connector, physical equipment, workers, extra terms or technical work-method mappings.",
+            "references": [
+              {
+                "path": ".tmp/media/_brand/diagram-led/palette.f6f6543d.png",
+                "sha256": "f6f6543db0b0e2cfff0a49d0888b304ee4f67e5846ca1abd09462c4de063e5c6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/koji-gaiyo-seigou/work/koji-gaiyo-seigou--own-work-raw.c91a4f19.png",
+              "sha256": "c91a4f19391d348fa23e1f04bca86ee41ef8ec53f7a71a1f809049d6515f9d05",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T23:09:41.853Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/koji-gaiyo-seigou/work/koji-gaiyo-seigou--own-work.be288d1a.png",
+            "sha256": "be288d1ab94fd2a6860941eb4c0cf84210047a676a936b5c364f1040a2aee5d7",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "c91a4f19391d348fa23e1f04bca86ee41ef8ec53f7a71a1f809049d6515f9d05"
+          },
+          "review": {
+            "status": "ok",
+            "by": "ai-image-fidelity-auditor",
+            "at": "2026-10-18T23:24:25.540Z",
+            "scope": "原寸・360px・本文/前後関係・字幕安全域",
+            "reason": "工種と作業、時期数量と範囲、担当と行動を3組の文書と横向き双方向矢印に修正。交差線による誤対応を除去し、指定文字と原稿が一致。"
+          }
+        },
+        {
+          "sceneId": "summary",
+          "inputSha256": "730571f21018be8b56322ff19ec795d7b9a24606f388e09252e66dbc60640af9",
+          "sourceCopy": {
+            "kind": "points",
+            "heading": "3組を、経験した事実で確かめる",
+            "items": [
+              "工種 ↔ 本文の作業",
+              "工期・施工量 ↔ 本文の範囲",
+              "立場 ↔ 自分の判断・行動"
+            ]
+          },
+          "narration": "まとめです。工種と作業、工期・施工量と本文の範囲、立場と行動。この3組を、経験した事実に照らして見直します。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. ONE finished 16:9 educational diagram, intended 1920x1080. User direction: restrained POP accents, diagram is primary. The attached palette sheet has NO lesson content. Use only its white canvas, muted green/gray accents and calm linework. Do not copy its empty panels; draw the source relationship.\nScene koji-gaiyo-seigou/summary. Narration to illustrate faithfully, not all to print: まとめです。工種と作業、工期・施工量と本文の範囲、立場と行動。この3組を、経験した事実に照らして見直します。\nSource wording (verbatim Japanese; select concise heading and up to 3 short labels only): {\"heading\":\"3組を、経験した事実で確かめる\",\"items\":[\"工種 ↔ 本文の作業\",\"工期・施工量 ↔ 本文の範囲\",\"立場 ↔ 自分の判断・行動\"]}\nDesign a meaningful diagram: paired source rows become an illustrated side-by-side comparison; process becomes 3 large nodes linked by arrows; memo becomes 2 or 3 simple labeled fields with a concrete construction inset. Draw correct miniature civil-work situations ONLY if needed to explain the relationship. Use simple flat ink illustrations, not realistic scenery. Do not invent numbers, certification, official scoring criteria or conclusions. For fictional case label exactly 仮の例. Use ONLY the specified source wording, no extraneous terms.\nWHITE or near-white light-gray background across the whole canvas. Dark green restrained type and thin outlines. Main relationship occupies at least 70% of visual attention. Small pale green panels and emerald arrows. Yellow ONLY as a tiny selected-point highlight. No large landscapes, sky, trees, large character, face-only mascot, fictional name, qualification header, academic title, shouting text, heavy outlined text, slanted banners, speed lines, promotional poster, product advertisement or enclosing border. Figures must be natural working people only when needed; most scenes have no person. Heading modest, maximum 1-2 lines.\nCompose directly full-width 16:9. All diagram/text/important objects in x=100..1820 and y=80..800 of 1920x1080. The lower 240px remains the same continuous white/light-gray background for subtitles, no decorative strip and no added colored padding. Keep diagrams clear at 360px wide. No tiny paragraphs or full source sentences. Diagrams with arrows, comparisons and concrete relationships are primary. Do not shrink a finished poster into a bigger canvas.\nFor this scene use ONLY document/book/notebook icons and arrows. NO machinery, NO suspended loads, NO physical construction operation. No extra example beyond source. Minimal clear diagram, no redundant sidebars.",
+            "references": [
+              {
+                "path": ".tmp/media/_brand/diagram-led/palette.f6f6543d.png",
+                "sha256": "f6f6543db0b0e2cfff0a49d0888b304ee4f67e5846ca1abd09462c4de063e5c6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/koji-gaiyo-seigou/work/koji-gaiyo-seigou--summary-raw.3899f5ae.png",
+              "sha256": "3899f5ae92660efce53cbb4c617455defa516b6a2d8fb146b0455758511f6115",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T22:43:58.245Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/koji-gaiyo-seigou/work/koji-gaiyo-seigou--summary.b0eaa9ae.png",
+            "sha256": "b0eaa9ae06179c3bee84bf0bff2c9aac497c8f0aab70277f21f4afc9f4b7fa19",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "3899f5ae92660efce53cbb4c617455defa516b6a2d8fb146b0455758511f6115"
+          },
+          "review": {
+            "status": "ok",
+            "by": "ai-image-fidelity-auditor",
+            "at": "2026-10-18T23:24:25.634Z",
+            "scope": "原寸・360px・本文/前後関係・字幕安全域",
+            "reason": "工種と本文作業、工期施工量と本文範囲、立場と自分の判断行動の3組が1対1の対照図となっており、原稿と指定文字に一致する。"
+          }
+        },
+        {
+          "sceneId": "cta",
+          "inputSha256": "87edcab438fce0e237d311048cdb10b0d16bb7a1738aa9f7411e248d898424f7",
+          "sourceCopy": {
+            "kind": "points",
+            "heading": "概要から本文へのつなぎ方を学ぶ",
+            "items": [
+              "2級土木 施工経験記述 完成答案集",
+              "安全・品質・工程の答案＋置換ガイド",
+              "概要欄のnoteマガジンへ"
+            ]
+          },
+          "narration": "概要から本文へのつなぎ方を、完成答案で学べます。安全・品質・工程の答案と置換ガイドは、概要欄をご覧ください。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. ONE finished 16:9 educational diagram, intended 1920x1080. User direction: restrained POP accents, diagram is primary. The attached palette sheet has NO lesson content. Use only its white canvas, muted green/gray accents and calm linework. Do not copy its empty panels; draw the source relationship.\nScene koji-gaiyo-seigou/cta. Narration to illustrate faithfully, not all to print: 概要から本文へのつなぎ方を、完成答案で学べます。安全・品質・工程の答案と置換ガイドは、概要欄をご覧ください。\nSource wording (verbatim Japanese; select concise heading and up to 3 short labels only): {\"heading\":\"概要から本文へのつなぎ方を学ぶ\",\"items\":[\"2級土木 施工経験記述 完成答案集\",\"安全・品質・工程の答案＋置換ガイド\",\"概要欄のnoteマガジンへ\"]}\nDesign a meaningful diagram: paired source rows become an illustrated side-by-side comparison; process becomes 3 large nodes linked by arrows; memo becomes 2 or 3 simple labeled fields with a concrete construction inset. Draw correct miniature civil-work situations ONLY if needed to explain the relationship. Use simple flat ink illustrations, not realistic scenery. Do not invent numbers, certification, official scoring criteria or conclusions. For fictional case label exactly 仮の例. Use ONLY the specified source wording, no extraneous terms.\nWHITE or near-white light-gray background across the whole canvas. Dark green restrained type and thin outlines. Main relationship occupies at least 70% of visual attention. Small pale green panels and emerald arrows. Yellow ONLY as a tiny selected-point highlight. No large landscapes, sky, trees, large character, face-only mascot, fictional name, qualification header, academic title, shouting text, heavy outlined text, slanted banners, speed lines, promotional poster, product advertisement or enclosing border. Figures must be natural working people only when needed; most scenes have no person. Heading modest, maximum 1-2 lines.\nCompose directly full-width 16:9. All diagram/text/important objects in x=100..1820 and y=80..800 of 1920x1080. The lower 240px remains the same continuous white/light-gray background for subtitles, no decorative strip and no added colored padding. Keep diagrams clear at 360px wide. No tiny paragraphs or full source sentences. Diagrams with arrows, comparisons and concrete relationships are primary. Do not shrink a finished poster into a bigger canvas.\nFor this scene use ONLY document/book/notebook icons and arrows. NO machinery, NO suspended loads, NO physical construction operation. No extra example beyond source. Minimal clear diagram, no redundant sidebars.",
+            "references": [
+              {
+                "path": ".tmp/media/_brand/diagram-led/palette.f6f6543d.png",
+                "sha256": "f6f6543db0b0e2cfff0a49d0888b304ee4f67e5846ca1abd09462c4de063e5c6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/koji-gaiyo-seigou/work/koji-gaiyo-seigou--cta-raw.8b13fe8c.png",
+              "sha256": "8b13fe8cea2fd8a7726f6474a165fd543d3ad52cc32c27f7478a08f72a134390",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T22:43:58.249Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/koji-gaiyo-seigou/work/koji-gaiyo-seigou--cta.09d68378.png",
+            "sha256": "09d6837864caca874e38871bdd774378cb5d612ea387406b00b689e3db1ab8bb",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "8b13fe8cea2fd8a7726f6474a165fd543d3ad52cc32c27f7478a08f72a134390"
+          },
+          "review": {
+            "status": "ok",
+            "by": "ai-image-fidelity-auditor",
+            "at": "2026-10-18T23:24:25.729Z",
+            "scope": "原寸・360px・本文/前後関係・字幕安全域",
+            "reason": "完成答案集→安全品質工程と置換ガイド→noteマガジン案内を文書とブラウザの図で示し、指定文字に誤字・著者名・肩書きの追加なし。"
+          }
+        }
+      ],
+      "review": {
+        "status": "ok",
+        "by": "video-content-qa",
+        "at": "2026-10-18T23:55:44.240Z",
+        "mp4Sha256": "620aa31a836c64b2e0448db2dd7ae3c515e23a7701428943338dd6ebc43d5c79",
+        "scope": "全13場面の完成動画中点を原寸・360px実見。音声・画像・字幕・MP4の機械照合。",
+        "evidence": {
+          "path": ".tmp/media/_brand/diagram-led/qa-report.1cd922fe.json",
+          "sha256": "1cd922fec2a44ce403978bfa74b1746934c01ba135b8b5c07e15cd6dc67dba69"
+        }
+      }
+    },
+    "diagram-led-20261019-cover": {
+      "version": "pop-poster-v3",
+      "layout": {
+        "mode": "diagram-led"
+      },
+      "generation": {
+        "tool": "image_gen",
+        "prompt": "ONE 16:9 learning diagram, intended1920x1080. White continuous canvas, muted green thin arrows and flat calm line icons, tiny yellow accent. Attached palette only for colours. Diagram primary, restrained POP. No teacher, author, credentials, advertising, heavy lettering or decorative person. ALL important content within x100..1820, y80..760. Bottom300px continuous white, NO notes, logos or objects. No duplicate panels. Readable360px.\nEXACT composition and copy: 工事概要の見直し。ONLY three pairs of document icons using 工種↔本文の作業 / 工期・施工量↔本文の範囲 / 立場↔自分の判断・行動. Header 2級土木 and 工事概要の見直し. No bottom diagram, notes, people or equipment.\nNARRATION CONTEXT, NOT to print: {\"next\":\"工事概要と本文が食い違っていませんか。工種、工期・施工量、立場の3つを照合する順序を説明します。\"}.\nOnly specified diagram. No other content.",
+        "references": [
+          {
+            "path": ".tmp/media/_brand/diagram-led/palette.f6f6543d.png",
+            "sha256": "f6f6543db0b0e2cfff0a49d0888b304ee4f67e5846ca1abd09462c4de063e5c6"
+          }
+        ],
+        "output": {
+          "path": ".tmp/media/civil-construction-2/koji-gaiyo-seigou/work/koji-gaiyo-seigou--cover-raw.4e7aeb14.png",
+          "sha256": "4e7aeb14053f6cae354dfaccd77e921228f6dad154dc43e6bdc6cc2afe40f35a",
+          "width": 1672,
+          "height": 941
+        },
+        "generatedAt": "2026-10-18T23:11:49.325Z"
+      },
+      "output": {
+        "path": ".tmp/media/civil-construction-2/koji-gaiyo-seigou/work/koji-gaiyo-seigou--cover.e7240e71.png",
+        "sha256": "e7240e71848f4b09b55c5624336fc8ea6e5f26c870ac2fa61500dcd31e4adb4d",
+        "width": 1920,
+        "height": 1080
+      },
+      "normalization": {
+        "mode": "full-frame-v1",
+        "sourceSha256": "4e7aeb14053f6cae354dfaccd77e921228f6dad154dc43e6bdc6cc2afe40f35a"
+      },
+      "review": {
+        "status": "ok",
+        "by": "ai-image-fidelity-auditor",
+        "at": "2026-10-18T23:24:25.819Z",
+        "scope": "原寸・360px・本文/前後関係・字幕安全域",
+        "reason": "下側の大きな工事概要と本文の比較図を除去し、3組の比較を各パネル内へ収めた。資格・主題と照合対の文字を360pxで判読でき、字幕領域に重要図なし。"
+      }
     }
   },
-  "activeBodyRevision": "body-scenes-20261018"
+  "activeBodyRevision": "diagram-led-20261019"
 }

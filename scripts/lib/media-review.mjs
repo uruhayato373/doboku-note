@@ -10,7 +10,7 @@
 import { existsSync, statSync } from 'node:fs';
 import { join } from 'node:path';
 import { approvalHash, approvalParts, loadRegistry, loadRegistryConfig, publicationStage, resolveCopy, visualDigest } from './content-registry.mjs';
-import { jstDayTime } from './jst-date.mjs';
+import { jstDayTime, jstLabel, jstMonth } from './jst-date.mjs';
 import { MEDIA_ROOT } from './media-paths.mjs';
 
 /** 画面確認（音声なし）で見る素材の役割。visualDigest はこの役割の sha を並べる（長尺のコンタクトシートは contact-sheet-2 以降に続く） */
@@ -187,6 +187,53 @@ export function workView(root, exam, workId, opts = {}) {
   };
 }
 
+/** チャネル・状態・月は同じ公開行に対して照合する。 */
+export function matchingItemPublications(row, { channel, status, month } = {}) {
+  return row.publications.filter((p) =>
+    (!channel || p.channel === channel) &&
+    (!status || p.status === status) &&
+    (!month || (month === 'undated' ? p.month === null : p.month === month)));
+}
+
+/** 予定日時だけで予約済みにはしない。停止・未照合も未予約とは区別する。
+ * @returns {{ label: string, tone: 'good' | 'info' | 'warn' | 'bad' | 'neutral' }}
+ */
+function bookingStatus(pub) {
+  switch (pub.status) {
+    case 'scheduled': return { label: '予約済み', tone: 'info' };
+    case 'published': return { label: '公開済み', tone: 'good' };
+    case 'refresh_due': return { label: '公開済み・要更新', tone: 'warn' };
+    case 'stopped': return pub.stopReason === 'unverified-legacy'
+      ? { label: '要確認', tone: 'warn' } : { label: '停止', tone: 'neutral' };
+    case 'failed': return { label: '処理失敗', tone: 'bad' };
+    case 'draft': case 'qa_blocked': case 'qa_passed': case 'approved': case 'rendered': case 'uploaded_private':
+      return { label: '未予約', tone: 'warn' };
+    default: return { label: '要確認', tone: 'warn' };
+  }
+}
+
+/** 絞り込み後の公開行をチャネル・形式・予約状態ごとにまとめ、一覧を縦に伸ばしすぎない。
+ * @returns {import('../../tools/admin-app/src/lib/content-items').ItemPublicationGroup[]}
+ */
+export function itemPublicationGroups(publications) {
+  const groups = new Map();
+  for (const p of publications) {
+    const { label, tone } = bookingStatus(p);
+    const key = `${p.channel}/${p.format}/${label}`;
+    if (!groups.has(key)) groups.set(key, { key, channel: p.channel, format: p.format, label, tone, count: 0, dates: [], undated: 0 });
+    const group = groups.get(key);
+    group.count++;
+    if (p.publishAtJst) group.dates.push(p.publishAtJst);
+    else group.undated++;
+  }
+  return [...groups.values()].map(({ dates, ...group }) => {
+    dates.sort();
+    const first = dates[0];
+    const last = dates.at(-1);
+    return { ...group, dateLabel: first ? `${first}${last !== first ? ` 〜 ${last}` : ''}${group.undated ? `・日時未設定 ${group.undated}件` : ''}` : '日時未設定' };
+  });
+}
+
 /**
  * 一覧（/content/items）の行。1 作品 1 行。
  * @returns {{ rows: import('../../tools/admin-app/src/lib/content-items').ItemRow[], counts: { works: number, publications: number } }}
@@ -216,6 +263,11 @@ export function listView(root, opts = {}) {
       href: `/content/items/${encodeURIComponent(w.exam)}/${encodeURIComponent(w.id)}`,
       coverSrc: cover ? mediaSource(root, cover, opts.driveManifest ?? null).src : null,
       channels: Object.keys(byChannel).sort(), byChannel, flags: [...flags].sort(),
+      publications: pubs.map((p) => ({
+        channel: p.channel, format: p.format, status: p.status, stopReason: p.stopReason ?? null,
+        month: p.publishAt ? jstMonth(p.publishAt) : null,
+        publishAtJst: p.publishAt ? jstLabel(p.publishAt) : null,
+      })),
       statusOrder: Math.min(...pubs.map((p) => cfg.status.values.indexOf(p.status)).filter((n) => n >= 0), 99),
     };
   });

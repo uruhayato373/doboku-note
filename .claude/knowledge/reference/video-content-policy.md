@@ -71,6 +71,12 @@ title: 動画コンテンツ運用ポリシー
 - `outputs` は希望する派生物であり、公開済み状態を持たない
 - 実績、合格、売上、統計を扱うときは根拠referenceを追加する
 
+### 2.1 2級土木の通常動画タイトル
+
+`【2級土木】テーマ｜具体的な悩み・学べること` に揃える。公開題名の正本は `youtube.json` の `longform.title`。資格名の重複と、タイトル末尾への「総監・元発注者」「改訂版」の一律追加を避ける。経歴・監修者の情報は概要欄・プロフィール・動画冒頭で示し、発注者視点自体が主題の場合だけタイトルに含める。
+
+`video-pack.json` の `title` は制作入力の一部なので、公開題名だけの表記整理では変更しない。`prepare-youtube-longforms.mts --metadata` は制作見出しから題名を作り直すため、メタデータを再生成するときは編集済みの公開題名を引き継ぐ。題名を変えた公開行は承認ハッシュの対象でもあるため、文面以外が変わっていないことを照合し、運営者の変更指示と承認手順に従う。
+
 ## 3. 台本契約
 
 `script.md` は少なくとも次を持つ。
@@ -100,6 +106,10 @@ Shortsのプラットフォーム上限と、doboku-noteが採用する推奨尺
 16:9通常動画のレンダラーは `npm run render-longform`（`scripts/render-longform.mjs`・純粋ロジックは `scripts/lib/longform-render.mjs`）。scene の視覚要素は additive フィールド `visual: { kind: 'cover'|'points'|'figure'|'compare'|'sheet', heading, items[], src?, flow? }` で持ち（compare・sheet と任意フィールドは下の表）、試験色は exam-palette（note-cover-tokens.json）を解決する。`figure` はリポジトリ内の既存SVG/PNG/WebP/JPEGだけを`src`で参照し、本文の図解を1920×1080へ再利用する。出力は `.tmp/video-render/{packId}/`（PNG・WAV・ASS・render-manifest.json・mp4）で、パックディレクトリと Git にはバイナリを書かない。VOICEVOX/ffmpeg の無い環境は `--skip-tts` で PNG/ASS まで生成し、mp4 は VOICEVOX と ffmpeg/ffprobe を用意した Windows / Mac 等で同コマンドを完走させる。現在、動画生成用の GitHub Actions ワークフローは無い。
 
 本文までCodexのPOP画像で制作するパックは、storyboardの `imageDesign: {mode: "codex-pop", scope: "all-body", revision: "<改訂キー>"}` と、`pop-image.json.activeBodyRevision` を同じキーにする。`revisions[改訂キー].images` に表紙を除く全場面（締めも含む）の `sceneId`・`inputSha256`（`popSceneHash`で語り/コピー/出典を結合）・`generation`（tool=`image_gen`、全文prompt、references、原本output）・採用 `output`（path/sha256/width/height）を残す。原本と採用PNGはDriveのcontent-mediaへ保存し、参照パスはリポジトリ相対とする。
+
+2級土木の説明画面は、2026-10-19の運営者指定により**図解主体・控えめなPOP**とする。白〜薄いグレーを基調に、比較・手順・因果関係を大きく示し、緑の線・矢印と小さな黄色の強調に抑える。装飾の先生キャラクターと「解説：○○」は置かず、人物は説明に必要な作業・相談・記録の場面だけにする。仮例は前後で工種・条件を維持し、機械や施工方法が主題でない場面には不用意な機械図を足さない。生成指示には前後の語りと共通の仮例を渡し、既存図がある場合は実物を確認する。比較のカード間に手順を意味する矢印を足さず、排水方向・対策の構造を正しく示せない図は目的と方法の対応図に戻す。
+
+図解主体の生成画像は `imageDesign.layout` と本文改訂の `layout.mode` を `diagram-led` に揃える。各画像に `normalization: {mode: "full-frame-v1", sourceSha256: "<原本SHA>"}` を残し、`scripts/lib/learning-frame.mjs` の `normalizeLearningFrame` で動画寸法へ合わせる。原本との縦横比差が0.5%を超えれば停止し、画面を縮めて左右・下へ色付き余白を足してはならない。レンダー時は原本SHAと正規化後の実画素を照合する。表紙も同じ `layout` と `approvedImage.normalization` を指定した採用PNGなら、character指定は不要。原寸・幅360pxに加え、完成動画で字幕領域に重要文字・図が入らないことを確認する。
 
 表紙も全面POPへ更新したパックは `imageDesign.coverRevision` と `pop-image.json.activeCoverRevision` を同じ改訂キーにする。表紙改訂の `version`=`pop-poster-v3`・Codex生成記録・採用 `output` を保存し、`cover-design.json` のdesign・採用path/SHAとの一致をB20で検査する。旧表紙へ戻した場合や改訂指定の片側削除は停止する。
 
