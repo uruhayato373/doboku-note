@@ -1,0 +1,1808 @@
+{
+  "version": 1,
+  "generator": "scripts/build-standard-articles.mjs",
+  "agencyId": "kyushu",
+  "agencyName": "九州地方整備局",
+  "documentId": "hikkei-common-09",
+  "documentTitle": "土木請負工事必携 共通編／「土木工事安全施工技術指針」",
+  "documentRole": "companion",
+  "catalogSourceSha256": "66ea668641b1c32e6711edad60145eb4033ed9cb149026e073900311614ad054",
+  "pages": 109,
+  "bodyStart": {
+    "page": 6,
+    "reason": "override"
+  },
+  "frontMatter": {
+    "firstPage": 1,
+    "lastPage": 5,
+    "pageCount": 5,
+    "note": "表紙・目次。構造化の対象外（原典の逐語ページで参照する）。"
+  },
+  "indexable": false,
+  "indexableReason": "editionCanonical=kinki/hikkei#12",
+  "duplicateOf": null,
+  "chapterSource": "outline",
+  "audit": {
+    "totalPages": 109,
+    "frontMatterPages": 5,
+    "bodyPages": 104,
+    "bodyLineTotal": 4083,
+    "assignedLines": 3960,
+    "removedLines": 123,
+    "unassignedLines": 0,
+    "chapters": 19,
+    "assignedPages": 121,
+    "removedRunningHeaders": 0,
+    "removedPrintPageNumbers": 104,
+    "removedChapterFront": 19,
+    "dedentedPages": 1,
+    "tables": 3,
+    "tablesGfm": 0,
+    "tablesList": 0,
+    "tablesOverride": 0,
+    "tablesVerbatim": 3
+  },
+  "tableOutcomes": {
+    "columns-out-of-range": 3
+  },
+  "removedSamples": {
+    "runningHeaders": [],
+    "printPageNumbers": [
+      {
+        "page": 6,
+        "text": "通 4−1              1"
+      },
+      {
+        "page": 7,
+        "text": "通 4−2                          2"
+      },
+      {
+        "page": 8,
+        "text": "通 4−3                       3"
+      }
+    ],
+    "chapterFront": [
+      {
+        "page": 6,
+        "text": "第１章 総    則"
+      },
+      {
+        "page": 8,
+        "text": "第２章 安全措置一般"
+      },
+      {
+        "page": 18,
+        "text": "第３章 地下埋設物一般"
+      },
+      {
+        "page": 20,
+        "text": "第４章 機械・装置・設備一般"
+      },
+      {
+        "page": 28,
+        "text": "第５章 仮設工事"
+      },
+      {
+        "page": 37,
+        "text": "第６章 運搬工"
+      }
+    ]
+  },
+  "rejects": [],
+  "reviewQueue": [],
+  "acceptedReview": [],
+  "headerCorrections": [],
+  "chapters": [
+    {
+      "chapterId": "1-1",
+      "title": "土木工事安全施工技術指針 第1章 総則",
+      "bookNumber": 1,
+      "bookTitle": "土木工事安全施工技術指針",
+      "chapterNumber": 1,
+      "chapterTitle": "総則",
+      "bookLabel": "土木工事安全施工技術指針",
+      "chapterLabel": "第1章",
+      "file": "chapters/1-1.md",
+      "firstPage": 6,
+      "lastPage": 8,
+      "sourceParts": [
+        "part-01"
+      ],
+      "sourcePages": [
+        6,
+        7,
+        8
+      ],
+      "sourceSha256": "fa82c335bb611e97f1a43ad7b1b7e93ea090899f2216b3baed356af972028f2c",
+      "outputSha256": "958e92525942d524a474ec8957d16f5c3356c194c37d5ac28b15f1795dcf24b1",
+      "outputBytes": 6361,
+      "splitBySection": false,
+      "sections": [
+        {
+          "number": 1,
+          "title": "総則",
+          "headingText": "第1節 総則",
+          "firstPage": 6,
+          "lastPage": 6,
+          "articles": []
+        },
+        {
+          "number": 2,
+          "title": "事前調査",
+          "headingText": "第2節 事前調査",
+          "firstPage": 6,
+          "lastPage": 6,
+          "articles": []
+        },
+        {
+          "number": 3,
+          "title": "施工計画",
+          "headingText": "第3節 施工計画",
+          "firstPage": 6,
+          "lastPage": 7,
+          "articles": []
+        },
+        {
+          "number": 4,
+          "title": "工事現場管理",
+          "headingText": "第4節 工事現場管理",
+          "firstPage": 7,
+          "lastPage": 8,
+          "articles": []
+        }
+      ],
+      "stats": {
+        "sections": 4,
+        "articles": 0,
+        "clauses": 14,
+        "paragraphs": 29,
+        "items": 0,
+        "notes": 0,
+        "tables": 0,
+        "captions": 0,
+        "tablesGfm": 0,
+        "tablesList": 0,
+        "tablesOverride": 0,
+        "tablesVerbatim": 0
+      },
+      "tableOutcomes": {},
+      "indexable": false,
+      "duplicateOf": null,
+      "reviewStatus": "clean"
+    },
+    {
+      "chapterId": "1-2",
+      "title": "土木工事安全施工技術指針 第2章 安全措置一般",
+      "bookNumber": 1,
+      "bookTitle": "土木工事安全施工技術指針",
+      "chapterNumber": 2,
+      "chapterTitle": "安全措置一般",
+      "bookLabel": "土木工事安全施工技術指針",
+      "chapterLabel": "第2章",
+      "file": "chapters/1-2.md",
+      "firstPage": 8,
+      "lastPage": 18,
+      "sourceParts": [
+        "part-01"
+      ],
+      "sourcePages": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "sourceSha256": "4e372abcd128f6315079c5b95bf7176a69211689aa1b5e5d7a0354772b5becef",
+      "outputSha256": "66981dc1756d7d37170f21389c025adea11c16d5447e50eb9f68d622b56291e4",
+      "outputBytes": 27024,
+      "splitBySection": false,
+      "sections": [
+        {
+          "number": 1,
+          "title": "作業環境への配慮",
+          "headingText": "第1節 作業環境への配慮",
+          "firstPage": 8,
+          "lastPage": 9,
+          "articles": []
+        },
+        {
+          "number": 2,
+          "title": "工事現場周辺の危害防止",
+          "headingText": "第2節 工事現場周辺の危害防止",
+          "firstPage": 9,
+          "lastPage": 10,
+          "articles": []
+        },
+        {
+          "number": 3,
+          "title": "立入禁止の措置",
+          "headingText": "第3節 立入禁止の措置",
+          "firstPage": 10,
+          "lastPage": 10,
+          "articles": []
+        },
+        {
+          "number": 4,
+          "title": "監視員、誘導員等の配置",
+          "headingText": "第4節 監視員、誘導員等の配置",
+          "firstPage": 10,
+          "lastPage": 11,
+          "articles": []
+        },
+        {
+          "number": 5,
+          "title": "墜落防止の措置",
+          "headingText": "第5節 墜落防止の措置",
+          "firstPage": 11,
+          "lastPage": 12,
+          "articles": []
+        },
+        {
+          "number": 6,
+          "title": "飛来落下の防止措置",
+          "headingText": "第6節 飛来落下の防止措置",
+          "firstPage": 12,
+          "lastPage": 13,
+          "articles": []
+        },
+        {
+          "number": 7,
+          "title": "異常気象時の対策",
+          "headingText": "第7節 異常気象時の対策",
+          "firstPage": 13,
+          "lastPage": 15,
+          "articles": []
+        },
+        {
+          "number": 8,
+          "title": "火災予防",
+          "headingText": "第8節 火災予防",
+          "firstPage": 16,
+          "lastPage": 16,
+          "articles": []
+        },
+        {
+          "number": 9,
+          "title": "工事現場のイメージアップ",
+          "headingText": "第9節 工事現場のイメージアップ",
+          "firstPage": 17,
+          "lastPage": 17,
+          "articles": []
+        },
+        {
+          "number": 10,
+          "title": "現場管理",
+          "headingText": "第10節 現場管理",
+          "firstPage": 17,
+          "lastPage": 18,
+          "articles": []
+        }
+      ],
+      "stats": {
+        "sections": 10,
+        "articles": 0,
+        "clauses": 40,
+        "paragraphs": 110,
+        "items": 0,
+        "notes": 0,
+        "tables": 0,
+        "captions": 0,
+        "tablesGfm": 0,
+        "tablesList": 0,
+        "tablesOverride": 0,
+        "tablesVerbatim": 0
+      },
+      "tableOutcomes": {},
+      "indexable": false,
+      "duplicateOf": null,
+      "reviewStatus": "clean"
+    },
+    {
+      "chapterId": "1-3",
+      "title": "土木工事安全施工技術指針 第3章 地下埋設物一般",
+      "bookNumber": 1,
+      "bookTitle": "土木工事安全施工技術指針",
+      "chapterNumber": 3,
+      "chapterTitle": "地下埋設物一般",
+      "bookLabel": "土木工事安全施工技術指針",
+      "chapterLabel": "第3章",
+      "file": "chapters/1-3.md",
+      "firstPage": 18,
+      "lastPage": 20,
+      "sourceParts": [
+        "part-01"
+      ],
+      "sourcePages": [
+        18,
+        19,
+        20
+      ],
+      "sourceSha256": "2e46390f8052de9ba2518bf22c77a0bca9fffa3a8fc9bc6ecf2d70503ea7b890",
+      "outputSha256": "398f7c935a54babcd6d5de7a9b6d8a5af5bc83ae1cd65f2cb8de8b378665bb9a",
+      "outputBytes": 3999,
+      "splitBySection": false,
+      "sections": [
+        {
+          "number": 1,
+          "title": "工事内容の把握",
+          "headingText": "第1節 工事内容の把握",
+          "firstPage": 18,
+          "lastPage": 18,
+          "articles": []
+        },
+        {
+          "number": 2,
+          "title": "事前確認",
+          "headingText": "第2節 事前確認",
+          "firstPage": 18,
+          "lastPage": 19,
+          "articles": []
+        },
+        {
+          "number": 3,
+          "title": "施工計画",
+          "headingText": "第3節 施工計画",
+          "firstPage": 19,
+          "lastPage": 19,
+          "articles": []
+        },
+        {
+          "number": 4,
+          "title": "現場管理",
+          "headingText": "第4節 現場管理",
+          "firstPage": 19,
+          "lastPage": 19,
+          "articles": []
+        }
+      ],
+      "stats": {
+        "sections": 4,
+        "articles": 0,
+        "clauses": 10,
+        "paragraphs": 16,
+        "items": 0,
+        "notes": 0,
+        "tables": 0,
+        "captions": 0,
+        "tablesGfm": 0,
+        "tablesList": 0,
+        "tablesOverride": 0,
+        "tablesVerbatim": 0
+      },
+      "tableOutcomes": {},
+      "indexable": false,
+      "duplicateOf": null,
+      "reviewStatus": "clean"
+    },
+    {
+      "chapterId": "1-4",
+      "title": "土木工事安全施工技術指針 第4章 機械・装置・設備一般",
+      "bookNumber": 1,
+      "bookTitle": "土木工事安全施工技術指針",
+      "chapterNumber": 4,
+      "chapterTitle": "機械・装置・設備一般",
+      "bookLabel": "土木工事安全施工技術指針",
+      "chapterLabel": "第4章",
+      "file": "chapters/1-4.md",
+      "firstPage": 20,
+      "lastPage": 28,
+      "sourceParts": [
+        "part-01"
+      ],
+      "sourcePages": [
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28
+      ],
+      "sourceSha256": "348af4dfa1ea7149923683c5d45f7f44290074099443b26e8f1c08f61aeee2eb",
+      "outputSha256": "3059305554d33f68dae7fed7e39ea1a0be201614b6633581825e11b4850a0811",
+      "outputBytes": 21031,
+      "splitBySection": false,
+      "sections": [
+        {
+          "number": 1,
+          "title": "建設機械作業の一般的留意事項",
+          "headingText": "第1節 建設機械作業の一般的留意事項",
+          "firstPage": 20,
+          "lastPage": 21,
+          "articles": []
+        },
+        {
+          "number": 2,
+          "title": "建設機械の運用",
+          "headingText": "第2節 建設機械の運用",
+          "firstPage": 21,
+          "lastPage": 23,
+          "articles": []
+        },
+        {
+          "number": 3,
+          "title": "建設機械の搬送",
+          "headingText": "第3節 建設機械の搬送",
+          "firstPage": 23,
+          "lastPage": 24,
+          "articles": []
+        },
+        {
+          "number": 4,
+          "title": "据付型・据置型機械装置",
+          "headingText": "第4節 据付型・据置型機械装置",
+          "firstPage": 24,
+          "lastPage": 24,
+          "articles": []
+        },
+        {
+          "number": 5,
+          "title": "移動式クレーン作業",
+          "headingText": "第5節 移動式クレーン作業",
+          "firstPage": 24,
+          "lastPage": 26,
+          "articles": []
+        },
+        {
+          "number": 6,
+          "title": "賃貸機械等の使用 安衛法33",
+          "headingText": "第6節 賃貸機械等の使用 安衛法33",
+          "firstPage": 27,
+          "lastPage": 27,
+          "articles": []
+        }
+      ],
+      "stats": {
+        "sections": 6,
+        "articles": 0,
+        "clauses": 25,
+        "paragraphs": 90,
+        "items": 1,
+        "notes": 0,
+        "tables": 1,
+        "captions": 0,
+        "tablesGfm": 0,
+        "tablesList": 0,
+        "tablesOverride": 0,
+        "tablesVerbatim": 1
+      },
+      "tableOutcomes": {
+        "columns-out-of-range": 1
+      },
+      "indexable": false,
+      "duplicateOf": null,
+      "reviewStatus": "clean"
+    },
+    {
+      "chapterId": "1-5",
+      "title": "土木工事安全施工技術指針 第5章 仮設工事",
+      "bookNumber": 1,
+      "bookTitle": "土木工事安全施工技術指針",
+      "chapterNumber": 5,
+      "chapterTitle": "仮設工事",
+      "bookLabel": "土木工事安全施工技術指針",
+      "chapterLabel": "第5章",
+      "file": "chapters/1-5.md",
+      "firstPage": 28,
+      "lastPage": 37,
+      "sourceParts": [
+        "part-01"
+      ],
+      "sourcePages": [
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37
+      ],
+      "sourceSha256": "0294b129705bff8b3d378b5350e99ff99440b14257ebfa0452e2669869f5c118",
+      "outputSha256": "6505ad69dc790e393a6ea425eb411bd292f0839b5de2365947b3fa7ca343806b",
+      "outputBytes": 25109,
+      "splitBySection": false,
+      "sections": [
+        {
+          "number": 1,
+          "title": "一般事項",
+          "headingText": "第1節 一般事項",
+          "firstPage": 28,
+          "lastPage": 29,
+          "articles": []
+        },
+        {
+          "number": 2,
+          "title": "土留・支保工",
+          "headingText": "第2節 土留・支保工",
+          "firstPage": 29,
+          "lastPage": 31,
+          "articles": []
+        },
+        {
+          "number": 3,
+          "title": "仮締切工",
+          "headingText": "第3節 仮締切工",
+          "firstPage": 31,
+          "lastPage": 32,
+          "articles": []
+        },
+        {
+          "number": 4,
+          "title": "足場等",
+          "headingText": "第4節 足場等",
+          "firstPage": 32,
+          "lastPage": 33,
+          "articles": []
+        },
+        {
+          "number": 5,
+          "title": "通路・昇降設備・桟橋等",
+          "headingText": "第5節 通路・昇降設備・桟橋等",
+          "firstPage": 33,
+          "lastPage": 33,
+          "articles": []
+        },
+        {
+          "number": 6,
+          "title": "作業床・作業構台",
+          "headingText": "第6節 作業床・作業構台",
+          "firstPage": 33,
+          "lastPage": 35,
+          "articles": []
+        },
+        {
+          "number": 7,
+          "title": "仮設定置機械設備",
+          "headingText": "第7節 仮設定置機械設備",
+          "firstPage": 35,
+          "lastPage": 35,
+          "articles": []
+        },
+        {
+          "number": 8,
+          "title": "仮設電気設備",
+          "headingText": "第8節 仮設電気設備",
+          "firstPage": 36,
+          "lastPage": 36,
+          "articles": []
+        },
+        {
+          "number": 9,
+          "title": "溶接作業",
+          "headingText": "第9節 溶接作業",
+          "firstPage": 36,
+          "lastPage": 36,
+          "articles": []
+        }
+      ],
+      "stats": {
+        "sections": 9,
+        "articles": 0,
+        "clauses": 45,
+        "paragraphs": 119,
+        "items": 7,
+        "notes": 0,
+        "tables": 0,
+        "captions": 0,
+        "tablesGfm": 0,
+        "tablesList": 0,
+        "tablesOverride": 0,
+        "tablesVerbatim": 0
+      },
+      "tableOutcomes": {},
+      "indexable": false,
+      "duplicateOf": null,
+      "reviewStatus": "clean"
+    },
+    {
+      "chapterId": "1-6",
+      "title": "土木工事安全施工技術指針 第6章 運搬工",
+      "bookNumber": 1,
+      "bookTitle": "土木工事安全施工技術指針",
+      "chapterNumber": 6,
+      "chapterTitle": "運搬工",
+      "bookLabel": "土木工事安全施工技術指針",
+      "chapterLabel": "第6章",
+      "file": "chapters/1-6.md",
+      "firstPage": 37,
+      "lastPage": 44,
+      "sourceParts": [
+        "part-01"
+      ],
+      "sourcePages": [
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44
+      ],
+      "sourceSha256": "f76744c1a11c18da02f0ded4d1711bfc18ce1bda21f837520952cc497125bf81",
+      "outputSha256": "18238936644c85cb366d89433ca2e8bfa9ed54b182c7601954312c216c0bd0f7",
+      "outputBytes": 17480,
+      "splitBySection": false,
+      "sections": [
+        {
+          "number": 1,
+          "title": "一般事項",
+          "headingText": "第1節 一般事項",
+          "firstPage": 37,
+          "lastPage": 38,
+          "articles": []
+        },
+        {
+          "number": 2,
+          "title": "トラック・ダンプトラック・トレーラー等",
+          "headingText": "第2節 トラック・ダンプトラック・トレーラー等",
+          "firstPage": 38,
+          "lastPage": 39,
+          "articles": []
+        },
+        {
+          "number": 3,
+          "title": "不整地連搬車",
+          "headingText": "第3節 不整地連搬車",
+          "firstPage": 39,
+          "lastPage": 40,
+          "articles": []
+        },
+        {
+          "number": 4,
+          "title": "コンベヤ",
+          "headingText": "第4節 コンベヤ",
+          "firstPage": 40,
+          "lastPage": 40,
+          "articles": []
+        },
+        {
+          "number": 5,
+          "title": "機関車・運搬車",
+          "headingText": "第5節 機関車・運搬車",
+          "firstPage": 40,
+          "lastPage": 41,
+          "articles": []
+        },
+        {
+          "number": 6,
+          "title": "索道及びケーブルクレーン",
+          "headingText": "第6節 索道及びケーブルクレーン",
+          "firstPage": 41,
+          "lastPage": 43,
+          "articles": []
+        },
+        {
+          "number": 7,
+          "title": "インクライン",
+          "headingText": "第7節 インクライン",
+          "firstPage": 43,
+          "lastPage": 43,
+          "articles": []
+        }
+      ],
+      "stats": {
+        "sections": 7,
+        "articles": 0,
+        "clauses": 25,
+        "paragraphs": 79,
+        "items": 3,
+        "notes": 0,
+        "tables": 0,
+        "captions": 0,
+        "tablesGfm": 0,
+        "tablesList": 0,
+        "tablesOverride": 0,
+        "tablesVerbatim": 0
+      },
+      "tableOutcomes": {},
+      "indexable": false,
+      "duplicateOf": null,
+      "reviewStatus": "clean"
+    },
+    {
+      "chapterId": "1-7",
+      "title": "土木工事安全施工技術指針 第7章 土工工事",
+      "bookNumber": 1,
+      "bookTitle": "土木工事安全施工技術指針",
+      "chapterNumber": 7,
+      "chapterTitle": "土工工事",
+      "bookLabel": "土木工事安全施工技術指針",
+      "chapterLabel": "第7章",
+      "file": "chapters/1-7.md",
+      "firstPage": 44,
+      "lastPage": 50,
+      "sourceParts": [
+        "part-01"
+      ],
+      "sourcePages": [
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50
+      ],
+      "sourceSha256": "5485c4d5fb857d5ee029852155882fb34274dbd931e7f1e3b5e17d4ee770ba45",
+      "outputSha256": "4266816052e6a5c553a0ab57d6d8adf998b5b90092d38ce13afece7226f2d854",
+      "outputBytes": 15985,
+      "splitBySection": false,
+      "sections": [
+        {
+          "number": 1,
+          "title": "一般事項",
+          "headingText": "第1節 一般事項",
+          "firstPage": 44,
+          "lastPage": 45,
+          "articles": []
+        },
+        {
+          "number": 2,
+          "title": "人力掘削",
+          "headingText": "第2節 人力掘削",
+          "firstPage": 45,
+          "lastPage": 46,
+          "articles": []
+        },
+        {
+          "number": 3,
+          "title": "機械掘削",
+          "headingText": "第3節 機械掘削",
+          "firstPage": 46,
+          "lastPage": 47,
+          "articles": []
+        },
+        {
+          "number": 4,
+          "title": "盛土工及びのり面工",
+          "headingText": "第4節 盛土工及びのり面工",
+          "firstPage": 47,
+          "lastPage": 48,
+          "articles": []
+        },
+        {
+          "number": 5,
+          "title": "発破掘削",
+          "headingText": "第5節 発破掘削",
+          "firstPage": 48,
+          "lastPage": 50,
+          "articles": []
+        }
+      ],
+      "stats": {
+        "sections": 5,
+        "articles": 0,
+        "clauses": 40,
+        "paragraphs": 70,
+        "items": 0,
+        "notes": 0,
+        "tables": 1,
+        "captions": 0,
+        "tablesGfm": 0,
+        "tablesList": 0,
+        "tablesOverride": 0,
+        "tablesVerbatim": 1
+      },
+      "tableOutcomes": {
+        "columns-out-of-range": 1
+      },
+      "indexable": false,
+      "duplicateOf": null,
+      "reviewStatus": "clean"
+    },
+    {
+      "chapterId": "1-8",
+      "title": "土木工事安全施工技術指針 第8章 基礎工事",
+      "bookNumber": 1,
+      "bookTitle": "土木工事安全施工技術指針",
+      "chapterNumber": 8,
+      "chapterTitle": "基礎工事",
+      "bookLabel": "土木工事安全施工技術指針",
+      "chapterLabel": "第8章",
+      "file": "chapters/1-8.md",
+      "firstPage": 50,
+      "lastPage": 54,
+      "sourceParts": [
+        "part-01",
+        "part-02"
+      ],
+      "sourcePages": [
+        50,
+        51,
+        52,
+        53,
+        54
+      ],
+      "sourceSha256": "151bfd65b9210e933e7d497ef3ec0e8cf4ee61a3db9f338735ec20935afe0c61",
+      "outputSha256": "049a1700815a4d03b73eb0b3305c03a05b439f958f8875ecd24177f700a4fab3",
+      "outputBytes": 10496,
+      "splitBySection": false,
+      "sections": [
+        {
+          "number": 1,
+          "title": "一般事項",
+          "headingText": "第1節 一般事項",
+          "firstPage": 50,
+          "lastPage": 51,
+          "articles": []
+        },
+        {
+          "number": 2,
+          "title": "既成杭基礎工",
+          "headingText": "第2節 既成杭基礎工",
+          "firstPage": 51,
+          "lastPage": 52,
+          "articles": []
+        },
+        {
+          "number": 3,
+          "title": "機械掘削基礎工",
+          "headingText": "第3節 機械掘削基礎工",
+          "firstPage": 52,
+          "lastPage": 52,
+          "articles": []
+        },
+        {
+          "number": 4,
+          "title": "オープンケーソン基礎工事、深礎工法、その他",
+          "headingText": "第4節 オープンケーソン基礎工事、深礎工法、その他",
+          "firstPage": 53,
+          "lastPage": 54,
+          "articles": []
+        }
+      ],
+      "stats": {
+        "sections": 4,
+        "articles": 0,
+        "clauses": 21,
+        "paragraphs": 38,
+        "items": 0,
+        "notes": 0,
+        "tables": 1,
+        "captions": 0,
+        "tablesGfm": 0,
+        "tablesList": 0,
+        "tablesOverride": 0,
+        "tablesVerbatim": 1
+      },
+      "tableOutcomes": {
+        "columns-out-of-range": 1
+      },
+      "indexable": false,
+      "duplicateOf": null,
+      "reviewStatus": "clean"
+    },
+    {
+      "chapterId": "1-9",
+      "title": "土木工事安全施工技術指針 第9章 コンクリート工事",
+      "bookNumber": 1,
+      "bookTitle": "土木工事安全施工技術指針",
+      "chapterNumber": 9,
+      "chapterTitle": "コンクリート工事",
+      "bookLabel": "土木工事安全施工技術指針",
+      "chapterLabel": "第9章",
+      "file": "chapters/1-9.md",
+      "firstPage": 54,
+      "lastPage": 57,
+      "sourceParts": [
+        "part-02"
+      ],
+      "sourcePages": [
+        54,
+        55,
+        56,
+        57
+      ],
+      "sourceSha256": "4d2ec7276d32fd161395c96417042c51bd1d1b87f04a3af5c0b3cd05dc506778",
+      "outputSha256": "287f1babf9591c53e2a97c1c1adddaf067c4ff65ffe330491b4186e4ac0c396a",
+      "outputBytes": 9595,
+      "splitBySection": false,
+      "sections": [
+        {
+          "number": 1,
+          "title": "一般事項",
+          "headingText": "第1節 一般事項",
+          "firstPage": 54,
+          "lastPage": 54,
+          "articles": []
+        },
+        {
+          "number": 2,
+          "title": "鉄筋工",
+          "headingText": "第2節 鉄筋工",
+          "firstPage": 54,
+          "lastPage": 55,
+          "articles": []
+        },
+        {
+          "number": 3,
+          "title": "型わく工",
+          "headingText": "第3節 型わく工",
+          "firstPage": 55,
+          "lastPage": 56,
+          "articles": []
+        },
+        {
+          "number": 4,
+          "title": "コンクリートエ",
+          "headingText": "第4節 コンクリートエ",
+          "firstPage": 56,
+          "lastPage": 57,
+          "articles": []
+        }
+      ],
+      "stats": {
+        "sections": 4,
+        "articles": 0,
+        "clauses": 21,
+        "paragraphs": 39,
+        "items": 2,
+        "notes": 0,
+        "tables": 0,
+        "captions": 0,
+        "tablesGfm": 0,
+        "tablesList": 0,
+        "tablesOverride": 0,
+        "tablesVerbatim": 0
+      },
+      "tableOutcomes": {},
+      "indexable": false,
+      "duplicateOf": null,
+      "reviewStatus": "clean"
+    },
+    {
+      "chapterId": "1-10",
+      "title": "土木工事安全施工技術指針 第10章 圧気工事",
+      "bookNumber": 1,
+      "bookTitle": "土木工事安全施工技術指針",
+      "chapterNumber": 10,
+      "chapterTitle": "圧気工事",
+      "bookLabel": "土木工事安全施工技術指針",
+      "chapterLabel": "第10章",
+      "file": "chapters/1-10.md",
+      "firstPage": 58,
+      "lastPage": 63,
+      "sourceParts": [
+        "part-02"
+      ],
+      "sourcePages": [
+        58,
+        59,
+        60,
+        61,
+        62,
+        63
+      ],
+      "sourceSha256": "1668af98eb4be4e6c9f88d0259ef15ff7a9665453a89fba32ded7316e7b2dd6c",
+      "outputSha256": "89b97655b19be9128164ca5f4c27247cbcb14effc51edd3e5052b67a3f54f444",
+      "outputBytes": 14211,
+      "splitBySection": false,
+      "sections": [
+        {
+          "number": 1,
+          "title": "一般事項",
+          "headingText": "第1節 一般事項",
+          "firstPage": 58,
+          "lastPage": 58,
+          "articles": []
+        },
+        {
+          "number": 2,
+          "title": "圧気作業",
+          "headingText": "第2節 圧気作業",
+          "firstPage": 58,
+          "lastPage": 60,
+          "articles": []
+        },
+        {
+          "number": 3,
+          "title": "仮設備",
+          "headingText": "第3節 仮設備",
+          "firstPage": 60,
+          "lastPage": 61,
+          "articles": []
+        },
+        {
+          "number": 4,
+          "title": "施工中の調査及び管理",
+          "headingText": "第4節 施工中の調査及び管理",
+          "firstPage": 61,
+          "lastPage": 62,
+          "articles": []
+        },
+        {
+          "number": 5,
+          "title": "ニューマチックケーソン基礎工事",
+          "headingText": "第5節 ニューマチックケーソン基礎工事",
+          "firstPage": 62,
+          "lastPage": 63,
+          "articles": []
+        }
+      ],
+      "stats": {
+        "sections": 5,
+        "articles": 0,
+        "clauses": 35,
+        "paragraphs": 63,
+        "items": 0,
+        "notes": 0,
+        "tables": 0,
+        "captions": 0,
+        "tablesGfm": 0,
+        "tablesList": 0,
+        "tablesOverride": 0,
+        "tablesVerbatim": 0
+      },
+      "tableOutcomes": {},
+      "indexable": false,
+      "duplicateOf": null,
+      "reviewStatus": "clean"
+    },
+    {
+      "chapterId": "1-11",
+      "title": "土木工事安全施工技術指針 第11章 鉄道付近の工事",
+      "bookNumber": 1,
+      "bookTitle": "土木工事安全施工技術指針",
+      "chapterNumber": 11,
+      "chapterTitle": "鉄道付近の工事",
+      "bookLabel": "土木工事安全施工技術指針",
+      "chapterLabel": "第11章",
+      "file": "chapters/1-11.md",
+      "firstPage": 63,
+      "lastPage": 67,
+      "sourceParts": [
+        "part-02"
+      ],
+      "sourcePages": [
+        63,
+        64,
+        65,
+        66,
+        67
+      ],
+      "sourceSha256": "ff73287217a20d180c313d1cea6dac5bd0843cbc4dd471f6c022c241150006f3",
+      "outputSha256": "2decbf75c5e4a437f2ef3162ed786c9a7f778a1f1264584ca1b295f1c0bb80ed",
+      "outputBytes": 10291,
+      "splitBySection": false,
+      "sections": [
+        {
+          "number": 1,
+          "title": "事前協議及び事前調査",
+          "headingText": "第1節 事前協議及び事前調査",
+          "firstPage": 63,
+          "lastPage": 64,
+          "articles": []
+        },
+        {
+          "number": 2,
+          "title": "近接作業",
+          "headingText": "第2節 近接作業",
+          "firstPage": 64,
+          "lastPage": 65,
+          "articles": []
+        },
+        {
+          "number": 3,
+          "title": "各種作業",
+          "headingText": "第3節 各種作業",
+          "firstPage": 65,
+          "lastPage": 66,
+          "articles": []
+        }
+      ],
+      "stats": {
+        "sections": 3,
+        "articles": 0,
+        "clauses": 20,
+        "paragraphs": 59,
+        "items": 0,
+        "notes": 0,
+        "tables": 0,
+        "captions": 0,
+        "tablesGfm": 0,
+        "tablesList": 0,
+        "tablesOverride": 0,
+        "tablesVerbatim": 0
+      },
+      "tableOutcomes": {},
+      "indexable": false,
+      "duplicateOf": null,
+      "reviewStatus": "clean"
+    },
+    {
+      "chapterId": "1-12",
+      "title": "土木工事安全施工技術指針 第12章 土石流の到達するおそれのある現場での工事",
+      "bookNumber": 1,
+      "bookTitle": "土木工事安全施工技術指針",
+      "chapterNumber": 12,
+      "chapterTitle": "土石流の到達するおそれのある現場での工事",
+      "bookLabel": "土木工事安全施工技術指針",
+      "chapterLabel": "第12章",
+      "file": "chapters/1-12.md",
+      "firstPage": 67,
+      "lastPage": 69,
+      "sourceParts": [
+        "part-02"
+      ],
+      "sourcePages": [
+        67,
+        68,
+        69
+      ],
+      "sourceSha256": "47d03b46b30b62fd37919b98c20fe517fc680ec8ce741a89edec6f9c94313ce8",
+      "outputSha256": "782f402763d3ac8d5c2864612d0c04af1b727591b9992593d9de06f6fd4ac847",
+      "outputBytes": 5267,
+      "splitBySection": false,
+      "sections": [
+        {
+          "number": 1,
+          "title": "一般事項",
+          "headingText": "第1節 一般事項",
+          "firstPage": 67,
+          "lastPage": 68,
+          "articles": []
+        }
+      ],
+      "stats": {
+        "sections": 1,
+        "articles": 0,
+        "clauses": 7,
+        "paragraphs": 22,
+        "items": 2,
+        "notes": 0,
+        "tables": 0,
+        "captions": 0,
+        "tablesGfm": 0,
+        "tablesList": 0,
+        "tablesOverride": 0,
+        "tablesVerbatim": 0
+      },
+      "tableOutcomes": {},
+      "indexable": false,
+      "duplicateOf": null,
+      "reviewStatus": "clean"
+    },
+    {
+      "chapterId": "1-13",
+      "title": "土木工事安全施工技術指針 第13章 道路工事",
+      "bookNumber": 1,
+      "bookTitle": "土木工事安全施工技術指針",
+      "chapterNumber": 13,
+      "chapterTitle": "道路工事",
+      "bookLabel": "土木工事安全施工技術指針",
+      "chapterLabel": "第13章",
+      "file": "chapters/1-13.md",
+      "firstPage": 69,
+      "lastPage": 73,
+      "sourceParts": [
+        "part-02"
+      ],
+      "sourcePages": [
+        69,
+        70,
+        71,
+        72,
+        73
+      ],
+      "sourceSha256": "cbff789b534c9e46166431a090fd82054cbaf11431d6ae610f7471aaa1d22276",
+      "outputSha256": "84c3f514bfce161b6df35bc3bc35a7ded533f8a776e259c968bf4b26a56563fa",
+      "outputBytes": 12225,
+      "splitBySection": false,
+      "sections": [
+        {
+          "number": 1,
+          "title": "一般事項",
+          "headingText": "第1節 一般事項",
+          "firstPage": 69,
+          "lastPage": 69,
+          "articles": []
+        },
+        {
+          "number": 2,
+          "title": "交通保安施設",
+          "headingText": "第2節 交通保安施設",
+          "firstPage": 70,
+          "lastPage": 70,
+          "articles": []
+        },
+        {
+          "number": 3,
+          "title": "道路舗装",
+          "headingText": "第3節 道路舗装",
+          "firstPage": 71,
+          "lastPage": 71,
+          "articles": []
+        },
+        {
+          "number": 4,
+          "title": "維持修繕工事",
+          "headingText": "第4節 維持修繕工事",
+          "firstPage": 71,
+          "lastPage": 72,
+          "articles": []
+        },
+        {
+          "number": 5,
+          "title": "道路除雪",
+          "headingText": "第5節 道路除雪",
+          "firstPage": 72,
+          "lastPage": 73,
+          "articles": []
+        }
+      ],
+      "stats": {
+        "sections": 5,
+        "articles": 0,
+        "clauses": 23,
+        "paragraphs": 43,
+        "items": 0,
+        "notes": 0,
+        "tables": 0,
+        "captions": 0,
+        "tablesGfm": 0,
+        "tablesList": 0,
+        "tablesOverride": 0,
+        "tablesVerbatim": 0
+      },
+      "tableOutcomes": {},
+      "indexable": false,
+      "duplicateOf": null,
+      "reviewStatus": "clean"
+    },
+    {
+      "chapterId": "1-14",
+      "title": "土木工事安全施工技術指針 第14章 橋梁工事(架設工事)",
+      "bookNumber": 1,
+      "bookTitle": "土木工事安全施工技術指針",
+      "chapterNumber": 14,
+      "chapterTitle": "橋梁工事(架設工事)",
+      "bookLabel": "土木工事安全施工技術指針",
+      "chapterLabel": "第14章",
+      "file": "chapters/1-14.md",
+      "firstPage": 73,
+      "lastPage": 79,
+      "sourceParts": [
+        "part-02"
+      ],
+      "sourcePages": [
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79
+      ],
+      "sourceSha256": "e7d433aecebae368410337572300661937690c2ff2b1a3744bb8e3f31641473d",
+      "outputSha256": "6785550cc1cde008bf324edeb271055cf58b7920b8bb199ff162844449391ff5",
+      "outputBytes": 15797,
+      "splitBySection": false,
+      "sections": [
+        {
+          "number": 1,
+          "title": "一般事項",
+          "headingText": "第1節 一般事項",
+          "firstPage": 73,
+          "lastPage": 74,
+          "articles": []
+        },
+        {
+          "number": 2,
+          "title": "鋼橋架設設備",
+          "headingText": "第2節 鋼橋架設設備",
+          "firstPage": 74,
+          "lastPage": 75,
+          "articles": []
+        },
+        {
+          "number": 3,
+          "title": "鋼橋架設作業",
+          "headingText": "第3節 鋼橋架設作業",
+          "firstPage": 75,
+          "lastPage": 78,
+          "articles": []
+        },
+        {
+          "number": 4,
+          "title": "ＰＣ橋架設設備",
+          "headingText": "第4節 ＰＣ橋架設設備",
+          "firstPage": 78,
+          "lastPage": 78,
+          "articles": []
+        },
+        {
+          "number": 5,
+          "title": "ＰＣ橋架設作業",
+          "headingText": "第5節 ＰＣ橋架設作業",
+          "firstPage": 78,
+          "lastPage": 79,
+          "articles": []
+        }
+      ],
+      "stats": {
+        "sections": 5,
+        "articles": 0,
+        "clauses": 40,
+        "paragraphs": 57,
+        "items": 0,
+        "notes": 0,
+        "tables": 0,
+        "captions": 0,
+        "tablesGfm": 0,
+        "tablesList": 0,
+        "tablesOverride": 0,
+        "tablesVerbatim": 0
+      },
+      "tableOutcomes": {},
+      "indexable": false,
+      "duplicateOf": null,
+      "reviewStatus": "clean"
+    },
+    {
+      "chapterId": "1-15",
+      "title": "土木工事安全施工技術指針 第15章 山岳トンネル工事",
+      "bookNumber": 1,
+      "bookTitle": "土木工事安全施工技術指針",
+      "chapterNumber": 15,
+      "chapterTitle": "山岳トンネル工事",
+      "bookLabel": "土木工事安全施工技術指針",
+      "chapterLabel": "第15章",
+      "file": "chapters/1-15.md",
+      "firstPage": 79,
+      "lastPage": 90,
+      "sourceParts": [
+        "part-02"
+      ],
+      "sourcePages": [
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90
+      ],
+      "sourceSha256": "2dde797348665bd9cce90caf59a88073147e72d221b9df3f634e5185d4ee3340",
+      "outputSha256": "4b22aa978cb9f2df3da9b1ebb6706123063981da9d81b7be5718f55ebb6034f7",
+      "outputBytes": 29253,
+      "splitBySection": false,
+      "sections": [
+        {
+          "number": 1,
+          "title": "一般事項",
+          "headingText": "第1節 一般事項",
+          "firstPage": 79,
+          "lastPage": 81,
+          "articles": []
+        },
+        {
+          "number": 2,
+          "title": "仮設備",
+          "headingText": "第2節 仮設備",
+          "firstPage": 81,
+          "lastPage": 82,
+          "articles": []
+        },
+        {
+          "number": 3,
+          "title": "作業環境保全",
+          "headingText": "第3節 作業環境保全",
+          "firstPage": 82,
+          "lastPage": 83,
+          "articles": []
+        },
+        {
+          "number": 4,
+          "title": "爆発・火災防止",
+          "headingText": "第4節 爆発・火災防止",
+          "firstPage": 83,
+          "lastPage": 83,
+          "articles": []
+        },
+        {
+          "number": 5,
+          "title": "避難・救護措置",
+          "headingText": "第5節 避難・救護措置",
+          "firstPage": 83,
+          "lastPage": 84,
+          "articles": []
+        },
+        {
+          "number": 6,
+          "title": "可燃性ガス対策",
+          "headingText": "第6節 可燃性ガス対策",
+          "firstPage": 84,
+          "lastPage": 86,
+          "articles": []
+        },
+        {
+          "number": 7,
+          "title": "掘削工",
+          "headingText": "第7節 掘削工",
+          "firstPage": 86,
+          "lastPage": 87,
+          "articles": []
+        },
+        {
+          "number": 8,
+          "title": "運搬工",
+          "headingText": "第8節 運搬工",
+          "firstPage": 87,
+          "lastPage": 88,
+          "articles": []
+        },
+        {
+          "number": 9,
+          "title": "支保工",
+          "headingText": "第9節 支保工",
+          "firstPage": 88,
+          "lastPage": 89,
+          "articles": []
+        },
+        {
+          "number": 10,
+          "title": "覆工",
+          "headingText": "第10節 覆工",
+          "firstPage": 89,
+          "lastPage": 90,
+          "articles": []
+        }
+      ],
+      "stats": {
+        "sections": 10,
+        "articles": 0,
+        "clauses": 55,
+        "paragraphs": 140,
+        "items": 0,
+        "notes": 0,
+        "tables": 0,
+        "captions": 0,
+        "tablesGfm": 0,
+        "tablesList": 0,
+        "tablesOverride": 0,
+        "tablesVerbatim": 0
+      },
+      "tableOutcomes": {},
+      "indexable": false,
+      "duplicateOf": null,
+      "reviewStatus": "clean"
+    },
+    {
+      "chapterId": "1-16",
+      "title": "土木工事安全施工技術指針 第16章 シールド・推進工事",
+      "bookNumber": 1,
+      "bookTitle": "土木工事安全施工技術指針",
+      "chapterNumber": 16,
+      "chapterTitle": "シールド・推進工事",
+      "bookLabel": "土木工事安全施工技術指針",
+      "chapterLabel": "第16章",
+      "file": "chapters/1-16.md",
+      "firstPage": 90,
+      "lastPage": 94,
+      "sourceParts": [
+        "part-02"
+      ],
+      "sourcePages": [
+        90,
+        91,
+        92,
+        93,
+        94
+      ],
+      "sourceSha256": "17365c9a33c44fb7cd8bd935447268a0f31b1e3b523b2a985e0c46cd9bf9453f",
+      "outputSha256": "9166306a92ae6bb71ab49448308c0834ee594c791297a90e21278ef62b7cfcda",
+      "outputBytes": 9905,
+      "splitBySection": false,
+      "sections": [
+        {
+          "number": 1,
+          "title": "一般事項",
+          "headingText": "第1節 一般事項",
+          "firstPage": 90,
+          "lastPage": 91,
+          "articles": []
+        },
+        {
+          "number": 2,
+          "title": "仮設備",
+          "headingText": "第2節 仮設備",
+          "firstPage": 91,
+          "lastPage": 92,
+          "articles": []
+        },
+        {
+          "number": 3,
+          "title": "立坑工事",
+          "headingText": "第3節 立坑工事",
+          "firstPage": 92,
+          "lastPage": 92,
+          "articles": []
+        },
+        {
+          "number": 4,
+          "title": "シールドエ事",
+          "headingText": "第4節 シールドエ事",
+          "firstPage": 92,
+          "lastPage": 93,
+          "articles": []
+        },
+        {
+          "number": 5,
+          "title": "推進工事",
+          "headingText": "第5節 推進工事",
+          "firstPage": 93,
+          "lastPage": 94,
+          "articles": []
+        }
+      ],
+      "stats": {
+        "sections": 5,
+        "articles": 0,
+        "clauses": 26,
+        "paragraphs": 43,
+        "items": 0,
+        "notes": 0,
+        "tables": 0,
+        "captions": 0,
+        "tablesGfm": 0,
+        "tablesList": 0,
+        "tablesOverride": 0,
+        "tablesVerbatim": 0
+      },
+      "tableOutcomes": {},
+      "indexable": false,
+      "duplicateOf": null,
+      "reviewStatus": "clean"
+    },
+    {
+      "chapterId": "1-17",
+      "title": "土木工事安全施工技術指針 第17章 河川及び海岸工事",
+      "bookNumber": 1,
+      "bookTitle": "土木工事安全施工技術指針",
+      "chapterNumber": 17,
+      "chapterTitle": "河川及び海岸工事",
+      "bookLabel": "土木工事安全施工技術指針",
+      "chapterLabel": "第17章",
+      "file": "chapters/1-17.md",
+      "firstPage": 94,
+      "lastPage": 101,
+      "sourceParts": [
+        "part-02",
+        "part-03"
+      ],
+      "sourcePages": [
+        94,
+        95,
+        96,
+        97,
+        98,
+        99,
+        100,
+        101
+      ],
+      "sourceSha256": "7dac6a30d3884bf5b2dc8573128692e443068a528877a83a2301068402f9b9fa",
+      "outputSha256": "4ad7fd5fd28608b328b6b77c06c067ffbe9d6f0f028278fc9d9ba1ee7f12803d",
+      "outputBytes": 18206,
+      "splitBySection": false,
+      "sections": [
+        {
+          "number": 1,
+          "title": "一般事項",
+          "headingText": "第1節 一般事項",
+          "firstPage": 94,
+          "lastPage": 95,
+          "articles": []
+        },
+        {
+          "number": 2,
+          "title": "水辺及び水上作業",
+          "headingText": "第2節 水辺及び水上作業",
+          "firstPage": 95,
+          "lastPage": 96,
+          "articles": []
+        },
+        {
+          "number": 3,
+          "title": "潜水作業",
+          "headingText": "第3節 潜水作業",
+          "firstPage": 96,
+          "lastPage": 97,
+          "articles": []
+        },
+        {
+          "number": 4,
+          "title": "作業船及び台船作業",
+          "headingText": "第4節 作業船及び台船作業",
+          "firstPage": 97,
+          "lastPage": 100,
+          "articles": []
+        }
+      ],
+      "stats": {
+        "sections": 4,
+        "articles": 0,
+        "clauses": 31,
+        "paragraphs": 79,
+        "items": 0,
+        "notes": 0,
+        "tables": 0,
+        "captions": 0,
+        "tablesGfm": 0,
+        "tablesList": 0,
+        "tablesOverride": 0,
+        "tablesVerbatim": 0
+      },
+      "tableOutcomes": {},
+      "indexable": false,
+      "duplicateOf": null,
+      "reviewStatus": "clean"
+    },
+    {
+      "chapterId": "1-18",
+      "title": "土木工事安全施工技術指針 第18章 ダム工事",
+      "bookNumber": 1,
+      "bookTitle": "土木工事安全施工技術指針",
+      "chapterNumber": 18,
+      "chapterTitle": "ダム工事",
+      "bookLabel": "土木工事安全施工技術指針",
+      "chapterLabel": "第18章",
+      "file": "chapters/1-18.md",
+      "firstPage": 101,
+      "lastPage": 106,
+      "sourceParts": [
+        "part-03"
+      ],
+      "sourcePages": [
+        101,
+        102,
+        103,
+        104,
+        105,
+        106
+      ],
+      "sourceSha256": "6fa9f74abff2a50233d05598767656ee199fbe5861910ba6fcb508da0e6b53d3",
+      "outputSha256": "76b02dd088de3164a5966b7843a18f15f1c4010520d889ca76085fd0eb636139",
+      "outputBytes": 15491,
+      "splitBySection": false,
+      "sections": [
+        {
+          "number": 1,
+          "title": "一般事項",
+          "headingText": "第1節 一般事項",
+          "firstPage": 101,
+          "lastPage": 102,
+          "articles": []
+        },
+        {
+          "number": 2,
+          "title": "基礎掘削工",
+          "headingText": "第2節 基礎掘削工",
+          "firstPage": 102,
+          "lastPage": 103,
+          "articles": []
+        },
+        {
+          "number": 3,
+          "title": "基礎処理工",
+          "headingText": "第3節 基礎処理工",
+          "firstPage": 103,
+          "lastPage": 103,
+          "articles": []
+        },
+        {
+          "number": 4,
+          "title": "堤体コンクリートエ事",
+          "headingText": "第4節 堤体コンクリートエ事",
+          "firstPage": 104,
+          "lastPage": 105,
+          "articles": []
+        },
+        {
+          "number": 5,
+          "title": "ダム材料盛立工事(フィルタイプダム)",
+          "headingText": "第5節 ダム材料盛立工事(フィルタイプダム)",
+          "firstPage": 106,
+          "lastPage": 106,
+          "articles": []
+        }
+      ],
+      "stats": {
+        "sections": 5,
+        "articles": 0,
+        "clauses": 38,
+        "paragraphs": 68,
+        "items": 0,
+        "notes": 0,
+        "tables": 0,
+        "captions": 0,
+        "tablesGfm": 0,
+        "tablesList": 0,
+        "tablesOverride": 0,
+        "tablesVerbatim": 0
+      },
+      "tableOutcomes": {},
+      "indexable": false,
+      "duplicateOf": null,
+      "reviewStatus": "clean"
+    },
+    {
+      "chapterId": "1-19",
+      "title": "土木工事安全施工技術指針 第19章 構築物の取りこわし工事",
+      "bookNumber": 1,
+      "bookTitle": "土木工事安全施工技術指針",
+      "chapterNumber": 19,
+      "chapterTitle": "構築物の取りこわし工事",
+      "bookLabel": "土木工事安全施工技術指針",
+      "chapterLabel": "第19章",
+      "file": "chapters/1-19.md",
+      "firstPage": 106,
+      "lastPage": 109,
+      "sourceParts": [
+        "part-03"
+      ],
+      "sourcePages": [
+        106,
+        107,
+        108,
+        109
+      ],
+      "sourceSha256": "02d60fc392d3621f25bb91494e169414486fe55988d8cefa8c287b68e8e8498c",
+      "outputSha256": "8d1608638b36c279a30524d43e1b8f2eaa1427efb84fbf252317c65777456867",
+      "outputBytes": 5562,
+      "splitBySection": false,
+      "sections": [
+        {
+          "number": 1,
+          "title": "一般事項",
+          "headingText": "第1節 一般事項",
+          "firstPage": 106,
+          "lastPage": 107,
+          "articles": []
+        },
+        {
+          "number": 2,
+          "title": "取りこわし工",
+          "headingText": "第2節 取りこわし工",
+          "firstPage": 107,
+          "lastPage": 108,
+          "articles": []
+        }
+      ],
+      "stats": {
+        "sections": 2,
+        "articles": 0,
+        "clauses": 11,
+        "paragraphs": 26,
+        "items": 0,
+        "notes": 0,
+        "tables": 0,
+        "captions": 0,
+        "tablesGfm": 0,
+        "tablesList": 0,
+        "tablesOverride": 0,
+        "tablesVerbatim": 0
+      },
+      "tableOutcomes": {},
+      "indexable": false,
+      "duplicateOf": null,
+      "reviewStatus": "clean"
+    }
+  ]
+}
