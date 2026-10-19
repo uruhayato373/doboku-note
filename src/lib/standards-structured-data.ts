@@ -1,3 +1,4 @@
+import { standardChapterHeading } from '@/lib/standards-chapter-labels';
 import type { StandardChapter, StandardChapterSection } from '@/lib/standards-articles';
 import type { StandardDocument } from '@/lib/standards';
 import { generateHeadingId } from '@/lib/toc';
@@ -171,7 +172,8 @@ export function buildStandardChapterStructuredData(
   // 本文を `番号#n` で引き（scripts/build-standards-data.ts の extractArticleText と同じ規則）、@id も分ける
   const articleKeys = new Map<object, { textKey: string; idSuffix: string }>();
   const seenNumbers = new Map<string, number>();
-  for (const section of chapter.sections) {
+  const looseArticles = chapter.articles ?? [];
+  for (const section of [...chapter.sections, { articles: looseArticles }]) {
     for (const article of section.articles) {
       const occurrence = (seenNumbers.get(article.number) ?? 0) + 1;
       seenNumbers.set(article.number, occurrence);
@@ -222,6 +224,24 @@ export function buildStandardChapterStructuredData(
       });
     });
   });
+
+  // 節を持たない章の条は章の直下に置く（要綱の `第1 目的`）
+  const looseArticleNodes: JsonLdNode[] = looseArticles.map((article, articleIndex) => {
+    const { textKey, idSuffix } = articleKey(article);
+    const text = articleText?.get(textKey);
+    return {
+      '@type': 'CreativeWork',
+      '@id': `${chapterUrl}#clause-${idSuffix}`,
+      name: article.headingText,
+      identifier: article.number,
+      position: articleIndex + 1,
+      pageStart: article.page,
+      url: `${chapterUrl}#${generateHeadingId(article.headingText)}`,
+      isPartOf: { '@id': chapterId },
+      ...(text ? { text } : {}),
+    };
+  });
+  articleNodes.push(...looseArticleNodes);
 
   const encodings = dataUrls
     ? [
@@ -276,7 +296,7 @@ export function buildStandardChapterStructuredData(
       {
         '@type': 'TechArticle',
         '@id': chapterId,
-        headline: `第${chapter.chapterNumber}章 ${chapter.chapterTitle}`,
+        headline: standardChapterHeading(chapter),
         alternativeHeadline: chapter.title,
         identifier: chapter.chapterId,
         inLanguage: 'ja-JP',
@@ -289,8 +309,8 @@ export function buildStandardChapterStructuredData(
         isPartOf: { '@id': `${documentUrl}#dataset` },
         isBasedOn: { '@id': sourceId },
         license: PUBLIC_DATA_LICENSE_URL,
-        ...(sectionNodes.length > 0
-          ? { hasPart: sectionNodes.map((section) => ({ '@id': section['@id'] })) }
+        ...(sectionNodes.length + looseArticleNodes.length > 0
+          ? { hasPart: [...sectionNodes, ...looseArticleNodes].map((node) => ({ '@id': node['@id'] })) }
           : {}),
         ...(encodings.length > 0 ? { encoding: encodings } : {}),
       },

@@ -1,0 +1,1722 @@
+{
+  "version": 1,
+  "generator": "scripts/build-standard-articles.mjs",
+  "agencyId": "okinawa",
+  "agencyName": "沖縄総合事務局",
+  "documentId": "hikkei-08",
+  "documentTitle": "土木請負工事必携／建設工事公衆災害防止対策要綱の解説［令和元年9月］",
+  "documentRole": "companion",
+  "catalogSourceSha256": "0612a510cd91a423077513748adf3eeaf745753819def104e794ccaf487a4b6a",
+  "pages": 119,
+  "bodyStart": {
+    "page": 5,
+    "reason": "override"
+  },
+  "frontMatter": {
+    "firstPage": 1,
+    "lastPage": 4,
+    "pageCount": 4,
+    "note": "表紙・目次。構造化の対象外（原典の逐語ページで参照する）。"
+  },
+  "indexable": false,
+  "indexableReason": "editionCanonical=kyushu/hikkei-common-10",
+  "duplicateOf": null,
+  "chapterSource": "outline",
+  "printPageRequired": false,
+  "audit": {
+    "totalPages": 119,
+    "frontMatterPages": 4,
+    "bodyPages": 115,
+    "bodyLineTotal": 4118,
+    "assignedLines": 4098,
+    "removedLines": 20,
+    "unassignedLines": 0,
+    "chapters": 18,
+    "assignedPages": 131,
+    "removedRunningHeaders": 0,
+    "removedPrintPageNumbers": 0,
+    "removedChapterFront": 20,
+    "dedentedPages": 0,
+    "tables": 0,
+    "tablesGfm": 0,
+    "tablesList": 0,
+    "tablesOverride": 0,
+    "tablesVerbatim": 0
+  },
+  "tableOutcomes": {},
+  "removedSamples": {
+    "runningHeaders": [],
+    "printPageNumbers": [],
+    "chapterFront": [
+      {
+        "page": 5,
+        "text": "（土木工事編）"
+      },
+      {
+        "page": 5,
+        "text": "第１章 総     則"
+      },
+      {
+        "page": 16,
+        "text": "第２章 一般事項"
+      },
+      {
+        "page": 23,
+        "text": "第３章 交通対策"
+      },
+      {
+        "page": 32,
+        "text": "第４章 高所作業"
+      },
+      {
+        "page": 36,
+        "text": "第５章 使用する建設機械に関する措置"
+      }
+    ]
+  },
+  "rejects": [],
+  "reviewQueue": [],
+  "acceptedReview": [],
+  "headerCorrections": [],
+  "chapters": [
+    {
+      "chapterId": "1-1",
+      "title": "土木工事編 第1章 総則",
+      "bookNumber": 1,
+      "bookTitle": "土木工事編",
+      "chapterNumber": 1,
+      "chapterTitle": "総則",
+      "bookLabel": "土木工事編",
+      "chapterLabel": "第1章",
+      "file": "chapters/1-1.md",
+      "firstPage": 5,
+      "lastPage": 16,
+      "sourceParts": [
+        "part-01"
+      ],
+      "sourcePages": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "sourceSha256": "0780d7453aa01658b1ded22abb74dc638c4aff97503710e018a35072bd160e7f",
+      "outputSha256": "bf639e6c20d118da1b758e6bec1d757e6c9d9f13fb1058e87dc44e8ff9af9cee",
+      "outputBytes": 40804,
+      "splitBySection": false,
+      "sections": [],
+      "articles": [
+        {
+          "number": "第1",
+          "title": "目的",
+          "headingText": "第1 目的",
+          "page": 5
+        },
+        {
+          "number": "第2",
+          "title": "適用対象",
+          "headingText": "第2 適用対象",
+          "page": 6
+        },
+        {
+          "number": "第3",
+          "title": "発注者及び施工者の責務",
+          "headingText": "第3 発注者及び施工者の責務",
+          "page": 7
+        },
+        {
+          "number": "第4",
+          "title": "設計段階における調査等",
+          "headingText": "第4 設計段階における調査等",
+          "page": 8
+        },
+        {
+          "number": "第5",
+          "title": "施工計画及び工法選定における危険性の除去と施工前の事前評価",
+          "headingText": "第5 施工計画及び工法選定における危険性の除去と施工前の事前評価",
+          "page": 9
+        },
+        {
+          "number": "第6",
+          "title": "建設機械の選定",
+          "headingText": "第6 建設機械の選定",
+          "page": 9
+        },
+        {
+          "number": "第7",
+          "title": "適正な工期の確保",
+          "headingText": "第7 適正な工期の確保",
+          "page": 10
+        },
+        {
+          "number": "第8",
+          "title": "公衆災害防止対策経費の確保",
+          "headingText": "第8 公衆災害防止対策経費の確保",
+          "page": 11
+        },
+        {
+          "number": "第9",
+          "title": "隣接工事との調整",
+          "headingText": "第9 隣接工事との調整",
+          "page": 12
+        },
+        {
+          "number": "第10",
+          "title": "付近居住者等への周知",
+          "headingText": "第10 付近居住者等への周知",
+          "page": 12
+        },
+        {
+          "number": "第11",
+          "title": "荒天時等の対応に関する検討",
+          "headingText": "第11 荒天時等の対応に関する検討",
+          "page": 13
+        },
+        {
+          "number": "第12",
+          "title": "現場組織体制",
+          "headingText": "第12 現場組織体制",
+          "page": 14
+        },
+        {
+          "number": "第13",
+          "title": "公衆災害発生時の措置と再発防止",
+          "headingText": "第13 公衆災害発生時の措置と再発防止",
+          "page": 15
+        }
+      ],
+      "stats": {
+        "sections": 0,
+        "articles": 13,
+        "clauses": 0,
+        "paragraphs": 96,
+        "items": 0,
+        "notes": 0,
+        "tables": 0,
+        "captions": 0,
+        "tablesGfm": 0,
+        "tablesList": 0,
+        "tablesOverride": 0,
+        "tablesVerbatim": 0
+      },
+      "tableOutcomes": {},
+      "indexable": false,
+      "duplicateOf": null,
+      "reviewStatus": "clean"
+    },
+    {
+      "chapterId": "1-2",
+      "title": "土木工事編 第2章 一般事項",
+      "bookNumber": 1,
+      "bookTitle": "土木工事編",
+      "chapterNumber": 2,
+      "chapterTitle": "一般事項",
+      "bookLabel": "土木工事編",
+      "chapterLabel": "第2章",
+      "file": "chapters/1-2.md",
+      "firstPage": 16,
+      "lastPage": 23,
+      "sourceParts": [
+        "part-01"
+      ],
+      "sourcePages": [
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "sourceSha256": "f995c077ab12f0ad0b3abe124d8532a653c47bda054103586c7c2805c43931a9",
+      "outputSha256": "0480b123b1f9959782e1fa53eba415324480b002c60bddd4fafa75be8f54b7e6",
+      "outputBytes": 25908,
+      "splitBySection": false,
+      "sections": [],
+      "articles": [
+        {
+          "number": "第14",
+          "title": "整理整頓",
+          "headingText": "第14 整理整頓",
+          "page": 16
+        },
+        {
+          "number": "第15",
+          "title": "作業場の区分",
+          "headingText": "第15 作業場の区分",
+          "page": 16
+        },
+        {
+          "number": "第16",
+          "title": "作業場の出入口",
+          "headingText": "第16 作業場の出入口",
+          "page": 19
+        },
+        {
+          "number": "第17",
+          "title": "型枠支保工、足場等の計画及び設計",
+          "headingText": "第17 型枠支保工、足場等の計画及び設計",
+          "page": 19
+        },
+        {
+          "number": "第18",
+          "title": "建設資材等の運搬",
+          "headingText": "第18 建設資材等の運搬",
+          "page": 20
+        },
+        {
+          "number": "第19",
+          "title": "足場等の設置・解体時の作業計画及び手順",
+          "headingText": "第19 足場等の設置・解体時の作業計画及び手順",
+          "page": 21
+        },
+        {
+          "number": "第20",
+          "title": "道路近傍区域での仮設物の設置等",
+          "headingText": "第20 道路近傍区域での仮設物の設置等",
+          "page": 22
+        },
+        {
+          "number": "第21",
+          "title": "安全巡視",
+          "headingText": "第21 安全巡視",
+          "page": 22
+        }
+      ],
+      "stats": {
+        "sections": 0,
+        "articles": 8,
+        "clauses": 0,
+        "paragraphs": 45,
+        "items": 0,
+        "notes": 0,
+        "tables": 0,
+        "captions": 0,
+        "tablesGfm": 0,
+        "tablesList": 0,
+        "tablesOverride": 0,
+        "tablesVerbatim": 0
+      },
+      "tableOutcomes": {},
+      "indexable": false,
+      "duplicateOf": null,
+      "reviewStatus": "clean"
+    },
+    {
+      "chapterId": "1-3",
+      "title": "土木工事編 第3章 交通対策",
+      "bookNumber": 1,
+      "bookTitle": "土木工事編",
+      "chapterNumber": 3,
+      "chapterTitle": "交通対策",
+      "bookLabel": "土木工事編",
+      "chapterLabel": "第3章",
+      "file": "chapters/1-3.md",
+      "firstPage": 23,
+      "lastPage": 32,
+      "sourceParts": [
+        "part-01"
+      ],
+      "sourcePages": [
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32
+      ],
+      "sourceSha256": "ed8334464352fef7ccebf1e32af01aacd2fbb4cb5913a7de2614d44ec5abde83",
+      "outputSha256": "35928c1cebdd34652d4d3b2660d15aadf37dc9e1e8b7f5b3b7172bbe0617cca7",
+      "outputBytes": 33534,
+      "splitBySection": false,
+      "sections": [],
+      "articles": [
+        {
+          "number": "第22",
+          "title": "作業場への工事車両の出入り等",
+          "headingText": "第22 作業場への工事車両の出入り等",
+          "page": 23
+        },
+        {
+          "number": "第23",
+          "title": "道路敷(近傍)工事における措置",
+          "headingText": "第23 道路敷(近傍)工事における措置",
+          "page": 24
+        },
+        {
+          "number": "第24",
+          "title": "道路上（近接）工事における措置",
+          "headingText": "第24 道路上（近接）工事における措置",
+          "page": 25
+        },
+        {
+          "number": "第25",
+          "title": "一般交通を制限する場合の措置",
+          "headingText": "第25 一般交通を制限する場合の措置",
+          "page": 27
+        },
+        {
+          "number": "第26",
+          "title": "仮復旧期間における車両交通のための路面維持",
+          "headingText": "第26 仮復旧期間における車両交通のための路面維持",
+          "page": 28
+        },
+        {
+          "number": "第27",
+          "title": "歩行者用通路の確保",
+          "headingText": "第27 歩行者用通路の確保",
+          "page": 30
+        },
+        {
+          "number": "第28",
+          "title": "通路の排水",
+          "headingText": "第28 通路の排水",
+          "page": 32
+        }
+      ],
+      "stats": {
+        "sections": 0,
+        "articles": 7,
+        "clauses": 0,
+        "paragraphs": 52,
+        "items": 0,
+        "notes": 0,
+        "tables": 0,
+        "captions": 0,
+        "tablesGfm": 0,
+        "tablesList": 0,
+        "tablesOverride": 0,
+        "tablesVerbatim": 0
+      },
+      "tableOutcomes": {},
+      "indexable": false,
+      "duplicateOf": null,
+      "reviewStatus": "clean"
+    },
+    {
+      "chapterId": "1-4",
+      "title": "土木工事編 第4章 高所作業",
+      "bookNumber": 1,
+      "bookTitle": "土木工事編",
+      "chapterNumber": 4,
+      "chapterTitle": "高所作業",
+      "bookLabel": "土木工事編",
+      "chapterLabel": "第4章",
+      "file": "chapters/1-4.md",
+      "firstPage": 32,
+      "lastPage": 36,
+      "sourceParts": [
+        "part-01"
+      ],
+      "sourcePages": [
+        32,
+        33,
+        34,
+        35,
+        36
+      ],
+      "sourceSha256": "40bb6e48a4e8f1b7aaf27639daf1e6ab61c4956f72c5bcabe3fc0c3cbdc2c406",
+      "outputSha256": "61bb90a9761f65dd02adf0113f324c48e94d68d59e44175faca4d07b434cfc8c",
+      "outputBytes": 14968,
+      "splitBySection": false,
+      "sections": [],
+      "articles": [
+        {
+          "number": "第29",
+          "title": "仮囲い",
+          "headingText": "第29 仮囲い",
+          "page": 32
+        },
+        {
+          "number": "第30",
+          "title": "材料の集積等",
+          "headingText": "第30 材料の集積等",
+          "page": 33
+        },
+        {
+          "number": "第31",
+          "title": "落下物による危害の防止",
+          "headingText": "第31 落下物による危害の防止",
+          "page": 34
+        },
+        {
+          "number": "第32",
+          "title": "道路の上方空間の安全確保",
+          "headingText": "第32 道路の上方空間の安全確保",
+          "page": 35
+        },
+        {
+          "number": "第33",
+          "title": "道路の上空における橋梁架設等の作業",
+          "headingText": "第33 道路の上空における橋梁架設等の作業",
+          "page": 36
+        }
+      ],
+      "stats": {
+        "sections": 0,
+        "articles": 5,
+        "clauses": 0,
+        "paragraphs": 41,
+        "items": 0,
+        "notes": 0,
+        "tables": 0,
+        "captions": 0,
+        "tablesGfm": 0,
+        "tablesList": 0,
+        "tablesOverride": 0,
+        "tablesVerbatim": 0
+      },
+      "tableOutcomes": {},
+      "indexable": false,
+      "duplicateOf": null,
+      "reviewStatus": "clean"
+    },
+    {
+      "chapterId": "1-5",
+      "title": "土木工事編 第5章 使用する建設機械に関する措置",
+      "bookNumber": 1,
+      "bookTitle": "土木工事編",
+      "chapterNumber": 5,
+      "chapterTitle": "使用する建設機械に関する措置",
+      "bookLabel": "土木工事編",
+      "chapterLabel": "第5章",
+      "file": "chapters/1-5.md",
+      "firstPage": 36,
+      "lastPage": 44,
+      "sourceParts": [
+        "part-01"
+      ],
+      "sourcePages": [
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44
+      ],
+      "sourceSha256": "22d9a7a87bce34ed62250f4061963b8246a5304658e0f58118ba4087256e7e93",
+      "outputSha256": "240e6709701806d0f0a83ac9557577f122f7eb5c6ee6c1a043baa21bc15820b5",
+      "outputBytes": 26053,
+      "splitBySection": false,
+      "sections": [],
+      "articles": [
+        {
+          "number": "第34",
+          "title": "建設機械の使用及び移動",
+          "headingText": "第34 建設機械の使用及び移動",
+          "page": 37
+        },
+        {
+          "number": "第35",
+          "title": "掘削土搬出用施設",
+          "headingText": "第35 掘削土搬出用施設",
+          "page": 39
+        },
+        {
+          "number": "第36",
+          "title": "架線、構造物等に近接した作業",
+          "headingText": "第36 架線、構造物等に近接した作業",
+          "page": 40
+        },
+        {
+          "number": "第37",
+          "title": "無人航空機による操作",
+          "headingText": "第37 無人航空機による操作",
+          "page": 41
+        },
+        {
+          "number": "第38",
+          "title": "建設機械の休止",
+          "headingText": "第38 建設機械の休止",
+          "page": 42
+        },
+        {
+          "number": "第39",
+          "title": "建設機械の点検、維持管理",
+          "headingText": "第39 建設機械の点検、維持管理",
+          "page": 43
+        }
+      ],
+      "stats": {
+        "sections": 0,
+        "articles": 6,
+        "clauses": 0,
+        "paragraphs": 65,
+        "items": 0,
+        "notes": 0,
+        "tables": 0,
+        "captions": 0,
+        "tablesGfm": 0,
+        "tablesList": 0,
+        "tablesOverride": 0,
+        "tablesVerbatim": 0
+      },
+      "tableOutcomes": {},
+      "indexable": false,
+      "duplicateOf": null,
+      "reviewStatus": "clean"
+    },
+    {
+      "chapterId": "1-6",
+      "title": "土木工事編 第6章 軌道等の保全",
+      "bookNumber": 1,
+      "bookTitle": "土木工事編",
+      "chapterNumber": 6,
+      "chapterTitle": "軌道等の保全",
+      "bookLabel": "土木工事編",
+      "chapterLabel": "第6章",
+      "file": "chapters/1-6.md",
+      "firstPage": 44,
+      "lastPage": 45,
+      "sourceParts": [
+        "part-01"
+      ],
+      "sourcePages": [
+        44,
+        45
+      ],
+      "sourceSha256": "c046c58080db6e8142b880bd03c2808fd40110c9579752889cefe6d0ab33a90b",
+      "outputSha256": "b7f546e3cdf1bdceee04f14d3d753df6a2f8ab431999bb42368bbfa53db861c0",
+      "outputBytes": 4784,
+      "splitBySection": false,
+      "sections": [],
+      "articles": [
+        {
+          "number": "第40",
+          "title": "鉄道事業者との事前協議",
+          "headingText": "第40 鉄道事業者との事前協議",
+          "page": 44
+        },
+        {
+          "number": "第41",
+          "title": "軌道施設等の仮移設等",
+          "headingText": "第41 軌道施設等の仮移設等",
+          "page": 45
+        }
+      ],
+      "stats": {
+        "sections": 0,
+        "articles": 2,
+        "clauses": 0,
+        "paragraphs": 21,
+        "items": 0,
+        "notes": 0,
+        "tables": 0,
+        "captions": 0,
+        "tablesGfm": 0,
+        "tablesList": 0,
+        "tablesOverride": 0,
+        "tablesVerbatim": 0
+      },
+      "tableOutcomes": {},
+      "indexable": false,
+      "duplicateOf": null,
+      "reviewStatus": "clean"
+    },
+    {
+      "chapterId": "1-7",
+      "title": "土木工事編 第7章 埋設物",
+      "bookNumber": 1,
+      "bookTitle": "土木工事編",
+      "chapterNumber": 7,
+      "chapterTitle": "埋設物",
+      "bookLabel": "土木工事編",
+      "chapterLabel": "第7章",
+      "file": "chapters/1-7.md",
+      "firstPage": 45,
+      "lastPage": 52,
+      "sourceParts": [
+        "part-01",
+        "part-02"
+      ],
+      "sourcePages": [
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52
+      ],
+      "sourceSha256": "073d98fe074f6293533ce6bc083bf4341701dbb4595e7fe8dc7c39fdeb134240",
+      "outputSha256": "9d41750a3ce2f3fe3d1e1e11eea7ab8a20ed8870991a04976d495003798d9010",
+      "outputBytes": 23540,
+      "splitBySection": false,
+      "sections": [],
+      "articles": [
+        {
+          "number": "第42",
+          "title": "埋設物の事前確認",
+          "headingText": "第42 埋設物の事前確認",
+          "page": 45
+        },
+        {
+          "number": "第43",
+          "title": "布掘り及びつぼ掘り",
+          "headingText": "第43 布掘り及びつぼ掘り",
+          "page": 48
+        },
+        {
+          "number": "第44",
+          "title": "埋設物の保安維持等",
+          "headingText": "第44 埋設物の保安維持等",
+          "page": 49
+        },
+        {
+          "number": "第45",
+          "title": "近接位置の掘削",
+          "headingText": "第45 近接位置の掘削",
+          "page": 51
+        },
+        {
+          "number": "第46",
+          "title": "火気",
+          "headingText": "第46 火気",
+          "page": 51
+        }
+      ],
+      "stats": {
+        "sections": 0,
+        "articles": 5,
+        "clauses": 0,
+        "paragraphs": 58,
+        "items": 0,
+        "notes": 0,
+        "tables": 0,
+        "captions": 0,
+        "tablesGfm": 0,
+        "tablesList": 0,
+        "tablesOverride": 0,
+        "tablesVerbatim": 0
+      },
+      "tableOutcomes": {},
+      "indexable": false,
+      "duplicateOf": null,
+      "reviewStatus": "clean"
+    },
+    {
+      "chapterId": "1-8",
+      "title": "土木工事編 第8章 土工事",
+      "bookNumber": 1,
+      "bookTitle": "土木工事編",
+      "chapterNumber": 8,
+      "chapterTitle": "土工事",
+      "bookLabel": "土木工事編",
+      "chapterLabel": "第8章",
+      "file": "chapters/1-8.md",
+      "firstPage": 52,
+      "lastPage": 60,
+      "sourceParts": [
+        "part-02"
+      ],
+      "sourcePages": [
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60
+      ],
+      "sourceSha256": "2acf21330eddfb929f5b0e9fdd2c1c3b6eedf72769cb94909d7ef0d848eed587",
+      "outputSha256": "b48d3bba05b14ea2a28692b45aac20f634a46fc4450506d2cdad0b423b296ea6",
+      "outputBytes": 27650,
+      "splitBySection": false,
+      "sections": [],
+      "articles": [
+        {
+          "number": "第47",
+          "title": "掘削方法の選定等",
+          "headingText": "第47 掘削方法の選定等",
+          "page": 52
+        },
+        {
+          "number": "第48",
+          "title": "補助工法を用いる場合の事前調査等",
+          "headingText": "第48 補助工法を用いる場合の事前調査等",
+          "page": 54
+        },
+        {
+          "number": "第49",
+          "title": "土質調査",
+          "headingText": "第49 土質調査",
+          "page": 55
+        },
+        {
+          "number": "第50",
+          "title": "杭、鋼矢板等の打設工程",
+          "headingText": "第50 杭、鋼矢板等の打設工程",
+          "page": 56
+        },
+        {
+          "number": "第51",
+          "title": "土留工の管理",
+          "headingText": "第51 土留工の管理",
+          "page": 56
+        },
+        {
+          "number": "第52",
+          "title": "薬液注入工法",
+          "headingText": "第52 薬液注入工法",
+          "page": 57
+        },
+        {
+          "number": "第53",
+          "title": "地下水位低下工法",
+          "headingText": "第53 地下水位低下工法",
+          "page": 57
+        },
+        {
+          "number": "第54",
+          "title": "地盤改良工事",
+          "headingText": "第54 地盤改良工事",
+          "page": 58
+        },
+        {
+          "number": "第55",
+          "title": "排水の処理",
+          "headingText": "第55 排水の処理",
+          "page": 59
+        }
+      ],
+      "stats": {
+        "sections": 0,
+        "articles": 9,
+        "clauses": 0,
+        "paragraphs": 69,
+        "items": 0,
+        "notes": 0,
+        "tables": 0,
+        "captions": 0,
+        "tablesGfm": 0,
+        "tablesList": 0,
+        "tablesOverride": 0,
+        "tablesVerbatim": 0
+      },
+      "tableOutcomes": {},
+      "indexable": false,
+      "duplicateOf": null,
+      "reviewStatus": "clean"
+    },
+    {
+      "chapterId": "1-9",
+      "title": "土木工事編 第9章 覆工",
+      "bookNumber": 1,
+      "bookTitle": "土木工事編",
+      "chapterNumber": 9,
+      "chapterTitle": "覆工",
+      "bookLabel": "土木工事編",
+      "chapterLabel": "第9章",
+      "file": "chapters/1-9.md",
+      "firstPage": 60,
+      "lastPage": 62,
+      "sourceParts": [
+        "part-02"
+      ],
+      "sourcePages": [
+        60,
+        61,
+        62
+      ],
+      "sourceSha256": "7317a86b7170810b0e86fb4b95eab984ab4d786ca9bd2ed328259a4388b6827b",
+      "outputSha256": "d60fd966a4b553d7c7169416c67187f21c9e69a10e8accae8a89c782b7fbb6c7",
+      "outputBytes": 6393,
+      "splitBySection": false,
+      "sections": [],
+      "articles": [
+        {
+          "number": "第56",
+          "title": "覆工部の出入口",
+          "headingText": "第56 覆工部の出入口",
+          "page": 60
+        },
+        {
+          "number": "第57",
+          "title": "資器材等の搬入",
+          "headingText": "第57 資器材等の搬入",
+          "page": 61
+        },
+        {
+          "number": "第58",
+          "title": "維持管理",
+          "headingText": "第58 維持管理",
+          "page": 61
+        }
+      ],
+      "stats": {
+        "sections": 0,
+        "articles": 3,
+        "clauses": 0,
+        "paragraphs": 18,
+        "items": 0,
+        "notes": 0,
+        "tables": 0,
+        "captions": 0,
+        "tablesGfm": 0,
+        "tablesList": 0,
+        "tablesOverride": 0,
+        "tablesVerbatim": 0
+      },
+      "tableOutcomes": {},
+      "indexable": false,
+      "duplicateOf": null,
+      "reviewStatus": "clean"
+    },
+    {
+      "chapterId": "1-10",
+      "title": "土木工事編 第10章 埋戻し",
+      "bookNumber": 1,
+      "bookTitle": "土木工事編",
+      "chapterNumber": 10,
+      "chapterTitle": "埋戻し",
+      "bookLabel": "土木工事編",
+      "chapterLabel": "第10章",
+      "file": "chapters/1-10.md",
+      "firstPage": 62,
+      "lastPage": 66,
+      "sourceParts": [
+        "part-02"
+      ],
+      "sourcePages": [
+        62,
+        63,
+        64,
+        65,
+        66
+      ],
+      "sourceSha256": "740069478bdbc1026033b5dfdc5670d06e117a23fe542edf2b8df2c6eedb128f",
+      "outputSha256": "1b963ac669edb4d407e7f1031898cbaeb1a6f0fc25fe1bf335ab64d1bf7838fa",
+      "outputBytes": 12902,
+      "splitBySection": false,
+      "sections": [],
+      "articles": [
+        {
+          "number": "第59",
+          "title": "杭、鋼矢板等の措置",
+          "headingText": "第59 杭、鋼矢板等の措置",
+          "page": 62
+        },
+        {
+          "number": "第60",
+          "title": "切りばり、腹おこしの措置",
+          "headingText": "第60 切りばり、腹おこしの措置",
+          "page": 63
+        },
+        {
+          "number": "第61",
+          "title": "掘削箇所内の点検",
+          "headingText": "第61 掘削箇所内の点検",
+          "page": 63
+        },
+        {
+          "number": "第62",
+          "title": "埋戻し方法",
+          "headingText": "第62 埋戻し方法",
+          "page": 64
+        },
+        {
+          "number": "第63",
+          "title": "杭、鋼矢板引抜き箇所の埋戻し方法",
+          "headingText": "第63 杭、鋼矢板引抜き箇所の埋戻し方法",
+          "page": 64
+        },
+        {
+          "number": "第64",
+          "title": "埋設物周りの埋戻し方法",
+          "headingText": "第64 埋設物周りの埋戻し方法",
+          "page": 65
+        },
+        {
+          "number": "第65",
+          "title": "構造物等の周囲の埋戻し方法",
+          "headingText": "第65 構造物等の周囲の埋戻し方法",
+          "page": 65
+        }
+      ],
+      "stats": {
+        "sections": 0,
+        "articles": 7,
+        "clauses": 0,
+        "paragraphs": 37,
+        "items": 0,
+        "notes": 0,
+        "tables": 0,
+        "captions": 0,
+        "tablesGfm": 0,
+        "tablesList": 0,
+        "tablesOverride": 0,
+        "tablesVerbatim": 0
+      },
+      "tableOutcomes": {},
+      "indexable": false,
+      "duplicateOf": null,
+      "reviewStatus": "clean"
+    },
+    {
+      "chapterId": "1-11",
+      "title": "土木工事編 第11章 地下掘進工事",
+      "bookNumber": 1,
+      "bookTitle": "土木工事編",
+      "chapterNumber": 11,
+      "chapterTitle": "地下掘進工事",
+      "bookLabel": "土木工事編",
+      "chapterLabel": "第11章",
+      "file": "chapters/1-11.md",
+      "firstPage": 66,
+      "lastPage": 68,
+      "sourceParts": [
+        "part-02"
+      ],
+      "sourcePages": [
+        66,
+        67,
+        68
+      ],
+      "sourceSha256": "610ca294d442cf17f48857db092b31947f5aa1e070c809c08b93f35c8c77892e",
+      "outputSha256": "654cb2008c5d1936ccd992324c95a6b53aabfc4f0b7f56b7a63be117db6257c3",
+      "outputBytes": 8640,
+      "splitBySection": false,
+      "sections": [],
+      "articles": [
+        {
+          "number": "第66",
+          "title": "施工環境と地盤条件の調査",
+          "headingText": "第66 施工環境と地盤条件の調査",
+          "page": 66
+        },
+        {
+          "number": "第67",
+          "title": "作業基地",
+          "headingText": "第67 作業基地",
+          "page": 67
+        },
+        {
+          "number": "第68",
+          "title": "掘進中の観測",
+          "headingText": "第68 掘進中の観測",
+          "page": 67
+        }
+      ],
+      "stats": {
+        "sections": 0,
+        "articles": 3,
+        "clauses": 0,
+        "paragraphs": 22,
+        "items": 0,
+        "notes": 0,
+        "tables": 0,
+        "captions": 0,
+        "tablesGfm": 0,
+        "tablesList": 0,
+        "tablesOverride": 0,
+        "tablesVerbatim": 0
+      },
+      "tableOutcomes": {},
+      "indexable": false,
+      "duplicateOf": null,
+      "reviewStatus": "clean"
+    },
+    {
+      "chapterId": "1-12",
+      "title": "土木工事編 第12章 火災及び酸素欠乏症の防止",
+      "bookNumber": 1,
+      "bookTitle": "土木工事編",
+      "chapterNumber": 12,
+      "chapterTitle": "火災及び酸素欠乏症の防止",
+      "bookLabel": "土木工事編",
+      "chapterLabel": "第12章",
+      "file": "chapters/1-12.md",
+      "firstPage": 68,
+      "lastPage": 70,
+      "sourceParts": [
+        "part-02"
+      ],
+      "sourcePages": [
+        68,
+        69,
+        70
+      ],
+      "sourceSha256": "a6b6ff338c94db356a6edb42f9969372df26919008067d80635ec38f5158c872",
+      "outputSha256": "735b0399dcd8eb3a4b84b77deafbac4c596016a29be942509b7d6dea4ed740e0",
+      "outputBytes": 6975,
+      "splitBySection": false,
+      "sections": [],
+      "articles": [
+        {
+          "number": "第69",
+          "title": "防火",
+          "headingText": "第69 防火",
+          "page": 68
+        },
+        {
+          "number": "第70",
+          "title": "酸素欠乏症の防止",
+          "headingText": "第70 酸素欠乏症の防止",
+          "page": 69
+        }
+      ],
+      "stats": {
+        "sections": 0,
+        "articles": 2,
+        "clauses": 0,
+        "paragraphs": 27,
+        "items": 0,
+        "notes": 0,
+        "tables": 0,
+        "captions": 0,
+        "tablesGfm": 0,
+        "tablesList": 0,
+        "tablesOverride": 0,
+        "tablesVerbatim": 0
+      },
+      "tableOutcomes": {},
+      "indexable": false,
+      "duplicateOf": null,
+      "reviewStatus": "clean"
+    },
+    {
+      "chapterId": "2-1",
+      "title": "建築工事等編 第1章 総則",
+      "bookNumber": 2,
+      "bookTitle": "建築工事等編",
+      "chapterNumber": 1,
+      "chapterTitle": "総則",
+      "bookLabel": "建築工事等編",
+      "chapterLabel": "第1章",
+      "file": "chapters/2-1.md",
+      "firstPage": 71,
+      "lastPage": 82,
+      "sourceParts": [
+        "part-02"
+      ],
+      "sourcePages": [
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82
+      ],
+      "sourceSha256": "79c05d2c2ff153a6bf12be7aec61bd63f104717ed6d4e4fc5ad05f39c56b21a4",
+      "outputSha256": "7237f43896c321579381a839b9962bac017afddc04cb8f2332422aef661e21e0",
+      "outputBytes": 42181,
+      "splitBySection": false,
+      "sections": [],
+      "articles": [
+        {
+          "number": "第1",
+          "title": "目的",
+          "headingText": "第1 目的",
+          "page": 71
+        },
+        {
+          "number": "第2",
+          "title": "適用対象",
+          "headingText": "第2 適用対象",
+          "page": 72
+        },
+        {
+          "number": "第3",
+          "title": "発注者及び施工者の責務",
+          "headingText": "第3 発注者及び施工者の責務",
+          "page": 73
+        },
+        {
+          "number": "第4",
+          "title": "設計段階における調査等",
+          "headingText": "第4 設計段階における調査等",
+          "page": 74
+        },
+        {
+          "number": "第5",
+          "title": "施工計画及び工法選定における危険性の除去と施工前の事前評価",
+          "headingText": "第5 施工計画及び工法選定における危険性の除去と施工前の事前評価",
+          "page": 75
+        },
+        {
+          "number": "第6",
+          "title": "建設機械の選定",
+          "headingText": "第6 建設機械の選定",
+          "page": 76
+        },
+        {
+          "number": "第7",
+          "title": "適正な工期の確保",
+          "headingText": "第7 適正な工期の確保",
+          "page": 76
+        },
+        {
+          "number": "第8",
+          "title": "公衆災害防止対策経費の確保",
+          "headingText": "第8 公衆災害防止対策経費の確保",
+          "page": 77
+        },
+        {
+          "number": "第9",
+          "title": "隣接工事との調整",
+          "headingText": "第9 隣接工事との調整",
+          "page": 78
+        },
+        {
+          "number": "第10",
+          "title": "付近居住者等への周知",
+          "headingText": "第10 付近居住者等への周知",
+          "page": 79
+        },
+        {
+          "number": "第11",
+          "title": "荒天時等の対応に関する検討",
+          "headingText": "第11 荒天時等の対応に関する検討",
+          "page": 80
+        },
+        {
+          "number": "第12",
+          "title": "現場組織体制",
+          "headingText": "第12 現場組織体制",
+          "page": 80
+        },
+        {
+          "number": "第13",
+          "title": "公衆災害発生時の措置と再発防止",
+          "headingText": "第13 公衆災害発生時の措置と再発防止",
+          "page": 81
+        }
+      ],
+      "stats": {
+        "sections": 0,
+        "articles": 13,
+        "clauses": 0,
+        "paragraphs": 96,
+        "items": 0,
+        "notes": 0,
+        "tables": 0,
+        "captions": 0,
+        "tablesGfm": 0,
+        "tablesList": 0,
+        "tablesOverride": 0,
+        "tablesVerbatim": 0
+      },
+      "tableOutcomes": {},
+      "indexable": false,
+      "duplicateOf": null,
+      "reviewStatus": "clean"
+    },
+    {
+      "chapterId": "2-2",
+      "title": "建築工事等編 第2章 一般事項",
+      "bookNumber": 2,
+      "bookTitle": "建築工事等編",
+      "chapterNumber": 2,
+      "chapterTitle": "一般事項",
+      "bookLabel": "建築工事等編",
+      "chapterLabel": "第2章",
+      "file": "chapters/2-2.md",
+      "firstPage": 82,
+      "lastPage": 98,
+      "sourceParts": [
+        "part-02"
+      ],
+      "sourcePages": [
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        92,
+        93,
+        94,
+        95,
+        96,
+        97,
+        98
+      ],
+      "sourceSha256": "0e78cb6964d0971ae273f217ed883b43ef58ebb5417f6fbdfd9f186d973cb7ab",
+      "outputSha256": "aed9d902335d1f671bd2fe2187de4a5272da39ea60cf44d71e8f3bc9e8b3a008",
+      "outputBytes": 52159,
+      "splitBySection": false,
+      "sections": [],
+      "articles": [
+        {
+          "number": "第14",
+          "title": "整理整頓",
+          "headingText": "第14 整理整頓",
+          "page": 83
+        },
+        {
+          "number": "第15",
+          "title": "飛来落下による危険防止",
+          "headingText": "第15 飛来落下による危険防止",
+          "page": 83
+        },
+        {
+          "number": "第16",
+          "title": "粉塵対策",
+          "headingText": "第16 粉塵対策",
+          "page": 84
+        },
+        {
+          "number": "第17",
+          "title": "適正な照明",
+          "headingText": "第17 適正な照明",
+          "page": 84
+        },
+        {
+          "number": "第18",
+          "title": "火災防止",
+          "headingText": "第18 火災防止",
+          "page": 85
+        },
+        {
+          "number": "第19",
+          "title": "危険物貯蔵",
+          "headingText": "第19 危険物貯蔵",
+          "page": 86
+        },
+        {
+          "number": "第20",
+          "title": "周辺構造物への対策",
+          "headingText": "第20 周辺構造物への対策",
+          "page": 87
+        },
+        {
+          "number": "第21",
+          "title": "仮囲い、出入口",
+          "headingText": "第21 仮囲い、出入口",
+          "page": 87
+        },
+        {
+          "number": "第22",
+          "title": "建設資材等の運搬",
+          "headingText": "第22 建設資材等の運搬",
+          "page": 88
+        },
+        {
+          "number": "第23",
+          "title": "外部足場に関する措置",
+          "headingText": "第23 外部足場に関する措置",
+          "page": 89
+        },
+        {
+          "number": "第24",
+          "title": "落下物による危害の防止",
+          "headingText": "第24 落下物による危害の防止",
+          "page": 91
+        },
+        {
+          "number": "第25",
+          "title": "足場等の設置・解体時の作業計画及び手順",
+          "headingText": "第25 足場等の設置・解体時の作業計画及び手順",
+          "page": 92
+        },
+        {
+          "number": "第26",
+          "title": "埋設物の事前確認",
+          "headingText": "第26 埋設物の事前確認",
+          "page": 93
+        },
+        {
+          "number": "第27",
+          "title": "埋設物の保安維持等",
+          "headingText": "第27 埋設物の保安維持等",
+          "page": 95
+        },
+        {
+          "number": "第28",
+          "title": "鉄道及び軌道敷近傍での作業",
+          "headingText": "第28 鉄道及び軌道敷近傍での作業",
+          "page": 96
+        },
+        {
+          "number": "第29",
+          "title": "道路区域近傍での仮設物の設置等",
+          "headingText": "第29 道路区域近傍での仮設物の設置等",
+          "page": 97
+        },
+        {
+          "number": "第30",
+          "title": "安全巡視",
+          "headingText": "第30 安全巡視",
+          "page": 97
+        }
+      ],
+      "stats": {
+        "sections": 0,
+        "articles": 17,
+        "clauses": 0,
+        "paragraphs": 146,
+        "items": 0,
+        "notes": 0,
+        "tables": 0,
+        "captions": 0,
+        "tablesGfm": 0,
+        "tablesList": 0,
+        "tablesOverride": 0,
+        "tablesVerbatim": 0
+      },
+      "tableOutcomes": {},
+      "indexable": false,
+      "duplicateOf": null,
+      "reviewStatus": "clean"
+    },
+    {
+      "chapterId": "2-3",
+      "title": "建築工事等編 第3章 交通対策",
+      "bookNumber": 2,
+      "bookTitle": "建築工事等編",
+      "chapterNumber": 3,
+      "chapterTitle": "交通対策",
+      "bookLabel": "建築工事等編",
+      "chapterLabel": "第3章",
+      "file": "chapters/2-3.md",
+      "firstPage": 98,
+      "lastPage": 102,
+      "sourceParts": [
+        "part-02",
+        "part-03"
+      ],
+      "sourcePages": [
+        98,
+        99,
+        100,
+        101,
+        102
+      ],
+      "sourceSha256": "6930f3d12e364a5191e95e4407547a12c0e0192e4f1a5ed250423c83fdd966fd",
+      "outputSha256": "99becfe7c1611f477156d9c4ba11909172727767603684c2d7f9c039fcf8b31f",
+      "outputBytes": 15359,
+      "splitBySection": false,
+      "sections": [],
+      "articles": [
+        {
+          "number": "第31",
+          "title": "作業場への工事車両の出入り等",
+          "headingText": "第31 作業場への工事車両の出入り等",
+          "page": 98
+        },
+        {
+          "number": "第32",
+          "title": "一般交通を制限する場合の措置",
+          "headingText": "第32 一般交通を制限する場合の措置",
+          "page": 98
+        },
+        {
+          "number": "第33",
+          "title": "歩行者用通路の確保",
+          "headingText": "第33 歩行者用通路の確保",
+          "page": 99
+        },
+        {
+          "number": "第34",
+          "title": "乗入れ構台",
+          "headingText": "第34 乗入れ構台",
+          "page": 101
+        },
+        {
+          "number": "第35",
+          "title": "荷受け構台",
+          "headingText": "第35 荷受け構台",
+          "page": 101
+        }
+      ],
+      "stats": {
+        "sections": 0,
+        "articles": 5,
+        "clauses": 0,
+        "paragraphs": 24,
+        "items": 0,
+        "notes": 0,
+        "tables": 0,
+        "captions": 0,
+        "tablesGfm": 0,
+        "tablesList": 0,
+        "tablesOverride": 0,
+        "tablesVerbatim": 0
+      },
+      "tableOutcomes": {},
+      "indexable": false,
+      "duplicateOf": null,
+      "reviewStatus": "clean"
+    },
+    {
+      "chapterId": "2-4",
+      "title": "建築工事等編 第4章 使用する建設機械に関する措置",
+      "bookNumber": 2,
+      "bookTitle": "建築工事等編",
+      "chapterNumber": 4,
+      "chapterTitle": "使用する建設機械に関する措置",
+      "bookLabel": "建築工事等編",
+      "chapterLabel": "第4章",
+      "file": "chapters/2-4.md",
+      "firstPage": 102,
+      "lastPage": 110,
+      "sourceParts": [
+        "part-03"
+      ],
+      "sourcePages": [
+        102,
+        103,
+        104,
+        105,
+        106,
+        107,
+        108,
+        109,
+        110
+      ],
+      "sourceSha256": "12acc48f9998b1e9096353aab30d703a19ea41be86097f13b07d94190d8407c5",
+      "outputSha256": "92d40c00475ac196f796fba35e102f9ec5cf3808d38a162151f33168a1c05d1d",
+      "outputBytes": 26551,
+      "splitBySection": false,
+      "sections": [],
+      "articles": [
+        {
+          "number": "第36",
+          "title": "建設機械の使用及び移動",
+          "headingText": "第36 建設機械の使用及び移動",
+          "page": 102
+        },
+        {
+          "number": "第37",
+          "title": "架線、構造物等に近接した作業",
+          "headingText": "第37 架線、構造物等に近接した作業",
+          "page": 104
+        },
+        {
+          "number": "第38",
+          "title": "無人航空機による操作",
+          "headingText": "第38 無人航空機による操作",
+          "page": 106
+        },
+        {
+          "number": "第39",
+          "title": "建設機械の休止",
+          "headingText": "第39 建設機械の休止",
+          "page": 107
+        },
+        {
+          "number": "第40",
+          "title": "建設機械の点検、維持管理",
+          "headingText": "第40 建設機械の点検、維持管理",
+          "page": 108
+        },
+        {
+          "number": "第41",
+          "title": "移動式クレーン",
+          "headingText": "第41 移動式クレーン",
+          "page": 109
+        }
+      ],
+      "stats": {
+        "sections": 0,
+        "articles": 6,
+        "clauses": 0,
+        "paragraphs": 77,
+        "items": 0,
+        "notes": 0,
+        "tables": 0,
+        "captions": 0,
+        "tablesGfm": 0,
+        "tablesList": 0,
+        "tablesOverride": 0,
+        "tablesVerbatim": 0
+      },
+      "tableOutcomes": {},
+      "indexable": false,
+      "duplicateOf": null,
+      "reviewStatus": "clean"
+    },
+    {
+      "chapterId": "2-5",
+      "title": "建築工事等編 第5章 解体工事",
+      "bookNumber": 2,
+      "bookTitle": "建築工事等編",
+      "chapterNumber": 5,
+      "chapterTitle": "解体工事",
+      "bookLabel": "建築工事等編",
+      "chapterLabel": "第5章",
+      "file": "chapters/2-5.md",
+      "firstPage": 110,
+      "lastPage": 113,
+      "sourceParts": [
+        "part-03"
+      ],
+      "sourcePages": [
+        110,
+        111,
+        112,
+        113
+      ],
+      "sourceSha256": "69a0c621946bed021e7c3245e74cd0ff0b757fdf727ba994677d388a62351640",
+      "outputSha256": "c101ec018baaeb4e2a156a0d14d0f7cb9c6502ed2ea5c67d2a0b20c91dc5ce07",
+      "outputBytes": 12815,
+      "splitBySection": false,
+      "sections": [],
+      "articles": [
+        {
+          "number": "第42",
+          "title": "解体建築物に関する資料の提供",
+          "headingText": "第42 解体建築物に関する資料の提供",
+          "page": 110
+        },
+        {
+          "number": "第43",
+          "title": "構造的に自立していない部分の解体",
+          "headingText": "第43 構造的に自立していない部分の解体",
+          "page": 112
+        },
+        {
+          "number": "第44",
+          "title": "構造的に異なる部分の解体",
+          "headingText": "第44 構造的に異なる部分の解体",
+          "page": 112
+        },
+        {
+          "number": "第45",
+          "title": "危険物の解体",
+          "headingText": "第45 危険物の解体",
+          "page": 113
+        }
+      ],
+      "stats": {
+        "sections": 0,
+        "articles": 4,
+        "clauses": 0,
+        "paragraphs": 36,
+        "items": 0,
+        "notes": 0,
+        "tables": 0,
+        "captions": 0,
+        "tablesGfm": 0,
+        "tablesList": 0,
+        "tablesOverride": 0,
+        "tablesVerbatim": 0
+      },
+      "tableOutcomes": {},
+      "indexable": false,
+      "duplicateOf": null,
+      "reviewStatus": "clean"
+    },
+    {
+      "chapterId": "2-6",
+      "title": "建築工事等編 第6章 土工事",
+      "bookNumber": 2,
+      "bookTitle": "建築工事等編",
+      "chapterNumber": 6,
+      "chapterTitle": "土工事",
+      "bookLabel": "建築工事等編",
+      "chapterLabel": "第6章",
+      "file": "chapters/2-6.md",
+      "firstPage": 113,
+      "lastPage": 119,
+      "sourceParts": [
+        "part-03"
+      ],
+      "sourcePages": [
+        113,
+        114,
+        115,
+        116,
+        117,
+        118,
+        119
+      ],
+      "sourceSha256": "96fdb4ed2873195ae1450c181214aa10095ba11eedb8b5f930ffc53b04d3ced1",
+      "outputSha256": "10c0d70cf958ece5270b055b2105dfd1f30d5eb6c06a890f2851b10437b123d4",
+      "outputBytes": 21677,
+      "splitBySection": false,
+      "sections": [],
+      "articles": [
+        {
+          "number": "第46",
+          "title": "掘削方法の選定等",
+          "headingText": "第46 掘削方法の選定等",
+          "page": 114
+        },
+        {
+          "number": "第47",
+          "title": "地下水対策",
+          "headingText": "第47 地下水対策",
+          "page": 115
+        },
+        {
+          "number": "第48",
+          "title": "地盤アンカー",
+          "headingText": "第48 地盤アンカー",
+          "page": 116
+        },
+        {
+          "number": "第49",
+          "title": "山留め管理",
+          "headingText": "第49 山留め管理",
+          "page": 116
+        },
+        {
+          "number": "第50",
+          "title": "埋戻し",
+          "headingText": "第50 埋戻し",
+          "page": 117
+        },
+        {
+          "number": "第51",
+          "title": "地盤改良工事",
+          "headingText": "第51 地盤改良工事",
+          "page": 118
+        },
+        {
+          "number": "第52",
+          "title": "地下工事",
+          "headingText": "第52 地下工事",
+          "page": 119
+        }
+      ],
+      "stats": {
+        "sections": 0,
+        "articles": 7,
+        "clauses": 0,
+        "paragraphs": 33,
+        "items": 0,
+        "notes": 0,
+        "tables": 0,
+        "captions": 0,
+        "tablesGfm": 0,
+        "tablesList": 0,
+        "tablesOverride": 0,
+        "tablesVerbatim": 0
+      },
+      "tableOutcomes": {},
+      "indexable": false,
+      "duplicateOf": null,
+      "reviewStatus": "clean"
+    }
+  ]
+}

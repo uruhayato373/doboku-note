@@ -113,7 +113,8 @@ function extractArticleText(markdown: string): ReadonlyMap<string, string> {
   for (const line of stripGeneratedComment(stripAmendmentBlocks(markdown)).split(/\r?\n/u)) {
     // 条番号は manifest の article.number と同じ表記（共通仕様書 `1-1-1-1`・中部の特記仕様書 `特仕1-1-1-1`・
     // 東北の共通特記仕様書の 3 段 `1-1-1`）。表記を変えると structured data 側で本文を引けない
-    const article = line.match(/^###\s+((?:[^\s\d]+)?\d+-\d+-\d+(?:-\d+)?)\s+/u);
+    // 要綱の条 `第1 目的`（節を持たない章では H2）も同じ鍵（manifest の number）で引く
+    const article = line.match(/^###\s+((?:[^\s\d]+)?\d+-\d+-\d+(?:-\d+)?)\s+/u) ?? line.match(/^#{2,3}\s+(第\d+)\s+/u);
     if (article) {
       finish();
       currentNumber = article[1] ?? null;
@@ -197,6 +198,8 @@ function documentIndex(
       sections: chapter.sections.length,
       articles: chapter.stats.articles ?? 0,
       ...(chapter.bodyless ? { bodyless: true } : {}),
+      // 見出しを持たない説明資料の章（要綱の見直し内容）
+      ...(chapter.plainArticles ? { plainArticles: true } : {}),
     })),
   };
 }

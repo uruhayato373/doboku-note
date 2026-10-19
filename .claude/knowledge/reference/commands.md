@@ -121,7 +121,7 @@ npm run check-generated-indexes # refresh-indexes を実際に回し、生成物
 ## 公的基準（共通仕様書の章記事・ページ画像）
 
 ```bash
-npm run build-standard-articles # 公的基準の逐語文字起こし→編・章・節の構造化章記事を生成（`content/site/standards-articles/`。章は PDF 分冊でなく原本の柱＝編・章で切る。対象と canonical 機関は config/standards-structure.json）
+npm run build-standard-articles # 公的基準の逐語文字起こし→編・章・節の構造化章記事を生成（`content/site/standards-articles/`。章は PDF 分冊でなく原本の柱・本文中の見出し・設定の目次（`chapterSource`）で編・章に切る。対象と canonical 機関は config/standards-structure.json）
 npm run add-standards-document -- --pdf <原本.pdf> --agency <id> --agency-name <名> --document <id> --title … --landing <URL> --source-url <URL> [--commit] # 公的基準 1 冊を全文ライブラリへ足す（pdftotext と PyMuPDF の 2 抽出器で照合し、食い違い・文字の少ない・私用領域文字のページは目視の記録 `content/sources/standards/{agency}/{document}/visual-review.json` が揃うまで書かない）。**`build-standards-library` は外部の一括成果物から作り直すので、こちらで足した文書（mlit/sekou-kanri-kijun）を消す**
 npm run build-takuitsu-pdf      # 択一MDXをnote配布用A4 PDFへ変換（`-- --spec <json> [--out <pdf>]`）。spec必須=`bookId/title/subtitle/sources`、自作問題は任意`creditText`で出典説明を上書き。MDXコメント除去・Callout箱化・system Chrome描画。`--split` で `<out>-問題冊子.pdf`（解答・要点を除く）と `<out>-解答解説.pdf` を出す（両者の問題数不一致は停止）
 npm run build-standards-comparison # 近畿版を基準に各地方整備局版の本文差分を章・行単位で生成（`content/site/standards-articles/comparison.json`）

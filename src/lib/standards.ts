@@ -3,6 +3,8 @@ import 'server-only';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import catalogJson from '@/../content/site/standards-library/catalog.json';
+import structureConfig from '@/../config/standards-structure.json';
+import { editionDuplicateOf } from '@/lib/standards-editions.mjs';
 
 export type StandardPart = {
   slug: string;
@@ -154,8 +156,31 @@ export function standardPartLabel(
   return STANDARD_PART_LABELS[`${document.agencyId}/${document.documentId}/${part.slug}`] ?? null;
 }
 
+export type StandardEditionDuplicate = {
+  /** 要綱・要領の名前 */
+  title: string;
+  /** この文書の版 */
+  edition: string;
+  /** 検索に載せる 1 本の文書（冊子の項目なら item を持つ） */
+  canonical: { document: string; item?: number; edition: string };
+  reason: string;
+};
+
+/**
+ * 同じ要綱を他の機関・版でも収録していて、この文書は索引に載せない側か（設定 editionCanonical）。
+ * 載せない側なら群の情報を返す。判定は src/lib/standards-editions.mjs（生成器と同じ関数）。
+ */
+export function getStandardEditionDuplicate(
+  document: Pick<StandardDocument, 'agencyId' | 'documentId'>,
+): StandardEditionDuplicate | null {
+  const found = editionDuplicateOf(structureConfig, `${document.agencyId}/${document.documentId}`);
+  if (!found) return null;
+  return { title: found.group.title, edition: found.entry.edition, canonical: found.canonical, reason: found.entry.reason };
+}
+
 export function isStandardPartIndexable(document: StandardDocument): boolean {
   if (document.duplicateOf) return false;
+  if (getStandardEditionDuplicate(document)) return false;
   // Regional common specifications largely share the same national body.
   // Index the Kinki seed edition and all unique companion manuals; other
   // bureaus remain fully readable but noindex to avoid a duplicate crawl set.
