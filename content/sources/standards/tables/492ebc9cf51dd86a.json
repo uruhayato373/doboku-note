@@ -1,0 +1,257 @@
+{
+  "key": "492ebc9cf51dd86a",
+  "kind": "table",
+  "layout": [
+    "編 章 節 条 枝番 工　　　　　種  測　定　項　目     規　格　値               測　　定　　基　　準  測　　定　　箇　　所        単位：mm",
+    "                          堤長Ｌ       ±50  図面の寸法表示箇所で測定。                          摘　要",
+    "８ １ ９ ５ ２ 鋼製堰堤本体工         堤長 ℓ                                              8-1-9-5",
+    "                          堤幅Ｗ",
+    "砂砂鋼                       堤幅ｗ",
+    "                          高さＨ",
+    "防防製  （透過型）                高さｈ",
+    "",
+    "編堰堰",
+    "",
+    "堤堤                              ±10",
+    "",
+    "工",
+    "",
+    "                                ±30",
+    "",
+    "                                ±10",
+    "",
+    "                                ±10",
+    "",
+    "                                ±10",
+    "",
+    "     （次頁に続く）"
+  ],
+  "header": [
+    [
+      "編",
+      "章",
+      "節",
+      "条",
+      "枝番",
+      "工種",
+      "測定項目",
+      {
+        "same": "left"
+      },
+      {
+        "same": "left"
+      },
+      "規格値",
+      "測定基準",
+      "測定箇所",
+      "摘要"
+    ]
+  ],
+  "rows": [
+    [
+      "８ 砂防編",
+      "１ 砂防堰堤",
+      "９ 鋼製堰堤工",
+      "５",
+      "２",
+      "鋼製堰堤本体工 （透過型）",
+      "堤長Ｌ",
+      {
+        "same": "left"
+      },
+      {
+        "same": "left"
+      },
+      "±50",
+      "図面の寸法表示箇所で測定。",
+      "",
+      "8-1-9-5"
+    ],
+    [
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      "",
+      {
+        "same": "above"
+      },
+      "堤長 ℓ",
+      {
+        "same": "left"
+      },
+      {
+        "same": "left"
+      },
+      "±10",
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      }
+    ],
+    [
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      "",
+      {
+        "same": "above"
+      },
+      "堤幅Ｗ",
+      {
+        "same": "left"
+      },
+      {
+        "same": "left"
+      },
+      "±30",
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      }
+    ],
+    [
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      "",
+      {
+        "same": "above"
+      },
+      "堤幅ｗ",
+      {
+        "same": "left"
+      },
+      {
+        "same": "left"
+      },
+      "±10",
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      }
+    ],
+    [
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      "",
+      {
+        "same": "above"
+      },
+      "高さＨ",
+      {
+        "same": "left"
+      },
+      {
+        "same": "left"
+      },
+      "±10",
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      }
+    ],
+    [
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      "",
+      {
+        "same": "above"
+      },
+      "高さｈ",
+      {
+        "same": "left"
+      },
+      {
+        "same": "left"
+      },
+      "±10",
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      }
+    ]
+  ],
+  "notes": [
+    "単位：mm",
+    "（次頁に続く）"
+  ],
+  "headerFrom": null,
+  "review": {
+    "status": "approved",
+    "by": "qa",
+    "at": "2026-10-19T10:51:42.380Z",
+    "note": "測定箇所は図のみ（文字なし）。工種セル下部の「（次頁に続く）」は注記に置いた。 ／ QA: 透過型6行の値を画像p173と照合。ずれ・欠けなし"
+  }
+}

@@ -1,0 +1,697 @@
+{
+  "key": "aef40b330a3fd93c",
+  "kind": "table",
+  "layout": [
+    "                                                                                                        単位：mm",
+    "",
+    "編 章 節 条 枝番 工　　　　　種     測　定　項　目            規　格　値            測　　定　　基　　準         測　　定　　箇　　所                摘　要",
+    "",
+    "３ ２ 12 １ １",
+    "",
+    "土一工                    全     ℓ≦300mm         ±2",
+    "                             ℓ＞300mm      ±ℓ／100",
+    "木般場                 ※  移",
+    "                    4  動",
+    "工施製                    量",
+    "",
+    "事工作",
+    "",
+    "共  工                   ℓ",
+    "",
+    "通",
+    "",
+    "編  共                      上,下面加工仕上",
+    "                                   げ",
+    "   通                                      ±3",
+    "",
+    "                    組",
+    "",
+    "                    立コ",
+    "",
+    "                    高     構  ン   Ｈ≦300mm           ±3",
+    "                    さ     造  ク   Ｈ＞300mm",
+    "                    Ｈ     用  リー           (Ｈ／200＋3)小数",
+    "                                           点以下切り捨て",
+    "                             ト",
+    "",
+    "                          鋳放し長さ寸法 JIS B 0403-1995",
+    "",
+    "                          ※2）、※3）         CT14",
+    "",
+    "                    普 鋳放し肉厚寸法 JIS B 0403-1995",
+    "",
+    "                    通            ※2）      CT15",
+    "",
+    "                    寸     削り加工寸法          JIS B 0405-1991",
+    "                    法                             粗級",
+    "",
+    "                          ガス切断寸法          JIS B 0417-1979",
+    "                                                   B級",
+    "",
+    "３ ２ 12 １ ２ 鋳造費      幅                                      製品全数を測定。                                            3-2-12-1",
+    "                                                           平面度：1個のゴム支承の厚さ（ｔ）                            Ｌ",
+    "土一工         （大型ゴム支承工） ｗ ｗ,Ｌ,Ｄ≦500          0～＋5            の最大相対誤差",
+    "                                          0～＋1％                                                            ｔ",
+    "木般場                 長                     0～＋15            詳細は道路橋支承便覧参照",
+    "",
+    "工施製                 さ 500＜ｗ,Ｌ,Ｄ             ±0.5                              補強材",
+    "",
+    "事工作                 Ｌ        ≦1,500mm",
+    "",
+    "共  工                直",
+    "",
+    "通                   径 1,500＜ｗ,Ｌ,Ｄ",
+    "                    Ｄ",
+    "編  共                                                                          ｔ",
+    "                                                                                                     ｗ",
+    "   通",
+    "",
+    "                             ｔ≦20mm",
+    "",
+    "                    厚                     ±2.5％",
+    "                    さ 20＜ｔ≦160",
+    "                    ｔ",
+    "",
+    "                             160＜ｔ        ±4",
+    "",
+    "                    相        ｗ,Ｌ,Ｄ≦       1                                        Ｄ",
+    "",
+    "                    対        1,000mm",
+    "",
+    "                    誤        1,000mm＜     (ｗ,Ｌ,Ｄ)／",
+    "                                               1,000",
+    "                    差        ｗ,Ｌ,Ｄ"
+  ],
+  "header": [
+    [
+      "編",
+      "章",
+      "節",
+      "条",
+      "枝番",
+      "工種",
+      "測定項目",
+      {
+        "same": "left"
+      },
+      {
+        "same": "left"
+      },
+      "規格値",
+      "測定基準",
+      "測定箇所",
+      "摘要"
+    ]
+  ],
+  "rows": [
+    [
+      "３土木工事共通編",
+      "２一般施工",
+      "12工場製作工共通",
+      "１",
+      "１",
+      "",
+      "※4 全移動量ℓ",
+      "ℓ≦300mm",
+      {
+        "same": "left"
+      },
+      "±2",
+      "",
+      "",
+      ""
+    ],
+    [
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      "ℓ＞300mm",
+      {
+        "same": "left"
+      },
+      "±ℓ／100",
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      }
+    ],
+    [
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      "組立高さＨ",
+      "上,下面加工仕上げ",
+      {
+        "same": "left"
+      },
+      "±3",
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      }
+    ],
+    [
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      "コンクリート構造用",
+      "Ｈ≦300mm",
+      "±3",
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      }
+    ],
+    [
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      "Ｈ＞300mm",
+      "(Ｈ／200＋3)小数点以下切り捨て",
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      }
+    ],
+    [
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      "普通寸法",
+      "鋳放し長さ寸法 ※2）、※3）",
+      {
+        "same": "left"
+      },
+      "JIS B 0403-1995 CT14",
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      }
+    ],
+    [
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      "鋳放し肉厚寸法 ※2）",
+      {
+        "same": "left"
+      },
+      "JIS B 0403-1995 CT15",
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      }
+    ],
+    [
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      "削り加工寸法",
+      {
+        "same": "left"
+      },
+      "JIS B 0405-1991 粗級",
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      }
+    ],
+    [
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      "ガス切断寸法",
+      {
+        "same": "left"
+      },
+      "JIS B 0417-1979 B級",
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      }
+    ],
+    [
+      "３土木工事共通編",
+      "２一般施工",
+      "12工場製作工共通",
+      "１",
+      "２",
+      "鋳造費（大型ゴム支承工）",
+      "幅ｗ 長さＬ 直径Ｄ",
+      "ｗ,Ｌ,Ｄ≦500",
+      {
+        "same": "left"
+      },
+      "0～＋5",
+      "製品全数を測定。平面度：1個のゴム支承の厚さ（ｔ）の最大相対誤差 詳細は道路橋支承便覧参照",
+      "補強材 Ｌ ｔ ｔ ｗ Ｄ",
+      "3-2-12-1"
+    ],
+    [
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      "500＜ｗ,Ｌ,Ｄ ≦1,500mm",
+      {
+        "same": "left"
+      },
+      "0～＋1％",
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      }
+    ],
+    [
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      "1,500＜ｗ,Ｌ,Ｄ",
+      {
+        "same": "left"
+      },
+      "0～＋15",
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      }
+    ],
+    [
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      "厚さｔ",
+      "ｔ≦20mm",
+      {
+        "same": "left"
+      },
+      "±0.5",
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      }
+    ],
+    [
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      "20＜ｔ≦160",
+      {
+        "same": "left"
+      },
+      "±2.5％",
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      }
+    ],
+    [
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      "160＜ｔ",
+      {
+        "same": "left"
+      },
+      "±4",
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      }
+    ],
+    [
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      "相対誤差",
+      "ｗ,Ｌ,Ｄ≦ 1,000mm",
+      {
+        "same": "left"
+      },
+      "1",
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      }
+    ],
+    [
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      "1,000mm＜ ｗ,Ｌ,Ｄ",
+      {
+        "same": "left"
+      },
+      "(ｗ,Ｌ,Ｄ)／1,000",
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      }
+    ]
+  ],
+  "notes": [
+    "単位：mm"
+  ],
+  "headerFrom": null,
+  "review": {
+    "status": "approved",
+    "by": "qa",
+    "at": "2026-10-19T10:49:23.897Z",
+    "note": "見出しは版面にある。1段目の枝番1は工種名が前ページ（d1794379bcdf1cbb）にあるため空欄。図の中の文字（補強材・Ｌ・ｔ・ｗ・Ｄ）は測定箇所欄に置いた。 ／ QA: p0130-0133の画像と全セル照合。行列対応・結合・見出し一致。空欄セルは原本も空"
+  }
+}
