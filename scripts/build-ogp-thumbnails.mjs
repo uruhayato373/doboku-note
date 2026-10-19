@@ -3,8 +3,9 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { createHash } from 'node:crypto';
+import { execFileSync } from 'node:child_process';
 import sharp from 'sharp';
-import { loadConfig, loadManifest, loadEnvLocal, makeS3 } from './lib/asset-storage.mjs';
+import { loadConfig, loadManifest, loadEnvLocal, makeS3, MANIFEST_PATH } from './lib/asset-storage.mjs';
 import { REPO_ROOT as root } from './lib/repository-paths.mjs';
 const widths = [248, 336, 640];
 const hash = b => createHash('sha256').update(b).digest('hex');
@@ -12,9 +13,20 @@ const args = process.argv.slice(2);
 const supply = args.includes('--supply');
 const check = args.includes('--check');
 const prefix = args.includes('--path') ? args[args.indexOf('--path') + 1] : 'content/site/';
-if (!prefix || (supply && check)) throw Error('引数を確認してください');
-const entries = Object.entries(loadManifest().entries).filter(([p,e]) => p.startsWith(prefix) && e.group === 'site-ogp-png' && e.bucket === 'public');
+// --changed-since <git の ref>: その ref の台帳から sha256 が変わった（または新しい）OGP だけを扱う。
+// 何も指定しない --supply は全件の派生 3 枚を HeadObject で確かめるので 1 回 6,900 リクエストになり、
+// OGP を 1 枚作るたびに全件を見ていた（R2 の Class B の大半・2026-10-20）。全件の自己修復は週次と手動に任せる
+const changedSince = args.includes('--changed-since') ? args[args.indexOf('--changed-since') + 1] : null;
+if (!prefix || (supply && check) || (args.includes('--changed-since') && !changedSince)) throw Error('引数を確認してください');
+let entries = Object.entries(loadManifest().entries).filter(([p,e]) => p.startsWith(prefix) && e.group === 'site-ogp-png' && e.bucket === 'public');
 if (!entries.length) throw Error('対象0件: 検査不成立');
+if (changedSince) {
+  const before = JSON.parse(execFileSync('git', ['show', `${changedSince}:${path.relative(root, MANIFEST_PATH)}`], { cwd: root, encoding: 'utf8', maxBuffer: 1 << 28 })).entries ?? {};
+  const all = entries.length;
+  entries = entries.filter(([p, e]) => before[p]?.sha256 !== e.sha256);
+  console.log(`--changed-since ${changedSince}: 台帳の OGP ${all} 件のうち変わった ${entries.length} 件だけを扱う`);
+  if (!entries.length) { console.log('変わった OGP は 0 件（派生の確認は不要）'); process.exit(0); }
+}
 let client, sdk, bucket;
 if (supply) {
   loadEnvLocal(); client = await makeS3(); sdk = await import('@aws-sdk/client-s3');
@@ -50,7 +62,7 @@ async function processEntry([p,e]) {
     if(output.length>150000)throw Error(`サムネイルが大きすぎます: ${p}`);
     fs.mkdirSync(path.dirname(t.file),{recursive:true});fs.writeFileSync(t.file,output);
     if(supply){
-      await client.send(new sdk.PutObjectCommand({Bucket:bucket,Key:t.key,Body:output,ContentType:'image/webp',CacheControl:'public,max-age=3600',Metadata:{'source-sha256':sourceHash,recipe:'webp-72-v1'}}));
+      await client.send(new sdk.PutObjectCommand({Bucket:bucket,Key:t.key,Body:output,ContentType:'image/webp',CacheControl:'public,max-age=86400',Metadata:{'source-sha256':sourceHash,recipe:'webp-72-v1'}}));
       const back=Buffer.from(await (await client.send(new sdk.GetObjectCommand({Bucket:bucket,Key:t.key}))).Body.transformToByteArray());
       if(hash(back)!==hash(output))throw Error(`R2読み戻し不一致: ${t.key}`);
     }

@@ -57,14 +57,14 @@ jobs:
           test -s .tmp/youtube-unscheduled.txt || { echo "外した公開が 0 件"; exit 0; }
           while read -r id; do
             [ -n "$id" ] || continue
-            node scripts/registry.mjs unschedule --pub "$id" --reason "2026-10-13 運営者が YouTube の投稿を一旦止め、公開予約を外した"
+            node scripts/registry.mjs unschedule --pub "$id" --reason "運営者の指示で公開予約を解除（実行 $GITHUB_RUN_ID）"
           done < .tmp/youtube-unscheduled.txt
           node scripts/check-content-registry.mjs
           git config user.email "actions@github.com"
           git config user.name "GitHub Actions"
           node scripts/ci-data.mjs add --paths content/registry
           git diff --cached --quiet && exit 0
-          git commit -m "chore(youtube): 公開予約を外した記録（運営者の判断・2026-10-13）[skip ci]"
+          git commit -m "chore(youtube): 公開予約を外した記録（run $GITHUB_RUN_ID）[skip ci]"
           git fetch origin develop
           git rebase origin/develop
           git push origin HEAD:develop

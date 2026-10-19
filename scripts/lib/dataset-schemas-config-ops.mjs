@@ -689,6 +689,23 @@ export const ConfigCloudflare = z
     graphql: z.url(),
     rest: z.url(),
     rulesetPhases: nonEmptyStrings.refine((a) => new Set(a).size === a.length, '重複がある').describe('監視するルールセットのフェーズ'),
+    usage: z
+      .object({
+        _doc: note,
+        windowDays: z.number().int().positive().describe('使用量を集計する日数（前日まで）'),
+        pricing: z
+          .object({
+            asOf: z.string().regex(/^\d{4}-\d{2}$/),
+            source: z.string().min(1),
+            r2: z.object({ freeGb: z.number().nonnegative(), storagePerGbMonth: z.number().nonnegative(), freeClassA: z.number().nonnegative(), classAPerMillion: z.number().nonnegative(), freeClassB: z.number().nonnegative(), classBPerMillion: z.number().nonnegative() }).strict(),
+            workers: z.object({ paidBasePerMonth: z.number().nonnegative(), includedRequests: z.number().nonnegative(), requestsPerMillion: z.number().nonnegative(), includedCpuMs: z.number().nonnegative(), cpuPerMillionMs: z.number().nonnegative() }).strict(),
+          })
+          .strict()
+          .describe('見込み額を出す料金表（USD）'),
+      })
+      .strict()
+      .optional()
+      .describe('アカウント全体の R2・Workers の使用量と見込み額'),
   })
   .strict()
   .meta({ title: 'Cloudflare の監視設定' });

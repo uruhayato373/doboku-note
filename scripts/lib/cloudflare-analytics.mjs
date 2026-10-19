@@ -166,3 +166,102 @@ export function assessCloudflareMetrics(latestSnapshot, nowUtcMs, { maxAgeDays =
   }
   return { status: reasons.length === 0 ? 'OK' : 'FAIL', reasons, inspected: daysReturned };
 }
+
+// ---- アカウント全体の使用量（R2・Workers）と請求の見込み -------------------------------------
+// 請求はゾーン単位でなくアカウント単位（doboku-note と stats47 が同じアカウント）。どちらの使用量が
+// 増えたかを週次で見えるよう、R2 はバケット別・Workers はスクリプト別に記録する（2026-10-20）。
+
+/** R2 の操作の課金区分（Cloudflare R2 の料金表。一覧に無い操作は unknown として別に数える） */
+const R2_CLASS_A = new Set(['ListBuckets', 'PutBucket', 'ListObjects', 'PutObject', 'CopyObject', 'CompleteMultipartUpload', 'CreateMultipartUpload', 'LifecycleStorageTierTransition', 'ListMultipartUploads', 'UploadPart', 'UploadPartCopy', 'ListParts', 'PutBucketEncryption', 'PutBucketCors', 'PutBucketLifecycleConfiguration']);
+const R2_CLASS_B = new Set(['HeadBucket', 'HeadObject', 'GetObject', 'UsageSummary', 'GetBucketEncryption', 'GetBucketLocation', 'GetBucketCors', 'GetBucketLifecycleConfiguration']);
+const R2_FREE = new Set(['DeleteObject', 'DeleteBucket', 'AbortMultipartUpload']);
+
+export function r2OperationClass(actionType) {
+  if (R2_CLASS_A.has(actionType)) return 'classA';
+  if (R2_CLASS_B.has(actionType)) return 'classB';
+  if (R2_FREE.has(actionType)) return 'free';
+  return 'unknown';
+}
+
+/** アカウントの R2・Workers の使用量を 1 本の GraphQL で取る（since/until は YYYY-MM-DD・両端を含む） */
+export function buildAccountUsageQuery({ accountTag, since, until }) {
+  return `query {
+  viewer {
+    accounts(filter: { accountTag: "${accountTag}" }) {
+      storage: r2StorageAdaptiveGroups(limit: 2000, filter: { date_geq: "${since}", date_leq: "${until}" }) {
+        max { objectCount payloadSize metadataSize }
+        dimensions { bucketName date }
+      }
+      operations: r2OperationsAdaptiveGroups(limit: 10000, filter: { date_geq: "${since}", date_leq: "${until}" }) {
+        sum { requests }
+        dimensions { bucketName actionType }
+      }
+      workers: workersInvocationsAdaptive(limit: 10000, filter: { date_geq: "${since}", date_leq: "${until}" }) {
+        sum { requests cpuTimeUs }
+        dimensions { scriptName }
+      }
+    }
+  }
+}`;
+}
+
+const round = (value, digits = 2) => Math.round(value * 10 ** digits) / 10 ** digits;
+
+/**
+ * GraphQL の結果をバケット別・スクリプト別に畳み、料金表（config/cloudflare.json の usage.pricing）で
+ * 期間の見込み額（USD）を出す。保管量は期間の最終日の値（月額換算の近似）。無料枠・含まれる量はアカウント全体で差し引く。
+ */
+export function summarizeAccountUsage(account, pricing) {
+  const latest = {};
+  for (const g of account?.storage ?? []) {
+    const bucket = g.dimensions?.bucketName ?? '(none)';
+    const date = g.dimensions?.date ?? '';
+    if (!latest[bucket] || date > latest[bucket].date) {
+      latest[bucket] = { date, objects: g.max?.objectCount ?? 0, bytes: (g.max?.payloadSize ?? 0) + (g.max?.metadataSize ?? 0) };
+    }
+  }
+  const buckets = {};
+  for (const [bucket, v] of Object.entries(latest)) buckets[bucket] = { objects: v.objects, gb: round(v.bytes / 1e9), classA: 0, classB: 0, free: 0, unknown: 0, topOperations: {} };
+  for (const g of account?.operations ?? []) {
+    const bucket = g.dimensions?.bucketName || '(none)';
+    const action = g.dimensions?.actionType ?? 'unknown';
+    const requests = g.sum?.requests ?? 0;
+    buckets[bucket] ??= { objects: 0, gb: 0, classA: 0, classB: 0, free: 0, unknown: 0, topOperations: {} };
+    buckets[bucket][r2OperationClass(action)] += requests;
+    buckets[bucket].topOperations[action] = (buckets[bucket].topOperations[action] ?? 0) + requests;
+  }
+  for (const v of Object.values(buckets)) {
+    v.topOperations = Object.fromEntries(Object.entries(v.topOperations).sort((a, b) => b[1] - a[1]).slice(0, 5));
+  }
+  const workers = {};
+  for (const g of account?.workers ?? []) {
+    const script = g.dimensions?.scriptName ?? '(none)';
+    workers[script] ??= { requests: 0, cpuMs: 0 };
+    workers[script].requests += g.sum?.requests ?? 0;
+    workers[script].cpuMs += Math.round((g.sum?.cpuTimeUs ?? 0) / 1000);
+  }
+  const total = (pick) => Object.values(buckets).reduce((sum, v) => sum + pick(v), 0);
+  const totals = {
+    r2Gb: round(total((v) => v.gb)),
+    r2ClassA: total((v) => v.classA),
+    r2ClassB: total((v) => v.classB),
+    workersRequests: Object.values(workers).reduce((sum, v) => sum + v.requests, 0),
+    workersCpuMs: Object.values(workers).reduce((sum, v) => sum + v.cpuMs, 0),
+  };
+  let estimateUsd = null;
+  if (pricing) {
+    const over = (used, included) => Math.max(0, used - included);
+    const r2 = pricing.r2;
+    const wk = pricing.workers;
+    const items = {
+      r2Storage: over(totals.r2Gb, r2.freeGb) * r2.storagePerGbMonth,
+      r2ClassA: (over(totals.r2ClassA, r2.freeClassA) / 1e6) * r2.classAPerMillion,
+      r2ClassB: (over(totals.r2ClassB, r2.freeClassB) / 1e6) * r2.classBPerMillion,
+      workersBase: totals.workersRequests > 0 ? wk.paidBasePerMonth : 0,
+      workersRequests: (over(totals.workersRequests, wk.includedRequests) / 1e6) * wk.requestsPerMillion,
+      workersCpu: (over(totals.workersCpuMs, wk.includedCpuMs) / 1e6) * wk.cpuPerMillionMs,
+    };
+    estimateUsd = { ...Object.fromEntries(Object.entries(items).map(([k, v]) => [k, round(v)])), total: round(Object.values(items).reduce((a, b) => a + b, 0)) };
+  }
+  return { buckets, workers, totals, estimateUsd };
+}

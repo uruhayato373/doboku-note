@@ -10,5 +10,28 @@
     "http_request_firewall_managed",
     "http_request_dynamic_redirect",
     "http_request_firewall_custom"
-  ]
+  ],
+  "usage": {
+    "_doc": "アカウント全体の使用量（R2 のバケット別・Workers のスクリプト別）を cloudflare.zone の記録に一緒に残し、料金表で見込み額を出す。請求は doboku-note と stats47 の合算なので、どちらが増えたかを見分けるため（2026-10-20）。料金は公式の料金表の写しで、変わったらここを直す。",
+    "windowDays": 30,
+    "pricing": {
+      "asOf": "2026-10",
+      "source": "https://developers.cloudflare.com/r2/pricing/ ・ https://developers.cloudflare.com/workers/platform/pricing/",
+      "r2": {
+        "freeGb": 10,
+        "storagePerGbMonth": 0.015,
+        "freeClassA": 1000000,
+        "classAPerMillion": 4.5,
+        "freeClassB": 10000000,
+        "classBPerMillion": 0.36
+      },
+      "workers": {
+        "paidBasePerMonth": 5,
+        "includedRequests": 10000000,
+        "requestsPerMillion": 0.3,
+        "includedCpuMs": 30000000,
+        "cpuPerMillionMs": 0.02
+      }
+    }
+  }
 }

@@ -885,13 +885,14 @@
       "platform": {
         "id": "7fEJR-WD8Ng",
         "url": "https://youtu.be/7fEJR-WD8Ng",
-        "privacy": "private",
+        "privacy": "public",
         "evidence": {
-          "kind": "youtube-studio",
-          "ref": "https://studio.youtube.com/video/7fEJR-WD8Ng/edit — 2026-10-16確認:「この動画は 2026年10月19日 20:00 に 公開 に設定されます」(GMT+0900)。題名・専用サムネイル・1:51・チェック問題なしを照合。"
-        }
+          "kind": "youtube-api",
+          "ref": "videos.list@2026-10-19T11:22:13.038Z"
+        },
+        "publishedAt": "2026-10-19T11:00:36.000Z"
       },
-      "status": "scheduled",
+      "status": "published",
       "publishAt": "2026-10-19T20:00:00+09:00",
       "approval": {
         "by": "user",
@@ -1156,13 +1157,7 @@
           "ref": "https://studio.youtube.com/video/oC4x6TOAoa8/edit — 予約完了画面で 2026-10-25T20:00:00+09:00 (JST) を確認。証跡 .tmp/five-videos/keiken-daizai-erabi/youtube-scheduled.png"
         }
       },
-      "status": "scheduled",
-      "publishAt": "2026-10-25T20:00:00+09:00",
-      "approval": {
-        "by": "user",
-        "at": "2026-10-18T21:53:42.659Z",
-        "contentSha256": "19a2fcaea72721f79a112f78327452e7aa7f8a53632e60fdc354ff5dd322a2fd"
-      },
+      "status": "uploaded_private",
       "times": {
         "rendered": "2026-10-15T22:53:18.035Z",
         "uploaded": "2026-10-15T22:59:23.712Z",
@@ -1176,6 +1171,12 @@
       "thumbnail": {
         "status": "set",
         "setAt": "2026-10-15T22:59:23.712Z"
+      },
+      "reason": "2026-10-19 運営者の承認で旧版の予約を解除。改訂版の新規公開・再予約は保留。YouTube確認 run 39249882992（元の予約 2026-10-25T20:00:00+09:00）",
+      "approval": {
+        "by": "user",
+        "at": "2026-10-18T21:53:42.659Z",
+        "contentSha256": "19a2fcaea72721f79a112f78327452e7aa7f8a53632e60fdc354ff5dd322a2fd"
       }
     },
     {
@@ -1795,13 +1796,7 @@
           "ref": "https://studio.youtube.com/video/2SpZC1at1FU/edit — 予約完了画面で 2026-10-27T20:00:00+09:00 (JST) を確認。証跡 .tmp/five-videos/kento-taio-kakiwake/youtube-scheduled.png"
         }
       },
-      "status": "scheduled",
-      "publishAt": "2026-10-27T20:00:00+09:00",
-      "approval": {
-        "by": "user",
-        "at": "2026-10-18T21:53:42.826Z",
-        "contentSha256": "467f8e4d3da3f2f183356585b87c2875619989e9636b3376328d9b8518b881a7"
-      },
+      "status": "uploaded_private",
       "times": {
         "rendered": "2026-10-15T22:54:01.816Z",
         "uploaded": "2026-10-15T23:03:06.711Z",
@@ -1815,6 +1810,12 @@
       "thumbnail": {
         "status": "set",
         "setAt": "2026-10-15T23:03:06.711Z"
+      },
+      "reason": "2026-10-19 運営者の承認で旧版の予約を解除。改訂版の新規公開・再予約は保留。YouTube確認 run 39249882992（元の予約 2026-10-27T20:00:00+09:00）",
+      "approval": {
+        "by": "user",
+        "at": "2026-10-18T21:53:42.826Z",
+        "contentSha256": "467f8e4d3da3f2f183356585b87c2875619989e9636b3376328d9b8518b881a7"
       }
     },
     {
@@ -1953,13 +1954,7 @@
           "ref": "https://studio.youtube.com/video/QQAX-iLCwiE/edit — 予約完了画面で 2026-10-23T20:00:00+09:00 (JST) を確認。証跡 .tmp/five-videos/koji-gaiyo-seigou/youtube-scheduled.png"
         }
       },
-      "status": "scheduled",
-      "publishAt": "2026-10-23T20:00:00+09:00",
-      "approval": {
-        "by": "user",
-        "at": "2026-10-18T21:53:42.991Z",
-        "contentSha256": "25c237846bc8aca5767cc69a2bf23fc49d29403e0079403b0663c5b6de9229b6"
-      },
+      "status": "uploaded_private",
       "times": {
         "rendered": "2026-10-15T22:52:14.661Z",
         "uploaded": "2026-10-15T22:55:44.502Z",
@@ -1973,6 +1968,12 @@
       "thumbnail": {
         "status": "set",
         "setAt": "2026-10-15T22:55:44.502Z"
+      },
+      "reason": "2026-10-19 運営者の承認で旧版の予約を解除。改訂版の新規公開・再予約は保留。YouTube確認 run 39249882992（元の予約 2026-10-23T20:00:00+09:00）",
+      "approval": {
+        "by": "user",
+        "at": "2026-10-18T21:53:42.991Z",
+        "contentSha256": "25c237846bc8aca5767cc69a2bf23fc49d29403e0079403b0663c5b6de9229b6"
       }
     },
     {
@@ -2021,13 +2022,7 @@
           "ref": "https://studio.youtube.com/video/JgZ4X25vF1E/edit — 予約完了画面で 2026-10-21T20:00:00+09:00 (JST) を確認。証跡 .tmp/five-videos/kotei-touan-gutaika/youtube-scheduled.png"
         }
       },
-      "status": "scheduled",
-      "publishAt": "2026-10-21T20:00:00+09:00",
-      "approval": {
-        "by": "user",
-        "at": "2026-10-18T21:53:43.169Z",
-        "contentSha256": "2bfaa5abbc5cd8d34448579e1397d33f54e26488c1c376dc236b7378e6f72940"
-      },
+      "status": "uploaded_private",
       "times": {
         "rendered": "2026-10-15T22:49:18.003Z",
         "uploaded": "2026-10-15T22:52:49.858Z",
@@ -2041,6 +2036,12 @@
       "thumbnail": {
         "status": "set",
         "setAt": "2026-10-15T22:52:49.858Z"
+      },
+      "reason": "2026-10-19 運営者の承認で旧版の予約を解除。改訂版の新規公開・再予約は保留。YouTube確認 run 39249882992（元の予約 2026-10-21T20:00:00+09:00）",
+      "approval": {
+        "by": "user",
+        "at": "2026-10-18T21:53:43.169Z",
+        "contentSha256": "2bfaa5abbc5cd8d34448579e1397d33f54e26488c1c376dc236b7378e6f72940"
       }
     },
     {
@@ -2436,13 +2437,7 @@
           "ref": "https://studio.youtube.com/video/ewMFfzVHdwc/edit — 予約完了画面で 2026-10-29T20:00:00+09:00 (JST) を確認。証跡 .tmp/five-videos/touan-teishutsu-check/youtube-scheduled.png"
         }
       },
-      "status": "scheduled",
-      "publishAt": "2026-10-29T20:00:00+09:00",
-      "approval": {
-        "by": "user",
-        "at": "2026-10-18T21:53:43.366Z",
-        "contentSha256": "2980ff88bec327e75df0c069f242d94dc8904e417927dadfe0c7d6b8f204b8d5"
-      },
+      "status": "uploaded_private",
       "times": {
         "rendered": "2026-10-15T22:54:09.909Z",
         "uploaded": "2026-10-15T23:07:27.924Z",
@@ -2456,6 +2451,12 @@
       "thumbnail": {
         "status": "set",
         "setAt": "2026-10-15T23:07:27.924Z"
+      },
+      "reason": "2026-10-19 運営者の承認で旧版の予約を解除。改訂版の新規公開・再予約は保留。YouTube確認 run 39249882992（元の予約 2026-10-29T20:00:00+09:00）",
+      "approval": {
+        "by": "user",
+        "at": "2026-10-18T21:53:43.366Z",
+        "contentSha256": "2980ff88bec327e75df0c069f242d94dc8904e417927dadfe0c7d6b8f204b8d5"
       }
     }
   ]

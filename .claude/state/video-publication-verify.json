@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "verifiedAt": "2026-10-18T18:16:41.294Z",
+  "verifiedAt": "2026-10-19T11:22:14.023Z",
   "ok": true,
   "reason": null,
-  "checked": 2,
+  "checked": 3,
   "findings": [],
   "entries": {
     "anzen-touan-gutaika-kaitei/longform": {
@@ -21,6 +21,15 @@
       "status": "published",
       "videoId": "lNI2f_SjCTk",
       "url": "https://www.youtube.com/watch?v=lNI2f_SjCTk",
+      "ok": true,
+      "problems": []
+    },
+    "hinshitsu-touan-gutaika/longform": {
+      "packId": "hinshitsu-touan-gutaika",
+      "derivative": "longform",
+      "status": "published",
+      "videoId": "7fEJR-WD8Ng",
+      "url": "https://youtu.be/7fEJR-WD8Ng",
       "ok": true,
       "problems": []
     }

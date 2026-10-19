@@ -481,6 +481,12 @@
           "label": "重要 workflow が赤いまま・動いていない",
           "stage": "基盤の点検",
           "role": "点検"
+        },
+        {
+          "command": "check-r2-orphans",
+          "label": "R2 公開バケットに残す理由の無いオブジェクト",
+          "stage": "基盤の点検",
+          "role": "点検"
         }
       ],
       "procedure": [
@@ -581,6 +587,10 @@
         {
           "command": "check-past-exam-inventory",
           "label": "過去問の年度在庫"
+        },
+        {
+          "command": "check-r2-orphans",
+          "label": "R2 公開バケットの孤児"
         }
       ],
       "handoffSection": "来月への申し送り"

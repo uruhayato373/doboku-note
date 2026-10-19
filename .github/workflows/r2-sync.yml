@@ -2,6 +2,8 @@ name: R2 Sync Images
 
 # content/site/**/img/** が変更されたとき、R2 に自動同期する。
 # 既存 .claude/scripts/upload-images-to-r2.mjs（S3 API）を流用。
+# バケットを 1 回一覧して中身（MD5）が変わった画像だけ送る（2026-10-20。旧実装は毎回全件を PutObject していた）。
+# MDX は R2 へ置かない（公開 URL で下書きまで読めるため）。
 # R2 専用 API Token（access key + secret）で認証。
 
 on:
@@ -25,10 +27,10 @@ on:
         required: false
         default: false
         type: boolean
-      images_only:
-        description: 'Images only（MDX は同期しない）'
+      force:
+        description: '全件を送り直す（Cache-Control を全件に付け直すときなど。既定は変わった画像だけ）'
         required: false
-        default: true
+        default: false
         type: boolean
 
 concurrency:
@@ -63,10 +65,8 @@ jobs:
           if [ "${{ github.event.inputs.dry_run }}" = "true" ]; then
             ARGS="$ARGS --dry-run"
           fi
-          if [ "${{ github.event.inputs.images_only }}" = "false" ]; then
-            echo "Full sync (MDX + images)"
-          else
-            ARGS="$ARGS --images-only"
+          if [ "${{ github.event.inputs.force }}" = "true" ]; then
+            ARGS="$ARGS --force"
           fi
           echo "Running: npm run upload-images-r2 -- $ARGS"
           npm run upload-images-r2 -- $ARGS
@@ -77,5 +77,5 @@ jobs:
           echo "## R2 Sync Summary" >> $GITHUB_STEP_SUMMARY
           echo "- Trigger: ${{ github.event_name }}" >> $GITHUB_STEP_SUMMARY
           echo "- Dry run: ${{ github.event.inputs.dry_run || 'false' }}" >> $GITHUB_STEP_SUMMARY
-          echo "- Images only: ${{ github.event.inputs.images_only || 'true' }}" >> $GITHUB_STEP_SUMMARY
+          echo "- Force（全件）: ${{ github.event.inputs.force || 'false' }}" >> $GITHUB_STEP_SUMMARY
           echo "- Head SHA: ${{ github.sha }}" >> $GITHUB_STEP_SUMMARY
