@@ -38,55 +38,55 @@
     "_comment": "check-standard-articles 17・18 の基準（増やさない）。2026-10-16 実測。17 の 1 件は各文書の「東北地方──30㎝／その他の地域──40㎝」の一覧（正しく行が分かれている）と北海道版 10-16 の 1 か所。18 は表の上の小見出し・注記（正しい）と、表から外れた行の断片（近畿版で 7〜8 件: 0.15 の行・溶接完了時・M20 167～211 など）を含む。断片を表へ戻したら基準を下げる。 2026-10-19 に地方版 3 文書を加えた（初回の実測値。表はまだ組み直していないので 18 は表の上の小見出しと断片を含む）。 2026-10-19 に工事必携の要綱・要領 4 文書を加えた（初回の実測値。完成図等作成要領は図の中の文字と表が多く、18 の大半は図の注記）。 同日に地方版の大冊子 8 文書を加えた（様式集・記入例が多く、18 の大半は様式の欄の文字）。",
     "chubu/common": {
       "midSentenceBreaks": 1,
-      "strayTableFragments": 41
+      "strayTableFragments": 40
     },
     "chugoku/common": {
       "midSentenceBreaks": 1,
-      "strayTableFragments": 41
+      "strayTableFragments": 40
     },
     "hokkaido/common": {
       "midSentenceBreaks": 1,
-      "strayTableFragments": 46
+      "strayTableFragments": 45
     },
     "hokuriku/common": {
       "midSentenceBreaks": 1,
-      "strayTableFragments": 41
+      "strayTableFragments": 40
     },
     "kanto/common": {
       "midSentenceBreaks": 1,
-      "strayTableFragments": 41
+      "strayTableFragments": 40
     },
     "kinki/common": {
       "midSentenceBreaks": 1,
-      "strayTableFragments": 41
+      "strayTableFragments": 40
     },
     "kyushu/common": {
       "midSentenceBreaks": 1,
-      "strayTableFragments": 41
+      "strayTableFragments": 40
     },
     "shikoku/common": {
       "midSentenceBreaks": 1,
-      "strayTableFragments": 41
+      "strayTableFragments": 40
     },
     "tohoku/common": {
       "midSentenceBreaks": 1,
-      "strayTableFragments": 41
+      "strayTableFragments": 40
     },
     "chubu/special": {
-      "midSentenceBreaks": 3,
-      "strayTableFragments": 34
+      "midSentenceBreaks": 1,
+      "strayTableFragments": 20
     },
     "tohoku/special": {
-      "midSentenceBreaks": 1,
-      "strayTableFragments": 25
+      "midSentenceBreaks": 0,
+      "strayTableFragments": 22
     },
     "hokkaido/local": {
       "midSentenceBreaks": 0,
-      "strayTableFragments": 31
+      "strayTableFragments": 27
     },
     "kyushu/hikkei-common-08": {
-      "midSentenceBreaks": 6,
-      "strayTableFragments": 109
+      "midSentenceBreaks": 2,
+      "strayTableFragments": 97
     },
     "kyushu/hikkei-common-09": {
       "midSentenceBreaks": 0,
@@ -101,36 +101,36 @@
       "strayTableFragments": 0
     },
     "tohoku/reference": {
-      "midSentenceBreaks": 40,
-      "strayTableFragments": 517
+      "midSentenceBreaks": 13,
+      "strayTableFragments": 413
     },
     "kinki/hikkei": {
-      "midSentenceBreaks": 30,
-      "strayTableFragments": 305
+      "midSentenceBreaks": 11,
+      "strayTableFragments": 240
     },
     "kyushu/management-manual": {
       "midSentenceBreaks": 1,
-      "strayTableFragments": 92
+      "strayTableFragments": 80
     },
     "hokuriku/hikkei": {
       "midSentenceBreaks": 1,
-      "strayTableFragments": 187
+      "strayTableFragments": 149
     },
     "shikoku/manual": {
-      "midSentenceBreaks": 6,
-      "strayTableFragments": 139
+      "midSentenceBreaks": 2,
+      "strayTableFragments": 118
     },
     "hokkaido/appendix": {
-      "midSentenceBreaks": 5,
-      "strayTableFragments": 51
+      "midSentenceBreaks": 0,
+      "strayTableFragments": 44
     },
     "kanto/manual": {
       "midSentenceBreaks": 0,
       "strayTableFragments": 1
     },
     "mlit/sekou-kanri-kijun": {
-      "midSentenceBreaks": 125,
-      "strayTableFragments": 263
+      "midSentenceBreaks": 17,
+      "strayTableFragments": 78
     }
   },
   "sectionPages": {
@@ -2598,7 +2598,7 @@
       "ogpLabel": "マニュアル"
     },
     "mlit/sekou-kanri-kijun": {
-      "_comment": "国土交通省 土木工事施工管理基準及び規格値（案）令和8年3月（269p）。総則・出来形管理基準（編・工種のまとまりごと）・品質管理基準（工種ごと）・参考資料で章に分ける。出来形管理基準の目次（p5-20）は中扉（front）。 章の始まりは設定の目次（outline）。2026-10-19 に Workflow（Writer→QA）が版面を実測し、親が解析で rejects・review・行の割り当て漏れ 0 を確かめた。項番号は様式・一覧の連番と混ざるので連番を見ない（clauseSequence: sparse）。",
+      "_comment": "国土交通省 土木工事施工管理基準及び規格値（案）令和8年3月（269p）。総則・出来形管理基準（編・工種のまとまりごと）・品質管理基準（工種ごと）・参考資料で章に分ける。出来形管理基準の目次（p5-20）は中扉（front）。 章の始まりは設定の目次（outline）。2026-10-19 に Workflow（Writer→QA）が版面を実測し、親が解析で rejects・review・行の割り当て漏れ 0 を確かめた。項番号は様式・一覧の連番と混ざるので連番を見ない（clauseSequence: sparse）。 品質管理基準（p214-267）は全ページが 1 つの大きな表で、摘要欄の長い文が段落に化けて表が 1〜2 行ずつに切れるので、1 ページを 1 つの表の版面にする（tablePages・2026-10-19）。",
       "bodyStartPage": 2,
       "chapterSource": "outline",
       "runningHeaderPattern": "^[\\s　]*(?:出来形|品質)管理基準及び規格値（案）[\\s　]*$",
@@ -2800,7 +2800,13 @@
       ],
       "clauseSequence": "sparse",
       "articleStyle": "none",
-      "ogpLabel": "施工管理基準"
+      "ogpLabel": "施工管理基準",
+      "tablePages": [
+        [
+          214,
+          267
+        ]
+      ]
     }
   },
   "editionCanonical": {
