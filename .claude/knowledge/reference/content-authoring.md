@@ -206,7 +206,7 @@ CLAUDE.md 本体にも要点を置いているが、詳細はここで扱う。
   張り忘れると `npm run build` が `public/posts` の stat で ENOENT になる）
 - **本番**: Cloudflare Pages `_redirects` で R2 にリダイレクト
 - **マスター**: `content/site/**/img/` は **git 追跡対象**（PNG・SVG 含む）。複数 PC 間で git pull により同期される
-- **R2 へのアップロード（本番反映）**: 通常は `main` push 時に `r2-sync.yml`（CI）が自動同期する（対象 path = `content/site/**/img/**` のみ）。手動同期は `npm run upload-images-r2`（= `node .claude/scripts/upload-images-to-r2.mjs`）。バケットを 1 回一覧して中身（MD5）が変わった画像だけ送り、公開画像に 1 日のキャッシュを付ける（全件を送り直すのは `--force`・MDX は R2 へ置かない）。**OGP 画像 `ogp.png` は `img/` の外＝記事ディレクトリ直下**にあり別経路——develop push 時に `ogp-supply.yml`（CI）が生成・R2 供給まで行う（ローカル生成は `npm run ogp`、未供給は CI ゲート `check-ogp-coverage` が検知）
+- **R2 へのアップロード（本番反映）**: 通常は `main` push 時に `r2-sync.yml`（CI）が自動同期する（対象 path = `content/site/**/img/**` のみ）。手動同期は `npm run upload-images-r2`（= `node .claude/scripts/upload-images-to-r2.mjs`）。バケットを 1 回一覧して中身（MD5）が変わった画像だけ送り、公開画像に 1 日のキャッシュを付ける（全件を送り直すのは `--force`・MDX は R2 へ置かない）。同じ URL へ上書きした画像は、r2-sync が続けて `scripts/purge-r2-changed.mjs` で CDN のキャッシュを URL で消し、通常 URL の実体を SHA-256 で照合する（旧版のままなら赤。手動で上げたときは `npm run purge-r2-changed -- --list <--changed-out の JSON>`）。**OGP 画像 `ogp.png` は `img/` の外＝記事ディレクトリ直下**にあり別経路——develop push 時に `ogp-supply.yml`（CI）が生成・R2 供給まで行う（ローカル生成は `npm run ogp`、未供給は CI ゲート `check-ogp-coverage` が検知）
 - **R2 からのダウンロード（新規 PC 初期化時のフォールバック）**: `/sync-r2-images` または `npm run download-images`
 - サイト共通のアイコンは `src/app/` 直下の `favicon.ico` / `icon.png` / `apple-icon.png`（Next.js のファイル規約）、logo は `public/logo.png`
 
