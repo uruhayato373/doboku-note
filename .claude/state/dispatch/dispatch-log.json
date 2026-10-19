@@ -4551,6 +4551,19 @@
       "commit": "57efd8126ef4",
       "verification": "note-public-view run 39307952220 success（撮り直し 4/4）/ weekly-review-guard run 39311058458 で workflow health 全て健全・#478 復旧クローズ",
       "note": "note-public-view の検査不成立は note.com が CI からのアクセスに毎回違う 4〜6 ページだけ 403 を返していたため。開けなかった撮影を最後に 60 秒休んで 1 件ずつ撮り直すように変更（PR #1133）。Cloudflare 2 本は DN-0485 で復旧。check-workflow-health は全て健全、#478・#940・#1100 は自動クローズ"
+    },
+    {
+      "id": "DN-0744",
+      "at": "2026-10-20",
+      "task": "技術士 口頭試験対策に自治体職員（発注者）版の節を足し、建設部門・上下水道部門の無料入口 2 本を作る",
+      "tier": "high",
+      "kind": "制作",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "74457c058049",
+      "verification": "npm run note-lint 4 本 OK / check-note-structure CRITICAL 0・対象 4 本に HIGH なし",
+      "note": "口頭試験の有料 2 本の追記と無料 2 本の原稿が完成（note-lint 4 本 OK・check-note-structure の指摘 0）。発表日の公開・note 同期の確認・URL の配線は DN-0248 へ移し、引き継ぎ文書も付け替えた"
     }
   ]
 }
