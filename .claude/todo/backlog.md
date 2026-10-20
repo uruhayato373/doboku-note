@@ -387,7 +387,7 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 
 ### [DN-0791] PR の差分以外で develop を赤くした ci 検査を、差分だけで決まる形にするか ops へ移す（拡張性・第1波）
-タグ: [インフラ・計測] [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-10-20]
+タグ: [インフラ・計測] [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-10-20] [進行中]
 
 **起点**: 2026-10-20 の拡張性の棚卸し（`docs/reviews/critical/2026-10-20-code-extensibility-debt.md`）。09-14 以降の develop の赤のうち、実データに依存するテスト（GSC/GA4）4 回・20 時間、外部状態（YouTube）2 回・44 時間は、PR の差分と関係なく赤になった。code.md の「ci:true は結果が PR の差分だけで決まる検査に限る」が適用されていない分。
 **やること**:

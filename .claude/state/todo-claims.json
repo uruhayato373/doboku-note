@@ -113,6 +113,12 @@
       "owner": "claude-code",
       "startedAt": "2026-10-20T12:24:13.017Z",
       "branch": "fix/dn0794-brand-from-products"
+    },
+    {
+      "id": "DN-0791",
+      "owner": "claude-code",
+      "startedAt": "2026-10-20T12:31:32.872Z",
+      "branch": "fix/dn0791-ops-drift"
     }
   ]
 }
