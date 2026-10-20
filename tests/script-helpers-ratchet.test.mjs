@@ -22,7 +22,7 @@ import { join } from 'node:path';
 import { REPO_ROOT as ROOT } from '../scripts/lib/repository-paths.mjs';
 
 /** 今の数（scripts・.claude・tools・lib・tests のコード）。減らしたら下げる */
-const BASELINE = { root: 24, walk: 27, parseArgs: 19, curlJson: 0, mdxWalk: 39, escapeRegExp: 0 };
+const BASELINE = { root: 24, walk: 27, parseArgs: 19, curlJson: 0, mdxWalk: 37, escapeRegExp: 0 };
 
 const OWN = new Set(['scripts/lib/repository-paths.mjs', 'scripts/lib/fs-walk.mjs', 'scripts/lib/cli-args.mjs', 'scripts/lib/note-api.mjs', 'scripts/lib/mdx-files.mjs', 'scripts/lib/regexp-escape.mjs', 'tests/script-helpers-ratchet.test.mjs']);
 
