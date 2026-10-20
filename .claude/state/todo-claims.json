@@ -89,6 +89,12 @@
       "owner": "claude-code",
       "startedAt": "2026-10-20T12:02:17.997Z",
       "branch": "feat/dn0789-usage-log"
+    },
+    {
+      "id": "DN-0792",
+      "owner": "claude-code",
+      "startedAt": "2026-10-20T12:18:04.337Z",
+      "branch": "chore/dn0792-untrack-generated"
     }
   ]
 }

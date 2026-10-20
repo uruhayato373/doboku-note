@@ -376,7 +376,7 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 
 ### [DN-0792] 読み手の無い生成物を追跡から外す（tag-dictionary.json）、cross-exam-keywords の生成をやめる（拡張性・第1波）
-タグ: [インフラ・計測] [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-10-20]
+タグ: [インフラ・計測] [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-10-20] [進行中]
 
 **起点**: 2026-10-20 の拡張性の棚卸し（`docs/reviews/critical/2026-10-20-code-extensibility-debt.md`）。追跡している生成物が変更の量を膨らませている（2 か月で src/config/tag-dictionary.json 235 回・cross-exam-keywords.json 172 回。変わるのは generated_at と件数）。cross-exam-keywords.json は生成スクリプト（.claude/scripts/build-cross-exam-keyword-index.mjs）以外に読み手が無い。tag-dictionary.json は .claude/scripts/build-tag-index.mjs が作り、build-keyword-relations.mjs・build-civil-relations.mjs とテスト 1 本が読む。
 **やること**:
