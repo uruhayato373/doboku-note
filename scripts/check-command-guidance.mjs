@@ -61,6 +61,14 @@ function tracked(paths, pred) {
  * checkPaths=false なら node パスは見ない（ドキュメントは例示のパスが混ざる）。
  * 同じ壊れは 1 ファイルにつき 1 回だけ数える。
  */
+/**
+ * git grep -n の出力を [行全体, ファイル, 行番号, 本文] に分ける。CRLF の行も読む（DN-0780: '\n' で分けると行末の \r が
+ * 残り、`.` が \r に一致しないので CRLF のファイルの行がすべて落ちていた。Windows の checkout で取り戻しの案内が 1 件になった）
+ */
+export function parseGrepLines(out) {
+  return String(out).split(/\r?\n/).map((line) => /^([^:]+):(\d+):(.*)$/.exec(line)).filter(Boolean);
+}
+
 export function findBrokenInSource(file, src, { pkgScripts, exists, checkPaths, kindNpm = 'npm', kindPath = 'path' }) {
   const broken = [];
   let refNpm = 0;
@@ -129,10 +137,11 @@ function main() {
 
   // 3. --pull の案内（スクリプト・正典・手順書・README・.gitignore の注記）。backlog・handoff・review は経緯の記録、tests は dry-run を確かめる側なので見ない
   const PULL_FLAG = '--' + 'pull';      // 例示をこのファイルに書くと自分自身を落とす（冒頭の注記）
-  const pullLines = execFileSync('git', ['-c', 'core.quotepath=false', 'grep', '-n', '-I', '-e', PULL_FLAG, '--',
+  const grepOut = execFileSync('git', ['-c', 'core.quotepath=false', 'grep', '-n', '-I', '-e', PULL_FLAG, '--',
     '.', ':!.claude/todo/**', ':!docs/handoffs/**', ':!docs/reviews/**', ':!tests/**', `:!${AREAS.state.dir}/**`, ':!scripts/check-command-guidance.mjs'], {
     cwd: REPO_ROOT, encoding: 'utf8', maxBuffer: 64 * 1024 * 1024,
-  }).split('\n').map((line) => /^([^:]+):(\d+):(.*)$/.exec(line)).filter(Boolean)
+  });
+  const pullLines = parseGrepLines(grepOut)
     .filter(([, , , text]) => /drive-vault-sync/.test(text) && new RegExp(PULL_FLAG + '\\b').test(text));
   let refPull = 0;
   for (const [, file, lineNo, text] of pullLines) {
