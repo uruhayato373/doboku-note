@@ -5121,6 +5121,23 @@
       "commit": "8451f0678ca6",
       "verification": "npm run test 3472 件 fail 0、基準値を 1 高くしてテストが赤にならずスクリプトが下げることを確認、CI 緑",
       "note": "#1168。写しのラチェット 2 つの「今の数と等しい」を外し、基準値を .claude/config/code-ratchet-baseline.json へ。check-datasets は減っても警告だけ。pre-commit の最後に tighten-ratchets --staged が基準値を下げて同じ commit に入れる。tests の変更でも写しのラチェットを commit 前に回す"
+    },
+    {
+      "id": "DN-0801",
+      "at": "2026-10-21",
+      "task": "asset-offload --commit が台帳全体を書き直し、送り直した行の srcHash などを落とす",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "tests/asset-storage.test.mjs"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "947472807f1a",
+      "verification": "node --test tests/asset-storage.test.mjs（22 pass・旧の作り方に戻すと落ちる）／実台帳 3,387 行の往復で置き換え無し／PR #1169 の CI（audit・build・CodeQL）緑",
+      "note": "PR #1169 を develop へマージ（947472807）。asset-offload は送った行の実測の欄（置き場・sha256・bytes・寸法・verifiedAt）だけを更新し srcHash など既存の欄を残す。展開済みの台帳（loadManifest）は writeManifestAtomic が書き戻しを止め、同じ中身なら書かない。update-ogp-srchash の同じ不具合も直した。PR は scripts だけの変更で E2E・Lighthouse が起動しないことも確かめた（DN-0803 の実地確認）"
     }
   ]
 }
