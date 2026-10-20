@@ -4777,6 +4777,23 @@
       "commit": "aa6494fa4c90",
       "verification": "check-disk-hygiene: free-space 31.3 GB ✓・worktree-placement ✓／asset-hydrate --group kindle-dist 137 件復元・check-kindle-epub-leak EPUB 65/65 冊実検査 ✓",
       "note": "worktree の置き場は誤検知（#1142 で修正）。空きは運営者の選んだキャッシュ類・Codex の会話履歴（直近 1 日は残す）・.tmp の古い作業物を消して 18→31 GB"
+    },
+    {
+      "id": "DN-0261",
+      "at": "2026-10-20",
+      "task": "転職アフィリ第2波の効果を EXP-008 の wave-2 基線で再計測する",
+      "tier": "mid",
+      "kind": "改善",
+      "prevention": {
+        "type": "none",
+        "ref": "計測の再判定で、恒久の仕組みの変更は無い（記事末撤去は DN-0779）"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "614d55e506c6",
+      "verification": "npm run report-career-funnel（career 45 本・GSC 47 行一致）",
+      "note": "wave-2 基線との差分（affiliate クリック 11→21・CTR 0.05→0.11%・高意図 query 表示 33→178・記事末 4,324 表示 0 クリック）と A8 の発生 1・確定 ¥0 を裁定ログ 2026-10-20 に記録。運営者の判定で (1) 継続・記事末だけ外す（DN-0779）。A8 ピクセルは本番で 1 件・200 image/gif"
     }
   ]
 }
