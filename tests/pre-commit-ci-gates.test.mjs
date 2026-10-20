@@ -1,31 +1,36 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
-import { GATES, planGates } from '../scripts/pre-commit-ci-gates.mjs';
+import { existsSync } from 'node:fs';
+import { GATES, UNIT_TEST_RULES, planGates, unitTestsFor } from '../scripts/pre-commit-ci-gates.mjs';
 import { STEPS } from '../scripts/lib/pre-commit-steps.mjs';
+import { CHECKS } from '../scripts/quality-audit.mjs';
 
 test('planGates: staged のパスに応じて回す検査と対象を決める', () => {
+  // 設定・記録の JSON は型の実データのテスト（unit-tests）も回すので、ここではそれを除いて比べる
+  const only = (files) => planGates(files).map((g) => g.id).filter((id) => id !== 'unit-tests');
   const plan = planGates([
     'content/site/concrete-chief-engineer/primary-production-qc/article.mdx',
     'content/site/pe-first-stage/r07-basic/article.mdx',
     'content/note/magazines/x/article.md',
     'src/lib/foo.ts',
   ]);
-  assert.deepEqual(plan.map((g) => g.id), ['katex-warnings', 'note-paid-cta', 'products', 'affiliate-placements', 'keiken-answer-split', 'generated-indexes']);
+  assert.deepEqual(plan.map((g) => g.id), ['katex-warnings', 'note-paid-cta', 'products', 'affiliate-placements', 'keiken-answer-split', 'unit-tests', 'content-series', 'topic-wiring', 'generated-indexes']);
   const katex = plan.find((g) => g.id === 'katex-warnings');
   assert.equal(katex.files.length, 2);
   assert.deepEqual(katex.cmd(katex.files).slice(0, 3), ['node', 'scripts/audit-katex-warnings.mjs', '--strict']);
   assert.deepEqual(planGates(['content/sns/x/review.json']).map((g) => g.id), ['x-review']);
-  assert.deepEqual(planGates(['config/note-funnel.json']).map((g) => g.id), ['note-paid-cta']);
-  assert.deepEqual(planGates(['docs/README.md']), []);
+  assert.deepEqual(only(['config/note-funnel.json']), ['note-paid-cta']);
+  assert.deepEqual(planGates(['docs/README.md']).map((g) => g.id), ['unit-tests', 'domains'], 'docs は領域の割り当て（check-domains）と backlog 参照のテスト');
+  assert.deepEqual(planGates(['README.md']), []);
   // 記事の画像はサイズ上限を先に見る（2026-10-09 に 10KB 超えの図 2 枚が CI で初めて落ちた）
   assert.deepEqual(planGates(['content/site/a/img/x.svg']).map((g) => g.id), ['image-assets']);
   assert.deepEqual(planGates(['content/site/a/img/photo-x.webp']).map((g) => g.id), ['image-assets']);
-  assert.deepEqual(planGates(['config/products.json']).map((g) => g.id), ['products']);
-  assert.deepEqual(planGates(['src/lib/coconala-services.ts', 'scripts/kindle-published/catalog.json']).map((g) => g.id), ['products']);
+  assert.deepEqual(only(['config/products.json']), ['products']);
+  assert.deepEqual(only(['src/lib/coconala-services.ts', 'scripts/kindle-published/catalog.json']), ['products']);
   // 転職アフィリエイトの配置ルールと、それが突き合わせる正本
   for (const f of ['config/affiliate-placements.json', 'config/affiliate-mats.json', 'config/cta-placements.json', 'data/affiliate/catalog.json', 'src/config/affiliate-creatives.ts']) {
-    assert.deepEqual(planGates([f]).map((g) => g.id), ['affiliate-placements'], f);
+    assert.deepEqual(only([f]), ['affiliate-placements'], f);
   }
 });
 
@@ -35,7 +40,7 @@ test('note の原稿・マガジンの写し・収録の期待値を stage し�
   assert.ok(ids(['content/note/1級・2級土木/2級土木/R8二次の出題予想/article.md']).includes('generated-indexes'));
   assert.ok(ids(['content/note/技術士総監/x/article-2.md']).includes('generated-indexes'));
   assert.ok(ids(['src/lib/note-magazines.ts']).includes('generated-indexes'));
-  assert.deepEqual(ids(['config/note-magazine-membership.json']), ['generated-indexes']);
+  assert.deepEqual(ids(['config/note-magazine-membership.json']), ['unit-tests', 'generated-indexes'], '設定の JSON は型の実データのテストも回す');
   assert.ok(!ids(['content/note/1級・2級土木/2級土木/R8二次の出題予想/hashtags.txt']).includes('generated-indexes'));
   const gate = GATES.find((g) => g.id === 'generated-indexes');
   assert.deepEqual(gate.cmd([]), ['node', '.claude/scripts/build-note-published-index.mjs', '--check', '--staged']);
@@ -43,12 +48,46 @@ test('note の原稿・マガジンの写し・収録の期待値を stage し�
 });
 
 test('pre-commit の検査は quality-audit の ci:true と同じ id（CI の全量検査と食い違わない）', () => {
-  const src = readFileSync(new URL('../scripts/quality-audit.mjs', import.meta.url), 'utf8').replace(/\r\n/g, '\n');
+  // 本文を行で探すと複数行の定義（qualification-market など）を読めないので、export された CHECKS を見る（DN-0790）
   for (const g of GATES) {
-    const line = src.split('\n').find((l) => l.includes(`id: '${g.id}'`));
-    assert.ok(line, `${g.id} が quality-audit に無い`);
-    assert.match(line, /ci: true/, `${g.id} が ci:true でない`);
+    const c = CHECKS.find((x) => x.id === g.id);
+    assert.ok(c, `${g.id} が quality-audit に無い`);
+    assert.equal(c.ci, true, `${g.id} が ci:true でない`);
   }
+});
+
+test('台帳・配線の検査は、その正本か読む側を stage したときに回る（DN-0790・09-14〜10-20 に develop を赤くした）', () => {
+  const ids = (files) => planGates(files).map((g) => g.id);
+  const cases = [
+    ['config/content-series.json', 'content-series'],
+    ['content/sources/series/a/b.md', 'content-series'],
+    ['content/registry/works/x.json', 'content-registry'],
+    ['config/market-scan.json', 'qualification-market'],
+    ['data/coconala/orders.json', 'qualification-market'],
+    ['src/config/topics.json', 'topic-wiring'],
+    ['.claude/config/review-wiring.json', 'review-wiring'],
+    ['.claude/skills/management/weekly-review/SKILL.md', 'review-wiring'],
+    ['package.json', 'gate-parity'],
+    ['scripts/quality-audit.mjs', 'gate-parity'],
+    ['config/domains.json', 'domains'],
+    ['.claude/agents/guide-qa.md', 'domains'],
+    ['.claude/knowledge/reference/commands.md', 'domains'],
+    ['tools/admin-app/src/app/todo/page.tsx', 'domains'],
+  ];
+  for (const [file, id] of cases) assert.ok(ids([file]).includes(id), `${file} → ${id}`);
+  assert.ok(!ids(['content/note/x/y/article.md']).includes('domains'));
+  assert.ok(!ids(['src/lib/foo.ts']).some((x) => ['content-series', 'topic-wiring', 'domains'].includes(x)));
+});
+
+test('unit-tests は staged に関係する実データのテストだけを回す（DN-0790）', () => {
+  assert.deepEqual(unitTestsFor(['scripts/x.mjs']), ['tests/git-exec-maxbuffer.test.mjs', 'tests/env-example.test.mjs']);
+  assert.ok(unitTestsFor(['content/site/standards-articles/kanto/a/chapters/1/article.mdx']).includes('tests/standards-ogp-guards.test.mjs'));
+  assert.ok(unitTestsFor(['content/note/x/y/article.md']).includes('tests/content-theme.test.mjs'));
+  assert.ok(unitTestsFor(['data/coconala/orders.json']).includes('tests/dataset-schemas.test.mjs'));
+  assert.ok(unitTestsFor(['docs/strategy/x.md']).includes('tests/project-task-refs.test.mjs'));
+  assert.deepEqual(unitTestsFor(['README.md']), []);
+  const all = [...new Set(UNIT_TEST_RULES.flatMap((r) => r.tests))];
+  assert.deepEqual(all.filter((t) => !existsSync(t)), [], 'テストを消したら規則からも外す');
 });
 
 test('pre-commit が毎回呼ぶ pre-commit-mdx の先頭（MDX 無しの早期終了より前）でゲートを回す', () => {

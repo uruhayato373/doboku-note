@@ -7,7 +7,7 @@
  * 無関係な PR まで巻き込む（2026-09-30〜10-05 の develop push 200 回中 26 回が赤。
  * note-paid-cta 9 連続・katex-warnings 4 連続・x-review 1 回）。ここに置くのは手元で数秒の検査だけ。
  * products（商品の正本 config/products.json と、その写し・生成物）は 2026-10-06 に足した（記事の price を手で直すと正本とずれる）。
- * unit-tests（手元 286 秒）は CI に残す。generated-indexes（全量 62 秒・Windows では検査不成立）も全量は CI に残し、
+ * unit-tests の全量（手元 286 秒）は CI に残し、ここでは staged に関係する速いテストだけを回す（UNIT_TEST_RULES・DN-0790）。generated-indexes（全量 62 秒・Windows では検査不成立）も全量は CI に残し、
  * ここでは note 記事カタログ（.claude/state/note-published.json・0.5 秒）だけを見る（2026-10-06 に note の題名変更と
  * 下書きの追加で作り直しを忘れ、develop を 2 回赤くした）。
  *
@@ -20,6 +20,36 @@ import { datasetPath } from './lib/datasets.mjs';
 
 /** スクリプト・ワークフロー・スキル・管理画面のコード（サイトの src/ は CI の全量に任せる） */
 const CODE_FILE = /^(scripts|tools|\.claude\/(scripts|workflows|skills|hooks))\/.+\.(mjs|cjs|js|ts|tsx)$/;
+
+/**
+ * staged のパス → 先に回す unit-tests のファイル。CI の unit-tests の全量（手元 286 秒）は回さず、実データを読んで
+ * コンテンツや台帳の追加で落ちるテストだけを拾う。各行の回数は 09-14〜10-20 に develop の CI で落ちた回数（DN-0790）。
+ */
+export const UNIT_TEST_RULES = [
+  // スクリプトの書き方の規約（git の同期呼び出しの maxBuffer・パスを列挙する git の core.quotepath=false・読む環境変数の .env.example）。
+  // 2026-10-10 に新しいスクリプトがこの 2 つのテストで CI で初めて落ちた（#951・#953）。全量の走査で手元 1 秒弱
+  { match: (f) => CODE_FILE.test(f), tests: ['tests/git-exec-maxbuffer.test.mjs', 'tests/env-example.test.mjs'] },
+  // 公的基準の章を足すと、章の OGP の退避台帳と孤児判定が落ちる（31 回・手元 5 秒）
+  { match: (f) => f.startsWith('content/site/standards-articles/') || f === datasetPath('config.asset-storage'), tests: ['tests/standards-ogp-guards.test.mjs'] },
+  // note 記事を足すと、カバーの分類・テーマの分類・マガジンのラベルの分類が落ちる（12 回・12 回・7 回）
+  { match: (f) => /^content\/note\/.+\/article(-[^/]+)?\.md$/i.test(f), tests: ['tests/note-cover-category.test.mjs', 'tests/content-theme.test.mjs', 'tests/magazine-membership.test.mjs'] },
+  // サイト記事を足すと、転職記事の柱分類（10 回・10 回）と横断トピックの配線（7 回）が落ちる
+  { match: (f) => /^content\/site\/.+\.mdx$/.test(f), tests: ['tests/career-funnel-report.test.mjs', 'tests/career-pathways.test.mjs', 'tests/topic-wiring.test.mjs'] },
+  // 展開の判断材料・シリーズ企画の実データ（8 回・8 回）
+  { match: (f) => ['config.market-scan', 'config.competitors', 'config.product-lineup', 'config.qualification-registry', 'note.sales', 'coconala.orders'].map((id) => datasetPath(id)).includes(f), tests: ['tests/qualification-market.test.mjs'] },
+  { match: (f) => [datasetPath('config.content-series'), datasetPath('config.content-series-basis')].includes(f), tests: ['tests/content-series.test.mjs'] },
+  // 通常動画の台本・メタデータ（8 回）
+  { match: (f) => f.startsWith('content/sns/video-packs/') || f === datasetPath('config.youtube-production-disclosure'), tests: ['tests/youtube-authority-metadata.test.mjs'] },
+  // 設定・記録の JSON の型の実データ（ココナラの返信期限・受注の写し・GSC の取得結果など 6〜5 回。手元 3 秒）
+  { match: (f) => /^(config|data)\/.+\.json$/.test(f), tests: ['tests/dataset-schemas.test.mjs', 'tests/dataset-schemas-search.test.mjs'] },
+  // docs の backlog 参照（30 回）。別セッションがカードを閉じて参照が切れる分は CI に残る（DN-0791）
+  { match: (f) => /^docs\/.+\.md$/.test(f) || f === '.claude/todo/backlog.md', tests: ['tests/project-task-refs.test.mjs'] },
+];
+
+/** staged のファイルに当たるテスト（重複なし・規則の順） */
+export function unitTestsFor(files) {
+  return [...new Set(UNIT_TEST_RULES.filter((r) => files.some((f) => r.match(f))).flatMap((r) => r.tests))];
+}
 
 export const GATES = [
   {
@@ -87,16 +117,59 @@ export const GATES = [
   },
   {
     id: 'unit-tests',
-    // CI の unit-tests のうち、コードの書き方の規約を走査する 2 本だけ（全テストは CI）。スクリプトの書き方の規約（git の同期呼び出しの maxBuffer・パスを列挙する git の core.quotepath=false・読む環境変数の .env.example）。
-    // 2026-10-10 に新しいスクリプトがこの 2 つのテストで CI で初めて落ちた（#951・#953）。全量の走査で手元 1 秒弱
-    match: (f) => CODE_FILE.test(f),
-    cmd: () => ['node', '--test', 'tests/git-exec-maxbuffer.test.mjs', 'tests/env-example.test.mjs'],
+    // CI の unit-tests のうち、staged に関係する速いテストだけ（全テストは CI）。何を回すかは UNIT_TEST_RULES
+    match: (f) => UNIT_TEST_RULES.some((r) => r.match(f)),
+    cmd: (files) => ['node', '--test', ...unitTestsFor(files)],
   },
   {
     id: 'knip-ratchet',
     // 使われていないファイル・export の増加。2026-10-10 に .claude/workflows/ の 2 本が CI で初めて落ちた（#953）。手元 4 秒
     match: (f) => CODE_FILE.test(f),
     cmd: () => ['node', 'scripts/check-knip-ratchet.mjs'],
+  },
+  // ---- 2026-10-20 に足した台帳・配線の整合（DN-0790）。09-14〜10-20 に develop の CI を赤くした回数（失敗した実行の数）を
+  // 添える。どれも全量で手元 1 秒前後なので、ファイル指定なしで回す。
+  {
+    id: 'content-series',
+    // シリーズ企画の台帳と骨子・記事の実在（8 回）
+    match: (f) => [datasetPath('config.content-series'), datasetPath('config.content-series-basis')].includes(f) || f.startsWith('content/sources/series/') || /^content\/site\/.+\.mdx$/.test(f),
+    cmd: () => ['node', 'scripts/check-content-series.mjs'],
+  },
+  {
+    id: 'content-registry',
+    // コンテンツ台帳 R01〜R12（8 回）。比較元（--base）が無いときは遷移の比較を飛ばして形と参照だけを見る
+    match: (f) => f.startsWith('content/registry/'),
+    cmd: () => ['node', 'scripts/check-content-registry.mjs'],
+  },
+  {
+    id: 'qualification-market',
+    // 展開の判断材料（市場スキャン・競合・売上と受注の資格への分類）（8 回）
+    match: (f) => ['config.market-scan', 'config.competitors', 'config.product-lineup', 'config.qualification-registry', 'note.sales', 'coconala.orders'].map((id) => datasetPath(id)).includes(f),
+    cmd: () => ['node', 'scripts/check-qualification-market.mjs'],
+  },
+  {
+    id: 'topic-wiring',
+    // 横断トピックの記事の配線（7 回）
+    match: (f) => /^content\/site\/.+\.mdx$/.test(f) || f === 'src/config/topics.json',
+    cmd: () => ['node', 'scripts/check-topic-wiring.mjs'],
+  },
+  {
+    id: 'review-wiring',
+    // 週次・月次レビューのスキルが実行するコマンドと配線の正本（6 回）
+    match: (f) => f === '.claude/config/review-wiring.json' || /^\.claude\/skills\/management\/(weekly|monthly)-review\//.test(f) || f === 'package.json',
+    cmd: () => ['node', 'scripts/check-review-wiring.mjs'],
+  },
+  {
+    id: 'gate-parity',
+    // check-* の npm script が quality-audit か pre-commit のどちらかに結ばれているか（5 回）
+    match: (f) => ['package.json', 'scripts/quality-audit.mjs', 'scripts/lib/pre-commit-steps.mjs', '.claude/config/gate-parity-baseline.json'].includes(f),
+    cmd: () => ['node', 'scripts/check-gate-parity.mjs', '--ci'],
+  },
+  {
+    id: 'domains',
+    // 領域の正本と、スキル・エージェントの domain・文書の割り当て・管理画面の画面（4 回）
+    match: (f) => [datasetPath('config.domains'), datasetPath('config.annual-roadmap')].includes(f) || /^\.claude\/(skills\/.+\/SKILL|agents\/[^/]+|knowledge\/reference\/[^/]+)\.md$/.test(f) || /^docs\/.+\.md$/.test(f) || /^tools\/admin-app\/src\/app\/.+\/page\.tsx$/.test(f),
+    cmd: () => ['node', 'scripts/check-domains.mjs'],
   },
   {
     id: 'generated-indexes',
