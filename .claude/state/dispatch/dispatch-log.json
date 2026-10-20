@@ -5095,6 +5095,32 @@
       "commit": "95978d137c51",
       "verification": "旧コードと新コードで全 14 カテゴリ・1,430 記事の記事型の並び・見出し・説明・記事の並び順・ジャンプが一致、tests/category-layout.test.mjs（架空のカテゴリ 1 行）pass、npm run test 3472 件 fail 0、CI 緑",
       "note": "#1165。categories.json の layout（view・sort・ogpExamKey・groupLabels・groupDescriptions・jumps）へ移し、doc-classifier・category-groups・CategoryPage・CategoryJumpNav・OGP の色キー・/exam の対象の資格ごとの分岐を削除。並び順の 4 通り（registry と categories.json など）は運営者の判断に残した"
+    },
+    {
+      "id": "DN-0803",
+      "at": "2026-10-21",
+      "task": "E2E と Lighthouse の起動を、サイトの画面とビルドの手順の変更だけに絞る（CI の見直し 2）",
+      "tier": "high",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "8451f0678ca6",
+      "verification": "tests/e2e-paths.test.mjs pass（ビルドの手順のスクリプト 22 本が全部 E2E を起動・画面の変更で起動し検査・運用・SNS・note だけでは起動しない）、CI 緑",
+      "note": "#1167。E2E は src・public・content/site・next.config・package-lock とビルドの手順のスクリプトだけで起動、Lighthouse は content/site に絞り package.json を外した。knip の入口にテストを追加。スクリプトだけの PR で起動しないことの実地確認はこの後の PR で行う"
+    },
+    {
+      "id": "DN-0802",
+      "at": "2026-10-21",
+      "task": "減ったときに赤になるラチェット 3 つをやめ、基準値を pre-commit で自動で締める（CI の見直し 1）",
+      "tier": "high",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "8451f0678ca6",
+      "verification": "npm run test 3472 件 fail 0、基準値を 1 高くしてテストが赤にならずスクリプトが下げることを確認、CI 緑",
+      "note": "#1168。写しのラチェット 2 つの「今の数と等しい」を外し、基準値を .claude/config/code-ratchet-baseline.json へ。check-datasets は減っても警告だけ。pre-commit の最後に tighten-ratchets --staged が基準値を下げて同じ commit に入れる。tests の変更でも写しのラチェットを commit 前に回す"
     }
   ]
 }

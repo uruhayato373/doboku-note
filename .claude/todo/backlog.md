@@ -21,26 +21,8 @@
 
 ## 🔴 高 — 重要度が高い
 
-### [DN-0803] E2E と Lighthouse の起動を、サイトの画面とビルドの手順の変更だけに絞る（CI の見直し 2）
-タグ: [インフラ・計測] [領域:管理] [時期:2026-10] [種類:改善] [起票:2026-10-21] [進行中]
-
-**起点**: 2026-10-21 の CI とテストの見直し。PR 1 本の待ちは約 10 分で、内訳は E2E（直近 1 週間の成功の平均 10 分）・Lighthouse（7 分）・品質監査とビルド（6 分）。E2E と Lighthouse は `paths` で起動を絞っているが、E2E は `scripts/**` と `content/**` を丸ごと含むので、2026-10-20 のスクリプトだけの PR でもすべて回っていた。コンテンツは develop へ直接 push するので PR の経路を通らず、develop は夜間（JST 03:00）の E2E が見ている。
-**やること**:
-1. E2E の `paths` を、サイトの画面（src・public・content/site・next.config・依存・E2E 自身）と、ビルドの手順（package.json の build・prebuild・refresh-indexes が呼ぶスクリプト）だけにする。他のスクリプトの変更は ci.yml の build と夜間の E2E に任せる
-2. Lighthouse の `paths` の `content/**` を `content/site/**` に絞る
-3. ビルドの手順のスクリプトが E2E の `paths` に全部入っているかを確かめるテストを置く（手順を変えたらテストが落ちる）
-**完了条件**: テストが通り、スクリプトだけの PR（例: scripts/check-*.mjs と tests の変更）で E2E と Lighthouse が起動しない。
 
 
-### [DN-0802] 減ったときに赤になるラチェット 3 つをやめ、基準値を pre-commit で自動で締める（CI の見直し 1）
-タグ: [インフラ・計測] [領域:管理] [時期:2026-10] [種類:改善] [起票:2026-10-21] [進行中]
-
-**起点**: 2026-10-21 の CI とテストの見直し（運営者「品質は大事だがバランスも重要」）。重複を減らしたり直書きを消したりすると、基準値と今の数が等しいことを求める検査が赤になり、直した人が基準値の書き換えまで背負っていた（2026-10-20 の #1161 は MDX の列挙の自前定義が 2 本減って audit が赤）。赤になるのは `tests/script-helpers-ratchet.test.mjs`・`tests/read-json-ratchet.test.mjs` の「基準値は今の数のまま」と、`check-datasets` の `.claude/state` の直書きの基準線（減ったらエラー）の 3 つ。knip・agent-descriptions・git-binary・admin-ui-debt・content-taxonomy は返済を表示するだけで止めない。
-**やること**:
-1. 3 つとも「増えたら赤・減ったら表示だけ」にする
-2. テストの中の基準値（共通部品の写し・readJson の写し）を `.claude/config` の JSON に移す（型は AGENT_CONFIG_SCHEMAS）
-3. 減った分を基準値へ反映するスクリプトを置き、pre-commit がコードの変更のときに回して、締めた基準値を同じ commit に入れる（上げることはしない）
-**完了条件**: 写しを 1 本減らした fixture で、検査が赤にならず、締めるスクリプトが基準値を下げ、増やすと赤のままであることをテストで固定。
 
 
 
