@@ -296,3 +296,39 @@ export function cdScopeMessage(target, reason, projectDir) {
     `プロジェクトの直下（${projectDir}）へ戻る cd は通す。`,
   ].join('\n');
 }
+
+// ---- check-agent-network（PreToolUse Bash・DN-0558）--------------------------------------------
+// ネットから取得してはいけないサブエージェント（運営者の了解なしにファイルを持ち込む）の Bash を止める。
+// 2026-10-06 に figure-crop-worker が白書の PDF を curl で無断取得した。agent 定義の一文では守られる保証が無い。
+// 種別は hook 入力の agent_type（サブエージェントの中でだけ来る）。親（agent_type 無し）の curl は止めない。
+
+export const NO_NETWORK_AGENTS = new Set(['figure-crop-worker']);
+
+const FETCH_COMMAND = /(?:^|[\s;&|(`$])(curl|wget|aria2c|yt-dlp|Invoke-WebRequest|iwr)(?=\s|$)/;
+const FETCH_LIBRARY = /\b(urllib|urlretrieve|requests\.(?:get|post)|httpx|https?\.get)\b|(?:^|[^\w.])fetch\s*\(/;
+const REMOTE_URL = /\b(?:https?|ftp):\/\/(?!(?:localhost|127\.0\.0\.1|\[::1\])(?:[:/]|$))/i;
+
+/** コマンドがネットから取得しうるなら理由、無ければ '' */
+export function networkFetchReason(command) {
+  if (typeof command !== 'string' || !command) return '';
+  const tool = command.match(FETCH_COMMAND);
+  if (tool) return `取得コマンド ${tool[1]}`;
+  const lib = command.match(FETCH_LIBRARY);
+  if (lib) return `取得ライブラリ ${(lib[1] || 'fetch(').trim()}`;
+  if (REMOTE_URL.test(command)) return '外部 URL';
+  return '';
+}
+
+/** 禁止対象のサブエージェントがネットから取得しようとしているなら理由、無ければ '' */
+export function agentNetworkViolation({ agentType, command }) {
+  if (!agentType || !NO_NETWORK_AGENTS.has(agentType)) return '';
+  return networkFetchReason(command);
+}
+
+export function agentNetworkMessage(agentType, reason) {
+  return [
+    `BLOCK: ${agentType} はネットからファイルを取得しない（${reason}・DN-0558）。`,
+    'ファイルのダウンロードは運営者の了解が要る。手元（sourceCandidates・sourceRoots）に無ければ source-unavailable にし、',
+    '公開元の URL が分かれば reason に書いて親へ返す。',
+  ].join('\n');
+}

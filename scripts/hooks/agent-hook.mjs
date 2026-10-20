@@ -4,6 +4,7 @@
 //   node scripts/hooks/agent-hook.mjs <name>
 //     check-doc-sync           PreToolUse(Bash)   `git commit` のとき台帳/決定文書/新ツールの同期を促す＋check-policy-anchors --staged
 //     check-cd-scope           PreToolUse(Bash)   括弧の外の cd で worktree・プロジェクトの下の階層へ移るなら exit 2（Claude Code だけ）
+//     check-agent-network      PreToolUse(Bash)   ネット取得禁止のサブエージェント（agent_type）が curl 等で取得するなら exit 2
 //     check-mojibake           PostToolUse(Write|Edit)  .mdx に U+FFFD があれば exit 2（stderr がモデルへ返る）
 //     check-stray-files        Stop               リポジトリ直下の一時ファイルを警告
 //     check-disk-hygiene       Stop               check-disk-hygiene.mjs --quick --stop を stderr へ
@@ -12,7 +13,7 @@
 //
 // 入力は stdin の JSON（tool_input.command / tool_input.file_path）。env（CLAUDE_TOOL_INPUT / TOOL_INPUT_FILE_PATH）は
 // フォールバック。リポジトリルートはこのファイルの位置から決める（cwd や git に依存しない＝worktree でも正しい）。
-// 判定は scripts/lib/agent-hooks.mjs（純粋）。advisory は常に exit 0、ブロックするのは check-mojibake・check-cd-scope（exit 2）と
+// 判定は scripts/lib/agent-hooks.mjs（純粋）。advisory は常に exit 0、ブロックするのは check-mojibake・check-cd-scope・check-agent-network（exit 2）と
 // check-capture（stdout の decision:block・1 セッション 1 回）だけ。
 //
 // 呼び手: .claude/settings.json（正典）と .codex/hooks.json（sync-codex-compat が生成）。両方とも相対パスで呼ぶ。
@@ -24,6 +25,8 @@ import { fileURLToPath } from 'node:url';
 import { join, resolve } from 'node:path';
 import {
   STRAY_GLOBS,
+  agentNetworkMessage,
+  agentNetworkViolation,
   captureMarkers,
   captureReason,
   cdScopeMessage,
@@ -97,6 +100,14 @@ const HANDLERS = {
       }
     }
     return 0;
+  },
+
+  'check-agent-network'({ json, command }) {
+    const agentType = typeof json?.agent_type === 'string' ? json.agent_type : '';
+    const reason = agentNetworkViolation({ agentType, command });
+    if (!reason) return 0;
+    err([agentNetworkMessage(agentType, reason)]);
+    return 2;
   },
 
   'check-mojibake'({ filePath }) {

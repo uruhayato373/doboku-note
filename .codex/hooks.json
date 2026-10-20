@@ -11,6 +11,10 @@
           {
             "type": "command",
             "command": "node scripts/hooks/agent-hook.mjs check-cd-scope"
+          },
+          {
+            "type": "command",
+            "command": "node scripts/hooks/agent-hook.mjs check-agent-network"
           }
         ]
       }
