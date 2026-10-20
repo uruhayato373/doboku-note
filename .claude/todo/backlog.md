@@ -375,15 +375,6 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 **完了条件**: 架空のカテゴリを 1 行足した fixture で、getGroupOrder・ビューの選択・OGP の色キー・/exam の静的パス・並び順がすべてそのカテゴリを返す単体テストが通る。
 
 
-### [DN-0792] 読み手の無い生成物を追跡から外す（tag-dictionary.json）、cross-exam-keywords の生成をやめる（拡張性・第1波）
-タグ: [インフラ・計測] [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-10-20] [進行中]
-
-**起点**: 2026-10-20 の拡張性の棚卸し（`docs/reviews/critical/2026-10-20-code-extensibility-debt.md`）。追跡している生成物が変更の量を膨らませている（2 か月で src/config/tag-dictionary.json 235 回・cross-exam-keywords.json 172 回。変わるのは generated_at と件数）。cross-exam-keywords.json は生成スクリプト（.claude/scripts/build-cross-exam-keyword-index.mjs）以外に読み手が無い。tag-dictionary.json は .claude/scripts/build-tag-index.mjs が作り、build-keyword-relations.mjs・build-civil-relations.mjs とテスト 1 本が読む。
-**やること**:
-1. cross-exam-keywords の生成をやめ、生成スクリプトと出力を消す（refresh-indexes・package.json・文書の参照も）
-2. tag-dictionary.json を追跡から外し、読む側の前に refresh-indexes と CI の中で作る（前例: doc-meta-index は 2026-08-29 に外し、ci.yml で生成）
-3. `tests/tag-dictionary-order.test.mjs` を、生成関数を直接試す形にする
-**完了条件**: `npm run refresh-indexes` の後の git status に 2 ファイルが出ない。build と quality:audit:ci が通る。
 
 
 ### [DN-0791] PR の差分以外で develop を赤くした ci 検査を、差分だけで決まる形にするか ops へ移す（拡張性・第1波）
@@ -409,37 +400,10 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 **完了条件**: hook のテストが通り、記録先に 1 週間分の記録がある。
 
 
-### [DN-0788] 棚卸しで見つかった台帳と文書の小さな誤り（Convention A の記述・report-readers テスト・退役表）を直す（拡張性・第0波）
-タグ: [エージェント・SSOT] [領域:管理] [時期:2026-10] [種類:不具合] [起票:2026-10-20] [進行中]
-
-**起点**: 2026-10-20 の拡張性の棚卸し（`docs/reviews/critical/2026-10-20-code-extensibility-debt.md`）で見つかった、台帳と文書の小さな誤り 3 件。
-**やること**:
-1. Convention A（個別ファイル名）の記事は実物が 0 本（content/site は article.mdx だけ）なのに、CLAUDE.md・`.claude/rules/content-site.md` が「civil-construction-1 は A」と書いている。記述を直し、`npm run sync-codex-compat` で AGENTS.md を作り直す。content/site の .mdx が article.mdx だけであることを確かめるテストを足す
-2. `tests/quality-audit-report-readers.test.mjs` は CHECKS を正規表現で別に読み、複数行の定義のコメント「（ci:true）」を拾って env-inventory を検査から外している。`scripts/quality-audit.mjs` が export する CHECKS を import する形に直し（tests/quality-audit-ops-tier.test.mjs と同じ）、env-inventory の note に読み手を書くか退役させる
-3. content-planner エージェントを退役させる（呼び出し元とされる /keyword-gap・/exam-demand・/discover-exam-season は実在しない）。skills-registry.md・agents-registry.md の退役表に、7 月以降の退役（2026-09-26 の brain-publish・brain-operator ほか）の行を足す
-**完了条件**: 3 つとも済み、`npm run check-doc-coupling`・`npm run check-codex-compat`・unit-tests が通る。
 
 
-### [DN-0787] 経験記述の字数ツールとスクリプトの countChars を src/lib の .mjs 1 つにまとめる（拡張性・第0波）
-タグ: [インフラ・計測] [領域:サイト] [時期:2026-10..2026-11] [種類:不具合] [起票:2026-10-20] [進行中]
-
-**起点**: 2026-10-20 の拡張性の棚卸し（`docs/reviews/critical/2026-10-20-code-extensibility-debt.md`）。経験記述の字数ツール `src/app/tools/keiken-charcount/KeikenCharcountClient.tsx:40` の countChars は「scripts/keiken-charcount.mjs と一致」とコメントしているが、`scripts/keiken-charcount.mjs:131` は目印【〇〇】の括弧を数えない（DN-0277 の決定）のに、サイト側は数える。note の模範答案を貼った読者には、記事の字数と違う値が出る。
-**やること**:
-1. 括弧を数えない方を正として、src/lib に .mjs 1 つ（スクリプトからも import される前例: affiliate-placement-core.mjs）で countChars を置く
-2. サイトの字数ツールと scripts/keiken-charcount.mjs がそれを import する
-**禁止事項**: scripts/lib/cce-essay.mjs:31（見出しを除く）と tensaku-reply-guards.mjs:49（空白だけ除く）の countChars は数えるものが違うので統合しない。
-**完了条件**: 定義が 1 つだけあり、【〇〇】を含む入力で両者が同じ値を返すテストが通る。サイトへの反映は main へのデプロイ（運営者の判断）で行う。
 
 
-### [DN-0786] 測量士・舗装の OGP が枠色なしで出るのを直し、カテゴリの網羅を既存の検査に足す（拡張性・第0波）
-タグ: [インフラ・計測] [領域:サイト] [時期:2026-10] [種類:不具合] [起票:2026-10-20] [進行中]
-
-**起点**: 2026-10-20 の拡張性の棚卸し（`docs/reviews/critical/2026-10-20-code-extensibility-debt.md`）。registry を入れた後に足した測量士（surveyor）・舗装（pavement）が、`.claude/skills/conversion/ogp-create/scripts/ogp-create.mjs:51` の CATEGORY_TO_EXAM_KEY に無く、resolveAccentColor が null を返して OGP が枠色なしで出ている。色は `.claude/knowledge/design-system/note-cover-tokens.json` に既にある。どの検査も止めていない。
-**やること**:
-1. 対応表に surveyor・pavement を足し、2 カテゴリの OGP を作り直す
-2. `scripts/check-home-exam-coverage.mjs` を広げ、「categories.json の全カテゴリが OGP の対応表にあり、その色キーが note-cover-tokens にある」を検査対象数を出しながら確かめる
-**禁止事項**: 新しい check スクリプトを作らない（package.json・commands.md・quality-audit の 3 点同時変更を増やさない）。/links・ExamKey・hub-cta に一律の網羅を求めない（測量士・舗装の商品が無いので、今はダミー行を強いるだけ）。
-**完了条件**: 広げた検査が exit 0 で、対応表から 1 行消すと赤になるテストがある。surveyor・pavement の作り直した OGP が commit されている。
 
 
 

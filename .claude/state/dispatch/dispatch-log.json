@@ -4893,6 +4893,70 @@
       "commit": null,
       "verification": "2026-10-20 の調べ直し（既存カード・既存ラチェット・実ファイル・障害履歴の照合）で前提の誤りを確認。docs/reviews/critical/2026-10-20-code-extensibility-debt.md を書き直し",
       "note": "記録と判断を分けて DN-0789（4 週間の記録 hook・UserPromptSubmit も含む）と DN-0798（統合・退役の判断）へ RESEED。content-planner の退役は DN-0788、メンバーシップ一式は DN-0477 へ"
+    },
+    {
+      "id": "DN-0786",
+      "at": "2026-10-20",
+      "task": "測量士・舗装の OGP が枠色なしで出るのを直し、カテゴリの網羅を既存の検査に足す（拡張性・第0波）",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "check-home-exam-coverage"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "af025fb24b1b",
+      "verification": "check-home-exam-coverage exit 0（表示中 12 カテゴリが OGP のテーマ色を持つ）、tests/home-exam-coverage-ogp.test.mjs pass、13 記事の OGP を作り直して R2 の sha256 一致を確認",
+      "note": "#1152。対応表を lib/category-exam-key.mjs に切り出し surveyor・pavement を追加。13 記事を枠色つきで作り直し R2 へ供給（台帳 af025fb24）"
+    },
+    {
+      "id": "DN-0792",
+      "at": "2026-10-20",
+      "task": "読み手の無い生成物を追跡から外す（tag-dictionary.json）、cross-exam-keywords の生成をやめる（拡張性・第1波）",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "af025fb24b1b",
+      "verification": "refresh-indexes 後の git status に 2 ファイルが出ない、tag-dictionary-order テストがファイル無しから pass、CI 緑",
+      "note": "#1155。cross-exam-keywords の生成を退役、tag-dictionary.json を git 管理外へ"
+    },
+    {
+      "id": "DN-0787",
+      "at": "2026-10-20",
+      "task": "経験記述の字数ツールとスクリプトの countChars を src/lib の .mjs 1 つにまとめる（拡張性・第0波）",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "tests/keiken-charcount-shared.test.mjs"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "af025fb24b1b",
+      "verification": "tests/keiken-charcount-shared.test.mjs pass（【〇〇】を含む入力で同じ値・自前定義なし）、CodeQL の警告を直して CI 緑",
+      "note": "#1153。src/lib/keiken-charcount.mjs の countAnswerChars を正とし、サイトの字数ツールとスクリプトが import。サイト反映は main デプロイ時"
+    },
+    {
+      "id": "DN-0788",
+      "at": "2026-10-20",
+      "task": "棚卸しで見つかった台帳と文書の小さな誤り（Convention A の記述・report-readers テスト・退役表）を直す（拡張性・第0波）",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "tests/content-site-layout.test.mjs"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "af025fb24b1b",
+      "verification": "npm run test 3445 件 fail 0、check-doc-coupling・check-codex-compat 通過、CI 緑",
+      "note": "#1151。Convention A の記述を 4 文書から削除し tests/content-site-layout.test.mjs で固定（content/site 直下の建設部門の記事 1 本を移動し、配置ルールに追加）。report-readers テストを CHECKS の import に変え env-inventory を退役。content-planner を退役し退役表に brain-* を記録"
     }
   ]
 }
