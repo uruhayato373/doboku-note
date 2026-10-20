@@ -321,7 +321,7 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 ## 🟡 中 — 重要度が中くらい
 
-### [DN-0777] Mac の worktree 5 本が許可外の置き場にあり、空き容量不足で EPUB の取り戻しが止まる（check-disk-hygiene の FAIL）
+### [DN-0777] Mac の空き容量不足（19 GB）で EPUB の取り戻しが止まる（worktree の置き場は誤検知と判明）
 タグ: [領域:管理] [時期:2026-10..2026-11] [種類:不具合] [検証:check-disk-hygiene] [起票:2026-10-20]
 
 **起点**: 2026-10-20 の DN-0772（落ちた検査を素通りさせない）で report 区分を回したところ、`check-disk-hygiene` が FAIL のまま読み流されていた（読み手は SessionStart/Stop フックと日次掃除ログ）。(1) worktree-placement: 許可された置き場（`.claude/worktrees` / `~/.codex/worktrees`）の外に 5 本ある＝`../auth-session-refresh`・`../coconala-local`・`../gsc-local`・`../note-sync`・`../weekly-review`。名前から Mac の定期処理（週次 note 同期・週次レビュー・ログイン収集など）が使っている可能性が高い。(2) 空き容量 18.5 GB（warn < 30 GB）で、`npm run asset-hydrate -- --group kindle-dist` が「Insufficient free disk for restore」で止まり、手元で `check-kindle-epub-leak`・`check-kindle-format` を成立させられない。
@@ -330,8 +330,7 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 **完了条件**: `npm run check-disk-hygiene` の worktree-placement が ✓、空き 30 GB 以上、手元で `npm run asset-hydrate -- --group kindle-dist` が通って `npm run check-kindle-epub-leak` が成立する。
 
-
-
+**訂正（2026-10-20）**: (1) の worktree の置き場は誤検知だった。5 本（auth-session-refresh・coconala-local・gsc-local・note-sync・weekly-review）は本体の `.claude/worktrees/` にあり、それぞれ同名の launchd（com.doboku-note.*）が使っている＝許可された置き場で正しい。worktree の中から check-disk-hygiene を実行したため基準がずれていた（検査を本体基準に直した）。**残りは (2) の空き容量だけ**（19.1 GB・warn < 30 GB）。空きの候補は Codex の会話履歴 4.3 GB・Codex の生成画像 1.5 GB・npm キャッシュ 2.0 GB・Codex のランタイム 1.8 GB・Playwright 1.7 GB（ユーザーデータを含むので運営者が選ぶ）。
 
 ### [DN-0774] .gitignore の追跡対象を点検する
 タグ: [インフラ・計測] [領域:サイト] [時期:2026-10] [種類:改善] [起票:2026-10-19]
