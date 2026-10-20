@@ -218,8 +218,7 @@ MDX を作成・編集・削除した後、以下の静的 JSON インデック�
 |---|---|---|
 | `past-exam-backlinks.json` | `.claude/state/exam-keyword-map.json` 編集 | `npm run build-backlinks` |
 | `exam-question-keywords.json` | 同上 | 同上 |
-| `cross-exam-keywords.json` | frontmatter `exams` フィールド変更 | `npm run build-indexes` |
-| `tag-dictionary.json` | frontmatter `tags` フィールド変更 | 同上 |
+| `tag-dictionary.json`（git 管理外） | frontmatter `tags` フィールド変更 | `npm run build-indexes` |
 
 ### 本番ビルド（自動）
 

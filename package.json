@@ -69,7 +69,7 @@
     "build-figure-provenance": "node scripts/build-figure-provenance.mjs",
     "build-frequent-topics": "node scripts/build-frequent-topics.mjs",
     "build-note-catalog": "node .claude/scripts/build-note-published-index.mjs",
-    "build-indexes": "node .claude/scripts/build-doc-meta-index.mjs && node .claude/scripts/build-cross-exam-keyword-index.mjs && node .claude/scripts/build-tag-index.mjs",
+    "build-indexes": "node .claude/scripts/build-doc-meta-index.mjs && node .claude/scripts/build-tag-index.mjs",
     "build-llms-txt": "node scripts/build-llms-txt.mjs",
     "build-keyword-relations": "node .claude/skills/quality/exam-backlinks/scripts/build-keyword-relations.mjs",
     "build-pillar-exam-questions": "node .claude/scripts/build-pillar-exam-questions.mjs",
