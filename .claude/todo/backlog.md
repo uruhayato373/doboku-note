@@ -1884,7 +1884,7 @@ Windows（autocrlf で MDX が CRLF）で npm run refresh-indexes を回すと�
 
 
 ### [DN-0796] frontmatter の未知のキーを止める（passthrough を外し、1 回しか使われないキーを直す）（拡張性・第2波）
-タグ: [インフラ・計測] [領域:サイト] [時期:2026-12] [種類:改善] [起票:2026-10-20]
+タグ: [インフラ・計測] [領域:サイト] [時期:2026-12] [種類:改善] [起票:2026-10-20] [進行中]
 
 **起点**: 2026-10-20 の拡張性の棚卸し（`docs/reviews/critical/2026-10-20-code-extensibility-debt.md`）。frontmatter の検査（`.claude/scripts/lib/frontmatter-schema.mjs:57`）は .passthrough() で、記事で使われるキー 42 種のうち 13 種しか見ていない。1,470 記事で 1 回しか使われないキーが 8 個あり、`updated` を書いた記事がある一方で src の 10 ファイルは `updatedAt` を読む。綴りの違いが黙って無視される。
 **やること**: 実データの 42 キーを分類して許可リスト方式にし、1 回しか使われないキーを直すか正式に足す。seoTitle・section・faqs など使われているキーの型も書く。
