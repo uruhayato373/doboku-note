@@ -398,7 +398,7 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 
 ### [DN-0789] Skill・Agent・スラッシュコマンドの呼び出しを 4 週間の期限付きで記録する hook を置く（拡張性・第0波）
-タグ: [エージェント・SSOT] [領域:管理] [時期:2026-10] [種類:改善] [起票:2026-10-20]
+タグ: [エージェント・SSOT] [領域:管理] [時期:2026-10] [種類:改善] [起票:2026-10-20] [進行中]
 
 **起点**: 2026-10-20 の拡張性の棚卸し（`docs/reviews/critical/2026-10-20-code-extensibility-debt.md`）。エージェント 90・スキル 111 に対し呼び出しの記録が無く、使われていないものを根拠をもって選べない。会話記録は cleanupPeriodDays 7（DN-0233）で 7 日分しか残らない。延ばすと disk-hygiene の方針（scripts/lib/disk-hygiene.mjs:261 の maxDays 7）と衝突し、30 日で約 6GB になる。
 **やること**:
