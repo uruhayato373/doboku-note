@@ -73,6 +73,8 @@ test('台帳・配線の検査は、その正本か読む側を stage したと�
     ['.claude/agents/guide-qa.md', 'domains'],
     ['.claude/knowledge/reference/commands.md', 'domains'],
     ['tools/admin-app/src/app/todo/page.tsx', 'domains'],
+    ['content/site/standards-articles/chubu/special/manifest.json', 'orphan-ogp'],
+    ['content/sns/video-packs/x/video-pack.json', 'youtube-shorts'],
   ];
   for (const [file, id] of cases) assert.ok(ids([file]).includes(id), `${file} → ${id}`);
   assert.ok(!ids(['content/note/x/y/article.md']).includes('domains'));

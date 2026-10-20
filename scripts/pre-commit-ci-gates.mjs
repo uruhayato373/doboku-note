@@ -172,6 +172,18 @@ export const GATES = [
     cmd: () => ['node', 'scripts/check-domains.mjs'],
   },
   {
+    id: 'orphan-ogp',
+    // 公的基準の章を消したのに OGP の退避台帳に残る（34 回・10/16 の章の削除 1 件で 30 回）。全量で手元 1 秒弱
+    match: (f) => f.startsWith('content/site/standards-articles/') || f === datasetPath('config.asset-storage'),
+    cmd: () => ['node', 'scripts/check-orphan-ogp.mjs'],
+  },
+  {
+    id: 'youtube-shorts',
+    // 動画パックの Shorts の本数・公開枠の重複・1 日の上限（8 回）。全量で手元 1 秒弱
+    match: (f) => f.startsWith('content/sns/video-packs/') || f.startsWith('content/registry/'),
+    cmd: () => ['node', 'scripts/check-youtube-video-pack-shorts.mjs'],
+  },
+  {
     id: 'generated-indexes',
     // note 記事カタログの入力（記事の frontmatter・マガジンの正本の生成物・収録の期待値）。カタログ以外の生成物は CI の全量に任せる
     match: (f) =>
