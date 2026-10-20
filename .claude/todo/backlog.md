@@ -321,6 +321,17 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-0786] 測量士・舗装の OGP が枠色なしで出るのを直し、カテゴリの網羅を既存の検査に足す（拡張性・第0波）
+タグ: [インフラ・計測] [領域:サイト] [時期:2026-10] [種類:不具合] [起票:2026-10-20]
+
+**起点**: 2026-10-20 の拡張性の棚卸し（`docs/reviews/critical/2026-10-20-code-extensibility-debt.md`）。registry を入れた後に足した測量士（surveyor）・舗装（pavement）が、`.claude/skills/conversion/ogp-create/scripts/ogp-create.mjs:51` の CATEGORY_TO_EXAM_KEY に無く、resolveAccentColor が null を返して OGP が枠色なしで出ている。色は `.claude/knowledge/design-system/note-cover-tokens.json` に既にある。どの検査も止めていない。
+**やること**:
+1. 対応表に surveyor・pavement を足し、2 カテゴリの OGP を作り直す
+2. `scripts/check-home-exam-coverage.mjs` を広げ、「categories.json の全カテゴリが OGP の対応表にあり、その色キーが note-cover-tokens にある」を検査対象数を出しながら確かめる
+**禁止事項**: 新しい check スクリプトを作らない（package.json・commands.md・quality-audit の 3 点同時変更を増やさない）。/links・ExamKey・hub-cta に一律の網羅を求めない（測量士・舗装の商品が無いので、今はダミー行を強いるだけ）。
+**完了条件**: 広げた検査が exit 0 で、対応表から 1 行消すと赤になるテストがある。surveyor・pavement の作り直した OGP が commit されている。
+
+
 ### [DN-0785] Skill・Agent の呼び出しを記録する hook を置き、記録が 4 週以上たまったら使われないものを統合・退役する（拡張性の段5）
 タグ: [エージェント・SSOT] [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-10-20]
 
