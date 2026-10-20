@@ -77,6 +77,12 @@
       "owner": "claude-code",
       "startedAt": "2026-10-20T12:02:17.997Z",
       "branch": "feat/dn0789-usage-log"
+    },
+    {
+      "id": "DN-0714",
+      "owner": "claude-code",
+      "startedAt": "2026-10-20T23:02:36.780Z",
+      "branch": "fix/exam-parse-crlf"
     }
   ]
 }

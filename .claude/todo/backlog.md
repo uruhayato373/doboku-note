@@ -1835,7 +1835,7 @@ Windows の PowerShell で repo 直下から順に:
 **閉じるときの注意**: 4 冊は参考文献の台帳（reference-sources.json）の `bookBundle.ocrPending` に `{ "backlogId": "DN-0716" }` と書いてある（PR #1048）。残りを 0 にしてから外す。残りがあるままこのカードを閉じると、check-reference-book-pages が「追うカードが backlog に無い」で CI を止める。
 
 ### [DN-0714] refresh-indexes を CRLF で取り出した作業ツリーで回すと、生成 JSON の問題文に \r\n が入り偽の差分が出る
-タグ: [時期:2026-10] [領域:サイト] [種類:不具合] [起票:2026-10-13]
+タグ: [時期:2026-10] [領域:サイト] [種類:不具合] [起票:2026-10-13] [進行中]
 
 Windows（autocrlf で MDX が CRLF）で npm run refresh-indexes を回すと、記事に変更がなくても src/config/exam-questions.json・src/config/civil-1-exam-questions.json・public/quiz/civil-1.json の問題文の改行が \n→\r\n に変わり、数百行の差分になる（2026-10-13 の同期後に確認。generatedAt 以外の実体変更は 0）。llms*.txt・quiz/pe-first-stage.json・popular-pages.json は行末だけの差分。原因: scripts/parse-exam-questions.mjs:139 と .claude/scripts/sns/parse-civil-1-questions.mjs:33（civil-2 も同型の見込み）が readFileSync の結果を改行正規化せずに本文を切り出す。対処: 読み込み直後に \r\n→\n へ正規化する（共通 lib があれば集約）。完了条件: CRLF の作業ツリーで refresh-indexes を回しても上記 JSON に generatedAt 以外の差分が出ないこと、回帰テスト（CRLF 入力で本文に \r が残らない）を tests/ に足すこと。
 
