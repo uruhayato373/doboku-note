@@ -224,7 +224,7 @@ jobs:
           rc=0
           for m in $months; do
             echo "::group::a8 ${m}"
-            npm run a8-ui:fetch -- --month "$m" --reports site-summary,program-detail,period-monthly,result-detail
+            npm run a8-ui:fetch -- --month "$m" --reports site-summary,program-detail,period-monthly,result-detail --site-filter self
             frc=$?
             nrc=0
             if [ "$frc" -eq 0 ] || [ "$frc" -eq 2 ]; then

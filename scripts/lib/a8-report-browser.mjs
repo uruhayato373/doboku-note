@@ -167,6 +167,41 @@ export async function assertTargetSiteRow(page, cfg) {
 }
 
 /** `2026-06` → `2026年06月`（A8 の月フォームの表記。2026-07-28 実測）。 */
+/**
+ * program-detail をサイトで絞る（2026-10-19 の画面改修で付いた autocomplete・DN-0757）。
+ * 入力欄に名前を打ち、候補のうち**名前が完全一致する 1 件**だけを選ぶ（doboku-note が doboku-note（note）に
+ * 部分一致しないように）。選んだあと「絞り込む」で確定し、条件の札（selectedLabel）が名前 1 件だけかで反映を確かめる。
+ * 一意に定まらなければ推測で選ばず失敗を返す（fail-closed）。
+ */
+export async function setSiteFilter(page, cfg, siteName) {
+  const sf = cfg.a8?.siteFilter;
+  if (!sf) return { ok: false, reason: "config に a8.siteFilter が無い" };
+  const norm = (t) => String(t ?? "").replace(/\s+/g, "").trim();
+  const input = page.locator(`${sf.input}:visible`);
+  if ((await input.count().catch(() => 0)) !== 1) return { ok: false, reason: `サイトの入力欄（${sf.input}）が一意に定まらない` };
+  await input.first().click();
+  await input.first().fill("");
+  await input.first().pressSequentially(siteName, { delay: 60 });
+  await page.waitForTimeout(1200);
+  const options = page.locator(`${sf.listbox} ${sf.option}`);
+  const texts = await options.allInnerTexts().catch(() => []);
+  const hits = texts.map((t, i) => [norm(t), i]).filter(([t]) => t === norm(siteName));
+  if (hits.length !== 1) return { ok: false, reason: `サイト「${siteName}」の候補が一意に定まらない（完全一致 ${hits.length} 件 / 候補 ${texts.length} 件: ${texts.slice(0, 6).join("・")}）` };
+  await options.nth(hits[0][1]).click();
+  await page.waitForTimeout(500);
+  const apply = page.getByRole("button", { name: sf.applyButtonLabel, exact: true });
+  if ((await apply.count().catch(() => 0)) !== 1) return { ok: false, reason: `「${sf.applyButtonLabel}」ボタンが一意に定まらない` };
+  await apply.click();
+  await page.waitForLoadState("networkidle", { timeout: cfg.browser.timeoutMs }).catch(() => {});
+  await page.waitForTimeout(1500);
+  // 確定した条件は入力欄ではなく条件の札（.activeConditions）に出る（入力欄は空に戻る）。札がこのサイト 1 件だけかで確かめる
+  const labels = (await page.locator(sf.selectedLabel).allInnerTexts().catch(() => [])).map(norm);
+  if (labels.length !== 1 || labels[0] !== norm(siteName)) {
+    return { ok: false, reason: `絞り込み後の条件の札が［${labels.join("・")}］で、「${siteName}」1 件になっていない` };
+  }
+  return { ok: true, site: siteName };
+}
+
 export function formatA8Month(month) {
   const m = /^(\d{4})-(\d{2})$/.exec(String(month ?? ""));
   if (!m) throw new Error(`--month は YYYY-MM 形式で指定してください（受領: ${month}）`);
