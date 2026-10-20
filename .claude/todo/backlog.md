@@ -1883,7 +1883,7 @@ Windows（autocrlf で MDX が CRLF）で npm run refresh-indexes を回すと�
 ## 🟢 低 — 重要度が低い（時期未定を含む）
 
 ### [DN-0800] check-datasets の警告 4 件を 0 にする（cloudflare.zone の型・planned を外せる 3 件）（拡張性・第3波）
-タグ: [インフラ・計測] [領域:管理] [時期:2026-12] [種類:改善] [起票:2026-10-20]
+タグ: [インフラ・計測] [領域:管理] [時期:2026-12] [種類:改善] [起票:2026-10-20] [進行中]
 
 **起点**: 2026-10-20 の拡張性の棚卸し（`docs/reviews/critical/2026-10-20-code-extensibility-debt.md`）。`npm run check-datasets` は違反 0・警告 4 件: cloudflare.zone は実データ（2 ファイル）があるのに型が無く planned のまま、business.checks-weekly と state.cloudflare-zone-config は planned を外せる。
 **やること**: cloudflare.zone の zod 型を実データ全件で違反 0 を確かめて書き、台帳で結ぶ。planned を外せる 3 件を外す。
