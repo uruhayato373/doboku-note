@@ -617,14 +617,6 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 
 
-### [DN-0639] main に開いたままの CodeQL の警告（high 18 件ほか）を振り分けて、直すか理由つきで dismiss する
-タグ: [領域:管理] [時期:2026-11] [種類:不具合] [起票:2026-10-10]
-
-**起点**: 2026-10-10、#957（スクリプトの共通化のリファクタ）の CodeQL が 22 件の「新しい警告」（high 18・medium 4）を出した。調べると、どれも main にすでに開いている既存の警告（18 件）と同じファイル・同じ規則で、差分が大きいために出し直されたものだった。既存の警告は手当てされずに残っている。中身: 管理画面の stored XSS（tools/admin-app/src/components/DocRootView.tsx・DocDetailView.tsx・app/knowledge/page.tsx）、コマンド引数から組み立てた正規表現（note-update-body・note-reanchor-boundary・note-publish・note-attach-file・note-article-price-sweep・lib/note-live-check）、不完全な HTML 除去（parse-exam-questions・note-update-body・note-reanchor-boundary・note-publish・keiken-charcount）、絶対パスに依る shell（ogp-gallery）。
-**やること**: 開いている CodeQL の警告（`gh api repos/uruhayato373/doboku-note/code-scanning/alerts?state=open`）を 1 件ずつ、実害（管理画面は手元専用・引数は運営者が渡すなど）と直し方で振り分け、直すものは直し、誤検知・受容するものは理由をつけて dismiss する。
-**完了条件**: 開いている CodeQL の警告が 0 件（直したか、理由つきで dismiss した）。
-
-**進捗（2026-10-20）**: 開いていた 69 件を振り分けた。直したもの 8 件（PR #1139: 引数から作る正規表現のエスケープ 3 件＝note-price-sweep・record-reference-book-artifacts・note-attach-file、何も変えない置換 5 件）。理由を付けて閉じたもの 61 件（won't fix 54＝運営者の手元実行の CLI・リポジトリ内の自前の原稿・127.0.0.1 専用の管理画面・仕様として正規表現を受ける paidBoundary／--pattern、false positive 2＝src/lib/docs.ts の MDX 前処理・文字数カウント、used in tests 5）。残り 8 件は PR #1139 が main に入って CodeQL が回ると閉じる。
 
 ### [DN-0632] サイトにメールの登録ページを作り、配信サービスを選ぶ（iOS アプリと記事から案内して note・ココナラへつなぐ）
 タグ: [収益化] [領域:サイト] [時期:2026-10..2026-11] [種類:制作] [起票:2026-10-10]
