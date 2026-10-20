@@ -4726,6 +4726,23 @@
       "commit": "882277a15e99",
       "verification": "tests/check-post-commit-hook.test.mjs（無い/旧版→exit 1・install 後→exit 0）と pre-commit-dispatch.test.mjs 17 pass",
       "note": "pre-commit の STEPS に check-post-commit-hook を追加（#1143）。post-commit が無い・sync-index-after-commit を呼ばない旧版なら止めて pre-commit:install を案内する。STEPS はツリーから毎回読むのでフックの入れ直し不要"
+    },
+    {
+      "id": "DN-0558",
+      "at": "2026-10-20",
+      "task": "figure-crop-worker がネットからファイルを取得するのを hook で止める",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "test"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "7a08571d5ad8",
+      "verification": "tests/agent-hooks.test.mjs 16 pass（純関数・対象の絞り込み・hook を起動して exit 2/0）",
+      "note": "hook 入力の agent_type（サブエージェント内だけ来る・2.1.299 のスキーマで確認）で figure-crop-worker を識別し、curl・wget・urllib・fetch( ・外部 URL を含む Bash を exit 2 で止める（#1144）。親と他エージェントの curl は止めない"
     }
   ]
 }

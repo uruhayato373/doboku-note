@@ -753,19 +753,6 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 
 
-### [DN-0558] figure-crop-worker がネットからファイルを取得するのを hook で止める
-タグ: [インフラ・計測] [領域:管理] [時期:2026-12] [種類:不具合] [起票:2026-10-07]
-
-**起点**: 2026-10-06、`figure-crop-worker`（sonnet）が原典を探す途中で、国交省の白書 PDF を `curl` で無断取得した（運営者は後で使用を承認）。
-- 今の歯止めは `.claude/agents/figure-crop-worker.md` の「`curl`・`wget` で取得しない」という一文だけで、守られる保証が無い。
-- worker の tools は `Read, Bash, Glob, Grep` なので、Bash からの取得は止まらない。
-
-**やること**: `scripts/hooks/agent-hook.mjs` の PreToolUse に、figure-crop-worker の Bash から外部 URL を取得するコマンド（`curl`・`wget`・`python -m urllib` 等）を拒否するチェックを足す。
-- 先に、hook の入力にエージェントの種別が来るかを確かめる。
-- 来なければ、別の形で止める。例: 親の許可フラグが無い取得をすべて拒否する。いずれの形でも、親が正当に使う `curl`（`check-production-ssr` 等）は壊さない。
-- テストを付ける。
-
-**完了条件**: worker 相当の入力では `curl https://...` が理由つきで拒否され、親の既存コマンド（`npm run check-production-ssr` 等）は通る。これをテストで固定する。
 
 ### [DN-0532] コンクリート技士の試験概要ページを「試験日」の検索語でクリックされるようにする
 タグ: [コンテンツ品質] [領域:サイト] [時期:2026-11] [種類:改善] [起票:2026-10-05] [期日:2026-11-06]
