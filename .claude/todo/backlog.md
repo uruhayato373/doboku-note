@@ -1938,6 +1938,14 @@ Windows（autocrlf で MDX が CRLF）で npm run refresh-indexes を回すと�
 
 ## 🟢 低 — 重要度が低い（時期未定を含む）
 
+### [DN-0796] frontmatter の未知のキーを止める（passthrough を外し、1 回しか使われないキーを直す）（拡張性・第2波）
+タグ: [インフラ・計測] [領域:サイト] [時期:2026-12] [種類:改善] [起票:2026-10-20]
+
+**起点**: 2026-10-20 の拡張性の棚卸し（`docs/reviews/critical/2026-10-20-code-extensibility-debt.md`）。frontmatter の検査（`.claude/scripts/lib/frontmatter-schema.mjs:57`）は .passthrough() で、記事で使われるキー 42 種のうち 13 種しか見ていない。1,470 記事で 1 回しか使われないキーが 8 個あり、`updated` を書いた記事がある一方で src の 10 ファイルは `updatedAt` を読む。綴りの違いが黙って無視される。
+**やること**: 実データの 42 キーを分類して許可リスト方式にし、1 回しか使われないキーを直すか正式に足す。seoTitle・section・faqs など使われているキーの型も書く。
+**完了条件**: スキーマが許可リスト方式で、全記事で違反 0。知らないキーを足した fixture で lint-frontmatter が赤になるテストがある。
+
+
 ### [DN-0795] offsite-cta・hub-cta の試験日の直書きをやめ、試験日程から作り、試験後は日付入りの文言を出さない（拡張性・第2波）
 タグ: [インフラ・計測] [領域:サイト] [時期:2026-12] [種類:不具合] [起票:2026-10-20]
 
