@@ -321,6 +321,18 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-0782] スクリプトの重複関数を lib へ寄せ、lib にある名前の再定義を増やさない検査を置く（拡張性の段2）
+タグ: [インフラ・計測] [領域:管理] [時期:2026-11..2026-12] [種類:改善] [起票:2026-10-20]
+
+**起点**: 2026-10-20 の棚卸し（`docs/reviews/critical/2026-10-20-code-extensibility-debt.md` §2）。同じ名前の関数が lib の外の 3 ファイル以上にあるものが 89 名・333 ファイル。CLI 引数の自前の処理が延べ 102 本（cli-args.mjs の利用は 50 本）、sleep 38・git 19・walk 18・sha256 14・toPosix 10。lib にある名前を手元で定義し直しているものが 57 名、lib の中の同名 export が 34 名。src/lib と scripts/lib に同名の関数が 3 つ（countChars・isStructuralTag・escapeRegExp）。段1（スクリプトの型）の後に着手する。
+**やること**:
+1. 「lib にある名前を手元で定義し直す」件数の基準線の検査を置く（10/20 時点 57 名）
+2. 純関数（sleep・sha256・toPosix・walk）を lib へ一括で置き換え、lib の中の同名 export（sha256 の 4 ファイルなど）を 1 つにする
+3. CLI 引数は cli-args.mjs へ、触るスクリプトから順に寄せる（解釈が少しずつ違うので一括で置き換えない）
+4. src/lib と scripts/lib の同名 3 関数の中身を比べ、同じ判定なら 1 か所にまとめる
+**完了条件**: 基準線の検査が CI にあり、2 の純関数の自前定義が 0。4 は食い違いが 0、または分けておく理由が記録されている。
+
+
 ### [DN-0781] スクリプト（.mjs）を型検査の対象にし、config・data を読む lib から @ts-check を付けていく（拡張性の段1）
 タグ: [インフラ・計測] [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-10-20]
 
