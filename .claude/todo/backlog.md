@@ -321,6 +321,17 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-0781] スクリプト（.mjs）を型検査の対象にし、config・data を読む lib から @ts-check を付けていく（拡張性の段1）
+タグ: [インフラ・計測] [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-10-20]
+
+**起点**: 2026-10-20 の棚卸し（`docs/reviews/critical/2026-10-20-code-extensibility-debt.md` §1）。`scripts/` の .mjs 906 本は tsconfig の include の外で、`@ts-check` は 0 本。設定・記録には zod の実行時の型があるが、読む側のスクリプトが欄の名前を間違えても実行するまで分からない。拡張性の 5 段（型→集約→ディレクトリ→計測→エージェント・スキル）の最初で、段2 の集約で関数を寄せるときの食い違いをここで拾えるようにする。
+**やること**:
+1. スクリプト用の tsconfig（allowJs・checkJs。対象は `// @ts-check` を付けたファイルだけ）と npm script を作り、quality-audit に ci:true で入れる
+2. `@ts-check` の本数を減らさない基準線の検査を置く
+3. import される数の多い lib（config・data の読み口）から順に付ける。zod の型を `z.infer` で JSDoc から引く形を 1 つ作り、見本にする
+**完了条件**: CI で型検査が回り、`@ts-check` の付いた lib が 10 本以上で型エラー 0。本数が減ると赤になることをテストで固定。
+
+
 ### [DN-0780] check-command-guidance が検査不成立で終わる（drive-vault-sync の取り戻しの案内が 1 件で下限 10 を割る）
 タグ: [領域:管理] [時期:2026-10] [種類:不具合] [検証:check-command-guidance] [起票:2026-10-20]
 
