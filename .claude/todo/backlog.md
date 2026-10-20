@@ -332,6 +332,16 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-0793] カテゴリの表示構造を categories.json に持たせ、CategoryPage・doc-classifier・ogp-create の資格別分岐を消す（拡張性・第2波）
+タグ: [インフラ・計測] [領域:サイト] [時期:2026-11..2026-12] [種類:改善] [起票:2026-10-20]
+
+**起点**: 2026-10-20 の拡張性の棚卸し（`docs/reviews/critical/2026-10-20-code-extensibility-debt.md`）。資格を足すとき、サイトの構造（ビュー・記事型の並び・色・/exam に出すか・並び順）が registry からも categories.json からも決まらず、手で直している。RCCM の立ち上げは仕組み側 52 ファイル・88 か所（registry 由来 0）、その後も追随修正 5 コミット。src の資格 id の直書き比較は約 63 か所で、doc-classifier.ts 15・CategoryPage.tsx 12（:184-196 のビュー選択）が 4 割強。/exam は variant の二値（civil|pe）で絞るので、行政書士はそのままでは出ない。並び順は registry・categories.json・home-exam-cards・/links で 4 通り。categories.json の groups と doc-classifier の getGroupOrder は照合されず、civil-construction-2 で既にずれている。ConcreteView は guide・textbook・primary しか描かず、新しい記事型は黙って消える。
+**次または実行順**: DN-0491（行政書士の展開計画）の判断の後、行政書士なら最初の制作カードの前に置く。出さないなら次のカテゴリを足す前。OGP の網羅のカードの後。
+**やること**: categories.json に、ビュー・記事型の並びとラベル・OGP の色キー・/exam に出すか（variant ではなく area で決める）を持たせ、CategoryPage・doc-classifier・CategoryJumpNav・ogp-create の資格別分岐を消す。並び順は registry から既存の sync で書く。
+**禁止事項**: 資格の名前と並び順の正本は registry のまま。registry にサイトの表示構造を持たせない。
+**完了条件**: 架空のカテゴリを 1 行足した fixture で、getGroupOrder・ビューの選択・OGP の色キー・/exam の静的パス・並び順がすべてそのカテゴリを返す単体テストが通る。
+
+
 ### [DN-0792] 読み手の無い生成物を追跡から外す（tag-dictionary.json）、cross-exam-keywords の生成をやめる（拡張性・第1波）
 タグ: [インフラ・計測] [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-10-20]
 
