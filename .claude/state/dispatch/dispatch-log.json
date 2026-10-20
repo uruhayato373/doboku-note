@@ -5026,6 +5026,23 @@
       "commit": "7c2cb98e4e57",
       "verification": "npm run check-command-guidance exit 0（取り戻しの案内 120 件）、CRLF の回帰テスト pass、CI 緑",
       "note": "#1160。起票時のコミットでも Mac では再現せず。git grep の出力を '\\n' で分けて (.*)$ で照合していたため CRLF の行が全部落ちる（Windows の checkout で 1 件になったと判断・Windows での再実行は未確認）。parseGrepLines で /\\r?\\n/ に分けた"
+    },
+    {
+      "id": "DN-0795",
+      "at": "2026-10-20",
+      "task": "offsite-cta・hub-cta の試験日の直書きをやめ、試験日程から作り、試験後は日付入りの文言を出さない（拡張性・第2波）",
+      "tier": "low",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "tests/exam-dates.test.mjs"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "929d42c2d887",
+      "verification": "tests/exam-dates.test.mjs 3 件 pass（時刻を差し込んで前日・当日・翌日、2 ファイルに日付のリテラル無し）、tsc、CI 緑",
+      "note": "#1162。src/lib/exam-dates.ts（examDayEndUtcMs・beforeExamCatch）を新設し、offsite-cta の試験日と hub-cta の技術士の切り替え日を試験日程から作る。試験の翌日から日付なし。サイト反映は main デプロイ時"
     }
   ]
 }
