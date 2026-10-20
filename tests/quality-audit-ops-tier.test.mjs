@@ -112,3 +112,13 @@ test('internally parallel unit suite runs without competing audit workers', () =
 test('generated-indexes waits for audit writers before comparing worktree changes', () => {
   assert.equal(CHECKS.find((c) => c.id === 'generated-indexes').serial, true);
 });
+
+test('外部状態で決まる動画の実査ドリフト（V05）は ops だけが見る（DN-0791・2026-10-13 に 1 本の削除で 42 回赤）', () => {
+  const ci = CHECKS.find((c) => c.id === 'video-publication');
+  const ops = CHECKS.find((c) => c.id === 'video-publication-freshness');
+  assert.equal(ci.ci, true);
+  assert.ok(!(ci.cmd ?? []).includes('--freshness'), 'ci の video-publication に --freshness（V03・V05）を付けない');
+  assert.equal(ops.ops, true);
+  assert.notEqual(ops.ci, true);
+  assert.ok(ops.cmd.includes('--freshness'));
+});
