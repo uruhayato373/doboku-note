@@ -20,7 +20,7 @@
  *      planned に CI のボットが初めて書いたときは 2. と同じく警告だけにする
  *  10. JSON に同じオブジェクト内の重複キーが無い（JSON.parse は後ろの値で黙って上書きするので型では見えない）
  *  11. .claude/state/ のパスの直書きを増やさない（ファイルごとの件数を .claude/config/state-path-literal-baseline.json と比べるラチェット。
- *      基準線より多い・基準線に無いファイルは違反、減ったら基準線を下げさせる）
+ *      基準線より多い・基準線に無いファイルは違反。減った分は警告だけで、pre-commit の tighten-ratchets が基準線を下げる・DN-0802）
  *  12. refs を宣言したデータセットは、全ファイルで参照（資格 id・商品 id・記事 slug）が参照先に実在する（外部キー相当・DN-0586）。
  *      宣言の形（at・to）も見る。宣言があるのに参照を 1 件も読めなかったら検査不成立
  * 検査したファイル数を出し、1 件も読めない・git が失敗したときは検査不成立（exit 2）。違反は exit 1。
@@ -35,7 +35,7 @@ import { schemaOf, validateFiles } from './lib/dataset-validate.mjs';
 import { loadDomains } from './lib/domains.mjs';
 import { findDuplicateKeys } from './lib/json-duplicate-keys.mjs';
 import { REPORT_KINDS } from './lib/metric-reports.mjs';
-import { PATH_LITERAL_ALLOW, basenameIndex, findConfigPaths, findDatasetIds, findPathLiterals, findStatePathLiterals } from './lib/path-literals.mjs';
+import { PATH_LITERAL_ALLOW, basenameIndex, findConfigPaths, findDatasetIds, findPathLiterals, findStatePathLiterals, isPathLiteralCodeFile } from './lib/path-literals.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 import { runBody, isCliEntry, runAsCli } from './lib/cli-run.mjs';
 
@@ -129,8 +129,7 @@ for (const f of files.filter((x) => /\.jsonl?$/.test(x))) {
   for (const d of findDuplicateKeys(readFileSync(join(ROOT, f), 'utf8'))) errors.push(`${f}:${d.line}: キー「${d.key}」が同じオブジェクトに重複している（JSON.parse は後ろの値だけを残す）`);
 }
 
-const CODE_ROOT = /^(scripts|tools|src|\.claude)\//;
-const codeFiles = tracked.filter((f) => CODE_ROOT.test(f) && /\.(mjs|cjs|js|mts|ts|tsx)$/.test(f));
+const codeFiles = tracked.filter(isPathLiteralCodeFile);
 let stateBaseline;
 try {
   stateBaseline = JSON.parse(readFileSync(join(ROOT, STATE_LITERAL_BASELINE), 'utf8')).files;
@@ -167,7 +166,8 @@ for (const [f, hits] of Object.entries(stateLiterals)) {
 }
 for (const [f, allowed] of Object.entries(stateBaseline)) {
   const now = stateLiterals[f]?.length ?? 0;
-  if (now < allowed) errors.push(`${STATE_LITERAL_BASELINE}: ${f} の直書きが ${allowed} → ${now} 件に減った。基準線を ${now} に下げる（0 なら行を消す）`);
+  // 減ったら止めない（DN-0802）。pre-commit の scripts/tighten-ratchets.mjs が基準線を下げて同じ commit に入れる
+  if (now < allowed) warnings.push(`${STATE_LITERAL_BASELINE}: ${f} の直書きが ${allowed} → ${now} 件に減った（npm run tighten-ratchets で基準線を下げる）`);
 }
 const stateLiteralTotal = Object.values(stateLiterals).reduce((n, h) => n + h.length, 0);
 
