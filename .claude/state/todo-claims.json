@@ -77,6 +77,12 @@
       "owner": "claude-code",
       "startedAt": "2026-10-20T12:02:17.997Z",
       "branch": "feat/dn0789-usage-log"
+    },
+    {
+      "id": "DN-0801",
+      "owner": "claude-code",
+      "startedAt": "2026-10-20T22:47:08.557Z",
+      "branch": "fix/asset-offload-manifest-rows"
     }
   ]
 }

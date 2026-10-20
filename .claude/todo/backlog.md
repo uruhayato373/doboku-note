@@ -350,7 +350,7 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 
 ### [DN-0801] asset-offload --commit が台帳全体を書き直し、送り直した行の srcHash などを落とす
-タグ: [インフラ・計測] [領域:管理] [時期:2026-11] [種類:不具合] [起票:2026-10-20]
+タグ: [インフラ・計測] [領域:管理] [時期:2026-11] [種類:不具合] [起票:2026-10-20] [進行中]
 
 **起点**: 2026-10-20 に `node scripts/asset-offload.mjs --group site-ogp-png --include-untracked --commit`（測量士・舗装の OGP 13 枚）と `--group note-cover-png --only-new --include-untracked --commit`（note のカバー 2 枚）を実行すると、どちらも `.claude/state/assets/manifest.json` 全体を書き直した。前者は送った 13 行から `srcHash`・`logicalPath`・`mime`・`generator`・`requiredBy` を落とし（`srcHash` は ogp-supply と update-ogp-srchash が OGP の陳腐化を判定する欄）、後者は無関係な行に欄を足して 2,695 行の差分になった。どちらも手で台帳を戻し、対象の行だけを書き換えて commit した（af025fb24 ほか）。
 **やること**:
