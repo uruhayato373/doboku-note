@@ -17,6 +17,16 @@
             "command": "node scripts/hooks/agent-hook.mjs check-agent-network"
           }
         ]
+      },
+      {
+        "matcher": "Skill|Agent|Task",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node scripts/hooks/agent-hook.mjs record-usage",
+            "timeout": 5
+          }
+        ]
       }
     ],
     "PostToolUse": [
@@ -75,6 +85,17 @@
           {
             "type": "command",
             "command": "node scripts/hooks/agent-hook.mjs decision-doc-checkpoint"
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node scripts/hooks/agent-hook.mjs record-usage",
+            "timeout": 5
           }
         ]
       }
