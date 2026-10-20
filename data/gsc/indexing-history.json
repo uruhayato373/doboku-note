@@ -1184,6 +1184,72 @@
         "/exam/pe-first-stage/primary/r07-water-supply",
         "/standards/mlit"
       ]
+    },
+    {
+      "runId": "2026-10-20T01-30-06Z",
+      "collectedAt": "2026-10-20T01:30:06.648Z",
+      "mode": "commit",
+      "status": "ok",
+      "filter": {
+        "category": null,
+        "group": null
+      },
+      "inspected": 38,
+      "accepted": 10,
+      "alreadyIndexed": 28,
+      "unreadable": 0,
+      "slugs": [
+        "/standards/hokkaido/local/part-01",
+        "/practice/accident-first-response",
+        "/exam/civil-construction-1/guide/quit-or-stay",
+        "/exam/civil-construction-1/guide/quit-public-engineer",
+        "/exam/pe-first-stage/primary/h26-aptitude",
+        "/exam/pe-first-stage/primary/h27-water-supply",
+        "/exam/pe-first-stage/primary/h28-aptitude",
+        "/exam/pe-first-stage/primary/h29-water-supply",
+        "/exam/pe-first-stage/primary/h30-water-supply",
+        "/exam/pe-first-stage/primary/r02-basic",
+        "/exam/pe-first-stage/primary/r03-basic",
+        "/exam/pe-first-stage/primary/r05-aptitude",
+        "/exam/pe-first-stage/primary/r05-water-supply",
+        "/standards/hokkaido/common",
+        "/standards/hokkaido/local",
+        "/standards/kanto/manual",
+        "/standards/kyushu/common",
+        "/standards/kyushu/hikkei-common-11",
+        "/standards/kyushu/hikkei-control-06",
+        "/standards/kyushu/hikkei-control-15",
+        "/standards/mlit/sekou-kanri-kijun",
+        "/standards/tohoku/common",
+        "/standards/tohoku/reference",
+        "/privacy",
+        "/standards/hokkaido/appendix/part-01",
+        "/standards/hokkaido/appendix/part-04",
+        "/standards/hokkaido/local/part-02",
+        "/standards/hokuriku/hikkei/part-02",
+        "/standards/hokuriku/hikkei/part-04",
+        "/standards/kanto/manual/part-05",
+        "/standards/kyushu/hikkei-common-03/part-01",
+        "/standards/kyushu/hikkei-common-08/part-01",
+        "/standards/kyushu/hikkei-common-08/part-05",
+        "/standards/kyushu/hikkei-common-09/part-01",
+        "/standards/kyushu/hikkei-common-09/part-02",
+        "/standards/kyushu/hikkei-common-11/part-01",
+        "/standards/kyushu/hikkei-control-15/part-01",
+        "/standards/kyushu/management-manual/part-04"
+      ],
+      "acceptedSlugs": [
+        "/exam/pe-first-stage/primary/h30-water-supply",
+        "/exam/pe-first-stage/primary/r05-water-supply",
+        "/standards/hokkaido/local",
+        "/standards/mlit/sekou-kanri-kijun",
+        "/privacy",
+        "/standards/kyushu/hikkei-common-08/part-01",
+        "/standards/kyushu/hikkei-common-08/part-05",
+        "/standards/kyushu/hikkei-common-09/part-01",
+        "/standards/kyushu/hikkei-common-11/part-01",
+        "/standards/kyushu/management-manual/part-04"
+      ]
     }
   ]
 }
