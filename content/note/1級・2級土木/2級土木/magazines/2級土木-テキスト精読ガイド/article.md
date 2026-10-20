@@ -44,13 +44,6 @@ cover:
 
 ---
 
-<!-- cta:coconala-custom -->
-一次のあとに控える二次の施工経験記述は、ココナラで個別に対応しています。書いた答案があれば全3テーマの添削、まだ書けていなければヒアリングから骨子（構成）をつくります。
-
-https://coconala.com/services/4418778
-
-https://coconala.com/services/4418785
-
 <!-- cta:pack-top -->
 第1次検定の過去問を、解説つきで印刷して解けるPDFにまとめた教材もあります。
 

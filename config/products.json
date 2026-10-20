@@ -454,7 +454,7 @@
       "order": 8,
       "catalog": {
         "id": "coconala-2kyu-sakusei-3theme",
-        "status": "listed",
+        "status": "paused",
         "serviceUrl": "https://coconala.com/services/4418785",
         "title": "2級経験記述の全3テーマ骨子を24時間で設計します",
         "shortTitle": "2級 経験記述 指導（全3テーマ・24時間）",
@@ -471,7 +471,9 @@
           "civil-2"
         ],
         "weeklyCapacity": 1,
-        "listedAt": "2026-09-25"
+        "listedAt": "2026-09-25",
+        "pauseReason": "absence",
+        "resumeOn": "2027-07-01"
       },
       "members": [],
       "includes": [],
@@ -523,7 +525,7 @@
       "order": 6,
       "catalog": {
         "id": "coconala-2kyu-tensaku-3theme",
-        "status": "listed",
+        "status": "paused",
         "serviceUrl": "https://coconala.com/services/4418778",
         "title": "2級経験記述 全3テーマを24時間で添削します",
         "shortTitle": "2級 経験記述 添削（全3テーマ・24時間）",
@@ -540,7 +542,9 @@
           "civil-2"
         ],
         "weeklyCapacity": 1,
-        "listedAt": "2026-09-25"
+        "listedAt": "2026-09-25",
+        "pauseReason": "absence",
+        "resumeOn": "2027-07-01"
       },
       "members": [],
       "includes": [],
