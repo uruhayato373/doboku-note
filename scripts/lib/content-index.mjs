@@ -8,6 +8,7 @@ import { join, relative, sep } from 'node:path';
 import { listFiles } from './fs-walk.mjs';
 import { LEGACY_PREFIX, parseLegacyRedirects } from './legacy-routes.mjs';
 import { REPO_ROOT, SITE_CONTENT_ROOT } from './repository-paths.mjs';
+import { siteSlugFromRel } from '../../src/lib/site-slug.mjs';
 
 /** 同じプロセス（管理画面の dev サーバーなど）で作り直さない。公開パスは public/_redirects から決まるので、その更新日時が鍵 */
 const memo = new Map();
@@ -30,9 +31,7 @@ function build(root, file) {
   const index = new Map();
   const siteRoot = join(root, relative(REPO_ROOT, SITE_CONTENT_ROOT));
   for (const full of listFiles(siteRoot, { ext: '.mdx', allowMissing: true })) {
-    const segs = relative(siteRoot, full).split(sep);
-    const base = segs.pop().replace(/\.mdx$/, '');
-    const slug = (base === 'article' ? segs : [...segs, base]).join('-');
+    const slug = siteSlugFromRel(relative(siteRoot, full));
     const path = redirects.get(slug);
     if (path) index.set(path, relative(root, full).split(sep).join('/'));
   }

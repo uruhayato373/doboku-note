@@ -8,6 +8,7 @@ import { buildLegacySitemapUrls, renderLegacySitemap, LEGACY_SITEMAP_FILE, LEGAC
 import { SITE_ORIGIN } from './lib/site-identity.mjs';
 import { parseRouteTable } from './lib/legacy-routes.mjs';
 import { buildRobotsTxt } from './lib/robots-txt.mjs';
+import { siteSlugFromParts } from '../src/lib/site-slug.mjs';
 
 const OUT_DIR = 'out';
 const POSTS_DIR = SITE_CONTENT_ROOT;
@@ -93,10 +94,8 @@ function walkMdxFiles(dir, gitDatesLazy, segments = [], results = []) {
     }
     if (!entry.isFile() || !entry.name.endsWith('.mdx')) continue;
 
-    const baseName = entry.name.replace(/\.mdx$/, '');
-    const slugParts = baseName === 'article' ? segments : [...segments, baseName];
-    if (slugParts.length === 0) continue;
-    const slug = slugParts.join('-');
+    const slug = siteSlugFromParts(segments, entry.name);
+    if (!slug) continue;
 
     const fileContents = readFileSync(full, 'utf8');
     const { data } = matter(fileContents);

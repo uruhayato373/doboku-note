@@ -1,23 +1,13 @@
+// 見出しの ID の規則はスクリプト（過去問の逆リンク）と共有する（src/lib/heading-id.mjs・DN-0797）
+import { generateHeadingId } from './heading-id.mjs';
+
 export interface TocHeading {
   id: string;
   text: string;
   level: number;
 }
 
-/**
- * Generate a URL-safe ID from heading text.
- * Handles Japanese characters by keeping them as-is (browsers support Unicode fragment IDs).
- */
-export function generateHeadingId(text: string): string {
-  return text
-    .trim()
-    .toLowerCase()
-    .replace(/[^\w\u3040-\u309F\u30A0-\u30FF\u4E00-\u9FAF\u3400-\u4DBF\s-]/g, '')
-    .replace(/\s+/g, '-')
-    .replace(/-+/g, '-')
-    .replace(/^-|-$/g, '')
-    || 'heading';
-}
+export { generateHeadingId };
 
 /**
  * Extract headings from MDX content string.

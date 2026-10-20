@@ -26,6 +26,7 @@ import { generateHeadingId, extractHeadings } from '#lib/heading-id.mjs';
 import { buildKeywordHref } from '#src/lib/keyword-href.mjs';
 import { REPO_ROOT as ROOT, SITE_CONTENT_ROOT } from '../../../../../../../scripts/lib/repository-paths.mjs';
 import { slugFromKey } from '../../../../../../../scripts/lib/url-normalization.mjs';
+import { siteSlugFromParts } from '../../../../../../../src/lib/site-slug.mjs';
 
 const SITE_DIR = SITE_CONTENT_ROOT;
 const NOTE_DIR = path.join(ROOT, 'content', 'note');
@@ -62,10 +63,8 @@ function findSiteMdxFiles(dir, basePath = []) {
       if (name === 'img') continue;
       results.push(...findSiteMdxFiles(fullPath, [...basePath, name]));
     } else if (entry.isFile() && entry.name.endsWith('.mdx')) {
-      const slugPath = name === 'article' ? basePath : [...basePath, name];
-      if (slugPath.length > 0) {
-        results.push({ slug: slugPath.join('-'), filePath: fullPath });
-      }
+      const slug = siteSlugFromParts(basePath, entry.name);
+      if (slug) results.push({ slug, filePath: fullPath });
     }
   }
   return results;

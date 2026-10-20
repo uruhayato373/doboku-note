@@ -106,6 +106,7 @@ import { datasetDir, datasetPath } from '../../../../../scripts/lib/datasets.mjs
 import { requireLocalAsset } from '../../../../../scripts/lib/asset-storage.mjs';
 import { listFiles } from '../../../../../scripts/lib/fs-walk.mjs';
 import { parseCliArgs } from '../../../../../scripts/lib/cli-args.mjs';
+import { siteSlugFromParts } from '../../../../../src/lib/site-slug.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const POSTS_DIR = SITE_CONTENT_ROOT;
@@ -172,8 +173,7 @@ function findMdxFiles(dir) {
 }
 
 function buildFullSlug(relativeParts, fileName) {
-  const base = fileName.replace(/\.mdx$/, '');
-  return base === 'article' ? relativeParts.join('-') : [...relativeParts, base].join('-');
+  return siteSlugFromParts(relativeParts, fileName);
 }
 
 function resolveOutputPath(fullSlug) {

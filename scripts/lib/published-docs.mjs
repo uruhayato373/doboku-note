@@ -9,6 +9,7 @@
 import { readdirSync, readFileSync, existsSync } from 'node:fs';
 import { join, relative, extname } from 'node:path';
 import matter from 'gray-matter';
+import { siteSlugFromRel } from '../../src/lib/site-slug.mjs';
 
 const SITE_CONTENT_ROOT = 'content/site';
 
@@ -26,13 +27,9 @@ function walkMdx(dir) {
   return out;
 }
 
-// Convention A: `content/site/<cat>/dir/file.mdx` → `<cat>-dir-file`
-// Convention B: `content/site/<cat>/dir/article.mdx` → `<cat>-dir`
+// `content/site/<資格>/<slug>/article.mdx` → `<資格>-<slug>`（規則は src/lib/site-slug.mjs）
 function toDocSlug(filePath, postsRoot) {
-  const rel = relative(postsRoot, filePath);
-  const withoutExt = rel.replace(/\.mdx$/i, '');
-  const parts = withoutExt.split(/[\\/]/).filter((s) => s && s !== 'article');
-  return parts.join('-');
+  return siteSlugFromRel(relative(postsRoot, filePath));
 }
 
 /**
