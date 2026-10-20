@@ -176,6 +176,10 @@ export type CareerArticleEndCard = {
   readonly href: string;
   readonly points: readonly string[];
   readonly cta: string;
+  /** 小型カード（EXP-038 の B）の 1 行の要約。無ければ description を使う */
+  readonly brief?: string;
+  /** 広告主の公表実績（日付つき）。確かめた案件だけに書く（数値訴求の条件は resolveBuildJobCopy の注記） */
+  readonly proof?: string;
 };
 
 /**
@@ -205,8 +209,10 @@ function resolveNeedCta(
  * - description に安心コピー（「今すぐ転職すると決めていなくても〜確認できる」）を常時内蔵し、
  *   転職エージェントへの心理的ハードル（応募を急かされそう・断りづらい）を先回りで解消する。
  * - CTA は読者の悩み（career-pathways.ts の need）で出し分ける。
- * - 数値訴求（年収アップ額等の広告主公称値）は本文/カードとも使わない（景表法・LP 更新リスク回避。
- *   使う場合は「サービス公表値」明記が必須＝docs/operations/09 §戦略判断4）。
+ * - 数値訴求（年収アップ額等の広告主公称値）は原則使わない（景表法・LP 更新リスク回避。docs/operations/09 §戦略判断4）。
+ *   例外は proof の累計支援数だけ: 2026-10-20 に もしもの案件通知（累計 50,529 人・訴求例「累計5万名以上の支援実績」）と
+ *   公式 LP（「累計支援数 50,529人 ※2026年3月16日時点」）の一致を目視で確かめ、PR カード内に日付つきで載せる。
+ *   ASP から更新の通知が来たら proof を書き換える。
  * - service 名は既存 GA4 ラベル（data-cta-label="ビルドジョブ"）との継続性のため変えない。
  */
 function resolveBuildJobCopy(slug?: string, need?: CareerNeed | null): CareerArticleEndCard {
@@ -222,6 +228,8 @@ function resolveBuildJobCopy(slug?: string, need?: CareerNeed | null): CareerArt
       "登録・相談はすべて無料",
     ],
     cta: resolveNeedCta(slug, "consultation", "資格・経験で狙える求人を無料で聞く", need),
+    brief: "書類作成から条件交渉まで支援。登録・相談は無料。",
+    proof: "累計5万名以上の支援実績（公式発表・2026年10月）",
   };
 }
 
@@ -242,6 +250,7 @@ function resolveKensetsuJobsCopy(slug?: string, need?: CareerNeed | null): Caree
       "希望条件の確認・書類作成・面接をサポート",
     ],
     cta: resolveNeedCta(slug, "registration", "経験と希望条件を無料で相談する", need),
+    brief: "建設業界で働いた経験がある 20〜30 代向け。登録・相談は無料。",
   };
 }
 
@@ -262,6 +271,7 @@ function resolvePeConsultingArticleEndCard(): CareerArticleEndCard {
       "登録・相談はすべて無料",
     ],
     cta: "無料でキャリア相談する",
+    brief: "シニア技術者・管理職層向けのハイクラス求人。相談は無料。",
   };
 }
 
