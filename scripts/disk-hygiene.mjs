@@ -18,7 +18,7 @@
  */
 import { spawnSync } from 'node:child_process';
 import { existsSync, readFileSync, readdirSync, rmSync, statSync, statfsSync, mkdirSync, writeFileSync } from 'node:fs';
-import { homedir } from 'node:os';
+import { homedir, tmpdir } from 'node:os';
 import { join, relative, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -40,6 +40,7 @@ import {
   referencedNpxIds,
   resolvePlatformPath,
   selectStaleDirs,
+  selectUnusedChromeClones,
   worktreePlacement,
 } from './lib/disk-hygiene.mjs';
 import { escapeRegExp } from './lib/regexp-escape.mjs';
@@ -436,6 +437,42 @@ export function collect({ quick = false, config = loadConfig(), platform = proce
       : `残骸なし（使用中 ${sparkleInUse.size} 件は除外）`,
     actions: sparkle.remove.map((e) => ({ kind: 'rm', path: e.path, reason: 'Codex 自動更新のダウンロード残骸' })),
   });
+
+  // --- Chrome の自己複製（DN-0630）-----------------------------------------
+  // Chrome は起動のたびに $(dirname $TMPDIR)/X/com.google.Chrome.code_sign_clone/ へ 1.4 GB の複製を作り、終了後も残す。
+  // Playwright で Chrome を起動する自動化（note・X・KDP・A8・GSC）でも 1 回ごとに増える。
+  // ただし複製は APFS の clonefile（コピーオンライト）で、du では 1 個 1.4 GB に見えても実容量はアプリ本体と共有している
+  // （2026-10-20 に 6 個・du 8.4 GB を消しても df の空きは変わらなかった）。容量の警告にはせず、数を有界に保つためだけに消す。
+  // 動いている Chrome 本体の起動時刻と作成時刻が合う複製は使用中として残す。
+  if (process.platform === 'darwin') {
+    const cloneRoot = join(dirname(tmpdir()), 'X', 'com.google.Chrome.code_sign_clone');
+    const clones = listDirs(cloneRoot).map((p) => {
+      let birthMs = NaN;
+      try { birthMs = statSync(p).birthtimeMs; } catch { /* 取れなければ残す */ }
+      return { path: p, birthMs };
+    });
+    const psStart = run('ps', ['-axo', 'lstart=,command='], { timeout: 15_000 });
+    const chromeStarts = psStart.ok
+      ? psStart.stdout
+          .split('\n')
+          .filter((line) => /\/Google Chrome\.app\/Contents\/MacOS\/Google Chrome(\s|$)/.test(line))
+          .map((line) => Date.parse(line.slice(0, 24).trim()))
+          .filter(Number.isFinite)
+      : null;
+    const sel = selectUnusedChromeClones(clones, chromeStarts);
+    const cloneBytes = quick ? null : sel.remove.reduce((n, c) => n + (dirBytes(c.path) || 0), 0);
+    items.push({
+      id: 'chrome-code-sign-clone',
+      platform: ['darwin'],
+      status: sel.undetermined ? 'warn' : 'ok',
+      // du の値は共有分を含む見かけの大きさなので、空きの計算に使わない（bytes は出さない）
+      bytes: null,
+      detail: sel.undetermined
+        ? `検査不成立: Chrome のプロセスを取れなかった（複製 ${clones.length} 個は消さない）`
+        : `複製 ${clones.length} 個（使用中 ${sel.keep.length}・整理候補 ${sel.remove.length}${quick ? '' : `・見かけ ${bytesHuman(cloneBytes || 0)}／APFS の複製で実容量はほぼ共有`}）`,
+      actions: sel.remove.map((c) => ({ kind: 'rm', path: c.path, reason: 'どの Chrome も使っていない自己複製（起動ごとに作られ終了後も残る）' })),
+    });
+  }
 
   // --- npm キャッシュ ------------------------------------------------------
   const npmCacheRoot = run('npm', ['config', 'get', 'cache'], { timeout: 20_000 }).stdout.trim() || join(HOME, '.npm');

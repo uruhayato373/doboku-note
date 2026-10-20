@@ -360,3 +360,22 @@ test('reportOnly.warnBytes: 超えたら warn、無ければ ok（消す action 
   assert.ok(hits.every((h) => h.actions.length === 0), 'reportOnly は削除 action を持たない');
   rmSync(dir, { recursive: true, force: true });
 });
+
+test('Chrome の自己複製: 動いている Chrome の起動時刻と合う複製だけ残し、プロセスを取れなければ何も消さない（DN-0630）', async () => {
+  const { selectUnusedChromeClones } = await import('../scripts/lib/disk-hygiene.mjs');
+  const t0 = Date.parse('2026-10-20T09:24:32+09:00');
+  const clones = [
+    { path: '/x/code_sign_clone.inUse', birthMs: t0 + 1000 },
+    { path: '/x/code_sign_clone.old', birthMs: t0 - 86_400_000 },
+    { path: '/x/code_sign_clone.noTime', birthMs: NaN },
+  ];
+  const sel = selectUnusedChromeClones(clones, [t0]);
+  assert.deepEqual(sel.remove.map((c) => c.path), ['/x/code_sign_clone.old']);
+  assert.deepEqual(sel.keep.map((c) => c.path), ['/x/code_sign_clone.inUse', '/x/code_sign_clone.noTime']);
+  // Chrome が 1 つも動いていなければ全部が候補（作成時刻の取れないものは残す）
+  assert.deepEqual(selectUnusedChromeClones(clones, []).remove.map((c) => c.path), ['/x/code_sign_clone.inUse', '/x/code_sign_clone.old']);
+  // プロセスを取れなかったときは何も消さない（判定できないものは残す）
+  const none = selectUnusedChromeClones(clones, null);
+  assert.equal(none.remove.length, 0);
+  assert.equal(none.undetermined, true);
+});
