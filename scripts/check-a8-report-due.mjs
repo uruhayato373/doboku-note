@@ -108,6 +108,14 @@ if (excessAbnormal) {
     `crossCheck 超過 ${excessClicks} click（サイト別 ${siteClicks} の ${excessRatio != null ? Math.round(excessRatio * 100) : "?"}%）＝` +
       `口座横断レポートに stats47 が含まれるため想定内。案件別の分母は GA4 を使う（affiliate-operations.md §6.5）`,
   );
+  // サイトで絞った内訳（--site-filter self）があれば、超過が他サイト分で説明できたかを添える
+  const sf = log?.crossCheck?.siteFiltered;
+  if (sf) {
+    const others = (sf.byProgram ?? []).filter((r) => r.otherSites > 0).map((r) => `${r.program} ${r.otherSites}`).join("・");
+    notes.push(
+      `サイトで絞った内訳: 自サイトの allowlist ${sf.clicks} click / サイト別 ${sf.siteSummaryClicks} click（${sf.matchesSiteSummary ? "範囲内" : "★超過"}）・他サイト分 ${sf.otherSitesClicks} click${others ? `（${others}）` : ""}`,
+    );
+  }
 }
 
 const result = {

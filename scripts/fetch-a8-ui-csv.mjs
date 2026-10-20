@@ -38,6 +38,7 @@ import {
   assertA8Account,
   assertTargetSiteRow,
   setPeriodMonth,
+  setSiteFilter,
   readVisibleSiteContext,
   dumpFailure,
   downloadTo,
@@ -61,6 +62,9 @@ function parseArgs() {
     "probe-isolation": { type: "boolean" },
     "probe-period": { type: "boolean" },
     month: { type: "string" },
+    // サイトで絞って取る（例 "self"＝自サイト全部、"doboku-note,doboku-note（note）"）。config の a8.siteFilter.reports のレポートだけ、
+    // 口座全体の取得に加えてサイトごとに 1 本ずつ取る（DN-0757）
+    "site-filter": { type: "string" },
   });
   delete opts._;
   return opts;
@@ -189,7 +193,7 @@ async function probePeriodForm(page, cfg, reportKey = "site-summary") {
 }
 
 /** 1 レポート分の取得。dry-run は検出のみ。 */
-async function processReport(page, cfg, runId, runDir, { reportKey, dryRun, month = null }) {
+async function processReport(page, cfg, runId, runDir, { reportKey, dryRun, month = null, siteFilter = null }) {
   const spec = cfg.a8.reports[reportKey];
   const unit = {
     reportKey,
@@ -207,6 +211,11 @@ async function processReport(page, cfg, runId, runDir, { reportKey, dryRun, mont
     status: "pending",
     error: null,
   };
+  // サイトで絞った取得は口座全体の取得と別の単位にする（normalize は口座全体の programPeriod へ入れない）
+  if (siteFilter) {
+    unit.siteFilter = siteFilter;
+    unit.siteScope = "site-filtered";
+  }
 
   unit.reportUrl = await openReport(page, cfg, reportKey, { month });
 
@@ -265,6 +274,7 @@ async function processReport(page, cfg, runId, runDir, { reportKey, dryRun, mont
   // ★ site-rows レポートは「doboku-note の行が実在すること」を DL 前に確認する。
   //   account-wide はサイト分離できない前提なので、ここでは確認せず normalize 側の
   //   allowlist 抽出＋site-summary 突合で担保する（A8 にサイト切替は無い＝2026-07-27 実機確認）。
+  //   2026-10-19 の画面改修で program-detail だけはサイトで絞れるようになったので、--site-filter で別の単位として取る。
   if (unit.siteScope === "site-rows") {
     const site = await assertTargetSiteRow(page, cfg);
     if (!site.ok) {
@@ -296,6 +306,17 @@ async function processReport(page, cfg, runId, runDir, { reportKey, dryRun, mont
     }
   }
 
+  if (siteFilter) {
+    const sf = await setSiteFilter(page, cfg, siteFilter);
+    unit.siteFilterSet = sf;
+    if (!sf.ok) {
+      await dumpFailure(page, cfg, runId, { step: "set-site-filter", expected: [siteFilter], message: `サイトで絞れない: ${sf.reason}` });
+      unit.status = "site-filter-failed";
+      unit.error = sf.reason;
+      return unit;
+    }
+  }
+
   // エクスポートボタン
   const { locator, count } = await findUniqueByLabels(page, cfg.a8.exportButtonLabels, {
     roles: ["button", "link"],
@@ -318,7 +339,7 @@ async function processReport(page, cfg, runId, runDir, { reportKey, dryRun, mont
     return unit;
   }
 
-  const dest = join(runDir, `${reportKey}--${runId}.csv`);
+  const dest = join(runDir, `${reportKey}${siteFilter ? `--site-${siteFilter.replace(/[^\p{L}\p{N}-]+/gu, '_')}` : ''}--${runId}.csv`);
   // CSV ボタンは押したときに CSV 生成用の JS を S3 から動的 import する。社内プロキシ経由だと
   // この応答に CORS ヘッダーが付かず import が失敗し、download が来ないまま時間切れになる
   // ことがある（2026-10-07 実測・DN-0566）。失敗はこのページでは直らないので、待たずに打ち切って
@@ -473,7 +494,18 @@ async function main() {
       console.log("     （レポートにより期間フォームの粒度が異なる。どれを操作するかは推測しない）");
     }
 
-    for (const reportKey of reportKeys) {
+    // 口座全体の取得に、サイトで絞った取得を足す（--site-filter・対象は config の a8.siteFilter.reports）
+    // self は設定の自サイト（targetSite＋relatedSites）。CI はこれで毎回、口座全体の検算の内訳を取る
+    const siteFilters = (opts.siteFilter ?? "")
+      .split(",")
+      .map((t) => t.trim())
+      .filter(Boolean)
+      .flatMap((t) => (t === "self" ? [cfg.a8.targetSite, ...(cfg.a8.relatedSites ?? [])] : [t]));
+    const jobs = reportKeys.flatMap((reportKey) => [
+      { reportKey, siteFilter: null },
+      ...(cfg.a8.siteFilter?.reports?.includes(reportKey) ? siteFilters.map((siteFilter) => ({ reportKey, siteFilter })) : []),
+    ]);
+    for (const { reportKey, siteFilter } of jobs) {
       if (!cfg.a8.reports[reportKey]) {
         console.warn(`[warn] 未知の reportKey: ${reportKey}（config に無し・スキップ）`);
         continue;
@@ -489,6 +521,7 @@ async function main() {
             reportKey,
             dryRun: opts.dryRun,
             month: opts.month,
+            siteFilter,
           });
         } catch (e) {
           unit = { reportKey, status: "error", error: String(e?.message || e).slice(0, 200) };
@@ -501,7 +534,7 @@ async function main() {
       }
       if (attemptErrors.length) unit.attemptErrors = attemptErrors;
       manifest.units.push(unit);
-      console.log(`  ${reportKey}: ${unit.status}${unit.csvRows != null ? ` (${unit.csvRows} 行)` : ""}`);
+      console.log(`  ${reportKey}${siteFilter ? `［${siteFilter}］` : ""}: ${unit.status}${unit.csvRows != null ? ` (${unit.csvRows} 行)` : ""}`);
     }
 
     // 「例外が出なかった」と「全部取れた」は違う。1 本でも落ちていれば partial にする。

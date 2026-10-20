@@ -186,6 +186,17 @@ const a8PeriodForm = z
   })
   .strict();
 
+const a8SiteFilter = z
+  .object({
+    input: text.describe('サイトの入力欄（autocomplete）'),
+    listbox: text.describe('候補の一覧'),
+    option: text.describe('候補 1 件のセレクタ'),
+    applyButtonLabel: text.describe('絞り込みを確定するボタン'),
+    selectedLabel: text.describe('確定した絞り込み条件の札（反映の確認に使う）'),
+    reports: strings.describe('サイトで絞れるレポート'),
+  })
+  .strict();
+
 /** A8.net メディア管理画面のレポート CSV 取得設定（config/a8-report-automation.json） */
 export const ConfigA8ReportAutomation = z
   .object({
@@ -205,6 +216,8 @@ export const ConfigA8ReportAutomation = z
         _periodNote: note,
         periodForm: a8PeriodForm,
         _periodFormNote: note,
+        siteFilter: a8SiteFilter.optional(),
+        _siteFilterNote: note.optional(),
         reports: z.record(z.string(), a8Report).describe('レポート id → 取得先とサイト分離の可否'),
         exportButtonLabels: nonEmptyStrings,
         _exportButtonNote: note,
