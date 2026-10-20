@@ -321,6 +321,17 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-0788] 棚卸しで見つかった台帳と文書の小さな誤り（Convention A の記述・report-readers テスト・退役表）を直す（拡張性・第0波）
+タグ: [エージェント・SSOT] [領域:管理] [時期:2026-10] [種類:不具合] [起票:2026-10-20]
+
+**起点**: 2026-10-20 の拡張性の棚卸し（`docs/reviews/critical/2026-10-20-code-extensibility-debt.md`）で見つかった、台帳と文書の小さな誤り 3 件。
+**やること**:
+1. Convention A（個別ファイル名）の記事は実物が 0 本（content/site は article.mdx だけ）なのに、CLAUDE.md・`.claude/rules/content-site.md` が「civil-construction-1 は A」と書いている。記述を直し、`npm run sync-codex-compat` で AGENTS.md を作り直す。content/site の .mdx が article.mdx だけであることを確かめるテストを足す
+2. `tests/quality-audit-report-readers.test.mjs` は CHECKS を正規表現で別に読み、複数行の定義のコメント「（ci:true）」を拾って env-inventory を検査から外している。`scripts/quality-audit.mjs` が export する CHECKS を import する形に直し（tests/quality-audit-ops-tier.test.mjs と同じ）、env-inventory の note に読み手を書くか退役させる
+3. content-planner エージェントを退役させる（呼び出し元とされる /keyword-gap・/exam-demand・/discover-exam-season は実在しない）。skills-registry.md・agents-registry.md の退役表に、7 月以降の退役（2026-09-26 の brain-publish・brain-operator ほか）の行を足す
+**完了条件**: 3 つとも済み、`npm run check-doc-coupling`・`npm run check-codex-compat`・unit-tests が通る。
+
+
 ### [DN-0787] 経験記述の字数ツールとスクリプトの countChars を src/lib の .mjs 1 つにまとめる（拡張性・第0波）
 タグ: [インフラ・計測] [領域:サイト] [時期:2026-10..2026-11] [種類:不具合] [起票:2026-10-20]
 
