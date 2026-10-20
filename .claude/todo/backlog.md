@@ -616,18 +616,6 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 **完了条件**: 登録ページが本番にあり、テスト用アドレスで登録→確認メール→配信停止まで通り、iOS アプリから張るリンク先 URL が決まっている。
 
-### [DN-0630] Chrome の自己複製（code_sign_clone）を check-disk-hygiene と日次掃除の対象に入れる
-タグ: [インフラ・計測] [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-10-10]
-
-**起点**: 2026-10-10 に Xcode を入れる空き容量を調べたところ、`$(dirname $TMPDIR)/X/com.google.Chrome.code_sign_clone/` に Chrome の自己複製が 8 個・11 GB 溜まっていた。Chrome は起動のたびに 1.4 GB の複製を作り、終了後も残す。Playwright で Chrome を起動する自動化（note・X・KDP・Playwright MCP）でも 1 回ごとに増える。`npm run check-disk-hygiene` はこの場所を見ていないので「問題なし」と出ていた。同日、起動中の Chrome が使っていない 6 個を手で消した（手順はメモリ reference_mac_disk_reclaim）。
-
-**やること**:
-1. `scripts/check-disk-hygiene.mjs` に項目を足す。複製ごとの作成時刻と、起動中の Chrome（`pgrep -f "MacOS/Google Chrome"` の `ps -o lstart=`）の起動時刻を照合し、どの Chrome も使っていない複製を整理候補として数と容量を出す。Chrome が 1 つも動いていなければ全部を候補にする
-2. launchd の日次掃除（`com.doboku-note.disk-hygiene`）で候補を消す。使用中かどうか判定できないときは消さずに WARN を出す（検査不成立を問題なしと言わない）
-3. Xcode を入れた後（DN-0453）は、`~/Library/Developer/Xcode/DerivedData` と使っていない iOS シミュレータのランタイム（`xcrun simctl runtime list`）も同じ検査で数え、DerivedData は日次掃除の対象にする。空きは Xcode 導入後に 20GB を切る見込みで、30GB の WARN 線を下回ったままになる
-4. `.claude/knowledge/reference/disk-hygiene.md` に置き場と判定の仕方を足す
-
-**完了条件**: `npm run check-disk-hygiene` が Chrome の複製の数・容量・整理候補を出し、日次掃除の後に使われていない複製が残っていない（起動中の Chrome の複製は残っている）。
 
 ### [DN-0629] コンテンツ台帳の残り: IG・X の status.json・posted.json の写しと、Drive の旧日付フォルダの表紙を消す
 タグ: [領域:SNS] [時期:2026-11] [種類:改善] [起票:2026-10-10]
@@ -761,14 +749,6 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 **完了条件**: `node scripts/drive-vault-sync.mjs --group note-magazine-cover-png` の差分が 0 件で、2026-10-07 に登録した誌の控えが vault にある。
 
 
-### [DN-0554] フックの鮮度チェックが post-commit の欠落を見ず、Mac に post-commit が入っていなかった
-タグ: [インフラ・計測] [領域:管理] [時期:2026-11] [種類:不具合] [起票:2026-10-07]
-
-**起点**: 2026-10-07、pathspec commit（`git commit -- <path>`）の後に index だけ古い版が残った（`MM`）。#885 が `scripts/install-pre-commit.mjs` に post-commit（`scripts/sync-index-after-commit.mjs`）を足したのに、この Mac の `.git/hooks` には pre-commit しか無かった。pre-commit に埋め込む鮮度チェックは `HOOK_CONTENT_BODY`（pre-commit の本文）の hash しか比べないので、post-commit だけが増えた版では「古い」と出ない。手で `npm run pre-commit:install` を入れ直した。
-
-**やること**: 鮮度チェックの hash に post-commit の本文も含めるか、pre-commit の冒頭で post-commit の有無と版を確かめ、欠けていれば止める。「post-commit が無い・古い」を再現して止まることをテストで固定する。別 PC と各 worktree では一度 `npm run pre-commit:install` を実行する（DN-0233 の端末設定と合わせる）。
-
-**完了条件**: post-commit を消した状態で commit すると pre-commit が理由つきで止まり、`npm run pre-commit:install` の後は通る（テストで固定）。
 
 
 

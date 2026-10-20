@@ -4692,6 +4692,40 @@
       "commit": "bb95e4a0d399",
       "verification": "node scripts/check-drive-vault.mjs exit 0（16431 パス実検査・FAIL 0）",
       "note": "2026-10-20 時点で check-drive-vault は FAIL 0（WARN 103: local-newer 38 ほか）。kindle-dist は coexistWithGit で対象外になり解消済み。週次レビューで Mac 実体照合を読む手順を追加"
+    },
+    {
+      "id": "DN-0630",
+      "at": "2026-10-20",
+      "task": "Chrome の自己複製（code_sign_clone）を check-disk-hygiene と日次掃除の対象に入れる",
+      "tier": "mid",
+      "kind": "改善",
+      "prevention": {
+        "type": "gate",
+        "ref": "check-disk-hygiene"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "882277a15e99",
+      "verification": "node scripts/check-disk-hygiene.mjs: chrome-code-sign-clone 複製 3 個（使用中 3・整理候補 0）／tests/disk-hygiene.test.mjs 23 pass",
+      "note": "Chrome の code_sign_clone を check-disk-hygiene の項目にし、日次の --fix が使われていない複製を消す（#1142）。APFS の複製で df は戻らないため容量は数えず、件数だけ抑える。Xcode 側は DN-0453 に依存し今回は対象外"
+    },
+    {
+      "id": "DN-0554",
+      "at": "2026-10-20",
+      "task": "フックの鮮度チェックが post-commit の欠落を見ず、Mac に post-commit が入っていなかった",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "test"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "882277a15e99",
+      "verification": "tests/check-post-commit-hook.test.mjs（無い/旧版→exit 1・install 後→exit 0）と pre-commit-dispatch.test.mjs 17 pass",
+      "note": "pre-commit の STEPS に check-post-commit-hook を追加（#1143）。post-commit が無い・sync-index-after-commit を呼ばない旧版なら止めて pre-commit:install を案内する。STEPS はツリーから毎回読むのでフックの入れ直し不要"
     }
   ]
 }
