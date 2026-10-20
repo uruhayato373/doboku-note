@@ -5043,6 +5043,32 @@
       "commit": "929d42c2d887",
       "verification": "tests/exam-dates.test.mjs 3 件 pass（時刻を差し込んで前日・当日・翌日、2 ファイルに日付のリテラル無し）、tsc、CI 緑",
       "note": "#1162。src/lib/exam-dates.ts（examDayEndUtcMs・beforeExamCatch）を新設し、offsite-cta の試験日と hub-cta の技術士の切り替え日を試験日程から作る。試験の翌日から日付なし。サイト反映は main デプロイ時"
+    },
+    {
+      "id": "DN-0799",
+      "at": "2026-10-20",
+      "task": "済んだ移行・一回きりのスクリプト 11 本を削除する（拡張性・第3波）",
+      "tier": "low",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "041a0bea446b",
+      "verification": "check-command-guidance・check-gate-parity:ci・check-knip-ratchet・check-doc-refs が exit 0、script-helpers-ratchet の基準値を 37 に締めて CI 緑",
+      "note": "#1161。11 本を 1 本ずつ確認し、役目を終えた 5 本（migrate-x-tweets・migrate-channel-split・fix-duplicated-description-suffix・audit-definition-leads・build-site）を削除。6 本は参照・再利用の理由つきで残した"
+    },
+    {
+      "id": "DN-0796",
+      "at": "2026-10-20",
+      "task": "frontmatter の未知のキーを止める（passthrough を外し、1 回しか使われないキーを直す）（拡張性・第2波）",
+      "tier": "low",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "041a0bea446b",
+      "verification": "lint-frontmatter --all で HIGH 0（1,470 記事）、frontmatter-schema のテスト 12 件 pass、CI 緑",
+      "note": "#1163。frontmatter-schema を .strict() の許可リストへ。1 本にしか無い古いキー 7 個を外し（updatedAt は dateModified より優先して 5/26 のまま表示されていた）、seoTitle の無い 1 記事に追加"
     }
   ]
 }
