@@ -213,10 +213,13 @@ export async function setPeriodMonth(page, cfg, { month }) {
   const startLoc = page.locator(`input[placeholder="${pf.startPlaceholder}"]`);
   if ((await startLoc.count().catch(() => 0)) > 0 && !(await startLoc.first().isVisible().catch(() => false))) {
     if (pf.monthTabLabel) {
-      const tab = page.getByRole("button", { name: pf.monthTabLabel, exact: false });
+      // 2026-10-19 の画面改修で program-detail の既定が「日指定」になり、切り替えは `<button role="tab">` になった
+      // （role が tab なので getByRole("button") では見つからない）。tab を先に探し、無ければ旧来の button を探す
+      let tab = page.getByRole("tab", { name: pf.monthTabLabel, exact: false });
+      if ((await tab.count().catch(() => 0)) !== 1) tab = page.getByRole("button", { name: pf.monthTabLabel, exact: false });
       if ((await tab.count().catch(() => 0)) === 1) {
         await tab.click().catch(() => {});
-        await page.waitForTimeout(500);
+        await page.waitForTimeout(800);
       }
     }
   }
@@ -285,12 +288,15 @@ export async function setPeriodMonth(page, cfg, { month }) {
     await page.waitForTimeout(600);
   }
 
+  // 2026-10-19 の画面改修で「適用」ボタンが無くなり、月を選んだ時点で表が読み直される形になった
+  // （site-summary・period-monthly で実測）。ボタンが 1 つあれば押し、無ければ押さずに読み込みを待つ。
+  // 2 つ以上は推測で押さない（fail-closed）。期間が本当に反映されたかは呼び出し側が CSV のファイル名で判定する。
   const apply = page.getByRole("button", { name: pf.applyButtonLabel, exact: false });
   const applyCount = await apply.count().catch(() => 0);
-  if (applyCount !== 1) {
+  if (applyCount > 1) {
     return { ok: false, reason: `「${pf.applyButtonLabel}」ボタンが一意に定まらない（候補 ${applyCount} 件）` };
   }
-  await apply.click();
+  if (applyCount === 1) await apply.click();
   await page.waitForLoadState("networkidle", { timeout: cfg.browser.timeoutMs }).catch(() => {});
   await page.waitForTimeout(1500);
 
