@@ -4957,6 +4957,19 @@
       "commit": "af025fb24b1b",
       "verification": "npm run test 3445 件 fail 0、check-doc-coupling・check-codex-compat 通過、CI 緑",
       "note": "#1151。Convention A の記述を 4 文書から削除し tests/content-site-layout.test.mjs で固定（content/site 直下の建設部門の記事 1 本を移動し、配置ルールに追加）。report-readers テストを CHECKS の import に変え env-inventory を退役。content-planner を退役し退役表に brain-* を記録"
+    },
+    {
+      "id": "DN-0794",
+      "at": "2026-10-20",
+      "task": "マガジンの資格を id の接頭辞で推定するのをやめ、products.json の qualification から引く（拡張性・第2波）",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "7bebd656e752",
+      "verification": "tests/exam-brand.test.mjs 5 件 pass（全 note 商品にブランドが引ける・接頭辞推定なし・未知 id は throw）、tsc・check-products 通過、CI 緑",
+      "note": "#1156。生成で note-magazines.ts の各商品に qualification を書き、exam-brand は qualification→資格キーの表で引く。pe-oral-general-guide だけ id で明示的に上書き（売上は建設部門・表示は技術士共通）"
     }
   ]
 }
