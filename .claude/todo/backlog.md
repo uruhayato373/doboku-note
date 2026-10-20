@@ -367,6 +367,8 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 **完了条件**: `node scripts/drive-vault-sync.mjs --group note-magazine-cover-png --commit` が exit 0 で、次の週次 note-sync の problems にこの行が無い。
 
+**進捗（2026-10-20）**: note-sync の worktree で同じコマンドを `--commit` 実行し exit 0（コピー 4・変更なし 107・失敗 0・全件 sha256 一致）。失敗は一時的な Drive I/O とみられる。保存段を 1 回再試行し、落ちたら出力の末尾をログと problems へ残すようにした（#1147）。**残り**: 10/25 ごろの週次 note-sync の problems にこの行が無いことを確かめて閉じる。
+
 
 
 ### [DN-0756] R2画像の更新後も同じURLのCDNキャッシュが旧版を返す
