@@ -4970,6 +4970,32 @@
       "commit": "7bebd656e752",
       "verification": "tests/exam-brand.test.mjs 5 件 pass（全 note 商品にブランドが引ける・接頭辞推定なし・未知 id は throw）、tsc・check-products 通過、CI 緑",
       "note": "#1156。生成で note-magazines.ts の各商品に qualification を書き、exam-brand は qualification→資格キーの表で引く。pe-oral-general-guide だけ id で明示的に上書き（売上は建設部門・表示は技術士共通）"
+    },
+    {
+      "id": "DN-0790",
+      "at": "2026-10-20",
+      "task": "develop を赤くしてきた速い台帳検査を pre-commit-ci-gates で先に止める（拡張性・第1波）",
+      "tier": "high",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "cd92569d17bb",
+      "verification": "tests/pre-commit-ci-gates.test.mjs 8 件 pass（足した検査 9 本の staged 条件・UNIT_TEST_RULES のテストの実在）、CI 緑",
+      "note": "#1157。09-14〜10-20 の develop の失敗 300 実行を集計し、content-series・content-registry・qualification-market・topic-wiring・review-wiring・gate-parity・domains・orphan-ogp・youtube-shorts を GATES に追加。unit-tests は staged のパスごとに実データのテストだけを回す（UNIT_TEST_RULES）"
+    },
+    {
+      "id": "DN-0791",
+      "at": "2026-10-20",
+      "task": "PR の差分以外で develop を赤くした ci 検査を、差分だけで決まる形にするか ops へ移す（拡張性・第1波）",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "cd92569d17bb",
+      "verification": "video-publication-check・ops-tier のテスト 20 件 pass、現データで check-video-publication PASS、CI 緑",
+      "note": "#1158。video-publication の V05（YouTube 側の削除・非公開）を --freshness（ops・日次）だけに移した。orphan-ogp・youtube-shorts は差分で決まるので DN-0790 の pre-commit へ、project-task-refs は 10/12 以降 0 回で対象外"
     }
   ]
 }

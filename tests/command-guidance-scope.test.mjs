@@ -54,3 +54,12 @@ test('走査範囲に skills・knowledge・agents・docs・workflows が入っ�
   assert.equal(j.inconclusive, false);
   assert.deepEqual(j.broken, []);
 });
+
+test('git grep の出力は CRLF の行も読む（DN-0780: Windows の checkout で取り戻しの案内が 1 件に減り検査不成立になった）', async () => {
+  const { parseGrepLines } = await import('../scripts/check-command-guidance.mjs');
+  const lf = 'a.md:3:npm run drive-vault-sync -- --pull --commit\nb.md:7:text\n';
+  const crlf = lf.replace(/\n/g, '\r\n');
+  assert.deepEqual(parseGrepLines(crlf).map((m) => [m[1], m[2], m[3]]), parseGrepLines(lf).map((m) => [m[1], m[2], m[3]]));
+  assert.equal(parseGrepLines(crlf).length, 2);
+  assert.ok(!parseGrepLines(crlf)[0][3].endsWith('\r'));
+});

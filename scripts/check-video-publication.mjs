@@ -15,10 +15,13 @@
  *   V02 記録はあるが対象を網羅していない（新しく公開したのに未照合）
  *   V03 記録が古い（既定 14 日）。--freshness のときだけ＝壁時計で結果が変わるので ci でなく ops（日次）が見る
  *   V04 記録に孤児（台帳の現役・同じvideoIdの停止済みのどちらにも属さない）
- *   V05 実査がドリフトを報告している（gone / not_public / cta_utm_missing / related_missing 等）
+ *   V05 実査がドリフトを報告している（gone / not_public / cta_utm_missing / related_missing 等）。--freshness のときだけ＝
+ *       YouTube 側の状態（削除・非公開）で決まり PR の差分では直せないので ci でなく ops（日次）が見る（DN-0791・2026-10-13 に
+ *       1 本の削除で develop の CI が 42 回赤くなった）
  *
  * Usage:
  *   node scripts/check-video-publication.mjs [--freshness] [--max-age-days N] [--json]
+ *   --freshness: ops の日次で、壁時計と外部状態に依存する V03・V05 も見る
  *
  * exit: 0 合格（対象0件も明示して 0）/ 1 違反あり
  *   「対象0件」と「異常0件」を必ず区別して出力する（CLAUDE.md §9）。
@@ -109,10 +112,10 @@ if (targets.length === 0) {
     if (FRESHNESS && ageDays !== null && ageDays > MAX_AGE_DAYS) {
       add('V03', `照合が ${ageDays} 日前（上限 ${MAX_AGE_DAYS} 日）。実査が止まっている可能性`);
     }
-    for (const f of record.findings ?? []) {
-      if (retiredRecords.has(f.id)) continue;
-      add('V05', `${f.id}: [${f.code}] ${f.message}`);
-    }
+    // 外部状態のドリフトは ops だけ（ci では件数だけ出して落とさない）
+    const drift = (record.findings ?? []).filter((f) => !retiredRecords.has(f.id));
+    if (FRESHNESS) for (const f of drift) add('V05', `${f.id}: [${f.code}] ${f.message}`);
+    else if (drift.length && !JSON_OUT) console.log(`check-video-publication: 実査のドリフト ${drift.length} 件は ops（--freshness・日次）が見る`);
   }
 }
 

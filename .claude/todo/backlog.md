@@ -21,15 +21,6 @@
 
 ## 🔴 高 — 重要度が高い
 
-### [DN-0790] develop を赤くしてきた速い台帳検査を pre-commit-ci-gates で先に止める（拡張性・第1波）
-タグ: [インフラ・計測] [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-10-20] [進行中]
-
-**起点**: 2026-10-20 の拡張性の棚卸し（`docs/reviews/critical/2026-10-20-code-extensibility-debt.md`）。develop の CI は 07-22 以降の時間の 37% が赤。09-14 以降の赤 63 回のうち、台帳・参照・登録の整合 16 回（project-task-refs 7・backlog-schema 3・review-wiring 2・relative-links 2・gate-parity・datasets）、分類表への追加漏れ 8 回（28 時間）、生成物のコミット漏れ 4 回は、手元で数秒の検査で止められた。develop への直 push の赤を手元で止める仕組みは `scripts/pre-commit-ci-gates.mjs` に既にある（GATES 11 本）。
-**やること**:
-1. 着手時に 09-14 以降の develop の赤を、最初に落ちた ci 検査で数え直し、手元で数秒で終わるものの id をこのカードに列挙する
-2. それらを pre-commit-ci-gates の GATES に足す（staged の条件つき）
-**禁止事項**: 検査の登録先（package.json・commands.md・quality-audit）を 1 か所に生成する作り替えはしない（check-gate-parity が意図して結んでいる）。
-**完了条件**: 列挙した id がすべて GATES にあり、`tests/pre-commit-ci-gates.test.mjs` が各 id の staged 条件を確かめて通る。
 
 
 ### [DN-0762] 2級土木の答案具体化シリーズ投入で赤になった CI（AI画像の判定・Shorts期待値・公開枠重複・メタデータ表記）を直す
@@ -370,15 +361,6 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 
 
-### [DN-0791] PR の差分以外で develop を赤くした ci 検査を、差分だけで決まる形にするか ops へ移す（拡張性・第1波）
-タグ: [インフラ・計測] [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-10-20] [進行中]
-
-**起点**: 2026-10-20 の拡張性の棚卸し（`docs/reviews/critical/2026-10-20-code-extensibility-debt.md`）。09-14 以降の develop の赤のうち、実データに依存するテスト（GSC/GA4）4 回・20 時間、外部状態（YouTube）2 回・44 時間は、PR の差分と関係なく赤になった。code.md の「ci:true は結果が PR の差分だけで決まる検査に限る」が適用されていない分。
-**やること**:
-1. 着手時に、該当する検査・テストの id と、DN-0587（10/12）以降に project-task-refs が赤を出した回数を数え直し、このカードに列挙する（0 回なら project-task-refs は対象から外す）
-2. 列挙したものを fixture で決まる形にするか、ops:true へ移す
-3. `tests/quality-audit-ops-tier.test.mjs` に、同じ種類の検査が ci へ戻るのを止める検知を足す
-**完了条件**: 列挙したものがすべて fixture 化か ops:true になり、ops-tier のテストが通る。
 
 
 ### [DN-0789] Skill・Agent・スラッシュコマンドの呼び出しを 4 週間の期限付きで記録する hook を置く（拡張性・第0波）
@@ -1902,7 +1884,7 @@ Windows（autocrlf で MDX が CRLF）で npm run refresh-indexes を回すと�
 
 
 ### [DN-0796] frontmatter の未知のキーを止める（passthrough を外し、1 回しか使われないキーを直す）（拡張性・第2波）
-タグ: [インフラ・計測] [領域:サイト] [時期:2026-12] [種類:改善] [起票:2026-10-20]
+タグ: [インフラ・計測] [領域:サイト] [時期:2026-12] [種類:改善] [起票:2026-10-20] [進行中]
 
 **起点**: 2026-10-20 の拡張性の棚卸し（`docs/reviews/critical/2026-10-20-code-extensibility-debt.md`）。frontmatter の検査（`.claude/scripts/lib/frontmatter-schema.mjs:57`）は .passthrough() で、記事で使われるキー 42 種のうち 13 種しか見ていない。1,470 記事で 1 回しか使われないキーが 8 個あり、`updated` を書いた記事がある一方で src の 10 ファイルは `updatedAt` を読む。綴りの違いが黙って無視される。
 **やること**: 実データの 42 キーを分類して許可リスト方式にし、1 回しか使われないキーを直すか正式に足す。seoTitle・section・faqs など使われているキーの型も書く。
@@ -1910,7 +1892,7 @@ Windows（autocrlf で MDX が CRLF）で npm run refresh-indexes を回すと�
 
 
 ### [DN-0795] offsite-cta・hub-cta の試験日の直書きをやめ、試験日程から作り、試験後は日付入りの文言を出さない（拡張性・第2波）
-タグ: [インフラ・計測] [領域:サイト] [時期:2026-12] [種類:不具合] [起票:2026-10-20]
+タグ: [インフラ・計測] [領域:サイト] [時期:2026-12] [種類:不具合] [起票:2026-10-20] [進行中]
 
 **起点**: 2026-10-20 の拡張性の棚卸し（`docs/reviews/critical/2026-10-20-code-extensibility-debt.md`）。`src/lib/offsite-cta.ts:50,56` に「10/4の本試験前に」「10/25の本試験前に」、`src/lib/hub-cta.ts:71,78` に技術士試験の Date.UTC(2026,6,19/20) が直書きされている。hub-cta.ts:32 には exam-calendar を読む examDayEndUtcMs が既にある。対象のココナラ出品 4 件（1級の添削・作成 4 テーマ、2級の 3 テーマ）は今は休止中なので、古い文言は表示されていない。
 **次または実行順**: 出品の再開（2027 年）と、2027 年の技術士試験の前。

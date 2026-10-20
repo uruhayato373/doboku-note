@@ -877,3 +877,61 @@ export const RumWebVitals = z
     if ((r.status === 'dimensions-missing') !== (r.error !== undefined)) flag(ctx, ['error'], 'error は dimensions-missing のときだけ付く');
   })
   .meta({ title: '実ユーザーの Web Vitals' });
+
+/**
+ * Cloudflare のゾーンの解析（data/cloudflare/zone/{date}.json・fetch-cloudflare-analytics.mjs が日次で書く・DN-0800）。
+ * 日次の数（requests・pageViews・国内外の内訳）は形を固める。topPaths・firewall は取れないことがある probe 層なので
+ * { unavailable } か中身のどちらでも通し、アカウントの R2・Workers の使用量はバケット名・操作名が増えるので record で受ける。
+ */
+const unavailableOr = (what) => z.union([z.object({ unavailable: z.string() }).strict(), z.record(z.string(), z.unknown())]).describe(what);
+const r2Usage = z.object({
+  objects: count('オブジェクト数'), gb: z.number().min(0).describe('保存量（GB）'),
+  classA: count('Class A 操作数'), classB: count('Class B 操作数'), free: count('無料の操作数'), unknown: count('分類できない操作数'),
+  topOperations: z.record(z.string(), count('操作数')).describe('操作ごとの回数'),
+});
+export const CloudflareZone = z
+  .object({
+    schemaVersion: z.literal(1),
+    fetchedAt: utcTime('取得日時'),
+    zone: z.object({ name: z.string().min(1), plan: z.string() }),
+    window: z.object({ since: jstDate('集計の開始日'), until: jstDate('集計の終了日') }),
+    daily: z
+      .array(
+        z.object({
+          date: jstDate('日付'),
+          requests: count('リクエスト数'),
+          pageViews: count('ページビュー'),
+          uniques: count('ユニーク訪問者'),
+          bytes: count('転送量（バイト）'),
+          cachedRequests: count('キャッシュから返したリクエスト数'),
+          threats: count('脅威として扱ったリクエスト数'),
+          status: z.record(z.string(), count('件数')).describe('応答コードの区分ごとの件数'),
+          jp: z.object({ requests: count('国内のリクエスト数'), bytes: count('国内の転送量') }),
+          other: z.object({ requests: count('国外のリクエスト数'), bytes: count('国外の転送量') }),
+          topOther: z.array(z.object({ country: z.string().min(2), requests: count('リクエスト数') })),
+        }),
+      )
+      .superRefine(uniqueBy((d) => d.date, '日付')),
+    topPaths: unavailableOr('前日の上位パス（取れなければ unavailable）'),
+    botSignals: z.object({ firewallEvents: unavailableOr('ファイアウォールの件数'), botScoreBuckets: unavailableOr('ボットスコアの分布') }),
+    accountUsage: z
+      .object({
+        window: z.object({ since: jstDate('集計の開始日'), until: jstDate('集計の終了日') }),
+        pricingAsOf: z.string(),
+        buckets: z.record(z.string(), r2Usage),
+        workers: z.record(z.string(), z.object({ requests: count('リクエスト数'), cpuMs: z.number().min(0) })),
+        totals: z.record(z.string(), z.number().min(0)),
+        estimateUsd: z.record(z.string(), z.number().min(0)).describe('見積もり（USD）'),
+      })
+      .optional(),
+    fieldsUnavailable: z.array(z.string()).describe('取得できなかった欄'),
+    counts: z.object({ daysReturned: count('返ってきた日数'), countriesSeen: count('出てきた国の数') }),
+    anomaly: z.object({
+      flagged: z.boolean(),
+      reason: orNull(z.string().describe('急増と判定した理由'), '急増が無ければ null'),
+      yesterdayJp: count('前日の国内リクエスト数'),
+      median6Jp: z.number().min(0).describe('直前 6 日の国内リクエスト数の中央値'),
+      otherOverJp: z.boolean(),
+    }),
+  })
+  .meta({ title: 'Cloudflare のゾーンの解析' });
