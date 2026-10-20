@@ -101,6 +101,12 @@
       "owner": "claude-code",
       "startedAt": "2026-10-20T12:20:32.006Z",
       "branch": "fix/dn0788-inventory-small-errors"
+    },
+    {
+      "id": "DN-0790",
+      "owner": "claude-code",
+      "startedAt": "2026-10-20T12:21:55.677Z",
+      "branch": "feat/dn0790-precommit-gates"
     }
   ]
 }

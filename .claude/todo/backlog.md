@@ -22,7 +22,7 @@
 ## 🔴 高 — 重要度が高い
 
 ### [DN-0790] develop を赤くしてきた速い台帳検査を pre-commit-ci-gates で先に止める（拡張性・第1波）
-タグ: [インフラ・計測] [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-10-20]
+タグ: [インフラ・計測] [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-10-20] [進行中]
 
 **起点**: 2026-10-20 の拡張性の棚卸し（`docs/reviews/critical/2026-10-20-code-extensibility-debt.md`）。develop の CI は 07-22 以降の時間の 37% が赤。09-14 以降の赤 63 回のうち、台帳・参照・登録の整合 16 回（project-task-refs 7・backlog-schema 3・review-wiring 2・relative-links 2・gate-parity・datasets）、分類表への追加漏れ 8 回（28 時間）、生成物のコミット漏れ 4 回は、手元で数秒の検査で止められた。develop への直 push の赤を手元で止める仕組みは `scripts/pre-commit-ci-gates.mjs` に既にある（GATES 11 本）。
 **やること**:
