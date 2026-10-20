@@ -29,7 +29,7 @@
       "prevYearLabel": "«",
       "nextYearLabel": "»"
     },
-    "_periodFormNote": "2026-07-28 の実機観察（--probe-period）で確定した値。推測ではない。\n**同名 input `start`/`end` を一意に選ぶ鍵は placeholder**（name では選べない）:\n  site-summary(/report/site)        … 月レンジのみ。開始月/終了月 が visible。日指定は存在しない\n  program-detail(/report/program/detail) … 月レンジ（開始月/終了月・visible・既定）と日レンジ（開始日/終了日・hidden）が併存し、\n                                          「月指定」「日指定」のタブで切り替わる。既定が月指定なので通常はタブ操作不要\n値の表記は **和暦でも ISO でもなく `2026年01月`**（日レンジは `2026年07月01日`）。入力後に「適用」ボタンで確定する。\nperiod-monthly / period-daily は単月取得の対象外（EPC に必要なのは site-summary と program-detail の 2 つ）。",
+    "_periodFormNote": "2026-07-28 の実機観察（--probe-period）で確定した値。推測ではない。\n**同名 input `start`/`end` を一意に選ぶ鍵は placeholder**（name では選べない）:\n  site-summary(/report/site)        … 月レンジのみ。開始月/終了月 が visible。日指定は存在しない\n  program-detail(/report/program/detail) … 月レンジ（開始月/終了月・visible・既定）と日レンジ（開始日/終了日・hidden）が併存し、\n                                          「月指定」「日指定」のタブで切り替わる。既定が月指定なので通常はタブ操作不要\n値の表記は **和暦でも ISO でもなく `2026年01月`**（日レンジは `2026年07月01日`）。入力後に「適用」ボタンで確定する（2026-10-19 の画面改修で「適用」ボタンが無くなり、月を選んだ時点で表が読み直される。program-detail の既定は「日指定」になり、切り替えは role=tab のボタン。setPeriodMonth はボタンがあれば押し、無ければ押さない）。\nperiod-monthly / period-daily は単月取得の対象外（EPC に必要なのは site-summary と program-detail の 2 つ）。",
 
     "reports": {
       "site-summary": {
