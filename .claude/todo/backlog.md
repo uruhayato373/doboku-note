@@ -357,7 +357,7 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 
 ### [DN-0794] マガジンの資格を id の接頭辞で推定するのをやめ、products.json の qualification から引く（拡張性・第2波）
-タグ: [インフラ・計測] [領域:サイト] [時期:2026-11] [種類:改善] [起票:2026-10-20]
+タグ: [インフラ・計測] [領域:サイト] [時期:2026-11] [種類:改善] [起票:2026-10-20] [進行中]
 
 **起点**: 2026-10-20 の拡張性の棚卸し（`docs/reviews/critical/2026-10-20-code-extensibility-debt.md`）。`src/lib/exam-brand.ts:34-49` はマガジンの資格を id の接頭辞から推定し、未知の接頭辞を総監として扱う。config/products.json は商品ごとに qualification を持つが、生成物の src/lib/note-magazines.ts がそれを落としているので、同じ事実が 2 か所にある。測量士・舗装などの商品を出した日に、黙って総監の色・導線で出る。
 **次または実行順**: 新しい資格の商品を出す前。
