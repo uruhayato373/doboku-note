@@ -4811,6 +4811,23 @@
       "commit": "865bbdf5f3b4",
       "verification": "data/business/records の measurement: 2026-05/06/08/09 coverage=complete、2026-09 は supersedes 付き。review 2026-09 monthly も supersedes 付き",
       "note": "KDP の 2026-09 は 10/17 の定期取得で estimated:false（¥9,988）になり、同日 measurement（netReceipts・coverage complete・supersedes 10/11 の partial）と 9 月の月次レビュー記録の確定版（supersedes 付き）が記録済み。5・6・8・9 月は complete。7 月は KDP が 7/31 取得の推計のため partial のまま（完了条件の対象外）"
+    },
+    {
+      "id": "DN-0761",
+      "at": "2026-10-20",
+      "task": "Dependabotのsprintf-js medium警告を依存経路と修正版に照合して解消する",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "none",
+        "ref": "依存の更新で解消。新しい警告は Dependabot が出す"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "e90fb2dfa323",
+      "verification": "gh api dependabot/alerts?state=open → 0 件・package-lock.json に sprintf-js 0 件",
+      "note": "56397ff95 で argparse を 2.x にそろえ、修正版の無い sprintf-js を lock から外した。Dependabot alert #96（GHSA-hp3w-g68c-fv3c）は 2026-10-18 に fixed、open の警告は 0 件"
     }
   ]
 }
