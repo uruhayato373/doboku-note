@@ -321,27 +321,7 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 ## 🟡 中 — 重要度が中くらい
 
-### [DN-0777] Mac の空き容量不足（19 GB）で EPUB の取り戻しが止まる（worktree の置き場は誤検知と判明）
-タグ: [領域:管理] [時期:2026-10..2026-11] [種類:不具合] [検証:check-disk-hygiene] [起票:2026-10-20]
 
-**起点**: 2026-10-20 の DN-0772（落ちた検査を素通りさせない）で report 区分を回したところ、`check-disk-hygiene` が FAIL のまま読み流されていた（読み手は SessionStart/Stop フックと日次掃除ログ）。(1) worktree-placement: 許可された置き場（`.claude/worktrees` / `~/.codex/worktrees`）の外に 5 本ある＝`../auth-session-refresh`・`../coconala-local`・`../gsc-local`・`../note-sync`・`../weekly-review`。名前から Mac の定期処理（週次 note 同期・週次レビュー・ログイン収集など）が使っている可能性が高い。(2) 空き容量 18.5 GB（warn < 30 GB）で、`npm run asset-hydrate -- --group kindle-dist` が「Insufficient free disk for restore」で止まり、手元で `check-kindle-epub-leak`・`check-kindle-format` を成立させられない。
-
-**やること**: 5 本それぞれ、どの launchd・スクリプトが使っているか（`launchctl list`・`~/Library/LaunchAgents`・各スクリプトの cwd）を確かめ、使っていれば置き場を `~/.codex/worktrees/` へ移して参照を直す（`git worktree move`）、使っていなければ `git worktree remove`。空き容量は `npm run check-disk-hygiene` の推奨と `npm run disk-hygiene:fix` で 30 GB 以上へ戻す。定期処理を止めるおそれがあるので、移す前に運営者へ確認する。
-
-**完了条件**: `npm run check-disk-hygiene` の worktree-placement が ✓、空き 30 GB 以上、手元で `npm run asset-hydrate -- --group kindle-dist` が通って `npm run check-kindle-epub-leak` が成立する。
-
-**訂正（2026-10-20）**: (1) の worktree の置き場は誤検知だった。5 本（auth-session-refresh・coconala-local・gsc-local・note-sync・weekly-review）は本体の `.claude/worktrees/` にあり、それぞれ同名の launchd（com.doboku-note.*）が使っている＝許可された置き場で正しい。worktree の中から check-disk-hygiene を実行したため基準がずれていた（検査を本体基準に直した）。**残りは (2) の空き容量だけ**（19.1 GB・warn < 30 GB）。空きの候補は Codex の会話履歴 4.3 GB・Codex の生成画像 1.5 GB・npm キャッシュ 2.0 GB・Codex のランタイム 1.8 GB・Playwright 1.7 GB（ユーザーデータを含むので運営者が選ぶ）。
-
-### [DN-0774] .gitignore の追跡対象を点検する
-タグ: [インフラ・計測] [領域:サイト] [時期:2026-10] [種類:改善] [起票:2026-10-19]
-
-**起点**: obsidian の TODO マスタ ^t-0024（3リポ共通・2026-09-28 のメモ）を各リポへ展開（2026-10-19）。
-
-**やること**: .gitignore が「追跡すべきものを除外していないか」「除外すべきもの（生成物・秘密・大きいバイナリ）を追跡していないか」を点検する。git の外の側は `npm run check-local-data`（LOCAL-DATA.md）で申告済みなので、ここでは追跡されている側を見る。
-
-**完了条件**: 点検結果と直した .gitignore がコミットされ、`npm run check-local-data` が通っている。
-
-**点検（2026-10-20）**: (1) 無視パターンに当たるのに追跡されているもの 64 件（`git ls-files -ci --exclude-standard`）＝ `.claude/settings.local.json`（.gitignore は「マシン固有・dotfiles の setup-memory-link --settings で置く」とするが、追跡されたまま許可設定の変更が何度もコミットされている）と SNS の下書き画像 63 件（`content/sns/x/draft/{073,074,075,076,077,079,093,095}-*/img/`・`content/sns/instagram/pe-construction/2026-06-10-hissu-kata/reels/img/`。無視の行より前から追跡されていた）。(2) 秘密らしい名前の追跡は誤検出だけ（デザインの tokens・ig-graph-token.mjs のスクリプト本体など）。(3) 1 MB 超の追跡は public/quiz・GA4 日次レポート（DN-0749）・.obsidian の plugin/icons（6.5 MB×2）など。**運営者の判断待ち**: 64 件を `git rm --cached` で追跡から外すと、ほかの checkout（Windows PC を含む）は次の pull で作業ツリーからも消える。settings.local.json は各 PC の dotfiles から置き直す前提か、SNS 画像は Drive vault に控えがあるか（SNS は保留中）を確かめてから外す。外したら `git ls-files -ci --exclude-standard` が 0 件になることを完了の確認にする。
 
 
 

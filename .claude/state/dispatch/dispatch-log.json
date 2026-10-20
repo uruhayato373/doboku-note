@@ -4743,6 +4743,40 @@
       "commit": "7a08571d5ad8",
       "verification": "tests/agent-hooks.test.mjs 16 pass（純関数・対象の絞り込み・hook を起動して exit 2/0）",
       "note": "hook 入力の agent_type（サブエージェント内だけ来る・2.1.299 のスキーマで確認）で figure-crop-worker を識別し、curl・wget・urllib・fetch( ・外部 URL を含む Bash を exit 2 で止める（#1144）。親と他エージェントの curl は止めない"
+    },
+    {
+      "id": "DN-0774",
+      "at": "2026-10-20",
+      "task": ".gitignore の追跡対象を点検する",
+      "tier": "mid",
+      "kind": "改善",
+      "prevention": {
+        "type": "gate",
+        "ref": "check-local-data"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "aa6494fa4c90",
+      "verification": "git ls-files -ci --exclude-standard 0 件・check-local-data exit 0（offloaded 64・device 1）",
+      "note": "無視対象なのに追跡されていた 64 件（settings.local.json と SNS 下書き画像 63 件）を git rm --cached で外した。settings.local.json は dotfiles の claude/doboku-note.local.{mac,windows}.json に控え、local-data.json の device に申告。他の checkout は pull 後に setup-memory-link --settings で置き直す"
+    },
+    {
+      "id": "DN-0777",
+      "at": "2026-10-20",
+      "task": "Mac の空き容量不足（19 GB）で EPUB の取り戻しが止まる（worktree の置き場は誤検知と判明）",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "check-disk-hygiene"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "aa6494fa4c90",
+      "verification": "check-disk-hygiene: free-space 31.3 GB ✓・worktree-placement ✓／asset-hydrate --group kindle-dist 137 件復元・check-kindle-epub-leak EPUB 65/65 冊実検査 ✓",
+      "note": "worktree の置き場は誤検知（#1142 で修正）。空きは運営者の選んだキャッシュ類・Codex の会話履歴（直近 1 日は残す）・.tmp の古い作業物を消して 18→31 GB"
     }
   ]
 }
