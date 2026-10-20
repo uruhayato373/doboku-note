@@ -33,6 +33,7 @@ import {
   evaluateSetRatchet, evaluateCountRatchet, countTopicDirections,
 } from './lib/content-taxonomy.mjs';
 import { runBody, isCliEntry, runAsCli } from './lib/cli-run.mjs';
+import { siteSlugFromRel } from '../src/lib/site-slug.mjs';
 
 // in-process でも呼べるよう run() に包んである（DN-0688・pre-commit-dispatch が import して呼ぶ）。
 // process.argv / process.exit / process.exitCode は runBody が渡す __argv / __exit / __status への読み替え。
@@ -92,7 +93,7 @@ function stagedMdx() {
     { cwd: REPO_ROOT, encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 });
   return out.split('\n').filter((p) => p.startsWith('content/site/') && p.endsWith('.mdx')).sort();
 }
-function slugOf(rel) { return rel.replace(/^content\/site\//, '').replace(/\/article\.mdx$/, '').replace(/\.mdx$/, '').replace(/\//g, '-'); }
+function slugOf(rel) { return siteSlugFromRel(rel.replace(/^content\/site\//, '')); }
 
 let docs = [];
 if (STAGED) {

@@ -59,6 +59,7 @@ import matter from 'gray-matter';
 import { REPO_ROOT, SITE_CONTENT_ROOT } from './lib/repository-paths.mjs';
 import { loadManifest, writeManifestAtomic } from './lib/asset-storage.mjs';
 import { computeOgpSrcHash } from './lib/ogp-srchash.mjs';
+import { siteSlugFromParts } from '../src/lib/site-slug.mjs';
 
 const POSTS_DIR = SITE_CONTENT_ROOT;
 const categories = JSON.parse(
@@ -102,8 +103,7 @@ function findMdx(dir, parts = []) {
 }
 
 function buildFullSlug(parts, file) {
-  const base = file.replace(/\.mdx$/, '');
-  return base === 'article' ? parts.join('-') : [...parts, base].join('-');
+  return siteSlugFromParts(parts, file);
 }
 
 function resolveOgpPath(fullSlug) {

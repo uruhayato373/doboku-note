@@ -22,7 +22,7 @@ import { join } from 'node:path';
 import { REPO_ROOT as ROOT } from '../scripts/lib/repository-paths.mjs';
 
 /** 今の数（scripts・.claude・tools・lib・tests のコード）。減らしたら下げる */
-const BASELINE = { root: 24, walk: 27, parseArgs: 19, curlJson: 0, mdxWalk: 39, escapeRegExp: 0 };
+const BASELINE = { root: 24, walk: 27, parseArgs: 19, curlJson: 0, mdxWalk: 39, escapeRegExp: 0, siteSlug: 0, headingId: 0 };
 
 const OWN = new Set(['scripts/lib/repository-paths.mjs', 'scripts/lib/fs-walk.mjs', 'scripts/lib/cli-args.mjs', 'scripts/lib/note-api.mjs', 'scripts/lib/mdx-files.mjs', 'scripts/lib/regexp-escape.mjs', 'tests/script-helpers-ratchet.test.mjs']);
 
@@ -37,6 +37,11 @@ export const DEFINES_CURL_JSON = /^[ \t]*(?:export\s+)?(?:async\s+)?(?:function\
 /** MDX を列挙する関数の定義（collectMdx・findMdx・listArticles …。本文でディレクトリを読むものだけ数える） */
 export const DEFINES_MDX_WALK = /^[ \t]*(?:export\s+)?(?:async\s+)?(?:function\s*\*?\s*(?:collectMdx\w*|findMdx\w*|listMdx\w*|walkMdx\w*|scanMdx\w*|allMdx\w*|gatherMdx\w*|readAllMdx\w*|collectArticles?|listArticles?|findArticles?)\s*\(|const\s+(?:collectMdx\w*|findMdx\w*|listMdx\w*|walkMdx\w*|scanMdx\w*|allMdx\w*|collectArticles?|listArticles?|findArticles?)\s*=)/;
 
+/** 記事のパスから slug を作る自前の規則（article.mdx ならディレクトリ名・DN-0797。src/lib/site-slug.mjs を使う） */
+export const DEFINES_SITE_SLUG = /\b(?:s|base|baseName|name|fileName)\s*(?:===|!==)\s*['"]article['"]|parts\.at\(-1\)\s*===\s*['"]article['"]|\\\/article\\\.mdx\$\/,\s*''\)[^\n]*\.replace\(\/\\\/\/g,\s*'-'\)/;
+/** 見出し ID の自前の定義（DN-0797。src/lib/heading-id.mjs を使う） */
+export const DEFINES_HEADING_ID = /^[ \t]*(?:export\s+)?function\s+generateHeadingId\s*\(/;
+
 /** 正規表現の特殊文字を `\\$&` で逃がす自前のエスケープ（行単位。インラインの .replace も、const の定義も同じ形なので 1 件） */
 export const DEFINES_ESCAPE_REGEXP = /\.replace\(\s*\/\[[^\n]*?\]\/g,\s*(['"])\\\\\$&\1\s*\)/;
 
@@ -49,12 +54,14 @@ function bodyFrom(lines, i) {
 
 export function findDefinitions(text) {
   const lines = text.split('\n');
-  const hits = { root: [], walk: [], parseArgs: [], curlJson: [], mdxWalk: [], escapeRegExp: [] };
+  const hits = { root: [], walk: [], parseArgs: [], curlJson: [], mdxWalk: [], escapeRegExp: [], siteSlug: [], headingId: [] };
   lines.forEach((l, i) => {
     if (DEFINES_ROOT.test(l) && !/\/\/\s*root-ok:/.test(l)) hits.root.push(i + 1);
     // walk という名前でもディレクトリを読まないもの（構文木をたどる visitor など）は数えない
     if (DEFINES_WALK.test(l) && /\b(?:readdirSync|readdir|opendirSync|opendir)\(/.test(bodyFrom(lines, i)) && !/\blistFiles\(/.test(bodyFrom(lines, i))) hits.walk.push(i + 1);
     if (DEFINES_ESCAPE_REGEXP.test(l)) hits.escapeRegExp.push(i + 1);
+    if (DEFINES_SITE_SLUG.test(l)) hits.siteSlug.push(i + 1);
+    if (DEFINES_HEADING_ID.test(l)) hits.headingId.push(i + 1);
     if (DEFINES_PARSE_ARGS.test(l) && !/\bparseCliArgs\(/.test(bodyFrom(lines, i))) hits.parseArgs.push(i + 1);
     if (DEFINES_CURL_JSON.test(l) && /\b(?:spawnSync|execFileSync|execSync|spawn)\(/.test(bodyFrom(lines, i))) hits.curlJson.push(i + 1);
     if (DEFINES_MDX_WALK.test(l) && /\b(?:readdirSync|readdir|opendirSync|opendir)\(/.test(bodyFrom(lines, i)) && !/\b(?:listFiles|listSiteMdx)\(/.test(bodyFrom(lines, i))) hits.mdxWalk.push(i + 1);
@@ -69,7 +76,7 @@ function scan() {
     // このリポの共通部品を import できない自己完結のコードなので数えない
     .filter((f) => /\.(mjs|cjs|js|mts|ts|tsx)$/.test(f) && !f.includes('node_modules') && !OWN.has(f) && !f.startsWith('.claude/shared-policy/'));
   assert.ok(files.length > 500, `走査したコード ${files.length} ファイル（検査不成立）`);
-  const found = { root: [], walk: [], parseArgs: [], curlJson: [], mdxWalk: [], escapeRegExp: [] };
+  const found = { root: [], walk: [], parseArgs: [], curlJson: [], mdxWalk: [], escapeRegExp: [], siteSlug: [], headingId: [] };
   for (const f of files) {
     const hits = findDefinitions(readFileSync(join(ROOT, f), 'utf8'));
     for (const k of Object.keys(found)) for (const line of hits[k]) found[k].push(`${f}:${line}`);
@@ -84,6 +91,8 @@ const HINT = {
   curlJson: 'scripts/lib/note-api.mjs の curlJson（{ json, error }）を import し、戻りの形だけ薄く包む',
   mdxWalk: 'scripts/lib/mdx-files.mjs の listSiteMdx（img/ と隠しディレクトリを飛ばす・articleOnly）を使う',
   escapeRegExp: 'scripts/lib/regexp-escape.mjs の escapeRegExp を import する（全記号を逃がす）',
+  siteSlug: 'src/lib/site-slug.mjs の siteSlugFromRel・siteSlugFromParts を使う',
+  headingId: 'src/lib/heading-id.mjs の generateHeadingId を使う',
 };
 
 test('各自の定義は基準値より増えない', () => {
@@ -100,7 +109,7 @@ test('基準値は今の数のまま（減らしたら BASELINE を下げる＝�
 
 test('検出の型: 計算は数え、import・root-ok・共通部品を呼ぶだけの関数は数えない', () => {
   const count = (text) => Object.fromEntries(Object.entries(findDefinitions(text)).map(([k, v]) => [k, v.length]));
-  const z = { root: 0, walk: 0, parseArgs: 0, curlJson: 0, mdxWalk: 0, escapeRegExp: 0 };
+  const z = { root: 0, walk: 0, parseArgs: 0, curlJson: 0, mdxWalk: 0, escapeRegExp: 0, siteSlug: 0, headingId: 0 };
   assert.deepEqual(count("const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');"), { ...z, root: 1 });
   assert.deepEqual(count('const root = process.cwd();'), { ...z, root: 1 });
   assert.deepEqual(count('const PROJECT_ROOT = path.resolve(__dirname, "../..");'), { ...z, root: 1 });
@@ -125,4 +134,20 @@ test('検出の型: 計算は数え、import・root-ok・共通部品を呼ぶ�
   assert.deepEqual(count('const re = new RegExp(name.replace(/[.+?^${}()|[\\]\\\\]/g, "\\\\$&"));'), { ...z, escapeRegExp: 1 });
   assert.deepEqual(count("const re = new RegExp(escapeRegExp(name));"), z);
   assert.deepEqual(count("const s = text.replace(/\\s+/g, ' ');"), z);
+});
+
+test('slug と見出し ID の自前の規則を数える（DN-0797）', () => {
+  const count = (text) => findDefinitions(text);
+  assert.equal(count("const base = segs.pop().replace(/\\.mdx$/, '');\nconst slug = (base === 'article' ? segs : [...segs, base]).join('-');").siteSlug.length, 1);
+  assert.equal(count("return withoutExt.split('/').filter((s) => s && s !== 'article').join('-');").siteSlug.length, 1);
+  assert.equal(count("if (t.kind !== 'article' || !t.noteId) continue;").siteSlug.length, 0, 'note の記事の種類の判定は数えない');
+  assert.equal(count('export function generateHeadingId(text) {').headingId.length, 1);
+  assert.equal(count("export * from '../../../src/lib/heading-id.mjs';").headingId.length, 0);
+});
+
+test('サイト側（src/）も slug と見出し ID を共有の部品から使う', () => {
+  for (const f of ['src/lib/toc.ts', 'src/lib/local-post-reader.ts']) {
+    const hits = findDefinitions(readFileSync(join(ROOT, f), 'utf8'));
+    assert.deepEqual([...hits.siteSlug, ...hits.headingId], [], f);
+  }
 });
