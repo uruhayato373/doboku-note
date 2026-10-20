@@ -147,6 +147,12 @@
           "href": "/affiliate/programs",
           "kind": "actions",
           "match": "/affiliate/programs"
+        },
+        {
+          "label": "広告の見本",
+          "href": "/affiliate/preview",
+          "kind": "assets",
+          "match": "/affiliate/preview"
         }
       ]
     },
