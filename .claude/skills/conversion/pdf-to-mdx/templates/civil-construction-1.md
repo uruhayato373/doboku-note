@@ -13,14 +13,13 @@
 
 ```
 content/site/civil-construction-1/
-├── guide/{slug}.mdx               # 試験ガイド（Convention A）
-├── primary/{slug}.mdx             # 第1次試験過去問（Convention A、/exam-questions-import が担当）
-├── secondary/{slug}.mdx           # 第2次試験（Convention A、同上）
-└── textbook/{slug}/article.mdx    # 教科書（Convention B）
+├── guide-{slug}/article.mdx       # 試験ガイド
+├── primary-{slug}/article.mdx     # 第1次試験過去問（/exam-questions-import が担当）
+├── secondary-{slug}/article.mdx   # 第2次試験（同上）
+└── textbook-{slug}/article.mdx    # 教科書
 ```
 
-- `guide/` と `primary/`, `secondary/` は Convention A（個別ファイル名）
-- `textbook/` は Convention B（`article.mdx`）で新規作成推奨
+- どの種類も `<種類>-<slug>/article.mdx` の 1 形式（個別ファイル名の .mdx は `tests/content-site-layout.test.mjs` が止める）
 
 ## frontmatter スキーマ
 

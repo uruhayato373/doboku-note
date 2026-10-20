@@ -379,7 +379,6 @@
     "dev": "node scripts/dev-server.mjs",
     "diff-r2": "node .claude/skills/dev/diff-r2/scripts/diff-r2.mjs",
     "download-images": "node .claude/skills/dev/sync-r2-images/scripts/download-images-from-r2.mjs",
-    "env-inventory": "node scripts/report-env-inventory.mjs",
     "fetch-ga4-cta-clicks": "node .claude/scripts/fetch-ga4-cta-clicks.mjs",
     "fetch-ga4-data": "node .claude/scripts/fetch-ga4-data.mjs",
     "fetch-ga4-web-vitals": "node .claude/scripts/fetch-ga4-web-vitals.mjs",

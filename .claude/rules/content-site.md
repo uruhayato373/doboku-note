@@ -16,7 +16,7 @@ CLAUDE.md §2/§3/§11 の記事規約の詳細。真実源は [content-authorin
 
 ## 書き方
 
-- Convention A（個別ファイル名・`civil-construction-1/`）と Convention B（`article.mdx`・`pe-comprehensive-management/`）が共存する。新規は B 推奨。既存ファイルの方式を勝手に変換しない
+- 記事は全資格 `content/site/<資格>/<slug>/article.mdx` の 1 形式（旧 Convention A の個別ファイル名は 0 本。`tests/content-site-layout.test.mjs` が他の名前を止める）
 - 絵文字禁止（`<Callout type="...">` で表現）。数式は KaTeX 一択（`$$...$$` / `$...$`）。表は 2 軸比較のみ・4 列以上禁止。見出しは H2 以下（H1 は frontmatter から自動生成）
 - Callout の選び方は視覚ギャラリー [callout-gallery.md](../../docs/design/callout-gallery.md) と [Callout/README.md](../../src/components/ui/Callout/README.md)。仕様書調リストは [speclist-gallery.md](../../docs/design/speclist-gallery.md) と [SpecSheetList/README.md](../../src/components/ui/SpecSheetList/README.md)
 - frontmatter 必須: `title` / `seoTitle` / `description` / `category` / `tags` / `published`。`created` / `dateModified` も frontmatter が真実源（欠けるとビルドが git 履歴へフォールバックし、sitemap lastmod と JSON-LD datePublished がリネームや履歴書換えで動く。検査 `npm run check-mdx-dates`、書き込みは pre-commit の `backfill-mdx-dates --staged`。ただし本文・title・seoTitle・description が変わらない frontmatter だけの commit（tags / sources 配線など）では `dateModified` を動かさない＝sitemap lastmod は Googlebot のクロール優先度信号で、一括配線で数百ページを「更新」と申告すると信号ごと無視される）

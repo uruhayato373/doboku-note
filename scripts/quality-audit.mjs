@@ -25,7 +25,7 @@
  *   - `ops: true` = 運用アラート（投稿・配信・転記の遅れ）。ci:false 必須。PR は絶対に赤くしない。
  *     ops-audit.yml が日次で `--ops` を回し、FAIL は automation-failure Issue（channel: ops）へ、
  *     復旧は同 workflow の成功で自動クローズ（report-automation-failure --resolve）。
- *   - `ci: false`（ops 無し）= report-only（棚卸し・情報提供。census/knip/env-inventory 等。--ci では実行しない）。
+ *   - `ci: false`（ops 無し）= report-only（棚卸し・情報提供。census/knip 等。--ci では実行しない）。
  *   - `skip(env)` が理由文字列を返したらスキップ（dev server 必須・build 成果物必須など）。
  *   - 外部 API・公開更新（note/R2/deploy/fetch-*）は定義に載せない（副作用ゼロを保証）。
  *   - 存在しない npm script は skip 扱い（新チェックの段階導入に耐える）。
@@ -312,7 +312,6 @@ export const CHECKS = [
   { id: 'ogp-coverage', npm: 'check-ogp-coverage', timeout: 90_000, ci: false, note: '読み手＝weekly-review-guard の report digest（--report-only を週次実行し FAIL は automation-failure Issue へ集約）。r2-audit.yml が週次で同スクリプトを赤落ちゲートとして実行しており、こちらは横断監査での再掲' },
   { id: 'ogp-design', npm: 'check-ogp-design', timeout: 120_000, ci: false, note: '読み手＝weekly-review-guard の report digest（--report-only を週次実行し FAIL は automation-failure Issue へ集約）' },
   { id: 'quality-census', npm: 'quality-census', timeout: 180_000, ci: false, note: 'census.json 再生成（薄層可視化）。読み手＝weekly-review-guard の report digest（--report-only を週次実行し FAIL は automation-failure Issue へ集約）。生成物は /quality-cycle と admin の /quality が読む' },
-  { id: 'env-inventory', cmd: ['node', 'scripts/report-env-inventory.mjs'], timeout: 60_000, ci: false },
   // digest: false — knip 全量は **常に非ゼロ**（デッドコードは baseline で管理する前提）。
   // digest に入れると毎週 Issue が飛んで、その Issue ごと読み飛ばされるようになる。
   // 増加の検知は check-knip-ratchet（ci:true）が担当し、こちらは人が中身を見るための出力。
