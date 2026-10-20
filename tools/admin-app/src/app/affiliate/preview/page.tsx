@@ -37,7 +37,7 @@ function Frame({ src, width }: { src: string; width: PreviewWidth }) {
 }
 
 /**
- * /affiliate/preview — 広告の面ごとに、実験の案（A/B/C）をスマホ幅と PC 幅で並べて見る。
+ * /affiliate/preview — 広告の面ごとに、実験の案（AFFILIATE_VARIANTS・今は A/B）をスマホ幅と PC 幅で並べて見る。
  * 実ページをサイトの開発サーバーで iframe に開き、?affiliateVariant= で案を固定、?previewFocus= でその面までスクロールする
  * （どちらも開発サーバーだけで効く: CareerAffiliateExperiment・DevPreviewFocus）。
  */
