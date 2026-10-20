@@ -34,7 +34,7 @@ import { join } from 'node:path';
 import {
   loadConfig, loadEnvLocal, makeS3, hasR2Credentials,
   groupFor, r2KeyFor, mimeFor, visibilityFor, bucketForFile, sha256Stream, fileBytes, imageSize,
-  loadManifest, writeManifestAtomic, sanitizeEntry, toPosix,
+  loadManifest, loadManifestRaw, writeManifestAtomic, mergeOffloadedEntry, toPosix,
 } from './lib/asset-storage.mjs';
 import { REPO_ROOT } from './lib/repository-paths.mjs';
 import { loadDriveManifest } from './lib/drive-vault.mjs';
@@ -151,7 +151,7 @@ async function verifyGroup(cfg, group, targets) {
  * 同じ sha256 で載っている＝別の場所で保全が確認できるキーだけを外す。
  */
 function forgetGroup(groupId) {
-  const manifest = loadManifest();
+  const manifest = loadManifestRaw();
   const drive = loadDriveManifest();
   const targets = Object.entries(manifest.entries || {}).filter(([, e]) => e.group === groupId);
   if (targets.length === 0) {
@@ -285,7 +285,7 @@ async function main() {
   const PUBLIC_CACHE_CONTROL = 'public, max-age=86400';
   const { createHash } = await import('node:crypto');
 
-  const manifest = loadManifest();
+  const manifest = loadManifestRaw();
   let uploaded = 0, skipped = 0, verified = 0;
   const failures = [];
 
@@ -356,18 +356,15 @@ async function main() {
 
     verified++;
     sinceCheckpoint++;
-    manifest.entries[toPosix(r.path)] = sanitizeEntry({
-      logicalPath: toPosix(r.path),
+    // 送っていない行には触らず、送った行も既存の欄（srcHash など）を残して実測の欄だけを更新する
+    manifest.entries[toPosix(r.path)] = mergeOffloadedEntry(prev, {
       group: group.id,
       bucket: r.bucket,
       r2Key: r.key,
       sha256: localSha,
       bytes: r.bytes,
-      mime: mimeFor(r.path),
       visibility: r.visibility,
       regenerable: Boolean(group.regenerable),
-      generator: group.generator || null,
-      requiredBy: group.requiredBy || [],
       verifiedAt: new Date().toISOString(),
       // 画像は寸法も記録する。退避後は CI から実体が見えなくなるので、
       // ここで実バイトから測っておかないと寸法の検査が 0 件の緑に化ける。
