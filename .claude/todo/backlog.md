@@ -324,6 +324,16 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-0801] asset-offload --commit が台帳全体を書き直し、送り直した行の srcHash などを落とす
+タグ: [インフラ・計測] [領域:管理] [時期:2026-11] [種類:不具合] [起票:2026-10-20]
+
+**起点**: 2026-10-20 に `node scripts/asset-offload.mjs --group site-ogp-png --include-untracked --commit`（測量士・舗装の OGP 13 枚）と `--group note-cover-png --only-new --include-untracked --commit`（note のカバー 2 枚）を実行すると、どちらも `.claude/state/assets/manifest.json` 全体を書き直した。前者は送った 13 行から `srcHash`・`logicalPath`・`mime`・`generator`・`requiredBy` を落とし（`srcHash` は ogp-supply と update-ogp-srchash が OGP の陳腐化を判定する欄）、後者は無関係な行に欄を足して 2,695 行の差分になった。どちらも手で台帳を戻し、対象の行だけを書き換えて commit した（af025fb24 ほか）。
+**やること**:
+1. 送ったファイルの行は既存の欄を保ったまま sha256・bytes・verifiedAt だけを更新し、送っていない行には触らないようにする
+2. 書き方（欄の順・字下げ）を既存の台帳に合わせ、同じ中身なら書かない
+**完了条件**: 1 ファイルだけを送るテストで、台帳の差分がその行の sha256・bytes・verifiedAt だけになり、`srcHash` が残る。
+
+
 ### [DN-0798] 呼び出しの記録と静的参照から、使われていない・役割が重なるエージェントとスキルを統合・退役する（拡張性・第3波）
 タグ: [エージェント・SSOT] [領域:管理] [時期:2026-12] [種類:意思決定] [起票:2026-10-20]
 
