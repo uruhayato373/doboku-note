@@ -4828,6 +4828,71 @@
       "commit": "e90fb2dfa323",
       "verification": "gh api dependabot/alerts?state=open → 0 件・package-lock.json に sprintf-js 0 件",
       "note": "56397ff95 で argparse を 2.x にそろえ、修正版の無い sprintf-js を lock から外した。Dependabot alert #96（GHSA-hp3w-g68c-fv3c）は 2026-10-18 に fixed、open の警告は 0 件"
+    },
+    {
+      "id": "DN-0781",
+      "at": "2026-10-20",
+      "task": "スクリプト（.mjs）を型検査の対象にし @ts-check を付けていく（拡張性の段1）",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "swept",
+      "plan": null,
+      "commit": null,
+      "verification": "2026-10-20 の調べ直し（既存カード・既存ラチェット・実ファイル・障害履歴の照合）で前提の誤りを確認。docs/reviews/critical/2026-10-20-code-extensibility-debt.md を書き直し",
+      "note": "作り直さず撤収。型の欠如が原因の不具合は修正 20 件中 2 件、管理画面の tsc が lib 66 モジュールを既に検査、workflow-zero-dependency と衝突。型の投資は DN-0794（商品の資格）・DN-0796（frontmatter）・DN-0793（カテゴリ構造）へ"
+    },
+    {
+      "id": "DN-0782",
+      "at": "2026-10-20",
+      "task": "スクリプトの重複関数を lib へ寄せる（拡張性の段2）",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "swept",
+      "plan": null,
+      "commit": null,
+      "verification": "2026-10-20 の調べ直し（既存カード・既存ラチェット・実ファイル・障害履歴の照合）で前提の誤りを確認。docs/reviews/critical/2026-10-20-code-extensibility-debt.md を書き直し",
+      "note": "tests/script-helpers-ratchet.test.mjs と重複。純関数（sleep・sha256・toPosix）は追わず、判定の二重実装だけを DN-0787（countChars）と DN-0797（slug・見出し ID）へ RESEED"
+    },
+    {
+      "id": "DN-0783",
+      "at": "2026-10-20",
+      "task": "孤立スクリプト 44 本の退役（拡張性の段3）",
+      "tier": "low",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "swept",
+      "plan": null,
+      "commit": null,
+      "verification": "2026-10-20 の調べ直し（既存カード・既存ラチェット・実ファイル・障害履歴の照合）で前提の誤りを確認。docs/reviews/critical/2026-10-20-code-extensibility-debt.md を書き直し",
+      "note": "render-figure-* 34 本は svg-figure-rewriter が作り直しに使う元で削除不可。済んだ移行 11 本の削除だけを DN-0799 へ RESEED（DN-0780 の後）"
+    },
+    {
+      "id": "DN-0784",
+      "at": "2026-10-20",
+      "task": "計測入力の型なし JSON 8 件と読み手の無い検査 4 本（拡張性の段4）",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "swept",
+      "plan": null,
+      "commit": null,
+      "verification": "2026-10-20 の調べ直し（既存カード・既存ラチェット・実ファイル・障害履歴の照合）で前提の誤りを確認。docs/reviews/critical/2026-10-20-code-extensibility-debt.md を書き直し",
+      "note": "8 件中 7 件は planned でファイル無し、読み手の無い検査の実体は env-inventory 1 本。DN-0800（check-datasets の警告）と DN-0788（report-readers テストの誤判定）へ RESEED"
+    },
+    {
+      "id": "DN-0785",
+      "at": "2026-10-20",
+      "task": "Skill・Agent の呼び出し記録 hook と退役（拡張性の段5）",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "swept",
+      "plan": null,
+      "commit": null,
+      "verification": "2026-10-20 の調べ直し（既存カード・既存ラチェット・実ファイル・障害履歴の照合）で前提の誤りを確認。docs/reviews/critical/2026-10-20-code-extensibility-debt.md を書き直し",
+      "note": "記録と判断を分けて DN-0789（4 週間の記録 hook・UserPromptSubmit も含む）と DN-0798（統合・退役の判断）へ RESEED。content-planner の退役は DN-0788、メンバーシップ一式は DN-0477 へ"
     }
   ]
 }

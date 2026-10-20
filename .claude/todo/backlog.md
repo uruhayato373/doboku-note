@@ -206,6 +206,7 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 5. 2プラン（`4956c2d4f928`・`f9567e03949d`）とメンバーシップ自体を削除する（会員0人でないと削除できないかは未確認。画面で確かめる）。
 6. 22記事の `memberTrial: bottom` と末尾の「以上、今回の〜でした。」を外し、`note-update-body --list` で反映する。
 7. `note-membership.json`・`check-note-membership.mjs`（退役済みは SKIP する形に済み）・`tests/check-note-membership.test.mjs`・`tests/note-membership-funnel.test.mjs` を撤去後の状態に合わせる（コード変更は PR）。
+8. 同じ PR で、メンバーシップ運用だけのための仕組みを退役する: `/note-membership` スキル（`.claude/skills/social/note-membership/`）・`note-membership-operator` エージェント・quality-audit の `note-membership`／`magazine-membership`（ci）と `membership-drip`（ops）。skills-registry.md・agents-registry.md の退役表に行を足す（2026-10-20 の拡張性の棚卸しで、利用記録を待たずに退役できると判断した分）。
 
 **完了条件**: 公開 API で22記事が `is_limited=false`、`mbe07bd5cecda` と「はじめに-合格ラボ」が取得できない。有料6誌は公開 API で販売中のまま。`https://note.com/dobokunote/membership/join` が加入画面を出さない。
 
@@ -336,7 +337,7 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 タグ: [エージェント・SSOT] [領域:管理] [時期:2026-12] [種類:意思決定] [起票:2026-10-20]
 
 **起点**: 2026-10-20 の拡張性の棚卸し（`docs/reviews/critical/2026-10-20-code-extensibility-debt.md`）。エージェント 90・スキル 111。資格固有のエージェントが 23 体あり、答案の writer/qa の組が 4 組（cce・cem・civil-keiken・rccm）。静的な参照の数は判断に使えない（参照 0 の civil-guide-writer も会話記録で 4 回使われていた）。
-**次または実行順**: 呼び出しを記録する hook のカードから 4 週間後。DN-0477（メンバーシップ撤退）の完了後。
+**次または実行順**: DN-0789（呼び出しを記録する hook）から 4 週間後。DN-0477（メンバーシップ撤退）の完了後。
 **やること**:
 1. 記録（Claude の hook の記録と ~/.codex/sessions）と静的参照から、呼び出し 0 のもの・役割が重なるものの候補一覧を作る
 2. 各行に運営者が判断（統合・退役・残す理由）を書く。次の資格の writer/qa の組を足す前に、既存の組を資格の設定で使い回せるかもここで決める
@@ -349,7 +350,7 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 タグ: [インフラ・計測] [領域:管理] [時期:2026-12] [種類:改善] [起票:2026-10-20]
 
 **起点**: 2026-10-20 の拡張性の棚卸し（`docs/reviews/critical/2026-10-20-code-extensibility-debt.md`）。サイトとスクリプトで同じ判定を別々に持っている。MDX のパスから slug を導く処理は src/lib/local-post-reader.ts:78-107・scripts/lib/published-docs.mjs:29-35 ほか 5 か所以上（published-docs は途中のディレクトリ名 article も消す点が違う）。見出し ID は src/lib/toc.ts:10 と .claude/scripts/lib/heading-id.mjs:25 の 2 つで、一致を見るテストが無い。事故記録では「同じ判定が 2 か所でずれた」が 6 件。
-**次または実行順**: Convention A の記述を直すカードの後（A 用の分岐をここで消す）。
+**次または実行順**: DN-0788（Convention A の記述を直す）の後。A 用の分岐をここで消す。
 **やること**: 2 つの判定を src/lib の共有 .mjs に 1 つずつ置き、サイト・スクリプトの双方がそれを import する。
 **禁止事項**: sleep・sha256・toPosix のような、ずれても害の無い純関数の集約はこのカードに含めない。
 **完了条件**: `tests/script-helpers-ratchet.test.mjs` に 2 項目を足し、自前の定義が 0 で固定されて通る。
@@ -368,7 +369,7 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 タグ: [インフラ・計測] [領域:サイト] [時期:2026-11..2026-12] [種類:改善] [起票:2026-10-20]
 
 **起点**: 2026-10-20 の拡張性の棚卸し（`docs/reviews/critical/2026-10-20-code-extensibility-debt.md`）。資格を足すとき、サイトの構造（ビュー・記事型の並び・色・/exam に出すか・並び順）が registry からも categories.json からも決まらず、手で直している。RCCM の立ち上げは仕組み側 52 ファイル・88 か所（registry 由来 0）、その後も追随修正 5 コミット。src の資格 id の直書き比較は約 63 か所で、doc-classifier.ts 15・CategoryPage.tsx 12（:184-196 のビュー選択）が 4 割強。/exam は variant の二値（civil|pe）で絞るので、行政書士はそのままでは出ない。並び順は registry・categories.json・home-exam-cards・/links で 4 通り。categories.json の groups と doc-classifier の getGroupOrder は照合されず、civil-construction-2 で既にずれている。ConcreteView は guide・textbook・primary しか描かず、新しい記事型は黙って消える。
-**次または実行順**: DN-0491（行政書士の展開計画）の判断の後、行政書士なら最初の制作カードの前に置く。出さないなら次のカテゴリを足す前。OGP の網羅のカードの後。
+**次または実行順**: DN-0491（行政書士の展開計画）の判断の後、行政書士なら最初の制作カードの前に置く。出さないなら次のカテゴリを足す前。DN-0786（OGP の網羅）の後。
 **やること**: categories.json に、ビュー・記事型の並びとラベル・OGP の色キー・/exam に出すか（variant ではなく area で決める）を持たせ、CategoryPage・doc-classifier・CategoryJumpNav・ogp-create の資格別分岐を消す。並び順は registry から既存の sync で書く。
 **禁止事項**: 資格の名前と並び順の正本は registry のまま。registry にサイトの表示構造を持たせない。
 **完了条件**: 架空のカテゴリを 1 行足した fixture で、getGroupOrder・ビューの選択・OGP の色キー・/exam の静的パス・並び順がすべてそのカテゴリを返す単体テストが通る。
@@ -441,49 +442,12 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 **完了条件**: 広げた検査が exit 0 で、対応表から 1 行消すと赤になるテストがある。surveyor・pavement の作り直した OGP が commit されている。
 
 
-### [DN-0785] Skill・Agent の呼び出しを記録する hook を置き、記録が 4 週以上たまったら使われないものを統合・退役する（拡張性の段5）
-タグ: [エージェント・SSOT] [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-10-20]
-
-**起点**: 2026-10-20 の棚卸し（`docs/reviews/critical/2026-10-20-code-extensibility-debt.md` §5）。エージェント 90・スキル 111 に対し、呼び出しの記録が無い（hook が見ているのは Bash・Write・Edit だけ。Claude の会話記録は 10/17 以降しか手元に無く、Codex 側は無い）。使われていないものを根拠をもって選べないので、記録だけは段1〜4 を待たずに先に始める。
-**やること**:
-1. PreToolUse（Skill・Agent）で、名前・日時・セッションを .claude/state/ の jsonl へ追記する hook を agent-hook.mjs のハンドラとして置く（テスト付き）。追跡するか .gitignore にするかを決め、Codex 側で同じ記録が取れるかを確かめる
-2. 4〜8 週分たまったら、呼ばれていないもの・役割が重なるものを一覧にし、運営者が統合か退役かを決める（content-planner は Phase 2 で未稼働と明記済み）
-3. 退役は登録簿（agents-registry.md・skills-registry.md）と同じ commit で行う
-**完了条件**: hook が入り、記録が 1 週間分たまっている。統合・退役の判断は記録が 4 週以上たまってから行う。
 
 
-### [DN-0784] 計測の入力で型の無い JSON 8 件に zod の型を付け、読み手の無い報告のみの検査 4 本を片付ける（拡張性の段4）
-タグ: [インフラ・計測] [領域:管理] [時期:2026-12] [種類:改善] [起票:2026-10-20]
-
-**起点**: 2026-10-20 の棚卸し（`docs/reviews/critical/2026-10-20-code-extensibility-debt.md` §4）。計測の入力のうち型の無い JSON が 8 件（instagram.insights・afb.outcomes・a8.inventory・ga4.admin-last-run・ga4.ui-urls・ga4.ui-history・ga4.ui-diff・cloudflare.zone）。週次・月次が読む取得結果の形が変わっても止まらず、欠測を 0 と読む経路になる。check-datasets の警告が 4 件。quality-audit の報告のみの検査 16 本のうち 4 本（outbound-links・env-inventory・disk-hygiene・branch-hygiene）は読み手が書かれていない。
-**やること**:
-1. 8 件に zod の型を付けて台帳で結ぶ（dataset-schemas の約束どおり、実データ全件で違反 0 を確かめる）
-2. check-datasets の警告（planned を外せる 3 件・cloudflare.zone の型）を消す
-3. 読み手の無い 4 本を、ci にする・読み手を決める・退役する、のどれかにする
-**完了条件**: check-datasets の警告 0、data/ の型の無い JSON 0、報告のみの検査すべてに読み手が書かれている。
 
 
-### [DN-0782] スクリプトの重複関数を lib へ寄せ、lib にある名前の再定義を増やさない検査を置く（拡張性の段2）
-タグ: [インフラ・計測] [領域:管理] [時期:2026-11..2026-12] [種類:改善] [起票:2026-10-20]
-
-**起点**: 2026-10-20 の棚卸し（`docs/reviews/critical/2026-10-20-code-extensibility-debt.md` §2）。同じ名前の関数が lib の外の 3 ファイル以上にあるものが 89 名・333 ファイル。CLI 引数の自前の処理が延べ 102 本（cli-args.mjs の利用は 50 本）、sleep 38・git 19・walk 18・sha256 14・toPosix 10。lib にある名前を手元で定義し直しているものが 57 名、lib の中の同名 export が 34 名。src/lib と scripts/lib に同名の関数が 3 つ（countChars・isStructuralTag・escapeRegExp）。段1（スクリプトの型）の後に着手する。
-**やること**:
-1. 「lib にある名前を手元で定義し直す」件数の基準線の検査を置く（10/20 時点 57 名）
-2. 純関数（sleep・sha256・toPosix・walk）を lib へ一括で置き換え、lib の中の同名 export（sha256 の 4 ファイルなど）を 1 つにする
-3. CLI 引数は cli-args.mjs へ、触るスクリプトから順に寄せる（解釈が少しずつ違うので一括で置き換えない）
-4. src/lib と scripts/lib の同名 3 関数の中身を比べ、同じ判定なら 1 か所にまとめる
-**完了条件**: 基準線の検査が CI にあり、2 の純関数の自前定義が 0。4 は食い違いが 0、または分けておく理由が記録されている。
 
 
-### [DN-0781] スクリプト（.mjs）を型検査の対象にし、config・data を読む lib から @ts-check を付けていく（拡張性の段1）
-タグ: [インフラ・計測] [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-10-20]
-
-**起点**: 2026-10-20 の棚卸し（`docs/reviews/critical/2026-10-20-code-extensibility-debt.md` §1）。`scripts/` の .mjs 906 本は tsconfig の include の外で、`@ts-check` は 0 本。設定・記録には zod の実行時の型があるが、読む側のスクリプトが欄の名前を間違えても実行するまで分からない。拡張性の 5 段（型→集約→ディレクトリ→計測→エージェント・スキル）の最初で、段2 の集約で関数を寄せるときの食い違いをここで拾えるようにする。
-**やること**:
-1. スクリプト用の tsconfig（allowJs・checkJs。対象は `// @ts-check` を付けたファイルだけ）と npm script を作り、quality-audit に ci:true で入れる
-2. `@ts-check` の本数を減らさない基準線の検査を置く
-3. import される数の多い lib（config・data の読み口）から順に付ける。zod の型を `z.infer` で JSDoc から引く形を 1 つ作り、見本にする
-**完了条件**: CI で型検査が回り、`@ts-check` の付いた lib が 10 本以上で型エラー 0。本数が減ると赤になることをテストで固定。
 
 
 ### [DN-0780] check-command-guidance が検査不成立で終わる（drive-vault-sync の取り戻しの案内が 1 件で下限 10 を割る）
@@ -1239,9 +1203,9 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 **起点**: 2026-09-29 にリポジトリの「Allow auto-merge」をオンにした。だが develop には合格必須の検査が無く、自動マージを予約すると CI を待たずに即マージされる。従来のブランチ保護で必須検査を足すと、develop へ直接 push するワークフロー 16 本（fetch-metrics・ogp-supply・competitor-scan ほか）が止まるので、ルールセットで PR のマージだけに build を求める。ルールセットはセキュリティ設定なので運営者が設定する（同日に設定したつもりが API では 0 件だった）。
 
-**やること**: Settings → Rules → Rulesets → New branch ruleset で、name `develop-build-required`・Enforcement Active・Bypass に Repository admin と GitHub Actions（Always allow）・Target に `develop`・Rules の Require status checks に `build`（Pre-merge check の検査名）を入れて保存する。保存後、`gh api repos/uruhayato373/doboku-note/rules/branches/develop` で内容を照合する。
+**やること**: Settings → Rules → Rulesets → New branch ruleset で、name `develop-build-required`・Enforcement Active・Bypass に Repository admin と GitHub Actions（Always allow）・Target に `develop`・Rules の Require status checks に `build` と `audit`（Pre-merge check の 2 ジョブ。`.github/workflows/ci.yml` の `audit:` と `build:`）を入れて保存する。`build` だけを必須にすると、quality-audit の ci:true（ラチェットを含む）はすべて `audit` ジョブで走るので、落ちても自動マージが止まらない（2026-10-20 の拡張性の棚卸しで確認）。保存後、`gh api repos/uruhayato373/doboku-note/rules/branches/develop` で内容を照合する。
 
-**完了条件**: 上の API が `required_status_checks`（context `build`）を返し、次の PR で自動マージを予約すると build 完了まで待ってからマージされ、develop へ直接 push するワークフローが止まっていない。
+**完了条件**: 上の API が `required_status_checks`（context `build` と `audit`）を返し、次の PR で自動マージを予約すると build 完了まで待ってからマージされ、develop へ直接 push するワークフローが止まっていない。
 
 ### [DN-0431] Tailwind v4（PR #683）を main へ上げる前に、古いブラウザからのアクセス比率を確かめる
 タグ: [インフラ・計測] [領域:サイト] [時期:2026-10] [種類:意思決定] [起票:2026-09-28]
@@ -1997,15 +1961,6 @@ Windows（autocrlf で MDX が CRLF）で npm run refresh-indexes を回すと�
 **完了条件**: 時刻を差し込んだテストで、試験の前日は日付入り・翌日は日付なしの文言になり、2 ファイルに日付のリテラルが無い。
 
 
-### [DN-0783] どこからも呼ばれないスクリプト 44 本を残すか退役かに分け、一回きりのスクリプトの置き方を決める（拡張性の段3）
-タグ: [インフラ・計測] [領域:管理] [時期:2026-12] [種類:改善] [起票:2026-10-20]
-
-**起点**: 2026-10-20 の棚卸し（`docs/reviews/critical/2026-10-20-code-extensibility-debt.md` §3）。ファイル名がどこにも出てこないスクリプトが 44 本（render-figure-* 31・render-editorial-* 2・移行や一回きり 11）。knip は scripts/** をすべて入口として扱うので拾えない。npm scripts 563 本のうち 31 本はどこからも名前を呼ばれていない。ディレクトリの一括移動は、参照の書き換えが大きいわりに得るものが少ないのでしない。段2（関数の集約）の後に着手する。
-**やること**:
-1. 44 本を 1 本ずつ分ける。出力（図など）が追跡されていて作り直す元になるものは残し、呼び方を記録する。済んだ移行・一回きりの作業は削除する
-2. 未参照の npm scripts 31 本を、人が手で打つ入口か不要かに分ける
-3. 一回きりのスクリプトの置き方（実行後に消す、または専用の置き場）を決め、孤立の本数の基準線の検査を置く
-**完了条件**: 孤立の本数が基準線の検査で止まり、退役するものの削除が済んでいる。
 
 
 ### [DN-0778] X 下書きカード画像は無視対象なのに追跡が要る：check-x-card-render の対象を決め直す
