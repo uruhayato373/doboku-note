@@ -5069,6 +5069,32 @@
       "commit": "041a0bea446b",
       "verification": "lint-frontmatter --all で HIGH 0（1,470 記事）、frontmatter-schema のテスト 12 件 pass、CI 緑",
       "note": "#1163。frontmatter-schema を .strict() の許可リストへ。1 本にしか無い古いキー 7 個を外し（updatedAt は dateModified より優先して 5/26 のまま表示されていた）、seoTitle の無い 1 記事に追加"
+    },
+    {
+      "id": "DN-0797",
+      "at": "2026-10-20",
+      "task": "サイトとスクリプトの二重実装（MDX のパス→slug・見出し ID）を src/lib の共有 .mjs に 1 つずつにまとめる（拡張性・第3波）",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "95978d137c51",
+      "verification": "全 1,470 記事で置き換え前後の slug が一致、npm run test 3467 件 fail 0、script-helpers-ratchet の siteSlug・headingId が 0 で固定、CI 緑",
+      "note": "#1164。src/lib/site-slug.mjs を新設して 14 か所の写しを置換（sitemap・RSS・OGP・索引・検査・サイトの記事一覧）。見出し ID は src/lib/heading-id.mjs へ移し toc.ts の写しを削除"
+    },
+    {
+      "id": "DN-0793",
+      "at": "2026-10-20",
+      "task": "カテゴリの表示構造を categories.json に持たせ、CategoryPage・doc-classifier・ogp-create の資格別分岐を消す（拡張性・第2波）",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "95978d137c51",
+      "verification": "旧コードと新コードで全 14 カテゴリ・1,430 記事の記事型の並び・見出し・説明・記事の並び順・ジャンプが一致、tests/category-layout.test.mjs（架空のカテゴリ 1 行）pass、npm run test 3472 件 fail 0、CI 緑",
+      "note": "#1165。categories.json の layout（view・sort・ogpExamKey・groupLabels・groupDescriptions・jumps）へ移し、doc-classifier・category-groups・CategoryPage・CategoryJumpNav・OGP の色キー・/exam の対象の資格ごとの分岐を削除。並び順の 4 通り（registry と categories.json など）は運営者の判断に残した"
     }
   ]
 }
