@@ -332,6 +332,17 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-0791] PR の差分以外で develop を赤くした ci 検査を、差分だけで決まる形にするか ops へ移す（拡張性・第1波）
+タグ: [インフラ・計測] [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-10-20]
+
+**起点**: 2026-10-20 の拡張性の棚卸し（`docs/reviews/critical/2026-10-20-code-extensibility-debt.md`）。09-14 以降の develop の赤のうち、実データに依存するテスト（GSC/GA4）4 回・20 時間、外部状態（YouTube）2 回・44 時間は、PR の差分と関係なく赤になった。code.md の「ci:true は結果が PR の差分だけで決まる検査に限る」が適用されていない分。
+**やること**:
+1. 着手時に、該当する検査・テストの id と、DN-0587（10/12）以降に project-task-refs が赤を出した回数を数え直し、このカードに列挙する（0 回なら project-task-refs は対象から外す）
+2. 列挙したものを fixture で決まる形にするか、ops:true へ移す
+3. `tests/quality-audit-ops-tier.test.mjs` に、同じ種類の検査が ci へ戻るのを止める検知を足す
+**完了条件**: 列挙したものがすべて fixture 化か ops:true になり、ops-tier のテストが通る。
+
+
 ### [DN-0789] Skill・Agent・スラッシュコマンドの呼び出しを 4 週間の期限付きで記録する hook を置く（拡張性・第0波）
 タグ: [エージェント・SSOT] [領域:管理] [時期:2026-10] [種類:改善] [起票:2026-10-20]
 
