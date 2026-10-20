@@ -1113,7 +1113,7 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 **起点**: 管工事は note 教材の下書き（DN-0452）と択一の整備（DN-0454）があるが、サイトにカテゴリが無い。測量士・舗装の入口（PR #738）と同じ形で、検索の入口と note への導線を用意する。
 
 **やること**:
-1. カテゴリ `pipe-work` を新設する（categories.json・home-exam-cards・doc-classifier・category-groups・CategoryJumpNav・CategoryPage・StructuredData・ExamCards テーマ色・tags・category-curriculum。PR #738 の差分が手本）
+1. カテゴリ `pipe-work` を新設する（categories.json の entry と `layout`〔ビュー・並べ替え・OGP の色・見出し・ジャンプ。DN-0793 で doc-classifier・category-groups・CategoryJumpNav・CategoryPage の分岐から移した〕・home-exam-cards・StructuredData・ExamCards テーマ色・tags・category-curriculum）
 2. 受験ガイド 4 本（試験の概要・第二次 施工記述の書き方・工程表の解き方・学習計画）。出題分析は content/note/管工事/第二次検定-出題分析.md、日程・受験者数は公式と照合する
 3. DN-0454 の択一過去問をこのカテゴリの過去問グループとして載せる
 
