@@ -1805,6 +1805,16 @@ Windows（autocrlf で MDX が CRLF）で npm run refresh-indexes を回すと�
 
 ## 🟢 低 — 重要度が低い（時期未定を含む）
 
+### [DN-0778] X 下書きカード画像は無視対象なのに追跡が要る：check-x-card-render の対象を決め直す
+タグ: [領域:管理] [時期:2026-12] [種類:改善] [検証:check-x-card-render] [起票:2026-10-20]
+
+**起点**: 2026-10-20、DN-0774 で .gitignore に当たるのに追跡されていた content/sns/x/draft/*/img の 56 件を追跡から外したところ、CI ゲート check-x-card-render（ci:true）が対象 0 件で検査不成立になり develop の audit が赤になった（3f98fbff7 で追跡を戻した）。このゲートの対象は Git 管理下の X カード PNG で、無視の行より前から追跡されていた 56 件だけが対象になっている。新しく作るカードは無視されるので、検査の対象は増えない。
+
+**やること**: SNS 再開時に、(1) X カード PNG を追跡するなら .gitignore の行（content/sns/x/draft/*/img/tweet-*.png）を外す、(2) 追跡しないなら検査を描画台帳だけで成立させるか report へ移す、のどちらかに決める。
+
+**完了条件**: git ls-files -ci --exclude-standard が 0 件で、check-x-card-render が対象 1 件以上を実検査して通る（または検査の置き場を変えた理由が quality-audit の note にある）。
+
+
 
 
 ### [DN-0770] 手元の PDF を Google ドライブに移し、ローカルに原本を残さない
