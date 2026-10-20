@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { readFileSync } from 'node:fs';
+import { existsSync, readFileSync } from 'node:fs';
+import { execFileSync } from 'node:child_process';
 
 // tag-dictionary.json の並びは localeCompare() でタイブレークしていたため、
 // 生成マシンのロケール（ja-JP か en/root か）で count 同値タグの前後が反転し、
@@ -8,6 +9,9 @@ import { readFileSync } from 'node:fs';
 
 const DICT_PATH = 'src/config/tag-dictionary.json';
 const BUILDER_PATH = '.claude/scripts/build-tag-index.mjs';
+
+// tag-dictionary.json は git で追跡しない生成物（DN-0792）。無ければここで作ってから並びを確かめる。
+if (!existsSync(DICT_PATH)) execFileSync(process.execPath, [BUILDER_PATH], { stdio: 'ignore' });
 
 function compareTagName(a, b) {
   const la = a.toLowerCase();
