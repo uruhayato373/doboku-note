@@ -4,6 +4,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { buildChainFiles } from '../scripts/lib/build-chain.mjs';
+import { escapeRegExp } from '../scripts/lib/regexp-escape.mjs';
 
 function prPaths(file) {
   const lines = readFileSync(file, 'utf8').split('\n');
@@ -20,7 +21,7 @@ function prPaths(file) {
   return out;
 }
 /** GitHub の paths のグロブ（** と *）を正規表現にする（依存を足さない最小の照合） */
-const glob = (p) => new RegExp('^' + p.split('**').map((part) => part.split('*').map((x) => x.replace(/[.+?^${}()|[\]\\]/g, '\\$&')).join('[^/]*')).join('.*') + '$');
+const glob = (p) => new RegExp('^' + p.split('**').map((part) => part.split('*').map(escapeRegExp).join('[^/]*')).join('.*') + '$');
 const triggers = (paths) => (f) => {
   let hit = false;
   for (const p of paths) {
