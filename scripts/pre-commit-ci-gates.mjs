@@ -29,6 +29,9 @@ export const UNIT_TEST_RULES = [
   // スクリプトの書き方の規約（git の同期呼び出しの maxBuffer・パスを列挙する git の core.quotepath=false・読む環境変数の .env.example）。
   // 2026-10-10 に新しいスクリプトがこの 2 つのテストで CI で初めて落ちた（#951・#953）。全量の走査で手元 1 秒弱
   { match: (f) => CODE_FILE.test(f), tests: ['tests/git-exec-maxbuffer.test.mjs', 'tests/env-example.test.mjs'] },
+  // 共通部品の写し・readJson の写しのラチェット（scripts・.claude・tools・tests を走査する）。tests の変更でも回す
+  // （2026-10-21 の #1167 でテストの中の自前の escapeRegExp が CI で初めて落ちた・手元 1 秒）
+  { match: (f) => CODE_FILE.test(f) || /^tests\/.+\.m?js$/.test(f), tests: ['tests/script-helpers-ratchet.test.mjs', 'tests/read-json-ratchet.test.mjs'] },
   // 公的基準の章を足すと、章の OGP の退避台帳と孤児判定が落ちる（31 回・手元 5 秒）
   { match: (f) => f.startsWith('content/site/standards-articles/') || f === datasetPath('config.asset-storage'), tests: ['tests/standards-ogp-guards.test.mjs'] },
   // note 記事を足すと、カバーの分類・テーマの分類・マガジンのラベルの分類が落ちる（12 回・12 回・7 回）
