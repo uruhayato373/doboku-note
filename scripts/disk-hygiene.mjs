@@ -264,10 +264,13 @@ export function collect({ quick = false, config = loadConfig(), platform = proce
   const removable = [];
   const placementViolations = [];
   const wtNotes = [];
+  // 置き場は本体のリポジトリ（worktree list の 1 件目）を基準に判定する。REPO_ROOT は実行した場所なので、
+  // worktree の中から実行すると兄弟の worktree が「../x＝許可外」に見えた（2026-10-20 の誤検知・DN-0777）
+  const mainRoot = wtList[0]?.path ?? REPO_ROOT;
   for (const [idx, wt] of wtList.entries()) {
     const isMain = idx === 0;
     const place = worktreePlacement(wt.path, {
-      repoRoot: REPO_ROOT,
+      repoRoot: mainRoot,
       home: HOME,
       allowedRoots: config.allowedWorktreeRoots,
     });
