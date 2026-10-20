@@ -125,7 +125,8 @@ for (const file of files) {
 
   // S2 ハードゲート
   try {
-    assertBlogPost({ title, body: body(raw), funnel }, catalog);
+    const r = assertBlogPost({ title, body: body(raw), funnel }, catalog, { allowAbsent: status === 'published' });
+    for (const id of r.funnel.absent) out.warnings.push(`${rel}: funnel 先 "${id}" は不在の一時休止中（ライブは「休止中」表示。再開で導線が戻る）`);
   } catch (e) {
     if (e instanceof BlogGuardError) out.violations.push(`${rel}: [${e.code}] ${e.message.split('\n')[0]}`);
     else throw e;

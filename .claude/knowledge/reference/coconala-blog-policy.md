@@ -126,7 +126,7 @@ angle の語彙は [content-angle-policy.md](content-angle-policy.md) と共通�
 |---|---|---|
 | G1 | 外部リンク・外部プラットフォーム言及がゼロ | `assertNoExternalLinks`（note.com / doboku-note はテキストも不可） |
 | G2 | 外部連絡先（メール・電話・LINE・外部SNS）がゼロ | `assertNoContactInfo` |
-| G3 | funnel 先がカタログに実在し **listed** | `assertFunnelTargets`（休止・廃止先へ送らない） |
+| G3 | funnel 先がカタログに実在し **listed** | `assertFunnelTargets`（休止・廃止先へ送らない。公開済みの記事の送り先が不在の一時休止〔pauseReason absence〕なら照合では警告にとどめる＝ライブは「休止中」表示で再開すれば戻る。新規公開は止める） |
 | G4 | 本文の金額がカタログ価格と一致（既定は金額を書かない） | `assertPriceClaims` |
 | G5 | タイトルが非空・上限内 | `assertTitle` |
 | G6 | **偽成功検証** — 公開後に**ログアウト状態で**ライブ URL を取得し、タイトル・冒頭段落が描画され、外部リンクが0であることを DOM で実査 | `coconala-blog-publish.mjs`（「投稿した」というログを成功と呼ばない） |
