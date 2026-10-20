@@ -1961,6 +1961,16 @@ Windows（autocrlf で MDX が CRLF）で npm run refresh-indexes を回すと�
 
 ## 🟢 低 — 重要度が低い（時期未定を含む）
 
+### [DN-0799] 済んだ移行・一回きりのスクリプト 11 本を削除する（拡張性・第3波）
+タグ: [インフラ・計測] [領域:管理] [時期:2026-12] [種類:改善] [起票:2026-10-20]
+
+**起点**: 2026-10-20 の拡張性の棚卸し（`docs/reviews/critical/2026-10-20-code-extensibility-debt.md`）。ファイル名がどこからも出てこないスクリプト 44 本のうち、移行・一回きりの作業 11 本は役目を終えている（audit-definition-leads・audit-svg-colors・backfill-note-hashtags・build-site・bulk-score・fix-duplicated-description-suffix・generate-pe-first-stage-exam-packs・generate-pe-first-stage-x-campaign・inspect-reference-book-layout・migrate-channel-split・migrate-x-tweets）。
+**次または実行順**: DN-0780（check-command-guidance が検査不成立）の後。それまでは削除後に古い案内が残っても止まらない。
+**やること**: 11 本を 1 本ずつ、出力が今も使われていないかを確かめてから削除する。参照する npm script・文書も消す。
+**禁止事項**: render-figure-*（34 本）・render-editorial-* は消さない（svg-figure-rewriter が図を作り直す元。DN-0691 のように孤立していても必要なものがある）。
+**完了条件**: 11 本（確かめて残したものは理由をカードに書く）が無く、`npm run check-command-guidance` と `npm run check-gate-parity` が exit 0。
+
+
 ### [DN-0796] frontmatter の未知のキーを止める（passthrough を外し、1 回しか使われないキーを直す）（拡張性・第2波）
 タグ: [インフラ・計測] [領域:サイト] [時期:2026-12] [種類:改善] [起票:2026-10-20]
 
