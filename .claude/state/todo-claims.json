@@ -91,10 +91,10 @@
       "branch": "feat/dn0789-usage-log"
     },
     {
-      "id": "DN-0788",
+      "id": "DN-0792",
       "owner": "claude-code",
-      "startedAt": "2026-10-20T11:52:08.460Z",
-      "branch": "fix/dn0788-inventory-small-errors"
+      "startedAt": "2026-10-20T12:18:04.337Z",
+      "branch": "chore/dn0792-untrack-generated"
     }
   ]
 }
