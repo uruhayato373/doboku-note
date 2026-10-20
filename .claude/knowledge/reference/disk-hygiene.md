@@ -59,6 +59,7 @@ Codex で作業した分は永久に掃除されない（実測で Codex の wor
 | `npm-cache` | `_cacache`（3GB 超のとき） | `npm install` / `npm ci` が動いていない（常駐の `npm exec` は除外する。さもないと永久に掃除できない） |
 | `npx-cache` | 30 日超の `_npx/<id>` | 稼働中プロセスが参照していない |
 | `claude-workflow-transcripts` | 14 日超の Workflow 記録 | — |
+| `chrome-code-sign-clone` | macOS の `$(dirname $TMPDIR)/X/com.google.Chrome.code_sign_clone/` の Chrome の自己複製（起動ごとに作られ終了後も残る・DN-0630） | 動いている Chrome 本体の起動時刻と作成時刻が 10 秒以内の複製は残す。プロセスを取れなければ何も消さない。**APFS の複製で実容量はアプリ本体と共有**しており、du の値（1 個 1.4 GB）は見かけ。消しても空きはほぼ増えない（2026-10-20 実測）ので容量の警告にはしない |
 
 build・scratch・browserの保持期間と許可リストは `config/local-resources.json` が正典。linked worktreeのビルドは個別削除せず、上記worktree全体の整理で回収する。
 

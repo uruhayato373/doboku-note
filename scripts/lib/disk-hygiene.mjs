@@ -180,6 +180,25 @@ export function planArtifactRemoval({
 }
 
 /**
+ * Chrome の自己複製（macOS の `$(dirname $TMPDIR)/X/com.google.Chrome.code_sign_clone/code_sign_clone.*`）のうち、
+ * どの Chrome も使っていないものを選ぶ（DN-0630）。Chrome は起動のたびに 1.4 GB の複製を作り、終了後も残す。
+ * 複製の作成時刻と、動いている Chrome 本体の起動時刻が toleranceMs 以内なら使用中として残す。
+ * chromeStarts が null（プロセスを取れなかった）なら何も消さない（判定できないものは残す）。
+ */
+export function selectUnusedChromeClones(clones, chromeStarts, { toleranceMs = 10_000 } = {}) {
+  if (!Array.isArray(chromeStarts)) return { remove: [], keep: clones.map((c) => ({ ...c, reason: 'Chrome のプロセスを取れなかった' })), undetermined: true };
+  const remove = [];
+  const keep = [];
+  for (const c of clones) {
+    const used = Number.isFinite(c.birthMs) && chromeStarts.some((t) => Math.abs(t - c.birthMs) <= toleranceMs);
+    if (used) keep.push({ ...c, reason: '動いている Chrome の複製' });
+    else if (!Number.isFinite(c.birthMs)) keep.push({ ...c, reason: '作成時刻を取れなかった' });
+    else remove.push(c);
+  }
+  return { remove, keep, undetermined: false };
+}
+
+/**
  * 「古いディレクトリを選ぶ」共通ロジック。Sparkle・Workflow transcript・_npx・profile cache で使う。
  * inUse に入っている path は理由付きで keep する。
  */
