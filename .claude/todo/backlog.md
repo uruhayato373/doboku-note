@@ -321,6 +321,17 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-0785] Skill・Agent の呼び出しを記録する hook を置き、記録が 4 週以上たまったら使われないものを統合・退役する（拡張性の段5）
+タグ: [エージェント・SSOT] [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-10-20]
+
+**起点**: 2026-10-20 の棚卸し（`docs/reviews/critical/2026-10-20-code-extensibility-debt.md` §5）。エージェント 90・スキル 111 に対し、呼び出しの記録が無い（hook が見ているのは Bash・Write・Edit だけ。Claude の会話記録は 10/17 以降しか手元に無く、Codex 側は無い）。使われていないものを根拠をもって選べないので、記録だけは段1〜4 を待たずに先に始める。
+**やること**:
+1. PreToolUse（Skill・Agent）で、名前・日時・セッションを .claude/state/ の jsonl へ追記する hook を agent-hook.mjs のハンドラとして置く（テスト付き）。追跡するか .gitignore にするかを決め、Codex 側で同じ記録が取れるかを確かめる
+2. 4〜8 週分たまったら、呼ばれていないもの・役割が重なるものを一覧にし、運営者が統合か退役かを決める（content-planner は Phase 2 で未稼働と明記済み）
+3. 退役は登録簿（agents-registry.md・skills-registry.md）と同じ commit で行う
+**完了条件**: hook が入り、記録が 1 週間分たまっている。統合・退役の判断は記録が 4 週以上たまってから行う。
+
+
 ### [DN-0784] 計測の入力で型の無い JSON 8 件に zod の型を付け、読み手の無い報告のみの検査 4 本を片付ける（拡張性の段4）
 タグ: [インフラ・計測] [領域:管理] [時期:2026-12] [種類:改善] [起票:2026-10-20]
 
