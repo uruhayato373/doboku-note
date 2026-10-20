@@ -321,6 +321,18 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-0789] Skill・Agent・スラッシュコマンドの呼び出しを 4 週間の期限付きで記録する hook を置く（拡張性・第0波）
+タグ: [エージェント・SSOT] [領域:管理] [時期:2026-10] [種類:改善] [起票:2026-10-20]
+
+**起点**: 2026-10-20 の拡張性の棚卸し（`docs/reviews/critical/2026-10-20-code-extensibility-debt.md`）。エージェント 90・スキル 111 に対し呼び出しの記録が無く、使われていないものを根拠をもって選べない。会話記録は cleanupPeriodDays 7（DN-0233）で 7 日分しか残らない。延ばすと disk-hygiene の方針（scripts/lib/disk-hygiene.mjs:261 の maxDays 7）と衝突し、30 日で約 6GB になる。
+**やること**:
+1. `scripts/hooks/agent-hook.mjs` のハンドラとして、PreToolUse（Skill|Agent）と UserPromptSubmit（先頭が / のもの。人が打ったスラッシュコマンドは PreToolUse(Skill) に出ない可能性があるため）で、名前・日時・セッション id を 1 行ずつ追記する。テストを付ける
+2. 記録先はリポジトリの外（例 `~/.claude/usage-log/`）。git に出さない
+3. `.claude/settings.json` に登録し、`npm run sync-codex-compat` で .codex/hooks.json を作り直す。Codex の記録は判断のときに ~/.codex/sessions を走査する
+**停止条件**: 4 週間の期限付きの計測。統合・退役の判断のカードで hook も外す。
+**完了条件**: hook のテストが通り、記録先に 1 週間分の記録がある。
+
+
 ### [DN-0788] 棚卸しで見つかった台帳と文書の小さな誤り（Convention A の記述・report-readers テスト・退役表）を直す（拡張性・第0波）
 タグ: [エージェント・SSOT] [領域:管理] [時期:2026-10] [種類:不具合] [起票:2026-10-20]
 
