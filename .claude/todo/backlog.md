@@ -21,6 +21,17 @@
 
 ## 🔴 高 — 重要度が高い
 
+### [DN-0790] develop を赤くしてきた速い台帳検査を pre-commit-ci-gates で先に止める（拡張性・第1波）
+タグ: [インフラ・計測] [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-10-20]
+
+**起点**: 2026-10-20 の拡張性の棚卸し（`docs/reviews/critical/2026-10-20-code-extensibility-debt.md`）。develop の CI は 07-22 以降の時間の 37% が赤。09-14 以降の赤 63 回のうち、台帳・参照・登録の整合 16 回（project-task-refs 7・backlog-schema 3・review-wiring 2・relative-links 2・gate-parity・datasets）、分類表への追加漏れ 8 回（28 時間）、生成物のコミット漏れ 4 回は、手元で数秒の検査で止められた。develop への直 push の赤を手元で止める仕組みは `scripts/pre-commit-ci-gates.mjs` に既にある（GATES 11 本）。
+**やること**:
+1. 着手時に 09-14 以降の develop の赤を、最初に落ちた ci 検査で数え直し、手元で数秒で終わるものの id をこのカードに列挙する
+2. それらを pre-commit-ci-gates の GATES に足す（staged の条件つき）
+**禁止事項**: 検査の登録先（package.json・commands.md・quality-audit）を 1 か所に生成する作り替えはしない（check-gate-parity が意図して結んでいる）。
+**完了条件**: 列挙した id がすべて GATES にあり、`tests/pre-commit-ci-gates.test.mjs` が各 id の staged 条件を確かめて通る。
+
+
 ### [DN-0762] 2級土木の答案具体化シリーズ投入で赤になった CI（AI画像の判定・Shorts期待値・公開枠重複・メタデータ表記）を直す
 タグ: [領域:SNS] [時期:2026-10] [種類:不具合] [検証:quality:audit:ci] [起票:2026-10-17] [期日:2026-10-19]
 
