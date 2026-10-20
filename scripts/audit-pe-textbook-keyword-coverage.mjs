@@ -115,7 +115,6 @@ function extractAliases(label) {
   // main = 最初の括弧より前
   const firstParen = label.search(/[（(〔［]/u);
   if (firstParen > 0) main = label.slice(0, firstParen).trim();
-  main = main.replace(/法$/, '法'); // no-op、可読性
 
   // aliases 内のネスト（英語括弧内の日本語等）はそのまま個別 alias 化される
   // 英語/略語 alias の抽出（ASCII 連続語）

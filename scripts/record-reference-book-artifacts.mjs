@@ -27,6 +27,7 @@ import {
 } from './lib/reference-book-bundle.mjs';
 import { loadReferenceSources } from './lib/reference-sources.mjs';
 import { REPO_ROOT } from './lib/repository-paths.mjs';
+import { escapeRegExp } from './lib/regexp-escape.mjs';
 
 const NAME = 'record-reference-book-artifacts';
 const args = process.argv.slice(2);
@@ -83,7 +84,7 @@ if (HAS_OCR && !OCR_PATH.startsWith(source.bookBundle.transcriptDir + '/')) {
 if (HAS_CROP && !CROP_PATH.startsWith(`${bookRepoRoot(source)}/crops/`)) {
   die(`crop-path は ${bookRepoRoot(source)}/crops/ 配下にする`);
 }
-if (HAS_CROP && !new RegExp(`/crops/${CROP_PAGE}_[^/]+\\.(?:png|jpe?g|webp)$`, 'i').test(CROP_PATH)) {
+if (HAS_CROP && !new RegExp(`/crops/${escapeRegExp(CROP_PAGE)}_[^/]+\\.(?:png|jpe?g|webp)$`, 'i').test(CROP_PATH)) {
   die(`crop-path は ${CROP_PAGE}_ で始める`);
 }
 

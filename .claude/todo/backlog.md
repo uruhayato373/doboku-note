@@ -321,6 +321,16 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-0777] Mac の worktree 5 本が許可外の置き場にあり、空き容量不足で EPUB の取り戻しが止まる（check-disk-hygiene の FAIL）
+タグ: [領域:管理] [時期:2026-10..2026-11] [種類:不具合] [検証:check-disk-hygiene] [起票:2026-10-20]
+
+**起点**: 2026-10-20 の DN-0772（落ちた検査を素通りさせない）で report 区分を回したところ、`check-disk-hygiene` が FAIL のまま読み流されていた（読み手は SessionStart/Stop フックと日次掃除ログ）。(1) worktree-placement: 許可された置き場（`.claude/worktrees` / `~/.codex/worktrees`）の外に 5 本ある＝`../auth-session-refresh`・`../coconala-local`・`../gsc-local`・`../note-sync`・`../weekly-review`。名前から Mac の定期処理（週次 note 同期・週次レビュー・ログイン収集など）が使っている可能性が高い。(2) 空き容量 18.5 GB（warn < 30 GB）で、`npm run asset-hydrate -- --group kindle-dist` が「Insufficient free disk for restore」で止まり、手元で `check-kindle-epub-leak`・`check-kindle-format` を成立させられない。
+
+**やること**: 5 本それぞれ、どの launchd・スクリプトが使っているか（`launchctl list`・`~/Library/LaunchAgents`・各スクリプトの cwd）を確かめ、使っていれば置き場を `~/.codex/worktrees/` へ移して参照を直す（`git worktree move`）、使っていなければ `git worktree remove`。空き容量は `npm run check-disk-hygiene` の推奨と `npm run disk-hygiene:fix` で 30 GB 以上へ戻す。定期処理を止めるおそれがあるので、移す前に運営者へ確認する。
+
+**完了条件**: `npm run check-disk-hygiene` の worktree-placement が ✓、空き 30 GB 以上、手元で `npm run asset-hydrate -- --group kindle-dist` が通って `npm run check-kindle-epub-leak` が成立する。
+
+
 
 
 ### [DN-0774] .gitignore の追跡対象を点検する
@@ -332,25 +342,10 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 **完了条件**: 点検結果と直した .gitignore がコミットされ、`npm run check-local-data` が通っている。
 
-
-### [DN-0773] CLAUDE.md と AGENTS.md の同期を自動化する
-タグ: [エージェント・SSOT] [領域:サイト] [時期:2026-10] [種類:改善] [起票:2026-10-19]
-
-**起点**: obsidian の TODO マスタ ^t-0023（3リポ共通・2026-09-28 のメモ）を各リポへ展開（2026-10-19）。Claude Code は CLAUDE.md、Codex は AGENTS.md を読むので、片方だけ直すと規約が食い違う。
-
-**やること**: 両者のどちらを正本にし、どう同期・検査するかを決めて実装する（例: 共通部分を1か所に置いて生成、または差分を検査で止める）。obsidian の `sync-codex.mjs` の作り方が参考になる。
-
-**完了条件**: CLAUDE.md と AGENTS.md の食い違いを機械が検出でき、検査が通っている。
+**点検（2026-10-20）**: (1) 無視パターンに当たるのに追跡されているもの 64 件（`git ls-files -ci --exclude-standard`）＝ `.claude/settings.local.json`（.gitignore は「マシン固有・dotfiles の setup-memory-link --settings で置く」とするが、追跡されたまま許可設定の変更が何度もコミットされている）と SNS の下書き画像 63 件（`content/sns/x/draft/{073,074,075,076,077,079,093,095}-*/img/`・`content/sns/instagram/pe-construction/2026-06-10-hissu-kata/reels/img/`。無視の行より前から追跡されていた）。(2) 秘密らしい名前の追跡は誤検出だけ（デザインの tokens・ig-graph-token.mjs のスクリプト本体など）。(3) 1 MB 超の追跡は public/quiz・GA4 日次レポート（DN-0749）・.obsidian の plugin/icons（6.5 MB×2）など。**運営者の判断待ち**: 64 件を `git rm --cached` で追跡から外すと、ほかの checkout（Windows PC を含む）は次の pull で作業ツリーからも消える。settings.local.json は各 PC の dotfiles から置き直す前提か、SNS 画像は Drive vault に控えがあるか（SNS は保留中）を確かめてから外す。外したら `git ls-files -ci --exclude-standard` が 0 件になることを完了の確認にする。
 
 
-### [DN-0772] 「以前から失敗している」を理由にテストを通さない規約を入れる
-タグ: [エージェント・SSOT] [領域:サイト] [時期:2026-10] [種類:改善] [起票:2026-10-19]
 
-**起点**: obsidian の TODO マスタ ^t-0020（3リポ共通・2026-10-07 の手書きメモ「テストについて、以前から失敗しているという理由でパスしないこと」）を各リポへ展開（2026-10-19）。
-
-**やること**: 「以前から落ちている」「今回の変更とは無関係」を理由に失敗したテスト・検査を素通りさせない規約を CLAUDE.md / AGENTS.md に書く。既存の失敗は放置せず、直すかカードを起票して担当を決める。
-
-**完了条件**: 規約が CLAUDE.md と AGENTS.md の両方にあり、いま落ちているテスト・検査がすべて直っているかカードになっている。
 
 
 ### [DN-0771] 手元データの期限切れ（.tmp・.claude/state）を片付ける
@@ -397,6 +392,7 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 完了条件: DX の mat がサイト 002 のものか、DX が配置されていない。次の取り込みで crossCheck.exceeded=false になる（なお超過が残る場合は、stats47 側の自分の提携のビルドジョブのテキスト広告・ココナラのクリックとして説明できる）。
 
+**進捗（2026-10-20）**: (1) 本番の SSR を確認: 総監のページ（/exam/pe-comprehensive-management）で DX の mat は `NTDQY`（サイト 002）が 10 か所・旧 `NTCZ6` が 0、画像も wid=002。(2) crossCheck は未確認: 10/19 の A8 の定期収集が動いていなかったので手動で起動したが（run 39343232534）、A8 の保存ログインが期限切れで collector が rc=2 になった（自動 Issue #1138）。**運営者の作業**: Mac で `npm run auth:login -- --service a8` → `npm run auth:export -- --service a8` でログインを直す。その後の収集（毎週火 06:20 JST）で crossCheck.exceeded を確かめて閉じる。
 
 ### [DN-0756] R2画像の更新後も同じURLのCDNキャッシュが旧版を返す
 タグ: [領域:サイト] [時期:2026-10] [種類:不具合] [起票:2026-10-16]
@@ -463,16 +459,6 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 **完了条件**: `npm run youtube-own-metrics -- --dry-run` が通常動画の再生数を全本（または欠測の理由つきで大半）取れ、exit 0 になる。
 
 
-### [DN-0735] Lighthouse CI の performance warn が 1級 secondary/r06（0.66〜0.69）で PR の 6 割に出続けるのを直す
-タグ: [インフラ・計測] [領域:サイト] [時期:2026-10..2026-11] [種類:不具合] [起票:2026-10-14] [進行中]
-
-**起点**: DN-0240（Lighthouse CI の warn 揺れの観察）の結果、2026-09-27〜10-14 の lighthouse.yml 715 回から 79 回を抜き出し、assert を読めた 68 回のうち 41 回（60%）で categories.performance が warn だった。warn 43 件のうち 41 件が /exam/civil-construction-1/secondary/r06 で、点数は 0.66〜0.69（0.69 が 23・0.68 が 14・0.66〜0.67 が 6）。残り 2 件は alarp-principle。揺れではなく、1 ページが閾値 0.7 のすぐ下に張り付いていて、PR の差分と関係なく warn が出続ける（誰も読まない警告になっている）。
-
-**やること**: (1) lighthouse.yml の artifact（.lighthouseci）で r06 の LCP・TBT・CLS と重い要素（画像・折りたたみ内の大きな DOM・KaTeX など）を特定する。(2) 原因がページ側にあれば直し、lab の点数が 0.7 以上で安定することを PR の lhci で確かめる。(3) 直せない理由がある（内容の量そのもの）なら、実ユーザー計測（CrUX・DN-0397）で実害が無いことを確かめたうえで、lighthouserc.json の対象 URL を差し替えるか URL 別の閾値にし、理由を lighthouserc の隣に書く。
-
-**完了条件**: 直近の PR 20 回の lhci で performance の warn が 0〜1 回（r06 の点数が 0.7 以上、または理由つきで対象・閾値を変えた）。
-
-**進捗（2026-10-15）**: 原因はページではなく、lhci が測る `npm run serve` が無圧縮だったこと（本番の r06 は 0.89）。serve を br/gzip にした PR #1063 をマージ（e74046251）。その後の lighthouse の実行 4 回で performance の warn は 0 回（色コードを落として数えた）。残りは 20 回たまるまでの観察。
 
 ### [DN-0731] 記事の末尾の「この記事の根拠法令」と法令ページを作る（e-Gov のリンクから自動で集める）
 タグ: [領域:サイト] [時期:2026-11] [種類:制作] [起票:2026-10-13]
@@ -638,7 +624,7 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 **やること**: 開いている CodeQL の警告（`gh api repos/uruhayato373/doboku-note/code-scanning/alerts?state=open`）を 1 件ずつ、実害（管理画面は手元専用・引数は運営者が渡すなど）と直し方で振り分け、直すものは直し、誤検知・受容するものは理由をつけて dismiss する。
 **完了条件**: 開いている CodeQL の警告が 0 件（直したか、理由つきで dismiss した）。
 
-
+**進捗（2026-10-20）**: 開いていた 69 件を振り分けた。直したもの 8 件（PR #1139: 引数から作る正規表現のエスケープ 3 件＝note-price-sweep・record-reference-book-artifacts・note-attach-file、何も変えない置換 5 件）。理由を付けて閉じたもの 61 件（won't fix 54＝運営者の手元実行の CLI・リポジトリ内の自前の原稿・127.0.0.1 専用の管理画面・仕様として正規表現を受ける paidBoundary／--pattern、false positive 2＝src/lib/docs.ts の MDX 前処理・文字数カウント、used in tests 5）。残り 8 件は PR #1139 が main に入って CodeQL が回ると閉じる。
 
 ### [DN-0632] サイトにメールの登録ページを作り、配信サービスを選ぶ（iOS アプリと記事から案内して note・ココナラへつなぐ）
 タグ: [収益化] [領域:サイト] [時期:2026-10..2026-11] [種類:制作] [起票:2026-10-10]
