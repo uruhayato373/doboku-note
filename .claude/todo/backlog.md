@@ -432,7 +432,7 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 
 ### [DN-0786] 測量士・舗装の OGP が枠色なしで出るのを直し、カテゴリの網羅を既存の検査に足す（拡張性・第0波）
-タグ: [インフラ・計測] [領域:サイト] [時期:2026-10] [種類:不具合] [起票:2026-10-20]
+タグ: [インフラ・計測] [領域:サイト] [時期:2026-10] [種類:不具合] [起票:2026-10-20] [進行中]
 
 **起点**: 2026-10-20 の拡張性の棚卸し（`docs/reviews/critical/2026-10-20-code-extensibility-debt.md`）。registry を入れた後に足した測量士（surveyor）・舗装（pavement）が、`.claude/skills/conversion/ogp-create/scripts/ogp-create.mjs:51` の CATEGORY_TO_EXAM_KEY に無く、resolveAccentColor が null を返して OGP が枠色なしで出ている。色は `.claude/knowledge/design-system/note-cover-tokens.json` に既にある。どの検査も止めていない。
 **やること**:
