@@ -70,7 +70,7 @@
       "primary",
       "secondary"
     ],
-    "order": 1.5,
+    "order": 2,
     "layout": {
       "view": "civil-2",
       "sort": "civil",
@@ -129,7 +129,7 @@
       "past-exam",
       "keyword"
     ],
-    "order": 2,
+    "order": 5,
     "layout": {
       "view": "pe-comprehensive",
       "sort": "pe-comprehensive",
@@ -187,7 +187,7 @@
       "guide",
       "primary"
     ],
-    "order": 2.2,
+    "order": 3,
     "layout": {
       "view": "pe-first-stage",
       "sort": "pe-first-stage",
@@ -232,7 +232,7 @@
       "keyword",
       "past-exam"
     ],
-    "order": 2.3,
+    "order": 4,
     "visible": true,
     "layout": {
       "view": "pe-construction",
@@ -288,7 +288,7 @@
       "textbook",
       "primary"
     ],
-    "order": 2.4,
+    "order": 7,
     "layout": {
       "view": "concrete",
       "sort": "concrete",
@@ -335,7 +335,7 @@
       "textbook",
       "primary"
     ],
-    "order": 2.5,
+    "order": 8,
     "layout": {
       "view": "concrete",
       "sort": "concrete",
@@ -381,7 +381,7 @@
       "textbook",
       "primary"
     ],
-    "order": 2.6,
+    "order": 9,
     "layout": {
       "view": "concrete",
       "sort": "concrete",
@@ -425,7 +425,7 @@
     "groups": [
       "guide"
     ],
-    "order": 2.7,
+    "order": 6,
     "layout": {
       "view": "concrete",
       "sort": "concrete",
@@ -457,7 +457,7 @@
       "guide",
       "primary"
     ],
-    "order": 2.8,
+    "order": 33,
     "layout": {
       "view": "concrete",
       "sort": "concrete",
@@ -494,7 +494,7 @@
     "groups": [
       "guide"
     ],
-    "order": 2.9,
+    "order": 28,
     "layout": {
       "view": "concrete",
       "sort": "concrete",
@@ -524,7 +524,7 @@
     "groups": [
       "guide"
     ],
-    "order": 2.95,
+    "order": 50,
     "visible": false,
     "layout": {
       "sort": "concrete",
@@ -546,7 +546,7 @@
     "groups": [
       "guide"
     ],
-    "order": 2.8,
+    "order": 90,
     "layout": {
       "view": "practice",
       "ogpExamKey": "common"
@@ -562,7 +562,7 @@
     "groups": [
       "guide"
     ],
-    "order": 3,
+    "order": 95,
     "visible": false
   }
 ]

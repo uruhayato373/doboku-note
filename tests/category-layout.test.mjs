@@ -12,7 +12,7 @@ import { ogpCoverageErrors } from '../scripts/check-home-exam-coverage.mjs';
 const REAL = JSON.parse(readFileSync('src/config/categories.json', 'utf8'));
 const TOKENS = JSON.parse(readFileSync('.claude/knowledge/design-system/note-cover-tokens.json', 'utf8'));
 const FAKE = {
-  slug: 'fake-qualification', label: '架空の資格', subtitle: 's', variant: 'civil', area: 'exam', groups: ['guide', 'primary'], order: 2.99,
+  slug: 'fake-qualification', label: '架空の資格', subtitle: 's', variant: 'civil', area: 'exam', groups: ['guide', 'primary'], order: 34,
   layout: {
     view: 'concrete', sort: 'concrete', ogpExamKey: 'common',
     groupLabels: { guide: '受験ガイド', primary: '過去問' },
@@ -43,7 +43,7 @@ test('ビュー・並べ替え・ジャンプ・/exam の対象・並び順も�
   assert.deepEqual(def.layout.jumps.map((j) => j.href), ['#sec-guide']);
   assert.ok(cats.getExamCategories().some((c) => c.slug === 'fake-qualification'), '/exam の静的パスに出る');
   const order = cats.getAllCategories().map((c) => c.slug);
-  assert.ok(order.indexOf('fake-qualification') > order.indexOf('pavement'), '並び順（order 2.99）の位置に出る');
+  assert.ok(order.indexOf('fake-qualification') > order.indexOf('surveyor') && order.indexOf('fake-qualification') < order.indexOf('civil-practice'), '並び順（order 34）の位置に出る');
 });
 
 test('OGP の色キーも categories.json から引き、網羅の検査が通る', () => {
