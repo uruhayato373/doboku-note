@@ -332,6 +332,17 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-0792] 読み手の無い生成物を追跡から外す（tag-dictionary.json）、cross-exam-keywords の生成をやめる（拡張性・第1波）
+タグ: [インフラ・計測] [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-10-20]
+
+**起点**: 2026-10-20 の拡張性の棚卸し（`docs/reviews/critical/2026-10-20-code-extensibility-debt.md`）。追跡している生成物が変更の量を膨らませている（2 か月で src/config/tag-dictionary.json 235 回・cross-exam-keywords.json 172 回。変わるのは generated_at と件数）。cross-exam-keywords.json は生成スクリプト（.claude/scripts/build-cross-exam-keyword-index.mjs）以外に読み手が無い。tag-dictionary.json は .claude/scripts/build-tag-index.mjs が作り、build-keyword-relations.mjs・build-civil-relations.mjs とテスト 1 本が読む。
+**やること**:
+1. cross-exam-keywords の生成をやめ、生成スクリプトと出力を消す（refresh-indexes・package.json・文書の参照も）
+2. tag-dictionary.json を追跡から外し、読む側の前に refresh-indexes と CI の中で作る（前例: doc-meta-index は 2026-08-29 に外し、ci.yml で生成）
+3. `tests/tag-dictionary-order.test.mjs` を、生成関数を直接試す形にする
+**完了条件**: `npm run refresh-indexes` の後の git status に 2 ファイルが出ない。build と quality:audit:ci が通る。
+
+
 ### [DN-0791] PR の差分以外で develop を赤くした ci 検査を、差分だけで決まる形にするか ops へ移す（拡張性・第1波）
 タグ: [インフラ・計測] [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-10-20]
 
