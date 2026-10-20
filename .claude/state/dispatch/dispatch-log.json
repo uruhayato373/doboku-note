@@ -4794,6 +4794,23 @@
       "commit": "614d55e506c6",
       "verification": "npm run report-career-funnel（career 45 本・GSC 47 行一致）",
       "note": "wave-2 基線との差分（affiliate クリック 11→21・CTR 0.05→0.11%・高意図 query 表示 33→178・記事末 4,324 表示 0 クリック）と A8 の発生 1・確定 ¥0 を裁定ログ 2026-10-20 に記録。運営者の判定で (1) 継続・記事末だけ外す（DN-0779）。A8 ピクセルは本番で 1 件・200 image/gif"
+    },
+    {
+      "id": "DN-0664",
+      "at": "2026-10-20",
+      "task": "5〜9 月の受取額を台帳から記録し、9 月は KDP の確定後に complete にする",
+      "tier": "mid",
+      "kind": "改善",
+      "prevention": {
+        "type": "none",
+        "ref": "記録作業。KDP 確定後の再記録は既存の record-net-receipts と週次の定期取得で回る"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "865bbdf5f3b4",
+      "verification": "data/business/records の measurement: 2026-05/06/08/09 coverage=complete、2026-09 は supersedes 付き。review 2026-09 monthly も supersedes 付き",
+      "note": "KDP の 2026-09 は 10/17 の定期取得で estimated:false（¥9,988）になり、同日 measurement（netReceipts・coverage complete・supersedes 10/11 の partial）と 9 月の月次レビュー記録の確定版（supersedes 付き）が記録済み。5・6・8・9 月は complete。7 月は KDP が 7/31 取得の推計のため partial のまま（完了条件の対象外）"
     }
   ]
 }
