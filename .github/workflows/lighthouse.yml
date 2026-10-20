@@ -10,14 +10,14 @@ name: Lighthouse CI
 on:
   pull_request:
     paths:
+      # サイトの画面が変わる PR だけ（DN-0803。note・SNS などの content と package.json の scripts だけの変更では回さない）
       - "src/**"
       - "public/**"
-      - "content/**"
+      - "content/site/**"
       - "next.config.mjs"
       - "lighthouserc.json"
       - "scripts/static-server.mjs"
       - ".github/workflows/lighthouse.yml"
-      - "package.json"
       - "package-lock.json"
 
 permissions:
