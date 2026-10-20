@@ -321,6 +321,17 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-0784] 計測の入力で型の無い JSON 8 件に zod の型を付け、読み手の無い報告のみの検査 4 本を片付ける（拡張性の段4）
+タグ: [インフラ・計測] [領域:管理] [時期:2026-12] [種類:改善] [起票:2026-10-20]
+
+**起点**: 2026-10-20 の棚卸し（`docs/reviews/critical/2026-10-20-code-extensibility-debt.md` §4）。計測の入力のうち型の無い JSON が 8 件（instagram.insights・afb.outcomes・a8.inventory・ga4.admin-last-run・ga4.ui-urls・ga4.ui-history・ga4.ui-diff・cloudflare.zone）。週次・月次が読む取得結果の形が変わっても止まらず、欠測を 0 と読む経路になる。check-datasets の警告が 4 件。quality-audit の報告のみの検査 16 本のうち 4 本（outbound-links・env-inventory・disk-hygiene・branch-hygiene）は読み手が書かれていない。
+**やること**:
+1. 8 件に zod の型を付けて台帳で結ぶ（dataset-schemas の約束どおり、実データ全件で違反 0 を確かめる）
+2. check-datasets の警告（planned を外せる 3 件・cloudflare.zone の型）を消す
+3. 読み手の無い 4 本を、ci にする・読み手を決める・退役する、のどれかにする
+**完了条件**: check-datasets の警告 0、data/ の型の無い JSON 0、報告のみの検査すべてに読み手が書かれている。
+
+
 ### [DN-0782] スクリプトの重複関数を lib へ寄せ、lib にある名前の再定義を増やさない検査を置く（拡張性の段2）
 タグ: [インフラ・計測] [領域:管理] [時期:2026-11..2026-12] [種類:改善] [起票:2026-10-20]
 
