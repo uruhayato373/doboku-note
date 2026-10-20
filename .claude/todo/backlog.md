@@ -321,6 +321,17 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-0787] 経験記述の字数ツールとスクリプトの countChars を src/lib の .mjs 1 つにまとめる（拡張性・第0波）
+タグ: [インフラ・計測] [領域:サイト] [時期:2026-10..2026-11] [種類:不具合] [起票:2026-10-20]
+
+**起点**: 2026-10-20 の拡張性の棚卸し（`docs/reviews/critical/2026-10-20-code-extensibility-debt.md`）。経験記述の字数ツール `src/app/tools/keiken-charcount/KeikenCharcountClient.tsx:40` の countChars は「scripts/keiken-charcount.mjs と一致」とコメントしているが、`scripts/keiken-charcount.mjs:131` は目印【〇〇】の括弧を数えない（DN-0277 の決定）のに、サイト側は数える。note の模範答案を貼った読者には、記事の字数と違う値が出る。
+**やること**:
+1. 括弧を数えない方を正として、src/lib に .mjs 1 つ（スクリプトからも import される前例: affiliate-placement-core.mjs）で countChars を置く
+2. サイトの字数ツールと scripts/keiken-charcount.mjs がそれを import する
+**禁止事項**: scripts/lib/cce-essay.mjs:31（見出しを除く）と tensaku-reply-guards.mjs:49（空白だけ除く）の countChars は数えるものが違うので統合しない。
+**完了条件**: 定義が 1 つだけあり、【〇〇】を含む入力で両者が同じ値を返すテストが通る。サイトへの反映は main へのデプロイ（運営者の判断）で行う。
+
+
 ### [DN-0786] 測量士・舗装の OGP が枠色なしで出るのを直し、カテゴリの網羅を既存の検査に足す（拡張性・第0波）
 タグ: [インフラ・計測] [領域:サイト] [時期:2026-10] [種類:不具合] [起票:2026-10-20]
 
