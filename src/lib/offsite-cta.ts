@@ -14,6 +14,7 @@
  */
 import { listedCoconalaServices } from './coconala-services';
 import { coconalaAffiliateHref } from '@/config/affiliate-creatives';
+import { beforeExamCatch } from '@/lib/exam-dates';
 
 export type OffsiteChannel = 'coconala';
 
@@ -47,13 +48,13 @@ const OFFSITE_RULES: readonly OffsiteRule[] = [
     // 施工経験記述（1級）: 読者が自分の工事で答案を書く高 intent ページ。人の添削と骨子からの指導が最も刺さる。
     test: /^civil-construction-1-secondary-experience-writing-(guide|examples)$/,
     coconala: ['coconala-tensaku-4theme', 'coconala-sakusei-4theme'],
-    coconalaCatch: '10/4の本試験前に、全5テーマの答案を24時間で見てほしい方へ。',
+    coconalaCatch: beforeExamCatch('civil-construction-1', 'second', '全5テーマの答案を24時間で見てほしい方へ。'),
   },
   {
     // 施工経験記述（2級）。
     test: /^civil-construction-2-secondary-experience-writing-(guide|examples|by-theme)$/,
     coconala: ['coconala-2kyu-tensaku-3theme', 'coconala-2kyu-sakusei-3theme'],
-    coconalaCatch: '10/25の本試験前に、全3テーマの答案を24時間で見てほしい方へ。',
+    coconalaCatch: beforeExamCatch('civil-construction-2', 'second', '全3テーマの答案を24時間で見てほしい方へ。'),
   },
   {
     // 1級 二次 年度別過去問（secondary-r03〜r09）: 模範答案を読んだあとに自分の答案を見てもらう。

@@ -65701,6 +65701,30 @@
       "width": 1200,
       "height": 630,
       "srcHash": "8160e174adfb47a3"
+    },
+    "content/note/1級・2級土木/2級土木/R8二次の出題予想/img/cover.png": {
+      "bucket": "private",
+      "r2Key": "note/covers/1級・2級土木/2級土木/R8二次の出題予想/img/cover.png",
+      "sha256": "7375fa2f4a5b395888c10c824253f028ea0bcceec2327a3e5050ce26eb321d3c",
+      "bytes": 460371,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "note-cover-png",
+      "verifiedAt": "2026-10-20T13:07:15.391Z",
+      "width": 1280,
+      "height": 670
+    },
+    "content/note/1級・2級土木/2級土木/経験記述を残り3週間で仕上げる/img/cover.png": {
+      "bucket": "private",
+      "r2Key": "note/covers/1級・2級土木/2級土木/経験記述を残り3週間で仕上げる/img/cover.png",
+      "sha256": "1423a60be90c3132d8bc2f4ce80e8eee0a80d53bbc5ebb6ece1c484d4666c700",
+      "bytes": 377443,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "note-cover-png",
+      "verifiedAt": "2026-10-20T13:07:15.542Z",
+      "width": 1280,
+      "height": 670
     }
   },
   "note": "DN-0111 Phase 3。秘密値・署名 URL・絶対パスを書かないこと。",

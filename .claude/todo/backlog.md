@@ -324,6 +324,16 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-0801] asset-offload --commit が台帳全体を書き直し、送り直した行の srcHash などを落とす
+タグ: [インフラ・計測] [領域:管理] [時期:2026-11] [種類:不具合] [起票:2026-10-20]
+
+**起点**: 2026-10-20 に `node scripts/asset-offload.mjs --group site-ogp-png --include-untracked --commit`（測量士・舗装の OGP 13 枚）と `--group note-cover-png --only-new --include-untracked --commit`（note のカバー 2 枚）を実行すると、どちらも `.claude/state/assets/manifest.json` 全体を書き直した。前者は送った 13 行から `srcHash`・`logicalPath`・`mime`・`generator`・`requiredBy` を落とし（`srcHash` は ogp-supply と update-ogp-srchash が OGP の陳腐化を判定する欄）、後者は無関係な行に欄を足して 2,695 行の差分になった。どちらも手で台帳を戻し、対象の行だけを書き換えて commit した（af025fb24 ほか）。
+**やること**:
+1. 送ったファイルの行は既存の欄を保ったまま sha256・bytes・verifiedAt だけを更新し、送っていない行には触らないようにする
+2. 書き方（欄の順・字下げ）を既存の台帳に合わせ、同じ中身なら書かない
+**完了条件**: 1 ファイルだけを送るテストで、台帳の差分がその行の sha256・bytes・verifiedAt だけになり、`srcHash` が残る。
+
+
 ### [DN-0798] 呼び出しの記録と静的参照から、使われていない・役割が重なるエージェントとスキルを統合・退役する（拡張性・第3波）
 タグ: [エージェント・SSOT] [領域:管理] [時期:2026-12] [種類:意思決定] [起票:2026-10-20]
 
@@ -350,7 +360,7 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 
 ### [DN-0793] カテゴリの表示構造を categories.json に持たせ、CategoryPage・doc-classifier・ogp-create の資格別分岐を消す（拡張性・第2波）
-タグ: [インフラ・計測] [領域:サイト] [時期:2026-11..2026-12] [種類:改善] [起票:2026-10-20]
+タグ: [インフラ・計測] [領域:サイト] [時期:2026-11..2026-12] [種類:改善] [起票:2026-10-20] [進行中]
 
 **起点**: 2026-10-20 の拡張性の棚卸し（`docs/reviews/critical/2026-10-20-code-extensibility-debt.md`）。資格を足すとき、サイトの構造（ビュー・記事型の並び・色・/exam に出すか・並び順）が registry からも categories.json からも決まらず、手で直している。RCCM の立ち上げは仕組み側 52 ファイル・88 か所（registry 由来 0）、その後も追随修正 5 コミット。src の資格 id の直書き比較は約 63 か所で、doc-classifier.ts 15・CategoryPage.tsx 12（:184-196 のビュー選択）が 4 割強。/exam は variant の二値（civil|pe）で絞るので、行政書士はそのままでは出ない。並び順は registry・categories.json・home-exam-cards・/links で 4 通り。categories.json の groups と doc-classifier の getGroupOrder は照合されず、civil-construction-2 で既にずれている。ConcreteView は guide・textbook・primary しか描かず、新しい記事型は黙って消える。
 **次または実行順**: DN-0491（行政書士の展開計画）の判断の後、行政書士なら最初の制作カードの前に置く。出さないなら次のカテゴリを足す前。DN-0786（OGP の網羅）の後。
@@ -1862,31 +1872,10 @@ Windows（autocrlf で MDX が CRLF）で npm run refresh-indexes を回すと�
 
 
 
-### [DN-0799] 済んだ移行・一回きりのスクリプト 11 本を削除する（拡張性・第3波）
-タグ: [インフラ・計測] [領域:管理] [時期:2026-12] [種類:改善] [起票:2026-10-20] [進行中]
-
-**起点**: 2026-10-20 の拡張性の棚卸し（`docs/reviews/critical/2026-10-20-code-extensibility-debt.md`）。ファイル名がどこからも出てこないスクリプト 44 本のうち、移行・一回きりの作業 11 本は役目を終えている（audit-definition-leads・audit-svg-colors・backfill-note-hashtags・build-site・bulk-score・fix-duplicated-description-suffix・generate-pe-first-stage-exam-packs・generate-pe-first-stage-x-campaign・inspect-reference-book-layout・migrate-channel-split・migrate-x-tweets）。
-**次または実行順**: DN-0780（check-command-guidance が検査不成立）の後。それまでは削除後に古い案内が残っても止まらない。
-**やること**: 11 本を 1 本ずつ、出力が今も使われていないかを確かめてから削除する。参照する npm script・文書も消す。
-**禁止事項**: render-figure-*（34 本）・render-editorial-* は消さない（svg-figure-rewriter が図を作り直す元。DN-0691 のように孤立していても必要なものがある）。
-**完了条件**: 11 本（確かめて残したものは理由をカードに書く）が無く、`npm run check-command-guidance` と `npm run check-gate-parity` が exit 0。
 
 
-### [DN-0796] frontmatter の未知のキーを止める（passthrough を外し、1 回しか使われないキーを直す）（拡張性・第2波）
-タグ: [インフラ・計測] [領域:サイト] [時期:2026-12] [種類:改善] [起票:2026-10-20] [進行中]
-
-**起点**: 2026-10-20 の拡張性の棚卸し（`docs/reviews/critical/2026-10-20-code-extensibility-debt.md`）。frontmatter の検査（`.claude/scripts/lib/frontmatter-schema.mjs:57`）は .passthrough() で、記事で使われるキー 42 種のうち 13 種しか見ていない。1,470 記事で 1 回しか使われないキーが 8 個あり、`updated` を書いた記事がある一方で src の 10 ファイルは `updatedAt` を読む。綴りの違いが黙って無視される。
-**やること**: 実データの 42 キーを分類して許可リスト方式にし、1 回しか使われないキーを直すか正式に足す。seoTitle・section・faqs など使われているキーの型も書く。
-**完了条件**: スキーマが許可リスト方式で、全記事で違反 0。知らないキーを足した fixture で lint-frontmatter が赤になるテストがある。
 
 
-### [DN-0795] offsite-cta・hub-cta の試験日の直書きをやめ、試験日程から作り、試験後は日付入りの文言を出さない（拡張性・第2波）
-タグ: [インフラ・計測] [領域:サイト] [時期:2026-12] [種類:不具合] [起票:2026-10-20] [進行中]
-
-**起点**: 2026-10-20 の拡張性の棚卸し（`docs/reviews/critical/2026-10-20-code-extensibility-debt.md`）。`src/lib/offsite-cta.ts:50,56` に「10/4の本試験前に」「10/25の本試験前に」、`src/lib/hub-cta.ts:71,78` に技術士試験の Date.UTC(2026,6,19/20) が直書きされている。hub-cta.ts:32 には exam-calendar を読む examDayEndUtcMs が既にある。対象のココナラ出品 4 件（1級の添削・作成 4 テーマ、2級の 3 テーマ）は今は休止中なので、古い文言は表示されていない。
-**次または実行順**: 出品の再開（2027 年）と、2027 年の技術士試験の前。
-**やること**: 日付入りの文言を config/exam-calendar.json から作り、試験日を過ぎたら日付を含まない文言にする（exam-calendar は 1 年分しか持たないので、作るだけでは試験後にまた古くなる）。
-**完了条件**: 時刻を差し込んだテストで、試験の前日は日付入り・翌日は日付なしの文言になり、2 ファイルに日付のリテラルが無い。
 
 
 

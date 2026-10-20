@@ -79,28 +79,16 @@
       "branch": "feat/dn0789-usage-log"
     },
     {
-      "id": "DN-0799",
-      "owner": "claude-code",
-      "startedAt": "2026-10-20T12:41:20.375Z",
-      "branch": "chore/dn0799-oneoff-scripts"
-    },
-    {
-      "id": "DN-0795",
-      "owner": "claude-code",
-      "startedAt": "2026-10-20T12:43:13.829Z",
-      "branch": "fix/dn0795-exam-dates"
-    },
-    {
-      "id": "DN-0796",
-      "owner": "claude-code",
-      "startedAt": "2026-10-20T12:48:17.078Z",
-      "branch": "fix/dn0796-frontmatter-strict"
-    },
-    {
       "id": "DN-0797",
       "owner": "claude-code",
       "startedAt": "2026-10-20T12:52:04.067Z",
       "branch": "refactor/dn0797-shared-slug"
+    },
+    {
+      "id": "DN-0793",
+      "owner": "claude-code",
+      "startedAt": "2026-10-20T12:59:31.344Z",
+      "branch": "refactor/dn0793-category-layout"
     }
   ]
 }
