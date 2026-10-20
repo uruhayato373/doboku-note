@@ -1,5 +1,6 @@
 import { type DocMeta } from '@/lib/docs';
 import { classifyDoc, getGroupOrder, getGroupLabel, type DocGroupKey } from '@/lib/doc-classifier';
+import { getCategoryBySlug, type CategoryLayout } from '@/lib/categories';
 
 export type DocGroup = {
   key: DocGroupKey;
@@ -8,67 +9,15 @@ export type DocGroup = {
   docs: DocMeta[];
 };
 
-const GROUP_DESCRIPTIONS: Record<string, Record<string, string>> = {
-  'civil-construction-1': {
-    guide: '出題傾向の分析・得点戦略・分野別の重要ポイント',
-    textbook: '試験テキスト全文（土木一般編・施工管理法規編）の体系的な解説',
-    primary: '年度別の過去問と解説（問題A: 土木一般・専門土木・法規 / 問題B: 施工管理）',
-    secondary: '経験記述・施工管理（コンクリート工・土工・品質管理・施工計画）の基礎と過去問',
-  },
-  'civil-construction-2': {
-    guide: '出題傾向の分析・得点戦略・分野別の基礎ポイント（2級向け）',
-    textbook: '試験テキスト・基準類の解説（将来追加予定）',
-    primary: '年度別の過去問と解説（前期: 6月実施・後期: 10月実施）',
-    secondary: '経験記述・施工管理（コンクリート工・土工・品質管理・施工計画）の基礎と過去問（主任技術者視点）',
-  },
-  'pe-first-stage': {
-    guide: '試験制度・科目構成・合格基準・学習計画・一次合格後のロードマップ',
-    primary: '年度別の適性科目・基礎科目・専門科目（建設部門）全問解説',
-  },
-  'pe-comprehensive-management': {
-    guide: '試験の構成・出題傾向・学習ガイド',
-    pillar: '5 管理（経済性 / 人的資源 / 情報 / 安全 / 社会環境）の体系学習ガイド',
-    pastExam: '年度別の択一式・記述式問題と解説',
-    keyword: 'キーワード解説',
-  },
-  'pe-construction': {
-    guide: '試験制度・勉強法・答案の書き方・業務経歴票の作り方',
-    keyword: '必須科目Iの論点キーワードと選択科目別の出題テーマ分析（R01〜R07）',
-    pastExam: '令和元〜7年度の必須科目I・選択科目（11科目）の記述式問題文',
-  },
-  'concrete-engineer': {
-    guide: '試験概要・2026年度の受験資格・学習計画・主任技士との違い',
-    textbook: '材料・配（調）合・試験・製造品質管理・施工・環境問題の体系的な基礎解説',
-    primary: '技士レベルのオリジナル四肢択一と解説',
-  },
-  'concrete-chief-engineer': {
-    guide: '試験概要・出題傾向・小論文対策',
-    textbook: '8分野（材料・性質・耐久性・配合設計・製造品質管理・施工・製品・構造設計）の体系的な解説',
-    primary: '分野別の四肢択一 過去問と解説',
-  },
-  'concrete-diagnostician': {
-    guide: '試験概要・出題傾向・記述式（問題A/B）対策',
-    textbook: '劣化機構・調査・診断評価・補修・補強・維持管理の体系的な解説',
-    primary: '分野別の四肢択一 過去問と解説',
-  },
-  rccm: {
-    guide: '試験制度・問題III 公開テーマ・問題I 業務経験論文・択一の範囲・学習計画・技術士との違い',
-  },
-  surveyor: {
-    guide: '試験の概要・午後記述式の分野選び・測量士補の択一・学習計画',
-    primary: '測量士補 択一式28問の年度別過去問と解答解説（国土地理院の公式正答）',
-  },
-  pavement: {
-    guide: '試験の概要・応用試験の経験記述・選択問題の頻出論点・学習計画',
-  },
-  'building-construction': {
-    guide: '第二次検定の経験記述の書き方・過去問の傾向',
-  },
-};
+/** 記事型ごとの説明と並べ替えの規則は categories.json の layout が持つ（DN-0793） */
+function layoutOf(category: string): CategoryLayout | undefined {
+  return getCategoryBySlug(category)?.layout;
+}
 
 /** Sort functions per group */
 function sortDocs(docs: DocMeta[], group: DocGroupKey, category: string) {
-  if (category === 'civil-construction-1' || category === 'civil-construction-2') {
+  const sort = layoutOf(category)?.sort;
+  if (sort === 'civil') {
     if (group === 'guide') {
       docs.sort((a, b) => {
         if (a.slug?.includes('strategy')) return -1;
@@ -106,7 +55,7 @@ function sortDocs(docs: DocMeta[], group: DocGroupKey, category: string) {
         return isBasicsA - isBasicsB;
       });
     }
-  } else if (category === 'concrete-engineer' || category === 'concrete-chief-engineer' || category === 'concrete-diagnostician' || category === 'rccm' || category === 'surveyor' || category === 'pavement' || category === 'building-construction') {
+  } else if (sort === 'concrete') {
     if (group === 'guide') {
       docs.sort((a, b) => {
         const orderA = a.guide_order ?? 999;
@@ -121,7 +70,7 @@ function sortDocs(docs: DocMeta[], group: DocGroupKey, category: string) {
         return sa - sb;
       });
     }
-  } else if (category === 'pe-first-stage') {
+  } else if (sort === 'pe-first-stage') {
     if (group === 'guide') {
       docs.sort((a, b) => {
         const orderA = a.guide_order ?? 999;
@@ -141,7 +90,7 @@ function sortDocs(docs: DocMeta[], group: DocGroupKey, category: string) {
         return 0;
       });
     }
-  } else if (category === 'pe-comprehensive-management') {
+  } else if (sort === 'pe-comprehensive') {
     if (group === 'guide') {
       docs.sort((a, b) => {
         const orderA = a.guide_order ?? 999;
@@ -199,7 +148,7 @@ export function groupDocs(docs: DocMeta[], category: string): DocGroup[] {
     result.push({
       key: groupKey,
       title: getGroupLabel(category, groupKey),
-      description: GROUP_DESCRIPTIONS[category]?.[groupKey] ?? '',
+      description: layoutOf(category)?.groupDescriptions?.[groupKey] ?? '',
       docs: groupDocs,
     });
   }

@@ -12,7 +12,51 @@
       "primary",
       "secondary"
     ],
-    "order": 1
+    "order": 1,
+    "layout": {
+      "view": "civil-1",
+      "sort": "civil",
+      "ogpExamKey": "civil-1",
+      "groupLabels": {
+        "guide": "試験ガイド",
+        "textbook": "テキスト（教科書）",
+        "primary": "第1次検定",
+        "secondary": "第2次検定"
+      },
+      "groupDescriptions": {
+        "guide": "出題傾向の分析・得点戦略・分野別の重要ポイント",
+        "textbook": "試験テキスト全文（土木一般編・施工管理法規編）の体系的な解説",
+        "primary": "年度別の過去問と解説（問題A: 土木一般・専門土木・法規 / 問題B: 施工管理）",
+        "secondary": "経験記述・施工管理（コンクリート工・土工・品質管理・施工計画）の基礎と過去問"
+      },
+      "jumps": [
+        {
+          "href": "#sec-guide",
+          "label": "受験ガイド",
+          "goal": "試験を知る"
+        },
+        {
+          "href": "#sec-textbook",
+          "label": "テキスト",
+          "goal": "知識を学ぶ"
+        },
+        {
+          "href": "#sec-primary",
+          "label": "過去問",
+          "goal": "問題を解く"
+        },
+        {
+          "href": "#sec-secondary",
+          "label": "第2次対策",
+          "goal": "記述を仕上げる"
+        },
+        {
+          "href": "#sec-career",
+          "label": "キャリア",
+          "goal": "資格を活かす"
+        }
+      ]
+    }
   },
   {
     "slug": "civil-construction-2",
@@ -26,7 +70,51 @@
       "primary",
       "secondary"
     ],
-    "order": 1.5
+    "order": 1.5,
+    "layout": {
+      "view": "civil-2",
+      "sort": "civil",
+      "ogpExamKey": "civil-2",
+      "groupLabels": {
+        "guide": "試験ガイド",
+        "textbook": "テキスト（教科書）",
+        "primary": "第1次検定",
+        "secondary": "第2次検定"
+      },
+      "groupDescriptions": {
+        "guide": "出題傾向の分析・得点戦略・分野別の基礎ポイント（2級向け）",
+        "textbook": "試験テキスト・基準類の解説（将来追加予定）",
+        "primary": "年度別の過去問と解説（前期: 6月実施・後期: 10月実施）",
+        "secondary": "経験記述・施工管理（コンクリート工・土工・品質管理・施工計画）の基礎と過去問（主任技術者視点）"
+      },
+      "jumps": [
+        {
+          "href": "#sec-guide",
+          "label": "受験ガイド",
+          "goal": "試験を知る"
+        },
+        {
+          "href": "#sec-fields",
+          "label": "分野別",
+          "goal": "知識を学ぶ"
+        },
+        {
+          "href": "#sec-primary",
+          "label": "過去問",
+          "goal": "問題を解く"
+        },
+        {
+          "href": "#sec-secondary",
+          "label": "第2次対策",
+          "goal": "記述を仕上げる"
+        },
+        {
+          "href": "#sec-career",
+          "label": "キャリア",
+          "goal": "資格を活かす"
+        }
+      ]
+    }
   },
   {
     "slug": "pe-comprehensive-management",
@@ -41,7 +129,51 @@
       "past-exam",
       "keyword"
     ],
-    "order": 2
+    "order": 2,
+    "layout": {
+      "view": "pe-comprehensive",
+      "sort": "pe-comprehensive",
+      "ogpExamKey": "pe-comprehensive",
+      "groupLabels": {
+        "guide": "試験概要",
+        "pillar": "5 管理学習ガイド",
+        "pastExam": "過去問",
+        "keyword": "キーワード"
+      },
+      "groupDescriptions": {
+        "guide": "試験の構成・出題傾向・学習ガイド",
+        "pillar": "5 管理（経済性 / 人的資源 / 情報 / 安全 / 社会環境）の体系学習ガイド",
+        "pastExam": "年度別の択一式・記述式問題と解説",
+        "keyword": "キーワード解説"
+      },
+      "jumps": [
+        {
+          "href": "#sec-guide",
+          "label": "受験ガイド",
+          "goal": "試験を知る"
+        },
+        {
+          "href": "#sec-fields",
+          "label": "論文対策",
+          "goal": "論文を学ぶ"
+        },
+        {
+          "href": "#sec-pillar",
+          "label": "5管理",
+          "goal": "管理を整理する"
+        },
+        {
+          "href": "#sec-pastExam",
+          "label": "過去問",
+          "goal": "問題を解く"
+        },
+        {
+          "href": "#sec-keyword",
+          "label": "キーワード",
+          "goal": "用語を調べる"
+        }
+      ]
+    }
   },
   {
     "slug": "pe-first-stage",
@@ -55,7 +187,37 @@
       "guide",
       "primary"
     ],
-    "order": 2.2
+    "order": 2.2,
+    "layout": {
+      "view": "pe-first-stage",
+      "sort": "pe-first-stage",
+      "ogpExamKey": "pe-comprehensive",
+      "groupLabels": {
+        "guide": "試験ガイド",
+        "primary": "過去問"
+      },
+      "groupDescriptions": {
+        "guide": "試験制度・科目構成・合格基準・学習計画・一次合格後のロードマップ",
+        "primary": "年度別の適性科目・基礎科目・専門科目（建設部門）全問解説"
+      },
+      "jumps": [
+        {
+          "href": "#sec-guide",
+          "label": "受験ガイド",
+          "goal": "試験を知る"
+        },
+        {
+          "href": "#sec-fields",
+          "label": "科目別対策",
+          "goal": "科目を学ぶ"
+        },
+        {
+          "href": "#sec-primary",
+          "label": "科目別過去問",
+          "goal": "問題を解く"
+        }
+      ]
+    }
   },
   {
     "slug": "pe-construction",
@@ -71,7 +233,48 @@
       "past-exam"
     ],
     "order": 2.3,
-    "visible": true
+    "visible": true,
+    "layout": {
+      "view": "pe-construction",
+      "ogpExamKey": "pe-construction",
+      "groupLabels": {
+        "guide": "試験ガイド",
+        "pastExam": "過去問",
+        "keyword": "キーワード"
+      },
+      "groupDescriptions": {
+        "guide": "試験制度・勉強法・答案の書き方・業務経歴票の作り方",
+        "keyword": "必須科目Iの論点キーワードと選択科目別の出題テーマ分析（R01〜R07）",
+        "pastExam": "令和元〜7年度の必須科目I・選択科目（11科目）の記述式問題文"
+      },
+      "jumps": [
+        {
+          "href": "#sec-guide",
+          "label": "受験ガイド",
+          "goal": "試験を知る"
+        },
+        {
+          "href": "#sec-fields",
+          "label": "論文の書き方",
+          "goal": "論文を学ぶ"
+        },
+        {
+          "href": "#sec-keyword",
+          "label": "科目別対策",
+          "goal": "専門を深める"
+        },
+        {
+          "href": "#sec-pastExam",
+          "label": "過去問",
+          "goal": "問題を解く"
+        },
+        {
+          "href": "#sec-career",
+          "label": "キャリア",
+          "goal": "資格を活かす"
+        }
+      ]
+    }
   },
   {
     "slug": "concrete-engineer",
@@ -85,7 +288,39 @@
       "textbook",
       "primary"
     ],
-    "order": 2.4
+    "order": 2.4,
+    "layout": {
+      "view": "concrete",
+      "sort": "concrete",
+      "ogpExamKey": "concrete-engineer",
+      "groupLabels": {
+        "guide": "試験ガイド",
+        "textbook": "テキスト（分野別解説）",
+        "primary": "オリジナル演習"
+      },
+      "groupDescriptions": {
+        "guide": "試験概要・2026年度の受験資格・学習計画・主任技士との違い",
+        "textbook": "材料・配（調）合・試験・製造品質管理・施工・環境問題の体系的な基礎解説",
+        "primary": "技士レベルのオリジナル四肢択一と解説"
+      },
+      "jumps": [
+        {
+          "href": "#sec-guide",
+          "label": "受験ガイド",
+          "goal": "試験を知る"
+        },
+        {
+          "href": "#sec-textbook",
+          "label": "テキスト",
+          "goal": "知識を学ぶ"
+        },
+        {
+          "href": "#sec-primary",
+          "label": "演習問題",
+          "goal": "問題を解く"
+        }
+      ]
+    }
   },
   {
     "slug": "concrete-chief-engineer",
@@ -100,7 +335,39 @@
       "textbook",
       "primary"
     ],
-    "order": 2.5
+    "order": 2.5,
+    "layout": {
+      "view": "concrete",
+      "sort": "concrete",
+      "ogpExamKey": "concrete-chief",
+      "groupLabels": {
+        "guide": "試験ガイド",
+        "textbook": "テキスト（分野別解説）",
+        "primary": "過去問"
+      },
+      "groupDescriptions": {
+        "guide": "試験概要・出題傾向・小論文対策",
+        "textbook": "8分野（材料・性質・耐久性・配合設計・製造品質管理・施工・製品・構造設計）の体系的な解説",
+        "primary": "分野別の四肢択一 過去問と解説"
+      },
+      "jumps": [
+        {
+          "href": "#sec-guide",
+          "label": "受験ガイド",
+          "goal": "試験を知る"
+        },
+        {
+          "href": "#sec-textbook",
+          "label": "テキスト",
+          "goal": "知識を学ぶ"
+        },
+        {
+          "href": "#sec-primary",
+          "label": "過去問",
+          "goal": "問題を解く"
+        }
+      ]
+    }
   },
   {
     "slug": "concrete-diagnostician",
@@ -114,7 +381,39 @@
       "textbook",
       "primary"
     ],
-    "order": 2.6
+    "order": 2.6,
+    "layout": {
+      "view": "concrete",
+      "sort": "concrete",
+      "ogpExamKey": "concrete-diagnosis",
+      "groupLabels": {
+        "guide": "試験ガイド",
+        "textbook": "テキスト（分野別解説）",
+        "primary": "過去問（四肢択一）"
+      },
+      "groupDescriptions": {
+        "guide": "試験概要・出題傾向・記述式（問題A/B）対策",
+        "textbook": "劣化機構・調査・診断評価・補修・補強・維持管理の体系的な解説",
+        "primary": "分野別の四肢択一 過去問と解説"
+      },
+      "jumps": [
+        {
+          "href": "#sec-guide",
+          "label": "受験ガイド",
+          "goal": "試験を知る"
+        },
+        {
+          "href": "#sec-textbook",
+          "label": "テキスト",
+          "goal": "知識を学ぶ"
+        },
+        {
+          "href": "#sec-primary",
+          "label": "過去問",
+          "goal": "問題を解く"
+        }
+      ]
+    }
   },
   {
     "slug": "rccm",
@@ -126,7 +425,25 @@
     "groups": [
       "guide"
     ],
-    "order": 2.7
+    "order": 2.7,
+    "layout": {
+      "view": "concrete",
+      "sort": "concrete",
+      "ogpExamKey": "rccm",
+      "groupLabels": {
+        "guide": "受験ガイド"
+      },
+      "groupDescriptions": {
+        "guide": "試験制度・問題III 公開テーマ・問題I 業務経験論文・択一の範囲・学習計画・技術士との違い"
+      },
+      "jumps": [
+        {
+          "href": "#sec-guide",
+          "label": "受験ガイド",
+          "goal": "試験を知る"
+        }
+      ]
+    }
   },
   {
     "slug": "surveyor",
@@ -140,7 +457,32 @@
       "guide",
       "primary"
     ],
-    "order": 2.8
+    "order": 2.8,
+    "layout": {
+      "view": "concrete",
+      "sort": "concrete",
+      "ogpExamKey": "surveyor",
+      "groupLabels": {
+        "guide": "受験ガイド",
+        "primary": "測量士補 過去問（択一式）"
+      },
+      "groupDescriptions": {
+        "guide": "試験の概要・午後記述式の分野選び・測量士補の択一・学習計画",
+        "primary": "測量士補 択一式28問の年度別過去問と解答解説（国土地理院の公式正答）"
+      },
+      "jumps": [
+        {
+          "href": "#sec-guide",
+          "label": "受験ガイド",
+          "goal": "試験を知る"
+        },
+        {
+          "href": "#sec-primary",
+          "label": "過去問",
+          "goal": "問題を解く"
+        }
+      ]
+    }
   },
   {
     "slug": "pavement",
@@ -152,7 +494,25 @@
     "groups": [
       "guide"
     ],
-    "order": 2.9
+    "order": 2.9,
+    "layout": {
+      "view": "concrete",
+      "sort": "concrete",
+      "ogpExamKey": "pavement",
+      "groupLabels": {
+        "guide": "受験ガイド"
+      },
+      "groupDescriptions": {
+        "guide": "試験の概要・応用試験の経験記述・選択問題の頻出論点・学習計画"
+      },
+      "jumps": [
+        {
+          "href": "#sec-guide",
+          "label": "受験ガイド",
+          "goal": "試験を知る"
+        }
+      ]
+    }
   },
   {
     "slug": "building-construction",
@@ -165,7 +525,16 @@
       "guide"
     ],
     "order": 2.95,
-    "visible": false
+    "visible": false,
+    "layout": {
+      "sort": "concrete",
+      "groupLabels": {
+        "guide": "受験ガイド"
+      },
+      "groupDescriptions": {
+        "guide": "第二次検定の経験記述の書き方・過去問の傾向"
+      }
+    }
   },
   {
     "slug": "civil-practice",
@@ -177,7 +546,11 @@
     "groups": [
       "guide"
     ],
-    "order": 2.8
+    "order": 2.8,
+    "layout": {
+      "view": "practice",
+      "ogpExamKey": "common"
+    }
   },
   {
     "slug": "reference-materials",

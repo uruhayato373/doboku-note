@@ -110,7 +110,7 @@ mono-tag は資格ごとに **AI 生成の背景画像**を任意で敷ける（
 | `pe-construction` | `pe-construction` | `#33356B`（藍） |
 | 未マッピング | — | フォールバック `#0f1e3f`（既定ネイビー） |
 
-マッピングは `ogp-create.mjs` の `CATEGORY_TO_EXAM_KEY` と `resolveAccentColor()`。新カテゴリを追加したら **この表・`CATEGORY_TO_EXAM_KEY`・`note-cover-tokens.json` の 3 点**を更新する。
+マッピングの正本は `src/config/categories.json` の `layout.ogpExamKey`（`ogp-create` の `lib/category-exam-key.mjs` が読み、`resolveAccentColor()` が色を引く・DN-0793）。新カテゴリを追加したら **この表・`layout.ogpExamKey`・`note-cover-tokens.json` の 3 点**を更新する（表示中のカテゴリに色が無いと `check-home-exam-coverage` が止める）。
 
 ## フォントサイズと改行
 

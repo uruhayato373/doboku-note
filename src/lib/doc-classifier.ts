@@ -4,6 +4,7 @@
  * frontmatter の `group` フィールドを優先し、未設定時はタグから推測（フォールバック）。
  */
 import type { DocMeta } from './docs';
+import categoriesData from '@/config/categories.json';
 
 /**
  * 記事の体系グループ。
@@ -38,11 +39,9 @@ const GROUP_FIELD_MAP: Record<string, DocGroupKey> = {
   'textbook': 'textbook',
 };
 
-const PE_GROUP_ORDER: DocGroupKey[] = ['guide', 'pillar', 'pastExam', 'keyword'];
-const PE_FIRST_STAGE_GROUP_ORDER: DocGroupKey[] = ['guide', 'primary'];
-const PE_CONSTRUCTION_GROUP_ORDER: DocGroupKey[] = ['guide', 'keyword', 'pastExam'];
-const CIVIL_GROUP_ORDER: DocGroupKey[] = ['guide', 'textbook', 'primary', 'secondary'];
-const CONCRETE_GROUP_ORDER: DocGroupKey[] = ['guide', 'textbook', 'primary'];
+// 記事型の並び（＝許可する記事型）と見出しは categories.json が持つ（groups・layout.groupLabels・DN-0793）
+type ClassifierCategory = { slug: string; groups: string[]; layout?: { groupLabels?: Record<string, string> } };
+const CATEGORY_BY_SLUG = new Map((categoriesData as ClassifierCategory[]).map((c) => [c.slug, c]));
 
 export function classifyDoc(meta: DocMeta): DocGroupKey {
   // 明示的 group フィールドがあれば優先
@@ -50,113 +49,17 @@ export function classifyDoc(meta: DocMeta): DocGroupKey {
     return GROUP_FIELD_MAP[meta.group]!;
   }
 
-  // フォールバック: タグから推測（group 未設定の既存コンテンツ向け）
-  const tags = meta.tags || [];
-  const category = meta.category;
-
-  if (category === 'pe-comprehensive-management') {
-    if (tags.includes('索引') || tags.includes('guide')) return 'guide';
-    if (tags.includes('択一式') || tags.includes('記述式') || tags.includes('past-questions')) return 'pastExam';
-    return 'keyword';
-  }
-
-  if (category === 'civil-construction-1' || category === 'civil-construction-2') {
-    if (tags.includes('textbook')) return 'textbook';
-    if (tags.includes('guide')) return 'guide';
-    if (tags.includes('primary')) return 'primary';
-    if (tags.includes('secondary')) return 'secondary';
-    return 'guide';
-  }
-
-  if (category === 'concrete-engineer' || category === 'concrete-chief-engineer' || category === 'concrete-diagnostician') {
-    if (tags.includes('textbook')) return 'textbook';
-    if (tags.includes('primary') || tags.includes('past-questions')) return 'primary';
-    if (tags.includes('guide')) return 'guide';
-    return 'guide';
-  }
-
-  // RCCM は過去問が事務局非公開のためガイドのみ（2026-09-16 新設）
-  if (category === 'rccm') return 'guide';
-  // 測量士・舗装はガイドから始める（2026-09-29 新設）
-  if (category === 'surveyor') return tags.includes('primary') ? 'primary' : 'guide';
-  if (category === 'pavement') return 'guide';
-  // 建築施工管理（1級・2級）は需要計測の無料ガイドのみ（2026-09-30・DN-0342。visible:false）
-  if (category === 'building-construction') return 'guide';
-
-  return 'keyword';
+  // group の無い記事はカテゴリの最初の記事型へ（全記事が group を持つ。lint-frontmatter・check-content-taxonomy）
+  return getGroupOrder(meta.category ?? '')[0] ?? 'keyword';
 }
 
-const GROUP_LABELS: Record<string, Partial<Record<DocGroupKey, string>>> = {
-  'pe-comprehensive-management': {
-    guide: '試験概要',
-    pillar: '5 管理学習ガイド',
-    pastExam: '過去問',
-    keyword: 'キーワード',
-  },
-  'civil-construction-1': {
-    guide: '試験ガイド',
-    textbook: 'テキスト（教科書）',
-    primary: '第1次検定',
-    secondary: '第2次検定',
-  },
-  'civil-construction-2': {
-    guide: '試験ガイド',
-    textbook: 'テキスト（教科書）',
-    primary: '第1次検定',
-    secondary: '第2次検定',
-  },
-  'pe-first-stage': {
-    guide: '試験ガイド',
-    primary: '過去問',
-  },
-  'pe-construction': {
-    guide: '試験ガイド',
-    pastExam: '過去問',
-    keyword: 'キーワード',
-  },
-  'concrete-engineer': {
-    guide: '試験ガイド',
-    textbook: 'テキスト（分野別解説）',
-    primary: 'オリジナル演習',
-  },
-  'concrete-chief-engineer': {
-    guide: '試験ガイド',
-    textbook: 'テキスト（分野別解説）',
-    primary: '過去問',
-  },
-  'concrete-diagnostician': {
-    guide: '試験ガイド',
-    textbook: 'テキスト（分野別解説）',
-    primary: '過去問（四肢択一）',
-  },
-  rccm: {
-    guide: '受験ガイド',
-  },
-  surveyor: {
-    guide: '受験ガイド',
-    primary: '測量士補 過去問（択一式）',
-  },
-  pavement: {
-    guide: '受験ガイド',
-  },
-  'building-construction': {
-    guide: '受験ガイド',
-  },
-};
-
+/** カテゴリの記事型の並び（categories.json の groups を DocGroupKey にしたもの）。知らないカテゴリは keyword だけ */
 export function getGroupOrder(category: string): DocGroupKey[] {
-  if (category === 'pe-comprehensive-management') return PE_GROUP_ORDER;
-  if (category === 'pe-first-stage') return PE_FIRST_STAGE_GROUP_ORDER;
-  if (category === 'pe-construction') return PE_CONSTRUCTION_GROUP_ORDER;
-  if (category === 'civil-construction-1' || category === 'civil-construction-2') return CIVIL_GROUP_ORDER;
-  if (category === 'concrete-engineer' || category === 'concrete-chief-engineer' || category === 'concrete-diagnostician') return CONCRETE_GROUP_ORDER;
-  // 土木施工の実務は guide のみ（工種別ブロックは PracticeView が curriculum の fields で描画）
-  if (category === 'civil-practice') return ['guide'];
-  if (category === 'surveyor') return ['guide', 'primary'];
-  if (category === 'rccm' || category === 'pavement' || category === 'building-construction') return ['guide'];
-  return ['keyword'];
+  const def = CATEGORY_BY_SLUG.get(category);
+  if (!def) return ['keyword'];
+  return def.groups.map((g) => GROUP_FIELD_MAP[g]).filter((g): g is DocGroupKey => Boolean(g));
 }
 
 export function getGroupLabel(category: string, group: DocGroupKey): string {
-  return GROUP_LABELS[category]?.[group] ?? group;
+  return CATEGORY_BY_SLUG.get(category)?.layout?.groupLabels?.[group] ?? group;
 }

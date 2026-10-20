@@ -147,7 +147,7 @@ doboku-note は複数の資格試験を扱うが、試験ごとに「**何を / 
 ## Part 4: 新資格を追加するときの手順
 
 - **資格の正本に登録する（最初に行う）**: `config/qualification-registry.json` で `portfolio` を `active` にする（候補として既にあれば `candidate` から変える）。日程 `exam-calendar.json`・受験者数 `exam-stats.json`・出題形式 `exam-formats.json` の同 id を公式で照合し直して `checkedBy: self` にし、`scripts/check-exam-calendar.mjs` の `expected` に公式日付を、`config/product-lineup.json` に資格の行（商品の分類先。試験区分は `exam-formats.json` の stages から自動で付くので書かない）を足す。四者の id の整合は `npm run check-exam-calendar` が止める。過去問を取得する資格は `config/past-exam-inventory.json` にも同じ id で年度の行を足す（整合と取得の催促は `npm run check-past-exam-inventory`。台帳に無い資格は検査しない）。展開を決める前の判断材料は `npm run qualification-market`（管理画面 戦略＞資格と市場＞展開の判断）、判断の記録は `docs/strategy/06_多資格展開戦略.md`。管理画面「資格と市場 ＞ 資格一覧」（`/strategy/qualifications`）で候補の日程・受験者数を確認できる
-0. `src/config/categories.json` に entry を足し、`area`（exam / practice / standards）と許可する `groups` を宣言する。記事型の定義と許可表は [content-taxonomy.md](./content-taxonomy.md) §3（`npm run check-content-taxonomy` が強制）
+0. `src/config/categories.json` に entry を足し、`area`（exam / practice / standards）と許可する `groups`（＝表示順）を宣言する。カテゴリページの表示の決まりは同じ entry の `layout` に書く（`view`＝ビュー・`sort`＝記事型の中の並べ替え・`ogpExamKey`＝OGP の外枠の色・`groupLabels`/`groupDescriptions`＝記事型の見出しと説明・`jumps`＝「学習を始める」。DN-0793。`tests/category-layout.test.mjs` が架空のカテゴリで確かめる）。コードに資格ごとの分岐を足さない。記事型の定義と許可表は [content-taxonomy.md](./content-taxonomy.md) §3（`npm run check-content-taxonomy` が強制）
 1. Part 1 の「試験別の整備方針差分」表に新しい列を追加して整備方針を決定
 2. Part 2 の「コンテンツ別レビュー視点」表にも対応する列を追加
 3. 必要なら `{exam-id}-pdf-to-mdx`（Generator スキル）と `{exam-id}-qa`（Evaluator エージェント）を新設
@@ -157,7 +157,7 @@ doboku-note は複数の資格試験を扱うが、試験ごとに「**何を / 
 7. **トップページの資格カードに追加**（公開＝サイトに出すなら必須）: `src/config/home-exam-cards.json` にカード（`slug`/`order`/`label`）を追加する。カードに出すのは名前だけで、説明文・試験日・件数は持たない（2026-10-02 に `en`/`subtitle`/`description`/`nextExam`/`stats` と `exam-schedule.ts` を消した。画面が描画していなかった）。試験日は `config/exam-calendar.json` が正本なので、新資格はそちらにも登録する。**ナビ（`categories.json`）と別管理**なのは、カードのコピーがナビ用と意図的に異なるため（例: ナビ「技術士第二次試験（建設部門）」⇄ カード「技術士（建設部門）」）。「どの資格をトップに出すか」は `categories.json` の `visible`（≠false）/`variant`（≠reference）が真実源で、両者の整合は `npm run check-home-exam-coverage`（pre-commit / CI ゲート）が強制する。**これを忘れると、公開済みコンテンツがあってもトップの資格カードに出ない**（2026-06-15 pe-first-stage 21本が該当＝ナビからのみ到達可能だった）。意図的にトップへ出さない資格は `categories.json` で `visible:false` にする。
 8. **SNSリンクハブに追加**: `src/app/links/page.tsx` の `EXAM_CARDS` と `EXAM_GROUPS` に追加する。L2もくじ・商品が未整備ならサイト行だけを表示する。
 9. **OGP 画像を生成**（公開前必須）: `npm run ogp -- --all`（未生成分のみ生成）→ 新規 `ogp.png` を pathspec commit。**新カテゴリは OGP が 0 枚から始まる**ため、これを忘れると `og:image` が R2 で 404 になり、**note / X / Facebook 等の外部リンクカードが生成されない**（2026-06-12 pe-construction で全114本が該当）。`published:false` のドラフトは仕様上スキップされる＝公開化（`published:true`）のタイミングで再実行する。`ogp.png` は `r2-sync.yml` の path フィルタ（`**/ogp.png`）経由で main push 時に R2 同期される。詳細 → [measurement-incidents.md](./measurement-incidents.md)「2026-06-12 OGP 404」
-10. `src/components/ui/ArticleFooter/ArticleFooter.tsx` と `src/lib/category-groups.ts` の資格別分岐を確認する。同型の分岐が3資格以上に増えた場合だけ config / strategy factory 化し、新資格が未発生の段階では抽象化を先行しない。
+10. `src/components/ui/ArticleFooter/ArticleFooter.tsx` の資格別分岐を確認する（カテゴリページのビュー・並べ替え・見出しは 0 の `layout` に移した・DN-0793）。
 
 ### 新資格メモ: RCCM（`rccm`、2026-09-16 新設・**ガイドのみ**）
 
@@ -231,8 +231,8 @@ figure-canvas 標準で別途作図する。構成を独自編集へ転換した
 カテゴリ列挙は `categories.json` の `visible` 連動で自動追随（区切り「資格を問わない実務」を
 `variant: general` 用に追加）。**未配線のまま**: `src/app/links/page.tsx` の `EXAM_CARDS`（SNS bio 導線）・
 `category-curriculum.json`（未設定でもフラットグリッドで動くため必須ではない）・note CTA
-（`magazine-placement.ts` に配線なし・残課題は backlog DN-0148）。OGP は `ogp-create.mjs` の
-`CATEGORY_TO_EXAM_KEY` で `common`（bronze `#9A6B1E`）へ明示マップ済み。`--exam-*` CSS トークンは
+（`magazine-placement.ts` に配線なし・残課題は backlog DN-0148）。OGP は `categories.json` の
+`layout.ogpExamKey` で `common`（bronze `#9A6B1E`）へ明示マップ済み。`--exam-*` CSS トークンは
 凍結のため追加しない。
 
 ---
