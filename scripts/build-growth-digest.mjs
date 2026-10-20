@@ -127,7 +127,11 @@ export function renderMarkdown(d) {
   if (d.kpis.gsc) {
     const g = d.kpis.gsc;
     L.push(`GSC（日本・web・${g.basis === 'property-total' ? 'プロパティ全体' : '取得ページ行合計・下限'}）: クリック ${fmt(g.clicks)}（基線週平均 ${fmt(g.baseWeeklyClicks)}・${delta(g.deltaPct)}）/ 表示 ${fmt(g.impressions)} / CTR ${g.ctrPct ?? '—'}%`, '');
-    if (g.pageRows) L.push(`ページ明細: ${g.pageRows.count} 行・${g.pageRows.clicks} クリック / ${g.pageRows.impressions} 表示。無次元 byPage 集計: ${fmt(g.pageRows.byPageTotalClicks)} クリック / ${fmt(g.pageRows.byPageTotalImpressions)} 表示。page/query 明細は Google 側で欠落し得るため、全体 KPI と区別する。`, '');
+    // 国で絞ったページ別は、Google が検索語の分かる分だけで集計する（匿名化された検索語の分が入らず、ページ×検索語の合計と一致する・DN-0759）
+    if (g.pageRows) {
+      const share = g.pageRows.byPageTotalClicks ? `・byPage 全体 ${fmt(g.pageRows.byPageTotalClicks)} クリックの ${Math.round((g.pageRows.clicks / g.pageRows.byPageTotalClicks) * 100)}%` : '';
+      L.push(`ページ明細（日本で絞ったページ別＝検索語が分かる分だけの下限。匿名化された検索語の分を含まない）: ${g.pageRows.count} 行・${g.pageRows.clicks} クリック / ${g.pageRows.impressions} 表示${share}。全体の KPI・資格別の合計には使わない。`, '');
+    }
   }
   else L.push('GSC: **欠測**', '');
   const b = d.bingReconciliation;
