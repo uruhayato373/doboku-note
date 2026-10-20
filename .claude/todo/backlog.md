@@ -410,7 +410,7 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 
 ### [DN-0788] 棚卸しで見つかった台帳と文書の小さな誤り（Convention A の記述・report-readers テスト・退役表）を直す（拡張性・第0波）
-タグ: [エージェント・SSOT] [領域:管理] [時期:2026-10] [種類:不具合] [起票:2026-10-20]
+タグ: [エージェント・SSOT] [領域:管理] [時期:2026-10] [種類:不具合] [起票:2026-10-20] [進行中]
 
 **起点**: 2026-10-20 の拡張性の棚卸し（`docs/reviews/critical/2026-10-20-code-extensibility-debt.md`）で見つかった、台帳と文書の小さな誤り 3 件。
 **やること**:
