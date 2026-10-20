@@ -3,8 +3,8 @@
   "_comment": "A8 レポート CSV（fetch-a8-ui-csv.mjs）の正規化 SSOT。A8 は確定処理で過去分が遡及変化するため upsert 運用（最新 fetch が正）。手で編集しない。",
   "_siteScopeNote": "siteSummary のみ doboku-note に完全分離された実績（真実源）。monthly / daily は **口座横断**（stats47 込み）。programPeriod は口座横断のプログラム別で、programIdMap の allowlist で doboku 分と判定できた行（program あり・全期間）と、当期の他サイト分の行だけを残す。crossCheck が siteSummary との突合結果。月次の成果（月×案件）は programPeriod の単月の期間から読み手が導く（resultsFromReportLog）。conversions は成果別（1 成果 1 行・サイト列で分離済み）で、page がクリックしたページ（2026-10-07 20:00 JST 以降のクリック）。",
   "site": "doboku-note",
-  "updatedAt": "2026-10-12T08:53:27.236Z",
-  "lastRun": "2026-10-12T08-52-48Z",
+  "updatedAt": "2026-10-20T00:37:39.924Z",
+  "lastRun": "2026-10-20T00-36-36Z",
   "period": {
     "raw": "202610-202610",
     "start": "2026-10",
@@ -2344,7 +2344,7 @@
       "site": "doboku-note",
       "referrer": "https://doboku-note.com/",
       "page": null,
-      "fetchedAt": "2026-10-12T08:52:48.482Z"
+      "fetchedAt": "2026-10-20T00:36:36.825Z"
     }
   ]
 }
