@@ -4,7 +4,7 @@
  * business-direction.mjs と（退役した）seo-rank-watch.mjs には同名同形の export が 2 つあった。共通部品は scripts/lib/json-io.mjs
  * （`readJson`・`readJsonIf`・`writeJson`・依存ゼロ）と、台帳の id で読む scripts/lib/dataset-io.mjs。
  *
- * 基準値より増えたら落ちる。減らしたときは基準値を下げる（上げない）。握りつぶす版（失敗を null や既定値にする）は
+ * 基準値（.claude/config/code-ratchet-baseline.json の readJson）より増えたら落ちる。減ったら pre-commit の tighten-ratchets が下げる（DN-0802）。握りつぶす版（失敗を null や既定値にする）は
  * 意味が違うので、無理に json-io へ寄せない。新しく定義するときは、名前を変える（例: readJsonOrNull）か json-io から import する。
  */
 import test from 'node:test';
@@ -15,21 +15,10 @@ import { join } from 'node:path';
 import { readJson as ioReadJson } from '../scripts/lib/json-io.mjs';
 import { readJson as directionReadJson } from '../scripts/lib/business-direction.mjs';
 import { REPO_ROOT as ROOT } from '../scripts/lib/repository-paths.mjs';
+import { CODE_RATCHET_BASELINE, DEFINES_READ_JSON, readJsonDefiners } from '../scripts/lib/code-ratchets.mjs';
 
-/** 今の数（scripts・.claude・tools の本番コード。tests は数えない）。減らしたら下げる */
-const BASELINE = 4;
-
-/** `const readJson =`・`function readJson(` の定義（再公開 `export { readJson }` と import は数えない） */
-const DEFINES_READ_JSON = /^[ \t]*(?:export\s+)?(?:(?:const|let|var)\s+readJson\s*=|(?:async\s+)?function\s+readJson\s*\()/m;
-
-function definers() {
-  const files = execFileSync('git', ['ls-files', '-z', '--', 'scripts', '.claude', 'tools'], { cwd: ROOT, encoding: 'utf8', maxBuffer: 1 << 28 })
-    .split('\0')
-    // 共通の実装そのもの（json-io.mjs）は数えない
-    .filter((f) => /\.(mjs|cjs|js|mts|ts|tsx)$/.test(f) && !f.includes('node_modules') && f !== 'scripts/lib/json-io.mjs');
-  assert.ok(files.length > 500, `走査したコード ${files.length} ファイル（検査不成立）`);
-  return files.filter((f) => DEFINES_READ_JSON.test(readFileSync(join(ROOT, f), 'utf8')));
-}
+const BASELINE = JSON.parse(readFileSync(join(ROOT, CODE_RATCHET_BASELINE), 'utf8')).readJson;
+const definers = () => readJsonDefiners(ROOT);
 
 test('readJson を各自定義するファイルは基準値より増えない', () => {
   const found = definers();
@@ -37,10 +26,6 @@ test('readJson を各自定義するファイルは基準値より増えない',
     found.length <= BASELINE,
     `readJson を定義するファイルが ${found.length} 件（基準 ${BASELINE}）。scripts/lib/json-io.mjs の readJson を import する:\n${found.join('\n')}`,
   );
-});
-
-test('基準値は今の数のまま（減らしたら BASELINE を下げる＝ラチェットを締める）', () => {
-  assert.equal(definers().length, BASELINE);
 });
 
 test('business-direction.mjs の readJson は json-io.mjs の再公開（別の実装を持たない）', () => {

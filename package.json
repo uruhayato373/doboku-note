@@ -419,6 +419,7 @@
     "kindle-preview": "node scripts/render-kindle-preview.mjs",
     "check-kdp-report-freshness": "node scripts/check-kdp-report-freshness.mjs",
     "knip": "knip",
+    "tighten-ratchets": "node scripts/tighten-ratchets.mjs",
     "lint": "eslint src/",
     "note-account-name": "node scripts/note-account-name.mjs",
     "note-append-cta": "node scripts/note-append-cta.mjs",
