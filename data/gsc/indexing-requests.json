@@ -1,16 +1,16 @@
 {
   "schemaVersion": 1,
-  "runId": "2026-10-19T01-30-06Z",
-  "collectedAt": "2026-10-19T01:30:06.732Z",
+  "runId": "2026-10-20T01-30-06Z",
+  "collectedAt": "2026-10-20T01:30:06.648Z",
   "property": "sc-domain:doboku-note.com",
   "mode": "commit",
-  "scriptVersion": "576a49ede",
+  "scriptVersion": "12f926bbe",
   "filter": {
     "category": null,
     "group": null
   },
   "limit": 10,
-  "targetCount": 78,
+  "targetCount": 68,
   "items": [
     {
       "slug": "/standards/hokkaido/local/part-01",
@@ -47,40 +47,6 @@
       "reachedVerdict": true
     },
     {
-      "slug": "/exam/pe-first-stage/guide/water-supply-subject",
-      "url": "https://doboku-note.com/exam/pe-first-stage/guide/water-supply-subject",
-      "inspected": {
-        "state": "not-indexed",
-        "reason": "検出 - インデックス未登録",
-        "lastCrawl": null,
-        "discoveredVia": "sitemap",
-        "crawlAllowed": null,
-        "indexingAllowed": null
-      },
-      "request": {
-        "requested": true,
-        "status": "accepted"
-      },
-      "reachedVerdict": true
-    },
-    {
-      "slug": "/exam/civil-construction-1/guide/public-engineer-salary-table",
-      "url": "https://doboku-note.com/exam/civil-construction-1/guide/public-engineer-salary-table",
-      "inspected": {
-        "state": "not-indexed",
-        "reason": "検出 - インデックス未登録",
-        "lastCrawl": null,
-        "discoveredVia": "sitemap",
-        "crawlAllowed": null,
-        "indexingAllowed": null
-      },
-      "request": {
-        "requested": true,
-        "status": "accepted"
-      },
-      "reachedVerdict": true
-    },
-    {
       "slug": "/exam/civil-construction-1/guide/quit-or-stay",
       "url": "https://doboku-note.com/exam/civil-construction-1/guide/quit-or-stay",
       "inspected": {
@@ -111,74 +77,6 @@
       "request": {
         "requested": false,
         "status": "already-indexed"
-      },
-      "reachedVerdict": true
-    },
-    {
-      "slug": "/exam/pe-first-stage/primary/h23-aptitude",
-      "url": "https://doboku-note.com/exam/pe-first-stage/primary/h23-aptitude",
-      "inspected": {
-        "state": "not-indexed",
-        "reason": "検出 - インデックス未登録",
-        "lastCrawl": null,
-        "discoveredVia": "sitemap",
-        "crawlAllowed": null,
-        "indexingAllowed": null
-      },
-      "request": {
-        "requested": true,
-        "status": "accepted"
-      },
-      "reachedVerdict": true
-    },
-    {
-      "slug": "/exam/pe-first-stage/primary/h24-aptitude",
-      "url": "https://doboku-note.com/exam/pe-first-stage/primary/h24-aptitude",
-      "inspected": {
-        "state": "not-indexed",
-        "reason": "検出 - インデックス未登録",
-        "lastCrawl": null,
-        "discoveredVia": "sitemap",
-        "crawlAllowed": null,
-        "indexingAllowed": null
-      },
-      "request": {
-        "requested": true,
-        "status": "accepted"
-      },
-      "reachedVerdict": true
-    },
-    {
-      "slug": "/exam/pe-first-stage/primary/h24-basic",
-      "url": "https://doboku-note.com/exam/pe-first-stage/primary/h24-basic",
-      "inspected": {
-        "state": "not-indexed",
-        "reason": "検出 - インデックス未登録",
-        "lastCrawl": null,
-        "discoveredVia": "sitemap",
-        "crawlAllowed": null,
-        "indexingAllowed": null
-      },
-      "request": {
-        "requested": true,
-        "status": "accepted"
-      },
-      "reachedVerdict": true
-    },
-    {
-      "slug": "/exam/pe-first-stage/primary/h25-water-supply",
-      "url": "https://doboku-note.com/exam/pe-first-stage/primary/h25-water-supply",
-      "inspected": {
-        "state": "not-indexed",
-        "reason": "検出 - インデックス未登録",
-        "lastCrawl": null,
-        "discoveredVia": "sitemap",
-        "crawlAllowed": null,
-        "indexingAllowed": null
-      },
-      "request": {
-        "requested": true,
-        "status": "accepted"
       },
       "reachedVerdict": true
     },
@@ -254,16 +152,16 @@
       "slug": "/exam/pe-first-stage/primary/h30-water-supply",
       "url": "https://doboku-note.com/exam/pe-first-stage/primary/h30-water-supply",
       "inspected": {
-        "state": "indexed",
-        "reason": null,
+        "state": "not-indexed",
+        "reason": "URL が Google に認識されていません",
         "lastCrawl": null,
         "discoveredVia": "sitemap",
         "crawlAllowed": null,
         "indexingAllowed": null
       },
       "request": {
-        "requested": false,
-        "status": "already-indexed"
+        "requested": true,
+        "status": "accepted"
       },
       "reachedVerdict": true
     },
@@ -302,23 +200,6 @@
       "reachedVerdict": true
     },
     {
-      "slug": "/exam/pe-first-stage/primary/r04-water-supply",
-      "url": "https://doboku-note.com/exam/pe-first-stage/primary/r04-water-supply",
-      "inspected": {
-        "state": "not-indexed",
-        "reason": "検出 - インデックス未登録",
-        "lastCrawl": null,
-        "discoveredVia": "sitemap",
-        "crawlAllowed": null,
-        "indexingAllowed": null
-      },
-      "request": {
-        "requested": true,
-        "status": "accepted"
-      },
-      "reachedVerdict": true
-    },
-    {
       "slug": "/exam/pe-first-stage/primary/r05-aptitude",
       "url": "https://doboku-note.com/exam/pe-first-stage/primary/r05-aptitude",
       "inspected": {
@@ -347,15 +228,31 @@
         "indexingAllowed": null
       },
       "request": {
+        "requested": true,
+        "status": "accepted"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/standards/hokkaido/common",
+      "url": "https://doboku-note.com/standards/hokkaido/common",
+      "inspected": {
+        "state": "indexed",
+        "reason": null,
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
         "requested": false,
-        "status": "button-not-found",
-        "detail": "role=button 候補 0"
+        "status": "already-indexed"
       },
       "reachedVerdict": true
     },
     {
-      "slug": "/exam/pe-first-stage/primary/r06-water-supply",
-      "url": "https://doboku-note.com/exam/pe-first-stage/primary/r06-water-supply",
+      "slug": "/standards/hokkaido/local",
+      "url": "https://doboku-note.com/standards/hokkaido/local",
       "inspected": {
         "state": "not-indexed",
         "reason": "検出 - インデックス未登録",
@@ -371,8 +268,93 @@
       "reachedVerdict": true
     },
     {
-      "slug": "/exam/pe-first-stage/primary/r07-water-supply",
-      "url": "https://doboku-note.com/exam/pe-first-stage/primary/r07-water-supply",
+      "slug": "/standards/kanto/manual",
+      "url": "https://doboku-note.com/standards/kanto/manual",
+      "inspected": {
+        "state": "indexed",
+        "reason": null,
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "already-indexed"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/standards/kyushu/common",
+      "url": "https://doboku-note.com/standards/kyushu/common",
+      "inspected": {
+        "state": "indexed",
+        "reason": null,
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "already-indexed"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/standards/kyushu/hikkei-common-11",
+      "url": "https://doboku-note.com/standards/kyushu/hikkei-common-11",
+      "inspected": {
+        "state": "indexed",
+        "reason": null,
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "already-indexed"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/standards/kyushu/hikkei-control-06",
+      "url": "https://doboku-note.com/standards/kyushu/hikkei-control-06",
+      "inspected": {
+        "state": "indexed",
+        "reason": null,
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "already-indexed"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/standards/kyushu/hikkei-control-15",
+      "url": "https://doboku-note.com/standards/kyushu/hikkei-control-15",
+      "inspected": {
+        "state": "indexed",
+        "reason": null,
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "already-indexed"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/standards/mlit/sekou-kanri-kijun",
+      "url": "https://doboku-note.com/standards/mlit/sekou-kanri-kijun",
       "inspected": {
         "state": "not-indexed",
         "reason": "検出 - インデックス未登録",
@@ -388,11 +370,283 @@
       "reachedVerdict": true
     },
     {
-      "slug": "/standards/mlit",
-      "url": "https://doboku-note.com/standards/mlit",
+      "slug": "/standards/tohoku/common",
+      "url": "https://doboku-note.com/standards/tohoku/common",
+      "inspected": {
+        "state": "indexed",
+        "reason": null,
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "already-indexed"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/standards/tohoku/reference",
+      "url": "https://doboku-note.com/standards/tohoku/reference",
+      "inspected": {
+        "state": "indexed",
+        "reason": null,
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "already-indexed"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/privacy",
+      "url": "https://doboku-note.com/privacy",
       "inspected": {
         "state": "not-indexed",
         "reason": "検出 - インデックス未登録",
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": true,
+        "status": "accepted"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/standards/hokkaido/appendix/part-01",
+      "url": "https://doboku-note.com/standards/hokkaido/appendix/part-01",
+      "inspected": {
+        "state": "indexed",
+        "reason": null,
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "already-indexed"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/standards/hokkaido/appendix/part-04",
+      "url": "https://doboku-note.com/standards/hokkaido/appendix/part-04",
+      "inspected": {
+        "state": "indexed",
+        "reason": null,
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "already-indexed"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/standards/hokkaido/local/part-02",
+      "url": "https://doboku-note.com/standards/hokkaido/local/part-02",
+      "inspected": {
+        "state": "indexed",
+        "reason": null,
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "already-indexed"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/standards/hokuriku/hikkei/part-02",
+      "url": "https://doboku-note.com/standards/hokuriku/hikkei/part-02",
+      "inspected": {
+        "state": "indexed",
+        "reason": null,
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "already-indexed"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/standards/hokuriku/hikkei/part-04",
+      "url": "https://doboku-note.com/standards/hokuriku/hikkei/part-04",
+      "inspected": {
+        "state": "indexed",
+        "reason": null,
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "already-indexed"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/standards/kanto/manual/part-05",
+      "url": "https://doboku-note.com/standards/kanto/manual/part-05",
+      "inspected": {
+        "state": "indexed",
+        "reason": null,
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "already-indexed"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/standards/kyushu/hikkei-common-03/part-01",
+      "url": "https://doboku-note.com/standards/kyushu/hikkei-common-03/part-01",
+      "inspected": {
+        "state": "indexed",
+        "reason": null,
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "already-indexed"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/standards/kyushu/hikkei-common-08/part-01",
+      "url": "https://doboku-note.com/standards/kyushu/hikkei-common-08/part-01",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "URL が Google に認識されていません",
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": true,
+        "status": "accepted"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/standards/kyushu/hikkei-common-08/part-05",
+      "url": "https://doboku-note.com/standards/kyushu/hikkei-common-08/part-05",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "検出 - インデックス未登録",
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": true,
+        "status": "accepted"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/standards/kyushu/hikkei-common-09/part-01",
+      "url": "https://doboku-note.com/standards/kyushu/hikkei-common-09/part-01",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "検出 - インデックス未登録",
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": true,
+        "status": "accepted"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/standards/kyushu/hikkei-common-09/part-02",
+      "url": "https://doboku-note.com/standards/kyushu/hikkei-common-09/part-02",
+      "inspected": {
+        "state": "indexed",
+        "reason": null,
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "already-indexed"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/standards/kyushu/hikkei-common-11/part-01",
+      "url": "https://doboku-note.com/standards/kyushu/hikkei-common-11/part-01",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "URL が Google に認識されていません",
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": true,
+        "status": "accepted"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/standards/kyushu/hikkei-control-15/part-01",
+      "url": "https://doboku-note.com/standards/kyushu/hikkei-control-15/part-01",
+      "inspected": {
+        "state": "indexed",
+        "reason": null,
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "already-indexed"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/standards/kyushu/management-manual/part-04",
+      "url": "https://doboku-note.com/standards/kyushu/management-manual/part-04",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "URL が Google に認識されていません",
         "lastCrawl": null,
         "discoveredVia": "sitemap",
         "crawlAllowed": null,
@@ -407,9 +661,9 @@
   ],
   "status": "ok",
   "summary": {
-    "inspected": 23,
+    "inspected": 38,
     "accepted": 10,
-    "alreadyIndexed": 12,
+    "alreadyIndexed": 28,
     "unreadable": 0
   }
 }
