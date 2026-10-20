@@ -330,7 +330,6 @@ export const DATASETS = [
   d('state.quality-census-history', '.claude/state/quality/census-history.jsonl', 'ledger', 'ops', '同上の推移'),
   d('state.quality-latest-report', '.claude/state/quality/latest-report.md', 'report', 'ops', 'quality:audit の最新の報告'),
   d('state.quality-audit-latest', '.claude/state/quality/audit-latest.{name}', 'raw', 'ops', 'quality:audit の最新の生の結果', { local: true, regen: 'npm run quality:audit' }),
-  d('state.quality-env-inventory', '.claude/state/quality/env-inventory.json', 'raw', 'ops', '手元の環境の棚卸し', { local: true, regen: 'npm run quality:audit' }),
   d('state.quality-image-audit', '.claude/state/quality/image-audit.{name}', 'raw', 'ops', '画像アセットの監査の最新', { local: true, regen: 'npm run quality:audit' }),
   d('state.ai-image-review-ledger', '.claude/state/quality/ai-image-review-ledger.json', 'ledger', 'site', 'AI 生成の写真の実物どおり判定の記録（check-image-origin record-ai）'),
   d('state.figure-review-ledger', '.claude/state/quality/figure-review-ledger.json', 'ledger', 'site', '図の目視判定の記録'),

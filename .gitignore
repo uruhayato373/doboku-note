@@ -270,7 +270,6 @@ src/config/doc-meta-index.json
 # quality:audit の生成レポート（baseline はコミットする・reportは生成物）
 .claude/state/quality/audit-latest.json
 .claude/state/quality/audit-latest.md
-.claude/state/quality/env-inventory.json
 .claude/state/quality/image-audit.json
 .claude/state/quality/image-audit.md
 
