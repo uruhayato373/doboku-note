@@ -136,6 +136,8 @@ function main() {
   delete log.unmapped;
   const perReport = [];
   let totalRejects = 0;
+  // サイトで絞った program-detail（--site-filter）。口座全体の programPeriod には入れず、検算の内訳にだけ使う（DN-0757）
+  const siteFiltered = new Map();
 
   for (const unit of manifest.units || []) {
     if (unit.status !== "downloaded") {
@@ -158,6 +160,17 @@ function main() {
       log.conversions = upsertBy(log.conversions ?? [], resR.rows, KEY.conversions);
       perReport.push({ reportKey: unit.reportKey, rows: resR.rows.length, rejects: resR.rejects.length, fatal: null });
       console.log(`  result-detail: 成果 ${resR.rows.length} 件 upsert（このサイト分・reject ${resR.rejects.length}）`);
+      continue;
+    }
+    if (unit.siteFilter) {
+      const decodedSf = decodeCsvBuffer(readFileSync(unit.rawFile), cfg.a8.csvEncoding);
+      const resSf = normalizeA8Csv(decodedSf.text, { reportKey: unit.reportKey, cfg, fetchedAt: manifest.collectedAt });
+      if (resSf.fatal) {
+        console.error(`  ${unit.reportKey}［${unit.siteFilter}］: FATAL ${resSf.fatal}（検算の内訳に使わない）`);
+        continue;
+      }
+      siteFiltered.set(unit.siteFilter, { period: unit.period?.raw ?? null, rows: resSf.rows });
+      console.log(`  ${unit.reportKey}［${unit.siteFilter}］: ${resSf.rows.length} 行（サイトで絞った内訳・SSOT の programPeriod へは入れない）`);
       continue;
     }
     const bucket = BUCKET[unit.reportKey];
@@ -239,6 +252,23 @@ function main() {
     const allowlisted = (log.programPeriod || []).filter(inCurrentPeriod).filter((r) => r.program);
     log.crossCheck = crossCheckAgainstSite(siteRow, allowlisted);
     if (log.crossCheck) log.crossCheck.period = currentPeriod;
+    // サイトで絞った内訳があれば、口座全体の案件ごとのクリックを「自サイト分」と「他サイト分」に分ける
+    const ourSites = [cfg.a8.targetSite, ...(cfg.a8.relatedSites ?? [])];
+    const sameRun = ourSites.every((site) => siteFiltered.get(site)?.period === currentPeriod);
+    if (log.crossCheck && sameRun) {
+      const ours = new Map();
+      for (const site of ourSites) for (const r of siteFiltered.get(site).rows) ours.set(r.programId, (ours.get(r.programId) ?? 0) + (r.clicks ?? 0));
+      const byProgram = allowlisted.map((r) => ({ programId: r.programId, program: r.program, accountWide: r.clicks, ourSites: ours.get(r.programId) ?? 0, otherSites: r.clicks - (ours.get(r.programId) ?? 0) }));
+      const ourClicks = byProgram.reduce((n, r) => n + r.ourSites, 0);
+      log.crossCheck.siteFiltered = {
+        sites: ourSites,
+        clicks: ourClicks,
+        siteSummaryClicks: siteRow?.clicks ?? null,
+        matchesSiteSummary: siteRow ? ourClicks <= siteRow.clicks : null,
+        otherSitesClicks: byProgram.reduce((n, r) => n + r.otherSites, 0),
+        byProgram,
+      };
+    }
   }
   const allProgramRows = (log.programPeriod || []).filter(inCurrentPeriod);
 
@@ -284,6 +314,11 @@ function main() {
       `  検算（allowlist 抽出 vs サイト別）: click ${d.clicks.picked}/${d.clicks.site} · 確定額 ${d.revenueYen.picked}/${d.revenueYen.site}` +
         (log.crossCheck.exceeded ? "  ← ★超過＝他サイト混入の疑い" : "  ← 範囲内"),
     );
+    const sf = log.crossCheck.siteFiltered;
+    if (sf) {
+      console.log(`  サイトで絞った内訳: 自サイト（${sf.sites.join("・")}）の allowlist ${sf.clicks} click / サイト別 ${sf.siteSummaryClicks} click（${sf.matchesSiteSummary ? "範囲内" : "★超過"}）・他サイト分 ${sf.otherSitesClicks} click`);
+      for (const r of sf.byProgram) console.log(`    ${r.program}: 口座全体 ${r.accountWide} = 自サイト ${r.ourSites} + 他サイト ${r.otherSites}`);
+    }
   }
   console.log(`  月次の成果（単月の期間から導く月×案件）: ${resultsFromReportLog(log).length} 行`);
   if (notAttributable.length > 0) {

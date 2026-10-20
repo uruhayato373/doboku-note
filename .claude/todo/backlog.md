@@ -379,20 +379,6 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 **完了条件**: `node scripts/drive-vault-sync.mjs --group note-magazine-cover-png --commit` が exit 0 で、次の週次 note-sync の problems にこの行が無い。
 
 
-### [DN-0757] DX 広告が stats47 の A8 mat を使う疑いを確かめて直し、crossCheck の超過が消えるか確かめる
-タグ: [領域:アフィリエイト] [時期:2026-10] [種類:不具合] [起票:2026-10-17]
-
-2026-10-17、stats47 で doboku-note のサイト（wid=002）の mat を使っていた3本（ビルドジョブのバナー・建設JOBs・GKS）を止め、R2 に公開した（stats47 のコミット 010edf8de）。
-
-残っていること:
-- doboku-note の DX 広告（src/config/affiliate-creatives.ts:66-69）は、画像が wid=001 になっている。stats47 のサイトの mat `4B5OO5+NTCZ6+4SXU+NUES1` を使っている疑いがある。A8 で doboku-note（002）として DX と提携しているかを読むだけで確かめ、提携していれば差し替える。していなければ、外すか申請するかを運営者が判断する。
-- 10月の crossCheck の超過（取り出した側 29件、サイト別 26件）が、次の a8-ui:fetch → a8-ui:normalize で解消するかを確かめる。
-
-進み具合（2026-10-17）: A8 の広告リンク作成で doboku-note（002）の DX の提携があることを読んで確かめ、同じ素材 005 の mat `4B5OO5+NTDQY+4SXU+NUES1` に差し替えた（PR #1098・check-affiliate-mats に wid≠002 の ERROR を追加）。残りは PR の反映後の SSR の確認と、次の A8 取り込みでの crossCheck の確認。
-
-完了条件: DX の mat がサイト 002 のものか、DX が配置されていない。次の取り込みで crossCheck.exceeded=false になる（なお超過が残る場合は、stats47 側の自分の提携のビルドジョブのテキスト広告・ココナラのクリックとして説明できる）。
-
-**進捗（2026-10-20）**: (1) 本番の SSR を確認: 総監のページ（/exam/pe-comprehensive-management）で DX の mat は `NTDQY`（サイト 002）が 10 か所・旧 `NTCZ6` が 0、画像も wid=002。(2) crossCheck は未確認: 10/19 の A8 の定期収集が動いていなかったので手動で起動したが（run 39343232534）、A8 の保存ログインが期限切れで collector が rc=2 になった（自動 Issue #1138）。**運営者の作業**: Mac で `npm run auth:login -- --service a8` → `npm run auth:export -- --service a8` でログインを直す。その後の収集（毎週火 06:20 JST）で crossCheck.exceeded を確かめて閉じる。
 
 ### [DN-0756] R2画像の更新後も同じURLのCDNキャッシュが旧版を返す
 タグ: [領域:サイト] [時期:2026-10] [種類:不具合] [起票:2026-10-16]
@@ -617,14 +603,6 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 
 
-### [DN-0639] main に開いたままの CodeQL の警告（high 18 件ほか）を振り分けて、直すか理由つきで dismiss する
-タグ: [領域:管理] [時期:2026-11] [種類:不具合] [起票:2026-10-10]
-
-**起点**: 2026-10-10、#957（スクリプトの共通化のリファクタ）の CodeQL が 22 件の「新しい警告」（high 18・medium 4）を出した。調べると、どれも main にすでに開いている既存の警告（18 件）と同じファイル・同じ規則で、差分が大きいために出し直されたものだった。既存の警告は手当てされずに残っている。中身: 管理画面の stored XSS（tools/admin-app/src/components/DocRootView.tsx・DocDetailView.tsx・app/knowledge/page.tsx）、コマンド引数から組み立てた正規表現（note-update-body・note-reanchor-boundary・note-publish・note-attach-file・note-article-price-sweep・lib/note-live-check）、不完全な HTML 除去（parse-exam-questions・note-update-body・note-reanchor-boundary・note-publish・keiken-charcount）、絶対パスに依る shell（ogp-gallery）。
-**やること**: 開いている CodeQL の警告（`gh api repos/uruhayato373/doboku-note/code-scanning/alerts?state=open`）を 1 件ずつ、実害（管理画面は手元専用・引数は運営者が渡すなど）と直し方で振り分け、直すものは直し、誤検知・受容するものは理由をつけて dismiss する。
-**完了条件**: 開いている CodeQL の警告が 0 件（直したか、理由つきで dismiss した）。
-
-**進捗（2026-10-20）**: 開いていた 69 件を振り分けた。直したもの 8 件（PR #1139: 引数から作る正規表現のエスケープ 3 件＝note-price-sweep・record-reference-book-artifacts・note-attach-file、何も変えない置換 5 件）。理由を付けて閉じたもの 61 件（won't fix 54＝運営者の手元実行の CLI・リポジトリ内の自前の原稿・127.0.0.1 専用の管理画面・仕様として正規表現を受ける paidBoundary／--pattern、false positive 2＝src/lib/docs.ts の MDX 前処理・文字数カウント、used in tests 5）。残り 8 件は PR #1139 が main に入って CodeQL が回ると閉じる。
 
 ### [DN-0632] サイトにメールの登録ページを作り、配信サービスを選ぶ（iOS アプリと記事から案内して note・ココナラへつなぐ）
 タグ: [収益化] [領域:サイト] [時期:2026-10..2026-11] [種類:制作] [起票:2026-10-10]
