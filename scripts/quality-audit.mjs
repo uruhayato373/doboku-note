@@ -160,8 +160,8 @@ export const CHECKS = [
   // 公開実体の照合が「実際に回っているか」を見るゲート（DN-0110 Phase 3・2026-08-28 追加）。
   // 実査そのもの（verify-video-publication）は creds が要るので CI/Mac 専用。ここはオフラインで
   // 「published なのに一度も照合していない / 記録が古い / 記録が実査のドリフトを報告している」を赤にする。
-  { id: 'video-publication', npm: 'check-video-publication', timeout: 30_000, ci: true, note: '公開済み派生物の実体照合が回っているか（未照合・記録の孤児・実査ドリフト）。記録の古さ（V03）は壁時計依存なので ops 側の鮮度の検査が日次で見る。対象0件は明示して PASS' },
-  { id: 'video-publication-freshness', cmd: ['node', 'scripts/check-video-publication.mjs', '--freshness'], timeout: 30_000, ci: false, ops: true, note: '公開済み派生物の照合記録が台帳の failDays より古いか（V03・壁時計依存）。読み手＝ops-audit.yml（日次 --ops → automation-failure Issue channel ops・実査が回れば自動クローズ）' },
+  { id: 'video-publication', npm: 'check-video-publication', timeout: 30_000, ci: true, note: '公開済み派生物の実体照合が回っているか（未照合・記録の孤児・実査ドリフト）。記録の古さ（V03）と実査のドリフト（V05・YouTube 側の削除や非公開）は PR の差分で直せないので ops 側が日次で見る（DN-0791）。対象0件は明示して PASS' },
+  { id: 'video-publication-freshness', cmd: ['node', 'scripts/check-video-publication.mjs', '--freshness'], timeout: 30_000, ci: false, ops: true, note: '公開済み派生物の照合記録が台帳の failDays より古いか（V03・壁時計依存）と、実査のドリフト（V05・外部状態）。読み手＝ops-audit.yml（日次 --ops → automation-failure Issue channel ops・実査が回れば自動クローズ）' },
   { id: 'codex-compat', npm: 'check-codex-compat', timeout: 60_000, ci: true, note: 'AGENTS.md / .agents/skills が CLAUDE.md / .claude/skills（正典）から生成された状態と一致するか（第2SSOTドリフトの再発防止・DN-0098）' },
   { id: 'external-write-orphans', npm: 'check-external-write-orphans', timeout: 300_000, ci: false, note: '「外部へは成功・台帳の書き戻しは失敗」の検出（2026-06-17 の YouTube 事故＝6本アップ済みなのに台帳 pending が実例）。gh 経由で run ログを読むためネットワークが要る＝ci:false。run ログの取得失敗が 1 本でもあれば exit 2（検査不成立・DN-0225）。読み手＝weekly-review-guard の report digest（--report-only・FAIL は automation-failure Issue）。2026-09-30 に週次レビューの直接実行から外した（DN-0394）' },
   { id: 'ogp-line-count', npm: 'check-ogp-line-count', timeout: 180_000, ci: false, note: 'OGP タイトルの折返し行数を実測する surfacer（判定はしない）。読み手＝DN-0057 の着手時。check-ogp-title-fit はフォントサイズしか見ていないので、行数はここでしか分からない' },
