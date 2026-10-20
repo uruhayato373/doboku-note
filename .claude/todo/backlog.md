@@ -718,10 +718,6 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 **完了条件**: 両方の workflow が2回続けて成功し、`data/youtube/own-videos/`・`data/youtube/competitors/` に日付つきの記録が増える。`npm run check-competitor-scan-due -- --platform youtube` が ci として OK。
 
 
-### [DN-0589] Drive vault の検査（check-drive-vault）が develop で FAIL 86 件のまま：kindle-dist の未同期と動画レンダーの不一致を片付ける
-タグ: [領域:管理] [時期:2026-11] [種類:不具合] [起票:2026-10-08]
-
-2026-10-08 に PR #927 の確認で、本番の作業ツリー（develop）でも node scripts/check-drive-vault.mjs が FAIL 86 件（WARN 126 件）だった。主な中身は scripts/kindle-dist/*.jpg の unsynced（ローカルにしか無く、この Mac を失うと復元できない）と .tmp/video-render/**/thumbnail.png の vault-mismatch。Mac 専用で CI には無く、誰も読んでいない赤になっている。やること: (1) 内訳を group ごとに出し、作り直せるものと正本を分ける。(2) 正本は drive-vault-sync --group <g> --commit、作り直したものは --force で反映。(3) Mac で定期的に読む人を決める（週次レビューの点検に入れるか、SessionStart の警告に件数を出す）。完了条件: check-drive-vault の FAIL 0・読む人が commands.md か週次の手順に書いてある
 
 
 ### [DN-0582] Windowsで全体テスト11件が失敗するパス・改行・既存前提を直す

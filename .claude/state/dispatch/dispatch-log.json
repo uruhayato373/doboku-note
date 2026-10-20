@@ -4675,6 +4675,23 @@
       "commit": "845cb2335b68",
       "verification": "login-collectors run 39359187275 で crossCheck.siteFiltered: 2026-10 自サイト 64＝サイト別 64",
       "note": "DX の mat はサイト 002（本番 SSR で NTDQY 10・旧 NTCZ6 0）。A8 の画面改修で止まっていた収集を直し（PR #1140）、program-detail をサイトで絞って取る --site-filter self を足した（PR #1141・CI の login-collectors に配線）。CI run 39359187275 で 2026-10 は自サイトの allowlist 64＝サイト別 64、超過 7 は DX 4（統計で見る都道府県）・ビルドジョブ 3（KAZU の X）。2026-09 は自サイト 49 ≤ サイト別 51、他サイト分は DX 6・ビルドジョブ 3。DX の他サイト分は、10/17 の差し替え前に doboku の DX 広告が stats47 の mat を使っていた分と見られる"
+    },
+    {
+      "id": "DN-0589",
+      "at": "2026-10-20",
+      "task": "Drive vault の検査（check-drive-vault）が develop で FAIL 86 件のまま：kindle-dist の未同期と動画レンダーの不一致を片付ける",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "doc",
+        "ref": ".claude/skills/management/weekly-review/SKILL.md"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "bb95e4a0d399",
+      "verification": "node scripts/check-drive-vault.mjs exit 0（16431 パス実検査・FAIL 0）",
+      "note": "2026-10-20 時点で check-drive-vault は FAIL 0（WARN 103: local-newer 38 ほか）。kindle-dist は coexistWithGit で対象外になり解消済み。週次レビューで Mac 実体照合を読む手順を追加"
     }
   ]
 }
