@@ -12,8 +12,13 @@
  * @returns {number}
  */
 export function countAnswerChars(s) {
-  const clean = String(s)
-    .replace(/<[^>]+>/g, '')
+  // タグは変化が無くなるまで除く（字数を数えるだけで HTML は出さないが、入れ子の <<a>b> を 1 回で残さない）
+  let text = String(s);
+  for (let prev = ''; prev !== text; ) {
+    prev = text;
+    text = text.replace(/<[^>]+>/g, '');
+  }
+  const clean = text
     .replace(/`/g, '')
     .replace(/【([〇○]+)】/g, '$1')
     .replace(/\*/g, '')
