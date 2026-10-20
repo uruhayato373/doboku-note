@@ -46,23 +46,8 @@ const rulesConfig = ogpSettings.rules;
 const textConfig = ogpSettings.text;
 
 // 試験区分→テーマ色（外枠・チップ）。色の真実源は .claude/knowledge/design-system/note-cover-tokens.json (base)。
-// ここは category(フルslug) → exam キー(short) の対応のみを持つ（色は重複させない）。
+// category(フルslug) → exam キー(short) の対応は lib/category-exam-key.mjs（色は重複させない）。
 const coverTokens = require(path.join(PROJECT_ROOT, '.claude/knowledge/design-system/note-cover-tokens.json'));
-const CATEGORY_TO_EXAM_KEY = {
-  'pe-comprehensive-management': 'pe-comprehensive',
-  'civil-construction-1': 'civil-1',
-  'civil-construction-2': 'civil-2',
-  'concrete-engineer': 'concrete-engineer',
-  'concrete-chief-engineer': 'concrete-chief',
-  'concrete-diagnostician': 'concrete-diagnosis',
-  rccm: 'rccm',
-  'pe-construction': 'pe-construction',
-  'pe-first-stage': 'pe-comprehensive',
-  // 資格に紐づかない実務カテゴリ。`common`（土木・建設 共通・bronze）を明示的に指す。
-  // 省くと resolveAccentColor が null を返して枠色なしで出荷される。背景画像は
-  // backgrounds/common.* が無いためオフホワイトへフォールバックする（意図どおり）。
-  'civil-practice': 'common',
-};
 function resolveAccentColor(category) {
   const key = CATEGORY_TO_EXAM_KEY[category];
   return coverTokens.exams?.[key]?.base || null;
@@ -114,6 +99,7 @@ function deriveTitleParts(rawTitle, examLabel, typeLabel) {
 }
 
 import { renderTemplate, LAYOUT_CONSTANTS } from './lib/ogp-templates.mjs';
+import { CATEGORY_TO_EXAM_KEY } from './lib/category-exam-key.mjs';
 import { wrapTitle, pickFontSize } from './lib/ogp-text.mjs';
 import { REPO_ROOT as PROJECT_ROOT, SITE_CONTENT_ROOT } from '../../../../../scripts/lib/repository-paths.mjs';
 import { datasetDir, datasetPath } from '../../../../../scripts/lib/datasets.mjs';
