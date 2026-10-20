@@ -68,6 +68,12 @@
           "role": "点検"
         },
         {
+          "command": "check-drive-vault",
+          "label": "Drive vault の実体照合（ローカルにしか無い正本）",
+          "stage": "基盤の点検",
+          "role": "点検"
+        },
+        {
           "command": "node:fetch-note-public-view-shots",
           "label": "note 公開ページの目視",
           "stage": "受取・販売",
