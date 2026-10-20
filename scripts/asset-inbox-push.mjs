@@ -138,7 +138,7 @@ async function main() {
   }
 
   // ---- tar.gz を作る（repo 相対パスを保つ。CI 側は groupFor で再検証してから配置する）
-  const stamp = new Date().toISOString().replace(/[:.]/g, '-').replace(/Z$/, 'Z');
+  const stamp = new Date().toISOString().replace(/[:.]/g, '-');
   const tag = `asset-inbox-${stamp}`;
   const work = mkdtempSync(join(tmpdir(), 'asset-inbox-'));
   const listFile = join(work, 'files.txt');

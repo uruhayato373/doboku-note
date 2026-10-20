@@ -21,6 +21,7 @@ import { setArticlePrices } from './lib/product-registry.mjs';
 
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 import { listFiles } from './lib/fs-walk.mjs';
+import { escapeRegExp } from './lib/regexp-escape.mjs';
 const argv = process.argv.slice(2);
 const getArg = (n, d) => { const i = argv.indexOf(n); return i >= 0 ? argv[i + 1] : d; };
 const DIR = getArg('--dir');
@@ -33,7 +34,7 @@ if (!existsSync(abs)) { console.error('dir not found: ' + abs); process.exit(1);
 
 // 再帰 walk（globSync は Node22+ のため使わない）。article.md と型別 article-<type>.md の両方を対象。
 const files = listFiles(abs, { match: (_path, name) => /^article(-[^/]+)?\.md$/.test(name) });
-const re = new RegExp(`^(price:[ \\t]*)${FROM}\\b`, 'm');
+const re = new RegExp(`^(price:[ \\t]*)${escapeRegExp(FROM)}\\b`, 'm');
 const targets = files.filter((f) => re.test(readFileSync(f, 'utf8')));
 const hit = targets.length;
 // 単品価格の正本は config/products.json の articlePrices（frontmatter の price は写し）。両方を同時に書く
