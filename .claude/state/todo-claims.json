@@ -95,6 +95,12 @@
       "owner": "claude-code",
       "startedAt": "2026-10-20T12:37:26.669Z",
       "branch": "chore/dn0800-datasets-warnings"
+    },
+    {
+      "id": "DN-0780",
+      "owner": "claude-code",
+      "startedAt": "2026-10-20T12:39:50.780Z",
+      "branch": "fix/dn0780-guidance-crlf"
     }
   ]
 }

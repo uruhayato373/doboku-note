@@ -408,7 +408,7 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 
 ### [DN-0780] check-command-guidance が検査不成立で終わる（drive-vault-sync の取り戻しの案内が 1 件で下限 10 を割る）
-タグ: [領域:管理] [時期:2026-10] [種類:不具合] [検証:check-command-guidance] [起票:2026-10-20]
+タグ: [領域:管理] [時期:2026-10] [種類:不具合] [検証:check-command-guidance] [起票:2026-10-20] [進行中]
 
 2026-10-20 に develop（4c92f35db）で npm run check-command-guidance を実行すると、案内 3995 件を数えたうえで「走査結果が異常に少ない＝抽出が壊れている疑い（検査不成立）」で終わる。原因は scripts/check-command-guidance.mjs:151 の refPull < 10 で、drive-vault-sync の取り戻しの案内が 1 件しか数えられていない（DN-0631 で --pull の既定を dry-run にしてから、案内の書き方が抽出の正規表現と合わなくなった疑い。未確認）。抽出が壊れたのか、案内が本当に減ったのかを確かめ、抽出を直すか下限を実数に合わせる。完了条件: npm run check-command-guidance が exit 0。
 
