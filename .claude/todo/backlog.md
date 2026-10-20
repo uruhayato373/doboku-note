@@ -394,6 +394,8 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 **進捗（2026-10-20）**: (1) 本番の SSR を確認: 総監のページ（/exam/pe-comprehensive-management）で DX の mat は `NTDQY`（サイト 002）が 10 か所・旧 `NTCZ6` が 0、画像も wid=002。(2) crossCheck は未確認: 10/19 の A8 の定期収集が動いていなかったので手動で起動したが（run 39343232534）、A8 の保存ログインが期限切れで collector が rc=2 になった（自動 Issue #1138）。**運営者の作業**: Mac で `npm run auth:login -- --service a8` → `npm run auth:export -- --service a8` でログインを直す。その後の収集（毎週火 06:20 JST）で crossCheck.exceeded を確かめて閉じる。
 
+**進捗（2026-10-20 追記）**: 上の「A8 の再ログイン待ち」は誤りだった。CI の収集はログインに成功していて（口座 assert OK）、失敗は A8 の画面改修（「適用」ボタンが無くなった・program-detail の既定が日指定になった）による period-set-failed だった。手元の A8 の保存ログイン（止まったプロセスの古い lock を外した）で再現し、PR #1140 で直した（手元で 2026-09・2026-10 とも 4/4 取得）。手元で正規化した 2026-10 の crossCheck は click 71/64（超過 7・確定額 0/0）。allowlist の 4 案件（ココナラ 22・ビルドジョブ 33・建設JOBs 12・DX 4）は口座全体の数で、同じ口座の他サイト（KAZU の X・note 計 31 click、stats47 285 click）の分で説明できる見込みだが、案件×サイトの内訳は今の収集に無く未確認。**残り**: PR #1140 の反映後の定期収集（火 06:20 JST）が 4/4 で通ることと、超過を案件×サイトで確かめる（program-detail をサイトで絞って取るか、超過を許す理由を crossCheck に記録する）。
+
 ### [DN-0756] R2画像の更新後も同じURLのCDNキャッシュが旧版を返す
 タグ: [領域:サイト] [時期:2026-10] [種類:不具合] [起票:2026-10-16]
 
