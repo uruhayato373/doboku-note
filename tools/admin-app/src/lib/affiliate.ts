@@ -3,6 +3,7 @@ import { repoPath } from './repo-root';
 import { datasetPath, freshnessDays } from '../../../../scripts/lib/datasets.mjs';
 import { siteMonthsFromReportLog } from '../../../../scripts/lib/a8-report-csv.mjs';
 import { classifyCrossCheck } from '../../../../scripts/lib/report-honesty.mjs';
+import { AFFILIATE_VARIANTS } from '../../../../src/lib/affiliate-experiment.mjs';
 
 /**
  * affiliate.ts — A8 アフィリ成果（読み取り専用）。
@@ -432,4 +433,46 @@ export function affiliateCatalog(): ProgramCatalogRow[] {
   } catch {
     return [];
   }
+}
+
+/**
+ * 広告の見本（/affiliate/preview）。いまその面が出ている実ページを面ごとに 1 つ持ち、サイトの開発サーバーで開く
+ * （2026-10-20 にローカルで巡回して面の実在を確かめた）。見本の無い有効な面は画面に「見本なし」と出る。
+ * widths は、その幅でしか出ない面（カテゴリのサイドバー＝PC・モバイル＝スマホ）だけ絞る。
+ */
+const PREVIEW_PAGES: Record<string, { path: string; widths?: PreviewWidth[] }> = {
+  'article-inline': { path: '/exam/civil-construction-1/guide/allowance' },
+  'article-mid': { path: '/exam/pe-comprehensive-management/keywords/360-degree-evaluation' },
+  'article-end': { path: '/exam/civil-construction-2/primary/r03-kouki' },
+  'category-sidebar': { path: '/exam/civil-construction-1', widths: ['pc'] },
+  'category-mobile': { path: '/exam/civil-construction-1', widths: ['sp'] },
+  'standards-end': { path: '/standards/kinki/common/chapters/1-1' },
+  'standards-list-end': { path: '/standards' },
+  'topic-end': { path: '/topics/concrete' },
+  'tool-end': { path: '/tools/water-content' },
+  'tool-inline': { path: '/tools/juken-shikaku' },
+  'home-section': { path: '/' },
+  'article-end-offsite': { path: '/exam/civil-construction-2/secondary/experience-writing-by-theme' },
+  'links-hub': { path: '/links' },
+};
+export type PreviewWidth = 'sp' | 'pc';
+export interface PreviewSurface {
+  slot: string;
+  label: string;
+  path: string | null;
+  widths: PreviewWidth[];
+  /** 実験の案（ココナラの面は実験の外なので空） */
+  variants: string[];
+}
+export function affiliatePreviewSurfaces(): PreviewSurface[] {
+  const vocab = readPlacementVocab() as Record<string, { label: string; status: string; program?: string }>;
+  return Object.entries(vocab)
+    .filter(([, v]) => v.status === 'active')
+    .map(([slot, v]) => ({
+      slot,
+      label: v.label,
+      path: PREVIEW_PAGES[slot]?.path ?? null,
+      widths: PREVIEW_PAGES[slot]?.widths ?? ['sp', 'pc'],
+      variants: v.program === 'coconala' ? [] : [...AFFILIATE_VARIANTS],
+    }));
 }
