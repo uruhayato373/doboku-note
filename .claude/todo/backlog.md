@@ -338,7 +338,7 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 
 ### [DN-0797] サイトとスクリプトの二重実装（MDX のパス→slug・見出し ID）を src/lib の共有 .mjs に 1 つずつにまとめる（拡張性・第3波）
-タグ: [インフラ・計測] [領域:管理] [時期:2026-12] [種類:改善] [起票:2026-10-20]
+タグ: [インフラ・計測] [領域:管理] [時期:2026-12] [種類:改善] [起票:2026-10-20] [進行中]
 
 **起点**: 2026-10-20 の拡張性の棚卸し（`docs/reviews/critical/2026-10-20-code-extensibility-debt.md`）。サイトとスクリプトで同じ判定を別々に持っている。MDX のパスから slug を導く処理は src/lib/local-post-reader.ts:78-107・scripts/lib/published-docs.mjs:29-35 ほか 5 か所以上（published-docs は途中のディレクトリ名 article も消す点が違う）。見出し ID は src/lib/toc.ts:10 と .claude/scripts/lib/heading-id.mjs:25 の 2 つで、一致を見るテストが無い。事故記録では「同じ判定が 2 か所でずれた」が 6 件。
 **次または実行順**: DN-0788（Convention A の記述を直す）の後。A 用の分岐をここで消す。
