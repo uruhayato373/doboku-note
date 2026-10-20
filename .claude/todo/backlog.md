@@ -398,7 +398,7 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 
 ### [DN-0789] Skill・Agent・スラッシュコマンドの呼び出しを 4 週間の期限付きで記録する hook を置く（拡張性・第0波）
-タグ: [エージェント・SSOT] [領域:管理] [時期:2026-10] [種類:改善] [起票:2026-10-20]
+タグ: [エージェント・SSOT] [領域:管理] [時期:2026-10] [種類:改善] [起票:2026-10-20] [進行中]
 
 **起点**: 2026-10-20 の拡張性の棚卸し（`docs/reviews/critical/2026-10-20-code-extensibility-debt.md`）。エージェント 90・スキル 111 に対し呼び出しの記録が無く、使われていないものを根拠をもって選べない。会話記録は cleanupPeriodDays 7（DN-0233）で 7 日分しか残らない。延ばすと disk-hygiene の方針（scripts/lib/disk-hygiene.mjs:261 の maxDays 7）と衝突し、30 日で約 6GB になる。
 **やること**:
@@ -421,7 +421,7 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 
 ### [DN-0787] 経験記述の字数ツールとスクリプトの countChars を src/lib の .mjs 1 つにまとめる（拡張性・第0波）
-タグ: [インフラ・計測] [領域:サイト] [時期:2026-10..2026-11] [種類:不具合] [起票:2026-10-20]
+タグ: [インフラ・計測] [領域:サイト] [時期:2026-10..2026-11] [種類:不具合] [起票:2026-10-20] [進行中]
 
 **起点**: 2026-10-20 の拡張性の棚卸し（`docs/reviews/critical/2026-10-20-code-extensibility-debt.md`）。経験記述の字数ツール `src/app/tools/keiken-charcount/KeikenCharcountClient.tsx:40` の countChars は「scripts/keiken-charcount.mjs と一致」とコメントしているが、`scripts/keiken-charcount.mjs:131` は目印【〇〇】の括弧を数えない（DN-0277 の決定）のに、サイト側は数える。note の模範答案を貼った読者には、記事の字数と違う値が出る。
 **やること**:
@@ -432,7 +432,7 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 
 ### [DN-0786] 測量士・舗装の OGP が枠色なしで出るのを直し、カテゴリの網羅を既存の検査に足す（拡張性・第0波）
-タグ: [インフラ・計測] [領域:サイト] [時期:2026-10] [種類:不具合] [起票:2026-10-20]
+タグ: [インフラ・計測] [領域:サイト] [時期:2026-10] [種類:不具合] [起票:2026-10-20] [進行中]
 
 **起点**: 2026-10-20 の拡張性の棚卸し（`docs/reviews/critical/2026-10-20-code-extensibility-debt.md`）。registry を入れた後に足した測量士（surveyor）・舗装（pavement）が、`.claude/skills/conversion/ogp-create/scripts/ogp-create.mjs:51` の CATEGORY_TO_EXAM_KEY に無く、resolveAccentColor が null を返して OGP が枠色なしで出ている。色は `.claude/knowledge/design-system/note-cover-tokens.json` に既にある。どの検査も止めていない。
 **やること**:

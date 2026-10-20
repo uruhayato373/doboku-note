@@ -73,6 +73,24 @@
       "branch": null
     },
     {
+      "id": "DN-0786",
+      "owner": "claude-code",
+      "startedAt": "2026-10-20T11:58:40.992Z",
+      "branch": "fix/dn0786-ogp-coverage"
+    },
+    {
+      "id": "DN-0787",
+      "owner": "claude-code",
+      "startedAt": "2026-10-20T12:00:47.004Z",
+      "branch": "fix/dn0787-countchars"
+    },
+    {
+      "id": "DN-0789",
+      "owner": "claude-code",
+      "startedAt": "2026-10-20T12:02:17.997Z",
+      "branch": "feat/dn0789-usage-log"
+    },
+    {
       "id": "DN-0788",
       "owner": "claude-code",
       "startedAt": "2026-10-20T11:52:08.460Z",
