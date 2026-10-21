@@ -49,7 +49,7 @@ rankRelated(currentMeta, categoryArticles, limit = 6, exclude = new Set())
 
 ## 配置
 
-記事末は 根拠法令（同じ法令を扱う記事）→ この記事のテーマ（`TopicHubLinks`）→ 関連記事 → `AuthorCard` の順。先のカードで出した記事は関連記事から外す（content-taxonomy.md §6-3）。
+記事末は 根拠法令（法令ページへのリンク・同じ法令を扱う記事・関わるテーマ）→ この記事のテーマ（`TopicHubLinks`）→ 関連記事 → `AuthorCard` の順。法令ページでは解説の直後に法令ページの自動の節（`LawPageSections`）が先に入る。先のカードで出した記事は関連記事から外し、法令ページ自身は同じ法令を扱う記事に入れない（content-taxonomy.md §6-3）。
 
 ## パフォーマンス
 

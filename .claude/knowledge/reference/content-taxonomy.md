@@ -35,7 +35,7 @@ frontmatter `group` の語彙は 7 値。定義は**問題形式**で与え、�
 
 | group | 定義 | 許可カテゴリ（`categories.json` の `groups`） | 構成ルールの真実源 |
 |---|---|---|---|
-| `guide` | 試験全体・学習法・キャリアの案内。本文 3,000 字以上 | 全資格＋`civil-practice`・`rccm`（この 2 つは唯一の group。rccm は過去問が事務局非公開のため） | content-principles §20 / §25 / §26 |
+| `guide` | 試験全体・学習法・キャリアの案内。本文 3,000 字以上 | 全資格＋`civil-practice`・`rccm`・`laws`（この 3 つは guide だけを持つ。rccm は過去問が事務局非公開のため、laws は法令の解説だけのため） | content-principles §20 / §25 / §26 |
 | `pillar` | 資格内の 1 分野＝1 本の**分野ハブ**（配下の keyword・past-exam の目次役。試験全体を扱う guide と区別する） | `pe-comprehensive-management`（5 管理） | 本書（H2 ＝ 分野の論点地図＋配下記事へのリンク） |
 | `textbook` | 分野別の体系解説（章）。civil・concrete 系では分野ハブを兼ねる（pillar と併用しない） | `civil-construction-1/2`、concrete 3 資格 | content-principles §22 |
 | `keyword` | 1 語 1 記事の用語解説 | `pe-comprehensive-management`、`pe-construction` | content-principles §5 / §6 / §12 / §17 / §18 / §19 |
@@ -91,7 +91,7 @@ frontmatter `group` の語彙は 7 値。定義は**問題形式**で与え、�
 ### 6-2. 記事の所属
 
 - 所属の判定は `src/lib/topic-membership.mjs` の `topicsOfDoc`（明示 `topics:` → カテゴリ丸ごと → タグの一致）だけ。サイト（`src/lib/topics.ts`）・検査・報告が同じ関数を使う。
-- **所属が要る記事**（`needsTopic`）: 用語・章・分野ハブ（keyword / textbook / pillar）、実務（`area: practice`）の記事、主題タグ（topical）を持つガイド。**要らない記事**: 非公開、転職・キャリア（`career`）、`模範論文`、過去問（primary / secondary / past-exam。問題ごとに RelatedKeywords と backlink で用語へつなぐ）、公的基準の領域、主題タグを持たないガイド（試験の概要・申込・勉強法など手続きの記事）。
+- **所属が要る記事**（`needsTopic`）: 用語・章・分野ハブ（keyword / textbook / pillar）、実務（`area: practice`）の記事、法令ページ（`area: laws`）、主題タグ（topical）を持つガイド。**要らない記事**: 非公開、転職・キャリア（`career`）、`模範論文`、過去問（primary / secondary / past-exam。問題ごとに RelatedKeywords と backlink で用語へつなぐ）、公的基準の領域、主題タグを持たないガイド（試験の概要・申込・勉強法など手続きの記事）。
 - 付け方: まず分野・管理のタグ（正規表記）を付ける。タグで決まらない総論（複数の管理にまたがる記事など）は frontmatter **`topics: [slug]`** で明示する（`check-topic-wiring` が slug の実在を検査）。試験の手続きのガイドでも、中身が技術の解説（水理・構造力学など）なら主題タグを付けて所属させる。
 - **主題タグの行き先**: topical class のタグは、どれか 1 つのテーマの `tags` に入れるか、`tags.json` に **`noTopic`**（理由。`content-taxonomy.json` の `noTopicReasons`＝audience 読み手・シリーズ／org 組織・業態／source 出典・資料名／method 考え方・手法／generic 広すぎる語）を書く。どちらも無いタグは `check-content-taxonomy` が HARD で止める（新しい主題タグを足した人に行き先を決めさせる）。
 - 検査: `check-content-taxonomy --staged`（pre-commit）は新規・変更記事の所属漏れを赤、`--ci` は所属漏れの slug 集合を `.claude/config/content-taxonomy-baseline.json` の `topicless` とのラチェットで見る（2026-10-21 に 0 本）。
@@ -102,12 +102,12 @@ frontmatter `group` の語彙は 7 値。定義は**問題形式**で与え、�
 
 - **法令と分野・立場は多対多**（道路法は 道路・舗装／自治体の土木職／関係法令 の記事が引く）。記事が本文で引く法令（`lawIds`）と記事が属すテーマを掛け合わせ、そのテーマの記事のうち **2 本以上**が引く法令とテーマを結ぶ（`src/lib/law-topic-core.mjs`・サイトは `src/lib/law-wiring.ts`）。法令をタグにはしない。
 - **法令ページ**（`/laws/<参考文献の id>`・カテゴリ `laws`・frontmatter の `lawId` と `lawFamily`）: 本文は法令の解説（目的と全体像・体系・主な規定・資格試験での出方・実務での使いどころ）。末尾に関わるテーマ・関係する国の計画・施策・審議会・よく引かれる条（記事の `lawArticles` を数える）・この法令を扱う記事（資格試験／実務）・最新の改正の施行日を自動で出す（`getLawPageData`）。法令ページがある法令は、記事末の根拠法令・テーマのページの法令の節・法令と分野の対応で法令名の行き先を法令ページにする（`lawLink`）。法令ページ自身は、法令とテーマの集計と同じ法令を扱う記事に入れない。所属が要る記事（§6-2）で、テーマの三方向には数えない。検査は `check-topic-wiring`（lawId・lawFamily が写しにある・URL が参考文献の id・同じ法令を 2 ページが扱わない）。
-- **国の計画・施策・審議会**（`config/policy-registry.json`・型 `ConfigPolicyRegistry`）: 根拠法（e-Gov の法令 ID）・所管・決定日・計画期間・関わるテーマ・要点・一次資料の URL・確かめた日（`checkedAt`）。テーマのページの「（テーマ）の国の計画・施策・審議会」と法令ページに出す。一次資料で確かめたものだけを書き、180 日を超えたら `check-taxonomy-wiring` が確かめ直しを要対応に出す。根拠法が写しに無いときは名前（`basisLawTitles`）で書くか、参考文献の台帳に足して `npm run egov-laws -- --sync`。
+- **国の計画・施策・審議会**（`config/policy-registry.json`・型 `ConfigPolicyRegistry`）: 根拠法（e-Gov の法令 ID）・所管・決定日・計画期間・関わるテーマ・要点・一次資料の URL・確かめた日（`checkedAt`）。テーマのページの「（テーマ）の国の計画・施策・審議会」と法令ページに出す。一次資料で確かめたものだけを書き、180 日を超えたら `check-taxonomy-wiring` が確かめ直しを要対応に出す。根拠法が写しに無いときは名前（`basisLawTitles`）で書くか、参考文献の台帳に足して `npm run egov-laws -- --sync`（`--sync` は記事のリンク・法令ページの `lawId`・`lawFamily`・参考文献の台帳・この台帳の `basisLaws` が指す法令を写しに残す）。
 - **関わるテーマ**: 「この記事の根拠法令」の法令ごとに、その法令が関わるテーマ（最大 3・引く記事の多い順）を添える。
 - **同じ法令を扱う記事**: 「この記事の根拠法令」の法令ごとに、同じ法令を本文で引く他の記事を最大 3 本（他の資格・実務を先に、資格が重ならないように）。法令は `build-doc-meta-index` が本文の e-Gov へのリンクから `lawIds` に入れる（`config/egov-laws.json` にある法令だけ）。
 - **この記事のテーマ**: 記事が属するテーマ（最大 3 つ。明示が先）ごとに、テーマのページへのリンクと、同じテーマを他の資格・実務で扱う記事を最大 3 本（資格が重ならないように）。テーマの記事が自分だけなら出さない。
 - **関連記事**（`rankRelated`）: 共有するタグの点は class で変える（主題 10・資格 0・学習の型 0。資格タグを数えると付け忘れた記事が同点で毎回負ける）、同じテーマ 1 つにつき 6、同じ資格に 2。技術テーマ（主題タグかテーマ）を 1 つも共有しない記事は関連にしない。足りなければ資格・学習の型の共有で補う（`fallbackScore`）。同じ資格は 6 件中 4 件まで。**同点は記事の組ごとの擬似乱数**（`stableTieBreak`。更新日の順にすると新しい記事に関連が集中し、どこからも選ばれない記事が増える）。
-- テーマのページ: 記事の一覧の後ろに「（テーマ）の記事が引く法令」（2 本以上が引く法令を多い順に 8 つまで・法令ごとにこのテーマの記事を 3 本）、法令・制度の軸のテーマ（関係法令）には「法令と分野の対応」（3 本以上の記事が引く法令ごとに、関わるテーマへのリンク）。法令名は e-Gov へ（法令ごとのページは DN-0731 で説明を人が書いてから）。公的基準の後ろに「このテーマの有料教材（note）」（`products` を `MagazineCard` の inline で。`utm_content=topic-{slug}`・placement `topic-page`・非公開の商品は出さない）、末尾に「関連するテーマ」（記事を多く共有するテーマ 4 つ）。`/topics` の一覧は軸ごと。
+- テーマのページ: 記事の一覧の後ろに「（テーマ）の記事が引く法令」（2 本以上が引く法令を多い順に 8 つまで・法令ごとにこのテーマの記事を 3 本）、法令・制度の軸のテーマ（関係法令）には「法令と分野の対応」（3 本以上の記事が引く法令ごとに、関わるテーマへのリンク）。法令名は、法令ページがある法令は法令ページへ、無い法令は e-Gov へ（`lawLink`）。公的基準の後ろに「このテーマの有料教材（note）」（`products` を `MagazineCard` の inline で。`utm_content=topic-{slug}`・placement `topic-page`・非公開の商品は出さない）、末尾に「関連するテーマ」（記事を多く共有するテーマ 4 つ）。`/topics` の一覧は軸ごと。
 - **実務記事の本文と記事末の橋渡しカード（QualificationBridge）には有料教材を出さない**（本文に試験文脈を入れない規約と、記事末は 1 枚だけの方針・13_土木公務員SEO戦略）。実務の読者は「この記事のテーマ」から立場・分野のテーマのページへ行き、そこで資格の記事と有料教材に出会う。
 - **橋渡しカードの立場の出し分け**（2026-10-21・DN-0810）: タグ `地方公共団体` の実務記事では、施工会社向けの選択肢を「技術士を目指したい」（土木公務員に技術士は必要？）に替え、立場のテーマ（自治体の土木職）へのリンクを添える（`src/config/qualification-bridge.ts`）。
 - 資格のハブ（`/exam/{資格}`）: 記事一覧の後ろに「テーマから探す」（この資格の記事が属すテーマを、この資格の記事の多い順に。`getTopicsForCategory`）。資格 → テーマの向きの回遊。
@@ -118,8 +118,8 @@ frontmatter `group` の語彙は 7 値。定義は**問題形式**で与え、�
 |---|---|---|
 | commit | `check-content-taxonomy --staged` | 新規・変更記事の所属漏れ・記事型のタグだけ・未登録タグ・別名綴り（赤） |
 | CI | `check-content-taxonomy --ci`・`check-topic-wiring`・`tests/topic-wiring-rules.test.mjs`・quality-audit `report-generators` の `taxonomy-wiring-report` | 軸・状態・タグの行き先（HARD）、所属漏れと記事型のタグだけの記事（ラチェット）、入口記事の実在、記事末の配線と計測ラベル、報告の完走 |
-| 週次 | `npm run check-taxonomy-wiring`（review-checks の点検。赤なら `npm run report-taxonomy-wiring`） | 所属なし・行き先の無いタグ・昇格の食い違い・テーマの有料教材のうち公開中でない商品（要対応） |
-| 月次 | `npm run report-taxonomy-wiring` | 三方向と昇格、取りこぼし（関連記事のどこからも選ばれない記事・記事の多い noTopic のタグ＝新テーマの候補・どのテーマとも結べない法令）、回遊の質（他の資格の割合・同じ法令の記事・法令の節を持つテーマ）、計測 |
+| 週次 | `npm run check-taxonomy-wiring`（review-checks の点検。赤なら `npm run report-taxonomy-wiring`） | 所属なし・行き先の無いタグ・昇格の食い違い・テーマの有料教材のうち公開中でない商品・一次資料で確かめてから 180 日を超えた計画・施策（要対応） |
+| 月次 | `npm run report-taxonomy-wiring` | 三方向と昇格、取りこぼし（関連記事のどこからも選ばれない記事・記事の多い noTopic のタグ＝新テーマの候補・どのテーマとも結べない法令）、回遊の質（他の資格の割合・同じ法令の記事・法令の節を持つテーマ）、法令ページの本数と次の候補（5 本以上の記事が引くのに法令ページが無い法令）・計画・施策の台帳の件数、計測 |
 
 計測は GA4 の `internal_nav_click` を `event_label` で分ける（`fetch-metrics` が週次で by-label を取る）: `topic-hub:hub`（テーマのページへ）・`topic-hub:article`（テーマのカードの記事へ）・`law-siblings`（同じ法令の記事へ）・`law-topics`（根拠法令のカードから関わるテーマへ）・`law-page`（根拠法令のカードから法令ページへ）・`law-page:topics`／`law-page:articles`（法令ページの自動の節）・`topic-laws`（テーマのページの法令の節）・`law-directory`（法令と分野の対応）・`policy-map`（計画・施策・審議会から根拠法へ）・`laws-index`（/laws の一覧）・`topic-page`（テーマページの記事へ）・`topic-related`（関連するテーマへ）・`topics-index:{facet}`（一覧から）・`category-topics`（資格のハブから）・`related-articles`（関連記事）。テーマページの有料教材は `note_cta_click`（label＝`商品 id:topic-{slug}`・placement `topic-page`）。レポートが無いときは「未取得」と書き、0 として扱わない。
 
@@ -164,7 +164,8 @@ CTA の配線は `src/lib/magazine-placement.ts`（slug と group で決める�
 6. 例題は exam-official のみ、図は自作。
 7. 公的基準への内部リンクは章記事 URL。
 8. `exams:` を書かない。テーマへ明示所属させるなら `topics:`。
-9. 用語・章・実務、主題タグを持つガイドは、どれかのテーマに属す（分野・管理のタグか `topics:`・§6-2）。新しい主題タグはテーマか `noTopic` の行き先を決めてから登録する。
+9. 用語・章・実務・法令ページ、主題タグを持つガイドは、どれかのテーマに属す（分野・管理のタグか `topics:`・§6-2）。新しい主題タグはテーマか `noTopic` の行き先を決めてから登録する。
+10. 法令ページ（`category: laws`）は `lawId` を持ち（施行令・施行規則は `lawFamily`）、URL（slug の末尾）を参考文献の台帳の id にする。同じ法令を 2 ページで扱わない（`check-topic-wiring`）。
 
 ## 10. 経過措置
 

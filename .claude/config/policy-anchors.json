@@ -47,6 +47,8 @@
         "src/lib/topic-membership.mjs",
         "src/lib/related-core.mjs",
         "src/lib/law-topic-core.mjs",
+        "src/lib/law-wiring.ts",
+        "config/policy-registry.json",
         "src/lib/topics.ts",
         "scripts/check-content-taxonomy.mjs",
         "scripts/report-taxonomy-wiring.mjs",

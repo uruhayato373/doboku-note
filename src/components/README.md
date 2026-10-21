@@ -11,10 +11,12 @@ src/components/
 ├── home/                    # トップページ専用セクション
 ├── icons/                   # 汎用アイコン（ServiceIcon 等。above-fold の Header は
 │                             # 独自 inline SVG を使い lucide-react を読み込まない — LCP 対策）
+├── laws/                    # /laws と法令ページの自動の節（LawPageSections, PolicyList）
 ├── layout/                  # サイト全体のチェック（Header.tsx, Footer.tsx）
 ├── providers/                # Context プロバイダー（ThemeProvider.tsx）
 ├── search/                   # 検索 UI（Pagefind クライアント）
 ├── seo/                       # SEO 専用コンポーネント（構造化データ等）
+├── topics/                    # /topics のテーマページの節（TopicArticles, TopicLaws, LawDirectory 等）
 └── ui/                        # 資格・ページ横断で再利用する UI コンポーネント（サブディレクトリ + 単体 .tsx）
 ```
 
