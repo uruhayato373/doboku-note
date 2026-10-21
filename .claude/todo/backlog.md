@@ -330,7 +330,7 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 
 ### [DN-0806] 成長パックのページ別を国で絞らずに取り、急落・減衰の検出を匿名化された検索語の分も含めて行う
-タグ: [インフラ・計測] [領域:管理] [時期:2026-11] [種類:不具合] [起票:2026-10-21]
+タグ: [インフラ・計測] [領域:管理] [時期:2026-11] [種類:不具合] [起票:2026-10-21] [進行中]
 
 **起点**: DN-0759（2026-10-21）。成長パック（`scripts/fetch-growth-pack.mjs`）のページ別（`gscPageWeek`・`gscPageBase`）は country=jpn で絞って取っている。このとき Google は検索語の分かる分だけで集計し、匿名化された検索語の分が入らない（W41: 189 行・23 クリックで、byPage 全体 306 の 8%。ページ×検索語の合計と完全に一致）。`scripts/lib/growth-opportunities.mjs` の seo-traffic-drop・seo-decay はこの下限の行で判定しているので、匿名化された検索語で来ているページの急落・減衰を見落とす。
 

@@ -83,6 +83,12 @@
       "owner": "claude-code",
       "startedAt": "2026-10-21T00:18:40.898Z",
       "branch": "fix/e2e-paths-config"
+    },
+    {
+      "id": "DN-0806",
+      "owner": "claude-code",
+      "startedAt": "2026-10-21T00:23:06.239Z",
+      "branch": "feat/gsc-page-coverage-probe"
     }
   ]
 }
