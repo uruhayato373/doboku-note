@@ -8,7 +8,7 @@ exam: civil
 angle: ハウツー
 category: 学び
 tags: [経験記述, 工程管理, 施工管理技士]
-funnel: [coconala-2kyu-tensaku-3theme, coconala-2kyu-sakusei-3theme]
+funnel: [coconala-tensaku-4theme]
 source:
   - content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx
   - content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx
@@ -40,12 +40,10 @@ source:
 
 この3点の骨格は、品質管理・安全管理の答案とほとんど同じ形をしています。真ん中に置く要素と検討の観点が管理項目ごとに変わるだけで、書き方の型は1つ覚えれば使い回せるということです。
 
-骨格を自分の工事に当てはめて書いたら、次は第三者の目で確かめる段階です。書いた答案がある方には全3テーマの添削を、まだ書けていない方にはヒアリングから全3テーマの骨子（構成）をつくる指導を承っています。どちらも10/25の本試験に間に合うよう、24時間以内にお返しします。
+骨格を自分の工事に当てはめて書いたら、次は第三者の目で確かめる段階です。書いた答案がある方には、基本の2テーマの添削を承っています。2級は全3テーマ、1級は全5テーマにするオプションがあり、まだ答案を書けていない方には、ヒアリングから骨子（構成）をつくる「骨子から相談」のオプションがあります。急ぐ場合は「24時間以内に返却」のオプションも選べます。
 
-service:coconala-2kyu-tensaku-3theme
-
-service:coconala-2kyu-sakusei-3theme
+service:coconala-tensaku-4theme
 
 経験していない工事や数値の創作、答案の代筆はお受けしていません。合格を保証するものではありません。
 
-こちらのカードは2級向けのサービスです（2級は令和6・7年度とも、品質管理・安全管理・工程管理の3テーマから2テーマが指定されました）。1級の添削・骨子づくりは、第二次検定（10/4）が終わったため次の受検期まで休止しています。
+2級は令和6・7年度とも、品質管理・安全管理・工程管理の3テーマから2テーマが指定されました。どのテーマが指定されても書けるよう、2級は全3テーマ、1級は全5テーマにするオプションがあります。
