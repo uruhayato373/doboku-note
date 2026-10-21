@@ -629,6 +629,472 @@
       "summary": "国土交通省が令和8年1月に公表した戦略で、2030年度までに「グリーンインフラの活用が当たり前の社会」の実現を図り、2050年に向けて「自然共生社会」の実現を目指すとしています。2025年6月策定の「国土交通省環境行動計画」に係る実行計画として、前戦略（2023年策定）による実装の進展を踏まえ、定義や効果の整理、分野横断的な環境整備策の20項目のKPI、国土交通省の個別事業の整理と19項目のKPIの設定を行っています。地方公共団体、民間事業者、市民団体などとは「グリーンインフラ官民連携プラットフォーム」を中心に連携して実装を進めるとしています。",
       "url": "https://www.mlit.go.jp/sogoseisaku/environment/sosei_environment_tk_000017.html",
       "checkedAt": "2026-10-21"
+    },
+    {
+      "id": "i-construction-2-0-2024",
+      "kind": "policy",
+      "title": "i-Construction 2.0 ～建設現場のオートメーション化～",
+      "shortTitle": "i-Construction 2.0",
+      "owner": "国土交通省 大臣官房 参事官（イノベーション）グループ・公共事業調査室",
+      "decidedAt": "2024-04-16",
+      "basisLaws": [],
+      "topics": [
+        "construction-management",
+        "information-management",
+        "human-resource-management",
+        "quality-management"
+      ],
+      "summary": "人口減少が進むなかでもインフラの整備・維持管理を持続的に行うため、建設現場のオートメーション化による省人化・生産性向上を目指して令和6年4月16日に策定された取組です。2040年度までに建設現場の省人化を少なくとも3割、すなわち生産性を1.5倍に向上させることを目標としています。「施工のオートメーション化」「データ連携のオートメーション化」「施工管理のオートメーション化」の3つを柱にしています。",
+      "url": "https://www.mlit.go.jp/report/press/kanbo08_hh_001085.html",
+      "checkedAt": "2026-10-22"
+    },
+    {
+      "id": "infra-dx-action-plan-2nd-2023",
+      "kind": "policy",
+      "title": "インフラ分野のDXアクションプラン（第2版）",
+      "shortTitle": "インフラ分野のDXアクションプラン（第2版）",
+      "owner": "国土交通省 大臣官房 参事官（イノベーション）グループ・公共事業調査室",
+      "decidedAt": "2023-08-08",
+      "basisLaws": [],
+      "topics": [
+        "information-management",
+        "construction-management",
+        "maintenance-asset-management"
+      ],
+      "summary": "令和4年3月に取りまとめたインフラ分野のDXアクションプランを、分野網羅的・組織横断的な取組でDXを更に加速させるために改定したもので、令和5年8月8日に公表されました。86の個別施策を位置づけ、「インフラの作り方の変革」「インフラの使い方の変革」「データの活かし方の変革」の3つを柱にしています。",
+      "url": "https://www.mlit.go.jp/report/press/kanbo08_hh_001004.html",
+      "checkedAt": "2026-10-22"
+    },
+    {
+      "id": "bim-cim-principle-application-2023",
+      "kind": "policy",
+      "title": "直轄土木業務・工事におけるBIM/CIM適用に関する実施方針",
+      "shortTitle": "BIM/CIMの原則適用（直轄土木）",
+      "owner": "国土交通省 大臣官房",
+      "decidedAt": "2023-03",
+      "basisLaws": [],
+      "topics": [
+        "information-management",
+        "construction-management",
+        "quality-management"
+      ],
+      "summary": "BIM/CIMは、建設事業で扱う情報をデジタル化し、調査・測量・設計・施工・維持管理の各段階で受発注者がデータを活用・共有しやすくして、建設生産・管理システム全体の効率化を図るものです。この実施方針により、令和5年4月1日以降に入札契約手続きを開始する直轄の測量、地質・土質調査、設計・計画業務と土木工事（小規模なものと、災害復旧工事等の緊急性を要するものを除く）にBIM/CIMが適用されています。義務項目は原則として全ての詳細設計と工事で活用し、設計図書は2次元図面のまま3次元モデルを参考資料として貸与するほか、契約後に発注者が設計図書の作成の基となった情報を説明するDS（Data-Sharing）を行います。",
+      "url": "https://www.mlit.go.jp/tec/tec_fr_000115.html",
+      "checkedAt": "2026-10-22"
+    },
+    {
+      "id": "construction-worker-safety-health-basic-plan",
+      "kind": "plan",
+      "title": "建設工事従事者の安全及び健康の確保に関する基本的な計画",
+      "shortTitle": "建設工事従事者の安全・健康確保の基本計画",
+      "owner": "閣議決定（国土交通省・厚生労働省）",
+      "decidedAt": "2023-06-13",
+      "period": "少なくとも5年ごとに検討し、必要に応じて変更",
+      "basisLaws": [
+        "428AC0100000111"
+      ],
+      "topics": [
+        "safety-management-cem",
+        "safety-laws",
+        "human-resource-management"
+      ],
+      "summary": "建設工事従事者の安全及び健康の確保の推進に関する法律（建設職人基本法）第8条に基づき政府が定める計画で、平成29年6月9日に閣議決定され、令和5年6月13日に変更されました。変更では、安全衛生経費、一人親方、墜落・転落災害の防止対策（足場点検の確実な実施、一側足場の使用範囲の明確化など）に関する記載を充実させ、熱中症・騒音・石綿ばく露などへの健康確保対策と、女性・外国人・高年齢労働者など人材の多様化への対応を追記しています。同法は、少なくとも5年ごとに計画に検討を加え、必要があれば変更すると定めています。",
+      "url": "https://www.mlit.go.jp/totikensangyo/const/totikensangyo_const_tk2_000108.html",
+      "checkedAt": "2026-10-22"
+    },
+    {
+      "id": "industrial-accident-prevention-plan-14th",
+      "kind": "plan",
+      "title": "第14次労働災害防止計画",
+      "shortTitle": "第14次労働災害防止計画",
+      "owner": "厚生労働省 労働基準局 安全衛生部",
+      "decidedAt": "2023-03-08",
+      "period": "2023年4月〜2028年3月の5年間",
+      "basisLaws": [
+        "347AC0000000057"
+      ],
+      "topics": [
+        "safety-management-cem",
+        "safety-laws"
+      ],
+      "summary": "労働安全衛生法第6条に基づき厚生労働大臣が定める5か年計画で、2023年3月8日に策定され、3月27日に公示されました。死亡災害を5%以上減少させ、死傷災害は増加傾向に歯止めをかけて2027年までに減少させることを目標とし、業種別の対策では、建設業の死亡者数を2022年と比べて2027年までに15%以上減少させることを掲げています。重点対策は、自発的な安全衛生対策のための意識啓発、高年齢労働者や外国人労働者等への対策、化学物質・石綿・熱中症などによる健康障害の防止対策など8つです。",
+      "url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000197308.html",
+      "checkedAt": "2026-10-22"
+    },
+    {
+      "id": "public-works-quality-basic-policy-2024",
+      "kind": "plan",
+      "title": "公共工事の品質確保の促進に関する施策を総合的に推進するための基本的な方針",
+      "shortTitle": "品確法基本方針",
+      "owner": "閣議決定（国土交通省 不動産・建設経済局 建設業課）",
+      "decidedAt": "2024-12-13",
+      "basisLaws": [
+        "417AC1000000018"
+      ],
+      "topics": [
+        "quality-management",
+        "economic-management",
+        "human-resource-management",
+        "municipal-civil-engineers"
+      ],
+      "summary": "公共工事の品質確保の促進に関する法律に基づき政府が定める基本方針で、平成17年8月26日に閣議決定され、令和6年12月13日に第三次・担い手3法を踏まえて変更されました。発注者等が講ずべき措置として、週休2日工事の推進、時間外労働規制に対応した工期設定や猛暑日の考慮、施工時期の平準化に向けた関係部局の連携強化、地域の実情を踏まえた入札参加条件・規模の設定などを新たに規定しています。受注者に関しては、能力や経験に応じた適切な処遇の確保と、情報通信技術を活用した生産性の向上を盛り込んでいます。",
+      "url": "https://www.mlit.go.jp/report/press/tochi_fudousan_kensetsugyo13_hh_000001_00271.html",
+      "checkedAt": "2026-10-22"
+    },
+    {
+      "id": "ordering-affairs-operation-guideline-2025",
+      "kind": "policy",
+      "title": "発注関係事務の運用に関する指針",
+      "shortTitle": "発注関係事務の運用に関する指針（運用指針）",
+      "owner": "公共工事の品質確保の促進に関する関係省庁連絡会議（申合せ）／国土交通省 大臣官房技術調査課",
+      "decidedAt": "2025-02-03",
+      "basisLaws": [
+        "417AC1000000018"
+      ],
+      "topics": [
+        "quality-management",
+        "economic-management",
+        "construction-management",
+        "municipal-civil-engineers"
+      ],
+      "summary": "品確法第24条に基づき、各発注者が発注関係事務を適切かつ効率的に運用できるよう国が作成する発注者共通の指針で、令和6年6月の品確法改正を受け、令和7年2月3日に関係省庁申合せとして改正されました。改正では、担い手の確保のための働き方改革・処遇改善（週休2日の質の向上、スライド条項の設定など）、地域建設業等の維持に向けた環境整備、新技術の活用等による生産性向上、公共工事等の発注体制の強化の4つを柱にしています。国は、本指針に基づいて発注関係事務が適切に実施されているかを毎年調査し、その結果を公表します。",
+      "url": "https://www.mlit.go.jp/tec/tec_reiwaunyoshsishin.html",
+      "checkedAt": "2026-10-22"
+    },
+    {
+      "id": "bid-contract-appropriateness-guideline-2024",
+      "kind": "policy",
+      "title": "公共工事の入札及び契約の適正化を図るための措置に関する指針",
+      "shortTitle": "入契法適正化指針",
+      "owner": "閣議決定（国土交通省 不動産・建設経済局 建設業課）",
+      "decidedAt": "2024-12-13",
+      "basisLaws": [
+        "412AC0000000127"
+      ],
+      "topics": [
+        "economic-management",
+        "safety-laws",
+        "municipal-civil-engineers"
+      ],
+      "summary": "公共工事の入札及び契約の適正化の促進に関する法律に基づき政府が定める指針で、平成13年3月9日に閣議決定され、令和6年12月13日に第三次・担い手3法を踏まえて変更されました。発注者が講ずべき措置として、資材高騰時等における誠実な契約変更協議の実施やスライド条項の適切な運用、現場管理におけるICT活用の推進と技術者の専任・兼任状況の確認、入札契約に係る情報公表の原則インターネット化などを新たに規定しています。改正法により、指針の記載事項に「発注体制の整備」も加わっています。",
+      "url": "https://www.mlit.go.jp/report/press/tochi_fudousan_kensetsugyo13_hh_000001_00271.html",
+      "checkedAt": "2026-10-22"
+    },
+    {
+      "id": "ninaite-3-laws-3rd-2024",
+      "kind": "policy",
+      "title": "第三次・担い手３法（品確法と建設業法・入契法の一体的改正）",
+      "shortTitle": "第三次・担い手3法",
+      "owner": "国土交通省 不動産・建設経済局（品確法等の改正は議員立法）",
+      "decidedAt": "2024-06-14",
+      "basisLaws": [
+        "417AC1000000018",
+        "324AC0000000100",
+        "412AC0000000127",
+        "324AC0000000188"
+      ],
+      "topics": [
+        "human-resource-management",
+        "economic-management",
+        "safety-laws",
+        "quality-management"
+      ],
+      "summary": "持続可能な建設業の実現と、そのために必要な担い手の確保を目的とした一体的な法改正で、建設業法・入契法の改正法（令和6年法律第49号、政府提出）が令和6年6月14日に、品確法・入契法・測量法を改正する品確法等の改正法（令和6年法律第54号、議員立法）が同年6月19日に公布されました。担い手確保、生産性向上、地域における対応力強化を柱に、労働者の処遇確保の努力義務化、著しく低い労務費による見積りの禁止、原価割れ契約の禁止、著しく短い工期による契約の禁止、休日確保、現場技術者の専任義務の合理化などを定めています。建設業法・入契法の改正は段階的に施行され、令和6年9月1日に「労務費の基準」の勧告権限の創設など、同年12月13日にICTを活用した現場技術者の配置の合理化などが施行されました。",
+      "url": "https://www.mlit.go.jp/totikensangyo/const/totikensangyo_const_tk1_000193.html",
+      "checkedAt": "2026-10-22"
+    },
+    {
+      "id": "construction-period-standard-2024",
+      "kind": "policy",
+      "title": "工期に関する基準",
+      "shortTitle": "工期に関する基準",
+      "owner": "中央建設業審議会（作成・勧告）",
+      "decidedAt": "2024-03-27",
+      "basisLaws": [
+        "324AC0000000100"
+      ],
+      "topics": [
+        "construction-management",
+        "human-resource-management",
+        "safety-laws"
+      ],
+      "summary": "建設業法の改正（令和元年法律第30号）で中央建設業審議会が作成・勧告できるようになった基準で、令和2年7月に作成され、令和6年3月27日に改定・勧告されました。令和6年4月から建設業にも罰則付きの時間外労働規制が適用されることを踏まえ、受注者は契約締結前や変更契約時に、時間外労働規制を遵守した適正な工期を確保した見積りを提出することが努力義務となり、発注者はその見積りを確認して尊重するとしています。工期全般で考慮する事項として、技能労働者やオペレーターの移動時間が労働時間に含まれうることや、猛暑日の不稼働も追記しています。",
+      "url": "https://www.mlit.go.jp/totikensangyo/const/totikensangyo_const_tk1_000190.html",
+      "checkedAt": "2026-10-22"
+    },
+    {
+      "id": "labor-cost-standard-2025",
+      "kind": "policy",
+      "title": "労務費に関する基準",
+      "shortTitle": "労務費に関する基準",
+      "owner": "中央建設業審議会（作成・勧告）",
+      "decidedAt": "2025-12-02",
+      "basisLaws": [
+        "324AC0000000100"
+      ],
+      "topics": [
+        "economic-management",
+        "human-resource-management",
+        "safety-laws"
+      ],
+      "summary": "令和6年の建設業法改正（令和6年法律第49号）で中央建設業審議会が作成・勧告できるようになった基準で、令和7年12月2日に作成され、実施が勧告されました。建設業法第34条に基づく基準として、公共工事・民間工事を問わず、発注者から技能者を雇用する建設業者までの全ての取引段階の請負契約で、適正な労務費（賃金の原資）を確保することを目的としています。職種分野別・都道府県別の基準値を、公共工事設計労務単価（円/人日）×歩掛（人日/単位施工量）による単位施工量当たりの労務費として示し、価格交渉時の相場観や、行政の指導・監督の参考指標として使います。",
+      "url": "https://www.mlit.go.jp/tochi_fudousan_kensetsugyo/const/tochi_fudousan_kensetsugyo_const_tk1_000001_00044.html",
+      "checkedAt": "2026-10-22"
+    },
+    {
+      "id": "construction-career-up-system",
+      "kind": "policy",
+      "title": "建設キャリアアップシステム（CCUS）",
+      "shortTitle": "建設キャリアアップシステム（CCUS）",
+      "owner": "国土交通省 不動産・建設経済局（運用・管理は一般財団法人建設業振興基金）",
+      "decidedAt": "2019-04",
+      "basisLaws": [],
+      "topics": [
+        "human-resource-management",
+        "information-management"
+      ],
+      "summary": "建設技能者の資格や現場での就業履歴等を業界横断的に登録・蓄積し、技能・経験に応じた適切な処遇につなげる仕組みで、平成31年4月に本格運用が始まりました。運用・管理は一般財団法人建設業振興基金が行い、就業履歴は技能者に配布するICカードを通じて蓄積されます。国土交通大臣認定の能力評価基準で技能者のレベルを判定する能力評価制度があり、令和8年9月に「鉄骨」が加わって51分野で基準が策定されています（令和8年6月30日現在の判定件数は計172,927件）。",
+      "url": "https://www.mlit.go.jp/tochi_fudousan_kensetsugyo/const/ccus_about.html",
+      "checkedAt": "2026-10-22"
+    },
+    {
+      "id": "public-disaster-prevention-guideline-2019",
+      "kind": "policy",
+      "title": "建設工事公衆災害防止対策要綱",
+      "shortTitle": "建設工事公衆災害防止対策要綱",
+      "owner": "国土交通省（国土交通大臣の告示）",
+      "decidedAt": "2019-09-02",
+      "basisLaws": [
+        "324AC0000000100"
+      ],
+      "topics": [
+        "safety-management-cem",
+        "safety-laws",
+        "social-environment-management",
+        "construction-management"
+      ],
+      "summary": "建設業法第25条の27第2項に基づく要綱で、工事の関係者以外の第三者（公衆）の生命、身体及び財産に関する危害と迷惑を防止するためのものです。平成5年に策定された要綱を見直し、令和元年9月2日に国土交通省告示第496号として、土木工事編と建築工事等編からなる新しい要綱が公布・適用されました。改正では、発注者・施工者に加えて設計者も公衆災害防止に努めることや、適切な工期と公衆災害防止対策経費の確保、荒天時の備え、ドローン等の落下事故対策、高齢者・車椅子使用者等の視点から必要な措置などを追加しています。",
+      "url": "https://www.mlit.go.jp/report/press/totikensangyo13_hh_000640.html",
+      "checkedAt": "2026-10-22"
+    },
+    {
+      "id": "heatstroke-prevention-ordinance-2025",
+      "kind": "policy",
+      "title": "労働安全衛生規則の一部を改正する省令（令和７年厚生労働省令第57号）",
+      "shortTitle": "職場の熱中症対策の義務化（安衛則改正）",
+      "owner": "厚生労働省 労働基準局",
+      "decidedAt": "2025-04-15",
+      "basisLaws": [
+        "347AC0000000057",
+        "347M50002000032"
+      ],
+      "topics": [
+        "safety-laws",
+        "safety-management-cem"
+      ],
+      "summary": "職場の熱中症による労働災害が増え、令和6年の休業4日以上の死傷災害が1,195人と調査開始以来最多になったことなどを踏まえた改正で、令和7年4月15日に公布され、6月1日に施行されました。湿球黒球温度（WBGT）28度以上または気温31度以上の場所で、継続して1時間以上または1日4時間を超えて行われることが見込まれる作業では、事業者は、熱中症の自覚症状や疑いを報告させる体制を整え、作業からの離脱・身体冷却・医師の診察などの措置の内容と実施手順を作業場ごとに定め、作業者に周知しなければなりません。作業者には、労働者と同じ場所で作業する労働者以外の者も含まれます。",
+      "url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000116133.html",
+      "checkedAt": "2026-10-22"
+    },
+    {
+      "id": "cost-benefit-analysis-guideline-2025",
+      "kind": "policy",
+      "title": "公共事業評価の費用便益分析に関する技術指針（共通編）",
+      "shortTitle": "費用便益分析の技術指針（共通編）",
+      "owner": "国土交通省 大臣官房 技術調査課・公共事業調査室",
+      "decidedAt": "2025-09-18",
+      "basisLaws": [],
+      "topics": [
+        "economic-management",
+        "municipal-civil-engineers"
+      ],
+      "summary": "国土交通省所管の公共事業の評価結果の信頼性を高めるため、費用便益分析の計測手法や考え方のうち、各事業分野で共通に考慮すべき事項を定めた指針で、平成16年2月に策定され、令和7年9月18日に改定されました。社会的割引率は全事業で当面4%を適用し、参考比較のための値として、国債の実質利回りを踏まえた1%と2%を令和5年度以降に適用するとしています。令和6年には貨幣換算が困難な効果の評価や事業費算定のあり方を、令和7年には総合的な評価のあり方を、公共事業評価手法研究委員会で検討して改定しています。",
+      "url": "https://www.mlit.go.jp/tec/hyouka/public/250918_shishin/250918_shishin.html",
+      "checkedAt": "2026-10-22"
+    },
+    {
+      "id": "digital-society-priority-plan-2026",
+      "kind": "plan",
+      "title": "デジタル社会の実現に向けた重点計画",
+      "shortTitle": "デジタル社会の実現に向けた重点計画",
+      "owner": "閣議決定（デジタル庁）",
+      "decidedAt": "2026-07-21",
+      "basisLaws": [
+        "428AC1000000103"
+      ],
+      "basisLawTitles": [
+        "デジタル社会形成基本法",
+        "情報通信技術を活用した行政の推進等に関する法律"
+      ],
+      "topics": [
+        "information-management",
+        "urban-regional-planning",
+        "maintenance-asset-management"
+      ],
+      "summary": "デジタル社会形成基本法の重点計画、官民データ活用推進基本法の官民データ活用推進基本計画などとして策定される計画で、令和3年12月24日に初めて閣議決定され、令和8年7月21日に最新版が閣議決定されました。デジタル原則に適合しない「アナログ規制」の見直しは令和8年5月時点で必要な見直しの約99%が完了し、インフラ点検などで新たにデジタル技術を活用できるようになったとしています。3次元都市モデル（Project PLATEAU）の整備・活用・オープンデータ化を進め、建築BIM・都市モデル・不動産IDなどの取組を一体的に進める「建築・都市のDX」で、3次元デジタルツインの2030年代の本格的な社会実装を目指すほか、国土交通データプラットフォームの整備によるインフラDXの推進を施策に挙げています。",
+      "url": "https://www.digital.go.jp/policies/priority-policy-program",
+      "checkedAt": "2026-10-22"
+    },
+    {
+      "id": "global-warming-countermeasures-plan-2025",
+      "kind": "plan",
+      "title": "地球温暖化対策計画",
+      "shortTitle": "地球温暖化対策計画",
+      "owner": "閣議決定（環境省 地球環境局）",
+      "decidedAt": "2025-02-18",
+      "basisLaws": [
+        "410AC0000000117"
+      ],
+      "topics": [
+        "environment-decarbonization",
+        "social-environment-management"
+      ],
+      "summary": "地球温暖化対策推進法に基づく政府の総合計画で、令和3年10月22日に閣議決定された計画を改定し、令和7年2月18日に閣議決定されました。2030年度に温室効果ガスを2013年度比で46%削減する目標に加え、2035年度に60%、2040年度に73%削減することを目指すとしています。これらの目標は、パリ協定に基づく日本の新たな国が決定する貢献（NDC）として国連に提出されています。",
+      "url": "https://www.env.go.jp/earth/ondanka/keikaku/250218.html",
+      "checkedAt": "2026-10-22"
+    },
+    {
+      "id": "climate-change-adaptation-plan",
+      "kind": "plan",
+      "title": "気候変動適応計画",
+      "shortTitle": "気候変動適応計画",
+      "owner": "閣議決定（環境省 地球環境局）",
+      "decidedAt": "2023-05-30",
+      "basisLaws": [
+        "430AC0000000050"
+      ],
+      "topics": [
+        "environment-decarbonization",
+        "rivers-disaster-prevention",
+        "social-environment-management"
+      ],
+      "summary": "気候変動適応法第7条に基づく計画で、平成30年11月27日に策定され、令和3年10月22日の変更を経て、令和5年5月30日に一部変更されました。防災、農業、健康などの幅広い分野で適応策を拡充し、分野別施策と基盤的施策にKPIを設定して進捗を管理するとしており、令和5年の変更では、改正気候変動適応法に基づく熱中症対策実行計画の基本的事項を加えています（同実行計画は、2030年に熱中症による死亡者数を現状から半減させることを目指しています）。令和8年2月には気候変動影響評価報告書が公表され、関係府省庁の気候変動適応推進会議で計画の改定に向けた検討が始まっています。",
+      "url": "https://www.env.go.jp/earth/earth/tekiou/page_00004.html",
+      "checkedAt": "2026-10-22"
+    },
+    {
+      "id": "basic-environment-plan-6th",
+      "kind": "plan",
+      "title": "第六次環境基本計画",
+      "shortTitle": "第六次環境基本計画",
+      "owner": "閣議決定（環境省）",
+      "decidedAt": "2024-05-21",
+      "basisLaws": [
+        "405AC0000000091"
+      ],
+      "topics": [
+        "social-environment-management",
+        "environment-decarbonization"
+      ],
+      "summary": "環境基本法に基づき、政府の環境の保全に関する総合的かつ長期的な施策の大綱等を定める計画で、第六次計画は令和6年5月21日に閣議決定されました。環境保全を通じた、現在および将来の国民一人一人の「ウェルビーイング／高い生活の質」を最上位の目的に掲げ、「循環共生型社会」の実現を目指しています。マクロ経済、国土、地域、暮らし、イノベーション、国際の6分野にわたる重点戦略を定めています。",
+      "url": "https://www.env.go.jp/council/02policy/41124_00012.html",
+      "checkedAt": "2026-10-22"
+    },
+    {
+      "id": "biodiversity-national-strategy-2023-2030",
+      "kind": "plan",
+      "title": "生物多様性国家戦略2023-2030 ～ネイチャーポジティブ実現に向けたロードマップ～",
+      "shortTitle": "生物多様性国家戦略2023-2030",
+      "owner": "閣議決定（環境省 自然環境局）",
+      "decidedAt": "2023-03-31",
+      "period": "2023〜2030年",
+      "basisLaws": [
+        "420AC1000000058"
+      ],
+      "topics": [
+        "social-environment-management",
+        "environment-decarbonization"
+      ],
+      "summary": "生物多様性条約第6条と生物多様性基本法第11条に基づく計画で、2022年12月のCOP15で採択された「昆明・モントリオール生物多様性枠組」を踏まえ、令和5年3月31日に閣議決定されました。2030年ミッションとして「2030年までに『ネイチャーポジティブ：自然再興』を実現する」ことを掲げています。陸と海の30%以上を保全する30by30目標の達成に向けた、保護地域とOECMによる保全の推進をはじめ、5つの基本戦略に沿って取り組むとしています。",
+      "url": "https://www.env.go.jp/press/press_01379.html",
+      "checkedAt": "2026-10-22"
+    },
+    {
+      "id": "circular-society-basic-plan-5th",
+      "kind": "plan",
+      "title": "第五次循環型社会形成推進基本計画",
+      "shortTitle": "第五次循環型社会形成推進基本計画",
+      "owner": "閣議決定（環境省）",
+      "decidedAt": "2024-08-02",
+      "period": "2030年度を目標年次",
+      "basisLaws": [
+        "412AC0000000110"
+      ],
+      "topics": [
+        "social-environment-management",
+        "environment-decarbonization"
+      ],
+      "summary": "循環型社会形成推進基本法に基づく計画で、令和6年8月2日に閣議決定されました。循環経済への移行を国家戦略と位置づけ、2030年度を目標年次として数値目標を設定しています。ライフサイクル全体での徹底的な資源循環、多種多様な地域の循環システムの構築と地方創生の実現、資源循環・廃棄物管理基盤の強靱化と着実な適正処理・環境再生の実行など、5つの柱で施策を整理しています。",
+      "url": "https://www.env.go.jp/press/press_03525.html",
+      "checkedAt": "2026-10-22"
+    },
+    {
+      "id": "construction-recycling-plan-2020",
+      "kind": "plan",
+      "title": "建設リサイクル推進計画２０２０ ～「質」を重視するリサイクルへ～",
+      "shortTitle": "建設リサイクル推進計画2020",
+      "owner": "国土交通省 総合政策局 公共事業企画調整課",
+      "decidedAt": "2020-09-30",
+      "period": "最大10年間を見通した計画（2〜3年ごとに中間フォローアップ）",
+      "basisLaws": [],
+      "topics": [
+        "social-environment-management",
+        "environment-decarbonization",
+        "construction-management"
+      ],
+      "summary": "社会資本整備審議会・交通政策審議会の建設リサイクル推進施策検討小委員会の審議を経て、令和2年9月30日に策定された計画です。建設廃棄物のリサイクル率が約97%（2018年度）に達して維持・安定期に入ったことから、今後は付加価値の高い再生材へのリサイクルなど「質」の向上を重視するとし、これまでの目標値に代えて2024年度の達成基準値（アスファルト・コンクリート塊とコンクリート塊の再資源化率99%以上、建設廃棄物全体の再資源化・縮減率98%以上、建設発生土の有効利用率80%以上など）を設けています。新規施策として、廃プラスチックの分別・リサイクルの促進、リサイクル原則化ルールの改定、建設発生土のトレーサビリティシステム等の活用を挙げており、令和7年4月の小委員会では、今後の施策に向けた提言の中間とりまとめ（素案）が議論されています。",
+      "url": "https://www.mlit.go.jp/report/press/sogo03_hh_000247.html",
+      "checkedAt": "2026-10-22"
+    },
+    {
+      "id": "mlit-environmental-action-plan-2025",
+      "kind": "plan",
+      "title": "国土交通省環境行動計画",
+      "shortTitle": "国土交通省環境行動計画",
+      "owner": "国土交通省 総合政策局",
+      "decidedAt": "2025-06-20",
+      "period": "2030年度まで（2040年を見据える）",
+      "basisLaws": [],
+      "topics": [
+        "environment-decarbonization",
+        "social-environment-management"
+      ],
+      "summary": "国土交通省の環境政策の取組を示す計画で、令和7年6月20日に改定されました。計画期間は、地球温暖化対策計画の目標年度である2040年を見据えつつ、2030年度までとしています。国土交通GXの推進、自然再生や人と自然が共生する社会づくり、再生資源を利用した生産システムの構築、環境資源を基軸とした地域の経済社会づくり、気候変動に適応できる社会の形成、環境価値が評価される市場創出、グリーン社会を支える体制・基盤づくりの7つを重点分野としています。",
+      "url": "https://www.mlit.go.jp/sogoseisaku/environment/sosei_environment_fr_000101.html",
+      "checkedAt": "2026-10-22"
+    },
+    {
+      "id": "civil-works-decarbonization-action-plan-2025",
+      "kind": "policy",
+      "title": "国土交通省土木工事の脱炭素アクションプラン ～建設現場のカーボンニュートラルに向けて～",
+      "shortTitle": "土木工事の脱炭素アクションプラン",
+      "owner": "国土交通省 大臣官房 技術調査課・参事官（イノベーション）グループ 施工企画室",
+      "decidedAt": "2025-04-21",
+      "basisLaws": [],
+      "topics": [
+        "environment-decarbonization",
+        "construction-management",
+        "concrete"
+      ],
+      "summary": "品確法の改正や地球温暖化対策計画などの政府計画の改定を踏まえ、直轄の土木工事で脱炭素化に取り組む方針として、令和7年4月21日に公表されました。「建設機械の脱炭素化」「コンクリートの脱炭素化」「その他建設技術の脱炭素化」の3つをリーディング施策としています。燃費基準達成建設機械の認定型式のうち油圧ショベルの直轄工事での使用原則化を2030年度頃を目途に行うこと、令和7年度から土工と河川浚渫工でICT施工を原則化すること、セメントの一部を置き換えた製品のうちグリーン購入法の特定調達品目より高い置換率（55%以上）のものを試行工事で検証し、用途を指定して使用を原則化していくことなどを示しています。",
+      "url": "https://www.mlit.go.jp/report/press/kanbo08_hh_001200.html",
+      "checkedAt": "2026-10-22"
+    },
+    {
+      "id": "gx-construction-machinery-certification-2023",
+      "kind": "policy",
+      "title": "GX建設機械認定制度",
+      "shortTitle": "GX建設機械認定制度",
+      "owner": "国土交通省 大臣官房 参事官（イノベーション）グループ 施工企画室",
+      "decidedAt": "2023-10-17",
+      "basisLaws": [],
+      "topics": [
+        "environment-decarbonization",
+        "construction-management"
+      ],
+      "summary": "カーボンニュートラルに資するGX建設機械の普及を促し、建設施工で排出される二酸化炭素を減らすための認定制度で、令和5年10月17日に申請の受付が始まりました。当初の対象は電動（バッテリ式・有線式）の油圧ショベルとホイールローダで、令和5年12月25日の初回認定では4社15型式の電動ショベルが認定されています。2024年度からは、関係省庁と連携して認定型式の購入に対する補助金制度が設けられ、エネルギー効率の良い電動建機を認定・普及させるための電力消費量基準値を、2030年度を目途に設定するとしています。",
+      "url": "https://www.mlit.go.jp/tec/constplan/sosei_constplan_tk_000005.html",
+      "checkedAt": "2026-10-22"
     }
   ]
 }
