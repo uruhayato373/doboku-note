@@ -47,12 +47,13 @@ test('note の原稿・マガジンの写し・収録の期待値を stage し�
   assert.ok(ids(['content/note/x/y/Article.md']).includes('generated-indexes'), 'isNoteArticleFile と同じく大文字小文字を区別しない');
 });
 
-test('pre-commit の検査は quality-audit の ci:true と同じ id（CI の全量検査と食い違わない）', () => {
+test('pre-commit の検査は quality-audit の ci:true か ops:true と同じ id（全量の検査と食い違わない）', () => {
   // 本文を行で探すと複数行の定義（qualification-market など）を読めないので、export された CHECKS を見る（DN-0790）
+  // DN-0805 で ops（日次）へ下げた x-review・knip-ratchet・review-wiring も commit 前には見る（全量は日次の ops が見る）
   for (const g of GATES) {
     const c = CHECKS.find((x) => x.id === g.id);
     assert.ok(c, `${g.id} が quality-audit に無い`);
-    assert.equal(c.ci, true, `${g.id} が ci:true でない`);
+    assert.ok(c.ci === true || c.ops === true, `${g.id} が ci:true でも ops:true でもない（全量を誰も見ない）`);
   }
 });
 

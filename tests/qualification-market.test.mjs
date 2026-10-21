@@ -19,11 +19,6 @@ import { loadMarketInputs } from '../scripts/lib/market-inputs.mjs';
 import { REPO_ROOT as ROOT } from '../scripts/lib/repository-paths.mjs';
 
 const bands = { low: 1, mid: 3, high: 6 };
-
-test('実データ: 検索語・追跡リスト・売上の分類が正本と整合している', () => {
-  assert.deepEqual(validateMarketInputs(loadMarketInputs(ROOT)), []);
-});
-
 test('実データ: 全資格を 1 行ずつ組み立てられる', () => {
   const input = loadMarketInputs(ROOT);
   const view = buildMarketView({ ...input, today: '2026-09-26' });

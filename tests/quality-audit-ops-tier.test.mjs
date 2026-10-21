@@ -122,3 +122,27 @@ test('外部状態で決まる動画の実査ドリフト（V05）は ops だけ
   assert.notEqual(ops.ci, true);
   assert.ok(ops.cmd.includes('--freshness'));
 });
+
+test('束（steps）は手順を全部回し、1 つでも落ちたら fail・落ちた手順の名前を出す（DN-0805）', async () => {
+  const { runSteps } = await import('../scripts/quality-audit.mjs');
+  const node = (code) => ['node', '-e', `console.log('out-${code}'); process.exit(${code})`];
+  const ok = await runSteps({ id: 'b', ci: true, timeout: 30_000, steps: [{ label: 'a', cmd: node(0), timeout: 10_000 }, { label: 'b', cmd: node(0), timeout: 10_000 }] });
+  assert.equal(ok.status, 'pass');
+  assert.match(ok.stdoutTail, /=== a \(pass\) ===[\s\S]*=== b \(pass\) ===/, '全部の手順が回っていない');
+  const bad = await runSteps({ id: 'b', ci: true, timeout: 30_000, steps: [{ label: 'a', cmd: node(1), timeout: 10_000 }, { label: 'b', cmd: node(0), timeout: 10_000 }] });
+  assert.equal(bad.status, 'fail');
+  assert.match(bad.stdoutTail, /=== b \(pass\) ===/, '落ちた後の手順も回す（1 回で全部の結果が見える）');
+  assert.match(bad.excerpt, /\[a: fail\]/);
+  const missing = await runSteps({ id: 'b', ci: true, timeout: 30_000, steps: [{ label: 'x', npm: '__no_such_script__' }] });
+  assert.equal(missing.status, 'fail', '未定義の npm script を束の中で黙って飛ばさない');
+});
+
+test('束の検査は全部 steps を持ち、各手順に label・timeout・npm か cmd がある', () => {
+  const bundles = CHECKS.filter((c) => c.steps);
+  assert.deepEqual(bundles.map((c) => c.id).sort(), ['admin-ui', 'report-generators', 'sns-urls', 'workflow-static']);
+  for (const b of bundles) {
+    for (const s of b.steps) {
+      assert.ok(s.label && Number.isFinite(s.timeout) && (s.npm || s.cmd), `${b.id}: ${JSON.stringify(s).slice(0, 80)}`);
+    }
+  }
+});

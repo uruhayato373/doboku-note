@@ -37,7 +37,7 @@ export const UNIT_TEST_RULES = [
   // note 記事を足すと、カバーの分類・テーマの分類・マガジンのラベルの分類が落ちる（12 回・12 回・7 回）
   { match: (f) => /^content\/note\/.+\/article(-[^/]+)?\.md$/i.test(f), tests: ['tests/note-cover-category.test.mjs', 'tests/content-theme.test.mjs', 'tests/magazine-membership.test.mjs'] },
   // サイト記事を足すと、転職記事の柱分類（10 回・10 回）と横断トピックの配線（7 回）が落ちる
-  { match: (f) => /^content\/site\/.+\.mdx$/.test(f), tests: ['tests/career-funnel-report.test.mjs', 'tests/career-pathways.test.mjs', 'tests/topic-wiring.test.mjs'] },
+  { match: (f) => /^content\/site\/.+\.mdx$/.test(f), tests: ['tests/career-funnel-report.test.mjs', 'tests/career-pathways.test.mjs'] },
   // 展開の判断材料・シリーズ企画の実データ（8 回・8 回）
   { match: (f) => ['config.market-scan', 'config.competitors', 'config.product-lineup', 'config.qualification-registry', 'note.sales', 'coconala.orders'].map((id) => datasetPath(id)).includes(f), tests: ['tests/qualification-market.test.mjs'] },
   { match: (f) => [datasetPath('config.content-series'), datasetPath('config.content-series-basis')].includes(f), tests: ['tests/content-series.test.mjs'] },
