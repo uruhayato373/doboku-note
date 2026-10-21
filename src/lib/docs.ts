@@ -125,6 +125,7 @@ export type DocMeta = {
   lawArticles?: Record<string, string[]>; // 法令 ID → 本文が引く条の番号（32・28_2 など）
   lawId?: string; // 法令ページ（category: laws）が解説する法令の e-Gov 法令 ID
   lawFamily?: string[]; // 法令ページが同じページで扱う政令・省令の e-Gov 法令 ID
+  explainsLaw?: string; // 法令ページの無い法令の解説を兼ねる記事が解説する法令の e-Gov 法令 ID（根拠法令の法令名の行き先になる）
   section?: string;
   guide_order?: number;
   textbook_order?: number;

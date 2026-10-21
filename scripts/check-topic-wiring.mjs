@@ -27,6 +27,7 @@ function findMdxFiles(directory) {
 
 export function auditTopicWiring(root = REPO_ROOT) {
   const topics = JSON.parse(readFileSync(join(root, 'src/config/topics.json'), 'utf8'));
+  const taxonomy = JSON.parse(readFileSync(join(root, 'src/config/content-taxonomy.json'), 'utf8'));
   // タグは canonical（tags.json）で照合する。記事の別名綴りは build 時に正規化されるため、ここでも同じ正規化を通す
   const aliasMap = buildAliasMap(JSON.parse(readFileSync(join(root, 'src/config/tags.json'), 'utf8')));
   const canon = (tag) => aliasMap.toCanonical.get(tag) ?? tag;
@@ -56,6 +57,20 @@ export function auditTopicWiring(root = REPO_ROOT) {
       lawPageOwner.set(id, local);
     }
   }
+  // 作らない法令（content-taxonomy.json の lawPages.skip）は写しにある ID で、法令ページを作ったら消す
+  for (const id of Object.keys(taxonomy.lawPages?.skip ?? {})) {
+    if (!egovLaws[id]) issues.push(`lawPages.skip「${id}」が e-Gov の写しに無い`);
+    if (lawPageOwner.has(id)) issues.push(`lawPages.skip「${id}」は法令ページ（${lawPageOwner.get(id)}）があるので消す`);
+  }
+  // 法令の解説を兼ねる記事（explainsLaw）: 根拠法令の法令名の行き先になる。法令は写しにあり、1 法令を 1 記事だけが名乗る
+  const explainer = new Map();
+  for (const [slug, m] of Object.entries(metaIndex)) {
+    if (!m.explainsLaw || m.published === false) continue;
+    if (m.category === 'laws') issues.push(`${slug}: 法令ページは explainsLaw ではなく lawId で法令を指す`);
+    if (!egovLaws[m.explainsLaw]) issues.push(`${slug}: explainsLaw「${m.explainsLaw}」が e-Gov の写しに無い（npm run egov-laws -- --sync）`);
+    if (explainer.has(m.explainsLaw)) issues.push(`explainsLaw「${m.explainsLaw}」を 2 記事が名乗っている（${explainer.get(m.explainsLaw)}・${slug}）。法令名の行き先は 1 記事にする`);
+    explainer.set(m.explainsLaw, slug);
+  }
 
   // products（このテーマの有料教材）は note の商品の正本にある id を指す。打ち間違いはページから黙って消える
   const productList = readDataset(root, 'config.products');
@@ -72,6 +87,9 @@ export function auditTopicWiring(root = REPO_ROOT) {
       if (topicTags.has(tag) && topicTags.get(tag) !== topic.slug) issues.push(`tag が複数topicに重複: ${tag} (${topicTags.get(tag)}, ${topic.slug})`);
       topicTags.set(tag, topic.slug);
     }
+    // 公開ハブは入口記事を 3 本選ぶ（無いと「はじめに読む」が記事型と更新順の機械選びになる・DN-0423）
+    if (topic.status !== 'incubating' && (topic.featured ?? []).length < 3) issues.push(`${topic.slug}: 公開ハブの featured（入口記事）が ${(topic.featured ?? []).length} 本。3 本選ぶ`);
+    if (new Set(topic.featured ?? []).size !== (topic.featured ?? []).length) issues.push(`${topic.slug}: featured に同じ記事が重複`);
     for (const t of topic.featured ?? []) {
       if (typeof t !== 'string' || !t) issues.push(`${topic.slug}: featured に空の slug`);
       else if (!metaIndex[t] || metaIndex[t].published === false) issues.push(`${topic.slug}: featured「${t}」は公開中の記事に無い`);
@@ -124,6 +142,7 @@ export function auditTopicWiring(root = REPO_ROOT) {
       publishedGuides,
       guidesWithTopic,
       lawPages,
+      lawExplainers: explainer.size,
       policies: (policyRegistry.policies ?? []).length,
     },
   };

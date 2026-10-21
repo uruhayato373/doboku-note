@@ -18,6 +18,7 @@
 | `src/lib/related-core.mjs` | ランクアルゴリズムの本体（純粋関数、I/O なし）。テストと `report-taxonomy-wiring` も同じ関数を使う |
 | `src/lib/related-score.ts` | サイト用の窓口。tags.json の class と topics.json の所属を `related-core.mjs` に渡す。`RelatedArticles`・`MidArticleCta` の関連記事モード・記事末のテーマ／法令のカードで共有 |
 | `src/lib/article-end-wiring.ts` | 記事末の「この記事のテーマ」「同じ法令を扱う記事」の選び方（`relatedScore` で並べ、資格が重ならないように選ぶ） |
+| `src/lib/law-wiring.ts` の `resolveArticleEnd` | 記事末の回遊をまとめて決める（根拠法令の同じ法令を扱う記事・関わるテーマ・法令ページへのリンク → この記事のテーマ。先に出した記事を後ろから外す `shownSlugs`）。`ArticleFooter` は表示だけ |
 | `src/components/ui/RelatedArticles/RelatedArticles.tsx` | セクション本体（サーバーコンポーネント） |
 | `src/components/ui/RelatedArticles/RelatedArticleCard.tsx` | OGP サムネイルカード1枚分 |
 

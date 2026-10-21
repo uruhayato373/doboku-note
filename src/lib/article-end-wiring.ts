@@ -33,6 +33,11 @@ function pickAcrossCategories(current: DocMeta, candidates: DocMeta[], limit: nu
     .map((doc) => ({ doc, score: relatedScore(current, doc) }))
     .sort((a, b) => b.score - a.score || stableTieBreak(current, a.doc, b.doc))
     .map((s) => s.doc);
+  return spreadAcrossCategories(ranked, limit);
+}
+
+/** 並んだ順に、まず資格（カテゴリ）が重ならないように 1 件ずつ取り、足りなければ残りで埋める（記事末とテーマのページの法令の節で共有） */
+export function spreadAcrossCategories(ranked: DocMeta[], limit: number): DocMeta[] {
   const picked: DocMeta[] = [];
   const seen = new Set<string>();
   for (const doc of ranked) {

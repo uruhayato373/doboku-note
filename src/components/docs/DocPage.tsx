@@ -287,7 +287,7 @@ export async function renderDocPage(slugStr: string) {
   // → 本文・TOC の両方から ## 参考資料 が消え、<ExternalReferences> として表示される
   const { strippedContent, references } = extractReferencesSection(doc.content);
   // 根拠法令は参考資料の節のリンクも含めて全文から集める（DN-0731）
-  const articleLawList = lawsOfArticle(doc.content);
+  const articleLawList = lawsOfArticle(doc.content, doc.meta.explainsLaw);
 
   // Extract headings for Table of Contents
   const headings = extractHeadings(

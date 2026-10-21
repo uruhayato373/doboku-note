@@ -124,6 +124,18 @@ test('法令とテーマの多対多: そのテーマの記事が 2 本以上引
   assert.deepEqual(lawsOfTopic(index, 'rivers').map((r) => [r.lawId, r.docs.length]), [['river-act', 2]]);
 });
 
+test('法令ページの関わるテーマ: 法律と政令・省令のどれかを引く記事を、テーマごとに重ねずに数える', () => {
+  const docs = [
+    { slug: 'a', lawIds: ['act', 'order'], t: ['roads'] },
+    { slug: 'b', lawIds: ['order'], t: ['roads'] },
+    { slug: 'c', lawIds: ['act'], t: ['rivers'] },
+  ];
+  const index = lawTopicIndex(docs, (d) => d.t);
+  // 法律だけでは roads は a の 1 本（結ばない）。施行令と合わせると a・b の 2 本（a は両方を引くが 1 本と数える）
+  assert.deepEqual(topicsOfLaw(index, 'act'), []);
+  assert.deepEqual(topicsOfLaw(index, ['act', 'order']), [{ slug: 'roads', count: 2 }]);
+});
+
 test('法令の配線: 記事末の根拠法令に関わるテーマ、テーマのページに法令と、法令・制度の軸に対応の一覧', () => {
   assert.ok(read('src/components/ui/ArticleLaws/ArticleLaws.tsx').includes('data-cta-label="law-topics"'), '根拠法令のカードに関わるテーマが無い');
   const page = read('src/app/topics/[slug]/page.tsx');

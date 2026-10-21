@@ -20,8 +20,7 @@ import FAQCard from '@/components/ui/FAQCard/FAQCard';
 import SidebarAdBanner from '@/components/ui/SidebarAdBanner/SidebarAdBanner';
 import RelatedArticles from '@/components/ui/RelatedArticles';
 import TopicHubLinks from '@/components/ui/TopicHubLinks/TopicHubLinks';
-import { resolveLawSiblings, resolveTopicHubLinks, type WiredDoc } from '@/lib/article-end-wiring';
-import { getLawPageData, lawLink, resolveLawTopics, type LawTopicLink } from '@/lib/law-wiring';
+import { resolveArticleEnd } from '@/lib/law-wiring';
 import LawPageSections from '@/components/laws/LawPageSections';
 import NextStepNav from '@/components/ui/NextStepNav/NextStepNav';
 import AuthorCard from '@/components/ui/AuthorCard/AuthorCard';
@@ -88,20 +87,7 @@ export default function ArticleFooter({
   // キャリア記事の記事末は内部導線（CareerNextStepNav）に置き換える（2026-08-21・記事末 975 表示 0 クリック）。
   const isCareer = isCareerDoc(meta);
   // 記事末の回遊（content-taxonomy.md §6-3）。法令 → テーマ → 関連記事の順に出し、先に出した記事は後ろから外す
-  const lawSiblings = laws.length > 0 ? resolveLawSiblings(meta, laws.map((law) => law.lawId), relatedArticles) : new Map<string, WiredDoc[]>();
-  const lawSiblingSlugs = new Set([...lawSiblings.values()].flat().map((doc) => doc.slug));
-  // 法令 → 分野・立場のテーマ（法令と分野は多対多。河川法なら 河川・砂防・防災 と 自治体の土木職 など）
-  const lawTopics = laws.length > 0 ? resolveLawTopics(laws.map((law) => law.lawId)) : new Map<string, LawTopicLink[]>();
-  // 法令ページ（/laws/）がある法令は法令名をそこへ。法令ページ自身が解説する法令（lawId・lawFamily）は自分へ戻さない
-  const ownLaws = new Set(meta.category === 'laws' ? [meta.lawId, ...(meta.lawFamily ?? [])].filter(Boolean) : []);
-  const lawPageLinks = new Map(laws.filter((law) => !ownLaws.has(law.lawId)).flatMap((law) => {
-    const link = lawLink(law.lawId);
-    return link.internal ? [[law.lawId, link.href] as const] : [];
-  }));
-  // 法令ページの末尾の自動の節（関わるテーマ・計画と審議会・よく引かれる条・この法令を扱う記事・施行日）
-  const lawPage = meta.category === 'laws' && meta.lawId ? getLawPageData(meta.lawId, meta.lawFamily ?? []) : null;
-  const topicLinks = resolveTopicHubLinks(meta, relatedArticles, { exclude: lawSiblingSlugs });
-  const shownSlugs = new Set([...lawSiblingSlugs, ...topicLinks.flatMap((link) => link.picks.map((doc) => doc.slug))]);
+  const { lawSiblings, lawTopics, lawPageLinks, lawPage, topicLinks, shownSlugs } = resolveArticleEnd(meta, laws.map((law) => law.lawId), relatedArticles);
   const endBanner = endBannerAd ? (
     <SidebarAdBanner
       href={endBannerAd.banner.href}

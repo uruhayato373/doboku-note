@@ -33,6 +33,11 @@
       "kinki/common",
       "kinki/hikkei"
     ],
+    "featured": [
+      "civil-practice-concrete-roles-overview",
+      "civil-construction-1-guide-concrete-key-points",
+      "concrete-chief-engineer-guide-overview"
+    ],
     "products": [
       "cce-marugoto-pack",
       "cd-marugoto-pack",
@@ -69,6 +74,11 @@
     "featuredStandardRefs": [
       "kinki/common"
     ],
+    "featured": [
+      "civil-construction-1-guide-earthwork-key-points",
+      "civil-practice-embankment-quality-control",
+      "civil-construction-1-guide-foundation"
+    ],
     "products": [
       "pe-construction-geotechnical-pack",
       "essay-geotechnical-consultant-magazine",
@@ -99,6 +109,11 @@
     "featuredStandardRefs": [
       "kinki/common",
       "kinki/hikkei"
+    ],
+    "featured": [
+      "laws-road-act",
+      "civil-practice-road-act-framework",
+      "civil-construction-2-guide-road-pavement-key-points"
     ],
     "products": [
       "pe-construction-road-pack",
@@ -143,6 +158,11 @@
     "featuredStandardRefs": [
       "kinki/common"
     ],
+    "featured": [
+      "laws-river-act",
+      "civil-practice-river-act-framework",
+      "civil-construction-2-guide-river-sabo-key-points"
+    ],
     "products": [
       "pe-construction-river-coast-pack",
       "essay-river-municipality-magazine",
@@ -183,6 +203,11 @@
       "kinki/common",
       "kinki/hikkei"
     ],
+    "featured": [
+      "civil-construction-1-guide-construction-plan",
+      "civil-practice-construction-plan-document",
+      "civil-construction-1-guide-schedule-management"
+    ],
     "products": [
       "pe-construction-construction-planning-pack",
       "civil-1-keiken-complete-pack",
@@ -216,6 +241,11 @@
       "kinki/hikkei",
       "kyushu/hikkei-common-09",
       "kyushu/hikkei-common-10"
+    ],
+    "featured": [
+      "laws-construction-business-act",
+      "laws-labor-safety-act",
+      "civil-construction-1-guide-law-key-points"
     ]
   },
   {
@@ -242,6 +272,11 @@
     "featuredStandardRefs": [
       "kinki/common",
       "kinki/hikkei"
+    ],
+    "featured": [
+      "civil-construction-1-guide-quality-management",
+      "civil-practice-construction-inspection-types",
+      "civil-practice-reference-values"
     ],
     "products": [
       "civil-1-experience-essay",
@@ -277,6 +312,11 @@
     "featuredStandardRefs": [
       "kinki/common"
     ],
+    "featured": [
+      "civil-construction-1-guide-environment-management",
+      "civil-practice-public-works-environmental-care",
+      "pe-comprehensive-management-r8-essay-theme-circular-economy"
+    ],
     "products": [
       "pe-construction-environment-pack"
     ]
@@ -307,6 +347,11 @@
       "kinki/common",
       "kinki/hikkei"
     ],
+    "featured": [
+      "civil-practice-social-infrastructure-overview",
+      "civil-practice-road-inspection-longevity-plan",
+      "civil-construction-1-guide-concrete-maintenance"
+    ],
     "products": [
       "essay-maintenance-contractor-magazine",
       "civil-1-keiken-bridge-maintenance-pack",
@@ -335,6 +380,11 @@
     "featuredStandardRefs": [
       "kinki/common"
     ],
+    "featured": [
+      "civil-construction-1-textbook-tunnel-natm",
+      "civil-construction-2-guide-dam-tunnel-key-points",
+      "pe-construction-tunnel-exam-themes"
+    ],
     "products": [
       "pe-construction-tunnel-pack",
       "essay-tunnel-consultant-magazine",
@@ -362,6 +412,11 @@
     "standardKeywords": [
       "積算",
       "工程管理"
+    ],
+    "featured": [
+      "pe-comprehensive-management-economic-management-pillar",
+      "pe-comprehensive-management-management-tradeoffs",
+      "civil-practice-ppp-pfi-selection"
     ],
     "products": [
       "tankan-reading-guide",
@@ -393,6 +448,11 @@
       "労務",
       "安全衛生"
     ],
+    "featured": [
+      "pe-comprehensive-management-human-resource-management-pillar",
+      "civil-practice-construction-industry-structure",
+      "civil-practice-ccus-kentaikyo-site"
+    ],
     "products": [
       "tankan-reading-guide",
       "tradeoff-5kanri"
@@ -423,6 +483,11 @@
     "standardKeywords": [
       "電子納品",
       "情報共有"
+    ],
+    "featured": [
+      "pe-comprehensive-management-information-management-pillar",
+      "civil-practice-bim-cim-site-practice",
+      "civil-practice-survey-informatics-overview"
     ],
     "products": [
       "tankan-reading-guide",
@@ -457,6 +522,11 @@
       "kyushu/hikkei-common-09",
       "kyushu/hikkei-common-10"
     ],
+    "featured": [
+      "pe-comprehensive-management-safety-management-pillar",
+      "civil-construction-1-guide-safety-management",
+      "civil-practice-risk-assessment-construction-workflow"
+    ],
     "products": [
       "tankan-reading-guide",
       "tradeoff-5kanri"
@@ -481,6 +551,11 @@
     "standardKeywords": [
       "環境保全",
       "騒音"
+    ],
+    "featured": [
+      "pe-comprehensive-management-social-environment-management-pillar",
+      "pe-comprehensive-management-management-tradeoffs",
+      "pe-comprehensive-management-sdgs"
     ],
     "products": [
       "tankan-reading-guide",

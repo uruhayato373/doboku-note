@@ -110,8 +110,10 @@ function main() {
 
     // 法令の ID（e-Gov の写しにある法令だけ・本文に初めて出た順）。法令はタグにしない（05_情報アーキテクチャ.md「法令ページ」）
     const laws = articleLaws(readFileSync(filePath, 'utf8'), EGOV_LAWS);
-    if (laws.length) {
-      meta.lawIds = laws.map((law) => law.lawId);
+    // 法令の解説を兼ねる記事（explainsLaw）は、本文がリンクしていなくてもその法令を引く記事に数える（先頭に置く）
+    const lawIds = [...new Set([...(meta.explainsLaw && EGOV_LAWS[meta.explainsLaw] ? [meta.explainsLaw] : []), ...laws.map((law) => law.lawId)])];
+    if (lawIds.length) {
+      meta.lawIds = lawIds;
       // 条の番号（法令ページの「よく引かれる条」が数える）。条を引いていない法令は入れない
       const lawArticles = Object.fromEntries(laws.filter((law) => law.articles.length).map((law) => [law.lawId, law.articles.map((a) => a.article)]));
       if (Object.keys(lawArticles).length) meta.lawArticles = lawArticles;

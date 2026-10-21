@@ -116,3 +116,29 @@ test('法令ページ: 解説の後に関わるテーマ・計画・よく引か
   await page.goto('/laws');
   await expect(page.locator('[data-cta-label="laws-index"] a[href="/laws/river-act"]').first()).toBeVisible();
 });
+
+test('法令名は、法令ページが無ければ解説記事（explainsLaw）へ向き、解説記事の記事末にも根拠法令が出る', async ({ page }) => {
+  // 1級のテキストの「廃棄物処理法」→ 総監の用語「廃棄物処理法」
+  await page.goto('/exam/civil-construction-1/textbook/waste-disposal-manifest');
+  await expect(page.locator('[data-cta-label="law-page"] a[href="/exam/pe-comprehensive-management/keywords/waste-management-act"]').first()).toBeVisible();
+  // 解説記事は本文が e-Gov にリンクしていなくても、記事末に e-Gov の条文と同じ法令を扱う記事が出る（自分へは戻さない）
+  await page.goto('/exam/pe-comprehensive-management/keywords/air-pollution-control-act');
+  const card = page.locator('[aria-label="この記事の根拠法令"]');
+  await expect(card.locator('a[href="https://laws.e-gov.go.jp/law/343AC0000000097"]').first()).toBeVisible();
+  await expect(card.locator('a[href="/exam/pe-comprehensive-management/keywords/air-pollution-control-act"]')).toHaveCount(0);
+});
+
+test('総監の大きなテーマは、記事の一覧をキーワード集の節で区切り、入口記事を「はじめに読む」に出す', async ({ page }, testInfo) => {
+  await page.goto('/topics/economic-management');
+  await expect(page.getByRole('heading', { name: 'はじめに読む' })).toBeVisible();
+  await expect(page.locator('main ul.mb-6 a[href="/exam/pe-comprehensive-management/pillar/economic-management-pillar"]')).toBeVisible();
+  await expect(page.locator('main details p', { hasText: '2.1 事業企画' })).toHaveCount(1);
+  // ヘッダーから法令の一覧へ（法令はカテゴリとして資格一覧の「資格を問わない実務・法令」に並ぶ。スマホはメニューの中）
+  if (testInfo.project.name === 'mobile-chromium') {
+    await page.getByRole('button', { name: 'メニューを開く', exact: true }).evaluate((button: HTMLButtonElement) => button.click());
+    await expect(page.getByRole('dialog', { name: 'メニュー', exact: true }).locator('a[href="/laws"]')).toBeVisible();
+  } else {
+    await page.locator('header').getByRole('button', { name: /資格一覧/ }).click();
+    await expect(page.locator('header a[href="/laws"]')).toBeVisible();
+  }
+});
