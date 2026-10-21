@@ -3,7 +3,8 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
-import { buildChainFiles } from '../scripts/lib/build-chain.mjs';
+import { buildChainFiles, siteImportedFiles } from '../scripts/lib/build-chain.mjs';
+import { REPO_ROOT as ROOT } from '../scripts/lib/repository-paths.mjs';
 import { escapeRegExp } from '../scripts/lib/regexp-escape.mjs';
 
 function prPaths(file) {
@@ -43,6 +44,14 @@ test('ビルドの手順のスクリプトは全部 E2E を起動する（手順
   assert.ok(chain.length > 10, `ビルドの手順のスクリプトが ${chain.length} 本しか取れない`);
   const e2e = triggers(E2E);
   assert.deepEqual(chain.filter((f) => !e2e(f)), [], 'e2e.yml の paths に足す');
+});
+
+test('サイトの画面（src/）が src の外から import するファイルは全部 E2E と Lighthouse を起動する（DN-0808）', () => {
+  // 2026-10-21: config/affiliate-placements.json だけの PR（#1173）は記事末のバナーとピクセルを変えたのに E2E が起動しなかった
+  const imported = siteImportedFiles(ROOT);
+  assert.ok(imported.length >= 10, `src の外から import するファイルが ${imported.length} 件しか取れない`);
+  assert.deepEqual(imported.filter((f) => !triggers(E2E)(f)), [], 'e2e.yml の paths に足す');
+  assert.deepEqual(imported.filter((f) => !triggers(LH)(f)), [], 'lighthouse.yml の paths に足す');
 });
 
 test('サイトの画面の変更は E2E と Lighthouse を起動し、検査・運用・SNS・note だけの変更は起動しない', () => {

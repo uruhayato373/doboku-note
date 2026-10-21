@@ -1,3 +1,7 @@
+import { readFileSync } from 'node:fs';
+import { join, posix, relative, sep } from 'node:path';
+import { listFiles } from './fs-walk.mjs';
+
 /**
  * build-chain — サイトのビルドの手順（package.json の build と prebuild が npm run でたどるスクリプト）が実行する
  * ファイルを返す（DN-0803）。E2E の起動条件（.github/workflows/e2e.yml の paths）に、ビルドの手順のスクリプトが
@@ -22,4 +26,37 @@ export function buildChainFiles(scripts, entries = ['prebuild', 'build']) {
   };
   for (const e of entries) visit(e);
   return [...files].sort();
+}
+
+/**
+ * サイトの画面（src/）が src の外から import するファイル（DN-0808）。config/*.json・content/site の JSON・
+ * scripts/lib の共有 .mjs など。src の外の .mjs/.js/.ts が import する先もたどる。
+ * これらだけを変えた PR でも画面が変わるので、E2E と Lighthouse の起動条件に入っている必要がある。
+ *
+ * @param {string} root リポジトリのルート
+ * @returns {string[]} リポジトリ相対のパス（重複なし・名前順）
+ */
+export function siteImportedFiles(root) {
+  const out = new Set();
+  const seen = new Set();
+  const code = /\.(?:tsx?|mjs|cjs|js)$/;
+  const visit = (rel) => {
+    if (seen.has(rel)) return;
+    seen.add(rel);
+    let text;
+    try { text = readFileSync(join(root, rel), 'utf8'); } catch { return; }
+    for (const m of text.matchAll(/(?:\bfrom|\bimport)\s*\(?\s*['"]([^'"]+)['"]/g)) {
+      const spec = m[1];
+      let target = null;
+      if (spec.startsWith('.')) target = posix.normalize(posix.join(posix.dirname(rel), spec));
+      else if (spec.startsWith('@/')) target = posix.normalize(`src/${spec.slice(2)}`);
+      if (!target) continue;
+      if (!target.startsWith('src/')) out.add(target);
+      if (code.test(target)) visit(target);
+    }
+  };
+  for (const abs of listFiles(join(root, 'src'), { ext: ['.ts', '.tsx', '.mjs', '.js'] })) {
+    visit(relative(root, abs).split(sep).join('/'));
+  }
+  return [...out].sort();
 }
