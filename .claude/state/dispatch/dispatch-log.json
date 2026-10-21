@@ -5293,6 +5293,23 @@
       "commit": "445981d983da",
       "verification": "PR #1179 の CI（audit・build・e2e・lighthouse が新しい checkout から緑）／npm run test 3,486・失敗 0／refresh-indexes 後の git status に 6 本が出ない",
       "note": "PR #1179。refresh-indexes の書き込みを記録して追跡中の生成物 15 本を洗い出し、読み手がサイトの build と生成してから読むものだけの 6 本（public/llms.txt・llms-full.txt・data/pe-cem-frequent-topics.csv・quiz/civil-1.json・quiz/pe-first-stage.json・src/config/pillar-exam-questions.json〔読み手 0〕）を .gitignore に入れて追跡をやめた。quiz-restage（DN-0548 の回避策）を退役、predev で演習データを作る。外さない 9 本と理由: src/config の 7 本（exam-questions・civil-1/2-exam-questions・exam-question-keywords・keyword-relations・past-exam-backlinks・popular-pages）はサイト以外のスクリプト・テスト・Mac の定期実行の worktree が checkout 直後に読む、public/_redirects は 51 ファイルが参照し pre-commit の検査も読む、.claude/state/note-published.json は note の 12 本のスクリプトが読む。これらを外すには読む側すべての前に生成を足す必要があり、別の判断にする"
+    },
+    {
+      "id": "DN-0390",
+      "at": "2026-10-21",
+      "task": "技術士 建設部門（60%）と RCCM（0%）のインデックス率が低い原因を調べて直す",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "none",
+        "ref": "登録待ちが主因で仕組みの不具合ではない（sitemap"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "056f345831d9",
+      "verification": "data/gsc/index-coverage.json（2026-09-23〜10-14 の 4 回）",
+      "note": "完了条件を満たした（data/gsc/index-coverage.json の 2026-10-14 の URL 検査）: 建設部門 59.9%（9/23）→ 92.1%（140/152）、RCCM 0 → 4 ページ（4/8）。サイト全体 79.9% → 90.5%、2級 40% → 87.5%、技術士一次 39% → 74.7%。9/27 の切り分け（大半は検出-未クロール・sitemap 漏れ 0・canonical 誤り 0）のとおり登録待ちで、内部リンクの追加と手元の定期実行の登録依頼で進んだ。統合・noindex の基準: 季節性があるので表示 0 回をもって即 noindex にしない（operations 規約）。まず hub からの内部リンクと検索意図の整合で強め、8 週以上「検出-未登録」のまま被リンクも検索の表示も無いページだけを統合の候補にする（DN-0298・DN-0420 で個別に判断）"
     }
   ]
 }
