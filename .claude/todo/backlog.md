@@ -252,6 +252,8 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 **完了条件**: ココナラの経験記述添削の公開が 4418735 の 1 件だけになり、`npm run check-coconala-wiring`・`npm run check-coconala-blog`・`npm run check-coconala-live` が通り、リポジトリに旧 5 商品の URL への送客が残っていない。
 
+**準備（2026-10-21）**: ブランチ `prep/civil2-after-exam-1026`（2026-10-21 準備・10/26 に develop へマージ） の 4d19e4a3f でサイトの CTA の送り先を coconala-tensaku-4theme の 1 本へ、60a2dedb9 でココナラブログ 15 本の funnel・カード・案内文を集約先に書き直した（check-coconala-blog 15/15 OK・集約先が今は一時休止なので警告あり）。カタログ（coconala-listings.json）の集約先の本文とオプションは既にある。**10/26 の残り**: 受注と閲覧の記録 → マージ → `coconala-edit --service coconala-tensaku-4theme --commit` でライブ反映・listed 化 → 旧 7 商品と 1kyu-premium を休止→アーカイブ → ブログを `coconala-blog-publish --update --commit`。
+
 ### [DN-0442] 本試験後にココナラの予想模試 PDF 2本をアーカイブし、note の予想模試へ一本化する
 タグ: [収益化] [領域:商品] [時期:2026-10] [種類:改善] [起票:2026-09-29] [期日:2026-10-31]
 
@@ -261,8 +263,7 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 **完了条件**: `coconala-1kyu-moshi-pdf` と `coconala-2kyu-moshi-pdf` がココナラの出品一覧から消え（coconala-pause が実測で確認）、`npm run check-coconala-blog` と `npm run check-coconala-live` が通る。
 
-
-
+**準備（2026-10-21）**: ブランチ `prep/civil2-after-exam-1026`（2026-10-21 準備・10/26 に develop へマージ） の 4d19e4a3f でサイトの CTA から模試 PDF 2 本を外し、60a2dedb9 でココナラブログの送り先を書き直した。2kyu-moshi-mihon は主題が模試 PDF の見本なので、取り下げか書き換えかを 10/26 に決める。**10/26 の残り**: マージ → カタログを paused/retired → `coconala-pause --service <id> --commit` → `--archive`、ブログを `coconala-blog-publish --update --commit`。
 
 ### [DN-0262] 1級・2級土木 第2次検定 記述 Kindle（I・J系）26冊を KDP へ3回に分けて提出する
 タグ: [収益化] [領域:商品] [時期:2026-10..2026-12] [種類:制作] [起票:2026-09-23]
@@ -307,6 +308,8 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 **導線の追加（2026-10-15 の DN-0710 監査）**: 土木もくじ :51-64 の 10/25 向けブロックと、L3 の「R8二次の出題予想」「残り○週間で仕上げる」は日付を直接書いている（note は手動更新）。10/26 の切り替えに含める。自己採点記事（R8二次-自己採点と合格発表まで-2級-無料）は draft のまま・もくじ未掲載。1級の自己採点記事ももくじに無い。
 
 **進捗（2026-10-20）**: (2) の公開前の照合を済ませた。自己採点記事（`content/note/1級・2級土木/R8二次-自己採点と合格発表まで-2級-無料/`）の試験日 10/25（日）・第一次検定（後期）発表 12/2（水）・合格発表 R9/2/3（水）・合格基準 60%・経過措置（令和10年度まで旧受検資格）は、全国建設研修センターの公式ページと受検の手引（tebiki_2d04_08_new.pdf）・国交省の令和8年度合格基準 PDF と一致。「不合格でも第一次検定の合格は残る」を「第一次検定に合格していれば」に直し、同日受検で第一次検定が基準に届かないと第二次検定は採点されない旨と出典を足した（note-lint OK・draft のまま）。残りは 10/26 以降の (1) 冒頭の扱いの判断と、運営者による公開。
+
+**準備（2026-10-21・案）**: ブランチ `prep/civil2-after-exam-1026`（2026-10-21 準備・10/26 に develop へマージ） の cece280b1 で、1級と同じ低価格先出しを 2級にも入れる案を作った（civil2 の entry＝完成答案集・次に想定工事バンク。2級の売れ方は完成答案集 4 件・想定工事バンク 2 件）。入口記事 9 本の冒頭を書き換え済み（要確認 0）。**10/26 の残り**: 運営者がこの案で良いか決めてマージ → note-update-body で反映、自己採点記事の公開。
 
 ### [DN-0339] Instagram の公開済み未記録48件と照合異常45件を /ig-reconcile で解消する
 タグ: [SNS・マーケ] [領域:SNS] [時期:2026-10] [種類:不具合] [起票:2026-09-26]
@@ -974,6 +977,8 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 4. 添削事例01の冒頭ココナラ案内の「直前に」も同じく言い換える。
 
 **完了条件**: `git grep -n -e 今週のお題 -e 直前に答案 -- 'content/note/1級・2級土木/メンバーシップ/*article.md'` が W11 以外で0件、公開 API で W01〜W10 と添削事例01の本文に「今週のお題」「直前に答案」が無い。W11 の扱いが決まっている。
+
+**準備（2026-10-21）**: ブランチ `prep/civil2-after-exam-1026`（2026-10-21 準備・10/26 に develop へマージ） の 7ffe40b85 で W01〜W10 の「今週のお題」（題名・カバーの文言・リード・見出し）を「経験記述のお題」へ言い換えた（完了条件の grep は W11 以外 0 件）。冒頭ココナラ案内の「直前に答案を」はすでに無い。**10/26 の残り**: マージ → `note-update-body --list` と `note-update-cover` で反映、W11 は閲覧数を見て決める。
 
 ### [DN-0468] 技術系公務員の定年延長と再任用のガイドを新規に書く（土木公務員の資格意図の受け皿）
 タグ: [SNS・マーケ] [領域:サイト] [時期:2026-12..2027-02] [種類:制作] [起票:2026-09-30]
