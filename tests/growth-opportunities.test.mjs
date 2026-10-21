@@ -175,6 +175,7 @@ test('buildDigest runs end-to-end on a fixture repository and renders the review
     ga4Landing: { ok: true, rows: [{ page: '/exam/civil-construction-1/textbook/a', group: 'google', week: { sessions: 30, engagedSessions: 20, keyEvents: 0 }, base: { sessions: 100, engagedSessions: 60, keyEvents: 0 } }] },
     ga4Events: { ok: true, rows: [ev('/exam/civil-construction-1/textbook/a', 'note_cta_click', 3, 12)] },
     gscPageWeek: gsc([pg('/exam/civil-construction-1/textbook/a', 3)]),
+    gscPageTotalWeek: gsc([{ clicks: 40, impressions: 900 }]),
     gscPageBase: gsc([pg('/docs/civil-construction-1-textbook-a', 12)]),
     gscPageQueryWeek: gsc([pq('/docs/civil-construction-1-textbook-a', '過去問 解答', 0, 40, 5)]),
     gscPageQueryBase: gsc([pq('/exam/civil-construction-1/textbook/a', '過去問 解答', 1, 120, 5)]),
@@ -187,6 +188,8 @@ test('buildDigest runs end-to-end on a fixture repository and renders the review
   assert.ok(d.surfaced.some((s) => s.type === 'measurement-input-missing'), 'monetization / bing が無いことを欠測として出す');
   const md = renderMarkdown(d);
   assert.match(md, /^<!-- growth-digest:2026-W38 -->/);
+  // 日本で絞ったページ別は匿名化された検索語の分を含まない下限。全体に対する割合と定義を出す（DN-0759）
+  assert.match(md, /ページ明細（日本で絞ったページ別＝検索語が分かる分だけの下限。匿名化された検索語の分を含まない）: 1 行・3 クリック \/ 60 表示・byPage 全体 40 クリックの 8%。/);
   assert.match(md, new RegExp(seo.id));
   assert.equal(buildDigest({ root, week: '2026-W30', today: '2026-09-26' }), null);
 });
