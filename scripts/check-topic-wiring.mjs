@@ -72,6 +72,9 @@ export function auditTopicWiring(root = REPO_ROOT) {
       if (topicTags.has(tag) && topicTags.get(tag) !== topic.slug) issues.push(`tag が複数topicに重複: ${tag} (${topicTags.get(tag)}, ${topic.slug})`);
       topicTags.set(tag, topic.slug);
     }
+    // 公開ハブは入口記事を 3 本選ぶ（無いと「はじめに読む」が記事型と更新順の機械選びになる・DN-0423）
+    if (topic.status !== 'incubating' && (topic.featured ?? []).length < 3) issues.push(`${topic.slug}: 公開ハブの featured（入口記事）が ${(topic.featured ?? []).length} 本。3 本選ぶ`);
+    if (new Set(topic.featured ?? []).size !== (topic.featured ?? []).length) issues.push(`${topic.slug}: featured に同じ記事が重複`);
     for (const t of topic.featured ?? []) {
       if (typeof t !== 'string' || !t) issues.push(`${topic.slug}: featured に空の slug`);
       else if (!metaIndex[t] || metaIndex[t].published === false) issues.push(`${topic.slug}: featured「${t}」は公開中の記事に無い`);
