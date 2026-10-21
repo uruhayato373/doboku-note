@@ -159,6 +159,7 @@ export const DATASETS = [
   d('registry.media', 'content/registry/media/{name}', 'config', 'sns', 'コンテンツ台帳: 素材（資格ごと・brand）', { schema: 'RegistryMedia' }),
   // 教材
   d('config.reference-sources', 'config/reference-sources.json', 'config', 'material', '参考文献（原本・一次資料）の区分と扱い', { schema: 'ConfigReferenceSources' }),
+  d('config.policy-registry', 'config/policy-registry.json', 'config', 'material', '国の計画・施策・審議会の台帳（根拠法・所管・決定日・一次資料の URL・関わる横断テーマ）。分野・立場のテーマのページと法令ページの制度の地図に出す（content-taxonomy.md §6-3）', { schema: 'ConfigPolicyRegistry' }),
   d('config.egov-laws', 'config/egov-laws.json', 'config', 'material', 'e-Gov の法令（法令 ID・題名・条の一覧・最新の改正の施行日）。記事の e-Gov へのリンクと参考文献の台帳の法令を照合する', { schema: 'ConfigEgovLaws' }),
   d('config.content-series', 'config/content-series.json', 'config', 'site', 'サイト記事のシリーズ企画（目次・計画・根拠。状態は記事の実体から出す）', { schema: 'ConfigContentSeries' }),
   d('config.content-series-basis', 'config/content-series-basis.json', 'config', 'site', '書籍の全項目をシリーズの項目・記事に割り当てる（使わない項目は理由）。項目 id だけで見出しは持たない', { schema: 'ConfigContentSeriesBasis' }),
@@ -245,7 +246,7 @@ export const DATASETS = [
   d('bing.snapshots', 'data/bing/snapshots/{date}.json', 'series', 'site', 'Bing Webmaster の検索指標', { retain: { family: 'bing', maxAgeDays: 120 }, schema: 'BingSnapshots' }),
   d('psi.batch', 'data/psi/batch/{ts}.json', 'series', 'site', 'PageSpeed Insights の定期計測', { retain: { family: 'psi', keepNewest: 14 }, schema: 'PsiBatch' }),
   d('rum.web-vitals', 'data/rum/web-vitals/{date}.json', 'series', 'site', '実ユーザーの Web Vitals（GA4 経由）', { retain: { family: 'rum', maxAgeDays: 120 }, freshness: { failDays: 10 }, schema: 'RumWebVitals' }),
-  d('cloudflare.zone', 'data/cloudflare/zone/{date}.json', 'series', 'site', 'Cloudflare のゾーンの解析', { planned: true, retain: { family: 'cloudflare', maxAgeDays: 120 }, freshness: { failDays: 3 } }),
+  d('cloudflare.zone', 'data/cloudflare/zone/{date}.json', 'series', 'site', 'Cloudflare のゾーンの解析', { schema: 'CloudflareZone', retain: { family: 'cloudflare', maxAgeDays: 120 }, freshness: { failDays: 3 } }),
   // 過去問・R2（人とスクリプトが書く作業の台帳。config/ から移した。設定ではなく、取得・削除の進み具合の記録）
   d('pastexams.inventory', 'data/pastexams/inventory.json', 'ledger', 'product', '過去問の年度の在庫（公式の掲載状態・取得日・PDF の SHA-256 とページ数。取得スクリプトが書き換える）', { schema: 'PastExamInventory' }),
   d('pastexams.question-ledger', 'data/pastexams/questions/{name}.json', 'ledger', 'product', '過去問の問題台帳（1 問ごとの原典・ページ・公式正答・転記の照合。キーは演習データの問題 ID。検査は check-past-exam-ledger）', { schema: 'PastExamQuestionLedger', refs: [{ at: 'qualification', to: 'qualification' }, { at: 'questions[].article', to: 'article' }] }),
@@ -258,7 +259,7 @@ export const DATASETS = [
   d('business.review', 'data/business/records/review-{ts}-{uuid}.json', 'ledger', 'strategy', '週次・月次レビューの判断', { immutable: true, schema: 'BusinessReview' }),
   d('business.site-to-sales', 'data/business/records/site-to-sales-{month}{rev}.json', 'evidence', 'strategy', 'サイトから売上への暦月の突合', { immutable: true, schema: 'BusinessSiteToSales' }),
   d('business.checks-monthly', 'data/business/records/checks-monthly-{month}{rerun}.json', 'evidence', 'strategy', '月次レビューの点検の振り分け', { immutable: true, schema: 'BusinessChecksMonthly' }),
-  d('business.checks-weekly', 'data/business/records/checks-weekly-{week}{rerun}.json', 'evidence', 'strategy', '週次レビューの点検の振り分け', { immutable: true, planned: true, schema: 'BusinessChecksWeekly' }),
+  d('business.checks-weekly', 'data/business/records/checks-weekly-{week}{rerun}.json', 'evidence', 'strategy', '週次レビューの点検の振り分け', { immutable: true, schema: 'BusinessChecksWeekly' }),
   d('business.experiments', 'data/business/experiments.json', 'state', 'strategy', '実験の台帳（仮説・期間・判定）', { schema: 'Experiments' }),
   // 受け箱（別リポジトリの obsidian mail-triage が毎日 develop へ直接書く。売上の正本ではない）
   d('inbox.mail-events', 'data/inbox/mail-events.json', 'state', 'ops', 'メールから拾ったイベントの受け箱（obsidian mail-triage が書く・最大 500 件）', { schema: 'InboxMailEvents' }),
@@ -320,7 +321,7 @@ export const DATASETS = [
   d('state.figure-provenance', '.claude/state/figure-provenance.json', 'state', 'site', '図の出所の索引（audit-figures）'),
   d('state.figure-text-audit', '.claude/state/figure-text-audit.json', 'evidence', 'site', '図の文字の監査結果'),
   d('state.svg-audit', '.claude/state/svg-audit.json', 'state', 'site', 'SVG の機械監査（refresh-indexes）'),
-  d('state.cloudflare-zone-config', '.claude/state/cloudflare/zone-config-{name}.json', 'state', 'ops', 'Cloudflare のゾーン設定の基準線・最新・ドリフト（cloudflare-config-audit.yml が develop へ書く）', { planned: true }),
+  d('state.cloudflare-zone-config', '.claude/state/cloudflare/zone-config-{name}.json', 'state', 'ops', 'Cloudflare のゾーン設定の基準線・最新・ドリフト（cloudflare-config-audit.yml が develop へ書く）'),
   d('state.svg-catalog', '.claude/state/svg-catalog.json', 'state', 'site', 'SVG の一覧（生成索引）'),
   // 品質ゲートの基準と採点（quality/）
   d('state.quality-baselines', '.claude/state/quality/{name}-baseline.json', 'config', 'ops', '品質ゲートの基準線（lint・knip・画像・git バイナリ・図のクロップ・エージェントの説明）'),
@@ -330,7 +331,6 @@ export const DATASETS = [
   d('state.quality-census-history', '.claude/state/quality/census-history.jsonl', 'ledger', 'ops', '同上の推移'),
   d('state.quality-latest-report', '.claude/state/quality/latest-report.md', 'report', 'ops', 'quality:audit の最新の報告'),
   d('state.quality-audit-latest', '.claude/state/quality/audit-latest.{name}', 'raw', 'ops', 'quality:audit の最新の生の結果', { local: true, regen: 'npm run quality:audit' }),
-  d('state.quality-env-inventory', '.claude/state/quality/env-inventory.json', 'raw', 'ops', '手元の環境の棚卸し', { local: true, regen: 'npm run quality:audit' }),
   d('state.quality-image-audit', '.claude/state/quality/image-audit.{name}', 'raw', 'ops', '画像アセットの監査の最新', { local: true, regen: 'npm run quality:audit' }),
   d('state.ai-image-review-ledger', '.claude/state/quality/ai-image-review-ledger.json', 'ledger', 'site', 'AI 生成の写真の実物どおり判定の記録（check-image-origin record-ai）'),
   d('state.figure-review-ledger', '.claude/state/quality/figure-review-ledger.json', 'ledger', 'site', '図の目視判定の記録'),

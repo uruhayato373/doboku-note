@@ -68,6 +68,12 @@
           "role": "点検"
         },
         {
+          "command": "check-drive-vault",
+          "label": "Drive vault の実体照合（ローカルにしか無い正本）",
+          "stage": "基盤の点検",
+          "role": "点検"
+        },
+        {
           "command": "node:fetch-note-public-view-shots",
           "label": "note 公開ページの目視",
           "stage": "受取・販売",
@@ -90,6 +96,18 @@
           "label": "検索キーワード戦略の改善候補（起票）",
           "stage": "検索",
           "role": "判断"
+        },
+        {
+          "command": "check-taxonomy-wiring",
+          "label": "分類と回遊の配線（テーマ所属なし・行き先の無いタグ・昇格の食い違い・確かめ直す計画）",
+          "stage": "検索",
+          "role": "点検"
+        },
+        {
+          "command": "report-taxonomy-wiring",
+          "label": "分類と回遊の配線の中身（点検が赤のときに読む）",
+          "stage": "検索",
+          "role": "点検"
         },
         {
           "command": "search-improvement",
@@ -315,6 +333,10 @@
         {
           "command": "node:check-backlog-health",
           "label": "バックログの健全性"
+        },
+        {
+          "command": "check-taxonomy-wiring",
+          "label": "分類と回遊の配線"
         }
       ]
     },
@@ -395,6 +417,12 @@
         {
           "command": "report-search-opportunities",
           "label": "検索クラスターの推移",
+          "stage": "検索",
+          "role": "判断"
+        },
+        {
+          "command": "report-taxonomy-wiring",
+          "label": "分類と回遊の配線（昇格・取りこぼし・回遊の質・ラベル別クリック）",
           "stage": "検索",
           "role": "判断"
         },

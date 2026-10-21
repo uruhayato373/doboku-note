@@ -303,7 +303,7 @@ const SERVICES_RAW = {
   //   添削 ¥7,500→¥5,000・骨子 ¥10,000→¥6,500。受付は各週1名（3テーマ24時間は重い）。10/26に受注数で見直す。
   'coconala-2kyu-tensaku-3theme': {
     id: 'coconala-2kyu-tensaku-3theme',
-    status: 'listed',
+    status: 'paused',
     serviceUrl: 'https://coconala.com/services/4418778',
     title: '2級経験記述 全3テーマを24時間で添削します',
     shortTitle: '2級 経験記述 添削（全3テーマ・24時間）',
@@ -317,6 +317,8 @@ const SERVICES_RAW = {
     examScope: ['civil-2'],
     weeklyCapacity: 1,
     listedAt: '2026-09-25',
+    pauseReason: 'absence',
+    resumeOn: '2027-07-01',
   },
   // 【2026-09-25 17:30 運営が取り下げ】理由は 2026-08-12 と同じ「学校の課題（宿題、レポート、論文、作文等）を
   //   代行すると判断されるサービス」。「学校の課題の代行ではなく…」の断り書きがあっても通らなかった。
@@ -339,7 +341,7 @@ const SERVICES_RAW = {
   },
   'coconala-2kyu-sakusei-3theme': {
     id: 'coconala-2kyu-sakusei-3theme',
-    status: 'listed',
+    status: 'paused',
     serviceUrl: 'https://coconala.com/services/4418785',
     title: '2級経験記述の全3テーマ骨子を24時間で設計します',
     shortTitle: '2級 経験記述 指導（全3テーマ・24時間）',
@@ -353,6 +355,8 @@ const SERVICES_RAW = {
     examScope: ['civil-2'],
     weeklyCapacity: 1,
     listedAt: '2026-09-25',
+    pauseReason: 'absence',
+    resumeOn: '2027-07-01',
   },
   // C1: 出題分析 PDF。2026-08-05 統廃合で出品停止（paused）＝フルパック（C10）専用コンテンツ化。
   //   C8 予想模試が C1+C6 から生成された派生物のため単品同士の論点重複が大きく、初受注の購入者が

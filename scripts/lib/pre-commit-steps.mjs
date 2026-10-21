@@ -173,6 +173,8 @@ export const STEPS = [
     args: [],
     when: (ctx) => hasStaged(ctx, /^\.claude\/memory\//),
   },
+  // post-commit（sync-index-after-commit）の欠落・旧版を止める。pre-commit の鮮度チェックは pre-commit の本文しか見ない（DN-0554）
+  s('check-post-commit-hook', []),
   // AGENTS.md / .agents/skills / .codex/agents / .codex/hooks.json が正典（CLAUDE.md + .claude/rules / .claude/skills / .claude/agents / .claude/settings.json）の生成物と一致するか（第2SSOT再発防止・DN-0098）
   s('sync-codex-compat'),
   // agent の description が 300 code points を超えて増えないか（毎セッションの system prompt に全文載る。baseline ラチェット）
@@ -262,6 +264,9 @@ export const STEPS = [
   s('check-ig-cover'),
   // IG figure-pack CTA のテンプレ準拠（見出し/誘導文/画像内ハッシュタグ禁止）逸脱検出（CTAドリフトの再発防止）
   s('check-ig-cta'),
+  // 減った写し・直書きの数までラチェットの基準値を下げて、同じ commit に入れる（DN-0802。減っても検査を赤にしない代わり）。
+  // コードが staged のときだけ走査する（スクリプト側で判定）。作業ツリーと index を書き換えるので最後に回す
+  s('tighten-ratchets'),
 ];
 
 /** touches が投げたら（設定が読めない等）走らせる側に倒す */

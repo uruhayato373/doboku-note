@@ -16,6 +16,8 @@
  *   - visible≠false・資格カテゴリ（civil|pe）に対応する home カードが無い
  *   - home カードの slug が categories.json に存在しない / visible:false / 非資格カテゴリ
  *   - home カードに必須フィールドが欠落
+ *   - visible≠false のカテゴリが OGP のテーマ色の対応表（ogp-create の lib/category-exam-key.mjs）に無い、
+ *     またはその色キーが note-cover-tokens.json に無い（DN-0786: 測量士・舗装の OGP が枠色なしで出ていた）
  *
  * Usage: node scripts/check-home-exam-coverage.mjs
  */
@@ -24,6 +26,29 @@ import { readFileSync } from "node:fs";
 import { join, relative } from "node:path";
 import { REPO_ROOT } from "./lib/repository-paths.mjs";
 import { runBody, isCliEntry, runAsCli } from './lib/cli-run.mjs';
+import { CATEGORY_TO_EXAM_KEY } from '../.claude/skills/conversion/ogp-create/scripts/lib/category-exam-key.mjs';
+
+const COVER_TOKENS = join(REPO_ROOT, '.claude/knowledge/design-system/note-cover-tokens.json');
+
+/**
+ * 表示中のカテゴリが OGP のテーマ色を持つか。表に無いと ogp-create は枠色なしで画像を作る。
+ * @returns {{ checked: number, errors: string[] }}
+ */
+export function ogpCoverageErrors(categories, categoryToExamKey, coverTokens) {
+  const errors = [];
+  let checked = 0;
+  for (const c of categories) {
+    if (c.visible === false) continue;
+    checked += 1;
+    const key = categoryToExamKey[c.slug];
+    if (!key) {
+      errors.push(`カテゴリ "${c.slug}" が OGP の対応表（.claude/skills/conversion/ogp-create/scripts/lib/category-exam-key.mjs）に無い → OGP が枠色なしで出ます。`);
+    } else if (!coverTokens.exams?.[key]?.base) {
+      errors.push(`カテゴリ "${c.slug}" の色キー "${key}" が note-cover-tokens.json の exams に無い（base が無い）。`);
+    }
+  }
+  return { checked, errors };
+}
 
 // in-process でも呼べるよう run() に包んである（DN-0688・pre-commit-dispatch が import して呼ぶ）。
 // process.argv / process.exit / process.exitCode は runBody が渡す __argv / __exit / __status への読み替え。
@@ -96,6 +121,11 @@ for (const card of homeCards) {
   }
 }
 
+// 4) 表示中のカテゴリが OGP のテーマ色を持つか
+const ogp = ogpCoverageErrors(categories, CATEGORY_TO_EXAM_KEY, load(COVER_TOKENS));
+errors.push(...ogp.errors);
+if (ogp.checked === 0) errors.push('OGP の網羅を検査したカテゴリが 0 件（categories.json の読み込みを疑う）。');
+
 if (errors.length) {
   console.error("[check-home-exam-coverage] ✗ トップの資格カードとカテゴリ定義に不整合:");
   for (const e of errors) console.error("  - " + e);
@@ -103,7 +133,7 @@ if (errors.length) {
 }
 
 console.log(
-  `[check-home-exam-coverage] ✓ トップ資格カード ${homeCards.length} 件と categories.json が整合`,
+  `[check-home-exam-coverage] ✓ トップ資格カード ${homeCards.length} 件と categories.json が整合・表示中のカテゴリ ${ogp.checked} 件が OGP のテーマ色を持つ`,
 );
   });
 }

@@ -26,6 +26,7 @@ const CATALOG = {
   'sv-live': { id: 'sv-live', status: 'listed', title: '経験記述を診断します', priceYen: 1500 },
   'sv-live2': { id: 'sv-live2', status: 'listed', title: '添削します', priceYen: 6000 },
   'sv-paused': { id: 'sv-paused', status: 'paused', title: '休止中', priceYen: 3000 },
+  'sv-absent': { id: 'sv-absent', status: 'paused', pauseReason: 'absence', title: '不在で休止中', priceYen: 3000 },
   'sv-draft': { id: 'sv-draft', status: 'draft', title: '未出品', priceYen: 2000 },
 };
 
@@ -161,4 +162,10 @@ test('assertBlogPost は1つでも違反があれば例外（握り潰せない�
     codeOf(() => assertBlogPost({ title: 'T', body: 'https://example.com', funnel: ['sv-live'] }, CATALOG)),
     'EXTERNAL_LINK',
   );
+});
+
+test('G3: 不在の一時休止は公開済みの照合（allowAbsent）だけ通し、新規公開と廃止は止める', () => {
+  assert.equal(codeOf(() => assertFunnelTargets(['sv-absent'], CATALOG)), 'FUNNEL_NOT_LISTED');
+  assert.deepEqual(assertFunnelTargets(['sv-absent'], CATALOG, { allowAbsent: true }).absent, ['sv-absent']);
+  assert.equal(codeOf(() => assertFunnelTargets(['sv-paused'], CATALOG, { allowAbsent: true })), 'FUNNEL_NOT_LISTED');
 });

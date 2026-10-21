@@ -1360,6 +1360,30 @@
 # route /docs/surveyor-primary-r06 /exam/surveyor/primary/r06
 # route /docs/surveyor-primary-r07 /exam/surveyor/primary/r07
 # route /docs/surveyor-primary-r08 /exam/surveyor/primary/r08
+# route /docs/laws-city-planning-act /laws/city-planning-act
+# route /docs/laws-construction-business-act /laws/construction-business-act
+# route /docs/laws-construction-recycling-act /laws/construction-recycling-act
+# route /docs/laws-disaster-countermeasures-basic-act /laws/disaster-countermeasures-basic-act
+# route /docs/laws-environment-basic-act /laws/environment-basic-act
+# route /docs/laws-environmental-impact-assessment-act /laws/environmental-impact-assessment-act
+# route /docs/laws-flood-control-act /laws/flood-control-act
+# route /docs/laws-labor-safety-act /laws/labor-safety-act
+# route /docs/laws-labor-standards-act /laws/labor-standards-act
+# route /docs/laws-land-expropriation-act /laws/land-expropriation-act
+# route /docs/laws-local-autonomy-act /laws/local-autonomy-act
+# route /docs/laws-local-finance-act /laws/local-finance-act
+# route /docs/laws-personal-information-protection-act /laws/personal-information-protection-act
+# route /docs/laws-professional-engineer-act /laws/professional-engineer-act
+# route /docs/laws-public-works-bidding-fairness-act /laws/public-works-bidding-fairness-act
+# route /docs/laws-public-works-quality-act /laws/public-works-quality-act
+# route /docs/laws-river-act /laws/river-act
+# route /docs/laws-road-act /laws/road-act
+# route /docs/laws-road-traffic-act /laws/road-traffic-act
+# route /docs/laws-sediment-disaster-act /laws/sediment-disaster-act
+# route /docs/laws-sewerage-act /laws/sewerage-act
+# route /docs/laws-specified-urban-river-act /laws/specified-urban-river-act
+# route /docs/laws-steep-slope-act /laws/steep-slope-act
+# route /docs/laws-survey-act /laws/survey-act
 # route /docs/civil-practice-3d-measurement-selection /practice/3d-measurement-selection
 # route /docs/civil-practice-accident-first-response /practice/accident-first-response
 # route /docs/civil-practice-ai-document-verification /practice/ai-document-verification
@@ -1523,17 +1547,18 @@
 # Legacy category hubs → canonical public hubs
 /category/civil-construction-1 /exam/civil-construction-1 301
 /category/civil-construction-2 /exam/civil-construction-2 301
-/category/pe-comprehensive-management /exam/pe-comprehensive-management 301
 /category/pe-first-stage /exam/pe-first-stage 301
 /category/pe-construction /exam/pe-construction 301
+/category/pe-comprehensive-management /exam/pe-comprehensive-management 301
+/category/rccm /exam/rccm 301
 /category/concrete-engineer /exam/concrete-engineer 301
 /category/concrete-chief-engineer /exam/concrete-chief-engineer 301
 /category/concrete-diagnostician /exam/concrete-diagnostician 301
-/category/rccm /exam/rccm 301
-/category/surveyor /exam/surveyor 301
-/category/civil-practice /practice 301
 /category/pavement /exam/pavement 301
+/category/surveyor /exam/surveyor 301
 /category/building-construction /exam/building-construction 301
+/category/civil-practice /practice 301
+/category/laws /laws 301
 /category/reference-materials /standards 301
 /docs /exam 301
 /category /exam 301
@@ -1572,4 +1597,5 @@
 /docs/pe-first-stage-* /exam/pe-first-stage/primary/:splat 301
 /docs/surveyor-guide-* /exam/surveyor/guide/:splat 301
 /docs/rccm-guide-* /exam/rccm/guide/:splat 301
+/docs/laws-* /laws/:splat 301
 # END GENERATED PUBLIC ROUTES

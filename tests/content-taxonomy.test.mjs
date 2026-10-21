@@ -102,7 +102,8 @@ test('rewriteFrontmatterTags: flow list', () => {
 test('設定の整合: categories の area/groups、topics のタグ解決、GROUP_FIELD_MAP/GROUP_SEGMENT との一致', async () => {
   const m = buildAliasMap(TAGS);
   for (const c of CATEGORIES) {
-    assert.ok(['exam', 'practice', 'standards'].includes(c.area), `${c.slug}: area`);
+    // 領域の語彙は content-taxonomy.json の areas（2026-10-21 に法令 laws を足した・DN-0731）
+    assert.ok(Object.keys(TAXONOMY.areas).includes(c.area), `${c.slug}: area`);
     for (const g of c.groups) assert.ok(TAXONOMY.groups[g], `${c.slug}: group ${g}`);
   }
   for (const t of TOPICS) for (const tag of t.tags) assert.ok(m.toCanonical.has(tag), `topics.json ${t.slug}: タグ「${tag}」が tags.json に無い`);

@@ -8,8 +8,8 @@ import taxonomy from '@/config/content-taxonomy.json';
 import categoriesData from '@/config/categories.json';
 import tagsData from '@/config/tags.json';
 
-export type PublicArea = 'exam' | 'practice' | 'standards';
-type TagClass = 'structural' | 'flag' | 'qualification' | 'topical' | 'learning';
+export type PublicArea = 'exam' | 'practice' | 'standards' | 'laws';
+export type TagClass = 'structural' | 'flag' | 'qualification' | 'topical' | 'learning';
 
 type TagEntry = { name: string; slug: string; class?: TagClass; canonical?: string; aliases?: string[] };
 
@@ -42,6 +42,11 @@ export function getAreaHubPath(area: PublicArea): string {
 /** 受理綴り（name / slug / aliases）を正規表記へ。未登録はそのまま返す。 */
 export function canonicalTag(tag: string): string {
   return toCanonical.get(tag) ?? tag;
+}
+
+/** タグの class（tags.json）。未登録のタグは topical として扱う（content-taxonomy.md §5-1）。 */
+export function getTagClass(tag: string): TagClass {
+  return classOf.get(canonicalTag(tag)) ?? 'topical';
 }
 
 /** structural / flag class のタグ（記事種別・機械スイッチ）。関連度計算やカード表示から除く。 */

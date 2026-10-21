@@ -207,6 +207,7 @@ title: スキル ガバナンス記録
 
 | 退役日 | スキル | カテゴリ | 代替 |
 |---|---|---|---|
+| 2026-09-26 | `/brain-publish` | management | なし（Brain チャネルから完全撤退・出品2点で売上0件。c27b67c0c） |
 | 2026-07-04 | `/exam-guide`（＋`templates/exam-guide/` 全5テンプレ＋`templates/README.md`） | authoring | `group: guide` 品質サイクル（`guide-rewriter` 生成 → `guide-qa` 評価 → `guide-fact-checker` 事実照合）。テンプレは旧 Docusaurus アーキで死亡・実運用は既にオリジナル散文フローへ移行済み |
 | 2026-04-15 | `/pe-exam-guide` | content | `/exam-guide --exam pe`（**その `/exam-guide` も 2026-07-04 退役**） |
 | 2026-04-23 | `/allow-tool` | dev | ユーザー直接指示 |
@@ -251,6 +252,8 @@ title: スキル ガバナンス記録
 | 2026-04-23 | `cem-advisor` | Generator は `keyword-rewriter`、Evaluator は `cem-qa` |
 | 2026-06-18 | `note-figure-auditor` | `svg-figure-auditor`（site/note 横断化して吸収） |
 | 2026-06-19 | `seo-auditor` | GSC 統合再設計で分割: coverage→`gsc-index-auditor` / performance→`metrics-analyzer` / CWV→`performance-auditor` / 取得→CI。真実源 `.claude/knowledge/reference/gsc-management.md` |
+| 2026-09-26 | `brain-operator` | なし（Brain チャネルから完全撤退・c27b67c0c） |
+| 2026-10-20 | `content-planner` | なし（Phase 2 待機のまま、呼び出し元とされた `/keyword-gap`・`/exam-demand`・`/discover-exam-season` が実在しない。企画は `strategy-advisor`・`/pe-note-plan` 等の資格別スキル。DN-0788） |
 
 ### スキルバージョン更新履歴
 

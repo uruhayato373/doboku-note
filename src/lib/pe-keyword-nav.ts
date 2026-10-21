@@ -1,4 +1,5 @@
 import docMetaIndex from "@/config/doc-meta-index.json";
+import peChapters from "@/config/pe-chapters.json";
 
 const CATEGORY_PREFIX = "pe-comprehensive-management-";
 
@@ -22,4 +23,15 @@ const publishedKeywordSuffixes = new Set<string>(
 /** pe-comprehensive-management-{suffix} の記事ページが実在（published）するか。 */
 export function peKeywordPageExists(suffix: string): boolean {
   return publishedKeywordSuffixes.has(suffix);
+}
+
+const sectionLabels = new Map<string, string>(
+  (peChapters as { chapters: { sections: { id: string; title: string }[] }[] }).chapters.flatMap((chapter) =>
+    chapter.sections.map((section): [string, string] => [section.id, `${section.id} ${section.title}`]),
+  ),
+);
+
+/** 総監のキーワード集の節（"2.1"）の見出し（"2.1 事業企画"）。テーマのページで、記事の多い総監の一覧を節ごとに区切る（DN-0423）。 */
+export function peSectionLabel(sectionId: string | undefined): string | undefined {
+  return sectionId ? sectionLabels.get(sectionId) : undefined;
 }

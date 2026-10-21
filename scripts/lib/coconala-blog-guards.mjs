@@ -107,8 +107,9 @@ export function assertNoContactInfo(body) {
  * @param {Record<string,{id,status,title,priceYen,serviceUrl}>} catalog readCatalog() の戻り
  * @returns {{targets:Array}}
  */
-export function assertFunnelTargets(funnel, catalog) {
+export function assertFunnelTargets(funnel, catalog, { allowAbsent = false } = {}) {
   const ids = Array.isArray(funnel) ? funnel : [];
+  const absent = [];
   if (ids.length === 0) {
     fail('FUNNEL_EMPTY', 'funnel が空です。ココナラブログは自出品への送客が唯一の目的なので、必ず1つ以上指定します。');
   }
@@ -116,14 +117,18 @@ export function assertFunnelTargets(funnel, catalog) {
   for (const id of ids) {
     const svc = catalog?.[id];
     if (!svc) fail('FUNNEL_UNKNOWN', `funnel の serviceId がカタログにありません: "${id}"（src/lib/coconala-services.ts）`);
-    if (svc.status !== 'listed') {
+    // 公開済みの記事が不在の一時休止（pauseReason absence）の出品へ送っているのは、ライブで「休止中」と出るだけで
+    // 取引事故にならず、再開すれば導線がそのまま生きる。allowAbsent は公開済みの照合だけが使い、新規公開は止めたまま（2026-10-20）
+    if (svc.status === 'paused' && svc.pauseReason === 'absence' && allowAbsent) {
+      absent.push(id);
+    } else if (svc.status !== 'listed') {
       fail('FUNNEL_NOT_LISTED',
         `funnel 先 "${id}" は status:'${svc.status}' です。` +
         '販売していないページへ送る記事は公開できません（購入できない導線になる）。');
     }
     targets.push(svc);
   }
-  return { targets };
+  return { targets, absent };
 }
 
 /**
@@ -171,12 +176,12 @@ export function assertTitle(title, { max = TITLE_MAX } = {}) {
  * 呼び出し側は「0件だった」と「検査していない」を区別して表示できる。
  * @returns {{links, contact, funnel, price, title}}
  */
-export function assertBlogPost({ title, body, funnel }, catalog, { allowServiceLinks = false } = {}) {
+export function assertBlogPost({ title, body, funnel }, catalog, { allowServiceLinks = false, allowAbsent = false } = {}) {
   return {
     title: assertTitle(title),
     links: assertNoExternalLinks(body, { allowServiceLinks }),
     contact: assertNoContactInfo(body),
-    funnel: assertFunnelTargets(funnel, catalog),
+    funnel: assertFunnelTargets(funnel, catalog, { allowAbsent }),
     price: assertPriceClaims(body, funnel, catalog),
   };
 }

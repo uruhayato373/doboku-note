@@ -3,13 +3,20 @@
 import { useSyncExternalStore } from "react";
 import { ArrowRight, Check } from "lucide-react";
 import type { CareerArticleEndCard, SidebarAdCreative } from "@/config/affiliate-creatives";
-import { AFFILIATE_EXPERIMENT_ID, assignAffiliateVariant } from "@/lib/affiliate-experiment.mjs";
+import { AFFILIATE_EXPERIMENT_ID, AFFILIATE_VARIANTS, assignAffiliateVariant } from "@/lib/affiliate-experiment.mjs";
 import { AFFILIATE_LINK_REFERRER_POLICY, AFFILIATE_LINK_REL, AffiliatePrBadge } from "@/components/ui/AffiliateParts";
 
 let visitorVariant: string | null = null;
 const subscribe = () => () => {};
 const serverSnapshot = () => null;
+/** 開発サーバーだけ: 管理画面の広告の見本（/affiliate/preview）が ?affiliateVariant= で案を固定する。保存しない。本番ビルドでは消える。 */
+function previewVariant(): string | null {
+  if (process.env.NODE_ENV !== "development") return null;
+  const v = new URLSearchParams(window.location.search).get("affiliateVariant");
+  return v && AFFILIATE_VARIANTS.includes(v) ? v : null;
+}
 function clientSnapshot(): string {
+  if (!visitorVariant) visitorVariant = previewVariant();
   if (!visitorVariant) {
     let storage: Storage | undefined;
     try { storage = window.localStorage; } catch { /* ブラウザが保存を拒否する場合。 */ }

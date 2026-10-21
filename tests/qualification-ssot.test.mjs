@@ -62,6 +62,26 @@ test('書き込み先: registry と違う名前を検出し、書き換えると
   assert.equal(readFileSync(join(root, 'src/config/categories.json'), 'utf8'), cat.replace('古い名前', '1級土木施工管理技士').replace('"label": "測量士"', '"label": "測量士・測量士補"'));
 });
 
+test('書き込み先: 並び順（order）も registry の位置から書く。group はメンバーの最小・registry に無い項目は手の order のまま', (t) => {
+  const root = mkdtempSync(join(tmpdir(), 'qssot-order-'));
+  t.after(() => rmSync(root, { recursive: true, force: true }));
+  mkdirSync(join(root, 'src/config'), { recursive: true });
+  const cat = '[\n  {\n    "slug": "pe-comprehensive-management",\n    "label": "総監",\n    "order": 5,\n    "layout": {\n      "view": "pe-comprehensive"\n    }\n  },\n  {\n    "slug": "surveyor",\n    "qualification": "surveying",\n    "label": "測量士・測量士補",\n    "order": 2.8\n  },\n  {\n    "slug": "civil-practice",\n    "label": "土木施工の実務",\n    "order": 90\n  }\n]\n';
+  writeFileSync(join(root, 'src/config/categories.json'), cat);
+  writeFileSync(join(root, 'src/config/home-exam-cards.json'), '[]\n');
+  writeFileSync(join(root, 'src/config/tags.json'), '[]\n');
+  const registry = {
+    qualifications: [{ id: 'civil-construction-1', label: '1級' }, { id: 'pe-comprehensive-management', label: '総監' }, { id: 'assistant-surveyor', label: '測量士補' }, { id: 'surveyor', label: '測量士' }],
+    groups: { surveying: { label: '測量士・測量士補', members: ['surveyor', 'assistant-surveyor'] } },
+  };
+  assert.deepEqual(syncDerivedNames(root, registry).map((d) => `${d.slug}:${d.key}:${d.want}`), ['pe-comprehensive-management:order:2', 'surveyor:order:3']);
+  syncDerivedNames(root, registry, { write: true });
+  assert.deepEqual(syncDerivedNames(root, registry), []);
+  const after = JSON.parse(readFileSync(join(root, 'src/config/categories.json'), 'utf8'));
+  assert.deepEqual(after.map((c) => c.order), [2, 3, 90]);
+  assert.equal(after[0].layout.view, 'pe-comprehensive', '入れ子の layout を壊さない');
+});
+
 test('実リポジトリ: 設定の写し・書き込み先の食い違い・コードの直書きが 0 件（検査対象 0 件を合格にしない）', () => {
   const r = auditQualificationSsot(ROOT);
   assert.ok(r.config.files > 50, `設定の検査対象が少なすぎる（${r.config.files}）`);

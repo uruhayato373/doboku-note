@@ -460,6 +460,8 @@ export function renderCatalogEntry(product) {
   lines.push(`  '${product.id}': {`);
   const { id, published, noteUrl, ...rest } = product.catalog;
   lines.push(`    id: ${tsString(id)},`, `    published: ${published},`, `    noteUrl: ${tsString(noteUrl)},`);
+  // 資格（registry の資格 id か group id）。サイトのブランド（exam-brand.ts）がこれで決まる（DN-0794・id の接頭辞で推定しない）
+  lines.push(`    qualification: ${tsString(product.qualification)},`);
   for (const [k, v] of Object.entries(rest)) lines.push(`    ${k}: ${tsValue(v, 4)},`);
   lines.push('  },');
   return lines.join('\n');

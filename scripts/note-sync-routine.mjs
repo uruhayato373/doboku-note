@@ -42,6 +42,7 @@ import { classifyNoteSyncRun } from './lib/note-sync-results.mjs';
 import { datasetPath } from './lib/datasets.mjs';
 import { NOTE_CREATOR } from './lib/site-identity.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
+import { lastLines, runWithRetry } from './lib/note-sync-save.mjs';
 
 const TAG = '[note-sync]';
 const args = process.argv.slice(2);
@@ -233,13 +234,19 @@ const art = articles.length ? await syncArticles(articles) : { updated: [], fail
 const mag = art.loggedOut || !magPlan.pending.length ? { updated: [], failed: [] } : await syncMagazines(magPlan.pending, byKey, design);
 
 // ---- 5. 保存・記録
+// 保存は冪等なので 1 回だけ再試行し、落ちたら理由（出力の末尾）を problems とログへ残す（DN-0763）
+const save = (args, label) => {
+  const r = runWithRetry(() => node(args));
+  if (r.status === 0) return;
+  console.error(`${TAG} ${label}の出力（末尾・${r.attempts} 回試行）:`);
+  for (const l of lastLines(r.out)) console.error(`  ${l}`);
+  problems.push(`${label}（${r.reason}）`);
+};
 if (art.updated.some((x) => x.parts.includes('cover'))) {
-  const r = node(['scripts/asset-offload.mjs', '--group', 'note-cover-png', '--include-untracked', '--skip-existing', '--commit']);
-  if (r.status !== 0) problems.push('記事カバーを R2 へ保存できなかった（asset-offload）');
+  save(['scripts/asset-offload.mjs', '--group', 'note-cover-png', '--include-untracked', '--skip-existing', '--commit'], '記事カバーを R2 へ保存できなかった（asset-offload）');
 }
 if (mag.updated.length) {
-  const r = node(['scripts/drive-vault-sync.mjs', '--group', 'note-magazine-cover-png', '--commit']);
-  if (r.status !== 0) problems.push('マガジンカバーを Drive へ保存できなかった（drive-vault-sync）');
+  save(['scripts/drive-vault-sync.mjs', '--group', 'note-magazine-cover-png', '--commit'], 'マガジンカバーを Drive へ保存できなかった（drive-vault-sync）');
 }
 appendSyncLog({
   startedAt, finishedAt: new Date().toISOString(),

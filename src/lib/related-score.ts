@@ -1,51 +1,36 @@
 /**
- * related-score — 全領域の記事を「トピックタグの共通数」でランクする純関数。
+ * related-score — 全領域の記事を「どれだけ同じ主題を扱うか」でランクする。
  *
- * RelatedArticles（記事末カード）と MidArticleCta（本文中間の関連記事モード）で共有する。
- * 構造タグ（記事種別）は関連度判定から除外し、共通トピックタグ数でスコアリング、
- * 同スコアは更新日（dateModified、無ければ created）の新しい記事を優先する。
+ * RelatedArticles（記事末カード）と MidArticleCta（本文中間の関連記事モード）・記事末のテーマ／法令のカード
+ * （src/lib/article-end-wiring.ts）で共有する。算法の本体は src/lib/related-core.mjs（テスト・週次の報告と同じ関数）で、
+ * ここはサイトのタグの class（tags.json）とテーマの所属（topics.json）を渡すだけ（content-taxonomy.md §6-3）。
  */
 import type { DocMeta } from '@/lib/docs';
-import { isStructuralTag } from '@/lib/content-taxonomy';
+import { getTagClass } from '@/lib/content-taxonomy';
+import { getDocTopics } from '@/lib/topics';
+import { rankRelated as rankRelatedCore, relatedScore as relatedScoreCore } from '@/lib/related-core.mjs';
 
-/** meta.tags から構造タグ（tags.json の class structural / flag）を除いたトピックタグ配列を返す。 */
-function topicalTags(meta: DocMeta): string[] {
-  return (meta.tags || []).filter((t) => !isStructuralTag(t));
+const deps = {
+  tagClass: (tag: string) => getTagClass(tag),
+  // core へ渡すのはここで受けた DocMeta だけなので、戻ってくる doc も DocMeta
+  topicsOf: (doc: { slug: string }) => getDocTopics(doc as DocMeta).map((topic) => topic.slug),
+};
+
+/** current から見た candidate の関連度。0 は無関係（技術テーマを 1 つも共有しない）。 */
+export function relatedScore(current: DocMeta, candidate: DocMeta): number {
+  return relatedScoreCore(current, candidate, deps);
 }
 
 /**
- * currentMeta に対する近傍ページを共通トピックタグ数で降順ソートして返す。
- * - 自分自身・非公開は除外
- * - 共通タグ 0 件は除外
- * - 同じカテゴリには小さな加点を与え、資格内の連続学習を保つ
- * - 同スコアは dateModified（無ければ created）降順。doc-meta-index に `date` は無く、
- *   以前は全件が空文字で同率になり、配列順＝ファイル名順の記事が関連枠を占めていた
- *
+ * currentMeta に対する近傍ページを関連度の降順で返す（規則は related-core.mjs の rankRelated）。
  * @param limit 返す最大件数（既定 6）
+ * @param exclude 記事末の先のカードで出した記事（同じ記事を 2 度並べない）
  */
 export function rankRelated(
   currentMeta: DocMeta,
   categoryArticles: DocMeta[],
   limit = 6,
+  exclude: ReadonlySet<string> = new Set(),
 ): DocMeta[] {
-  const currentTags = new Set(topicalTags(currentMeta));
-  if (currentTags.size === 0) return [];
-
-  return categoryArticles
-    .filter((m) => m.slug !== currentMeta.slug && m.published !== false)
-    .map((m) => ({
-      doc: m,
-      score:
-        topicalTags(m).filter((t) => currentTags.has(t)).length * 10 +
-        (m.category === currentMeta.category ? 2 : 0),
-    }))
-    .filter((s) => s.score > 0)
-    .sort((a, b) => {
-      if (b.score !== a.score) return b.score - a.score;
-      const da = String(a.doc.dateModified ?? a.doc.created ?? '');
-      const db = String(b.doc.dateModified ?? b.doc.created ?? '');
-      return db.localeCompare(da);
-    })
-    .slice(0, limit)
-    .map((s) => s.doc);
+  return rankRelatedCore(currentMeta, categoryArticles, limit, exclude, deps) as DocMeta[];
 }

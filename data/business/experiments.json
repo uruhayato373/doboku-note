@@ -1124,17 +1124,18 @@
         "2026-09-26: 中間観察（career-funnel 2026-08-20〜09-16）。広告 表示23,154・クリック11（CTR 0.05%）。記事サイドバー 12,673・0、記事末 3,413・0、本文中 3,546・7。A8 は発生1・確定0で判定不能。サイドバーはA8ピクセルの唯一の発火源のため、存廃は DN-0322 で判断（判定は予定どおり 10/20）",
         "2026-09-26: 記事サイドバーの転職広告を撤去（DN-0322・ユーザー決定）。A8ピクセルは本文の転職広告、無ければ記事末バナーで1ページ1発。本番でGA4クリック送信とピクセルのリクエストを確認。記事末の存廃は10/20の判定で決める",
         "2026-10-07: 2級を建設JOBs へ替えるため、2級を含むビルドジョブのルール PL-0001・0003・0004・0006・0007 を閉じ、2級を除いて PL-0013〜0017 で続けた（2級のキャリア記事は PL-0018・0019 でビルドジョブのまま）。10/20 の判定は閉じた前後の窓を混ぜずに読む（ルール別の数字は report-career-funnel の byRule）",
-        "2026-10-11: 非キャリア記事の記事末バナー（PL-0015 ビルドジョブ・PL-0005 DX コンサル）を運営者決定で閉じた（28 日で article-end 面 4,161 表示 0 クリック・DN-0695）。10/20 の判定は記事末を除いた面（本文カード・本文中間・hub・ツール）で読む。EXP-017/018 の記事末（PL-0022・0026・0039）は各実験の判定日まで残す"
+        "2026-10-11: 非キャリア記事の記事末バナー（PL-0015 ビルドジョブ・PL-0005 DX コンサル）を運営者決定で閉じた（28 日で article-end 面 4,161 表示 0 クリック・DN-0695）。10/20 の判定は記事末を除いた面（本文カード・本文中間・hub・ツール）で読む。EXP-017/018 の記事末（PL-0022・0026・0039）は各実験の判定日まで残す",
+        "2026-10-20: 第 2 波の 28 日後判定（DN-0261）。affiliate クリック 11→21・高意図 query 表示 33→178・career の GSC クリック>0 は達成、本文中間 CTR 0.18%（目標 0.41% 未達）、確定成果 ¥0。運営者の決定で継続し、記事末バナー（2 サイクル 0 クリック）を外す（DN-0779）。裁定ログ affiliate-operations.md 2026-10-20"
       ],
       "pending_user_actions": [
         {
-          "action": "deploy から 28 日後に npm run report-career-funnel を再実行し、凍結した基線と比較する"
+          "action": "記事末撤去（DN-0779）の deploy から 28 日後に npm run report-career-funnel を再実行し、2026-10-20 の観測（裁定ログ）と比べる"
         },
         {
           "action": "A8 の月次成果を取り込む（npm run a8-ui:fetch -- --month YYYY-MM／要ログイン）。確定 3 件未満では案件の勝敗を決めない"
         }
       ],
-      "next_check_date": "2026-10-20",
+      "next_check_date": "2026-11-17",
       "resume_criteria": "deploy 後に started_at と next_check_date（deploy+28日）を入れて status=running へ。再計測は npm run report-career-funnel。判定は cta_placement 作成日（2026-07-25）以降の窓で行う。実装の詳細は git 履歴（2026-08-21 のキャリアファネル再設計コミット群）、恒久ルールは affiliate-operations.md。close 時に note キャリア L2 を作るかを判断する（GSC クリックが 0 から動き hub→柱 の遷移が観測できたときだけ作る。既存L1/L2再編は2026-09-05にライブ反映済み。判断の根拠は affiliate-operations.md「note キャリア L2 は『先に作らない』」）。"
     },
     {
@@ -1677,7 +1678,8 @@
       "closed_at": null,
       "actions": [
         "2026-09-25: QualificationBridge（src/config/qualification-bridge.ts）を /practice/ 全記事の記事末と共通仕様書の章末に配置。GA4 qualification_bridge_click / qualification_bridge_impression を AnalyticsProvider・growth-cycle・fetch-ga4-cta-clicks に登録。入口記事（会計検査・工事検査）を新設。deploy 待ち（backlog DN-0304）",
-        "2026-09-25: 本番反映（PR #635 → develop → main・cloudflare-deploy run 36078428661 成功・check-production-ssr exit 0）。起票日と同日のため measure.anchor は 2026-09-25 のまま。本番の /practice/cost-and-design-change と /standards/chubu/common/chapters/1-1 にカードとリンク 3 本（orderer / contractor / qualification-map）を curl で確認。本番で qualification_bridge_impression（label=card）と qualification_bridge_click（label=orderer・contractor・qualification-map）が cta_placement=practice-footer / standards-chapter-footer 付きで GA4 収集エンドポイントへ送られ 204 を返すことを確認（Playwright）"
+        "2026-09-25: 本番反映（PR #635 → develop → main・cloudflare-deploy run 36078428661 成功・check-production-ssr exit 0）。起票日と同日のため measure.anchor は 2026-09-25 のまま。本番の /practice/cost-and-design-change と /standards/chubu/common/chapters/1-1 にカードとリンク 3 本（orderer / contractor / qualification-map）を curl で確認。本番で qualification_bridge_impression（label=card）と qualification_bridge_click（label=orderer・contractor・qualification-map）が cta_placement=practice-footer / standards-chapter-footer 付きで GA4 収集エンドポイントへ送られ 204 を返すことを確認（Playwright）",
+        "2026-10-21: 運営者の判断（計測より配線を優先）で、PR #1182 に記事末の回遊（根拠法令の同じ法令の記事・関わるテーマ、この記事のテーマ）と、自治体の土木担当シリーズ（タグ 地方公共団体）での橋渡しカードの出し分け（contractor → public-pe・立場のテーマへのリンク municipal-hub）を入れた。deploy 待ち。deploy した日以降は表示面が変わるので、判定は deploy の前後を分けて読む（DN-0810）"
       ],
       "next_check_date": "2026-10-23",
       "resume_criteria": null,

@@ -4,12 +4,14 @@
     "scripts/**/*.{mjs,cjs,js,ts}",
     ".claude/scripts/**/*.{mjs,cjs,js}",
     ".claude/skills/**/scripts/**/*.{mjs,cjs,js}",
-    ".claude/skills/**/scripts-*/**/*.{mjs,cjs,js}"
+    ".claude/skills/**/scripts-*/**/*.{mjs,cjs,js}",
+    "tests/**/*.test.mjs"
   ],
   "project": [
     "src/**/*.{ts,tsx}",
     "scripts/**/*.{mjs,cjs,js,ts}",
-    ".claude/**/*.{mjs,cjs,js}"
+    ".claude/**/*.{mjs,cjs,js}",
+    "tests/**/*.mjs"
   ],
   "ignore": [
     ".local/**",

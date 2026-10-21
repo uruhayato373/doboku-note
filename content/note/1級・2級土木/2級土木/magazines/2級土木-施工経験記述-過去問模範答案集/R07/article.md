@@ -41,13 +41,6 @@ cover:
 
 ---
 
-<!-- cta:coconala-custom -->
-自分の答案を人の目で確かめたいときは、ココナラで個別に対応しています。書いた答案があれば全3テーマの添削、まだ書けていなければヒアリングから骨子（構成）をつくります。
-
-https://coconala.com/services/4418778
-
-https://coconala.com/services/4418785
-
 本記事は「2級土木 施工経験記述 過去問 模範答案集」の収録記事です。令和3〜7年度の過去問に、年度別の模範答案をまとめたマガジンです。
 
 https://note.com/dobokunote/m/md3aa0f9a37d7

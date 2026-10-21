@@ -107,6 +107,7 @@ domain: strategy
 - **内部リンク健全性**: 公開ページの壊れた内部リンクは CI ゲート（quality-audit `internal-links`・ci:true）が止める。GSC の理由別 CSV との突合は `/google-search-growth` で行う（週次では実行しない）。
 - A8 成果取込期限（月次）: 日次の ops 点検（quality-audit の `ops:true`・赤は automation-failure Issue channel ops・復旧で自動クローズ）の `a8-report-due` が 30 日超を知らせる（週次では実行しない）。Issue が開いている週だけ `/a8-report` を申し送る。掲載中の広告の未集計・混入疑い（`issues[]`）は `/a8-report` の中で扱う。
 - **note の記事単位の同期（2026-09-29〜）**: 反映は Mac の launchd `note-sync`（通常は日曜03:00、catch-up期限までは毎日03:00・1記事1回の更新）が行う。週次では**結果を読むだけ**: `data/note/sync-log.json` の最新run（更新した記事と部品・失敗・問題。deferredは日次添付上限による翌日再開待ち）と `npm run note-sync-plan`（反映待ち・止まっている記事と直し方）。管理画面 `/content/note-sync` でも同じものが見える。止まっている記事（中断・会員特典の公開範囲未指定・画像欠け・有料境界の見出しが無い・価格変更）はカードの直し方どおりに次セッションで直す。launchd が止まっていないかは日次の ops 点検（quality-audit の `ops:true`）の `note-sync-freshness` が見る（同期の記録の最新が台帳 `note.sync-log` の freshness を超えたら FAIL・週次では実行しない）。Issue が開いていれば Mac で launchd `note-sync` の状態とログを確認する。旧 `/docs` → 新 URL の張り替えだけの「301 等価」は同期の対象にしない（`check-note-republish` が別に数える）。
+- **Drive vault の実体照合（Mac だけで成立）**: `npm run check-drive-vault` を回す（CI の quality:audit は `--metadata-only` で実体を見ないので、ローカルにしか無い正本はここでしか見つからない）。FAIL が 1 件でもあれば「## バックログの関門」に件数と group を書き、正本は `drive-vault-sync --group <g> --commit`、作り直したものは `--force` で反映する。WARN の `local-newer` は作り直しの反映待ちなので件数だけ記録する
 - note 構成監査: 有料境界の破損（FULL_LOCK/PAYWALL_LEAK/BOUNDARY_SHIFT 等）は週次 CI `note-live-audit.yml` が検査し、失敗は同ワークフローの Issue で届く（週次では実行しない）。
 
   **出力の「実検査 N本（対象M・取得失敗K）」を必ず読む**。live 系の検査は取得できていなければ「異常なし」ではなく「検査できていない」＝ N が対象数から大きく欠けていたら結果を信用しない（取得失敗率 >20% ならスクリプト側が exit 1 で落とす）。2026-07-28 まで 675/675 が取得失敗でも緑を返していた実績がある。同種の live 検査 `check-note-live-headings` も同じ観点で見る。
@@ -501,7 +502,7 @@ blocked / fail があれば「課題・ブロッカー」へ、繰り返し bloc
 npm run review-checks -- --cadence weekly --run YYYY-Www --write
 ```
 
-（点検は `review-wiring.json` の `checks`＝`npm run check-workflow-health` と `node scripts/check-backlog-health.mjs`。結果は回ごとに `data/business/records/checks-weekly-<週>-<実行時刻>.json` に追記で残る。）
+（点検は `review-wiring.json` の `checks`＝`npm run check-workflow-health` と `node scripts/check-backlog-health.mjs` と `npm run check-taxonomy-wiring`（分類と回遊の配線の要対応。赤なら `npm run report-taxonomy-wiring` で中身を読み、テーマ所属なしは分野・管理のタグか `topics:` を付け、昇格できる育成中のテーマは status を hub にするか判断し、一次資料で確かめてから 180 日を超えた計画・施策は一次資料で確かめ直して `config/policy-registry.json` の `checkedAt` を更新する。規則は `.claude/knowledge/reference/content-taxonomy.md` §6）。結果は回ごとに `data/business/records/checks-weekly-<週>-<実行時刻>.json` に追記で残る。）
 レポートの「## 点検と Issue」に、失敗・検査不成立の点検と開いている Issue・Dependabot の脆弱性の**全件**を
 `- <コマンド名 or #番号 or dependabot:パッケージ名> 状況 → 振り分け: DN-xxxx / 定常 / 理由` で書く。行き先の無い項目が残る週は「実施できた」にならない（管理画面のレビュー手順が数える）。
 

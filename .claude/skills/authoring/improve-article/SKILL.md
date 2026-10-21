@@ -47,7 +47,7 @@ Generator / Evaluator 分離原則は維持する。本スキルは「評価を�
 ### Step 0: 入力解決
 
 1. 引数を MDX ファイルパスに解決する
-   - slug が来たら `content/site/**/article.mdx` を Glob で探す（Convention B 優先、見つからなければ Convention A）
+   - slug が来たら `content/site/**/article.mdx` を Glob で探す
    - URL が来たら `/docs/{slug}` → 同様に解決
 2. MDX を Read して frontmatter を取得（`category`・`group` が必須）
 3. dev server が起動していなければ「`npm run dev` を起動してください」と報告して中止

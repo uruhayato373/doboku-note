@@ -6,6 +6,8 @@ import { loadTsModule } from './lib/load-ts.mjs';
 const routes = await loadTsModule('src/lib/content-routes.ts');
 const categories = await loadTsModule('src/lib/categories.ts');
 const index = JSON.parse(readFileSync('src/config/doc-meta-index.json', 'utf8'));
+// 公開領域の語彙は content-taxonomy.json の areas（exam / practice / standards / laws）
+const AREAS = Object.keys(JSON.parse(readFileSync('src/config/content-taxonomy.json', 'utf8')).areas);
 
 test('領域は categories.json の area で決まる（practice / exam / standards）', () => {
   const practice = Object.keys(index.docs).find((s) => index.docs[s].category === 'civil-practice');
@@ -23,12 +25,12 @@ test('公開ルートは index の公開記事数と一致し、path が重複�
   assert.equal(all.length, Object.keys(index.docs).length);
   const paths = new Set(all.map((r) => r.path));
   assert.equal(paths.size, all.length, 'path の重複');
-  for (const r of all) assert.ok(['exam', 'practice', 'standards'].includes(r.area), `${r.legacySlug}: area`);
+  for (const r of all) assert.ok(AREAS.includes(r.area), `${r.legacySlug}: area`);
 });
 
 test('全カテゴリが area と groups を宣言している', () => {
   for (const c of categories.getAllCategories()) {
-    assert.ok(['exam', 'practice', 'standards'].includes(c.area), `${c.slug}: area`);
+    assert.ok(AREAS.includes(c.area), `${c.slug}: area`);
     assert.ok(Array.isArray(c.groups) && c.groups.length > 0, `${c.slug}: groups`);
   }
 });

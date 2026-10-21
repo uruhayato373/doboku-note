@@ -8,7 +8,7 @@ title: サブエージェント詳細レジストリ
 
 SNSの表紙・冒頭は [SNS画像ポリシー §0](./sns-image-policy.md) を共通参照する。ig-carousel-writer／ig-reels-writer／x-post-writer は短い見出しと台帳のポーズ候補を制作担当へ渡し、対応QAおよびyt-shorts-publisher-qaは画像の判読・同一性・重なりを確認する。ポーズ分類の真実源は [キャラクター素材ポリシー](./character-asset-policy.md) が案内する台帳で、一覧確認は管理画面 `/gallery/characters`。画像QAから外部投稿の更新完了を推定しない。通常動画・ShortsのPOPは [承認見本](./pop-image-policy.md) と `pop-image.json` を参照し、`ai-image-fidelity-auditor` が文字・人物の忠実性、`yt-shorts-publisher-qa` がShorts表紙・操作UIを確認する。画像のみの入力は動画4軸を採点しない。
 
-> **件数の SSOT**: エージェント数の真実源は `.claude/agents/*.md` の実数（`find .claude/agents -maxdepth 1 -name '*.md' | wc -l`＝現在 **90**）と下記「エージェント一覧」表。CLAUDE.md など他 doc は件数を重複記載せずここを指す。追加/削除は同一 commit でこの表を更新する。
+> **件数の SSOT**: エージェント数の真実源は `.claude/agents/*.md` の実数（`find .claude/agents -maxdepth 1 -name '*.md' | wc -l`＝現在 **89**）と下記「エージェント一覧」表。CLAUDE.md など他 doc は件数を重複記載せずここを指す。追加/削除は同一 commit でこの表を更新する。
 
 **description の運用**: 呼出時の概要は 300 code points 以下とし、詳細な手順・制約は各 agent 本文を読む。Codex 用 TOML は原本から自動生成する。`node scripts/check-agent-descriptions.mjs` が全件を検査し、新規超過・悪化を拒否する。
 
@@ -78,10 +78,7 @@ SNSの表紙・冒頭は [SNS画像ポリシー §0](./sns-image-policy.md) を�
 | 過去問品質サイクル（親が起動）                        | `past-exam-qa`, `past-exam-rewriter`                          | 過去問記事（primary/secondary・全資格横断＝総監/一次/1級2級土木/コンクリート主任技士・診断士）の品質監査（5軸）→ 指摘適用 → 再評価ループ。修正は rewriter、検証/commit は親 |
 | **ガイド品質サイクル（親が起動・全資格 `group: guide`）** | `guide-qa`, `guide-rewriter`, `guide-fact-checker`           | ①機械スクリーン `check-guide-length`（3000字）＋`lint-mdx-mobile`（6-2〜4/15-x/12-x）→ ②`guide-qa` 5軸採点 → ③`guide-rewriter` で修正/加筆/密度向上（bulk=sonnet・フラグシップ=opus）→ ④`guide-fact-checker` で加筆事実を WebSearch 一次照合 → ⑤検出を `guide-rewriter` が正値で是正 → 機械再検証・commit は親。`quality-cycle` skill 未統合のため当面は親が fan-out で起動（profile 化は運用頻度が上がってから） |
 
-⏸️ Phase 2 で復活（着手条件: Web 月収 ¥15k 達成後）:
-
-| 呼出元スキル | 起動エージェント |
-|---|---|
+---|---|
 | `/keyword-gap`, `/exam-demand`, `/discover-exam-season` | `content-planner` |
 
 ---
@@ -114,7 +111,6 @@ Shortsの全場面POP差し替えは `yt-shorts-publisher-qa` が原画像と字
 | `a8-csv-auditor`               | A8 収集物（raw CSV/manifest/正規化 JSON/rejects/SSOT 差分）の**データ品質のみ**を検査。**サイト帰属を最優先軸**＝口座一致・`siteSummary` の targetSite 行・`crossCheck.exceeded`（allowlist 抽出がサイト別を超過＝stats47 混入）。encoding・fatal・未写像・upsert 重複・遡及変化も見て PASS/WARN/FAIL。迷ったら FAIL 寄せ（不可逆な SSOT 汚染の防止）。audit-only | Evaluator    | sonnet  | a8-report                                                            | ✅ 新設（2026-07-27・同日実走で実機確定）        |
 | `affiliate-operator`           | A8 / もしも / afb の 3 ASP 横断**提携運用**オーケストレーター。提携状態の実機照合（`affiliate:status`）・申請の実行計画と dry-run→`--commit`（`affiliate:apply`）・afb 走査（`afb:scan`）・**ASP 間比較**（同一案件の単価/確定率/EPC）。**3 ASP とも doboku-note と stats47 が同一口座に同居し既定は stats47 側**のため全操作で `asp-site-guard`（不一致は例外で停止）を通す。**申請は規約同意を伴うので都度ユーザー許可**・Red Line 案件は拒否・配置判断は人。成果 CSV 取込（a8-report-collector/a8-csv-auditor）と A8 開拓（`/scout-asp`）とは守備範囲が直交 | Generator（オーケストレーター） | sonnet | affiliate-status, affiliate-apply | ✅ 新設（2026-07-27） |
 | `seo-fix-planner`              | report-search-growth の join 済み JSON（URL 単位 signal＋機械分類）を意味評価し action（FIX_TECHNICAL/REDIRECT_LEGACY/KEEP_MONITOR/CONSOLIDATE/NOINDEX/EXPECTED/UNKNOWN）を補正、impact×confidence×effort で優先順位。similarCluster/hasParent/cannibalization を semantic 補強。コード・MDX・_redirects を変更しない（audit-only）。coverage は gsc-index-auditor、performance は metrics-analyzer と直交 | Evaluator    | sonnet  | google-search-growth                                                 | ✅ 運用中（2026-07-24 起動）                     |
-| `content-planner`              | コンテンツ企画（Phase 2 で復活）                                                                                 | Generator    | sonnet  | discover-exam-season, exam-demand, keyword-gap                        | ⏸️ Phase 2 で復活                            |
 | `keyword-rewriter`             | CEM キーワードページのバルクリライト                                                                                 | Generator    | sonnet  | quality-cycle 連携                                                      | ✅ 運用中                                     |
 | `civil-textbook-rewriter`      | 1級土木 textbook/guide ページのバルクリライト                                                                      | Generator    | sonnet  | civil-textbook-cycle 連携                                               | ✅ 運用中                                     |
 | `civil-guide-writer`           | 1級・2級土木＋**civil-practice**（土木施工の実務・非資格）の **新規** `group: guide` 記事を `article-structure-guide.md`（DN-0053）準拠で書き起こす Generator。既存記事の修正・拡張は `civil-textbook-rewriter`（civil限定）/ `guide-rewriter`（全資格）の担当で本エージェントはやらない＝新規執筆の空白を埋める新設。civil-practice では読者が実務者のため ExamPoint・試験文脈・note CTA を使わず、数値は一次資料照合が必須 | Generator    | sonnet  | （新規執筆・単体呼出）                                                       | ✅ 新設（2026-08-26）／civil-practice 対応（2026-08-27） |
@@ -192,6 +188,8 @@ Shortsの全場面POP差し替えは `yt-shorts-publisher-qa` が原画像と字
 | `cem-advisor` | CEM 試験対策 Generator（placeholder） | Generator は `keyword-rewriter`、Evaluator は `cem-qa`、orchestration は `strategy-advisor` |
 | `note-figure-auditor` | note 図版を `note-svg-policy.md` 準拠で 4 軸監査（〜2026-06-18 Phase A 起源） | `svg-figure-auditor`（site/note 横断化して吸収・2026-06-18） |
 | `seo-auditor` | SEO 総合監査（Phase 2 待機・GSC/GA4 取得＋分析の catch-all） | 2026-06-19 退役（統合再設計）。coverage→`gsc-index-auditor` / performance→`metrics-analyzer` / CWV→`performance-auditor` / 取得→CI（`fetch-metrics.yml`・`index-coverage.yml`）。keyword-gap は Phase 2 `content-planner`。真実源 `.claude/knowledge/reference/gsc-management.md` |
+| `brain-operator` | Brain の出品・審査反映 | 2026-09-26 退役（Brain チャネルから完全撤退） |
+| `content-planner` | コンテンツ企画（Phase 2 待機） | 2026-10-20 退役（呼び出し元のスキルが実在しない）。企画は `strategy-advisor` と資格別の企画スキル |
 
 ## Generator と Evaluator の分離原則
 

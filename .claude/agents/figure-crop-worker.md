@@ -121,7 +121,7 @@ cd "$(git rev-parse --show-toplevel)" && magick REL.jpg -crop WIDTHxHEIGHT+L+T +
 
 PDF が見つからない・ページが特定できない・図がベクターで無くテキスト版しか無い場合は `action='source-unavailable'` を返す（ファイルは変更しない）。Drive の cloud-only ファイルは初回読み込みに時間がかかる。
 
-原典は `sourceCandidates` と `sourceRoots` の中だけで探す。候補に `url` しか無い原典（vault に写しが無い）も取得しない。`curl`・`wget` などでネットから取得しない（ファイルのダウンロードは運営者の了解が要る。2026-10-06 に白書の PDF を無断で取得した）。手元に無ければ `source-unavailable` にし、公開元の URL が分かれば `reason` に書く。
+原典は `sourceCandidates` と `sourceRoots` の中だけで探す。候補に `url` しか無い原典（vault に写しが無い）も取得しない。`curl`・`wget` などでネットから取得しない（ファイルのダウンロードは運営者の了解が要る。2026-10-06 に白書の PDF を無断で取得した。PreToolUse hook `check-agent-network` が止める）。手元に無ければ `source-unavailable` にし、公開元の URL が分かれば `reason` に書く。
 
 書籍の撮影写真から切り出すとき、傾き・湾曲を変形で補正するとグラフの点の位置（読める値）が変わる。補正したら、旧画像と記事本文の数値と比べて値が原典どおりに読めるかを確かめ、ずれたら `reason` に書く。
 

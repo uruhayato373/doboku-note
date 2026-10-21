@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import Link from "next/link";
+import { countAnswerChars } from "@/lib/keiken-charcount.mjs";
 
 /**
  * 施工経験記述 文字数チェッカー（クライアント）。
@@ -35,16 +36,6 @@ const GRADE_LABEL: Record<Grade, string> = {
   "civil-1": "1級", // qualification-ssot: allow 級の表示で資格名ではない
   "civil-2": "2級", // qualification-ssot: allow 級の表示で資格名ではない
 };
-
-// markdown 装飾・タグ・空白を除いた実文字数（scripts/keiken-charcount.mjs と一致）
-function countChars(s: string): number {
-  const clean = s
-    .replace(/<[^>]+>/g, "")
-    .replace(/`/g, "")
-    .replace(/\*/g, "")
-    .replace(/\s/g, "");
-  return [...clean].length;
-}
 
 type Severity = "ok" | "borderline" | "over" | "severe";
 
@@ -111,7 +102,7 @@ export default function KeikenCharcountClient({ limits }: { limits: KeikenLimits
   const category = `${format}_${activeQ}`;
   const max = limits[grade][category] ?? 200;
 
-  const chars = useMemo(() => countChars(text), [text]);
+  const chars = useMemo(() => countAnswerChars(text), [text]);
   const sev = severityOf(chars, max);
   const meta = SEV_META[sev];
   const remaining = max - chars;

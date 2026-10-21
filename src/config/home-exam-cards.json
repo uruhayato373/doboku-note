@@ -26,33 +26,33 @@
   },
   {
     "slug": "concrete-engineer",
-    "order": 5.5,
+    "order": 7,
     "label": "コンクリート技士"
   },
   {
     "slug": "concrete-chief-engineer",
-    "order": 6,
+    "order": 8,
     "label": "コンクリート主任技士"
   },
   {
     "slug": "concrete-diagnostician",
-    "order": 7,
+    "order": 9,
     "label": "コンクリート診断士"
   },
   {
     "slug": "rccm",
-    "order": 8,
+    "order": 6,
     "label": "RCCM"
   },
   {
     "slug": "surveyor",
     "qualification": "surveying",
-    "order": 9,
+    "order": 33,
     "label": "測量士・測量士補"
   },
   {
     "slug": "pavement",
-    "order": 10,
+    "order": 28,
     "label": "舗装施工管理技術者"
   }
 ]

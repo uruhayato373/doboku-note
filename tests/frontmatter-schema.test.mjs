@@ -3,7 +3,7 @@
 // 回帰テスト目的:
 // 既存 746 MDX との後方互換性を壊さないため、`parseFrontmatter` は
 // - title 必須
-// - `.passthrough()` で未知フィールドを受け入れ
+// - キーは許可リスト（`.strict()`・DN-0796）で、未知フィールドは失敗にする
 // - `published` boolean / `publishedAt` string|Date / enum 系の既知値を通す
 // を維持する。schema 変更時に巨大リグレッションを起こさないための最小ガード。
 
@@ -37,15 +37,28 @@ test('published: false は parse 成功（ドラフト判定用）', () => {
   assert.equal(result.data.published, false);
 });
 
-test('未知フィールドは passthrough で保持される（既存 746 MDX 後方互換）', () => {
+test('未知フィールドは失敗する（許可リスト・DN-0796。updated と updatedAt のような綴りの違いを黙って通さない）', () => {
+  const result = parseFrontmatter({ title: 'x', customField: 'some-custom-value' });
+  assert.equal(result.success, false);
+  assert.ok(result.error.issues.some((i) => i.code === 'unrecognized_keys'));
+});
+
+test('実データで使うキー（seoTitle・created・faqs の 2 つの形・ogp）は通る', () => {
   const result = parseFrontmatter({
-    title: 'x',
-    customField: 'some-custom-value',
-    anotherUnknown: 42,
+    title: 'x', seoTitle: 'y', created: new Date('2026-05-21'), dateModified: '2026-08-26',
+    faqs: [{ q: 'Q', a: 'A' }, { question: 'Q2', answer: 'A2' }], ogp: { title: 't' }, guide_order: 2.5,
   });
   assert.equal(result.success, true);
-  assert.equal(result.data.customField, 'some-custom-value');
-  assert.equal(result.data.anotherUnknown, 42);
+});
+
+test('全記事の frontmatter が許可リストに収まる', async () => {
+  const { default: matter } = await import('gray-matter');
+  const { readFileSync } = await import('node:fs');
+  const { listSiteMdx } = await import('../scripts/lib/mdx-files.mjs');
+  const files = listSiteMdx();
+  assert.ok(files.length > 1000);
+  const bad = files.filter((f) => !parseFrontmatter(matter(readFileSync(f, 'utf8')).data).success);
+  assert.deepEqual(bad, []);
 });
 
 test('publishedAt は string / Date どちらも受け入れる', () => {
