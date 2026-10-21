@@ -21,7 +21,7 @@ if (args.json) {
   process.stdout.write(JSON.stringify({ counts, issues }, null, 2) + '\n');
 } else {
   const ch = Object.entries(counts.byChannel).map(([k, v]) => `${k} ${v}`).join('・') || 'なし';
-  console.log(`check-content-registry: 作品 ${counts.works}・公開 ${counts.publications}（${ch}）・素材 ${counts.media} を実検査 / 動画パック ${counts.videoPacks} 本のうち台帳に無い ${counts.videoPacksWithoutWork} 本 / 通常動画 ${counts.checkedLongformPairs} 組を台本比較 / 完成動画の制作入力 ${counts.checkedRenderInputs} 本を照合（旧成果物を除く）`);
+  console.log(`check-content-registry: 作品 ${counts.works}・公開 ${counts.publications}（${ch}）・素材 ${counts.media} を実検査 / 動画パック ${counts.videoPacks} 本のうち台帳に無い ${counts.videoPacksWithoutWork} 本 / 通常動画 ${counts.checkedLongformPairs} 組を台本比較 / 完成動画の制作入力 ${counts.checkedRenderInputs} 本を照合（旧成果物を除く） / 改訂投稿入力 ${counts.checkedRevisionInputs} 件を照合`);
   for (const i of [...by('FAIL'), ...by('WARN'), ...(args.verbose ? by('INFO') : [])]) console.log(`  [${i.severity}] ${i.code} ${i.id ?? '-'}: ${i.message}`);
   console.log(`結果: ${by('FAIL').length ? 'FAIL' : 'PASS'}（FAIL ${by('FAIL').length} / WARN ${by('WARN').length} / INFO ${by('INFO').length}${args.verbose ? '' : '・INFO の内訳は --verbose'}）`);
 }

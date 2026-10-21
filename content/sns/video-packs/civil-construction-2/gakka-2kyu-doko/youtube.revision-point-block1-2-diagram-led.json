@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "publicationId": "civil-construction-2/gakka-2kyu-doko/youtube.short.point-block1-2-diagram-led",
+  "revisionOf": "civil-construction-2/gakka-2kyu-doko/youtube.short.point-block1-2",
+  "account": "youtube:main",
+  "format": "short",
+  "title": "2級土木｜土質試験は目的で覚える #Shorts",
+  "description": "まず土質試験です。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/n/n4963f45bd6f8?utm_source=youtube&utm_medium=video&utm_campaign=gakka-2kyu-doko&utm_content=shorts\n\n#2級土木 #試験対策 #Shorts",
+  "tags": [
+    "2級土木施工管理技士",
+    "2級土木",
+    "試験対策",
+    "頻出論点",
+    "土木施工管理",
+    "Shorts"
+  ],
+  "media": {
+    "body": {
+      "id": "civil-construction-2/gakka-2kyu-doko/work/candidate-point-block1-2-body",
+      "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/work/candidate-point-block1-2-body.557798b9.png",
+      "sha256": "557798b9ca475d02a5258879c8d84b5280898f30c037a4cc2155bd37801b4696"
+    },
+    "cover": {
+      "id": "civil-construction-2/gakka-2kyu-doko/work/candidate-point-block1-2-cover",
+      "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/work/candidate-point-block1-2-cover.6e5925a6.png",
+      "sha256": "6e5925a6f093cab88d2a56b267871f6e9a5e81af4f9640fe8e4ff1a955d39373"
+    },
+    "cta": {
+      "id": "civil-construction-2/gakka-2kyu-doko/work/candidate-point-block1-2-cta",
+      "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/work/candidate-point-block1-2-cta.b270eb86.png",
+      "sha256": "b270eb8626a05163d3f3912ade1bdee814fcd69d045d049c03c2d5df92a4b092"
+    },
+    "recipe": {
+      "id": "civil-construction-2/gakka-2kyu-doko/work/candidate-point-block1-2-recipe",
+      "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/work/candidate-point-block1-2-recipe.00ec2eaf.json",
+      "sha256": "00ec2eafc42cefb773a2a105278a502b475b04bdfe8d68411cb1137207bf5837"
+    },
+    "subtitles": {
+      "id": "civil-construction-2/gakka-2kyu-doko/work/candidate-point-block1-2-subtitles",
+      "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/work/candidate-point-block1-2-subtitles.71e06e28.ass",
+      "sha256": "71e06e2816a7022b3d5ca35a825004693c1a48c4c5b9e4c0b39bd3bd202d9af2"
+    },
+    "video": {
+      "id": "civil-construction-2/gakka-2kyu-doko/work/candidate-point-block1-2-video",
+      "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/work/candidate-point-block1-2-video.593ce714.mp4",
+      "sha256": "593ce71432771ccc53e5c4604e32a6d759590ca7a99638c9a4d91feafc09e845"
+    }
+  },
+  "localFile": ".tmp/media/civil-construction-2/gakka-2kyu-doko/work/candidate-point-block1-2-video.593ce714.mp4",
+  "sha256": "593ce71432771ccc53e5c4604e32a6d759590ca7a99638c9a4d91feafc09e845",
+  "thumbnailLocalFile": ".tmp/media/civil-construction-2/gakka-2kyu-doko/work/candidate-point-block1-2-cover.6e5925a6.png",
+  "thumbnailSha256": "6e5925a6f093cab88d2a56b267871f6e9a5e81af4f9640fe8e4ff1a955d39373",
+  "relatedTo": "civil-construction-2/gakka-2kyu-doko/youtube.longform.diagram-led"
+}

@@ -10,7 +10,7 @@ import { join } from 'node:path';
 import { createHash } from 'node:crypto';
 import { longformInputHash } from './longform-render-integrity.mjs';
 import {
-  CHANNEL_DATASET, approvalHash, approvalParts, canTransition, idShapeIssues, loadRegistry, loadRegistryConfig, parsePubId, pubIdOf, requiresApproval,
+  CHANNEL_DATASET, approvalHash, approvalParts, canTransition, canonicalJson, idShapeIssues, loadRegistry, loadRegistryConfig, parsePubId, pubIdOf, requiresApproval,
 } from './content-registry.mjs';
 import { datasetDir } from './datasets.mjs';
 import { parseMediaPath, sha8Matches } from './media-paths.mjs';
@@ -36,7 +36,7 @@ export function discoverVideoPacks(root) {
 
 /** git の ref の時点の台帳（R03 の比較用）。ref に台帳が無ければ空 */
 export function loadRegistryAt(root, ref) {
-  let names = [];
+  let names;
   try {
     const dirs = Object.values(CHANNEL_DATASET).map((id) => `${datasetDir(id)}/`);
     names = execFileSync('git', ['-c', 'core.quotepath=false', 'ls-tree', '-r', '--name-only', ref, '--', ...dirs], { cwd: root, encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 })
@@ -142,6 +142,12 @@ export function checkRegistry(root, opts = {}) {
     if (p.definition && !existsSync(join(root, p.definition))) issues.push(issue('FAIL', 'R04', p.id, `定義フォルダが無い: ${p.definition}`));
     for (const [role, mid] of Object.entries(p.media ?? {})) if (!mediaById.has(mid)) issues.push(issue('FAIL', 'R04', p.id, `素材（${role}）が台帳に無い: ${mid}`));
     if (p.relatedTo && !pubById.has(p.relatedTo)) issues.push(issue('FAIL', 'R04', p.id, `関連先の公開が台帳に無い: ${p.relatedTo}`));
+    if (p.revisionOf) {
+      const original = pubById.get(p.revisionOf);
+      if (!original || original.id === p.id || original.revisionOf || original.work !== p.work || original.exam !== p.exam || original.channel !== p.channel || original.format !== p.format || original.account !== p.account) {
+        issues.push(issue('FAIL', 'R04', p.id, '改訂元は同じ作品・チャネル・形式・アカウントの元の公開行でなければならない'));
+      }
+    }
     if (p.renamedTo && !pubById.has(p.renamedTo)) issues.push(issue('FAIL', 'R04', p.id, `改名先が台帳に無い: ${p.renamedTo}`));
   }
   for (const m of reg.media) {
@@ -157,7 +163,7 @@ export function checkRegistry(root, opts = {}) {
   for (const w of reg.works.filter((x) => x.kind === 'video-pack')) {
     const pack = packs.get(w.id);
     if (!pack) continue;
-    const pubs = reg.publications.filter((p) => p.work === w.id && p.channel === 'youtube');
+    const pubs = reg.publications.filter((p) => p.work === w.id && p.channel === 'youtube' && !p.revisionOf);
     const want = { longform: pack.manifest.outputs?.longform ? 1 : 0, short: Number(pack.manifest.outputs?.shorts) || 0 };
     for (const [format, n] of Object.entries(want)) {
       const got = pubs.filter((p) => p.format === format).length;
@@ -231,6 +237,21 @@ export function checkRegistry(root, opts = {}) {
 
   // R12: 新経路の完成動画・未公開改訂版が現行の制作入力と一致するか。
   counts.checkedRenderInputs = 0;
+  counts.checkedRevisionInputs = 0;
+  for (const p of reg.publications.filter(p => p.channel === 'youtube' && p.revisionOf)) {
+    counts.checkedRevisionInputs++;
+    const input = p.copy && readJsonIf(root, p.copy);
+    const assets = Object.fromEntries(Object.entries(p.media ?? {}).map(([role, id]) => {
+      const m = mediaById.get(id);
+      return [role, m ? { id, path: m.store.path, sha256: m.sha256 } : null];
+    }));
+    if (!input || input.publicationId !== p.id || input.revisionOf !== p.revisionOf || input.account !== p.account || input.format !== p.format ||
+        canonicalJson(input.media) !== canonicalJson(assets) || input.sha256 !== assets.video?.sha256 || input.localFile !== assets.video?.path ||
+        input.thumbnailSha256 !== assets.cover?.sha256 || input.thumbnailLocalFile !== assets.cover?.path ||
+        input.publishAt !== p.publishAt || input.relatedTo !== p.relatedTo) {
+      issues.push(issue('FAIL', 'R12', p.id, '改訂投稿入力と公開行・素材のID/SHA/予定が一致しない。旧入力で投稿しない'));
+    }
+  }
   const currentVideos = reg.publications.filter(p => p.channel === 'youtube' && p.format === 'longform' && p.status !== 'stopped')
     .map(p => ({ id: p.id, exam: p.exam, work: p.work, video: reg.media.find(m => m.id === p.media?.video) }));
   for (const m of reg.media.filter(m => m.role === 'candidate-video')) {

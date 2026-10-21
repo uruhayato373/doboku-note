@@ -158,7 +158,8 @@ export function projectVideoState(file, reg) {
   }
   const workById = new Map(reg.works.filter((w) => w.kind === 'video-pack').map((w) => [w.id, w]));
   const pubsByWork = new Map();
-  for (const p of reg.publications.filter((x) => x.channel === 'youtube' && workById.has(x.work))) {
+  // 旧投稿経路は作品につき通常動画1本。改訂行を流すと旧IDへ書き戻すため、明示的に分離する。
+  for (const p of reg.publications.filter((x) => x.channel === 'youtube' && !x.revisionOf && workById.has(x.work))) {
     pubsByWork.set(p.work, [...(pubsByWork.get(p.work) ?? []), p]);
   }
   for (const [workId, pubs] of pubsByWork) {

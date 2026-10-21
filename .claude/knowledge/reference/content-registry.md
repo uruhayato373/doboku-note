@@ -128,7 +128,7 @@ config/content-registry.json          チャネル×形式・アカウント・I
 | R02 | ID の一意と形・禁止の語・`idException` の上限 |
 | R03 | 予約以上の行の削除・改名（`--base <ref>` と比べる） |
 | R04 | 参照（公開→作品・作品の定義フォルダ・素材→公開・文面の鍵）と孤児 |
-| R05 | `video-pack.json` の `outputs` と公開の数の一致（Shorts が 1 本も無いのは未作成の INFO） |
+| R05 | `video-pack.json` の `outputs` と元の公開の数の一致（`revisionOf` の改訂行は別枠。Shorts が 1 本も無いのは未作成の INFO） |
 | R06 | 素材の sha と Drive 台帳（`drive-manifest.json`）の一致・置き場の名前の sha8 |
 | R07 | 状態の必須欄（状態表の太字）・承認ハッシュ。遷移は比較元から変わった行だけ見る（P3） |
 | R08 | 外部 ID の重複・Shorts の関連動画 |
@@ -158,3 +158,13 @@ npm run media -- pull --work civil-construction-2/matome-2kyu-chokuzen
 ### 公開済み素材と未反映の改訂版
 
 `media promote --candidate --pub <公開ID> --commit` は `{exam}/{work}/work/candidate-{role}` の作品用素材だけを upsert する。Shorts候補は `pop-image.json.candidateShortsRevision` の再現記録を検査し、`candidate-point-…-video` 等のvariant別の役割で保存する。公開行の素材参照、予定、外部ID、承認は保持する。作品詳細の「改訂版（YouTube未反映）」から確認できる。入力照合済みの通常動画の候補もR12の対象で、台本・採用画像・表紙等の変更後は再生成が必要。公開・再予約は別の実操作として扱う。
+
+候補を個別投稿用に準備する入口は `npm run registry -- prepare-youtube-revision --pub <元の公開ID> --variant <新版名>`。既定dry-runで全候補の実ファイルSHAを確認し、表示されたdigestを `--commit --expect <digest>` へ渡すと、別公開IDのdraft行と `youtube.revision-<新版名>.json` を作る。`revisionOf` で旧公開行を参照し、旧外部ID・旧承認・旧R2キーは複製しない。素材ID・パス・SHAを入力に固定し、R12で台帳との漂流を検出する。旧行・既存入力は上書きしない。予定は明示した未来の `--publish-at` のみ、Shortsは同作品の改訂版通常動画を `--related-to` に指定する。
+
+この準備入口はローカルの下書き作成だけで、承認・転送・投稿を行わない。`loadVideoState` は改訂行を旧投稿処理へ流さず、`publish-video-pack.cjs` はこの改訂入力には未対応。旧IDの上書きや、承認をコピーして既存経路へ通す方法は使わない。
+
+改訂版の個別投稿は `npm run registry -- publish-youtube-revision --pub <新公開ID> --phase upload|schedule|verify` を使う。既定は外部通信のないローカル検査で、作品・素材ID・実ファイルSHA・制作入力・承認・予定を照合する。`--commit --expect <digest>` でのみ既存のYouTube環境変数を使用する。`upload` は承認済みの現素材と5分以上先の予定を必要とし、非公開で投入する。`schedule` は処理完了（サイズ・尺・映像/音声stream）と表紙のAPI応答/読取を確認してから指定日時を予約し、実際の状態・日時の再読取後にだけ成功を保存する。Shortsは新版通常動画へのStudio関連先確認記録と、その動画がpublic/unlistedで視聴可能であることも必要。関連先の設定・確認自体はこのコマンドでは行わない。R2/Drive同期・承認生成・旧動画変更・自動配信再開は行わない。
+
+外部操作前に新公開行の `delivery` へ入力digest・一意なmarker・開始記録を保存し、応答を受けた新YouTube IDを即記録する。応答消失時は `--phase verify` のローカル検査でdigestを確認し、`--commit --expect <digest>` で外部の読取とローカルへの結果保存だけを行う。アップロードの結果は所有チャンネル全件からmarkerで一意に照合し、題名一致では採用しない。0件・複数件、表紙応答不明、予約未反映は再送しない。API応答が失われても実際の予約が要求日時と一致すれば、verifyで記録を確定できる。入力変更・処理失敗・未解決の結果は停止し、開始記録や外部IDを消して再投入しない。
+
+台帳保存は専用lock、並行変更の検出、一時ファイルの同期とatomic置換を使う。残存lockを自動回収せず、他の書き手の変更を検知した場合も停止する。照合はAPIが返した情報の範囲であり、表紙URL一致は画像の目視・YouTubeプレイヤー確認・全編試聴の代用にはならない。制作担当が個別実行前に検査結果を読み、必要な品質確認と現素材の承認が済んでから実行する。

@@ -14,7 +14,7 @@ title: 動画コンテンツ運用ポリシー
 |---|---|---|
 | 制作意図・台本 | `content/sns/video-packs/{exam}/{slug}/` | manifest、script、storyboard、thumbnail spec |
 | 派生制作物 | 既存の `content/sns/{instagram,x,youtube}/` | 各チャネルpolicyに従う入力 |
-| 公開・照合状態 | コンテンツ台帳 `content/registry/`（YouTube は 2026-10-09 に切り替え済みの正本）。写しの `video-content-status.json` は 2026-10-09 に消した。読み手・書き手は `scripts/lib/registry-video-state.mjs` の入口（`loadVideoState`・`saveVideoState`）だけを通す（Instagram のリールの状態は Instagram の台帳（`content/registry/publications/instagram/`）が正本で、`loadVideoState` の派生物の形には `instagramReel` を含めない。[content-registry.md](content-registry.md)） | URL、videoId、status、計測鮮度 |
+| 公開・照合状態 | コンテンツ台帳 `content/registry/`（YouTube は 2026-10-09 に切り替え済みの正本）。写しの `video-content-status.json` は 2026-10-09 に消した。既存動画パックの読み手・書き手は `scripts/lib/registry-video-state.mjs` の入口（`loadVideoState`・`saveVideoState`）を通す。`revisionOf` 付き改訂行はこの投影の対象外で、専用の改訂投稿入力と台帳で管理し、既存publisherへ渡さない（Instagram のリールの状態は Instagram の台帳（`content/registry/publications/instagram/`）が正本で、`loadVideoState` の派生物の形には `instagramReel` を含めない。[content-registry.md](content-registry.md)） | URL、videoId、status、計測鮮度 |
 | 再生成可能バイナリ | Google Drive vault `制作物/動画レンダー/`（`video-render-artifact`。人しか使わない＝サイトも CI も読まない。真実源 [asset-storage-policy.md](asset-storage-policy.md) §1） | mp4、wav、字幕、frame、生成済み画像 |
 | 戦略・判断 | `docs/marketing/06_動画コンテンツ運用設計.md` | 優先順位、KPI、段階実装 |
 | 動画の型と採否・自社チャンネル | `config/youtube-formats.json`（台帳 `config.youtube-formats`） | 型（単論点・図解・総まとめ・一問一答 等）の status・尺・送り先・根拠・判断カード |
@@ -73,7 +73,7 @@ title: 動画コンテンツ運用ポリシー
 
 ### 2.1 2級土木の通常動画タイトル
 
-`【2級土木】テーマ｜具体的な悩み・学べること` に揃える。公開題名の正本は `youtube.json` の `longform.title`。資格名の重複と、タイトル末尾への「総監・元発注者」「改訂版」の一律追加を避ける。経歴・監修者の情報は概要欄・プロフィール・動画冒頭で示し、発注者視点自体が主題の場合だけタイトルに含める。
+`【2級土木】テーマ｜具体的な悩み・学べること` に揃える。通常版の公開題名の正本は `youtube.json` の `longform.title`、改訂版は公開行の `copy` が指す `youtube.revision-<新版名>.json` の `title`。資格名の重複と、タイトル末尾への「総監・元発注者」「改訂版」の一律追加を避ける。経歴・監修者の情報は概要欄・プロフィール・動画冒頭で示し、発注者視点自体が主題の場合だけタイトルに含める。
 
 `video-pack.json` の `title` は制作入力の一部なので、公開題名だけの表記整理では変更しない。`prepare-youtube-longforms.mts --metadata` は制作見出しから題名を作り直すため、メタデータを再生成するときは編集済みの公開題名を引き継ぐ。題名を変えた公開行は承認ハッシュの対象でもあるため、文面以外が変わっていないことを照合し、運営者の変更指示と承認手順に従う。
 
