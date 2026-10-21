@@ -30,7 +30,7 @@ function parseArticle(dir) {
   if (!m) return null;
   const year = m[1];
   const part = (m[2] || 'a').toUpperCase();
-  const raw = readFileSync(join(POSTS, dir, 'article.mdx'), 'utf8');
+  const raw = readFileSync(join(POSTS, dir, 'article.mdx'), 'utf8').replace(/\r\n/g, '\n'); // CRLF の作業ツリーでも \r を残さない（DN-0714）
   const body = stripFrontmatter(raw);
   const blocks = body.split(/^## 問題 No\./m).slice(1);
   const out = [];
