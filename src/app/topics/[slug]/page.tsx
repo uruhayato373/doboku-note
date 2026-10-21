@@ -17,7 +17,8 @@ import AffiliateSlot from '@/components/ui/AffiliateSlot/AffiliateSlot';
 import MagazineCard from '@/components/ui/MagazineCard/MagazineCard';
 import { getMagazine, type MagazineId } from '@/lib/note-magazines';
 import { TopicLaws, LawDirectory } from '@/components/topics/TopicLaws';
-import { getLawDirectory, getTopicLaws } from '@/lib/law-wiring';
+import { getLawDirectory, getTopicLaws, getTopicPolicies } from '@/lib/law-wiring';
+import PolicyList from '@/components/laws/PolicyList';
 
 type Params = { slug: string };
 
@@ -49,11 +50,13 @@ export default async function TopicPage({ params }: { params: Promise<Params> })
   // 法令と分野・立場は多対多。このテーマの記事が引く法令と、法令・制度の軸のテーマでは法令と分野の対応の一覧
   const topicLaws = getTopicLaws(topic);
   const lawDirectory = topic.facet === 'law' ? getLawDirectory({ excludeTopic: topic.slug }) : [];
+  // 制度の地図: このテーマに関わる国の計画・施策・審議会（config/policy-registry.json・根拠法は法令ページへ）
+  const policies = getTopicPolicies(topic.slug);
   // このテーマの有料教材（分野・立場に合う note の商品。topics.json の products の順・非公開は出さない）
   const products = (topic.products ?? []).filter((id): id is MagazineId => getMagazine(id as MagazineId) !== null);
-  const areaLabels: Record<TopicArea, string> = { exam: getAreaLabel('exam'), practice: getAreaLabel('practice'), standards: getAreaLabel('standards') };
+  const areaLabels: Record<TopicArea, string> = { exam: getAreaLabel('exam'), practice: getAreaLabel('practice'), standards: getAreaLabel('standards'), laws: getAreaLabel('laws') };
   const areaCount = (area: TopicArea) => docs.filter(doc => getCategoryArea(String(doc.category)) === area).length;
-  const areaNav = (['exam', 'practice', 'standards'] as TopicArea[])
+  const areaNav = (['laws', 'exam', 'practice', 'standards'] as TopicArea[])
     .map(area => ({ area, count: area === 'standards' ? areaCount(area) + standards.length : areaCount(area) }))
     .filter(({ count }) => count > 0);
 
@@ -90,13 +93,20 @@ export default async function TopicPage({ params }: { params: Promise<Params> })
           description: doc.subtitle || doc.description || '', category: String(doc.category),
           categoryLabel: getCategoryLabel(String(doc.category)), image: getOgpDisplayUrl(doc.slug),
           categoryOrder: getCategoryBySlug(String(doc.category))?.order ?? 999, area: getCategoryArea(String(doc.category)),
-          kind: doc.category === 'civil-practice' ? '実務' : doc.category === 'concrete-engineer' && doc.group === 'primary' ? '演習' : ({guide:'受験ガイド', textbook:'テキスト', keyword:'用語', primary:'過去問', secondary:'過去問', 'past-exam':'過去問', pillar:'まとめ'}[String(doc.group)] ?? '解説'),
+          kind: doc.category === 'laws' ? '法令' : doc.category === 'civil-practice' ? '実務' : doc.category === 'concrete-engineer' && doc.group === 'primary' ? '演習' : ({guide:'受験ガイド', textbook:'テキスト', keyword:'用語', primary:'過去問', secondary:'過去問', 'past-exam':'過去問', pillar:'まとめ'}[String(doc.group)] ?? '解説'),
         }))} areaLabels={areaLabels} />
         </div>
       </SectionBlock>
       {topicLaws.length > 0 && (
         <SectionBlock divider="top" ariaLabel="このテーマの記事が引く法令">
           <TopicLaws laws={topicLaws} topicLabel={topic.label} />
+        </SectionBlock>
+      )}
+      {policies.length > 0 && (
+        <SectionBlock divider="top" ariaLabel="このテーマの国の計画・施策・審議会">
+          <h2 className="mb-2 font-serif text-2xl font-bold text-(--ink)">{topic.label}の国の計画・施策・審議会</h2>
+          <p className="mb-6 text-sm text-(--ink-muted)">このテーマの方向を決めている国の計画と施策、審議会の答申です。根拠になる法令とあわせて読めます。</p>
+          <div className="max-w-[780px]"><PolicyList policies={policies} /></div>
         </SectionBlock>
       )}
       {lawDirectory.length > 0 && (

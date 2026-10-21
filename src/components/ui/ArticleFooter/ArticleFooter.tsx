@@ -21,7 +21,8 @@ import SidebarAdBanner from '@/components/ui/SidebarAdBanner/SidebarAdBanner';
 import RelatedArticles from '@/components/ui/RelatedArticles';
 import TopicHubLinks from '@/components/ui/TopicHubLinks/TopicHubLinks';
 import { resolveLawSiblings, resolveTopicHubLinks, type WiredDoc } from '@/lib/article-end-wiring';
-import { resolveLawTopics, type LawTopicLink } from '@/lib/law-wiring';
+import { getLawPageData, lawLink, resolveLawTopics, type LawTopicLink } from '@/lib/law-wiring';
+import LawPageSections from '@/components/laws/LawPageSections';
 import NextStepNav from '@/components/ui/NextStepNav/NextStepNav';
 import AuthorCard from '@/components/ui/AuthorCard/AuthorCard';
 import RelatedTools from '@/components/ui/RelatedTools';
@@ -91,6 +92,14 @@ export default function ArticleFooter({
   const lawSiblingSlugs = new Set([...lawSiblings.values()].flat().map((doc) => doc.slug));
   // 法令 → 分野・立場のテーマ（法令と分野は多対多。河川法なら 河川・砂防・防災 と 自治体の土木職 など）
   const lawTopics = laws.length > 0 ? resolveLawTopics(laws.map((law) => law.lawId)) : new Map<string, LawTopicLink[]>();
+  // 法令ページ（/laws/）がある法令は法令名をそこへ。法令ページ自身が解説する法令（lawId・lawFamily）は自分へ戻さない
+  const ownLaws = new Set(meta.category === 'laws' ? [meta.lawId, ...(meta.lawFamily ?? [])].filter(Boolean) : []);
+  const lawPageLinks = new Map(laws.filter((law) => !ownLaws.has(law.lawId)).flatMap((law) => {
+    const link = lawLink(law.lawId);
+    return link.internal ? [[law.lawId, link.href] as const] : [];
+  }));
+  // 法令ページの末尾の自動の節（関わるテーマ・計画と審議会・よく引かれる条・この法令を扱う記事・施行日）
+  const lawPage = meta.category === 'laws' && meta.lawId ? getLawPageData(meta.lawId, meta.lawFamily ?? []) : null;
   const topicLinks = resolveTopicHubLinks(meta, relatedArticles, { exclude: lawSiblingSlugs });
   const shownSlugs = new Set([...lawSiblingSlugs, ...topicLinks.flatMap((link) => link.picks.map((doc) => doc.slug))]);
   const endBanner = endBannerAd ? (
@@ -108,6 +117,7 @@ export default function ArticleFooter({
 
   return (
     <>
+      {lawPage && <LawPageSections data={lawPage} />}
       {!isCareer && category && <RelatedTools category={category} slug={slugStr} />}
       {/* 参考資料カード（## 参考資料 セクションを抽出したもの。全カテゴリ共通） */}
       {references.length > 0 && (
@@ -118,7 +128,7 @@ export default function ArticleFooter({
       {/* この記事の根拠法令（本文の e-Gov へのリンクから自動で集める・DN-0731） */}
       {laws.length > 0 && (
         <div className="mt-8">
-          <ArticleLaws laws={laws} siblings={lawSiblings} lawTopics={lawTopics} />
+          <ArticleLaws laws={laws} siblings={lawSiblings} lawTopics={lawTopics} pageLinks={lawPageLinks} />
         </div>
       )}
 

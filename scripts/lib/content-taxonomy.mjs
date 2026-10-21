@@ -149,6 +149,8 @@ export function countTopicDirections(topic, docs, categoryMap, standardDocs, can
     if (!topicsOfDoc(d, [topic], canon).length) continue;
     if (Array.isArray(d.topics) && d.topics.includes(topic.slug)) explicit += 1; else byTag += 1;
     const area = categoryMap.get(d.category)?.area ?? 'exam';
+    // 法令ページは三方向（試験・実務・基準）のどれでもない（昇格の判定を動かさない）
+    if (area === 'laws') continue;
     if (area === 'practice') practice += 1; else exam += 1;
   }
   const refs = new Set(topic.featuredStandardRefs ?? []);

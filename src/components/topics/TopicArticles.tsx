@@ -5,11 +5,11 @@ import Link from 'next/link';
 import ContentThumbnail from '@/components/ui/ContentThumbnail';
 import DisclosureChevron from '@/components/ui/DisclosureChevron';
 
-export type TopicArea = 'exam' | 'practice' | 'standards';
+export type TopicArea = 'exam' | 'practice' | 'standards' | 'laws';
 export type TopicArticle = { href: string; title: string; description: string; category: string; categoryLabel: string; categoryOrder: number; area: TopicArea; kind: string; image: string };
 
 // 一覧は 領域（資格試験／施工実務／公的基準）→ 資格・カテゴリ の順に区切る（05_情報アーキテクチャ.md の三方向）
-const AREAS: TopicArea[] = ['exam', 'practice', 'standards'];
+const AREAS: TopicArea[] = ['laws', 'exam', 'practice', 'standards'];
 
 export default function TopicArticles({ articles, areaLabels }: { articles: TopicArticle[]; areaLabels: Record<TopicArea, string> }) {
   const [category, setCategory] = useState('');

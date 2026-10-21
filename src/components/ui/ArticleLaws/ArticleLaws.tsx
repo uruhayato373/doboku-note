@@ -3,7 +3,7 @@
  *
  * 記事の本文の e-Gov 法令検索へのリンクから、引いている法令と条を集めて並べる（src/lib/egov-links.mjs の articleLaws）。
  * 法令の分類はタグで作らない（付け忘れと手入れが要る・docs/strategy/05_情報アーキテクチャ.md「法令ページ」）。
- * 法令名は e-Gov の法令のページへ、条は e-Gov の条へつなぐ。法令ページ（/laws/）を公開したら、法令名の行き先をそちらへ替える。
+ * 法令名は、法令ページ（/laws/・DN-0731）がある法令はそこへ、無い法令は e-Gov の法令のページへつなぐ（pageLinks）。条は e-Gov の条へ。
  * 法令ごとに、同じ法令を引く他の記事（他の資格・実務を先に）を並べる（siblings。src/lib/article-end-wiring.ts の
  * resolveLawSiblings が選ぶ）。計測は記事の一覧だけを data-cta="nav"（label law-siblings）で囲む（e-Gov への外部リンクは数えない）。
  * 法令ごとに「関わるテーマ」（その法令を引く記事が多い分野・立場のテーマ。src/lib/law-wiring.ts）も添える（label law-topics）。
@@ -24,10 +24,12 @@ export interface ArticleLaw {
   readonly articles: readonly { readonly article: string; readonly label: string; readonly url: string }[];
 }
 
-export default function ArticleLaws({ laws, siblings, lawTopics }: {
+export default function ArticleLaws({ laws, siblings, lawTopics, pageLinks }: {
   laws: readonly ArticleLaw[];
   siblings?: ReadonlyMap<string, readonly WiredDoc[]>;
   lawTopics?: ReadonlyMap<string, readonly LawTopicLink[]>;
+  /** 法令 ID → 法令ページの URL（法令ページがある法令だけ） */
+  pageLinks?: ReadonlyMap<string, string>;
 }) {
   if (!laws || laws.length === 0) return null;
   return (
@@ -40,11 +42,21 @@ export default function ArticleLaws({ laws, siblings, lawTopics }: {
         {laws.map((law) => {
           const related = siblings?.get(law.lawId) ?? [];
           const topics = lawTopics?.get(law.lawId) ?? [];
+          const page = pageLinks?.get(law.lawId);
           return (
           <li key={law.lawId}>
-            <a href={law.url} target="_blank" rel="noopener noreferrer" className="block group">
-              <MetaListItem title={law.title} />
-            </a>
+            {page ? (
+              <div data-cta="nav" data-cta-label="law-page">
+                <Link href={page} className="block group">
+                  <MetaListItem title={law.title} source="法令の解説" />
+                </Link>
+                <a href={law.url} target="_blank" rel="noopener noreferrer" className="ml-5 text-xs text-(--ink-muted) hover:underline">e-Gov 法令検索 ↗</a>
+              </div>
+            ) : (
+              <a href={law.url} target="_blank" rel="noopener noreferrer" className="block group">
+                <MetaListItem title={law.title} />
+              </a>
+            )}
             {law.articles.length > 0 && (
               <p className="ml-5 mt-1 flex flex-wrap gap-x-3 gap-y-1 text-xs">
                 {law.articles.map((a) => (

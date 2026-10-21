@@ -8,7 +8,7 @@ import taxonomy from '@/config/content-taxonomy.json';
 import categoriesData from '@/config/categories.json';
 import tagsData from '@/config/tags.json';
 
-export type PublicArea = 'exam' | 'practice' | 'standards';
+export type PublicArea = 'exam' | 'practice' | 'standards' | 'laws';
 export type TagClass = 'structural' | 'flag' | 'qualification' | 'topical' | 'learning';
 
 type TagEntry = { name: string; slug: string; class?: TagClass; canonical?: string; aliases?: string[] };

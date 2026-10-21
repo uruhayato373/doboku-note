@@ -13,7 +13,8 @@
  *   npm run report-taxonomy-wiring -- --actions # 要対応があれば exit 1（週次レビューの点検 review-checks が読む）
  *
  * 要対応: テーマ所属なしの記事・記事型のタグだけの記事・行き先の無い主題タグ（どれも CI が止めるので通常 0）・昇格基準と status の食い違い・
- *        テーマの有料教材（products）のうち公開中でない商品（商品を止めたときにテーマのページから黙って消える）。
+ *        テーマの有料教材（products）のうち公開中でない商品（商品を止めたときにテーマのページから黙って消える）・
+ *        一次資料で確かめてから 180 日を超えた計画・施策（台帳 config.policy-registry）。
  * 取りこぼし（判断の材料・exit に影響しない）: 関連記事のどこからも選ばれない記事、記事の多い noTopic のタグ（新テーマの候補）。
  * exit 0 = 完走 / 1 = 要対応（--actions のときだけ）/ 2 = 検査不成立（記事 0 件・設定が読めない）
  */
@@ -23,6 +24,7 @@ import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 import { parseCliArgs } from './lib/cli-args.mjs';
 import { latestReport } from './lib/metric-reports.mjs';
 import { readDataset } from './lib/dataset-io.mjs';
+import { todayJst } from './lib/jst-date.mjs';
 import { buildAliasMap, countTopicDirections, topicEligibility, lacksSubjectTags } from './lib/content-taxonomy.mjs';
 import { needsTopic, topicsOfDoc } from '../src/lib/topic-membership.mjs';
 import { rankRelated } from '../src/lib/related-core.mjs';
@@ -106,19 +108,30 @@ for (const d of pool) {
 }
 const isPast = (d) => ['primary', 'secondary', 'past-exam'].includes(d.group);
 const unreached = pool.filter((d) => inbound.get(d.slug) === 0 && !isPast(d) && !d.tags.includes('career'));
-const lawDocs = docs.filter((d) => (d.lawIds ?? []).length > 0);
+const lawDocs = docs.filter((d) => (d.lawIds ?? []).length > 0 && d.category !== 'laws');
 const lawCount = new Map();
 for (const d of lawDocs) for (const id of d.lawIds) lawCount.set(id, (lawCount.get(id) ?? 0) + 1);
 const lawWired = lawDocs.filter((d) => d.lawIds.some((id) => lawCount.get(id) >= 2)).length;
 // 法令と分野・立場のテーマの多対多（サイトと同じ law-topic-core）。3 本以上が引く法令のうち、どのテーマとも結べないもの＝取りこぼし
-const lawIndex = lawTopicIndex(pool, topicsOf);
+const lawIndex = lawTopicIndex(pool.filter((d) => d.category !== 'laws'), topicsOf); // 法令ページ自身は数えない（サイトの law-wiring と同じ）
 const majorLaws = [...lawCount].filter(([, n]) => n >= 3).map(([id]) => id);
 const lawTitles = readDataset(ROOT, 'config.egov-laws').laws ?? {};
 const lawsWithoutTopic = majorLaws.filter((id) => topicsOfLaw(lawIndex, id).length === 0).map((id) => lawTitles[id]?.title ?? id);
 const topicsWithLaws = topics.filter((t) => lawsOfTopic(lawIndex, t.slug).length > 0).length;
+// 法令ページ（/laws/・DN-0731）と、次に作る候補（5 本以上の記事が引くのに法令ページが無い法令）
+const lawPageDocs = docs.filter((d) => d.category === 'laws');
+const coveredLaws = new Set(lawPageDocs.flatMap((d) => [d.lawId, ...(d.lawFamily ?? [])].filter(Boolean)));
+const lawPageCandidates = [...lawCount].filter(([id, n]) => n >= 5 && !coveredLaws.has(id)).sort((a, b) => b[1] - a[1])
+  .map(([id, n]) => `${lawTitles[id]?.title ?? id}（${n}）`);
+// 計画・施策の台帳: 一次資料で確かめてから 180 日を超えたものは確かめ直す（壁時計に依存するので CI ではなく週次の点検で見る）
+const POLICY_RECHECK_DAYS = 180;
+const policies = readDataset(ROOT, 'config.policy-registry').policies ?? [];
+const today = todayJst();
+const stalePolicies = policies.filter((p) => (Date.parse(today) - Date.parse(p.checkedAt)) / 86_400_000 > POLICY_RECHECK_DAYS).map((p) => `${p.id}（${p.checkedAt}）`);
+const topicsWithPolicies = topics.filter((t) => policies.some((p) => p.topics.includes(t.slug))).length;
 
 // ---- 計測（CI 供給のレポート。無ければ「未取得」として出す・0 に変換しない） -----------------------------------------
-const NAV_LABELS = ['related-articles', 'topic-hub:hub', 'topic-hub:article', 'law-siblings', 'law-topics', 'topic-laws', 'law-directory', 'topic-page', 'topic-related', 'category-topics'];
+const NAV_LABELS = ['related-articles', 'topic-hub:hub', 'topic-hub:article', 'law-siblings', 'law-topics', 'law-page', 'law-page:topics', 'law-page:articles', 'topic-laws', 'law-directory', 'policy-map', 'laws-index', 'topic-page', 'topic-related', 'category-topics'];
 const ga4 = latestReport(ROOT, 'ga4.cta-clicks-by-label', { windowKind: 'days' });
 const navClicks = ga4
   ? Object.fromEntries(NAV_LABELS.map((label) => [label, (ga4.data.rows ?? []).filter((r) => r.eventName === 'internal_nav_click' && r.label === label).reduce((a, r) => a + (r.eventCount ?? 0), 0)]))
@@ -137,7 +150,8 @@ const result = {
   docs: docs.length,
   coverage: { need: needDocs.length, topicless, byCategory: coverageByCategory },
   topics: topicRows,
-  actions: { topicless: topicless.length, subjectless: subjectless.length, unrouted, promote, belowBar, deadProducts },
+  actions: { topicless: topicless.length, subjectless: subjectless.length, unrouted, promote, belowBar, deadProducts, stalePolicies },
+  laws: { pages: lawPageDocs.length, candidates: lawPageCandidates, policies: policies.length, topicsWithPolicies },
   tags: { noTopicHeavy },
   circulation: {
     relatedShown: shown, pool: pool.length, crossCategoryShare: links ? cross / links : 0,
@@ -150,7 +164,7 @@ const result = {
     gsc: gsc ? { ref: gsc.ref, window: `${gsc.data.meta?.startDate ?? '?'}〜${gsc.data.meta?.endDate ?? '?'}`, topicPages } : null,
   },
 };
-const actionCount = topicless.length + subjectless.length + unrouted.length + promote.length + belowBar.length + deadProducts.length;
+const actionCount = topicless.length + subjectless.length + unrouted.length + promote.length + belowBar.length + deadProducts.length + stalePolicies.length;
 
 if (args.check) {
   console.log(`[${NAME}] OK: 公開記事 ${docs.length} 本・テーマ ${topics.length} 件を集計（所属が要る ${needDocs.length} 本・所属なし ${topicless.length} 本・要対応 ${actionCount} 件）`);
@@ -168,7 +182,8 @@ if (args.json) {
   out.push(`- 行き先の無い主題タグ: ${unrouted.length} 種${unrouted.length ? `（${unrouted.join(', ')}）` : ''}`);
   out.push(`- 昇格できる育成中のテーマ: ${promote.length ? promote.join(', ') : 'なし'}（status を hub にするか判断する）`);
   out.push(`- 昇格基準を下回る公開ハブ: ${belowBar.length ? belowBar.join(', ') : 'なし'}（記事を足すか判断する。即 noindex にしない）`);
-  out.push(`- テーマの有料教材のうち公開中でない商品: ${deadProducts.length ? deadProducts.join(', ') : 'なし'}（topics.json の products から外すか差し替える）`, '');
+  out.push(`- テーマの有料教材のうち公開中でない商品: ${deadProducts.length ? deadProducts.join(', ') : 'なし'}（topics.json の products から外すか差し替える）`);
+  out.push(`- 一次資料で確かめてから ${POLICY_RECHECK_DAYS} 日を超えた計画・施策: ${stalePolicies.length ? stalePolicies.join(', ') : 'なし'}（計画・施策の台帳 config.policy-registry を一次資料で確かめ直し、checkedAt を更新する）`, '');
   out.push('### テーマ（軸・状態・三方向）', '', '| テーマ | 軸 | 状態 | 試験 | 実務 | 基準 | 有料教材 |', '| --- | --- | --- | --- | --- | --- | --- |');
   for (const r of topicRows) out.push(`| ${r.label} | ${taxonomy.topicFacets[r.facet]?.label ?? r.facet} | ${taxonomy.topicStatuses[r.status]?.label ?? r.status}${r.status === 'incubating' && r.eligible ? '（昇格可）' : ''} | ${r.exam} | ${r.practice} | ${r.standards} | ${r.products} |`);
   out.push('', '### 取りこぼしの候補（判断の材料）');
@@ -177,6 +192,7 @@ if (args.json) {
   out.push('### 回遊の質');
   out.push(`- 関連記事が出る記事: ${shown} / ${pool.length} 本・関連記事のうち他の資格・実務の割合 ${pct(result.circulation.crossCategoryShare)}`);
   out.push(`- 本文が法令を引く記事: ${lawDocs.length} 本（うち同じ法令を引く記事がほかにもある ${lawWired} 本）`);
+  out.push(`- 法令ページ: ${lawPageDocs.length} 本・計画・施策の台帳 ${policies.length} 件（制度の地図があるテーマ ${topicsWithPolicies} / ${topics.length}）。次に作る候補（5 本以上の記事が引くのに法令ページが無い）: ${lawPageCandidates.slice(0, 10).join('、') || 'なし'}`);
   out.push(`- 法令と分野・立場のテーマ: 3 本以上が引く法令 ${majorLaws.length} のうちテーマと結べない ${lawsWithoutTopic.length}${lawsWithoutTopic.length ? `（${lawsWithoutTopic.slice(0, 8).join(', ')}${lawsWithoutTopic.length > 8 ? ' …' : ''}）` : ''}・法令の節を持つテーマ ${topicsWithLaws} / ${topics.length}`, '');
   out.push('### 計測（internal_nav_click のラベル別・GSC のテーマページ）');
   if (navClicks) out.push(`- GA4 ${result.measurement.ga4.window}: ${NAV_LABELS.map((l) => `${l} ${navClicks[l]}`).join(' / ')} / topics-index:* ${topicsIndexClicks} / テーマページの有料教材（note_cta_click） ${topicNoteClicks}`);

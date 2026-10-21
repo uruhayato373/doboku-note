@@ -157,7 +157,7 @@ test('実データ: テーマは軸と状態を持ち、主題タグはどれか
 test('記事末の配線: 法令 → テーマ → 関連記事の順に、先に出した記事を後ろから外す', () => {
   const footer = read('src/components/ui/ArticleFooter/ArticleFooter.tsx');
   assert.ok(footer.includes('<TopicHubLinks links={topicLinks} />'), '記事末に「この記事のテーマ」が無い');
-  assert.ok(footer.includes('<ArticleLaws laws={laws} siblings={lawSiblings} lawTopics={lawTopics} />'), '根拠法令のカードに同じ法令の記事・関わるテーマが渡っていない');
+  assert.ok(footer.includes('<ArticleLaws laws={laws} siblings={lawSiblings} lawTopics={lawTopics} pageLinks={lawPageLinks} />'), '根拠法令のカードに同じ法令の記事・関わるテーマ・法令ページが渡っていない');
   assert.ok(footer.includes('exclude={shownSlugs}'), '関連記事が先のカードの記事を外していない');
   assert.ok(footer.indexOf('<ArticleLaws') < footer.indexOf('<TopicHubLinks') && footer.indexOf('<TopicHubLinks') < footer.indexOf('<RelatedArticles'),
     '記事末の並び（法令 → テーマ → 関連記事）が崩れている');
@@ -202,4 +202,34 @@ test('記事メタの索引は本文の e-Gov へのリンクから法令を持�
   const docs = Object.values(JSON.parse(read('src/config/doc-meta-index.json')).docs);
   const withLaws = docs.filter((m) => Array.isArray(m.lawIds) && m.lawIds.length > 0);
   assert.ok(withLaws.length >= 200, `法令を持つ記事が ${withLaws.length} 本しかない（build-doc-meta-index の配線切れを疑う）`);
+});
+
+test('法令ページ（/laws/）: 領域・カテゴリ・URL・ページのルート・記事末の配線・サイトマップがそろう', () => {
+  assert.ok(TAXONOMY.areas.laws?.hubPath === '/laws', 'content-taxonomy.json に法令の領域が無い');
+  const cats = JSON.parse(read('src/config/categories.json'));
+  const laws = cats.find((c) => c.slug === 'laws');
+  assert.ok(laws && laws.area === 'laws' && laws.groups.includes('guide') && laws.layout?.ogpExamKey, 'categories.json の法令のカテゴリが欠けている');
+  assert.ok(read('src/lib/content-routes.ts').includes('path: `/laws/${localSlug}`'), '法令ページの URL が /laws/<id> になっていない');
+  assert.ok(read('src/app/laws/[slug]/page.tsx').includes("route.area === 'laws'"), '法令ページのルートが無い');
+  assert.ok(read('src/app/laws/page.tsx').includes('LawDirectory'), '/laws の一覧に法令と分野の対応が無い');
+  const footer = read('src/components/ui/ArticleFooter/ArticleFooter.tsx');
+  assert.ok(footer.includes('{lawPage && <LawPageSections data={lawPage} />}'), '法令ページの末尾の自動の節が無い');
+  assert.ok(footer.includes('pageLinks={lawPageLinks}'), '記事末の根拠法令から法令ページへつないでいない');
+  assert.ok(read('scripts/generate-sitemap.mjs').includes("/^\\/laws\\/[^/]+$/"), 'サイトマップが法令ページの優先度を持たない');
+  // 法令ページ自身は、同じ法令を扱う記事と法令×テーマの集計に入れない
+  assert.ok(read('src/lib/article-end-wiring.ts').includes("doc.category !== 'laws'"), '同じ法令を扱う記事に法令ページが混ざる');
+  assert.ok(read('src/lib/law-wiring.ts').includes("d.category !== 'laws'"), '法令×テーマの集計に法令ページが混ざる');
+});
+
+test('計画・施策・審議会の台帳: 根拠法は e-Gov の写しに、テーマは topics.json にある', () => {
+  const registry = JSON.parse(read('config/policy-registry.json'));
+  const egov = JSON.parse(read('config/egov-laws.json')).laws;
+  const slugs = new Set(TOPICS.map((t) => t.slug));
+  for (const p of registry.policies) {
+    for (const id of p.basisLaws) assert.ok(egov[id], `${p.id}: 根拠法 ${id} が e-Gov の写しに無い`);
+    for (const t of p.topics) assert.ok(slugs.has(t), `${p.id}: テーマ ${t} が無い`);
+    assert.ok(p.url.startsWith('https://'), `${p.id}: 一次資料の URL が https でない`);
+  }
+  const page = read('src/app/topics/[slug]/page.tsx');
+  assert.ok(page.includes('getTopicPolicies(topic.slug)') && page.includes('<PolicyList'), 'テーマのページに計画・施策・審議会の節が無い');
 });

@@ -113,7 +113,7 @@ if (!BUILT) {
       listsFound++;
       // href は正規 URL（/exam/<category>/<group>/<slug>）。career slug 台帳は
       // フラット表記（<category>-<group>-<slug>）なので、パスを繋ぎ直して突き合わせる。
-      const hrefs = [...m[1].matchAll(/href="\/(?:exam|practice|standards|topics)\/([^"]+?)\/?"/g)].map(
+      const hrefs = [...m[1].matchAll(/href="\/(?:exam|practice|standards|topics|laws)\/([^"]+?)\/?"/g)].map(
         (x) => x[1].split('/').join('-'),
       );
       const mixed = hrefs.filter((s) => careerSlugs.has(s));

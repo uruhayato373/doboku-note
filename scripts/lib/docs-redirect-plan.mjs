@@ -68,5 +68,5 @@ export function planDocRedirects(routes, { minSavings = 4 } = {}) {
 
 /** この生成が出す動的ルールの形（`/docs/<接頭辞>* /exam|practice|standards/...:splat 301`）か。再生成のとき入力から除く。 */
 export function isGeneratedDocRule(line) {
-  return /^\/docs\/[a-z0-9-]+\*\s+\/(?:exam|practice|standards)\/\S*:splat\s+301$/.test(String(line).trim());
+  return /^\/docs\/[a-z0-9-]+\*\s+\/(?:exam|practice|standards|laws)\/\S*:splat\s+301$/.test(String(line).trim());
 }

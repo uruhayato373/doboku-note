@@ -68,7 +68,8 @@ export function resolveLawSiblings(
   for (const lawId of lawIds) {
     const limit = Math.min(perLaw, maxTotal - total);
     if (limit <= 0) break;
-    const candidates = pool.filter((doc) => !used.has(doc.slug) && !isCareerDoc(doc) && (doc.lawIds ?? []).includes(lawId));
+    // 法令ページ（category: laws）は法令名のリンク先なので、同じ法令を扱う記事には入れない
+    const candidates = pool.filter((doc) => !used.has(doc.slug) && !isCareerDoc(doc) && doc.category !== 'laws' && (doc.lawIds ?? []).includes(lawId));
     // 同じ資格の記事より他の資格・実務の記事を先に（pickAcrossCategories は資格の重なりを避けるだけなので、ここで並べ替える）
     const others = candidates.filter((doc) => doc.category !== current.category);
     const same = candidates.filter((doc) => doc.category === current.category);

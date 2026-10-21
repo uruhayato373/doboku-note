@@ -37,6 +37,26 @@ export function auditTopicWiring(root = REPO_ROOT) {
   const documentRefs = new Set(catalog.documents.map((document) => `${document.agencyId}/${document.documentId}`));
   // featured（入口記事）は公開中の記事を指す。消した・非公開にした記事が先頭に残ると一覧から黙って消える
   const metaIndex = JSON.parse(readFileSync(join(root, 'src/config/doc-meta-index.json'), 'utf8')).docs ?? {};
+  // 法令ページ（category: laws・DN-0731）と計画・施策の台帳（制度の地図）は、e-Gov の法令の写しとテーマの slug を指す
+  const egovLaws = readDataset(root, 'config.egov-laws').laws ?? {};
+  const refSources = readDataset(root, 'config.reference-sources');
+  const refList = Array.isArray(refSources) ? refSources : refSources.sources ?? [];
+  const refIdOfLaw = new Map(refList.filter((s) => s.egov?.lawId).map((s) => [s.egov.lawId, s.id]));
+  const lawPageOwner = new Map();
+  let lawPages = 0;
+  for (const [slug, m] of Object.entries(metaIndex)) {
+    if (m.category !== 'laws' || m.published === false) continue;
+    lawPages += 1;
+    const local = slug.replace(/^laws-/, '');
+    if (!m.lawId || !egovLaws[m.lawId]) { issues.push(`法令ページ ${local}: lawId「${m.lawId ?? '(なし)'}」が e-Gov の写し（config.egov-laws）に無い`); continue; }
+    if (refIdOfLaw.get(m.lawId) !== local) issues.push(`法令ページ ${local}: URL は参考文献の id（${refIdOfLaw.get(m.lawId) ?? '台帳に無い'}）にする（/laws/<参考文献の id>）`);
+    for (const id of [m.lawId, ...(m.lawFamily ?? [])]) {
+      if (!egovLaws[id]) issues.push(`法令ページ ${local}: lawFamily「${id}」が e-Gov の写しに無い`);
+      if (lawPageOwner.has(id) && lawPageOwner.get(id) !== local) issues.push(`法令 ${id} を 2 つの法令ページ（${lawPageOwner.get(id)}・${local}）が扱っている`);
+      lawPageOwner.set(id, local);
+    }
+  }
+
   // products（このテーマの有料教材）は note の商品の正本にある id を指す。打ち間違いはページから黙って消える
   const productList = readDataset(root, 'config.products');
   const noteProductIds = new Set((Array.isArray(productList) ? productList : productList.products ?? []).filter((p) => p.channel === 'note').map((p) => p.id));
@@ -63,6 +83,13 @@ export function auditTopicWiring(root = REPO_ROOT) {
     for (const ref of topic.featuredStandardRefs ?? []) {
       if (!documentRefs.has(ref)) issues.push(`${topic.slug}: 存在しない featuredStandardRefs: ${ref}`);
     }
+  }
+
+  // 計画・施策の台帳はテーマの一覧（topicSlugs）を作った後に見る
+  const policyRegistry = readDataset(root, 'config.policy-registry');
+  for (const p of policyRegistry.policies ?? []) {
+    for (const t of p.topics ?? []) if (!topicSlugs.has(t)) issues.push(`計画・施策 ${p.id}: topics「${t}」は topics.json に無い`);
+    for (const id of p.basisLaws ?? []) if (!egovLaws[id]) issues.push(`計画・施策 ${p.id}: basisLaws「${id}」が e-Gov の写しに無い（参考文献の台帳に足して npm run egov-laws -- --sync）`);
   }
 
   const agencyIds = catalog.agencies.map((agency) => agency.agencyId).sort();
@@ -96,6 +123,8 @@ export function auditTopicWiring(root = REPO_ROOT) {
       documents: catalog.documents.length,
       publishedGuides,
       guidesWithTopic,
+      lawPages,
+      policies: (policyRegistry.policies ?? []).length,
     },
   };
 }

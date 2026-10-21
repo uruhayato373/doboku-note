@@ -1198,3 +1198,35 @@ export const ConfigEgovLaws = z
   })
   .strict();
 
+/**
+ * 国の計画・施策・審議会の台帳（制度の地図・DN-0731 の続き）。分野・立場のテーマのページと法令ページに、根拠法とセットで出す。
+ * 中身は一次資料（所管の公式ページ）で確かめたものだけ。checkedAt が古いものは report-taxonomy-wiring が要確認に出す。
+ */
+export const ConfigPolicyRegistry = z
+  .object({
+    schemaVersion: schemaVersion1,
+    description: doc(),
+    policies: z
+      .array(
+        z
+          .object({
+            id: z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/, 'kebab-case の英語 id'),
+            kind: z.enum(['council', 'plan', 'policy']).describe('council＝審議会とその答申・建議／plan＝閣議決定・法定の計画／policy＝施策・制度の運用'),
+            title: z.string().min(1).describe('正式名称（一次資料の表記どおり）'),
+            shortTitle: z.string().min(1).max(30).describe('画面に出す短い名前'),
+            owner: z.string().min(1).describe('所管・策定主体'),
+            decidedAt: z.string().regex(/^\d{4}-\d{2}(?:-\d{2})?$/, 'YYYY-MM-DD か YYYY-MM').describe('策定・決定・答申の日'),
+            period: z.string().min(1).optional().describe('計画期間'),
+            basisLaws: z.array(z.string().regex(EGOV_LAW_ID, 'e-Gov の法令 ID')).describe('根拠法（e-Gov の法令の写し config.egov-laws にある法令だけ）'),
+            basisLawTitles: z.array(z.string().min(1)).optional().describe('根拠法の名前（写しに無い法令も名前で書く）'),
+            topics: z.array(z.string().min(1)).min(1).describe('関わる横断テーマ（src/config/topics.json の slug）'),
+            summary: z.string().min(20).describe('何を決めた・何を目指すか（2〜3 文。数値は一次資料にあるものだけ）'),
+            url: z.string().url().startsWith('https://').describe('一次資料の URL'),
+            checkedAt: jstDate('一次資料で確かめた日'),
+          })
+          .strict(),
+      )
+      .superRefine(uniqueBy('id', '計画・施策')),
+  })
+  .strict();
+

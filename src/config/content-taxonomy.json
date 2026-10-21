@@ -4,7 +4,8 @@
   "areas": {
     "exam": { "label": "資格試験", "hubPath": "/exam" },
     "practice": { "label": "土木施工の実務", "hubPath": "/practice" },
-    "standards": { "label": "公的基準", "hubPath": "/standards" }
+    "standards": { "label": "公的基準", "hubPath": "/standards" },
+    "laws": { "label": "法令", "hubPath": "/laws" }
   },
   "groups": {
     "guide": { "label": "試験ガイド", "routeSegment": "guide", "docGroupKey": "guide", "structuralTags": ["guide", "index"] },

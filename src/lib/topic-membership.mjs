@@ -35,7 +35,7 @@ export function topicsOfDoc(doc, topics, canon = (t) => t) {
 
 /**
  * テーマへの所属が要る記事か（content-taxonomy.md §6-2）。
- * 要る: 用語・章・分野ハブ（keyword / textbook / pillar）、実務の記事、技術テーマのタグを持つガイド。
+ * 要る: 用語・章・分野ハブ（keyword / textbook / pillar）、実務の記事、法令ページ、技術テーマのタグを持つガイド。
  * 要らない: 非公開、転職・キャリア（career）、模範論文、過去問（問題ごとに用語へつなぐ）、
  *           技術テーマのタグを持たないガイド（試験の概要・申込・勉強法など試験の手続きの記事）。
  * @param {{ group?: string, tags?: string[], published?: boolean }} doc tags は正規表記
@@ -48,6 +48,6 @@ export function needsTopic(doc, { area, classOf }) {
   if (tags.includes('career') || tags.includes('模範論文')) return false;
   if (PAST_EXAM_GROUPS.has(String(doc.group))) return false;
   if (area === 'standards') return false;
-  if (SUBJECT_GROUPS.has(String(doc.group)) || area === 'practice') return true;
+  if (SUBJECT_GROUPS.has(String(doc.group)) || area === 'practice' || area === 'laws') return true;
   return tags.some((tag) => (classOf(tag) ?? 'topical') === 'topical');
 }
