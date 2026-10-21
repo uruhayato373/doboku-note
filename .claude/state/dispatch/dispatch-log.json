@@ -5280,6 +5280,19 @@
       "commit": "1af0078d8954",
       "verification": "past-exam-qa 再監査（No.21）／準則 PDF（000258734.pdf）の第23条・第37条・定期横断測量の表",
       "note": "R04 No.21: 解説の比（0.29 倍・約 2 倍）は公開している図（1000×872）で再現できた（裁判所→保健所 東 615・北 84、裁判所→税務署 東 181・南 166 画素）。測った画素と、経度の物差しでの確かめ（緯度 1″≒16 画素で約 10″ 南）を書き、選択肢 4・5 は裁判所より北・1 は図の外、と除外理由を直した（8250d8d75）。記号の位置の書き方と ExamPoint の外挿の範囲も直した（1af0078d8）。past-exam-qa の再監査で No.21 の 2 件の指摘は消えた。あわせて R04 No.6 の観測図（準則 第37条）・R08 No.6 の単路線方式（準則 第23条）を直し、R08 No.28 の堤内 20〜50 m は準則の表どおりと確認した。R04 No.8・11・17 の誤答肢の出どころの LOW は、出どころを確かめられないので書いていない"
+    },
+    {
+      "id": "DN-0804",
+      "at": "2026-10-21",
+      "task": "行の順まで変わる追跡中の生成物を減らし、build と CI の中で作る（CI の見直し 3）",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "445981d983da",
+      "verification": "PR #1179 の CI（audit・build・e2e・lighthouse が新しい checkout から緑）／npm run test 3,486・失敗 0／refresh-indexes 後の git status に 6 本が出ない",
+      "note": "PR #1179。refresh-indexes の書き込みを記録して追跡中の生成物 15 本を洗い出し、読み手がサイトの build と生成してから読むものだけの 6 本（public/llms.txt・llms-full.txt・data/pe-cem-frequent-topics.csv・quiz/civil-1.json・quiz/pe-first-stage.json・src/config/pillar-exam-questions.json〔読み手 0〕）を .gitignore に入れて追跡をやめた。quiz-restage（DN-0548 の回避策）を退役、predev で演習データを作る。外さない 9 本と理由: src/config の 7 本（exam-questions・civil-1/2-exam-questions・exam-question-keywords・keyword-relations・past-exam-backlinks・popular-pages）はサイト以外のスクリプト・テスト・Mac の定期実行の worktree が checkout 直後に読む、public/_redirects は 51 ファイルが参照し pre-commit の検査も読む、.claude/state/note-published.json は note の 12 本のスクリプトが読む。これらを外すには読む側すべての前に生成を足す必要があり、別の判断にする"
     }
   ]
 }
