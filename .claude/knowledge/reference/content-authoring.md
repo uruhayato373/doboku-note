@@ -282,7 +282,8 @@ shortTitle: "短縮タイトル"           # ナビ・カード用（10字前後
 subtitle: "一覧の2行目に出る補足"     # ナビ・カード用（30字程度・2行で打ち切られる）
 description: "50〜160文字の説明"
 category: "civil-construction-1"     # 試験または分野
-tags: ["guide", "primary"]           # 分類タグ（複数可）
+tags: ["技術士（第二次試験）", "建設部門", "コンクリート"]  # 資格・科目 1 つ以上＋主題（分野・管理）1 つ以上・正規表記。記事型（guide など）は書かない（content-taxonomy.md §5-3）
+topics: ["concrete"]                 # 任意。タグでテーマが決まらない総論だけ（content-taxonomy.md §6-2）
 published: true                      # false なら下書き・非表示
 sources: ["registry-id#detail"]      # 参考文献台帳の ID。#detail は条番号等（参照時のみ）
 ---

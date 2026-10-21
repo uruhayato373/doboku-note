@@ -51,3 +51,27 @@ test('OGP派生画像の取得失敗時も原本画像へ戻る', async ({ page 
   await expect(image).not.toHaveAttribute('srcset', /webp/);
   await expect(page.locator('#sec-guide a').first()).toHaveAttribute('href', /^\/exam\/concrete-engineer\//);
 });
+
+test('記事末から同じテーマ・同じ法令の他の資格・実務へ移動できる', async ({ page }) => {
+  // 根拠法令 → この記事のテーマ → 関連記事 の順（content-taxonomy.md §6-3）
+  await page.goto('/practice/accident-first-response');
+  const laws = page.locator('section[aria-label="この記事の根拠法令"]');
+  await expect(laws.getByText('同じ法令を扱う記事').first()).toBeVisible();
+  await expect(laws.locator('[data-cta-label="law-siblings"] a[href^="/exam/"]').first()).toBeVisible();
+
+  await page.goto('/exam/civil-construction-1/textbook/coast-port');
+  const topic = page.locator('section[aria-label="この記事のテーマ"]');
+  await expect(topic.locator('a[href="/topics/ports-coasts"]')).toBeVisible();
+  // テーマのカードは同じ資格の記事を出さない（他の資格・実務へ送る）
+  const hrefs = await topic.locator('a[data-cta-label="topic-hub:article"]').evaluateAll(a => a.map(x => x.getAttribute('href') ?? ''));
+  expect(hrefs.length).toBeGreaterThan(0);
+  expect(hrefs.every(h => !h.startsWith('/exam/civil-construction-1/'))).toBe(true);
+});
+
+test('育成中のテーマは noindex・公開ハブは index で、関連するテーマへ移動できる', async ({ page }) => {
+  await page.goto('/topics/railways');
+  await expect(page.locator('meta[name="robots"]')).toHaveAttribute('content', /noindex/);
+  await page.goto('/topics/ports-coasts');
+  await expect(page.locator('meta[name="robots"]')).not.toHaveAttribute('content', /noindex/);
+  await expect(page.locator('[data-cta-label="topic-related"] a').first()).toBeVisible();
+});

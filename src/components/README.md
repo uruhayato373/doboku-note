@@ -15,7 +15,7 @@ src/components/
 ├── providers/                # Context プロバイダー（ThemeProvider.tsx）
 ├── search/                   # 検索 UI（Pagefind クライアント）
 ├── seo/                       # SEO 専用コンポーネント（構造化データ等）
-└── ui/                        # 資格・ページ横断で再利用する UI コンポーネント（52 サブディレクトリ + 数個の単体 .tsx）
+└── ui/                        # 資格・ページ横断で再利用する UI コンポーネント（サブディレクトリ + 単体 .tsx）
 ```
 
 `blog/`・`mdx/` は存在しない（過去の設計案の残骸を記載していた旧版 README を削除）。MDX 用コンポーネントは `ui/` に置き、`src/lib/component-loader/index.ts` の `commonLoaders` から動的 import で読み込む。
