@@ -99,3 +99,20 @@ test('育成中のテーマは noindex・公開ハブは index で、関連す�
   await expect(page.locator('meta[name="robots"]')).not.toHaveAttribute('content', /noindex/);
   await expect(page.locator('[data-cta-label="topic-related"] a').first()).toBeVisible();
 });
+
+test('法令ページ: 解説の後に関わるテーマ・計画・よく引かれる条・扱う記事が出て、記事とテーマから行き来できる', async ({ page }) => {
+  await page.goto('/laws/road-act');
+  await expect(page.locator('section[aria-label="この法令が関わるテーマ"] a[href="/topics/roads"]')).toBeVisible();
+  await expect(page.locator('section[aria-label="関係する国の計画・施策・審議会"] li').first()).toBeVisible();
+  await expect(page.locator('section[aria-label="よく引かれる条"] a[href*="#Mp-At_"]').first()).toBeVisible();
+  await expect(page.locator('section[aria-label="この法令を扱う記事"] a[href^="/practice/"]').first()).toBeVisible();
+  // 記事末の根拠法令から法令ページへ
+  await page.goto('/practice/river-act-framework');
+  await expect(page.locator('[data-cta-label="law-page"] a[href="/laws/river-act"]').first()).toBeVisible();
+  // 分野のテーマから法令ページと国の計画へ
+  await page.goto('/topics/roads');
+  await expect(page.locator('[data-cta-label="topic-laws"] a[href="/laws/road-act"]').first()).toBeVisible();
+  await expect(page.locator('[data-cta-label="policy-map"] li').first()).toBeVisible();
+  await page.goto('/laws');
+  await expect(page.locator('[data-cta-label="laws-index"] a[href="/laws/river-act"]').first()).toBeVisible();
+});

@@ -66,6 +66,12 @@ function getIndex(): Map<string, Map<string, string[]>> {
   return index;
 }
 function lawUrl(lawId: string): string { return `${EGOV_LAW_BASE}${lawId}`; }
+
+/** 法令のリンクを行き先で 1 つにまとめる（道路法・同施行令・同施行規則はどれも道路法のページへ行くので 1 本にする） */
+function uniqueLinks(ids: readonly string[]): LawLink[] {
+  const seen = new Set<string>();
+  return ids.filter((id) => LAWS[id]).map(lawLink).filter((link) => (seen.has(link.href) ? false : (seen.add(link.href), true)));
+}
 function toLinks(rows: { slug: string; count: number }[]): LawTopicLink[] {
   return rows.flatMap(({ slug, count }) => {
     const topic = getTopicBySlug(slug);
@@ -124,7 +130,7 @@ export function getLawDirectory({ minDocs = 3, topicsPerLaw = 4, excludeTopic }:
 export function getTopicPolicies(topicSlug: string): (Policy & { laws: LawLink[] })[] {
   return POLICIES.filter((p) => p.topics.includes(topicSlug))
     .sort((a, b) => b.decidedAt.localeCompare(a.decidedAt))
-    .map((p) => ({ ...p, laws: p.basisLaws.filter((id) => LAWS[id]).map(lawLink) }));
+    .map((p) => ({ ...p, laws: uniqueLinks(p.basisLaws) }));
 }
 
 export type LawPageData = {
@@ -172,7 +178,7 @@ export function getLawPageData(lawId: string, family: readonly string[] = []): L
     topics: toLinks(topics),
     policies: POLICIES.filter((p) => p.basisLaws.some((id) => idSet.has(id)))
       .sort((a, b) => b.decidedAt.localeCompare(a.decidedAt))
-      .map((p) => ({ ...p, laws: p.basisLaws.filter((id) => LAWS[id] && !idSet.has(id)).map(lawLink) })),
+      .map((p) => ({ ...p, laws: uniqueLinks(p.basisLaws.filter((id) => !idSet.has(id))) })),
     articles,
     docsByArea,
     enforced: ids.filter((id) => LAWS[id]).map((id) => ({ lawId: id, title: LAWS[id]!.title, enforced: LAWS[id]!.enforced, url: lawUrl(id) })),
