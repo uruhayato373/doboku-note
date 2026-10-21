@@ -26,6 +26,7 @@ import { readDataset } from './lib/dataset-io.mjs';
 import { buildAliasMap, countTopicDirections, topicEligibility, lacksSubjectTags } from './lib/content-taxonomy.mjs';
 import { needsTopic, topicsOfDoc } from '../src/lib/topic-membership.mjs';
 import { rankRelated } from '../src/lib/related-core.mjs';
+import { lawTopicIndex, topicsOfLaw, lawsOfTopic } from '../src/lib/law-topic-core.mjs';
 
 const NAME = 'report-taxonomy-wiring';
 const args = parseCliArgs({ json: { type: 'boolean' }, check: { type: 'boolean' }, actions: { type: 'boolean' } });
@@ -109,9 +110,15 @@ const lawDocs = docs.filter((d) => (d.lawIds ?? []).length > 0);
 const lawCount = new Map();
 for (const d of lawDocs) for (const id of d.lawIds) lawCount.set(id, (lawCount.get(id) ?? 0) + 1);
 const lawWired = lawDocs.filter((d) => d.lawIds.some((id) => lawCount.get(id) >= 2)).length;
+// 法令と分野・立場のテーマの多対多（サイトと同じ law-topic-core）。3 本以上が引く法令のうち、どのテーマとも結べないもの＝取りこぼし
+const lawIndex = lawTopicIndex(pool, topicsOf);
+const majorLaws = [...lawCount].filter(([, n]) => n >= 3).map(([id]) => id);
+const lawTitles = readDataset(ROOT, 'config.egov-laws').laws ?? {};
+const lawsWithoutTopic = majorLaws.filter((id) => topicsOfLaw(lawIndex, id).length === 0).map((id) => lawTitles[id]?.title ?? id);
+const topicsWithLaws = topics.filter((t) => lawsOfTopic(lawIndex, t.slug).length > 0).length;
 
 // ---- 計測（CI 供給のレポート。無ければ「未取得」として出す・0 に変換しない） -----------------------------------------
-const NAV_LABELS = ['related-articles', 'topic-hub:hub', 'topic-hub:article', 'law-siblings', 'topic-page', 'topic-related', 'category-topics'];
+const NAV_LABELS = ['related-articles', 'topic-hub:hub', 'topic-hub:article', 'law-siblings', 'law-topics', 'topic-laws', 'law-directory', 'topic-page', 'topic-related', 'category-topics'];
 const ga4 = latestReport(ROOT, 'ga4.cta-clicks-by-label', { windowKind: 'days' });
 const navClicks = ga4
   ? Object.fromEntries(NAV_LABELS.map((label) => [label, (ga4.data.rows ?? []).filter((r) => r.eventName === 'internal_nav_click' && r.label === label).reduce((a, r) => a + (r.eventCount ?? 0), 0)]))
@@ -136,6 +143,7 @@ const result = {
     relatedShown: shown, pool: pool.length, crossCategoryShare: links ? cross / links : 0,
     unreached: unreached.map((d) => ({ slug: d.slug, category: d.category, group: d.group })),
     lawDocs: lawDocs.length, lawDocsWithSiblings: lawWired,
+    majorLaws: majorLaws.length, lawsWithoutTopic, topicsWithLaws,
   },
   measurement: {
     ga4: ga4 ? { ref: ga4.ref, window: `${ga4.data.meta?.startDate}〜${ga4.data.meta?.endDate}`, navClicks, topicsIndexClicks, topicNoteClicks } : null,
@@ -168,7 +176,8 @@ if (args.json) {
   out.push(`- 記事の多い noTopic のタグ（${NOTOPIC_REVIEW_MIN} 本以上・新しいテーマの候補）: ${noTopicHeavy.length ? noTopicHeavy.map((t) => `${t.tag}（${t.reason}・${t.docs} 本）`).join('、') : 'なし'}`, '');
   out.push('### 回遊の質');
   out.push(`- 関連記事が出る記事: ${shown} / ${pool.length} 本・関連記事のうち他の資格・実務の割合 ${pct(result.circulation.crossCategoryShare)}`);
-  out.push(`- 本文が法令を引く記事: ${lawDocs.length} 本（うち同じ法令を引く記事がほかにもある ${lawWired} 本）`, '');
+  out.push(`- 本文が法令を引く記事: ${lawDocs.length} 本（うち同じ法令を引く記事がほかにもある ${lawWired} 本）`);
+  out.push(`- 法令と分野・立場のテーマ: 3 本以上が引く法令 ${majorLaws.length} のうちテーマと結べない ${lawsWithoutTopic.length}${lawsWithoutTopic.length ? `（${lawsWithoutTopic.slice(0, 8).join(', ')}${lawsWithoutTopic.length > 8 ? ' …' : ''}）` : ''}・法令の節を持つテーマ ${topicsWithLaws} / ${topics.length}`, '');
   out.push('### 計測（internal_nav_click のラベル別・GSC のテーマページ）');
   if (navClicks) out.push(`- GA4 ${result.measurement.ga4.window}: ${NAV_LABELS.map((l) => `${l} ${navClicks[l]}`).join(' / ')} / topics-index:* ${topicsIndexClicks} / テーマページの有料教材（note_cta_click） ${topicNoteClicks}`);
   else out.push('- GA4: by-label のレポートが未取得（0 として扱わない）');

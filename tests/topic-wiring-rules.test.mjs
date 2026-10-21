@@ -14,6 +14,7 @@ import { join } from 'node:path';
 import test from 'node:test';
 import { topicsOfDoc, needsTopic } from '../src/lib/topic-membership.mjs';
 import { relatedScore, fallbackScore, rankRelated } from '../src/lib/related-core.mjs';
+import { lawTopicIndex, topicsOfLaw, lawsOfTopic } from '../src/lib/law-topic-core.mjs';
 import { topicEligibility, lacksSubjectTags } from '../scripts/lib/content-taxonomy.mjs';
 import { REPO_ROOT as ROOT } from '../scripts/lib/repository-paths.mjs';
 
@@ -108,6 +109,29 @@ test('lacksSubjectTags: 記事型のタグだけのガイドを拾い、過去�
   assert.equal(lacksSubjectTags({ group: 'guide', tags: ['guide'], published: false }, classOf), false);
 });
 
+test('法令とテーマの多対多: そのテーマの記事が 2 本以上引くときだけ結ぶ', () => {
+  const docs = [
+    { slug: 'a', lawIds: ['river-act', 'road-act'], t: ['rivers', 'municipal'] },
+    { slug: 'b', lawIds: ['river-act'], t: ['rivers'] },
+    { slug: 'c', lawIds: ['road-act'], t: ['roads', 'municipal'] },
+    { slug: 'd', lawIds: ['road-act'], t: ['roads'], published: false },
+  ];
+  const index = lawTopicIndex(docs, (d) => d.t);
+  assert.deepEqual(topicsOfLaw(index, 'river-act'), [{ slug: 'rivers', count: 2 }]);
+  // road-act は municipal が 2 本（a・c）、roads は公開の c だけで 1 本 → municipal だけ
+  assert.deepEqual(topicsOfLaw(index, 'road-act'), [{ slug: 'municipal', count: 2 }]);
+  assert.deepEqual(lawsOfTopic(index, 'municipal').map((r) => r.lawId), ['road-act']);
+  assert.deepEqual(lawsOfTopic(index, 'rivers').map((r) => [r.lawId, r.docs.length]), [['river-act', 2]]);
+});
+
+test('法令の配線: 記事末の根拠法令に関わるテーマ、テーマのページに法令と、法令・制度の軸に対応の一覧', () => {
+  assert.ok(read('src/components/ui/ArticleLaws/ArticleLaws.tsx').includes('data-cta-label="law-topics"'), '根拠法令のカードに関わるテーマが無い');
+  const page = read('src/app/topics/[slug]/page.tsx');
+  assert.ok(page.includes('<TopicLaws') && page.includes("topic.facet === 'law' ? getLawDirectory({ excludeTopic: topic.slug })"), 'テーマのページに法令の節が無い');
+  const comp = read('src/components/topics/TopicLaws.tsx');
+  assert.ok(comp.includes('data-cta-label="topic-laws"') && comp.includes('data-cta-label="law-directory"'), '法令の節に計測ラベルが無い');
+});
+
 test('topicEligibility: 埋まった方向が 2 つ以上で公開ハブにできる', () => {
   const p = TAXONOMY.topicPromotion;
   assert.deepEqual(topicEligibility({ exam: 5, practice: 1, standards: 0 }, p), { filled: ['exam', 'practice'], eligible: true });
@@ -133,7 +157,7 @@ test('実データ: テーマは軸と状態を持ち、主題タグはどれか
 test('記事末の配線: 法令 → テーマ → 関連記事の順に、先に出した記事を後ろから外す', () => {
   const footer = read('src/components/ui/ArticleFooter/ArticleFooter.tsx');
   assert.ok(footer.includes('<TopicHubLinks links={topicLinks} />'), '記事末に「この記事のテーマ」が無い');
-  assert.ok(footer.includes('<ArticleLaws laws={laws} siblings={lawSiblings} />'), '根拠法令のカードに同じ法令の記事が渡っていない');
+  assert.ok(footer.includes('<ArticleLaws laws={laws} siblings={lawSiblings} lawTopics={lawTopics} />'), '根拠法令のカードに同じ法令の記事・関わるテーマが渡っていない');
   assert.ok(footer.includes('exclude={shownSlugs}'), '関連記事が先のカードの記事を外していない');
   assert.ok(footer.indexOf('<ArticleLaws') < footer.indexOf('<TopicHubLinks') && footer.indexOf('<TopicHubLinks') < footer.indexOf('<RelatedArticles'),
     '記事末の並び（法令 → テーマ → 関連記事）が崩れている');

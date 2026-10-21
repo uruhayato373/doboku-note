@@ -21,6 +21,7 @@ import SidebarAdBanner from '@/components/ui/SidebarAdBanner/SidebarAdBanner';
 import RelatedArticles from '@/components/ui/RelatedArticles';
 import TopicHubLinks from '@/components/ui/TopicHubLinks/TopicHubLinks';
 import { resolveLawSiblings, resolveTopicHubLinks, type WiredDoc } from '@/lib/article-end-wiring';
+import { resolveLawTopics, type LawTopicLink } from '@/lib/law-wiring';
 import NextStepNav from '@/components/ui/NextStepNav/NextStepNav';
 import AuthorCard from '@/components/ui/AuthorCard/AuthorCard';
 import RelatedTools from '@/components/ui/RelatedTools';
@@ -88,6 +89,8 @@ export default function ArticleFooter({
   // 記事末の回遊（content-taxonomy.md §6-3）。法令 → テーマ → 関連記事の順に出し、先に出した記事は後ろから外す
   const lawSiblings = laws.length > 0 ? resolveLawSiblings(meta, laws.map((law) => law.lawId), relatedArticles) : new Map<string, WiredDoc[]>();
   const lawSiblingSlugs = new Set([...lawSiblings.values()].flat().map((doc) => doc.slug));
+  // 法令 → 分野・立場のテーマ（法令と分野は多対多。河川法なら 河川・砂防・防災 と 自治体の土木職 など）
+  const lawTopics = laws.length > 0 ? resolveLawTopics(laws.map((law) => law.lawId)) : new Map<string, LawTopicLink[]>();
   const topicLinks = resolveTopicHubLinks(meta, relatedArticles, { exclude: lawSiblingSlugs });
   const shownSlugs = new Set([...lawSiblingSlugs, ...topicLinks.flatMap((link) => link.picks.map((doc) => doc.slug))]);
   const endBanner = endBannerAd ? (
@@ -115,14 +118,14 @@ export default function ArticleFooter({
       {/* この記事の根拠法令（本文の e-Gov へのリンクから自動で集める・DN-0731） */}
       {laws.length > 0 && (
         <div className="mt-8">
-          <ArticleLaws laws={laws} siblings={lawSiblings} />
+          <ArticleLaws laws={laws} siblings={lawSiblings} lawTopics={lawTopics} />
         </div>
       )}
 
       {/* 実務記事: 業務経験 → 資格の橋渡し（非受験層の入口・本文には試験文脈を入れない）。 */}
       {shouldShowQualificationBridge(category, slugStr) && (
         <div className="mt-8">
-          <QualificationBridge placement="practice-footer" />
+          <QualificationBridge placement="practice-footer" audience={meta.tags?.includes('地方公共団体') ? 'municipal' : undefined} />
         </div>
       )}
 

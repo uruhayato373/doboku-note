@@ -100,11 +100,14 @@ frontmatter `group` の語彙は 7 値。定義は**問題形式**で与え、�
 
 記事末は **根拠法令 → この記事のテーマ → 関連記事** の順に置き、先のカードで出した記事は後ろのカードから外す（同じ記事を 2 度並べない）。選び方は `src/lib/article-end-wiring.ts`、関連度は `src/lib/related-core.mjs`（`src/lib/related-score.ts` がサイトのタグの class とテーマの所属を渡す）。キャリア記事にはテーマのカードを出さない。
 
+- **法令と分野・立場は多対多**（道路法は 道路・舗装／自治体の土木職／関係法令 の記事が引く）。記事が本文で引く法令（`lawIds`）と記事が属すテーマを掛け合わせ、そのテーマの記事のうち **2 本以上**が引く法令とテーマを結ぶ（`src/lib/law-topic-core.mjs`・サイトは `src/lib/law-wiring.ts`）。法令をタグにはしない。
+- **関わるテーマ**: 「この記事の根拠法令」の法令ごとに、その法令が関わるテーマ（最大 3・引く記事の多い順）を添える。
 - **同じ法令を扱う記事**: 「この記事の根拠法令」の法令ごとに、同じ法令を本文で引く他の記事を最大 3 本（他の資格・実務を先に、資格が重ならないように）。法令は `build-doc-meta-index` が本文の e-Gov へのリンクから `lawIds` に入れる（`config/egov-laws.json` にある法令だけ）。
 - **この記事のテーマ**: 記事が属するテーマ（最大 3 つ。明示が先）ごとに、テーマのページへのリンクと、同じテーマを他の資格・実務で扱う記事を最大 3 本（資格が重ならないように）。テーマの記事が自分だけなら出さない。
 - **関連記事**（`rankRelated`）: 共有するタグの点は class で変える（主題 10・資格 0・学習の型 0。資格タグを数えると付け忘れた記事が同点で毎回負ける）、同じテーマ 1 つにつき 6、同じ資格に 2。技術テーマ（主題タグかテーマ）を 1 つも共有しない記事は関連にしない。足りなければ資格・学習の型の共有で補う（`fallbackScore`）。同じ資格は 6 件中 4 件まで。**同点は記事の組ごとの擬似乱数**（`stableTieBreak`。更新日の順にすると新しい記事に関連が集中し、どこからも選ばれない記事が増える）。
-- テーマのページ: 記事の一覧・公的基準の後ろに「このテーマの有料教材（note）」（`products` を `MagazineCard` の inline で。`utm_content=topic-{slug}`・placement `topic-page`・非公開の商品は出さない）、末尾に「関連するテーマ」（記事を多く共有するテーマ 4 つ）。`/topics` の一覧は軸ごと。
-- **実務記事の本文と記事末の橋渡しカード（QualificationBridge）には有料教材を出さない**（本文に試験文脈を入れない規約と、記事末は 1 枚だけの方針・13_土木公務員SEO戦略。カードは EXP-012 の計測中）。実務の読者は「この記事のテーマ」から立場・分野のテーマのページへ行き、そこで資格の記事と有料教材に出会う。
+- テーマのページ: 記事の一覧の後ろに「（テーマ）の記事が引く法令」（2 本以上が引く法令を多い順に 8 つまで・法令ごとにこのテーマの記事を 3 本）、法令・制度の軸のテーマ（関係法令）には「法令と分野の対応」（3 本以上の記事が引く法令ごとに、関わるテーマへのリンク）。法令名は e-Gov へ（法令ごとのページは DN-0731 で説明を人が書いてから）。公的基準の後ろに「このテーマの有料教材（note）」（`products` を `MagazineCard` の inline で。`utm_content=topic-{slug}`・placement `topic-page`・非公開の商品は出さない）、末尾に「関連するテーマ」（記事を多く共有するテーマ 4 つ）。`/topics` の一覧は軸ごと。
+- **実務記事の本文と記事末の橋渡しカード（QualificationBridge）には有料教材を出さない**（本文に試験文脈を入れない規約と、記事末は 1 枚だけの方針・13_土木公務員SEO戦略）。実務の読者は「この記事のテーマ」から立場・分野のテーマのページへ行き、そこで資格の記事と有料教材に出会う。
+- **橋渡しカードの立場の出し分け**（2026-10-21・DN-0810）: タグ `地方公共団体` の実務記事では、施工会社向けの選択肢を「技術士を目指したい」（土木公務員に技術士は必要？）に替え、立場のテーマ（自治体の土木職）へのリンクを添える（`src/config/qualification-bridge.ts`）。
 - 資格のハブ（`/exam/{資格}`）: 記事一覧の後ろに「テーマから探す」（この資格の記事が属すテーマを、この資格の記事の多い順に。`getTopicsForCategory`）。資格 → テーマの向きの回遊。
 
 ### 6-4. 点検と計測
@@ -114,9 +117,9 @@ frontmatter `group` の語彙は 7 値。定義は**問題形式**で与え、�
 | commit | `check-content-taxonomy --staged` | 新規・変更記事の所属漏れ・記事型のタグだけ・未登録タグ・別名綴り（赤） |
 | CI | `check-content-taxonomy --ci`・`check-topic-wiring`・`tests/topic-wiring-rules.test.mjs`・quality-audit `report-generators` の `taxonomy-wiring-report` | 軸・状態・タグの行き先（HARD）、所属漏れと記事型のタグだけの記事（ラチェット）、入口記事の実在、記事末の配線と計測ラベル、報告の完走 |
 | 週次 | `npm run check-taxonomy-wiring`（review-checks の点検。赤なら `npm run report-taxonomy-wiring`） | 所属なし・行き先の無いタグ・昇格の食い違い・テーマの有料教材のうち公開中でない商品（要対応） |
-| 月次 | `npm run report-taxonomy-wiring` | 三方向と昇格、取りこぼし（関連記事のどこからも選ばれない記事・記事の多い noTopic のタグ＝新テーマの候補）、回遊の質（他の資格の割合・同じ法令の記事）、計測 |
+| 月次 | `npm run report-taxonomy-wiring` | 三方向と昇格、取りこぼし（関連記事のどこからも選ばれない記事・記事の多い noTopic のタグ＝新テーマの候補・どのテーマとも結べない法令）、回遊の質（他の資格の割合・同じ法令の記事・法令の節を持つテーマ）、計測 |
 
-計測は GA4 の `internal_nav_click` を `event_label` で分ける（`fetch-metrics` が週次で by-label を取る）: `topic-hub:hub`（テーマのページへ）・`topic-hub:article`（テーマのカードの記事へ）・`law-siblings`（同じ法令の記事へ）・`topic-page`（テーマページの記事へ）・`topic-related`（関連するテーマへ）・`topics-index:{facet}`（一覧から）・`category-topics`（資格のハブから）・`related-articles`（関連記事）。テーマページの有料教材は `note_cta_click`（label＝`商品 id:topic-{slug}`・placement `topic-page`）。レポートが無いときは「未取得」と書き、0 として扱わない。
+計測は GA4 の `internal_nav_click` を `event_label` で分ける（`fetch-metrics` が週次で by-label を取る）: `topic-hub:hub`（テーマのページへ）・`topic-hub:article`（テーマのカードの記事へ）・`law-siblings`（同じ法令の記事へ）・`law-topics`（根拠法令のカードから関わるテーマへ）・`topic-laws`（テーマのページの法令の節）・`law-directory`（法令と分野の対応）・`topic-page`（テーマページの記事へ）・`topic-related`（関連するテーマへ）・`topics-index:{facet}`（一覧から）・`category-topics`（資格のハブから）・`related-articles`（関連記事）。テーマページの有料教材は `note_cta_click`（label＝`商品 id:topic-{slug}`・placement `topic-page`）。レポートが無いときは「未取得」と書き、0 として扱わない。
 
 ## 7. 原本 class × 展開先の加工ルール
 

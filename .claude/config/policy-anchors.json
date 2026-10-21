@@ -46,6 +46,7 @@
         "src/lib/content-taxonomy.ts",
         "src/lib/topic-membership.mjs",
         "src/lib/related-core.mjs",
+        "src/lib/law-topic-core.mjs",
         "src/lib/topics.ts",
         "scripts/check-content-taxonomy.mjs",
         "scripts/report-taxonomy-wiring.mjs",

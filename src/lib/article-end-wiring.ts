@@ -15,7 +15,7 @@ import { getDocTopics, getTopicDocs, type Topic } from '@/lib/topics';
 export type WiredDoc = { slug: string; href: string; title: string; categoryLabel: string };
 export type TopicHubLink = { topic: Pick<Topic, 'slug' | 'label'>; total: number; picks: WiredDoc[] };
 
-function toWired(doc: DocMeta): WiredDoc {
+export function toWired(doc: DocMeta): WiredDoc {
   return {
     slug: doc.slug,
     href: getPublicDocPath(doc.slug),

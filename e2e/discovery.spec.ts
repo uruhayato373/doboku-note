@@ -81,6 +81,17 @@ test('テーマのページから、分野・立場に合う有料教材（note�
   await expect(link).toHaveAttribute('href', /utm_content=topic-municipal-civil-engineers/);
 });
 
+test('法令と分野・立場を両方向に移動できる（根拠法令 → 関わるテーマ、関係法令 → 法令と分野の対応）', async ({ page }) => {
+  await page.goto('/practice/river-act-framework');
+  await expect(page.locator('[data-cta-label="law-topics"] a[href="/topics/rivers-disaster-prevention"]').first()).toBeVisible();
+  // 自治体の土木担当シリーズでは、橋渡しカードが技術士の入口と立場のテーマを出す
+  const bridge = page.locator('[data-cta="qualification-bridge"]');
+  await expect(bridge.locator('a[data-cta-label="public-pe"]')).toBeVisible();
+  await expect(bridge.locator('a[data-cta-label="municipal-hub"]')).toHaveAttribute('href', '/topics/municipal-civil-engineers');
+  await page.goto('/topics/safety-laws');
+  await expect(page.locator('[data-cta-label="law-directory"] a[href="/topics/municipal-civil-engineers"]').first()).toBeVisible();
+});
+
 test('育成中のテーマは noindex・公開ハブは index で、関連するテーマへ移動できる', async ({ page }) => {
   await page.goto('/topics/railways');
   await expect(page.locator('meta[name="robots"]')).toHaveAttribute('content', /noindex/);

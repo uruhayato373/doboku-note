@@ -16,6 +16,8 @@ import { getAllTopics, getRelatedTopics, getTopicBySlug, getTopicDocs, getTopicS
 import AffiliateSlot from '@/components/ui/AffiliateSlot/AffiliateSlot';
 import MagazineCard from '@/components/ui/MagazineCard/MagazineCard';
 import { getMagazine, type MagazineId } from '@/lib/note-magazines';
+import { TopicLaws, LawDirectory } from '@/components/topics/TopicLaws';
+import { getLawDirectory, getTopicLaws } from '@/lib/law-wiring';
 
 type Params = { slug: string };
 
@@ -44,6 +46,9 @@ export default async function TopicPage({ params }: { params: Promise<Params> })
   const docs = getTopicDocs(topic);
   const standards = getTopicStandards(topic);
   const relatedTopics = getRelatedTopics(topic);
+  // 法令と分野・立場は多対多。このテーマの記事が引く法令と、法令・制度の軸のテーマでは法令と分野の対応の一覧
+  const topicLaws = getTopicLaws(topic);
+  const lawDirectory = topic.facet === 'law' ? getLawDirectory({ excludeTopic: topic.slug }) : [];
   // このテーマの有料教材（分野・立場に合う note の商品。topics.json の products の順・非公開は出さない）
   const products = (topic.products ?? []).filter((id): id is MagazineId => getMagazine(id as MagazineId) !== null);
   const areaLabels: Record<TopicArea, string> = { exam: getAreaLabel('exam'), practice: getAreaLabel('practice'), standards: getAreaLabel('standards') };
@@ -89,6 +94,16 @@ export default async function TopicPage({ params }: { params: Promise<Params> })
         }))} areaLabels={areaLabels} />
         </div>
       </SectionBlock>
+      {topicLaws.length > 0 && (
+        <SectionBlock divider="top" ariaLabel="このテーマの記事が引く法令">
+          <TopicLaws laws={topicLaws} topicLabel={topic.label} />
+        </SectionBlock>
+      )}
+      {lawDirectory.length > 0 && (
+        <SectionBlock divider="top" ariaLabel="法令と分野の対応">
+          <LawDirectory rows={lawDirectory} />
+        </SectionBlock>
+      )}
       {standards.length > 0 && (
         <SectionBlock divider="top" ariaLabel="関連する基準資料">
           <h2 id="topic-standards" className="mb-6 scroll-mt-24 font-serif text-2xl font-bold text-(--ink)">関連する公的基準・マニュアル</h2>

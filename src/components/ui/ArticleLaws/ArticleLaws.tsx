@@ -6,6 +6,7 @@
  * 法令名は e-Gov の法令のページへ、条は e-Gov の条へつなぐ。法令ページ（/laws/）を公開したら、法令名の行き先をそちらへ替える。
  * 法令ごとに、同じ法令を引く他の記事（他の資格・実務を先に）を並べる（siblings。src/lib/article-end-wiring.ts の
  * resolveLawSiblings が選ぶ）。計測は記事の一覧だけを data-cta="nav"（label law-siblings）で囲む（e-Gov への外部リンクは数えない）。
+ * 法令ごとに「関わるテーマ」（その法令を引く記事が多い分野・立場のテーマ。src/lib/law-wiring.ts）も添える（label law-topics）。
  *
  * MDX には書かれない。DocPage → ArticleFooter で render-time に注入される。視覚文法は ExternalReferences と同じ（MetaCard + MetaListItem）。
  */
@@ -14,6 +15,7 @@ import Link from 'next/link';
 import MetaCard from '@/components/ui/MetaCard/MetaCard';
 import MetaListItem from '@/components/ui/MetaListItem/MetaListItem';
 import type { WiredDoc } from '@/lib/article-end-wiring';
+import type { LawTopicLink } from '@/lib/law-wiring';
 
 export interface ArticleLaw {
   readonly lawId: string;
@@ -22,7 +24,11 @@ export interface ArticleLaw {
   readonly articles: readonly { readonly article: string; readonly label: string; readonly url: string }[];
 }
 
-export default function ArticleLaws({ laws, siblings }: { laws: readonly ArticleLaw[]; siblings?: ReadonlyMap<string, readonly WiredDoc[]> }) {
+export default function ArticleLaws({ laws, siblings, lawTopics }: {
+  laws: readonly ArticleLaw[];
+  siblings?: ReadonlyMap<string, readonly WiredDoc[]>;
+  lawTopics?: ReadonlyMap<string, readonly LawTopicLink[]>;
+}) {
   if (!laws || laws.length === 0) return null;
   return (
     <MetaCard ariaLabel="この記事の根拠法令">
@@ -33,6 +39,7 @@ export default function ArticleLaws({ laws, siblings }: { laws: readonly Article
       <ul className="space-y-2">
         {laws.map((law) => {
           const related = siblings?.get(law.lawId) ?? [];
+          const topics = lawTopics?.get(law.lawId) ?? [];
           return (
           <li key={law.lawId}>
             <a href={law.url} target="_blank" rel="noopener noreferrer" className="block group">
@@ -44,6 +51,14 @@ export default function ArticleLaws({ laws, siblings }: { laws: readonly Article
                   <a key={a.article} href={a.url} target="_blank" rel="noopener noreferrer" className="text-(--accent) hover:underline">
                     {a.label}
                   </a>
+                ))}
+              </p>
+            )}
+            {topics.length > 0 && (
+              <p className="ml-5 mt-2 flex flex-wrap items-baseline gap-x-3 gap-y-1 text-xs" data-cta="nav" data-cta-label="law-topics">
+                <span className="text-(--ink-muted)">関わるテーマ</span>
+                {topics.map((t) => (
+                  <Link key={t.slug} href={`/topics/${t.slug}`} className="text-(--accent) hover:underline">{t.label}</Link>
                 ))}
               </p>
             )}
