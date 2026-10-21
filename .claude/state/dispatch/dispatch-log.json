@@ -5267,6 +5267,19 @@
       "commit": "be40df1784b7",
       "verification": "npm run test 3,489・失敗 0／quality:audit:ci 122 本合格／PR #1178 CI 緑",
       "note": "PR #1178（be40df178）。運営者の決定（推奨案どおり・2026-10-21）で、退役 2（public-bloat・frequent-topics）・格下げ 5（knip-ratchet・review-wiring・x-card-render・codex-compat・x-review を ops へ）・束ね 18→4（steps）・二重の実データのテスト 8 本を外した。ci:true は 145→122。見送り: generated-indexes（DN-0804 の後）・standards-data・youtube の表記のテスト・保留 2。判断の一覧は .claude/plans/DN-0805-ci-check-inventory.md の「判断」。PR の CI の待ち時間: audit ジョブは見直し前の直近 29 回の中央値 350 秒（251〜370）、見直し後の #1178 は 286 秒（1 回だけで、ばらつきの範囲内の可能性あり）。build は中央値 315 秒→268 秒"
+    },
+    {
+      "id": "DN-0809",
+      "at": "2026-10-21",
+      "task": "測量士補 令和4年 No.21 の解説を、公開している図で再現できる比の手順に直す",
+      "tier": "low",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "1af0078d8954",
+      "verification": "past-exam-qa 再監査（No.21）／準則 PDF（000258734.pdf）の第23条・第37条・定期横断測量の表",
+      "note": "R04 No.21: 解説の比（0.29 倍・約 2 倍）は公開している図（1000×872）で再現できた（裁判所→保健所 東 615・北 84、裁判所→税務署 東 181・南 166 画素）。測った画素と、経度の物差しでの確かめ（緯度 1″≒16 画素で約 10″ 南）を書き、選択肢 4・5 は裁判所より北・1 は図の外、と除外理由を直した（8250d8d75）。記号の位置の書き方と ExamPoint の外挿の範囲も直した（1af0078d8）。past-exam-qa の再監査で No.21 の 2 件の指摘は消えた。あわせて R04 No.6 の観測図（準則 第37条）・R08 No.6 の単路線方式（準則 第23条）を直し、R08 No.28 の堤内 20〜50 m は準則の表どおりと確認した。R04 No.8・11・17 の誤答肢の出どころの LOW は、出どころを確かめられないので書いていない"
     }
   ]
 }
