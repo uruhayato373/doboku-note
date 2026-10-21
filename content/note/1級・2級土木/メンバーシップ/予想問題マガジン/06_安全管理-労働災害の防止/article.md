@@ -7,20 +7,20 @@ noteContentType: product
 noteMagazine: 経験記述-週次お題ラボ
 notePublishedAt: "2026-09-15"
 noteId: "n81850411ecb7"
-title: "今週のお題｜安全管理 — 墜落・重機・崩壊による労働災害の防止"
+title: "経験記述のお題｜安全管理 — 墜落・重機・崩壊による労働災害の防止"
 noteUrl: "https://note.com/dobokunote/n/n81850411ecb7"
 memberTrial: bottom
 utmCampaign: civil-membership-odai-safety-labor
-coverTitle: ["今週のお題｜安全管理", "労働災害の防止"]
+coverTitle: ["経験記述のお題｜安全管理", "労働災害の防止"]
 cover:
   variant: crop-safe-v4
-  leadIn: "今週のお題｜経験記述"
+  leadIn: "経験記述のお題"
   headline: "安全管理"
   hi: "予想"
   hiSuffix: "問題"
   benefit: "労働災害の防止が書ける"
 ---
-# 今週のお題｜安全管理 — 墜落・重機・崩壊による労働災害の防止
+# 経験記述のお題｜安全管理 — 墜落・重機・崩壊による労働災害の防止
 
 
 ![](img/figure-author-authority.png)
@@ -39,7 +39,7 @@ cover:
 
 > 本記事は1級・2級に共通する論点を練習するための独自予想です。公式問題の再現ではありません。実際の出題テーマと設問構造は、受験する級・年度の問題用紙で確認してください。
 
-## 今週のお題
+## 経験記述のお題
 
 あなたが経験した工事のうち、**作業員の労働災害が懸念された工事**を1つ選び、「墜落・転落」「建設機械・クレーン」「土砂崩壊」のいずれかの防止について、次に答えてください。
 

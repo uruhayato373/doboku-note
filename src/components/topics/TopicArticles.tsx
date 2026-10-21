@@ -5,13 +5,21 @@ import Link from 'next/link';
 import ContentThumbnail from '@/components/ui/ContentThumbnail';
 import DisclosureChevron from '@/components/ui/DisclosureChevron';
 
-export type TopicArea = 'exam' | 'practice' | 'standards';
-export type TopicArticle = { href: string; title: string; description: string; category: string; categoryLabel: string; categoryOrder: number; area: TopicArea; kind: string; image: string };
+export type TopicArea = 'exam' | 'practice' | 'standards' | 'laws';
+export type TopicArticle = { href: string; title: string; description: string; category: string; categoryLabel: string; categoryOrder: number; area: TopicArea; kind: string; image: string; subgroup?: string | undefined };
 
 // 一覧は 領域（資格試験／施工実務／公的基準）→ 資格・カテゴリ の順に区切る（05_情報アーキテクチャ.md の三方向）
-const AREAS: TopicArea[] = ['exam', 'practice', 'standards'];
+const AREAS: TopicArea[] = ['laws', 'exam', 'practice', 'standards'];
 
-export default function TopicArticles({ articles, areaLabels }: { articles: TopicArticle[]; areaLabels: Record<TopicArea, string> }) {
+// 資格の中の小分け（総監のキーワード集の節など）。小分けの無い記事は最後にまとめる
+function bySubgroup(rows: TopicArticle[]): [string, TopicArticle[]][] {
+  if (!rows.some(a => a.subgroup)) return [['', rows]];
+  const groups = new Map<string, TopicArticle[]>();
+  for (const a of rows) groups.set(a.subgroup ?? '', [...(groups.get(a.subgroup ?? '') ?? []), a]);
+  return [...groups].sort(([a], [b]) => (a ? 0 : 1) - (b ? 0 : 1) || a.localeCompare(b, 'ja', { numeric: true }));
+}
+
+export default function TopicArticles({ articles, areaLabels, featured: entry = [] }: { articles: TopicArticle[]; areaLabels: Record<TopicArea, string>; featured?: string[] }) {
   const [category, setCategory] = useState('');
   const [kind, setKind] = useState('');
   const [query, setQuery] = useState('');
@@ -20,8 +28,8 @@ export default function TopicArticles({ articles, areaLabels }: { articles: Topi
   const kinds = [...new Set(articles.map(a => a.kind))];
   const match = (a: TopicArticle) => (!category || a.category === category) && (!kind || a.kind === kind) && `${a.title} ${a.description}`.toLocaleLowerCase().includes(query.trim().toLocaleLowerCase());
   const filtered = !!(category || kind || query.trim());
-  // 入口はガイド・実務を優先。同点は元の更新順を維持。
-  const featured = new Set([...articles].sort((a,b) => Number(!['受験ガイド','実務'].includes(a.kind)) - Number(!['受験ガイド','実務'].includes(b.kind))).slice(0,3).map(a=>a.href));
+  // 入口は topics.json の featured（編集で選んだ記事）。無いテーマはガイド・実務を優先し、同点は元の更新順を維持。
+  const featured = new Set(entry.length ? entry.slice(0,3) : [...articles].sort((a,b) => Number(!['受験ガイド','実務'].includes(a.kind)) - Number(!['受験ガイド','実務'].includes(b.kind))).slice(0,3).map(a=>a.href));
   const count = articles.filter(match).length;
   const control = 'focus-ring min-h-11 rounded-card-inline border border-(--rule-soft) bg-(--paper) px-3 py-2 text-sm text-(--ink)';
   return <div>
@@ -62,7 +70,10 @@ export default function TopicArticles({ articles, areaLabels }: { articles: Topi
               const matches = rows.filter(match);
               return <details key={`${value}-${filtered}`} open={filtered} hidden={!matches.length} className="rounded-card-content border border-(--rule-soft) bg-(--paper)">
                 <summary className="focus-ring cursor-pointer px-4 py-4 font-bold text-(--ink)"><h4 className="inline">{label}</h4> <span className="text-sm font-normal text-(--ink-muted)">{matches.length}件</span></summary>
-                <ul className="px-4">{rows.map(a=><li key={a.href} hidden={!match(a)} className="border-t border-(--rule-soft)"><Link className="focus-ring block py-4 hover:text-(--accent)" href={a.href}><span className="text-xs text-(--ink-muted)">{a.kind}</span><h5 className="mt-1 font-bold text-(--ink)">{a.title}</h5><p className="mt-1 line-clamp-2 text-sm text-(--ink-muted)">{a.description}</p></Link></li>)}</ul>
+                {bySubgroup(rows).map(([subgroup, items])=><div key={subgroup || '-'}>
+                  {subgroup && <p hidden={!items.some(match)} className="border-t border-(--rule-soft) px-4 pt-4 text-sm font-bold text-(--ink-muted)">{subgroup}（{items.filter(match).length}件）</p>}
+                  <ul className="px-4">{items.map(a=><li key={a.href} hidden={!match(a)} className="border-t border-(--rule-soft)"><Link className="focus-ring block py-4 hover:text-(--accent)" href={a.href}><span className="text-xs text-(--ink-muted)">{a.kind}</span><h5 className="mt-1 font-bold text-(--ink)">{a.title}</h5><p className="mt-1 line-clamp-2 text-sm text-(--ink-muted)">{a.description}</p></Link></li>)}</ul>
+                </div>)}
               </details>;
             })}
           </div>

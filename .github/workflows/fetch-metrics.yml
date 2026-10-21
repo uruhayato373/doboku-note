@@ -215,7 +215,7 @@ jobs:
           GA4_PROPERTY_ID: ${{ secrets.GA4_PROPERTY_ID }}
         run: npm run fetch-ga4-cta-clicks -- --by-label
 
-      # EXP-019: 案×案件×面×ページ×端末×日付。publishのmeasure-experimentsが台帳へ追記し、週次レビューが裁定する。
+      # アフィリ意匠実験（EXP-038）: 案×案件×面×ページ×端末×日付。publishのmeasure-experimentsが台帳へ追記し、週次レビューが裁定する。
       - name: Fetch GA4 (affiliate ABC design experiment)
         id: affiliateexperiment
         continue-on-error: true
@@ -513,7 +513,7 @@ jobs:
           [ "$CAREER_FUNNEL_RC" = "1" ] && anomalies+=("転職アフィリエイトのファネル（report-career-funnel）の生成失敗")
           [ "$CAREER_FUNNEL_RC" = "2" ] && invalid+=("転職アフィリエイトのファネル: GA4 ラベル別か GSC が無く検査不成立")
           [ "$AFFILIATE_BY_PAGE_RC" = "1" ] && anomalies+=("アフィリエイトのページ別（fetch-ga4-cta-clicks --by-page）の取得失敗か表示 0 件")
-          [ "$AFFILIATE_EXPERIMENT_OUTCOME" = "failure" ] && anomalies+=("アフィリエイトA/B/C意匠実験の取得失敗・打切り・しきい値制限")
+          [ "$AFFILIATE_EXPERIMENT_OUTCOME" = "failure" ] && anomalies+=("アフィリエイト意匠実験（EXP-038）の取得失敗・打切り・しきい値制限")
           [ "$AFFILIATE_BY_PAGE_RC" = "2" ] && invalid+=("アフィリエイトのページ別: affiliate_days が日数でない")
           [ "$PUBLISH_OUTCOME" = "failure" ] && anomalies+=("develop への publish 失敗（計測・自動計測・ダイジェストが記録されていない）")
           [ "$MEASURE_RC" = "1" ] && anomalies+=("実験の自動計測（measure-experiments）の取得失敗")

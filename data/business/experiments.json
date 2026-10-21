@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-17T03:48:38.573Z",
+  "updated_at": "2026-10-20T08:00:32.243Z",
   "experiments": [
     {
       "id": "EXP-002",
@@ -1678,7 +1678,8 @@
       "closed_at": null,
       "actions": [
         "2026-09-25: QualificationBridge（src/config/qualification-bridge.ts）を /practice/ 全記事の記事末と共通仕様書の章末に配置。GA4 qualification_bridge_click / qualification_bridge_impression を AnalyticsProvider・growth-cycle・fetch-ga4-cta-clicks に登録。入口記事（会計検査・工事検査）を新設。deploy 待ち（backlog DN-0304）",
-        "2026-09-25: 本番反映（PR #635 → develop → main・cloudflare-deploy run 36078428661 成功・check-production-ssr exit 0）。起票日と同日のため measure.anchor は 2026-09-25 のまま。本番の /practice/cost-and-design-change と /standards/chubu/common/chapters/1-1 にカードとリンク 3 本（orderer / contractor / qualification-map）を curl で確認。本番で qualification_bridge_impression（label=card）と qualification_bridge_click（label=orderer・contractor・qualification-map）が cta_placement=practice-footer / standards-chapter-footer 付きで GA4 収集エンドポイントへ送られ 204 を返すことを確認（Playwright）"
+        "2026-09-25: 本番反映（PR #635 → develop → main・cloudflare-deploy run 36078428661 成功・check-production-ssr exit 0）。起票日と同日のため measure.anchor は 2026-09-25 のまま。本番の /practice/cost-and-design-change と /standards/chubu/common/chapters/1-1 にカードとリンク 3 本（orderer / contractor / qualification-map）を curl で確認。本番で qualification_bridge_impression（label=card）と qualification_bridge_click（label=orderer・contractor・qualification-map）が cta_placement=practice-footer / standards-chapter-footer 付きで GA4 収集エンドポイントへ送られ 204 を返すことを確認（Playwright）",
+        "2026-10-21: 運営者の判断（計測より配線を優先）で、PR #1182 に記事末の回遊（根拠法令の同じ法令の記事・関わるテーマ、この記事のテーマ）と、自治体の土木担当シリーズ（タグ 地方公共団体）での橋渡しカードの出し分け（contractor → public-pe・立場のテーマへのリンク municipal-hub）を入れた。deploy 待ち。deploy した日以降は表示面が変わるので、判定は deploy の前後を分けて読む（DN-0810）"
       ],
       "next_check_date": "2026-10-23",
       "resume_criteria": null,
@@ -2839,12 +2840,16 @@
         "metricId": "a8ConfirmedYen",
         "reviewRecord": "data/business/records/review-2026-10-01T06-45-46-827Z-32027a75-8673-4253-90b2-a16aadb455a1.json"
       },
-      "status": "running",
+      "status": "abandoned",
       "created_at": "2026-10-08T01:01:51.918Z",
-      "closed_at": null,
-      "result": null,
-      "learnings": null,
-      "next_check_date": "2026-11-05",
+      "closed_at": "2026-10-20T08:00:32.243Z",
+      "result": "中止（2026-10-20）。運営者の指示で勝敗を決めずに打ち切った。理由は画面の占有で、B はスマホ 822px（1 画面 812px の 101%）・PC 751px、A・C はスマホ 538px（66%）・PC 467px を占め、記事末（幅 300px）は 817〜823px あった。打ち切り時点の実測（GA4 2026-10-17 取得・窓 10/08〜10/16）は表示/クリック A 1,831/6（0.33%）・B 1,995/3（0.15%）・C 1,946/0（0%）で、各案 20 クリックの目安に届かず 3 案とも insufficient-data。後継は EXP-038（今の A と小型カードの 2 案）",
+      "learnings": [
+        "画像（B）と紺の面（C）は高さを取るわりにクリックが増える兆しが無かった。実験前の集計（画像 0.014%・文章 0.14%）とも同じ向きなので、次は画像や色面を足すより高さを減らす側で試す",
+        "閲覧の 88% が PC で、スマホからのクリックは 0 件だった。広告カードを検討するときは PC の 1 画面（800px 前後）に占める割合も測る",
+        "9 日間・3 案で計 9 クリックしかなく、3 案に分けると各案 20 クリックの目安まで 28 日では届かない見込みだった。案の数は 2 つに絞る"
+      ],
+      "next_check_date": null,
       "pending_user_actions": [],
       "actions": [
         "A/B/Cを既存の許可済み3案件・既存掲載面へ展開。案件・広告URL・支給画像・1ページ1ピクセル・note順序は維持する。",
@@ -2895,7 +2900,7 @@
       ],
       "measurementPlan": {
         "kind": "affiliate-design",
-        "status": "observing-awaiting-data",
+        "status": "abandoned",
         "firstRound": [
           "A",
           "B",
@@ -3119,6 +3124,11 @@
           "at": "2026-10-15T13:15:35.543Z",
           "event": "measure-defer",
           "note": "初回確認（公開7日後・窓 10/8〜10/14・CI の自動計測 2026-10-15T13:13Z）。配分は訪問者のほぼ1/3ずつ（閲覧 A1,915・B1,940・C1,971）で表示も3案とも出ている。表示/クリックは A1,270/5（CTR 0.39%）・B1,394/2（0.14%）・C0/1,385（0%）、note のクリック率は A0.78%・B1.01%・C0.60%。各案20クリックの目安に届かず3案とも insufficient-data のため勝敗は決めない。計画どおり28日後の 11/5 に CTR・note 送客・A8 発生/確定で再検討する。"
+        },
+        {
+          "at": "2026-10-20T08:00:32.243Z",
+          "event": "abandon",
+          "note": "運営者が 2026-10-20 に、勝敗を決めずに打ち切り、今の A と小型カードの 2 案で新しい実験（EXP-038）にすると指示。本番は EXP-038 のデプロイまで EXP-019 の配信が続くが、台帳への自動計測はこの時点で止まる（status が running でないため）。"
         }
       ],
       "started_at": "2026-10-08T02:31:46.811Z",
@@ -5268,6 +5278,163 @@
       },
       "started_at": "2026-10-13",
       "next_check_date": "2026-11-16"
+    },
+    {
+      "id": "EXP-038",
+      "title": "転職アフィリのカードを小型化し、今の文章カード（A）と小型カード（B）を訪問者単位で比較する",
+      "hypothesis": "EXP-019 の途中経過では、画像や紺の面を足してもクリックは増えず、文章だけの A が最も良かった。カードが 1 画面の 6〜10 割を占めると本文の妨げになり、読み飛ばされる。見出し 1 行・要約 1 行・ボタンに絞った小型カード（本文幅では横一列）にすれば、本文の邪魔をせずに A と同等以上のクリック率を保てる。",
+      "target_metric": "affiliate_experiment_click / affiliate_experiment_impression、対象ページ閲覧あたりクリック。案×案件×面×ページ×端末×日別に読む。note_experimentの表示・クリックを併記し、A8成果は案件・ページで確認（案別帰属は不可）。",
+      "target_delta": "B の CTR が A を下回らず、note のクリック率を下げないこと。28 日で再検討するが、少数で勝敗を決めない。各案 20 クリック・1,000 表示は人によるレビューの目安で、統計的な勝利条件ではない。",
+      "baseline": {
+        "measured_at": "2026-10-20",
+        "source": "data/ga4/reports/2026-10-17.json#affiliate-experiment",
+        "window": {
+          "start": "2026-10-08",
+          "end": "2026-10-16"
+        },
+        "exp019": {
+          "A": {
+            "impressions": 1831,
+            "clicks": 6
+          },
+          "B": {
+            "impressions": 1995,
+            "clicks": 3
+          },
+          "C": {
+            "impressions": 1946,
+            "clicks": 0
+          }
+        },
+        "cardHeightPx": {
+          "measuredAt": "2026-10-20",
+          "how": "ローカルの開発サーバーで ?affiliateVariant= を固定して実測（ブラウザの遷移アニメーションは完了させてから測った）",
+          "buildjob": {
+            "mobile375": {
+              "A": 586,
+              "B": 272
+            },
+            "pc1280Main": {
+              "A": 495,
+              "B": 133
+            },
+            "column300": {
+              "A": 606,
+              "B": 297
+            }
+          },
+          "dxConsulting": {
+            "mobile375": {
+              "A": 538,
+              "B": 230
+            },
+            "pc1280Main": {
+              "A": 467,
+              "B": 111
+            }
+          },
+          "viewport": {
+            "mobile": 812,
+            "pc": 800
+          }
+        },
+        "note": "EXP-019 の値は参考。EXP-038 の A はビルドジョブだけ公表実績 1 行が増えたので、比較は EXP-038 の中の A と B で行う。"
+      },
+      "businessContext": {
+        "qualification": "all",
+        "readerNeed": "資格や工事経験が待遇・休日・勤務地にどう活きるかを知り、仕事の選択肢を相談したい（A:転職・成長、M:待遇）",
+        "verifiedGap": "2026-10-20 にローカルの開発サーバーで実測。EXP-019 のカードは スマホ 538〜822px（1 画面の 66〜101%）・PC 467〜751px、記事末（幅 300px）は 817〜823px で、本文中間と記事末の 2 枚でページの 16% を占めるページがあった（/practice/concrete-crack-causes）。",
+        "metricId": "a8ConfirmedYen",
+        "reviewRecord": "data/business/records/review-2026-10-01T06-45-46-827Z-32027a75-8673-4253-90b2-a16aadb455a1.json"
+      },
+      "status": "proposed",
+      "created_at": "2026-10-20T08:00:32.243Z",
+      "closed_at": null,
+      "result": null,
+      "learnings": null,
+      "next_check_date": "2026-10-27",
+      "pending_user_actions": [
+        {
+          "action": "PR を develop へマージし、/deploy で本番に出す（出るまで本番は EXP-019 の A/B/C のまま）"
+        }
+      ],
+      "actions": [
+        "A（今の文章カード）と B（小型カード）を、既存の許可済み 3 案件・既存の掲載面へ同率で配信する。案件・広告 URL・1 ページ 1 ピクセル・note の順序は変えない。",
+        "ビルドジョブのカードは両案とも「累計5万名以上の支援実績（公式発表・2026年10月）」を 1 行足す（2026-10-20 にもしもの通知と公式 LP の一致を確認）。",
+        "本番に出た日に status を running にし、history に start を記録する。",
+        "公開 7 日後に配分・表示・クリックを確認し、28 日後に CTR・note 送客・A8 発生/確定を再検討する。少数なら判定を保留する。"
+      ],
+      "variants": [
+        {
+          "id": "A",
+          "format": "text",
+          "framePx": 3,
+          "headlineSource": "src/components/ui/CareerAffiliate/CareerAffiliateExperiment.tsx:HEADLINES",
+          "ctaSource": "src/config/affiliate-creatives.ts（案件・悩み別の既存コピー）",
+          "proofSource": "src/config/affiliate-creatives.ts（proof・ビルドジョブだけ）",
+          "programs": [
+            "buildjob",
+            "kensetsu-jobs",
+            "dx-consulting"
+          ]
+        },
+        {
+          "id": "B",
+          "format": "compact",
+          "framePx": 1,
+          "accent": "左の 4px の線",
+          "layout": "幅 36rem 以上の枠は横一列、狭い枠（スマホ・幅 300px の欄）は縦に積む（container query）",
+          "headlineSource": "src/components/ui/CareerAffiliate/CareerAffiliateExperiment.tsx:HEADLINES",
+          "briefSource": "src/config/affiliate-creatives.ts（brief）",
+          "proofSource": "src/config/affiliate-creatives.ts（proof・ビルドジョブだけ）",
+          "programs": [
+            "buildjob",
+            "kensetsu-jobs",
+            "dx-consulting"
+          ]
+        }
+      ],
+      "measurementPlan": {
+        "kind": "affiliate-design",
+        "status": "awaiting-deploy",
+        "firstRound": [
+          "A",
+          "B"
+        ],
+        "assignment": "訪問者を約 1/2 ずつ。localStorage（doboku-note:EXP-038:variant）で再訪も固定。保存不可時はページ内で固定。EXP-019 の割り当ては引き継がない",
+        "dimensions": [
+          "experiment",
+          "variant",
+          "page",
+          "placement",
+          "program",
+          "device",
+          "date"
+        ],
+        "reportId": "ga4.affiliate-experiment",
+        "events": [
+          "affiliate_experiment_page_view",
+          "affiliate_experiment_impression",
+          "affiliate_experiment_click",
+          "note_experiment_impression",
+          "note_experiment_click"
+        ],
+        "exposure": "共通の見出し領域50%。割当前SSRのAを数えない",
+        "reviewDays": 28,
+        "minClicksPerVariant": 20,
+        "minImpressionsPerVariant": 1000,
+        "noteGuardrail": "案別note表示・クリックと全経路売上を併記。案別のA8成果帰属は未取得。CTRと前後の売上の因果を断定しない",
+        "concurrentExperimentException": "EXP-019 の置き換え（運営者が 2026-10-20 に打ち切りと 2 案での再開を指示）。並行する実験の数は増えない。",
+        "startDate": "2026-10-20",
+        "startDateNote": "本番に出るまで EXP-038 のイベントは無いので、自動計測は実際の公開日以降の行だけを数える。公開日は history の start に記録する。"
+      },
+      "history": [
+        {
+          "at": "2026-10-20T08:00:32.243Z",
+          "event": "implement",
+          "note": "運営者の指示で、EXP-019 の A を残し、小型カードを B として 2 案に組み直した。計測の仕組み（イベント・CI 取得・週次記録）は EXP-019 のものを実験 ID だけ替えて使う。公開前のため status は proposed。"
+        }
+      ]
     }
   ]
 }

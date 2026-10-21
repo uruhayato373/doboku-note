@@ -16,11 +16,18 @@
  *     → civil-construction-1/public-servant-merit の FAQ と同じ表現に揃える。
  *   - contractor: 令和6年度改正で 1級第一次検定は年度末に満19歳以上なら実務経験を問わず受検可
  *     → civil-construction-1/guide-exam-overview の「受験資格」節と同じ表現に揃える。
+ *
+ * 立場の出し分け（2026-10-21・DN-0810）: 自治体の土木担当シリーズ（タグ 地方公共団体）の記事の読み手はほぼ発注者なので、
+ *   施工会社向けの選択肢を外し、技術士（土木公務員が取る意味）を出し、立場のテーマ /topics/municipal-civil-engineers
+ *   （資格の記事と総監の自治体ペルソナの教材をまとめたページ）へのリンクを添える（label municipal-hub）。
  */
 import { getPublicDocPath } from '@/lib/content-routes';
 
 /** 立場の分岐。GA4 の click label にそのまま使う（値を変えると過去データと連続しない）。 */
-type QualificationBridgeKey = 'orderer' | 'contractor' | 'qualification-map';
+type QualificationBridgeKey = 'orderer' | 'contractor' | 'qualification-map' | 'public-pe';
+
+/** 読み手の立場。記事のタグから決める（地方公共団体 → municipal） */
+export type QualificationBridgeAudience = 'municipal';
 
 /** 表示面。GA4 の cta_placement に使う。 */
 export type QualificationBridgeSurface = 'practice-footer' | 'standards-chapter-footer';
@@ -54,6 +61,17 @@ const QUALIFICATION_BRIDGE_OPTIONS: readonly QualificationBridgeOption[] = [
   },
 ];
 
+/** 自治体の土木担当シリーズで施工会社向けの選択肢と入れ替える選択肢 */
+const MUNICIPAL_OPTION: QualificationBridgeOption = {
+  key: 'public-pe',
+  title: '技術士を目指したい',
+  reason: '技術士（建設部門）を土木公務員が取る意味と、受験で気をつけることへ。',
+  slug: 'pe-construction-public-servant-merit',
+};
+
+/** 立場のテーマ（自治体の土木職）。カードの選択肢の下に 1 行で添える */
+export const MUNICIPAL_HUB = { href: '/topics/municipal-civil-engineers', label: '自治体の土木職の記事・資格・教材をまとめて見る' } as const;
+
 /** 実務記事のうち、橋渡しカードを出さない slug（civil-practice- 接頭辞なし）。空＝全記事に出す。 */
 const PRACTICE_EXCLUDED = new Set<string>();
 
@@ -62,6 +80,9 @@ export function shouldShowQualificationBridge(category: string | undefined, slug
   return !PRACTICE_EXCLUDED.has(slug.replace(/^civil-practice-/, ''));
 }
 
-export function resolveQualificationBridge(): Array<QualificationBridgeOption & { href: string }> {
-  return QUALIFICATION_BRIDGE_OPTIONS.map((option) => ({ ...option, href: getPublicDocPath(option.slug) }));
+export function resolveQualificationBridge(audience?: QualificationBridgeAudience): Array<QualificationBridgeOption & { href: string }> {
+  const options = audience === 'municipal'
+    ? QUALIFICATION_BRIDGE_OPTIONS.map((option) => (option.key === 'contractor' ? MUNICIPAL_OPTION : option))
+    : QUALIFICATION_BRIDGE_OPTIONS;
+  return options.map((option) => ({ ...option, href: getPublicDocPath(option.slug) }));
 }

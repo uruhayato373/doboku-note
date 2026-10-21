@@ -10,6 +10,8 @@
  *   alias     … 受理はするが正規でない綴り（`slug` と `aliases[]`）。ビルド時に canonical へ正規化する
  */
 
+import { topicsOfDoc } from '../../src/lib/topic-membership.mjs';
+
 /**
  * tags.json → 綴り→canonical の対応表。
  * 同じ綴りが 2 つの canonical を主張したら throw（設定不良＝検査不成立にする）。
@@ -140,17 +142,15 @@ export function evaluateCountRatchet(current, baseline) {
  * @param {Map<string,{area:string}>} categoryMap
  * @param {Array<{agencyId:string, documentId:string, title:string}>} standardDocs
  */
-export function countTopicDirections(topic, docs, categoryMap, standardDocs) {
-  const tags = new Set(topic.tags ?? []);
-  const cats = new Set(topic.categories ?? []);
+export function countTopicDirections(topic, docs, categoryMap, standardDocs, canon = (t) => t) {
   let exam = 0; let practice = 0; let explicit = 0; let byTag = 0;
   for (const d of docs) {
-    if (d.published === false) continue;
-    const isExplicit = Array.isArray(d.topics) && d.topics.includes(topic.slug);
-    const isTag = cats.has(d.category) || (d.tags ?? []).some((t) => tags.has(t));
-    if (!isExplicit && !isTag) continue;
-    if (isExplicit) explicit += 1; else byTag += 1;
+    // 所属の判定はサイトと同じ関数（src/lib/topic-membership.mjs）
+    if (!topicsOfDoc(d, [topic], canon).length) continue;
+    if (Array.isArray(d.topics) && d.topics.includes(topic.slug)) explicit += 1; else byTag += 1;
     const area = categoryMap.get(d.category)?.area ?? 'exam';
+    // 法令ページは三方向（試験・実務・基準）のどれでもない（昇格の判定を動かさない）
+    if (area === 'laws') continue;
     if (area === 'practice') practice += 1; else exam += 1;
   }
   const refs = new Set(topic.featuredStandardRefs ?? []);
@@ -161,6 +161,32 @@ export function countTopicDirections(topic, docs, categoryMap, standardDocs) {
     if (refs.has(ref) || kws.some((k) => k && String(s.title ?? '').includes(k))) standards += 1;
   }
   return { exam, practice, standards, explicit, byTag };
+}
+
+/**
+ * 記事型・フラグのタグ（structural / flag）しか持たない記事か（§5-3 の最小構成＝資格・科目か主題のタグを欠く）。
+ * 過去問（問題ごとに用語へつなぐ）・転職とキャリア・模範論文は別のナビでつなぐので対象外。
+ * こうした記事は関連記事のどの算法にも掛からず、どの記事からも選ばれない（2026-10-21 に試験の手続きのガイド 12 本）。
+ * @param {{ group?: string, tags?: string[], published?: boolean }} doc tags は正規表記
+ * @param {(tag: string) => string | undefined} classOf
+ */
+export function lacksSubjectTags(doc, classOf) {
+  if (!doc || doc.published === false) return false;
+  const tags = doc.tags ?? [];
+  if (['primary', 'secondary', 'past-exam'].includes(String(doc.group))) return false;
+  if (tags.includes('career') || tags.includes('模範論文')) return false;
+  return !tags.some((tag) => !['structural', 'flag'].includes(classOf(tag) ?? 'topical'));
+}
+
+/**
+ * 昇格基準 (2) の判定。方向ごとの件数が閾値以上なら「埋まった」とし、埋まった方向が minDirections 以上なら公開ハブにできる。
+ * @param {{exam:number, practice:number, standards:number}} counts countTopicDirections の結果
+ * @param {{minDirections:number, thresholds:Record<string, number>}} promotion content-taxonomy.json の topicPromotion
+ * @returns {{ filled: string[], eligible: boolean }}
+ */
+export function topicEligibility(counts, promotion) {
+  const filled = Object.entries(promotion.thresholds).filter(([k, min]) => (counts[k] ?? 0) >= min).map(([k]) => k);
+  return { filled, eligible: filled.length >= promotion.minDirections };
 }
 
 /**

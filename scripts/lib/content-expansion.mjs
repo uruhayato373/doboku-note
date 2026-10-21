@@ -132,7 +132,7 @@ export async function linkedProductsByUnit(root, report) {
   const { slugFromKey } = await import('./url-normalization.mjs');
   const { readdirSync } = await import('node:fs');
   const { join } = await import('node:path');
-  const urlRe = /https?:\/\/(?:www\.)?doboku-note\.com(\/(?:exam|practice|standards|topics|docs)\/[A-Za-z0-9/_-]+)/g;
+  const urlRe = /https?:\/\/(?:www\.)?doboku-note\.com(\/(?:exam|practice|standards|topics|laws|docs)\/[A-Za-z0-9/_-]+)/g;
   const bySlug = new Map();
   const walk = (rel) => {
     let entries;

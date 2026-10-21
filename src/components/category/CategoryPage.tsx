@@ -27,6 +27,7 @@ import SidebarAdBanner from '@/components/ui/SidebarAdBanner';
 import { pixelFor, resolvePlacements } from '@/lib/affiliate-placement';
 import CategoryJumpNav from '@/components/category/CategoryJumpNav';
 import CategoryStudyNav from '@/components/category/CategoryStudyNav';
+import CategoryTopics from '@/components/category/CategoryTopics';
 import { SidebarProduct } from '@/components/ui/SidebarDiscovery';
 import { ConcreteEngineerStudy, ConcreteEngineerProduct, ConcreteEngineerRelated } from '@/components/category/ConcreteEngineerResources';
 
@@ -206,6 +207,8 @@ export default async function CategoryPage({
             {popularDocs.length > 0 && (
               <div className="mt-10"><PopularShowcase items={popularDocs.slice(0, 2)} /></div>
             )}
+            {/* 資格 → 横断テーマの向きの回遊（記事 → テーマは記事末の「この記事のテーマ」）。キャリア記事は数えない */}
+            <CategoryTopics docs={docs.filter((d) => !d.tags?.includes('career'))} />
             </div>
             </div>
 

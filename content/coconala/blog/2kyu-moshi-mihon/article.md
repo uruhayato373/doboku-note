@@ -8,10 +8,10 @@ exam: civil-2
 angle: ハウツー
 category: 学び
 tags: [2級土木, 施工管理技士, 予想模試, 学科記述]
-funnel: [coconala-2kyu-tensaku-3theme, coconala-2kyu-sakusei-3theme]
+funnel: [coconala-tensaku-4theme]
 source:
   - C9 2級模試の生成 markdown 6本（Drive vault の coconala-asset グループ・build-coconala-content-pdf の C9 源）
-  - config/coconala-listings.json（listings.coconala-2kyu-moshi-pdf.body / listings.coconala-2kyu-full-pdf.body）
+  - config/coconala-listings.json（2級の予想模試PDF・フルパックの body）
   - content/coconala/blog/2kyu-moshi-tsukaikata/article.md
 ---
 
@@ -45,13 +45,10 @@ source:
 
 要点は3つです。1つ目は、予想模試は3回分・各回とも問題冊子と解答解説の2冊構成で全6冊、令和3年度から令和7年度までの出題傾向をもとに作成した自主教材であることです。2つ目は、学科記述は必須4問・選択2問という本番と同じ方式で出題され、解答解説には正答・解説・答案例・配点の考え方・自己採点シート・復習計画が付いていることです。3つ目は、模試で書いた経験記述の答案は、自分で丸付けするより第三者に読んでもらうほうが、本番までに直すべき点がはっきりすることです。
 
-10/25の本番までに、書き上げた経験記述の答案が2級の水準に届いているかを確かめたい方には、全3テーマを24時間以内に添削するサービスを用意しています。
+本番までに、書き上げた経験記述の答案が2級の水準に届いているかを確かめたい方には、基本の2テーマの添削に、全3テーマにするオプションを付けられるサービスを用意しています。
 
-service:coconala-2kyu-tensaku-3theme
+service:coconala-tensaku-4theme
 
-ご購入後、トークルームで3テーマ分の答案と工事概要をお送りください。24時間以内に、2級で求められる水準に照らした赤入れをお返しし、書き直した答案をもう一度見ます（1回まで）。
+ご購入後、トークルームで答案と工事概要をお送りください。基本の2テーマについて、2級で求められる水準に照らした赤入れをお返しし、書き直した答案をまとめて1回まで再チェックします。全3テーマにする場合は、オプションをお選びください。急ぐ場合は「24時間以内に返却」のオプションもあります。
 
-
-まだ答案を書けていない方には、ヒアリングから全3テーマの骨子（構成）を24時間以内に設計するサービスもあります。
-
-service:coconala-2kyu-sakusei-3theme
+まだ答案を書けていない方には、ヒアリングから骨子（構成）をつくる「骨子から相談」のオプション（2テーマ、または2級 全3テーマ）もあります。

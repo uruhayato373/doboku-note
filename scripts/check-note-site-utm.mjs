@@ -72,13 +72,13 @@ if (STAGED) {
 
 // `](url)` のインライン / それ以外（裸 or <url>）を 1 パスで分類する。
 // group1 = "](" があればインライン、無ければ裸URL（<url> 含む）。
-const RE = /(\]\()?<?(https?:\/\/(?:www\.)?doboku-note\.com\/(?:docs|exam|practice|standards|topics)\/[^\s)>]+)/g;
+const RE = /(\]\()?<?(https?:\/\/(?:www\.)?doboku-note\.com\/(?:docs|exam|practice|standards|topics|laws)\/[^\s)>]+)/g;
 const routes = loadSiteRoutes();
 
 // note 記事内でサイトへ送客するリンクは**絶対URLでなければ届かない**。相対パス `](/exam/...)` `](/docs/slug)`
 // や裸 slug `](slug)` は note.com 上で解決されリンク切れになる（2026-07-28、建設部門で
 // 相対41件・裸slug23件を実測）。UTM 以前の到達性の問題なのでこのゲートで一緒に止める。
-const BROKEN_RE = /\]\((\/(?:docs|exam|practice|standards|topics)\/[^\s)]+|(?!https?:|mailto:|tel:|#|\/|\.)[a-z][a-z0-9]*(?:-[a-z0-9]+){2,})\)/g;
+const BROKEN_RE = /\]\((\/(?:docs|exam|practice|standards|topics|laws)\/[^\s)]+|(?!https?:|mailto:|tel:|#|\/|\.)[a-z][a-z0-9]*(?:-[a-z0-9]+){2,})\)/g;
 
 const problems = [];
 let linkCount = 0;   // 実検査したリンク数（「検査ゼロの緑」を読み分けるため出力する）

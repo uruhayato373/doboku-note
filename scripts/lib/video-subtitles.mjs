@@ -1,4 +1,6 @@
 const units = value => [...value].reduce((n, ch) => n + (/^[\x20-\x7e]$/.test(ch) ? 0.62 : 1), 0);
+// Intl.Segmenter が分割する教材用語は、字幕の切り替わりでも一語として保つ。
+const compounds = /(置換ガイド|管理計画|締固め度|大型構造物|作業可能日数|読み返し|具体化|維持工事)/u;
 const segmenter = new Intl.Segmenter('ja', { granularity: 'word' });
 
 /** Keep numbers, decimals, Latin terms and Katakana compounds together in a one-line subtitle. */
@@ -7,14 +9,14 @@ export function subtitleChunks(value, maxUnits = 15) {
   if (!text) return [];
   if (!Number.isFinite(maxUnits) || maxUnits <= 0) throw new Error('字幕の行幅が不正です');
   const spans = text.match(/[A-Za-z0-9][A-Za-z0-9.,:/%+\-²³℃°]*|[^A-Za-z0-9]+/gu) ?? [];
-  const raw = spans.flatMap(span => /^[A-Za-z0-9]/.test(span) ? [span] : [...segmenter.segment(span)].map(s => s.segment));
+  const raw = spans.flatMap(span => /^[A-Za-z0-9]/.test(span) ? [span] : span.split(compounds).filter(Boolean).flatMap(part => compounds.test(part) ? [part] : [...segmenter.segment(part)].map(s => s.segment)));
   const tokens = [];
   for (const token of raw) {
     const prev = tokens.at(-1);
     // ひらがなだけの語（助詞・送り仮名・活用）は前の語につなぎ、「深|さ」「書|いても」「施工性|は」で切らない（2026-10-08）
     const katakana = /^[ァ-ヺー]+$/u.test(token) && /[ァ-ヺー]$/u.test(prev ?? '') && units((prev ?? '') + token) <= maxUnits;
     const suffix = /^[ぁ-ゖー]+$/u.test(token) && !/[、。，．！？：；]$/u.test(prev ?? '') && units((prev ?? '') + token) <= maxUnits * 0.6;
-    if (tokens.length && (/^[、。，．！？：；）］」』]/u.test(token) || /[（［「『]$/u.test(prev) || suffix || katakana)) tokens[tokens.length - 1] += token;
+    if (tokens.length && (/^[、。，．！？：；・）］」』]/u.test(token) || /[（［「『]$/u.test(prev) || suffix || katakana)) tokens[tokens.length - 1] += token;
     else tokens.push(token);
   }
   if (tokens.some(token => units(token) > maxUnits)) throw new Error('字幕の数値・用語が1行を超えています。表記を短くしてください。');

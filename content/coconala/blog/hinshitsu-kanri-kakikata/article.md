@@ -8,7 +8,7 @@ exam: civil
 angle: ハウツー
 category: 学び
 tags: [経験記述, 品質管理, 施工管理技士]
-funnel: [coconala-2kyu-tensaku-3theme, coconala-2kyu-sakusei-3theme]
+funnel: [coconala-tensaku-4theme]
 source:
   - content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx
   - content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx
@@ -40,11 +40,9 @@ source:
 
 ここまでの手順は、どの現場・どの工種にも当てはめられる骨格です。あとは自分の工事の現場条件と数値を当てはめれば、設問1から評価まで一通り書ける状態になります。
 
-骨格を自分の工事に当てはめて書いたら、次は第三者の目で確かめる段階です。書いた答案がある方には全3テーマの添削を、まだ書けていない方にはヒアリングから全3テーマの骨子（構成）をつくる指導を承っています。どちらも10/25の本試験に間に合うよう、24時間以内にお返しします。
+骨格を自分の工事に当てはめて書いたら、次は第三者の目で確かめる段階です。書いた答案がある方には、基本の2テーマの添削を承っています。2級は全3テーマ、1級は全5テーマにするオプションがあり、まだ答案を書けていない方には、ヒアリングから骨子（構成）をつくる「骨子から相談」のオプションがあります。急ぐ場合は「24時間以内に返却」のオプションも選べます。
 
-service:coconala-2kyu-tensaku-3theme
-
-service:coconala-2kyu-sakusei-3theme
+service:coconala-tensaku-4theme
 
 経験していない工事や数値の創作、答案の代筆はお受けしていません。合格を保証するものではありません。
 

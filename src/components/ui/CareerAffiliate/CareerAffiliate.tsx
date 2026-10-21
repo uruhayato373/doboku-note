@@ -41,6 +41,9 @@ interface CareerAffiliateProps {
   readonly points?: readonly string[];
   /** CTA ボタンテキスト（デフォルト「無料で相談する」） */
   readonly cta?: string;
+  /** 小型カードの 1 行の要約・広告主の公表実績（CareerArticleEndCard と同じ。実験カードにだけ出る） */
+  readonly brief?: string;
+  readonly proof?: string;
   /** GA4 の表示位置。MDX 直書きは article-inline、記事末は呼び出し側で article-end。 */
   readonly placement?: string;
   /**
@@ -87,6 +90,8 @@ export default function CareerAffiliate({
   trackingPixelUrl,
   points,
   cta = "無料で相談する",
+  brief,
+  proof,
   placement = "article-inline",
   slug,
   need,
@@ -105,10 +110,16 @@ export default function CareerAffiliate({
   const resolvedHref = ruled?.href ?? href;
   const experiment = programAssetForHref(resolvedHref);
   if (experiment && resolvedHref) {
-    const card = { service: effService, category: effCategory, description: effDescription ?? "", href: resolvedHref, points: effPoints ?? [], cta: effCta };
+    const effBrief = ruled?.brief ?? brief;
+    const effProof = ruled?.proof ?? proof;
+    const card = {
+      service: effService, category: effCategory, description: effDescription ?? "", href: resolvedHref, points: effPoints ?? [], cta: effCta,
+      ...(effBrief ? { brief: effBrief } : {}),
+      ...(effProof ? { proof: effProof } : {}),
+    };
     return (
       <div className="not-prose my-6">
-        <CareerAffiliateExperiment card={card} banner={experiment.asset.banner} program={experiment.program} trackLabel={effService} placement={placement} />
+        <CareerAffiliateExperiment card={card} program={experiment.program} trackLabel={effService} placement={placement} />
         <TrackingPixel src={trackingPixelUrl} />
       </div>
     );

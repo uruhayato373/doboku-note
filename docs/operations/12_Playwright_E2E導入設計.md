@@ -254,7 +254,7 @@ lint-ui も axe（`e2e/a11y.spec.ts`）も、CSS・Tailwind 変更によるレ�
 
 ### 基準画像の更新
 
-EXP-019の広告は`e2e/visual.spec.ts`で画像付きのB案に固定する。ランダム配信による差を退行と誤判定しないためで、A/Cは案別の実画面確認で検証する。
+アフィリの意匠実験（EXP-038）の広告は`e2e/visual.spec.ts`で小型カードのB案に固定する。ランダム配信による差を退行と誤判定しないためで、A案は管理画面の広告の見本（`/affiliate/preview`）と案別の実画面確認で検証する。
 
 **基準画像は必ず CI（ubuntu-latest）で生成する。ローカル（Mac/Windows）で `--update-snapshots` を実行して commit しない**（フォントレンダリングが CI と異なり、コミットした瞬間から CI 側が常に赤くなる）。
 

@@ -85,6 +85,12 @@ export const FrontmatterSchema = z
     sub: z.string().optional(),
     type: z.string().optional(),
     hideFromHome: z.boolean().optional(),
+    // 法令ページ（category: laws・DN-0731）が解説する法令の e-Gov 法令 ID と、同じページで扱う政令・省令の ID
+    lawId: z.string().regex(/^[0-9A-Z]+$/).optional(),
+    lawFamily: z.array(z.string().regex(/^[0-9A-Z]+$/)).optional(),
+    // 法令ページの無い法令の解説を兼ねる記事（総監の用語「大気汚染防止法」など）が解説する法令の e-Gov 法令 ID。
+    // ほかの記事の根拠法令の法令名がこの記事へ向く（content-taxonomy.md §6-3）
+    explainsLaw: z.string().regex(/^[0-9A-Z]+$/).optional(),
     // 非公開にした記事の記録（published: false と組で使う）
     unpublishedAt: z.string().optional(),
     unpublishedReason: z.string().optional(),

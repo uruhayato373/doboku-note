@@ -6,20 +6,20 @@ noteMagazine: 経験記述-週次お題ラボ
 noteStatus: published
 notePublishedAt: "2026-08-17"
 noteId: "nb589a26111a1"
-title: "今週のお題｜工程管理 — 遅延要因への対応と工程の回復"
+title: "経験記述のお題｜工程管理 — 遅延要因への対応と工程の回復"
 noteUrl: "https://note.com/dobokunote/n/nb589a26111a1"
 memberTrial: bottom
 utmCampaign: civil-membership-odai-schedule
-coverTitle: ["今週のお題｜工程管理", "工程遅延の予防と回復"]
+coverTitle: ["経験記述のお題｜工程管理", "工程遅延の予防と回復"]
 cover:
   variant: crop-safe-v4
-  leadIn: "今週のお題｜経験記述"
+  leadIn: "経験記述のお題"
   headline: "工程管理"
   hi: "予想"
   hiSuffix: "問題"
   benefit: "工程遅延の回復が書ける"
 ---
-# 今週のお題｜工程管理 — 遅延要因への対応と工程の回復
+# 経験記述のお題｜工程管理 — 遅延要因への対応と工程の回復
 
 
 ![](img/figure-author-authority.png)
@@ -36,7 +36,7 @@ cover:
 - 採点者が見る 3 つの着眼点（遅延要因の具体性／回復策と工程管理手法の結びつき／効果の検証）
 - 今年この題が出ると読む根拠（外的要因による工程逼迫が現場の実感と一致している）
 
-## 今週のお題
+## 経験記述のお題
 
 あなたが経験した工事のうち、**工程の遅れが懸念された／実際に遅れた工事**（悪天候・出水、用地や関係機関協議の遅れ、地中障害・想定外の地盤、資材や労務の制約など）を1つ選び、次に答えてください。
 

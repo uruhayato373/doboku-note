@@ -1,0 +1,95 @@
+{
+  "schemaVersion": 1,
+  "publicationId": "civil-construction-2/anzen-touan-gutaika-kaitei/youtube.longform.diagram-led",
+  "revisionOf": "civil-construction-2/anzen-touan-gutaika-kaitei/youtube.longform",
+  "account": "youtube:main",
+  "format": "longform",
+  "title": "【2級土木】安全管理の経験記述｜現場条件から答案を具体化する",
+  "description": "安全対策を並べるだけの答案から、現場条件・課題・対策がつながる答案へ。狭いヤードを例に、書く順序を解説します。\n\n解説者は、技術士（総合技術監理部門）を持つ元・地方自治体の土木職（発注者）、架（かける）。1級・2級土木施工管理技士の合格経験をもとに、実際の工事経験を文章にする考え方を伝えます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 安全・品質・工程の完成答案と置換ガイド\nhttps://note.com/dobokunote/m/m1881a9578027?utm_source=youtube&utm_medium=video&utm_campaign=anzen-touan-gutaika-kaitei&utm_content=longform\n\n図は考え方の例です。実際の答案では、自分が経験した工事の事実に置き換えてください。\n\nこの動画は、doboku-noteの安全管理教材をもとに構成した学習用の解説です。音声・イラストの制作にAIを使用しています。\n音声：VOICEVOX:青山龍星\n\n#2級土木 #施工経験記述 #安全管理",
+  "tags": [
+    "2級土木施工管理技士",
+    "施工経験記述",
+    "安全管理"
+  ],
+  "media": {
+    "cover": {
+      "id": "civil-construction-2/anzen-touan-gutaika-kaitei/work/candidate-cover",
+      "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika-kaitei/work/candidate-cover.2c9b791b.png",
+      "sha256": "2c9b791bfc6c59fb3c3b321b036e739ecbc4e3ca321d20779df634acb6baaee4"
+    },
+    "cta": {
+      "id": "civil-construction-2/anzen-touan-gutaika-kaitei/work/candidate-cta",
+      "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika-kaitei/work/candidate-cta.6aa939f0.png",
+      "sha256": "6aa939f0af51447cc8d06d490504f00f434a136836afc60d689644ce9061244d"
+    },
+    "scene-001": {
+      "id": "civil-construction-2/anzen-touan-gutaika-kaitei/work/candidate-scene-001",
+      "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika-kaitei/work/candidate-scene-001.2c9b791b.png",
+      "sha256": "2c9b791bfc6c59fb3c3b321b036e739ecbc4e3ca321d20779df634acb6baaee4"
+    },
+    "scene-002": {
+      "id": "civil-construction-2/anzen-touan-gutaika-kaitei/work/candidate-scene-002",
+      "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika-kaitei/work/candidate-scene-002.e0bb1ee3.png",
+      "sha256": "e0bb1ee38cfd1194fc6da0dd82ec5c99a315133e9f998f02000852dde7d4e955"
+    },
+    "scene-003": {
+      "id": "civil-construction-2/anzen-touan-gutaika-kaitei/work/candidate-scene-003",
+      "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika-kaitei/work/candidate-scene-003.61ac6ea0.png",
+      "sha256": "61ac6ea09f703b834319ae98faf8560d9cfd4c19b844fc472c244acc862a1cf5"
+    },
+    "scene-004": {
+      "id": "civil-construction-2/anzen-touan-gutaika-kaitei/work/candidate-scene-004",
+      "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika-kaitei/work/candidate-scene-004.30a86589.png",
+      "sha256": "30a8658940b67acf3d6a6687d2b8045aa3163fb206b807c13497246f69f47be4"
+    },
+    "scene-005": {
+      "id": "civil-construction-2/anzen-touan-gutaika-kaitei/work/candidate-scene-005",
+      "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika-kaitei/work/candidate-scene-005.8d3c656c.png",
+      "sha256": "8d3c656c9aa743e23e290328dc30d52f611eec0028f569d275e8996ba53e5960"
+    },
+    "scene-006": {
+      "id": "civil-construction-2/anzen-touan-gutaika-kaitei/work/candidate-scene-006",
+      "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika-kaitei/work/candidate-scene-006.9782e3b7.png",
+      "sha256": "9782e3b720567fb05ecb616c842bc7d7da51e2377fadd281f66f429ffd2910b2"
+    },
+    "scene-007": {
+      "id": "civil-construction-2/anzen-touan-gutaika-kaitei/work/candidate-scene-007",
+      "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika-kaitei/work/candidate-scene-007.722d9deb.png",
+      "sha256": "722d9debc96140250c0b1b43b6f72b02b65434d23d40b658871f1a222a910b4e"
+    },
+    "scene-008": {
+      "id": "civil-construction-2/anzen-touan-gutaika-kaitei/work/candidate-scene-008",
+      "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika-kaitei/work/candidate-scene-008.96b9a8a8.png",
+      "sha256": "96b9a8a836fa31e9f344563033e9fd0283e4d213301a8b1342a3a43e1782a415"
+    },
+    "scene-009": {
+      "id": "civil-construction-2/anzen-touan-gutaika-kaitei/work/candidate-scene-009",
+      "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika-kaitei/work/candidate-scene-009.9d996763.png",
+      "sha256": "9d996763164310d305aa603182529b0e9d071facfd354a1fb35bdfd7b4e98ea7"
+    },
+    "scene-010": {
+      "id": "civil-construction-2/anzen-touan-gutaika-kaitei/work/candidate-scene-010",
+      "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika-kaitei/work/candidate-scene-010.257be41d.png",
+      "sha256": "257be41d707ea15ab2c42fcf452b7ce68d7d75d55d827e156ea3f4a10aae4e15"
+    },
+    "scene-011": {
+      "id": "civil-construction-2/anzen-touan-gutaika-kaitei/work/candidate-scene-011",
+      "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika-kaitei/work/candidate-scene-011.6aa939f0.png",
+      "sha256": "6aa939f0af51447cc8d06d490504f00f434a136836afc60d689644ce9061244d"
+    },
+    "subtitles": {
+      "id": "civil-construction-2/anzen-touan-gutaika-kaitei/work/candidate-subtitles",
+      "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika-kaitei/work/candidate-subtitles.4352c6ef.ass",
+      "sha256": "4352c6ef835cd8e512f56e282df096de46646cdc65381eb609e2d02167893065"
+    },
+    "video": {
+      "id": "civil-construction-2/anzen-touan-gutaika-kaitei/work/candidate-video",
+      "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika-kaitei/work/candidate-video.0e83115f.mp4",
+      "sha256": "0e83115f7b898a31044b5689965405f00f1fb8146d35ad35db813c68de9d510f"
+    }
+  },
+  "localFile": ".tmp/media/civil-construction-2/anzen-touan-gutaika-kaitei/work/candidate-video.0e83115f.mp4",
+  "sha256": "0e83115f7b898a31044b5689965405f00f1fb8146d35ad35db813c68de9d510f",
+  "thumbnailLocalFile": ".tmp/media/civil-construction-2/anzen-touan-gutaika-kaitei/work/candidate-cover.2c9b791b.png",
+  "thumbnailSha256": "2c9b791bfc6c59fb3c3b321b036e739ecbc4e3ca321d20779df634acb6baaee4"
+}

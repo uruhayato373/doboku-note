@@ -1,0 +1,105 @@
+{
+  "schemaVersion": 1,
+  "publicationId": "civil-construction-2/koji-gaiyo-seigou/youtube.longform.diagram-led",
+  "revisionOf": "civil-construction-2/koji-gaiyo-seigou/youtube.longform",
+  "account": "youtube:main",
+  "format": "longform",
+  "title": "【2級土木】工事概要の見直し｜工種・数量・担当と本文のズレを防ぐ",
+  "description": "工事概要と本文で、工種・数量・自分の立場が食い違っていませんか。書き終えた答案を、実際の工事の記録と照合する手順を解説します。\n\n解説・教材制作：架（かける）\n技術士（総合技術監理部門）／元・地方自治体の土木職（発注者）／1級・2級土木施工管理技士 合格者\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 2級土木 施工経験記述 完成答案集（安全・品質・工程）\nhttps://note.com/dobokunote/m/m1881a9578027?utm_source=youtube&utm_medium=video&utm_campaign=koji-gaiyo-seigou&utm_content=longform\n自分の工事の事実に置き換えて練習するための教材です。\n\n動画内の施工例は、考え方を示す仮の例で、解説者の工事実績ではありません。工事の条件・数字・実施内容は、自分の施工計画や日報などの記録で確認してください。実際の答案は当該設問の指示に沿って記述してください。対象工事・受検資格は受検年度の公式手引で確認してください。\n\nこの動画は、doboku-noteの教材をもとに構成した学習用の解説です。音声・イラストの制作にAIを使用しています。\n音声：VOICEVOX:青山龍星",
+  "tags": [
+    "2級土木施工管理技士",
+    "施工経験記述",
+    "工事概要"
+  ],
+  "media": {
+    "cover": {
+      "id": "civil-construction-2/koji-gaiyo-seigou/work/candidate-cover",
+      "path": ".tmp/media/civil-construction-2/koji-gaiyo-seigou/work/candidate-cover.e7240e71.png",
+      "sha256": "e7240e71848f4b09b55c5624336fc8ea6e5f26c870ac2fa61500dcd31e4adb4d"
+    },
+    "cta": {
+      "id": "civil-construction-2/koji-gaiyo-seigou/work/candidate-cta",
+      "path": ".tmp/media/civil-construction-2/koji-gaiyo-seigou/work/candidate-cta.09d68378.png",
+      "sha256": "09d6837864caca874e38871bdd774378cb5d612ea387406b00b689e3db1ab8bb"
+    },
+    "scene-001": {
+      "id": "civil-construction-2/koji-gaiyo-seigou/work/candidate-scene-001",
+      "path": ".tmp/media/civil-construction-2/koji-gaiyo-seigou/work/candidate-scene-001.e7240e71.png",
+      "sha256": "e7240e71848f4b09b55c5624336fc8ea6e5f26c870ac2fa61500dcd31e4adb4d"
+    },
+    "scene-002": {
+      "id": "civil-construction-2/koji-gaiyo-seigou/work/candidate-scene-002",
+      "path": ".tmp/media/civil-construction-2/koji-gaiyo-seigou/work/candidate-scene-002.b0a33082.png",
+      "sha256": "b0a33082a258b149116e929bf285093942a2e92b762f9877877d70eee2933a19"
+    },
+    "scene-003": {
+      "id": "civil-construction-2/koji-gaiyo-seigou/work/candidate-scene-003",
+      "path": ".tmp/media/civil-construction-2/koji-gaiyo-seigou/work/candidate-scene-003.61ac6ea0.png",
+      "sha256": "61ac6ea09f703b834319ae98faf8560d9cfd4c19b844fc472c244acc862a1cf5"
+    },
+    "scene-004": {
+      "id": "civil-construction-2/koji-gaiyo-seigou/work/candidate-scene-004",
+      "path": ".tmp/media/civil-construction-2/koji-gaiyo-seigou/work/candidate-scene-004.57812532.png",
+      "sha256": "57812532ab931d626a47fcc35e5b8720ad16e911bfba4ac1788ee4831ec42f8e"
+    },
+    "scene-005": {
+      "id": "civil-construction-2/koji-gaiyo-seigou/work/candidate-scene-005",
+      "path": ".tmp/media/civil-construction-2/koji-gaiyo-seigou/work/candidate-scene-005.41f191bc.png",
+      "sha256": "41f191bc8afa23477e776451b99f4a26276f4b59eeac22c0b5901a872a2067ce"
+    },
+    "scene-006": {
+      "id": "civil-construction-2/koji-gaiyo-seigou/work/candidate-scene-006",
+      "path": ".tmp/media/civil-construction-2/koji-gaiyo-seigou/work/candidate-scene-006.ad346b1d.png",
+      "sha256": "ad346b1dfd66046a5680ef7d6924eb1f0d0dcee287927a814ec5d4c77e1b1142"
+    },
+    "scene-007": {
+      "id": "civil-construction-2/koji-gaiyo-seigou/work/candidate-scene-007",
+      "path": ".tmp/media/civil-construction-2/koji-gaiyo-seigou/work/candidate-scene-007.f07f9cfb.png",
+      "sha256": "f07f9cfbe12384795ac06062327adff2f7893dbc5618d2e0fa3ebdf1badf3db7"
+    },
+    "scene-008": {
+      "id": "civil-construction-2/koji-gaiyo-seigou/work/candidate-scene-008",
+      "path": ".tmp/media/civil-construction-2/koji-gaiyo-seigou/work/candidate-scene-008.c545e57b.png",
+      "sha256": "c545e57b644b318f4f1659116f8e21423b1934a97d5d1b44f24302ee3afd193a"
+    },
+    "scene-009": {
+      "id": "civil-construction-2/koji-gaiyo-seigou/work/candidate-scene-009",
+      "path": ".tmp/media/civil-construction-2/koji-gaiyo-seigou/work/candidate-scene-009.060a859c.png",
+      "sha256": "060a859c820412e82ae33f7f08c17b3a111a7d09a09178473ad289a20bcf40e3"
+    },
+    "scene-010": {
+      "id": "civil-construction-2/koji-gaiyo-seigou/work/candidate-scene-010",
+      "path": ".tmp/media/civil-construction-2/koji-gaiyo-seigou/work/candidate-scene-010.fc1334cd.png",
+      "sha256": "fc1334cde89f5e061ea243a3ac5ecac13a19acce2b0d09706483a8b1151422cf"
+    },
+    "scene-011": {
+      "id": "civil-construction-2/koji-gaiyo-seigou/work/candidate-scene-011",
+      "path": ".tmp/media/civil-construction-2/koji-gaiyo-seigou/work/candidate-scene-011.be288d1a.png",
+      "sha256": "be288d1ab94fd2a6860941eb4c0cf84210047a676a936b5c364f1040a2aee5d7"
+    },
+    "scene-012": {
+      "id": "civil-construction-2/koji-gaiyo-seigou/work/candidate-scene-012",
+      "path": ".tmp/media/civil-construction-2/koji-gaiyo-seigou/work/candidate-scene-012.b0eaa9ae.png",
+      "sha256": "b0eaa9ae06179c3bee84bf0bff2c9aac497c8f0aab70277f21f4afc9f4b7fa19"
+    },
+    "scene-013": {
+      "id": "civil-construction-2/koji-gaiyo-seigou/work/candidate-scene-013",
+      "path": ".tmp/media/civil-construction-2/koji-gaiyo-seigou/work/candidate-scene-013.09d68378.png",
+      "sha256": "09d6837864caca874e38871bdd774378cb5d612ea387406b00b689e3db1ab8bb"
+    },
+    "subtitles": {
+      "id": "civil-construction-2/koji-gaiyo-seigou/work/candidate-subtitles",
+      "path": ".tmp/media/civil-construction-2/koji-gaiyo-seigou/work/candidate-subtitles.823c9234.ass",
+      "sha256": "823c9234d20f85ff0c8363dbb552a2da04fc648c5625d9ba046a431af6050473"
+    },
+    "video": {
+      "id": "civil-construction-2/koji-gaiyo-seigou/work/candidate-video",
+      "path": ".tmp/media/civil-construction-2/koji-gaiyo-seigou/work/candidate-video.620aa31a.mp4",
+      "sha256": "620aa31a836c64b2e0448db2dd7ae3c515e23a7701428943338dd6ebc43d5c79"
+    }
+  },
+  "localFile": ".tmp/media/civil-construction-2/koji-gaiyo-seigou/work/candidate-video.620aa31a.mp4",
+  "sha256": "620aa31a836c64b2e0448db2dd7ae3c515e23a7701428943338dd6ebc43d5c79",
+  "thumbnailLocalFile": ".tmp/media/civil-construction-2/koji-gaiyo-seigou/work/candidate-cover.e7240e71.png",
+  "thumbnailSha256": "e7240e71848f4b09b55c5624336fc8ea6e5f26c870ac2fa61500dcd31e4adb4d"
+}

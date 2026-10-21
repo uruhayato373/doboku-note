@@ -1,13 +1,2860 @@
 {
-  "questionToTextbooks": {},
-  "textbookToQuestions": {},
+  "generated_at": "2026-10-21T22:13:22.454Z",
+  "questionToTextbooks": {
+    "primary-h18": {
+      "問題-6": [
+        {
+          "slug": "guide-concrete-key-points",
+          "title": "コンクリートの重要ポイント",
+          "score": 0.6
+        }
+      ],
+      "問題-47": [
+        {
+          "slug": "guide-construction-plan-key-points",
+          "title": "施工計画の重要ポイント",
+          "score": 0.9
+        }
+      ],
+      "問題-51": [
+        {
+          "slug": "guide-schedule-management",
+          "title": "工程管理の重要ポイント",
+          "score": 0.6
+        }
+      ],
+      "問題-58": [
+        {
+          "slug": "guide-concrete-key-points",
+          "title": "コンクリートの重要ポイント",
+          "score": 0.6
+        }
+      ],
+      "問題-61": [
+        {
+          "slug": "guide-river-sabo-key-points",
+          "title": "河川・砂防の重要ポイント",
+          "score": 1.75
+        },
+        {
+          "slug": "guide-concrete-key-points",
+          "title": "コンクリートの重要ポイント",
+          "score": 1.6
+        },
+        {
+          "slug": "guide-foundation-key-points",
+          "title": "基礎工の重要ポイント",
+          "score": 1.6
+        },
+        {
+          "slug": "guide-quality-management",
+          "title": "品質管理の重要ポイント",
+          "score": 1.6
+        },
+        {
+          "slug": "guide-safety-management",
+          "title": "安全管理の重要ポイント",
+          "score": 1.6
+        }
+      ]
+    },
+    "primary-h20": {
+      "問題-6": [
+        {
+          "slug": "guide-concrete-key-points",
+          "title": "コンクリートの重要ポイント",
+          "score": 0.6
+        }
+      ],
+      "問題-8": [
+        {
+          "slug": "guide-concrete-key-points",
+          "title": "コンクリートの重要ポイント",
+          "score": 0.6
+        }
+      ],
+      "問題-29": [
+        {
+          "slug": "guide-dam-tunnel-key-points",
+          "title": "ダム・トンネルの重要ポイント",
+          "score": 0.6
+        }
+      ],
+      "問題-36": [
+        {
+          "slug": "guide-water-sewer-key-points",
+          "title": "上水道・下水道の重要ポイント",
+          "score": 0.6
+        }
+      ],
+      "問題-50": [
+        {
+          "slug": "guide-schedule-management",
+          "title": "工程管理の重要ポイント",
+          "score": 0.9
+        }
+      ],
+      "問題-51": [
+        {
+          "slug": "guide-schedule-management",
+          "title": "工程管理の重要ポイント",
+          "score": 0.6
+        }
+      ],
+      "問題-57": [
+        {
+          "slug": "guide-quality-management",
+          "title": "品質管理の重要ポイント",
+          "score": 0.6
+        }
+      ],
+      "問題-61": [
+        {
+          "slug": "guide-river-sabo-key-points",
+          "title": "河川・砂防の重要ポイント",
+          "score": 1.75
+        },
+        {
+          "slug": "guide-concrete-key-points",
+          "title": "コンクリートの重要ポイント",
+          "score": 1.6
+        },
+        {
+          "slug": "guide-foundation-key-points",
+          "title": "基礎工の重要ポイント",
+          "score": 1.6
+        },
+        {
+          "slug": "guide-quality-management",
+          "title": "品質管理の重要ポイント",
+          "score": 1.6
+        },
+        {
+          "slug": "guide-safety-management",
+          "title": "安全管理の重要ポイント",
+          "score": 1.6
+        }
+      ]
+    },
+    "primary-h26": {
+      "問題-8": [
+        {
+          "slug": "guide-concrete-key-points",
+          "title": "コンクリートの重要ポイント",
+          "score": 0.6
+        }
+      ],
+      "問題-11": [
+        {
+          "slug": "guide-foundation-key-points",
+          "title": "基礎工の重要ポイント",
+          "score": 0.6
+        }
+      ],
+      "問題-18": [
+        {
+          "slug": "guide-river-sabo-key-points",
+          "title": "河川・砂防の重要ポイント",
+          "score": 0.6
+        }
+      ],
+      "問題-23": [
+        {
+          "slug": "guide-dam-tunnel-key-points",
+          "title": "ダム・トンネルの重要ポイント",
+          "score": 0.75
+        }
+      ],
+      "問題-24": [
+        {
+          "slug": "guide-dam-tunnel-key-points",
+          "title": "ダム・トンネルの重要ポイント",
+          "score": 0.6
+        }
+      ],
+      "問題-51": [
+        {
+          "slug": "guide-schedule-management",
+          "title": "工程管理の重要ポイント",
+          "score": 0.6
+        }
+      ],
+      "問題-56": [
+        {
+          "slug": "guide-quality-management",
+          "title": "品質管理の重要ポイント",
+          "score": 0.6
+        }
+      ],
+      "問題-57": [
+        {
+          "slug": "guide-quality-management",
+          "title": "品質管理の重要ポイント",
+          "score": 0.6
+        }
+      ],
+      "問題-61": [
+        {
+          "slug": "guide-river-sabo-key-points",
+          "title": "河川・砂防の重要ポイント",
+          "score": 1.75
+        },
+        {
+          "slug": "guide-concrete-key-points",
+          "title": "コンクリートの重要ポイント",
+          "score": 1.6
+        },
+        {
+          "slug": "guide-foundation-key-points",
+          "title": "基礎工の重要ポイント",
+          "score": 1.6
+        },
+        {
+          "slug": "guide-quality-management",
+          "title": "品質管理の重要ポイント",
+          "score": 1.6
+        },
+        {
+          "slug": "guide-safety-management",
+          "title": "安全管理の重要ポイント",
+          "score": 1.6
+        }
+      ]
+    },
+    "primary-h27": {
+      "問題-6": [
+        {
+          "slug": "guide-concrete-key-points",
+          "title": "コンクリートの重要ポイント",
+          "score": 0.6
+        }
+      ],
+      "問題-24": [
+        {
+          "slug": "guide-dam-tunnel-key-points",
+          "title": "ダム・トンネルの重要ポイント",
+          "score": 0.6
+        }
+      ],
+      "問題-47": [
+        {
+          "slug": "guide-construction-plan-key-points",
+          "title": "施工計画の重要ポイント",
+          "score": 0.9
+        }
+      ],
+      "問題-50": [
+        {
+          "slug": "guide-schedule-management",
+          "title": "工程管理の重要ポイント",
+          "score": 0.6
+        }
+      ],
+      "問題-51": [
+        {
+          "slug": "guide-schedule-management",
+          "title": "工程管理の重要ポイント",
+          "score": 0.6
+        }
+      ],
+      "問題-56": [
+        {
+          "slug": "guide-quality-management",
+          "title": "品質管理の重要ポイント",
+          "score": 0.6
+        }
+      ],
+      "問題-59": [
+        {
+          "slug": "guide-concrete-key-points",
+          "title": "コンクリートの重要ポイント",
+          "score": 0.6
+        },
+        {
+          "slug": "guide-quality-management",
+          "title": "品質管理の重要ポイント",
+          "score": 0.6
+        }
+      ],
+      "問題-61": [
+        {
+          "slug": "guide-river-sabo-key-points",
+          "title": "河川・砂防の重要ポイント",
+          "score": 1.75
+        },
+        {
+          "slug": "guide-concrete-key-points",
+          "title": "コンクリートの重要ポイント",
+          "score": 1.6
+        },
+        {
+          "slug": "guide-foundation-key-points",
+          "title": "基礎工の重要ポイント",
+          "score": 1.6
+        },
+        {
+          "slug": "guide-quality-management",
+          "title": "品質管理の重要ポイント",
+          "score": 1.6
+        },
+        {
+          "slug": "guide-safety-management",
+          "title": "安全管理の重要ポイント",
+          "score": 1.6
+        }
+      ]
+    },
+    "primary-r03-kouki": {
+      "問題-6": [
+        {
+          "slug": "guide-concrete-key-points",
+          "title": "コンクリートの重要ポイント",
+          "score": 0.6
+        }
+      ],
+      "問題-7": [
+        {
+          "slug": "guide-concrete-key-points",
+          "title": "コンクリートの重要ポイント",
+          "score": 0.6
+        }
+      ],
+      "問題-21": [
+        {
+          "slug": "guide-career-agent-comparison",
+          "title": "2級・若手の施工管理に合う転職エージェントの選び方 — 経験の有無で使い分ける",
+          "score": 0.6
+        }
+      ],
+      "問題-23": [
+        {
+          "slug": "guide-dam-tunnel-key-points",
+          "title": "ダム・トンネルの重要ポイント",
+          "score": 0.75
+        }
+      ],
+      "問題-24": [
+        {
+          "slug": "guide-dam-tunnel-key-points",
+          "title": "ダム・トンネルの重要ポイント",
+          "score": 0.6
+        }
+      ],
+      "問題-50": [
+        {
+          "slug": "guide-concrete-key-points",
+          "title": "コンクリートの重要ポイント",
+          "score": 0.6
+        },
+        {
+          "slug": "guide-quality-management",
+          "title": "品質管理の重要ポイント",
+          "score": 0.6
+        }
+      ],
+      "問題-51": [
+        {
+          "slug": "guide-concrete-key-points",
+          "title": "コンクリートの重要ポイント",
+          "score": 0.6
+        }
+      ],
+      "問題-54": [
+        {
+          "slug": "guide-construction-plan-key-points",
+          "title": "施工計画の重要ポイント",
+          "score": 1.2
+        }
+      ],
+      "問題-57": [
+        {
+          "slug": "guide-schedule-management",
+          "title": "工程管理の重要ポイント",
+          "score": 0.6
+        }
+      ],
+      "問題-58": [
+        {
+          "slug": "guide-safety-management",
+          "title": "安全管理の重要ポイント",
+          "score": 0.9
+        }
+      ]
+    },
+    "primary-r03-zenki": {
+      "問題-7": [
+        {
+          "slug": "guide-concrete-key-points",
+          "title": "コンクリートの重要ポイント",
+          "score": 0.6
+        }
+      ],
+      "問題-21": [
+        {
+          "slug": "guide-career-agent-comparison",
+          "title": "2級・若手の施工管理に合う転職エージェントの選び方 — 経験の有無で使い分ける",
+          "score": 0.6
+        }
+      ],
+      "問題-22": [
+        {
+          "slug": "guide-road-pavement-key-points",
+          "title": "道路・舗装の重要ポイント",
+          "score": 0.6
+        }
+      ],
+      "問題-24": [
+        {
+          "slug": "guide-dam-tunnel-key-points",
+          "title": "ダム・トンネルの重要ポイント",
+          "score": 0.6
+        }
+      ],
+      "問題-50": [
+        {
+          "slug": "guide-quality-management",
+          "title": "品質管理の重要ポイント",
+          "score": 0.6
+        }
+      ],
+      "問題-51": [
+        {
+          "slug": "guide-concrete-key-points",
+          "title": "コンクリートの重要ポイント",
+          "score": 0.6
+        },
+        {
+          "slug": "guide-quality-management",
+          "title": "品質管理の重要ポイント",
+          "score": 0.6
+        }
+      ],
+      "問題-54": [
+        {
+          "slug": "guide-construction-plan-key-points",
+          "title": "施工計画の重要ポイント",
+          "score": 0.6
+        }
+      ],
+      "問題-57": [
+        {
+          "slug": "guide-schedule-management",
+          "title": "工程管理の重要ポイント",
+          "score": 0.6
+        }
+      ],
+      "問題-61": [
+        {
+          "slug": "guide-concrete-key-points",
+          "title": "コンクリートの重要ポイント",
+          "score": 1.6
+        },
+        {
+          "slug": "guide-quality-management",
+          "title": "品質管理の重要ポイント",
+          "score": 1.6
+        },
+        {
+          "slug": "guide-schedule-management",
+          "title": "工程管理の重要ポイント",
+          "score": 1.6
+        },
+        {
+          "slug": "guide-earthwork-key-points",
+          "title": "土工の重要ポイント",
+          "score": 1.45
+        },
+        {
+          "slug": "guide-law-key-points",
+          "title": "法規の重要ポイント",
+          "score": 1.15
+        }
+      ]
+    },
+    "primary-r04-kouki": {
+      "問題-21": [
+        {
+          "slug": "guide-career-agent-comparison",
+          "title": "2級・若手の施工管理に合う転職エージェントの選び方 — 経験の有無で使い分ける",
+          "score": 0.6
+        }
+      ],
+      "問題-24": [
+        {
+          "slug": "guide-dam-tunnel-key-points",
+          "title": "ダム・トンネルの重要ポイント",
+          "score": 0.6
+        }
+      ],
+      "問題-29": [
+        {
+          "slug": "guide-dam-tunnel-key-points",
+          "title": "ダム・トンネルの重要ポイント",
+          "score": 0.6
+        }
+      ],
+      "問題-34": [
+        {
+          "slug": "guide-road-pavement-key-points",
+          "title": "道路・舗装の重要ポイント",
+          "score": 0.6
+        }
+      ],
+      "問題-51": [
+        {
+          "slug": "guide-concrete-key-points",
+          "title": "コンクリートの重要ポイント",
+          "score": 0.6
+        }
+      ],
+      "問題-56": [
+        {
+          "slug": "guide-schedule-management",
+          "title": "工程管理の重要ポイント",
+          "score": 0.6
+        }
+      ],
+      "問題-57": [
+        {
+          "slug": "guide-schedule-management",
+          "title": "工程管理の重要ポイント",
+          "score": 0.6
+        }
+      ]
+    },
+    "primary-r04-zenki": {
+      "問題-6": [
+        {
+          "slug": "guide-concrete-key-points",
+          "title": "コンクリートの重要ポイント",
+          "score": 0.6
+        }
+      ],
+      "問題-21": [
+        {
+          "slug": "guide-career-agent-comparison",
+          "title": "2級・若手の施工管理に合う転職エージェントの選び方 — 経験の有無で使い分ける",
+          "score": 0.6
+        }
+      ],
+      "問題-23": [
+        {
+          "slug": "guide-dam-tunnel-key-points",
+          "title": "ダム・トンネルの重要ポイント",
+          "score": 0.75
+        }
+      ],
+      "問題-24": [
+        {
+          "slug": "guide-dam-tunnel-key-points",
+          "title": "ダム・トンネルの重要ポイント",
+          "score": 0.6
+        }
+      ],
+      "問題-48": [
+        {
+          "slug": "guide-safety-management",
+          "title": "安全管理の重要ポイント",
+          "score": 0.75
+        }
+      ],
+      "問題-51": [
+        {
+          "slug": "guide-concrete-key-points",
+          "title": "コンクリートの重要ポイント",
+          "score": 0.6
+        },
+        {
+          "slug": "guide-quality-management",
+          "title": "品質管理の重要ポイント",
+          "score": 0.6
+        }
+      ],
+      "問題-56": [
+        {
+          "slug": "guide-schedule-management",
+          "title": "工程管理の重要ポイント",
+          "score": 0.6
+        }
+      ],
+      "問題-57": [
+        {
+          "slug": "guide-schedule-management",
+          "title": "工程管理の重要ポイント",
+          "score": 0.6
+        }
+      ],
+      "問題-60": [
+        {
+          "slug": "guide-quality-management",
+          "title": "品質管理の重要ポイント",
+          "score": 0.6
+        }
+      ],
+      "問題-61": [
+        {
+          "slug": "guide-concrete-key-points",
+          "title": "コンクリートの重要ポイント",
+          "score": 1.6
+        },
+        {
+          "slug": "guide-quality-management",
+          "title": "品質管理の重要ポイント",
+          "score": 1.6
+        },
+        {
+          "slug": "guide-schedule-management",
+          "title": "工程管理の重要ポイント",
+          "score": 1.6
+        },
+        {
+          "slug": "guide-earthwork-key-points",
+          "title": "土工の重要ポイント",
+          "score": 1.45
+        },
+        {
+          "slug": "guide-law-key-points",
+          "title": "法規の重要ポイント",
+          "score": 1.15
+        }
+      ]
+    },
+    "primary-r05-kouki": {
+      "問題-6": [
+        {
+          "slug": "guide-concrete-key-points",
+          "title": "コンクリートの重要ポイント",
+          "score": 0.6
+        }
+      ],
+      "問題-8": [
+        {
+          "slug": "guide-concrete-key-points",
+          "title": "コンクリートの重要ポイント",
+          "score": 0.6
+        }
+      ],
+      "問題-21": [
+        {
+          "slug": "guide-career-agent-comparison",
+          "title": "2級・若手の施工管理に合う転職エージェントの選び方 — 経験の有無で使い分ける",
+          "score": 0.6
+        }
+      ],
+      "問題-24": [
+        {
+          "slug": "guide-dam-tunnel-key-points",
+          "title": "ダム・トンネルの重要ポイント",
+          "score": 0.6
+        }
+      ],
+      "問題-44": [
+        {
+          "slug": "guide-construction-plan-key-points",
+          "title": "施工計画の重要ポイント",
+          "score": 0.75
+        }
+      ],
+      "問題-47": [
+        {
+          "slug": "guide-construction-plan-key-points",
+          "title": "施工計画の重要ポイント",
+          "score": 0.75
+        }
+      ],
+      "問題-50": [
+        {
+          "slug": "guide-quality-management",
+          "title": "品質管理の重要ポイント",
+          "score": 0.6
+        }
+      ],
+      "問題-51": [
+        {
+          "slug": "guide-concrete-key-points",
+          "title": "コンクリートの重要ポイント",
+          "score": 0.6
+        }
+      ],
+      "問題-56": [
+        {
+          "slug": "guide-schedule-management",
+          "title": "工程管理の重要ポイント",
+          "score": 0.6
+        }
+      ],
+      "問題-57": [
+        {
+          "slug": "guide-schedule-management",
+          "title": "工程管理の重要ポイント",
+          "score": 0.6
+        }
+      ]
+    },
+    "primary-r05-zenki": {
+      "問題-6": [
+        {
+          "slug": "guide-concrete-key-points",
+          "title": "コンクリートの重要ポイント",
+          "score": 0.6
+        }
+      ],
+      "問題-16": [
+        {
+          "slug": "guide-river-sabo-key-points",
+          "title": "河川・砂防の重要ポイント",
+          "score": 0.75
+        }
+      ],
+      "問題-21": [
+        {
+          "slug": "guide-career-agent-comparison",
+          "title": "2級・若手の施工管理に合う転職エージェントの選び方 — 経験の有無で使い分ける",
+          "score": 0.6
+        }
+      ],
+      "問題-22": [
+        {
+          "slug": "guide-road-pavement-key-points",
+          "title": "道路・舗装の重要ポイント",
+          "score": 0.6
+        }
+      ],
+      "問題-24": [
+        {
+          "slug": "guide-dam-tunnel-key-points",
+          "title": "ダム・トンネルの重要ポイント",
+          "score": 0.6
+        }
+      ],
+      "問題-29": [
+        {
+          "slug": "guide-dam-tunnel-key-points",
+          "title": "ダム・トンネルの重要ポイント",
+          "score": 0.6
+        }
+      ],
+      "問題-47": [
+        {
+          "slug": "guide-construction-plan-key-points",
+          "title": "施工計画の重要ポイント",
+          "score": 0.9
+        }
+      ],
+      "問題-50": [
+        {
+          "slug": "guide-quality-management",
+          "title": "品質管理の重要ポイント",
+          "score": 0.6
+        }
+      ],
+      "問題-51": [
+        {
+          "slug": "guide-concrete-key-points",
+          "title": "コンクリートの重要ポイント",
+          "score": 0.6
+        },
+        {
+          "slug": "guide-quality-management",
+          "title": "品質管理の重要ポイント",
+          "score": 0.6
+        }
+      ],
+      "問題-56": [
+        {
+          "slug": "guide-schedule-management",
+          "title": "工程管理の重要ポイント",
+          "score": 0.9
+        }
+      ],
+      "問題-57": [
+        {
+          "slug": "guide-schedule-management",
+          "title": "工程管理の重要ポイント",
+          "score": 0.6
+        }
+      ],
+      "問題-61": [
+        {
+          "slug": "guide-concrete-key-points",
+          "title": "コンクリートの重要ポイント",
+          "score": 1.6
+        },
+        {
+          "slug": "guide-quality-management",
+          "title": "品質管理の重要ポイント",
+          "score": 1.6
+        },
+        {
+          "slug": "guide-schedule-management",
+          "title": "工程管理の重要ポイント",
+          "score": 1.6
+        },
+        {
+          "slug": "guide-earthwork-key-points",
+          "title": "土工の重要ポイント",
+          "score": 1.45
+        },
+        {
+          "slug": "guide-law-key-points",
+          "title": "法規の重要ポイント",
+          "score": 1.15
+        }
+      ]
+    },
+    "primary-r06-kouki": {
+      "問題-11": [
+        {
+          "slug": "guide-concrete-key-points",
+          "title": "コンクリートの重要ポイント",
+          "score": 0.6
+        }
+      ],
+      "問題-23": [
+        {
+          "slug": "guide-career-agent-comparison",
+          "title": "2級・若手の施工管理に合う転職エージェントの選び方 — 経験の有無で使い分ける",
+          "score": 0.6
+        }
+      ],
+      "問題-28": [
+        {
+          "slug": "guide-dam-tunnel-key-points",
+          "title": "ダム・トンネルの重要ポイント",
+          "score": 0.75
+        }
+      ],
+      "問題-29": [
+        {
+          "slug": "guide-dam-tunnel-key-points",
+          "title": "ダム・トンネルの重要ポイント",
+          "score": 0.6
+        }
+      ],
+      "問題-52": [
+        {
+          "slug": "guide-construction-plan-key-points",
+          "title": "施工計画の重要ポイント",
+          "score": 0.75
+        }
+      ],
+      "問題-56": [
+        {
+          "slug": "guide-concrete-key-points",
+          "title": "コンクリートの重要ポイント",
+          "score": 0.6
+        }
+      ],
+      "問題-61": [
+        {
+          "slug": "guide-schedule-management",
+          "title": "工程管理の重要ポイント",
+          "score": 0.6
+        }
+      ],
+      "問題-62": [
+        {
+          "slug": "guide-schedule-management",
+          "title": "工程管理の重要ポイント",
+          "score": 0.6
+        }
+      ]
+    },
+    "primary-r06-zenki": {
+      "問題-23": [
+        {
+          "slug": "guide-career-agent-comparison",
+          "title": "2級・若手の施工管理に合う転職エージェントの選び方 — 経験の有無で使い分ける",
+          "score": 0.6
+        }
+      ],
+      "問題-27": [
+        {
+          "slug": "guide-road-pavement-key-points",
+          "title": "道路・舗装の重要ポイント",
+          "score": 0.6
+        }
+      ],
+      "問題-29": [
+        {
+          "slug": "guide-dam-tunnel-key-points",
+          "title": "ダム・トンネルの重要ポイント",
+          "score": 0.6
+        }
+      ],
+      "問題-51": [
+        {
+          "slug": "guide-dam-tunnel-key-points",
+          "title": "ダム・トンネルの重要ポイント",
+          "score": 0.6
+        }
+      ],
+      "問題-52": [
+        {
+          "slug": "guide-construction-plan-key-points",
+          "title": "施工計画の重要ポイント",
+          "score": 0.75
+        }
+      ],
+      "問題-56": [
+        {
+          "slug": "guide-concrete-key-points",
+          "title": "コンクリートの重要ポイント",
+          "score": 0.6
+        },
+        {
+          "slug": "guide-quality-management",
+          "title": "品質管理の重要ポイント",
+          "score": 0.6
+        }
+      ],
+      "問題-61": [
+        {
+          "slug": "guide-schedule-management",
+          "title": "工程管理の重要ポイント",
+          "score": 0.6
+        }
+      ],
+      "問題-62": [
+        {
+          "slug": "guide-schedule-management",
+          "title": "工程管理の重要ポイント",
+          "score": 0.6
+        }
+      ],
+      "問題-63": [
+        {
+          "slug": "guide-safety-management",
+          "title": "安全管理の重要ポイント",
+          "score": 0.9
+        }
+      ],
+      "問題-66": [
+        {
+          "slug": "guide-concrete-key-points",
+          "title": "コンクリートの重要ポイント",
+          "score": 1.6
+        },
+        {
+          "slug": "guide-quality-management",
+          "title": "品質管理の重要ポイント",
+          "score": 1.6
+        },
+        {
+          "slug": "guide-schedule-management",
+          "title": "工程管理の重要ポイント",
+          "score": 1.6
+        },
+        {
+          "slug": "guide-earthwork-key-points",
+          "title": "土工の重要ポイント",
+          "score": 1.45
+        },
+        {
+          "slug": "guide-law-key-points",
+          "title": "法規の重要ポイント",
+          "score": 1.15
+        }
+      ]
+    },
+    "primary-r07-kouki": {
+      "問題-11": [
+        {
+          "slug": "guide-concrete-key-points",
+          "title": "コンクリートの重要ポイント",
+          "score": 0.6
+        }
+      ],
+      "問題-23": [
+        {
+          "slug": "guide-career-agent-comparison",
+          "title": "2級・若手の施工管理に合う転職エージェントの選び方 — 経験の有無で使い分ける",
+          "score": 0.6
+        }
+      ],
+      "問題-26": [
+        {
+          "slug": "guide-road-pavement-key-points",
+          "title": "道路・舗装の重要ポイント",
+          "score": 0.75
+        }
+      ],
+      "問題-27": [
+        {
+          "slug": "guide-road-pavement-key-points",
+          "title": "道路・舗装の重要ポイント",
+          "score": 0.6
+        }
+      ],
+      "問題-29": [
+        {
+          "slug": "guide-dam-tunnel-key-points",
+          "title": "ダム・トンネルの重要ポイント",
+          "score": 0.6
+        }
+      ],
+      "問題-49": [
+        {
+          "slug": "guide-construction-plan-key-points",
+          "title": "施工計画の重要ポイント",
+          "score": 0.6
+        }
+      ],
+      "問題-52": [
+        {
+          "slug": "guide-construction-plan-key-points",
+          "title": "施工計画の重要ポイント",
+          "score": 0.75
+        }
+      ],
+      "問題-55": [
+        {
+          "slug": "guide-quality-management",
+          "title": "品質管理の重要ポイント",
+          "score": 0.6
+        }
+      ],
+      "問題-56": [
+        {
+          "slug": "guide-concrete-key-points",
+          "title": "コンクリートの重要ポイント",
+          "score": 0.6
+        }
+      ],
+      "問題-60": [
+        {
+          "slug": "guide-construction-plan-key-points",
+          "title": "施工計画の重要ポイント",
+          "score": 1.2
+        }
+      ],
+      "問題-61": [
+        {
+          "slug": "guide-schedule-management",
+          "title": "工程管理の重要ポイント",
+          "score": 0.6
+        }
+      ],
+      "問題-62": [
+        {
+          "slug": "guide-schedule-management",
+          "title": "工程管理の重要ポイント",
+          "score": 0.6
+        }
+      ],
+      "問題-66": [
+        {
+          "slug": "guide-concrete-key-points",
+          "title": "コンクリートの重要ポイント",
+          "score": 1.6
+        },
+        {
+          "slug": "guide-quality-management",
+          "title": "品質管理の重要ポイント",
+          "score": 1.6
+        },
+        {
+          "slug": "guide-schedule-management",
+          "title": "工程管理の重要ポイント",
+          "score": 1.6
+        },
+        {
+          "slug": "guide-earthwork-key-points",
+          "title": "土工の重要ポイント",
+          "score": 1.45
+        },
+        {
+          "slug": "guide-law-key-points",
+          "title": "法規の重要ポイント",
+          "score": 1.15
+        }
+      ]
+    },
+    "primary-r07-zenki": {
+      "問題-12": [
+        {
+          "slug": "guide-concrete-key-points",
+          "title": "コンクリートの重要ポイント",
+          "score": 0.6
+        }
+      ],
+      "問題-23": [
+        {
+          "slug": "guide-career-agent-comparison",
+          "title": "2級・若手の施工管理に合う転職エージェントの選び方 — 経験の有無で使い分ける",
+          "score": 0.6
+        }
+      ],
+      "問題-27": [
+        {
+          "slug": "guide-road-pavement-key-points",
+          "title": "道路・舗装の重要ポイント",
+          "score": 0.6
+        }
+      ],
+      "問題-29": [
+        {
+          "slug": "guide-dam-tunnel-key-points",
+          "title": "ダム・トンネルの重要ポイント",
+          "score": 0.6
+        }
+      ],
+      "問題-52": [
+        {
+          "slug": "guide-construction-plan-key-points",
+          "title": "施工計画の重要ポイント",
+          "score": 0.6
+        }
+      ],
+      "問題-56": [
+        {
+          "slug": "guide-concrete-key-points",
+          "title": "コンクリートの重要ポイント",
+          "score": 0.6
+        }
+      ],
+      "問題-60": [
+        {
+          "slug": "guide-construction-plan-key-points",
+          "title": "施工計画の重要ポイント",
+          "score": 0.75
+        }
+      ],
+      "問題-61": [
+        {
+          "slug": "guide-schedule-management",
+          "title": "工程管理の重要ポイント",
+          "score": 0.6
+        }
+      ],
+      "問題-62": [
+        {
+          "slug": "guide-schedule-management",
+          "title": "工程管理の重要ポイント",
+          "score": 0.6
+        }
+      ],
+      "問題-66": [
+        {
+          "slug": "guide-concrete-key-points",
+          "title": "コンクリートの重要ポイント",
+          "score": 1.6
+        },
+        {
+          "slug": "guide-quality-management",
+          "title": "品質管理の重要ポイント",
+          "score": 1.6
+        },
+        {
+          "slug": "guide-schedule-management",
+          "title": "工程管理の重要ポイント",
+          "score": 1.6
+        },
+        {
+          "slug": "guide-earthwork-key-points",
+          "title": "土工の重要ポイント",
+          "score": 1.45
+        },
+        {
+          "slug": "guide-law-key-points",
+          "title": "法規の重要ポイント",
+          "score": 1.15
+        }
+      ]
+    },
+    "primary-r08-zenki": {
+      "問題-12": [
+        {
+          "slug": "guide-concrete-key-points",
+          "title": "コンクリートの重要ポイント",
+          "score": 0.6
+        }
+      ],
+      "問題-26": [
+        {
+          "slug": "guide-road-pavement-key-points",
+          "title": "道路・舗装の重要ポイント",
+          "score": 0.6
+        }
+      ],
+      "問題-29": [
+        {
+          "slug": "guide-dam-tunnel-key-points",
+          "title": "ダム・トンネルの重要ポイント",
+          "score": 0.6
+        }
+      ],
+      "問題-52": [
+        {
+          "slug": "guide-construction-plan-key-points",
+          "title": "施工計画の重要ポイント",
+          "score": 1.05
+        }
+      ],
+      "問題-56": [
+        {
+          "slug": "guide-concrete-key-points",
+          "title": "コンクリートの重要ポイント",
+          "score": 0.6
+        }
+      ],
+      "問題-61": [
+        {
+          "slug": "guide-schedule-management",
+          "title": "工程管理の重要ポイント",
+          "score": 0.6
+        }
+      ],
+      "問題-62": [
+        {
+          "slug": "guide-schedule-management",
+          "title": "工程管理の重要ポイント",
+          "score": 0.6
+        }
+      ],
+      "問題-65": [
+        {
+          "slug": "guide-quality-management",
+          "title": "品質管理の重要ポイント",
+          "score": 0.6
+        }
+      ],
+      "問題-66": [
+        {
+          "slug": "guide-river-sabo-key-points",
+          "title": "河川・砂防の重要ポイント",
+          "score": 1.75
+        },
+        {
+          "slug": "guide-concrete-key-points",
+          "title": "コンクリートの重要ポイント",
+          "score": 1.6
+        },
+        {
+          "slug": "guide-foundation-key-points",
+          "title": "基礎工の重要ポイント",
+          "score": 1.6
+        },
+        {
+          "slug": "guide-quality-management",
+          "title": "品質管理の重要ポイント",
+          "score": 1.6
+        },
+        {
+          "slug": "guide-safety-management",
+          "title": "安全管理の重要ポイント",
+          "score": 1.6
+        }
+      ]
+    },
+    "secondary-r03": {
+      "問題-1": [
+        {
+          "slug": "guide-quality-management",
+          "title": "品質管理の重要ポイント",
+          "score": 0.6
+        },
+        {
+          "slug": "guide-safety-management",
+          "title": "安全管理の重要ポイント",
+          "score": 0.6
+        }
+      ],
+      "問題-2": [
+        {
+          "slug": "guide-concrete-key-points",
+          "title": "コンクリートの重要ポイント",
+          "score": 0.6
+        }
+      ],
+      "問題-3": [
+        {
+          "slug": "guide-safety-management",
+          "title": "安全管理の重要ポイント",
+          "score": 0.6
+        }
+      ],
+      "問題-4": [
+        {
+          "slug": "guide-career-agent-comparison",
+          "title": "2級・若手の施工管理に合う転職エージェントの選び方 — 経験の有無で使い分ける",
+          "score": 0.6
+        }
+      ],
+      "問題-5": [
+        {
+          "slug": "guide-concrete-key-points",
+          "title": "コンクリートの重要ポイント",
+          "score": 0.6
+        }
+      ],
+      "問題-7": [
+        {
+          "slug": "guide-concrete-key-points",
+          "title": "コンクリートの重要ポイント",
+          "score": 0.6
+        },
+        {
+          "slug": "guide-quality-management",
+          "title": "品質管理の重要ポイント",
+          "score": 0.6
+        }
+      ],
+      "問題-9": [
+        {
+          "slug": "guide-schedule-management",
+          "title": "工程管理の重要ポイント",
+          "score": 1.05
+        },
+        {
+          "slug": "guide-r08-secondary-answers",
+          "title": "2級土木施工管理技士 2次試験 令和8年度 解答例・解答速報｜問題の公表と答案の見直し方",
+          "score": 0.6
+        },
+        {
+          "slug": "guide-study-method",
+          "title": "2級土木施工管理技士の独学勉強法 — 勉強時間と受験資格",
+          "score": 0.6
+        },
+        {
+          "slug": "guide-textbooks",
+          "title": "2級土木施工管理技士のおすすめ参考書・問題集 — 用途別の選び方",
+          "score": 0.6
+        }
+      ]
+    },
+    "secondary-r04": {
+      "問題-1": [
+        {
+          "slug": "guide-quality-management",
+          "title": "品質管理の重要ポイント",
+          "score": 0.6
+        },
+        {
+          "slug": "guide-schedule-management",
+          "title": "工程管理の重要ポイント",
+          "score": 0.6
+        }
+      ],
+      "問題-2": [
+        {
+          "slug": "guide-schedule-management",
+          "title": "工程管理の重要ポイント",
+          "score": 0.75
+        }
+      ],
+      "問題-3": [
+        {
+          "slug": "guide-construction-plan-key-points",
+          "title": "施工計画の重要ポイント",
+          "score": 1.05
+        },
+        {
+          "slug": "guide-water-sewer-key-points",
+          "title": "上水道・下水道の重要ポイント",
+          "score": 0.75
+        }
+      ],
+      "問題-4": [
+        {
+          "slug": "guide-career-agent-comparison",
+          "title": "2級・若手の施工管理に合う転職エージェントの選び方 — 経験の有無で使い分ける",
+          "score": 0.6
+        },
+        {
+          "slug": "guide-concrete-key-points",
+          "title": "コンクリートの重要ポイント",
+          "score": 0.6
+        }
+      ],
+      "問題-7": [
+        {
+          "slug": "guide-concrete-key-points",
+          "title": "コンクリートの重要ポイント",
+          "score": 0.75
+        }
+      ],
+      "問題-8": [
+        {
+          "slug": "guide-safety-management",
+          "title": "安全管理の重要ポイント",
+          "score": 0.6
+        }
+      ],
+      "問題-9": [
+        {
+          "slug": "guide-earthwork-key-points",
+          "title": "土工の重要ポイント",
+          "score": 0.75
+        },
+        {
+          "slug": "guide-law-key-points",
+          "title": "法規の重要ポイント",
+          "score": 0.75
+        },
+        {
+          "slug": "guide-r08-secondary-answers",
+          "title": "2級土木施工管理技士 2次試験 令和8年度 解答例・解答速報｜問題の公表と答案の見直し方",
+          "score": 0.6
+        },
+        {
+          "slug": "guide-study-method",
+          "title": "2級土木施工管理技士の独学勉強法 — 勉強時間と受験資格",
+          "score": 0.6
+        },
+        {
+          "slug": "guide-textbooks",
+          "title": "2級土木施工管理技士のおすすめ参考書・問題集 — 用途別の選び方",
+          "score": 0.6
+        }
+      ]
+    },
+    "secondary-r05": {
+      "問題-1": [
+        {
+          "slug": "guide-safety-management",
+          "title": "安全管理の重要ポイント",
+          "score": 0.6
+        },
+        {
+          "slug": "guide-schedule-management",
+          "title": "工程管理の重要ポイント",
+          "score": 0.6
+        }
+      ],
+      "問題-2": [
+        {
+          "slug": "guide-safety-management",
+          "title": "安全管理の重要ポイント",
+          "score": 0.9
+        }
+      ],
+      "問題-3": [
+        {
+          "slug": "guide-road-pavement-key-points",
+          "title": "道路・舗装の重要ポイント",
+          "score": 0.75
+        },
+        {
+          "slug": "guide-concrete-key-points",
+          "title": "コンクリートの重要ポイント",
+          "score": 0.6
+        }
+      ],
+      "問題-4": [
+        {
+          "slug": "guide-career-agent-comparison",
+          "title": "2級・若手の施工管理に合う転職エージェントの選び方 — 経験の有無で使い分ける",
+          "score": 0.6
+        }
+      ],
+      "問題-5": [
+        {
+          "slug": "guide-concrete-key-points",
+          "title": "コンクリートの重要ポイント",
+          "score": 0.75
+        }
+      ],
+      "問題-7": [
+        {
+          "slug": "guide-concrete-key-points",
+          "title": "コンクリートの重要ポイント",
+          "score": 0.6
+        },
+        {
+          "slug": "guide-structures-key-points",
+          "title": "構造物（鋼・コンクリート構造物）の重要ポイント",
+          "score": 0.6
+        }
+      ],
+      "問題-8": [
+        {
+          "slug": "guide-safety-management",
+          "title": "安全管理の重要ポイント",
+          "score": 0.6
+        }
+      ],
+      "問題-9": [
+        {
+          "slug": "guide-concrete-key-points",
+          "title": "コンクリートの重要ポイント",
+          "score": 0.9
+        },
+        {
+          "slug": "guide-schedule-management",
+          "title": "工程管理の重要ポイント",
+          "score": 0.75
+        },
+        {
+          "slug": "guide-r08-secondary-answers",
+          "title": "2級土木施工管理技士 2次試験 令和8年度 解答例・解答速報｜問題の公表と答案の見直し方",
+          "score": 0.6
+        },
+        {
+          "slug": "guide-river-sabo-key-points",
+          "title": "河川・砂防の重要ポイント",
+          "score": 0.6
+        },
+        {
+          "slug": "guide-road-pavement-key-points",
+          "title": "道路・舗装の重要ポイント",
+          "score": 0.6
+        }
+      ]
+    },
+    "secondary-r06": {
+      "問題-1": [
+        {
+          "slug": "guide-quality-management",
+          "title": "品質管理の重要ポイント",
+          "score": 0.6
+        },
+        {
+          "slug": "guide-schedule-management",
+          "title": "工程管理の重要ポイント",
+          "score": 0.6
+        }
+      ],
+      "問題-2": [
+        {
+          "slug": "guide-construction-plan-key-points",
+          "title": "施工計画の重要ポイント",
+          "score": 0.6
+        }
+      ],
+      "問題-4": [
+        {
+          "slug": "guide-career-agent-comparison",
+          "title": "2級・若手の施工管理に合う転職エージェントの選び方 — 経験の有無で使い分ける",
+          "score": 0.6
+        },
+        {
+          "slug": "guide-concrete-key-points",
+          "title": "コンクリートの重要ポイント",
+          "score": 0.6
+        }
+      ],
+      "問題-7": [
+        {
+          "slug": "guide-concrete-key-points",
+          "title": "コンクリートの重要ポイント",
+          "score": 0.6
+        },
+        {
+          "slug": "guide-quality-management",
+          "title": "品質管理の重要ポイント",
+          "score": 0.6
+        }
+      ],
+      "問題-8": [
+        {
+          "slug": "guide-safety-management",
+          "title": "安全管理の重要ポイント",
+          "score": 0.9
+        }
+      ],
+      "問題-9": [
+        {
+          "slug": "guide-schedule-management",
+          "title": "工程管理の重要ポイント",
+          "score": 1.65
+        },
+        {
+          "slug": "guide-r08-secondary-answers",
+          "title": "2級土木施工管理技士 2次試験 令和8年度 解答例・解答速報｜問題の公表と答案の見直し方",
+          "score": 1.05
+        },
+        {
+          "slug": "guide-concrete-key-points",
+          "title": "コンクリートの重要ポイント",
+          "score": 0.6
+        },
+        {
+          "slug": "guide-construction-plan-key-points",
+          "title": "施工計画の重要ポイント",
+          "score": 0.6
+        },
+        {
+          "slug": "guide-dam-tunnel-key-points",
+          "title": "ダム・トンネルの重要ポイント",
+          "score": 0.6
+        }
+      ]
+    },
+    "secondary-r07": {
+      "問題-1": [
+        {
+          "slug": "guide-safety-management",
+          "title": "安全管理の重要ポイント",
+          "score": 0.6
+        },
+        {
+          "slug": "guide-schedule-management",
+          "title": "工程管理の重要ポイント",
+          "score": 0.6
+        }
+      ],
+      "問題-2": [
+        {
+          "slug": "guide-concrete-key-points",
+          "title": "コンクリートの重要ポイント",
+          "score": 0.6
+        },
+        {
+          "slug": "guide-quality-management",
+          "title": "品質管理の重要ポイント",
+          "score": 0.6
+        }
+      ],
+      "問題-3": [
+        {
+          "slug": "guide-schedule-management",
+          "title": "工程管理の重要ポイント",
+          "score": 0.75
+        }
+      ],
+      "問題-4": [
+        {
+          "slug": "guide-career-agent-comparison",
+          "title": "2級・若手の施工管理に合う転職エージェントの選び方 — 経験の有無で使い分ける",
+          "score": 0.6
+        },
+        {
+          "slug": "guide-earthwork-key-points",
+          "title": "土工の重要ポイント",
+          "score": 0.6
+        }
+      ],
+      "問題-5": [
+        {
+          "slug": "guide-concrete-key-points",
+          "title": "コンクリートの重要ポイント",
+          "score": 0.75
+        }
+      ],
+      "問題-7": [
+        {
+          "slug": "guide-concrete-key-points",
+          "title": "コンクリートの重要ポイント",
+          "score": 0.75
+        },
+        {
+          "slug": "guide-career-agent-comparison",
+          "title": "2級・若手の施工管理に合う転職エージェントの選び方 — 経験の有無で使い分ける",
+          "score": 0.6
+        }
+      ],
+      "問題-9": [
+        {
+          "slug": "guide-concrete-key-points",
+          "title": "コンクリートの重要ポイント",
+          "score": 0.9
+        },
+        {
+          "slug": "guide-foundation-key-points",
+          "title": "基礎工の重要ポイント",
+          "score": 0.9
+        },
+        {
+          "slug": "guide-r08-secondary-answers",
+          "title": "2級土木施工管理技士 2次試験 令和8年度 解答例・解答速報｜問題の公表と答案の見直し方",
+          "score": 0.6
+        },
+        {
+          "slug": "guide-river-sabo-key-points",
+          "title": "河川・砂防の重要ポイント",
+          "score": 0.6
+        },
+        {
+          "slug": "guide-road-pavement-key-points",
+          "title": "道路・舗装の重要ポイント",
+          "score": 0.6
+        }
+      ]
+    },
+    "secondary-r08": {
+      "問題-9": [
+        {
+          "slug": "guide-r08-secondary-answers",
+          "title": "2級土木施工管理技士 2次試験 令和8年度 解答例・解答速報｜問題の公表と答案の見直し方",
+          "score": 0.6
+        },
+        {
+          "slug": "guide-study-method",
+          "title": "2級土木施工管理技士の独学勉強法 — 勉強時間と受験資格",
+          "score": 0.6
+        },
+        {
+          "slug": "guide-textbooks",
+          "title": "2級土木施工管理技士のおすすめ参考書・問題集 — 用途別の選び方",
+          "score": 0.6
+        }
+      ]
+    }
+  },
+  "textbookToQuestions": {
+    "guide-concrete-key-points": [
+      {
+        "examSlug": "primary-h18",
+        "examTitle": "平成18年度 学科試験",
+        "section": "問題-61",
+        "score": 1.6
+      },
+      {
+        "examSlug": "primary-h20",
+        "examTitle": "平成20年度 学科試験",
+        "section": "問題-61",
+        "score": 1.6
+      },
+      {
+        "examSlug": "primary-h26",
+        "examTitle": "平成26年度 学科試験",
+        "section": "問題-61",
+        "score": 1.6
+      },
+      {
+        "examSlug": "primary-h27",
+        "examTitle": "平成27年度 学科試験",
+        "section": "問題-61",
+        "score": 1.6
+      },
+      {
+        "examSlug": "primary-r03-zenki",
+        "examTitle": "令和3年度 第1次検定 前期",
+        "section": "問題-61",
+        "score": 1.6
+      },
+      {
+        "examSlug": "primary-r04-zenki",
+        "examTitle": "令和4年度 第1次検定 前期",
+        "section": "問題-61",
+        "score": 1.6
+      },
+      {
+        "examSlug": "primary-r05-zenki",
+        "examTitle": "令和5年度 第1次検定 前期",
+        "section": "問題-61",
+        "score": 1.6
+      },
+      {
+        "examSlug": "primary-r06-zenki",
+        "examTitle": "令和6年度 第1次検定 前期",
+        "section": "問題-66",
+        "score": 1.6
+      },
+      {
+        "examSlug": "primary-r07-kouki",
+        "examTitle": "令和7年度 第1次検定 後期",
+        "section": "問題-66",
+        "score": 1.6
+      },
+      {
+        "examSlug": "primary-r07-zenki",
+        "examTitle": "令和7年度 第1次検定 前期",
+        "section": "問題-66",
+        "score": 1.6
+      },
+      {
+        "examSlug": "primary-r08-zenki",
+        "examTitle": "令和8年度 第1次検定 前期",
+        "section": "問題-66",
+        "score": 1.6
+      },
+      {
+        "examSlug": "secondary-r05",
+        "examTitle": "令和5年度 第2次検定",
+        "section": "問題-9",
+        "score": 0.9
+      },
+      {
+        "examSlug": "secondary-r07",
+        "examTitle": "令和7年度 第2次検定",
+        "section": "問題-9",
+        "score": 0.9
+      },
+      {
+        "examSlug": "secondary-r04",
+        "examTitle": "令和4年度 第2次検定",
+        "section": "問題-7",
+        "score": 0.75
+      },
+      {
+        "examSlug": "secondary-r05",
+        "examTitle": "令和5年度 第2次検定",
+        "section": "問題-5",
+        "score": 0.75
+      },
+      {
+        "examSlug": "secondary-r07",
+        "examTitle": "令和7年度 第2次検定",
+        "section": "問題-5",
+        "score": 0.75
+      },
+      {
+        "examSlug": "secondary-r07",
+        "examTitle": "令和7年度 第2次検定",
+        "section": "問題-7",
+        "score": 0.75
+      },
+      {
+        "examSlug": "primary-h18",
+        "examTitle": "平成18年度 学科試験",
+        "section": "問題-6",
+        "score": 0.6
+      },
+      {
+        "examSlug": "primary-h18",
+        "examTitle": "平成18年度 学科試験",
+        "section": "問題-58",
+        "score": 0.6
+      },
+      {
+        "examSlug": "primary-h20",
+        "examTitle": "平成20年度 学科試験",
+        "section": "問題-6",
+        "score": 0.6
+      }
+    ],
+    "guide-construction-plan-key-points": [
+      {
+        "examSlug": "primary-r03-kouki",
+        "examTitle": "令和3年度 第1次検定 後期",
+        "section": "問題-54",
+        "score": 1.2
+      },
+      {
+        "examSlug": "primary-r07-kouki",
+        "examTitle": "令和7年度 第1次検定 後期",
+        "section": "問題-60",
+        "score": 1.2
+      },
+      {
+        "examSlug": "primary-r08-zenki",
+        "examTitle": "令和8年度 第1次検定 前期",
+        "section": "問題-52",
+        "score": 1.05
+      },
+      {
+        "examSlug": "secondary-r04",
+        "examTitle": "令和4年度 第2次検定",
+        "section": "問題-3",
+        "score": 1.05
+      },
+      {
+        "examSlug": "primary-h18",
+        "examTitle": "平成18年度 学科試験",
+        "section": "問題-47",
+        "score": 0.9
+      },
+      {
+        "examSlug": "primary-h27",
+        "examTitle": "平成27年度 学科試験",
+        "section": "問題-47",
+        "score": 0.9
+      },
+      {
+        "examSlug": "primary-r05-zenki",
+        "examTitle": "令和5年度 第1次検定 前期",
+        "section": "問題-47",
+        "score": 0.9
+      },
+      {
+        "examSlug": "primary-r05-kouki",
+        "examTitle": "令和5年度 第1次検定 後期",
+        "section": "問題-44",
+        "score": 0.75
+      },
+      {
+        "examSlug": "primary-r05-kouki",
+        "examTitle": "令和5年度 第1次検定 後期",
+        "section": "問題-47",
+        "score": 0.75
+      },
+      {
+        "examSlug": "primary-r06-kouki",
+        "examTitle": "令和6年度 第1次検定 後期",
+        "section": "問題-52",
+        "score": 0.75
+      },
+      {
+        "examSlug": "primary-r06-zenki",
+        "examTitle": "令和6年度 第1次検定 前期",
+        "section": "問題-52",
+        "score": 0.75
+      },
+      {
+        "examSlug": "primary-r07-kouki",
+        "examTitle": "令和7年度 第1次検定 後期",
+        "section": "問題-52",
+        "score": 0.75
+      },
+      {
+        "examSlug": "primary-r07-zenki",
+        "examTitle": "令和7年度 第1次検定 前期",
+        "section": "問題-60",
+        "score": 0.75
+      },
+      {
+        "examSlug": "primary-r03-zenki",
+        "examTitle": "令和3年度 第1次検定 前期",
+        "section": "問題-54",
+        "score": 0.6
+      },
+      {
+        "examSlug": "primary-r07-kouki",
+        "examTitle": "令和7年度 第1次検定 後期",
+        "section": "問題-49",
+        "score": 0.6
+      },
+      {
+        "examSlug": "primary-r07-zenki",
+        "examTitle": "令和7年度 第1次検定 前期",
+        "section": "問題-52",
+        "score": 0.6
+      },
+      {
+        "examSlug": "secondary-r06",
+        "examTitle": "令和6年度 第2次検定",
+        "section": "問題-2",
+        "score": 0.6
+      },
+      {
+        "examSlug": "secondary-r06",
+        "examTitle": "令和6年度 第2次検定",
+        "section": "問題-9",
+        "score": 0.6
+      }
+    ],
+    "guide-schedule-management": [
+      {
+        "examSlug": "secondary-r06",
+        "examTitle": "令和6年度 第2次検定",
+        "section": "問題-9",
+        "score": 1.65
+      },
+      {
+        "examSlug": "primary-r03-zenki",
+        "examTitle": "令和3年度 第1次検定 前期",
+        "section": "問題-61",
+        "score": 1.6
+      },
+      {
+        "examSlug": "primary-r04-zenki",
+        "examTitle": "令和4年度 第1次検定 前期",
+        "section": "問題-61",
+        "score": 1.6
+      },
+      {
+        "examSlug": "primary-r05-zenki",
+        "examTitle": "令和5年度 第1次検定 前期",
+        "section": "問題-61",
+        "score": 1.6
+      },
+      {
+        "examSlug": "primary-r06-zenki",
+        "examTitle": "令和6年度 第1次検定 前期",
+        "section": "問題-66",
+        "score": 1.6
+      },
+      {
+        "examSlug": "primary-r07-kouki",
+        "examTitle": "令和7年度 第1次検定 後期",
+        "section": "問題-66",
+        "score": 1.6
+      },
+      {
+        "examSlug": "primary-r07-zenki",
+        "examTitle": "令和7年度 第1次検定 前期",
+        "section": "問題-66",
+        "score": 1.6
+      },
+      {
+        "examSlug": "secondary-r03",
+        "examTitle": "令和3年度 第2次検定",
+        "section": "問題-9",
+        "score": 1.05
+      },
+      {
+        "examSlug": "primary-h20",
+        "examTitle": "平成20年度 学科試験",
+        "section": "問題-50",
+        "score": 0.9
+      },
+      {
+        "examSlug": "primary-r05-zenki",
+        "examTitle": "令和5年度 第1次検定 前期",
+        "section": "問題-56",
+        "score": 0.9
+      },
+      {
+        "examSlug": "secondary-r04",
+        "examTitle": "令和4年度 第2次検定",
+        "section": "問題-2",
+        "score": 0.75
+      },
+      {
+        "examSlug": "secondary-r05",
+        "examTitle": "令和5年度 第2次検定",
+        "section": "問題-9",
+        "score": 0.75
+      },
+      {
+        "examSlug": "secondary-r07",
+        "examTitle": "令和7年度 第2次検定",
+        "section": "問題-3",
+        "score": 0.75
+      },
+      {
+        "examSlug": "primary-h18",
+        "examTitle": "平成18年度 学科試験",
+        "section": "問題-51",
+        "score": 0.6
+      },
+      {
+        "examSlug": "primary-h20",
+        "examTitle": "平成20年度 学科試験",
+        "section": "問題-51",
+        "score": 0.6
+      },
+      {
+        "examSlug": "primary-h26",
+        "examTitle": "平成26年度 学科試験",
+        "section": "問題-51",
+        "score": 0.6
+      },
+      {
+        "examSlug": "primary-h27",
+        "examTitle": "平成27年度 学科試験",
+        "section": "問題-50",
+        "score": 0.6
+      },
+      {
+        "examSlug": "primary-h27",
+        "examTitle": "平成27年度 学科試験",
+        "section": "問題-51",
+        "score": 0.6
+      },
+      {
+        "examSlug": "primary-r03-kouki",
+        "examTitle": "令和3年度 第1次検定 後期",
+        "section": "問題-57",
+        "score": 0.6
+      },
+      {
+        "examSlug": "primary-r03-zenki",
+        "examTitle": "令和3年度 第1次検定 前期",
+        "section": "問題-57",
+        "score": 0.6
+      }
+    ],
+    "guide-river-sabo-key-points": [
+      {
+        "examSlug": "primary-h18",
+        "examTitle": "平成18年度 学科試験",
+        "section": "問題-61",
+        "score": 1.75
+      },
+      {
+        "examSlug": "primary-h20",
+        "examTitle": "平成20年度 学科試験",
+        "section": "問題-61",
+        "score": 1.75
+      },
+      {
+        "examSlug": "primary-h26",
+        "examTitle": "平成26年度 学科試験",
+        "section": "問題-61",
+        "score": 1.75
+      },
+      {
+        "examSlug": "primary-h27",
+        "examTitle": "平成27年度 学科試験",
+        "section": "問題-61",
+        "score": 1.75
+      },
+      {
+        "examSlug": "primary-r08-zenki",
+        "examTitle": "令和8年度 第1次検定 前期",
+        "section": "問題-66",
+        "score": 1.75
+      },
+      {
+        "examSlug": "primary-r05-zenki",
+        "examTitle": "令和5年度 第1次検定 前期",
+        "section": "問題-16",
+        "score": 0.75
+      },
+      {
+        "examSlug": "primary-h26",
+        "examTitle": "平成26年度 学科試験",
+        "section": "問題-18",
+        "score": 0.6
+      },
+      {
+        "examSlug": "secondary-r05",
+        "examTitle": "令和5年度 第2次検定",
+        "section": "問題-9",
+        "score": 0.6
+      },
+      {
+        "examSlug": "secondary-r07",
+        "examTitle": "令和7年度 第2次検定",
+        "section": "問題-9",
+        "score": 0.6
+      }
+    ],
+    "guide-foundation-key-points": [
+      {
+        "examSlug": "primary-h18",
+        "examTitle": "平成18年度 学科試験",
+        "section": "問題-61",
+        "score": 1.6
+      },
+      {
+        "examSlug": "primary-h20",
+        "examTitle": "平成20年度 学科試験",
+        "section": "問題-61",
+        "score": 1.6
+      },
+      {
+        "examSlug": "primary-h26",
+        "examTitle": "平成26年度 学科試験",
+        "section": "問題-61",
+        "score": 1.6
+      },
+      {
+        "examSlug": "primary-h27",
+        "examTitle": "平成27年度 学科試験",
+        "section": "問題-61",
+        "score": 1.6
+      },
+      {
+        "examSlug": "primary-r08-zenki",
+        "examTitle": "令和8年度 第1次検定 前期",
+        "section": "問題-66",
+        "score": 1.6
+      },
+      {
+        "examSlug": "secondary-r07",
+        "examTitle": "令和7年度 第2次検定",
+        "section": "問題-9",
+        "score": 0.9
+      },
+      {
+        "examSlug": "primary-h26",
+        "examTitle": "平成26年度 学科試験",
+        "section": "問題-11",
+        "score": 0.6
+      }
+    ],
+    "guide-quality-management": [
+      {
+        "examSlug": "primary-h18",
+        "examTitle": "平成18年度 学科試験",
+        "section": "問題-61",
+        "score": 1.6
+      },
+      {
+        "examSlug": "primary-h20",
+        "examTitle": "平成20年度 学科試験",
+        "section": "問題-61",
+        "score": 1.6
+      },
+      {
+        "examSlug": "primary-h26",
+        "examTitle": "平成26年度 学科試験",
+        "section": "問題-61",
+        "score": 1.6
+      },
+      {
+        "examSlug": "primary-h27",
+        "examTitle": "平成27年度 学科試験",
+        "section": "問題-61",
+        "score": 1.6
+      },
+      {
+        "examSlug": "primary-r03-zenki",
+        "examTitle": "令和3年度 第1次検定 前期",
+        "section": "問題-61",
+        "score": 1.6
+      },
+      {
+        "examSlug": "primary-r04-zenki",
+        "examTitle": "令和4年度 第1次検定 前期",
+        "section": "問題-61",
+        "score": 1.6
+      },
+      {
+        "examSlug": "primary-r05-zenki",
+        "examTitle": "令和5年度 第1次検定 前期",
+        "section": "問題-61",
+        "score": 1.6
+      },
+      {
+        "examSlug": "primary-r06-zenki",
+        "examTitle": "令和6年度 第1次検定 前期",
+        "section": "問題-66",
+        "score": 1.6
+      },
+      {
+        "examSlug": "primary-r07-kouki",
+        "examTitle": "令和7年度 第1次検定 後期",
+        "section": "問題-66",
+        "score": 1.6
+      },
+      {
+        "examSlug": "primary-r07-zenki",
+        "examTitle": "令和7年度 第1次検定 前期",
+        "section": "問題-66",
+        "score": 1.6
+      },
+      {
+        "examSlug": "primary-r08-zenki",
+        "examTitle": "令和8年度 第1次検定 前期",
+        "section": "問題-66",
+        "score": 1.6
+      },
+      {
+        "examSlug": "primary-h20",
+        "examTitle": "平成20年度 学科試験",
+        "section": "問題-57",
+        "score": 0.6
+      },
+      {
+        "examSlug": "primary-h26",
+        "examTitle": "平成26年度 学科試験",
+        "section": "問題-56",
+        "score": 0.6
+      },
+      {
+        "examSlug": "primary-h26",
+        "examTitle": "平成26年度 学科試験",
+        "section": "問題-57",
+        "score": 0.6
+      },
+      {
+        "examSlug": "primary-h27",
+        "examTitle": "平成27年度 学科試験",
+        "section": "問題-56",
+        "score": 0.6
+      },
+      {
+        "examSlug": "primary-h27",
+        "examTitle": "平成27年度 学科試験",
+        "section": "問題-59",
+        "score": 0.6
+      },
+      {
+        "examSlug": "primary-r03-kouki",
+        "examTitle": "令和3年度 第1次検定 後期",
+        "section": "問題-50",
+        "score": 0.6
+      },
+      {
+        "examSlug": "primary-r03-zenki",
+        "examTitle": "令和3年度 第1次検定 前期",
+        "section": "問題-50",
+        "score": 0.6
+      },
+      {
+        "examSlug": "primary-r03-zenki",
+        "examTitle": "令和3年度 第1次検定 前期",
+        "section": "問題-51",
+        "score": 0.6
+      },
+      {
+        "examSlug": "primary-r04-zenki",
+        "examTitle": "令和4年度 第1次検定 前期",
+        "section": "問題-51",
+        "score": 0.6
+      }
+    ],
+    "guide-safety-management": [
+      {
+        "examSlug": "primary-h18",
+        "examTitle": "平成18年度 学科試験",
+        "section": "問題-61",
+        "score": 1.6
+      },
+      {
+        "examSlug": "primary-h20",
+        "examTitle": "平成20年度 学科試験",
+        "section": "問題-61",
+        "score": 1.6
+      },
+      {
+        "examSlug": "primary-h26",
+        "examTitle": "平成26年度 学科試験",
+        "section": "問題-61",
+        "score": 1.6
+      },
+      {
+        "examSlug": "primary-h27",
+        "examTitle": "平成27年度 学科試験",
+        "section": "問題-61",
+        "score": 1.6
+      },
+      {
+        "examSlug": "primary-r08-zenki",
+        "examTitle": "令和8年度 第1次検定 前期",
+        "section": "問題-66",
+        "score": 1.6
+      },
+      {
+        "examSlug": "primary-r03-kouki",
+        "examTitle": "令和3年度 第1次検定 後期",
+        "section": "問題-58",
+        "score": 0.9
+      },
+      {
+        "examSlug": "primary-r06-zenki",
+        "examTitle": "令和6年度 第1次検定 前期",
+        "section": "問題-63",
+        "score": 0.9
+      },
+      {
+        "examSlug": "secondary-r05",
+        "examTitle": "令和5年度 第2次検定",
+        "section": "問題-2",
+        "score": 0.9
+      },
+      {
+        "examSlug": "secondary-r06",
+        "examTitle": "令和6年度 第2次検定",
+        "section": "問題-8",
+        "score": 0.9
+      },
+      {
+        "examSlug": "primary-r04-zenki",
+        "examTitle": "令和4年度 第1次検定 前期",
+        "section": "問題-48",
+        "score": 0.75
+      },
+      {
+        "examSlug": "secondary-r03",
+        "examTitle": "令和3年度 第2次検定",
+        "section": "問題-1",
+        "score": 0.6
+      },
+      {
+        "examSlug": "secondary-r03",
+        "examTitle": "令和3年度 第2次検定",
+        "section": "問題-3",
+        "score": 0.6
+      },
+      {
+        "examSlug": "secondary-r04",
+        "examTitle": "令和4年度 第2次検定",
+        "section": "問題-8",
+        "score": 0.6
+      },
+      {
+        "examSlug": "secondary-r05",
+        "examTitle": "令和5年度 第2次検定",
+        "section": "問題-1",
+        "score": 0.6
+      },
+      {
+        "examSlug": "secondary-r05",
+        "examTitle": "令和5年度 第2次検定",
+        "section": "問題-8",
+        "score": 0.6
+      },
+      {
+        "examSlug": "secondary-r07",
+        "examTitle": "令和7年度 第2次検定",
+        "section": "問題-1",
+        "score": 0.6
+      }
+    ],
+    "guide-dam-tunnel-key-points": [
+      {
+        "examSlug": "primary-h26",
+        "examTitle": "平成26年度 学科試験",
+        "section": "問題-23",
+        "score": 0.75
+      },
+      {
+        "examSlug": "primary-r03-kouki",
+        "examTitle": "令和3年度 第1次検定 後期",
+        "section": "問題-23",
+        "score": 0.75
+      },
+      {
+        "examSlug": "primary-r04-zenki",
+        "examTitle": "令和4年度 第1次検定 前期",
+        "section": "問題-23",
+        "score": 0.75
+      },
+      {
+        "examSlug": "primary-r06-kouki",
+        "examTitle": "令和6年度 第1次検定 後期",
+        "section": "問題-28",
+        "score": 0.75
+      },
+      {
+        "examSlug": "primary-h20",
+        "examTitle": "平成20年度 学科試験",
+        "section": "問題-29",
+        "score": 0.6
+      },
+      {
+        "examSlug": "primary-h26",
+        "examTitle": "平成26年度 学科試験",
+        "section": "問題-24",
+        "score": 0.6
+      },
+      {
+        "examSlug": "primary-h27",
+        "examTitle": "平成27年度 学科試験",
+        "section": "問題-24",
+        "score": 0.6
+      },
+      {
+        "examSlug": "primary-r03-kouki",
+        "examTitle": "令和3年度 第1次検定 後期",
+        "section": "問題-24",
+        "score": 0.6
+      },
+      {
+        "examSlug": "primary-r03-zenki",
+        "examTitle": "令和3年度 第1次検定 前期",
+        "section": "問題-24",
+        "score": 0.6
+      },
+      {
+        "examSlug": "primary-r04-kouki",
+        "examTitle": "令和4年度 第1次検定 後期",
+        "section": "問題-24",
+        "score": 0.6
+      },
+      {
+        "examSlug": "primary-r04-kouki",
+        "examTitle": "令和4年度 第1次検定 後期",
+        "section": "問題-29",
+        "score": 0.6
+      },
+      {
+        "examSlug": "primary-r04-zenki",
+        "examTitle": "令和4年度 第1次検定 前期",
+        "section": "問題-24",
+        "score": 0.6
+      },
+      {
+        "examSlug": "primary-r05-kouki",
+        "examTitle": "令和5年度 第1次検定 後期",
+        "section": "問題-24",
+        "score": 0.6
+      },
+      {
+        "examSlug": "primary-r05-zenki",
+        "examTitle": "令和5年度 第1次検定 前期",
+        "section": "問題-24",
+        "score": 0.6
+      },
+      {
+        "examSlug": "primary-r05-zenki",
+        "examTitle": "令和5年度 第1次検定 前期",
+        "section": "問題-29",
+        "score": 0.6
+      },
+      {
+        "examSlug": "primary-r06-kouki",
+        "examTitle": "令和6年度 第1次検定 後期",
+        "section": "問題-29",
+        "score": 0.6
+      },
+      {
+        "examSlug": "primary-r06-zenki",
+        "examTitle": "令和6年度 第1次検定 前期",
+        "section": "問題-29",
+        "score": 0.6
+      },
+      {
+        "examSlug": "primary-r06-zenki",
+        "examTitle": "令和6年度 第1次検定 前期",
+        "section": "問題-51",
+        "score": 0.6
+      },
+      {
+        "examSlug": "primary-r07-kouki",
+        "examTitle": "令和7年度 第1次検定 後期",
+        "section": "問題-29",
+        "score": 0.6
+      },
+      {
+        "examSlug": "primary-r07-zenki",
+        "examTitle": "令和7年度 第1次検定 前期",
+        "section": "問題-29",
+        "score": 0.6
+      }
+    ],
+    "guide-water-sewer-key-points": [
+      {
+        "examSlug": "secondary-r04",
+        "examTitle": "令和4年度 第2次検定",
+        "section": "問題-3",
+        "score": 0.75
+      },
+      {
+        "examSlug": "primary-h20",
+        "examTitle": "平成20年度 学科試験",
+        "section": "問題-36",
+        "score": 0.6
+      }
+    ],
+    "guide-career-agent-comparison": [
+      {
+        "examSlug": "primary-r03-kouki",
+        "examTitle": "令和3年度 第1次検定 後期",
+        "section": "問題-21",
+        "score": 0.6
+      },
+      {
+        "examSlug": "primary-r03-zenki",
+        "examTitle": "令和3年度 第1次検定 前期",
+        "section": "問題-21",
+        "score": 0.6
+      },
+      {
+        "examSlug": "primary-r04-kouki",
+        "examTitle": "令和4年度 第1次検定 後期",
+        "section": "問題-21",
+        "score": 0.6
+      },
+      {
+        "examSlug": "primary-r04-zenki",
+        "examTitle": "令和4年度 第1次検定 前期",
+        "section": "問題-21",
+        "score": 0.6
+      },
+      {
+        "examSlug": "primary-r05-kouki",
+        "examTitle": "令和5年度 第1次検定 後期",
+        "section": "問題-21",
+        "score": 0.6
+      },
+      {
+        "examSlug": "primary-r05-zenki",
+        "examTitle": "令和5年度 第1次検定 前期",
+        "section": "問題-21",
+        "score": 0.6
+      },
+      {
+        "examSlug": "primary-r06-kouki",
+        "examTitle": "令和6年度 第1次検定 後期",
+        "section": "問題-23",
+        "score": 0.6
+      },
+      {
+        "examSlug": "primary-r06-zenki",
+        "examTitle": "令和6年度 第1次検定 前期",
+        "section": "問題-23",
+        "score": 0.6
+      },
+      {
+        "examSlug": "primary-r07-kouki",
+        "examTitle": "令和7年度 第1次検定 後期",
+        "section": "問題-23",
+        "score": 0.6
+      },
+      {
+        "examSlug": "primary-r07-zenki",
+        "examTitle": "令和7年度 第1次検定 前期",
+        "section": "問題-23",
+        "score": 0.6
+      },
+      {
+        "examSlug": "secondary-r03",
+        "examTitle": "令和3年度 第2次検定",
+        "section": "問題-4",
+        "score": 0.6
+      },
+      {
+        "examSlug": "secondary-r04",
+        "examTitle": "令和4年度 第2次検定",
+        "section": "問題-4",
+        "score": 0.6
+      },
+      {
+        "examSlug": "secondary-r05",
+        "examTitle": "令和5年度 第2次検定",
+        "section": "問題-4",
+        "score": 0.6
+      },
+      {
+        "examSlug": "secondary-r06",
+        "examTitle": "令和6年度 第2次検定",
+        "section": "問題-4",
+        "score": 0.6
+      },
+      {
+        "examSlug": "secondary-r07",
+        "examTitle": "令和7年度 第2次検定",
+        "section": "問題-4",
+        "score": 0.6
+      },
+      {
+        "examSlug": "secondary-r07",
+        "examTitle": "令和7年度 第2次検定",
+        "section": "問題-7",
+        "score": 0.6
+      }
+    ],
+    "guide-road-pavement-key-points": [
+      {
+        "examSlug": "primary-r07-kouki",
+        "examTitle": "令和7年度 第1次検定 後期",
+        "section": "問題-26",
+        "score": 0.75
+      },
+      {
+        "examSlug": "secondary-r05",
+        "examTitle": "令和5年度 第2次検定",
+        "section": "問題-3",
+        "score": 0.75
+      },
+      {
+        "examSlug": "primary-r03-zenki",
+        "examTitle": "令和3年度 第1次検定 前期",
+        "section": "問題-22",
+        "score": 0.6
+      },
+      {
+        "examSlug": "primary-r04-kouki",
+        "examTitle": "令和4年度 第1次検定 後期",
+        "section": "問題-34",
+        "score": 0.6
+      },
+      {
+        "examSlug": "primary-r05-zenki",
+        "examTitle": "令和5年度 第1次検定 前期",
+        "section": "問題-22",
+        "score": 0.6
+      },
+      {
+        "examSlug": "primary-r06-zenki",
+        "examTitle": "令和6年度 第1次検定 前期",
+        "section": "問題-27",
+        "score": 0.6
+      },
+      {
+        "examSlug": "primary-r07-kouki",
+        "examTitle": "令和7年度 第1次検定 後期",
+        "section": "問題-27",
+        "score": 0.6
+      },
+      {
+        "examSlug": "primary-r07-zenki",
+        "examTitle": "令和7年度 第1次検定 前期",
+        "section": "問題-27",
+        "score": 0.6
+      },
+      {
+        "examSlug": "primary-r08-zenki",
+        "examTitle": "令和8年度 第1次検定 前期",
+        "section": "問題-26",
+        "score": 0.6
+      },
+      {
+        "examSlug": "secondary-r05",
+        "examTitle": "令和5年度 第2次検定",
+        "section": "問題-9",
+        "score": 0.6
+      },
+      {
+        "examSlug": "secondary-r07",
+        "examTitle": "令和7年度 第2次検定",
+        "section": "問題-9",
+        "score": 0.6
+      }
+    ],
+    "guide-earthwork-key-points": [
+      {
+        "examSlug": "primary-r03-zenki",
+        "examTitle": "令和3年度 第1次検定 前期",
+        "section": "問題-61",
+        "score": 1.45
+      },
+      {
+        "examSlug": "primary-r04-zenki",
+        "examTitle": "令和4年度 第1次検定 前期",
+        "section": "問題-61",
+        "score": 1.45
+      },
+      {
+        "examSlug": "primary-r05-zenki",
+        "examTitle": "令和5年度 第1次検定 前期",
+        "section": "問題-61",
+        "score": 1.45
+      },
+      {
+        "examSlug": "primary-r06-zenki",
+        "examTitle": "令和6年度 第1次検定 前期",
+        "section": "問題-66",
+        "score": 1.45
+      },
+      {
+        "examSlug": "primary-r07-kouki",
+        "examTitle": "令和7年度 第1次検定 後期",
+        "section": "問題-66",
+        "score": 1.45
+      },
+      {
+        "examSlug": "primary-r07-zenki",
+        "examTitle": "令和7年度 第1次検定 前期",
+        "section": "問題-66",
+        "score": 1.45
+      },
+      {
+        "examSlug": "secondary-r04",
+        "examTitle": "令和4年度 第2次検定",
+        "section": "問題-9",
+        "score": 0.75
+      },
+      {
+        "examSlug": "secondary-r07",
+        "examTitle": "令和7年度 第2次検定",
+        "section": "問題-4",
+        "score": 0.6
+      }
+    ],
+    "guide-law-key-points": [
+      {
+        "examSlug": "primary-r03-zenki",
+        "examTitle": "令和3年度 第1次検定 前期",
+        "section": "問題-61",
+        "score": 1.15
+      },
+      {
+        "examSlug": "primary-r04-zenki",
+        "examTitle": "令和4年度 第1次検定 前期",
+        "section": "問題-61",
+        "score": 1.15
+      },
+      {
+        "examSlug": "primary-r05-zenki",
+        "examTitle": "令和5年度 第1次検定 前期",
+        "section": "問題-61",
+        "score": 1.15
+      },
+      {
+        "examSlug": "primary-r06-zenki",
+        "examTitle": "令和6年度 第1次検定 前期",
+        "section": "問題-66",
+        "score": 1.15
+      },
+      {
+        "examSlug": "primary-r07-kouki",
+        "examTitle": "令和7年度 第1次検定 後期",
+        "section": "問題-66",
+        "score": 1.15
+      },
+      {
+        "examSlug": "primary-r07-zenki",
+        "examTitle": "令和7年度 第1次検定 前期",
+        "section": "問題-66",
+        "score": 1.15
+      },
+      {
+        "examSlug": "secondary-r04",
+        "examTitle": "令和4年度 第2次検定",
+        "section": "問題-9",
+        "score": 0.75
+      }
+    ],
+    "guide-r08-secondary-answers": [
+      {
+        "examSlug": "secondary-r06",
+        "examTitle": "令和6年度 第2次検定",
+        "section": "問題-9",
+        "score": 1.05
+      },
+      {
+        "examSlug": "secondary-r03",
+        "examTitle": "令和3年度 第2次検定",
+        "section": "問題-9",
+        "score": 0.6
+      },
+      {
+        "examSlug": "secondary-r04",
+        "examTitle": "令和4年度 第2次検定",
+        "section": "問題-9",
+        "score": 0.6
+      },
+      {
+        "examSlug": "secondary-r05",
+        "examTitle": "令和5年度 第2次検定",
+        "section": "問題-9",
+        "score": 0.6
+      },
+      {
+        "examSlug": "secondary-r07",
+        "examTitle": "令和7年度 第2次検定",
+        "section": "問題-9",
+        "score": 0.6
+      },
+      {
+        "examSlug": "secondary-r08",
+        "examTitle": "令和8年度 第2次検定",
+        "section": "問題-9",
+        "score": 0.6
+      }
+    ],
+    "guide-study-method": [
+      {
+        "examSlug": "secondary-r03",
+        "examTitle": "令和3年度 第2次検定",
+        "section": "問題-9",
+        "score": 0.6
+      },
+      {
+        "examSlug": "secondary-r04",
+        "examTitle": "令和4年度 第2次検定",
+        "section": "問題-9",
+        "score": 0.6
+      },
+      {
+        "examSlug": "secondary-r08",
+        "examTitle": "令和8年度 第2次検定",
+        "section": "問題-9",
+        "score": 0.6
+      }
+    ],
+    "guide-textbooks": [
+      {
+        "examSlug": "secondary-r03",
+        "examTitle": "令和3年度 第2次検定",
+        "section": "問題-9",
+        "score": 0.6
+      },
+      {
+        "examSlug": "secondary-r04",
+        "examTitle": "令和4年度 第2次検定",
+        "section": "問題-9",
+        "score": 0.6
+      },
+      {
+        "examSlug": "secondary-r08",
+        "examTitle": "令和8年度 第2次検定",
+        "section": "問題-9",
+        "score": 0.6
+      }
+    ],
+    "guide-structures-key-points": [
+      {
+        "examSlug": "secondary-r05",
+        "examTitle": "令和5年度 第2次検定",
+        "section": "問題-7",
+        "score": 0.6
+      }
+    ]
+  },
   "meta": {
-    "generatedAt": "2026-05-28T00:00:00.000Z",
-    "textbookCount": 0,
-    "examCount": 0,
-    "questionsWithMatches": 0,
-    "totalMatches": 0,
-    "threshold": 0.45,
-    "note": "Phase 0 で空のプレースホルダーとして作成。Phase 1 で2級 textbook/guide/primary/secondary 投入後、build-civil-exam-textbook-index.mjs が中身を埋める"
+    "textbookCount": 29,
+    "examCount": 28,
+    "questionsWithMatches": 174,
+    "totalMatches": 260,
+    "threshold": 0.45
   }
 }

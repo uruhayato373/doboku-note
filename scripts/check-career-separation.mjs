@@ -94,7 +94,7 @@ if (!BUILT) {
   // 分割した際、この --built 経路が out/docs を見たままだった。ディレクトリが存在しないので
   // exit 1 で即死し、**ビルド後の混入検査が 1 箇所も走らない状態**が続いていた
   // （「検査不成立」と「異常 0 件」が同じ赤/緑に見える例）。走査先を実在する領域へ移す。
-  const AREA_DIRS = ['exam', 'practice', 'standards', 'topics'];
+  const AREA_DIRS = ['exam', 'practice', 'standards', 'laws', 'topics'];
   const outDirs = AREA_DIRS.map((d) => path.join(ROOT, 'out', d)).filter((d) => fs.existsSync(d));
   if (outDirs.length === 0) {
     console.error(
@@ -113,7 +113,7 @@ if (!BUILT) {
       listsFound++;
       // href は正規 URL（/exam/<category>/<group>/<slug>）。career slug 台帳は
       // フラット表記（<category>-<group>-<slug>）なので、パスを繋ぎ直して突き合わせる。
-      const hrefs = [...m[1].matchAll(/href="\/(?:exam|practice|standards|topics)\/([^"]+?)\/?"/g)].map(
+      const hrefs = [...m[1].matchAll(/href="\/(?:exam|practice|standards|topics|laws)\/([^"]+?)\/?"/g)].map(
         (x) => x[1].split('/').join('-'),
       );
       const mixed = hrefs.filter((s) => careerSlugs.has(s));

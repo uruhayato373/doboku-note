@@ -8,7 +8,7 @@ exam: civil-1
 angle: ハウツー
 category: 学び
 tags: [経験記述, 学科記述, 施工管理技士, 直前対策]
-funnel: [coconala-2kyu-tensaku-3theme, coconala-2kyu-sakusei-3theme]
+funnel: [coconala-tensaku-4theme]
 source:
   - content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx
   - content/site/civil-construction-1/guide-study-plan/article.mdx
@@ -56,10 +56,8 @@ source:
 
 ただ、この2週間だけで全テーマの答案を1から組み立てるのは簡単ではありません。
 
-1級の第二次検定（10/4）は終わりました。1級の添削・骨子づくりは次の受検期まで休止しています。同じ2週間の進め方は、10/25に第二次検定を受ける2級でも使えます。2級で書いた答案がある方には全3テーマ（品質管理・安全管理・工程管理）の添削を、まだ書けていない方にはヒアリングから全3テーマの骨子（構成）をつくる指導を承っています。どちらも10/25の本試験に間に合うよう、24時間以内にお返しします。
+書いた答案がある方には、基本の2テーマの添削を承っています。1級は全5テーマ（品質管理・安全管理・工程管理・施工計画・環境対策）、2級は全3テーマ（品質管理・安全管理・工程管理）にするオプションがあり、同じ2週間の進め方は1級でも2級でも使えます。まだ答案を書けていない方には、ヒアリングから骨子（構成）をつくる「骨子から相談」のオプションがあります。急ぐ場合は「24時間以内に返却」のオプションも選べます。
 
-service:coconala-2kyu-tensaku-3theme
-
-service:coconala-2kyu-sakusei-3theme
+service:coconala-tensaku-4theme
 
 経験していない工事や数値の創作、答案の代筆はお受けしていません。合格を保証するものではありません。

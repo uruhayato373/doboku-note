@@ -118,8 +118,8 @@ function normalizeHref(href) {
   if (h.startsWith('/category/')) return { kind: 'category', href: h };
   const base = h.split('#')[0];
   // 2026-08-22 移行後の新 URL（note 原稿は DN-0289 で張り替え済み）は旧 slug へ戻して同じ検査にかける。
-  // 戻せないもの（/standards・/topics の独自ページ等）は従来どおり対象外。
-  if (/^\/(exam|practice|standards|topics)\//.test(base)) {
+  // 戻せないもの（/standards・/topics の独自ページ等）は従来どおり対象外。法令ページ（/laws/<id>）も 2026-10-21 から同じ検査にかける。
+  if (/^\/(exam|practice|standards|topics|laws)\//.test(base)) {
     const slug = slugFromKey(base);
     if (slug) return { kind: 'docs', href: `/docs/${slug}${h.slice(base.length)}` };
   }
