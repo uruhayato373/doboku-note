@@ -6,20 +6,20 @@ noteContentType: product
 noteMagazine: 経験記述-週次お題ラボ
 notePublishedAt: "2026-09-22"
 noteId: "ne3cf6dac882f"
-title: "今週のお題｜施工計画 — 施工手順・段取り・資源配分で工事を円滑に進める"
+title: "経験記述のお題｜施工計画 — 施工手順・段取り・資源配分で工事を円滑に進める"
 noteUrl: "https://note.com/dobokunote/n/ne3cf6dac882f"
 memberTrial: bottom
 utmCampaign: civil-membership-odai-plan-procedure
-coverTitle: ["今週のお題｜施工計画", "施工手順と段取り"]
+coverTitle: ["経験記述のお題｜施工計画", "施工手順と段取り"]
 cover:
   variant: crop-safe-v4
-  leadIn: "今週のお題｜経験記述"
+  leadIn: "経験記述のお題"
   headline: "施工計画"
   hi: "予想"
   hiSuffix: "問題"
   benefit: "施工手順と段取りが書ける"
 ---
-# 今週のお題｜施工計画 — 施工手順・段取り・資源配分で工事を円滑に進める
+# 経験記述のお題｜施工計画 — 施工手順・段取り・資源配分で工事を円滑に進める
 
 
 ![](img/figure-author-authority.png)
@@ -38,7 +38,7 @@ cover:
 
 > 本記事は1級・2級に共通する論点を練習するための独自予想です。公式問題の再現ではありません。実際の出題テーマと設問構造は、受験する級・年度の問題用紙で確認してください。
 
-## 今週のお題
+## 経験記述のお題
 
 あなたが経験した工事のうち、**施工手順や段取りの計画が工事の成否を左右した工事**（機械・資材・労務の配分、施工順序）を1つ選び、次に答えてください（第4週の「仮設」に対し、本週は施工そのものの段取り計画）。
 

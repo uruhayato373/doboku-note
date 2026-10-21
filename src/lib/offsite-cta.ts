@@ -43,29 +43,31 @@ interface OffsiteRule {
 // 主任技士のルールも無かったため、2級・主任技士のページにココナラ導線が 1 枚も出ていなかった。retired を指すルールは tests/offsite-cta.test.mjs が落とす。
 // 試験後まで一時休止（pauseReason:'absence'）の PDF はルールに残し、復帰したら自動で出す。総監 記述系は分析 PDF が retired でルールごと外した。
 // coconala-2kyu-tensaku（absence）は 3 テーマ版と同じ添削なので載せない（復帰時に添削が 2 枚並ぶ）。
+// 2026-10-26: 経験記述の添削・作成を 1級・2級とも coconala-tensaku-4theme（services/4418735）の 1 本へ集約した（DN-0538）。
+// 級・テーマ数・骨子の相談はオプションで選ぶ。予想模試 PDF 2 本はアーカイブし、模試は note の予想模試へ一本化した（DN-0442）。
 const OFFSITE_RULES: readonly OffsiteRule[] = [
   {
     // 施工経験記述（1級）: 読者が自分の工事で答案を書く高 intent ページ。人の添削と骨子からの指導が最も刺さる。
     test: /^civil-construction-1-secondary-experience-writing-(guide|examples)$/,
-    coconala: ['coconala-tensaku-4theme', 'coconala-sakusei-4theme'],
+    coconala: ['coconala-tensaku-4theme'],
     coconalaCatch: beforeExamCatch('civil-construction-1', 'second', '全5テーマの答案を24時間で見てほしい方へ。'),
   },
   {
     // 施工経験記述（2級）。
     test: /^civil-construction-2-secondary-experience-writing-(guide|examples|by-theme)$/,
-    coconala: ['coconala-2kyu-tensaku-3theme', 'coconala-2kyu-sakusei-3theme'],
+    coconala: ['coconala-tensaku-4theme'],
     coconalaCatch: beforeExamCatch('civil-construction-2', 'second', '全3テーマの答案を24時間で見てほしい方へ。'),
   },
   {
     // 1級 二次 年度別過去問（secondary-r03〜r09）: 模範答案を読んだあとに自分の答案を見てもらう。
     test: /^civil-construction-1-secondary-r0[3-9]$/,
-    coconala: ['coconala-tensaku-4theme', 'coconala-sakusei-4theme', 'coconala-1kyu-full-pdf'],
+    coconala: ['coconala-tensaku-4theme', 'coconala-1kyu-full-pdf'],
     coconalaCatch: '過去問の模範答案を読んだら、次は自分の答案を見てもらう番です。',
   },
   {
     // 2級 二次 年度別過去問。
     test: /^civil-construction-2-secondary-r0[3-9]$/,
-    coconala: ['coconala-2kyu-tensaku-3theme', 'coconala-2kyu-sakusei-3theme', 'coconala-2kyu-full-pdf'],
+    coconala: ['coconala-tensaku-4theme', 'coconala-2kyu-full-pdf'],
     coconalaCatch: '過去問の模範答案を読んだら、次は自分の答案を見てもらう番です。',
   },
   {
@@ -77,35 +79,35 @@ const OFFSITE_RULES: readonly OffsiteRule[] = [
   {
     // 1級 二次 入門・直前対策。
     test: /^civil-construction-1-(secondary-getting-started|guide-last-minute-2026)$/,
-    coconala: ['coconala-tensaku-4theme', 'coconala-sakusei-4theme', 'coconala-1kyu-moshi-pdf'],
+    coconala: ['coconala-tensaku-4theme'],
     coconalaCatch: '直前の総仕上げに、自分の答案を24時間で見てもらう。',
   },
   {
     // 2級 二次 入門・直前2週間。
     test: /^civil-construction-2-secondary-(getting-started|last-two-weeks-plan)$/,
-    coconala: ['coconala-2kyu-tensaku-3theme', 'coconala-2kyu-sakusei-3theme', 'coconala-2kyu-moshi-pdf'],
+    coconala: ['coconala-tensaku-4theme'],
     coconalaCatch: '直前の総仕上げに、自分の答案を24時間で見てもらう。',
   },
   {
     // 資格トップ（カテゴリ hub・slug はカテゴリ名そのもの）。SNS から着地する入口（2026-09-27 配線監査 DN-0364）。
     test: /^civil-construction-1$/,
-    coconala: ['coconala-tensaku-4theme', 'coconala-sakusei-4theme'],
+    coconala: ['coconala-tensaku-4theme'],
     coconalaCatch: '自分の答案を見てほしい方・まだ書けていない方へ。',
   },
   {
     test: /^civil-construction-2$/,
-    coconala: ['coconala-2kyu-tensaku-3theme', 'coconala-2kyu-sakusei-3theme'],
+    coconala: ['coconala-tensaku-4theme'],
     coconalaCatch: '自分の答案を見てほしい方・まだ書けていない方へ。',
   },
   {
     // 施工経験記述 文字数チェッカー（/tools/keiken-charcount）。答案を書いている最中の人が来る。
     test: /^tools-keiken-charcount$/,
-    coconala: ['coconala-tensaku-4theme', 'coconala-2kyu-tensaku-3theme'],
+    coconala: ['coconala-tensaku-4theme'],
     coconalaCatch: '字数が収まったら、次は中身。自分の答案を見てほしい方へ。',
   },
   {
     test: /^civil-construction-2-secondary-grading-and-partial-credit$/,
-    coconala: ['coconala-2kyu-tensaku-3theme'],
+    coconala: ['coconala-tensaku-4theme'],
     coconalaCatch: '施工経験記述の答案を、設問への適合と具体性から確かめたい方へ。',
   },
   {

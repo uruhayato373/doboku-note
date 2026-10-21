@@ -9,20 +9,20 @@ noteContentType: product
 noteMagazine: 経験記述-週次お題ラボ
 notePublishedAt: "2026-08-05"
 noteId: "n66570efb6d23"
-title: "今週のお題｜安全管理 — 供用中・近接施工での公衆（第三者）災害の防止"
+title: "経験記述のお題｜安全管理 — 供用中・近接施工での公衆（第三者）災害の防止"
 noteUrl: "https://note.com/dobokunote/n/n66570efb6d23"
 memberTrial: bottom
 utmCampaign: civil-membership-odai-safety
-coverTitle: ["今週のお題｜安全管理", "公衆災害・第三者災害の防止"]
+coverTitle: ["経験記述のお題｜安全管理", "公衆災害・第三者災害の防止"]
 cover:
   variant: crop-safe-v4
-  leadIn: "今週のお題｜経験記述"
+  leadIn: "経験記述のお題"
   headline: "安全管理"
   hi: "予想"
   hiSuffix: "問題"
   benefit: "公衆災害の防止が書ける"
 ---
-# 今週のお題｜安全管理 — 供用中・近接施工での公衆（第三者）災害の防止
+# 経験記述のお題｜安全管理 — 供用中・近接施工での公衆（第三者）災害の防止
 
 
 ![](img/figure-author-authority.png)
@@ -39,7 +39,7 @@ cover:
 
 > これは経験記述の「お題」です。完成した模範答案は載せていません。**あなたが経験した工事**でお題に答えてください。
 
-## 今週のお題
+## 経験記述のお題
 
 あなたが経験した土木工事のうち、**供用中の道路・鉄道・河川に近接する施工**、または**第三者への影響が懸念された工事**（通行者・近隣住民・周辺施設）を1つ選び、次に答えてください。
 

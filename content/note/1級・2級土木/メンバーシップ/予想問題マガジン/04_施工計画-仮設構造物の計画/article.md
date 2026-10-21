@@ -6,20 +6,20 @@ noteMagazine: 経験記述-週次お題ラボ
 noteStatus: published
 notePublishedAt: "2026-08-17"
 noteId: "n8d23a04bb32b"
-title: "今週のお題｜施工計画 — 仮設構造物（土留め・支保工・仮締切）の計画と施工"
+title: "経験記述のお題｜施工計画 — 仮設構造物（土留め・支保工・仮締切）の計画と施工"
 noteUrl: "https://note.com/dobokunote/n/n8d23a04bb32b"
 memberTrial: bottom
 utmCampaign: civil-membership-odai-plan-temporary
-coverTitle: ["今週のお題｜施工計画", "仮設構造物の計画と施工"]
+coverTitle: ["経験記述のお題｜施工計画", "仮設構造物の計画と施工"]
 cover:
   variant: crop-safe-v4
-  leadIn: "今週のお題｜経験記述"
+  leadIn: "経験記述のお題"
   headline: "施工計画"
   hi: "予想"
   hiSuffix: "問題"
   benefit: "仮設構造物の計画が書ける"
 ---
-# 今週のお題｜施工計画 — 仮設構造物（土留め・支保工・仮締切）の計画と施工
+# 経験記述のお題｜施工計画 — 仮設構造物（土留め・支保工・仮締切）の計画と施工
 
 
 ![](img/figure-author-authority.png)
@@ -36,7 +36,7 @@ cover:
 - 採点者が見る 4 つの着眼点（仮設が主役か／設計条件→工法選定の筋／施工中の計測管理／立場での判断）
 - 差がつく理由（仮設は本体に隠れて評価が分かれ、きちんと書ける受験者が少ない）
 
-## 今週のお題
+## 経験記述のお題
 
 あなたが経験した工事のうち、**仮設構造物の計画・施工が工事の成否を左右した工事**（土留め・支保工・仮締切・仮桟橋・覆工など）を1つ選び、次に答えてください。
 
