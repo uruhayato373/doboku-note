@@ -17,6 +17,7 @@ on:
       # src/ が src の外から import するもの（DN-0808。tests/e2e-paths.test.mjs が siteImportedFiles で漏れを止める）
       - "config/affiliate-placements.json"
       - "config/cta-placements.json"
+      - "config/egov-laws.json"
       - "config/exam-calendar.json"
       - "config/keiken-answer-sheet-limits.json"
       - "config/note-funnel.json"

@@ -4,6 +4,7 @@ import { type ReferenceItem } from '@/lib/extract-references';
 import { type ResolvedPlacement } from '@/lib/affiliate-placement';
 import CareerNextStepNav from '@/components/ui/CareerNextStepNav/CareerNextStepNav';
 import ExternalReferences from '@/components/ui/ExternalReferences/ExternalReferences';
+import ArticleLaws, { type ArticleLaw } from '@/components/ui/ArticleLaws/ArticleLaws';
 import PastExamBacklinks from '@/components/ui/PastExamBacklinks/PastExamBacklinks';
 import PeConstructionSubjectLinks from '@/components/ui/PeConstructionSubjectLinks';
 import SectionKeywords from '@/components/ui/SectionKeywords';
@@ -31,6 +32,8 @@ interface ArticleFooterProps {
   /** 記事末バナーに付ける A8 計測ピクセル。本文側で既に 1 発出すページは undefined（1 ページ 1 ピクセル）。 */
   readonly careerPixelSrc?: string | undefined;
   readonly references: ReferenceItem[];
+  /** 本文の e-Gov へのリンクから集めた根拠法令（DN-0731）。無ければ出さない */
+  readonly laws?: readonly ArticleLaw[];
   readonly category: DocMeta['category'];
   readonly docGroup: DocGroupKey;
   readonly slugStr: string;
@@ -61,6 +64,7 @@ export default function ArticleFooter({
   endBanner: endBannerAd = null,
   careerPixelSrc,
   references,
+  laws = [],
   category,
   docGroup,
   slugStr,
@@ -99,6 +103,12 @@ export default function ArticleFooter({
       {references.length > 0 && (
         <div className="mt-8">
           <ExternalReferences references={references} />
+        </div>
+      )}
+      {/* この記事の根拠法令（本文の e-Gov へのリンクから自動で集める・DN-0731） */}
+      {laws.length > 0 && (
+        <div className="mt-8">
+          <ArticleLaws laws={laws} />
         </div>
       )}
 
