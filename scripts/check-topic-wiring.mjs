@@ -27,6 +27,7 @@ function findMdxFiles(directory) {
 
 export function auditTopicWiring(root = REPO_ROOT) {
   const topics = JSON.parse(readFileSync(join(root, 'src/config/topics.json'), 'utf8'));
+  const taxonomy = JSON.parse(readFileSync(join(root, 'src/config/content-taxonomy.json'), 'utf8'));
   // タグは canonical（tags.json）で照合する。記事の別名綴りは build 時に正規化されるため、ここでも同じ正規化を通す
   const aliasMap = buildAliasMap(JSON.parse(readFileSync(join(root, 'src/config/tags.json'), 'utf8')));
   const canon = (tag) => aliasMap.toCanonical.get(tag) ?? tag;
@@ -55,6 +56,20 @@ export function auditTopicWiring(root = REPO_ROOT) {
       if (lawPageOwner.has(id) && lawPageOwner.get(id) !== local) issues.push(`法令 ${id} を 2 つの法令ページ（${lawPageOwner.get(id)}・${local}）が扱っている`);
       lawPageOwner.set(id, local);
     }
+  }
+  // 作らない法令（content-taxonomy.json の lawPages.skip）は写しにある ID で、法令ページを作ったら消す
+  for (const id of Object.keys(taxonomy.lawPages?.skip ?? {})) {
+    if (!egovLaws[id]) issues.push(`lawPages.skip「${id}」が e-Gov の写しに無い`);
+    if (lawPageOwner.has(id)) issues.push(`lawPages.skip「${id}」は法令ページ（${lawPageOwner.get(id)}）があるので消す`);
+  }
+  // 法令の解説を兼ねる記事（explainsLaw）: 根拠法令の法令名の行き先になる。法令は写しにあり、1 法令を 1 記事だけが名乗る
+  const explainer = new Map();
+  for (const [slug, m] of Object.entries(metaIndex)) {
+    if (!m.explainsLaw || m.published === false) continue;
+    if (m.category === 'laws') issues.push(`${slug}: 法令ページは explainsLaw ではなく lawId で法令を指す`);
+    if (!egovLaws[m.explainsLaw]) issues.push(`${slug}: explainsLaw「${m.explainsLaw}」が e-Gov の写しに無い（npm run egov-laws -- --sync）`);
+    if (explainer.has(m.explainsLaw)) issues.push(`explainsLaw「${m.explainsLaw}」を 2 記事が名乗っている（${explainer.get(m.explainsLaw)}・${slug}）。法令名の行き先は 1 記事にする`);
+    explainer.set(m.explainsLaw, slug);
   }
 
   // products（このテーマの有料教材）は note の商品の正本にある id を指す。打ち間違いはページから黙って消える
@@ -127,6 +142,7 @@ export function auditTopicWiring(root = REPO_ROOT) {
       publishedGuides,
       guidesWithTopic,
       lawPages,
+      lawExplainers: explainer.size,
       policies: (policyRegistry.policies ?? []).length,
     },
   };

@@ -69,16 +69,16 @@ function fetchOnce(lawId) {
 }
 
 /**
- * --sync で写しに残す法令 ID。記事の e-Gov へのリンクのほか、法令ページの lawId・lawFamily（施行令・施行規則）、
+ * --sync で写しに残す法令 ID。記事の e-Gov へのリンクのほか、法令ページの lawId・lawFamily（施行令・施行規則）、解説記事の explainsLaw、
  * 参考文献の台帳の法令、計画・施策の台帳の根拠法令（basisLaws）も入れる。ここから漏れた法令は --sync で写しから消え、
  * check-topic-wiring が「写しに無い」で赤になる（2026-10-21・水防法施行令と施行規則が lawFamily にだけあった）。
- * @param {{ docs: Array<{ text: string, data?: { lawId?: string, lawFamily?: string[] } }>, sources: object[], policies?: object[] }} input
+ * @param {{ docs: Array<{ text: string, data?: { lawId?: string, lawFamily?: string[], explainsLaw?: string } }>, sources: object[], policies?: object[] }} input
  */
 export function referencedLawIds({ docs, sources, policies = [] }) {
   const ids = new Set();
   for (const d of docs) {
     for (const l of egovLinksOf(d.text)) ids.add(l.lawId);
-    for (const id of [d.data?.lawId, ...(d.data?.lawFamily ?? [])]) if (id) ids.add(id);
+    for (const id of [d.data?.lawId, ...(d.data?.lawFamily ?? []), d.data?.explainsLaw]) if (id) ids.add(id);
   }
   for (const s of sources) if (s.egov?.lawId) ids.add(s.egov.lawId);
   for (const p of policies) for (const id of p.basisLaws ?? []) ids.add(id);

@@ -57,16 +57,17 @@ test('実データ: 参考文献の台帳の法令はすべて e-Gov の法令 I
   assert.deepEqual(issues, []);
 });
 
-test('referencedLawIds: --sync は法令ページの lawId・lawFamily と計画・施策の根拠法令も写しに残す', () => {
+test('referencedLawIds: --sync は法令ページの lawId・lawFamily、解説記事の explainsLaw、計画・施策の根拠法令も写しに残す', () => {
   const ids = referencedLawIds({
     docs: [
       { text: '[道路法](https://laws.e-gov.go.jp/law/327AC1000000180)', data: {} },
       { text: '本文にリンクなし', data: { lawId: '324AC0000000193', lawFamily: ['423CO0000000428', '412M50004000044'] } },
+      { text: '総監の用語（大気汚染防止法）', data: { explainsLaw: '343AC0000000097' } },
     ],
     sources: [{ egov: { lawId: '339AC0000000167' } }, { egov: { none: '条例' } }],
     policies: [{ basisLaws: ['426AC0000000095'] }, {}],
   });
-  assert.deepEqual(ids, ['324AC0000000193', '327AC1000000180', '339AC0000000167', '412M50004000044', '423CO0000000428', '426AC0000000095']);
+  assert.deepEqual(ids, ['324AC0000000193', '327AC1000000180', '339AC0000000167', '343AC0000000097', '412M50004000044', '423CO0000000428', '426AC0000000095']);
 });
 
 test('referencedLawIds: 実データで、法令ページと計画・施策の台帳が指す法令はすべて --sync の対象に入る', async () => {

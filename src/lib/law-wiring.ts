@@ -4,8 +4,8 @@
  * 記事が本文で引く法令（記事メタの lawIds・build-doc-meta-index が e-Gov へのリンクから入れる）と、記事が属すテーマから、
  * 「この法令が関わるテーマ」（記事末の根拠法令のカード）と「このテーマの法令」（テーマのページ）と
  * 「法令と分野の対応」（法令・制度の軸のテーマのページ）を作る。数え方は src/lib/law-topic-core.mjs（週次の報告と同じ）。
- * 法令名は e-Gov 法令 API の写し config/egov-laws.json。法令ページ（category: laws・/laws/<参考文献の id>・frontmatter の
- * lawId と lawFamily）がある法令は法令名の行き先を法令ページに、無い法令は e-Gov にする（DN-0731）。
+ * 法令名は e-Gov 法令 API の写し config/egov-laws.json。法令名の行き先は、法令ページ（category: laws・/laws/<参考文献の id>・
+ * frontmatter の lawId と lawFamily）があればそこ、無ければ法令の解説を兼ねる記事（frontmatter の explainsLaw）、どちらも無ければ e-Gov（DN-0731）。
  * 計画・施策・審議会は config/policy-registry.json（根拠法とテーマで引く）。
  */
 import egovLaws from '../../config/egov-laws.json';
@@ -27,7 +27,7 @@ export type Policy = {
 };
 const POLICIES = (policyRegistry as { policies: Policy[] }).policies;
 
-/** 法令名のリンク。法令ページがあれば内部（internal: true）、無ければ e-Gov */
+/** 法令名のリンク。法令ページか解説記事があれば内部（internal: true）、無ければ e-Gov */
 export type LawLink = { title: string; href: string; internal: boolean; egovUrl: string };
 export type LawTopicLink = { slug: string; label: string; count: number };
 export type TopicLaw = LawLink & { lawId: string; count: number; picks: WiredDoc[] };
@@ -42,19 +42,18 @@ function getPool(): DocMeta[] {
   return pool;
 }
 
-/** 法令 ID → 法令ページ（lawId と lawFamily の両方で引く） */
+/** 法令 ID → 法令名の行き先の記事。法令ページ（lawId と lawFamily の両方で引く）を先に、無ければ法令の解説を兼ねる記事（explainsLaw） */
 function getLawPages(): Map<string, DocMeta> {
   if (!lawPages) {
     lawPages = new Map();
-    for (const d of getAllDocsMeta()) {
-      if (d.published === false || d.category !== 'laws' || !d.lawId) continue;
-      for (const id of [d.lawId, ...(d.lawFamily ?? [])]) if (!lawPages.has(id)) lawPages.set(id, d);
-    }
+    const docs = getAllDocsMeta().filter((d) => d.published !== false);
+    for (const d of docs) if (d.category === 'laws' && d.lawId) for (const id of [d.lawId, ...(d.lawFamily ?? [])]) if (!lawPages.has(id)) lawPages.set(id, d);
+    for (const d of docs) if (d.explainsLaw && !lawPages.has(d.explainsLaw)) lawPages.set(d.explainsLaw, d);
   }
   return lawPages;
 }
 
-/** 法令名のリンク（法令ページがあればその URL、無ければ e-Gov） */
+/** 法令名のリンク（法令ページか解説記事があればその URL、無ければ e-Gov） */
 function lawLink(lawId: string): LawLink {
   const page = getLawPages().get(lawId);
   const title = LAWS[lawId]?.title ?? lawId;
@@ -101,7 +100,9 @@ export function getTopicLaws(topic: Topic, { limit = 8, perLaw = 3 }: { limit?: 
   const bySlug = new Map(getPool().map((d) => [d.slug, d]));
   return lawsOfTopic(getIndex(), topic.slug, { limit }).flatMap(({ lawId, docs }) => {
     if (!LAWS[lawId]?.title) return [];
-    const candidates = docs.map((s) => bySlug.get(s)).filter((d): d is DocMeta => Boolean(d) && !isCareerDoc(d as DocMeta));
+    // 法令名の行き先（解説記事）は法令名のリンクで出るので、記事の並びには入れない
+    const target = getLawPages().get(lawId)?.slug;
+    const candidates = docs.map((s) => bySlug.get(s)).filter((d): d is DocMeta => Boolean(d) && !isCareerDoc(d as DocMeta) && d!.slug !== target);
     return [{ lawId, ...lawLink(lawId), count: docs.length, picks: spreadAcrossCategories(candidates, perLaw).map(toWired) }];
   });
 }
@@ -179,7 +180,7 @@ function getLawPageData(lawId: string, family: readonly string[] = []): LawPageD
 export type ArticleEnd = {
   lawSiblings: Map<string, WiredDoc[]>;
   lawTopics: Map<string, LawTopicLink[]>;
-  /** 法令 ID → 法令ページの URL（法令ページがある法令だけ。法令ページ自身が解説する法令は入れない） */
+  /** 法令 ID → 法令ページか解説記事の URL（行き先がある法令だけ。その記事自身が行き先の法令は入れない） */
   lawPageLinks: Map<string, string>;
   /** 法令ページなら、末尾の自動の節 */
   lawPage: LawPageData | null;
@@ -195,13 +196,14 @@ export type ArticleEnd = {
  * @param pool 記事末に出す候補の母集団（関連記事と同じ）
  */
 export function resolveArticleEnd(meta: DocMeta, lawIds: readonly string[], pool: DocMeta[]): ArticleEnd {
-  const lawSiblings = lawIds.length > 0 ? resolveLawSiblings(meta, lawIds, pool) : new Map<string, WiredDoc[]>();
-  const lawSiblingSlugs = new Set([...lawSiblings.values()].flat().map((doc) => doc.slug));
-  const ownLaws = new Set(meta.category === 'laws' ? [meta.lawId, ...(meta.lawFamily ?? [])].filter(Boolean) : []);
-  const lawPageLinks = new Map(lawIds.filter((id) => !ownLaws.has(id)).flatMap((id) => {
-    const link = lawLink(id);
-    return link.internal ? [[id, link.href] as const] : [];
+  // 法令名の行き先（法令ページ・解説記事）。自分自身が行き先の法令は自分へ戻さず、行き先の記事は「同じ法令を扱う記事」に重ねない
+  const targets = new Map(lawIds.flatMap((id) => {
+    const page = getLawPages().get(id);
+    return page && page.slug !== meta.slug ? [[id, page.slug] as const] : [];
   }));
+  const lawSiblings = lawIds.length > 0 ? resolveLawSiblings(meta, lawIds, pool, { exclude: new Set(targets.values()) }) : new Map<string, WiredDoc[]>();
+  const lawSiblingSlugs = new Set([...lawSiblings.values()].flat().map((doc) => doc.slug));
+  const lawPageLinks = new Map([...targets.keys()].map((id) => [id, lawLink(id).href] as const));
   const topicLinks = resolveTopicHubLinks(meta, pool, { exclude: lawSiblingSlugs });
   return {
     lawSiblings,
