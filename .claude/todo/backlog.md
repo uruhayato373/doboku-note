@@ -747,6 +747,7 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 **完了条件**: 1級土木の構造化データが 18 年度分以上になり、足した年度の全問が公式正答と一致し、在庫台帳と Drive に原本が揃っている。
 
+**確認（2026-10-21）**: Web 検索（公式・第三者の PDF）で 1級の平成19・20・23年度の学科問題は見つからなかった。保存版の CDX をドメイン全体（2008〜2012・PDF）で引くと、1級学科（7 月の qa/qb）は 2009（0707d）・2010（0706d_jipj35）・2012（0702d_mhrk44）の取得だけで、2007・2008・2011 の 7 月分は無かった。ただしこの一覧は上限 400 行で切れており、kentei 配下だけの取り直しは Internet Archive の一時停止（504・Temporarily Offline）で取れていない。続きは `https://web.archive.org/cdx/search/cdx?url=jctc.jp/kentei/&matchType=prefix&from=2007&to=2011&filter=mimetype:application/pdf` を取り直して 2011 年 7 月の qa/qb を探す。
 
 ### [DN-0597] YouTube Analytics（視聴維持率・インプレッションのクリック率・流入元・Shorts→関連動画）を CI で取得し data/youtube へ残す
 タグ: [領域:SNS] [時期:2026-11] [種類:改善] [起票:2026-10-08]
