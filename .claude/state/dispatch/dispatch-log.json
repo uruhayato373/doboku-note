@@ -5138,6 +5138,66 @@
       "commit": "947472807f1a",
       "verification": "node --test tests/asset-storage.test.mjs（22 pass・旧の作り方に戻すと落ちる）／実台帳 3,387 行の往復で置き換え無し／PR #1169 の CI（audit・build・CodeQL）緑",
       "note": "PR #1169 を develop へマージ（947472807）。asset-offload は送った行の実測の欄（置き場・sha256・bytes・寸法・verifiedAt）だけを更新し srcHash など既存の欄を残す。展開済みの台帳（loadManifest）は writeManifestAtomic が書き戻しを止め、同じ中身なら書かない。update-ogp-srchash の同じ不具合も直した。PR は scripts だけの変更で E2E・Lighthouse が起動しないことも確かめた（DN-0803 の実地確認）"
+    },
+    {
+      "id": "DN-0714",
+      "at": "2026-10-21",
+      "task": "refresh-indexes を CRLF で取り出した作業ツリーで回すと、生成 JSON の問題文に \\r\\n が入り偽の差分が出る",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "tests/exam-question-parsers-crlf.test.mjs"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "d526e2b183f0",
+      "verification": "tests/exam-question-parsers-crlf.test.mjs（3 パーサ・直す前は 2 本落ちる）／PR CI audit・build・e2e 緑",
+      "note": "PR #1170（ed94fcf5d）。parse-exam-questions と parse-civil-1-questions で読み込み直後に改行を LF へ揃えた。MDX 1,455 本を一時 CRLF にして refresh-indexes: 直す前は 3 ファイルに差分・直した後は 0"
+    },
+    {
+      "id": "DN-0560",
+      "at": "2026-10-21",
+      "task": "macOS でだけ落ちるコマンド（BSD と GNU の差）を CI の前に止める",
+      "tier": "low",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "d526e2b183f0",
+      "verification": "node --test tests/portability-gate.test.mjs／PR CI 緑",
+      "note": "PR #1171（1a1e77e52）。scripts/lib/portability-gate.mjs と tests/portability-gate.test.mjs。1,548 ファイルで検出 0・わざと sed -i を入れると落ちる"
+    },
+    {
+      "id": "DN-0759",
+      "at": "2026-10-21",
+      "task": "GSCの同期間全体303クリックと成長パック23クリックの集計条件を照合し、週次判断の定義をそろえる",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "doc",
+        "ref": ".claude/knowledge/reference/measurement-incidents.md"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "d526e2b183f0",
+      "verification": "tests/growth-opportunities.test.mjs／実際の W41 で表示を確認／measurement-incidents.md 2026-10-21",
+      "note": "PR #1172（d6a6744a9）。国で絞ったページ別は検索語の分かる分だけの集計で、ページ×検索語の合計と一致（週 23/1,727・基線 77/6,493）。国の条件なしのページ別は 1,203 でページ×検索語 142 の 8.5 倍。取得の不具合ではない。ダイジェストに定義と全体比を表示。急落・減衰の取り方は DN-0806"
+    },
+    {
+      "id": "DN-0779",
+      "at": "2026-10-21",
+      "task": "転職アフィリの記事末バナーを外し、A8 ピクセルの発火源を本文カードへ寄せる",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "d526e2b183f0",
+      "verification": "npm run build＋out/ の集計／check-cta-density／check-affiliate-placements／PR CI 緑",
+      "note": "PR #1173（d526e2b18）。記事末のルール PL-0022・0026・0039 を until で閉じた。build 後 HTML 2,850 ページ: 記事末の転職バナー 0・転職広告のある 2,525 ページは全て 1 発・無い 325 ページは 0 発・同一 mat 二重発火 0。本番は未 deploy"
     }
   ]
 }

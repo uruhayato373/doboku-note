@@ -77,30 +77,6 @@
       "owner": "claude-code",
       "startedAt": "2026-10-20T12:02:17.997Z",
       "branch": "feat/dn0789-usage-log"
-    },
-    {
-      "id": "DN-0714",
-      "owner": "claude-code",
-      "startedAt": "2026-10-20T23:02:36.780Z",
-      "branch": "fix/exam-parse-crlf"
-    },
-    {
-      "id": "DN-0560",
-      "owner": "claude-code",
-      "startedAt": "2026-10-20T23:06:34.078Z",
-      "branch": "feat/bsd-gnu-portability-gate"
-    },
-    {
-      "id": "DN-0759",
-      "owner": "claude-code",
-      "startedAt": "2026-10-20T23:10:31.589Z",
-      "branch": null
-    },
-    {
-      "id": "DN-0779",
-      "owner": "claude-code",
-      "startedAt": "2026-10-20T23:19:22.456Z",
-      "branch": "fix/career-article-end-banner"
     }
   ]
 }

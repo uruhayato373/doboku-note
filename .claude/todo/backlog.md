@@ -422,14 +422,6 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 
 
-### [DN-0779] 転職アフィリの記事末バナーを外し、A8 ピクセルの発火源を本文カードへ寄せる
-タグ: [領域:サイト] [時期:2026-10] [種類:改善] [起票:2026-10-20] [進行中]
-
-**起点**: 2026-10-20 の DN-0261（第 2 波の 28 日後）で、記事末バナー（article-end）は 4,324 表示・0 クリック（基線も 3,413・0）。運営者の決定で継続しつつ記事末だけ外す（affiliate-operations.md 裁定ログ 2026-10-20）。
-
-**やること**: 記事末の転職バナーをやめる。記事末はピクセル源を兼ねるので、外す前に A8 ピクセル（0.gif）の発火源を本文カード側へ移し、転職広告のあるページは 1 発・無いページは 0 発・同一 mat の二重発火 0 を build 後 HTML で確かめる（9/26 の確認と同じ手順）。
-
-**完了条件**: build 後 HTML で記事末の転職バナーが 0 件、転職広告のあるページのピクセルが全て 1 発、同一 mat の二重発火が 0 件。
 
 
 
@@ -1797,14 +1789,6 @@ Windows の PowerShell で repo 直下から順に:
 
 
 
-### [DN-0759] GSCの同期間全体303クリックと成長パック23クリックの集計条件を照合し、週次判断の定義をそろえる
-タグ: [インフラ・計測] [領域:管理] [時期:2026-10] [種類:不具合] [起票:2026-10-17] [進行中]
-
-**起点**: 週次レビュー（2026-10-12〜2026-10-18）。計測対象は10/5〜10/11、現物確認は10/17。
-
-**やること**: 週次レビュー（2026-10-12〜2026-10-18）で、同じ2026-10-05〜10-11窓の事業計測GSC全体303クリック（measurementの日本・Web・final）とgrowth packの日本ページ行合計23クリックが一致しないことを確認。fetch-business-metricsの国jpn条件は存在するため、国フィルタの欠落と決めつけない。両記録の元ファイル・取得時刻・property・日付窓・searchType・dataState・dimensions・aggregationType・フィルタ・pagination/rowLimit・行の採用条件を照合し、APIの集計方式の差か取得/集計の不具合かを切り分ける。原因が判明するまでは両数値を比較可能な同一母集団として扱わない。
-
-**完了条件**: 2経路の入力範囲と実取得行数、元レスポンスから303/23に至る集計が再現でき、差の理由が根拠付きで記録されている。仕様上の差なら表示名と定義を区別し、実装不具合なら修正と同じ誤集計を検出する回帰テストを追加する。欠測や取得0件を0クリック・PASSへ置き換えず、次の週次で同じ誤解が起きない表示を確認する。
 
 
 
@@ -1854,10 +1838,6 @@ Windows の PowerShell で repo 直下から順に:
 **完了条件**: `npm run reference-book-status` で 4 冊の文字起こしが n/n（または理由つきの不要だけが残る）になり、`npm run check-reference-book-pages` が通る。
 **閉じるときの注意**: 4 冊は参考文献の台帳（reference-sources.json）の `bookBundle.ocrPending` に `{ "backlogId": "DN-0716" }` と書いてある（PR #1048）。残りを 0 にしてから外す。残りがあるままこのカードを閉じると、check-reference-book-pages が「追うカードが backlog に無い」で CI を止める。
 
-### [DN-0714] refresh-indexes を CRLF で取り出した作業ツリーで回すと、生成 JSON の問題文に \r\n が入り偽の差分が出る
-タグ: [時期:2026-10] [領域:サイト] [種類:不具合] [起票:2026-10-13] [進行中]
-
-Windows（autocrlf で MDX が CRLF）で npm run refresh-indexes を回すと、記事に変更がなくても src/config/exam-questions.json・src/config/civil-1-exam-questions.json・public/quiz/civil-1.json の問題文の改行が \n→\r\n に変わり、数百行の差分になる（2026-10-13 の同期後に確認。generatedAt 以外の実体変更は 0）。llms*.txt・quiz/pe-first-stage.json・popular-pages.json は行末だけの差分。原因: scripts/parse-exam-questions.mjs:139 と .claude/scripts/sns/parse-civil-1-questions.mjs:33（civil-2 も同型の見込み）が readFileSync の結果を改行正規化せずに本文を切り出す。対処: 読み込み直後に \r\n→\n へ正規化する（共通 lib があれば集約）。完了条件: CRLF の作業ツリーで refresh-indexes を回しても上記 JSON に generatedAt 以外の差分が出ないこと、回帰テスト（CRLF 入力で本文に \r が残らない）を tests/ に足すこと。
 
 ### [DN-0209] 総監R8記述式を公式問題と照合し、再現版の注記・図・解答方針を確定する
 タグ: [コンテンツ品質] [領域:サイト] [時期:2027-04..2027-06] [種類:不具合] [起票:2026-09-13]
@@ -2025,17 +2005,6 @@ Windows（autocrlf で MDX が CRLF）で npm run refresh-indexes を回すと�
 
 
 
-### [DN-0560] macOS でだけ落ちるコマンド（BSD と GNU の差）を CI の前に止める
-タグ: [インフラ・計測] [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-10-07] [進行中]
-
-**起点**: 2026-10-07、`tests/sync-index-after-commit.test.mjs` の `sed -i "s/…/"` が macOS の BSD sed で落ち、Mac で回す `npm run test` と `quality:audit:ci` の unit-tests が赤くなっていた（#891 で `-i.bak` に直した）。CI は Linux だけなので、Mac でだけ落ちる書き方は CI では見つからない。
-
-**やること**:
-1. `tests/`・`scripts/`・`.claude/scripts/`・フックの本文から、BSD と GNU で挙動が違う書き方を見つける静的検査を作る。対象の例: 拡張子なしの `sed -i`、`grep -P`、`date -d`、`readlink -f`、`stat -c`、`xargs -r`。
-2. `tests/scripts-no-undef.test.mjs` と同じく npm test に載せる。
-3. 今ある該当箇所を直す。
-
-**完了条件**: 検査が対象ファイル数と検出数を出し、検出 0 件。わざと `sed -i "s/a/b/" f` を入れたテストが落ちる。
 
 
 ### [DN-0521] 上下水道ページの note 導線を公開4週間後に配置別CTRで評価する
