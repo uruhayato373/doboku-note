@@ -73,6 +73,8 @@ const ContentTaxonomyBaseline = z
     unknownTags: z.array(z.unknown()),
     aliasUsage: z.record(text, z.unknown()),
     structuralMismatch: z.array(z.unknown()),
+    // テーマへの所属が要るのにどのテーマにも属さない記事（slug 集合・content-taxonomy.md §6-2）
+    topicless: z.array(z.string()),
   })
   .strict();
 

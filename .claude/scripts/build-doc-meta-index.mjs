@@ -20,10 +20,14 @@ import { buildAliasMap, normalizeTags } from '../../scripts/lib/content-taxonomy
 import { collectPublishedDocs } from '../../scripts/lib/published-docs.mjs';
 import { writeJsonIfChanged } from '../../scripts/lib/write-generated.mjs';
 import { REPO_ROOT as ROOT } from '../../scripts/lib/repository-paths.mjs';
+import { readDataset } from '../../scripts/lib/dataset-io.mjs';
+import { articleLaws } from '../../src/lib/egov-links.mjs';
 
 const TAG_ALIASES = buildAliasMap(JSON.parse(readFileSync(join(ROOT, 'src/config/tags.json'), 'utf8')));
 const OUT_PATH = join(ROOT, 'src/config/doc-meta-index.json');
 const CI_MODE = process.argv.includes('--ci');
+// 記事が引く法令（本文の e-Gov へのリンク）。記事末の「同じ法令を扱う記事」が読む（content-taxonomy.md §6-3）
+const EGOV_LAWS = readDataset(ROOT, 'config.egov-laws').laws;
 
 // MDX の列挙・slug 規則（Convention A/B）・published: false の除外は
 // scripts/lib/published-docs.mjs が唯一の実装（テストも同じ関数で MDX を直接読む）。
@@ -103,6 +107,10 @@ function main() {
         gitFallbackFiles.push({ slug, relPath });
       }
     }
+
+    // 法令の ID（e-Gov の写しにある法令だけ・本文に初めて出た順）。法令はタグにしない（05_情報アーキテクチャ.md「法令ページ」）
+    const lawIds = articleLaws(readFileSync(filePath, 'utf8'), EGOV_LAWS).map((law) => law.lawId);
+    if (lawIds.length) meta.lawIds = lawIds;
 
     docs[slug] = meta;
 

@@ -177,7 +177,7 @@
   {
     "name": "専門土木",
     "slug": "specialized-civil",
-    "class": "topical"
+    "class": "qualification"
   },
   {
     "name": "鋼構造物",
@@ -248,17 +248,19 @@
   {
     "name": "参考資料",
     "slug": "reference",
-    "class": "topical"
+    "class": "learning"
   },
   {
     "name": "近畿地整 設計便覧",
     "slug": "kinki-design-manual",
-    "class": "topical"
+    "class": "topical",
+    "noTopic": "source"
   },
   {
     "name": "兵庫県 共通仕様書",
     "slug": "hyogo-common-specs",
-    "class": "topical"
+    "class": "topical",
+    "noTopic": "source"
   },
   {
     "name": "港湾",
@@ -313,7 +315,8 @@
   {
     "name": "国土交通白書",
     "slug": "mlit-whitepaper",
-    "class": "topical"
+    "class": "topical",
+    "noTopic": "source"
   },
   {
     "name": "5管理",
@@ -346,7 +349,8 @@
   {
     "name": "トレードオフ",
     "slug": "tradeoff",
-    "class": "topical"
+    "class": "topical",
+    "noTopic": "method"
   },
   {
     "name": "インフラ老朽化",
@@ -627,27 +631,32 @@
   {
     "name": "地方公共団体",
     "slug": "local-government",
-    "class": "topical"
+    "class": "topical",
+    "noTopic": "audience"
   },
   {
     "name": "ゼネコン",
     "slug": "general-contractor",
-    "class": "topical"
+    "class": "topical",
+    "noTopic": "org"
   },
   {
     "name": "建設コンサル",
     "slug": "construction-consultant",
-    "class": "topical"
+    "class": "topical",
+    "noTopic": "org"
   },
   {
     "name": "施工",
     "slug": "construction",
-    "class": "topical"
+    "class": "topical",
+    "noTopic": "generic"
   },
   {
     "name": "SWOT分析",
     "slug": "swot",
-    "class": "topical"
+    "class": "topical",
+    "noTopic": "method"
   },
   {
     "name": "コンパクトシティ",
@@ -665,7 +674,8 @@
   {
     "name": "少子高齢化",
     "slug": "aging-society",
-    "class": "topical"
+    "class": "topical",
+    "noTopic": "generic"
   },
   {
     "name": "生産性向上",
@@ -798,6 +808,28 @@
     "class": "topical",
     "aliases": [
       "calculation"
+    ]
+  },
+  {
+    "name": "橋梁",
+    "slug": "bridge",
+    "class": "topical",
+    "aliases": [
+      "鋼橋",
+      "橋"
+    ]
+  },
+  {
+    "name": "構造力学",
+    "slug": "structural-mechanics",
+    "class": "topical"
+  },
+  {
+    "name": "水理",
+    "slug": "hydraulics",
+    "class": "topical",
+    "aliases": [
+      "水理学"
     ]
   }
 ]

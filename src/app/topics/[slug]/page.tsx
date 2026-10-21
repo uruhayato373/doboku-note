@@ -10,7 +10,9 @@ import { getAreaLabel, getCategoryArea } from '@/lib/content-taxonomy';
 import { getOgpDisplayUrl } from '@/lib/r2-image-loader';
 import StandardDocumentCard from '@/components/standards/StandardDocumentCard';
 import { buildPageMetadata } from '@/lib/metadata';
-import { getAllTopics, getTopicBySlug, getTopicDocs, getTopicStandards } from '@/lib/topics';
+import Link from 'next/link';
+import TopicIcon from '@/components/topics/TopicIcon';
+import { getAllTopics, getRelatedTopics, getTopicBySlug, getTopicDocs, getTopicStandards, isTopicIndexable } from '@/lib/topics';
 import AffiliateSlot from '@/components/ui/AffiliateSlot/AffiliateSlot';
 
 type Params = { slug: string };
@@ -28,6 +30,8 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
         title: topic.seoTitle ?? `${topic.label}｜試験・実務・基準を横断`,
         description: topic.description,
         path: `/topics/${topic.slug}`,
+        // 育成中のテーマは昇格基準（content-taxonomy.md §6）を満たすまで検索に出さない。サイトマップも out/ の robots を見て外す
+        noindex: !isTopicIndexable(topic),
       })
     : { title: 'テーマが見つかりません', robots: { index: false, follow: false } };
 }
@@ -37,6 +41,7 @@ export default async function TopicPage({ params }: { params: Promise<Params> })
   if (!topic) notFound();
   const docs = getTopicDocs(topic);
   const standards = getTopicStandards(topic);
+  const relatedTopics = getRelatedTopics(topic);
   const areaLabels: Record<TopicArea, string> = { exam: getAreaLabel('exam'), practice: getAreaLabel('practice'), standards: getAreaLabel('standards') };
   const areaCount = (area: TopicArea) => docs.filter(doc => getCategoryArea(String(doc.category)) === area).length;
   const areaNav = (['exam', 'practice', 'standards'] as TopicArea[])
@@ -70,6 +75,7 @@ export default async function TopicPage({ params }: { params: Promise<Params> })
           </nav>
         )}
         <h2 className="mb-6 font-serif text-2xl font-bold text-(--ink)">試験対策・実務ノート</h2>
+        <div data-cta="nav" data-cta-label="topic-page">
         <TopicArticles articles={docs.map(doc => ({
           href: getPublicDocPath(doc.slug), title: doc.shortTitle || doc.title,
           description: doc.subtitle || doc.description || '', category: String(doc.category),
@@ -77,6 +83,7 @@ export default async function TopicPage({ params }: { params: Promise<Params> })
           categoryOrder: getCategoryBySlug(String(doc.category))?.order ?? 999, area: getCategoryArea(String(doc.category)),
           kind: doc.category === 'civil-practice' ? '実務' : doc.category === 'concrete-engineer' && doc.group === 'primary' ? '演習' : ({guide:'受験ガイド', textbook:'テキスト', keyword:'用語', primary:'過去問', secondary:'過去問', 'past-exam':'過去問', pillar:'まとめ'}[String(doc.group)] ?? '解説'),
         }))} areaLabels={areaLabels} />
+        </div>
       </SectionBlock>
       {standards.length > 0 && (
         <SectionBlock divider="top" ariaLabel="関連する基準資料">
@@ -84,6 +91,26 @@ export default async function TopicPage({ params }: { params: Promise<Params> })
           <div className="grid gap-4 lg:grid-cols-2">
             {standards.map((document) => <StandardDocumentCard key={`${document.agencyId}-${document.documentId}`} document={document} />)}
           </div>
+        </SectionBlock>
+      )}
+      {relatedTopics.length > 0 && (
+        <SectionBlock divider="top" ariaLabel="関連するテーマ">
+          <h2 className="mb-2 font-serif text-2xl font-bold text-(--ink)">関連するテーマ</h2>
+          <p className="mb-6 text-sm text-(--ink-muted)">このテーマの記事が一緒に扱っているテーマです。</p>
+          <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4" data-cta="nav" data-cta-label="topic-related">
+            {relatedTopics.map(({ topic: related, shared }) => (
+              <li key={related.slug}>
+                <Link
+                  href={`/topics/${related.slug}`}
+                  className="focus-ring card-interactive block h-full border border-(--rule-soft) bg-(--paper) p-4 transition-[border-color,box-shadow] hover:border-(--accent) dark:border-(--rule-soft)"
+                >
+                  <TopicIcon slug={related.slug} />
+                  <span className="block font-serif text-base font-bold text-(--ink)">{related.label}</span>
+                  <span className="mt-1 block text-[13px] text-(--ink-muted)">共通の記事 {shared}件</span>
+                </Link>
+              </li>
+            ))}
+          </ul>
         </SectionBlock>
       )}
       {/* 転職の案内（ページ末に 1 枠。案件は配置ルール） */}

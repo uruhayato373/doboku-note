@@ -19,5 +19,26 @@
     "career": { "requiresGroup": "guide", "note": "転職・キャリア記事。isCareerDoc() の真実源。学習系の一覧から除外される" },
     "模範論文": { "requiresGroup": null, "note": "一覧・カテゴリページから非表示（DocPage/CategoryPage が読む）" }
   },
-  "tagClasses": ["structural", "flag", "qualification", "topical", "learning"]
+  "tagClasses": ["structural", "flag", "qualification", "topical", "learning"],
+  "topicFacets": {
+    "field": { "label": "分野・工種", "note": "コンクリート・道路・河川・港湾など、構造物と工種のまとまり" },
+    "management": { "label": "施工管理・マネジメント", "note": "工程・品質・安全・環境・維持管理と、総監の 5 管理" },
+    "law": { "label": "法令・制度", "note": "関係法令と行政の手続き。個々の法令は記事本文の e-Gov へのリンクから集める（タグにしない）" }
+  },
+  "topicStatuses": {
+    "hub": { "label": "公開ハブ", "index": true, "note": "昇格基準（content-taxonomy.md §6）を満たす。検索に出し、サイトマップに載せる" },
+    "incubating": { "label": "育成中", "index": false, "note": "基準を満たすまで noindex・サイトマップ外。ページと記事からのリンクは出す" }
+  },
+  "topicPromotion": {
+    "note": "昇格基準 (2)。方向ごとの件数が閾値以上なら「埋まった」とし、埋まった方向が minDirections 以上なら公開ハブにできる。判定は check-content-taxonomy の WARN（自動では切り替えない）",
+    "minDirections": 2,
+    "thresholds": { "exam": 5, "practice": 1, "standards": 1 }
+  },
+  "noTopicReasons": {
+    "audience": "読み手・シリーズの主題（自治体の土木担当など）。分野のタグと一緒に付ける",
+    "org": "組織・業態（ゼネコン・建設コンサル）",
+    "source": "出典・資料の名前（白書・便覧・仕様書）",
+    "method": "考え方・分析の手法（トレードオフ・SWOT分析）",
+    "generic": "広すぎて 1 つのテーマに束ねられない語"
+  }
 }

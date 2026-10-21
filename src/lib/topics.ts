@@ -1,11 +1,20 @@
 import topicsJson from '@/config/topics.json';
+import taxonomyJson from '@/config/content-taxonomy.json';
 import { getAllDocsMeta, type DocMeta } from '@/lib/docs';
 import { getStandardDocuments, type StandardDocument } from '@/lib/standards';
 import { canonicalTag } from '@/lib/content-taxonomy';
+import { topicsOfDoc } from '@/lib/topic-membership.mjs';
+
+/** テーマの軸（content-taxonomy.json の topicFacets）。分野・工種／施工管理・マネジメント／法令・制度 */
+export type TopicFacet = 'field' | 'management' | 'law';
+/** hub＝昇格基準を満たす公開ハブ（検索に出す）／incubating＝育成中（noindex・サイトマップ外。リンクは出す） */
+type TopicStatus = 'hub' | 'incubating';
 
 export type Topic = {
   slug: string;
   label: string;
+  facet: TopicFacet;
+  status: TopicStatus;
   /** 検索クエリに合わせた title（無ければ label から組み立てる）。title template の suffix は含めない */
   seoTitle?: string;
   description: string;
@@ -24,9 +33,22 @@ export type Topic = {
 };
 
 const topics = topicsJson as Topic[];
+const facets = (taxonomyJson as { topicFacets: Record<TopicFacet, { label: string }> }).topicFacets;
 
 export function getAllTopics(): Topic[] {
   return topics;
+}
+
+/** 軸ごとのテーマ（content-taxonomy.json の topicFacets の順）。/topics の一覧が使う */
+export function getTopicsByFacet(): { facet: TopicFacet; label: string; topics: Topic[] }[] {
+  return (Object.keys(facets) as TopicFacet[])
+    .map((facet) => ({ facet, label: facets[facet].label, topics: topics.filter((topic) => topic.facet === facet) }))
+    .filter(({ topics: list }) => list.length > 0);
+}
+
+/** 検索に出すテーマか（育成中は noindex。content-taxonomy.md §6） */
+export function isTopicIndexable(topic: Topic): boolean {
+  return topic.status === 'hub';
 }
 
 export function getTopicBySlug(slug: string): Topic | null {
@@ -39,14 +61,21 @@ export function getTopicPathForTag(tag: string): string | null {
   return topic ? `/topics/${topic.slug}` : null;
 }
 
-/** 記事がテーマに属するか（明示 `topics:` ／ カテゴリ丸ごと ／ タグ一致。タグは canonical で照合） */
+// 記事 → 所属テーマの slug。判定は検査・報告と同じ src/lib/topic-membership.mjs。ビルド中は全記事で何度も引くので slug で覚える
+const docTopicCache = new Map<string, string[]>();
+
+/** 記事が属するテーマ（明示 `topics:` → カテゴリ丸ごと → タグ一致の順） */
+export function getDocTopics(doc: DocMeta): Topic[] {
+  let slugs = docTopicCache.get(doc.slug);
+  if (!slugs) {
+    slugs = topicsOfDoc(doc, topics, canonicalTag);
+    docTopicCache.set(doc.slug, slugs);
+  }
+  return slugs.map((slug) => topics.find((topic) => topic.slug === slug)).filter((topic): topic is Topic => Boolean(topic));
+}
+
 function isDocInTopic(doc: DocMeta, topic: Topic): boolean {
-  if (doc.published === false) return false;
-  const explicit = doc.topics;
-  if (Array.isArray(explicit) && explicit.includes(topic.slug)) return true;
-  if ((topic.categories ?? []).includes(String(doc.category))) return true;
-  const tags = new Set(topic.tags.map(canonicalTag));
-  return (doc.tags ?? []).some((tag) => tags.has(canonicalTag(tag)));
+  return getDocTopics(doc).some((t) => t.slug === topic.slug);
 }
 
 export function getTopicDocs(topic: Topic): DocMeta[] {
@@ -55,6 +84,23 @@ export function getTopicDocs(topic: Topic): DocMeta[] {
   return getAllDocsMeta()
     .filter((doc) => isDocInTopic(doc, topic))
     .sort((a, b) => rank(a) - rank(b) || String(b.dateModified ?? b.updatedAt ?? '').localeCompare(String(a.dateModified ?? a.updatedAt ?? '')));
+}
+
+/**
+ * 記事をよく共有するテーマ（テーマページの「関連するテーマ」）。共有する記事の数の多い順。
+ * 同じ記事に 2 つのテーマが付いていれば、読み手はもう片方も探しに行く、という考え方。
+ */
+export function getRelatedTopics(topic: Topic, limit = 4): { topic: Topic; shared: number }[] {
+  const shared = new Map<string, number>();
+  for (const doc of getTopicDocs(topic)) {
+    for (const other of getDocTopics(doc)) {
+      if (other.slug !== topic.slug) shared.set(other.slug, (shared.get(other.slug) ?? 0) + 1);
+    }
+  }
+  return [...shared.entries()]
+    .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
+    .slice(0, limit)
+    .map(([slug, count]) => ({ topic: getTopicBySlug(slug)!, shared: count }));
 }
 
 export function getTopicStandards(topic: Topic): StandardDocument[] {

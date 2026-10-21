@@ -5,6 +5,7 @@ import { join, relative } from 'node:path';
 import matter from 'gray-matter';
 import { pathToFileURL } from 'node:url';
 import { buildAliasMap, normalizeTags } from './lib/content-taxonomy.mjs';
+import { topicsOfDoc } from '../src/lib/topic-membership.mjs';
 import { REPO_ROOT } from './lib/repository-paths.mjs';
 
 // 地方 10 機関＋本省（2026-10-14 に施工管理基準の本省版を追加・DN-0393）
@@ -33,6 +34,8 @@ export function auditTopicWiring(root = REPO_ROOT) {
   const topicSlugs = new Set();
   const topicTags = new Map();
   const documentRefs = new Set(catalog.documents.map((document) => `${document.agencyId}/${document.documentId}`));
+  // featured（入口記事）は公開中の記事を指す。消した・非公開にした記事が先頭に残ると一覧から黙って消える
+  const metaIndex = JSON.parse(readFileSync(join(root, 'src/config/doc-meta-index.json'), 'utf8')).docs ?? {};
 
   for (const topic of topics) {
     if (!topic.slug || topicSlugs.has(topic.slug)) issues.push(`topic slug が空または重複: ${topic.slug || '(empty)'}`);
@@ -47,6 +50,8 @@ export function auditTopicWiring(root = REPO_ROOT) {
     }
     for (const t of topic.featured ?? []) {
       if (typeof t !== 'string' || !t) issues.push(`${topic.slug}: featured に空の slug`);
+      else if (!metaIndex[t] || metaIndex[t].published === false) issues.push(`${topic.slug}: featured「${t}」は公開中の記事に無い`);
+      else if (!topicsOfDoc({ ...metaIndex[t], tags: (metaIndex[t].tags ?? []).map(canon) }, [topic], canon).length) issues.push(`${topic.slug}: featured「${t}」はこのテーマに属さない（タグか topics: を付ける）`);
     }
     for (const ref of topic.featuredStandardRefs ?? []) {
       if (!documentRefs.has(ref)) issues.push(`${topic.slug}: 存在しない featuredStandardRefs: ${ref}`);
@@ -71,7 +76,7 @@ export function auditTopicWiring(root = REPO_ROOT) {
     const tags = normalizeTags(data.tags, aliasMap).tags;
     const explicit = Array.isArray(data.topics) ? data.topics : [];
     for (const t of explicit) if (!topicSlugs.has(t)) issues.push(`${relative(root, file)}: topics「${t}」は topics.json に無い`);
-    if (explicit.length || tags.some((tag) => topicTags.has(tag))) guidesWithTopic += 1;
+    if (topicsOfDoc({ category: data.category, tags, topics: data.topics }, topics, canon).length) guidesWithTopic += 1;
     else issues.push(`${relative(root, file)}: 公開実務ガイドにtopic接続タグがない`);
   }
 
