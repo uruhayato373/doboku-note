@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "description": "記事がリンクする e-Gov の法令と、参考文献の台帳が指す法令の写し（法令 ID・題名・法令番号・最新の改正の施行日・本則の条）。npm run egov-laws -- --sync が書く",
+  "description": "記事がリンクする e-Gov の法令と、法令ページ・参考文献の台帳・計画・施策の台帳が指す法令の写し（法令 ID・題名・法令番号・最新の改正の施行日・本則の条）。npm run egov-laws -- --sync が書く",
   "fetchedAt": "2026-10-16T04:02:43Z",
   "laws": {
     "129AC0000000089": {
