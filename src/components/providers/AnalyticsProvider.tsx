@@ -138,7 +138,7 @@ export default function AnalyticsProvider() {
     return () => document.removeEventListener("toggle", onToggle, { capture: true });
   }, [pathname]);
 
-  // CTA の50%以上が見えた時点を計測。EXP-019 は画像の有無でカードの高さが違うため、
+  // CTA の50%以上が見えた時点を計測。アフィリの意匠実験（EXP-038）は案でカードの高さが違うため、
   // 共通の見出し領域を観測する。案の確定前の SSR 表示は数えない。
   // visible impression として送る。配置ごとのクリック数をページ訪問数で割るのではなく、
   // 実際に見えた回数を分母にして CTR を比較する。同じ要素はページ滞在中 1 回だけ。
