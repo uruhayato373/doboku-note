@@ -151,20 +151,19 @@ jobs:
         with:
           service: ${{ matrix.service }}
 
-      # note・ココナラ・KDP・A8・もしもは暗号化 state が切れていたら、Secrets の ID/PW で 1 回だけ入り直す（2026-10-01 オーナー決定。KDP は試行・DN-0480、A8 は DN-0481、もしもは DN-0483）。
+      # note・ココナラ・A8・もしもは暗号化 state が切れていたら、Secrets の ID/PW で 1 回だけ入り直す（2026-10-01 オーナー決定。A8 は DN-0481 で継続、もしもは DN-0483）。
+      # KDP は 10/16 に入り直しが login_failed、同じ日に手元の自動ログインも止まったので 2026-10-21 に外した（DN-0480）。
       # afb は state を別プロセスへ持ち出せないので、ここでは入らず afb の step（openAsp）の中でログインする（DN-0484）。
       # 2FA・CAPTCHA は突破しない（human_required で止まり、下の Issue に載る）。Secrets はこの step の env にだけ渡す。
-      - name: Re-login with Secrets (note / coconala / kdp / a8 / moshimo)
+      - name: Re-login with Secrets (note / coconala / a8 / moshimo)
         id: relogin
-        if: (matrix.service == 'note' || matrix.service == 'coconala' || matrix.service == 'kdp' || matrix.service == 'a8' || matrix.service == 'moshimo') && steps.restore.outputs.status != 'authenticated' && matrix.mode != 'probe-only'
+        if: (matrix.service == 'note' || matrix.service == 'coconala' || matrix.service == 'a8' || matrix.service == 'moshimo') && steps.restore.outputs.status != 'authenticated' && matrix.mode != 'probe-only'
         continue-on-error: true
         env:
           DOBOKU_AUTH_NOTE_USER: ${{ secrets.DOBOKU_AUTH_NOTE_USER }}
           DOBOKU_AUTH_NOTE_PASSWORD: ${{ secrets.DOBOKU_AUTH_NOTE_PASSWORD }}
           DOBOKU_AUTH_COCONALA_USER: ${{ secrets.DOBOKU_AUTH_COCONALA_USER }}
           DOBOKU_AUTH_COCONALA_PASSWORD: ${{ secrets.DOBOKU_AUTH_COCONALA_PASSWORD }}
-          DOBOKU_AUTH_KDP_USER: ${{ secrets.DOBOKU_AUTH_KDP_USER }}
-          DOBOKU_AUTH_KDP_PASSWORD: ${{ secrets.DOBOKU_AUTH_KDP_PASSWORD }}
           DOBOKU_AUTH_A8_USER: ${{ secrets.DOBOKU_AUTH_A8_USER }}
           DOBOKU_AUTH_A8_PASSWORD: ${{ secrets.DOBOKU_AUTH_A8_PASSWORD }}
           DOBOKU_AUTH_MOSHIMO_USER: ${{ secrets.DOBOKU_AUTH_MOSHIMO_USER }}
