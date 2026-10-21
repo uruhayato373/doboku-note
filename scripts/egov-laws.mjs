@@ -5,7 +5,8 @@
  *
  * 使い方: npm run egov-laws [-- --sync | --drift]
  *   （既定）  手元の写しと照合する（通信しない・CI）。記事のリンクの法令 ID と条、台帳の法令の egov を見る
- *   --sync   記事がリンクする法令と台帳の法令を e-Gov 法令 API から取り直して写しを書く
+ *   --sync   記事がリンクする法令・法令ページの法令（lawId・lawFamily）・参考文献と計画・施策の台帳の法令を
+ *            e-Gov 法令 API から取り直して写しを書く（どこからも指されない法令は写しから消える）
  *   --drift  写しより後に改正が施行された法令と、それにリンクする記事を出す（通信する・ops）。
  *            改正を記事に反映したら --sync で写しを進める
  *
@@ -19,7 +20,8 @@ import { readDataset, readDatasetIf } from './lib/dataset-io.mjs';
 import { writeDataset } from './lib/dataset-write.mjs';
 import { fetchFailDominant } from './lib/inconclusive-gate.mjs';
 import { readFileSync } from 'node:fs';
-import { egovLinksOf, fetchEgovLaw, linkIssues, registryIssues, amendedSince } from './lib/egov-laws.mjs';
+import matter from 'gray-matter';
+import { egovLinksOf, fetchEgovLaw, linkIssues, registryIssues, amendedSince, referencedLawIds } from './lib/egov-laws.mjs';
 
 const NAME = 'egov-laws';
 const args = parseCliArgs({ sync: { type: 'boolean' }, drift: { type: 'boolean' } });
@@ -35,10 +37,12 @@ else if (args.drift) drift();
 else check();
 
 function referencedIds() {
-  const ids = new Set();
-  for (const f of files) for (const l of egovLinksOf(readFileSync(f.abs, 'utf8'))) ids.add(l.lawId);
-  for (const s of sources) if (s.egov?.lawId) ids.add(s.egov.lawId);
-  return [...ids].sort();
+  const docs = files.map((f) => {
+    const text = readFileSync(f.abs, 'utf8');
+    return { text, data: matter(text).data };
+  });
+  const policies = readDatasetIf(REPO_ROOT, 'config.policy-registry')?.policies ?? [];
+  return referencedLawIds({ docs, sources, policies });
 }
 
 function fetchAll(ids) {
@@ -66,7 +70,7 @@ function sync() {
   }
   writeDataset(REPO_ROOT, 'config.egov-laws', {
     schemaVersion: 1,
-    description: '記事がリンクする e-Gov の法令と、参考文献の台帳が指す法令の写し（法令 ID・題名・法令番号・最新の改正の施行日・本則の条）。npm run egov-laws -- --sync が書く',
+    description: '記事がリンクする e-Gov の法令と、法令ページ・参考文献の台帳・計画・施策の台帳が指す法令の写し（法令 ID・題名・法令番号・最新の改正の施行日・本則の条）。npm run egov-laws -- --sync が書く',
     fetchedAt: new Date().toISOString().replace(/\.\d{3}Z$/, 'Z'),
     laws,
   });

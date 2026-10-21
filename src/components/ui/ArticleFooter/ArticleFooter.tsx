@@ -4,6 +4,7 @@ import { type ReferenceItem } from '@/lib/extract-references';
 import { type ResolvedPlacement } from '@/lib/affiliate-placement';
 import CareerNextStepNav from '@/components/ui/CareerNextStepNav/CareerNextStepNav';
 import ExternalReferences from '@/components/ui/ExternalReferences/ExternalReferences';
+import ArticleLaws, { type ArticleLaw } from '@/components/ui/ArticleLaws/ArticleLaws';
 import PastExamBacklinks from '@/components/ui/PastExamBacklinks/PastExamBacklinks';
 import PeConstructionSubjectLinks from '@/components/ui/PeConstructionSubjectLinks';
 import SectionKeywords from '@/components/ui/SectionKeywords';
@@ -18,6 +19,9 @@ import CategoryNavCard from '@/components/ui/CategoryNavCard/CategoryNavCard';
 import FAQCard from '@/components/ui/FAQCard/FAQCard';
 import SidebarAdBanner from '@/components/ui/SidebarAdBanner/SidebarAdBanner';
 import RelatedArticles from '@/components/ui/RelatedArticles';
+import TopicHubLinks from '@/components/ui/TopicHubLinks/TopicHubLinks';
+import { resolveArticleEnd } from '@/lib/law-wiring';
+import LawPageSections from '@/components/laws/LawPageSections';
 import NextStepNav from '@/components/ui/NextStepNav/NextStepNav';
 import AuthorCard from '@/components/ui/AuthorCard/AuthorCard';
 import RelatedTools from '@/components/ui/RelatedTools';
@@ -31,6 +35,8 @@ interface ArticleFooterProps {
   /** 記事末バナーに付ける A8 計測ピクセル。本文側で既に 1 発出すページは undefined（1 ページ 1 ピクセル）。 */
   readonly careerPixelSrc?: string | undefined;
   readonly references: ReferenceItem[];
+  /** 本文の e-Gov へのリンクから集めた根拠法令（DN-0731）。無ければ出さない */
+  readonly laws?: readonly ArticleLaw[];
   readonly category: DocMeta['category'];
   readonly docGroup: DocGroupKey;
   readonly slugStr: string;
@@ -61,6 +67,7 @@ export default function ArticleFooter({
   endBanner: endBannerAd = null,
   careerPixelSrc,
   references,
+  laws = [],
   category,
   docGroup,
   slugStr,
@@ -79,6 +86,8 @@ export default function ArticleFooter({
   // pixelSrc は DocPage が渡すときだけ付ける（本文に転職広告が無いページで唯一の発火源＝1 ページ 1 ピクセル）。
   // キャリア記事の記事末は内部導線（CareerNextStepNav）に置き換える（2026-08-21・記事末 975 表示 0 クリック）。
   const isCareer = isCareerDoc(meta);
+  // 記事末の回遊（content-taxonomy.md §6-3）。法令 → テーマ → 関連記事の順に出し、先に出した記事は後ろから外す
+  const { lawSiblings, lawTopics, lawPageLinks, lawPage, topicLinks, shownSlugs } = resolveArticleEnd(meta, laws.map((law) => law.lawId), relatedArticles);
   const endBanner = endBannerAd ? (
     <SidebarAdBanner
       href={endBannerAd.banner.href}
@@ -94,6 +103,7 @@ export default function ArticleFooter({
 
   return (
     <>
+      {lawPage && <LawPageSections data={lawPage} />}
       {!isCareer && category && <RelatedTools category={category} slug={slugStr} />}
       {/* 参考資料カード（## 参考資料 セクションを抽出したもの。全カテゴリ共通） */}
       {references.length > 0 && (
@@ -101,11 +111,17 @@ export default function ArticleFooter({
           <ExternalReferences references={references} />
         </div>
       )}
+      {/* この記事の根拠法令（本文の e-Gov へのリンクから自動で集める・DN-0731） */}
+      {laws.length > 0 && (
+        <div className="mt-8">
+          <ArticleLaws laws={laws} siblings={lawSiblings} lawTopics={lawTopics} pageLinks={lawPageLinks} />
+        </div>
+      )}
 
       {/* 実務記事: 業務経験 → 資格の橋渡し（非受験層の入口・本文には試験文脈を入れない）。 */}
       {shouldShowQualificationBridge(category, slugStr) && (
         <div className="mt-8">
-          <QualificationBridge placement="practice-footer" />
+          <QualificationBridge placement="practice-footer" audience={meta.tags?.includes('地方公共団体') ? 'municipal' : undefined} />
         </div>
       )}
 
@@ -246,9 +262,16 @@ export default function ArticleFooter({
       {/* 記事末の転職カードは、もくじタイルと並べるため上部（footerMokuji の位置）へ移動した
           （2026-07-28）。FAQ 直後のこの位置には置かない。 */}
 
-      {/* 関連記事（全記事共通・記事末 AuthorCard の前）。関連 2 件未満なら自動で非表示。 */}
+      {/* この記事のテーマ（分野・施工管理・法令の軸のテーマへ。他の資格・実務の記事を添える）。キャリア記事には出さない */}
+      {topicLinks.length > 0 && (
+        <div className="mt-8">
+          <TopicHubLinks links={topicLinks} />
+        </div>
+      )}
+
+      {/* 関連記事（全記事共通・記事末 AuthorCard の前）。関連 2 件未満なら自動で非表示。上の 2 枚で出した記事は外す */}
       <div className="mt-8">
-        <RelatedArticles currentMeta={meta} categoryArticles={relatedArticles} />
+        <RelatedArticles currentMeta={meta} categoryArticles={relatedArticles} exclude={shownSlugs} />
       </div>
 
       {/* 執筆者・最終更新日（全記事共通・E-A-T 強化） */}

@@ -46,7 +46,7 @@ export function normalizeTargetPath(input, legacyRoutes) {
   if (!p) return null;
   // Git Bash（MSYS）は "/exam/..." のような引数を "C:/Program Files/Git/exam/..." に書き換えて渡す。
   // そのまま送ると存在しない URL を GSC に検査させるので、サイトのルート直前までを剥がす。
-  p = p.replace(/^[A-Za-z]:\/(?:[^/]+\/)*?Git(?=\/(?:exam|practice|standards|topics|tools|docs|category)\/)/, "");
+  p = p.replace(/^[A-Za-z]:\/(?:[^/]+\/)*?Git(?=\/(?:exam|practice|standards|topics|laws|tools|docs|category)\/)/, "");
   p = p.replace(/^https?:\/\/[^/]+/, "");
   if (!p.startsWith("/")) p = `/docs/${p}`;
   p = p.replace(/[?#].*$/, "");

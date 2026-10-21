@@ -39,9 +39,10 @@
 //   node .claude/scripts/build-civil-exam-textbook-index.mjs --verbose
 //   node .claude/scripts/build-civil-exam-textbook-index.mjs --dry-run     # 書き出さない
 
-import { readFileSync, writeFileSync, readdirSync, statSync, mkdirSync, existsSync } from 'node:fs';
+import { readFileSync, readdirSync, statSync, mkdirSync, existsSync } from 'node:fs';
 import { join, resolve, dirname } from 'node:path';
 import matter from 'gray-matter';
+import { writeJsonIfChanged } from '../../scripts/lib/write-generated.mjs';
 
 const VERBOSE = process.argv.includes('--verbose');
 const DRY_RUN = process.argv.includes('--dry-run');
@@ -255,6 +256,22 @@ function buildIndex(base, categoryLabel) {
   return result;
 }
 
+// 書き出すのは読み手（PastExamBacklinks・RelatedTextbooks）が使う項目だけ（kwHits・sampleTokens は --verbose の確認用）。
+// 中身が前と同じなら書かない（refresh-indexes のたびに生成日時 generated_at だけの差分を出さない・DN-0691）
+function writeIndex(outPath, { meta: { generatedAt, ...meta }, ...result }) {
+  const slim = {
+    generated_at: generatedAt,
+    ...result,
+    meta,
+    questionToTextbooks: Object.fromEntries(Object.entries(result.questionToTextbooks).map(([exam, sections]) => [
+      exam,
+      Object.fromEntries(Object.entries(sections).map(([section, matches]) => [section, matches.map(({ slug, title, score }) => ({ slug, title, score }))])),
+    ])),
+  };
+  mkdirSync(dirname(outPath), { recursive: true });
+  return writeJsonIfChanged(outPath, slim);
+}
+
 function processCategory({ category, outFile }) {
   const base = resolve(`content/site/${category}`);
   const outPath = resolve(`src/config/${outFile}`);
@@ -274,10 +291,7 @@ function processCategory({ category, outFile }) {
         note: `${category} ディレクトリ未存在のため空。コンテンツ投入後に再生成される`,
       },
     };
-    if (!DRY_RUN) {
-      mkdirSync(dirname(outPath), { recursive: true });
-      writeFileSync(outPath, JSON.stringify(emptyResult, null, 2), 'utf-8');
-    }
+    if (!DRY_RUN) writeIndex(outPath, emptyResult);
     console.log(`[${category}] skipped (directory does not exist), wrote empty placeholder: ${outPath}`);
     return;
   }
@@ -306,9 +320,7 @@ function processCategory({ category, outFile }) {
     console.log(`[${category}] (--dry-run mode, no file written)`);
     return;
   }
-  mkdirSync(dirname(outPath), { recursive: true });
-  writeFileSync(outPath, JSON.stringify(result, null, 2), 'utf-8');
-  console.log(`[${category}] Written: ${outPath}`);
+  console.log(`[${category}] ${writeIndex(outPath, result) ? 'Written' : 'Unchanged'}: ${outPath}`);
 }
 
 function main() {

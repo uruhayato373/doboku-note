@@ -131,7 +131,7 @@ function getUrlMeta(urlPath, slug) {
   if (urlPath.startsWith('/category/')) {
     return { priority: '0.9', changefreq: 'weekly' };
   }
-  if (urlPath === '/exam' || urlPath === '/practice' || urlPath === '/standards' || urlPath === '/topics') {
+  if (urlPath === '/exam' || urlPath === '/practice' || urlPath === '/standards' || urlPath === '/topics' || urlPath === '/laws') {
     return { priority: '0.9', changefreq: 'weekly' };
   }
   if (/^\/exam\/[^/]+$/.test(urlPath) || /^\/standards\/[^/]+$/.test(urlPath) || /^\/topics\/[^/]+$/.test(urlPath)) {
@@ -148,6 +148,10 @@ function getUrlMeta(urlPath, slug) {
   // 長い章（一般施工など）を分けた節ページ。章ページは節の一覧になり、本文はここにある。
   if (/^\/standards\/[^/]+\/[^/]+\/chapters\/[^/]+\/sections\/[^/]+$/.test(urlPath)) {
     return { priority: '0.7', changefreq: 'yearly' };
+  }
+  // 法令ページ（/laws/<参考文献の id>・DN-0731）。法令の解説と、その法令を扱う記事・計画の束ね
+  if (/^\/laws\/[^/]+$/.test(urlPath)) {
+    return { priority: '0.8', changefreq: 'monthly' };
   }
   if (urlPath === '/search' || urlPath === '/_not-found') {
     return null;

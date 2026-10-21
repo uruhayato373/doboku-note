@@ -10,23 +10,15 @@
  */
 import { execFileSync } from 'node:child_process';
 import { readFileSync } from 'node:fs';
+import { egovLinksOf } from '../../src/lib/egov-links.mjs';
+
+// 記事のリンクの読み取りはサイトと共有の src/lib/egov-links.mjs だけに置く（DN-0731）
+export { egovLinksOf };
 
 export const EGOV_API = 'https://laws.e-gov.go.jp/api/2';
-/** 記事の e-Gov 法令検索へのリンク（法令 ID と、条のアンカー #Mp-At_<番号>）。 */
-const LINK = /https?:\/\/laws\.e-gov\.go\.jp\/law\/([0-9A-Z]+)(?:\/[^\s)"'#]*)?(?:#Mp-At_([0-9_]+))?/g;
-
 /** 参考文献の台帳で法令として扱う項目（e-Gov の法令 ID を持つべきもの）。 */
 export function isLawSource(source) {
   return source.class === 'external-primary' && (/-(act|order|rules)$/.test(source.id) || source.id === 'japan-constitution');
-}
-
-/** 本文の e-Gov へのリンクを行番号つきで拾う。 */
-export function egovLinksOf(text) {
-  const out = [];
-  text.split('\n').forEach((line, i) => {
-    for (const m of line.matchAll(LINK)) out.push({ lawId: m[1], article: m[2] ?? null, line: i + 1 });
-  });
-  return out;
 }
 
 const sleep = (ms) => Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, ms);
@@ -74,6 +66,23 @@ function fetchOnce(lawId) {
     enforced: d.revision_info?.amendment_enforcement_date ?? null,
     articles: [...new Set(articles)],
   };
+}
+
+/**
+ * --sync で写しに残す法令 ID。記事の e-Gov へのリンクのほか、法令ページの lawId・lawFamily（施行令・施行規則）、解説記事の explainsLaw、
+ * 参考文献の台帳の法令、計画・施策の台帳の根拠法令（basisLaws）も入れる。ここから漏れた法令は --sync で写しから消え、
+ * check-topic-wiring が「写しに無い」で赤になる（2026-10-21・水防法施行令と施行規則が lawFamily にだけあった）。
+ * @param {{ docs: Array<{ text: string, data?: { lawId?: string, lawFamily?: string[], explainsLaw?: string } }>, sources: object[], policies?: object[] }} input
+ */
+export function referencedLawIds({ docs, sources, policies = [] }) {
+  const ids = new Set();
+  for (const d of docs) {
+    for (const l of egovLinksOf(d.text)) ids.add(l.lawId);
+    for (const id of [d.data?.lawId, ...(d.data?.lawFamily ?? []), d.data?.explainsLaw]) if (id) ids.add(id);
+  }
+  for (const s of sources) if (s.egov?.lawId) ids.add(s.egov.lawId);
+  for (const p of policies) for (const id of p.basisLaws ?? []) ids.add(id);
+  return [...ids].sort();
 }
 
 /** 記事のリンクの違反（法令 ID が写しに無い・条が無い）。 */

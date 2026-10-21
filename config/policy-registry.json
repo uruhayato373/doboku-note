@@ -1,0 +1,1505 @@
+{
+  "schemaVersion": 1,
+  "description": "国の計画・施策・審議会の台帳。分野・立場のテーマのページと法令ページの「制度の地図」に、根拠法（config/egov-laws.json の法令 ID）とセットで出す。中身は一次資料（所管の公式ページ）で確かめたものだけを書き、checkedAt に確かめた日を残す。規則は .claude/knowledge/reference/content-taxonomy.md §6-3。",
+  "policies": [
+    {
+      "id": "road-council-2040-vision",
+      "kind": "council",
+      "title": "2040年、道路の景色が変わる ～人々の幸せにつながる道路～",
+      "shortTitle": "2040年、道路の景色が変わる",
+      "owner": "社会資本整備審議会 道路分科会 基本政策部会",
+      "decidedAt": "2020-06-18",
+      "basisLaws": [],
+      "topics": [
+        "roads",
+        "information-management",
+        "rivers-disaster-prevention",
+        "maintenance-asset-management"
+      ],
+      "summary": "2040年の日本社会の姿と、道路政策の方向性を提案する提言です。道路政策の原点を「人々の幸せの実現」に置き、デジタル技術で道路を「進化」させることと、人々の交流の場としての機能を「回帰」させることを基本的な考え方にしています。通勤・帰宅ラッシュの消滅、公園のような道路、移動の自動化・無人化、店舗の移動によるまちの変化、被災する道路から救援する道路への転換の5つの将来像を示しています。",
+      "url": "https://www.mlit.go.jp/road/vision/",
+      "checkedAt": "2026-10-21"
+    },
+    {
+      "id": "road-council-aging-recommendation-2014",
+      "kind": "council",
+      "title": "道路の老朽化対策の本格実施に関する提言",
+      "shortTitle": "老朽化対策の本格実施に関する提言",
+      "owner": "社会資本整備審議会 道路分科会（建議）",
+      "decidedAt": "2014-04-14",
+      "basisLaws": [],
+      "topics": [
+        "roads",
+        "maintenance-asset-management",
+        "municipal-civil-engineers"
+      ],
+      "summary": "道路インフラの老朽化に対し、点検・診断・措置・記録のメンテナンスサイクルを確定して道路管理者の義務を明確にすることと、そのサイクルを回すための予算・体制・民間の技術力・国民の理解の仕組みを整えることを提言しています。橋やトンネルについて、国が定める統一的な基準により5年に1度の近接目視で全数を監視することや、道路メンテナンス会議を設置することも盛り込んでいます。",
+      "url": "https://www.mlit.go.jp/road/road_fr4_000025.html",
+      "checkedAt": "2026-10-21"
+    },
+    {
+      "id": "road-council-trunk-network-interim-2023",
+      "kind": "council",
+      "title": "高規格道路ネットワークのあり方 中間とりまとめ ～経済成長と国土安全保障を実現するシームレスネットワークの構築～",
+      "shortTitle": "高規格道路ネットワークのあり方",
+      "owner": "社会資本整備審議会 道路分科会 国土幹線道路部会",
+      "decidedAt": "2023-10-31",
+      "basisLaws": [],
+      "topics": [
+        "roads",
+        "rivers-disaster-prevention",
+        "information-management"
+      ],
+      "summary": "2050年を見据えて、次世代の高規格道路ネットワークの役割や基本方針、構築にあたっての留意点を整理した中間とりまとめです。2050年までに世界一、賢く・安全で・持続可能な基盤ネットワークシステムを実現するとして、これを通称WISENETと呼んでいます。物流の新たな手段として自動物流道路を取り上げ、今後10年での実現に挑戦するとしています。",
+      "url": "https://www.mlit.go.jp/policy/shingikai/road01_sg_000661.html",
+      "checkedAt": "2026-10-21"
+    },
+    {
+      "id": "road-council-noto-urgent-proposal-2024",
+      "kind": "council",
+      "title": "令和６年能登半島地震を踏まえた緊急提言",
+      "shortTitle": "能登半島地震を踏まえた緊急提言",
+      "owner": "社会資本整備審議会 道路分科会 国土幹線道路部会",
+      "decidedAt": "2024-06-28",
+      "basisLaws": [],
+      "topics": [
+        "roads",
+        "rivers-disaster-prevention"
+      ],
+      "summary": "令和6年能登半島地震の教訓を踏まえ、防災の観点を中心に今後の道路ネットワークのあり方を整理した緊急提言です。地域安全保障のエッセンシャルネットワークの早期確立、拠点機能の強化、データ活用による災害時交通マネジメントの高度化、災害に備えた体制の強化、地域の新たな価値の創出につなげる道路空間の活用の5つを挙げています。今回の災害を地方部災害の典型事例として捉え、特に地方部における今後の道路政策の指針とするとしています。",
+      "url": "https://www.mlit.go.jp/policy/shingikai/road01_sg_000697.html",
+      "checkedAt": "2026-10-21"
+    },
+    {
+      "id": "infra-management-interim-report-2026",
+      "kind": "council",
+      "title": "「今後のインフラのマネジメントのあり方について」中間答申",
+      "shortTitle": "インフラマネジメント中間答申",
+      "owner": "社会資本整備審議会・交通政策審議会 技術分科会 技術部会（インフラマネジメント戦略小委員会）",
+      "decidedAt": "2026-10-20",
+      "basisLaws": [],
+      "topics": [
+        "roads",
+        "maintenance-asset-management",
+        "municipal-civil-engineers"
+      ],
+      "summary": "令和7年1月の埼玉県八潮市の道路陥没事故を踏まえて令和7年12月に諮問された事項について、インフラマネジメント戦略小委員会を中心に審議し、中間的にまとめた答申です。インフラの老朽化対策を「メンテナンス」から「マネジメント」へ戦略的に転換するための基本的な方向性と、重点的に講じる施策を整理しています。答申案の段階では、「メリハリ」の推進や「見える化」の徹底など5つの方策を示していました。",
+      "url": "https://www.mlit.go.jp/policy/shingikai/s204_management02.html",
+      "checkedAt": "2026-10-21"
+    },
+    {
+      "id": "social-infrastructure-priority-plan-6th",
+      "kind": "plan",
+      "title": "第６次社会資本整備重点計画",
+      "shortTitle": "第6次社会資本整備重点計画",
+      "owner": "閣議決定（国土交通省 総合政策局）",
+      "decidedAt": "2026-01-16",
+      "period": "令和12（2030）年度まで",
+      "basisLaws": [
+        "415AC0000000020"
+      ],
+      "topics": [
+        "roads",
+        "rivers-disaster-prevention",
+        "maintenance-asset-management",
+        "environment-decarbonization",
+        "municipal-civil-engineers"
+      ],
+      "summary": "社会資本整備重点計画法第4条に基づく計画で、令和8年1月16日に閣議決定され、第3次交通政策基本計画と一体で策定されました。計画期間は交通政策基本計画との一致を図り令和12（2030）年度までとし、「活力のある持続可能な地域社会の形成」「強靱な国土が支える持続的で力強い経済社会」「インフラ分野が先導するグリーン社会の実現」「戦略的・計画的な社会資本整備を支える基盤の強化」の4つを重点目標としています。道路では、国と地方公共団体が管理する道路の緊急または早期に対策を講ずべき橋梁（約92,000橋）の修繕措置の完了率を令和5年度の55%から令和12年度に80%とする指標などを置き、水災害対策では河川、ダム、下水道の整備等を加速するとともに流域治水の取組を強力に推進するとしています。",
+      "url": "https://www.mlit.go.jp/sogoseisaku/point/sosei_point_tk_000003.html",
+      "checkedAt": "2026-10-21"
+    },
+    {
+      "id": "national-resilience-mid-term-plan-1st",
+      "kind": "plan",
+      "title": "第１次国土強靱化実施中期計画",
+      "shortTitle": "第1次国土強靱化実施中期計画",
+      "owner": "閣議決定（内閣官房 国土強靱化推進室）",
+      "decidedAt": "2025-06-06",
+      "period": "令和8〜12年度（2026〜2030年度）",
+      "basisLaws": [
+        "425AC1000000095"
+      ],
+      "topics": [
+        "roads",
+        "rivers-disaster-prevention",
+        "maintenance-asset-management",
+        "municipal-civil-engineers"
+      ],
+      "summary": "国土強靱化基本法第11条の2に基づき令和7年6月6日に閣議決定された、令和8年度から令和12年度までの5年間の計画です。推進が特に必要となる施策の事業規模は、5年間でおおむね20兆円強程度を目途としています。道路では、必要な高規格道路の未整備区間の整備完了率を令和5年度の6%から令和12年度に19%とすることなどを、流域治水対策では、気候変動の影響を考慮した河川整備計画へ変更した割合（国管理河川の全121計画）を19%（令和5年度）から64%（令和12年度）とすることなどを目標にしています。",
+      "url": "https://www.cas.go.jp/jp/seisaku/kokudo_kyoujinka/dai1_chuukikeikaku/index.html",
+      "checkedAt": "2026-10-21"
+    },
+    {
+      "id": "utility-pole-removal-plan-3rd",
+      "kind": "plan",
+      "title": "第３次無電柱化推進計画",
+      "shortTitle": "第3次無電柱化推進計画",
+      "owner": "国土交通大臣決定（国土交通省 道路局）",
+      "decidedAt": "2026-06-02",
+      "period": "2026（令和8）〜2030（令和12）年度の5年間",
+      "basisLaws": [],
+      "basisLawTitles": [
+        "無電柱化の推進に関する法律"
+      ],
+      "topics": [
+        "roads",
+        "rivers-disaster-prevention",
+        "municipal-civil-engineers"
+      ],
+      "summary": "無電柱化の推進に関する法律第7条に基づき、令和8年6月2日に国土交通大臣が決定した計画です。令和8年度から令和12年度までの5年間で約1,000kmの整備を実現し、あわせて新たに約4,000kmの区間について計画を策定するとしています。災害時の道路啓開の観点から選ぶ優先整備区間と、市街地の第一次緊急輸送道路については、今後30年程度で無電柱化の概成を図るとしています。",
+      "url": "https://www.mlit.go.jp/report/press/road01_hh_002103.html",
+      "checkedAt": "2026-10-21"
+    },
+    {
+      "id": "traffic-safety-basic-plan-12th",
+      "kind": "plan",
+      "title": "第12次交通安全基本計画",
+      "shortTitle": "第12次交通安全基本計画",
+      "owner": "中央交通安全対策会議（内閣府）",
+      "decidedAt": "2026-03-27",
+      "period": "令和8〜12年度",
+      "basisLaws": [],
+      "basisLawTitles": [
+        "交通安全対策基本法"
+      ],
+      "topics": [
+        "roads",
+        "safety-laws",
+        "municipal-civil-engineers"
+      ],
+      "summary": "交通安全対策基本法に基づき、中央交通安全対策会議が持ち回り開催で令和8年3月27日に作成した計画で、令和8年度から令和12年度までの交通安全施策の大綱を定めています。道路交通の目標として、令和12年までに24時間死者数を1,900人以下にし、重傷者数を20,000人以下にすることを掲げています。前の第11次計画は、令和7年までに24時間死者数を2,000人以下、重傷者数を22,000人以下にする目標でした。",
+      "url": "https://www8.cao.go.jp/koutu/kihon/keikaku12/index.html",
+      "checkedAt": "2026-10-21"
+    },
+    {
+      "id": "bicycle-use-promotion-plan-3rd",
+      "kind": "plan",
+      "title": "第３次自転車活用推進計画",
+      "shortTitle": "第3次自転車活用推進計画",
+      "owner": "閣議決定（国土交通省 道路局 自転車活用推進本部）",
+      "decidedAt": "2026-05-29",
+      "period": "令和12（2030）年度までの5年間",
+      "basisLaws": [],
+      "basisLawTitles": [
+        "自転車活用推進法"
+      ],
+      "topics": [
+        "roads",
+        "municipal-civil-engineers",
+        "environment-decarbonization",
+        "safety-laws"
+      ],
+      "summary": "自転車活用推進法に基づき令和8年5月29日に閣議決定された計画で、計画期間は令和12（2030）年度までの5年間です。計画として初めてビジョンを示し、ビジョンを支える目標を現計画の4つから5つに増やしています。走行環境の整備による良好な利用環境の実現、安全で安心な社会の実現、観光を通じた地域の活性化に加え、地域交通の課題への貢献と脱炭素社会への貢献が新たに加わっています。",
+      "url": "https://www.mlit.go.jp/report/press/road01_hh_002101.html",
+      "checkedAt": "2026-10-21"
+    },
+    {
+      "id": "road-aging-countermeasures",
+      "kind": "policy",
+      "title": "道路の老朽化対策",
+      "shortTitle": "道路の老朽化対策と定期点検",
+      "owner": "国土交通省 道路局",
+      "decidedAt": "2014-03-31",
+      "basisLaws": [
+        "327AC1000000180",
+        "327CO0000000479",
+        "327M50004000025",
+        "331AC0000000007"
+      ],
+      "topics": [
+        "roads",
+        "maintenance-asset-management",
+        "municipal-civil-engineers"
+      ],
+      "summary": "2013年度の道路法改正等を受けて、2014年度から道路管理者に、全ての橋梁、トンネル、道路附属物等について5年に1度の点検が義務付けられています。道路法施行規則の改正（2014年3月31日公布、7月1日施行）で、点検は近接目視により5年に1回の頻度で行うことが基本とされ、診断結果の分類と、点検・診断・措置の記録・保存も定められました。2018年度に1巡目、2023年度に2巡目が完了し、2024年度から3巡目が行われており、2025年度までの結果は2026年8月26日に道路メンテナンス年報として公表されています。",
+      "url": "https://www.mlit.go.jp/road/sisaku/yobohozen/yobohozen.html",
+      "checkedAt": "2026-10-21"
+    },
+    {
+      "id": "road-act-amendment-2025",
+      "kind": "policy",
+      "title": "道路法等の一部を改正する法律（令和7年）",
+      "shortTitle": "道路法等の一部改正（令和7年）",
+      "owner": "国土交通省 道路局 路政課",
+      "decidedAt": "2025-04-16",
+      "basisLaws": [
+        "327AC1000000180",
+        "327CO0000000479",
+        "331AC0000000007",
+        "333AC0000000034"
+      ],
+      "topics": [
+        "roads",
+        "rivers-disaster-prevention",
+        "maintenance-asset-management",
+        "environment-decarbonization",
+        "municipal-civil-engineers"
+      ],
+      "summary": "自然災害の頻発や道路の老朽化等を踏まえ、安全かつ円滑な道路交通を確保するために、平時からの備えと有事における初動対応の充実等を図る改正で、令和7年4月9日に成立し、4月16日に公布されました。道路啓開計画の法定化、国土交通大臣による自治体管理の自動車駐車場の管理の代行、地方道路公社が管理する道路の災害復旧等の代行が、公布の日から施行されています。法案の段階では、このほかに市町村の技術系職員の減少を踏まえた持続可能なインフラマネジメントと、道路分野の脱炭素化も柱に挙げられていました。",
+      "url": "https://www.mlit.go.jp/report/press/road01_hh_001923.html",
+      "checkedAt": "2026-10-21"
+    },
+    {
+      "id": "walkable-road-hokomichi",
+      "kind": "policy",
+      "title": "歩行者利便増進道路（ほこみち）制度",
+      "shortTitle": "歩行者利便増進道路（ほこみち）",
+      "owner": "国土交通省 道路局",
+      "decidedAt": "2020-11-25",
+      "basisLaws": [
+        "327AC1000000180",
+        "327CO0000000479"
+      ],
+      "topics": [
+        "roads",
+        "municipal-civil-engineers"
+      ],
+      "summary": "道路法等の一部を改正する法律（令和2年法律第31号、令和2年5月27日公布）で創設され、令和2年11月25日に施行された、賑わいのある歩行者中心の道路空間をつくるための道路の指定制度です。道路管理者は歩道内に歩行者の利便増進を図る空間を定めることができ、特例区域では道路占用許可が柔軟に認められ、公募で選んだ占用者には最長20年（通常は5年）の占用が可能です。同じ日に特定車両停留施設（道路管理者が整備・運営するバスやタクシー等の専用ターミナル）の制度も施行されており、令和8年9月30日には、ほこみち制度の運用に当たっての留意事項が公表されています。",
+      "url": "https://www.mlit.go.jp/road/hokomichi/",
+      "checkedAt": "2026-10-21"
+    },
+    {
+      "id": "river-council-mizubousai-2015",
+      "kind": "council",
+      "title": "大規模氾濫に対する減災のための治水対策のあり方について～社会意識の変革による「水防災意識社会」の再構築に向けて～",
+      "shortTitle": "水防災意識社会再構築の答申",
+      "owner": "社会資本整備審議会 河川分科会 大規模氾濫に対する減災のための治水対策検討小委員会",
+      "decidedAt": "2015-12-10",
+      "basisLaws": [
+        "324AC0000000193"
+      ],
+      "topics": [
+        "rivers-disaster-prevention",
+        "municipal-civil-engineers"
+      ],
+      "summary": "平成27年9月の関東・東北豪雨で鬼怒川の堤防が決壊したことを受け、平成27年10月の国土交通大臣の諮問に対して社会資本整備審議会がまとめた答申です。施設の能力には限界があり、施設では防ぎきれない大洪水は必ず発生するものとして、社会全体で洪水氾濫に備える方針を示しています。市町村長による避難勧告等の適切な発令の促進、住民等の主体的な避難の促進、的確な水防活動の推進、減災のための危機管理型ハード対策の実施を、速やかに実施すべき対策としています。",
+      "url": "https://www.mlit.go.jp/river/shinngikai_blog/shaseishin/kasenbunkakai/shouiinkai/daikibohanran/",
+      "checkedAt": "2026-10-21"
+    },
+    {
+      "id": "river-council-flood-climate-2020",
+      "kind": "council",
+      "title": "気候変動を踏まえた水災害対策のあり方について～あらゆる関係者が流域全体で行う持続可能な「流域治水」への転換～",
+      "shortTitle": "流域治水への転換の答申",
+      "owner": "社会資本整備審議会 河川分科会 気候変動を踏まえた水災害対策検討小委員会",
+      "decidedAt": "2020-07",
+      "basisLaws": [
+        "339AC0000000167",
+        "324AC0000000193",
+        "415AC0000000077"
+      ],
+      "topics": [
+        "rivers-disaster-prevention",
+        "municipal-civil-engineers",
+        "urban-regional-planning"
+      ],
+      "summary": "令和元年10月の国土交通大臣の諮問に対して社会資本整備審議会がまとめた答申で、令和2年7月に国土交通省が公表しました。過去の降雨や潮位の実績に基づく計画を、気候変動による降雨量の増加や潮位の上昇を考慮した計画に見直すことと、あらゆる関係者が流域全体で対応する「流域治水」へ転換することを示しています。流域治水では、集水域・河川区域・氾濫域を一つの流域として捉え、氾濫をできるだけ防ぐ対策、被害対象を減少させるための対策、被害の軽減と早期復旧・復興のための対策を進めるとしています。",
+      "url": "https://www.mlit.go.jp/river/shinngikai_blog/shaseishin/kasenbunkakai/shouiinkai/kikouhendou_suigai/index.html",
+      "checkedAt": "2026-10-21"
+    },
+    {
+      "id": "river-council-basin-water-mgmt-2025",
+      "kind": "council",
+      "title": "流域総合水管理のあり方について",
+      "shortTitle": "流域総合水管理の答申",
+      "owner": "国土審議会 水資源開発分科会 流域総合水管理のあり方検討部会・社会資本整備審議会 河川分科会 流域総合水管理のあり方検討小委員会",
+      "decidedAt": "2025-06-27",
+      "basisLaws": [
+        "339AC0000000167",
+        "426AC0100000016"
+      ],
+      "topics": [
+        "rivers-disaster-prevention",
+        "dams-power",
+        "environment-decarbonization"
+      ],
+      "summary": "国土審議会水資源開発分科会と社会資本整備審議会河川分科会が4回の審議を経てまとめた、令和7年6月27日付の答申です。流域治水・水利用・流域環境の間で相乗効果の発現と利益相反の調整を図り、水災害による被害の最小化、水の恵みの最大化、水でつながる豊かな環境の最大化を目指す「流域総合水管理」を示しています。取組として、ダム運用の高度化などの既存施設の高度運用や、水インフラの老朽化対策を含む施設整備・施設再編などを挙げています。",
+      "url": "https://www.mlit.go.jp/policy/shingikai/s204_ryuuikisougou.html",
+      "checkedAt": "2026-10-21"
+    },
+    {
+      "id": "river-ryuiki-chisui-law-2021",
+      "kind": "policy",
+      "title": "特定都市河川浸水被害対策法等の一部を改正する法律（流域治水関連法）",
+      "shortTitle": "流域治水関連法",
+      "owner": "国土交通省 水管理・国土保全局",
+      "decidedAt": "2021-05-10",
+      "basisLaws": [
+        "415AC0000000077",
+        "339AC0000000167",
+        "324AC0000000193",
+        "412AC0000000057"
+      ],
+      "basisLawTitles": [
+        "下水道法",
+        "都市計画法",
+        "都市緑地法",
+        "防災のための集団移転促進事業に係る国の財政上の特別措置等に関する法律",
+        "建築基準法"
+      ],
+      "topics": [
+        "rivers-disaster-prevention",
+        "municipal-civil-engineers",
+        "urban-regional-planning"
+      ],
+      "summary": "気候変動による降雨量の増加などに対応するため、特定都市河川浸水被害対策法、河川法、下水道法、水防法、土砂災害防止法など9つの法律を一括して改正した法律です（令和3年法律第31号、令和3年5月10日公布）。特定都市河川の指定対象を、市街化の進展により河川整備で被害防止が困難な河川から、自然的条件により困難な河川にも広げ、全国の河川に拡大しています。利水ダム等の事前放流に係る協議会制度の創設、浸水被害防止区域の創設、洪水等に対応したハザードマップ作成の中小河川等への拡大などを定めています。",
+      "url": "https://www.mlit.go.jp/river/kasen/ryuiki_hoan/index.html",
+      "checkedAt": "2026-10-21"
+    },
+    {
+      "id": "river-ryuiki-chisui-project-2021",
+      "kind": "policy",
+      "title": "流域治水プロジェクト",
+      "shortTitle": "流域治水プロジェクト",
+      "owner": "国土交通省 水管理・国土保全局（国・都道府県・市町村等で構成する流域治水協議会）",
+      "decidedAt": "2021-03-30",
+      "basisLaws": [],
+      "topics": [
+        "rivers-disaster-prevention",
+        "municipal-civil-engineers"
+      ],
+      "summary": "河川整備に加え、雨水貯留浸透施設の整備、土地利用規制・誘導、利水ダムの事前放流などを含む、各水系の治水対策の全体像をまとめたものです。令和3年3月30日に全国109の一級水系などで策定され、全国一斉に公表されました。令和5年8月22日には、2040年頃に降雨量が約1.1倍、流量が1.2倍、洪水発生頻度が2倍になるとの見込みを踏まえた「流域治水プロジェクト2.0」の策定が発表されています。",
+      "url": "https://www.mlit.go.jp/river/kasen/ryuiki_pro/index.html",
+      "checkedAt": "2026-10-21"
+    },
+    {
+      "id": "river-seibi-kihonhoushin-keikaku-1997",
+      "kind": "policy",
+      "title": "河川整備基本方針・河川整備計画",
+      "shortTitle": "河川整備基本方針・計画",
+      "owner": "国土交通省 水管理・国土保全局",
+      "decidedAt": "1997-06-04",
+      "period": "河川整備計画は20〜30年後の整備の目標を定める",
+      "basisLaws": [
+        "339AC0000000167",
+        "340CO0000000014"
+      ],
+      "topics": [
+        "rivers-disaster-prevention",
+        "municipal-civil-engineers"
+      ],
+      "summary": "平成9年の河川法改正で工事実施基本計画に代わって設けられた計画制度で、河川整備基本方針（河川法第16条）と河川整備計画（同法第16条の2）に分かれています。河川整備基本方針は水系ごとに長期的な観点からの河川整備の基本となる方針を定めるもので、一級水系は国土交通大臣が社会資本整備審議会河川分科会の意見を聴いて、二級水系は都道府県知事が定めます。河川整備計画は基本方針に基づく具体的な整備内容を定めるもので、20〜30年後の整備の目標を明確にし、関係地方公共団体の長や学識経験者、関係住民の意見を聴いたうえで策定し、公表します。",
+      "url": "https://www.mlit.go.jp/river/basic_info/jigyo_keikaku/gaiyou/seibi/about.html",
+      "checkedAt": "2026-10-21"
+    },
+    {
+      "id": "river-suibo-system",
+      "kind": "policy",
+      "title": "水防の仕組み（水防管理団体・水防計画・洪水予報と水位の周知）",
+      "shortTitle": "水防の仕組み",
+      "owner": "国土交通省 水管理・国土保全局",
+      "decidedAt": "1949-06-04",
+      "basisLaws": [
+        "324AC0000000193"
+      ],
+      "topics": [
+        "rivers-disaster-prevention",
+        "municipal-civil-engineers"
+      ],
+      "summary": "昭和24年に公布された水防法に基づく水防の仕組みです。水防に関する責任は市町村等の水防管理団体が負い、都道府県知事や知事が指定した水防管理団体の管理者が水防計画を定めます。国土交通大臣または都道府県知事は、洪水予報河川では気象庁長官と共同して洪水予報を行い、水位周知河川では特別警戒水位に達したときにその旨を周知します。",
+      "url": "https://www.mlit.go.jp/river/bousai/main/saigai/kisotishiki/index.html",
+      "checkedAt": "2026-10-21"
+    },
+    {
+      "id": "river-flood-inundation-zone-2015",
+      "kind": "policy",
+      "title": "洪水浸水想定区域図・洪水ハザードマップ",
+      "shortTitle": "洪水浸水想定区域",
+      "owner": "国土交通省 水管理・国土保全局",
+      "decidedAt": "2015-05-20",
+      "basisLaws": [
+        "324AC0000000193"
+      ],
+      "topics": [
+        "rivers-disaster-prevention",
+        "municipal-civil-engineers"
+      ],
+      "summary": "水防法第14条に基づき、国土交通大臣または都道府県知事が、洪水予報河川と水位周知河川について、想定し得る最大規模の降雨を前提とする洪水浸水想定区域を指定し、浸水深や浸水継続時間とともに公表します。区域を含む市町村の市町村長は、避難場所や洪水予報等の伝達方法を記載した洪水ハザードマップを作成し、住民に配布・公表します。前提とする降雨を想定し得る最大規模に改めたのは平成27年の水防法改正（平成27年法律第22号、同年5月20日公布）です。",
+      "url": "https://www.mlit.go.jp/river/bousai/main/saigai/tisiki/syozaiti/",
+      "checkedAt": "2026-10-21"
+    },
+    {
+      "id": "river-weather-suibo-act-2025",
+      "kind": "policy",
+      "title": "気象業務法及び水防法の一部を改正する法律（令和7年法律第86号）",
+      "shortTitle": "気象業務法・水防法の改正",
+      "owner": "国土交通省 水管理・国土保全局・気象庁",
+      "decidedAt": "2025-12-12",
+      "basisLaws": [
+        "324AC0000000193"
+      ],
+      "basisLawTitles": [
+        "気象業務法"
+      ],
+      "topics": [
+        "rivers-disaster-prevention",
+        "municipal-civil-engineers"
+      ],
+      "summary": "観測・予測技術や情報通信技術の進展を踏まえ、予報・警報の高度化・適正化を目的として令和7年12月12日に公布された法律で、施行は令和8年5月29日です。気象庁が洪水の特別警報を新たに実施し、国土交通大臣または都道府県知事は気象庁の求めに応じて判断に必要な情報を提供し、河川管理者等は氾濫による著しい危険の切迫が認められる場合に都道府県知事等へ通報します。あわせて、国土交通大臣・気象庁長官・都道府県知事が共同で、波の打上げの要素を加味した高潮の予報・警報を行う仕組みを設けています。",
+      "url": "https://www.mlit.go.jp/report/press/mizukokudo02_hh_000043.html",
+      "checkedAt": "2026-10-21"
+    },
+    {
+      "id": "sabo-dosha-act-zones-2000",
+      "kind": "policy",
+      "title": "土砂災害警戒区域等（土砂災害警戒区域等における土砂災害防止対策の推進に関する法律に基づく区域指定）",
+      "shortTitle": "土砂災害警戒区域等",
+      "owner": "国土交通省 水管理・国土保全局 砂防部（区域の指定は都道府県）",
+      "decidedAt": "2000-05-08",
+      "basisLaws": [
+        "412AC0000000057"
+      ],
+      "topics": [
+        "rivers-disaster-prevention",
+        "municipal-civil-engineers",
+        "urban-regional-planning"
+      ],
+      "summary": "土砂災害防止法に基づき、都道府県が基礎調査を行ったうえで、危険の周知と警戒避難体制の整備を行う土砂災害警戒区域と、特定の開発行為の許可制や建築物の構造規制などを行う土砂災害特別警戒区域を指定します。警戒避難体制の整備やハザードマップの配布は市町村等が、要配慮者利用施設の避難確保計画の作成は施設管理者が行います。令和8年6月30日時点で、全国の土砂災害警戒区域は721,014区域で、うち土砂災害特別警戒区域は621,287区域です。",
+      "url": "https://www.mlit.go.jp/mizukokudo/sabo/linksinpou.html",
+      "checkedAt": "2026-10-21"
+    },
+    {
+      "id": "sabo-dosha-basic-guideline-2026",
+      "kind": "policy",
+      "title": "土砂災害防止対策基本指針",
+      "shortTitle": "土砂災害防止対策基本指針",
+      "owner": "国土交通省（国土交通大臣の告示）",
+      "decidedAt": "2026-05-21",
+      "basisLaws": [
+        "412AC0000000057"
+      ],
+      "topics": [
+        "rivers-disaster-prevention",
+        "municipal-civil-engineers"
+      ],
+      "summary": "土砂災害防止法第3条に基づき国土交通大臣が定める指針で、基礎調査の実施、土砂災害警戒区域・特別警戒区域の指定、特別警戒区域内の建築物の移転、土砂災害緊急情報の通知などについて指針となるべき事項を示しています。平成13年7月9日に制定され、令和8年5月21日に変更されました（令和8年国土交通省告示第636号、同年5月29日施行）。この変更では、土砂災害警戒情報を気象業務法に基づく土砂災害の警報と一体として「レベル４土砂災害危険警報」の名称で通知することと、警戒区域内の避難行動における指定緊急避難場所以外の比較的安全な避難場所の確保が記載されています。",
+      "url": "https://www.mlit.go.jp/mizukokudo/sabo/sabo01_tk_000082.html",
+      "checkedAt": "2026-10-21"
+    },
+    {
+      "id": "sabo-designated-area-1897",
+      "kind": "policy",
+      "title": "砂防指定地（砂防法）",
+      "shortTitle": "砂防指定地",
+      "owner": "国土交通省 水管理・国土保全局 砂防部",
+      "decidedAt": "1897-03-30",
+      "basisLaws": [
+        "130AC0000000029"
+      ],
+      "topics": [
+        "rivers-disaster-prevention",
+        "municipal-civil-engineers"
+      ],
+      "summary": "砂防法第2条に基づき、砂防設備を要する土地や、治水上の理由から特定の行為を禁止・制限すべき土地の区域を、国土交通大臣が指定するものです。竹木の伐採や土石・砂礫の採取などの行為は制限され、具体的な内容は都道府県の条例等で定められ、行為には都道府県知事の許可が必要です。砂防指定地の管理は砂防法第5条により都道府県知事が行い、砂防法は明治30年（1897年）3月30日に法律第29号として制定されています。",
+      "url": "https://www.mlit.go.jp/mizukokudo/sabo/sabositeichi.html",
+      "checkedAt": "2026-10-21"
+    },
+    {
+      "id": "sabo-landslide-prevention-area-1958",
+      "kind": "policy",
+      "title": "地すべり防止区域（地すべり等防止法）",
+      "shortTitle": "地すべり防止区域",
+      "owner": "国土交通省 水管理・国土保全局 砂防部",
+      "decidedAt": "1958-03-31",
+      "basisLaws": [
+        "333AC0000000030"
+      ],
+      "topics": [
+        "rivers-disaster-prevention",
+        "municipal-civil-engineers"
+      ],
+      "summary": "地すべり等防止法第3条に基づき、地すべり区域とこれに隣接する地域のうち地すべりを助長・誘発している、またはそのおそれがきわめて大きい区域を、関係都道府県知事の意見を聴いて国土交通大臣または農林水産大臣が指定します。区域内で地下水を増加させる行為、地表水の浸透を助長する行為、政令で定めるのり切や切土などを行うには、第18条により都道府県知事の許可が必要です。同法は昭和33年3月31日に法律第30号として制定されています。",
+      "url": "https://www.mlit.go.jp/mizukokudo/sabo/zisuberiboushikuiki.html",
+      "checkedAt": "2026-10-21"
+    },
+    {
+      "id": "sabo-steep-slope-area-1969",
+      "kind": "policy",
+      "title": "急傾斜地崩壊危険区域（急傾斜地の崩壊による災害の防止に関する法律）",
+      "shortTitle": "急傾斜地崩壊危険区域",
+      "owner": "国土交通省 水管理・国土保全局 砂防部",
+      "decidedAt": "1969-07-01",
+      "basisLaws": [
+        "344AC0000000057"
+      ],
+      "topics": [
+        "rivers-disaster-prevention",
+        "municipal-civil-engineers"
+      ],
+      "summary": "急傾斜地法第3条に基づき、崩壊するおそれがあり、崩壊すれば相当数の居住者等に危害が生ずるおそれのある傾斜度30度以上の土地と、その隣接地のうち一定の行為制限が必要な土地を、関係市町村長の意見を聴いて都道府県知事が指定します。区域内ののり切、切土、掘削、盛土、立竹木の伐採などを行うには、第7条により都道府県知事の許可が必要で、許可に関する規定は都道府県の条例等で定められています。同法は昭和44年7月1日に法律第57号として制定されています。",
+      "url": "https://www.mlit.go.jp/mizukokudo/sabo/kyuukeisya.html",
+      "checkedAt": "2026-10-21"
+    },
+    {
+      "id": "resilience-basic-plan-2023",
+      "kind": "plan",
+      "title": "国土強靱化基本計画",
+      "shortTitle": "国土強靱化基本計画",
+      "owner": "閣議決定（内閣官房 国土強靱化推進室）",
+      "decidedAt": "2023-07-28",
+      "period": "おおむね5年ごとに見直し",
+      "basisLaws": [
+        "425AC1000000095"
+      ],
+      "topics": [
+        "rivers-disaster-prevention",
+        "roads",
+        "municipal-civil-engineers"
+      ],
+      "summary": "国土強靱化基本法に基づき、国の他の計画等の指針となる国土強靱化に関するアンブレラ計画で、平成26年6月3日に閣議決定され、平成30年12月14日と令和5年7月28日に変更されています（令和5年7月28日の変更が現行です）。令和5年の変更では、「デジタル等新技術の活用による国土強靱化施策の高度化」と「地域における防災力の一層の強化による『地域力の発揮』」を新たな施策の柱としています。流域治水については、関係府省庁や地方公共団体等との連携のもとハード・ソフト一体の取組を強化し、特に水害リスクの高い河川では特定都市河川の指定を進めるとしています。",
+      "url": "https://www.cas.go.jp/jp/seisaku/kokudo_kyoujinka/kihon.html",
+      "checkedAt": "2026-10-21"
+    },
+    {
+      "id": "resilience-5year-acceleration-2020",
+      "kind": "plan",
+      "title": "防災・減災、国土強靱化のための５か年加速化対策",
+      "shortTitle": "5か年加速化対策",
+      "owner": "閣議決定（内閣官房 国土強靱化推進室）",
+      "decidedAt": "2020-12-11",
+      "period": "令和3年度から令和7年度までの5年間",
+      "basisLaws": [
+        "425AC1000000095"
+      ],
+      "topics": [
+        "rivers-disaster-prevention",
+        "roads",
+        "municipal-civil-engineers",
+        "maintenance-asset-management"
+      ],
+      "summary": "令和2年12月11日に閣議決定された、令和3年度から令和7年度までの5年間の対策で、追加的に必要な事業規模は財政投融資や民間事業者等による事業を含めおおむね15兆円程度を目途とし、対策は123件です。国土交通省所管分はおおむね9.4兆円程度、53対策とされ、あらゆる関係者が協働して行う流域治水対策のほか、道路・鉄道・港湾・空港等の耐災害性強化、老朽化対策などを含みます。計画期間は令和7年度までで、令和8年度からは第1次国土強靱化実施中期計画が始まります。",
+      "url": "https://www.cas.go.jp/jp/seisaku/kokudo_kyoujinka/5kanenkasokuka/index.html",
+      "checkedAt": "2026-10-21"
+    },
+    {
+      "id": "water-cycle-basic-plan-2024",
+      "kind": "plan",
+      "title": "水循環基本計画",
+      "shortTitle": "水循環基本計画",
+      "owner": "閣議決定（内閣官房 水循環政策本部事務局）",
+      "decidedAt": "2024-08-30",
+      "period": "令和6年度からの5年間",
+      "basisLaws": [
+        "426AC0100000016"
+      ],
+      "topics": [
+        "rivers-disaster-prevention",
+        "environment-decarbonization",
+        "municipal-civil-engineers"
+      ],
+      "summary": "水循環基本法第13条に基づく、水循環に関する施策の基本となる計画で、令和6年8月30日に閣議決定されました。平成27年7月10日、令和2年6月16日、令和4年6月21日（一部見直し）の決定に続くもので、令和6年度からの5年間を対象期間とし、おおむね5年ごとに見直します。重点的に取り組む主な内容の一つに、流域治水・水利用・流域環境に一体的に取り組む「流域総合水管理」の展開を挙げています。",
+      "url": "https://www.cas.go.jp/jp/seisaku/mizu_junkan/about/basic_plan.html",
+      "checkedAt": "2026-10-21"
+    },
+    {
+      "id": "dam-pre-release-policy-2019",
+      "kind": "policy",
+      "title": "既存ダムの洪水調節機能の強化に向けた基本方針",
+      "shortTitle": "ダムの事前放流",
+      "owner": "政府（既存ダムの洪水調節機能強化に向けた検討会議）／国土交通省 水管理・国土保全局",
+      "decidedAt": "2019-12-12",
+      "basisLaws": [
+        "339AC0000000167"
+      ],
+      "topics": [
+        "rivers-disaster-prevention",
+        "dams-power",
+        "municipal-civil-engineers"
+      ],
+      "summary": "台風第19号等を踏まえ、令和元年12月12日に政府が定めた基本方針で、水力発電、農業用水、水道などの利水ダムを含む既存ダムの有効貯水容量を、緊急時に洪水調節へ最大限活用できるようにするものです。国管理の一級水系では令和2年の出水期から新たな運用を始め、令和2年5月末にダムのある99水系で治水協定に合意し、国土交通省は同年4月22日に事前放流ガイドラインを策定しました。令和3年5月の発表では、二級水系を含め420水系・1,434ダムで治水協定を締結したとされています。",
+      "url": "https://www.mlit.go.jp/river/dam/index.html",
+      "checkedAt": "2026-10-21"
+    },
+    {
+      "id": "green-infrastructure-strategy-2030-2026",
+      "kind": "policy",
+      "title": "グリーンインフラ推進戦略2030",
+      "shortTitle": "グリーンインフラ推進戦略2030",
+      "owner": "国土交通省 総合政策局",
+      "decidedAt": "2026-01-23",
+      "period": "2030年度まで",
+      "basisLaws": [],
+      "topics": [
+        "rivers-disaster-prevention",
+        "environment-decarbonization",
+        "urban-regional-planning",
+        "municipal-civil-engineers"
+      ],
+      "summary": "国土交通省が令和8年1月に公表した戦略で、2030年度までに「グリーンインフラの活用が当たり前の社会」の実現を図り、2050年に向けて「自然共生社会」の実現を目指すとしています。2025年6月策定の「国土交通省環境行動計画」に係る実行計画として、前戦略（2023年策定）による実装の進展を踏まえ、定義や効果の整理、分野横断的な環境整備策の20項目のKPI、国土交通省の個別事業の整理と19項目のKPIの設定を行っています。地方公共団体、民間事業者、市民団体などとは「グリーンインフラ官民連携プラットフォーム」を中心に連携して実装を進めるとしています。",
+      "url": "https://www.mlit.go.jp/sogoseisaku/environment/sosei_environment_tk_000017.html",
+      "checkedAt": "2026-10-21"
+    },
+    {
+      "id": "i-construction-2-0-2024",
+      "kind": "policy",
+      "title": "i-Construction 2.0 ～建設現場のオートメーション化～",
+      "shortTitle": "i-Construction 2.0",
+      "owner": "国土交通省 大臣官房 参事官（イノベーション）グループ・公共事業調査室",
+      "decidedAt": "2024-04-16",
+      "basisLaws": [],
+      "topics": [
+        "construction-management",
+        "information-management",
+        "human-resource-management",
+        "quality-management",
+        "earthwork-foundations"
+      ],
+      "summary": "人口減少が進むなかでもインフラの整備・維持管理を持続的に行うため、建設現場のオートメーション化による省人化・生産性向上を目指して令和6年4月16日に策定された取組です。2040年度までに建設現場の省人化を少なくとも3割、すなわち生産性を1.5倍に向上させることを目標としています。「施工のオートメーション化」「データ連携のオートメーション化」「施工管理のオートメーション化」の3つを柱にしています。",
+      "url": "https://www.mlit.go.jp/report/press/kanbo08_hh_001085.html",
+      "checkedAt": "2026-10-22"
+    },
+    {
+      "id": "infra-dx-action-plan-2nd-2023",
+      "kind": "policy",
+      "title": "インフラ分野のDXアクションプラン（第2版）",
+      "shortTitle": "インフラ分野のDXアクションプラン（第2版）",
+      "owner": "国土交通省 大臣官房 参事官（イノベーション）グループ・公共事業調査室",
+      "decidedAt": "2023-08-08",
+      "basisLaws": [],
+      "topics": [
+        "information-management",
+        "construction-management",
+        "maintenance-asset-management"
+      ],
+      "summary": "令和4年3月に取りまとめたインフラ分野のDXアクションプランを、分野網羅的・組織横断的な取組でDXを更に加速させるために改定したもので、令和5年8月8日に公表されました。86の個別施策を位置づけ、「インフラの作り方の変革」「インフラの使い方の変革」「データの活かし方の変革」の3つを柱にしています。",
+      "url": "https://www.mlit.go.jp/report/press/kanbo08_hh_001004.html",
+      "checkedAt": "2026-10-22"
+    },
+    {
+      "id": "bim-cim-principle-application-2023",
+      "kind": "policy",
+      "title": "直轄土木業務・工事におけるBIM/CIM適用に関する実施方針",
+      "shortTitle": "BIM/CIMの原則適用（直轄土木）",
+      "owner": "国土交通省 大臣官房",
+      "decidedAt": "2023-03",
+      "basisLaws": [],
+      "topics": [
+        "information-management",
+        "construction-management",
+        "quality-management"
+      ],
+      "summary": "BIM/CIMは、建設事業で扱う情報をデジタル化し、調査・測量・設計・施工・維持管理の各段階で受発注者がデータを活用・共有しやすくして、建設生産・管理システム全体の効率化を図るものです。この実施方針により、令和5年4月1日以降に入札契約手続きを開始する直轄の測量、地質・土質調査、設計・計画業務と土木工事（小規模なものと、災害復旧工事等の緊急性を要するものを除く）にBIM/CIMが適用されています。義務項目は原則として全ての詳細設計と工事で活用し、設計図書は2次元図面のまま3次元モデルを参考資料として貸与するほか、契約後に発注者が設計図書の作成の基となった情報を説明するDS（Data-Sharing）を行います。",
+      "url": "https://www.mlit.go.jp/tec/tec_fr_000115.html",
+      "checkedAt": "2026-10-22"
+    },
+    {
+      "id": "construction-worker-safety-health-basic-plan",
+      "kind": "plan",
+      "title": "建設工事従事者の安全及び健康の確保に関する基本的な計画",
+      "shortTitle": "建設工事従事者の安全・健康確保の基本計画",
+      "owner": "閣議決定（国土交通省・厚生労働省）",
+      "decidedAt": "2023-06-13",
+      "period": "少なくとも5年ごとに検討し、必要に応じて変更",
+      "basisLaws": [
+        "428AC0100000111"
+      ],
+      "topics": [
+        "safety-management-cem",
+        "safety-laws",
+        "human-resource-management"
+      ],
+      "summary": "建設工事従事者の安全及び健康の確保の推進に関する法律（建設職人基本法）第8条に基づき政府が定める計画で、平成29年6月9日に閣議決定され、令和5年6月13日に変更されました。変更では、安全衛生経費、一人親方、墜落・転落災害の防止対策（足場点検の確実な実施、一側足場の使用範囲の明確化など）に関する記載を充実させ、熱中症・騒音・石綿ばく露などへの健康確保対策と、女性・外国人・高年齢労働者など人材の多様化への対応を追記しています。同法は、少なくとも5年ごとに計画に検討を加え、必要があれば変更すると定めています。",
+      "url": "https://www.mlit.go.jp/totikensangyo/const/totikensangyo_const_tk2_000108.html",
+      "checkedAt": "2026-10-22"
+    },
+    {
+      "id": "industrial-accident-prevention-plan-14th",
+      "kind": "plan",
+      "title": "第14次労働災害防止計画",
+      "shortTitle": "第14次労働災害防止計画",
+      "owner": "厚生労働省 労働基準局 安全衛生部",
+      "decidedAt": "2023-03-08",
+      "period": "2023年4月〜2028年3月の5年間",
+      "basisLaws": [
+        "347AC0000000057"
+      ],
+      "topics": [
+        "safety-management-cem",
+        "safety-laws"
+      ],
+      "summary": "労働安全衛生法第6条に基づき厚生労働大臣が定める5か年計画で、2023年3月8日に策定され、3月27日に公示されました。死亡災害を5%以上減少させ、死傷災害は増加傾向に歯止めをかけて2027年までに減少させることを目標とし、業種別の対策では、建設業の死亡者数を2022年と比べて2027年までに15%以上減少させることを掲げています。重点対策は、自発的な安全衛生対策のための意識啓発、高年齢労働者や外国人労働者等への対策、化学物質・石綿・熱中症などによる健康障害の防止対策など8つです。",
+      "url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000197308.html",
+      "checkedAt": "2026-10-22"
+    },
+    {
+      "id": "public-works-quality-basic-policy-2024",
+      "kind": "plan",
+      "title": "公共工事の品質確保の促進に関する施策を総合的に推進するための基本的な方針",
+      "shortTitle": "品確法基本方針",
+      "owner": "閣議決定（国土交通省 不動産・建設経済局 建設業課）",
+      "decidedAt": "2024-12-13",
+      "basisLaws": [
+        "417AC1000000018"
+      ],
+      "topics": [
+        "quality-management",
+        "economic-management",
+        "human-resource-management",
+        "municipal-civil-engineers"
+      ],
+      "summary": "公共工事の品質確保の促進に関する法律に基づき政府が定める基本方針で、平成17年8月26日に閣議決定され、令和6年12月13日に第三次・担い手3法を踏まえて変更されました。発注者等が講ずべき措置として、週休2日工事の推進、時間外労働規制に対応した工期設定や猛暑日の考慮、施工時期の平準化に向けた関係部局の連携強化、地域の実情を踏まえた入札参加条件・規模の設定などを新たに規定しています。受注者に関しては、能力や経験に応じた適切な処遇の確保と、情報通信技術を活用した生産性の向上を盛り込んでいます。",
+      "url": "https://www.mlit.go.jp/report/press/tochi_fudousan_kensetsugyo13_hh_000001_00271.html",
+      "checkedAt": "2026-10-22"
+    },
+    {
+      "id": "ordering-affairs-operation-guideline-2025",
+      "kind": "policy",
+      "title": "発注関係事務の運用に関する指針",
+      "shortTitle": "発注関係事務の運用に関する指針（運用指針）",
+      "owner": "公共工事の品質確保の促進に関する関係省庁連絡会議（申合せ）／国土交通省 大臣官房技術調査課",
+      "decidedAt": "2025-02-03",
+      "basisLaws": [
+        "417AC1000000018"
+      ],
+      "topics": [
+        "quality-management",
+        "economic-management",
+        "construction-management",
+        "municipal-civil-engineers"
+      ],
+      "summary": "品確法第24条に基づき、各発注者が発注関係事務を適切かつ効率的に運用できるよう国が作成する発注者共通の指針で、令和6年6月の品確法改正を受け、令和7年2月3日に関係省庁申合せとして改正されました。改正では、担い手の確保のための働き方改革・処遇改善（週休2日の質の向上、スライド条項の設定など）、地域建設業等の維持に向けた環境整備、新技術の活用等による生産性向上、公共工事等の発注体制の強化の4つを柱にしています。国は、本指針に基づいて発注関係事務が適切に実施されているかを毎年調査し、その結果を公表します。",
+      "url": "https://www.mlit.go.jp/tec/tec_reiwaunyoshsishin.html",
+      "checkedAt": "2026-10-22"
+    },
+    {
+      "id": "bid-contract-appropriateness-guideline-2024",
+      "kind": "policy",
+      "title": "公共工事の入札及び契約の適正化を図るための措置に関する指針",
+      "shortTitle": "入契法適正化指針",
+      "owner": "閣議決定（国土交通省 不動産・建設経済局 建設業課）",
+      "decidedAt": "2024-12-13",
+      "basisLaws": [
+        "412AC0000000127"
+      ],
+      "topics": [
+        "economic-management",
+        "safety-laws",
+        "municipal-civil-engineers"
+      ],
+      "summary": "公共工事の入札及び契約の適正化の促進に関する法律に基づき政府が定める指針で、平成13年3月9日に閣議決定され、令和6年12月13日に第三次・担い手3法を踏まえて変更されました。発注者が講ずべき措置として、資材高騰時等における誠実な契約変更協議の実施やスライド条項の適切な運用、現場管理におけるICT活用の推進と技術者の専任・兼任状況の確認、入札契約に係る情報公表の原則インターネット化などを新たに規定しています。改正法により、指針の記載事項に「発注体制の整備」も加わっています。",
+      "url": "https://www.mlit.go.jp/report/press/tochi_fudousan_kensetsugyo13_hh_000001_00271.html",
+      "checkedAt": "2026-10-22"
+    },
+    {
+      "id": "ninaite-3-laws-3rd-2024",
+      "kind": "policy",
+      "title": "第三次・担い手３法（品確法と建設業法・入契法の一体的改正）",
+      "shortTitle": "第三次・担い手3法",
+      "owner": "国土交通省 不動産・建設経済局（品確法等の改正は議員立法）",
+      "decidedAt": "2024-06-14",
+      "basisLaws": [
+        "417AC1000000018",
+        "324AC0000000100",
+        "412AC0000000127",
+        "324AC0000000188"
+      ],
+      "topics": [
+        "human-resource-management",
+        "economic-management",
+        "safety-laws",
+        "quality-management"
+      ],
+      "summary": "持続可能な建設業の実現と、そのために必要な担い手の確保を目的とした一体的な法改正で、建設業法・入契法の改正法（令和6年法律第49号、政府提出）が令和6年6月14日に、品確法・入契法・測量法を改正する品確法等の改正法（令和6年法律第54号、議員立法）が同年6月19日に公布されました。担い手確保、生産性向上、地域における対応力強化を柱に、労働者の処遇確保の努力義務化、著しく低い労務費による見積りの禁止、原価割れ契約の禁止、著しく短い工期による契約の禁止、休日確保、現場技術者の専任義務の合理化などを定めています。建設業法・入契法の改正は段階的に施行され、令和6年9月1日に「労務費の基準」の勧告権限の創設など、同年12月13日にICTを活用した現場技術者の配置の合理化などが施行されました。",
+      "url": "https://www.mlit.go.jp/totikensangyo/const/totikensangyo_const_tk1_000193.html",
+      "checkedAt": "2026-10-22"
+    },
+    {
+      "id": "construction-period-standard-2024",
+      "kind": "policy",
+      "title": "工期に関する基準",
+      "shortTitle": "工期に関する基準",
+      "owner": "中央建設業審議会（作成・勧告）",
+      "decidedAt": "2024-03-27",
+      "basisLaws": [
+        "324AC0000000100"
+      ],
+      "topics": [
+        "construction-management",
+        "human-resource-management",
+        "safety-laws"
+      ],
+      "summary": "建設業法の改正（令和元年法律第30号）で中央建設業審議会が作成・勧告できるようになった基準で、令和2年7月に作成され、令和6年3月27日に改定・勧告されました。令和6年4月から建設業にも罰則付きの時間外労働規制が適用されることを踏まえ、受注者は契約締結前や変更契約時に、時間外労働規制を遵守した適正な工期を確保した見積りを提出することが努力義務となり、発注者はその見積りを確認して尊重するとしています。工期全般で考慮する事項として、技能労働者やオペレーターの移動時間が労働時間に含まれうることや、猛暑日の不稼働も追記しています。",
+      "url": "https://www.mlit.go.jp/totikensangyo/const/totikensangyo_const_tk1_000190.html",
+      "checkedAt": "2026-10-22"
+    },
+    {
+      "id": "labor-cost-standard-2025",
+      "kind": "policy",
+      "title": "労務費に関する基準",
+      "shortTitle": "労務費に関する基準",
+      "owner": "中央建設業審議会（作成・勧告）",
+      "decidedAt": "2025-12-02",
+      "basisLaws": [
+        "324AC0000000100"
+      ],
+      "topics": [
+        "economic-management",
+        "human-resource-management",
+        "safety-laws"
+      ],
+      "summary": "令和6年の建設業法改正（令和6年法律第49号）で中央建設業審議会が作成・勧告できるようになった基準で、令和7年12月2日に作成され、実施が勧告されました。建設業法第34条に基づく基準として、公共工事・民間工事を問わず、発注者から技能者を雇用する建設業者までの全ての取引段階の請負契約で、適正な労務費（賃金の原資）を確保することを目的としています。職種分野別・都道府県別の基準値を、公共工事設計労務単価（円/人日）×歩掛（人日/単位施工量）による単位施工量当たりの労務費として示し、価格交渉時の相場観や、行政の指導・監督の参考指標として使います。",
+      "url": "https://www.mlit.go.jp/tochi_fudousan_kensetsugyo/const/tochi_fudousan_kensetsugyo_const_tk1_000001_00044.html",
+      "checkedAt": "2026-10-22"
+    },
+    {
+      "id": "construction-career-up-system",
+      "kind": "policy",
+      "title": "建設キャリアアップシステム（CCUS）",
+      "shortTitle": "建設キャリアアップシステム（CCUS）",
+      "owner": "国土交通省 不動産・建設経済局（運用・管理は一般財団法人建設業振興基金）",
+      "decidedAt": "2019-04",
+      "basisLaws": [],
+      "topics": [
+        "human-resource-management",
+        "information-management"
+      ],
+      "summary": "建設技能者の資格や現場での就業履歴等を業界横断的に登録・蓄積し、技能・経験に応じた適切な処遇につなげる仕組みで、平成31年4月に本格運用が始まりました。運用・管理は一般財団法人建設業振興基金が行い、就業履歴は技能者に配布するICカードを通じて蓄積されます。国土交通大臣認定の能力評価基準で技能者のレベルを判定する能力評価制度があり、令和8年9月に「鉄骨」が加わって51分野で基準が策定されています（令和8年6月30日現在の判定件数は計172,927件）。",
+      "url": "https://www.mlit.go.jp/tochi_fudousan_kensetsugyo/const/ccus_about.html",
+      "checkedAt": "2026-10-22"
+    },
+    {
+      "id": "public-disaster-prevention-guideline-2019",
+      "kind": "policy",
+      "title": "建設工事公衆災害防止対策要綱",
+      "shortTitle": "建設工事公衆災害防止対策要綱",
+      "owner": "国土交通省（国土交通大臣の告示）",
+      "decidedAt": "2019-09-02",
+      "basisLaws": [
+        "324AC0000000100"
+      ],
+      "topics": [
+        "safety-management-cem",
+        "safety-laws",
+        "social-environment-management",
+        "construction-management"
+      ],
+      "summary": "建設業法第25条の27第2項に基づく要綱で、工事の関係者以外の第三者（公衆）の生命、身体及び財産に関する危害と迷惑を防止するためのものです。平成5年に策定された要綱を見直し、令和元年9月2日に国土交通省告示第496号として、土木工事編と建築工事等編からなる新しい要綱が公布・適用されました。改正では、発注者・施工者に加えて設計者も公衆災害防止に努めることや、適切な工期と公衆災害防止対策経費の確保、荒天時の備え、ドローン等の落下事故対策、高齢者・車椅子使用者等の視点から必要な措置などを追加しています。",
+      "url": "https://www.mlit.go.jp/report/press/totikensangyo13_hh_000640.html",
+      "checkedAt": "2026-10-22"
+    },
+    {
+      "id": "heatstroke-prevention-ordinance-2025",
+      "kind": "policy",
+      "title": "労働安全衛生規則の一部を改正する省令（令和７年厚生労働省令第57号）",
+      "shortTitle": "職場の熱中症対策の義務化（安衛則改正）",
+      "owner": "厚生労働省 労働基準局",
+      "decidedAt": "2025-04-15",
+      "basisLaws": [
+        "347AC0000000057",
+        "347M50002000032"
+      ],
+      "topics": [
+        "safety-laws",
+        "safety-management-cem"
+      ],
+      "summary": "職場の熱中症による労働災害が増え、令和6年の休業4日以上の死傷災害が1,195人と調査開始以来最多になったことなどを踏まえた改正で、令和7年4月15日に公布され、6月1日に施行されました。湿球黒球温度（WBGT）28度以上または気温31度以上の場所で、継続して1時間以上または1日4時間を超えて行われることが見込まれる作業では、事業者は、熱中症の自覚症状や疑いを報告させる体制を整え、作業からの離脱・身体冷却・医師の診察などの措置の内容と実施手順を作業場ごとに定め、作業者に周知しなければなりません。作業者には、労働者と同じ場所で作業する労働者以外の者も含まれます。",
+      "url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000116133.html",
+      "checkedAt": "2026-10-22"
+    },
+    {
+      "id": "cost-benefit-analysis-guideline-2025",
+      "kind": "policy",
+      "title": "公共事業評価の費用便益分析に関する技術指針（共通編）",
+      "shortTitle": "費用便益分析の技術指針（共通編）",
+      "owner": "国土交通省 大臣官房 技術調査課・公共事業調査室",
+      "decidedAt": "2025-09-18",
+      "basisLaws": [],
+      "topics": [
+        "economic-management",
+        "municipal-civil-engineers"
+      ],
+      "summary": "国土交通省所管の公共事業の評価結果の信頼性を高めるため、費用便益分析の計測手法や考え方のうち、各事業分野で共通に考慮すべき事項を定めた指針で、平成16年2月に策定され、令和7年9月18日に改定されました。社会的割引率は全事業で当面4%を適用し、参考比較のための値として、国債の実質利回りを踏まえた1%と2%を令和5年度以降に適用するとしています。令和6年には貨幣換算が困難な効果の評価や事業費算定のあり方を、令和7年には総合的な評価のあり方を、公共事業評価手法研究委員会で検討して改定しています。",
+      "url": "https://www.mlit.go.jp/tec/hyouka/public/250918_shishin/250918_shishin.html",
+      "checkedAt": "2026-10-22"
+    },
+    {
+      "id": "digital-society-priority-plan-2026",
+      "kind": "plan",
+      "title": "デジタル社会の実現に向けた重点計画",
+      "shortTitle": "デジタル社会の実現に向けた重点計画",
+      "owner": "閣議決定（デジタル庁）",
+      "decidedAt": "2026-07-21",
+      "basisLaws": [
+        "428AC1000000103"
+      ],
+      "basisLawTitles": [
+        "デジタル社会形成基本法",
+        "情報通信技術を活用した行政の推進等に関する法律"
+      ],
+      "topics": [
+        "information-management",
+        "urban-regional-planning",
+        "maintenance-asset-management"
+      ],
+      "summary": "デジタル社会形成基本法の重点計画、官民データ活用推進基本法の官民データ活用推進基本計画などとして策定される計画で、令和3年12月24日に初めて閣議決定され、令和8年7月21日に最新版が閣議決定されました。デジタル原則に適合しない「アナログ規制」の見直しは令和8年5月時点で必要な見直しの約99%が完了し、インフラ点検などで新たにデジタル技術を活用できるようになったとしています。3次元都市モデル（Project PLATEAU）の整備・活用・オープンデータ化を進め、建築BIM・都市モデル・不動産IDなどの取組を一体的に進める「建築・都市のDX」で、3次元デジタルツインの2030年代の本格的な社会実装を目指すほか、国土交通データプラットフォームの整備によるインフラDXの推進を施策に挙げています。",
+      "url": "https://www.digital.go.jp/policies/priority-policy-program",
+      "checkedAt": "2026-10-22"
+    },
+    {
+      "id": "global-warming-countermeasures-plan-2025",
+      "kind": "plan",
+      "title": "地球温暖化対策計画",
+      "shortTitle": "地球温暖化対策計画",
+      "owner": "閣議決定（環境省 地球環境局）",
+      "decidedAt": "2025-02-18",
+      "basisLaws": [
+        "410AC0000000117"
+      ],
+      "topics": [
+        "environment-decarbonization",
+        "social-environment-management"
+      ],
+      "summary": "地球温暖化対策推進法に基づく政府の総合計画で、令和3年10月22日に閣議決定された計画を改定し、令和7年2月18日に閣議決定されました。2030年度に温室効果ガスを2013年度比で46%削減する目標に加え、2035年度に60%、2040年度に73%削減することを目指すとしています。これらの目標は、パリ協定に基づく日本の新たな国が決定する貢献（NDC）として国連に提出されています。",
+      "url": "https://www.env.go.jp/earth/ondanka/keikaku/250218.html",
+      "checkedAt": "2026-10-22"
+    },
+    {
+      "id": "climate-change-adaptation-plan",
+      "kind": "plan",
+      "title": "気候変動適応計画",
+      "shortTitle": "気候変動適応計画",
+      "owner": "閣議決定（環境省 地球環境局）",
+      "decidedAt": "2023-05-30",
+      "basisLaws": [
+        "430AC0000000050"
+      ],
+      "topics": [
+        "environment-decarbonization",
+        "rivers-disaster-prevention",
+        "social-environment-management"
+      ],
+      "summary": "気候変動適応法第7条に基づく計画で、平成30年11月27日に策定され、令和3年10月22日の変更を経て、令和5年5月30日に一部変更されました。防災、農業、健康などの幅広い分野で適応策を拡充し、分野別施策と基盤的施策にKPIを設定して進捗を管理するとしており、令和5年の変更では、改正気候変動適応法に基づく熱中症対策実行計画の基本的事項を加えています（同実行計画は、2030年に熱中症による死亡者数を現状から半減させることを目指しています）。令和8年2月には気候変動影響評価報告書が公表され、関係府省庁の気候変動適応推進会議で計画の改定に向けた検討が始まっています。",
+      "url": "https://www.env.go.jp/earth/earth/tekiou/page_00004.html",
+      "checkedAt": "2026-10-22"
+    },
+    {
+      "id": "basic-environment-plan-6th",
+      "kind": "plan",
+      "title": "第六次環境基本計画",
+      "shortTitle": "第六次環境基本計画",
+      "owner": "閣議決定（環境省）",
+      "decidedAt": "2024-05-21",
+      "basisLaws": [
+        "405AC0000000091"
+      ],
+      "topics": [
+        "social-environment-management",
+        "environment-decarbonization"
+      ],
+      "summary": "環境基本法に基づき、政府の環境の保全に関する総合的かつ長期的な施策の大綱等を定める計画で、第六次計画は令和6年5月21日に閣議決定されました。環境保全を通じた、現在および将来の国民一人一人の「ウェルビーイング／高い生活の質」を最上位の目的に掲げ、「循環共生型社会」の実現を目指しています。マクロ経済、国土、地域、暮らし、イノベーション、国際の6分野にわたる重点戦略を定めています。",
+      "url": "https://www.env.go.jp/council/02policy/41124_00012.html",
+      "checkedAt": "2026-10-22"
+    },
+    {
+      "id": "biodiversity-national-strategy-2023-2030",
+      "kind": "plan",
+      "title": "生物多様性国家戦略2023-2030 ～ネイチャーポジティブ実現に向けたロードマップ～",
+      "shortTitle": "生物多様性国家戦略2023-2030",
+      "owner": "閣議決定（環境省 自然環境局）",
+      "decidedAt": "2023-03-31",
+      "period": "2023〜2030年",
+      "basisLaws": [
+        "420AC1000000058"
+      ],
+      "topics": [
+        "social-environment-management",
+        "environment-decarbonization"
+      ],
+      "summary": "生物多様性条約第6条と生物多様性基本法第11条に基づく計画で、2022年12月のCOP15で採択された「昆明・モントリオール生物多様性枠組」を踏まえ、令和5年3月31日に閣議決定されました。2030年ミッションとして「2030年までに『ネイチャーポジティブ：自然再興』を実現する」ことを掲げています。陸と海の30%以上を保全する30by30目標の達成に向けた、保護地域とOECMによる保全の推進をはじめ、5つの基本戦略に沿って取り組むとしています。",
+      "url": "https://www.env.go.jp/press/press_01379.html",
+      "checkedAt": "2026-10-22"
+    },
+    {
+      "id": "circular-society-basic-plan-5th",
+      "kind": "plan",
+      "title": "第五次循環型社会形成推進基本計画",
+      "shortTitle": "第五次循環型社会形成推進基本計画",
+      "owner": "閣議決定（環境省）",
+      "decidedAt": "2024-08-02",
+      "period": "2030年度を目標年次",
+      "basisLaws": [
+        "412AC0000000110"
+      ],
+      "topics": [
+        "social-environment-management",
+        "environment-decarbonization"
+      ],
+      "summary": "循環型社会形成推進基本法に基づく計画で、令和6年8月2日に閣議決定されました。循環経済への移行を国家戦略と位置づけ、2030年度を目標年次として数値目標を設定しています。ライフサイクル全体での徹底的な資源循環、多種多様な地域の循環システムの構築と地方創生の実現、資源循環・廃棄物管理基盤の強靱化と着実な適正処理・環境再生の実行など、5つの柱で施策を整理しています。",
+      "url": "https://www.env.go.jp/press/press_03525.html",
+      "checkedAt": "2026-10-22"
+    },
+    {
+      "id": "construction-recycling-plan-2020",
+      "kind": "plan",
+      "title": "建設リサイクル推進計画２０２０ ～「質」を重視するリサイクルへ～",
+      "shortTitle": "建設リサイクル推進計画2020",
+      "owner": "国土交通省 総合政策局 公共事業企画調整課",
+      "decidedAt": "2020-09-30",
+      "period": "最大10年間を見通した計画（2〜3年ごとに中間フォローアップ）",
+      "basisLaws": [],
+      "topics": [
+        "social-environment-management",
+        "environment-decarbonization",
+        "construction-management"
+      ],
+      "summary": "社会資本整備審議会・交通政策審議会の建設リサイクル推進施策検討小委員会の審議を経て、令和2年9月30日に策定された計画です。建設廃棄物のリサイクル率が約97%（2018年度）に達して維持・安定期に入ったことから、今後は付加価値の高い再生材へのリサイクルなど「質」の向上を重視するとし、これまでの目標値に代えて2024年度の達成基準値（アスファルト・コンクリート塊とコンクリート塊の再資源化率99%以上、建設廃棄物全体の再資源化・縮減率98%以上、建設発生土の有効利用率80%以上など）を設けています。新規施策として、廃プラスチックの分別・リサイクルの促進、リサイクル原則化ルールの改定、建設発生土のトレーサビリティシステム等の活用を挙げており、令和7年4月の小委員会では、今後の施策に向けた提言の中間とりまとめ（素案）が議論されています。",
+      "url": "https://www.mlit.go.jp/report/press/sogo03_hh_000247.html",
+      "checkedAt": "2026-10-22"
+    },
+    {
+      "id": "mlit-environmental-action-plan-2025",
+      "kind": "plan",
+      "title": "国土交通省環境行動計画",
+      "shortTitle": "国土交通省環境行動計画",
+      "owner": "国土交通省 総合政策局",
+      "decidedAt": "2025-06-20",
+      "period": "2030年度まで（2040年を見据える）",
+      "basisLaws": [],
+      "topics": [
+        "environment-decarbonization",
+        "social-environment-management"
+      ],
+      "summary": "国土交通省の環境政策の取組を示す計画で、令和7年6月20日に改定されました。計画期間は、地球温暖化対策計画の目標年度である2040年を見据えつつ、2030年度までとしています。国土交通GXの推進、自然再生や人と自然が共生する社会づくり、再生資源を利用した生産システムの構築、環境資源を基軸とした地域の経済社会づくり、気候変動に適応できる社会の形成、環境価値が評価される市場創出、グリーン社会を支える体制・基盤づくりの7つを重点分野としています。",
+      "url": "https://www.mlit.go.jp/sogoseisaku/environment/sosei_environment_fr_000101.html",
+      "checkedAt": "2026-10-22"
+    },
+    {
+      "id": "civil-works-decarbonization-action-plan-2025",
+      "kind": "policy",
+      "title": "国土交通省土木工事の脱炭素アクションプラン ～建設現場のカーボンニュートラルに向けて～",
+      "shortTitle": "土木工事の脱炭素アクションプラン",
+      "owner": "国土交通省 大臣官房 技術調査課・参事官（イノベーション）グループ 施工企画室",
+      "decidedAt": "2025-04-21",
+      "basisLaws": [],
+      "topics": [
+        "environment-decarbonization",
+        "construction-management",
+        "concrete"
+      ],
+      "summary": "品確法の改正や地球温暖化対策計画などの政府計画の改定を踏まえ、直轄の土木工事で脱炭素化に取り組む方針として、令和7年4月21日に公表されました。「建設機械の脱炭素化」「コンクリートの脱炭素化」「その他建設技術の脱炭素化」の3つをリーディング施策としています。燃費基準達成建設機械の認定型式のうち油圧ショベルの直轄工事での使用原則化を2030年度頃を目途に行うこと、令和7年度から土工と河川浚渫工でICT施工を原則化すること、セメントの一部を置き換えた製品のうちグリーン購入法の特定調達品目より高い置換率（55%以上）のものを試行工事で検証し、用途を指定して使用を原則化していくことなどを示しています。",
+      "url": "https://www.mlit.go.jp/report/press/kanbo08_hh_001200.html",
+      "checkedAt": "2026-10-22"
+    },
+    {
+      "id": "gx-construction-machinery-certification-2023",
+      "kind": "policy",
+      "title": "GX建設機械認定制度",
+      "shortTitle": "GX建設機械認定制度",
+      "owner": "国土交通省 大臣官房 参事官（イノベーション）グループ 施工企画室",
+      "decidedAt": "2023-10-17",
+      "basisLaws": [],
+      "topics": [
+        "environment-decarbonization",
+        "construction-management"
+      ],
+      "summary": "カーボンニュートラルに資するGX建設機械の普及を促し、建設施工で排出される二酸化炭素を減らすための認定制度で、令和5年10月17日に申請の受付が始まりました。当初の対象は電動（バッテリ式・有線式）の油圧ショベルとホイールローダで、令和5年12月25日の初回認定では4社15型式の電動ショベルが認定されています。2024年度からは、関係省庁と連携して認定型式の購入に対する補助金制度が設けられ、エネルギー効率の良い電動建機を認定・普及させるための電力消費量基準値を、2030年度を目途に設定するとしています。",
+      "url": "https://www.mlit.go.jp/tec/constplan/sosei_constplan_tk_000005.html",
+      "checkedAt": "2026-10-22"
+    },
+    {
+      "id": "port-mid-long-term-policy-port2030",
+      "kind": "policy",
+      "title": "港湾の中長期政策「PORT 2030」",
+      "shortTitle": "港湾の中長期政策 PORT 2030",
+      "owner": "国土交通省 港湾局",
+      "decidedAt": "2018-07-31",
+      "period": "2030年頃を目標時期",
+      "basisLaws": [],
+      "topics": [
+        "ports-coasts",
+        "environment-decarbonization",
+        "information-management"
+      ],
+      "summary": "2030年頃を目標時期とする港湾の中長期政策で、国土交通省港湾局が平成30年7月31日に最終とりまとめを公表しました（中間とりまとめは平成29年12月18日）。「地政学的な変化やグローバルな視点を意識する」「『施設提供型』から『ソリューション提供型』に発展させる」など5つの基本的理念のもと、「グローバルバリューチェーンを支える海上輸送網の構築」「列島のクルーズアイランド化」「港湾・物流活動のグリーン化」「情報通信技術を活用した港湾のスマート化・強靱化」「港湾建設・維持管理技術の変革と海外展開」など8つの基本的な方向性を示しています。ロードマップでは施策を短期（～2020年）、中期（2020年～2030年頃）、長期（2030年～）に整理しています。",
+      "url": "https://www.mlit.go.jp/kowan/kowan_tk3_000014.html",
+      "checkedAt": "2026-10-22"
+    },
+    {
+      "id": "carbon-neutral-port",
+      "kind": "policy",
+      "title": "カーボンニュートラルポート（CNP）の形成",
+      "shortTitle": "カーボンニュートラルポート",
+      "owner": "国土交通省 港湾局",
+      "decidedAt": "2022-11-18",
+      "basisLaws": [
+        "325AC0000000218"
+      ],
+      "topics": [
+        "ports-coasts",
+        "environment-decarbonization"
+      ],
+      "summary": "港湾の脱炭素化と産業競争力の強化を図るため国土交通省が進める施策で、港湾法の一部を改正する法律（令和4年法律第87号）が令和4年11月18日に公布、12月16日に施行（一部を除く）され、港湾脱炭素化推進計画と港湾脱炭素化推進協議会が法定化されました。港湾管理者が、官民の関係者が参加する協議会での検討を踏まえて計画を作成し、各関係者がそれに基づいて取組を進めます。令和7年3月14日時点で97港湾に協議会等が設置され、35港湾で計画が作成されており、令和7年3月にはコンテナターミナルを対象とするCNP認証の制度も設けられました。",
+      "url": "https://www.mlit.go.jp/kowan/kowan_tk4_000054.html",
+      "checkedAt": "2026-10-22"
+    },
+    {
+      "id": "coast-conservation-basic-policy-2020",
+      "kind": "policy",
+      "title": "海岸保全基本方針",
+      "shortTitle": "海岸保全基本方針",
+      "owner": "農林水産大臣・国土交通大臣（海岸法の主務大臣）",
+      "decidedAt": "2020-11-20",
+      "basisLaws": [
+        "331AC0000000101"
+      ],
+      "topics": [
+        "ports-coasts",
+        "rivers-disaster-prevention",
+        "municipal-civil-engineers"
+      ],
+      "summary": "海岸法第2条の2に基づき主務大臣（農林水産大臣・国土交通大臣）が定める方針で、平成12年5月16日に作成され、平成27年2月の変更に続いて令和2年11月20日に変更されました。「気候変動を踏まえた海岸保全のあり方」提言（令和2年7月）を踏まえ、過去のデータに基づきつつ気候変動による影響を明示的に考慮した対策へ転換しています。その後、令和3年7月30日に「海岸保全施設の技術上の基準を定める省令」が一部改正・施行され、都道府県知事が同法第2条の3に基づいて定める各沿岸の海岸保全基本計画が順次変更されています。",
+      "url": "https://www.mlit.go.jp/river/kaigan/main/coastplan/index.html",
+      "checkedAt": "2026-10-22"
+    },
+    {
+      "id": "railway-seismic-reinforcement-ordinance",
+      "kind": "policy",
+      "title": "特定鉄道等施設に係る耐震補強に関する省令・告示・指針",
+      "shortTitle": "鉄道施設の耐震補強",
+      "owner": "国土交通省 鉄道局",
+      "decidedAt": "2023-03",
+      "basisLaws": [],
+      "basisLawTitles": [
+        "特定鉄道等施設に係る耐震補強に関する省令"
+      ],
+      "topics": [
+        "railways",
+        "bridges-steel",
+        "rivers-disaster-prevention"
+      ],
+      "summary": "平成24年に中央防災会議で首都直下地震や南海トラフ地震等への耐震補強の必要性が指摘されたこと等を受け、平成25年3月30日に省令（国土交通省令第16号）と告示・指針を定め、鉄道事業者等に耐震補強を努力義務化した制度です。首都直下・南海トラフ地震で震度6強以上が想定される地域等で、1日平均片道断面輸送量が1万人以上の線区や緊急輸送道路等と交差・並走する線区の橋りょう・開削トンネル、1日平均乗降客数が1万人以上の駅等を対象とします。令和5年度末の主要鉄道路線の耐震化率は約99%で、令和4年3月の福島県沖を震源とする地震の被害等を踏まえ、令和5年3月に関係省令等が改正されました。",
+      "url": "https://www.mlit.go.jp/tetudo/content/002020169.pdf",
+      "checkedAt": "2026-10-22"
+    },
+    {
+      "id": "local-railway-restructuring-2023",
+      "kind": "policy",
+      "title": "地域公共交通の活性化及び再生に関する法律等の一部を改正する法律（令和５年法律第18号）",
+      "shortTitle": "ローカル鉄道の再構築協議会",
+      "owner": "国土交通省 総合政策局・鉄道局",
+      "decidedAt": "2023-04-28",
+      "basisLaws": [],
+      "basisLawTitles": [
+        "地域公共交通の活性化及び再生に関する法律"
+      ],
+      "topics": [
+        "railways",
+        "urban-regional-planning",
+        "municipal-civil-engineers"
+      ],
+      "summary": "地域公共交通を「共創」によって再構築（リ・デザイン）するための改正法で、令和5年4月28日に公布され、10月1日に全面施行されました。ローカル鉄道については、自治体または鉄道事業者の要請に基づき、関係自治体の意見を聴いて国土交通大臣が「再構築協議会」を組織する仕組みを創設し、①鉄道輸送の維持・高度化、②バス等への転換のいずれかにより利便性・持続可能性の向上を図る方策について協議が調ったときは再構築方針を作成します。あわせて、鉄道・タクシーの協議運賃制度の創設や、まちづくりと一体で行う鉄道・バスの施設整備等への社会資本整備総合交付金による支援などが盛り込まれました。",
+      "url": "https://www.mlit.go.jp/report/press/sogo12_hh_000335.html",
+      "checkedAt": "2026-10-22"
+    },
+    {
+      "id": "dam-revitalization-vision-2017",
+      "kind": "policy",
+      "title": "ダム再生ビジョン",
+      "shortTitle": "ダム再生ビジョン",
+      "owner": "国土交通省 水管理・国土保全局",
+      "decidedAt": "2017-06-27",
+      "basisLaws": [],
+      "topics": [
+        "dams-power",
+        "rivers-disaster-prevention",
+        "maintenance-asset-management"
+      ],
+      "summary": "既設ダムを有効活用する「ダム再生」を推進するため、国土交通省が平成29年6月27日に策定したビジョンで、副題は「頻発する洪水・渇水の被害軽減や再生可能エネルギー導入に向けた既設ダムの有効活用」です。「ダムの長寿命化」「施設能力の最大発揮のための柔軟で信頼性のある運用」「高機能化のための施設改良」などの方策を示し、再生可能エネルギーの導入などにも積極的に取り組むとしています。平成30年3月には、国土交通省水管理・国土保全局が「ダム再生ガイドライン」を作成しています。",
+      "url": "https://www.mlit.go.jp/river/dam/saisei_vision.html",
+      "checkedAt": "2026-10-22"
+    },
+    {
+      "id": "hybrid-dam",
+      "kind": "policy",
+      "title": "ハイブリッドダム",
+      "shortTitle": "ハイブリッドダム",
+      "owner": "国土交通省 水管理・国土保全局",
+      "decidedAt": "2022-07-26",
+      "basisLaws": [],
+      "topics": [
+        "dams-power",
+        "environment-decarbonization",
+        "rivers-disaster-prevention"
+      ],
+      "summary": "ダムを活用して「治水機能の確保・向上」「カーボンニュートラル（水力発電）」「地域振興」の3つの政策目標の実現を図る取組で、国土交通省が令和4年7月26日にサウンディング（官民対話）の参加者募集を発表して始めました。気象予測も活用し、利水容量の治水活用（事前放流等）や治水容量の利水活用（運用高度化）などダムの容量等を共用化するもので、ダムの運用の高度化、既設ダムの発電施設の新増設、ダム改造・多目的ダムの建設を柱としています。令和5年度は国土交通省・水資源機構管理の72ダムで運用高度化を試行し、湯西川ダム、尾原ダム、野村ダムの3ダムで事業化に向けたケーススタディを行いました。",
+      "url": "https://www.mlit.go.jp/river/dam/hybriddam/index.html",
+      "checkedAt": "2026-10-22"
+    },
+    {
+      "id": "water-sewerage-seismic-plan-2024",
+      "kind": "policy",
+      "title": "上下水道耐震化計画の策定について",
+      "shortTitle": "上下水道耐震化計画",
+      "owner": "国土交通省 大臣官房参事官（上下水道技術）・水管理・国土保全局 水道事業課・下水道事業課",
+      "decidedAt": "2024-09-24",
+      "period": "原則、令和7年度から5年程度",
+      "basisLaws": [],
+      "topics": [
+        "water-sewerage",
+        "rivers-disaster-prevention",
+        "municipal-civil-engineers"
+      ],
+      "summary": "令和6年1月の能登半島地震で、浄水場や下水処理場とそれらに直結した管路等の急所施設の耐震化が未実施であったこと等により復旧が長期化したことを受け、国土交通省が令和6年9月24日の通知で全ての水道事業者等と下水道管理者に策定を求めた計画です。その施設が機能を失えばシステム全体が機能を失う上下水道システムの急所施設と、避難所等の重要施設に接続する上下水道管路等について、上下水道一体で耐震化を推進します。策定期限は令和7年1月末日、計画期間は原則令和7年度から5年程度とされ、人口減少を考慮した施設規模の適正化等も踏まえることとしています。",
+      "url": "https://www.mlit.go.jp/mizukokudo/watersupply/content/001857678.pdf",
+      "checkedAt": "2026-10-22"
+    },
+    {
+      "id": "road-collapse-sewer-committee-3rd-proposal-2025",
+      "kind": "council",
+      "title": "信頼されるインフラのためのマネジメントの戦略的転換（第３次提言）",
+      "shortTitle": "道路陥没事故対策委員会 第3次提言",
+      "owner": "下水道等に起因する大規模な道路陥没事故を踏まえた対策検討委員会（国土交通省）",
+      "decidedAt": "2025-12-01",
+      "basisLaws": [],
+      "topics": [
+        "water-sewerage",
+        "maintenance-asset-management",
+        "municipal-civil-engineers"
+      ],
+      "summary": "令和7年1月28日に埼玉県八潮市で発生した、下水道管路の破損に起因するとされる道路陥没事故を受けて設けられた委員会の第3次提言で、令和7年12月1日にとりまとめられました。第Ⅰ部で点検・調査の2つの『メリハリ』と2つの『見える化』による下水道管路マネジメントの転換を、第Ⅱ部でインフラ全般に共通する課題として新たなインフラマネジメントに向けた5つの道すじを示し、作業安全の確保をインフラマネジメントの基本中の基本と位置づけています。これに先立ち、第1次提言（令和7年3月17日）で全国特別重点調査の実施を、第2次提言（同年5月28日）で安全性確保を最優先する管路マネジメントのあり方を示しています。",
+      "url": "https://www.mlit.go.jp/mizukokudo/sewerage/mizukokudo_sewerage_tk_000987.html",
+      "checkedAt": "2026-10-22"
+    },
+    {
+      "id": "water-sewerage-policy-review-2nd-2026",
+      "kind": "council",
+      "title": "上下水道政策の基本的なあり方検討会 第２次とりまとめ 「複数自治体による事業運営の一体化」と「集約型・分散型をベストミックスした施設の最適配置」による上下水道の基盤強化",
+      "shortTitle": "上下水道政策のあり方 第2次とりまとめ",
+      "owner": "上下水道政策の基本的なあり方検討会（国土交通省）",
+      "decidedAt": "2026-01-20",
+      "basisLaws": [],
+      "topics": [
+        "water-sewerage",
+        "municipal-civil-engineers",
+        "human-resource-management"
+      ],
+      "summary": "令和6年4月に水道行政が国土交通省及び環境省へ移管され、国土交通省が水道・下水道行政を一体として担うことになったことを受け、同年11月に設けられた検討会の第2次とりまとめで、令和8年1月20日に公表されました。令和7年6月の第1次とりまとめ「強靱で持続可能な上下水道に向けた組織・経営改革の始動」に続き、「複数自治体による事業運営の一体化」の国主導による加速化、集約型・分散型のベストミックスによる施設の最適配置、上下水道を将来に繋ぐための人材確保・育成方策、老朽化対策を着実に進める経営の実現を示しています。",
+      "url": "https://www.mlit.go.jp/mizukokudo/sewerage/content/001977749.pdf",
+      "checkedAt": "2026-10-22"
+    },
+    {
+      "id": "new-sewerage-vision-acceleration-strategy-2023",
+      "kind": "policy",
+      "title": "新下水道ビジョン加速戦略 ～実現加速へのスパイラルアップ～ 令和４年度改訂版",
+      "shortTitle": "新下水道ビジョン加速戦略（令和4年度改訂）",
+      "owner": "国土交通省 水管理・国土保全局 下水道部",
+      "decidedAt": "2023-03",
+      "basisLaws": [],
+      "topics": [
+        "water-sewerage",
+        "environment-decarbonization",
+        "maintenance-asset-management"
+      ],
+      "summary": "平成26年の「新下水道ビジョン」の実現加速の観点から、国が選択と集中により5年程度で実施すべき施策を平成29年8月にまとめた「新下水道ビジョン加速戦略」の改訂版で、令和5年3月に公表されました。流域治水関連法等の法改正や2050年カーボンニュートラルに向けた動向、下水汚泥資源の肥料利用への注目などを踏まえて取組を見直し、「官民連携の推進」「脱炭素化の推進」「水環境管理」「アセットマネジメント・下水道DX」「気候変動等を踏まえた防災・減災の推進」などの重点項目と基本的な施策を示しています。",
+      "url": "https://www.mlit.go.jp/mizukokudo/sewerage/mizukokudo_sewerage_tk_000773.html",
+      "checkedAt": "2026-10-22"
+    },
+    {
+      "id": "national-spatial-strategy-3rd-2023",
+      "kind": "plan",
+      "title": "第三次国土形成計画（全国計画）",
+      "shortTitle": "第三次国土形成計画（全国計画）",
+      "owner": "閣議決定（国土交通省 国土政策局）",
+      "decidedAt": "2023-07-28",
+      "period": "2050年さらにその先の長期を見据えつつ、今後概ね10年間",
+      "basisLaws": [
+        "325AC0000000205"
+      ],
+      "topics": [
+        "urban-regional-planning",
+        "environment-decarbonization",
+        "rivers-disaster-prevention",
+        "municipal-civil-engineers"
+      ],
+      "summary": "国土形成計画法に基づく全国計画で、令和5年7月28日に第六次国土利用計画（全国計画）とともに閣議決定されました。計画期間は2050年さらにその先の長期を見据えつつ今後概ね10年間とし、目指す国土の姿を「新時代に地域力をつなぐ国土」、国土構造の基本構想を「シームレスな拠点連結型国土」としています。国土の刷新に向けた重点テーマとして「デジタルとリアルが融合した地域生活圏の形成」「持続可能な産業への構造転換」「グリーン国土の創造」「人口減少下の国土利用・管理」を掲げています。",
+      "url": "https://www.mlit.go.jp/kokudoseisaku/kokudokeikaku_fr3_000003.html",
+      "checkedAt": "2026-10-22"
+    },
+    {
+      "id": "location-optimization-plan-compact-plus-network",
+      "kind": "policy",
+      "title": "立地適正化計画とコンパクト・プラス・ネットワーク",
+      "shortTitle": "立地適正化計画",
+      "owner": "国土交通省 都市局",
+      "decidedAt": "2014-08-01",
+      "basisLaws": [
+        "414AC0000000022"
+      ],
+      "topics": [
+        "urban-regional-planning",
+        "municipal-civil-engineers"
+      ],
+      "summary": "平成26年8月1日施行の改正都市再生特別措置法で創設された、市町村が作成する計画です。都市再生特別措置法と地域公共交通活性化再生法に基づき、居住や医療・福祉・商業等の都市機能の誘導と、それと連携した地域公共交通ネットワークの構築を進める「コンパクト・プラス・ネットワーク」の中核で、計画では都市機能誘導区域や居住誘導区域などを定めます。令和7年3月に636都市の計画が公表されて目標の600都市を達成し、907都市が取組中とされています。",
+      "url": "https://www.mlit.go.jp/en/toshi/city_plan/compactcity_network.html",
+      "checkedAt": "2026-10-22"
+    },
+    {
+      "id": "morido-regulation-basic-policy-2023",
+      "kind": "policy",
+      "title": "宅地造成、特定盛土等又は土石の堆積に伴う災害の防止に関する基本的な方針",
+      "shortTitle": "盛土規制法の基本方針",
+      "owner": "農林水産省・国土交通省（告示）",
+      "decidedAt": "2023-05-29",
+      "basisLaws": [],
+      "basisLawTitles": [
+        "宅地造成及び特定盛土等規制法"
+      ],
+      "topics": [
+        "earthwork-foundations",
+        "rivers-disaster-prevention",
+        "municipal-civil-engineers"
+      ],
+      "summary": "盛土規制法（宅地造成及び特定盛土等規制法。令和4年5月27日公布、令和5年5月26日施行）に基づき、主務大臣（国土交通大臣・農林水産大臣）が令和5年5月29日に定めた基本方針（農林水産省・国土交通省告示第5号）です。令和3年の静岡県熱海市の盛土崩落による土石流災害を契機とする同法を各地方公共団体が適確に運用できるよう、国土全体にわたる盛土対策の総括的な考え方や基礎調査の実施方法、規制区域の指定の考え方等を示しています。同法では、都道府県知事等が指定する規制区域内で行う盛土等を、農地・森林の造成や土石の一時的な堆積も含めて許可の対象とし、施工状況の定期報告、中間検査、完了検査を行います。",
+      "url": "https://www.mlit.go.jp/toshi/morido-hourei.html",
+      "checkedAt": "2026-10-22"
+    },
+    {
+      "id": "construction-soil-destination-plan",
+      "kind": "policy",
+      "title": "建設発生土の搬出先計画制度",
+      "shortTitle": "建設発生土の搬出先計画制度",
+      "owner": "国土交通省 不動産・建設経済局 建設業課",
+      "decidedAt": "2024-06-01",
+      "basisLaws": [
+        "403AC0000000048",
+        "403M50004000019",
+        "403M50004000020"
+      ],
+      "topics": [
+        "earthwork-foundations",
+        "environment-decarbonization",
+        "construction-management"
+      ],
+      "summary": "資源有効利用促進法により元請業者に搬出先を記載した再生資源利用促進計画書の作成・保存を義務付ける制度で、令和3年7月の静岡県熱海市の土石流災害を契機に強化されました。令和5年1月1日施行の省令改正で、計画書の作成対象工事を搬出土砂量1,000㎥以上から500㎥以上に拡大し、保存期間を1年から5年に延ばし、発注者への報告と建設現場への掲示を義務化しました。令和5年5月26日施行の省令改正で搬出先の盛土規制法の許可の事前確認と搬出後の土砂受領書等の確認を、令和6年6月1日施行の省令改正・告示で元請業者等による建設発生土の最終搬出先の確認を義務化しています。",
+      "url": "https://www.mlit.go.jp/tochi_fudousan_kensetsugyo/const/tochi_fudousan_kensetsugyo_const_fr1_000001_00041.html",
+      "checkedAt": "2026-10-22"
+    },
+    {
+      "id": "concrete-productivity-improvement",
+      "kind": "policy",
+      "title": "コンクリート工における生産性向上",
+      "shortTitle": "コンクリート工の生産性向上",
+      "owner": "コンクリート生産性向上検討協議会（国土交通省）",
+      "decidedAt": "2016-03-03",
+      "basisLaws": [],
+      "topics": [
+        "concrete",
+        "construction-management",
+        "bridges-steel"
+      ],
+      "summary": "i-Constructionの一つであるコンクリート工の「規格の標準化」に向けた課題と取組方針、設計手法のあり方を検討するため、有識者等によるコンクリート生産性向上検討協議会が平成28年3月3日に第1回を開いて進めている取組です。「機械式鉄筋定着工法の配筋設計ガイドライン」「コンクリート構造物における埋設型枠・プレハブ鉄筋に関するガイドライン」「流動性を高めた現場打ちコンクリートに関するガイドライン」「コンクリート橋のプレキャスト化ガイドライン」などを示し、「土木工事におけるプレキャスト工法の活用事例集（第二版）」（令和4年3月）も公表しています。協議会は令和8年2月25日に第15回を開いています。",
+      "url": "https://www.mlit.go.jp/tec/i-con-concrete.html",
+      "checkedAt": "2026-10-22"
+    },
+    {
+      "id": "alkali-aggregate-reaction-countermeasures-2002",
+      "kind": "policy",
+      "title": "アルカリ骨材反応抑制対策について",
+      "shortTitle": "アルカリ骨材反応抑制対策",
+      "owner": "国土交通省 大臣官房技術審議官・大臣官房技術参事官・航空局飛行場部長（国官技第112号ほか）",
+      "decidedAt": "2002-07-31",
+      "basisLaws": [],
+      "topics": [
+        "concrete",
+        "quality-management"
+      ],
+      "summary": "平成14年7月31日に通知され（国官技第112号、国港環第35号、国空建第78号）、平成14年9月1日から適用されている対策で、国土交通省が建設する構造物に使用するコンクリートとコンクリート工場製品に適用します。コンクリート1m³に含まれるアルカリ総量をNa2O換算で3.0kg以下にする、抑制効果のある混合セメント等（高炉セメントB種・C種、フライアッシュセメントB種・C種など）を使用する、アルカリシリカ反応性試験（化学法またはモルタルバー法）で無害と確認された骨材を使用する、の3つのいずれか1つについて確認をとることとし、土木構造物では前の2つを優先します。令和8年3月の土木工事共通仕様書（案）も、受注者にこの通達と運用通達の遵守を求めています。",
+      "url": "https://www.thr.mlit.go.jp/bumon/b00097/k00910/kyoutuu/H20sankou/24sankou.pdf",
+      "checkedAt": "2026-10-22"
+    },
+    {
+      "id": "concrete-chloride-total-regulation-1986",
+      "kind": "policy",
+      "title": "コンクリート中の塩化物総量規制について",
+      "shortTitle": "コンクリート中の塩化物総量規制",
+      "owner": "建設大臣官房技術審議官（建設省技調発第285号）",
+      "decidedAt": "1986-06-02",
+      "basisLaws": [],
+      "topics": [
+        "concrete",
+        "quality-management"
+      ],
+      "summary": "昭和61年6月2日に通知され（建設省技調発第285号）、昭和62年4月1日から実施されている基準で、国土交通省が建設する土木構造物に使用するコンクリートとグラウトに適用します。フレッシュコンクリート中の許容塩化物量（Cl−重量）を、鉄筋コンクリート部材等で0.60kg/m³、プレテンション方式のプレストレストコンクリート部材などで0.30kg/m³とし、塩化物量の測定はコンクリートの打設前またはグラウトの注入前に行うとしました。その後、平成17年度以降の土木工事共通仕様書で、許容塩化物量は0.30kg/m³以下に変更されています。",
+      "url": "https://www.thr.mlit.go.jp/bumon/b00097/k00910/kyoutuu/H20sankou/24sankou.pdf",
+      "checkedAt": "2026-10-22"
+    },
+    {
+      "id": "road-bridge-specifications-2025",
+      "kind": "policy",
+      "title": "「橋、高架の道路等の技術基準」（道路橋示方書）",
+      "shortTitle": "道路橋示方書（令和7年改定）",
+      "owner": "国土交通省 都市局・道路局（局長通知）",
+      "decidedAt": "2025-08-22",
+      "basisLaws": [
+        "327AC1000000180",
+        "345CO0000000320"
+      ],
+      "basisLawTitles": [
+        "道路構造令施行規則"
+      ],
+      "topics": [
+        "bridges-steel",
+        "roads",
+        "concrete"
+      ],
+      "summary": "高速道路、国道の橋梁の設計に用いる基準で、その他の道路橋の設計でも一般的に用いられています。昭和47年の制定以降、改定を重ねてきており、令和7年8月22日に公表された改定では、新しい形式の提案に対しても適切に性能を評価するための枠組みの充実、様々な耐久技術の開発を見据えた耐久性能の評価方法の明確化、能登半島地震を踏まえた復旧性を向上させるための規定の充実をポイントとし、編構成も変更しました。令和8年4月1日以降に新たに着手する設計に適用されます。",
+      "url": "https://www.mlit.go.jp/report/press/road01_hh_001980.html",
+      "checkedAt": "2026-10-22"
+    },
+    {
+      "id": "shield-tunnel-safety-guideline-2021",
+      "kind": "policy",
+      "title": "シールドトンネル工事の安全・安心な施工に関するガイドライン",
+      "shortTitle": "シールドトンネル工事のガイドライン",
+      "owner": "シールドトンネル施工技術検討会（国土交通省）",
+      "decidedAt": "2021-12",
+      "basisLaws": [],
+      "topics": [
+        "tunnels",
+        "safety-management-cem",
+        "construction-management"
+      ],
+      "summary": "令和2年に鉄道事業と道路事業のシールドトンネル工事で地表面に影響を与える事故が発生したことを受け、シールドトンネル施工技術検討会が令和3年12月にとりまとめたガイドラインです（令和4年3月28日に誤字修正版へ更新）。平成26年3月の「シールドトンネル施工技術安全向上協議会報告書」の提言を踏まえ、調査・設計・施工で考慮すべき事項を整理しており、調査段階で施工に伴うリスクとその対応を体系的に整理して設計・施工に引き継ぐこと、施工段階で異常の兆候を早期に把握して重大なトラブルや事故の回避に努めることなどを示しています。",
+      "url": "https://www.mlit.go.jp/tec/tec_fr_000096.html",
+      "checkedAt": "2026-10-22"
+    },
+    {
+      "id": "mountain-tunnel-face-rockfall-guideline-2024",
+      "kind": "policy",
+      "title": "山岳トンネル工事の切羽における肌落ち災害防止対策に係るガイドライン",
+      "shortTitle": "山岳トンネルの肌落ち防止ガイドライン",
+      "owner": "厚生労働省 労働基準局",
+      "decidedAt": "2024-03-26",
+      "basisLaws": [],
+      "topics": [
+        "tunnels",
+        "safety-management-cem",
+        "safety-laws"
+      ],
+      "summary": "労働安全衛生関係法令と相まって、山岳トンネル工事の切羽における肌落ち災害の防止を図るガイドラインで、平成28年12月26日に策定され、平成30年1月18日、令和6年3月26日（基発0326第1号）に改正されました。令和6年の改正では、発注者等が講ずべき措置の新設、切羽の立入に関連し特段の配慮を必要とする範囲の新設、鏡吹付けの原則実施を定め、最新のデジタル技術等も活用して作業の遠隔化・自動化や各種センサー等による監視・検知の取組を積極的に進めることとしました。",
+      "url": "https://www.mhlw.go.jp/stf/newpage_39096.html",
+      "checkedAt": "2026-10-22"
+    },
+    {
+      "id": "tunnel-dust-countermeasures-guideline-2020",
+      "kind": "policy",
+      "title": "ずい道等建設工事における粉じん対策に関するガイドライン",
+      "shortTitle": "ずい道等建設工事の粉じん対策",
+      "owner": "厚生労働省 労働基準局",
+      "decidedAt": "2020-07-20",
+      "basisLaws": [
+        "354M50002000018",
+        "347M50002000032"
+      ],
+      "topics": [
+        "tunnels",
+        "safety-management-cem",
+        "safety-laws"
+      ],
+      "summary": "事業者が実施すべき事項と関係法令の重要な規定を一体的に示し、ずい道等建設工事の粉じん障害防止対策の充実を図るガイドラインで、粉じん障害防止規則及び労働安全衛生規則の一部を改正する省令（令和2年厚生労働省令第128号）等に合わせて令和2年7月20日（基発0720第2号）に改正され、令和3年4月1日から施行されています（ずい道等の掘削等作業主任者の規定は令和4年4月1日施行）。粉じん濃度目標レベルを3mg/m³から2mg/m³に引き下げたほか、ずい道等の掘削等作業主任者の職務に、粉じん濃度等の測定結果に応じた呼吸用保護具の選択などを加えました。",
+      "url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000099121_00002.html",
+      "checkedAt": "2026-10-22"
+    }
+  ]
+}

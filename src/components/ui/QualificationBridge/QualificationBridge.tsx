@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import MetaCard from '@/components/ui/MetaCard/MetaCard';
-import { resolveQualificationBridge, type QualificationBridgeSurface } from '@/config/qualification-bridge';
+import { MUNICIPAL_HUB, resolveQualificationBridge, type QualificationBridgeAudience, type QualificationBridgeSurface } from '@/config/qualification-bridge';
 
 /**
  * QualificationBridge — 実務記事・共通仕様書の章末に置く「業務経験 → 資格」の橋渡しカード。
@@ -12,8 +12,8 @@ import { resolveQualificationBridge, type QualificationBridgeSurface } from '@/c
  * 各リンクの data-cta-label（orderer / contractor / qualification-map）がクリックのラベルになる。
  * 真実源: src/config/qualification-bridge.ts
  */
-export default function QualificationBridge({ placement }: { placement: QualificationBridgeSurface }) {
-  const options = resolveQualificationBridge();
+export default function QualificationBridge({ placement, audience }: { placement: QualificationBridgeSurface; audience?: QualificationBridgeAudience | undefined }) {
+  const options = resolveQualificationBridge(audience);
   return (
     <div data-cta="qualification-bridge" data-cta-label="card" data-cta-placement={placement}>
       <MetaCard ariaLabel="この業務経験を資格につなげる">
@@ -35,6 +35,13 @@ export default function QualificationBridge({ placement }: { placement: Qualific
             </li>
           ))}
         </ul>
+        {audience === 'municipal' && (
+          <p className="mt-3 text-sm">
+            <Link href={MUNICIPAL_HUB.href} data-cta-label="municipal-hub" className="focus-ring text-(--accent) hover:underline">
+              {MUNICIPAL_HUB.label} →
+            </Link>
+          </p>
+        )}
       </MetaCard>
     </div>
   );

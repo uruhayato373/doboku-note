@@ -26,7 +26,7 @@ docs/                        # 人が読む恒久文書（strategy / editorial /
 scripts/ tools/admin-app/    # 検査・自動化スクリプト／運営管理画面（ローカル専用・npm run admin）
 ```
 
-**URL**: 公開 URL は検索意図別に `/exam/`（資格試験）・`/practice/`（土木施工実務）・`/standards/`（共通仕様書・実務参考資料）・`/topics/`（横断トピック）へ分割する。旧 `/docs/*` は対応する正規 URL へ 1 対 1 で恒久転送。詳細 → [05_情報アーキテクチャ.md](docs/strategy/05_情報アーキテクチャ.md)
+**URL**: 公開 URL は検索意図別に `/exam/`（資格試験）・`/practice/`（土木施工実務）・`/standards/`（共通仕様書・実務参考資料）・`/laws/`（法令の解説）・`/topics/`（横断トピック）へ分割する。旧 `/docs/*` は対応する正規 URL へ 1 対 1 で恒久転送。詳細 → [05_情報アーキテクチャ.md](docs/strategy/05_情報アーキテクチャ.md)
 
 **頻用コマンド**（全一覧と各コマンドの罠 → [commands.md](.claude/knowledge/reference/commands.md)）
 

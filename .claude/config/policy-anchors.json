@@ -32,7 +32,7 @@
       ]
     },
     "content-taxonomy": {
-      "decision": "コンテンツ分類は 領域(area)×資格(category)×記事型(group)×テーマ(topics)×タグ の 5 軸。規則は content-taxonomy.md、値は src/config の JSON。タグの正規表記は日本語名・英語 slug は別名（ビルド時に正規化）・構造タグは group と矛盾させない。exams: は廃止。原本 class ごとの展開ルール（commercial-book は brief 方式）を §7 で固定（2026-09-11）",
+      "decision": "コンテンツ分類は 領域(area)×資格(category)×記事型(group)×テーマ(topics)×タグ の 5 軸。規則は content-taxonomy.md、値は src/config の JSON。タグの正規表記は日本語名・英語 slug は別名（ビルド時に正規化）・構造タグは group と矛盾させない。exams: は廃止。原本 class ごとの展開ルール（commercial-book は brief 方式）を §7 で固定（2026-09-11）。テーマは軸（分野・管理・法令）と状態（公開ハブ／育成中）を持ち、所属の判定は topic-membership.mjs、記事末の回遊は §6-3（2026-10-21）",
       "anchor": ".claude/knowledge/reference/content-taxonomy.md",
       "files": [
         ".claude/knowledge/reference/content-taxonomy.md",
@@ -44,7 +44,15 @@
         "src/lib/doc-classifier.ts",
         "src/lib/content-routes.ts",
         "src/lib/content-taxonomy.ts",
+        "src/lib/topic-membership.mjs",
+        "src/lib/related-core.mjs",
+        "src/lib/law-topic-core.mjs",
+        "src/lib/law-wiring.ts",
+        "config/policy-registry.json",
+        "src/lib/topics.ts",
         "scripts/check-content-taxonomy.mjs",
+        "scripts/report-taxonomy-wiring.mjs",
+        "docs/strategy/21_分類の軸と回遊の配線2026-10.md",
         ".claude/knowledge/reference/content-authoring.md",
         "docs/strategy/05_情報アーキテクチャ.md",
         ".claude/knowledge/reference/exam-content-policy.md",

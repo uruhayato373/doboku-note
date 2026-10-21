@@ -111,9 +111,21 @@
     },
     {
       "date": "2026-10-21",
-      "generatedAt": "2026-10-20T22:18:16.907Z",
-      "sitemapUrls": 2018,
-      "checked": 2018,
+      "generatedAt": "2026-10-21T12:27:27.473Z",
+      "sitemapUrls": 2032,
+      "checked": 2032,
+      "errors": 0,
+      "warnings": 407,
+      "errorsByCode": {},
+      "warningsByCode": {
+        "jsonld_recommended_missing": 407
+      }
+    },
+    {
+      "date": "2026-10-22",
+      "generatedAt": "2026-10-21T21:44:30.595Z",
+      "sitemapUrls": 2049,
+      "checked": 2049,
       "errors": 0,
       "warnings": 407,
       "errorsByCode": {},

@@ -59,6 +59,11 @@ function getPublicDocRoute(meta: DocMeta): PublicDocRoute {
     const localSlug = stripPrefix(meta.slug, `${category}-`);
     return { area, category, group: null, localSlug, path: `/practice/${localSlug}` };
   }
+  if (area === 'laws') {
+    // 法令ページ（DN-0731）。/laws/<参考文献の id>。記事型のセグメントは持たない
+    const localSlug = stripPrefix(meta.slug, `${category}-`);
+    return { area, category, group: null, localSlug, path: `/laws/${localSlug}` };
+  }
   if (area === 'standards') {
     const localSlug = stripPrefix(meta.slug, `${category}-`);
     return { area, category, group: 'guides', localSlug, path: `/standards/guides/${localSlug}` };
@@ -83,6 +88,11 @@ function getPublicDocRouteBySlug(slug: string): PublicDocRoute | null {
 
 export function getPublicDocPath(slug: string): string {
   return getPublicDocRouteBySlug(slug)?.path ?? `/docs/${slug}`;
+}
+
+/** 記事の公開領域（exam / practice / standards / laws）。索引に無い slug は null */
+export function getPublicDocRouteArea(slug: string): PublicArea | null {
+  return getPublicDocRouteBySlug(slug)?.area ?? null;
 }
 
 export function getAllPublicDocRoutes(): Array<PublicDocRoute & { legacySlug: string }> {

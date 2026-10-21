@@ -564,5 +564,20 @@
     ],
     "order": 95,
     "visible": false
+  },
+  {
+    "slug": "laws",
+    "label": "法令",
+    "subtitle": "建設業法・労働安全衛生法・道路法・河川法などを、条文と試験・実務の記事から読む",
+    "description": "建設業法・労働安全衛生法・道路法・河川法・都市計画法・地方自治法など土木の仕事に関わる法令を、目的と体系・よく引かれる条・関係する国の計画とあわせて解説し、その法令を扱う資格試験と実務の記事へつなぎます。",
+    "variant": "general",
+    "area": "laws",
+    "groups": [
+      "guide"
+    ],
+    "order": 91,
+    "layout": {
+      "ogpExamKey": "common"
+    }
   }
 ]
