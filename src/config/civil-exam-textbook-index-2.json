@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-21T12:23:12.850Z",
+  "generated_at": "2026-10-21T22:13:22.454Z",
   "questionToTextbooks": {
     "primary-h18": {
       "問題-6": [
@@ -1671,6 +1671,25 @@
           "score": 0.6
         }
       ]
+    },
+    "secondary-r08": {
+      "問題-9": [
+        {
+          "slug": "guide-r08-secondary-answers",
+          "title": "2級土木施工管理技士 2次試験 令和8年度 解答例・解答速報｜問題の公表と答案の見直し方",
+          "score": 0.6
+        },
+        {
+          "slug": "guide-study-method",
+          "title": "2級土木施工管理技士の独学勉強法 — 勉強時間と受験資格",
+          "score": 0.6
+        },
+        {
+          "slug": "guide-textbooks",
+          "title": "2級土木施工管理技士のおすすめ参考書・問題集 — 用途別の選び方",
+          "score": 0.6
+        }
+      ]
     }
   },
   "textbookToQuestions": {
@@ -2774,6 +2793,12 @@
         "examTitle": "令和7年度 第2次検定",
         "section": "問題-9",
         "score": 0.6
+      },
+      {
+        "examSlug": "secondary-r08",
+        "examTitle": "令和8年度 第2次検定",
+        "section": "問題-9",
+        "score": 0.6
       }
     ],
     "guide-study-method": [
@@ -2786,6 +2811,12 @@
       {
         "examSlug": "secondary-r04",
         "examTitle": "令和4年度 第2次検定",
+        "section": "問題-9",
+        "score": 0.6
+      },
+      {
+        "examSlug": "secondary-r08",
+        "examTitle": "令和8年度 第2次検定",
         "section": "問題-9",
         "score": 0.6
       }
@@ -2802,6 +2833,12 @@
         "examTitle": "令和4年度 第2次検定",
         "section": "問題-9",
         "score": 0.6
+      },
+      {
+        "examSlug": "secondary-r08",
+        "examTitle": "令和8年度 第2次検定",
+        "section": "問題-9",
+        "score": 0.6
       }
     ],
     "guide-structures-key-points": [
@@ -2815,9 +2852,9 @@
   },
   "meta": {
     "textbookCount": 29,
-    "examCount": 27,
-    "questionsWithMatches": 173,
-    "totalMatches": 257,
+    "examCount": 28,
+    "questionsWithMatches": 174,
+    "totalMatches": 260,
     "threshold": 0.45
   }
 }

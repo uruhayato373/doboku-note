@@ -157,7 +157,8 @@ test('印を持つページの集合は、置き換え前の正規表現の対�
   for (const f of files) if (hasOfficialQuestionMark(readFileSync(join(REPO_ROOT, f), 'utf8'))) marked.add(f);
   const legacy = files.filter((f) => LEGACY_PAGE.test(f));
   assert.ok(files.length > 1000, `走査した記事 ${files.length} 件（検査不成立）`);
-  assert.equal(legacy.length, 245, '置き換え前の対象ページ数');
+  // 置き換え時点の 245 件から、新年度の過去問ページが足されるたびに増える（減れば走査の取りこぼし）。
+  assert.ok(legacy.length >= 245, `置き換え前の対象ページ数 ${legacy.length}（245 未満は走査の取りこぼし）`);
   assert.deepEqual(legacy.filter((f) => !marked.has(f)), [], '置き換え前は対象だったが印が無いページ');
   const extra = [...marked].filter((f) => !LEGACY_PAGE.test(f));
   const noHeading = extra.filter((f) => !QUESTION_HEADING_LINE.test(readFileSync(join(REPO_ROOT, f), 'utf8').replace(/^---[\s\S]*?\n---/, '')));
