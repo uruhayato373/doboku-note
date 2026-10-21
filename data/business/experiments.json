@@ -5347,17 +5347,12 @@
         "metricId": "a8ConfirmedYen",
         "reviewRecord": "data/business/records/review-2026-10-01T06-45-46-827Z-32027a75-8673-4253-90b2-a16aadb455a1.json"
       },
-      "status": "proposed",
+      "status": "running",
       "created_at": "2026-10-20T08:00:32.243Z",
       "closed_at": null,
       "result": null,
       "learnings": null,
       "next_check_date": "2026-10-27",
-      "pending_user_actions": [
-        {
-          "action": "PR を develop へマージし、/deploy で本番に出す（出るまで本番は EXP-019 の A/B/C のまま）"
-        }
-      ],
       "actions": [
         "A（今の文章カード）と B（小型カード）を、既存の許可済み 3 案件・既存の掲載面へ同率で配信する。案件・広告 URL・1 ページ 1 ピクセル・note の順序は変えない。",
         "ビルドジョブのカードは両案とも「累計5万名以上の支援実績（公式発表・2026年10月）」を 1 行足す（2026-10-20 にもしもの通知と公式 LP の一致を確認）。",
@@ -5433,6 +5428,13 @@
           "at": "2026-10-20T08:00:32.243Z",
           "event": "implement",
           "note": "運営者の指示で、EXP-019 の A を残し、小型カードを B として 2 案に組み直した。計測の仕組み（イベント・CI 取得・週次記録）は EXP-019 のものを実験 ID だけ替えて使う。公開前のため status は proposed。"
+        },
+        {
+          "at": "2026-10-21T22:42:15.482Z",
+          "event": "start",
+          "note": "PR #1150 を develop へマージし、main へ昇格して本番に出した。本番のページの配信コードに EXP-038 があり EXP-019 が無いことを確かめた。A/B を約 1/2 ずつ配信する。",
+          "commit": "8aba7dc8628dccb5832dc2f9d50602bec0029c75",
+          "runUrl": "https://github.com/uruhayato373/doboku-note/actions/runs/39687564101"
         }
       ]
     }
