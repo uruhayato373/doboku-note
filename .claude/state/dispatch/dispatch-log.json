@@ -5310,6 +5310,23 @@
       "commit": "056f345831d9",
       "verification": "data/gsc/index-coverage.json（2026-09-23〜10-14 の 4 回）",
       "note": "完了条件を満たした（data/gsc/index-coverage.json の 2026-10-14 の URL 検査）: 建設部門 59.9%（9/23）→ 92.1%（140/152）、RCCM 0 → 4 ページ（4/8）。サイト全体 79.9% → 90.5%、2級 40% → 87.5%、技術士一次 39% → 74.7%。9/27 の切り分け（大半は検出-未クロール・sitemap 漏れ 0・canonical 誤り 0）のとおり登録待ちで、内部リンクの追加と手元の定期実行の登録依頼で進んだ。統合・noindex の基準: 季節性があるので表示 0 回をもって即 noindex にしない（operations 規約）。まず hub からの内部リンクと検索意図の整合で強め、8 週以上「検出-未登録」のまま被リンクも検索の表示も無いページだけを統合の候補にする（DN-0298・DN-0420 で個別に判断）"
+    },
+    {
+      "id": "DN-0812",
+      "at": "2026-10-22",
+      "task": "総監の用語「下請法」を 2026-01-01 施行の改正（取適法）に合わせて直し、法令の解説記事にする",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "none",
+        "ref": "法改正の未反映は egov-laws --drift の施行日の変化で拾える"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "d434fe23f4f5",
+      "verification": "npm run egov-laws PASS・check-topic-wiring PASS（lawExplainers 62）",
+      "note": "記事を取適法の内容に直し explainsLaw 331AC0000000120 を付けた（d434fe23f）。guide-fact-checker は誤り 0・不正確 2 を修正"
     }
   ]
 }
