@@ -24,12 +24,35 @@ export type CategoryDef = {
   order: number;
   // false のカテゴリはナビ・一覧から非表示（カテゴリページ自体は生きている）
   visible?: boolean;
+  // カテゴリページの表示の決まり（DN-0793）。資格を足すときはここに書き、コードに資格ごとの分岐を足さない
+  layout?: CategoryLayout;
+};
+
+/** カテゴリページのビュー（src/components/category/CategoryViews.tsx）。無ければ記事型ごとの一覧をそのまま並べる */
+type CategoryView = 'civil-1' | 'civil-2' | 'pe-first-stage' | 'pe-comprehensive' | 'pe-construction' | 'concrete' | 'practice';
+/** 記事型の中の並べ替えの規則（src/lib/category-groups.ts）。無ければファイル順 */
+type CategorySort = 'civil' | 'concrete' | 'pe-first-stage' | 'pe-comprehensive';
+export type CategoryLayout = {
+  view?: CategoryView;
+  sort?: CategorySort;
+  // OGP の外枠の色（.claude/knowledge/design-system/note-cover-tokens.json の exams のキー）
+  ogpExamKey?: string;
+  // 記事型（DocGroupKey）ごとの見出しと説明。無い記事型はキー名・空の説明
+  groupLabels?: Record<string, string>;
+  groupDescriptions?: Record<string, string>;
+  // 「学習を始める」のジャンプ（#sec-<記事型>）
+  jumps?: { href: string; label: string; goal: string }[];
 };
 
 const categories = categoriesData as CategoryDef[];
 
 export function getAllCategories(): CategoryDef[] {
   return [...categories].sort((a, b) => a.order - b.order);
+}
+
+/** /exam/{slug} に出す資格カテゴリ（area が exam・並び順）。/exam の静的パスとページの可否が使う */
+export function getExamCategories(): CategoryDef[] {
+  return getAllCategories().filter((c) => c.area === 'exam');
 }
 
 export function getCategoryBySlug(slug: string): CategoryDef | undefined {

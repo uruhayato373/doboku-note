@@ -218,8 +218,7 @@ MDX を作成・編集・削除した後、以下の静的 JSON インデック�
 |---|---|---|
 | `past-exam-backlinks.json` | `.claude/state/exam-keyword-map.json` 編集 | `npm run build-backlinks` |
 | `exam-question-keywords.json` | 同上 | 同上 |
-| `cross-exam-keywords.json` | frontmatter `exams` フィールド変更 | `npm run build-indexes` |
-| `tag-dictionary.json` | frontmatter `tags` フィールド変更 | 同上 |
+| `tag-dictionary.json`（git 管理外） | frontmatter `tags` フィールド変更 | `npm run build-indexes` |
 
 ### 本番ビルド（自動）
 
@@ -305,7 +304,7 @@ doc・コンテンツは `develop` へ直 push で蓄積する（「1 修正 = 1
 **Phase 1 で停止中のスキル・エージェント**:
 - analytics 系スキル（GSC・GA4 データ取得、SEO 監査）
 - strategy 系スキル（競合調査・キーワードギャップ分析）
-- content-planner エージェント（Phase 2 待機）。SEO は gsc-index-auditor（coverage・月次 `/gsc-review`）+ metrics-analyzer（performance・週次 `/weekly-improve`）+ technical-seo-auditor（技術・build 後）+ search-intent-auditor（検索意図・最大20URL）に分割稼働中。4面を束ねるオーケストレータは `/seo-growth-review`（機械検出→意味評価→統合・修正なし）。技術ゲートは CI 常設（`check-seo-build:ci`）。旧 catch-all `seo-auditor` は 2026-06-19 退役・復活させない
+- （content-planner エージェントは 2026-10-20 退役。）SEO は gsc-index-auditor（coverage・月次 `/gsc-review`）+ metrics-analyzer（performance・週次 `/weekly-improve`）+ technical-seo-auditor（技術・build 後）+ search-intent-auditor（検索意図・最大20URL）に分割稼働中。4面を束ねるオーケストレータは `/seo-growth-review`（機械検出→意味評価→統合・修正なし）。技術ゲートは CI 常設（`check-seo-build:ci`）。旧 catch-all `seo-auditor` は 2026-06-19 退役・復活させない
 - ads 系スキル（アフィリエイト・AdSense 最適化）
 
 ### Phase 2（2026年秋予定: note 記事展開・iOS アプリ開発）

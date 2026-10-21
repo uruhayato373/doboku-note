@@ -4,26 +4,30 @@
 //   node scripts/hooks/agent-hook.mjs <name>
 //     check-doc-sync           PreToolUse(Bash)   `git commit` のとき台帳/決定文書/新ツールの同期を促す＋check-policy-anchors --staged
 //     check-cd-scope           PreToolUse(Bash)   括弧の外の cd で worktree・プロジェクトの下の階層へ移るなら exit 2（Claude Code だけ）
+//     check-agent-network      PreToolUse(Bash)   ネット取得禁止のサブエージェント（agent_type）が curl 等で取得するなら exit 2
 //     check-mojibake           PostToolUse(Write|Edit)  .mdx に U+FFFD があれば exit 2（stderr がモデルへ返る）
 //     check-stray-files        Stop               リポジトリ直下の一時ファイルを警告
 //     check-disk-hygiene       Stop               check-disk-hygiene.mjs --quick --stop を stderr へ
 //     check-capture            Stop               最後の報告に未確認・未対応があるのに DN-#### が無ければ 1 セッション 1 回だけ止めて起票を促す
 //     decision-doc-checkpoint  PreCompact/SessionEnd  決定/ポリシー文書の未コミット変更を列挙
+//     record-usage             PreToolUse(Skill|Agent|Task)・UserPromptSubmit  呼び出しを ~/.claude/usage-log へ 1 行追記（DN-0789・4 週間の期限付き）
 //
 // 入力は stdin の JSON（tool_input.command / tool_input.file_path）。env（CLAUDE_TOOL_INPUT / TOOL_INPUT_FILE_PATH）は
 // フォールバック。リポジトリルートはこのファイルの位置から決める（cwd や git に依存しない＝worktree でも正しい）。
-// 判定は scripts/lib/agent-hooks.mjs（純粋）。advisory は常に exit 0、ブロックするのは check-mojibake・check-cd-scope（exit 2）と
+// 判定は scripts/lib/agent-hooks.mjs（純粋）。advisory は常に exit 0、ブロックするのは check-mojibake・check-cd-scope・check-agent-network（exit 2）と
 // check-capture（stdout の decision:block・1 セッション 1 回）だけ。
 //
 // 呼び手: .claude/settings.json（正典）と .codex/hooks.json（sync-codex-compat が生成）。両方とも相対パスで呼ぶ。
 
 import { execFileSync, spawnSync } from 'node:child_process';
-import { existsSync, readFileSync, readdirSync, writeFileSync } from 'node:fs';
-import { tmpdir } from 'node:os';
+import { appendFileSync, existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from 'node:fs';
+import { homedir, tmpdir } from 'node:os';
 import { fileURLToPath } from 'node:url';
 import { join, resolve } from 'node:path';
 import {
   STRAY_GLOBS,
+  agentNetworkMessage,
+  agentNetworkViolation,
   captureMarkers,
   captureReason,
   cdScopeMessage,
@@ -41,6 +45,8 @@ import {
   shellAssignments,
   strayAtRoot,
   topLevelCdTargets,
+  usageLogPath,
+  usageRecord,
 } from '../lib/agent-hooks.mjs';
 import { REPO_ROOT as ROOT } from '../lib/repository-paths.mjs';
 
@@ -99,6 +105,14 @@ const HANDLERS = {
     return 0;
   },
 
+  'check-agent-network'({ json, command }) {
+    const agentType = typeof json?.agent_type === 'string' ? json.agent_type : '';
+    const reason = agentNetworkViolation({ agentType, command });
+    if (!reason) return 0;
+    err([agentNetworkMessage(agentType, reason)]);
+    return 2;
+  },
+
   'check-mojibake'({ filePath }) {
     if (!isMdxPath(filePath)) return 0;
     const abs = resolve(ROOT, filePath);
@@ -137,6 +151,16 @@ const HANDLERS = {
     if (!needsCapture(text)) return 0;
     writeFileSync(flag, new Date().toISOString());
     process.stdout.write(JSON.stringify({ decision: 'block', reason: captureReason(captureMarkers(text)) }));
+    return 0;
+  },
+
+  'record-usage'({ json }) {
+    // DN-0798 の判断材料。記録だけで、操作は止めない。記録先はリポジトリの外（DOBOKU_USAGE_LOG_DIR で差し替え＝テスト用）
+    const rec = usageRecord(json);
+    if (!rec) return 0;
+    const dir = process.env.DOBOKU_USAGE_LOG_DIR || join(homedir(), '.claude', 'usage-log');
+    mkdirSync(dir, { recursive: true });
+    appendFileSync(usageLogPath(dir), JSON.stringify(rec) + '\n');
     return 0;
   },
 

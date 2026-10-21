@@ -17,6 +17,7 @@
     { "path": "content/**", "ledger": "npm run check-asset-storage（R2）・npm run check-drive-vault（Google Drive）" }
   ],
   "device": [
+    ".claude/settings.local.json",
     ".local/playwright-*/",
     ".obsidian/",
     "docs/.obsidian/",

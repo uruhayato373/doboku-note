@@ -18,6 +18,7 @@ import { execFileSync } from 'node:child_process';
 import { datasetPath } from './lib/datasets.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 import { runBody, isCliEntry, runAsCli } from './lib/cli-run.mjs';
+import { countAnswerChars } from '../src/lib/keiken-charcount.mjs';
 
 // in-process でも呼べるよう run() に包んである（DN-0688・pre-commit-dispatch が import して呼ぶ）。
 // process.argv / process.exit / process.exitCode は runBody が渡す __argv / __exit / __status への読み替え。
@@ -127,17 +128,6 @@ function stripFrontmatter(txt) {
   return txt;
 }
 
-// markdown 装飾・タグを除いた実文字数（プレースホルダ 〇 は算入、空白は除外）
-function countChars(s) {
-  const clean = s
-    .replace(/<[^>]+>/g, '') // <sup> 等タグ
-    .replace(/`/g, '')
-    .replace(/【([〇○]+)】/g, '$1') // 目印【〇〇】の括弧は答案に書かないので数えない（DN-0277）
-    .replace(/\*/g, '')
-    .replace(/\s/g, '');
-  return [...clean].length;
-}
-
 // 答案マーカーを検出して設問番号('1'|'2'|'3')または'記述例'を返す。非マーカーは null。
 // 形式: (a) **(N) ... 太字マーカー  (b) ### …(N)… 見出し（条件提示型）  (c) ### 記述例（予想問題）
 function markerKind(line) {
@@ -191,7 +181,7 @@ function extractAnswers(body) {
     const k = markerKind(lines[i]);
     if (!k) continue;
     const { text, next } = gatherBlock(lines, i + 1);
-    if (text) out.push({ category: classify(k.num, isLegacy3), heading: lines[i].trim(), chars: countChars(text) });
+    if (text) out.push({ category: classify(k.num, isLegacy3), heading: lines[i].trim(), chars: countAnswerChars(text) });
     i = next - 1;
   }
   return out;

@@ -13,7 +13,7 @@
 **ディレクトリ**
 
 ```
-content/site/                # サイト記事 MDX（civil-construction-1/ は Convention A: 個別ファイル名、pe-comprehensive-management/ は Convention B: article.mdx）
+content/site/                # サイト記事 MDX（全資格 `<資格>/<slug>/article.mdx` の 1 形式）
 content/{note,sns,kindle,coconala,sources}/  # チャネル別の制作物と入力（kindle は非公開原稿・Git 管理・Web 配信外）
 src/ config/ data/          # 実装／事業・試験・商品の正本と設定／売上・計測など事業の記録
 docs/                        # 人が読む恒久文書（strategy / editorial / marketing / operations / products / design）
@@ -103,7 +103,7 @@ npm run check-claude-md-size   # CLAUDE.md ≤150 行・rules の paths: 必須
 - **書き出すドキュメント**は必要な長さに収める。埋めるための章・同内容の反復・定型の前置きで水増ししない
 
 ### 7. 矛盾するパターンを混ぜない
-- **Convention A/B の共存**: 新規コンテンツは B（`article.mdx`）推奨。既存ファイルの方式を勝手に変換しない
+- **記事の置き場は 1 形式**: `content/site/<資格>/<slug>/article.mdx` だけ（`tests/content-site-layout.test.mjs` が止める）
 - **UI コンポーネント**: デザイントークン（`rounded-card-*` / `shadow-card-*`）・`dark:border-*` 必須・色は `--color-*`（真実源 `src/styles/globals.css`）。詳細は `src/**` を開くと code ルールが載る
 - コードベース内に複数の書き方がある場合、平均化せず、どちらを採用するか明示してから書く。同じ判定を複数箇所に実装しない（lib に集約）
 

@@ -21,6 +21,7 @@ import { execFileSync } from 'node:child_process';
 import { readFileSync } from 'node:fs';
 import { join, sep } from 'node:path';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
+import { siteSlugFromRel } from '../src/lib/site-slug.mjs';
 
 const toPosix = (v) => v.split(sep).join('/');
 const argv = process.argv.slice(2);
@@ -69,8 +70,7 @@ function main() {
 
   const bySlug = new Map();
   for (const f of files) {
-    const parts = toPosix(f).slice('content/site/'.length).replace(/\.mdx$/, '').split('/');
-    bySlug.set((parts.at(-1) === 'article' ? parts.slice(0, -1) : parts).join('-'), f);
+    bySlug.set(siteSlugFromRel(toPosix(f).slice('content/site/'.length)), f);
   }
 
   const rows = [];

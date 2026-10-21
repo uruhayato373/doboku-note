@@ -9,12 +9,16 @@ import { join } from 'node:path';
 import test from 'node:test';
 import { REPO_ROOT as ROOT } from '../scripts/lib/repository-paths.mjs';
 
-test('quality-audit に管理画面の tsc が ci:true で載り、npm script が管理画面の tsconfig を指す', () => {
+test('quality-audit に管理画面の tsc が ci:true の束（admin-ui）で載り、npm script が管理画面の tsconfig を指す', () => {
+  // 2026-10-21 に管理画面の 3 検査を admin-ui の束（steps）にまとめた（DN-0805）。束が ci:true で、その手順に tsc がある
   const src = readFileSync(join(ROOT, 'scripts/quality-audit.mjs'), 'utf8');
-  const row = src.split('\n').find((l) => l.includes("id: 'type-check-admin'"));
-  assert.ok(row, 'type-check-admin の行が無い');
+  const lines = src.split('\n');
+  const bundle = lines.find((l) => l.includes("id: 'admin-ui'"));
+  assert.ok(bundle, 'admin-ui の束が無い');
+  assert.match(bundle, /ci: true/);
+  const row = lines.find((l) => l.includes("label: 'type-check-admin'"));
+  assert.ok(row, 'admin-ui の束に type-check-admin の手順が無い');
   assert.match(row, /npm: 'type-check:admin'/);
-  assert.match(row, /ci: true/);
   assert.match(row, /timeout: \d/);
   assert.match(row, /note: /);
   const pkg = JSON.parse(readFileSync(join(ROOT, 'package.json'), 'utf8'));

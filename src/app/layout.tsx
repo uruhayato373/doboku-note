@@ -9,6 +9,7 @@ import "../styles/globals.css";
 import { Suspense } from "react";
 import BackToTopButton from "@/components/ui/BackToTopButton";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
+import DevPreviewFocus from "@/components/DevPreviewFocus";
 import AnalyticsProvider from "@/components/providers/AnalyticsProvider";
 import WebVitals from "@/components/WebVitals";
 import { getCommonSeoData } from "@/lib/metadata";
@@ -46,6 +47,7 @@ export default function RootLayout({
             {children}
             <BackToTopButton />
           </div>
+          {process.env.NODE_ENV === "development" && <DevPreviewFocus />}
         </ThemeProvider>
       </body>
     </html>

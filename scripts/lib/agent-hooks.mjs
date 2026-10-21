@@ -296,3 +296,79 @@ export function cdScopeMessage(target, reason, projectDir) {
     `プロジェクトの直下（${projectDir}）へ戻る cd は通す。`,
   ].join('\n');
 }
+
+// ---- check-agent-network（PreToolUse Bash・DN-0558）--------------------------------------------
+// ネットから取得してはいけないサブエージェント（運営者の了解なしにファイルを持ち込む）の Bash を止める。
+// 2026-10-06 に figure-crop-worker が白書の PDF を curl で無断取得した。agent 定義の一文では守られる保証が無い。
+// 種別は hook 入力の agent_type（サブエージェントの中でだけ来る）。親（agent_type 無し）の curl は止めない。
+
+export const NO_NETWORK_AGENTS = new Set(['figure-crop-worker']);
+
+const FETCH_COMMAND = /(?:^|[\s;&|(`$])(curl|wget|aria2c|yt-dlp|Invoke-WebRequest|iwr)(?=\s|$)/;
+const FETCH_LIBRARY = /\b(urllib|urlretrieve|requests\.(?:get|post)|httpx|https?\.get)\b|(?:^|[^\w.])fetch\s*\(/;
+const REMOTE_URL = /\b(?:https?|ftp):\/\/(?!(?:localhost|127\.0\.0\.1|\[::1\])(?:[:/]|$))/i;
+
+/** コマンドがネットから取得しうるなら理由、無ければ '' */
+export function networkFetchReason(command) {
+  if (typeof command !== 'string' || !command) return '';
+  const tool = command.match(FETCH_COMMAND);
+  if (tool) return `取得コマンド ${tool[1]}`;
+  const lib = command.match(FETCH_LIBRARY);
+  if (lib) return `取得ライブラリ ${(lib[1] || 'fetch(').trim()}`;
+  if (REMOTE_URL.test(command)) return '外部 URL';
+  return '';
+}
+
+/** 禁止対象のサブエージェントがネットから取得しようとしているなら理由、無ければ '' */
+export function agentNetworkViolation({ agentType, command }) {
+  if (!agentType || !NO_NETWORK_AGENTS.has(agentType)) return '';
+  return networkFetchReason(command);
+}
+
+export function agentNetworkMessage(agentType, reason) {
+  return [
+    `BLOCK: ${agentType} はネットからファイルを取得しない（${reason}・DN-0558）。`,
+    'ファイルのダウンロードは運営者の了解が要る。手元（sourceCandidates・sourceRoots）に無ければ source-unavailable にし、',
+    '公開元の URL が分かれば reason に書いて親へ返す。',
+  ].join('\n');
+}
+
+// ---- record-usage（DN-0789・4 週間の期限付きの計測） ----------------------------------------------
+// Skill・Agent の呼び出しと、人が打ったスラッシュコマンドを 1 行ずつ記録する。DN-0798 で使われていない
+// エージェント・スキルを選ぶ根拠にし、判断が済んだら hook ごと外す。プロンプトの本文は残さない（コマンド名だけ）。
+
+/**
+ * hook の入力から記録する 1 行を作る。記録しないイベントは null。
+ * @param {object|null} json hook の stdin JSON
+ * @param {Date} now
+ */
+export function usageRecord(json, now = new Date()) {
+  if (!json || typeof json !== 'object') return null;
+  const event = json.hook_event_name ?? '';
+  const base = {
+    at: now.toISOString(),
+    session: typeof json.session_id === 'string' ? json.session_id : null,
+    fromAgent: typeof json.agent_type === 'string' ? json.agent_type : null,
+  };
+  if (event === 'PreToolUse') {
+    const input = json.tool_input ?? {};
+    if (json.tool_name === 'Skill' && typeof input.skill === 'string' && input.skill) {
+      return { ...base, kind: 'skill', name: input.skill };
+    }
+    if (json.tool_name === 'Agent' || json.tool_name === 'Task') {
+      const name = typeof input.subagent_type === 'string' && input.subagent_type ? input.subagent_type : 'general-purpose';
+      return { ...base, kind: 'agent', name };
+    }
+    return null;
+  }
+  if (event === 'UserPromptSubmit') {
+    const m = /^\/([A-Za-z0-9][\w:.-]*)/.exec(typeof json.prompt === 'string' ? json.prompt.trimStart() : '');
+    return m ? { ...base, kind: 'command', name: m[1] } : null;
+  }
+  return null;
+}
+
+/** 記録先のファイル（月ごと）。dir は既定 ~/.claude/usage-log（リポジトリの外。git に出さない） */
+export function usageLogPath(dir, now = new Date()) {
+  return `${dir}/doboku-note-${now.toISOString().slice(0, 7)}.jsonl`;
+}

@@ -21,6 +21,12 @@
 
 ## 🔴 高 — 重要度が高い
 
+
+
+
+
+
+
 ### [DN-0762] 2級土木の答案具体化シリーズ投入で赤になった CI（AI画像の判定・Shorts期待値・公開枠重複・メタデータ表記）を直す
 タグ: [領域:SNS] [時期:2026-10] [種類:不具合] [検証:quality:audit:ci] [起票:2026-10-17] [期日:2026-10-19]
 
@@ -50,16 +56,7 @@
 
 **完了条件**: 2026-11-02 までに 2級 令和8年度 第2次検定の問題と解答例が本番にあり、past-exam-qa の指摘が直っている。
 
-
-
-
-
-
-
-
-
-
-
+**準備（2026-10-21）**: 置き場は `content/site/civil-construction-2/secondary-r08/article.mdx`（/exam/civil-construction-2/secondary/r08）を新しく作る。1級 r08 は枠ページ無しの `secondary-r08` 1 本で、2級も r03〜r07 が `secondary-rNN` なので揃える。構成は 2級 r07 と同じ（問題1 経験記述〔工事概要〕〔設問1〕〔設問2〕・問題2〜9・出典。frontmatter は `group: secondary`・`officialQuestions: true`・`sources`）。枠ページ（guide-r08-secondary-answers・10/11 から「解答例 令和8年」で表示あり）とは検索語が重なるので、r08 の公開と同じ commit で枠の seoTitle・冒頭を「答案の見直し方・合格発表まで」に寄せ、冒頭から r08 へリンクする（301 にはしない＝見直し手順の節は枠にしか無い）。10/26 13 時の公表後: 原典 PDF 取得→問題の転記と照合→解答例→past-exam-qa→refresh-indexes→main へ出すかは運営者（出張中は deploy しない約束なので、期日 11/02 に間に合わせるなら運営者の判断が要る）。
 
 ### [DN-0670] 2級土木の既存動画4本に技術表現の訂正を反映する
 タグ: [領域:商品] [時期:2026-10] [種類:不具合] [検証:check-video-content] [起票:2026-10-11]
@@ -195,6 +192,7 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 5. 2プラン（`4956c2d4f928`・`f9567e03949d`）とメンバーシップ自体を削除する（会員0人でないと削除できないかは未確認。画面で確かめる）。
 6. 22記事の `memberTrial: bottom` と末尾の「以上、今回の〜でした。」を外し、`note-update-body --list` で反映する。
 7. `note-membership.json`・`check-note-membership.mjs`（退役済みは SKIP する形に済み）・`tests/check-note-membership.test.mjs`・`tests/note-membership-funnel.test.mjs` を撤去後の状態に合わせる（コード変更は PR）。
+8. 同じ PR で、メンバーシップ運用だけのための仕組みを退役する: `/note-membership` スキル（`.claude/skills/social/note-membership/`）・`note-membership-operator` エージェント・quality-audit の `note-membership`／`magazine-membership`（ci）と `membership-drip`（ops）。skills-registry.md・agents-registry.md の退役表に行を足す（2026-10-20 の拡張性の棚卸しで、利用記録を待たずに退役できると判断した分）。
 
 **完了条件**: 公開 API で22記事が `is_limited=false`、`mbe07bd5cecda` と「はじめに-合格ラボ」が取得できない。有料6誌は公開 API で販売中のまま。`https://note.com/dobokunote/membership/join` が加入画面を出さない。
 
@@ -283,7 +281,7 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 
 ### [DN-0248] 技術士 口頭試験対策の無料導入2本と告知を筆記合格発表日に公開する
-タグ: [収益化] [領域:商品] [時期:2026-10..2026-12] [種類:制作] [起票:2026-09-16] [期日:2026-10-26]
+タグ: [収益化] [領域:商品] [時期:2026-10..2026-12] [種類:制作] [起票:2026-09-16] [期日:2026-11-04]
 
 **起点**: 7月の購入者へ、筆記の結果に応じた次の準備を案内する。送客先の有料教材と価格・公開URLは `src/lib/note-magazines.ts` の `tankan-oral-complete` / `pe-construction-oral-guide` を参照する。
 
@@ -321,28 +319,78 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 ## 🟡 中 — 重要度が中くらい
 
-### [DN-0777] Mac の worktree 5 本が許可外の置き場にあり、空き容量不足で EPUB の取り戻しが止まる（check-disk-hygiene の FAIL）
-タグ: [領域:管理] [時期:2026-10..2026-11] [種類:不具合] [検証:check-disk-hygiene] [起票:2026-10-20]
-
-**起点**: 2026-10-20 の DN-0772（落ちた検査を素通りさせない）で report 区分を回したところ、`check-disk-hygiene` が FAIL のまま読み流されていた（読み手は SessionStart/Stop フックと日次掃除ログ）。(1) worktree-placement: 許可された置き場（`.claude/worktrees` / `~/.codex/worktrees`）の外に 5 本ある＝`../auth-session-refresh`・`../coconala-local`・`../gsc-local`・`../note-sync`・`../weekly-review`。名前から Mac の定期処理（週次 note 同期・週次レビュー・ログイン収集など）が使っている可能性が高い。(2) 空き容量 18.5 GB（warn < 30 GB）で、`npm run asset-hydrate -- --group kindle-dist` が「Insufficient free disk for restore」で止まり、手元で `check-kindle-epub-leak`・`check-kindle-format` を成立させられない。
-
-**やること**: 5 本それぞれ、どの launchd・スクリプトが使っているか（`launchctl list`・`~/Library/LaunchAgents`・各スクリプトの cwd）を確かめ、使っていれば置き場を `~/.codex/worktrees/` へ移して参照を直す（`git worktree move`）、使っていなければ `git worktree remove`。空き容量は `npm run check-disk-hygiene` の推奨と `npm run disk-hygiene:fix` で 30 GB 以上へ戻す。定期処理を止めるおそれがあるので、移す前に運営者へ確認する。
-
-**完了条件**: `npm run check-disk-hygiene` の worktree-placement が ✓、空き 30 GB 以上、手元で `npm run asset-hydrate -- --group kindle-dist` が通って `npm run check-kindle-epub-leak` が成立する。
 
 
+### [DN-0806] 成長パックのページ別を国で絞らずに取り、急落・減衰の検出を匿名化された検索語の分も含めて行う
+タグ: [インフラ・計測] [領域:管理] [時期:2026-11] [種類:不具合] [起票:2026-10-21] [進行中]
+
+**起点**: DN-0759（2026-10-21）。成長パック（`scripts/fetch-growth-pack.mjs`）のページ別（`gscPageWeek`・`gscPageBase`）は country=jpn で絞って取っている。このとき Google は検索語の分かる分だけで集計し、匿名化された検索語の分が入らない（W41: 189 行・23 クリックで、byPage 全体 306 の 8%。ページ×検索語の合計と完全に一致）。`scripts/lib/growth-opportunities.mjs` の seo-traffic-drop・seo-decay はこの下限の行で判定しているので、匿名化された検索語で来ているページの急落・減衰を見落とす。
+
+**やること**: CI で同じ週について (a) dimensions [page]・国の条件なし、(b) dimensions [page, country]・条件なしで jpn の行だけ残す、の 2 通りで取り、行の合計が byPage 全体（国の条件つき）にどれだけ近いかを比べる。全量に近い取り方へ gscPageWeek/Base を切り替える（(a) を採るなら日本以外を含むことを filters とダイジェストの表示に書く）。急落・減衰の判定と回帰テストも合わせる。
+
+**完了条件**: 新しい取り方のページ別の行の合計を byPage 全体と比べた割合が記録され、急落・減衰がその行で判定されている。ダイジェストのページ明細の表示が新しい定義に合っている。
+
+**進捗（2026-10-21）**: 測定を入れた（PR #1176）。成長パックに `gscPageCoverageWeek`（A 国で絞る／B 国の条件なし／C page×country で日本の行だけ、の合計と byPage 全体に対する割合）を毎週残す。fetch-metrics の定期実行は main 版なので、数字が出るのは main への deploy 後（develop で手動起動すれば先に取れる）。**残り**: 数字を見て急落・減衰の判定に使う取り方を決めて切り替える。
 
 
-### [DN-0774] .gitignore の追跡対象を点検する
-タグ: [インフラ・計測] [領域:サイト] [時期:2026-10] [種類:改善] [起票:2026-10-19]
 
-**起点**: obsidian の TODO マスタ ^t-0024（3リポ共通・2026-09-28 のメモ）を各リポへ展開（2026-10-19）。
 
-**やること**: .gitignore が「追跡すべきものを除外していないか」「除外すべきもの（生成物・秘密・大きいバイナリ）を追跡していないか」を点検する。git の外の側は `npm run check-local-data`（LOCAL-DATA.md）で申告済みなので、ここでは追跡されている側を見る。
 
-**完了条件**: 点検結果と直した .gitignore がコミットされ、`npm run check-local-data` が通っている。
 
-**点検（2026-10-20）**: (1) 無視パターンに当たるのに追跡されているもの 64 件（`git ls-files -ci --exclude-standard`）＝ `.claude/settings.local.json`（.gitignore は「マシン固有・dotfiles の setup-memory-link --settings で置く」とするが、追跡されたまま許可設定の変更が何度もコミットされている）と SNS の下書き画像 63 件（`content/sns/x/draft/{073,074,075,076,077,079,093,095}-*/img/`・`content/sns/instagram/pe-construction/2026-06-10-hissu-kata/reels/img/`。無視の行より前から追跡されていた）。(2) 秘密らしい名前の追跡は誤検出だけ（デザインの tokens・ig-graph-token.mjs のスクリプト本体など）。(3) 1 MB 超の追跡は public/quiz・GA4 日次レポート（DN-0749）・.obsidian の plugin/icons（6.5 MB×2）など。**運営者の判断待ち**: 64 件を `git rm --cached` で追跡から外すと、ほかの checkout（Windows PC を含む）は次の pull で作業ツリーからも消える。settings.local.json は各 PC の dotfiles から置き直す前提か、SNS 画像は Drive vault に控えがあるか（SNS は保留中）を確かめてから外す。外したら `git ls-files -ci --exclude-standard` が 0 件になることを完了の確認にする。
+### [DN-0798] 呼び出しの記録と静的参照から、使われていない・役割が重なるエージェントとスキルを統合・退役する（拡張性・第3波）
+タグ: [エージェント・SSOT] [領域:管理] [時期:2026-12] [種類:意思決定] [起票:2026-10-20]
+
+**起点**: 2026-10-20 の拡張性の棚卸し（`docs/reviews/critical/2026-10-20-code-extensibility-debt.md`）。エージェント 90・スキル 111。資格固有のエージェントが 23 体あり、答案の writer/qa の組が 4 組（cce・cem・civil-keiken・rccm）。静的な参照の数は判断に使えない（参照 0 の civil-guide-writer も会話記録で 4 回使われていた）。
+**次または実行順**: DN-0789（呼び出しを記録する hook）から 4 週間後。DN-0477（メンバーシップ撤退）の完了後。
+**やること**:
+1. 記録（Claude の hook の記録と ~/.codex/sessions）と静的参照から、呼び出し 0 のもの・役割が重なるものの候補一覧を作る
+2. 各行に運営者が判断（統合・退役・残す理由）を書く。次の資格の writer/qa の組を足す前に、既存の組を資格の設定で使い回せるかもここで決める
+3. 退役は agents-registry.md・skills-registry.md の退役表と同じ commit で行い、hook も外す
+**禁止事項**: SNS を保留しているチャネルのスキル・エージェントは、記録が 0 でも「使われていない」と判定しない。
+**完了条件**: 候補の全行に判断があり、退役分が消えて登録簿の退役表に行がある。hook が外れている。
+
+
+
+
+
+
+
+
+
+
+
+
+### [DN-0789] Skill・Agent・スラッシュコマンドの呼び出しを 4 週間の期限付きで記録する hook を置く（拡張性・第0波）
+タグ: [エージェント・SSOT] [領域:管理] [時期:2026-10] [種類:改善] [起票:2026-10-20] [進行中]
+
+**起点**: 2026-10-20 の拡張性の棚卸し（`docs/reviews/critical/2026-10-20-code-extensibility-debt.md`）。エージェント 90・スキル 111 に対し呼び出しの記録が無く、使われていないものを根拠をもって選べない。会話記録は cleanupPeriodDays 7（DN-0233）で 7 日分しか残らない。延ばすと disk-hygiene の方針（scripts/lib/disk-hygiene.mjs:261 の maxDays 7）と衝突し、30 日で約 6GB になる。
+**やること**:
+1. `scripts/hooks/agent-hook.mjs` のハンドラとして、PreToolUse（Skill|Agent）と UserPromptSubmit（先頭が / のもの。人が打ったスラッシュコマンドは PreToolUse(Skill) に出ない可能性があるため）で、名前・日時・セッション id を 1 行ずつ追記する。テストを付ける
+2. 記録先はリポジトリの外（例 `~/.claude/usage-log/`）。git に出さない
+3. `.claude/settings.json` に登録し、`npm run sync-codex-compat` で .codex/hooks.json を作り直す。Codex の記録は判断のときに ~/.codex/sessions を走査する
+**停止条件**: 4 週間の期限付きの計測。統合・退役の判断のカードで hook も外す。
+**完了条件**: hook のテストが通り、記録先に 1 週間分の記録がある。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -357,17 +405,7 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 **完了条件**: `npm run check-local-data` の staging 上限超えが 0 件。
 
-
-
-
-
-
-
-
-
-
-
-
+**現状（2026-10-21）**: `npm run check-local-data` で staging の上限超えが 5,858 件（10/19 の 1,985 件から増えた）・申告に無い手元データが 163 件。1 件ずつ「置き場へ移す／消す」の判断が要り、消すのは取り消せないので、運営者が出張から戻ってから一緒に進める（2026-10-21 オーナー決定）。
 
 ### [DN-0763] 週次 note-sync のマガジンカバー Drive 保存（drive-vault-sync）の失敗を直す
 タグ: [領域:管理] [時期:2026-10] [種類:不具合] [起票:2026-10-18] [期日:2026-10-25]
@@ -377,6 +415,8 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 **やること**: 同じコマンドを Drive をマウントした Mac で `--commit` 付きで流し、失敗する対象と理由を確かめる。dry-run（10/18）は 111 件を保存待ちとして完走したので、失敗は書き込みの段階。10/11 の PDF 取り寄せの `Unknown system error -11` と同じ Drive I/O か、台帳の lock・ETIMEDOUT かを切り分ける。あわせて note-sync-routine が drive-vault-sync の stderr をログへ残すようにして、次に理由が分かるようにする。
 
 **完了条件**: `node scripts/drive-vault-sync.mjs --group note-magazine-cover-png --commit` が exit 0 で、次の週次 note-sync の problems にこの行が無い。
+
+**進捗（2026-10-20）**: note-sync の worktree で同じコマンドを `--commit` 実行し exit 0（コピー 4・変更なし 107・失敗 0・全件 sha256 一致）。失敗は一時的な Drive I/O とみられる。保存段を 1 回再試行し、落ちたら出力の末尾をログと problems へ残すようにした（#1147）。**残り**: 10/25 ごろの週次 note-sync の problems にこの行が無いことを確かめて閉じる。
 
 
 
@@ -525,20 +565,7 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 **完了条件**: 4 本のインデックス登録リクエストの記録が data/gsc/indexing-requests.json にある。候補 3 本の修正がコミット済み。check-seo-meta で触った記事の違反 0。
 **進捗（2026-10-11）**: サイト全体の分析に広げて実施（GSC UI CSV 取得→search-growth→4 Evaluator）。済み: favicon・legacy sitemap の実在しない URL 254 件の除外・TechArticle の image・/exam の本文（PR #988・本番確認）、CTR 実験 EXP-020（2級二次 4 本）・EXP-021（総監 5 本）、リンク 0 本の 8 ページへ内部リンク 23 本、check-seo-meta は全 1,659 URL で違反は /exam の 1 件のみ→解消。**残り**: (1) concrete-engineer textbook 3 本は 10-04 に依頼済みで 10-18 まで再依頼できない→10-18 以降に steel-material-properties と合わせて `npm run gsc-indexing:request -- --urls …`。(2) 当初の候補 3 本（劣化機構「コンクリート 中性化」・主任技士の小論文ガイド・技術士一次の基礎科目）は metrics-analyzer の上位 25 に入らず未着手。EXP-020/021 の結果を見てから判断。観測と判断は gsc-management.md の 2026-10-11 の項。
 
-
-
-
-### [DN-0664] 5〜9 月の受取額を台帳から記録し、9 月は KDP の確定後に complete にする
-タグ: [インフラ・計測] [領域:管理] [時期:2026-10] [種類:改善] [起票:2026-10-11] [期日:2026-10-17]
-
-**起点**: 2026-10-11 に受取額を 3 つの台帳（note.sales・coconala.revenue・kdp.royalties）から組み立てる形にした（#977・#982・#983）。記録（data/business/records の netReceipts）は 5・6・8 月が complete、7 月（KDP が 7/31 取得の推計）と 9 月が partial。KDP の 9 月は推計 ¥9,806、確定は 10/16 以降の金曜の定期取得で入る。
-
-**やること**:
-1. 10/16 以降の取得で data/kdp/royalties.json の 2026-09 が estimated:false になったら、npm run record-net-receipts -- --month 2026-09 --commit（前の partial を訂正先にする）でコミットし、9 月の月次レビュー記録を supersedes で確定版にする。
-
-**完了条件**: 管理画面トップ（?month=2026-05〜09）の受取額がすべて note 確定値で出て、2026-05・06・09 の netReceipts が complete で記録されている。
-
-
+**確認（2026-10-21）**: URL 検査（2026-10-14・`data/gsc/url-inspection/2026-10-14T06-52-54.json`）で、concrete-engineer textbook の construction（10/12 クロール）と production-qc（10/13 クロール）は「送信して登録されました」。残る未登録は `/exam/concrete-engineer/textbook/materials` と `/practice/steel-material-properties`（どちらも「検出 - インデックス未登録」・未クロール）の 2 本で、登録の依頼（`npm run gsc-indexing:request -- --urls …`）は運営者の了承を得てから送る。→ 了承を得て 2026-10-21 に流したところ、materials はすでに登録済み、steel-material-properties は手元の定期実行（gsc-local）が直近 14 日以内に依頼済みで、送る対象は 0 件だった（`data/gsc/indexing-requests.json`）。残りは (2) だけ。
 
 ### [DN-0599] 2級直前総まとめの公開判断と公開後28日比較
 タグ: [領域:SNS] [時期:2026-10] [種類:制作] [起票:2026-10-08]
@@ -617,18 +644,6 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 **完了条件**: 登録ページが本番にあり、テスト用アドレスで登録→確認メール→配信停止まで通り、iOS アプリから張るリンク先 URL が決まっている。
 
-### [DN-0630] Chrome の自己複製（code_sign_clone）を check-disk-hygiene と日次掃除の対象に入れる
-タグ: [インフラ・計測] [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-10-10]
-
-**起点**: 2026-10-10 に Xcode を入れる空き容量を調べたところ、`$(dirname $TMPDIR)/X/com.google.Chrome.code_sign_clone/` に Chrome の自己複製が 8 個・11 GB 溜まっていた。Chrome は起動のたびに 1.4 GB の複製を作り、終了後も残す。Playwright で Chrome を起動する自動化（note・X・KDP・Playwright MCP）でも 1 回ごとに増える。`npm run check-disk-hygiene` はこの場所を見ていないので「問題なし」と出ていた。同日、起動中の Chrome が使っていない 6 個を手で消した（手順はメモリ reference_mac_disk_reclaim）。
-
-**やること**:
-1. `scripts/check-disk-hygiene.mjs` に項目を足す。複製ごとの作成時刻と、起動中の Chrome（`pgrep -f "MacOS/Google Chrome"` の `ps -o lstart=`）の起動時刻を照合し、どの Chrome も使っていない複製を整理候補として数と容量を出す。Chrome が 1 つも動いていなければ全部を候補にする
-2. launchd の日次掃除（`com.doboku-note.disk-hygiene`）で候補を消す。使用中かどうか判定できないときは消さずに WARN を出す（検査不成立を問題なしと言わない）
-3. Xcode を入れた後（DN-0453）は、`~/Library/Developer/Xcode/DerivedData` と使っていない iOS シミュレータのランタイム（`xcrun simctl runtime list`）も同じ検査で数え、DerivedData は日次掃除の対象にする。空きは Xcode 導入後に 20GB を切る見込みで、30GB の WARN 線を下回ったままになる
-4. `.claude/knowledge/reference/disk-hygiene.md` に置き場と判定の仕方を足す
-
-**完了条件**: `npm run check-disk-hygiene` が Chrome の複製の数・容量・整理候補を出し、日次掃除の後に使われていない複製が残っていない（起動中の Chrome の複製は残っている）。
 
 ### [DN-0629] コンテンツ台帳の残り: IG・X の status.json・posted.json の写しと、Drive の旧日付フォルダの表紙を消す
 タグ: [領域:SNS] [時期:2026-11] [種類:改善] [起票:2026-10-10]
@@ -693,6 +708,7 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 **完了条件**: 1級土木の構造化データが 18 年度分以上になり、足した年度の全問が公式正答と一致し、在庫台帳と Drive に原本が揃っている。
 
+**確認（2026-10-21）**: Web 検索（公式・第三者の PDF）で 1級の平成19・20・23年度の学科問題は見つからなかった。保存版の CDX をドメイン全体（2008〜2012・PDF）で引くと、1級学科（7 月の qa/qb）は 2009（0707d）・2010（0706d_jipj35）・2012（0702d_mhrk44）の取得だけで、2007・2008・2011 の 7 月分は無かった。ただしこの一覧は上限 400 行で切れており、kentei 配下だけの取り直しは Internet Archive の一時停止（504・Temporarily Offline）で取れていない。続きは `https://web.archive.org/cdx/search/cdx?url=jctc.jp/kentei/&matchType=prefix&from=2007&to=2011&filter=mimetype:application/pdf` を取り直して 2011 年 7 月の qa/qb を探す。
 
 ### [DN-0597] YouTube Analytics（視聴維持率・インプレッションのクリック率・流入元・Shorts→関連動画）を CI で取得し data/youtube へ残す
 タグ: [領域:SNS] [時期:2026-11] [種類:改善] [起票:2026-10-08]
@@ -718,10 +734,6 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 **完了条件**: 両方の workflow が2回続けて成功し、`data/youtube/own-videos/`・`data/youtube/competitors/` に日付つきの記録が増える。`npm run check-competitor-scan-due -- --platform youtube` が ci として OK。
 
 
-### [DN-0589] Drive vault の検査（check-drive-vault）が develop で FAIL 86 件のまま：kindle-dist の未同期と動画レンダーの不一致を片付ける
-タグ: [領域:管理] [時期:2026-11] [種類:不具合] [起票:2026-10-08]
-
-2026-10-08 に PR #927 の確認で、本番の作業ツリー（develop）でも node scripts/check-drive-vault.mjs が FAIL 86 件（WARN 126 件）だった。主な中身は scripts/kindle-dist/*.jpg の unsynced（ローカルにしか無く、この Mac を失うと復元できない）と .tmp/video-render/**/thumbnail.png の vault-mismatch。Mac 専用で CI には無く、誰も読んでいない赤になっている。やること: (1) 内訳を group ごとに出し、作り直せるものと正本を分ける。(2) 正本は drive-vault-sync --group <g> --commit、作り直したものは --force で反映。(3) Mac で定期的に読む人を決める（週次レビューの点検に入れるか、SessionStart の警告に件数を出す）。完了条件: check-drive-vault の FAIL 0・読む人が commands.md か週次の手順に書いてある
 
 
 ### [DN-0582] Windowsで全体テスト11件が失敗するパス・改行・既存前提を直す
@@ -766,31 +778,10 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 **完了条件**: `node scripts/drive-vault-sync.mjs --group note-magazine-cover-png` の差分が 0 件で、2026-10-07 に登録した誌の控えが vault にある。
 
 
-### [DN-0554] フックの鮮度チェックが post-commit の欠落を見ず、Mac に post-commit が入っていなかった
-タグ: [インフラ・計測] [領域:管理] [時期:2026-11] [種類:不具合] [起票:2026-10-07]
-
-**起点**: 2026-10-07、pathspec commit（`git commit -- <path>`）の後に index だけ古い版が残った（`MM`）。#885 が `scripts/install-pre-commit.mjs` に post-commit（`scripts/sync-index-after-commit.mjs`）を足したのに、この Mac の `.git/hooks` には pre-commit しか無かった。pre-commit に埋め込む鮮度チェックは `HOOK_CONTENT_BODY`（pre-commit の本文）の hash しか比べないので、post-commit だけが増えた版では「古い」と出ない。手で `npm run pre-commit:install` を入れ直した。
-
-**やること**: 鮮度チェックの hash に post-commit の本文も含めるか、pre-commit の冒頭で post-commit の有無と版を確かめ、欠けていれば止める。「post-commit が無い・古い」を再現して止まることをテストで固定する。別 PC と各 worktree では一度 `npm run pre-commit:install` を実行する（DN-0233 の端末設定と合わせる）。
-
-**完了条件**: post-commit を消した状態で commit すると pre-commit が理由つきで止まり、`npm run pre-commit:install` の後は通る（テストで固定）。
 
 
 
 
-### [DN-0558] figure-crop-worker がネットからファイルを取得するのを hook で止める
-タグ: [インフラ・計測] [領域:管理] [時期:2026-12] [種類:不具合] [起票:2026-10-07]
-
-**起点**: 2026-10-06、`figure-crop-worker`（sonnet）が原典を探す途中で、国交省の白書 PDF を `curl` で無断取得した（運営者は後で使用を承認）。
-- 今の歯止めは `.claude/agents/figure-crop-worker.md` の「`curl`・`wget` で取得しない」という一文だけで、守られる保証が無い。
-- worker の tools は `Read, Bash, Glob, Grep` なので、Bash からの取得は止まらない。
-
-**やること**: `scripts/hooks/agent-hook.mjs` の PreToolUse に、figure-crop-worker の Bash から外部 URL を取得するコマンド（`curl`・`wget`・`python -m urllib` 等）を拒否するチェックを足す。
-- 先に、hook の入力にエージェントの種別が来るかを確かめる。
-- 来なければ、別の形で止める。例: 親の許可フラグが無い取得をすべて拒否する。いずれの形でも、親が正当に使う `curl`（`check-production-ssr` 等）は壊さない。
-- テストを付ける。
-
-**完了条件**: worker 相当の入力では `curl https://...` が理由つきで拒否され、親の既存コマンド（`npm run check-production-ssr` 等）は通る。これをテストで固定する。
 
 ### [DN-0532] コンクリート技士の試験概要ページを「試験日」の検索語でクリックされるようにする
 タグ: [コンテンツ品質] [領域:サイト] [時期:2026-11] [種類:改善] [起票:2026-10-05] [期日:2026-11-06]
@@ -931,6 +922,8 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 **残り（2026-10-06 時点・全体 56 件）**: active で残るのは測量士・測量士補の次年度日程の 2 件だけ（国土地理院の令和9年の公式発表を確かめて `exam-calendar.json` を更新。gsi.go.jp はクラウドのセッションから届かないので手元の端末で確認する）。
 
+**確認（2026-10-21）**: 令和9年の測量士・測量士補の日程はまだ公表されていない（令和8年は 2025-11-27 付けの公告。県の案内・受験情報サイトで確認）。gsi.go.jp はこの Mac の curl からも 403 で読めない（ブラウザで開く）。11/27 ごろ以降に公告を見て `exam-calendar.json` を更新する。
+
 ### [DN-0484] afb を CI で取得し、取得スクリプト自身が Secrets でログインする形を試す
 タグ: [インフラ・計測] [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-10-01] [進行中]
 
@@ -953,31 +946,7 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 **2026-10-01 実装**: (1)〜(3) を実装（提携状況を `affiliate-status --asp moshimo --write` で毎週日曜 21:40 UTC に取得）。残りは Mac の `auth-session-refresh --export` でもしもの暗号化 state を渡すこと（DN-0479 と同じ Mac 作業）と、main へ deploy 後の実行結果で (4) を判断すること。
 
-### [DN-0481] A8 の CI 取得で Secrets による入り直しを 10 月の火曜実行で評価し、続けるか戻すかを決める
-タグ: [インフラ・計測] [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-10-01] [期日:2026-11-05]
 
-**起点**: A8 は揮発性 Cookie で、Mac から渡した暗号化 state が CI の定期収集の時点で切れていた（2026-09-22 run 35670832802・Issue #570）。2026-10-01 にユーザー決定で、A8 も GitHub Secrets（`DOBOKU_AUTH_A8_USER` / `_PASSWORD`）を持たせ、`login-collectors.yml` で切れていたときだけ 1 回入り直す形にした。口座は stats47 と共用。
-
-**やること**:
-1. main へ deploy されたことを確かめる（scheduled は main 版で動く）。
-2. 10 月の火曜（JST 06:20）の login-collectors の A8 の結果を見る: restore の状態、re-login の結果（ok / login_failed / human_required）、`a8-ui:fetch` の rc、Issue の有無。
-3. stats47 の A8 収集と、手元（Windows・Mac）の A8 のログイン維持が同じ週に止まっていないかを `/ops/auth` と stats47 側で確かめる（ログイン回数が増えてロック・追加確認が出ていないか）。
-4. 取得が続き、共用口座に追加確認が出ていなければ続ける。出るなら `playwright-auth-profiles.json` の a8 を `credential.ciCredential:false` に戻し、ワークフローの Re-login 対象から外して Secrets を削除する。
-
-**完了条件**: 続ける／戻すを決め、正本・ワークフロー・Secrets をその状態にそろえた。
-
-### [DN-0480] KDP の CI 取得（Secrets で入り直し）を 10/16・10/28 の実行で評価し、続けるか戻すかを決める
-タグ: [インフラ・計測] [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-10-01] [期日:2026-11-05]
-
-**起点**: 2026-10-01 にユーザー決定で、KDP も GitHub Secrets（`DOBOKU_AUTH_KDP_USER` / `_PASSWORD`）を持たせ、`login-collectors.yml` の KDP を `enabled:true` に戻して試すことにした。9/21 は CI の state 復元で Amazon が端末変更として再認証を求め、手元のセッションまで切れたため `enabled:false` にしていた。今回は CI の「Re-login with Secrets」と各 PC の毎日のログイン維持（17:45）で入り直せる形にしてある。
-
-**やること**:
-1. main へ deploy されたことを確かめる（scheduled は main 版で動く）。
-2. 10/16・10/28（JST 06:40）の login-collectors の KDP の結果を見る: restore の状態、re-login の結果（ok / human_required / login_failed）、`kdp-report` の rc、Issue の有無。
-3. 同じ日の手元（Windows・Mac）の KDP のログイン維持の結果を管理画面 `/ops/auth` で見る（CI のせいで手元が切れていないか）。
-4. 2 回とも取得できていれば続ける。2 段階認証で止まる・手元が毎回切れるなら、`playwright-auth-profiles.json` の kdp を `ci.enabled:false`・`credential.ciCredential:false` に戻し、Secrets を削除する。
-
-**完了条件**: 続ける／戻すを決め、正本・ワークフロー・Secrets をその状態にそろえた。
 
 ### [DN-0479] Mac でも全ログインサービスの資格情報をキーチェーンへ登録し、管理画面で揃ったことを確かめる
 タグ: [インフラ・計測] [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-10-01]
@@ -1062,14 +1031,6 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 **完了条件**: 3 資格の取得できる年度が在庫台帳と Drive に揃い、管工事の択一に正答と解説が付いている。
 
-### [DN-0456] 測量士補の択一過去問（令和4〜8年・各28問）をサイトに載せる
-タグ: [収益化] [領域:サイト] [時期:2026-11..2027-01] [種類:制作] [起票:2026-09-30]
-
-**起点**: 2026-09-30 に運営者が、測量士・舗装・管工事の択一過去問をサイトへ展開すると決めた。測量士補は受験者 13,363 人（R7・exam-stats.json）で3資格中最多、国土地理院が問題と正答を公開している。サイトの `/exam/surveyor/` には受験ガイドしか無い（PR #738）。
-
-**やること**: 2026-10-01 に PR #778 で 5 年分 140 問（令和4〜8年・全問が国土地理院の公式正答と一致・年度ごとに past-exam-qa 監査済み）とカテゴリの過去問グループをマージした。残りは deploy 後に `/exam/surveyor/` の過去問が本番に出ることを確かめ、修正後の年度を past-exam-qa で再監査する。R08 No.12（区間の較差の判定）は公式の規定文を未確認。
-
-**完了条件**: 5 年分 140 問が `/exam/surveyor/` の過去問として本番に出て、全問の正答が公式と一致している（past-exam-qa 合格）。
 
 ### [DN-0457] 測量士の午前（択一）過去問（令和4〜8年・各28問）をサイトに載せる
 タグ: [収益化] [領域:サイト] [時期:2027-01..2027-02] [種類:制作] [起票:2026-09-30]
@@ -1098,7 +1059,7 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 **起点**: 管工事は note 教材の下書き（DN-0452）と択一の整備（DN-0454）があるが、サイトにカテゴリが無い。測量士・舗装の入口（PR #738）と同じ形で、検索の入口と note への導線を用意する。
 
 **やること**:
-1. カテゴリ `pipe-work` を新設する（categories.json・home-exam-cards・doc-classifier・category-groups・CategoryJumpNav・CategoryPage・StructuredData・ExamCards テーマ色・tags・category-curriculum。PR #738 の差分が手本）
+1. カテゴリ `pipe-work` を新設する（categories.json の entry と `layout`〔ビュー・並べ替え・OGP の色・見出し・ジャンプ。DN-0793 で doc-classifier・category-groups・CategoryJumpNav・CategoryPage の分岐から移した〕・home-exam-cards・StructuredData・ExamCards テーマ色・tags・category-curriculum）
 2. 受験ガイド 4 本（試験の概要・第二次 施工記述の書き方・工程表の解き方・学習計画）。出題分析は content/note/管工事/第二次検定-出題分析.md、日程・受験者数は公式と照合する
 3. DN-0454 の択一過去問をこのカテゴリの過去問グループとして載せる
 
@@ -1123,9 +1084,9 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 **起点**: 2026-09-29 にリポジトリの「Allow auto-merge」をオンにした。だが develop には合格必須の検査が無く、自動マージを予約すると CI を待たずに即マージされる。従来のブランチ保護で必須検査を足すと、develop へ直接 push するワークフロー 16 本（fetch-metrics・ogp-supply・competitor-scan ほか）が止まるので、ルールセットで PR のマージだけに build を求める。ルールセットはセキュリティ設定なので運営者が設定する（同日に設定したつもりが API では 0 件だった）。
 
-**やること**: Settings → Rules → Rulesets → New branch ruleset で、name `develop-build-required`・Enforcement Active・Bypass に Repository admin と GitHub Actions（Always allow）・Target に `develop`・Rules の Require status checks に `build`（Pre-merge check の検査名）を入れて保存する。保存後、`gh api repos/uruhayato373/doboku-note/rules/branches/develop` で内容を照合する。
+**やること**: Settings → Rules → Rulesets → New branch ruleset で、name `develop-build-required`・Enforcement Active・Bypass に Repository admin と GitHub Actions（Always allow）・Target に `develop`・Rules の Require status checks に `build` と `audit`（Pre-merge check の 2 ジョブ。`.github/workflows/ci.yml` の `audit:` と `build:`）を入れて保存する。`build` だけを必須にすると、quality-audit の ci:true（ラチェットを含む）はすべて `audit` ジョブで走るので、落ちても自動マージが止まらない（2026-10-20 の拡張性の棚卸しで確認）。保存後、`gh api repos/uruhayato373/doboku-note/rules/branches/develop` で内容を照合する。
 
-**完了条件**: 上の API が `required_status_checks`（context `build`）を返し、次の PR で自動マージを予約すると build 完了まで待ってからマージされ、develop へ直接 push するワークフローが止まっていない。
+**完了条件**: 上の API が `required_status_checks`（context `build` と `audit`）を返し、次の PR で自動マージを予約すると build 完了まで待ってからマージされ、develop へ直接 push するワークフローが止まっていない。
 
 ### [DN-0431] Tailwind v4（PR #683）を main へ上げる前に、古いブラウザからのアクセス比率を確かめる
 タグ: [インフラ・計測] [領域:サイト] [時期:2026-10] [種類:意思決定] [起票:2026-09-28]
@@ -1368,16 +1329,6 @@ Windows の PowerShell で repo 直下から順に:
 
 **完了条件**: Windows で 7 が成立し、Mac と Windows の `MEMORY.md` が同じコミットを指す。
 
-### [DN-0261] 転職アフィリ第2波の効果を EXP-008 の wave-2 基線で再計測する
-タグ: [収益化] [領域:アフィリエイト] [時期:2026-10..2026-12] [種類:改善] [起票:2026-09-22] [期日:2026-10-20]
-
-2026-09-22 に第 2 波を出荷した（サイト新設 4・改稿 5・note 5・公務員土木クラスタ）。第 1 波（EXP-008・2026-09-08）の判定は DN-0120 で **継続（追加投資なし）** と裁定済みで、理由と残る問いは [affiliate-operations.md](../knowledge/reference/affiliate-operations.md) の裁定ログ 2026-09-22 にある。
-
-deploy から 28 日後に、`npm run report-career-funnel` を **wave-2 基線** `data/analysis/career-funnel-baseline/2026-09-16.json`（2026-09-22 凍結・GA4 窓 08-20〜09-16＝出荷直前） と比較する。第 1 波の 08-12 基線とは別ファイルで、混ぜない。afb の確定成果は `data/afb/outcomes/ の最新` を併記する（鍵登録後）。
-
-**この期間に答えを出す問い**: 11 click で確定成果 ¥0 だった件について、a8mat ピクセルが実際に発火しているかを本番 HTML で確認する（`curl` で対象ページの `a8mat=` がちょうど 1 件＝配置は既に検証済み。未検証なのは発火そのもの）。原因と決めつけずに観測する。
-
-**完了条件**: wave-2 基線との差分（表示・クリック・面別）と afb/A8 の確定成果を並べた記録を裁定ログへ追記し、(1) 継続 / (2) 露出を絞る / (3) 撤退 を再判定している。
 
 ### [DN-0110] 承認済み動画パック112本＋Shorts224本の公開・6週間判定
 タグ: [SNS・マーケ] [領域:SNS] [時期:2026-09..2026-10] [種類:改善] [Codex候補] [検証:quality:audit:ci] [起票:2026-08-21]
@@ -1761,14 +1712,6 @@ deploy から 28 日後に、`npm run report-career-funnel` を **wave-2 基線*
 
 
 
-### [DN-0759] GSCの同期間全体303クリックと成長パック23クリックの集計条件を照合し、週次判断の定義をそろえる
-タグ: [インフラ・計測] [領域:管理] [時期:2026-10] [種類:不具合] [起票:2026-10-17]
-
-**起点**: 週次レビュー（2026-10-12〜2026-10-18）。計測対象は10/5〜10/11、現物確認は10/17。
-
-**やること**: 週次レビュー（2026-10-12〜2026-10-18）で、同じ2026-10-05〜10-11窓の事業計測GSC全体303クリック（measurementの日本・Web・final）とgrowth packの日本ページ行合計23クリックが一致しないことを確認。fetch-business-metricsの国jpn条件は存在するため、国フィルタの欠落と決めつけない。両記録の元ファイル・取得時刻・property・日付窓・searchType・dataState・dimensions・aggregationType・フィルタ・pagination/rowLimit・行の採用条件を照合し、APIの集計方式の差か取得/集計の不具合かを切り分ける。原因が判明するまでは両数値を比較可能な同一母集団として扱わない。
-
-**完了条件**: 2経路の入力範囲と実取得行数、元レスポンスから303/23に至る集計が再現でき、差の理由が根拠付きで記録されている。仕様上の差なら表示名と定義を区別し、実装不具合なら修正と同じ誤集計を検出する回帰テストを追加する。欠測や取得0件を0クリック・PASSへ置き換えず、次の週次で同じ誤解が起きない表示を確認する。
 
 
 
@@ -1783,14 +1726,6 @@ deploy から 28 日後に、`npm run report-career-funnel` を **wave-2 基線*
 
 **進捗（2026-10-18）**: 3 記事の原稿を直した（495fc9d20）。RCCM n6a82c25cc9de（題名・本文・カバー）と AI n06ff627e32d4（本文）は note-update-body --sync で反映し、公開 API で題名「一問一答159問」・編集メモ 0・1級 AI 記事へのリンク・価格 980 円の維持を確かめ、360px と広幅で目視した。口頭対策 n5bc0bcde96ac は PDF の貼り直しが要り、当日の添付上限（90）で本文を触らずに保留。**残り**: 10/19 以降に `note-update-body --sync --list` で口頭対策を反映し、公開面でチェック記号 0 を確かめる。
 
-### [DN-0761] Dependabotのsprintf-js medium警告を依存経路と修正版に照合して解消する
-タグ: [インフラ・計測] [領域:サイト] [時期:2026-10] [種類:不具合] [起票:2026-10-17]
-
-**起点**: 週次レビュー（2026-10-12〜2026-10-18）。計測対象は10/5〜10/11、現物確認は10/17。
-
-**やること**: 週次レビュー（2026-10-12〜2026-10-18）。10/17のreview-checksでDependabot sprintf-js medium 1件。npm lsで gray-matter→js-yaml3→argparse1→sprintf-js1.0.3 を確認。GHSAの影響条件とpackage-lockの経路を確認し、既存overrideや直接依存の更新で修正版へ解決する。ビルド時入力と実行時入力を区別し、影響を推測で重大化しない。
-
-**完了条件**: 修正版がlockに解決され、影響するMDX/frontmatter処理の既存テストと必要なbuildが通り、main反映後のDependabot警告解消または根拠付き対象外判断を確認する。
 
 
 
@@ -1826,10 +1761,6 @@ deploy から 28 日後に、`npm run report-career-funnel` を **wave-2 基線*
 **完了条件**: `npm run reference-book-status` で 4 冊の文字起こしが n/n（または理由つきの不要だけが残る）になり、`npm run check-reference-book-pages` が通る。
 **閉じるときの注意**: 4 冊は参考文献の台帳（reference-sources.json）の `bookBundle.ocrPending` に `{ "backlogId": "DN-0716" }` と書いてある（PR #1048）。残りを 0 にしてから外す。残りがあるままこのカードを閉じると、check-reference-book-pages が「追うカードが backlog に無い」で CI を止める。
 
-### [DN-0714] refresh-indexes を CRLF で取り出した作業ツリーで回すと、生成 JSON の問題文に \r\n が入り偽の差分が出る
-タグ: [時期:2026-10] [領域:サイト] [種類:不具合] [起票:2026-10-13]
-
-Windows（autocrlf で MDX が CRLF）で npm run refresh-indexes を回すと、記事に変更がなくても src/config/exam-questions.json・src/config/civil-1-exam-questions.json・public/quiz/civil-1.json の問題文の改行が \n→\r\n に変わり、数百行の差分になる（2026-10-13 の同期後に確認。generatedAt 以外の実体変更は 0）。llms*.txt・quiz/pe-first-stage.json・popular-pages.json は行末だけの差分。原因: scripts/parse-exam-questions.mjs:139 と .claude/scripts/sns/parse-civil-1-questions.mjs:33（civil-2 も同型の見込み）が readFileSync の結果を改行正規化せずに本文を切り出す。対処: 読み込み直後に \r\n→\n へ正規化する（共通 lib があれば集約）。完了条件: CRLF の作業ツリーで refresh-indexes を回しても上記 JSON に generatedAt 以外の差分が出ないこと、回帰テスト（CRLF 入力で本文に \r が残らない）を tests/ に足すこと。
 
 ### [DN-0209] 総監R8記述式を公式問題と照合し、再現版の注記・図・解答方針を確定する
 タグ: [コンテンツ品質] [領域:サイト] [時期:2027-04..2027-06] [種類:不具合] [起票:2026-09-13]
@@ -1862,6 +1793,28 @@ Windows（autocrlf で MDX が CRLF）で npm run refresh-indexes を回すと�
 **完了条件**: npm run refresh-indexes で 2 ファイルが更新され、2級の過去問ページに textbook リンクが出る。
 
 ## 🟢 低 — 重要度が低い（時期未定を含む）
+
+
+
+
+
+
+
+
+
+
+
+
+
+### [DN-0778] X 下書きカード画像は無視対象なのに追跡が要る：check-x-card-render の対象を決め直す
+タグ: [領域:管理] [時期:2026-12] [種類:改善] [検証:check-x-card-render] [起票:2026-10-20]
+
+**起点**: 2026-10-20、DN-0774 で .gitignore に当たるのに追跡されていた content/sns/x/draft/*/img の 56 件を追跡から外したところ、CI ゲート check-x-card-render（ci:true）が対象 0 件で検査不成立になり develop の audit が赤になった（3f98fbff7 で追跡を戻した）。このゲートの対象は Git 管理下の X カード PNG で、無視の行より前から追跡されていた 56 件だけが対象になっている。新しく作るカードは無視されるので、検査の対象は増えない。
+
+**やること**: SNS 再開時に、(1) X カード PNG を追跡するなら .gitignore の行（content/sns/x/draft/*/img/tweet-*.png）を外す、(2) 追跡しないなら検査を描画台帳だけで成立させるか report へ移す、のどちらかに決める。
+
+**完了条件**: git ls-files -ci --exclude-standard が 0 件で、check-x-card-render が対象 1 件以上を実検査して通る（または検査の置き場を変えた理由が quality-audit の note にある）。
+
 
 
 
@@ -1977,17 +1930,6 @@ Windows（autocrlf で MDX が CRLF）で npm run refresh-indexes を回すと�
 
 
 
-### [DN-0560] macOS でだけ落ちるコマンド（BSD と GNU の差）を CI の前に止める
-タグ: [インフラ・計測] [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-10-07]
-
-**起点**: 2026-10-07、`tests/sync-index-after-commit.test.mjs` の `sed -i "s/…/"` が macOS の BSD sed で落ち、Mac で回す `npm run test` と `quality:audit:ci` の unit-tests が赤くなっていた（#891 で `-i.bak` に直した）。CI は Linux だけなので、Mac でだけ落ちる書き方は CI では見つからない。
-
-**やること**:
-1. `tests/`・`scripts/`・`.claude/scripts/`・フックの本文から、BSD と GNU で挙動が違う書き方を見つける静的検査を作る。対象の例: 拡張子なしの `sed -i`、`grep -P`、`date -d`、`readlink -f`、`stat -c`、`xargs -r`。
-2. `tests/scripts-no-undef.test.mjs` と同じく npm test に載せる。
-3. 今ある該当箇所を直す。
-
-**完了条件**: 検査が対象ファイル数と検出数を出し、検出 0 件。わざと `sed -i "s/a/b/" f` を入れたテストが落ちる。
 
 
 ### [DN-0521] 上下水道ページの note 導線を公開4週間後に配置別CTRで評価する

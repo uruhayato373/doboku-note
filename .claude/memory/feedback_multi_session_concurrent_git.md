@@ -27,3 +27,7 @@ doboku-note では**複数の Claude Code セッションが同じワークツ�
 - **隔離 worktree は node_modules が無いので pre-commit が落ちる**。フックが要る commit は主ツリーで pathspec 限定。worktree に node_modules/.local を symlink すればフック/ブラウザが動く（symlink は worktree remove が安全に外す）。最安全は develop を別 worktree に分離（`git worktree add <dir> develop`→編集→pathspec commit→`push origin develop:develop`→`worktree remove`）。
 - **develop は秒単位で動く共有ブランチ**。並行稼働中の履歴是正（reset/rebase）は futile かつ危険。内容が載っていれば良しとし、履歴整形は全エージェント idle 時に。アフィリ等のコード変更は並行バッチが落ち着いてから単独実行する。
 - 真実源は CLAUDE.md §10。関連: [[feedback_session_start_git_sync]] [[feedback_session_start_git_sync]]
+
+## カードの着手記録は PR に入れず develop へ直接 commit する
+2026-10-20 に拡張性のカード 15 枚を PR で並行して進めたとき、1 本目の PR に `todo:claim` の変更（backlog の [進行中]・todo-claims.json）を入れたため、後から develop に積んだ他のカードの着手記録と todo-claims.json で 2 回衝突した。
+- **How to apply:** 着手記録は main checkout の develop で `todo:claim` → pathspec commit → push し、PR のブランチには実装だけを入れる。完了（`todo:complete`）も PR のマージ後に develop で行う。

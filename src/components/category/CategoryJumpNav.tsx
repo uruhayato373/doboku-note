@@ -1,70 +1,9 @@
 import Link from 'next/link';
+import { getCategoryBySlug } from '@/lib/categories';
 
-type JumpItem = { href: string; label: string; goal: string };
-
-const CATEGORY_JUMPS: Record<string, JumpItem[]> = {
-  'civil-construction-1': [
-    { href: '#sec-guide', label: '受験ガイド', goal: '試験を知る' },
-    { href: '#sec-textbook', label: 'テキスト', goal: '知識を学ぶ' },
-    { href: '#sec-primary', label: '過去問', goal: '問題を解く' },
-    { href: '#sec-secondary', label: '第2次対策', goal: '記述を仕上げる' },
-    { href: '#sec-career', label: 'キャリア', goal: '資格を活かす' },
-  ],
-  'civil-construction-2': [
-    { href: '#sec-guide', label: '受験ガイド', goal: '試験を知る' },
-    { href: '#sec-fields', label: '分野別', goal: '知識を学ぶ' },
-    { href: '#sec-primary', label: '過去問', goal: '問題を解く' },
-    { href: '#sec-secondary', label: '第2次対策', goal: '記述を仕上げる' },
-    { href: '#sec-career', label: 'キャリア', goal: '資格を活かす' },
-  ],
-  'concrete-engineer': [
-    { href: '#sec-guide', label: '受験ガイド', goal: '試験を知る' },
-    { href: '#sec-textbook', label: 'テキスト', goal: '知識を学ぶ' },
-    { href: '#sec-primary', label: '演習問題', goal: '問題を解く' },
-  ],
-  'concrete-chief-engineer': [
-    { href: '#sec-guide', label: '受験ガイド', goal: '試験を知る' },
-    { href: '#sec-textbook', label: 'テキスト', goal: '知識を学ぶ' },
-    { href: '#sec-primary', label: '過去問', goal: '問題を解く' },
-  ],
-  'concrete-diagnostician': [
-    { href: '#sec-guide', label: '受験ガイド', goal: '試験を知る' },
-    { href: '#sec-textbook', label: 'テキスト', goal: '知識を学ぶ' },
-    { href: '#sec-primary', label: '過去問', goal: '問題を解く' },
-  ],
-  rccm: [
-    { href: '#sec-guide', label: '受験ガイド', goal: '試験を知る' },
-  ],
-  surveyor: [
-    { href: '#sec-guide', label: '受験ガイド', goal: '試験を知る' },
-    { href: '#sec-primary', label: '過去問', goal: '問題を解く' },
-  ],
-  pavement: [
-    { href: '#sec-guide', label: '受験ガイド', goal: '試験を知る' },
-  ],
-  'pe-first-stage': [
-    { href: '#sec-guide', label: '受験ガイド', goal: '試験を知る' },
-    { href: '#sec-fields', label: '科目別対策', goal: '科目を学ぶ' },
-    { href: '#sec-primary', label: '科目別過去問', goal: '問題を解く' },
-  ],
-  'pe-comprehensive-management': [
-    { href: '#sec-guide', label: '受験ガイド', goal: '試験を知る' },
-    { href: '#sec-fields', label: '論文対策', goal: '論文を学ぶ' },
-    { href: '#sec-pillar', label: '5管理', goal: '管理を整理する' },
-    { href: '#sec-pastExam', label: '過去問', goal: '問題を解く' },
-    { href: '#sec-keyword', label: 'キーワード', goal: '用語を調べる' },
-  ],
-  'pe-construction': [
-    { href: '#sec-guide', label: '受験ガイド', goal: '試験を知る' },
-    { href: '#sec-fields', label: '論文の書き方', goal: '論文を学ぶ' },
-    { href: '#sec-keyword', label: '科目別対策', goal: '専門を深める' },
-    { href: '#sec-pastExam', label: '過去問', goal: '問題を解く' },
-    { href: '#sec-career', label: 'キャリア', goal: '資格を活かす' },
-  ],
-};
-
+// ジャンプの項目は categories.json の layout.jumps が持つ（DN-0793）
 export function getCategoryJumps(category: string) {
-  return [...(CATEGORY_JUMPS[category] ?? [])].sort((a, b) => Number(!/primary|pastExam/.test(a.href)) - Number(!/primary|pastExam/.test(b.href)));
+  return [...(getCategoryBySlug(category)?.layout?.jumps ?? [])].sort((a, b) => Number(!/primary|pastExam/.test(a.href)) - Number(!/primary|pastExam/.test(b.href)));
 }
 
 export default function CategoryJumpNav({ category }: { category: string }) {

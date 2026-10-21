@@ -38,7 +38,7 @@ developer_instructions = """
 ### Stage 2 — 候補発見（uncovered_issues が空でない時のみ実行）
 
 1. `.claude/state/keyword-summaries.json` を Read（slug → title / section / tags / definition のマップ）
-2. `src/config/tag-dictionary.json` を Read（tag → slug の逆引きが必要なら）
+2. `src/config/tag-dictionary.json` を Read（tag → slug の逆引きが必要なら。git 管理外の生成物なので、無ければ `npm run build-indexes` で作る）
 3. uncovered_issues 1 つあたり、以下でショートリスト（最大 30 件）を作る:
    - 同 section（frontmatter `section`）の slug
    - 共通 tag を持つ slug

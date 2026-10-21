@@ -14,6 +14,7 @@
  */
 import { createRequire } from 'node:module';
 import { SITE_CONTENT_ROOT } from '../../scripts/lib/repository-paths.mjs';
+import { siteSlugFromParts } from './site-slug.mjs';
 
 const nodeRequire = createRequire(import.meta.url);
 const fs = nodeRequire('fs') as typeof import('fs');
@@ -93,14 +94,9 @@ function walk(dir: string, basePath: string[]): { slug: string; relativePath: st
       const newPath = [...basePath, fileName];
       results.push(...walk(fullPath, newPath));
     } else if (entry.isFile() && entry.name.endsWith('.mdx')) {
-      // For article.mdx, use the directory path as slug (convention: {slug}/article.mdx -> {slug})
-      // For other .mdx files, include the filename in the slug
-      const slugPath = fileName === 'article' ? basePath : [...basePath, fileName];
-      if (slugPath.length > 0) {
-        const slug = slugPath.join('-');
-        const relativePath = [...basePath, entry.name].join('/');
-        results.push({ slug, relativePath });
-      }
+      // slug の規則は src/lib/site-slug.mjs（<資格>/<slug>/article.mdx → <資格>-<slug>）
+      const slug = siteSlugFromParts(basePath, entry.name);
+      if (slug) results.push({ slug, relativePath: [...basePath, entry.name].join('/') });
     }
   }
 

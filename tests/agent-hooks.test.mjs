@@ -7,6 +7,7 @@ import process from 'node:process';
 import { join } from 'node:path';
 
 import {
+  agentNetworkViolation,
   captureMarkers,
   cdScopeViolation,
   classifyStaged,
@@ -17,6 +18,7 @@ import {
   isGitCommitCommand,
   isMdxPath,
   needsCapture,
+  networkFetchReason,
   parseHookInput,
   parseNameStatus,
   shellAssignments,
@@ -200,4 +202,40 @@ test('check-cd-scope hook: 素の cd は exit 2 で止め、サブシェルと g
   assert.equal(runHook('check-cd-scope', input(`git -C ${WT} status`), env).status, 0);
   assert.equal(runHook('check-cd-scope', input(`cd ${PROJECT} && git status`), env).status, 0);
   assert.equal(runHook('check-cd-scope', input(`cd ${WT}`), { CLAUDE_PROJECT_DIR: '' }).status, 0, 'Codex では止めない');
+});
+
+// ---- check-agent-network（DN-0558）---------------------------------------------------------------
+
+test('networkFetchReason: 取得コマンド・ライブラリ・外部 URL を拾い、ローカルの操作は通す', () => {
+  for (const c of [
+    'curl -sL -o x.pdf https://www.mlit.go.jp/a.pdf',
+    'cd /tmp && wget https://example.com/a.pdf',
+    'python3 -c "import urllib.request; urllib.request.urlretrieve(u, p)"',
+    `node -e "fetch('https://example.com').then(r=>r.text())"`,
+    'python3 x.py --url https://example.com/a.pdf',
+  ]) assert.ok(networkFetchReason(c), c);
+  for (const c of [
+    'pdftoppm -r 200 -f 3 -l 3 src.pdf out',
+    'python3 crop.py --in a.png --out b.png',
+    'ls content/sources/textbook',
+    'curlew_count=3 echo ok',
+    'git fetch origin',
+    'python3 shot.py --url http://localhost:3020/exam/',
+  ]) assert.equal(networkFetchReason(c), '', c);
+});
+
+test('agentNetworkViolation: 禁止のサブエージェントだけ止め、親と他のエージェントは通す', () => {
+  const command = 'curl -sLO https://www.mlit.go.jp/hakusho.pdf';
+  assert.ok(agentNetworkViolation({ agentType: 'figure-crop-worker', command }));
+  assert.equal(agentNetworkViolation({ agentType: '', command }), '');
+  assert.equal(agentNetworkViolation({ agentType: 'general-purpose', command }), '');
+  assert.equal(agentNetworkViolation({ agentType: 'figure-crop-worker', command: 'pdftoppm a.pdf out' }), '');
+});
+
+test('check-agent-network hook: figure-crop-worker の curl は exit 2、親の curl は exit 0', () => {
+  const command = 'curl -sLO https://www.mlit.go.jp/hakusho.pdf';
+  const blocked = runHook('check-agent-network', JSON.stringify({ tool_name: 'Bash', tool_input: { command }, agent_id: 'a1', agent_type: 'figure-crop-worker' }));
+  assert.equal(blocked.status, 2);
+  assert.match(blocked.stderr, /source-unavailable/);
+  assert.equal(runHook('check-agent-network', JSON.stringify({ tool_name: 'Bash', tool_input: { command } })).status, 0);
 });

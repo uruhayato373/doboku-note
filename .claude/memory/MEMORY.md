@@ -13,6 +13,7 @@
 - [マガジン再収録](feedback_magazine_atomic_recollection.md) — 1答案1記事・切り口を消さない
 - [記事構成規約](feedback_content_structure.md) — 図・太字・3000字・価格直書き禁止
 - [デプロイ規律](feedback_deploy_discipline.md) — 性質別ブランチ・昇格手順・3点commit・PRの向き先・squash判定
+- [直pushもCIゲート](feedback_direct_push_ci_gate.md) — スキル・config・追跡解除は audit:ci 後
 - [総監論文執筆規約](feedback_essay_char_limit.md) — 600字・散文・一般レベル
 - [総監ペルソナ採否](feedback_essay_persona_authentic_seat.md) — 経験座限定・ADRが真実源
 - [キーワードサイクル](feedback_exam_keyword_cycle_completeness.md) — 全RelatedKeywords処理
@@ -52,7 +53,7 @@
 - [SSOT手書き禁止](feedback_ssot_no_hand_copies_self_verify.md) — 原文照合・仕様は実測
 - [SVG/画像生成の罠](feedback_svg_arrow_marker.md) — 矢印向き・再目視・auto-fit
 - [動画は音声前に画面確認](feedback_video_visual_check_before_audio.md) — 無音プレビュー・10秒シート
-- [報告前の実体確認](feedback_verify_your_excuses.md) — 理由検証・生成元・副産物
+- [報告前の実体確認](feedback_verify_your_excuses.md) — 理由検証・生成元・副産物・棚卸しは照合と障害履歴
 - [Workflow運用の罠](feedback_workflow_orchestration_gotchas.md) — 並行2本・git禁止明記・一時パス共有
 - [SNS保留の確認](feedback_sns_hold_check_before_proposing.md) — SNSカード提案前に保留指示を確認
 - [Xタグ個数](feedback_x_hashtag_count.md) — #技術士 #総監+種別

@@ -95,13 +95,6 @@ cover:
 
 経験記述は「自分の答案が合格水準か」を自分一人では判定しにくい問題です。再現答案を書き起こしたら、それを材料に第三者の目を入れるのがいちばんの近道です。
 
-<!-- cta:coconala-custom -->
-自分の答案を人の目で確かめたいときは、ココナラで個別に対応しています。2級の施工経験記述は、書いた答案があれば全3テーマの添削、まだ書けていなければヒアリングから骨子（構成）をつくります（1級の添削・骨子づくりは来季まで休止しています）。
-
-https://coconala.com/services/4418778
-
-https://coconala.com/services/4418785
-
 経験記述の出題傾向と書き方の型は、[施工経験記述 出題傾向と書き方](https://doboku-note.com/exam/civil-construction-2/secondary/experience-writing-guide?utm_source=note&utm_medium=referral&utm_campaign=civil2-niji-postexam-r8&utm_content=experience-writing-guide)に無料でまとめています。
 
 ---

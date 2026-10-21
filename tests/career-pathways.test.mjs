@@ -176,10 +176,11 @@ test('キャリア記事の記事末 affiliate が内部次行動へ置き換わ
   const footer = read('src/components/ui/ArticleFooter/ArticleFooter.tsx');
   assert.ok(footer.includes('const isCareer = isCareerDoc(meta)'), 'ArticleFooter が career を判定していない');
   // 2026-10-07 から記事末に出すかは配置ルール（config/affiliate-placements.json の article-end）が決める。
-  // 開いている記事末のルールは全部キャリア記事を除外していること
+  // 記事末のルールは全部キャリア記事を除外していること。2026-10-21 に記事末を全部閉じた（DN-0779）ので、
+  // 開き直したときにも効くよう、閉じたルールも含めて見る
   const { rules } = JSON.parse(read('config/affiliate-placements.json'));
-  const openEnd = rules.filter((r) => r.slot === 'article-end' && r.period.until == null);
-  assert.ok(openEnd.length > 0, '記事末のルールが無い（検査対象 0 件）');
-  for (const r of openEnd) assert.equal(r.target.careerDoc, 'exclude', `${r.id}: 記事末バナーが career 記事を除外していない`);
+  const endRules = rules.filter((r) => r.slot === 'article-end');
+  assert.ok(endRules.length > 0, '記事末のルールが無い（検査対象 0 件）');
+  for (const r of endRules) assert.equal(r.target.careerDoc, 'exclude', `${r.id}: 記事末バナーが career 記事を除外していない`);
   assert.ok(footer.includes('<CareerNextStepNav'), 'career 記事の記事末に内部次行動が無い');
 });

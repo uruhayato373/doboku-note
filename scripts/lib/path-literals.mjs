@@ -13,6 +13,9 @@ import { escapeRegExp } from './regexp-escape.mjs';
  */
 export const PATH_LITERAL_ALLOW = ['scripts/lib/datasets.mjs', 'scripts/lib/repository-paths.mjs', 'scripts/lib/path-literals.mjs'];
 
+/** パスの直書きを走査するコード（check-datasets と tighten-ratchets が同じ範囲を見る） */
+export const isPathLiteralCodeFile = (f) => /^(scripts|tools|src|\.claude)\//.test(f) && /\.(mjs|cjs|js|mts|ts|tsx)$/.test(f);
+
 /** 直書きを止める置き場（strict。.claude/state/ はラチェットで別に数える＝findStatePathLiterals） */
 const AREA_DIRS = Object.values(AREAS).filter((a) => a.strict).map((a) => a.dir).join('|');
 /**

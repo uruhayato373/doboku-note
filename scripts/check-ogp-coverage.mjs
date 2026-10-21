@@ -28,6 +28,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { REPO_ROOT as root, SITE_CONTENT_ROOT } from './lib/repository-paths.mjs';
 import { loadManifest } from './lib/asset-storage.mjs';
+import { siteSlugFromParts } from '../src/lib/site-slug.mjs';
 
 const POSTS_DIR = SITE_CONTENT_ROOT;
 const categories = JSON.parse(
@@ -48,8 +49,7 @@ function findMdx(dir, parts = []) {
 
 // ogp-create.mjs の buildFullSlug と同一（article.mdx は dir 名を slug 化）。
 function buildFullSlug(parts, file) {
-  const base = file.replace(/\.mdx$/, '');
-  return base === 'article' ? parts.join('-') : [...parts, base].join('-');
+  return siteSlugFromParts(parts, file);
 }
 
 // getOgpImageUrl / resolveOutputPath と同一の slug→ogp.png ローカルパス解決。

@@ -136,7 +136,8 @@ function parseYear(year) {
   const dir = join(POSTS_DIR, `${year}-primary`);
   const mdxPath = join(dir, "article.mdx");
   if (!existsSync(mdxPath)) return null;
-  const content = readFileSync(mdxPath, "utf8");
+  // CRLF で取り出した作業ツリー（Windows の autocrlf）でも問題文に \r を残さない（DN-0714）
+  const content = readFileSync(mdxPath, "utf8").replace(/\r\n/g, "\n");
 
   // 各問題を ^## Ⅰ-N-M で split
   // split で配列: [先頭, label1, body1, label2, body2, ...]

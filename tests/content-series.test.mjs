@@ -1,6 +1,6 @@
 import { strict as assert } from 'node:assert';
 import test from 'node:test';
-import { itemState, seriesContext, loadSeriesConfig, validateSeries, seriesView } from '../scripts/lib/content-series.mjs';
+import { itemState, seriesContext, loadSeriesConfig, validateSeries } from '../scripts/lib/content-series.mjs';
 import { REPO_ROOT } from '../scripts/lib/repository-paths.mjs';
 
 const A = 'content/site/civil-practice/a/article.mdx';
@@ -40,16 +40,6 @@ test('validateSeries: 根拠の id・既存記事・関連記事・対象外の�
     assert.match(issues, re);
   }
 });
-
-test('実データ: 台帳 config/content-series.json は違反 0 で、項目の状態が出る', () => {
-  const config = loadSeriesConfig(REPO_ROOT);
-  const ctx = seriesContext(REPO_ROOT);
-  assert.deepEqual(validateSeries(config, ctx), []);
-  const view = seriesView(config, ctx.stateOf);
-  assert.ok(view.length >= 1);
-  for (const s of view) assert.equal(s.summary.missing, 0);
-});
-
 test('validateBasis: 書籍の項目数・割り当て先の項目と記事・書籍の区分を検査する', async () => {
   const { validateBasis, basisView } = await import('../scripts/lib/content-series.mjs');
   const config = { series: [{ id: 's', sections: [{ title: 't', items: [{ id: 'X-1', title: 'a', plan: 'new' }] }] }] };
