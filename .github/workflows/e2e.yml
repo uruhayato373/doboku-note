@@ -44,6 +44,7 @@ on:
       - "scripts/build-standards-data.ts"
       - "scripts/check-standards-data.mjs"
       - "scripts/parse-exam-questions.mjs"
+      - ".claude/scripts/build-civil-exam-textbook-index.mjs"
       - ".claude/scripts/build-doc-meta-index.mjs"
       - ".claude/scripts/build-note-published-index.mjs"
       - ".claude/scripts/build-pillar-exam-questions.mjs"
