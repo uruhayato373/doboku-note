@@ -56,16 +56,7 @@
 
 **完了条件**: 2026-11-02 までに 2級 令和8年度 第2次検定の問題と解答例が本番にあり、past-exam-qa の指摘が直っている。
 
-
-
-
-
-
-
-
-
-
-
+**準備（2026-10-21）**: 置き場は `content/site/civil-construction-2/secondary-r08/article.mdx`（/exam/civil-construction-2/secondary/r08）を新しく作る。1級 r08 は枠ページ無しの `secondary-r08` 1 本で、2級も r03〜r07 が `secondary-rNN` なので揃える。構成は 2級 r07 と同じ（問題1 経験記述〔工事概要〕〔設問1〕〔設問2〕・問題2〜9・出典。frontmatter は `group: secondary`・`officialQuestions: true`・`sources`）。枠ページ（guide-r08-secondary-answers・10/11 から「解答例 令和8年」で表示あり）とは検索語が重なるので、r08 の公開と同じ commit で枠の seoTitle・冒頭を「答案の見直し方・合格発表まで」に寄せ、冒頭から r08 へリンクする（301 にはしない＝見直し手順の節は枠にしか無い）。10/26 13 時の公表後: 原典 PDF 取得→問題の転記と照合→解答例→past-exam-qa→refresh-indexes→main へ出すかは運営者（出張中は deploy しない約束なので、期日 11/02 に間に合わせるなら運営者の判断が要る）。
 
 ### [DN-0670] 2級土木の既存動画4本に技術表現の訂正を反映する
 タグ: [領域:商品] [時期:2026-10] [種類:不具合] [検証:check-video-content] [起票:2026-10-11]
