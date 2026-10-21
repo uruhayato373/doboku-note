@@ -6,20 +6,20 @@ noteMagazine: 経験記述-週次お題ラボ
 noteStatus: published
 notePublishedAt: "2026-08-19"
 noteId: "n76641bccd62e"
-title: "今週のお題｜環境対策 — 騒音・振動の抑制と建設副産物の再資源化"
+title: "経験記述のお題｜環境対策 — 騒音・振動の抑制と建設副産物の再資源化"
 noteUrl: "https://note.com/dobokunote/n/n76641bccd62e"
 memberTrial: bottom
 utmCampaign: civil-membership-odai-env-noise
-coverTitle: ["今週のお題｜環境対策", "騒音振動・建設副産物"]
+coverTitle: ["経験記述のお題｜環境対策", "騒音振動・建設副産物"]
 cover:
   variant: crop-safe-v4
-  leadIn: "今週のお題｜経験記述"
+  leadIn: "経験記述のお題"
   headline: "環境対策"
   hi: "予想"
   hiSuffix: "問題"
   benefit: "騒音振動と副産物が書ける"
 ---
-# 今週のお題｜環境対策 — 騒音・振動の抑制と建設副産物の再資源化
+# 経験記述のお題｜環境対策 — 騒音・振動の抑制と建設副産物の再資源化
 
 
 ![](img/figure-author-authority.png)
@@ -36,7 +36,7 @@ cover:
 
 > これは経験記述の「お題」です。完成した模範答案は載せていません。**あなたが経験した工事**でお題に答えてください。
 
-## 今週のお題
+## 経験記述のお題
 
 あなたが経験した工事のうち、**周辺環境への影響が課題になった工事**を1つ選び、「騒音・振動の抑制」または「建設副産物の再資源化」のいずれかで、次に答えてください。
 

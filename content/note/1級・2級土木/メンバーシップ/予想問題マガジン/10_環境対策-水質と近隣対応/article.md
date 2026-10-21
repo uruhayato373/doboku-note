@@ -6,20 +6,20 @@ noteContentType: product
 noteMagazine: 経験記述-週次お題ラボ
 notePublishedAt: "2026-09-24"
 noteId: "n1911131aa726"
-title: "今週のお題｜環境対策 — 濁水・地下水・近隣への影響を抑える"
+title: "経験記述のお題｜環境対策 — 濁水・地下水・近隣への影響を抑える"
 noteUrl: "https://note.com/dobokunote/n/n1911131aa726"
 memberTrial: bottom
 utmCampaign: civil-membership-odai-env-water
-coverTitle: ["今週のお題｜環境対策", "水質・濁水・近隣対応"]
+coverTitle: ["経験記述のお題｜環境対策", "水質・濁水・近隣対応"]
 cover:
   variant: crop-safe-v4
-  leadIn: "今週のお題｜経験記述"
+  leadIn: "経験記述のお題"
   headline: "環境対策"
   hi: "予想"
   hiSuffix: "問題"
   benefit: "水質と近隣対応が書ける"
 ---
-# 今週のお題｜環境対策 — 濁水・地下水・近隣への影響を抑える
+# 経験記述のお題｜環境対策 — 濁水・地下水・近隣への影響を抑える
 
 
 ![](img/figure-author-authority.png)
@@ -38,7 +38,7 @@ cover:
 
 > 本記事は1級・2級に共通する論点を練習するための独自予想です。公式問題の再現ではありません。実際の出題テーマと設問構造は、受験する級・年度の問題用紙で確認してください。
 
-## 今週のお題
+## 経験記述のお題
 
 あなたが経験した工事のうち、**水質・地下水・近隣への影響が課題になった工事**（濁水・排水）を1つ選び、次に答えてください（第5週の騒音振動・副産物に対し、本週は水・近隣の角度）。
 

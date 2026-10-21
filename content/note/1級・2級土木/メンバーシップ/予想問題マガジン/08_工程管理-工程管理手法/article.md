@@ -6,20 +6,20 @@ noteContentType: product
 noteMagazine: 経験記述-週次お題ラボ
 notePublishedAt: "2026-09-19"
 noteId: "n8acfea17f953"
-title: "今週のお題｜工程管理 — 工程管理手法（ネットワーク・進捗管理）で工期を守る"
+title: "経験記述のお題｜工程管理 — 工程管理手法（ネットワーク・進捗管理）で工期を守る"
 noteUrl: "https://note.com/dobokunote/n/n8acfea17f953"
 memberTrial: bottom
 utmCampaign: civil-membership-odai-schedule-method
-coverTitle: ["今週のお題｜工程管理", "工程管理手法の活用"]
+coverTitle: ["経験記述のお題｜工程管理", "工程管理手法の活用"]
 cover:
   variant: crop-safe-v4
-  leadIn: "今週のお題｜経験記述"
+  leadIn: "経験記述のお題"
   headline: "工程管理"
   hi: "予想"
   hiSuffix: "問題"
   benefit: "工程管理手法が書ける"
 ---
-# 今週のお題｜工程管理 — 工程管理手法（ネットワーク・進捗管理）で工期を守る
+# 経験記述のお題｜工程管理 — 工程管理手法（ネットワーク・進捗管理）で工期を守る
 
 
 ![](img/figure-author-authority.png)
@@ -38,7 +38,7 @@ cover:
 
 > 本記事は1級・2級に共通する論点を練習するための独自予想です。公式問題の再現ではありません。実際の出題テーマと設問構造は、受験する級・年度の問題用紙で確認してください。
 
-## 今週のお題
+## 経験記述のお題
 
 あなたが経験した工事のうち、**工程管理の手法を使って工期を計画・管理した工事**を1つ選び、次に答えてください（第3週の「遅延回復」が事後対応なら、本週は計画・進捗管理という事前/恒常の管理）。
 

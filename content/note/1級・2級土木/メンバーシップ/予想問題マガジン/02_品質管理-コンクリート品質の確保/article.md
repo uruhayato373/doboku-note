@@ -9,20 +9,20 @@ noteContentType: product
 noteMagazine: 経験記述-週次お題ラボ
 notePublishedAt: "2026-08-05"
 noteId: "nc92c82ac4ea5"
-title: "今週のお題｜品質管理 — 環境条件に左右されるコンクリート品質の確保"
+title: "経験記述のお題｜品質管理 — 環境条件に左右されるコンクリート品質の確保"
 noteUrl: "https://note.com/dobokunote/n/nc92c82ac4ea5"
 memberTrial: bottom
 utmCampaign: civil-membership-odai-quality
-coverTitle: ["今週のお題｜品質管理", "コンクリート品質の確保"]
+coverTitle: ["経験記述のお題｜品質管理", "コンクリート品質の確保"]
 cover:
   variant: crop-safe-v4
-  leadIn: "今週のお題｜経験記述"
+  leadIn: "経験記述のお題"
   headline: "品質管理"
   hi: "予想"
   hiSuffix: "問題"
   benefit: "コンクリート品質確保が書ける"
 ---
-# 今週のお題｜品質管理 — 環境条件に左右されるコンクリート品質の確保
+# 経験記述のお題｜品質管理 — 環境条件に左右されるコンクリート品質の確保
 
 
 ![](img/figure-author-authority.png)
@@ -39,7 +39,7 @@ cover:
 
 > これは経験記述の「お題」です。完成した模範答案は載せていません。**あなたが経験した工事**でお題に答えてください。
 
-## 今週のお題
+## 経験記述のお題
 
 あなたが経験した工事のうち、**コンクリートの品質確保が課題になった工事**（暑中・寒中コンクリート、マスコンクリート、打込み・締固め・養生、配合や運搬の管理など）を1つ選び、次に答えてください。
 

@@ -6,20 +6,20 @@ noteContentType: product
 noteMagazine: 経験記述-週次お題ラボ
 notePublishedAt: "2026-09-17"
 noteId: "naae8119cce47"
-title: "今週のお題｜品質管理 — 土工（盛土・路体路床）の締固め品質の確保"
+title: "経験記述のお題｜品質管理 — 土工（盛土・路体路床）の締固め品質の確保"
 noteUrl: "https://note.com/dobokunote/n/naae8119cce47"
 memberTrial: bottom
 utmCampaign: civil-membership-odai-quality-earthwork
-coverTitle: ["今週のお題｜品質管理", "土工・盛土の締固め"]
+coverTitle: ["経験記述のお題｜品質管理", "土工・盛土の締固め"]
 cover:
   variant: crop-safe-v4
-  leadIn: "今週のお題｜経験記述"
+  leadIn: "経験記述のお題"
   headline: "品質管理"
   hi: "予想"
   hiSuffix: "問題"
   benefit: "土工の締固めが書ける"
 ---
-# 今週のお題｜品質管理 — 土工（盛土・路体路床）の締固め品質の確保
+# 経験記述のお題｜品質管理 — 土工（盛土・路体路床）の締固め品質の確保
 
 
 ![](img/figure-author-authority.png)
@@ -38,7 +38,7 @@ cover:
 
 > 本記事は1級・2級に共通する論点を練習するための独自予想です。公式問題の再現ではありません。実際の出題テーマと設問構造は、受験する級・年度の問題用紙で確認してください。
 
-## 今週のお題
+## 経験記述のお題
 
 あなたが経験した工事のうち、**土工の品質確保が課題になった工事**（盛土・路体・路床・埋戻し）を1つ選び、次に答えてください。
 
