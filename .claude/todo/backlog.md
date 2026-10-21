@@ -319,14 +319,6 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 ## 🟡 中 — 重要度が中くらい
 
-### [DN-0808] src から import される config/*.json だけの PR で E2E が起動しない（DN-0803 の起動条件の漏れ）
-タグ: [インフラ・計測] [領域:管理] [時期:2026-11] [種類:不具合] [起票:2026-10-21] [進行中]
-
-**起点**: DN-0779（2026-10-21・PR #1173）。`config/affiliate-placements.json` だけを変えた PR はサイトの表示（記事末の転職バナー・A8 ピクセルの発火源）を変えるのに、Playwright E2E が起動しなかった。DN-0803 で `.github/workflows/e2e.yml` の `paths` を「サイトの画面とビルドの手順」に絞ったとき、`src/` から import されるリポジトリ直下の `config/*.json` を入れていない（2026-10-21 時点で 11 ファイル: affiliate-placements・cta-placements・exam-calendar・note-funnel・qualification-registry・seo-meta-config・standards-structure・product-lineup・utm-templates・x-account・keiken-answer-sheet-limits）。`tests/e2e-paths.test.mjs` は build の手順のスクリプトだけをたどり、`src/` の import は見ていない。
-
-**やること**: `src/` から import される `config/` のファイルを `e2e.yml`（と画面が変わるなら `lighthouse.yml`）の `paths` に入れる。`tests/e2e-paths.test.mjs` に「`src/` が import するリポジトリ直下のファイルはすべて paths に当たる」検査を足し、漏れを止める。
-
-**完了条件**: `config/affiliate-placements.json` だけを変えた PR で E2E が起動し、`src/` の import を 1 本足して paths から漏らすとテストが落ちる。
 
 
 ### [DN-0806] 成長パックのページ別を国で絞らずに取り、急落・減衰の検出を匿名化された検索語の分も含めて行う
@@ -338,6 +330,7 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 **完了条件**: 新しい取り方のページ別の行の合計を byPage 全体と比べた割合が記録され、急落・減衰がその行で判定されている。ダイジェストのページ明細の表示が新しい定義に合っている。
 
+**進捗（2026-10-21）**: 測定を入れた（PR #1176）。成長パックに `gscPageCoverageWeek`（A 国で絞る／B 国の条件なし／C page×country で日本の行だけ、の合計と byPage 全体に対する割合）を毎週残す。fetch-metrics の定期実行は main 版なので、数字が出るのは main への deploy 後（develop で手動起動すれば先に取れる）。**残り**: 数字を見て急落・減衰の判定に使う取り方を決めて切り替える。
 
 ### [DN-0805] 検査を止めた実績で棚卸しし、統合・格下げ・退役する（CI の見直し 4）
 タグ: [インフラ・計測] [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-10-21]

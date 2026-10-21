@@ -5211,6 +5211,23 @@
       "commit": "1355994a3b6d",
       "verification": "past-exam-qa 再監査 5 本（R04〜R08・各 28/28 一致）／curl で本番 /exam/surveyor と primary/r08 が 200・<main>",
       "note": "本番に 5 年分（r04〜r08）が <main> 付きで出ていることを curl で確認。past-exam-qa の再監査で 5 年分 140 問すべて国土地理院の公式正答と一致。HIGH 2 件（R08 No.12 の準則と出題意図の書き分け・R04 No.5 の選点の規定）と MEDIUM の主な指摘を develop で直した（a402ada30・fad4f1a34・2afc94bac・40c60f576・f6ee3db36）。R08 No.12 の規定は準則 第65条（区間ごと）で原文確認。本番への反映は次の deploy。R04 No.21 の手順と残りの LOW は DN-0809"
+    },
+    {
+      "id": "DN-0808",
+      "at": "2026-10-21",
+      "task": "src から import される config/*.json だけの PR で E2E が起動しない（DN-0803 の起動条件の漏れ）",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "tests/e2e-paths.test.mjs"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "c3e577274484",
+      "verification": "tests/e2e-paths.test.mjs（足す前は落ちる）／check-workflow-hygiene／PR CI audit・build・e2e・lighthouse 緑",
+      "note": "PR #1175。siteImportedFiles で src が外から import する 17 ファイルを洗い出し、config 11・scripts/lib 2 を e2e.yml・lighthouse.yml の paths に足した。PR #1175 自体で E2E・Lighthouse が起動して通過"
     }
   ]
 }
