@@ -5228,6 +5228,19 @@
       "commit": "c3e577274484",
       "verification": "tests/e2e-paths.test.mjs（足す前は落ちる）／check-workflow-hygiene／PR CI audit・build・e2e・lighthouse 緑",
       "note": "PR #1175。siteImportedFiles で src が外から import する 17 ファイルを洗い出し、config 11・scripts/lib 2 を e2e.yml・lighthouse.yml の paths に足した。PR #1175 自体で E2E・Lighthouse が起動して通過"
+    },
+    {
+      "id": "DN-0481",
+      "at": "2026-10-21",
+      "task": "A8 の CI 取得で Secrets による入り直しを 10 月の火曜実行で評価し、続けるか戻すかを決める",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "84ad8274d4be",
+      "verification": "login-collectors の定期実行 37400895490・38337706044・39347584838 のログ／~/Library/Logs/doboku-note/auth-session-refresh.log",
+      "note": "続けると決めた（2026-10-21 オーナー決定）。10/6 は state が生きていて入り直し不要・取得成功、10/13 はデータが新しく取得を飛ばした（fresh）、10/20 は state 切れ→Secrets での入り直し ok（取得の失敗は A8 の画面改修で DN-0757 が同日に直した）。追加の確認画面は出ていない。Mac の手元は 10/17〜19 に別の認証操作のロック待ち、10/20 に ok。stats47 側は未確認。正本・ワークフロー・Secrets は今のまま（変更なし）"
     }
   ]
 }
