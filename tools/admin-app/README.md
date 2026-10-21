@@ -66,6 +66,8 @@ tailscale serve --bg 3021   # 解除は tailscale serve reset
 | 分析 ＞ 動画成果（`/metrics/video`） | `content/sns/video-packs/**`＋`content/registry`（`loadVideoState`）＋`ga4.campaign`（CI 供給） | 動画パックの**公開状態 × 送客**を `utm_campaign = packId` で join する**読み取り専用**画面。派生物（通常動画/Shorts/IG/X）ごとの status・videoId、公開済み Short の関連動画欠落、パック別のセッション/ユーザーを表示する。計測は CI 供給が正（会社 PC からライブ API を叩かない）で、**スナップショット未取得は 0 でなく「未取得」＋理由**を出し送客ゼロと区別する。パックに紐づかない campaign（note・X 等の既存 UTM）は取り違え防止のため別表に併記。配線（fetcher の dimension・workflow ステップ・出力名と読み取り prefix の一致）は `tests/video-outcomes-wiring.test.mjs` が固定 |
 
 > [!note] Shorts 台帳と動画パックは別系統
+> `loadVideoState` を使う各表示には `revisionOf` 付き改訂行は含まれない。改訂版の入力・公開状態は `registry show <公開ID>` と公開行の `copy`、外部操作の記録は `delivery` で確認する。個別投稿経路は [content-registry.md](../../.claude/knowledge/reference/content-registry.md) を参照。
+>
 > `/sns` の「動画パック 派生物」節は `loadVideoState`（台帳）の派生物だけを出し、台帳 `content/registry` の旧 Shorts（kind `legacy-short`・IG 過去問パック由来のレガシー 200 本）とは表を分ける。混ぜると「動画パックの Shorts が 200 本ある」と誤読する。残る未実装は派生物ごとの公開実体の自動照合。目標仕様は `docs/marketing/06_動画コンテンツ運用設計.md`、作業契約は `.claude/knowledge/reference/video-content-policy.md` を真実源とする。編集・投稿・任意shell実行UIは追加しない。
 
 ## ルート allowlist

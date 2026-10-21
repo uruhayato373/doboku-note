@@ -155,6 +155,16 @@ const Publication = z
     platform: Platform.nullable().optional(),
     media: z.record(z.string(), z.string()).optional().describe('役割 → 素材 ID'),
     relatedTo: z.string().optional().describe('関連動画（Shorts → 通常動画）の公開 ID'),
+    revisionOf: z.string().optional().describe('改訂元の公開 ID（旧行・旧外部 ID は保持する）'),
+    delivery: z.object({
+      inputSha256: sha256, marker: z.string().min(1),
+      uploadRequestedAt: utcTime('アップロード開始前の記録'), videoId: z.string().regex(/^[\w-]{11}$/).optional(),
+      processedAt: utcTime('処理完了を確認した時刻').optional(),
+      thumbnailRequestedAt: utcTime('表紙設定開始前の記録').optional(),
+      thumbnailAcceptedAt: utcTime('表紙設定API応答の確認時刻').optional(), thumbnailUrls: z.array(z.string().url()).optional(),
+      scheduleRequestedAt: utcTime('予約開始前の記録').optional(), scheduleAt: offsetTime('要求した予約日時').optional(),
+      scheduledVerifiedAt: utcTime('予約を実査した時刻').optional(),
+    }).strict().optional().describe('改訂公開ID専用の実行記録。intentだけ残る操作は重複実行しない'),
     campaigns: z.array(z.string()).optional(),
     sync: z.object({ syncedSha256: sha256, at: utcTime('同期した時刻') }).strict().optional().describe('外部へ最後に同期した中身'),
     times: z
@@ -210,6 +220,17 @@ const Publication = z
     if (p.status === 'stopped' && !p.stopReason) ctx.addIssue({ code: 'custom', path: ['stopReason'], message: 'stopped には stopReason が要る' });
     if (p.status === 'published' && !p.platform?.id) ctx.addIssue({ code: 'custom', path: ['platform', 'id'], message: 'published には外部 ID が要る' });
     if (p.status === 'scheduled' && !p.publishAt) ctx.addIssue({ code: 'custom', path: ['publishAt'], message: 'scheduled には publishAt が要る' });
+    const d = p.delivery;
+    if (d) {
+      const issue = (key, message) => ctx.addIssue({ code: 'custom', path: ['delivery', key], message });
+      if (!p.revisionOf) issue('inputSha256', 'delivery は改訂公開行専用');
+      if (p.platform?.id && p.platform.id !== d.videoId) issue('videoId', 'platform.id と実行記録の動画 ID が不一致');
+      if ((d.processedAt || d.thumbnailRequestedAt || d.scheduleRequestedAt) && !d.videoId) issue('videoId', '処理・表紙・予約には動画 ID が必要');
+      if (d.thumbnailAcceptedAt && (!d.thumbnailRequestedAt || !d.thumbnailUrls?.length)) issue('thumbnailAcceptedAt', '表紙の開始記録と応答 URL が必要');
+      if (Boolean(d.scheduleRequestedAt) !== Boolean(d.scheduleAt)) issue('scheduleAt', '予約開始記録と要求日時は対で必要');
+      if (d.scheduleAt && Date.parse(d.scheduleAt) !== Date.parse(p.publishAt)) issue('scheduleAt', '実行開始後に予定日時を変えない');
+      if (d.scheduledVerifiedAt && (!d.scheduleRequestedAt || !d.thumbnailAcceptedAt || !d.processedAt)) issue('scheduledVerifiedAt', '処理・表紙・予約開始の記録が必要');
+    }
   });
 
 export const RegistryPublications = z

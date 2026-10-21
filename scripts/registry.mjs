@@ -9,6 +9,8 @@
  *   npm run registry -- import-video-packs [--commit]   # 全動画パック。2 回目は書く行 0。公開中の一覧（own-videos）と件数を突き合わせる
  *   npm run registry -- import-instagram [--commit]      # IG の作品フォルダ全部（照合の記録 snapshot.json の live.list が要る・手元で verify-ig-status）
  *   npm run registry -- import-x [--commit]              # X の下書きフォルダ全部（自分の投稿の一覧 data/x/own-posts と本文で照合）
+ *   npm run registry -- prepare-youtube-revision --pub <元の公開ID> --variant <新版名> [--related-to <新版通常動画ID>] [--publish-at <日時>] [--commit --expect <digest>]
+ *   npm run registry -- publish-youtube-revision --pub <改訂公開ID> --phase upload|schedule|verify [--commit --expect <digest>] # 既定はローカル検査のみ
  *   npm run registry -- approve --pub <公開 ID> --stage visual|final --expect <digest>   # 運営者だけ（管理画面の確認画面からコピーする）
  *   npm run registry -- stop --pub <公開 ID> --reason user-decision|superseded|gone|unverified-legacy
  *   npm run registry -- unschedule --pub <公開 ID> --reason <理由>   # 予約を外す（scheduled → uploaded_private・後で予約し直せる）
@@ -37,6 +39,8 @@ const { values: args, positionals } = parseArgs({
     channel: { type: 'string' }, exam: { type: 'string' }, status: { type: 'string' },
     'pack-dir': { type: 'string' }, commit: { type: 'boolean' },
     pub: { type: 'string' }, stage: { type: 'string' }, expect: { type: 'string' }, reason: { type: 'string' },
+    variant: { type: 'string' }, 'related-to': { type: 'string' }, 'publish-at': { type: 'string' },
+    phase: { type: 'string' },
   },
 });
 const [command, target] = positionals;
@@ -266,9 +270,33 @@ async function importX() {
   console.log('書いた');
 }
 
-const commands = { list, show, index, 'import-video-pack': importVideoPack, 'import-video-packs': importVideoPacks, 'import-instagram': importInstagram, 'import-x': importX, approve, stop, unschedule };
+async function prepareYoutubeRevision() {
+  const { prepareYoutubeRevision } = await import('./lib/registry-youtube-revision.mjs');
+  const result = prepareYoutubeRevision(ROOT, {
+    pubId: args.pub, variant: args.variant, relatedTo: args['related-to'], publishAt: args['publish-at'],
+    commit: args.commit, expect: args.expect,
+  });
+  console.log(JSON.stringify(result, null, 2));
+}
+
+async function publishYoutubeRevision() {
+  const { publishYoutubeRevision } = await import('./lib/youtube-revision-publisher.mjs');
+  const options = { pubId: args.pub, phase: args.phase, expect: args.expect };
+  const preview = await publishYoutubeRevision(ROOT, options);
+  if (!args.commit) { console.log(JSON.stringify(preview, null, 2)); return; }
+  if (args.expect !== preview.digest || (args.phase !== 'verify' && preview.blockers.length)) throw new Error(`改訂版の実行条件が不足: ${preview.blockers.join(', ')}`);
+  const required = ['YOUTUBE_CLIENT_ID', 'YOUTUBE_CLIENT_SECRET', 'YOUTUBE_REFRESH_TOKEN'];
+  if (required.some(key => !process.env[key])) throw new Error('既存のYouTube環境変数が未設定。認証操作は行わない');
+  const { google } = await import('googleapis');
+  const auth = new google.auth.OAuth2(process.env.YOUTUBE_CLIENT_ID, process.env.YOUTUBE_CLIENT_SECRET);
+  auth.setCredentials({ refresh_token: process.env.YOUTUBE_REFRESH_TOKEN });
+  const youtube = google.youtube({ version: 'v3', auth, retry: false });
+  console.log(JSON.stringify(await publishYoutubeRevision(ROOT, { ...options, commit: true }, { youtube }), null, 2));
+}
+
+const commands = { list, show, index, 'import-video-pack': importVideoPack, 'import-video-packs': importVideoPacks, 'import-instagram': importInstagram, 'import-x': importX, 'prepare-youtube-revision': prepareYoutubeRevision, 'publish-youtube-revision': publishYoutubeRevision, approve, stop, unschedule };
 if (!commands[command]) {
-  console.error('Usage: npm run registry -- list|show|index|import-video-pack|import-video-packs|import-instagram|import-x|approve|stop|unschedule …');
+  console.error('Usage: npm run registry -- list|show|index|import-video-pack|import-video-packs|import-instagram|import-x|prepare-youtube-revision|publish-youtube-revision|approve|stop|unschedule …');
   process.exit(2);
 }
 await commands[command]();

@@ -1,0 +1,111 @@
+{
+  "schemaVersion": 1,
+  "publicationId": "civil-construction-2/kento-taio-kakiwake/youtube.longform.diagram-led",
+  "revisionOf": "civil-construction-2/kento-taio-kakiwake/youtube.longform",
+  "account": "youtube:main",
+  "format": "longform",
+  "title": "【2級土木】経験記述の書き分け｜検討したことと実施した処置を分ける",
+  "description": "「検討したこと」と「実施した対応」が同じ文章になっていませんか。道路工事の資材置場を仮例に、判断の理由と実際の処置を書き分ける方法を解説します。\n\n解説・教材制作：架（かける）\n技術士（総合技術監理部門）／元・地方自治体の土木職（発注者）／1級・2級土木施工管理技士 合格者\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 2級土木 施工経験記述 完成答案集（安全・品質・工程）\nhttps://note.com/dobokunote/m/m1881a9578027?utm_source=youtube&utm_medium=video&utm_campaign=kento-taio-kakiwake&utm_content=longform\n自分の工事の事実に置き換えて練習するための教材です。\n\n動画内の施工例は、考え方を示す仮の例で、解説者の工事実績ではありません。工事の条件・数字・実施内容は、自分の施工計画や日報などの記録で確認してください。実際の答案は当該設問の指示に沿って記述してください。対象工事・受検資格は受検年度の公式手引で確認してください。\n\nこの動画は、doboku-noteの教材をもとに構成した学習用の解説です。音声・イラストの制作にAIを使用しています。\n音声：VOICEVOX:青山龍星",
+  "tags": [
+    "2級土木施工管理技士",
+    "施工経験記述",
+    "検討と対応"
+  ],
+  "media": {
+    "cover": {
+      "id": "civil-construction-2/kento-taio-kakiwake/work/candidate-cover",
+      "path": ".tmp/media/civil-construction-2/kento-taio-kakiwake/work/candidate-cover.a8f08a57.png",
+      "sha256": "a8f08a570df01dab13dcbd7f76656e22343cc97942656e97b00c62c3c4f3667c"
+    },
+    "cta": {
+      "id": "civil-construction-2/kento-taio-kakiwake/work/candidate-cta",
+      "path": ".tmp/media/civil-construction-2/kento-taio-kakiwake/work/candidate-cta.58b58776.png",
+      "sha256": "58b58776628dd53b7b3eff849770150008ccfeb9b0e2fb0969cd92e259e6f53e"
+    },
+    "scene-001": {
+      "id": "civil-construction-2/kento-taio-kakiwake/work/candidate-scene-001",
+      "path": ".tmp/media/civil-construction-2/kento-taio-kakiwake/work/candidate-scene-001.a8f08a57.png",
+      "sha256": "a8f08a570df01dab13dcbd7f76656e22343cc97942656e97b00c62c3c4f3667c"
+    },
+    "scene-002": {
+      "id": "civil-construction-2/kento-taio-kakiwake/work/candidate-scene-002",
+      "path": ".tmp/media/civil-construction-2/kento-taio-kakiwake/work/candidate-scene-002.970b6bac.png",
+      "sha256": "970b6baccd64e5e77650efee9db2a52323ef4424ac723aad1799070346846489"
+    },
+    "scene-003": {
+      "id": "civil-construction-2/kento-taio-kakiwake/work/candidate-scene-003",
+      "path": ".tmp/media/civil-construction-2/kento-taio-kakiwake/work/candidate-scene-003.61ac6ea0.png",
+      "sha256": "61ac6ea09f703b834319ae98faf8560d9cfd4c19b844fc472c244acc862a1cf5"
+    },
+    "scene-004": {
+      "id": "civil-construction-2/kento-taio-kakiwake/work/candidate-scene-004",
+      "path": ".tmp/media/civil-construction-2/kento-taio-kakiwake/work/candidate-scene-004.2ee9145d.png",
+      "sha256": "2ee9145d1f539fa28761180fe37585c5f38036786b6431ddbe34ec375e0bb688"
+    },
+    "scene-005": {
+      "id": "civil-construction-2/kento-taio-kakiwake/work/candidate-scene-005",
+      "path": ".tmp/media/civil-construction-2/kento-taio-kakiwake/work/candidate-scene-005.8e352978.png",
+      "sha256": "8e352978df99095debfa82bdd0a7523736d0b9db9d2823ecf7e3b36d2cc36ff5"
+    },
+    "scene-006": {
+      "id": "civil-construction-2/kento-taio-kakiwake/work/candidate-scene-006",
+      "path": ".tmp/media/civil-construction-2/kento-taio-kakiwake/work/candidate-scene-006.a0773770.png",
+      "sha256": "a07737700c0140bb28a8753cd9b37514a8d0fabb1f7d65b0a487913ab917da58"
+    },
+    "scene-007": {
+      "id": "civil-construction-2/kento-taio-kakiwake/work/candidate-scene-007",
+      "path": ".tmp/media/civil-construction-2/kento-taio-kakiwake/work/candidate-scene-007.025f106a.png",
+      "sha256": "025f106a6252cf97a941a188e248377b57a120a25af6e1f61167670b23df0a10"
+    },
+    "scene-008": {
+      "id": "civil-construction-2/kento-taio-kakiwake/work/candidate-scene-008",
+      "path": ".tmp/media/civil-construction-2/kento-taio-kakiwake/work/candidate-scene-008.0ca0289e.png",
+      "sha256": "0ca0289ed3d68997e5acc6eee18af3d690b919163295d5ade549bbad48973f72"
+    },
+    "scene-009": {
+      "id": "civil-construction-2/kento-taio-kakiwake/work/candidate-scene-009",
+      "path": ".tmp/media/civil-construction-2/kento-taio-kakiwake/work/candidate-scene-009.8985f0d8.png",
+      "sha256": "8985f0d873650bf296fc1f29ccf3c00e5f2c2054553fce503d4584155dd4100a"
+    },
+    "scene-010": {
+      "id": "civil-construction-2/kento-taio-kakiwake/work/candidate-scene-010",
+      "path": ".tmp/media/civil-construction-2/kento-taio-kakiwake/work/candidate-scene-010.7246737a.png",
+      "sha256": "7246737a8ff30a3d0684fd9cd06efe1cdc0e565811c21ea6dc750a923f02cbda"
+    },
+    "scene-011": {
+      "id": "civil-construction-2/kento-taio-kakiwake/work/candidate-scene-011",
+      "path": ".tmp/media/civil-construction-2/kento-taio-kakiwake/work/candidate-scene-011.64679a11.png",
+      "sha256": "64679a112790a61829489d9b38b7b2ccc1059087db7e2e4794b8b3fd41c6314c"
+    },
+    "scene-012": {
+      "id": "civil-construction-2/kento-taio-kakiwake/work/candidate-scene-012",
+      "path": ".tmp/media/civil-construction-2/kento-taio-kakiwake/work/candidate-scene-012.66cd1be1.png",
+      "sha256": "66cd1be150c79093ad32e650af9c0323e0d732b4d7c3b66faf60a48da1fa48de"
+    },
+    "scene-013": {
+      "id": "civil-construction-2/kento-taio-kakiwake/work/candidate-scene-013",
+      "path": ".tmp/media/civil-construction-2/kento-taio-kakiwake/work/candidate-scene-013.ff2daf8a.png",
+      "sha256": "ff2daf8ad757796851b6c288c8436a512622f7ae904907c4b5d0bb3ae2178647"
+    },
+    "scene-014": {
+      "id": "civil-construction-2/kento-taio-kakiwake/work/candidate-scene-014",
+      "path": ".tmp/media/civil-construction-2/kento-taio-kakiwake/work/candidate-scene-014.58b58776.png",
+      "sha256": "58b58776628dd53b7b3eff849770150008ccfeb9b0e2fb0969cd92e259e6f53e"
+    },
+    "subtitles": {
+      "id": "civil-construction-2/kento-taio-kakiwake/work/candidate-subtitles",
+      "path": ".tmp/media/civil-construction-2/kento-taio-kakiwake/work/candidate-subtitles.92e0dbf0.ass",
+      "sha256": "92e0dbf0e7ca4fffd549f61ce86c4ae4d640794ee3700272ceef66ef649658a6"
+    },
+    "video": {
+      "id": "civil-construction-2/kento-taio-kakiwake/work/candidate-video",
+      "path": ".tmp/media/civil-construction-2/kento-taio-kakiwake/work/candidate-video.543d3c4f.mp4",
+      "sha256": "543d3c4ffe0932b0dca569cdebcb7286c5b09ca2d5ae64c1858116c4df08f7ed"
+    }
+  },
+  "localFile": ".tmp/media/civil-construction-2/kento-taio-kakiwake/work/candidate-video.543d3c4f.mp4",
+  "sha256": "543d3c4ffe0932b0dca569cdebcb7286c5b09ca2d5ae64c1858116c4df08f7ed",
+  "thumbnailLocalFile": ".tmp/media/civil-construction-2/kento-taio-kakiwake/work/candidate-cover.a8f08a57.png",
+  "thumbnailSha256": "a8f08a570df01dab13dcbd7f76656e22343cc97942656e97b00c62c3c4f3667c",
+  "publishAt": "2026-10-27T20:00:00+09:00"
+}

@@ -48,7 +48,8 @@ export function loadLongformPlan(root, today = todayJst()) {
   const plan = ConfigYoutubeLongformPlan.parse(readDataset(root, 'config.youtube-longform-plan'));
   const registry = loadRegistry(root);
   const works = new Map(registry.works.map((w) => [`${w.exam}/${w.id}`, w]));
-  const publications = registry.publications.filter((p) => p.channel === 'youtube' && p.format === 'longform').map((p) => {
+  // 改訂行（revisionOf）は既存動画の差し替えで、制作計画の在庫には数えない。
+  const publications = registry.publications.filter((p) => p.channel === 'youtube' && p.format === 'longform' && !p.revisionOf).map((p) => {
     const work = works.get(`${p.exam}/${p.work}`);
     const manifest = work?.definition ? readJson(root, `${work.definition}/video-pack.json`) : null;
     return { ...p, title: manifest?.title ?? resolveCopy(root, p.copy)?.title ?? p.work };

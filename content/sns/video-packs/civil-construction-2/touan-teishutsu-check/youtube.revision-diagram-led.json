@@ -1,0 +1,111 @@
+{
+  "schemaVersion": 1,
+  "publicationId": "civil-construction-2/touan-teishutsu-check/youtube.longform.diagram-led",
+  "revisionOf": "civil-construction-2/touan-teishutsu-check/youtube.longform",
+  "account": "youtube:main",
+  "format": "longform",
+  "title": "【2級土木】経験記述の見直し｜条件・処置・結果のつながりを確認する",
+  "description": "書き終えた施工経験記述を、設問への答え・条件と処置のつながり・実際の記録の3つの視点で見直します。数字や結果を足す前に、事実を確かめましょう。\n\n解説・教材制作：架（かける）\n技術士（総合技術監理部門）／元・地方自治体の土木職（発注者）／1級・2級土木施工管理技士 合格者\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 2級土木 施工経験記述 完成答案集（安全・品質・工程）\nhttps://note.com/dobokunote/m/m1881a9578027?utm_source=youtube&utm_medium=video&utm_campaign=touan-teishutsu-check&utm_content=longform\n自分の工事の事実に置き換えて練習するための教材です。\n\n動画内の施工例は、考え方を示す仮の例で、解説者の工事実績ではありません。工事の条件・数字・実施内容は、自分の施工計画や日報などの記録で確認してください。実際の答案は当該設問の指示に沿って記述してください。対象工事・受検資格は受検年度の公式手引で確認してください。\n\nこの動画は、doboku-noteの教材をもとに構成した学習用の解説です。音声・イラストの制作にAIを使用しています。\n音声：VOICEVOX:青山龍星",
+  "tags": [
+    "2級土木施工管理技士",
+    "施工経験記述",
+    "答案の見直し"
+  ],
+  "media": {
+    "cover": {
+      "id": "civil-construction-2/touan-teishutsu-check/work/candidate-cover",
+      "path": ".tmp/media/civil-construction-2/touan-teishutsu-check/work/candidate-cover.c952103a.png",
+      "sha256": "c952103a7c497818086760968dde5877970a5942d13deae4ef91c205ddf4f35b"
+    },
+    "cta": {
+      "id": "civil-construction-2/touan-teishutsu-check/work/candidate-cta",
+      "path": ".tmp/media/civil-construction-2/touan-teishutsu-check/work/candidate-cta.7588d1ab.png",
+      "sha256": "7588d1abd3ba5acbc822e1875dcb6b392c5c4886dcd1c22c5a5cb7c42dd36d8d"
+    },
+    "scene-001": {
+      "id": "civil-construction-2/touan-teishutsu-check/work/candidate-scene-001",
+      "path": ".tmp/media/civil-construction-2/touan-teishutsu-check/work/candidate-scene-001.c952103a.png",
+      "sha256": "c952103a7c497818086760968dde5877970a5942d13deae4ef91c205ddf4f35b"
+    },
+    "scene-002": {
+      "id": "civil-construction-2/touan-teishutsu-check/work/candidate-scene-002",
+      "path": ".tmp/media/civil-construction-2/touan-teishutsu-check/work/candidate-scene-002.cbdfe212.png",
+      "sha256": "cbdfe21253731c0dabe3eecab9698bfc2ca7c23586cc28f57f0bc16cd8f73971"
+    },
+    "scene-003": {
+      "id": "civil-construction-2/touan-teishutsu-check/work/candidate-scene-003",
+      "path": ".tmp/media/civil-construction-2/touan-teishutsu-check/work/candidate-scene-003.61ac6ea0.png",
+      "sha256": "61ac6ea09f703b834319ae98faf8560d9cfd4c19b844fc472c244acc862a1cf5"
+    },
+    "scene-004": {
+      "id": "civil-construction-2/touan-teishutsu-check/work/candidate-scene-004",
+      "path": ".tmp/media/civil-construction-2/touan-teishutsu-check/work/candidate-scene-004.ae4f90b7.png",
+      "sha256": "ae4f90b70cea530bd28458c0a86e7f3b27387cb73649e39f82ea0eac3f1c9c71"
+    },
+    "scene-005": {
+      "id": "civil-construction-2/touan-teishutsu-check/work/candidate-scene-005",
+      "path": ".tmp/media/civil-construction-2/touan-teishutsu-check/work/candidate-scene-005.09987ec7.png",
+      "sha256": "09987ec71f3ba81473290e64a34a5518079dd4f4331bdb6b81967cdbdeb95150"
+    },
+    "scene-006": {
+      "id": "civil-construction-2/touan-teishutsu-check/work/candidate-scene-006",
+      "path": ".tmp/media/civil-construction-2/touan-teishutsu-check/work/candidate-scene-006.59659e22.png",
+      "sha256": "59659e222a150cd7a515138dbd104c00ef6ed13d6af0ce799466b94fba64a13e"
+    },
+    "scene-007": {
+      "id": "civil-construction-2/touan-teishutsu-check/work/candidate-scene-007",
+      "path": ".tmp/media/civil-construction-2/touan-teishutsu-check/work/candidate-scene-007.afa17c4c.png",
+      "sha256": "afa17c4c48a90a9b51b3386974bc4fb81fd1c0c57faa5ed35f935a480dde0601"
+    },
+    "scene-008": {
+      "id": "civil-construction-2/touan-teishutsu-check/work/candidate-scene-008",
+      "path": ".tmp/media/civil-construction-2/touan-teishutsu-check/work/candidate-scene-008.68b1d1a5.png",
+      "sha256": "68b1d1a5f3c9cfb98f2eb70d9fe9ca2726d1eb1e7a45193d4dd085d30cd98e62"
+    },
+    "scene-009": {
+      "id": "civil-construction-2/touan-teishutsu-check/work/candidate-scene-009",
+      "path": ".tmp/media/civil-construction-2/touan-teishutsu-check/work/candidate-scene-009.622a9891.png",
+      "sha256": "622a98911d97c1cdebd06f03d0c597120fde86da9019d3b17a0495aa9eddb876"
+    },
+    "scene-010": {
+      "id": "civil-construction-2/touan-teishutsu-check/work/candidate-scene-010",
+      "path": ".tmp/media/civil-construction-2/touan-teishutsu-check/work/candidate-scene-010.da116fb0.png",
+      "sha256": "da116fb083748be0d814b19e83ea242632d7e20e6114495033110f3b3d216fcf"
+    },
+    "scene-011": {
+      "id": "civil-construction-2/touan-teishutsu-check/work/candidate-scene-011",
+      "path": ".tmp/media/civil-construction-2/touan-teishutsu-check/work/candidate-scene-011.26b933e0.png",
+      "sha256": "26b933e0ac104256a5c40fbd129bd85a6b60981b5498d62d9d74dc02cf80b84b"
+    },
+    "scene-012": {
+      "id": "civil-construction-2/touan-teishutsu-check/work/candidate-scene-012",
+      "path": ".tmp/media/civil-construction-2/touan-teishutsu-check/work/candidate-scene-012.00305d66.png",
+      "sha256": "00305d66e9e1fa13c8b4c5d0c644aab05dbf4b184f445f259cea56b84fe572c5"
+    },
+    "scene-013": {
+      "id": "civil-construction-2/touan-teishutsu-check/work/candidate-scene-013",
+      "path": ".tmp/media/civil-construction-2/touan-teishutsu-check/work/candidate-scene-013.00f8ffa9.png",
+      "sha256": "00f8ffa97d5ced1ae1bcaf085fb3e48d0e15765ae96e4a0ba9ce5fdcb187fca0"
+    },
+    "scene-014": {
+      "id": "civil-construction-2/touan-teishutsu-check/work/candidate-scene-014",
+      "path": ".tmp/media/civil-construction-2/touan-teishutsu-check/work/candidate-scene-014.7588d1ab.png",
+      "sha256": "7588d1abd3ba5acbc822e1875dcb6b392c5c4886dcd1c22c5a5cb7c42dd36d8d"
+    },
+    "subtitles": {
+      "id": "civil-construction-2/touan-teishutsu-check/work/candidate-subtitles",
+      "path": ".tmp/media/civil-construction-2/touan-teishutsu-check/work/candidate-subtitles.4ff4dd32.ass",
+      "sha256": "4ff4dd3232562193ed46c121105901c02490274d6121a02ea6372d1d550fd884"
+    },
+    "video": {
+      "id": "civil-construction-2/touan-teishutsu-check/work/candidate-video",
+      "path": ".tmp/media/civil-construction-2/touan-teishutsu-check/work/candidate-video.345c0d7e.mp4",
+      "sha256": "345c0d7ea2714d75fd19341650215eb2ede11da158e6e145972aa5d4ae10af10"
+    }
+  },
+  "localFile": ".tmp/media/civil-construction-2/touan-teishutsu-check/work/candidate-video.345c0d7e.mp4",
+  "sha256": "345c0d7ea2714d75fd19341650215eb2ede11da158e6e145972aa5d4ae10af10",
+  "thumbnailLocalFile": ".tmp/media/civil-construction-2/touan-teishutsu-check/work/candidate-cover.c952103a.png",
+  "thumbnailSha256": "c952103a7c497818086760968dde5877970a5942d13deae4ef91c205ddf4f35b",
+  "publishAt": "2026-10-29T20:00:00+09:00"
+}

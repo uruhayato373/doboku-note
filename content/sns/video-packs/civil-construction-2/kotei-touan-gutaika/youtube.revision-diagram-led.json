@@ -1,0 +1,111 @@
+{
+  "schemaVersion": 1,
+  "publicationId": "civil-construction-2/kotei-touan-gutaika/youtube.longform.diagram-led",
+  "revisionOf": "civil-construction-2/kotei-touan-gutaika/youtube.longform",
+  "account": "youtube:main",
+  "format": "longform",
+  "title": "【2級土木】工程管理の経験記述｜増員した理由と結果まで整理する",
+  "description": "工程管理が「増員した」だけで終わっていませんか。材料待ちの仮例から、遅延原因・影響する工種・処置の理由・結果の確認を整理します。\n\n解説・教材制作：架（かける）\n技術士（総合技術監理部門）／元・地方自治体の土木職（発注者）／1級・2級土木施工管理技士 合格者\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 2級土木 施工経験記述 完成答案集（安全・品質・工程）\nhttps://note.com/dobokunote/m/m1881a9578027?utm_source=youtube&utm_medium=video&utm_campaign=kotei-touan-gutaika&utm_content=longform\n自分の工事の事実に置き換えて練習するための教材です。\n\n動画内の施工例は、考え方を示す仮の例で、解説者の工事実績ではありません。工事の条件・数字・実施内容は、自分の施工計画や日報などの記録で確認してください。実際の答案は当該設問の指示に沿って記述してください。対象工事・受検資格は受検年度の公式手引で確認してください。\n\nこの動画は、doboku-noteの教材をもとに構成した学習用の解説です。音声・イラストの制作にAIを使用しています。\n音声：VOICEVOX:青山龍星",
+  "tags": [
+    "2級土木施工管理技士",
+    "施工経験記述",
+    "工程管理"
+  ],
+  "media": {
+    "cover": {
+      "id": "civil-construction-2/kotei-touan-gutaika/work/candidate-cover",
+      "path": ".tmp/media/civil-construction-2/kotei-touan-gutaika/work/candidate-cover.fb5677cd.png",
+      "sha256": "fb5677cd6bb901b35e1022666d90de3a85a3face59501f84a477a6931104ff12"
+    },
+    "cta": {
+      "id": "civil-construction-2/kotei-touan-gutaika/work/candidate-cta",
+      "path": ".tmp/media/civil-construction-2/kotei-touan-gutaika/work/candidate-cta.17ce75cd.png",
+      "sha256": "17ce75cd5ddb0ea21f2a35d1c4c1c5e689bef6ef1d7a256af27d5a286fa8ef9a"
+    },
+    "scene-001": {
+      "id": "civil-construction-2/kotei-touan-gutaika/work/candidate-scene-001",
+      "path": ".tmp/media/civil-construction-2/kotei-touan-gutaika/work/candidate-scene-001.fb5677cd.png",
+      "sha256": "fb5677cd6bb901b35e1022666d90de3a85a3face59501f84a477a6931104ff12"
+    },
+    "scene-002": {
+      "id": "civil-construction-2/kotei-touan-gutaika/work/candidate-scene-002",
+      "path": ".tmp/media/civil-construction-2/kotei-touan-gutaika/work/candidate-scene-002.96892056.png",
+      "sha256": "968920568f02ad8e8898e2163ca7b43f1f6898ce73e47c09881755a044265f0d"
+    },
+    "scene-003": {
+      "id": "civil-construction-2/kotei-touan-gutaika/work/candidate-scene-003",
+      "path": ".tmp/media/civil-construction-2/kotei-touan-gutaika/work/candidate-scene-003.61ac6ea0.png",
+      "sha256": "61ac6ea09f703b834319ae98faf8560d9cfd4c19b844fc472c244acc862a1cf5"
+    },
+    "scene-004": {
+      "id": "civil-construction-2/kotei-touan-gutaika/work/candidate-scene-004",
+      "path": ".tmp/media/civil-construction-2/kotei-touan-gutaika/work/candidate-scene-004.2b04deb1.png",
+      "sha256": "2b04deb136156bf0da3b4a99806b17b2733e6ddcda316797ddfe2ae95a7d084d"
+    },
+    "scene-005": {
+      "id": "civil-construction-2/kotei-touan-gutaika/work/candidate-scene-005",
+      "path": ".tmp/media/civil-construction-2/kotei-touan-gutaika/work/candidate-scene-005.122890c9.png",
+      "sha256": "122890c910e1bdba78083cc569771f1acce1761e7131bf89af158ee1bb52ec92"
+    },
+    "scene-006": {
+      "id": "civil-construction-2/kotei-touan-gutaika/work/candidate-scene-006",
+      "path": ".tmp/media/civil-construction-2/kotei-touan-gutaika/work/candidate-scene-006.aab7e70d.png",
+      "sha256": "aab7e70d2deb75fbe84e6e70d505f6a9a9f0686be9e835e5e7f8de606a159ce3"
+    },
+    "scene-007": {
+      "id": "civil-construction-2/kotei-touan-gutaika/work/candidate-scene-007",
+      "path": ".tmp/media/civil-construction-2/kotei-touan-gutaika/work/candidate-scene-007.484c198a.png",
+      "sha256": "484c198ab157ca81ba4bde1fd65daf404a5feb07c054b31fa724280b9758aa8b"
+    },
+    "scene-008": {
+      "id": "civil-construction-2/kotei-touan-gutaika/work/candidate-scene-008",
+      "path": ".tmp/media/civil-construction-2/kotei-touan-gutaika/work/candidate-scene-008.b4106ece.png",
+      "sha256": "b4106ece163695f064db1b8513ff73e9153bd31fc6ed4f0cfcd43ad69ccfec67"
+    },
+    "scene-009": {
+      "id": "civil-construction-2/kotei-touan-gutaika/work/candidate-scene-009",
+      "path": ".tmp/media/civil-construction-2/kotei-touan-gutaika/work/candidate-scene-009.95c22a2c.png",
+      "sha256": "95c22a2ce7279fdee08d63f74abe84aa46d9e5126202ff6937048e91960ede24"
+    },
+    "scene-010": {
+      "id": "civil-construction-2/kotei-touan-gutaika/work/candidate-scene-010",
+      "path": ".tmp/media/civil-construction-2/kotei-touan-gutaika/work/candidate-scene-010.d6f5cbb1.png",
+      "sha256": "d6f5cbb1179b5727b9b0104dad375091d541a4560e96f7a45ccc4e4b493a8c36"
+    },
+    "scene-011": {
+      "id": "civil-construction-2/kotei-touan-gutaika/work/candidate-scene-011",
+      "path": ".tmp/media/civil-construction-2/kotei-touan-gutaika/work/candidate-scene-011.cde68a69.png",
+      "sha256": "cde68a69c37690bfcb31a5ccdc9092ff663d35a07e7e2e30d9a6b60c60636898"
+    },
+    "scene-012": {
+      "id": "civil-construction-2/kotei-touan-gutaika/work/candidate-scene-012",
+      "path": ".tmp/media/civil-construction-2/kotei-touan-gutaika/work/candidate-scene-012.44173f92.png",
+      "sha256": "44173f92100d0ae1bae1620ee5c074a3a799ff424e416fe6d5c3834c65d72e58"
+    },
+    "scene-013": {
+      "id": "civil-construction-2/kotei-touan-gutaika/work/candidate-scene-013",
+      "path": ".tmp/media/civil-construction-2/kotei-touan-gutaika/work/candidate-scene-013.4a00b795.png",
+      "sha256": "4a00b7956fc44abed5a82ac9df59fa99b50f495e35bc6bf8679f23d0c4c3d3f5"
+    },
+    "scene-014": {
+      "id": "civil-construction-2/kotei-touan-gutaika/work/candidate-scene-014",
+      "path": ".tmp/media/civil-construction-2/kotei-touan-gutaika/work/candidate-scene-014.17ce75cd.png",
+      "sha256": "17ce75cd5ddb0ea21f2a35d1c4c1c5e689bef6ef1d7a256af27d5a286fa8ef9a"
+    },
+    "subtitles": {
+      "id": "civil-construction-2/kotei-touan-gutaika/work/candidate-subtitles",
+      "path": ".tmp/media/civil-construction-2/kotei-touan-gutaika/work/candidate-subtitles.08fea354.ass",
+      "sha256": "08fea35448caa80bd3ef10796b6db7f2e8d11e218192193b5740d901b5323088"
+    },
+    "video": {
+      "id": "civil-construction-2/kotei-touan-gutaika/work/candidate-video",
+      "path": ".tmp/media/civil-construction-2/kotei-touan-gutaika/work/candidate-video.d3f4b335.mp4",
+      "sha256": "d3f4b335ff2a869f0dc6740758c79fa4cdf20922d0a6660649fb8b04e98f2b7b"
+    }
+  },
+  "localFile": ".tmp/media/civil-construction-2/kotei-touan-gutaika/work/candidate-video.d3f4b335.mp4",
+  "sha256": "d3f4b335ff2a869f0dc6740758c79fa4cdf20922d0a6660649fb8b04e98f2b7b",
+  "thumbnailLocalFile": ".tmp/media/civil-construction-2/kotei-touan-gutaika/work/candidate-cover.fb5677cd.png",
+  "thumbnailSha256": "fb5677cd6bb901b35e1022666d90de3a85a3face59501f84a477a6931104ff12",
+  "publishAt": "2026-10-21T20:00:00+09:00"
+}

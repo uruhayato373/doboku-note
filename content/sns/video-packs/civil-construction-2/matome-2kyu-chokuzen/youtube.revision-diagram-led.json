@@ -1,0 +1,699 @@
+{
+  "schemaVersion": 1,
+  "publicationId": "civil-construction-2/matome-2kyu-chokuzen/youtube.longform.diagram-led",
+  "revisionOf": "civil-construction-2/matome-2kyu-chokuzen/youtube.longform",
+  "account": "youtube:main",
+  "format": "longform",
+  "title": "【2級土木】直前総まとめ｜一次の頻出点と二次の記述を聞き流しで確認する",
+  "description": "直前期の2級土木（第一次後期・第二次）の受検者で、机に向かう時間が取れない人向けに、「2級土木 直前総まとめ — 一次の頻出点と二次の記述を聞き流しで」を解説します。\n\nこの動画で分かること：第一次の5分野の頻出点と第二次の記述の型を、移動中の聞き流しで一通り確かめられる\n\n▼ 資格別の学習ガイド・教材一覧を見る\nhttps://doboku-note.com/links?utm_source=youtube&utm_medium=video&utm_campaign=matome-2kyu-chokuzen&utm_content=longform\n\n▼ チャプター\n0:00 導入・第1章 土工\n1:28 第2章 コンクリート\n2:54 第3章 基礎工\n4:32 第4章 法規\n5:58 第5章 施工計画\n7:23 第6章 5分野の総ざらい\n11:57 第7章 出題傾向\n13:35 第8章 工事概要の書き方\n15:19 第9章 品質管理の組み立て方\n16:53 第10章 工程管理の組み立て方\n18:29 第11章 安全管理の書き方\n19:55 第12章 安全管理が一般論になる原因\n21:07 第13章 減点される答案の共通点\n22:29 第14章 2級で求められる記述レベル\n24:02 第15章 学科記述の型\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n※制度・日程は変更される場合があります。受検年度の公式情報も確認してください。\n音声：VOICEVOX:青山龍星\n\n#2級土木 #土木施工管理技士 #試験対策",
+  "tags": [
+    "2級土木施工管理技士",
+    "2級土木",
+    "試験対策",
+    "頻出論点",
+    "聞き流し",
+    "総まとめ",
+    "doboku-note"
+  ],
+  "media": {
+    "cover": {
+      "id": "civil-construction-2/matome-2kyu-chokuzen/work/candidate-cover",
+      "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/candidate-cover.0d2376ec.png",
+      "sha256": "0d2376ec64e5aeaa26cc89b07656040339b7e5caf2b8f0b54b8ac34a5f7f3567"
+    },
+    "cta": {
+      "id": "civil-construction-2/matome-2kyu-chokuzen/work/candidate-cta",
+      "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/candidate-cta.6c1a01e8.png",
+      "sha256": "6c1a01e8c78917a1cb380ba9e86563491a5ed29c41031abd79a59d9d8bc07288"
+    },
+    "scene-001": {
+      "id": "civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-001",
+      "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-001.0d2376ec.png",
+      "sha256": "0d2376ec64e5aeaa26cc89b07656040339b7e5caf2b8f0b54b8ac34a5f7f3567"
+    },
+    "scene-002": {
+      "id": "civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-002",
+      "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-002.e86ffde6.png",
+      "sha256": "e86ffde66d875dbfa0813b04578b23b53ce8f005316f5084a39707b63fa0bd94"
+    },
+    "scene-003": {
+      "id": "civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-003",
+      "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-003.429cda69.png",
+      "sha256": "429cda69a34a0153017014e2c6a30d22dd4df7377d357a455bdb6d9ae978d4eb"
+    },
+    "scene-004": {
+      "id": "civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-004",
+      "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-004.03c509a8.png",
+      "sha256": "03c509a8768f97b90611d2166d7f2d871498a6708c3746a83d3aa8dd67f5a0f5"
+    },
+    "scene-005": {
+      "id": "civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-005",
+      "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-005.8dfdb087.png",
+      "sha256": "8dfdb08795d17496ef51c1591fe81d16a7d7f57059c73fb26ac0b6776ea4ee06"
+    },
+    "scene-006": {
+      "id": "civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-006",
+      "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-006.10989f55.png",
+      "sha256": "10989f556467c25a7d11e700e17977b84823025fda859e7e741fc4ee49b93299"
+    },
+    "scene-007": {
+      "id": "civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-007",
+      "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-007.e93bd903.png",
+      "sha256": "e93bd903ef7e7e76fafe38015b66d07e12439917c0a4971bd8eaf10065c65f86"
+    },
+    "scene-008": {
+      "id": "civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-008",
+      "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-008.db6f966a.png",
+      "sha256": "db6f966a1d2c3e175edb6bc5cdaa54d71785c39587c7733ed0094e57195667f0"
+    },
+    "scene-009": {
+      "id": "civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-009",
+      "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-009.8b080033.png",
+      "sha256": "8b080033866f4d88828ed8d02248c120e6a073adb772796852464649a4be8b65"
+    },
+    "scene-010": {
+      "id": "civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-010",
+      "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-010.7ec11744.png",
+      "sha256": "7ec117448181b46806631a2c97a0d73c0c40aa54e1b841f6eda12f459a8da6d3"
+    },
+    "scene-011": {
+      "id": "civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-011",
+      "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-011.7ecccf65.png",
+      "sha256": "7ecccf65f1de6ddb8d8e01b4f3d9c122747d28604fe9ea625366540d8a503600"
+    },
+    "scene-012": {
+      "id": "civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-012",
+      "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-012.fc63aa7a.png",
+      "sha256": "fc63aa7a736c9728444805ae08961ee3652c3c999769e4658b8017743e1e0a6c"
+    },
+    "scene-013": {
+      "id": "civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-013",
+      "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-013.a421cb50.png",
+      "sha256": "a421cb501422d03a9011142913add705f64804f7ecb29d3c6b28fd4ae9f9f369"
+    },
+    "scene-014": {
+      "id": "civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-014",
+      "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-014.ddc1c3f9.png",
+      "sha256": "ddc1c3f90dd284976f65639dda5b8f78f84a9c3ff831c4f07bd8b3c0e22d48e2"
+    },
+    "scene-015": {
+      "id": "civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-015",
+      "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-015.88118a6b.png",
+      "sha256": "88118a6b05989108c8a16a346bbc0dcb5cc5fb7809b104c9873e931e854e1192"
+    },
+    "scene-016": {
+      "id": "civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-016",
+      "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-016.2baab827.png",
+      "sha256": "2baab8271e91ed098d90386e06ffbb8c3047cb4aa7edbd5d907d3ca141906578"
+    },
+    "scene-017": {
+      "id": "civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-017",
+      "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-017.1e55d215.png",
+      "sha256": "1e55d215f7f5d00211f1351a2c000157102ae3263c5ed87bb7ee7b4f0a7ac32b"
+    },
+    "scene-018": {
+      "id": "civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-018",
+      "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-018.02cbb5d9.png",
+      "sha256": "02cbb5d982deed2fe0f66acbf70db323a5a30075f197a70d1c80d2782dcfc37c"
+    },
+    "scene-019": {
+      "id": "civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-019",
+      "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-019.43fbb07a.png",
+      "sha256": "43fbb07a7df609e7fffb196a25f1bcd7e91dfb6b2515ad97df128da68ed70b6f"
+    },
+    "scene-020": {
+      "id": "civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-020",
+      "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-020.6a7055c4.png",
+      "sha256": "6a7055c4fc6b4352342a3b2cb6906c679bf270c07a29d924b17e429a8fc7271b"
+    },
+    "scene-021": {
+      "id": "civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-021",
+      "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-021.c7d9fbc9.png",
+      "sha256": "c7d9fbc94410b2e8dadf4f5fdd89a5662697edf9c58a197151c4dcbc2f990534"
+    },
+    "scene-022": {
+      "id": "civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-022",
+      "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-022.325539f1.png",
+      "sha256": "325539f19f5c75f2bf650bb7315f81841824c071dbd1d02ebd9d5fcc36f1c9a3"
+    },
+    "scene-023": {
+      "id": "civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-023",
+      "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-023.f655461e.png",
+      "sha256": "f655461ef5d232a71e0d98c49d4c22bd0cf9c04d9725d0517c5f5b5de7adcdd5"
+    },
+    "scene-024": {
+      "id": "civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-024",
+      "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-024.2ed65073.png",
+      "sha256": "2ed65073a985c249156f1808b66dbda65017e3fe28f3be593f8b2c406b5c12f1"
+    },
+    "scene-025": {
+      "id": "civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-025",
+      "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-025.f752f323.png",
+      "sha256": "f752f3232b4fc69d0c9b2d224d9aaaf21a1489b13a24daacb78b93802c9a08fb"
+    },
+    "scene-026": {
+      "id": "civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-026",
+      "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-026.9f711421.png",
+      "sha256": "9f7114213c6f9c95e1493046ee45ef5a0d068e6eaca1437ec5b7e52924c7c3d8"
+    },
+    "scene-027": {
+      "id": "civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-027",
+      "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-027.84201ba0.png",
+      "sha256": "84201ba0984ed305abeab7c593cf7b5fb8ac2e761918fc714fc6d67903eaadb3"
+    },
+    "scene-028": {
+      "id": "civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-028",
+      "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-028.84ec143d.png",
+      "sha256": "84ec143d4ed4e710843901566b5120cb50e6a1aa780b8567338b945f804e2d39"
+    },
+    "scene-029": {
+      "id": "civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-029",
+      "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-029.06493a45.png",
+      "sha256": "06493a45ab10d9a2d257220f5915ce4d1103d7070d501592621966267d513a28"
+    },
+    "scene-030": {
+      "id": "civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-030",
+      "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-030.33681c88.png",
+      "sha256": "33681c88d2bb40bab4fdbec1c88463190bc4fdcefa88cbb19c734068de18bd28"
+    },
+    "scene-031": {
+      "id": "civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-031",
+      "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-031.50dfec56.png",
+      "sha256": "50dfec56ba032ac36620b21483c118005a2a51d30e00151ac31f5c72ca45f8e3"
+    },
+    "scene-032": {
+      "id": "civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-032",
+      "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-032.b55565f0.png",
+      "sha256": "b55565f0ef90b329b2a4441cdd3dd56652fbdeaaee46e4a5832c88b46b181a09"
+    },
+    "scene-033": {
+      "id": "civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-033",
+      "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-033.e54f637e.png",
+      "sha256": "e54f637e36e3b3aed3549269bec37f6706c0de50a533ca68bdaaaea7df5fc2bd"
+    },
+    "scene-034": {
+      "id": "civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-034",
+      "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-034.d566c82d.png",
+      "sha256": "d566c82d116ac330e625f08394287b5bf26a16383ad600f9d5279fbd2e2a689d"
+    },
+    "scene-035": {
+      "id": "civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-035",
+      "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-035.e68eaa67.png",
+      "sha256": "e68eaa67d6d10d6d8cd5c44458b2ce06d6e123915b40f87ad46b7745b645bb76"
+    },
+    "scene-036": {
+      "id": "civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-036",
+      "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-036.feb5d753.png",
+      "sha256": "feb5d753583aec13db808ee278f5ab21faf81f5338d442b8bf1a0a471b644723"
+    },
+    "scene-037": {
+      "id": "civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-037",
+      "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-037.5a45de3c.png",
+      "sha256": "5a45de3c1660d400aace535e6109f27384845d1decd7b4c461d48ab7e69a2ddb"
+    },
+    "scene-038": {
+      "id": "civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-038",
+      "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-038.5b05e930.png",
+      "sha256": "5b05e930322a027a2605948d429d0f37c94ecbc836df9539ecd0f065343d6223"
+    },
+    "scene-039": {
+      "id": "civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-039",
+      "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-039.e8554c35.png",
+      "sha256": "e8554c35c6852af9cbf37d97d0f4c5cc6ab10baf179038ac39597fac9d570893"
+    },
+    "scene-040": {
+      "id": "civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-040",
+      "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-040.3deaa75e.png",
+      "sha256": "3deaa75e1db7a537e75e8560f544f9be7330a1df80649271bc46f215be059207"
+    },
+    "scene-041": {
+      "id": "civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-041",
+      "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-041.32740a39.png",
+      "sha256": "32740a39b21637d5cbfa847aa79e2f4e230e9a8d63d9375ef25ff5a7464a38ad"
+    },
+    "scene-042": {
+      "id": "civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-042",
+      "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-042.5d65b026.png",
+      "sha256": "5d65b026a8a44ce8931891dae8d543d452fdbcdc9799b9738f3a462efb3f2283"
+    },
+    "scene-043": {
+      "id": "civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-043",
+      "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-043.96aeff6d.png",
+      "sha256": "96aeff6d16f7fe7415030ecc02b1f508efbe1c948af21a51e22b4f35974cd95d"
+    },
+    "scene-044": {
+      "id": "civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-044",
+      "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-044.7abf4c9b.png",
+      "sha256": "7abf4c9b273739004421596af12de0532e3c446db75a936ac4637a48d091a232"
+    },
+    "scene-045": {
+      "id": "civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-045",
+      "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-045.a46baab0.png",
+      "sha256": "a46baab0ce9d8eb7f065ce7a5052064e32a5638ec1199e60f4020bd84280a215"
+    },
+    "scene-046": {
+      "id": "civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-046",
+      "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-046.9b8b325d.png",
+      "sha256": "9b8b325d6c0217dcdc4d67bc8c3d534cf5a4069591c95172392c16dc6248413c"
+    },
+    "scene-047": {
+      "id": "civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-047",
+      "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-047.5fe7badc.png",
+      "sha256": "5fe7badc9f1f03f1a64fd35fa46a5e101049f8867e2f1b3047bbf940a250f455"
+    },
+    "scene-048": {
+      "id": "civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-048",
+      "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-048.a3b07f0d.png",
+      "sha256": "a3b07f0d53c2df535afac93f4c7f7fbbf4a55fcf35cdcf1b909705afe38a3411"
+    },
+    "scene-049": {
+      "id": "civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-049",
+      "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-049.bfeaabe8.png",
+      "sha256": "bfeaabe87137c8785677df26ccc16524398011ff24e93f5bbfbc317553965626"
+    },
+    "scene-050": {
+      "id": "civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-050",
+      "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-050.2c799205.png",
+      "sha256": "2c7992050961fcb5f59513c835bfd5aa6af373e92730b1362869bc25d9195678"
+    },
+    "scene-051": {
+      "id": "civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-051",
+      "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-051.f270ac4c.png",
+      "sha256": "f270ac4c311a704e89c7ac98776b82190ce4ed96d8f50d12b1656c363df5db28"
+    },
+    "scene-052": {
+      "id": "civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-052",
+      "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-052.d65191f4.png",
+      "sha256": "d65191f40aa49ba11625871e4be6ab50fe38a0b39512c256e2bb653339255908"
+    },
+    "scene-053": {
+      "id": "civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-053",
+      "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-053.4a5aeb75.png",
+      "sha256": "4a5aeb7552236d7fabaef3e602d7011dc3560f320de5e12b4d888a10b2ee51e7"
+    },
+    "scene-054": {
+      "id": "civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-054",
+      "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-054.11f871b5.png",
+      "sha256": "11f871b55253aa14f18594a8c1ff7c208aece405cd2b7d9eac32848b9b001fde"
+    },
+    "scene-055": {
+      "id": "civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-055",
+      "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-055.8d23f59d.png",
+      "sha256": "8d23f59dce3a4f2078e9ac869413834ef5fcabc254ac3b450bdb6bd9447b7461"
+    },
+    "scene-056": {
+      "id": "civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-056",
+      "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-056.8d6e43b9.png",
+      "sha256": "8d6e43b9f24290416bc9d136d88e9e8689e5e034dc9e336fa9307b10c57f25f9"
+    },
+    "scene-057": {
+      "id": "civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-057",
+      "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-057.b1f2adaf.png",
+      "sha256": "b1f2adafec5d88cba222b554c62fd1d46ee639822770ab744ed35627bc04d42b"
+    },
+    "scene-058": {
+      "id": "civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-058",
+      "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-058.4a21576d.png",
+      "sha256": "4a21576d77d51096438f5474ac2ba9d8662c4592e85e4cb2a00eebc9135a837a"
+    },
+    "scene-059": {
+      "id": "civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-059",
+      "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-059.7a8e4554.png",
+      "sha256": "7a8e4554fd2d614a5722477f751cfbc18fc3cf50161d531eb271e330b07da6d6"
+    },
+    "scene-060": {
+      "id": "civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-060",
+      "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-060.1a09b9ce.png",
+      "sha256": "1a09b9cef65e62b55ed5ed21d644a61fcab7925cf62aa59eb361a04eb708a6e5"
+    },
+    "scene-061": {
+      "id": "civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-061",
+      "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-061.92962f5c.png",
+      "sha256": "92962f5c5de34b4dd77eec82fb2aada5618ee5b527a84fada0318a52aa03d475"
+    },
+    "scene-062": {
+      "id": "civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-062",
+      "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-062.4c228b56.png",
+      "sha256": "4c228b560eb1f9f1622bcb042066286928ce8cbe22f93509c5c1c7cad08365bc"
+    },
+    "scene-063": {
+      "id": "civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-063",
+      "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-063.57a8aef7.png",
+      "sha256": "57a8aef7b2ceac160c08c2283281d003041fa33aece40ab37ca0179139c58c52"
+    },
+    "scene-064": {
+      "id": "civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-064",
+      "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-064.a01a0f34.png",
+      "sha256": "a01a0f34a8889cd69eb8fca0cc0291c22227ebe910b75b52ef2a63720ae9984f"
+    },
+    "scene-065": {
+      "id": "civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-065",
+      "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-065.1e4348b7.png",
+      "sha256": "1e4348b7847070c1e0539960b493dc837e414dd8f316622409ef09e8c1517fb8"
+    },
+    "scene-066": {
+      "id": "civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-066",
+      "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-066.47ab4b3b.png",
+      "sha256": "47ab4b3b3fee4951375950da4e2fefcfbb92561f99577bd2a2ebbbbc7ddaef11"
+    },
+    "scene-067": {
+      "id": "civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-067",
+      "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-067.a461a68b.png",
+      "sha256": "a461a68bcb97c1e16077d19812c6be5c111e509559ab71aef2abbe1ac6940941"
+    },
+    "scene-068": {
+      "id": "civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-068",
+      "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-068.ef8b4a64.png",
+      "sha256": "ef8b4a6444a2c3fea009d8f47489d7a78227fe2bf0a703dd8d741cdde5879f2a"
+    },
+    "scene-069": {
+      "id": "civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-069",
+      "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-069.9d01a6bb.png",
+      "sha256": "9d01a6bb10bd35b46b396f1862a88f88c410de81d40ccfaa064aa196f854fb94"
+    },
+    "scene-070": {
+      "id": "civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-070",
+      "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-070.e785fd20.png",
+      "sha256": "e785fd2063175ec4e7d07b2a3c40ee97e2f327091e8834013c2747bd0c7cb8e2"
+    },
+    "scene-071": {
+      "id": "civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-071",
+      "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-071.3a7e0f64.png",
+      "sha256": "3a7e0f643ee7b5e913ba519079ad6a936f27ddaedaa658c2b17fc7c5d912ae18"
+    },
+    "scene-072": {
+      "id": "civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-072",
+      "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-072.b45d5418.png",
+      "sha256": "b45d5418371a188cd8209696a040ea009eeecfee406f564fca91c9b7a8795799"
+    },
+    "scene-073": {
+      "id": "civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-073",
+      "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-073.9abf8783.png",
+      "sha256": "9abf8783d8cc010ec5e6437bf81c1faa0e1ec3899aa07903b1b8ad921e8a8249"
+    },
+    "scene-074": {
+      "id": "civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-074",
+      "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-074.4726b433.png",
+      "sha256": "4726b433c5285a69a64e41f38de1b042db6c8e008a81bdb88640af2095060ba1"
+    },
+    "scene-075": {
+      "id": "civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-075",
+      "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-075.6a30607f.png",
+      "sha256": "6a30607fbfab910f3ed2a66c2c733cb9a9e913ccaf6fb9d8387f804719d8e270"
+    },
+    "scene-076": {
+      "id": "civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-076",
+      "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-076.d351eb75.png",
+      "sha256": "d351eb753b58f943ac62cdefd8b10d19ddfa92aef97f86a97575a6f2c590564d"
+    },
+    "scene-077": {
+      "id": "civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-077",
+      "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-077.1598a8a1.png",
+      "sha256": "1598a8a1eb54b912c38b426bdbce1a45b742abed2818df8ffdc86db9591f16cc"
+    },
+    "scene-078": {
+      "id": "civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-078",
+      "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-078.7ba164eb.png",
+      "sha256": "7ba164eb2f1583460d79244fd06b63acdd6234ec66fa2d51bf821cee54deef97"
+    },
+    "scene-079": {
+      "id": "civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-079",
+      "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-079.47c6b606.png",
+      "sha256": "47c6b606ecd17f917f3467f962ae8401c268fa87616f69508a277d30c4c5b78b"
+    },
+    "scene-080": {
+      "id": "civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-080",
+      "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-080.4f482737.png",
+      "sha256": "4f4827370fcd6108eb2f2995ffe1479edb247f01f85ea2f68b16b24a2d89b541"
+    },
+    "scene-081": {
+      "id": "civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-081",
+      "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-081.c58dde8e.png",
+      "sha256": "c58dde8e53a5f22f7983c50f2a9ac71ef231e7d1f432f303eea1e058e655ee32"
+    },
+    "scene-082": {
+      "id": "civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-082",
+      "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-082.3c9c9c97.png",
+      "sha256": "3c9c9c97521b46201ff301a625299415a535daa8c9e06430cc528975097f260a"
+    },
+    "scene-083": {
+      "id": "civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-083",
+      "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-083.31827bec.png",
+      "sha256": "31827bec86a664de12e4d2c81390482163a18f046c2149f0a20cfc02497143ed"
+    },
+    "scene-084": {
+      "id": "civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-084",
+      "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-084.d4d5561c.png",
+      "sha256": "d4d5561cca5ff8f13ace46fd773897d86d7e79e9802945c6f2b3c5249091320e"
+    },
+    "scene-085": {
+      "id": "civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-085",
+      "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-085.d7f5bbad.png",
+      "sha256": "d7f5bbad554617dcc37f5ff6ce540857457ddf3928e00a48712175366b1fe8b3"
+    },
+    "scene-086": {
+      "id": "civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-086",
+      "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-086.35b1c6f2.png",
+      "sha256": "35b1c6f2eb55f0f1a17deeedf89edb9c007d948cec3b9e45388ad73148254934"
+    },
+    "scene-087": {
+      "id": "civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-087",
+      "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-087.39ab43c1.png",
+      "sha256": "39ab43c1c6843580d6de52e77af9fd46ee403f4fe823eb4aee7487a8f361a7fa"
+    },
+    "scene-088": {
+      "id": "civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-088",
+      "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-088.5e5a9a4e.png",
+      "sha256": "5e5a9a4ea6dccd16dee51aa0f879e9b10b863fe34b16763ad6584b8683ad43bf"
+    },
+    "scene-089": {
+      "id": "civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-089",
+      "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-089.281a46ec.png",
+      "sha256": "281a46ecdd6f1cfd9705c4470d475004c88a85a8dd308e0cc7033dad47afd86d"
+    },
+    "scene-090": {
+      "id": "civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-090",
+      "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-090.97bfdb1c.png",
+      "sha256": "97bfdb1c4a6f00575f0ca9236bd54873fcac9d92329bcbe58ee0fdcb030275a3"
+    },
+    "scene-091": {
+      "id": "civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-091",
+      "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-091.aa2bea3a.png",
+      "sha256": "aa2bea3a25198b147ac3c595c52d355b1e321eb160132838e0ea6b4b39acd284"
+    },
+    "scene-092": {
+      "id": "civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-092",
+      "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-092.ee275a28.png",
+      "sha256": "ee275a287c2db4e7a8e906e467d74f4aeeee50fe67e184c1b74793285ae97cb7"
+    },
+    "scene-093": {
+      "id": "civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-093",
+      "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-093.bfd70d11.png",
+      "sha256": "bfd70d11e1bae2e9c9cf7819f8c7688af95321d8936afdc318abbf90cf55b1df"
+    },
+    "scene-094": {
+      "id": "civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-094",
+      "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-094.c63d45f5.png",
+      "sha256": "c63d45f509e305e3055fee64d3e1d1cc35fd32e77b5f1dcc22903b7acc9a4d68"
+    },
+    "scene-095": {
+      "id": "civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-095",
+      "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-095.4210eae5.png",
+      "sha256": "4210eae5a3d8bb631701c06a0d11d2e7f57a5852c451fb60dd78baeffefd6a43"
+    },
+    "scene-096": {
+      "id": "civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-096",
+      "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-096.e57c93e1.png",
+      "sha256": "e57c93e1b71b6ae0a2bb69ce2b4b8d78a32b764fff1bae4d39c6cf152486e6b4"
+    },
+    "scene-097": {
+      "id": "civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-097",
+      "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-097.fa36c0de.png",
+      "sha256": "fa36c0de9117edbe3a8278d66c570555981863802263183cbbe8b27a32cc3fe1"
+    },
+    "scene-098": {
+      "id": "civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-098",
+      "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-098.02d6b6de.png",
+      "sha256": "02d6b6de2173a345bb9a745c0c90c8dc4787a4bd0dcf831c0b485b4412f84c6a"
+    },
+    "scene-099": {
+      "id": "civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-099",
+      "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-099.8d3ef7b1.png",
+      "sha256": "8d3ef7b10540222a73d7a9ab9e8bf8d52896844b5d0bf1a2dbe73c15abe8f838"
+    },
+    "scene-100": {
+      "id": "civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-100",
+      "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-100.7de22306.png",
+      "sha256": "7de22306e1a78cad40dc8ab73875356123a3a9ff115c2946c6968fe71f5346c5"
+    },
+    "scene-101": {
+      "id": "civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-101",
+      "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-101.5b78fe2e.png",
+      "sha256": "5b78fe2e2d5c2527355df6aa60f8f1815c57bd9b324817cbeaa5a1d0e682df42"
+    },
+    "scene-102": {
+      "id": "civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-102",
+      "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-102.d33cd340.png",
+      "sha256": "d33cd340bb84b5b29a9f146d8c556678f841e561d9501088e62ea546d5175020"
+    },
+    "scene-103": {
+      "id": "civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-103",
+      "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-103.812080ed.png",
+      "sha256": "812080ed112cff39693b0a3770763b189d936126aa0069faea083f74811bf438"
+    },
+    "scene-104": {
+      "id": "civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-104",
+      "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-104.9b542c6e.png",
+      "sha256": "9b542c6e9a4ec5078aeed2c1a03fe3f2333278cc705f590a2a55b0aee4aaf59d"
+    },
+    "scene-105": {
+      "id": "civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-105",
+      "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-105.779d7909.png",
+      "sha256": "779d79096709d5b237f5cbb21fa1808c4186593e4a2181c4a95ae0d1fa408eb2"
+    },
+    "scene-106": {
+      "id": "civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-106",
+      "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-106.ed46e54b.png",
+      "sha256": "ed46e54b3ec457ef2fea9512f32a7fc35e4647646e0edb671da8a9c3212a04e2"
+    },
+    "scene-107": {
+      "id": "civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-107",
+      "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-107.4b6df909.png",
+      "sha256": "4b6df909e82c22544b4bc7b0f45d2aacddca544c190c7398395a7480bfb85530"
+    },
+    "scene-108": {
+      "id": "civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-108",
+      "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-108.49062582.png",
+      "sha256": "49062582b094fefbec91cf6cc6478179d75c98a984fe5242053325824f7ee437"
+    },
+    "scene-109": {
+      "id": "civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-109",
+      "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-109.4c421b98.png",
+      "sha256": "4c421b98333376510e9ed917e0b113d17c875288aa9a0a7192ddc5187d6d66e6"
+    },
+    "scene-110": {
+      "id": "civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-110",
+      "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-110.74b04f42.png",
+      "sha256": "74b04f42247d0d5ddcca032f2cc0f247a8691765df413bd8c867480e1fdee3c4"
+    },
+    "scene-111": {
+      "id": "civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-111",
+      "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-111.c217367c.png",
+      "sha256": "c217367cb467dc6547c72f9069a2d6400b021d8594c13d10419574e4d51bec5c"
+    },
+    "scene-112": {
+      "id": "civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-112",
+      "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-112.51f3830b.png",
+      "sha256": "51f3830b0021e9f20133187ab437cce382153f17a86edb919e6ddb7e6f3f02c8"
+    },
+    "scene-113": {
+      "id": "civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-113",
+      "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-113.0a5a8593.png",
+      "sha256": "0a5a8593f4901d78b4f48a1e53490bb661307b72ba7fd1cce16d5b9c436234c2"
+    },
+    "scene-114": {
+      "id": "civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-114",
+      "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-114.525e480d.png",
+      "sha256": "525e480dc1c53e9c60e5bac6a41b427009ea586f169d3d34fa95fd0bff8affb5"
+    },
+    "scene-115": {
+      "id": "civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-115",
+      "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-115.6c044fcc.png",
+      "sha256": "6c044fcc46478d3fee812b441afcb7c657e4b47aa97f647f6f8f0c288c07fde1"
+    },
+    "scene-116": {
+      "id": "civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-116",
+      "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-116.8ed946a3.png",
+      "sha256": "8ed946a3d1758d2b66e3fde90a5ad40bff01982fa88039c5d237477233f2fc5d"
+    },
+    "scene-117": {
+      "id": "civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-117",
+      "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-117.1e4626a4.png",
+      "sha256": "1e4626a4cbe2b309999e365dd543f66ca0bd59198d7a79196b73c97f92b516eb"
+    },
+    "scene-118": {
+      "id": "civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-118",
+      "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-118.e5b9698a.png",
+      "sha256": "e5b9698a08d55360e8ef1a0593b7eab9a845e1da3e85f10a5bfbae8a70f5202f"
+    },
+    "scene-119": {
+      "id": "civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-119",
+      "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-119.7a131cde.png",
+      "sha256": "7a131cdefe2b10ab1ed694f0bd85216dea5ec2d37f95c43e6ef3ba397ba8ba44"
+    },
+    "scene-120": {
+      "id": "civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-120",
+      "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-120.0dce13f6.png",
+      "sha256": "0dce13f66534f80184322a88cb652224a2d1bdd320273e4cbe57fe5ab2288839"
+    },
+    "scene-121": {
+      "id": "civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-121",
+      "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-121.ece6f41e.png",
+      "sha256": "ece6f41eed9a75d9cdddd59a46bd33ea281b65d88fc757c7208a992a8c91a645"
+    },
+    "scene-122": {
+      "id": "civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-122",
+      "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-122.414c583e.png",
+      "sha256": "414c583ee80cc956cf0373303ac0b8910c91585f0a8da308ea41d0c3949b6947"
+    },
+    "scene-123": {
+      "id": "civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-123",
+      "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-123.29f1fba7.png",
+      "sha256": "29f1fba762140e9ed1a00b611d59e13e899b5ea63db59814721d2ea29cbcc0e3"
+    },
+    "scene-124": {
+      "id": "civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-124",
+      "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-124.f25a889e.png",
+      "sha256": "f25a889e517badafc7f09d99d6cab92eecbeadcb53b7f988f1b0b9041ba79e0c"
+    },
+    "scene-125": {
+      "id": "civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-125",
+      "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-125.c46dabf3.png",
+      "sha256": "c46dabf390d187f0ce3b742e18d7e28e2a3089d191d3e85918c2c4ec45016cfc"
+    },
+    "scene-126": {
+      "id": "civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-126",
+      "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-126.3661054d.png",
+      "sha256": "3661054dc4e7ae388aa5024303adc4140fd966b5bb385c9e3f5966614ba6b1af"
+    },
+    "scene-127": {
+      "id": "civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-127",
+      "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-127.2f45573b.png",
+      "sha256": "2f45573bfd2925f712d988b40b3b5fc2b643b8e7f624f6a09c50742ca3234189"
+    },
+    "scene-128": {
+      "id": "civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-128",
+      "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-128.48475ecf.png",
+      "sha256": "48475ecf164683c2bfc0f439c48972c0804a145646d4b1d6d768ee36df3c1b8c"
+    },
+    "scene-129": {
+      "id": "civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-129",
+      "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-129.c8344fff.png",
+      "sha256": "c8344fff94055f1bcdcae90af07d672a4e2c0d92a094114978dfa025bfad0796"
+    },
+    "scene-130": {
+      "id": "civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-130",
+      "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-130.f7e4da88.png",
+      "sha256": "f7e4da8841ee8996683ab4393baa60785a626bcdf419eb35c6dd25a391ad38c5"
+    },
+    "scene-131": {
+      "id": "civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-131",
+      "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-131.fe3f5ad6.png",
+      "sha256": "fe3f5ad6541f3de5d8f2b49511cc6fa0ba809e7606cfb49157949c3c662a0940"
+    },
+    "subtitles": {
+      "id": "civil-construction-2/matome-2kyu-chokuzen/work/candidate-subtitles",
+      "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/candidate-subtitles.b44ed787.ass",
+      "sha256": "b44ed787a80122a911e8cd7ffa6a9b7a38f098da635b4ee843b96a4c2b7aa3ee"
+    },
+    "video": {
+      "id": "civil-construction-2/matome-2kyu-chokuzen/work/candidate-video",
+      "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/candidate-video.ef1f7d1e.mp4",
+      "sha256": "ef1f7d1e179b0b0370fe0d47be1fa1b693e3b7365423ea4be4f43508e44f6f77"
+    }
+  },
+  "localFile": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/candidate-video.ef1f7d1e.mp4",
+  "sha256": "ef1f7d1e179b0b0370fe0d47be1fa1b693e3b7365423ea4be4f43508e44f6f77",
+  "thumbnailLocalFile": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/candidate-cover.0d2376ec.png",
+  "thumbnailSha256": "0d2376ec64e5aeaa26cc89b07656040339b7e5caf2b8f0b54b8ac34a5f7f3567"
+}
