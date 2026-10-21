@@ -174,7 +174,7 @@ content/sns/x/
 - 投稿内 URL は 1 本まで（23 weighted）。
 - UTM 統一フォーマットは `docs/marketing/02_チャネル動線設計.md` §4 準拠（`utm_source=x` / `utm_medium=social`）。送客リンクへの付与は `node .claude/scripts/lib/utm-builder.mjs --url <URL> --channel x --format post --campaign <name>`（`utm-templates.json` 由来・冪等・既存 UTM は上書きしない）。
 - リンクは短縮 URL を使い、weighted 23 固定の利点を活かす。
-- **サイトへのリンクは新 URL（`/exam/{資格}/{種別}/{slug}` `/practice/{slug}` `/standards/...` `/topics/...`）で書く**（最重要・404 防止）。旧 `/docs/{slug}` は 2026-08-22 の URL 移行で 301 になった。届きはするが、読者は毎回 301 を挟み、Google は被リンク先の旧 URL を正規に選び続ける（DN-0288）。
+- **サイトへのリンクは新 URL（`/exam/{資格}/{種別}/{slug}` `/practice/{slug}` `/standards/...` `/topics/...` `/laws/{参考文献の id}`）で書く**（最重要・404 防止）。旧 `/docs/{slug}` は 2026-08-22 の URL 移行で 301 になった。届きはするが、読者は毎回 301 を挟み、Google は被リンク先の旧 URL を正規に選び続ける（DN-0288）。
   - 例: `https://doboku-note.com/exam/civil-construction-2/primary/r03-kouki`（旧 `/docs/civil-construction-2-primary-r03-kouki`）
   - 例: `https://doboku-note.com/exam/pe-comprehensive-management/guide/keyword-2026`（総監と土木で分岐する共通名は資格を確定する）
   - 新旧の対応の真実源は `public/_redirects`。資格以降をハイフンでつなぐ（`/exam/<資格>/primary-r03-kouki`）と 404 になる。

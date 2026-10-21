@@ -121,6 +121,10 @@ export type DocMeta = {
   tags?: string[]; // 正規表記（build-doc-meta-index が tags.json の canonical へ正規化。content-taxonomy.md §5）
   tagsRaw?: string[]; // 記事に書かれた綴り（正規化で変わったときだけ入る）
   topics?: string[]; // 横断テーマ（src/config/topics.json の slug）への明示所属
+  lawIds?: string[]; // 本文が引く法令（e-Gov の法令 ID・本文に初めて出た順）。build-doc-meta-index が本文のリンクから入れる
+  lawArticles?: Record<string, string[]>; // 法令 ID → 本文が引く条の番号（32・28_2 など）
+  lawId?: string; // 法令ページ（category: laws）が解説する法令の e-Gov 法令 ID
+  lawFamily?: string[]; // 法令ページが同じページで扱う政令・省令の e-Gov 法令 ID
   section?: string;
   guide_order?: number;
   textbook_order?: number;

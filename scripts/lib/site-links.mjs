@@ -18,7 +18,7 @@ export { SITE_ORIGIN };
 // パスの文字は ASCII に限る（日本語の句読点や閉じ括弧をパスに巻き込まない）。`{slug}` のような
 // テンプレートはパスがそこで切れ、旧 URL の表に無いので「張り替え不能」として残る。
 const SITE_LINK_SOURCE =
-  String.raw`https?:\/\/(?:www\.)?doboku-note\.com(\/(?:docs|exam|practice|standards|topics)\/[A-Za-z0-9_\-\/%]*)([?#][^\s)>\]"'<\x60]*)?`;
+  String.raw`https?:\/\/(?:www\.)?doboku-note\.com(\/(?:docs|exam|practice|standards|topics|laws)\/[A-Za-z0-9_\-\/%]*)([?#][^\s)>\]"'<\x60]*)?`;
 
 /** サイトの記事系 URL にマッチする正規表現（呼ぶたびに新しい g フラグ付きインスタンス）。 */
 export function siteLinkRegex() {

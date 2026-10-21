@@ -60,6 +60,7 @@ test('今の categories.json: グループ表示のカテゴリは全部 view �
   for (const c of REAL) {
     if (c.layout?.view) assert.ok(VIEWS.has(c.layout.view), `${c.slug}: view ${c.layout.view}`);
     if (c.layout?.sort) assert.ok(SORTS.has(c.layout.sort), `${c.slug}: sort ${c.layout.sort}`);
-    if (c.visible !== false) assert.ok(c.layout?.view, `${c.slug}: 表示中のカテゴリに view が無い（フラット表示になる）`);
+    // 法令の領域（laws）は /laws の専用の一覧（src/app/laws/page.tsx）で、CategoryPage を使わない
+    if (c.visible !== false && c.area !== 'laws') assert.ok(c.layout?.view, `${c.slug}: 表示中のカテゴリに view が無い（フラット表示になる）`);
   }
 });

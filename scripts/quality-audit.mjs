@@ -391,6 +391,12 @@ export const CHECKS = [
       note: 'キャリアファネル集計（流入→回遊→CTA→成果）が実行可能か（成果物は書かない・月次レビューと EXP-008 が読む）',
     },
     {
+      label: 'taxonomy-wiring-report',
+      cmd: ['node', 'scripts/report-taxonomy-wiring.mjs', '--check'],
+      timeout: 60_000,
+      note: '分類と回遊の配線の点検（テーマ所属・昇格・取りこぼし・回遊の質）が doc-meta-index とコミット済みの計測で完走するか（成果物は書かない。読み手＝週次の点検 --actions と月次レビュー）',
+    },
+    {
       label: 'exam-ssot-status',
       cmd: ['node', 'scripts/report-exam-ssot.mjs', '--check'],
       timeout: 30_000,
