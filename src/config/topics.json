@@ -32,6 +32,14 @@
     "featuredStandardRefs": [
       "kinki/common",
       "kinki/hikkei"
+    ],
+    "products": [
+      "cce-marugoto-pack",
+      "cd-marugoto-pack",
+      "ce-chokuzen-pack",
+      "pe-construction-steel-concrete-pack",
+      "civil-2-keiken-concrete-foundation-pack",
+      "essay-steel-concrete-consultant-magazine"
     ]
   },
   {
@@ -60,6 +68,12 @@
     ],
     "featuredStandardRefs": [
       "kinki/common"
+    ],
+    "products": [
+      "pe-construction-geotechnical-pack",
+      "essay-geotechnical-consultant-magazine",
+      "civil-2-keiken-earthwork-slope-pack",
+      "rccm-mondai1-geotechnical"
     ]
   },
   {
@@ -85,6 +99,15 @@
     "featuredStandardRefs": [
       "kinki/common",
       "kinki/hikkei"
+    ],
+    "products": [
+      "pe-construction-road-pack",
+      "essay-road-municipality-magazine",
+      "essay-road-consultant-magazine",
+      "civil-1-keiken-road-tunnel-pack",
+      "civil-2-keiken-local-road-pack",
+      "civil-2-keiken-paving-pack",
+      "rccm-mondai1-road"
     ]
   },
   {
@@ -119,6 +142,15 @@
     ],
     "featuredStandardRefs": [
       "kinki/common"
+    ],
+    "products": [
+      "pe-construction-river-coast-pack",
+      "essay-river-municipality-magazine",
+      "essay-sabo-municipality-magazine",
+      "essay-river-consultant-magazine",
+      "civil-1-keiken-river-disaster-pack",
+      "civil-2-keiken-river-disaster-pack",
+      "rccm-mondai1-river-coast"
     ]
   },
   {
@@ -150,6 +182,11 @@
     "featuredStandardRefs": [
       "kinki/common",
       "kinki/hikkei"
+    ],
+    "products": [
+      "pe-construction-construction-planning-pack",
+      "civil-1-keiken-complete-pack",
+      "civil-2-koji-bank"
     ]
   },
   {
@@ -205,6 +242,10 @@
     "featuredStandardRefs": [
       "kinki/common",
       "kinki/hikkei"
+    ],
+    "products": [
+      "civil-1-experience-essay",
+      "civil-2-experience-essay"
     ]
   },
   {
@@ -235,6 +276,9 @@
     ],
     "featuredStandardRefs": [
       "kinki/common"
+    ],
+    "products": [
+      "pe-construction-environment-pack"
     ]
   },
   {
@@ -262,6 +306,11 @@
     "featuredStandardRefs": [
       "kinki/common",
       "kinki/hikkei"
+    ],
+    "products": [
+      "essay-maintenance-contractor-magazine",
+      "civil-1-keiken-bridge-maintenance-pack",
+      "cd-structure-case-bank"
     ]
   },
   {
@@ -285,6 +334,11 @@
     ],
     "featuredStandardRefs": [
       "kinki/common"
+    ],
+    "products": [
+      "pe-construction-tunnel-pack",
+      "essay-tunnel-consultant-magazine",
+      "civil-1-keiken-road-tunnel-pack"
     ]
   },
   {
@@ -308,6 +362,10 @@
     "standardKeywords": [
       "積算",
       "工程管理"
+    ],
+    "products": [
+      "tankan-reading-guide",
+      "tradeoff-5kanri"
     ]
   },
   {
@@ -334,6 +392,10 @@
     "standardKeywords": [
       "労務",
       "安全衛生"
+    ],
+    "products": [
+      "tankan-reading-guide",
+      "tradeoff-5kanri"
     ]
   },
   {
@@ -361,6 +423,10 @@
     "standardKeywords": [
       "電子納品",
       "情報共有"
+    ],
+    "products": [
+      "tankan-reading-guide",
+      "tradeoff-5kanri"
     ]
   },
   {
@@ -390,6 +456,10 @@
       "kinki/hikkei",
       "kyushu/hikkei-common-09",
       "kyushu/hikkei-common-10"
+    ],
+    "products": [
+      "tankan-reading-guide",
+      "tradeoff-5kanri"
     ]
   },
   {
@@ -411,6 +481,10 @@
     "standardKeywords": [
       "環境保全",
       "騒音"
+    ],
+    "products": [
+      "tankan-reading-guide",
+      "tradeoff-5kanri"
     ]
   },
   {
@@ -439,6 +513,14 @@
       "civil-construction-1-textbook-steel-structures",
       "civil-practice-steel-material-properties",
       "civil-construction-1-guide-structural-mechanics-basics"
+    ],
+    "products": [
+      "pe-construction-steel-concrete-pack",
+      "civil-1-keiken-bridge-maintenance-pack",
+      "civil-2-keiken-bridge-repair-pack",
+      "cd-road-bridge-pack",
+      "essay-steel-concrete-consultant-magazine",
+      "rccm-mondai1-steel-concrete"
     ]
   },
   {
@@ -467,6 +549,11 @@
       "civil-construction-1-textbook-coast-port",
       "civil-practice-coast-port-administrators",
       "pe-construction-port-airport-ronbun-keyword"
+    ],
+    "products": [
+      "pe-construction-port-airport-pack",
+      "essay-port-municipality-magazine",
+      "civil-2-keiken-port-coast-pack"
     ]
   },
   {
@@ -490,6 +577,9 @@
     "featured": [
       "civil-construction-1-textbook-railway-underground",
       "pe-construction-railway-ronbun-keyword"
+    ],
+    "products": [
+      "pe-construction-railway-pack"
     ]
   },
   {
@@ -516,6 +606,9 @@
       "civil-construction-1-textbook-dam-construction",
       "civil-practice-flood-control-facilities",
       "pe-construction-power-civil-ronbun-keyword"
+    ],
+    "products": [
+      "pe-construction-power-civil-pack"
     ]
   },
   {
@@ -543,6 +636,15 @@
       "civil-construction-1-textbook-water-sewer",
       "civil-practice-sewerage-and-stormwater",
       "civil-practice-waterworks-business"
+    ],
+    "products": [
+      "essay-sewage-municipality-magazine",
+      "essay-water-municipality-magazine",
+      "essay-water-consultant-magazine",
+      "civil-1-keiken-water-treatment-pack",
+      "civil-2-keiken-water-drainage-pack",
+      "rccm-mondai1-sewer",
+      "rccm-mondai1-water"
     ]
   },
   {
@@ -571,6 +673,52 @@
       "civil-practice-city-planning-act-framework",
       "pe-construction-urban-planning-ronbun-keyword",
       "civil-practice-development-permit-public-facilities"
+    ],
+    "products": [
+      "pe-construction-urban-planning-pack",
+      "essay-urban-municipality-magazine",
+      "essay-urban-consultant-magazine",
+      "essay-park-municipality-magazine",
+      "civil-2-keiken-park-private-pack"
+    ]
+  },
+  {
+    "slug": "municipal-civil-engineers",
+    "label": "自治体の土木職",
+    "facet": "audience",
+    "status": "hub",
+    "seoTitle": "自治体の土木職（土木公務員）の仕事と資格｜道路・河川の管理、発注者の実務、技術士・1級土木",
+    "description": "自治体の土木職（土木公務員）が受け持つ道路・河川などの管理と、発注者としての事業の進め方を、実務のノートと、1級土木・技術士・総監の取り方と試験対策から横断して読めます。",
+    "demandEvidence": "report-search-opportunities 2026-10-21: 検索キーワード戦略の「土木公務員」クラスター 21 クエリ・表示 101・クリック 4（13_土木公務員SEO戦略・16_検索キーワード戦略）。",
+    "intro": [
+      "自治体の土木職の仕事は、道路・河川・公園などの施設を守る「管理」と、計画から用地・設計・発注・監督・検査までを進める「事業」の二つに分けると見渡せます。どちらも、根拠になる法令と、国・都道府県・市町村のどこの事務かを確かめるところから始まります。",
+      "発注者として工事の施工を指導・監督した経験は、1級土木施工管理技士の受検に使える実務経験の対象になります（要件は受検の手引で個別に確認）。技術士（建設部門）や総合技術監理部門では、発注者の立場で管理と事業の課題を記述する力が問われます。",
+      "このテーマでは、自治体の土木担当シリーズの実務のノートと、土木公務員が資格を取る意味・取る順番の案内、発注者の立場で書いた試験対策を一つにまとめています。"
+    ],
+    "tags": [
+      "地方公共団体"
+    ],
+    "standardKeywords": [
+      "共通仕様書",
+      "工事監督"
+    ],
+    "featured": [
+      "civil-practice-municipal-civil-engineer-work",
+      "pe-comprehensive-management-public-engineer-qualification-map",
+      "pe-comprehensive-management-public-servant-comprehensive-merit"
+    ],
+    "products": [
+      "essay-road-municipality-magazine",
+      "essay-river-municipality-magazine",
+      "essay-sewage-municipality-magazine",
+      "essay-water-municipality-magazine",
+      "essay-urban-municipality-magazine",
+      "essay-park-municipality-magazine",
+      "essay-port-municipality-magazine",
+      "essay-sabo-municipality-magazine",
+      "essay-procurement-municipality-magazine",
+      "essay-standards-municipality-magazine",
+      "cce-reiwa-owner-pack"
     ]
   }
 ]

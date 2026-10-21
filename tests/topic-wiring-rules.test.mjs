@@ -32,6 +32,8 @@ test('topicsOfDoc: 明示 → カテゴリ → タグの順・重複なし・非
   const doc = { category: 'concrete-engineer', tags: ['道路', 'コンクリート'], topics: ['laws', 'nope', 'roads'] };
   assert.deepEqual(topicsOfDoc(doc, FIX_TOPICS), ['laws', 'roads', 'concrete']);
   assert.deepEqual(topicsOfDoc({ ...doc, published: false }, FIX_TOPICS), []);
+  // タグ由来は記事に書いた順（topics.json の並びではない）
+  assert.deepEqual(topicsOfDoc({ category: 'x', tags: ['関係法規', '道路'] }, FIX_TOPICS), ['laws', 'roads']);
   // 綴りの正規化はテーマ側のタグにも通す
   const canon = (t) => (t === 'road' ? '道路' : t);
   assert.deepEqual(topicsOfDoc({ category: 'x', tags: ['道路'] }, [{ slug: 'roads', tags: ['road'] }], canon), ['roads']);
@@ -145,6 +147,25 @@ test('計測: 新しい回遊の面は internal_nav_click のラベルで分か�
   assert.ok(read('src/components/category/CategoryTopics.tsx').includes('data-cta-label="category-topics"'), '資格のハブの「テーマから探す」に計測ラベルが無い');
   assert.ok(read('src/components/category/CategoryPage.tsx').includes('<CategoryTopics'), '資格のハブからテーマへのリンクが外れている');
   assert.ok(read('.claude/scripts/fetch-ga4-cta-clicks.mjs').includes('"internal_nav_click"'), 'fetch-ga4-cta-clicks が internal_nav_click を取っていない');
+});
+
+test('テーマの有料教材: id は公開中の note の商品を指し、ページは MagazineCard（inline・placement topic-page）で出す', () => {
+  const products = JSON.parse(read('config/products.json')).products;
+  const live = new Set(products.filter((p) => p.channel === 'note' && p.catalog?.published && p.catalog?.noteUrl).map((p) => p.id));
+  const listed = TOPICS.flatMap((t) => t.products ?? []);
+  assert.ok(listed.length >= 20, `テーマの有料教材が ${listed.length} 件しか無い（配線の欠けを疑う）`);
+  for (const t of TOPICS) for (const id of t.products ?? []) assert.ok(live.has(id), `${t.slug}: products「${id}」が公開中の note の商品に無い`);
+  const page = read('src/app/topics/[slug]/page.tsx');
+  assert.ok(page.includes('variant="inline"') && page.includes('placement="topic-page"') && page.includes('utmContent={`topic-${topic.slug}`}'), 'テーマページの有料教材の枠が外れている');
+});
+
+test('立場の軸: 自治体の土木職は実務のシリーズと試験側の土木公務員向けの記事を束ねる', () => {
+  const t = TOPICS.find((x) => x.slug === 'municipal-civil-engineers');
+  assert.ok(t && t.facet === 'audience' && t.tags.includes('地方公共団体'), '自治体の土木職のテーマが立場の軸に無い');
+  const docs = Object.entries(JSON.parse(read('src/config/doc-meta-index.json')).docs).filter(([, m]) => (m.tags ?? []).includes('地方公共団体'));
+  const practice = docs.filter(([, m]) => m.category === 'civil-practice').length;
+  const exam = docs.filter(([, m]) => m.category !== 'civil-practice').length;
+  assert.ok(practice >= 40 && exam >= 5, `地方公共団体のタグ: 実務 ${practice} 本・試験側 ${exam} 本（実務と試験の両方を束ねていない）`);
 });
 
 test('育成中のテーマは noindex（サイトマップは out/ の robots を見て外す）', () => {

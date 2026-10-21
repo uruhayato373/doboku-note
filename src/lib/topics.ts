@@ -5,8 +5,8 @@ import { getStandardDocuments, type StandardDocument } from '@/lib/standards';
 import { canonicalTag } from '@/lib/content-taxonomy';
 import { topicsOfDoc } from '@/lib/topic-membership.mjs';
 
-/** テーマの軸（content-taxonomy.json の topicFacets）。分野・工種／施工管理・マネジメント／法令・制度 */
-export type TopicFacet = 'field' | 'management' | 'law';
+/** テーマの軸（content-taxonomy.json の topicFacets）。分野・工種／施工管理・マネジメント／法令・制度／読み手・立場 */
+export type TopicFacet = 'field' | 'management' | 'law' | 'audience';
 /** hub＝昇格基準を満たす公開ハブ（検索に出す）／incubating＝育成中（noindex・サイトマップ外。リンクは出す） */
 type TopicStatus = 'hub' | 'incubating';
 
@@ -30,6 +30,9 @@ export type Topic = {
   featuredStandardRefs?: string[];
   /** 入口記事（論理 slug）。一覧の先頭に固定する。記事側は frontmatter `topics: [slug]` で明示所属もできる（content-taxonomy.md §6） */
   featured?: string[];
+  /** このテーマ（分野・立場）に合う有料教材（config/products.json の note の id・並べる順）。テーマのページの「このテーマの有料教材」に出す。
+      公開中でないものは getMagazine が落とす（check-topic-wiring が id の実在を、report-taxonomy-wiring が非公開を見る） */
+  products?: string[];
 };
 
 const topics = topicsJson as Topic[];

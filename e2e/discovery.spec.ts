@@ -74,6 +74,13 @@ test('資格のハブから、この資格の記事が属すテーマへ移動�
   await expect(topics.locator('a[href="/topics/construction-management"]')).toBeVisible();
 });
 
+test('テーマのページから、分野・立場に合う有料教材（note）へ移動できる', async ({ page }) => {
+  await page.goto('/topics/municipal-civil-engineers');
+  const link = page.locator('a[data-cta="note"][data-cta-placement="topic-page"]').first();
+  await expect(link).toBeVisible();
+  await expect(link).toHaveAttribute('href', /utm_content=topic-municipal-civil-engineers/);
+});
+
 test('育成中のテーマは noindex・公開ハブは index で、関連するテーマへ移動できる', async ({ page }) => {
   await page.goto('/topics/railways');
   await expect(page.locator('meta[name="robots"]')).toHaveAttribute('content', /noindex/);

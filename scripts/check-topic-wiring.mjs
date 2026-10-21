@@ -6,6 +6,7 @@ import matter from 'gray-matter';
 import { pathToFileURL } from 'node:url';
 import { buildAliasMap, normalizeTags } from './lib/content-taxonomy.mjs';
 import { topicsOfDoc } from '../src/lib/topic-membership.mjs';
+import { readDataset } from './lib/dataset-io.mjs';
 import { REPO_ROOT } from './lib/repository-paths.mjs';
 
 // 地方 10 機関＋本省（2026-10-14 に施工管理基準の本省版を追加・DN-0393）
@@ -36,6 +37,9 @@ export function auditTopicWiring(root = REPO_ROOT) {
   const documentRefs = new Set(catalog.documents.map((document) => `${document.agencyId}/${document.documentId}`));
   // featured（入口記事）は公開中の記事を指す。消した・非公開にした記事が先頭に残ると一覧から黙って消える
   const metaIndex = JSON.parse(readFileSync(join(root, 'src/config/doc-meta-index.json'), 'utf8')).docs ?? {};
+  // products（このテーマの有料教材）は note の商品の正本にある id を指す。打ち間違いはページから黙って消える
+  const productList = readDataset(root, 'config.products');
+  const noteProductIds = new Set((Array.isArray(productList) ? productList : productList.products ?? []).filter((p) => p.channel === 'note').map((p) => p.id));
 
   for (const topic of topics) {
     if (!topic.slug || topicSlugs.has(topic.slug)) issues.push(`topic slug が空または重複: ${topic.slug || '(empty)'}`);
@@ -52,6 +56,9 @@ export function auditTopicWiring(root = REPO_ROOT) {
       if (typeof t !== 'string' || !t) issues.push(`${topic.slug}: featured に空の slug`);
       else if (!metaIndex[t] || metaIndex[t].published === false) issues.push(`${topic.slug}: featured「${t}」は公開中の記事に無い`);
       else if (!topicsOfDoc({ ...metaIndex[t], tags: (metaIndex[t].tags ?? []).map(canon) }, [topic], canon).length) issues.push(`${topic.slug}: featured「${t}」はこのテーマに属さない（タグか topics: を付ける）`);
+    }
+    for (const id of topic.products ?? []) {
+      if (!noteProductIds.has(id)) issues.push(`${topic.slug}: products「${id}」は商品の正本（config.products）の note の商品に無い`);
     }
     for (const ref of topic.featuredStandardRefs ?? []) {
       if (!documentRefs.has(ref)) issues.push(`${topic.slug}: 存在しない featuredStandardRefs: ${ref}`);

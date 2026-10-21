@@ -12,7 +12,8 @@ const PAST_EXAM_GROUPS = new Set(['primary', 'secondary', 'past-exam']);
 const SUBJECT_GROUPS = new Set(['keyword', 'textbook', 'pillar']);
 
 /**
- * 記事が属するテーマの slug。明示（frontmatter `topics:`）→ カテゴリ丸ごと → タグの順で、重複なし。
+ * 記事が属するテーマの slug。明示（frontmatter `topics:`）→ カテゴリ丸ごと → タグ（記事に書いた順）の順で、重複なし。
+ * 記事末の「この記事のテーマ」は先頭の 3 つを出すので、書き手がタグを並べた順を優先する。
  * @param {{ category?: string, tags?: string[], topics?: unknown, published?: boolean }} doc tags は正規表記
  * @param {Array<{ slug: string, tags?: string[], categories?: string[] }>} topics
  * @param {(tag: string) => string} [canon] 綴り → 正規表記（topics.json のタグも通す）
@@ -25,8 +26,10 @@ export function topicsOfDoc(doc, topics, canon = (t) => t) {
   const explicit = Array.isArray(doc.topics) ? doc.topics : [];
   for (const slug of explicit) if (topics.some((t) => t.slug === slug)) add(slug);
   for (const t of topics) if ((t.categories ?? []).includes(String(doc.category))) add(t.slug);
-  const tags = new Set((doc.tags ?? []).map(canon));
-  for (const t of topics) if ((t.tags ?? []).some((tag) => tags.has(canon(tag)))) add(t.slug);
+  for (const tag of (doc.tags ?? []).map(canon)) {
+    const owner = topics.find((t) => (t.tags ?? []).some((x) => canon(x) === tag));
+    if (owner) add(owner.slug);
+  }
   return out;
 }
 
