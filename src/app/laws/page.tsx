@@ -14,7 +14,7 @@ import { getLawDirectory } from '@/lib/law-wiring';
 const category = getCategoryBySlug('laws')!;
 
 export const metadata: Metadata = buildPageMetadata({
-  title: '土木の法令の解説｜道路法・河川法・水防法を試験と実務で読む',
+  title: '土木の法令の解説｜建設業法・労働安全衛生法・道路法・河川法を試験と実務で読む',
   description: category.description ?? category.subtitle,
   path: '/laws',
 });
