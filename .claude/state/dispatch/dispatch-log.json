@@ -5198,6 +5198,19 @@
       "commit": "d526e2b183f0",
       "verification": "npm run build＋out/ の集計／check-cta-density／check-affiliate-placements／PR CI 緑",
       "note": "PR #1173（d526e2b18）。記事末のルール PL-0022・0026・0039 を until で閉じた。build 後 HTML 2,850 ページ: 記事末の転職バナー 0・転職広告のある 2,525 ページは全て 1 発・無い 325 ページは 0 発・同一 mat 二重発火 0。本番は未 deploy"
+    },
+    {
+      "id": "DN-0456",
+      "at": "2026-10-21",
+      "task": "測量士補の択一過去問（令和4〜8年・各28問）をサイトに載せる",
+      "tier": "mid",
+      "kind": "制作",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "1355994a3b6d",
+      "verification": "past-exam-qa 再監査 5 本（R04〜R08・各 28/28 一致）／curl で本番 /exam/surveyor と primary/r08 が 200・<main>",
+      "note": "本番に 5 年分（r04〜r08）が <main> 付きで出ていることを curl で確認。past-exam-qa の再監査で 5 年分 140 問すべて国土地理院の公式正答と一致。HIGH 2 件（R08 No.12 の準則と出題意図の書き分け・R04 No.5 の選点の規定）と MEDIUM の主な指摘を develop で直した（a402ada30・fad4f1a34・2afc94bac・40c60f576・f6ee3db36）。R08 No.12 の規定は準則 第65条（区間ごと）で原文確認。本番への反映は次の deploy。R04 No.21 の手順と残りの LOW は DN-0809"
     }
   ]
 }
