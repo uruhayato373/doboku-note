@@ -120,6 +120,18 @@
       "warningsByCode": {
         "jsonld_recommended_missing": 407
       }
+    },
+    {
+      "date": "2026-10-22",
+      "generatedAt": "2026-10-21T16:22:48.084Z",
+      "sitemapUrls": 2032,
+      "checked": 2032,
+      "errors": 0,
+      "warnings": 407,
+      "errorsByCode": {},
+      "warningsByCode": {
+        "jsonld_recommended_missing": 407
+      }
     }
   ]
 }
