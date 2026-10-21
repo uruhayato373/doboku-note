@@ -5254,6 +5254,19 @@
       "commit": "320c918e4d04",
       "verification": "login-collectors run 38826468156 のログ／Mac の auth-session-refresh.log／gh secret list",
       "note": "戻すと決めた（2026-10-21 オーナー決定）。10/16 の定期実行で state 切れ→Secrets での入り直しが login_failed（Issue #1087）、同じ日の夕方に Mac の自動ログインも止まった。PR #1177（7365128c6）で kdp を ci.enabled:false・ciCredential:false・ciStored:false にし、login-collectors の入り直しの対象と env から外した。Secrets DOBOKU_AUTH_KDP_USER/_PASSWORD を削除（gh secret list で 0 件を確認）。自動化マップの kdp の行も直した。定期実行は main 版なので main への deploy までは KDP の取得が試されるが失敗するだけ。手元の KDP のログイン（Issue #1087 の auth:login）は戻ってから"
+    },
+    {
+      "id": "DN-0805",
+      "at": "2026-10-21",
+      "task": "検査を止めた実績で棚卸しし、統合・格下げ・退役する（CI の見直し 4）",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": ".claude/plans/DN-0805-ci-check-inventory.md",
+      "commit": "be40df1784b7",
+      "verification": "npm run test 3,489・失敗 0／quality:audit:ci 122 本合格／PR #1178 CI 緑",
+      "note": "PR #1178（be40df178）。運営者の決定（推奨案どおり・2026-10-21）で、退役 2（public-bloat・frequent-topics）・格下げ 5（knip-ratchet・review-wiring・x-card-render・codex-compat・x-review を ops へ）・束ね 18→4（steps）・二重の実データのテスト 8 本を外した。ci:true は 145→122。見送り: generated-indexes（DN-0804 の後）・standards-data・youtube の表記のテスト・保留 2。判断の一覧は .claude/plans/DN-0805-ci-check-inventory.md の「判断」。PR の CI の待ち時間: audit ジョブは見直し前の直近 29 回の中央値 350 秒（251〜370）、見直し後の #1178 は 286 秒（1 回だけで、ばらつきの範囲内の可能性あり）。build は中央値 315 秒→268 秒"
     }
   ]
 }
