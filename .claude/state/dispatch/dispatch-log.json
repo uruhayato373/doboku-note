@@ -5241,6 +5241,19 @@
       "commit": "84ad8274d4be",
       "verification": "login-collectors の定期実行 37400895490・38337706044・39347584838 のログ／~/Library/Logs/doboku-note/auth-session-refresh.log",
       "note": "続けると決めた（2026-10-21 オーナー決定）。10/6 は state が生きていて入り直し不要・取得成功、10/13 はデータが新しく取得を飛ばした（fresh）、10/20 は state 切れ→Secrets での入り直し ok（取得の失敗は A8 の画面改修で DN-0757 が同日に直した）。追加の確認画面は出ていない。Mac の手元は 10/17〜19 に別の認証操作のロック待ち、10/20 に ok。stats47 側は未確認。正本・ワークフロー・Secrets は今のまま（変更なし）"
+    },
+    {
+      "id": "DN-0480",
+      "at": "2026-10-21",
+      "task": "KDP の CI 取得（Secrets で入り直し）を 10/16・10/28 の実行で評価し、続けるか戻すかを決める",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "320c918e4d04",
+      "verification": "login-collectors run 38826468156 のログ／Mac の auth-session-refresh.log／gh secret list",
+      "note": "戻すと決めた（2026-10-21 オーナー決定）。10/16 の定期実行で state 切れ→Secrets での入り直しが login_failed（Issue #1087）、同じ日の夕方に Mac の自動ログインも止まった。PR #1177（7365128c6）で kdp を ci.enabled:false・ciCredential:false・ciStored:false にし、login-collectors の入り直しの対象と env から外した。Secrets DOBOKU_AUTH_KDP_USER/_PASSWORD を削除（gh secret list で 0 件を確認）。自動化マップの kdp の行も直した。定期実行は main 版なので main への deploy までは KDP の取得が試されるが失敗するだけ。手元の KDP のログイン（Issue #1087 の auth:login）は戻ってから"
     }
   ]
 }
