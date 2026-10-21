@@ -18,7 +18,7 @@
  *           テーマの軸（facet）・状態（status）が語彙外、主題タグ（topical）がどのテーマにも属さず noTopic の理由も無い、
  *           （--staged では）テーマへの所属が要るのにどのテーマにも属さない記事（content-taxonomy.md §6-2）
  *   ラチェット（--ci）… 未登録タグ（集合）・構造タグ×group 不整合（slug 集合）・別名綴りの使用数（件数）・
- *           テーマ所属漏れ（slug 集合）が .claude/config/content-taxonomy-baseline.json より増えたら赤。減った分は「返済」として表示
+ *           テーマ所属漏れ（slug 集合）・記事型のタグしか持たない記事（slug 集合）が .claude/config/content-taxonomy-baseline.json より増えたら赤。減った分は「返済」として表示
  *   WARN  … topic 三方向（exam/practice/standards）の 0 件・topic タグの 0 使用・allowlist 未使用・baseline の返済済み・
  *           昇格基準と status の食い違い（育成中で基準を満たす／公開ハブで基準を下回る。自動では切り替えない）
  *           読み手＝/weekly-review Phase 2（quality-audit の report digest）と /monthly-review（report-taxonomy-wiring）
@@ -33,7 +33,7 @@ import { REPO_ROOT } from './lib/repository-paths.mjs';
 import { readJson } from './lib/json-io.mjs';
 import {
   buildAliasMap, normalizeTags, isStructuralTag, checkGroupAllowed, checkStructuralTags,
-  evaluateSetRatchet, evaluateCountRatchet, countTopicDirections, topicEligibility,
+  evaluateSetRatchet, evaluateCountRatchet, countTopicDirections, topicEligibility, lacksSubjectTags,
 } from './lib/content-taxonomy.mjs';
 import { needsTopic, topicsOfDoc } from '../src/lib/topic-membership.mjs';
 import { runBody, isCliEntry, runAsCli } from './lib/cli-run.mjs';
@@ -140,6 +140,7 @@ const normalizedDocs = [];
 const canon = (tag) => aliasMap.toCanonical.get(tag) ?? tag;
 const classOfTag = (tag) => aliasMap.classOf.get(canon(tag));
 const topicless = [];               // テーマへの所属が要るのにどのテーマにも属さない記事
+const subjectless = [];             // 記事型・フラグのタグしか持たない記事（§5-3。過去問・キャリアを除く）
 let needTopicCount = 0;
 for (const d of docs) {
   for (const v of checkGroupAllowed(d, categoryMap, groupDefs)) docViolations.push({ ...v, at: d.at });
@@ -155,6 +156,7 @@ for (const d of docs) {
   }
   const nd = { ...d, tags: n.tags };
   normalizedDocs.push(nd);
+  if (lacksSubjectTags(nd, classOfTag)) subjectless.push({ slug: d.slug, at: d.at });
   if (needsTopic(nd, { area: categoryMap.get(d.category)?.area ?? 'exam', classOf: classOfTag })) {
     needTopicCount += 1;
     if (!topicsOfDoc(nd, topics, canon).length) topicless.push({ slug: d.slug, at: d.at });
@@ -190,6 +192,7 @@ const current = {
   aliasUsage: Object.fromEntries([...aliasUsage.entries()].sort()),
   structuralMismatch: structuralMismatch.map((m) => m.slug).sort(),
   topicless: topicless.map((m) => m.slug).sort(),
+  subjectless: subjectless.map((m) => m.slug).sort(),
 };
 let ratchet = null;
 if (CI) {
@@ -200,15 +203,16 @@ if (CI) {
     aliasUsage: evaluateCountRatchet(current.aliasUsage, baseline.aliasUsage),
     structuralMismatch: evaluateSetRatchet(current.structuralMismatch, baseline.structuralMismatch),
     topicless: evaluateSetRatchet(current.topicless, baseline.topicless ?? []),
+    subjectless: evaluateSetRatchet(current.subjectless, baseline.subjectless ?? []),
   };
 }
 
 // ---- 出力 ---------------------------------------------------------------
 const mode = STAGED ? ' --staged' : CI ? ' --ci' : '';
-const summary = `[${NAME}${mode}] 記事 ${docs.length} 件を実検査 / カテゴリ ${categories.length} / tags ${tags.length} 種（受理綴り ${aliasMap.toCanonical.size}） / topics ${topics.length} / 未登録 ${unknownTags.size} 種・別名使用 ${[...aliasUsage.values()].reduce((a, b) => a + b, 0)} 件・構造タグ不整合 ${structuralMismatch.length} 本 / テーマ所属が要る ${needTopicCount} 本・所属なし ${topicless.length} 本`;
+const summary = `[${NAME}${mode}] 記事 ${docs.length} 件を実検査 / カテゴリ ${categories.length} / tags ${tags.length} 種（受理綴り ${aliasMap.toCanonical.size}） / topics ${topics.length} / 未登録 ${unknownTags.size} 種・別名使用 ${[...aliasUsage.values()].reduce((a, b) => a + b, 0)} 件・構造タグ不整合 ${structuralMismatch.length} 本 / テーマ所属が要る ${needTopicCount} 本・所属なし ${topicless.length} 本・記事型のタグだけ ${subjectless.length} 本`;
 
 if (JSON_OUT) {
-  console.log(JSON.stringify({ mode: STAGED ? 'staged' : CI ? 'ci' : 'full', docs: docs.length, hard, docViolations, current, unknownTagCounts: Object.fromEntries(unknownTags), structuralMismatch, topicCoverage: { need: needTopicCount, topicless }, ratchet, directions, warns }, null, 2));
+  console.log(JSON.stringify({ mode: STAGED ? 'staged' : CI ? 'ci' : 'full', docs: docs.length, hard, docViolations, current, unknownTagCounts: Object.fromEntries(unknownTags), structuralMismatch, topicCoverage: { need: needTopicCount, topicless }, subjectless, ratchet, directions, warns }, null, 2));
 }
 
 let bad = false;
@@ -237,10 +241,15 @@ if (STAGED) {
     console.error(`\n[${NAME} --staged] ✗ テーマへの所属が要るのにどのテーマにも属さない ${topicless.length} 本（分野・管理のタグを付けるか、frontmatter に topics: [slug] を書く → content-taxonomy.md §6-2）:`);
     for (const m of topicless) console.error(`  ${m.at}`);
   }
+  if (subjectless.length) {
+    bad = true;
+    console.error(`\n[${NAME} --staged] ✗ 記事型のタグ（guide など）しか持たない ${subjectless.length} 本（資格・科目のタグか、学習の型・主題のタグを 1 つ以上付ける → content-taxonomy.md §5-3。どの記事の関連記事にも選ばれなくなる）:`);
+    for (const m of subjectless) console.error(`  ${m.at}`);
+  }
 }
 
 if (CI && ratchet) {
-  const inc = ratchet.unknownTags.increased.length + ratchet.aliasUsage.increased.length + ratchet.structuralMismatch.increased.length + ratchet.topicless.increased.length;
+  const inc = ratchet.unknownTags.increased.length + ratchet.aliasUsage.increased.length + ratchet.structuralMismatch.increased.length + ratchet.topicless.increased.length + ratchet.subjectless.increased.length;
   if (inc) {
     bad = true;
     console.error(`\n[${NAME} --ci] ✗ baseline より債務が増えた:`);
@@ -248,9 +257,10 @@ if (CI && ratchet) {
     for (const a of ratchet.aliasUsage.increased) console.error(`  別名綴り「${a.key}」${a.from} → ${a.to} 本`);
     for (const s of ratchet.structuralMismatch.increased) console.error(`  構造タグ不整合: ${s}`);
     for (const s of ratchet.topicless.increased) console.error(`  テーマ所属なし: ${s}（分野・管理のタグか topics: を付ける）`);
+    for (const s of ratchet.subjectless.increased) console.error(`  記事型のタグだけ: ${s}（資格・学習の型・主題のタグを付ける）`);
   }
-  const rep = ratchet.unknownTags.repaid.length + ratchet.aliasUsage.repaid.length + ratchet.structuralMismatch.repaid.length + ratchet.topicless.repaid.length;
-  if (rep) (JSON_OUT ? console.error : console.log)(`[${NAME} --ci] 返済済み ${rep} 件（baseline から削ってよい）: ${[...ratchet.unknownTags.repaid, ...ratchet.aliasUsage.repaid.map((r) => r.key), ...ratchet.structuralMismatch.repaid, ...ratchet.topicless.repaid].slice(0, 10).join(', ')}${rep > 10 ? ' …' : ''}`);
+  const rep = ratchet.unknownTags.repaid.length + ratchet.aliasUsage.repaid.length + ratchet.structuralMismatch.repaid.length + ratchet.topicless.repaid.length + ratchet.subjectless.repaid.length;
+  if (rep) (JSON_OUT ? console.error : console.log)(`[${NAME} --ci] 返済済み ${rep} 件（baseline から削ってよい）: ${[...ratchet.unknownTags.repaid, ...ratchet.aliasUsage.repaid.map((r) => r.key), ...ratchet.structuralMismatch.repaid, ...ratchet.topicless.repaid, ...ratchet.subjectless.repaid].slice(0, 10).join(', ')}${rep > 10 ? ' …' : ''}`);
 }
 
 if (!JSON_OUT) for (const w of warns.slice(0, 40)) console.log(`[${NAME}] WARN ${w}`);

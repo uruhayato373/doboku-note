@@ -12,7 +12,7 @@
  *   npm run report-taxonomy-wiring -- --check   # 完走だけ確かめる（quality-audit ci。成果物は書かない）
  *   npm run report-taxonomy-wiring -- --actions # 要対応があれば exit 1（週次レビューの点検 review-checks が読む）
  *
- * 要対応: テーマ所属なしの記事・行き先の無い主題タグ（どちらも CI が止めるので通常 0）・昇格基準と status の食い違い。
+ * 要対応: テーマ所属なしの記事・記事型のタグだけの記事・行き先の無い主題タグ（どれも CI が止めるので通常 0）・昇格基準と status の食い違い。
  * 取りこぼし（判断の材料・exit に影響しない）: 関連記事のどこからも選ばれない記事、記事の多い noTopic のタグ（新テーマの候補）。
  * exit 0 = 完走 / 1 = 要対応（--actions のときだけ）/ 2 = 検査不成立（記事 0 件・設定が読めない）
  */
@@ -21,7 +21,7 @@ import { readJson } from './lib/json-io.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 import { parseCliArgs } from './lib/cli-args.mjs';
 import { latestReport } from './lib/metric-reports.mjs';
-import { buildAliasMap, countTopicDirections, topicEligibility } from './lib/content-taxonomy.mjs';
+import { buildAliasMap, countTopicDirections, topicEligibility, lacksSubjectTags } from './lib/content-taxonomy.mjs';
 import { needsTopic, topicsOfDoc } from '../src/lib/topic-membership.mjs';
 import { rankRelated } from '../src/lib/related-core.mjs';
 
@@ -54,6 +54,7 @@ const topicCache = new Map();
 const topicsOf = (d) => { let t = topicCache.get(d.slug); if (!t) { t = topicsOfDoc(d, topics, canon); topicCache.set(d.slug, t); } return t; };
 const needDocs = docs.filter((d) => needsTopic(d, { area: areaOf(d.category), classOf: tagClass }));
 const topicless = needDocs.filter((d) => topicsOf(d).length === 0).map((d) => d.slug);
+const subjectless = docs.filter((d) => lacksSubjectTags(d, tagClass)).map((d) => d.slug);
 const coverageByCategory = {};
 for (const d of needDocs) {
   const c = (coverageByCategory[d.category] ??= { need: 0, wired: 0 });
@@ -98,7 +99,7 @@ for (const d of lawDocs) for (const id of d.lawIds) lawCount.set(id, (lawCount.g
 const lawWired = lawDocs.filter((d) => d.lawIds.some((id) => lawCount.get(id) >= 2)).length;
 
 // ---- 計測（CI 供給のレポート。無ければ「未取得」として出す・0 に変換しない） -----------------------------------------
-const NAV_LABELS = ['related-articles', 'topic-hub:hub', 'topic-hub:article', 'law-siblings', 'topic-page', 'topic-related'];
+const NAV_LABELS = ['related-articles', 'topic-hub:hub', 'topic-hub:article', 'law-siblings', 'topic-page', 'topic-related', 'category-topics'];
 const ga4 = latestReport(ROOT, 'ga4.cta-clicks-by-label', { windowKind: 'days' });
 const navClicks = ga4
   ? Object.fromEntries(NAV_LABELS.map((label) => [label, (ga4.data.rows ?? []).filter((r) => r.eventName === 'internal_nav_click' && r.label === label).reduce((a, r) => a + (r.eventCount ?? 0), 0)]))
@@ -115,7 +116,7 @@ const result = {
   docs: docs.length,
   coverage: { need: needDocs.length, topicless, byCategory: coverageByCategory },
   topics: topicRows,
-  actions: { topicless: topicless.length, unrouted, promote, belowBar },
+  actions: { topicless: topicless.length, subjectless: subjectless.length, unrouted, promote, belowBar },
   tags: { noTopicHeavy },
   circulation: {
     relatedShown: shown, pool: pool.length, crossCategoryShare: links ? cross / links : 0,
@@ -127,7 +128,7 @@ const result = {
     gsc: gsc ? { ref: gsc.ref, window: `${gsc.data.meta?.startDate ?? '?'}〜${gsc.data.meta?.endDate ?? '?'}`, topicPages } : null,
   },
 };
-const actionCount = topicless.length + unrouted.length + promote.length + belowBar.length;
+const actionCount = topicless.length + subjectless.length + unrouted.length + promote.length + belowBar.length;
 
 if (args.check) {
   console.log(`[${NAME}] OK: 公開記事 ${docs.length} 本・テーマ ${topics.length} 件を集計（所属が要る ${needDocs.length} 本・所属なし ${topicless.length} 本・要対応 ${actionCount} 件）`);
@@ -141,6 +142,7 @@ if (args.json) {
   out.push(`## 分類と回遊の配線（公開記事 ${docs.length} 本・テーマ ${topics.length} 件）`, '');
   out.push(`### 要対応 ${actionCount} 件`);
   out.push(`- テーマ所属なし: ${topicless.length} 本${topicless.length ? `（${topicless.slice(0, 10).join(', ')}${topicless.length > 10 ? ' …' : ''}）` : ''}`);
+  out.push(`- 記事型のタグだけの記事: ${subjectless.length} 本${subjectless.length ? `（${subjectless.slice(0, 10).join(', ')}）` : ''}`);
   out.push(`- 行き先の無い主題タグ: ${unrouted.length} 種${unrouted.length ? `（${unrouted.join(', ')}）` : ''}`);
   out.push(`- 昇格できる育成中のテーマ: ${promote.length ? promote.join(', ') : 'なし'}（status を hub にするか判断する）`);
   out.push(`- 昇格基準を下回る公開ハブ: ${belowBar.length ? belowBar.join(', ') : 'なし'}（記事を足すか判断する。即 noindex にしない）`, '');

@@ -14,7 +14,7 @@ import { join } from 'node:path';
 import test from 'node:test';
 import { topicsOfDoc, needsTopic } from '../src/lib/topic-membership.mjs';
 import { relatedScore, fallbackScore, rankRelated } from '../src/lib/related-core.mjs';
-import { topicEligibility } from '../scripts/lib/content-taxonomy.mjs';
+import { topicEligibility, lacksSubjectTags } from '../scripts/lib/content-taxonomy.mjs';
 import { REPO_ROOT as ROOT } from '../scripts/lib/repository-paths.mjs';
 
 const read = (rel) => readFileSync(join(ROOT, rel), 'utf8');
@@ -60,8 +60,10 @@ test('relatedScore: 学習の型・資格だけの共有は関連にしない／
   assert.equal(relatedScore(cur, { slug: 'b', category: 'c1', tags: ['試験対策', '令和7年度'] }, deps), 0);
   assert.equal(fallbackScore(cur, { slug: 'b', category: 'c1', tags: ['試験対策', '令和7年度'] }, deps), 1 + 3 + 2);
   const road = { slug: 'r', category: 'c1', tags: ['道路', '建設部門'] };
-  // 共有タグ 道路（10）＋ テーマ roads（6）＋ 資格タグ（3）＋ 同じ資格（2）
-  assert.equal(relatedScore(road, { slug: 's', category: 'c1', tags: ['道路', '建設部門'] }, deps), 21);
+  // 共有タグ 道路（10）＋ テーマ roads（6）＋ 同じ資格（2）。資格タグ（建設部門）は関連度に数えない
+  assert.equal(relatedScore(road, { slug: 's', category: 'c1', tags: ['道路', '建設部門'] }, deps), 18);
+  // 資格タグの有無で同点が崩れない（付け忘れた記事が毎回負けない）
+  assert.equal(relatedScore(road, { slug: 'u', category: 'c1', tags: ['道路'] }, deps), 18);
   // 別の綴りでも同じテーマなら拾う（明示所属）
   assert.equal(relatedScore(road, { slug: 't', category: 'c2', tags: [], topics: ['roads'] }, deps), 6);
 });
@@ -93,6 +95,15 @@ test('rankRelated: 同点は記事ごとに散らす（どの記事からも同�
   // 同じ組なら毎回同じ並び（ビルドのたびに関連記事が入れ替わらない）
   const cur = { slug: 'cur0', category: 'c1', tags: ['道路'] };
   assert.deepEqual(rankRelated(cur, candidates, 6, new Set(), deps), rankRelated(cur, [...candidates].reverse(), 6, new Set(), deps));
+});
+
+test('lacksSubjectTags: 記事型のタグだけのガイドを拾い、過去問・キャリアは対象外', () => {
+  const classOf = (t) => ({ guide: 'structural', 'past-questions': 'structural', career: 'flag', 試験対策: 'learning' }[t] ?? 'topical');
+  assert.equal(lacksSubjectTags({ group: 'guide', tags: ['guide'] }, classOf), true);
+  assert.equal(lacksSubjectTags({ group: 'guide', tags: ['guide', '試験対策'] }, classOf), false);
+  assert.equal(lacksSubjectTags({ group: 'guide', tags: ['guide', 'career'] }, classOf), false);
+  assert.equal(lacksSubjectTags({ group: 'primary', tags: ['past-questions'] }, classOf), false);
+  assert.equal(lacksSubjectTags({ group: 'guide', tags: ['guide'], published: false }, classOf), false);
 });
 
 test('topicEligibility: 埋まった方向が 2 つ以上で公開ハブにできる', () => {
@@ -131,6 +142,8 @@ test('計測: 新しい回遊の面は internal_nav_click のラベルで分か�
   assert.ok(read('src/components/ui/ArticleLaws/ArticleLaws.tsx').includes('data-cta-label="law-siblings"'), '同じ法令の記事に計測ラベルが無い');
   const page = read('src/app/topics/[slug]/page.tsx');
   assert.ok(page.includes('data-cta-label="topic-related"') && page.includes('data-cta-label="topic-page"'), 'テーマページの回遊に計測ラベルが無い');
+  assert.ok(read('src/components/category/CategoryTopics.tsx').includes('data-cta-label="category-topics"'), '資格のハブの「テーマから探す」に計測ラベルが無い');
+  assert.ok(read('src/components/category/CategoryPage.tsx').includes('<CategoryTopics'), '資格のハブからテーマへのリンクが外れている');
   assert.ok(read('.claude/scripts/fetch-ga4-cta-clicks.mjs').includes('"internal_nav_click"'), 'fetch-ga4-cta-clicks が internal_nav_click を取っていない');
 });
 

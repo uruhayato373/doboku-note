@@ -162,6 +162,21 @@ export function countTopicDirections(topic, docs, categoryMap, standardDocs, can
 }
 
 /**
+ * 記事型・フラグのタグ（structural / flag）しか持たない記事か（§5-3 の最小構成＝資格・科目か主題のタグを欠く）。
+ * 過去問（問題ごとに用語へつなぐ）・転職とキャリア・模範論文は別のナビでつなぐので対象外。
+ * こうした記事は関連記事のどの算法にも掛からず、どの記事からも選ばれない（2026-10-21 に試験の手続きのガイド 12 本）。
+ * @param {{ group?: string, tags?: string[], published?: boolean }} doc tags は正規表記
+ * @param {(tag: string) => string | undefined} classOf
+ */
+export function lacksSubjectTags(doc, classOf) {
+  if (!doc || doc.published === false) return false;
+  const tags = doc.tags ?? [];
+  if (['primary', 'secondary', 'past-exam'].includes(String(doc.group))) return false;
+  if (tags.includes('career') || tags.includes('模範論文')) return false;
+  return !tags.some((tag) => !['structural', 'flag'].includes(classOf(tag) ?? 'topical'));
+}
+
+/**
  * 昇格基準 (2) の判定。方向ごとの件数が閾値以上なら「埋まった」とし、埋まった方向が minDirections 以上なら公開ハブにできる。
  * @param {{exam:number, practice:number, standards:number}} counts countTopicDirections の結果
  * @param {{minDirections:number, thresholds:Record<string, number>}} promotion content-taxonomy.json の topicPromotion

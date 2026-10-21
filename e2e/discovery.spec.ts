@@ -68,6 +68,12 @@ test('記事末から同じテーマ・同じ法令の他の資格・実務へ�
   expect(hrefs.every(h => !h.startsWith('/exam/civil-construction-1/'))).toBe(true);
 });
 
+test('資格のハブから、この資格の記事が属すテーマへ移動できる', async ({ page }) => {
+  await page.goto('/exam/civil-construction-1');
+  const topics = page.locator('[data-cta-label="category-topics"]');
+  await expect(topics.locator('a[href="/topics/construction-management"]')).toBeVisible();
+});
+
 test('育成中のテーマは noindex・公開ハブは index で、関連するテーマへ移動できる', async ({ page }) => {
   await page.goto('/topics/railways');
   await expect(page.locator('meta[name="robots"]')).toHaveAttribute('content', /noindex/);

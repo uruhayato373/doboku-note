@@ -72,7 +72,7 @@ frontmatter `group` の語彙は 7 値。定義は**問題形式**で与え、�
 
 ### 5-3. 記事に付けるタグの最小構成
 
-資格・科目タグを 1 つ以上 ＋ 主題タグを 1 つ以上。structural を書かない（group で表す）。`career` / `模範論文` は該当時のみ。同じ語の別名を並べない。
+資格・科目タグを 1 つ以上 ＋ 主題タグを 1 つ以上。structural を書かない（group で表す）。`career` / `模範論文` は該当時のみ。同じ語の別名を並べない。試験の概要・申込・勉強法のように主題が無いガイドも、資格・科目か学習の型のタグを 1 つ以上付ける。**記事型・フラグのタグしか持たない記事**（過去問・キャリア・模範論文を除く）は関連記事のどの算法にも掛からずどこからも選ばれないので、`check-content-taxonomy` が `--staged` で赤、`--ci` で baseline の `subjectless` とのラチェットで止める（2026-10-21 に 12 本を直して 0 本）。
 
 ## 6. 横断テーマ（topics）と回遊の配線
 
@@ -101,19 +101,20 @@ frontmatter `group` の語彙は 7 値。定義は**問題形式**で与え、�
 
 - **同じ法令を扱う記事**: 「この記事の根拠法令」の法令ごとに、同じ法令を本文で引く他の記事を最大 3 本（他の資格・実務を先に、資格が重ならないように）。法令は `build-doc-meta-index` が本文の e-Gov へのリンクから `lawIds` に入れる（`config/egov-laws.json` にある法令だけ）。
 - **この記事のテーマ**: 記事が属するテーマ（最大 3 つ。明示が先）ごとに、テーマのページへのリンクと、同じテーマを他の資格・実務で扱う記事を最大 3 本（資格が重ならないように）。テーマの記事が自分だけなら出さない。
-- **関連記事**（`rankRelated`）: 共有するタグの点は class で変える（主題 10・資格 3・学習の型 0）、同じテーマ 1 つにつき 6、同じ資格に 2。技術テーマ（主題タグかテーマ）を 1 つも共有しない記事は関連にしない。足りなければ資格・学習の型の共有で補う（`fallbackScore`）。同じ資格は 6 件中 4 件まで。**同点は記事の組ごとの擬似乱数**（`stableTieBreak`。更新日の順にすると新しい記事に関連が集中し、どこからも選ばれない記事が増える）。
+- **関連記事**（`rankRelated`）: 共有するタグの点は class で変える（主題 10・資格 0・学習の型 0。資格タグを数えると付け忘れた記事が同点で毎回負ける）、同じテーマ 1 つにつき 6、同じ資格に 2。技術テーマ（主題タグかテーマ）を 1 つも共有しない記事は関連にしない。足りなければ資格・学習の型の共有で補う（`fallbackScore`）。同じ資格は 6 件中 4 件まで。**同点は記事の組ごとの擬似乱数**（`stableTieBreak`。更新日の順にすると新しい記事に関連が集中し、どこからも選ばれない記事が増える）。
 - テーマのページ: 「関連するテーマ」（記事を多く共有するテーマ 4 つ）を末尾に置く。`/topics` の一覧は軸ごと。
+- 資格のハブ（`/exam/{資格}`）: 記事一覧の後ろに「テーマから探す」（この資格の記事が属すテーマを、この資格の記事の多い順に。`getTopicsForCategory`）。資格 → テーマの向きの回遊。
 
 ### 6-4. 点検と計測
 
 | いつ | 何が | 何を見る |
 |---|---|---|
-| commit | `check-content-taxonomy --staged` | 新規・変更記事の所属漏れ・未登録タグ・別名綴り（赤） |
-| CI | `check-content-taxonomy --ci`・`check-topic-wiring`・`tests/topic-wiring-rules.test.mjs`・quality-audit `report-generators` の `taxonomy-wiring-report` | 軸・状態・タグの行き先（HARD）、所属漏れ（ラチェット）、入口記事の実在、記事末の配線と計測ラベル、報告の完走 |
+| commit | `check-content-taxonomy --staged` | 新規・変更記事の所属漏れ・記事型のタグだけ・未登録タグ・別名綴り（赤） |
+| CI | `check-content-taxonomy --ci`・`check-topic-wiring`・`tests/topic-wiring-rules.test.mjs`・quality-audit `report-generators` の `taxonomy-wiring-report` | 軸・状態・タグの行き先（HARD）、所属漏れと記事型のタグだけの記事（ラチェット）、入口記事の実在、記事末の配線と計測ラベル、報告の完走 |
 | 週次 | `npm run check-taxonomy-wiring`（review-checks の点検。赤なら `npm run report-taxonomy-wiring`） | 所属なし・行き先の無いタグ・昇格の食い違い（要対応） |
 | 月次 | `npm run report-taxonomy-wiring` | 三方向と昇格、取りこぼし（関連記事のどこからも選ばれない記事・記事の多い noTopic のタグ＝新テーマの候補）、回遊の質（他の資格の割合・同じ法令の記事）、計測 |
 
-計測は GA4 の `internal_nav_click` を `event_label` で分ける（`fetch-metrics` が週次で by-label を取る）: `topic-hub:hub`（テーマのページへ）・`topic-hub:article`（テーマのカードの記事へ）・`law-siblings`（同じ法令の記事へ）・`topic-page`（テーマページの記事へ）・`topic-related`（関連するテーマへ）・`topics-index:{facet}`（一覧から）・`related-articles`（関連記事）。レポートが無いときは「未取得」と書き、0 として扱わない。
+計測は GA4 の `internal_nav_click` を `event_label` で分ける（`fetch-metrics` が週次で by-label を取る）: `topic-hub:hub`（テーマのページへ）・`topic-hub:article`（テーマのカードの記事へ）・`law-siblings`（同じ法令の記事へ）・`topic-page`（テーマページの記事へ）・`topic-related`（関連するテーマへ）・`topics-index:{facet}`（一覧から）・`category-topics`（資格のハブから）・`related-articles`（関連記事）。レポートが無いときは「未取得」と書き、0 として扱わない。
 
 ## 7. 原本 class × 展開先の加工ルール
 

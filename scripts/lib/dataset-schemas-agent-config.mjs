@@ -75,6 +75,8 @@ const ContentTaxonomyBaseline = z
     structuralMismatch: z.array(z.unknown()),
     // テーマへの所属が要るのにどのテーマにも属さない記事（slug 集合・content-taxonomy.md §6-2）
     topicless: z.array(z.string()),
+    // 記事型・フラグのタグしか持たない記事（slug 集合・content-taxonomy.md §5-3）
+    subjectless: z.array(z.string()),
   })
   .strict();
 

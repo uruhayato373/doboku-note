@@ -8,7 +8,10 @@
 /**
  * 共有タグ 1 つあたりの点（class 別）。
  * - topical（技術テーマ）が主役。
- * - qualification（資格・科目・年度）は弱く数える。強く数えると同じ資格の記事だけが並ぶ（2026-10 までの関連記事がそうだった。他の資格の割合 2%）。
+ * - qualification（資格・科目・年度）は関連度に数えない（技術テーマの共有が無いときの補い fallbackScore でだけ使う）。
+ *   強く数えると同じ資格の記事だけが並び（2026-10 までの関連記事。他の資格の割合 2%）、弱く数えても、資格のタグを
+ *   付け忘れた記事が同点の勝負で毎回負けてどの記事からも選ばれなくなる（総監のキーワード 43 本。2026-10-21）。
+ *   総監の 5 管理のように科目名がテーマを兼ねるタグは、テーマの共有（SHARED_TOPIC_POINTS）で数える。
  * - learning（試験対策・出題傾向などの学習の型）は数えない。技術テーマではないので、どの記事とも「関連」になってしまう。
  */
 export const TAG_WEIGHT = Object.freeze({ topical: 10, qualification: 3, learning: 0, structural: 0, flag: 0 });
@@ -34,18 +37,16 @@ const isStructural = (cls) => cls === 'structural' || cls === 'flag';
 export function relatedScore(current, candidate, { tagClass, topicsOf }) {
   const currentTags = new Set((current.tags ?? []).filter((t) => !isStructural(tagClass(t))));
   let themePoints = 0;
-  let qualificationPoints = 0;
   for (const tag of candidate.tags ?? []) {
     if (!currentTags.has(tag)) continue;
     const cls = tagClass(tag);
-    if (cls === 'qualification') qualificationPoints += TAG_WEIGHT.qualification;
-    else themePoints += TAG_WEIGHT[cls] ?? 0;
+    if (cls !== 'qualification') themePoints += TAG_WEIGHT[cls] ?? 0;
   }
   const currentTopics = new Set(topicsOf(current));
   themePoints += topicsOf(candidate).filter((slug) => currentTopics.has(slug)).length * SHARED_TOPIC_POINTS;
   // 資格・年度だけが同じ記事は関連に数えない（技術テーマの共有が前提）
   if (themePoints === 0) return 0;
-  return themePoints + qualificationPoints + (candidate.category === current.category ? SAME_CATEGORY_POINTS : 0);
+  return themePoints + (candidate.category === current.category ? SAME_CATEGORY_POINTS : 0);
 }
 
 /**

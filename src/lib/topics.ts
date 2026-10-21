@@ -103,6 +103,19 @@ export function getRelatedTopics(topic: Topic, limit = 4): { topic: Topic; share
     .map(([slug, count]) => ({ topic: getTopicBySlug(slug)!, shared: count }));
 }
 
+/**
+ * 資格（カテゴリ）の記事が属すテーマ（資格のハブの「テーマから探す」）。この資格の記事が minDocs 本以上あるテーマを、
+ * この資格の記事の多い順に。資格 → テーマの向きの回遊（記事 → テーマは記事末の「この記事のテーマ」）。
+ */
+export function getTopicsForCategory(docs: DocMeta[], minDocs = 1): { topic: Topic; inCategory: number; total: number }[] {
+  const counts = new Map<string, number>();
+  for (const doc of docs) for (const topic of getDocTopics(doc)) counts.set(topic.slug, (counts.get(topic.slug) ?? 0) + 1);
+  return topics
+    .filter((topic) => (counts.get(topic.slug) ?? 0) >= minDocs)
+    .map((topic) => ({ topic, inCategory: counts.get(topic.slug) ?? 0, total: getTopicDocs(topic).length }))
+    .sort((a, b) => b.inCategory - a.inCategory || a.topic.slug.localeCompare(b.topic.slug));
+}
+
 export function getTopicStandards(topic: Topic): StandardDocument[] {
   const featured = new Set(topic.featuredStandardRefs ?? []);
   return getStandardDocuments().filter((document) => {

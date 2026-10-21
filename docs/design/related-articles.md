@@ -27,7 +27,7 @@
 rankRelated(currentMeta, categoryArticles, limit = 6, exclude = new Set())
 ```
 
-- 共有するタグの点は `tags.json` の class で変える（主題 topical 10・資格 qualification 3・学習の型 learning 0・structural/flag 0）。同じテーマ（topics.json）1 つにつき +6、同じ資格（カテゴリ）に +2
+- 共有するタグの点は `tags.json` の class で変える（主題 topical 10・資格 qualification 0・学習の型 learning 0・structural/flag 0）。同じテーマ（topics.json）1 つにつき +6、同じ資格（カテゴリ）に +2。資格タグを数えると、付け忘れた記事が同点の勝負で毎回負けるので数えない（総監の 5 管理のように科目名がテーマを兼ねるタグはテーマの共有で数える）
 - 技術テーマ（主題タグかテーマ）を 1 つも共有しない記事は関連にしない。limit に満たなければ資格・学習の型の共有で補う（`fallbackScore`）
 - 自分自身・非公開（`published === false`）・`exclude`（記事末の先のカードで出した記事）は除外
 - 同じ資格は limit の 4/6 まで。他の資格・実務の候補が足りなければ同じ資格で埋める
