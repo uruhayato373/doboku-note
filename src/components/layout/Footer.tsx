@@ -7,6 +7,7 @@ const siteLinks = [
   ['/tools', '計算・演習'],
   ['/standards', '基準類・仕様書'],
   ['/topics', 'テーマ別索引'],
+  ['/laws', '法令の解説'],
   ['/about', '運営者情報'],
   ['/contact', 'お問い合わせ'],
   ['/privacy', 'プライバシーポリシー'],

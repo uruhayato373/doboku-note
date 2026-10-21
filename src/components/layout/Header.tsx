@@ -99,6 +99,17 @@ const Tags = ({ className }: IconProps) => (
   </SvgIcon>
 );
 
+// lucide "scale"（/laws 法令の解説。2026-10-21 まではテーマのページと記事末からしか辿れなかった）
+const Scale = ({ className }: IconProps) => (
+  <SvgIcon className={className}>
+    <path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z" />
+    <path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z" />
+    <path d="M7 21h10" />
+    <path d="M12 3v18" />
+    <path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2" />
+  </SvgIcon>
+);
+
 const Layers = ({ className }: IconProps) => (
   <SvgIcon className={className}>
     <path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z" />
@@ -306,6 +317,14 @@ export default function Header() {
               </Link>
 
               <Link
+                href="/laws"
+                className="focus-ring flex flex-col items-center gap-1 text-(--ink-body) hover:text-(--accent) hover:bg-(--accent-fill) px-3 py-2 rounded-card-inline transition-colors"
+              >
+                <Scale className="w-5 h-5" />
+                <span className="text-[11px] font-medium">法令</span>
+              </Link>
+
+              <Link
                 href="/standards"
                 className="focus-ring flex flex-col items-center gap-1 text-(--ink-body) hover:text-(--accent) hover:bg-(--accent-fill) px-3 py-2 rounded-card-inline transition-colors"
               >
@@ -425,6 +444,15 @@ export default function Header() {
             >
               <Layers className="w-5 h-5" />
               <span className="font-medium">テーマから探す</span>
+            </Link>
+
+            <Link
+              href="/laws"
+              onClick={closeMenu}
+              className="focus-ring flex min-h-11 items-center gap-3 text-(--ink-body) hover:text-(--accent) hover:bg-(--accent-fill) px-3 py-2.5 rounded-card-inline transition-colors"
+            >
+              <Scale className="w-5 h-5" />
+              <span className="font-medium">法令の解説</span>
             </Link>
 
             {/* 教材（/links）リンク */}
