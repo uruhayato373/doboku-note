@@ -967,7 +967,7 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 
 ### [DN-0480] KDP の CI 取得（Secrets で入り直し）を 10/16・10/28 の実行で評価し、続けるか戻すかを決める
-タグ: [インフラ・計測] [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-10-01] [期日:2026-11-05]
+タグ: [インフラ・計測] [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-10-01] [期日:2026-11-05] [進行中]
 
 **起点**: 2026-10-01 にユーザー決定で、KDP も GitHub Secrets（`DOBOKU_AUTH_KDP_USER` / `_PASSWORD`）を持たせ、`login-collectors.yml` の KDP を `enabled:true` に戻して試すことにした。9/21 は CI の state 復元で Amazon が端末変更として再認証を求め、手元のセッションまで切れたため `enabled:false` にしていた。今回は CI の「Re-login with Secrets」と各 PC の毎日のログイン維持（17:45）で入り直せる形にしてある。
 
