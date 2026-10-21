@@ -453,3 +453,13 @@ config/ogp/backgrounds/*.png
 # 使う直前に npm run asset-hydrate -- --group kindle-dist で取り戻す（CI は ci.yml が取り戻す）
 scripts/kindle-dist/*.epub
 scripts/kindle-dist/*.jpg
+
+# refresh-indexes の生成物のうち、読み手がサイトの build（build は先に refresh-indexes を回す）と、
+# 生成してから読むものだけのもの（DN-0804）。追跡すると生成のし直し忘れで CI が赤くなり、行の並びの差分も出る。
+# 手元で必要なら npm run refresh-indexes（演習データは npm run dev の predev でも作る）。
+public/llms.txt
+public/llms-full.txt
+public/data/pe-cem-frequent-topics.csv
+public/quiz/civil-1.json
+public/quiz/pe-first-stage.json
+src/config/pillar-exam-questions.json
