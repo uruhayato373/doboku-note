@@ -128,11 +128,17 @@ test('法令名は、法令ページが無ければ解説記事（explainsLaw）
   await expect(card.locator('a[href="/exam/pe-comprehensive-management/keywords/air-pollution-control-act"]')).toHaveCount(0);
 });
 
-test('総監の大きなテーマは、記事の一覧をキーワード集の節で区切り、入口記事を「はじめに読む」に出す', async ({ page }) => {
+test('総監の大きなテーマは、記事の一覧をキーワード集の節で区切り、入口記事を「はじめに読む」に出す', async ({ page }, testInfo) => {
   await page.goto('/topics/economic-management');
   await expect(page.getByRole('heading', { name: 'はじめに読む' })).toBeVisible();
   await expect(page.locator('main ul.mb-6 a[href="/exam/pe-comprehensive-management/pillar/economic-management-pillar"]')).toBeVisible();
   await expect(page.locator('main details p', { hasText: '2.1 事業企画' })).toHaveCount(1);
-  // ヘッダーから法令の一覧へ
-  await expect(page.locator('header a[href="/laws"]').first()).toBeVisible();
+  // ヘッダーから法令の一覧へ（法令はカテゴリとして資格一覧の「資格を問わない実務・法令」に並ぶ。スマホはメニューの中）
+  if (testInfo.project.name === 'mobile-chromium') {
+    await page.getByRole('button', { name: 'メニューを開く', exact: true }).evaluate((button: HTMLButtonElement) => button.click());
+    await expect(page.getByRole('dialog', { name: 'メニュー', exact: true }).locator('a[href="/laws"]')).toBeVisible();
+  } else {
+    await page.locator('header').getByRole('button', { name: /資格一覧/ }).click();
+    await expect(page.locator('header a[href="/laws"]')).toBeVisible();
+  }
 });
