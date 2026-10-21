@@ -1,11 +1,8 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { readFileSync } from 'node:fs';
-import { join } from 'node:path';
 import { parseBacklog, findOrphanHeadings, KINDS, CANONICAL_CATEGORIES } from '../scripts/lib/backlog-lib.mjs';
 import { validateCards, validateStagedLines } from '../scripts/check-backlog-schema.mjs';
 import { signatureTokens, duplicateCandidates } from '../scripts/check-backlog-health.mjs';
-import { REPO_ROOT as ROOT } from '../scripts/lib/repository-paths.mjs';
 
 /**
  * 語彙定数（KINDS / CANONICAL_CATEGORIES）が load-bearing であることを**挙動で**固定する。
@@ -103,22 +100,6 @@ test('重複候補は共有トークン数のしきい値で決まる', () => {
   assert.deepEqual([pairs[0].a.line, pairs[0].b.line], [1, 2]);
 });
 
-// --- 実 backlog に対する健全性（検査ゼロを PASS と呼ばない） ---------------------
-
-test('実 backlog がスキーマゲートを通る（違反 0）', () => {
-  const text = readFileSync(join(ROOT, '.claude/todo/backlog.md'), 'utf8');
-  const cards = parseBacklog(text);
-  const pkg = JSON.parse(readFileSync(join(ROOT, 'package.json'), 'utf8'));
-  const baseline = JSON.parse(readFileSync(join(ROOT, '.claude/config/backlog-vocab-baseline.json'), 'utf8'));
-  assert.ok(cards.length > 0, 'backlog にカードが 1 件もない');
-  const v = validateCards(cards, findOrphanHeadings(text), {
-    rawHeadingCount: (text.match(/^### /gm) ?? []).length,
-    npmScripts: new Set(Object.keys(pkg.scripts)),
-    allowedCategories: new Set([...CANONICAL_CATEGORIES, ...Object.keys(baseline.categories)]),
-  });
-  assert.deepEqual(v, [], `違反: ${JSON.stringify(v, null, 2)}`);
-});
-
 // 2026-08-18: docstring に rule 9 と書かれていたのに未実装だった。[起票:] は手入力ゆえ
 // 91 枚中 61 枚で欠落し、鮮度検査 S5 が構造的に発火しなくなっていた（git blame での補完は
 // partial clone がコールドだと打ち切られる）。入口で埋めるラチェットを挙動で固定する。
@@ -166,17 +147,6 @@ test('重複 ID は違反（採番の再利用を止める）', () => {
   const v = validateCards(cards, [], { ...OPTS, rawHeadingCount: 2 });
   assert.deepEqual(v.map((x) => x.rule), ['id-duplicate']);
 });
-
-test('実 backlog は全カードが一意な DN-#### を持つ', () => {
-  const text = readFileSync(join(ROOT, '.claude/todo/backlog.md'), 'utf8');
-  const cards = parseBacklog(text);
-  assert.ok(cards.length > 0, 'backlog にカードが 1 件もない');
-  const ids = cards.map((c) => c.id);
-  assert.equal(ids.filter(Boolean).length, cards.length, 'ID の無いカードがある');
-  assert.equal(new Set(ids).size, cards.length, 'ID が重複している');
-  assert.ok(ids.every((id) => /^DN-\d{4}$/.test(id)), 'DN-#### 形式でない ID がある');
-});
-
 test('優先度の見出しの外のカードと、形式の違う [時期:] は違反になる（2026-09-26）', () => {
   const text = [
     '## 凡例', '', '| ## 🔴 高 | 来月 |', '', '### [DN-0901] 凡例に紛れたカード', 'タグ: [収益化] [種類:改善]', '',

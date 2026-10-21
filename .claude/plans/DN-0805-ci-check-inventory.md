@@ -5,7 +5,17 @@ createdAt: 2026-10-21
 deleteOnComplete: true
 ---
 
-# DN-0805 検査の棚卸し材料（Pre-merge check の失敗実績 2026-09-14〜10-20）
+# DN-0805 検査の棚卸し材料
+
+## 判断（2026-10-21・運営者「全て推奨案で」）
+
+- **退役**: public-bloat（build の prebuild が同じ検査を必ず回す）・frequent-topics（generated-indexes が refresh-indexes を丸ごと回す）を quality-audit から外した。generated-indexes の退役は DN-0804（生成物の追跡をやめる）の完了が前提なので、それまで残す。
+- **格下げ**: knip-ratchet・review-wiring・x-card-render・codex-compat・x-review を ci から ops（日次 ops-audit → automation-failure Issue）へ。「週次の報告」は読み手が無いので ops にした。pre-commit の同名の検査（x-review・knip-ratchet・review-wiring）は別の一覧なので commit 前では引き続き止まる。
+- **統合（束ねる）**: admin-ui（3）・workflow-static（3）・sns-urls（3）・report-generators（11）を quality-audit の `steps` で 4 項目に。実行する内容は変えていない。
+- **統合（二重の実データのテストを外す）**: project-task-refs・orphan-ogp（2 本）・content-series・topic-wiring（ファイルごと）・qualification-market・backlog-schema（2 本）。検査と pre-commit が同じ判定を回す。youtube-authority-metadata は通常動画まで見ていて youtube-shorts の検査と範囲が同じと言い切れないので残した。
+- **見送り**: standards-data の quality-audit 側（`tests/e2e-execution.test.mjs` が「CI で生成漏れを飛ばさない」意図で固定している）。information-architecture・content-layout は保留のまま（定義の追随と移行完了の確認が先）。
+- **残す 112 本**: 案どおり（コンテンツ品質・台帳整合・本番 SSR は対象外）。
+（Pre-merge check の失敗実績 2026-09-14〜10-20）
 
 - 対象の実行数: **650**（develop への push の失敗 305 + base が develop の pull_request の失敗 345）。base が main の PR の失敗 18 件（develop→main の昇格 PR）は集計から除いた（failures.json の runs には残してある）
 - ログを取れた実行: **649** / 取れなかった実行: **1**（run 36953791939。PR #817 の 14 分かかった実行で `gh run view --log-failed` が "log not found"。ジョブも空で、検査名は取れない。0 件に混ぜず別に数えた）

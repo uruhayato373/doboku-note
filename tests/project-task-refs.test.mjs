@@ -1,11 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { readFileSync } from 'node:fs';
-import { join } from 'node:path';
 import { auditProjectDoc } from '../scripts/check-project-task-refs.mjs';
-import { parseBacklog } from '../scripts/lib/backlog-lib.mjs';
-import { REPO_ROOT as ROOT } from '../scripts/lib/repository-paths.mjs';
-import { listFiles } from '../scripts/lib/fs-walk.mjs';
 
 const IDS = new Set(['DN-0001', 'DN-0026']);
 
@@ -90,22 +85,6 @@ test('「次のアクション」配下の ID 無し未チェックは warning�
 test('次のアクション以外の見出し配下の未チェックは warning にしない（受入条件が混ざるため）', () => {
   const md = ['## 受入条件', '', '- [ ] 字数検査が通る'].join('\n');
   assert.deepEqual(auditProjectDoc('docs/strategy/a.md', md, IDS).warnings, []);
-});
-
-// 実リポジトリに対する健全性（検査ゼロを PASS と呼ばない・§9）
-test('実 docs/ は error 0（廃止参照・参照切れなし）', () => {
-  const backlog = readFileSync(join(ROOT, '.claude/todo/backlog.md'), 'utf8');
-  const ids = new Set(parseBacklog(backlog).map((c) => c.id).filter(Boolean));
-  assert.ok(ids.size > 0, 'backlog ID が 1 件もない');
-
-  const files = listFiles(join(ROOT, 'docs'), { allowMissing: true, ext: '.md' });
-  assert.ok(files.length > 30, `docs/ の .md が異常に少ない: ${files.length}`);
-
-  const errors = files.flatMap((abs) => {
-    const rel = `docs/${abs.slice(join(ROOT, 'docs').length + 1).split('\\').join('/')}`;
-    return auditProjectDoc(rel, readFileSync(abs, 'utf8'), ids).errors;
-  });
-  assert.deepEqual(errors, [], `error: ${JSON.stringify(errors.slice(0, 5), null, 2)}`);
 });
 
 // todo-complete が削除前に呼ぶ: 閉じる ID を指す live 文書を列挙する（2026-09-24 DN-0299 の参照切れ）
