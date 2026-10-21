@@ -2,23 +2,59 @@ name: Playwright E2E
 
 on:
   pull_request:
+    # サイトの画面とビルドの手順が変わる PR だけで回す（DN-0803）。検査・運用・SNS・note のスクリプトや package.json の
+    # scripts だけの変更は ci.yml の build（実際にビルドする）と夜間の E2E に任せる。依存の変更は package-lock.json で拾う。
+    # ビルドの手順（package.json の prebuild・build が npm run でたどるスクリプト）は下に全部書き、tests/e2e-paths.test.mjs が
+    # scripts/lib/build-chain.mjs で手順をたどって漏れを止める（手順のスクリプトが読む lib の変更は夜間の E2E が見る）。
     paths:
       - "src/**"
       - "public/**"
-      - "content/**"
-      - "scripts/**"
-      # 画面に出ない検査・フック系だけの変更では E2E を回さない（build 自体の破損は ci.yml の build が見る）
-      - "!scripts/check-*.mjs"
-      - "!scripts/pre-commit-*.mjs"
-      - "!scripts/install-pre-commit.mjs"
-      - "!scripts/lib/pre-commit-steps.mjs"
-      - "!scripts/quality-audit.mjs"
-      - "package.json"
-      - "package-lock.json"
+      - "content/site/**"
+      # src/ が src の外から import するもの（DN-0808。tests/e2e-paths.test.mjs が siteImportedFiles で漏れを止める）
+      - "config/affiliate-placements.json"
+      - "config/cta-placements.json"
+      - "config/egov-laws.json"
+      - "config/policy-registry.json"
+      - "config/exam-calendar.json"
+      - "config/keiken-answer-sheet-limits.json"
+      - "config/note-funnel.json"
+      - "config/product-lineup.json"
+      - "config/qualification-registry.json"
+      - "config/seo-meta-config.json"
+      - "config/standards-structure.json"
+      - "config/utm-templates.json"
+      - "config/x-account.json"
+      - "scripts/lib/qualification-names.mjs"
+      - "scripts/lib/repository-paths.mjs"
       - "next.config.mjs"
+      - "package-lock.json"
       - "playwright.config.ts"
       - "e2e/**"
       - ".github/workflows/e2e.yml"
+      # ビルドの手順
+      - "scripts/clean-build-output.mjs"
+      - "scripts/generate-sitemap.mjs"
+      - "scripts/generate-rss.mjs"
+      - "scripts/check-public-bloat.mjs"
+      - "scripts/build-frequent-topics.mjs"
+      - "scripts/build-llms-txt.mjs"
+      - "scripts/build-popular-pages.mjs"
+      - "scripts/build-public-route-redirects.ts"
+      - "scripts/build-quiz-data.mjs"
+      - "scripts/build-standards-data.ts"
+      - "scripts/check-standards-data.mjs"
+      - "scripts/parse-exam-questions.mjs"
+      - ".claude/scripts/build-civil-exam-textbook-index.mjs"
+      - ".claude/scripts/build-doc-meta-index.mjs"
+      - ".claude/scripts/build-note-published-index.mjs"
+      - ".claude/scripts/build-pillar-exam-questions.mjs"
+      - ".claude/scripts/build-tag-index.mjs"
+      - ".claude/scripts/generate-webp.mjs"
+      - ".claude/scripts/sns/parse-civil-1-questions.mjs"
+      - ".claude/scripts/sns/parse-civil-2-questions.mjs"
+      - ".claude/scripts/update-mdx-image-refs.mjs"
+      - ".claude/skills/quality/exam-backlinks/scripts/build-exam-backlinks.mjs"
+      - ".claude/skills/quality/exam-backlinks/scripts/build-keyword-relations.mjs"
   # コンテンツは develop へ直 push されるため PR 経路の E2E を通らない。MDX コンポーネントの誤用で
   # 画面が壊れても ci.yml（build + check-seo-build）は通ることがあるので、develop を夜間 1 回だけ回す。
   # schedule はデフォルトブランチ（main）版の workflow で動くが、checkout は develop に向ける。

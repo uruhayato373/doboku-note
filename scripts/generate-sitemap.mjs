@@ -8,6 +8,7 @@ import { buildLegacySitemapUrls, renderLegacySitemap, LEGACY_SITEMAP_FILE, LEGAC
 import { SITE_ORIGIN } from './lib/site-identity.mjs';
 import { parseRouteTable } from './lib/legacy-routes.mjs';
 import { buildRobotsTxt } from './lib/robots-txt.mjs';
+import { siteSlugFromParts } from '../src/lib/site-slug.mjs';
 
 const OUT_DIR = 'out';
 const POSTS_DIR = SITE_CONTENT_ROOT;
@@ -93,10 +94,8 @@ function walkMdxFiles(dir, gitDatesLazy, segments = [], results = []) {
     }
     if (!entry.isFile() || !entry.name.endsWith('.mdx')) continue;
 
-    const baseName = entry.name.replace(/\.mdx$/, '');
-    const slugParts = baseName === 'article' ? segments : [...segments, baseName];
-    if (slugParts.length === 0) continue;
-    const slug = slugParts.join('-');
+    const slug = siteSlugFromParts(segments, entry.name);
+    if (!slug) continue;
 
     const fileContents = readFileSync(full, 'utf8');
     const { data } = matter(fileContents);
@@ -132,7 +131,7 @@ function getUrlMeta(urlPath, slug) {
   if (urlPath.startsWith('/category/')) {
     return { priority: '0.9', changefreq: 'weekly' };
   }
-  if (urlPath === '/exam' || urlPath === '/practice' || urlPath === '/standards' || urlPath === '/topics') {
+  if (urlPath === '/exam' || urlPath === '/practice' || urlPath === '/standards' || urlPath === '/topics' || urlPath === '/laws') {
     return { priority: '0.9', changefreq: 'weekly' };
   }
   if (/^\/exam\/[^/]+$/.test(urlPath) || /^\/standards\/[^/]+$/.test(urlPath) || /^\/topics\/[^/]+$/.test(urlPath)) {
@@ -149,6 +148,10 @@ function getUrlMeta(urlPath, slug) {
   // 長い章（一般施工など）を分けた節ページ。章ページは節の一覧になり、本文はここにある。
   if (/^\/standards\/[^/]+\/[^/]+\/chapters\/[^/]+\/sections\/[^/]+$/.test(urlPath)) {
     return { priority: '0.7', changefreq: 'yearly' };
+  }
+  // 法令ページ（/laws/<参考文献の id>・DN-0731）。法令の解説と、その法令を扱う記事・計画の束ね
+  if (/^\/laws\/[^/]+$/.test(urlPath)) {
+    return { priority: '0.8', changefreq: 'monthly' };
   }
   if (urlPath === '/search' || urlPath === '/_not-found') {
     return null;

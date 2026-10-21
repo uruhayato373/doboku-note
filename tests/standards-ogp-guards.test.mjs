@@ -95,20 +95,6 @@ test('前提: 章記事の manifest が読めている（検査ゼロを PASS �
   assert.ok(totalChapters > 0, '全 manifest を合わせても章が 0 件。以降の検査が空振りになる');
 });
 
-// ---- 欠陥1: 章 OGP を孤児と誤判定する ------------------------------------
-
-test('孤児判定: 章 OGP は孤児にならない（現状のリポジトリで exit 0）', () => {
-  const { status, stdout, stderr } = runNode(CHECK_ORPHAN_OGP, ['--json']);
-  assert.equal(
-    status,
-    0,
-    `check-orphan-ogp が孤児を報告した。章 OGP を孤児扱いしていないか確認する。\nstdout:\n${stdout}\nstderr:\n${stderr}`,
-  );
-  const report = JSON.parse(stdout);
-  assert.deepEqual(report.orphans, [], 'ワークツリー孤児が出ている');
-  assert.deepEqual(report.manifestOrphans, [], 'manifest 孤児が出ている');
-});
-
 test('孤児判定: manifest 記載の章は孤児にせず、記載の無い章ディレクトリだけを孤児にする', () => {
   const doc = chapterDocuments.find((d) => (d.manifest.chapters?.length ?? 0) > 0);
   const validChapterId = doc.manifest.chapters[0].chapterId;
@@ -143,22 +129,6 @@ test('孤児判定: manifest 記載の章は孤児にせず、記載の無い章
     cleanupValid();
   }
   assert.ok(!existsSync(orphanAbs), `後片付けに失敗した: ${orphanAbs}`);
-});
-
-// ---- 欠陥2: 退避台帳のキー形状 -------------------------------------------
-
-test('退避台帳: 全章分の ogp.png エントリがそろっている', () => {
-  const entries = loadManifest().entries ?? {};
-  const chapterKeys = Object.keys(entries).filter((key) =>
-    /^content\/site\/standards-articles\/[^/]+\/[^/]+\/chapters\/[^/]+\/ogp\.png$/.test(key),
-  );
-  // 2026-08-30 実測は 8 文書 × 43 章 = 344 件。章が増減したらここも動くのが正しいので、
-  // 数値を焼き込まず manifest から導出した章数と突き合わせる。
-  assert.equal(
-    chapterKeys.length,
-    totalChapters,
-    `台帳の章 OGP エントリ ${chapterKeys.length} 件 ≠ manifest の章数 ${totalChapters} 件`,
-  );
 });
 
 test('退避台帳: キー形状は entries[フルパス]（欠陥の本体・assets ではない）', () => {

@@ -26,6 +26,7 @@ import { generateHeadingId, extractHeadings } from '#lib/heading-id.mjs';
 import { buildKeywordHref } from '#src/lib/keyword-href.mjs';
 import { REPO_ROOT as ROOT, SITE_CONTENT_ROOT } from '../../../../../../../scripts/lib/repository-paths.mjs';
 import { slugFromKey } from '../../../../../../../scripts/lib/url-normalization.mjs';
+import { siteSlugFromParts } from '../../../../../../../src/lib/site-slug.mjs';
 
 const SITE_DIR = SITE_CONTENT_ROOT;
 const NOTE_DIR = path.join(ROOT, 'content', 'note');
@@ -62,10 +63,8 @@ function findSiteMdxFiles(dir, basePath = []) {
       if (name === 'img') continue;
       results.push(...findSiteMdxFiles(fullPath, [...basePath, name]));
     } else if (entry.isFile() && entry.name.endsWith('.mdx')) {
-      const slugPath = name === 'article' ? basePath : [...basePath, name];
-      if (slugPath.length > 0) {
-        results.push({ slug: slugPath.join('-'), filePath: fullPath });
-      }
+      const slug = siteSlugFromParts(basePath, entry.name);
+      if (slug) results.push({ slug, filePath: fullPath });
     }
   }
   return results;
@@ -119,8 +118,8 @@ function normalizeHref(href) {
   if (h.startsWith('/category/')) return { kind: 'category', href: h };
   const base = h.split('#')[0];
   // 2026-08-22 移行後の新 URL（note 原稿は DN-0289 で張り替え済み）は旧 slug へ戻して同じ検査にかける。
-  // 戻せないもの（/standards・/topics の独自ページ等）は従来どおり対象外。
-  if (/^\/(exam|practice|standards|topics)\//.test(base)) {
+  // 戻せないもの（/standards・/topics の独自ページ等）は従来どおり対象外。法令ページ（/laws/<id>）も 2026-10-21 から同じ検査にかける。
+  if (/^\/(exam|practice|standards|topics|laws)\//.test(base)) {
     const slug = slugFromKey(base);
     if (slug) return { kind: 'docs', href: `/docs/${slug}${h.slice(base.length)}` };
   }

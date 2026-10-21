@@ -113,3 +113,38 @@ export function foldGscTotal(result) {
   if (![row.clicks, row.impressions, row.ctr, row.position].every(Number.isFinite)) throw new Error('GSC 全体集計に数値の欠測があります');
   return { startDate: result.meta.startDate, endDate: result.meta.endDate, rowCount: 1, truncated: result.meta.truncated === true, meta: result.meta, rows: [row] };
 }
+
+/**
+ * ページ別の取り方ごとの合計（DN-0806）。国で絞ったページ別は検索語の分かる分だけの集計になり、匿名化された
+ * 検索語の分が入らない（DN-0759・W41 は byPage 全体の 8%）。急落・減衰の検出をどの取り方に切り替えるかを
+ * 決めるために、同じ週で取り方を変えた合計と byPage 全体を並べて残す。country を渡すと keys の 2 番目が
+ * その国の行だけを足す（dimensions [page, country]）。
+ *
+ * @param {{ startDate: string, endDate: string, byPageTotal: { clicks: number, impressions: number } | null,
+ *   variants: { name: string, result: { meta: object, rows: { keys: string[], clicks: number, impressions: number }[] }, country?: string }[] }} input
+ */
+export function foldGscCoverage({ startDate, endDate, byPageTotal, variants }) {
+  const share = (n, total) => (total ? Math.round((n / total) * 1000) / 10 : null);
+  return {
+    startDate,
+    endDate,
+    byPageTotal,
+    variants: variants.map(({ name, result, country }) => {
+      const rows = country ? result.rows.filter((r) => r.keys[1] === country) : result.rows;
+      const clicks = rows.reduce((a, r) => a + r.clicks, 0);
+      const impressions = rows.reduce((a, r) => a + r.impressions, 0);
+      return {
+        name,
+        dimensions: result.meta.dimensions,
+        filters: result.meta.filters ?? [],
+        ...(country ? { keepCountry: country } : {}),
+        rowCount: rows.length,
+        truncated: result.meta.truncated === true,
+        clicks,
+        impressions,
+        clickSharePct: share(clicks, byPageTotal?.clicks),
+        impressionSharePct: share(impressions, byPageTotal?.impressions),
+      };
+    }),
+  };
+}

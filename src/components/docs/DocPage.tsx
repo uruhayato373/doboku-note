@@ -41,6 +41,7 @@ import MidArticleCta from '@/components/ui/MidArticleCta/MidArticleCta';
 import CareerAffiliate from '@/components/ui/CareerAffiliate/CareerAffiliate';
 import { rankRelated } from '@/lib/related-score';
 import { extractReferencesSection } from '@/lib/extract-references';
+import { lawsOfArticle } from '@/lib/article-laws';
 import type { Pluggable } from 'unified';
 import { pixelFor, resolvePlacements } from '@/lib/affiliate-placement';
 import type React from 'react';
@@ -285,6 +286,8 @@ export async function renderDocPage(slugStr: string) {
   // 参考資料セクションを本文から抽出して別カードに切り出す
   // → 本文・TOC の両方から ## 参考資料 が消え、<ExternalReferences> として表示される
   const { strippedContent, references } = extractReferencesSection(doc.content);
+  // 根拠法令は参考資料の節のリンクも含めて全文から集める（DN-0731）
+  const articleLawList = lawsOfArticle(doc.content, doc.meta.explainsLaw);
 
   // Extract headings for Table of Contents
   const headings = extractHeadings(
@@ -503,6 +506,7 @@ export async function renderDocPage(slugStr: string) {
               endBanner={careerPlacements['article-end'] ?? null}
               careerPixelSrc={careerPixel?.slot === 'article-end' ? careerPixel.pixelSrc : undefined}
               references={references}
+              laws={articleLawList}
               category={category}
               docGroup={docGroup}
               slugStr={slugStr}

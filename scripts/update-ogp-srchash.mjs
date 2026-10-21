@@ -57,8 +57,9 @@ import path from 'node:path';
 import matter from 'gray-matter';
 
 import { REPO_ROOT, SITE_CONTENT_ROOT } from './lib/repository-paths.mjs';
-import { loadManifest, writeManifestAtomic } from './lib/asset-storage.mjs';
+import { loadManifest, loadManifestRaw, writeManifestAtomic } from './lib/asset-storage.mjs';
 import { computeOgpSrcHash } from './lib/ogp-srchash.mjs';
+import { siteSlugFromParts } from '../src/lib/site-slug.mjs';
 
 const POSTS_DIR = SITE_CONTENT_ROOT;
 const categories = JSON.parse(
@@ -102,8 +103,7 @@ function findMdx(dir, parts = []) {
 }
 
 function buildFullSlug(parts, file) {
-  const base = file.replace(/\.mdx$/, '');
-  return base === 'article' ? parts.join('-') : [...parts, base].join('-');
+  return siteSlugFromParts(parts, file);
 }
 
 function resolveOgpPath(fullSlug) {
@@ -260,7 +260,8 @@ function runWrite(args) {
     return;
   }
 
-  const manifest = loadManifest();
+  // 書き戻すので展開しない台帳で読む（展開した台帳を書くと送っていない lean な行まで欄が増える・DN-0801）
+  const manifest = loadManifestRaw();
   const entries = manifest.entries || {};
   let updated = 0;
   const skippedNoEntry = [];

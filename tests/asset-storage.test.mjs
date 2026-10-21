@@ -10,13 +10,14 @@
  * R2 へはアクセスしない（純関数だけを対象にする）。
  */
 import { strict as assert } from 'node:assert';
-import { mkdirSync, writeFileSync, rmSync } from 'node:fs';
+import { mkdirSync, writeFileSync, rmSync, readFileSync, statSync } from 'node:fs';
 import { join } from 'node:path';
 import test from 'node:test';
 import {
   loadConfig, groupFor, r2KeyFor, mimeFor, bucketForFile, visibilityFor,
   findSecrets, sanitizeEntry, cachePathFor, emptyManifest, toPosix,
   migrateManifestToLeanFormat, expandManifestFromLeanFormat, AUDIENCE_RULES,
+  loadManifest, loadManifestRaw, writeManifestAtomic, mergeOffloadedEntry,
 } from '../scripts/lib/asset-storage.mjs';
 import { REPO_ROOT as ROOT } from '../scripts/lib/repository-paths.mjs';
 
@@ -290,4 +291,96 @@ test('config の invariants に「確認できないものは消さない」旨�
   assert.match(joined, /dry-run/i);
   assert.match(joined, /sha256/i);
   assert.match(joined, /ローカルにも Git にも残す/);
+});
+
+// --- 台帳の書き戻し（DN-0801）-------------------------------------------------
+// 2026-10-20 の asset-offload --commit は台帳全体を書き直し、(1) 送った OGP の行から srcHash を落とし、
+// (2) 送っていない lean な行へ logicalPath などを足して 2,695 行の差分を作った。
+// 実際の台帳と同じ 3 つの形（旧形式・lean・lean＋srcHash）の行で、差分が送った行の実測の欄だけになることを固定する。
+const MANIFEST_FIXTURE = {
+  entries: {
+    'content/site/civil-construction-1/guide-a/ogp.png': {
+      bucket: 'public', bytes: 585025, generator: 'npm run ogp', group: 'site-ogp-png', height: 630,
+      logicalPath: 'content/site/civil-construction-1/guide-a/ogp.png', mime: 'image/png',
+      r2Key: 'posts/civil-construction-1/guide-a/ogp.png', regenerable: false, requiredBy: ['scripts/check-ogp-coverage.mjs'],
+      sha256: '1'.repeat(64), srcHash: '9c8bd3ac01ed389d', verifiedAt: '2026-08-29T09:13:40.166Z', visibility: 'public', width: 1200,
+    },
+    'content/site/standards-articles/hokkaido/appendix/chapters/1-1/ogp.png': {
+      bucket: 'public', r2Key: 'posts/standards-articles/hokkaido/appendix/chapters/1-1/ogp.png',
+      sha256: '2'.repeat(64), bytes: 74175, visibility: 'public', regenerable: false, group: 'site-ogp-png',
+      verifiedAt: '2026-10-19T03:23:30.339Z', width: 1200, height: 630, srcHash: 'd495abb94f48a7ab',
+    },
+    'content/note/2級土木/x/cover.png': {
+      bucket: 'private', r2Key: 'note/covers/x/cover.png', sha256: '3'.repeat(64), bytes: 1024,
+      visibility: 'private', regenerable: false, group: 'note-cover-png', verifiedAt: '2026-10-20T01:00:00.000Z',
+    },
+  },
+  note: 'fixture',
+  version: 1,
+};
+
+function withManifestFixture(fn) {
+  const dir = join(ROOT, '.tmp', 'test-asset-manifest');
+  rmSync(dir, { recursive: true, force: true });
+  mkdirSync(dir, { recursive: true });
+  const path = join(dir, 'manifest.json');
+  writeFileSync(path, JSON.stringify(MANIFEST_FIXTURE, null, 2) + '\n');
+  try { fn(path); } finally { rmSync(dir, { recursive: true, force: true }); }
+}
+
+test('台帳の書き戻し: 送り直した行は sha256・bytes・verifiedAt だけが変わり、srcHash と送っていない行が残る（DN-0801）', () => {
+  withManifestFixture((path) => {
+    const before = readFileSync(path, 'utf-8');
+    const manifest = loadManifestRaw(path);
+    const sent = ['content/site/civil-construction-1/guide-a/ogp.png', 'content/site/standards-articles/hokkaido/appendix/chapters/1-1/ogp.png'];
+    for (const key of sent) {
+      const prev = manifest.entries[key];
+      // asset-offload の processOne が渡すのと同じ欄（置き場は変わらず、中身だけ作り直した画像）
+      manifest.entries[key] = mergeOffloadedEntry(prev, {
+        group: prev.group, bucket: prev.bucket, r2Key: prev.r2Key, sha256: 'f'.repeat(64), bytes: 4242,
+        visibility: prev.visibility, regenerable: prev.regenerable, verifiedAt: '2026-10-21T00:00:00.000Z', width: 1200, height: 630,
+      });
+    }
+    writeManifestAtomic(manifest, path);
+
+    const a = before.split('\n');
+    const b = readFileSync(path, 'utf-8').split('\n');
+    assert.equal(b.length, a.length, '行が増減した＝送っていない行か欄が書き換わった');
+    const changed = a.flatMap((line, i) => (line === b[i] ? [] : [b[i].trim()]));
+    assert.equal(changed.length, sent.length * 3, '変わった行: ' + changed.join(' / '));
+    for (const line of changed) assert.match(line, /^"(sha256|bytes|verifiedAt)":/);
+    const after = JSON.parse(b.join('\n'));
+    assert.equal(after.entries[sent[0]].srcHash, '9c8bd3ac01ed389d');
+    assert.equal(after.entries[sent[1]].srcHash, 'd495abb94f48a7ab');
+    assert.equal(after.entries[sent[0]].logicalPath, sent[0], '旧形式の行の欄は落とさない');
+  });
+});
+
+test('台帳の書き戻し: 台帳に無い行は lean な新しい行として足す', () => {
+  const e = mergeOffloadedEntry(undefined, {
+    group: 'note-cover-png', bucket: 'private', r2Key: 'k', sha256: 'x', bytes: 1, mime: 'image/png', logicalPath: 'a',
+  });
+  assert.deepEqual(Object.keys(e), ['bucket', 'r2Key', 'sha256', 'bytes', 'group']);
+});
+
+test('台帳の書き戻し: loadManifest（lean な行を展開済み）の台帳は書き戻せない（DN-0801）', () => {
+  withManifestFixture((path) => {
+    const before = readFileSync(path, 'utf-8');
+    const hydrated = loadManifest(path);
+    assert.equal(hydrated.entries['content/note/2級土木/x/cover.png'].logicalPath, 'content/note/2級土木/x/cover.png', '読む側には展開される');
+    assert.throws(() => writeManifestAtomic(hydrated, path), /loadManifestRaw/);
+    assert.equal(readFileSync(path, 'utf-8'), before);
+  });
+});
+
+test('台帳の書き戻し: 同じ中身なら書かない', () => {
+  withManifestFixture((path) => {
+    const ino = statSync(path).ino;
+    writeManifestAtomic(loadManifestRaw(path), path);
+    assert.equal(statSync(path).ino, ino, '同じ中身で置き換えた');
+    const changed = loadManifestRaw(path);
+    changed.entries['content/note/2級土木/x/cover.png'].bytes = 2048;
+    writeManifestAtomic(changed, path);
+    assert.notEqual(statSync(path).ino, ino, '中身が変わったのに置き換わっていない（この検査が効いていない）');
+  });
 });

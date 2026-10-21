@@ -1,5 +1,5 @@
 import { getMagazine, buildMagazineUrl, type MagazineId } from '@/lib/note-magazines';
-import examCalendar from '../../config/exam-calendar.json';
+import { examDayEndUtcMs } from '@/lib/exam-dates';
 import { qualificationShortLabel } from '@/lib/qualification-names';
 import { withNoteUtm } from '@/lib/note-utm';
 import { mokujiFor } from '@/lib/note-mokuji';
@@ -26,16 +26,6 @@ type HubCtaSpec = {
 /** もくじタイルの補足行。資格によらず「この先が有料教材の一覧」であることだけを示す。 */
 const MOKUJI_SUB = '有料教材をまとめて確認';
 
-type CivilExamId = 'civil-construction-1' | 'civil-construction-2';
-
-function examDayEndUtcMs(examId: CivilExamId, eventId: 'second'): number {
-  const date = examCalendar.exams[examId].events[eventId].date;
-  const timestamp = Date.parse(`${date}T23:59:59+09:00`);
-  if (!Number.isFinite(timestamp)) {
-    throw new Error(`Invalid exam date in 試験日程（config.exam-calendar）: ${examId}.${eventId}`);
-  }
-  return timestamp;
-}
 
 const HUB: Partial<Record<string, HubCtaSpec>> = {
   'civil-construction-1': {
@@ -68,14 +58,14 @@ const HUB: Partial<Record<string, HubCtaSpec>> = {
     themeVar: '--exam-pe',
     examKey: 'tankan',
     mokuji: { title1: '記述式・R8予想', title2: 'キーワード対策' },
-    seasonal: { switchUtcMs: Date.UTC(2026, 6, 19), product: 'r8-essay-forecast', sub: '出る6テーマ×専門' },
+    seasonal: { switchUtcMs: examDayEndUtcMs('pe-comprehensive-management', 'written'), product: 'r8-essay-forecast', sub: '出る6テーマ×専門' },
   },
   'pe-construction': {
     bg: '/images/cta-bg/pe-construction.webp',
     themeVar: '--exam-pe-construction',
     examKey: 'pe-construction',
     mokuji: { title1: '必須I・選択科目', title2: '模範解答集' },
-    seasonal: { switchUtcMs: Date.UTC(2026, 6, 20), product: 'pe-construction-required-magazine', sub: 'R03-R07＋R8予想' },
+    seasonal: { switchUtcMs: examDayEndUtcMs('pe-construction', 'written'), product: 'pe-construction-required-magazine', sub: 'R03-R07＋R8予想' },
   },
 };
 

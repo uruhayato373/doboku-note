@@ -24,6 +24,7 @@ import matter from 'gray-matter';
 import { writeJsonIfChanged } from '../../scripts/lib/write-generated.mjs';
 import { REPO_ROOT as ROOT } from '../../scripts/lib/repository-paths.mjs';
 import { listFiles } from '../../scripts/lib/fs-walk.mjs';
+import { siteSlugFromRel } from '../../src/lib/site-slug.mjs';
 
 const POSTS_ROOT = join(ROOT, 'content/site');
 const TAGS_ALLOWLIST_PATH = join(ROOT, 'src/config/tags.json');
@@ -34,9 +35,7 @@ const TYPO_MAX_USED = 100; // Levenshtein チェックを走らせる上限
 // ── slug 生成 ──────────────────────────────────────────────────
 
 function toSlug(filePath) {
-  const rel = relative(POSTS_ROOT, filePath);
-  const withoutExt = rel.replace(/\.mdx$/i, '');
-  return withoutExt.split(/[\\/]/).filter((s) => s && s !== 'article').join('-');
+  return siteSlugFromRel(relative(POSTS_ROOT, filePath));
 }
 
 // ── 同数タグの並びをマシン非依存に固定する ──────

@@ -266,11 +266,13 @@ content/sns/instagram/**/reels/concat.txt
 # 過去7日で70回commit・97.7MB の履歴肥大の主因だった（1.42MB×70版）。predev / CI 側の
 # 明示ステップで再生成する（真実源: .claude/scripts/build-doc-meta-index.mjs）。2026-08-29。
 src/config/doc-meta-index.json
+# tag-dictionary.json も全 MDX の tags から build-tag-index.mjs が作る生成物。読み手（build-keyword-relations）の前に
+# refresh-indexes（build-indexes）が作るので追跡しない。生成日時と件数だけの差分で 2 か月 235 回変わっていた（DN-0792）。
+src/config/tag-dictionary.json
 
 # quality:audit の生成レポート（baseline はコミットする・reportは生成物）
 .claude/state/quality/audit-latest.json
 .claude/state/quality/audit-latest.md
-.claude/state/quality/env-inventory.json
 .claude/state/quality/image-audit.json
 .claude/state/quality/image-audit.md
 
@@ -451,3 +453,13 @@ config/ogp/backgrounds/*.png
 # 使う直前に npm run asset-hydrate -- --group kindle-dist で取り戻す（CI は ci.yml が取り戻す）
 scripts/kindle-dist/*.epub
 scripts/kindle-dist/*.jpg
+
+# refresh-indexes の生成物のうち、読み手がサイトの build（build は先に refresh-indexes を回す）と、
+# 生成してから読むものだけのもの（DN-0804）。追跡すると生成のし直し忘れで CI が赤くなり、行の並びの差分も出る。
+# 手元で必要なら npm run refresh-indexes（演習データは npm run dev の predev でも作る）。
+public/llms.txt
+public/llms-full.txt
+public/data/pe-cem-frequent-topics.csv
+public/quiz/civil-1.json
+public/quiz/pe-first-stage.json
+src/config/pillar-exam-questions.json

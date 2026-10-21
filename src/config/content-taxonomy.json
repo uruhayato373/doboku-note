@@ -2,22 +2,160 @@
   "$comment": "コンテンツ分類の語彙。領域（area）・記事型（group）・タグ class の定義。値の所有は categories.json / tags.json / topics.json。規則の真実源は .claude/knowledge/reference/content-taxonomy.md。runtime は src/lib/content-taxonomy.ts、検査は scripts/lib/content-taxonomy.mjs を通す。",
   "version": 1,
   "areas": {
-    "exam": { "label": "資格試験", "hubPath": "/exam" },
-    "practice": { "label": "土木施工の実務", "hubPath": "/practice" },
-    "standards": { "label": "公的基準", "hubPath": "/standards" }
+    "exam": {
+      "label": "資格試験",
+      "hubPath": "/exam"
+    },
+    "practice": {
+      "label": "土木施工の実務",
+      "hubPath": "/practice"
+    },
+    "standards": {
+      "label": "公的基準",
+      "hubPath": "/standards"
+    },
+    "laws": {
+      "label": "法令",
+      "hubPath": "/laws"
+    }
   },
   "groups": {
-    "guide": { "label": "試験ガイド", "routeSegment": "guide", "docGroupKey": "guide", "structuralTags": ["guide", "index"] },
-    "pillar": { "label": "分野ハブ", "routeSegment": "pillar", "docGroupKey": "pillar", "structuralTags": ["pillar", "guide"] },
-    "textbook": { "label": "テキスト", "routeSegment": "textbook", "docGroupKey": "textbook", "structuralTags": ["textbook"] },
-    "keyword": { "label": "キーワード", "routeSegment": "keywords", "docGroupKey": "keyword", "structuralTags": ["keyword"] },
-    "primary": { "label": "択一式 過去問・演習", "routeSegment": "primary", "docGroupKey": "primary", "structuralTags": ["primary", "past-questions", "択一式", "original-questions"] },
-    "secondary": { "label": "記述式 対策", "routeSegment": "secondary", "docGroupKey": "secondary", "structuralTags": ["secondary", "past-questions", "記述式"] },
-    "past-exam": { "label": "記述式 過去問", "routeSegment": "past-exams", "docGroupKey": "pastExam", "structuralTags": ["past-questions", "択一式", "記述式"] }
+    "guide": {
+      "label": "試験ガイド",
+      "routeSegment": "guide",
+      "docGroupKey": "guide",
+      "structuralTags": [
+        "guide",
+        "index"
+      ]
+    },
+    "pillar": {
+      "label": "分野ハブ",
+      "routeSegment": "pillar",
+      "docGroupKey": "pillar",
+      "structuralTags": [
+        "pillar",
+        "guide"
+      ]
+    },
+    "textbook": {
+      "label": "テキスト",
+      "routeSegment": "textbook",
+      "docGroupKey": "textbook",
+      "structuralTags": [
+        "textbook"
+      ]
+    },
+    "keyword": {
+      "label": "キーワード",
+      "routeSegment": "keywords",
+      "docGroupKey": "keyword",
+      "structuralTags": [
+        "keyword"
+      ]
+    },
+    "primary": {
+      "label": "択一式 過去問・演習",
+      "routeSegment": "primary",
+      "docGroupKey": "primary",
+      "structuralTags": [
+        "primary",
+        "past-questions",
+        "択一式",
+        "original-questions"
+      ]
+    },
+    "secondary": {
+      "label": "記述式 対策",
+      "routeSegment": "secondary",
+      "docGroupKey": "secondary",
+      "structuralTags": [
+        "secondary",
+        "past-questions",
+        "記述式"
+      ]
+    },
+    "past-exam": {
+      "label": "記述式 過去問",
+      "routeSegment": "past-exams",
+      "docGroupKey": "pastExam",
+      "structuralTags": [
+        "past-questions",
+        "択一式",
+        "記述式"
+      ]
+    }
   },
   "flags": {
-    "career": { "requiresGroup": "guide", "note": "転職・キャリア記事。isCareerDoc() の真実源。学習系の一覧から除外される" },
-    "模範論文": { "requiresGroup": null, "note": "一覧・カテゴリページから非表示（DocPage/CategoryPage が読む）" }
+    "career": {
+      "requiresGroup": "guide",
+      "note": "転職・キャリア記事。isCareerDoc() の真実源。学習系の一覧から除外される"
+    },
+    "模範論文": {
+      "requiresGroup": null,
+      "note": "一覧・カテゴリページから非表示（DocPage/CategoryPage が読む）"
+    }
   },
-  "tagClasses": ["structural", "flag", "qualification", "topical", "learning"]
+  "tagClasses": [
+    "structural",
+    "flag",
+    "qualification",
+    "topical",
+    "learning"
+  ],
+  "topicFacets": {
+    "field": {
+      "label": "分野・工種",
+      "note": "コンクリート・道路・河川・港湾など、構造物と工種のまとまり"
+    },
+    "management": {
+      "label": "施工管理・マネジメント",
+      "note": "工程・品質・安全・環境・維持管理と、総監の 5 管理"
+    },
+    "law": {
+      "label": "法令・制度",
+      "note": "関係法令と行政の手続き。個々の法令は記事本文の e-Gov へのリンクから集める（タグにしない）"
+    },
+    "audience": {
+      "label": "読み手・立場",
+      "note": "自治体の土木職など、読み手の立場で記事と試験対策・有料教材を束ねる。技術の分野ではないので分野のタグと一緒に付ける"
+    }
+  },
+  "topicStatuses": {
+    "hub": {
+      "label": "公開ハブ",
+      "index": true,
+      "note": "昇格基準（content-taxonomy.md §6）を満たす。検索に出し、サイトマップに載せる"
+    },
+    "incubating": {
+      "label": "育成中",
+      "index": false,
+      "note": "基準を満たすまで noindex・サイトマップ外。ページと記事からのリンクは出す"
+    }
+  },
+  "topicPromotion": {
+    "note": "昇格基準 (2)。方向ごとの件数が閾値以上なら「埋まった」とし、埋まった方向が minDirections 以上なら公開ハブにできる。判定は check-content-taxonomy の WARN（自動では切り替えない）",
+    "minDirections": 2,
+    "thresholds": {
+      "exam": 5,
+      "practice": 1,
+      "standards": 1
+    }
+  },
+  "lawPages": {
+    "note": "法令ページ（/laws/・content-taxonomy.md §6-3）の候補の決め方。minDocs 本以上の記事が本文で引き、法令ページも解説記事（frontmatter の explainsLaw）も無い法令を、月次の報告（report-taxonomy-wiring）が次に作る候補に挙げる。作らない法令は skip に法令 ID と理由を書く（check-topic-wiring が ID の実在と、法令ページを作ったのに残った skip を止める）",
+    "minDocs": 5,
+    "skip": {
+      "129AC0000000089": "民法は一般法。土木の記事（8 本）は請負・使用者責任・不法行為・管理などの条を 1 か所ずつ引くだけで、条が重ならない",
+      "321CONSTITUTION": "日本国憲法は、行政の根拠や労働基本権の説明で 1 か所ずつ引くだけ（7 本）",
+      "329AC0000000097": "建設機械抵当法は、1級の建設機械のテキスト 8 本が参考資料の欄に挙げるだけで、本文で条を引く記事が無い"
+    }
+  },
+  "noTopicReasons": {
+    "audience": "読み手・シリーズの主題で、立場のテーマ（facet: audience）にまだしないもの。分野のタグと一緒に付ける",
+    "org": "組織・業態（ゼネコン・建設コンサル）",
+    "source": "出典・資料の名前（白書・便覧・仕様書）",
+    "method": "考え方・分析の手法（トレードオフ・SWOT分析）",
+    "generic": "広すぎて 1 つのテーマに束ねられない語"
+  }
 }

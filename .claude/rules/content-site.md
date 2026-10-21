@@ -16,10 +16,11 @@ CLAUDE.md §2/§3/§11 の記事規約の詳細。真実源は [content-authorin
 
 ## 書き方
 
-- Convention A（個別ファイル名・`civil-construction-1/`）と Convention B（`article.mdx`・`pe-comprehensive-management/`）が共存する。新規は B 推奨。既存ファイルの方式を勝手に変換しない
+- 記事は全資格 `content/site/<資格>/<slug>/article.mdx` の 1 形式（旧 Convention A の個別ファイル名は 0 本。`tests/content-site-layout.test.mjs` が他の名前を止める）
 - 絵文字禁止（`<Callout type="...">` で表現）。数式は KaTeX 一択（`$$...$$` / `$...$`）。表は 2 軸比較のみ・4 列以上禁止。見出しは H2 以下（H1 は frontmatter から自動生成）
 - Callout の選び方は視覚ギャラリー [callout-gallery.md](../../docs/design/callout-gallery.md) と [Callout/README.md](../../src/components/ui/Callout/README.md)。仕様書調リストは [speclist-gallery.md](../../docs/design/speclist-gallery.md) と [SpecSheetList/README.md](../../src/components/ui/SpecSheetList/README.md)
 - frontmatter 必須: `title` / `seoTitle` / `description` / `category` / `tags` / `published`。`created` / `dateModified` も frontmatter が真実源（欠けるとビルドが git 履歴へフォールバックし、sitemap lastmod と JSON-LD datePublished がリネームや履歴書換えで動く。検査 `npm run check-mdx-dates`、書き込みは pre-commit の `backfill-mdx-dates --staged`。ただし本文・title・seoTitle・description が変わらない frontmatter だけの commit（tags / sources 配線など）では `dateModified` を動かさない＝sitemap lastmod は Googlebot のクロール優先度信号で、一括配線で数百ページを「更新」と申告すると信号ごと無視される）
+- 用語・章・実務の記事・法令ページと、主題タグを持つガイドは、どれかの横断テーマに属す（分野・管理のタグを付けるか、タグで決まらない総論は `topics: [slug]`）。新しい主題タグは行き先（テーマか `noTopic`）を決めてから `tags.json` に登録する。pre-commit の `check-content-taxonomy --staged` が所属漏れを止める（[content-taxonomy.md](../knowledge/reference/content-taxonomy.md) §6-2）
 - 書き込みは `lib/mdx-io.mjs` の `writeMdxFile` 経由（直接 `writeFileSync` は CRLF 混在を起こし pre-commit で reject される）。書き込み後は `U+FFFD`（`﹖`）で文字化けを走査する
 - 図・写真を追加・置換するときは `**/img/**` を開くと assets-images ルールが載る（判定フロー・出典表記は [image-policy.md](../knowledge/reference/image-policy.md)、`figure-*.svg` の固定キャンバスは [figure-canvas-policy.md](../knowledge/reference/figure-canvas-policy.md)）。過去問の問題図に解答情報を入れない
 - 過去問（primary/secondary）は正答・全選択肢の正誤・ExamPoint（引っかけ 1 行＋items 最大 2）・RelatedKeywords（civil は `civil-construction-1-` 接頭辞）を守る。新年度の過去問は `exam-keyword-map.json` へ追記して backlink を配線する
@@ -27,7 +28,7 @@ CLAUDE.md §2/§3/§11 の記事規約の詳細。真実源は [content-authorin
 ## 完了条件
 
 - PDF→MDX 変換は `/verify-pdf-mdx` でルーブリック ≥ 2.0
-- MDX 追加・変更後は `npm run refresh-indexes` を実行してから commit（backlinks・cross-exam・tags・pillar 問題・頻出論点のインデックス不整合を防ぐ）。過去問記事では演習データ `src/config/*-exam-questions.json`・`public/quiz/*.json` も作り直されるので同じ commit に含める。問題を足す・ID を変えたら `npm run sync-past-exam-ledger -- --write`（問題台帳・`check-past-exam-ledger` が CI で止める）
+- MDX 追加・変更後は `npm run refresh-indexes` を実行してから commit（backlinks・cross-exam・tags・pillar 問題・頻出論点のインデックス不整合を防ぐ）。過去問記事では演習データ `src/config/*-exam-questions.json` も作り直されるので同じ commit に含める（`public/quiz/*.json` は git で追跡しない生成物・DN-0804）。問題を足す・ID を変えたら `npm run sync-past-exam-ledger -- --write`（問題台帳・`check-past-exam-ledger` が CI で止める）
 - 1 記事の修正が完了したら即 commit（`git add` は変更したファイルだけ明示）
 - 統合済み記事を再公開しない: `published: true` なのに `_redirects` の転送元になっているとページは在るのに別ページへ飛ぶ（`npm run check-published-vs-redirects`）
 - 太字・GFM テーブルが実際に描画されるか（`npm run check-bold-rendering` / `npm run check-table-rendering`、機械修正は `npm run fix-bold-rendering`）。本文が指す「表N.M」のキャプション実在（`npm run check-table-references`）

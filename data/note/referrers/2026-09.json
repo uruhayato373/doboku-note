@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "month": "2026-09",
-  "fetchedAt": "2026-10-17T00:41:28.476Z",
+  "fetchedAt": "2026-10-21T08:55:39.901Z",
   "source": "note ダッシュボード「アクセス状況」（Playwright read-only・自己閲覧を含む）。流入元は閲覧の経路であり購入経路ではない",
   "period": {
     "from": "2026-09-01",
@@ -215,19 +215,19 @@
     {
       "month": "2026-10",
       "sources": {
-        "no referrer": 9297,
-        "note.com": 801,
-        "Google": 367,
-        "www.bing.com": 383,
-        "search.yahoo.co.jp": 121,
-        "doboku-note.com": 91,
-        "X": 0,
+        "no referrer": 9808,
+        "note.com": 1016,
+        "Google": 449,
+        "www.bing.com": 516,
+        "search.yahoo.co.jp": 156,
+        "doboku-note.com": 142,
+        "X": 7,
         "notification": 1,
         "copilot.microsoft.com": 1,
-        "service.smt.docomo.ne.jp": 4,
-        "other": 9
+        "service.smt.docomo.ne.jp": 5,
+        "other": 12
       },
-      "total": 11075
+      "total": 12113
     }
   ],
   "targetMonth": {
@@ -308,7 +308,7 @@
     "impressions": 101171,
     "pageViews": 13524,
     "likes": 94,
-    "comments": null,
+    "comments": 1,
     "salesYen": 104840
   }
 }

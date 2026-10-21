@@ -3,7 +3,7 @@ import test from 'node:test';
 import { mkdtempSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
-import { egovLinksOf, linkIssues, registryIssues, amendedSince, isLawSource } from '../scripts/lib/egov-laws.mjs';
+import { egovLinksOf, linkIssues, registryIssues, amendedSince, isLawSource, referencedLawIds } from '../scripts/lib/egov-laws.mjs';
 import { readDataset } from '../scripts/lib/dataset-io.mjs';
 import { REPO_ROOT } from '../scripts/lib/repository-paths.mjs';
 
@@ -55,4 +55,30 @@ test('実データ: 参考文献の台帳の法令はすべて e-Gov の法令 I
   const { issues, checked } = registryIssues(sources, readDataset(REPO_ROOT, 'config.egov-laws').laws);
   assert.ok(checked > 0);
   assert.deepEqual(issues, []);
+});
+
+test('referencedLawIds: --sync は法令ページの lawId・lawFamily、解説記事の explainsLaw、計画・施策の根拠法令も写しに残す', () => {
+  const ids = referencedLawIds({
+    docs: [
+      { text: '[道路法](https://laws.e-gov.go.jp/law/327AC1000000180)', data: {} },
+      { text: '本文にリンクなし', data: { lawId: '324AC0000000193', lawFamily: ['423CO0000000428', '412M50004000044'] } },
+      { text: '総監の用語（大気汚染防止法）', data: { explainsLaw: '343AC0000000097' } },
+    ],
+    sources: [{ egov: { lawId: '339AC0000000167' } }, { egov: { none: '条例' } }],
+    policies: [{ basisLaws: ['426AC0000000095'] }, {}],
+  });
+  assert.deepEqual(ids, ['324AC0000000193', '327AC1000000180', '339AC0000000167', '343AC0000000097', '412M50004000044', '423CO0000000428', '426AC0000000095']);
+});
+
+test('referencedLawIds: 実データで、法令ページと計画・施策の台帳が指す法令はすべて --sync の対象に入る', async () => {
+  const { listSiteMdx } = await import('../scripts/lib/mdx-files.mjs');
+  const { default: matter } = await import('gray-matter');
+  const { readFileSync } = await import('node:fs');
+  const docs = listSiteMdx({ allowMissing: true }).map((abs) => { const text = readFileSync(abs, 'utf8'); return { text, data: matter(text).data }; });
+  const policies = readDataset(REPO_ROOT, 'config.policy-registry').policies;
+  const ids = new Set(referencedLawIds({ docs, sources: readDataset(REPO_ROOT, 'config.reference-sources').sources, policies }));
+  const pages = docs.filter((d) => d.data.lawId);
+  assert.ok(pages.length > 0, '法令ページが 0 本（検査していない）');
+  for (const d of pages) for (const id of [d.data.lawId, ...(d.data.lawFamily ?? [])]) assert.ok(ids.has(id), `法令ページの ${id} が --sync で消える`);
+  for (const p of policies) for (const id of p.basisLaws ?? []) assert.ok(ids.has(id), `計画・施策 ${p.id} の ${id} が --sync で消える`);
 });

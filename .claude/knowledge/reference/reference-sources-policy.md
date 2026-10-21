@@ -24,7 +24,7 @@
 - `commercial-book` の逐語転載は一文でも公開しない。記事本文は原本の技術的意味を確認したうえで独自に書き直す。
 - 数値や基準は市販教材から写さず、`external-primary` の法令・規格・指針で取り直す。条番号は
   `labor-safety-rules#第240条` のように ID の後ろへ付けられる。
-- 法令（id が `-act`・`-order`・`-rules`・`japan-constitution`）は `egov.lawId` に e-Gov の法令 ID を持つ（e-Gov に単独で無い改正法の通称は `egov.none` に理由）。記事で条を示すときは e-Gov の条へリンクする（`https://laws.e-gov.go.jp/law/<法令 ID>#Mp-At_<条>`、第32条の2 は `32_2`）。法令 ID と条は写し `config/egov-laws.json` で引き、`npm run egov-laws` が照合する（2026-10-13）
+- 法令（id が `-act`・`-order`・`-rules`・`japan-constitution`）は `egov.lawId` に e-Gov の法令 ID を持つ（e-Gov に単独で無い改正法の通称は `egov.none` に理由）。記事で条を示すときは e-Gov の条へリンクする（`https://laws.e-gov.go.jp/law/<法令 ID>#Mp-At_<条>`、第32条の2 は `32_2`）。法令 ID と条は写し `config/egov-laws.json` で引き、`npm run egov-laws` が照合する（2026-10-13）。写しに残るのは記事のリンク・法令ページの `lawId`・`lawFamily`・この台帳の `egov.lawId`・計画・施策の台帳の `basisLaws` が指す法令だけ
 
 ## 1-2. 台帳へ載せる参照・載せない参照
 

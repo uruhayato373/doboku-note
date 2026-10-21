@@ -68,6 +68,7 @@ function categoryFromPath(path: string): string {
   const exam = path.match(/^\/exam\/([^/]+)/)?.[1];
   if (exam) return exam;
   if (path.startsWith('/practice/')) return 'civil-practice';
+  if (path.startsWith('/laws/')) return 'laws';
   if (path.startsWith('/standards/')) return 'reference-materials';
   return "";
 }

@@ -32,6 +32,7 @@ import matter from 'gray-matter';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 import { listFiles } from './lib/fs-walk.mjs';
 import { runBody, isCliEntry, runAsCli } from './lib/cli-run.mjs';
+import { siteSlugFromRel } from '../src/lib/site-slug.mjs';
 
 // in-process でも呼べるよう run() に包んである（DN-0688・pre-commit-dispatch が import して呼ぶ）。
 // process.argv / process.exit / process.exitCode は runBody が渡す __argv / __exit / __status への読み替え。
@@ -72,11 +73,9 @@ function redirectSources() {
 function walk(dir) {
   const out = [];
   for (const full of listFiles(dir, { ext: '.mdx', allowMissing: true })) {
-    const segments = relative(dir, full).split(sep);
-    const base = segments.pop().replace(/\.mdx$/, '');
-    const parts = base === 'article' ? segments : [...segments, base];
-    if (parts.length === 0) continue;
-    out.push({ file: full, slug: parts.join('-') });
+    const slug = siteSlugFromRel(relative(dir, full));
+    if (!slug) continue;
+    out.push({ file: full, slug });
   }
   return out;
 }

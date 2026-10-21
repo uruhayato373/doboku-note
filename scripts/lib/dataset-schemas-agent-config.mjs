@@ -73,6 +73,10 @@ const ContentTaxonomyBaseline = z
     unknownTags: z.array(z.unknown()),
     aliasUsage: z.record(text, z.unknown()),
     structuralMismatch: z.array(z.unknown()),
+    // テーマへの所属が要るのにどのテーマにも属さない記事（slug 集合・content-taxonomy.md §6-2）
+    topicless: z.array(z.string()),
+    // 記事型・フラグのタグしか持たない記事（slug 集合・content-taxonomy.md §5-3）
+    subjectless: z.array(z.string()),
   })
   .strict();
 
@@ -241,12 +245,18 @@ const StatePathLiteralBaseline = z
   .object({ _doc: note('説明'), files: z.record(relPath, z.number().int().positive()) })
   .strict();
 
+/** スクリプトの共通部品の写しと readJson の写しの基準値（DN-0802・scripts/lib/code-ratchets.mjs） */
+const CodeRatchetBaseline = z
+  .object({ _doc: note('説明'), scriptHelpers: z.record(z.string(), z.number().int().min(0)), readJson: z.number().int().min(0) })
+  .strict();
+
 /** .claude/config/ のファイル名 → 型。ここに無い JSON は check-agent-config が止める */
 export const AGENT_CONFIG_SCHEMAS = {
   'admin-ui-debt-baseline.json': AdminUiDebtBaseline,
   'backlog-vocab-baseline.json': BacklogVocabBaseline,
   'cem-essay-structure.json': CemEssayStructure,
   'cem-textbook-mapping.json': CemTextbookMapping,
+  'code-ratchet-baseline.json': CodeRatchetBaseline,
   'ci-write-operations.json': CiWriteOperations,
   'content-taxonomy-baseline.json': ContentTaxonomyBaseline,
   'gate-parity-baseline.json': GateParityBaseline,

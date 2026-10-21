@@ -19,39 +19,29 @@ import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import test from 'node:test';
 import { REPO_ROOT as ROOT } from '../scripts/lib/repository-paths.mjs';
+import { CHECKS } from '../scripts/quality-audit.mjs';
 
 const SRC = readFileSync(join(ROOT, 'scripts/quality-audit.mjs'), 'utf8');
 
 /**
- * CHECKS のエントリを 1 件ずつ切り出す。
- * `{ id: '...' ... }` の塊を、次の `{ id:` までで区切る（複数行定義にも当たる）。
+ * quality-audit.mjs が export する CHECKS をそのまま読む（DN-0788）。
+ * 以前は本文を正規表現で切り出していたため、複数行の定義の行コメント「（ci:true）」を ci:true と誤読し、
+ * env-inventory を report 区分から外して読み手の検査を素通りさせていた。
  */
-function parseChecks(source) {
-  const start = source.indexOf('const CHECKS = [');
-  assert.ok(start > 0, 'CHECKS 配列が見つからない（定義の形が変わった＝検査不成立）');
-  const body = source.slice(start);
-  const out = [];
-  const re = /\{\s*\n?\s*id:\s*'([a-z0-9-]+)'/g;
-  const heads = [...body.matchAll(re)];
-  for (let i = 0; i < heads.length; i += 1) {
-    const from = heads[i].index;
-    const to = i + 1 < heads.length ? heads[i + 1].index : body.length;
-    const block = body.slice(from, to);
-    out.push({
-      id: heads[i][1],
-      ci: /\bci:\s*true\b/.test(block),
-      digestFalse: /\bdigest:\s*false\b/.test(block),
-      note: /note:\s*'((?:[^'\\]|\\.)*)'/.exec(block)?.[1] ?? '',
-      expectedFail: /expectedFail:\s*'((?:[^'\\]|\\.)*)'/.exec(block)?.[1] ?? null,
-    });
-  }
-  return out;
+function parseChecks() {
+  return CHECKS.map((c) => ({
+    id: c.id,
+    ci: c.ci === true,
+    digestFalse: c.digest === false,
+    note: c.note ?? '',
+    expectedFail: c.expectedFail ?? null,
+  }));
 }
 
 test('expectedFail がある場合は ci:false に限り、理由に期限/Phase が書かれている', () => {
   // 「今は失敗が正常」を ci:true に認めると Pre-merge の判定が空文になる（実装側も exit 2 で止める）。
   // 理由に期限が無いと、いつ外すべきか誰にも分からず居座る。
-  const checks = parseChecks(SRC);
+  const checks = parseChecks();
   const flagged = checks.filter((c) => c.expectedFail != null);
   assert.deepEqual(flagged.filter((c) => c.ci).map((c) => c.id), [], 'ci:true に expectedFail が付いている');
   const vague = flagged.filter((c) => !/Phase|まで|20\d\d-\d\d/.test(c.expectedFail)).map((c) => c.id);
@@ -74,7 +64,7 @@ test('partitionReportOnly: expected は exit に効かず、unexpectedPass は�
 });
 
 test('CHECKS を解析できている（対象 0 件を PASS と呼ばない）', () => {
-  const checks = parseChecks(SRC);
+  const checks = parseChecks();
   assert.ok(checks.length >= 50, `CHECKS が ${checks.length} 件しか取れていない（解析の破損を疑う）`);
   assert.ok(checks.some((c) => c.ci), 'ci:true が 1 件も取れていない');
   assert.ok(checks.some((c) => !c.ci), 'ci:false が 1 件も取れていない');
@@ -84,7 +74,7 @@ test('すべての report 検査（ci:false）が note に読み手を書いて�
   // §9「新規検査を report で追加するときは誰がいつ読むかを決める」を規範から機械ゲートへ。
   // digest に入っていても、note に書かれていなければ半年後に誰も辿れない。
   // digest:false（常に非ゼロの情報出力）は特に、書かないと落ちても誰も気づかない検査になる。
-  const reports = parseChecks(SRC).filter((c) => !c.ci);
+  const reports = parseChecks().filter((c) => !c.ci);
   assert.ok(reports.length >= 8, `report 区分が ${reports.length} 件しか取れていない（解析の破損を疑う）`);
 
   const missing = reports

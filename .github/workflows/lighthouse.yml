@@ -10,14 +10,30 @@ name: Lighthouse CI
 on:
   pull_request:
     paths:
+      # サイトの画面が変わる PR だけ（DN-0803。note・SNS などの content と package.json の scripts だけの変更では回さない）
       - "src/**"
       - "public/**"
-      - "content/**"
+      - "content/site/**"
+      # src/ が src の外から import するもの（DN-0808。tests/e2e-paths.test.mjs が siteImportedFiles で漏れを止める）
+      - "config/affiliate-placements.json"
+      - "config/cta-placements.json"
+      - "config/egov-laws.json"
+      - "config/policy-registry.json"
+      - "config/exam-calendar.json"
+      - "config/keiken-answer-sheet-limits.json"
+      - "config/note-funnel.json"
+      - "config/product-lineup.json"
+      - "config/qualification-registry.json"
+      - "config/seo-meta-config.json"
+      - "config/standards-structure.json"
+      - "config/utm-templates.json"
+      - "config/x-account.json"
+      - "scripts/lib/qualification-names.mjs"
+      - "scripts/lib/repository-paths.mjs"
       - "next.config.mjs"
       - "lighthouserc.json"
       - "scripts/static-server.mjs"
       - ".github/workflows/lighthouse.yml"
-      - "package.json"
       - "package-lock.json"
 
 permissions:

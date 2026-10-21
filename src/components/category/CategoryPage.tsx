@@ -27,24 +27,11 @@ import SidebarAdBanner from '@/components/ui/SidebarAdBanner';
 import { pixelFor, resolvePlacements } from '@/lib/affiliate-placement';
 import CategoryJumpNav from '@/components/category/CategoryJumpNav';
 import CategoryStudyNav from '@/components/category/CategoryStudyNav';
+import CategoryTopics from '@/components/category/CategoryTopics';
 import { SidebarProduct } from '@/components/ui/SidebarDiscovery';
 import { ConcreteEngineerStudy, ConcreteEngineerProduct, ConcreteEngineerRelated } from '@/components/category/ConcreteEngineerResources';
 
-// グループ化レイアウトを持つカテゴリ（持たないものは従来どおりフラットグリッド）。
-const GROUPED_CATEGORIES = new Set([
-  'civil-construction-1',
-  'civil-construction-2',
-  'civil-practice',
-  'pe-comprehensive-management',
-  'pe-first-stage',
-  'concrete-engineer',
-  'concrete-chief-engineer',
-  'concrete-diagnostician',
-  'pe-construction',
-  'rccm',
-  'surveyor',
-  'pavement',
-]);
+// グループ化レイアウトは categories.json の layout.view を持つカテゴリだけ（持たないものはフラットグリッド・DN-0793）
 
 export default async function CategoryPage({
   params,
@@ -61,7 +48,8 @@ export default async function CategoryPage({
   const allDocs = await getDocsMetaByCategory(slug);
   const docs = allDocs.filter(d => d.published !== false && !d.tags?.includes('模範論文') && !d.hideFromCategory);
 
-  const groups = GROUPED_CATEGORIES.has(slug) ? groupDocs(docs, slug) : null;
+  const view = cat?.layout?.view;
+  const groups = view ? groupDocs(docs, slug) : null;
 
   // よく読まれている記事（GA4 実アクセス上位・直近 28 日）。特集ショーケース top3 ＋ サイドバー人気ランキング top5。
   // 計測実績のある記事のみ・データ未生成や該当なしは空配列＝各コンポーネントで graceful 非表示。
@@ -181,19 +169,19 @@ export default async function CategoryPage({
             </div>
           ) : groups ? (
             <div className="space-y-16">
-              {slug === 'civil-construction-1' ? (
+              {view === 'civil-1' ? (
                 <CivilConstruction1View groups={groups} mobileCareerAds={mobileCareerAds} />
-              ) : slug === 'civil-construction-2' ? (
+              ) : view === 'civil-2' ? (
                 <CivilConstruction2View groups={groups} mobileCareerAds={mobileCareerAds} />
-              ) : slug === 'pe-first-stage' ? (
+              ) : view === 'pe-first-stage' ? (
                 <PeFirstStageView groups={groups} mobileCareerAds={mobileCareerAds} />
-              ) : slug === 'pe-comprehensive-management' ? (
+              ) : view === 'pe-comprehensive' ? (
                 <PeComprehensiveView groups={groups} mobileCareerAds={mobileCareerAds} />
-              ) : slug === 'pe-construction' ? (
+              ) : view === 'pe-construction' ? (
                 <PeConstructionView groups={groups} mobileCareerAds={mobileCareerAds} />
-              ) : slug === 'concrete-engineer' || slug === 'concrete-chief-engineer' || slug === 'concrete-diagnostician' || slug === 'rccm' || slug === 'surveyor' || slug === 'pavement' ? (
+              ) : view === 'concrete' ? (
                 <ConcreteView groups={groups} mobileCareerAds={mobileCareerAds} />
-              ) : slug === 'civil-practice' ? (
+              ) : view === 'practice' ? (
                 <PracticeView groups={groups} mobileCareerAds={mobileCareerAds} />
               ) : (
                 <>
@@ -219,6 +207,8 @@ export default async function CategoryPage({
             {popularDocs.length > 0 && (
               <div className="mt-10"><PopularShowcase items={popularDocs.slice(0, 2)} /></div>
             )}
+            {/* 資格 → 横断テーマの向きの回遊（記事 → テーマは記事末の「この記事のテーマ」）。キャリア記事は数えない */}
+            <CategoryTopics docs={docs.filter((d) => !d.tags?.includes('career'))} />
             </div>
             </div>
 

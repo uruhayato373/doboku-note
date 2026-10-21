@@ -16,6 +16,7 @@ import { readdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { join, relative } from 'node:path';
 
 import { REGISTRY_PATH, isQualificationRef, qualificationLabel } from './qualification-registry.mjs';
+import { qualificationRank } from './qualification-names.mjs';
 import { datasetPath } from './datasets.mjs';
 import { readJson } from './json-io.mjs';
 import { escapeRegExp } from './regexp-escape.mjs';
@@ -40,9 +41,11 @@ const JP = '[\\u3040-\\u30ff\\u4e00-\\u9fff]';
  * 実行時に registry を引く形へ揃えるより、npm run sync-qualification-names が名前を書き、検査が registry との一致を見る。
  * 項目の参照先は qualification（無ければ slug）が registry の資格 id か group id のときだけ。
  */
+// orderKey があるファイルは並び順も registry から書く（order = registry の位置 + 1。registry に無い項目は手で書いた order のまま。
+// サイトのナビとトップの資格カードが registry と別の並びになっていた・2026-10-21）
 export const DERIVED_FILES = [
-  { file: 'src/config/categories.json', nameKey: 'label' },
-  { file: 'src/config/home-exam-cards.json', nameKey: 'label' },
+  { file: 'src/config/categories.json', nameKey: 'label', orderKey: 'order' },
+  { file: 'src/config/home-exam-cards.json', nameKey: 'label', orderKey: 'order' },
   { file: 'src/config/tags.json', nameKey: 'name', when: (x) => x.class === 'qualification' },
 ];
 
@@ -61,18 +64,24 @@ export function syncDerivedNames(root, registry, { write = false } = {}) {
       if (d.when && !d.when(x)) continue;
       const ref = x.qualification ?? x.slug;
       if (!isQualificationRef(registry, ref)) continue;
-      const want = qualificationLabel(registry, ref);
-      if (x[d.nameKey] === want) continue;
-      diffs.push({ file: d.file, slug: x.slug, ref, current: x[d.nameKey], want });
-      if (write) {
-        // 同じ slug の項目の中の名前の行だけを置き換える
-        const start = out.indexOf(`"slug": "${x.slug}"`);
-        const end = out.indexOf('}', start);
-        const objStart = out.lastIndexOf('{', start);
-        const seg = out.slice(objStart, end);
-        const line = `"${d.nameKey}": ${JSON.stringify(x[d.nameKey])}`;
-        if (start < 0 || !seg.includes(line)) throw new Error(`${d.file}: ${x.slug} の ${d.nameKey} を書き換えられない`);
-        out = out.slice(0, objStart) + seg.replace(line, `"${d.nameKey}": ${JSON.stringify(want)}`) + out.slice(end);
+      const wants = [[d.nameKey, qualificationLabel(registry, ref)]];
+      if (d.orderKey && d.orderKey in x) {
+        const rank = qualificationRank(registry, ref);
+        if (rank !== null) wants.push([d.orderKey, rank + 1]);
+      }
+      for (const [key, want] of wants) {
+        if (x[key] === want) continue;
+        diffs.push({ file: d.file, slug: x.slug, ref, key, current: x[key], want });
+        if (write) {
+          // 同じ slug の項目の中のその欄の行だけを置き換える
+          const start = out.indexOf(`"slug": "${x.slug}"`);
+          const objStart = out.lastIndexOf('{', start);
+          const end = out.indexOf('\n  }', start);
+          const seg = out.slice(objStart, end);
+          const line = `"${key}": ${JSON.stringify(x[key])}`;
+          if (start < 0 || end < 0 || !seg.includes(line)) throw new Error(`${d.file}: ${x.slug} の ${key} を書き換えられない`);
+          out = out.slice(0, objStart) + seg.replace(line, `"${key}": ${JSON.stringify(want)}`) + out.slice(end);
+        }
       }
     }
     if (write && out !== text) writeFileSync(abs, out);

@@ -10,8 +10,16 @@ import { getAreaLabel, getCategoryArea } from '@/lib/content-taxonomy';
 import { getOgpDisplayUrl } from '@/lib/r2-image-loader';
 import StandardDocumentCard from '@/components/standards/StandardDocumentCard';
 import { buildPageMetadata } from '@/lib/metadata';
-import { getAllTopics, getTopicBySlug, getTopicDocs, getTopicStandards } from '@/lib/topics';
+import Link from 'next/link';
+import TopicIcon from '@/components/topics/TopicIcon';
+import { getAllTopics, getRelatedTopics, getTopicBySlug, getTopicDocs, getTopicStandards, isTopicIndexable } from '@/lib/topics';
 import AffiliateSlot from '@/components/ui/AffiliateSlot/AffiliateSlot';
+import MagazineCard from '@/components/ui/MagazineCard/MagazineCard';
+import { getMagazine, type MagazineId } from '@/lib/note-magazines';
+import { TopicLaws, LawDirectory } from '@/components/topics/TopicLaws';
+import { getLawDirectory, getTopicLaws, getTopicPolicies } from '@/lib/law-wiring';
+import PolicyList from '@/components/laws/PolicyList';
+import { peSectionLabel } from '@/lib/pe-keyword-nav';
 
 type Params = { slug: string };
 
@@ -28,6 +36,8 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
         title: topic.seoTitle ?? `${topic.label}｜試験・実務・基準を横断`,
         description: topic.description,
         path: `/topics/${topic.slug}`,
+        // 育成中のテーマは昇格基準（content-taxonomy.md §6）を満たすまで検索に出さない。サイトマップも out/ の robots を見て外す
+        noindex: !isTopicIndexable(topic),
       })
     : { title: 'テーマが見つかりません', robots: { index: false, follow: false } };
 }
@@ -37,9 +47,17 @@ export default async function TopicPage({ params }: { params: Promise<Params> })
   if (!topic) notFound();
   const docs = getTopicDocs(topic);
   const standards = getTopicStandards(topic);
-  const areaLabels: Record<TopicArea, string> = { exam: getAreaLabel('exam'), practice: getAreaLabel('practice'), standards: getAreaLabel('standards') };
+  const relatedTopics = getRelatedTopics(topic);
+  // 法令と分野・立場は多対多。このテーマの記事が引く法令と、法令・制度の軸のテーマでは法令と分野の対応の一覧
+  const topicLaws = getTopicLaws(topic);
+  const lawDirectory = topic.facet === 'law' ? getLawDirectory({ excludeTopic: topic.slug }) : [];
+  // 制度の地図: このテーマに関わる国の計画・施策・審議会（config/policy-registry.json・根拠法は法令ページへ）
+  const policies = getTopicPolicies(topic.slug);
+  // このテーマの有料教材（分野・立場に合う note の商品。topics.json の products の順・非公開は出さない）
+  const products = (topic.products ?? []).filter((id): id is MagazineId => getMagazine(id as MagazineId) !== null);
+  const areaLabels: Record<TopicArea, string> = { exam: getAreaLabel('exam'), practice: getAreaLabel('practice'), standards: getAreaLabel('standards'), laws: getAreaLabel('laws') };
   const areaCount = (area: TopicArea) => docs.filter(doc => getCategoryArea(String(doc.category)) === area).length;
-  const areaNav = (['exam', 'practice', 'standards'] as TopicArea[])
+  const areaNav = (['laws', 'exam', 'practice', 'standards'] as TopicArea[])
     .map(area => ({ area, count: area === 'standards' ? areaCount(area) + standards.length : areaCount(area) }))
     .filter(({ count }) => count > 0);
 
@@ -70,20 +88,69 @@ export default async function TopicPage({ params }: { params: Promise<Params> })
           </nav>
         )}
         <h2 className="mb-6 font-serif text-2xl font-bold text-(--ink)">試験対策・実務ノート</h2>
+        <div data-cta="nav" data-cta-label="topic-page">
         <TopicArticles articles={docs.map(doc => ({
           href: getPublicDocPath(doc.slug), title: doc.shortTitle || doc.title,
           description: doc.subtitle || doc.description || '', category: String(doc.category),
           categoryLabel: getCategoryLabel(String(doc.category)), image: getOgpDisplayUrl(doc.slug),
           categoryOrder: getCategoryBySlug(String(doc.category))?.order ?? 999, area: getCategoryArea(String(doc.category)),
-          kind: doc.category === 'civil-practice' ? '実務' : doc.category === 'concrete-engineer' && doc.group === 'primary' ? '演習' : ({guide:'受験ガイド', textbook:'テキスト', keyword:'用語', primary:'過去問', secondary:'過去問', 'past-exam':'過去問', pillar:'まとめ'}[String(doc.group)] ?? '解説'),
-        }))} areaLabels={areaLabels} />
+          subgroup: doc.category === 'pe-comprehensive-management' ? peSectionLabel(doc.section) : undefined,
+          kind: doc.category === 'laws' ? '法令' : doc.category === 'civil-practice' ? '実務' : doc.category === 'concrete-engineer' && doc.group === 'primary' ? '演習' : ({guide:'受験ガイド', textbook:'テキスト', keyword:'用語', primary:'過去問', secondary:'過去問', 'past-exam':'過去問', pillar:'まとめ'}[String(doc.group)] ?? '解説'),
+        }))} areaLabels={areaLabels} featured={(topic.featured ?? []).map(getPublicDocPath)} />
+        </div>
       </SectionBlock>
+      {topicLaws.length > 0 && (
+        <SectionBlock divider="top" ariaLabel="このテーマの記事が引く法令">
+          <TopicLaws laws={topicLaws} topicLabel={topic.label} />
+        </SectionBlock>
+      )}
+      {policies.length > 0 && (
+        <SectionBlock divider="top" ariaLabel="このテーマの国の計画・施策・審議会">
+          <h2 className="mb-2 font-serif text-2xl font-bold text-(--ink)">{topic.label}の国の計画・施策・審議会</h2>
+          <p className="mb-6 text-sm text-(--ink-muted)">このテーマの方向を決めている国の計画と施策、審議会の答申です。根拠になる法令とあわせて読めます。</p>
+          <div className="max-w-[780px]"><PolicyList policies={policies} /></div>
+        </SectionBlock>
+      )}
+      {lawDirectory.length > 0 && (
+        <SectionBlock divider="top" ariaLabel="法令と分野の対応">
+          <LawDirectory rows={lawDirectory} />
+        </SectionBlock>
+      )}
       {standards.length > 0 && (
         <SectionBlock divider="top" ariaLabel="関連する基準資料">
           <h2 id="topic-standards" className="mb-6 scroll-mt-24 font-serif text-2xl font-bold text-(--ink)">関連する公的基準・マニュアル</h2>
           <div className="grid gap-4 lg:grid-cols-2">
             {standards.map((document) => <StandardDocumentCard key={`${document.agencyId}-${document.documentId}`} document={document} />)}
           </div>
+        </SectionBlock>
+      )}
+      {products.length > 0 && (
+        <SectionBlock divider="top" ariaLabel="このテーマの有料教材">
+          <h2 className="mb-2 font-serif text-2xl font-bold text-(--ink)">このテーマの有料教材（note）</h2>
+          <p className="mb-2 text-sm text-(--ink-muted)">同じテーマを、資格ごとの模範解答・答案集で深めたいときに。</p>
+          <div className="max-w-[760px]">
+            {products.map((id) => <MagazineCard key={id} id={id} variant="inline" utmContent={`topic-${topic.slug}`} placement="topic-page" />)}
+          </div>
+        </SectionBlock>
+      )}
+      {relatedTopics.length > 0 && (
+        <SectionBlock divider="top" ariaLabel="関連するテーマ">
+          <h2 className="mb-2 font-serif text-2xl font-bold text-(--ink)">関連するテーマ</h2>
+          <p className="mb-6 text-sm text-(--ink-muted)">このテーマの記事が一緒に扱っているテーマです。</p>
+          <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4" data-cta="nav" data-cta-label="topic-related">
+            {relatedTopics.map(({ topic: related, shared }) => (
+              <li key={related.slug}>
+                <Link
+                  href={`/topics/${related.slug}`}
+                  className="focus-ring card-interactive block h-full border border-(--rule-soft) bg-(--paper) p-4 transition-[border-color,box-shadow] hover:border-(--accent) dark:border-(--rule-soft)"
+                >
+                  <TopicIcon slug={related.slug} />
+                  <span className="block font-serif text-base font-bold text-(--ink)">{related.label}</span>
+                  <span className="mt-1 block text-[13px] text-(--ink-muted)">共通の記事 {shared}件</span>
+                </Link>
+              </li>
+            ))}
+          </ul>
         </SectionBlock>
       )}
       {/* 転職の案内（ページ末に 1 枠。案件は配置ルール） */}

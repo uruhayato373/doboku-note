@@ -22,7 +22,6 @@ import { detectEmptyContainers } from "../.claude/skills/quality/check-mdx/scrip
 import { checkLineEndings } from "./lib/line-endings.mjs";
 import { checkImages } from "./lib/check-mdx-images.mjs";
 import { runGates } from "./pre-commit-ci-gates.mjs";
-import { restageQuiz } from "./lib/quiz-restage.mjs";
 import { runBody, isCliEntry, runAsCli } from './lib/cli-run.mjs';
 
 // in-process でも呼べるよう run() に包んである（DN-0688・pre-commit-dispatch が import して呼ぶ）。
@@ -188,9 +187,6 @@ async function main() {
 
   const files = getStagedMdxFiles();
   const svgFiles = getStagedSvgFiles();
-
-  // 演習データの元記事を stage したら、フックの backfill-mdx-dates が進めた dateModified で作り直して stage する（DN-0548）
-  if (!restageQuiz(files).ok) __exit(1);
 
   if (files.length === 0 && svgFiles.length === 0) {
     __exit(0); // Nothing to validate

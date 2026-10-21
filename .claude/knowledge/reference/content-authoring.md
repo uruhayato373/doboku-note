@@ -13,7 +13,7 @@ MDX コンテンツを書く・編集するときの詳細ルール集。
 - このファイルは技術的な書き方ガイド（コンポーネント・構造・画像配信）が主
 - CLAUDE.md 本体には最低限のルール（frontmatter 必須項目・文字化けチェック・`writeMdxFile` 経由・絵文字禁止）だけを残し、編集時の詳細は `.claude/rules/content-site.md` が `content/site/**` を開いたときに載せる
 
-`refresh-indexes` 後の `public/quiz/pe-first-stage.json` の `generatedAt` は、原記事の最新 `dateModified`（`scripts/build-quiz-data.mjs`）であり実行時刻ではない。問題内容が不変でも更新日の差分はコミットし、`node scripts/check-generated-indexes.mjs` の exit 0 で生成物の一致を確認する。技術士一次の MDX を stage した commit では、pre-commit が dateModified を進めた後に演習データを作り直して stage する（`scripts/lib/quiz-restage.mjs`・DN-0548）。
+演習データ（`public/quiz/*.json`）・`public/llms*.txt`・頻出論点の CSV は git で追跡しない生成物（DN-0804・2026-10-21）。本番の build と E2E は先に refresh-indexes を回して作り、手元では `npm run refresh-indexes`（演習データは `npm run dev` の predev でも作る）。commit に含めなくてよい。
 
 **書き終えたときの決定的ゲート**（2026-10-06・サブエージェントの整形が pre-commit で 67 件止まった）:
 - `npx textlint <file>` を 0 件にする。pre-commit の `lint-ja --staged` は**ファイル全体**を見るので、触っていない既存行の全角数字・prh も commit を止める。`--fix` は prh と全角数字を直すが、送り仮名の置換が動詞の活用（〜ります・〜て）に当たっていないか diff を見る
@@ -281,8 +281,10 @@ seoTitle: "検索結果に出す完全タイトル｜資格名・キーワード
 shortTitle: "短縮タイトル"           # ナビ・カード用（10字前後）。group: guide は必須級
 subtitle: "一覧の2行目に出る補足"     # ナビ・カード用（30字程度・2行で打ち切られる）
 description: "50〜160文字の説明"
-category: "civil-construction-1"     # 試験または分野
-tags: ["guide", "primary"]           # 分類タグ（複数可）
+category: "civil-construction-1"     # 試験・分野（法令ページは laws。lawId 必須・施行令などは lawFamily）
+# explainsLaw: 343AC0000000097     # 任意。法令ページの無い法令を 1 本で解説する記事だけ（e-Gov 法令 ID・content-taxonomy.md §6-3）
+tags: ["技術士（第二次試験）", "建設部門", "コンクリート"]  # 資格・科目 1 つ以上＋主題（分野・管理）1 つ以上・正規表記。記事型（guide など）は書かない（content-taxonomy.md §5-3）
+topics: ["concrete"]                 # 任意。タグでテーマが決まらない総論だけ（content-taxonomy.md §6-2）
 published: true                      # false なら下書き・非表示
 sources: ["registry-id#detail"]      # 参考文献台帳の ID。#detail は条番号等（参照時のみ）
 ---
@@ -307,7 +309,7 @@ sources: ["registry-id#detail"]      # 参考文献台帳の ID。#detail は条
 > **group: guide の新規記事では必ず両方書く**（`lint-frontmatter` が欠落を警告する）。
 > なお `sidebar_label` は Docusaurus 由来の廃止フィールドで**書かない**（0 件運用・lint が legacy 検出）。
 
-**category の選択肢**: 真実源は `src/config/categories.json`（10 件・`area` と許可 `groups` を持つ）。一覧と記事型の許可表は [content-taxonomy.md](./content-taxonomy.md) §2–3。
+**category の選択肢**: 真実源は `src/config/categories.json`（件数・`area`・許可 `groups` は同ファイルが持つ）。一覧と記事型の許可表は [content-taxonomy.md](./content-taxonomy.md) §2–3。
 
 **tags**: 正規表記は日本語名（`src/config/tags.json` の `name`）。資格・科目タグ 1 つ以上＋主題タグ 1 つ以上を付け、記事種別を写す構造タグ（`guide` `primary` 等）は書かない（group が真実）。class・別名・追加条件は [content-taxonomy.md](./content-taxonomy.md) §5。
 
@@ -346,7 +348,7 @@ faqs:
 - **数式**: KaTeX 一択（他のレンダラを混在させない）
 - **図表**: SVG（模式図・フロー）/ WebP（写真＝AI 生成・960×720）／PNG（複雑なイラスト）。フロー/タイムライン/PDCA は `<Timeline>` `<PdcaCycle>` コンポーネントも利用可
 - **画像配信**: R2 経由 `/posts/{slug}/img/` パスで参照
-- **URL**: 公開先は検索意図別（試験 `/exam/`、実務 `/practice/`、公的資料 `/standards/`、横断ハブ `/topics/`）。原稿の論理 slug は従来どおり保持し、`src/lib/content-routes.ts` が正規 URL へ変換する
+- **URL**: 公開先は検索意図別（試験 `/exam/`、実務 `/practice/`、公的資料 `/standards/`、法令 `/laws/`、横断ハブ `/topics/`）。原稿の論理 slug は従来どおり保持し、`src/lib/content-routes.ts` が正規 URL へ変換する
 - **見出し階層**: H1 = ページタイトル、H2-H4 = 本文構造、H1 を本文中に複数置かない
 - **絵文字禁止**: 装飾絵文字（❌✅💡🔑📌⚠️ 等）は本文に使わない（Callout の type で表現する）
 - **MDX 書き込み**: `.claude/scripts/lib/mdx-io.mjs` の `readMdxFile` / `writeMdxFile` 経由で改行コード保持

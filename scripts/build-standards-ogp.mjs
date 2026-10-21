@@ -36,7 +36,7 @@ import { wrapTitle, pickFontSize } from '../.claude/skills/conversion/ogp-create
 import { pathToFileURL } from 'node:url';
 import { createHash } from 'node:crypto';
 import { REPO_ROOT } from './lib/repository-paths.mjs';
-import { MANIFEST_PATH, loadManifest, writeManifestAtomic, toPosix } from './lib/asset-storage.mjs';
+import { loadManifest, loadManifestRaw, writeManifestAtomic, toPosix } from './lib/asset-storage.mjs';
 import { loadOverrides } from './lib/standards-structure.mjs';
 
 const require = createRequire(import.meta.url);
@@ -209,8 +209,8 @@ async function main() {
     // （行を作るのは asset-offload の検証通過だけ）。
     // loadManifest は lean な行を読み時に展開する（logicalPath・mime・generator・requiredBy を補う）ので、
     // それをそのまま書き戻すと 344 行の srcHash 追加が 3,400 行の差分になる（2026-10-11 実測）。
-    // ここは生の JSON を読んで srcHash だけ足す。
-    const manifest = JSON.parse(fs.readFileSync(MANIFEST_PATH, 'utf8'));
+    // ここは展開しない台帳（loadManifestRaw）を読んで srcHash だけ足す。
+    const manifest = loadManifestRaw();
     let updated = 0;
     let unchanged = 0;
     let missing = 0;

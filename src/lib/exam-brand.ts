@@ -11,6 +11,7 @@
  */
 
 import { qualificationShortLabel } from '@/lib/qualification-names';
+import { NOTE_MAGAZINES, type NoteMagazine } from '@/lib/note-magazines';
 
 // タイルの資格ラベルは registry の短い名前（ExamKey → registry の資格 id で引く・写さない）
 export type ExamKey =
@@ -26,27 +27,41 @@ export type ExamKey =
   | 'rccm';
 
 /**
- * マガジン id から資格キーを推定する（links / 導線が共有）。
- * 接頭辞ベース。civil-membership-lab は 1級・2級を横断する会員だが、ブランドは 1級側に寄せる
- * （id が civil-1/civil-2 のどちらにも一致せず旧実装では総監に落ちていた潜在バグを是正。
- *  現状 published:false のため live 挙動は不変）。
+ * 商品の資格（config/products.json の qualification＝registry の資格 id か group id）→ 資格キー。
+ * 以前は id の接頭辞から推定し、知らない接頭辞を総監（tankan）に倒していたので、新しい資格の商品が
+ * 黙って総監の見た目で出た（DN-0794）。資格を足して商品を出すときは、ここに 1 行足す
+ * （無いとビルドで throw し、tests/exam-brand-qualification.test.mjs が落ちる）。
  */
+const QUALIFICATION_TO_EXAM_KEY: Readonly<Record<string, ExamKey>> = {
+  'pe-comprehensive-management': 'tankan',
+  'pe-construction': 'pe-construction',
+  'pe-first-stage': 'pe-first-stage',
+  'civil-construction-1': 'civil-1',
+  // 1級・2級を横断する商品（会員ラボ等）はブランドを 1 級側に寄せる
+  'civil-construction-1-2': 'civil-1',
+  'civil-construction-2': 'civil-2',
+  'concrete-engineer': 'concrete',
+  'concrete-chief-engineer': 'concrete-chief',
+  'concrete-diagnostician': 'concrete-diagnosis',
+  rccm: 'rccm',
+};
+
+/**
+ * 資格（売上の帰属）と見た目を分けたい商品だけ、id で資格キーを上書きする（接頭辞では推定しない）。
+ * pe-oral-general-guide は全部門共通の口頭試験の教材で、売上は建設部門に帰属させるが、表示は技術士の共通ラベルにする。
+ */
+const BRAND_OVERRIDE: Readonly<Record<string, ExamKey>> = {
+  'pe-oral-general-guide': 'pe-general',
+};
+
+/** マガジン id → 資格キー（商品の qualification から引く。links / 導線が共有） */
 function examKeyOf(id: string): ExamKey {
-  if (id.startsWith('pe-oral-')) return 'pe-general';
-  if (id.startsWith('pe-construction')) return 'pe-construction';
-  // 技術士「第一次」試験（pe1-*）。総監（tankan）へ落ちる fallback より先に判定する。
-  // これが無いと pe1-takuitsu-pdf が総監として扱われ、資格別に束ねる面（/links のカード等）で
-  // 一次の過去問 PDF が総監に混ざる（2026-07-28 に /links のカード化で顕在化）。
-  if (id.startsWith('pe1-')) return 'pe-first-stage';
-  if (id.startsWith('civil-1') || id.startsWith('civil-membership-')) return 'civil-1';
-  if (id.startsWith('civil-2')) return 'civil-2';
-  // コンクリート系は技士（ce-）、主任技士（cce-）、診断士（cd-）で資格が別。
-  if (id.startsWith('cd-')) return 'concrete-diagnosis';
-  if (id.startsWith('cce-')) return 'concrete-chief';
-  if (id.startsWith('ce-')) return 'concrete';
-  // RCCM（建設コンサルタンツ協会）。rccm-* を tankan フォールバックより先に判定する（2026-09-15 新設）。
-  if (id.startsWith('rccm-')) return 'rccm';
-  return 'tankan';
+  const override = BRAND_OVERRIDE[id];
+  if (override) return override;
+  const qualification = (NOTE_MAGAZINES as Readonly<Record<string, NoteMagazine | undefined>>)[id]?.qualification;
+  const key = qualification ? QUALIFICATION_TO_EXAM_KEY[qualification] : undefined;
+  if (!key) throw new Error(`exam-brand: ${id} の資格 ${qualification ?? '（商品が無い）'} に資格キーが無い（QUALIFICATION_TO_EXAM_KEY に足す）`);
+  return key;
 }
 
 export interface ExamBrand {

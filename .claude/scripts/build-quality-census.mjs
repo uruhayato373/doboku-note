@@ -25,6 +25,7 @@ import { join, relative, extname, dirname } from 'node:path';
 import { todayJst } from '../../scripts/lib/jst-date.mjs';
 import { REPO_ROOT as ROOT } from '../../scripts/lib/repository-paths.mjs';
 import { listFiles } from '../../scripts/lib/fs-walk.mjs';
+import { siteSlugFromRel } from '../../src/lib/site-slug.mjs';
 
 const POSTS_ROOT = join(ROOT, 'content/site');
 const DOC_META = join(ROOT, 'src/config/doc-meta-index.json');
@@ -47,10 +48,7 @@ const LEGACY_SOURCES = [
 
 // ── MDX 列挙 + slug（build-doc-meta-index.mjs と同一規則）─────────────
 function toSlug(filePath) {
-  const rel = relative(POSTS_ROOT, filePath);
-  const withoutExt = rel.replace(/\.mdx$/i, '');
-  const parts = withoutExt.split(/[\\/]/).filter((s) => s && s !== 'article');
-  return parts.join('-');
+  return siteSlugFromRel(relative(POSTS_ROOT, filePath));
 }
 
 // ── 本文実質字数（check-guide-length の SoT 計測に一致）───────────────

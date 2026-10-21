@@ -307,16 +307,31 @@ export function emptyManifest() {
   return { version: 1, note: 'DN-0111 Phase 3。秘密値・署名 URL・絶対パスを書かないこと。', entries: {} };
 }
 
-export function loadManifest() {
-  if (!existsSync(MANIFEST_PATH)) return emptyManifest();
+// loadManifest の戻り値の印（列挙されないので JSON には出ない）。writeManifestAtomic が書き戻しを拒む。
+const HYDRATED = Symbol('asset-manifest-hydrated');
+
+/**
+ * 読むための台帳。lean な行へ logicalPath・mime・generator・requiredBy を補って返す。
+ * **書き戻さない**: 送っていない lean な行（2026-10-21 時点で 297 行）にまで欄が増える
+ * （2026-10-20 の asset-offload で 2,695 行の差分・DN-0801）。書く側は loadManifestRaw で読む。
+ */
+export function loadManifest(path = MANIFEST_PATH) {
+  const m = loadManifestRaw(path);
+  hydrateLeanEntries(m, tryLoadConfig());
+  Object.defineProperty(m, HYDRATED, { value: true });
+  return m;
+}
+
+/** 書くための台帳。ファイルの中身そのまま（lean な行を展開しない）。 */
+export function loadManifestRaw(path = MANIFEST_PATH) {
+  if (!existsSync(path)) return emptyManifest();
   let m;
   try {
-    m = JSON.parse(readFileSync(MANIFEST_PATH, 'utf-8'));
+    m = JSON.parse(readFileSync(path, 'utf-8'));
   } catch (e) {
-    throw new Error('asset-storage: manifest が壊れている（' + MANIFEST_PATH + '）: ' + e.message);
+    throw new Error('asset-storage: manifest が壊れている（' + path + '）: ' + e.message);
   }
   if (!m.entries) m.entries = {};
-  hydrateLeanEntries(m, tryLoadConfig());
   return m;
 }
 
@@ -440,20 +455,34 @@ export function sanitizeEntry(e) {
 }
 
 /**
- * 一時ファイルへ書いて、読み直して JSON として妥当なことを確かめてから置換する。
- * 途中で落ちても既存 manifest を壊さない。
+ * 送り直した行の更新。既存の行の欄（ogp-supply が判定に使う srcHash・旧形式の logicalPath など）と
+ * 欄の順を保ち、退避で実測した欄（置き場・sha256・bytes・寸法・verifiedAt）だけを上書きする。
+ * 行が無ければ lean な新しい行。sanitizeEntry で作り直すと srcHash が落ちる（DN-0801）。
  */
-export function writeManifestAtomic(manifest) {
-  mkdirSync(dirname(MANIFEST_PATH), { recursive: true });
-  const tmp = MANIFEST_PATH + '.tmp';
+export function mergeOffloadedEntry(prev, fresh) {
+  const measured = sanitizeEntry(fresh);
+  return prev ? { ...prev, ...measured } : measured;
+}
+
+/**
+ * 一時ファイルへ書いて、読み直して JSON として妥当なことを確かめてから置換する。
+ * 途中で落ちても既存 manifest を壊さない。同じ中身なら書かない。
+ */
+export function writeManifestAtomic(manifest, path = MANIFEST_PATH) {
+  if (manifest[HYDRATED]) {
+    throw new Error('asset-storage: loadManifest() の台帳は lean な行を展開済みなので書き戻さない。書く側は loadManifestRaw() で読む（DN-0801）');
+  }
   const body = JSON.stringify(manifest, null, 2) + '\n';
+  if (existsSync(path) && readFileSync(path, 'utf-8') === body) return Object.keys(manifest.entries).length;
+  mkdirSync(dirname(path), { recursive: true });
+  const tmp = path + '.tmp';
   writeFileSync(tmp, body);
   const back = JSON.parse(readFileSync(tmp, 'utf-8'));
   if (!back.entries || typeof back.entries !== 'object') {
     unlinkSync(tmp);
     throw new Error('asset-storage: manifest の書き出し検証に失敗したので置換しない');
   }
-  renameSync(tmp, MANIFEST_PATH);
+  renameSync(tmp, path);
   return Object.keys(back.entries).length;
 }
 

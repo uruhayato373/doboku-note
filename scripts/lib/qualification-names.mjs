@@ -11,6 +11,19 @@ export function orderedQualifications(registry, portfolio = null) {
   return (registry.qualifications ?? []).filter((q) => !portfolio || q.portfolio === portfolio);
 }
 
+/**
+ * 画面の並び順の位置（0 始まり）。資格は registry の qualifications の位置、group はメンバーの最小、
+ * ファミリーはそのファミリーの資格の最小。registry に無い id は null（画面側の order をそのまま使う）
+ */
+export function qualificationRank(registry, id) {
+  const qs = registry.qualifications ?? [];
+  const pos = (qid) => qs.findIndex((q) => q.id === qid);
+  if (pos(id) >= 0) return pos(id);
+  const members = registry.groups?.[id]?.members ?? qs.filter((q) => q.family === id).map((q) => q.id);
+  const ranks = members.map(pos).filter((i) => i >= 0);
+  return ranks.length ? Math.min(...ranks) : null;
+}
+
 /** 資格 id か group id（registry.groups）の項目。どちらでもなければ null */
 function entry(registry, id) {
   return registry.qualifications?.find((q) => q.id === id) ?? (registry.groups?.[id] ? { id, ...registry.groups[id] } : null);

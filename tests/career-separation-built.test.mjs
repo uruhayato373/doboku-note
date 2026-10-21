@@ -26,7 +26,7 @@ test('--built の走査先は現行の 4 領域で、廃止した out/docs を�
 
 test('ナビの href 照合が正規 URL 体系を受けている', () => {
   assert.ok(
-    /href="\\\/\(\?:exam\|practice\|standards\|topics\)/.test(SRC),
+    /href="\\\/\(\?:exam\|practice\|standards\|topics\|laws\)/.test(SRC),
     'href の正規表現が /docs/ 前提のままになっている',
   );
   assert.ok(

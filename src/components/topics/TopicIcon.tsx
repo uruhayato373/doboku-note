@@ -1,4 +1,4 @@
-import { Blocks, Mountain, Route, Waves, ClipboardCheck, ShieldCheck, BadgeCheck, Leaf, Wrench, TrainFrontTunnel, ChartNoAxesCombined, Users, Network, HardHat, Globe } from 'lucide-react';
+import { Blocks, Mountain, Route, Waves, ClipboardCheck, ShieldCheck, BadgeCheck, Leaf, Wrench, TrainFrontTunnel, ChartNoAxesCombined, Users, Network, HardHat, Globe, Bridge, Anchor, TrainFront, Zap, Droplets, Building2, Landmark } from 'lucide-react';
 
 const icons = {
   concrete: Blocks, 'earthwork-foundations': Mountain, roads: Route,
@@ -8,6 +8,9 @@ const icons = {
   tunnels: TrainFrontTunnel, 'economic-management': ChartNoAxesCombined,
   'human-resource-management': Users, 'information-management': Network,
   'safety-management-cem': HardHat, 'social-environment-management': Globe,
+  'bridges-steel': Bridge, 'ports-coasts': Anchor, railways: TrainFront, 'dams-power': Zap,
+  'water-sewerage': Droplets, 'urban-regional-planning': Building2,
+  'municipal-civil-engineers': Landmark,
 };
 export default function TopicIcon({ slug }: { slug: string }) {
   const Icon = icons[slug as keyof typeof icons] ?? Blocks;

@@ -2,6 +2,8 @@
   {
     "slug": "concrete",
     "label": "コンクリート",
+    "facet": "field",
+    "status": "hub",
     "seoTitle": "コンクリートの施工管理と試験対策｜配合・打込み・養生・中性化などの劣化",
     "description": "コンクリートの配合・打込み・締固め・養生、型枠・鉄筋と、ひび割れや中性化などの劣化を、1級・2級土木とコンクリート技士・主任技士・診断士の試験論点、現場の施工管理、共通仕様書から整理します。",
     "demandEvidence": "GSC 2026-08-28〜09-24（サイト全体のクエリ）: 「コンクリート 中性化」「型枠支保工の組立て等作業主任者技能講習」など関連 44 件・表示 72 回。",
@@ -15,7 +17,13 @@
       "型枠・支保工",
       "鉄筋",
       "鋼構造及びコンクリート",
-      "材料"
+      "材料",
+      "配合計算"
+    ],
+    "categories": [
+      "concrete-engineer",
+      "concrete-chief-engineer",
+      "concrete-diagnostician"
     ],
     "standardKeywords": [
       "コンクリート",
@@ -25,15 +33,25 @@
       "kinki/common",
       "kinki/hikkei"
     ],
-    "categories": [
-      "concrete-engineer",
-      "concrete-chief-engineer",
-      "concrete-diagnostician"
+    "featured": [
+      "civil-practice-concrete-roles-overview",
+      "civil-construction-1-guide-concrete-key-points",
+      "concrete-chief-engineer-guide-overview"
+    ],
+    "products": [
+      "cce-marugoto-pack",
+      "cd-marugoto-pack",
+      "ce-chokuzen-pack",
+      "pe-construction-steel-concrete-pack",
+      "civil-2-keiken-concrete-foundation-pack",
+      "essay-steel-concrete-consultant-magazine"
     ]
   },
   {
     "slug": "earthwork-foundations",
     "label": "土工・土質・基礎",
+    "facet": "field",
+    "status": "hub",
     "seoTitle": "土工・土質・基礎工のポイント｜盛土の締固め・土質試験・杭基礎",
     "description": "掘削・盛土・締固め・土質調査と、直接基礎・杭基礎などの基礎工を、1級・2級土木と技術士の試験論点、現場の施工管理、共通仕様書から整理します。",
     "demandEvidence": "GSC 2026-08-28〜09-24（サイト全体のクエリ）: 「盛土の所要力学特性とは」「杭 種類」など関連 12 件・表示 22 回。",
@@ -55,11 +73,24 @@
     ],
     "featuredStandardRefs": [
       "kinki/common"
+    ],
+    "featured": [
+      "civil-construction-1-guide-earthwork-key-points",
+      "civil-practice-embankment-quality-control",
+      "civil-construction-1-guide-foundation"
+    ],
+    "products": [
+      "pe-construction-geotechnical-pack",
+      "essay-geotechnical-consultant-magazine",
+      "civil-2-keiken-earthwork-slope-pack",
+      "rccm-mondai1-geotechnical"
     ]
   },
   {
     "slug": "roads",
     "label": "道路・舗装",
+    "facet": "field",
+    "status": "hub",
     "seoTitle": "道路・舗装の施工管理｜アスファルト舗装の温度管理と技術士「道路」の論点",
     "description": "道路計画、アスファルト舗装の施工と温度管理、道路工事の安全施設や完成図書を、技術士試験の論点と現場の実務資料から横断して整理します。",
     "demandEvidence": "GSC 2026-08-28〜09-24（サイト全体のクエリ）: 「技術士道路」「舗装 温度管理 到着温度」など関連 7 件・表示 10 回。",
@@ -78,11 +109,27 @@
     "featuredStandardRefs": [
       "kinki/common",
       "kinki/hikkei"
+    ],
+    "featured": [
+      "laws-road-act",
+      "civil-practice-road-act-framework",
+      "civil-construction-2-guide-road-pavement-key-points"
+    ],
+    "products": [
+      "pe-construction-road-pack",
+      "essay-road-municipality-magazine",
+      "essay-road-consultant-magazine",
+      "civil-1-keiken-road-tunnel-pack",
+      "civil-2-keiken-local-road-pack",
+      "civil-2-keiken-paving-pack",
+      "rccm-mondai1-road"
     ]
   },
   {
     "slug": "rivers-disaster-prevention",
     "label": "河川・砂防・防災",
+    "facet": "field",
+    "status": "hub",
     "seoTitle": "河川・砂防・防災のポイント｜堤防・砂防施設・流域治水を試験と実務で整理",
     "description": "河川堤防・護岸などの河川構造物、砂防施設、ダム、海岸、流域治水と国土強靱化を、1級土木・技術士の試験論点と設計・施工資料から整理します。",
     "demandEvidence": "GSC 2026-08-28〜09-24（サイト全体のクエリ）: 「技術士 河川砂防及び海岸」「土手 堤防 違い」など関連 8 件・表示 9 回。",
@@ -100,7 +147,8 @@
       "河川、砂防及び海岸・海洋",
       "水門",
       "伏越工",
-      "河川法"
+      "河川法",
+      "水理"
     ],
     "standardKeywords": [
       "河川",
@@ -109,11 +157,27 @@
     ],
     "featuredStandardRefs": [
       "kinki/common"
+    ],
+    "featured": [
+      "laws-river-act",
+      "civil-practice-river-act-framework",
+      "civil-construction-2-guide-river-sabo-key-points"
+    ],
+    "products": [
+      "pe-construction-river-coast-pack",
+      "essay-river-municipality-magazine",
+      "essay-sabo-municipality-magazine",
+      "essay-river-consultant-magazine",
+      "civil-1-keiken-river-disaster-pack",
+      "civil-2-keiken-river-disaster-pack",
+      "rccm-mondai1-river-coast"
     ]
   },
   {
     "slug": "construction-management",
     "label": "施工計画・工程・機械",
+    "facet": "management",
+    "status": "hub",
     "seoTitle": "施工計画・工程管理のポイント｜ネットワーク工程表・建設機械・測量",
     "description": "施工計画の立て方、ネットワーク工程表やバーチャートによる工程管理、建設機械の選び方、測量を、1級・2級土木と技術士の試験論点、現場の計画・管理の実務から整理します。",
     "demandEvidence": "GSC 2026-08-28〜09-24（サイト全体のクエリ）: 「ネットワーク工程表 インターフェアリングフロート」「ネットワーク 工程 表」など関連 24 件・表示 88 回。",
@@ -138,11 +202,23 @@
     "featuredStandardRefs": [
       "kinki/common",
       "kinki/hikkei"
+    ],
+    "featured": [
+      "civil-construction-1-guide-construction-plan",
+      "civil-practice-construction-plan-document",
+      "civil-construction-1-guide-schedule-management"
+    ],
+    "products": [
+      "pe-construction-construction-planning-pack",
+      "civil-1-keiken-complete-pack",
+      "civil-2-koji-bank"
     ]
   },
   {
     "slug": "safety-laws",
     "label": "関係法令",
+    "facet": "law",
+    "status": "hub",
     "seoTitle": "土木の関係法令まとめ｜建設業法・労働安全衛生法・入札契約制度",
     "description": "建設業法、労働安全衛生法、労働基準法、騒音・振動などの環境関係法令、公共工事の入札契約制度を、1級・2級土木と総合技術監理部門の試験論点と実務基準から整理します。",
     "demandEvidence": "GSC 2026-08-28〜09-24（サイト全体のクエリ）: 「土木 法令順守」「玉掛け 介錯ロープ 法令」など関連 6 件・表示 28 回。",
@@ -152,7 +228,8 @@
       "実務では、施工体制台帳の作成、作業主任者の選任、特定建設作業の届出など、法令にもとづく手続きを工程に組み込むことが求められます。改正の多い分野なので、最新の条文と所管官庁の通知で確かめてください。"
     ],
     "tags": [
-      "関係法規"
+      "関係法規",
+      "行政手続き"
     ],
     "standardKeywords": [
       "法令",
@@ -164,11 +241,18 @@
       "kinki/hikkei",
       "kyushu/hikkei-common-09",
       "kyushu/hikkei-common-10"
+    ],
+    "featured": [
+      "laws-construction-business-act",
+      "laws-labor-safety-act",
+      "civil-construction-1-guide-law-key-points"
     ]
   },
   {
     "slug": "quality-management",
     "label": "品質管理・出来形",
+    "facet": "management",
+    "status": "hub",
     "seoTitle": "土木の品質管理とは｜工程能力図・管理図・品質規定方式と出来形管理",
     "description": "管理図・ヒストグラム・工程能力図などの品質管理手法、品質規定方式と工法規定方式、出来形管理、検査と記録を、1級・2級土木とコンクリート資格、総合技術監理部門の論点と現場の判断から整理します。",
     "demandEvidence": "GSC 2026-08-28〜09-24（サイト全体のクエリ）: 「工程能力図」「工程能力図とは」など関連 15 件・表示 133 回。",
@@ -188,11 +272,22 @@
     "featuredStandardRefs": [
       "kinki/common",
       "kinki/hikkei"
+    ],
+    "featured": [
+      "civil-construction-1-guide-quality-management",
+      "civil-practice-construction-inspection-types",
+      "civil-practice-reference-values"
+    ],
+    "products": [
+      "civil-1-experience-essay",
+      "civil-2-experience-essay"
     ]
   },
   {
     "slug": "environment-decarbonization",
     "label": "建設環境・脱炭素",
+    "facet": "management",
+    "status": "hub",
     "seoTitle": "建設工事の環境保全と脱炭素｜騒音振動対策・グリーンインフラ・カーボンニュートラル",
     "description": "建設工事の騒音・振動・水質などの環境保全対策、建設副産物、グリーンインフラ、カーボンニュートラルへの取組みを、試験の論点と公共工事の資料から整理します。",
     "demandEvidence": "GSC 2026-08-28〜09-24（サイト全体のクエリ）: 「グリーンインフラとは」「グリーンインフラ」など関連 2 件・表示 23 回。",
@@ -216,11 +311,21 @@
     ],
     "featuredStandardRefs": [
       "kinki/common"
+    ],
+    "featured": [
+      "civil-construction-1-guide-environment-management",
+      "civil-practice-public-works-environmental-care",
+      "pe-comprehensive-management-r8-essay-theme-circular-economy"
+    ],
+    "products": [
+      "pe-construction-environment-pack"
     ]
   },
   {
     "slug": "maintenance-asset-management",
     "label": "維持管理・アセットマネジメント",
+    "facet": "management",
+    "status": "hub",
     "seoTitle": "インフラ維持管理とアセットマネジメント｜点検・診断・予防保全・長寿命化",
     "description": "橋梁・トンネルなどの点検と健全性の診断、予防保全、長寿命化計画、コンクリート構造物の劣化診断を、コンクリート診断士・技術士・総合技術監理部門の論点から整理します。",
     "demandEvidence": "GSC 2026-08-28〜09-24（サイト全体のクエリ）: 「予防保全」など関連 1 件・表示 1 回。",
@@ -231,7 +336,8 @@
     ],
     "tags": [
       "維持管理",
-      "インフラ老朽化"
+      "インフラ老朽化",
+      "群マネ"
     ],
     "standardKeywords": [
       "維持管理",
@@ -240,11 +346,23 @@
     "featuredStandardRefs": [
       "kinki/common",
       "kinki/hikkei"
+    ],
+    "featured": [
+      "civil-practice-social-infrastructure-overview",
+      "civil-practice-road-inspection-longevity-plan",
+      "civil-construction-1-guide-concrete-maintenance"
+    ],
+    "products": [
+      "essay-maintenance-contractor-magazine",
+      "civil-1-keiken-bridge-maintenance-pack",
+      "cd-structure-case-bank"
     ]
   },
   {
     "slug": "tunnels",
     "label": "トンネル",
+    "facet": "field",
+    "status": "hub",
     "seoTitle": "トンネルの施工と技術士試験の要点｜山岳工法・シールド工法・補助工法",
     "description": "山岳トンネルとシールドトンネルの施工、坑口・換気・補助工法を、1級土木と技術士 建設部門の論点、設計便覧の要点から整理します。",
     "demandEvidence": "GSC 2026-08-28〜09-24（サイト全体のクエリ）: 「技術士 トンネル」など関連 1 件・表示 6 回。",
@@ -261,11 +379,23 @@
     ],
     "featuredStandardRefs": [
       "kinki/common"
+    ],
+    "featured": [
+      "civil-construction-1-textbook-tunnel-natm",
+      "civil-construction-2-guide-dam-tunnel-key-points",
+      "pe-construction-tunnel-exam-themes"
+    ],
+    "products": [
+      "pe-construction-tunnel-pack",
+      "essay-tunnel-consultant-magazine",
+      "civil-1-keiken-road-tunnel-pack"
     ]
   },
   {
     "slug": "economic-management",
     "label": "経済性管理（総監）",
+    "facet": "management",
+    "status": "hub",
     "seoTitle": "総監 経済性管理のキーワード｜活動基準原価計算・標準原価・VE",
     "description": "技術士 総合技術監理部門の経済性管理を、原価計算、工程管理、品質管理、価値工学（VE）、事業の採算性とPPP/PFIまで、キーワード解説と過去問から整理します。",
     "demandEvidence": "GSC 2026-08-28〜09-24（サイト全体のクエリ）: 「活動基準原価計算」「活動基準原価計算とは」など関連 31 件・表示 94 回。",
@@ -276,16 +406,28 @@
     ],
     "tags": [
       "経済性管理",
-      "PPP/PFI"
+      "PPP/PFI",
+      "経済安全保障"
     ],
     "standardKeywords": [
       "積算",
       "工程管理"
+    ],
+    "featured": [
+      "pe-comprehensive-management-economic-management-pillar",
+      "pe-comprehensive-management-management-tradeoffs",
+      "civil-practice-ppp-pfi-selection"
+    ],
+    "products": [
+      "tankan-reading-guide",
+      "tradeoff-5kanri"
     ]
   },
   {
     "slug": "human-resource-management",
     "label": "人的資源管理（総監）",
+    "facet": "management",
+    "status": "hub",
     "seoTitle": "総監 人的資源管理のキーワード｜労働関係法・モチベーション理論・人材育成",
     "description": "技術士 総合技術監理部門の人的資源管理を、労働基準法などの労働関係法、モチベーション理論、教育訓練、働き方改革と担い手確保まで、キーワード解説と過去問から整理します。",
     "demandEvidence": "GSC 2026-08-28〜09-24（サイト全体のクエリ）: 「パートタイム・有期雇用労働法」「労働安全衛生マネジメントシステム」など関連 6 件・表示 24 回。",
@@ -299,16 +441,28 @@
       "働き方改革",
       "外国人材",
       "特定技能",
-      "担い手確保"
+      "担い手確保",
+      "2024年問題"
     ],
     "standardKeywords": [
       "労務",
       "安全衛生"
+    ],
+    "featured": [
+      "pe-comprehensive-management-human-resource-management-pillar",
+      "civil-practice-construction-industry-structure",
+      "civil-practice-ccus-kentaikyo-site"
+    ],
+    "products": [
+      "tankan-reading-guide",
+      "tradeoff-5kanri"
     ]
   },
   {
     "slug": "information-management",
     "label": "情報管理（総監）",
+    "facet": "management",
+    "status": "hub",
     "seoTitle": "総監 情報管理のキーワード｜情報セキュリティ・知的財産・建設DX",
     "description": "技術士 総合技術監理部門の情報管理を、情報の収集・分析・共有、情報セキュリティ、知的財産、建設DXとi-Constructionまで、キーワード解説と過去問から整理します。",
     "demandEvidence": "GSC 2026-08-28〜09-24（サイト全体のクエリ）で該当クエリの表示は 0。総監 5 管理の 1 つとして過去問・キーワード集の受け皿に置く（昇格基準 (3) の扱い）。",
@@ -322,16 +476,29 @@
       "DX",
       "i-Construction",
       "建設DX",
-      "生産性向上"
+      "生産性向上",
+      "AI ガバナンス",
+      "データ利活用"
     ],
     "standardKeywords": [
       "電子納品",
       "情報共有"
+    ],
+    "featured": [
+      "pe-comprehensive-management-information-management-pillar",
+      "civil-practice-bim-cim-site-practice",
+      "civil-practice-survey-informatics-overview"
+    ],
+    "products": [
+      "tankan-reading-guide",
+      "tradeoff-5kanri"
     ]
   },
   {
     "slug": "safety-management-cem",
     "label": "安全管理",
+    "facet": "management",
+    "status": "hub",
     "seoTitle": "安全管理のポイント｜不安全行動と不安全状態・リスクマトリックス・危機管理",
     "description": "現場の労働災害と公衆災害の防止、不安全行動と不安全状態、リスクアセスメント、危機管理、システム安全を、1級・2級土木と総合技術監理部門の論点、実務基準から整理します。",
     "demandEvidence": "GSC 2026-08-28〜09-24（サイト全体のクエリ）: 「リスクマトリックス」「リスク マトリクス」など関連 34 件・表示 216 回。",
@@ -354,11 +521,22 @@
       "kinki/hikkei",
       "kyushu/hikkei-common-09",
       "kyushu/hikkei-common-10"
+    ],
+    "featured": [
+      "pe-comprehensive-management-safety-management-pillar",
+      "civil-construction-1-guide-safety-management",
+      "civil-practice-risk-assessment-construction-workflow"
+    ],
+    "products": [
+      "tankan-reading-guide",
+      "tradeoff-5kanri"
     ]
   },
   {
     "slug": "social-environment-management",
     "label": "社会環境管理（総監）",
+    "facet": "management",
+    "status": "hub",
     "seoTitle": "総監 社会環境管理のキーワード｜環境影響評価・地球環境・循環型社会",
     "description": "技術士 総合技術監理部門の社会環境管理を、環境影響評価、地球温暖化と気候変動、循環型社会、環境関係法令、環境マネジメントシステムまで、キーワード解説と過去問から整理します。",
     "demandEvidence": "GSC 2026-08-28〜09-24（サイト全体のクエリ）: 「循環型社会形成推進 基本法」「循環型社会形成推進基本法」など関連 3 件・表示 3 回。",
@@ -373,6 +551,249 @@
     "standardKeywords": [
       "環境保全",
       "騒音"
+    ],
+    "featured": [
+      "pe-comprehensive-management-social-environment-management-pillar",
+      "pe-comprehensive-management-management-tradeoffs",
+      "pe-comprehensive-management-sdgs"
+    ],
+    "products": [
+      "tankan-reading-guide",
+      "tradeoff-5kanri"
+    ]
+  },
+  {
+    "slug": "bridges-steel",
+    "label": "橋梁・鋼構造",
+    "facet": "field",
+    "status": "hub",
+    "seoTitle": "橋梁・鋼構造の施工と試験対策｜鋼橋の架設・接合・防食と構造力学の基礎",
+    "description": "鋼橋の製作・架設、橋梁の構造と点検、構造力学の基礎を、1級土木・技術士の試験対策と実務から横断して読めます。",
+    "demandEvidence": "GSC 2026-W41: 「技術士 鋼構造及びコンクリート」系 5 クエリ・表示 7（選択科目名で検索される）。",
+    "intro": [
+      "橋梁・鋼構造で押さえることは三つあります。鋼材の性質（強度・靱性・溶接性・疲労・腐食）を理解して材料と接合方法を選ぶこと、工場での製作から輸送・架設までの各段階で精度と安全を確保すること、完成後の点検と防食で長く使い続けることです。構造力学の反力・断面力の考え方は、これらの判断の土台になります。",
+      "資格ごとに問われ方が違います。1級・2級土木施工管理技士では、鋼橋の架設工法の選び方、高力ボルトの締付けと溶接の管理、塗装などの防食、架設時の安全対策が中心です。技術士（建設部門）では鋼構造及びコンクリートの選択科目で、維持管理や耐震を含めた課題の解決策を記述します。",
+      "実務では、鋼材の記号から規格と性能を読み取り、溶接の品質と、架設中の部材の変形・転倒に注意します。規定値は発注機関の共通仕様書や施工管理基準で決まるため、試験で覚えた数値は、現場で適用される基準と照らして確かめてください。"
+    ],
+    "tags": [
+      "橋梁",
+      "鋼構造物",
+      "構造力学"
+    ],
+    "standardKeywords": [
+      "鋼橋",
+      "橋梁"
+    ],
+    "featured": [
+      "civil-construction-1-textbook-steel-structures",
+      "civil-practice-steel-material-properties",
+      "civil-construction-1-guide-structural-mechanics-basics"
+    ],
+    "products": [
+      "pe-construction-steel-concrete-pack",
+      "civil-1-keiken-bridge-maintenance-pack",
+      "civil-2-keiken-bridge-repair-pack",
+      "cd-road-bridge-pack",
+      "essay-steel-concrete-consultant-magazine",
+      "rccm-mondai1-steel-concrete"
+    ]
+  },
+  {
+    "slug": "ports-coasts",
+    "label": "港湾・空港・海岸",
+    "facet": "field",
+    "status": "hub",
+    "seoTitle": "港湾・空港・海岸の施工と試験対策｜防波堤・ケーソン・消波工と海岸の管理",
+    "description": "港湾・空港・海岸の構造物と施工、管理者と許可の仕組みを、1級土木・技術士（港湾及び空港）の試験対策と自治体の実務から横断して読めます。",
+    "demandEvidence": "GSC 2026-W41: 「技術士 港湾及び空港」系 2 クエリ・表示 9（選択科目名で検索される）。",
+    "intro": [
+      "港湾・空港・海岸で押さえることは三つあります。波浪・高潮・津波などの外力と、それを受け止める防波堤・護岸・堤防の形式を理解すること、ケーソンの据付や基礎捨石・浚渫・埋立といった海上工事に特有の施工と作業船を知ること、海岸保全区域・港湾区域・漁港区域が重なる場所で管理者と許可の相手を見分けることです。",
+      "1級土木施工管理技士では専門土木の海岸・港湾として、堤防の形式、根固工・消波工、ケーソン式混成堤の施工手順、浚渫船の特徴が問われます。技術士（建設部門）の港湾及び空港では、港湾の機能の強化、施設の老朽化への対策、災害への備えなどを課題として記述します。",
+      "実務では、工事の前に区域と管理者を確かめ、海岸法・港湾法などに基づく許可や協議の相手を決めるところから始まります。"
+    ],
+    "tags": [
+      "港湾",
+      "海岸",
+      "港湾及び空港"
+    ],
+    "standardKeywords": [
+      "港湾",
+      "海岸"
+    ],
+    "featured": [
+      "civil-construction-1-textbook-coast-port",
+      "civil-practice-coast-port-administrators",
+      "pe-construction-port-airport-ronbun-keyword"
+    ],
+    "products": [
+      "pe-construction-port-airport-pack",
+      "essay-port-municipality-magazine",
+      "civil-2-keiken-port-coast-pack"
+    ]
+  },
+  {
+    "slug": "railways",
+    "label": "鉄道",
+    "facet": "field",
+    "status": "incubating",
+    "seoTitle": "鉄道の施工と試験対策｜軌道・営業線近接工事・技術士（鉄道）の論点",
+    "description": "鉄道の軌道・構造物と、営業線に近接する工事の安全を、1級土木の専門土木と技術士（鉄道）の試験対策から横断して読めます。",
+    "demandEvidence": "GSC 2026-W41: 「技術士 鉄道」系 11 クエリ・表示 26（選択科目名で検索される）。",
+    "intro": [
+      "鉄道で押さえることは、軌道の構造と保守、営業線に近接して施工するときの安全の確保、鉄道構造物の維持管理と災害への備えです。列車の運行を止めずに工事を進めるための工程と体制の組み方が、ほかの分野にない特徴です。",
+      "1級土木施工管理技士では専門土木の鉄道・地下構造物として、軌道の各部の名称と役割、営業線近接工事の保安対策が問われます。技術士（建設部門）の鉄道では、施設の老朽化や災害への対策、輸送サービスの向上などを課題として記述します。"
+    ],
+    "tags": [
+      "鉄道"
+    ],
+    "standardKeywords": [
+      "鉄道"
+    ],
+    "featured": [
+      "civil-construction-1-textbook-railway-underground",
+      "pe-construction-railway-ronbun-keyword"
+    ],
+    "products": [
+      "pe-construction-railway-pack"
+    ]
+  },
+  {
+    "slug": "dams-power",
+    "label": "ダム・電力土木",
+    "facet": "field",
+    "status": "hub",
+    "seoTitle": "ダム・電力土木の施工と試験対策｜基礎処理・RCD工法・洪水調節の仕組み",
+    "description": "ダムの形式と施工、洪水調節の仕組み、水力発電の土木構造物を、1級土木・技術士（電力土木）の試験対策と実務から横断して読めます。",
+    "demandEvidence": "GSC 2026-W41: 「技術士 電力土木」1 クエリ・表示 1（需要は小さい。分野の受け皿として置く）。",
+    "intro": [
+      "ダム・電力土木で押さえることは三つあります。ダムの形式（コンクリートダム・フィルダム）と基礎岩盤の処理、大量のコンクリートを打ち込む工法と温度ひび割れへの対策、洪水調節や発電といった施設の役割と運用です。",
+      "1級・2級土木施工管理技士では、グラウチングの種類と目的、柱状ブロック工法やRCD工法、フィルダムの盛立てが問われます。技術士（建設部門）の電力土木では、再生可能エネルギーの導入拡大や既設の発電施設の維持・更新などを課題として記述します。",
+      "実務では、洪水のピークを下げる施設が「貯める」のか「分ける」のか、どこまで効くのかを読み分けることが、流域の治水を理解する入口になります。"
+    ],
+    "tags": [
+      "ダム",
+      "電力土木"
+    ],
+    "standardKeywords": [
+      "ダム"
+    ],
+    "featured": [
+      "civil-construction-1-textbook-dam-construction",
+      "civil-practice-flood-control-facilities",
+      "pe-construction-power-civil-ronbun-keyword"
+    ],
+    "products": [
+      "pe-construction-power-civil-pack"
+    ]
+  },
+  {
+    "slug": "water-sewerage",
+    "label": "上下水道",
+    "facet": "field",
+    "status": "hub",
+    "seoTitle": "上下水道の施工と試験対策｜管路・推進工法・浸水対策と技術士一次（上下水道部門）",
+    "description": "上水道・下水道の施設と施工、管路の維持管理を、1級・2級土木と技術士第一次試験（上下水道部門）の試験対策から横断して読めます。",
+    "demandEvidence": "GSC 2026-W41: 該当クエリなし（技術士第一次試験 上下水道部門の過去問 17 本の受け皿として置く）。",
+    "intro": [
+      "上下水道で押さえることは三つあります。水道と下水道の施設の構成と役割、管路の布設（開削工法・推進工法）と更新、浸水対策を含む雨水の排除です。どちらも長い管路網を抱えるため、老朽化した施設の更新と耐震化が共通の課題になっています。",
+      "1級・2級土木施工管理技士では、管の種類と継手、管渠の基礎、推進工法、管路の施工管理が問われます。技術士第一次試験では専門科目（上下水道部門）として、水道と下水道の計画・施設・水質の基礎が出題されます。",
+      "実務では、水道法・下水道法に基づく事業の区分と管理者を確かめ、工事の進め方と費用の持ち方を決めます。"
+    ],
+    "tags": [
+      "上下水道",
+      "専門科目（上下水道部門）"
+    ],
+    "standardKeywords": [
+      "下水道",
+      "上水道"
+    ],
+    "featured": [
+      "civil-construction-1-textbook-water-sewer",
+      "civil-practice-sewerage-and-stormwater",
+      "civil-practice-waterworks-business"
+    ],
+    "products": [
+      "essay-sewage-municipality-magazine",
+      "essay-water-municipality-magazine",
+      "essay-water-consultant-magazine",
+      "civil-1-keiken-water-treatment-pack",
+      "civil-2-keiken-water-drainage-pack",
+      "rccm-mondai1-sewer",
+      "rccm-mondai1-water"
+    ]
+  },
+  {
+    "slug": "urban-regional-planning",
+    "label": "都市・地域計画",
+    "facet": "field",
+    "status": "hub",
+    "seoTitle": "都市計画・地域づくりの実務と試験対策｜都市計画法・開発許可・土地区画整理",
+    "description": "都市計画・開発許可・土地区画整理、コンパクトシティと国土の計画を、技術士（都市及び地方計画）・総監の試験対策と自治体の実務から横断して読めます。",
+    "demandEvidence": "GSC 2026-W41: 該当クエリなし（自治体の土木担当シリーズと技術士 都市及び地方計画の受け皿として置く）。",
+    "intro": [
+      "都市・地域計画で押さえることは三つあります。都市計画法による区域区分・用途地域・都市施設などの仕組み、開発許可や土地区画整理事業でできる道路・公園などの公共施設の引継ぎ、国や都道府県の計画と市町村の事業の関係です。人口が減るなかで、都市の機能を集めるコンパクトシティの考え方が重視されています。",
+      "技術士（建設部門）の都市及び地方計画では、都市の集約化や防災まちづくりなどを課題として記述します。必須科目でも、国土形成・地域づくりや社会資本整備がテーマになります。",
+      "実務では、窓口で「この土地は都市計画のどこにあるか」を読み取り、開発や事業で生まれる公共施設を管理者として引き受けるかを判断することが中心になります。"
+    ],
+    "tags": [
+      "都市及び地方計画",
+      "地域づくり",
+      "コンパクトシティ",
+      "国土形成計画"
+    ],
+    "standardKeywords": [
+      "都市計画"
+    ],
+    "featured": [
+      "civil-practice-city-planning-act-framework",
+      "pe-construction-urban-planning-ronbun-keyword",
+      "civil-practice-development-permit-public-facilities"
+    ],
+    "products": [
+      "pe-construction-urban-planning-pack",
+      "essay-urban-municipality-magazine",
+      "essay-urban-consultant-magazine",
+      "essay-park-municipality-magazine",
+      "civil-2-keiken-park-private-pack"
+    ]
+  },
+  {
+    "slug": "municipal-civil-engineers",
+    "label": "自治体の土木職",
+    "facet": "audience",
+    "status": "hub",
+    "seoTitle": "自治体の土木職（土木公務員）の仕事と資格｜道路・河川の管理、発注者の実務、技術士・1級土木",
+    "description": "自治体の土木職（土木公務員）が受け持つ道路・河川などの管理と、発注者としての事業の進め方を、実務のノートと、1級土木・技術士・総監の取り方と試験対策から横断して読めます。",
+    "demandEvidence": "report-search-opportunities 2026-10-21: 検索キーワード戦略の「土木公務員」クラスター 21 クエリ・表示 101・クリック 4（13_土木公務員SEO戦略・16_検索キーワード戦略）。",
+    "intro": [
+      "自治体の土木職の仕事は、道路・河川・公園などの施設を守る「管理」と、計画から用地・設計・発注・監督・検査までを進める「事業」の二つに分けると見渡せます。どちらも、根拠になる法令と、国・都道府県・市町村のどこの事務かを確かめるところから始まります。",
+      "発注者として工事の施工を指導・監督した経験は、1級土木施工管理技士の受検に使える実務経験の対象になります（要件は受検の手引で個別に確認）。技術士（建設部門）や総合技術監理部門では、発注者の立場で管理と事業の課題を記述する力が問われます。",
+      "このテーマでは、自治体の土木担当シリーズの実務のノートと、土木公務員が資格を取る意味・取る順番の案内、発注者の立場で書いた試験対策を一つにまとめています。"
+    ],
+    "tags": [
+      "地方公共団体"
+    ],
+    "standardKeywords": [
+      "共通仕様書",
+      "工事監督"
+    ],
+    "featured": [
+      "civil-practice-municipal-civil-engineer-work",
+      "pe-comprehensive-management-public-engineer-qualification-map",
+      "pe-comprehensive-management-public-servant-comprehensive-merit"
+    ],
+    "products": [
+      "essay-road-municipality-magazine",
+      "essay-river-municipality-magazine",
+      "essay-sewage-municipality-magazine",
+      "essay-water-municipality-magazine",
+      "essay-urban-municipality-magazine",
+      "essay-park-municipality-magazine",
+      "essay-port-municipality-magazine",
+      "essay-sabo-municipality-magazine",
+      "essay-procurement-municipality-magazine",
+      "essay-standards-municipality-magazine",
+      "cce-reiwa-owner-pack"
     ]
   }
 ]

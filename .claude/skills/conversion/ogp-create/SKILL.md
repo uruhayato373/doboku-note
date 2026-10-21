@@ -53,7 +53,7 @@ mono-tag は **全幅レイアウト**。左右 72px パディング内に、**�
 
 ## 資格別テーマ色（16px 外枠）
 
-外枠 16px を資格区分のテーマ色で描き、サムネ一覧でも分野が色で判別できる。**色の真実源は [`.claude/knowledge/design-system/note-cover-tokens.json`](../../../../.claude/knowledge/design-system/note-cover-tokens.json) の `exams[].base`**（note カバーと共通・二重管理しない）。`ogp-create.mjs` の `CATEGORY_TO_EXAM_KEY` がカテゴリ→exam key を解決し、`resolveAccentColor()` が base 色を返す（未マッピングは既定ネイビー `#0f1e3f`）。色の対応表は ogp-prompts.md「テーマ色」を参照。新カテゴリ追加時は **`CATEGORY_TO_EXAM_KEY` + `note-cover-tokens.json` + ogp-prompts.md** を更新する。
+外枠 16px を資格区分のテーマ色で描き、サムネ一覧でも分野が色で判別できる。**色の真実源は [`.claude/knowledge/design-system/note-cover-tokens.json`](../../../../.claude/knowledge/design-system/note-cover-tokens.json) の `exams[].base`**（note カバーと共通・二重管理しない）。カテゴリ→exam key は `src/config/categories.json` の `layout.ogpExamKey`（`scripts/lib/category-exam-key.mjs`（このスキルの lib）が読む）で解決し、`resolveAccentColor()` が base 色を返す（未マッピングは既定ネイビー `#0f1e3f`）。色の対応表は ogp-prompts.md「テーマ色」を参照。新カテゴリ追加時は **`layout.ogpExamKey` + `note-cover-tokens.json` + ogp-prompts.md** を更新する。
 
 ## 資格別 AI 背景（任意・2026-06-18〜）
 

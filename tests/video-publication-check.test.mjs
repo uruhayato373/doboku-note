@@ -142,8 +142,9 @@ test('記録が古い → V03（実査が止まっているのを surface する
   assert.ok(result.ageDays >= 29);
 });
 
-test('記録の孤児 → V04 / 実査のドリフト → V05', () => {
+test('記録の孤児 → V04 / 実査のドリフト → V05（--freshness のとき）', () => {
   const { status, result } = runCheck({
+    args: ['--freshness'],
     state: publishedState,
     record: {
       schemaVersion: 1,
@@ -196,7 +197,17 @@ test('同じ外部IDで明示停止した旧版の過去記録は孤児にせず
   assert.equal(result.recorded, 2);
   assert.equal(result.retiredRecorded, 1);
   record.findings.push({ id: 'demo-pack/longform', code: 'gone', message: '現役が消失' });
-  assert.ok(runCheck({ state, record }).result.issues.some((i) => i.code === 'V05'));
+  assert.ok(runCheck({ state, record, args: ['--freshness'] }).result.issues.some((i) => i.code === 'V05'));
+});
+
+test('実査のドリフトは ci（--freshness なし）では落とさない（外部状態は PR の差分で直せない・DN-0791）', () => {
+  const record = { schemaVersion: 1, verifiedAt: new Date().toISOString(), checked: 2, entries: {
+    'demo-pack/longform': { ok: false, problems: [] },
+    'demo-pack/shorts[0]': { ok: true, problems: [] },
+  }, findings: [{ id: 'demo-pack/longform', code: 'gone', message: '削除/非公開' }] };
+  const { status, result } = runCheck({ state: publishedState, record });
+  assert.equal(status, 0);
+  assert.ok(!result.issues.some((i) => i.code === 'V05'));
 });
 
 test('停止済みでも外部ID不一致・ID欠落・停止以外への後退は孤児を隠さない', () => {

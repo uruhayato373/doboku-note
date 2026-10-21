@@ -279,7 +279,7 @@ export default function Header() {
                         {cat.variant === "general" && categories[i - 1]?.variant !== "general" && (
                           <div className="border-t border-(--rule-soft) px-4 pt-2 pb-1">
                             <span className="font-mono text-[10px] uppercase tracking-widest text-(--ink-muted)">
-                              資格を問わない実務
+                              資格を問わない実務・法令
                             </span>
                           </div>
                         )}
@@ -394,7 +394,7 @@ export default function Header() {
                 {cat.variant === "general" && categories[i - 1]?.variant !== "general" && (
                   <div className="border-t border-(--rule-soft) mt-2 pt-3 px-3 pb-1">
                     <span className="font-mono text-[10px] uppercase tracking-widest text-(--ink-muted)">
-                      資格を問わない実務
+                      資格を問わない実務・法令
                     </span>
                   </div>
                 )}

@@ -2,7 +2,7 @@
 // 技術士第一次試験のクイズJSONから、IG過去問4問パックを科目別・年度別に生成する。
 // 図・数式・表・公式正答番号なしの問題は、クイズ本体には残したままSNSだけ除外する。
 
-import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
+import { existsSync, readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { chooseProblemLayout } from '../.claude/scripts/lib/sns-common/quiz-slides.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
@@ -20,6 +20,11 @@ if (!requestedYear && !allYears) {
   process.exit(1);
 }
 
+// 演習データは git で追跡しない生成物（DN-0804）。無ければ作り方を出して止める
+if (!existsSync(DATA_PATH)) {
+  console.error(`[generate-pe-first-stage-exam-packs] ${DATA_PATH} が無い。先に npm run build-quiz-data（または npm run refresh-indexes）で作る`);
+  process.exit(2);
+}
 const dataset = JSON.parse(readFileSync(DATA_PATH, 'utf8'));
 const years = allYears ? dataset.years.map((item) => item.year) : [requestedYear];
 const SUPERSCRIPTS = { '0': '⁰', '1': '¹', '2': '²', '3': '³', '4': '⁴', '5': '⁵', '6': '⁶', '7': '⁷', '8': '⁸', '9': '⁹', '+': '⁺', '-': '⁻' };
