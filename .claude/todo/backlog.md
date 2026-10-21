@@ -600,11 +600,7 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 **完了条件**: 4 本のインデックス登録リクエストの記録が data/gsc/indexing-requests.json にある。候補 3 本の修正がコミット済み。check-seo-meta で触った記事の違反 0。
 **進捗（2026-10-11）**: サイト全体の分析に広げて実施（GSC UI CSV 取得→search-growth→4 Evaluator）。済み: favicon・legacy sitemap の実在しない URL 254 件の除外・TechArticle の image・/exam の本文（PR #988・本番確認）、CTR 実験 EXP-020（2級二次 4 本）・EXP-021（総監 5 本）、リンク 0 本の 8 ページへ内部リンク 23 本、check-seo-meta は全 1,659 URL で違反は /exam の 1 件のみ→解消。**残り**: (1) concrete-engineer textbook 3 本は 10-04 に依頼済みで 10-18 まで再依頼できない→10-18 以降に steel-material-properties と合わせて `npm run gsc-indexing:request -- --urls …`。(2) 当初の候補 3 本（劣化機構「コンクリート 中性化」・主任技士の小論文ガイド・技術士一次の基礎科目）は metrics-analyzer の上位 25 に入らず未着手。EXP-020/021 の結果を見てから判断。観測と判断は gsc-management.md の 2026-10-11 の項。
 
-
-
-
-
-
+**確認（2026-10-21）**: URL 検査（2026-10-14・`data/gsc/url-inspection/2026-10-14T06-52-54.json`）で、concrete-engineer textbook の construction（10/12 クロール）と production-qc（10/13 クロール）は「送信して登録されました」。残る未登録は `/exam/concrete-engineer/textbook/materials` と `/practice/steel-material-properties`（どちらも「検出 - インデックス未登録」・未クロール）の 2 本で、登録の依頼（`npm run gsc-indexing:request -- --urls …`）は運営者の了承を得てから送る。
 
 ### [DN-0599] 2級直前総まとめの公開判断と公開後28日比較
 タグ: [領域:SNS] [時期:2026-10] [種類:制作] [起票:2026-10-08]
