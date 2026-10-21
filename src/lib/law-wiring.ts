@@ -13,7 +13,7 @@ import policyRegistry from '../../config/policy-registry.json';
 import { getAllDocsMeta, type DocMeta } from '@/lib/docs';
 import { isCareerDoc } from '@/lib/doc-classifier';
 import { getDocTopics, getTopicBySlug, type Topic } from '@/lib/topics';
-import { toWired, type WiredDoc } from '@/lib/article-end-wiring';
+import { resolveLawSiblings, resolveTopicHubLinks, spreadAcrossCategories, toWired, type TopicHubLink, type WiredDoc } from '@/lib/article-end-wiring';
 import { EGOV_LAW_BASE, articleLabel } from '@/lib/egov-links.mjs';
 import { getPublicDocPath, getPublicDocRouteArea } from '@/lib/content-routes';
 import { lawTopicIndex, lawsOfTopic, topicsOfLaw } from '@/lib/law-topic-core.mjs';
@@ -55,7 +55,7 @@ function getLawPages(): Map<string, DocMeta> {
 }
 
 /** 法令名のリンク（法令ページがあればその URL、無ければ e-Gov） */
-export function lawLink(lawId: string): LawLink {
+function lawLink(lawId: string): LawLink {
   const page = getLawPages().get(lawId);
   const title = LAWS[lawId]?.title ?? lawId;
   const egovUrl = lawUrl(lawId);
@@ -85,7 +85,7 @@ function getLawTopicLinks(lawId: string, limit = 3): LawTopicLink[] {
 }
 
 /** 記事末の根拠法令のカード用: 法令 ID → 関わるテーマ */
-export function resolveLawTopics(lawIds: readonly string[], limit = 3): Map<string, LawTopicLink[]> {
+function resolveLawTopics(lawIds: readonly string[], limit = 3): Map<string, LawTopicLink[]> {
   const out = new Map<string, LawTopicLink[]>();
   for (const lawId of lawIds) {
     const links = getLawTopicLinks(lawId, limit);
@@ -102,11 +102,7 @@ export function getTopicLaws(topic: Topic, { limit = 8, perLaw = 3 }: { limit?: 
   return lawsOfTopic(getIndex(), topic.slug, { limit }).flatMap(({ lawId, docs }) => {
     if (!LAWS[lawId]?.title) return [];
     const candidates = docs.map((s) => bySlug.get(s)).filter((d): d is DocMeta => Boolean(d) && !isCareerDoc(d as DocMeta));
-    const picks: DocMeta[] = [];
-    const seen = new Set<string>();
-    for (const d of candidates) if (picks.length < perLaw && !seen.has(String(d.category))) { seen.add(String(d.category)); picks.push(d); }
-    for (const d of candidates) if (picks.length < perLaw && !picks.includes(d)) picks.push(d);
-    return [{ lawId, ...lawLink(lawId), count: docs.length, picks: picks.map(toWired) }];
+    return [{ lawId, ...lawLink(lawId), count: docs.length, picks: spreadAcrossCategories(candidates, perLaw).map(toWired) }];
   });
 }
 
@@ -126,11 +122,16 @@ export function getLawDirectory({ minDocs = 3, topicsPerLaw = 4, excludeTopic }:
     }));
 }
 
+/** 計画・施策・審議会を決定日の新しい順に並べ、根拠法令のリンクを付ける（skipLaws＝そのページ自身の法令は出さない） */
+function withLawLinks(policies: Policy[], skipLaws: ReadonlySet<string> = new Set()): (Policy & { laws: LawLink[] })[] {
+  return [...policies]
+    .sort((a, b) => b.decidedAt.localeCompare(a.decidedAt))
+    .map((p) => ({ ...p, laws: uniqueLinks(p.basisLaws.filter((id) => !skipLaws.has(id))) }));
+}
+
 /** テーマに関わる計画・施策・審議会（決定日の新しい順） */
 export function getTopicPolicies(topicSlug: string): (Policy & { laws: LawLink[] })[] {
-  return POLICIES.filter((p) => p.topics.includes(topicSlug))
-    .sort((a, b) => b.decidedAt.localeCompare(a.decidedAt))
-    .map((p) => ({ ...p, laws: uniqueLinks(p.basisLaws) }));
+  return withLawLinks(POLICIES.filter((p) => p.topics.includes(topicSlug)));
 }
 
 export type LawPageData = {
@@ -145,18 +146,9 @@ export type LawPageData = {
  * 法令ページの末尾に出す自動の節（関わるテーマ・計画と審議会・よく引かれる条・この法令を扱う記事・最新の改正の施行日）。
  * family（同じページで扱う政令・省令）も合わせて数える。
  */
-export function getLawPageData(lawId: string, family: readonly string[] = []): LawPageData {
+function getLawPageData(lawId: string, family: readonly string[] = []): LawPageData {
   const ids = [lawId, ...family];
   const idSet = new Set(ids);
-  // 関わるテーマ: 法令と政令・省令のどれかを引く記事を、テーマごとに数え直す（2 本以上）
-  const byTopic = new Map<string, Set<string>>();
-  for (const id of ids) for (const [slug, docs] of getIndex().get(id) ?? []) {
-    const set = byTopic.get(slug) ?? new Set<string>();
-    for (const d of docs) set.add(d);
-    byTopic.set(slug, set);
-  }
-  const topics = [...byTopic].map(([slug, set]) => ({ slug, count: set.size })).filter((r) => r.count >= 2)
-    .sort((a, b) => b.count - a.count || a.slug.localeCompare(b.slug));
   const citing = getPool().filter((d) => (d.lawIds ?? []).some((id) => idSet.has(id)));
   // よく引かれる条（条ごとに引く記事の本数）
   const articleCount = new Map<string, number>();
@@ -175,12 +167,48 @@ export function getLawPageData(lawId: string, family: readonly string[] = []): L
     practice: usable.filter((d) => getPublicDocRouteArea(d.slug) === 'practice').map(toWired),
   };
   return {
-    topics: toLinks(topics),
-    policies: POLICIES.filter((p) => p.basisLaws.some((id) => idSet.has(id)))
-      .sort((a, b) => b.decidedAt.localeCompare(a.decidedAt))
-      .map((p) => ({ ...p, laws: uniqueLinks(p.basisLaws.filter((id) => !idSet.has(id))) })),
+    // 関わるテーマ: 法令と政令・省令のどれかを引く記事を、テーマごとに数える（2 本以上）
+    topics: toLinks(topicsOfLaw(getIndex(), ids)),
+    policies: withLawLinks(POLICIES.filter((p) => p.basisLaws.some((id) => idSet.has(id))), idSet),
     articles,
     docsByArea,
     enforced: ids.filter((id) => LAWS[id]).map((id) => ({ lawId: id, title: LAWS[id]!.title, enforced: LAWS[id]!.enforced, url: lawUrl(id) })),
+  };
+}
+
+export type ArticleEnd = {
+  lawSiblings: Map<string, WiredDoc[]>;
+  lawTopics: Map<string, LawTopicLink[]>;
+  /** 法令 ID → 法令ページの URL（法令ページがある法令だけ。法令ページ自身が解説する法令は入れない） */
+  lawPageLinks: Map<string, string>;
+  /** 法令ページなら、末尾の自動の節 */
+  lawPage: LawPageData | null;
+  topicLinks: TopicHubLink[];
+  /** 記事末の法令とテーマのカードに出した記事（関連記事から外す） */
+  shownSlugs: Set<string>;
+};
+
+/**
+ * 記事末の回遊（content-taxonomy.md §6-3）の中身をまとめて決める。根拠法令（同じ法令を扱う記事・関わるテーマ・法令ページ）
+ * → この記事のテーマ の順に選び、先に出した記事は後ろのカードと関連記事から外す。
+ * @param lawIds 本文の e-Gov へのリンクから集めた法令（本文に出た順）
+ * @param pool 記事末に出す候補の母集団（関連記事と同じ）
+ */
+export function resolveArticleEnd(meta: DocMeta, lawIds: readonly string[], pool: DocMeta[]): ArticleEnd {
+  const lawSiblings = lawIds.length > 0 ? resolveLawSiblings(meta, lawIds, pool) : new Map<string, WiredDoc[]>();
+  const lawSiblingSlugs = new Set([...lawSiblings.values()].flat().map((doc) => doc.slug));
+  const ownLaws = new Set(meta.category === 'laws' ? [meta.lawId, ...(meta.lawFamily ?? [])].filter(Boolean) : []);
+  const lawPageLinks = new Map(lawIds.filter((id) => !ownLaws.has(id)).flatMap((id) => {
+    const link = lawLink(id);
+    return link.internal ? [[id, link.href] as const] : [];
+  }));
+  const topicLinks = resolveTopicHubLinks(meta, pool, { exclude: lawSiblingSlugs });
+  return {
+    lawSiblings,
+    lawTopics: lawIds.length > 0 ? resolveLawTopics(lawIds) : new Map(),
+    lawPageLinks,
+    lawPage: meta.category === 'laws' && meta.lawId ? getLawPageData(meta.lawId, meta.lawFamily ?? []) : null,
+    topicLinks,
+    shownSlugs: new Set([...lawSiblingSlugs, ...topicLinks.flatMap((link) => link.picks.map((doc) => doc.slug))]),
   };
 }

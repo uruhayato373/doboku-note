@@ -35,11 +35,17 @@ export function lawTopicIndex(docs, topicsOf) {
 
 /**
  * 法令が関わるテーマ（そのテーマの記事のうち min 本以上が引く）。引く記事の多い順。
+ * 法令ページのように法律と政令・省令をまとめて扱うときは ID を並べて渡す（どれかを引く記事を、テーマごとに重ねずに数える）。
+ * @param {string | string[]} lawIds
  * @returns {Array<{ slug: string, count: number }>}
  */
-export function topicsOfLaw(index, lawId, { min = MIN_LAW_TOPIC_DOCS, limit = Infinity } = {}) {
-  return [...(index.get(lawId) ?? new Map())]
-    .map(([slug, docs]) => ({ slug, count: docs.length }))
+export function topicsOfLaw(index, lawIds, { min = MIN_LAW_TOPIC_DOCS, limit = Infinity } = {}) {
+  const byTopic = new Map();
+  for (const lawId of [lawIds].flat()) {
+    for (const [slug, docs] of index.get(lawId) ?? []) byTopic.set(slug, new Set([...(byTopic.get(slug) ?? []), ...docs]));
+  }
+  return [...byTopic]
+    .map(([slug, docs]) => ({ slug, count: docs.size }))
     .filter((r) => r.count >= min)
     .sort((a, b) => b.count - a.count || a.slug.localeCompare(b.slug))
     .slice(0, limit);
