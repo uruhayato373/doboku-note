@@ -24,7 +24,7 @@ import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import dotenv from 'dotenv';
 import { addDays, GSC_FINAL_LAG_DAYS, jst } from './lib/business-direction.mjs';
-import { packPeriods, foldLanding, foldEvents, foldGsc, foldGscTotal } from './lib/growth-pack.mjs';
+import { packPeriods, foldLanding, foldEvents, foldGsc, foldGscTotal, foldGscCoverage } from './lib/growth-pack.mjs';
 import { ga4FromEnv, japanFilter, spamExclusion, andFilter, runReportAll, isLimited } from '../.claude/scripts/lib/ga4-client.mjs';
 import { getAuth, fetchSearchAnalytics } from '../.claude/skills/analytics/fetch-gsc-data/scripts/fetch-gsc-data.mjs';
 import { datasetDir, datasetPath } from './lib/datasets.mjs';
@@ -108,6 +108,23 @@ async function main() {
     }
   }
 
+  // ページ別の取り方ごとの合計（DN-0806）。国で絞ったページ別は匿名化された検索語の分を含まない（DN-0759）ので、
+  // 急落・減衰の検出を切り替える前に、取り方を変えた合計が byPage 全体のどれだけを拾うかを毎週残す
+  await run('gscPageCoverageWeek', async () => {
+    const q = (dims, country) => fetchSearchAnalytics(gscAuth, { startDate: period.startDate, endDate: period.endDate, effectiveDimensions: dims, all: true, ...(country ? { country } : {}) });
+    const total = sections.gscPageTotalWeek?.ok ? sections.gscPageTotalWeek.rows[0] : null;
+    return foldGscCoverage({
+      startDate: period.startDate,
+      endDate: period.endDate,
+      byPageTotal: total ? { clicks: total.clicks, impressions: total.impressions } : null,
+      variants: [
+        { name: 'page・国で絞る（いまの取り方）', result: await q(['page'], cfg.gscCountry) },
+        { name: 'page・国の条件なし（全世界）', result: await q(['page']) },
+        { name: 'page×country・条件なしで日本の行だけ', result: await q(['page', 'country']), country: cfg.gscCountry },
+      ],
+    });
+  });
+
   const pack = {
     schemaVersion: 1,
     week,
@@ -120,7 +137,10 @@ async function main() {
 
   const failed = Object.entries(sections).filter(([, s]) => !s.ok);
   for (const [name, s] of Object.entries(sections)) {
-    console.log(`${TAG} ${name}: ${s.ok ? `${s.rows.length} 行${s.truncated ? '（打ち切り）' : ''}${s.limited ? '（thresholding/sampling）' : ''}` : `失敗 ${s.error}`}`);
+    const detail = !s.ok ? `失敗 ${s.error}`
+      : s.variants ? s.variants.map((v) => `${v.name} ${v.clicks} クリック（byPage 全体の ${v.clickSharePct ?? '—'}%）`).join(' / ')
+        : `${s.rows.length} 行${s.truncated ? '（打ち切り）' : ''}${s.limited ? '（thresholding/sampling）' : ''}`;
+    console.log(`${TAG} ${name}: ${detail}`);
   }
   console.log(`${TAG} ${week}（${period.startDate}〜${period.endDate}・基線 ${baseline.startDate}〜${baseline.endDate}）区画 ${Object.keys(sections).length} 件中 取得 ${Object.keys(sections).length - failed.length} / 失敗 ${failed.length}`);
 

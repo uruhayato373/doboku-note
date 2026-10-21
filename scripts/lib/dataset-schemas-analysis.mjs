@@ -104,6 +104,27 @@ export const GrowthPack = z
         gscPropertyBase: gscSection(GscTotalRow, '無次元・byProperty の全体集計（基線）').optional(),
         gscPageTotalWeek: gscSection(GscTotalRow, '無次元・byPage の全体集計（週）').optional(),
         gscPageTotalBase: gscSection(GscTotalRow, '無次元・byPage の全体集計（基線）').optional(),
+        gscPageCoverageWeek: z.discriminatedUnion('ok', [
+          z.object({
+            ok: z.literal(true),
+            startDate: jstDate('開始日（太平洋時間で取得）'),
+            endDate: jstDate('終了日（太平洋時間で取得）'),
+            byPageTotal: z.object({ clicks: num('クリック'), impressions: num('表示回数') }).strict().nullable().describe('無次元・byPage の全体（国で絞る）。取れなければ null'),
+            variants: z.array(z.object({
+              name: z.string().min(1).describe('取り方の名前'),
+              dimensions: z.array(z.string()),
+              filters: z.array(z.looseObject({})).describe('API に渡した絞り込み'),
+              keepCountry: z.string().optional().describe('dimensions に country を含めて、この国の行だけを足した'),
+              rowCount: count('足した行数'),
+              truncated: z.boolean(),
+              clicks: num('クリック'),
+              impressions: num('表示回数'),
+              clickSharePct: num('byPage 全体に対するクリックの割合（%）').nullable(),
+              impressionSharePct: num('byPage 全体に対する表示の割合（%）').nullable(),
+            }).strict()).min(1),
+          }).strict(),
+          failedSection,
+        ]).optional().describe('ページ別の取り方ごとの合計（DN-0806・急落・減衰の検出の取り方を決めるため）'),
       })
       .strict()
       .describe('取得した区画。取れなかった区画は ok:false と error（全滅のときはファイルを書かない）'),
