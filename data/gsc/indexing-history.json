@@ -1250,6 +1250,24 @@
         "/standards/kyushu/hikkei-common-11/part-01",
         "/standards/kyushu/management-manual/part-04"
       ]
+    },
+    {
+      "runId": "2026-10-21T01-24-48Z",
+      "collectedAt": "2026-10-21T01:24:48.112Z",
+      "mode": "commit",
+      "status": "no-requests",
+      "filter": {
+        "category": null,
+        "group": null
+      },
+      "inspected": 1,
+      "accepted": 0,
+      "alreadyIndexed": 1,
+      "unreadable": 0,
+      "slugs": [
+        "/exam/concrete-engineer/textbook/materials"
+      ],
+      "acceptedSlugs": []
     }
   ]
 }
