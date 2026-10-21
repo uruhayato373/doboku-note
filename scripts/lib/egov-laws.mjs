@@ -10,23 +10,15 @@
  */
 import { execFileSync } from 'node:child_process';
 import { readFileSync } from 'node:fs';
+import { egovLinksOf } from '../../src/lib/egov-links.mjs';
+
+// 記事のリンクの読み取りはサイトと共有の src/lib/egov-links.mjs だけに置く（DN-0731）
+export { egovLinksOf };
 
 export const EGOV_API = 'https://laws.e-gov.go.jp/api/2';
-/** 記事の e-Gov 法令検索へのリンク（法令 ID と、条のアンカー #Mp-At_<番号>）。 */
-const LINK = /https?:\/\/laws\.e-gov\.go\.jp\/law\/([0-9A-Z]+)(?:\/[^\s)"'#]*)?(?:#Mp-At_([0-9_]+))?/g;
-
 /** 参考文献の台帳で法令として扱う項目（e-Gov の法令 ID を持つべきもの）。 */
 export function isLawSource(source) {
   return source.class === 'external-primary' && (/-(act|order|rules)$/.test(source.id) || source.id === 'japan-constitution');
-}
-
-/** 本文の e-Gov へのリンクを行番号つきで拾う。 */
-export function egovLinksOf(text) {
-  const out = [];
-  text.split('\n').forEach((line, i) => {
-    for (const m of line.matchAll(LINK)) out.push({ lawId: m[1], article: m[2] ?? null, line: i + 1 });
-  });
-  return out;
 }
 
 const sleep = (ms) => Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, ms);
