@@ -1268,6 +1268,44 @@
         "/exam/concrete-engineer/textbook/materials"
       ],
       "acceptedSlugs": []
+    },
+    {
+      "runId": "2026-10-22T01-30-09Z",
+      "collectedAt": "2026-10-22T01:30:09.419Z",
+      "mode": "commit",
+      "status": "ok",
+      "filter": {
+        "category": null,
+        "group": null
+      },
+      "inspected": 10,
+      "accepted": 10,
+      "alreadyIndexed": 0,
+      "unreadable": 0,
+      "slugs": [
+        "/standards/hokuriku/common",
+        "/exam/concrete-diagnostician/textbook/assessment",
+        "/exam/pe-comprehensive-management/keywords/job-analysis",
+        "/practice/barrier-free-roads-stations",
+        "/practice/buried-cultural-property-survey",
+        "/practice/civil-engineer-annual-cycle",
+        "/practice/construction-business-overview",
+        "/practice/construction-dispute-resolution",
+        "/practice/construction-materials-overview",
+        "/practice/coordinate-systems-geodetic-datum"
+      ],
+      "acceptedSlugs": [
+        "/standards/hokuriku/common",
+        "/exam/concrete-diagnostician/textbook/assessment",
+        "/exam/pe-comprehensive-management/keywords/job-analysis",
+        "/practice/barrier-free-roads-stations",
+        "/practice/buried-cultural-property-survey",
+        "/practice/civil-engineer-annual-cycle",
+        "/practice/construction-business-overview",
+        "/practice/construction-dispute-resolution",
+        "/practice/construction-materials-overview",
+        "/practice/coordinate-systems-geodetic-datum"
+      ]
     }
   ]
 }

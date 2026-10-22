@@ -13,3 +13,8 @@ metadata:
 **Why:** 2026-10-17 に check-content-registry・check-video-content・関連テスト 3 本だけを見て develop へ入れ、CI の quality audit で 3 検査（content-registry R10・youtube-shorts・youtube-authority-metadata）を約 1 日赤くした。手元の check-content-registry が PASS だったのは、AI 画像の判定台帳（`.claude/state/quality/ai-image-review-ledger.json`）が手元にだけあったから。同じ作業の産物が別ファイル（state・台帳・判定記録）に散っていた。
 
 **How to apply:** 未コミットの他人の作業を拾うときは、(1) その作業が触った全ファイル（state・ledger・config を含む）を git status から洗い出して同じコミットに入れる (2) push 前に quality:audit:ci を回す (3) 新しい型の成果物（Shorts なしのパックなど）は、旧型を前提にした件数決め打ちの検査・テストに当たると想定する。[[feedback_commit_result_check]] [[feedback_multi_session_concurrent_git]]
+
+## 退避は「捨てる」でなく「その場でブランチに積む」（2026-10-22）
+主ツリー（develop）に他セッションの未コミット作業（2級動画の改訂・32 ファイル・12 時間放置）が残り、develop を進められなかった。パッチと tar に退避して worktree で PR #1184 にし、マージまでは通った。しかし主ツリーの写しを `git restore`・`git clean` で消す操作は、中身が develop に入っていても auto mode が「取り返しのつかない破棄」として 4 回止め、最後まで片づけられなかった。
+- **Why:** 作業ツリーの変更の破棄は、退避があっても分類器が止める。言い換えて再試行しても通らない。
+- **How to apply:** (1) 並行セッションがいなければ（`ListAgents`）、主ツリーで `git switch -c <branch>` → 明示 add → commit → push して PR にし、`git switch develop` → `git merge --ff-only origin/develop` で戻す。破棄の操作が要らない（pre-commit で落ちたらその場で直す）。(2) 並行セッションがいるときだけ worktree へ移す。そのときの主ツリーの片づけは、最初に止められた時点で再試行せず、コマンドを bash ブロックでユーザーに渡す。(3) 拾った作業は全テストを回す（今回は改訂行が制作計画の在庫に入り youtube-longform-plan のテストが落ちていた）。

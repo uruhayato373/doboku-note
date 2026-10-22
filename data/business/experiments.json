@@ -1679,7 +1679,8 @@
       "actions": [
         "2026-09-25: QualificationBridge（src/config/qualification-bridge.ts）を /practice/ 全記事の記事末と共通仕様書の章末に配置。GA4 qualification_bridge_click / qualification_bridge_impression を AnalyticsProvider・growth-cycle・fetch-ga4-cta-clicks に登録。入口記事（会計検査・工事検査）を新設。deploy 待ち（backlog DN-0304）",
         "2026-09-25: 本番反映（PR #635 → develop → main・cloudflare-deploy run 36078428661 成功・check-production-ssr exit 0）。起票日と同日のため measure.anchor は 2026-09-25 のまま。本番の /practice/cost-and-design-change と /standards/chubu/common/chapters/1-1 にカードとリンク 3 本（orderer / contractor / qualification-map）を curl で確認。本番で qualification_bridge_impression（label=card）と qualification_bridge_click（label=orderer・contractor・qualification-map）が cta_placement=practice-footer / standards-chapter-footer 付きで GA4 収集エンドポイントへ送られ 204 を返すことを確認（Playwright）",
-        "2026-10-21: 運営者の判断（計測より配線を優先）で、PR #1182 に記事末の回遊（根拠法令の同じ法令の記事・関わるテーマ、この記事のテーマ）と、自治体の土木担当シリーズ（タグ 地方公共団体）での橋渡しカードの出し分け（contractor → public-pe・立場のテーマへのリンク municipal-hub）を入れた。deploy 待ち。deploy した日以降は表示面が変わるので、判定は deploy の前後を分けて読む（DN-0810）"
+        "2026-10-21: 運営者の判断（計測より配線を優先）で、PR #1182 に記事末の回遊（根拠法令の同じ法令の記事・関わるテーマ、この記事のテーマ）と、自治体の土木担当シリーズ（タグ 地方公共団体）での橋渡しカードの出し分け（contractor → public-pe・立場のテーマへのリンク municipal-hub）を入れた。deploy 待ち。deploy した日以降は表示面が変わるので、判定は deploy の前後を分けて読む（DN-0810）",
+        "2026-10-22: PR #1182（自治体の土木担当シリーズの橋渡しカードを立場で出し分け、施工会社の選択肢を「技術士を目指したい」に替えて /topics/municipal-civil-engineers へのリンクを添えた）を本番反映 2026-10-22 07:41 JST（main 8aba7dc86・cloudflare-deploy run 39687564101 成功・check-production-ssr exit 0）。判定（11/26）では 10/22 の前後を分けて読む（DN-0810）"
       ],
       "next_check_date": "2026-10-23",
       "resume_criteria": null,
@@ -1885,7 +1886,8 @@
         "2026-10-02: PR #841（feat/civil2-funnel）で magazine-placement の 2級二次冒頭を差し替え（resolveCivil2SecondaryLead で試験翌日に二次まるごとへ自動復帰）、MagazineTopBanner の価格を先頭金額のみに、CTA ゼロだった記事 7 本を配線、ページ単位の CTA ゼロ検査を追加",
         "2026-10-02: PR #841 を develop へマージ（11428fe）し main へ昇格、cloudflare-deploy run 37012387601 成功・check-production-ssr exit 0。本番で 2級 R7 の冒頭＝直前パック・中間＝二次まるごと、書き方の冒頭＝完成答案集、直前2週間ページの冒頭バナーが高さ 92px・タイトル幅 293px・価格「¥2,480」に是正されたことを確認。反映は 10/02 22:20 JST なので anchor は 2026-10-03 のまま",
         "2026-10-06: 交絡の記録。クラウドのセッションで 2級二次の過去問ページ secondary-r03〜r07 の表と重複見出しをモバイル向けに整形（解答表の長文セル→箇条書き・見出しに問題番号）。冒頭 CTA（-top）と本文の CTA カードの配置・文言は変えていない。develop 反映のみで本番は運営者の /deploy 後。判定時は本番反映日以降の本文 CTA のクリックに整形の影響があり得ることを考慮する",
-        "2026-10-06: 交絡の追記。同じ整形を 2級二次の経験記述ガイド（secondary-experience-writing-guide）にも行った（年度別表の箇条書き化・本文を担う Callout 4 つを地の文へ・表の導入文）。MagazineCard 3 枚・CTA・CareerAffiliate の配置と文言は不変"
+        "2026-10-06: 交絡の追記。同じ整形を 2級二次の経験記述ガイド（secondary-experience-writing-guide）にも行った（年度別表の箇条書き化・本文を担う Callout 4 つを地の文へ・表の導入文）。MagazineCard 3 枚・CTA・CareerAffiliate の配置と文言は不変",
+        "2026-10-22: 交絡の記録。PR #1183（civil-exam-textbook-index を作り直し、2級の過去問ページから教材ガイドへのリンクが 6〜9 本に）と PR #1185（2級の送り先をココナラの集約先へ。ただし対象の出品はすべて一時休止で、サイトの表示は変わっていない）を本番反映 2026-10-22 07:41 JST（main 8aba7dc86・cloudflare-deploy run 39687564101 成功・check-production-ssr exit 0）。冒頭 CTA の配置・文言は変えていない。判定は 10/22 の前後を分けて読む（DN-0691）"
       ],
       "next_check_date": "2026-10-26",
       "resume_criteria": null,
@@ -3187,7 +3189,8 @@
       "learnings": null,
       "closed_at": null,
       "actions": [
-        "2026-10-11: develop へ 2a8c72436（4 本の seoTitle・description・冒頭・試験概要へのリンク）。本番反映は次のデプロイ"
+        "2026-10-11: develop へ 2a8c72436（4 本の seoTitle・description・冒頭・試験概要へのリンク）。本番反映は次のデプロイ",
+        "2026-10-22: 交絡の記録。PR #1182・#1183（記事末のテーマ・法令のカード、2級の過去問から教材ガイドへのリンク）を本番反映 2026-10-22 07:41 JST（main 8aba7dc86・cloudflare-deploy run 39687564101 成功・check-production-ssr exit 0）。4 ページの題名・説明・冒頭は変えていない。判定は 10/22 の前後を分けて読む（DN-0691）"
       ]
     },
     {
@@ -5435,6 +5438,60 @@
           "note": "PR #1150 を develop へマージし、main へ昇格して本番に出した。本番のページの配信コードに EXP-038 があり EXP-019 が無いことを確かめた。A/B を約 1/2 ずつ配信する。",
           "commit": "8aba7dc8628dccb5832dc2f9d50602bec0029c75",
           "runUrl": "https://github.com/uruhayato373/doboku-note/actions/runs/39687564101"
+        }
+      ]
+    },
+    {
+      "id": "EXP-039",
+      "title": "1級土木 二次 令和3年度のページで、経験記述の教材カードを解答の折りたたみの外へ出し、試験後に自分の答案を見直す読者のクリックを増やす",
+      "hypothesis": "/exam/civil-construction-1/secondary/r03 の経験記述の教材カード（civil-1-pastexam-essay）は問題1 の details の中にあり、折りたたみを開かない読者には見えなかった。カードを増やさずに details の直後へ移し、試験後に安全管理の記述を見直す読者向けの案内にすれば、同じページの CTA クリックが増える",
+      "target_metric": "ページの note_cta_click（GA4）。補助に CTA 表示あたりのクリック率（fetch-ga4-cta-clicks のページ×placement 別）",
+      "target_delta": "事後 28 日の note_cta_click が事前比で減らないこと。1級の本試験（10/4）の後で需要が落ちる時期なので、少数なら判定保留とし、カードの移動の効果を成功扱いしない",
+      "baseline": {
+        "measured_at": "2026-10-17",
+        "source": "data/analysis/growth/digest-2026-W41.json#OPP-4d24176d60",
+        "note": "W41 ダイジェストの 35 日窓: CTA 表示 727・クリック 2（0.28%・サイト平均 0.68%）。カードの移動前で、窓は 1級の本試験の前を含む"
+      },
+      "businessContext": {
+        "qualification": "civil-construction-1",
+        "readerNeed": "1級の第2次検定を受けた受験者が、令和3年度の解答例を読んだあとに、自分の経験記述（安全管理）の書き方を見直す教材にたどり着きたい",
+        "verifiedGap": "教材カードが問題1 の解答の折りたたみ（details）の中にだけあり、開かない読者には見えなかった（2026-10-17 現物確認・content/site/civil-construction-1/secondary-r03/article.mdx:84）",
+        "metricId": "noteCtaClicks",
+        "reviewRecord": "data/business/records/review-2026-10-16T23-59-45-209Z-60fbf6fb-b9a7-44d4-b146-e8dee442dae7.json"
+      },
+      "measure": {
+        "specVersion": 1,
+        "metric": "ga4.event:note_cta_click",
+        "scope": {
+          "pages": [
+            "/exam/civil-construction-1/secondary/r03"
+          ]
+        },
+        "anchor": "2026-10-23",
+        "preDays": 28,
+        "postDays": 28,
+        "lagDays": 3,
+        "direction": "increase",
+        "minVolume": 5,
+        "note": "anchor は本番反映（2026-10-22 07:41 JST）の翌日。事前窓は本試験（10/4）の前後を含み、事後は試験後なので、需要の差を差し引いて読む。同じ日に記事末のテーマ・法令のカード（#1182・#1183）も出ている"
+      },
+      "status": "running",
+      "created_at": "2026-10-22T03:29:12.020Z",
+      "started_at": "2026-10-22T03:29:12.020Z",
+      "paused_at": null,
+      "paused_reason": null,
+      "result": null,
+      "learnings": null,
+      "closed_at": null,
+      "next_check_date": "2026-11-23",
+      "actions": [
+        "2026-10-22: PR #1183 で civil-1-pastexam-essay のカードと案内文を問題1 の details の直後へ移し、試験後に安全管理の記述を見直す読者向けの案内にした（カードは増やしていない）。本番反映 2026-10-22 07:41 JST（main 8aba7dc86・cloudflare-deploy run 39687564101 成功・check-production-ssr exit 0）。本番のページでカードの参照 2 件がどの details の外にもあることを確かめた（DN-0758）"
+      ],
+      "history": [
+        {
+          "at": "2026-10-22T03:29:12.020Z",
+          "event": "start",
+          "note": "DN-0758 の完了条件（本番反映日・変更前の基線・次回確認日の記録）として起票し、本番反映済みなので running にした。効果は未測定"
         }
       ]
     }

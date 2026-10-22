@@ -35,3 +35,7 @@ metadata:
 (1) 本体 `src/components/ui/X/X.tsx` (2) `src/lib/component-loader/index.ts` の common 登録 (3) MDX 内 `<X />` 使用。欠けると本番 `next build`（Turbopack）が落ちる（本体欠落=`Module not found`、loader 欠落=prerender `Expected component X to be defined`）。dev は HMR + `SafeMDXRemote` の try/catch で隠すため dev では動く。
 - **Why:** 2026-06-02、/tools 3本のデプロイが SatTextLink 本体の untracked と loader 登録漏れで2回連続失敗（prod は last-good 据え置きで tools が404）。
 - **How to apply:** 本体+loader+MDX は1コミット。デプロイ前に (a) loader の全 `@/components/...` import 先の実在 (b) 全 `.local/r2/posts/**/article.mdx` の `<Upper>` タグの loader 登録、を突合。`npm run type-check` は Module not found を捕捉しない。共有ツリーでは `git commit -m "..." -- <pathspec>` で原子化（[[feedback_multi_session_concurrent_git]]）。
+
+## 日付待ちの準備ブランチは、作った日に draft PR で CI を回す（2026-10-22）
+`prep/civil2-after-exam-1026`（10/26 にマージする予定）を運営者の指示で前倒しして PR にしたら、CI が赤だった。原因は生成物の索引の不一致と、新しいページで件数が 245→246 になる固定値のテスト。準備した 10/21 から一度も CI を通っておらず、マージ当日に初めて分かる作りだった。
+- **How to apply:** 日付待ちのブランチも作った時点で draft PR（base は develop）を開いて CI を回し、緑にしておく（マージは日付まで待つ）。マージしたら、そのブランチ名を書いたカード（`git grep -n <branch> -- .claude/todo/backlog.md`）を同じ手順で「マージ済み」に直す（10/22 は 4 枚が「10/26 にマージ」のまま残り、後から直した）。

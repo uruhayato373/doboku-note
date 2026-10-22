@@ -255,6 +255,8 @@ CLAUDE.md §1・§2・§5・§10 の根拠と経緯（ルール本文は CLAUDE.
 
 複数セッション・worktree が常態で、CI が deploy のたびに `develop` → `main` を自動マージするため、ローカルが数十コミット遅れるのは高頻度。2026-06-11 に 43 コミット遅れの古いツリーで作業し、既存作業を重複・劣化させた。SessionStart フック `scripts/check-git-sync.mjs` が開幕で警告する。遅れていれば同期してから着手し、古いベース上のコミットを push しない。破壊的な reset・同期はユーザー確認後、独自コミットは退避ブランチで保全する。
 
+同じフックは、作業ツリーの未コミットの変更が 6 時間以上（いちばん新しい変更の時刻で判定）残っていれば 1 行出す。2026-10-22 に主ツリーへ別セッションの作業（32 ファイル）が 12 時間残り、develop を進められなかった。破棄は auto mode に止められるので、持ち主のセッションに積ませる。持ち主がいなければ、並行セッションがいないこと（`ListAgents`）を確かめてから、その場で `git switch -c` してコミットし PR にして develop へ戻る（並行セッションがいれば `git worktree add` で別ツリーへ移す）。拾った作業は `npm run quality:audit:ci` と全テストを回してから push する（[他人の未コミット作業](../../memory/feedback_commit_others_wip_run_ci_gate.md)）。
+
 ### worktree はいつ作るか（§5・§10）
 
 - Codex / Claude Code の別セッションが同じリポジトリで並行作業するのが常態（2026-06-11 確認）。同一ワークツリーを共有すると、あるセッションの `git reset --hard`／`checkout` が他セッションの未 push コミット・作業ツリーを破壊する。pathspec commit や push 前確認でも防げない（reset は HEAD・index・作業ツリーを丸ごと書き換える）。2026-06-11 実証: commit が別セッションの reset で消失し gc 後は復旧不能だった

@@ -14,9 +14,10 @@
  *
  * 要対応: テーマ所属なしの記事・記事型のタグだけの記事・行き先の無い主題タグ（どれも CI が止めるので通常 0）・昇格基準と status の食い違い・
  *        テーマの有料教材（products）のうち公開中でない商品（商品を止めたときにテーマのページから黙って消える）・
- *        一次資料で確かめてから 180 日を超えた計画・施策（台帳 config.policy-registry）。
+ *        一次資料で確かめてから 180 日を超えた計画・施策（台帳 config.policy-registry）・
+ *        法令の節が出ない公開ハブ（そのテーマの記事が 2 本以上引く法令が無い。2026-10-22 に 3 テーマで気付くのが遅れた）。
  * 取りこぼし（判断の材料・exit に影響しない）: 関連記事のどこからも選ばれない記事、記事の多い noTopic のタグ（新テーマの候補）。
- * exit 0 = 完走 / 1 = 要対応（--actions のときだけ）/ 2 = 検査不成立（記事 0 件・設定が読めない）
+ * exit 0 = 完走 / 1 = 要対応（--actions のときだけ）/ 2 = 検査不成立（記事 0 件・設定が読めない・索引が MDX の公開記事と食い違う＝refresh-indexes をしていない）
  */
 import { join } from 'node:path';
 import { readJson } from './lib/json-io.mjs';
@@ -29,6 +30,7 @@ import { buildAliasMap, countTopicDirections, topicEligibility, lacksSubjectTags
 import { needsTopic, topicsOfDoc } from '../src/lib/topic-membership.mjs';
 import { rankRelated } from '../src/lib/related-core.mjs';
 import { lawTopicIndex, topicsOfLaw, lawsOfTopic } from '../src/lib/law-topic-core.mjs';
+import { collectPublishedDocs, diffPublishedSlugs } from './lib/published-docs.mjs';
 
 const NAME = 'report-taxonomy-wiring';
 const args = parseCliArgs({ json: { type: 'boolean' }, check: { type: 'boolean' }, actions: { type: 'boolean' } });
@@ -53,6 +55,11 @@ const docs = Object.entries(index.docs ?? {})
   .map(([slug, m]) => ({ slug, ...m, tags: (m.tags ?? []).map(canon) }))
   .filter((d) => d.published !== false);
 if (docs.length === 0) fail2('公開記事が 0 件');
+// 索引は git 管理外の生成物で、pull しても作り直されない。古い索引で数えると偽の要対応を出すので、MDX の公開記事と食い違えば止める
+const drift = diffPublishedSlugs(docs.map((d) => d.slug), collectPublishedDocs(ROOT).docs.map((d) => d.slug));
+if (drift.missing.length || drift.extra.length) {
+  fail2(`doc-meta-index が古い（MDX にあって索引に無い ${drift.missing.length} 本・索引にだけある ${drift.extra.length} 本。例: ${[...drift.missing, ...drift.extra].slice(0, 3).join(', ')}）。npm run refresh-indexes を先に回す`);
+}
 
 // ---- 所属 -------------------------------------------------------------------
 const topicCache = new Map();
@@ -127,6 +134,8 @@ const lawIndex = lawTopicIndex(pool.filter((d) => d.category !== 'laws'), topics
 const majorLaws = [...lawCount].filter(([, n]) => n >= 3).map(([id]) => id);
 const lawsWithoutTopic = majorLaws.filter((id) => !coveredLaws.has(id) && topicsOfLaw(lawIndex, id).length === 0).map((id) => lawTitles[id]?.title ?? id);
 const topicsWithLaws = topics.filter((t) => lawsOfTopic(lawIndex, t.slug).length > 0).length;
+// 公開ハブなのにテーマのページに法令の節が出ない（記事が本文で e-Gov の条を引いていない）。育成中のテーマは対象外
+const hubsWithoutLaws = topics.filter((t) => t.status === 'hub' && lawsOfTopic(lawIndex, t.slug).length === 0).map((t) => t.slug);
 // 計画・施策の台帳: 一次資料で確かめてから 180 日を超えたものは確かめ直す（壁時計に依存するので CI ではなく週次の点検で見る）
 const POLICY_RECHECK_DAYS = 180;
 const policies = readDataset(ROOT, 'config.policy-registry').policies ?? [];
@@ -154,7 +163,7 @@ const result = {
   docs: docs.length,
   coverage: { need: needDocs.length, topicless, byCategory: coverageByCategory },
   topics: topicRows,
-  actions: { topicless: topicless.length, subjectless: subjectless.length, unrouted, promote, belowBar, deadProducts, stalePolicies },
+  actions: { topicless: topicless.length, subjectless: subjectless.length, unrouted, promote, belowBar, deadProducts, stalePolicies, hubsWithoutLaws },
   laws: { pages: lawPageDocs.length, explainers: lawExplainers.length, candidates: lawPageCandidates, policies: policies.length, topicsWithPolicies },
   tags: { noTopicHeavy },
   circulation: {
@@ -168,7 +177,7 @@ const result = {
     gsc: gsc ? { ref: gsc.ref, window: `${gsc.data.meta?.startDate ?? '?'}〜${gsc.data.meta?.endDate ?? '?'}`, topicPages } : null,
   },
 };
-const actionCount = topicless.length + subjectless.length + unrouted.length + promote.length + belowBar.length + deadProducts.length + stalePolicies.length;
+const actionCount = topicless.length + subjectless.length + unrouted.length + promote.length + belowBar.length + deadProducts.length + stalePolicies.length + hubsWithoutLaws.length;
 
 if (args.check) {
   console.log(`[${NAME}] OK: 公開記事 ${docs.length} 本・テーマ ${topics.length} 件を集計（所属が要る ${needDocs.length} 本・所属なし ${topicless.length} 本・要対応 ${actionCount} 件）`);
@@ -187,7 +196,8 @@ if (args.json) {
   out.push(`- 昇格できる育成中のテーマ: ${promote.length ? promote.join(', ') : 'なし'}（status を hub にするか判断する）`);
   out.push(`- 昇格基準を下回る公開ハブ: ${belowBar.length ? belowBar.join(', ') : 'なし'}（記事を足すか判断する。即 noindex にしない）`);
   out.push(`- テーマの有料教材のうち公開中でない商品: ${deadProducts.length ? deadProducts.join(', ') : 'なし'}（topics.json の products から外すか差し替える）`);
-  out.push(`- 一次資料で確かめてから ${POLICY_RECHECK_DAYS} 日を超えた計画・施策: ${stalePolicies.length ? stalePolicies.join(', ') : 'なし'}（計画・施策の台帳 config.policy-registry を一次資料で確かめ直し、checkedAt を更新する）`, '');
+  out.push(`- 一次資料で確かめてから ${POLICY_RECHECK_DAYS} 日を超えた計画・施策: ${stalePolicies.length ? stalePolicies.join(', ') : 'なし'}（計画・施策の台帳 config.policy-registry を一次資料で確かめ直し、checkedAt を更新する）`);
+  out.push(`- 法令の節が出ない公開ハブ: ${hubsWithoutLaws.length ? hubsWithoutLaws.join(', ') : 'なし'}（そのテーマの記事 2 本以上の本文で、関係する法令の条を e-Gov へリンクして引く。条文は一次資料で照合する）`, '');
   out.push('### テーマ（軸・状態・三方向）', '', '| テーマ | 軸 | 状態 | 試験 | 実務 | 基準 | 有料教材 |', '| --- | --- | --- | --- | --- | --- | --- |');
   for (const r of topicRows) out.push(`| ${r.label} | ${taxonomy.topicFacets[r.facet]?.label ?? r.facet} | ${taxonomy.topicStatuses[r.status]?.label ?? r.status}${r.status === 'incubating' && r.eligible ? '（昇格可）' : ''} | ${r.exam} | ${r.practice} | ${r.standards} | ${r.products} |`);
   out.push('', '### 取りこぼしの候補（判断の材料）');

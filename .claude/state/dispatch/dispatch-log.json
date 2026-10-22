@@ -5327,6 +5327,36 @@
       "commit": "d434fe23f4f5",
       "verification": "npm run egov-laws PASS・check-topic-wiring PASS（lawExplainers 62）",
       "note": "記事を取適法の内容に直し explainsLaw 331AC0000000120 を付けた（d434fe23f）。guide-fact-checker は誤り 0・不正確 2 を修正"
+    },
+    {
+      "id": "DN-0691",
+      "at": "2026-10-22",
+      "task": "civil-exam-textbook-index（2026-05-16 で停止・refresh-indexes 未配線）を再生成して配線する",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "80ffa8e3302f",
+      "verification": "npm run refresh-indexes で 2 ファイル更新・本番 curl で 2級過去問ページの教材リンク 6〜7 本",
+      "note": "PR #1183 で build-civil-exam-textbook-index を package.json と refresh-indexes に載せ、2026-10-22 07:41 JST に本番反映。本番の 2級過去問（r07-kouki・r06-zenki）から教材ガイドへ 6〜7 本のリンクを確認。EXP-014・EXP-020 に反映日を記録"
+    },
+    {
+      "id": "DN-0758",
+      "at": "2026-10-22",
+      "task": "1級二次R3の経験記述教材カードを解答の折りたたみ外へ移し、試験後の学習導線を整える",
+      "tier": "mid",
+      "kind": "改善",
+      "prevention": {
+        "type": "none",
+        "ref": "配置の変更で、効果確認は EXP-039 が担う"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "80ffa8e3302f",
+      "verification": "本番 curl で details の中 0 件・npm run check-datasets 違反 0",
+      "note": "PR #1183 でカードを details の直後へ移し、2026-10-22 07:41 JST に本番反映（カードの参照 2 件が details の外）。基線（W41 の 35 日窓 727 表示・2 クリック）・反映日・次回確認日 11/23 を EXP-039 に記録。効果は未測定"
     }
   ]
 }

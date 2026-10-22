@@ -12,7 +12,7 @@
 - [自動化の置き場](feedback_cloud_routines_minimized.md) — ルーティン0・CIはIssue通知
 - [マガジン再収録](feedback_magazine_atomic_recollection.md) — 1答案1記事・切り口を消さない
 - [記事構成規約](feedback_content_structure.md) — 図・太字・3000字・価格直書き禁止
-- [デプロイ規律](feedback_deploy_discipline.md) — 性質別ブランチ・昇格手順・3点commit・PRの向き先・squash判定
+- [デプロイ規律](feedback_deploy_discipline.md) — 性質別ブランチ・昇格手順・3点commit・PRの向き先・squash判定・準備ブランチはdraft PR
 - [直pushもCIゲート](feedback_direct_push_ci_gate.md) — スキル・config・追跡解除は audit:ci 後
 - [総監論文執筆規約](feedback_essay_char_limit.md) — 600字・散文・一般レベル
 - [総監ペルソナ採否](feedback_essay_persona_authentic_seat.md) — 経験座限定・ADRが真実源
@@ -20,7 +20,7 @@
 - [過去問PDF突合](feedback_exam_pdf_cross_reference.md) — 全問を原典と視覚照合
 - [noteカタログ再生成](feedback_note_catalog_regen.md) — note原稿を変えたらbuild-note-catalog
 - [MDX整形の委任](feedback_subagent_mdx_acceptance.md) — textlint・lint・facts照合を受入れ条件に
-- [事実の一次照合](feedback_factcheck_guide_facts.md) — 制度・白書・URL・科目外
+- [事実の一次照合](feedback_factcheck_guide_facts.md) — 制度・白書・URL・科目外・条文は条の範囲だけ
 - [ゲート偽PASS](feedback_gate_zero_coverage_false_pass.md) — 検査0件の緑・否定の単発判定
 - [hub強化とSEO判断](feedback_hub_strengthening_approach.md) — クエリ整合・即noindex禁止
 - [IGパック記録](feedback_ig_pack_posted_json.md) — posted.json・配色は現物確認
@@ -31,9 +31,9 @@
 - [並行セッションgit](feedback_multi_session_concurrent_git.md) — pathspec commit・復元禁止
 - [worktreeの管理外データ](feedback_worktree_ignored_data.md) — 中身をコピー・tracked未コミットは脇へ
 - [成否は実体で確認](feedback_commit_result_check.md) — commit後HEAD・grepで隠さない・args実物
-- [他人の未コミット作業](feedback_commit_others_wip_run_ci_gate.md) — 拾う前にaudit:ci・state取りこぼし
+- [他人の未コミット作業](feedback_commit_others_wip_run_ci_gate.md) — 拾う前にaudit:ci・state取りこぼし・破棄せずブランチに積む
 - [新ツール配線](feedback_new_tool_doc_wiring.md) — doc-sync・handoff抽出
-- [確認省略と例外](feedback_no_confirmation.md) — 課金・公開取消不可は確認
+- [確認省略と例外](feedback_no_confirmation.md) — 課金・公開取消不可は確認・状況の問いでマージしない
 - [総監スコープ規律](feedback_no_pe_construction_application.md) — 教材外H2禁止・新規作らない
 - [書籍逐語禁止](feedback_no_verbatim_book_reflection.md) — 出典のみ・オリジナル散文
 - [note3点セット](feedback_note_article_three_set_dod.md) — 公開前実検証・偽成功照合
