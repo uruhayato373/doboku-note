@@ -296,6 +296,7 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 **完了条件**: 日次の auth-session-refresh が 3 日続けて rc=0 で終わり、ログに blocked・error が無い（未登録の skipped は理由つきで残してよい）。
 
+**進捗（2026-10-22 夜）**: moshimo の原因は 10/13 の login のロック（pid 21285・もう動いていない）が残っていたこと。持ち主が動いていないことを確かめて手で退避し、同じ形の古いロックは AUTH_LOCK_STALE として場所と持ち主を出すようにした（自動では消さない設計は維持・PR #1192）。外した後の auth:status は note・ココナラ・X・Google・A8 が ok、kdp・instagram・moshimo・afb が expired。**残り（運営者）**: kdp・moshimo・afb・instagram を再ログインする（パスワードと 2 段階認証は人）。その後、日次の auth-session-refresh が 3 日続けて rc=0 になるのを確かめる。
 
 ### [DN-0814] 技術士一次の過去問ページのスマホの INP（良好率 52%）を直す
 タグ: [領域:サイト] [時期:2026-11] [種類:改善] [検証:report-web-vitals] [起票:2026-10-22]
@@ -1129,6 +1130,8 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 **確認（2026-10-22）**: ログイン維持の実装（Mac launchd・Windows タスクスケジューラ・credential-store）は PR #686 で済み、Mac では note と A8 が毎日 ok。残りは (1) 週次レビューにログイン健康診断の欄を足す (2) 役割分担（人・Mac・CI）を playwright-auth-profiles.md に 1 表でまとめる (3) ココナラの資格情報を運営者が Mac のキーチェーンに登録する（未登録で skipped）。日次実行が 10/20〜22 に rc=1 で終わり続けている件（kdp の autologin-failed の印と moshimo の認証操作の競合）は DN-0816 で切り分ける。Windows 側の稼働は運営者が確認する。
 
+**進捗（2026-10-22 夜）**: (1) 週次レビューに auth:status のログインの健康診断を足した (2) 人・Mac・Windows・CI の役割分担を playwright-auth-profiles.md に表でまとめた（PR #1192）。**残り（運営者）**: ココナラの資格情報を Mac のキーチェーンに登録する（登録すれば日次のログイン維持の対象になる）。
+
 ### [DN-0363] SNS の入口→サイト→note/ココナラの経路を台帳と機械監査で管理する
 タグ: [収益化] [領域:SNS] [時期:2026-11] [種類:改善] [起票:2026-09-27]
 
@@ -1683,16 +1686,6 @@ Windows の PowerShell で repo 直下から順に:
 メモには「（7？）」とある（絞り込む先の冊数か）。売れている型に寄せ、残りを止める。（出典: 2026-10-07 の手書きメモ・vault dairy/2026-10-07）
 
 
-### [DN-0707] 画像（note・ココナラ・SVG/PNG）の置き場を git ではなく Drive か R2 に決め、ローカルに持たない
-タグ: [エージェント・SSOT] [種類:改善] [領域:管理] [時期:2026-11] [起票:2026-10-12]
-
-**決定（2026-10-22・運営者・おすすめ案）**: サイトが配信する PNG 301 枚だけ public R2 へ移す（DN-0111 Phase 4・置き場の方針「サイトが配信＝public R2」どおり）。note の画像 144 枚は、同期が記事の img/ に画像がある前提なので git のまま。SVG は 10/15 の決定どおり git。
-
-メモ: 「画像は R2 かドライブに集めること・ローカルで持たない」「SVG・PNG の git 管理ルールは整理した方が良い」「画像は Google Drive MCP を使えるか、PDF はサイズが大きいので無理」。関連: DN-0186・DN-0451・DN-0525。（出典: 2026-09-29・10 月の手書きメモ・vault dairy/2026-09-29・2026-10-07）
-
-**現状と決めること（2026-10-15）**: 置き場のルールはある（asset-storage-policy.md: サイトが配信＝public R2／CI＝private R2／人だけ＝Drive vault、`/asset-route`、`check-git-binary-policy` が git への追加を止める）。git に残る画像は note 144 枚・サイトの SVG 1,396 枚・PNG 301 枚、ココナラ 0 枚。決めること: (a) note の 144 枚（カバー・図）を Drive へ移すか（note-cover-png は R2 の例外あり）、(b) サイトの PNG 301 枚を R2 へ移す DN-0111 Phase 4 を進めるか。SVG は差分が読めるので git のままを推奨。
-
-**決定（2026-10-15・運営者が推奨案を採用）**: サイトの SVG は差分が読めるので git のままにする。残る判断は note の画像 144 枚を Drive へ移すかと、サイトの PNG 301 枚を R2 へ移す DN-0111 Phase 4 を進めるか。
 
 ## 🟢 低 — 重要度が低い（時期未定を含む）
 

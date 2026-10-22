@@ -5465,6 +5465,19 @@
       "commit": "bb55f0bf4d91",
       "verification": "npm run verify-note-magazines exit 0（単品 33 件一致）・tests/note-single-price.test.mjs",
       "note": "PR #1190 で単品（tier=single）33 件の価格を記事単位の公開 API で verify-note-magazines の照合に加えた。2026-10-22 のライブ照合で 33/33 一致・取得失敗 0（マガジン 109 件もずれ 0）"
+    },
+    {
+      "id": "DN-0707",
+      "at": "2026-10-22",
+      "task": "画像（note・ココナラ・SVG/PNG）の置き場を git ではなく Drive か R2 に決め、ローカルに持たない",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "d43acc56eff2",
+      "verification": "asset-offload --verify 302/302 一致・check-git-binary-policy・check-asset-storage・check-r2-orphans 通過",
+      "note": "PR #1191 でサイト配信の PNG 302 枚を public R2 へ移し git から外した（asset-offload・sha 全件一致・R2 302/302 で 200・参照の置き換え 0＝記事は同名の webp を参照）。note の 144 枚と SVG は git のまま"
     }
   ]
 }
