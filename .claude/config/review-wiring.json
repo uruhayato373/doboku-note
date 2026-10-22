@@ -68,6 +68,12 @@
           "role": "点検"
         },
         {
+          "command": "auth:status",
+          "label": "ログインの健康診断（期限切れのサービスと古いロック）",
+          "stage": "基盤の点検",
+          "role": "点検"
+        },
+        {
           "command": "check-drive-vault",
           "label": "Drive vault の実体照合（ローカルにしか無い正本）",
           "stage": "基盤の点検",
