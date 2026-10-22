@@ -7,13 +7,17 @@
       "include": [
         {
           "from": "^## 出る順① 打重ね時間間隔・コールドジョイント防止（最頻出・延べ4問）",
-          "to": "^<!-- cta:civil-membership-lab|^## 出典"
+          "to": "^<!-- cta:civil-membership-lab|^## 印刷用PDF"
         }
       ],
       "exclude": [
         {
           "from": "^<!-- cta:civil-mokuji",
           "to": "^## "
+        },
+        {
+          "from": "^\\*\\*関連リンク\\*\\*",
+          "to": "^## |(?![\\s\\S])"
         }
       ]
     },
@@ -23,13 +27,17 @@
       "include": [
         {
           "from": "^## 出る順① 品質規定方式と工法規定方式",
-          "to": "^<!-- cta:civil-membership-lab|^## 出典"
+          "to": "^<!-- cta:civil-membership-lab|^## 印刷用PDF"
         }
       ],
       "exclude": [
         {
           "from": "^<!-- cta:civil-mokuji",
           "to": "^## "
+        },
+        {
+          "from": "^\\*\\*関連リンク\\*\\*",
+          "to": "^## |(?![\\s\\S])"
         }
       ]
     },
@@ -39,13 +47,17 @@
       "include": [
         {
           "from": "^## 出る順① TS/GNSS 情報化施工による盛土締固め管理（最頻出・5年中4年）",
-          "to": "^<!-- cta:civil-membership-lab|^## 出典"
+          "to": "^<!-- cta:civil-membership-lab|^## 印刷用PDF"
         }
       ],
       "exclude": [
         {
           "from": "^<!-- cta:civil-mokuji",
           "to": "^## "
+        },
+        {
+          "from": "^\\*\\*関連リンク\\*\\*",
+          "to": "^## |(?![\\s\\S])"
         }
       ]
     },
@@ -55,13 +67,17 @@
       "include": [
         {
           "from": "^## 出る順① 車両系建設機械の安全（3回・毎年に近い）",
-          "to": "^<!-- cta:civil-membership-lab|^## 出典"
+          "to": "^<!-- cta:civil-membership-lab|^## 印刷用PDF"
         }
       ],
       "exclude": [
         {
           "from": "^<!-- cta:civil-mokuji",
           "to": "^## "
+        },
+        {
+          "from": "^\\*\\*関連リンク\\*\\*",
+          "to": "^## |(?![\\s\\S])"
         }
       ]
     },
@@ -71,13 +87,17 @@
       "include": [
         {
           "from": "^## 施工計画・出る順① 施工計画立案の検討項目・事前調査（R03・R07）",
-          "to": "^<!-- cta:civil-membership-lab|^## 出典"
+          "to": "^<!-- cta:civil-membership-lab|^## 印刷用PDF"
         }
       ],
       "exclude": [
         {
           "from": "^<!-- cta:civil-mokuji",
           "to": "^## "
+        },
+        {
+          "from": "^\\*\\*関連リンク\\*\\*",
+          "to": "^## |(?![\\s\\S])"
         }
       ]
     }
