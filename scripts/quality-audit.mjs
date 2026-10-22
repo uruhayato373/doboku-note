@@ -175,7 +175,7 @@ export const CHECKS = [
   { id: 'information-architecture', npm: 'check-information-architecture', timeout: 60_000, ci: true, note: '4 領域モデル（docs/content/.claude/実装）への逆戻り検知。廃止した置き場への新規ファイル・docs への制作物混入・content への台帳混入・二重 SSOT' },
   { id: 'content-layout', npm: 'check-content-layout', timeout: 60_000, ci: true, note: 'content/ の移行インベントリ（件数・容量・二重 SSOT）を read-only で観測' },
   { id: 'project-task-refs', npm: 'check-project-task-refs', timeout: 30_000, ci: true, note: 'docs/ の廃止参照（task-queue.json）と backlog ID 参照切れ。error は判断の余地がなく直し方も自明なのでゲート' },
-  { id: 'backlog-health', npm: 'check-backlog-health', timeout: 30_000, ci: false, note: '台帳の候補 surfacer（沈んだ不具合・定期の混入・重複候補）。読み手＝/weekly-review のバックログ関門（判断の材料）と /backlog-sweep --audit' },
+  { id: 'backlog-health', npm: 'check-backlog-health', timeout: 60_000, ci: false, note: '台帳の候補 surfacer（沈んだ不具合・定期の混入・重複候補・マージの状態が古いまま〔gh と git ls-remote を引く〕）。読み手＝/weekly-review のバックログ関門（判断の材料）と /backlog-sweep --audit' },
   { id: 'mdx-dates', npm: 'check-mdx-dates', timeout: 60_000, ci: true, note: '記事日付が frontmatter に揃っているか（欠けるとビルドが git 履歴へフォールバックし、公開 SEO 信号がリポジトリ操作で動く状態に逆戻りする）' },
   { id: 'note-cover-tokens', npm: 'check-note-cover-tokens', timeout: 30_000, ci: true, note: 'note カバーの資格トークンが実ディレクトリを網羅しているか。未登録 dir は生成器が無言で総監へ落とし、色だけでなく資格ラベルまで総監のまま出荷される（2026-08-18 に技術士一次で1か月超の誤出荷が判明）' },
   { id: 'table-references', npm: 'check-table-references', timeout: 90_000, ci: true, note: '本文が指す表N.Mのキャプションが実在するか（転記由来の宙に浮いた参照）' },

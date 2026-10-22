@@ -26,6 +26,8 @@
  *   S13 チャネル状態複製の疑い（noteStatus/status/published の値や「残N本」がカードに写されている＝
  *       SSOT が真実源のはずが本文へ複製され、後で陳腐化する候補。todo-standards.md §1-2 の対象）
  *   S14 期日超過 ／ S15 [時期:] の月を過ぎたまま残っている（月初に npm run roll-backlog-when で翌月へ回す）
+ *   S16 マージの状態が古いまま（「PR #N（未マージ）」の PR がマージ済み・閉じた／書いたブランチが origin に無いのに
+ *       同じ行にマージ・削除の記述が無い）。gh と git ls-remote を引くので --due（SessionStart）では走らせない
  *
  * Usage:
  *   node scripts/check-backlog-health.mjs           人間向け
@@ -331,6 +333,78 @@ export function computePastWhen(cards, thisMonth) {
     .map(({ c, w }) => ({ id: c.id, line: c.line, when: c.when, end: w.end, title: c.title }));
 }
 
+/** 「PR #N（未マージ）」「PR #N・未マージ」 */
+const UNMERGED_PR = /PR #(\d+)[（(・\s]*未マージ/g;
+/** 「ブランチ `name`」 */
+const BRANCH_REF = /ブランチ\s*`([^`\s]+)`/g;
+/** 同じ行にマージ・削除が済んだと書いてあれば、ブランチが消えているのは正常 */
+const MERGED_WORDING = /マージ(し|済|した|され)|取り込(み済|んだ)|削除(し|済)/;
+
+/** カードが参照する PR 番号（未マージと書いたもの）とブランチ名。外部への問い合わせの対象を決める */
+export function collectMergeRefs(cards) {
+  const prs = new Set();
+  const branches = new Set();
+  for (const c of cards) {
+    for (const m of (c.body ?? '').matchAll(UNMERGED_PR)) prs.add(Number(m[1]));
+    for (const m of (c.body ?? '').matchAll(BRANCH_REF)) branches.add(m[1]);
+  }
+  return { prs, branches };
+}
+
+/**
+ * S16 マージの状態が古いまま残っているカード（2026-10-22）。PR #1183 をマージした後も 4 枚が「（未マージ）」のまま、
+ * 準備ブランチを前倒しでマージした後も 4 枚が「10/26 に develop へマージ」のままだった。
+ * @param {Array<{ id?: string, line: number, title: string, body?: string }>} cards
+ * @param {{ prState: Map<number, string> | null, remoteBranches: Set<string> | null }} lookup null は取得できなかった
+ */
+export function computeStaleMergeNotes(cards, { prState, remoteBranches }) {
+  const out = [];
+  for (const c of cards) {
+    for (const ln of (c.body ?? '').split('\n')) {
+      if (prState) {
+        for (const m of ln.matchAll(UNMERGED_PR)) {
+          const state = prState.get(Number(m[1]));
+          if (state === 'MERGED' || state === 'CLOSED') out.push({ id: c.id, line: c.line, title: c.title, ref: `PR #${m[1]}`, why: `${state === 'MERGED' ? 'マージ済み' : '閉じた'}なのに「未マージ」` });
+        }
+      }
+      if (remoteBranches && !MERGED_WORDING.test(ln)) {
+        for (const m of ln.matchAll(BRANCH_REF)) {
+          if (!remoteBranches.has(m[1])) out.push({ id: c.id, line: c.line, title: c.title, ref: m[1], why: 'origin に無いブランチなのに、同じ行にマージ・削除の記述が無い' });
+        }
+      }
+    }
+  }
+  return out;
+}
+
+/** gh で PR の状態を引く（上限 limit 件）。1 件も引けなければ null（検査不成立を緑にしない） */
+function lookupPrStates(prs, limit = 20) {
+  if (!prs.size) return new Map();
+  const map = new Map();
+  for (const n of [...prs].slice(0, limit)) {
+    try {
+      const s = execFileSync('gh', ['pr', 'view', String(n), '--json', 'state', '-q', '.state'], {
+        cwd: ROOT, encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'], timeout: 10_000,
+      }).trim();
+      if (s) map.set(n, s);
+    } catch { /* 引けなかった PR は判定しない */ }
+  }
+  return map.size ? map : null;
+}
+
+/** origin のブランチ名。取れなければ null */
+function lookupRemoteBranches(branches) {
+  if (!branches.size) return new Set();
+  try {
+    const raw = execFileSync('git', ['ls-remote', '--heads', 'origin'], {
+      cwd: ROOT, encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'], timeout: 15_000,
+    });
+    return new Set(raw.split('\n').map((l) => l.split('\trefs/heads/')[1]).filter(Boolean));
+  } catch {
+    return null;
+  }
+}
+
 export async function run({ argv = [], quiet = false } = {}) {
 const out = createOutput({ quiet });
 const JSON_OUT = argv.includes('--json');
@@ -479,6 +553,18 @@ const proseHeavy = computeCompletionProseHeavy(cards);
 const ssotSuspects = computeSsotDuplicationSuspects(cards);
 const overdueDue = computeOverdueDue(cards, jstToday());
 const pastWhen = computePastWhen(cards, jstToday().slice(0, 7));
+// S16 は gh と ls-remote を引くので、SessionStart の --due と記録の --record-audit では走らせない
+let staleMergeNotes = null;
+let staleMergeChecked = { prs: 0, branches: 0 };
+if (!DUE && !RECORD) {
+  const refs = collectMergeRefs(cards);
+  const prState = lookupPrStates(refs.prs);
+  const remoteBranches = lookupRemoteBranches(refs.branches);
+  staleMergeChecked = { prs: prState ? prState.size : 0, branches: remoteBranches ? refs.branches.size : 0, prRefs: refs.prs.size, branchRefs: refs.branches.size };
+  staleMergeNotes = (prState === null && refs.prs.size) || (remoteBranches === null && refs.branches.size)
+    ? null
+    : computeStaleMergeNotes(cards, { prState, remoteBranches });
+}
 
 const report = {
   cards: cards.length,
@@ -509,6 +595,8 @@ const report = {
   ssotDuplicationSuspects: ssotSuspects,
   overdueDue,
   pastWhen,
+  staleMergeNotes,
+  staleMergeChecked,
 };
 
 if (RECORD) {
@@ -589,6 +677,10 @@ line('S14 期日超過', overdueDue.length);
 for (const c of overdueDue.slice(0, 8)) out.log(`      ${c.id ?? '(ID無し)'} ${c.due} ${c.title}`);
 line('S15 [時期:] の月を過ぎたまま残っている', pastWhen.length);
 for (const c of pastWhen.slice(0, 8)) out.log(`      ${c.id ?? '(ID無し)'} ${c.when} ${c.title}`);
+line('S16 マージの状態が古いまま', staleMergeNotes === null
+  ? `判定不能（gh か git ls-remote で取得できなかった・参照 PR ${staleMergeChecked.prRefs ?? 0}・ブランチ ${staleMergeChecked.branchRefs ?? 0}）`
+  : `${staleMergeNotes.length}（「未マージ」の PR ${staleMergeChecked.prs} 件・ブランチ ${staleMergeChecked.branches} 件を照合）`);
+for (const c of (staleMergeNotes ?? []).slice(0, 8)) out.log(`      ${c.id ?? '(ID無し)'} ${c.ref} ${c.why}`);
 out.log('\n判定と適用は /backlog-sweep --audit（backlog-curator）が行う。ここは候補の列挙のみ。');
 return out.result(0);
 }

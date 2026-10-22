@@ -142,7 +142,7 @@ md.push(exp?.due?.length ? exp.due.map((d) => `- ${d.id} ${d.title.slice(0, 50)}
 
 md.push('## 点検と Issue', '', block(R.checks, 60) + note(R.checks), '');
 md.push('## バックログの関門', '', block(R.gate, 50) + note(R.gate), '');
-md.push('## バックログの健全性', '', block(R.backlogHealth, 20) + note(R.backlogHealth), '');
+md.push('## バックログの健全性', '', block(R.backlogHealth, 50) + note(R.backlogHealth), '');
 
 // 直してよい候補（fileable）・週の改善件数（cycle.improvePerWeek）・週次の処置は search-opportunities と config が決める。ここでは並べるだけ
 const S = R.search.data;

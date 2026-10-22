@@ -28,7 +28,7 @@ domain: plan
 ## 入力（親から渡される）
 
 1. **担当シャード**（tier セクション名と行範囲。例: 🔴 高 = L38〜L420、最大 35 枚）。同時起動は 3 体まで。
-2. **機械シグナル**（`check-backlog-health.mjs --json` の当該シャード分）: 種類の内訳・🟢/🟣 に沈んだ不具合・意思決定と tier の不一致・`種類:定期` の存在・鮮度・語彙外カテゴリ・sweep 到達不能・重複候補ペア・**S11 実績コミット後に本文未更新**（`staleAfterCommit`）・**S12 完了 prose 蓄積**（`completionProseHeavy`）。
+2. **機械シグナル**（`check-backlog-health.mjs --json` の当該シャード分）: 種類の内訳・🟢/🟣 に沈んだ不具合・意思決定と tier の不一致・`種類:定期` の存在・鮮度・語彙外カテゴリ・sweep 到達不能・重複候補ペア・**S11 実績コミット後に本文未更新**（`staleAfterCommit`）・**S12 完了 prose 蓄積**（`completionProseHeavy`）・S13 チャネル状態複製の疑い・S14 期日超過・S15 時期超過・**S16 マージの状態が古いまま**（`staleMergeNotes`。null は判定不能で「問題なし」ではない）。
 3. **検証済み実体シグナル**（親が確定した事実として扱う）:
    - `[検証:cmd]` を実走した exit code と出力要約（緑＝完了の疑い）
    - `git log --oneline -30` の実績（カードが指す作業が既に commit されているか）
