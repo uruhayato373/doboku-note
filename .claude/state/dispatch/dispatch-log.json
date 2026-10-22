@@ -5521,6 +5521,23 @@
       "commit": "e36c9b295b05",
       "verification": "公式 PDF の目視照合・npm run egov-laws PASS",
       "note": "公式の問題 PDF（日本技術士会 attach_11991_1.pdf 11/25 頁）で選択肢5の原文と正答 5 を確かめ、転記の誤りは無かった。解説を仮名加工情報（第2条第5項・第41条第6項）との取り違えだと分かる形に直し、法令ページの記述も合わせた（e-Gov で条文を確認）"
+    },
+    {
+      "id": "DN-0568",
+      "at": "2026-10-22",
+      "task": "note のログイン確認が一度失敗しただけで、週次のマガジンのカバー登録が残り全部止まる",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "test"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "93afc0c610f4",
+      "verification": "npm run test（tests/note-sync-save.test.mjs 5 件を含む）",
+      "note": "PR #1195: account ゲートをクリエイター名が出るまで最大 8 回読み直す形にし、週次の syncMagazines は exit 2 を 1 回だけ再試行し 2 回続いたときだけ止める（runAccountGated）。テストで exit 2→再試行→成功と 2 連続で停止を確認"
     }
   ]
 }
