@@ -1,0 +1,19 @@
+{
+  "kind": "measurement",
+  "qualification": "pe-construction",
+  "period": {
+    "startDate": "2026-09-01",
+    "endDate": "2026-09-30"
+  },
+  "channel": "GSC",
+  "subject": "aggregate",
+  "coverage": "partial",
+  "source": "GSC Search Analytics API sc-domain:doboku-note.com・日本/Web/final・太平洋時間。dimensions=[]・aggregation=byPage・取得1行。正規URLのpageフィルタ。Google側で明細が欠落し得るため下限。",
+  "values": {
+    "gscClicks": 0
+  },
+  "supersedes": "data/business/records/measurement-2026-10-07T08-27-23-263Z-5fcd5d48-b815-4bcd-a59d-ccd5757a3802.json",
+  "schemaVersion": 1,
+  "createdAt": "2026-10-22T23:47:23.342Z",
+  "strategyHash": "7da574eadd3ced97551d710fc7d1611f675e276997f4d2fefe1e18aa9a7d42db"
+}

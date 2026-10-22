@@ -1,0 +1,367 @@
+{
+  "week_id": "2026-W42",
+  "year": 2026,
+  "week": 42,
+  "generated_at": "2026-10-22T23:48:11.779Z",
+  "ranges": {
+    "ga4": {
+      "this": {
+        "start": "2026-10-12",
+        "end": "2026-10-18"
+      },
+      "prev": {
+        "start": "2026-10-05",
+        "end": "2026-10-11"
+      }
+    },
+    "gsc": {
+      "this": {
+        "start": "2026-10-12",
+        "end": "2026-10-18"
+      },
+      "prev": {
+        "start": "2026-10-05",
+        "end": "2026-10-11"
+      }
+    }
+  },
+  "ga4": {
+    "channels": [
+      {
+        "channel": "Organic Search",
+        "thisUsers": 3514,
+        "prevUsers": 2820,
+        "userDelta": 694,
+        "userDeltaPct": 24.609929078014183,
+        "thisSessions": 4908,
+        "prevSessions": 3936,
+        "thisEngagementRate": 0.7595762021189894
+      },
+      {
+        "channel": "Direct",
+        "thisUsers": 223,
+        "prevUsers": 183,
+        "userDelta": 40,
+        "userDeltaPct": 21.85792349726776,
+        "thisSessions": 370,
+        "prevSessions": 234,
+        "thisEngagementRate": 0.5891891891891892
+      },
+      {
+        "channel": "Referral",
+        "thisUsers": 39,
+        "prevUsers": 29,
+        "userDelta": 10,
+        "userDeltaPct": 34.48275862068966,
+        "thisSessions": 87,
+        "prevSessions": 86,
+        "thisEngagementRate": 0.8045977011494253
+      },
+      {
+        "channel": "AI Assistant",
+        "thisUsers": 22,
+        "prevUsers": 12,
+        "userDelta": 10,
+        "userDeltaPct": 83.33333333333334,
+        "thisSessions": 28,
+        "prevSessions": 12,
+        "thisEngagementRate": 0.8571428571428571
+      },
+      {
+        "channel": "Organic Social",
+        "thisUsers": 9,
+        "prevUsers": 12,
+        "userDelta": -3,
+        "userDeltaPct": -25,
+        "thisSessions": 13,
+        "prevSessions": 14,
+        "thisEngagementRate": 0.7692307692307693
+      },
+      {
+        "channel": "Unassigned",
+        "thisUsers": 8,
+        "prevUsers": 24,
+        "userDelta": -16,
+        "userDeltaPct": -66.66666666666666,
+        "thisSessions": 13,
+        "prevSessions": 28,
+        "thisEngagementRate": 0.5384615384615384
+      },
+      {
+        "channel": "Organic Video",
+        "thisUsers": 0,
+        "prevUsers": 4,
+        "userDelta": -4,
+        "userDeltaPct": -100,
+        "thisSessions": 0,
+        "prevSessions": 4,
+        "thisEngagementRate": 0
+      }
+    ],
+    "total": {
+      "thisUsers": 3815,
+      "prevUsers": 3084,
+      "thisSessions": 5419,
+      "prevSessions": 4314,
+      "userDelta": 731,
+      "userDeltaPct": 23.7029831387808
+    },
+    "organic": {
+      "channel": "Organic Search",
+      "thisUsers": 3514,
+      "prevUsers": 2820,
+      "userDelta": 694,
+      "userDeltaPct": 24.609929078014183,
+      "thisSessions": 4908,
+      "prevSessions": 3936,
+      "thisEngagementRate": 0.7595762021189894
+    }
+  },
+  "ga4_jp": {
+    "channels": [
+      {
+        "channel": "Organic Search",
+        "thisUsers": 3502,
+        "prevUsers": 2788,
+        "userDelta": 714,
+        "userDeltaPct": 25.609756097560975,
+        "thisSessions": 4891,
+        "prevSessions": 3904,
+        "thisEngagementRate": 0.7591494581885095
+      },
+      {
+        "channel": "Direct",
+        "thisUsers": 162,
+        "prevUsers": 106,
+        "userDelta": 56,
+        "userDeltaPct": 52.83018867924528,
+        "thisSessions": 308,
+        "prevSessions": 156,
+        "thisEngagementRate": 0.6363636363636364
+      },
+      {
+        "channel": "Referral",
+        "thisUsers": 38,
+        "prevUsers": 23,
+        "userDelta": 15,
+        "userDeltaPct": 65.21739130434783,
+        "thisSessions": 86,
+        "prevSessions": 77,
+        "thisEngagementRate": 0.813953488372093
+      },
+      {
+        "channel": "AI Assistant",
+        "thisUsers": 22,
+        "prevUsers": 12,
+        "userDelta": 10,
+        "userDeltaPct": 83.33333333333334,
+        "thisSessions": 28,
+        "prevSessions": 12,
+        "thisEngagementRate": 0.8571428571428571
+      },
+      {
+        "channel": "Organic Social",
+        "thisUsers": 8,
+        "prevUsers": 12,
+        "userDelta": -4,
+        "userDeltaPct": -33.33333333333333,
+        "thisSessions": 12,
+        "prevSessions": 14,
+        "thisEngagementRate": 0.75
+      },
+      {
+        "channel": "Unassigned",
+        "thisUsers": 7,
+        "prevUsers": 21,
+        "userDelta": -14,
+        "userDeltaPct": -66.66666666666666,
+        "thisSessions": 12,
+        "prevSessions": 25,
+        "thisEngagementRate": 0.5833333333333334
+      },
+      {
+        "channel": "Organic Video",
+        "thisUsers": 0,
+        "prevUsers": 4,
+        "userDelta": -4,
+        "userDeltaPct": -100,
+        "thisSessions": 0,
+        "prevSessions": 4,
+        "thisEngagementRate": 0
+      }
+    ],
+    "total": {
+      "thisUsers": 3739,
+      "prevUsers": 2966,
+      "thisSessions": 5337,
+      "prevSessions": 4192,
+      "userDelta": 773,
+      "userDeltaPct": 26.06203641267701
+    },
+    "organic": {
+      "channel": "Organic Search",
+      "thisUsers": 3502,
+      "prevUsers": 2788,
+      "userDelta": 714,
+      "userDeltaPct": 25.609756097560975,
+      "thisSessions": 4891,
+      "prevSessions": 3904,
+      "thisEngagementRate": 0.7591494581885095
+    }
+  },
+  "sns": {
+    "sources": [
+      {
+        "source": "note",
+        "thisUsers": 19,
+        "prevUsers": 13,
+        "userDelta": 6,
+        "userDeltaPct": 46.15384615384615,
+        "thisSessions": 52,
+        "prevSessions": 51
+      },
+      {
+        "source": "x",
+        "thisUsers": 7,
+        "prevUsers": 12,
+        "userDelta": -5,
+        "userDeltaPct": -41.66666666666667,
+        "thisSessions": 10,
+        "prevSessions": 14
+      },
+      {
+        "source": "youtube",
+        "thisUsers": 0,
+        "prevUsers": 4,
+        "userDelta": -4,
+        "userDeltaPct": -100,
+        "thisSessions": 0,
+        "prevSessions": 4
+      }
+    ],
+    "total": {
+      "thisUsers": 26,
+      "prevUsers": 29,
+      "thisSessions": 62,
+      "userDelta": -3,
+      "userDeltaPct": -10.344827586206897
+    },
+    "snsSources": [
+      "x",
+      "instagram",
+      "youtube",
+      "note"
+    ]
+  },
+  "psi": {
+    "url": "https://doboku-note.com/",
+    "strategy": "mobile",
+    "scores": {
+      "performance": 75,
+      "accessibility": 100,
+      "best_practices": 100,
+      "seo": 100
+    },
+    "lab_data": {
+      "LCP_ms": 5415.906488509505,
+      "TBT_ms": 28.5,
+      "CLS": 0.005852800994288143,
+      "FCP_ms": 2950.0304267462843,
+      "TTI_ms": 5468.409150849804
+    }
+  },
+  "gsc": {
+    "total": {
+      "thisClicks": 895,
+      "prevClicks": 303,
+      "clickDelta": 592,
+      "clickDeltaPct": 195.3795379537954,
+      "thisImpressions": 13753,
+      "prevImpressions": 7603,
+      "impressionDelta": 6150,
+      "thisCtr": 0.06507671053588308,
+      "prevCtr": 0.03985268972773905,
+      "thisPosition": 8.4610630407911,
+      "prevPosition": 9.199000394581086
+    },
+    "topQueries": [
+      {
+        "query": "2級土木施工管理技士 2次試験 解答例",
+        "clicks": 149,
+        "impressions": 418,
+        "ctr": 0.35645933014354064,
+        "position": 1.964114832535885
+      },
+      {
+        "query": "コンクリート主任技士 過去問",
+        "clicks": 9,
+        "impressions": 80,
+        "ctr": 0.1125,
+        "position": 6.1125
+      },
+      {
+        "query": "2級土木施工管理技士 2次試験",
+        "clicks": 4,
+        "impressions": 66,
+        "ctr": 0.06060606060606061,
+        "position": 8.924242424242424
+      },
+      {
+        "query": "2級土木施工管理技士 2次試験 解答",
+        "clicks": 3,
+        "impressions": 16,
+        "ctr": 0.1875,
+        "position": 3.875
+      },
+      {
+        "query": "2級土木施工管理技士 2次試験 解答例 令和7年",
+        "clicks": 3,
+        "impressions": 57,
+        "ctr": 0.05263157894736842,
+        "position": 9.31578947368421
+      },
+      {
+        "query": "令 和 8 年 2級土木施工管理技士 解答速報",
+        "clicks": 3,
+        "impressions": 13,
+        "ctr": 0.23076923076923078,
+        "position": 2.230769230769231
+      },
+      {
+        "query": "2級土木 経験記述 例文 品質管理",
+        "clicks": 2,
+        "impressions": 5,
+        "ctr": 0.4,
+        "position": 17.2
+      },
+      {
+        "query": "2級土木施工管理技士 2 次試験 解答",
+        "clicks": 2,
+        "impressions": 7,
+        "ctr": 0.2857142857142857,
+        "position": 2.2857142857142856
+      },
+      {
+        "query": "コンクリート主任技士 過去 問",
+        "clicks": 2,
+        "impressions": 16,
+        "ctr": 0.125,
+        "position": 6.25
+      },
+      {
+        "query": "コンクリート主任技士 過去 問 ダウンロード",
+        "clicks": 2,
+        "impressions": 2,
+        "ctr": 1,
+        "position": 1
+      }
+    ]
+  },
+  "notes": [
+    "窓は確定した月〜日（今週 2026-10-12 〜 2026-10-18）。GA4 と GSC は同じ窓（事業レビュー・成長パックと同じ）",
+    "NSM = Organic Search の activeUsers (definition.md 準拠)",
+    "ga4_jp は country=Japan フィルタ版（bot 流入の影響を受けにくい母数）。incident 2026-04-26 を参照",
+    "sns は sessionSource を SNS source 集合(utm-templates.json)+Japan に絞った source 別 WoW",
+    "PSI は site root 1 URL をモバイル計測（trafficが増えたら field_data も出現）"
+  ]
+}

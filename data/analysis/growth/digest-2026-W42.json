@@ -1,0 +1,496 @@
+{
+  "schemaVersion": 1,
+  "week": "2026-W42",
+  "period": {
+    "startDate": "2026-10-12",
+    "endDate": "2026-10-18"
+  },
+  "baseline": {
+    "startDate": "2026-09-14",
+    "endDate": "2026-10-11",
+    "days": 28
+  },
+  "generatedAt": "2026-10-22T23:48:38.792Z",
+  "pack": "data/analysis/growth/pack-2026-W42.json",
+  "inputs": [
+    {
+      "name": "growth-pack",
+      "file": "data/analysis/growth/pack-2026-W42.json",
+      "coverage": "complete",
+      "note": null
+    },
+    {
+      "name": "monetization-coverage",
+      "file": "data/analysis/monetization/coverage-2026-10-22T23-48-13.json",
+      "coverage": "complete",
+      "note": null
+    },
+    {
+      "name": "bing-webmaster",
+      "file": "data/bing/snapshots/2026-10-23.json",
+      "coverage": "complete",
+      "note": null
+    }
+  ],
+  "kpis": {
+    "ga4": {
+      "bing": {
+        "sessions": 3741,
+        "baseWeeklySessions": 3106,
+        "deltaPct": 20.4,
+        "engagementRatePct": 76,
+        "keyEvents": 95,
+        "baseWeeklyKeyEvents": 88
+      },
+      "google": {
+        "sessions": 909,
+        "baseWeeklySessions": 332.3,
+        "deltaPct": 173.6,
+        "engagementRatePct": 74.7,
+        "keyEvents": 22,
+        "baseWeeklyKeyEvents": 9.3
+      },
+      "referral": {
+        "sessions": 86,
+        "baseWeeklySessions": 116.5,
+        "deltaPct": -26.2,
+        "engagementRatePct": 81.4,
+        "keyEvents": 16,
+        "baseWeeklyKeyEvents": 9
+      },
+      "direct": {
+        "sessions": 308,
+        "baseWeeklySessions": 204,
+        "deltaPct": 51,
+        "engagementRatePct": 63.6,
+        "keyEvents": 14,
+        "baseWeeklyKeyEvents": 4
+      },
+      "yahoo": {
+        "sessions": 253,
+        "baseWeeklySessions": 134.3,
+        "deltaPct": 88.5,
+        "engagementRatePct": 75.9,
+        "keyEvents": 8,
+        "baseWeeklyKeyEvents": 6.8
+      },
+      "organic-video": {
+        "sessions": 0,
+        "baseWeeklySessions": 6.8,
+        "deltaPct": -100,
+        "engagementRatePct": null,
+        "keyEvents": 0,
+        "baseWeeklyKeyEvents": 0
+      },
+      "organic-social": {
+        "sessions": 12,
+        "baseWeeklySessions": 25.8,
+        "deltaPct": -53.4,
+        "engagementRatePct": 75,
+        "keyEvents": 1,
+        "baseWeeklyKeyEvents": 2
+      },
+      "unassigned": {
+        "sessions": 9,
+        "baseWeeklySessions": 10.3,
+        "deltaPct": -12.2,
+        "engagementRatePct": 77.8,
+        "keyEvents": 0,
+        "baseWeeklyKeyEvents": 0
+      },
+      "organic-other": {
+        "sessions": 46,
+        "baseWeeklySessions": 7,
+        "deltaPct": 557.1,
+        "engagementRatePct": 82.6,
+        "keyEvents": 2,
+        "baseWeeklyKeyEvents": 0
+      },
+      "ai-assistant": {
+        "sessions": 28,
+        "baseWeeklySessions": 18.8,
+        "deltaPct": 49.3,
+        "engagementRatePct": 85.7,
+        "keyEvents": 0,
+        "baseWeeklyKeyEvents": 0.5
+      }
+    },
+    "gsc": {
+      "basis": "property-total",
+      "clicks": 895,
+      "baseWeeklyClicks": 259.8,
+      "deltaPct": 244.6,
+      "impressions": 13514,
+      "baseWeeklyImpressions": 6483,
+      "ctrPct": 6.62,
+      "pageRows": {
+        "count": 238,
+        "clicks": 225,
+        "impressions": 3127,
+        "byPageTotalClicks": 895,
+        "byPageTotalImpressions": 14232
+      }
+    },
+    "cta": {
+      "note_cta_click": {
+        "week": 141,
+        "baseWeekly": 112.5,
+        "deltaPct": 25.3
+      },
+      "affiliate_cta_click": {
+        "week": 10,
+        "baseWeekly": 3.5,
+        "deltaPct": 185.7
+      },
+      "coconala_cta_click": {
+        "week": 3,
+        "baseWeekly": 2,
+        "deltaPct": 50
+      },
+      "quiz_cta_click": {
+        "week": 0,
+        "baseWeekly": 0,
+        "deltaPct": null
+      },
+      "note_cta_impression": {
+        "week": 14698,
+        "baseWeekly": 10770,
+        "deltaPct": 36.5
+      },
+      "affiliate_cta_impression": {
+        "week": 5007,
+        "baseWeekly": 5211.3,
+        "deltaPct": -3.9
+      },
+      "coconala_cta_impression": {
+        "week": 856,
+        "baseWeekly": 545.3,
+        "deltaPct": 57
+      },
+      "quiz_start": {
+        "week": 45,
+        "baseWeekly": 8,
+        "deltaPct": 462.5
+      },
+      "quiz_complete": {
+        "week": 4,
+        "baseWeekly": 0.8,
+        "deltaPct": 433.3
+      },
+      "standards_data_download": {
+        "week": 0,
+        "baseWeekly": 0.8,
+        "deltaPct": -100
+      }
+    }
+  },
+  "bingReconciliation": {
+    "ga4Sessions": 3741,
+    "wmtClicks": 3965,
+    "days": 7,
+    "ratio": 0.9,
+    "note": null
+  },
+  "topMovers": {
+    "gainers": [
+      {
+        "page": "/exam/civil-construction-2/guide/r08-secondary-answers",
+        "week": 300,
+        "baseWeekly": 0,
+        "delta": 300
+      },
+      {
+        "page": "(not set)",
+        "week": 46,
+        "baseWeekly": 22.3,
+        "delta": 23.7
+      },
+      {
+        "page": "/exam/civil-construction-2/secondary/experience-writing-guide",
+        "week": 24,
+        "baseWeekly": 4.3,
+        "delta": 19.7
+      },
+      {
+        "page": "/exam/concrete-chief-engineer",
+        "week": 21,
+        "baseWeekly": 2.3,
+        "delta": 18.7
+      },
+      {
+        "page": "/exam/civil-construction-2/secondary/experience-writing-examples",
+        "week": 31,
+        "baseWeekly": 12.5,
+        "delta": 18.5
+      }
+    ],
+    "losers": [
+      {
+        "page": "/exam/civil-construction-1/secondary/r04",
+        "week": 6,
+        "baseWeekly": 15.8,
+        "delta": -9.8
+      },
+      {
+        "page": "/exam/civil-construction-1/secondary/r06",
+        "week": 12,
+        "baseWeekly": 18.3,
+        "delta": -6.3
+      },
+      {
+        "page": "/exam/pe-comprehensive-management/past-exams/r08-secondary",
+        "week": 2,
+        "baseWeekly": 5.8,
+        "delta": -3.8
+      },
+      {
+        "page": "/exam/civil-construction-1/secondary/experience-writing-examples",
+        "week": 2,
+        "baseWeekly": 5.5,
+        "delta": -3.5
+      },
+      {
+        "page": "/exam/civil-construction-1/secondary/experience-writing-guide",
+        "week": 4,
+        "baseWeekly": 6,
+        "delta": -2
+      }
+    ]
+  },
+  "candidates": 74,
+  "suppressed": 21,
+  "notSurfaced": {
+    "seo": 0,
+    "revenue": 42
+  },
+  "surfaced": [
+    {
+      "id": "OPP-cdeb596eb5",
+      "category": "experiment",
+      "type": "experiment-due",
+      "key": {
+        "experiment": "EXP-008",
+        "reasons": "PENDING"
+      },
+      "title": "EXP-008（キャリア（転職アフィリエイト）を悩み起点の hub→5柱→ツールへ再設計）: 要人手 2 件: 記事末撤去（DN-0779）の deploy から 28 日後に npm run report-career-funnel を再実行し、2026-10-20 の観測（裁定ログ）と比べる / A8 の月次成果を取り込む（npm run a8-ui:fetch -- --month YYYY-MM／要ログイン）。確定 3 件未満では案件の勝敗を決めない",
+      "metrics": {
+        "status": "running",
+        "nextCheckDate": "2026-11-17"
+      },
+      "expectedWeeklyGain": null,
+      "suggest": [
+        "verdict",
+        "defer"
+      ],
+      "review": "/nsm-experiment measure EXP-008"
+    },
+    {
+      "id": "OPP-c15097dbac",
+      "category": "seo",
+      "type": "seo-high-impr-low-ctr",
+      "key": {
+        "page": "/exam/civil-construction-1/textbook/scraper",
+        "query": "スクレープドーザとは"
+      },
+      "title": "「スクレープドーザとは」は平均 5 位なのに CTR 0.35%（期待 5%）",
+      "metrics": {
+        "impressions35d": 283,
+        "clicks35d": 1,
+        "ctr": 0.35,
+        "position": 5
+      },
+      "expectedWeeklyGain": {
+        "value": 2.6,
+        "unit": "searchClicks"
+      },
+      "qualification": "civil-construction-1",
+      "contentPath": "content/site/civil-construction-1/textbook-scraper/article.mdx",
+      "suggest": [
+        "experiment",
+        "backlog"
+      ]
+    },
+    {
+      "id": "OPP-7517fa04e5",
+      "category": "seo",
+      "type": "seo-high-impr-low-ctr",
+      "key": {
+        "page": "/exam/pe-comprehensive-management/keywords/personal-communication",
+        "query": "パーソナルコミュニケーション"
+      },
+      "title": "「パーソナルコミュニケーション」は平均 8 位なのに CTR 0%（期待 3%）",
+      "metrics": {
+        "impressions35d": 50,
+        "clicks35d": 0,
+        "ctr": 0,
+        "position": 8
+      },
+      "expectedWeeklyGain": {
+        "value": 0.3,
+        "unit": "searchClicks"
+      },
+      "qualification": "pe-comprehensive-management",
+      "contentPath": "content/site/pe-comprehensive-management/personal-communication/article.mdx",
+      "suggest": [
+        "experiment",
+        "backlog"
+      ]
+    },
+    {
+      "id": "OPP-8dc2251b2c",
+      "category": "seo",
+      "type": "seo-cannibalization",
+      "key": {
+        "page": "/standards/okinawa/hikkei-08/part-01",
+        "query": "建設工事公衆災害防止対策要綱"
+      },
+      "title": "「建設工事公衆災害防止対策要綱」で 2 ページが競合（/standards/okinawa/hikkei-08/part-01 / /standards/kyushu/hikkei-common-10/part-03）",
+      "metrics": {
+        "impressions35d": 53,
+        "clicks35d": 0,
+        "pages": [
+          {
+            "page": "/standards/okinawa/hikkei-08/part-01",
+            "impressions": 29,
+            "position": 7.9
+          },
+          {
+            "page": "/standards/kyushu/hikkei-common-10/part-03",
+            "impressions": 24,
+            "position": 8.9
+          }
+        ]
+      },
+      "expectedWeeklyGain": {
+        "value": 0.3,
+        "unit": "searchClicks"
+      },
+      "qualification": null,
+      "contentPath": null,
+      "suggest": [
+        "backlog"
+      ]
+    },
+    {
+      "id": "OPP-aee739f0ec",
+      "category": "seo",
+      "type": "seo-high-impr-low-ctr",
+      "key": {
+        "page": "/exam/pe-comprehensive-management/keywords/capacity-management",
+        "query": "余力管理"
+      },
+      "title": "「余力管理」は平均 7.9 位なのに CTR 0%（期待 3%）",
+      "metrics": {
+        "impressions35d": 51,
+        "clicks35d": 0,
+        "ctr": 0,
+        "position": 7.9
+      },
+      "expectedWeeklyGain": {
+        "value": 0.3,
+        "unit": "searchClicks"
+      },
+      "qualification": "pe-comprehensive-management",
+      "contentPath": "content/site/pe-comprehensive-management/capacity-management/article.mdx",
+      "suggest": [
+        "experiment",
+        "backlog"
+      ]
+    },
+    {
+      "id": "OPP-be1ea6a92c",
+      "category": "seo",
+      "type": "seo-high-impr-low-ctr",
+      "key": {
+        "page": "/practice/embankment-quality-control",
+        "query": "工法規定方式"
+      },
+      "title": "「工法規定方式」は平均 8.9 位なのに CTR 0%（期待 2.5%）",
+      "metrics": {
+        "impressions35d": 56,
+        "clicks35d": 0,
+        "ctr": 0,
+        "position": 8.9
+      },
+      "expectedWeeklyGain": {
+        "value": 0.3,
+        "unit": "searchClicks"
+      },
+      "qualification": null,
+      "contentPath": "content/site/civil-practice/embankment-quality-control/article.mdx",
+      "suggest": [
+        "experiment",
+        "backlog"
+      ]
+    },
+    {
+      "id": "OPP-29dc28d5f3",
+      "category": "revenue",
+      "type": "revenue-placement-ctr",
+      "key": {
+        "placement": "article-inline"
+      },
+      "title": "配置 article-inline は表示 8147（28 日）で CTR 0.14%（配置の中央値 0.36%）",
+      "metrics": {
+        "impressions28d": 8147,
+        "clicks28d": 11,
+        "ctrPct": 0.14,
+        "medianCtrPct": 0.36
+      },
+      "expectedWeeklyGain": {
+        "value": 4.6,
+        "unit": "ctaClicks"
+      },
+      "suggest": [
+        "experiment",
+        "backlog"
+      ]
+    },
+    {
+      "id": "OPP-ecf8db4e10",
+      "category": "revenue",
+      "type": "revenue-page-cta-rate",
+      "key": {
+        "page": "/exam/civil-construction-2/guide/r08-secondary-answers"
+      },
+      "title": "/exam/civil-construction-2/guide/r08-secondary-answers の CTA クリック率 0.33%（サイト平均 0.72%）",
+      "metrics": {
+        "ctaImpressions35d": 1502,
+        "ctaClicks35d": 5,
+        "ctrPct": 0.33,
+        "siteCtrPct": 0.72
+      },
+      "expectedWeeklyGain": {
+        "value": 1.2,
+        "unit": "ctaClicks"
+      },
+      "suggest": [
+        "backlog",
+        "experiment"
+      ]
+    },
+    {
+      "id": "OPP-4f9bf041b7",
+      "category": "revenue",
+      "type": "revenue-placement-ctr",
+      "key": {
+        "placement": "category-sidebar"
+      },
+      "title": "配置 category-sidebar は表示 1566（28 日）で CTR 0.13%（配置の中央値 0.36%）",
+      "metrics": {
+        "impressions28d": 1566,
+        "clicks28d": 2,
+        "ctrPct": 0.13,
+        "medianCtrPct": 0.36
+      },
+      "expectedWeeklyGain": {
+        "value": 0.9,
+        "unit": "ctaClicks"
+      },
+      "suggest": [
+        "experiment",
+        "backlog"
+      ]
+    }
+  ]
+}

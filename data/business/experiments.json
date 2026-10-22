@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-20T08:00:32.243Z",
+  "updated_at": "2026-10-22T23:48:38.295Z",
   "experiments": [
     {
       "id": "EXP-002",
@@ -1325,6 +1325,28 @@
           "salesLedgerThrough": "2026-10-12",
           "deltaPct": null,
           "verdictHint": "in-progress"
+        },
+        {
+          "source": "auto",
+          "measuredAt": "2026-10-22T23:48:30.571Z",
+          "specHash": "5ad8dbe14f9d",
+          "metric": "sales.revenue",
+          "pre": {
+            "startDate": "2026-08-19",
+            "endDate": "2026-09-15",
+            "value": 0,
+            "volume": 0
+          },
+          "post": {
+            "startDate": "2026-09-16",
+            "endDate": "2026-10-19",
+            "value": 0,
+            "volume": 0
+          },
+          "complete": false,
+          "salesLedgerThrough": "2026-10-21",
+          "deltaPct": null,
+          "verdictHint": "in-progress"
         }
       ],
       "history": [
@@ -1580,6 +1602,28 @@
           "salesLedgerThrough": "2026-10-12",
           "deltaPct": null,
           "verdictHint": "in-progress"
+        },
+        {
+          "source": "auto",
+          "measuredAt": "2026-10-22T23:48:30.572Z",
+          "specHash": "d28a7d59daa2",
+          "metric": "sales.revenue",
+          "pre": {
+            "startDate": "2026-08-20",
+            "endDate": "2026-09-16",
+            "value": 0,
+            "volume": 0
+          },
+          "post": {
+            "startDate": "2026-09-17",
+            "endDate": "2026-10-19",
+            "value": 17720,
+            "volume": 5
+          },
+          "complete": false,
+          "salesLedgerThrough": "2026-10-21",
+          "deltaPct": null,
+          "verdictHint": "in-progress"
         }
       ],
       "history": [
@@ -1764,6 +1808,27 @@
             "endDate": "2026-10-12",
             "value": 1,
             "volume": 1
+          },
+          "complete": false,
+          "deltaPct": null,
+          "verdictHint": "in-progress"
+        },
+        {
+          "source": "auto",
+          "measuredAt": "2026-10-22T23:48:31.501Z",
+          "specHash": "d3e6f543e588",
+          "metric": "ga4.event:qualification_bridge_click",
+          "pre": {
+            "startDate": "2026-08-28",
+            "endDate": "2026-09-24",
+            "value": 0,
+            "volume": 0
+          },
+          "post": {
+            "startDate": "2026-10-02",
+            "endDate": "2026-10-19",
+            "value": 3,
+            "volume": 3
           },
           "complete": false,
           "deltaPct": null,
@@ -1975,6 +2040,27 @@
           "complete": false,
           "deltaPct": -26.2,
           "verdictHint": "in-progress"
+        },
+        {
+          "source": "auto",
+          "measuredAt": "2026-10-22T23:48:32.099Z",
+          "specHash": "a9136128862a",
+          "metric": "ga4.event:note_cta_click",
+          "pre": {
+            "startDate": "2026-09-05",
+            "endDate": "2026-10-02",
+            "value": 186,
+            "volume": 186
+          },
+          "post": {
+            "startDate": "2026-10-03",
+            "endDate": "2026-10-19",
+            "value": 117,
+            "volume": 117
+          },
+          "complete": false,
+          "deltaPct": 3.6,
+          "verdictHint": "in-progress"
         }
       ],
       "history": [
@@ -2110,6 +2196,28 @@
           "complete": false,
           "salesLedgerThrough": "2026-10-12",
           "deltaPct": 85.1,
+          "verdictHint": "in-progress"
+        },
+        {
+          "source": "auto",
+          "measuredAt": "2026-10-22T23:48:32.100Z",
+          "specHash": "16d703541ffa",
+          "metric": "sales.revenue",
+          "pre": {
+            "startDate": "2026-09-08",
+            "endDate": "2026-10-05",
+            "value": 6440,
+            "volume": 3
+          },
+          "post": {
+            "startDate": "2026-10-06",
+            "endDate": "2026-10-19",
+            "value": 2980,
+            "volume": 1
+          },
+          "complete": false,
+          "salesLedgerThrough": "2026-10-21",
+          "deltaPct": -7.5,
           "verdictHint": "in-progress"
         }
       ],
@@ -2460,6 +2568,28 @@
           "salesLedgerThrough": "2026-10-12",
           "deltaPct": null,
           "verdictHint": "in-progress"
+        },
+        {
+          "source": "auto",
+          "measuredAt": "2026-10-22T23:48:32.100Z",
+          "specHash": "8bf703a65759",
+          "metric": "sales.revenue",
+          "pre": {
+            "startDate": "2026-09-08",
+            "endDate": "2026-10-05",
+            "value": 0,
+            "volume": 0
+          },
+          "post": {
+            "startDate": "2026-10-06",
+            "endDate": "2026-10-19",
+            "value": 3980,
+            "volume": 1
+          },
+          "complete": false,
+          "salesLedgerThrough": "2026-10-21",
+          "deltaPct": null,
+          "verdictHint": "in-progress"
         }
       ],
       "history": [
@@ -2681,6 +2811,27 @@
           "complete": false,
           "deltaPct": -100,
           "verdictHint": "in-progress"
+        },
+        {
+          "source": "auto",
+          "measuredAt": "2026-10-22T23:48:32.680Z",
+          "specHash": "c54553e54ac2",
+          "metric": "ga4.event:affiliate_cta_click",
+          "pre": {
+            "startDate": "2026-09-09",
+            "endDate": "2026-10-06",
+            "value": 15,
+            "volume": 15
+          },
+          "post": {
+            "startDate": "2026-10-07",
+            "endDate": "2026-10-19",
+            "value": 10,
+            "volume": 10
+          },
+          "complete": false,
+          "deltaPct": 43.6,
+          "verdictHint": "in-progress"
         }
       ],
       "history": [
@@ -2774,6 +2925,27 @@
           "post": {
             "startDate": "2026-10-07",
             "endDate": "2026-10-12",
+            "value": 0,
+            "volume": 0
+          },
+          "complete": false,
+          "deltaPct": null,
+          "verdictHint": "in-progress"
+        },
+        {
+          "source": "auto",
+          "measuredAt": "2026-10-22T23:48:33.248Z",
+          "specHash": "c28d0a65dd4f",
+          "metric": "ga4.event:affiliate_cta_click",
+          "pre": {
+            "startDate": "2026-09-09",
+            "endDate": "2026-10-06",
+            "value": 0,
+            "volume": 0
+          },
+          "post": {
+            "startDate": "2026-10-07",
+            "endDate": "2026-10-19",
             "value": 0,
             "volume": 0
           },
@@ -3191,6 +3363,29 @@
       "actions": [
         "2026-10-11: develop へ 2a8c72436（4 本の seoTitle・description・冒頭・試験概要へのリンク）。本番反映は次のデプロイ",
         "2026-10-22: 交絡の記録。PR #1182・#1183（記事末のテーマ・法令のカード、2級の過去問から教材ガイドへのリンク）を本番反映 2026-10-22 07:41 JST（main 8aba7dc86・cloudflare-deploy run 39687564101 成功・check-production-ssr exit 0）。4 ページの題名・説明・冒頭は変えていない。判定は 10/22 の前後を分けて読む（DN-0691）"
+      ],
+      "measurements": [
+        {
+          "source": "auto",
+          "measuredAt": "2026-10-22T23:48:33.728Z",
+          "specHash": "63e2eeb6bc5b",
+          "metric": "gsc.clicks",
+          "pre": {
+            "startDate": "2026-09-14",
+            "endDate": "2026-10-11",
+            "value": 9,
+            "volume": 9
+          },
+          "post": {
+            "startDate": "2026-10-15",
+            "endDate": "2026-10-19",
+            "value": 0,
+            "volume": 0
+          },
+          "complete": false,
+          "deltaPct": -100,
+          "verdictHint": "in-progress"
+        }
       ]
     },
     {
@@ -3242,6 +3437,29 @@
       "closed_at": null,
       "actions": [
         "2026-10-11: develop へ（5 本の seoTitle・description）。本番反映は次のデプロイ"
+      ],
+      "measurements": [
+        {
+          "source": "auto",
+          "measuredAt": "2026-10-22T23:48:34.033Z",
+          "specHash": "99cbed99d56f",
+          "metric": "gsc.clicks",
+          "pre": {
+            "startDate": "2026-09-14",
+            "endDate": "2026-10-11",
+            "value": 3,
+            "volume": 3
+          },
+          "post": {
+            "startDate": "2026-10-15",
+            "endDate": "2026-10-19",
+            "value": 2,
+            "volume": 2
+          },
+          "complete": false,
+          "deltaPct": 273.3,
+          "verdictHint": "in-progress"
+        }
       ]
     },
     {
@@ -3370,6 +3588,27 @@
           "post": {
             "startDate": "2026-09-30",
             "endDate": "2026-10-12",
+            "value": null,
+            "volume": 0
+          },
+          "complete": false,
+          "deltaPct": null,
+          "verdictHint": "in-progress"
+        },
+        {
+          "source": "auto",
+          "measuredAt": "2026-10-22T23:48:34.304Z",
+          "specHash": "e54c43a665a6",
+          "metric": "gsc.position",
+          "pre": {
+            "startDate": "2026-08-30",
+            "endDate": "2026-09-26",
+            "value": 10.7,
+            "volume": 16
+          },
+          "post": {
+            "startDate": "2026-09-30",
+            "endDate": "2026-10-19",
             "value": null,
             "volume": 0
           },
@@ -3511,6 +3750,27 @@
           "complete": false,
           "deltaPct": -29.1,
           "verdictHint": "in-progress"
+        },
+        {
+          "source": "auto",
+          "measuredAt": "2026-10-22T23:48:34.595Z",
+          "specHash": "aa814c28f3e1",
+          "metric": "gsc.position",
+          "pre": {
+            "startDate": "2026-08-30",
+            "endDate": "2026-09-26",
+            "value": 11.7,
+            "volume": 16
+          },
+          "post": {
+            "startDate": "2026-09-30",
+            "endDate": "2026-10-19",
+            "value": 6.7,
+            "volume": 6
+          },
+          "complete": false,
+          "deltaPct": -42.7,
+          "verdictHint": "in-progress"
         }
       ]
     },
@@ -3645,6 +3905,27 @@
           },
           "complete": false,
           "deltaPct": -40.3,
+          "verdictHint": "in-progress"
+        },
+        {
+          "source": "auto",
+          "measuredAt": "2026-10-22T23:48:34.857Z",
+          "specHash": "8b95f0f19dfc",
+          "metric": "gsc.position",
+          "pre": {
+            "startDate": "2026-08-30",
+            "endDate": "2026-09-26",
+            "value": 13.4,
+            "volume": 5
+          },
+          "post": {
+            "startDate": "2026-09-30",
+            "endDate": "2026-10-19",
+            "value": 7,
+            "volume": 8
+          },
+          "complete": false,
+          "deltaPct": -47.8,
           "verdictHint": "in-progress"
         }
       ]
@@ -3809,6 +4090,27 @@
           "complete": false,
           "deltaPct": null,
           "verdictHint": "in-progress"
+        },
+        {
+          "source": "auto",
+          "measuredAt": "2026-10-22T23:48:35.123Z",
+          "specHash": "4184c7108b64",
+          "metric": "gsc.position",
+          "pre": {
+            "startDate": "2026-08-30",
+            "endDate": "2026-09-26",
+            "value": 18.7,
+            "volume": 6
+          },
+          "post": {
+            "startDate": "2026-09-30",
+            "endDate": "2026-10-19",
+            "value": null,
+            "volume": 0
+          },
+          "complete": false,
+          "deltaPct": null,
+          "verdictHint": "in-progress"
         }
       ]
     },
@@ -3943,6 +4245,27 @@
           },
           "complete": false,
           "deltaPct": null,
+          "verdictHint": "in-progress"
+        },
+        {
+          "source": "auto",
+          "measuredAt": "2026-10-22T23:48:35.371Z",
+          "specHash": "40b3bc96dcbb",
+          "metric": "gsc.position",
+          "pre": {
+            "startDate": "2026-08-30",
+            "endDate": "2026-09-26",
+            "value": 10.5,
+            "volume": 2
+          },
+          "post": {
+            "startDate": "2026-09-30",
+            "endDate": "2026-10-19",
+            "value": 9.5,
+            "volume": 2
+          },
+          "complete": false,
+          "deltaPct": -9.5,
           "verdictHint": "in-progress"
         }
       ]
@@ -4080,6 +4403,27 @@
           "complete": false,
           "deltaPct": -53.2,
           "verdictHint": "in-progress"
+        },
+        {
+          "source": "auto",
+          "measuredAt": "2026-10-22T23:48:35.641Z",
+          "specHash": "bbeb176758c2",
+          "metric": "gsc.position",
+          "pre": {
+            "startDate": "2026-08-30",
+            "endDate": "2026-09-26",
+            "value": 20.1,
+            "volume": 33
+          },
+          "post": {
+            "startDate": "2026-09-30",
+            "endDate": "2026-10-19",
+            "value": 9.7,
+            "volume": 17
+          },
+          "complete": false,
+          "deltaPct": -51.7,
+          "verdictHint": "in-progress"
         }
       ]
     },
@@ -4208,6 +4552,27 @@
           },
           "complete": false,
           "deltaPct": -51,
+          "verdictHint": "in-progress"
+        },
+        {
+          "source": "auto",
+          "measuredAt": "2026-10-22T23:48:35.928Z",
+          "specHash": "0e501b95190b",
+          "metric": "gsc.position",
+          "pre": {
+            "startDate": "2026-08-30",
+            "endDate": "2026-09-26",
+            "value": 15.5,
+            "volume": 13
+          },
+          "post": {
+            "startDate": "2026-09-30",
+            "endDate": "2026-10-19",
+            "value": 7.4,
+            "volume": 247
+          },
+          "complete": false,
+          "deltaPct": -52.3,
           "verdictHint": "in-progress"
         }
       ]
@@ -4365,6 +4730,27 @@
           },
           "complete": false,
           "deltaPct": -26.3,
+          "verdictHint": "in-progress"
+        },
+        {
+          "source": "auto",
+          "measuredAt": "2026-10-22T23:48:36.183Z",
+          "specHash": "ceac0ad7281a",
+          "metric": "gsc.position",
+          "pre": {
+            "startDate": "2026-08-30",
+            "endDate": "2026-09-26",
+            "value": 11.4,
+            "volume": 16
+          },
+          "post": {
+            "startDate": "2026-09-30",
+            "endDate": "2026-10-19",
+            "value": 8,
+            "volume": 43
+          },
+          "complete": false,
+          "deltaPct": -29.8,
           "verdictHint": "in-progress"
         }
       ]
@@ -4529,7 +4915,30 @@
         "change": "seoTitle・description・冒頭で「技術士の難易度」に先に答えた（建設部門の筆記は受験者の1〜2割・令和7年度は約9.8%）"
       },
       "started_at": "2026-10-13",
-      "next_check_date": "2026-11-16"
+      "next_check_date": "2026-11-16",
+      "measurements": [
+        {
+          "source": "auto",
+          "measuredAt": "2026-10-22T23:48:36.420Z",
+          "specHash": "80ac37faa846",
+          "metric": "gsc.position",
+          "pre": {
+            "startDate": "2026-09-15",
+            "endDate": "2026-10-12",
+            "value": 16.7,
+            "volume": 33
+          },
+          "post": {
+            "startDate": "2026-10-16",
+            "endDate": "2026-10-19",
+            "value": null,
+            "volume": 0
+          },
+          "complete": false,
+          "deltaPct": null,
+          "verdictHint": "in-progress"
+        }
+      ]
     },
     {
       "id": "EXP-031",
@@ -4628,7 +5037,30 @@
         "change": "seoTitle・description・冒頭で「施工管理から転職」に発注者支援で答え、転職の入口と 2 級のエージェント選びへの関連リンクを足した"
       },
       "started_at": "2026-10-13",
-      "next_check_date": "2026-11-16"
+      "next_check_date": "2026-11-16",
+      "measurements": [
+        {
+          "source": "auto",
+          "measuredAt": "2026-10-22T23:48:36.669Z",
+          "specHash": "ff7f22cf1b1d",
+          "metric": "gsc.position",
+          "pre": {
+            "startDate": "2026-09-15",
+            "endDate": "2026-10-12",
+            "value": 20,
+            "volume": 20
+          },
+          "post": {
+            "startDate": "2026-10-16",
+            "endDate": "2026-10-19",
+            "value": null,
+            "volume": 0
+          },
+          "complete": false,
+          "deltaPct": null,
+          "verdictHint": "in-progress"
+        }
+      ]
     },
     {
       "id": "EXP-032",
@@ -4741,7 +5173,30 @@
         "change": "seoTitle・description・冒頭で転職エージェントを選ぶ軸（求人の種類・建設業の知識・希望地域）を先に示した"
       },
       "started_at": "2026-10-13",
-      "next_check_date": "2026-11-16"
+      "next_check_date": "2026-11-16",
+      "measurements": [
+        {
+          "source": "auto",
+          "measuredAt": "2026-10-22T23:48:36.933Z",
+          "specHash": "288ee90c335b",
+          "metric": "gsc.position",
+          "pre": {
+            "startDate": "2026-09-15",
+            "endDate": "2026-10-12",
+            "value": 29.3,
+            "volume": 17
+          },
+          "post": {
+            "startDate": "2026-10-16",
+            "endDate": "2026-10-19",
+            "value": 63,
+            "volume": 1
+          },
+          "complete": false,
+          "deltaPct": 115,
+          "verdictHint": "in-progress"
+        }
+      ]
     },
     {
       "id": "EXP-033",
@@ -4840,7 +5295,30 @@
         "change": "seoTitle・description・冒頭で第1次・第2次それぞれのテキストの選び方に先に答えた"
       },
       "started_at": "2026-10-13",
-      "next_check_date": "2026-11-16"
+      "next_check_date": "2026-11-16",
+      "measurements": [
+        {
+          "source": "auto",
+          "measuredAt": "2026-10-22T23:48:37.241Z",
+          "specHash": "af81ea06d327",
+          "metric": "gsc.position",
+          "pre": {
+            "startDate": "2026-09-15",
+            "endDate": "2026-10-12",
+            "value": 13.8,
+            "volume": 13
+          },
+          "post": {
+            "startDate": "2026-10-16",
+            "endDate": "2026-10-19",
+            "value": 15.2,
+            "volume": 9
+          },
+          "complete": false,
+          "deltaPct": 10.1,
+          "verdictHint": "in-progress"
+        }
+      ]
     },
     {
       "id": "EXP-034",
@@ -4981,6 +5459,27 @@
           "complete": false,
           "deltaPct": 51.9,
           "verdictHint": "in-progress"
+        },
+        {
+          "source": "auto",
+          "measuredAt": "2026-10-22T23:48:37.514Z",
+          "specHash": "f778293d329e",
+          "metric": "gsc.position",
+          "pre": {
+            "startDate": "2026-08-30",
+            "endDate": "2026-09-26",
+            "value": 13.5,
+            "volume": 2
+          },
+          "post": {
+            "startDate": "2026-09-30",
+            "endDate": "2026-10-19",
+            "value": 20.5,
+            "volume": 2
+          },
+          "complete": false,
+          "deltaPct": 51.9,
+          "verdictHint": "in-progress"
         }
       ]
     },
@@ -5093,7 +5592,30 @@
         "change": "description と冒頭の第1段落で「技術士 総合技術監理部門とは」に先に答える（定義・筆記の構成・令和7年度の最終合格率22.7%）"
       },
       "started_at": "2026-10-13",
-      "next_check_date": "2026-11-16"
+      "next_check_date": "2026-11-16",
+      "measurements": [
+        {
+          "source": "auto",
+          "measuredAt": "2026-10-22T23:48:37.792Z",
+          "specHash": "ba8cc239545e",
+          "metric": "gsc.position",
+          "pre": {
+            "startDate": "2026-09-15",
+            "endDate": "2026-10-12",
+            "value": 23.6,
+            "volume": 28
+          },
+          "post": {
+            "startDate": "2026-10-16",
+            "endDate": "2026-10-19",
+            "value": 24,
+            "volume": 2
+          },
+          "complete": false,
+          "deltaPct": 1.7,
+          "verdictHint": "in-progress"
+        }
+      ]
     },
     {
       "id": "EXP-036",
@@ -5197,7 +5719,30 @@
         "change": "seoTitle・description・冒頭で合格率の水準（第1次4〜6割・令和8年度49.8%、第2次3〜4割・令和7年度38.9%）を先に示し、「ともに40%台」の古い記述を直す"
       },
       "started_at": "2026-10-13",
-      "next_check_date": "2026-11-16"
+      "next_check_date": "2026-11-16",
+      "measurements": [
+        {
+          "source": "auto",
+          "measuredAt": "2026-10-22T23:48:38.045Z",
+          "specHash": "5c1c4495141d",
+          "metric": "gsc.position",
+          "pre": {
+            "startDate": "2026-09-15",
+            "endDate": "2026-10-12",
+            "value": 20.3,
+            "volume": 10
+          },
+          "post": {
+            "startDate": "2026-10-16",
+            "endDate": "2026-10-19",
+            "value": null,
+            "volume": 0
+          },
+          "complete": false,
+          "deltaPct": null,
+          "verdictHint": "in-progress"
+        }
+      ]
     },
     {
       "id": "EXP-037",
@@ -5280,7 +5825,30 @@
         "change": "seoTitle・description・冒頭を「技術士 港湾及び空港」の検索語に合わせ、選択科目の出題テーマ・過去問分析であることを先に示す"
       },
       "started_at": "2026-10-13",
-      "next_check_date": "2026-11-16"
+      "next_check_date": "2026-11-16",
+      "measurements": [
+        {
+          "source": "auto",
+          "measuredAt": "2026-10-22T23:48:38.295Z",
+          "specHash": "2e14aa1310ec",
+          "metric": "gsc.position",
+          "pre": {
+            "startDate": "2026-09-15",
+            "endDate": "2026-10-12",
+            "value": 10.3,
+            "volume": 9
+          },
+          "post": {
+            "startDate": "2026-10-16",
+            "endDate": "2026-10-19",
+            "value": 1,
+            "volume": 1
+          },
+          "complete": false,
+          "deltaPct": -90.3,
+          "verdictHint": "in-progress"
+        }
+      ]
     },
     {
       "id": "EXP-038",
