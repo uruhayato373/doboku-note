@@ -5400,6 +5400,19 @@
       "commit": "3de59b0e252a",
       "verification": "npm run check-content-registry PASS・develop CI quality audit success（2026-10-22）",
       "note": "運営者の final 承認は 2026-10-19 に 8 本とも台帳へ記録済み。check-content-registry PASS（FAIL 0）、develop の Pre-merge check（quality:audit:ci）成功。YouTube 側の説明欄の同期は SNS 保留のため DN-0110 の範囲"
+    },
+    {
+      "id": "DN-0270",
+      "at": "2026-10-22",
+      "task": "ココナラの出品画像を、一覧で読める型へ作り直す（人が見るサービスにキャラクター・画像に価格を入れない）",
+      "tier": "mid",
+      "kind": "制作",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "b8d50a120070",
+      "verification": "npm run check-coconala-live（一致 2・食い違い 0）・data/coconala/thumb-approved.json",
+      "note": "やること (2)(3) は 2026-09-27 の POP 意匠（キャラクター入り・資格名と商品名を大きく・価格なし）で公開中 18 商品を差し替えて達成（data/coconala/thumb-approved.json・DN-0314 で Drive と照合済み）。check-coconala-live 一致。画像の生成記録に「採点者」0 件。全商品を差し替えたので差し替えていない比較対象が無く、30 日の閲覧比較は行わない。出品は DN-0538 で 1 本へ集約する"
     }
   ]
 }
