@@ -57,3 +57,17 @@ export function collectPublishedDocs(root = process.cwd()) {
   }
   return { total: files.length, unpublished, docs };
 }
+
+/**
+ * 索引（doc-meta-index）の公開記事の slug と、MDX から直接集めた公開記事の slug の食い違い。
+ * 索引は git 管理外の生成物で pull では作り直されないので、索引を読む週次の報告は先にこれで古さを確かめる
+ * （2026-10-22: 古い索引で report-taxonomy-wiring が 1430 本で集計し、要対応 36 件の偽の赤を出した。正しくは 1454 本・0 件）。
+ * @param {Iterable<string>} indexSlugs 索引の公開記事
+ * @param {Iterable<string>} mdxSlugs collectPublishedDocs の公開記事
+ * @returns {{ missing: string[], extra: string[] }} missing＝MDX にあって索引に無い／extra＝索引にあって MDX に無い
+ */
+export function diffPublishedSlugs(indexSlugs, mdxSlugs) {
+  const a = new Set(indexSlugs);
+  const b = new Set(mdxSlugs);
+  return { missing: [...b].filter((s) => !a.has(s)).sort(), extra: [...a].filter((s) => !b.has(s)).sort() };
+}
