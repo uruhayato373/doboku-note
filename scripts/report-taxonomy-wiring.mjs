@@ -17,7 +17,7 @@
  *        一次資料で確かめてから 180 日を超えた計画・施策（台帳 config.policy-registry）・
  *        法令の節が出ない公開ハブ（そのテーマの記事が 2 本以上引く法令が無い。2026-10-22 に 3 テーマで気付くのが遅れた）。
  * 取りこぼし（判断の材料・exit に影響しない）: 関連記事のどこからも選ばれない記事、記事の多い noTopic のタグ（新テーマの候補）。
- * exit 0 = 完走 / 1 = 要対応（--actions のときだけ）/ 2 = 検査不成立（記事 0 件・設定が読めない）
+ * exit 0 = 完走 / 1 = 要対応（--actions のときだけ）/ 2 = 検査不成立（記事 0 件・設定が読めない・索引が MDX の公開記事と食い違う＝refresh-indexes をしていない）
  */
 import { join } from 'node:path';
 import { readJson } from './lib/json-io.mjs';
@@ -30,6 +30,7 @@ import { buildAliasMap, countTopicDirections, topicEligibility, lacksSubjectTags
 import { needsTopic, topicsOfDoc } from '../src/lib/topic-membership.mjs';
 import { rankRelated } from '../src/lib/related-core.mjs';
 import { lawTopicIndex, topicsOfLaw, lawsOfTopic } from '../src/lib/law-topic-core.mjs';
+import { collectPublishedDocs, diffPublishedSlugs } from './lib/published-docs.mjs';
 
 const NAME = 'report-taxonomy-wiring';
 const args = parseCliArgs({ json: { type: 'boolean' }, check: { type: 'boolean' }, actions: { type: 'boolean' } });
@@ -54,6 +55,11 @@ const docs = Object.entries(index.docs ?? {})
   .map(([slug, m]) => ({ slug, ...m, tags: (m.tags ?? []).map(canon) }))
   .filter((d) => d.published !== false);
 if (docs.length === 0) fail2('公開記事が 0 件');
+// 索引は git 管理外の生成物で、pull しても作り直されない。古い索引で数えると偽の要対応を出すので、MDX の公開記事と食い違えば止める
+const drift = diffPublishedSlugs(docs.map((d) => d.slug), collectPublishedDocs(ROOT).docs.map((d) => d.slug));
+if (drift.missing.length || drift.extra.length) {
+  fail2(`doc-meta-index が古い（MDX にあって索引に無い ${drift.missing.length} 本・索引にだけある ${drift.extra.length} 本。例: ${[...drift.missing, ...drift.extra].slice(0, 3).join(', ')}）。npm run refresh-indexes を先に回す`);
+}
 
 // ---- 所属 -------------------------------------------------------------------
 const topicCache = new Map();
