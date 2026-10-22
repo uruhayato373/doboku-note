@@ -12,8 +12,8 @@
  *
  * 抽出範囲の決め方（記事を実読して決定・CTA は必ず除く）:
  *   start = `## 〔...概要...〕` があればそこ、無ければ frontmatter の paidBoundary H2
- *   end   = `<!-- cta:civil-membership-lab -->` があればそこ、無ければ `## 出典`、無ければ EOF
- *   除外  = `<!-- cta:civil-mokuji -->` ブロック（マーカー〜次の H2 直前）
+ *   end   = `<!-- cta:civil-membership-lab -->` か `## 印刷用PDF` の手前、どちらも無ければ EOF（`## 出典` は残す）
+ *   除外  = `<!-- cta:civil-mokuji -->` ブロックと `**関連リンク**` ブロック（マーカー〜次の H2 直前か本文の終わり）
  *
  * 使い方:
  *   node scripts/gen-pdf-specs-civil-keiken.mjs            # dry-run（生成内容を表示）
@@ -64,19 +64,22 @@ for (const mag of MAGAZINES) {
     const start = gaiyou || boundary;
     if (!start) { skipped.push(sub + '（開始H2を特定できず）'); continue; }
 
-    const hasMemb = lines.some((l) => l.trim() === '<!-- cta:civil-membership-lab -->');
-    const shutten = lines.find((l) => /^## 出典/.test(l));
-    const end = hasMemb ? '^<!-- cta:civil-membership-lab' : shutten ? '^## 出典' : null;
+    // 終わりは会員 CTA か「## 印刷用PDF」の手前（どちらも無ければ EOF）。「## 出典」は本文の一部として残す
+    // （2026-10-22 DN-0518: 出典で止めると末尾の出典節が PDF から落ちていた）。
+    const END = '^<!-- cta:civil-membership-lab|^## 印刷用PDF';
+    const hasEnd = lines.some((l) => l.trim() === '<!-- cta:civil-membership-lab -->' || /^## 印刷用PDF/.test(l));
 
     const a = {
       src: `${sub}/article.md`,
       out: `${mag.prefix}-${sub}`,
-      include: [{ from: '^' + escapeRegExp(start), ...(end ? { to: end } : {}) }],
+      include: [{ from: '^' + escapeRegExp(start), ...(hasEnd ? { to: END } : {}) }],
     };
-    // 無料域の回遊 CTA は紙面に不要
-    if (lines.some((l) => l.trim() === '<!-- cta:civil-mokuji -->')) {
-      a.exclude = [{ from: '^<!-- cta:civil-mokuji', to: '^## ' }];
-    }
+    // 回遊 CTA（もくじ）と無料記事への関連リンクは紙面に不要。関連リンクは本文の途中にも末尾にもあるため、
+    // 次の H2 か本文の終わりまでを落とす（DN-0518: 経験記述パックで「関連リンク」が PDF に混入していた）。
+    const exclude = [];
+    if (lines.some((l) => l.trim() === '<!-- cta:civil-mokuji -->')) exclude.push({ from: '^<!-- cta:civil-mokuji', to: '^## ' });
+    if (lines.some((l) => l.trim() === '**関連リンク**')) exclude.push({ from: '^\\*\\*関連リンク\\*\\*', to: '^## |(?![\\s\\S])' });
+    if (exclude.length) a.exclude = exclude;
     articles.push(a);
   }
 
