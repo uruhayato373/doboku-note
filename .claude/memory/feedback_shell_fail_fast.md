@@ -11,3 +11,6 @@ metadata:
 
 ## zsh で変数名 path を使わない（2026-10-22）
 zsh の `path` は PATH と連動する配列なので、`for f in ...; do path=${f%%:*}; ...` と書くと PATH が壊れ、後続の git・cut が command not found になる（何も実行されずに終わる）。ループの変数は `p`・`file` などにする。
+
+## 作業ツリーは push を確かめてから消す（2026-10-22）
+サブシェルで rebase が「未ステージの変更」で失敗したのに、外側で続けて `git worktree remove --force` を実行し、push していないコミット 2 つを作業ツリーごと失いかけた（ハッシュから取り戻した）。消す前に必ず `git merge-base --is-ancestor <作業ツリーの HEAD> origin/develop` を通し、その成否で `&&` につなぐ。refresh-indexes の後は生成物（src/config/*.json）が変わっていないかも見る。
