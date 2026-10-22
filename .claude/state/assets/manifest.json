@@ -66037,6 +66037,32 @@
       "width": 1200,
       "height": 630,
       "srcHash": "73dfba09dd963ee6"
+    },
+    "content/site/civil-practice/floodgate-design/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/civil-practice/floodgate-design/ogp.png",
+      "sha256": "19fe4e92e1edbe2a2d91e6f3c3f190539cbae8abb0425e2b7d45f15df19c10bc",
+      "bytes": 61230,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-22T08:17:55.278Z",
+      "width": 1200,
+      "height": 630,
+      "srcHash": "76373df9a509606a"
+    },
+    "content/site/civil-practice/inverted-siphon-design/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/civil-practice/inverted-siphon-design/ogp.png",
+      "sha256": "60c706ca0306c1942ad2bbe9ee4c97ebe337615e1f9620172d9b548903d79a38",
+      "bytes": 70624,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-22T08:17:55.488Z",
+      "width": 1200,
+      "height": 630,
+      "srcHash": "21634ed62e7826d4"
     }
   },
   "note": "DN-0111 Phase 3。秘密値・署名 URL・絶対パスを書かないこと。",
