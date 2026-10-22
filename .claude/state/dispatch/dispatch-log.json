@@ -5478,6 +5478,19 @@
       "commit": "d43acc56eff2",
       "verification": "asset-offload --verify 302/302 一致・check-git-binary-policy・check-asset-storage・check-r2-orphans 通過",
       "note": "PR #1191 でサイト配信の PNG 302 枚を public R2 へ移し git から外した（asset-offload・sha 全件一致・R2 302/302 で 200・参照の置き換え 0＝記事は同名の webp を参照）。note の 144 枚と SVG は git のまま"
+    },
+    {
+      "id": "DN-0666",
+      "at": "2026-10-22",
+      "task": "書籍の展開で触った 24 記事の SEO を GSC に沿って整える（未登録 4 本の登録依頼・検索意図・相互リンク・メタ）",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "9bd8ce44bada",
+      "verification": "本番の 3 ページで title 49/51/42 字・description 136/160/97 字（seo-meta-config の閾値内）・変更の反映を curl で確認",
+      "note": "search-intent-auditor の監査に沿って 3 本を直し 2026-10-22 に本番反映（主任技士 小論文の冒頭の順序と題名の表記、一次 基礎科目の勉強方法の見出しと 560 問の内訳、診断士 中性化の定義の導入）。解答例の見本の節は有料答案の抜粋を出す判断になるため入れていない"
     }
   ]
 }

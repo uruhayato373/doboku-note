@@ -307,6 +307,7 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 **完了条件**: 原因を直して本番に出し、反映後 28 日の `report-web-vitals` で `/exam/pe-first-stage/primary` のスマホの INP が「不良」でなくなる（件数不足なら判定保留と記録）。
 
+**進捗（2026-10-22）**: 原因は解答・解説を開くたびのページ全体の再レイアウト（1 万要素・KaTeX 167・details 33。JS の処理は 0〜4ms）。過去問ページの本文の直接の子要素に content-visibility: auto を入れた（PR #1193・2026-10-22 本番反映・main 32e6f336c）。手元の計測（375px・CPU 4 倍）で解答を開く操作は中央値 72→40ms、閉じる 48→32ms、ダークモード切替 104→40ms。見た目の高さ・見出しの位置・アンカーの着地は変えていない。読み込み直後の最初のタップは Cloudflare の challenge-platform（253ms）と gtag（103ms）も効いている（コード外）。**残り**: 反映から 28 日後（2026-11-19 以降）の report-web-vitals で /exam/pe-first-stage/primary のスマホの INP を確かめる（件数不足なら判定保留）。
 
 ### [DN-0813] 総監 令和8年度 Ⅰ-1-18 の選択肢5（匿名加工情報）の転記と解説を、公式の問題文で確かめる
 タグ: [コンテンツ品質] [領域:サイト] [時期:2026-11] [種類:不具合] [起票:2026-10-22]
@@ -501,14 +502,6 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 
 
-### [DN-0666] 書籍の展開で触った 24 記事の SEO を GSC に沿って整える（未登録 4 本の登録依頼・検索意図・相互リンク・メタ）
-タグ: [領域:サイト] [時期:2026-10] [種類:改善] [起票:2026-10-11]
-
-**起点**: 2026-10-11、書籍の網羅の展開（DN-0591）とコンクリート系の照合で触った 24 記事を GSC（直近 28 日）で見た。未登録だった 4 本は、2026-10-21 までに登録済み、または手元の定期実行（gsc-local）が依頼済みになった（`data/gsc/indexing-requests.json`・URL 検査 2026-10-14）。サイト全体の修正（sitemap の実在しない URL の除外・リンク 0 本のページへの内部リンク・check-seo-meta の違反解消）は 2026-10-11 に済み、CTR の実験は EXP-020・EXP-021 で追っている。
-
-**残り**: 伸ばせる候補 3 本を search-intent-auditor で検索意図と照らし、題名・説明・見出しを直す。concrete-diagnostician/textbook-deterioration（「コンクリート 中性化」表示 87・順位約 28）、concrete-chief-engineer/guide-essay（「コンクリート主任技士 小論文」表示 113・順位約 8）、pe-first-stage/guide-basic-subject（表示 72・順位約 10）。数値は 2026-10-10 取得の GSC で、直す前に最新の GSC で取り直す。
-
-**完了条件**: 候補 3 本の修正がコミット済みで、check-seo-meta で 3 本の違反が 0。
 
 ### [DN-0599] 2級直前総まとめの公開判断と公開後28日比較
 タグ: [領域:SNS] [時期:2026-10] [種類:制作] [起票:2026-10-08]
