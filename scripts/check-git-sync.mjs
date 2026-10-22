@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * SessionStart フック: ローカル main/develop が origin より遅れていれば警告する。
+ * SessionStart フック: ローカル main/develop が origin より遅れていれば警告する（あわせて develop の CI の赤と、古い未コミットの変更も知らせる）。
  *
  * 動機（2026-06-11 事故）: 複数セッション・worktree 常態 + CI が deploy で main に
  * 自動マージするため、ローカル main が origin/main から数十コミット遅れることがある。
@@ -12,11 +12,56 @@
  * PR と違って誰の画面にも出ず、2026-09-13〜14 に 6 run 連続の failure が 1 日以上放置された。gh が使えない・
  * 取得に失敗した端末では「未取得」と出し、緑（何も出ない）と混同させない。
  *
+ * 作業ツリーの未コミットの変更が、いちばん新しいものでも STALE_WIP_HOURS 以上前なら 1 行出す。2026-10-22 に主ツリーへ
+ * 別セッションの未コミットの作業（32 ファイル）が 12 時間残り、develop を進められず、片づけ（破棄）は auto mode に止められた。
+ * 早く見つければ、持ち主のセッションに積ませるか、その場でブランチに積んで PR にできる（破棄しない）。
+ *
  * 安全策: 何が起きても session を止めない（常に exit 0、出力は警告のみ）。
  * session-start.mjs は import して run({ quiet: true }) を呼ぶ（DN-0236・子の node を立てない）。
  */
 import { execFileSync } from 'node:child_process';
+import { statSync } from 'node:fs';
+import { join } from 'node:path';
 import { createOutput, isCliEntry, runAsCli } from './lib/cli-run.mjs';
+
+/** 未コミットの変更がこれより古ければ警告する（時間）。数時間の作業の途中は鳴らさない */
+export const STALE_WIP_HOURS = 6;
+/** stat する上限（巨大な未追跡の生成物で SessionStart を遅くしない） */
+const STALE_WIP_MAX_FILES = 500;
+
+/**
+ * 未コミットの変更（パスと mtime）から警告の 1 行を決める。新しい変更が 1 つでもあれば作業中とみなして null。
+ * @param {Array<{ path: string, mtimeMs: number | null }>} files mtimeMs が null（削除済み）のものは時刻の判定から外す
+ * @param {number} nowMs
+ */
+export function formatStaleWip(files, nowMs, hours = STALE_WIP_HOURS) {
+  const times = files.map((f) => f.mtimeMs).filter((t) => Number.isFinite(t));
+  if (!files.length || !times.length) return null;
+  const newest = Math.max(...times);
+  const age = (nowMs - newest) / 3_600_000;
+  if (age < hours) return null;
+  const when = new Date(newest).toISOString().replace('T', ' ').slice(0, 16);
+  return `[git-sync] ⚠ 作業ツリーに未コミットの変更 ${files.length} 件が ${Math.floor(age)} 時間以上残っている（最新の変更 ${when}Z）。` +
+    ' 別セッションの作業なら持ち主に積ませる。持ち主がおらず並行セッションもいなければ、捨てずにブランチを切ってコミットし PR にする（git switch -c → commit → develop へ戻る。並行セッションがいれば worktree へ）';
+}
+
+/** git status の未コミットの変更（未追跡を含む）と mtime。無い・取得できなければ空（改名は 2 つの変更として数える） */
+function uncommittedFiles(root) {
+  let raw = '';
+  try {
+    // gitSafe は trim するので使わない（先頭の状態記号 " M" の空白が消えてパスがずれる）
+    raw = execFileSync('git', ['status', '--porcelain=v1', '-z', '--untracked-files=all', '--no-renames'], {
+      cwd: root, encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'], timeout: 10_000, maxBuffer: 16 * 1024 * 1024,
+      env: { ...process.env, GIT_OPTIONAL_LOCKS: '0' },
+    });
+  } catch {
+    return [];
+  }
+  const paths = raw.split('\0').filter(Boolean).map((e) => e.slice(3)).slice(0, STALE_WIP_MAX_FILES);
+  return paths.map((p) => {
+    try { return { path: p, mtimeMs: statSync(join(root, p)).mtimeMs }; } catch { return { path: p, mtimeMs: null }; }
+  });
+}
 
 function gitSafe(args, opts = {}) {
   try {
@@ -82,6 +127,9 @@ export async function run({ quiet = false } = {}) {
 
   checkBranch('main', 'origin/main');
   checkBranch('develop', 'origin/develop');
+  const top = gitSafe(['rev-parse', '--show-toplevel']);
+  const wip = top ? formatStaleWip(uncommittedFiles(top), Date.now()) : null;
+  if (wip) out.log(wip);
   const ci = formatDevelopCi(developCiStatus());
   if (ci) out.log(ci);
   return out.result(0);

@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// session-start — Claude Code の SessionStart で走る 8 検査を 1 プロセス内で順次呼ぶ。
+// session-start — Claude Code の SessionStart で走る検査（CHECKS の 11 本）を 1 プロセス内で順次呼ぶ。
 //
 // それまで .claude/settings.json は 6 本の `node …` を同時起動していた（async）。同一マシンで複数セッションが
 // 並行する常態では起動のたびに node が 6 本 × セッション数立ち上がり、空きメモリ 3 GiB 未満の端末で重い処理ゲート
