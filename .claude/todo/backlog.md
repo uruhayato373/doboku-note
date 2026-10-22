@@ -59,7 +59,7 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 **対象の絞り込み（2026-10-15）**: YouTube 整理で gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2kyu は台帳で全 stopped。残るのは gakka-2kyu-doko の通常動画（lNI2f_SjCTk・10/12 公開）と非公開の Shorts 2 本だけ。この 3 本が 10/11 の訂正後に作られたものかを確かめ、古ければ差し替える。
 
-
+**進捗（2026-10-22）**: 運営者の判断で SNS 保留の例外として進める。差し替え先は台帳の改訂行（gakka-2kyu-doko の youtube.longform.diagram-led と Shorts 2 本の diagram-led・draft・10/19 以降の図解版）で、概要欄に VOICEVOX のクレジットも足した（DN-0605）。**残り（運営者）**: 管理画面の確認画面で改訂 3 本の表紙・動画・文面を確かめて承認 → `npm run registry -- publish-youtube-revision --pub <改訂公開ID> --phase upload` → schedule → verify で差し替え、旧版の扱いを決める。承認はエージェントからは実行できない。
 
 ### [DN-0440] コンクリート主任技士の小論文添削を、直前期（11月）の受注に応えられる状態にする
 タグ: [収益化] [領域:商品] [時期:2026-10..2026-11] [種類:改善] [起票:2026-09-29] [期日:2026-10-31]
@@ -133,9 +133,7 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 **対象の絞り込み（2026-10-15）**: YouTube 整理で公開・非公開が残るのは gakka-2kyu-doko の 3 本（通常動画 lNI2f_SjCTk・Shorts 2 本）だけで、3 本とも youtube.json の概要欄にクレジットが無い。これから上げる qa_passed の 43 本は youtube.json がまだ無く、10/08 以降の生成器が入れる。残りはこの 3 本の概要欄へのクレジットの追加と同期（承認の内容ハッシュと CI の metadata 同期の手順に沿う）。
 
-
-
-
+**進捗（2026-10-22）**: 運営者の判断で SNS 保留の例外として進める（利用条件の表記のため）。台帳の全 YouTube 公開行を調べると、クレジットが無いのは 2級 土工（gakka-2kyu-doko）の公開 1・非公開 2 と、その差し替え用の改訂（diagram-led）3 本だけだった（ほかの公開・予約・改訂は入っている）。6 本の概要欄に「音声：VOICEVOX:青山龍星」を足した（501fde370・check-content-registry PASS・check-video-publication PASS）。**残り（運営者）**: `npm run admin` の確認画面で 6 本の文面を確かめて承認し、YouTube への同期（公開済み lNI2f_SjCTk は metadata の同期、改訂 3 本は DN-0670 の差し替え）を行う。承認はエージェントからは実行できない（registry の規約）。
 
 ### [DN-0500] 技術士一次試験 令和8年度（11/22）の解答速報ページを事前に用意し、公式正答の公開後すぐ埋める
 タグ: [SNS・マーケ] [領域:サイト] [時期:2026-11] [種類:制作] [起票:2026-10-02] [期日:2026-11-22]
