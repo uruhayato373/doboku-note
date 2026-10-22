@@ -5413,6 +5413,71 @@
       "commit": "b8d50a120070",
       "verification": "npm run check-coconala-live（一致 2・食い違い 0）・data/coconala/thumb-approved.json",
       "note": "やること (2)(3) は 2026-09-27 の POP 意匠（キャラクター入り・資格名と商品名を大きく・価格なし）で公開中 18 商品を差し替えて達成（data/coconala/thumb-approved.json・DN-0314 で Drive と照合済み）。check-coconala-live 一致。画像の生成記録に「採点者」0 件。全商品を差し替えたので差し替えていない比較対象が無く、30 日の閲覧比較は行わない。出品は DN-0538 で 1 本へ集約する"
+    },
+    {
+      "id": "DN-0677",
+      "at": "2026-10-22",
+      "task": "検索で表示のある削除済みページ（/standards/guides の 5 本）・数字付き 404・共通仕様書の機関別重複の扱いを決める",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "ad9ac731b9c9",
+      "verification": "本番 curl: 旧 URL 4 件の 301 と転送先・新記事 2 本の 200 と <main>・kanto/okinawa common noindex・kinki index・check-production-ssr exit 0",
+      "note": "運営者のおすすめ案を実装し本番反映（PR #1189・2026-10-22）。旧ガイド 2 本は今の形式の実務記事 /practice/inverted-siphon-design・/practice/floodgate-design に書き直して公開し 301（guide-fact-checker 照合済み・近畿地整の設計便覧は公開停止中）。残り 3 本は 404。数字付き 404 18 件を親へ 301。近畿以外の /standards/*/common を noindex,follow"
+    },
+    {
+      "id": "DN-0614",
+      "at": "2026-10-22",
+      "task": "コンテンツ台帳 P1: content/registry の土台（設計書・型・台帳・CLI・検査・素材の ID 置き場）を作る",
+      "tier": "high",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "95b5961b461f",
+      "verification": "npm run check-content-registry PASS（作品 715・公開 2,220・素材 1,192）・関連テスト pass・registry-reconcile.yml 10/14〜21 連続 success",
+      "note": "2026-10-22 の完了判定（読むだけの監査）: 完了条件を実体で確認"
+    },
+    {
+      "id": "DN-0608",
+      "at": "2026-10-22",
+      "task": "コンテンツ台帳 P2: YouTube 動画パックを台帳へ移し、予約→公開を CI の照合で進め、表紙を ID の置き場へ移す",
+      "tier": "high",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "95b5961b461f",
+      "verification": "npm run check-content-registry PASS（作品 715・公開 2,220・素材 1,192）・関連テスト pass・registry-reconcile.yml 10/14〜21 連続 success",
+      "note": "2026-10-22 の完了判定（読むだけの監査）: 完了条件を実体で確認"
+    },
+    {
+      "id": "DN-0704",
+      "at": "2026-10-22",
+      "task": "note の商品名・価格がカタログと同期しているかを確かめ、単品で売っている「マガジン扱い」の商品を整理する",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "bb55f0bf4d91",
+      "verification": "npm run verify-note-magazines exit 0（単品 33 件一致）・tests/note-single-price.test.mjs",
+      "note": "PR #1190 で単品（tier=single）33 件の価格を記事単位の公開 API で verify-note-magazines の照合に加えた。2026-10-22 のライブ照合で 33/33 一致・取得失敗 0（マガジン 109 件もずれ 0）"
+    },
+    {
+      "id": "DN-0707",
+      "at": "2026-10-22",
+      "task": "画像（note・ココナラ・SVG/PNG）の置き場を git ではなく Drive か R2 に決め、ローカルに持たない",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "d43acc56eff2",
+      "verification": "asset-offload --verify 302/302 一致・check-git-binary-policy・check-asset-storage・check-r2-orphans 通過",
+      "note": "PR #1191 でサイト配信の PNG 302 枚を public R2 へ移し git から外した（asset-offload・sha 全件一致・R2 302/302 で 200・参照の置き換え 0＝記事は同名の webp を参照）。note の 144 枚と SVG は git のまま"
     }
   ]
 }

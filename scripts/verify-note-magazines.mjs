@@ -15,11 +15,12 @@
  *   - note 公開 API（認証不要）:
  *       creators/{name}/contents?kind=magazine&page=N  … マガジン一覧
  *       /api/v1/magazines/{key}/notes?page=N            … マガジン収録記事
+ *       記事 1 本の状態（lib/note-api.mjs の fetchNote）       … 単品の価格・公開状態（DN-0704）
  *   - Playwright（@playwright/test 1.59.1 導入済）は API が壊れた場合の
  *     フォールバック。Nuxt SPA のため通常は API の方が堅牢。
  *
  * 使い方:
- *   npm run verify-note-magazines              # 一覧取得＋SoT突合（note↔note-magazines.ts）
+ *   npm run verify-note-magazines              # 一覧取得＋SoT突合（note↔note-magazines.ts）＋単品の価格照合（note↔products.json）
  *   npm run verify-note-magazines -- --vs-txt  # note掲載文.txt(SoT)↔note も突合（タイトル/価格/説明/文字数）
  *   npm run verify-note-magazines -- --contents   # 各マガジンの収録記事も取得
  *   npm run verify-note-magazines -- --json       # スナップショットを JSON 保存
@@ -32,7 +33,9 @@ import { parseNoteText, checkLimits } from './lib/note-meta.mjs';
 import { datasetPath } from './lib/datasets.mjs';
 import { NOTE_CREATOR as CREATOR } from './lib/site-identity.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
-import { curlJson as apiCurlJson } from './lib/note-api.mjs';
+import { curlJson as apiCurlJson, fetchNote } from './lib/note-api.mjs';
+import { loadProducts, blockingErrors, PRODUCTS_REL } from './lib/product-registry.mjs';
+import { priceNum, singleTargets, fetchable, reconcileSinglePrices } from './lib/note-single-price.mjs';
 
 const SOT_PATH = join(ROOT, 'src/lib/note-magazines.ts');
 const SNAPSHOT_PATH = join(ROOT, datasetPath('note.magazines'));
@@ -124,13 +127,6 @@ function parseSoT() {
   return entries;
 }
 
-/** 価格文字列から先頭の ¥金額を数値で取り出す（"¥3,480（…）" → 3480）。 */
-function priceNum(str) {
-  if (!str) return null;
-  const m = str.match(/¥?\s*([\d,]+)/);
-  return m ? parseInt(m[1].replace(/,/g, ''), 10) : null;
-}
-
 /** note掲載文.txt（SoT）↔ note 公開状態 突合（--vs-txt）。 */
 const normT = (s) => (s || '').normalize('NFKC').replace(/\s+/g, '');
 function commonPrefix(a, b) { let i = 0; while (i < a.length && i < b.length && a[i] === b[i]) i++; return i; }
@@ -161,7 +157,38 @@ function reconcileTxt(mags) {
   return { checked, unpublished, txtIssues: out };
 }
 
-function main() {
+/**
+ * 単品（products.json の channel=note・tier=single）の価格・公開状態を記事単位の公開 API で照合する（DN-0704）。
+ * マガジン一覧には単品が出ないので、記事ごとに fetchNote で読む。判定は lib/note-single-price.mjs の純関数。
+ */
+async function verifySingles() {
+  const { products, errors } = loadProducts();
+  const blocking = blockingErrors(errors);
+  if (blocking.length) {
+    console.error(`✗ 検査不成立: 商品の正本を読めない（${blocking[0]}${blocking.length > 1 ? ` ほか ${blocking.length - 1} 件` : ''}）`);
+    return { issues: [], inconclusive: true };
+  }
+  const { targets, skipped } = singleTargets(products);
+  const results = new Map();
+  for (const t of targets.filter(fetchable)) {
+    results.set(t.id, await fetchNote(t.key, { retries: 2, delayMs: 2000 }));
+  }
+  const r = reconcileSinglePrices(targets, results);
+  console.log(`\n--- 単品の価格照合（note↔${PRODUCTS_REL}・記事単位の公開 API）---`);
+  for (const m of r.matched) console.log(`  OK  ${m.id}  ${m.key}  ¥${m.price}`);
+  for (const i of r.issues) console.log(`  ${i}`);
+  for (const f of r.failed) console.log(`  [取得失敗] ${f.id}（${f.key}）: ${f.error}（未検査・ズレなしではない）`);
+  console.log(
+    `単品: 対象 ${r.total} 件（対象外 ${skipped.length} 件${skipped.length ? `: ${skipped.map((s) => `${s.id}=${s.reason}`).join(', ')}` : ''}）` +
+      ` / 取得 ${r.attempted} 件 / 検査 ${r.checked} 件 / 一致 ${r.matched.length} 件 / ズレ ${r.issues.length} 件 / 取得失敗 ${r.failed.length} 件`
+  );
+  if (r.inconclusive) {
+    console.error(`✗ 検査不成立: 単品の価格照合（検査 ${r.checked} 件 / 取得失敗 ${r.failed.length}/${r.attempted} 件）`);
+  }
+  return { issues: r.issues, inconclusive: r.inconclusive };
+}
+
+async function main() {
   console.log('=== note 公開マガジン照合 ===');
   console.log(`creator: ${CREATOR}`);
 
@@ -267,6 +294,9 @@ function main() {
     }
   }
 
+  // --- 単品の価格照合（DN-0704）。収録記事の取得が不成立で止まった後には回さない ---
+  const singles = await verifySingles();
+
   // --- JSON スナップショット（任意）---
   if (WANT_JSON) {
     mkdirSync(dirname(SNAPSHOT_PATH), { recursive: true });
@@ -287,9 +317,10 @@ function main() {
     console.log(`\nスナップショット保存: ${outPath}`);
   }
 
-  const total = issues.length + txtIssues.length;
-  console.log(`\n完了: マガジン ${mags.length} 件 / SoTズレ ${issues.length} 件${WANT_VS_TXT ? ` / txtズレ ${txtIssues.length} 件` : ''}`);
-  process.exit(total === 0 ? 0 : 2);
+  const total = issues.length + txtIssues.length + singles.issues.length;
+  console.log(`\n完了: マガジン ${mags.length} 件 / SoTズレ ${issues.length} 件${WANT_VS_TXT ? ` / txtズレ ${txtIssues.length} 件` : ''} / 単品ズレ ${singles.issues.length} 件${singles.inconclusive ? '（単品は検査不成立）' : ''}`);
+  // 単品の照合が成立していなければ、ズレの有無より先に検査不成立（exit 1）を返す
+  process.exitCode = singles.inconclusive ? 1 : total === 0 ? 0 : 2;
 }
 
-main();
+await main();

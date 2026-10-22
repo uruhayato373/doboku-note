@@ -233,6 +233,15 @@ npm run auth:ci-writeback    # CI 専用。更新後の storageState を CAS で
 npm run auth:ci-plan         # ops-write の write plan を作り DOBOKU_CI_WRITE_PLAN_SHA256 を計算する
 ```
 
+## 役割分担（人・Mac・CI）（2026-10-22 DN-0362）
+
+| 担い手 | 受け持つこと |
+|---|---|
+| 人（運営者） | 初回ログイン・パスワードと 2 段階認証・CAPTCHA（`npm run auth:login -- <service>`）、OS の資格情報ストアへの ID/PW の登録、`auth:export` の実行、期限切れの再ログイン、古いロックを外す判断 |
+| Mac（launchd） | 毎日 17:45 の `auth-session-refresh`（A8・もしも・KDP・note・ココナラのログインの取り直し）、`ci.enabled` のサービスの暗号化 state の書き出し、週次レビューの `auth:status`（ログインの健康診断） |
+| Windows（タスクスケジューラ） | 同じ `auth-session-refresh`（止まっていた日は次の起動時に 1 回）。CI への書き出しはしない |
+| CI | 暗号化 state を復元して読むだけの定期収集（`auth:ci-restore`）と、許可された書き込みの書き戻し（`auth:ci-writeback`）。ログインはしない |
+
 ## 資格情報の正本（2026-10-01）
 
 ログインが必要な全サービス（note・ココナラ・KDP・X・Instagram・Google・A8・もしも・afb）の ID/PW は、各 PC の OS 資格情報ストア（Mac キーチェーン / Windows 資格情報マネージャー）に `doboku-note-auth-<service>` で登録する。方針の正本は `.claude/config/playwright-auth-profiles.json` の `services.<id>.credential`（`autoLogin`＝切れたら自動で入り直すか・`ciCredential`＝GitHub Secrets を持つか・`policyNote`＝理由）と `credentialPolicy`（登録コマンド・定期実行）。X・Instagram・Google・afb は `autoLogin: false`（凍結・2 段階認証・セレクタ未確認）で、資格情報は人がログインするときのために保管する。GitHub Secrets は 2026-10-01 オーナー決定で全サービスに保管する（`ciStored`）が、CI が実際に読むのは `ciCredential: true` のサービスだけ。X・Instagram・Google は 9/21 の実測（ボット確認・手元ごとのセッション失効）で CI に載せない。afb ともしもの CI 化は DN-0484・DN-0483 で試行中。afb は state を別プロセスへ持ち出せないので、`asp-browser.mjs` の `openAsp` が同じプロセスで資格情報（手元は資格情報ストア、CI は Secrets）を使って 1 回だけログインし、毎日のログイン維持では入らない（`AUTO_LOGIN.afb.inProcessOnly`）。CI では未ログインのとき人を待たずに失敗する。`tests/auth-credential-ssot.test.mjs` が正本と `AUTO_LOGIN`・CI の Secrets 配線の一致を検査する。状態は管理画面の 管理 ＞ ログインと資格情報（`/ops/auth`）で見る（開いた PC の登録だけが見える。Mac の作業は DN-0479）。ログイン ID の正本も各 PC の資格情報ストア（このリポジトリは公開なので ID を書かない）で、管理画面はそこから ID だけを読んで表示する（`credential-store.mjs` の `storedAccounts`・パスワードは取り出さない）。

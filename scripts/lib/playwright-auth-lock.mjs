@@ -1,6 +1,8 @@
 /**
  * Playwright認証操作のservice単位排他ロック。
  * ロック内容は診断用の非secretメタデータだけ。既存lockの自動削除やprocess killは行わない。
+ * ただし同じホストで持ち主の pid が動いていないロックは「古いロック」とエラーに出す（2026-10-22: 10/13 の login の
+ * ロックが残り、moshimo の日次のログイン維持が 9 日間「使用中」で止まり続けた）。消すかどうかは人が決める。
  */
 import {
   closeSync,
@@ -45,6 +47,21 @@ export function readAuthLock(serviceId, options = {}) {
   }
 }
 
+/** pid のプロセスが動いているか（kill 0 で確かめるだけ。シグナルは送らない） */
+function pidAlive(pid) {
+  try { process.kill(pid, 0); return true; } catch (error) { return error?.code === 'EPERM'; }
+}
+
+/**
+ * 同じホストで持ち主の pid が動いていないロックか。別ホスト・pid 不明・読めないロックは古いと決めない。
+ * @param {{ hostname?: string, pid?: number | null } | null} existing
+ * @param {{ hostname: string, isAlive?: (pid: number) => boolean }} ctx
+ */
+export function isStaleLock(existing, { hostname, isAlive = pidAlive }) {
+  if (!existing || !Number.isInteger(existing.pid) || existing.hostname !== hostname) return false;
+  return !isAlive(existing.pid);
+}
+
 export function acquireAuthLock(serviceId, options = {}) {
   const command = ALLOWED_COMMANDS.has(options.command) ? options.command : 'status';
   const lockPath = options.lockPath ?? resolveLockPath(serviceId, options.authOptions);
@@ -65,6 +82,14 @@ export function acquireAuthLock(serviceId, options = {}) {
     if (fd !== undefined) closeSync(fd);
     if (error?.code === 'EEXIST') {
       const existing = readAuthLock(serviceId, { lockPath });
+      const stale = isStaleLock(existing.metadata, { hostname: metadata.hostname, isAlive: options.isAlive });
+      if (stale) {
+        throw new AuthLockError(`${serviceId} のロックは古い（${existing.metadata.startedAt} の ${existing.metadata.command}・pid ${existing.metadata.pid} はもう動いていない）。中身を確かめて ${lockPath} を消す`, {
+          code: 'AUTH_LOCK_STALE',
+          lockPath,
+          existing: existing.metadata,
+        });
+      }
       throw new AuthLockError(`${serviceId} は別の認証操作が使用中です`, {
         code: 'AUTH_LOCK_EXISTS',
         lockPath,

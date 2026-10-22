@@ -255,6 +255,7 @@
 - **表**: soft border（`--rule-soft`）+ thead 背景 `--accent-fill` + th はモノスペース・大文字・11px・letter-spacing。`rounded-card-content`。最初列（ラベル列慣習）は `white-space: nowrap`。
 - **details / blockquote / code / pre**: editorial soft rule（`--rule-soft`）。インラインコードは `--accent-fill` 背景 + `--accent` 文字。
 - **多問の過去問**: 本文前に問1へ直行するリンクと閉じた番号一覧を置く。番号は本文・右ナビとも44px以上。native `details`でJavaScriptなしでも番号を選べる。
+- **年度別過去問の画面外描画の省略**（DN-0814）: `DocPage` の年度別過去問（`isQuestionSeries`）は `.prose-blog[data-offscreen-render="skip"]` になり、直下の `p`・見出し・`ol`/`ul`・`details`・`blockquote`・`.katex-display`・`.table-scroll` に `content-visibility: auto` が掛かる（スマホで「解答・解説」の開閉やタップのたびに 1 万要素の描画が走り INP が悪化していたため）。封じ込めで中の余白が外へ相殺しなくなるので、対象は中の余白が外へ出ない要素に限り、`ol`/`ul` は先頭・末尾の `li` の余白を 0 にして高さを揃えている。対象を足すときは、足す要素の高さが変わらないことを実測する。
 - **モバイル（≤576px）**: 本文 16px、見出しは em 比例で縮小、table/blockquote/pre はフルブリード化（左右 margin 0）。details（設問カード）は `--article-gutter-sp` を負マージンで相殺して記事カード端まで真の全幅化＋内側同値 padding の単層構成（table 等の単純 margin 0 とは別メカニズム・詳細 → §3.2）。
 - **KaTeX**: 本文サイズに揃える（`.katex { font-size: inherit }`）。display 式は `--color-surface` 背景 + `overflow-x: auto`。長い式は横スクロール。
 
