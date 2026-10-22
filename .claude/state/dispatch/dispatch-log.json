@@ -5491,6 +5491,19 @@
       "commit": "9bd8ce44bada",
       "verification": "本番の 3 ページで title 49/51/42 字・description 136/160/97 字（seo-meta-config の閾値内）・変更の反映を curl で確認",
       "note": "search-intent-auditor の監査に沿って 3 本を直し 2026-10-22 に本番反映（主任技士 小論文の冒頭の順序と題名の表記、一次 基礎科目の勉強方法の見出しと 560 問の内訳、診断士 中性化の定義の導入）。解答例の見本の節は有料答案の抜粋を出す判断になるため入れていない"
+    },
+    {
+      "id": "DN-0815",
+      "at": "2026-10-22",
+      "task": "KDP の商品展開をもっと絞り込む",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "fd2655115054",
+      "verification": "npm run check-products 通過・catalog の unpublished 13 件が対象の 13 冊と一致",
+      "note": "13 冊を KDP で出版停止にし catalog に unpublished を記録。新規制作を売れ筋の型に限る方針を content/kindle/strategy.md に書いた"
     }
   ]
 }
