@@ -5357,6 +5357,19 @@
       "commit": "80ffa8e3302f",
       "verification": "本番 curl で details の中 0 件・npm run check-datasets 違反 0",
       "note": "PR #1183 でカードを details の直後へ移し、2026-10-22 07:41 JST に本番反映（カードの参照 2 件が details の外）。基線（W41 の 35 日窓 727 表示・2 クリック）・反映日・次回確認日 11/23 を EXP-039 に記録。効果は未測定"
+    },
+    {
+      "id": "DN-0731",
+      "at": "2026-10-22",
+      "task": "記事の末尾の「この記事の根拠法令」と法令ページを作る（e-Gov のリンクから自動で集める）",
+      "tier": "mid",
+      "kind": "制作",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "228c07b4f927",
+      "verification": "npm run egov-laws PASS・egov-laws --drift 改正 0・check-topic-wiring PASS・check-production-ssr exit 0",
+      "note": "法令ページ 24 本・法令の解説記事 62 本・計画と施策 79 件を本番反映（#1181・#1182・#1183・2026-10-22）。テーマ 22/22 に法令の節。e-Gov 復旧後に写しを取り直し、ミラーから作った 4 法令は一致"
     }
   ]
 }
