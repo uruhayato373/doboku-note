@@ -55,8 +55,13 @@ test('groupFor: パスから所属グループを引ける（他グループを�
   assert.equal(groupFor('content/sns/instagram/cem/pack/reels/wav/a.wav', CFG), null, 'reels の wav/mp4 も 2026-09-05（DN-0170）から Drive');
   assert.equal(groupFor('.tmp/video-render/sample/video.mp4', CFG), null);
   assert.equal(groupFor('.tmp/video-render/verify-frames/contact-sheet.png', CFG), null);
-  // 対象外は null。サイト記事の図版や原稿を巻き込まない。
-  assert.equal(groupFor('content/site/civil-construction-1/guide-x/img/fig.png', CFG), null);
+  // 記事図の切り出し原本 png は 2026-10-22（DN-0707）から R2。配信する webp と SVG は Git に残す。
+  assert.equal(groupFor('content/site/civil-construction-1/guide-x/img/fig.png', CFG).id, 'site-figure-png');
+  assert.equal(r2KeyFor('content/site/civil-construction-1/guide-x/img/fig.png', groupById('site-figure-png')),
+    'posts/civil-construction-1/guide-x/img/fig.png', 'r2-sync.yml のキー体系（posts/）と一致すること');
+  // 対象外は null。配信する webp・SVG や原稿を巻き込まない。
+  assert.equal(groupFor('content/site/civil-construction-1/guide-x/img/fig.webp', CFG), null);
+  assert.equal(groupFor('content/site/civil-construction-1/guide-x/img/figure-a.svg', CFG), null);
   assert.equal(groupFor('content/note/技術士総監/x/article.md', CFG), null);
   assert.equal(groupFor('content/note/技術士総監/x/img/figure-a.png', CFG), null);
 });

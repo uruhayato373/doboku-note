@@ -56,6 +56,7 @@ Google Drive 側が `config/drive-vault.json`（台帳 `.claude/state/assets/dri
 |---|---|---|---|
 | `site-ogp-png` | site | public R2 `posts/` | `ogp-supply.yml` が生成・供給 |
 | `site-ogp-thumbnails` | site | public R2 `posts/` | 原本OGPから248/336/640pxのWebPを生成。`ogp-supply.yml`の`build-ogp-thumbnails --supply`で原本sha256/recipeを照合し、アップロード後に全バイトを読み戻す。派生物は原本台帳から再生成し、個別の台帳コピーは作らない |
+| `site-figure-png` | site | public R2 `posts/` | 記事図の切り出し原本 png（302 件・2026-10-22 に Git から外した・DN-0707）。配信は同名の webp（Git）。新しい png は `asset-offload --group site-figure-png --only-new --include-untracked --commit` で上げる（`r2-sync.yml` は Git の img だけを送るので png は送らない） |
 | `note-cover-png` | human（例外で R2） | private R2 `note/covers/` | note へ登録した版の控え。書くのは Mac の週次 `note-sync-routine`（`asset-offload --skip-existing`）で、CI は読み書きしない（2026-09-29 に CI 供給 `note-cover-supply.yml` を廃止）。約 1,000 件を毎週 sha256 で差分保存するので Drive マウントより R2 が確実（`audienceException`） |
 | `git-history-bundle` | human（例外） | private R2 | 2.65GB 書き込み一回・復元時だけ。ストリーミングマウント越しの単一巨大 blob は脆い |
 | `ogp-background` | ci | private R2 `ogp/backgrounds/` | 資格別の OGP 背景（AI で作った一点物・7 枚）。2026-10-10 に `config/ogp/backgrounds/` から移した。使う直前に `npm run asset-hydrate -- --group ogp-background`（CI は `ogp-supply.yml` が生成の前に取り戻す）。手元に無いと `requireLocalAsset`（`scripts/lib/asset-storage.mjs`）が止め、黙ってオフホワイトに落とさない |
@@ -438,7 +439,7 @@ cache は `.local/cache/assets/`（Git 非追跡）。復元先のbytes/sha256�
 |---|---|---|---|
 | private `archive/git-history/` | 1（2.65GiB） | 台帳 `git-history-bundle`（human 例外） | `rclone copy` → `git clone <bundle>` |
 | private `note/covers/` | 840（772MiB） | 台帳 `note-cover-png`（全カバー。2026-09-05 DN-0171 で public 複製 823 件を private へ server-side copy → md5 照合 → public 側削除） | `asset-hydrate --group note-cover-png` |
-| public `posts/`（記事図版） | 4,298（149MiB） | **Git**（`content/site/**/img`） | `r2-sync.yml` が一方向で同期。配信コピーなので台帳不要 |
+| public `posts/`（記事図版） | 4,298（149MiB） | **Git**（`content/site/**/img`） | `r2-sync.yml` が一方向で同期。配信コピーなので台帳不要。切り出し原本の png 302 件だけは 2026-10-22 から台帳 `site-figure-png` が真実源 |
 | public `posts/`（ogp.png） | 1,586（662MiB） | 台帳 `site-ogp-png`（1,574） | `ogp-supply.yml` が生成・供給 |
 | Drive `マイドライブ/doboku-note/` | 20,078（11.4GiB） | 台帳 `drive-manifest.json` 19,236 ＋ 手で置いた原本・文字起こし | `drive-vault-sync --pull --group <id> --commit` |
 
