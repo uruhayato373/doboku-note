@@ -1,6 +1,6 @@
 # note 公開状態の照合（note-magazines.ts ↔ note 現実）
 
-note.com の公開マガジン一覧・各マガジンの収録記事を **public API から取得**し、`src/lib/note-magazines.ts`（SoT）と突合してズレを検出する運用手順。`npm run verify-note-magazines` の真実源。
+note.com の公開マガジン一覧・各マガジンの収録記事を **public API から取得**し、`src/lib/note-magazines.ts`（SoT）と突合してズレを検出する運用手順。単品（`config/products.json` の channel=note・tier=single＝マガジンに入れず 1 本で売る記事）の価格・公開状態も記事単位の公開 API で照合する（DN-0704）。`npm run verify-note-magazines` の真実源。
 
 ## なぜ必要か（動機となった事故）
 
@@ -57,13 +57,14 @@ Playwright 経路に委ねる。
 ## 使い方
 
 ```bash
-npm run verify-note-magazines              # 一覧取得 ＋ SoT 突合（note↔note-magazines.ts・高速）
+npm run verify-note-magazines              # 一覧取得 ＋ SoT 突合（note↔note-magazines.ts）＋ 単品の価格照合（note↔products.json）
 npm run verify-note-magazines -- --vs-txt   # note掲載文.txt(SoT)↔note も突合（タイトル/価格/説明/文字数）
 npm run verify-note-magazines -- --contents   # 各マガジンの収録記事も取得
 npm run verify-note-magazines -- --json       # スナップショットを JSON 保存
 ```
 
 - スクリプト: `scripts/verify-note-magazines.mjs`。内部で `curl --ssl-no-revoke` を spawn（プロキシ env を自動利用）。
+- **単品の価格照合（常に実行・DN-0704）**: マガジン一覧に単品は出ないので、公開中の単品（`published:true`・`retiredAt` なし）を 1 本ずつ `fetchNote` で読み、正本 `catalog.price` の先頭の ¥金額と note の `price`・`status` を照合する。`price` 欄の無い単品（精読ガイドなどの無料記事）は 0 円として照合する。判定は `scripts/lib/note-single-price.mjs` の純関数（テスト `tests/note-single-price.test.mjs`）。出力の末尾に「対象・取得・検査・一致・ズレ・取得失敗」の件数を出し、取得失敗は一致にもズレにも数えない。検査 0 件か取得失敗が `inconclusive-gate.mjs` の上限（20%）を超えたら検査不成立（exit 1）。`--contents` で収録記事の取得が不成立になって止まったときは回らない。
 - **`--vs-txt`**: 各 `note掲載文.txt`（マガジン設定 SoT）を note 公開状態と突合。**説明文の先頭一致でマガジンを同定**（タイトルがドリフトしても照合可）し、タイトル差/価格差/説明差/文字数超過を検出。`note掲載文.txt` を編集したら本モードでドリフトを確認 → `note-edit-magazine` で push、の運用。
 - `--json` 出力先: `data/note/magazines.json`（machine データ）。**供給は CI（`note-live-audit.yml` 週次）が正**。
   ローカル再生成は可（デバッグ・事故是正の即時反映）だが、**再生成したら commit する**——`check-magazine-membership` が `fetchedAt` の鮮度を見ており、腐った snapshot は「合格」ではなく検査不成立として扱う。収録リスト `notes[]` は `--contents` を渡したときだけ入るので、**この 2 つを常にセットで**（`--contents --json`）。
@@ -75,10 +76,11 @@ npm run verify-note-magazines -- --json       # スナップショットを JSON
 - **未配線**: note 公開済だが SoT に noteUrl 配線なし（新規公開の取り込み漏れ）
 - **非公開化?**: SoT の noteUrl が note 一覧に無い（404/非公開化の疑い）
 - **要修正**: SoT `published:true` だが noteUrl 空
-- **価格ドリフト**: SoT 価格 ≠ note 価格（例: 値上げを SoT 先行・note 未反映）
+- **価格ドリフト**: SoT 価格 ≠ note 価格（例: 値上げを SoT 先行・note 未反映）。単品は正本 `products.json` の `catalog.price` ≠ 記事の価格
+- **単品の非公開化? / 公開状態 / 記事URLなし / 価格読めず**: 単品の記事が公開 API で見えない（404）・`status` が published でない・`noteUrl` が `/n/…` でない・正本の price から金額を読めない
 - **空マガジン**: `--contents` で収録 0 件のマガジンが見える（公開したが記事未登録）
 
-終了コード: ズレ無し=0 / 取得失敗=1 / ズレあり=2。
+終了コード: ズレ無し=0 / 取得失敗（マガジン一覧が取れない・収録記事か単品の取得失敗が支配的＝検査不成立）=1 / ズレあり=2。
 
 > [!warning]
 > **検出できないズレ: 値上げ時の二重公開（2026-08-24 発覚）**
