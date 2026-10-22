@@ -87,3 +87,26 @@ test('lock内容が変わった場合は他所有者とみなし自動削除し�
     rmSync(f.root, { recursive: true, force: true });
   }
 });
+
+// 2026-10-22: 持ち主のいないロックが 9 日間残り、日次のログイン維持が「使用中」で止まり続けた
+test('同じホストで持ち主の pid が動いていないロックは「古いロック」として知らせ、消さない', async () => {
+  const { isStaleLock } = await import('../scripts/lib/playwright-auth-lock.mjs');
+  const f = fixture();
+  try {
+    const first = acquireAuthLock('moshimo', { command: 'login', authOptions: f.authOptions, hostname: 'test-host', pid: 21285 });
+    assert.throws(
+      () => acquireAuthLock('moshimo', { command: 'status', authOptions: f.authOptions, hostname: 'test-host', pid: 99, isAlive: () => false }),
+      (e) => e instanceof AuthLockError && e.code === 'AUTH_LOCK_STALE' && /pid 21285 はもう動いていない/.test(e.message),
+    );
+    assert.ok(existsSync(first.lockPath), '古いロックでも自動では消さない');
+    assert.throws(
+      () => acquireAuthLock('moshimo', { command: 'status', authOptions: f.authOptions, hostname: 'test-host', pid: 99, isAlive: () => true }),
+      (e) => e.code === 'AUTH_LOCK_EXISTS',
+    );
+    assert.equal(isStaleLock({ hostname: 'other-host', pid: 1 }, { hostname: 'test-host', isAlive: () => false }), false, '別ホストは古いと決めない');
+    assert.equal(isStaleLock({ hostname: 'test-host', pid: null }, { hostname: 'test-host', isAlive: () => false }), false, 'pid 不明は古いと決めない');
+    assert.equal(isStaleLock(null, { hostname: 'test-host' }), false);
+  } finally {
+    rmSync(f.root, { recursive: true, force: true });
+  }
+});
