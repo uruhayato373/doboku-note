@@ -7,13 +7,17 @@
       "include": [
         {
           "from": "^## 〔想定工事の概要（記入例）〕",
-          "to": "^<!-- cta:civil-membership-lab|^## 出典"
+          "to": "^<!-- cta:civil-membership-lab|^## 印刷用PDF"
         }
       ],
       "exclude": [
         {
           "from": "^<!-- cta:civil-mokuji",
           "to": "^## "
+        },
+        {
+          "from": "^\\*\\*関連リンク\\*\\*",
+          "to": "^## |(?![\\s\\S])"
         }
       ]
     },
@@ -23,13 +27,17 @@
       "include": [
         {
           "from": "^## 〔想定工事の概要（記入例）〕",
-          "to": "^<!-- cta:civil-membership-lab|^## 出典"
+          "to": "^<!-- cta:civil-membership-lab|^## 印刷用PDF"
         }
       ],
       "exclude": [
         {
           "from": "^<!-- cta:civil-mokuji",
           "to": "^## "
+        },
+        {
+          "from": "^\\*\\*関連リンク\\*\\*",
+          "to": "^## |(?![\\s\\S])"
         }
       ]
     },
@@ -39,13 +47,17 @@
       "include": [
         {
           "from": "^## 〔想定工事の概要（記入例）〕",
-          "to": "^<!-- cta:civil-membership-lab|^## 出典"
+          "to": "^<!-- cta:civil-membership-lab|^## 印刷用PDF"
         }
       ],
       "exclude": [
         {
           "from": "^<!-- cta:civil-mokuji",
           "to": "^## "
+        },
+        {
+          "from": "^\\*\\*関連リンク\\*\\*",
+          "to": "^## |(?![\\s\\S])"
         }
       ]
     },
@@ -55,13 +67,17 @@
       "include": [
         {
           "from": "^## 〔想定工事の概要（記入例）〕",
-          "to": "^<!-- cta:civil-membership-lab|^## 出典"
+          "to": "^<!-- cta:civil-membership-lab|^## 印刷用PDF"
         }
       ],
       "exclude": [
         {
           "from": "^<!-- cta:civil-mokuji",
           "to": "^## "
+        },
+        {
+          "from": "^\\*\\*関連リンク\\*\\*",
+          "to": "^## |(?![\\s\\S])"
         }
       ]
     },
@@ -71,13 +87,17 @@
       "include": [
         {
           "from": "^## 〔想定工事の概要（記入例）〕",
-          "to": "^<!-- cta:civil-membership-lab|^## 出典"
+          "to": "^<!-- cta:civil-membership-lab|^## 印刷用PDF"
         }
       ],
       "exclude": [
         {
           "from": "^<!-- cta:civil-mokuji",
           "to": "^## "
+        },
+        {
+          "from": "^\\*\\*関連リンク\\*\\*",
+          "to": "^## |(?![\\s\\S])"
         }
       ]
     },
@@ -87,13 +107,17 @@
       "include": [
         {
           "from": "^## 〔想定工事の概要（記入例）〕",
-          "to": "^<!-- cta:civil-membership-lab|^## 出典"
+          "to": "^<!-- cta:civil-membership-lab|^## 印刷用PDF"
         }
       ],
       "exclude": [
         {
           "from": "^<!-- cta:civil-mokuji",
           "to": "^## "
+        },
+        {
+          "from": "^\\*\\*関連リンク\\*\\*",
+          "to": "^## |(?![\\s\\S])"
         }
       ]
     },
@@ -104,6 +128,16 @@
         {
           "from": "^## 〔想定工事の概要（記入例）〕"
         }
+      ],
+      "exclude": [
+        {
+          "from": "^<!-- cta:civil-mokuji",
+          "to": "^## "
+        },
+        {
+          "from": "^\\*\\*関連リンク\\*\\*",
+          "to": "^## |(?![\\s\\S])"
+        }
       ]
     },
     {
@@ -112,6 +146,16 @@
       "include": [
         {
           "from": "^## 〔想定工事の概要（記入例）〕"
+        }
+      ],
+      "exclude": [
+        {
+          "from": "^<!-- cta:civil-mokuji",
+          "to": "^## "
+        },
+        {
+          "from": "^\\*\\*関連リンク\\*\\*",
+          "to": "^## |(?![\\s\\S])"
         }
       ]
     },
@@ -122,6 +166,16 @@
         {
           "from": "^## 〔想定工事の概要（記入例）〕"
         }
+      ],
+      "exclude": [
+        {
+          "from": "^<!-- cta:civil-mokuji",
+          "to": "^## "
+        },
+        {
+          "from": "^\\*\\*関連リンク\\*\\*",
+          "to": "^## |(?![\\s\\S])"
+        }
       ]
     },
     {
@@ -130,6 +184,16 @@
       "include": [
         {
           "from": "^## 〔想定工事の概要（記入例）〕"
+        }
+      ],
+      "exclude": [
+        {
+          "from": "^<!-- cta:civil-mokuji",
+          "to": "^## "
+        },
+        {
+          "from": "^\\*\\*関連リンク\\*\\*",
+          "to": "^## |(?![\\s\\S])"
         }
       ]
     },
@@ -140,6 +204,16 @@
         {
           "from": "^## 〔想定工事の概要（記入例）〕"
         }
+      ],
+      "exclude": [
+        {
+          "from": "^<!-- cta:civil-mokuji",
+          "to": "^## "
+        },
+        {
+          "from": "^\\*\\*関連リンク\\*\\*",
+          "to": "^## |(?![\\s\\S])"
+        }
       ]
     },
     {
@@ -148,6 +222,16 @@
       "include": [
         {
           "from": "^## 〔想定工事の概要（記入例）〕"
+        }
+      ],
+      "exclude": [
+        {
+          "from": "^<!-- cta:civil-mokuji",
+          "to": "^## "
+        },
+        {
+          "from": "^\\*\\*関連リンク\\*\\*",
+          "to": "^## |(?![\\s\\S])"
         }
       ]
     },
@@ -158,6 +242,16 @@
         {
           "from": "^## 〔想定工事の概要（記入例）〕"
         }
+      ],
+      "exclude": [
+        {
+          "from": "^<!-- cta:civil-mokuji",
+          "to": "^## "
+        },
+        {
+          "from": "^\\*\\*関連リンク\\*\\*",
+          "to": "^## |(?![\\s\\S])"
+        }
       ]
     },
     {
@@ -166,6 +260,16 @@
       "include": [
         {
           "from": "^## 〔想定工事の概要（記入例）〕"
+        }
+      ],
+      "exclude": [
+        {
+          "from": "^<!-- cta:civil-mokuji",
+          "to": "^## "
+        },
+        {
+          "from": "^\\*\\*関連リンク\\*\\*",
+          "to": "^## |(?![\\s\\S])"
         }
       ]
     },
@@ -176,6 +280,16 @@
         {
           "from": "^## 〔想定工事の概要（記入例）〕"
         }
+      ],
+      "exclude": [
+        {
+          "from": "^<!-- cta:civil-mokuji",
+          "to": "^## "
+        },
+        {
+          "from": "^\\*\\*関連リンク\\*\\*",
+          "to": "^## |(?![\\s\\S])"
+        }
       ]
     },
     {
@@ -184,6 +298,16 @@
       "include": [
         {
           "from": "^## 〔想定工事の概要（記入例）〕"
+        }
+      ],
+      "exclude": [
+        {
+          "from": "^<!-- cta:civil-mokuji",
+          "to": "^## "
+        },
+        {
+          "from": "^\\*\\*関連リンク\\*\\*",
+          "to": "^## |(?![\\s\\S])"
         }
       ]
     },
@@ -194,6 +318,16 @@
         {
           "from": "^## 〔想定工事の概要（記入例）〕"
         }
+      ],
+      "exclude": [
+        {
+          "from": "^<!-- cta:civil-mokuji",
+          "to": "^## "
+        },
+        {
+          "from": "^\\*\\*関連リンク\\*\\*",
+          "to": "^## |(?![\\s\\S])"
+        }
       ]
     },
     {
@@ -202,6 +336,16 @@
       "include": [
         {
           "from": "^## 〔想定工事の概要（記入例）〕"
+        }
+      ],
+      "exclude": [
+        {
+          "from": "^<!-- cta:civil-mokuji",
+          "to": "^## "
+        },
+        {
+          "from": "^\\*\\*関連リンク\\*\\*",
+          "to": "^## |(?![\\s\\S])"
         }
       ]
     },
@@ -212,6 +356,16 @@
         {
           "from": "^## 〔想定工事の概要（記入例）〕"
         }
+      ],
+      "exclude": [
+        {
+          "from": "^<!-- cta:civil-mokuji",
+          "to": "^## "
+        },
+        {
+          "from": "^\\*\\*関連リンク\\*\\*",
+          "to": "^## |(?![\\s\\S])"
+        }
       ]
     },
     {
@@ -220,6 +374,16 @@
       "include": [
         {
           "from": "^## 〔想定工事の概要（記入例）〕"
+        }
+      ],
+      "exclude": [
+        {
+          "from": "^<!-- cta:civil-mokuji",
+          "to": "^## "
+        },
+        {
+          "from": "^\\*\\*関連リンク\\*\\*",
+          "to": "^## |(?![\\s\\S])"
         }
       ]
     },
@@ -230,6 +394,16 @@
         {
           "from": "^## 〔想定工事の概要（記入例）〕"
         }
+      ],
+      "exclude": [
+        {
+          "from": "^<!-- cta:civil-mokuji",
+          "to": "^## "
+        },
+        {
+          "from": "^\\*\\*関連リンク\\*\\*",
+          "to": "^## |(?![\\s\\S])"
+        }
       ]
     },
     {
@@ -238,6 +412,16 @@
       "include": [
         {
           "from": "^## 〔想定工事の概要（記入例）〕"
+        }
+      ],
+      "exclude": [
+        {
+          "from": "^<!-- cta:civil-mokuji",
+          "to": "^## "
+        },
+        {
+          "from": "^\\*\\*関連リンク\\*\\*",
+          "to": "^## |(?![\\s\\S])"
         }
       ]
     },
@@ -248,6 +432,16 @@
         {
           "from": "^## 〔想定工事の概要（記入例）〕"
         }
+      ],
+      "exclude": [
+        {
+          "from": "^<!-- cta:civil-mokuji",
+          "to": "^## "
+        },
+        {
+          "from": "^\\*\\*関連リンク\\*\\*",
+          "to": "^## |(?![\\s\\S])"
+        }
       ]
     },
     {
@@ -256,6 +450,16 @@
       "include": [
         {
           "from": "^## 〔想定工事の概要（記入例）〕"
+        }
+      ],
+      "exclude": [
+        {
+          "from": "^<!-- cta:civil-mokuji",
+          "to": "^## "
+        },
+        {
+          "from": "^\\*\\*関連リンク\\*\\*",
+          "to": "^## |(?![\\s\\S])"
         }
       ]
     },
@@ -266,6 +470,16 @@
         {
           "from": "^## 〔想定工事の概要（記入例）〕"
         }
+      ],
+      "exclude": [
+        {
+          "from": "^<!-- cta:civil-mokuji",
+          "to": "^## "
+        },
+        {
+          "from": "^\\*\\*関連リンク\\*\\*",
+          "to": "^## |(?![\\s\\S])"
+        }
       ]
     },
     {
@@ -274,6 +488,16 @@
       "include": [
         {
           "from": "^## 〔想定工事の概要（記入例）〕"
+        }
+      ],
+      "exclude": [
+        {
+          "from": "^<!-- cta:civil-mokuji",
+          "to": "^## "
+        },
+        {
+          "from": "^\\*\\*関連リンク\\*\\*",
+          "to": "^## |(?![\\s\\S])"
         }
       ]
     },
@@ -284,6 +508,16 @@
         {
           "from": "^## 〔想定工事の概要（記入例）〕"
         }
+      ],
+      "exclude": [
+        {
+          "from": "^<!-- cta:civil-mokuji",
+          "to": "^## "
+        },
+        {
+          "from": "^\\*\\*関連リンク\\*\\*",
+          "to": "^## |(?![\\s\\S])"
+        }
       ]
     },
     {
@@ -292,6 +526,16 @@
       "include": [
         {
           "from": "^## 〔想定工事の概要（記入例）〕"
+        }
+      ],
+      "exclude": [
+        {
+          "from": "^<!-- cta:civil-mokuji",
+          "to": "^## "
+        },
+        {
+          "from": "^\\*\\*関連リンク\\*\\*",
+          "to": "^## |(?![\\s\\S])"
         }
       ]
     },
@@ -302,6 +546,16 @@
         {
           "from": "^## 〔想定工事の概要（記入例）〕"
         }
+      ],
+      "exclude": [
+        {
+          "from": "^<!-- cta:civil-mokuji",
+          "to": "^## "
+        },
+        {
+          "from": "^\\*\\*関連リンク\\*\\*",
+          "to": "^## |(?![\\s\\S])"
+        }
       ]
     },
     {
@@ -311,6 +565,111 @@
         {
           "from": "^## 〔想定工事の概要（記入例）〕"
         }
+      ],
+      "exclude": [
+        {
+          "from": "^<!-- cta:civil-mokuji",
+          "to": "^## "
+        },
+        {
+          "from": "^\\*\\*関連リンク\\*\\*",
+          "to": "^## |(?![\\s\\S])"
+        }
+      ]
+    },
+    {
+      "src": "工事125-圃場整備区画整理/article.md",
+      "out": "2級土木-想定工事-工事125-圃場整備区画整理",
+      "include": [
+        {
+          "from": "^## 〔想定工事の概要（記入例）〕"
+        }
+      ],
+      "exclude": [
+        {
+          "from": "^<!-- cta:civil-mokuji",
+          "to": "^## "
+        },
+        {
+          "from": "^\\*\\*関連リンク\\*\\*",
+          "to": "^## |(?![\\s\\S])"
+        }
+      ]
+    },
+    {
+      "src": "工事126-用排水路更新PCフリューム/article.md",
+      "out": "2級土木-想定工事-工事126-用排水路更新PCフリューム",
+      "include": [
+        {
+          "from": "^## 〔想定工事の概要（記入例）〕"
+        }
+      ],
+      "exclude": [
+        {
+          "from": "^<!-- cta:civil-mokuji",
+          "to": "^## "
+        },
+        {
+          "from": "^\\*\\*関連リンク\\*\\*",
+          "to": "^## |(?![\\s\\S])"
+        }
+      ]
+    },
+    {
+      "src": "工事127-農地暗渠排水/article.md",
+      "out": "2級土木-想定工事-工事127-農地暗渠排水",
+      "include": [
+        {
+          "from": "^## 〔想定工事の概要（記入例）〕"
+        }
+      ],
+      "exclude": [
+        {
+          "from": "^<!-- cta:civil-mokuji",
+          "to": "^## "
+        },
+        {
+          "from": "^\\*\\*関連リンク\\*\\*",
+          "to": "^## |(?![\\s\\S])"
+        }
+      ]
+    },
+    {
+      "src": "工事128-橋梁支承取替/article.md",
+      "out": "2級土木-想定工事-工事128-橋梁支承取替",
+      "include": [
+        {
+          "from": "^## 〔想定工事の概要（記入例）〕"
+        }
+      ],
+      "exclude": [
+        {
+          "from": "^<!-- cta:civil-mokuji",
+          "to": "^## "
+        },
+        {
+          "from": "^\\*\\*関連リンク\\*\\*",
+          "to": "^## |(?![\\s\\S])"
+        }
+      ]
+    },
+    {
+      "src": "工事129-橋面防水橋面舗装更新/article.md",
+      "out": "2級土木-想定工事-工事129-橋面防水橋面舗装更新",
+      "include": [
+        {
+          "from": "^## 〔想定工事の概要（記入例）〕"
+        }
+      ],
+      "exclude": [
+        {
+          "from": "^<!-- cta:civil-mokuji",
+          "to": "^## "
+        },
+        {
+          "from": "^\\*\\*関連リンク\\*\\*",
+          "to": "^## |(?![\\s\\S])"
+        }
       ]
     },
     {
@@ -319,13 +678,150 @@
       "include": [
         {
           "from": "^## 〔想定工事の概要（記入例）〕",
-          "to": "^<!-- cta:civil-membership-lab|^## 出典"
+          "to": "^<!-- cta:civil-membership-lab|^## 印刷用PDF"
         }
       ],
       "exclude": [
         {
           "from": "^<!-- cta:civil-mokuji",
           "to": "^## "
+        },
+        {
+          "from": "^\\*\\*関連リンク\\*\\*",
+          "to": "^## |(?![\\s\\S])"
+        }
+      ]
+    },
+    {
+      "src": "工事130-高欄地覆補修剥落防止/article.md",
+      "out": "2級土木-想定工事-工事130-高欄地覆補修剥落防止",
+      "include": [
+        {
+          "from": "^## 〔想定工事の概要（記入例）〕"
+        }
+      ],
+      "exclude": [
+        {
+          "from": "^<!-- cta:civil-mokuji",
+          "to": "^## "
+        },
+        {
+          "from": "^\\*\\*関連リンク\\*\\*",
+          "to": "^## |(?![\\s\\S])"
+        }
+      ]
+    },
+    {
+      "src": "工事131-漁港物揚場補修/article.md",
+      "out": "2級土木-想定工事-工事131-漁港物揚場補修",
+      "include": [
+        {
+          "from": "^## 〔想定工事の概要（記入例）〕"
+        }
+      ],
+      "exclude": [
+        {
+          "from": "^<!-- cta:civil-mokuji",
+          "to": "^## "
+        },
+        {
+          "from": "^\\*\\*関連リンク\\*\\*",
+          "to": "^## |(?![\\s\\S])"
+        }
+      ]
+    },
+    {
+      "src": "工事132-小規模防波堤嵩上げ/article.md",
+      "out": "2級土木-想定工事-工事132-小規模防波堤嵩上げ",
+      "include": [
+        {
+          "from": "^## 〔想定工事の概要（記入例）〕"
+        }
+      ],
+      "exclude": [
+        {
+          "from": "^<!-- cta:civil-mokuji",
+          "to": "^## "
+        },
+        {
+          "from": "^\\*\\*関連リンク\\*\\*",
+          "to": "^## |(?![\\s\\S])"
+        }
+      ]
+    },
+    {
+      "src": "工事133-海岸堤防補修/article.md",
+      "out": "2級土木-想定工事-工事133-海岸堤防補修",
+      "include": [
+        {
+          "from": "^## 〔想定工事の概要（記入例）〕"
+        }
+      ],
+      "exclude": [
+        {
+          "from": "^<!-- cta:civil-mokuji",
+          "to": "^## "
+        },
+        {
+          "from": "^\\*\\*関連リンク\\*\\*",
+          "to": "^## |(?![\\s\\S])"
+        }
+      ]
+    },
+    {
+      "src": "工事134-漁港用地舗装排水/article.md",
+      "out": "2級土木-想定工事-工事134-漁港用地舗装排水",
+      "include": [
+        {
+          "from": "^## 〔想定工事の概要（記入例）〕"
+        }
+      ],
+      "exclude": [
+        {
+          "from": "^<!-- cta:civil-mokuji",
+          "to": "^## "
+        },
+        {
+          "from": "^\\*\\*関連リンク\\*\\*",
+          "to": "^## |(?![\\s\\S])"
+        }
+      ]
+    },
+    {
+      "src": "工事135-小規模宅地造成/article.md",
+      "out": "2級土木-想定工事-工事135-小規模宅地造成",
+      "include": [
+        {
+          "from": "^## 〔想定工事の概要（記入例）〕"
+        }
+      ],
+      "exclude": [
+        {
+          "from": "^<!-- cta:civil-mokuji",
+          "to": "^## "
+        },
+        {
+          "from": "^\\*\\*関連リンク\\*\\*",
+          "to": "^## |(?![\\s\\S])"
+        }
+      ]
+    },
+    {
+      "src": "工事136-商業施設外構舗装排水/article.md",
+      "out": "2級土木-想定工事-工事136-商業施設外構舗装排水",
+      "include": [
+        {
+          "from": "^## 〔想定工事の概要（記入例）〕"
+        }
+      ],
+      "exclude": [
+        {
+          "from": "^<!-- cta:civil-mokuji",
+          "to": "^## "
+        },
+        {
+          "from": "^\\*\\*関連リンク\\*\\*",
+          "to": "^## |(?![\\s\\S])"
         }
       ]
     },
@@ -335,13 +831,17 @@
       "include": [
         {
           "from": "^## 〔想定工事の概要（記入例）〕",
-          "to": "^<!-- cta:civil-membership-lab|^## 出典"
+          "to": "^<!-- cta:civil-membership-lab|^## 印刷用PDF"
         }
       ],
       "exclude": [
         {
           "from": "^<!-- cta:civil-mokuji",
           "to": "^## "
+        },
+        {
+          "from": "^\\*\\*関連リンク\\*\\*",
+          "to": "^## |(?![\\s\\S])"
         }
       ]
     },
@@ -351,13 +851,17 @@
       "include": [
         {
           "from": "^## 〔想定工事の概要（記入例）〕",
-          "to": "^<!-- cta:civil-membership-lab|^## 出典"
+          "to": "^<!-- cta:civil-membership-lab|^## 印刷用PDF"
         }
       ],
       "exclude": [
         {
           "from": "^<!-- cta:civil-mokuji",
           "to": "^## "
+        },
+        {
+          "from": "^\\*\\*関連リンク\\*\\*",
+          "to": "^## |(?![\\s\\S])"
         }
       ]
     },
@@ -367,13 +871,17 @@
       "include": [
         {
           "from": "^## 〔想定工事の概要（記入例）〕",
-          "to": "^<!-- cta:civil-membership-lab|^## 出典"
+          "to": "^<!-- cta:civil-membership-lab|^## 印刷用PDF"
         }
       ],
       "exclude": [
         {
           "from": "^<!-- cta:civil-mokuji",
           "to": "^## "
+        },
+        {
+          "from": "^\\*\\*関連リンク\\*\\*",
+          "to": "^## |(?![\\s\\S])"
         }
       ]
     },
@@ -383,13 +891,17 @@
       "include": [
         {
           "from": "^## 〔想定工事の概要（記入例）〕",
-          "to": "^<!-- cta:civil-membership-lab|^## 出典"
+          "to": "^<!-- cta:civil-membership-lab|^## 印刷用PDF"
         }
       ],
       "exclude": [
         {
           "from": "^<!-- cta:civil-mokuji",
           "to": "^## "
+        },
+        {
+          "from": "^\\*\\*関連リンク\\*\\*",
+          "to": "^## |(?![\\s\\S])"
         }
       ]
     },
@@ -399,13 +911,17 @@
       "include": [
         {
           "from": "^## 〔想定工事の概要（記入例）〕",
-          "to": "^<!-- cta:civil-membership-lab|^## 出典"
+          "to": "^<!-- cta:civil-membership-lab|^## 印刷用PDF"
         }
       ],
       "exclude": [
         {
           "from": "^<!-- cta:civil-mokuji",
           "to": "^## "
+        },
+        {
+          "from": "^\\*\\*関連リンク\\*\\*",
+          "to": "^## |(?![\\s\\S])"
         }
       ]
     },
@@ -415,13 +931,17 @@
       "include": [
         {
           "from": "^## 〔想定工事の概要（記入例）〕",
-          "to": "^<!-- cta:civil-membership-lab|^## 出典"
+          "to": "^<!-- cta:civil-membership-lab|^## 印刷用PDF"
         }
       ],
       "exclude": [
         {
           "from": "^<!-- cta:civil-mokuji",
           "to": "^## "
+        },
+        {
+          "from": "^\\*\\*関連リンク\\*\\*",
+          "to": "^## |(?![\\s\\S])"
         }
       ]
     },
@@ -431,13 +951,17 @@
       "include": [
         {
           "from": "^## 〔想定工事の概要（記入例）〕",
-          "to": "^<!-- cta:civil-membership-lab|^## 出典"
+          "to": "^<!-- cta:civil-membership-lab|^## 印刷用PDF"
         }
       ],
       "exclude": [
         {
           "from": "^<!-- cta:civil-mokuji",
           "to": "^## "
+        },
+        {
+          "from": "^\\*\\*関連リンク\\*\\*",
+          "to": "^## |(?![\\s\\S])"
         }
       ]
     },
@@ -447,13 +971,17 @@
       "include": [
         {
           "from": "^## 〔想定工事の概要（記入例）〕",
-          "to": "^<!-- cta:civil-membership-lab|^## 出典"
+          "to": "^<!-- cta:civil-membership-lab|^## 印刷用PDF"
         }
       ],
       "exclude": [
         {
           "from": "^<!-- cta:civil-mokuji",
           "to": "^## "
+        },
+        {
+          "from": "^\\*\\*関連リンク\\*\\*",
+          "to": "^## |(?![\\s\\S])"
         }
       ]
     },
@@ -463,13 +991,17 @@
       "include": [
         {
           "from": "^## 〔想定工事の概要（記入例）〕",
-          "to": "^<!-- cta:civil-membership-lab|^## 出典"
+          "to": "^<!-- cta:civil-membership-lab|^## 印刷用PDF"
         }
       ],
       "exclude": [
         {
           "from": "^<!-- cta:civil-mokuji",
           "to": "^## "
+        },
+        {
+          "from": "^\\*\\*関連リンク\\*\\*",
+          "to": "^## |(?![\\s\\S])"
         }
       ]
     },
@@ -479,13 +1011,17 @@
       "include": [
         {
           "from": "^## 〔想定工事の概要（記入例）〕",
-          "to": "^<!-- cta:civil-membership-lab|^## 出典"
+          "to": "^<!-- cta:civil-membership-lab|^## 印刷用PDF"
         }
       ],
       "exclude": [
         {
           "from": "^<!-- cta:civil-mokuji",
           "to": "^## "
+        },
+        {
+          "from": "^\\*\\*関連リンク\\*\\*",
+          "to": "^## |(?![\\s\\S])"
         }
       ]
     },
@@ -495,13 +1031,17 @@
       "include": [
         {
           "from": "^## 〔想定工事の概要（記入例）〕",
-          "to": "^<!-- cta:civil-membership-lab|^## 出典"
+          "to": "^<!-- cta:civil-membership-lab|^## 印刷用PDF"
         }
       ],
       "exclude": [
         {
           "from": "^<!-- cta:civil-mokuji",
           "to": "^## "
+        },
+        {
+          "from": "^\\*\\*関連リンク\\*\\*",
+          "to": "^## |(?![\\s\\S])"
         }
       ]
     },
@@ -511,13 +1051,17 @@
       "include": [
         {
           "from": "^## 〔想定工事の概要（記入例）〕",
-          "to": "^<!-- cta:civil-membership-lab|^## 出典"
+          "to": "^<!-- cta:civil-membership-lab|^## 印刷用PDF"
         }
       ],
       "exclude": [
         {
           "from": "^<!-- cta:civil-mokuji",
           "to": "^## "
+        },
+        {
+          "from": "^\\*\\*関連リンク\\*\\*",
+          "to": "^## |(?![\\s\\S])"
         }
       ]
     },
@@ -527,13 +1071,17 @@
       "include": [
         {
           "from": "^## 〔想定工事の概要（記入例）〕",
-          "to": "^<!-- cta:civil-membership-lab|^## 出典"
+          "to": "^<!-- cta:civil-membership-lab|^## 印刷用PDF"
         }
       ],
       "exclude": [
         {
           "from": "^<!-- cta:civil-mokuji",
           "to": "^## "
+        },
+        {
+          "from": "^\\*\\*関連リンク\\*\\*",
+          "to": "^## |(?![\\s\\S])"
         }
       ]
     },
@@ -543,13 +1091,17 @@
       "include": [
         {
           "from": "^## 〔想定工事の概要（記入例）〕",
-          "to": "^<!-- cta:civil-membership-lab|^## 出典"
+          "to": "^<!-- cta:civil-membership-lab|^## 印刷用PDF"
         }
       ],
       "exclude": [
         {
           "from": "^<!-- cta:civil-mokuji",
           "to": "^## "
+        },
+        {
+          "from": "^\\*\\*関連リンク\\*\\*",
+          "to": "^## |(?![\\s\\S])"
         }
       ]
     },
@@ -559,13 +1111,17 @@
       "include": [
         {
           "from": "^## 〔想定工事の概要（記入例）〕",
-          "to": "^<!-- cta:civil-membership-lab|^## 出典"
+          "to": "^<!-- cta:civil-membership-lab|^## 印刷用PDF"
         }
       ],
       "exclude": [
         {
           "from": "^<!-- cta:civil-mokuji",
           "to": "^## "
+        },
+        {
+          "from": "^\\*\\*関連リンク\\*\\*",
+          "to": "^## |(?![\\s\\S])"
         }
       ]
     },
@@ -575,13 +1131,17 @@
       "include": [
         {
           "from": "^## 〔想定工事の概要（記入例）〕",
-          "to": "^<!-- cta:civil-membership-lab|^## 出典"
+          "to": "^<!-- cta:civil-membership-lab|^## 印刷用PDF"
         }
       ],
       "exclude": [
         {
           "from": "^<!-- cta:civil-mokuji",
           "to": "^## "
+        },
+        {
+          "from": "^\\*\\*関連リンク\\*\\*",
+          "to": "^## |(?![\\s\\S])"
         }
       ]
     },
@@ -591,13 +1151,17 @@
       "include": [
         {
           "from": "^## 〔想定工事の概要（記入例）〕",
-          "to": "^<!-- cta:civil-membership-lab|^## 出典"
+          "to": "^<!-- cta:civil-membership-lab|^## 印刷用PDF"
         }
       ],
       "exclude": [
         {
           "from": "^<!-- cta:civil-mokuji",
           "to": "^## "
+        },
+        {
+          "from": "^\\*\\*関連リンク\\*\\*",
+          "to": "^## |(?![\\s\\S])"
         }
       ]
     },
@@ -607,13 +1171,17 @@
       "include": [
         {
           "from": "^## 〔想定工事の概要（記入例）〕",
-          "to": "^<!-- cta:civil-membership-lab|^## 出典"
+          "to": "^<!-- cta:civil-membership-lab|^## 印刷用PDF"
         }
       ],
       "exclude": [
         {
           "from": "^<!-- cta:civil-mokuji",
           "to": "^## "
+        },
+        {
+          "from": "^\\*\\*関連リンク\\*\\*",
+          "to": "^## |(?![\\s\\S])"
         }
       ]
     },
@@ -623,13 +1191,17 @@
       "include": [
         {
           "from": "^## 〔想定工事の概要（記入例）〕",
-          "to": "^<!-- cta:civil-membership-lab|^## 出典"
+          "to": "^<!-- cta:civil-membership-lab|^## 印刷用PDF"
         }
       ],
       "exclude": [
         {
           "from": "^<!-- cta:civil-mokuji",
           "to": "^## "
+        },
+        {
+          "from": "^\\*\\*関連リンク\\*\\*",
+          "to": "^## |(?![\\s\\S])"
         }
       ]
     },
@@ -639,13 +1211,17 @@
       "include": [
         {
           "from": "^## 〔想定工事の概要（記入例）〕",
-          "to": "^<!-- cta:civil-membership-lab|^## 出典"
+          "to": "^<!-- cta:civil-membership-lab|^## 印刷用PDF"
         }
       ],
       "exclude": [
         {
           "from": "^<!-- cta:civil-mokuji",
           "to": "^## "
+        },
+        {
+          "from": "^\\*\\*関連リンク\\*\\*",
+          "to": "^## |(?![\\s\\S])"
         }
       ]
     },
@@ -655,13 +1231,17 @@
       "include": [
         {
           "from": "^## 〔想定工事の概要（記入例）〕",
-          "to": "^<!-- cta:civil-membership-lab|^## 出典"
+          "to": "^<!-- cta:civil-membership-lab|^## 印刷用PDF"
         }
       ],
       "exclude": [
         {
           "from": "^<!-- cta:civil-mokuji",
           "to": "^## "
+        },
+        {
+          "from": "^\\*\\*関連リンク\\*\\*",
+          "to": "^## |(?![\\s\\S])"
         }
       ]
     },
@@ -671,13 +1251,17 @@
       "include": [
         {
           "from": "^## 〔想定工事の概要（記入例）〕",
-          "to": "^<!-- cta:civil-membership-lab|^## 出典"
+          "to": "^<!-- cta:civil-membership-lab|^## 印刷用PDF"
         }
       ],
       "exclude": [
         {
           "from": "^<!-- cta:civil-mokuji",
           "to": "^## "
+        },
+        {
+          "from": "^\\*\\*関連リンク\\*\\*",
+          "to": "^## |(?![\\s\\S])"
         }
       ]
     },
@@ -687,13 +1271,17 @@
       "include": [
         {
           "from": "^## 〔想定工事の概要（記入例）〕",
-          "to": "^<!-- cta:civil-membership-lab|^## 出典"
+          "to": "^<!-- cta:civil-membership-lab|^## 印刷用PDF"
         }
       ],
       "exclude": [
         {
           "from": "^<!-- cta:civil-mokuji",
           "to": "^## "
+        },
+        {
+          "from": "^\\*\\*関連リンク\\*\\*",
+          "to": "^## |(?![\\s\\S])"
         }
       ]
     },
@@ -703,13 +1291,17 @@
       "include": [
         {
           "from": "^## 〔想定工事の概要（記入例）〕",
-          "to": "^<!-- cta:civil-membership-lab|^## 出典"
+          "to": "^<!-- cta:civil-membership-lab|^## 印刷用PDF"
         }
       ],
       "exclude": [
         {
           "from": "^<!-- cta:civil-mokuji",
           "to": "^## "
+        },
+        {
+          "from": "^\\*\\*関連リンク\\*\\*",
+          "to": "^## |(?![\\s\\S])"
         }
       ]
     },
@@ -719,13 +1311,17 @@
       "include": [
         {
           "from": "^## 〔想定工事の概要（記入例）〕",
-          "to": "^<!-- cta:civil-membership-lab|^## 出典"
+          "to": "^<!-- cta:civil-membership-lab|^## 印刷用PDF"
         }
       ],
       "exclude": [
         {
           "from": "^<!-- cta:civil-mokuji",
           "to": "^## "
+        },
+        {
+          "from": "^\\*\\*関連リンク\\*\\*",
+          "to": "^## |(?![\\s\\S])"
         }
       ]
     },
@@ -735,13 +1331,17 @@
       "include": [
         {
           "from": "^## 〔想定工事の概要（記入例）〕",
-          "to": "^<!-- cta:civil-membership-lab|^## 出典"
+          "to": "^<!-- cta:civil-membership-lab|^## 印刷用PDF"
         }
       ],
       "exclude": [
         {
           "from": "^<!-- cta:civil-mokuji",
           "to": "^## "
+        },
+        {
+          "from": "^\\*\\*関連リンク\\*\\*",
+          "to": "^## |(?![\\s\\S])"
         }
       ]
     },
@@ -751,13 +1351,17 @@
       "include": [
         {
           "from": "^## 〔想定工事の概要（記入例）〕",
-          "to": "^<!-- cta:civil-membership-lab|^## 出典"
+          "to": "^<!-- cta:civil-membership-lab|^## 印刷用PDF"
         }
       ],
       "exclude": [
         {
           "from": "^<!-- cta:civil-mokuji",
           "to": "^## "
+        },
+        {
+          "from": "^\\*\\*関連リンク\\*\\*",
+          "to": "^## |(?![\\s\\S])"
         }
       ]
     },
@@ -767,13 +1371,17 @@
       "include": [
         {
           "from": "^## 〔想定工事の概要（記入例）〕",
-          "to": "^<!-- cta:civil-membership-lab|^## 出典"
+          "to": "^<!-- cta:civil-membership-lab|^## 印刷用PDF"
         }
       ],
       "exclude": [
         {
           "from": "^<!-- cta:civil-mokuji",
           "to": "^## "
+        },
+        {
+          "from": "^\\*\\*関連リンク\\*\\*",
+          "to": "^## |(?![\\s\\S])"
         }
       ]
     },
@@ -783,13 +1391,17 @@
       "include": [
         {
           "from": "^## 〔想定工事の概要（記入例）〕",
-          "to": "^<!-- cta:civil-membership-lab|^## 出典"
+          "to": "^<!-- cta:civil-membership-lab|^## 印刷用PDF"
         }
       ],
       "exclude": [
         {
           "from": "^<!-- cta:civil-mokuji",
           "to": "^## "
+        },
+        {
+          "from": "^\\*\\*関連リンク\\*\\*",
+          "to": "^## |(?![\\s\\S])"
         }
       ]
     }
