@@ -13,7 +13,7 @@ import { buildPageMetadata } from '@/lib/metadata';
 import {
   getStandardDocument,
   getStandardDocuments,
-  getStandardEditionDuplicate,
+  isStandardPartIndexable,
   standardDocumentPath,
   standardPartLabel,
   standardPartPath,
@@ -44,8 +44,6 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
   const entry = getStandardDocument(agency, document);
   if (!entry) return { title: '文書が見つかりません', robots: { index: false, follow: false } };
   const chapterCount = getStandardChapters(agency, document).length;
-  // 同じ要綱を他の機関・版でも収録している文書は 1 本だけ索引に載せる（設定 editionCanonical）
-  const editionDuplicate = getStandardEditionDuplicate(entry);
   const metadata = buildPageMetadata({
     title: chapterCount > 0 ? `${entry.title} 章別全文` : `${entry.title} 全文文字起こし`,
     description:
@@ -54,7 +52,9 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
         : `${entry.agencyName}「${entry.title}」全${entry.pages.toLocaleString('ja-JP')}ページの文字起こし。PDFページ番号、原典URL、SHA-256、目視確認・判読注記を明示しています。`,
     path: standardDocumentPath(entry),
   });
-  return editionDuplicate ? { ...metadata, robots: { index: false, follow: true } } : metadata;
+  // 同じ要綱を他の機関・版でも収録している文書（設定 editionCanonical）と、近畿以外の共通仕様書（本文の 98.7% が同じ・
+  // 2026-10-22 DN-0677）は、分冊・章と同じ判定で 1 本だけ索引に載せる。読める状態は保つ（noindex, follow）
+  return isStandardPartIndexable(entry) ? metadata : { ...metadata, robots: { index: false, follow: true } };
 }
 
 export default async function StandardDocumentPage({ params }: { params: Promise<Params> }) {

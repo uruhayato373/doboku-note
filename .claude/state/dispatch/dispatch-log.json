@@ -5370,6 +5370,49 @@
       "commit": "228c07b4f927",
       "verification": "npm run egov-laws PASS・egov-laws --drift 改正 0・check-topic-wiring PASS・check-production-ssr exit 0",
       "note": "法令ページ 24 本・法令の解説記事 62 本・計画と施策 79 件を本番反映（#1181・#1182・#1183・2026-10-22）。テーマ 22/22 に法令の節。e-Gov 復旧後に写しを取り直し、ミラーから作った 4 法令は一致"
+    },
+    {
+      "id": "DN-0397",
+      "at": "2026-10-22",
+      "task": "実ユーザー計測（#666）を本番で立ち上げ、表示速度の「計測→起票→改善」を閉じる",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "3de59b0e252a",
+      "verification": "npm run report-web-vitals exit 0・data/psi/batch/2026-10-21T20-29-49.json の /search desktop CLS 0.004",
+      "note": "report-web-vitals exit 0・判定できた組 151（手を打つ組 1＝技術士一次の過去問のスマホ INP、別カードに起票）。PSI 2026-10-21 の /search desktop CLS 0.004"
+    },
+    {
+      "id": "DN-0762",
+      "at": "2026-10-22",
+      "task": "2級土木の答案具体化シリーズ投入で赤になった CI（AI画像の判定・Shorts期待値・公開枠重複・メタデータ表記）を直す",
+      "tier": "high",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "quality:audit:ci"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": ".claude/plans/DN-0762-ci-repair.md",
+      "commit": "3de59b0e252a",
+      "verification": "npm run check-content-registry PASS・develop CI quality audit success（2026-10-22）",
+      "note": "運営者の final 承認は 2026-10-19 に 8 本とも台帳へ記録済み。check-content-registry PASS（FAIL 0）、develop の Pre-merge check（quality:audit:ci）成功。YouTube 側の説明欄の同期は SNS 保留のため DN-0110 の範囲"
+    },
+    {
+      "id": "DN-0270",
+      "at": "2026-10-22",
+      "task": "ココナラの出品画像を、一覧で読める型へ作り直す（人が見るサービスにキャラクター・画像に価格を入れない）",
+      "tier": "mid",
+      "kind": "制作",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "b8d50a120070",
+      "verification": "npm run check-coconala-live（一致 2・食い違い 0）・data/coconala/thumb-approved.json",
+      "note": "やること (2)(3) は 2026-09-27 の POP 意匠（キャラクター入り・資格名と商品名を大きく・価格なし）で公開中 18 商品を差し替えて達成（data/coconala/thumb-approved.json・DN-0314 で Drive と照合済み）。check-coconala-live 一致。画像の生成記録に「採点者」0 件。全商品を差し替えたので差し替えていない比較対象が無く、30 日の閲覧比較は行わない。出品は DN-0538 で 1 本へ集約する"
     }
   ]
 }

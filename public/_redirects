@@ -85,6 +85,32 @@
 /docs/textbook-transport-machinery /exam/civil-construction-1/textbook/transport-machinery 301
 /docs/exam /exam 301
 
+# 末尾に数字の付いた旧 URL（GSC の 404・表示 0・内部参照 0）を親記事へ（2026-10-22・DN-0677）
+# 親が一意に決まるものだけを登録する（2026-09-04 の方針）。親は本番で 200 を確認済み
+/exam/civil-construction-1/guide/four-management-10 /exam/civil-construction-1/guide/four-management 301
+/exam/civil-construction-1/guide/four-management-5 /exam/civil-construction-1/guide/four-management 301
+/exam/civil-construction-1/guide/strategy-8 /exam/civil-construction-1/guide/strategy 301
+/exam/civil-construction-1/guide/strategy-9 /exam/civil-construction-1/guide/strategy 301
+/exam/civil-construction-1/secondary/concrete-basics-6 /exam/civil-construction-1/secondary/concrete-basics 301
+/exam/civil-construction-1/secondary/concrete-basics-7 /exam/civil-construction-1/secondary/concrete-basics 301
+/exam/civil-construction-1/secondary/concrete-past-problems-4 /exam/civil-construction-1/secondary/concrete-past-problems 301
+/exam/civil-construction-1/secondary/concrete-past-problems-6 /exam/civil-construction-1/secondary/concrete-past-problems 301
+/exam/civil-construction-1/secondary/construction-plan-basics-6 /exam/civil-construction-1/secondary/construction-plan-basics 301
+/exam/civil-construction-1/secondary/construction-plan-past-problems-4 /exam/civil-construction-1/secondary/construction-plan-past-problems 301
+/exam/civil-construction-1/secondary/earthwork-basics-7 /exam/civil-construction-1/secondary/earthwork-basics 301
+/exam/civil-construction-1/secondary/earthwork-basics-8 /exam/civil-construction-1/secondary/earthwork-basics 301
+/exam/civil-construction-1/secondary/experience-writing-examples-4 /exam/civil-construction-1/secondary/experience-writing-examples 301
+/exam/civil-construction-1/secondary/experience-writing-guide-8 /exam/civil-construction-1/secondary/experience-writing-guide 301
+/exam/civil-construction-1/secondary/quality-management-basics-5 /exam/civil-construction-1/secondary/quality-management-basics 301
+/exam/civil-construction-1/secondary/quality-management-past-problems-5 /exam/civil-construction-1/secondary/quality-management-past-problems 301
+/exam/civil-construction-1/secondary/r03-6 /exam/civil-construction-1/secondary/r03 301
+/exam/civil-construction-1/secondary/r07-10 /exam/civil-construction-1/secondary/r07 301
+
+# 2026-09-08 に記事ごと消えた旧ガイドのうち、検索の表示がある 2 本を実務記事として書き直して転送（2026-10-22・DN-0677）
+# 残る 3 本（hyogo-port-materials・river-abandonment・tunnel-02）は表示が無いので 404 のまま
+/standards/guides/inverted-siphon /practice/inverted-siphon-design 301
+/standards/guides/floodgate /practice/floodgate-design 301
+
 # BEGIN GENERATED PUBLIC ROUTES
 # /docs flat URLs → intent-based canonical URLs (one-to-one, permanent)
 /docs/building-construction-guide-1kyu-keiken-kijutsu /exam/building-construction/guide/1kyu-keiken-kijutsu 301
@@ -1439,6 +1465,7 @@
 # route /docs/civil-practice-explaining-to-residents-and-council /practice/explaining-to-residents-and-council
 # route /docs/civil-practice-flood-control-facilities /practice/flood-control-facilities
 # route /docs/civil-practice-flood-season-river-work /practice/flood-season-river-work
+# route /docs/civil-practice-floodgate-design /practice/floodgate-design
 # route /docs/civil-practice-foreign-workers-site-check /practice/foreign-workers-site-check
 # route /docs/civil-practice-formwork-material-inspection /practice/formwork-material-inspection
 # route /docs/civil-practice-formwork-removal-timing /practice/formwork-removal-timing
@@ -1450,6 +1477,7 @@
 # route /docs/civil-practice-ict-construction-workflow /practice/ict-construction-workflow
 # route /docs/civil-practice-image-photogrammetry-analysis /practice/image-photogrammetry-analysis
 # route /docs/civil-practice-information-system-procurement /practice/information-system-procurement
+# route /docs/civil-practice-inverted-siphon-design /practice/inverted-siphon-design
 # route /docs/civil-practice-keishin-bidder-qualification /practice/keishin-bidder-qualification
 # route /docs/civil-practice-keishin-review-merger /practice/keishin-review-merger
 # route /docs/civil-practice-land-acquisition-compensation /practice/land-acquisition-compensation
