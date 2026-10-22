@@ -5426,6 +5426,32 @@
       "commit": "ad9ac731b9c9",
       "verification": "本番 curl: 旧 URL 4 件の 301 と転送先・新記事 2 本の 200 と <main>・kanto/okinawa common noindex・kinki index・check-production-ssr exit 0",
       "note": "運営者のおすすめ案を実装し本番反映（PR #1189・2026-10-22）。旧ガイド 2 本は今の形式の実務記事 /practice/inverted-siphon-design・/practice/floodgate-design に書き直して公開し 301（guide-fact-checker 照合済み・近畿地整の設計便覧は公開停止中）。残り 3 本は 404。数字付き 404 18 件を親へ 301。近畿以外の /standards/*/common を noindex,follow"
+    },
+    {
+      "id": "DN-0614",
+      "at": "2026-10-22",
+      "task": "コンテンツ台帳 P1: content/registry の土台（設計書・型・台帳・CLI・検査・素材の ID 置き場）を作る",
+      "tier": "high",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "95b5961b461f",
+      "verification": "npm run check-content-registry PASS（作品 715・公開 2,220・素材 1,192）・関連テスト pass・registry-reconcile.yml 10/14〜21 連続 success",
+      "note": "2026-10-22 の完了判定（読むだけの監査）: 完了条件を実体で確認"
+    },
+    {
+      "id": "DN-0608",
+      "at": "2026-10-22",
+      "task": "コンテンツ台帳 P2: YouTube 動画パックを台帳へ移し、予約→公開を CI の照合で進め、表紙を ID の置き場へ移す",
+      "tier": "high",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "95b5961b461f",
+      "verification": "npm run check-content-registry PASS（作品 715・公開 2,220・素材 1,192）・関連テスト pass・registry-reconcile.yml 10/14〜21 連続 success",
+      "note": "2026-10-22 の完了判定（読むだけの監査）: 完了条件を実体で確認"
     }
   ]
 }
