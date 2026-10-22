@@ -249,6 +249,8 @@ content/site/{slug}/img/
   {name}.png / .webp      # PDF・スキャンからの切り出し図
 ```
 
+切り出し図は記事が参照・配信する `.webp` だけを Git に置く。元の `.png` は Git に入れず（`.gitignore`）、public R2 の `site-figure-png` group に置く（2026-10-22・DN-0707）。新しく切り出した png は `node scripts/asset-offload.mjs --group site-figure-png --only-new --include-untracked --commit`、手元へ戻すのは `npm run asset-hydrate -- --group site-figure-png`。
+
 ### 推奨ファイル形式
 
 | 用途 | 形式 | 理由 |

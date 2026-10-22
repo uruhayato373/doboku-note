@@ -382,6 +382,13 @@ content/site/**/ogp.webp
 content/site/**/ogp.png
 content/site/**/ogp-thumb-*.webp
 
+# 記事図の切り出し原本 png（302件・19MiB）は asset-storage.json の site-figure-png
+# group で public R2 へ退避済み（--verify 3者照合OK）。記事が参照・配信するのは同名の
+# webp（Git に残す）。新しく切り出した png は
+# node scripts/asset-offload.mjs --group site-figure-png --only-new --include-untracked --commit
+# で上げ、復元は node scripts/asset-hydrate.mjs --group site-figure-png。2026-10-22・DN-0707。
+content/site/**/img/*.png
+
 # content/note/**/_cover.png（マガジンカバー・2026-09-17 時点 67 件）は実体を Google Drive vault
 # （drive-vault.json の note-magazine-cover-png group・台帳 drive-manifest.json）に置く。
 # マガジンにはarticle.mdが無く既存note-cover-pngのfrontmatter判定が使えないため
