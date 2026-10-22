@@ -5452,6 +5452,19 @@
       "commit": "95b5961b461f",
       "verification": "npm run check-content-registry PASS（作品 715・公開 2,220・素材 1,192）・関連テスト pass・registry-reconcile.yml 10/14〜21 連続 success",
       "note": "2026-10-22 の完了判定（読むだけの監査）: 完了条件を実体で確認"
+    },
+    {
+      "id": "DN-0704",
+      "at": "2026-10-22",
+      "task": "note の商品名・価格がカタログと同期しているかを確かめ、単品で売っている「マガジン扱い」の商品を整理する",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "bb55f0bf4d91",
+      "verification": "npm run verify-note-magazines exit 0（単品 33 件一致）・tests/note-single-price.test.mjs",
+      "note": "PR #1190 で単品（tier=single）33 件の価格を記事単位の公開 API で verify-note-magazines の照合に加えた。2026-10-22 のライブ照合で 33/33 一致・取得失敗 0（マガジン 109 件もずれ 0）"
     }
   ]
 }
