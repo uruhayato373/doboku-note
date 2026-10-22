@@ -19,7 +19,7 @@ import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
  *   node scripts/note-magazine-cover.mjs --key <magKey> --image <path.png> --commit    # 明示画像
  *     （--dir 指定時は <dir>/_cover.png を既定カバーに解決）
  *
- * 安全弁（収益アカウント）: account=dobokunote を assert / 既定 probe /
+ * 安全弁（収益アカウント）: account=dobokunote を assert（名前が出るまで polling。出なければ exit 2）/ 既定 probe /
  *   保存後に note API で eyecatch!=null を実体検証（偽成功ガード）。
  * 真実源: .claude/knowledge/reference/note-api-verification.md
  * ---------------------------------------------------------------------------
@@ -31,6 +31,7 @@ import { leanContextOptions } from './lib/playwright-launch.mjs';
 import { NOTE_CREATOR as CREATOR } from './lib/site-identity.mjs';
 import { fetchCreatorMagazines } from './lib/note-api.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
+import { assertAccountGate } from './lib/note-browser.mjs';
 
 const PROFILE = resolveProfileDir('note', { cwd: ROOT, repoRoot: ROOT });
 const PROXY = process.env.HTTPS_PROXY || process.env.HTTP_PROXY || '';
@@ -68,9 +69,10 @@ let exitCode = 0;
 try {
   const page = ctx.pages()[0] || (await ctx.newPage());
 
-  // account ゲート
-  await page.goto('https://note.com/settings/account', { waitUntil: 'domcontentloaded', timeout: 60000 }); await sleep(2500);
-  if (!(await page.evaluate(() => document.body.innerText || '')).includes(CREATOR)) { console.error('ABORT: account != dobokunote'); await ctx.close(); process.exit(2); }
+  // account ゲート。クリエイター名が出るまで読み直す（共通の assertAccountGate・最大 8 回 × 2.5 秒）。
+  // 以前は domcontentloaded の 2.5 秒後に 1 回だけ読み、表示が遅いと名前が出ずに exit 2 になって、
+  // 週次がログイン切れと扱い残りの誌を止めていた（2026-10-07・8 誌目・DN-0568）
+  if (!(await assertAccountGate(page, { expected: CREATOR, attempts: 8, intervalMs: 2500 })).ok) { console.error('ABORT: account != dobokunote'); await ctx.close(); process.exit(2); }
   console.log('[1] account gate OK (dobokunote)');
 
   // マガジン編集ページ

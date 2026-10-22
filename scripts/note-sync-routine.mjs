@@ -42,7 +42,7 @@ import { classifyNoteSyncRun } from './lib/note-sync-results.mjs';
 import { datasetPath } from './lib/datasets.mjs';
 import { NOTE_CREATOR } from './lib/site-identity.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
-import { lastLines, runWithRetry } from './lib/note-sync-save.mjs';
+import { lastLines, runAccountGated, runWithRetry } from './lib/note-sync-save.mjs';
 
 const TAG = '[note-sync]';
 const args = process.argv.slice(2);
@@ -159,8 +159,10 @@ async function syncMagazines(items, byKey, design) {
       mkdirSync(dirname(dest), { recursive: true });
       writeFileSync(dest + '.tmp', buffer); renameSync(dest + '.tmp', dest);
     } catch (error) { failed.push({ key: item.key, reason: `生成失敗: ${error.message}` }); continue; }
-    const run = node(['scripts/note-magazine-cover.mjs', '--key', item.noteKey, '--dir', dir, '--commit'], join(WORK, `mag-${item.noteKey}-${stamp()}.log`));
-    if (run.status === 2) { problems.push('note にログインできていない（account gate で停止）'); notify('note のログインが切れています。同期を止めました'); break; }
+    // account ゲートの exit 2 は同じ誌を 1 回だけやり直し、2 回続けて 2 のときだけログイン切れとして止める（DN-0568）
+    const run = runAccountGated(() => node(['scripts/note-magazine-cover.mjs', '--key', item.noteKey, '--dir', dir, '--commit'], join(WORK, `mag-${item.noteKey}-${stamp()}.log`)));
+    if (run.loggedOut) { problems.push(`note にログインできていない（account gate で 2 回続けて停止: ${item.key}）`); notify('note のログインが切れています。同期を止めました'); break; }
+    if (run.attempts > 1 && run.status === 0) console.log(`${TAG} マガジン ${item.key}: account gate の一時的な失敗をやり直しで通過`);
     if (run.status !== 0) { failed.push({ key: item.key, reason: `登録失敗（exit ${run.status}）` }); continue; }
     // 登録後の確認で一覧を読む。会社 PC のプロキシは一時的に 407 を返すので 1 回だけ読み直し、それでも読めなければ
     // その誌だけ失敗にして次へ進む（例外で全体が落ちると台帳が push されない。2026-10-07 に 40 誌目で落ちた）
