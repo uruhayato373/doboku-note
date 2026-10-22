@@ -14,3 +14,6 @@ metadata:
 - 大きな検査は抜き取り（check-drive-vault）なので、不一致は回すたびに違うファイルが出る。全件は `drive-vault-sync --group <g> --verify --deep --out <一致一覧>` で、不一致は台帳から一致一覧を引いて出す。
 
 関連: [[reference_book_sources_drive_vault]] [[feedback_worktree_ignored_data]]
+
+## Drive の読み取りが即 ETIMEDOUT のときの pre-commit（2026-10-22）
+Google Drive のアプリが不調だと、保存庫のファイルの読み取りが 0〜2ms で ETIMEDOUT を返し、pre-commit の check-content-series が落ちる（一覧は読めるのに中身が読めない）。CI は Drive なしでこの照合を飛ばすので、`DOBOKU_DRIVE_VAULT=/nonexistent-vault` を付けて CI と同じ条件で検査とコミットができる。Drive のアプリの再起動で直る見込み（再起動は運営者）。
