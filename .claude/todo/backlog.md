@@ -803,9 +803,14 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 **起点**: 2026-10-04 に note の全商品 143 件を `content/products/note/` へ移したとき、公開中のマガジンの収録記録（`data/note/magazines.json`）に、原稿の frontmatter の noteId と一致しない記事が 31 本あった。題名は原稿と同じで ID だけが違う（例: 建設部門 道路 R07 II-1 は原稿が `n9c791def70f4`、マガジンの収録が `n123cf1c5f8f0`）。内訳は 1級 施工経験記述 完全攻略パック 14・建設部門 道路 選択科目 模範解答集 16（道路まるごとパックも includes で同じ記事）・総監 記述式 完全パック 1。正本には今の収録どおり `note:<noteId>` で書き、`npm run check-products` が毎回一覧を出す。
 
+**照合（2026-10-22・note 公開 API で読むだけ）**: 31 本とも原稿の noteId は公開中の実在記事で、原稿の側に誤りは無い。マガジンに旧い重複公開が入っている（両方とも公開中）。
+- 1級 施工経験記述 14 本: 完全攻略パック（m8290970a7f05）と 1級 まるごとパック（md29a34906314）に、原稿の版（07-23 公開・¥1,980）と旧版（06-30 公開・¥1,280・本文が原稿と一致しにくい）が両方入っている。旧版→原稿: n86f490c51a22→n44817a79448f（工事01）・naff9988e7fff→necb17b2e64cd（02）・n7203a2b394f5→nd701323983cb（03）・n7f1e1a6ee660→n72925ed2a3e5（04）・ncde3b9d285f1→n1ca01248e12f（05）・n76f739b0ad18→ncf908593ba9c（06）・n0bd5fdbbc004→n699aff3478f4（07）・n69bb08fc5191→nd70cd9417550（08）・nc63a21791ffb→nf8ea3acbb97c（09）・n2be2e3fc6868→n74a0121ccb67（10）・n26d6074c6d57→nd18669cf8d79（11）・n81495fd414b9→nd18367af9008（12）・na226c3b5005c→n35ec20002e2b（13）・naddfd1d4e15e→n317ce2fde1b4（14）。
+- 建設部門 道路 16 本: 選択科目 模範解答集（m9e825cfd8348）と道路まるごとパック（mebca45bcc745）には 06-10/11 公開の版だけが入り、原稿の版はどのマガジンにも無い。両版とも ¥780 で無料部分の本文は原稿とほぼ同じ（重複公開）。旧版→原稿（`BK-01_道路/`）: R03 II-1 nf45598b0618a→nb50d168c443a・II-2 n8d6c3b249184→nbdc14e2faab7・III n2ab927778073→n93378353b1bc／R04 II-1 n42373d81cfe0→n5183149e4525・II-2 n53825679e88e→n79e7ace541b1・III ncd0405e7ff0c→na2310186e903／R05 II-1 n80dd4dc7850a→n5b4a27a3ab18・II-2 nd527a0fa300b→n7e41b8911e3a・III nf4b33cb835ca→n1bd919ee9622／R06 II-1 nd3d8eaafa9e6→ne337da816a9d・II-2 n8493636cea2e→ncb69f6f34f9f・III n175b9a51fa88→n888b869434a1／R07 II-1 n123cf1c5f8f0→n9c791def70f4・II-2 n2700a1d69340→nb5a05a648236・III ne15e8e1d7d57→n7f2753f242eb／R8予想 II-2-1 nf152322a2c32→n15223b0ea869（`R08-yosou/II-2-1_道路空間再配分/`）。
+- 総監 記述式 完全パック（m171222175fac）1 本: n64a61345763c は 06-01 公開の旧い案内記事で原稿が無い（本文は今の原稿と別物）。今の案内の原稿 `総監記述式-完全パック/00-はじめに/article.md`（n93ee41c64411・無料）はマガジンに無い。
+
 **やること**:
-1. 31 本の ID が note 上で何か（重複公開した旧版か・原稿の無い別記事か）を `npm run verify-note-magazines -- --contents --json` と note の実物で確かめる。
-2. 旧版なら、マガジンの収録を原稿の記事へ差し替え（note の操作は運営者の承認つき）、`npm run product -- add-member / remove-member` で正本の `note:` を原稿のパスに直す。原稿の無い記事なら、原稿を起こすか収録から外す。
+1. （運営者・note の操作）収録を差し替える: 1級の 2 マガジンから旧版 14 本を外す／道路の 2 マガジンへ原稿の版 16 本を足して旧版 16 本を外す／総監 完全パックへ n93ee41c64411 を足して n64a61345763c を外す。外した旧版を非公開にするかも決める（同じ題名の重複が公開のまま残る。マガジン購入者の閲覧への影響は外す前に確かめる）。
+2. `npm run verify-note-magazines -- --contents --json` で収録記録を取り直し、`npm run product -- remove-member / add-member` で正本の `note:` を消す（1級は原稿のパスが既に members にある。道路と総監は原稿のパスへ置き換える）。
 
 **完了条件**: `npm run check-products` の「原稿と結び付かない収録」が 0 本。
 
