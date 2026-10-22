@@ -1,40 +1,193 @@
 {
   "schemaVersion": 1,
-  "runId": "2026-10-21T01-24-48Z",
-  "collectedAt": "2026-10-21T01:24:48.112Z",
+  "runId": "2026-10-22T01-30-09Z",
+  "collectedAt": "2026-10-22T01:30:09.419Z",
   "property": "sc-domain:doboku-note.com",
   "mode": "commit",
-  "scriptVersion": "b79552dd7",
+  "scriptVersion": "553b05825",
   "filter": {
     "category": null,
     "group": null
   },
   "limit": 10,
-  "targetCount": 1,
+  "targetCount": 226,
   "items": [
     {
-      "slug": "/exam/concrete-engineer/textbook/materials",
-      "url": "https://doboku-note.com/exam/concrete-engineer/textbook/materials",
+      "slug": "/standards/hokuriku/common",
+      "url": "https://doboku-note.com/standards/hokuriku/common",
       "inspected": {
-        "state": "indexed",
-        "reason": null,
+        "state": "not-indexed",
+        "reason": "重複しています。Google により、ユーザーがマークしたページとは異なるページが正規ページとして選択されました",
+        "lastCrawl": "2026/10/12 12:45:49",
+        "discoveredVia": "sitemap",
+        "crawlAllowed": true,
+        "indexingAllowed": true
+      },
+      "request": {
+        "requested": true,
+        "status": "accepted"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/exam/concrete-diagnostician/textbook/assessment",
+      "url": "https://doboku-note.com/exam/concrete-diagnostician/textbook/assessment",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "クロール済み - インデックス未登録",
+        "lastCrawl": "2026/10/16 18:23:29",
+        "discoveredVia": "sitemap",
+        "crawlAllowed": true,
+        "indexingAllowed": true
+      },
+      "request": {
+        "requested": true,
+        "status": "accepted"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/exam/pe-comprehensive-management/keywords/job-analysis",
+      "url": "https://doboku-note.com/exam/pe-comprehensive-management/keywords/job-analysis",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "URL が Google に認識されていません",
         "lastCrawl": null,
         "discoveredVia": "sitemap",
         "crawlAllowed": null,
         "indexingAllowed": null
       },
       "request": {
-        "requested": false,
-        "status": "already-indexed"
+        "requested": true,
+        "status": "accepted"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/practice/barrier-free-roads-stations",
+      "url": "https://doboku-note.com/practice/barrier-free-roads-stations",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "検出 - インデックス未登録",
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": true,
+        "status": "accepted"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/practice/buried-cultural-property-survey",
+      "url": "https://doboku-note.com/practice/buried-cultural-property-survey",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "検出 - インデックス未登録",
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": true,
+        "status": "accepted"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/practice/civil-engineer-annual-cycle",
+      "url": "https://doboku-note.com/practice/civil-engineer-annual-cycle",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "検出 - インデックス未登録",
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": true,
+        "status": "accepted"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/practice/construction-business-overview",
+      "url": "https://doboku-note.com/practice/construction-business-overview",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "検出 - インデックス未登録",
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": true,
+        "status": "accepted"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/practice/construction-dispute-resolution",
+      "url": "https://doboku-note.com/practice/construction-dispute-resolution",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "検出 - インデックス未登録",
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": true,
+        "status": "accepted"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/practice/construction-materials-overview",
+      "url": "https://doboku-note.com/practice/construction-materials-overview",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "検出 - インデックス未登録",
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": true,
+        "status": "accepted"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/practice/coordinate-systems-geodetic-datum",
+      "url": "https://doboku-note.com/practice/coordinate-systems-geodetic-datum",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "検出 - インデックス未登録",
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": true,
+        "status": "accepted"
       },
       "reachedVerdict": true
     }
   ],
-  "status": "no-requests",
+  "status": "ok",
   "summary": {
-    "inspected": 1,
-    "accepted": 0,
-    "alreadyIndexed": 1,
+    "inspected": 10,
+    "accepted": 10,
+    "alreadyIndexed": 0,
     "unreadable": 0
   }
 }
