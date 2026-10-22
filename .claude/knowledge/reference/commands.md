@@ -159,6 +159,8 @@ npm run check-standards-page-images # 上の provenance 整合（catalog↔manif
 
 `npm run note-magazine-delete -- --keys m1,m2 [--commit]` — note マガジンを削除する（既定 PROBE・収録記事は消えない・削除後に公開 API の 404 を確認）。記事の削除は `node scripts/note-delete-note.mjs --notes k1,k2 --commit`（一覧を下へ読み進めて古い記事も探す）。
 
+`npm run verify-note-magazines` — note の公開状態を正本と照合する（読み取りだけ・公開 API）。マガジン一覧（題名・価格・配線）を `note-magazines.ts` と、単品（`config/products.json` の channel=note・tier=single）の価格・公開状態を記事単位で正本と照合する（DN-0704）。`-- --contents` で収録記事、`-- --vs-txt` で `note掲載文.txt`、`-- --json` で `data/note/magazines.json`（`--contents --json` をセットで）。exit 0＝ズレなし／1＝検査不成立（一覧が取れない・収録記事か単品の取得失敗が支配的）／2＝ズレあり。CI の `note-live-audit.yml` が週次で回す。詳細は [note-api-verification.md](note-api-verification.md)
+
 `npm run product -- list|show|set|add-member|fmt|gen|plan` — 商品の正本 `config/products.json`（全チャネル・1 ファイル）を読み書きする（Kindle は `kindle-<書籍id>`・ココナラは `coconala-…`。`set` で `catalog.json`・`coconala-services.ts` も作り直す。note の記事の単品価格は `price <article.md> <円>`＝正本の `articlePrices` と frontmatter を同時に書く。`gen` は記事の price・掲載文の機械用の欄も正本に合わせ、ペルソナ別パックの冒頭導線 `note-intro-standard.json`・カバー設定 `note-covers.json`・`note掲載文.txt` も作る＝`cover` を持つ商品が対象・DN-0493。`plan [--qualification <id>] [--json]` は正本と収録記録の差を note への反映計画で出す読み取り専用の確認で、note には触らない）（JSON を手で書かない。`gen` で `note-magazines.ts` の生成ブロックを更新・`gen --check` は差分で exit 1。初回の移行は `import-note --qualification <id> [--ids a,b] --commit`・複数資格の商品は `--ids` で選ぶ・DN-0492）
 
 `npm run check-products` — 商品の正本のゲート（型・id・参照先・生成ブロックの一致・収録の意図×コミット済みの収録記録。ネットワーク不使用・ci:true）

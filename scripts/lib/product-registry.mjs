@@ -97,7 +97,7 @@ export function loadProducts() {
   return { products, channels, articlePrices, errors };
 }
 
-const blockingErrors = (errors) => errors.filter((e) => !/正規化されていない/.test(e));
+export const blockingErrors = (errors) => errors.filter((e) => !/正規化されていない/.test(e));
 
 /** 商品を足す・置き換える（id で照合）。正本に正規化以外の問題があれば書かない。書いたファイルのパスを返す */
 export function saveProducts(list, { channels: nextChannels, articlePrices: nextPrices } = {}) {
