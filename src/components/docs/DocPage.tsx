@@ -473,7 +473,8 @@ export async function renderDocPage(slugStr: string) {
               )}
               {/* MDX Content — 先頭の # H1 は server-side で描画済みのため strip。
                   参考資料セクションは extractReferencesSection で抽出済みのため strippedContent を渡す */}
-              <div className="prose-blog">
+              {/* 年度別過去問は画面外の本文を描かない（スマホの INP 対策・DN-0814。CSS は globals.css の prose-blog） */}
+              <div className="prose-blog" data-offscreen-render={isQuestionSeries ? 'skip' : undefined}>
                 <SafeMDXRemote
                   source={stripLeadingH1(strippedContent)}
                   components={componentsWithMid}
