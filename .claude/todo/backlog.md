@@ -287,6 +287,16 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-0816] ログイン維持の日次処理（auth-session-refresh）が 3 日続けて rc=1 で終わる（kdp の印・moshimo の競合）を直す
+タグ: [領域:管理] [時期:2026-10] [種類:不具合] [起票:2026-10-22]
+
+**起点**: 2026-10-22、DN-0362 の完了判定で、Mac の launchd `com.doboku-note.auth-session-refresh`（毎日 17:45）が 10/20・10/21・10/22 の 3 日連続で `FAILED rc=1`（LastExitStatus 256）で終わっていると分かった（`~/Library/Logs/doboku-note/auth-session-refresh.log`）。a8 と note は ok だが、kdp は `autologin-failed` の印が残って blocked、moshimo は「別の認証操作が使用中です」で error、coconala と afb は資格情報（doboku-note-auth-coconala ほか）が無く skipped。
+
+**やること**: (1) kdp の autologin-failed の印が何で付き、どうすれば外れるかを確かめる（KDP の再ログインが要るなら運営者の作業）。(2) moshimo の「別の認証操作が使用中」が、同じ時刻に動く別の処理（ロック）との競合かを確かめ、時刻をずらすかロックの待ち方を直す。(3) 資格情報が未登録の skipped は失敗に数えない（rc の判定）か、登録を運営者に頼む。
+
+**完了条件**: 日次の auth-session-refresh が 3 日続けて rc=0 で終わり、ログに blocked・error が無い（未登録の skipped は理由つきで残してよい）。
+
+
 ### [DN-0814] 技術士一次の過去問ページのスマホの INP（良好率 52%）を直す
 タグ: [領域:サイト] [時期:2026-11] [種類:改善] [検証:report-web-vitals] [起票:2026-10-22]
 
