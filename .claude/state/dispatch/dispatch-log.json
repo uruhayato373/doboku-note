@@ -5504,6 +5504,23 @@
       "commit": "fd2655115054",
       "verification": "npm run check-products 通過・catalog の unpublished 13 件が対象の 13 冊と一致",
       "note": "13 冊を KDP で出版停止にし catalog に unpublished を記録。新規制作を売れ筋の型に限る方針を content/kindle/strategy.md に書いた"
+    },
+    {
+      "id": "DN-0813",
+      "at": "2026-10-22",
+      "task": "総監 令和8年度 Ⅰ-1-18 の選択肢5（匿名加工情報）の転記と解説を、公式の問題文で確かめる",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "none",
+        "ref": "転記は正しく、解説の書き方の改善"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "e36c9b295b05",
+      "verification": "公式 PDF の目視照合・npm run egov-laws PASS",
+      "note": "公式の問題 PDF（日本技術士会 attach_11991_1.pdf 11/25 頁）で選択肢5の原文と正答 5 を確かめ、転記の誤りは無かった。解説を仮名加工情報（第2条第5項・第41条第6項）との取り違えだと分かる形に直し、法令ページの記述も合わせた（e-Gov で条文を確認）"
     }
   ]
 }
