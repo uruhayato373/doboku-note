@@ -268,6 +268,8 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 **決定（2026-10-22・運営者）**: X の 11 月告知（`content/sns/x/campaigns/2026-11-pe-oral.json` の 27 本）は SNS 保留を優先して出さない。無料 2 本は note とサイトの導線だけで公開する。残る判断（無料 2 本を note カタログへ載せるか、check-x-campaign-plan に無料記事の例外を足すか）は、X を出さないので check-x-campaign-plan の対象から外し、カタログ（products.json）に無料記事の登録の型を足すかだけ決めればよい。
 
+**進捗（2026-10-22 夕）**: 無料 2 本は products.json に登録しない（X を使わないので check-x-campaign-plan のゲートに当たらない）。導線の (b)(c)(d) を原稿で直した: 建設部門もくじの口頭試験対策を冒頭の H2 へ上げ、全部門共通 n1fcaf65dc75b へのリンクを足した。業務経歴票の書き方に口頭試験対策への案内を足した（note-lint OK。ライブへの反映は週次の note 同期）。発表日は 10/22 時点でも日本技術士会・文科省とも「11月上旬」のまま。**残り**: 発表日に (1) 無料 2 本と自治体職員版の無料 2 本を運営者が公開 (2) 建設部門 L3 の冒頭 CTA を evergreen へ `--sync-managed` で切り替え (3) noteUrl を記録してもくじへ配線。
+
 **起点**: 7月の購入者へ、筆記の結果に応じた次の準備を案内する。送客先の有料教材と価格・公開URLは `src/lib/note-magazines.ts` の `tankan-oral-complete` / `pe-construction-oral-guide` を参照する。
 
 **やること**: 無料2本は 2026-09-30 に日本技術士会・文部科学省の公式で照合し、口頭教材の公開URLへ配線した draft（`content/note/技術士{総監,建設部門}/筆記合格発表後にやること-無料/`）。残りは (1) 発表日D（11/4 予定）を公式掲載で確かめ、D当日に運営者が2本を公開してL2（総監・建設部門もくじ）へ配線する (2) X告知 `content/sns/x/campaigns/2026-11-pe-oral.json`（27本・`check-x-campaign-plan` 緑）の無料記事宛て4本は、未公開のため linkless・`pendingNoteArticle` で置いてある。公開後に funnel を note へ切り替える前に、無料2本を `config/products.json`（→ note-magazines.ts）へ登録するかゲートに例外を足すかを決める（未登録のまま切り替えるとゲートが赤になる見込み・未試行）(3) 投稿原稿（tweets.md）を作る。成績の評価区分（A/B/C）は日本技術士会・文部科学省の公式に区分の定義が無いことを確かめ、本文の「公式の区分ではない」の断りを維持した。
