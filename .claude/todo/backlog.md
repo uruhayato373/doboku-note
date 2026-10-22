@@ -1697,14 +1697,6 @@ Windows の PowerShell で repo 直下から順に:
 **決定（2026-10-15・運営者が推奨案を採用）**: 記述式の模範解答は note、添削はココナラ、択一の過去問は KDP と iOS という今の分け方を保つ。DN-0815（KDP の絞り込み・旧 DN-0699）の結論と合わせて 1 枚の表にまとめたら閉じる。
 
 
-### [DN-0677] 検索で表示のある削除済みページ（/standards/guides の 5 本）・数字付き 404・共通仕様書の機関別重複の扱いを決める
-タグ: [領域:サイト] [時期:2026-11] [種類:改善] [起票:2026-10-11]
-
-**決定（2026-10-22・運営者・おすすめ案）**: (1) 削除済みの /standards/guides 5 本のうち、検索の表示がある 2 本（inverted-siphon・floodgate）だけ記事を復元し、残り 3 本は 404 のまま。(2) 数字付き（-N）の 404 は、親記事が一意に決まるものだけ親へ 301（9/4 の方針どおり）。(3) 共通仕様書 /common の非正規の機関別 10 面は noindex にする（章ページと同じ判定）。**やること**: 復元 2 本の本文を一次資料で確かめて公開し、_redirects と noindex を入れ、build 後の check-seo-build・check-production-ssr で確かめる。
-
-**起点**: 2026-10-11 のサイト全体の SEO 診断（DN-0666）で、判断が要る 3 件が残った。(1) 2026-08-30 に公開し 09-08 のコミット 4fdb687d6 が記事 5 本（content/site/reference-materials-*）と 301 ごと消した /standards/guides/{inverted-siphon,floodgate,hyogo-port-materials,river-abandonment,tunnel-02}。inverted-siphon は表示 44・順位 7.2、floodgate は表示 41。案 A＝/standards へ 301（soft 404 扱いの可能性）、案 B＝404 のまま、案 C＝記事を復元。削除が意図的だったかは履歴が 08-22 に圧縮されていて確かめられない。(2) 末尾が -N の 404 24 件（例 /exam/civil-construction-1/guide/four-management-5）。表示 0・内部参照 0・親記事は実在。9/4 の方針（対応先が一意なものだけ 301）に合う。(3) /standards/<機関>/common の 10 面は本文の 98.7% が同じで、Google は shikoku/common の正規に hokuriku/common を選んでいる。章ページと同じ indexable 判定を入れて非 canonical 機関を noindex にするか、地域名の検索意図のために残すか。
-**やること**: 運営者が 3 件の方針を決め、決まった分を public/_redirects（手動部分）・src/app/standards/[agency]/[document]/page.tsx に入れる。
-**完了条件**: 3 件の方針が記録され、決まった変更が本番に出ている。
 
 ### [DN-0815] KDP の商品展開をもっと絞り込む
 タグ: [収益化] [種類:改善] [領域:商品] [時期:2026-11] [起票:2026-10-12]
