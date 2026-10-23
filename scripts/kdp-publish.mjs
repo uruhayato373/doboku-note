@@ -19,8 +19,8 @@
  *   node scripts/kdp-publish.mjs --id <id> --update-manuscript [--commit] # LIVE本の原稿だけを差し替え
  *   node scripts/kdp-publish.mjs --id <id> --update-cover [--cover <jpg>] [--commit [--commit-publish]]
  *                                                             # LIVE本の表紙だけを差し替え(既定 scripts/kindle-dist/<id>.jpg・--commit-publish で再出版)
- *   node scripts/kdp-publish.mjs --list-drafts               # 本棚を .tmp へダンプ(読み取り)
- *   node scripts/kdp-publish.mjs --delete-drafts <ASIN,...>   # 下書きのみ削除(1件ずつ・下書きassert)
+ *   node scripts/kdp-publish.mjs --list-drafts               # 本棚を .tmp へダンプ(読み取り)。下書き表示を削除候補と保護(catalog の出版停止・ASIN あり)に分けて出す
+ *   node scripts/kdp-publish.mjs --delete-drafts <ASIN,...>   # 下書きのみ削除(1件ずつ・下書きassert)。catalog の出版停止・ASIN ありの本は除外して出力(catalog を読めなければ止める)
  *   node scripts/kdp-publish.mjs --dump --asin <ASIN> --page <details|content|pricing>  # UI変更時の較正
  *   node scripts/kdp-publish.mjs --diag-category --asin <ASIN>  # カテゴリーカスケードの候補実測(A/E系較正)
  *
@@ -36,7 +36,7 @@ import { homedir } from 'node:os';
 import { fileSha256, recordUploaded } from './lib/kindle-uploaded.mjs';
 import { datasetPath } from './lib/datasets.mjs';
 import { fetchFailDominant } from './lib/inconclusive-gate.mjs';
-import { resolveBook, validateBook, getDefaults, hasSpec } from './lib/kdp-common.mjs';
+import { resolveBook, validateBook, getDefaults, hasSpec, partitionDraftDeletion } from './lib/kdp-common.mjs';
 import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
 import { leanContextOptions } from './lib/playwright-launch.mjs';
 import { jstClock, todayJst } from './lib/jst-date.mjs';
@@ -718,14 +718,48 @@ try {
     writeFileSync(join(TMP, 'kdp-bookshelf.html'), await page.content());
     await shot(page, 'bookshelf-list');
     console.log('[list] .tmp/kdp-bookshelf.html + スクショ保存');
+    // 本棚で「下書き」と表示された本を、catalog で守る本（出版停止・ASIN あり）と分けて出す（削除候補に混ぜない）
+    const cards = await page.evaluate(() => {
+      const out = [];
+      const seen = new Set();
+      for (const link of document.querySelectorAll('a[href*="B0"], a[href*="title-setup"]')) {
+        const asin = ((link.getAttribute('href') || '').match(/(B0[0-9A-Z]{8})/) || [])[1];
+        if (!asin || seen.has(asin)) continue;
+        let el = link;
+        for (let d = 0; d < 12 && el; d++) {
+          const t = el.textContent || '';
+          const st = (t.match(/下書き|レビュー中|販売中/) || [])[0];
+          if (st) { out.push({ asin, status: st }); seen.add(asin); break; }
+          el = el.parentElement;
+        }
+      }
+      return out;
+    });
+    const drafts = cards.filter((c) => c.status === '下書き').map((c) => c.asin);
+    const catalog = readCatalog();
+    if (!catalog?.books?.length) {
+      console.log(`[list] 本棚の下書き ${drafts.length} 件（catalog を読めないので、削除してよいかは判定しない）`);
+    } else {
+      const part = partitionDraftDeletion(drafts, catalog.books);
+      console.log(`[list] 本棚の本 ${cards.length} 件を読取 / 下書き表示 ${drafts.length} 件 → 削除候補 ${part.deletable.length} 件・削除しない ${part.protected.length} 件`);
+      for (const k of part.protected) console.log(`  [保護] ${k.asin} ${k.id}: ${k.reason}（KDP 上は下書きに見えるが削除しない）`);
+      for (const a of part.deletable) console.log(`  [削除候補] ${a}`);
+    }
     await ctx.close();
     process.exit(0);
   }
 
   // ═══ MODE: --delete-drafts <ASIN,...>（下書きのみ・1件ずつ・下書きassert）════
   if (MODE_DELETE) {
-    const list = (getArg('--delete-drafts') || '').split(',').map((s) => s.trim()).filter(Boolean);
-    if (!list.length) { console.error('ABORT: --delete-drafts <ASIN,...> 必要'); await ctx.close(); process.exit(1); }
+    const requested = (getArg('--delete-drafts') || '').split(',').map((s) => s.trim()).filter(Boolean);
+    if (!requested.length) { console.error('ABORT: --delete-drafts <ASIN,...> 必要'); await ctx.close(); process.exit(1); }
+    // 安全弁: catalog で出版停止（unpublished）か ASIN を持つ本は、KDP 上で「下書き」に見えても消さない（2026-10-22）。
+    // catalog を読めなければ守る本を判定できないので、1 件も消さずに止める（fail-closed）。
+    const catalog = readCatalog();
+    if (!catalog?.books?.length) { console.error('ABORT: catalog を読めない（出版停止・ASIN ありの本を判定できない）→ 削除しない'); await ctx.close(); process.exit(1); }
+    const { deletable: list, protected: kept } = partitionDraftDeletion(requested, catalog.books);
+    console.log(`[del] 指定 ${requested.length} 件 → 削除対象 ${list.length} 件・catalog の保護で除外 ${kept.length} 件`);
+    for (const k of kept) console.log(`[del] 除外 ${k.asin} ${k.id}: ${k.reason}（KDP 上は下書きに見えても削除しない）`);
     for (const asin of list) {
       console.log(`[del] ${asin} …`);
       await page.goto('https://kdp.amazon.co.jp/ja_JP/bookshelf', { waitUntil: 'domcontentloaded', timeout: 60000 });

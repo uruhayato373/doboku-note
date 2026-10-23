@@ -166,8 +166,8 @@ node scripts/kdp-publish.mjs --id <id> --set-price --commit   # 保存（公開�
 
 ### ドラフト削除（テスト残骸）
 ```
-node scripts/kdp-publish.mjs --list-drafts               # 本棚確認
-node scripts/kdp-publish.mjs --delete-drafts <ASIN>      # 下書きのみ・下書き assert
+node scripts/kdp-publish.mjs --list-drafts               # 本棚確認（下書き表示を削除候補と保護に分けて出す）
+node scripts/kdp-publish.mjs --delete-drafts <ASIN>      # 下書きのみ・下書き assert・catalog の出版停止(unpublished)・ASIN ありの本は除外
 ```
 
 ### カテゴリー末端の較正（新しい系統で verified:false のとき）

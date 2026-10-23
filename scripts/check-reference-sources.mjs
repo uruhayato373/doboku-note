@@ -14,7 +14,7 @@ import { execFileSync } from 'node:child_process';
 import { basename, join, relative } from 'node:path';
 import { existsSync, readFileSync } from 'node:fs';
 import matter from 'gray-matter';
-import { loadDriveConfig, loadDriveManifest, resolveVaultRoot, vaultAbsFor } from './lib/drive-vault.mjs';
+import { driveUnreadableWarning, loadDriveConfig, loadDriveManifest, readVaultFile, resolveVaultRoot, vaultAbsFor } from './lib/drive-vault.mjs';
 import {
   buildSourceIndex,
   buildTranscriptIndex,
@@ -180,10 +180,15 @@ function checkDeepTranscripts({ cfg, index, manifest, articles }) {
   }
 
   let transcriptHeaders = 0;
+  // Drive の読み取り失敗（ETIMEDOUT など）は照合せず件数を WARN で出す（Drive が無い端末と同じ扱い）
+  let transcriptUnreadable = 0;
+  let unreadableCode = null;
   const bySource = new Map();
   for (const file of files) {
     const { relPath, path } = file;
-    const raw = readFileSync(path, 'utf8');
+    const read = readVaultFile(path, 'utf8');
+    if (!read.ok) { transcriptUnreadable += 1; unreadableCode ??= read.code; continue; }
+    const raw = read.data;
     const header = parseTranscriptHeader(raw);
     if (header.kind !== 'frontmatter') {
       fail('transcript-frontmatter', relPath, `文字起こしの frontmatter が無い（${header.kind}）`);
@@ -214,6 +219,8 @@ function checkDeepTranscripts({ cfg, index, manifest, articles }) {
     entries.push({ key: relPath, source: resolved.id, text: stripFrontmatter(raw) });
     bySource.set(resolved.id, entries);
   }
+
+  if (transcriptUnreadable) console.warn(driveUnreadableWarning(NAME, transcriptUnreadable, unreadableCode));
 
   // 書籍も載せる公式の文章（DN-0617）。過去問ページの設問と、記事が出典に挙げた公的資料の officialTexts を
   // 書籍との一致から差し引き、法令・指針の正式名称と参考資料の題名は比較の前に外す。
@@ -249,7 +256,7 @@ function checkDeepTranscripts({ cfg, index, manifest, articles }) {
   console.log(`  deep: 文字起こし対象 ${targets.length} 件 / 実体 ${files.length} 件 / frontmatter 実検査 ${transcriptHeaders} 件 / commercial-book 記事×原本 ${verbatimPairs} 組 / 逐語一致 ${verbatimHits} 件`);
   console.log(`  deep: 公式の文章 過去問ページ ${official.questionPages} 本の設問 ${official.questionChars} 字・公的資料の文 ${official.textCount} 件 / 公式の文章として除いた一致 ${officialExcluded} 件 / 比較から外した名称 ${namesMasked} 件`);
   if (official.questionPages === 0) fail('official-texts', datasetPath('config.reference-sources'), '過去問ページの設問が 0 件で、公式の文章を差し引けない（検査不成立）');
-  return { transcriptTargets: targets.length, transcriptFiles: files.length, transcriptHeaders, verbatimPairs, verbatimHits, officialExcluded };
+  return { transcriptTargets: targets.length, transcriptFiles: files.length - transcriptUnreadable, transcriptUnreadable, transcriptHeaders, verbatimPairs, verbatimHits, officialExcluded };
 }
 
 /**

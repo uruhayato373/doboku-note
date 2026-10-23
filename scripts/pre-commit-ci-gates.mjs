@@ -140,7 +140,7 @@ export const GATES = [
   },
   {
     id: 'content-registry',
-    // コンテンツ台帳 R01〜R12（8 回）。比較元（--base）が無いときは遷移の比較を飛ばして形と参照だけを見る
+    // コンテンツ台帳 R01〜R13（8 回）。比較元（--base）が無いときは遷移の比較を飛ばして形と参照だけを見る
     match: (f) => f.startsWith('content/registry/'),
     cmd: () => ['node', 'scripts/check-content-registry.mjs'],
   },

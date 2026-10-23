@@ -24,8 +24,8 @@
 import { parseCliArgs } from './lib/cli-args.mjs';
 import { REPO_ROOT } from './lib/repository-paths.mjs';
 import { loadSeriesConfig, seriesContext, seriesView, validateSeries, loadBasis, validateBasis, basisDriveIssues, basisView, visualJobs, chapterPages, cropSummary, cropJobs, chapterPacket, loadOutlines, outlineIssues, suggestUnits } from './lib/content-series.mjs';
-import { loadDriveConfig, resolveVaultRoot } from './lib/drive-vault.mjs';
-import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
+import { driveUnreadableWarning, loadDriveConfig, readVaultJson, resolveVaultRoot } from './lib/drive-vault.mjs';
+import { existsSync, mkdirSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 
 const NAME = 'check-content-series';
@@ -35,12 +35,21 @@ const ctx = seriesContext(REPO_ROOT);
 const basis = loadBasis(REPO_ROOT);
 const vaultRoot = vault();
 // 本の項目 id の照合と根拠の候補は Drive の候補表から（無い端末では照合しない）
+// Drive の読み取りが失敗した本（ETIMEDOUT など）は Drive が無いのと同じ扱いにし、件数を WARN で出す
 const candidates = new Map();
+const unreadableBooks = new Set();
+let unreadableCode = null;
 const candidatesOf = (bookId) => {
   if (!candidates.has(bookId)) {
     const src = ctx.referenceSources.find((s) => s.id === bookId);
     const file = vaultRoot && src?.origin?.vaultDir ? join(vaultRoot, ...src.origin.vaultDir.split('/'), 'coverage', 'candidates.json') : null;
-    candidates.set(bookId, file && existsSync(file) ? JSON.parse(readFileSync(file, 'utf8')).units : null);
+    let units = null;
+    if (file && existsSync(file)) {
+      const r = readVaultJson(file);
+      if (r.ok) units = r.data.units;
+      else { unreadableBooks.add(bookId); unreadableCode ??= r.code; }
+    }
+    candidates.set(bookId, units);
   }
   return candidates.get(bookId);
 };
@@ -110,12 +119,14 @@ function writePacket() {
 }
 
 function report() {
-  const driveIssues = basisDriveIssues(basis, vaultRoot, ctx.referenceSources);
-  const issues = [...validateSeries(config, ctx), ...validateBasis(basis, config, ctx), ...(driveIssues ?? []), ...outlineIssues(outlineSet, ctx)];
+  const drive = basisDriveIssues(basis, vaultRoot, ctx.referenceSources);
+  for (const b of drive?.unreadable ?? []) unreadableBooks.add(b);
+  unreadableCode ??= drive?.code ?? null;
+  const issues = [...validateSeries(config, ctx), ...validateBasis(basis, config, ctx), ...(drive?.issues ?? []), ...outlineIssues(outlineSet, ctx)];
   const bv = basisView(basis);
 
   if (args.json) {
-    process.stdout.write(`${JSON.stringify({ series: view.map((s) => ({ id: s.id, summary: s.summary })), books: bv.byBook, issues }, null, 2)}\n`);
+    process.stdout.write(`${JSON.stringify({ series: view.map((s) => ({ id: s.id, summary: s.summary })), books: bv.byBook, issues, driveUnreadable: [...unreadableBooks] }, null, 2)}\n`);
     process.exitCode = view.length === 0 ? 2 : issues.length ? 1 : 0;
   } else {
     if (view.length === 0) {
@@ -132,7 +143,7 @@ function report() {
     }
     const books = Object.entries(bv.byBook);
     const units = books.reduce((n, [, t]) => n + t.units, 0);
-    console.log(`[${NAME}] 書籍 ${books.length} 冊・${units} 項目の割り当てを実検査（${driveIssues === null ? 'Drive が無いので件数だけで照合' : 'Drive の候補表と id を照合'}）`);
+    console.log(`[${NAME}] 書籍 ${books.length} 冊・${units} 項目の割り当てを実検査（${drive === null ? 'Drive が無いので件数だけで照合' : `Drive の候補表と id を照合 ${drive.checked} 冊${drive.unreadable.length ? `・読めず件数だけ ${drive.unreadable.length} 冊` : ''}`}）`);
     for (const [id, t] of books) console.log(`  ${id}: シリーズ ${t.series} / ほかの記事 ${t.article} / 使わない（理由つき） ${t.excluded}${t.revisit ? `（うち判定し直す候補 ${t.revisit}）` : ""}`);
     const pages = [...chapterPages(basis, ctx).values()];
     const uniq = new Map();
@@ -142,9 +153,10 @@ function report() {
     console.log(`[${NAME}] 章と本の頁の結びつき: 頁 ${crop.pages}（切り出し待ち ${crop.pending}・図なし ${crop.notNeeded}・済み ${crop.done}・切り出した図 ${crop.crops}）/ 頁の取れない項目 ${noPage}（一覧は --crop-jobs）`);
     const items = view.flatMap((s) => s.sections.flatMap((sec) => sec.items));
     const ol = items.map((i) => i.outline).filter((o) => o && o.status !== 'none');
-    console.log(`[${NAME}] 章の骨子 ${ol.length} 本を実検査（確認済み ${ol.filter((o) => o.status === 'approved').length}・下書き ${ol.filter((o) => o.status === 'draft').length}・骨子なし ${items.length - ol.length}）/ 論点 ${ol.reduce((n, o) => n + o.points, 0)}（一次資料あり ${ol.reduce((n, o) => n + o.withPrimary, 0)}）/ URL だけの根拠 ${ol.reduce((n, o) => n + o.urlRefs, 0)} 件（記事を書く前に参考文献の台帳へ）/ 本の項目 ${ol.reduce((n, o) => n + o.bookRefs, 0)} 件（${vaultRoot ? 'Drive の候補表と照合' : 'Drive が無いので id の形だけ'}）`);
+    console.log(`[${NAME}] 章の骨子 ${ol.length} 本を実検査（確認済み ${ol.filter((o) => o.status === 'approved').length}・下書き ${ol.filter((o) => o.status === 'draft').length}・骨子なし ${items.length - ol.length}）/ 論点 ${ol.reduce((n, o) => n + o.points, 0)}（一次資料あり ${ol.reduce((n, o) => n + o.withPrimary, 0)}）/ URL だけの根拠 ${ol.reduce((n, o) => n + o.urlRefs, 0)} 件（記事を書く前に参考文献の台帳へ）/ 本の項目 ${ol.reduce((n, o) => n + o.bookRefs, 0)} 件（${!vaultRoot ? 'Drive が無いので id の形だけ' : unreadableBooks.size ? `Drive の候補表と照合・読めない ${unreadableBooks.size} 冊の分は id の形だけ` : 'Drive の候補表と照合'}）`);
     const jobs = visualJobs(view, ctx);
     console.log(`[${NAME}] 図・写真の計画 ${view.reduce((n, s) => n + s.sections.reduce((m, sec) => m + sec.items.reduce((k, i) => k + (i.visuals ?? []).length, 0), 0), 0)} 件 / 未完了 ${jobs.length} 件（一覧は --visual-jobs）`);
+    if (unreadableBooks.size) console.warn(driveUnreadableWarning(NAME, unreadableBooks.size, unreadableCode));
     for (const issue of issues) console.error(`  ✗ ${issue}`);
     console.log(`[${NAME}] ${issues.length ? '✗ FAIL' : '✓ PASS'}（違反 ${issues.length} 件）`);
     process.exitCode = issues.length ? 1 : 0;
