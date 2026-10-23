@@ -59,7 +59,7 @@ domain: product
 | `--id <id>` | 新規提出（詳細→カテゴリー→原稿/表紙→処理完了待ち→AI申告→アクセシビリティ→価格→下書き保存）＋チェックリスト |
 | `--id <id> --commit-publish` | 上記＋出版（不可逆）＋出版後検証。**承認後のみ** |
 | `--list-drafts` | 本棚を `.tmp` へダンプ（読み取り） |
-| `--delete-drafts <ASIN,...>` | 下書きのみ削除（下書き assert・1件ずつ） |
+| `--delete-drafts <ASIN,...>` | 下書きのみ削除（下書き assert・1件ずつ・catalog で出版停止（unpublished）か ASIN を持つ本は除外して出力） |
 | `--id <id> --set-price` | 既刊の価格改定。既定は dry-run（AI申告の要否・現在価格・目標価格で入れた場合の日本の実効レートを出すだけ）で、保存は `--commit` が要る。価格の真実源は spec の `price`（spec の無い A 系は catalog）。**成功時に catalog.priceJpy を書き戻す**ので spec だけ直せばよい（片側残りは `check-kindle-prices` が CI で止める）。未回答の AI 申告は先に埋めて下書き保存し、日本の実効レートが `catalog.royalty` と違えば保存せず停止。成功判定は本棚への遷移＋エラー表示なし。**保存済みの未出版変更も一緒に出版される**。審査中の本は pricing が本棚へリダイレクトされるので、直後の検証は本棚の表示価格で行う |
 | `--id <id> --update-manuscript [--commit]` | LIVE 本の原稿だけを差し替えて下書き保存（本棚・コンテンツページでタイトル/ASIN を照合、未回答の AI 申告は同じページで埋める）。公開は `--publish-only` か次の `--set-price` |
 | `--id <id> --update-cover [--cover <jpg>] [--commit [--commit-publish]]` | LIVE 本の表紙だけを差し替え。既定の表紙は `scripts/kindle-dist/<id>.jpg`。既定は dry-run（照合と現在/新表紙の表示のみ）、`--commit` でアップロード→下書き保存→再読込でサムネイルの versionId が変わったことを確認、`--commit-publish` を足すと価格が catalog と一致するのを確かめて再出版（不可逆・**承認後のみ**）。編集ページは Amazon の再認証を挟むことがあり、パスワードは人がブラウザで入れる（最大 3 分待機） |
@@ -122,7 +122,7 @@ domain: product
 ## 安全弁（1つでも違反したら成果物を出さない）
 
 1. **出版クリックは承認後のみ**: `--commit-publish` は親/ユーザーの明示承認後。無断で「出版しました」と報告しない。
-2. **下書き以外は削除しない**: `--delete-drafts` は script が下書き assert。販売中/審査中は保護。
+2. **下書き以外は削除しない**: `--delete-drafts` は script が下書き assert。販売中/審査中は保護。出版停止にした本は KDP の本棚で「下書き」と表示されるが、catalog で unpublished・ASIN ありの本は script が削除対象から外す（2026-10-22）。
 3. **ログイン/CAPTCHA は人**: bot 回避操作はしない。
 4. **account assert**: `defaults.accountEmail` 設定時は不一致で即中断（誤アカウント出版防止）。
 5. **メタデータは人の確認前に提出しない**: AI 生成の商品ページ文言（販売文・フリガナ）は gen-kdp-memo で

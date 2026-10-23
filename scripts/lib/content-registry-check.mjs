@@ -1,5 +1,5 @@
 /**
- * content-registry-check.mjs — コンテンツ台帳の検査 R01〜R12（R09 は欠番・content-registry.md「検査」）の唯一の実装。
+ * content-registry-check.mjs — コンテンツ台帳の検査 R01〜R13（R09 は欠番・content-registry.md「検査」）の唯一の実装。
  * 型（zod）は check-datasets が見るので、ここはファイルをまたぐ整合だけを見る。
  * 切り替え前のチャネル（config の cutover に無いもの）は、孤児と件数の一致を WARN に留める。
  * （R09 は動画の台帳の写し .claude/state/video-content-status.json の照合だった。写しは 2026-10-09 に消えたので欠番）
@@ -10,9 +10,11 @@ import { join } from 'node:path';
 import { createHash } from 'node:crypto';
 import { longformInputHash } from './longform-render-integrity.mjs';
 import {
-  CHANNEL_DATASET, approvalHash, approvalParts, canTransition, canonicalJson, idShapeIssues, loadRegistry, loadRegistryConfig, parsePubId, pubIdOf, requiresApproval,
+  CHANNEL_DATASET, approvalHash, approvalParts, canTransition, canonicalJson, idShapeIssues, loadRegistry, loadRegistryConfig, parsePubId, pubIdOf, requiresApproval, resolveCopy,
 } from './content-registry.mjs';
 import { datasetDir } from './datasets.mjs';
+import { readDatasetIf } from './dataset-io.mjs';
+import { voicevoxCredit } from './voicevox-credit.mjs';
 import { parseMediaPath, sha8Matches } from './media-paths.mjs';
 import { readJsonIf } from './json-io.mjs';
 
@@ -269,5 +271,50 @@ export function checkRegistry(root, opts = {}) {
     if (!matches) issues.push(issue('FAIL', 'R12', id, '完成動画が現行の制作入力より古い。音声・字幕・MP4を再生成し、media verify-render後に取り込む'));
   }
 
+  // R13: VOICEVOX の音声を使う YouTube 動画は、概要欄に利用条件のクレジット（VOICEVOX:青山龍星 など）が要る（2026-10-22: 2級 土工の 6 本で欠落）。
+  // 話者は動画の素材の来歴（provenance.tts）から、無ければ制作の既定の声（config/character-poses.json の identity.voicevoxSpeaker）から決める。
+  // 来歴が VOICEVOX 以外（tts.engine が別）の動画は対象外。stopped の行は対象外。
+  const r13 = voicevoxCreditIssues(root, reg, mediaById, { defaultSpeaker: opts.defaultSpeaker });
+  issues.push(...r13.issues);
+  counts.voicevoxTargets = r13.targets;
+  counts.voicevoxChecked = r13.checked;
+  counts.voicevoxNoCopy = r13.noCopy;
+
   return { issues, counts };
+}
+
+/** R13 の対象の状態（stopped は対象外） */
+export const VOICEVOX_CREDIT_STATUSES = ['published', 'scheduled', 'uploaded_private', 'qa_passed', 'draft'];
+
+/**
+ * R13: YouTube の公開行の概要欄に VOICEVOX のクレジットがあるか。
+ * @returns {{ issues: object[], targets: number, checked: number, noCopy: number }}
+ *   targets: 対象の行 / checked: 概要欄を実際に照合した行 / noCopy: 文面（copy）が無く照合できなかった行（INFO で出す）
+ */
+export function voicevoxCreditIssues(root, reg, mediaById, { defaultSpeaker } = {}) {
+  const speakerDefault = defaultSpeaker !== undefined ? defaultSpeaker : readDatasetIf(root, 'config.character-poses')?.identity?.voicevoxSpeaker ?? null;
+  const issues = [];
+  let targets = 0;
+  let checked = 0;
+  let noCopy = 0;
+  for (const p of reg.publications) {
+    if (p.channel !== 'youtube' || !VOICEVOX_CREDIT_STATUSES.includes(p.status)) continue;
+    const videoId = p.media?.video;
+    const tts = videoId ? mediaById.get(videoId)?.provenance?.tts : null;
+    if (tts && tts.engine !== 'VOICEVOX') continue; // 音声が VOICEVOX でない動画
+    targets += 1;
+    const speaker = tts?.speaker ?? speakerDefault;
+    if (speaker === null || speaker === undefined) { issues.push(issue('FAIL', 'R13', p.id, 'VOICEVOX の話者を決められない（素材の来歴 tts も character-poses の voicevoxSpeaker も無い）')); continue; }
+    let credit;
+    try { credit = tts?.credit ?? voicevoxCredit(speaker); } catch (e) { issues.push(issue('FAIL', 'R13', p.id, e.message)); continue; }
+    const copy = p.copy ? resolveCopy(root, p.copy) : null;
+    if (!copy || typeof copy.description !== 'string') {
+      noCopy += 1;
+      issues.push(issue(p.copy ? 'FAIL' : 'INFO', 'R13', p.id, p.copy ? `文面（${p.copy}）の概要欄を読めない` : '文面（copy）が無いので概要欄のクレジットを照合していない'));
+      continue;
+    }
+    checked += 1;
+    if (!copy.description.includes(credit)) issues.push(issue('FAIL', 'R13', p.id, `概要欄に「${credit}」が無い（VOICEVOX の利用条件。${p.copy}）`));
+  }
+  return { issues, targets, checked, noCopy };
 }

@@ -241,6 +241,70 @@ export function vaultAbsFor(root, vaultRel) {
   return join(root, ...toVaultRel(vaultRel).split('/'));
 }
 
+// ------------------------------------------------------------------ 読み取りの失敗
+
+/**
+ * Drive のストリーミングマウントが不調なときに読み取りが投げるエラーコード。
+ * 2026-10-22: Google ドライブ アプリの不調で readFileSync が即 ETIMEDOUT を投げ、記事と無関係の
+ * pre-commit（check-content-series）が例外で止まった。これらは「Drive を読めない」＝Drive の無い端末と
+ * 同じ扱いにし、照合しなかった件数を WARN で出す（偽 PASS にしない）。ENOENT・JSON の壊れは対象外（投げる）。
+ */
+export const DRIVE_READ_ERROR_CODES = Object.freeze(['ETIMEDOUT', 'EIO', 'EAGAIN', 'EBUSY', 'ENOTCONN', 'ESTALE', 'ECANCELED', 'EDEADLK', 'ENXIO']);
+
+export function isDriveReadError(err) {
+  return Boolean(err && DRIVE_READ_ERROR_CODES.includes(err.code));
+}
+
+/**
+ * 検査の手元確認・テスト用の故障注入。DOBOKU_DRIVE_READ_FAULT=ETIMEDOUT のとき、
+ * readVaultFile / readVaultDir は実際に読まずにそのコードのエラーを投げる。
+ */
+function injectedFault(env) {
+  const code = env.DOBOKU_DRIVE_READ_FAULT;
+  if (!code) return null;
+  const err = new Error(code + ': injected by DOBOKU_DRIVE_READ_FAULT');
+  err.code = code;
+  return err;
+}
+
+/**
+ * vault のファイルを読む。Drive の読み取り失敗（isDriveReadError）は { ok: false, code } で返し、
+ * それ以外の例外はそのまま投げる。readFile / env は注入可能（tests が ETIMEDOUT を注入する）。
+ */
+export function readVaultFile(absPath, encoding, { readFile = readFileSync, env = process.env } = {}) {
+  try {
+    const fault = injectedFault(env);
+    if (fault) throw fault;
+    return { ok: true, data: readFile(absPath, encoding) };
+  } catch (err) {
+    if (isDriveReadError(err)) return { ok: false, code: err.code };
+    throw err;
+  }
+}
+
+/** readVaultFile の JSON 版。読めなければ { ok: false, code }、壊れた JSON は投げる。 */
+export function readVaultJson(absPath, opts = {}) {
+  const r = readVaultFile(absPath, 'utf8', opts);
+  return r.ok ? { ok: true, data: JSON.parse(r.data) } : r;
+}
+
+/** vault のディレクトリを列挙する。Drive の読み取り失敗は { ok: false, code }。 */
+export function readVaultDir(absPath, { readDir = (d) => readdirSync(d), env = process.env } = {}) {
+  try {
+    const fault = injectedFault(env);
+    if (fault) throw fault;
+    return { ok: true, data: readDir(absPath) };
+  } catch (err) {
+    if (isDriveReadError(err)) return { ok: false, code: err.code };
+    throw err;
+  }
+}
+
+/** WARN の定型文（検査名・件数・最初のコード）。 */
+export function driveUnreadableWarning(name, count, code) {
+  return `[${name}] WARN: Drive を読めないので照合しない（${count} 件・${code}）。Drive の無い端末と同じ扱い。Google ドライブ アプリを再起動してから再実行する`;
+}
+
 // ------------------------------------------------------------------ 実測
 
 /**

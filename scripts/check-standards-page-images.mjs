@@ -19,7 +19,7 @@
 import { createHash } from 'node:crypto'
 import fs from 'node:fs'
 import path from 'node:path'
-import { resolveVaultRoot } from './lib/drive-vault.mjs'
+import { driveUnreadableWarning, readVaultDir, readVaultFile, resolveVaultRoot } from './lib/drive-vault.mjs'
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs'
 
 const CATALOG = path.join(ROOT, 'content/site/standards-library/catalog.json')
@@ -51,6 +51,9 @@ let checkedPages = 0
 let docsWithLocalBytes = 0
 let docsInRepo = 0
 let docsInVault = 0
+let unreadableDocs = 0
+let unreadablePages = 0
+let unreadableCode = null
 
 if (!fs.existsSync(CATALOG)) {
   console.error('[check-standards-page-images] ✗ catalog.json が無い。検査不成立')
@@ -143,8 +146,11 @@ for (const doc of targets) {
   }
   if (!bodyDir) continue
   const pagesDir = path.join(bodyDir, 'pages')
+  // Drive の読み取り失敗（ETIMEDOUT など）はこの文書の実体検査をしない（件数を WARN で出す）
+  const listed = readVaultDir(pagesDir)
+  if (!listed.ok) { unreadableDocs++; unreadableCode ??= listed.code; continue }
   docsWithLocalBytes++
-  const onDisk = fs.readdirSync(pagesDir).filter((f) => f.endsWith('.jpg'))
+  const onDisk = listed.data.filter((f) => f.endsWith('.jpg'))
   if (onDisk.length !== m.pages) {
     fails.push(`${label}: 画像 ${onDisk.length} 枚（manifest は ${m.pages}）`)
   }
@@ -155,7 +161,9 @@ for (const doc of targets) {
       fails.push(`${label}: ${e.image} が無い`)
       continue
     }
-    const buf = fs.readFileSync(f)
+    const read = readVaultFile(f)
+    if (!read.ok) { unreadablePages++; unreadableCode ??= read.code; continue }
+    const buf = read.data
     checkedPages++
     if (sha256(buf) !== e.imageSha256) fails.push(`${label}: ${e.image} の sha256 が manifest と不一致`)
     const t = path.join(bodyDir, e.text)
@@ -167,6 +175,7 @@ console.log(`[check-standards-page-images] 対象 ${targets.length} 文書 / man
 console.log(`[check-standards-page-images] 実体がある文書 ${docsWithLocalBytes} 件（repo ${docsInRepo} / vault ${docsInVault}）/ 画像 sha256 実照合 ${checkedPages} 枚${DEEP ? '（--deep 全件）' : `（各文書 約${SAMPLE} 枚のサンプル。全件は --deep）`}`)
 if (companionLabelled.length) console.log(`[check-standards-page-images] companion の版面ページ番号（編-ページ形）を拾えた数: ${companionLabelled.filter((s) => !s.includes(' 0/')).length}/${companionLabelled.length} 文書（0 件は失敗にしない）`)
 for (const w of warns) console.warn(`  ! ${w}`)
+if (unreadableDocs || unreadablePages) console.warn(driveUnreadableWarning('check-standards-page-images', unreadableDocs + unreadablePages, unreadableCode) + `（文書 ${unreadableDocs}・画像 ${unreadablePages} 枚）`)
 if (checkedManifests === 0) {
   console.error('[check-standards-page-images] ✗ manifest を 1 件も検査していない。検査不成立')
   process.exit(2)
@@ -176,7 +185,9 @@ if (fails.length) {
   console.error(`[check-standards-page-images] ✗ FAIL ${fails.length} 件`)
   process.exit(1)
 }
-if (docsWithLocalBytes === 0) {
+if (docsWithLocalBytes === 0 && unreadableDocs > 0) {
+  console.log(`[check-standards-page-images] ✓ manifest は健全（Drive を読めず実体検査 0 件・読めない文書 ${unreadableDocs} 件）`)
+} else if (docsWithLocalBytes === 0) {
   console.log('[check-standards-page-images] ✓ manifest は健全（この端末に画像の実体は無い＝実体検査 0 件。実体は Drive vault。取り戻しは npm run drive-vault-sync -- --pull --path content/sources/standards/<機関>/ --commit）')
 } else {
   console.log('[check-standards-page-images] ✓ manifest と画像実体は整合')

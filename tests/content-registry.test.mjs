@@ -2,12 +2,13 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { readFileSync } from 'node:fs';
+import { mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
+import { tmpdir } from 'node:os';
 import { createHash } from 'node:crypto';
 import {
   approvalHash, idShapeIssues, loadRegistryConfig, parsePubId, pubIdOf, requiresApproval, visualDigest,
 } from '../scripts/lib/content-registry.mjs';
-import { checkRegistry } from '../scripts/lib/content-registry-check.mjs';
+import { VOICEVOX_CREDIT_STATUSES, checkRegistry, voicevoxCreditIssues } from '../scripts/lib/content-registry-check.mjs';
 import { immutableConflict } from '../scripts/lib/drive-vault.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
@@ -145,4 +146,63 @@ test('場面画像と複数シートだけは役割の通し番号を使える',
   for (const role of ['scene-001', 'scene-131', 'candidate-scene-001', 'candidate-scene-131', 'contact-sheet-2', 'contact-sheet-10']) assert.deepEqual(idShapeIssues('role', role, cfg.idRules), []);
   for (const role of ['cover-2', 'scene-000', 'candidate-scene-000', 'candidate-scene-20261011', 'scene-20261011', 'contact-sheet-1']) assert.ok(idShapeIssues('role', role, cfg.idRules).length);
   assert.ok(idShapeIssues('work', 'scene-001', cfg.idRules).length);
+});
+
+test('R13: VOICEVOX の音声を使う YouTube の行は、概要欄にクレジットが無ければ FAIL（stopped と VOICEVOX 以外は対象外）', () => {
+  const root = mkdtempSync(join(tmpdir(), 'r13-'));
+  try {
+    mkdirSync(join(root, 'pack'), { recursive: true });
+    writeFileSync(join(root, 'pack/youtube.json'), JSON.stringify({
+      longform: { title: 't', description: '解説\n音声：VOICEVOX:青山龍星\n#2級土木' },
+      shorts: [{ key: 'point-1', title: 's', description: '要点だけ（クレジットなし）' }],
+    }));
+    writeFileSync(join(root, 'pack/youtube.revision-x.json'), JSON.stringify({ title: 'r', description: '改訂版（クレジットなし）' }));
+    const yt = (over) => ({ channel: 'youtube', status: 'qa_passed', ...over });
+    const videoMedia = (id, tts) => [id, { id, provenance: { kind: 'render', tts } }];
+    const mediaById = new Map([
+      videoMedia('v13', { engine: 'VOICEVOX', speaker: 13, credit: 'VOICEVOX:青山龍星' }),
+      videoMedia('vOther', { engine: 'other-tts', speaker: 1 }),
+      videoMedia('v99', { engine: 'VOICEVOX', speaker: 99 }),
+    ]);
+    const check = (publications, opts = { defaultSpeaker: 13 }) => voicevoxCreditIssues(root, { publications }, mediaById, opts);
+    const fails = (r) => r.issues.filter((i) => i.severity === 'FAIL');
+
+    // 合格: 概要欄にクレジットがある（話者は素材の来歴から）
+    const ok = check([yt({ id: 'a', copy: 'pack/youtube.json#longform', media: { video: 'v13' } })]);
+    assert.deepEqual(fails(ok), []);
+    assert.equal(ok.targets, 1);
+    assert.equal(ok.checked, 1);
+
+    // 失敗例: Shorts と改訂版の概要欄にクレジットが無い（2026-10-22 の 2級 土工と同じ形）。話者は既定の声から
+    for (const status of VOICEVOX_CREDIT_STATUSES) {
+      const bad = check([yt({ id: 'b', status, copy: 'pack/youtube.json#shorts/point-1' }), yt({ id: 'c', status, copy: 'pack/youtube.revision-x.json', media: { video: 'v13' } })]);
+      assert.deepEqual(fails(bad).map((i) => `${i.code}:${i.id}`), ['R13:b', 'R13:c'], status);
+      assert.match(fails(bad)[0].message, /VOICEVOX:青山龍星/);
+    }
+
+    // 対象外: stopped・YouTube 以外・VOICEVOX 以外の音声
+    const skipped = check([
+      yt({ id: 'd', status: 'stopped', copy: 'pack/youtube.json#shorts/point-1' }),
+      { id: 'e', channel: 'instagram', status: 'qa_passed', copy: 'pack/youtube.json#shorts/point-1' },
+      yt({ id: 'f', copy: 'pack/youtube.json#shorts/point-1', media: { video: 'vOther' } }),
+    ]);
+    assert.deepEqual(fails(skipped), []);
+    assert.equal(skipped.targets, 0);
+
+    // 文面が無い行は照合できなかった件数として INFO（照合済みに数えない）。クレジット未定義の話者・話者不明は FAIL
+    const noCopy = check([yt({ id: 'g' })]);
+    assert.equal(noCopy.noCopy, 1);
+    assert.equal(noCopy.checked, 0);
+    assert.deepEqual(noCopy.issues.map((i) => i.severity), ['INFO']);
+    assert.match(fails(check([yt({ id: 'h', copy: 'pack/youtube.json#longform', media: { video: 'v99' } })]))[0].message, /話者 99/);
+    assert.match(fails(check([yt({ id: 'i', copy: 'pack/youtube.json#longform' })], { defaultSpeaker: null }))[0].message, /話者を決められない/);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test('R13: 今の台帳は違反 0 件で、概要欄を照合した行が 1 件以上ある', () => {
+  const r = checkRegistry(ROOT);
+  assert.deepEqual(r.issues.filter((i) => i.code === 'R13' && i.severity === 'FAIL'), []);
+  assert.ok(r.counts.voicevoxChecked > 0);
 });

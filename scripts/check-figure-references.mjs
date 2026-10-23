@@ -14,13 +14,13 @@
  * 出力: 対象記事数・図の数・実検査数（突合した図の数）・不一致数。
  * exit 0 = 不一致 0 かつ検査した / 1 = 不一致あり / 2 = 検査不成立（対象 0 件・--ocr で OCR が読めない）
  */
-import { existsSync, readFileSync, readdirSync } from 'node:fs';
+import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import matter from 'gray-matter';
 import { loadReferenceSources, splitSourceRef } from './lib/reference-sources.mjs';
 import { bookRepoRoot } from './lib/reference-book-bundle.mjs';
 import { listSiteMdx } from './lib/mdx-files.mjs';
-import { resolveVaultRoot } from './lib/drive-vault.mjs';
+import { readVaultDir, readVaultFile, resolveVaultRoot } from './lib/drive-vault.mjs';
 import { REPO_ROOT, SITE_CONTENT_ROOT } from './lib/repository-paths.mjs';
 import { checkAgainstOcr, checkArticleFigures, parseArticleFigures, parseOcrFigureNames } from './lib/figure-references.mjs';
 
@@ -31,7 +31,12 @@ const SCOPES = ['civil-construction-1', 'civil-construction-2'];
 const cfg = loadReferenceSources();
 const commercial = new Map(cfg.sources.filter((s) => s.class === 'commercial-book').map((s) => [s.id, s]));
 
-const ocrFiles = (dir) => (existsSync(dir) ? readdirSync(dir).filter((f) => f.endsWith('.md') && f !== 'README.md').sort() : []);
+// Drive の読み取り失敗（ETIMEDOUT など）は「OCR を読めない」と同じ扱い（ocrMissing に数え、全部読めなければ exit 2）
+const ocrFiles = (dir) => {
+  if (!existsSync(dir)) return [];
+  const r = readVaultDir(dir);
+  return r.ok ? r.data.filter((f) => f.endsWith('.md') && f !== 'README.md').sort() : [];
+};
 
 /** OCR の実体がある置き場を返す。repo の ocr/ は README.md だけの空殻のことがある（git 管理外）ので、中身のあるものを選ぶ。 */
 function ocrDirFor(source, vaultRoot) {
@@ -47,8 +52,8 @@ function loadOcr(id, vaultRoot) {
   const dir = ocrDirFor(commercial.get(id), vaultRoot);
   let idx = null;
   if (dir) {
-    const text = ocrFiles(dir).map((f) => readFileSync(join(dir, f), 'utf8')).join('\n');
-    idx = parseOcrFigureNames(text);
+    const reads = ocrFiles(dir).map((f) => readVaultFile(join(dir, f), 'utf8'));
+    if (reads.every((r) => r.ok)) idx = parseOcrFigureNames(reads.map((r) => r.data).join('\n'));
   }
   ocrCache.set(id, idx);
   return idx;
