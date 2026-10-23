@@ -157,6 +157,7 @@ npm run check-standards-page-images # 上の provenance 整合（catalog↔manif
 
 `npm run note-replace-intro` — 公開済み記事の冒頭だけを原稿で貼り直し、末尾の撤退済み導線を消して 1 記事 1 回で公開する（全文置換しない・PDF 添付の件数を前後で照合）。`--list <paths> --commit`。note は途中の編集を自動保存しないので、失敗した記事は下書きも汚れない。
 
+`npm run note-magazine-remove -- --target <mキー> --notes k1,k2 [--commit]` — 記事を note マガジンの収録から外す（既定 dry-run・記事は消えない/非公開にならない・実行後に公開 API で収録から消えたことを確認。逆は note-magazine-add。DN-0527）。
 `npm run note-magazine-delete -- --keys m1,m2 [--commit]` — note マガジンを削除する（既定 PROBE・収録記事は消えない・削除後に公開 API の 404 を確認）。記事の削除は `node scripts/note-delete-note.mjs --notes k1,k2 --commit`（一覧を下へ読み進めて古い記事も探す）。
 
 `npm run verify-note-magazines` — note の公開状態を正本と照合する（読み取りだけ・公開 API）。マガジン一覧（題名・価格・配線）を `note-magazines.ts` と、単品（`config/products.json` の channel=note・tier=single）の価格・公開状態を記事単位で正本と照合する（DN-0704）。`-- --contents` で収録記事、`-- --vs-txt` で `note掲載文.txt`、`-- --json` で `data/note/magazines.json`（`--contents --json` をセットで）。exit 0＝ズレなし／1＝検査不成立（一覧が取れない・収録記事か単品の取得失敗が支配的）／2＝ズレあり。CI の `note-live-audit.yml` が週次で回す。詳細は [note-api-verification.md](note-api-verification.md)
