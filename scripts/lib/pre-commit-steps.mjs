@@ -89,7 +89,8 @@ export const STEPS = [
   // note 単品価格がマガジン内・宣言済みシリーズ内で一貫しているか（値上げの当て漏れ・値崩れの再発防止・2026-07-28）
   s('check-note-price-consistency'),
   // マガジン収録の期待値（repo 実数 ↔ SoT 件数表記）。記事を足したのにライブ未収録＋表記も古い
-  // という事故（2026-08-24 ゼネコン/河川コンサル各2本）の再発防止。ライブ軸は CI 側で見る。
+  // という事故（2026-08-24 ゼネコン/河川コンサル各2本）の再発防止。ライブ軸は CI 側で見る
+  // （ただし data/note/magazines.json を commit に含めるときは手元でもライブ軸を見る・2026-10-23）。
   s('check-magazine-membership'),
   // Markdown の相対リンク ](../x) の実在（check-doc-refs はリンクテキストしか見ない）。
   // SKIP_RELATIVE_LINKS=1 で回避
