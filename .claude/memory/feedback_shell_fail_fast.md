@@ -14,3 +14,6 @@ zsh の `path` は PATH と連動する配列なので、`for f in ...; do path=
 
 ## 作業ツリーは push を確かめてから消す（2026-10-22）
 サブシェルで rebase が「未ステージの変更」で失敗したのに、外側で続けて `git worktree remove --force` を実行し、push していないコミット 2 つを作業ツリーごと失いかけた（ハッシュから取り戻した）。消す前に必ず `git merge-base --is-ancestor <作業ツリーの HEAD> origin/develop` を通し、その成否で `&&` につなぐ。refresh-indexes の後は生成物（src/config/*.json）が変わっていないかも見る。
+
+## ancestor の確認は「何も commit していない」ときも通る（2026-10-23）
+`todo-complete --commit`（完了処理の実行で、git commit はしない）の後に ancestor 確認 → `git worktree remove --force` とつなぎ、未 commit のカード削除を作業ツリーごと消した。HEAD が origin/develop のままなら ancestor は必ず真になる。消す前は ancestor に加えて `git status --porcelain` が空であることも確かめ、`--force` は空を確かめた後だけ使う。

@@ -34,7 +34,7 @@
 import { readFileSync, existsSync } from 'node:fs';
 import { join, dirname, relative } from 'node:path';
 import { PDF_PROMISE_RE } from './lib/note-frontmatter.mjs';
-import { expectedPdfs, frontmatterValue, needsConfirm, walkArticles, publicAttachmentCount } from './lib/note-attachments.mjs';
+import { expectedPdfs, frontmatterValue, articleNoteId, classifyAttachmentTargets, needsConfirm, walkArticles, publicAttachmentCount } from './lib/note-attachments.mjs';
 import { NOTE_BASE } from './lib/site-identity.mjs';
 import { fetchFailDominant } from './lib/inconclusive-gate.mjs';
 import { todayJst } from './lib/jst-date.mjs';
@@ -81,7 +81,7 @@ const targets = [];
 for (const file of walkArticles(BASE)) {
   if (stagedSet && !stagedSet.has(relative(ROOT, file).replace(/\\/g, '/'))) continue;
   const raw = readFileSync(file, 'utf8');
-  const noteId = frontmatterValue(raw, 'noteId');
+  const noteId = articleNoteId(raw);                       // noteId 欠落でも noteUrl から引く（DN-0518）
   if (!noteId) continue;                                   // 未公開はスキップ
   const noteStatus = frontmatterValue(raw, 'noteStatus');
   if (noteStatus && noteStatus !== 'published') continue;
@@ -99,7 +99,7 @@ for (const file of walkArticles(BASE)) {
 
 // ============================ source 層 ============================
 if (!LIVE) {
-  const violations = targets.filter((t) => t.promises && t.expected.length === 0 && !t.allow);
+  const { promisedNoPdf: violations } = classifyAttachmentTargets(targets);
   const withPdf = targets.filter((t) => t.expected.length > 0);
     // 逆向きの取りこぼし（非ゲート surfacer）: PDF は作ってあるのに本文が一言も触れていない。
     // 2026-07-31 実測で総監模範論文 93 本がこの状態だった（添付はされていたが本文に案内が無く、
@@ -145,8 +145,14 @@ if (!LIVE) {
 // 両者を同じ「不足 N 件」に混ぜると、緊急分が方針分に埋没して誰も見なくなる。
 // 実際 2026-08-03 の実査は「不足 192 件」と出したまま4日放置され、その中に居た
 // 建設部門 7 本（約束あり）は購入者からの指摘で初めて発覚した。
-const need = targets.filter((t) => t.expected.length > 0);
-if (need.length === 0) { console.error('✗ 検査対象0件＝走査が壊れている疑い（検査不成立）'); __exit(1); }
+const { need, promisedNoPdf } = classifyAttachmentTargets(targets);
+// 約束したのに PDF 実体が無い記事は、ライブを測るまでもなく「未添付」。件数に必ず含める。
+console.log(`[live] 検査対象 ${targets.length} 件 / 添付すべき PDF あり ${need.length} 件 / 約束ありで PDF 実体なし ${promisedNoPdf.length} 件`);
+if (promisedNoPdf.length) {
+  console.error(`\n✗ 本文で約束しているのに PDF 実体が無い（購入者が受け取れない）: ${promisedNoPdf.length} 件`);
+  for (const v of promisedNoPdf) console.error(`  ${v.noteId}  ${v.title}\n      ${v.file}`);
+}
+if (need.length === 0 && promisedNoPdf.length === 0) { console.error('✗ 検査対象0件＝走査が壊れている疑い（検査不成立）'); __exit(1); }
 
 // 公開 API で同じ本数を測れる記事を先に確定する。限定・不足・取得不能だけ著者画面へ回す。
 // 全件をブラウザで開いて 75 分の CI 上限を越え、結果自体が残らないことを防ぐ。
@@ -281,7 +287,7 @@ if (short.length) {
   }
 }
 if (fetchFailDominant(fetchFail.length, need.length)) { console.error('\n✗ 取得失敗が支配的＝検査不成立'); __exit(1); }
-__exit(short.length ? 1 : 0);
+__exit(short.length || promisedNoPdf.length ? 1 : 0);
   });
 }
 
