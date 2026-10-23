@@ -85,6 +85,29 @@ export function frontmatterValue(raw, key) {
 }
 
 /**
+ * 記事の noteId。frontmatter に noteId が無くても noteUrl（.../n/<key>）から引く。
+ * 2026-10-23: 総監模範論文-自治体道路担当 R08-yosou-1/2 は noteUrl だけで noteId を持たず、
+ * 「未公開」として走査から外れ、約束した PDF が無いまま検査に出なかった（DN-0518）。
+ */
+export function articleNoteId(raw) {
+  const id = frontmatterValue(raw, 'noteId');
+  if (id) return id;
+  return (frontmatterValue(raw, 'noteUrl').match(/\/n\/(n[0-9a-f]+)(?:[/?#]|$)/) || [])[1] || '';
+}
+
+/**
+ * 検査対象を振り分ける（純関数）。
+ *   promisedNoPdf: 本文が PDF を約束しているのに添付すべき実体が無い（allowlist 外）＝購入者が受け取れない
+ *   need:          添付すべき PDF 実体がある＝live で本数を確かめる
+ */
+export function classifyAttachmentTargets(targets) {
+  return {
+    promisedNoPdf: targets.filter((t) => t.promises && t.expected.length === 0 && !t.allow),
+    need: targets.filter((t) => t.expected.length > 0),
+  };
+}
+
+/**
  * 公開済み記事の noteId → 期待添付 の対応表。保存を伴う経路が noteId しか持たないため、
  * 記事ファイルを引き当てて期待値を出せるようにする。
  */
@@ -93,7 +116,7 @@ export function expectationsByNoteId({ root, base = join(root, 'content/note') }
   if (!existsSync(base)) return map;
   for (const file of walkArticles(base)) {
     const raw = readFileSync(file, 'utf8');
-    const noteId = frontmatterValue(raw, 'noteId');
+    const noteId = articleNoteId(raw);
     if (!noteId) continue;
     const status = frontmatterValue(raw, 'noteStatus');
     if (status && status !== 'published') continue;
