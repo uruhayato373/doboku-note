@@ -136,15 +136,17 @@ export function snapshotFreshness(fetchedAt, now, staleDays = STALE_DAYS) {
 /**
  * 1 マガジンを判定する（純関数・テストから使う）。
  * @param liveCount ライブ収録数。軸 C を見ないときは null。
+ * @param staleLive 旧版を外す判断待ちでライブにだけ残る本数（config の staleLive）。
+ *   購入者が受け取る本数（SoT の price）には足さず、ライブとの照合にだけ足す。
  */
-export function auditMagazine({ id, labels, repoCount, extra, entry, liveCount }) {
+export function auditMagazine({ id, labels, repoCount, extra, entry, liveCount, staleLive = 0 }) {
   const expected = repoCount + (extra?.count ?? 0);
   const base = { id, labels, repoCount, extra: extra?.count ?? 0, expected, title: entry?.title ?? '' };
   if (!entry) return { ...base, ok: false, kind: 'no-sot', detail: 'note-magazines.ts に id が無い' };
 
   const declared = entry.declared?.n ?? null;
   const sotBad = declared != null && declared !== expected;
-  const liveBad = liveCount != null && liveCount !== expected;
+  const liveBad = liveCount != null && liveCount !== expected + staleLive;
 
   // 軸 B も軸 C も無い＝このマガジンは何とも照合できていない。
   //
@@ -227,17 +229,28 @@ export function inclusionSources(id, pack, labelMap) {
   return [...new Set([...fromAll, ...viaLabels])];
 }
 
+/**
+ * staged の中身から、この検査を回すか（relevant）と、ライブ snapshot 自体を commit に含めるか（snapshot）を返す。
+ * snapshot を含める commit は中身が今のライブなので、--staged でも軸 C を見る（2026-10-23 に収録の記録だけを
+ * 直 push して develop の CI を赤くした。軸 C を見ない pre-commit は素通りしていた）。
+ */
+export function stagedRelevance(paths, snapshotRel) {
+  const snapshot = paths.includes(snapshotRel);
+  const relevant = snapshot || paths.some((p) =>
+    p.startsWith('content/note/')
+    || p.includes('src/lib/note-magazines.ts')
+    || p === datasetPath('config.note-magazine-membership'));
+  return { relevant, snapshot };
+}
+
 function relevantStaged() {
   let changed = '';
   try {
     changed = execFileSync('git', ['-c', 'core.quotepath=false', 'diff', '--cached', '--name-only', '--diff-filter=ACMRD'], {
       cwd: ROOT, encoding: 'utf8', maxBuffer: 256 * 1024 * 1024,
     });
-  } catch { return true; } // git が読めないなら判断せず検査する
-  return changed.split('\n').some((p) =>
-    p.startsWith('content/note/')
-    || p.includes('src/lib/note-magazines.ts')
-    || p === datasetPath('config.note-magazine-membership'));
+  } catch { return { relevant: true, snapshot: false }; } // git が読めないなら判断せず検査する
+  return stagedRelevance(changed.split('\n'), datasetPath('note.magazines'));
 }
 
 function fail(msg) { console.error(`✗ 検査不成立: ${msg}`); exitWith(2); }
@@ -251,7 +264,8 @@ function main(argv = process.argv.slice(2)) {
   const ci = argv.includes('--ci');
   const staged = argv.includes('--staged');
   const say = jsonOut ? console.error : console.log;
-  if (staged && !relevantStaged()) exitWith(0);
+  const stagedInfo = staged ? relevantStaged() : null;
+  if (staged && !stagedInfo.relevant) exitWith(0);
 
   // --- config ---
   let config;
@@ -281,6 +295,13 @@ function main(argv = process.argv.slice(2)) {
   for (const [label, id] of Object.entries(labelMap)) {
     if (!sot[id]) fail(`config の labels["${label}"] が指す id "${id}" が note-magazines.ts に無い`);
   }
+  // 旧版を外す判断待ちの重複（DN 番号つき）。外したら消す。期待数（SoT）には足さない。
+  const staleLive = config.staleLive ?? {};
+  for (const [id, st] of Object.entries(staleLive)) {
+    if (!sot[id]) fail(`config の staleLive["${id}"] が note-magazines.ts に無い`);
+    if (!Number.isInteger(st.count) || st.count < 1) fail(`config の staleLive["${id}"].count が 1 以上の整数でない`);
+    if (!/DN-\d{4}/.test(st.reason ?? '')) fail(`config の staleLive["${id}"].reason に外す判断を追う DN 番号が無い`);
+  }
   for (const [id, ex] of Object.entries(extras)) {
     if (!sot[id]) fail(`config の extras["${id}"] が note-magazines.ts に無い`);
     if (!ex.reason || ex.reason.length < 6) fail(`config の extras["${id}"] に理由が無い`);
@@ -299,7 +320,7 @@ function main(argv = process.argv.slice(2)) {
   let liveNotes = null; // key → notes[]（軸 D 用）
   let freshness = { ok: false, reason: 'snapshot が無い', ageDays: null };
   let fetchedAt = null;
-  if (staged) {
+  if (staged && !stagedInfo.snapshot) {
     freshness = { ok: false, reason: '--staged では軸 C を見ない（CI 停止でローカル commit を塞がないため）', ageDays: null };
   } else if (existsSync(SNAPSHOT_PATH)) {
     try {
@@ -356,7 +377,7 @@ function main(argv = process.argv.slice(2)) {
     const liveCount = live && entry?.key ? (live.get(entry.key) ?? null) : null;
     return auditMagazine({
       id, labels: idToLabels.get(id) ?? [], repoCount: expectedById.get(id).repoCount,
-      extra: extras[id], entry, liveCount,
+      extra: extras[id], entry, liveCount, staleLive: staleLive[id]?.count ?? 0,
     });
   }).sort((a, b) => a.id.localeCompare(b.id));
   const bad = rows.filter((r) => !r.ok);
@@ -410,7 +431,7 @@ function main(argv = process.argv.slice(2)) {
   say(`  軸C(ライブ): ${freshness.ok ? `snapshot ${freshness.ageDays} 日前（fetchedAt ${fetchedAt}）` : `**未検査** — ${freshness.reason}`}`);
   for (const r of rows) {
     say(`  ${r.ok ? '✓' : '✗'} ${r.id.padEnd(46)} 期待 ${String(r.expected).padStart(3)}`
-      + `（repo ${r.repoCount}${r.extra ? ` +${r.extra}` : ''}）  SoT ${r.declared ?? '-'}  ライブ ${r.liveCount ?? '-'}`);
+      + `（repo ${r.repoCount}${r.extra ? ` +${r.extra}` : ''}${staleLive[r.id] ? `・旧版 ${staleLive[r.id].count} 本はライブだけ` : ''}）  SoT ${r.declared ?? '-'}  ライブ ${r.liveCount ?? '-'}`);
   }
   const descWarns = rows.filter((r) => r.descWarn);
   for (const r of descWarns) say(`  ! ${r.id}: ${r.descWarn}（非ゲート）`);

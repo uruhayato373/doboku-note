@@ -9,6 +9,7 @@
  * 読み手: scripts/check-content-series.mjs（CI）・管理画面 /content/series。
  */
 import { existsSync, readFileSync, readdirSync } from 'node:fs';
+import { readVaultJson } from './drive-vault.mjs';
 import { join } from 'node:path';
 import { readDataset, readDatasetIf } from './dataset-io.mjs';
 import { AI_LEDGER_FILE, aiPhotoStatus } from './image-origin.mjs';
@@ -288,22 +289,33 @@ export function validateBasis(basis, config, ctx) {
   return issues;
 }
 
-/** Drive の候補表（見出しを含む）と、割り当ての項目 id がちょうど一致するか。Drive が無ければ null（照合しない）。 */
-export function basisDriveIssues(basis, vaultRoot, referenceSources) {
+/**
+ * Drive の候補表（見出しを含む）と、割り当ての項目 id がちょうど一致するか。Drive が無ければ null（照合しない）。
+ * Drive の読み取りが失敗した本（ETIMEDOUT・EIO など。isDriveReadError）は照合せず unreadable に入れる
+ * （2026-10-22: 例外で pre-commit が止まった）。呼び出し側が件数を WARN で出す。
+ * @returns {{ issues: string[], checked: number, unreadable: string[], code: string|null } | null}
+ */
+export function basisDriveIssues(basis, vaultRoot, referenceSources, readOpts = {}) {
   if (!vaultRoot) return null;
   const issues = [];
+  const unreadable = [];
+  let checked = 0;
+  let code = null;
   for (const [bookId, book] of Object.entries(basis.books ?? {})) {
     const src = referenceSources.find((s) => s.id === bookId);
     const file = src?.origin?.vaultDir ? join(vaultRoot, ...src.origin.vaultDir.split('/'), 'coverage', 'candidates.json') : null;
     if (!file || !existsSync(file)) { issues.push(`${bookId}: Drive に候補表が無い`); continue; }
-    const ids = new Set(JSON.parse(readFileSync(file, 'utf8')).units.map((u) => u.id));
+    const r = readVaultJson(file, readOpts);
+    if (!r.ok) { unreadable.push(bookId); code ??= r.code; continue; }
+    checked += 1;
+    const ids = new Set(r.data.units.map((u) => u.id));
     const assigned = new Set(Object.keys(book.units ?? {}));
     const missing = [...ids].filter((id) => !assigned.has(id));
     const extra = [...assigned].filter((id) => !ids.has(id));
     if (missing.length) issues.push(`${bookId}: 割り当てていない項目 ${missing.length}（${missing.slice(0, 5).join('・')}…）`);
     if (extra.length) issues.push(`${bookId}: 候補表に無い項目 ${extra.length}（${extra.slice(0, 5).join('・')}…）`);
   }
-  return issues;
+  return { issues, checked, unreadable, code };
 }
 
 /** 割り当ての集計: 項目（シリーズ id/項目 id）→ 書籍ごとの件数、書籍 → 内訳。 */
@@ -468,7 +480,9 @@ export function chapterPacket(basis, config, ctx, vaultRoot, seriesId, itemId, a
     const file = dir ? join(dir, 'coverage', 'candidates.json') : null;
     if (!file || !existsSync(file)) throw new Error(`${bookId}: Drive に候補表が無い`);
     ocrDirs.push(`${bookId} → ${join(dir, 'ocr')}/`);
-    const byId = new Map(JSON.parse(readFileSync(file, 'utf8')).units.map((u) => [u.id, u]));
+    const r = readVaultJson(file);
+    if (!r.ok) throw new Error(`${bookId}: Drive の候補表を読めない（${r.code}）。Google ドライブ アプリを再起動してから再実行する`);
+    const byId = new Map(r.data.units.map((u) => [u.id, u]));
     for (const [unit, v] of Object.entries(book.units ?? {})) {
       if (v !== key) continue;
       const u = byId.get(unit);

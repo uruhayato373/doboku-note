@@ -136,6 +136,7 @@ config/content-registry.json          チャネル×形式・アカウント・I
 | R10 | AI 生成の素材は AI 台帳（鍵 `media:<id>`）の判定 ok がある |
 | R11 | 同資格・同アカウントの別作品IDの通常動画で、両台本の80%以上・5場面以上・200字以上が一致する並行投入を止める（承認以降・停止済みを除外）。実比較組数も出す |
 | R12 | 完成動画の制作時台本hashがある素材と現行台本を比較し、古ければFAIL。hashのない旧成果物は実照合数へ数えない |
+| R13 | YouTube の公開行（published・scheduled・uploaded_private・qa_passed・draft。stopped は除く）の概要欄（copy の description。改訂版は `youtube.revision-*.json`）に VOICEVOX の利用条件のクレジット（`VOICEVOX:青山龍星`）が無ければ FAIL。話者は動画の素材の来歴 `provenance.tts` から、無ければ `config/character-poses.json` の `identity.voicevoxSpeaker` から決め（表記は `scripts/lib/voicevox-credit.mjs`）、来歴の音声が VOICEVOX 以外なら対象外。copy の無い行は照合できなかった件数（INFO）として出す（2026-10-22: 2級 土工の 6 本で欠落） |
 
 ## コマンド
 

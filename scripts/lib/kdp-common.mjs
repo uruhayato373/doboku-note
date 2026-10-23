@@ -167,3 +167,36 @@ export function validateBook(book) {
   }
   return errs
 }
+
+// ── 下書き削除の安全弁（2026-10-22: 13 冊を出版停止にすると KDP の本棚では「下書き」と表示される）──
+// catalog で status が unpublished か、ASIN を持つ（live の履歴がある）本は、KDP 上で下書きに見えても消さない。
+// 消すと ASIN・レビュー・販売履歴を失い、再出版しても別の本になる。asin と draftAsin の両方を守る。
+
+/** 削除してはいけない ASIN → { id, status, reason }。 */
+export function protectedKdpAsins(catalogBooks) {
+  const out = new Map()
+  for (const b of catalogBooks ?? []) {
+    const reason = b.status === 'unpublished' ? '出版停止（unpublished）' : b.asin ? `ASIN を持つ（live の履歴・status ${b.status}）` : null
+    if (!reason) continue
+    for (const a of [b.asin, b.draftAsin]) if (a) out.set(String(a).toUpperCase(), { id: b.id, status: b.status, reason })
+  }
+  return out
+}
+
+/**
+ * 削除を求められた ASIN を、消してよいもの（deletable）と守るもの（protected）に分ける。
+ * @returns {{ deletable: string[], protected: Array<{ asin: string, id: string, status: string, reason: string }> }}
+ */
+export function partitionDraftDeletion(asins, catalogBooks) {
+  const guard = protectedKdpAsins(catalogBooks)
+  const deletable = []
+  const kept = []
+  for (const raw of asins) {
+    const asin = String(raw).trim().toUpperCase()
+    if (!asin) continue
+    const g = guard.get(asin)
+    if (g) kept.push({ asin, ...g })
+    else deletable.push(asin)
+  }
+  return { deletable, protected: kept }
+}

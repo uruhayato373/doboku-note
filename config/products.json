@@ -8283,6 +8283,7 @@
         "ctaPose": "good-sign"
       },
       "members": [
+        "content/note/技術士総監/magazines/総監記述式-完全パック/00-はじめに/article.md",
         "note:n64a61345763c"
       ],
       "includes": [
@@ -9635,7 +9636,23 @@
         "badge": "note 限定"
       },
       "members": [
+        "content/note/技術士建設部門/magazines/BK-01_道路/R03/article-II1.md",
+        "content/note/技術士建設部門/magazines/BK-01_道路/R03/article-II2.md",
+        "content/note/技術士建設部門/magazines/BK-01_道路/R03/article-III.md",
+        "content/note/技術士建設部門/magazines/BK-01_道路/R04/article-II1.md",
+        "content/note/技術士建設部門/magazines/BK-01_道路/R04/article-II2.md",
+        "content/note/技術士建設部門/magazines/BK-01_道路/R04/article-III.md",
+        "content/note/技術士建設部門/magazines/BK-01_道路/R05/article-II1.md",
+        "content/note/技術士建設部門/magazines/BK-01_道路/R05/article-II2.md",
+        "content/note/技術士建設部門/magazines/BK-01_道路/R05/article-III.md",
+        "content/note/技術士建設部門/magazines/BK-01_道路/R06/article-II1.md",
+        "content/note/技術士建設部門/magazines/BK-01_道路/R06/article-II2.md",
+        "content/note/技術士建設部門/magazines/BK-01_道路/R06/article-III.md",
+        "content/note/技術士建設部門/magazines/BK-01_道路/R07/article-II1.md",
+        "content/note/技術士建設部門/magazines/BK-01_道路/R07/article-II2.md",
+        "content/note/技術士建設部門/magazines/BK-01_道路/R07/article-III.md",
         "content/note/技術士建設部門/magazines/BK-01_道路/R08-yosou/II-1/article.md",
+        "content/note/技術士建設部門/magazines/BK-01_道路/R08-yosou/II-2-1_道路空間再配分/article.md",
         "content/note/技術士建設部門/magazines/BK-01_道路/R08-yosou/II-2-2_インフラDX維持管理/article.md",
         "content/note/技術士建設部門/magazines/BK-01_道路/R08-yosou/II-2-3_道路啓開災害復旧/article.md",
         "content/note/技術士建設部門/magazines/BK-01_道路/R08-yosou/II-2-4_床版取替施工/article.md",
@@ -9683,7 +9700,24 @@
         "price": "¥4,980（必須I＋道路 2マガジン・単品合計¥6,960、約28%OFF）",
         "badge": "note 限定 合格パック"
       },
-      "members": [],
+      "members": [
+        "content/note/技術士建設部門/magazines/BK-01_道路/R03/article-II1.md",
+        "content/note/技術士建設部門/magazines/BK-01_道路/R03/article-II2.md",
+        "content/note/技術士建設部門/magazines/BK-01_道路/R03/article-III.md",
+        "content/note/技術士建設部門/magazines/BK-01_道路/R04/article-II1.md",
+        "content/note/技術士建設部門/magazines/BK-01_道路/R04/article-II2.md",
+        "content/note/技術士建設部門/magazines/BK-01_道路/R04/article-III.md",
+        "content/note/技術士建設部門/magazines/BK-01_道路/R05/article-II1.md",
+        "content/note/技術士建設部門/magazines/BK-01_道路/R05/article-II2.md",
+        "content/note/技術士建設部門/magazines/BK-01_道路/R05/article-III.md",
+        "content/note/技術士建設部門/magazines/BK-01_道路/R06/article-II1.md",
+        "content/note/技術士建設部門/magazines/BK-01_道路/R06/article-II2.md",
+        "content/note/技術士建設部門/magazines/BK-01_道路/R06/article-III.md",
+        "content/note/技術士建設部門/magazines/BK-01_道路/R07/article-II1.md",
+        "content/note/技術士建設部門/magazines/BK-01_道路/R07/article-II2.md",
+        "content/note/技術士建設部門/magazines/BK-01_道路/R07/article-III.md",
+        "content/note/技術士建設部門/magazines/BK-01_道路/R08-yosou/II-2-1_道路空間再配分/article.md"
+      ],
       "includes": [
         "pe-construction-required-magazine",
         "pe-construction-road-magazine"

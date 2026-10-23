@@ -21,7 +21,9 @@ function fixture(t) {
   t.after(() => rmSync(root, { recursive: true, force: true }));
   mkdirSync(join(root, 'config'), { recursive: true });
   copyFileSync(join(REPO_ROOT, 'config/content-registry.json'), join(root, 'config/content-registry.json'));
-  writeJson(root, `${DEF}/youtube.json`, { longform: { title: '元の題名', description: '元の説明', r2Key: 'old.mp4', sha256: 'a'.repeat(64), publishAt: '2020-01-01T00:00:00Z' } });
+  // R13（概要欄の VOICEVOX クレジット）は既定の声を character-poses から引く
+  copyFileSync(join(REPO_ROOT, 'config/character-poses.json'), join(root, 'config/character-poses.json'));
+  writeJson(root, `${DEF}/youtube.json`, { longform: { title: '元の題名', description: '元の説明\n音声：VOICEVOX:青山龍星', r2Key: 'old.mp4', sha256: 'a'.repeat(64), publishAt: '2020-01-01T00:00:00Z' } });
   writeJson(root, `${DEF}/video-pack.json`, { exam: EXAM, packId: WORK, outputs: { longform: true, shorts: 0 } });
   upsertWorks(root, EXAM, [{ id: WORK, kind: 'video-pack', definition: DEF }]);
   upsertPublications(root, 'youtube', EXAM, [{ id: PUB, work: WORK, format: 'longform', account: 'youtube:main', status: 'published',

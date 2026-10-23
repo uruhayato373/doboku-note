@@ -1,54 +1,38 @@
 {
   "schemaVersion": 1,
-  "runId": "2026-10-22T01-30-09Z",
-  "collectedAt": "2026-10-22T01:30:09.419Z",
+  "runId": "2026-10-23T01-30-10Z",
+  "collectedAt": "2026-10-23T01:30:10.322Z",
   "property": "sc-domain:doboku-note.com",
   "mode": "commit",
-  "scriptVersion": "553b05825",
+  "scriptVersion": "c4917fb93",
   "filter": {
     "category": null,
     "group": null
   },
   "limit": 10,
-  "targetCount": 226,
+  "targetCount": 216,
   "items": [
     {
-      "slug": "/standards/hokuriku/common",
-      "url": "https://doboku-note.com/standards/hokuriku/common",
+      "slug": "/practice/development-permit-public-facilities",
+      "url": "https://doboku-note.com/practice/development-permit-public-facilities",
       "inspected": {
         "state": "not-indexed",
-        "reason": "重複しています。Google により、ユーザーがマークしたページとは異なるページが正規ページとして選択されました",
-        "lastCrawl": "2026/10/12 12:45:49",
+        "reason": "URL が Google に認識されていません",
+        "lastCrawl": null,
         "discoveredVia": "sitemap",
-        "crawlAllowed": true,
-        "indexingAllowed": true
+        "crawlAllowed": null,
+        "indexingAllowed": null
       },
       "request": {
-        "requested": true,
-        "status": "accepted"
+        "requested": false,
+        "status": "button-not-found",
+        "detail": "role=button 候補 0"
       },
       "reachedVerdict": true
     },
     {
-      "slug": "/exam/concrete-diagnostician/textbook/assessment",
-      "url": "https://doboku-note.com/exam/concrete-diagnostician/textbook/assessment",
-      "inspected": {
-        "state": "not-indexed",
-        "reason": "クロール済み - インデックス未登録",
-        "lastCrawl": "2026/10/16 18:23:29",
-        "discoveredVia": "sitemap",
-        "crawlAllowed": true,
-        "indexingAllowed": true
-      },
-      "request": {
-        "requested": true,
-        "status": "accepted"
-      },
-      "reachedVerdict": true
-    },
-    {
-      "slug": "/exam/pe-comprehensive-management/keywords/job-analysis",
-      "url": "https://doboku-note.com/exam/pe-comprehensive-management/keywords/job-analysis",
+      "slug": "/practice/disaster-recovery-assessment",
+      "url": "https://doboku-note.com/practice/disaster-recovery-assessment",
       "inspected": {
         "state": "not-indexed",
         "reason": "URL が Google に認識されていません",
@@ -64,8 +48,26 @@
       "reachedVerdict": true
     },
     {
-      "slug": "/practice/barrier-free-roads-stations",
-      "url": "https://doboku-note.com/practice/barrier-free-roads-stations",
+      "slug": "/practice/explaining-to-residents-and-council",
+      "url": "https://doboku-note.com/practice/explaining-to-residents-and-council",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "URL が Google に認識されていません",
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "button-not-found",
+        "detail": "role=button 候補 0"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/practice/generative-ai-adoption",
+      "url": "https://doboku-note.com/practice/generative-ai-adoption",
       "inspected": {
         "state": "not-indexed",
         "reason": "検出 - インデックス未登録",
@@ -81,8 +83,8 @@
       "reachedVerdict": true
     },
     {
-      "slug": "/practice/buried-cultural-property-survey",
-      "url": "https://doboku-note.com/practice/buried-cultural-property-survey",
+      "slug": "/practice/how-to-read-laws-and-notices",
+      "url": "https://doboku-note.com/practice/how-to-read-laws-and-notices",
       "inspected": {
         "state": "not-indexed",
         "reason": "検出 - インデックス未登録",
@@ -98,8 +100,8 @@
       "reachedVerdict": true
     },
     {
-      "slug": "/practice/civil-engineer-annual-cycle",
-      "url": "https://doboku-note.com/practice/civil-engineer-annual-cycle",
+      "slug": "/practice/image-photogrammetry-analysis",
+      "url": "https://doboku-note.com/practice/image-photogrammetry-analysis",
       "inspected": {
         "state": "not-indexed",
         "reason": "検出 - インデックス未登録",
@@ -115,8 +117,8 @@
       "reachedVerdict": true
     },
     {
-      "slug": "/practice/construction-business-overview",
-      "url": "https://doboku-note.com/practice/construction-business-overview",
+      "slug": "/practice/information-system-procurement",
+      "url": "https://doboku-note.com/practice/information-system-procurement",
       "inspected": {
         "state": "not-indexed",
         "reason": "検出 - インデックス未登録",
@@ -132,8 +134,8 @@
       "reachedVerdict": true
     },
     {
-      "slug": "/practice/construction-dispute-resolution",
-      "url": "https://doboku-note.com/practice/construction-dispute-resolution",
+      "slug": "/practice/keishin-review-merger",
+      "url": "https://doboku-note.com/practice/keishin-review-merger",
       "inspected": {
         "state": "not-indexed",
         "reason": "検出 - インデックス未登録",
@@ -149,8 +151,26 @@
       "reachedVerdict": true
     },
     {
-      "slug": "/practice/construction-materials-overview",
-      "url": "https://doboku-note.com/practice/construction-materials-overview",
+      "slug": "/practice/land-acquisition-compensation",
+      "url": "https://doboku-note.com/practice/land-acquisition-compensation",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "検出 - インデックス未登録",
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "button-not-found",
+        "detail": "role=button 候補 0"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/practice/land-readjustment-project",
+      "url": "https://doboku-note.com/practice/land-readjustment-project",
       "inspected": {
         "state": "not-indexed",
         "reason": "検出 - インデックス未登録",
@@ -166,8 +186,42 @@
       "reachedVerdict": true
     },
     {
-      "slug": "/practice/coordinate-systems-geodetic-datum",
-      "url": "https://doboku-note.com/practice/coordinate-systems-geodetic-datum",
+      "slug": "/practice/landscape-planning-public-works",
+      "url": "https://doboku-note.com/practice/landscape-planning-public-works",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "検出 - インデックス未登録",
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": true,
+        "status": "accepted"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/practice/license-procedures",
+      "url": "https://doboku-note.com/practice/license-procedures",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "URL が Google に認識されていません",
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": true,
+        "status": "accepted"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/practice/license-requirements",
+      "url": "https://doboku-note.com/practice/license-requirements",
       "inspected": {
         "state": "not-indexed",
         "reason": "検出 - インデックス未登録",
@@ -185,7 +239,7 @@
   ],
   "status": "ok",
   "summary": {
-    "inspected": 10,
+    "inspected": 13,
     "accepted": 10,
     "alreadyIndexed": 0,
     "unreadable": 0

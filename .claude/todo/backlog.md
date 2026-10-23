@@ -808,6 +808,8 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 **完了条件**: `npm run check-products` の「原稿と結び付かない収録」が 0 本。
 
+**進捗（2026-10-23）**: 足す側は済ませた。道路の 2 マガジン（pe-construction-road-magazine・pe-construction-road-pack）へ原稿の版 16 本、総監 完全パックへ n93ee41c64411 を note で収録し、`data/note/magazines.json` と正本の members に記録した（6c846098d・`check-products` 通過・verify 109/109 差 0）。**残り**: 旧版（1級 14 本・道路 16 本・n64a61345763c）を外すかは、マガジン購入者の閲覧への影響を確かめてから運営者が決める（未承認のため外していない）。
+
 
 ### [DN-0490] 技術士・1級土木の副業と独立のガイドを 1 本書き、検索需要を 8 週で確かめる
 タグ: [SNS・マーケ] [領域:サイト] [時期:2026-12] [種類:制作] [起票:2026-10-01]

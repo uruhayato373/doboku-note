@@ -1,10 +1,10 @@
 # キャリアファネル基線レポート
 
-生成: 2026-10-20T05:32:28.886Z
+生成: 2026-10-22T23:48:15.648Z
 
 > [!warning]
 > GA4 と GSC は取得遅延が違うため**窓が一致しない**。出所を跨いで CTR や EPC を割らないこと。
-> GA4 2026-09-19〜2026-10-16 ／ GSC 2026-09-16〜2026-10-13
+> GA4 2026-09-24〜2026-10-21 ／ GSC 2026-09-22〜2026-10-19
 
 ## 実検査の内訳
 
@@ -12,51 +12,51 @@ _「異常 0 件」と「1 件も検査していない」を区別するため�
 
 | 対象 | 件数 |
 |---|---|
-| docMetaIndexTotal | 1430 |
+| docMetaIndexTotal | 1456 |
 | careerArticles | 45 |
-| siteMdxScanned | 1470 |
+| siteMdxScanned | 1497 |
 | extraLinkSourcesScanned | 1 |
-| gscRowsTotal | 1413 |
-| gscRowsMatchedCareer | 47 |
-| ga4LabelRowsMatched | 13 |
-| ga4PlacementRowsMatched | 17 |
-| careerArticlesInGa4Top | 27 |
+| gscRowsTotal | 1685 |
+| gscRowsMatchedCareer | 61 |
+| ga4LabelRowsMatched | 12 |
+| ga4PlacementRowsMatched | 16 |
+| careerArticlesInGa4Top | 28 |
 | noteCareerArticles | 24 |
 
 ## WARN
 
 - 入力欠落 1 件: afb（CI の fetch-metrics 供給を確認する）
-- 窓が不一致（GA4 2026-09-19〜2026-10-16 / GSC 2026-09-16〜2026-10-13）。取得元の遅延差なので異常ではないが、出所を跨いで CTR/EPC を割らないこと
+- 窓が不一致（GA4 2026-09-24〜2026-10-21 / GSC 2026-09-22〜2026-10-19）。取得元の遅延差なので異常ではないが、出所を跨いで CTR/EPC を割らないこと
 
 ## 漏斗
 
 ### 1. 高意図 query（GSC 窓）
 
-表示 178 ／ クリック 4
+表示 221 ／ クリック 4
 
 語彙: 転職・辞めたい・やめたい・年収・市場価値・評判・口コミ・エージェント・求人・ホワイト・公務員・発注者支援
 
 | query | 表示 | クリック | 順位 |
 |---|---|---|---|
-| 土木公務員 資格 | 23 | 1 | 8.9 |
+| 土木公務員 資格 | 26 | 2 | 8.1 |
 | 施工管理から転職 | 16 | 0 | 20.4 |
-| 公務員 土木 資格 おすすめ | 16 | 0 | 8.8 |
+| 公務員 土木 資格 おすすめ | 15 | 0 | 8.5 |
 | 土木施工管理技士 年収 | 14 | 0 | 5.8 |
-| 公務員 土木職 資格 | 12 | 0 | 7.8 |
-| 施工管理 転職エージェント | 9 | 0 | 28.3 |
+| 施工管理 転職エージェント | 12 | 0 | 37.9 |
+| 公務員 土木職 資格 | 12 | 0 | 7.0 |
+| rccm 公務員 | 11 | 0 | 10.1 |
+| 土木 公務員 資格 | 10 | 0 | 11.8 |
 | 土木施工管理技士年収 | 8 | 0 | 6.3 |
-| rccm 公務員 | 8 | 0 | 10.6 |
-| 土木 公務員 資格 | 8 | 0 | 12.8 |
+| 公務員 土木 資格 | 7 | 0 | 8.9 |
 | 技術士 実務経験 公務員 | 5 | 1 | 8.6 |
-| 公務員 土木 資格 | 5 | 0 | 9.0 |
-| rccm 受験資格 公務員 | 4 | 1 | 10.5 |
-| 施工管理が転職エージェントを活用する方法 | 3 | 0 | 8.0 |
-| 施工管理 から 転職 | 3 | 0 | 18.3 |
-| 施工管理 公務員 | 3 | 0 | 13.7 |
+| 転職エージェント 施工管理 | 5 | 0 | 72.6 |
+| rccm 受験資格 公務員 | 5 | 0 | 7.8 |
+| 施工管理 公務員 | 4 | 0 | 22.5 |
+| 施工管理 転職エージェント おすすめ | 4 | 0 | 69.0 |
 
 ### 2. キャリアページの流入（GA4 窓）
 
-GA4 上位ページに入った career 記事: 27 / 45 本
+GA4 上位ページに入った career 記事: 28 / 45 本
 
 ### 3. 柱ごとの検索と内部リンク
 
@@ -64,93 +64,95 @@ _被リンクは literal リンクの本数であり、実際の遷移ではな�
 
 | 柱 | 記事 | GSC 表示 | GSC クリック | 被リンク |
 |---|---|---|---|---|
-| career-path | 21 | 109 | 1 | 61 |
-| market-value | 9 | 37 | 0 | 40 |
-| service-choice | 5 | 26 | 0 | 9 |
+| career-path | 21 | 124 | 1 | 62 |
+| market-value | 9 | 30 | 0 | 40 |
+| service-choice | 5 | 57 | 0 | 9 |
 | quit | 5 | 0 | 0 | 14 |
 | application | 5 | 0 | 0 | 13 |
 
 ### 4. affiliate CTA（GA4 窓）
 
-表示 19111 ／ クリック 21 ／ CTR 0.11%
+表示 21369 ／ クリック 21 ／ CTR 0.10%
 
 | placement | 表示 | クリック | CTR |
 |---|---|---|---|
-| article-inline | 6547 | 9 | 0.14% |
-| article-end | 4324 | 0 | 0.00% |
-| article-mid | 3948 | 7 | 0.18% |
-| sidebar | 3128 | 1 | 0.03% |
-| category-sidebar | 734 | 0 | 0.00% |
-| standards-list-end | 165 | 0 | 0.00% |
-| category-mobile | 133 | 0 | 0.00% |
-| tool-end | 78 | 2 | 2.56% |
-| tool-inline | 36 | 0 | 0.00% |
-| home-section | 14 | 2 | 14.29% |
-| standards-end | 3 | 0 | 0.00% |
-| topic-end | 1 | 0 | 0.00% |
+| article-inline | 8147 | 11 | 0.14% |
+| article-end | 4946 | 0 | 0.00% |
+| article-mid | 4823 | 6 | 0.12% |
+| sidebar | 1916 | 0 | 0.00% |
+| category-sidebar | 840 | 0 | 0.00% |
+| standards-list-end | 294 | 0 | 0.00% |
+| category-mobile | 163 | 0 | 0.00% |
+| tool-end | 127 | 2 | 1.57% |
+| tool-inline | 72 | 0 | 0.00% |
+| standards-end | 23 | 0 | 0.00% |
+| home-section | 16 | 2 | 12.50% |
+| topic-end | 2 | 0 | 0.00% |
 
 | label | 表示 | クリック |
 |---|---|---|
-| ビルドジョブ | 7868 | 16 |
-| BuildJob-endbanner | 3017 | 0 |
-| BuildJob-sidebar | 2958 | 1 |
-| 建設JOBs | 1997 | 1 |
-| DXConsulting-sidebar | 966 | 0 |
-| ハイクラス DX・コンサル転職 | 927 | 3 |
-| KensetsuJobs-endbanner | 904 | 0 |
-| DXConsulting-endbanner | 403 | 0 |
-| KensetsuJobs-sidebar | 71 | 0 |
+| ビルドジョブ | 8621 | 16 |
+| 建設JOBs | 3974 | 3 |
+| BuildJob-endbanner | 2968 | 0 |
+| BuildJob-sidebar | 2324 | 0 |
+| KensetsuJobs-endbanner | 1687 | 0 |
+| ハイクラス DX・コンサル転職 | 909 | 2 |
+| DXConsulting-sidebar | 465 | 0 |
+| DXConsulting-endbanner | 291 | 0 |
+| KensetsuJobs-sidebar | 130 | 0 |
 
-配置ルール別（2026-09-19〜2026-10-16・ページ別からルールを一意に決めた数字）
+配置ルール別（2026-09-24〜2026-10-21・ページ別からルールを一意に決めた数字）
 
 | ルール | 案件 | 面 | 表示 | クリック | 分けられない表示/クリック |
 |---|---|---|---|---|---|
-| PL-0001 | buildjob | article-mid | 666 | 0 | 1121/0 |
-| PL-0002 | dx-consulting | article-mid | 831 | 3 | 0/0 |
-| PL-0003 | buildjob | article-inline | 1806 | 8 | 2837/0 |
-| PL-0004 | buildjob | article-end | 1191 | 0 | 1312/0 |
-| PL-0005 | dx-consulting | article-end | 357 | 0 | 0/0 |
-| PL-0006 | buildjob | category-sidebar | 15 | 0 | 148/0 |
-| PL-0007 | buildjob | category-mobile | 2 | 0 | 71/0 |
-| PL-0008 | dx-consulting | category-sidebar | 114 | 0 | 0/0 |
-| PL-0009 | dx-consulting | category-mobile | 1 | 0 | 0/0 |
+| PL-0001 | buildjob | article-mid | 612 | 0 | 1336/0 |
+| PL-0002 | dx-consulting | article-mid | 801 | 2 | 0/0 |
+| PL-0003 | buildjob | article-inline | 1659 | 8 | 2792/0 |
+| PL-0004 | buildjob | article-end | 1094 | 0 | 1203/0 |
+| PL-0005 | dx-consulting | article-end | 253 | 0 | 0/0 |
+| PL-0006 | buildjob | category-sidebar | 15 | 0 | 190/0 |
+| PL-0007 | buildjob | category-mobile | 1 | 0 | 84/0 |
+| PL-0008 | dx-consulting | category-sidebar | 101 | 0 | 0/0 |
+| PL-0009 | dx-consulting | category-mobile | 5 | 0 | 0/0 |
 | PL-0010 | buildjob | career-tool | 0 | 0 | 0/0 |
-| PL-0011 | buildjob | sidebar | 2272 | 1 | 0/0 |
-| PL-0012 | dx-consulting | sidebar | 701 | 0 | 0/0 |
-| PL-0013 | buildjob | article-mid | 0 | 2 | 1121/0 |
-| PL-0014 | buildjob | article-inline | 0 | 0 | 2826/0 |
-| PL-0015 | buildjob | article-end | 0 | 0 | 1312/0 |
-| PL-0016 | buildjob | category-sidebar | 0 | 0 | 148/0 |
-| PL-0017 | buildjob | category-mobile | 0 | 0 | 71/0 |
+| PL-0011 | buildjob | sidebar | 1566 | 0 | 0/0 |
+| PL-0012 | dx-consulting | sidebar | 258 | 0 | 0/0 |
+| PL-0013 | buildjob | article-mid | 0 | 2 | 1336/0 |
+| PL-0014 | buildjob | article-inline | 0 | 0 | 2779/0 |
+| PL-0015 | buildjob | article-end | 0 | 0 | 1203/0 |
+| PL-0016 | buildjob | category-sidebar | 0 | 0 | 190/0 |
+| PL-0017 | buildjob | category-mobile | 0 | 0 | 84/0 |
 | PL-0018 | buildjob | article-mid | 0 | 0 | 0/0 |
-| PL-0019 | buildjob | article-inline | 0 | 0 | 11/0 |
-| PL-0020 | kensetsu-jobs | article-mid | 189 | 0 | 0/0 |
-| PL-0021 | kensetsu-jobs | article-inline | 1764 | 1 | 0/0 |
-| PL-0022 | kensetsu-jobs | article-end | 896 | 0 | 0/0 |
-| PL-0023 | kensetsu-jobs | category-sidebar | 7 | 0 | 0/0 |
-| PL-0024 | kensetsu-jobs | category-mobile | 1 | 0 | 0/0 |
-| PL-0025 | buildjob | article-mid | 597 | 2 | 0/0 |
-| PL-0026 | buildjob | article-end | 336 | 0 | 0/0 |
-| PL-0027 | buildjob | category-sidebar | 0 | 0 | 0/0 |
+| PL-0019 | buildjob | article-inline | 0 | 0 | 13/0 |
+| PL-0020 | kensetsu-jobs | article-mid | 357 | 0 | 0/0 |
+| PL-0021 | kensetsu-jobs | article-inline | 3517 | 3 | 0/0 |
+| PL-0022 | kensetsu-jobs | article-end | 1664 | 0 | 0/0 |
+| PL-0023 | kensetsu-jobs | category-sidebar | 18 | 0 | 0/0 |
+| PL-0024 | kensetsu-jobs | category-mobile | 4 | 0 | 0/0 |
+| PL-0025 | buildjob | article-mid | 931 | 2 | 0/0 |
+| PL-0026 | buildjob | article-end | 475 | 0 | 0/0 |
+| PL-0027 | buildjob | category-sidebar | 1 | 0 | 0/0 |
 | PL-0028 | buildjob | category-mobile | 0 | 0 | 0/0 |
-| PL-0029 | buildjob | article-mid | 182 | 0 | 0/0 |
+| PL-0029 | buildjob | article-mid | 308 | 0 | 0/0 |
 | PL-0030 | buildjob | category-sidebar | 0 | 0 | 0/0 |
 | PL-0031 | buildjob | category-mobile | 0 | 0 | 0/0 |
-| PL-0032 | buildjob | standards-end | 1 | 0 | 0/0 |
+| PL-0032 | buildjob | standards-end | 17 | 0 | 0/0 |
 | PL-0033 | buildjob | home-section | 10 | 2 | 0/0 |
-| PL-0034 | buildjob | tool-inline | 36 | 0 | 0/0 |
-| PL-0035 | buildjob | standards-list-end | 162 | 0 | 0/0 |
-| PL-0036 | buildjob | topic-end | 0 | 0 | 0/0 |
-| PL-0037 | buildjob | tool-end | 50 | 2 | 0/0 |
-| PL-0038 | buildjob | article-mid | 93 | 0 | 0/0 |
-| PL-0039 | buildjob | article-end | 75 | 0 | 0/0 |
-| PL-0040 | buildjob | category-sidebar | 0 | 0 | 0/0 |
+| PL-0034 | buildjob | tool-inline | 72 | 0 | 0/0 |
+| PL-0035 | buildjob | standards-list-end | 284 | 0 | 0/0 |
+| PL-0036 | buildjob | topic-end | 1 | 0 | 0/0 |
+| PL-0037 | buildjob | tool-end | 87 | 2 | 0/0 |
+| PL-0038 | buildjob | article-mid | 144 | 0 | 0/0 |
+| PL-0039 | buildjob | article-end | 102 | 0 | 0/0 |
+| PL-0040 | buildjob | category-sidebar | 1 | 0 | 0/0 |
 | PL-0041 | buildjob | category-mobile | 1 | 0 | 0/0 |
 
 クリックの出どころ（A8 の発生日と突き合わせる）
 
 | 日付 | ページ | 案件 | 面 | ルール | クリック |
 |---|---|---|---|---|---|
+| 2026-10-21 | /exam/civil-construction-2/guide/r08-secondary-answers | kensetsu-jobs | article-inline | PL-0021 | 1 |
+| 2026-10-17 | /exam/civil-construction-2/secondary/r05 | kensetsu-jobs | article-inline | PL-0021 | 1 |
 | 2026-10-16 | /practice/road-work-approval-vs-road-use-permit | buildjob | article-mid | PL-0025 | 1 |
 | 2026-10-16 | /practice/subbase-subgrade-control | buildjob | article-mid | PL-0025 | 1 |
 | 2026-10-14 | / | buildjob | home-section | PL-0033 | 1 |
@@ -169,8 +171,6 @@ _被リンクは literal リンクの本数であり、実際の遷移ではな�
 | 2026-09-26 | /exam/civil-construction-2/secondary/r07 | buildjob | article-inline | PL-0003 | 1 |
 | 2026-09-26 | /exam/pe-construction/guide/career | buildjob | article-inline | PL-0003 | 1 |
 | 2026-09-25 | /exam/civil-construction-1/secondary/r07 | buildjob | article-inline | PL-0003 | 1 |
-| 2026-09-23 | /exam/pe-comprehensive-management/keywords/personal-info-protection | dx-consulting | article-mid | PL-0002 | 1 |
-| 2026-09-19 | /exam/civil-construction-1/secondary/r07 | buildjob | sidebar | PL-0011 | 1 |
 
 ### 5. A8 成果
 
@@ -191,50 +191,50 @@ afb: 未取得（fetch-afb-outcomes.mjs --commit が未実行、または fetch-
 
 ## 起票時基線からのずれ（±30% 超）
 
-- affiliate 表示: 起票時 7370 → 今回 19111（259%）
-- 高意図 query 表示: 起票時 7 → 今回 178（2543%）
+- affiliate 表示: 起票時 7370 → 今回 21369（290%）
+- 高意図 query 表示: 起票時 7 → 今回 221（3157%）
 
 ## 記事台帳
 
 | slug | 柱 | 公開 | GSC 表示 | クリック | 順位 | 被リンク | CTA |
 |---|---|---|---|---|---|---|---|
-| civil-construction-1-guide-company-types | career-path | ○ | 37 | 0 | 34.9 | 1 | 1 |
-| civil-construction-1-guide-future | career-path | ○ | 26 | 0 | 10.4 | 1 | 1 |
+| civil-construction-1-guide-company-types | career-path | ○ | 44 | 0 | 35.5 | 1 | 1 |
+| civil-construction-2-guide-career-agent-comparison | service-choice | ○ | 38 | 0 | 47.4 | 1 | 1 |
+| civil-construction-1-guide-future | career-path | ○ | 27 | 0 | 10.3 | 1 | 1 |
 | civil-construction-2-guide-salary | market-value | ○ | 24 | 0 | 6.8 | 4 | 1 |
 | civil-construction-1-guide-hatchu-shien | career-path | ○ | 20 | 0 | 19.2 | 9 | 1 |
-| civil-construction-2-guide-career-agent-comparison | service-choice | ○ | 19 | 0 | 24.7 | 1 | 1 |
-| civil-construction-1-guide-consultant | career-path | ○ | 7 | 0 | 12.9 | 2 | 1 |
-| civil-construction-1-guide-grade-comparison | market-value | ○ | 7 | 0 | 47.4 | 2 | 0 |
-| civil-construction-1-guide-public-servant | career-path | ○ | 5 | 0 | 13.2 | 4 | 1 |
-| civil-construction-2-guide-young-career | career-path | ○ | 5 | 0 | 24.3 | 2 | 1 |
-| civil-construction-1-guide-allowance | market-value | ○ | 4 | 0 | 44 | 0 | 1 |
+| civil-construction-1-guide-career-agent-comparison | service-choice | ○ | 12 | 0 | 67.9 | 4 | 1 |
+| civil-construction-1-guide-consultant | career-path | ○ | 10 | 0 | 42.8 | 2 | 1 |
+| civil-construction-1-guide-public-servant | career-path | ○ | 6 | 0 | 16.2 | 4 | 1 |
 | civil-construction-1-guide-career-agents | service-choice | ○ | 4 | 0 | 44 | 2 | 0 |
-| civil-construction-1-guide-career-agent-comparison | service-choice | ○ | 3 | 0 | 68.7 | 4 | 1 |
+| civil-construction-1-guide-age-career | career-path | ○ | 3 | 0 | 36 | 0 | 1 |
+| civil-construction-1-guide-buildjob-review | service-choice | ○ | 3 | 0 | 27.3 | 1 | 1 |
+| civil-construction-1-guide-grade-comparison | market-value | ○ | 3 | 0 | 39.7 | 2 | 0 |
 | civil-construction-2-guide-career-change | career-path | ○ | 3 | 0 | 59.5 | 2 | 1 |
 | pe-construction-fukugyou-dokuritsu | career-path | ○ | 3 | 0 | 29.3 | 0 | 0 |
-| civil-construction-1-guide-career-salary | market-value | ○ | 2 | 0 | 76.5 | 3 | 0 |
+| civil-construction-1-guide-allowance | market-value | ○ | 2 | 0 | 43.5 | 0 | 1 |
+| civil-construction-1-guide-women | career-path | ○ | 2 | 0 | 79.5 | 3 | 1 |
+| civil-construction-2-guide-young-career | career-path | ○ | 2 | 0 | 15 | 2 | 1 |
 | civil-construction-1-guide-career-path | career-path | ○ | 1 | 0 | 9 | 11 | 1 |
 | civil-construction-1-guide-public-engineer-exam-study | career-path | ○ | 1 | 0 | 1 | 3 | 1 |
+| civil-construction-1-guide-public-servant-or-private | career-path | ○ | 1 | 0 | 3 | 0 | 1 |
+| civil-construction-1-guide-salary-by-role | market-value | ○ | 1 | 0 | 90 | 2 | 1 |
 | rccm-guide-career-value | career-path | ○ | 1 | 1 | 2 | 2 | 1 |
-| civil-construction-1-guide-age-career | career-path | ○ | 0 | 0 | — | 0 | 1 |
-| civil-construction-1-guide-buildjob-review | service-choice | ○ | 0 | 0 | — | 1 | 1 |
 | civil-construction-1-guide-career | career-path | ○ | 0 | 0 | — | 0 | 1 |
 | civil-construction-1-guide-career-cases | market-value | ○ | 0 | 0 | — | 1 | 2 |
 | civil-construction-1-guide-career-consultation-before-quit | quit | ○ | 0 | 0 | — | 2 | 1 |
+| civil-construction-1-guide-career-salary | market-value | ○ | 0 | 0 | — | 3 | 0 |
 | civil-construction-1-guide-dx-jobs | career-path | ○ | 0 | 0 | — | 0 | 1 |
 | civil-construction-1-guide-interview | application | ○ | 0 | 0 | — | 3 | 1 |
 | civil-construction-1-guide-market-value | market-value | ○ | 0 | 0 | — | 14 | 1 |
 | civil-construction-1-guide-public-engineer-salary-table | market-value | ○ | 0 | 0 | — | 3 | 1 |
-| civil-construction-1-guide-public-servant-or-private | career-path | ○ | 0 | 0 | — | 0 | 1 |
 | civil-construction-1-guide-quit-honne | quit | ○ | 0 | 0 | — | 0 | 1 |
 | civil-construction-1-guide-quit-or-stay | quit | ○ | 0 | 0 | — | 7 | 1 |
 | civil-construction-1-guide-quit-public-engineer | quit | ○ | 0 | 0 | — | 3 | 1 |
 | civil-construction-1-guide-resume | application | ○ | 0 | 0 | — | 6 | 1 |
-| civil-construction-1-guide-salary-by-role | market-value | ○ | 0 | 0 | — | 2 | 1 |
 | civil-construction-1-guide-salary-up | market-value | ○ | 0 | 0 | — | 11 | 1 |
 | civil-construction-1-guide-timing | application | ○ | 0 | 0 | — | 1 | 1 |
 | civil-construction-1-guide-white-company | application | ○ | 0 | 0 | — | 1 | 1 |
-| civil-construction-1-guide-women | career-path | ○ | 0 | 0 | — | 3 | 1 |
 | civil-construction-1-public-servant-merit | career-path | ○ | 0 | 0 | — | 7 | 0 |
 | civil-construction-2-guide-buildjob-review | service-choice | ○ | 0 | 0 | — | 1 | 1 |
 | civil-construction-2-guide-career | career-path | ○ | 0 | 0 | — | 10 | 1 |
@@ -242,7 +242,7 @@ afb: 未取得（fetch-afb-outcomes.mjs --commit が未実行、または fetch-
 | civil-construction-2-guide-job-reality | career-path | ○ | 0 | 0 | — | 1 | 1 |
 | civil-construction-2-guide-quit-or-stay | quit | ○ | 0 | 0 | — | 2 | 1 |
 | civil-construction-2-guide-resume | application | ○ | 0 | 0 | — | 2 | 1 |
-| pe-construction-guide-career | career-path | ○ | 0 | 0 | — | 2 | 1 |
+| pe-construction-guide-career | career-path | ○ | 0 | 0 | — | 3 | 1 |
 
 ## note 側キャリア記事
 

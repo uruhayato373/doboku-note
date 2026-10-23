@@ -1306,6 +1306,47 @@
         "/practice/construction-materials-overview",
         "/practice/coordinate-systems-geodetic-datum"
       ]
+    },
+    {
+      "runId": "2026-10-23T01-30-10Z",
+      "collectedAt": "2026-10-23T01:30:10.322Z",
+      "mode": "commit",
+      "status": "ok",
+      "filter": {
+        "category": null,
+        "group": null
+      },
+      "inspected": 13,
+      "accepted": 10,
+      "alreadyIndexed": 0,
+      "unreadable": 0,
+      "slugs": [
+        "/practice/development-permit-public-facilities",
+        "/practice/disaster-recovery-assessment",
+        "/practice/explaining-to-residents-and-council",
+        "/practice/generative-ai-adoption",
+        "/practice/how-to-read-laws-and-notices",
+        "/practice/image-photogrammetry-analysis",
+        "/practice/information-system-procurement",
+        "/practice/keishin-review-merger",
+        "/practice/land-acquisition-compensation",
+        "/practice/land-readjustment-project",
+        "/practice/landscape-planning-public-works",
+        "/practice/license-procedures",
+        "/practice/license-requirements"
+      ],
+      "acceptedSlugs": [
+        "/practice/disaster-recovery-assessment",
+        "/practice/generative-ai-adoption",
+        "/practice/how-to-read-laws-and-notices",
+        "/practice/image-photogrammetry-analysis",
+        "/practice/information-system-procurement",
+        "/practice/keishin-review-merger",
+        "/practice/land-readjustment-project",
+        "/practice/landscape-planning-public-works",
+        "/practice/license-procedures",
+        "/practice/license-requirements"
+      ]
     }
   ]
 }

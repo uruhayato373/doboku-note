@@ -1,13 +1,13 @@
 {
-  "checkedAt": "2026-10-16T00:08:45.508Z",
+  "checkedAt": "2026-10-23T00:28:39.154Z",
   "summary": {
-    "files": 1448,
-    "occurrences": 6443,
-    "uniqueUrls": 4411,
-    "ok": 4147,
-    "broken": 7,
-    "timeout": 2,
-    "errors": 255
+    "files": 1497,
+    "occurrences": 8428,
+    "uniqueUrls": 5484,
+    "ok": 5099,
+    "broken": 33,
+    "timeout": 1,
+    "errors": 351
   },
   "broken": [
     {
@@ -19,7 +19,7 @@
       "locations": [
         {
           "relativePath": "civil-construction-1/guide-public-servant-or-private/article.mdx",
-          "line": 66
+          "line": 67
         }
       ]
     },
@@ -54,6 +54,178 @@
       ]
     },
     {
+      "url": "https://www.nilim.go.jp/lab/fdg/kijyun/2003grouting.pdf",
+      "status": 404,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.nilim.go.jp/lab/fdg/kijyun/2003grouting.pdf",
+      "locations": [
+        {
+          "relativePath": "civil-construction-1/textbook-dam-construction/article.mdx",
+          "line": 211
+        }
+      ]
+    },
+    {
+      "url": "https://www.nilim.go.jp/lab/bcg/siryou/tnn/tnn0594.htm",
+      "status": 404,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.nilim.go.jp/lab/bcg/siryou/tnn/tnn0594.htm",
+      "locations": [
+        {
+          "relativePath": "civil-construction-1/textbook-water-air-soil-pollution/article.mdx",
+          "line": 271
+        }
+      ]
+    },
+    {
+      "url": "https://www.nilim.go.jp/lab/rdg/division/hazard/kouza.pdf",
+      "status": 404,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.nilim.go.jp/lab/rdg/division/hazard/kouza.pdf",
+      "locations": [
+        {
+          "relativePath": "civil-practice/earthquake-tsunami-site-response/article.mdx",
+          "line": 133
+        },
+        {
+          "relativePath": "civil-practice/seismic-design-levels/article.mdx",
+          "line": 32
+        }
+      ]
+    },
+    {
+      "url": "https://www.nilim.go.jp/lab/bbg/kouenkai/kouenkai2023/koen2023/pdf/siryo/PD1-1%20siryo.pdf",
+      "status": 404,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.nilim.go.jp/lab/bbg/kouenkai/kouenkai2023/koen2023/pdf/siryo/PD1-1%20siryo.pdf",
+      "locations": [
+        {
+          "relativePath": "civil-practice/earthquake-tsunami-site-response/article.mdx",
+          "line": 155
+        },
+        {
+          "relativePath": "civil-practice/earthquake-tsunami-site-response/article.mdx",
+          "line": 209
+        }
+      ]
+    },
+    {
+      "url": "https://www.nilim.go.jp/lab/rcg/newhp/yougo/words/096/html/096_main.html",
+      "status": 404,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.nilim.go.jp/lab/rcg/newhp/yougo/words/096/html/096_main.html",
+      "locations": [
+        {
+          "relativePath": "civil-practice/flood-season-river-work/article.mdx",
+          "line": 301
+        }
+      ]
+    },
+    {
+      "url": "https://www.nilim.go.jp/lab/rcg/newhp/yougo/words/006/html/006_main.html",
+      "status": 404,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.nilim.go.jp/lab/rcg/newhp/yougo/words/006/html/006_main.html",
+      "locations": [
+        {
+          "relativePath": "civil-practice/flood-season-river-work/article.mdx",
+          "line": 302
+        }
+      ]
+    },
+    {
+      "url": "https://www.nilim.go.jp/lab/rcg/newhp/yougo/words/028/html/028_main.html",
+      "status": 404,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.nilim.go.jp/lab/rcg/newhp/yougo/words/028/html/028_main.html",
+      "locations": [
+        {
+          "relativePath": "civil-practice/flood-season-river-work/article.mdx",
+          "line": 303
+        }
+      ]
+    },
+    {
+      "url": "https://www.nilim.go.jp/lab/bcg/siryou/2024report/ar2024hp023.pdf",
+      "status": 404,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.nilim.go.jp/lab/bcg/siryou/2024report/ar2024hp023.pdf",
+      "locations": [
+        {
+          "relativePath": "civil-practice/flood-season-river-work/article.mdx",
+          "line": 315
+        }
+      ]
+    },
+    {
+      "url": "https://www.nilim.go.jp/lab/bcg/siryou/tnn/tnn0403pdf/ks0403.pdf",
+      "status": 404,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.nilim.go.jp/lab/bcg/siryou/tnn/tnn0403pdf/ks0403.pdf",
+      "locations": [
+        {
+          "relativePath": "civil-practice/ict-construction-workflow/article.mdx",
+          "line": 173
+        },
+        {
+          "relativePath": "civil-practice/ict-construction-workflow/article.mdx",
+          "line": 322
+        }
+      ]
+    },
+    {
+      "url": "https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-145.pdf",
+      "status": 404,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-145.pdf",
+      "locations": [
+        {
+          "relativePath": "civil-practice/information-system-procurement/article.mdx",
+          "line": 149
+        }
+      ]
+    },
+    {
+      "url": "https://www.nilim.go.jp/lab/fbg/download/gijutsusiryo.pdf",
+      "status": 404,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.nilim.go.jp/lab/fbg/download/gijutsusiryo.pdf",
+      "locations": [
+        {
+          "relativePath": "civil-practice/levee-failure-reinforcement/article.mdx",
+          "line": 35
+        }
+      ]
+    },
+    {
+      "url": "https://www.nilim.go.jp/lab/bcg/siryou/tnn/tnn0829pdf/ks082906.pdf",
+      "status": 404,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.nilim.go.jp/lab/bcg/siryou/tnn/tnn0829pdf/ks082906.pdf",
+      "locations": [
+        {
+          "relativePath": "civil-practice/material-selection-receiving/article.mdx",
+          "line": 364
+        },
+        {
+          "relativePath": "civil-practice/polymer-construction-materials/article.mdx",
+          "line": 73
+        }
+      ]
+    },
+    {
       "url": "https://en.wikipedia.org/wiki/Trapezoidal_rule_(differential_equations",
       "status": 404,
       "ok": false,
@@ -62,7 +234,63 @@
       "locations": [
         {
           "relativePath": "civil-practice/numerical-model-review/article.mdx",
-          "line": 155
+          "line": 171
+        }
+      ]
+    },
+    {
+      "url": "https://www.nscm.nipponsteel.com/carbon/pdf/02_%E3%83%88%E3%82%A6%E3%82%B7%E3%83%BC%E3%83%88%E3%80%80%E7%A8%AE%E9%A1%9E%E3%81%A8%E6%80%A7%E8%83%BD.pdf",
+      "status": 404,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.nscm.nipponsteel.com/carbon/pdf/02_%E3%83%88%E3%82%A6%E3%82%B7%E3%83%BC%E3%83%88%E3%80%80%E7%A8%AE%E9%A1%9E%E3%81%A8%E6%80%A7%E8%83%BD.pdf",
+      "locations": [
+        {
+          "relativePath": "civil-practice/polymer-construction-materials/article.mdx",
+          "line": 75
+        }
+      ]
+    },
+    {
+      "url": "https://www.nilim.go.jp/lab/bcg/siryou/tnn/tnn0700.htm",
+      "status": 404,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.nilim.go.jp/lab/bcg/siryou/tnn/tnn0700.htm",
+      "locations": [
+        {
+          "relativePath": "civil-practice/seismic-design-levels/article.mdx",
+          "line": 110
+        },
+        {
+          "relativePath": "civil-practice/seismic-design-levels/article.mdx",
+          "line": 193
+        }
+      ]
+    },
+    {
+      "url": "https://www.nilim.go.jp/lab/bcg/siryou/tnn/tnn1108pdf/ks1108.pdf",
+      "status": 404,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.nilim.go.jp/lab/bcg/siryou/tnn/tnn1108pdf/ks1108.pdf",
+      "locations": [
+        {
+          "relativePath": "civil-practice/steel-material-properties/article.mdx",
+          "line": 442
+        }
+      ]
+    },
+    {
+      "url": "https://www.nilim.go.jp/lab/ubg/info/text/TrainingMaterials9_Ver1.pdf",
+      "status": 404,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.nilim.go.jp/lab/ubg/info/text/TrainingMaterials9_Ver1.pdf",
+      "locations": [
+        {
+          "relativePath": "civil-practice/steel-material-properties/article.mdx",
+          "line": 453
         }
       ]
     },
@@ -80,6 +308,19 @@
       ]
     },
     {
+      "url": "https://www.nilim.go.jp/lab/bcg/siryou/tnn/tnn0620pdf/ks062013.pdf",
+      "status": 404,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.nilim.go.jp/lab/bcg/siryou/tnn/tnn0620pdf/ks062013.pdf",
+      "locations": [
+        {
+          "relativePath": "concrete-diagnostician/textbook-assessment/article.mdx",
+          "line": 706
+        }
+      ]
+    },
+    {
       "url": "https://www.freee.co.jp/kb/kb-accounting/corporate-accounting-principles/",
       "status": 404,
       "ok": false,
@@ -89,6 +330,19 @@
         {
           "relativePath": "pe-comprehensive-management/accounting-principles/article.mdx",
           "line": 136
+        }
+      ]
+    },
+    {
+      "url": "https://knowledge-makers.com/fishbone-diagram/",
+      "status": 404,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://knowledge-makers.com/fishbone-diagram/",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/cause-and-effect-diagram/article.mdx",
+          "line": 89
         }
       ]
     },
@@ -104,35 +358,113 @@
           "line": 96
         }
       ]
+    },
+    {
+      "url": "https://www.nilim.go.jp/lab/hcg/htmldate/life-cycle-cost/index.html",
+      "status": 404,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.nilim.go.jp/lab/hcg/htmldate/life-cycle-cost/index.html",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/equipment-economics/article.mdx",
+          "line": 136
+        }
+      ]
+    },
+    {
+      "url": "https://www.juse.or.jp/src/mailnews/detail.php?im_id=118",
+      "status": 404,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.juse.or.jp/src/mailnews/detail.php?im_id=118",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/inspection-methods/article.mdx",
+          "line": 96
+        }
+      ]
+    },
+    {
+      "url": "https://www.shiruporuto.jp/public/document/container/yogo/k/kikai_hiyo.html",
+      "status": 404,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.shiruporuto.jp/public/document/container/yogo/k/kikai_hiyo.html",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/opportunity-cost/article.mdx",
+          "line": 87
+        }
+      ]
+    },
+    {
+      "url": "https://www.juse.or.jp/src/mailnews/detail.php?im_id=111",
+      "status": 404,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.juse.or.jp/src/mailnews/detail.php?im_id=111",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/pdpc-method/article.mdx",
+          "line": 104
+        }
+      ]
+    },
+    {
+      "url": "https://www.mhlw.go.jp/content/11900000/001701369.pdf",
+      "status": 404,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.mhlw.go.jp/content/11900000/001701369.pdf",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/power-harassment/article.mdx",
+          "line": 189
+        }
+      ]
+    },
+    {
+      "url": "https://www.nilim.go.jp/lab/pbg/theme/theme2/evms/evmstebiki/tebiki.pdf",
+      "status": 404,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.nilim.go.jp/lab/pbg/theme/theme2/evms/evmstebiki/tebiki.pdf",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/progress-management/article.mdx",
+          "line": 134
+        }
+      ]
+    },
+    {
+      "url": "https://www.nilim.go.jp/lab/bcg/siryou/tnn/tnn0184pdf/ks0184005.pdf",
+      "status": 404,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.nilim.go.jp/lab/bcg/siryou/tnn/tnn0184pdf/ks0184005.pdf",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/tacit-knowledge/article.mdx",
+          "line": 90
+        }
+      ]
+    },
+    {
+      "url": "https://www.nilim.go.jp/lab/bcg/siryou/tnn/tnn0814.htm",
+      "status": 404,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.nilim.go.jp/lab/bcg/siryou/tnn/tnn0814.htm",
+      "locations": [
+        {
+          "relativePath": "pe-construction/seismic-damage-lessons/article.mdx",
+          "line": 33
+        }
+      ]
     }
   ],
   "errors": [
-    {
-      "url": "https://web.archive.org/web/20240817001849/https://www.jctc.jp/kentei/info/datasheets20240815.pdf",
-      "status": 500,
-      "ok": false,
-      "redirected": false,
-      "finalUrl": "https://web.archive.org/web/20240817001849/https://www.jctc.jp/kentei/info/datasheets20240815.pdf",
-      "locations": [
-        {
-          "relativePath": "civil-construction-1/guide-difficulty/article.mdx",
-          "line": 72
-        }
-      ]
-    },
-    {
-      "url": "https://web.archive.org/web/20250916041437/https://www.jctc.jp/kentei/info/datasheets20250814.pdf",
-      "status": 500,
-      "ok": false,
-      "redirected": false,
-      "finalUrl": "https://web.archive.org/web/20250916041437/https://www.jctc.jp/kentei/info/datasheets20250814.pdf",
-      "locations": [
-        {
-          "relativePath": "civil-construction-1/guide-difficulty/article.mdx",
-          "line": 72
-        }
-      ]
-    },
     {
       "url": "https://www.usbr.gov/tsc/techreferences/mands/wmm/chap02_04.html",
       "status": 0,
@@ -141,7 +473,7 @@
       "locations": [
         {
           "relativePath": "civil-construction-1/guide-hydraulics-basics/article.mdx",
-          "line": 95
+          "line": 96
         }
       ]
     },
@@ -153,7 +485,7 @@
       "locations": [
         {
           "relativePath": "civil-construction-1/guide-hydraulics-basics/article.mdx",
-          "line": 141
+          "line": 142
         }
       ]
     },
@@ -166,7 +498,7 @@
       "locations": [
         {
           "relativePath": "civil-construction-1/guide-hydraulics-basics/article.mdx",
-          "line": 169
+          "line": 170
         }
       ]
     },
@@ -179,6 +511,72 @@
         {
           "relativePath": "civil-construction-1/secondary-concrete-basics/article.mdx",
           "line": 1046
+        }
+      ]
+    },
+    {
+      "url": "https://www.ejcm.or.jp/",
+      "status": 502,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.ejcm.or.jp/",
+      "locations": [
+        {
+          "relativePath": "civil-construction-1/secondary-concrete-basics/article.mdx",
+          "line": 1057
+        },
+        {
+          "relativePath": "civil-construction-1/secondary-earthwork-basics/article.mdx",
+          "line": 1256
+        },
+        {
+          "relativePath": "civil-construction-1/secondary-experience-writing-examples/article.mdx",
+          "line": 611
+        },
+        {
+          "relativePath": "civil-construction-1/secondary-experience-writing-guide/article.mdx",
+          "line": 795
+        },
+        {
+          "relativePath": "civil-construction-1/secondary-quality-management-basics/article.mdx",
+          "line": 506
+        },
+        {
+          "relativePath": "civil-construction-1/secondary-quality-management-past-problems/article.mdx",
+          "line": 644
+        },
+        {
+          "relativePath": "civil-construction-1/textbook-construction-mgmt-overview/article.mdx",
+          "line": 227
+        }
+      ]
+    },
+    {
+      "url": "https://www.zennama.or.jp/",
+      "status": 401,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.zennama.or.jp/",
+      "locations": [
+        {
+          "relativePath": "civil-construction-1/secondary-quality-management-basics/article.mdx",
+          "line": 508
+        },
+        {
+          "relativePath": "civil-construction-1/secondary-quality-management-past-problems/article.mdx",
+          "line": 645
+        }
+      ]
+    },
+    {
+      "url": "https://jrji.jp/pdf/certification/2024akyu_assetsu_kitei_2.pdf",
+      "status": 0,
+      "ok": false,
+      "error": "fetch failed",
+      "locations": [
+        {
+          "relativePath": "civil-construction-1/secondary-quality-management-basics/article.mdx",
+          "line": 511
         }
       ]
     },
@@ -394,22 +792,6 @@
       ]
     },
     {
-      "url": "https://www.cranenet.or.jp/",
-      "status": 0,
-      "ok": false,
-      "error": "fetch failed",
-      "locations": [
-        {
-          "relativePath": "civil-construction-1/textbook-crane/article.mdx",
-          "line": 235
-        },
-        {
-          "relativePath": "civil-construction-1/textbook-safety-machinery-crane/article.mdx",
-          "line": 385
-        }
-      ]
-    },
-    {
       "url": "https://www.kobelco-cranes.com/ja/products/crawler/",
       "status": 0,
       "ok": false,
@@ -494,7 +876,7 @@
       "locations": [
         {
           "relativePath": "civil-construction-1/textbook-explosives-act/article.mdx",
-          "line": 183
+          "line": 184
         }
       ]
     },
@@ -519,7 +901,7 @@
       "locations": [
         {
           "relativePath": "civil-construction-1/textbook-labor-standards/article.mdx",
-          "line": 311
+          "line": 313
         }
       ]
     },
@@ -627,6 +1009,18 @@
       ]
     },
     {
+      "url": "https://www.zenchiren.or.jp/",
+      "status": 0,
+      "ok": false,
+      "error": "fetch failed",
+      "locations": [
+        {
+          "relativePath": "civil-construction-1/textbook-soil-investigation-methods/article.mdx",
+          "line": 327
+        }
+      ]
+    },
+    {
       "url": "https://tokyosoil.co.jp/techreport/b-03.pdf",
       "status": 0,
       "ok": false,
@@ -635,6 +1029,18 @@
         {
           "relativePath": "civil-construction-1/textbook-soil-investigation-methods/article.mdx",
           "line": 338
+        }
+      ]
+    },
+    {
+      "url": "https://www.jisf.or.jp/business/tech/bridge/high/taiko.html",
+      "status": 0,
+      "ok": false,
+      "error": "fetch failed",
+      "locations": [
+        {
+          "relativePath": "civil-construction-1/textbook-steel-structures/article.mdx",
+          "line": 287
         }
       ]
     },
@@ -661,6 +1067,22 @@
           "line": 194
         },
         {
+          "relativePath": "civil-practice/coordinate-systems-geodetic-datum/article.mdx",
+          "line": 55
+        },
+        {
+          "relativePath": "civil-practice/coordinate-systems-geodetic-datum/article.mdx",
+          "line": 77
+        },
+        {
+          "relativePath": "civil-practice/coordinate-systems-geodetic-datum/article.mdx",
+          "line": 179
+        },
+        {
+          "relativePath": "civil-practice/coordinate-systems-geodetic-datum/article.mdx",
+          "line": 215
+        },
+        {
           "relativePath": "civil-practice/gnss-positioning-basics/article.mdx",
           "line": 31
         },
@@ -675,15 +1097,39 @@
       ]
     },
     {
-      "url": "https://www.meti.go.jp/shingikai/mono_info_service/ai_shakai_jisso/20260331_report.html",
-      "status": 403,
+      "url": "https://www.isuzu.co.jp/",
+      "status": 502,
       "ok": false,
       "redirected": false,
-      "finalUrl": "https://www.meti.go.jp/shingikai/mono_info_service/ai_shakai_jisso/20260331_report.html",
+      "finalUrl": "https://www.isuzu.co.jp/",
       "locations": [
         {
-          "relativePath": "civil-practice/ai-document-verification/article.mdx",
-          "line": 32
+          "relativePath": "civil-construction-1/textbook-transport-machinery/article.mdx",
+          "line": 382
+        }
+      ]
+    },
+    {
+      "url": "https://www.gsi.go.jp/common/000258734.pdf",
+      "status": 0,
+      "ok": false,
+      "error": "fetch failed",
+      "locations": [
+        {
+          "relativePath": "civil-practice/3d-measurement-selection/article.mdx",
+          "line": 36
+        },
+        {
+          "relativePath": "civil-practice/3d-measurement-selection/article.mdx",
+          "line": 42
+        },
+        {
+          "relativePath": "civil-practice/image-photogrammetry-analysis/article.mdx",
+          "line": 33
+        },
+        {
+          "relativePath": "civil-practice/municipal-gis/article.mdx",
+          "line": 122
         }
       ]
     },
@@ -693,6 +1139,10 @@
       "ok": false,
       "error": "fetch failed",
       "locations": [
+        {
+          "relativePath": "civil-practice/3d-measurement-selection/article.mdx",
+          "line": 211
+        },
         {
           "relativePath": "civil-practice/bim-cim-site-practice/article.mdx",
           "line": 83
@@ -711,7 +1161,105 @@
         },
         {
           "relativePath": "civil-practice/ict-construction-workflow/article.mdx",
-          "line": 100
+          "line": 102
+        },
+        {
+          "relativePath": "civil-practice/open-geospatial-data/article.mdx",
+          "line": 74
+        }
+      ]
+    },
+    {
+      "url": "https://www.gsi.go.jp/common/000255987.pdf",
+      "status": 0,
+      "ok": false,
+      "error": "fetch failed",
+      "locations": [
+        {
+          "relativePath": "civil-practice/3d-measurement-selection/article.mdx",
+          "line": 217
+        },
+        {
+          "relativePath": "civil-practice/image-photogrammetry-analysis/article.mdx",
+          "line": 194
+        }
+      ]
+    },
+    {
+      "url": "https://www.meti.go.jp/shingikai/mono_info_service/ai_shakai_jisso/20260331_report.html",
+      "status": 403,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.meti.go.jp/shingikai/mono_info_service/ai_shakai_jisso/20260331_report.html",
+      "locations": [
+        {
+          "relativePath": "civil-practice/ai-document-verification/article.mdx",
+          "line": 32
+        }
+      ]
+    },
+    {
+      "url": "https://www.kentem.jp/ict/bim-cim/",
+      "status": 503,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.kentem.jp/ict/bim-cim/",
+      "locations": [
+        {
+          "relativePath": "civil-practice/bim-cim-site-practice/article.mdx",
+          "line": 196
+        }
+      ]
+    },
+    {
+      "url": "https://www.jbaudit.go.jp/report/new/index.html",
+      "status": 502,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.jbaudit.go.jp/report/new/index.html",
+      "locations": [
+        {
+          "relativePath": "civil-practice/board-of-audit-inspection/article.mdx",
+          "line": 97
+        }
+      ]
+    },
+    {
+      "url": "https://www.ccus.jp/p/workflow",
+      "status": 503,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.ccus.jp/p/workflow",
+      "locations": [
+        {
+          "relativePath": "civil-practice/ccus-kentaikyo-site/article.mdx",
+          "line": 64
+        }
+      ]
+    },
+    {
+      "url": "https://www.ccus.jp/p/about",
+      "status": 503,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.ccus.jp/p/about",
+      "locations": [
+        {
+          "relativePath": "civil-practice/ccus-kentaikyo-site/article.mdx",
+          "line": 66
+        }
+      ]
+    },
+    {
+      "url": "https://www.jbaudit.go.jp/effort/operation/index.html",
+      "status": 502,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.jbaudit.go.jp/effort/operation/index.html",
+      "locations": [
+        {
+          "relativePath": "civil-practice/civil-engineer-annual-cycle/article.mdx",
+          "line": 195
         }
       ]
     },
@@ -735,11 +1283,11 @@
       "locations": [
         {
           "relativePath": "civil-practice/concrete-finishing-curing/article.mdx",
-          "line": 41
+          "line": 49
         },
         {
           "relativePath": "civil-practice/concrete-hydration-basics/article.mdx",
-          "line": 88
+          "line": 96
         }
       ]
     },
@@ -751,7 +1299,7 @@
       "locations": [
         {
           "relativePath": "civil-practice/concrete-hydration-basics/article.mdx",
-          "line": 90
+          "line": 98
         }
       ]
     },
@@ -763,7 +1311,7 @@
       "locations": [
         {
           "relativePath": "civil-practice/concrete-hydration-basics/article.mdx",
-          "line": 144
+          "line": 152
         }
       ]
     },
@@ -776,7 +1324,71 @@
       "locations": [
         {
           "relativePath": "civil-practice/construction-materials-overview/article.mdx",
-          "line": 207
+          "line": 215
+        }
+      ]
+    },
+    {
+      "url": "https://www.gsi.go.jp/sokuchikijun/tky2jgd.html",
+      "status": 0,
+      "ok": false,
+      "error": "fetch failed",
+      "locations": [
+        {
+          "relativePath": "civil-practice/coordinate-systems-geodetic-datum/article.mdx",
+          "line": 81
+        },
+        {
+          "relativePath": "civil-practice/coordinate-systems-geodetic-datum/article.mdx",
+          "line": 96
+        }
+      ]
+    },
+    {
+      "url": "https://www.gsi.go.jp/sokuchikijun/semidyna.html",
+      "status": 0,
+      "ok": false,
+      "error": "fetch failed",
+      "locations": [
+        {
+          "relativePath": "civil-practice/coordinate-systems-geodetic-datum/article.mdx",
+          "line": 104
+        }
+      ]
+    },
+    {
+      "url": "https://www.gsi.go.jp/sokuchikijun/sokuchikijun40037.html",
+      "status": 0,
+      "ok": false,
+      "error": "fetch failed",
+      "locations": [
+        {
+          "relativePath": "civil-practice/coordinate-systems-geodetic-datum/article.mdx",
+          "line": 130
+        }
+      ]
+    },
+    {
+      "url": "https://www.gsi.go.jp/shidou/data/seikakaiteimanual.pdf",
+      "status": 0,
+      "ok": false,
+      "error": "fetch failed",
+      "locations": [
+        {
+          "relativePath": "civil-practice/coordinate-systems-geodetic-datum/article.mdx",
+          "line": 140
+        }
+      ]
+    },
+    {
+      "url": "https://www.gsi.go.jp/LAW/heimencho.html",
+      "status": 0,
+      "ok": false,
+      "error": "fetch failed",
+      "locations": [
+        {
+          "relativePath": "civil-practice/coordinate-systems-geodetic-datum/article.mdx",
+          "line": 146
         }
       ]
     },
@@ -948,15 +1560,15 @@
       "locations": [
         {
           "relativePath": "civil-practice/gnss-positioning-basics/article.mdx",
-          "line": 139
+          "line": 147
         },
         {
           "relativePath": "civil-practice/ict-construction-workflow/article.mdx",
-          "line": 74
+          "line": 76
         },
         {
           "relativePath": "civil-practice/ict-construction-workflow/article.mdx",
-          "line": 301
+          "line": 319
         }
       ]
     },
@@ -968,11 +1580,11 @@
       "locations": [
         {
           "relativePath": "civil-practice/ict-construction-workflow/article.mdx",
-          "line": 98
+          "line": 100
         },
         {
           "relativePath": "civil-practice/ict-construction-workflow/article.mdx",
-          "line": 302
+          "line": 320
         }
       ]
     },
@@ -984,11 +1596,11 @@
       "locations": [
         {
           "relativePath": "civil-practice/ict-construction-workflow/article.mdx",
-          "line": 125
+          "line": 127
         },
         {
           "relativePath": "civil-practice/ict-construction-workflow/article.mdx",
-          "line": 303
+          "line": 321
         }
       ]
     },
@@ -1000,7 +1612,7 @@
       "locations": [
         {
           "relativePath": "civil-practice/municipal-engineer-qualifications/article.mdx",
-          "line": 162
+          "line": 170
         }
       ]
     },
@@ -1065,7 +1677,7 @@
       "locations": [
         {
           "relativePath": "civil-practice/numerical-model-review/article.mdx",
-          "line": 85
+          "line": 93
         }
       ]
     },
@@ -1078,7 +1690,32 @@
       "locations": [
         {
           "relativePath": "civil-practice/numerical-model-review/article.mdx",
-          "line": 191
+          "line": 207
+        }
+      ]
+    },
+    {
+      "url": "https://www.gsi.go.jp/LAW/2930-index.html",
+      "status": 0,
+      "ok": false,
+      "error": "fetch failed",
+      "locations": [
+        {
+          "relativePath": "civil-practice/open-geospatial-data/article.mdx",
+          "line": 182
+        }
+      ]
+    },
+    {
+      "url": "https://www.jpci.or.jp/publications/info/",
+      "status": 503,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.jpci.or.jp/publications/info/",
+      "locations": [
+        {
+          "relativePath": "civil-practice/polymer-construction-materials/article.mdx",
+          "line": 67
         }
       ]
     },
@@ -1090,7 +1727,7 @@
       "locations": [
         {
           "relativePath": "civil-practice/polymer-construction-materials/article.mdx",
-          "line": 61
+          "line": 69
         }
       ]
     },
@@ -1102,7 +1739,7 @@
       "locations": [
         {
           "relativePath": "civil-practice/polymer-construction-materials/article.mdx",
-          "line": 117
+          "line": 125
         }
       ]
     },
@@ -1115,6 +1752,10 @@
         {
           "relativePath": "civil-practice/reading-civil-drawings/article.mdx",
           "line": 31
+        },
+        {
+          "relativePath": "laws/survey-act/article.mdx",
+          "line": 93
         }
       ]
     },
@@ -1150,7 +1791,7 @@
       "locations": [
         {
           "relativePath": "civil-practice/special-concrete-selection/article.mdx",
-          "line": 153
+          "line": 161
         }
       ]
     },
@@ -1162,7 +1803,49 @@
       "locations": [
         {
           "relativePath": "civil-practice/special-concrete-selection/article.mdx",
-          "line": 224
+          "line": 240
+        }
+      ]
+    },
+    {
+      "url": "https://www.jisf.or.jp/info/book/documents/WeatheringSteel2.pdf",
+      "status": 0,
+      "ok": false,
+      "error": "fetch failed",
+      "locations": [
+        {
+          "relativePath": "civil-practice/steel-material-properties/article.mdx",
+          "line": 307
+        },
+        {
+          "relativePath": "civil-practice/steel-material-properties/article.mdx",
+          "line": 444
+        }
+      ]
+    },
+    {
+      "url": "http://www.douseisha.co.jp/book/b245317.html",
+      "status": 503,
+      "ok": false,
+      "redirected": true,
+      "finalUrl": "https://www.douseisha.co.jp/book/b245317.html",
+      "locations": [
+        {
+          "relativePath": "civil-practice/wood-and-stone-materials/article.mdx",
+          "line": 385
+        }
+      ]
+    },
+    {
+      "url": "https://www.isan-no-sekai.jp/feature/32_souron01",
+      "status": 503,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.isan-no-sekai.jp/feature/32_souron01",
+      "locations": [
+        {
+          "relativePath": "civil-practice/wood-and-stone-materials/article.mdx",
+          "line": 387
         }
       ]
     },
@@ -1175,7 +1858,7 @@
       "locations": [
         {
           "relativePath": "concrete-chief-engineer/guide-essay/article.mdx",
-          "line": 200
+          "line": 256
         }
       ]
     },
@@ -1187,7 +1870,7 @@
       "locations": [
         {
           "relativePath": "concrete-chief-engineer/guide-essay/article.mdx",
-          "line": 202
+          "line": 258
         },
         {
           "relativePath": "concrete-chief-engineer/guide-overview/article.mdx",
@@ -1203,7 +1886,7 @@
         },
         {
           "relativePath": "concrete-engineer/textbook-materials/article.mdx",
-          "line": 503
+          "line": 519
         }
       ]
     },
@@ -1311,11 +1994,11 @@
         },
         {
           "relativePath": "concrete-diagnostician/textbook-deterioration/article.mdx",
-          "line": 700
+          "line": 711
         },
         {
           "relativePath": "concrete-diagnostician/textbook-investigation/article.mdx",
-          "line": 1133
+          "line": 1140
         },
         {
           "relativePath": "concrete-diagnostician/textbook-maintenance/article.mdx",
@@ -1327,7 +2010,7 @@
         },
         {
           "relativePath": "concrete-diagnostician/textbook-variation/article.mdx",
-          "line": 623
+          "line": 641
         }
       ]
     },
@@ -1444,6 +2127,18 @@
       ]
     },
     {
+      "url": "https://www.jci-net.or.jp/j/concrete/technology/202511_article_1.html",
+      "status": 0,
+      "ok": false,
+      "error": "fetch failed",
+      "locations": [
+        {
+          "relativePath": "concrete-chief-engineer/textbook-production-qc/article.mdx",
+          "line": 109
+        }
+      ]
+    },
+    {
       "url": "https://jci-net.or.jp/j/publish/standard/jci_standard/JCI-S-011-2017_20200731.pdf",
       "status": 0,
       "ok": false,
@@ -1451,7 +2146,7 @@
       "locations": [
         {
           "relativePath": "concrete-chief-engineer/textbook-production-qc/article.mdx",
-          "line": 438
+          "line": 450
         }
       ]
     },
@@ -1463,7 +2158,7 @@
       "locations": [
         {
           "relativePath": "concrete-chief-engineer/textbook-production-qc/article.mdx",
-          "line": 440
+          "line": 452
         }
       ]
     },
@@ -1475,7 +2170,7 @@
       "locations": [
         {
           "relativePath": "concrete-chief-engineer/textbook-structural-design/article.mdx",
-          "line": 284
+          "line": 300
         }
       ]
     },
@@ -1551,7 +2246,7 @@
       "locations": [
         {
           "relativePath": "concrete-diagnostician/textbook-deterioration/article.mdx",
-          "line": 693
+          "line": 704
         },
         {
           "relativePath": "concrete-diagnostician/textbook-maintenance/article.mdx",
@@ -1567,7 +2262,7 @@
       "locations": [
         {
           "relativePath": "concrete-diagnostician/textbook-deterioration/article.mdx",
-          "line": 696
+          "line": 707
         }
       ]
     },
@@ -1579,7 +2274,7 @@
       "locations": [
         {
           "relativePath": "concrete-diagnostician/textbook-deterioration/article.mdx",
-          "line": 697
+          "line": 708
         }
       ]
     },
@@ -1591,7 +2286,7 @@
       "locations": [
         {
           "relativePath": "concrete-diagnostician/textbook-deterioration/article.mdx",
-          "line": 702
+          "line": 713
         }
       ]
     },
@@ -1603,7 +2298,7 @@
       "locations": [
         {
           "relativePath": "concrete-diagnostician/textbook-deterioration/article.mdx",
-          "line": 703
+          "line": 714
         }
       ]
     },
@@ -1615,7 +2310,7 @@
       "locations": [
         {
           "relativePath": "concrete-diagnostician/textbook-investigation/article.mdx",
-          "line": 621
+          "line": 622
         }
       ]
     },
@@ -1628,7 +2323,7 @@
       "locations": [
         {
           "relativePath": "concrete-diagnostician/textbook-investigation/article.mdx",
-          "line": 705
+          "line": 706
         }
       ]
     },
@@ -1640,7 +2335,7 @@
       "locations": [
         {
           "relativePath": "concrete-diagnostician/textbook-investigation/article.mdx",
-          "line": 1120
+          "line": 1127
         }
       ]
     },
@@ -1652,7 +2347,7 @@
       "locations": [
         {
           "relativePath": "concrete-diagnostician/textbook-investigation/article.mdx",
-          "line": 1121
+          "line": 1128
         }
       ]
     },
@@ -1664,7 +2359,7 @@
       "locations": [
         {
           "relativePath": "concrete-diagnostician/textbook-investigation/article.mdx",
-          "line": 1125
+          "line": 1132
         }
       ]
     },
@@ -1676,7 +2371,7 @@
       "locations": [
         {
           "relativePath": "concrete-diagnostician/textbook-investigation/article.mdx",
-          "line": 1126
+          "line": 1133
         }
       ]
     },
@@ -1688,7 +2383,7 @@
       "locations": [
         {
           "relativePath": "concrete-diagnostician/textbook-investigation/article.mdx",
-          "line": 1127
+          "line": 1134
         }
       ]
     },
@@ -1790,18 +2485,6 @@
       ]
     },
     {
-      "url": "https://www.bouhoken.com/info/info04/galvanic.html",
-      "status": 0,
-      "ok": false,
-      "error": "fetch failed",
-      "locations": [
-        {
-          "relativePath": "concrete-diagnostician/textbook-repair/article.mdx",
-          "line": 677
-        }
-      ]
-    },
-    {
       "url": "https://www.data.jci-net.or.jp/data_pdf/34/034-02-1093.pdf",
       "status": 0,
       "ok": false,
@@ -1809,7 +2492,7 @@
       "locations": [
         {
           "relativePath": "concrete-diagnostician/textbook-variation/article.mdx",
-          "line": 628
+          "line": 646
         }
       ]
     },
@@ -1882,7 +2565,133 @@
       "locations": [
         {
           "relativePath": "concrete-engineer/textbook-materials/article.mdx",
-          "line": 516
+          "line": 532
+        }
+      ]
+    },
+    {
+      "url": "http://hinkankaigi.jp/pdf/r8-kijun.pdf",
+      "status": 401,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "http://hinkankaigi.jp/pdf/r8-kijun.pdf",
+      "locations": [
+        {
+          "relativePath": "concrete-engineer/textbook-production-qc/article.mdx",
+          "line": 451
+        }
+      ]
+    },
+    {
+      "url": "http://www.hinkankaigi.jp/hinshitsu02.html",
+      "status": 401,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "http://www.hinkankaigi.jp/hinshitsu02.html",
+      "locations": [
+        {
+          "relativePath": "concrete-engineer/textbook-production-qc/article.mdx",
+          "line": 452
+        }
+      ]
+    },
+    {
+      "url": "https://www.zennama.or.jp/wp/wp-content/uploads/2024/03/9335b1efa3b549b11a87601c6aa49b2e.pdf",
+      "status": 401,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.zennama.or.jp/wp/wp-content/uploads/2024/03/9335b1efa3b549b11a87601c6aa49b2e.pdf",
+      "locations": [
+        {
+          "relativePath": "concrete-engineer/textbook-properties-testing/article.mdx",
+          "line": 399
+        }
+      ]
+    },
+    {
+      "url": "https://www.gsi.go.jp/KOUKYOU/koukyo0033.html",
+      "status": 0,
+      "ok": false,
+      "error": "fetch failed",
+      "locations": [
+        {
+          "relativePath": "laws/survey-act/article.mdx",
+          "line": 96
+        }
+      ]
+    },
+    {
+      "url": "https://www.gsi.go.jp/KOUKYOU/koukyo0039.html",
+      "status": 0,
+      "ok": false,
+      "error": "fetch failed",
+      "locations": [
+        {
+          "relativePath": "laws/survey-act/article.mdx",
+          "line": 104
+        }
+      ]
+    },
+    {
+      "url": "https://www.gsi.go.jp/sokuchikijun/hyoko2024rev-QA.html",
+      "status": 0,
+      "ok": false,
+      "error": "fetch failed",
+      "locations": [
+        {
+          "relativePath": "laws/survey-act/article.mdx",
+          "line": 110
+        }
+      ]
+    },
+    {
+      "url": "https://www.gsi.go.jp/shidou/data/tebiki.pdf",
+      "status": 0,
+      "ok": false,
+      "error": "fetch failed",
+      "locations": [
+        {
+          "relativePath": "laws/survey-act/article.mdx",
+          "line": 114
+        }
+      ]
+    },
+    {
+      "url": "https://www.recruit-ms.co.jp/glossary/dtl/0000000046/",
+      "status": 503,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.recruit-ms.co.jp/glossary/dtl/0000000046/",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/360-degree-evaluation/article.mdx",
+          "line": 97
+        }
+      ]
+    },
+    {
+      "url": "https://dx.ipa.go.jp/agile",
+      "status": 503,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://dx.ipa.go.jp/agile",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/agile/article.mdx",
+          "line": 163
+        }
+      ]
+    },
+    {
+      "url": "https://www.eic.or.jp/ecoterm/?act=view&ecoword=%E5%A4%A7%E6%B0%97%E6%B1%9A%E6%9F%93%E9%98%B2%E6%AD%A2%E6%B3%95",
+      "status": 503,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.eic.or.jp/ecoterm/?act=view&ecoword=%E5%A4%A7%E6%B0%97%E6%B1%9A%E6%9F%93%E9%98%B2%E6%AD%A2%E6%B3%95",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/air-pollution-control-act/article.mdx",
+          "line": 111
         }
       ]
     },
@@ -1913,6 +2722,36 @@
       ]
     },
     {
+      "url": "https://dx.ipa.go.jp/api",
+      "status": 503,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://dx.ipa.go.jp/api",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/api/article.mdx",
+          "line": 133
+        }
+      ]
+    },
+    {
+      "url": "https://www.recruit-ms.co.jp/glossary/dtl/0000000066/",
+      "status": 503,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.recruit-ms.co.jp/glossary/dtl/0000000066/",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/appraisal-three-principles/article.mdx",
+          "line": 93
+        },
+        {
+          "relativePath": "pe-comprehensive-management/attitude-appraisal/article.mdx",
+          "line": 85
+        }
+      ]
+    },
+    {
       "url": "https://www.gov-online.go.jp/article/201203/entry-9063.html",
       "status": 403,
       "ok": false,
@@ -1935,6 +2774,32 @@
         {
           "relativePath": "pe-comprehensive-management/bathtub-curve/article.mdx",
           "line": 111
+        }
+      ]
+    },
+    {
+      "url": "https://www.eic.or.jp/ecoterm/index.php?act=view&serial=3864",
+      "status": 503,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.eic.or.jp/ecoterm/index.php?act=view&serial=3864",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/behavioral-regulation/article.mdx",
+          "line": 97
+        }
+      ]
+    },
+    {
+      "url": "https://www.eic.or.jp/ecoterm/index.php?act=view&serial=2762",
+      "status": 503,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.eic.or.jp/ecoterm/index.php?act=view&serial=2762",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/behavioral-regulation/article.mdx",
+          "line": 98
         }
       ]
     },
@@ -1973,7 +2838,7 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/business-continuity-plan/article.mdx",
-          "line": 136
+          "line": 134
         }
       ]
     },
@@ -2021,6 +2886,32 @@
       ]
     },
     {
+      "url": "https://www.recruit-ms.co.jp/glossary/dtl/0000000218/",
+      "status": 503,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.recruit-ms.co.jp/glossary/dtl/0000000218/",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/career-path/article.mdx",
+          "line": 83
+        }
+      ]
+    },
+    {
+      "url": "https://biz.moneyforward.com/accounting/basic/120/",
+      "status": 403,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://biz.moneyforward.com/accounting/basic/120/",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/cash-flow-statement/article.mdx",
+          "line": 225
+        }
+      ]
+    },
+    {
       "url": "https://www.juse.jp/ishikawa/hayawakari/",
       "status": 403,
       "ok": false,
@@ -2042,7 +2933,7 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/chemical-substances-review-act/article.mdx",
-          "line": 30
+          "line": 31
         }
       ]
     },
@@ -2055,7 +2946,7 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/chemical-substances-review-act/article.mdx",
-          "line": 142
+          "line": 143
         }
       ]
     },
@@ -2069,6 +2960,23 @@
         {
           "relativePath": "pe-comprehensive-management/circular-economy/article.mdx",
           "line": 198
+        }
+      ]
+    },
+    {
+      "url": "https://www.jarc.or.jp/automobile/designated-corp/",
+      "status": 503,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.jarc.or.jp/automobile/designated-corp/",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/circular-society-basic-act/article.mdx",
+          "line": 220
+        },
+        {
+          "relativePath": "pe-comprehensive-management/circular-society-basic-act/article.mdx",
+          "line": 220
         }
       ]
     },
@@ -2149,6 +3057,19 @@
       ]
     },
     {
+      "url": "https://gooddo.jp/magazine/land_biodiversity/environmental_protection/7910/",
+      "status": 403,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://gooddo.jp/magazine/land_biodiversity/environmental_protection/7910/",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/consensus-instruments/article.mdx",
+          "line": 116
+        }
+      ]
+    },
+    {
       "url": "https://www.meti.go.jp/product_safety/",
       "status": 403,
       "ok": false,
@@ -2157,7 +3078,7 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/consumer-product-safety-act/article.mdx",
-          "line": 132
+          "line": 133
         },
         {
           "relativePath": "pe-comprehensive-management/product-safety/article.mdx",
@@ -2186,7 +3107,32 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/copyright/article.mdx",
-          "line": 167
+          "line": 168
+        }
+      ]
+    },
+    {
+      "url": "https://www.ipc.hokusei.ac.jp/~z00153/cost_accounting_standards.pdf",
+      "status": 0,
+      "ok": false,
+      "error": "fetch failed",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/cost-maintenance/article.mdx",
+          "line": 94
+        }
+      ]
+    },
+    {
+      "url": "https://dentsu-ho.com/articles/1776",
+      "status": 503,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://dentsu-ho.com/articles/1776",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/crisis-communication/article.mdx",
+          "line": 101
         }
       ]
     },
@@ -2247,6 +3193,19 @@
       ]
     },
     {
+      "url": "https://atomica.jaea.go.jp/dic/detail/dic_detail_402.html",
+      "status": 503,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://atomica.jaea.go.jp/dic/detail/dic_detail_402.html",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/defense-in-depth/article.mdx",
+          "line": 78
+        }
+      ]
+    },
+    {
       "url": "https://www.jsme.or.jp/jsme-medwiki/doku.php?id=17:1001623",
       "status": 403,
       "ok": false,
@@ -2260,6 +3219,19 @@
       ]
     },
     {
+      "url": "https://eic.or.jp/ecoterm/?act=view&ecoword=%E3%83%87%E3%83%9D%E3%82%B8%E3%83%83%E3%83%88%E5%88%B6%E5%BA%A6",
+      "status": 503,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://eic.or.jp/ecoterm/?act=view&ecoword=%E3%83%87%E3%83%9D%E3%82%B8%E3%83%83%E3%83%88%E5%88%B6%E5%BA%A6",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/deposit-system/article.mdx",
+          "line": 88
+        }
+      ]
+    },
+    {
       "url": "https://biz.moneyforward.com/accounting/basic/depreciation/",
       "status": 403,
       "ok": false,
@@ -2269,6 +3241,18 @@
         {
           "relativePath": "pe-comprehensive-management/depreciation/article.mdx",
           "line": 115
+        }
+      ]
+    },
+    {
+      "url": "https://koara.lib.keio.ac.jp/xoonips/modules/xoonips/detail.php?koara_id=KAKEN_19K01800seika",
+      "status": 0,
+      "ok": false,
+      "error": "fetch failed",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/design-in/article.mdx",
+          "line": 101
         }
       ]
     },
@@ -2299,6 +3283,19 @@
       ]
     },
     {
+      "url": "https://dx.ipa.go.jp/guidebook_design_thinking",
+      "status": 503,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://dx.ipa.go.jp/guidebook_design_thinking",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/design-thinking/article.mdx",
+          "line": 121
+        }
+      ]
+    },
+    {
       "url": "https://www.hropen.org/",
       "status": 0,
       "ok": false,
@@ -2319,6 +3316,19 @@
         {
           "relativePath": "pe-comprehensive-management/disclosure-request/article.mdx",
           "line": 110
+        }
+      ]
+    },
+    {
+      "url": "https://say-g.com/information-disclosure-law-4450",
+      "status": 500,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://say-g.com/information-disclosure-law-4450",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/disclosure-standards/article.mdx",
+          "line": 112
         }
       ]
     },
@@ -2401,6 +3411,32 @@
       ]
     },
     {
+      "url": "https://dx.ipa.go.jp/edge-computing",
+      "status": 503,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://dx.ipa.go.jp/edge-computing",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/edge-computing/article.mdx",
+          "line": 99
+        }
+      ]
+    },
+    {
+      "url": "https://www.eic.or.jp/ecoterm/?act=view&serial=4249",
+      "status": 503,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.eic.or.jp/ecoterm/?act=view&serial=4249",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/end-of-pipe/article.mdx",
+          "line": 102
+        }
+      ]
+    },
+    {
       "url": "https://www.enecho.meti.go.jp/about/special/johoteikyo/energykihonkeikaku2025_02.html",
       "status": 403,
       "ok": false,
@@ -2456,7 +3492,7 @@
         },
         {
           "relativePath": "pe-comprehensive-management/energy-conservation-act/article.mdx",
-          "line": 173
+          "line": 174
         },
         {
           "relativePath": "pe-comprehensive-management/whitepaper-study-map/article.mdx",
@@ -2491,6 +3527,23 @@
       ]
     },
     {
+      "url": "https://emira-t.jp/pedia/22442/",
+      "status": 503,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://emira-t.jp/pedia/22442/",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/energy/article.mdx",
+          "line": 195
+        },
+        {
+          "relativePath": "pe-comprehensive-management/s-plus-3e/article.mdx",
+          "line": 77
+        }
+      ]
+    },
+    {
       "url": "https://www.enecho.meti.go.jp/category/saving_and_new/saving/enterprise/overview/",
       "status": 403,
       "ok": false,
@@ -2499,15 +3552,15 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/energy-conservation-act/article.mdx",
-          "line": 35
+          "line": 36
         },
         {
           "relativePath": "pe-comprehensive-management/energy-conservation-act/article.mdx",
-          "line": 69
+          "line": 70
         },
         {
           "relativePath": "pe-comprehensive-management/energy-conservation-act/article.mdx",
-          "line": 172
+          "line": 173
         }
       ]
     },
@@ -2520,7 +3573,7 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/energy-conservation-act/article.mdx",
-          "line": 45
+          "line": 46
         }
       ]
     },
@@ -2598,6 +3651,58 @@
         {
           "relativePath": "pe-comprehensive-management/erp/article.mdx",
           "line": 99
+        }
+      ]
+    },
+    {
+      "url": "https://www.jspmi.or.jp/system/l_cont.php?ctid=130403&rid=829",
+      "status": 503,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.jspmi.or.jp/system/l_cont.php?ctid=130403&rid=829",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/fmea/article.mdx",
+          "line": 110
+        }
+      ]
+    },
+    {
+      "url": "https://spaceshipearth.jp/eco-drr/",
+      "status": 403,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://spaceshipearth.jp/eco-drr/",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/forests-villages-rivers-seas/article.mdx",
+          "line": 93
+        }
+      ]
+    },
+    {
+      "url": "https://www.eic.or.jp/ecoterm/?act=view&serial=2637",
+      "status": 503,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.eic.or.jp/ecoterm/?act=view&serial=2637",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/four-major-pollution-diseases/article.mdx",
+          "line": 151
+        }
+      ]
+    },
+    {
+      "url": "https://www.jspmi.or.jp/system/l_cont.php?ctid=130403&rid=831",
+      "status": 503,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.jspmi.or.jp/system/l_cont.php?ctid=130403&rid=831",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/fta/article.mdx",
+          "line": 176
         }
       ]
     },
@@ -2680,6 +3785,32 @@
       ]
     },
     {
+      "url": "https://biochemifa.kikkoman.co.jp/kit/atp/article/article_detail_233/",
+      "status": 503,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://biochemifa.kikkoman.co.jp/kit/atp/article/article_detail_233/",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/haccp/article.mdx",
+          "line": 87
+        }
+      ]
+    },
+    {
+      "url": "https://www.khk.or.jp/public_information/public_introduction/raguideline/raguideline_ver2.html",
+      "status": 503,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.khk.or.jp/public_information/public_introduction/raguideline/raguideline_ver2.html",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/hazid/article.mdx",
+          "line": 82
+        }
+      ]
+    },
+    {
       "url": "https://www.monodukuri.com/gihou/article/2792",
       "status": 403,
       "ok": false,
@@ -2714,7 +3845,50 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/high-pressure-gas-act/article.mdx",
-          "line": 106
+          "line": 107
+        }
+      ]
+    },
+    {
+      "url": "https://hcm-consortium.go.jp/topic",
+      "status": 503,
+      "ok": false,
+      "redirected": true,
+      "finalUrl": "https://hcm-consortium.or.jp/topic",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/hr-systems/article.mdx",
+          "line": 94
+        }
+      ]
+    },
+    {
+      "url": "https://www.jmam.co.jp/hrm/column/0082-jintekishihon19.html",
+      "status": 503,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.jmam.co.jp/hrm/column/0082-jintekishihon19.html",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/human-capital-disclosure/article.mdx",
+          "line": 129
+        }
+      ]
+    },
+    {
+      "url": "https://jopss.jaea.go.jp/search/servlet/search?2074355=",
+      "status": 503,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://jopss.jaea.go.jp/search/servlet/search?2074355=",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/human-error-probability/article.mdx",
+          "line": 158
+        },
+        {
+          "relativePath": "pe-comprehensive-management/therp/article.mdx",
+          "line": 90
         }
       ]
     },
@@ -2732,6 +3906,19 @@
         {
           "relativePath": "pe-comprehensive-management/vta-method/article.mdx",
           "line": 89
+        }
+      ]
+    },
+    {
+      "url": "https://www.recruit-ms.co.jp/glossary/dtl/0000000200/",
+      "status": 503,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.recruit-ms.co.jp/glossary/dtl/0000000200/",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/human-resource-assessment/article.mdx",
+          "line": 102
         }
       ]
     },
@@ -2800,6 +3987,19 @@
       ]
     },
     {
+      "url": "https://faq.inpit.go.jp/FAQ/2024/01/000045.html",
+      "status": 503,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://faq.inpit.go.jp/FAQ/2024/01/000045.html",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/international-filing-system/article.mdx",
+          "line": 137
+        }
+      ]
+    },
+    {
       "url": "https://www.jpo.go.jp/system/patent/gaiyo/seidogaiyo/chizai02.html",
       "status": 403,
       "ok": false,
@@ -2826,6 +4026,32 @@
         {
           "relativePath": "pe-comprehensive-management/ip-creation/article.mdx",
           "line": 86
+        }
+      ]
+    },
+    {
+      "url": "https://biz.moneyforward.com/contract/basic/2483/",
+      "status": 403,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://biz.moneyforward.com/contract/basic/2483/",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/ip-protection/article.mdx",
+          "line": 92
+        }
+      ]
+    },
+    {
+      "url": "https://www.recruit-ms.co.jp/glossary/dtl/0000000063/",
+      "status": 503,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.recruit-ms.co.jp/glossary/dtl/0000000063/",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/job-execution-ability/article.mdx",
+          "line": 81
         }
       ]
     },
@@ -2889,7 +4115,7 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/labor-policy-act/article.mdx",
-          "line": 126
+          "line": 127
         }
       ]
     },
@@ -2903,6 +4129,31 @@
         {
           "relativePath": "pe-comprehensive-management/lead-time/article.mdx",
           "line": 120
+        }
+      ]
+    },
+    {
+      "url": "https://www.eic.or.jp/ecoterm/?act=view&serial=2638",
+      "status": 503,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.eic.or.jp/ecoterm/?act=view&serial=2638",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/lifecycle-assessment/article.mdx",
+          "line": 101
+        }
+      ]
+    },
+    {
+      "url": "https://www.tetras.uitec.jeed.go.jp/files/kankoubutu/i-038-08.pdf",
+      "status": 0,
+      "ok": false,
+      "error": "fetch failed",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/load-capacity/article.mdx",
+          "line": 126
         }
       ]
     },
@@ -2946,19 +4197,6 @@
       ]
     },
     {
-      "url": "https://biz.moneyforward.com/accounting/basic/59288/",
-      "status": 403,
-      "ok": false,
-      "redirected": false,
-      "finalUrl": "https://biz.moneyforward.com/accounting/basic/59288/",
-      "locations": [
-        {
-          "relativePath": "pe-comprehensive-management/maintenance-cost/article.mdx",
-          "line": 93
-        }
-      ]
-    },
-    {
       "url": "https://www.jsme.or.jp/jsme-medwiki/19:1008250",
       "status": 403,
       "ok": false,
@@ -2972,6 +4210,45 @@
       ]
     },
     {
+      "url": "https://www.recruit-ms.co.jp/glossary/dtl/0000000196/",
+      "status": 503,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.recruit-ms.co.jp/glossary/dtl/0000000196/",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/meeting-design/article.mdx",
+          "line": 118
+        }
+      ]
+    },
+    {
+      "url": "https://www.recruit-ms.co.jp/glossary/dtl/0000000285/",
+      "status": 503,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.recruit-ms.co.jp/glossary/dtl/0000000285/",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/mentor/article.mdx",
+          "line": 106
+        }
+      ]
+    },
+    {
+      "url": "https://www.eic.or.jp/ecoterm/?act=view&ecoword=MA",
+      "status": 503,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.eic.or.jp/ecoterm/?act=view&ecoword=MA",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/millennium-ecosystem-assessment/article.mdx",
+          "line": 83
+        }
+      ]
+    },
+    {
       "url": "https://www.jsme.or.jp/jsme-medwiki/doku.php?id=01:1001629",
       "status": 403,
       "ok": false,
@@ -2981,6 +4258,57 @@
         {
           "relativePath": "pe-comprehensive-management/monte-carlo-simulation/article.mdx",
           "line": 103
+        }
+      ]
+    },
+    {
+      "url": "https://www.miyake.gr.jp/legalinfo/%E3%83%9E%E3%82%A4%E3%83%8A%E3%83%B3%E3%83%90%E3%83%BC%E6%B3%95%EF%BC%88%E7%95%AA%E5%8F%B7%E6%B3%95%EF%BC%89%E3%81%A8%E5%80%8B%E4%BA%BA%E6%83%85%E5%A0%B1%E4%BF%9D%E8%AD%B7%E6%B3%95%E3%81%AE%E6%AF%94/",
+      "status": 503,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.miyake.gr.jp/legalinfo/%E3%83%9E%E3%82%A4%E3%83%8A%E3%83%B3%E3%83%90%E3%83%BC%E6%B3%95%EF%BC%88%E7%95%AA%E5%8F%B7%E6%B3%95%EF%BC%89%E3%81%A8%E5%80%8B%E4%BA%BA%E6%83%85%E5%A0%B1%E4%BF%9D%E8%AD%B7%E6%B3%95%E3%81%AE%E6%AF%94/",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/my-number-act/article.mdx",
+          "line": 120
+        }
+      ]
+    },
+    {
+      "url": "https://idenshigen.jp/top/whatnagoya/",
+      "status": 503,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://idenshigen.jp/top/whatnagoya/",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/nagoya-protocol/article.mdx",
+          "line": 104
+        }
+      ]
+    },
+    {
+      "url": "https://www.khk.or.jp/public_information/incident_investigation/lpg_incident/natural_disaster_countermeasures.html",
+      "status": 503,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.khk.or.jp/public_information/incident_investigation/lpg_incident/natural_disaster_countermeasures.html",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/natech/article.mdx",
+          "line": 98
+        }
+      ]
+    },
+    {
+      "url": "https://ai-ken.co.jp/column/2432/",
+      "status": 0,
+      "ok": false,
+      "error": "fetch failed",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/nature-conservation-act/article.mdx",
+          "line": 107
         }
       ]
     },
@@ -3011,6 +4339,19 @@
       ]
     },
     {
+      "url": "https://www.recruit-ms.co.jp/research/journal/0000000055/",
+      "status": 503,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.recruit-ms.co.jp/research/journal/0000000055/",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/ojt-off-jt/article.mdx",
+          "line": 94
+        }
+      ]
+    },
+    {
       "url": "https://www.iso.org/iso-45001-occupational-health-and-safety.html",
       "status": 403,
       "ok": false,
@@ -3032,6 +4373,19 @@
       ]
     },
     {
+      "url": "https://www.eic.or.jp/ecoterm/?act=view&serial=2244",
+      "status": 503,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.eic.or.jp/ecoterm/?act=view&serial=2244",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/pdca-cycle/article.mdx",
+          "line": 103
+        }
+      ]
+    },
+    {
       "url": "https://www.monodukuri.com/gihou/article/1894",
       "status": 403,
       "ok": false,
@@ -3041,6 +4395,19 @@
         {
           "relativePath": "pe-comprehensive-management/pdpc-method/article.mdx",
           "line": 105
+        }
+      ]
+    },
+    {
+      "url": "https://atomica.jaea.go.jp/data/detail/dat_detail_06-01-01-31.html",
+      "status": 503,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://atomica.jaea.go.jp/data/detail/dat_detail_06-01-01-31.html",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/performance-shaping-factors/article.mdx",
+          "line": 98
         }
       ]
     },
@@ -3057,6 +4424,58 @@
       ]
     },
     {
+      "url": "https://eic.or.jp/ecoterm/?act=view&serial=302",
+      "status": 503,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://eic.or.jp/ecoterm/?act=view&serial=302",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/polluter-pays-principle/article.mdx",
+          "line": 95
+        }
+      ]
+    },
+    {
+      "url": "https://www.eic.or.jp/ecoterm/?act=view&serial=2453",
+      "status": 503,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.eic.or.jp/ecoterm/?act=view&serial=2453",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/pops-convention/article.mdx",
+          "line": 113
+        }
+      ]
+    },
+    {
+      "url": "https://biz.moneyforward.com/payroll/basic/72077/",
+      "status": 403,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://biz.moneyforward.com/payroll/basic/72077/",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/positive-action/article.mdx",
+          "line": 87
+        }
+      ]
+    },
+    {
+      "url": "https://atomica.jaea.go.jp/dic/detail/dic_detail_2377.html",
+      "status": 503,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://atomica.jaea.go.jp/dic/detail/dic_detail_2377.html",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/predictive-maintenance/article.mdx",
+          "line": 98
+        }
+      ]
+    },
+    {
       "url": "https://www.keyence.co.jp/ss/general/iot-glossary/predictive-maintenance.jsp",
       "status": 400,
       "ok": false,
@@ -3066,6 +4485,19 @@
         {
           "relativePath": "pe-comprehensive-management/predictive-maintenance/article.mdx",
           "line": 99
+        }
+      ]
+    },
+    {
+      "url": "https://www.eic.or.jp/ecoterm/?act=view&serial=2635",
+      "status": 503,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.eic.or.jp/ecoterm/?act=view&serial=2635",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/prevention-principle/article.mdx",
+          "line": 90
         }
       ]
     },
@@ -3096,6 +4528,19 @@
       ]
     },
     {
+      "url": "https://www.kensetu-bukka.or.jp/",
+      "status": 503,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.kensetu-bukka.or.jp/",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/process-planning-construction/article.mdx",
+          "line": 130
+        }
+      ]
+    },
+    {
       "url": "https://www.meti.go.jp/policy/chemical_management/kakanhou/index.html",
       "status": 403,
       "ok": false,
@@ -3104,7 +4549,7 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/prtr-act/article.mdx",
-          "line": 82
+          "line": 83
         }
       ]
     },
@@ -3118,6 +4563,26 @@
         {
           "relativePath": "pe-comprehensive-management/psychological-safety/article.mdx",
           "line": 123
+        }
+      ]
+    },
+    {
+      "url": "https://www.rccm-cpd.com/rccm/rccmtop.html",
+      "status": 0,
+      "ok": false,
+      "error": "fetch failed",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/public-engineer-qualification-map/article.mdx",
+          "line": 46
+        },
+        {
+          "relativePath": "rccm/guide-mondai3-themes-2026/article.mdx",
+          "line": 51
+        },
+        {
+          "relativePath": "rccm/guide-overview/article.mdx",
+          "line": 57
         }
       ]
     },
@@ -3186,6 +4651,19 @@
       ]
     },
     {
+      "url": "https://www.kumikomi.jp/functional_safety_standards/",
+      "status": 403,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.kumikomi.jp/functional_safety_standards/",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/redundancy-safety/article.mdx",
+          "line": 89
+        }
+      ]
+    },
+    {
       "url": "https://www.iges.or.jp/jp/topics/cities-rural-areas",
       "status": 403,
       "ok": false,
@@ -3219,7 +4697,7 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/renewable-energy-act/article.mdx",
-          "line": 83
+          "line": 84
         }
       ]
     },
@@ -3232,7 +4710,7 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/renewable-energy-act/article.mdx",
-          "line": 84
+          "line": 85
         }
       ]
     },
@@ -3326,6 +4804,19 @@
       ]
     },
     {
+      "url": "https://atomica.jaea.go.jp/dic/detail/dic_detail_2521.html",
+      "status": 503,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://atomica.jaea.go.jp/dic/detail/dic_detail_2521.html",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/safety-case/article.mdx",
+          "line": 76
+        }
+      ]
+    },
+    {
       "url": "https://www.foresight.jp/sharoushi/column/safety-health-management/",
       "status": 0,
       "ok": false,
@@ -3390,6 +4881,58 @@
       ]
     },
     {
+      "url": "https://spaceshipearth.jp/logo/",
+      "status": 403,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://spaceshipearth.jp/logo/",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/sdgs/article.mdx",
+          "line": 161
+        }
+      ]
+    },
+    {
+      "url": "https://www.jspmi.or.jp/system/l_cont.php?ctid=130403&rid=828",
+      "status": 503,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.jspmi.or.jp/system/l_cont.php?ctid=130403&rid=828",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/series-system/article.mdx",
+          "line": 107
+        }
+      ]
+    },
+    {
+      "url": "https://www.servantleader.jp/about",
+      "status": 401,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.servantleader.jp/about",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/servant-leadership/article.mdx",
+          "line": 113
+        }
+      ]
+    },
+    {
+      "url": "https://www.recruit-ms.co.jp/issue/column/0000000624/",
+      "status": 503,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.recruit-ms.co.jp/issue/column/0000000624/",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/sl-theory/article.mdx",
+          "line": 93
+        }
+      ]
+    },
+    {
       "url": "https://www.jstage.jst.go.jp/article/oukan/8/1/8_32/_article/-char/ja/",
       "status": 500,
       "ok": false,
@@ -3416,6 +4959,32 @@
       ]
     },
     {
+      "url": "https://www.eic.or.jp/library/pickup/232/",
+      "status": 503,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.eic.or.jp/library/pickup/232/",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/sound-water-cycle/article.mdx",
+          "line": 97
+        }
+      ]
+    },
+    {
+      "url": "https://www.eic.or.jp/ecoterm/?act=view&serial=4250",
+      "status": 503,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.eic.or.jp/ecoterm/?act=view&serial=4250",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/source-control-principle/article.mdx",
+          "line": 94
+        }
+      ]
+    },
+    {
       "url": "https://www.meti.go.jp/policy/economy/keiei_innovation/kigyoukaikei/csr_guide.pdf",
       "status": 403,
       "ok": false,
@@ -3433,6 +5002,58 @@
       ]
     },
     {
+      "url": "https://www.nichibenren.or.jp/activity/human/complicity_secret/secret/about.html",
+      "status": 503,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.nichibenren.or.jp/activity/human/complicity_secret/secret/about.html",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/state-secrets-act/article.mdx",
+          "line": 92
+        }
+      ]
+    },
+    {
+      "url": "https://www.chusho.meti.go.jp/keiei/torihiki/daikin.html",
+      "status": 403,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.chusho.meti.go.jp/keiei/torihiki/daikin.html",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/subcontracting-act/article.mdx",
+          "line": 139
+        }
+      ]
+    },
+    {
+      "url": "https://www.eic.or.jp/ecoterm/?act=view&serial=483",
+      "status": 503,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.eic.or.jp/ecoterm/?act=view&serial=483",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/surcharge/article.mdx",
+          "line": 97
+        }
+      ]
+    },
+    {
+      "url": "https://www.recruit-ms.co.jp/glossary/dtl/0000000214/",
+      "status": 503,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.recruit-ms.co.jp/glossary/dtl/0000000214/",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/teal-organization/article.mdx",
+          "line": 112
+        }
+      ]
+    },
+    {
       "url": "https://www.jpo.go.jp/system/patent/gaiyo/setsumei/patent_license.html",
       "status": 403,
       "ok": false,
@@ -3442,19 +5063,6 @@
         {
           "relativePath": "pe-comprehensive-management/technology-licensing/article.mdx",
           "line": 139
-        }
-      ]
-    },
-    {
-      "url": "https://biz.moneyforward.com/work-efficiency/basic/3788/",
-      "status": 403,
-      "ok": false,
-      "redirected": false,
-      "finalUrl": "https://biz.moneyforward.com/work-efficiency/basic/3788/",
-      "locations": [
-        {
-          "relativePath": "pe-comprehensive-management/three-c-analysis/article.mdx",
-          "line": 107
         }
       ]
     },
@@ -3498,6 +5106,30 @@
       ]
     },
     {
+      "url": "https://www.tetras.uitec.jeed.go.jp/noukai/giho/main.shtml",
+      "status": 0,
+      "ok": false,
+      "error": "fetch failed",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/training-techniques/article.mdx",
+          "line": 128
+        }
+      ]
+    },
+    {
+      "url": "https://www.tetras.uitec.jeed.go.jp/noukai/giho/34.shtml",
+      "status": 0,
+      "ok": false,
+      "error": "fetch failed",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/training-techniques/article.mdx",
+          "line": 129
+        }
+      ]
+    },
+    {
       "url": "https://www.meti.go.jp/policy/economy/chizai/chiteki/trade-secret.html",
       "status": 403,
       "ok": false,
@@ -3506,7 +5138,7 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/unfair-competition-prevention-act/article.mdx",
-          "line": 114
+          "line": 115
         }
       ]
     },
@@ -3519,7 +5151,7 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/unfair-competition-prevention-act/article.mdx",
-          "line": 115
+          "line": 116
         }
       ]
     },
@@ -3562,6 +5194,32 @@
         {
           "relativePath": "pe-comprehensive-management/virgin-bias/article.mdx",
           "line": 93
+        }
+      ]
+    },
+    {
+      "url": "https://jvndb.jvn.jp/",
+      "status": 503,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://jvndb.jvn.jp/",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/vulnerability/article.mdx",
+          "line": 107
+        }
+      ]
+    },
+    {
+      "url": "https://www.eic.or.jp/",
+      "status": 503,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.eic.or.jp/",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/water-pollution-control-act/article.mdx",
+          "line": 116
         }
       ]
     },
@@ -3631,6 +5289,19 @@
       ]
     },
     {
+      "url": "https://gooddo.jp/magazine/animal_protection/15648/",
+      "status": 403,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://gooddo.jp/magazine/animal_protection/15648/",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/wildlife-protection-act/article.mdx",
+          "line": 105
+        }
+      ]
+    },
+    {
       "url": "https://positive-ryouritsu.mhlw.go.jp/positivedb/",
       "status": 403,
       "ok": false,
@@ -3639,7 +5310,7 @@
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/women-empowerment-act/article.mdx",
-          "line": 96
+          "line": 97
         }
       ]
     },
@@ -3681,21 +5352,25 @@
           "line": 1130
         }
       ]
+    },
+    {
+      "url": "https://www.rccm-cpd.com/rccm/jukentebiki/juken-no-tebiki26.pdf",
+      "status": 0,
+      "ok": false,
+      "error": "fetch failed",
+      "locations": [
+        {
+          "relativePath": "rccm/guide-mondai1-keiken-ronbun/article.mdx",
+          "line": 37
+        },
+        {
+          "relativePath": "rccm/guide-overview/article.mdx",
+          "line": 102
+        }
+      ]
     }
   ],
   "timeout": [
-    {
-      "url": "https://koara.lib.keio.ac.jp/xoonips/modules/xoonips/detail.php?koara_id=KAKEN_19K01800seika",
-      "status": 0,
-      "ok": false,
-      "error": "TIMEOUT",
-      "locations": [
-        {
-          "relativePath": "pe-comprehensive-management/design-in/article.mdx",
-          "line": 101
-        }
-      ]
-    },
     {
       "url": "https://www.jisha.or.jp/order/article/10_construction.html",
       "status": 0,

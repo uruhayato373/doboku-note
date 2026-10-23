@@ -20,7 +20,7 @@ import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import test from 'node:test';
 import {
-  auditMagazine, computeExpected, findMissing, inclusionSources, listNoteArticles, parseSoT,
+  auditMagazine, computeExpected, stagedRelevance, findMissing, inclusionSources, listNoteArticles, parseSoT,
   readArticleMeta, snapshotFreshness,
 } from '../scripts/check-magazine-membership.mjs';
 import { REPO_ROOT as ROOT } from '../scripts/lib/repository-paths.mjs';
@@ -122,6 +122,15 @@ test('SoT とライブが同値で古びていても repo 実数が割る（2者
   const r = auditMagazine({ id: 'x', labels: ['L'], repoCount: 11, extra: null, entry: sot(9), liveCount: 9 });
   assert.equal(r.ok, false);
   assert.equal(r.kind, 'both-drift');
+});
+
+test('staleLive はライブとの照合にだけ足し、SoT の本数には足さない（DN-0527）', () => {
+  const ok = auditMagazine({ id: 'x', labels: ['L'], repoCount: 24, extra: null, entry: sot(24), liveCount: 40, staleLive: 16 });
+  assert.equal(ok.ok, true);
+  const noStale = auditMagazine({ id: 'x', labels: ['L'], repoCount: 24, extra: null, entry: sot(24), liveCount: 40 });
+  assert.equal(noStale.kind, 'live-drift');
+  const removed = auditMagazine({ id: 'x', labels: ['L'], repoCount: 24, extra: null, entry: sot(24), liveCount: 24, staleLive: 16 });
+  assert.equal(removed.kind, 'live-drift', '旧版を外したのに staleLive を残すと落ちる＝消し忘れを止める');
 });
 
 test('extras は期待値へ加算される（dir 外からの収録）', () => {
@@ -258,4 +267,11 @@ test('現物の config: 選抜同梱（本数指定）には partialReason が�
       assert.ok(!/marugoto|complete/.test(id), `packs.${id} はまるごと/完全系なのに選抜同梱 ${partial.map(([k]) => k).join(', ')} を持つ`);
     }
   }
+});
+
+test('snapshot を commit に含めるときは --staged でもライブ軸を見る（2026-10-23）', () => {
+  const snap = 'data/note/magazines.json';
+  assert.deepEqual(stagedRelevance([snap], snap), { relevant: true, snapshot: true });
+  assert.deepEqual(stagedRelevance(['content/note/x/article.md'], snap), { relevant: true, snapshot: false });
+  assert.deepEqual(stagedRelevance(['src/app/page.tsx'], snap), { relevant: false, snapshot: false });
 });
