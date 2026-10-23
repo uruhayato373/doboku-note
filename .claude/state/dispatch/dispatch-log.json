@@ -5555,6 +5555,23 @@
       "commit": "558066951ad4",
       "verification": "check-note-attachments --live --only で 72 本充足・取得失敗 0",
       "note": "全 52 spec を作り直して販売中と比べ意図しない欠落・導線混入 0（PR #1196）。要差し替え 17・推奨 53 を reattach（ok=70）し live で添付実在 70/70、R08 予想 1・2 は PDF を作って添付し live 確認（PR #1201）"
+    },
+    {
+      "id": "DN-0527",
+      "at": "2026-10-23",
+      "task": "note マガジンに入っている「原稿と結び付かない記事」31 本を確かめ、原稿の記事へ差し替える",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "check-magazine-membership"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "d85b7d24fbaf",
+      "verification": "check-products 原稿と結び付かない収録 0・check-magazine-membership ズレ 0・note API で旧版 31 本 404／今の版 31 本 200",
+      "note": "旧版 31 本（1級 14・道路 16・総監 1）を 5 マガジンから外し（PR #1202・API で前後の収録数を確認）、運営者の指示で note から削除した（API 404×31・今の版 200×31）。1級 想定工事索引の単品リンク 14 本を今の版へ差し替えて note へ反映"
     }
   ]
 }
