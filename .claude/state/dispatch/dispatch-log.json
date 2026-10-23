@@ -5538,6 +5538,23 @@
       "commit": "93afc0c610f4",
       "verification": "npm run test（tests/note-sync-save.test.mjs 5 件を含む）",
       "note": "PR #1195: account ゲートをクリエイター名が出るまで最大 8 回読み直す形にし、週次の syncMagazines は exit 2 を 1 回だけ再試行し 2 回続いたときだけ止める（runAccountGated）。テストで exit 2→再試行→成功と 2 連続で停止を確認"
+    },
+    {
+      "id": "DN-0518",
+      "at": "2026-10-23",
+      "task": "note 配布PDFの spec（scripts/pdf-specs・pdf-spec.json）を記事の現行構成に合わせ、作り直すと中身が欠ける・導線が混入する状態を直す",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "check-note-attachments"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "558066951ad4",
+      "verification": "check-note-attachments --live --only で 72 本充足・取得失敗 0",
+      "note": "全 52 spec を作り直して販売中と比べ意図しない欠落・導線混入 0（PR #1196）。要差し替え 17・推奨 53 を reattach（ok=70）し live で添付実在 70/70、R08 予想 1・2 は PDF を作って添付し live 確認（PR #1201）"
     }
   ]
 }
