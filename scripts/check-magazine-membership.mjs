@@ -229,17 +229,28 @@ export function inclusionSources(id, pack, labelMap) {
   return [...new Set([...fromAll, ...viaLabels])];
 }
 
+/**
+ * staged の中身から、この検査を回すか（relevant）と、ライブ snapshot 自体を commit に含めるか（snapshot）を返す。
+ * snapshot を含める commit は中身が今のライブなので、--staged でも軸 C を見る（2026-10-23 に収録の記録だけを
+ * 直 push して develop の CI を赤くした。軸 C を見ない pre-commit は素通りしていた）。
+ */
+export function stagedRelevance(paths, snapshotRel) {
+  const snapshot = paths.includes(snapshotRel);
+  const relevant = snapshot || paths.some((p) =>
+    p.startsWith('content/note/')
+    || p.includes('src/lib/note-magazines.ts')
+    || p === datasetPath('config.note-magazine-membership'));
+  return { relevant, snapshot };
+}
+
 function relevantStaged() {
   let changed = '';
   try {
     changed = execFileSync('git', ['-c', 'core.quotepath=false', 'diff', '--cached', '--name-only', '--diff-filter=ACMRD'], {
       cwd: ROOT, encoding: 'utf8', maxBuffer: 256 * 1024 * 1024,
     });
-  } catch { return true; } // git が読めないなら判断せず検査する
-  return changed.split('\n').some((p) =>
-    p.startsWith('content/note/')
-    || p.includes('src/lib/note-magazines.ts')
-    || p === datasetPath('config.note-magazine-membership'));
+  } catch { return { relevant: true, snapshot: false }; } // git が読めないなら判断せず検査する
+  return stagedRelevance(changed.split('\n'), datasetPath('note.magazines'));
 }
 
 function fail(msg) { console.error(`✗ 検査不成立: ${msg}`); exitWith(2); }
@@ -253,7 +264,8 @@ function main(argv = process.argv.slice(2)) {
   const ci = argv.includes('--ci');
   const staged = argv.includes('--staged');
   const say = jsonOut ? console.error : console.log;
-  if (staged && !relevantStaged()) exitWith(0);
+  const stagedInfo = staged ? relevantStaged() : null;
+  if (staged && !stagedInfo.relevant) exitWith(0);
 
   // --- config ---
   let config;
@@ -308,7 +320,7 @@ function main(argv = process.argv.slice(2)) {
   let liveNotes = null; // key → notes[]（軸 D 用）
   let freshness = { ok: false, reason: 'snapshot が無い', ageDays: null };
   let fetchedAt = null;
-  if (staged) {
+  if (staged && !stagedInfo.snapshot) {
     freshness = { ok: false, reason: '--staged では軸 C を見ない（CI 停止でローカル commit を塞がないため）', ageDays: null };
   } else if (existsSync(SNAPSHOT_PATH)) {
     try {
