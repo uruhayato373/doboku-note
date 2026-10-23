@@ -136,15 +136,17 @@ export function snapshotFreshness(fetchedAt, now, staleDays = STALE_DAYS) {
 /**
  * 1 マガジンを判定する（純関数・テストから使う）。
  * @param liveCount ライブ収録数。軸 C を見ないときは null。
+ * @param staleLive 旧版を外す判断待ちでライブにだけ残る本数（config の staleLive）。
+ *   購入者が受け取る本数（SoT の price）には足さず、ライブとの照合にだけ足す。
  */
-export function auditMagazine({ id, labels, repoCount, extra, entry, liveCount }) {
+export function auditMagazine({ id, labels, repoCount, extra, entry, liveCount, staleLive = 0 }) {
   const expected = repoCount + (extra?.count ?? 0);
   const base = { id, labels, repoCount, extra: extra?.count ?? 0, expected, title: entry?.title ?? '' };
   if (!entry) return { ...base, ok: false, kind: 'no-sot', detail: 'note-magazines.ts に id が無い' };
 
   const declared = entry.declared?.n ?? null;
   const sotBad = declared != null && declared !== expected;
-  const liveBad = liveCount != null && liveCount !== expected;
+  const liveBad = liveCount != null && liveCount !== expected + staleLive;
 
   // 軸 B も軸 C も無い＝このマガジンは何とも照合できていない。
   //
@@ -281,6 +283,13 @@ function main(argv = process.argv.slice(2)) {
   for (const [label, id] of Object.entries(labelMap)) {
     if (!sot[id]) fail(`config の labels["${label}"] が指す id "${id}" が note-magazines.ts に無い`);
   }
+  // 旧版を外す判断待ちの重複（DN 番号つき）。外したら消す。期待数（SoT）には足さない。
+  const staleLive = config.staleLive ?? {};
+  for (const [id, st] of Object.entries(staleLive)) {
+    if (!sot[id]) fail(`config の staleLive["${id}"] が note-magazines.ts に無い`);
+    if (!Number.isInteger(st.count) || st.count < 1) fail(`config の staleLive["${id}"].count が 1 以上の整数でない`);
+    if (!/DN-\d{4}/.test(st.reason ?? '')) fail(`config の staleLive["${id}"].reason に外す判断を追う DN 番号が無い`);
+  }
   for (const [id, ex] of Object.entries(extras)) {
     if (!sot[id]) fail(`config の extras["${id}"] が note-magazines.ts に無い`);
     if (!ex.reason || ex.reason.length < 6) fail(`config の extras["${id}"] に理由が無い`);
@@ -356,7 +365,7 @@ function main(argv = process.argv.slice(2)) {
     const liveCount = live && entry?.key ? (live.get(entry.key) ?? null) : null;
     return auditMagazine({
       id, labels: idToLabels.get(id) ?? [], repoCount: expectedById.get(id).repoCount,
-      extra: extras[id], entry, liveCount,
+      extra: extras[id], entry, liveCount, staleLive: staleLive[id]?.count ?? 0,
     });
   }).sort((a, b) => a.id.localeCompare(b.id));
   const bad = rows.filter((r) => !r.ok);
@@ -410,7 +419,7 @@ function main(argv = process.argv.slice(2)) {
   say(`  軸C(ライブ): ${freshness.ok ? `snapshot ${freshness.ageDays} 日前（fetchedAt ${fetchedAt}）` : `**未検査** — ${freshness.reason}`}`);
   for (const r of rows) {
     say(`  ${r.ok ? '✓' : '✗'} ${r.id.padEnd(46)} 期待 ${String(r.expected).padStart(3)}`
-      + `（repo ${r.repoCount}${r.extra ? ` +${r.extra}` : ''}）  SoT ${r.declared ?? '-'}  ライブ ${r.liveCount ?? '-'}`);
+      + `（repo ${r.repoCount}${r.extra ? ` +${r.extra}` : ''}${staleLive[r.id] ? `・旧版 ${staleLive[r.id].count} 本はライブだけ` : ''}）  SoT ${r.declared ?? '-'}  ライブ ${r.liveCount ?? '-'}`);
   }
   const descWarns = rows.filter((r) => r.descWarn);
   for (const r of descWarns) say(`  ! ${r.id}: ${r.descWarn}（非ゲート）`);

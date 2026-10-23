@@ -418,6 +418,7 @@ export const ConfigNoteMagazineMembership = z
     packs: docKey.catchall(magazinePack).describe('複数ラベルを束ねる商品（キーはマガジン id）'),
     excluded: docKey.catchall(z.object({ reason: text }).strict()).describe('マガジンに対応しないことが正しいラベル（キーはラベル）'),
     extras: z.record(text, z.object({ count: z.number().int().min(0), reason: text }).strict()).describe('ラベル外から収録する本数の例外（キーはマガジン id）'),
+    staleLive: z.record(text, z.object({ count: z.number().int().min(1), reason: text }).strict()).optional().describe('旧版を外す判断待ちでライブにだけ残る本数（キーはマガジン id・reason に DN 番号）。正本の本数には足さない'),
   })
   .strict()
   .meta({ title: 'マガジン収録の期待値' });

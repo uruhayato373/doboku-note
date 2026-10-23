@@ -124,6 +124,15 @@ test('SoT とライブが同値で古びていても repo 実数が割る（2者
   assert.equal(r.kind, 'both-drift');
 });
 
+test('staleLive はライブとの照合にだけ足し、SoT の本数には足さない（DN-0527）', () => {
+  const ok = auditMagazine({ id: 'x', labels: ['L'], repoCount: 24, extra: null, entry: sot(24), liveCount: 40, staleLive: 16 });
+  assert.equal(ok.ok, true);
+  const noStale = auditMagazine({ id: 'x', labels: ['L'], repoCount: 24, extra: null, entry: sot(24), liveCount: 40 });
+  assert.equal(noStale.kind, 'live-drift');
+  const removed = auditMagazine({ id: 'x', labels: ['L'], repoCount: 24, extra: null, entry: sot(24), liveCount: 24, staleLive: 16 });
+  assert.equal(removed.kind, 'live-drift', '旧版を外したのに staleLive を残すと落ちる＝消し忘れを止める');
+});
+
 test('extras は期待値へ加算される（dir 外からの収録）', () => {
   const r = auditMagazine({
     id: 'x', labels: ['L'], repoCount: 11,
