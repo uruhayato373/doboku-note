@@ -173,3 +173,36 @@ test('負債台帳: pending へ1件だけ積み、同じ noteId は重複させ�
     assert.deepEqual(j.pending[0].dropped, ['a.pdf']);
   } finally { rmSync(root, { recursive: true, force: true }); }
 });
+
+// ---------------------------------------------------------------------------
+// DN-0518: noteId が frontmatter に無くても noteUrl から引く。約束ありで PDF 無しは「未添付」に数える。
+// ---------------------------------------------------------------------------
+import { articleNoteId, classifyAttachmentTargets } from '../scripts/lib/note-attachments.mjs';
+
+test('articleNoteId: noteId が無ければ noteUrl の /n/<key> から引く', () => {
+  assert.equal(articleNoteId('---\nnoteUrl: "https://note.com/dobokunote/n/n30d34b67a8c5"\n---\n'), 'n30d34b67a8c5');
+  assert.equal(articleNoteId('---\nnoteId: "nAAA"\nnoteUrl: "https://note.com/x/n/nBBB"\n---\n'), 'nAAA');
+  assert.equal(articleNoteId('---\ntitle: 下書き\n---\n'), '');
+});
+
+test('noteId 欠落（noteUrl のみ）で PDF を約束した記事も対応表に載る', () => {
+  const root = mkdtempSync(join(tmpdir(), 'na-url-'));
+  try {
+    const dir = join(root, 'content/note/mag/kiji');
+    mkdirSync(dir, { recursive: true });
+    writeFileSync(join(dir, 'article.md'), '---\nnoteUrl: "https://note.com/dobokunote/n/n30d34b67a8c5"\n---\n\n# 題\n\n印刷用 PDF 付き\n');
+    const map = expectationsByNoteId({ root });
+    assert.equal(map.has('n30d34b67a8c5'), true);
+    assert.equal(map.get('n30d34b67a8c5').promises, true);
+    assert.equal(map.get('n30d34b67a8c5').expected.length, 0);
+  } finally { rmSync(root, { recursive: true, force: true }); }
+});
+
+test('対象の振り分け: 約束あり・PDF 実体なし・allowlist 外だけ promisedNoPdf（PDF ありは need）', () => {
+  const t = (noteId, promises, expected, allow = null) => ({ noteId, promises, expected, allow });
+  const r = classifyAttachmentTargets([
+    t('a', true, []), t('b', true, ['x.pdf']), t('c', false, []), t('d', true, [], { reason: 'ok' }),
+  ]);
+  assert.deepEqual(r.promisedNoPdf.map((x) => x.noteId), ['a']);
+  assert.deepEqual(r.need.map((x) => x.noteId), ['b']);
+});
