@@ -144,9 +144,10 @@ export function resolveKnownSaleEntry(rawTitle, sales = []) {
  * @param {{title: string, date: string}} raw
  * @param {Array} magazines catalogMagazines（scripts/lib/sales-mapping.mjs）が返すカタログの配列
  * @param {number} unknownIndex 同日内の unknown 連番（0 始まり）
+ * @param {Map<string, string>} [bankIndex] 想定工事バンクの題名（正規化）→ productId（scripts/lib/note-bank-articles.mjs の bankArticleIndex）
  * @returns {{type: 'magazine'|'article', productId: string, resolved: boolean}}
  */
-export function resolveSaleEntry(raw, magazines, unknownIndex = 0) {
+export function resolveSaleEntry(raw, magazines, unknownIndex = 0, bankIndex = null) {
   // メンバーシップ会費（販売履歴では「メンバーシップ・<プラン名>」・価格は「1,480円 / 月」）。
   // productId は sales-tracking.md の `membership:<プラン>`。既知プランだけ解決し、未知は unknown へ。
   const membership = resolveMembershipId(raw?.title);
@@ -154,6 +155,9 @@ export function resolveSaleEntry(raw, magazines, unknownIndex = 0) {
   // カタログに無い単品（手当表）。曖昧な部分一致のマガジン照合より先に、確認済みの規則で当てる
   const single = resolveSingleArticleId(raw?.title);
   if (single) return { type: 'article', productId: canonicalizeProductId(single), resolved: true };
+  // 想定工事バンクの単品（初めて売れた記事も原稿の題名とディレクトリの規則で当てる・DN-0817）
+  const bank = bankIndex?.get(String(raw?.title || '').replace(/^(?:記事購入|マガジン|メンバーシップ)[・･]/, '').normalize('NFKC').replace(/\s+/g, ' ').trim());
+  if (bank) return { type: 'article', productId: bank, resolved: true };
   const magazineId = resolveMagazineId(raw?.title, magazines);
   if (magazineId) {
     // カタログの単品記事（noteUrl が /n/・loadMagazines が single:true を付ける）は article:<id>

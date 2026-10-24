@@ -205,3 +205,15 @@ test('reconcileTotal は不一致を検出する（不一致なら書き込ま�
   assert.equal(r.ok, false);
   assert.equal(r.diff, -780);
 });
+
+// 想定工事バンクの単品は、初めて売れた記事も原稿の題名とディレクトリの規則で当てる（2026-10-22 の書き戻し全体の失敗・DN-0817）
+test('resolveSaleEntry: 想定工事バンクの初売れを unknown にしない・索引に無ければ従来どおり unknown', async () => {
+  const { bankArticleIndex, bankProductId } = await import('../scripts/lib/note-bank-articles.mjs');
+  assert.equal(bankProductId('工事08-補強土壁テールアルメ', 'article:civil-2-koji-bank-'), 'article:civil-2-koji-bank-08');
+  assert.equal(bankProductId('00-想定工事索引', 'article:civil-2-koji-bank-'), null);
+  const index = bankArticleIndex();
+  const hit = resolveSaleEntry({ title: '記事購入・2級土木 施工経験記述｜小口径推進工法 5管理フルカバー完成答案', date: '2026-10-21' }, [], 0, index);
+  assert.deepEqual(hit, { type: 'article', productId: 'article:civil-2-koji-bank-65', resolved: true });
+  const miss = resolveSaleEntry({ title: '索引に無い記事', date: '2026-10-21' }, [], 0, index);
+  assert.equal(miss.productId, 'article:unknown-20261021-0');
+});

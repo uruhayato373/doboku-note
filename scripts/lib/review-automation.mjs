@@ -37,7 +37,11 @@ export function readWeeklyDraft(root, runKey = null) {
   };
 }
 
-/** ログの末尾から最後の実行（start と ok / FAILED / 何もしない）を拾う（純関数） */
+/**
+ * ログの末尾から最後の実行（start と 完了 / FAILED / 再生成しない）を拾う（純関数）。
+ * 完了は `evidence complete`（2026-10-10 以前は `ok`）、再生成しない回も完了の行が付く。
+ * 土曜の収集の失敗（`[weekly-collect] FAILED`）はレビューの結果と分けて collectFailed に出す（DN-0817）。
+ */
 export function lastLaunchdRun(logText) {
   const lines = String(logText).split(/\r?\n/);
   let start = -1;
@@ -45,17 +49,18 @@ export function lastLaunchdRun(logText) {
   if (start < 0) return null;
   const at = /^=== (\S+)/.exec(lines[start])?.[1] ?? null;
   const tail = lines.slice(start + 1);
-  const ok = tail.find((l) => /\[weekly-review\] ok/.test(l));
+  const ok = tail.find((l) => /\[weekly-review\] (ok|evidence complete)/.test(l));
   const failed = tail.find((l) => /\[weekly-review\] FAILED/.test(l));
-  const skipped = tail.find((l) => /既にある。何もしない/.test(l));
-  const result = failed ? 'failed' : ok ? 'ok' : skipped ? 'skipped' : 'running';
-  return { at, result, line: (failed ?? ok ?? skipped ?? lines[start]).replace(/^=== |===$/g, '').trim() };
+  const skipped = tail.find((l) => /既にある。何もしない|全成果物を確認。再生成しない/.test(l));
+  const collectFailed = tail.some((l) => /\[weekly-collect\] FAILED/.test(l));
+  const result = failed ? 'failed' : skipped ? 'skipped' : ok ? 'ok' : 'running';
+  return { at, result, collectFailed, line: (failed ?? skipped ?? ok ?? lines[start]).replace(/^=== |===$/g, '').trim() };
 }
 
 /**
  * 土曜の自動実行（launchd）の登録状況と最後の実行。macOS 以外は null
  * @param {string} root
- * @returns {{ installed: boolean, last: { at: string | null, result: 'ok' | 'failed' | 'skipped' | 'running', line: string } | null } | null}
+ * @returns {{ installed: boolean, last: { at: string | null, result: 'ok' | 'failed' | 'skipped' | 'running', collectFailed: boolean, line: string } | null } | null}
  */
 export function weeklyLaunchd(root) {
   if (process.platform !== 'darwin') return null;

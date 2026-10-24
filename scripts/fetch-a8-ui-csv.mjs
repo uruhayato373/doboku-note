@@ -46,7 +46,7 @@ import {
   makeRunId,
 } from "./lib/a8-report-browser.mjs";
 import { decodeCsvBuffer, parsePeriodFromFilename, periodQueryFor } from "./lib/a8-report-csv.mjs";
-import { classifyRun } from "./lib/report-honesty.mjs";
+import { advancesLastRun, classifyRun } from "./lib/report-honesty.mjs";
 import { parseCsv } from "./lib/google-console-csv.mjs";
 
 const STATE_DIR = datasetDir("a8.ui-raw");
@@ -556,7 +556,9 @@ async function main() {
   }
 
   finalize(manifest, runDir);
-  if (!opts.dryRun) writeLastRunMarker(manifest);
+  // 1 件も取れなかった回はマーカーの日時を進めない（期限の点検を偽の緑にしない・DN-0828）
+  if (!opts.dryRun && advancesLastRun(manifest.units)) writeLastRunMarker(manifest);
+  else if (!opts.dryRun) console.log("⚠ 1 件も取れなかったので ui-last-run は進めない（check-a8-report-due が期限で拾う）");
   const ok = manifest.units.filter((u) => u.status === "downloaded").length;
   console.log(`\n完了: status=${manifest.status} / download 成功 ${ok}/${manifest.units.length}`);
   if (manifest.error) console.log(`⚠ 途中で止まった: ${manifest.error}`);
