@@ -1807,7 +1807,7 @@ Windows の PowerShell で repo 直下から順に:
 **やること**: 各ページの画像を見て、本文があれば文字起こしを足して `record-reference-book-artifacts` で complete にする。図だけ・白紙・扉などで文字起こしが要らないページは、推測で complete にせず、理由が台帳に残る形（文字起こし不要の状態と理由）を決めて記録する。
 **完了条件**: `npm run reference-book-status` で 4 冊の文字起こしが n/n（または理由つきの不要だけが残る）になり、`npm run check-reference-book-pages` が通る。
 **閉じるときの注意**: 4 冊は参考文献の台帳（reference-sources.json）の `bookBundle.ocrPending` に `{ "backlogId": "DN-0716" }` と書いてある（PR #1048）。残りを 0 にしてから外す。残りがあるままこのカードを閉じると、check-reference-book-pages が「追うカードが backlog に無い」で CI を止める。
-
+**2026-10-24 経過**: 機械 OCR（`pdf-to-mdx` 経路D の補完モード・PR #1211）で 4 冊の 54 頁中 52 頁を `machine-part-01.md` として登録し、civil1 の 2 冊とキーワード本は残り 0（`ocrPending` を外した）。残りは `pe-cem-textbook` の p0001・p0053 の 2 頁だけ。どちらも露出オーバーで文字が飛んだ写真で、機械 OCR では読めない。撮り直してから `book_ocr_prep.py --only p0001,p0053` → `book_ocr_machine.py --pages p0001,p0053 --supplement` で補う（Claude が画像から書き写して埋めない）。
 
 ### [DN-0209] 総監R8記述式を公式問題と照合し、再現版の注記・図・解答方針を確定する
 タグ: [コンテンツ品質] [領域:サイト] [時期:2027-04..2027-06] [種類:不具合] [起票:2026-09-13]

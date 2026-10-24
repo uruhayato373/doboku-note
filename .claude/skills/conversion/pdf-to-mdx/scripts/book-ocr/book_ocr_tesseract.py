@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 """第二読（無料・ローカル）: Tesseract jpn で各ページを読み .tmp/ocr/<sid>/tess/<id>.txt へ。
-Sonnet の視覚OCRとは独立に読み、両者の不一致で「見直すページ」を絞るための材料。
-Tesseract 自体は誤読が多いので、この出力を本文には使わない。
+今は旧経路の章ファイルをページへ割り当てる book_ocr_align_legacy.py の材料（以前は視覚 OCR との突合に使った。2026-10-24 廃止）。
+Tesseract 自体は誤読が多いので、この出力を本文には使わない。本文の機械 OCR は book_ocr_machine.py。
 
 使い方: python3 book_ocr_tesseract.py --book <sourceId> [--jobs 8] [--width 1400] [--psm 3] [--force]
-既定 psm 3（自動分割・横書き）。縦書きの本は --lang jpn_vert --psm 5 --subdir tess_vert を追加で回す（横書きの表も混ざるので置き換えでなく追加。compare がページごとに良い方を採る）。compare の本文一致率中央値が 0.6 台に沈み Tesseract 出力で左右の段が混ざっていたら psm の問題（--force で読み直す）
+既定 psm 3（自動分割・横書き）。縦書きの本は --lang jpn_vert --psm 5 --subdir tess_vert を追加で回す（横書きの表も混ざるので置き換えでなく追加）。左右の段が混ざっていたら psm の問題（--force で読み直す）
 """
 import argparse, json, os, subprocess, sys
 from concurrent.futures import ProcessPoolExecutor

@@ -137,7 +137,7 @@ Drive 側は `マイドライブ/doboku-note/` を単一ルートとして管理
 読み直してから台帳へ載せる。検査は `npm run check-reference-book-pages -- --deep`。
 回転・除外範囲・UI cropを変えて既存ページを作り直すときだけ `--commit --replace-derived` を使う。
 既存 `pages/` は冊子単位で退避され、全件成功後にだけ置換し、失敗時は元へ戻る。
-校正済み OCR は同じ書籍の `ocr/`、監査済み crop は `crops/` へ置く。
+機械 OCR の文字起こし（`pdf-to-mdx` 経路D の `book_ocr_machine.py`。Claude はページ画像から本文を書き写さない・2026-10-24）は同じ書籍の `ocr/`、監査済み crop は `crops/` へ置く。
 一方または両方を `npm run record-reference-book-artifacts` で登録すると、ページ別 status・bbox・監査結果・hash まで
 `book-manifest.json` に残る。生成器の再実行でも、元ページ hash が同じ成果物の status と来歴は保持する。
 

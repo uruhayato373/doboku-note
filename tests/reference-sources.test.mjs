@@ -12,12 +12,16 @@
  */
 import { strict as assert } from 'node:assert';
 import test from 'node:test';
+import { existsSync, readdirSync, readFileSync } from 'node:fs';
+import { join } from 'node:path';
+import { REPO_ROOT } from '../scripts/lib/repository-paths.mjs';
 import {
   loadReferenceSources, buildSourceIndex, expandCatalogSources, resolveSourceRef, splitSourceRef,
   classRuleOf, globToRegExp, sourcesRequiringArticle, normalizeForCompare, buildTranscriptIndex,
   findVerbatimRuns, parseTranscriptHeader, loadStandardsCatalog, evaluateMissingSourcesRatchet,
   checkCitationEvidence, transcriptDirsForSource, VERBATIM_RULES, CITATION_RULES, VERBATIM_MIN_RUN,
   officialQuestionText, officialNamesOf, maskOfficialNames, excludeOfficialRuns, NAME_MASK,
+  claudeTranscriptionIssue, loadReferenceBaseline,
 } from '../scripts/lib/reference-sources.mjs';
 
 const CFG = loadReferenceSources();
@@ -314,4 +318,35 @@ test('bookBundle: 新旧の文字起こしディレクトリを段階移行中�
     'content/sources/textbook/新しい時代の安全管理のすべて_第7版',
     'content/sources/books/safety-management-all-7th__新しい時代の安全管理のすべて_第7版/ocr',
   ]);
+});
+
+test('claudeTranscriptionIssue: 視覚 OCR は廃止前の一覧と同じ中身だけ通し、機械 OCR は常に通す（2026-10-24）', () => {
+  const sha = 'a'.repeat(64);
+  const legacy = { 'content/sources/books/x__本/ocr/part-01.md': sha };
+  const old = { repoPath: 'content/sources/books/x__本/ocr/part-01.md', method: 'visual-ocr(sonnet,6p/batch)+tesseract-crosscheck+targeted-proofread', sha256: sha };
+  assert.equal(claudeTranscriptionIssue(old, legacy), null, '廃止前の一覧と同じ中身は残せる');
+  assert.match(claudeTranscriptionIssue({ ...old, sha256: 'b'.repeat(64) }, legacy), /中身が変わった/, '既存の視覚 OCR を書き換えたら止める');
+  assert.match(claudeTranscriptionIssue({ ...old, repoPath: 'content/sources/books/y__本/ocr/part-01.md' }, legacy), /一覧（legacyVisualOcrTranscripts）に無い/, '新しい本の視覚 OCR は止める');
+  for (const method of ['visual-ocr', 'legacy-visual-ocr(chapter files, page-aligned by tesseract)', 'visual-ocr-pilot+visual-proofread', 'VISUAL-OCR']) {
+    assert.ok(claudeTranscriptionIssue({ ...old, repoPath: 'new.md', method }, legacy), `${method} は視覚 OCR`);
+  }
+  for (const method of ['machine-ocr(indra-ocr 1.1.2)', 'machine-ocr(ndlocr-lite@d001dad2)', 'pdf-text-layer', 'tesseract', '', undefined]) {
+    assert.equal(claudeTranscriptionIssue({ ...old, repoPath: 'new.md', method }, legacy), null, `${method} は機械の方式`);
+  }
+  assert.ok(claudeTranscriptionIssue(old, undefined), '一覧を読めないときは既存分も通さない（黙って緑にしない）');
+});
+
+test('legacyVisualOcrTranscripts: 一覧は sha256 つきで、book-manifest の視覚 OCR はすべて一覧と同じ中身', () => {
+  const legacy = loadReferenceBaseline().legacyVisualOcrTranscripts;
+  assert.ok(Object.keys(legacy).length > 0, '一覧が空だと既存分が全部止まる（読めていない）');
+  let checked = 0;
+  for (const dir of readdirSync(join(REPO_ROOT, 'content/sources/books'))) {
+    const file = join(REPO_ROOT, 'content/sources/books', dir, 'book-manifest.json');
+    if (!existsSync(file)) continue;
+    for (const artifact of JSON.parse(readFileSync(file, 'utf8')).ocrArtifacts || []) {
+      checked += 1;
+      assert.equal(claudeTranscriptionIssue(artifact, legacy), null, artifact.repoPath);
+    }
+  }
+  assert.ok(checked > 0, 'book-manifest の文字起こしを 1 件も検査していない');
 });

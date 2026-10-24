@@ -403,7 +403,7 @@
       "vaultDir": "原資料PDF",
       "keyFrom": "reference-transcript",
       "regenerable": false,
-      "generator": "pdf-to-mdx --scanned（scanned-textbook-transcriber が視覚 OCR で書き起こす）",
+      "generator": "pdf-to-mdx --scanned（経路D の機械 OCR・book_ocr_machine.py。2026-10-24 より前の分は Claude の視覚 OCR）",
       "requiredBy": [
         "scripts/check-reference-sources.mjs"
       ],
