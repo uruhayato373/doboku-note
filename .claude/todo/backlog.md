@@ -38,17 +38,16 @@
 **完了条件**: 2 週続けて土曜の回が全段 rc=0 で終わり、集めた記録が develop に入り、その週のレビューがそれを読んでいる。
 
 
-### [DN-0818] （DN-0817 段0）Mac の週次レビュー・ココナラ取得・note 同期の失敗 3 件を直す（空き容量の予約・起動の重なり・Drive の読み取りエラー）
+### [DN-0818] （DN-0817 段0）Mac の週次レビューとココナラ取得の失敗を直す（空き容量の予約・起動の重なり）
 タグ: [インフラ・計測] [領域:管理] [時期:2026-10] [種類:不具合] [起票:2026-10-24] [進行中]
 
-**起点**: DN-0817 の段 0。2026-10-18〜10-24 に Mac の launchd 4 本が失敗した。auth-session-refresh は DN-0816、note-sync のマガジンカバーの Drive 保存は DN-0763 が持つ。このカードは残りの 3 件を持つ（ログ: `~/Library/Logs/doboku-note/<名前>.log`）。
+**起点**: DN-0817 の段 0。2026-10-18〜10-24 に Mac の launchd 4 本が失敗した。auth-session-refresh は DN-0816、note-sync のマガジンカバーの Drive 保存は DN-0763 が持つ。note-sync の 10/11 の配布 PDF の取り寄せ失敗（Unknown system error -11）は、10/15 に DN-0567（PR #1082）で取り寄せの中の再試行が入り済みで、10/18 の週次では取り寄せの失敗 0 件（このカードの対象外）。ログ: `~/Library/Logs/doboku-note/<名前>.log`。
 
-**やること**:
-1. **weekly-review（10/24 09:30・Issue #1206）**: `asset-hydrate --group kindle-dist` が「Insufficient free disk for restore」で止まった。復元は 0 MiB（137 件すべて手元にある）なのに、空きが `config/local-resources.json` の `minFreeDiskGiB: 20` を下回ったので止まった（`scripts/asset-hydrate.mjs:100`。調査時点の空きは 21.5GiB）。(a) 復元が 0 件のときは空きの検査で止めない（回帰テスト付き）、(b) `npm run check-disk-hygiene` で空きを戻す、の 2 つ。10/17 の rc=143（途中で止められた）も原因を確かめる
-2. **coconala-local（10/20 10:45）**: 起動の見張り（`scripts/lib/playwright-launch.mjs`）が「同じプロファイル群の Chrome が稼働中（google）」「空きメモリ 1195MB < 1200MB」で起動を見送った。10:30 開始の gsc-local が 10:53 まで動いていて重なった。段 1 でつなげて順に回せば重ならないので、それまでは開始時刻をずらす（gsc-local の終わりより後）
-3. **note-sync（10/11 03:00）**: 配布 PDF の Drive からの取り寄せが「Unknown system error -11」（読み取りの一時エラー）で 19 記事失敗した。DN-0763 の保存段の再試行と同じ形で、取り寄せにも再試行を入れる
+**残り**:
+1. **weekly-review（10/24 09:30・Issue #1206）**: 復元 0 件なら空きの予約で止めない修正は PR（ブランチ `fix/dn-0818-mac-routines`）。空き自体は 2026-10-24 時点で 19.1GB と予約 20GiB を割っていて、復元が要る週や `local-resource-run` の重い作業は止まる。自動で消せる候補はほぼ無い（`check-disk-hygiene`）。大きいのは `.tmp/media` 5.2GB（うち 4.69GB・2,179 件は Drive で 3 者照合済み＝`npm run media -- pull` で戻せる）と、日付つきの作業フォルダ 14 個 1.9GB。消すかどうかを運営者が決める。10/17 の rc=143 は外からの SIGTERM（スクリプトに時間制限は無く、1 分後に手で再実行して 14:40 に完了）で、止めた主は記録に無い
+2. **coconala-local（10/20）**: gsc-local（毎日 10:30・最長 23 分）と重なって起動を見送った。毎週火曜 05:15（04:17 の disk-hygiene の後）へ移し、この Mac の launchd は登録し直し済み。次の火曜（10/27）の結果を見る
 
-**完了条件**: 次の土曜の weekly-review と、次の火曜の coconala-local と日曜の note-sync が rc=0 で終わり、ログに上の 3 つのエラーが無い。
+**完了条件**: 次の土曜の weekly-review と次の火曜の coconala-local が rc=0 で終わり、ログに「Insufficient free disk」と「起動を見送り」が無い。
 
 
 ### [DN-0817] ログインが要る読む処理と書く処理を土曜の Mac の 1 本にまとめ、ほかのセッションは記録を読んで進める（移行計画）
@@ -64,7 +63,7 @@
 - 土曜に全部つなげた所要時間はログから 3〜5 時間の見込み
 
 **段（この順に進める。各段のカードに完了条件）**:
-0. 失敗中の Mac の処理を直す（DN-0816・DN-0763・DN-0818）
+0. 失敗中の Mac の処理を直す（DN-0816・DN-0763・DN-0818。note-sync の配布 PDF の取り寄せは DN-0567 で修正済み）
 1. 土曜のチェーンを作る（ログイン確認 → 読む収集 → note 同期 → GSC の登録リクエストと月次 CSV → 週次レビュー、落ちた回のやり直し）（DN-0819）
 2. 鮮度の基準を週次に合わせる（DN-0820）
 3. Mac の個別の launchd・worktree・Windows のタスクを止める（DN-0821）
