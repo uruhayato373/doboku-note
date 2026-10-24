@@ -1,0 +1,144 @@
+{
+  "cadence": "monthly",
+  "runKey": "2026-09",
+  "ranAt": "2026-10-24T01:53:42.866Z",
+  "checks": [
+    {
+      "command": "check-workflow-health",
+      "label": "重要 workflow の健全性",
+      "exitCode": 0,
+      "state": "ok",
+      "summary": "[check-workflow-health] ✓ 重要 workflow はすべて健全",
+      "seconds": 23
+    },
+    {
+      "command": "check-business-direction",
+      "label": "事業方針の設定と履歴",
+      "exitCode": 0,
+      "state": "ok",
+      "summary": "[business-direction] PASS: 4資格 / 24指標 / 162履歴。計測 48/82（対象外 38）",
+      "seconds": 1
+    },
+    {
+      "command": "check-backlog-health",
+      "label": "バックログの健全性",
+      "exitCode": 0,
+      "state": "ok",
+      "summary": "[check-backlog-health] カード 195 件を実検査（判定はしない・候補の列挙のみ）",
+      "seconds": 62
+    },
+    {
+      "command": "check-exam-calendar",
+      "label": "試験日程の整合",
+      "exitCode": 0,
+      "state": "ok",
+      "summary": "[check-exam-calendar] OK: 2026-09-26確認済み — 資格 14 件 / 日付 70 件を実照合・未発表の期間 16 件を検査、1011 ファイルを走査（禁止パターン 8 種）",
+      "seconds": 1
+    },
+    {
+      "command": "check-past-exam-inventory",
+      "label": "過去問の年度在庫",
+      "exitCode": 0,
+      "state": "ok",
+      "summary": "[check-past-exam-inventory] OK（WARN 0 件）",
+      "seconds": 1
+    },
+    {
+      "command": "check-r2-orphans",
+      "label": "R2 公開バケットの孤児",
+      "exitCode": 0,
+      "state": "ok",
+      "summary": "[check-r2-orphans] doboku-note: 10746 件を実検査（List 11 回）/ 残す理由あり 10746 / 削除リストに載り未削除 0 / 孤児 0 / 孤児だが参照あり 0",
+      "seconds": 8
+    }
+  ],
+  "issues": [
+    {
+      "number": 571,
+      "title": "[auto] ops: 投稿・配信・販売計測に遅れがあります",
+      "createdAt": "2026-09-22T01:08:28Z",
+      "labels": [
+        "automation-failure"
+      ]
+    },
+    {
+      "number": 864,
+      "title": "[auto] note-sync: note の反映残り（rc=1）",
+      "createdAt": "2026-10-05T03:10:38Z",
+      "labels": [
+        "automation-failure"
+      ]
+    },
+    {
+      "number": 1006,
+      "title": "[auto] note-live-audit: note のライブ監査で異常があります",
+      "createdAt": "2026-10-12T02:32:25Z",
+      "labels": [
+        "automation-failure"
+      ]
+    },
+    {
+      "number": 1087,
+      "title": "[auto] auth-state-kdp: login collector kdp: expired / rc=0 / type=0",
+      "createdAt": "2026-10-16T00:07:21Z",
+      "labels": [
+        "automation-failure"
+      ]
+    },
+    {
+      "number": 1180,
+      "title": "[auto] index-coverage: 閾値ゲートが赤（無条件異常）",
+      "createdAt": "2026-10-21T07:25:37Z",
+      "labels": [
+        "automation-failure"
+      ]
+    },
+    {
+      "number": 1186,
+      "title": "[auto] login-collectors-publish: login collectors: develop への書き戻しが失敗",
+      "createdAt": "2026-10-22T00:16:48Z",
+      "labels": [
+        "automation-failure"
+      ]
+    },
+    {
+      "number": 1204,
+      "title": "[auto] weekly-review-draft: 週次レビューの材料が欠けています",
+      "createdAt": "2026-10-23T09:01:49Z",
+      "labels": [
+        "automation-failure"
+      ]
+    },
+    {
+      "number": 1206,
+      "title": "[auto] weekly-review-local: 自動の週次レビューが完了しませんでした",
+      "createdAt": "2026-10-24T00:30:12Z",
+      "labels": [
+        "automation-failure"
+      ]
+    }
+  ],
+  "alerts": [
+    {
+      "number": 106,
+      "severity": "high",
+      "package": "next",
+      "summary": "Next.js: Denial of Service in App Router using Server Actions",
+      "createdAt": "2026-10-23T14:39:06Z"
+    },
+    {
+      "number": 107,
+      "severity": "critical",
+      "package": "next",
+      "summary": "Next.js: Unauthenticated Remote Code Execution in Image Optimization API when SVG files are used",
+      "createdAt": "2026-10-23T14:39:06Z"
+    },
+    {
+      "number": 109,
+      "severity": "critical",
+      "package": "next",
+      "summary": "Next.js: Unauthenticated Remote Code Execution in `use cache` functions returning typed arrays",
+      "createdAt": "2026-10-23T14:39:07Z"
+    }
+  ]
+}
