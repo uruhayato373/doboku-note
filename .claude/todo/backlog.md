@@ -376,6 +376,8 @@ drive-vault-sync -- --group source-transcript --verify --deep が 240 件中 1 �
 
 **完了条件**: `gh api repos/uruhayato373/doboku-note/dependabot/alerts` で next の open が 0 件。
 
+**進捗（2026-10-24 夜）**: PR #1221 で next 16.4.3・zod 4.6.7・fast-uri 3.1.9 へ上げ、本番反映した（main 8ef9a592b・check-production-ssr 合格）。GitHub の依存グラフ（SBOM）は next 16.4.3 を読んでいるが、Dependabot の警告（#106・#107・#109・#110・#112〜#115）は反映から 1 時間たっても open のまま（警告の更新は Dependabot の再走査待ち）。**残り**: (1) next と fast-uri の警告が閉じたかを `gh api …/dependabot/alerts` で確かめる (2) zod の #110 は、Lighthouse CI の間接依存 `chromium-bidi` が持つ zod 3.25.76（開発用）も勧告の範囲（< 4.6.6・3 系の修正版なし）に入るため、直接の zod を上げても閉じない見込み。overrides で 4 系へ寄せるか、開発用で影響なしとして却下するかを運営者が決める。
+
 
 
 
