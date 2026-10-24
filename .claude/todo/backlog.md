@@ -303,6 +303,16 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-0847] 点検の置き場を入力の頻度と直す人で分け直し、note-live-audit を土曜の前段へ移す
+タグ: [インフラ・計測] [領域:管理] [時期:2026-10..2026-11] [種類:改善] [起票:2026-10-25]
+
+**起点**: 2026-10-25 の調査。日次の ops-audit（26 本）の多くは、土曜の Mac の収集が週 1 回だけ書くデータの鮮度と検算を見ていて、1 段落ちると同じ赤が毎朝 6 回出る（10/25 は sales-freshness・kdp-report-freshness・weekly-collect）。note-live-audit（CI・月曜・40 分）は 19 回中 13 回が赤で、直すにはログインが要る。
+
+**やること**: 計画 [DN-0847-ops-cadence-split.md](../plans/DN-0847-ops-cadence-split.md) のとおり、点検を毎日の見張り・収集の検算（段の verify）・週次の点検（ops:weekly）に分け、note-live-audit を土曜の前段へ移し、cloudflare-config-audit を金曜の夜へ移す。
+
+**完了条件**: `--ops` が毎日の 8 本だけ、`npm run ops:weekly` が週次の 11 本を回し、`weekly-collect --plan` に note-audit と各段の verify が出る。note-live-audit.yml が無効で削除済み。10/31（土）の自動実行で前段の note-audit と verify が回り、下書きに ops:weekly が出る。
+
+
 ### [DN-0834] EXP-043 の案別の計測が、公開後の GA4 の週次取得に B・C とも届いているかを 10/27 に確かめる
 タグ: [領域:アフィリエイト] [時期:2026-10] [種類:改善] [起票:2026-10-24] [期日:2026-10-28]
 
