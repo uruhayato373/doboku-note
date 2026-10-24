@@ -342,6 +342,21 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-0822] （DN-0817 段4）CI のログイン収集と書き込みの入口・暗号化 state・ログイン用 Secrets を外す
+タグ: [インフラ・計測] [領域:管理] [時期:2026-12] [種類:改善] [起票:2026-10-24]
+
+**起点**: DN-0817 の段 4。前提は段 1 が 2 週続けて成功していること（CI と土曜の Mac の二重取りの期間を 2 週だけ置き、件数が一致することを確かめてから外す）。
+
+**やること**:
+1. `.github/workflows/login-collectors.yml`（10 サービス）・`scheduled-publish.yml`（X の予約投稿。今は `publish-x` が skipped）・`ops-write.yml`（CI からの書き込みの入口。9/23 以来使われていない）を消す
+2. `.github/actions/restore-auth-state`、`auth:ci-restore`・`auth:ci-writeback`・`auth:ci-plan`・`auth:export`・`auth:keygen` と関連の lib、`.claude/config/ci-write-operations.json`、`playwright-auth-profiles.json` の `ci` 欄と `ciCredential` を外し、`check-playwright-auth-wiring`・`tests/auth-credential-ssot.test.mjs` を新しい形に合わせる
+3. R2 の暗号化 state を消す（`data/r2/delete-list.txt` 経由）
+4. GitHub Secrets の `DOBOKU_AUTH_*`（ID/PW 10 個と `DOBOKU_AUTH_AGE_IDENTITY`）を消す（運営者が GitHub の画面で）
+5. 監視の Issue の channel（`auth-state-*`・`login-collectors-publish`）を閉じる。DN-0479・DN-0483・DN-0484 は「DN-0817 で置き換え」として閉じる
+
+**完了条件**: `git grep -l DOBOKU_AUTH .github` が 0 件、Secrets に `DOBOKU_AUTH_*` が無い、`npm run quality:audit:ci` と CI が緑。
+
+
 ### [DN-0821] （DN-0817 段3）Mac の個別の launchd・専用 worktree・Windows のログイン維持のタスクを外す
 タグ: [インフラ・計測] [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-10-24]
 
