@@ -85,6 +85,51 @@
       ],
       "commit": {},
       "leftover": []
+    },
+    {
+      "phase": "post",
+      "only": null,
+      "host": "minamidaisukenonotobukkukonpyuta.local",
+      "startedAt": "2026-10-24T05:36:07.974Z",
+      "finishedAt": "2026-10-24T08:53:35.642Z",
+      "stages": [
+        {
+          "id": "note-live",
+          "title": "note の添付と会員限定のライブ照合",
+          "status": "warn",
+          "reason": "欠落リスト: .claude/state/note-attachments-missing.json（0 件）",
+          "exits": [
+            1,
+            0
+          ],
+          "durationSec": 159
+        },
+        {
+          "id": "note-sync",
+          "title": "note の記事の同期（本文・カバー・タグ）",
+          "status": "failed",
+          "reason": "180 分で打ち切り",
+          "exits": [
+            124
+          ],
+          "durationSec": 10801
+        },
+        {
+          "id": "note-sync-check",
+          "title": "note の反映の照合（公開 API）",
+          "status": "warn",
+          "reason": "[check-note-sync] ✗ 未反映 記事 376（止まっている 3）・マガジン 0。Mac の週次（npm run note-sync:install -- --status）が反映し、止まっている分は管理画面 /content/note-sync",
+          "exits": [
+            1
+          ],
+          "durationSec": 846
+        }
+      ],
+      "commit": {},
+      "leftover": [
+        ".claude/state/note-republish-hashes.json",
+        ".claude/state/note-update-aborted.json"
+      ]
     }
   ]
 }
