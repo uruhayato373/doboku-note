@@ -6,7 +6,7 @@
  * install-disk-hygiene-launchd.mjs と同じで、plist の絶対パスは端末ごとに違うため template から描画し、
  * リポジトリにはコミットしない。
  *
- * 時刻は毎週火曜 10:45（金曜の週次レビュー下書きの前）。Mac が寝ていた日は、次に起きたときに launchd が 1 回だけ実行する。
+ * 時刻は毎週火曜 05:15（金曜の週次レビュー下書きの前。毎日 10:30 の gsc-local とブラウザが重なって起動を見送った 2026-10-20 の後に、04:17 の disk-hygiene の後へ移した・DN-0818）。Mac が寝ていた日は、次に起きたときに launchd が 1 回だけ実行する。
  * 電源が切れていた週は動かず、日次 ops 点検（check-sales-freshness のココナラ売上履歴・check-coconala-analytics）が放置を拾う。
  *
  * 使い方:
@@ -82,7 +82,7 @@ if (argv.includes('--status')) {
     process.exit(1);
   }
   console.log(
-    `${TAG} ✓ 登録した（毎週火曜 10:45・寝ていた日は起床時に 1 回）\n` +
+    `${TAG} ✓ 登録した（毎週火曜 05:15・寝ていた日は起床時に 1 回）\n` +
       `  plist: ${PLIST_PATH}\n` +
       `  log:   ${LOG}\n` +
       '  最初に一度: npm run coconala-local:install -- --run-now でログを確認（Chrome が数分開く）',
