@@ -119,6 +119,18 @@ export function stageStatus(stage, exits, outputs = []) {
   return status;
 }
 
+/**
+ * 段の失敗の理由（pure）。コマンドが 2 本以上ある段は、どのコマンドが落ちたかを頭に付ける。
+ * 2026-10-24 の note-traffic は 1 本目（9 月の月次）が検査不成立、2 本目（W42 の期間）は検査に通って書いたのに、
+ * 理由が 1 本目の行だけだったため「検査に落ちた取得が W42 を上書きした」と読まれた（DN-0833）。
+ */
+export function commandFailureReason({ argv, index, total, line, timedOut = false, timeoutMin }) {
+  const body = timedOut ? `${timeoutMin} 分で打ち切り` : String(line ?? '');
+  if (total < 2) return body.slice(0, 300);
+  const run = argv[0] === 'npm' && argv[1] === 'run' ? argv.slice(argv[2] === '-s' ? 3 : 2) : argv;
+  return `${index + 1}/${total} 本目（${run.join(' ')}）: ${body}`.slice(0, 300);
+}
+
 /** 合格の判定: 全段が ok・warn・skipped で、書き戻しに問題が無い（pure） */
 export function runPassed(run) {
   return run.stages.every((s) => ['ok', 'warn', 'skipped'].includes(s.status)) && !run.commit?.problem && !run.leftover?.length;
