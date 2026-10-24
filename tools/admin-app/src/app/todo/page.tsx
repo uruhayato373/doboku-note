@@ -219,7 +219,7 @@ function BacklogTable({
 }) {
   if (!cards.length) return <p className="text-sm text-muted-foreground">該当するタスクはありません</p>;
   return (
-    <TableFrame className="min-w-[680px]">
+    <TableFrame tableClassName="min-w-[680px]">
       <TableHeader>
         <TableRow>
           <TableHead className="w-[74px]">優先</TableHead>
@@ -302,7 +302,7 @@ function PlanTable({
   const ordered = annual ? cards : [...cards].sort((a, b) => Number(a.complete) - Number(b.complete));
   const hasOwner = !annual && cards.some((card) => card.owner);
   return (
-    <TableFrame className="min-w-[680px]">
+    <TableFrame tableClassName="min-w-[680px]">
       <TableHeader>
         <TableRow>
           {!annual ? <TableHead className="w-[190px] max-[900px]:w-[150px]">区分</TableHead> : null}
