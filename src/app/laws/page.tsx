@@ -10,6 +10,7 @@ import { getCategoryBySlug } from '@/lib/categories';
 import { getDocTopics, getTopicsByFacet } from '@/lib/topics';
 import { LawDirectory } from '@/components/topics/TopicLaws';
 import { getLawDirectory } from '@/lib/law-wiring';
+import AffiliateSlot from '@/components/ui/AffiliateSlot/AffiliateSlot';
 
 const category = getCategoryBySlug('laws')!;
 
@@ -64,6 +65,8 @@ export default function LawsPage() {
       <SectionBlock divider={groups.length ? 'top' : 'none'} ariaLabel="法令と分野の対応">
         <LawDirectory rows={directory} />
       </SectionBlock>
+      {/* 転職の案内（ページ末に 1 枠。案件は配置ルール） */}
+      <AffiliateSlot page={{ pageKind: 'laws-list' }} slot="laws-list-end" className="max-w-[760px] mx-auto px-4 sm:px-6 pb-10" />
     </PageShell>
   );
 }

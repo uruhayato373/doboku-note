@@ -243,6 +243,7 @@ test("pageContextOf: 記事はカテゴリとキャリア記事か、資格ト�
   assert.equal(pageContextOf("/standards/kanto/common", index, slugOf).pageKind, "standards-list");
   assert.equal(pageContextOf("/standards", index, slugOf).pageKind, "standards-list");
   assert.equal(pageContextOf("/topics/concrete", index, slugOf).pageKind, "topic");
+  assert.equal(pageContextOf("/laws/", index, slugOf).pageKind, "laws-list");
   assert.equal(pageContextOf("/tools", index, slugOf).pageKind, "tool");
   assert.equal(pageContextOf("/about", index, slugOf), null);
 });

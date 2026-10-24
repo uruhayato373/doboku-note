@@ -360,13 +360,21 @@ export async function renderDocPage(slugStr: string) {
     midRenderers.push(() => <MidArticleCta mode="career" card={card} />);
   }
 
-  // 実際に使う枠数＝用意できた中身と容量の小さい方。
-  const midSlots = midRenderers.slice(0, midSlotCapacity);
+  // 転職カードが容量からあふれる記事（note・関連記事が先に枠を使う）は、見出しの境界に空きがあれば転職カードの枠を 1 つ足す（上限 3）。
+  // 2026-10-21 に記事末を閉じてから（DN-0779）、長文でもあふれた記事は転職広告が 0 になっていた（本番 34 本・2026-10-24 実測）。
+  // 位置は 1〜h2-2 の境界なので、枠の数がそれを超えると同じ境界に重なる。h2=3（境界 1 つ）の記事は足さない。
+  const careerMidFits = careerMidIndex >= 0 && careerMidIndex < midSlotCapacity;
+  const careerMidExtra =
+    careerMidIndex >= midSlotCapacity && midSlotCapacity < 3 && midH2Count - 2 > midSlotCapacity;
+  // 実際に使う枠＝用意できた中身と容量の小さい方（あふれた転職カードを足すときは末尾に置く）。
+  const midSlots = careerMidExtra
+    ? [...midRenderers.slice(0, midSlotCapacity), midRenderers[careerMidIndex]!]
+    : midRenderers.slice(0, midSlotCapacity);
   // A8 計測ピクセルは 1 ページ 1 発（affiliate-operations.md）。実際に描画する面のうち優先順（config/cta-placements.json の
   // pixelPriority: 手書き > 本文中間 > 記事末）の最も高い面の案件で 1 発。本文側なら本文の後に、記事末なら記事末バナーに付ける。
   const renderedCareerSlots = [
     ...(inlineCareerAd ? ['article-inline'] : []),
-    ...(careerMidIndex >= 0 && careerMidIndex < midSlotCapacity ? ['article-mid'] : []),
+    ...(careerMidFits || careerMidExtra ? ['article-mid'] : []),
     ...(careerPlacements['article-end'] ? ['article-end'] : []),
   ];
   const careerPixel = pixelFor(careerPlacements, renderedCareerSlots);
