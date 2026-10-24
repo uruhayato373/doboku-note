@@ -1,6 +1,6 @@
 {
-  "_comment": "DN-0108 Phase 01: Playwright 認証プロファイルの service registry。password/Cookie/token/2FA/recovery code は書かない。アカウント名・media ID の真実源は各 accountConfigPath（既存 config）で、ここへ複製しない。version 2（2026-09-21）: ciAllowed を廃止し ci ブロックへ。ci.mode='encrypted-state' のサービスだけが CI（GitHub Actions hosted runner）で age 暗号化した storageState を復元して動く。readOnlyScripts は常時許可、writeScripts は DOBOKU_CI_WRITE_PLAN_SHA256（ops-write の plan hash）があるときだけ許可、それ以外の script は resolver が AUTH_CI_SCRIPT_NOT_ALLOWLISTED で拒否する。enabled=false は kill switch（YAML を触らずにサービス単位で止める）。canary=true は cron に載せず workflow_dispatch の service 明示だけで動く。真実源: .claude/knowledge/reference/playwright-auth-profiles.md §CI",
-  "version": 2,
+  "_comment": "DN-0108 Phase 01: Playwright 認証プロファイルの service registry。password/Cookie/token/2FA/recovery code は書かない。アカウント名・media ID の真実源は各 accountConfigPath（既存 config）で、ここへ複製しない。version 3（2026-10-24・DN-0817）: ログインを要る取得・投稿は運営者の Mac だけで行い、CI（GitHub Actions）はログインしない。ci ブロックと暗号化 state の設定を廃し、service ごとに collectors（ログインを要る読み取り専用の収集 script）と writers（運営者の依頼で行う投稿・編集 script）を持つ。resolver は CI では profile を返さず（AUTH_CI_NO_LOGIN）、エージェントのセッション（CLAUDECODE=1）では collectors の script に返さない（AUTH_AGENT_COLLECT_REFUSED。土曜の Mac 収集 weekly-collect が付ける DOBOKU_WEEKLY_COLLECT=1 のときは通す）。真実源: .claude/knowledge/reference/playwright-auth-profiles.md",
+  "version": 3,
   "services": {
     "note": {
       "profileDirName": "playwright-note-profile",
@@ -10,61 +10,46 @@
       "accountConfigPath": null,
       "sessionMode": "profile",
       "interactiveLoginRequired": true,
-      "notes": "専用 account config JSON は無し。各スクリプトがマイページ本文の名前一致で assert する。 2026-09-21 CI 実測: traffic・添付 live 検査（615 本・67 分）・会員限定検査は成立。note-sales-fetch は購入者一覧のパスワード再確認で ABORT していたが、2026-10-01 から Secrets の ID/PW で note-reauth が 1 回通す。Mac セッションは CI 利用後も健在。",
-      "ci": {
-        "mode": "encrypted-state",
-        "enabled": true,
-        "canary": false,
-        "operations": [
-          "read",
-          "write"
-        ],
-        "cron": "20 21 * * 3",
-        "stateDomains": [
-          "note.com"
-        ],
-        "readOnlyScripts": [
-          "scripts/note-sales-fetch.mjs",
-          "scripts/note-traffic-fetch.mjs",
-          "scripts/check-note-attachments.mjs",
-          "scripts/check-note-membership.mjs",
-          "scripts/note-membership-plan-status.mjs",
-          "scripts/note-account-name.mjs",
-          "scripts/auth-session-refresh.mjs"
-        ],
-        "writeScripts": [
-          "scripts/note-publish.mjs",
-          "scripts/note-publish-discover.mjs",
-          "scripts/note-update-body.mjs",
-          "scripts/note-update-partial.mjs",
-          "scripts/note-sync-tags.mjs",
-          "scripts/note-article-price-sweep.mjs",
-          "scripts/note-magazine-create.mjs",
-          "scripts/note-magazine-add-articles.mjs",
-          "scripts/note-magazine-cover.mjs",
-          "scripts/note-edit-magazine.mjs",
-          "scripts/note-attach-file.mjs",
-          "scripts/note-append-cta.mjs",
-          "scripts/note-append-list-links.mjs",
-          "scripts/note-membership-plan-create.mjs",
-          "scripts/note-membership-plan-edit.mjs",
-          "scripts/note-comment-reply.mjs",
-          "scripts/note-convert-to-paid.mjs",
-          "scripts/note-swap-author-banner.mjs",
-          "scripts/note-reanchor-boundary.mjs"
-        ]
-      },
+      "notes": "専用 account config JSON は無し。各スクリプトがマイページ本文の名前一致で assert する。売上ページは購入者一覧のパスワード再確認があり、note-reauth が資格情報ストアの ID/PW で 1 回通す。",
+      "collectors": [
+        "scripts/note-sales-fetch.mjs",
+        "scripts/note-traffic-fetch.mjs",
+        "scripts/check-note-attachments.mjs",
+        "scripts/check-note-membership.mjs",
+        "scripts/note-membership-plan-status.mjs",
+        "scripts/note-account-name.mjs",
+        "scripts/auth-session-refresh.mjs"
+      ],
+      "writers": [
+        "scripts/note-publish.mjs",
+        "scripts/note-publish-discover.mjs",
+        "scripts/note-update-body.mjs",
+        "scripts/note-update-partial.mjs",
+        "scripts/note-sync-tags.mjs",
+        "scripts/note-article-price-sweep.mjs",
+        "scripts/note-magazine-create.mjs",
+        "scripts/note-magazine-add-articles.mjs",
+        "scripts/note-magazine-cover.mjs",
+        "scripts/note-edit-magazine.mjs",
+        "scripts/note-attach-file.mjs",
+        "scripts/note-append-cta.mjs",
+        "scripts/note-append-list-links.mjs",
+        "scripts/note-membership-plan-create.mjs",
+        "scripts/note-membership-plan-edit.mjs",
+        "scripts/note-comment-reply.mjs",
+        "scripts/note-convert-to-paid.mjs",
+        "scripts/note-swap-author-banner.mjs",
+        "scripts/note-reanchor-boundary.mjs"
+      ],
       "credential": {
         "label": "note",
         "storeItem": "doboku-note-auth-note",
         "autoLogin": true,
-        "ciCredential": true,
-        "ciStored": true,
         "machines": [
           "windows",
           "mac"
         ],
-        "policyNote": "手元はログイン維持と売上ページのパスワード再確認、CI は state 切れの入り直しと再確認（2026-10-01）"
+        "policyNote": "手元はログイン維持と売上ページのパスワード再確認。土曜の Mac 収集（auth 段）が切れていれば 1 回だけ入り直す"
       }
     },
     "coconala": {
@@ -75,51 +60,36 @@
       "accountConfigPath": "config/coconala-account.json",
       "sessionMode": "profile",
       "interactiveLoginRequired": true,
-      "notes": "sellerName: dobokunote の本文一致 assert あり。 2026-10-13: CI（hosted runner）からはココナラが 403 Forbidden を返すので CI の取得を止め、Mac の coconala-local（launchd 毎週火 05:15・取引一覧・出品分析・売上履歴）を正にした（運営者判断・DN-0667）。",
-      "ci": {
-        "mode": "encrypted-state",
-        "enabled": false,
-        "canary": false,
-        "operations": [
-          "read",
-          "write"
-        ],
-        "cron": "20 21 * * 2",
-        "stateDomains": [
-          "coconala.com"
-        ],
-        "readOnlyScripts": [
-          "scripts/coconala-orders.mjs",
-          "scripts/coconala-analytics.mjs",
-          "scripts/coconala-revenue.mjs",
-          "scripts/check-coconala-analytics.mjs",
-          "scripts/check-coconala-blog.mjs",
-          "scripts/coconala-discover.mjs",
-          "scripts/auth-session-refresh.mjs"
-        ],
-        "writeScripts": [
-          "scripts/coconala-publish.mjs",
-          "scripts/coconala-edit.mjs",
-          "scripts/coconala-pause.mjs",
-          "scripts/coconala-profile.mjs",
-          "scripts/coconala-thumb.mjs",
-          "scripts/coconala-delete-draft.mjs",
-          "scripts/coconala-blog-publish.mjs",
-          "scripts/coconala-blog-delete-draft.mjs",
-          "scripts/coconala-rate-buyer.mjs"
-        ]
-      },
+      "notes": "sellerName: dobokunote の本文一致 assert あり。ココナラは hosted runner からの接続を 403 で返す（2026-10-13・DN-0667）。取得は土曜の Mac 収集（weekly-collect）で行う。",
+      "collectors": [
+        "scripts/coconala-orders.mjs",
+        "scripts/coconala-analytics.mjs",
+        "scripts/coconala-revenue.mjs",
+        "scripts/check-coconala-analytics.mjs",
+        "scripts/check-coconala-blog.mjs",
+        "scripts/coconala-discover.mjs",
+        "scripts/auth-session-refresh.mjs"
+      ],
+      "writers": [
+        "scripts/coconala-publish.mjs",
+        "scripts/coconala-edit.mjs",
+        "scripts/coconala-pause.mjs",
+        "scripts/coconala-profile.mjs",
+        "scripts/coconala-thumb.mjs",
+        "scripts/coconala-delete-draft.mjs",
+        "scripts/coconala-blog-publish.mjs",
+        "scripts/coconala-blog-delete-draft.mjs",
+        "scripts/coconala-rate-buyer.mjs"
+      ],
       "credential": {
         "label": "ココナラ",
         "storeItem": "doboku-note-auth-coconala",
         "autoLogin": true,
-        "ciCredential": true,
-        "ciStored": true,
         "machines": [
           "windows",
           "mac"
         ],
-        "policyNote": "手元はログイン維持、CI は state 切れの入り直し（2026-10-01）"
+        "policyNote": "手元はログイン維持。土曜の Mac 収集（auth 段）が切れていれば 1 回だけ入り直す"
       }
     },
     "kdp": {
@@ -130,39 +100,23 @@
       "accountConfigPath": null,
       "sessionMode": "profile",
       "interactiveLoginRequired": true,
-      "notes": "専用 account config JSON は無し。 2026-09-21 実測: CI 復元で Amazon サインイン画面へ redirect（端末変更で再認証要求）、Mac 側セッションも失効。hosted CI 不可のため enabled:false。 2026-10-01: Secrets（DOBOKU_AUTH_KDP_USER/_PASSWORD）で CI でも入り直す形で enabled:true に戻して試行（DN-0480 で評価・不成立なら enabled:false に戻す）。 2026-10-16 に CI の入り直しが login_failed、同じ日に Mac の自動ログインも止まった（Issue #1087）ので、2026-10-21 に enabled:false・ciCredential:false に戻し Secrets を消した（DN-0480）。",
-      "ci": {
-        "mode": "encrypted-state",
-        "enabled": false,
-        "canary": false,
-        "operations": [
-          "read",
-          "write"
-        ],
-        "cron": "50 21 * * 4",
-        "stateDomains": [
-          "amazon.co.jp",
-          "amazon.com"
-        ],
-        "readOnlyScripts": [
-          "scripts/kdp-report.mjs",
-          "scripts/auth-session-refresh.mjs"
-        ],
-        "writeScripts": [
-          "scripts/kdp-publish.mjs"
-        ]
-      },
+      "notes": "専用 account config JSON は無し。Amazon は端末変更で再認証を求め、2 段階認証・CAPTCHA でも止まる（2026-09-21・2026-10-16 に自動ログインが止まった・DN-0480）。取得は土曜の Mac 収集（weekly-collect）で行い、切れたら人が入り直す。",
+      "collectors": [
+        "scripts/kdp-report.mjs",
+        "scripts/auth-session-refresh.mjs"
+      ],
+      "writers": [
+        "scripts/kdp-publish.mjs"
+      ],
       "credential": {
         "label": "Amazon KDP",
         "storeItem": "doboku-note-auth-kdp",
         "autoLogin": true,
-        "ciCredential": false,
-        "ciStored": false,
         "machines": [
           "windows",
           "mac"
         ],
-        "policyNote": "Amazon は 2 段階認証・CAPTCHA で止まる（突破しない）。2026-10-01 に CI でも Secrets で入り直す形を試したが、10/16 に CI の入り直しが login_failed、同じ日に手元（Mac）の自動ログインも止まったので、2026-10-21 のオーナー決定で CI から戻した（DN-0480）。9/21 も CI の state 復元で手元のセッションが切れていた"
+        "policyNote": "Amazon は 2 段階認証・CAPTCHA で止まる（突破しない）。自動ログインが 2026-10-16 に止まった（DN-0480）。切れたら人が npm run auth:login で入り直す"
       }
     },
     "x": {
@@ -173,44 +127,27 @@
       "accountConfigPath": "config/x-account.json",
       "sessionMode": "profile",
       "interactiveLoginRequired": true,
-      "notes": " 2026-09-21: GitHub hosted runner から x.com を開くと「セキュリティ検証の実行（悪意のあるボットから保護）」の挑戦ページになり判定不能（run 35570971566）。datacenter IP 起因で cookie の問題ではない。hosted CI では動かないため enabled:false。読み取り・投稿とも当面ローカル（または residential IP の self-hosted runner）。",
-      "ci": {
-        "mode": "encrypted-state",
-        "enabled": false,
-        "canary": false,
-        "operations": [
-          "read",
-          "write"
-        ],
-        "cron": "10 22 * * 5",
-        "stateDomains": [
-          "x.com",
-          "twitter.com"
-        ],
-        "readOnlyScripts": [
-          "scripts/x-own-metrics.mjs",
-          "scripts/x-sync-status.mjs",
-          ".claude/skills/social/x-repost/x-repost-discover.ts"
-        ],
-        "writeScripts": [
-          "scripts/x-publish-scheduled.mjs",
+      "notes": "x.com は datacenter IP からボット確認の挑戦ページになる（2026-09-21）ため、読み取り・投稿とも運営者の Mac で行う。",
+      "collectors": [
+        "scripts/x-own-metrics.mjs",
+        "scripts/x-sync-status.mjs",
+        ".claude/skills/social/x-repost/x-repost-discover.ts"
+      ],
+      "writers": [
           ".claude/skills/social/publish-x/publish-x.ts",
-          ".claude/skills/social/x-repost/x-repost-exec.ts",
-          "scripts/x-article-publish.mjs",
-          "scripts/x-thread-replies.mjs"
-        ]
-      },
+        ".claude/skills/social/x-repost/x-repost-exec.ts",
+        "scripts/x-article-publish.mjs",
+        "scripts/x-thread-replies.mjs"
+      ],
       "credential": {
         "label": "X",
         "storeItem": "doboku-note-auth-x",
         "autoLogin": false,
-        "ciCredential": false,
-        "ciStored": true,
         "machines": [
           "windows",
           "mac"
         ],
-        "policyNote": "GitHub の CI からはログイン前にボット確認で止まる（2026-09-21 実測・datacenter IP）ので CI では使わない。切れたら人が npm run auth:login で入り直す（凍結の危険）"
+        "policyNote": "ボット確認の対象になるため自動ログインしない。切れたら人が npm run auth:login で入り直す（凍結の危険）"
       }
     },
     "instagram": {
@@ -221,38 +158,22 @@
       "accountConfigPath": "config/ig-account.json",
       "sessionMode": "profile",
       "interactiveLoginRequired": true,
-      "notes": "Facebook Business Suite 経由。ig-account.json は logical authService のみを持ち、物理パスはこの registry と共通 resolver が決める。 2026-09-21: Meta の利用制限で Graph API が使えないため、照合（verify-ig-status）と予約投稿（publish-ig-bs）は encrypted-state の Playwright で CI 化する。 2026-09-21 実測: Business Suite も同様に、CI で 1 回使った直後に Meta がセッションを全面失効（Mac・CI とも expired）。hosted CI 不可のため enabled:false。",
-      "ci": {
-        "mode": "encrypted-state",
-        "enabled": false,
-        "canary": false,
-        "operations": [
-          "read",
-          "write"
-        ],
-        "cron": "40 21 * * 4",
-        "stateDomains": [
-          "facebook.com",
-          "instagram.com"
-        ],
-        "readOnlyScripts": [
-          "scripts/verify-ig-status.mjs"
-        ],
-        "writeScripts": [
-          ".claude/skills/social/publish-ig-bs/publish-ig-bs.ts"
-        ]
-      },
+      "notes": "Facebook Business Suite 経由。ig-account.json は logical authService のみを持ち、物理パスはこの registry と共通 resolver が決める。Meta の利用制限で Graph API が使えないため、照合（verify-ig-status）と予約投稿（publish-ig-bs）は Playwright で行う。2026-09-21 に CI で使った直後に Meta がセッションを全面失効させたため、運営者の Mac だけで使う。",
+      "collectors": [
+        "scripts/verify-ig-status.mjs"
+      ],
+      "writers": [
+        ".claude/skills/social/publish-ig-bs/publish-ig-bs.ts"
+      ],
       "credential": {
         "label": "Instagram",
         "storeItem": "doboku-note-auth-instagram",
         "autoLogin": false,
-        "ciCredential": false,
-        "ciStored": true,
         "machines": [
           "windows",
           "mac"
         ],
-        "policyNote": "CI でセッションを使った直後に Meta が手元も含めて全面失効させた（2026-09-21 実測）ので CI では使わない。切れたら人が npm run auth:login で入り直す（利用制限の危険）"
+        "policyNote": "Meta がセッションを全面失効させた実績（2026-09-21）があるため自動ログインしない。切れたら人が npm run auth:login で入り直す（利用制限の危険）"
       }
     },
     "google": {
@@ -263,36 +184,21 @@
       "accountConfigPath": "config/google-console-automation.json",
       "sessionMode": "profile",
       "interactiveLoginRequired": true,
-      "notes": "共通 DOBOKU_AUTH_ROOT を使用。旧 DOBOKU_PROFILE_ROOT（repository root の意味）は Phase 05 完了まで config の legacy path と組み合わせる明示 fallback のみ。 2026-09-21 実測: CI 復元は authenticated になるが、その直後に Google がセッションを全面失効（Mac 側も CI 書き戻し state も expired）。datacenter IP＝端末結びつきの検知。hosted CI 不可のため enabled:false。定期取得は residential IP の self-hosted runner かローカル儀式。 2026-09-27 再検証（DN-0318）: stats47 の CI 成功は画面操作ではなく公式 API（Search Console API・URL Inspection API・GA4 Data/Admin API）で、画面でしか取れないもの（GSC リンク作成など）はローカル Playwright に残している。doboku-note も検索成績と URL 検査は API で CI 取得済みのため、画面 CSV の hosted CI 化はしない（ローカル取得を継続・催促は check-gsc-ui-due）。",
-      "ci": {
-        "mode": "encrypted-state",
-        "enabled": false,
-        "canary": false,
-        "operations": [
-          "read"
-        ],
-        "cron": "20 21 2 * *",
-        "stateDomains": [
-          "google.com",
-          "google.co.jp"
-        ],
-        "readOnlyScripts": [
-          "scripts/fetch-gsc-ui-csv.mjs",
-          "scripts/fetch-ga4-ui-csv.mjs"
-        ],
-        "writeScripts": []
-      },
+      "notes": "共通 DOBOKU_AUTH_ROOT を使用。旧 DOBOKU_PROFILE_ROOT（repository root の意味）は Phase 05 完了まで config の legacy path と組み合わせる明示 fallback のみ。Google は datacenter IP からのセッションを全面失効させた（2026-09-21）ため、画面 CSV の取得は運営者の Mac だけで行う。検索の数値と URL 検査は公式 API で CI 取得済み（DN-0318）。",
+      "collectors": [
+        "scripts/fetch-gsc-ui-csv.mjs",
+        "scripts/fetch-ga4-ui-csv.mjs"
+      ],
+      "writers": [],
       "credential": {
         "label": "Google（GSC・GA4）",
         "storeItem": "doboku-note-auth-google",
         "autoLogin": false,
-        "ciCredential": false,
-        "ciStored": true,
         "machines": [
           "windows",
           "mac"
         ],
-        "policyNote": "CI でセッションを使った直後に Google が手元も含めて失効させた（2026-09-21 実測）。検索の数値は公式 API で CI 取得済みなので画面ログインは CI で使わない。2 段階認証が前提で、切れたら人が入り直す"
+        "policyNote": "Google は 2 段階認証が前提で、自動ログインしない。切れたら人が入り直す"
       }
     },
     "a8": {
@@ -303,47 +209,26 @@
       "accountConfigPath": "config/a8-report-automation.json",
       "sessionMode": "profile-plus-state",
       "interactiveLoginRequired": true,
-      "notes": "A8 は揮発性セッション Cookie のため永続プロファイルだけでは認証が残らず、storageState の Cookie 再注入を併用する。アカウント assert は「サイト」ではなく口座（メディアID）。 2026-09-21: 旧 management.af8.jp は DNS 不解決。URL の真実源は a8-report-automation.json の baseUrl+homePath（media-console.a8.net）。 2026-09-21 CI 実測: 口座 assert OK・site-summary/program-detail/period-monthly は取得・normalize・develop へ commit 成立。period-daily は headless で期間入力欄が見つからず CI 対象外（--reports で 3 本に限定）。",
-      "ci": {
-        "mode": "encrypted-state",
-        "enabled": true,
-        "canary": false,
-        "operations": [
-          "read",
-          "write"
-        ],
-        "cron": "20 21 * * 1",
-        "skipScheduleIfFresh": {
-          "marker": "data/a8/ui-last-run.json",
-          "field": "collectedAt",
-          "hours": 30
-        },
-        "stateDomains": [
-          "a8.net",
-          "af8.jp"
-        ],
-        "readOnlyScripts": [
-          "scripts/fetch-a8-ui-csv.mjs",
-          "scripts/normalize-a8-csv.mjs",
-          "scripts/affiliate-status.mjs",
-          "scripts/auth-session-refresh.mjs"
-        ],
-        "writeScripts": [
-          "scripts/affiliate-apply.mjs"
-        ]
-      },
+      "notes": "A8 は揮発性セッション Cookie のため永続プロファイルだけでは認証が残らず、storageState の Cookie 再注入を併用する。アカウント assert は「サイト」ではなく口座（メディアID）。URL の真実源は a8-report-automation.json の baseUrl+homePath（media-console.a8.net）。period-daily は headless で期間入力欄が見つからないため取得対象外（--reports で 3 本に限定）。",
+      "collectors": [
+        "scripts/fetch-a8-ui-csv.mjs",
+        "scripts/normalize-a8-csv.mjs",
+        "scripts/affiliate-status.mjs",
+        "scripts/auth-session-refresh.mjs"
+      ],
+      "writers": [
+        "scripts/affiliate-apply.mjs"
+      ],
       "credential": {
         "label": "A8.net",
         "storeItem": "doboku-note-auth-a8",
         "sharedStoreItem": "stats47-measurement-a8",
         "autoLogin": true,
-        "ciCredential": true,
-        "ciStored": true,
         "machines": [
           "windows",
           "mac"
         ],
-        "policyNote": "stats47 と同じ口座。手元は stats47 の state を先に取り込み、無ければ自分の項目、それも無ければ stats47 の項目でログインする。2026-10-01 オーナー決定で CI も切れていたら Secrets で 1 回だけ入り直す（試行・DN-0481）"
+        "policyNote": "stats47 と同じ口座。手元は stats47 の state を先に取り込み、無ければ自分の項目、それも無ければ stats47 の項目でログインする"
       }
     },
     "moshimo": {
@@ -354,36 +239,22 @@
       "accountConfigPath": "config/affiliate-asp.json",
       "sessionMode": "profile-plus-state",
       "interactiveLoginRequired": true,
-      "notes": "2026-10-01: CI 取得を新設（affiliate-status --asp moshimo --write・提携状況）。state は Mac の auth-session-refresh --export が渡す（DN-0483）。2026-10-13: doboku-note はもしもの広告を置いていない（記事のリンク 0）ので CI 取得を止めた（運営者判断・DN-0643）。広告を置くときは ci.enabled を true に戻し、login-collectors.yml の cron と選択肢を戻す。",
-      "ci": {
-        "mode": "encrypted-state",
-        "enabled": false,
-        "canary": false,
-        "operations": [
-          "read"
-        ],
-        "cron": "40 21 * * 0",
-        "stateDomains": [
-          "moshimo.com"
-        ],
-        "readOnlyScripts": [
-          "scripts/affiliate-status.mjs",
-          "scripts/auth-session-refresh.mjs"
-        ],
-        "writeScripts": []
-      },
+      "notes": "doboku-note はもしもの広告を置いていない（記事のリンク 0）ので取得を止めている（運営者判断・DN-0643）。広告を置くときは weekly-collect の affiliate 段に戻す。",
+      "collectors": [
+        "scripts/affiliate-status.mjs",
+        "scripts/auth-session-refresh.mjs"
+      ],
+      "writers": [],
       "credential": {
         "label": "もしもアフィリエイト",
         "storeItem": "doboku-note-auth-moshimo",
         "sharedStoreItem": "stats47-measurement-moshimo",
         "autoLogin": true,
-        "ciCredential": true,
-        "ciStored": true,
         "machines": [
           "windows",
           "mac"
         ],
-        "policyNote": "stats47 と同じ口座（A8 と同じ扱い）。CI は毎週日曜（JST 月 06:40）に提携状況を取得し、state が切れていれば Secrets で 1 回だけ入り直す（2026-10-01 試行・DN-0483）"
+        "policyNote": "stats47 と同じ口座（A8 と同じ扱い）。state が切れていれば土曜の Mac 収集（auth 段）が資格情報ストアの ID/PW で 1 回だけ入り直す"
       }
     },
     "afb": {
@@ -394,55 +265,32 @@
       "accountConfigPath": "config/affiliate-asp.json",
       "sessionMode": "same-process",
       "interactiveLoginRequired": true,
-      "notes": "sessionPersistsAcrossProcesses: false。保存した storageState を別プロセスで復元できないことがあり、ログインから操作まで同一プロセスで完結させる制約がある。afb 既定は stats47（asp-site-guard が例外で停止）。 2026-09-21: URL を affiliate-asp.json（baseUrl+homePath / readyPath）に合わせた。判定はテキストでなく #top_site_select の DOM（readyMarker）。 2026-09-21 実測: CI 復元で requiredlogin へ redirect（sessionPersistsAcrossProcesses:false のとおり別プロセスでは持ち出せない）。hosted CI 不可のため enabled:false。提携/成果の機械取得は Gmail 通知経路（未実装）が代替候補。 2026-10-01: 取得スクリプト（openAsp）が同じプロセスで Secrets / 資格情報ストアの ID/PW でログインする形で enabled:true に戻して試行（DN-0484）。 2026-10-13: doboku-note は afb の広告を置いていない（記事のリンク・配置・広告素材 0）ので CI の取得（提携状況の scan と公式 API の成果）を止めた（運営者判断・DN-0643）。広告を置くときは ci.enabled を true に戻し、login-collectors.yml の cron と選択肢、fetch-metrics.yml の afb の step、quality-audit の afb-outcomes-freshness を戻す。",
-      "ci": {
-        "mode": "encrypted-state",
-        "enabled": false,
-        "canary": false,
-        "operations": [
-          "read"
-        ],
-        "cron": "30 22 3 * *",
-        "stateDomains": [
-          "afi-b.com"
-        ],
-        "readOnlyScripts": [
-          "scripts/afb-scan.mjs",
-          "scripts/affiliate-status.mjs"
-        ],
-        "writeScripts": []
-      },
+      "notes": "sessionPersistsAcrossProcesses: false。保存した storageState を別プロセスで復元できないことがあり、ログインから操作まで同一プロセスで完結させる制約がある。afb 既定は stats47（asp-site-guard が例外で停止）。URL は affiliate-asp.json（baseUrl+homePath / readyPath）に合わせ、判定はテキストでなく #top_site_select の DOM（readyMarker）。doboku-note は afb の広告を置いていない（記事のリンク・配置・広告素材 0）ので取得を止めている（運営者判断・DN-0643）。",
+      "collectors": [
+        "scripts/afb-scan.mjs",
+        "scripts/affiliate-status.mjs"
+      ],
+      "writers": [],
       "credential": {
         "label": "afb",
         "storeItem": "doboku-note-auth-afb",
         "autoLogin": true,
-        "ciCredential": true,
-        "ciStored": true,
         "machines": [
           "windows",
           "mac"
         ],
-        "policyNote": "ログイン状態を別プロセスへ持ち出せないため、毎日のログイン維持では入らず、取得スクリプト自身が資格情報で 1 回だけログインする（手元・CI とも・2026-10-01 試行・DN-0484）。既定サイトは stats47 なので取得前にサイトを切り替える"
+        "policyNote": "ログイン状態を別プロセスへ持ち出せないため、ログイン維持では入らず、取得スクリプト自身が資格情報で 1 回だけログインする。既定サイトは stats47 なので取得前にサイトを切り替える"
       }
     }
   },
-  "ciAuthState": {
-    "_doc": "暗号化 storageState の置き場。ageRecipient は公開鍵（commit してよい）。秘密 identity は GitHub Secret（identityEnv）と Mac の auth root だけに置く。bucket は asset-storage.json の buckets キー。keyPrefix 配下は auth-state/<service>/{state.age,state.prev.age,manifest.json}。",
-    "ageRecipient": "age1qtl6yff54vnf4wrm3fryjf6lacgfh8a3tc6hmm0aswcjljv5tpqq0rd8nk",
-    "bucket": "private",
-    "keyPrefix": "auth-state/",
-    "identityEnv": "DOBOKU_AUTH_AGE_IDENTITY"
-  },
   "credentialPolicy": {
-    "_comment": "ログインが必要な全サービスの資格情報の正本。各 PC の OS 資格情報ストア（Mac キーチェーン / Windows 資格情報マネージャー）に storeItem を登録し、読み口は scripts/lib/credential-store.mjs だけ。GitHub Secrets（DOBOKU_AUTH_<SERVICE>_USER / _PASSWORD）は ciStored=true の service が保管し（2026-10-01 オーナー決定で全サービス）、CI が実際に読むのは ciCredential=true の service だけ。autoLogin=true の service だけ scripts/lib/auth-session-refresh.mjs の AUTO_LOGIN にセレクタを持つ（tests/auth-credential-ssot.test.mjs が照合）。状態の確認は管理画面 /ops/auth。",
+    "_comment": "ログインが必要な全サービスの資格情報の正本。各 PC の OS 資格情報ストア（Mac キーチェーン / Windows 資格情報マネージャー）に storeItem を登録し、読み口は scripts/lib/credential-store.mjs だけ。CI（GitHub Actions）はログインしないので GitHub Secrets には置かない（DN-0817）。autoLogin=true の service だけ scripts/lib/auth-session-refresh.mjs の AUTO_LOGIN にセレクタを持つ（tests/auth-credential-ssot.test.mjs が照合）。状態の確認は管理画面 /ops/auth。",
     "register": {
       "mac": "security add-generic-password -s <storeItem> -a <ログインID> -w",
-      "windows": "cmdkey /generic:<storeItem> /user:<ログインID> /pass",
-      "ci": "gh secret set DOBOKU_AUTH_<SERVICE>_USER / DOBOKU_AUTH_<SERVICE>_PASSWORD --repo uruhayato373/doboku-note"
+      "windows": "cmdkey /generic:<storeItem> /user:<ログインID> /pass"
     },
     "refreshTask": {
-      "mac": "launchd com.doboku-note.auth-session-refresh（毎日 17:45・npm run auth-refresh:install）",
-      "windows": "タスクスケジューラ \\doboku-note\\auth-session-refresh（毎日 17:45・npm run auth-refresh:install）"
+      "mac": "土曜の Mac 収集（node scripts/weekly-collect.mjs の auth 段が scripts/auth-session-refresh.mjs を呼ぶ）。毎日の launchd・Windows タスクは無い"
     }
   }
 }

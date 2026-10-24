@@ -298,7 +298,7 @@
       "requiredBy": [
         "scripts/kdp-publish.mjs"
       ],
-      "reason": "KDP へ入稿する EPUB と表紙の人用の控え（制作物/Kindle）。正本は private R2（asset-storage.json の kindle-dist group・2026-10-12・DN-0562）で、同じパスを両 tier の active にすると check-drive-vault が衝突として止めるため pending にしてある。Drive の既存 110 件と台帳の sha256 の突き合わせは DN-0451 で行い、R2 から取り戻したものを控えに足す"
+      "reason": "KDP へ入稿する EPUB と表紙の人用の控え（制作物/Kindle）。正本は private R2（asset-storage.json の kindle-dist group・2026-10-12・DN-0562）で、同じパスを両 tier の active にすると check-drive-vault が衝突として止めるため pending にしてある。Drive の既存 110 件と台帳の sha256 の突き合わせは DN-0838 で行い、R2 から取り戻したものを控えに足す"
     },
     {
       "id": "coconala-asset",
@@ -391,7 +391,7 @@
         "scripts/publish-reel-jit.mjs",
         ".claude/skills/social/yt-shorts-create/scripts/per-problem-shorts.mjs"
       ],
-      "reason": "IG リールの wav/mp4 と YouTube Shorts の mp4。読むのは人（手元の JIT 投稿）だけで、サイトは配信せず CI も読まない（post-youtube-scheduled.yml の Shorts 台帳は 2026-08-18 に手動投入へ切替済み・pending 0・参照キー sns/youtube-shorts/ は R2 に 0 件）。2026-09-05（DN-0170）に旧 upload-sns-r2 系統（public R2 sns/）から統合。"
+      "reason": "IG リールの wav/mp4 と YouTube Shorts の mp4。読むのは人（手元の JIT 投稿）だけで、サイトは配信せず CI も読まない（旧 post-youtube-scheduled.yml（廃止済み）の Shorts 台帳は 2026-08-18 に手動投入へ切替済み・pending 0・参照キー sns/youtube-shorts/ は R2 に 0 件）。2026-09-05（DN-0170）に旧 upload-sns-r2 系統（public R2 sns/）から統合。"
     },
     {
       "id": "source-transcript",

@@ -1,6 +1,6 @@
 /**
  * dataset-schemas-agent-config.mjs — .claude/config/ の JSON（エージェント運用と品質ゲートの基準・許可リスト・
- * CI の書き込みと認証の許可リスト）の型（DN-0524・案B）。
+ * 認証の許可リスト）の型（DN-0524・案B）。
  *
  * .claude/config/ は台帳（datasets.mjs）の外に置いたまま、ここでファイル名と型を対応させる。
  * 検査は scripts/check-agent-config.mjs（型の無い JSON も止める）。人が書く設定なので .strict() で誤記の欄を止め、
@@ -40,28 +40,6 @@ const CemTextbookMapping = z
     _source: text,
     mappings: z.record(text, z.object({ file: relPath, anchor: text, mapping_table_lines: text }).strict()),
     _other_chapters_status: z.record(text, text),
-  })
-  .strict();
-
-const CiWriteOperations = z
-  .object({
-    version: z.literal(1),
-    _doc: note('説明'),
-    operations: z.record(
-      text,
-      z
-        .object({
-          service: text,
-          script: relPath,
-          risk: z.enum(['low', 'medium', 'high', 'highest']),
-          argsSchema: z.record(text, text).describe('引数名 → 受け付ける値の説明'),
-          inputs: strList,
-          commitArgs: strList,
-          verify: strList,
-          ledger: z.array(text),
-        })
-        .strict(),
-    ),
   })
   .strict();
 
@@ -119,7 +97,7 @@ const NoteStructureAllow = z.object({ _doc: note('説明'), waived: z.array(z.un
 const PlaywrightAuthProfiles = z
   .object({
     _comment: note('説明'),
-    version: z.literal(2).describe('2 = 全サービスに ci ブロック必須（playwright-auth-profile.mjs が版で判定）'),
+    version: z.literal(3).describe('3 = 全サービスに collectors と writers が必須・ci ブロックは無い（playwright-auth-profile.mjs が版で判定）'),
     services: z.record(
       text,
       z
@@ -132,31 +110,16 @@ const PlaywrightAuthProfiles = z
           sessionMode: z.enum(['profile', 'profile-plus-state', 'same-process']),
           interactiveLoginRequired: z.boolean(),
           notes: text,
-          ci: z
-            .object({
-              mode: z.enum(['encrypted-state']),
-              enabled: z.boolean(),
-              canary: z.boolean(),
-              operations: z.array(z.enum(['read', 'write'])),
-              cron: text,
-              stateDomains: strList,
-              readOnlyScripts: z.array(relPath),
-              writeScripts: z.array(relPath),
-              skipScheduleIfFresh: z
-                .object({ marker: relPath, field: text, hours: z.number().int().positive() })
-                .strict()
-                .optional()
-                .describe('印のファイルの時刻がこの時間以内なら定期実行を飛ばす'),
-            })
-            .strict(),
+          collectors: z
+            .array(relPath)
+            .describe('ログインを要る読み取り専用の収集 script。エージェントのセッションでは拒否し、土曜の Mac 収集と運営者の端末だけが実行する。write 系の名前は不可'),
+          writers: z.array(relPath).describe('運営者の依頼で行う投稿・編集 script（エージェントのセッションでも許可）'),
           credential: z
             .object({
               label: text,
               storeItem: text,
               sharedStoreItem: text.optional(),
               autoLogin: z.boolean(),
-              ciCredential: z.boolean(),
-              ciStored: z.boolean(),
               machines: z.array(z.enum(['windows', 'mac'])),
               policyNote: text,
             })
@@ -164,12 +127,11 @@ const PlaywrightAuthProfiles = z
         })
         .strict(),
     ),
-    ciAuthState: z.object({ _doc: text, ageRecipient: text, bucket: text, keyPrefix: text, identityEnv: text }).strict(),
     credentialPolicy: z
       .object({
         _comment: text,
-        register: z.object({ mac: text, windows: text, ci: text }).strict(),
-        refreshTask: z.object({ mac: text, windows: text }).strict(),
+        register: z.object({ mac: text, windows: text }).strict(),
+        refreshTask: z.object({ mac: text }).strict(),
       })
       .strict(),
   })
@@ -258,7 +220,6 @@ export const AGENT_CONFIG_SCHEMAS = {
   'cem-essay-structure.json': CemEssayStructure,
   'cem-textbook-mapping.json': CemTextbookMapping,
   'code-ratchet-baseline.json': CodeRatchetBaseline,
-  'ci-write-operations.json': CiWriteOperations,
   'content-taxonomy-baseline.json': ContentTaxonomyBaseline,
   'gate-parity-baseline.json': GateParityBaseline,
   'information-architecture.json': InformationArchitecture,

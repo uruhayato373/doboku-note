@@ -29,7 +29,7 @@ note 記事・マガジンが増えると、記事末尾の CTA が場当たり�
 
 1. **資格別セグメント（最重要）** — L3 末尾 CTA は**同じ資格の L2 にだけ**送る。総監記事から 1 級土木へは送らない（関連性の薄い回遊は質を落とす）。全資格 L1 は**プロフィール固定と L2 を束ねる親**に限定。
 2. **冒頭=買う／末尾=回遊** — 冒頭はその資格の主力商品（パック）へインラインで軽く（カード連打で読み物の信頼を損ねない）。末尾は同資格 L2 へカード 1 枚で回遊。
-2-b. **有料記事の「末尾」は有料境界の直前（＝無料プレビューの末尾）** — 有料記事は `paidBoundary` 以降が paywall の中に入るため、記事末尾に置いた L2 もくじは**非購入者に一度も見えない**。回遊させたい相手はまさに「買わずに離脱する読者」なので、有料記事では L2 カードを**境界 H2 の直前**に置く。冒頭にカードを足すのではない（既にパック CTA があり原則 2 の「カード連打」に抵触する）。空いた記事末尾（有料域）は、civil の二次系に限り**メンバーシップ「土木セコカン合格ラボ」CTA**を置く＝答案を書き換えた直後の「第三者の目がほしい」瞬間に添削を提示する。総監・建設部門は資格セグメント違反（原則 1）なので置かない。一次（択一）は intent が別（原則 7）なので置かない。配線・検査は `npm run wire-note-paid-cta [--apply]` / `npm run check-note-paid-cta`（CI: content-quality-audit.yml・全量）。2026-07-31 制定、実測（`n74c193d154e5` の無料本文 7,450 字に土木もくじ URL が不在）を起点に paid+published 251 本のうち 238 本を是正。
+2-b. **有料記事の「末尾」は有料境界の直前（＝無料プレビューの末尾）** — 有料記事は `paidBoundary` 以降が paywall の中に入るため、記事末尾に置いた L2 もくじは**非購入者に一度も見えない**。回遊させたい相手はまさに「買わずに離脱する読者」なので、有料記事では L2 カードを**境界 H2 の直前**に置く。冒頭にカードを足すのではない（既にパック CTA があり原則 2 の「カード連打」に抵触する）。空いた記事末尾（有料域）は、civil の二次系に限り**メンバーシップ「土木セコカン合格ラボ」CTA**を置く＝答案を書き換えた直後の「第三者の目がほしい」瞬間に添削を提示する。総監・建設部門は資格セグメント違反（原則 1）なので置かない。一次（択一）は intent が別（原則 7）なので置かない。配線・検査は `npm run wire-note-paid-cta [--apply]` / `npm run check-note-paid-cta`（CI: quality:audit:ci・全量）。2026-07-31 制定、実測（`n74c193d154e5` の無料本文 7,450 字に土木もくじ URL が不在）を起点に paid+published 251 本のうち 238 本を是正。
 3. **冪等マーカー** — CTA は HTML コメントのマーカーで囲む（`<!-- cta:pack-top -->` / `<!-- cta:{exam}-mokuji -->`）。再実行で重複しない。マーカーは publish 時に除去される（note に出ない）。
 4. **既存 CTA 非破壊** — 配線スクリプトは通常追加のみ。`--sync-managed` は `<!-- cta:pack-top -->` で囲われた冒頭管理ブロックだけを config 現在値へ同期し、手書きの「おすすめ記事」「関連リソース」等は壊さない。除外へ移った記事からも管理ブロックだけを削除する。
 5. **note アンカー非対応** — 記事内の見出しジャンプは markdown の `#アンカー`では効かない。L1/L2 もくじ記事には note ネイティブ目次ブロックを使う（`publish-note` Phase 4.5）。
@@ -75,7 +75,7 @@ note 記事・マガジンが増えると、記事末尾の CTA が場当たり�
 |---|---|
 | `npm run audit-note-funnel` | **ソース**ドリフト検出（read-only・高速）。公開記事の CTA マーカー欠落／公開マガジンの L2 未収録／L2 の L1 未リンク／L2 URL 不一致／**除外指定なのに冒頭パック残存**（D1-D4・D6）＋**review surfacer**（トピック不一致の疑いを非ゲートで列挙→`note-funnel-auditor` へ） |
 | `npm run audit-note-funnel -- --live` | **＋ライブ反映検証（D5）**。公開記事の CTA が live note に実反映されているかを note 公開 API（body+embedded）で機械検証。**「ソースは正でもライブ未反映＝再投稿もれ」を検出**（2026-06-18 に総監19本で実害化した事故の機械検知）。`note-live-audit.yml` が `--live --ci` で週次実行し、手動実行は修復直後の再確認に使う |
-| `npm run check-note-funnel` | CI ゲート（`audit --ci`、**ソースのみ**でドリフト exit 1＝D1-D4・D6・高速）。review surfacer は非ゲート。`content-quality-audit.yml`（毎週月曜 07:15 JST・`ref: main`）で発火。**review 候補は機械の読み手を置かない**（ack 台帳が無く、判定済みの候補が毎週再浮上してノイズになるため）。意味判定は `/audit-note-funnel --semantic` をオンデマンドで回す |
+| `npm run check-note-funnel` | CI ゲート（`audit --ci`、**ソースのみ**でドリフト exit 1＝D1-D4・D6・高速）。review surfacer は非ゲート。`quality:audit:ci`（ci.yml）で発火。**review 候補は機械の読み手を置かない**（ack 台帳が無く、判定済みの候補が毎週再浮上してノイズになるため）。意味判定は `/audit-note-funnel --semantic` をオンデマンドで回す |
 | `npm run check-note-republish` | **本文＋ハッシュタグの再公開ドリフト検出**（surfacer・creds不要・ローカルhash突合）。公開記事のソース本文ハッシュ（`.claude/state/note-republish-hashes.json` の `hashes`）と**ハッシュタグ hash（同 state の `tagHashes`・`hashtags*.txt` 単位）**を現ソースと突合し「要再公開（本文drift／タグdrift）」を各々列挙。**D5 が CTA の live 反映を追うのに対し、こちらは blockquote/UTM/本文改稿など CTA 以外の全本文変更＋タグ変更を追う**（直交・補完）。in-sync 化: 本文＝`note-publish`／`note-update-body --commit`、タグ＝`note-publish`（Phase10でタグ適用）／`note-sync-tags`（公開済み記事へのタグ差分適用）。`note-update-body` はタグ非適用のためタグ hash は記録しない。`note-append-cta` は非hook。正常な中間状態も含むためゲートにはせず、`note-live-audit.yml` が週次 artifact に JSON を保存する。baseline は `--baseline --since <ref>`（本文・タグ両方をseed）。**本文 drift のうち記録時の版との差分が旧 `/docs` → 新 URL（`public/_redirects`・クエリ保持）の張り替えだけのものは「301 等価」として要再公開から外し別に数える**（live は 301 で同じ行き先＝再公開不要・JSON は `equivalentDriftFiles`）。記録時の版の canon は台帳 `canonHashes`（`recordPublishedHash` が書く）か git 履歴から取り、どちらも無い記事は「判定できず」として要再公開に残す（浅い clone の CI 用にローカルで `--record-canon` を回して台帳を commit する・2026-09-24 DN-0297） |
 | `npm run wire-note-funnel-cta -- --exam {key} [--sync-managed] [--apply]` | 資格別に L3 冒頭/末尾 CTA を**ソースへ**冪等配線（既定は dry-run）。`--sync-managed` は管理マーカー付き冒頭 CTA の差し替え・除外時の削除だけを許可 |
 | `npm run note-append-cta -- --note {id} ...` | **公開済み記事へ CTA を live 反映**（Playwright・Windows 可・browser-use 不要）。`--after`=free プレビューへアンカー挿入／`--boundary-h2`=有料境界保持。D5 ドリフトの修復手段。詳細 → [publish-note/references/update-mode.md](../../skills/social/publish-note/references/update-mode.md) |
@@ -94,7 +94,7 @@ note 記事・マガジンが増えると、記事末尾の CTA が場当たり�
 
 - **新規マガジン公開時** — その資格の L2 もくじに追記し、`audit-note-funnel` を実行
 - **新規記事公開時** — L3 CTA が入っているか（`wire-note-funnel-cta` 済みか）確認。**配線が公開より後なら `note-append-cta` で live 反映**（ソースだけ直して再投稿しないと live は死んだまま＝2026-06-18 の事故）
-- **週次 CI（ソース）** — `content-quality-audit.yml` の `check-note-funnel` が D1-D4/D6 を赤落ちで機械検知
+- **週次 CI（ソース）** — `quality:audit:ci` の `check-note-funnel` が D1-D4/D6 を赤落ちで機械検知
 - **週次 CI（ライブ）** — `note-live-audit.yml` が `audit-note-funnel --live --ci` を実行し、D5 と取得失敗率を検査
 - **意味的監査** — `note-funnel-auditor` は順序・文面の関連性を判断するときにオンデマンド実行。CI は意味判断やソース修復をしない
 - **修復** — CI が D5 を検出したら `note-append-cta`／`publish-note --update` で live 反映し、手動 `--live --ci` で消失を確認する

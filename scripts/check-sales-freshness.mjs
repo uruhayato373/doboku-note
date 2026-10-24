@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // data/note/sales.json の「転記が止まっていないか」を検査する（今回の事故の失敗モードそのもの）。
-// 月の受取額のココナラ分の台帳（売上履歴 coconala.revenue）も、週次の login-collectors で更新されているかを
+// 月の受取額のココナラ分の台帳（売上履歴 coconala.revenue）も、土曜の Mac 収集（weekly-collect）で更新されているかを
 // 台帳の freshness で見る（2026-10-11 追加。KDP は check-kdp-report-freshness が見る）。
 //
 // 背景（2026-08-17）: sales.json は 2026-07-14 で止まっており、2026-07 は note 実績
@@ -188,7 +188,7 @@ if (isMain) {
     console.error('  npm run note-sales-fetch -- --month YYYY-MM --commit で当月を取り直す（検算OKまで書き込まない）');
     console.error('  取得が使えない場合は note ダッシュボードから手作業で取り直し、/record-sales で転記する');
     console.error('  手順と検算の規約 → .claude/knowledge/reference/sales-tracking.md「取得と検算」');
-    console.error('  ココナラは login-collectors（coconala）の run ログを見る。手元なら npm run coconala-revenue');
+    console.error('  ココナラは土曜の Mac 収集（weekly-collect の coconala 段）の記録を見る。取り直すなら運営者が node scripts/weekly-collect.mjs --only coconala');
     process.exit(1);
   }
   if (r.status === 'WARN') {

@@ -89,10 +89,12 @@ export function buildStages({ today = todayJst(), kdpMonths = [] } = {}) {
       ],
     },
     {
-      id: 'note-sync', phase: 'post', title: 'note の記事の同期（本文・カバー・タグ）', timeoutMin: 180, browser: true, selfCommits: true,
-      // Drive の取り寄せと note を同じ実行で開くので、この段だけブラウザの並行を許す（note-sync.sh と同じ）
+      id: 'note-sync', phase: 'post', title: 'note の記事の同期（本文・カバー・タグ）', timeoutMin: 300, browser: true, selfCommits: true,
+      // Drive の取り寄せと note を同じ実行で開くので、この段だけブラウザの並行を許す（旧 note-sync.sh と同じ）
       env: { DOBOKU_PW_ALLOW_PARALLEL: '1' },
-      commands: [{ argv: ['scripts/note-sync-routine.mjs'] }],
+      // 1 記事に約 1.4 分かかる。2026-10-24 の初回は取り寄せ 268 件に 1.5 時間かかり、200 記事では時間内に収まらなかった。
+      // 1 回 80 記事に絞り、残りは翌週へ（急ぐときは運営者が --only note-sync を別の日に回す）。途中で止めても公開中の記事は変わらない
+      commands: [{ argv: ['scripts/note-sync-routine.mjs', '--max', '80'] }],
     },
     {
       id: 'note-sync-check', phase: 'post', title: 'note の反映の照合（公開 API）', timeoutMin: 15, browser: false,
@@ -115,6 +117,18 @@ export function stageStatus(stage, exits, outputs = []) {
     return 'failed';
   }
   return status;
+}
+
+/**
+ * 段の失敗の理由（pure）。コマンドが 2 本以上ある段は、どのコマンドが落ちたかを頭に付ける。
+ * 2026-10-24 の note-traffic は 1 本目（9 月の月次）が検査不成立、2 本目（W42 の期間）は検査に通って書いたのに、
+ * 理由が 1 本目の行だけだったため「検査に落ちた取得が W42 を上書きした」と読まれた（DN-0833）。
+ */
+export function commandFailureReason({ argv, index, total, line, timedOut = false, timeoutMin }) {
+  const body = timedOut ? `${timeoutMin} 分で打ち切り` : String(line ?? '');
+  if (total < 2) return body.slice(0, 300);
+  const run = argv[0] === 'npm' && argv[1] === 'run' ? argv.slice(argv[2] === '-s' ? 3 : 2) : argv;
+  return `${index + 1}/${total} 本目（${run.join(' ')}）: ${body}`.slice(0, 300);
 }
 
 /** 合格の判定: 全段が ok・warn・skipped で、書き戻しに問題が無い（pure） */

@@ -1,29 +1,31 @@
 ---
 name: coconala-analytics
-description: ココナラ「サービス・ブログ分析」を Playwright で read-only 収集し、data/coconala/kpi.json へ週次 upsert するスキル。全体累計（閲覧/販売/販売額/お気に入り）・サービス別（listed 全件を URL 直打ちで走査）・ブログ別閲覧数を data/coconala/analytics.json に落とし、check-coconala-analytics で鮮度・欠測・マスク値・kpi.json 整合を検査する。数値は対象期間の累計（既定30日ローリング）であって週次増分ではない。セラーサクセス未加入の表示数は 0000 とマスクされるため null 記録。取得のみで書き込み（メモ追加・設定変更・出品操作）はしない。撤退ライン判定と受注突合は /coconala-status、出品操作は /coconala-publish が担当で守備範囲が異なる。Use when user asks to [ココナラの数字を取る, ココナラKPIを自動取得, ココナラ分析を記録, 閲覧数を記録, /coconala-analytics].
+description: ココナラ「サービス・ブログ分析」の記録（土曜の Mac 収集が Playwright で read-only 取得し data/coconala/kpi.json へ週次 upsert）を読んで報告するスキル。全体累計（閲覧/販売/販売額/お気に入り）・サービス別（listed 全件を URL 直打ちで走査）・ブログ別閲覧数を data/coconala/analytics.json に落とし、check-coconala-analytics で鮮度・欠測・マスク値・kpi.json 整合を検査する。数値は対象期間の累計（既定30日ローリング）であって週次増分ではない。セラーサクセス未加入の表示数は 0000 とマスクされるため null 記録。セッションはログインして取りに行かず、記録と最終取得日を読む。書き込み（メモ追加・設定変更・出品操作）はしない。撤退ライン判定と受注突合は /coconala-status、出品操作は /coconala-publish が担当で守備範囲が異なる。Use when user asks to [ココナラの数字を見る, ココナラ分析の記録を確認, 閲覧数を確認, /coconala-analytics].
 user-invocable: true
 domain: product
 ---
 
-# /coconala-analytics — ココナラ分析の自動取得と記録
+# /coconala-analytics — ココナラ分析の記録を読む
 
 真実源は [coconala-operations.md §4](../../../knowledge/reference/coconala-operations.md)。
 このファイルには手順だけを書く。
 
 ## 前提
 
-- **実行はローカルのみ**（ログイン済みプロファイル `<auth root>/profiles/playwright-coconala-profile` があるマシン）
-- **収益アカウント**。`assertAccount`（sellerName=dobokunote）を全操作の前に通す
-- **read-only**。メモ追加・期間変更・出品操作はしない（画面を読むだけ）
+- **取得は土曜の Mac 収集（`weekly-collect` の coconala 段）だけ**。セッションではログインしない・ブラウザを開かない（`coconala-analytics` はセッションでは動かない）
+- 取得側は収益アカウント。`assertAccount`（sellerName=dobokunote）を全操作の前に通す read-only（メモ追加・期間変更・出品操作はしない）
 
 ## 手順
 
+1. `data/coconala/analytics.json` の取得日と `data/coconala/kpi.json` の最新 `weekOf` を読み、**最終取得日を報告の冒頭に書く**
+2. 古い（`npm run check-coconala-analytics` が鮮度で FAIL）、または空なら、数値を埋めず **「未取得」** と書く。取り直しは次の土曜の収集を待つか、運営者が収集用 worktree（`.claude/worktrees/weekly-collect`）の端末で `node scripts/weekly-collect.mjs --only coconala` を実行する
+3. 鮮度以外の検査（欠測・マスク値・kpi.json 整合）は読み取りだけで確かめられる
+
 ```bash
-npm run coconala-analytics -- --append-kpi   # 収集 → snapshot → kpi.json へ upsert
-npm run check-coconala-analytics             # 鮮度・欠測・マスク値・kpi.json 整合
+npm run check-coconala-analytics             # 鮮度・欠測・マスク値・kpi.json 整合（記録を読むだけ）
 ```
 
-補助フラグ: `--no-services`（全体＋ブログのみ）／`--headless`／`--append-kpi` なしなら snapshot のみ。
+運営者が取り直すときのフラグ（収集用 worktree の端末）: `--no-services`（全体＋ブログのみ）／`--headless`／`--append-kpi` なしなら snapshot のみ。
 
 出力は `data/coconala/analytics.json`（実体）と
 `data/coconala/kpi.json` の `weekly` / `blogsWeekly`（週次台帳・`weekOf`+`serviceId` で upsert＝再実行しても二重計上しない）。
@@ -57,13 +59,12 @@ npm run check-coconala-analytics             # 鮮度・欠測・マスク値・
 
 ## 完了条件
 
-- `npm run check-coconala-analytics` が exit 0（または FAIL の内容がカタログ側の是正待ちとして報告されている）
-- `data/coconala/kpi.json` に当該 `weekOf` の行が入り、`updatedAt` が更新されている
-- 変更した `data/coconala/kpi.json` / `data/coconala/analytics.json` が commit されている
+- 報告に最終取得日が書かれている（古ければ「未取得」と明記）
+- `npm run check-coconala-analytics` が exit 0（または FAIL の内容がカタログ側の是正待ち・取得待ちとして報告されている）
 
 ## 参照
 
-- 収集: `scripts/coconala-analytics.mjs`（`npm run coconala-analytics`）
+- 収集（土曜の Mac 収集が呼ぶ）: `scripts/coconala-analytics.mjs`（`npm run coconala-analytics`）
 - 検査: `scripts/check-coconala-analytics.mjs`（`npm run check-coconala-analytics`）
 - 運用 SSOT: [coconala-operations.md](../../../knowledge/reference/coconala-operations.md) §2.4 / §4
 - 隣接スキル: `/coconala-status`（撤退ライン判定・受注突合）・`/coconala-publish`（出品操作）・`/coconala-blog`（ブログ執筆・公開）

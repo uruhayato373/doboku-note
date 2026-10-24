@@ -25,7 +25,7 @@ domain: product
 まず `serviceId` からタイプを判定し、分岐する（真実源 → [coconala-operations.md §3](../../../../.claude/knowledge/reference/coconala-operations.md)）。
 
 **共通の前段**
-0. **実体を取る**: `npm run coconala-orders` を実行し `data/coconala/orders-snapshot.json` を更新する。**何が売れたかを購入通知の記憶や推測で決めない**。serviceId 未指定ならスナップショットから特定する（`talkroomId` / `serviceId` / `priceYen` / `soldOn` / `replyDueAt` が採れる）。ログインが切れていれば headed の Chrome で人がログイン。
+0. **実体を読む**: `data/coconala/orders-snapshot.json` とその取得日を読む（取得は土曜の Mac 収集の coconala 段。`coconala-orders` はセッションでは動かない）。古い・直近の注文が載っていないときは「未取得」と書き、運営者に端末での `node scripts/weekly-collect.mjs --only coconala` を頼む。**何が売れたかを購入通知の記憶や推測で決めない**。serviceId 未指定ならスナップショットから特定する（`talkroomId` / `serviceId` / `priceYen` / `soldOn` / `replyDueAt` が採れる）。ログインが切れていれば運営者が `npm run auth:login -- --service coconala` で入り直す。
 0b. **購入者のメッセージと添付を取る**: `npm run coconala-talkroom -- <talkroomId>` で `.tmp/coconala/talkrooms/{id}/` に messages.txt・添付（原寸）・docx の本文 .txt・manifest.json を出す。**その場で Playwright を書かない**（添付はホバーで出るボタンにしかなく、画像は saveAs が競合して失敗する＝2026-09-25 に4回書き直した）。exit 2 は添付の取りこぼし。画像（手書きの工事概要など）は原寸を Read して読む。
    取引の後に DM で届いた追加の質問・答案は `npm run coconala-dm -- <dmId>` で `.tmp/coconala/dm/{id}/` に取る（古いメッセージの展開と添付を含む。DM の ID は orders-snapshot.json の inquiries[].dmId）。
 1. **カタログ確認**: `serviceId` の `status` を Read。`draft`（未出品）なら停止。`full` なら受付枠超過を警告。

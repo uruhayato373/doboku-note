@@ -28,17 +28,17 @@ PC ごとに独立保持し、Windows と Mac の間でコピー・Git・OneDriv
 
 ## サービスと例外
 
-| service | profile | sessionMode | アカウント assert | ci.mode / ci.operations |
+| service | profile | sessionMode | アカウント assert | 土曜の収集（`weekly-collect` の段） |
 |---|---|---|---|---|
-| `note` | `playwright-note-profile` | profile | note の `dobokunote` 表示 | encrypted-state / read+write |
-| `coconala` | `playwright-coconala-profile` | profile | `config/coconala-account.json` | encrypted-state / read+write |
-| `kdp` | `playwright-kdp-profile` | profile | KDP 本棚の実体 | encrypted-state / read+write |
-| `x` | `playwright-x-profile` | profile | `config/x-account.json` | encrypted-state / read+write |
-| `instagram` | `playwright-ig-bs-profile` | profile | `config/ig-account.json` | encrypted-state / read+write（Meta 利用制限で Graph API 不可＝Playwright 照合・予約投稿） |
-| `google` | `playwright-google-profile` | profile | GSC/GA4 の対象プロパティ | encrypted-state / read |
-| `a8` | `playwright-a8-profile` | profile-plus-state | メディア ID `a25050375786` | encrypted-state / read+write |
-| `moshimo` | `playwright-moshimo-profile` | profile-plus-state | `config/affiliate-asp.json` | none / read |
-| `afb` | `playwright-afb-profile` | same-process | ASP site guard | encrypted-state / read |
+| `note` | `playwright-note-profile` | profile | note の `dobokunote` 表示 | auth・note-traffic・note-sales・note-live・note-sync |
+| `coconala` | `playwright-coconala-profile` | profile | `config/coconala-account.json` | auth・coconala |
+| `kdp` | `playwright-kdp-profile` | profile | KDP 本棚の実体 | auth・kdp |
+| `x` | `playwright-x-profile` | profile | `config/x-account.json` | なし（SNS 保留。読み書きとも運営者の依頼時だけ） |
+| `instagram` | `playwright-ig-bs-profile` | profile | `config/ig-account.json` | なし（同上） |
+| `google` | `playwright-google-profile` | profile | GSC/GA4 の対象プロパティ | gsc |
+| `a8` | `playwright-a8-profile` | profile-plus-state | メディア ID `a25050375786` | auth・a8 |
+| `moshimo` | `playwright-moshimo-profile` | profile-plus-state | `config/affiliate-asp.json` | なし（doboku-note に広告が無い・DN-0643） |
+| `afb` | `playwright-afb-profile` | same-process | ASP site guard | なし（同上） |
 
 A8 は揮発性 Cookie のため `states/playwright-a8-state.json` の再注入を併用する。afb は保存 state を
 別プロセスで再利用できない場合があるため、ログインから操作まで同一プロセスで完結させる。
@@ -161,112 +161,50 @@ Windows と Mac の双方で note の別プロセス再利用・worktree 非依�
   （2026-09-14 Windows: 10 サービスを `~/.local/state` へ移行済み。`.local` と Codex サンドボックスの旧コピーは
   キャッシュだけ削って保持。`auth:status` で新 root の再利用を確認したら人が消す）
 
-## §CI（encrypted-state・2026-09-21）
 
-CI（GitHub Actions hosted runner）は実 profile を使わない。`.claude/config/playwright-auth-profiles.json`
-の `ci.mode === 'encrypted-state'` のサービスだけ、age 暗号化した storageState を private R2 から
-復元して動く。テストが明示した一時 root 以外は resolver が拒否する（`DOBOKU_AUTH_SESSION_MODE` と
-`RUNNER_TEMP`/`os.tmpdir()` 配下の root が揃ったときだけ）。
+## 役割分担（人・Mac・CI）（2026-10-24 DN-0817）
 
-**何を持ち出すか**: 各サービスの `stateDomains` でフィルタした storageState（cookie / localStorage）だけ。
-raw profile（キャッシュ・拡張機能・他ドメインの cookie を含む）は一切持ち出さない。
-
-**どこへ**: private R2（`doboku-note-archive`）の `auth-state/<service>/{state.age,state.prev.age,manifest.json}`。
-age の公開鍵はレジストリ `ciAuthState.ageRecipient`（commit してよい）。秘密 identity は GitHub Secret
-`DOBOKU_AUTH_AGE_IDENTITY` と Mac の auth root（`age/identity.txt`）だけに置く。
-**Mac からの転送は rclone**（remote `doboku-r2`・`scripts/lib/rclone-s3-adapter.mjs`）。この PC に R2 の access key を
-置かない方針（`.env.example`）のまま `auth:export` が動く。rclone 経路は CAS（If-Match）非対応だが、CI の書き戻しは
-`restoredGeneration` 一致でしか書かないので衝突は CI 側で止まる。実測（2026-09-21）: `rclone cat`/`lsjson` は
-存在しないキーでも exit 0（空出力 / `[]`）を返すため、アダプタは `[]` を「無い」として NoSuchKey/NotFound に写像する。
-往復の実測: coconala を export（gen 1）→ CI 模擬 env で `ci-restore` が `authenticated` → `coconala-orders --headless`
-が 7/7 タブ取得 → `ci-writeback` で gen 2（`state.prev.age` 退避・`operatorExportedAt` 維持）→ Mac 側 `auth:status` は
-`authenticated` のまま（セッション巻き添え無し）。instagram（Business Suite）も同様に export gen 1 → `ci-restore` authenticated →
-`verify-ig-status --no-planner` がライブ 122 投稿を読み snapshot を書く（exit 2＝慢性ドリフトは workflow 側で成功扱い）→ writeback gen 2 → Mac 健在。
-Business Suite の account assert は本文にハンドルが出ないため、プランナー URL の `asset_id=<ページ ID>`（`ig-account.json businessSuite.assetId`）で行う。
-**初回 canary（2026-09-21・run 35561546852）の教訓**: composite action で `npm run auth:ci-restore -- --json > file` としていたため、
-npm のバナー（`> pkg@ver script`）が stdout に混ざり JSON が読めず `status=unknown` で失敗した（復元自体は成功していた）。
-CI で JSON を stdout から受ける呼び出しは `node scripts/playwright-auth.mjs ci-*` の直叩きに限る（wiring 検査 10 が `npm run auth:ci-*` を拒否）。
-**2 回目の canary（run 35563187633）**: 復元は `authenticated`（GitHub Actions の ubuntu runner・datacenter IP・headless Chrome で
-coconala の account assert が通った＝この方式の成立を実証）。書き戻しが `cas-conflict` で落ちたのは、manifest の etag を state.age の
-PutObject に IfMatch で付けていたバグ（R2 は PutObject の IfMatch を評価し 412 を返す）。CAS は manifest.json に対して行い、
-初回は IfNoneMatch: `*`。cas-conflict は「他の書き手を潰さなかった」正常 skip（exit 0・write:false）で、R2 障害だけが赤。
-ローカルの rclone 経路は IfMatch を無視するので、この種のバグは実 CI でしか出ない。
-**3 回目の canary（run 35564319389・collect）**: 復元・収集（coconala-orders 7/7・analytics 16/16）・書き戻し（gen 3）まで成功したが、
-`upload-artifact` が既定で隠しディレクトリ（`.claude/`）を除外するため成果物が publish job に渡らず「変更なし」になった。
-`include-hidden-files: true` が必須（sync-yt-descriptions.yml と同じ）。Stage 段階で staged 件数を出し、collect で 0 件なら warning。
-**全サービスの export（2026-09-21・Mac）で直した判定の穴**: a8 は registry の旧 URL `management.af8.jp` が DNS 不解決（真実源は
-a8-report-automation.json の `media-console.a8.net`）／afb は adapter が `supported:false` で export が成立しなかった（判定を
-`#top_site_select` の DOM に）／google は最後に開いたプロパティ（stats47）に飛ぶので `?resource_id=sc-domain:doboku-note.com` を明示／
-**x は hosted runner だと
-「セキュリティ検証の実行」のボット挑戦ページになり判定不能**（cookie の問題ではなく datacenter IP。`enabled:false`・ローカルか
-residential IP の self-hosted runner が要る）。headed でないと 403 になるサイト向けに `auth:export --headed` を追加。
-
-**誰が復号できるか**: repo の Secrets を読める workflow を起動できる人＝repo write 権限者。fork PR には
-Secrets が渡らないため復号できない。
-
-**CAS と世代**: manifest の etag へ `IfMatch` した上で generation を進める。CI からの書き戻しは
-`restoredGeneration` と一致するときだけ許可し、Mac 側の新しい export を CI が上書きしない。
-`state.prev.age` で 1 世代戻せる。
-
-**kill switch**: `ci.enabled:false` でサービス単位に即停止できる（YAML は変更しない）。
-
-**canary 手順**: `ci.canary:true` の間は cron に載せず `workflow_dispatch` の service 明示だけで動く。
-卒業手順は dispatch で probe-only を 2 回 → collect（read）を別日で 3 回 → その間 Mac の
-`auth:status` が引き続き `authenticated` のまま（CI 復元がローカル profile を壊していないことの確認）
-→ 問題が無ければ `canary:false` にする。
-
-**allowlist**: `readOnlyScripts` は常時許可。`writeScripts` は `DOBOKU_CI_WRITE_PLAN_SHA256`
-（ops-write の plan hash）が無いと resolver が拒否する。それ以外の script は
-`AUTH_CI_SCRIPT_NOT_ALLOWLISTED` で常に拒否する。
-
-**人が残る操作**: 初回ログイン、2FA、CAPTCHA、`auth:export`（authenticated なローカル profile から
-暗号化 state を書き出す操作そのものは人がローカルで実行する）。例外として A8・もしも・KDP・note・ココナラは `auth-session-refresh.mjs`（下の「ログイン維持」）が
-ログインを自動で取り直す。`ci.enabled` の service の export まで自動で行うのは Mac の launchd だけ（Windows からは CI へ渡さない）。
-
-**コマンド一覧**:
-
-```bash
-npm run auth:keygen          # age keypair 生成（identity は Mac の auth root、recipient は registry へ）
-npm run auth:export          # ローカルの authenticated な storageState を暗号化して private R2 へ書き出す
-npm run auth:ci-restore      # CI 専用。暗号化 state を復元し一時 root へ展開する
-npm run auth:ci-writeback    # CI 専用。更新後の storageState を CAS で書き戻す
-npm run auth:ci-plan         # ops-write の write plan を作り DOBOKU_CI_WRITE_PLAN_SHA256 を計算する
-```
-
-## 役割分担（人・Mac・CI）（2026-10-22 DN-0362）
+ログインが要る処理は、運営者の Mac で週 1 回（土曜の週次レビュー前後）だけ回す。CI・Windows・他のセッションはログインしない。
 
 | 担い手 | 受け持つこと |
 |---|---|
-| 人（運営者） | 初回ログイン・パスワードと 2 段階認証・CAPTCHA（`npm run auth:login -- <service>`）、OS の資格情報ストアへの ID/PW の登録、`auth:export` の実行、期限切れの再ログイン、古いロックを外す判断 |
-| Mac（launchd） | 毎日 17:45 の `auth-session-refresh`（A8・もしも・KDP・note・ココナラのログインの取り直し）、`ci.enabled` のサービスの暗号化 state の書き出し、週次レビューの `auth:status`（ログインの健康診断） |
-| Windows（タスクスケジューラ） | 同じ `auth-session-refresh`（止まっていた日は次の起動時に 1 回）。CI への書き出しはしない |
-| CI | 暗号化 state を復元して読むだけの定期収集（`auth:ci-restore`）と、許可された書き込みの書き戻し（`auth:ci-writeback`）。ログインはしない |
+| 人（運営者） | 初回ログイン・パスワードと 2 段階認証・CAPTCHA（`npm run auth:login -- --service <id>`）、OS の資格情報ストアへの ID/PW の登録、期限切れの再ログイン、古いロックを外す判断、GitHub Secrets `DOBOKU_AUTH_*` の削除 |
+| Mac（launchd `com.doboku-note.weekly-review`・土 09:30） | `scripts/weekly-collect.mjs`。前段（`--phase pre`）でログイン確認・A8・KDP・note のアクセスと売上・ココナラ・GSC を集め、Claude の週次レビューを挟み、後段（`--phase post`）で note のライブ照合・note 同期・同期の照合を回す。結果は `.claude/state/weekly-collect/runs.json`、日々の点検は `npm run check-weekly-collect`、赤は Issue（channel `weekly-collect`） |
+| CI | ログインしない。resolver は CI では profile も state も返さない（`AUTH_CI_NO_LOGIN`）。公開 API・サイト・R2 だけを見る |
+| 他のセッション | ログインして取りに行かない。収集の記録と最終取得日を読み、古ければ「未取得」と書く（下記） |
+
+運営者が 1 段だけ取り直すときは、収集用 worktree（`.claude/worktrees/weekly-collect`）の端末で `node scripts/weekly-collect.mjs --only <段>`
+（段 ID: `auth` `a8` `kdp` `note-traffic` `note-sales` `coconala` `gsc` `note-live` `note-sync` `note-sync-check`）。
+全体の自動化は台帳 `config/automations.json`（管理画面 `/ops/automations`・`npm run check-automations`）が正本で、概観は [04_自動化マップ.md](../../../docs/operations/04_自動化マップ.md)。
+
+**エージェントのセッション（`CLAUDECODE=1`）の線引き**
+
+- 読み取り専用の収集 script（`playwright-auth-profiles.json` の `services.<id>.collectors`）は、resolver がセッションでは profile を返さない（`AUTH_AGENT_COLLECT_REFUSED`）。土曜の収集が付ける `DOBOKU_WEEKLY_COLLECT=1` のときだけ通る
+- 書き込み script（同 `writers`＝note の公開・ココナラの出品編集・KDP 提出・X 投稿など）は、運営者が頼んだときに限りセッションから既存の profile で動かしてよい。各 operator/skill の dry-run→`--commit` ゲートに従う
+- `credential-store` はセッションでは資格情報ストアを読まない。`auth-session-refresh` は `agent_skipped`、note の売上ページの再確認は ABORT、ASP は未ログインのまま止まる（2026-10-01: エージェントが note の再確認とココナラの自動ログインを走らせた再発防止）
+- 書き込みの途中でログインが切れていたら、運営者が `npm run auth:login -- --service <id>` で入り直す。セッションから資格情報で入らない
 
 ## 資格情報の正本（2026-10-01）
 
-ログインが必要な全サービス（note・ココナラ・KDP・X・Instagram・Google・A8・もしも・afb）の ID/PW は、各 PC の OS 資格情報ストア（Mac キーチェーン / Windows 資格情報マネージャー）に `doboku-note-auth-<service>` で登録する。方針の正本は `.claude/config/playwright-auth-profiles.json` の `services.<id>.credential`（`autoLogin`＝切れたら自動で入り直すか・`ciCredential`＝GitHub Secrets を持つか・`policyNote`＝理由）と `credentialPolicy`（登録コマンド・定期実行）。X・Instagram・Google・afb は `autoLogin: false`（凍結・2 段階認証・セレクタ未確認）で、資格情報は人がログインするときのために保管する。GitHub Secrets は 2026-10-01 オーナー決定で全サービスに保管する（`ciStored`）が、CI が実際に読むのは `ciCredential: true` のサービスだけ。X・Instagram・Google は 9/21 の実測（ボット確認・手元ごとのセッション失効）で CI に載せない。afb ともしもの CI 化は DN-0484・DN-0483 で試行中。afb は state を別プロセスへ持ち出せないので、`asp-browser.mjs` の `openAsp` が同じプロセスで資格情報（手元は資格情報ストア、CI は Secrets）を使って 1 回だけログインし、毎日のログイン維持では入らない（`AUTO_LOGIN.afb.inProcessOnly`）。CI では未ログインのとき人を待たずに失敗する。`tests/auth-credential-ssot.test.mjs` が正本と `AUTO_LOGIN`・CI の Secrets 配線の一致を検査する。状態は管理画面の 管理 ＞ ログインと資格情報（`/ops/auth`）で見る（開いた PC の登録だけが見える。Mac の作業は DN-0479）。ログイン ID の正本も各 PC の資格情報ストア（このリポジトリは公開なので ID を書かない）で、管理画面はそこから ID だけを読んで表示する（`credential-store.mjs` の `storedAccounts`・パスワードは取り出さない）。
+ログインが必要な全サービス（note・ココナラ・KDP・X・Instagram・Google・A8・もしも・afb）の ID/PW は、各 PC の OS 資格情報ストア（Mac キーチェーン / Windows 資格情報マネージャー）に `doboku-note-auth-<service>` で登録する。方針の正本は `.claude/config/playwright-auth-profiles.json` の `services.<id>.credential`（`autoLogin`＝切れたら自動で入り直すか・`policyNote`＝理由）と `credentialPolicy`（登録コマンド・定期実行）。X・Instagram・Google・afb は `autoLogin: false`（凍結・2 段階認証・セレクタ未確認）で、資格情報は人がログインするときのために保管する。afb は state を別プロセスへ持ち出せないので、`asp-browser.mjs` の `openAsp` が同じプロセスで資格情報を使って 1 回だけログインする（`AUTO_LOGIN.afb.inProcessOnly`）。ログイン ID の正本も各 PC の資格情報ストア（このリポジトリは公開なので ID を書かない）。状態は管理画面の 管理 ＞ ログインと資格情報（`/ops/auth`）で見る（開いた PC の登録だけが見える。ID だけを読んで表示し、パスワードは取り出さない＝`credential-store.mjs` の `storedAccounts`）。
 
-## ログイン維持（auth:refresh・Mac 2026-09-28／Windows・note・ココナラ 2026-09-28 DN-0362）
+> [!note]
+> 2026-10-24（DN-0817）まで、全サービスの ID/PW を GitHub Secrets（`DOBOKU_AUTH_*`）にも保管し、CI が age 暗号化した storageState を private R2 から復元して収集・投稿していた。ココナラは 403、KDP・X・Instagram は端末変更やボット確認で失効し、毎週どこかが壊れたため廃止した。Secrets と private R2 の `auth-state/` は運営者が削除する。
 
-A8 は揮発性 Cookie で、Mac で export した state が CI の定期収集（予定より数時間遅れて動く）の時点で切れていた
-（2026-09-22 run 35670832802・Issue #570）。stats47 の `measurement-session-refresh`（launchd 17:30）と同じ仕組みを
-`scripts/auth-session-refresh.mjs` として持ち、毎日 17:45 に回す（`npm run auth-refresh:install`。Mac は launchd・ログイン時にも、
-Windows はタスクスケジューラ `\doboku-note\auth-session-refresh`・止まっていた日は次の起動時に 1 回）。
-ID/PW の読み口は `scripts/lib/credential-store.mjs` だけ（Mac キーチェーン／Windows 資格情報マネージャー。stats47 と同じ方式）。
+## ログイン維持（`auth-session-refresh`・土曜の auth 段）
+
+`scripts/auth-session-refresh.mjs` が、A8・もしも・KDP・note・ココナラのログインを取り直す。毎日の launchd・Windows のタスクは 2026-10-24 に廃止し、土曜の `weekly-collect` の auth 段（`--service a8,kdp,note,coconala`）だけが呼ぶ。
+ID/PW の読み口は `scripts/lib/credential-store.mjs` だけ（Mac キーチェーン／Windows 資格情報マネージャー）。
 
 | 段 | 内容 |
 |---|---|
-| 共用 state の取り込み | A8・もしもは stats47 と同じ口座。stats47 が保存する `~/.local/share/asp-sessions/<service>-state.json` が auth root の state より新しければ写す。同じ口座へ両方から毎日ログインしないため、ここで通ればログインしない |
+| 共用 state の取り込み | A8・もしもは stats47 と同じ口座。stats47 が保存する `~/.local/share/asp-sessions/<service>-state.json` が auth root の state より新しければ写す。同じ口座へ両方からログインしないため、ここで通ればログインしない |
 | 確認 | `auth:status` と同じ判定（口座 assert 付き） |
 | 資格情報でログイン | 切れていれば 1 回だけ。項目は `doboku-note-auth-<service>`、A8・もしもは無ければ `stats47-measurement-<service>`。KDP・note・ココナラは doboku-note 専用の項目だけ（別口座の資格情報で入らない） |
-| export と収集（Mac のみ） | `ci.enabled` の service は暗号化 state を書き出し、`ci.cron` が 24 時間以内なら直後に `login-collectors` を `workflow_dispatch` で起動する |
-| 定期実行の省略 | `ci.skipScheduleIfFresh`（A8 は `a8-ui/last-run.json` が 30 時間以内）なら同じ回の定期実行は `fresh` で skip する（期限切れの state で失敗させない） |
 
-2FA・CAPTCHA・ID/PW 不通・口座不一致では突破せず、auth root の `metadata/<service>.autologin-failed` を残して通知する（Mac は通知センター、Windows はタスクバーの通知）。印には送信後の場所とログイン画面に出た文言（メールアドレスは伏せる）を書き、画面の写しを `metadata/<service>.autologin-failed.png` に残す。不可視の reCAPTCHA（`size=invisible`・v3 の印）はログイン画面に常にあるので「人の確認」に数えない（2026-10-01: ココナラの送信がログイン画面へ戻されただけで human_required と判定し、拒否の理由を隠した）。ココナラ・KDP は手元では画面ありで送り、CI では常に headless で起動する。
-
-**CI での入り直し（note・ココナラ・2026-10-01／KDP・A8・もしもは同日から試行・DN-0480・DN-0481・DN-0483。ココナラは CI から 403 Forbidden になるので 2026-10-13 に CI の取得を止め、Mac の coconala-local（launchd 毎週火 05:15）を正にした（DN-0667）。もしも・afb は doboku-note に広告が無いので 2026-10-13 に CI の取得ごと止めた＝`ci.enabled: false`・afb は fetch-metrics の公式 API の取得と鮮度の検査も外した・DN-0643。afb は取得スクリプトの中でログイン・DN-0484）**: `login-collectors.yml` は restore の結果が authenticated でないとき、`auth-session-refresh.mjs --ci --service <service>` で Secrets（`DOBOKU_AUTH_<SERVICE>_USER` / `_PASSWORD`）の ID/PW を使い 1 回だけ入り直す。許可 service は資格情報の正本（`playwright-auth-profiles.json` の `credential.ciCredential=true`）だけ。成功すれば以降の collector と writeback が動き、新しい state が R2 へ書き戻される。2FA・CAPTCHA では止まり、Issue に restore と re-login の結果が載る。共用 state の取り込み・export・通知は CI ではしない。
-人が `npm run auth:login -- --service <service>` で通し、印を消すまで自動では再試行しない。ログは
-Mac `~/Library/Logs/doboku-note/auth-session-refresh.log`／Windows `%USERPROFILE%\.local\state\doboku-note\logs\auth-session-refresh.log`。
+2FA・CAPTCHA・ID/PW 不通・口座不一致では突破せず、auth root の `metadata/<service>.autologin-failed` を残して通知する。印には送信後の場所とログイン画面に出た文言（メールアドレスは伏せる）を書き、画面の写しを `metadata/<service>.autologin-failed.png` に残す。不可視の reCAPTCHA（`size=invisible`・v3 の印）はログイン画面に常にあるので「人の確認」に数えない（2026-10-01: ココナラの送信がログイン画面へ戻されただけで human_required と判定し、拒否の理由を隠した）。
+人が `npm run auth:login -- --service <service>` で通し、印を消すまで自動では再試行しない。KDP は Amazon の再認証で止まりやすく、切れたら次の土曜を待たず人が入り直す。
+ログインの記録は `.claude/state/weekly-collect/runs.json` の auth 段と、Mac `~/Library/Logs/doboku-note/weekly-review.log`に残る。
 
 KDP・note・ココナラは資格情報を登録したときだけ対象になる（未登録は `skipped`）。登録はオーナーが各 PC で 1 回（値は対話入力）:
 
@@ -277,7 +215,17 @@ security add-generic-password -s doboku-note-auth-note -a <ログインID> -w
 cmdkey /generic:doboku-note-auth-note /user:<ログインID> /pass
 ```
 
-note は購入者一覧・売上管理を開くと端末ごとにパスワード再確認が出る。`note-sales-fetch`・`record-net-receipts` はこれを、資格情報（手元は Mac キーチェーン／Windows 資格情報マネージャーの `doboku-note-auth-note`、CI は Secrets `DOBOKU_AUTH_NOTE_USER`／`DOBOKU_AUTH_NOTE_PASSWORD`）で `scripts/lib/note-reauth.mjs` が 1 回だけ通す（2026-10-01）。未登録・失敗印 `metadata/note.reauth-failed` あり・通らないときは ABORT して人が通す。エージェントはこの自動入力を走らせない（実行はオーナー・スケジューラ・CI）。Claude Code が実行するコマンド（`CLAUDECODE=1`）では `credential-store` が資格情報ストアを読まず、`auth-session-refresh` は `agent_skipped`・note の再確認は ABORT・ASP は未ログインのまま止まる（2026-10-01: エージェントが note の再確認とココナラの自動ログインを走らせた再発防止）。
+note は購入者一覧・売上管理を開くと端末ごとにパスワード再確認が出る。`note-sales-fetch`・`record-net-receipts` はこれを、資格情報ストアの `doboku-note-auth-note` で `scripts/lib/note-reauth.mjs` が 1 回だけ通す（2026-10-01）。未登録・失敗印 `metadata/note.reauth-failed` あり・通らないときは ABORT して人が通す。
+
+## セッションが収集の記録を読む（2026-10-24）
+
+A8・KDP・note のアクセスと売上・ココナラ・GSC の「いま」の値は、セッションでは取りに行かない。
+
+1. 各領域の記録（`data/` 配下の dataset・宣言は `scripts/lib/datasets.mjs`）と、その最終取得日を読む
+2. 最終取得日が古い、または空なら、数値を埋めずに「未取得」と書く
+3. 取り直しが要るときは「次の土曜の収集を待つ」か、運営者が端末で `node scripts/weekly-collect.mjs --only <段>` を実行する、と案内する
+
+収集の成否は `npm run check-weekly-collect`（直近の pre と post が合格か・期限内か）で見る。
 
 ## 検証
 

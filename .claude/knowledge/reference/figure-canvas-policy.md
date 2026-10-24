@@ -68,7 +68,7 @@
 
 ### 埋込寸法ガード — 「MDX の width/height は SVG の実 viewBox と一致させる」
 
-**`scripts/check-figure-embed-dims.mjs`**（pre-commit `--staged` + push 時 `quality:audit --ci`〔`ci.yml`〕全量 + 週次 `r2-audit.yml` 全量・`npm run check-figure-embed-dims`）:
+**`scripts/check-figure-embed-dims.mjs`**（pre-commit `--staged` + push 時 `quality:audit --ci`〔`ci.yml`〕全量 + `quality:audit:ci` 全量・`npm run check-figure-embed-dims`）:
 
 - `content/site/**/*.mdx|*.md` 本文の `<ArticleImage src="/posts/….svg">` を走査し、参照先 SVG の `viewBox="0 0 W H"` と `width={W}` `height={H}` を突合。
 - 不一致は file・figure 名・両者の寸法を出して **exit 1**。修正は `npm run check-figure-embed-dims -- --fix`（`writeMdxFile` 経由で CRLF を保持）。
@@ -82,7 +82,7 @@
 
 ### 孤立 figure ガード — 「作った figure は必ず本文に出す」
 
-**`scripts/check-orphan-figures.mjs`**（pre-commit `--staged` + CI `r2-audit.yml` 全量・`npm run check-orphan-figures`）:
+**`scripts/check-orphan-figures.mjs`**（pre-commit `--staged` + CI `quality:audit:ci` 全量・`npm run check-orphan-figures`）:
 
 - `content/site/**/img/figure-*.svg` を走査し、その figure の親（`img/` の 1 つ上）ディレクトリ直下の `*.mdx` / `*.md` 本文を読む。
 - 本文に「basename（`figure-N.svg`）」も「stem（`figure-N`、別拡張子参照を許容）」も**現れない** figure を**孤立**として **exit 1**。

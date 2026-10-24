@@ -31,7 +31,7 @@ paths:
 
 ## OGP 画像
 
-- develop へ push すれば CI（`ogp-supply.yml`）が欠落・陳腐化を検知して `ogp.png` を自動生成し R2 へ供給する（通常は手動作業不要）。`npm run ogp`（未生成のみ生成）はローカルプレビュー用。即時反映したい場合のみ生成後に `node scripts/asset-offload.mjs --group site-ogp-png --commit` を実行する。忘れて放置すると `og:image` が R2 で 404 のまま → note/X 等の外部リンクカードが生成されない（2026-06-12 pe-construction 全 114 本・手動運用時代の事故）。CI ゲート `npm run check-ogp-coverage`（`r2-audit.yml`）が published 記事の欠落を赤落ちで検知
+- develop へ push すれば CI（`ogp-supply.yml`）が欠落・陳腐化を検知して `ogp.png` を自動生成し R2 へ供給する（通常は手動作業不要）。`npm run ogp`（未生成のみ生成）はローカルプレビュー用。即時反映したい場合のみ生成後に `node scripts/asset-offload.mjs --group site-ogp-png --commit` を実行する。忘れて放置すると `og:image` が R2 で 404 のまま → note/X 等の外部リンクカードが生成されない（2026-06-12 pe-construction 全 114 本・手動運用時代の事故）。CI ゲート `npm run check-ogp-coverage`（`quality:audit:ci`）が published 記事の欠落を赤落ちで検知
 - **OGP デザインの真実源は [ogp-prompts.md](../knowledge/reference/ogp-prompts.md)**（mono-tag 全幅＋資格別テーマ色外枠、2026-06-16〜）。一括再生成 `npm run ogp -- --all --force` 後の目視 QA は `npm run ogp-gallery`（全 OGP を 1 枚の HTML で確認）。タイトルの折返し行数は `npm run check-ogp-line-count`
 - `generate-note-covers` / `ogp --all` は全ディレクトリを再生成する。自分の分だけ `git add` し、残りは `git restore` する
 
@@ -43,4 +43,4 @@ paths:
 - note 記事用 図解 → [note-svg-policy.md](../knowledge/reference/note-svg-policy.md)。hero/OGP/note カバー/カード/バナーの背景写真（wide/square の 2 マスター→クロップ展開） → [brand-image-system.md](../knowledge/reference/brand-image-system.md)
 - SNS バイナリ（reels wav/mp4・Shorts mp4）の退避 → [sns-archive-policy.md](../knowledge/reference/sns-archive-policy.md)
 - 公的基準の原本 PDF → 1 ページ 1 画像＋1 テキスト（`npm run build-standards-page-images` / `npm run check-standards-page-images`。原本の同定は sha256、実体は Google Drive vault、Git には manifest.json だけ）
-- 孤児 `ogp.png/webp` は `check-orphan-ogp`（`--fix` で削除・r2-audit 週次）
+- 孤児 `ogp.png/webp` は `check-orphan-ogp`（`--fix` で削除・quality:audit:ci）

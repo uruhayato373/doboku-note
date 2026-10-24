@@ -19,9 +19,8 @@ import { chromium } from 'playwright';
 import { readFileSync, existsSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { todayJst } from './jst-date.mjs';
-import { resolveProfileDir, resolveStatePath } from './playwright-auth-profile.mjs';
+import { resolveProfileDir } from './playwright-auth-profile.mjs';
 import { leanContextOptions } from './playwright-launch.mjs';
-import { attachCISession } from './playwright-auth-state.mjs';
 import { datasetPath } from './datasets.mjs';
 import { REPO_ROOT } from './repository-paths.mjs';
 import { updateCoconalaService } from './product-registry.mjs';
@@ -105,7 +104,6 @@ export async function launchContext({ headless = false } = {}) {
     viewport: { width: 1366, height: 1000 },
     args: ['--disable-blink-features=AutomationControlled'],
   }));
-  await attachCISession(ctx, 'coconala', { statePath: resolveStatePath('coconala', { cwd: ROOT, repoRoot: ROOT }) });
   return ctx;
 }
 

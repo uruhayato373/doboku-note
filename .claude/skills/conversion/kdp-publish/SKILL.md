@@ -24,17 +24,9 @@ Playwright スクリプトで、判断（重複突合・未登録本のメタデ
 /kdp-publish {id} --commit-publish  →  出版（不可逆・審査へ）
 ```
 
-## CI 経路（ops-write.yml・2026-09-21）
+## 実行する場所（2026-10-24〜）
 
-`kdp.publish`（出版・risk highest）は `ops-write.yml`（dispatch + plan hash）から実行できる。
-
-```
-npm run ops-write:plan -- --operation kdp.publish --args '{"id":"<id>"}'
-# hash を確認 → 内容確認 → 人が Kindle Previewer で目視承認済みであること →
-gh workflow run ops-write.yml --ref develop -f operation=kdp.publish -f args='{"id":"<id>"}' -f plan_sha256=<hash> -f commit=true
-```
-
-不可逆（審査へ提出）のため、`commit=true` を叩く前の目視承認は省略しない。真実源 `.claude/config/ci-write-operations.json` / `scripts/lib/ci-write-gate.mjs`。
+CI からの提出（`ops-write.yml`）は廃止した。提出は運営者の依頼を受けたセッションが、運営者の Mac の永続 profile で行う。不可逆（審査へ提出）なので、`--commit-publish` の前の Kindle Previewer での目視承認は省略しない。ログインが切れていたら、運営者が `npm run auth:login -- --service kdp` で入り直す（セッションから資格情報でログインしない）。
 
 ## 前提
 

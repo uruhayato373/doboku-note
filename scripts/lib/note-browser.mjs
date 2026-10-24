@@ -24,9 +24,8 @@
  * ---------------------------------------------------------------------------
  */
 import { chromium } from 'playwright';
-import { resolveProfileDir, resolveStatePath } from './playwright-auth-profile.mjs';
+import { resolveProfileDir } from './playwright-auth-profile.mjs';
 import { leanContextOptions } from './playwright-launch.mjs';
-import { attachCISession } from './playwright-auth-state.mjs';
 import { NOTE_CREATOR } from './site-identity.mjs';
 import { REPO_ROOT as ROOT } from './repository-paths.mjs';
 
@@ -76,7 +75,6 @@ export async function launchNoteContext(opts = {}) {
     viewport,
     args: ['--disable-blink-features=AutomationControlled', ...extraArgs],
   }));
-  await attachCISession(ctx, 'note', { statePath: resolveStatePath('note', opts) });
   return ctx;
 }
 

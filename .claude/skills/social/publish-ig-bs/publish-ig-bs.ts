@@ -45,8 +45,7 @@ import { chromium, type BrowserContext, type Page, type Locator } from "playwrig
 import * as path from "path";
 import * as fs from "fs";
 import { spawnSync } from "child_process";
-import { resolveProfileDir, resolveStatePath } from "../../../../scripts/lib/playwright-auth-profile.mjs";
-import { attachCISession } from "../../../../scripts/lib/playwright-auth-state.mjs";
+import { resolveProfileDir } from "../../../../scripts/lib/playwright-auth-profile.mjs";
 import { uploadInstagramImagesInOrder } from "../../../../scripts/lib/instagram-image-upload.mjs";
 import { leanContextOptions } from "../../../../scripts/lib/playwright-launch.mjs";
 import { IG_HANDLE } from "../../../../scripts/lib/site-identity.mjs";
@@ -1300,7 +1299,6 @@ async function launch(): Promise<{ context: BrowserContext; page: Page }> {
     timezoneId: "Asia/Tokyo",
     args: ["--disable-blink-features=AutomationControlled"],
   }));
-  await attachCISession(context, "instagram", { statePath: resolveStatePath("instagram", { cwd: PROJECT_ROOT, repoRoot: PROJECT_ROOT }) });
   const page = context.pages()[0] || (await context.newPage());
   return { context, page };
 }

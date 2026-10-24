@@ -32,17 +32,9 @@ node scripts/coconala-pause.mjs --resume --absence --commit               # 長�
 node scripts/coconala-pause.mjs --archive --all-retired --commit          # 恒久廃止を棚から消す
 ```
 
-## CI 経路（ops-write.yml・2026-09-21）
+## 実行する場所（2026-10-24〜）
 
-`coconala.publish`（出品・公開）／`coconala.edit`（内容修正）は `ops-write.yml`（dispatch + plan hash）から実行できる。
-
-```
-npm run ops-write:plan -- --operation coconala.publish --args '{"service":"coconala-tensaku-set"}'
-# hash を確認 → 内容確認 →
-gh workflow run ops-write.yml --ref develop -f operation=coconala.publish -f args='{"service":"coconala-tensaku-set"}' -f plan_sha256=<hash> -f commit=true
-```
-
-`coconala.edit` は `args` に `fields`（省略時フル反映）を追加できる。真実源 `.claude/config/ci-write-operations.json` / `scripts/lib/ci-write-gate.mjs`。棚の出し入れ（休止/再開/アーカイブ・`coconala-pause`）はカタログ外＝CI 化していない。
+CI からの出品・修正（`ops-write.yml`）は廃止した。出品・内容修正・棚の出し入れは、運営者の依頼を受けたセッションが運営者の Mac の永続 profile で行う。ログインが切れていたら、運営者が `npm run auth:login -- --service coconala` で入り直す（セッションから資格情報でログインしない）。
 
 ## 棚の出し入れ（2026-08-05 追加）
 

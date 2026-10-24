@@ -43,7 +43,7 @@ domain: site
 
 ## 担当外
 
-- 取得・再取得: `gsc-browser-collector`
+- 取得・再取得: 土曜の Mac 収集（`weekly-collect` の gsc 段）
 - CSV データ品質: `gsc-csv-auditor`
 - index coverage 全体診断（ratio・原因バケット）: `gsc-index-auditor`
 - performance パターン（High-Impr-Low-CTR 等）: `metrics-analyzer`

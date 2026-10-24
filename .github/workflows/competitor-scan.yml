@@ -48,13 +48,8 @@ jobs:
           set -o pipefail
           npm run scout-note-competitors 2>&1 | tee /tmp/competitor-note.log
 
-      - name: Scan Instagram competitors (public profile metadata)
-        id: ig
-        if: always()
-        continue-on-error: true
-        run: |
-          set -o pipefail
-          npm run scout-ig-competitors 2>&1 | tee /tmp/competitor-ig.log
+      # Instagram の段は SNS 保留中（2026-10-17〜）なので外した。2026-10-01 の回はここだけが落ちて run 全体が赤になった。
+      # 再開するときは scout-ig-competitors の段と下の ig の退避・判定を戻す（DN-0817）
 
       - name: Install Chromium for Coconala public pages
         if: always()
@@ -83,7 +78,6 @@ jobs:
         if: always()
         env:
           NOTE_OUTCOME: ${{ steps.note.outcome }}
-          IG_OUTCOME: ${{ steps.ig.outcome }}
           COCONALA_OUTCOME: ${{ steps.coconala.outcome }}
           RESEARCH_OUTCOME: ${{ steps.coconala_research.outcome }}
         run: |
@@ -92,9 +86,6 @@ jobs:
           out="${RUNNER_TEMP}/competitors-out"
           if [ "$NOTE_OUTCOME" = "success" ]; then
             node scripts/ci-data.mjs save "$out" --datasets note.competitors,note.competitors-latest --name note
-          fi
-          if [ "$IG_OUTCOME" = "success" ]; then
-            node scripts/ci-data.mjs save "$out" --datasets instagram.competitors,instagram.competitors-latest --name ig
           fi
           if [ "$COCONALA_OUTCOME" = "success" ]; then
             node scripts/ci-data.mjs save "$out" --datasets coconala.competitors,coconala.competitors-latest --name coconala
@@ -140,11 +131,10 @@ jobs:
         if: always()
         env:
           NOTE_OUTCOME: ${{ steps.note.outcome }}
-          IG_OUTCOME: ${{ steps.ig.outcome }}
           COCONALA_OUTCOME: ${{ steps.coconala.outcome }}
           RESEARCH_OUTCOME: ${{ steps.coconala_research.outcome }}
         run: |
-          if [ "$NOTE_OUTCOME" != "success" ] || [ "$IG_OUTCOME" != "success" ] || [ "$COCONALA_OUTCOME" != "success" ] || [ "$RESEARCH_OUTCOME" != "success" ]; then
-            echo "::error::競合スキャンに失敗したチャネルがあります（note=$NOTE_OUTCOME / ig=$IG_OUTCOME / coconala=$COCONALA_OUTCOME / coconala-research=$RESEARCH_OUTCOME）。"
+          if [ "$NOTE_OUTCOME" != "success" ] || [ "$COCONALA_OUTCOME" != "success" ] || [ "$RESEARCH_OUTCOME" != "success" ]; then
+            echo "::error::競合スキャンに失敗したチャネルがあります（note=$NOTE_OUTCOME / coconala=$COCONALA_OUTCOME / coconala-research=$RESEARCH_OUTCOME）。"
             exit 1
           fi

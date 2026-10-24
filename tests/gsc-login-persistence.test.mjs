@@ -21,9 +21,11 @@ test('gscLoginLine: not-signed-in のときだけ再ログインを促す', () =
   assert.equal(gscLoginLine(null), null);
 });
 
-test('Google は CI で復元しない（復元すると Google が Mac 側のログインまで失効させる・2026-09-21 実測）', () => {
+test('Google の画面ログインは CI で使わない（Google が Mac 側のログインまで失効させる・2026-09-21 実測）', () => {
   const reg = JSON.parse(readFileSync(new URL('../.claude/config/playwright-auth-profiles.json', import.meta.url), 'utf8'));
-  const g = reg.services?.google ?? reg.google ?? Object.values(reg).find((v) => v && typeof v === 'object' && v.google)?.google;
+  const g = reg.services?.google;
   assert.ok(g, 'registry に google が無い');
-  assert.equal(g.ci?.enabled, false);
+  // ci ブロックは無く、画面 CSV の収集 script は collectors（エージェントのセッションでは拒否・土曜の Mac 収集と運営者だけ）
+  assert.equal('ci' in g, false);
+  assert.deepEqual(g.collectors, ['scripts/fetch-gsc-ui-csv.mjs', 'scripts/fetch-ga4-ui-csv.mjs']);
 });

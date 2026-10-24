@@ -21,13 +21,13 @@
       ]
     },
     "guide-min-3000-chars": {
-      "decision": "ガイド記事（group: guide）は本文（frontmatter除外・空白除去後）3,000字以上が必須下限（2026-06-21）。過去問/キーワード/textbookは対象外。既存32本の加筆バーンダウン完了済、check-guide-length を pre-commit(--staged)＋CI(r2-audit.yml 全published)へ配線済（2026-06-21）",
+      "decision": "ガイド記事（group: guide）は本文（frontmatter除外・空白除去後）3,000字以上が必須下限（2026-06-21）。過去問/キーワード/textbookは対象外。既存32本の加筆バーンダウン完了済、check-guide-length を pre-commit(--staged)＋CI(quality-audit の guide-length・ci:true・全 published)へ配線済（2026-06-21・2026-10-24 に r2-audit.yml の廃止で quality-audit へ一本化）",
       "anchor": ".claude/knowledge/reference/content-principles.md",
       "files": [
         ".claude/knowledge/reference/content-principles.md",
         "scripts/check-guide-length.mjs",
         "scripts/lib/pre-commit-steps.mjs",
-        ".github/workflows/r2-audit.yml",
+        "scripts/quality-audit.mjs",
         ".claude/todo/backlog.md"
       ]
     },

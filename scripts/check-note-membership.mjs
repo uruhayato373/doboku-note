@@ -1,6 +1,5 @@
 #!/usr/bin/env node
-import { resolveProfileDir, resolveStatePath } from './lib/playwright-auth-profile.mjs';
-import { attachCISession } from './lib/playwright-auth-state.mjs';
+import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
 /**
  * check-note-membership.mjs
  * ---------------------------------------------------------------------------
@@ -120,7 +119,6 @@ if (LIVE) {
   const ctx = await chromium.launchPersistentContext(resolveProfileDir('note', { cwd: ROOT, repoRoot: ROOT }), leanContextOptions({
     channel: 'chrome', headless: false, ignoreHTTPSErrors: true, ...(PROXY ? { proxy: { server: PROXY } } : {}),
   }));
-  await attachCISession(ctx, 'note', { statePath: resolveStatePath('note', { cwd: ROOT, repoRoot: ROOT }) });
   try {
     const page = ctx.pages()[0] || (await ctx.newPage());
     await page.goto('https://note.com/membership/settings/manage', { waitUntil: 'domcontentloaded', timeout: 60000 });

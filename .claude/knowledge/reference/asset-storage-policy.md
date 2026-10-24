@@ -60,7 +60,7 @@ Google Drive 側が `config/drive-vault.json`（台帳 `.claude/state/assets/dri
 | `note-cover-png` | human（例外で R2） | private R2 `note/covers/` | note へ登録した版の控え。書くのは Mac の週次 `note-sync-routine`（`asset-offload --skip-existing`）で、CI は読み書きしない（2026-09-29 に CI 供給 `note-cover-supply.yml` を廃止）。約 1,000 件を毎週 sha256 で差分保存するので Drive マウントより R2 が確実（`audienceException`） |
 | `git-history-bundle` | human（例外） | private R2 | 2.65GB 書き込み一回・復元時だけ。ストリーミングマウント越しの単一巨大 blob は脆い |
 | `ogp-background` | ci | private R2 `ogp/backgrounds/` | 資格別の OGP 背景（AI で作った一点物・7 枚）。2026-10-10 に `config/ogp/backgrounds/` から移した。使う直前に `npm run asset-hydrate -- --group ogp-background`（CI は `ogp-supply.yml` が生成の前に取り戻す）。手元に無いと `requireLocalAsset`（`scripts/lib/asset-storage.mjs`）が止め、黙ってオフホワイトに落とさない |
-| `sns-archived-media` | human | Drive `制作物/SNS音声動画/` | reels の wav/mp4・YouTube Shorts mp4。投稿は人の JIT。`post-youtube-scheduled.yml` の Shorts 台帳は手動投入へ切替済み（pending 0・参照キー `sns/youtube-shorts/` は R2 に 0 件）なので CI は読んでいない。2026-09-05 DN-0170 で旧 `upload-sns-r2` 系統を廃止（[sns-archive-policy.md](sns-archive-policy.md)） |
+| `sns-archived-media` | human | Drive `制作物/SNS音声動画/` | reels の wav/mp4・YouTube Shorts mp4。投稿は人の JIT。YouTube Shorts の投稿 workflow（`post-youtube-scheduled.yml`）は 2026-10-24 に廃止済みで、参照キー `sns/youtube-shorts/` は R2 に 0 件、CI は読まない。2026-09-05 DN-0170 で旧 `upload-sns-r2` 系統を廃止（[sns-archive-policy.md](sns-archive-policy.md)） |
 | `standards-page-image` | human | Drive `原資料PDF/共通仕様書/{整備局}/{PDF名}/{pages,text}/` | 原本 PDF の隣（§1-2） |
 | `past-exam-source-pdf` | human | Drive `原資料PDF/過去問/{資格}/{年度}/` | 試験実施機関が公開する公式過去問の原本。在庫は `data/pastexams/inventory.json`、取得〜退避は `/past-exam-archive`（会社PCは `drive-browser-transfer`）。第三者の解答解説は教材側 |
 | `textbook-source-pdf` / `textbook-page-image` | human | Drive `原資料PDF/教材/{書名}/**` または台帳の正本パス | 旧論理キーの互換レイヤー。同一 PDF は `adopted` で正本を共有し、旧配置を作り直さない |
@@ -73,7 +73,7 @@ Google Drive 側が `config/drive-vault.json`（台帳 `.claude/state/assets/dri
 | `youtube-approved-cover` | human | Drive `制作物/動画レンダー/採用カバー/` | 2026-09-09 の日付フォルダの採用表紙。2026-10-09 に `content-media`（ID ごとの置き場）へ移した（DN-0607）。新しく置かない |
 | `content-media` | human | Drive `制作物/コンテンツ/{exam}/{work}/{channel}.{format}[.{variant}]/{role}.{sha8}.{ext}` | コンテンツ台帳（[content-registry.md](content-registry.md)）の素材の正本。中身の sha を名前に入れ、一度置いたら書き換えない（`immutable`・上書きと `--force` を拒否）。`npm run media -- promote・sync・verify・pull` |
 | `white-paper-source-pdf` | human | Drive `原資料PDF/白書/` | 省庁の白書・年次報告の原本。vault にだけ置き、`drive-vault-sync --from-vault` で台帳へ登録する（2026-10-07・44 件）。参考文献台帳の `vaultCopies` が指す |
-| `kindle-dist` | ci | private R2 `kindle/dist/` | 配布 EPUB 65・表紙 jpg 72（90.2MB）。2026-10-12（DN-0562）に Git から外した。CI の `check-kindle-epub-leak` が読むので `ci.yml` が `quality:audit:ci` の前に `asset-hydrate --group kindle-dist` で取り戻す。手元は同じコマンドで戻す。作り直した版は `asset-offload --group kindle-dist --include-untracked --commit` で上げる。Drive `制作物/Kindle/` は人用の控えで、group は pending（両 tier の active に重ねない・照合は DN-0451） |
+| `kindle-dist` | ci | private R2 `kindle/dist/` | 配布 EPUB 65・表紙 jpg 72（90.2MB）。2026-10-12（DN-0562）に Git から外した。CI の `check-kindle-epub-leak` が読むので `ci.yml` が `quality:audit:ci` の前に `asset-hydrate --group kindle-dist` で取り戻す。手元は同じコマンドで戻す。作り直した版は `asset-offload --group kindle-dist --include-untracked --commit` で上げる。Drive `制作物/Kindle/` は人用の控えで、group は pending（両 tier の active に重ねない・照合は DN-0838） |
 | `coconala-asset` | human | Drive `制作物/ココナラ/` | |
 | `note-magazine-cover-png` | human | Drive `制作物/マガジンカバー/` | |
 | `note-cover-pop-preview` | human | Drive `制作物/noteカバー/POP版/` | 新テンプレートの全件確認用。記事・マガジン画像、生成manifest、QA結果を個別復元できる形で保存 |
@@ -252,7 +252,7 @@ CI 内で `ogp-create.mjs` を実行して `ogp.png` を作ってから供給す
 （詳細 §3）。この「CI が生成できる」は `asset-storage.json` の `regenerable` フィールド（byte 再現を
 保証するかの意味・§6）とは別概念——`site-ogp-png` の `regenerable` は引き続き `false`。
 かつての第二号 `note-cover-png`（`note-cover-supply.yml`・2026-09-02〜09-29）は廃止した。note カバーの生成と登録は
-Mac の週次 `note-sync-routine`（記事単位の同期）が行い、CI は判定（`note-sync-live.yml`）だけを持つ。
+Mac の週次 `note-sync-routine`（記事単位の同期）が行い、反映の判定（`note-sync-check`）も同じ土曜の収集が持つ。CI は note に触らない。
 
 ```
 npm run asset-inbox-push -- --path '<前方一致>' --commit   # ローカル: R2 credential 不要

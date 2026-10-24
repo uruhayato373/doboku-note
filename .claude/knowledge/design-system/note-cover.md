@@ -124,7 +124,7 @@ npm run check-note-cover-fit      # CI/手動（0件必須）。pre-commit は -
 
 ## ライブ反映（公開後の stale カバー解消）
 
-公開済みの記事・マガジンのカバーは、Mac の週次 launchd `note-sync`（`scripts/note-sync-routine.mjs`）が記事単位の同期（本文・カバー・タグの未反映分を 1 記事 1 回の更新で反映）の中で差し替える。カバーの要否（カバー無し・未登録・デザイン版が古い・文言が変わった・note 側で画像が変わった）は再公開台帳 `.claude/state/note-republish-hashes.json` の `coverHashes` × note の公開 API で決め、CI の `note-sync-live.yml` と同じ判定。全体は [note-cover-character-v5.md](note-cover-character-v5.md)「全件生成と差し替えの境界」。下は 1 本だけ手で差し替えるとき（記録は API で確かめてから台帳へ入る）。
+公開済みの記事・マガジンのカバーは、土曜の Mac 収集の後段（`note-sync` 段・`scripts/note-sync-routine.mjs`）が記事単位の同期（本文・カバー・タグの未反映分を 1 記事 1 回の更新で反映）の中で差し替える。カバーの要否（カバー無し・未登録・デザイン版が古い・文言が変わった・note 側で画像が変わった）は再公開台帳 `.claude/state/note-republish-hashes.json` の `coverHashes` × note の公開 API で決め、土曜の収集の `note-sync-check` 段と同じ判定。全体は [note-cover-character-v5.md](note-cover-character-v5.md)「全件生成と差し替えの境界」。下は 1 本だけ手で差し替えるとき（記録は API で確かめてから台帳へ入る）。
 
 ```bash
 # DRY（差し替え load 確認まで・保存しない）

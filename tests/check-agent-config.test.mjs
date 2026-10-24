@@ -31,8 +31,4 @@ test('型の無い JSON・読めない JSON・誤記の欄は止める', () => {
   const first = Object.keys(auth.services)[0];
   auth.services[first].sessionMode = 'cookie';
   assert.ok(checkAgentConfigFile('playwright-auth-profiles.json', JSON.stringify(auth)).some((e) => e.includes('sessionMode')));
-  const ops = JSON.parse(read('ci-write-operations.json'));
-  const op = Object.keys(ops.operations)[0];
-  ops.operations[op].riks = 'low';
-  assert.ok(checkAgentConfigFile('ci-write-operations.json', JSON.stringify(ops)).length > 0, '知らない欄（riks）を止める');
 });

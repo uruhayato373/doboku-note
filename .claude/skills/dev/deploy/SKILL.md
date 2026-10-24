@@ -92,7 +92,7 @@ sleep 30; test "$(gh run list --workflow=cloudflare-deploy.yml --limit 1 --json 
 > [!warning] 先頭が `[skip ci]` だとデプロイが起動しない（2026-09-23）
 > GitHub は push の**先頭 commit** のメッセージに `[skip ci]` があると、push 起点の
 > ワークフローを丸ごと飛ばす。`cloudflare-deploy.yml` も例外ではない。
-> ops-write / fetch-metrics / ogp-supply 等の bot が数分おきに `[skip ci]` 付きで
+> fetch-metrics / ogp-supply 等の bot が数分おきに `[skip ci]` 付きで
 > develop へ台帳を積むので、**develop の先頭をそのまま昇格すると高い確率でこれを踏む**。
 > push は成功して見えるので、確認しなければ「デプロイした」と誤報告する。
 >

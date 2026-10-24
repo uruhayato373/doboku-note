@@ -1,7 +1,7 @@
 ---
 name: coconala-status
 description: >
-  ココナラ出品の状態を read-only で照合するスキル。受注の実体を npm run coconala-orders で収集して
+  ココナラ出品の状態を read-only で照合するスキル。受注の実体（土曜の Mac 収集が取得した orders-snapshot.json）を
   orders.json と突合（check-coconala-orders）し、分析画面の数値（閲覧数/お気に入り/販売数）は
   /coconala-analytics が data/coconala/kpi.json へ週次 upsert したものを読んで、カタログ（coconala-services.ts）↔
   state ↔ sales.json のドリフトを報告、撤退ライン（出品4週で S2 受注3件未満）を判定する。
@@ -23,9 +23,9 @@ domain: product
 
 ## フロー
 
-0. **受注の実体を取る**: `npm run coconala-orders`（read-only Playwright）→ `npm run check-coconala-orders`。
+0. **受注の実体を読む**: `data/coconala/orders-snapshot.json` の取得日を報告の冒頭に書き、`npm run check-coconala-orders` を実行する（取得は土曜の Mac 収集の coconala 段。セッションからは `coconala-orders` を動かさない）。
    記録漏れ・金額ズレ・**返信期限（無連絡で自動キャンセル）**・納品滞留を機械が surface する。
-   snapshot が取れない/古いときは exit 2＝**検査不成立**なので「受注 0 件」と報告しない。
+   snapshot が古い/無いときは exit 2＝**検査不成立**なので「受注 0 件」と報告せず「未取得」と書き、運営者に次の土曜か端末での `node scripts/weekly-collect.mjs --only coconala` を案内する。
 1. **整合チェック**: `node scripts/check-coconala-wiring.mjs` を実行し結果を報告（listed なのに serviceUrl 空・未知 serviceId・priceYen 不一致・**paused の理由欠落**・**復帰予定日 `resumeOn` の超過** 等）。
    ⚠ が出たら**棚が止まったままになっていないか**を必ず報告する（長期不在の全件休止から戻し忘れると、売上ゼロのまま誰も気づかない）。
 2. **KPI 取得**: `npm run coconala-analytics -- --append-kpi` → `npm run check-coconala-analytics`（詳細は `/coconala-analytics`）。`data/coconala/kpi.json` の `weekly` / `blogsWeekly` へ `weekOf`（ISO 週初＝月曜）単位で upsert される。数値の**手動貼付があればそれも正規化してよい**。**読み取れない項目は `null`。推測で埋めない**。
@@ -48,7 +48,7 @@ domain: product
 
 ## ガードレール
 
-- **収集は read-only に限る**: KPI（`coconala-analytics`）も受注の実体（`coconala-orders`）も画面を読むだけ。
+- **収集は read-only に限り、土曜の Mac 収集だけが行う**: KPI（`coconala-analytics`）も受注の実体（`coconala-orders`）も画面を読むだけ。セッションは記録を読む。
   メモ追加・期間変更・出品操作・返信送信はしない（方針の経緯は coconala-operations.md §4・§2.2b）。
 - **partial を成功と呼ばない**: 取得件数は「対象 N / 取得 M / 除外 K」で報告する。`ok:false` は 0 件ではなく欠測。
 - **是正しない**: カタログの status flip・価格変更は提案まで（実行は `/coconala-order` ケース3 か運営者）。
@@ -64,6 +64,6 @@ domain: product
 
 - エージェント: `.claude/agents/coconala-operator.md`
 - 機械ガード: `scripts/check-coconala-wiring.mjs`（`npm run check-coconala-wiring`）／`scripts/check-coconala-orders.mjs`（`npm run check-coconala-orders`）
-- 受注の実体収集: `scripts/coconala-orders.mjs`（`npm run coconala-orders`・read-only）
+- 受注の実体収集（土曜の Mac 収集が呼ぶ）: `scripts/coconala-orders.mjs`（`npm run coconala-orders`・read-only）
 - 運用 SSOT: `.claude/knowledge/reference/coconala-operations.md` / KPI・撤退ライン: `content/note/1級・2級土木/ココナラ展開キット.md` §6
 - 受注処理は `/coconala-order`

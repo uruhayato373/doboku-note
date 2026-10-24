@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-10-21",
+  "updatedAt": "2026-10-24",
   "currency": "JPY",
   "source": "note クリエイターダッシュボード「販売履歴」（2026-07 以降は Playwright で read-only 取得し、月次総額をダッシュボード表示と突合）",
   "privacyNote": "購入者名・ハンドルはプライバシー保護のため記録しない（売上分析には date / product / price で十分）。",
@@ -2282,6 +2282,27 @@
       "price": 1480
     },
     {
+      "date": "2026-10-24",
+      "productId": "pe1-chokuzen-pack",
+      "title": "技術士 第一次試験｜直前パック",
+      "type": "magazine",
+      "price": 1980
+    },
+    {
+      "date": "2026-10-22",
+      "productId": "pe1-chokuzen-pack",
+      "title": "技術士 第一次試験｜直前パック",
+      "type": "magazine",
+      "price": 1980
+    },
+    {
+      "date": "2026-10-21",
+      "productId": "article:civil-2-koji-bank-65",
+      "title": "2級土木 施工経験記述｜小口径推進工法 5管理フルカバー完成答案",
+      "type": "article",
+      "price": 1680
+    },
+    {
       "date": "2026-10-21",
       "productId": "civil-2-chokuzen-pack",
       "title": "2級土木 二次｜直前総仕上げパック",
@@ -2390,9 +2411,9 @@
       "fee": 11011
     },
     "2026-10": {
-      "fetchedAt": "2026-10-21T08:56:50.854Z",
-      "count": 14,
-      "total": 42640,
+      "fetchedAt": "2026-10-24T05:18:52.215Z",
+      "count": 17,
+      "total": 48280,
       "finalized": false
     },
     "2026-09": {

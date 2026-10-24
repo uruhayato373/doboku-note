@@ -1,124 +1,110 @@
-// playwright-auth-ci-gate.test.mjs — CI で resolver が「実 profile を使わない・allowlist 外 script を拒否する」
-// ことを固定する回帰テスト（registry version 2・2026-09-21）。
+// playwright-auth-ci-gate.test.mjs — 「ログインは運営者の Mac だけ」を resolver と配線検査で固定する回帰テスト
+// （registry version 3・DN-0817・2026-10-24）。
 //
-// なぜ: 以前は呼び出し側が isCI を渡さない限り CI 判定が素通りしていた（DOBOKU_AUTH_ROOT=/tmp/x で
-// 何でも動く）。暗号化 state を CI へ持ち込む以上、「read-only は資格情報でなく allowlist が担保する」
-// をコードで固定しないと publish 系が同じ復元 state で動いてしまう。
+// 規則:
+//   1. CI（GITHUB_ACTIONS / CI）では profile・state・auth root を返さない（AUTH_CI_NO_LOGIN）
+//   2. エージェントのセッション（CLAUDECODE=1）では、collectors の script に返さない（AUTH_AGENT_COLLECT_REFUSED）。
+//      土曜の Mac 収集（DOBOKU_WEEKLY_COLLECT=1）なら通す。writers と未登録の script は通す
+//   3. .github の yml にログインの道具（DOBOKU_AUTH_・restore-auth-state・playwright-auth.mjs ci-・login script）が無い
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { mkdtempSync, rmSync, existsSync, writeFileSync } from 'node:fs';
+import { mkdtempSync, rmSync, existsSync, readFileSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 
 import {
   detectCI,
-  validateAuthRoot,
+  detectAgentSession,
   resolveAuthRoot,
   resolveProfileDir,
   resolveStatePath,
   ensureAuthDirectories,
-  assertCIScriptAllowed,
+  assertLoginProfileAllowed,
   invokedScriptRelative,
-  validateCIBlock,
-  getCIAuthStateConfig,
+  validateServiceScripts,
+  looksLikeWriteScript,
   loadAuthRegistry,
-  CI_SESSION_MODE_ENV,
-  CI_WRITE_PLAN_HASH_ENV,
+  WEEKLY_COLLECT_ENV,
 } from '../scripts/lib/playwright-auth-profile.mjs';
+import { checkAuthScriptLists, npmScriptsInvokingLogin, scanWorkflowForLogin } from '../scripts/lib/auth-ci-wiring.mjs';
 import { REPO_ROOT } from '../scripts/lib/repository-paths.mjs';
 
 const CI_ENV = { GITHUB_ACTIONS: 'true' };
-const HASH = 'a'.repeat(64);
+const AGENT_ENV = { CLAUDECODE: '1' };
 
 function tmp(prefix) { return mkdtempSync(join(tmpdir(), prefix)); }
+const base = (dir, extra = {}) => ({ cwd: REPO_ROOT, repoRoot: REPO_ROOT, overrideRoot: dir, env: {}, homeDir: '/home/tester', platform: 'linux', ...extra });
 
-test('detectCI: GITHUB_ACTIONS / CI のどちらかが true で CI', () => {
+test('detectCI / detectAgentSession: 環境変数から判定する', () => {
   assert.equal(detectCI({}), false);
   assert.equal(detectCI({ GITHUB_ACTIONS: 'true' }), true);
   assert.equal(detectCI({ CI: 'true' }), true);
   assert.equal(detectCI({ CI: 'false' }), false);
+  assert.equal(detectAgentSession({}), false);
+  assert.equal(detectAgentSession({ CLAUDECODE: '1' }), true);
+  assert.equal(detectAgentSession({ CLAUDECODE: '0' }), false);
 });
 
-test('CI は自動検出され、mode env が無ければ一時 root でも拒否する', () => {
-  const dir = tmp('doboku-ci-gate-');
+test('CI は自動検出され、profile・state・ディレクトリ作成のどれも AUTH_CI_NO_LOGIN で拒否する', () => {
+  const dir = tmp('doboku-ci-no-login-');
   try {
-    assert.throws(
-      () => resolveAuthRoot({ overrideRoot: dir, env: CI_ENV, homeDir: '/home/tester', platform: 'linux' }),
-      /AUTH_PROFILE_UNAVAILABLE_IN_CI/,
-    );
-    // OS 既定 root（実 profile の置き場）は CI で決して返さない
-    assert.throws(
-      () => resolveAuthRoot({ env: CI_ENV, homeDir: '/home/tester', platform: 'linux' }),
-      /AUTH_PROFILE_UNAVAILABLE_IN_CI/,
-    );
+    for (const env of [CI_ENV, { CI: 'true' }]) {
+      const options = base(dir, { env });
+      assert.throws(() => resolveAuthRoot(options), /AUTH_CI_NO_LOGIN/);
+      assert.throws(() => resolveProfileDir('note', { ...options, invokedScript: 'scripts/note-sales-fetch.mjs' }), /AUTH_CI_NO_LOGIN/);
+      assert.throws(() => resolveStatePath('note', { ...options, invokedScript: 'scripts/note-publish.mjs' }), /AUTH_CI_NO_LOGIN/);
+      assert.throws(() => ensureAuthDirectories('note', options), /AUTH_CI_NO_LOGIN/);
+    }
+    // isCI の明示でも同じ（呼び出し側が env を渡し忘れても、isCI を渡せば拒否される）
+    assert.throws(() => resolveProfileDir('kdp', { ...base(dir), isCI: true }), /AUTH_CI_NO_LOGIN/);
+    assert.equal(existsSync(join(dir, 'profiles')), false, '拒否時はディレクトリを作らない');
   } finally { rmSync(dir, { recursive: true, force: true }); }
 });
 
-test('CI + encrypted-state: RUNNER_TEMP 配下の root だけ許可、外は拒否', () => {
-  const runnerTemp = tmp('doboku-runner-temp-');
-  const elsewhere = tmp('doboku-elsewhere-');
-  try {
-    const env = { ...CI_ENV, [CI_SESSION_MODE_ENV]: 'encrypted-state', RUNNER_TEMP: runnerTemp };
-    const inside = join(runnerTemp, 'doboku-auth');
-    assert.equal(validateAuthRoot(inside, { env, tmpDir: '/nonexistent-tmp' }).ok, true);
-    assert.equal(resolveAuthRoot({ overrideRoot: inside, env, homeDir: '/home/tester', platform: 'linux', tmpDir: '/nonexistent-tmp' }), inside);
-    // RUNNER_TEMP 外・tmpdir 外（tmpDir を実在しない場所に差し替えて判定を固定）
-    const r = validateAuthRoot(join(elsewhere, 'x'), { env, tmpDir: '/nonexistent-tmp' });
-    assert.equal(r.ok, false);
-    assert.equal(r.reason, 'AUTH_PROFILE_UNAVAILABLE_IN_CI');
-    // mode の値が違えば拒否
-    assert.equal(validateAuthRoot(inside, { env: { ...env, [CI_SESSION_MODE_ENV]: 'profile' }, tmpDir: '/nonexistent-tmp' }).ok, false);
-  } finally {
-    rmSync(runnerTemp, { recursive: true, force: true });
-    rmSync(elsewhere, { recursive: true, force: true });
-  }
+test('CI のメッセージは「CI はログインしない・土曜の Mac 収集で行う」と案内する', () => {
+  assert.throws(() => resolveAuthRoot({ env: CI_ENV, homeDir: '/home/tester', platform: 'linux' }), /CI.*ログインしません.*土曜の Mac 収集/);
 });
 
-test('CI + encrypted-state: os.tmpdir() 配下も許可（RUNNER_TEMP 未設定の CI 互換）', () => {
-  const base = tmp('doboku-tmp-base-');
+test('エージェントのセッション: collectors の script は拒否・writers と未登録の script は許可', () => {
+  const dir = tmp('doboku-agent-');
   try {
-    const env = { ...CI_ENV, [CI_SESSION_MODE_ENV]: 'encrypted-state' };
-    assert.equal(validateAuthRoot(join(base, 'auth'), { env, tmpDir: base }).ok, true);
-  } finally { rmSync(base, { recursive: true, force: true }); }
+    const options = base(dir, { env: AGENT_ENV });
+    const profile = join(dir, 'profiles', 'playwright-note-profile');
+    assert.throws(() => resolveProfileDir('note', { ...options, invokedScript: 'scripts/note-sales-fetch.mjs' }), /AUTH_AGENT_COLLECT_REFUSED/);
+    assert.throws(() => resolveStatePath('note', { ...options, invokedScript: 'scripts/note-traffic-fetch.mjs' }), /AUTH_AGENT_COLLECT_REFUSED/);
+    assert.throws(() => ensureAuthDirectories('note', { ...options, invokedScript: 'scripts/check-note-attachments.mjs' }), /AUTH_AGENT_COLLECT_REFUSED/);
+    assert.equal(existsSync(profile), false, '拒否時はディレクトリを作らない');
+    // 拒否の文言は「記録済みのデータを読む」「運営者が weekly-collect --only で取り直す」を案内する
+    assert.throws(() => resolveProfileDir('note', { ...options, invokedScript: 'scripts/note-sales-fetch.mjs' }), /記録済みのデータ.*weekly-collect\.mjs --only/s);
+    // writers（運営者の依頼で行う投稿・編集）
+    assert.equal(resolveProfileDir('note', { ...options, invokedScript: 'scripts/note-publish.mjs' }), profile);
+    assert.equal(resolveProfileDir('x', { ...options, invokedScript: '.claude/skills/social/publish-x/publish-x.ts' }), join(dir, 'profiles', 'playwright-x-profile'));
+    // 未登録（認証 CLI 自身・その他）
+    assert.equal(resolveProfileDir('note', { ...options, invokedScript: 'scripts/playwright-auth.mjs' }), profile);
+    assert.equal(resolveProfileDir('note', { ...options, invokedScript: undefined, repoRoot: '/nonexistent-repo' }), profile);
+  } finally { rmSync(dir, { recursive: true, force: true }); }
 });
 
-test('allowlist: read-only script は許可・未登録 script は拒否・write は plan hash が要る・mode none は拒否', () => {
-  const runnerTemp = tmp('doboku-runner-temp-');
+test('エージェントのセッションでも DOBOKU_WEEKLY_COLLECT=1（土曜の Mac 収集）なら collectors を通す', () => {
+  const dir = tmp('doboku-weekly-');
   try {
-    const env = { ...CI_ENV, [CI_SESSION_MODE_ENV]: 'encrypted-state', RUNNER_TEMP: runnerTemp };
-    const base = { cwd: REPO_ROOT, repoRoot: REPO_ROOT, overrideRoot: join(runnerTemp, 'doboku-auth'), env, homeDir: '/home/tester', platform: 'linux', tmpDir: '/nonexistent-tmp' };
-
-    const ok = resolveProfileDir('note', { ...base, invokedScript: 'scripts/note-sales-fetch.mjs' });
-    assert.equal(ok, join(runnerTemp, 'doboku-auth', 'profiles', 'playwright-note-profile'));
-    assert.equal(resolveStatePath('note', { ...base, invokedScript: 'scripts/note-sales-fetch.mjs' }), join(runnerTemp, 'doboku-auth', 'states', 'playwright-note-state.json'));
-
-    assert.throws(() => resolveProfileDir('note', { ...base, invokedScript: 'scripts/note-delete-note.mjs' }), /AUTH_CI_SCRIPT_NOT_ALLOWLISTED/);
-    assert.throws(() => resolveProfileDir('note', { ...base, invokedScript: 'scripts/note-publish.mjs' }), /AUTH_CI_WRITE_REQUIRES_PLAN_HASH/);
-    assert.throws(() => resolveProfileDir('note', { ...base, env: { ...env, [CI_WRITE_PLAN_HASH_ENV]: 'not-a-hash' }, invokedScript: 'scripts/note-publish.mjs' }), /AUTH_CI_WRITE_REQUIRES_PLAN_HASH/);
-    assert.equal(
-      resolveProfileDir('note', { ...base, env: { ...env, [CI_WRITE_PLAN_HASH_ENV]: HASH }, invokedScript: 'scripts/note-publish.mjs' }),
-      join(runnerTemp, 'doboku-auth', 'profiles', 'playwright-note-profile'),
-    );
-    // 認証 CLI 自身は常に許可
-    assert.equal(typeof resolveProfileDir('kdp', { ...base, invokedScript: 'scripts/playwright-auth.mjs' }), 'string');
-    // moshimo は 2026-10-01 から encrypted-state（提携状況の CI 取得・DN-0483）。許可は affiliate-status だけ、申請（write）は CI に載せない
-    assert.equal(typeof resolveProfileDir('moshimo', { ...base, invokedScript: 'scripts/affiliate-status.mjs' }), 'string');
-    assert.throws(() => resolveProfileDir('moshimo', { ...base, invokedScript: 'scripts/affiliate-apply.mjs' }), /AUTH_CI_SCRIPT_NOT_ALLOWLISTED/);
-    // instagram は 2026-09-21 から encrypted-state（Meta 利用制限で Graph API 不可）。照合は read、予約投稿は write
-    assert.equal(typeof resolveProfileDir('instagram', { ...base, invokedScript: 'scripts/verify-ig-status.mjs' }), 'string');
-    assert.throws(() => resolveProfileDir('instagram', { ...base, invokedScript: '.claude/skills/social/publish-ig-bs/publish-ig-bs.ts' }), /AUTH_CI_WRITE_REQUIRES_PLAN_HASH/);
-    // ensureAuthDirectories も同じゲートを通る（書き込み側の入口）
-    assert.throws(() => ensureAuthDirectories('coconala', { ...base, invokedScript: 'scripts/coconala-publish.mjs' }), /AUTH_CI_WRITE_REQUIRES_PLAN_HASH/);
-    assert.equal(existsSync(join(runnerTemp, 'doboku-auth', 'profiles', 'playwright-coconala-profile')), false, '拒否時はディレクトリを作らない');
-  } finally { rmSync(runnerTemp, { recursive: true, force: true }); }
+    const options = base(dir, { env: { ...AGENT_ENV, [WEEKLY_COLLECT_ENV]: '1' }, invokedScript: 'scripts/note-sales-fetch.mjs' });
+    assert.equal(resolveProfileDir('note', options), join(dir, 'profiles', 'playwright-note-profile'));
+    // 1 以外では通さない
+    assert.throws(() => resolveProfileDir('note', { ...options, env: { ...AGENT_ENV, [WEEKLY_COLLECT_ENV]: '0' } }), /AUTH_AGENT_COLLECT_REFUSED/);
+    // CI は DOBOKU_WEEKLY_COLLECT=1 があっても通さない
+    assert.throws(() => resolveProfileDir('note', { ...options, env: { ...CI_ENV, [WEEKLY_COLLECT_ENV]: '1' } }), /AUTH_CI_NO_LOGIN/);
+  } finally { rmSync(dir, { recursive: true, force: true }); }
 });
 
-test('CI 以外では allowlist を見ない（ローカル挙動は不変）', () => {
+test('エージェントでもコレクタ判定は起動 script だけで決まる（人の端末は何も見ない）', () => {
   const dir = tmp('doboku-local-');
   try {
-    const options = { cwd: REPO_ROOT, repoRoot: REPO_ROOT, overrideRoot: dir, env: {}, homeDir: '/home/tester', platform: 'linux', invokedScript: 'scripts/note-publish.mjs' };
-    assert.equal(resolveProfileDir('note', options), join(dir, 'profiles', 'playwright-note-profile'));
-    assert.equal(assertCIScriptAllowed('note', { ci: { mode: 'none' } }, { env: {} }).kind, 'not-ci');
+    const local = base(dir, { invokedScript: 'scripts/note-sales-fetch.mjs' });
+    assert.equal(resolveProfileDir('note', local), join(dir, 'profiles', 'playwright-note-profile'));
+    assert.equal(assertLoginProfileAllowed('note', { collectors: ['scripts/a.mjs'] }, { env: {}, invokedScript: 'scripts/a.mjs' }).kind, 'local');
+    assert.equal(assertLoginProfileAllowed('note', { collectors: ['scripts/a.mjs'] }, { env: AGENT_ENV, invokedScript: 'scripts/b.mjs' }).kind, 'agent-unlisted');
+    assert.equal(assertLoginProfileAllowed('note', { writers: ['scripts/w.mjs'] }, { env: AGENT_ENV, invokedScript: 'scripts/w.mjs' }).kind, 'agent-writer');
   } finally { rmSync(dir, { recursive: true, force: true }); }
 });
 
@@ -129,72 +115,109 @@ test('invokedScriptRelative: repo 相対 posix・repo 外は null', () => {
   assert.equal(invokedScriptRelative('/repo', undefined), null);
 });
 
-test('validateCIBlock: 不正な ci ブロックを拒否する', () => {
-  const good = { stateFileName: 's.json', ci: { mode: 'encrypted-state', enabled: true, canary: false, operations: ['read'], cron: '0 0 * * 1', readOnlyScripts: ['scripts/a.mjs'], writeScripts: [], stateDomains: ['example.com'] } };
-  assert.equal(validateCIBlock('svc', good), true);
-  const bad = (patch, re) => assert.throws(() => validateCIBlock('svc', { ...good, ci: { ...good.ci, ...patch } }), re);
-  bad({ mode: 'profile' }, /ci\.mode/);
-  bad({ cron: null }, /ci\.cron/);
-  bad({ cron: '0 0 * *' }, /ci\.cron/);
-  bad({ stateDomains: [] }, /stateDomains/);
-  bad({ writeScripts: ['scripts/w.mjs'] }, /writeScripts must be empty/);
-  bad({ operations: ['write'] }, /operations/);
-  bad({ readOnlyScripts: ['/abs/path.mjs'] }, /repo-relative/);
-  assert.throws(() => validateCIBlock('svc', { stateFileName: null, ci: good.ci }), /stateFileName required/);
-  assert.equal(validateCIBlock('svc', { stateFileName: null, ci: { mode: 'none', enabled: false, canary: false, operations: ['read'], cron: null, readOnlyScripts: [], writeScripts: [], stateDomains: [] } }), true);
+test('validateServiceScripts: 不正な collectors / writers を拒否する', () => {
+  const good = { collectors: ['scripts/a-fetch.mjs'], writers: ['scripts/a-publish.mjs'] };
+  assert.equal(validateServiceScripts('svc', good, { required: true }), true);
+  const bad = (patch, re, opts) => assert.throws(() => validateServiceScripts('svc', { ...good, ...patch }, opts), re);
+  bad({ collectors: ['/abs/path.mjs'] }, /repo-relative/);
+  bad({ writers: ['scripts\\w.mjs'] }, /repo-relative/);
+  bad({ collectors: [''] }, /non-empty/);
+  bad({ collectors: ['scripts/note-publish.mjs'] }, /write 系動詞/);
+  bad({ collectors: ['scripts/coconala-edit.mjs'] }, /write 系動詞/);
+  assert.throws(() => validateServiceScripts('svc', { collectors: [] }, { required: true }), /writers が無い/);
+  // 旧版・fixture（キー自体が無い）は required でなければ通る
+  assert.equal(validateServiceScripts('svc', {}), true);
+  assert.equal(looksLikeWriteScript('scripts/note-sales-fetch.mjs'), false);
+  assert.equal(looksLikeWriteScript('scripts/note-update-body.mjs'), true);
 });
 
-test('loadAuthRegistry: version 2 は全サービスに ci ブロック必須', () => {
-  const dir = tmp('doboku-registry-v2-');
+test('loadAuthRegistry: version 3 は collectors / writers が必須・write 系 collectors は拒否', () => {
+  const dir = tmp('doboku-registry-v3-');
   try {
     const path = join(dir, 'registry.json');
-    writeFileSync(path, JSON.stringify({ version: 2, services: { note: { profileDirName: 'p', stateFileName: null, sessionMode: 'profile' } } }));
-    assert.throws(() => loadAuthRegistry({ cwd: dir, registryPath: path }), /AUTH_REGISTRY_CI_BLOCK_REQUIRED/);
-    writeFileSync(path, JSON.stringify({ version: 1, services: { note: { profileDirName: 'p', stateFileName: null, sessionMode: 'profile' } } }));
+    const svc = (extra) => ({ profileDirName: 'p', stateFileName: null, sessionMode: 'profile', ...extra });
+    writeFileSync(path, JSON.stringify({ version: 3, services: { note: svc({}) } }));
+    assert.throws(() => loadAuthRegistry({ cwd: dir, registryPath: path }), /AUTH_REGISTRY_INVALID_SCRIPTS/);
+    writeFileSync(path, JSON.stringify({ version: 3, services: { note: svc({ collectors: ['scripts/note-publish.mjs'], writers: [] }) } }));
+    assert.throws(() => loadAuthRegistry({ cwd: dir, registryPath: path }), /write 系動詞/);
+    writeFileSync(path, JSON.stringify({ version: 3, services: { note: svc({ collectors: ['scripts/note-sales-fetch.mjs'], writers: ['scripts/note-publish.mjs'] }) } }));
+    assert.deepEqual(loadAuthRegistry({ cwd: dir, registryPath: path }).services.note.collectors, ['scripts/note-sales-fetch.mjs']);
+    writeFileSync(path, JSON.stringify({ version: 1, services: { note: svc({}) } }));
     assert.equal(loadAuthRegistry({ cwd: dir, registryPath: path }).services.note.profileDirName, 'p');
   } finally { rmSync(dir, { recursive: true, force: true }); }
 });
 
-test('redactAuthDiagnostic: 公開 recipient は伏せず、秘密 identity は伏せる', async () => {
-  const { redactAuthDiagnostic } = await import('../scripts/lib/playwright-auth-profile.mjs');
-  const rec = 'age1qyqszqgpqyqszqgpqyqszqgpqyqszqgpqyqszqgpqyqszqgpqyqs3290gq';
-  const out = redactAuthDiagnostic({ recipient: rec, identity: 'AGE-SECRET-KEY-1QYQSZQGPQYQSZQGPQYQSZQGPQYQSZQGPQYQSZQGPQYQSZQGPQYQS3290GQ', other: rec });
-  assert.equal(out.recipient, rec);
-  assert.equal(out.identity, '[REDACTED]');
-  assert.equal(out.other, '[REDACTED]');
-});
-
-test('getCIAuthStateConfig: recipient は age 公開鍵形式のみ', () => {
-  assert.equal(getCIAuthStateConfig({ ciAuthState: null }).ageRecipient, null);
-  assert.equal(getCIAuthStateConfig({ ciAuthState: { ageRecipient: 'age1qyqszqgpqyqszqgpqyqszqgpqyqszqgpqyqszqgpqyqszqgpqyqs3290gq' } }).bucket, 'private');
-  assert.throws(() => getCIAuthStateConfig({ ciAuthState: { ageRecipient: 'AGE-SECRET-KEY-1XXXX' } }), /INVALID_RECIPIENT/);
-  assert.throws(() => getCIAuthStateConfig({ ciAuthState: { keyPrefix: 'auth-state' } }), /INVALID_PREFIX/);
-});
-
-test('実 registry: version 2・allowlist の script は全て実在・write 系 basename は readOnlyScripts に無い', () => {
+test('実 registry: version 3・ci ブロックと暗号化 state の設定は無く、script は全て実在する', () => {
   const registry = loadAuthRegistry({ cwd: REPO_ROOT });
-  assert.equal(registry.version, 2);
-  const writeLike = /(^|[-_])(publish|delete|update|edit|price|pause|rate|upload|post|apply|create|attach|append|insert|add|reply|replies|swap|convert|reanchor|sync-tags|thumb|profile)([-_.]|$)/;
-  for (const [id, entry] of Object.entries(registry.services)) {
-    for (const s of [...entry.ci.readOnlyScripts, ...entry.ci.writeScripts]) {
-      assert.equal(existsSync(join(REPO_ROOT, s)), true, `${id}: ${s} が存在しない`);
-    }
-    for (const s of entry.ci.readOnlyScripts) {
-      const base = s.split('/').at(-1);
-      assert.equal(writeLike.test(base), false, `${id}: ${s} は write 系の名前なのに readOnlyScripts にある`);
-    }
-    if (entry.ci.mode === 'encrypted-state') assert.ok(entry.stateFileName, `${id}: stateFileName`);
-  }
-  getCIAuthStateConfig(registry);
+  assert.equal(registry.version, 3);
+  // トップレベルは版・services・資格情報の方針だけ（暗号化 state の置き場の設定は無い）
+  const raw = JSON.parse(readFileSync(join(REPO_ROOT, '.claude/config/playwright-auth-profiles.json'), 'utf8'));
+  assert.deepEqual(Object.keys(raw).sort(), ['_comment', 'credentialPolicy', 'services', 'version']);
+  const r = checkAuthScriptLists(registry.services, (s) => existsSync(join(REPO_ROOT, s)));
+  assert.deepEqual(r.findings, []);
+  assert.ok(r.servicesChecked >= 9 && r.scriptsChecked >= 50, `実検査が少なすぎる（${r.servicesChecked} service・${r.scriptsChecked} script）`);
+  for (const [id, entry] of Object.entries(registry.services)) assert.equal('ci' in entry, false, `${id}: ci ブロックが残っている`);
+});
+
+test('checkAuthScriptLists: 存在しない script と write 系の collectors を検出する', () => {
+  const services = { a: { collectors: ['scripts/a-fetch.mjs', 'scripts/a-publish.mjs'], writers: ['scripts/missing.mjs'] }, b: {} };
+  const r = checkAuthScriptLists(services, (s) => s !== 'scripts/missing.mjs');
+  assert.equal(r.servicesChecked, 2);
+  assert.equal(r.scriptsChecked, 3);
+  assert.ok(r.findings.some((f) => /存在しない.*missing\.mjs/.test(f)));
+  assert.ok(r.findings.some((f) => /write 系動詞.*a-publish\.mjs/.test(f)));
+  assert.ok(r.findings.some((f) => /service "b": collectors が無い/.test(f)));
+});
+
+test('scanWorkflowForLogin: DOBOKU_AUTH_・restore-auth-state・ci-* 復元・login script の起動を検出する', () => {
+  const ctx = { loginScripts: ['scripts/note-sales-fetch.mjs', '.claude/skills/social/publish-x/publish-x.ts'], npmNames: ['note-sales-fetch'] };
+  const scan = (text) => scanWorkflowForLogin(text, 'w.yml', ctx);
+
+  assert.deepEqual(scan('steps:\n  - run: node scripts/ci-data.mjs add\n'), []);
+
+  const env = scan('env:\n  DOBOKU_AUTH_NOTE_USER: ${{ secrets.DOBOKU_AUTH_NOTE_USER }}\n');
+  assert.equal(env.length, 1);
+  assert.match(env[0], /^w\.yml:2 DOBOKU_AUTH_/);
+
+  assert.match(scan('  - uses: ./.github/actions/restore-auth-state\n')[0], /restore-auth-state/);
+  assert.match(scan('  - run: node scripts/playwright-auth.mjs ci-plan --event schedule\n')[0], /playwright-auth\.mjs ci-/);
+  assert.match(scan('  - run: node scripts/note-sales-fetch.mjs --month 2026-10\n')[0], /note-sales-fetch\.mjs/);
+  assert.match(scan('  - run: npx tsx .claude/skills/social/publish-x/publish-x.ts post\n')[0], /publish-x\.ts/);
+  assert.match(scan('  - run: npm run note-sales-fetch -- --month 2026-10\n')[0], /npm run note-sales-fetch/);
+  // 前方一致で別の npm script を誤検出しない
+  assert.deepEqual(scan('  - run: npm run note-sales-fetch-check\n'), []);
+  // YAML のコメント・echo の案内文は実行ではないので script の起動に数えない（DOBOKU_AUTH_ は数える）
+  assert.deepEqual(scan('  # node scripts/note-sales-fetch.mjs は Mac で回す\n  - run: echo "npm run note-sales-fetch"\n'), []);
+  assert.equal(scan('  # DOBOKU_AUTH_ROOT は使わない\n').length, 1);
+  // Windows の改行でも行番号が合う
+  assert.match(scan('a: 1\r\nDOBOKU_AUTH_X: 1\r\n')[0], /^w\.yml:2 /);
+});
+
+test('npmScriptsInvokingLogin: login script を呼ぶ npm script の名前を返す', () => {
+  const names = npmScriptsInvokingLogin({ a: 'node scripts/note-sales-fetch.mjs', b: 'node scripts/other.mjs', c: 'echo hi' }, ['scripts/note-sales-fetch.mjs']);
+  assert.deepEqual(names, ['a']);
+});
+
+test('実リポジトリ: .github の yml に login の道具が無い（実検査数つき）', async () => {
+  const { listFiles } = await import('../scripts/lib/fs-walk.mjs');
+  const { relative } = await import('node:path');
+  const registry = loadAuthRegistry({ cwd: REPO_ROOT });
+  const loginScripts = [...new Set(Object.values(registry.services).flatMap((e) => [...e.collectors, ...e.writers]))];
+  const pkg = JSON.parse(readFileSync(join(REPO_ROOT, 'package.json'), 'utf8'));
+  const npmNames = npmScriptsInvokingLogin(pkg.scripts, loginScripts);
+  const files = listFiles(join(REPO_ROOT, '.github'), { match: (_p, name) => /\.ya?ml$/.test(name) });
+  assert.ok(files.length >= 10, `検査した yml が少なすぎる（${files.length} 本）`);
+  const findings = files.flatMap((f) => scanWorkflowForLogin(readFileSync(f, 'utf8'), relative(REPO_ROOT, f), { loginScripts, npmNames }));
+  assert.deepEqual(findings, []);
 });
 
 test('共有セッション lib は CI 環境でも import だけでは resolver を呼ばない（オフライン検査を巻き込まない）', async () => {
   // 2026-09-21 PR #549: coconala-session.mjs が import 時に resolveProfileDir を呼び、ブラウザを開かない
-  // check-coconala-blog（ci:true）まで AUTH_PROFILE_UNAVAILABLE_IN_CI で落ちた。profile は launch の瞬間に解決する。
+  // check-coconala-blog（ci:true）まで落ちた。profile は launch の瞬間に解決する。CI は AUTH_CI_NO_LOGIN で拒否するので、なお必要。
   const { spawnSync } = await import('node:child_process');
   for (const lib of ['scripts/lib/note-browser.mjs', 'scripts/lib/coconala-session.mjs', 'scripts/lib/google-console-browser.mjs', 'scripts/lib/asp-browser.mjs']) {
     const r = spawnSync(process.execPath, ['-e', `import(${JSON.stringify('./' + lib)}).then(() => process.exit(0), (e) => { console.error(e.message); process.exit(1); })`], {
-      cwd: REPO_ROOT, encoding: 'utf8', env: { ...process.env, GITHUB_ACTIONS: 'true', CI: 'true', DOBOKU_AUTH_SESSION_MODE: '', DOBOKU_AUTH_ROOT: '' },
+      cwd: REPO_ROOT, encoding: 'utf8', env: { ...process.env, GITHUB_ACTIONS: 'true', CI: 'true', DOBOKU_AUTH_ROOT: '' },
     });
     assert.equal(r.status, 0, `${lib}: import が CI 環境で失敗した\n${r.stderr}`);
   }

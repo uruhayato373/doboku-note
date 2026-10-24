@@ -17,7 +17,7 @@ import { dirname } from 'node:path';
 import { hostname as readHostname } from 'node:os';
 import { resolveLockPath } from './playwright-auth-profile.mjs';
 
-const ALLOWED_COMMANDS = new Set(['login', 'status', 'migrate', 'export', 'ci-restore', 'ci-writeback', 'auto-login']);
+const ALLOWED_COMMANDS = new Set(['login', 'status', 'migrate', 'auto-login']);
 
 export class AuthLockError extends Error {
   constructor(message, details = {}) {

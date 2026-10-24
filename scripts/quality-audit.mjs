@@ -251,6 +251,14 @@ export const CHECKS = [
   { id: 'products', npm: 'check-products', timeout: 90_000, ci: true, note: '商品の正本（台帳 config.products・DN-0492）: 型・id・参照先・note-magazines.ts 生成ブロックの一致・収録の意図×コミット済み収録記録。PR の差分だけで決まる（ネットワーク不使用）' },
   { id: 'note-paid-cta', npm: 'check-note-paid-cta', timeout: 90_000, ci: true, note: '有料記事の L2 もくじ CTA が有料境界より前（無料プレビュー内）にあるか。末尾配置は非購入者に不可視' },
   { id: 'note-frontmatter-dup', npm: 'check-note-frontmatter-dup', timeout: 60_000, ci: true, note: 'frontmatter トップレベルキーの重複。YAML 重複キーで gray-matter が停止し PDF 生成が落ちる' },
+  // 2026-10-24 に週次の content-quality-audit.yml から移した 5 本（残りの 11 本は既にここの ci:true にあった・DN-0817）。結果はリポジトリの差分だけで決まる
+  { id: 'note-price-consistency', npm: 'check-note-price-consistency', timeout: 60_000, ci: true },
+  { id: 'note-attachments', npm: 'check-note-attachments', timeout: 90_000, ci: true, note: '本文で約束した配布 PDF の実体（手元か Drive の台帳）。ライブの添付は土曜の収集の note-live 段' },
+  { id: 'note-intro-benefit', npm: 'check-note-intro-benefit', timeout: 60_000, ci: true },
+  { id: 'gate-coverage', npm: 'check-gate-coverage', timeout: 90_000, ci: true },
+  { id: 'affiliate-prose', npm: 'check-affiliate-prose', timeout: 60_000, ci: true },
+  // 自動化の台帳（config/automations.json）と .github/workflows・launchd の plist の一致、CI でログインしないこと（DN-0817）
+  { id: 'automations', npm: 'check-automations', timeout: 60_000, ci: true },
   { id: 'note-vocabulary-boundary', npm: 'check-note-vocabulary-boundary', timeout: 60_000, ci: true, note: 'noteSeries(編集ラベル)とnoteMagazine(商品ラベル)の取り違え検知（内部id混入/他マガジンラベル混入/index×商品の共存）。DN-0125' },
   { id: 'note-link-cards', npm: 'check-note-link-cards', timeout: 60_000, ci: true, note: '自社note記事はサイト管理画像付き NoteLink に限定。生リンク・旧noteカバー・画像欠落を禁止' },
   // 以下 5 本は pre-commit で `--staged` だけが走っており、**全量モードに読み手が無かった**
@@ -312,6 +320,9 @@ export const CHECKS = [
   { id: 'doc-lifecycle', npm: 'check-doc-lifecycle', timeout: 90_000, ci: false, note: '読み手＝weekly-review-guard の report digest（--report-only を週次実行し FAIL は automation-failure Issue へ集約）。加えて /weekly-review の Agent H と /doc-declutter が読む' },
   { id: 'policy-anchors', npm: 'check-policy-anchors', timeout: 90_000, ci: false, note: '読み手＝weekly-review-guard の report digest（--report-only を週次実行し FAIL は automation-failure Issue へ集約）' },
   { id: 'ogp-coverage', npm: 'check-ogp-coverage', timeout: 90_000, ci: false, note: '読み手＝weekly-review-guard の report digest（--report-only を週次実行し FAIL は automation-failure Issue へ集約）。r2-audit.yml が週次で同スクリプトを赤落ちゲートとして実行しており、こちらは横断監査での再掲' },
+  // 2026-10-24 に週次の link-audit.yml から移した（内部リンクは internal-links の ci:true が見る・DN-0817）。外部の状態に依存するので report
+  { id: 'external-links', npm: 'check-external-links', timeout: 600_000, ci: false, note: '外部リンクの生存。読み手＝weekly-review-guard の report digest（--report-only を週次実行し FAIL は automation-failure Issue channel report-checks）' },
+  { id: 'x-posted-live', npm: 'check-x-posted-live', timeout: 300_000, ci: false, note: '投稿済みの X が消えていないか。読み手＝weekly-review-guard の report digest（週次・Issue channel report-checks）' },
   { id: 'ogp-design', npm: 'check-ogp-design', timeout: 120_000, ci: false, note: '読み手＝weekly-review-guard の report digest（--report-only を週次実行し FAIL は automation-failure Issue へ集約）' },
   { id: 'quality-census', npm: 'quality-census', timeout: 180_000, ci: false, note: 'census.json 再生成（薄層可視化）。読み手＝weekly-review-guard の report digest（--report-only を週次実行し FAIL は automation-failure Issue へ集約）。生成物は /quality-cycle と admin の /quality が読む' },
   // digest: false — knip 全量は **常に非ゼロ**（デッドコードは baseline で管理する前提）。

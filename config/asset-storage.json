@@ -8,8 +8,7 @@
     "manifest は一時ファイルへ書いて検証成功後に置換する（途中で落ちても既存 manifest を壊さない）。",
     "manifest に秘密値・署名 URL・Cookie・ローカル絶対パスを書かない。",
     "private バケットにカスタムドメインを付けない。private アセットの URL を画面・ログ・manifest へ出さない。",
-    "hydrate の解決順は ローカル実体 → cache → R2 → （再生成可能なら）generator。--offline は R2 を使わない。",
-    "auth-state/ は暗号化 storageState 専用（login-collectors）。offload/hydrate/groups の対象外。"
+    "hydrate の解決順は ローカル実体 → cache → R2 → （再生成可能なら）generator。--offline は R2 を使わない。"
   ],
   "bucketRouting": "group.bucket は public / private / byVisibility の 3 値。byVisibility は visibilityFrom の判定結果でファイル単位に振り分ける（公開済み→public、下書き・未投稿・判定不能→private）。さらに group.audience が bucket を縛る（site⇒public、ci⇒private|byVisibility）。human の group はここに置かない（drive-vault.json へ）。",
   "buckets": {
@@ -167,7 +166,7 @@
         "scripts/kdp-batch.mjs",
         ".github/workflows/ci.yml（quality-audit の前に asset-hydrate --group kindle-dist で取り戻す）"
       ],
-      "reason": "KDP へ入稿する EPUB（65）と表紙 jpg（72）。Git に入れると作り直すたびに履歴へ積まれる（2026-08-22 以降で 286 版・159MB）ので、CI が読む配布物は private R2 が原則（asset-storage-policy §1 ci）として 2026-10-12 に git から外した（DN-0562）。spec から決定的に再ビルドできる（regenerable）が、入稿済みの版を保全するため R2 を正本にする。人が入稿に使う控えは Drive vault（DN-0451）。",
+      "reason": "KDP へ入稿する EPUB（65）と表紙 jpg（72）。Git に入れると作り直すたびに履歴へ積まれる（2026-08-22 以降で 286 版・159MB）ので、CI が読む配布物は private R2 が原則（asset-storage-policy §1 ci）として 2026-10-12 に git から外した（DN-0562）。spec から決定的に再ビルドできる（regenerable）が、入稿済みの版を保全するため R2 を正本にする。人が入稿に使う控えは Drive vault（DN-0838）。",
       "phase": "4-B"
     }
   ]

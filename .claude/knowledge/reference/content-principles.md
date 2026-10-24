@@ -128,7 +128,7 @@ doboku-note のすべてのコンテンツ作成・校正時に従うべき原�
 
 **具体的な変換パターンカタログ**は [content-authoring.md](content-authoring.md) の「モバイル視認性」節を参照（現状の表 → 変換先の早見表）。
 
-全量ラチェット `npm run check-content-quality`（週次 CI `r2-audit.yml`）が既存違反を baseline で grandfather しつつ、**新規違反（baseline 超過）を赤落ち**させる。既存違反はリライトで漸減させる（優先度は `.claude/state/quality/latest-report.md` の GA4 人気度順）。なお pre-commit フックが実行するのは `pre-commit-mdx.mjs`（MDX コンパイル・frontmatter・壊れ表・SVG 等）であり、`lint-mdx-mobile.mjs` 自体の実行点は品質サイクル（`/quality-cycle`・`bulk-score`・`/check-mdx`）・手動・週次 CI ラチェットの3系統。
+全量ラチェット `npm run check-content-quality`（週次 CI `quality:audit:ci`）が既存違反を baseline で grandfather しつつ、**新規違反（baseline 超過）を赤落ち**させる。既存違反はリライトで漸減させる（優先度は `.claude/state/quality/latest-report.md` の GA4 人気度順）。なお pre-commit フックが実行するのは `pre-commit-mdx.mjs`（MDX コンパイル・frontmatter・壊れ表・SVG 等）であり、`lint-mdx-mobile.mjs` 自体の実行点は品質サイクル（`/quality-cycle`・`bulk-score`・`/check-mdx`）・手動・週次 CI ラチェットの3系統。
 
 #### 「用語+定義+例」型 shallow table の散文化（2026-05-27 追加）
 
@@ -1026,7 +1026,7 @@ H3 散文の冒頭で「{管理A} は…、{管理B} は…を核とし、両者
 
 **適用範囲**: `group: guide` のみ。**過去問（`group: primary` / `secondary`）・キーワードページ・textbook には適用しない**（§5 §188 の図表中心ページ例外を侵さない）。
 
-**機械検知（ゲート）**: `node scripts/check-guide-length.mjs`（`npm run check-guide-length`）。published かつ `group: guide` の記事本文が 3,000 字未満なら **赤落ち（exit 1）**。pre-commit は staged のガイド MDX のみ、CI（`r2-audit.yml`）は全 published を検査する。**どちらも未公開（`published: false`）は対象外**——撤回済み記事の誤字修正まで commit が弾かれるのを避けるため（2026-08-04 に staged 側だけ published を見ておらず、unpublish 済み記事の太字修正がブロックされた）。
+**機械検知（ゲート）**: `node scripts/check-guide-length.mjs`（`npm run check-guide-length`）。published かつ `group: guide` の記事本文が 3,000 字未満なら **赤落ち（exit 1）**。pre-commit は staged のガイド MDX のみ、CI（`quality:audit:ci`）は全 published を検査する。**どちらも未公開（`published: false`）は対象外**——撤回済み記事の誤字修正まで commit が弾かれるのを避けるため（2026-08-04 に staged 側だけ published を見ておらず、unpublish 済み記事の太字修正がブロックされた）。
 
 **加筆の方向性**: 字数合わせの水増しではなく、§17 に沿って各 H2 セクションの散文導入を 200〜400 字へ充実させ、読者の判断に効く具体（数値・体験・選択基準）を足す。加筆後は `guide-qa`（ガイド軸 5 軸）で再確認する。
 

@@ -14,22 +14,9 @@ domain: sns
 
 Playwright で Business Suite（business.facebook.com）のコンポーザを自動操作し、Instagram カルーセルを予約投稿する。設計は [[publish-x]] に倣う（永続プロファイル・システム Chrome で bot 回避・偽成功を出さない fail-safe・dry-run 必須）。
 
-## CI 経路（2026-09-21）
+## 実行する場所（2026-10-24〜）
 
-**投稿も本スキル（Business Suite Playwright）を CI で回す。** Meta の利用制限で Graph API トークンを発行できないため、
-`scripts/ig-graph-publish.mjs`（公式 API・即時公開のみ）は制限が解けたときの代替として残すが主経路ではない。
-CI 実行は `ops-write.yml`（dispatch + plan hash）で、セッションは encrypted-state（`login-collectors.yml` と同じ
-`restore-auth-state`）。手順:
-
-```
-npm run ops-write:plan -- --operation instagram.publish-bs --args '{"pack":"<exam>/<pack>","schedule":"YYYY-MM-DDTHH:MM"}'
-# → 表示された hash と inputs（パック配下の caption/画像の sha256）を確認してから
-gh workflow run ops-write.yml --ref develop -f operation=instagram.publish-bs -f args='{...同じ JSON...}' -f plan_sha256=<hash> -f commit=true
-```
-
-`commit=false` なら plan だけ。`--reel` は args に `"reel": true`。CI は headless なので初回は `commit=false` で plan を確認し、
-Mac の `--dry-run` でセレクタが生きていることを確かめてから `commit=true` に進む（Business Suite の UI 変更で
-セレクタが外れたら Issue `ops-write-instagram` が立つ）。予約スロットの実体確認（プランナー月ビュー）はローカル。
+CI からの予約投稿（`ops-write.yml`）は廃止した。投稿は運営者の依頼を受けたセッションが運営者の Mac の永続 profile で行う（SNS 保留中は `DOBOKU_SNS_PAUSED=1` に従う）。公式 API の `scripts/ig-graph-publish.mjs` は使わない方針（Meta の利用制限）。ログインが切れていたら、運営者が `npm run auth:login -- --service instagram` で入り直す（セッションから資格情報でログインしない）。予約スロットの実体確認（プランナー月ビュー）もローカル。
 
 ## 既存予約・公開済み投稿を改修するとき
 

@@ -31,7 +31,7 @@ developer_instructions = """
 
 ## 担当外
 
-- 収集の実行・再取得: `gsc-browser-collector`
+- 収集の実行・再取得: 土曜の Mac 収集（`weekly-collect` の gsc 段）。運営者が端末で `node scripts/weekly-collect.mjs --only gsc`
 - URL 分類・修正計画・優先順位: `seo-fix-planner` / 親
 - index coverage 診断: `gsc-index-auditor`
 - 外部 HTTP / sitemap 取得: しない（report-search-growth の責務）

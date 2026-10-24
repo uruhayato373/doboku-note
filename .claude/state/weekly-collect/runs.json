@@ -1,4 +1,157 @@
 {
   "schemaVersion": 1,
-  "runs": []
+  "runs": [
+    {
+      "phase": "pre",
+      "only": null,
+      "host": "minamidaisukenonotobukkukonpyuta.local",
+      "startedAt": "2026-10-24T05:10:50.396Z",
+      "finishedAt": "2026-10-24T05:25:28.736Z",
+      "stages": [
+        {
+          "id": "auth",
+          "title": "ログインの確認と入り直し",
+          "status": "ok",
+          "reason": "",
+          "exits": [
+            0
+          ],
+          "durationSec": 20
+        },
+        {
+          "id": "a8",
+          "title": "A8 の成果（前月と当月）",
+          "status": "ok",
+          "reason": "",
+          "exits": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "durationSec": 296
+        },
+        {
+          "id": "kdp",
+          "title": "KDP のロイヤリティ",
+          "status": "ok",
+          "reason": "",
+          "exits": [
+            0
+          ],
+          "durationSec": 65
+        },
+        {
+          "id": "note-traffic",
+          "title": "note のアクセス（月と 2026-10-12〜2026-10-18）",
+          "status": "failed",
+          "reason": "note-traffic-fetch: 検査不成立: 記事別 PV の合計とページビュー集計が一致しない",
+          "exits": [
+            1,
+            0
+          ],
+          "durationSec": 99
+        },
+        {
+          "id": "note-sales",
+          "title": "note の売上",
+          "status": "ok",
+          "reason": "",
+          "exits": [
+            0
+          ],
+          "durationSec": 15
+        },
+        {
+          "id": "coconala",
+          "title": "ココナラの取引・出品分析・売上履歴",
+          "status": "ok",
+          "reason": "",
+          "exits": [
+            0
+          ],
+          "durationSec": 351
+        },
+        {
+          "id": "gsc",
+          "title": "GSC の登録リクエスト 10 件と月次の理由別 CSV",
+          "status": "ok",
+          "reason": "",
+          "exits": [
+            0
+          ],
+          "durationSec": 0
+        }
+      ],
+      "commit": {},
+      "leftover": []
+    },
+    {
+      "phase": "post",
+      "only": null,
+      "host": "minamidaisukenonotobukkukonpyuta.local",
+      "startedAt": "2026-10-24T05:36:07.974Z",
+      "finishedAt": "2026-10-24T08:53:35.642Z",
+      "stages": [
+        {
+          "id": "note-live",
+          "title": "note の添付と会員限定のライブ照合",
+          "status": "warn",
+          "reason": "欠落リスト: .claude/state/note-attachments-missing.json（0 件）",
+          "exits": [
+            1,
+            0
+          ],
+          "durationSec": 159
+        },
+        {
+          "id": "note-sync",
+          "title": "note の記事の同期（本文・カバー・タグ）",
+          "status": "failed",
+          "reason": "180 分で打ち切り",
+          "exits": [
+            124
+          ],
+          "durationSec": 10801
+        },
+        {
+          "id": "note-sync-check",
+          "title": "note の反映の照合（公開 API）",
+          "status": "warn",
+          "reason": "[check-note-sync] ✗ 未反映 記事 376（止まっている 3）・マガジン 0。Mac の週次（npm run note-sync:install -- --status）が反映し、止まっている分は管理画面 /content/note-sync",
+          "exits": [
+            1
+          ],
+          "durationSec": 846
+        }
+      ],
+      "commit": {},
+      "leftover": [
+        ".claude/state/note-republish-hashes.json",
+        ".claude/state/note-update-aborted.json"
+      ]
+    },
+    {
+      "phase": "only",
+      "only": "note-traffic",
+      "host": "minamidaisukenonotobukkukonpyuta.local",
+      "startedAt": "2026-10-24T08:58:17.476Z",
+      "finishedAt": "2026-10-24T09:01:10.814Z",
+      "stages": [
+        {
+          "id": "note-traffic",
+          "title": "note のアクセス（月と 2026-10-12〜2026-10-18）",
+          "status": "ok",
+          "reason": "",
+          "exits": [
+            0,
+            0
+          ],
+          "durationSec": 142
+        }
+      ],
+      "commit": {},
+      "leftover": []
+    }
+  ]
 }

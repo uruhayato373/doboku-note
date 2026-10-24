@@ -18,9 +18,8 @@ import { chromium, type BrowserContext, type Page } from "playwright";
 import * as path from "path";
 import * as fs from "fs";
 import { datasetPath } from "../../../../scripts/lib/datasets.mjs";
-import { resolveProfileDir, resolveStatePath } from "../../../../scripts/lib/playwright-auth-profile.mjs";
+import { resolveProfileDir } from "../../../../scripts/lib/playwright-auth-profile.mjs";
 import { leanContextOptions } from "../../../../scripts/lib/playwright-launch.mjs";
-import { attachCISession } from "../../../../scripts/lib/playwright-auth-state.mjs";
 import { REPO_ROOT as PROJECT_ROOT } from "../../../../scripts/lib/repository-paths.mjs";
 
 const PROFILE_DIR = resolveProfileDir("x", { cwd: PROJECT_ROOT, repoRoot: PROJECT_ROOT });
@@ -215,7 +214,6 @@ async function main() {
     timezoneId: "Asia/Tokyo",
     args: ["--disable-blink-features=AutomationControlled"],
   }));
-  await attachCISession(context, "x", { statePath: resolveStatePath("x", { cwd: PROJECT_ROOT, repoRoot: PROJECT_ROOT }) });
   const page = context.pages()[0] || (await context.newPage());
 
   const results: { url: string; ok: boolean }[] = [];

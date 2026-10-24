@@ -4,7 +4,7 @@ Instagram カルーセルの「実際に公開されているか（現状確認�
 
 - 実行スキル: **`/ig-reconcile`**（`.claude/skills/social/ig-reconcile/`）
 - **公開の状態の正本はコンテンツ台帳**（`content/registry/publications/instagram/{exam}.json`・設計 [content-registry.md](content-registry.md)）。作品フォルダの `posted.json`・`status.json` は P7 で消す旧い写しで、書き手は移行のあいだ今までどおり書いてよいが、「予約したか・公開したか」の判断は台帳を読み、状態が変わったら台帳にも書く（`scripts/lib/registry-ig-store.mjs` の `recordIg`）。
-- 照合エンジン: **`npm run verify-ig-status`**（`scripts/verify-ig-status.mjs`・既定は read-only）。`--registry` を付けると照合のあと、公開中の投稿に 1 件だけ結び付いたカルーセルと、公開中のリールにキャプション先頭が 1 件だけ一致したリールを台帳で `published`（証拠 `ig-snapshot`）にする（台帳が published・stopped(unverified-legacy 以外) の行は触らず、台帳が published なのに投稿が削除済みの後戻りは所見に出すだけ）。CI 週次は `login-collectors.yml`（encrypted-state・`verify-ig-status --no-planner`・PR #549） が同じスクリプトを回す。Graph API 版（`fetch-ig-insights.mjs --reconcile`）は使わない（2026-09-23 ユーザー決定）
+- 照合エンジン: **`npm run verify-ig-status`**（`scripts/verify-ig-status.mjs`・既定は read-only）。`--registry` を付けると照合のあと、公開中の投稿に 1 件だけ結び付いたカルーセルと、公開中のリールにキャプション先頭が 1 件だけ一致したリールを台帳で `published`（証拠 `ig-snapshot`）にする（台帳が published・stopped(unverified-legacy 以外) の行は触らず、台帳が published なのに投稿が削除済みの後戻りは所見に出すだけ）。CI 週次（`login-collectors.yml`）は 2026-10-24 に廃止した。取り直しは運営者が端末で実行する。Graph API 版（`fetch-ig-insights.mjs --reconcile`）は使わない（2026-09-23 ユーザー決定）
 - 公開可否ゲート/異常検出: **`ig-publish-auditor`**（Evaluator・`.claude/agents/`）
 - 投稿エンジン: **`publish-ig-bs`**（既存・予約投稿）
 - アカウント SSOT: **`config/ig-account.json`**
@@ -101,7 +101,7 @@ Instagram カルーセルの「実際に公開されているか（現状確認�
 
 ## 8. 週次運用
 
-照合は CI 週次 `login-collectors.yml`（encrypted-state・`verify-ig-status --no-planner`・PR #549） が `snapshot.json` を `source:"playwright"` で書く。週次レビューはこの snapshot を読む（実行しない）。Playwright 版 `verify-ig-status` はプランナー実体確認が要るときのフォールバック。ドリフトが出たら次セッションで `/ig-reconcile` を実行して是正・予約する。
+`snapshot.json`（`source:"playwright"`）は、2026-10-24 まで CI 週次の `login-collectors.yml` が書いていたが廃止した（SNS 保留中で、Mac の定期収集にも載せていない）。週次レビューは既存の snapshot を読む（実行しない）。必要なときは運営者がローカルで Playwright 版 `verify-ig-status` を実行する。ドリフトが出たら次セッションで `/ig-reconcile` を実行して是正・予約する。
 
 ## 関連
 
