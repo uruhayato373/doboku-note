@@ -133,7 +133,8 @@ seed / stride も同時に変える**（`tests/reference-sources.test.mjs` が�
 - `check-reference-book-pages --metadata-only`（CI）が `book-manifest.json` の `ocrArtifacts[].method` を、
   `check-reference-sources --deep` が Drive の文字起こしの frontmatter と実体の sha256 を見る
 - 廃止前の視覚 OCR 231 件は `.claude/config/reference-sources-baseline.json` の `legacyVisualOcrTranscripts`
-  （論理キー → sha256）に固定し、同じ中身のものだけを残す。機械 OCR で作り直したら一覧から消す
+  （論理キー → sha256）に固定し、同じ中身のものだけを残す。一括では作り直さず、記事に使う本から順に機械 OCR で
+  作り直し、作り直したら一覧から消す（2026-10-24 本人決定。順の目安は `pdf-to-mdx/scripts/book-ocr/README.md`）
 
 ## 3. 参考文献を 1 冊増やす手順
 

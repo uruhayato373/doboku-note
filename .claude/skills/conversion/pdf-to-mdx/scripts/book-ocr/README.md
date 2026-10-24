@@ -86,8 +86,11 @@ method に `visual-ocr`・`visual-proofread` を含む文字起こしは、廃�
 | `check-reference-book-pages --metadata-only`（CI） | `book-manifest.json` の `ocrArtifacts[].method` と sha256 |
 | `check-reference-sources --deep`（手元） | Drive の文字起こしの frontmatter の method と実体の sha256 |
 
-既存の視覚 OCR を作り直したら、一覧から消す。Drive に同じ名前のファイルがあると `record-reference-book-artifacts` は
-上書きしないので、作り直すときは旧ファイルの扱い（退避・削除）を先に決める。
+**既存分の扱い（2026-10-24 本人決定）**: 廃止前の 231 件は一覧のまま残し、一括では作り直さない。**記事に使う本から順に**
+機械 OCR で作り直す（目安は公開記事の `sources` にその本が挙がる数。2026-10-24 時点の上位は civil1-textbook-management・
+construction-industry-trends-5th・civil-industry-trends-3rd が各 38 本、civil1-textbook-general 34 本、civil-technology-basics 25 本）。
+作り直したら一覧から消す。Drive に同じ名前のファイルがあると `record-reference-book-artifacts` は上書きしないので、
+作り直すときは旧ファイルの扱い（退避・削除）を先に決める。
 
 ## エージェントは Drive マウントを直接読まない
 
