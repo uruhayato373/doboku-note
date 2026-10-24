@@ -342,6 +342,20 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-0823] （DN-0817 段5）ほかのセッションのスキルを「記録を読む」に変え、ログインの方針文書を書き直す
+タグ: [インフラ・計測] [領域:管理] [時期:2026-12] [種類:改善] [起票:2026-10-24]
+
+**起点**: DN-0817 の段 5。ほかのセッションはログインせず、記録を読んで進める（エージェントは既に資格情報を読めない＝`CLAUDECODE=1` の制限）。
+
+**やること**:
+1. 読むだけのスキルを「`data/` を読み、最終取得日を示す」形に変える。対象（2026-10-24 の棚卸し）: `affiliate-status`・`a8-report`・`coconala-analytics`・`google-search-growth`・`ig-reconcile`・`weekly-review` のログイン手順、エージェントの `a8-report-collector`・`gsc-browser-collector`。古いときは取りに行かず「未取得（次の土曜）」と書く
+2. 書き込みのスキル（`publish-note`・`note-*`・`coconala-publish`・`kdp-publish`・`publish-x`・`publish-ig-bs` など）は、人がその場で実行し、土曜に保ったログインを使う形のまま残す。切れていたら人が `auth:login` で入る、と書き添える
+3. お客さま対応の気づき（ココナラの受注・note のコメント）は週次の取得では最大 1 週間遅れるので、メール通知（Gmail コネクタ）で拾う前提にするかを運営者に決めてもらう
+4. 方針の正本を書き直す: `playwright-auth-profiles.md` の「役割分担」「ログイン維持」「§CI」、`asset-storage-policy.md` など CI の state に触れている箇所。スキルと agent の変更は同じ commit で registry を更新する
+
+**完了条件**: ログインを手順に持つスキル・agent が書き込み系だけになり（`git grep -l "auth:login" .claude/skills .claude/agents` を書き込み系と照合）、方針文書が新しい形になっている。
+
+
 ### [DN-0822] （DN-0817 段4）CI のログイン収集と書き込みの入口・暗号化 state・ログイン用 Secrets を外す
 タグ: [インフラ・計測] [領域:管理] [時期:2026-12] [種類:改善] [起票:2026-10-24]
 
