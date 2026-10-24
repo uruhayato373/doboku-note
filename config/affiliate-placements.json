@@ -743,6 +743,37 @@
       },
       "experiment": "EXP-018",
       "note": "測量士・舗装・建築の資格トップ（モバイル・EXP-018）。"
+    },
+    {
+      "id": "PL-0042",
+      "program": "buildjob",
+      "slot": "article-mid",
+      "target": {
+        "pageKind": "doc",
+        "categories": [
+          "laws"
+        ]
+      },
+      "period": {
+        "from": "2026-10-24T00:00:00+09:00",
+        "until": null
+      },
+      "experiment": "EXP-018",
+      "note": "法令の解説（/laws/・2026-10-22 公開の 24 本）の本文中間。法令ページを足したときに配置ルールが無く、転職広告が 0 だった（2026-10-24 の本番の全ページ集計）。"
+    },
+    {
+      "id": "PL-0043",
+      "program": "buildjob",
+      "slot": "laws-list-end",
+      "target": {
+        "pageKind": "laws-list"
+      },
+      "period": {
+        "from": "2026-10-24T00:00:00+09:00",
+        "until": null
+      },
+      "experiment": "EXP-018",
+      "note": "法令の一覧（/laws）の末尾。各法令の解説は PL-0042。"
     }
   ]
 }

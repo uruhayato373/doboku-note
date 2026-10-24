@@ -449,6 +449,7 @@ const PREVIEW_PAGES: Record<string, { path: string; widths?: PreviewWidth[] }> =
   'standards-end': { path: '/standards/kinki/common/chapters/1-1' },
   'standards-list-end': { path: '/standards' },
   'topic-end': { path: '/topics/concrete' },
+  'laws-list-end': { path: '/laws' },
   'tool-end': { path: '/tools/water-content' },
   'tool-inline': { path: '/tools/juken-shikaku' },
   'home-section': { path: '/' },

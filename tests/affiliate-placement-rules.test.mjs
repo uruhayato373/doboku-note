@@ -76,6 +76,15 @@ test('公的基準の章以外・トピック・ツールのページ末は Buil
   assert.equal(resolvePlacements({ pageKind: 'standards' }, NOW)['standards-list-end'], undefined);
 });
 
+test('法令は 2026-10-24 から解説の本文中間と一覧の末尾に BuildJob（PL-0042・PL-0043）、それより前は出さない', async () => {
+  const { resolvePlacements } = await load();
+  const after = Date.parse('2026-10-24T12:00:00+09:00');
+  assert.deepEqual(programs(resolvePlacements({ pageKind: 'doc', category: 'laws', isCareerDoc: false }, after)), { 'article-mid': 'buildjob' });
+  assert.deepEqual(programs(resolvePlacements({ pageKind: 'laws-list' }, after)), { 'laws-list-end': 'buildjob' });
+  assert.deepEqual(programs(resolvePlacements({ pageKind: 'doc', category: 'laws', isCareerDoc: false }, NOW)), {});
+  assert.deepEqual(programs(resolvePlacements({ pageKind: 'laws-list' }, NOW)), {});
+});
+
 test('本文の手書き転職カード（article-inline）は MDX にある 4 カテゴリだけ（2級の学習ページは建設JOBs）。技士・RCCM は本文中間と記事末が BuildJob', async () => {
   const { resolvePlacements } = await load();
   for (const category of ['civil-construction-1', 'pe-construction', 'rccm']) {
