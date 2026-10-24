@@ -5589,6 +5589,23 @@
       "commit": "00199b5bc97d",
       "verification": "headless で /program/create-link?programId=s00000024757004 の HTML を素材ID ごとに分け、a8mat=4B5OO5+FHBA2+5B0Y+NTRMQ が素材ID 002（テキスト）のブロックにあることを確認。口座 a25050375786 の assert OK",
       "note": "A8 の広告リンク作成（programId=s00000024757004・掲載サイト websiteId=002 doboku-note が既定選択）を保存ログインで読むだけで開いた。NTRMQ は素材ID 002・テキストとして発行中（クリック率 2.55%）。案件は提携中・終了日未定。C の NTZCH は素材ID 003（300×250）。B 用の計測ピクセルは https://www10.a8.net/0.gif?a8mat=4B5OO5+FHBA2+5B0Y+NTRMQ（ホスト番号は読み込みごとに変わる）。B にピクセルを足すかは PR #1212 で判断する。"
+    },
+    {
+      "id": "DN-0828",
+      "at": "2026-10-24",
+      "task": "A8 の取得が失敗しても ui-last-run の取得日時が進み、成果取込の期限が緑になるのを直す",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "test"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "26982f8661c4",
+      "verification": "node --test tests/report-honesty.test.mjs が合格（advancesLastRun の DN-0828 のテストを含む）。check-a8-report-due --fail-on-due は 6/6 取得の成功マーカー（2026-10-24T05:13Z）で exit 0。report-log に 2026-09 の行あり",
+      "note": "引き取って確かめたところ、直しは PR #1214（e3fac871c・DN-0817 段1）で develop に入り、2026-10-24 の本番反映（main 0afe33d6b）にも含まれていた: scripts/lib/report-honesty.mjs の advancesLastRun で、1 件も取れなかった回は data/a8/ui-last-run.json の collectedAt を進めない（部分取得は進めて status=partial）。回帰テストは tests/report-honesty.test.mjs。A8 の 9 月分は 2026-10-24 05:11Z に取り直し済み（report-log の monthly 2026-09: クリック 271・成果 0）。"
     }
   ]
 }

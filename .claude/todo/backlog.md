@@ -394,17 +394,6 @@ drive-vault-sync -- --group source-transcript --verify --deep が 240 件中 1 �
 **完了条件**: `git grep -E "^\s*[-*] \[[ xX]\] " -- 'content/note/**/article*.md'` が 0 件、検査が新しい `- [ ]` を止めることをテストで確かめ、公開済み 4 本が note に反映されている（次の公開画面の目視で `[ ]` が出ない）。
 
 
-### [DN-0828] A8 の取得が失敗しても ui-last-run の取得日時が進み、成果取込の期限が緑になるのを直す
-タグ: [インフラ・計測] [領域:アフィリエイト] [時期:2026-10..2026-11] [種類:不具合] [起票:2026-10-24] [進行中]
-
-**起点**: 週次レビュー（2026-10-19〜2026-10-25）。10/24 に `npm run a8-ui:fetch -- --month 2026-09` が `page.goto: net::ERR_ABORTED`（media-console.a8.net/home）で取得 0/0・status=error で止まった。このとき `data/a8/ui-last-run.json` の `collectedAt` が失敗した実行の時刻へ書き換わり、`node scripts/check-a8-report-due.mjs --fail-on-due` が「OK: 前回 0日前・次回まで9日」と出して exit 0 になった（要対応 2 行は出るが期限の判定は緑）。失敗した取得で鮮度が戻る偽の緑。レビューでは書き換わったマーカーを HEAD の内容（10/20 の成功）へ戻し、commit していない。
-
-**やること**:
-1. 取得が status≠ok のときは `collectedAt`・`lastRun` を進めない（失敗は別の欄に記録する）か、`check-a8-report-due` が鮮度を最後の成功の時刻で数えるようにする
-2. 失敗した実行の後で exit 0 にならない回帰テストを足す
-3. A8 の 9 月分（月次の確定成果）を取り直す。取れない理由（ERR_ABORTED）を debug artifact `.local/playwright-a8-debug/2026-10-24T02-19-32Z` で確かめる
-
-**完了条件**: 失敗した取得の後に `check-a8-report-due --fail-on-due` が鮮度を緑にしないことをテストで確かめ、A8 の 9 月分が report-log に入っている（0 件なら 0 件と記録される）。
 
 
 ### [DN-0826] KDP 台帳の 2026-09 で bookId e-01 が 2 行に付き kdp-report-freshness が FAIL するのを直す
