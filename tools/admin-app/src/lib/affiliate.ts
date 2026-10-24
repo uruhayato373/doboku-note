@@ -454,6 +454,8 @@ const PREVIEW_PAGES: Record<string, { path: string; widths?: PreviewWidth[] }> =
   'home-section': { path: '/' },
   'article-end-offsite': { path: '/exam/civil-construction-2/secondary/experience-writing-by-theme' },
   'links-hub': { path: '/links' },
+  // 広告は診断の結果の後にだけ出る。開発サーバーでは ?previewFocus=career-tool のとき既定の入力で結果を出す（CareerCheckClient）
+  'career-tool': { path: '/tools/career-check' },
 };
 export type PreviewWidth = 'sp' | 'pc';
 export interface PreviewSurface {

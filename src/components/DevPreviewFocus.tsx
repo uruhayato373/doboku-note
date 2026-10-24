@@ -12,7 +12,9 @@ export default function DevPreviewFocus() {
     const placement = new URLSearchParams(window.location.search).get("previewFocus");
     if (!placement) return;
     const focus = () => {
-      const el = [...document.querySelectorAll<HTMLElement>(`[data-cta-placement="${CSS.escape(placement)}"]`)].find((e) => e.getClientRects().length > 0);
+      // 同じ面の別リンク（診断ツールの「次に読むページ」等）より広告を先に探す
+      const visible = [...document.querySelectorAll<HTMLElement>(`[data-cta-placement="${CSS.escape(placement)}"]`)].filter((e) => e.getClientRects().length > 0);
+      const el = visible.find((e) => e.dataset.cta === "affiliate") ?? visible[0];
       if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 24, behavior: "instant" });
     };
     const timers = [0, 800, 2000, 4000].map((ms) => window.setTimeout(focus, ms));
