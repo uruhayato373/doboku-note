@@ -7,10 +7,19 @@ import { cn } from '@/lib/cn';
  * 表だけの画面では Card で囲まない。区画が並ぶ画面では PanelCard の中に置く（その場合も枠はこれ）。
  * 行・セルは shadcn の TableHeader / TableRow / TableHead / TableCell をそのまま使う（ここで再輸出する）。
  */
-export function TableFrame({ children, className }: { children: ReactNode; className?: string }) {
+export function TableFrame({
+  children,
+  className,
+  tableClassName,
+}: {
+  children: ReactNode;
+  className?: string;
+  /** 表そのもの（table 要素）へ付ける class。最小幅はここに付ける（外枠に付けると列からはみ出す）。 */
+  tableClassName?: string;
+}) {
   return (
     <div className={cn('overflow-hidden rounded-md border', className)}>
-      <Table>{children}</Table>
+      <Table className={tableClassName}>{children}</Table>
     </div>
   );
 }
