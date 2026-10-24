@@ -362,6 +362,12 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-0832] 総監論文対策の文字起こし『総監論文に求められるもの.md』の Drive 実体が台帳と違うのを片づける
+タグ: [領域:教材] [時期:2026-10] [種類:不具合] [検証:drive-vault-sync] [起票:2026-10-24]
+
+drive-vault-sync -- --group source-transcript --verify --deep が 240 件中 1 件の不一致で FAIL（2026-10-24 確認）。content/sources/textbook/技術士（総監）/テキスト/総監論文対策/総監論文に求められるもの.md の Drive 実体が 2026-09-30 に更新され（26,556→26,554 bytes）、drive-manifest の sha256 と違う。同じ本の README（content/sources/books/pe-cem-essay-guide__総監論文対策/README.md）が p.24 の指で隠れた箇所を文脈で埋めた誤りを記録しており、その手直しの可能性がある。check-reference-sources --deep も transcript-method（廃止前の視覚 OCR の中身が変わった・PR #1211）で同じファイルを止める。どちらの中身を正とするかを決め、視覚 OCR を手で直すのでなく機械 OCR（book_ocr_machine.py）で作り直すか、Drive を台帳の版へ戻す。完了条件: drive-vault-sync --group source-transcript --verify --deep と check-reference-sources --deep が exit 0。
+
+
 ### [DN-0830] note 原稿のタスクリスト記法（- [ ]）が note でそのまま出るのを直し、検査で止める（公開 4 本・計 70 行）
 タグ: [コンテンツ品質] [領域:商品] [時期:2026-11] [種類:不具合] [起票:2026-10-24]
 
