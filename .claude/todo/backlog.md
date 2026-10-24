@@ -21,6 +21,23 @@
 
 ## 🔴 高 — 重要度が高い
 
+### [DN-0819] （DN-0817 段1）土曜の週次レビューの前段に、ログインが要る読む収集・note 同期・GSC の登録リクエストを順につなぐ
+タグ: [インフラ・計測] [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-10-24]
+
+**起点**: DN-0817 の段 1。前提は段 0（失敗中の Mac の処理を直す）の完了。
+
+**やること**: `scripts/scheduled/weekly-review.sh`（土曜 9:30・専用 worktree）の前段に、ログインが要る処理を**順番に 1 本ずつ**つなぐ。ブラウザは同時に 1 本だけ。
+1. ログインの確認と入り直し（`auth-session-refresh` の Mac の分。export と CI の起動はしない）
+2. 読む収集（今 CI と各 launchd が持つもの）: A8（`a8-ui:fetch`）、note のアクセス・売上（`note-traffic-fetch`・`note-sales-fetch`）とライブ照合（`check-note-attachments:live`・`check-note-membership:live`）、KDP（`kdp-report`）、ココナラ（`coconala-orders`・`coconala-analytics`・`coconala-revenue`）、X（`x-own-metrics`）、Instagram（`verify-ig-status`）
+3. note 同期（`note-sync-routine.mjs`。待ちが残ったときの `--catch-up-until` は今の仕組みのまま）
+4. GSC の登録リクエスト 10 件と、月次の理由別 CSV（`check-gsc-ui-due` が DUE のときだけ）
+5. 週次レビュー（今のまま。上で集めた `data/` を読む）
+
+各段は前の段が落ちても続け、何が落ちたかをレビューの材料に出す（落ちた段を成功に見せない）。土曜の回が丸ごと動かなかった、または途中で落ちた週は、日曜か次の起動で 1 回だけやり直す。予約投稿（X・Instagram・note）は保留が解けたら同じ流れに 1 段足す（今は SNS の新規投稿が保留中なので入れない）。
+
+**完了条件**: 2 週続けて土曜の回が全段 rc=0 で終わり、集めた記録が develop に入り、その週のレビューがそれを読んでいる。
+
+
 ### [DN-0818] （DN-0817 段0）Mac の週次レビュー・ココナラ取得・note 同期の失敗 3 件を直す（空き容量の予約・起動の重なり・Drive の読み取りエラー）
 タグ: [インフラ・計測] [領域:管理] [時期:2026-10] [種類:不具合] [起票:2026-10-24]
 
