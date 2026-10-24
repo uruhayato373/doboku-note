@@ -1,6 +1,6 @@
 /**
  * media-review.mjs — 管理画面の確認画面（/content/items）が出す形を、コンテンツ台帳から組み立てる唯一の実装
- * （content-registry.md「承認」・DN-0609）。画面は呼ぶだけで、判定（素材が手元か Drive か、承認が今の中身と合うか、
+ * （content-registry.md「承認」・コンテンツ台帳 P3・PR #944）。画面は呼ぶだけで、判定（素材が手元か Drive か、承認が今の中身と合うか、
  * 次に打つコマンド）はここで決める。依存ゼロ（zod を読まない。管理画面から import する）。
  *
  * - 素材の出し先: 手元（.tmp/media/…・中身の bytes が台帳と同じ）→ /media/cmedia/…、無ければ Drive 台帳にある → /media/vault/…、

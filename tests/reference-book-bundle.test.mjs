@@ -211,25 +211,25 @@ test('ocrPendingIssue: 文字起こしの残りは、開いているカードか
   const { ocrPendingIssue } = await import('../scripts/lib/reference-book-bundle.mjs');
   const manifest = (statuses) => ({ pages: statuses.map((ocrStatus, i) => ({ id: `p${i}`, ocrStatus })) });
   const book = (ocrPending) => ({ id: 'x', bookBundle: ocrPending ? { ocrPending } : {} });
-  const open = new Set(['DN-0716']);
+  const open = new Set(['DN-0837']);
   const rest = manifest(['complete', 'pending', 'failed', 'not-needed', 'partial']);
 
   const untracked = ocrPendingIssue(book(null), rest, open);
   assert.equal(untracked.unfinished, 3);
   assert.match(untracked.error, /誰も追っていない/);
 
-  const byCard = ocrPendingIssue(book({ backlogId: 'DN-0716' }), rest, open);
+  const byCard = ocrPendingIssue(book({ backlogId: 'DN-0837' }), rest, open);
   assert.equal(byCard.error, null);
-  assert.equal(byCard.tracking, 'DN-0716');
+  assert.equal(byCard.tracking, 'DN-0837');
 
-  const closedCard = ocrPendingIssue(book({ backlogId: 'DN-0716' }), rest, new Set());
-  assert.match(closedCard.error, /DN-0716 が backlog に無い/);
+  const closedCard = ocrPendingIssue(book({ backlogId: 'DN-0837' }), rest, new Set());
+  assert.match(closedCard.error, /DN-0837 が backlog に無い/);
 
   const byReason = ocrPendingIssue(book({ reason: '展開しない本' }), rest, new Set());
   assert.equal(byReason.error, null);
   assert.equal(byReason.tracking, '理由: 展開しない本');
 
-  const done = ocrPendingIssue(book({ backlogId: 'DN-0716' }), manifest(['complete', 'not-needed']), new Set());
+  const done = ocrPendingIssue(book({ backlogId: 'DN-0837' }), manifest(['complete', 'not-needed']), new Set());
   assert.equal(done.unfinished, 0);
   assert.equal(done.error, null);
   assert.match(done.warning, /外す/);

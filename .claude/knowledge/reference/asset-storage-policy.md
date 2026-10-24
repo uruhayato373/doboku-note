@@ -73,7 +73,7 @@ Google Drive 側が `config/drive-vault.json`（台帳 `.claude/state/assets/dri
 | `youtube-approved-cover` | human | Drive `制作物/動画レンダー/採用カバー/` | 2026-09-09 の日付フォルダの採用表紙。2026-10-09 に `content-media`（ID ごとの置き場）へ移した（DN-0607）。新しく置かない |
 | `content-media` | human | Drive `制作物/コンテンツ/{exam}/{work}/{channel}.{format}[.{variant}]/{role}.{sha8}.{ext}` | コンテンツ台帳（[content-registry.md](content-registry.md)）の素材の正本。中身の sha を名前に入れ、一度置いたら書き換えない（`immutable`・上書きと `--force` を拒否）。`npm run media -- promote・sync・verify・pull` |
 | `white-paper-source-pdf` | human | Drive `原資料PDF/白書/` | 省庁の白書・年次報告の原本。vault にだけ置き、`drive-vault-sync --from-vault` で台帳へ登録する（2026-10-07・44 件）。参考文献台帳の `vaultCopies` が指す |
-| `kindle-dist` | ci | private R2 `kindle/dist/` | 配布 EPUB 65・表紙 jpg 72（90.2MB）。2026-10-12（DN-0562）に Git から外した。CI の `check-kindle-epub-leak` が読むので `ci.yml` が `quality:audit:ci` の前に `asset-hydrate --group kindle-dist` で取り戻す。手元は同じコマンドで戻す。作り直した版は `asset-offload --group kindle-dist --include-untracked --commit` で上げる。Drive `制作物/Kindle/` は人用の控えで、group は pending（両 tier の active に重ねない・照合は DN-0451） |
+| `kindle-dist` | ci | private R2 `kindle/dist/` | 配布 EPUB 65・表紙 jpg 72（90.2MB）。2026-10-12（DN-0562）に Git から外した。CI の `check-kindle-epub-leak` が読むので `ci.yml` が `quality:audit:ci` の前に `asset-hydrate --group kindle-dist` で取り戻す。手元は同じコマンドで戻す。作り直した版は `asset-offload --group kindle-dist --include-untracked --commit` で上げる。Drive `制作物/Kindle/` は人用の控えで、group は pending（両 tier の active に重ねない・照合は DN-0838） |
 | `coconala-asset` | human | Drive `制作物/ココナラ/` | |
 | `note-magazine-cover-png` | human | Drive `制作物/マガジンカバー/` | |
 | `note-cover-pop-preview` | human | Drive `制作物/noteカバー/POP版/` | 新テンプレートの全件確認用。記事・マガジン画像、生成manifest、QA結果を個別復元できる形で保存 |

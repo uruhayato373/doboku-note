@@ -154,18 +154,6 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 
 
-### [DN-0609] コンテンツ台帳 P3: 画面確認と2段階承認の CLI、管理画面で作品ごとに表紙・動画を目視確認する画面を作る
-タグ: [領域:SNS] [時期:2026-10..2026-11] [種類:改善] [起票:2026-10-09]
-
-**起点**: コンテンツ台帳の P3。管理画面の動画まわりは表と状態だけで、表紙・締め・動画を見られない。画像配信のルートは Range 非対応（mp4 のシーク・Safari 再生が壊れる）で realpath 検査も無い。
-**やること**:
-1. `npm run media -- preview`（DN-0603 を実装: 無音プレビュー・10 秒ごとのコンタクトシート・数値。閾値は config/video-content.json）
-2. 2 段階の承認 `npm run media -- approve --stage visual|final --expect <digest>` と、stage の final 関門
-3. tools/admin-app の画像配信ルート: 配信元 cmedia（.tmp/media）と vault（Drive の 制作物/コンテンツ）、Range（206・416・HEAD）、全配信元の realpath 検査、Drive の絶対パスと R2 のキーを HTML に出さない
-4. `/content/items`（一覧）と `/content/items/[exam]/[work]`（詳細: 表紙・締め・コンタクトシート・場面・無音プレビュー・完成動画・字幕・IG・X・公開と予約・承認・来歴・CopyButton のコマンド）。読むだけの契約は保つ
-**完了条件**: e2e が desktop と mobile で緑（書き込みボタン 0・秘密が出ない・Range で 206・`..` は 403）。Tailscale 経由の iPhone で再生とシーク。総まとめで全パネルが出る。
-
-**確認（2026-10-22）**: 実装と e2e（desktop・mobile 28 件）は PR #944 で済み、`media preview` も実物で動作を確かめた。残りは運営者が Tailscale 経由の iPhone の Safari で `/content/items/civil-construction-2/matome-2kyu-chokuzen` を開き、動画の再生とシークができることを確かめること（確かめたら完了にする）。
 
 
 ### [DN-0605] YouTube の予約・公開済み動画の概要欄に VOICEVOX のクレジット（VOICEVOX:青山龍星）を入れる
@@ -240,29 +228,6 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 **完了条件**: 実例記事を公開し、10/26の評価に欠測と実測を区別した数字があり、試験後の価格・受付状態を決めている。
 
 
-### [DN-0537] Instagram の予約補充が 9/20 で止まっているので、2級（10/25）直前のテーマから予約を再開する
-タグ: [収益化] [領域:SNS] [時期:2026-10] [種類:不具合] [起票:2026-10-05] [期日:2026-10-24]
-
-**保留（2026-10-20 追記）**: 2026-10-17 のユーザー指示で SNS の新規展開・追加予約は保留中。再開の指示があるまで、このカードの予約・認証復旧（Facebook ログイン）・ブラウザでの照合に着手しない。期日 10/24 は保留中は追わない。
-
-**起点**: 2026-10-05 の 2級土木の SNS 配線の点検で、Instagram 新シリーズ（`content/sns/instagram/campaign.json`・112 テーマ／336 投稿・全件 ready）の予約が 9/20 12:30 を最後に途切れていると分かった。`.claude/knowledge/reference/instagram-campaign.md`（予約と継続配信）は Codex の定期処理 `instagram` が毎日 10:00 に補充すると書くが、`~/.codex/automations/` には `x-article-*` しか無く、launchd にも無い。video-packs の `status.json` は 9/11 以降更新が無い（ライブの Planner は未照合）。2級のテーマ 18 のうち配信済みは `anzen-ippanron-3riyu` だけで、X は 2級を主力へ切り替えた（DN-0445）のに Instagram の 2級は 0 本。プロフィール（`config/ig-account.json` の displayName・bio）も「技術士・1級土木」のまま。
-
-**やること**: (0) 2026-10-05 に運営者が Facebook へログインできず、Business Suite のプロファイルが expired のまま（`npm run auth:status -- --service instagram`）。まずログインを復旧する。(1) Mac の Business Suite ログインで `/ig-reconcile` を回し、9/20 以降の予約・公開の実体を確かめる。(2) 2級の直前向けテーマ（`content/sns/instagram/video-packs/civil-construction-2/` の経験記述・学科記述・聞き流しまとめなど）を 10/24 までの枠へ前倒しする案を一覧にし、ユーザー承認後に `publish-ig-bs` で予約する（1 回 9 件まで・dry-run 先行）。年度・時期に依存するテーマは配信日に合うか確かめる。(3) 補充の定期処理を作り直すか、instagram-campaign.md を実態（手動補充）に直す。(4) プロフィールの 2級表記と、試験が終わった 1級直前ハイライト（07_civil-1）の扱いは DN-0363 と合わせて決める。
-
-**(2) の前倒し案（2026-10-06・ユーザー承認待ち）**: 2級 9 テーマ×3 投稿＝27 件。各テーマは campaign.json の cadence どおり「初日 12:30 リール1 → 翌日 12:30 カルーセル → 翌日 19:00 リール2」（リール1/2 は `reels` 配列の順・`scripts/lib/instagram-campaign.mjs:48`）。`publish-ig-bs` は 9 件ずつ 3 回: 第1回 #1〜3・第2回 #4〜6 は即予約可、第3回 #7〜9 は 14 日先の制約で 10/10 以降。開始が遅れたら後ろの日付は動かさず #2・#3 から間引く。
-1. 10/7 `keiken-nendo-keiko-2kyu`（出題傾向）— **年度依存あり**（「令和3〜7年度」「R06〜R07：2テーマ必答」等。10/24 までは直近5年＝R03〜R07 で合う・10/25 以降へずらせない）
-2. 10/9 `keiken-gaiyo-2kyu`（工事概要）
-3. 10/11 `gakka-2kyu-concrete`（学科 コンクリート。batch02 の pending 引継ぎ）
-4. 10/13 `keiken-hinshitsu-kakikata`（品質管理）
-5. 10/15 `keiken-kotei-kakikata`（工程管理）
-6. 10/17 `keiken-anzen-2kyu-kakikata`（安全管理）
-7. 10/19 `kikinagashi-2kyu-matome`（聞き流しまとめ）
-8. 10/21 `gakka-kijutsu-2kyu`（学科記述の型）
-9. 10/23 `keiken-genten-kyotsuten`（減点される答案の共通点）
-
-#2〜#9 は年度・時期に依存する表現なし（campaign.json の `timeSensitive` は 2級 18 テーマとも false）。除外: `anzen-ippanron-3riyu`（9/14・15 予約済み・公開は未照合）、`nikyuu-gaiyo-roadmap`・`study-plan-2kyu`（入門・長期計画向けで旧シリーズの下書きが残る）、`keiken-koji-ga-nai`・`keiken-2kyu-level`・`gakka-2kyu-{doko,hoki,kiso,sekokeikaku}`（初期向け・#7 と重複・一次向け）。予約前に Mac で `instagram-campaign --check --media`（9/11 以降の素材の変化を確認）と、手順 (1) で 10/7〜10/24 の枠の空きをライブの Planner で照合する。
-
-**完了条件**: 10/24 までの Instagram に 2級の投稿が予約され、Planner で実体を確かめて `status.json` に記録し、補充の仕組みと instagram-campaign.md の記述が一致している。
 
 ### [DN-0538] ココナラの経験記述添削を 1 商品（services/4418735）へ集約し、旧 8 商品を片付ける
 タグ: [収益化] [領域:商品] [時期:2026-11] [種類:改善] [起票:2026-10-05] [期日:2026-11-15]
@@ -418,47 +383,10 @@ drive-vault-sync -- --group source-transcript --verify --deep が 240 件中 1 �
 **完了条件**: `gh api repos/uruhayato373/doboku-note/dependabot/alerts` で next の open が 0 件。
 
 
-### [DN-0823] （DN-0817 段5）ほかのセッションのスキルを「記録を読む」に変え、ログインの方針文書を書き直す
-タグ: [インフラ・計測] [領域:管理] [時期:2026-12] [種類:改善] [起票:2026-10-24]
-
-**起点**: DN-0817 の段 5。ほかのセッションはログインせず、記録を読んで進める（エージェントは既に資格情報を読めない＝`CLAUDECODE=1` の制限）。
-
-**やること**:
-1. 読むだけのスキルを「`data/` を読み、最終取得日を示す」形に変える。対象（2026-10-24 の棚卸し）: `affiliate-status`・`a8-report`・`coconala-analytics`・`google-search-growth`・`ig-reconcile`・`weekly-review` のログイン手順、エージェントの `a8-report-collector`・`gsc-browser-collector`。古いときは取りに行かず「未取得（次の土曜）」と書く
-2. 書き込みのスキル（`publish-note`・`note-*`・`coconala-publish`・`kdp-publish`・`publish-x`・`publish-ig-bs` など）は、人がその場で実行し、土曜に保ったログインを使う形のまま残す。切れていたら人が `auth:login` で入る、と書き添える
-3. お客さま対応の気づき（ココナラの受注・note のコメント）は週次の取得では最大 1 週間遅れるので、メール通知（Gmail コネクタ）で拾う前提にするかを運営者に決めてもらう
-4. 方針の正本を書き直す: `playwright-auth-profiles.md` の「役割分担」「ログイン維持」「§CI」、`asset-storage-policy.md` など CI の state に触れている箇所。スキルと agent の変更は同じ commit で registry を更新する
-
-**完了条件**: ログインを手順に持つスキル・agent が書き込み系だけになり（`git grep -l "auth:login" .claude/skills .claude/agents` を書き込み系と照合）、方針文書が新しい形になっている。
 
 
-### [DN-0822] （DN-0817 段4）CI のログイン収集と書き込みの入口・暗号化 state・ログイン用 Secrets を外す
-タグ: [インフラ・計測] [領域:管理] [時期:2026-12] [種類:改善] [起票:2026-10-24]
-
-**起点**: DN-0817 の段 4。前提は段 1 が 2 週続けて成功していること（CI と土曜の Mac の二重取りの期間を 2 週だけ置き、件数が一致することを確かめてから外す）。
-
-**やること**:
-1. `.github/workflows/login-collectors.yml`（10 サービス）・`scheduled-publish.yml`（X の予約投稿。今は `publish-x` が skipped）・`ops-write.yml`（CI からの書き込みの入口。9/23 以来使われていない）を消す
-2. `.github/actions/restore-auth-state`、`auth:ci-restore`・`auth:ci-writeback`・`auth:ci-plan`・`auth:export`・`auth:keygen` と関連の lib、`.claude/config/ci-write-operations.json`、`playwright-auth-profiles.json` の `ci` 欄と `ciCredential` を外し、`check-playwright-auth-wiring`・`tests/auth-credential-ssot.test.mjs` を新しい形に合わせる
-3. R2 の暗号化 state を消す（`data/r2/delete-list.txt` 経由）
-4. GitHub Secrets の `DOBOKU_AUTH_*`（ID/PW 10 個と `DOBOKU_AUTH_AGE_IDENTITY`）を消す（運営者が GitHub の画面で）
-5. 監視の Issue の channel（`auth-state-*`・`login-collectors-publish`）を閉じる。DN-0479・DN-0483・DN-0484 は「DN-0817 で置き換え」として閉じる
-
-**完了条件**: `git grep -l DOBOKU_AUTH .github` が 0 件、Secrets に `DOBOKU_AUTH_*` が無い、`npm run quality:audit:ci` と CI が緑。
 
 
-### [DN-0821] （DN-0817 段3）Mac の個別の launchd・専用 worktree・Windows のログイン維持のタスクを外す
-タグ: [インフラ・計測] [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-10-24]
-
-**起点**: DN-0817 の段 3。前提は段 1（土曜のチェーン）が 2 週続けて成功していること。
-
-**やること**:
-1. Mac の launchd を外す: `com.doboku-note.auth-session-refresh`（毎日）・`gsc-local`（毎日）・`coconala-local`（毎週）・`note-sync`（毎週）。各 `npm run <名前>:install -- --uninstall`
-2. 専用 worktree を外す: `.claude/worktrees/{auth-session-refresh,coconala-local,gsc-local,note-sync}`（lock を外して `git worktree remove`）。中の未コミットの状態ファイルは先に中身を確かめる
-3. Windows のタスクスケジューラ `\doboku-note\auth-session-refresh` を外す（運営者が Windows で）
-4. 使われなくなった install スクリプト・`scripts/scheduled/*.sh`・package.json の行・commands.md の案内を消す（`npm run check-command-guidance` が通ること）
-
-**完了条件**: `launchctl list | grep doboku-note` が weekly-review と disk-hygiene の 2 本だけ、`git worktree list` が人のチェックアウトと weekly-review の 2 行だけ、`npm run quality:audit:ci` が PASS。
 
 
 
@@ -1061,19 +989,6 @@ drive-vault-sync -- --group source-transcript --verify --deep が 240 件中 1 �
 
 **完了条件**: `/exam/pipe-work/` が本番に出て（deploy 後 `npm run check-production-ssr`）、ガイドが guide-qa 合格。
 
-### [DN-0451] 今日R2へ保存したKDP成果物を現行のDrive保管へ同期し、保存経路の不整合を解消する
-タグ: [インフラ・計測] [領域:商品] [時期:2026-11] [種類:不具合] [起票:2026-09-29]
-
-**起点**: 2026-09-29 にKDP成果物をR2へ保存した一方、現行SSOTの `config/drive-vault.json` は `kindle-dist` を `audience: human`、Google Drive `制作物/Kindle` 保管としている。対象ファイルと実行経路は未特定。R2上の実体は保全し、調査中に削除・上書きしない。2026-10-07 時点で `quality:audit:ci` の drive-vault が `scripts/kindle-dist/a-05.jpg`・`a-06.jpg` を「ローカルにしか無い（台帳未登録）。このマシンを失うと復元不能」と FAIL にする。ただし 2 枚とも git で追跡済みで origin/develop と同じ中身なので、実際は復元できる（`check-drive-vault.mjs` は git の追跡を見ずに「復元不能」と書く。文言を直すか、git 追跡済みを区別する）。`node scripts/drive-vault-sync.mjs --group kindle-dist` の dry-run は 138 件中 137 件を対象にし（台帳 `kindle-dist` の 76 件と sha256 が 1 件も合わない）、Drive の `制作物/Kindle` には同名の 110 件が既にある。`--commit` は同名を上書きするので、先に同名の sha256 を比べて差分だけにする（手順 2）。
-
-**やること**:
-1. 当日の実行ログ、R2台帳、R2実体、`scripts/kindle-dist/`、KDP台帳を照合し、保存したEPUB・表紙の対象数、キー、bytes、SHA-256を特定する。取得失敗や対象0件を正常扱いしない
-2. Google Driveの既存 `制作物/Kindle` へ差分だけ同期し、Driveから全バイトを読み戻してローカルおよびR2のSHA-256と一致することを確認する。同名ファイルは先に既存実体を検索し、重複作成しない
-3. `.claude/state/assets/drive-manifest.json` の `kindle-dist` に登録し、空の復元先から既存pull経路で復元できることを確認する。Mac実機未確認なら、その制約を完了報告に残す
-4. なぜ現行SSOTと異なるR2経路が使われたかを特定し、コマンド案内・スキル・自動化・文書のうち原因箇所だけを修正する。コードやスキルを変更した場合は `/doc-sync` を実行する
-5. R2の削除は本カードに含めない。Drive同期・台帳登録・復元確認後もR2を保持し、削除またはバックアップ継続は別途ユーザー判断とする
-
-**完了条件**: 当日R2へ保存したKDP成果物の対象数と実検査数が一致し、全件がDriveへ同期・台帳登録され、Drive読み戻しと復元でSHA-256一致を確認済み。保存経路の不整合原因が解消され、R2実体は削除されていない。
 
 ### [DN-0441] develop に「build 必須」のルールセットを作り、PR の自動マージが CI を待つようにする
 タグ: [インフラ・計測] [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-09-29]
@@ -1280,20 +1195,6 @@ Mac で行う（各 1 回・順に）: (1) `git pull` で Windows 対応・設�
 
 **完了条件**: Mac で `npm run check-disk-hygiene` が FAIL 0、`claude mcp list` に github/filesystem が無い、memory リンクが symlink で `MEMORY.md` の行数が repo と一致、`npm run check-codex-compat` 緑。
 
-### [DN-0496] config/・data/ 分離後に各 PC の git 管理外ファイルと定期処理を新しい置き場へ揃える
-タグ: [インフラ・計測] [領域:管理] [時期:2026-10] [種類:改善] [起票:2026-10-02]
-
-**起点**: 2026-10-02、事業の正本とツール設定を `.claude/config` → `config/`、事業の記録を `.claude/state` → `data/`、ココナラ素材を `.claude/config/coconala/assets` → `content/coconala/assets` へ移した（PR feature/config-data-dirs）。git 管理下のファイルは pull で移るが、**git 管理外のファイルは各 PC の旧パスに取り残される**。**着手条件**: 当該 PR が develop にマージ済み。
-
-各 PC（Windows・Mac）で repo 直下から:
-1. `git switch develop; git pull` と `npm run pre-commit:install`（pre-commit の内容が変わったため）。
-2. 取り残しの確認: 旧パス `.claude/config/coconala/assets/`・`.claude/state/metrics/gsc-ui/`・`.claude/state/metrics/ga4-ui/`・`.claude/state/metrics/affiliate/a8-ui/` にファイルが残っていないか見る。
-3. 残っていれば新しい置き場へ移す（中身を上書きしない）: ココナラ素材は `content/coconala/assets/`（無ければ `node scripts/drive-vault-sync.mjs --pull --path 'content/coconala/assets/'` で Drive から取り戻す）、GSC・GA4 の UI CSV と A8 の生ファイルは `data/` 配下の同じ相対位置へ。空になった旧ディレクトリは消す。
-4. 承認済みで未実行の CI 書き込み計画（`ops-write`）があれば作り直す（入力のパスが変わり plan hash が変わったため、古い計画は通らない）。
-
-**完了条件**: 各 PC で旧パスに git 管理外のファイルが 0 件、`npm run check-information-architecture` と `npm run check-drive-vault -- --staged-only` が通り、Mac の定期処理の次回実行が `data/` へ書いている（定期処理の worktree は毎回 origin/develop へ reset されるので手で更新しなくてよい）。
-
-**進捗（2026-10-02）**: Windows 分は完了。手順 1〜3 を実施し、旧パスの git 管理外ファイル 153 件（ココナラ素材 19・gsc-ui 70・ga4-ui 2・a8-ui 62）を上書きなしで新しい置き場へ移し、旧ディレクトリを削除（残り 0 件）。`check-information-architecture`（違反 0）と `check-drive-vault -- --staged-only` は通過。手順 4 は手元に保存される計画が無く対象なし。`.claude/state/` に残る git 管理外ファイル（content-ledger.json・quality/・improvements/ 等）は現行スクリプトの出力先なので移さない。Mac 分も同日に手順 1〜3 を実施（`.claude/` 側の取り残し 0 件、`data/metrics/` の gsc-ui 3 回分・a8-ui 6 回分を `data/gsc/ui/`・`data/a8/ui/` へ移して旧ディレクトリを削除）し、`.gitignore` の移行中の行を消した。残りは Mac の定期処理の次回実行が `data/` へ書いていることの確認と、Windows の worktree `.claude/worktrees/data3` の `git worktree remove`（ブランチ `feat/data-config`・`feat/data-rank-watch` は origin で削除済み・DN-0498 の引き継ぎから移した）。
 
 ### [DN-0494] Windows の記憶（memory）が repo の .claude/memory 1 本を指しているかを確かめて揃える
 タグ: [インフラ・計測] [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-10-02]
@@ -1531,14 +1432,6 @@ Windows の PowerShell で repo 直下から順に:
 
 **本番反映の確認（2026-10-17）**: 本番の secondary/r05 に utm_content=secondary-r05-after-q1・secondary-r05-end、guide/overview に guide-overview-lead が出ていることを curl で確かめた（`<main>` あり）。10/18 期日の公開は済み。残りは 2026-11-09 以降の 28 日比較だけ。
 
-### [DN-0700] アフィリエイトの展開を広げる（1 件アクセスがあった）
-タグ: [収益化] [種類:改善] [領域:アフィリエイト] [時期:2026-10..2026-12] [起票:2026-10-12]
-
-アクセスのあった 1 件を起点に、置く場所と案件を広げる。（出典: 2026-10-07 の手書きメモ・vault dairy/2026-10-07）
-
-**現状と決めること（2026-10-15）**: アフィリエイトは転職の 1 系統だけ（講座・教材・書籍は Red Line）で、3 ASP とも stats47 と同じ口座（affiliate-operations.md）。案件と面の効果は EXP-008（28 日判定 10/20）と EXP-019（案別の計測）が測っている。決めること: (a) EXP-008・EXP-019 の判定を待ってから広げるか、(b) 先に置く面（ガイド記事の末尾・実務シリーズ）を増やすか。推奨は (a)。判定前に面を増やすと、どの面の効果か分けられなくなる。
-
-**決定（2026-10-15・運営者が推奨案を採用）**: (a) EXP-008（10/20 の 28 日判定）と意匠実験（EXP-019 は 2026-10-20 に打ち切り、後継は EXP-038。EXP-038 も 2026-10-24 に打ち切り、いまは EXP-043）の判定を待ってから広げる。判定前は面を増やさない。
 
 ### [DN-0701] 技術士一次試験で、展開できるものは全て展開する（過去問を iOS → KDP → note）
 タグ: [収益化] [種類:制作] [領域:商品] [時期:2026-10..2026-12] [起票:2026-10-12]
@@ -1549,14 +1442,6 @@ Windows の PowerShell で repo 直下から順に:
 
 **決定（2026-10-15・運営者が推奨案を採用）**: 型のある KDP を先にし、iOS は DN-0624（試験後のアプリの判断）に合わせる。note はその後。
 
-### [DN-0702] ココナラの商品ページにサンプル画像・動画とトークルームの例を載せる
-タグ: [収益化] [種類:制作] [領域:商品] [時期:2026-10..2026-12] [起票:2026-10-12]
-
-（出典: 2026-10 の手書きメモ・vault dairy/2026-10-07）
-
-**現状と決めること（2026-10-15）**: ココナラの商品画像は POP 意匠で差し替え済み（DN-0270・DN-0440）。サンプル画像・動画・トークルームの例は未掲載。決めること: (a) どの出品から載せるか（受注のある 2級 全3テーマ添削 4418778 を推奨）、(b) トークルームの例は実際の顧客とのやり取りを使わず、作った見本にする（個人情報と捏造 NG の線を守る・coconala-operations.md）。
-
-**決定（2026-10-15・運営者が推奨案を採用）**: 受注のある 2級 全3テーマ添削（4418778）から載せる。トークルームの例は実際の顧客とのやり取りを使わず、作った見本にする（個人情報・捏造 NG の線を守る）。
 
 ### [DN-0703] コンクリート主任技士の note への導線を考え直す
 タグ: [収益化] [種類:改善] [領域:サイト] [時期:2026-10..2026-12] [起票:2026-10-12]
@@ -1569,32 +1454,7 @@ Windows の PowerShell で repo 直下から順に:
 
 
 
-### [DN-0710] note 記事のカテゴリと記事の品質を見直す
-タグ: [コンテンツ品質] [種類:改善] [領域:商品] [時期:2026-10..2026-12] [起票:2026-10-12]
 
-（出典: 2026-09-28 の手書きメモ・vault dairy/2026-09-28）
-
-**現状と決めること（2026-10-15）**: note の記事の分類は資格別のディレクトリと noteSeries・もくじ（L1〜L3・note-funnel-architecture.md）で、品質の検査は note-lint・check-note-structure・note-funnel-auditor がある。決めること: 見直したい対象（分類＝もくじの並び／品質＝特定の資格の記事）。推奨は売上のある資格（1級・2級土木、建設部門）から note-funnel-auditor の監査を 1 回回し、結果で決める。
-
-**決定（2026-10-15・運営者が推奨案を採用）**: 売上のある資格（1級・2級土木、建設部門）から `note-funnel-auditor` の監査を 1 回回し、その結果で見直す対象を決める。
-
-**監査の結果（2026-10-15・note-funnel-auditor・ソースだけで判断・合計 6.5/12）**: 緊急の指摘は既存カードへ振り分けた（二重公開 → DN-0725、1級の休止中ココナラへの CTA → DN-0310、建設部門の口頭試験の導線 → DN-0248、2級の試験後の文言 → DN-0544）。監査の「土木もくじのリンク 2 本が存在しない」は誤り（API で 200・公開中を確認）。**残りの指摘（中・低）**:
-- 1級 一次択一PDF: 設計（note-funnel-architecture.md:48）の「出る順 合格ノート nec34238ca6d6」が未実装で、二次のココナラを先に出している。もくじが 2 回（無料域と有料域）
-- 土木もくじ: 1級の節が 2級の季節ブロックの後に出る（冒頭に級の分岐を 2 行）。同じ推奨が 4 回（状況別と逆引きを統合）。1級節が 10/4 後も直前期の語り口
-- 2級: 有料節で主力（まるごと・直前総仕上げ）が 10 セットの後ろ。受験資格・受験順の記事にココナラ添削の CTA（topCtaExcludeDirs と同じ判定で外す）。一次の記事が二次商品を先に勧める
-- 1級の無料集客 3 本（落ちる答案診断・予想問題で書く練習・独学添削の限界）に有料商品への直リンクが 0
-- 建設部門: 非道路の読者を単品へ送る（科目別 L3 の主リンクをまるごとパックへ）。公開済みの論点キーワード 6 本がもくじに無く、無料の論点記事 6 本とテーマが重なる。有料節がカード 11 枚の羅列。「約8割お得」の根拠が文中に無い（products.json で確かめる）
-**対応（2026-10-15・PR fix/civil2-note-funnel）**: (1) 土木もくじの 2級の有料節を「まるごと → 直前総仕上げ → 完成答案集 → 想定工事バンク → 仕事の種類」に並べ替え（文面は不変）。(2) 2級の受験資格・受験順の 2 本からココナラの案内を外した（note-intro-standard の規則に coconala:false）。(3) 1級 一次択一PDF の冒頭に設計どおり「出る順 合格ノート」nec34238ca6d6（cta:civil-1-primary-ronten）。(4) 1級・2級の無料集客 3 本に完成答案集（1級 m150c9db08902・2級 m1881a9578027）のカード。(5) 建設部門の道路・河川海岸・都市計画の論文キーワード記事で、その科目のまるごとパックを単品より先に案内（必須I の二重払いの注意つき）。ライブへの反映は Mac の note 同期。
-**残り**: 2級の一次の記事 2 本で二次の添削が先に出る（設定で意図した ichiji の文面なので、出す位置を末尾へ移すかを判断）。土木もくじの級の分岐・重複の統合・1級節の R9 向け化（DN-0544 の 10/26 の切り替えとまとめる）。建設部門のもくじ（カード 11 枚の羅列・もくじ未掲載の 6 本・「約8割お得」の根拠）。
-
-### [DN-0711] shadcn/ui の Data Table とカラーテーマを入れ、stats47 と UI を共通化する
-タグ: [UI・UX] [種類:改善] [領域:サイト] [時期:2026-10..2026-12] [起票:2026-10-12]
-
-両リポとも Tailwind v4 ＋ shadcn/ui。stats47 側は `SHADCN-UI-COMMON-01`。（出典: 2026-09-28・10 月の手書きメモ・vault dairy/2026-09-28・2026-10-07）
-
-**現状と決めること（2026-10-15）**: 管理画面はすでに shadcn/ui の Data Table を使っている（DataTable の使用 46 か所・`check-shadcn-parity` と `check-admin-ui-debt` が守る）。公開サイト（src/）は shadcn を使っていない。決めること: (a) 管理画面だけで足りるならカラーテーマの共通化（stats47 と同じトークン）だけに絞る、(b) 公開サイトにも入れる。公開サイトは独自のデザイントークン（design-system.md）なので、推奨は (a)。
-
-**決定（2026-10-15・運営者が推奨案を採用）**: 管理画面だけで足りるので、カラーテーマ（stats47 と同じトークン）の共通化だけに絞る。公開サイトには shadcn を入れない（独自のデザイントークン・design-system.md）。
 
 
 ### [DN-0760] note公開3記事の問題数表記・編集メモ・チェック記号を原稿と公開面で整える
@@ -1630,18 +1490,6 @@ Windows の PowerShell で repo 直下から順に:
 
 **完了条件**: 需要が確認できた悩み、証拠の期間と出典、未確認事項、記事/相談等の候補と見送り条件を短く報告する。新サービスの出品・広告追加はこの調査の完了条件に含めない。
 
-### [DN-0716] 書籍 4 冊の文字起こし未完了 54 頁を、文字起こしするか理由つきで不要にする（reference-book-status で発見）
-タグ: [時期:2026-11] [領域:教材] [種類:不具合] [起票:2026-10-13]
-
-**起点**: 2026-10-13、`npm run reference-book-status`（PR #1048）で書籍 27 冊の網羅を出したところ、ページ画像はあるのに文字起こしが pending のページが 4 冊に 54 頁あった（総監論文対策の 18 頁は展開しない本なので除く）。どのカードでも追われていない。
-- civil1-textbook-general 28 頁（p0007・p0032・p0034・p0035・p0037・p0063・p0064・p0070 … p0378）
-- civil1-textbook-management 18 頁（p0015・p0023・p0039・p0048・p0050・p0070・p0075・p0105 … p0295）
-- pe-cem-textbook 3 頁（p0001・p0053・p0319）
-- pe-construction-keyword-book 5 頁（p0006・p0020・p0046・p0111・p0257）
-**やること**: 各ページの画像を見て、本文があれば文字起こしを足して `record-reference-book-artifacts` で complete にする。図だけ・白紙・扉などで文字起こしが要らないページは、推測で complete にせず、理由が台帳に残る形（文字起こし不要の状態と理由）を決めて記録する。
-**完了条件**: `npm run reference-book-status` で 4 冊の文字起こしが n/n（または理由つきの不要だけが残る）になり、`npm run check-reference-book-pages` が通る。
-**閉じるときの注意**: 4 冊は参考文献の台帳（reference-sources.json）の `bookBundle.ocrPending` に `{ "backlogId": "DN-0716" }` と書いてある（PR #1048）。残りを 0 にしてから外す。残りがあるままこのカードを閉じると、check-reference-book-pages が「追うカードが backlog に無い」で CI を止める。
-**2026-10-24 経過**: 機械 OCR（`pdf-to-mdx` 経路D の補完モード・PR #1211）で 4 冊の 54 頁中 52 頁を `machine-part-01.md` として登録し、civil1 の 2 冊とキーワード本は残り 0（`ocrPending` を外した）。残りは `pe-cem-textbook` の p0001・p0053 の 2 頁だけ。どちらも露出オーバーで文字が飛んだ写真で、機械 OCR では読めない。撮り直してから `book_ocr_prep.py --only p0001,p0053` → `book_ocr_machine.py --pages p0001,p0053 --supplement` で補う（Claude が画像から書き写して埋めない）。
 
 ### [DN-0209] 総監R8記述式を公式問題と照合し、再現版の注記・図・解答方針を確定する
 タグ: [コンテンツ品質] [領域:サイト] [時期:2027-04..2027-06] [種類:不具合] [起票:2026-09-13]
@@ -1672,8 +1520,75 @@ Windows の PowerShell で repo 直下から順に:
 
 **完了条件**: 直したページと直さない理由の一覧がこのカードにあり、反映 28 日後の article-inline の CTR を変更前 28 日と並べた記録がある
 
+### [DN-0836] 管理画面の作品別確認画面（/content/items/…）を iPhone の Safari（Tailscale 経由）で再生・シークまで確かめる
+タグ: [領域:SNS] [時期:2026-10..2026-11] [種類:改善] [起票:2026-10-24]
 
+**起点**: コンテンツ台帳 P3 の画面確認（`npm run media -- preview`・2 段階の承認・Range 対応の配信・`/content/items` の一覧と詳細）は PR #944（2026-10-09）で実装され、e2e（desktop・mobile 28 件）と `media preview` の実物の動作も確かめた。
 
+**残り（運営者）**: Tailscale 経由の iPhone の Safari で `/content/items/civil-construction-2/matome-2kyu-chokuzen` を開き、動画の再生とシークができることを確かめる。
+
+**完了条件**: iPhone の Safari で再生とシークができたことを確かめ、できなければ原因（Range・Content-Type）を起票している。
+
+### [DN-0837] pe-cem-textbook の p0001・p0053 の 2 頁を撮り直し、機械 OCR で補う
+タグ: [時期:2026-11] [領域:教材] [種類:不具合] [起票:2026-10-24]
+
+**起点**: 2026-10-13 の `npm run reference-book-status` で、ページ画像はあるのに文字起こしが pending の 54 頁が 4 冊で見つかった。2026-10-24 に機械 OCR（`pdf-to-mdx` 経路D の補完モード・PR #1211）で 52 頁を `machine-part-01.md` として登録し、civil1 の 2 冊とキーワード本は残り 0（`ocrPending` を外した）。残りは `pe-cem-textbook` の p0001・p0053 の 2 頁だけ。どちらも露出オーバーで文字が飛んだ写真で、機械 OCR では読めない。
+
+**やること**: 2 頁を撮り直してから `book_ocr_prep.py --only p0001,p0053` → `book_ocr_machine.py --pages p0001,p0053 --supplement` で補う（Claude が画像から書き写して埋めない）。補えたら `config/reference-sources.json` の `pe-cem-textbook` の `ocrPending` を外す。撮り直せない場合は、文字起こしが不要な理由を台帳に残す形で not-needed にする。
+
+**完了条件**: `npm run reference-book-status` で `pe-cem-textbook` の文字起こしが n/n（または理由つきの不要だけ）になり、`npm run check-reference-book-pages` が通る。**閉じるときの注意**: `ocrPending.backlogId` を外してからこのカードを閉じる（残したまま閉じると check-reference-book-pages が CI を止める）。
+
+### [DN-0842] ココナラの集約先添削（services/4418735）にサンプル画像・動画とトークルームの見本を載せる
+タグ: [収益化] [領域:商品] [時期:2026-11..2026-12] [種類:制作] [起票:2026-10-24]
+
+**起点**: ココナラの商品画像は POP 意匠で差し替え済み（DN-0270・DN-0440）。サンプル画像・動画・トークルームの例は未掲載。2026-10-15 に運営者が、受注のある全3テーマ添削（4418778）から載せると決めたが、4418778 は DN-0538 の集約で休止予定なので、載せる先を集約先の `services/4418735` に替える。
+
+**やること**: 集約先（DN-0538 で listed 化したあと）に、サンプル画像・動画と、トークルームの見本を載せる。トークルームの例は実際の顧客とのやり取りを使わず、作った見本にする（個人情報と捏造 NG の線を守る・coconala-operations.md）。
+
+**完了条件**: 集約先の商品ページにサンプルとトークルームの見本が出ていて、`npm run check-coconala-live` が通る。
+
+### [DN-0843] EXP-043 の判定（2026-11-21）を受けて、転職アフィリの面・案件を広げる（判定前は増やさない）
+タグ: [収益化] [領域:アフィリエイト] [時期:2026-11..2026-12] [種類:改善] [起票:2026-10-24]
+
+**起点**: アフィリエイトは転職の 1 系統だけ（講座・教材・書籍は Red Line）で、3 ASP とも stats47 と同じ口座（affiliate-operations.md）。2026-10-15 に運営者が、判定を待ってから広げると決めた。EXP-008 の判定は済み、意匠実験は EXP-019 → EXP-038 と打ち切られ、いまは EXP-043（小型カード B と支給バナー C の比較・next_check_date 2026-11-21）が測っている。判定前に面を増やすと、どの面の効果か分けられなくなる。
+
+**やること**: 2026-11-21 の EXP-043 の判定を読み、勝った案で置く面（ガイド記事の末尾・実務シリーズ）と案件を広げる。
+
+**完了条件**: EXP-043 の判定を受けて、面・案件を増やすかを決め、増やす場合の作業を起票している。
+
+### [DN-0844] EXP-012 の判定（11/26）を受けて、自治体の土木担当・コンクリートの両シリーズの改善（導線と次の章の優先）を決める
+タグ: [領域:サイト] [時期:2026-11] [種類:意思決定] [起票:2026-10-24] [期日:2026-11-27]
+
+**起点**: 試験とは別軸の読み物シリーズ（`municipal-civil-engineer`・`concrete-practice`・`construction-materials`）は、運営者の判断（2026-10-15）で判定を待たずに書いて完結させた。記事の一覧と状態はシリーズ企画の台帳 `config/content-series.json`、置き場と着手の判定は docs/strategy/18_自治体土木担当・コンクリートシリーズ方針2026-10.md。このカードは、判定と計測を各シリーズの改善に当てるために使う。
+
+**やること**: EXP-012 の事後窓の終わり（2026-11-26）の判定と、章の公開から 28 日の表示・クリックを読み、(a) 記事末の導線（橋渡しカード）の扱い、(b) 補強や次の章の優先を決める。`/practice/` のカテゴリページのセッション数（2026-09-12〜10-09 は 2）が 28 日で 100 を超えていたら、シリーズを工種別ノートとは別の節にする仕組みを起票する（content-taxonomy.md §4）。
+
+**完了条件**: 判定の結果と次の対応を 18 番に 1 行で残す。着手するなら制作カードを起票し、18 番の参照を書き換える（消すと check-project-task-refs が止める）。
+
+### [DN-0845] note の土木もくじ・建設部門もくじの残り（級の分岐と重複・カード羅列・もくじ未掲載の論点 6 本・「約8割お得」の根拠）を直す
+タグ: [コンテンツ品質] [領域:商品] [時期:2026-11] [種類:改善] [起票:2026-10-24]
+
+**起点**: 2026-10-15 に売上のある資格（1級・2級土木、建設部門）の note 導線を `note-funnel-auditor` で監査した（合計 6.5/12）。緊急の指摘は DN-0725・DN-0310・DN-0248・DN-0544 へ振り分け、2級の有料節の並べ替えなどは PR fix/civil2-note-funnel で直した。残りの中・低の指摘。
+
+**やること**:
+1. 土木もくじ: 1級の節が 2級の季節ブロックの後に出る（冒頭に級の分岐を 2 行）。同じ推奨が 4 回（状況別と逆引きを統合）。1級節が 10/4 後も直前期の語り口（R9 向けに。DN-0544 の 10/26 の切り替えとまとめる）。
+2. 2級の一次の記事 2 本で二次の添削が先に出る（設定で意図した ichiji の文面なので、出す位置を末尾へ移すかを判断）。
+3. 建設部門のもくじ: 有料節がカード 11 枚の羅列。公開済みの論点キーワード 6 本がもくじに無く、無料の論点記事 6 本とテーマが重なる。「約8割お得」の根拠が文中に無い（`config/products.json` で確かめる）。
+
+**完了条件**: 上の 3 点を直して `npm run check-note-funnel` が通り、ライブへ反映（土曜の収集の後段 note-sync）して `note-funnel-auditor` の再監査で指摘が消えている。
+
+### [DN-0846] DN-0817 の運営者の後片づけ（Windows のタスク削除・GitHub Secrets の DOBOKU_AUTH_* 削除・R2 の auth-state/ 削除・自動化の Issue を閉じる）
+タグ: [インフラ・計測] [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-10-24]
+
+**起点**: DN-0817（ログインを土曜の Mac の収集 1 本に集約）の段 3〜5 は PR #1216 で実装した（Mac の個別の launchd・専用 worktree、CI のログイン収集と書き込みの入口・暗号化 state の仕組み、スキルと方針文書）。残りは運営者の作業だけ（旧 DN-0821・DN-0822・DN-0823 の残りをまとめた）。
+
+**やること**（運営者。`gh secret delete` をエージェントが流すときはその都度確認を取る）:
+1. Windows のタスク `\doboku-note\auth-session-refresh` を削除する（Windows で `schtasks /Delete /TN "\doboku-note\auth-session-refresh" /F`）。
+2. GitHub Secrets の `DOBOKU_AUTH_*`（ID/PW 10 個と `DOBOKU_AUTH_AGE_IDENTITY`）を削除する。
+3. R2 の private の `auth-state/` を削除する（`data/r2/delete-list.txt` 経由）。
+4. 自動化の Issue #1186（login-collectors-publish）・#1087（auth-state-kdp）・#864（note-sync）を閉じる（channel が無くなったので人が閉じる）。
+
+**完了条件**: Windows に `auth-session-refresh` のタスクが無く、`gh secret list` に `DOBOKU_AUTH_*` が無く、R2 に `auth-state/` が無く、上の 3 つの Issue が閉じている。`git grep -l DOBOKU_AUTH .github` は 0 件（確認済み）。
 
 ## 🟢 低 — 重要度が低い（時期未定を含む）
 
@@ -2255,6 +2170,58 @@ Phase 3の評価を戦略SSOTへ反映し、資格拡張の可否を確定した
 **後回し**（2026-10-13 運営者）: 骨子 39 章は Web・e-Gov の一次資料だけで作り終え、第 1 波も確認済みになったので、文字起こし（3 部・約 350 頁・スキャン）の費用に見合う使い道が「論点の抜けの見比べ」に限られる。制作・公開は10/15に承認済み。記事を読んで、許可の章（A-08・A-14 など）や法令の読み方（A-03）で抜けが気になったら着手する。
 **完了条件**: 行政法の文字起こしと候補表が Drive にあり、`check-reference-sources`・`check-reference-book-pages` が緑。`check-content-series --suggest` が行政法の項目を挙げる。
 
+### [DN-0835] SNS 再開時に Instagram の予約補充の仕組みと instagram-campaign.md を実態に一致させる（9/20 から補充が止まっている）
+タグ: [収益化] [領域:SNS] [種類:改善] [起票:2026-10-24]
+
+**保留**: 2026-10-17 のユーザー指示で SNS の新規展開・追加予約は保留中。再開の指示があるまで、予約・認証復旧（Facebook ログイン）・ブラウザでの照合に着手しない。**着手の合図は SNS 保留の解除**。
+
+**起点**: 2026-10-05 の点検で、Instagram 新シリーズ（`content/sns/instagram/campaign.json`・112 テーマ／336 投稿）の予約が 9/20 12:30 を最後に途切れていると分かった。`.claude/knowledge/reference/instagram-campaign.md`（予約と継続配信）は Codex の定期処理 `instagram` が毎日 10:00 に補充すると書くが、`~/.codex/automations/` にも launchd にも無い。2級のテーマ 18 のうち配信済みは `anzen-ippanron-3riyu` だけで、プロフィール（`config/ig-account.json` の displayName・bio）も「技術士・1級土木」のまま。公開済み未記録・照合異常の解消（`/ig-reconcile`）は DN-0339 が持つ。
+
+**やること**（保留が解けてから）:
+1. 補充の定期処理を作り直すか、`instagram-campaign.md` を実態（手動補充）に直す。
+2. プロフィールの 2級表記と、試験が終わった 1級直前ハイライト（07_civil-1）の扱いを DN-0363 と合わせて決める。
+
+**完了条件**: 補充の仕組みと `instagram-campaign.md` の記述が一致している。
+
+### [DN-0838] Kindle の EPUB・表紙の Drive 控え（制作物/Kindle）を、private R2 の正本と sha256 で突き合わせて足す
+タグ: [インフラ・計測] [領域:商品] [種類:改善] [起票:2026-10-24]
+
+**起点**: KDP 入稿物（`kindle-dist`）の正本は 2026-10-12（DN-0562）に private R2 `kindle/dist/` へ変わった（`config/asset-storage.json`）。人が入稿に使う控えは Drive `制作物/Kindle`（`config/drive-vault.json` の kindle-dist は両 tier の active にすると衝突するため pending）。Drive には同名の 110 件が既にあり、台帳との sha256 の突き合わせが未了。`--commit` の `drive-vault-sync` は同名を上書きするので、先に同名の sha256 を比べて差分だけにする。
+
+**やること**:
+1. private R2 の正本と Drive `制作物/Kindle` の同名ファイルの sha256 を比べ、差分と足りないものだけを `node scripts/drive-vault-sync.mjs --group kindle-dist` で同期する（重複作成しない）。
+2. Drive から全バイトを読み戻して R2 の sha256 と一致することを確かめ、`.claude/state/assets/drive-manifest.json` に登録して pending を active に切り替える。
+3. 空の復元先から既存の pull 経路で復元できることを確かめる（Mac 実機。未確認ならその制約を報告に残す）。
+
+**完了条件**: 対象数と実検査数が一致し、全件が Drive へ同期・台帳登録され、Drive の読み戻しと復元で sha256 が一致している。R2 の実体は削除しない（削除は別途ユーザー判断）。
+
+### [DN-0839] Tailwind v4 の対象未満ブラウザ（iOS 16.3 以下・macOS Safari 16.3 以下）の比率を GA4 の探索で一度確かめる
+タグ: [インフラ・計測] [領域:サイト] [種類:改善] [起票:2026-10-24]
+
+**起点**: Tailwind CSS v4（PR #683）は 2026-09-28 の develop マージ以降のデプロイですでに main（本番）に入っている。v4 の対象ブラウザは Safari 16.4+ / Chrome 111+ / Firefox 128+ で、それ未満では CSS（カスケードレイヤー・oklch 色・@property）が効かず表示が崩れる。GA4 の週次取得にブラウザ別の集計は無く、一度きりの問いのために常設の取得は足さない。
+
+**やること**: Mac で GA4 の画面（探索＝OS とバージョン・直近 28 日・日本）から iOS 16.3 以下・macOS Safari 16.3 以下のユーザー比率を見る。比率が大きければ v4 の互換対応を起票する。
+
+**完了条件**: 対象未満のユーザー比率（%）と取得期間をこのカードか週次レビューに記録し、互換対応の要否を決めている。
+
+### [DN-0840] Windows の worktree .claude/worktrees/data3 を git worktree remove する（config/・data/ 分離の残り）
+タグ: [インフラ・計測] [領域:管理] [種類:改善] [起票:2026-10-24]
+
+**起点**: 2026-10-02 の `config/`・`data/` 分離（PR feature/config-data-dirs）の後始末のうち、Windows 分の worktree だけが残っている。各 PC の git 管理外ファイルの移し替えは Windows・Mac とも 2026-10-02 に済んだ。
+
+**やること**: Windows のチェックアウトで `.claude/worktrees/data3` を `git worktree remove` する（ブランチ `feat/data-config`・`feat/data-rank-watch` は origin で削除済み）。
+
+**完了条件**: Windows で `git worktree list` に `.claude/worktrees/data3` が無い。
+
+### [DN-0841] 管理画面のカラーテーマを stats47 と同じトークンにそろえる（公開サイトには shadcn を入れない）
+タグ: [UI・UX] [領域:管理] [種類:改善] [起票:2026-10-24]
+
+**起点**: 両リポとも Tailwind v4 ＋ shadcn/ui（stats47 側は `SHADCN-UI-COMMON-01`）。管理画面はすでに shadcn/ui の Data Table を使っている（`check-shadcn-parity` と `check-admin-ui-debt` が守る）。公開サイト（src/）は独自のデザイントークン（design-system.md）なので shadcn を入れない。2026-10-15 に運営者が、管理画面のカラーテーマ（stats47 と同じトークン）の共通化だけに絞ると決めた。
+
+**やること**: stats47 の管理画面のカラートークンと `tools/admin-app` のテーマ変数を比べ、差分をそろえる。
+
+**完了条件**: 管理画面のカラートークンが stats47 と一致し、`check-shadcn-parity` と `check-admin-ui-debt` が通る。
+
 ## 🟣 判断待ち — ユーザーの意思決定が必要
 
 ### [DN-0706] 技術士一次試験のサイト CTA 画像を作る（基礎・適性、専門）
@@ -2387,15 +2354,6 @@ Phase 3の評価を戦略SSOTへ反映し、資格拡張の可否を確定した
 
 **完了条件**: 継続・停止の案件を決め、affiliate-catalog.json と配置を更新したら、このカードを削除する。
 
-### [DN-0719] EXP-012 の判定（11/26）と第1波の計測を受けて、自治体の土木担当シリーズの第2波以降とコンクリート入門シリーズに進むか決める
-タグ: [領域:サイト] [時期:2026-11] [種類:意思決定] [起票:2026-10-13] [期日:2026-11-27]
-
-**起点**: 2026-10-13、運営者の依頼で試験とは別軸の読み物シリーズ 2 つを企画した（シリーズ id `municipal-civil-engineer`・`concrete-practice`・`construction-materials`。コンクリートは 2026-10-13 に書籍 5 冊の全項目を割り当てた 33 章へ広げた）。記事の一覧（目次・計画・根拠・第何波か）はシリーズ企画の台帳 `config/content-series.json`、置き場・根拠資料の扱い・着手の条件は docs/strategy/18_自治体土木担当・コンクリートシリーズ方針2026-10.md。管理画面はサイト＞シリーズ企画。運営者の判断で、記事は EXP-012（記事末の資格カード）の判定まで書かない。
-**2026-10-15 の変更**: 自治体の土木担当の第 1 波（A-08・A-14・A-19）は、運営者の判断で判定を待たずに書いて公開することにした（DN-0738）。同日、第 2・第 3 波（16 章）も判定を待たずに書いて公開し、さらに残りの第 4 波（新規 16・補強 4）も書いて完結させることにした（DN-0742）。同日、コンクリートの実務（補強 5 章・DN-0733）と建設材料（新規 3 章・DN-0747）も判定を待たずに完結させることにした。このカードは、判定と計測を各シリーズの改善に当てるために使う。 あわせて `/practice/` のカテゴリページのセッション数を見る（2026-09-12〜10-09 は 2）。28 日で 100 を超えていたら、シリーズを工種別ノートとは別の節にする仕組みを起票する（content-taxonomy.md §4）。
-**やること**: EXP-012 の事後窓の終わり（2026-11-26）の判定を 18 番「着手の判定」に当てる。継続なら台帳で `wave: 1` の項目（自治体の土木担当は 2026-10-13 に 42 章へ組み直した後の A-08 占用・A-14 河川区域の許可・A-19 里道と水路）を、確認済みの骨子（DN-0729）から workflow series-chapter（`brief: "outline"`・DN-0728）で書く。制作カードの本文にシリーズの id を書く。コンクリートの実務は新規 10 章を 2026-10-13 に書き終えている（DN-0724）ので、判定は補強（DN-0733）と画像（DN-0727）の優先度にだけ効く。再計測なら待ち、停止なら台帳の gate に結果を書いて残す。
-**完了条件**: 判定の結果と次の対応を 18 番に 1 行で残す。着手するなら第 1 波の制作カードを起票し、18 番の「DN-0719」の参照を書き換える（消すと check-project-task-refs が止める）。
-
-**週次分類（2026-10-17）**: 制作は10/15承認済み。旧「判定後に制作」行は実行しない。次の台帳整理で、11/26以降の改善判断だけを新IDへRESEEDし、docs/strategy/18番の参照も更新する。
 
 ### [DN-0798] 呼び出しの記録と静的参照から、使われていない・役割が重なるエージェントとスキルを統合・退役する（拡張性・第3波）
 タグ: [エージェント・SSOT] [領域:管理] [時期:2026-12] [種類:意思決定] [起票:2026-10-20]
@@ -2431,16 +2389,6 @@ Phase 3の評価を戦略SSOTへ反映し、資格拡張の可否を確定した
 
 **完了条件**: 02・03 が更新され、展開する／しないと時期が決まって、展開するなら制作カードへ分割されている。
 
-### [DN-0431] Tailwind v4（PR #683）を main へ上げる前に、古いブラウザからのアクセス比率を確かめる
-タグ: [インフラ・計測] [領域:サイト] [時期:2026-10] [種類:意思決定] [起票:2026-09-28]
-
-**起点**: 2026-09-28 に Tailwind CSS を v3→v4 へ移行し develop へマージした（PR #683）。v4 の対象ブラウザは Safari 16.4+ / Chrome 111+ / Firefox 128+ で、それ未満では CSS（カスケードレイヤー・oklch 色・@property）が効かず表示が崩れる。会社 PC は GA4 API がプロキシで遮断され、`data/ga4/reports/` にもブラウザ別の集計が無いため未確認のまま。
-
-**やること**: GA4（直近 28 日）の「ブラウザ」「ブラウザのバージョン」「OS のバージョン」で、対象未満のユーザー比率を出す（Safari は iOS 16.3 以下が主な対象）。比率が小さければ develop→main の昇格（`/deploy`）へ進む。大きければ移行の扱いを判断する。
-
-**完了条件**: 対象未満のユーザー比率（%）と取得期間を記録し、main 昇格の可否を決めている。
-
-**前提の変化（2026-10-14）**: Tailwind v4 は 9/28 の develop マージ以降のデプロイで main（本番）に入っている（main の package.json が tailwindcss ^4.3.3）。「上げる前に確かめる」は過ぎたので、残る問いは古いブラウザでの表示崩れの比率だけ。GA4 の週次取得にブラウザ別の集計は無く、一度きりの問いのために常設の取得は足さない（読み手のいない取得を作らない）。確かめ方: Mac で GA4 の画面（探索＝OS とバージョン・直近 28 日・日本）から iOS 16.3 以下・macOS Safari 16.3 以下の比率を見る。比率が大きければ v4 の互換対応を起票する。
 
 ### [DN-0572] note からココナラへの冒頭導線（DN-0268）の反映後 30 日の閲覧・注文を読み、残すか決める
 タグ: [収益化] [領域:商品] [時期:2026-11] [種類:意思決定] [起票:2026-10-07]

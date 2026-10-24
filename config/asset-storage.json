@@ -166,7 +166,7 @@
         "scripts/kdp-batch.mjs",
         ".github/workflows/ci.yml（quality-audit の前に asset-hydrate --group kindle-dist で取り戻す）"
       ],
-      "reason": "KDP へ入稿する EPUB（65）と表紙 jpg（72）。Git に入れると作り直すたびに履歴へ積まれる（2026-08-22 以降で 286 版・159MB）ので、CI が読む配布物は private R2 が原則（asset-storage-policy §1 ci）として 2026-10-12 に git から外した（DN-0562）。spec から決定的に再ビルドできる（regenerable）が、入稿済みの版を保全するため R2 を正本にする。人が入稿に使う控えは Drive vault（DN-0451）。",
+      "reason": "KDP へ入稿する EPUB（65）と表紙 jpg（72）。Git に入れると作り直すたびに履歴へ積まれる（2026-08-22 以降で 286 版・159MB）ので、CI が読む配布物は private R2 が原則（asset-storage-policy §1 ci）として 2026-10-12 に git から外した（DN-0562）。spec から決定的に再ビルドできる（regenerable）が、入稿済みの版を保全するため R2 を正本にする。人が入稿に使う控えは Drive vault（DN-0838）。",
       "phase": "4-B"
     }
   ]
