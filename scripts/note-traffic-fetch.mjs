@@ -120,10 +120,12 @@ try {
     } while (Date.now() < deadline);
     throw new Error(`${label}が60秒以内に読み込まれない`);
   };
+  // 「今月」「先月」のボタンでも、表示中の期間が対象月に切り替わるまで待つ。2026-10-24 の土曜の収集（Mac・画面あり）は
+  // 切り替わる途中の記事 20 件を読み、「もっとみる」が出る前に一覧の終わりと見て検査不成立になった（DN-0817）
   await waitForData((text) => {
     const period = parsePeriod(text);
     return parseSummary(text).pageViews !== null && parseArticleRows(text).length > 0
-      && (!requestedPeriod || (period?.from === requestedPeriod.from && period?.to === requestedPeriod.to));
+      && (requestedPeriod ? (period?.from === requestedPeriod.from && period?.to === requestedPeriod.to) : period?.from === `${MONTH}-01`);
   }, '期間・集計・記事一覧');
   // 記事一覧を PV 順にして全件展開（「もっとみる」を押し切る）
   let sortedBy = 'pageViews';
@@ -133,7 +135,7 @@ try {
     const more = page.getByRole('button', { name: 'もっとみる', exact: true }).first();
     // 行の追加と次のボタンの描画は同時ではない。短い非表示を一覧終端と誤認しない。
     let visible = await more.isVisible().catch(() => false);
-    for (let settle = 0; !visible && settle < 6; settle++) {
+    for (let settle = 0; !visible && settle < 12; settle++) {
       await sleep(500);
       visible = await more.isVisible().catch(() => false);
     }
