@@ -1621,31 +1621,46 @@
       }
     },
     "2026-10": {
-      "fetchedAt": "2026-10-17T00:51:41.260Z",
+      "fetchedAt": "2026-10-24T05:17:11.732Z",
       "range": {
         "start": "2026-10-01",
-        "end": "2026-10-17"
+        "end": "2026-10-24"
       },
       "estimated": true,
       "total": {
         "bookCount": 80,
-        "ebook": 2473,
+        "ebook": 5831,
         "print": 0,
-        "kenp": 1374,
-        "royalty": 3847
+        "kenp": 1932,
+        "royalty": 7763
       },
-      "kenpPagesRead": 4204,
-      "marketplaces": [
-        {
-          "marketplace": "日本",
-          "currency": "JPY",
-          "ebook": 2473,
-          "paperback": 0,
-          "hardcover": 0,
-          "kenpPages": 4204
-        }
-      ],
+      "kenpPagesRead": 5913,
+      "marketplaces": null,
       "books": [
+        {
+          "bookId": "j-01",
+          "title": "2級土木施工管理技士 第2次検定 施工経験記述 過去問模範答案集: 令和3〜7年度 年度別5回分の模範答案と書き方",
+          "ebook": 1890,
+          "print": 0,
+          "kenp": 0,
+          "royalty": 1890
+        },
+        {
+          "bookId": "c-I",
+          "title": "技術士 建設部門 必須科目I 二次 模範解答集: 過去問 R03-R07 全5記事",
+          "ebook": 1049,
+          "print": 0,
+          "kenp": 73,
+          "royalty": 1122
+        },
+        {
+          "bookId": "c-07",
+          "title": "技術士 建設部門 建設環境 二次 模範解答集: 過去問 R03-R07 全15記事",
+          "ebook": 1049,
+          "print": 0,
+          "kenp": 0,
+          "royalty": 1049
+        },
         {
           "bookId": "c-04",
           "title": "技術士 建設部門 土質及び基礎 二次 模範解答集: 過去問 R03-R07 全15記事",
@@ -1663,20 +1678,20 @@
           "royalty": 794
         },
         {
-          "bookId": "j-01",
-          "title": "2級土木施工管理技士 第2次検定 施工経験記述 過去問模範答案集: 令和3〜7年度 年度別5回分の模範答案と書き方",
-          "ebook": 630,
-          "print": 0,
-          "kenp": 0,
-          "royalty": 630
-        },
-        {
           "bookId": "d-01",
           "title": "技術士第一次試験 基礎科目 過去問7年分完全解説: 令和元〜7年度 210問",
           "ebook": 0,
           "print": 0,
-          "kenp": 303,
-          "royalty": 303
+          "kenp": 332,
+          "royalty": 332
+        },
+        {
+          "bookId": "e-01",
+          "title": "2級土木施工管理技士 第1次検定 過去問完全解説【令和3〜7年度 全期】: 令和3〜7年度 前期・後期 全630問",
+          "ebook": 0,
+          "print": 0,
+          "kenp": 245,
+          "royalty": 245
         },
         {
           "bookId": "d-02",
@@ -1685,6 +1700,22 @@
           "print": 0,
           "kenp": 217,
           "royalty": 217
+        },
+        {
+          "bookId": "d-03",
+          "title": "技術士第一次試験 専門科目（建設部門）過去問7年分完全解説: 令和元〜7年度 245問",
+          "ebook": 0,
+          "print": 0,
+          "kenp": 213,
+          "royalty": 213
+        },
+        {
+          "bookId": "g-02",
+          "title": "コンクリート主任技士 体系解説＋過去問解説303問: 平成26〜令和5年度 四肢択一を8分野別に収録",
+          "ebook": 0,
+          "print": 0,
+          "kenp": 201,
+          "royalty": 201
         },
         {
           "bookId": "c-05",
@@ -1699,8 +1730,8 @@
           "title": "技術士 建設部門 道路 二次 模範解答集: 過去問 R03-R07 全15記事",
           "ebook": 0,
           "print": 0,
-          "kenp": 104,
-          "royalty": 104
+          "kenp": 108,
+          "royalty": 108
         },
         {
           "bookId": "c-06",
@@ -1719,52 +1750,20 @@
           "royalty": 94
         },
         {
-          "bookId": "c-09",
-          "title": "技術士 建設部門 電力土木 二次 模範解答集: 過去問 R03-R07 全15記事",
+          "bookId": "g-01",
+          "title": "コンクリート診断士 体系解説＋四肢択一演習98問: 変状・劣化機構・調査・診断・対策・維持管理の6分野＋演習8回",
           "ebook": 0,
           "print": 0,
           "kenp": 93,
           "royalty": 93
         },
         {
-          "bookId": "g-02",
-          "title": "コンクリート主任技士 体系解説＋過去問解説303問: 平成26〜令和5年度 四肢択一を8分野別に収録",
+          "bookId": "c-09",
+          "title": "技術士 建設部門 電力土木 二次 模範解答集: 過去問 R03-R07 全15記事",
           "ebook": 0,
           "print": 0,
-          "kenp": 75,
-          "royalty": 75
-        },
-        {
-          "bookId": "d-03",
-          "title": "技術士第一次試験 専門科目（建設部門）過去問7年分完全解説: 令和元〜7年度 245問",
-          "ebook": 0,
-          "print": 0,
-          "kenp": 70,
-          "royalty": 70
-        },
-        {
-          "bookId": "c-I",
-          "title": "技術士 建設部門 必須科目I 二次 模範解答集: 過去問 R03-R07 全5記事",
-          "ebook": 0,
-          "print": 0,
-          "kenp": 68,
-          "royalty": 68
-        },
-        {
-          "bookId": "e-01",
-          "title": "2級土木施工管理技士 第1次検定 過去問完全解説【令和3〜7年度 全期】: 令和3〜7年度 前期・後期 全630問",
-          "ebook": 0,
-          "print": 0,
-          "kenp": 52,
-          "royalty": 52
-        },
-        {
-          "bookId": "g-01",
-          "title": "コンクリート診断士 体系解説＋四肢択一演習98問: 変状・劣化機構・調査・診断・対策・維持管理の6分野＋演習8回",
-          "ebook": 0,
-          "print": 0,
-          "kenp": 36,
-          "royalty": 36
+          "kenp": 93,
+          "royalty": 93
         },
         {
           "bookId": "c-08",
@@ -2031,14 +2030,6 @@
           "royalty": 0
         },
         {
-          "bookId": "c-07",
-          "title": "技術士 建設部門 建設環境 二次 模範解答集: 過去問 R03-R07 全15記事",
-          "ebook": 0,
-          "print": 0,
-          "kenp": 0,
-          "royalty": 0
-        },
-        {
           "bookId": "f-16",
           "title": "技術士 総合技術監理部門 記述式 設問3 国家施策バンク（11テーマ）: 設問(3)の国家施策 全11テーマ",
           "ebook": 0,
@@ -2291,12 +2282,12 @@
         "accountBookCount": 80,
         "accountRows": 80,
         "externalRows": 31,
-        "expectedDobokuBooks": 46,
-        "matchedDobokuBooks": 46,
+        "expectedDobokuBooks": 33,
+        "matchedDobokuBooks": 33,
         "missingDobokuBookIds": [],
-        "dobokuRoyalty": 3218
+        "dobokuRoyalty": 5873
       }
     }
   },
-  "updatedAt": "2026-10-17"
+  "updatedAt": "2026-10-24"
 }
