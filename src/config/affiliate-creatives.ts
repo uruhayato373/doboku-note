@@ -176,7 +176,7 @@ export type CareerArticleEndCard = {
   readonly href: string;
   readonly points: readonly string[];
   readonly cta: string;
-  /** 小型カード（EXP-038 の B）の 1 行の要約。無ければ description を使う */
+  /** 小型カード（意匠実験の B）の 1 行の要約。無ければ description を使う */
   readonly brief?: string;
   /** 広告主の公表実績（日付つき）。確かめた案件だけに書く（数値訴求の条件は resolveBuildJobCopy の注記） */
   readonly proof?: string;
@@ -285,9 +285,25 @@ export type ProgramAsset = {
   readonly banner: SidebarAdCreative;
   readonly trackLabel: string;
   readonly card: (slug?: string, need?: CareerNeed | null) => CareerArticleEndCard;
+  /**
+   * 意匠実験（EXP-043）の B（小型カード）だけが使う A8 のテキスト素材のリンク。C（バナー）は banner.href を使うので、
+   * A8 の成果別レポートで案ごとに成果が分かれる。B の計測ピクセルは同じテキスト素材の textPixelSrc（無ければ B はピクセルなし）。
+   * 無い案件は両案とも banner.href とそのピクセル。
+   */
+  readonly textHref?: string;
+  /** textHref と同じテキスト素材の計測ピクセル URL（A8「広告リンク作成」の素材のコードから写す） */
+  readonly textPixelSrc?: string;
 };
 export const PROGRAM_ASSETS: Readonly<Record<string, ProgramAsset>> = {
-  buildjob: { banner: BUILDJOB_CAREER_AD, trackLabel: "BuildJob-sidebar", card: (slug, need) => resolveBuildJobCopy(slug, need) },
+  buildjob: {
+    banner: BUILDJOB_CAREER_AD,
+    trackLabel: "BuildJob-sidebar",
+    card: (slug, need) => resolveBuildJobCopy(slug, need),
+    // 本文テキストリンク用に発行した mat（NTRMQ・doboku-note の websiteId=002）。2026-07-28 から未使用だったものを EXP-043 の B に使う。
+    textHref: "https://px.a8.net/svt/ejp?a8mat=4B5OO5+FHBA2+5B0Y+NTRMQ",
+    // 2026-10-24 に A8 の広告リンク作成（websiteId=002）で素材ID 002・テキストとして発行中なのを確かめて写した（DN-0831）。
+    textPixelSrc: "https://www10.a8.net/0.gif?a8mat=4B5OO5+FHBA2+5B0Y+NTRMQ",
+  },
   "dx-consulting": { banner: PE_CONSULTING_CAREER_AD, trackLabel: "DXConsulting-sidebar", card: () => resolvePeConsultingArticleEndCard() },
   "kensetsu-jobs": { banner: KENSETSU_JOBS_CAREER_AD, trackLabel: "KensetsuJobs-sidebar", card: (slug, need) => resolveKensetsuJobsCopy(slug, need) },
 };

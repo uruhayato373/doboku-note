@@ -1,11 +1,12 @@
 /**
- * EXP-038: 掲載位置・案件を固定し、訪問者ごとに A（今の文章カード）/ B（小型カード）を固定する。
- * 前の EXP-019（A/B/C）は 2026-10-20 に勝敗を決めずに打ち切った（data/business/experiments.json）。
- * 保存キーも実験ごとに変え、EXP-019 で割り当てた案を引き継がない。
+ * EXP-043: 掲載位置・案件を固定し、訪問者ごとに B（小型カード）/ C（支給の 300×250 バナー＋ボタン）を固定する。
+ * 案の名前は B を EXP-038 の小型カードと同じ意匠にそろえる（A＝大きな文章カードは外した）。
+ * 前の EXP-019（A/B/C）は 2026-10-20、EXP-038（A/B）は 2026-10-24 に勝敗を決めずに打ち切った（data/business/experiments.json）。
+ * 保存キーも実験ごとに変え、前の実験で割り当てた案を引き継がない。
  */
-export const AFFILIATE_EXPERIMENT_ID = 'EXP-038';
-export const AFFILIATE_VARIANTS = ['A', 'B'];
-export const AFFILIATE_VARIANT_KEY = 'doboku-note:EXP-038:variant';
+export const AFFILIATE_EXPERIMENT_ID = 'EXP-043';
+export const AFFILIATE_VARIANTS = ['B', 'C'];
+export const AFFILIATE_VARIANT_KEY = 'doboku-note:EXP-043:variant';
 export const AFFILIATE_EXPERIMENT_EVENTS = [
   'affiliate_experiment_page_view',
   'affiliate_experiment_impression',

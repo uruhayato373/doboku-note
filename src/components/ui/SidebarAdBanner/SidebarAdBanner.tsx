@@ -1,5 +1,4 @@
 import { AFFILIATE_LINK_REFERRER_POLICY, AFFILIATE_LINK_REL } from "@/components/ui/AffiliateParts";
-import { TrackingPixel } from "@/components/ui/AffiliateParts";
 import { programAssetForHref } from "@/config/affiliate-creatives";
 import CareerAffiliateExperiment from "@/components/ui/CareerAffiliate/CareerAffiliateExperiment";
 
@@ -21,7 +20,8 @@ interface SidebarAdBannerProps {
  *
  * ステマ規制（2023-10〜）対応のため「PR」バッジを必ず表示。
  * rel="nofollow sponsored noopener" / target="_blank" は自動付与。
- * pixelSrc に A8.net の計測ピクセル URL を渡すと 1x1 ピクセルを描画する。
+ * pixelSrc に A8.net の計測ピクセル URL を渡すと 1x1 ピクセルを描画する。登録済み 3 案件（意匠実験）は案の確定後に
+ * その案の素材のときだけ出す（CareerAffiliateExperiment）。
  * （creative ごとに配信ドメインが異なるため、mat ではなく URL を丸ごと受け取る）
  *
  * 配置: docs ページ右サイドバー（デスクトップ ≥993px のみ表示）。
@@ -40,8 +40,7 @@ export default function SidebarAdBanner({
   const experiment = programAssetForHref(href);
   if (experiment) return (
     <div className="not-prose">
-      <CareerAffiliateExperiment card={experiment.asset.card()} program={experiment.program} trackLabel={trackLabel ?? experiment.asset.trackLabel} placement={placement} />
-      <TrackingPixel src={pixelSrc} />
+      <CareerAffiliateExperiment card={experiment.asset.card()} program={experiment.program} trackLabel={trackLabel ?? experiment.asset.trackLabel} placement={placement} banner={experiment.asset.banner} textHref={experiment.asset.textHref} textPixelSrc={experiment.asset.textPixelSrc} pixelSrc={pixelSrc} />
     </div>
   );
   return (

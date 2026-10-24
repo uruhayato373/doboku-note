@@ -154,6 +154,17 @@ test('1 ページ 1 ピクセル: 本文（手書き > 中間）を記事末よ�
   assert.equal(pixelFor(hub, ['category-mobile']), null);
 });
 
+test('意匠実験の B: テキスト素材のリンクとピクセルは同じ a8mat の組で、発火源に引き継がれる', async () => {
+  const { resolvePlacements, pixelFor } = await load();
+  const mat = (url) => new URL(url).searchParams.get('a8mat');
+  const doc = resolvePlacements({ pageKind: 'doc', category: 'civil-construction-1', isCareerDoc: false }, NOW);
+  const p = pixelFor(doc, ['article-mid']);
+  assert.equal(doc['article-mid'].program, 'buildjob');
+  assert.match(p.textPixelSrc, /^https:\/\/www\d+\.a8\.net\/0\.gif\?a8mat=/);
+  assert.equal(mat(p.textPixelSrc), mat(p.textHref));
+  assert.notEqual(mat(p.textPixelSrc), mat(p.pixelSrc));
+});
+
 test('今のルールは同じ面・重なる期間・交わる対象の組を持たない', () => {
   const { rules } = JSON.parse(readFileSync('config/affiliate-placements.json', 'utf8'));
   assert.deepEqual(findOverlaps(rules), []);

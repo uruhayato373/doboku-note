@@ -223,7 +223,7 @@
     },
     {
       "path": "data/ga4/reports/",
-      "reason": "GA4 の週次レポート（CI の fetch-metrics が保存）。アフィリ意匠実験の案別レポートが案×案件×面×ページ×端末×日の行を 28 日窓で持つため、JSON の上限 4 MiB を超える（2026-10-15 の EXP-019 の取得で 4.8 MiB）。prune-state-snapshots が件数を間引く。後継 EXP-038 の判定のあと行の持ち方を見直して外す（DN-0749）",
+      "reason": "GA4 の週次レポート（CI の fetch-metrics が保存）。アフィリ意匠実験の案別レポートが案×案件×面×ページ×端末×日の行を 28 日窓で持つため、JSON の上限 4 MiB を超える（2026-10-15 の EXP-019 の取得で 4.8 MiB）。prune-state-snapshots が件数を間引く。後継 EXP-043 の判定のあと行の持ち方を見直して外す（DN-0749）",
       "appliesTo": [
         "size"
       ]
