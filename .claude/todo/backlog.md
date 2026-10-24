@@ -342,6 +342,19 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-0825] index coverage の検査が sitemap 2,017 URL を上限 1,900 で切り詰めるので、分割取得にして全件を検査する
+タグ: [インフラ・計測] [領域:管理] [時期:2026-10..2026-11] [種類:不具合] [起票:2026-10-24]
+
+**起点**: 週次レビュー（2026-10-19〜2026-10-25）の点検。Issue #1180（10/21）: 月次 index coverage の閾値ゲートが赤。sitemap 2,017 URL が検査の上限 1,900 を超え、117 件が未検査のまま indexed_ratio が 80.6%（前回 10/14 は 90.5%）と低く出た。比率の低下は切り詰めによる偽の低下を含み、登録の悪化とは読まない。
+
+**やること**:
+1. `index-coverage.yml` の URL Inspection を分割取得にして、sitemap の全 URL を検査する（1 日の上限は日を分けて回す）
+2. 上限を超えたときは比率を出さず「検査不成立」で止める今の挙動を保つ
+3. 分割後の run で inspected と sitemap の件数が一致することを確かめる
+
+**完了条件**: 次の index-coverage の run で inspected = sitemap_urls、閾値ゲートが緑か、赤でも上限超過の error が出ない。Issue #1180 が自動クローズする。
+
+
 ### [DN-0824] next を 16.4.1 以上へ上げ、Dependabot の critical 2 件・high 1 件を閉じる
 タグ: [インフラ・計測] [領域:管理] [時期:2026-10..2026-11] [種類:不具合] [起票:2026-10-24]
 
