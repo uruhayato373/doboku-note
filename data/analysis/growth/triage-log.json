@@ -388,6 +388,79 @@
       "at": "2026-10-16T23:55:28.019Z",
       "ref": "DN-0761",
       "title": "Dependabotのsprintf-js medium警告を依存経路と修正版に照合して解消する"
+    },
+    {
+      "id": "OPP-cdeb596eb5",
+      "week": "2026-W42",
+      "weekStart": "2026-10-12",
+      "action": "defer",
+      "at": "2026-10-24T02:06:20.600Z",
+      "reason": "EXP-008 の要人手 2 件（DN-0779 反映 28 日後の career-funnel 再実行と A8 月次の取込）が 11 月にならないと揃わない。確定 3 件未満では勝敗を決めない",
+      "until": "2026-11-17"
+    },
+    {
+      "id": "OPP-c15097dbac",
+      "week": "2026-W42",
+      "weekStart": "2026-10-12",
+      "action": "bundle",
+      "at": "2026-10-24T02:06:20.600Z",
+      "ref": "DN-0417"
+    },
+    {
+      "id": "OPP-7517fa04e5",
+      "week": "2026-W42",
+      "weekStart": "2026-10-12",
+      "action": "reject",
+      "at": "2026-10-24T02:06:20.600Z",
+      "reason": "期待効果 0.3 クリック/週と小さく、重点（2級土木・コンクリート主任技士の教材）から外れる。総監の題名は EXP-021 の判定を待つ"
+    },
+    {
+      "id": "OPP-8dc2251b2c",
+      "week": "2026-W42",
+      "weekStart": "2026-10-12",
+      "action": "bundle",
+      "at": "2026-10-24T02:06:20.600Z",
+      "ref": "EXP-022"
+    },
+    {
+      "id": "OPP-aee739f0ec",
+      "week": "2026-W42",
+      "weekStart": "2026-10-12",
+      "action": "bundle",
+      "at": "2026-10-24T02:06:20.600Z",
+      "ref": "DN-0649"
+    },
+    {
+      "id": "OPP-be1ea6a92c",
+      "week": "2026-W42",
+      "weekStart": "2026-10-12",
+      "action": "bundle",
+      "at": "2026-10-24T02:06:20.600Z",
+      "ref": "DN-0649"
+    },
+    {
+      "id": "OPP-29dc28d5f3",
+      "week": "2026-W42",
+      "weekStart": "2026-10-12",
+      "action": "backlog",
+      "at": "2026-10-24T02:06:20.600Z",
+      "ref": "DN-0827"
+    },
+    {
+      "id": "OPP-ecf8db4e10",
+      "week": "2026-W42",
+      "weekStart": "2026-10-12",
+      "action": "bundle",
+      "at": "2026-10-24T02:06:20.600Z",
+      "ref": "DN-0736"
+    },
+    {
+      "id": "OPP-4f9bf041b7",
+      "week": "2026-W42",
+      "weekStart": "2026-10-12",
+      "action": "bundle",
+      "at": "2026-10-24T02:06:20.600Z",
+      "ref": "DN-0417"
     }
   ]
 }
