@@ -12,12 +12,14 @@ doboku-note の bundle の形式へ写す。
   3. 目印の通し番号を book-manifest のページ id へ写し、<!-- p0001 --> / <!-- p0001 印字:12 --> の
      バッチ md（jobs.json の outFile）を書く。method と品質は machine.json に残し、concat がそれを読む
 
---pages p0020-p0024 は試し読み。jobs.trial.json と .tmp/ocr/<id>/trial/ に書き、本番の out/ と ocr/ に触れない。
+--pages p0020-p0024（範囲）か p0007,p0032（列挙）は試し読み。jobs.trial.json と .tmp/ocr/<id>/trial/ に書き、本番の out/ と ocr/ に触れない。
+--pages に --supplement を足すと、既存の文字起こしが無いページだけを補う本番になる（jobs.supplement.json）。
+part は machine-part-NN.md の名前で同じ ocr/ に置き、ocr/README.md には機械 OCR の節を足す（既存の part と README 本文を上書きしない）。
 
 品質ゲート（vault の /ocr-pdf と同じ）: ほぼ空のページが 10% 超、または NDLOCR の信頼度平均 0.85 未満なら
 machine.json の qualityGate を fail にして exit 1。concat は fail のまま連結しない（--accept-quality で人が判断）。
 
-使い方: python3 book_ocr_machine.py --book <sourceId> [--pages p0020-p0024] [--engine auto|ndl|indra|text]
+使い方: python3 book_ocr_machine.py --book <sourceId> [--pages p0020-p0024|p0007,p0032 [--supplement]] [--engine auto|ndl|indra|text]
 終了コード: 0 = 成功 / 1 = 失敗・品質ゲート不合格
 """
 import argparse, json, os, re, shutil, subprocess, sys
@@ -41,6 +43,12 @@ def run(cmd, **kw):
 def select_ids(ids, spec):
     if not spec:
         return ids
+    if "," in spec:
+        picked = [x.strip() for x in spec.split(",") if x.strip()]
+        unknown = [x for x in picked if x not in ids]
+        if unknown:
+            sys.exit(f"✗ --pages の id が jobs.json に無い: {unknown[:5]}")
+        return [i for i in ids if i in set(picked)]
     a, _, b = spec.partition("-")
     b = b or a
     if a not in ids or b not in ids:
@@ -85,7 +93,8 @@ def marker(page):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--book", required=True)
-    ap.add_argument("--pages", help="試し読み（例 p0020-p0024）。本番の out/ と ocr/ に触れない")
+    ap.add_argument("--pages", help="試し読み（例 p0020-p0024 か p0007,p0032）。本番の out/ と ocr/ に触れない")
+    ap.add_argument("--supplement", action="store_true", help="--pages のページを本番として補う（machine-part-NN.md・README に節を足す）")
     ap.add_argument("--engine", choices=["auto", "ndl", "indra", "text"], default="auto")
     ap.add_argument("--ocr-script", default=os.environ.get("DOBOKU_OCR_PDF", DEFAULT_OCR_SCRIPT))
     a = ap.parse_args()
@@ -109,10 +118,12 @@ def main():
     if missing:
         sys.exit(f"✗ 照合済み画像が {len(missing)} 枚無い（{missing[:3]}）。book_ocr_prep.py を回し直す")
 
-    trial = bool(a.pages)
-    run_dir = os.path.join(work, "trial") if trial else work
+    if a.supplement and not a.pages:
+        sys.exit("✗ --supplement は --pages と組で使う")
+    mode = "supplement" if a.supplement else "trial" if a.pages else "full"
+    run_dir = work if mode == "full" else os.path.join(work, mode)
     os.makedirs(run_dir, exist_ok=True)
-    name = f"{a.book}.trial" if trial else a.book
+    name = a.book if mode == "full" else f"{a.book}.{mode}"
     pdf = build_pdf(images, run_dir, name)
     print(f"[machine] {a.book}: {len(ids)}p（{ids[0]}〜{ids[-1]}）を PDF に組んだ → ocr_pdf.py", file=sys.stderr)
 
@@ -152,10 +163,12 @@ def main():
               "reason": meta.get("reason"), "ocrMarkdown": summary["md"], "pageIds": ids,
               "quality": q, "qualityGate": "fail" if reasons else "pass", "qualityReasons": reasons}
     json.dump(record, open(os.path.join(run_dir, "machine.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
-    if trial:
-        trial_jobs = {**jobs, "pageIds": ids, "batches": batches, "workDir": run_dir, "outDir": out_dir,
-                      "transcriptDir": os.path.join(run_dir, "ocr")}
-        json.dump(trial_jobs, open(os.path.join(work, "jobs.trial.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+    if mode != "full":
+        sub_jobs = {**jobs, "pageIds": ids, "batches": batches, "workDir": run_dir, "outDir": out_dir,
+                    "transcriptDir": jobs["transcriptDir"] if mode == "supplement" else os.path.join(run_dir, "ocr")}
+        if mode == "supplement":
+            sub_jobs.update({"partPrefix": "machine-part", "readmeMode": "section"})
+        json.dump(sub_jobs, open(os.path.join(work, f"jobs.{mode}.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     elif [b["ids"] for b in batches] != [b["ids"] for b in jobs["batches"]]:
         sys.exit("✗ バッチの切り方が jobs.json と違う（prep の --batch を変えた？）。prep を回し直す")
 
@@ -166,7 +179,7 @@ def main():
     if reasons:
         print(f"✗ 品質ゲート不合格: {'・'.join(reasons)}。原本の状態を人が確かめる（concat は --accept-quality が要る）")
         sys.exit(1)
-    nxt = f"--jobs {os.path.join(work, 'jobs.trial.json')}" if trial else ""
+    nxt = f"--jobs {os.path.join(work, f'jobs.{mode}.json')}" if mode != "full" else ""
     print(f"[machine] ✓ 次: python3 .claude/skills/conversion/pdf-to-mdx/scripts/book-ocr/book_ocr_concat.py --book {a.book} {nxt}".rstrip())
 
 

@@ -5,6 +5,8 @@ content/sources/books/<dir>/ocr/part-NN.md と README.md（索引・git 追跡�
 
 method は machine.json から取る（引数で書き換えない）。Claude がページ画像から書き写した本文を
 連結する経路は 2026-10-24 に廃止した。machine.json が無い・品質ゲート fail のときは連結しない。
+補完（jobs.supplement.json）は part を machine-part-NN.md の名前で書き、README.md は既存の本文を残して
+<!-- machine-ocr:start --> 〜 <!-- machine-ocr:end --> の節だけを書き換える。
 
 ゲート（1 つでも落ちれば exit 1）:
   - 全ページの <!-- pNNNN --> が期待順に 1 回ずつ現れる
@@ -38,6 +40,8 @@ def main():
     dest = jobs["transcriptDir"]
     os.makedirs(dest, exist_ok=True)
     batches = jobs["batches"]
+    prefix = jobs.get("partPrefix", "part")
+    section_mode = jobs.get("readmeMode") == "section"
     missing = [b["bi"] for b in batches if not os.path.exists(b["outFile"])]
     if missing:
         sys.exit(f"✗ バッチ出力が欠けている: {missing}")
@@ -57,12 +61,12 @@ def main():
             errors.append(f"part-{n:02d}: U+FFFD {body.count(chr(0xfffd))} 件")
         head = ["---", f'source: "{a.book}"', f'method: "{a.method}"',
                 f'pages: "{expected[0]}-{expected[-1]}"', "---", "",
-                f"# {jobs['title']} — part {n:02d}（{expected[0]}〜{expected[-1]}）", ""]
+                f"# {jobs['title']} — {prefix} {n:02d}（{expected[0]}〜{expected[-1]}）", ""]
         text = "\n".join(head) + body.strip() + "\n"
-        path = os.path.join(dest, f"part-{n:02d}.md")
+        path = os.path.join(dest, f"{prefix}-{n:02d}.md")
         parts.append((path, expected))
         open(path, "w", encoding="utf-8", newline="\n").write(text)
-        rows.append((f"part-{n:02d}.md", expected[0], expected[-1], len(text), text.count(EMPTY)))
+        rows.append((f"{prefix}-{n:02d}.md", expected[0], expected[-1], len(text), text.count(EMPTY)))
     if not parts:
         sys.exit("✗ part 0 件")
     total_chars = sum(r[3] for r in rows)
@@ -84,7 +88,19 @@ def main():
                "- 機械 OCR なので誤認識を含む。数値・規格値・条番号は原本画像で照合する（照合で見るのは数行まで。本文を書き写さない）",
                "- `<!-- pNNNN -->` は書籍ページ画像の id で、印字ノンブルではない（分かる場合は `印字:` を併記）",
                "- 「（文字なし）」は OCR が文字を返さなかったページ（白紙・図版・読めなかったページ）"]
-    open(os.path.join(dest, "README.md"), "w", encoding="utf-8", newline="\n").write("\n".join(readme) + "\n")
+    readme_path = os.path.join(dest, "README.md")
+    if section_mode:
+        # 補完: 既存の索引（旧経路の章ファイルの説明）を残し、機械 OCR の節だけを差し替える
+        start, end = "<!-- machine-ocr:start -->", "<!-- machine-ocr:end -->"
+        old = open(readme_path, encoding="utf-8").read() if os.path.exists(readme_path) else f"# {jobs['title']} — 文字起こし索引\n"
+        section = "\n".join([start, "", "## 機械 OCR で補ったページ", ""] + readme[2:] + ["", end])
+        if start in old and end in old:
+            text = old[:old.index(start)] + section + old[old.index(end) + len(end):]
+        else:
+            text = old.rstrip("\n") + "\n\n" + section + "\n"
+        open(readme_path, "w", encoding="utf-8", newline="\n").write(text)
+    else:
+        open(readme_path, "w", encoding="utf-8", newline="\n").write("\n".join(readme) + "\n")
     reg = ["#!/bin/sh", "set -e", f"# {a.book}: part を Drive と台帳へ登録（既定 dry-run。--commit で実行）"]
     for path, expected in parts:
         rel = os.path.relpath(path, os.getcwd())

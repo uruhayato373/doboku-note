@@ -37,7 +37,8 @@ sh .tmp/ocr/$B/register.sh            # dry-run
 sh .tmp/ocr/$B/register.sh --commit   # Drive と台帳へ
 ```
 
-- 試し読みだけしたいときは `book_ocr_prep.py --only p0020-p0024` で画像の取得をそのページに絞れる。
+- 試し読みだけしたいときは `book_ocr_prep.py --only p0020-p0024` で画像の取得をそのページに絞れる（`--only` / `--pages` は `p0007,p0032` の列挙も可）。
+- **補完**: 既存の文字起こしが無いページだけを足すときは `book_ocr_machine.py --pages <列挙> --supplement` → `book_ocr_concat.py --jobs .tmp/ocr/$B/jobs.supplement.json`。part は `machine-part-NN.md` の名前で同じ `ocr/` に置き、`ocr/README.md` は既存の本文を残して `<!-- machine-ocr:start -->` 〜 `end` の節だけを書き換える。
 - 試し読みの `register.sh` は `transcriptDir` の外を指すので、`record-reference-book-artifacts` が登録を拒む（誤って登録されない）。
 - エンジンが合っていないとき（縦書きの本が `indra` になった等）は `--engine ndl|indra|text` で明示して試し直す。
 - 出力の全文は `~/.cache/vault-ocr/out/<id>/<id>.ocr.md`（vault の外）と `.tmp/ocr/<id>/` に残る。登録後は消してよい。
@@ -109,6 +110,7 @@ Drive のストリーミングマウントは、キャッシュから追い出�
 | 日 | 本 | エンジン | 結果 |
 |---|---|---|---|
 | 2026-10-24 | `concrete-basics-5th`（横書き・Kindle 取込）p0020〜p0024 | indra（縦書き行 4%） | 5p・字数中央値 813・ほぼ空 0。concat のゲート合格 |
+| 2026-10-24 | 文字起こしの残り 5 冊 70 ページ（DN-0716 の 4 冊の未割当ページの補完＋`pe-cem-essay-guide` 全 18 ページ） | indra | 登録済み。表は HTML の `<table>` で出る（字数が多く見えるのはタグ）。`pe-cem-textbook` p0001・p0053 は露出オーバーで文字が飛んだ写真で読めず、登録せず残した（撮り直しが要る） |
 
 obsidian vault 側の試し（2026-10-24）: 縦書きは NDLOCR-Lite が読め（1 ページ約 2 秒・信頼度 0.93）Indra は読めない。
 横書きの Kindle 本は Indra が既存の文字起こしと 96% 一致した。
