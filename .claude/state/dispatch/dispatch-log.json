@@ -5572,6 +5572,23 @@
       "commit": "d85b7d24fbaf",
       "verification": "check-products 原稿と結び付かない収録 0・check-magazine-membership ズレ 0・note API で旧版 31 本 404／今の版 31 本 200",
       "note": "旧版 31 本（1級 14・道路 16・総監 1）を 5 マガジンから外し（PR #1202・API で前後の収録数を確認）、運営者の指示で note から削除した（API 404×31・今の版 200×31）。1級 想定工事索引の単品リンク 14 本を今の版へ差し替えて note へ反映"
+    },
+    {
+      "id": "DN-0831",
+      "at": "2026-10-24",
+      "task": "EXP-043 を本番に出す前に、ビルドジョブの B が使う A8 テキスト素材 NTRMQ が有効かを A8 の画面で確かめる",
+      "tier": "high",
+      "kind": "不具合",
+      "prevention": {
+        "type": "memory",
+        "ref": "reference_affiliate_status_mail_vs_playwright"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "00199b5bc97d",
+      "verification": "headless で /program/create-link?programId=s00000024757004 の HTML を素材ID ごとに分け、a8mat=4B5OO5+FHBA2+5B0Y+NTRMQ が素材ID 002（テキスト）のブロックにあることを確認。口座 a25050375786 の assert OK",
+      "note": "A8 の広告リンク作成（programId=s00000024757004・掲載サイト websiteId=002 doboku-note が既定選択）を保存ログインで読むだけで開いた。NTRMQ は素材ID 002・テキストとして発行中（クリック率 2.55%）。案件は提携中・終了日未定。C の NTZCH は素材ID 003（300×250）。B 用の計測ピクセルは https://www10.a8.net/0.gif?a8mat=4B5OO5+FHBA2+5B0Y+NTRMQ（ホスト番号は読み込みごとに変わる）。B にピクセルを足すかは PR #1212 で判断する。"
     }
   ]
 }
