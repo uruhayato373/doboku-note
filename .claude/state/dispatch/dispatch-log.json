@@ -5779,6 +5779,19 @@
       "commit": "166d75e771d9",
       "verification": null,
       "note": "凍結仕様 5 本の所在（git show 747fab5d9:docs/products/<ファイル名>）を docs/products/07 §8 に直書きし、docs の参照を張り替えて閉じた。試作は DN-0453 で進める"
+    },
+    {
+      "id": "DN-0810",
+      "at": "2026-10-24",
+      "task": "橋渡しカードを自治体シリーズでは発注者向けに出し分けるか（EXP-012 の判定後）",
+      "tier": "hold",
+      "kind": "意思決定",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "fbede1a76e20",
+      "verification": null,
+      "note": "DN-0305 に吸収（PR #1182 を main に出した日 2026-10-22 07:41 JST・main 8aba7dc86 と、判定後に出し分けを決める作業を DN-0305 へ移した）"
     }
   ]
 }
