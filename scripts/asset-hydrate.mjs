@@ -30,7 +30,7 @@ import {
 import { REPO_ROOT } from './lib/repository-paths.mjs';
 import { listFiles } from './lib/fs-walk.mjs';
 import { downloadVerified } from './lib/verified-download.mjs';
-import { acquireLock } from './lib/local-resources.mjs';
+import { acquireLock, restoreDiskShortfall } from './lib/local-resources.mjs';
 import { readDataset } from './lib/dataset-io.mjs';
 
 const argv = process.argv.slice(2);
@@ -97,7 +97,7 @@ async function main() {
   const disk = statfsSync(REPO_ROOT);
   const resourcePolicy = readDataset(REPO_ROOT, 'config.local-resources');
   const reserveBytes = (process.env.CI ? 1 : resourcePolicy.minFreeDiskGiB) * 1073741824;
-  if (!DRY && disk.bavail * disk.bsize < restoreBytes * 2 + reserveBytes) throw new Error('Insufficient free disk for restore');
+  if (!DRY && restoreDiskShortfall({ freeBytes: disk.bavail * disk.bsize, restoreBytes, reserveBytes })) throw new Error('Insufficient free disk for restore');
 
   if (DRY) {
     for (const [p, e] of [...plan.cache, ...plan.r2].slice(0, 10)) {
