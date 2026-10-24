@@ -2375,6 +2375,210 @@
       "reason": "参照キャラクターと整合する顔・服装、CTAを指す手と答案を持つ手が自然で、完成答案集への案内と指定8文字列が各動画の施工経験記述の用途に合う。",
       "reviewedAt": "2026-10-17T06:04:25.228Z"
     },
+    "media:pe-comprehensive-management/gokanri-tradeoff/work/candidate-cover": {
+      "sha": "3c018394ecb044db",
+      "verdict": "ok",
+      "reason": "案Aと案Bを同格に並べ、条件による選択を示しており、指定見出し・文字・接続に誤りはない。",
+      "reviewedAt": "2026-10-22T10:14:46.036Z"
+    },
+    "media:pe-comprehensive-management/gokanri-tradeoff/work/candidate-scene-001": {
+      "sha": "3c018394ecb044db",
+      "verdict": "ok",
+      "reason": "表紙と同じSHAの画像で、案A・案Bの等価な比較と「条件で選ぶ」の文字・接続を確認した。",
+      "reviewedAt": "2026-10-22T10:14:46.036Z"
+    },
+    "media:pe-comprehensive-management/gokanri-tradeoff/work/candidate-scene-002": {
+      "sha": "b6a76454679d3194",
+      "verdict": "ok",
+      "reason": "同じ業務の下に5管理を独立した同形カードで配置し、5名称の表記と説明との整合を確認した。",
+      "reviewedAt": "2026-10-22T10:14:46.036Z"
+    },
+    "media:pe-comprehensive-management/gokanri-tradeoff/work/candidate-scene-003": {
+      "sha": "1b8f98eeae94710e",
+      "verdict": "ok",
+      "reason": "仮例の共通条件、夜間集中・昼間分割の2案、法令・品質・安全の必須条件が指定どおり表示されている。",
+      "reviewedAt": "2026-10-22T10:14:46.036Z"
+    },
+    "media:pe-comprehensive-management/gokanri-tradeoff/work/candidate-scene-004": {
+      "sha": "350c9eb84a202083",
+      "verdict": "ok",
+      "reason": "夜間集中から費用・人員と安全・騒音と周知への3本の影響関係がつながり、仮例表示と各ラベルに誤りはない。",
+      "reviewedAt": "2026-10-22T10:14:46.036Z"
+    },
+    "media:pe-comprehensive-management/gokanri-tradeoff/work/candidate-scene-005": {
+      "sha": "932ce7150a5c0c71",
+      "verdict": "ok",
+      "reason": "2案を交通・人員・騒音の同じ行で比較し、案間の順序矢印がなく、比較内容と仮例表示が語りに一致している。",
+      "reviewedAt": "2026-10-22T10:14:46.036Z"
+    },
+    "media:pe-comprehensive-management/gokanri-tradeoff/work/candidate-scene-006": {
+      "sha": "3aa8c853a91463d3",
+      "verdict": "ok",
+      "reason": "必須条件確認から昼間分割の条件付き採用までを指定の4段階で示し、矢印の順序・判断条件・文字を確認した。",
+      "reviewedAt": "2026-10-22T10:14:46.036Z"
+    },
+    "media:pe-comprehensive-management/gokanri-tradeoff/work/candidate-scene-007": {
+      "sha": "9c389c193978dfc5",
+      "verdict": "ok",
+      "reason": "通行状況・安全・期限の各条件が対応する調整・中断・報告へ正しく接続され、担当と確認時期の注記も一致している。",
+      "reviewedAt": "2026-10-22T10:14:46.036Z"
+    },
+    "media:pe-comprehensive-management/gokanri-tradeoff/work/candidate-scene-008": {
+      "sha": "7e20fab442a29af5",
+      "verdict": "ok",
+      "reason": "未指定の3行表が除去され、条件・複数案・選択理由と残る負担・監視更新の4段階と順序矢印が指定文言および語りに一致している。",
+      "reviewedAt": "2026-10-22T10:14:46.036Z"
+    },
+    "media:pe-comprehensive-management/gokanri-tradeoff/work/candidate-scene-009": {
+      "sha": "eee3d4e6d3f9888a",
+      "verdict": "ok",
+      "reason": "未指定の4段階と番号・矢印が除去され、独立した整理メモと教材案内の2カードに指定見出しと3文言だけが明瞭に表示されている。",
+      "reviewedAt": "2026-10-22T10:14:46.036Z"
+    },
+    "media:pe-comprehensive-management/monbun-yomikata/work/candidate-cover": {
+      "sha": "1cc0565013352d21",
+      "verdict": "ok",
+      "reason": "問題文から動詞・対象・数・条件を経て骨子へ進む対応図と、表題・資格名の文字を確認した。",
+      "reviewedAt": "2026-10-22T10:14:46.036Z"
+    },
+    "media:pe-comprehensive-management/monbun-yomikata/work/candidate-scene-001": {
+      "sha": "1cc0565013352d21",
+      "verdict": "ok",
+      "reason": "表紙と同一SHAの実画像を共有確認し、問題文・四つの確認項目・骨子の接続と表題の文字が一致している。",
+      "reviewedAt": "2026-10-22T10:14:46.036Z"
+    },
+    "media:pe-comprehensive-management/monbun-yomikata/work/candidate-scene-002": {
+      "sha": "90931dda44627dfe",
+      "verdict": "ok",
+      "reason": "問題文から四つの同じ大きさの札を取り出し答案の見出しと骨子へ移す構造と各ラベルを確認した。",
+      "reviewedAt": "2026-10-22T10:14:46.036Z"
+    },
+    "media:pe-comprehensive-management/monbun-yomikata/work/candidate-scene-003": {
+      "sha": "3442feae00df3645",
+      "verdict": "ok",
+      "reason": "当年度の問題文を読み要求に合わせて答案見出しを構成する流れと、指定された文字を確認した。",
+      "reviewedAt": "2026-10-22T10:14:46.036Z"
+    },
+    "media:pe-comprehensive-management/monbun-yomikata/work/candidate-scene-004": {
+      "sha": "4c35ce78de501a92",
+      "verdict": "ok",
+      "reason": "設問の区分・答える範囲、項目数、答案枚数を問題用紙の指定箇所から拾う接続と文字を確認した。",
+      "reviewedAt": "2026-10-22T10:14:46.036Z"
+    },
+    "media:pe-comprehensive-management/monbun-yomikata/work/candidate-scene-005": {
+      "sha": "efb599125eccf240",
+      "verdict": "ok",
+      "reason": "挙げる・説明する・比較するの三つの動詞がそれぞれの回答行動へ正しく対応し、文字も一致している。",
+      "reviewedAt": "2026-10-22T10:14:46.036Z"
+    },
+    "media:pe-comprehensive-management/monbun-yomikata/work/candidate-scene-006": {
+      "sha": "022c4e08a624a052",
+      "verdict": "ok",
+      "reason": "担当業務と組織全体の範囲を分け、前の設問の施策を次の設問へ引き継ぐ関係とラベルを確認した。",
+      "reviewedAt": "2026-10-22T10:14:46.036Z"
+    },
+    "media:pe-comprehensive-management/monbun-yomikata/work/candidate-scene-007": {
+      "sha": "362368059c50d140",
+      "verdict": "ok",
+      "reason": "施策一と施策二の二枠へ必要項目が等しく分岐し、それぞれに答えるという説明と文字が一致している。",
+      "reviewedAt": "2026-10-22T10:14:46.036Z"
+    },
+    "media:pe-comprehensive-management/monbun-yomikata/work/candidate-scene-008": {
+      "sha": "a4d28173d2540805",
+      "verdict": "ok",
+      "reason": "人員・予算・対象期間の条件と、参考の事例と守る指定の区別が図と正しい文字で示されている。",
+      "reviewedAt": "2026-10-22T10:14:46.036Z"
+    },
+    "media:pe-comprehensive-management/monbun-yomikata/work/candidate-scene-009": {
+      "sha": "7b8a28baedd5b2bb",
+      "verdict": "ok",
+      "reason": "練習用の仮設問と明示され、道路維持管理業務・増員しない条件・点検記録整理の効率化が一致している。",
+      "reviewedAt": "2026-10-22T10:14:46.036Z"
+    },
+    "media:pe-comprehensive-management/monbun-yomikata/work/candidate-scene-010": {
+      "sha": "ebdac7bee44e1dd6",
+      "verdict": "ok",
+      "reason": "仮設問から施策二つ、それぞれの効果、それぞれの実施上の問題点という三つの要求へ分かれる構造と文言を確認した。",
+      "reviewedAt": "2026-10-22T10:14:46.036Z"
+    },
+    "media:pe-comprehensive-management/monbun-yomikata/work/candidate-scene-011": {
+      "sha": "aab1e0319e4b7d2d",
+      "verdict": "ok",
+      "reason": "動詞・対象・数・条件の独立した四枠に、挙げる・説明する、道路維持管理業務、施策二つ、増員なしが正しく対応している。",
+      "reviewedAt": "2026-10-22T10:14:46.036Z"
+    },
+    "media:pe-comprehensive-management/monbun-yomikata/work/candidate-scene-012": {
+      "sha": "4cbe00ec6b7191ec",
+      "verdict": "ok",
+      "reason": "施策一と施策二の各列に内容・効果・問題点の同じ三項目が配置され、要求と骨子の対応を確認できる。",
+      "reviewedAt": "2026-10-22T10:14:46.036Z"
+    },
+    "media:pe-comprehensive-management/monbun-yomikata/work/candidate-scene-013": {
+      "sha": "abc1d3eb5d27c7d6",
+      "verdict": "ok",
+      "reason": "両施策の効果と問題点を並べ、施策二の問題点だけを空欄で強調する構造が抜けを探す説明と一致している。",
+      "reviewedAt": "2026-10-22T10:14:46.036Z"
+    },
+    "media:pe-comprehensive-management/monbun-yomikata/work/candidate-scene-014": {
+      "sha": "b0d51f5276a80cef",
+      "verdict": "ok",
+      "reason": "施策名から何を変えるか・どんな効果か・何が問題かへ説明を展開する矢印と三項目の文字を確認した。",
+      "reviewedAt": "2026-10-22T10:14:46.036Z"
+    },
+    "media:pe-comprehensive-management/monbun-yomikata/work/candidate-scene-015": {
+      "sha": "f5f150abf2c1fab9",
+      "verdict": "ok",
+      "reason": "増員しない条件を両施策へ照合し、専任者を追加する案との食い違いを別枠で示す構造と文字を確認した。",
+      "reviewedAt": "2026-10-22T10:14:46.036Z"
+    },
+    "media:pe-comprehensive-management/monbun-yomikata/work/candidate-scene-016": {
+      "sha": "b2f4f362b47b0804",
+      "verdict": "ok",
+      "reason": "仮設問の骨子例と明示され、記録様式の統一、転記の手間の削減、現場ごとの例外対応が図と三段メモで一致している。",
+      "reviewedAt": "2026-10-22T10:14:46.036Z"
+    },
+    "media:pe-comprehensive-management/monbun-yomikata/work/candidate-scene-017": {
+      "sha": "d7f7adeeacb926fa",
+      "verdict": "ok",
+      "reason": "入力SHA256 d7f7adeeacb926facaba701b7e12bc720d44a261725377861d67a4790c60309e の修正版に限り、追加された「仮設問の骨子例」、施策名と三項目の文字、複数の記録を一覧へ取り込む図が指示と一致することを確認した。",
+      "reviewedAt": "2026-10-22T10:14:46.036Z"
+    },
+    "media:pe-comprehensive-management/monbun-yomikata/work/candidate-scene-018": {
+      "sha": "072c5077af06df09",
+      "verdict": "ok",
+      "reason": "増員なしの条件の下で既存業務の分担と確認作業の負担を検討し担当の分担へつなぐ関係と文字を確認した。",
+      "reviewedAt": "2026-10-22T10:14:46.036Z"
+    },
+    "media:pe-comprehensive-management/monbun-yomikata/work/candidate-scene-019": {
+      "sha": "91ed3b5534a8f7b9",
+      "verdict": "ok",
+      "reason": "施策二つ・両方の効果と問題点・対象と条件の維持を、二つの骨子と中央の照合矢印で結ぶ構造と文字を確認した。",
+      "reviewedAt": "2026-10-22T10:14:46.036Z"
+    },
+    "media:pe-comprehensive-management/monbun-yomikata/work/candidate-scene-020": {
+      "sha": "8da602b051fe7d55",
+      "verdict": "ok",
+      "reason": "動詞・対象・数・条件の四札が問題文から骨子へ集まる図となり、二つのまとめ文言と各ラベルも一致している。",
+      "reviewedAt": "2026-10-22T10:14:46.036Z"
+    },
+    "media:pe-comprehensive-management/monbun-yomikata/work/candidate-scene-021": {
+      "sha": "89cafa87bc98535f",
+      "verdict": "ok",
+      "reason": "二つの問題文から見出しAと見出しBの骨子へ進む並列図が、要求との照合と別年度での組み直しを示している。",
+      "reviewedAt": "2026-10-22T10:14:46.036Z"
+    },
+    "media:pe-comprehensive-management/monbun-yomikata/work/candidate-scene-022": {
+      "sha": "2d0b37155daa4ebf",
+      "verdict": "ok",
+      "reason": "総監記述式コアパックの商品名と収録内容・対象年度を商品ページで確認する案内が正しく、未確認の価格や収録数はない。",
+      "reviewedAt": "2026-10-22T10:14:46.036Z"
+    },
+    "media:pe-comprehensive-management/monbun-yomikata/work/candidate-scene-023": {
+      "sha": "7744b0ea81552a3f",
+      "verdict": "ok",
+      "reason": "総監記述式コアパックの商品名、概要欄への案内、単一の下向き矢印が一致し、余分な実績や価格の表示はない。",
+      "reviewedAt": "2026-10-22T10:14:46.036Z"
+    },
     "media:pe-comprehensive-management/monbun-yomikata/youtube.longform/cover": {
       "sha": "1f63225c7b91cb99",
       "verdict": "ok",
@@ -2668,6 +2872,90 @@
       "verdict": "ok",
       "reason": "ai-image-fidelity-auditorが原寸1920x1080と幅360pxで指定文字・本文との意味・人物・図を確認済み。採用SHAに対応する監査結果をpop-image.jsonに保持。",
       "reviewedAt": "2026-10-18T00:24:11.422Z"
+    },
+    "media:pe-comprehensive-management/sokan-kojutsu-kangaekata/work/candidate-cover": {
+      "sha": "a5414ef0d0623898",
+      "verdict": "ok",
+      "reason": "表題と「経験→対立→判断」の3段階が明瞭で、台本の主題・指定構図と一致している。",
+      "reviewedAt": "2026-10-22T10:14:46.035Z"
+    },
+    "media:pe-comprehensive-management/sokan-kojutsu-kangaekata/work/candidate-scene-001": {
+      "sha": "a5414ef0d0623898",
+      "verdict": "ok",
+      "reason": "表紙と同一SHAの画像であり、経歴を管理上の対立と判断につなぐ導入を正しく示している。",
+      "reviewedAt": "2026-10-22T10:14:46.036Z"
+    },
+    "media:pe-comprehensive-management/sokan-kojutsu-kangaekata/work/candidate-scene-002": {
+      "sha": "41e43b84863eb8bd",
+      "verdict": "ok",
+      "reason": "経歴及び応用能力と体系的専門知識を並列配置し、両方の60%以上という表示も明瞭である。",
+      "reviewedAt": "2026-10-22T10:14:46.036Z"
+    },
+    "media:pe-comprehensive-management/sokan-kojutsu-kangaekata/work/candidate-scene-003": {
+      "sha": "67fe3f33308cd6cd",
+      "verdict": "ok",
+      "reason": "管理知識と業務経験をつなぐ2本の対応関係が、正しい文言と矢印で表現されている。",
+      "reviewedAt": "2026-10-22T10:14:46.036Z"
+    },
+    "media:pe-comprehensive-management/sokan-kojutsu-kangaekata/work/candidate-scene-004": {
+      "sha": "b8700f988fbd2a41",
+      "verdict": "ok",
+      "reason": "同じ業務を中心に5管理が重複なく接続され、名称・対応する記号ともに正確である。",
+      "reviewedAt": "2026-10-22T10:14:46.036Z"
+    },
+    "media:pe-comprehensive-management/sokan-kojutsu-kangaekata/work/candidate-scene-005": {
+      "sha": "03c037744bdb5147",
+      "verdict": "ok",
+      "reason": "共通の制約から並列の選択肢A・Bを比較し、自分の判断へまとめる構造が台本と一致している。",
+      "reviewedAt": "2026-10-22T10:14:46.036Z"
+    },
+    "media:pe-comprehensive-management/sokan-kojutsu-kangaekata/work/candidate-scene-006": {
+      "sha": "6363cb7c498341fe",
+      "verdict": "ok",
+      "reason": "事例を3〜5件から整理する提案を示し、件数が学習上の提案であることも明記されている。",
+      "reviewedAt": "2026-10-22T10:14:46.036Z"
+    },
+    "media:pe-comprehensive-management/sokan-kojutsu-kangaekata/work/candidate-scene-007": {
+      "sha": "3b0d9ea6aa421dcc",
+      "verdict": "ok",
+      "reason": "増員の仮例を明示し、追加費用・教育訓練・共有方法を対応する3管理へ正しく接続している。",
+      "reviewedAt": "2026-10-22T10:14:46.036Z"
+    },
+    "media:pe-comprehensive-management/sokan-kojutsu-kangaekata/work/candidate-scene-008": {
+      "sha": "706d738ea82f04b2",
+      "verdict": "ok",
+      "reason": "役割・問題・自分の判断・結果と学びの4段階が、指定順序の矢印と正しい文字で示されている。",
+      "reviewedAt": "2026-10-22T10:14:46.036Z"
+    },
+    "media:pe-comprehensive-management/sokan-kojutsu-kangaekata/work/candidate-scene-009": {
+      "sha": "5b587ea19ba1fd0d",
+      "verdict": "ok",
+      "reason": "練習時間の目安と本番の指示を区別し、チームの成果と自分の判断を分ける注意も正しく表示している。",
+      "reviewedAt": "2026-10-22T10:14:46.036Z"
+    },
+    "media:pe-comprehensive-management/sokan-kojutsu-kangaekata/work/candidate-scene-010": {
+      "sha": "4b685b70691df896",
+      "verdict": "ok",
+      "reason": "入力SHA 4b685b70691df896caa39d739ef15336d60ed222f9d69e7a6b08e9722ca97c6d の画像では、指定位置の独立した4問が正確な文字で示され、循環矢印・中央円・余分な文言が除去されている。",
+      "reviewedAt": "2026-10-22T10:14:46.036Z"
+    },
+    "media:pe-comprehensive-management/sokan-kojutsu-kangaekata/work/candidate-scene-011": {
+      "sha": "721cf15ff486ba5a",
+      "verdict": "ok",
+      "reason": "回答・説明の穴の発見・業務事実の確認・用語復習を循環させ、中央の再練習指示も当該場面の設計と一致している。",
+      "reviewedAt": "2026-10-22T10:14:46.036Z"
+    },
+    "media:pe-comprehensive-management/sokan-kojutsu-kangaekata/work/candidate-scene-012": {
+      "sha": "f597862dbc4aa256",
+      "verdict": "ok",
+      "reason": "経歴と知識、5管理を使った判断、事実確認と発声練習の3項目が正しい順序と文字でまとまっている。",
+      "reviewedAt": "2026-10-22T10:14:46.036Z"
+    },
+    "media:pe-comprehensive-management/sokan-kojutsu-kangaekata/work/candidate-scene-013": {
+      "sha": "c1d772ef69924dd6",
+      "verdict": "ok",
+      "reason": "経歴整理から想定問答を経て概要欄の教材案内へ進む導線が一致し、余分な価格・URL・別CTAはない。",
+      "reviewedAt": "2026-10-22T10:14:46.036Z"
     },
     "media:pe-comprehensive-management/sokan-kojutsu-kangaekata/youtube.longform/cover": {
       "sha": "51e3f120f8a8d8c5",

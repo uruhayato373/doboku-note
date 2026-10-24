@@ -63,5 +63,824 @@
       },
       "publication": "ローカル差し替え・外部未反映"
     }
-  }
+  },
+  "activeCoverRevision": "cover-diagram-20261022",
+  "revisions": {
+    "cover-diagram-20261022": {
+      "version": "pop-poster-v3",
+      "layout": {
+        "mode": "diagram-led"
+      },
+      "generation": {
+        "tool": "image_gen",
+        "prompt": "この画像を修正してください。白地、緑灰、既存の文字の綴り・意味、2案を比較する構図は保持。動画字幕が重ならないよう、全ての文字と図形（「条件で選ぶ」を含む）を縦方向で画面の上75%以内に再配置してください。見出しは少し小さくして上部10〜43%、案A/案Bの2カードは44〜62%、中央線と黄色点と「条件で選ぶ」は65〜74%。下26%は静かな白地のまま。全体画像を小さなポスターに縮小して外周枠を追加してはいけません。16:9を保持し、文字を増やさない。左右は各6%以上空ける。360px幅で案A/案B/条件で選ぶが判読できる文字サイズを保つ。",
+        "initialPrompt": "YouTube教育動画用サムネイル1枚。横長16:9、1920×1080相当。白地、落ち着いた深緑 #386658、灰 #535e59、ごく小さい淡黄色。装飾人物、先生、肩書き、著者名、ロゴ、写真、派手な縁取りは無し。テーマは技術士総合技術監理部門の5つの管理の相反を整理し、複数案から理由を付けて選ぶこと。上部に小さく「技術士 総監」、大きい2行見出し「5管理の対立」「判断の理由」。中下部 y=48-74%に等しいサイズの横並び2カード、左「案A」右「案B」、どちらも白〜薄灰と緑の細線。カードの間は比較を示す短い縦線のみ、横矢印は描かない。カードの下にそれぞれから中央へ向かう短い緑の線、中央の小さな黄色点と文字「条件で選ぶ」。特定案を正解と示さない。文字は360px縮小でも判読できる十分太く大きい日本語。全文字と図は外周7%以上内側、下端22%は字幕に使える静かな白地。画像全体を縮小して余白を足したポスターにしない。指定以外の文字や数字を足さない。落ち着いた平面図解と整然とした美しい余白。",
+        "references": [
+          {
+            "path": "generated_images/exec-d7e297d2-9194-40c4-b888-1ba5bcaa98dd.png",
+            "sha256": "4fd9580e1db9c6257030a537095c5ce19ac9f3a5f015ff56b9d0d6beeb7e4e70"
+          }
+        ],
+        "output": {
+          "path": ".tmp/media/pe-comprehensive-management/gokanri-tradeoff/work/cover-source.59dcf259.png",
+          "sha256": "59dcf259de7dcb6990358ae1f3628e934ef8f7dde3419e31038fdae736519080"
+        },
+        "generatedAt": "2026-10-22T08:43:59.082Z"
+      },
+      "copy": {
+        "headline": [
+          "5管理の対立",
+          "判断の理由"
+        ]
+      },
+      "output": {
+        "path": ".tmp/media/pe-comprehensive-management/gokanri-tradeoff/work/cover-diagram.3c018394.png",
+        "sha256": "3c018394ecb044db8d7c16f1242349558eb9fe189452f9a9d4c1a40b2f1f6b9e",
+        "width": 1920,
+        "height": 1080
+      },
+      "normalization": {
+        "mode": "full-frame-v1",
+        "sourceSha256": "59dcf259de7dcb6990358ae1f3628e934ef8f7dde3419e31038fdae736519080"
+      },
+      "review": {
+        "status": "ai-reviewed",
+        "checkedAt": "2026-10-22T09:43:03.467Z",
+        "by": "Codex",
+        "views": [
+          "original",
+          "width-360"
+        ],
+        "checks": [
+          "文言・画像とテーマの一致",
+          "文字切れ・安全域",
+          "装飾人物なし"
+        ],
+        "userImageReview": "pending"
+      },
+      "storage": {
+        "group": "content-media",
+        "sync": "not-run-user-instruction"
+      }
+    },
+    "body-diagram-20261022": {
+      "layout": {
+        "mode": "diagram-led"
+      },
+      "images": [
+        {
+          "sceneId": "premise",
+          "inputSha256": "03e19529ade35e242d9e08a63cdbc092cb238d01e24ad72fde790f6f5dab96e1",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照図の小さい文字を修正。円形ネットワークをやめ、文字を大きくする。見出し「同じ業務を5管理から見る」。その下中央に横長札「同じ業務」。さらに下へ5つの大きな横長カードを3枚と2枚の二段に整然と配置し「経済性管理」「人的資源管理」「情報管理」「安全管理」「社会環境管理」と表示。札からカード群へ一本の大きな下向き矢印だけ。ラベルは1920px換算で最低70px太字、丸の中へ押し込まない。全要素を上70%に収め、下30%は字幕用白。左右7%を余白。白・深緑・灰色と小黄色を維持。余分な説明文字、人物、アイコンを追加しない。",
+            "references": [
+              {
+                "path": "generated_images/exec-30fceadf-63c7-483d-b0ff-68501fc60123.png",
+                "sha256": "68bf3d5cc22ce54ce5ea5bceaf5608a39eb1df7409ce431e141326fdb2884960"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/gokanri-tradeoff/work/premise-source.70ce741b.png",
+              "sha256": "70ce741bebca77636f10f1589dc2a7725922c15620f1cbed3331c9af3cb611ee"
+            },
+            "generatedAt": "2026-10-22T09:19:50.059Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/gokanri-tradeoff/work/premise-diagram.b6a76454.png",
+            "sha256": "b6a76454679d3194ab58d70bba12211ae9c60e94a632e33efd9a0109619a8067",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "70ce741bebca77636f10f1589dc2a7725922c15620f1cbed3331c9af3cb611ee"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-22T09:41:38.800Z",
+            "by": "Codex",
+            "views": [
+              "original",
+              "width-360",
+              "final-mp4-cue-frames"
+            ],
+            "checks": [
+              "台本と図解の意味・文字",
+              "字幕との重なり・表示領域",
+              "装飾人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "pairs",
+          "inputSha256": "ab4762e31fb9f398401e0ea16ab225a07fe5e5eae2a9c768d8a3ebb841de22bc",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "この図の文字内容は変更せず、文字とパネルの安全余白を調整してください。タイトルを少し小さくして上6%、左右7%の白余白を確保。二つのパネルは左右7%より内側、底辺は上から70%以内に置く。下30%は完全に白い字幕用余白。本文は十分太く読みやすく保つ。白・落ち着いた深緑・灰色・小黄色の配色は維持、黄色帯を淡い黄色にする。本文は「共通条件：住宅近接、昼間規制可、工期に余裕」「比較する案：A 夜間集中、B 昼間分割」「法令・品質・安全は必須」のまま。タイトル「仮例：道路補修の案を比べる」。指定外の文言や装飾を追加しない。",
+            "references": [
+              {
+                "path": "generated_images/exec-1b78503c-f896-4eea-a68a-a307c160780e.png",
+                "sha256": "3629f1cefd57cf5e9492166d976dde3dfef05308d85fedc06f9901e2c2bef988"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/gokanri-tradeoff/work/pairs-source.587c6ef0.png",
+              "sha256": "587c6ef0949831ca3c4034f71cb6059465df4d49ccf867d17359d26b32778f2f"
+            },
+            "generatedAt": "2026-10-22T09:19:50.273Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/gokanri-tradeoff/work/pairs-diagram.1b8f98ee.png",
+            "sha256": "1b8f98eeae94710e007d8631fc7f1e4d23419757b497503965676663ec4d24a1",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "587c6ef0949831ca3c4034f71cb6059465df4d49ccf867d17359d26b32778f2f"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-22T09:41:38.800Z",
+            "by": "Codex",
+            "views": [
+              "original",
+              "width-360",
+              "final-mp4-cue-frames"
+            ],
+            "checks": [
+              "台本と図解の意味・文字",
+              "字幕との重なり・表示領域",
+              "装飾人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "trend",
+          "inputSha256": "38ed549b26ee5f7c152776118806c2b7586300bc393bc4be226d89eee8a08e6b",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "総監学習動画の図解1場面、16:9 1920x1080相当。白地、緑灰、小黄色。参照表紙は色だけの参考、資格名・肩書き・人物・先生・装飾を反復しない。見出し「夜間集中案は、どこに影響するか」。表示する要点:[\"夜間に作業をまとめる\",\"経済性\\n照明・夜勤の費用\",\"人的資源・安全\\n交代要員と休息\",\"社会環境・情報\\n騒音と規制の周知\"]。構図指定:{\"type\":\"diagram\",\"diagram\":\"influence\",\"source\":\"content/site/pe-comprehensive-management/keyword-2026/img/figure-five-management-learning.svg\",\"section\":\"技術士 総合技術監理部門｜5管理と判断\",\"note\":\"仮例｜昼間交通への利点と、他の管理への負担をつなぐ\"}。語り:夜間集中案は昼間の規制を減らせる一方、照明や夜勤の費用が増える条件とします。人員と休息の確保、作業時の安全、夜間騒音への対応、規制情報の周知も必要です。一つの施策から、他の管理への影響をたどります。。five-managementは中央同じ業務から経済性/人的資源/情報/安全/社会環境の5管理へ等価な枝、異なる管理を同一視しない。mappingは左の条件→右の内容。influenceは上の夜間集中から3つの影響枝へ。compareはA夜間集中/B昼間分割を等しい2列で比較し両者間に順序矢印は描かない。あくまでこの場面の構図のみ。道路補修は仮例と表示。具体機械や作業員は足さず図形・簡略アイコンと関係を主役に。文章を全文詰め込まない。全文字と図形は画面上73%以内、下27%を字幕用の白地に必ず空ける。外周6%安全域、360pxで読める大きい文字。指定以外の数字・条件を加えない。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-comprehensive-management/gokanri-tradeoff/work/cover-source.59dcf259.png",
+                "sha256": "59dcf259de7dcb6990358ae1f3628e934ef8f7dde3419e31038fdae736519080"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/gokanri-tradeoff/work/trend-source.184e83d0.png",
+              "sha256": "184e83d0022252ed73800b49c35002b374f3b5bf835bda0f4c4713f9ef1c0101"
+            },
+            "generatedAt": "2026-10-22T09:19:50.556Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/gokanri-tradeoff/work/trend-diagram.350c9eb8.png",
+            "sha256": "350c9eb84a20208379553ff1013046023649aa25e8402e1416f110f930bf3c07",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "184e83d0022252ed73800b49c35002b374f3b5bf835bda0f4c4713f9ef1c0101"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-22T09:41:38.800Z",
+            "by": "Codex",
+            "views": [
+              "original",
+              "width-360",
+              "final-mp4-cue-frames"
+            ],
+            "checks": [
+              "台本と図解の意味・文字",
+              "字幕との重なり・表示領域",
+              "装飾人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "symmetry",
+          "inputSha256": "f58f2016e6bfd007ec682def630a432ccb83642b1761140ddc7e12082858f719",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "総監学習動画の図解1場面、16:9 1920x1080相当。白地、緑灰、小黄色。参照表紙は色だけの参考、資格名・肩書き・人物・先生・装飾を反復しない。見出し「2案を、同じ観点で比べる」。表示する要点:[\"A 夜間集中\\n昼間規制を抑える\\n夜勤体制が必要\\n夜間騒音に配慮\",\"B 昼間分割\\n昼間規制が増える\\n昼間の体制で施工\\n夜間騒音を回避\"]。構図指定:{\"type\":\"compare\",\"section\":\"技術士 総合技術監理部門｜5管理と判断\",\"note\":\"仮例｜交通・人員・騒音を比較し、費用・工期の見積りで裏づける\"}。語り:昼間分割案は夜間騒音を避けられますが、昼間の規制日数と渋滞への負担が増えます。交通、人員、騒音、費用、工期を同じ観点で比べます。安全と費用が常に対立するとは限らず、情報共有で危険と手戻りを共に減らす工夫も考えます。。five-managementは中央同じ業務から経済性/人的資源/情報/安全/社会環境の5管理へ等価な枝、異なる管理を同一視しない。mappingは左の条件→右の内容。influenceは上の夜間集中から3つの影響枝へ。compareはA夜間集中/B昼間分割を等しい2列で比較し両者間に順序矢印は描かない。あくまでこの場面の構図のみ。道路補修は仮例と表示。具体機械や作業員は足さず図形・簡略アイコンと関係を主役に。文章を全文詰め込まない。全文字と図形は画面上73%以内、下27%を字幕用の白地に必ず空ける。外周6%安全域、360pxで読める大きい文字。指定以外の数字・条件を加えない。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-comprehensive-management/gokanri-tradeoff/work/cover-source.59dcf259.png",
+                "sha256": "59dcf259de7dcb6990358ae1f3628e934ef8f7dde3419e31038fdae736519080"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/gokanri-tradeoff/work/symmetry-source.0aeed918.png",
+              "sha256": "0aeed9182cea830596f55abd8612836b1d821b7e2d1e5e2616e893a840260c7f"
+            },
+            "generatedAt": "2026-10-22T09:19:50.821Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/gokanri-tradeoff/work/symmetry-diagram.932ce715.png",
+            "sha256": "932ce7150a5c0c71993ca549e57607cecb1bb020d36cfc45f822f68f7bd4fe8a",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "0aeed9182cea830596f55abd8612836b1d821b7e2d1e5e2616e893a840260c7f"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-22T09:41:38.800Z",
+            "by": "Codex",
+            "views": [
+              "original",
+              "width-360",
+              "final-mp4-cue-frames"
+            ],
+            "checks": [
+              "台本と図解の意味・文字",
+              "字幕との重なり・表示領域",
+              "装飾人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "resolve",
+          "inputSha256": "9a592e15c30de4ada844a4c9c2395867a66e9c17dae4925f17b73df8dec9aad0",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "総監学習動画の説明図1枚、16:9。白地に緑灰と小黄、人物/資格名/肩書き/先生なし。見出し「選択を分けた条件を、理由にする」。大きな文字の図要素:[\"必須条件を\\n満たす\",\"費用・工期を\\n確認する\",\"夜間騒音の\\n回避を重視\",\"B 昼間分割を\\n条件付き採用\"]。意味:両案の必須条件を確認し、昼間分割案も見積りと工程から予算・期限に収まるとします。住宅が近く、昼間規制を調整できるため、夜間騒音を避ける昼間分割案を選びます。交通条件が変われば選び直す、条件付きの判断です。。構図:{\"type\":\"steps\",\"section\":\"技術士 総合技術監理部門｜5管理と判断\",\"note\":\"仮例｜昼間規制を調整でき、予算と期限にも収まる場合の判断\"}。stepsは4段階を左から右へ、比較の案A/案Bの優劣とは混同しない。mappingは各条件から対応する監視・判断への3行対応図。focusは整理メモと教材案内だけ。今回場面に指定した構図を使い、他の構図を混ぜない。仮例を扱う場面には小さく「仮例」と表示。文章全文は載せず指定要素に簡潔化。設問により条件が変わる点を断定に変えない。必ず全図形文字の下端を高さの72%以内に収め、残り下28%は字幕用の白地。左右6%安全域。360px縮小でも主要文言が読める。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-comprehensive-management/gokanri-tradeoff/work/cover-source.59dcf259.png",
+                "sha256": "59dcf259de7dcb6990358ae1f3628e934ef8f7dde3419e31038fdae736519080"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/gokanri-tradeoff/work/resolve-source.026cbaf6.png",
+              "sha256": "026cbaf6332c995ef626305e2e26f4d9b78beef9b4badd6857766d186aff0114"
+            },
+            "generatedAt": "2026-10-22T09:19:51.101Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/gokanri-tradeoff/work/resolve-diagram.3aa8c853.png",
+            "sha256": "3aa8c853a91463d3d42391650b12e8b4f5da17e4d33821747451871927d1237f",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "026cbaf6332c995ef626305e2e26f4d9b78beef9b4badd6857766d186aff0114"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-22T09:41:38.800Z",
+            "by": "Codex",
+            "views": [
+              "original",
+              "width-360",
+              "final-mp4-cue-frames"
+            ],
+            "checks": [
+              "台本と図解の意味・文字",
+              "字幕との重なり・表示領域",
+              "装飾人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "closing",
+          "inputSha256": "4395a0aa1e7fce1273587b1fa1234bcc892e9ebb46f6256116276088f7f58864",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "総監学習動画の説明図1枚、16:9。白地に緑灰と小黄、人物/資格名/肩書き/先生なし。見出し「残ったリスクを、次の判断につなぐ」。大きな文字の図要素:[\"車列・通行状況 → 区間・規制時間を調整\",\"安全な通行が困難 → 作業を中断\",\"期限に遅れる見込み → 責任者へ報告・再検討\"]。意味:残る渋滞は交通担当が混雑時に確認し、事前に定めた管理値を超えたら区間や規制時間を調整します。安全な通行が難しければ作業を中断。工程担当は毎日の進捗を見て、遅れる見込みなら責任者へ報告し、工程と案を再検討します。。構図:{\"type\":\"mapping\",\"section\":\"技術士 総合技術監理部門｜5管理と判断\",\"note\":\"仮例｜交通担当は混雑時、工程担当は毎日確認。管理値は事前に設定\"}。stepsは4段階を左から右へ、比較の案A/案Bの優劣とは混同しない。mappingは各条件から対応する監視・判断への3行対応図。focusは整理メモと教材案内だけ。今回場面に指定した構図を使い、他の構図を混ぜない。仮例を扱う場面には小さく「仮例」と表示。文章全文は載せず指定要素に簡潔化。設問により条件が変わる点を断定に変えない。必ず全図形文字の下端を高さの72%以内に収め、残り下28%は字幕用の白地。左右6%安全域。360px縮小でも主要文言が読める。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-comprehensive-management/gokanri-tradeoff/work/cover-source.59dcf259.png",
+                "sha256": "59dcf259de7dcb6990358ae1f3628e934ef8f7dde3419e31038fdae736519080"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/gokanri-tradeoff/work/closing-source.87ef0a14.png",
+              "sha256": "87ef0a147cd2abb4546e42359757ff638f529ae479b23ab4ffa3404c7c2b705e"
+            },
+            "generatedAt": "2026-10-22T09:19:51.346Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/gokanri-tradeoff/work/closing-diagram.9c389c19.png",
+            "sha256": "9c389c193978dfc517c6a535aa2c44e67cda50039150965b96923581fce4bef9",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "87ef0a147cd2abb4546e42359757ff638f529ae479b23ab4ffa3404c7c2b705e"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-22T09:41:38.800Z",
+            "by": "Codex",
+            "views": [
+              "original",
+              "width-360",
+              "final-mp4-cue-frames"
+            ],
+            "checks": [
+              "台本と図解の意味・文字",
+              "字幕との重なり・表示領域",
+              "装飾人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "summary",
+          "inputSha256": "c9c01164969b0004a714b5f2245d701a8d76280f8a78723132bbe69770c62b4d",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "総監学習動画の説明図1枚、16:9。白地に緑灰と小黄、人物/資格名/肩書き/先生なし。見出し「5管理を、判断の説明に変える」。大きな文字の図要素:[\"条件と\\n相互影響\",\"複数案を\\n同じ観点で\",\"選んだ理由と\\n残る負担\",\"監視から\\n判断を更新\"]。意味:目的と条件をそろえ、他の管理への影響を見つける。複数案を比べ、選んだ理由と残る負担を示す。そして監視から判断を更新する。この順番を、設問に合わせて使います。仮例を自分の実績として流用せず、確認できる事実に置き換えてください。。構図:{\"type\":\"steps\",\"section\":\"技術士 総合技術監理部門｜5管理と判断\",\"note\":\"設問に合わせ、確認できる事実と条件で組み立てる\"}。stepsは4段階を左から右へ、比較の案A/案Bの優劣とは混同しない。mappingは各条件から対応する監視・判断への3行対応図。focusは整理メモと教材案内だけ。今回場面に指定した構図を使い、他の構図を混ぜない。仮例を扱う場面には小さく「仮例」と表示。文章全文は載せず指定要素に簡潔化。設問により条件が変わる点を断定に変えない。必ず全図形文字の下端を高さの72%以内に収め、残り下28%は字幕用の白地。左右6%安全域。360px縮小でも主要文言が読める。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-comprehensive-management/gokanri-tradeoff/work/cover-source.59dcf259.png",
+                "sha256": "59dcf259de7dcb6990358ae1f3628e934ef8f7dde3419e31038fdae736519080"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/gokanri-tradeoff/work/summary-source.dacb0dfe.png",
+              "sha256": "dacb0dfef58c4244afbd4fdb4483969202f3bf1b4a4eefd768d620d838bd117c"
+            },
+            "generatedAt": "2026-10-22T09:19:51.580Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/gokanri-tradeoff/work/summary-diagram.642ccece.png",
+            "sha256": "642ccece6381867f8355863ba6e228fde011fb28a7a5c07bad5efdaa148dad17",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "dacb0dfef58c4244afbd4fdb4483969202f3bf1b4a4eefd768d620d838bd117c"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-22T09:41:38.800Z",
+            "by": "Codex",
+            "views": [
+              "original",
+              "width-360",
+              "final-mp4-cue-frames"
+            ],
+            "checks": [
+              "台本と図解の意味・文字",
+              "字幕との重なり・表示領域",
+              "装飾人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "cta",
+          "inputSha256": "a678dc9c5addc914bb1bff268ad58607d09c9405d2e939d1df8407f1e2cbebed",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "総監学習動画の説明図1枚、16:9。白地に緑灰と小黄、人物/資格名/肩書き/先生なし。見出し「一つの業務で、判断理由を整理する」。大きな文字の図要素:[\"比べた案と、選択を分けた条件\",\"5管理クロストレードオフ\\n概要欄のマガジンへ\"]。意味:5管理のトレードオフをさらに整理したい方は、概要欄の「5管理クロストレードオフ」マガジンをご覧ください。一つの業務で、比べた案と選んだ理由を整理してみましょう。。構図:{\"type\":\"focus\",\"section\":\"技術士 総合技術監理部門｜5管理と判断\",\"note\":\"主CTA：5管理クロストレードオフ\"}。stepsは4段階を左から右へ、比較の案A/案Bの優劣とは混同しない。mappingは各条件から対応する監視・判断への3行対応図。focusは整理メモと教材案内だけ。今回場面に指定した構図を使い、他の構図を混ぜない。仮例を扱う場面には小さく「仮例」と表示。文章全文は載せず指定要素に簡潔化。設問により条件が変わる点を断定に変えない。必ず全図形文字の下端を高さの72%以内に収め、残り下28%は字幕用の白地。左右6%安全域。360px縮小でも主要文言が読める。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-comprehensive-management/gokanri-tradeoff/work/cover-source.59dcf259.png",
+                "sha256": "59dcf259de7dcb6990358ae1f3628e934ef8f7dde3419e31038fdae736519080"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/gokanri-tradeoff/work/cta-source.5db4817f.png",
+              "sha256": "5db4817f491425770de4321356f98eaf13e6b69fcc0610e813982637cc6367c3"
+            },
+            "generatedAt": "2026-10-22T09:19:51.828Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/gokanri-tradeoff/work/cta-diagram.75502bb3.png",
+            "sha256": "75502bb367ceee251a098f4094d80e97451444452b0d41519be6085a8e32db0d",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "5db4817f491425770de4321356f98eaf13e6b69fcc0610e813982637cc6367c3"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-22T09:41:38.800Z",
+            "by": "Codex",
+            "views": [
+              "original",
+              "width-360",
+              "final-mp4-cue-frames"
+            ],
+            "checks": [
+              "台本と図解の意味・文字",
+              "字幕との重なり・表示領域",
+              "装飾人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        }
+      ],
+      "storage": {
+        "group": "content-media",
+        "sync": "not-run-user-instruction"
+      }
+    },
+    "body-diagram-reviewed-20261022": {
+      "layout": {
+        "mode": "diagram-led"
+      },
+      "images": [
+        {
+          "sceneId": "premise",
+          "inputSha256": "03e19529ade35e242d9e08a63cdbc092cb238d01e24ad72fde790f6f5dab96e1",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照図の小さい文字を修正。円形ネットワークをやめ、文字を大きくする。見出し「同じ業務を5管理から見る」。その下中央に横長札「同じ業務」。さらに下へ5つの大きな横長カードを3枚と2枚の二段に整然と配置し「経済性管理」「人的資源管理」「情報管理」「安全管理」「社会環境管理」と表示。札からカード群へ一本の大きな下向き矢印だけ。ラベルは1920px換算で最低70px太字、丸の中へ押し込まない。全要素を上70%に収め、下30%は字幕用白。左右7%を余白。白・深緑・灰色と小黄色を維持。余分な説明文字、人物、アイコンを追加しない。",
+            "references": [
+              {
+                "path": "generated_images/exec-30fceadf-63c7-483d-b0ff-68501fc60123.png",
+                "sha256": "68bf3d5cc22ce54ce5ea5bceaf5608a39eb1df7409ce431e141326fdb2884960"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/gokanri-tradeoff/work/premise-source.70ce741b.png",
+              "sha256": "70ce741bebca77636f10f1589dc2a7725922c15620f1cbed3331c9af3cb611ee"
+            },
+            "generatedAt": "2026-10-22T09:19:50.059Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/gokanri-tradeoff/work/premise-diagram.b6a76454.png",
+            "sha256": "b6a76454679d3194ab58d70bba12211ae9c60e94a632e33efd9a0109619a8067",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "70ce741bebca77636f10f1589dc2a7725922c15620f1cbed3331c9af3cb611ee"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-22T09:41:38.800Z",
+            "by": "Codex",
+            "views": [
+              "original",
+              "width-360",
+              "final-mp4-cue-frames"
+            ],
+            "checks": [
+              "台本と図解の意味・文字",
+              "字幕との重なり・表示領域",
+              "装飾人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "pairs",
+          "inputSha256": "ab4762e31fb9f398401e0ea16ab225a07fe5e5eae2a9c768d8a3ebb841de22bc",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "この図の文字内容は変更せず、文字とパネルの安全余白を調整してください。タイトルを少し小さくして上6%、左右7%の白余白を確保。二つのパネルは左右7%より内側、底辺は上から70%以内に置く。下30%は完全に白い字幕用余白。本文は十分太く読みやすく保つ。白・落ち着いた深緑・灰色・小黄色の配色は維持、黄色帯を淡い黄色にする。本文は「共通条件：住宅近接、昼間規制可、工期に余裕」「比較する案：A 夜間集中、B 昼間分割」「法令・品質・安全は必須」のまま。タイトル「仮例：道路補修の案を比べる」。指定外の文言や装飾を追加しない。",
+            "references": [
+              {
+                "path": "generated_images/exec-1b78503c-f896-4eea-a68a-a307c160780e.png",
+                "sha256": "3629f1cefd57cf5e9492166d976dde3dfef05308d85fedc06f9901e2c2bef988"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/gokanri-tradeoff/work/pairs-source.587c6ef0.png",
+              "sha256": "587c6ef0949831ca3c4034f71cb6059465df4d49ccf867d17359d26b32778f2f"
+            },
+            "generatedAt": "2026-10-22T09:19:50.273Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/gokanri-tradeoff/work/pairs-diagram.1b8f98ee.png",
+            "sha256": "1b8f98eeae94710e007d8631fc7f1e4d23419757b497503965676663ec4d24a1",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "587c6ef0949831ca3c4034f71cb6059465df4d49ccf867d17359d26b32778f2f"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-22T09:41:38.800Z",
+            "by": "Codex",
+            "views": [
+              "original",
+              "width-360",
+              "final-mp4-cue-frames"
+            ],
+            "checks": [
+              "台本と図解の意味・文字",
+              "字幕との重なり・表示領域",
+              "装飾人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "trend",
+          "inputSha256": "38ed549b26ee5f7c152776118806c2b7586300bc393bc4be226d89eee8a08e6b",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "総監学習動画の図解1場面、16:9 1920x1080相当。白地、緑灰、小黄色。参照表紙は色だけの参考、資格名・肩書き・人物・先生・装飾を反復しない。見出し「夜間集中案は、どこに影響するか」。表示する要点:[\"夜間に作業をまとめる\",\"経済性\\n照明・夜勤の費用\",\"人的資源・安全\\n交代要員と休息\",\"社会環境・情報\\n騒音と規制の周知\"]。構図指定:{\"type\":\"diagram\",\"diagram\":\"influence\",\"source\":\"content/site/pe-comprehensive-management/keyword-2026/img/figure-five-management-learning.svg\",\"section\":\"技術士 総合技術監理部門｜5管理と判断\",\"note\":\"仮例｜昼間交通への利点と、他の管理への負担をつなぐ\"}。語り:夜間集中案は昼間の規制を減らせる一方、照明や夜勤の費用が増える条件とします。人員と休息の確保、作業時の安全、夜間騒音への対応、規制情報の周知も必要です。一つの施策から、他の管理への影響をたどります。。five-managementは中央同じ業務から経済性/人的資源/情報/安全/社会環境の5管理へ等価な枝、異なる管理を同一視しない。mappingは左の条件→右の内容。influenceは上の夜間集中から3つの影響枝へ。compareはA夜間集中/B昼間分割を等しい2列で比較し両者間に順序矢印は描かない。あくまでこの場面の構図のみ。道路補修は仮例と表示。具体機械や作業員は足さず図形・簡略アイコンと関係を主役に。文章を全文詰め込まない。全文字と図形は画面上73%以内、下27%を字幕用の白地に必ず空ける。外周6%安全域、360pxで読める大きい文字。指定以外の数字・条件を加えない。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-comprehensive-management/gokanri-tradeoff/work/cover-source.59dcf259.png",
+                "sha256": "59dcf259de7dcb6990358ae1f3628e934ef8f7dde3419e31038fdae736519080"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/gokanri-tradeoff/work/trend-source.184e83d0.png",
+              "sha256": "184e83d0022252ed73800b49c35002b374f3b5bf835bda0f4c4713f9ef1c0101"
+            },
+            "generatedAt": "2026-10-22T09:19:50.556Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/gokanri-tradeoff/work/trend-diagram.350c9eb8.png",
+            "sha256": "350c9eb84a20208379553ff1013046023649aa25e8402e1416f110f930bf3c07",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "184e83d0022252ed73800b49c35002b374f3b5bf835bda0f4c4713f9ef1c0101"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-22T09:41:38.800Z",
+            "by": "Codex",
+            "views": [
+              "original",
+              "width-360",
+              "final-mp4-cue-frames"
+            ],
+            "checks": [
+              "台本と図解の意味・文字",
+              "字幕との重なり・表示領域",
+              "装飾人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "symmetry",
+          "inputSha256": "f58f2016e6bfd007ec682def630a432ccb83642b1761140ddc7e12082858f719",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "総監学習動画の図解1場面、16:9 1920x1080相当。白地、緑灰、小黄色。参照表紙は色だけの参考、資格名・肩書き・人物・先生・装飾を反復しない。見出し「2案を、同じ観点で比べる」。表示する要点:[\"A 夜間集中\\n昼間規制を抑える\\n夜勤体制が必要\\n夜間騒音に配慮\",\"B 昼間分割\\n昼間規制が増える\\n昼間の体制で施工\\n夜間騒音を回避\"]。構図指定:{\"type\":\"compare\",\"section\":\"技術士 総合技術監理部門｜5管理と判断\",\"note\":\"仮例｜交通・人員・騒音を比較し、費用・工期の見積りで裏づける\"}。語り:昼間分割案は夜間騒音を避けられますが、昼間の規制日数と渋滞への負担が増えます。交通、人員、騒音、費用、工期を同じ観点で比べます。安全と費用が常に対立するとは限らず、情報共有で危険と手戻りを共に減らす工夫も考えます。。five-managementは中央同じ業務から経済性/人的資源/情報/安全/社会環境の5管理へ等価な枝、異なる管理を同一視しない。mappingは左の条件→右の内容。influenceは上の夜間集中から3つの影響枝へ。compareはA夜間集中/B昼間分割を等しい2列で比較し両者間に順序矢印は描かない。あくまでこの場面の構図のみ。道路補修は仮例と表示。具体機械や作業員は足さず図形・簡略アイコンと関係を主役に。文章を全文詰め込まない。全文字と図形は画面上73%以内、下27%を字幕用の白地に必ず空ける。外周6%安全域、360pxで読める大きい文字。指定以外の数字・条件を加えない。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-comprehensive-management/gokanri-tradeoff/work/cover-source.59dcf259.png",
+                "sha256": "59dcf259de7dcb6990358ae1f3628e934ef8f7dde3419e31038fdae736519080"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/gokanri-tradeoff/work/symmetry-source.0aeed918.png",
+              "sha256": "0aeed9182cea830596f55abd8612836b1d821b7e2d1e5e2616e893a840260c7f"
+            },
+            "generatedAt": "2026-10-22T09:19:50.821Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/gokanri-tradeoff/work/symmetry-diagram.932ce715.png",
+            "sha256": "932ce7150a5c0c71993ca549e57607cecb1bb020d36cfc45f822f68f7bd4fe8a",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "0aeed9182cea830596f55abd8612836b1d821b7e2d1e5e2616e893a840260c7f"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-22T09:41:38.800Z",
+            "by": "Codex",
+            "views": [
+              "original",
+              "width-360",
+              "final-mp4-cue-frames"
+            ],
+            "checks": [
+              "台本と図解の意味・文字",
+              "字幕との重なり・表示領域",
+              "装飾人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "resolve",
+          "inputSha256": "9a592e15c30de4ada844a4c9c2395867a66e9c17dae4925f17b73df8dec9aad0",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "総監学習動画の説明図1枚、16:9。白地に緑灰と小黄、人物/資格名/肩書き/先生なし。見出し「選択を分けた条件を、理由にする」。大きな文字の図要素:[\"必須条件を\\n満たす\",\"費用・工期を\\n確認する\",\"夜間騒音の\\n回避を重視\",\"B 昼間分割を\\n条件付き採用\"]。意味:両案の必須条件を確認し、昼間分割案も見積りと工程から予算・期限に収まるとします。住宅が近く、昼間規制を調整できるため、夜間騒音を避ける昼間分割案を選びます。交通条件が変われば選び直す、条件付きの判断です。。構図:{\"type\":\"steps\",\"section\":\"技術士 総合技術監理部門｜5管理と判断\",\"note\":\"仮例｜昼間規制を調整でき、予算と期限にも収まる場合の判断\"}。stepsは4段階を左から右へ、比較の案A/案Bの優劣とは混同しない。mappingは各条件から対応する監視・判断への3行対応図。focusは整理メモと教材案内だけ。今回場面に指定した構図を使い、他の構図を混ぜない。仮例を扱う場面には小さく「仮例」と表示。文章全文は載せず指定要素に簡潔化。設問により条件が変わる点を断定に変えない。必ず全図形文字の下端を高さの72%以内に収め、残り下28%は字幕用の白地。左右6%安全域。360px縮小でも主要文言が読める。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-comprehensive-management/gokanri-tradeoff/work/cover-source.59dcf259.png",
+                "sha256": "59dcf259de7dcb6990358ae1f3628e934ef8f7dde3419e31038fdae736519080"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/gokanri-tradeoff/work/resolve-source.026cbaf6.png",
+              "sha256": "026cbaf6332c995ef626305e2e26f4d9b78beef9b4badd6857766d186aff0114"
+            },
+            "generatedAt": "2026-10-22T09:19:51.101Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/gokanri-tradeoff/work/resolve-diagram.3aa8c853.png",
+            "sha256": "3aa8c853a91463d3d42391650b12e8b4f5da17e4d33821747451871927d1237f",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "026cbaf6332c995ef626305e2e26f4d9b78beef9b4badd6857766d186aff0114"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-22T09:41:38.800Z",
+            "by": "Codex",
+            "views": [
+              "original",
+              "width-360",
+              "final-mp4-cue-frames"
+            ],
+            "checks": [
+              "台本と図解の意味・文字",
+              "字幕との重なり・表示領域",
+              "装飾人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "closing",
+          "inputSha256": "4395a0aa1e7fce1273587b1fa1234bcc892e9ebb46f6256116276088f7f58864",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "総監学習動画の説明図1枚、16:9。白地に緑灰と小黄、人物/資格名/肩書き/先生なし。見出し「残ったリスクを、次の判断につなぐ」。大きな文字の図要素:[\"車列・通行状況 → 区間・規制時間を調整\",\"安全な通行が困難 → 作業を中断\",\"期限に遅れる見込み → 責任者へ報告・再検討\"]。意味:残る渋滞は交通担当が混雑時に確認し、事前に定めた管理値を超えたら区間や規制時間を調整します。安全な通行が難しければ作業を中断。工程担当は毎日の進捗を見て、遅れる見込みなら責任者へ報告し、工程と案を再検討します。。構図:{\"type\":\"mapping\",\"section\":\"技術士 総合技術監理部門｜5管理と判断\",\"note\":\"仮例｜交通担当は混雑時、工程担当は毎日確認。管理値は事前に設定\"}。stepsは4段階を左から右へ、比較の案A/案Bの優劣とは混同しない。mappingは各条件から対応する監視・判断への3行対応図。focusは整理メモと教材案内だけ。今回場面に指定した構図を使い、他の構図を混ぜない。仮例を扱う場面には小さく「仮例」と表示。文章全文は載せず指定要素に簡潔化。設問により条件が変わる点を断定に変えない。必ず全図形文字の下端を高さの72%以内に収め、残り下28%は字幕用の白地。左右6%安全域。360px縮小でも主要文言が読める。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-comprehensive-management/gokanri-tradeoff/work/cover-source.59dcf259.png",
+                "sha256": "59dcf259de7dcb6990358ae1f3628e934ef8f7dde3419e31038fdae736519080"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/gokanri-tradeoff/work/closing-source.87ef0a14.png",
+              "sha256": "87ef0a147cd2abb4546e42359757ff638f529ae479b23ab4ffa3404c7c2b705e"
+            },
+            "generatedAt": "2026-10-22T09:19:51.346Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/gokanri-tradeoff/work/closing-diagram.9c389c19.png",
+            "sha256": "9c389c193978dfc517c6a535aa2c44e67cda50039150965b96923581fce4bef9",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "87ef0a147cd2abb4546e42359757ff638f529ae479b23ab4ffa3404c7c2b705e"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-22T09:41:38.800Z",
+            "by": "Codex",
+            "views": [
+              "original",
+              "width-360",
+              "final-mp4-cue-frames"
+            ],
+            "checks": [
+              "台本と図解の意味・文字",
+              "字幕との重なり・表示領域",
+              "装飾人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "summary",
+          "inputSha256": "c9c01164969b0004a714b5f2245d701a8d76280f8a78723132bbe69770c62b4d",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像の下部の3行表『5管理との対応』を全て取り除き、4つの手順カードだけに簡潔化。横16:9、白地・緑灰・小黄色を保持。見出し『5管理を、判断の説明に変える』。左から順に4カード『条件と\\n相互影響』『複数案を\\n同じ観点で』『選んだ理由と\\n残る負担』『監視から\\n判断を更新』。各カード上に小さな1、2、3、4。隣のカードへ穏やかな黄色の矢印。カード内は既存のメモ/複数書類/チェック/監視循環の簡素な記号だけ。追加の表・説明文・肩書き・人物を一切入れない。すべての図と文字は上72%以内、下28%は字幕用の完全な白。左右6%安全域。360pxでも見出しと4項目が読める大きさ。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-comprehensive-management/gokanri-tradeoff/work/summary-diagram.642ccece.png",
+                "sha256": "642ccece6381867f8355863ba6e228fde011fb28a7a5c07bad5efdaa148dad17"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/gokanri-tradeoff/work/summary-reviewed-source.e4dfe2a1.png",
+              "sha256": "e4dfe2a160a5167c41d4e7a225dc3d0bb9773d744e0304fc1163f38d1e9b223b"
+            },
+            "generatedAt": "2026-10-22T10:02:48.084Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/gokanri-tradeoff/work/summary-reviewed.7e20fab4.png",
+            "sha256": "7e20fab442a29af54b984329f7c1e243071daf11c2da950ff668cef338b86ec6",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "e4dfe2a160a5167c41d4e7a225dc3d0bb9773d744e0304fc1163f38d1e9b223b"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-22T10:14:46.057Z",
+            "by": "Codex + independent ai-image-fidelity-auditor",
+            "views": [
+              "original",
+              "width-360",
+              "final-mp4-cue-frames"
+            ],
+            "checks": [
+              "台本と図解の意味・文字",
+              "字幕との重なり・表示領域",
+              "独立監査で指摘された構図・注記の修正"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "cta",
+          "inputSha256": "a678dc9c5addc914bb1bff268ad58607d09c9405d2e939d1df8407f1e2cbebed",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照を大幅に簡潔化。16:9の学習動画締め図、白地・緑灰・小黄色。見出し『一つの業務で、判断理由を整理する』を上部。既存の4手順・番号1〜4・手順矢印・『仮例』など全て除去。残す内容は独立した横並び2カードだけ。左はシンプルなメモ用紙アイコンと『比べた案と、選択を分けた条件』。右は本のアイコンと『5管理クロストレードオフ』『概要欄のマガジンへ』。左右カード間に順序や因果を示す矢印は不要。指定した見出し・3文言以外の文字は一切追加しない。人物・肩書き・資格名なし。全図と文字は画面上70%以内に収め、下30%は字幕用の完全な白。360px幅でも大きく読みやすく。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-comprehensive-management/gokanri-tradeoff/work/cta-diagram.75502bb3.png",
+                "sha256": "75502bb367ceee251a098f4094d80e97451444452b0d41519be6085a8e32db0d"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/gokanri-tradeoff/work/cta-reviewed-source.08c3ddd9.png",
+              "sha256": "08c3ddd99be1a48eef161581a7b6ca7db2ccbb914fd63684cfa3f927b132e657"
+            },
+            "generatedAt": "2026-10-22T10:02:48.174Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/gokanri-tradeoff/work/cta-reviewed.eee3d4e6.png",
+            "sha256": "eee3d4e6d3f9888a4a0209ddedc657a73e5ce30fa1a42c3a43dd544de6d086df",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "08c3ddd99be1a48eef161581a7b6ca7db2ccbb914fd63684cfa3f927b132e657"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-22T10:14:46.057Z",
+            "by": "Codex + independent ai-image-fidelity-auditor",
+            "views": [
+              "original",
+              "width-360",
+              "final-mp4-cue-frames"
+            ],
+            "checks": [
+              "台本と図解の意味・文字",
+              "字幕との重なり・表示領域",
+              "独立監査で指摘された構図・注記の修正"
+            ],
+            "continuousListening": "not-performed"
+          }
+        }
+      ],
+      "storage": {
+        "group": "content-media",
+        "sync": "not-run-user-instruction"
+      }
+    }
+  },
+  "activeBodyRevision": "body-diagram-reviewed-20261022"
 }

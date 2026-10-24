@@ -11,7 +11,7 @@
  * mp4 合成は Mac または GitHub Actions で同コマンドを完走させる（戦略 06 §5.3）。
  *
  * Usage:
- *   node scripts/render-longform.mjs --pack-dir content/sns/video-packs/{exam}/{slug} [--skip-tts] [--speaker 1]
+ *   node scripts/render-longform.mjs --pack-dir content/sns/video-packs/{exam}/{slug} [--skip-tts] [--speaker 1] [--loudnorm]
  *
  * 前提（mp4 まで作る場合）: VOICEVOX エンジン起動中、ffmpeg が PATH に存在
  */
@@ -46,6 +46,7 @@ const { values: args } = parseArgs({
     'skip-png': { type: 'boolean' },
     resume: { type: 'boolean' },
     'refresh-png': { type: 'boolean' },
+    loudnorm: { type: 'boolean' },
   },
 });
 
@@ -222,7 +223,7 @@ async function main() {
     mp4Path = join(outDir, 'video.mp4');
     console.log('\n[ffmpeg] 動画合成中...');
     // 総まとめ（compilation.json）は聞き流し用途なので音量を -16 LUFS へそろえる
-    await composeStaticSlidesVideo({ pngPaths, wavPaths, assPath, outPath: mp4Path, options: { loudnorm: existsSync(join(packDir, 'compilation.json')) } });
+    await composeStaticSlidesVideo({ pngPaths, wavPaths, assPath, outPath: mp4Path, options: { loudnorm: args.loudnorm || existsSync(join(packDir, 'compilation.json')) } });
     totalSec = await probeDuration(mp4Path);
     console.log(`  実尺 ${totalSec.toFixed(1)}s（設計尺 ${scenes.at(-1).end}s）`);
   }
@@ -236,6 +237,7 @@ async function main() {
     renderedAt: new Date().toISOString(),
     tts: !args['skip-tts'],
     speaker: args['skip-tts'] ? null : Number(args.speaker),
+    loudnorm: !args['skip-tts'] && Boolean(args.loudnorm || existsSync(join(packDir, 'compilation.json'))),
     subtitles: !args['skip-tts'],
     scenes: scenes.map((s, i) => ({
       sceneId: s.sceneId,

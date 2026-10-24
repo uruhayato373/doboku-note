@@ -1,0 +1,152 @@
+{
+  "schemaVersion": 1,
+  "publicationId": "pe-comprehensive-management/monbun-yomikata/youtube.longform.diagram-led",
+  "revisionOf": "pe-comprehensive-management/monbun-yomikata/youtube.longform",
+  "account": "youtube:main",
+  "format": "longform",
+  "title": "総監記述式｜問題文の要求事項を答案骨子へつなぐ",
+  "description": "総監記述式の問題文から「動詞・対象・項目数・条件」を拾い、要求事項と対応する答案骨子を作る学習手順を紹介します。\n\n道路の維持管理を題材とした独自の仮設問を使います。実際の試験問題や公式の答案様式・模範答案ではありません。問題文の要求を整理する動画であり、「三層構造」の原因・対策整理とは役割を分けています。\n\n▼ 記述式コアパック（収録内容・対象年度を確認してご利用ください）\nhttps://note.com/dobokunote/m/m6e7de5e4ea3d?utm_source=youtube&utm_medium=video&utm_campaign=monbun-yomikata&utm_content=longform\n\n制作に用いた既存教材\n土木ノートの総監記述式対策記事の問題文精読・答案構成の論点をもとに再構成。具体的な仮設問と整理手順は本動画用の学習例です。\n\n音声：VOICEVOX:青山龍星\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。",
+  "tags": [
+    "技術士",
+    "総合技術監理部門",
+    "記述式",
+    "試験対策"
+  ],
+  "media": {
+    "cover": {
+      "id": "pe-comprehensive-management/monbun-yomikata/work/candidate-cover",
+      "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/candidate-cover.1cc05650.png",
+      "sha256": "1cc0565013352d21b55ac4e5da8176bd16592cb6d3e2c8b2e6c368870d1bfd92"
+    },
+    "scene-001": {
+      "id": "pe-comprehensive-management/monbun-yomikata/work/candidate-scene-001",
+      "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/candidate-scene-001.1cc05650.png",
+      "sha256": "1cc0565013352d21b55ac4e5da8176bd16592cb6d3e2c8b2e6c368870d1bfd92"
+    },
+    "scene-002": {
+      "id": "pe-comprehensive-management/monbun-yomikata/work/candidate-scene-002",
+      "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/candidate-scene-002.90931dda.png",
+      "sha256": "90931dda44627dfeef9487611b9d38ae1b4f4a840de2772860beecd9b359691e"
+    },
+    "scene-003": {
+      "id": "pe-comprehensive-management/monbun-yomikata/work/candidate-scene-003",
+      "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/candidate-scene-003.3442feae.png",
+      "sha256": "3442feae00df36459d7121b1b902fb194be2401ca794f2151acbeb1c074dae47"
+    },
+    "scene-004": {
+      "id": "pe-comprehensive-management/monbun-yomikata/work/candidate-scene-004",
+      "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/candidate-scene-004.4c35ce78.png",
+      "sha256": "4c35ce78de501a92f35de1950e4997de225c369fb2bd04e97c40ced1de5029ae"
+    },
+    "scene-005": {
+      "id": "pe-comprehensive-management/monbun-yomikata/work/candidate-scene-005",
+      "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/candidate-scene-005.efb59912.png",
+      "sha256": "efb599125eccf240b964c26f7ff3394902b9426256ba54f8070d33f1b21f2ea1"
+    },
+    "scene-006": {
+      "id": "pe-comprehensive-management/monbun-yomikata/work/candidate-scene-006",
+      "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/candidate-scene-006.022c4e08.png",
+      "sha256": "022c4e08a624a052c1eb289902a29770baa0c679df42c94c47ae7fc53f465d99"
+    },
+    "scene-007": {
+      "id": "pe-comprehensive-management/monbun-yomikata/work/candidate-scene-007",
+      "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/candidate-scene-007.36236805.png",
+      "sha256": "362368059c50d140b604fcb5f603b4ce4c4721ad9cea0cd52022c3527db427f2"
+    },
+    "scene-008": {
+      "id": "pe-comprehensive-management/monbun-yomikata/work/candidate-scene-008",
+      "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/candidate-scene-008.a4d28173.png",
+      "sha256": "a4d28173d2540805aaefcc3bd733a5c81b1b3a0f18e16ee1cc9d21d4e0009063"
+    },
+    "scene-009": {
+      "id": "pe-comprehensive-management/monbun-yomikata/work/candidate-scene-009",
+      "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/candidate-scene-009.7b8a28ba.png",
+      "sha256": "7b8a28baedd5b2bb6fe5e12457d0662c3462fdbbc4935731753fbc26d0e987f1"
+    },
+    "scene-010": {
+      "id": "pe-comprehensive-management/monbun-yomikata/work/candidate-scene-010",
+      "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/candidate-scene-010.ebdac7be.png",
+      "sha256": "ebdac7bee44e1dd6799d8552f7a2cf14fbb303518ac085ca41636a4a17784b48"
+    },
+    "scene-011": {
+      "id": "pe-comprehensive-management/monbun-yomikata/work/candidate-scene-011",
+      "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/candidate-scene-011.aab1e031.png",
+      "sha256": "aab1e0319e4b7d2d73f8359fb6fad262b8da2f3c3c55b8260ad9ace1110a5a30"
+    },
+    "scene-012": {
+      "id": "pe-comprehensive-management/monbun-yomikata/work/candidate-scene-012",
+      "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/candidate-scene-012.4cbe00ec.png",
+      "sha256": "4cbe00ec6b7191ec995658bf357a05a513daf1f505b65069e544fad03d8f76b8"
+    },
+    "scene-013": {
+      "id": "pe-comprehensive-management/monbun-yomikata/work/candidate-scene-013",
+      "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/candidate-scene-013.abc1d3eb.png",
+      "sha256": "abc1d3eb5d27c7d6577f79d5200814f6067830cd66fc942d9a60378d4662b30b"
+    },
+    "scene-014": {
+      "id": "pe-comprehensive-management/monbun-yomikata/work/candidate-scene-014",
+      "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/candidate-scene-014.b0d51f52.png",
+      "sha256": "b0d51f5276a80cef22032b9e315938741f31583e0cd84f310bac881e60d9f42f"
+    },
+    "scene-015": {
+      "id": "pe-comprehensive-management/monbun-yomikata/work/candidate-scene-015",
+      "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/candidate-scene-015.f5f150ab.png",
+      "sha256": "f5f150abf2c1fab94b6d420c46f24a693bab8deeb908c524a4dd2c9465a72dcd"
+    },
+    "scene-016": {
+      "id": "pe-comprehensive-management/monbun-yomikata/work/candidate-scene-016",
+      "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/candidate-scene-016.b2f4f362.png",
+      "sha256": "b2f4f362b47b080401045747576cef52d9415fecf19ea7403f9751ceee96d3f7"
+    },
+    "scene-017": {
+      "id": "pe-comprehensive-management/monbun-yomikata/work/candidate-scene-017",
+      "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/candidate-scene-017.15f9dfc2.png",
+      "sha256": "15f9dfc2b8fd5e7fc8894ec577fc5b3eebbdaa2bfcb15b4dba44dfd909435f5c"
+    },
+    "scene-018": {
+      "id": "pe-comprehensive-management/monbun-yomikata/work/candidate-scene-018",
+      "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/candidate-scene-018.072c5077.png",
+      "sha256": "072c5077af06df0977ded097c050da57b7737ca8626994760b0375e8c454e5c9"
+    },
+    "scene-019": {
+      "id": "pe-comprehensive-management/monbun-yomikata/work/candidate-scene-019",
+      "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/candidate-scene-019.91ed3b55.png",
+      "sha256": "91ed3b5534a8f7b961e54d6dc35048aa8c737d7cda25019a10e25092adba4740"
+    },
+    "scene-020": {
+      "id": "pe-comprehensive-management/monbun-yomikata/work/candidate-scene-020",
+      "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/candidate-scene-020.8da602b0.png",
+      "sha256": "8da602b051fe7d55ef519743202703cd14783bcdff1a09c6aee49662791452cb"
+    },
+    "scene-021": {
+      "id": "pe-comprehensive-management/monbun-yomikata/work/candidate-scene-021",
+      "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/candidate-scene-021.89cafa87.png",
+      "sha256": "89cafa87bc98535fb2ae992ae0d8a9e8b2a786de9787f55a19b78211b9cc689f"
+    },
+    "scene-022": {
+      "id": "pe-comprehensive-management/monbun-yomikata/work/candidate-scene-022",
+      "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/candidate-scene-022.2d0b3715.png",
+      "sha256": "2d0b37155daa4ebf0431c4a5166fa74499d5f4ce8a51b6b75a982f45ad64289e"
+    },
+    "scene-023": {
+      "id": "pe-comprehensive-management/monbun-yomikata/work/candidate-scene-023",
+      "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/candidate-scene-023.7744b0ea.png",
+      "sha256": "7744b0ea81552a3f4d78e17c39a4bc1832e26ecfdcd24cb1ab23c47eba6e9c06"
+    },
+    "subtitles": {
+      "id": "pe-comprehensive-management/monbun-yomikata/work/candidate-subtitles",
+      "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/candidate-subtitles.a53c24c6.ass",
+      "sha256": "a53c24c64497e3a36ee5b5c7235f39ff001c865faaefccad58b85423d9898aa8"
+    },
+    "video": {
+      "id": "pe-comprehensive-management/monbun-yomikata/work/candidate-video",
+      "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/candidate-video.294bc787.mp4",
+      "sha256": "294bc787a3f4ac0068f896a92c4b112f079a8fc83e4a065a46a53d1e8a918e9f"
+    }
+  },
+  "copySource": "content/sns/video-packs/pe-comprehensive-management/monbun-yomikata/youtube.candidate-20261022.json#longform",
+  "localFile": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/candidate-video.294bc787.mp4",
+  "sha256": "294bc787a3f4ac0068f896a92c4b112f079a8fc83e4a065a46a53d1e8a918e9f",
+  "thumbnailLocalFile": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/candidate-cover.1cc05650.png",
+  "thumbnailSha256": "1cc0565013352d21b55ac4e5da8176bd16592cb6d3e2c8b2e6c368870d1bfd92"
+}

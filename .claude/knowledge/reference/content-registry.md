@@ -162,6 +162,10 @@ npm run media -- pull --work civil-construction-2/matome-2kyu-chokuzen
 
 候補を個別投稿用に準備する入口は `npm run registry -- prepare-youtube-revision --pub <元の公開ID> --variant <新版名>`。既定dry-runで全候補の実ファイルSHAを確認し、表示されたdigestを `--commit --expect <digest>` へ渡すと、別公開IDのdraft行と `youtube.revision-<新版名>.json` を作る。`revisionOf` で旧公開行を参照し、旧外部ID・旧承認・旧R2キーは複製しない。素材ID・パス・SHAを入力に固定し、R12で台帳との漂流を検出する。旧行・既存入力は上書きしない。予定は明示した未来の `--publish-at` のみ、Shortsは同作品の改訂版通常動画を `--related-to` に指定する。
 
+新版文面を別入力から指定する場合は `--copy <同作品内のJSON#fragment>` を付ける。作品ディレクトリ内の実パスだけを受け付け、参照元を新版入力の `copySource` に記録する。指定文面もdigestに含むため、dry-run後に文面を変えた場合は再検査が必要。旧公開行・旧入力は変更しない。
+
+既定では既存の改訂入力の不一致を拒否する。制作中の未承認draft入力を更新する場合だけ `--refresh-draft` を指定する（初回作成には使用不可）。公開行が予定draft行と完全一致することを条件とし、承認・外部情報・操作記録等の追加情報がある行は拒否する。更新前JSONをSHA付きhistoryファイルへ完全保存し、dry-runのdigestにも更新前入力SHAを含める。元の公開行・元の入力は変更しない。
+
 この準備入口はローカルの下書き作成だけで、承認・転送・投稿を行わない。`loadVideoState` は改訂行を旧投稿処理へ流さず、`publish-video-pack.cjs` はこの改訂入力には未対応。旧IDの上書きや、承認をコピーして既存経路へ通す方法は使わない。
 
 改訂版の個別投稿は `npm run registry -- publish-youtube-revision --pub <新公開ID> --phase upload|schedule|verify` を使う。既定は外部通信のないローカル検査で、作品・素材ID・実ファイルSHA・制作入力・承認・予定を照合する。`--commit --expect <digest>` でのみ既存のYouTube環境変数を使用する。`upload` は承認済みの現素材と5分以上先の予定を必要とし、非公開で投入する。`schedule` は処理完了（サイズ・尺・映像/音声stream）と表紙のAPI応答/読取を確認してから指定日時を予約し、実際の状態・日時の再読取後にだけ成功を保存する。Shortsは新版通常動画へのStudio関連先確認記録と、その動画がpublic/unlistedで視聴可能であることも必要。関連先の設定・確認自体はこのコマンドでは行わない。R2/Drive同期・承認生成・旧動画変更・自動配信再開は行わない。
