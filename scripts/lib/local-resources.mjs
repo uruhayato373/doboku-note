@@ -62,6 +62,11 @@ export function processInventory(root) {
   try { const rows = JSON.parse(r.stdout || '[]'); return { complete: Array.isArray(rows) && rows.length > 0, rows: Array.isArray(rows) ? rows : [] }; }
   catch { return { complete: false, rows: [], reason: 'invalid process inspection' }; }
 }
+// 復元で書く量（の 2 倍）と予約を足した空きが無いか。書かない（0 件）なら予約を割っていても止めない（DN-0818）
+export function restoreDiskShortfall({ freeBytes, restoreBytes, reserveBytes }) {
+  if (restoreBytes <= 0) return false;
+  return freeBytes < restoreBytes * 2 + reserveBytes;
+}
 export function warningsFor(snapshot, policy, previous) {
   const warnings = [];
   if (snapshot.machine.freeDiskBytes < policy.minFreeDiskGiB * GiB) warnings.push('low-disk');
