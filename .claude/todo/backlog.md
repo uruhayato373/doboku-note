@@ -21,6 +21,16 @@
 
 ## 🔴 高 — 重要度が高い
 
+### [DN-0829] Mac の週次レビューの自動実行が、.claude/ への書き込み権限と 600 秒のバックグラウンド待ちの打ち切りで完了しない
+タグ: [インフラ・計測] [領域:管理] [時期:2026-10] [種類:不具合] [起票:2026-10-24]
+
+**起点**: 2026-10-24 10:49 の Mac の週次レビューの再実行（`npm run weekly-review:install -- --run-now`）が 11:36 に `FAILED rc=1` で止まった。9 月の月次の補完・W42 窓の事業記録・トリアージ・検索改善 3 件は develop に入ったが、`docs/reviews/weekly/2026-W43-review.md` は専用 worktree に未コミットのまま、W44 の週間計画は書けなかった。原因は 2 つ（ログ `~/Library/Logs/doboku-note/weekly-review.log`）。
+1. ヘッドレスの Claude Code が `.claude/` 配下（`.claude/todo/weekly.md`）へ書けなかった。レビューの申し送りに「Write・Edit・Bash とも権限で止まった」とあり、計画の案は worktree の `.tmp/weekly-W44-draft.md` に残っている。`scripts/scheduled/weekly-review.sh` の `--allowedTools` と、`.claude/` の書き込み保護のどちらで止まったかを確かめる
+2. 公開画面の目視を任せたバックグラウンドの作業が終わる前に、「Background tasks still running after 600s; terminating」で本体が終了した。レビューは「公開画面の目視」の節が空のまま、未保存の変更が残って完了扱いにならなかった。`CLAUDE_CODE_PRINT_BG_WAIT_CEILING_MS` を設定するか、目視を待たずに済む段取りにする
+
+**完了条件**: 次の土曜の週次レビューの自動実行が rc=0 で終わり、その週のレビューと翌週の `.claude/todo/weekly.md` が develop に入っている。DN-0819（土曜のチェーン）の前提になる。
+
+
 ### [DN-0819] （DN-0817 段1）土曜の週次レビューの前段に、ログインが要る読む収集・note 同期・GSC の登録リクエストを順につなぐ
 タグ: [インフラ・計測] [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-10-24]
 
