@@ -1347,6 +1347,44 @@
         "/practice/license-procedures",
         "/practice/license-requirements"
       ]
+    },
+    {
+      "runId": "2026-10-24T01-30-07Z",
+      "collectedAt": "2026-10-24T01:30:07.177Z",
+      "mode": "commit",
+      "status": "ok",
+      "filter": {
+        "category": null,
+        "group": null
+      },
+      "inspected": 10,
+      "accepted": 10,
+      "alreadyIndexed": 0,
+      "unreadable": 0,
+      "slugs": [
+        "/practice/development-permit-public-facilities",
+        "/practice/explaining-to-residents-and-council",
+        "/practice/land-acquisition-compensation",
+        "/practice/municipal-civil-engineer-work",
+        "/practice/municipal-engineer-qualifications",
+        "/practice/municipal-gis",
+        "/practice/national-prefecture-municipal-roles",
+        "/practice/nature-oriented-river-works",
+        "/practice/open-geospatial-data",
+        "/practice/polymer-construction-materials"
+      ],
+      "acceptedSlugs": [
+        "/practice/development-permit-public-facilities",
+        "/practice/explaining-to-residents-and-council",
+        "/practice/land-acquisition-compensation",
+        "/practice/municipal-civil-engineer-work",
+        "/practice/municipal-engineer-qualifications",
+        "/practice/municipal-gis",
+        "/practice/national-prefecture-municipal-roles",
+        "/practice/nature-oriented-river-works",
+        "/practice/open-geospatial-data",
+        "/practice/polymer-construction-materials"
+      ]
     }
   ]
 }
