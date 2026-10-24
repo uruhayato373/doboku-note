@@ -8,6 +8,23 @@ title: 計測・検証事故の記録
 
 個別事例は時系列の逆順（新しい順）で追記する。各事例は「現象 / 根本原因 / 気づきの遅延理由（or 検出経緯）/ 適用した対策 / 教訓」を明記する。
 
+## 2026-10-24 — ログインが要る処理が Mac・CI・Windows に分かれ、毎週どこかが静かに壊れた（土曜の Mac 1 本へ集約）
+
+- 現象: 10/24 の週に Mac の launchd 4 本が失敗し、週次レビューの自動実行も完了しなかった。10/22 には CI の note 収集が、書き戻しの段で収集分を丸ごと落とした。ログイン系の失敗は Issue に出ても、どの経路が止まったのか（Mac・CI・Windows のどれ）が分からず、直しても別の経路が壊れた。
+- 根本原因:
+  1. **経路の分散**: ログインが要る処理が Mac の launchd（毎日 2・毎週 4）・CI（login-collectors・scheduled-publish・ops-write）・Windows のタスクに分かれ、同じ資格情報と暗号化 state を 3 か所が共有していた。CI の hosted runner はココナラが 403、KDP・X・Instagram が端末変更やボット確認で失効し、毎日のログイン維持は CI 用の state の書き出しも兼ねていたため、片方が止まると連鎖した
+  2. **分類できない 1 件で収集全体が落ちた（10/22）**: 2 級の想定工事バンクの記事の初売上を、売上の転記が既存の商品に分類できず、CI の書き戻しが note の収集分をまとめて捨てた。1 件だけを「未分類」に回す作りになっていなかった
+  3. **定期実行の CI は main の YAML で動き、develop のスクリプトを呼ぶ**: develop でワークフローを消しても cron は止まらず、消えたスクリプトを呼んで落ちる
+  4. **ヘッドレスの `claude -p` は `.claude/` に書けない**: Claude Code 本体が「sensitive file」として拒否する（承認者がいない）。さらに print モードはバックグラウンドの待機を 600 秒で打ち切る（DN-0829）
+- 検出経緯: 10/24 の点検で Mac の 4 本の失敗と週次レビューの未完を確認し、原因を辿ると全体が「ログイン経路の分散」に行き着いた。個別の失敗を直す前に、経路そのものを数えて一本化することにした（運営者の決定・DN-0817）
+- 対策:
+  - ログインが要る取得と書き込みを、運営者の Mac の土曜の週次レビュー前後（`scripts/weekly-collect.mjs` の前段・後段）に集約。CI・Windows はログインしない。launchd の 4 本・Windows のタスク・CI のログイン系ワークフロー・暗号化 state・`DOBOKU_AUTH_*` Secrets を廃止
+  - 定期実行の CI を止めるときは、ファイルの削除より先に `gh workflow disable` で止める（main の YAML が残る間は cron が走る）
+  - ヘッドレスの Claude は `.tmp/claude-out/` に書かせ、終了後に `scripts/apply-claude-out.mjs` が許可リスト（`.claude/todo/weekly.md` など）だけを `.claude/` へ写す。バックグラウンド待機は無期限にせず上限を明示し、プロンプトで背景エージェントを禁じる
+  - 自動化の台帳 `config/automations.json` を 1 本に統一し、`npm run check-automations` で実物との一致を検査、管理画面 `/ops/automations` で土曜の収集結果とともに出す
+  - エージェントのセッション（`CLAUDECODE=1`）は収集 script を実行しない（resolver が `AUTH_AGENT_COLLECT_REFUSED`）。記録と最終取得日を読み、古ければ「未取得」と書く
+- 教訓: 同じ資格情報を使う処理が複数の実行場所に散ると、失敗の原因が経路の数だけ増え、直しても別の経路が壊れる。ログインが要る処理は 1 か所・週 1 回に寄せ、他は記録を読むだけにする。入力に分類できない 1 件が混ざっても、収集全体を捨てず、その 1 件だけを理由付きで未分類に残す。CI をやめるときは「ファイルを消す」と「cron が止まる」を別の操作として扱う
+
 ## 2026-10-22 — 古い記事の索引で、分類の週次の点検が要対応 36 件の偽の赤を出した
 
 - 現象: develop を pull した直後の主ツリーで `npm run check-taxonomy-wiring` が exit 1。公開記事 1430 本で集計し、テーマ所属なし 3・記事型のタグだけ 12・法令の節が出ない公開ハブ 21 を要対応に挙げた。`npm run refresh-indexes` の後は 1454 本・要対応 0 件
@@ -884,7 +901,7 @@ lab が恒常的に悪い理由自体は本物だった。Playwright + `Performa
 > [!note] 例外レーン: A8.net は「ローカル実行が正規手順」
 > このルールは **公開 API がある計測（GA4/GSC/PSI）** の話。A8.net は公開 API が無く、
 > `ads/scout-asp`（提携）・`ads/a8-report`（成果レポート）とも **Playwright + 人間ログインのローカル実行が
-> 唯一の正規手順**だった。2026-09-21 から定期取得は `login-collectors.yml`（encrypted-state・canary 卒業後） が担い、ローカルは canary 卒業前のフォールバックと申請（`affiliate-apply`）の主経路。放置防止は `check-a8-report-due` が
+> 唯一の正規手順**。2026-09-21〜2026-10-24 は定期取得を CI（`login-collectors.yml`）が担ったが廃止し、現在の定期取得は土曜の Mac 収集（a8 段）、申請（`affiliate-apply`）は運営者の依頼を受けたセッション。放置防止は `check-a8-report-due` が
 > 週次 PDCA へ surface する方式で担保する。「ローカルで外部を叩くのは常に誤り」と読まないこと。
 
 ### 教訓

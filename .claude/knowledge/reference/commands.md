@@ -104,13 +104,7 @@ npm run disk-hygiene:install  # macOS: launchd 日次掃除＋Git maintenance登
 npm run disk-hygiene:install:win # Windows: タスクスケジューラ日次掃除＋Git maintenance登録（12:30・逃した回は次回起動時。ログと stamp は ~/.local/state/doboku-note/logs/。AppData 配下にしないのは MSIX アプリからの読み書きが仮想化されるため）
 npm run auth:doctor           # Playwright auth root の診断（Windows は旧 %LOCALAPPDATA% と Codex(MSIX) サンドボックスの取り残しも警告）
 npm run auth:migrate          # 旧置き場のプロファイルを新 root へコピー（既定 dry-run・--commit。Cookie が最新の候補を選び、キャッシュは運ばない）
-npm run auth:keygen           # CI用age keypair生成。recipient未設定でのexportは拒否されるので先に実行する
-npm run auth:export           # ローカルstorageStateをage暗号化しprivate R2へ書き出す。recipient未設定だと拒否される
-npm run auth:ci-restore       # CI専用。暗号化stateを復元。authenticated以外はexit 2でリトライしない（人の再ログイン待ち）
-npm run auth:ci-writeback     # CI専用。更新後のstorageStateをCAS（etag/generation）で書き戻す
-npm run auth:ci-plan          # ops-writeのwrite planを作りDOBOKU_CI_WRITE_PLAN_SHA256を計算する
-npm run auth:refresh          # A8/もしも/KDP/note/ココナラのログイン維持（Mac・Windows）。stats47 の共用 state（~/.local/share/asp-sessions）を取り込み、切れていれば OS の資格情報ストア（キーチェーン／資格情報マネージャー）で 1 回だけログイン。`--export`・`--dispatch-due`（Mac のみ。定期収集が 24h 以内なら直後に起動）。`--no-login` は取り込みと status だけ。失敗印 metadata/<service>.autologin-failed を消すまで再試行しない
-npm run auth-refresh:install  # 上を Mac は launchd（毎日 17:45＝stats47 の 17:30 直後・ログイン時。登録直後にも 1 回走る）、Windows はタスクスケジューラ（毎日 17:45・本体 checkout から登録・worktree からは拒否）に登録。`-- --status` / `-- --run-now` / `-- --uninstall`
+npm run auth:refresh          # A8/もしも/KDP/note/ココナラのログイン維持。土曜の収集（weekly-collect の auth 段）が呼ぶ。stats47 の共用 state（~/.local/share/asp-sessions）を取り込み、切れていれば OS の資格情報ストア（キーチェーン／資格情報マネージャー）で 1 回だけログイン。`--no-login` は取り込みと status だけ。失敗印 metadata/<service>.autologin-failed を消すまで再試行しない。Claude Code の中（CLAUDECODE=1）では `agent_skipped`
 npm run check-content-taxonomy # 分類語彙（領域×資格×記事型×テーマ×タグ）の整合。group が許可外・未登録タグ・テーマの軸／状態が語彙外・行き先の無い主題タグ（どのテーマにも属さず noTopic も無い）は赤、別名綴り・構造タグ不整合・テーマ所属漏れ・記事型のタグだけの記事は baseline ラチェット（`:ci`。`--staged` はこの 2 つも赤）、topic 三方向の 0 件と昇格基準×status の食い違いは WARN。規則は content-taxonomy.md・pre-commit --staged ＋ quality:audit
 npm run check-content-expansion # 全教材の論点→記事/図/SNS対応・未確認・原典待ち・成果物変更を検査（管理画面 /materials・週次/月次で確認）
 npm run check-content-expansion:linked # backlogIds を持つ論点に要作業・原典待ち・再確認が残れば exit 1（backlog の [検証:] 用・無印は常に緑）
@@ -149,7 +143,7 @@ npm run check-standards-page-images # 上の provenance 整合（catalog↔manif
 
 `npm run note-sync-plan` — 公開済み note 記事ごとの反映計画（本文・カバー・タグのどれが未反映か、止まっている理由と直し方）をオフラインで出す。`-- --json` は管理画面 `/content/note-sync` 用、`-- --out list.txt` は週次と同じ順（本文なし → 画像なしの本文 → 画像ありの本文）で反映待ちを書き出す。判定の実装は `scripts/lib/note-sync-plan.mjs`（週次・CI・管理画面で共通）。
 
-`npm run check-note-sync` — 上の計画に note の公開 API で読んだ今のカバー（消えた・別の画像になった）とマガジンのカバーを足し、全部反映済みかを判定する（読み取りだけ・約 900 回 API を読むので 5〜8 分）。exit 1＝反映待ちか止まっている記事あり／2＝検査不成立。CI の `note-sync-live.yml` が週次で回す。
+`npm run check-note-sync` — 上の計画に note の公開 API で読んだ今のカバー（消えた・別の画像になった）とマガジンのカバーを足し、全部反映済みかを判定する（読み取りだけ・約 900 回 API を読むので 5〜8 分）。exit 1＝反映待ちか止まっている記事あり／2＝検査不成立。土曜の収集の後段（`note-sync-check` 段）が回す。
 
 `npm run note-update-body -- --sync --list <file> --commit` — 記事単位の同期。記事ごとに未反映の部品（本文・カバー・タグ）だけを 1 回のエディタ操作で反映し「更新する」は 1 回。本文を触らない記事は有料境界・試し読みラインを動かさない。配布 PDF は貼り直す（手元に無ければ本文を触らず止まる）。止まっている記事（中断・会員特典の公開範囲未指定など）は飛ばす。部品を明示するなら `--parts cover,tags`。会員特典マガジン内の無料記事は frontmatter `memberTrial: bottom|lock` で公開範囲を決める。
 
@@ -168,13 +162,14 @@ npm run check-standards-page-images # 上の provenance 整合（catalog↔manif
 
 `npm run product:db -- --query "<SQL>"` — 正本・収録記録・販売ログから検索用 SQLite `.tmp/products.db`（生成物・Git 管理外・sql.js）を作って問い合わせる。`--check` は書き出さずに完走だけ確かめる
 
-`npm run note-sync:install` — Mac の既存launchdにnote同期を入れる（通常は日曜03:00。`--catch-up-until YYYY-MM-DD` 指定期限までは毎日03:00、期限後は日曜のみ処理）。永続bootstrapからorigin/developを使い、dirty/unpushed状態と二重実行を保護する。日次添付上限90に到達した分はdeferredとして翌日へ保留する。専用 worktree（`.claude/worktrees/note-sync`・lock 済み）で `scripts/note-sync-routine.mjs` が、反映計画の順に最大 200 記事を `note-update-body --sync` で 1 記事 1 回更新し（配布 PDF は Drive から取り寄せる）、マガジンのカバーも登録して、台帳・実行記録（`data/note/sync-log.json`）・R2・Drive を更新して develop へ push。`-- --status` / `-- --run-now` / `-- --uninstall`。前提は note にログイン済みのプロファイル。計画だけ見るなら `npm run note-sync-routine -- --dry-run`（どの checkout でも可）。試験直前に 1 資格だけ先に流すなら `bash scripts/scheduled/note-sync.sh --only 'content/note/1級・2級土木/1級土木/'`（専用 worktree で同じ手順・マガジンのカバーは触らない）。マガジンのカバーだけなら `--magazines-only`（記事は読まない）。マガジンは記事の連続失敗では止めず、止めるのはログイン切れだけ（account ゲートの exit 2 は同じ誌を 1 回だけやり直し、2 回続けて 2 のときだけ止める。DN-0568）。手で `note-update-body --list` を流さない（PDF 取り寄せ・台帳 push・二重起動の防止を通らない）。罠: 見た目を変えたら `note-cover-tokens.json` の `designVersion` を上げないとカバーは再登録されない。上げると全件が数週に分けて登録し直される。
+`npm run note-sync-routine` — note の記事単位の同期。土曜の収集の後段（`weekly-collect` の note-sync 段）が収集用 worktree（`.claude/worktrees/weekly-collect`）で回す。`scripts/note-sync-routine.mjs` が、反映計画の順に最大 200 記事を `note-update-body --sync` で 1 記事 1 回更新し（配布 PDF は Drive から取り寄せる）、マガジンのカバーも登録して、台帳・実行記録（`data/note/sync-log.json`）・R2・Drive を更新して develop へ push する。日次添付上限 90 に達した分は deferred として次回へ保留する。前提は note にログイン済みのプロファイル。計画だけ見るなら `npm run note-sync-routine -- --dry-run`（どの checkout でも可）。本番はブランチに乗った HEAD では拒否するので、運営者が端末で取り直すときは収集用 worktree で `node scripts/weekly-collect.mjs --only note-sync`。試験直前に 1 資格だけ先に流すなら収集用 worktree で `node scripts/note-sync-routine.mjs --only 'content/note/1級・2級土木/1級土木/'`（同じ手順・マガジンのカバーは触らない）。マガジンのカバーだけなら `--magazines-only`（記事は読まない）。マガジンは記事の連続失敗では止めず、止めるのはログイン切れだけ（account ゲートの exit 2 は同じ誌を 1 回だけやり直し、2 回続けて 2 のときだけ止める。DN-0568）。手で `note-update-body --list` を流さない（PDF 取り寄せ・台帳 push・二重起動の防止を通らない）。罠: 見た目を変えたら `note-cover-tokens.json` の `designVersion` を上げないとカバーは再登録されない。上げると全件が数週に分けて登録し直される。
 
 `npm run check-backlog-verify` — 時期到来・期日超過・時期未設定のカードの検証を実走する。将来開始のカードはIDと理由付きnot-dueとして対象外に記録し、対象／実走／対象外の数を照合する。timeout・認証不足は未検査として残し、全文ログと失敗テスト名を保存する。
 
 `npm run weekly-review:install` — Mac の launchd に土曜 9:30 の自動の週次レビューを入れる（`scripts/scheduled/weekly-review.sh`）。専用 worktree（`.claude/worktrees/weekly-review`・lock 済み）でヘッドレスの Claude Code が `/weekly-review` と `/plan-weekly` を回して develop へ push する。期日到来の `/monthly-review` も同じジョブから起動する。永続bootstrapからorigin/developのrunnerを起動する。本文・翌週計画・事業レビューとsnapshot・点検と振り分け・backlog実走の5種証跡が揃う場合だけ省略し、不足時は再実行。内側のtimeout/検査不成立も未完として Issue（channel: weekly-review-local）。`-- --status` / `-- --run-now` / `-- --uninstall`。前提は Claude Code と gh にログイン済み。判断待ちは聞けないのでレビューに `<!-- weekly-review:pending-questions -->` を残し、SessionStart が知らせる。Claude の前後に土曜の収集（下の `weekly-collect`）を回し、収集の失敗は別の Issue（channel: weekly-collect）。ヘッドレスの Claude は `.claude/` に書けないので `.tmp/claude-out/` に書かせ、終了後に `apply-claude-out` が写す。罠: `--run-now` は引数を渡せない（レビューが要らない回でも収集は前後とも回る）。
 `npm run weekly-collect` — ログインが要る取得と書き込みを 1 本ずつ順に回し、記録を develop へ push する（DN-0817）。段の表は `scripts/lib/weekly-collect-plan.mjs`（前: ログインの確認・A8・KDP・note のアクセスと売上・ココナラ・GSC／後: note のライブ照合・note の同期・反映の照合）。`-- --plan [--json]`（ブラウザを開かない計画）・`-- --phase pre|post`（土曜の weekly-review.sh が収集用 worktree `.claude/worktrees/weekly-collect` で呼ぶ）・`-- --only <段>`（運営者が端末で取り直す）。結果は `.claude/state/weekly-collect/runs.json`。罠: ブランチに乗った checkout では --plan 以外を拒否する。Claude Code の中（CLAUDECODE=1）では資格情報が読めないので、エージェントのセッションから回さない。
 `npm run check-weekly-collect` — 直近の土曜の収集（前・後）が合格で、台帳 `state.weekly-collect` の failDays 以内か（ops の日次点検）。exit 1 は段の失敗・書き戻しの問題・期限切れ。
+`npm run check-automations` — 自動化の台帳 `config/automations.json` と `.github/workflows/*.yml`・`scripts/scheduled/*.plist.tmpl` の双方向の一致（schedule・ログインするサービス・writes/readers の実在）と、workflow が `DOBOKU_AUTH_` を使っていないことを検査する（quality-audit の ci:true）。対象数と実検査数を出す。管理画面 `/ops/automations` が同じ台帳を表示する。
 `node scripts/apply-claude-out.mjs` — ヘッドレスの Claude が `.tmp/claude-out/` に書いたファイルのうち、許可したもの（`.claude/todo/weekly.md`・`.claude/state/proofread-learnings/*.md`）だけを `.claude/` へ写す（`--dry-run`・`--commit`）。許可していないファイルがあれば写さず exit 1（DN-0829）。
 
 `npm run record-seo-build-summary -- <run.json>` — `check-seo-build --summary-out <run.json>` の 1 回分の結果を `data/analysis/seo-build-summary.json`（台帳 `analysis.seo-build-summary`）の日ごとの履歴へ足す。CI の `Publish SEO build summary`（ci.yml・develop の push のみ）が呼び、週次レビューの下書きが件数と前週比を出す。入力が壊れている・検査 0 件は exit 2（履歴に積まない）。罠: ローカルで回すと自分の out/ の結果が履歴に入るので、コミットしない。
@@ -182,7 +177,7 @@ npm run check-standards-page-images # 上の provenance 整合（catalog↔manif
 `npm run weekly-review:draft` — 週次レビューの機械で決まる節（資格別 KPI・ダイジェスト・未処分・実験の期限・点検と Issue・関門・検索候補・PSI・note 同期・X キュー・ココナラ・売上）を集めて `.claude/state/weekly-review/draft.json` に書く。`-- --print` は書かずに Markdown、`-- --check` は材料の有無だけ、`-- --week YYYY-Www` で週を指定。前週のダイジェストか自然検索が欠けたら exit 1（下書きは欠けを明記して書く）。CI は金曜 13:00 JST の `weekly-review-draft.yml`。罠: 窓（前週）が終わる前に回すと必ず欠けになる。
 
 ```bash
-npm run kdp-report        # Kindle 月次ロイヤリティを KDP レポートから取得→data/kdp/royalties.json（読み取り専用・当月/前月のみ。翌月 16 日より前に取った値は推計 estimated:true。定期取得は login-collectors.yml の毎週金曜 06:50（当月と確定前の前月・`--list-due` が決める）。手動は `gh workflow run login-collectors.yml --ref develop -f service=kdp [-f month=YYYY-MM]`）
+npm run kdp-report        # Kindle 月次ロイヤリティを KDP レポートから取得→data/kdp/royalties.json（読み取り専用・当月/前月のみ。翌月 16 日より前に取った値は推計 estimated:true。定期取得は土曜の収集の kdp 段（当月と確定前の前月・`--list-due` が決める）。運営者が取り直すときは収集用 worktree で `node scripts/weekly-collect.mjs --only kdp`）
 npm run kindle-preview -- --id <id[,id]>   # EPUB を 600×800 のページ画像に描画→.tmp/kindle-preview/<id>/（--status ready で一括）。管理画面 /content/kindle/<id> で表紙と並べて目視確認。Kindle 実機の描画とは近似。EPUB を作り直したら再生成（画面が「EPUB が更新されています」と出す）
 npm run check-kdp-report-freshness # KDPロイヤリティ台帳の期限とdoboku-note LIVE全冊（対象月末までに出版した本）のcatalog紐付けを検査（共有口座の他サイト書籍は除外。23日以降=前月確定（週次の取得が16〜22日に入る）、28日以降=当月推計。quality:auditのops区分が日次通知）
 npm run note-traffic-fetch # note ダッシュボード「アクセス状況」を read-only 取得→data/note/{referrers,articles-pv}/YYYY-MM.json（--month は今月/先月、--from YYYY-MM-DD --to YYYY-MM-DD は任意期間を note.traffic-period に直接取得・全記事の展開を確認・--commit で保存・--check は fixture で正規化の完走確認＝quality:audit ci・ログイン要・DN-0249）。流入元は自己閲覧を含み、サイト経由は PR #511 deploy 前は no referrer に含まれる
@@ -206,20 +201,17 @@ npm run check-kindle-prices   # Kindle の spec.price と catalog.priceJpy の�
 npm run fix-legacy-site-links # note 原稿の旧 https://doboku-note.com/docs/... を新 URL（/exam/...）へ張り替える（既定 dry-run・`-- --write` で書込み・UTM 保持・対応表は public/_redirects）。原稿を変えても note 上は変わらない＝再公開は note-update-body。content/sns は対象外（X の status.json は承認 hash を持つ）
 ```
 
-## CI 書き込み操作・予約投稿（ops-write・2026-09-21）
+## Instagram Graph API（使わない）
 
 ```bash
-npm run ops-write:plan -- --operation <id> --args '{"...":"..."}' # plan hash を計算し内容を表示するだけ（ブラウザ・書き込みなし・カタログは .claude/config/ci-write-operations.json）。hash確認後 gh workflow run ops-write.yml へ渡す。罠: 記事や引数を確認後に変更すると hash 不一致で exec が exit 2＝何もしない
-npm run ops-write -- exec --operation <id> --args '{...}' --plan-sha256 <hash> --commit # CI 専用（GITHUB_ACTIONS/CI env が無いと exit 2）。手元での動作確認には向かない
-npm run x-publish-scheduled -- --commit --json # 承認済みキューから期日到来分のXを投稿（scheduled-publish.yml の cron 専用実体）。罠: 頻度ゲート（x-frequency-gate.mjs 12規則）が判定不能なものは必ず block（投稿しない）側に倒す＝「なぜ投稿されないか」は counts/blocks を読む
-npm run ig-graph-publish -- --pack <pack> --format carousel --commit --json # Instagram Graph API で即時公開（**使わない**＝2026-09-23 ユーザー決定で Graph API を使わない。主経路は ops-write の instagram.publish-bs。予約不可・publish-ig-bs とは別経路）。env: IG_GRAPH_ACCESS_TOKEN / IG_BUSINESS_ACCOUNT_ID / IG_GRAPH_API_VERSION。罠: 投稿用メディアは public R2 に一時公開されるため stage-ig-media-r2 の --cleanup 実行を確認する（残すと公開URLが残置）
+npm run ig-graph-publish -- --pack <pack> --format carousel --commit --json # Instagram Graph API で即時公開（**使わない**＝2026-09-23 ユーザー決定で Graph API を使わない。主経路は publish-ig-bs（Business Suite）。予約不可・publish-ig-bs とは別経路）。env: IG_GRAPH_ACCESS_TOKEN / IG_BUSINESS_ACCOUNT_ID / IG_GRAPH_API_VERSION。罠: 投稿用メディアは public R2 に一時公開されるため stage-ig-media-r2 の --cleanup 実行を確認する（残すと公開URLが残置）
 npm run stage-ig-media-r2 -- --pack <pack> --format carousel --cleanup # ig-graph-publish が使う一時公開/削除の単体実行（--dry-run で URL 計算だけ）
 ```
 
 ## ココナラ
 
 ```bash
-npm run coconala-orders   # ココナラ受注＋購入前DMの実体を read-only 収集→orders-snapshot.json（Playwright・書き込みなし・定期取得は login-collectors.yml）
+npm run coconala-orders   # ココナラ受注＋購入前DMの実体を read-only 収集→orders-snapshot.json（Playwright・書き込みなし・定期取得は土曜の収集の coconala 段）
 npm run coconala-talkroom -- <talkroomId> # トークルーム1件のメッセージと添付（原寸・docx は本文 .txt も）を .tmp/coconala/talkrooms/{id}/ へ取得（Playwright・送信なし・開くと既読になる）。添付はホバーで出るボタンの download イベントから署名URLを受けて取得＝saveAs を使わない。exit 2=添付の取りこぼし
 npm run coconala-dm -- <dmId>        # DM 1件の全メッセージ（「過去のメッセージを読み込む」を増えなくなるまで展開）と添付を .tmp/coconala/dm/{id}/ へ取得（thread.txt・messages.json・attachments/）。Playwright・送信なし・開くと既読になる。DM の ID は orders-snapshot.json の inquiries[].dmId。添付はトークルームと違い .uploaded_files の通常リンク。exit 2=0件・展開しきれない・添付の取りこぼし
 npm run check-admin-ui-debt          # 管理画面ページの生 card クラス・インライン style の件数をページごとの基準値（.claude/config/admin-ui-debt-baseline.json）と比べ、増えたら exit 1（新規ページは 0 件）。減らしたら --update で基準値を下げる。部品は tools/admin-app/src/components/ui/*・layout.tsx（DN-0432）
@@ -228,8 +220,8 @@ npm run sync-shadcn-reference -- [name]  # shadcn/ui 公式（new-york-v4 regist
 npm run check-coconala-orders # 上記 snapshot ↔ orders.json をオフライン突合（記録漏れ・金額ズレ・返信期限〔48h自動キャンセル〕・DM要対応）
 npm run check-tensaku-reply -- <返信文> --source <提出原稿> --grade 1 # 添削・診断・作成の顧客返信文を送信前に検査（3000字・外部誘導・合格保証・下書き注記・書き換え例の（N字）表記と解答欄・原稿に無い工事の数値）。--source なしは exit 2（未検査を緑にしない）。意味の評価は civil-keiken-tensaku-qa
 npm run check-kosshi-sheet -- <骨子シート> --source <ヒアリングシート> # S3 指導の骨子シートを送信前に検査（「」引用と数値がヒアリングシートに実在・引用の外の地の文は1行60字以内で句点なし＝答案の文章を書かない・各テーマに（1）（2）の区画・1引用30字以内・外部誘導/合格保証/下書き注記）。exit 0/1/2（2=--source なし）。civil-keiken-tensaku-qa が mode=kosshi で実行
-npm run coconala-analytics # ココナラ分析画面（全体/サービス別/ブログ別）を read-only 収集→data/coconala/analytics.json（--append-kpi で kpi.json へ週次 upsert・定期取得は login-collectors.yml・Playwright・書き込みなし）
-npm run coconala-revenue  # ココナラの売上履歴（手数料控除後・クローズ日で計上）を read-only で読み data/coconala/revenue.json へ（行の合計が累積売上と一致しなければ書かない・購入者名とサービス名は残さない・定期取得は login-collectors.yml の coconala・`--dry-run`・`--headless`）
+npm run coconala-analytics # ココナラ分析画面（全体/サービス別/ブログ別）を read-only 収集→data/coconala/analytics.json（--append-kpi で kpi.json へ週次 upsert・定期取得は土曜の収集の coconala 段・Playwright・書き込みなし）
+npm run coconala-revenue  # ココナラの売上履歴（手数料控除後・クローズ日で計上）を read-only で読み data/coconala/revenue.json へ（行の合計が累積売上と一致しなければ書かない・購入者名とサービス名は残さない・定期取得は土曜の収集の coconala 段・`--dry-run`・`--headless`）
 npm run check-coconala-analytics # 上記の鮮度・欠測・マスク値（0000は0でない）・kpi.json 整合をオフライン検査
 npm run check-coconala-wiring # カタログ↔listings↔商品画像↔受注/KPI/売上の整合と、PDF の価格ルール（note 基準×1.1 以上）を検査（pre-commit --staged＋CI）
 npm run check-coconala-live # ココナラ公開ページ（ログイン不要の構造化データ）の価格・タイトル・キャッチ・本文・出品者・販売状態をカタログ／listings と、出品者プロフィールの職業・アピール・自己紹介文を coconala-account.json と突合（exit 1=食い違い・2=取得失敗が過半で検査不成立・日次 ops-audit）
@@ -256,17 +248,17 @@ npm run media -- verify-render --work <資格>/<作品> # 現行台本・採用�
 npm run check-content-registry # コンテンツ台帳の検査 R01〜R13（0 件・ID・予約以上の削除〔--base <ref>〕・参照・件数・Drive の sha・状態と承認ハッシュ・外部 ID・AI 素材の判定・別作品IDの通常動画の台本重複・完成動画/改訂入力の結線・YouTube の概要欄の VOICEVOX クレジット〔対象・照合・文面なしの行数を出す〕）。FAIL で exit 1
 npm run youtube-unschedule        # 台帳で scheduled の YouTube の公開予約を外す（private のまま・動画は消さない。既定は試運転・--apply で実行・認証は CI だけなので .github/workflows/youtube-unschedule.yml から）。台帳は registry -- unschedule で uploaded_private に戻す（2026-10-13・YouTube を一旦止めた）
 npm run check-registry-due     # 予約のまま公開の予定を猶予（config の reconcileGraceDays）より過ぎた公開を出す（ops・壁時計依存なので CI ゲートにしない）
-npm run check-video-publication # 公開済み派生物の実体照合が回っているか（未照合・記録の孤児・実査ドリフト。記録の古さ（V03）と実査のドリフト（V05）は `--freshness`＝quality-audit の ops が日次で見る・2026-10-11／DN-0791）。実査本体は verify-video-publication＝CI 週次(verify-yt-status.yml の verify-video-publication)で creds 必須・**対象0件は明示してPASS**・quality:audit に同梱
+npm run check-video-publication # 公開済み派生物の実体照合が回っているか（未照合・記録の孤児・実査ドリフト。記録の古さ（V03）と実査のドリフト（V05）は `--freshness`＝quality-audit の ops が日次で見る・2026-10-11／DN-0791）。実査本体は verify-video-publication＝CI 日次(registry-reconcile.yml の verify-video-publication・ずれは Issue channel registry-reconcile)で creds 必須・**対象0件は明示してPASS**・quality:audit に同梱
 npm run youtube-own-metrics   # 自社 YouTube の動画ごとの再生数・尺を一覧（yt-dlp）から取り data/youtube/own-videos/YYYY-MM-DD.json へ（月次・動画パックと型を videoId で照合・`--dry-run`）。視聴維持率・クリック率は取れない（Analytics が要る）。罠: 日本語表示の一覧は「万」の再生数を null にするので英語表示と結合している
 npm run scout-youtube-competitors # config/competitors.json の youtube の各チャンネルの通常動画（新しい順100本）の再生・尺・題名の語ごとの中央値を data/youtube/competitors/YYYY-MM-DD.json へ（四半期・前回比 drift・`--handle UC…` は .tmp/）。一覧だけ読み、動画の再生用 API と映像は触らない（クラウドの IP でロボット確認・403 になるため）
 npm run x-own-metrics     # 自投稿の反応（いいね/RT）を採取→型×時間帯×導線の表（data/x/own-posts/・**中央値で読む**。impressions/replies は CLI が返さず取得不可）
-npm run check-x-posted-live  # 投稿済み X の生存確認。posted_url を持つものだけログイン不要の oEmbed で照合（DN-0276・週次 link-audit.yml）。404=凍結/削除の疑い、posted_url が無い投稿済みの件数も出す（検査ゼロを PASS にしない）。posted_url は publish-x.ts が投稿直後にベストエフォートで書く
+npm run check-x-posted-live  # 投稿済み X の生存確認。posted_url を持つものだけログイン不要の oEmbed で照合（DN-0276・quality-audit の report 区分＝weekly-review-guard が週次で読む）。404=凍結/削除の疑い、posted_url が無い投稿済みの件数も出す（検査ゼロを PASS にしない）。posted_url は publish-x.ts が投稿直後にベストエフォートで書く
 ```
 
 ## Instagram・Cloudflare（CI 取得・freshness）
 
 ```bash
-npm run fetch-ig-insights          # Instagram Graph API で media+insights+SoT 照合を取得→data/instagram/insights/・.claude/state/ig-reconcile/snapshot.json（CI 週次 fetch-ig-insights.yml が実行。0 件取得は exit 2＝成果物を書かない）
+npm run fetch-ig-insights          # Instagram Graph API で media+insights+SoT 照合を取得→data/instagram/insights/・.claude/state/ig-reconcile/snapshot.json（手動のみ。Meta 利用制限で Graph API は使えず、定期実行の workflow は無い。0 件取得は exit 2＝成果物を書かない）
 npm run ig-graph-token             # IG_GRAPH_ACCESS_TOKEN のローテ（長期トークン発行→ローカルで `gh secret set` へ手動投入。ローカル専用・秘密値を出力しない）
 npm run fetch-cloudflare-analytics # Cloudflare GraphQL Analytics でゾーン別日次集計を取得→data/cloudflare/zone/（CI 日次 cloudflare-metrics.yml。0 件は exit 2）
 npm run fetch-cloudflare-zone-config # Cloudflare ゾーン設定（キャッシュ/圧縮/WAF/Bot Management）を取得しドリフト検知→.claude/state/cloudflare/zone-config-latest.json（CI 月次 cloudflare-config-audit.yml。**ドリフト採用は `--accept-baseline` を人が確認してから**）
@@ -274,7 +266,7 @@ npm run check-ig-insights-freshness # IG 週次取得の停止とトークン失
 npm run check-cloudflare-metrics-freshness # Cloudflare 日次/月次取得の停止を検知（quality-audit の ops 区分・zone snapshot 3 日超／config 10 日超で FAIL）
 npm run fetch-afb-outcomes         # afb 公式 conversion API で成果（pending/approved/rejected・報酬額）を取得→data/afb/outcomes/（日付別の最新）（`--commit` 必須で書き込み・CI 週次 fetch-metrics.yml。AFB_API_KEY 必須・提携状態スキャンとは別系統）
 npm run check-afb-outcomes-freshness # afb 成果取得の停止を検知（quality-audit の ops 区分・10 日超で FAIL）
-npm run check-note-sync-freshness # Mac の launchd note-sync の停止を検知（data/note/sync-log.json の最新 startedAt・台帳 note.sync-log の freshness 8 日超で FAIL・quality-audit の ops 区分）
+npm run check-note-sync-freshness # 土曜の収集の note-sync 段の停止を検知（data/note/sync-log.json の最新 startedAt・台帳 note.sync-log の freshness 8 日超で FAIL・quality-audit の ops 区分）
 ```
 
 ## 計測・GSC・GA4・期日
@@ -294,8 +286,6 @@ npm run gsc-indexing:priority  # 最新 URL 検査 batch × GSC page 実績か�
 npm run check-gsc-indexing-due # 表示実績のある未登録が残っているのに 7 日以上リクエスト無しなら DUE（weekly-review-guard が surface・常に exit 0）
 npm run gsc-sitemaps          # 本番 robots.txt の Sitemap 行（sitemap.xml・期限内の sitemap-legacy.xml）を Search Console API で送信（`-- --submit`・要サービスアカウントの「フル」権限）し、読み込み状況を data/gsc/sitemaps.json へ（fetch-metrics.yml が週次で実行・ログイン不要）
 npm run check-gsc-sitemaps    # sitemaps-latest.json を見て、記録が古い・GSC 未登録・送信失敗・エラー・14 日以上未読み込みなら DUE（weekly-review-guard が surface・常に exit 0）
-npm run gsc-local:install     # Mac の launchd に GSC のブラウザ作業を登録（毎日 10:30・寝ていた日は起床時に 1 回）: 順位表の先頭から登録リクエスト 10 件＋月次の理由別 UI CSV を、専用 worktree（.claude/worktrees/gsc-local・lock 済み）で回して台帳を develop へ push。`-- --status` / `-- --run-now` / `-- --uninstall`。前提は npm run google-console:login 済み。人の checkout で scripts/gsc-local-routine.mjs を直接叩かない（ブランチに乗った HEAD では拒否する）
-npm run coconala-local:install # Mac の launchd にココナラの read-only 取得を登録（毎週火曜 05:15・寝ていた日は起床時に 1 回）: coconala-orders・coconala-analytics --append-kpi・coconala-revenue を専用 worktree で回し、台帳を develop へ push。CI（hosted runner）からのココナラは 403 で取れない（2026-10-11）。`--status`・`--run-now`・`--uninstall`。ログ ~/Library/Logs/doboku-note/coconala-local.log
 npm run indexnow:submit        # sitemap の lastmod が直近 7 日の URL を IndexNow（Bing 等・Google 非対応）へ通知。CI は deploy 成功後に自動（indexnow-submit.yml）。`-- --dry-run` で対象だけ。会社 PC は Node fetch がプロキシを通らず exit 2
 npm run check-experiment-due   # 実験台帳の再計測/close/decide 期限と要人手（pending_user_actions）を surface（計測→記録→改善→再計測の最後の輪。2026-09-19 に旧 check-experiments-due を統合＝判定は scripts/lib/experiment-due.mjs が唯一。`-- --json` で issues も出す）
 npm run check-jst-date    # 運用記録の日付が UTC・実行環境のタイムゾーン（getFullYear/getMonth/getDate）・+9 時間の自前計算で出ていないか（scripts・.claude・tools を走査。JST の日付は scripts/lib/jst-date.mjs の todayJst・jstMonth・jstDayOf・jstClock だけ。JST 09:00 前の実行事故・pre-commit 同梱）

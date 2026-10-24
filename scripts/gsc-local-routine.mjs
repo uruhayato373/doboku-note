@@ -1,15 +1,15 @@
 #!/usr/bin/env node
 /**
- * gsc-local-routine.mjs — Mac の launchd（com.doboku-note.gsc-local）が毎日 1 回回す GSC のブラウザ作業
+ * gsc-local-routine.mjs — 土曜の Mac の収集（weekly-collect の gsc 段）が週 1 回回す GSC のブラウザ作業（2026-10-24 まで毎日の launchd gsc-local）
  * ---------------------------------------------------------------------------
- * なぜ Mac の launchd か（2026-09-24 ユーザー判断）:
+ * なぜ Mac か（2026-09-24 ユーザー判断）:
  *   - 登録リクエストと理由別 UI CSV は API が無く、Google にログインしたブラウザでしか取れない
  *   - GitHub hosted runner で認証を復元すると Google が Mac 側まで全面失効させる（2026-09-21 実測）
  *   - self-hosted runner は公開リポジトリだと fork の PR に Mac 上でコードを実行されうる
  *   → 普段の Chrome のログイン（OS 標準 auth root の google プロファイル）を持つ Mac 自身で動かす。
  *   API で済む処理（sitemap 送信・URL 検査・検索成績）はクラウド CI（fetch-metrics / index-coverage）の担当。
  *
- * 1 回の実行でやること（scripts/scheduled/gsc-local.sh が専用 worktree＝最新の develop で呼ぶ）:
+ * 1 回の実行でやること（scripts/weekly-collect.mjs が収集用 worktree＝最新の develop で呼ぶ）:
  *   1. 登録リクエスト: 順位表 priority-latest.txt の先頭から 10 件（--stop-at-limit・14 日以内の送信済みは
  *      gsc-request-indexing.mjs が除外）。前回の送信から 20 時間以内なら送らない
  *   2. 理由別 UI CSV（月次）: check-gsc-ui-due が DUE のときだけ fetch → normalize → check-google-ui-ssot
@@ -63,7 +63,7 @@ function notify(message) {
 
 // 専用 worktree（detached HEAD）以外で送信・commit しない。人の作業ブランチに台帳 commit を混ぜない。
 if (!DRY && onBranch()) {
-  console.error(`${TAG} ✗ ブランチに乗った checkout では動かさない（今いるブランチに commit してしまう）。launchd（npm run gsc-local:install -- --run-now）から動かすか --dry-run で試す。`);
+  console.error(`${TAG} ✗ ブランチに乗った checkout では動かさない（今いるブランチに commit してしまう）。収集用 worktree で \`node scripts/weekly-collect.mjs --only gsc\` を回すか --dry-run で試す。`);
   process.exit(2);
 }
 

@@ -100,7 +100,7 @@ title: .claude/knowledge/reference/ 索引
 
 | 参照先 | 内容 | いつ読むか |
 |---|---|---|
-| [docs/operations/gsc-ga4-playwright-automation-spec.md](../../../docs/operations/gsc-ga4-playwright-automation-spec.md) | GSC/GA4 Playwright UI CSV 取得＋既存 API 突合＋URL 分類の実装指示書（真実源）。`/google-search-growth`（`gsc-browser-collector`/`gsc-csv-auditor`/`seo-fix-planner`）・`scripts/{google-console-login,fetch-gsc-ui-csv,fetch-ga4-ui-csv,normalize-google-console-csv,report-search-growth}.mjs`・設定 `config/google-console-automation.json`。ローカル専用・approval gate・自動変更は内部リンク旧 URL 修正のみ | GSC UI CSV を Playwright で取得・正規化・突合して修正計画を作るとき／`/google-search-growth` 系を改修するとき |
+| [docs/operations/gsc-ga4-playwright-automation-spec.md](../../../docs/operations/gsc-ga4-playwright-automation-spec.md) | GSC/GA4 Playwright UI CSV 取得＋既存 API 突合＋URL 分類の実装指示書（真実源）。`/google-search-growth`（`gsc-csv-auditor`/`seo-fix-planner`）・`scripts/{google-console-login,fetch-gsc-ui-csv,fetch-ga4-ui-csv,normalize-google-console-csv,report-search-growth}.mjs`・設定 `config/google-console-automation.json`。ローカル専用・approval gate・自動変更は内部リンク旧 URL 修正のみ | GSC UI CSV を Playwright で取得・正規化・突合して修正計画を作るとき／`/google-search-growth` 系を改修するとき |
 | [docs/design/callout-gallery.md](../../../docs/design/callout-gallery.md) | Callout 12 種の視覚ギャラリー（PNG スクショ + MDX 用例）。GitHub 画面で視覚確認可能 | MDX で `<Callout type="...">` を選ぶとき |
 | [docs/design/speclist-gallery.md](../../../docs/design/speclist-gallery.md) | SpecSheetList 5 バリエーションの視覚ギャラリー（ordered / unordered × dot/dash/square） | MDX で `<SpecSheetList>` を選ぶとき |
 | [src/components/ui/Callout/README.md](../../../src/components/ui/Callout/README.md) | Callout コンポーネント直下リファレンス（12 種一覧表・デザイン仕様・旧 type 移行表） | Callout を実装・改修・MDX で使うとき |

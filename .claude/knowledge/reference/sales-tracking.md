@@ -117,7 +117,7 @@ npm run sales-summary -- 2026-06   # 指定月（位置引数。--month フラ�
 2. `npm run sales-summary -- YYYY-MM` と比較
 3. 差異があれば data/note/sales.json を確認・修正
 
-毎月5日以降、`check-sales-freshness` は前月の `note-traffic-fetch` 結果を要求し、月次売上表示と同月の sales.json 合計を照合する。月初4日までは前々月を対象にする。`updatedAt` が新しくても未取得・金額不一致ならFAILとし、販売明細の取りこぼしを緑にしない。販売履歴のパスワード再確認は資格情報で自動で通る（CI の login-collectors も毎週取得する）。通らなかったときは人がブラウザで通し、その後 `note-sales-fetch --commit` を再実行する。
+毎月5日以降、`check-sales-freshness` は前月の `note-traffic-fetch` 結果を要求し、月次売上表示と同月の sales.json 合計を照合する。月初4日までは前々月を対象にする。`updatedAt` が新しくても未取得・金額不一致ならFAILとし、販売明細の取りこぼしを緑にしない。販売履歴のパスワード再確認は資格情報で自動で通る（土曜の Mac 収集の note-sales 段が毎週取得する）。通らなかったときは人がブラウザで通し、その後 `note-sales-fetch --commit` を再実行する。
 
 ### 4. 商品別CTAとの期間効率
 
@@ -273,10 +273,10 @@ npm run check-kdp-report-freshness # 取得期限・全書籍行・catalog紐付
 | 突合 | 書籍は `scripts/kindle-published/catalog.json` の `title: subtitle` で `bookId` に紐づけ（副題ドリフト時は主タイトルで再照合） |
 | 期間 | 当月と前月のみ（KDP の日付入力は React が握り潰すためカレンダーのプリセットを使う）。それ以前の確定値は `/pmr` を目視 |
 
-**運用**: login-collectors.yml（kdp）が毎週金曜 06:50 に当月（推計）と、確定値が入るまでの前月を取り直す（取る月は `kdp-report --list-due`。KENP は翌月15日頃に確定）。
+**運用**: 土曜の Mac 収集（`weekly-collect` の kdp 段）が毎週、当月（推計）と確定値が入るまでの前月を取り直す（取る月は `kdp-report --list-due`。KENP は翌月15日頃に確定）。
 翌月16日より前に取った値は `estimated: true`、16日以降の取得は `estimated: false` で記録する（2026-10-11 から日付で判定）。取得できなかった項目は 0 埋めせず `null` で残す。
-手動で今すぐ取るときは `gh workflow run login-collectors.yml --ref develop -f service=kdp`（`-f month=YYYY-MM` でその月だけ）。
-ココナラの売上履歴（`data/coconala/revenue.json`）は Mac の launchd `coconala-local`（毎週火曜・`npm run coconala-local:install`）が取る（CI からは 403）。note の過去月は `gh workflow run login-collectors.yml --ref develop -f service=note -f month=YYYY-MM`。
+手動で今すぐ取るときは、運営者が収集用 worktree（`.claude/worktrees/weekly-collect`）の端末で `node scripts/weekly-collect.mjs --only kdp`。セッションからは取りに行かず、`data/kdp/royalties.json` とその最終取得日を読む。
+ココナラの売上履歴（`data/coconala/revenue.json`）は土曜の Mac 収集の coconala 段が取る（CI からは 403）。note の過去月は、運営者が収集用 worktree の端末で `node scripts/note-sales-fetch.mjs --month YYYY-MM --commit`。
 `check-kdp-report-freshness` は前月確定（23日以降）・当月推計（28日以降）の2期限に加え、共有KDP口座のうちdoboku-note catalogでLIVEの書籍（対象月末までに出版した本）が全冊取得・紐付けできることを確認する。
 他サイトの書籍行は `externalRows` として数えるが、doboku-noteの取得完全性の母数には入れない。
 `quality:audit --ops` と日次 `ops-audit.yml` が停止を通知し、復旧時に通知を閉じる。月次事業レビューは同じ台帳の

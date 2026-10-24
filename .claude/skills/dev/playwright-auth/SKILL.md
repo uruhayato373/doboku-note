@@ -20,8 +20,6 @@ domain: ops
 - `login <service>`: headed Chromeで人間がログイン
 - `status <service|--all>`: read-onlyページでaccount assert
 - `migrate <service> [--commit]`: 同一PCの旧profileをcopy。既定dry-run
-- `keygen`: CI用age keypairを生成する（identityはMacのauth root、recipientはregistryへ）
-- `export <service>`: authenticatedなローカルstorageStateをage暗号化しprivate R2へ書き出す
 
 ## 手順
 
@@ -38,7 +36,8 @@ domain: ops
 - lockを自動削除せず、processをkillしない。
 - login/statusは投稿・公開・購入・申請・download・uploadを行わない。
 - afbの別process statusは`unsupported`。GmailはPlaywright対象外。
-- CIで使うのは暗号化stateのみ。loginは常にローカル。exportはauthenticatedのときだけ送る。
+- CIはログインしない（resolverがAUTH_CI_NO_LOGINで拒否）。ログインが要る取得は土曜のMac収集（`weekly-collect`）だけが行う。
+- エージェントのセッション（`CLAUDECODE=1`）は収集用scriptのprofileを使えない。収集の記録と最終取得日を読む。取り直しは運営者が端末で`node scripts/weekly-collect.mjs --only <段>`。
 
 ## 参照
 

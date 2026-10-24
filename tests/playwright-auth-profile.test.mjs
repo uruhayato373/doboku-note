@@ -32,8 +32,8 @@ function makeTmpDir(prefix) {
 // テスト用の最小 registry を temporary directory に書き出し、そのディレクトリを cwd として使う。
 function writeFixtureRegistry(dir, servicesOverride) {
   const services = servicesOverride ?? {
-    note: { profileDirName: 'playwright-note-profile', stateFileName: null, loginUrl: 'https://example.com/login', checkUrl: 'https://example.com', accountConfigPath: null, sessionMode: 'profile', interactiveLoginRequired: true, ci: { mode: 'none', enabled: false, canary: false, operations: ['read'], cron: null, readOnlyScripts: [], writeScripts: [], stateDomains: [] }, notes: null },
-    a8: { profileDirName: 'playwright-a8-profile', stateFileName: 'playwright-a8-state.json', loginUrl: 'https://example.com/login', checkUrl: 'https://example.com', accountConfigPath: null, sessionMode: 'profile-plus-state', interactiveLoginRequired: true, ci: { mode: 'none', enabled: false, canary: false, operations: ['read'], cron: null, readOnlyScripts: [], writeScripts: [], stateDomains: [] }, notes: null },
+    note: { profileDirName: 'playwright-note-profile', stateFileName: null, loginUrl: 'https://example.com/login', checkUrl: 'https://example.com', accountConfigPath: null, sessionMode: 'profile', interactiveLoginRequired: true, collectors: [], writers: [], notes: null },
+    a8: { profileDirName: 'playwright-a8-profile', stateFileName: 'playwright-a8-state.json', loginUrl: 'https://example.com/login', checkUrl: 'https://example.com', accountConfigPath: null, sessionMode: 'profile-plus-state', interactiveLoginRequired: true, collectors: [], writers: [], notes: null },
   };
   const configDir = join(dir, '.claude', 'config');
   mkdirSync(configDir, { recursive: true });
@@ -137,20 +137,6 @@ test('安全な絶対パスは許可', () => {
   assert.equal(r.ok, true);
 });
 
-test('CI では明示 temporary root 以外を拒否', () => {
-  const somewhere = process.platform === 'win32' ? 'C:\\ci\\auth' : '/ci/auth';
-  const r = validateAuthRoot(somewhere, { isCI: true });
-  assert.equal(r.ok, false);
-  assert.equal(r.reason, 'AUTH_PROFILE_UNAVAILABLE_IN_CI');
-});
-
-test('CI でも明示された temporary root 配下は許可', () => {
-  const allowed = process.platform === 'win32' ? 'C:\\ci\\allowed' : '/ci/allowed';
-  const inside = join(allowed, 'sub');
-  const r = validateAuthRoot(inside, { isCI: true, allowTemporaryInCI: allowed });
-  assert.equal(r.ok, true);
-});
-
 // --- resolveAuthRoot（override 経路） ---------------------------------------
 
 test('DOBOKU_AUTH_ROOT override（絶対パス）が優先される', () => {
@@ -170,10 +156,14 @@ test('相対 override は例外', () => {
   );
 });
 
-test('override 無しかつ CI なら例外', () => {
+test('CI なら override の一時 root でも auth root を返さない（AUTH_CI_NO_LOGIN）', () => {
   assert.throws(
     () => resolveAuthRoot({ platform: 'linux', env: {}, homeDir: '/home/tester', isCI: true }),
-    /AUTH_PROFILE_UNAVAILABLE_IN_CI/,
+    /AUTH_CI_NO_LOGIN/,
+  );
+  assert.throws(
+    () => resolveAuthRoot({ overrideRoot: '/tmp/x-auth', platform: 'linux', env: { GITHUB_ACTIONS: 'true' }, homeDir: '/home/tester' }),
+    /AUTH_CI_NO_LOGIN/,
   );
 });
 
@@ -206,7 +196,7 @@ test('secret らしいキー（password）を含む registry は拒否', () => {
   const dir = makeTmpDir('doboku-auth-registry-secret-');
   try {
     writeFixtureRegistry(dir, {
-      note: { profileDirName: 'playwright-note-profile', stateFileName: null, loginUrl: 'https://example.com', checkUrl: 'https://example.com', accountConfigPath: null, sessionMode: 'profile', interactiveLoginRequired: true, ci: { mode: 'none', enabled: false, canary: false, operations: ['read'], cron: null, readOnlyScripts: [], writeScripts: [], stateDomains: [] }, notes: null, password: 'hunter2' },
+      note: { profileDirName: 'playwright-note-profile', stateFileName: null, loginUrl: 'https://example.com', checkUrl: 'https://example.com', accountConfigPath: null, sessionMode: 'profile', interactiveLoginRequired: true, collectors: [], writers: [], notes: null, password: 'hunter2' },
     });
     assert.throws(() => loadAuthRegistry({ cwd: dir }), /AUTH_REGISTRY_SECRET_LIKE_KEY/);
   } finally {
@@ -297,11 +287,11 @@ test('Phase 03の6サービスはprofile/state制約を同じauth rootで区別�
       overrideRoot: dir,
       homeDir: '/home/tester',
       isCI: false, // ローカル機を模す（GitHub Actions 上で npm test が走っても CI 自動検出で拒否されない）
+      env: {},
     };
     for (const service of ['x', 'instagram', 'google', 'a8', 'moshimo', 'afb']) {
       assert.equal(resolveProfileDir(service, options), join(dir, 'profiles', `playwright-${service === 'instagram' ? 'ig-bs' : service}-profile`));
     }
-    // registry v2（2026-09-21）: encrypted-state で CI へ持ち出すサービスは state を持つ（instagram も Meta 利用制限で Playwright 経路）。moshimo だけ mode:none。
     assert.equal(resolveStatePath('x', options), join(dir, 'states', 'playwright-x-state.json'));
     assert.equal(resolveStatePath('instagram', options), join(dir, 'states', 'playwright-ig-bs-state.json'));
     assert.equal(resolveStatePath('google', options), join(dir, 'states', 'playwright-google-state.json'));

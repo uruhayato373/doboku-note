@@ -2,8 +2,8 @@
  * credential-store.mjs — 自動ログイン用の ID / パスワードを OS の資格情報ストアから読む唯一の入口。
  *
  * Mac = キーチェーン（`security`）、Windows = 資格情報マネージャー（Win32 CredRead を PowerShell 5.1 から呼ぶ。
- * 追加モジュール不要）。CI などそれ以外の OS では常に null（CI はパスワードを持たず、暗号化 state だけを使う）。
- * 例外は readServiceCredential の ciEnvCredentialServices()（正本の ciCredential=true・note・ココナラ・GitHub Secrets）。
+ * 追加モジュール不要）。CI などそれ以外の OS では常に null（CI はログインしない。ログインを要る取得は
+ * 土曜の Mac 収集 weekly-collect だけ・DN-0817）。
  * 同じ項目名を両 OS で使うので、呼び出し側は OS を意識しない。stats47 の
  * `.claude/scripts/measurement/credential-store.mjs` と同じ読み口（項目名の接頭辞だけが違う）。
  *
@@ -91,7 +91,7 @@ function runWindowsCred(name, exec, probe) {
 
 /**
  * エージェント（Claude Code が実行するコマンドには CLAUDECODE=1 が付く）からの実行か。
- * 資格情報での入力はオーナー・定期実行・CI が行い、エージェントは走らせない（2026-10-01: エージェントが
+ * 資格情報での入力はオーナーと土曜の Mac 収集が行い、エージェントは走らせない（2026-10-01: エージェントが
  * note の再確認とココナラの自動ログインを走らせ、ココナラに失敗印を付けた）。
  */
 export function agentSession(env = process.env) {
@@ -103,7 +103,7 @@ let agentNoticeShown = false;
 /** 1 つの項目名を読む。登録なし・読めない・未対応 OS・エージェントからの実行はすべて null。 */
 export function readSecret(name, { platform = process.platform, exec = execFileSync, env = process.env } = {}) {
   if (agentSession(env)) {
-    if (!agentNoticeShown) console.error('[credential-store] エージェント（Claude Code）からの実行では資格情報ストアを読まない。資格情報での入力はオーナー・定期実行・CI が行う');
+    if (!agentNoticeShown) console.error('[credential-store] エージェント（Claude Code）からの実行では資格情報ストアを読まない。資格情報での入力はオーナーと土曜の Mac 収集が行う');
     agentNoticeShown = true;
     return null;
   }
@@ -144,37 +144,8 @@ export function loadCredentialRegistry(path = new URL('../../.claude/config/play
   return Object.entries(config.services).map(([id, svc]) => ({ id, ...svc.credential }));
 }
 
-/**
- * CI（GitHub Actions）で ID/PW を環境変数から読んでよい service（正本の credential.ciCredential=true）。
- * CI は原則パスワードを持たないが、note の売上ページは端末ごとのパスワード再確認があり暗号化 state だけでは
- * 通れない（2026-09-21 run 35606437507）。2026-10-01 オーナー決定で note・ココナラを Secrets に持たせた。
- * import 時には読まない（管理画面の Turbopack では import.meta.url が当てにならない）。
- */
-let ciServicesCache = null;
-/** @param {Array<{ id: string, ciCredential?: boolean }> | null} [registry] */
-export function ciEnvCredentialServices(registry = null) {
-  if (registry) return registry.filter((c) => c.ciCredential).map((c) => c.id);
-  ciServicesCache ??= Object.freeze(loadCredentialRegistry().filter((c) => c.ciCredential).map((c) => c.id));
-  return ciServicesCache;
-}
-
-export function ciEnvVarNames(service) {
-  const key = String(service).toUpperCase().replace(/[^A-Z0-9]/g, '_');
-  return { user: `DOBOKU_AUTH_${key}_USER`, password: `DOBOKU_AUTH_${key}_PASSWORD` };
-}
-
-/**
- * service の ID/PW を読む。GitHub Actions では許可 service だけ環境変数から、手元の PC では
- * 資格情報ストアの doboku-note-auth-<service> から読む。どちらも無ければ null。
- */
+/** service の ID/PW を手元の PC の資格情報ストア（doboku-note-auth-<service>）から読む。無ければ null。 */
 export function readServiceCredential(service, { env = process.env, platform = process.platform, exec = execFileSync } = {}) {
-  if (env.GITHUB_ACTIONS === 'true') {
-    if (!ciEnvCredentialServices().includes(service)) return null;
-    const names = ciEnvVarNames(service);
-    const user = env[names.user];
-    const password = env[names.password];
-    return user && password ? { user, password, source: `env:${names.password}` } : null;
-  }
   return readFirstCredential([`doboku-note-auth-${service}`], { platform, exec, env });
 }
 

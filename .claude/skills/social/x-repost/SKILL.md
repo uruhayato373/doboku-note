@@ -16,7 +16,7 @@ domain: sns
 
 > **戦略上の注意（必読）**
 > - **規約グレー**: X ToS は API 外の自動操作を禁止。低頻度・人間的間隔で検出リスクを下げているが、ゼロではない。運営アカウントは SNS 集客の中核資産であることを理解した上で運用する。
-> - **ローカル実行のみ**: X セッションは `<auth root>/profiles/playwright-x-profile/`（このMac内）にしかなく、datacenter IP はボット判定される。**クラウド cron 不可**。定期実行は `/loop` をローカルで回す。引用リポスト（curate/コメント生成を伴う書き込み）はカタログ外操作であり `ops-write.yml` の対象にもならない。CI 化済みなのは encrypted-state 経由の**予約投稿**（`scheduled-publish.yml`。頻度ゲート付き・真実源 `x-post-policy.md` §11.5.1）と読み取り（`login-collectors.yml`）だけで、本 curation フローとは別系統。
+> - **ローカル実行のみ**: X セッションは `<auth root>/profiles/playwright-x-profile/`（このMac内）にしかなく、datacenter IP はボット判定される。**クラウド cron 不可**。定期実行は `/loop` をローカルで回す。CI は X にログインしない（2026-10-24 に CI の X 投稿・読み取りを廃止）。discover（読み取り）も exec（引用投稿）も運営者の Mac の永続 profile で、運営者の依頼を受けたセッションだけが行う。切れていたら運営者が `npm run auth:login -- --service x` で入り直す。
 > - **完全自動 = コメント無検閲**: 引用コメントは人間の目を通さず投稿される。安全ゲートは curator と config.blocklist の二重。**初回は必ず `--dry-run`**。
 
 ## 構成
@@ -72,7 +72,7 @@ npx tsx .claude/skills/social/x-repost/x-repost-exec.ts --dry-run
 /loop 4h /x-repost
 ```
 
-- クラウド `/schedule`（RemoteTrigger）は使わない。定期実行は discover（読み取り）が `login-collectors.yml`（encrypted-state・canary 卒業後）、exec（引用投稿）は `scheduled-publish.yml` の頻度ゲート経路（Part C・canary 中）。
+- クラウド `/schedule`（RemoteTrigger）は使わない。定期実行は運営者の Mac で `/loop` を回す形だけ（CI の定期実行は無い）。
 - 1日2-3件運用なら 4〜6 時間間隔で十分（`config.maxPerRun=3`、exec 内でランダム待機 `minDelaySec`〜`maxDelaySec`）。
 
 ### 一時停止（キルスイッチ）

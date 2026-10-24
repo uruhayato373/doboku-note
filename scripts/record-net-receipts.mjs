@@ -2,7 +2,7 @@
 /**
  * record-net-receipts.mjs — 月の受取額（NSM・netReceipts）を 3 つの台帳から組み立てて事業の計測記録に書く（月次レビューの手順）。
  *
- * 台帳は週次の CI（login-collectors）が更新する。ここはブラウザを開かず、資格情報も使わない（2026-10-11 に台帳読みへ変更）。
+ * 台帳は土曜の Mac 収集（weekly-collect）が更新する。ここはブラウザを開かず、資格情報も使わない（2026-10-11 に台帳読みへ変更）。
  * - note: data/note/sales.json の月の net（売上管理の月別詳細の手数料控除後売上。note-sales-fetch が確定後に読む）
  * - ココナラ: data/coconala/revenue.json の売上履歴（手数料控除後・クローズ日で計上。coconala-revenue が読む）
  * - KDP: data/kdp/royalties.json の catalog 対象書籍（kdp-report。翌月 16 日以降に取った値だけ確定）

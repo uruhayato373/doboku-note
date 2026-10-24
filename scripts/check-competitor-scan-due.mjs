@@ -29,7 +29,8 @@ const PLATFORMS = {
   note: { dataset: 'note.competitors', automation: 'ci', review: 'competitor-scan.yml の失敗を確認。取得済みなら /competitor-review --platform note で意味分析' },
   coconala: { dataset: 'coconala.competitors', automation: 'ci', review: 'competitor-scan.yml の失敗を確認。取得済みなら /competitor-review --platform coconala で意味分析' },
   x: { dataset: 'x.competitors', review: '/competitor-review --platform x' },
-  ig: { dataset: 'instagram.competitors', automation: 'ci', review: 'competitor-scan.yml の失敗を確認。取得済みなら /competitor-review --platform ig で意味分析' },
+  // SNS 保留中（2026-10-17〜）は competitor-scan.yml の Instagram の段を外しているので期限で鳴らさない。再開時に paused を外す（DN-0817）
+  ig: { dataset: 'instagram.competitors', automation: 'ci', paused: 'SNS 保留中（2026-10-17〜）', review: 'competitor-scan.yml の失敗を確認。取得済みなら /competitor-review --platform ig で意味分析' },
   // YouTube は一覧（yt-dlp）を手元で取る。分析の文章は docs/marketing/07c（画面・尺・型）
   youtube: { dataset: 'youtube.competitors', review: 'npm run scout-youtube-competitors → docs/marketing/07c の再取得手順で前回と比べる' },
   // 資格ごとの混み具合（YouTube・note・ココナラの検索）。展開の判断（npm run qualification-market）が読む
@@ -60,8 +61,8 @@ const perPlatform = {};
 for (const [name, cfg] of Object.entries(platforms)) {
   const last = latestScanDate(cfg.dataset);
   const daysSince = last ? Math.floor((Date.now() - Date.parse(last + 'T00:00:00Z')) / 86400000) : null;
-  const due = last == null || daysSince >= thresholdOf(cfg.dataset);
-  perPlatform[name] = { lastScan: last, daysSince, due, automation: cfg.automation ?? 'manual', review: cfg.review };
+  const due = !cfg.paused && (last == null || daysSince >= thresholdOf(cfg.dataset));
+  perPlatform[name] = { lastScan: last, daysSince, due, paused: cfg.paused ?? null, automation: cfg.automation ?? 'manual', review: cfg.review };
 }
 
 const dueList = Object.entries(perPlatform).filter(([, v]) => v.due).map(([k]) => k);
@@ -78,7 +79,9 @@ if (WANT_JSON) {
   console.log(JSON.stringify(result, null, 2));
 } else {
   for (const [name, v] of Object.entries(perPlatform)) {
-    if (v.due) {
+    if (v.paused) {
+      console.log(`[競合再スキャン:${name}] 保留: ${v.paused}（前回 ${v.lastScan ?? 'なし'}）`);
+    } else if (v.due) {
       console.log(
         v.lastScan
           ? `[競合再スキャン:${name}] DUE: 前回 ${v.lastScan}（${v.daysSince}日前・しきい値${thresholdOf(platforms[name].dataset)}日）→ ${v.review}`

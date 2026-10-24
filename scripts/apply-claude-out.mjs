@@ -27,8 +27,12 @@ import { commitAndPush, onBranch } from './lib/routine-commit.mjs';
 
 const TAG = '[apply-claude-out]';
 export const OUT_DIR = '.tmp/claude-out';
-/** ヘッドレスの週次・月次レビューが書く .claude/ のファイル */
-export const ALLOWED = [/^\.claude\/todo\/weekly\.md$/, /^\.claude\/state\/proofread-learnings\/\d{4}-\d{2}-\d{2}\.md$/];
+/**
+ * ヘッドレスの週次・月次レビューが書く .claude/ のファイル。backlog は本文の書き換えのときだけ全体を写して直す
+ * （起票・完了・削除は todo:add・todo:complete・backlog-edit を使う。2026-10-24 の回は backlog の 3 件を直せなかった）。
+ * 写した後の commit は rebase するので、実行中に他の人が backlog を変えていれば衝突で止まり、黙って上書きしない。
+ */
+export const ALLOWED = [/^\.claude\/todo\/(weekly|backlog)\.md$/, /^\.claude\/state\/proofread-learnings\/\d{4}-\d{2}-\d{2}\.md$/];
 
 /** .tmp/claude-out/ の下の相対パスを、写すものと許可していないものに分ける（pure） */
 export function classify(relPaths) {

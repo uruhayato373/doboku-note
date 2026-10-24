@@ -42,7 +42,9 @@ const BROWSER_WAIT_MS = 60_000;
 const OUTPUT_TAIL = 8_000;
 // 記録の置き場（login-collectors の書き戻しと同じ範囲＋この収集の結果）
 const ADD_PATHS = 'data';
-const ADD_DATASETS = `state.note-attachments-missing,state.ig-reconcile,${RUNS_ID}`;
+// note の同期は自分で commit するが、時間切れで止まると再公開の照合ハッシュ・中断の記録が残り、後の commit の rebase を
+// 止めた（2026-10-24 の初回で後の段の結果が push できなかった）。止まったときも拾って保存する
+const ADD_DATASETS = `state.note-attachments-missing,state.ig-reconcile,state.note-republish-hashes,state.note-update-aborted,${RUNS_ID}`;
 
 const args = parseCliArgs({
   plan: { type: 'boolean' },

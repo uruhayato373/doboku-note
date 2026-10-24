@@ -70,7 +70,7 @@
 
 > **どちらの経路を使うか（優先度・障害時の扱い）**: 総監legacy Shortsは **経路B＝`per-problem-shorts.mjs`（YT 専用再描画）が正**。**経路A＝`yt-shorts-create --from-reels` はIG Reelsを先に作ったパックの補助**。一方、2026-09-05承認済みの1級・2級土木・コンクリートは、この2経路ではなく通常動画へ1:1接続する動画パック直結経路を使う。
 
-旧 Shorts は台帳（`content/registry/`・kind `legacy-short`・uploaded 13／retired 187）。2026-10-09 に旧台帳 `youtube-schedule.json` と旧スクリプトを消した。`post-youtube-scheduled.yml` の日次cronは2026-09-05に承認された1級・2級土木・コンクリートの動画パック専用で、総監legacyを対象にしない。
+旧 Shorts は台帳（`content/registry/`・kind `legacy-short`・uploaded 13／retired 187）。2026-10-09 に旧台帳 `youtube-schedule.json` と旧スクリプトを消した。`post-youtube-scheduled.yml` の日次cron（2026-09-05に承認された1級・2級土木・コンクリートの動画パック専用で、総監legacyを対象にしない）は 2026-10-24 に廃止した。
 
 > [!warning] 2026-06-17〜08-18 に 2 か月停止していた（2026-08-18 是正）
 > 日次 cron は 6/10〜6/16 に install の ERESOLVE で全滅し（PR #258 で解消）、6/17 は アップ 6 本に成功したが

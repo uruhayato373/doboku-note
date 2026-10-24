@@ -30,7 +30,7 @@ Google Search Console の継続管理（インデックス被覆・検索パフ�
 | ~~`doboku-note GSC auto review`~~ | クラウドルーティン（**退役 2026-08-06**） | 上記 CI が引き継ぎ自走を確認したため `enabled:false`。実行履歴が repo から見えないためクラウドは正にしない | — |
 | `/gsc-review` | Skill（月次・**手動**） | `gsc-auto-review.yml` の応急・深掘り・上書き用。CI データ確認 → gsc-index-auditor 起動 → 観測ログ追記 | — |
 | `/weekly-improve` | Skill（週次・**手動**） | 同上（performance 側）。metrics-analyzer 起動 | — |
-| `/google-search-growth` | Skill（月次。**取得と正規化は Mac の launchd `gsc-local` が `check-gsc-ui-due` の DUE で自動実行**・評価と承認はセッション） | GSC 理由別 **UI CSV**（API で取れない例 URL）を Playwright 取得 → 正規化 → URL Inspection/GSC page×query/GA4/sitemap/_redirects/生成HTML と突合 → 修正アクション分類（gsc-browser-collector/gsc-csv-auditor/seo-fix-planner）→ approval gate | ブラウザ → `gsc-ui/<run>/`（raw・gitignore）＋ **`gsc-ui/ssot/`（追跡 SSOT）** ＋ `improvements/search-growth-latest.md` |
+| `/google-search-growth` | Skill（月次。**取得と正規化は土曜の Mac 収集（`weekly-collect` の gsc 段）が `check-gsc-ui-due` の DUE で自動実行**・評価と承認はセッション） | GSC 理由別 **UI CSV**（API で取れない例 URL）を Playwright 取得 → 正規化 → URL Inspection/GSC page×query/GA4/sitemap/_redirects/生成HTML と突合 → 修正アクション分類（gsc-csv-auditor/seo-fix-planner）→ approval gate | ブラウザ → `gsc-ui/<run>/`（raw・gitignore）＋ **`gsc-ui/ssot/`（追跡 SSOT）** ＋ `improvements/search-growth-latest.md` |
 | `check-gsc-ui-due` | Script（surfacer） | 月次 UI 取得の期限催促。**日数だけでなく完全性も見る**＝`lastComplete` の年齢（30日）／`lastAttempt.complete !== true` のいずれかで DUE。gsc-ui（必須）と ga4-ui（任意）の 2 チャネル | committed `{gsc-ui,ga4-ui}/last-run.json` → weekly-review が DUE を surface |
 | `check-gsc-auto-review` | Script（surfacer・オフライン） | **記録層の沈黙検知**。観測ログの見出しを走査し「週次エントリが 8 日超前」「最新 inspection-batch が 8 日超未記録」を DUE 判定。走査 0 件は OK でなく「検査不能」。weekly-review-guard が実行し DUE なら Issue 起票 | `gsc-management.md` 見出し + batch 日付 → DUE 一覧 |
 | `check-coverage-thresholds` | Script（ゲート・CI） | 月次データ publish 直後の機械ゲート。**赤=無条件異常のみ**（inspected 0 / sitemap > 1,900 の上限到達 / ratio < 60%）。前月比 −5pt・discovered > 20%・hygiene > 0 は warning に留め `gsc-auto-review.yml` の判断へ回す | `data/gsc/index-coverage.json` → exit 0/1 |
@@ -39,8 +39,8 @@ Google Search Console の継続管理（インデックス被覆・検索パフ�
 | `check-ga4-dimensions` | Script（ゲート・オフライン） | desired state と最後の実機観測を突合。blocking なカスタムディメンション（`event_label`/`cta_placement`）が未登録なら exit 1 | inventory-latest → exit 0/1 |
 | `check-internal-links-vs-gsc` | Script（ゲート・オフライン） | **公開ページ**が GSC の 404/リダイレクト URL を指していないか（SSOT と全 MDX/src を突合）。旧 URL 件数を能動的に減らせる唯一のレバー | `gsc-ui/ssot` + MDX → exit 0/1 |
 | `check-gsc-indexing-due` | Script（surfacer・オフライン） | 順位表に表示実績のある未登録が残っているのに、受理された登録リクエストが 7 日以上無ければ DUE。順位表が無いときは検査不能として DUE。weekly-review-guard が毎週 job summary へ | `data/gsc/indexing-{priority,history}.json` → DUE |
-| `gsc-request-indexing` | Script（Playwright・**Mac の launchd `gsc-local` が毎日 10 件**・手動も可） | 未登録 URL を URL 検査で診断し、**インデックス登録をリクエスト**（既定 dry-run・`--commit` gate・上限 10 件/回）。crawled-not-indexed への直接レバー。**discovered-not-indexed（未クロール）には強制クロールとしてより直接に効く**。入力は `--from-ssot` / `--urls` / `--file`（正規パス。旧 `/docs/slug` は `_redirects` の 301 先へ自動変換） | SSOT または URL 一覧 → `data/gsc/indexing-{requests,history}.json` |
-| `gsc-local` | Mac の launchd（毎日 10:30・`npm run gsc-local:install`） | ログインしたブラウザが要る GSC 作業（登録リクエスト 10 件・月次 UI CSV）を Mac 自身で回す。専用 worktree（`.claude/worktrees/gsc-local`・lock 済み）を origin/develop に揃えて実行し台帳を push。未ログインは macOS 通知。**hosted runner は Google が失効させ、self-hosted runner は公開リポジトリで fork PR に Mac 上のコード実行を許しうるため使わない**（2026-09-24） | 順位表・UI → `gsc-indexing/*`・`gsc-ui/last-run.json`・`gsc-ui/ssot/` |
+| `gsc-request-indexing` | Script（Playwright・**土曜の Mac 収集が週 10 件**・手動も可） | 未登録 URL を URL 検査で診断し、**インデックス登録をリクエスト**（既定 dry-run・`--commit` gate・上限 10 件/回）。crawled-not-indexed への直接レバー。**discovered-not-indexed（未クロール）には強制クロールとしてより直接に効く**。入力は `--from-ssot` / `--urls` / `--file`（正規パス。旧 `/docs/slug` は `_redirects` の 301 先へ自動変換） | SSOT または URL 一覧 → `data/gsc/indexing-{requests,history}.json` |
+| `gsc-local-routine` | 土曜の Mac 収集（`weekly-collect` の gsc 段・`scripts/gsc-local-routine.mjs`） | ログインしたブラウザが要る GSC 作業（登録リクエスト 10 件・月次 UI CSV）を Mac 自身で回す。収集用 worktree（`.claude/worktrees/weekly-collect`）で実行し台帳を push。未ログインは段が失敗として記録される。運営者が取り直すなら収集用 worktree の端末で `node scripts/weekly-collect.mjs --only gsc`（登録リクエストは 20 時間ルールで間引かれることがある）。**hosted runner は Google が失効させ、self-hosted runner は公開リポジトリで fork PR に Mac 上のコード実行を許しうるため使わない**（2026-09-24）。毎日の launchd `gsc-local` は 2026-10-24 に廃止（DN-0817） | 順位表・UI → `gsc-indexing/*`・`gsc-ui/last-run.json`・`gsc-ui/ssot/` |
 | `check-gsc-sitemaps` | Script（surfacer・オフライン） | `data/gsc/sitemaps.json` を見て、記録が古い・robots.txt の sitemap が GSC に未登録・送信失敗（権限不足）・エラー・14 日以上未読み込みなら DUE。旧 URL sitemap のリダイレクト警告は数えない。weekly-review-guard が毎週 job summary へ | `sitemaps-latest.json` → DUE |
 | `search-improvement` | Script（週次レビューが record/triage/close、CI fetch-metrics が sync・28日計測） | 11〜30 位の帯の候補→改善→本番反映起点の前後計測。入口 `/weekly-review`、詳細 [検索キーワード戦略](../../../docs/strategy/16_検索キーワード戦略.md) | `experiments.json`（kind search-strategy）。旧 `data/gsc/rank-watch/<月>.jsonl` は 2026-10-13 廃止後の不変アーカイブ（書き手なし） |
 | `check-experiment-due` | Script（surfacer） | 実験台帳の再計測/close 期限（サイクルの最後の輪）。weekly-review が列挙 | `experiments.json` → DUE 一覧 |
@@ -85,17 +85,17 @@ Google の「Move a site with URL changes」（2026-08-20 更新）の手順ど�
   `/gsc-review`・`/weekly-improve` は応急・深掘り・上書き用として存続
 - **週次（CI・自動・coverage）**: `index-coverage.yml`（水 JST 11:00）→ `check-coverage-thresholds` が無条件異常を赤落ち → 順位表 `indexing-priority.*` を commit →
   金曜の `gsc-auto-review.yml` が観測ログへ coverage エントリを記録（手動で先回りするなら `/gsc-review`）。
-  **登録リクエスト**: Mac の launchd `gsc-local`（毎日 10:30・寝ていた日は起床時に 1 回・`npm run gsc-local:install`）が順位表の先頭から
-  10 件送り、台帳を develop へ push する。止まる（Mac の電源断・Google の再ログイン待ち）と月曜の weekly-review-guard が
-  `check-gsc-indexing-due`（7 日）で DUE を出す。手で送るなら `npm run gsc-indexing:request -- --file data/gsc/indexing-priority.txt --stop-at-limit`
+  **登録リクエスト**: 土曜の Mac 収集（`weekly-collect` の gsc 段）が順位表の先頭から
+  10 件送り、台帳を develop へ push する（週 10 件。2026-10-24 までは毎日 10 件）。止まる（Mac の電源断・Google の再ログイン待ち）と月曜の weekly-review-guard が
+  `check-gsc-indexing-due` で DUE を出す。手で送るなら `npm run gsc-indexing:request -- --file data/gsc/indexing-priority.txt --stop-at-limit`
 - **sitemap（CI・自動）**: `fetch-metrics.yml` の `gsc-sitemaps --submit` が本番 robots.txt の sitemap を送信し、読み込み状況を `data/gsc/sitemaps.json` へ。
   月曜の weekly-review-guard が `check-gsc-sitemaps` で「記録が古い・未登録・送信失敗（権限不足）・エラー・14 日以上未読み込み」を DUE に出す
-- **月次（Mac の launchd＋セッション）**: 理由別 UI CSV の取得と正規化は `gsc-local` が `check-gsc-ui-due`（30日）の DUE で自動実行し、追跡 SSOT（`gsc-ui/ssot/`）を develop へ push する。突合 → 修正計画 → 観測ログ追記（`/google-search-growth` の validate 以降）はセッションで行う。取得が止まれば `check-gsc-ui-due` を weekly-review が surface。`/gsc-review`（coverage 全体）の深掘り＝理由ごとの例 URL を足す層。
+- **月次（土曜の Mac 収集＋セッション）**: 理由別 UI CSV の取得と正規化は土曜の収集の gsc 段が `check-gsc-ui-due`（30日）の DUE で自動実行し、追跡 SSOT（`gsc-ui/ssot/`）を develop へ push する。突合 → 修正計画 → 観測ログ追記（`/google-search-growth` の validate 以降）はセッションで行う。取得が止まれば `check-gsc-ui-due` を weekly-review が surface。`/gsc-review`（coverage 全体）の深掘り＝理由ごとの例 URL を足す層。
 - **週次**: `fetch-metrics.yml`（CI・金 JST 6:00）→ `/weekly-improve`（performance 側）
 
 > [!warning] 何が自動で回り、何が回らないか（2026-09-07 更新）
 > **自動（GitHub Actions cron・実績で確認）**: fetch-metrics（週次）/ psi-audit（日次）/
-> index-coverage（週次・2026-09-17〜）/ gsc-auto-review（週次）/ link-audit / r2-audit / note-live-audit / uptime-ping。
+> index-coverage（週次・2026-09-17〜）/ gsc-auto-review（週次）/ quality-audit（外部リンク・X の生存確認は report 区分）/ r2-sync（main と R2 の画像差分）/ note-live-audit / uptime-ping。
 > **オフライン surfacer も CI 側で自動**（`weekly-review-guard.yml` が毎週月曜に実行）:
 > check-experiment-due / check-gsc-ui-due / **check-gsc-auto-review** / check-google-ui-ssot /
 > check-ga4-dimensions を job summary へ出力し、check-internal-links-vs-gsc は hard fail させる。
@@ -105,7 +105,7 @@ Google の「Move a site with URL changes」（2026-08-20 更新）の手順ど�
 > どちらも repo 側から沈黙を検知し `automation-failure` Issue になる。
 >
 > **自動で回っていないもの**:
-> 1. **Playwright 経路のうち取得（`fetch-gsc-ui-csv` / `fetch-ga4-ui-csv`）は `login-collectors.yml`（encrypted-state・canary 卒業後） が暗号化 storageState で担う**。
+> 1. **Playwright 経路のうち取得（`fetch-gsc-ui-csv` / `fetch-ga4-ui-csv`）は土曜の Mac 収集（gsc 段）が担う**（CI はログインしない）。
 >    管理操作系（`ga4-admin:check` / `gsc-indexing:request`）は本人セッション必須のまま月次の手動儀式。放置検知は上の surfacer が担う。
 > 2. **`/nsm-experiment measure` の実行も手動**。期限の surface は自動、判断と記録は人（セッション）。
 >    実験の start（`running` 遷移）も人の判断＝ルーティンは**推奨までで登録しない**。
@@ -131,7 +131,7 @@ Google の「Move a site with URL changes」（2026-08-20 更新）の手順ど�
 > 本 doc の原則は「計測は CI/CD 供給が正・ローカル creds 不要（会社 PC はプロキシで外部 API 遮断）」。
 > だが `/google-search-growth` は **正当な例外**＝Playwright が**ユーザーの実 Google セッション**で GSC UI を
 > 開くため、サービスアカウント API が遮断される環境でも UI CSV を取得できる。初回ログイン/2FA/CAPTCHA は人間、
-> 以後の定期取得は `login-collectors.yml`（encrypted-state・canary 卒業後） が担い、失効時だけ人が再ログイン→`auth:export`（`check-gsc-ui-due` は canary 卒業まで催促を続ける）。将来セッションはこれを「ローカルで計測する
+> 以後の定期取得は土曜の Mac 収集（gsc 段）が担い、失効時だけ人が `npm run auth:login -- --service google` で再ログインする（`check-gsc-ui-due` が催促を続ける）。将来セッションはこれを「ローカルで計測する
 > な」ルール違反と誤認して退役させないこと（[measurement-incidents.md](measurement-incidents.md) 2026-06-05 の対象は API）。
 
 ## 判断マトリクス（原因バケット → 打ち手）

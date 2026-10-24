@@ -7,22 +7,18 @@
  * 違反 0 件を要求する。`--ratchet` は前回計測（.claude/state/quality/playwright-auth-wiring-last.json）
  * と比較し、**増加した項目だけ**を FAIL にする（減少・横ばいは許容 — 段階移行を妨げない）。
  *
- * 検査 9 種:
+ * 検査 7 種:
  *   1. registry の schema 健全性（loadAuthRegistry が例外を投げないか・危険な profileDirName）
  *   2. Mac ユーザー名の認証絶対パス直書き（/Users/<name>/doboku-note）
  *   3. `.local/playwright-*-profile` の runtime 直書き（実装コードのみ・reference文書は対象外）
  *   4. `launchPersistentContext` を使うが共通 resolver を import していないファイル
  *   5. profile/state らしい変数を標準出力へ出す危険コード候補（console.log(PROFILE) 等）
- *   6. registry の ci ブロック配線（2026-09-21）: readOnlyScripts/writeScripts の実在、readOnlyScripts に
- *      write系動詞（publish/delete/update 等）のファイル名が混入していないか、mode encrypted-state なら
- *      stateDomains と stateFileName が必須
- *   7. `.github/workflows/login-collectors.yml` が呼ぶ script が、いずれかの service の
- *      readOnlyScripts/writeScripts か auth CLI（CI_ALWAYS_ALLOWED_SCRIPTS）に入っているか
- *      （service ブロック単位の厳密対応が難しいため、workflow 全体で見た緩い判定にしている）
+ *   6. registry の collectors / writers（DN-0817）: 全 script が実在し、collectors（読み取り専用の収集）に
+ *      write 系動詞（publish/delete/update 等）のファイル名が混入していないか
+ *   7. CI はログインしない（DN-0817）: `.github` の yml が `DOBOKU_AUTH_`・`restore-auth-state`・
+ *      `playwright-auth.mjs ci-`・collectors/writers の script（npm script 経由も）を含まないか
  *   8. git 追跡下に生の storageState/auth state っぽい json ファイルが無いか
- *   9. `.claude/config/ci-write-operations.json`（ops-write カタログ）を loadCatalog で検証（registry
- *      突合込み）し、`.github/workflows/ops-write.yml` の `inputs.operation.options` がカタログの
- *      キー集合と完全一致するか（2026-09-21）
+ *   各検査の対象数（走査したファイル・service・script・workflow の数）を出力する。0 件を合格と呼ばない。
  *
  * Usage:
  *   node scripts/check-playwright-auth-wiring.mjs              人間向けレポート・exit 0
@@ -33,8 +29,8 @@
 import { readFileSync, existsSync, mkdirSync, writeFileSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import { join, dirname, basename, relative, sep } from 'node:path';
-import { loadAuthRegistry, CI_ALWAYS_ALLOWED_SCRIPTS } from './lib/playwright-auth-profile.mjs';
-import { loadCatalog } from './lib/ci-write-gate.mjs';
+import { loadAuthRegistry } from './lib/playwright-auth-profile.mjs';
+import { checkAuthScriptLists, npmScriptsInvokingLogin, scanWorkflowForLogin } from './lib/auth-ci-wiring.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 import { listFiles } from './lib/fs-walk.mjs';
 
@@ -58,21 +54,18 @@ const CODE_WALK = {
 // 検査対象: scripts/ と .claude/skills/（実装コードのみ。docs/reference の説明文は誤検知源なので対象外）
 const targets = [...listFiles(join(ROOT, 'scripts'), CODE_WALK), ...listFiles(join(ROOT, '.claude/skills'), CODE_WALK)];
 
-// (10) .github 配下で auth:ci-* を npm 経由（"npm" + " run"）で呼ぶと npm のバナーが stdout に混ざり JSON が読めない
-// （canary 実測）。node 直叩きに限る。正規表現は文字列連結で組む（check-command-guidance が案内文と誤認しないため）。
-const NPM_RUN_AUTH_CI_RE = new RegExp('npm' + ' run (-s |--silent )?auth:ci-');
 const findings = {
   registry: [],
   macAbsolutePath: [],
   localProfileDirect: [],
   missingResolverImport: [],
   stdoutLeak: [],
-  ciBlockWiring: [],
-  loginCollectorsWiring: [],
+  scriptLists: [],
+  ciLoginInWorkflows: [],
   trackedAuthStateFiles: [],
-  ciWriteCatalog: [],
-  npmRunAuthCi: [],
 };
+// 実検査数（0 件を合格と呼ばないため）
+const inspected = { services: 0, scripts: 0, workflows: 0 };
 
 // 1. registry schema
 let loadedRegistry = null;
@@ -92,78 +85,27 @@ try {
   findings.registry.push(`registry 読み込み失敗: ${e.message}`);
 }
 
-// 6. ci ブロック配線
-// readOnlyScripts に write 系の動詞が混入していないかのヒューリスティック（ファイル名ベース）。
-const WRITE_VERB_RE = /(^|[-_])(publish|delete|update|edit|price|pause|rate|upload|post|apply|create|attach|append|insert|add|reply|replies|swap|convert|reanchor|sync-tags|thumb|profile)([-_.]|$)/;
-// readOnlyScripts は「ops-write の plan hash が無くても常時許可」という意味であり、write 系動詞の
-// 有無で見ているのは「人の承認（ops-write）を経ずに書き込む隠れた抜け道」を検出するためのヒューリス
-// ティック。ただし scripts/x-publish-scheduled.mjs は ops-write カタログの対象ではなく、独自の頻度
-// ゲート（scripts/lib/x-frequency-gate.mjs・12 規則＋dry-run 既定）で書き込みを制御する設計上の例外
-// （x-post-policy.md §11「CI 投稿の頻度ゲート」）。ファイル名を書き換えて隠すのではなくここに明示する。
-const WRITE_VERB_EXCEPTIONS = new Set(['scripts/x-publish-scheduled.mjs']);
-// workflow が呼ぶが認証セッションと無関係な運用スクリプト（profile を要求しないので resolver の
-// allowlist には入れない。ここは「workflow 参照 → allowlist」検査の除外リスト）。
-const WORKFLOW_UTILITY_SCRIPTS = new Set([
-  'scripts/report-automation-failure.mjs',
-  'scripts/install-pre-commit.mjs',
-  'scripts/ci-data.mjs',
-  '.claude/scripts/build-doc-meta-index.mjs',
-]);
-const allCiScripts = new Set([...CI_ALWAYS_ALLOWED_SCRIPTS, ...WORKFLOW_UTILITY_SCRIPTS]);
+// 6. collectors / writers の配線
+let loginScripts = [];
 if (loadedRegistry) {
-  for (const [id, entry] of Object.entries(loadedRegistry.services)) {
-    const ci = entry.ci;
-    if (!ci || typeof ci !== 'object') continue;
-    const readOnly = Array.isArray(ci.readOnlyScripts) ? ci.readOnlyScripts : [];
-    const write = Array.isArray(ci.writeScripts) ? ci.writeScripts : [];
-    for (const script of [...readOnly, ...write]) {
-      allCiScripts.add(script);
-      if (!existsSync(join(ROOT, script))) {
-        findings.ciBlockWiring.push(`service "${id}": script が存在しない（${script}）`);
-      }
-    }
-    for (const script of readOnly) {
-      if (WRITE_VERB_RE.test(basename(script)) && !WRITE_VERB_EXCEPTIONS.has(script)) {
-        findings.ciBlockWiring.push(`service "${id}": readOnlyScripts に write 系動詞のファイル名が混入（${script}）`);
-      }
-    }
-    if (ci.mode === 'encrypted-state') {
-      if (!Array.isArray(ci.stateDomains) || ci.stateDomains.length === 0) {
-        findings.ciBlockWiring.push(`service "${id}": mode encrypted-state だが stateDomains が空`);
-      }
-      if (!entry.stateFileName) {
-        findings.ciBlockWiring.push(`service "${id}": mode encrypted-state だが stateFileName が未設定`);
-      }
-    }
-  }
+  const r = checkAuthScriptLists(loadedRegistry.services, (script) => existsSync(join(ROOT, script)));
+  findings.scriptLists.push(...r.findings);
+  inspected.services = r.servicesChecked;
+  inspected.scripts = r.scriptsChecked;
+  loginScripts = [...new Set(Object.values(loadedRegistry.services).flatMap((e) => [...(e.collectors ?? []), ...(e.writers ?? [])]))];
 }
 
-// 7. login-collectors.yml が呼ぶ script の allowlist 整合
-// service ブロック単位の厳密な if 判定は workflow 構文解析が要るため、workflow 全体で
-// 参照される script が「いずれかの service の allowlist か auth CLI」に入っているかの緩い判定にする。
-const LOGIN_COLLECTORS_PATH = join(ROOT, '.github/workflows/login-collectors.yml');
-let loginCollectorsScanned = false;
-if (existsSync(LOGIN_COLLECTORS_PATH)) {
-  loginCollectorsScanned = true;
+// 7. CI はログインしない: .github の yml にログインの道具が無いこと
+{
   const pkgScripts = JSON.parse(readFileSync(join(ROOT, 'package.json'), 'utf8')).scripts || {};
-  const workflowText = readFileSync(LOGIN_COLLECTORS_PATH, 'utf8');
-  const referenced = new Set();
-  for (const m of workflowText.matchAll(/\bnode\s+(scripts\/[A-Za-z0-9._\/-]+\.mjs)\b/g)) referenced.add(m[1]);
-  for (const m of workflowText.matchAll(/\bnpx\s+tsx\s+([A-Za-z0-9._\/-]+\.ts)\b/g)) referenced.add(m[1]);
-  for (const m of workflowText.matchAll(/\bnpm run ([a-z0-9][a-z0-9:_-]*)/g)) {
-    const cmd = pkgScripts[m[1]];
-    if (!cmd) continue;
-    const sm = cmd.match(/\bnode\s+(scripts\/[A-Za-z0-9._\/-]+\.mjs)\b/);
-    if (sm) referenced.add(sm[1]);
-  }
-  for (const script of referenced) {
-    if (!allCiScripts.has(script)) {
-      findings.loginCollectorsWiring.push(`login-collectors.yml が参照するが allowlist に無い script（${script}）`);
-    }
+  const npmNames = npmScriptsInvokingLogin(pkgScripts, loginScripts);
+  const ghFiles = listFiles(join(ROOT, '.github'), { match: (_p, name) => /\.ya?ml$/.test(name), allowMissing: true });
+  inspected.workflows = ghFiles.length;
+  for (const f of ghFiles) {
+    const rel = relative(ROOT, f).split(sep).join('/');
+    findings.ciLoginInWorkflows.push(...scanWorkflowForLogin(readFileSync(f, 'utf8'), rel, { loginScripts, npmNames }));
   }
 }
-// workflow 未作成の間は「検査対象 0（未実装）」であり「違反 0（合格）」と区別して報告する。
-// strict の合否には含めない（ここで落とすと workflow 実装前のブランチが恒久的に赤くなるため）。
 
 // 8. git 追跡下に生の storageState/auth state っぽい json ファイルが無いか
 const TRACKED_STATE_RE = /(playwright-.*state|storage-?state).*\.json$/i;
@@ -176,39 +118,6 @@ try {
   }
 } catch (e) {
   findings.trackedAuthStateFiles.push(`git ls-files 失敗: ${e.message}`);
-}
-
-// 9. ops-write カタログ（loadCatalog は registry 突合込みで throw する）と
-// ops-write.yml の inputs.operation.options のキー集合整合
-const OPS_WRITE_WORKFLOW_PATH = join(ROOT, '.github/workflows/ops-write.yml');
-let ciWriteCatalog = null;
-try {
-  ciWriteCatalog = loadCatalog(ROOT, { registry: loadedRegistry ?? undefined });
-} catch (e) {
-  findings.ciWriteCatalog.push(`catalog 読み込み/検証失敗: ${e.message}`);
-}
-if (ciWriteCatalog) {
-  const catalogKeys = new Set(Object.keys(ciWriteCatalog.operations));
-  if (!existsSync(OPS_WRITE_WORKFLOW_PATH)) {
-    findings.ciWriteCatalog.push('ops-write.yml が存在しない');
-  } else {
-    // Windows の作業ツリーは CRLF（autocrlf）。\n 固定の正規表現が一致せず Windows でだけ FAIL していた（DN-0433）
-    const workflowText = readFileSync(OPS_WRITE_WORKFLOW_PATH, 'utf8').replace(/\r\n/g, '\n');
-    const optionsMatch = workflowText.match(/operation:\n(?:.*\n)*?\s+options:\n([\s\S]*?)\n\s*args:/);
-    if (!optionsMatch) {
-      findings.ciWriteCatalog.push('ops-write.yml から inputs.operation.options を抽出できない');
-    } else {
-      const workflowKeys = new Set(
-        [...optionsMatch[1].matchAll(/^\s*-\s*(\S+)\s*$/gm)].map((m) => m[1]),
-      );
-      for (const key of catalogKeys) {
-        if (!workflowKeys.has(key)) findings.ciWriteCatalog.push(`ops-write.yml の options に無い operation: ${key}`);
-      }
-      for (const key of workflowKeys) {
-        if (!catalogKeys.has(key)) findings.ciWriteCatalog.push(`ops-write.yml の options にあるがカタログに無い operation: ${key}`);
-      }
-    }
-  }
 }
 
 const MAC_PATH_RE = /\/Users\/[A-Za-z0-9_.-]+\/doboku-note/;
@@ -253,15 +162,6 @@ for (const file of targets) {
 }
 
 
-// 10. .github 配下の npm 経由 auth:ci-* 呼び出し（stdout の JSON を壊す）
-{
-  const ghDir = join(ROOT, '.github');
-  for (const f of listFiles(ghDir, { match: (_p, name) => /\.ya?ml$/.test(name), allowMissing: true })) {
-    const lines = readFileSync(f, 'utf8').split('\n');
-    lines.forEach((l, i) => { if (NPM_RUN_AUTH_CI_RE.test(l)) findings.npmRunAuthCi.push(`${relative(ROOT, f).split(sep).join('/')}:${i + 1}`); });
-  }
-}
-
 const counts = Object.fromEntries(Object.entries(findings).map(([k, v]) => [k, v.length]));
 const total = Object.values(counts).reduce((a, b) => a + b, 0);
 
@@ -280,7 +180,7 @@ function saveLastRun(counts) {
 }
 
 if (JSON_OUT) {
-  console.log(JSON.stringify({ targetsScanned: targets.length, loginCollectorsScanned, counts, total, findings }, null, 2));
+  console.log(JSON.stringify({ targetsScanned: targets.length, inspected, counts, total, findings }, null, 2));
 } else {
   console.log(`[${NAME}] scripts/ + .claude/skills/ の実装コード ${targets.length} 件を実検査`);
   console.log(`[${NAME}] 1. registry schema 違反: ${counts.registry}`);
@@ -293,25 +193,28 @@ if (JSON_OUT) {
   for (const f of findings.missingResolverImport) console.log(`      ${f}`);
   console.log(`[${NAME}] 5. profile/state の標準出力への露出候補（ヒューリスティック）: ${counts.stdoutLeak}`);
   for (const f of findings.stdoutLeak.slice(0, 10)) console.log(`      ${f}`);
-  console.log(`[${NAME}] 6. ci ブロック配線違反: ${counts.ciBlockWiring}`);
-  for (const f of findings.ciBlockWiring) console.log(`      ${f}`);
-  console.log(`[${NAME}] 7. login-collectors.yml allowlist 整合: ${loginCollectorsScanned ? counts.loginCollectorsWiring : '対象なし（workflow 未作成）'}`);
-  for (const f of findings.loginCollectorsWiring) console.log(`      ${f}`);
+  console.log(`[${NAME}] 6. collectors/writers 配線違反（${inspected.services} service・${inspected.scripts} script を実検査）: ${counts.scriptLists}`);
+  for (const f of findings.scriptLists) console.log(`      ${f}`);
+  console.log(`[${NAME}] 7. CI のログイン道具（${inspected.workflows} 本の yml を実検査）: ${counts.ciLoginInWorkflows}`);
+  for (const f of findings.ciLoginInWorkflows) console.log(`      ${f}`);
   console.log(`[${NAME}] 8. git 追跡下の生 auth state ファイル: ${counts.trackedAuthStateFiles}`);
   for (const f of findings.trackedAuthStateFiles) console.log(`      ${f}`);
-  console.log(`[${NAME}] 9. ops-write カタログ整合: ${counts.ciWriteCatalog}`);
-  for (const f of findings.ciWriteCatalog) console.log(`      ${f}`);
-  console.log(`[${NAME}] 10. .github の npm 経由 auth:ci-* 呼び出し（stdout JSON を壊す・node 直叩きに）: ${counts.npmRunAuthCi}`);
-  for (const f of findings.npmRunAuthCi) console.log(`      ${f}`);
   console.log(`[${NAME}] 合計 ${total} 件`);
 }
 
+// 検査対象が 0 件なら合格にしない（検査不成立）
+const inconclusive = targets.length === 0 || inspected.services === 0 || inspected.scripts === 0 || inspected.workflows === 0;
+
 if (STRICT) {
+  if (inconclusive) {
+    console.error(`[${NAME}] ✗ --strict: 検査不成立（実検査 code=${targets.length} service=${inspected.services} script=${inspected.scripts} workflow=${inspected.workflows}。0 件は合格にしない）`);
+    process.exit(1);
+  }
   if (total > 0) {
     console.error(`[${NAME}] ✗ --strict: 違反 ${total} 件`);
     process.exit(1);
   }
-  console.log(`[${NAME}] ✓ --strict: 違反 0 件`);
+  console.log(`[${NAME}] ✓ --strict: 違反 0 件（実検査 code=${targets.length} service=${inspected.services} script=${inspected.scripts} workflow=${inspected.workflows}）`);
   process.exit(0);
 }
 

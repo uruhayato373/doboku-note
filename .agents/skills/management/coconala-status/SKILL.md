@@ -1,7 +1,7 @@
 ---
 name: coconala-status
 description: >
-  ココナラ出品の状態を read-only で照合するスキル。受注の実体を npm run coconala-orders で収集して
+  ココナラ出品の状態を read-only で照合するスキル。受注の実体（土曜の Mac 収集が取得した orders-snapshot.json）を
   orders.json と突合（check-coconala-orders）し、分析画面の数値（閲覧数/お気に入り/販売数）は
   /coconala-analytics が data/coconala/kpi.json へ週次 upsert したものを読んで、カタログ（coconala-services.ts）↔
   state ↔ sales.json のドリフトを報告、撤退ライン（出品4週で S2 受注3件未満）を判定する。

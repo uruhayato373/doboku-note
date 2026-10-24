@@ -355,7 +355,7 @@ YouTube からは note 商品ページへ概要欄でリンクするだけ。受
   - 固定ポスト: サイトトップ + 人気過去問1問
 - **Instagram**: `@dobokunotecom`（真実源 `config/ig-account.json`）
   - bio リンク: `/links` リンクハブ（過去問・キーワード・note へ複数導線）→ `.claude/knowledge/reference/links-hub.md`
-- **YouTube**: ブランドアカウント（OAuth トークン取得済・`post-youtube-scheduled.yml` の secrets で CI 投稿）
+- **YouTube**: ブランドアカウント（OAuth トークン取得済。CI 投稿の `post-youtube-scheduled.yml` は 2026-10-24 に廃止）
 
 ## 4. 四半期別ロードマップ（v7）
 

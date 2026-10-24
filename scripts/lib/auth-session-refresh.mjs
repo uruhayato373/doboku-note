@@ -2,7 +2,7 @@
  * auth-session-refresh.mjs の判定部（純関数）。ブラウザ・キーチェーン・ファイルには触れない。
  *
  * 仕組みは stats47 の `.claude/scripts/measurement/refresh-session.mjs` を doboku-note の認証基盤
- * （OS 標準 auth root・account assert・暗号化 state の export）へ移したもの。ログイン画面の
+ * （OS 標準 auth root・account assert）へ移したもの。ログイン画面の
  * セレクタは stats47 の実測値をそのまま使う。
  */
 import { homedir } from 'node:os';
@@ -68,7 +68,7 @@ export const AUTO_LOGIN = Object.freeze({
     loggedIn: (url) => /afi-b\.com\//.test(url) && !/requiredlogin|\/login/.test(url),
   },
   // ログイン画面は不可視の reCAPTCHA（v3・size=invisible）を常に埋め込む。2026-10-01 の headless での送信は
-  // ログイン画面へ戻された（拒否の文言は未記録）ため、KDP と同じく画面ありで送る（CI では headless のまま）。
+  // ログイン画面へ戻された（拒否の文言は未記録）ため、KDP と同じく画面ありで送る。
   coconala: {
     shared: false,
     loginUrl: 'https://coconala.com/login',
@@ -139,38 +139,6 @@ export function decideSharedImport({ sharedMtimeMs, localMtimeMs, sharedCookieCo
   if (!(sharedCookieCount > 0)) return { import: false, reason: 'shared-empty' };
   if (Number.isFinite(localMtimeMs) && localMtimeMs >= sharedMtimeMs) return { import: false, reason: 'local-newer' };
   return { import: true, reason: 'shared-newer' };
-}
-
-function cronFieldMatches(field, value) {
-  if (field === '*') return true;
-  return field.split(',').some((part) => {
-    const range = /^(\d+)-(\d+)$/.exec(part);
-    if (range) return value >= Number(range[1]) && value <= Number(range[2]);
-    return /^\d+$/.test(part) && Number(part) === value;
-  });
-}
-
-/**
- * GitHub Actions の cron（UTC・5 フィールド・数値/カンマ/範囲/`*` のみ）が now から windowHours 以内に
- * 発火するか。Mac の定期実行から「この後の定期収集」を前倒しで起動するかの判定に使う。
- * 解釈できない書式は false（前倒ししない＝従来どおり定期実行に任せる）。
- */
-export function cronFiresWithin(cron, now, windowHours = 24) {
-  const fields = String(cron ?? '').trim().split(/\s+/);
-  if (fields.length !== 5 || fields.some((f) => !/^(\*|\d+(-\d+)?(,\d+(-\d+)?)*)$/.test(f))) return false;
-  const [min, hour, dom, month, dow] = fields;
-  const start = Math.ceil(now.getTime() / 60000) * 60000;
-  for (let t = start; t <= now.getTime() + windowHours * 3600000; t += 60000) {
-    const d = new Date(t);
-    if (
-      cronFieldMatches(min, d.getUTCMinutes()) &&
-      cronFieldMatches(hour, d.getUTCHours()) &&
-      cronFieldMatches(dom, d.getUTCDate()) &&
-      cronFieldMatches(month, d.getUTCMonth() + 1) &&
-      cronFieldMatches(dow, d.getUTCDay())
-    ) return true;
-  }
-  return false;
 }
 
 /**

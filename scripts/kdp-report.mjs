@@ -35,9 +35,8 @@ import { chromium } from 'playwright';
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { jstMonth, todayJst } from './lib/jst-date.mjs';
-import { resolveProfileDir, resolveStatePath } from './lib/playwright-auth-profile.mjs';
+import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
 import { leanContextOptions } from './lib/playwright-launch.mjs';
-import { attachCISession } from './lib/playwright-auth-state.mjs';
 import { datasetPath } from './lib/datasets.mjs';
 import { isKdpEstimated, kdpMonthsDue } from './lib/net-receipts.mjs';
 import { kdpLiveBookIdsAsOf } from './lib/kindle-catalog.mjs';
@@ -100,7 +99,6 @@ const ctx = await chromium.launchPersistentContext(PROFILE, leanContextOptions({
   ignoreHTTPSErrors: true, viewport: { width: 1440, height: 1100 },
   args: ['--disable-blink-features=AutomationControlled'],
 }));
-await attachCISession(ctx, 'kdp', { statePath: resolveStatePath('kdp', { cwd: ROOT, repoRoot: ROOT }) });
 const bodyText = (page) => page.evaluate(() => document.body.innerText || '');
 const shot = async (page, s) => { try { await page.screenshot({ path: join(TMP, `kdp-report-${s}.png`) }); } catch {} };
 const abort = async (page, msg, step) => { console.error(`ABORT: ${msg}`); if (page) await shot(page, step); await ctx.close(); process.exit(2); };

@@ -3,8 +3,8 @@
  * check-agent-config.mjs — .claude/config/ の JSON をすべて型で検査し、型の無い JSON を止める（DN-0524・案B）。
  *
  * なぜ要るか: config/・data/ は台帳（datasets.mjs）と型で守られているが、.claude/config/ は台帳の外で型が無かった。
- * ここには認証の許可リスト（playwright-auth-profiles.json・管理画面 /ops/auth が読む）や CI の書き込み許可
- * （ci-write-operations.json）があり、壊れるとログインや書き戻しが黙って止まる。
+ * ここには認証の許可リスト（playwright-auth-profiles.json・管理画面 /ops/auth が読む）などがあり、
+ * 壊れるとログインが黙って止まる。
  * 型は scripts/lib/dataset-schemas-agent-config.mjs の AGENT_CONFIG_SCHEMAS（ファイル名 → 型）。
  *
  * 使い方: npm run check-agent-config

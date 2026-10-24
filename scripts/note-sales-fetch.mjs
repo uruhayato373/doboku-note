@@ -1,6 +1,5 @@
 #!/usr/bin/env node
-import { resolveProfileDir, resolveStatePath } from './lib/playwright-auth-profile.mjs';
-import { attachCISession } from './lib/playwright-auth-state.mjs';
+import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
 /**
  * note-sales-fetch.mjs
  * ---------------------------------------------------------------------------
@@ -14,9 +13,9 @@ import { attachCISession } from './lib/playwright-auth-state.mjs';
  * 詳細 → .claude/knowledge/reference/sales-tracking.md「取得と検算」
  *
  * **パスワード再確認は資格情報で 1 回だけ通す**（scripts/lib/note-reauth.mjs。手元は Mac キーチェーン／
- * Windows 資格情報マネージャーの doboku-note-auth-note、CI は Secrets DOBOKU_AUTH_NOTE_USER/_PASSWORD）。
+ * Windows 資格情報マネージャーの doboku-note-auth-note）。
  * 未登録・失敗印あり・通らないときは ABORT して人へ引き継ぐ（--no-auto-reauth で常に人が通す）。
- * エージェントはこの自動入力を走らせない（パスワード入力はエージェントの禁止行為。実行はオーナー・スケジューラ・CI）。
+ * エージェントはこの自動入力を走らせない（パスワード入力はエージェントの禁止行為。実行はオーナーと土曜の Mac 収集）。
  * 認証後の Cookie は永続プロファイルに残るため、一度通せば以後のバッチ実行では再確認は出ない（2026-08-17 実測）。
  *
  * **検算に通らなければ 1 バイトも書かない**: 明細合計と「売上管理」の月次表示額が一致するまで
@@ -112,7 +111,6 @@ const ctx = await chromium.launchPersistentContext(PROFILE, leanContextOptions({
   viewport: { width: 1366, height: 1000 },
   args: ['--disable-blink-features=AutomationControlled'],
 }));
-await attachCISession(ctx, 'note', { statePath: resolveStatePath('note', { cwd: ROOT, repoRoot: ROOT }) });
 
 try {
   const page = ctx.pages()[0] || (await ctx.newPage());

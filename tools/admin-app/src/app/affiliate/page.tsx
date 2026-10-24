@@ -104,7 +104,7 @@ export default function AffiliatePage() {
                 values: { program: p.program, conversions: p.conversions, approved: p.approved, revenueYen: p.revenueYen },
                 cells: { revenueYen: yen(p.revenueYen) },
               }))}
-              emptyText={collected ? '該当なし' : '未取得（login-collectors の a8）'}
+              emptyText={collected ? '該当なし' : '未取得（土曜の Mac 収集の a8 段）'}
             />
           </PanelCard>
         </Grid>
@@ -135,7 +135,7 @@ export default function AffiliatePage() {
               },
               cells: { revenueYen: yen(r.revenueYen) },
             }))}
-            emptyText={collected ? '単月の取得なし' : '未取得（login-collectors の a8）'}
+            emptyText={collected ? '単月の取得なし' : '未取得（土曜の Mac 収集の a8 段）'}
           />
         </PanelCard>
 
@@ -218,7 +218,7 @@ export default function AffiliatePage() {
                 rules: c.rules || '—',
               },
             }))}
-            emptyText="成果なし（A8 の成果別は週次 CI の login-collectors が取得）"
+            emptyText="成果なし（A8 の成果別は土曜の Mac 収集の a8 段が取得）"
           />
         </PanelCard>
 

@@ -1,6 +1,5 @@
 #!/usr/bin/env node
-import { resolveProfileDir, resolveStatePath } from './lib/playwright-auth-profile.mjs';
-import { attachCISession } from './lib/playwright-auth-state.mjs';
+import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
 /**
  * note-traffic-fetch.mjs
  * ---------------------------------------------------------------------------
@@ -70,7 +69,6 @@ const ctx = await chromium.launchPersistentContext(PROFILE, leanContextOptions({
   headless: false, channel: 'chrome', ignoreHTTPSErrors: true,
   viewport: { width: 1366, height: 1400 }, args: ['--disable-blink-features=AutomationControlled'],
 }));
-await attachCISession(ctx, 'note', { statePath: resolveStatePath('note', { cwd: ROOT, repoRoot: ROOT }) });
 let exitCode = 0;
 try {
   const page = ctx.pages()[0] || (await ctx.newPage());

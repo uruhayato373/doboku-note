@@ -82,6 +82,30 @@ jobs:
           CLOUDFLARE_ANALYTICS_API_TOKEN: ${{ secrets.CLOUDFLARE_ANALYTICS_API_TOKEN }}
         run: node scripts/purge-r2-changed.mjs --list "$RUNNER_TEMP/r2-changed.json"
 
+      # 同期の後に main の画像と R2 の差分を確かめる（未同期・サイズ不一致は赤）。2026-10-24 まで週次の r2-audit.yml が
+      # 別に見ていた（Issue も出さず Step Summary だけ）のを、上げた直後のこの段へ移した（DN-0817）。R2 にしか無い画像は許容。
+      - name: Verify R2 matches main (images)
+        if: github.event.inputs.dry_run != 'true'
+        env:
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_R2_ACCESS_KEY_ID: ${{ secrets.CLOUDFLARE_R2_AUDIT_ACCESS_KEY_ID || secrets.CLOUDFLARE_R2_ACCESS_KEY_ID }}
+          CLOUDFLARE_R2_SECRET_ACCESS_KEY: ${{ secrets.CLOUDFLARE_R2_AUDIT_SECRET_ACCESS_KEY || secrets.CLOUDFLARE_R2_SECRET_ACCESS_KEY }}
+        run: |
+          set +e
+          node .claude/skills/dev/diff-r2/scripts/diff-r2.mjs --images-only --json > "$RUNNER_TEMP/r2-diff.json"
+          rc=$?
+          set -e
+          node -e '
+            const fs = require("fs");
+            let d;
+            try { d = JSON.parse(fs.readFileSync(process.argv[1], "utf8")); } catch { console.error(`::error::diff-r2 が JSON を返さない（exit=${process.argv[2]}・R2 の読み取りの権限を確かめる）`); process.exit(1); }
+            const miss = d.onlyLocal || [], mism = d.sizeMismatch || [];
+            const lines = ["## R2 画像の照合", "", `main の画像 ${d.localCount} / R2 ${d.remoteCount} / 未同期 ${miss.length} / サイズ不一致 ${mism.length} / R2 のみ ${(d.onlyRemote || []).length}`];
+            for (const x of [...miss, ...mism].slice(0, 15)) lines.push(`- ${x.key}`);
+            fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, lines.join("\n") + "\n");
+            if (miss.length || mism.length) { console.error("::error::main の画像が R2 に揃っていない。force=true で r2-sync を流し直す"); process.exit(1); }
+          ' "$RUNNER_TEMP/r2-diff.json" "$rc"
+
       - name: Summary
         if: always()
         run: |

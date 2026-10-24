@@ -4,7 +4,7 @@
  * note は購入者一覧・売上管理を開くと端末ごとにパスワード再確認を求める（ログイン済みでも出る）。
  * これを人が毎回通していたため、月次の売上取得が止まっていた（2026-10-01 月次レビュー）。
  * 資格情報は scripts/lib/credential-store.mjs の readServiceCredential だけから読む
- * （Mac キーチェーン / Windows 資格情報マネージャー / CI は GitHub Secrets）。
+ * （Mac キーチェーン / Windows 資格情報マネージャー）。
  *
  * 守ること:
  *   - パスワードをログ・引数・ファイルへ出さない（戻り値にも入れない）
@@ -84,7 +84,7 @@ export async function passNoteReauth(page, {
 export function describeReauthResult(result) {
   switch (result.status) {
     case 'no_credential':
-      return '資格情報が未登録（Mac: security add-generic-password -s doboku-note-auth-note -a <ログインID> -w ／ Windows: cmdkey /generic:doboku-note-auth-note /user:<ログインID> /pass ／ CI: Secrets DOBOKU_AUTH_NOTE_USER・DOBOKU_AUTH_NOTE_PASSWORD）';
+      return '資格情報が未登録（Mac: security add-generic-password -s doboku-note-auth-note -a <ログインID> -w ／ Windows: cmdkey /generic:doboku-note-auth-note /user:<ログインID> /pass)';
     case 'agent_skipped':
       return 'エージェント（Claude Code）からの実行では資格情報で再確認を通さない。オーナーが同じコマンドを実行する';
     case 'blocked':

@@ -1,12 +1,13 @@
 #!/usr/bin/env node
 /**
- * auth-session-refresh.mjs — A8 / もしも / KDP / note / ココナラのログインを手元の PC で保つ。
- *   Mac は launchd 毎日 17:45（CI への受け渡しも行う）、Windows はタスクスケジューラ（受け渡しはしない）。
+ * auth-session-refresh.mjs — A8 / もしも / KDP / note / ココナラのログインを手元の Mac で保つ。
+ *   土曜の Mac 収集（scripts/weekly-collect.mjs）の auth 段が呼ぶ。毎日の launchd・Windows タスクは無い（DN-0817）。
+ *   CI（GitHub Actions）はログインしないので、ここは CI へ state を渡さない。
  * ---------------------------------------------------------------------------
  * なぜ要るか:
- *   A8 は揮発性 Cookie で、Mac で export した state が CI の定期収集（予定より数時間遅れて動く）の時点で
- *   切れていた（2026-09-22 run 35670832802・Issue #570）。人が気づいて再ログインするまで収集が止まる。
- *   stats47 は同じ問題を `refresh-session.mjs`（launchd 17:30）で解いているので、同じ仕組みを移す。
+ *   A8 などは揮発性 Cookie で、放っておくと次の取得時に切れている。人が気づいて再ログインするまで収集が止まる。
+ *   stats47 は同じ問題を `refresh-session.mjs` で解いているので、同じ仕組みを移した。
+ *   土曜の収集の最初にこれを回し、切れていれば資格情報ストアの ID/PW で 1 回だけ入り直してから各取得へ進む。
  *
  * 流れ（サービスごと）:
  *   1. 共用 state の取り込み: A8・もしもは stats47 と同じ口座。stats47 が毎日 17:30 に
@@ -15,9 +16,6 @@
  *   2. 確認: `auth:status` と同じ判定（口座 assert 付き）
  *   3. 切れていれば OS の資格情報ストア（Mac キーチェーン / Windows 資格情報マネージャー）の ID/PW で
  *      1 回だけログインし、もう一度 2 で確かめる
- *   4. --export（Mac のみ。CI へは Mac から一方向で渡す。Windows では無視する）: CI が使う service（ci.enabled）は暗号化 state を private R2 へ書き出す
- *   5. --dispatch-due: その service の定期収集（ci.cron）が 24 時間以内に来るなら、今すぐ
- *      login-collectors を起動する。定期実行の方は ci.skipScheduleIfFresh の gate が省略する
  *
  * 守ること（stats47 と同じ）:
  *   - ID/PW は scripts/lib/credential-store.mjs からだけ読む。ログ・引数・ファイルへ出さない
@@ -32,22 +30,17 @@
  *   A8・もしもは stats47 の項目（stats47-measurement-a8 / -moshimo）があればそれを使う。
  *   doboku-note だけ別にするなら doboku-note-auth-a8 / -moshimo を登録する（こちらが優先）
  *
- * CI（--ci・GitHub Actions 専用）: login-collectors で暗号化 state が切れていたときだけ、Secrets の ID/PW
- *   （資格情報の正本で ciCredential=true の service だけ・credential-store の ciEnvCredentialServices）で 1 回ログインし直して state を保存する。
- *   共用 state の取り込み・export・dispatch・通知はしない。2026-10-01 オーナー決定（note・ココナラ）。
- *
  * 使い方:
- *   node scripts/auth-session-refresh.mjs [--service a8,moshimo,kdp] [--export] [--dispatch-due] [--dry-run|--no-login] [--json]
- *   node scripts/auth-session-refresh.mjs --ci --service coconala --json
+ *   node scripts/auth-session-refresh.mjs [--service a8,moshimo,kdp] [--dry-run|--no-login] [--json]
  *   --service を省くと、資格情報の出どころ（共用 state か資格情報ストア）がある service だけを回す
- *   --dry-run: 取り込み判定と status だけ（取り込みの書き込み・ログイン・export・dispatch はしない）
+ *   --dry-run: 取り込み判定と status だけ（取り込みの書き込み・ログインはしない）
  *   --no-login: 共用 state の取り込みと status まで（資格情報ストアでのログインはしない）
- * 導入: npm run auth-refresh:install（Mac は launchd、Windows はタスクスケジューラ）
+ * 実行: 土曜の Mac 収集（node scripts/weekly-collect.mjs の auth 段）。単独でも手で実行できる
  *
  * exit: 0 全件 ok（または対象外）/ 1 いずれかが要対応（通知済み）/ 2 検査不成立（Mac・Windows 以外・対象 0 件）
  * ---------------------------------------------------------------------------
  */
-import { execFileSync, spawnSync } from 'node:child_process';
+import { execFileSync } from 'node:child_process';
 import { chmodSync, copyFileSync, existsSync, mkdirSync, readFileSync, statSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -55,7 +48,6 @@ import { fileURLToPath } from 'node:url';
 import {
   AUTO_LOGIN,
   classifyLoginOutcome,
-  cronFiresWithin,
   decideSharedImport,
   detectChallenge,
   keychainServiceNames,
@@ -63,7 +55,7 @@ import {
   sharedStatePath,
   submitLoginForm,
 } from './lib/auth-session-refresh.mjs';
-import { agentSession, ciEnvCredentialServices, credentialStoreSupported, hasSecret, readFirstCredential, readServiceCredential } from './lib/credential-store.mjs';
+import { agentSession, credentialStoreSupported, hasSecret, readFirstCredential } from './lib/credential-store.mjs';
 import { withAuthLock } from './lib/playwright-auth-lock.mjs';
 import {
   ensureAuthDirectories,
@@ -73,7 +65,7 @@ import {
   resolveStatePath,
 } from './lib/playwright-auth-profile.mjs';
 import { mergeLeanOptions } from './lib/playwright-launch.mjs';
-import { exportAuthState, REPO_ROOT, statusAuthService } from './playwright-auth.mjs';
+import { REPO_ROOT, statusAuthService } from './playwright-auth.mjs';
 
 const TAG = '[auth-session-refresh]';
 const argv = process.argv.slice(2);
@@ -81,16 +73,12 @@ const opt = (name) => { const i = argv.indexOf(name); return i >= 0 ? argv[i + 1
 const DRY_RUN = argv.includes('--dry-run');
 const NO_LOGIN = DRY_RUN || argv.includes('--no-login');
 const IS_MAC = process.platform === 'darwin';
-const CI_MODE = argv.includes('--ci');
-// CI への受け渡しは Mac から一方向（Windows からは書き出さない。DN-0362）
-const DO_EXPORT = argv.includes('--export') && !DRY_RUN && IS_MAC;
-const DISPATCH_DUE = argv.includes('--dispatch-due') && !DRY_RUN && IS_MAC;
 const AS_JSON = argv.includes('--json');
-const authOptions = { cwd: REPO_ROOT, repoRoot: REPO_ROOT, env: process.env, isCI: CI_MODE };
+const authOptions = { cwd: REPO_ROOT, repoRoot: REPO_ROOT, env: process.env };
 
 function storedCredential(service) {
-  // CI は Secrets（環境変数）から、手元は資格情報ストアから読む。どちらも credential-store だけが読み口
-  return CI_MODE ? readServiceCredential(service) : readFirstCredential(keychainServiceNames(service));
+  // 読み口は credential-store だけ（手元の PC の資格情報ストア）
+  return readFirstCredential(keychainServiceNames(service));
 }
 
 function hasStoredCredential(service) {
@@ -168,10 +156,10 @@ function failShotPath(service) {
 
 /**
  * エージェント（Claude Code が実行するコマンドは CLAUDECODE=1）からは資格情報でログインしない。
- * 実行はオーナー・定期実行・CI（2026-10-01: エージェントが自動ログインを走らせて失敗印を付けた）。
+ * 実行はオーナーと土曜の Mac 収集（2026-10-01: エージェントが自動ログインを走らせて失敗印を付けた）。
  * credential-store も同じ条件で読まないが、ここで先に止めて「資格情報が無い」と誤って言わない。
  */
-const AGENT_RUN = !CI_MODE && agentSession();
+const AGENT_RUN = agentSession();
 
 const submitCredential = submitLoginForm;
 
@@ -183,8 +171,7 @@ async function autoLogin(service, cred, checkUrl) {
     const { chromium } = await import('playwright');
     const context = await chromium.launchPersistentContext(resolveProfileDir(service, authOptions), mergeLeanOptions({
       channel: 'chrome',
-      // 画面ありは手元の PC だけ（CI のランナーには画面が無く、headed では起動できない）
-      headless: CI_MODE || !spec.headed,
+      headless: !spec.headed,
       locale: 'ja-JP',
       timezoneId: 'Asia/Tokyo',
       viewport: { width: 1366, height: 1000 },
@@ -225,21 +212,13 @@ async function autoLogin(service, cred, checkUrl) {
   });
 }
 
-function dispatchCollector(service) {
-  const r = spawnSync('gh', ['workflow', 'run', 'login-collectors.yml', '--ref', 'main', '-f', `service=${service}`, '-f', 'mode=collect'], {
-    cwd: REPO_ROOT,
-    encoding: 'utf8',
-  });
-  return r.status === 0 ? { ok: true } : { ok: false, reason: (r.stderr || r.stdout || '').trim().slice(0, 200) };
-}
-
-async function refresh(service, entry) {
+async function refresh(service) {
   const result = { service };
   if (AUTO_LOGIN[service].inProcessOnly) {
     return { ...result, status: 'skipped', reason: 'ログイン状態を別プロセスへ持ち出せないため、取得スクリプトの中でログインする（asp-browser の openAsp）' };
   }
   const failMark = failMarkPath(service);
-  result.sharedImport = CI_MODE ? null : importSharedState(service);
+  result.sharedImport = importSharedState(service);
 
   let status = await statusAuthService({ repoRoot: REPO_ROOT }, service);
   result.statusBefore = status.status;
@@ -250,11 +229,11 @@ async function refresh(service, entry) {
       return { ...result, status: 'blocked', reason: `前回の自動ログインが失敗したため停止中。確認後に ${failMark} を削除する` };
     }
     if (AGENT_RUN) {
-      return { ...result, status: 'agent_skipped', reason: 'エージェント（Claude Code）からの実行では資格情報でログインしない。定期実行（17:45）かオーナーが実行する' };
+      return { ...result, status: 'agent_skipped', reason: 'エージェント（Claude Code）からの実行では資格情報でログインしない。土曜の Mac 収集（weekly-collect）かオーナーがターミナルで実行する' };
     }
     const cred = storedCredential(service);
     if (!cred) {
-      return { ...result, status: 'no_credential', reason: CI_MODE ? `Secrets（DOBOKU_AUTH_${service.toUpperCase()}_USER / _PASSWORD）が無い` : `資格情報ストアに ${keychainServiceNames(service).join(' / ')} が無い` };
+      return { ...result, status: 'no_credential', reason: `資格情報ストアに ${keychainServiceNames(service).join(' / ')} が無い` };
     }
     const checkUrl = service === 'kdp' ? 'https://kdpreports.amazon.co.jp/dashboard' : null;
     const login = await autoLogin(service, cred, checkUrl).catch((e) => ({ status: 'error', reason: String(e.message).slice(0, 160) }));
@@ -272,33 +251,13 @@ async function refresh(service, entry) {
   }
   result.status = 'ok';
 
-  const ci = entry.ci ?? {};
-  if (DO_EXPORT && ci.mode === 'encrypted-state' && ci.enabled) {
-    const exported = await exportAuthState({ repoRoot: REPO_ROOT }, service).catch((e) => ({ ok: false, reason: String(e.message).slice(0, 160) }));
-    result.export = exported.ok ? { ok: true, generation: exported.generation } : { ok: false, reason: exported.reason ?? exported.status };
-    if (!exported.ok) return { ...result, status: 'export_failed', reason: result.export.reason };
-    if (DISPATCH_DUE && cronFiresWithin(ci.cron, new Date(), 24)) {
-      result.dispatch = dispatchCollector(service);
-      if (!result.dispatch.ok) return { ...result, status: 'dispatch_failed', reason: result.dispatch.reason };
-    }
-  }
   return result;
 }
 
 async function main() {
-  if (CI_MODE) {
-    const requested = opt('--service')?.split(',').map((x) => x.trim()).filter(Boolean) ?? [];
-    if (process.env.GITHUB_ACTIONS !== 'true' || requested.length === 0 || requested.some((x) => !ciEnvCredentialServices().includes(x))) {
-      console.error(`${TAG} --ci は GitHub Actions で、Secrets を許可した service（${ciEnvCredentialServices().join(' / ')}）を --service で指定したときだけ使える。検査不成立。`);
-      return 2;
-    }
-  }
-  if (!credentialStoreSupported() && !CI_MODE) {
+  if (!credentialStoreSupported()) {
     console.error(`${TAG} Mac・Windows 専用（OS の資格情報ストアを使う）。検査不成立。`);
     return 2;
-  }
-  if (!IS_MAC && (argv.includes('--export') || argv.includes('--dispatch-due'))) {
-    console.error(`${TAG} --export / --dispatch-due は Mac 専用（CI へは Mac から一方向で渡す）。この PC では無視する。`);
   }
   const registry = loadAuthRegistry({ cwd: REPO_ROOT });
   const requested = opt('--service')?.split(',').map((s) => s.trim()).filter(Boolean);
@@ -308,7 +267,7 @@ async function main() {
   for (const service of candidates) {
     if (!AUTO_LOGIN[service] || !registry.services[service]) throw new Error(`自動ログイン非対応の service: ${service}`);
     const shared = sharedStatePath(service);
-    if (!CI_MODE && !requested && !(shared && existsSync(shared)) && !hasStoredCredential(service)) {
+    if (!requested && !(shared && existsSync(shared)) && !hasStoredCredential(service)) {
       skipped.push({ service, status: 'skipped', reason: `共用 state も資格情報（${keychainServiceNames(service).join(' / ')}）も無い` });
       continue;
     }
@@ -321,10 +280,10 @@ async function main() {
 
   const results = [];
   for (const service of targets) {
-    const r = await refresh(service, registry.services[service])
+    const r = await refresh(service)
       .catch((e) => ({ service, status: 'error', reason: String(e.message).slice(0, 160) }));
     results.push(r);
-    if (r.status !== 'ok' && r.status !== 'agent_skipped' && !NO_LOGIN && !CI_MODE) notify(`${service}: ${r.status} — ${r.reason ?? ''}`);
+    if (r.status !== 'ok' && r.status !== 'agent_skipped' && !NO_LOGIN) notify(`${service}: ${r.status} — ${r.reason ?? ''}`);
   }
   const all = [...results, ...skipped];
   if (AS_JSON) console.log(JSON.stringify({ dryRun: DRY_RUN, checked: results.length, results: all }, null, 2));

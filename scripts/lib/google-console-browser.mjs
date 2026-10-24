@@ -9,7 +9,7 @@
  *   - プロファイルは本体固定パス（worktree でも同一ログインを共有／auth-profiles.md 準拠）
  *   - Cookie / storageState を標準出力・ファイルへ書き出さない
  *   - debug 保存前に email / Bearer トークンをマスク
- *   - CI の既定経路はサービスアカウント API（registry の google は ci.enabled:false）。暗号化 state を渡されたときだけ attachCISession で書き戻しを付ける
+ *   - CI はログインしない。検索の数値は公式 API（サービスアカウント）で取り、この画面経路は運営者の Mac だけ（土曜の Mac 収集 weekly-collect）
  */
 import { chromium } from "playwright";
 import {
@@ -23,7 +23,6 @@ import { dirname, join, resolve } from "node:path";
 import { createHash } from "node:crypto";
 import { resolveProfileDir, resolveStatePath } from "./playwright-auth-profile.mjs";
 import { leanContextOptions } from "./playwright-launch.mjs";
-import { attachCISession } from "./playwright-auth-state.mjs";
 import { datasetPath } from "./datasets.mjs";
 import { GSC_PROPERTY } from "./site-identity.mjs";
 import { REPO_ROOT } from "./repository-paths.mjs";
@@ -146,8 +145,6 @@ export async function launchContext(cfg, { headless } = {}) {
       "--no-default-browser-check",
     ],
   }));
-  // A8 は a8-report-browser.mjs の restoreA8Session が同じ statePath を独自に読むため対象外。
-  if (state && authService(cfg) === "google") await attachCISession(ctx, "google", { statePath: state });
   // navigator.webdriver を undefined に（自動化検知の主シグナルを無効化）
   await ctx.addInitScript(() => {
     try {

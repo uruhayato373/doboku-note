@@ -16,17 +16,9 @@ domain: product
 - `publish-note`（browser-use=Mac）: LLM バックエンドが必要で会社PCプロキシでは不可。Mac 専用。
 - **publishing は意図的にユーザー起動限定**（`disable-model-invocation: true`）。エージェントが勝手に公開しない。決定的フローのためサブエージェント化もしない（原則5）。
 
-## CI 経路（ops-write.yml・2026-09-21）
+## 実行する場所（2026-10-24〜）
 
-`note.publish`（本スキルの `scripts/note-publish.mjs`）は `ops-write.yml`（dispatch + plan hash）から実行できる。
-
-```
-npm run ops-write:plan -- --operation note.publish --args '{"article":"content/note/<dir>/article.md"}'
-# hash を確認 → 内容確認 →
-gh workflow run ops-write.yml --ref develop -f operation=note.publish -f args='{"article":"..."}' -f plan_sha256=<hash> -f commit=true
-```
-
-同カタログには note 系の他操作（`note.update-body` / `note.update-cover` / `note.update-partial` / `note.sync-tags` / `note.price-sweep` / `note.append-cta` / `note.magazine-add-articles` / `note.attach-file` / `note.membership-plan-edit`）もあり、それぞれ対応スクリプトの `--commit` を同じ plan hash ゲートで実行する。真実源 `.claude/config/ci-write-operations.json` / `scripts/lib/ci-write-gate.mjs`。
+CI からの公開・更新（`ops-write.yml`）は廃止した。note への書き込み（公開・本文更新・カバー・タグ・価格・CTA・マガジン収録・添付・会員プラン）は、運営者の依頼を受けたセッションが運営者の Mac の永続 profile で行う。ログインが切れていたら、運営者が `npm run auth:login -- --service note` で入り直す（セッションから資格情報でログインしない）。
 
 ## 安全弁（収益アカウントのため必須・崩さない）
 

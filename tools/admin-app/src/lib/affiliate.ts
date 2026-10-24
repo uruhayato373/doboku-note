@@ -8,7 +8,7 @@ import { AFFILIATE_VARIANTS } from '../../../../src/lib/affiliate-experiment.mjs
 /**
  * affiliate.ts — A8 アフィリ成果（読み取り専用）。
  * data/a8/report-log.json を読む。
- * データ供給は login-collectors.yml（週次・JST の前月と当月）。手動は workflow の month 入力か /a8-report。
+ * データ供給は土曜の Mac 収集（weekly-collect の a8 段・JST の前月と当月）。手動は /a8-report。
  *
  * ★ 表示上の最重要ルール: A8 のこの口座は stats47（統計で見る都道府県）と共用で、
  *   **doboku-note に分離できるのはサイト別レポート（siteSummary）だけ**。

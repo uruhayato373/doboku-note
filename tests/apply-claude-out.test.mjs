@@ -3,15 +3,16 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { classify } from '../scripts/apply-claude-out.mjs';
 
-test('週間計画と校正の学びだけを写し、それ以外の .claude/ のファイルは拒む', () => {
+test('週間計画・backlog・校正の学びだけを写し、それ以外の .claude/ のファイルは拒む', () => {
   const { allowed, rejected } = classify([
     '.claude/todo/weekly.md',
     '.claude/state/proofread-learnings/2026-10-31.md',
     '.claude/todo/backlog.md',
+    '.claude/todo/monthly.md',
     '.claude/settings.json',
     '.claude/state/proofread-learnings/../../settings.json',
     'scripts/x.mjs',
   ]);
-  assert.deepEqual(allowed, ['.claude/todo/weekly.md', '.claude/state/proofread-learnings/2026-10-31.md']);
+  assert.deepEqual(allowed, ['.claude/todo/weekly.md', '.claude/state/proofread-learnings/2026-10-31.md', '.claude/todo/backlog.md']);
   assert.equal(rejected.length, 4);
 });

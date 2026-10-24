@@ -9,7 +9,7 @@
 // 設計: verify-note-status.mjs（note 版 reconciler）の IG 版。投稿も削除もしない＝検知と報告のみ。
 //   実際の是正/予約は `/ig-reconcile` スキルが operator 確認のうえ行う。
 //
-// CI 週次の照合は login-collectors.yml（encrypted-state・PR #549）が本スクリプトを --no-planner で回す。
+// 照合は運営者の Mac で回す（CI はログインしない・DN-0817）。
 //   Graph API 版（scripts/fetch-ig-insights.mjs --reconcile）は Meta 利用制限で待機（dispatch 専用）。
 //   いずれも同じ core（scripts/lib/ig-reconcile-core.mjs）で snapshot を書く。プランナー実体確認が要るときは
 //   ローカルで --no-planner 無しに回す。
@@ -39,8 +39,7 @@ import { readFileSync, existsSync, mkdirSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { chromium } from "playwright";
 import { IG_DIR, MIN_PLANNER_DAYS, plannerSlots, normHead, localPacks as localPacksCore, reconcile as reconcileCore, driftCount as driftCountCore, buildSnapshot, planRegistryPublished } from "./lib/ig-reconcile-core.mjs";
-import { resolveProfileDir, resolveStatePath } from "./lib/playwright-auth-profile.mjs";
-import { attachCISession } from "./lib/playwright-auth-state.mjs";
+import { resolveProfileDir } from "./lib/playwright-auth-profile.mjs";
 import { leanContextOptions } from "./lib/playwright-launch.mjs";
 import { datasetDir, datasetPath } from "./lib/datasets.mjs";
 import { loadRegistry } from "./lib/content-registry.mjs";
@@ -91,7 +90,6 @@ async function readLive(account, recordedShortcodes) {
   const ctx = await chromium.launchPersistentContext(profile, leanContextOptions({
     headless: true, channel: "chrome", viewport: { width: 1500, height: 1400 },
   }));
-  await attachCISession(ctx, account.authService, { statePath: resolveStatePath(account.authService, { cwd: ROOT, repoRoot: ROOT }) });
   const page = ctx.pages()[0] || (await ctx.newPage());
   try {
     // 1) プロフィールグリッドから公開中 shortcode を収集（未記録投稿の発見用・直近を best-effort）

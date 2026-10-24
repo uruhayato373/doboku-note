@@ -37,7 +37,7 @@ doboku-note は土木工学に関するドキュメントサイト（Next.js 16 
 
 | KPI | 定義 | 分子 ÷ 分母 | 取得元 |
 |---|---|---|---|
-| **EPC**（アフィリ） | 1 クリックあたり報酬 | A8 確定報酬 ÷ アフィリクリック | A8 の月次の成果（`data/a8/report-log.json` の単月の期間から導く。取得は `login-collectors.yml` 週次・前月と当月）÷ GA4 `affiliate_cta_click`（配置別・ラベル別は `data/analysis/career-funnel.json`・fetch-metrics が週次で生成）。**案件ごとに確定 3 件まで EPC で勝敗を決めない**（affiliate-operations.md §6.5） |
+| **EPC**（アフィリ） | 1 クリックあたり報酬 | A8 確定報酬 ÷ アフィリクリック | A8 の月次の成果（`data/a8/report-log.json` の単月の期間から導く。取得は土曜の Mac 収集の a8 段・前月と当月）÷ GA4 `affiliate_cta_click`（配置別・ラベル別は `data/analysis/career-funnel.json`・fetch-metrics が週次で生成）。**案件ごとに確定 3 件まで EPC で勝敗を決めない**（affiliate-operations.md §6.5） |
 | **CTA 転換率** | 収益 CTA のクリック率 | CTA クリック ÷ ページ流入 | GA4 `affiliate_cta_click`/`note_cta_click` ÷ `ga4-page`（`report-monetization-coverage`・週次 CI） |
 | **note ファネル効率** | note 送客 → 購入の期間診断 | 同期間のマガジン売上件数 ÷ 商品ID付き`note_cta_click` | `npm run report-note-funnel-efficiency`。購入者単位で結合していないためCVR・因果attributionとは呼ばない |
 

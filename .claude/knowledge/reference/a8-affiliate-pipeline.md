@@ -79,7 +79,7 @@ candidate → applied → approved → harvested → registered → published
 
 ## 実行形態（対話フローはローカル・定期取得は CI・OS は問わない）
 
-- 初回ログインと申請の対話フローはローカル（auth root の `playwright-a8-profile`）。成果 CSV の定期取得は `login-collectors.yml`（encrypted-state・canary 卒業後） が private R2 の暗号化 storageState を復元して GitHub Actions で回す。
+- 初回ログインと申請の対話フローはローカル（auth root の `playwright-a8-profile`）。成果 CSV の定期取得は、土曜の Mac 収集（`weekly-collect` の a8 段）が同じ profile で回す（CI はログインしない）。
   ローカルであれば Mac / Windows どちらでも動く（2026-07-27 に可搬化・Windows で実走確認）。
 - **初回のみ人間**: `login.mjs` で A8 手動ログイン（credential は env に置かない）→ `list --dry-run --headed` で A8 の
   DOM をダンプしてセレクタ実機調整。これが済むまで実操作しない。
@@ -110,7 +110,7 @@ A/B 判断が保留になっていた。ここを自動化した。
 
 ```
 npm run a8-ui:fetch      → data/a8/ui/<runId>/{*.csv, manifest.json}
-   （a8-report-collector が実行。口座 assert が通らなければ DL しない）
+   （土曜の Mac 収集の a8 段が実行。口座 assert が通らなければ DL しない）
 npm run a8-ui:normalize  → <runId>/normalized/*.json ＋ SSOT へ upsert
    （a8-csv-auditor が PASS/WARN/FAIL を出してから実行）
 npm run report-buildjob-affiliate → GA4 クリック × A8 成果 の EPC
@@ -164,7 +164,7 @@ append すると同じ期間が二重に積まれるため、SSOT は `period+si
 
 | 装備 | 実体 | いつ効くか |
 |---|---|---|
-| cadence surfacer | `npm run check-a8-report-due`（台帳 `a8.ui-last-run` の warnDays＝9 日） | 取得は `login-collectors.yml`（週次・火 06:20 JST・JST の前月と当月。手動は `gh workflow run login-collectors.yml -f service=a8 -f month=YYYY-MM`）。日次の ops 点検が DUE・取得後に台帳が進んでいない（書き戻しの失敗）・最新の取得が ok でない、を `automation-failure` Issue に出す。前月より古い月の確定の遡及は `month` 入力で取り直す |
+| cadence surfacer | `npm run check-a8-report-due`（台帳 `a8.ui-last-run` の warnDays＝9 日） | 取得は土曜の Mac 収集の a8 段（JST の前月と当月）。日次の ops 点検が DUE・取得後に台帳が進んでいない（書き戻しの失敗）・最新の取得が ok でない、を `automation-failure` Issue に出す。前月より古い月の確定の遡及は、運営者が収集用 worktree の端末で `npm run a8-ui:fetch -- --month YYYY-MM …` を実行して取り直す |
 | 配線ドリフト検知 | `npm run check-affiliate-wiring`（pre-commit） | `affiliate-mats.json` ↔ `affiliate-catalog.json` ↔ `programIdMap` ↔ 消費側の 4 点がズレたら commit を止める。**初回実行で dx-consulting の取りこぼしを実検出**（2026-07-27 に 3 ASP 横断へ拡張・旧 `check-a8-wiring` を統合） |
 | 取りこぼし検知 | `crossCheck.hasShortfall` → `missingProgramCandidates` | 掲載しているのに集計されていない広告を、サイト別との差分で炙り出す |
 | 誤アカウント防止 | 口座 assert（`mediaId`）→ exit 5 | 別口座でログインしていたら 1 バイトも取り込まない |
@@ -183,7 +183,7 @@ append すると同じ期間が二重に積まれるため、SSOT は `period+si
   `crossCheck` / `missingProgramCandidates` / `notAttributable`）。月次の成果（月×案件）は持たず、読み手が
   `resultsFromReportLog`（`scripts/lib/a8-report-csv.mjs`）で単月の期間から導く
 - skill: `.claude/skills/ads/a8-report/SKILL.md`（`disable-model-invocation: true`）
-- agents: `a8-report-collector`（収集）／`a8-csv-auditor`（品質監査）
+- agents: `a8-csv-auditor`（品質監査）。収集は土曜の Mac 収集（`weekly-collect` の a8 段）で、`a8-report-collector` は 2026-10-24 に退役
 - 管理画面: admin-app `/affiliate` タブ（月次×プログラム×EPC・未写像の警告）
 
 ### つまずきポイント
