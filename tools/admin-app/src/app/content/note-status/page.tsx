@@ -58,7 +58,7 @@ export default function NoteStatusPage() {
                 <>
                   <StatusBadge tone="bad">未検査</StatusBadge> {m.freshness.reason} —
                   「ライブ」列の空欄は<strong>問題なしではありません</strong>。
-                  週次 note-live-audit.yml の snapshot 供給を確認すること
+                  土曜の収集の note-audit 段（npm run check-weekly-collect）の snapshot 供給を確認すること
                 </>
               )}
             </>
@@ -153,7 +153,7 @@ export default function NoteStatusPage() {
               <StatusBadge tone="bad">未取得</StatusBadge>{' '}
               <code>{datasetPath('note.status')}</code> が読めません。
               記事別のライブ公開状態は<strong>判定していません</strong>。
-              週次 note-live-audit.yml が供給します（管理画面はライブ API を叩きません）。{s.error}
+              土曜の収集の note-audit 段が週次で供給します（管理画面はライブ API を叩きません）。{s.error}
             </>
           ) : (
             <>

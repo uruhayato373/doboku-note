@@ -6,7 +6,7 @@
  *
  * 取得は土曜の Mac 収集（`node scripts/weekly-collect.mjs` の `a8` 段・JST の前月と当月）が回し、手動の
  * `/a8-report` が補う。A8 は公開 API が無く Playwright のログイン状態で取るので、
- * 取得・正規化・書き戻しのどこかが黙って止まりうる。日次の ops 点検（quality-audit の ops:true）がこれを読む。
+ * 取得・正規化・書き戻しのどこかが黙って止まりうる。土曜の収集の a8 段の検算（quality-audit の cadence collect・DN-0847）がこれを読む。
  *
  * 判定: `data/a8/ui-last-run.json`（committed マーカー）の
  *       collectedAt から経過日数 >= しきい値（台帳 a8.ui-last-run の freshness.warnDays）で DUE。マーカー無ければ DUE(初回/未実施)。
@@ -155,5 +155,5 @@ if (WANT_JSON) {
   for (const i of issues) console.log(`  [要対応] ${i}`);
   for (const n of notes) console.log(`  [想定内] ${n}`);
 }
-// --fail-on-due: 期限切れなら exit 1（quality-audit の ops:true が日次で読む＝週次レビューから移した点検・DN-0394）。既定は従来どおり常に exit 0。
+// --fail-on-due: 期限切れなら exit 1（土曜の収集の段の検算＝quality-audit の ops:true・cadence collect が読む・DN-0847。それまでは日次・DN-0394）。既定は従来どおり常に exit 0。
 process.exit(args.includes("--fail-on-due") && due ? 1 : 0);

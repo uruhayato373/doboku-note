@@ -1,6 +1,6 @@
 #!/bin/bash
 # launchd から毎週土曜 9:30 に呼ばれるラッパー（com.doboku-note.weekly-review）。
-#   1. 土曜の収集（前）: ログインが要る取得を scripts/weekly-collect.mjs --phase pre で回す（DN-0817・DN-0819）
+#   1. 土曜の収集（前）: ログインが要る取得と、その検算・note の公開状態の照合を scripts/weekly-collect.mjs --phase pre で回す（DN-0817・DN-0819・DN-0847）
 #   2. Mac のヘッドレスの Claude Code で /weekly-review・/plan-weekly と、期日到来の /monthly-review を回し、develop へ push する
 #   3. 土曜の収集（後）: 時間がかかる照合と note への書き込みを --phase post で回す
 # 導入・状態確認・即実行・解除: npm run weekly-review:install [-- --status|--run-now|--uninstall]
@@ -200,7 +200,7 @@ ${tasks}
 
 これは Mac の launchd から起動したヘッドレスの実行（scripts/scheduled/weekly-review.sh）で、作業場所は専用の worktree（detached HEAD・origin/develop）です。人は見ていません。次を守ってください。
 - 最初に .claude/state/weekly-review/draft.json の markdown（土曜の収集の後に作り直した機械の節）を読み、無いか古ければ node scripts/build-weekly-review-draft.mjs --print で作り直す。数字は写し、転記し直さない。
-- ログインが要る取得（ブラウザ・note/ココナラ/A8/KDP/GSC の画面）はしない。直前に土曜の収集（scripts/weekly-collect.mjs）が取った記録を読む。収集の段ごとの結果は .claude/state/weekly-collect/runs.json の最後の pre の回にある。失敗・skipped の段は理由とともに「未取得の材料」に書き、0 や成功に読み替えない。
+- ログインが要る取得（ブラウザ・note/ココナラ/A8/KDP/GSC の画面）はしない。直前に土曜の収集（scripts/weekly-collect.mjs）が取った記録を読む。収集の段ごとの結果は .claude/state/weekly-collect/runs.json の最後の pre の回にある（npm run check-weekly-collect で段ごとの最新の合否）。失敗・skipped の段は理由とともに「未取得の材料」に書き、0 や成功に読み替えない。段の理由の「検算 <点検 id>」は取った記録の検算の失敗で、取り直しか記録の修正を申し送る。note の公開状態の照合（note-audit 段・公開 API）の指摘も同じ回の理由にある。
 - .claude/ の下のファイルは Claude Code の保護で Edit・Write・Bash の書き込みが拒否される。書く必要があるファイル（翌週の .claude/todo/weekly.md・.claude/state/proofread-learnings/YYYY-MM-DD.md）は、.tmp/claude-out/ の下に同じ相対パスで書く（例: .tmp/claude-out/.claude/todo/weekly.md）。backlog は、起票は npm run todo:add、完了は npm run todo:complete、削除は node scripts/backlog-edit.mjs を使う（node のスクリプトは書ける）。カードの本文を直すときだけ、mkdir -p .tmp/claude-out/.claude/todo && cp .claude/todo/backlog.md .tmp/claude-out/.claude/todo/backlog.md してから写しを直す。サブエージェント（todo-planner など）に書かせるときも、この置き場を指示する。これらは自分で commit しない（終了後にラッパーが写して commit する）。
 - バックグラウンドの実行（Agent や Bash の run_in_background）は使わず、前景で終わるのを待つ。ScheduleWakeup は使えない。ターンを終えると実行が終わる。
 - AskUserQuestion は使えない。判断待ち（🟣）の諮問は「## バックログの関門」に「諮問待ち（次の対話セッションで諮る）」として背景・選択肢・おすすめを 1 件ずつ書き、行頭に <!-- weekly-review:pending-questions --> を置く。台帳の 🟣 はそのまま残す。

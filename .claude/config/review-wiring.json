@@ -45,7 +45,13 @@
         },
         {
           "command": "check-weekly-collect",
-          "label": "土曜の収集（ログインが要る取得と書き込み）の直近の合否",
+          "label": "土曜の収集（ログインが要る取得と書き込み）の段ごとの最新の合否（取った記録の検算を含む）",
+          "stage": "基盤の点検",
+          "role": "点検"
+        },
+        {
+          "command": "quality:audit:weekly",
+          "label": "週次の点検（期日が週・月の単位の点検と、結果がリポジトリの中身だけで決まる点検。毎日は回さない・DN-0847）",
           "stage": "基盤の点検",
           "role": "点検"
         },
@@ -331,6 +337,10 @@
         {
           "command": "check-taxonomy-wiring",
           "label": "分類と回遊の配線"
+        },
+        {
+          "command": "quality:audit:weekly",
+          "label": "土曜の週次の点検（quality-audit の cadence weekly）"
         }
       ]
     },
@@ -368,7 +378,7 @@
         },
         {
           "command": "check-weekly-collect",
-          "label": "土曜の収集（ログインが要る取得と書き込み）の直近の合否",
+          "label": "土曜の収集（ログインが要る取得と書き込み）の段ごとの最新の合否（取った記録の検算を含む）",
           "stage": "基盤の点検",
           "role": "点検"
         },

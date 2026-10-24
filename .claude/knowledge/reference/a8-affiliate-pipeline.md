@@ -164,7 +164,7 @@ append すると同じ期間が二重に積まれるため、SSOT は `period+si
 
 | 装備 | 実体 | いつ効くか |
 |---|---|---|
-| cadence surfacer | `npm run check-a8-report-due`（台帳 `a8.ui-last-run` の warnDays＝9 日） | 取得は土曜の Mac 収集の a8 段（JST の前月と当月）。日次の ops 点検が DUE・取得後に台帳が進んでいない（書き戻しの失敗）・最新の取得が ok でない、を `automation-failure` Issue に出す。前月より古い月の確定の遡及は、運営者が収集用 worktree の端末で `npm run a8-ui:fetch -- --month YYYY-MM …` を実行して取り直す |
+| cadence surfacer | `npm run check-a8-report-due`（台帳 `a8.ui-last-run` の warnDays＝9 日） | 取得は土曜の Mac 収集の a8 段（JST の前月と当月）。a8 段の検算（quality-audit の cadence collect・DN-0847）が DUE・取得後に台帳が進んでいない（書き戻しの失敗）・最新の取得が ok でない、を段の失敗として Issue（channel weekly-collect）に出す。前月より古い月の確定の遡及は、運営者が収集用 worktree の端末で `npm run a8-ui:fetch -- --month YYYY-MM …` を実行して取り直す |
 | 配線ドリフト検知 | `npm run check-affiliate-wiring`（pre-commit） | `affiliate-mats.json` ↔ `affiliate-catalog.json` ↔ `programIdMap` ↔ 消費側の 4 点がズレたら commit を止める。**初回実行で dx-consulting の取りこぼしを実検出**（2026-07-27 に 3 ASP 横断へ拡張・旧 `check-a8-wiring` を統合） |
 | 取りこぼし検知 | `crossCheck.hasShortfall` → `missingProgramCandidates` | 掲載しているのに集計されていない広告を、サイト別との差分で炙り出す |
 | 誤アカウント防止 | 口座 assert（`mediaId`）→ exit 5 | 別口座でログインしていたら 1 バイトも取り込まない |

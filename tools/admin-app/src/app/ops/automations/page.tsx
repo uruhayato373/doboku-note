@@ -1,14 +1,14 @@
 import { DataTable, PanelCard, StatusBadge, type DataTableColumn, type DataTableRow, type Tone } from '@/components/admin';
 import { Stack } from '@/components/layout';
 import { PageHead } from '@/components/ui';
-import { loadAutomations, runPassed, type Automation, type CollectRun } from '@/lib/automations';
+import { loadAutomations, type Automation, type CollectVerdict } from '@/lib/automations';
 
 export const dynamic = 'force-dynamic';
 
 /**
  * /ops/automations — 自動化の台帳（read-only・DN-0817）。どこで（Mac の launchd か GitHub Actions）何がいつ動き、
  * ログインが要るか・誰が読むか。正本はデータセット config.automations、実物との一致は npm run check-automations（CI）が止める。
- * ログインが要る処理は土曜の Mac の 1 本（weekly-collect）だけで、その最新の結果を上に出す。
+ * ログインが要る処理は土曜の Mac の 1 本（weekly-collect）だけで、その段ごとの最新の結果（取り直しを含む）を上に出す。
  */
 export default function AutomationsPage() {
   const v = loadAutomations();
@@ -19,9 +19,8 @@ export default function AutomationsPage() {
       <PageHead title="自動化の台帳" sub={`Mac の launchd ${mac.length} 本・GitHub Actions ${ci.length} 本。正本は ${v.ledgerPath}（実物との一致は npm run check-automations）。ログインが要るのは土曜の Mac の 1 本だけ`} />
       <Stack>
         {v.error && <p className="project-warning-text text-sm">読めなかった: {v.error}</p>}
-        <PanelCard title="土曜の収集の最新の結果" description={`ログインが要る取得と書き込み（scripts/weekly-collect.mjs）。記録は ${v.runsPath}、日次の点検は check-weekly-collect`}>
-          <CollectRunTable label="前（レビューの前）" run={v.lastPre} />
-          <CollectRunTable label="後（レビューの後）" run={v.lastPost} />
+        <PanelCard title="土曜の収集の段ごとの最新の結果" description={`ログインが要る取得と書き込み、取った記録の検算（scripts/weekly-collect.mjs）。運営者の取り直し（--only）も数える。記録は ${v.runsPath}。日次の死活は check-weekly-collect:alive、この表と同じ判定は check-weekly-collect`}>
+          <CollectTable v={v.collect} />
         </PanelCard>
         <PanelCard title="Mac の launchd">
           <DataTable columns={COLUMNS} rows={rows(mac)} pageSize={50} />
@@ -34,30 +33,37 @@ export default function AutomationsPage() {
   );
 }
 
-const STAGE_TONE: Record<string, Tone> = { ok: 'good', warn: 'warn', skipped: 'neutral', failed: 'bad' };
-const STAGE_LABEL: Record<string, string> = { ok: '成功', warn: '注意', skipped: '飛ばした', failed: '失敗' };
+const STAGE_TONE: Record<string, Tone> = { ok: 'good', warn: 'warn', skipped: 'neutral', failed: 'bad', missing: 'bad' };
+const STAGE_LABEL: Record<string, string> = { ok: '成功', warn: '注意', skipped: '飛ばした', failed: '失敗', missing: '記録なし' };
 const at = (iso: string | undefined) => (iso ? new Date(iso).toLocaleString('ja-JP', { timeZone: 'Asia/Tokyo' }) : '—');
+
+const PHASE_LABEL: Record<string, string> = { pre: '前', post: '後', only: '取り直し' };
 
 const STAGE_COLUMNS: DataTableColumn[] = [
   { key: 'status', label: '結果' },
   { key: 'title', label: '段', wrap: true },
+  { key: 'when', label: 'いつ', wrap: true },
   { key: 'reason', label: '理由', wrap: true, sortable: false },
-  { key: 'durationSec', label: '秒', num: true },
 ];
 
-function CollectRunTable({ label, run }: { label: string; run: CollectRun | null }) {
-  if (!run) return <p className="text-sm text-muted-foreground">{label}: まだ一度も回っていない</p>;
-  const passed = runPassed(run);
-  const stageRows: DataTableRow[] = run.stages.map((s) => ({
+function CollectTable({ v }: { v: CollectVerdict | null }) {
+  if (!v) return <p className="text-sm text-muted-foreground">まだ一度も回っていない</p>;
+  const passed = !v.problems.length;
+  const stageRows: DataTableRow[] = v.stages.map((s) => ({
     id: s.id,
-    values: { status: STAGE_LABEL[s.status] ?? s.status, title: s.title, reason: s.reason || null, durationSec: s.durationSec },
+    values: {
+      status: STAGE_LABEL[s.status] ?? s.status,
+      title: `${PHASE_LABEL[s.phase] ?? s.phase}・${s.title}`,
+      when: s.at ? `${at(s.at)}（${PHASE_LABEL[s.runPhase ?? ''] ?? s.runPhase}）` : null,
+      reason: s.reason || null,
+    },
     cells: { status: <StatusBadge tone={STAGE_TONE[s.status] ?? 'neutral'}>{STAGE_LABEL[s.status] ?? s.status}</StatusBadge> },
   }));
   return (
     <div className="mb-4">
       <p className="text-sm">
-        {label}: {at(run.finishedAt)} <StatusBadge tone={passed ? 'good' : 'bad'}>{passed ? '合格' : '不合格'}</StatusBadge>
-        {run.commit?.problem ? ` 書き戻し: ${run.commit.problem}` : ''}
+        {v.phases.map((p) => `${PHASE_LABEL[p.phase]}: ${at(p.finishedAt)}`).join('・')}{' '}
+        <StatusBadge tone={passed ? 'good' : 'bad'}>{passed ? '合格' : `不合格 ${v.problems.length} 件`}</StatusBadge>
       </p>
       <DataTable columns={STAGE_COLUMNS} rows={stageRows} pageSize={20} />
     </div>

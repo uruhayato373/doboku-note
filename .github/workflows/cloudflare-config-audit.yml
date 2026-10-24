@@ -14,7 +14,8 @@ name: ☁️ Audit Cloudflare zone config (weekly)
 
 on:
   schedule:
-    - cron: "47 21 * * 0" # JST 06:47 Monday（UTC 21:47 Sunday）
+    # 土曜の週次レビューが新しい結果を読めるよう金曜の夜に回す（DN-0847・旧 月曜 06:47）
+    - cron: "47 13 * * 5" # JST 22:47 Friday（UTC 13:47 Friday）
   workflow_dispatch:
     inputs:
       accept_baseline:

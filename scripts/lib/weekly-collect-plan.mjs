@@ -8,6 +8,9 @@
  *
  * 段の項目:
  *   id・title・phase（pre|post）・timeoutMin・browser（起動前にブラウザの空きを待つ）・selfCommits（自分で commit・push する）
+ *   verify: 取った記録の検算（scripts/quality-audit.mjs の cadence:'collect' の点検 id。コマンドはそちらの定義を使う）。
+ *     取る月が無くて skip した週も回し、落ちたら段を failed にする。同じ点検を毎日 ops で繰り返さない（DN-0847）
+ *   addPaths: data/ の外に書く段が commit する置き場（note-audit の題名・価格のずれの印）
  *   commands: [{ argv, ok, warn, onlyIfPrev }]
  *     ok   = 成功とみなす終了コード（既定 [0]）
  *     warn = 記録は取れたが注意が要る終了コード（例: A8 の部分取得 2・note の反映待ち 1）
@@ -15,6 +18,7 @@
  *     failPattern = 出力にこれが出たら終了コードに関わらず失敗（指摘ありと検査不成立が同じ exit 1 の検査）
  * ---------------------------------------------------------------------------
  */
+import { datasetPath } from './datasets.mjs';
 import { jstMonth, todayJst } from './jst-date.mjs';
 import { reviewWeekOfDay, reviewWindowOfWeek } from './review-week.mjs';
 
@@ -51,11 +55,13 @@ export function buildStages({ today = todayJst(), kdpMonths = [] } = {}) {
         { argv: ['npm', 'run', '-s', 'a8-ui:fetch', '--', '--month', m, '--reports', a8Reports, '--site-filter', 'self'], warn: [2] },
         { argv: ['npm', 'run', '-s', 'a8-ui:normalize'], onlyIfPrev: [0, 2] },
       ]),
+      verify: ['a8-report-due'],
     },
     {
       id: 'kdp', phase: 'pre', title: 'KDP のロイヤリティ', timeoutMin: 30, browser: true,
       skip: kdpMonths.length ? null : '取る月が無い（kdp-report --list-due が 0 件）',
       commands: kdpMonths.map((m) => ({ argv: ['npm', 'run', '-s', 'kdp-report', '--', '--month', m] })),
+      verify: ['kdp-report-freshness'],
     },
     {
       id: 'note-traffic', phase: 'pre', title: `note のアクセス（月と ${window.startDate}〜${window.endDate}）`, timeoutMin: 30, browser: true,
@@ -71,15 +77,40 @@ export function buildStages({ today = todayJst(), kdpMonths = [] } = {}) {
         ...(day <= NOTE_SALES_PREV_MONTH_UNTIL_DAY ? [{ argv: ['npm', 'run', '-s', 'note-sales-fetch', '--', '--month', prev, '--commit'], ok: [0, 8] }] : []),
         { argv: ['npm', 'run', '-s', 'note-sales-fetch', '--', '--month', cur, '--commit'] },
       ],
+      verify: ['sales-freshness'],
     },
     {
       id: 'coconala', phase: 'pre', title: 'ココナラの取引・出品分析・売上履歴', timeoutMin: 30, browser: true, selfCommits: true,
       commands: [{ argv: ['scripts/coconala-local-routine.mjs'] }],
+      verify: ['coconala-analytics'],
     },
     {
       id: 'gsc', phase: 'pre', title: 'GSC の登録リクエスト 10 件と月次の理由別 CSV', timeoutMin: 40, browser: true, selfCommits: true,
       // 前回の送信から 20 時間以内なら送らない・月次 CSV は期日のときだけ（判定は gsc-local-routine 自身）
       commands: [{ argv: ['scripts/gsc-local-routine.mjs'] }],
+      verify: ['gsc-ui-due', 'gsc-indexing-due'],
+    },
+    {
+      id: 'note-audit', phase: 'pre', title: 'note の公開状態の照合（公開 API・構造・タグ・本文・カード・状態・マガジン・導線・題名と価格）', timeoutMin: 45, browser: false,
+      // 旧 note-live-audit.yml（CI・月曜・平均 40 分・19 回中 13 回赤）。ログインは要らないが、直すにはログインが要るので土曜に寄せた。
+      // 前段に置くのは、その日のレビューが結果と snapshot（note.status・note.magazines）を読み、題名と価格のずれの印を同じ日の
+      // 後段の note-sync が直すため（DN-0847）。指摘（exit 1 など）は warn、取得失敗が支配的な検査不成立は failed。
+      // check-note-republish（再公開待ちの surfacer）は artifact にしか出ず読み手が無かったので移さない（note-sync-check が反映待ちを見る）
+      addPaths: ['content/note', datasetPath('config.products'), 'src/lib/note-magazines.ts'],
+      commands: [
+        { argv: ['scripts/check-note-structure.mjs', '--ci'], warn: [1], failPattern: '検査不成立' },
+        { argv: ['scripts/check-note-live-tags.mjs'], warn: [1], failPattern: '検査不成立' },
+        { argv: ['scripts/check-note-live-headings.mjs'], warn: [1], failPattern: '検査不成立' },
+        { argv: ['scripts/audit-note-cards.mjs'], warn: [1], failPattern: '検査不成立' },
+        { argv: ['scripts/verify-note-status.mjs', '--ci', '--json', '--snapshot'], warn: [1], failPattern: '検査不成立' },
+        // exit 1 = 単品の照合が不成立・2 = ずれ（--contents が無いと収録が取れず check-magazine-membership の軸 C が検査不成立になる）
+        { argv: ['scripts/verify-note-magazines.mjs', '--vs-txt', '--contents', '--json'], warn: [2] },
+        // snapshot を作り直した直後に三軸（repo・SoT・ライブ）を突き合わせる。exit 2 = 検査不成立
+        { argv: ['scripts/check-magazine-membership.mjs', '--ci'], warn: [1] },
+        { argv: ['scripts/audit-note-funnel.mjs', '--live', '--ci'], warn: [1], failPattern: '検査不成立' },
+        // 題名・価格は原稿が正。note と食い違う記事を「note へ未反映」に戻す（後段の note-sync が上げ直す）。exit 1 = 検査不成立
+        { argv: ['scripts/note-reconcile-title-price.mjs', '--commit'] },
+      ],
     },
     {
       id: 'note-live', phase: 'post', title: 'note の添付と会員限定のライブ照合', timeoutMin: 90, browser: true,
@@ -95,6 +126,7 @@ export function buildStages({ today = todayJst(), kdpMonths = [] } = {}) {
       // 1 記事に約 1.4 分かかる。2026-10-24 の初回は取り寄せ 268 件に 1.5 時間かかり、200 記事では時間内に収まらなかった。
       // 1 回 80 記事に絞り、残りは翌週へ（急ぐときは運営者が --only note-sync を別の日に回す）。途中で止めても公開中の記事は変わらない
       commands: [{ argv: ['scripts/note-sync-routine.mjs', '--max', '80'] }],
+      verify: ['note-sync-freshness'],
     },
     {
       id: 'note-sync-check', phase: 'post', title: 'note の反映の照合（公開 API）', timeoutMin: 15, browser: false,
@@ -134,4 +166,44 @@ export function commandFailureReason({ argv, index, total, line, timedOut = fals
 /** 合格の判定: 全段が ok・warn・skipped で、書き戻しに問題が無い（pure） */
 export function runPassed(run) {
   return run.stages.every((s) => ['ok', 'warn', 'skipped'].includes(s.status)) && !run.commit?.problem && !run.leftover?.length;
+}
+
+const PASSING = ['ok', 'warn', 'skipped'];
+
+/** 検算の失敗の理由（pure）。結論の行（✗・FAIL・不合格・検査不成立）を優先し、無ければ最後の行 */
+export function verifyFailureReason(id, output) {
+  const lines = String(output ?? '').split(/\r?\n/).map((l) => l.trim()).filter(Boolean);
+  const line = lines.find((l) => /✗|FAIL|不合格|検査不成立/.test(l)) ?? lines.at(-1) ?? '';
+  return `検算 ${id}: ${line}`.slice(0, 300);
+}
+
+/**
+ * 直近の収集の判定（pure・DN-0847）。運営者の取り直し（--only）も数えるため、段ごとに一番新しい結果で決める。
+ *   alive  … 直近の pre と post が failDays 以内に回ったか（日次の ops は死活だけを見る）
+ *   full   … alive に加えて、全段の最新の結果が合格で、一番新しい回の書き戻しに問題が無いか（週次レビューと Issue の自動クローズ）
+ * @param {{ runs: object[], stageIds: string[], failDays: number, now: number, alive?: boolean }} input
+ * @returns {{ problems: string[], phases: { phase: string, finishedAt: string, ageDays: number }[], stages: { id: string, status: 'ok' | 'warn' | 'skipped' | 'failed' | 'missing', reason: string, at: string | null, phase: string | null }[] }}
+ */
+export function judgeRuns({ runs, stageIds, failDays, now, alive = false }) {
+  const problems = [];
+  const phases = [];
+  for (const phase of ['pre', 'post']) {
+    const last = runs.filter((r) => r.phase === phase).at(-1);
+    if (!last) { problems.push(`${phase}: 記録が無い（収集が一度も回っていない）`); continue; }
+    const ageDays = (now - Date.parse(last.finishedAt)) / 86_400_000;
+    phases.push({ phase, finishedAt: last.finishedAt, ageDays: Math.round(ageDays * 10) / 10 });
+    if (ageDays > failDays) problems.push(`${phase}: 最後の収集が ${Math.floor(ageDays)} 日前（${failDays} 日を超えた・土曜の Mac が動いていない）`);
+  }
+  if (alive) return { problems, phases, stages: [] };
+  const since = now - failDays * 86_400_000;
+  const recent = runs.filter((r) => Date.parse(r.finishedAt) >= since);
+  const stages = stageIds.map((id) => {
+    const hit = recent.map((r) => ({ run: r, stage: r.stages.find((s) => s.id === id) })).filter((x) => x.stage).at(-1);
+    return hit ? { id, status: hit.stage.status, reason: hit.stage.reason ?? '', at: hit.run.finishedAt, phase: hit.run.phase } : { id, status: 'missing', reason: `${failDays} 日以内に記録が無い`, at: null, phase: null };
+  });
+  for (const s of stages) if (!PASSING.includes(s.status)) problems.push(`${s.id}: ${s.status === 'missing' ? s.reason : `${s.at.slice(0, 10)} の ${s.phase} で失敗（${s.reason}）`}`);
+  const latest = runs.at(-1);
+  if (latest?.commit?.problem) problems.push(`${latest.phase}: ${latest.finishedAt.slice(0, 10)} の書き戻しの問題（${latest.commit.problem}）`);
+  if (latest?.leftover?.length) problems.push(`${latest.phase}: ${latest.finishedAt.slice(0, 10)} の回に差分が残った（${latest.leftover.slice(0, 5).join(', ')}）`);
+  return { problems, phases, stages };
 }

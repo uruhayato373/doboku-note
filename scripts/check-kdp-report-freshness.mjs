@@ -7,7 +7,7 @@
  * - 共有KDP口座のうち、doboku-note catalog のLIVE書籍（対象月末までに出版した本）が全冊取得できること
  *
  * 取得自体はログインが必要な `npm run kdp-report` が担う。この検査はコミット済み台帳だけを読み、
- * 他サイトの書籍は母数に入れず、日次 ops-audit から「取得が止まった」ことを通知する。
+ * 他サイトの書籍は母数に入れず、土曜の収集の kdp 段の検算（quality-audit の cadence collect・DN-0847）から「取得が止まった」ことを通知する。
  */
 import { existsSync, readFileSync, writeSync } from 'node:fs';
 import { join, relative } from 'node:path';
