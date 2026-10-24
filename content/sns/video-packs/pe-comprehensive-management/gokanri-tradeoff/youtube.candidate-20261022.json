@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "longform": {
+    "title": "5管理を列挙で終わらせずトレードオフにする方法",
+    "description": "5管理を列挙するだけで終わらず、同じ業務の複数案を比較し、判断理由と残余リスクを説明する方法を整理します。\n\n住宅近くの道路補修を練習用の仮例とし、工期に余裕があり昼間の規制を調整できる条件で、夜間集中案と昼間分割案を比較します。選択は条件付きです。法令・必要な品質・安全確保を予算との単純な交換条件にはしません。仮例は実績や公式の模範答案ではありません。\n\n▼ 5管理クロストレードオフの教材\nhttps://note.com/dobokunote/m/m921fbe060575?utm_source=youtube&utm_medium=video&utm_campaign=gokanri-tradeoff&utm_content=longform\n\n出典（2026年10月22日確認）\n文部科学省「総合技術監理キーワード集2026」本文2〜3ページ（5管理の相互関係、目的や環境に応じた判断）\nhttps://www.mext.go.jp/content/20251125-mxt_kiban02-000046002_01.pdf\n\n音声：VOICEVOX:青山龍星\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。",
+    "tags": [
+      "技術士",
+      "総合技術監理部門",
+      "記述式",
+      "5管理"
+    ]
+  },
+  "review": {
+    "status": "local-material-prepared",
+    "authorFinal": "pending",
+    "continuousListening": "not-performed",
+    "publication": "not-authorized-in-this-task"
+  },
+  "sourceRefs": [
+    {
+      "type": "external",
+      "url": "https://www.mext.go.jp/content/20251125-mxt_kiban02-000046002_01.pdf",
+      "title": "文部科学省「総合技術監理キーワード集2026」pp.2–3（5管理の関連・トレードオフ・目的や環境に応じた判断）"
+    },
+    {
+      "type": "site",
+      "path": "content/site/pe-comprehensive-management/management-tradeoffs/article.mdx"
+    },
+    {
+      "type": "figure",
+      "path": "content/site/pe-comprehensive-management/keyword-2026/img/figure-five-management-learning.svg"
+    }
+  ]
+}

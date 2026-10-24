@@ -1,0 +1,120 @@
+{
+  "cadence": "weekly",
+  "runKey": "2026-W43",
+  "ranAt": "2026-10-24T01:52:01.363Z",
+  "checks": [
+    {
+      "command": "check-workflow-health",
+      "label": "重要 workflow の健全性",
+      "exitCode": 0,
+      "state": "ok",
+      "summary": "[check-workflow-health] ✓ 重要 workflow はすべて健全",
+      "seconds": 23
+    },
+    {
+      "command": "node:check-backlog-health",
+      "label": "バックログの健全性",
+      "exitCode": 0,
+      "state": "ok",
+      "summary": "[check-backlog-health] カード 195 件を実検査（判定はしない・候補の列挙のみ）",
+      "seconds": 62
+    },
+    {
+      "command": "check-taxonomy-wiring",
+      "label": "分類と回遊の配線",
+      "exitCode": 0,
+      "state": "ok",
+      "summary": "- GSC 2026-09-22〜2026-10-19: テーマページ 9 件・クリック 0・表示 22（上位: /topics 11、/topics/quality-management 3、/topics/concrete 2、/topics/earthwork-foundations 1、/topics/environment-decarbonization 1）",
+      "seconds": 2
+    }
+  ],
+  "issues": [
+    {
+      "number": 571,
+      "title": "[auto] ops: 投稿・配信・販売計測に遅れがあります",
+      "createdAt": "2026-09-22T01:08:28Z",
+      "labels": [
+        "automation-failure"
+      ]
+    },
+    {
+      "number": 864,
+      "title": "[auto] note-sync: note の反映残り（rc=1）",
+      "createdAt": "2026-10-05T03:10:38Z",
+      "labels": [
+        "automation-failure"
+      ]
+    },
+    {
+      "number": 1006,
+      "title": "[auto] note-live-audit: note のライブ監査で異常があります",
+      "createdAt": "2026-10-12T02:32:25Z",
+      "labels": [
+        "automation-failure"
+      ]
+    },
+    {
+      "number": 1087,
+      "title": "[auto] auth-state-kdp: login collector kdp: expired / rc=0 / type=0",
+      "createdAt": "2026-10-16T00:07:21Z",
+      "labels": [
+        "automation-failure"
+      ]
+    },
+    {
+      "number": 1180,
+      "title": "[auto] index-coverage: 閾値ゲートが赤（無条件異常）",
+      "createdAt": "2026-10-21T07:25:37Z",
+      "labels": [
+        "automation-failure"
+      ]
+    },
+    {
+      "number": 1186,
+      "title": "[auto] login-collectors-publish: login collectors: develop への書き戻しが失敗",
+      "createdAt": "2026-10-22T00:16:48Z",
+      "labels": [
+        "automation-failure"
+      ]
+    },
+    {
+      "number": 1204,
+      "title": "[auto] weekly-review-draft: 週次レビューの材料が欠けています",
+      "createdAt": "2026-10-23T09:01:49Z",
+      "labels": [
+        "automation-failure"
+      ]
+    },
+    {
+      "number": 1206,
+      "title": "[auto] weekly-review-local: 自動の週次レビューが完了しませんでした",
+      "createdAt": "2026-10-24T00:30:12Z",
+      "labels": [
+        "automation-failure"
+      ]
+    }
+  ],
+  "alerts": [
+    {
+      "number": 106,
+      "severity": "high",
+      "package": "next",
+      "summary": "Next.js: Denial of Service in App Router using Server Actions",
+      "createdAt": "2026-10-23T14:39:06Z"
+    },
+    {
+      "number": 107,
+      "severity": "critical",
+      "package": "next",
+      "summary": "Next.js: Unauthenticated Remote Code Execution in Image Optimization API when SVG files are used",
+      "createdAt": "2026-10-23T14:39:06Z"
+    },
+    {
+      "number": 109,
+      "severity": "critical",
+      "package": "next",
+      "summary": "Next.js: Unauthenticated Remote Code Execution in `use cache` functions returning typed arrays",
+      "createdAt": "2026-10-23T14:39:07Z"
+    }
+  ]
+}

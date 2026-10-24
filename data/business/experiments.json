@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-22T23:48:38.295Z",
+  "updated_at": "2026-10-24T02:09:35.665Z",
   "experiments": [
     {
       "id": "EXP-002",
@@ -6068,6 +6068,360 @@
           "note": "DN-0758 の完了条件（本番反映日・変更前の基線・次回確認日の記録）として起票し、本番反映済みなので running にした。効果は未測定"
         }
       ]
+    },
+    {
+      "id": "EXP-040",
+      "kind": "search-strategy",
+      "title": "資格名: /exam/civil-construction-2/guide/r08-secondary-answers の11〜30位の検索語を10位以内へ",
+      "hypothesis": "/exam/civil-construction-2/guide/r08-secondary-answers は 15 語が11〜30位（最良 10.8 位・表示 33）。検索意図に合わせて title・description・冒頭の答え・見出し・内部リンクを直せば、同じ検索語の順位が上がる",
+      "target_metric": "対象ページ × 直す前の検索語 15 語の GSC 平均順位（本番反映の前 28 日・後 28 日）",
+      "target_delta": "平均順位が 10% 以上良くなる。前後どちらかの表示が 10 未満なら判定不能",
+      "status": "proposed",
+      "created_at": "2026-10-24",
+      "searchStrategy": {
+        "cluster": "qualification",
+        "page": "/exam/civil-construction-2/guide/r08-secondary-answers",
+        "contentPath": "content/site/civil-construction-2/guide-r08-secondary-answers/article.mdx"
+      },
+      "baseline": {
+        "measured_at": "2026-10-24",
+        "source": "data/gsc/reports/2026-10-23.json#page-query",
+        "period": {
+          "startDate": "2026-09-22",
+          "endDate": "2026-10-19"
+        },
+        "impressions": 33,
+        "clicks": 2,
+        "bestPosition": 10.8,
+        "queries": [
+          {
+            "query": "令和7年 2級土木施工管理技士 2次試験 解答",
+            "position": 11.4,
+            "impressions": 7,
+            "clicks": 2
+          },
+          {
+            "query": "二級土木施工管理技士二次試験",
+            "position": 10.8,
+            "impressions": 6,
+            "clicks": 0
+          },
+          {
+            "query": "2級土木施工管理技士 実地試験 解答例 令和6 年",
+            "position": 13.4,
+            "impressions": 5,
+            "clicks": 0
+          },
+          {
+            "query": "1級土木施工管理技士 2次試験 解答例 令和8年",
+            "position": 18,
+            "impressions": 2,
+            "clicks": 0
+          },
+          {
+            "query": "2級土木施工管理技士 2次試験 予想",
+            "position": 12.5,
+            "impressions": 2,
+            "clicks": 0
+          },
+          {
+            "query": "2級建築施工管理技士 2次試験 解答例",
+            "position": 17.5,
+            "impressions": 2,
+            "clicks": 0
+          },
+          {
+            "query": "2級土木施工管理技士 2 次試験 解答用紙 令和6 年",
+            "position": 14,
+            "impressions": 1,
+            "clicks": 0
+          },
+          {
+            "query": "2級土木施工管理技士 2次試験 経験記述",
+            "position": 11,
+            "impressions": 1,
+            "clicks": 0
+          },
+          {
+            "query": "2級土木施工管理技士 2次試験 過去 問",
+            "position": 27,
+            "impressions": 1,
+            "clicks": 0
+          },
+          {
+            "query": "2級土木施工管理技士 実地試験 解答例 令和5年",
+            "position": 17,
+            "impressions": 1,
+            "clicks": 0
+          },
+          {
+            "query": "2級土木施工管理技士 経験記述 解答用紙",
+            "position": 18,
+            "impressions": 1,
+            "clicks": 0
+          },
+          {
+            "query": "2級土木施工管理技士 解答用紙",
+            "position": 13,
+            "impressions": 1,
+            "clicks": 0
+          },
+          {
+            "query": "2級建築施工管理技士 令和 8年 解答",
+            "position": 22,
+            "impressions": 1,
+            "clicks": 0
+          },
+          {
+            "query": "土木施工管理技士2級 記述問題",
+            "position": 11,
+            "impressions": 1,
+            "clicks": 0
+          },
+          {
+            "query": "土木施工管理技士2級二次試験",
+            "position": 11,
+            "impressions": 1,
+            "clicks": 0
+          }
+        ]
+      },
+      "measure": {
+        "specVersion": 1,
+        "metric": "gsc.position",
+        "scope": {
+          "pages": [
+            "/exam/civil-construction-2/guide/r08-secondary-answers"
+          ],
+          "queries": [
+            "令和7年 2級土木施工管理技士 2次試験 解答",
+            "二級土木施工管理技士二次試験",
+            "2級土木施工管理技士 実地試験 解答例 令和6 年",
+            "1級土木施工管理技士 2次試験 解答例 令和8年",
+            "2級土木施工管理技士 2次試験 予想",
+            "2級建築施工管理技士 2次試験 解答例",
+            "2級土木施工管理技士 2 次試験 解答用紙 令和6 年",
+            "2級土木施工管理技士 2次試験 経験記述",
+            "2級土木施工管理技士 2次試験 過去 問",
+            "2級土木施工管理技士 実地試験 解答例 令和5年",
+            "2級土木施工管理技士 経験記述 解答用紙",
+            "2級土木施工管理技士 解答用紙",
+            "2級建築施工管理技士 令和 8年 解答",
+            "土木施工管理技士2級 記述問題",
+            "土木施工管理技士2級二次試験"
+          ]
+        },
+        "preDays": 28,
+        "postDays": 28,
+        "lagDays": 3,
+        "direction": "decrease",
+        "minEffect": 0.1,
+        "minVolume": 10
+      },
+      "history": [
+        {
+          "at": "2026-10-24T02:09:16.625Z",
+          "event": "recorded"
+        },
+        {
+          "at": "2026-10-24T02:09:16.625Z",
+          "event": "implemented",
+          "commit": "a9e240d9e9a4",
+          "change": "冒頭（結論の直後）に令和7・6・5年度の二次の解答例ページへのリンクを置き、「二級土木施工管理技士 二次試験」の語で前年度以前の解答例を探す読者に先に答えた"
+        }
+      ],
+      "implementation": {
+        "commit": "a9e240d9e9a4",
+        "at": "2026-10-24",
+        "change": "冒頭（結論の直後）に令和7・6・5年度の二次の解答例ページへのリンクを置き、「二級土木施工管理技士 二次試験」の語で前年度以前の解答例を探す読者に先に答えた"
+      }
+    },
+    {
+      "id": "EXP-041",
+      "kind": "search-strategy",
+      "title": "資格名: /exam/civil-construction-2/guide/overview の11〜30位の検索語を10位以内へ",
+      "hypothesis": "/exam/civil-construction-2/guide/overview は 3 語が11〜30位（最良 11 位・表示 22）。検索意図に合わせて title・description・冒頭の答え・見出し・内部リンクを直せば、同じ検索語の順位が上がる",
+      "target_metric": "対象ページ × 直す前の検索語 3 語の GSC 平均順位（本番反映の前 28 日・後 28 日）",
+      "target_delta": "平均順位が 10% 以上良くなる。前後どちらかの表示が 10 未満なら判定不能",
+      "status": "proposed",
+      "created_at": "2026-10-24",
+      "searchStrategy": {
+        "cluster": "qualification",
+        "page": "/exam/civil-construction-2/guide/overview",
+        "contentPath": "content/site/civil-construction-2/guide-overview/article.mdx"
+      },
+      "baseline": {
+        "measured_at": "2026-10-24",
+        "source": "data/gsc/reports/2026-10-23.json#page-query",
+        "period": {
+          "startDate": "2026-09-22",
+          "endDate": "2026-10-19"
+        },
+        "impressions": 22,
+        "clicks": 0,
+        "bestPosition": 11,
+        "queries": [
+          {
+            "query": "二級土木施工管理技士",
+            "position": 14.6,
+            "impressions": 11,
+            "clicks": 0
+          },
+          {
+            "query": "2級土木施工管理技士",
+            "position": 15.5,
+            "impressions": 10,
+            "clicks": 0
+          },
+          {
+            "query": "2級土木施工管理",
+            "position": 11,
+            "impressions": 1,
+            "clicks": 0
+          }
+        ]
+      },
+      "measure": {
+        "specVersion": 1,
+        "metric": "gsc.position",
+        "scope": {
+          "pages": [
+            "/exam/civil-construction-2/guide/overview"
+          ],
+          "queries": [
+            "二級土木施工管理技士",
+            "2級土木施工管理技士",
+            "2級土木施工管理"
+          ]
+        },
+        "preDays": 28,
+        "postDays": 28,
+        "lagDays": 3,
+        "direction": "decrease",
+        "minEffect": 0.1,
+        "minVolume": 10
+      },
+      "history": [
+        {
+          "at": "2026-10-24T02:09:26.360Z",
+          "event": "recorded"
+        },
+        {
+          "at": "2026-10-24T02:09:26.360Z",
+          "event": "implemented",
+          "commit": "d148cf17280d",
+          "change": "description と冒頭に「二級土木施工管理技士」の表記を併記し、冒頭 1 文目で資格の定義（主任技術者として施工計画・工程・品質・安全を管理する国家資格）に答えた"
+        }
+      ],
+      "implementation": {
+        "commit": "d148cf17280d",
+        "at": "2026-10-24",
+        "change": "description と冒頭に「二級土木施工管理技士」の表記を併記し、冒頭 1 文目で資格の定義（主任技術者として施工計画・工程・品質・安全を管理する国家資格）に答えた"
+      }
+    },
+    {
+      "id": "EXP-042",
+      "kind": "search-strategy",
+      "title": "資格名: /exam/rccm/guide/difference-pe の11〜30位の検索語を10位以内へ",
+      "hypothesis": "/exam/rccm/guide/difference-pe は 6 語が11〜30位（最良 11 位・表示 15）。検索意図に合わせて title・description・冒頭の答え・見出し・内部リンクを直せば、同じ検索語の順位が上がる",
+      "target_metric": "対象ページ × 直す前の検索語 6 語の GSC 平均順位（本番反映の前 28 日・後 28 日）",
+      "target_delta": "平均順位が 10% 以上良くなる。前後どちらかの表示が 10 未満なら判定不能",
+      "status": "proposed",
+      "created_at": "2026-10-24",
+      "searchStrategy": {
+        "cluster": "qualification",
+        "page": "/exam/rccm/guide/difference-pe",
+        "contentPath": "content/site/rccm/guide-difference-pe/article.mdx"
+      },
+      "baseline": {
+        "measured_at": "2026-10-24",
+        "source": "data/gsc/reports/2026-10-23.json#page-query",
+        "period": {
+          "startDate": "2026-09-22",
+          "endDate": "2026-10-19"
+        },
+        "impressions": 15,
+        "clicks": 0,
+        "bestPosition": 11,
+        "queries": [
+          {
+            "query": "rccm 技術士 違い",
+            "position": 11,
+            "impressions": 9,
+            "clicks": 0
+          },
+          {
+            "query": "技術士 rccm 違い",
+            "position": 11,
+            "impressions": 2,
+            "clicks": 0
+          },
+          {
+            "query": "rccm とは",
+            "position": 26,
+            "impressions": 1,
+            "clicks": 0
+          },
+          {
+            "query": "rccm 受験 資格",
+            "position": 27,
+            "impressions": 1,
+            "clicks": 0
+          },
+          {
+            "query": "rccm 合格率",
+            "position": 19,
+            "impressions": 1,
+            "clicks": 0
+          },
+          {
+            "query": "技術士 rccm",
+            "position": 11,
+            "impressions": 1,
+            "clicks": 0
+          }
+        ]
+      },
+      "measure": {
+        "specVersion": 1,
+        "metric": "gsc.position",
+        "scope": {
+          "pages": [
+            "/exam/rccm/guide/difference-pe"
+          ],
+          "queries": [
+            "rccm 技術士 違い",
+            "技術士 rccm 違い",
+            "rccm とは",
+            "rccm 受験 資格",
+            "rccm 合格率",
+            "技術士 rccm"
+          ]
+        },
+        "preDays": 28,
+        "postDays": 28,
+        "lagDays": 3,
+        "direction": "decrease",
+        "minEffect": 0.1,
+        "minVolume": 10
+      },
+      "history": [
+        {
+          "at": "2026-10-24T02:09:35.664Z",
+          "event": "recorded"
+        },
+        {
+          "at": "2026-10-24T02:09:35.664Z",
+          "event": "implemented",
+          "commit": "98c4c3b86d9c",
+          "change": "seoTitle を「RCCMと技術士の違い」で始まる語順にし、冒頭に違いの要点（前段の試験の有無・CBT と二段階・合格率の水準）を 1 段落で置いた"
+        }
+      ],
+      "implementation": {
+        "commit": "98c4c3b86d9c",
+        "at": "2026-10-24",
+        "change": "seoTitle を「RCCMと技術士の違い」で始まる語順にし、冒頭に違いの要点（前段の試験の有無・CBT と二段階・合格率の水準）を 1 段落で置いた"
+      }
     }
   ]
 }

@@ -60,6 +60,8 @@ title: スキル ガバナンス記録
 
 > 2026-10-16 新設: `conversion/standards-table-rebuild`（共通仕様書の章記事で版面のまま残った表を、原本のページ画像と照合して `content/sources/standards/tables/{key}.json` に組み直す流れ）。背景＝初回の組み直し（217 件）の手順書・照合スクリプト・ページ画像が 1 台の PC の `.tmp/` にしか無く、別の PC で原本の改訂や表の断片（DN-0755）を直せなかった。道具は決定的スクリプト `scripts/standards-tables.mjs`（台帳・ページ画像・作業票・文字の過不足ゼロの照合・承認の記録）、ページ画像は既存の Drive vault（`build-standards-page-images`）、見えない PC は原本から render。**新エージェント 2 体**＝`standards-table-writer`（Generator）と `standards-table-qa`（Evaluator・audit-only）。合計 `110→111`、conversion `8→9`、agents `88→90`。
 
+> 2026-10-24 更新: `conversion/pdf-to-mdx` の本文の文字起こしを**機械 OCR だけ**にした（市販書籍の本文を Claude がページ画像から書き写すと、私的利用でも複製を作る主体が Claude になる）。新経路＝`scripts/book-ocr/book_ocr_machine.py`（obsidian vault の `ocr_pdf.py`・縦書き NDLOCR-Lite／横書き Indra OCR／文字層を自動選択）→ `book_ocr_concat.py`。削除＝エージェント `scanned-textbook-transcriber`、Workflow `book_ocr_fanout`・`book_ocr_proofread`・`scanned/ocr_fanout`・`scanned/proofread`、`book_ocr_compare.py`。視覚 OCR の新規・変更は `check-reference-book-pages`・`check-reference-sources --deep`・`record-reference-book-artifacts` が止める（廃止前の 231 件は `reference-sources-baseline.json` の一覧で残す）。スキル件数は不変、agents `-1`。
+
 > このツリーがスキル件数の**唯一の真実源（SSOT）**。CLAUDE.md など他 doc は件数を重複記載せずここを指す。スキルを追加/削除したら同一 commit でここを更新する（`/doc-declutter` → `doc-curator` でドリフトを棚卸し）。
 
 ```

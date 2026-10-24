@@ -2449,6 +2449,30 @@
       }
     },
     {
+      "id": "pe-comprehensive-management/gokanri-tradeoff/youtube.longform.diagram-led",
+      "work": "gokanri-tradeoff",
+      "account": "youtube:main",
+      "format": "longform",
+      "variant": "diagram-led",
+      "revisionOf": "pe-comprehensive-management/gokanri-tradeoff/youtube.longform",
+      "status": "draft",
+      "copy": "content/sns/video-packs/pe-comprehensive-management/gokanri-tradeoff/youtube.revision-diagram-led.json",
+      "media": {
+        "cover": "pe-comprehensive-management/gokanri-tradeoff/work/candidate-cover",
+        "scene-001": "pe-comprehensive-management/gokanri-tradeoff/work/candidate-scene-001",
+        "scene-002": "pe-comprehensive-management/gokanri-tradeoff/work/candidate-scene-002",
+        "scene-003": "pe-comprehensive-management/gokanri-tradeoff/work/candidate-scene-003",
+        "scene-004": "pe-comprehensive-management/gokanri-tradeoff/work/candidate-scene-004",
+        "scene-005": "pe-comprehensive-management/gokanri-tradeoff/work/candidate-scene-005",
+        "scene-006": "pe-comprehensive-management/gokanri-tradeoff/work/candidate-scene-006",
+        "scene-007": "pe-comprehensive-management/gokanri-tradeoff/work/candidate-scene-007",
+        "scene-008": "pe-comprehensive-management/gokanri-tradeoff/work/candidate-scene-008",
+        "scene-009": "pe-comprehensive-management/gokanri-tradeoff/work/candidate-scene-009",
+        "subtitles": "pe-comprehensive-management/gokanri-tradeoff/work/candidate-subtitles",
+        "video": "pe-comprehensive-management/gokanri-tradeoff/work/candidate-video"
+      }
+    },
+    {
       "id": "pe-comprehensive-management/gyoumu-keirekihyo/youtube.longform",
       "work": "gyoumu-keirekihyo",
       "account": "youtube:main",
@@ -2521,6 +2545,44 @@
         "scene-023": "pe-comprehensive-management/monbun-yomikata/youtube.longform/scene-023",
         "video": "pe-comprehensive-management/monbun-yomikata/youtube.longform/video",
         "subtitles": "pe-comprehensive-management/monbun-yomikata/youtube.longform/subtitles"
+      }
+    },
+    {
+      "id": "pe-comprehensive-management/monbun-yomikata/youtube.longform.diagram-led",
+      "work": "monbun-yomikata",
+      "account": "youtube:main",
+      "format": "longform",
+      "variant": "diagram-led",
+      "revisionOf": "pe-comprehensive-management/monbun-yomikata/youtube.longform",
+      "status": "draft",
+      "copy": "content/sns/video-packs/pe-comprehensive-management/monbun-yomikata/youtube.revision-diagram-led.json",
+      "media": {
+        "cover": "pe-comprehensive-management/monbun-yomikata/work/candidate-cover",
+        "scene-001": "pe-comprehensive-management/monbun-yomikata/work/candidate-scene-001",
+        "scene-002": "pe-comprehensive-management/monbun-yomikata/work/candidate-scene-002",
+        "scene-003": "pe-comprehensive-management/monbun-yomikata/work/candidate-scene-003",
+        "scene-004": "pe-comprehensive-management/monbun-yomikata/work/candidate-scene-004",
+        "scene-005": "pe-comprehensive-management/monbun-yomikata/work/candidate-scene-005",
+        "scene-006": "pe-comprehensive-management/monbun-yomikata/work/candidate-scene-006",
+        "scene-007": "pe-comprehensive-management/monbun-yomikata/work/candidate-scene-007",
+        "scene-008": "pe-comprehensive-management/monbun-yomikata/work/candidate-scene-008",
+        "scene-009": "pe-comprehensive-management/monbun-yomikata/work/candidate-scene-009",
+        "scene-010": "pe-comprehensive-management/monbun-yomikata/work/candidate-scene-010",
+        "scene-011": "pe-comprehensive-management/monbun-yomikata/work/candidate-scene-011",
+        "scene-012": "pe-comprehensive-management/monbun-yomikata/work/candidate-scene-012",
+        "scene-013": "pe-comprehensive-management/monbun-yomikata/work/candidate-scene-013",
+        "scene-014": "pe-comprehensive-management/monbun-yomikata/work/candidate-scene-014",
+        "scene-015": "pe-comprehensive-management/monbun-yomikata/work/candidate-scene-015",
+        "scene-016": "pe-comprehensive-management/monbun-yomikata/work/candidate-scene-016",
+        "scene-017": "pe-comprehensive-management/monbun-yomikata/work/candidate-scene-017",
+        "scene-018": "pe-comprehensive-management/monbun-yomikata/work/candidate-scene-018",
+        "scene-019": "pe-comprehensive-management/monbun-yomikata/work/candidate-scene-019",
+        "scene-020": "pe-comprehensive-management/monbun-yomikata/work/candidate-scene-020",
+        "scene-021": "pe-comprehensive-management/monbun-yomikata/work/candidate-scene-021",
+        "scene-022": "pe-comprehensive-management/monbun-yomikata/work/candidate-scene-022",
+        "scene-023": "pe-comprehensive-management/monbun-yomikata/work/candidate-scene-023",
+        "subtitles": "pe-comprehensive-management/monbun-yomikata/work/candidate-subtitles",
+        "video": "pe-comprehensive-management/monbun-yomikata/work/candidate-video"
       }
     },
     {
@@ -2624,6 +2686,34 @@
         "scene-013": "pe-comprehensive-management/sokan-kojutsu-kangaekata/youtube.longform/scene-013"
       },
       "copy": "content/sns/video-packs/pe-comprehensive-management/sokan-kojutsu-kangaekata/youtube.json#longform"
+    },
+    {
+      "id": "pe-comprehensive-management/sokan-kojutsu-kangaekata/youtube.longform.diagram-led",
+      "work": "sokan-kojutsu-kangaekata",
+      "account": "youtube:main",
+      "format": "longform",
+      "variant": "diagram-led",
+      "revisionOf": "pe-comprehensive-management/sokan-kojutsu-kangaekata/youtube.longform",
+      "status": "draft",
+      "copy": "content/sns/video-packs/pe-comprehensive-management/sokan-kojutsu-kangaekata/youtube.revision-diagram-led.json",
+      "media": {
+        "cover": "pe-comprehensive-management/sokan-kojutsu-kangaekata/work/candidate-cover",
+        "scene-001": "pe-comprehensive-management/sokan-kojutsu-kangaekata/work/candidate-scene-001",
+        "scene-002": "pe-comprehensive-management/sokan-kojutsu-kangaekata/work/candidate-scene-002",
+        "scene-003": "pe-comprehensive-management/sokan-kojutsu-kangaekata/work/candidate-scene-003",
+        "scene-004": "pe-comprehensive-management/sokan-kojutsu-kangaekata/work/candidate-scene-004",
+        "scene-005": "pe-comprehensive-management/sokan-kojutsu-kangaekata/work/candidate-scene-005",
+        "scene-006": "pe-comprehensive-management/sokan-kojutsu-kangaekata/work/candidate-scene-006",
+        "scene-007": "pe-comprehensive-management/sokan-kojutsu-kangaekata/work/candidate-scene-007",
+        "scene-008": "pe-comprehensive-management/sokan-kojutsu-kangaekata/work/candidate-scene-008",
+        "scene-009": "pe-comprehensive-management/sokan-kojutsu-kangaekata/work/candidate-scene-009",
+        "scene-010": "pe-comprehensive-management/sokan-kojutsu-kangaekata/work/candidate-scene-010",
+        "scene-011": "pe-comprehensive-management/sokan-kojutsu-kangaekata/work/candidate-scene-011",
+        "scene-012": "pe-comprehensive-management/sokan-kojutsu-kangaekata/work/candidate-scene-012",
+        "scene-013": "pe-comprehensive-management/sokan-kojutsu-kangaekata/work/candidate-scene-013",
+        "subtitles": "pe-comprehensive-management/sokan-kojutsu-kangaekata/work/candidate-subtitles",
+        "video": "pe-comprehensive-management/sokan-kojutsu-kangaekata/work/candidate-video"
+      }
     },
     {
       "id": "pe-comprehensive-management/takuitsu-keyword/youtube.longform",

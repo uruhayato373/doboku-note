@@ -1,8 +1,11 @@
 ---
 name: feedback_multi_session_concurrent_git
-description: "複数Claudeセッションが同じ作業ツリー・.gitで並行するのが常態。reflog/develop/未コミットが勝手に動くのは正常。pathspec commit・staged確認・復元禁止・push前の巻き込み確認"
+description: 複数Claudeセッションが同じ作業ツリー・.gitで並行するのが常態。reflog/develop/未コミットが勝手に動くのは正常。pathspec commit・staged確認・復元禁止・push前の巻き込み確認
 metadata:
+  node_type: memory
   type: feedback
+  originSessionId: 5e209e2d-e285-41f7-b7d4-66ea8b802cc4
+  modified: 2026-10-24T03:12:40.899Z
 ---
 
 doboku-note では**複数の Claude Code セッションが同じワークツリー・同じ `.git` で並行作業（commit 含む）するのが常態**（ユーザー確認済み 2026-06-11）。驚かず・事故らず動く。共有 index / HEAD は作業ツリー単位なので、次の事故が起きる。
@@ -18,6 +21,7 @@ doboku-note では**複数の Claude Code セッションが同じワークツ�
 - **pathspec commit 厳守**: `git commit -m "..." -- <pathspec>`（`-m` は `--` の前）。bare `git commit` / `git add -A` / `git add .` 禁止。`src/app/docs/[...slug]/page.tsx` はグロブ文字を含むので `--literal-pathspecs` か `:(literal)` を付ける。pathspec commit では pre-commit が書き換えた内容（dateModified 等）が index に入らず古い版が残るので、post-commit（`scripts/sync-index-after-commit.mjs`）が HEAD に揃える。フックが古くて `MM` が残ったら `git reset -q -- <path>`（2026-10-06）。
 - **commit 前に `git diff --cached --name-only` で staged 一覧を確認**（5ファイル以上・ディレクトリ単位 add・並行稼働中は必須。単一ファイルは省略可）。想定外は `git restore --staged <file>`。
 - **他セッションの変更は触らない**: 想定外の diff は無視してそのまま残す。自分の産物以外を `checkout --`/`restore` で復元しない。
+- **片付けの restore は自分の差分ファイルを名指しする**: 共有ツリーで編集して worktree へ移したあとの片付けに `git diff --name-only | xargs git restore --` を使わない。worktree へ移した patch（`grep '^diff --git' <patch>`）のファイルだけを `git restore -- <path>…` で戻す。2026-10-24、共有ツリーで別セッション（週次レビューとCI）が途中で develop へ切り替えていたのに気づかず、diff 全件を restore して相手の未コミット編集を消した可能性を作った（相手に確認を送った）。片付けの前に `git branch --show-current` と `git status` で、自分が始めたときと状態が同じかも見る。
 - **重要ファイルは編集即 commit**（5分以内）。大量生成は生成完了直後に commit。追跡性が失われたら `git commit --allow-empty -m "説明"` で後追い記録。
 - **push 前に `git log origin/develop..HEAD`** で自分以外のコミットが混ざっていないか確認・報告。develop の前進と「巻き込み push」（別セッションがローカル develop を進め、その上に commit→push で全未push分が上がる）は git の正常動作。
 - **ブランチ操作前に `git branch --show-current`**。checkout は最小限（往復が無関係ファイルの mtime/EOL を揺らし modified に見せる＝内容差分ゼロなら `numstat` 空で確認、`checkout --` で正規化可）。

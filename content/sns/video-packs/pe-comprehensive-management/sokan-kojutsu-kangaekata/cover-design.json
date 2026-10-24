@@ -5,25 +5,27 @@
       "format": "longform",
       "exam": "pe-comprehensive",
       "headline": [
-        "技術士 総監",
         "口頭試験",
-        "経歴を語れる？"
+        "経歴を語る"
       ],
       "accentLine": 1,
       "subtitle": "",
-      "character": {
-        "pose": "pop-pointing",
-        "frame": "waist"
-      },
       "design": "pop-poster-v3",
-      "pop": {
-        "variant": "question",
-        "authority": "総監が解説"
-      },
+      "layout": "diagram-led",
       "approvedImage": {
-        "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-kangaekata/youtube.longform/cover.51e3f120.png",
-        "sha256": "51e3f120f8a8d8c5ed68d4170020872ae7b44fd5a7215ac859cc9c5570fb6697",
-        "specSha256": "0c942f0c0017ea3f4d518b6f0b95c7903b74ded4222b4ff94c1ea20fc877c278"
+        "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-kangaekata/work/cover-diagram.a5414ef0.png",
+        "sha256": "a5414ef0d0623898a496c6866e7bc19cdcb0ef9cf7bce6b5222e3606112be3dd",
+        "width": 1920,
+        "height": 1080,
+        "source": {
+          "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-kangaekata/work/cover-source.57e59f4c.png",
+          "sha256": "57e59f4c875ad2eed19f1deb6e7414bfb2615494a62c04381b90872734cfdb2b"
+        },
+        "normalization": {
+          "mode": "full-frame-v1",
+          "sourceSha256": "57e59f4c875ad2eed19f1deb6e7414bfb2615494a62c04381b90872734cfdb2b"
+        },
+        "specSha256": "37e8a6630189c8ec93e41d3ed66c4f06de023dc5372081616134383229ec99ab"
       }
     }
   }

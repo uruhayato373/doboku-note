@@ -6472,7 +6472,7 @@
       "section": "社会環境管理",
       "image": "pages/p0319.jpg",
       "repoPath": "content/sources/books/pe-cem-textbook__総監標準テキスト/pages/p0319.jpg",
-      "ocrStatus": "pending",
+      "ocrStatus": "complete",
       "cropStatus": "pending",
       "sha256": "86f98656b48d32ca91675b083fc0bf1db31e0292912788e276357609b6130845",
       "md5": "9d58c5cd7a8dc02f6869071d4f7aa59a",
@@ -6852,10 +6852,22 @@
       "md5": "4d00ecb0e4c1a223a23944b5d76aee33",
       "bytes": 152611,
       "recordedAt": "2026-09-09T10:24:29.747Z"
+    },
+    {
+      "id": "machine-part-01",
+      "repoPath": "content/sources/books/pe-cem-textbook__総監標準テキスト/ocr/machine-part-01.md",
+      "pageIds": [
+        "p0319"
+      ],
+      "method": "machine-ocr(indra-ocr 1.1.2)",
+      "sha256": "af6cda65a8ee8ece9c71a0e73a383377c5dc3181c371513efca504c4b72eae62",
+      "md5": "3d6c739e2cf344080f1f6571d294e9a1",
+      "bytes": 2060,
+      "recordedAt": "2026-10-24T03:17:20.481Z"
     }
   ],
   "crops": [],
-  "updatedAt": "2026-09-09T10:24:29.747Z",
+  "updatedAt": "2026-10-24T03:17:20.481Z",
   "migration": {
     "strategy": "copy-verify-switch-then-delete-separately",
     "legacyKept": true,

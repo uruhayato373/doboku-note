@@ -1,0 +1,34 @@
+{
+  "kind": "review",
+  "qualification": "all",
+  "cadence": "monthly",
+  "period": {
+    "startDate": "2026-09-01",
+    "endDate": "2026-09-30"
+  },
+  "status": "provisional",
+  "snapshot": "data/business/records/snapshot-2026-10-24T02-02-59-402Z-dba42dcc-c133-4a6c-8ae6-4d495aa81642.json",
+  "supersedes": "data/business/records/review-2026-10-17T05-10-23-813Z-a1505fba-3dd7-4ef6-a2e5-0713e0b2874b.json",
+  "qualificationsReviewed": [
+    "civil-construction-1",
+    "pe-comprehensive-management",
+    "pe-construction",
+    "rccm"
+  ],
+  "findings": "10/24の補完（月次点検6本の記録が欠けていたため）。受取額112,880円（complete）は変わらない: note手数料控除後89,402円＋ココナラ控除後13,650円（10/24に売上履歴を再取得し同額）＋KDP確定9,828円。新しい証拠: (1) KDP台帳の2026-09で同じ本（2級一次 過去問完全解説）の2行にbookId e-01が付き、kdp-report-freshnessがFAIL（1,053円と0円で金額の二重計上は無い・DN-0826）。(2) note販売明細106,800円とnote月次表示104,840円の1,960円差は解消せず、sales-freshnessがFAILのまま。(3) A8の9月成果は10/24に取り直しを試みたがERR_ABORTEDで取得0件。台帳report-logの成果は10/5のビルドジョブ未確定1件だけで、9月分は欠測のまま（失敗した取得で鮮度の判定が緑になる不具合をDN-0828に起票）。(4) ココナラ取引は全7タブ・取引4件・問い合わせ5件を実検査、要対応0。月次点検6本は全て成功（workflow健全・business-direction PASS・exam-calendar 70日付照合・過去問在庫WARN0・R2孤児0）。費用・作業時間・ココナラの暦月閲覧・購入前相談・IG・Cloudflareは欠測。利益・時給は出さない。",
+  "decision": "10/17の判断を維持する（重点4資格・図解→演習→答案の方針、建設部門0件は季節要因、EXP-009/011は事後窓の途中で延長、目標判定は10月分から）。運営者方針どおりSNSの新規展開・追加予約・認証復旧は保留を優先し、2級土木とコンクリート主任技士のサイト・note教材の品質を重点にする（主任技士は8立場を維持）。note販売の網羅（1,960円差）・A8・費用・時間が欠けるため、この記録もprovisionalとする。",
+  "nextAction": "(1) 10月の月次（11/3以降）で10月の受取額と目標10万円の差を初めて判定し、同じ回でこの9月記録の残る欠測（1,960円差の内訳・A8の9月分）を読んで確定へ訂正する。(2) DN-0826でKDPのbookId重複を直し、9月のKDP 9,828円が変わらないことを確かめる。(3) DN-0828でA8の取得失敗を直して9月分を取り直す。(4) EXP-014/015は10/26、EXP-016は10/31・11/15に、10/17改訂を交絡として併記して判定する。(5) DN-0368で10月分の費用・作業時間を記録する。",
+  "experimentIds": [
+    "EXP-008",
+    "EXP-009",
+    "EXP-011",
+    "EXP-012",
+    "EXP-014",
+    "EXP-015",
+    "EXP-016"
+  ],
+  "nextReviewDate": "2026-11-03",
+  "schemaVersion": 1,
+  "createdAt": "2026-10-24T02:20:58.339Z",
+  "strategyHash": "7da574eadd3ced97551d710fc7d1611f675e276997f4d2fefe1e18aa9a7d42db"
+}

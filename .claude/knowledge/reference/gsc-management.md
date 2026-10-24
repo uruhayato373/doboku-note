@@ -710,3 +710,37 @@ EXP-006 の本判定は予定どおり next_check 2026-08-27 に、カバレッ�
 - 本番改訂後に既存のgsc-indexing:checkで直前2週間計画・学習法の2URLを個別再検査し、実検査2・登録済み2・読取不能0を確認。10/14の未登録一覧とは更新時点が異なるため、49/56の保存集計をそのまま最新値へ書き換えない。不要な登録再要求は送らず、履歴2件を既存台帳へ追記した。
 - 需要の根拠は同曜日の完了週W40→W41のGA4入口セッション（日本）で2級1,158→1,170、主任64→79。検索・販売を個別に帰属できず購入CVRとは呼ばない。読者の答案作成・知識確認（A）を助ける教材の正確性と選びやすさを優先し、8立場を維持する。
 - 出典: data/gsc/index-coverage.json、data/gsc/url-inspection/2026-10-14T06-52-54.json、data/gsc/ui-urls.json、修復PR #1099のdata/analysis/growth/pack-2026-W40.json／pack-2026-W41.json、[GSC登録画面](https://search.google.com/search-console/index?resource_id=sc-domain%3Adoboku-note.com)、[配合計算教材](https://note.com/dobokunote/n/n5a55ae6dc16b)。Googleは意図した転送・重複・削除をすべて登録対象にするよう求めていない（[登録レポートの説明](https://support.google.com/webmasters/answer/7440203)）。
+
+### 2026-10-23（週次・自動レビュー）
+
+- 観測: GSC 28 日窓（09-22〜10-19）＋digest W42（10-12〜10-18）。P1 4 件・P7 1 件・revenue 3 件・P5 93 件（上位のみ確認）・P2/P3/P6/P8 0 件。週間クリック 895（ベース 260・+244.6%）、主因は `/exam/civil-construction-2/guide/r08-secondary-answers`（週 300・ベース 0）
+- 上位候補と推奨:
+  1. `/exam/civil-construction-1/textbook/scraper` — 「スクレープドーザとは」表示 283・CTR 0.35%・position 5（期待 5%）。SERP とメタのずれを確認しメタ実験候補へ（最大 5 URL・14〜28 日）
+  2. `/exam/civil-construction-2/guide/r08-secondary-answers` — CTA 表示 1,502・CTR 0.33%（平均 0.72%）。流入急増ページ。急増の一過性を確認のうえ CTA 位置を backlog 化
+  3. CTA 配置 `article-inline` — 表示 8,147・CTR 0.14%（中央値 0.36%・+4.6 CTA クリック/週で revenue 最大）。文面・位置を現物確認し 1 配置だけの実験に
+  - 他 7 件 → improvements/2026-10-23.md
+- トリアージ待ち（処分は土曜の週次レビュー growth-triage が決める）:
+  - OPP-c15097dbac → メタ実験候補（scraper）
+  - OPP-ecf8db4e10 → backlog 起票候補（r08-secondary-answers CTA）
+  - OPP-29dc28d5f3 → 実験候補（article-inline 1 配置）
+  - OPP-8dc2251b2c → backlog 止まり（standards 地域差・統合しない）
+  - OPP-aee739f0ec / OPP-7517fa04e5 → 総監キーワード 2 件で 1 実験枠
+  - OPP-be1ea6a92c → 検索意図確認のみ（実務記事・試験訴求にしない）
+  - OPP-4f9bf041b7 → backlog（category-sidebar 見直し）
+- 注記: 自動生成・人間の上書き歓迎。digest の pageRows が不完全の疑い（byPageTotalClicks 895 対 pageRows 合計 225）。EXP-008 は次回確認 2026-11-17・要人手 2 件（improvements 参照）
+
+### 2026-10-23（coverage・自動レビュー）
+
+- 観測（batch 2026-10-21・history 該当エントリを正とする）: inspected 1,900 / sitemap 2,017（**差 117**）・indexed 1,626・ratio **80.6%**（前回 10-14 90.5% → **−9.9pt**）・discovered-not-indexed 206（10.2%）・crawled-not-indexed 4・hygiene（404+redirect）0・other 64
+- 低下の分解（auditor 診断）: **既存 indexed の脱落は 3 件のみ**（crawled 落ち 2＋canonical 重複化 1）・回復 58 件。低下の実体は新規 360 URL（standards 300＝kinki 93・kyushu 73・chubu 41 等／practice 60）のうち未 index 205 件と分母 +328。両 batch 共通の約 1,540 URL だけなら indexed 約 95.5% で前回より改善
+- inspected 不足 117 件: `.github/workflows/index-coverage.yml:77` の `head -n 1900` による**件数上限の切り捨て**（partial:false・取得失敗ではない）。押し出された 149 URL（standards 118・tools 14・topics 16 等）には前回 indexed の 112 件を含み、history から見えなくなっている
+- 原因バケット:
+  - 権威性: discovered 206 のうち 165 件が新規 URL 由来（全件 last_crawl_time null）・既存分は 41 件。偏在は standards 地方別 約 123 件・practice 新規 42 件。exam 配下は 40 → 19 件へ改善
+  - 技術: fetch エラー・robots 拒否 0 件。前回の /standards/hokkaido 検査エラー 3 件は common が PASS・local/part-01 と part-02 は上限切り捨てで**未検査**（再現条件は不成立・ただし「再現せず」とも言えない＝未検証）
+  - hygiene: 404・redirect 0 件。canonical 不一致 10 → 11 件（pe-comprehensive-management/keywords 7 件は不変＝「様子見」維持。新規 1 件 `/standards/hokuriku/common` のみ性質が異なり google 正規が `/standards/shikoku/common`＝地域間の内容重複の疑い）
+- 推奨アクション（判断マトリクスに沿う）:
+  1. **検査上限 1,900 < sitemap 2,017 の解消を人間判断へ**: 上限引き上げ or 検査対象のローテーション設計。放置すると末尾セクション（standards/tools/topics）が恒常的に検査外になり前回比が不安定化する
+  2. standards 新規 300 件の discovered 165 は権威性による未クロール（悪化ではなく新規由来）。数週間の遷移を観測し、公開ペース・sitemap 優先度の戦略判断は週次/月次レビューへ
+  3. `/standards/hokuriku/common` の canonical 不一致（正規＝shikoku/common）は内容重複の可能性を 1 件だけ確認する価値あり
+- 異常フラグ: **あり** — 前回比 −9.9pt（>5pt 低下）・inspected 1,900 < sitemap 2,017。いずれも実体は分母急増＋workflow の件数上限であり、既存ページの index 脱落ではない
+- 注記: 自動生成・最終決定は人間。batch 実体は `data/gsc/url-inspection/2026-10-21T06-45-10.json`。ratio は indexed/sitemap 基準（inspected 基準なら 85.6%）。history の by_qualification には tools/topics が含まれない

@@ -1,16 +1,17 @@
 # -*- coding: utf-8 -*-
-"""参考文献 bundle 1 冊分の視覚OCRジョブを組む（決定的・モデル不使用）。
+"""参考文献 bundle 1 冊分の機械 OCR ジョブを組む（決定的・モデル不使用）。
 
 Drive vault の pages/pNNNN.jpg を **sha256 で台帳と照合しながら** ローカル .tmp へ複製し、
-（必要なら幅を縮めて）エージェントが読む画像を用意する。Drive のストリーミングマウントは
+（必要なら幅を縮めて）OCR が読む画像を用意する。Drive のストリーミングマウントは
 キャッシュから追い出されたファイルを「サイズはあるのに中身が空」で返すことがあり
 （2026-09-09 concrete-basics-5th p0080 で実測）、それをそのまま読ませると空ページを
-「本文なし」と起こしてしまう。照合に落ちたページは rclone で雲から取り直し、それでも
+「本文なし」と読んでしまう。照合に落ちたページは rclone で雲から取り直し、それでも
 合わなければ止める（1 ページでも欠けたら jobs.json を書かない）。
 
 出力: .tmp/ocr/<sourceId>/jobs.json, .tmp/ocr/<sourceId>/img/pNNNN.jpg（検証済み・width 指定なら縮小）
 
-使い方: python3 book_ocr_prep.py --book <sourceId> [--batch 6] [--width 1500] [--remote doboku-gdrive:doboku-note]
+使い方: python3 book_ocr_prep.py --book <sourceId> [--batch 6] [--width 1500] [--only p0020-p0024] [--remote doboku-gdrive:doboku-note]
+  --only は試し読み・補完用（範囲か列挙）。指定したページの画像だけ取り、jobs.json は全ページで書く（book_ocr_machine.py --pages と組む）
 """
 import argparse, glob, hashlib, json, os, shutil, subprocess, sys
 from concurrent.futures import ThreadPoolExecutor
@@ -77,6 +78,7 @@ def main():
     ap.add_argument("--width", type=int, default=0, help="0=原寸のまま。1500 などで縮小（トークン削減）")
     ap.add_argument("--remote", default="doboku-gdrive:doboku-note", help="rclone の Drive リモート。空で無効")
     ap.add_argument("--jobs", type=int, default=12)
+    ap.add_argument("--only", help="取るページ id の範囲か列挙（例 p0020-p0024 / p0007,p0032）")
     a = ap.parse_args()
     root = vault_root()
     if not root:
@@ -94,8 +96,21 @@ def main():
         os.makedirs(d, exist_ok=True)
 
     # 1) 原寸を sha256 照合しながらローカルへ
+    fetch_pages = man["pages"]
+    if a.only:
+        ids_all = [p["id"] for p in man["pages"]]
+        if "," in a.only:
+            picked = {x.strip() for x in a.only.split(",") if x.strip()}
+            if picked - set(ids_all):
+                sys.exit(f"--only の id が book-manifest に無い: {sorted(picked - set(ids_all))[:5]}")
+            fetch_pages = [p for p in man["pages"] if p["id"] in picked]
+        else:
+            lo, _, hi = a.only.partition("-")
+            if lo not in ids_all or (hi or lo) not in ids_all:
+                sys.exit(f"--only の id が book-manifest に無い: {a.only}")
+            fetch_pages = man["pages"][ids_all.index(lo):ids_all.index(hi or lo) + 1]
     tasks = []
-    for p in man["pages"]:
+    for p in fetch_pages:
         name = os.path.basename(p["image"])
         src_path = os.path.join(src_dir, name)
         if os.path.exists(src_path) and os.path.getsize(src_path) == p["bytes"] and sha256(src_path) == p["sha256"]:
@@ -110,7 +125,7 @@ def main():
                 how[note] = how.get(note, 0) + 1
             else:
                 failed.append((pid, note))
-    print(f"[prep] {a.book}: 原寸 {len(man['pages'])}p を sha256 照合 — 新規取得 {len(tasks)}p"
+    print(f"[prep] {a.book}: 原寸 {len(fetch_pages)}p を sha256 照合 — 新規取得 {len(tasks)}p"
           f"（mount {how['mount']} / 再試行 {how['mount-retry']} / rclone {how['rclone']}）")
     if failed:
         for pid, note in failed[:20]:
@@ -120,7 +135,7 @@ def main():
     # 2) エージェントが読む画像（原寸 or 縮小）
     if a.width:
         dtasks = [(os.path.join(src_dir, os.path.basename(p["image"])),
-                   os.path.join(img_dir, os.path.basename(p["image"])), a.width) for p in man["pages"]]
+                   os.path.join(img_dir, os.path.basename(p["image"])), a.width) for p in fetch_pages]
         with ThreadPoolExecutor(max_workers=a.jobs) as ex:
             bad = [d for d, ok in ex.map(downscale, dtasks) if not ok]
         if bad:

@@ -5,24 +5,27 @@
       "format": "longform",
       "exam": "pe-comprehensive",
       "headline": [
-        "その設問",
-        "役割を読める？"
+        "問題文の要求",
+        "答案骨子へ"
       ],
       "accentLine": 1,
       "subtitle": "",
-      "character": {
-        "pose": "pop-pointing",
-        "frame": "waist"
-      },
       "design": "pop-poster-v3",
-      "pop": {
-        "variant": "question",
-        "authority": "総監が制作"
-      },
+      "layout": "diagram-led",
       "approvedImage": {
-        "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/youtube.longform/cover.1f63225c.png",
-        "sha256": "1f63225c7b91cb9920ee212afa4d158415a4a3709532de9a20fe07a67557bb66",
-        "specSha256": "04eb4e84372dd0407ef0c5f1e150c8bb01b6677fe87427043401b782ade573a9"
+        "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/cover-diagram.1cc05650.png",
+        "sha256": "1cc0565013352d21b55ac4e5da8176bd16592cb6d3e2c8b2e6c368870d1bfd92",
+        "width": 1920,
+        "height": 1080,
+        "source": {
+          "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/cover-source.a7928e1d.png",
+          "sha256": "a7928e1d1b321249d4aee8a66323602fe21f0076c872a990c401d4fb01f6aa3d"
+        },
+        "normalization": {
+          "mode": "full-frame-v1",
+          "sourceSha256": "a7928e1d1b321249d4aee8a66323602fe21f0076c872a990c401d4fb01f6aa3d"
+        },
+        "specSha256": "8677f0907847e72158a7d38acf31521b1dbe784fe7d23ed25e8acdf19bc1b21a"
       }
     }
   }

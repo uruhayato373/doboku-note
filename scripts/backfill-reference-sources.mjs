@@ -108,6 +108,8 @@ function runTranscripts() {
       unresolvedPdfs.push({ relPath, pdfFile: header.pdfFile, matches: pdfMatch.matches });
     }
 
+    // frontmatter の無い文字起こしは 2026-10-24 より前の旧経路（Claude の視覚 OCR）の分なので、来歴をそのまま書く。
+    // frontmatter を足すと中身が変わり、check-reference-sources --deep が視覚 OCR の変更として止める（作り直すなら機械 OCR）
     const method = /tesseract/i.test(relPath) || /tesseract/i.test(raw) ? 'tesseract' : 'visual-ocr';
     const frontmatter = transcriptFrontmatter({
       sourceId: sourceMatch.source.id,

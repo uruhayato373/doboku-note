@@ -1,7 +1,7 @@
 # 経路C: テキスト層抽出（born-digital 原本）
 
 参考文献 bundle（`content/sources/books/`）の原本に**使えるテキスト層がある**場合だけ通る経路。
-視覚OCRを 1 ページも回さずに全文が取れるので、**視覚OCRに着手する前に必ず先に判定する**。
+OCR を 1 ページも回さずに全文が取れるので、**機械 OCR（経路D）に着手する前に必ず先に判定する**。
 
 ## 1. 判定
 
@@ -14,8 +14,8 @@ python3 .claude/skills/conversion/pdf-to-mdx/scripts/text-layer/classify_text_la
 | class | 意味 | 経路 |
 |---|---|---|
 | `CLEAN_TEXT` | テキスト層をそのまま使える | この経路C |
-| `DIRTY_OCR_LAYER` | テキスト層はあるが既存OCRが低品質（字送り・誤字・1字ずつ分解） | 視覚OCR（経路A/B） |
-| `NO_TEXT_LAYER` | テキスト層なし | 視覚OCR（経路A/B） |
+| `DIRTY_OCR_LAYER` | テキスト層はあるが既存OCRが低品質（字送り・誤字・1字ずつ分解） | 機械 OCR（経路D） |
+| `NO_TEXT_LAYER` | テキスト層なし | 機械 OCR（経路D） |
 
 > [!warning]
 > `book-manifest.json` の `renderProfile.mode`（`born-digital` 等）は**ページ画像の作り方**であって
@@ -54,5 +54,5 @@ node scripts/record-reference-book-artifacts.mjs --source-id <id> \
   --ocr-pages p0006,p0007,... --ocr-method pdf-text-layer --commit
 ```
 
-`--ocr-method` に `pdf-text-layer` を入れる（視覚OCRと来歴を区別するため）。
+`--ocr-method` に `pdf-text-layer` を入れる（機械 OCR と来歴を区別するため）。
 本文 .md は Git 追跡外で Drive vault にだけ置かれる（`source-transcript` group）。

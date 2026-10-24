@@ -23,6 +23,72 @@
 
 
 
+### [DN-0829] Mac の週次レビューの自動実行が、.claude/ への書き込み権限と 600 秒のバックグラウンド待ちの打ち切りで完了しない
+タグ: [インフラ・計測] [領域:管理] [時期:2026-10] [種類:不具合] [起票:2026-10-24]
+
+**起点**: 2026-10-24 10:49 の Mac の週次レビューの再実行（`npm run weekly-review:install -- --run-now`）が 11:36 に `FAILED rc=1` で止まった。9 月の月次の補完・W42 窓の事業記録・トリアージ・検索改善 3 件は develop に入ったが、`docs/reviews/weekly/2026-W43-review.md` は専用 worktree に未コミットのまま、W44 の週間計画は書けなかった。原因は 2 つ（ログ `~/Library/Logs/doboku-note/weekly-review.log`）。
+1. ヘッドレスの Claude Code が `.claude/` 配下（`.claude/todo/weekly.md`）へ書けなかった。レビューの申し送りに「Write・Edit・Bash とも権限で止まった」とあり、計画の案は worktree の `.tmp/weekly-W44-draft.md` に残っている。`scripts/scheduled/weekly-review.sh` の `--allowedTools` と、`.claude/` の書き込み保護のどちらで止まったかを確かめる
+2. 公開画面の目視を任せたバックグラウンドの作業が終わる前に、「Background tasks still running after 600s; terminating」で本体が終了した。レビューは「公開画面の目視」の節が空のまま、未保存の変更が残って完了扱いにならなかった。`CLAUDE_CODE_PRINT_BG_WAIT_CEILING_MS` を設定するか、目視を待たずに済む段取りにする
+
+**完了条件**: 次の土曜の週次レビューの自動実行が rc=0 で終わり、その週のレビューと翌週の `.claude/todo/weekly.md` が develop に入っている。DN-0819（土曜のチェーン）の前提になる。
+
+
+### [DN-0819] （DN-0817 段1）土曜の週次レビューの前段に、ログインが要る読む収集・note 同期・GSC の登録リクエストを順につなぐ
+タグ: [インフラ・計測] [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-10-24]
+
+**起点**: DN-0817 の段 1。前提は段 0（失敗中の Mac の処理を直す）の完了。
+
+**やること**: `scripts/scheduled/weekly-review.sh`（土曜 9:30・専用 worktree）の前段に、ログインが要る処理を**順番に 1 本ずつ**つなぐ。ブラウザは同時に 1 本だけ。
+1. ログインの確認と入り直し（`auth-session-refresh` の Mac の分。export と CI の起動はしない）
+2. 読む収集（今 CI と各 launchd が持つもの）: A8（`a8-ui:fetch`）、note のアクセス・売上（`note-traffic-fetch`・`note-sales-fetch`）とライブ照合（`check-note-attachments:live`・`check-note-membership:live`）、KDP（`kdp-report`）、ココナラ（`coconala-orders`・`coconala-analytics`・`coconala-revenue`）、X（`x-own-metrics`）、Instagram（`verify-ig-status`）
+3. note 同期（`note-sync-routine.mjs`。待ちが残ったときの `--catch-up-until` は今の仕組みのまま）
+4. GSC の登録リクエスト 10 件と、月次の理由別 CSV（`check-gsc-ui-due` が DUE のときだけ）
+5. 週次レビュー（今のまま。上で集めた `data/` を読む）
+
+各段は前の段が落ちても続け、何が落ちたかをレビューの材料に出す（落ちた段を成功に見せない）。土曜の回が丸ごと動かなかった、または途中で落ちた週は、日曜か次の起動で 1 回だけやり直す。予約投稿（X・Instagram・note）は保留が解けたら同じ流れに 1 段足す（今は SNS の新規投稿が保留中なので入れない）。
+
+**完了条件**: 2 週続けて土曜の回が全段 rc=0 で終わり、集めた記録が develop に入り、その週のレビューがそれを読んでいる。
+
+
+### [DN-0818] （DN-0817 段0）Mac の週次レビューとココナラ取得の失敗を直す（空き容量の予約・起動の重なり）
+タグ: [インフラ・計測] [領域:管理] [時期:2026-10] [種類:不具合] [起票:2026-10-24] [進行中]
+
+**起点**: DN-0817 の段 0。2026-10-18〜10-24 に Mac の launchd 4 本が失敗した。auth-session-refresh は DN-0816、note-sync のマガジンカバーの Drive 保存は DN-0763 が持つ。note-sync の 10/11 の配布 PDF の取り寄せ失敗（Unknown system error -11）は、10/15 に DN-0567（PR #1082）で取り寄せの中の再試行が入り済みで、10/18 の週次では取り寄せの失敗 0 件（このカードの対象外）。ログ: `~/Library/Logs/doboku-note/<名前>.log`。
+
+**残り**:
+1. **weekly-review（10/24 09:30・Issue #1206）**: 復元 0 件なら空きの予約で止めない修正は PR（ブランチ `fix/dn-0818-mac-routines`）。空き自体は 2026-10-24 時点で 19.1GB と予約 20GiB を割っていて、復元が要る週や `local-resource-run` の重い作業は止まる。自動で消せる候補はほぼ無い（`check-disk-hygiene`）。大きいのは `.tmp/media` 5.2GB（うち 4.69GB・2,179 件は Drive で 3 者照合済み＝`npm run media -- pull` で戻せる）と、日付つきの作業フォルダ 14 個 1.9GB。消すかどうかを運営者が決める。10/17 の rc=143 は外からの SIGTERM（スクリプトに時間制限は無く、1 分後に手で再実行して 14:40 に完了）で、止めた主は記録に無い
+2. **coconala-local（10/20）**: gsc-local（毎日 10:30・最長 23 分）と重なって起動を見送った。毎週火曜 05:15（04:17 の disk-hygiene の後）へ移し、この Mac の launchd は登録し直し済み。次の火曜（10/27）の結果を見る
+
+**完了条件**: 次の土曜の weekly-review と次の火曜の coconala-local が rc=0 で終わり、ログに「Insufficient free disk」と「起動を見送り」が無い。
+
+
+### [DN-0817] ログインが要る読む処理と書く処理を土曜の Mac の 1 本にまとめ、ほかのセッションは記録を読んで進める（移行計画）
+タグ: [インフラ・計測] [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-10-24]
+
+**起点**: 2026-10-24、運営者の判断。ログインが要る処理が Mac の launchd 6 本（毎日 2・毎週 4）・CI（`login-collectors.yml`・`scheduled-publish.yml`・`ops-write.yml`）・Windows のタスクスケジューラに分かれ、毎週どこかが壊れている（10/18〜10/24 に Mac の 4 本が失敗）。ログインして読む計測と、ログインして書く操作を**土曜の Mac の 1 本（週次レビューの前段）**にまとめ、ほかのセッションはログインせず記録（`data/` など）を読んで進める。これは 2026-10-01 の「ログインが要る全サービスを CI でも自動で入り直す」決定（DN-0479・DN-0483・DN-0484）と DN-0362 の役割分担を置き換える。
+
+**調査で分かったこと（2026-10-24）**:
+- CI のログイン収集は読むだけで、書き込みはログイン状態の書き戻しだけ。実際に CI で動いているのは note と A8 の 2 サービス（`playwright-auth-profiles.json` の `ci.enabled`）。毎日の `auth-session-refresh` は CI の A8 の state を新しく保つためにある
+- 時刻どおりの公開は各サービスの予約機能が持つ（X の予約キュー・Business Suite・`note-publish --schedule`・YouTube の `publishAt`）。Mac は週 1 回まとめて予約を入れれば足りる
+- note 同期は既に週次（1 日の添付 90 件の上限があり、大量の変更だけ `--catch-up-until` で毎日流す）
+- GSC の登録リクエストは毎日 10 件だが、候補 226 件のうち表示実績があるのは 3 件、EXP-006 は partial で「同じ URL への反復は終了」。週 10 件で足りる
+- 土曜に全部つなげた所要時間はログから 3〜5 時間の見込み
+
+**段（この順に進める。各段のカードに完了条件）**:
+0. 失敗中の Mac の処理を直す（DN-0816・DN-0763・DN-0818。note-sync の配布 PDF の取り寄せは DN-0567 で修正済み）
+1. 土曜のチェーンを作る（ログイン確認 → 読む収集 → note 同期 → GSC の登録リクエストと月次 CSV → 週次レビュー、落ちた回のやり直し）（DN-0819）
+2. 鮮度の基準を週次に合わせる（DN-0820）
+3. Mac の個別の launchd・worktree・Windows のタスクを止める（DN-0821）
+4. CI のログイン収集と書き込みの入口を外す（暗号化 state・Secrets を含む）（DN-0822）
+5. ほかのセッションのスキルを「記録を読む」に変え、方針文書を書き直す（DN-0823）
+
+**残すもの**: API キーで動く CI（GA4・GSC の API、PSI、YouTube、Cloudflare、Bing）、`disk-hygiene` の launchd、人がその場で判断する書き込み（価格・出品・KDP 入稿・返信・公開）。後者は土曜に保ったログインをそのまま使い、切れていたら人が `auth:login` で入る。
+
+**完了条件**: 段 0〜5 のカードがすべて完了し、ログインが要る定期処理が Mac の土曜の 1 本だけになっている（`launchctl list | grep doboku-note` が週次と disk-hygiene だけ、CI に `DOBOKU_AUTH_*` を読むワークフローが 0 本）。
+
+
+
+
 
 
 
@@ -286,6 +352,131 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 **完了条件**: 次の CI 照合 snapshot で published_UNrecorded と anomaly が 0、または残りの各件に理由（削除済み・対象外など）が台帳に記録されている。
 
 ## 🟡 中 — 重要度が中くらい
+
+### [DN-0832] 総監論文対策の文字起こし『総監論文に求められるもの.md』の Drive 実体が台帳と違うのを片づける
+タグ: [領域:教材] [時期:2026-10] [種類:不具合] [検証:drive-vault-sync] [起票:2026-10-24]
+
+drive-vault-sync -- --group source-transcript --verify --deep が 240 件中 1 件の不一致で FAIL（2026-10-24 確認）。content/sources/textbook/技術士（総監）/テキスト/総監論文対策/総監論文に求められるもの.md の Drive 実体が 2026-09-30 に更新され（26,556→26,554 bytes）、drive-manifest の sha256 と違う。同じ本の README（content/sources/books/pe-cem-essay-guide__総監論文対策/README.md）が p.24 の指で隠れた箇所を文脈で埋めた誤りを記録しており、その手直しの可能性がある。check-reference-sources --deep も transcript-method（廃止前の視覚 OCR の中身が変わった・PR #1211）で同じファイルを止める。どちらの中身を正とするかを決め、視覚 OCR を手で直すのでなく機械 OCR（book_ocr_machine.py）で作り直すか、Drive を台帳の版へ戻す。完了条件: drive-vault-sync --group source-transcript --verify --deep と check-reference-sources --deep が exit 0。
+
+
+### [DN-0830] note 原稿のタスクリスト記法（- [ ]）が note でそのまま出るのを直し、検査で止める（公開 4 本・計 70 行）
+タグ: [コンテンツ品質] [領域:商品] [時期:2026-11] [種類:不具合] [起票:2026-10-24]
+
+**起点**: 2026-W43 の週次レビューの公開画面の目視（CI run 39307952220・10/19 撮影）で、note「技術士 口頭試験対策（全部門共通）」（n1fcaf65dc75b）の 360 幅の本文に、チェックリストの `[ ]` がそのまま箇条書きと並んで出ていた（画像 `.tmp/note-public-view-review/39307952220/note-public-view/review/n1fcaf65dc75b-sp-s-end.jpg`）。note は Markdown のタスクリスト（`- [ ]`）に対応しない。
+
+**範囲（2026-10-24 の数え）**: `- [ ]` を持つ note 原稿は 6 本・70 行。公開済み 4 本＝2級土木 R8 二次 出題分析直前重点（14 行）・技術士建設部門 口頭試験対策 全部門共通（19 行）・技術士総監 トレードオフ思考（18 行）・技術士総監 口頭試験対策 完全版（10 行）。下書き 2 本＝建設部門・総監の「筆記合格発表後にやること-無料」（4・5 行）。
+
+**やること**: (1) 6 本の `- [ ]` を note で崩れない書き方（例:「□ 」を頭に付けた箇条書き）へ直し、公開済み 4 本は note 同期で反映する。(2) note 原稿の `- [ ]` を止める検査を pre-commit に足す（既存の note 原稿の検査に 1 本加える形で、回帰テスト付き）。
+
+**完了条件**: `git grep -E "^\s*[-*] \[[ xX]\] " -- 'content/note/**/article*.md'` が 0 件、検査が新しい `- [ ]` を止めることをテストで確かめ、公開済み 4 本が note に反映されている（次の公開画面の目視で `[ ]` が出ない）。
+
+
+### [DN-0828] A8 の取得が失敗しても ui-last-run の取得日時が進み、成果取込の期限が緑になるのを直す
+タグ: [インフラ・計測] [領域:アフィリエイト] [時期:2026-10..2026-11] [種類:不具合] [起票:2026-10-24]
+
+**起点**: 週次レビュー（2026-10-19〜2026-10-25）。10/24 に `npm run a8-ui:fetch -- --month 2026-09` が `page.goto: net::ERR_ABORTED`（media-console.a8.net/home）で取得 0/0・status=error で止まった。このとき `data/a8/ui-last-run.json` の `collectedAt` が失敗した実行の時刻へ書き換わり、`node scripts/check-a8-report-due.mjs --fail-on-due` が「OK: 前回 0日前・次回まで9日」と出して exit 0 になった（要対応 2 行は出るが期限の判定は緑）。失敗した取得で鮮度が戻る偽の緑。レビューでは書き換わったマーカーを HEAD の内容（10/20 の成功）へ戻し、commit していない。
+
+**やること**:
+1. 取得が status≠ok のときは `collectedAt`・`lastRun` を進めない（失敗は別の欄に記録する）か、`check-a8-report-due` が鮮度を最後の成功の時刻で数えるようにする
+2. 失敗した実行の後で exit 0 にならない回帰テストを足す
+3. A8 の 9 月分（月次の確定成果）を取り直す。取れない理由（ERR_ABORTED）を debug artifact `.local/playwright-a8-debug/2026-10-24T02-19-32Z` で確かめる
+
+**完了条件**: 失敗した取得の後に `check-a8-report-due --fail-on-due` が鮮度を緑にしないことをテストで確かめ、A8 の 9 月分が report-log に入っている（0 件なら 0 件と記録される）。
+
+
+### [DN-0826] KDP 台帳の 2026-09 で bookId e-01 が 2 行に付き kdp-report-freshness が FAIL するのを直す
+タグ: [インフラ・計測] [領域:管理] [時期:2026-10..2026-11] [種類:不具合] [起票:2026-10-24]
+
+**起点**: 週次レビュー（2026-10-19〜2026-10-25）の点検。日次の ops 点検 `kdp-report-freshness` が「2026-09 の bookId が重複（e-01）」で FAIL。`data/kdp/royalties.json` の 2026-09 で「2級土木施工管理技士 第1次検定 過去問完全解説【令和3〜7…」が 2 行とも bookId e-01（ロイヤリティ ¥1,053 と ¥0）。金額の二重計上は無いが、書籍の照合が完了扱いにならない。ほかに bookId が null の他サイトの本 31 行がある（当サイト外なので集計対象外のはず）。
+
+**やること**:
+1. 2 行の違い（版・マーケットプレイス・電子/紙）を KDP の元の行で確かめ、取り込みの bookId 付与（`scripts/kdp-report` 系）を直す
+2. 同じ本の複数行を 1 冊に合算するのか、行を分けて別 ID にするのかを決めて実装し、回帰テストを足す
+3. 2026-09 を取り直すか台帳を直して検査を通す（9 月の受取額 ¥112,880 の KDP ¥9,828 が変わらないことを確かめる）
+
+**完了条件**: `node scripts/check-kdp-report-freshness.mjs` が exit 0。
+
+
+### [DN-0825] index coverage の検査が sitemap 2,017 URL を上限 1,900 で切り詰めるので、分割取得にして全件を検査する
+タグ: [インフラ・計測] [領域:管理] [時期:2026-10..2026-11] [種類:不具合] [起票:2026-10-24]
+
+**起点**: 週次レビュー（2026-10-19〜2026-10-25）の点検。Issue #1180（10/21）: 月次 index coverage の閾値ゲートが赤。sitemap 2,017 URL が検査の上限 1,900 を超え、117 件が未検査のまま indexed_ratio が 80.6%（前回 10/14 は 90.5%）と低く出た。比率の低下は切り詰めによる偽の低下を含み、登録の悪化とは読まない。
+
+**やること**:
+1. `index-coverage.yml` の URL Inspection を分割取得にして、sitemap の全 URL を検査する（1 日の上限は日を分けて回す）
+2. 上限を超えたときは比率を出さず「検査不成立」で止める今の挙動を保つ
+3. 分割後の run で inspected と sitemap の件数が一致することを確かめる
+
+**完了条件**: 次の index-coverage の run で inspected = sitemap_urls、閾値ゲートが緑か、赤でも上限超過の error が出ない。Issue #1180 が自動クローズする。
+
+
+### [DN-0824] next を 16.4.1 以上へ上げ、Dependabot の critical 2 件・high 1 件を閉じる
+タグ: [インフラ・計測] [領域:管理] [時期:2026-10..2026-11] [種類:不具合] [起票:2026-10-24]
+
+**起点**: 週次レビュー（2026-10-19〜2026-10-25）の点検。Dependabot が 10/23 に next の脆弱性 3 件を出した（#106 high・Server Actions の DoS、#107 critical・Image Optimization API の SVG による RCE、#109 critical・`use cache` の RCE）。対象は next >=16.0.0 <=16.4.0、修正版は 16.4.1。手元は 16.3.8（`package.json` は `^16.3.8`）。
+
+本番は `output: 'export'`・`images.unoptimized: true`（`next.config` 8〜10 行）の静的配信なので、Server Actions・画像最適化 API・`use cache` は本番で動いていない見込み。開発サーバー（3020）と管理画面だけが該当しうる。見込みであり未検証。
+
+**やること**:
+1. feature ブランチで next を 16.4.1 以上へ上げ（lockfile も）、`node_modules/next/dist/docs/` の変更点を読む
+2. `npm run build`・`npm run type-check`・`npm run test`・E2E を通し、`curl` で `<main>` と主要語を確かめる
+3. PR（base=develop）でマージし、Dependabot の 3 件が閉じたことを確かめる
+
+**完了条件**: `gh api repos/uruhayato373/doboku-note/dependabot/alerts` で next の open が 0 件。
+
+
+### [DN-0823] （DN-0817 段5）ほかのセッションのスキルを「記録を読む」に変え、ログインの方針文書を書き直す
+タグ: [インフラ・計測] [領域:管理] [時期:2026-12] [種類:改善] [起票:2026-10-24]
+
+**起点**: DN-0817 の段 5。ほかのセッションはログインせず、記録を読んで進める（エージェントは既に資格情報を読めない＝`CLAUDECODE=1` の制限）。
+
+**やること**:
+1. 読むだけのスキルを「`data/` を読み、最終取得日を示す」形に変える。対象（2026-10-24 の棚卸し）: `affiliate-status`・`a8-report`・`coconala-analytics`・`google-search-growth`・`ig-reconcile`・`weekly-review` のログイン手順、エージェントの `a8-report-collector`・`gsc-browser-collector`。古いときは取りに行かず「未取得（次の土曜）」と書く
+2. 書き込みのスキル（`publish-note`・`note-*`・`coconala-publish`・`kdp-publish`・`publish-x`・`publish-ig-bs` など）は、人がその場で実行し、土曜に保ったログインを使う形のまま残す。切れていたら人が `auth:login` で入る、と書き添える
+3. お客さま対応の気づき（ココナラの受注・note のコメント）は週次の取得では最大 1 週間遅れるので、メール通知（Gmail コネクタ）で拾う前提にするかを運営者に決めてもらう
+4. 方針の正本を書き直す: `playwright-auth-profiles.md` の「役割分担」「ログイン維持」「§CI」、`asset-storage-policy.md` など CI の state に触れている箇所。スキルと agent の変更は同じ commit で registry を更新する
+
+**完了条件**: ログインを手順に持つスキル・agent が書き込み系だけになり（`git grep -l "auth:login" .claude/skills .claude/agents` を書き込み系と照合）、方針文書が新しい形になっている。
+
+
+### [DN-0822] （DN-0817 段4）CI のログイン収集と書き込みの入口・暗号化 state・ログイン用 Secrets を外す
+タグ: [インフラ・計測] [領域:管理] [時期:2026-12] [種類:改善] [起票:2026-10-24]
+
+**起点**: DN-0817 の段 4。前提は段 1 が 2 週続けて成功していること（CI と土曜の Mac の二重取りの期間を 2 週だけ置き、件数が一致することを確かめてから外す）。
+
+**やること**:
+1. `.github/workflows/login-collectors.yml`（10 サービス）・`scheduled-publish.yml`（X の予約投稿。今は `publish-x` が skipped）・`ops-write.yml`（CI からの書き込みの入口。9/23 以来使われていない）を消す
+2. `.github/actions/restore-auth-state`、`auth:ci-restore`・`auth:ci-writeback`・`auth:ci-plan`・`auth:export`・`auth:keygen` と関連の lib、`.claude/config/ci-write-operations.json`、`playwright-auth-profiles.json` の `ci` 欄と `ciCredential` を外し、`check-playwright-auth-wiring`・`tests/auth-credential-ssot.test.mjs` を新しい形に合わせる
+3. R2 の暗号化 state を消す（`data/r2/delete-list.txt` 経由）
+4. GitHub Secrets の `DOBOKU_AUTH_*`（ID/PW 10 個と `DOBOKU_AUTH_AGE_IDENTITY`）を消す（運営者が GitHub の画面で）
+5. 監視の Issue の channel（`auth-state-*`・`login-collectors-publish`）を閉じる。DN-0479・DN-0483・DN-0484 は「DN-0817 で置き換え」として閉じる
+
+**完了条件**: `git grep -l DOBOKU_AUTH .github` が 0 件、Secrets に `DOBOKU_AUTH_*` が無い、`npm run quality:audit:ci` と CI が緑。
+
+
+### [DN-0821] （DN-0817 段3）Mac の個別の launchd・専用 worktree・Windows のログイン維持のタスクを外す
+タグ: [インフラ・計測] [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-10-24]
+
+**起点**: DN-0817 の段 3。前提は段 1（土曜のチェーン）が 2 週続けて成功していること。
+
+**やること**:
+1. Mac の launchd を外す: `com.doboku-note.auth-session-refresh`（毎日）・`gsc-local`（毎日）・`coconala-local`（毎週）・`note-sync`（毎週）。各 `npm run <名前>:install -- --uninstall`
+2. 専用 worktree を外す: `.claude/worktrees/{auth-session-refresh,coconala-local,gsc-local,note-sync}`（lock を外して `git worktree remove`）。中の未コミットの状態ファイルは先に中身を確かめる
+3. Windows のタスクスケジューラ `\doboku-note\auth-session-refresh` を外す（運営者が Windows で）
+4. 使われなくなった install スクリプト・`scripts/scheduled/*.sh`・package.json の行・commands.md の案内を消す（`npm run check-command-guidance` が通ること）
+
+**完了条件**: `launchctl list | grep doboku-note` が weekly-review と disk-hygiene の 2 本だけ、`git worktree list` が人のチェックアウトと weekly-review の 2 行だけ、`npm run quality:audit:ci` が PASS。
+
+
+### [DN-0820] （DN-0817 段2）週次へ移した記録の鮮度の基準を週次に合わせる
+タグ: [インフラ・計測] [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-10-24]
+
+**起点**: DN-0817 の段 2。収集が週 1 回になると、毎日〜数日前提の鮮度の基準のままでは毎週注意が鳴る（`ops-audit` の Issue #571 など）。
+
+**やること**: 段 1 で週次へ移した記録について、`scripts/lib/datasets.mjs` の各行の `freshness: { warnDays, failDays }` を週次に合わせる（例: 注意 8 日・失敗 15 日）。`check-gsc-indexing-due`（直近 7 日の受理）など、日数を自前で持つ検査も同じ基準に揃える。値を写さず台帳から引く形にする（`freshnessOf`）。
+
+**完了条件**: 土曜の回が成功した週に `ops-audit` と `weekly-review-guard` が鮮度で鳴らず、1 回飛ばした週（8 日以上）には注意が出ることを、日付を変えたテストで確かめた。
+
 
 ### [DN-0816] ログイン維持の日次処理（auth-session-refresh）が 3 日続けて rc=1 で終わる（kdp の印・moshimo の競合）を直す
 タグ: [領域:管理] [時期:2026-10] [種類:不具合] [起票:2026-10-22]
@@ -1607,7 +1798,7 @@ Windows の PowerShell で repo 直下から順に:
 **やること**: 各ページの画像を見て、本文があれば文字起こしを足して `record-reference-book-artifacts` で complete にする。図だけ・白紙・扉などで文字起こしが要らないページは、推測で complete にせず、理由が台帳に残る形（文字起こし不要の状態と理由）を決めて記録する。
 **完了条件**: `npm run reference-book-status` で 4 冊の文字起こしが n/n（または理由つきの不要だけが残る）になり、`npm run check-reference-book-pages` が通る。
 **閉じるときの注意**: 4 冊は参考文献の台帳（reference-sources.json）の `bookBundle.ocrPending` に `{ "backlogId": "DN-0716" }` と書いてある（PR #1048）。残りを 0 にしてから外す。残りがあるままこのカードを閉じると、check-reference-book-pages が「追うカードが backlog に無い」で CI を止める。
-
+**2026-10-24 経過**: 機械 OCR（`pdf-to-mdx` 経路D の補完モード・PR #1211）で 4 冊の 54 頁中 52 頁を `machine-part-01.md` として登録し、civil1 の 2 冊とキーワード本は残り 0（`ocrPending` を外した）。残りは `pe-cem-textbook` の p0001・p0053 の 2 頁だけ。どちらも露出オーバーで文字が飛んだ写真で、機械 OCR では読めない。撮り直してから `book_ocr_prep.py --only p0001,p0053` → `book_ocr_machine.py --pages p0001,p0053 --supplement` で補う（Claude が画像から書き写して埋めない）。
 
 ### [DN-0209] 総監R8記述式を公式問題と照合し、再現版の注記・図・解答方針を確定する
 タグ: [コンテンツ品質] [領域:サイト] [時期:2027-04..2027-06] [種類:不具合] [起票:2026-09-13]
@@ -1628,6 +1819,15 @@ Windows の PowerShell で repo 直下から順に:
 **現状と決めること（2026-10-15）**: チャネルの役割は docs/strategy/04_収益化戦略.md と 09_販売チャネル競合分析.md にあり、KDP は DN-0815（絞り込み・旧 DN-0699）で見直し中。受取額は 5〜8 月が note 中心（DN-0664）。決めること: 過去問の分析から作る「全部パック」をどのチャネルで売るか。推奨は、記述式の模範解答は note、添削はココナラ、択一の過去問は KDP と iOS に分ける今の形を保ち、DN-0699 の結論と合わせて 1 枚の表にまとめる。
 
 **決定（2026-10-15・運営者が推奨案を採用）**: 記述式の模範解答は note、添削はココナラ、択一の過去問は KDP と iOS という今の分け方を保つ。DN-0815（KDP の絞り込み・旧 DN-0699）の結論と合わせて 1 枚の表にまとめたら閉じる。
+
+### [DN-0827] 本文中（article-inline）の note CTA が表示 8,147・CTR 0.14% と配置の中央値を下回るので、表示の多いページの文面と商品の一致を直す
+タグ: [収益化] [領域:サイト] [時期:2026-11] [種類:改善] [起票:2026-10-24]
+
+**起点**: 週次トリアージ（data/analysis/growth/digest-2026-W42.json）の OPP-29dc28d5f3: 配置 article-inline は表示 8147（28 日）で CTR 0.14%（配置の中央値 0.36%）（期待効果 4.6 ctaClicks/週）
+
+**やること**: 週次レビュー（2026-10-19〜2026-10-25）の計測ダイジェスト W42。ga4.cta-clicks-by-label で article-inline の表示上位 10 ページを出し、各ページの本文の流れと CTA の商品が合っているかを現物で読む。合っていないページだけ商品・文面を直す（2級は試験後の読者に合わせる。DN-0544・DN-0736 と重ねない）。POP 画像だけを原因と決めない
+
+**完了条件**: 直したページと直さない理由の一覧がこのカードにあり、反映 28 日後の article-inline の CTR を変更前 28 日と並べた記録がある
 
 
 

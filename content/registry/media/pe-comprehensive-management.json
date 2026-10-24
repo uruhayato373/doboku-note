@@ -233,6 +233,249 @@
       ]
     },
     {
+      "id": "pe-comprehensive-management/gokanri-tradeoff/work/candidate-cover",
+      "role": "candidate-cover",
+      "type": "image/png",
+      "sha256": "3c018394ecb044db8d7c16f1242349558eb9fe189452f9a9d4c1a40b2f1f6b9e",
+      "bytes": 1184563,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/gokanri-tradeoff/work/candidate-cover.3c018394.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "この画像を修正してください。白地、緑灰、既存の文字の綴り・意味、2案を比較する構図は保持。動画字幕が重ならないよう、全ての文字と図形（「条件で選ぶ」を含む）を縦方向で画面の上75%以内に再配置してください。見出しは少し小さくして上部10〜43%、案A/案Bの2カードは44〜62%、中央線と黄色点と「条件で選ぶ」は65〜74%。下26%は静かな白地のまま。全体画像を小さなポスターに縮小して外周枠を追加してはいけません。16:9を保持し、文字を増やさない。左右は各6%以上空ける。360px幅で案A/案B/条件で選ぶが判読できる文字サイズを保つ。",
+        "promptSha256": "eadd58e4cb50ac825d0211c225bc566934501735bbb90a9778c8f56d2361a6d0",
+        "generatedAt": "2026-10-22T08:43:59.082Z"
+      },
+      "width": 1920,
+      "height": 1080,
+      "legacyPaths": [
+        ".tmp/media/pe-comprehensive-management/gokanri-tradeoff/work/cover-diagram.3c018394.png"
+      ]
+    },
+    {
+      "id": "pe-comprehensive-management/gokanri-tradeoff/work/candidate-scene-001",
+      "role": "candidate-scene-001",
+      "type": "image/png",
+      "sha256": "3c018394ecb044db8d7c16f1242349558eb9fe189452f9a9d4c1a40b2f1f6b9e",
+      "bytes": 1184563,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/gokanri-tradeoff/work/candidate-scene-001.3c018394.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "この画像を修正してください。白地、緑灰、既存の文字の綴り・意味、2案を比較する構図は保持。動画字幕が重ならないよう、全ての文字と図形（「条件で選ぶ」を含む）を縦方向で画面の上75%以内に再配置してください。見出しは少し小さくして上部10〜43%、案A/案Bの2カードは44〜62%、中央線と黄色点と「条件で選ぶ」は65〜74%。下26%は静かな白地のまま。全体画像を小さなポスターに縮小して外周枠を追加してはいけません。16:9を保持し、文字を増やさない。左右は各6%以上空ける。360px幅で案A/案B/条件で選ぶが判読できる文字サイズを保つ。",
+        "promptSha256": "eadd58e4cb50ac825d0211c225bc566934501735bbb90a9778c8f56d2361a6d0",
+        "generatedAt": "2026-10-22T08:43:59.082Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-comprehensive-management/gokanri-tradeoff/work/candidate-scene-002",
+      "role": "candidate-scene-002",
+      "type": "image/png",
+      "sha256": "b6a76454679d3194ab58d70bba12211ae9c60e94a632e33efd9a0109619a8067",
+      "bytes": 1444061,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/gokanri-tradeoff/work/candidate-scene-002.b6a76454.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照図の小さい文字を修正。円形ネットワークをやめ、文字を大きくする。見出し「同じ業務を5管理から見る」。その下中央に横長札「同じ業務」。さらに下へ5つの大きな横長カードを3枚と2枚の二段に整然と配置し「経済性管理」「人的資源管理」「情報管理」「安全管理」「社会環境管理」と表示。札からカード群へ一本の大きな下向き矢印だけ。ラベルは1920px換算で最低70px太字、丸の中へ押し込まない。全要素を上70%に収め、下30%は字幕用白。左右7%を余白。白・深緑・灰色と小黄色を維持。余分な説明文字、人物、アイコンを追加しない。",
+        "promptSha256": "5687d648fbdfb14c6614ea2afa14ee7f93f683d06071019c173a8acf5d00473f",
+        "generatedAt": "2026-10-22T09:19:50.059Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-comprehensive-management/gokanri-tradeoff/work/candidate-scene-003",
+      "role": "candidate-scene-003",
+      "type": "image/png",
+      "sha256": "1b8f98eeae94710e007d8631fc7f1e4d23419757b497503965676663ec4d24a1",
+      "bytes": 1454107,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/gokanri-tradeoff/work/candidate-scene-003.1b8f98ee.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "この図の文字内容は変更せず、文字とパネルの安全余白を調整してください。タイトルを少し小さくして上6%、左右7%の白余白を確保。二つのパネルは左右7%より内側、底辺は上から70%以内に置く。下30%は完全に白い字幕用余白。本文は十分太く読みやすく保つ。白・落ち着いた深緑・灰色・小黄色の配色は維持、黄色帯を淡い黄色にする。本文は「共通条件：住宅近接、昼間規制可、工期に余裕」「比較する案：A 夜間集中、B 昼間分割」「法令・品質・安全は必須」のまま。タイトル「仮例：道路補修の案を比べる」。指定外の文言や装飾を追加しない。",
+        "promptSha256": "6d1aa8e1137772d9fe11395337e171f1c763f7a19b3417b40b9d25f1e170405e",
+        "generatedAt": "2026-10-22T09:19:50.273Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-comprehensive-management/gokanri-tradeoff/work/candidate-scene-004",
+      "role": "candidate-scene-004",
+      "type": "image/png",
+      "sha256": "350c9eb84a20208379553ff1013046023649aa25e8402e1416f110f930bf3c07",
+      "bytes": 1624257,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/gokanri-tradeoff/work/candidate-scene-004.350c9eb8.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "総監学習動画の図解1場面、16:9 1920x1080相当。白地、緑灰、小黄色。参照表紙は色だけの参考、資格名・肩書き・人物・先生・装飾を反復しない。見出し「夜間集中案は、どこに影響するか」。表示する要点:[\"夜間に作業をまとめる\",\"経済性\\n照明・夜勤の費用\",\"人的資源・安全\\n交代要員と休息\",\"社会環境・情報\\n騒音と規制の周知\"]。構図指定:{\"type\":\"diagram\",\"diagram\":\"influence\",\"source\":\"content/site/pe-comprehensive-management/keyword-2026/img/figure-five-management-learning.svg\",\"section\":\"技術士 総合技術監理部門｜5管理と判断\",\"note\":\"仮例｜昼間交通への利点と、他の管理への負担をつなぐ\"}。語り:夜間集中案は昼間の規制を減らせる一方、照明や夜勤の費用が増える条件とします。人員と休息の確保、作業時の安全、夜間騒音への対応、規制情報の周知も必要です。一つの施策から、他の管理への影響をたどります。。five-managementは中央同じ業務から経済性/人的資源/情報/安全/社会環境の5管理へ等価な枝、異なる管理を同一視しない。mappingは左の条件→右の内容。influenceは上の夜間集中から3つの影響枝へ。compareはA夜間集中/B昼間分割を等しい2列で比較し両者間に順序矢印は描かない。あくまでこの場面の構図のみ。道路補修は仮例と表示。具体機械や作業員は足さず図形・簡略アイコンと関係を主役に。文章を全文詰め込まない。全文字と図形は画面上73%以内、下27%を字幕用の白地に必ず空ける。外周6%安全域、360pxで読める大きい文字。指定以外の数字・条件を加えない。",
+        "promptSha256": "b09e17e540703aefdb21dfa6bbde88fca5d858c68189b1fefbbeb73b1aba7ba4",
+        "generatedAt": "2026-10-22T09:19:50.556Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-comprehensive-management/gokanri-tradeoff/work/candidate-scene-005",
+      "role": "candidate-scene-005",
+      "type": "image/png",
+      "sha256": "932ce7150a5c0c71993ca549e57607cecb1bb020d36cfc45f822f68f7bd4fe8a",
+      "bytes": 1531693,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/gokanri-tradeoff/work/candidate-scene-005.932ce715.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "総監学習動画の図解1場面、16:9 1920x1080相当。白地、緑灰、小黄色。参照表紙は色だけの参考、資格名・肩書き・人物・先生・装飾を反復しない。見出し「2案を、同じ観点で比べる」。表示する要点:[\"A 夜間集中\\n昼間規制を抑える\\n夜勤体制が必要\\n夜間騒音に配慮\",\"B 昼間分割\\n昼間規制が増える\\n昼間の体制で施工\\n夜間騒音を回避\"]。構図指定:{\"type\":\"compare\",\"section\":\"技術士 総合技術監理部門｜5管理と判断\",\"note\":\"仮例｜交通・人員・騒音を比較し、費用・工期の見積りで裏づける\"}。語り:昼間分割案は夜間騒音を避けられますが、昼間の規制日数と渋滞への負担が増えます。交通、人員、騒音、費用、工期を同じ観点で比べます。安全と費用が常に対立するとは限らず、情報共有で危険と手戻りを共に減らす工夫も考えます。。five-managementは中央同じ業務から経済性/人的資源/情報/安全/社会環境の5管理へ等価な枝、異なる管理を同一視しない。mappingは左の条件→右の内容。influenceは上の夜間集中から3つの影響枝へ。compareはA夜間集中/B昼間分割を等しい2列で比較し両者間に順序矢印は描かない。あくまでこの場面の構図のみ。道路補修は仮例と表示。具体機械や作業員は足さず図形・簡略アイコンと関係を主役に。文章を全文詰め込まない。全文字と図形は画面上73%以内、下27%を字幕用の白地に必ず空ける。外周6%安全域、360pxで読める大きい文字。指定以外の数字・条件を加えない。",
+        "promptSha256": "84496865807edcdab032d0f92fb7ea60aad89d38d6f8833009aac122e3ebd8a6",
+        "generatedAt": "2026-10-22T09:19:50.821Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-comprehensive-management/gokanri-tradeoff/work/candidate-scene-006",
+      "role": "candidate-scene-006",
+      "type": "image/png",
+      "sha256": "3aa8c853a91463d3d42391650b12e8b4f5da17e4d33821747451871927d1237f",
+      "bytes": 1594575,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/gokanri-tradeoff/work/candidate-scene-006.3aa8c853.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "総監学習動画の説明図1枚、16:9。白地に緑灰と小黄、人物/資格名/肩書き/先生なし。見出し「選択を分けた条件を、理由にする」。大きな文字の図要素:[\"必須条件を\\n満たす\",\"費用・工期を\\n確認する\",\"夜間騒音の\\n回避を重視\",\"B 昼間分割を\\n条件付き採用\"]。意味:両案の必須条件を確認し、昼間分割案も見積りと工程から予算・期限に収まるとします。住宅が近く、昼間規制を調整できるため、夜間騒音を避ける昼間分割案を選びます。交通条件が変われば選び直す、条件付きの判断です。。構図:{\"type\":\"steps\",\"section\":\"技術士 総合技術監理部門｜5管理と判断\",\"note\":\"仮例｜昼間規制を調整でき、予算と期限にも収まる場合の判断\"}。stepsは4段階を左から右へ、比較の案A/案Bの優劣とは混同しない。mappingは各条件から対応する監視・判断への3行対応図。focusは整理メモと教材案内だけ。今回場面に指定した構図を使い、他の構図を混ぜない。仮例を扱う場面には小さく「仮例」と表示。文章全文は載せず指定要素に簡潔化。設問により条件が変わる点を断定に変えない。必ず全図形文字の下端を高さの72%以内に収め、残り下28%は字幕用の白地。左右6%安全域。360px縮小でも主要文言が読める。",
+        "promptSha256": "065f3f9e76cbf89a0b083cbb99cd6d852b34533e732c23e257e523472cab4f98",
+        "generatedAt": "2026-10-22T09:19:51.101Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-comprehensive-management/gokanri-tradeoff/work/candidate-scene-007",
+      "role": "candidate-scene-007",
+      "type": "image/png",
+      "sha256": "9c389c193978dfc517c6a535aa2c44e67cda50039150965b96923581fce4bef9",
+      "bytes": 1531150,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/gokanri-tradeoff/work/candidate-scene-007.9c389c19.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "総監学習動画の説明図1枚、16:9。白地に緑灰と小黄、人物/資格名/肩書き/先生なし。見出し「残ったリスクを、次の判断につなぐ」。大きな文字の図要素:[\"車列・通行状況 → 区間・規制時間を調整\",\"安全な通行が困難 → 作業を中断\",\"期限に遅れる見込み → 責任者へ報告・再検討\"]。意味:残る渋滞は交通担当が混雑時に確認し、事前に定めた管理値を超えたら区間や規制時間を調整します。安全な通行が難しければ作業を中断。工程担当は毎日の進捗を見て、遅れる見込みなら責任者へ報告し、工程と案を再検討します。。構図:{\"type\":\"mapping\",\"section\":\"技術士 総合技術監理部門｜5管理と判断\",\"note\":\"仮例｜交通担当は混雑時、工程担当は毎日確認。管理値は事前に設定\"}。stepsは4段階を左から右へ、比較の案A/案Bの優劣とは混同しない。mappingは各条件から対応する監視・判断への3行対応図。focusは整理メモと教材案内だけ。今回場面に指定した構図を使い、他の構図を混ぜない。仮例を扱う場面には小さく「仮例」と表示。文章全文は載せず指定要素に簡潔化。設問により条件が変わる点を断定に変えない。必ず全図形文字の下端を高さの72%以内に収め、残り下28%は字幕用の白地。左右6%安全域。360px縮小でも主要文言が読める。",
+        "promptSha256": "6f0ee1bbcc929315fb08f280afb893edc4f1f613b6996e7a8d7b5654d1a371f3",
+        "generatedAt": "2026-10-22T09:19:51.346Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-comprehensive-management/gokanri-tradeoff/work/candidate-scene-008",
+      "role": "candidate-scene-008",
+      "type": "image/png",
+      "sha256": "7e20fab442a29af54b984329f7c1e243071daf11c2da950ff668cef338b86ec6",
+      "bytes": 1423741,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/gokanri-tradeoff/work/candidate-scene-008.7e20fab4.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像の下部の3行表『5管理との対応』を全て取り除き、4つの手順カードだけに簡潔化。横16:9、白地・緑灰・小黄色を保持。見出し『5管理を、判断の説明に変える』。左から順に4カード『条件と\\n相互影響』『複数案を\\n同じ観点で』『選んだ理由と\\n残る負担』『監視から\\n判断を更新』。各カード上に小さな1、2、3、4。隣のカードへ穏やかな黄色の矢印。カード内は既存のメモ/複数書類/チェック/監視循環の簡素な記号だけ。追加の表・説明文・肩書き・人物を一切入れない。すべての図と文字は上72%以内、下28%は字幕用の完全な白。左右6%安全域。360pxでも見出しと4項目が読める大きさ。",
+        "promptSha256": "136623fd942fa24e87f311394836116382ac728d029287a1e7f3f36acbbe9289",
+        "generatedAt": "2026-10-22T10:02:48.084Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-comprehensive-management/gokanri-tradeoff/work/candidate-scene-009",
+      "role": "candidate-scene-009",
+      "type": "image/png",
+      "sha256": "eee3d4e6d3f9888a4a0209ddedc657a73e5ce30fa1a42c3a43dd544de6d086df",
+      "bytes": 1238284,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/gokanri-tradeoff/work/candidate-scene-009.eee3d4e6.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照を大幅に簡潔化。16:9の学習動画締め図、白地・緑灰・小黄色。見出し『一つの業務で、判断理由を整理する』を上部。既存の4手順・番号1〜4・手順矢印・『仮例』など全て除去。残す内容は独立した横並び2カードだけ。左はシンプルなメモ用紙アイコンと『比べた案と、選択を分けた条件』。右は本のアイコンと『5管理クロストレードオフ』『概要欄のマガジンへ』。左右カード間に順序や因果を示す矢印は不要。指定した見出し・3文言以外の文字は一切追加しない。人物・肩書き・資格名なし。全図と文字は画面上70%以内に収め、下30%は字幕用の完全な白。360px幅でも大きく読みやすく。",
+        "promptSha256": "4bdcfe2bf2f2e95e22cdfb7122eb2b9659f92b8b20d6eb2f9db784cf89a9dc7d",
+        "generatedAt": "2026-10-22T10:02:48.174Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-comprehensive-management/gokanri-tradeoff/work/candidate-subtitles",
+      "role": "candidate-subtitles",
+      "type": "text/x-ssa",
+      "sha256": "5d5e12db6082becf971deb1c85f2ab396653152d801f12073b37d3dc1f95fa89",
+      "bytes": 4934,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/gokanri-tradeoff/work/candidate-subtitles.5d5e12db.ass"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/pe-comprehensive-management/gokanri-tradeoff/storyboard.json"
+      }
+    },
+    {
+      "id": "pe-comprehensive-management/gokanri-tradeoff/work/candidate-video",
+      "role": "candidate-video",
+      "type": "video/mp4",
+      "sha256": "3119432673ac5896b2cc7dbcb9b80e8ec0b378970d7300ad38c55bf528bcac5a",
+      "bytes": 13255382,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/gokanri-tradeoff/work/candidate-video.31194326.mp4"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/pe-comprehensive-management/gokanri-tradeoff/storyboard.json",
+        "specSha256": "8c9b1795682f77fdb593bfd57a0f593c8d955de511ea3a6054e113f949d56a6d",
+        "renderInputSha256": "d743c6ed42c496c04be747d88c76a604502b6905c08d0d61db5b5ee71464fe10",
+        "tts": {
+          "engine": "VOICEVOX",
+          "speaker": 13,
+          "credit": "VOICEVOX:青山龍星"
+        }
+      },
+      "durationSec": 147.6
+    },
+    {
       "id": "pe-comprehensive-management/gokanri-tradeoff/youtube.longform/cover",
       "role": "cover",
       "type": "image/png",
@@ -331,6 +574,529 @@
         "specSha256": "5ef850bff2cb6226e7ceab798db4058e6a7176ad4273d1148e4e7891e21b1694"
       },
       "legacyPaths": []
+    },
+    {
+      "id": "pe-comprehensive-management/monbun-yomikata/work/candidate-cover",
+      "role": "candidate-cover",
+      "type": "image/png",
+      "sha256": "1cc0565013352d21b55ac4e5da8176bd16592cb6d3e2c8b2e6c368870d1bfd92",
+      "bytes": 1215764,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/candidate-cover.1cc05650.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "YouTube教育動画の表紙1枚、横長16:9、1920×1080相当。白い背景、落ち着いた緑灰、小さな黄色、図解主役。人物・先生・肩書き・著者・ロゴ・派手なPOP装飾なし。文字は上に小さく「技術士 総監」、その下に大きい2行「問題文の要求」「答案骨子へ」。中央は左「問題文」の紙アイコンから、真ん中の4つの小さな付箋「動詞」「対象」「数」「条件」を通して右「骨子」の紙アイコンへつなぐ緑矢印。問題文から答える内容を抽出する意味。紙にダミーの細かい文字は足さず線を3本程度。全ての文字図形は画面上75%以内に収め、下25%は字幕用の静かな白地、四辺まで白背景、左右外周6%以上空ける。360px幅でも見出しと4つの語が読みやすいサイズ。指定以外の文字や図は足さない。画像全体を小さいポスターに縮めた枠を作らない。",
+        "promptSha256": "2bcb415e6b093e45e58733d0a8cb8550c3d2a1c18b528f23ad86e37764762ae1",
+        "generatedAt": "2026-10-22T08:43:59.185Z"
+      },
+      "width": 1920,
+      "height": 1080,
+      "legacyPaths": [
+        ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/cover-diagram.1cc05650.png"
+      ]
+    },
+    {
+      "id": "pe-comprehensive-management/monbun-yomikata/work/candidate-scene-001",
+      "role": "candidate-scene-001",
+      "type": "image/png",
+      "sha256": "1cc0565013352d21b55ac4e5da8176bd16592cb6d3e2c8b2e6c368870d1bfd92",
+      "bytes": 1215764,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/candidate-scene-001.1cc05650.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "YouTube教育動画の表紙1枚、横長16:9、1920×1080相当。白い背景、落ち着いた緑灰、小さな黄色、図解主役。人物・先生・肩書き・著者・ロゴ・派手なPOP装飾なし。文字は上に小さく「技術士 総監」、その下に大きい2行「問題文の要求」「答案骨子へ」。中央は左「問題文」の紙アイコンから、真ん中の4つの小さな付箋「動詞」「対象」「数」「条件」を通して右「骨子」の紙アイコンへつなぐ緑矢印。問題文から答える内容を抽出する意味。紙にダミーの細かい文字は足さず線を3本程度。全ての文字図形は画面上75%以内に収め、下25%は字幕用の静かな白地、四辺まで白背景、左右外周6%以上空ける。360px幅でも見出しと4つの語が読みやすいサイズ。指定以外の文字や図は足さない。画像全体を小さいポスターに縮めた枠を作らない。",
+        "promptSha256": "2bcb415e6b093e45e58733d0a8cb8550c3d2a1c18b528f23ad86e37764762ae1",
+        "generatedAt": "2026-10-22T08:43:59.185Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-comprehensive-management/monbun-yomikata/work/candidate-scene-002",
+      "role": "candidate-scene-002",
+      "type": "image/png",
+      "sha256": "90931dda44627dfeef9487611b9d38ae1b4f4a840de2772860beecd9b359691e",
+      "bytes": 1235322,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/candidate-scene-002.90931dda.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "技術士総監の問題文の読み取りを教える通常動画の1場面。16:9、白地、落ち着いた深緑と灰色、小黄色。参照表紙からは配色のみ継承。資格名の反復や先生・人物・肩書き・派手な装飾はなし。見出し「読んだ要求を、書く項目へ」。図に載せる文言:[\"動詞・対象・数・条件\",\"答案の見出しと骨子\"]。構図:左の問題文から四つの付箋を取り出し、右の骨子へ移す対応図。四つの付箋は同じ大きさにする。 白地、緑の線、灰色の補助、小さな黄色の強調。人物なし。下部の字幕領域は空ける。。この場面の語り:長い問題文を読んでも、何を書くか決まらない。まず動詞、対象、数、条件を拾い、答案の見出しに対応づけます。。図の矢印は対応関係・作業の流れがある箇所だけ。紙には読めないダミー文字を大量に書かない。指定以外の情報や年度や数字を足さない。全図形と文字は高さの70%以内、下30%は字幕用の真っ白な領域。左右7%以上安全域。360px幅で主要語が読める太い文字、内容は上部を大きく使う。",
+        "promptSha256": "de42dc825dad4025d54c6ac646dafe6bb2693fe12fde0ef9bcd40b74792e5dee",
+        "generatedAt": "2026-10-22T09:17:54.999Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-comprehensive-management/monbun-yomikata/work/candidate-scene-003",
+      "role": "candidate-scene-003",
+      "type": "image/png",
+      "sha256": "3442feae00df36459d7121b1b902fb194be2401ca794f2151acbeb1c074dae47",
+      "bytes": 1262311,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/candidate-scene-003.3442feae.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "技術士総監の問題文の読み取りを教える通常動画の1場面。16:9、白地、落ち着いた深緑と灰色、小黄色。参照表紙からは配色のみ継承。資格名の反復や先生・人物・肩書き・派手な装飾はなし。見出し「読み取りのための学習手順」。図に載せる文言:[\"当年度の問題文を読む\",\"要求に合わせて構成する\"]。構図:問題文の紙を中央に置き、そこから答案見出しが生まれる構図。固定テンプレートの図は置かない。 白地、緑の線、灰色の補助、小さな黄色の強調。人物なし。下部の字幕領域は空ける。。この場面の語り:これは要求の抜けを防ぐための学習手順です。決まった答案の型に当てはめる前に、その年度の問題文を読みます。。図の矢印は対応関係・作業の流れがある箇所だけ。紙には読めないダミー文字を大量に書かない。指定以外の情報や年度や数字を足さない。全図形と文字は高さの70%以内、下30%は字幕用の真っ白な領域。左右7%以上安全域。360px幅で主要語が読める太い文字、内容は上部を大きく使う。",
+        "promptSha256": "b106b023ce60810e01c61f038995b943cddabf01eac059788b35753d3f9e1fec",
+        "generatedAt": "2026-10-22T09:17:55.141Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-comprehensive-management/monbun-yomikata/work/candidate-scene-004",
+      "role": "candidate-scene-004",
+      "type": "image/png",
+      "sha256": "4c35ce78de501a92f35de1950e4997de225c369fb2bd04e97c40ced1de5029ae",
+      "bytes": 1350010,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/candidate-scene-004.4c35ce78.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "技術士総監の問題文の読み取りを教える通常動画の1場面。16:9、白地、落ち着いた深緑と灰色、小黄色。参照表紙からは配色のみ継承。資格名の反復や先生・人物・肩書き・派手な装飾はなし。見出し「指定を拾う」。図に載せる文言:[\"設問の区分・答える範囲\",\"項目数・答案枚数\"]。構図:問題用紙の指定欄を拡大する。範囲・数・枚数の三か所へ細い緑線を引き、確認済みの小さな印を付ける。 白地、緑の線、灰色の補助、小さな黄色の強調。人物なし。下部の字幕領域は空ける。。この場面の語り:設問の区分、答える範囲、項目数、答案枚数の指定を拾います。毎年同じだと決めつけて省略しないでください。。図の矢印は対応関係・作業の流れがある箇所だけ。紙には読めないダミー文字を大量に書かない。指定以外の情報や年度や数字を足さない。全図形と文字は高さの70%以内、下30%は字幕用の真っ白な領域。左右7%以上安全域。360px幅で主要語が読める太い文字、内容は上部を大きく使う。",
+        "promptSha256": "516622a10395672c002bc34661e3445a4396abfb3e0002892d28b47665cbc453",
+        "generatedAt": "2026-10-22T09:17:55.292Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-comprehensive-management/monbun-yomikata/work/candidate-scene-005",
+      "role": "candidate-scene-005",
+      "type": "image/png",
+      "sha256": "efb599125eccf240b964c26f7ff3394902b9426256ba54f8070d33f1b21f2ea1",
+      "bytes": 1204857,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/candidate-scene-005.efb59912.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "技術士総監の問題文の読み取りを教える通常動画の1場面。16:9、白地、落ち着いた深緑と灰色、小黄色。参照表紙からは配色のみ継承。資格名の反復や先生・人物・肩書き・派手な装飾はなし。見出し「1　動詞を拾う」。図に載せる文言:[\"挙げる → 項目を示す\",\"説明する → 中身を述べる\",\"比較する → 違いを示す\"]。構図:左列に三つの動詞、右列に対応する作業。各行を一本の緑線で結び、動詞だけ小さく黄色で強調する。 白地、緑の線、灰色の補助、小さな黄色の強調。人物なし。下部の字幕領域は空ける。。この場面の語り:一つ目は動詞です。挙げよ、説明せよ、比較せよでは、答案で行う作業が違います。何をするよう求められたかを拾います。。図の矢印は対応関係・作業の流れがある箇所だけ。紙には読めないダミー文字を大量に書かない。指定以外の情報や年度や数字を足さない。全図形と文字は高さの70%以内、下30%は字幕用の真っ白な領域。左右7%以上安全域。360px幅で主要語が読める太い文字、内容は上部を大きく使う。",
+        "promptSha256": "b1e924a654a692848d22329cf3155eeabbfb4c90accd9ec0c2a2c113db76c1c6",
+        "generatedAt": "2026-10-22T09:17:55.439Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-comprehensive-management/monbun-yomikata/work/candidate-scene-006",
+      "role": "candidate-scene-006",
+      "type": "image/png",
+      "sha256": "022c4e08a624a052c1eb289902a29770baa0c679df42c94c47ae7fc53f465d99",
+      "bytes": 1300318,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/candidate-scene-006.022c4e08.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "教育動画用の図解1場面、16:9。白背景、落ち着いた緑灰、小さな黄。参照画像の配色だけ使う。大きな主題「2　対象を確かめる」。画面に載せる言葉は次の要素と構図で指定するラベルのみ:[\"担当業務・組織全体\",\"「前の設問の施策」の指す先\"]。構図:担当業務と組織全体を範囲の異なる二つの枠で示す。下に前問の施策から次問の同じ施策へ一本の参照線を引く。 白地、緑の線、灰色の補助、小さな黄色の強調。人物なし。下部の字幕領域は空ける。。内容理解用のナレーション（全文を書かない）:二つ目は対象です。自分の担当業務なのか、組織全体なのか。前の設問で選んだ施策を指すなら、その施策を引き継ぎます。。見出し90px相当、要素の文字は最低60px相当（360px縮小で11px以上）、語数が多ければ指定意図の範囲で短いラベルへ整理、細かい脚注なし。人物・先生・資格名・肩書き・URLは入れない。複数の仮設問を混ぜない。紙のダミーテキストは細線3本程度。比較を示す図の間に順序矢印を置かない。全要素は画面の上73%以内、下27%は真っ白な字幕領域。図解を横幅85%を使って大きく、外周6%安全域。指定しない数字や条件は追加しない。",
+        "promptSha256": "d352cfa84e70d5f2fe31c9b72c9a03432d51270acce4fe278cc55a98793a2ee2",
+        "generatedAt": "2026-10-22T09:17:55.584Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-comprehensive-management/monbun-yomikata/work/candidate-scene-007",
+      "role": "candidate-scene-007",
+      "type": "image/png",
+      "sha256": "362368059c50d140b604fcb5f603b4ce4c4721ad9cea0cd52022c3527db427f2",
+      "bytes": 1119045,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/candidate-scene-007.36236805.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "教育動画用の図解1場面、16:9。白背景、落ち着いた緑灰、小さな黄。参照画像の配色だけ使う。大きな主題「3　数を枠にする」。画面に載せる言葉は次の要素と構図で指定するラベルのみ:[\"施策は2つ\",\"それぞれに必要項目\"]。構図:横並びの施策一・施策二の空欄を大きく配置。両方に同じ小枠を置き、「それぞれ」から二股の線を引く。 白地、緑の線、灰色の補助、小さな黄色の強調。人物なし。下部の字幕領域は空ける。。内容理解用のナレーション（全文を書かない）:三つ目は数です。施策を二つとあれば、二つの記入枠を先に作ります。それぞれ、とあれば、両方に同じ要求がかかります。。見出し90px相当、要素の文字は最低60px相当（360px縮小で11px以上）、語数が多ければ指定意図の範囲で短いラベルへ整理、細かい脚注なし。人物・先生・資格名・肩書き・URLは入れない。複数の仮設問を混ぜない。紙のダミーテキストは細線3本程度。比較を示す図の間に順序矢印を置かない。全要素は画面の上73%以内、下27%は真っ白な字幕領域。図解を横幅85%を使って大きく、外周6%安全域。指定しない数字や条件は追加しない。",
+        "promptSha256": "c8543d51b58100c63804497ac959656e5aaa071a002a55bc222ff46777c9a2d3",
+        "generatedAt": "2026-10-22T09:17:55.735Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-comprehensive-management/monbun-yomikata/work/candidate-scene-008",
+      "role": "candidate-scene-008",
+      "type": "image/png",
+      "sha256": "a4d28173d2540805aaefcc3bd733a5c81b1b3a0f18e16ee1cc9d21d4e0009063",
+      "bytes": 1239071,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/candidate-scene-008.a4d28173.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "教育動画用の図解1場面、16:9。白背景、落ち着いた緑灰、小さな黄。参照画像の配色だけ使う。大きな主題「4　条件を残す」。画面に載せる言葉は次の要素と構図で指定するラベルのみ:[\"人員・予算・対象期間\",\"参考の事例と指定を区別\"]。構図:上に人員・予算・期間の三つの条件札。下に「参考の事例」と「守る指定」の二つのラベルを並べ、指定だけ囲む。 白地、緑の線、灰色の補助、小さな黄色の強調。人物なし。下部の字幕領域は空ける。。内容理解用のナレーション（全文を書かない）:四つ目は条件です。使える人員や予算、対象期間などを拾います。事例の紹介と、守るべき指定も区別してください。。見出し90px相当、要素の文字は最低60px相当（360px縮小で11px以上）、語数が多ければ指定意図の範囲で短いラベルへ整理、細かい脚注なし。人物・先生・資格名・肩書き・URLは入れない。複数の仮設問を混ぜない。紙のダミーテキストは細線3本程度。比較を示す図の間に順序矢印を置かない。全要素は画面の上73%以内、下27%は真っ白な字幕領域。図解を横幅85%を使って大きく、外周6%安全域。指定しない数字や条件は追加しない。",
+        "promptSha256": "93974675ff4aaa7ac4d9978a65b5aa07531cba4c483392303a2ef7a1710ea698",
+        "generatedAt": "2026-10-22T09:17:55.918Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-comprehensive-management/monbun-yomikata/work/candidate-scene-009",
+      "role": "candidate-scene-009",
+      "type": "image/png",
+      "sha256": "7b8a28baedd5b2bb6fe5e12457d0662c3462fdbbc4935731753fbc26d0e987f1",
+      "bytes": 1452742,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/candidate-scene-009.7b8a28ba.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "教育動画用の図解1場面、16:9。白背景、落ち着いた緑灰、小さな黄。参照画像の配色だけ使う。大きな主題「仮設問　対象と条件」。画面に載せる言葉は次の要素と構図で指定するラベルのみ:[\"対象：担当する道路維持管理業務\",\"条件：人員を増やさない\",\"目的：点検記録の整理を効率化\"]。構図:上部に「練習用の仮設問」と明示。道路の簡略線画に点検記録の紙を添え、対象・条件・目的を三段で示す。工事機械や人物は描かない。 白地、緑の線、灰色の補助、小さな黄色の強調。人物なし。下部の字幕領域は空ける。。内容理解用のナレーション（全文を書かない）:ここからは練習用の仮設問です。対象は、担当する道路維持管理業務。人員を増やさず、点検記録の整理を効率化するとします。。見出し90px相当、要素の文字は最低60px相当（360px縮小で11px以上）、語数が多ければ指定意図の範囲で短いラベルへ整理、細かい脚注なし。人物・先生・資格名・肩書き・URLは入れない。複数の仮設問を混ぜない。紙のダミーテキストは細線3本程度。比較を示す図の間に順序矢印を置かない。全要素は画面の上73%以内、下27%は真っ白な字幕領域。図解を横幅85%を使って大きく、外周6%安全域。指定しない数字や条件は追加しない。",
+        "promptSha256": "0d8a6ea98c6c9e9c66f1d9a1af7289f05fd6ce93ac645614a83d4da4739654ba",
+        "generatedAt": "2026-10-22T09:17:56.070Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-comprehensive-management/monbun-yomikata/work/candidate-scene-010",
+      "role": "candidate-scene-010",
+      "type": "image/png",
+      "sha256": "ebdac7bee44e1dd6799d8552f7a2cf14fbb303518ac085ca41636a4a17784b48",
+      "bytes": 1200333,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/candidate-scene-010.ebdac7be.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "日本語の総監試験学習動画の一場面を新しく生成。横16:9。白地、落ち着いた深緑と灰色、小黄色のみ。人物・キャラ・資格名の帯・肩書き不要。最上部の見出し「仮設問　何を答えるか」。図に載せる文言は[\"施策を2つ挙げる\",\"それぞれの効果を説明する\",\"それぞれの実施上の問題点を説明する\"]。構図:「練習用の仮設問」の表示を継続。要求を三行で配置し、2つとそれぞれに小さな黄色の印を付ける。 白地、緑の線、灰色の補助、小さな黄色の強調。人物なし。下部の字幕領域は空ける。。意味理解用の台本（全文を画像へ写さない）:施策を二つ挙げ、それぞれの効果と実施上の問題点を説明せよ。これを仮設問の要求とし、読み取っていきます。。主要ラベルは1920幅換算で60px以上、360px幅でも読める。文字は指定の短い言葉のみ、指定外の説明や記号や年度は足さない。図と文字は画面の上70%以内、下30%は完全な白の字幕安全域。左右7%は安全余白。紙面を埋めず図解を大きく。矢印は対応や流れがある箇所だけ。表紙の配色を参照するがタイトルや要素はこの場面に置き換える。",
+        "promptSha256": "3ef635a6d75bd928deb6c44fcf32a8439d102e5d696a18ac3db2cd6fb32d867f",
+        "generatedAt": "2026-10-22T09:17:56.230Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-comprehensive-management/monbun-yomikata/work/candidate-scene-011",
+      "role": "candidate-scene-011",
+      "type": "image/png",
+      "sha256": "aab1e0319e4b7d2d73f8359fb6fad262b8da2f3c3c55b8260ad9ace1110a5a30",
+      "bytes": 1214337,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/candidate-scene-011.aab1e031.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照の図を修正する。上段の長文とすべての対応線を削除し、四つの独立した大きなカードを2×2に配置する。見出し「仮設問を四つに分解」。カード1「動詞」「挙げる・説明する」、カード2「対象」「道路維持管理業務」、カード3「数」「施策2つ」、カード4「条件」「増員なし」。カード間に線や矢印は一切描かない。これ以外の文字を追加しない。白、深緑、灰、小黄色、下30%は字幕用白余白。16:9。主要文字は60px以上相当。",
+        "promptSha256": "e69394eba8284eb6a98b723368bbc66b1d4af52fcdb74bf1701dde50b03626a0",
+        "generatedAt": "2026-10-22T09:17:56.393Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-comprehensive-management/monbun-yomikata/work/candidate-scene-012",
+      "role": "candidate-scene-012",
+      "type": "image/png",
+      "sha256": "4cbe00ec6b7191ec995658bf357a05a513daf1f505b65069e544fad03d8f76b8",
+      "bytes": 1186046,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/candidate-scene-012.4cbe00ec.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "日本語の総監試験学習動画の一場面を新しく生成。横16:9。白地、落ち着いた深緑と灰色、小黄色のみ。人物・キャラ・資格名の帯・肩書き不要。最上部の見出し「要求と骨子を対応づける」。図に載せる文言は[\"施策1：内容・効果・問題点\",\"施策2：内容・効果・問題点\"]。構図:二列の答案メモ。各列の大見出しを施策1・施策2とし、下に内容・効果・問題点の三つの空欄を同じ順で置く。 白地、緑の線、灰色の補助、小さな黄色の強調。人物なし。下部の字幕領域は空ける。。意味理解用の台本（全文を画像へ写さない）:答案の見出しは、施策一と施策二。それぞれに、施策の内容、効果、実施上の問題点の枠を作れば、書く項目が見えます。。主要ラベルは1920幅換算で60px以上、360px幅でも読める。文字は指定の短い言葉のみ、指定外の説明や記号や年度は足さない。図と文字は画面の上70%以内、下30%は完全な白の字幕安全域。左右7%は安全余白。紙面を埋めず図解を大きく。矢印は対応や流れがある箇所だけ。表紙の配色を参照するがタイトルや要素はこの場面に置き換える。",
+        "promptSha256": "433e9fad546ee2d1b0783fa3c5a4d967c0a1ced17f994a0315592caced60d033",
+        "generatedAt": "2026-10-22T09:17:56.535Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-comprehensive-management/monbun-yomikata/work/candidate-scene-013",
+      "role": "candidate-scene-013",
+      "type": "image/png",
+      "sha256": "abc1d3eb5d27c7d6577f79d5200814f6067830cd66fc942d9a60378d4662b30b",
+      "bytes": 1148322,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/candidate-scene-013.abc1d3eb.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "日本語の総監試験学習動画の一場面を新しく生成。横16:9。白地、落ち着いた深緑と灰色、小黄色のみ。人物・キャラ・資格名の帯・肩書き不要。最上部の見出し「「それぞれ」の抜けを探す」。図に載せる文言は[\"施策1：効果・問題点\",\"施策2：効果・問題点\"]。構図:前場面と同じ二列三段の骨子を再利用。施策2の問題点欄だけ空欄にして黄色の枠で強調し、補う場所を示す。 白地、緑の線、灰色の補助、小さな黄色の強調。人物なし。下部の字幕領域は空ける。。意味理解用の台本（全文を画像へ写さない）:抜けやすいのは、施策二の問題点です。片方に効果と問題点を書いただけでは、それぞれ、という要求を満たしません。。主要ラベルは1920幅換算で60px以上、360px幅でも読める。文字は指定の短い言葉のみ、指定外の説明や記号や年度は足さない。図と文字は画面の上70%以内、下30%は完全な白の字幕安全域。左右7%は安全余白。紙面を埋めず図解を大きく。矢印は対応や流れがある箇所だけ。表紙の配色を参照するがタイトルや要素はこの場面に置き換える。",
+        "promptSha256": "73c88f0aaa75e6495ee623ae31445c5891e9db0de7ff9e4ca52afc491c4fd765",
+        "generatedAt": "2026-10-22T09:17:56.651Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-comprehensive-management/monbun-yomikata/work/candidate-scene-014",
+      "role": "candidate-scene-014",
+      "type": "image/png",
+      "sha256": "b0d51f5276a80cef22032b9e315938741f31583e0cd84f310bac881e60d9f42f",
+      "bytes": 1190321,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/candidate-scene-014.b0d51f52.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "日本語学習動画の1場面、横16:9の全画面。白地、落ち着いた深緑・灰色、小さな黄色。先生・人物・資格名や肩書きの反復・派手な装飾なし。見出し「「説明する」に応える」。表示文言:[\"何を変えるか\",\"どんな効果か\",\"何が問題か\"]。構図:左に施策名だけの一行メモ、右に内容・効果・問題点を埋めた三段のメモ。中央の矢印は具体化の方向だけを示す。 白地、緑の線、灰色の補助、小さな黄色の強調。人物なし。下部の字幕領域は空ける。。意味理解用の台本（全文を転写しない）:また、施策名を並べるだけでは説明になりません。何を変え、どんな効果があり、何が問題となるかを短いメモで埋めます。。全内容は画面上70%に収め、下30%は字幕用の純白。左右7%以上空ける。360px幅で読めるよう主要文字60px以上相当、短い言葉と大きな図で表す。指定以外の解説・年度・数字・追加条件は書かない。参照表紙からは色調だけ継承する。",
+        "promptSha256": "5c2df0c5e1aac45f2f8214425f14391c25cf822c397f6e1f8cee4dbc77b6d108",
+        "generatedAt": "2026-10-22T09:17:56.785Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-comprehensive-management/monbun-yomikata/work/candidate-scene-015",
+      "role": "candidate-scene-015",
+      "type": "image/png",
+      "sha256": "f5f150abf2c1fab94b6d420c46f24a693bab8deeb908c524a4dd2c9465a72dcd",
+      "bytes": 1402035,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/candidate-scene-015.f5f150ab.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "日本語学習動画の1場面、横16:9の全画面。白地、落ち着いた深緑・灰色、小さな黄色。先生・人物・資格名や肩書きの反復・派手な装飾なし。見出し「増員なしの条件を守る」。表示文言:[\"条件：人員を増やさない\",\"各施策の実行方法を照合\"]。構図:上に「増員なし」の条件札、下に施策1・施策2の二枠を置く。専任者を追加する案は灰色の別札として条件との食い違いを示す。 白地、緑の線、灰色の補助、小さな黄色の強調。人物なし。下部の字幕領域は空ける。。意味理解用の台本（全文を転写しない）:人員を増やさない条件なのに、専任者の増員を前提にすると食い違います。各施策が、最初の条件の中で実行できるかを見ます。。全内容は画面上70%に収め、下30%は字幕用の純白。左右7%以上空ける。360px幅で読めるよう主要文字60px以上相当、短い言葉と大きな図で表す。指定以外の解説・年度・数字・追加条件は書かない。参照表紙からは色調だけ継承する。",
+        "promptSha256": "61013395685eef91b92a8374ffec1eda0d62dccf5eab5589b6c4f4c631a89662",
+        "generatedAt": "2026-10-22T09:17:56.928Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-comprehensive-management/monbun-yomikata/work/candidate-scene-016",
+      "role": "candidate-scene-016",
+      "type": "image/png",
+      "sha256": "b2f4f362b47b080401045747576cef52d9415fecf19ea7403f9751ceee96d3f7",
+      "bytes": 1356923,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/candidate-scene-016.b2f4f362.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "日本語学習動画の1場面、横16:9の全画面。白地、落ち着いた深緑・灰色、小さな黄色。先生・人物・資格名や肩書きの反復・派手な装飾なし。見出し「施策1　記録様式の統一」。表示文言:[\"内容：記録様式を揃える\",\"効果：転記の手間を減らす\",\"問題点：現場ごとの例外への対応\"]。構図:「仮設問の骨子例」と明示。異なる記録用紙が共通様式へ揃う小図を左、内容・効果・問題点の三段メモを右に置く。 白地、緑の線、灰色の補助、小さな黄色の強調。人物なし。下部の字幕領域は空ける。。意味理解用の台本（全文を転写しない）:施策一の骨子は、記録様式の統一。効果は転記の手間の削減。問題点は、現場ごとの例外を共通様式に収める難しさです。。全内容は画面上70%に収め、下30%は字幕用の純白。左右7%以上空ける。360px幅で読めるよう主要文字60px以上相当、短い言葉と大きな図で表す。指定以外の解説・年度・数字・追加条件は書かない。参照表紙からは色調だけ継承する。",
+        "promptSha256": "e2e036b8796773ca6e24f4529c370c85aae4180a5638d92970bf04240fb36384",
+        "generatedAt": "2026-10-22T09:17:57.133Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-comprehensive-management/monbun-yomikata/work/candidate-scene-017",
+      "role": "candidate-scene-017",
+      "type": "image/png",
+      "sha256": "d7f7adeeacb926facaba701b7e12bc720d44a261725377861d67a4790c60309e",
+      "bytes": 1381131,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/candidate-scene-017.d7f7adee.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像の不足注記だけを追加。横16:9。見出し『施策2 点検記録の一括取り込み』のすぐ下に、明瞭な注記『仮設問の骨子例』を追加し、独自の学習例だと分かるようにする。その他の文字『内容 データをまとめて取り込む』『効果 入力時間を短縮する』『問題点 形式確認・誤入力の点検』、左の複数の記録が一つの一覧へ入る図はそのまま意味を維持。白地・緑灰・小黄色。新しい注記のため必要なら全体を軽く詰め、全図形・文字を上72%以内に収め、下28%は字幕用の完全な白。余分な文章・価格・年・人物を足さない。日本語が360px幅でも読める大きさ。",
+        "promptSha256": "bd0df765fc5325be9df562945c8ff889a739a1410be0352380f585385f441c1d",
+        "generatedAt": "2026-10-22T10:02:48.273Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-comprehensive-management/monbun-yomikata/work/candidate-scene-018",
+      "role": "candidate-scene-018",
+      "type": "image/png",
+      "sha256": "072c5077af06df0977ded097c050da57b7737ca8626994760b0375e8c454e5c9",
+      "bytes": 1320307,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/candidate-scene-018.072c5077.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "日本語学習動画の1場面、横16:9の全画面。白地、落ち着いた深緑と灰色、小さな黄色。先生・人物・資格名や肩書きの反復なし。見出し「条件の中で実行できるか」。表示文言:[\"既存業務の分担を検討\",\"確認作業の負担を点検\"]。構図:上に増員なしの条件札、中央に既存業務と確認作業の二つの箱、下に担当の分担メモ。増員を示す図は置かない。 白地、緑の線、灰色の補助、小さな黄色の強調。人物なし。下部の字幕領域は空ける。。意味理解用の台本（全文を転写しない）:これは骨子の例で、完成答案ではありません。増員せず確認作業を担えるか、既存業務の分担まで考えて内容を具体化します。。全内容は画面上70%以内、下30%は字幕用の純白。左右7%以上空ける。360px幅で読める主要文字60px以上相当、短い言葉と大きな図で表す。指定以外の解説・年度・数字・追加条件なし。配色だけ参照表紙から継承する。",
+        "promptSha256": "5d5db8633ed535d228de4ec0df4ea0b32311f695fee5f5cce5e0981a9b35128d",
+        "generatedAt": "2026-10-22T09:17:57.416Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-comprehensive-management/monbun-yomikata/work/candidate-scene-019",
+      "role": "candidate-scene-019",
+      "type": "image/png",
+      "sha256": "91ed3b5534a8f7b961e54d6dc35048aa8c737d7cda25019a10e25092adba4740",
+      "bytes": 1413694,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/candidate-scene-019.91ed3b55.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照図を修正する。左側はチェックリスト「施策は2つ」「両方に効果・問題点」「対象と条件を維持」。右側は横並びの2枚のメモで見出し「施策1」「施策2」、その各々に「内容」「効果」「問題点」の3行を同じ順序で表示する。左右を結ぶ線はすべて削除し、中央に大きな双方向矢印を1本だけ描き「照合」と書く。各行同士は線で結ばない。見出し「書く前に対応を確かめる」。他の文字は追加しない。白、深緑、灰色、小黄色。16:9。全内容を上70%以内に配置、下30%は完全に白い字幕領域。",
+        "promptSha256": "9b247ea169063124dba83516279661db44db145e69343ecccac5b7525f0d8d5c",
+        "generatedAt": "2026-10-22T09:17:57.555Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-comprehensive-management/monbun-yomikata/work/candidate-scene-020",
+      "role": "candidate-scene-020",
+      "type": "image/png",
+      "sha256": "8da602b051fe7d55ef519743202703cd14783bcdff1a09c6aee49662791452cb",
+      "bytes": 1245161,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/candidate-scene-020.8da602b0.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "日本語学習動画の1場面、横16:9の全画面。白地、落ち着いた深緑と灰色、小さな黄色。先生・人物・資格名や肩書きの反復なし。見出し「読み取りから骨子へ」。表示文言:[\"四つの確認項目を拾う\",\"要求を見出しに移す\"]。構図:動詞・対象・数・条件の四つの札が、一枚の骨子メモへ集まる図。見出し部分を緑で強調する。 白地、緑の線、灰色の補助、小さな黄色の強調。人物なし。下部の字幕領域は空ける。。意味理解用の台本（全文を転写しない）:まとめます。問題文から動詞、対象、数、条件を拾います。要求を見出しに移してから、具体的な内容を考えてください。。全内容は画面上70%以内、下30%は字幕用の純白。左右7%以上空ける。360px幅で読める主要文字60px以上相当、短い言葉と大きな図で表す。指定以外の解説・年度・数字・追加条件なし。配色だけ参照表紙から継承する。",
+        "promptSha256": "8d35a99ef8e25f74e146407b4d48897c8783e2002e09734f62fc3ec222f5b188",
+        "generatedAt": "2026-10-22T09:17:57.680Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-comprehensive-management/monbun-yomikata/work/candidate-scene-021",
+      "role": "candidate-scene-021",
+      "type": "image/png",
+      "sha256": "89cafa87bc98535fb2ae992ae0d8a9e8b2a786de9787f55a19b78211b9cc689f",
+      "bytes": 1320815,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/candidate-scene-021.89cafa87.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "日本語学習動画の1場面、横16:9の全画面。白地、落ち着いた深緑と灰色、小さな黄色。先生・人物・資格名や肩書きの反復なし。見出し「骨子だけ作る練習をする」。表示文言:[\"要求と見出しを照合\",\"別年度の指定で組み直す\"]。構図:異なる二枚の問題用紙から、それぞれ異なる見出しの骨子ができる並列図。同じテンプレートの複製にはしない。 白地、緑の線、灰色の補助、小さな黄色の強調。人物なし。下部の字幕領域は空ける。。意味理解用の台本（全文を転写しない）:練習では、本文を書く前に骨子だけ作る回を設けます。別の年度では、その問題の指定を読み直し、見出しから組み替えましょう。。全内容は画面上70%以内、下30%は字幕用の純白。左右7%以上空ける。360px幅で読める主要文字60px以上相当、短い言葉と大きな図で表す。指定以外の解説・年度・数字・追加条件なし。配色だけ参照表紙から継承する。",
+        "promptSha256": "60c135885e111a9c1a3fc758af6b509e44b68a3d882bfbf21d33be634083aacd",
+        "generatedAt": "2026-10-22T09:17:57.813Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-comprehensive-management/monbun-yomikata/work/candidate-scene-022",
+      "role": "candidate-scene-022",
+      "type": "image/png",
+      "sha256": "2d0b37155daa4ebf0431c4a5166fa74499d5f4ce8a51b6b75a982f45ad64289e",
+      "bytes": 1155083,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/candidate-scene-022.2d0b3715.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "通常動画16:9の教材案内図を作成。見出し「総監記述式 コアパック」。文字は[\"収録内容・対象年度は商品ページへ\"]のみ。構図:白い教材カード一枚に商品名を表示し、下に確認する項目を小さく置く。年度・収録本数・価格の断定は載せない。 白地、緑の線、灰色の補助、小さな黄色の強調。人物なし。下部の字幕領域は空ける。。参照画像の白・深緑・灰色・小黄色の配色だけ引き継ぐ。カードと必要な矢印だけ、人物・先生・肩書き・資格の帯・価格・年度・未確認の収録数は不要。下30%は字幕用の完全な白、上70%を大きく使い、文字は360px幅でも読める太さ。",
+        "promptSha256": "9acb6a4b24b2edfdbc90090beaa593dcf8616fe746f4cf38665bb7849c683d6c",
+        "generatedAt": "2026-10-22T09:17:57.940Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-comprehensive-management/monbun-yomikata/work/candidate-scene-023",
+      "role": "candidate-scene-023",
+      "type": "image/png",
+      "sha256": "7744b0ea81552a3f4d78e17c39a4bc1832e26ecfdcd24cb1ab23c47eba6e9c06",
+      "bytes": 1192680,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/candidate-scene-023.7744b0ea.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "通常動画16:9の教材案内図を作成。見出し「続きは概要欄から」。文字は[\"総監記述式 コアパック\"]のみ。構図:中央に商品名と概要欄への案内を配置。下向きの小さな緑矢印を一つ置き、人物や装飾は足さない。 白地、緑の線、灰色の補助、小さな黄色の強調。人物なし。下部の字幕領域は空ける。。参照画像の白・深緑・灰色・小黄色の配色だけ引き継ぐ。カードと必要な矢印だけ、人物・先生・肩書き・資格の帯・価格・年度・未確認の収録数は不要。下30%は字幕用の完全な白、上70%を大きく使い、文字は360px幅でも読める太さ。",
+        "promptSha256": "b961a6071f082f01a1ab8b0b8e1bf9e9b490325df7b01b0c866491db98c7f5c9",
+        "generatedAt": "2026-10-22T09:17:58.066Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-comprehensive-management/monbun-yomikata/work/candidate-subtitles",
+      "role": "candidate-subtitles",
+      "type": "text/x-ssa",
+      "sha256": "a53c24c64497e3a36ee5b5c7235f39ff001c865faaefccad58b85423d9898aa8",
+      "bytes": 7146,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/candidate-subtitles.a53c24c6.ass"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/pe-comprehensive-management/monbun-yomikata/storyboard.json"
+      }
+    },
+    {
+      "id": "pe-comprehensive-management/monbun-yomikata/work/candidate-video",
+      "role": "candidate-video",
+      "type": "video/mp4",
+      "sha256": "a4612ed74ec03b84230d9830eb54bd6fc694cfee515fbad211116175b202855f",
+      "bytes": 19988409,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/candidate-video.a4612ed7.mp4"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/pe-comprehensive-management/monbun-yomikata/storyboard.json",
+        "specSha256": "15853ed1fb18aeb5372d5880e5741a34b1e05522700d88b947942c5608871fa5",
+        "renderInputSha256": "a2102431104ca13368f5bba406459765d7a00b6e20c8a477a0c457a314c24106",
+        "tts": {
+          "engine": "VOICEVOX",
+          "speaker": 13,
+          "credit": "VOICEVOX:青山龍星"
+        }
+      },
+      "durationSec": 215.9
     },
     {
       "id": "pe-comprehensive-management/monbun-yomikata/youtube.longform/cover",
@@ -1467,6 +2233,329 @@
         "specSha256": "ac69e6d9cbaa6860e9dadbb175b074ce27b37779e010b33da05f20fa110d4f5e"
       },
       "legacyPaths": []
+    },
+    {
+      "id": "pe-comprehensive-management/sokan-kojutsu-kangaekata/work/candidate-cover",
+      "role": "candidate-cover",
+      "type": "image/png",
+      "sha256": "a5414ef0d0623898a496c6866e7bc19cdcb0ef9cf7bce6b5222e3606112be3dd",
+      "bytes": 1271642,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-kangaekata/work/candidate-cover.a5414ef0.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "YouTube通常動画の表紙を1枚生成。横長16:9、1920x1080相当、四辺まで白背景、図解主体の日本語教育デザイン。落ち着いた深緑 #386658、灰 #535e59、強調は小さな淡黄色のみ。装飾人物、キャラクター、肩書き、著者名、ロゴ、写真、立体文字、放射線、派手なPOP装飾は一切なし。技術士総合技術監理部門の口頭試験準備。上端から10%に小さく「技術士 総監」、上中段左寄りに十分大きな2行「口頭試験」「経歴を語る」。下中段 y=47-73% に横並び3つの大きな余白ある角丸箱、箱内文字は左「経験」中央「対立」右「判断」。箱は薄い緑または薄い灰、矢印は左から中央、中央から右へ一本ずつ。右の判断のみ淡黄色の小さな下線。大見出しと箱の文字は太く、360px縮小でも判読できる。意図: 仕事を羅列せず、競合する目標と自分の判断を説明する。図形と全文字は外周7%以上内側、重要情報は画面の上78%内に収める。下端22%は字幕用の静かな白地だが画像全体を縮小して別色枠を足さない。全体を活用し、指定以外の文字は足さない。正確で読みやすい日本語、フラットで落ち着いた均整ある構図。",
+        "promptSha256": "9bb830c39deb9b77920c5d311e2be1b288a232237bdc32474a52908f72dac267",
+        "generatedAt": "2026-10-22T08:22:20.101Z"
+      },
+      "width": 1920,
+      "height": 1080,
+      "legacyPaths": [
+        ".tmp/media/pe-comprehensive-management/sokan-kojutsu-kangaekata/work/cover-diagram.a5414ef0.png"
+      ]
+    },
+    {
+      "id": "pe-comprehensive-management/sokan-kojutsu-kangaekata/work/candidate-scene-001",
+      "role": "candidate-scene-001",
+      "type": "image/png",
+      "sha256": "a5414ef0d0623898a496c6866e7bc19cdcb0ef9cf7bce6b5222e3606112be3dd",
+      "bytes": 1271642,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-kangaekata/work/candidate-scene-001.a5414ef0.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "YouTube通常動画の表紙を1枚生成。横長16:9、1920x1080相当、四辺まで白背景、図解主体の日本語教育デザイン。落ち着いた深緑 #386658、灰 #535e59、強調は小さな淡黄色のみ。装飾人物、キャラクター、肩書き、著者名、ロゴ、写真、立体文字、放射線、派手なPOP装飾は一切なし。技術士総合技術監理部門の口頭試験準備。上端から10%に小さく「技術士 総監」、上中段左寄りに十分大きな2行「口頭試験」「経歴を語る」。下中段 y=47-73% に横並び3つの大きな余白ある角丸箱、箱内文字は左「経験」中央「対立」右「判断」。箱は薄い緑または薄い灰、矢印は左から中央、中央から右へ一本ずつ。右の判断のみ淡黄色の小さな下線。大見出しと箱の文字は太く、360px縮小でも判読できる。意図: 仕事を羅列せず、競合する目標と自分の判断を説明する。図形と全文字は外周7%以上内側、重要情報は画面の上78%内に収める。下端22%は字幕用の静かな白地だが画像全体を縮小して別色枠を足さない。全体を活用し、指定以外の文字は足さない。正確で読みやすい日本語、フラットで落ち着いた均整ある構図。",
+        "promptSha256": "9bb830c39deb9b77920c5d311e2be1b288a232237bdc32474a52908f72dac267",
+        "generatedAt": "2026-10-22T08:22:20.101Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-comprehensive-management/sokan-kojutsu-kangaekata/work/candidate-scene-002",
+      "role": "candidate-scene-002",
+      "type": "image/png",
+      "sha256": "41e43b84863eb8bddded990f12559da4a889ad96ff4ed1e680c66802606dff7f",
+      "bytes": 1567826,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-kangaekata/work/candidate-scene-002.41e43b84.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "通常動画の説明図1枚。16:9、1920x1080相当。参照画像から継承するのは白地・落ち着いた緑灰・小黄色・読みやすい日本語のみ。先生、人物、肩書き、資格名の反復、装飾は描かない。主役は説明に必要な図解。上部に中程度の見出し「準備は「経歴」と「知識」の両方」。図解に使う文言:[\"60%以上\\n経歴及び応用能力\",\"60%以上\\n体系的専門知識\"]。構図設計:{\"type\":\"numbers\",\"section\":\"口頭試験対策／総監\",\"note\":\"令和8年度・総監 必須科目の口頭試験／それぞれの基準を満たす\"}。このsceneのみ描く。ナレーションの意味:総監の必須科目の口頭試験では、経歴及び応用能力と、体系的専門知識の両方が評価されます。令和8年度の合否決定基準では、それぞれ60パーセント以上が必要です。。背景説明を勝手に補足しない。five-managementなら中央「同じ業務」から5つの等価な管理（経済性管理/人的資源管理/情報管理/安全管理/社会環境管理）へ線で関連を示す。numbersは比較でなく並列2基準、それぞれ60%以上と『令和8年度・必須科目』を図内に明示。mappingは2行の左→右対応図。全文字と図は外周6%以上内側、下端23%は字幕のため無地の白を保つ。重要文言の下端は画面76%まで。文字は大きく、360px幅で読みやすく。説明文を全部文章として並べない。図の比較には順序矢印を付けない。日本語の文字化けなし。",
+        "promptSha256": "ae97fd054fcf30a86c7fec0517d6a28ad43d0ba84c695c824722d8a8c7214dbf",
+        "generatedAt": "2026-10-22T08:40:14.195Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-comprehensive-management/sokan-kojutsu-kangaekata/work/candidate-scene-003",
+      "role": "candidate-scene-003",
+      "type": "image/png",
+      "sha256": "67fe3f33308cd6cdc2e534412e611a127ad7cf0884181d0f8f4a43fb25e78086",
+      "bytes": 1516014,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-kangaekata/work/candidate-scene-003.67fe3f33.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "通常動画の説明図1枚。16:9、1920x1080相当。参照画像から継承するのは白地・落ち着いた緑灰・小黄色・読みやすい日本語のみ。先生、人物、肩書き、資格名の反復、装飾は描かない。主役は説明に必要な図解。上部に中程度の見出し「知識を、自分の業務へつなぐ」。図解に使う文言:[\"管理の意味を知る → 業務のどこで使ったか\",\"経歴の事実を振り返る → どの知識で判断したか\"]。構図設計:{\"type\":\"mapping\",\"section\":\"口頭試験対策／総監\",\"source\":\"content/site/pe-comprehensive-management/keyword-2026/img/figure-five-management-learning.svg\",\"note\":\"経歴だけ・用語の暗記だけに偏らない\"}。このsceneのみ描く。ナレーションの意味:経歴の説明だけ、用語の暗記だけに偏らず、知識を自分の業務でどう使ったかを結び付けて準備します。。背景説明を勝手に補足しない。five-managementなら中央「同じ業務」から5つの等価な管理（経済性管理/人的資源管理/情報管理/安全管理/社会環境管理）へ線で関連を示す。numbersは比較でなく並列2基準、それぞれ60%以上と『令和8年度・必須科目』を図内に明示。mappingは2行の左→右対応図。全文字と図は外周6%以上内側、下端23%は字幕のため無地の白を保つ。重要文言の下端は画面76%まで。文字は大きく、360px幅で読みやすく。説明文を全部文章として並べない。図の比較には順序矢印を付けない。日本語の文字化けなし。",
+        "promptSha256": "59f68104d433da2f92432d3cb71a0d52f640abf38c47146ed8434531f1749799",
+        "generatedAt": "2026-10-22T08:40:14.283Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-comprehensive-management/sokan-kojutsu-kangaekata/work/candidate-scene-004",
+      "role": "candidate-scene-004",
+      "type": "image/png",
+      "sha256": "b8700f988fbd2a41b1b54265e09a53a2dbe224876ef21ea2e082e16561ef757c",
+      "bytes": 1335879,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-kangaekata/work/candidate-scene-004.b8700f98.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "通常動画の説明図1枚。16:9、1920x1080相当。参照画像から継承するのは白地・落ち着いた緑灰・小黄色・読みやすい日本語のみ。先生、人物、肩書き、資格名の反復、装飾は描かない。主役は説明に必要な図解。上部に中程度の見出し「5管理で、同じ業務を点検する」。図解に使う文言:[]。構図設計:{\"type\":\"diagram\",\"section\":\"口頭試験対策／総監\",\"diagram\":\"five-management\",\"source\":\"content/site/pe-comprehensive-management/keyword-2026/img/figure-five-management-learning.svg\",\"note\":\"管理ごとに分けて学び、他の管理への影響も確認する\"}。このsceneのみ描く。ナレーションの意味:まず、経済性管理、人的資源管理、情報管理、安全管理、社会環境管理の意味を、自分の言葉で説明できるか確認します。。背景説明を勝手に補足しない。five-managementなら中央「同じ業務」から5つの等価な管理（経済性管理/人的資源管理/情報管理/安全管理/社会環境管理）へ線で関連を示す。numbersは比較でなく並列2基準、それぞれ60%以上と『令和8年度・必須科目』を図内に明示。mappingは2行の左→右対応図。全文字と図は外周6%以上内側、下端23%は字幕のため無地の白を保つ。重要文言の下端は画面76%まで。文字は大きく、360px幅で読みやすく。説明文を全部文章として並べない。図の比較には順序矢印を付けない。日本語の文字化けなし。",
+        "promptSha256": "b0a0805cafb75e7908efbd945a44ab2fcc65be82f7d2b2f4136eb485ae000f6d",
+        "generatedAt": "2026-10-22T08:40:14.371Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-comprehensive-management/sokan-kojutsu-kangaekata/work/candidate-scene-005",
+      "role": "candidate-scene-005",
+      "type": "image/png",
+      "sha256": "03c037744bdb5147c39ca5e01b75d7c1f62d651087b143aa490e253c139ae0bc",
+      "bytes": 1608869,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-kangaekata/work/candidate-scene-005.03c03774.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "16:9通常動画の説明図1枚。白地、落ち着いた緑灰、小黄色。参照画像の配色のみ継承、装飾人物・肩書き・資格名の反復なし。大きな日本語見出し「対策を比べ、選んだ理由を語る」。要素:[\"業務の制約・両立しにくい目標\",\"選択肢 A\\n利点と不利益\",\"選択肢 B\\n利点と不利益\",\"自分の判断・選択の根拠\"]。ナレーション:そのうえで、経歴票の業務では、どの管理が重要だったか、何と何が両立しにくかったか、なぜその対策を選んだかを整理します。単に5管理の名前を並べるだけでは、判断の根拠は伝わりません。。設計:{\"type\":\"diagram\",\"section\":\"口頭試験対策／総監\",\"diagram\":\"decision\",\"source\":\"content/site/pe-construction/gyoumu-keireki-hyou/img/figure-career-decision-evidence.svg\",\"note\":\"管理名の列挙で終えず、判断した部分を説明する\"}。decisionは上に業務制約、中央横並びA/B（等価、2つの比較間に矢印なし）、下へ各線をつなぎ自分の判断・根拠。focusは3〜5件の事例メモの束を図示し『学習上の目安』『試験指定ではない』を簡潔に明示。項目を勝手に増やさない。全文字図形の下端は画面75%以内、下25%は字幕用の白地、外周6%安全域。図や文字を小さくせず重要文言は360px幅で読めるサイズ。指定場面のみ、無関係な施工機械を足さない。",
+        "promptSha256": "46ebf2c0be1aec0868bb8c75fe2f3a13d16c6e873a0d61cc03fcc955521118bf",
+        "generatedAt": "2026-10-22T08:40:14.458Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-comprehensive-management/sokan-kojutsu-kangaekata/work/candidate-scene-006",
+      "role": "candidate-scene-006",
+      "type": "image/png",
+      "sha256": "6363cb7c498341fe0398acfed6ddbf9ba79cc64f0ad5f3a8e2090a13cec73590",
+      "bytes": 1475289,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-kangaekata/work/candidate-scene-006.6363cb7c.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "16:9通常動画の説明図1枚。白地、落ち着いた緑灰、小黄色。参照画像の配色のみ継承、装飾人物・肩書き・資格名の反復なし。大きな日本語見出し「まず、説明しやすい業務事例を選ぶ」。要素:[\"3〜5件から整理してみる\",\"件数は学習上の提案\"]。ナレーション:練習用には、説明しやすい業務事例を3件から5件選ぶ方法があります。これは試験で指定された件数ではありません。。設計:{\"type\":\"focus\",\"section\":\"口頭試験対策／総監\",\"note\":\"試験で指定された件数ではありません\"}。decisionは上に業務制約、中央横並びA/B（等価、2つの比較間に矢印なし）、下へ各線をつなぎ自分の判断・根拠。focusは3〜5件の事例メモの束を図示し『学習上の目安』『試験指定ではない』を簡潔に明示。項目を勝手に増やさない。全文字図形の下端は画面75%以内、下25%は字幕用の白地、外周6%安全域。図や文字を小さくせず重要文言は360px幅で読めるサイズ。指定場面のみ、無関係な施工機械を足さない。",
+        "promptSha256": "029c835fc6bcacfc2997663e5896ee02f5b779b227aad975d4f40c36792b10ed",
+        "generatedAt": "2026-10-22T08:40:14.548Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-comprehensive-management/sokan-kojutsu-kangaekata/work/candidate-scene-007",
+      "role": "candidate-scene-007",
+      "type": "image/png",
+      "sha256": "3b0d9ea6aa421dccfd61ce3a56a30ae2f91dc2090028a25a45ec832cf9c9bbf7",
+      "bytes": 1384953,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-kangaekata/work/candidate-scene-007.3b0d9ea6.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "16:9通常動画の説明図1枚。白地、落ち着いた緑灰、小黄色。参照画像は配色参考、人物・肩書き・資格名の反復なし。見出し「増員は、工期だけの問題か」。要素:[\"仮例：工期を守るために増員\",\"経済性管理\\n追加費用は？\",\"安全管理\\n教育・訓練は？\",\"情報管理\\n共有方法は？\"]。ナレーションの意味:事例ごとに、制約、対立する目標、選択肢、採用した対策、結果と残った課題を並べます。仮例として、工期を守るための増員を考えます。費用だけでなく、安全教育や情報共有への影響も確認しましょう。。図の上に「仮例：工期を守るために増員」、そこから横並び3箱へ分岐し「追加費用は？」「教育・訓練は？」「共有方法は？」を経済性管理/安全管理/情報管理と結びつける。施工機械や具体人員数は描かない。全文字図形の下端は画面75%以内、下25%は字幕用の白地、外周6%安全域。360px幅で読める文字。要素の重複や指定以外の数字を入れない。",
+        "promptSha256": "4581744968703d1eb95044302e0db4017c95e088ffc1bdd93a20fc3e042cb461",
+        "generatedAt": "2026-10-22T08:40:14.639Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-comprehensive-management/sokan-kojutsu-kangaekata/work/candidate-scene-008",
+      "role": "candidate-scene-008",
+      "type": "image/png",
+      "sha256": "706d738ea82f04b26c022e8f19a14a971dccb142dd79d1116599154539ff876c",
+      "bytes": 1458812,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-kangaekata/work/candidate-scene-008.706d738e.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "16:9通常動画の説明図1枚。白地、落ち着いた緑灰、小黄色。参照画像は配色参考、人物・肩書き・資格名の反復なし。見出し「役割から、判断・結果へつなぐ」。要素:[\"担当した\\n役割\",\"直面した\\n問題\",\"自分の\\n判断\",\"結果と\\n学び\"]。ナレーションの意味:次に、経歴を短く説明する練習をします。担当した役割、直面した問題、自分の判断、結果と学びを一続きで話します。。4段階の手順を左→右へ、役割→問題→自分の判断→結果と学び。文字以外はシンプルな記録/判断/チェックの線画図形程度。全文字図形の下端は画面75%以内、下25%は字幕用の白地、外周6%安全域。360px幅で読める文字。要素の重複や指定以外の数字を入れない。",
+        "promptSha256": "b25445c14bb695cd9c5838d3b1bcd60f0ac3fecad4bd562312da0e64d57d39cf",
+        "generatedAt": "2026-10-22T08:40:14.729Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-comprehensive-management/sokan-kojutsu-kangaekata/work/candidate-scene-009",
+      "role": "candidate-scene-009",
+      "type": "image/png",
+      "sha256": "5b587ea19ba1fd0dd97bac87539b6ed9ce4b8ba3de24c246a17f4892ebc9d30d",
+      "bytes": 1606461,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-kangaekata/work/candidate-scene-009.5b587ea1.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "16:9通常動画の説明図1枚。白地、落ち着いた緑灰、小黄色、平面図解。参照は配色だけ継承。装飾人物・肩書き・資格名の反復なし。見出し「練習の目安と、本番の指示を分ける」。図に載せる要素:[\"練習\\n2〜3分でまとめる\\n学習上の目安\",\"本番\\n質問の内容に答える\\n試験官の指示に合わせる\"]。意味:2分から3分でまとめる練習は有効ですが、これは学習上の目安です。本番では質問の内容と試験官の指示に合わせます。チームの成果と自分が担った判断を分け、実際に経験していないことは足しません。。構図:{\"type\":\"compare\",\"section\":\"口頭試験対策／総監\",\"note\":\"チームの成果と自分の判断を分け、経験していないことは足さない\"}。compareは左右対等な2列比較、列間に矢印なし。「練習 2〜3分 学習上の目安」と「本番 質問の内容と試験官の指示」を対比。gridは四つの問いを4カードで等しく示す。learning-loopは4つを一周する循環矢印の図、中央「もう一度、声に出す」。指定されたこの場面の構図だけ使い、他場面の構図を混ぜない。重要文字・図は画面上75%に収め下25%白地は字幕領域。外周6%内側。360pxで主文言判読できる大きさ。必要以上の文章や数字は加えない。",
+        "promptSha256": "cbd0b26540b7cc4f513bbc5e9bfa35d57d39178359a41feaab10c348fc728b9b",
+        "generatedAt": "2026-10-22T08:40:14.821Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-comprehensive-management/sokan-kojutsu-kangaekata/work/candidate-scene-010",
+      "role": "candidate-scene-010",
+      "type": "image/png",
+      "sha256": "4b685b70691df896caa39d739ef15336d60ed222f9d69e7a6b08e9722ca97c6d",
+      "bytes": 1530913,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-kangaekata/work/candidate-scene-010.4b685b70.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像を修正。16:9、白地・緑灰・小黄色。見出し「声に出して答える、4つの問い」を保持。循環矢印と中央の黄色い円・「もう一度、声に出す」を完全に取り除く。独立した同サイズ4カードを2列×2行に配置し、順序も接続線も付けない。左上「別の対策を\\n選ばなかった理由は？」右上「安全と工期の対立を\\nどう調整した？」左下「残ったリスクを\\n誰が、どう管理した？」右下「やり直すなら\\n何を変える？」。文字はこの見出しと4つの問いだけ。人物・番号・他の文言なし。すべての図と文字を上部72%以内、下28%は字幕用の完全な白。外周6%以上安全域。大きく明瞭な日本語。",
+        "promptSha256": "be57a026a53ccdd5fad7989d8df59fcccc9cc3949b3c6f444228c0e6afd99ade",
+        "generatedAt": "2026-10-22T10:02:47.984Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-comprehensive-management/sokan-kojutsu-kangaekata/work/candidate-scene-011",
+      "role": "candidate-scene-011",
+      "type": "image/png",
+      "sha256": "721cf15ff486ba5ae76f25647fabbf1c5a2a01a23db6f1fad95de22779e4ea2f",
+      "bytes": 1294461,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-kangaekata/work/candidate-scene-011.721cf15f.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "16:9通常動画の説明図1枚。白地、落ち着いた緑灰、小黄色、平面図解。参照は配色だけ継承。装飾人物・肩書き・資格名の反復なし。見出し「事実と知識を、往復して確かめる」。図に載せる要素:[\"質問に答える\",\"説明の穴を見つける\",\"業務の事実へ戻る\",\"使った用語を復習\"]。意味:答えが抽象的になったら、業務の事実へ戻します。また、説明に使った総監用語の意味を聞き返されても答えられるよう、体系的専門知識も復習します。。構図:{\"type\":\"diagram\",\"section\":\"口頭試験対策／総監\",\"diagram\":\"learning-loop\",\"source\":\"content/site/pe-comprehensive-management/pdca-cycle/img/figure-pdca-cycle.svg\",\"center\":\"もう一度、声に出す\",\"note\":\"学習手順として再構成。抽象的な答えを、事実と知識で具体化する\"}。compareは左右対等な2列比較、列間に矢印なし。「練習 2〜3分 学習上の目安」と「本番 質問の内容と試験官の指示」を対比。gridは四つの問いを4カードで等しく示す。learning-loopは4つを一周する循環矢印の図、中央「もう一度、声に出す」。指定されたこの場面の構図だけ使い、他場面の構図を混ぜない。重要文字・図は画面上75%に収め下25%白地は字幕領域。外周6%内側。360pxで主文言判読できる大きさ。必要以上の文章や数字は加えない。",
+        "promptSha256": "623f72e70a916021de9640dbbac34ee44de9a4f96bfff73750dc6b904b96b8c6",
+        "generatedAt": "2026-10-22T08:40:15.038Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-comprehensive-management/sokan-kojutsu-kangaekata/work/candidate-scene-012",
+      "role": "candidate-scene-012",
+      "type": "image/png",
+      "sha256": "f597862dbc4aa256bb6578d4777c47ae68f5ddc6d998c4ede140077dc541fc1a",
+      "bytes": 1470679,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-kangaekata/work/candidate-scene-012.f597862d.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "16:9通常動画の説明図1枚。白地、落ち着いた緑灰、小黄色。参照は配色のみ。見出し「総監の口頭対策｜準備チェック」。図に載せる文言:[\"経歴と知識の\\n両方を準備\",\"5管理を使った\\n判断を説明\",\"事実・結果を確認し\\n声に出して練習\"]。意味:まとめです。総監の口頭対策では、経歴及び応用能力と体系的専門知識の両方を準備します。業務の事実を整理し、5管理を使った判断と、その結果を説明しましょう。短く答える練習と、用語の確認を往復することが、準備の軸になります。。3つの確認項目を横並び、チェックの小さな記号と関係線で整理。経歴と知識→判断説明→声に出すという学習の流れを穏やかに。資格名、著者肩書き、先生、商品価格は表示しない。背景は四辺まで白、図と重要文字は画面上75%以内に収め、下25%は字幕用の静かな白。外周6%以上安全域。360px幅でも読みやすい太い日本語。指定文言以外の文章を追加しない。",
+        "promptSha256": "daa67b1c922f88d2a835b44b2f5ac9e306e30c508611e3c028c8556a4e60f795",
+        "generatedAt": "2026-10-22T08:40:15.130Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-comprehensive-management/sokan-kojutsu-kangaekata/work/candidate-scene-013",
+      "role": "candidate-scene-013",
+      "type": "image/png",
+      "sha256": "c1d772ef69924dd629547a0e70fd2f410fde1cf9d56407ae46fecab9b01e7fea",
+      "bytes": 1433987,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-kangaekata/work/candidate-scene-013.c1d772ef.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "16:9通常動画の説明図1枚。白地、落ち着いた緑灰、小黄色。参照は配色のみ。見出し「知識と経験を、総監の言葉で」。図に載せる文言:[\"経歴を整理する\",\"想定問答で、声に出す\",\"教材案内は概要欄へ\"]。意味:さらに経歴の整理と想定問答を練習したい方は、概要欄の教材案内をご覧ください。ご視聴ありがとうございました。。経歴のメモ→声に出す練習→教材案内という3段階をシンプルな線図と文言で配置。吹き出しの記号は可、人物なし。資格名、著者肩書き、先生、商品価格は表示しない。背景は四辺まで白、図と重要文字は画面上75%以内に収め、下25%は字幕用の静かな白。外周6%以上安全域。360px幅でも読みやすい太い日本語。指定文言以外の文章を追加しない。",
+        "promptSha256": "205a9e167deb6b9ab788f1e456b5ae9582efc72cfc443651dc6ee66a7d7988a7",
+        "generatedAt": "2026-10-22T08:40:15.224Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-comprehensive-management/sokan-kojutsu-kangaekata/work/candidate-subtitles",
+      "role": "candidate-subtitles",
+      "type": "text/x-ssa",
+      "sha256": "470bef2f06ea4a19466dac4ecbb18510b3c4773987fd7e157a47f675e71022a8",
+      "bytes": 5473,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-kangaekata/work/candidate-subtitles.470bef2f.ass"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/pe-comprehensive-management/sokan-kojutsu-kangaekata/storyboard.json"
+      }
+    },
+    {
+      "id": "pe-comprehensive-management/sokan-kojutsu-kangaekata/work/candidate-video",
+      "role": "candidate-video",
+      "type": "video/mp4",
+      "sha256": "2bc95222b14119c1cde8aa263a8f1a394e24fdcfcf0309dfb3168f72458bdbf8",
+      "bytes": 16044005,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-kangaekata/work/candidate-video.2bc95222.mp4"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/pe-comprehensive-management/sokan-kojutsu-kangaekata/storyboard.json",
+        "specSha256": "bbf700024143a4c0f11548c125d4acba94dfe23aca1cd74d89cf746e57e1fe69",
+        "renderInputSha256": "a1331f2d5eaa9c16c8897198336d080314dd95a211f81e077b0f80e28d8249e9",
+        "tts": {
+          "engine": "VOICEVOX",
+          "speaker": 13,
+          "credit": "VOICEVOX:青山龍星"
+        }
+      },
+      "durationSec": 157.6
     },
     {
       "id": "pe-comprehensive-management/sokan-kojutsu-kangaekata/youtube.longform/contact-sheet",

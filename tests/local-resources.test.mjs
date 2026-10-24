@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import { mkdtempSync, mkdirSync, writeFileSync, rmSync, symlinkSync, utimesSync, existsSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
-import { safePath, scanTree, acquireLock, warningsFor, GiB, ensureGitMaintenance, renderCleanupWrapper } from '../scripts/lib/local-resources.mjs';
+import { safePath, scanTree, acquireLock, warningsFor, GiB, ensureGitMaintenance, renderCleanupWrapper, restoreDiskShortfall } from '../scripts/lib/local-resources.mjs';
 import { pruneTmp } from '../scripts/prune-tmp.mjs';
 import { applyFixes } from '../scripts/disk-hygiene.mjs';
 import { canClean, cleanMain } from '../scripts/local-resource-clean.mjs';
@@ -42,6 +42,13 @@ test('warning thresholds and growth distinguish LFS and multiple tool processes'
   const policy = { minFreeDiskGiB: 20, minFreeMemoryGiB: 3, growthWarnGiB: 1, budgetsGiB: { '.git/lfs': 2 } };
   const snapshot = { machine: { freeDiskBytes: 10 * GiB, freeMemoryBytes: 2 * GiB }, directories: [{ path: '.git/lfs', bytes: 3 * GiB }], processes: { rows: [{ kind: 'mcp:github' }, { kind: 'mcp:github' }] } };
   assert.deepEqual(warningsFor(snapshot, policy, { directories: [{ path: '.git/lfs', bytes: GiB }] }), ['low-disk', 'low-memory', 'budget:.git/lfs', 'growth:.git/lfs', 'multiple:mcp:github:2']);
+});
+test('restore disk check skips when nothing is restored and keeps the reserve otherwise', () => {
+  // 2026-10-24: 137 件すべて手元にある（復元 0 MiB）のに空き 19GiB < 予約 20GiB で週次レビューが止まった
+  assert.equal(restoreDiskShortfall({ freeBytes: 19 * GiB, restoreBytes: 0, reserveBytes: 20 * GiB }), false);
+  assert.equal(restoreDiskShortfall({ freeBytes: 19 * GiB, restoreBytes: 1, reserveBytes: 20 * GiB }), true);
+  assert.equal(restoreDiskShortfall({ freeBytes: 22 * GiB, restoreBytes: GiB, reserveBytes: 20 * GiB }), false);
+  assert.equal(restoreDiskShortfall({ freeBytes: 21 * GiB, restoreBytes: GiB, reserveBytes: 20 * GiB }), true);
 });
 test('heavy-work wrapper propagates child failure and releases its lock', () => {
   const run = () => spawnSync(process.execPath, ['scripts/local-resource-run.mjs', '--', 'node', '-e', 'process.exit(7)'], { encoding: 'utf8', env: { ...process.env, CI: 'true', DOBOKU_HEAVY_LOCK_NAME: `heavy-work-test-${process.pid}` }, timeout: 10000 });

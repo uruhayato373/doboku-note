@@ -20,6 +20,7 @@ metadata:
 **Playwright MCP で手動照合する時の実務（2026-08-03 実施・全ASP zero-drift 確認）**
 - ログインは各 ASP で人間（別ブラウザなので毎回要る）。ログイン後は agent が読み取れる。
 - A8: サイト切替なし。口座 `a25050375786` を assert（ヘッダーのサイト名は常に stats47 表示で正常）。提携中 `/program/list/partnered?pageSize=100`、programId `s0000...` を本文＋href から拾い catalog の id と突合。
+- A8 の **a8mat（素材）が今も発行中か**は「広告リンク作成」`/program/create-link?programId=<sID>` で読む（2026-10-24・DN-0831）。保存 state（`restoreA8Session`）を headless で開けば人のログインは要らない（先に `npm run auth:status -- --service a8` が authenticated か見る）。掲載サイト `select[name=websiteId]` は 002（doboku-note）が既定選択で、素材ブロック（素材ID 3 桁・タイプ・サイズ）ごとの textarea に `a8mat=` とピクセルの URL が出る。HTML を `素材ID：` で切れば素材ID と a8mat の第4トークンが対応づく（BuildJob: 003=NTZCH 300×250／001=NTJWY・002=NTRMQ テキスト／004=NU729 120×60／005=NUES1 100×60）。ピクセルのホスト番号（www10・14・15…）は読み込みごとに変わるので、照合は a8mat で行う。実リンク（px.a8.net）は踏まない（A8 のクリック数を汚す）。
 - もしも: URL に `shop_site_id=672381`。一覧より**各プロモの詳細ページ**が確実＝`/af/shop/promotion/detail?promotion_id=N&shop_site_id=672381` のタイトル直下バッジ（成果XXXX円 の次行）が「提携中/申請中」。**ステータス凡例やサイドバーのフィルタタブ（申請中/提携中/否認中）を全文検索で拾うと誤判定**。`limit=100` は空リスト化するので `limit=10` でページング。
 - afb: 既定 SID `959426`=stats47。**doboku-note SID `984453` へ切替必須**（切替前 stats47 提携37件／切替後 doboku-note は2件だけ＝取り違えると35件誤認）。切替は Chosen（`#top_site_select_chzn`）を実クリック→ doboku-note 項目クリックで**ラベルは変わるが自動 submit されない**（native `select[name=partner_site_id]` に onchange 無し）。**`select.form.submit()` で POST 送信して初めて本文 SID が 984453 に変わる**（リロード〜1分待つ）。判定は本文の `【SID】` と `【PID:N】`。→ 既存 `switchChosenSite` に form.submit フォールバックを足すと堅牢。
 

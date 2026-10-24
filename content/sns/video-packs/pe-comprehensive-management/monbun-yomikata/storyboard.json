@@ -6,13 +6,14 @@
       "start": 0,
       "end": 2,
       "narration": "総監記述式。",
-      "caption": "総監記述式　設問の役割を取り違えない読み方",
+      "caption": "総監記述式　問題文の要求事項と答案骨子",
       "visual": {
         "kind": "cover",
-        "heading": "総監記述式　設問の役割を取り違えない読み方",
+        "heading": "問題文の要求事項と答案骨子",
         "items": [
           "技術士 総合技術監理部門・記述式"
-        ]
+        ],
+        "composition": "左に設問の紙、右に骨子の紙を置き、緑の矢印で結ぶ。見出しを中央上部に大きく置く。 白地、緑の線、灰色の補助、小さな黄色の強調。人物なし。下部の字幕領域は空ける。"
       },
       "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx",
       "subtitleMarginV": 180
@@ -21,14 +22,16 @@
       "sceneId": "intro",
       "start": 2,
       "end": 12,
-      "narration": "長い問題文で読むだけに時間を使わないために、条件の確認、拾うヒント、設問の役割を整理します。",
-      "caption": "長い問題文をどう読むか",
+      "narration": "長い問題文を読んでも、何を書くか決まらない。まず動詞、対象、数、条件を拾い、答案の見出しに対応づけます。",
+      "caption": "動詞・対象・数・条件から骨子へ",
       "visual": {
         "kind": "points",
-        "heading": "長い問題文をどう読むか",
+        "heading": "読んだ要求を、書く項目へ",
         "items": [
-          "条件・ヒント・設問の役割"
-        ]
+          "動詞・対象・数・条件",
+          "答案の見出しと骨子"
+        ],
+        "composition": "左の問題文から四つの付箋を取り出し、右の骨子へ移す対応図。四つの付箋は同じ大きさにする。 白地、緑の線、灰色の補助、小さな黄色の強調。人物なし。下部の字幕領域は空ける。"
       },
       "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx"
     },
@@ -36,15 +39,16 @@
       "sceneId": "premise",
       "start": 12,
       "end": 21,
-      "narration": "見慣れた定型文も、当年度の条件と照合します。5管理の視点と評価の観点を確認してください。",
-      "caption": "定型文も当年度と照合",
+      "narration": "これは要求の抜けを防ぐための学習手順です。決まった答案の型に当てはめる前に、その年度の問題文を読みます。",
+      "caption": "当年度の問題文を優先する",
       "visual": {
         "kind": "points",
-        "heading": "定型文も当年度と照合",
+        "heading": "読み取りのための学習手順",
         "items": [
-          "5管理の視点",
-          "評価の観点"
-        ]
+          "当年度の問題文を読む",
+          "要求に合わせて構成する"
+        ],
+        "composition": "問題文の紙を中央に置き、そこから答案見出しが生まれる構図。固定テンプレートの図は置かない。 白地、緑の線、灰色の補助、小さな黄色の強調。人物なし。下部の字幕領域は空ける。"
       },
       "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx"
     },
@@ -60,7 +64,8 @@
         "items": [
           "設問の区分・答える範囲",
           "項目数・答案枚数"
-        ]
+        ],
+        "composition": "問題用紙の指定欄を拡大する。範囲・数・枚数の三か所へ細い緑線を引き、確認済みの小さな印を付ける。 白地、緑の線、灰色の補助、小さな黄色の強調。人物なし。下部の字幕領域は空ける。"
       },
       "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx"
     },
@@ -68,14 +73,17 @@
       "sceneId": "hints-request",
       "start": 32,
       "end": 41,
-      "narration": "拾うヒントは3種類です。まず、出題者が解答してほしい観点を明文化した、要求事項を拾います。",
-      "caption": "ヒント① 要求事項",
+      "narration": "一つ目は動詞です。挙げよ、説明せよ、比較せよでは、答案で行う作業が違います。何をするよう求められたかを拾います。",
+      "caption": "動詞＝答案で行う作業",
       "visual": {
         "kind": "points",
-        "heading": "ヒント① 要求事項",
+        "heading": "1　動詞を拾う",
         "items": [
-          "解答してほしい観点"
-        ]
+          "挙げる → 項目を示す",
+          "説明する → 中身を述べる",
+          "比較する → 違いを示す"
+        ],
+        "composition": "左列に三つの動詞、右列に対応する作業。各行を一本の緑線で結び、動詞だけ小さく黄色で強調する。 白地、緑の線、灰色の補助、小さな黄色の強調。人物なし。下部の字幕領域は空ける。"
       },
       "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx"
     },
@@ -83,14 +91,16 @@
       "sceneId": "hints-workplace",
       "start": 41,
       "end": 51,
-      "narration": "2つ目は、全部門の受験者向けに並べられる事業場の例です。自分の業務に近い例へ置き換えて読みます。",
-      "caption": "ヒント② 事業場の例",
+      "narration": "二つ目は対象です。自分の担当業務なのか、組織全体なのか。前の設問で選んだ施策を指すなら、その施策を引き継ぎます。",
+      "caption": "対象＝何について答えるか",
       "visual": {
         "kind": "points",
-        "heading": "ヒント② 事業場の例",
+        "heading": "2　対象を確かめる",
         "items": [
-          "自分の業務に近い例へ"
-        ]
+          "担当業務・組織全体",
+          "「前の設問の施策」の指す先"
+        ],
+        "composition": "担当業務と組織全体を範囲の異なる二つの枠で示す。下に前問の施策から次問の同じ施策へ一本の参照線を引く。 白地、緑の線、灰色の補助、小さな黄色の強調。人物なし。下部の字幕領域は空ける。"
       },
       "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx"
     },
@@ -98,14 +108,16 @@
       "sceneId": "hints-image",
       "start": 51,
       "end": 62,
-      "narration": "3つ目は、解答対象を具体化する事業やプロジェクトのイメージ記述です。これも自分の業務に置き換えて拾います。",
-      "caption": "ヒント③ イメージ記述",
+      "narration": "三つ目は数です。施策を二つとあれば、二つの記入枠を先に作ります。それぞれ、とあれば、両方に同じ要求がかかります。",
+      "caption": "数と「それぞれ」を読む",
       "visual": {
         "kind": "points",
-        "heading": "ヒント③ イメージ記述",
+        "heading": "3　数を枠にする",
         "items": [
-          "事業・プロジェクトの具体像"
-        ]
+          "施策は2つ",
+          "それぞれに必要項目"
+        ],
+        "composition": "横並びの施策一・施策二の空欄を大きく配置。両方に同じ小枠を置き、「それぞれ」から二股の線を引く。 白地、緑の線、灰色の補助、小さな黄色の強調。人物なし。下部の字幕領域は空ける。"
       },
       "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx"
     },
@@ -113,14 +125,16 @@
       "sceneId": "hints-fit",
       "start": 62,
       "end": 72,
-      "narration": "置き換えられない年は、その題材との相性が悪いシグナルです。自分の業務に引き寄せられるかを確かめます。",
-      "caption": "題材との相性を確かめる",
+      "narration": "四つ目は条件です。使える人員や予算、対象期間などを拾います。事例の紹介と、守るべき指定も区別してください。",
+      "caption": "条件＝答えを組み立てる制約",
       "visual": {
         "kind": "points",
-        "heading": "題材との相性を確かめる",
+        "heading": "4　条件を残す",
         "items": [
-          "置き換えられる業務か"
-        ]
+          "人員・予算・対象期間",
+          "参考の事例と指定を区別"
+        ],
+        "composition": "上に人員・予算・期間の三つの条件札。下に「参考の事例」と「守る指定」の二つのラベルを並べ、指定だけ囲む。 白地、緑の線、灰色の補助、小さな黄色の強調。人物なし。下部の字幕領域は空ける。"
       },
       "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx"
     },
@@ -128,22 +142,17 @@
       "sceneId": "layers",
       "start": 72,
       "end": 83,
-      "narration": "ここでは、条件・施策・実施後の影響を三層に整理します。実際の区分・範囲・項目数は当年度の問題文を優先します。",
-      "caption": "三層で整理する例",
+      "narration": "ここからは練習用の仮設問です。対象は、担当する道路維持管理業務。人員を増やさず、点検記録の整理を効率化するとします。",
+      "caption": "練習用の仮設問：対象と条件",
       "visual": {
-        "kind": "figure",
-        "heading": "三層で整理する例",
+        "kind": "points",
+        "heading": "仮設問　対象と条件",
         "items": [
-          "Ⅰ 前提条件",
-          "Ⅱ 施策",
-          "Ⅲ 実施後の影響"
+          "対象：担当する道路維持管理業務",
+          "条件：人員を増やさない",
+          "目的：点検記録の整理を効率化"
         ],
-        "src": "content/site/pe-comprehensive-management/essay-exam-strategy/img/figure-4-15-three-layer-structure.svg",
-        "flow": [
-          "Ⅰ 前提条件",
-          "Ⅱ 施策",
-          "Ⅲ 実施後の影響"
-        ]
+        "composition": "上部に「練習用の仮設問」と明示。道路の簡略線画に点検記録の紙を添え、対象・条件・目的を三段で示す。工事機械や人物は描かない。 白地、緑の線、灰色の補助、小さな黄色の強調。人物なし。下部の字幕領域は空ける。"
       },
       "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx"
     },
@@ -151,14 +160,17 @@
       "sceneId": "layers-first",
       "start": 83,
       "end": 94,
-      "narration": "第一層は、管理対象と前提条件の設定です。ここで置いた条件が、以降の施策やリスクを考える土台になります。",
-      "caption": "Ⅰ 管理対象と前提条件",
+      "narration": "施策を二つ挙げ、それぞれの効果と実施上の問題点を説明せよ。これを仮設問の要求とし、読み取っていきます。",
+      "caption": "施策2つ＋それぞれの効果・問題点",
       "visual": {
         "kind": "points",
-        "heading": "Ⅰ 管理対象と前提条件",
+        "heading": "仮設問　何を答えるか",
         "items": [
-          "以降の説明の土台"
-        ]
+          "施策を2つ挙げる",
+          "それぞれの効果を説明する",
+          "それぞれの実施上の問題点を説明する"
+        ],
+        "composition": "「練習用の仮設問」の表示を継続。要求を三行で配置し、2つとそれぞれに小さな黄色の印を付ける。 白地、緑の線、灰色の補助、小さな黄色の強調。人物なし。下部の字幕領域は空ける。"
       },
       "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx"
     },
@@ -166,14 +178,18 @@
       "sceneId": "layers-second",
       "start": 94,
       "end": 105,
-      "narration": "第二層は、現実的な施策の提示です。方針を具体の施策にし、期待できる効果と管理上の問題点をセットで書きます。",
-      "caption": "Ⅱ 現実的な施策",
+      "narration": "動詞は、挙げる、説明する。対象は担当する道路維持管理業務、数は施策二つ。増員しない条件も、骨子の横に残します。",
+      "caption": "四つの確認項目に分ける",
       "visual": {
         "kind": "points",
-        "heading": "Ⅱ 現実的な施策",
+        "heading": "仮設問を四つに分解",
         "items": [
-          "効果＋管理上の問題点"
-        ]
+          "動詞：挙げる・説明する",
+          "対象：担当する道路維持管理業務",
+          "数：施策2つ",
+          "条件：増員なし"
+        ],
+        "composition": "仮設問の短い抜粋を上段、動詞・対象・数・条件の四枠を下段に置く。該当語と枠を緑線で結ぶ。 白地、緑の線、灰色の補助、小さな黄色の強調。人物なし。下部の字幕領域は空ける。"
       },
       "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx"
     },
@@ -181,15 +197,16 @@
       "sceneId": "layers-third",
       "start": 105,
       "end": 116,
-      "narration": "第三層は、将来展望と最大のリスクです。重大なリスクを選び、数は設問の指定に従い、克服策は管理行為で示します。",
-      "caption": "Ⅲ 将来展望とリスク",
+      "narration": "答案の見出しは、施策一と施策二。それぞれに、施策の内容、効果、実施上の問題点の枠を作れば、書く項目が見えます。",
+      "caption": "要求事項を答案の見出しへ",
       "visual": {
         "kind": "points",
-        "heading": "Ⅲ 将来展望とリスク",
+        "heading": "要求と骨子を対応づける",
         "items": [
-          "重大なリスクを選ぶ",
-          "克服策は管理行為で"
-        ]
+          "施策1：内容・効果・問題点",
+          "施策2：内容・効果・問題点"
+        ],
+        "composition": "二列の答案メモ。各列の大見出しを施策1・施策2とし、下に内容・効果・問題点の三つの空欄を同じ順で置く。 白地、緑の線、灰色の補助、小さな黄色の強調。人物なし。下部の字幕領域は空ける。"
       },
       "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx"
     },
@@ -197,14 +214,16 @@
       "sceneId": "mistakes-effect",
       "start": 116,
       "end": 127,
-      "narration": "取り違えの典型を3つ確認します。1つ目は、第二層で効果だけを書いて、管理上の問題点を書かないことです。",
-      "caption": "取り違え① 効果だけ",
+      "narration": "抜けやすいのは、施策二の問題点です。片方に効果と問題点を書いただけでは、それぞれ、という要求を満たしません。",
+      "caption": "両方に効果と問題点が必要",
       "visual": {
         "kind": "points",
-        "heading": "取り違え① 効果だけ",
+        "heading": "「それぞれ」の抜けを探す",
         "items": [
-          "Ⅱでは問題点も書く"
-        ]
+          "施策1：効果・問題点",
+          "施策2：効果・問題点"
+        ],
+        "composition": "前場面と同じ二列三段の骨子を再利用。施策2の問題点欄だけ空欄にして黄色の枠で強調し、補う場所を示す。 白地、緑の線、灰色の補助、小さな黄色の強調。人物なし。下部の字幕領域は空ける。"
       },
       "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx"
     },
@@ -212,14 +231,17 @@
       "sceneId": "mistakes-risk",
       "start": 127,
       "end": 138,
-      "narration": "2つ目は、第三層で夢のある構想を語り、リスクを外すことです。施策を進めた先の課題を見失わないようにします。",
-      "caption": "取り違え② 構想だけ",
+      "narration": "また、施策名を並べるだけでは説明になりません。何を変え、どんな効果があり、何が問題となるかを短いメモで埋めます。",
+      "caption": "施策名だけで止めない",
       "visual": {
         "kind": "points",
-        "heading": "取り違え② 構想だけ",
+        "heading": "「説明する」に応える",
         "items": [
-          "Ⅲではリスクを捉える"
-        ]
+          "何を変えるか",
+          "どんな効果か",
+          "何が問題か"
+        ],
+        "composition": "左に施策名だけの一行メモ、右に内容・効果・問題点を埋めた三段のメモ。中央の矢印は具体化の方向だけを示す。 白地、緑の線、灰色の補助、小さな黄色の強調。人物なし。下部の字幕領域は空ける。"
       },
       "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx"
     },
@@ -227,14 +249,16 @@
       "sceneId": "mistakes-condition",
       "start": 138,
       "end": 148,
-      "narration": "3つ目は、第一層に無い条件を後から追加することです。どれも、層をまたいだ一貫性を外す書き方です。",
-      "caption": "取り違え③ 条件を後付け",
+      "narration": "人員を増やさない条件なのに、専任者の増員を前提にすると食い違います。各施策が、最初の条件の中で実行できるかを見ます。",
+      "caption": "施策を条件と照合する",
       "visual": {
         "kind": "points",
-        "heading": "取り違え③ 条件を後付け",
+        "heading": "増員なしの条件を守る",
         "items": [
-          "Ⅰからの一貫性を保つ"
-        ]
+          "条件：人員を増やさない",
+          "各施策の実行方法を照合"
+        ],
+        "composition": "上に「増員なし」の条件札、下に施策1・施策2の二枠を置く。専任者を追加する案は灰色の別札として条件との食い違いを示す。 白地、緑の線、灰色の補助、小さな黄色の強調。人物なし。下部の字幕領域は空ける。"
       },
       "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx"
     },
@@ -242,15 +266,17 @@
       "sceneId": "time-read",
       "start": 148,
       "end": 158,
-      "narration": "210分で5枚を書く場合の時間配分例です。まず通読と条件確認に10分、前文分析に25分を配分します。",
-      "caption": "210分・5枚の配分例",
+      "narration": "施策一の骨子は、記録様式の統一。効果は転記の手間の削減。問題点は、現場ごとの例外を共通様式に収める難しさです。",
+      "caption": "骨子例1：記録様式の統一",
       "visual": {
         "kind": "points",
-        "heading": "210分・5枚の配分例",
+        "heading": "施策1　記録様式の統一",
         "items": [
-          "通読・条件確認 10分",
-          "前文分析 25分"
-        ]
+          "内容：記録様式を揃える",
+          "効果：転記の手間を減らす",
+          "問題点：現場ごとの例外への対応"
+        ],
+        "composition": "「仮設問の骨子例」と明示。異なる記録用紙が共通様式へ揃う小図を左、内容・効果・問題点の三段メモを右に置く。 白地、緑の線、灰色の補助、小さな黄色の強調。人物なし。下部の字幕領域は空ける。"
       },
       "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx"
     },
@@ -258,15 +284,17 @@
       "sceneId": "time-plan",
       "start": 158,
       "end": 168,
-      "narration": "次に三層の骨子設計に20分、セルフチェックに5分を配分します。ここまでの事前検討で60分です。",
-      "caption": "書く前に骨子を確認",
+      "narration": "施策二は、点検記録の一括取り込み。効果は入力時間の短縮。問題点は、形式の確認や誤入力の点検に手間がかかることです。",
+      "caption": "骨子例2：点検記録の一括取り込み",
       "visual": {
         "kind": "points",
-        "heading": "書く前に骨子を確認",
+        "heading": "施策2　点検記録の一括取り込み",
         "items": [
-          "骨子設計 20分",
-          "セルフチェック 5分"
-        ]
+          "内容：データをまとめて取り込む",
+          "効果：入力時間を短縮する",
+          "問題点：形式確認・誤入力の点検"
+        ],
+        "composition": "「仮設問の骨子例」と明示。複数の記録データが一つの一覧へ入る小図を左、内容・効果・問題点の三段メモを右に置く。 白地、緑の線、灰色の補助、小さな黄色の強調。人物なし。下部の字幕領域は空ける。"
       },
       "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx"
     },
@@ -274,15 +302,16 @@
       "sceneId": "time-write",
       "start": 168,
       "end": 178,
-      "narration": "残り150分で、600字の答案用紙5枚を1枚30分で埋めます。骨子を書き写す感覚で進める配分例です。",
-      "caption": "残り150分で執筆",
+      "narration": "これは骨子の例で、完成答案ではありません。増員せず確認作業を担えるか、既存業務の分担まで考えて内容を具体化します。",
+      "caption": "骨子から実行方法を具体化する",
       "visual": {
         "kind": "points",
-        "heading": "残り150分で執筆",
+        "heading": "条件の中で実行できるか",
         "items": [
-          "600字の答案用紙×5枚",
-          "1枚30分の配分例"
-        ]
+          "既存業務の分担を検討",
+          "確認作業の負担を点検"
+        ],
+        "composition": "上に増員なしの条件札、中央に既存業務と確認作業の二つの箱、下に担当の分担メモ。増員を示す図は置かない。 白地、緑の線、灰色の補助、小さな黄色の強調。人物なし。下部の字幕領域は空ける。"
       },
       "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx"
     },
@@ -290,14 +319,17 @@
       "sceneId": "time-review",
       "start": 178,
       "end": 189,
-      "narration": "見直し時間がほしければ、事前検討を削らず執筆を速める方が安全です。配分は練習時の筆記速度に合わせて調整します。",
-      "caption": "見直し時間を確保する",
+      "narration": "最後は、問題文と骨子を一対一で照合します。施策は二つか。両方に効果と問題点があるか。対象と条件が変わっていないか。",
+      "caption": "問題文と骨子を一対一で照合",
       "visual": {
         "kind": "points",
-        "heading": "見直し時間を確保する",
+        "heading": "書く前に対応を確かめる",
         "items": [
-          "練習時の筆記速度で調整"
-        ]
+          "施策は2つ",
+          "両方に効果・問題点",
+          "対象と条件を維持"
+        ],
+        "composition": "左に要求の短い一覧、右に二列の骨子。対応する項目を緑線で結び、未接続の要求がないか確認できる構図。 白地、緑の線、灰色の補助、小さな黄色の強調。人物なし。下部の字幕領域は空ける。"
       },
       "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx"
     },
@@ -305,15 +337,16 @@
       "sceneId": "summary-reading",
       "start": 189,
       "end": 200,
-      "narration": "まとめます。定型文も当年度の条件と照合し、要求事項、事業場例、イメージ記述のヒント3種を業務に置き換えます。",
-      "caption": "読み方の要約",
+      "narration": "まとめます。問題文から動詞、対象、数、条件を拾います。要求を見出しに移してから、具体的な内容を考えてください。",
+      "caption": "動詞・対象・数・条件を拾う",
       "visual": {
         "kind": "points",
-        "heading": "読み方の要約",
+        "heading": "読み取りから骨子へ",
         "items": [
-          "当年度の条件を確認",
-          "ヒント3種を業務へ置換"
-        ]
+          "四つの確認項目を拾う",
+          "要求を見出しに移す"
+        ],
+        "composition": "動詞・対象・数・条件の四つの札が、一枚の骨子メモへ集まる図。見出し部分を緑で強調する。 白地、緑の線、灰色の補助、小さな黄色の強調。人物なし。下部の字幕領域は空ける。"
       },
       "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx"
     },
@@ -321,15 +354,16 @@
       "sceneId": "summary-outline",
       "start": 200,
       "end": 211,
-      "narration": "そのうえで、三層の役割を守って骨子を作ります。時間配分は固定せず、練習時の筆記速度に合わせて調整してください。",
-      "caption": "条件から骨子へ",
+      "narration": "練習では、本文を書く前に骨子だけ作る回を設けます。別の年度では、その問題の指定を読み直し、見出しから組み替えましょう。",
+      "caption": "別の問題では、見出しから組み替える",
       "visual": {
         "kind": "points",
-        "heading": "条件から骨子へ",
+        "heading": "骨子だけ作る練習をする",
         "items": [
-          "三層の役割を守る",
-          "時間配分は練習で調整"
-        ]
+          "要求と見出しを照合",
+          "別年度の指定で組み直す"
+        ],
+        "composition": "異なる二枚の問題用紙から、それぞれ異なる見出しの骨子ができる並列図。同じテンプレートの複製にはしない。 白地、緑の線、灰色の補助、小さな黄色の強調。人物なし。下部の字幕領域は空ける。"
       },
       "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx"
     },
@@ -337,15 +371,15 @@
       "sceneId": "cta-pack",
       "start": 211,
       "end": 220,
-      "narration": "5管理対立の型と設問3の国家施策、R8予想問題をまとめた記述式コアパックを用意しています。",
-      "caption": "総監記述式 コアパック",
+      "narration": "記述式の学習を続ける方へ、記述式コアパックをご案内します。収録内容や対象年度は、商品ページで確認してください。",
+      "caption": "記述式コアパックのご案内",
       "visual": {
         "kind": "points",
         "heading": "総監記述式 コアパック",
         "items": [
-          "5管理対立の型・国家施策",
-          "R8予想問題"
-        ]
+          "収録内容・対象年度は商品ページへ"
+        ],
+        "composition": "白い教材カード一枚に商品名を表示し、下に確認する項目を小さく置く。年度・収録本数・価格の断定は載せない。 白地、緑の線、灰色の補助、小さな黄色の強調。人物なし。下部の字幕領域は空ける。"
       },
       "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx"
     },
@@ -360,7 +394,8 @@
         "heading": "続きは概要欄から",
         "items": [
           "総監記述式 コアパック"
-        ]
+        ],
+        "composition": "中央に商品名と概要欄への案内を配置。下向きの小さな緑矢印を一つ置き、人物や装飾は足さない。 白地、緑の線、灰色の補助、小さな黄色の強調。人物なし。下部の字幕領域は空ける。"
       },
       "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx"
     }
@@ -368,7 +403,8 @@
   "imageDesign": {
     "mode": "codex-pop",
     "scope": "all-body",
-    "revision": "body-pop-20261018",
-    "coverRevision": "cover-pop-20261018"
+    "revision": "body-diagram-reviewed-20261022",
+    "coverRevision": "cover-diagram-20261022",
+    "layout": "diagram-led"
   }
 }

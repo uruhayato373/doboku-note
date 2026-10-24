@@ -5,24 +5,27 @@
       "format": "longform",
       "exam": "pe-comprehensive",
       "headline": [
-        "5管理の列挙",
-        "どう抜け出す？"
+        "5管理の対立",
+        "判断の理由"
       ],
       "accentLine": 1,
       "subtitle": "",
-      "character": {
-        "pose": "pop-pointing",
-        "frame": "waist"
-      },
-      "design": "pop-v2",
-      "pop": {
-        "variant": "question",
-        "authority": "総監が制作"
-      },
+      "design": "pop-poster-v3",
+      "layout": "diagram-led",
       "approvedImage": {
-        "path": ".tmp/media/pe-comprehensive-management/gokanri-tradeoff/youtube.longform/cover.0d3a3ef7.png",
-        "sha256": "0d3a3ef78e4aaa67d4fa66efacd2c7a6802592812808e40b5d01ab4f89897292",
-        "specSha256": "7389c375a4462285d1263edebde1bab1ac1e23df960d65ad05ec57797fc0a365"
+        "path": ".tmp/media/pe-comprehensive-management/gokanri-tradeoff/work/cover-diagram.3c018394.png",
+        "sha256": "3c018394ecb044db8d7c16f1242349558eb9fe189452f9a9d4c1a40b2f1f6b9e",
+        "width": 1920,
+        "height": 1080,
+        "source": {
+          "path": ".tmp/media/pe-comprehensive-management/gokanri-tradeoff/work/cover-source.59dcf259.png",
+          "sha256": "59dcf259de7dcb6990358ae1f3628e934ef8f7dde3419e31038fdae736519080"
+        },
+        "normalization": {
+          "mode": "full-frame-v1",
+          "sourceSha256": "59dcf259de7dcb6990358ae1f3628e934ef8f7dde3419e31038fdae736519080"
+        },
+        "specSha256": "9b0893e1bc3a2e09793a80e14c6faaa85ab73599afd9171b48ec0f01f20b5cee"
       }
     }
   }

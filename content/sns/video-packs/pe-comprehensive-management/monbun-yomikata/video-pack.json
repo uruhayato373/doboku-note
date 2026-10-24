@@ -2,13 +2,16 @@
   "schemaVersion": 1,
   "packId": "monbun-yomikata",
   "exam": "pe-comprehensive-management",
-  "title": "総監記述式で設問の役割を取り違えない読み方",
-  "audience": "技術士総監の記述式で長文の問題文に時間を取られる受験者",
-  "pain": "長い問題文のどこを読み、各設問で何を書けばよいか分からない",
-  "promise": "当年度の条件を照合し、ヒント3種と三層の整理法で骨子を作れるようになる",
+  "title": "総監記述式｜問題文の要求事項を答案骨子へつなぐ",
+  "audience": "技術士総監の記述式で問題文を読んでも答案の構成が決まらない受験者",
+  "pain": "長い問題文の要求事項を拾い、答案の見出しや骨子に対応づけられない",
+  "promise": "動詞・対象・項目数・条件を拾い、練習用の仮設問から要求と対応する骨子を作る手順が分かる",
   "intent": "howto",
   "sourceRefs": [
-    { "type": "site", "path": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx" }
+    {
+      "type": "site",
+      "path": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx"
+    }
   ],
   "primaryCta": {
     "kind": "note-magazine",
