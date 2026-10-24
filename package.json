@@ -665,6 +665,9 @@
     "@tailwindcss/typography": {
       "postcss-selector-parser": "^7.1.6"
     },
+    "chromium-bidi": {
+      "zod": "$zod"
+    },
     "argparse": "^2.0.1"
   },
   "engines": {
