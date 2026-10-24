@@ -49,6 +49,7 @@ import { chromium } from 'playwright';
 import { readFileSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { resolveKnownSaleEntry, resolveSaleEntry, reconcileTotal, canonicalizeProductId } from './lib/sales-normalize.mjs';
+import { bankArticleIndex } from './lib/note-bank-articles.mjs';
 import { catalogMagazines } from './lib/sales-mapping.mjs';
 import { leanContextOptions } from './lib/playwright-launch.mjs';
 import { describeReauthResult, isNoteReauthPage, noteReauthMarkPath, passNoteReauth } from './lib/note-reauth.mjs';
@@ -250,6 +251,7 @@ try {
 
   // 4. 正規化・検算
   const magazines = loadMagazines();
+  const bankIndex = bankArticleIndex();
   const log = existsSync(SALES_LOG) ? JSON.parse(readFileSync(SALES_LOG, 'utf8')) : { version: 1, currency: 'JPY', sales: [] };
   const entries = [];
   let unknownIdx = 0;
@@ -257,7 +259,7 @@ try {
     const dateIso = toIsoDate(r.date);
     const price = Number(r.priceText.replace(/[^\d]/g, ''));
     const cleanTitle = r.title.replace(/^(?:記事購入|マガジン|メンバーシップ)[・･]/, '');
-    const resolved = resolveKnownSaleEntry(cleanTitle, log.sales) ?? resolveSaleEntry({ title: r.title, date: dateIso }, magazines, unknownIdx);
+    const resolved = resolveKnownSaleEntry(cleanTitle, log.sales) ?? resolveSaleEntry({ title: r.title, date: dateIso }, magazines, unknownIdx, bankIndex);
     if (!resolved.resolved) unknownIdx++;
     // 販売履歴の表示は「記事購入・<題名>」「マガジン・<題名>」「メンバーシップ・<プラン>」。ログの title は題名だけ
     entries.push({ date: dateIso, productId: canonicalizeProductId(resolved.productId), title: cleanTitle, type: resolved.type, price });

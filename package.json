@@ -439,6 +439,8 @@
     "note-sync-routine": "node scripts/note-sync-routine.mjs",
     "note-sync:install": "node scripts/install-note-sync-launchd.mjs",
     "weekly-review:install": "node scripts/install-weekly-review-launchd.mjs",
+    "weekly-collect": "node scripts/weekly-collect.mjs",
+    "check-weekly-collect": "node scripts/weekly-collect.mjs --verify-last",
     "weekly-review:draft": "node scripts/build-weekly-review-draft.mjs",
     "note-sync-plan": "node scripts/note-sync-plan.mjs",
     "note-delete-note": "node scripts/note-delete-note.mjs",

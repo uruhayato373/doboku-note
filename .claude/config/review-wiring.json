@@ -38,16 +38,16 @@
           "role": "判断"
         },
         {
-          "command": "coconala-orders",
-          "label": "ココナラ受注の取り直し",
-          "stage": "受取・販売",
-          "role": "点検"
-        },
-        {
           "command": "check-coconala-orders",
           "label": "ココナラ取引と評価の要対応",
           "stage": "受取・販売",
           "role": "判断"
+        },
+        {
+          "command": "check-weekly-collect",
+          "label": "土曜の収集（ログインが要る取得と書き込み）の直近の合否",
+          "stage": "基盤の点検",
+          "role": "点検"
         },
         {
           "command": "coconala-rate-buyer",
@@ -68,12 +68,6 @@
           "role": "点検"
         },
         {
-          "command": "auth:status",
-          "label": "ログインの健康診断（期限切れのサービスと古いロック）",
-          "stage": "基盤の点検",
-          "role": "点検"
-        },
-        {
           "command": "check-drive-vault",
           "label": "Drive vault の実体照合（ローカルにしか無い正本）",
           "stage": "基盤の点検",
@@ -90,12 +84,6 @@
           "label": "note 公開状態の照合",
           "stage": "受取・販売",
           "role": "点検"
-        },
-        {
-          "command": "note-traffic-fetch",
-          "label": "note 流入元・記事別 PV",
-          "stage": "受取・販売",
-          "role": "判断"
         },
         {
           "command": "report-search-opportunities",
@@ -379,28 +367,10 @@
           "role": "点検"
         },
         {
-          "command": "note-sales-fetch",
-          "label": "note 売上の取得と検算",
-          "stage": "受取・販売",
-          "role": "判断"
-        },
-        {
-          "command": "note-traffic-fetch",
-          "label": "note 流入元・記事別 PV",
-          "stage": "受取・販売",
-          "role": "判断"
-        },
-        {
-          "command": "kdp-report",
-          "label": "KDP ロイヤリティ",
-          "stage": "受取・販売",
-          "role": "判断"
-        },
-        {
-          "command": "coconala-analytics",
-          "label": "ココナラ分析",
-          "stage": "受取・販売",
-          "role": "判断"
+          "command": "check-weekly-collect",
+          "label": "土曜の収集（ログインが要る取得と書き込み）の直近の合否",
+          "stage": "基盤の点検",
+          "role": "点検"
         },
         {
           "command": "report-site-to-sales",

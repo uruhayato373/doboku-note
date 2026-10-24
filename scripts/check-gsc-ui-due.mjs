@@ -58,8 +58,9 @@ const CHANNELS = [
 const args = process.argv.slice(2);
 const WANT_JSON = args.includes("--json");
 const di = args.indexOf("--days");
-// 既定は台帳 gsc.ui-last-run の freshness.warnDays（--days で一時的に変えられる）
-const DEFAULT_THRESHOLD = freshnessDays("gsc.ui-last-run", "warnDays");
+// 既定は台帳 gsc.ui-last-run の freshness.warnDays（--days で一時的に変えられる）。
+// --fail-on-due（ops の日次点検）は failDays で見る。期日の後の最初の土曜に収集が取るので、期日の直後から赤にしない（DN-0820）
+const DEFAULT_THRESHOLD = freshnessDays("gsc.ui-last-run", args.includes("--fail-on-due") ? "failDays" : "warnDays");
 const THRESHOLD = di >= 0 && args[di + 1] ? parseInt(args[di + 1], 10) || DEFAULT_THRESHOLD : DEFAULT_THRESHOLD;
 
 /** runId 形式（2026-07-23T22-59-15Z）も ISO も受ける。 */

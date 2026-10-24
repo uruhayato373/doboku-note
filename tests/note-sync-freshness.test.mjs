@@ -1,3 +1,4 @@
+import { freshnessDays } from '../scripts/lib/datasets.mjs';
 import { strict as assert } from 'node:assert';
 import test from 'node:test';
 import { assessNoteSyncFreshness } from '../scripts/check-note-sync-freshness.mjs';
@@ -19,5 +20,5 @@ test('note の同期の記録: 記録が無い・日時が読めないのは FAI
 });
 
 test('note の同期の記録: 上限の既定は台帳 note.sync-log の freshness.failDays', () => {
-  assert.equal(assessNoteSyncFreshness({ runs: [{ startedAt: '2026-10-07T07:56:00Z' }] }, now).inspected.maxAgeDays, 8);
+  assert.equal(assessNoteSyncFreshness({ runs: [{ startedAt: '2026-10-07T07:56:00Z' }] }, now).inspected.maxAgeDays, freshnessDays('note.sync-log', 'failDays'));
 });

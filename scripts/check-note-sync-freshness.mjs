@@ -8,7 +8,7 @@
 //
 // 判定:
 //   data/note/sync-log.json の runs[] のうち最新の startedAt（台帳 note.sync-log）
-//     → 記録が無い／startedAt が読めない／台帳 note.sync-log の freshness.failDays（8 日）超前 は FAIL
+//     → 記録が無い／startedAt が読めない／台帳 note.sync-log の freshness.failDays 超前 は FAIL
 //   ファイルが壊れている（JSON として読めない）は exit 2（止まっているのと、検査できないのを分ける）
 //
 // 使い方:
