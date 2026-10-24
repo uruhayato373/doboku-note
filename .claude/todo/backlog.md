@@ -25,12 +25,6 @@
 
 
 
-### [DN-0833] note の閲覧取得が検査不成立でも週の traffic-period を上書きして commit する
-タグ: [インフラ・計測] [領域:管理] [時期:2026-10..2026-11] [種類:不具合] [起票:2026-10-24] [進行中]
-
-週次レビュー（2026-10-19〜2026-10-25）で見つけた。10/24 14:18 の土曜の収集（weekly-collect pre）で note-traffic 段が「検査不成立: 記事別 PV の合計とページビュー集計が一致しない」で失敗したのに、同じ回の「記録の保存」commit 49d9d91dd で `data/note/traffic-period/2026-10-12_2026-10-18.json` が上書きされた（10/21 取得の 924 記事・PV 2,988・表示 20,879 → 903 記事・PV 2,984・表示 20,441）。検査に落ちた取得が正本を置き換え、事業レビューの note 閲覧が検査不成立の値で読まれる。
-
-**完了条件**: (1) note-traffic の検査に落ちた取得は traffic-period を書き換えない（または失敗の印を付けて business-review が欠測として読む）回帰テストがある (2) W42 のファイルを検査に通る取得で取り直すか、10/21 の版へ戻す判断を記録する。
 
 
 
@@ -381,6 +375,8 @@ drive-vault-sync -- --group source-transcript --verify --deep が 240 件中 1 �
 3. PR（base=develop）でマージし、Dependabot の 3 件が閉じたことを確かめる
 
 **完了条件**: `gh api repos/uruhayato373/doboku-note/dependabot/alerts` で next の open が 0 件。
+
+**進捗（2026-10-24 夜）**: PR #1221 で next 16.4.3・zod 4.6.7・fast-uri 3.1.9 へ上げ、本番反映した（main 8ef9a592b・check-production-ssr 合格）。GitHub の依存グラフ（SBOM）は next 16.4.3 を読んでいるが、Dependabot の警告（#106・#107・#109・#110・#112〜#115）は反映から 1 時間たっても open のまま（警告の更新は Dependabot の再走査待ち）。**残り**: (1) next と fast-uri の警告が閉じたかを `gh api …/dependabot/alerts` で確かめる (2) zod の #110 は、Lighthouse CI の間接依存 `chromium-bidi` が持つ zod 3.25.76（開発用）も勧告の範囲（< 4.6.6・3 系の修正版なし）に入るため、直接の zod を上げても閉じない見込み。overrides で 4 系へ寄せるか、開発用で影響なしとして却下するかを運営者が決める。
 
 
 
@@ -1568,19 +1564,18 @@ Windows の PowerShell で repo 直下から順に:
 
 **完了条件**: 上の 3 点を直して `npm run check-note-funnel` が通り、ライブへ反映（土曜の収集の後段 note-sync）して `note-funnel-auditor` の再監査で指摘が消えている。
 
-### [DN-0846] DN-0817 の運営者の後片づけ（Windows のタスク削除・GitHub Secrets の DOBOKU_AUTH_* 削除・R2 の auth-state/ 削除・自動化の Issue を閉じる）
+### [DN-0846] DN-0817 の運営者の後片づけ（Windows のタスク削除・R2 の auth-state/ 削除・自動化の Issue を閉じる・お客さま対応の通知の判断）
 タグ: [インフラ・計測] [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-10-24]
 
 **起点**: DN-0817（ログインを土曜の Mac の収集 1 本に集約）の段 3〜5 は PR #1216 で実装した（Mac の個別の launchd・専用 worktree、CI のログイン収集と書き込みの入口・暗号化 state の仕組み、スキルと方針文書）。残りは運営者の作業だけ（旧 DN-0821・DN-0822・DN-0823 の残りをまとめた）。
 
-**やること**（運営者。`gh secret delete` をエージェントが流すときはその都度確認を取る）:
+**やること**（運営者）:
 1. Windows のタスク `\doboku-note\auth-session-refresh` を削除する（Windows で `schtasks /Delete /TN "\doboku-note\auth-session-refresh" /F`）。
-2. GitHub Secrets の `DOBOKU_AUTH_*`（ID/PW 10 個と `DOBOKU_AUTH_AGE_IDENTITY`）を削除する。
 3. R2 の private の `auth-state/` を削除する（`data/r2/delete-list.txt` 経由）。
 4. 自動化の Issue #1186（login-collectors-publish）・#1087（auth-state-kdp）・#864（note-sync）を閉じる（channel が無くなったので人が閉じる）。
 5. お客さま対応の気づき（ココナラの受注・note のコメント）を、週 1 回の土曜の収集ではなくメール通知（Gmail コネクタ）で拾うかを決める（週次の取得だけだと最大 1 週間気づかない・旧 DN-0823 の手順 3）。
 
-**完了条件**: Windows に `auth-session-refresh` のタスクが無く、`gh secret list` に `DOBOKU_AUTH_*` が無く、R2 に `auth-state/` が無く、上の 3 つの Issue が閉じ、5 の判断が backlog かこのカードに記録されている。`git grep -l DOBOKU_AUTH .github` は 0 件（確認済み）。
+**完了条件**: Windows に `auth-session-refresh` のタスクが無く、R2 に `auth-state/` が無く、上の 3 つの Issue が閉じ、5 の判断が backlog かこのカードに記録されている。`git grep -l DOBOKU_AUTH .github` は 0 件（確認済み）。
 
 ## 🟢 低 — 重要度が低い（時期未定を含む）
 
