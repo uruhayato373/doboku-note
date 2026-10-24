@@ -64,7 +64,7 @@
       "publication": "ローカル差し替え・外部未反映"
     }
   },
-  "activeBodyRevision": "body-pop-20261018",
+  "activeBodyRevision": "body-diagram-reviewed-20261022",
   "revisions": {
     "body-pop-20261018": {
       "version": "pop-poster-v3",
@@ -1518,7 +1518,2104 @@
         "manifest": ".tmp/video-render/monbun-yomikata/render-manifest.json",
         "publicationAction": "none"
       }
+    },
+    "cover-diagram-20261022": {
+      "version": "pop-poster-v3",
+      "layout": {
+        "mode": "diagram-led"
+      },
+      "generation": {
+        "tool": "image_gen",
+        "prompt": "YouTube教育動画の表紙1枚、横長16:9、1920×1080相当。白い背景、落ち着いた緑灰、小さな黄色、図解主役。人物・先生・肩書き・著者・ロゴ・派手なPOP装飾なし。文字は上に小さく「技術士 総監」、その下に大きい2行「問題文の要求」「答案骨子へ」。中央は左「問題文」の紙アイコンから、真ん中の4つの小さな付箋「動詞」「対象」「数」「条件」を通して右「骨子」の紙アイコンへつなぐ緑矢印。問題文から答える内容を抽出する意味。紙にダミーの細かい文字は足さず線を3本程度。全ての文字図形は画面上75%以内に収め、下25%は字幕用の静かな白地、四辺まで白背景、左右外周6%以上空ける。360px幅でも見出しと4つの語が読みやすいサイズ。指定以外の文字や図は足さない。画像全体を小さいポスターに縮めた枠を作らない。",
+        "references": [],
+        "output": {
+          "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/cover-source.a7928e1d.png",
+          "sha256": "a7928e1d1b321249d4aee8a66323602fe21f0076c872a990c401d4fb01f6aa3d"
+        },
+        "generatedAt": "2026-10-22T08:43:59.185Z"
+      },
+      "copy": {
+        "headline": [
+          "問題文の要求",
+          "答案骨子へ"
+        ]
+      },
+      "output": {
+        "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/cover-diagram.1cc05650.png",
+        "sha256": "1cc0565013352d21b55ac4e5da8176bd16592cb6d3e2c8b2e6c368870d1bfd92",
+        "width": 1920,
+        "height": 1080
+      },
+      "normalization": {
+        "mode": "full-frame-v1",
+        "sourceSha256": "a7928e1d1b321249d4aee8a66323602fe21f0076c872a990c401d4fb01f6aa3d"
+      },
+      "review": {
+        "status": "ai-reviewed",
+        "checkedAt": "2026-10-22T09:43:03.469Z",
+        "by": "Codex",
+        "views": [
+          "original",
+          "width-360"
+        ],
+        "checks": [
+          "文言・画像とテーマの一致",
+          "文字切れ・安全域",
+          "装飾人物なし"
+        ],
+        "userImageReview": "pending"
+      },
+      "storage": {
+        "group": "content-media",
+        "sync": "not-run-user-instruction"
+      }
+    },
+    "body-diagram-20261022": {
+      "layout": {
+        "mode": "diagram-led"
+      },
+      "images": [
+        {
+          "sceneId": "intro",
+          "inputSha256": "c47200e1224c3b9aa9d3a9101ef3258ccd33b9937463ac73f711d715627e2116",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "技術士総監の問題文の読み取りを教える通常動画の1場面。16:9、白地、落ち着いた深緑と灰色、小黄色。参照表紙からは配色のみ継承。資格名の反復や先生・人物・肩書き・派手な装飾はなし。見出し「読んだ要求を、書く項目へ」。図に載せる文言:[\"動詞・対象・数・条件\",\"答案の見出しと骨子\"]。構図:左の問題文から四つの付箋を取り出し、右の骨子へ移す対応図。四つの付箋は同じ大きさにする。 白地、緑の線、灰色の補助、小さな黄色の強調。人物なし。下部の字幕領域は空ける。。この場面の語り:長い問題文を読んでも、何を書くか決まらない。まず動詞、対象、数、条件を拾い、答案の見出しに対応づけます。。図の矢印は対応関係・作業の流れがある箇所だけ。紙には読めないダミー文字を大量に書かない。指定以外の情報や年度や数字を足さない。全図形と文字は高さの70%以内、下30%は字幕用の真っ白な領域。左右7%以上安全域。360px幅で主要語が読める太い文字、内容は上部を大きく使う。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/cover-source.a7928e1d.png",
+                "sha256": "a7928e1d1b321249d4aee8a66323602fe21f0076c872a990c401d4fb01f6aa3d"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/intro-source.777f79cc.png",
+              "sha256": "777f79ccfb5e6c254dec62742deb282aec54e1a98d6b4118a13ee512216eb0cf"
+            },
+            "generatedAt": "2026-10-22T09:17:54.999Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/intro-diagram.90931dda.png",
+            "sha256": "90931dda44627dfeef9487611b9d38ae1b4f4a840de2772860beecd9b359691e",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "777f79ccfb5e6c254dec62742deb282aec54e1a98d6b4118a13ee512216eb0cf"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-22T09:46:13.029Z",
+            "by": "Codex",
+            "views": [
+              "original",
+              "width-360",
+              "final-mp4-cue-frames"
+            ],
+            "checks": [
+              "台本と図解の意味・文字",
+              "字幕との重なり・表示領域",
+              "装飾人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "premise",
+          "inputSha256": "70f09d8ab8dbcb72c5bb2ad27b156c3aca652362534de2dfda7195efc60f0a2b",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "技術士総監の問題文の読み取りを教える通常動画の1場面。16:9、白地、落ち着いた深緑と灰色、小黄色。参照表紙からは配色のみ継承。資格名の反復や先生・人物・肩書き・派手な装飾はなし。見出し「読み取りのための学習手順」。図に載せる文言:[\"当年度の問題文を読む\",\"要求に合わせて構成する\"]。構図:問題文の紙を中央に置き、そこから答案見出しが生まれる構図。固定テンプレートの図は置かない。 白地、緑の線、灰色の補助、小さな黄色の強調。人物なし。下部の字幕領域は空ける。。この場面の語り:これは要求の抜けを防ぐための学習手順です。決まった答案の型に当てはめる前に、その年度の問題文を読みます。。図の矢印は対応関係・作業の流れがある箇所だけ。紙には読めないダミー文字を大量に書かない。指定以外の情報や年度や数字を足さない。全図形と文字は高さの70%以内、下30%は字幕用の真っ白な領域。左右7%以上安全域。360px幅で主要語が読める太い文字、内容は上部を大きく使う。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/cover-source.a7928e1d.png",
+                "sha256": "a7928e1d1b321249d4aee8a66323602fe21f0076c872a990c401d4fb01f6aa3d"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/premise-source.bece44b3.png",
+              "sha256": "bece44b3de44e21aba96c6c0dec4b09dcf6d6dcdcdeddaaf8114473cb00734a0"
+            },
+            "generatedAt": "2026-10-22T09:17:55.141Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/premise-diagram.3442feae.png",
+            "sha256": "3442feae00df36459d7121b1b902fb194be2401ca794f2151acbeb1c074dae47",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "bece44b3de44e21aba96c6c0dec4b09dcf6d6dcdcdeddaaf8114473cb00734a0"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-22T09:46:13.050Z",
+            "by": "Codex",
+            "views": [
+              "original",
+              "width-360",
+              "final-mp4-cue-frames"
+            ],
+            "checks": [
+              "台本と図解の意味・文字",
+              "字幕との重なり・表示領域",
+              "装飾人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "premise-scope",
+          "inputSha256": "51d11103f5a282bf49a290ae6177e9099861354ee13376873fa71dc56aa01876",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "技術士総監の問題文の読み取りを教える通常動画の1場面。16:9、白地、落ち着いた深緑と灰色、小黄色。参照表紙からは配色のみ継承。資格名の反復や先生・人物・肩書き・派手な装飾はなし。見出し「指定を拾う」。図に載せる文言:[\"設問の区分・答える範囲\",\"項目数・答案枚数\"]。構図:問題用紙の指定欄を拡大する。範囲・数・枚数の三か所へ細い緑線を引き、確認済みの小さな印を付ける。 白地、緑の線、灰色の補助、小さな黄色の強調。人物なし。下部の字幕領域は空ける。。この場面の語り:設問の区分、答える範囲、項目数、答案枚数の指定を拾います。毎年同じだと決めつけて省略しないでください。。図の矢印は対応関係・作業の流れがある箇所だけ。紙には読めないダミー文字を大量に書かない。指定以外の情報や年度や数字を足さない。全図形と文字は高さの70%以内、下30%は字幕用の真っ白な領域。左右7%以上安全域。360px幅で主要語が読める太い文字、内容は上部を大きく使う。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/cover-source.a7928e1d.png",
+                "sha256": "a7928e1d1b321249d4aee8a66323602fe21f0076c872a990c401d4fb01f6aa3d"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/premise-scope-source.38944478.png",
+              "sha256": "3894447876804910f22a610b46ddbc4ebc8fd1fb338a63a0e703aed54e5d5438"
+            },
+            "generatedAt": "2026-10-22T09:17:55.292Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/premise-scope-diagram.4c35ce78.png",
+            "sha256": "4c35ce78de501a92f35de1950e4997de225c369fb2bd04e97c40ced1de5029ae",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "3894447876804910f22a610b46ddbc4ebc8fd1fb338a63a0e703aed54e5d5438"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-22T09:46:13.050Z",
+            "by": "Codex",
+            "views": [
+              "original",
+              "width-360",
+              "final-mp4-cue-frames"
+            ],
+            "checks": [
+              "台本と図解の意味・文字",
+              "字幕との重なり・表示領域",
+              "装飾人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "hints-request",
+          "inputSha256": "13fc264f584aed542193334240b2cfb76228fcac3a46875e0cfc01baead07184",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "技術士総監の問題文の読み取りを教える通常動画の1場面。16:9、白地、落ち着いた深緑と灰色、小黄色。参照表紙からは配色のみ継承。資格名の反復や先生・人物・肩書き・派手な装飾はなし。見出し「1　動詞を拾う」。図に載せる文言:[\"挙げる → 項目を示す\",\"説明する → 中身を述べる\",\"比較する → 違いを示す\"]。構図:左列に三つの動詞、右列に対応する作業。各行を一本の緑線で結び、動詞だけ小さく黄色で強調する。 白地、緑の線、灰色の補助、小さな黄色の強調。人物なし。下部の字幕領域は空ける。。この場面の語り:一つ目は動詞です。挙げよ、説明せよ、比較せよでは、答案で行う作業が違います。何をするよう求められたかを拾います。。図の矢印は対応関係・作業の流れがある箇所だけ。紙には読めないダミー文字を大量に書かない。指定以外の情報や年度や数字を足さない。全図形と文字は高さの70%以内、下30%は字幕用の真っ白な領域。左右7%以上安全域。360px幅で主要語が読める太い文字、内容は上部を大きく使う。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/cover-source.a7928e1d.png",
+                "sha256": "a7928e1d1b321249d4aee8a66323602fe21f0076c872a990c401d4fb01f6aa3d"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/hints-request-source.d34e0419.png",
+              "sha256": "d34e0419b394f0ccb0449157c8fcd6437b6b6885183d3e956a7c99f84acb9ae7"
+            },
+            "generatedAt": "2026-10-22T09:17:55.439Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/hints-request-diagram.efb59912.png",
+            "sha256": "efb599125eccf240b964c26f7ff3394902b9426256ba54f8070d33f1b21f2ea1",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "d34e0419b394f0ccb0449157c8fcd6437b6b6885183d3e956a7c99f84acb9ae7"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-22T09:46:13.050Z",
+            "by": "Codex",
+            "views": [
+              "original",
+              "width-360",
+              "final-mp4-cue-frames"
+            ],
+            "checks": [
+              "台本と図解の意味・文字",
+              "字幕との重なり・表示領域",
+              "装飾人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "hints-workplace",
+          "inputSha256": "7447eb7ccce3ce542058ef990395be33e4377d4039dd41d15c688b2fba736b22",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "教育動画用の図解1場面、16:9。白背景、落ち着いた緑灰、小さな黄。参照画像の配色だけ使う。大きな主題「2　対象を確かめる」。画面に載せる言葉は次の要素と構図で指定するラベルのみ:[\"担当業務・組織全体\",\"「前の設問の施策」の指す先\"]。構図:担当業務と組織全体を範囲の異なる二つの枠で示す。下に前問の施策から次問の同じ施策へ一本の参照線を引く。 白地、緑の線、灰色の補助、小さな黄色の強調。人物なし。下部の字幕領域は空ける。。内容理解用のナレーション（全文を書かない）:二つ目は対象です。自分の担当業務なのか、組織全体なのか。前の設問で選んだ施策を指すなら、その施策を引き継ぎます。。見出し90px相当、要素の文字は最低60px相当（360px縮小で11px以上）、語数が多ければ指定意図の範囲で短いラベルへ整理、細かい脚注なし。人物・先生・資格名・肩書き・URLは入れない。複数の仮設問を混ぜない。紙のダミーテキストは細線3本程度。比較を示す図の間に順序矢印を置かない。全要素は画面の上73%以内、下27%は真っ白な字幕領域。図解を横幅85%を使って大きく、外周6%安全域。指定しない数字や条件は追加しない。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/cover-source.a7928e1d.png",
+                "sha256": "a7928e1d1b321249d4aee8a66323602fe21f0076c872a990c401d4fb01f6aa3d"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/hints-workplace-source.12062b10.png",
+              "sha256": "12062b1041323d5c64d81108ffcf2926bfd1494ee3f23d64337405f47174c131"
+            },
+            "generatedAt": "2026-10-22T09:17:55.584Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/hints-workplace-diagram.022c4e08.png",
+            "sha256": "022c4e08a624a052c1eb289902a29770baa0c679df42c94c47ae7fc53f465d99",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "12062b1041323d5c64d81108ffcf2926bfd1494ee3f23d64337405f47174c131"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-22T09:46:13.050Z",
+            "by": "Codex",
+            "views": [
+              "original",
+              "width-360",
+              "final-mp4-cue-frames"
+            ],
+            "checks": [
+              "台本と図解の意味・文字",
+              "字幕との重なり・表示領域",
+              "装飾人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "hints-image",
+          "inputSha256": "f3de4f88f6823b4797580d71e9c30cf69382b5df2e18b08e2514574a6fa1d2fc",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "教育動画用の図解1場面、16:9。白背景、落ち着いた緑灰、小さな黄。参照画像の配色だけ使う。大きな主題「3　数を枠にする」。画面に載せる言葉は次の要素と構図で指定するラベルのみ:[\"施策は2つ\",\"それぞれに必要項目\"]。構図:横並びの施策一・施策二の空欄を大きく配置。両方に同じ小枠を置き、「それぞれ」から二股の線を引く。 白地、緑の線、灰色の補助、小さな黄色の強調。人物なし。下部の字幕領域は空ける。。内容理解用のナレーション（全文を書かない）:三つ目は数です。施策を二つとあれば、二つの記入枠を先に作ります。それぞれ、とあれば、両方に同じ要求がかかります。。見出し90px相当、要素の文字は最低60px相当（360px縮小で11px以上）、語数が多ければ指定意図の範囲で短いラベルへ整理、細かい脚注なし。人物・先生・資格名・肩書き・URLは入れない。複数の仮設問を混ぜない。紙のダミーテキストは細線3本程度。比較を示す図の間に順序矢印を置かない。全要素は画面の上73%以内、下27%は真っ白な字幕領域。図解を横幅85%を使って大きく、外周6%安全域。指定しない数字や条件は追加しない。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/cover-source.a7928e1d.png",
+                "sha256": "a7928e1d1b321249d4aee8a66323602fe21f0076c872a990c401d4fb01f6aa3d"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/hints-image-source.5b5ee74f.png",
+              "sha256": "5b5ee74f2a95daa81868e1488695aa39dbd801dbf993ebd823ed1f81ec03b4e9"
+            },
+            "generatedAt": "2026-10-22T09:17:55.735Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/hints-image-diagram.36236805.png",
+            "sha256": "362368059c50d140b604fcb5f603b4ce4c4721ad9cea0cd52022c3527db427f2",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "5b5ee74f2a95daa81868e1488695aa39dbd801dbf993ebd823ed1f81ec03b4e9"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-22T09:46:13.050Z",
+            "by": "Codex",
+            "views": [
+              "original",
+              "width-360",
+              "final-mp4-cue-frames"
+            ],
+            "checks": [
+              "台本と図解の意味・文字",
+              "字幕との重なり・表示領域",
+              "装飾人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "hints-fit",
+          "inputSha256": "876946c83f1841be7d91c0c20bb1de46fe107b26b655919b79a52505cd276b11",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "教育動画用の図解1場面、16:9。白背景、落ち着いた緑灰、小さな黄。参照画像の配色だけ使う。大きな主題「4　条件を残す」。画面に載せる言葉は次の要素と構図で指定するラベルのみ:[\"人員・予算・対象期間\",\"参考の事例と指定を区別\"]。構図:上に人員・予算・期間の三つの条件札。下に「参考の事例」と「守る指定」の二つのラベルを並べ、指定だけ囲む。 白地、緑の線、灰色の補助、小さな黄色の強調。人物なし。下部の字幕領域は空ける。。内容理解用のナレーション（全文を書かない）:四つ目は条件です。使える人員や予算、対象期間などを拾います。事例の紹介と、守るべき指定も区別してください。。見出し90px相当、要素の文字は最低60px相当（360px縮小で11px以上）、語数が多ければ指定意図の範囲で短いラベルへ整理、細かい脚注なし。人物・先生・資格名・肩書き・URLは入れない。複数の仮設問を混ぜない。紙のダミーテキストは細線3本程度。比較を示す図の間に順序矢印を置かない。全要素は画面の上73%以内、下27%は真っ白な字幕領域。図解を横幅85%を使って大きく、外周6%安全域。指定しない数字や条件は追加しない。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/cover-source.a7928e1d.png",
+                "sha256": "a7928e1d1b321249d4aee8a66323602fe21f0076c872a990c401d4fb01f6aa3d"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/hints-fit-source.c40b2f9c.png",
+              "sha256": "c40b2f9cc4fbe7898383e7b934751539123f309474f646e642b19628a6f68ef6"
+            },
+            "generatedAt": "2026-10-22T09:17:55.918Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/hints-fit-diagram.a4d28173.png",
+            "sha256": "a4d28173d2540805aaefcc3bd733a5c81b1b3a0f18e16ee1cc9d21d4e0009063",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "c40b2f9cc4fbe7898383e7b934751539123f309474f646e642b19628a6f68ef6"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-22T09:46:13.050Z",
+            "by": "Codex",
+            "views": [
+              "original",
+              "width-360",
+              "final-mp4-cue-frames"
+            ],
+            "checks": [
+              "台本と図解の意味・文字",
+              "字幕との重なり・表示領域",
+              "装飾人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "layers",
+          "inputSha256": "cbf16fb44c13e773b9da7a4904932c21e341a1b64e4880f108a31a65be6c25aa",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "教育動画用の図解1場面、16:9。白背景、落ち着いた緑灰、小さな黄。参照画像の配色だけ使う。大きな主題「仮設問　対象と条件」。画面に載せる言葉は次の要素と構図で指定するラベルのみ:[\"対象：担当する道路維持管理業務\",\"条件：人員を増やさない\",\"目的：点検記録の整理を効率化\"]。構図:上部に「練習用の仮設問」と明示。道路の簡略線画に点検記録の紙を添え、対象・条件・目的を三段で示す。工事機械や人物は描かない。 白地、緑の線、灰色の補助、小さな黄色の強調。人物なし。下部の字幕領域は空ける。。内容理解用のナレーション（全文を書かない）:ここからは練習用の仮設問です。対象は、担当する道路維持管理業務。人員を増やさず、点検記録の整理を効率化するとします。。見出し90px相当、要素の文字は最低60px相当（360px縮小で11px以上）、語数が多ければ指定意図の範囲で短いラベルへ整理、細かい脚注なし。人物・先生・資格名・肩書き・URLは入れない。複数の仮設問を混ぜない。紙のダミーテキストは細線3本程度。比較を示す図の間に順序矢印を置かない。全要素は画面の上73%以内、下27%は真っ白な字幕領域。図解を横幅85%を使って大きく、外周6%安全域。指定しない数字や条件は追加しない。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/cover-source.a7928e1d.png",
+                "sha256": "a7928e1d1b321249d4aee8a66323602fe21f0076c872a990c401d4fb01f6aa3d"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/layers-source.1339ceae.png",
+              "sha256": "1339ceaebf5c615381dff33bf3c550f73923dae4d9c7d67849617fce963ad345"
+            },
+            "generatedAt": "2026-10-22T09:17:56.070Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/layers-diagram.7b8a28ba.png",
+            "sha256": "7b8a28baedd5b2bb6fe5e12457d0662c3462fdbbc4935731753fbc26d0e987f1",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "1339ceaebf5c615381dff33bf3c550f73923dae4d9c7d67849617fce963ad345"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-22T09:46:13.050Z",
+            "by": "Codex",
+            "views": [
+              "original",
+              "width-360",
+              "final-mp4-cue-frames"
+            ],
+            "checks": [
+              "台本と図解の意味・文字",
+              "字幕との重なり・表示領域",
+              "装飾人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "layers-first",
+          "inputSha256": "5daa4704889f947aace5f43536c3c2b9456fa3103dc35492da64377f1b0f51e1",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "日本語の総監試験学習動画の一場面を新しく生成。横16:9。白地、落ち着いた深緑と灰色、小黄色のみ。人物・キャラ・資格名の帯・肩書き不要。最上部の見出し「仮設問　何を答えるか」。図に載せる文言は[\"施策を2つ挙げる\",\"それぞれの効果を説明する\",\"それぞれの実施上の問題点を説明する\"]。構図:「練習用の仮設問」の表示を継続。要求を三行で配置し、2つとそれぞれに小さな黄色の印を付ける。 白地、緑の線、灰色の補助、小さな黄色の強調。人物なし。下部の字幕領域は空ける。。意味理解用の台本（全文を画像へ写さない）:施策を二つ挙げ、それぞれの効果と実施上の問題点を説明せよ。これを仮設問の要求とし、読み取っていきます。。主要ラベルは1920幅換算で60px以上、360px幅でも読める。文字は指定の短い言葉のみ、指定外の説明や記号や年度は足さない。図と文字は画面の上70%以内、下30%は完全な白の字幕安全域。左右7%は安全余白。紙面を埋めず図解を大きく。矢印は対応や流れがある箇所だけ。表紙の配色を参照するがタイトルや要素はこの場面に置き換える。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/cover-source.a7928e1d.png",
+                "sha256": "a7928e1d1b321249d4aee8a66323602fe21f0076c872a990c401d4fb01f6aa3d"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/layers-first-source.3783f396.png",
+              "sha256": "3783f3962bd4051e9d51aaa2f609d12e252f5ebe4f86a2a42df163830a97c8bb"
+            },
+            "generatedAt": "2026-10-22T09:17:56.230Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/layers-first-diagram.ebdac7be.png",
+            "sha256": "ebdac7bee44e1dd6799d8552f7a2cf14fbb303518ac085ca41636a4a17784b48",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "3783f3962bd4051e9d51aaa2f609d12e252f5ebe4f86a2a42df163830a97c8bb"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-22T09:46:13.050Z",
+            "by": "Codex",
+            "views": [
+              "original",
+              "width-360",
+              "final-mp4-cue-frames"
+            ],
+            "checks": [
+              "台本と図解の意味・文字",
+              "字幕との重なり・表示領域",
+              "装飾人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "layers-second",
+          "inputSha256": "b3afa603bf28b68ac0b774277fc4906515863f74402dd4beeb7a31f31f2cdbff",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照の図を修正する。上段の長文とすべての対応線を削除し、四つの独立した大きなカードを2×2に配置する。見出し「仮設問を四つに分解」。カード1「動詞」「挙げる・説明する」、カード2「対象」「道路維持管理業務」、カード3「数」「施策2つ」、カード4「条件」「増員なし」。カード間に線や矢印は一切描かない。これ以外の文字を追加しない。白、深緑、灰、小黄色、下30%は字幕用白余白。16:9。主要文字は60px以上相当。",
+            "references": [
+              {
+                "path": "generated_images/exec-2346368d-4979-4360-986b-c80ab7aed85b.png",
+                "sha256": "7920054cdd1fa81ea2527c214ae889ae6cc46a383af17e7530b77ccec1dd4c77"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/layers-second-source.5b0400fb.png",
+              "sha256": "5b0400fb4f86396faf996b95640f65b1624b517aea994fec3e9605b28f5abbf7"
+            },
+            "generatedAt": "2026-10-22T09:17:56.393Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/layers-second-diagram.aab1e031.png",
+            "sha256": "aab1e0319e4b7d2d73f8359fb6fad262b8da2f3c3c55b8260ad9ace1110a5a30",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "5b0400fb4f86396faf996b95640f65b1624b517aea994fec3e9605b28f5abbf7"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-22T09:46:13.050Z",
+            "by": "Codex",
+            "views": [
+              "original",
+              "width-360",
+              "final-mp4-cue-frames"
+            ],
+            "checks": [
+              "台本と図解の意味・文字",
+              "字幕との重なり・表示領域",
+              "装飾人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "layers-third",
+          "inputSha256": "d3cd14fd8f32d4945853d80f7870983eca1fe20496ecb7bd6172a0c9da052069",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "日本語の総監試験学習動画の一場面を新しく生成。横16:9。白地、落ち着いた深緑と灰色、小黄色のみ。人物・キャラ・資格名の帯・肩書き不要。最上部の見出し「要求と骨子を対応づける」。図に載せる文言は[\"施策1：内容・効果・問題点\",\"施策2：内容・効果・問題点\"]。構図:二列の答案メモ。各列の大見出しを施策1・施策2とし、下に内容・効果・問題点の三つの空欄を同じ順で置く。 白地、緑の線、灰色の補助、小さな黄色の強調。人物なし。下部の字幕領域は空ける。。意味理解用の台本（全文を画像へ写さない）:答案の見出しは、施策一と施策二。それぞれに、施策の内容、効果、実施上の問題点の枠を作れば、書く項目が見えます。。主要ラベルは1920幅換算で60px以上、360px幅でも読める。文字は指定の短い言葉のみ、指定外の説明や記号や年度は足さない。図と文字は画面の上70%以内、下30%は完全な白の字幕安全域。左右7%は安全余白。紙面を埋めず図解を大きく。矢印は対応や流れがある箇所だけ。表紙の配色を参照するがタイトルや要素はこの場面に置き換える。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/cover-source.a7928e1d.png",
+                "sha256": "a7928e1d1b321249d4aee8a66323602fe21f0076c872a990c401d4fb01f6aa3d"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/layers-third-source.50e48198.png",
+              "sha256": "50e481987d36e5bb2d0fe612d82db720a84e4d758d66910892f3a21332faf2ce"
+            },
+            "generatedAt": "2026-10-22T09:17:56.535Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/layers-third-diagram.4cbe00ec.png",
+            "sha256": "4cbe00ec6b7191ec995658bf357a05a513daf1f505b65069e544fad03d8f76b8",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "50e481987d36e5bb2d0fe612d82db720a84e4d758d66910892f3a21332faf2ce"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-22T09:46:13.050Z",
+            "by": "Codex",
+            "views": [
+              "original",
+              "width-360",
+              "final-mp4-cue-frames"
+            ],
+            "checks": [
+              "台本と図解の意味・文字",
+              "字幕との重なり・表示領域",
+              "装飾人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "mistakes-effect",
+          "inputSha256": "eac9b33c3b4d309127fefb7d28b4ec4201c6df8995abd299579c5b2a3546f534",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "日本語の総監試験学習動画の一場面を新しく生成。横16:9。白地、落ち着いた深緑と灰色、小黄色のみ。人物・キャラ・資格名の帯・肩書き不要。最上部の見出し「「それぞれ」の抜けを探す」。図に載せる文言は[\"施策1：効果・問題点\",\"施策2：効果・問題点\"]。構図:前場面と同じ二列三段の骨子を再利用。施策2の問題点欄だけ空欄にして黄色の枠で強調し、補う場所を示す。 白地、緑の線、灰色の補助、小さな黄色の強調。人物なし。下部の字幕領域は空ける。。意味理解用の台本（全文を画像へ写さない）:抜けやすいのは、施策二の問題点です。片方に効果と問題点を書いただけでは、それぞれ、という要求を満たしません。。主要ラベルは1920幅換算で60px以上、360px幅でも読める。文字は指定の短い言葉のみ、指定外の説明や記号や年度は足さない。図と文字は画面の上70%以内、下30%は完全な白の字幕安全域。左右7%は安全余白。紙面を埋めず図解を大きく。矢印は対応や流れがある箇所だけ。表紙の配色を参照するがタイトルや要素はこの場面に置き換える。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/cover-source.a7928e1d.png",
+                "sha256": "a7928e1d1b321249d4aee8a66323602fe21f0076c872a990c401d4fb01f6aa3d"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/mistakes-effect-source.6b1a3ff4.png",
+              "sha256": "6b1a3ff45c029acfb65731a4742822a880a45b16bcf7f67ab425406b44ddb68d"
+            },
+            "generatedAt": "2026-10-22T09:17:56.651Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/mistakes-effect-diagram.abc1d3eb.png",
+            "sha256": "abc1d3eb5d27c7d6577f79d5200814f6067830cd66fc942d9a60378d4662b30b",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "6b1a3ff45c029acfb65731a4742822a880a45b16bcf7f67ab425406b44ddb68d"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-22T09:46:13.050Z",
+            "by": "Codex",
+            "views": [
+              "original",
+              "width-360",
+              "final-mp4-cue-frames"
+            ],
+            "checks": [
+              "台本と図解の意味・文字",
+              "字幕との重なり・表示領域",
+              "装飾人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "mistakes-risk",
+          "inputSha256": "03fcd2f9c20e7ff2440234645b9a9bbd704de8291cacf6e192d8d991bae90008",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "日本語学習動画の1場面、横16:9の全画面。白地、落ち着いた深緑・灰色、小さな黄色。先生・人物・資格名や肩書きの反復・派手な装飾なし。見出し「「説明する」に応える」。表示文言:[\"何を変えるか\",\"どんな効果か\",\"何が問題か\"]。構図:左に施策名だけの一行メモ、右に内容・効果・問題点を埋めた三段のメモ。中央の矢印は具体化の方向だけを示す。 白地、緑の線、灰色の補助、小さな黄色の強調。人物なし。下部の字幕領域は空ける。。意味理解用の台本（全文を転写しない）:また、施策名を並べるだけでは説明になりません。何を変え、どんな効果があり、何が問題となるかを短いメモで埋めます。。全内容は画面上70%に収め、下30%は字幕用の純白。左右7%以上空ける。360px幅で読めるよう主要文字60px以上相当、短い言葉と大きな図で表す。指定以外の解説・年度・数字・追加条件は書かない。参照表紙からは色調だけ継承する。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/cover-source.a7928e1d.png",
+                "sha256": "a7928e1d1b321249d4aee8a66323602fe21f0076c872a990c401d4fb01f6aa3d"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/mistakes-risk-source.c37ed233.png",
+              "sha256": "c37ed23398bacf84485a737947bd4d49fab0de408802bb5aa84280c8f15d3f0f"
+            },
+            "generatedAt": "2026-10-22T09:17:56.785Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/mistakes-risk-diagram.b0d51f52.png",
+            "sha256": "b0d51f5276a80cef22032b9e315938741f31583e0cd84f310bac881e60d9f42f",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "c37ed23398bacf84485a737947bd4d49fab0de408802bb5aa84280c8f15d3f0f"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-22T09:46:13.050Z",
+            "by": "Codex",
+            "views": [
+              "original",
+              "width-360",
+              "final-mp4-cue-frames"
+            ],
+            "checks": [
+              "台本と図解の意味・文字",
+              "字幕との重なり・表示領域",
+              "装飾人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "mistakes-condition",
+          "inputSha256": "fcd051854800944dba3dab496b3dcd4bfa9345d62af6725592010311027739c4",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "日本語学習動画の1場面、横16:9の全画面。白地、落ち着いた深緑・灰色、小さな黄色。先生・人物・資格名や肩書きの反復・派手な装飾なし。見出し「増員なしの条件を守る」。表示文言:[\"条件：人員を増やさない\",\"各施策の実行方法を照合\"]。構図:上に「増員なし」の条件札、下に施策1・施策2の二枠を置く。専任者を追加する案は灰色の別札として条件との食い違いを示す。 白地、緑の線、灰色の補助、小さな黄色の強調。人物なし。下部の字幕領域は空ける。。意味理解用の台本（全文を転写しない）:人員を増やさない条件なのに、専任者の増員を前提にすると食い違います。各施策が、最初の条件の中で実行できるかを見ます。。全内容は画面上70%に収め、下30%は字幕用の純白。左右7%以上空ける。360px幅で読めるよう主要文字60px以上相当、短い言葉と大きな図で表す。指定以外の解説・年度・数字・追加条件は書かない。参照表紙からは色調だけ継承する。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/cover-source.a7928e1d.png",
+                "sha256": "a7928e1d1b321249d4aee8a66323602fe21f0076c872a990c401d4fb01f6aa3d"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/mistakes-condition-source.a1b10e0e.png",
+              "sha256": "a1b10e0e35080c9e2bb6ef1e5f691068358023b4eb02ff2a17a0e48f444b6f12"
+            },
+            "generatedAt": "2026-10-22T09:17:56.928Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/mistakes-condition-diagram.f5f150ab.png",
+            "sha256": "f5f150abf2c1fab94b6d420c46f24a693bab8deeb908c524a4dd2c9465a72dcd",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "a1b10e0e35080c9e2bb6ef1e5f691068358023b4eb02ff2a17a0e48f444b6f12"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-22T09:46:13.050Z",
+            "by": "Codex",
+            "views": [
+              "original",
+              "width-360",
+              "final-mp4-cue-frames"
+            ],
+            "checks": [
+              "台本と図解の意味・文字",
+              "字幕との重なり・表示領域",
+              "装飾人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "time-read",
+          "inputSha256": "49d7a5ceb2123885ad4db13242f801ee26429c3b86a224329849df0018c60298",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "日本語学習動画の1場面、横16:9の全画面。白地、落ち着いた深緑・灰色、小さな黄色。先生・人物・資格名や肩書きの反復・派手な装飾なし。見出し「施策1　記録様式の統一」。表示文言:[\"内容：記録様式を揃える\",\"効果：転記の手間を減らす\",\"問題点：現場ごとの例外への対応\"]。構図:「仮設問の骨子例」と明示。異なる記録用紙が共通様式へ揃う小図を左、内容・効果・問題点の三段メモを右に置く。 白地、緑の線、灰色の補助、小さな黄色の強調。人物なし。下部の字幕領域は空ける。。意味理解用の台本（全文を転写しない）:施策一の骨子は、記録様式の統一。効果は転記の手間の削減。問題点は、現場ごとの例外を共通様式に収める難しさです。。全内容は画面上70%に収め、下30%は字幕用の純白。左右7%以上空ける。360px幅で読めるよう主要文字60px以上相当、短い言葉と大きな図で表す。指定以外の解説・年度・数字・追加条件は書かない。参照表紙からは色調だけ継承する。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/cover-source.a7928e1d.png",
+                "sha256": "a7928e1d1b321249d4aee8a66323602fe21f0076c872a990c401d4fb01f6aa3d"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/time-read-source.7449c65d.png",
+              "sha256": "7449c65dc6f0644d4399ca5cfafca1cf506dab64df5d0e756af3259e3874cc95"
+            },
+            "generatedAt": "2026-10-22T09:17:57.133Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/time-read-diagram.b2f4f362.png",
+            "sha256": "b2f4f362b47b080401045747576cef52d9415fecf19ea7403f9751ceee96d3f7",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "7449c65dc6f0644d4399ca5cfafca1cf506dab64df5d0e756af3259e3874cc95"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-22T09:46:13.050Z",
+            "by": "Codex",
+            "views": [
+              "original",
+              "width-360",
+              "final-mp4-cue-frames"
+            ],
+            "checks": [
+              "台本と図解の意味・文字",
+              "字幕との重なり・表示領域",
+              "装飾人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "time-plan",
+          "inputSha256": "e2639358f174cfe3849e93b718a86b8af19d1883525d60ee386b1008c6d75906",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "日本語学習動画の1場面、横16:9の全画面。白地、落ち着いた深緑・灰色、小さな黄色。先生・人物・資格名や肩書きの反復・派手な装飾なし。見出し「施策2　点検記録の一括取り込み」。表示文言:[\"内容：データをまとめて取り込む\",\"効果：入力時間を短縮する\",\"問題点：形式確認・誤入力の点検\"]。構図:「仮設問の骨子例」と明示。複数の記録データが一つの一覧へ入る小図を左、内容・効果・問題点の三段メモを右に置く。 白地、緑の線、灰色の補助、小さな黄色の強調。人物なし。下部の字幕領域は空ける。。意味理解用の台本（全文を転写しない）:施策二は、点検記録の一括取り込み。効果は入力時間の短縮。問題点は、形式の確認や誤入力の点検に手間がかかることです。。全内容は画面上70%に収め、下30%は字幕用の純白。左右7%以上空ける。360px幅で読めるよう主要文字60px以上相当、短い言葉と大きな図で表す。指定以外の解説・年度・数字・追加条件は書かない。参照表紙からは色調だけ継承する。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/cover-source.a7928e1d.png",
+                "sha256": "a7928e1d1b321249d4aee8a66323602fe21f0076c872a990c401d4fb01f6aa3d"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/time-plan-source.3529eb3e.png",
+              "sha256": "3529eb3e2f522a08f03cdc58f52d10e43a5a9cd7c7ab572b84ff20fb6969e650"
+            },
+            "generatedAt": "2026-10-22T09:17:57.257Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/time-plan-diagram.15f9dfc2.png",
+            "sha256": "15f9dfc2b8fd5e7fc8894ec577fc5b3eebbdaa2bfcb15b4dba44dfd909435f5c",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "3529eb3e2f522a08f03cdc58f52d10e43a5a9cd7c7ab572b84ff20fb6969e650"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-22T09:46:13.050Z",
+            "by": "Codex",
+            "views": [
+              "original",
+              "width-360",
+              "final-mp4-cue-frames"
+            ],
+            "checks": [
+              "台本と図解の意味・文字",
+              "字幕との重なり・表示領域",
+              "装飾人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "time-write",
+          "inputSha256": "7e1f8baebb14620517e297a393b6fd4d5d8272e8b4c0496335c2d9afa3636495",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "日本語学習動画の1場面、横16:9の全画面。白地、落ち着いた深緑と灰色、小さな黄色。先生・人物・資格名や肩書きの反復なし。見出し「条件の中で実行できるか」。表示文言:[\"既存業務の分担を検討\",\"確認作業の負担を点検\"]。構図:上に増員なしの条件札、中央に既存業務と確認作業の二つの箱、下に担当の分担メモ。増員を示す図は置かない。 白地、緑の線、灰色の補助、小さな黄色の強調。人物なし。下部の字幕領域は空ける。。意味理解用の台本（全文を転写しない）:これは骨子の例で、完成答案ではありません。増員せず確認作業を担えるか、既存業務の分担まで考えて内容を具体化します。。全内容は画面上70%以内、下30%は字幕用の純白。左右7%以上空ける。360px幅で読める主要文字60px以上相当、短い言葉と大きな図で表す。指定以外の解説・年度・数字・追加条件なし。配色だけ参照表紙から継承する。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/cover-source.a7928e1d.png",
+                "sha256": "a7928e1d1b321249d4aee8a66323602fe21f0076c872a990c401d4fb01f6aa3d"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/time-write-source.0fd56140.png",
+              "sha256": "0fd5614098628a7dc87876ea4c4214c253d0f0f0aeb8f209bbb9476911f0bf27"
+            },
+            "generatedAt": "2026-10-22T09:17:57.416Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/time-write-diagram.072c5077.png",
+            "sha256": "072c5077af06df0977ded097c050da57b7737ca8626994760b0375e8c454e5c9",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "0fd5614098628a7dc87876ea4c4214c253d0f0f0aeb8f209bbb9476911f0bf27"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-22T09:46:13.050Z",
+            "by": "Codex",
+            "views": [
+              "original",
+              "width-360",
+              "final-mp4-cue-frames"
+            ],
+            "checks": [
+              "台本と図解の意味・文字",
+              "字幕との重なり・表示領域",
+              "装飾人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "time-review",
+          "inputSha256": "74c3cc2f8cc32ab96a53366ce9b7ca09aa4d872142803871e6c89cdc7149484e",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照図を修正する。左側はチェックリスト「施策は2つ」「両方に効果・問題点」「対象と条件を維持」。右側は横並びの2枚のメモで見出し「施策1」「施策2」、その各々に「内容」「効果」「問題点」の3行を同じ順序で表示する。左右を結ぶ線はすべて削除し、中央に大きな双方向矢印を1本だけ描き「照合」と書く。各行同士は線で結ばない。見出し「書く前に対応を確かめる」。他の文字は追加しない。白、深緑、灰色、小黄色。16:9。全内容を上70%以内に配置、下30%は完全に白い字幕領域。",
+            "references": [
+              {
+                "path": "generated_images/exec-b577d3a2-25fc-44d1-afde-c964a2f04789.png",
+                "sha256": "feb6ac2976dd7ede7451abbfad07a9e24e7b3e420e7695e196efe485e479e7ba"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/time-review-source.519a158e.png",
+              "sha256": "519a158ecf3d9bf0d578f74c9c97474e846f9822a2ac78e1f84e9e34e5844430"
+            },
+            "generatedAt": "2026-10-22T09:17:57.555Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/time-review-diagram.91ed3b55.png",
+            "sha256": "91ed3b5534a8f7b961e54d6dc35048aa8c737d7cda25019a10e25092adba4740",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "519a158ecf3d9bf0d578f74c9c97474e846f9822a2ac78e1f84e9e34e5844430"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-22T09:46:13.050Z",
+            "by": "Codex",
+            "views": [
+              "original",
+              "width-360",
+              "final-mp4-cue-frames"
+            ],
+            "checks": [
+              "台本と図解の意味・文字",
+              "字幕との重なり・表示領域",
+              "装飾人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "summary-reading",
+          "inputSha256": "270365ea8dd439307006e7e0c62d697b8b095483f7cd09ff22669404f87d4e07",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "日本語学習動画の1場面、横16:9の全画面。白地、落ち着いた深緑と灰色、小さな黄色。先生・人物・資格名や肩書きの反復なし。見出し「読み取りから骨子へ」。表示文言:[\"四つの確認項目を拾う\",\"要求を見出しに移す\"]。構図:動詞・対象・数・条件の四つの札が、一枚の骨子メモへ集まる図。見出し部分を緑で強調する。 白地、緑の線、灰色の補助、小さな黄色の強調。人物なし。下部の字幕領域は空ける。。意味理解用の台本（全文を転写しない）:まとめます。問題文から動詞、対象、数、条件を拾います。要求を見出しに移してから、具体的な内容を考えてください。。全内容は画面上70%以内、下30%は字幕用の純白。左右7%以上空ける。360px幅で読める主要文字60px以上相当、短い言葉と大きな図で表す。指定以外の解説・年度・数字・追加条件なし。配色だけ参照表紙から継承する。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/cover-source.a7928e1d.png",
+                "sha256": "a7928e1d1b321249d4aee8a66323602fe21f0076c872a990c401d4fb01f6aa3d"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/summary-reading-source.78e7088e.png",
+              "sha256": "78e7088e4b428b7b0636cbb4c9dea118866bf44ceb0d5783ad59887330d23dd7"
+            },
+            "generatedAt": "2026-10-22T09:17:57.680Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/summary-reading-diagram.8da602b0.png",
+            "sha256": "8da602b051fe7d55ef519743202703cd14783bcdff1a09c6aee49662791452cb",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "78e7088e4b428b7b0636cbb4c9dea118866bf44ceb0d5783ad59887330d23dd7"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-22T09:46:13.050Z",
+            "by": "Codex",
+            "views": [
+              "original",
+              "width-360",
+              "final-mp4-cue-frames"
+            ],
+            "checks": [
+              "台本と図解の意味・文字",
+              "字幕との重なり・表示領域",
+              "装飾人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "summary-outline",
+          "inputSha256": "4411b39e89e6ad401d317a761d75acdfb813af70137364f87e88db5cff6ed9bd",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "日本語学習動画の1場面、横16:9の全画面。白地、落ち着いた深緑と灰色、小さな黄色。先生・人物・資格名や肩書きの反復なし。見出し「骨子だけ作る練習をする」。表示文言:[\"要求と見出しを照合\",\"別年度の指定で組み直す\"]。構図:異なる二枚の問題用紙から、それぞれ異なる見出しの骨子ができる並列図。同じテンプレートの複製にはしない。 白地、緑の線、灰色の補助、小さな黄色の強調。人物なし。下部の字幕領域は空ける。。意味理解用の台本（全文を転写しない）:練習では、本文を書く前に骨子だけ作る回を設けます。別の年度では、その問題の指定を読み直し、見出しから組み替えましょう。。全内容は画面上70%以内、下30%は字幕用の純白。左右7%以上空ける。360px幅で読める主要文字60px以上相当、短い言葉と大きな図で表す。指定以外の解説・年度・数字・追加条件なし。配色だけ参照表紙から継承する。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/cover-source.a7928e1d.png",
+                "sha256": "a7928e1d1b321249d4aee8a66323602fe21f0076c872a990c401d4fb01f6aa3d"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/summary-outline-source.c86fcdd6.png",
+              "sha256": "c86fcdd61b5ed877db71dfbdceaa06fa02aca58bd3f0dcf96d3fe801ae27932c"
+            },
+            "generatedAt": "2026-10-22T09:17:57.813Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/summary-outline-diagram.89cafa87.png",
+            "sha256": "89cafa87bc98535fb2ae992ae0d8a9e8b2a786de9787f55a19b78211b9cc689f",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "c86fcdd61b5ed877db71dfbdceaa06fa02aca58bd3f0dcf96d3fe801ae27932c"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-22T09:46:13.050Z",
+            "by": "Codex",
+            "views": [
+              "original",
+              "width-360",
+              "final-mp4-cue-frames"
+            ],
+            "checks": [
+              "台本と図解の意味・文字",
+              "字幕との重なり・表示領域",
+              "装飾人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "cta-pack",
+          "inputSha256": "68662102c40669acf48cab5a46799a6eff8cf8139e576446a9025f2b43b8c5ef",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "通常動画16:9の教材案内図を作成。見出し「総監記述式 コアパック」。文字は[\"収録内容・対象年度は商品ページへ\"]のみ。構図:白い教材カード一枚に商品名を表示し、下に確認する項目を小さく置く。年度・収録本数・価格の断定は載せない。 白地、緑の線、灰色の補助、小さな黄色の強調。人物なし。下部の字幕領域は空ける。。参照画像の白・深緑・灰色・小黄色の配色だけ引き継ぐ。カードと必要な矢印だけ、人物・先生・肩書き・資格の帯・価格・年度・未確認の収録数は不要。下30%は字幕用の完全な白、上70%を大きく使い、文字は360px幅でも読める太さ。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/cover-diagram.1cc05650.png",
+                "sha256": "1cc0565013352d21b55ac4e5da8176bd16592cb6d3e2c8b2e6c368870d1bfd92"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/cta-pack-source.1302d238.png",
+              "sha256": "1302d23862596afcdb42a27026b00a4e3be4da466dd325ad5c6611d160fc4500"
+            },
+            "generatedAt": "2026-10-22T09:17:57.940Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/cta-pack-diagram.2d0b3715.png",
+            "sha256": "2d0b37155daa4ebf0431c4a5166fa74499d5f4ce8a51b6b75a982f45ad64289e",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "1302d23862596afcdb42a27026b00a4e3be4da466dd325ad5c6611d160fc4500"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-22T09:46:13.050Z",
+            "by": "Codex",
+            "views": [
+              "original",
+              "width-360",
+              "final-mp4-cue-frames"
+            ],
+            "checks": [
+              "台本と図解の意味・文字",
+              "字幕との重なり・表示領域",
+              "装飾人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "cta",
+          "inputSha256": "0ff0e2066c03b3fc5bd3badbd3d56661566b0e51d5bddd482dc99217107edf40",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "通常動画16:9の教材案内図を作成。見出し「続きは概要欄から」。文字は[\"総監記述式 コアパック\"]のみ。構図:中央に商品名と概要欄への案内を配置。下向きの小さな緑矢印を一つ置き、人物や装飾は足さない。 白地、緑の線、灰色の補助、小さな黄色の強調。人物なし。下部の字幕領域は空ける。。参照画像の白・深緑・灰色・小黄色の配色だけ引き継ぐ。カードと必要な矢印だけ、人物・先生・肩書き・資格の帯・価格・年度・未確認の収録数は不要。下30%は字幕用の完全な白、上70%を大きく使い、文字は360px幅でも読める太さ。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/cover-diagram.1cc05650.png",
+                "sha256": "1cc0565013352d21b55ac4e5da8176bd16592cb6d3e2c8b2e6c368870d1bfd92"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/cta-source.d148e611.png",
+              "sha256": "d148e611c85c5367bcccbb563ede53e1e544d6fe693093a0842f2b94632b3a2d"
+            },
+            "generatedAt": "2026-10-22T09:17:58.066Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/cta-diagram.7744b0ea.png",
+            "sha256": "7744b0ea81552a3f4d78e17c39a4bc1832e26ecfdcd24cb1ab23c47eba6e9c06",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "d148e611c85c5367bcccbb563ede53e1e544d6fe693093a0842f2b94632b3a2d"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-22T09:46:13.050Z",
+            "by": "Codex",
+            "views": [
+              "original",
+              "width-360",
+              "final-mp4-cue-frames"
+            ],
+            "checks": [
+              "台本と図解の意味・文字",
+              "字幕との重なり・表示領域",
+              "装飾人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        }
+      ],
+      "storage": {
+        "group": "content-media",
+        "sync": "not-run-user-instruction"
+      }
+    },
+    "body-diagram-reviewed-20261022": {
+      "layout": {
+        "mode": "diagram-led"
+      },
+      "images": [
+        {
+          "sceneId": "intro",
+          "inputSha256": "c47200e1224c3b9aa9d3a9101ef3258ccd33b9937463ac73f711d715627e2116",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "技術士総監の問題文の読み取りを教える通常動画の1場面。16:9、白地、落ち着いた深緑と灰色、小黄色。参照表紙からは配色のみ継承。資格名の反復や先生・人物・肩書き・派手な装飾はなし。見出し「読んだ要求を、書く項目へ」。図に載せる文言:[\"動詞・対象・数・条件\",\"答案の見出しと骨子\"]。構図:左の問題文から四つの付箋を取り出し、右の骨子へ移す対応図。四つの付箋は同じ大きさにする。 白地、緑の線、灰色の補助、小さな黄色の強調。人物なし。下部の字幕領域は空ける。。この場面の語り:長い問題文を読んでも、何を書くか決まらない。まず動詞、対象、数、条件を拾い、答案の見出しに対応づけます。。図の矢印は対応関係・作業の流れがある箇所だけ。紙には読めないダミー文字を大量に書かない。指定以外の情報や年度や数字を足さない。全図形と文字は高さの70%以内、下30%は字幕用の真っ白な領域。左右7%以上安全域。360px幅で主要語が読める太い文字、内容は上部を大きく使う。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/cover-source.a7928e1d.png",
+                "sha256": "a7928e1d1b321249d4aee8a66323602fe21f0076c872a990c401d4fb01f6aa3d"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/intro-source.777f79cc.png",
+              "sha256": "777f79ccfb5e6c254dec62742deb282aec54e1a98d6b4118a13ee512216eb0cf"
+            },
+            "generatedAt": "2026-10-22T09:17:54.999Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/intro-diagram.90931dda.png",
+            "sha256": "90931dda44627dfeef9487611b9d38ae1b4f4a840de2772860beecd9b359691e",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "777f79ccfb5e6c254dec62742deb282aec54e1a98d6b4118a13ee512216eb0cf"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-22T09:46:13.029Z",
+            "by": "Codex",
+            "views": [
+              "original",
+              "width-360",
+              "final-mp4-cue-frames"
+            ],
+            "checks": [
+              "台本と図解の意味・文字",
+              "字幕との重なり・表示領域",
+              "装飾人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "premise",
+          "inputSha256": "70f09d8ab8dbcb72c5bb2ad27b156c3aca652362534de2dfda7195efc60f0a2b",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "技術士総監の問題文の読み取りを教える通常動画の1場面。16:9、白地、落ち着いた深緑と灰色、小黄色。参照表紙からは配色のみ継承。資格名の反復や先生・人物・肩書き・派手な装飾はなし。見出し「読み取りのための学習手順」。図に載せる文言:[\"当年度の問題文を読む\",\"要求に合わせて構成する\"]。構図:問題文の紙を中央に置き、そこから答案見出しが生まれる構図。固定テンプレートの図は置かない。 白地、緑の線、灰色の補助、小さな黄色の強調。人物なし。下部の字幕領域は空ける。。この場面の語り:これは要求の抜けを防ぐための学習手順です。決まった答案の型に当てはめる前に、その年度の問題文を読みます。。図の矢印は対応関係・作業の流れがある箇所だけ。紙には読めないダミー文字を大量に書かない。指定以外の情報や年度や数字を足さない。全図形と文字は高さの70%以内、下30%は字幕用の真っ白な領域。左右7%以上安全域。360px幅で主要語が読める太い文字、内容は上部を大きく使う。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/cover-source.a7928e1d.png",
+                "sha256": "a7928e1d1b321249d4aee8a66323602fe21f0076c872a990c401d4fb01f6aa3d"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/premise-source.bece44b3.png",
+              "sha256": "bece44b3de44e21aba96c6c0dec4b09dcf6d6dcdcdeddaaf8114473cb00734a0"
+            },
+            "generatedAt": "2026-10-22T09:17:55.141Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/premise-diagram.3442feae.png",
+            "sha256": "3442feae00df36459d7121b1b902fb194be2401ca794f2151acbeb1c074dae47",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "bece44b3de44e21aba96c6c0dec4b09dcf6d6dcdcdeddaaf8114473cb00734a0"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-22T09:46:13.050Z",
+            "by": "Codex",
+            "views": [
+              "original",
+              "width-360",
+              "final-mp4-cue-frames"
+            ],
+            "checks": [
+              "台本と図解の意味・文字",
+              "字幕との重なり・表示領域",
+              "装飾人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "premise-scope",
+          "inputSha256": "51d11103f5a282bf49a290ae6177e9099861354ee13376873fa71dc56aa01876",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "技術士総監の問題文の読み取りを教える通常動画の1場面。16:9、白地、落ち着いた深緑と灰色、小黄色。参照表紙からは配色のみ継承。資格名の反復や先生・人物・肩書き・派手な装飾はなし。見出し「指定を拾う」。図に載せる文言:[\"設問の区分・答える範囲\",\"項目数・答案枚数\"]。構図:問題用紙の指定欄を拡大する。範囲・数・枚数の三か所へ細い緑線を引き、確認済みの小さな印を付ける。 白地、緑の線、灰色の補助、小さな黄色の強調。人物なし。下部の字幕領域は空ける。。この場面の語り:設問の区分、答える範囲、項目数、答案枚数の指定を拾います。毎年同じだと決めつけて省略しないでください。。図の矢印は対応関係・作業の流れがある箇所だけ。紙には読めないダミー文字を大量に書かない。指定以外の情報や年度や数字を足さない。全図形と文字は高さの70%以内、下30%は字幕用の真っ白な領域。左右7%以上安全域。360px幅で主要語が読める太い文字、内容は上部を大きく使う。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/cover-source.a7928e1d.png",
+                "sha256": "a7928e1d1b321249d4aee8a66323602fe21f0076c872a990c401d4fb01f6aa3d"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/premise-scope-source.38944478.png",
+              "sha256": "3894447876804910f22a610b46ddbc4ebc8fd1fb338a63a0e703aed54e5d5438"
+            },
+            "generatedAt": "2026-10-22T09:17:55.292Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/premise-scope-diagram.4c35ce78.png",
+            "sha256": "4c35ce78de501a92f35de1950e4997de225c369fb2bd04e97c40ced1de5029ae",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "3894447876804910f22a610b46ddbc4ebc8fd1fb338a63a0e703aed54e5d5438"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-22T09:46:13.050Z",
+            "by": "Codex",
+            "views": [
+              "original",
+              "width-360",
+              "final-mp4-cue-frames"
+            ],
+            "checks": [
+              "台本と図解の意味・文字",
+              "字幕との重なり・表示領域",
+              "装飾人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "hints-request",
+          "inputSha256": "13fc264f584aed542193334240b2cfb76228fcac3a46875e0cfc01baead07184",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "技術士総監の問題文の読み取りを教える通常動画の1場面。16:9、白地、落ち着いた深緑と灰色、小黄色。参照表紙からは配色のみ継承。資格名の反復や先生・人物・肩書き・派手な装飾はなし。見出し「1　動詞を拾う」。図に載せる文言:[\"挙げる → 項目を示す\",\"説明する → 中身を述べる\",\"比較する → 違いを示す\"]。構図:左列に三つの動詞、右列に対応する作業。各行を一本の緑線で結び、動詞だけ小さく黄色で強調する。 白地、緑の線、灰色の補助、小さな黄色の強調。人物なし。下部の字幕領域は空ける。。この場面の語り:一つ目は動詞です。挙げよ、説明せよ、比較せよでは、答案で行う作業が違います。何をするよう求められたかを拾います。。図の矢印は対応関係・作業の流れがある箇所だけ。紙には読めないダミー文字を大量に書かない。指定以外の情報や年度や数字を足さない。全図形と文字は高さの70%以内、下30%は字幕用の真っ白な領域。左右7%以上安全域。360px幅で主要語が読める太い文字、内容は上部を大きく使う。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/cover-source.a7928e1d.png",
+                "sha256": "a7928e1d1b321249d4aee8a66323602fe21f0076c872a990c401d4fb01f6aa3d"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/hints-request-source.d34e0419.png",
+              "sha256": "d34e0419b394f0ccb0449157c8fcd6437b6b6885183d3e956a7c99f84acb9ae7"
+            },
+            "generatedAt": "2026-10-22T09:17:55.439Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/hints-request-diagram.efb59912.png",
+            "sha256": "efb599125eccf240b964c26f7ff3394902b9426256ba54f8070d33f1b21f2ea1",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "d34e0419b394f0ccb0449157c8fcd6437b6b6885183d3e956a7c99f84acb9ae7"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-22T09:46:13.050Z",
+            "by": "Codex",
+            "views": [
+              "original",
+              "width-360",
+              "final-mp4-cue-frames"
+            ],
+            "checks": [
+              "台本と図解の意味・文字",
+              "字幕との重なり・表示領域",
+              "装飾人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "hints-workplace",
+          "inputSha256": "7447eb7ccce3ce542058ef990395be33e4377d4039dd41d15c688b2fba736b22",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "教育動画用の図解1場面、16:9。白背景、落ち着いた緑灰、小さな黄。参照画像の配色だけ使う。大きな主題「2　対象を確かめる」。画面に載せる言葉は次の要素と構図で指定するラベルのみ:[\"担当業務・組織全体\",\"「前の設問の施策」の指す先\"]。構図:担当業務と組織全体を範囲の異なる二つの枠で示す。下に前問の施策から次問の同じ施策へ一本の参照線を引く。 白地、緑の線、灰色の補助、小さな黄色の強調。人物なし。下部の字幕領域は空ける。。内容理解用のナレーション（全文を書かない）:二つ目は対象です。自分の担当業務なのか、組織全体なのか。前の設問で選んだ施策を指すなら、その施策を引き継ぎます。。見出し90px相当、要素の文字は最低60px相当（360px縮小で11px以上）、語数が多ければ指定意図の範囲で短いラベルへ整理、細かい脚注なし。人物・先生・資格名・肩書き・URLは入れない。複数の仮設問を混ぜない。紙のダミーテキストは細線3本程度。比較を示す図の間に順序矢印を置かない。全要素は画面の上73%以内、下27%は真っ白な字幕領域。図解を横幅85%を使って大きく、外周6%安全域。指定しない数字や条件は追加しない。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/cover-source.a7928e1d.png",
+                "sha256": "a7928e1d1b321249d4aee8a66323602fe21f0076c872a990c401d4fb01f6aa3d"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/hints-workplace-source.12062b10.png",
+              "sha256": "12062b1041323d5c64d81108ffcf2926bfd1494ee3f23d64337405f47174c131"
+            },
+            "generatedAt": "2026-10-22T09:17:55.584Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/hints-workplace-diagram.022c4e08.png",
+            "sha256": "022c4e08a624a052c1eb289902a29770baa0c679df42c94c47ae7fc53f465d99",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "12062b1041323d5c64d81108ffcf2926bfd1494ee3f23d64337405f47174c131"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-22T09:46:13.050Z",
+            "by": "Codex",
+            "views": [
+              "original",
+              "width-360",
+              "final-mp4-cue-frames"
+            ],
+            "checks": [
+              "台本と図解の意味・文字",
+              "字幕との重なり・表示領域",
+              "装飾人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "hints-image",
+          "inputSha256": "f3de4f88f6823b4797580d71e9c30cf69382b5df2e18b08e2514574a6fa1d2fc",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "教育動画用の図解1場面、16:9。白背景、落ち着いた緑灰、小さな黄。参照画像の配色だけ使う。大きな主題「3　数を枠にする」。画面に載せる言葉は次の要素と構図で指定するラベルのみ:[\"施策は2つ\",\"それぞれに必要項目\"]。構図:横並びの施策一・施策二の空欄を大きく配置。両方に同じ小枠を置き、「それぞれ」から二股の線を引く。 白地、緑の線、灰色の補助、小さな黄色の強調。人物なし。下部の字幕領域は空ける。。内容理解用のナレーション（全文を書かない）:三つ目は数です。施策を二つとあれば、二つの記入枠を先に作ります。それぞれ、とあれば、両方に同じ要求がかかります。。見出し90px相当、要素の文字は最低60px相当（360px縮小で11px以上）、語数が多ければ指定意図の範囲で短いラベルへ整理、細かい脚注なし。人物・先生・資格名・肩書き・URLは入れない。複数の仮設問を混ぜない。紙のダミーテキストは細線3本程度。比較を示す図の間に順序矢印を置かない。全要素は画面の上73%以内、下27%は真っ白な字幕領域。図解を横幅85%を使って大きく、外周6%安全域。指定しない数字や条件は追加しない。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/cover-source.a7928e1d.png",
+                "sha256": "a7928e1d1b321249d4aee8a66323602fe21f0076c872a990c401d4fb01f6aa3d"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/hints-image-source.5b5ee74f.png",
+              "sha256": "5b5ee74f2a95daa81868e1488695aa39dbd801dbf993ebd823ed1f81ec03b4e9"
+            },
+            "generatedAt": "2026-10-22T09:17:55.735Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/hints-image-diagram.36236805.png",
+            "sha256": "362368059c50d140b604fcb5f603b4ce4c4721ad9cea0cd52022c3527db427f2",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "5b5ee74f2a95daa81868e1488695aa39dbd801dbf993ebd823ed1f81ec03b4e9"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-22T09:46:13.050Z",
+            "by": "Codex",
+            "views": [
+              "original",
+              "width-360",
+              "final-mp4-cue-frames"
+            ],
+            "checks": [
+              "台本と図解の意味・文字",
+              "字幕との重なり・表示領域",
+              "装飾人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "hints-fit",
+          "inputSha256": "876946c83f1841be7d91c0c20bb1de46fe107b26b655919b79a52505cd276b11",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "教育動画用の図解1場面、16:9。白背景、落ち着いた緑灰、小さな黄。参照画像の配色だけ使う。大きな主題「4　条件を残す」。画面に載せる言葉は次の要素と構図で指定するラベルのみ:[\"人員・予算・対象期間\",\"参考の事例と指定を区別\"]。構図:上に人員・予算・期間の三つの条件札。下に「参考の事例」と「守る指定」の二つのラベルを並べ、指定だけ囲む。 白地、緑の線、灰色の補助、小さな黄色の強調。人物なし。下部の字幕領域は空ける。。内容理解用のナレーション（全文を書かない）:四つ目は条件です。使える人員や予算、対象期間などを拾います。事例の紹介と、守るべき指定も区別してください。。見出し90px相当、要素の文字は最低60px相当（360px縮小で11px以上）、語数が多ければ指定意図の範囲で短いラベルへ整理、細かい脚注なし。人物・先生・資格名・肩書き・URLは入れない。複数の仮設問を混ぜない。紙のダミーテキストは細線3本程度。比較を示す図の間に順序矢印を置かない。全要素は画面の上73%以内、下27%は真っ白な字幕領域。図解を横幅85%を使って大きく、外周6%安全域。指定しない数字や条件は追加しない。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/cover-source.a7928e1d.png",
+                "sha256": "a7928e1d1b321249d4aee8a66323602fe21f0076c872a990c401d4fb01f6aa3d"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/hints-fit-source.c40b2f9c.png",
+              "sha256": "c40b2f9cc4fbe7898383e7b934751539123f309474f646e642b19628a6f68ef6"
+            },
+            "generatedAt": "2026-10-22T09:17:55.918Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/hints-fit-diagram.a4d28173.png",
+            "sha256": "a4d28173d2540805aaefcc3bd733a5c81b1b3a0f18e16ee1cc9d21d4e0009063",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "c40b2f9cc4fbe7898383e7b934751539123f309474f646e642b19628a6f68ef6"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-22T09:46:13.050Z",
+            "by": "Codex",
+            "views": [
+              "original",
+              "width-360",
+              "final-mp4-cue-frames"
+            ],
+            "checks": [
+              "台本と図解の意味・文字",
+              "字幕との重なり・表示領域",
+              "装飾人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "layers",
+          "inputSha256": "cbf16fb44c13e773b9da7a4904932c21e341a1b64e4880f108a31a65be6c25aa",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "教育動画用の図解1場面、16:9。白背景、落ち着いた緑灰、小さな黄。参照画像の配色だけ使う。大きな主題「仮設問　対象と条件」。画面に載せる言葉は次の要素と構図で指定するラベルのみ:[\"対象：担当する道路維持管理業務\",\"条件：人員を増やさない\",\"目的：点検記録の整理を効率化\"]。構図:上部に「練習用の仮設問」と明示。道路の簡略線画に点検記録の紙を添え、対象・条件・目的を三段で示す。工事機械や人物は描かない。 白地、緑の線、灰色の補助、小さな黄色の強調。人物なし。下部の字幕領域は空ける。。内容理解用のナレーション（全文を書かない）:ここからは練習用の仮設問です。対象は、担当する道路維持管理業務。人員を増やさず、点検記録の整理を効率化するとします。。見出し90px相当、要素の文字は最低60px相当（360px縮小で11px以上）、語数が多ければ指定意図の範囲で短いラベルへ整理、細かい脚注なし。人物・先生・資格名・肩書き・URLは入れない。複数の仮設問を混ぜない。紙のダミーテキストは細線3本程度。比較を示す図の間に順序矢印を置かない。全要素は画面の上73%以内、下27%は真っ白な字幕領域。図解を横幅85%を使って大きく、外周6%安全域。指定しない数字や条件は追加しない。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/cover-source.a7928e1d.png",
+                "sha256": "a7928e1d1b321249d4aee8a66323602fe21f0076c872a990c401d4fb01f6aa3d"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/layers-source.1339ceae.png",
+              "sha256": "1339ceaebf5c615381dff33bf3c550f73923dae4d9c7d67849617fce963ad345"
+            },
+            "generatedAt": "2026-10-22T09:17:56.070Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/layers-diagram.7b8a28ba.png",
+            "sha256": "7b8a28baedd5b2bb6fe5e12457d0662c3462fdbbc4935731753fbc26d0e987f1",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "1339ceaebf5c615381dff33bf3c550f73923dae4d9c7d67849617fce963ad345"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-22T09:46:13.050Z",
+            "by": "Codex",
+            "views": [
+              "original",
+              "width-360",
+              "final-mp4-cue-frames"
+            ],
+            "checks": [
+              "台本と図解の意味・文字",
+              "字幕との重なり・表示領域",
+              "装飾人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "layers-first",
+          "inputSha256": "5daa4704889f947aace5f43536c3c2b9456fa3103dc35492da64377f1b0f51e1",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "日本語の総監試験学習動画の一場面を新しく生成。横16:9。白地、落ち着いた深緑と灰色、小黄色のみ。人物・キャラ・資格名の帯・肩書き不要。最上部の見出し「仮設問　何を答えるか」。図に載せる文言は[\"施策を2つ挙げる\",\"それぞれの効果を説明する\",\"それぞれの実施上の問題点を説明する\"]。構図:「練習用の仮設問」の表示を継続。要求を三行で配置し、2つとそれぞれに小さな黄色の印を付ける。 白地、緑の線、灰色の補助、小さな黄色の強調。人物なし。下部の字幕領域は空ける。。意味理解用の台本（全文を画像へ写さない）:施策を二つ挙げ、それぞれの効果と実施上の問題点を説明せよ。これを仮設問の要求とし、読み取っていきます。。主要ラベルは1920幅換算で60px以上、360px幅でも読める。文字は指定の短い言葉のみ、指定外の説明や記号や年度は足さない。図と文字は画面の上70%以内、下30%は完全な白の字幕安全域。左右7%は安全余白。紙面を埋めず図解を大きく。矢印は対応や流れがある箇所だけ。表紙の配色を参照するがタイトルや要素はこの場面に置き換える。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/cover-source.a7928e1d.png",
+                "sha256": "a7928e1d1b321249d4aee8a66323602fe21f0076c872a990c401d4fb01f6aa3d"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/layers-first-source.3783f396.png",
+              "sha256": "3783f3962bd4051e9d51aaa2f609d12e252f5ebe4f86a2a42df163830a97c8bb"
+            },
+            "generatedAt": "2026-10-22T09:17:56.230Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/layers-first-diagram.ebdac7be.png",
+            "sha256": "ebdac7bee44e1dd6799d8552f7a2cf14fbb303518ac085ca41636a4a17784b48",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "3783f3962bd4051e9d51aaa2f609d12e252f5ebe4f86a2a42df163830a97c8bb"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-22T09:46:13.050Z",
+            "by": "Codex",
+            "views": [
+              "original",
+              "width-360",
+              "final-mp4-cue-frames"
+            ],
+            "checks": [
+              "台本と図解の意味・文字",
+              "字幕との重なり・表示領域",
+              "装飾人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "layers-second",
+          "inputSha256": "b3afa603bf28b68ac0b774277fc4906515863f74402dd4beeb7a31f31f2cdbff",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照の図を修正する。上段の長文とすべての対応線を削除し、四つの独立した大きなカードを2×2に配置する。見出し「仮設問を四つに分解」。カード1「動詞」「挙げる・説明する」、カード2「対象」「道路維持管理業務」、カード3「数」「施策2つ」、カード4「条件」「増員なし」。カード間に線や矢印は一切描かない。これ以外の文字を追加しない。白、深緑、灰、小黄色、下30%は字幕用白余白。16:9。主要文字は60px以上相当。",
+            "references": [
+              {
+                "path": "generated_images/exec-2346368d-4979-4360-986b-c80ab7aed85b.png",
+                "sha256": "7920054cdd1fa81ea2527c214ae889ae6cc46a383af17e7530b77ccec1dd4c77"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/layers-second-source.5b0400fb.png",
+              "sha256": "5b0400fb4f86396faf996b95640f65b1624b517aea994fec3e9605b28f5abbf7"
+            },
+            "generatedAt": "2026-10-22T09:17:56.393Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/layers-second-diagram.aab1e031.png",
+            "sha256": "aab1e0319e4b7d2d73f8359fb6fad262b8da2f3c3c55b8260ad9ace1110a5a30",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "5b0400fb4f86396faf996b95640f65b1624b517aea994fec3e9605b28f5abbf7"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-22T09:46:13.050Z",
+            "by": "Codex",
+            "views": [
+              "original",
+              "width-360",
+              "final-mp4-cue-frames"
+            ],
+            "checks": [
+              "台本と図解の意味・文字",
+              "字幕との重なり・表示領域",
+              "装飾人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "layers-third",
+          "inputSha256": "d3cd14fd8f32d4945853d80f7870983eca1fe20496ecb7bd6172a0c9da052069",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "日本語の総監試験学習動画の一場面を新しく生成。横16:9。白地、落ち着いた深緑と灰色、小黄色のみ。人物・キャラ・資格名の帯・肩書き不要。最上部の見出し「要求と骨子を対応づける」。図に載せる文言は[\"施策1：内容・効果・問題点\",\"施策2：内容・効果・問題点\"]。構図:二列の答案メモ。各列の大見出しを施策1・施策2とし、下に内容・効果・問題点の三つの空欄を同じ順で置く。 白地、緑の線、灰色の補助、小さな黄色の強調。人物なし。下部の字幕領域は空ける。。意味理解用の台本（全文を画像へ写さない）:答案の見出しは、施策一と施策二。それぞれに、施策の内容、効果、実施上の問題点の枠を作れば、書く項目が見えます。。主要ラベルは1920幅換算で60px以上、360px幅でも読める。文字は指定の短い言葉のみ、指定外の説明や記号や年度は足さない。図と文字は画面の上70%以内、下30%は完全な白の字幕安全域。左右7%は安全余白。紙面を埋めず図解を大きく。矢印は対応や流れがある箇所だけ。表紙の配色を参照するがタイトルや要素はこの場面に置き換える。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/cover-source.a7928e1d.png",
+                "sha256": "a7928e1d1b321249d4aee8a66323602fe21f0076c872a990c401d4fb01f6aa3d"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/layers-third-source.50e48198.png",
+              "sha256": "50e481987d36e5bb2d0fe612d82db720a84e4d758d66910892f3a21332faf2ce"
+            },
+            "generatedAt": "2026-10-22T09:17:56.535Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/layers-third-diagram.4cbe00ec.png",
+            "sha256": "4cbe00ec6b7191ec995658bf357a05a513daf1f505b65069e544fad03d8f76b8",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "50e481987d36e5bb2d0fe612d82db720a84e4d758d66910892f3a21332faf2ce"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-22T09:46:13.050Z",
+            "by": "Codex",
+            "views": [
+              "original",
+              "width-360",
+              "final-mp4-cue-frames"
+            ],
+            "checks": [
+              "台本と図解の意味・文字",
+              "字幕との重なり・表示領域",
+              "装飾人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "mistakes-effect",
+          "inputSha256": "eac9b33c3b4d309127fefb7d28b4ec4201c6df8995abd299579c5b2a3546f534",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "日本語の総監試験学習動画の一場面を新しく生成。横16:9。白地、落ち着いた深緑と灰色、小黄色のみ。人物・キャラ・資格名の帯・肩書き不要。最上部の見出し「「それぞれ」の抜けを探す」。図に載せる文言は[\"施策1：効果・問題点\",\"施策2：効果・問題点\"]。構図:前場面と同じ二列三段の骨子を再利用。施策2の問題点欄だけ空欄にして黄色の枠で強調し、補う場所を示す。 白地、緑の線、灰色の補助、小さな黄色の強調。人物なし。下部の字幕領域は空ける。。意味理解用の台本（全文を画像へ写さない）:抜けやすいのは、施策二の問題点です。片方に効果と問題点を書いただけでは、それぞれ、という要求を満たしません。。主要ラベルは1920幅換算で60px以上、360px幅でも読める。文字は指定の短い言葉のみ、指定外の説明や記号や年度は足さない。図と文字は画面の上70%以内、下30%は完全な白の字幕安全域。左右7%は安全余白。紙面を埋めず図解を大きく。矢印は対応や流れがある箇所だけ。表紙の配色を参照するがタイトルや要素はこの場面に置き換える。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/cover-source.a7928e1d.png",
+                "sha256": "a7928e1d1b321249d4aee8a66323602fe21f0076c872a990c401d4fb01f6aa3d"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/mistakes-effect-source.6b1a3ff4.png",
+              "sha256": "6b1a3ff45c029acfb65731a4742822a880a45b16bcf7f67ab425406b44ddb68d"
+            },
+            "generatedAt": "2026-10-22T09:17:56.651Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/mistakes-effect-diagram.abc1d3eb.png",
+            "sha256": "abc1d3eb5d27c7d6577f79d5200814f6067830cd66fc942d9a60378d4662b30b",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "6b1a3ff45c029acfb65731a4742822a880a45b16bcf7f67ab425406b44ddb68d"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-22T09:46:13.050Z",
+            "by": "Codex",
+            "views": [
+              "original",
+              "width-360",
+              "final-mp4-cue-frames"
+            ],
+            "checks": [
+              "台本と図解の意味・文字",
+              "字幕との重なり・表示領域",
+              "装飾人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "mistakes-risk",
+          "inputSha256": "03fcd2f9c20e7ff2440234645b9a9bbd704de8291cacf6e192d8d991bae90008",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "日本語学習動画の1場面、横16:9の全画面。白地、落ち着いた深緑・灰色、小さな黄色。先生・人物・資格名や肩書きの反復・派手な装飾なし。見出し「「説明する」に応える」。表示文言:[\"何を変えるか\",\"どんな効果か\",\"何が問題か\"]。構図:左に施策名だけの一行メモ、右に内容・効果・問題点を埋めた三段のメモ。中央の矢印は具体化の方向だけを示す。 白地、緑の線、灰色の補助、小さな黄色の強調。人物なし。下部の字幕領域は空ける。。意味理解用の台本（全文を転写しない）:また、施策名を並べるだけでは説明になりません。何を変え、どんな効果があり、何が問題となるかを短いメモで埋めます。。全内容は画面上70%に収め、下30%は字幕用の純白。左右7%以上空ける。360px幅で読めるよう主要文字60px以上相当、短い言葉と大きな図で表す。指定以外の解説・年度・数字・追加条件は書かない。参照表紙からは色調だけ継承する。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/cover-source.a7928e1d.png",
+                "sha256": "a7928e1d1b321249d4aee8a66323602fe21f0076c872a990c401d4fb01f6aa3d"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/mistakes-risk-source.c37ed233.png",
+              "sha256": "c37ed23398bacf84485a737947bd4d49fab0de408802bb5aa84280c8f15d3f0f"
+            },
+            "generatedAt": "2026-10-22T09:17:56.785Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/mistakes-risk-diagram.b0d51f52.png",
+            "sha256": "b0d51f5276a80cef22032b9e315938741f31583e0cd84f310bac881e60d9f42f",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "c37ed23398bacf84485a737947bd4d49fab0de408802bb5aa84280c8f15d3f0f"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-22T09:46:13.050Z",
+            "by": "Codex",
+            "views": [
+              "original",
+              "width-360",
+              "final-mp4-cue-frames"
+            ],
+            "checks": [
+              "台本と図解の意味・文字",
+              "字幕との重なり・表示領域",
+              "装飾人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "mistakes-condition",
+          "inputSha256": "fcd051854800944dba3dab496b3dcd4bfa9345d62af6725592010311027739c4",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "日本語学習動画の1場面、横16:9の全画面。白地、落ち着いた深緑・灰色、小さな黄色。先生・人物・資格名や肩書きの反復・派手な装飾なし。見出し「増員なしの条件を守る」。表示文言:[\"条件：人員を増やさない\",\"各施策の実行方法を照合\"]。構図:上に「増員なし」の条件札、下に施策1・施策2の二枠を置く。専任者を追加する案は灰色の別札として条件との食い違いを示す。 白地、緑の線、灰色の補助、小さな黄色の強調。人物なし。下部の字幕領域は空ける。。意味理解用の台本（全文を転写しない）:人員を増やさない条件なのに、専任者の増員を前提にすると食い違います。各施策が、最初の条件の中で実行できるかを見ます。。全内容は画面上70%に収め、下30%は字幕用の純白。左右7%以上空ける。360px幅で読めるよう主要文字60px以上相当、短い言葉と大きな図で表す。指定以外の解説・年度・数字・追加条件は書かない。参照表紙からは色調だけ継承する。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/cover-source.a7928e1d.png",
+                "sha256": "a7928e1d1b321249d4aee8a66323602fe21f0076c872a990c401d4fb01f6aa3d"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/mistakes-condition-source.a1b10e0e.png",
+              "sha256": "a1b10e0e35080c9e2bb6ef1e5f691068358023b4eb02ff2a17a0e48f444b6f12"
+            },
+            "generatedAt": "2026-10-22T09:17:56.928Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/mistakes-condition-diagram.f5f150ab.png",
+            "sha256": "f5f150abf2c1fab94b6d420c46f24a693bab8deeb908c524a4dd2c9465a72dcd",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "a1b10e0e35080c9e2bb6ef1e5f691068358023b4eb02ff2a17a0e48f444b6f12"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-22T09:46:13.050Z",
+            "by": "Codex",
+            "views": [
+              "original",
+              "width-360",
+              "final-mp4-cue-frames"
+            ],
+            "checks": [
+              "台本と図解の意味・文字",
+              "字幕との重なり・表示領域",
+              "装飾人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "time-read",
+          "inputSha256": "49d7a5ceb2123885ad4db13242f801ee26429c3b86a224329849df0018c60298",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "日本語学習動画の1場面、横16:9の全画面。白地、落ち着いた深緑・灰色、小さな黄色。先生・人物・資格名や肩書きの反復・派手な装飾なし。見出し「施策1　記録様式の統一」。表示文言:[\"内容：記録様式を揃える\",\"効果：転記の手間を減らす\",\"問題点：現場ごとの例外への対応\"]。構図:「仮設問の骨子例」と明示。異なる記録用紙が共通様式へ揃う小図を左、内容・効果・問題点の三段メモを右に置く。 白地、緑の線、灰色の補助、小さな黄色の強調。人物なし。下部の字幕領域は空ける。。意味理解用の台本（全文を転写しない）:施策一の骨子は、記録様式の統一。効果は転記の手間の削減。問題点は、現場ごとの例外を共通様式に収める難しさです。。全内容は画面上70%に収め、下30%は字幕用の純白。左右7%以上空ける。360px幅で読めるよう主要文字60px以上相当、短い言葉と大きな図で表す。指定以外の解説・年度・数字・追加条件は書かない。参照表紙からは色調だけ継承する。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/cover-source.a7928e1d.png",
+                "sha256": "a7928e1d1b321249d4aee8a66323602fe21f0076c872a990c401d4fb01f6aa3d"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/time-read-source.7449c65d.png",
+              "sha256": "7449c65dc6f0644d4399ca5cfafca1cf506dab64df5d0e756af3259e3874cc95"
+            },
+            "generatedAt": "2026-10-22T09:17:57.133Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/time-read-diagram.b2f4f362.png",
+            "sha256": "b2f4f362b47b080401045747576cef52d9415fecf19ea7403f9751ceee96d3f7",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "7449c65dc6f0644d4399ca5cfafca1cf506dab64df5d0e756af3259e3874cc95"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-22T09:46:13.050Z",
+            "by": "Codex",
+            "views": [
+              "original",
+              "width-360",
+              "final-mp4-cue-frames"
+            ],
+            "checks": [
+              "台本と図解の意味・文字",
+              "字幕との重なり・表示領域",
+              "装飾人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "time-plan",
+          "inputSha256": "e2639358f174cfe3849e93b718a86b8af19d1883525d60ee386b1008c6d75906",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像の不足注記だけを追加。横16:9。見出し『施策2 点検記録の一括取り込み』のすぐ下に、明瞭な注記『仮設問の骨子例』を追加し、独自の学習例だと分かるようにする。その他の文字『内容 データをまとめて取り込む』『効果 入力時間を短縮する』『問題点 形式確認・誤入力の点検』、左の複数の記録が一つの一覧へ入る図はそのまま意味を維持。白地・緑灰・小黄色。新しい注記のため必要なら全体を軽く詰め、全図形・文字を上72%以内に収め、下28%は字幕用の完全な白。余分な文章・価格・年・人物を足さない。日本語が360px幅でも読める大きさ。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/time-plan-diagram.15f9dfc2.png",
+                "sha256": "15f9dfc2b8fd5e7fc8894ec577fc5b3eebbdaa2bfcb15b4dba44dfd909435f5c"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/time-plan-reviewed-source.12327dd3.png",
+              "sha256": "12327dd36c9d779c58d1950066c9bdadb9e0ac7c5e35d573a7e1ddf33d673207"
+            },
+            "generatedAt": "2026-10-22T10:02:48.273Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/time-plan-reviewed.d7f7adee.png",
+            "sha256": "d7f7adeeacb926facaba701b7e12bc720d44a261725377861d67a4790c60309e",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "12327dd36c9d779c58d1950066c9bdadb9e0ac7c5e35d573a7e1ddf33d673207"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-22T10:14:46.059Z",
+            "by": "Codex + independent ai-image-fidelity-auditor",
+            "views": [
+              "original",
+              "width-360",
+              "final-mp4-cue-frames"
+            ],
+            "checks": [
+              "台本と図解の意味・文字",
+              "字幕との重なり・表示領域",
+              "独立監査で指摘された構図・注記の修正"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "time-write",
+          "inputSha256": "7e1f8baebb14620517e297a393b6fd4d5d8272e8b4c0496335c2d9afa3636495",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "日本語学習動画の1場面、横16:9の全画面。白地、落ち着いた深緑と灰色、小さな黄色。先生・人物・資格名や肩書きの反復なし。見出し「条件の中で実行できるか」。表示文言:[\"既存業務の分担を検討\",\"確認作業の負担を点検\"]。構図:上に増員なしの条件札、中央に既存業務と確認作業の二つの箱、下に担当の分担メモ。増員を示す図は置かない。 白地、緑の線、灰色の補助、小さな黄色の強調。人物なし。下部の字幕領域は空ける。。意味理解用の台本（全文を転写しない）:これは骨子の例で、完成答案ではありません。増員せず確認作業を担えるか、既存業務の分担まで考えて内容を具体化します。。全内容は画面上70%以内、下30%は字幕用の純白。左右7%以上空ける。360px幅で読める主要文字60px以上相当、短い言葉と大きな図で表す。指定以外の解説・年度・数字・追加条件なし。配色だけ参照表紙から継承する。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/cover-source.a7928e1d.png",
+                "sha256": "a7928e1d1b321249d4aee8a66323602fe21f0076c872a990c401d4fb01f6aa3d"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/time-write-source.0fd56140.png",
+              "sha256": "0fd5614098628a7dc87876ea4c4214c253d0f0f0aeb8f209bbb9476911f0bf27"
+            },
+            "generatedAt": "2026-10-22T09:17:57.416Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/time-write-diagram.072c5077.png",
+            "sha256": "072c5077af06df0977ded097c050da57b7737ca8626994760b0375e8c454e5c9",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "0fd5614098628a7dc87876ea4c4214c253d0f0f0aeb8f209bbb9476911f0bf27"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-22T09:46:13.050Z",
+            "by": "Codex",
+            "views": [
+              "original",
+              "width-360",
+              "final-mp4-cue-frames"
+            ],
+            "checks": [
+              "台本と図解の意味・文字",
+              "字幕との重なり・表示領域",
+              "装飾人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "time-review",
+          "inputSha256": "74c3cc2f8cc32ab96a53366ce9b7ca09aa4d872142803871e6c89cdc7149484e",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照図を修正する。左側はチェックリスト「施策は2つ」「両方に効果・問題点」「対象と条件を維持」。右側は横並びの2枚のメモで見出し「施策1」「施策2」、その各々に「内容」「効果」「問題点」の3行を同じ順序で表示する。左右を結ぶ線はすべて削除し、中央に大きな双方向矢印を1本だけ描き「照合」と書く。各行同士は線で結ばない。見出し「書く前に対応を確かめる」。他の文字は追加しない。白、深緑、灰色、小黄色。16:9。全内容を上70%以内に配置、下30%は完全に白い字幕領域。",
+            "references": [
+              {
+                "path": "generated_images/exec-b577d3a2-25fc-44d1-afde-c964a2f04789.png",
+                "sha256": "feb6ac2976dd7ede7451abbfad07a9e24e7b3e420e7695e196efe485e479e7ba"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/time-review-source.519a158e.png",
+              "sha256": "519a158ecf3d9bf0d578f74c9c97474e846f9822a2ac78e1f84e9e34e5844430"
+            },
+            "generatedAt": "2026-10-22T09:17:57.555Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/time-review-diagram.91ed3b55.png",
+            "sha256": "91ed3b5534a8f7b961e54d6dc35048aa8c737d7cda25019a10e25092adba4740",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "519a158ecf3d9bf0d578f74c9c97474e846f9822a2ac78e1f84e9e34e5844430"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-22T09:46:13.050Z",
+            "by": "Codex",
+            "views": [
+              "original",
+              "width-360",
+              "final-mp4-cue-frames"
+            ],
+            "checks": [
+              "台本と図解の意味・文字",
+              "字幕との重なり・表示領域",
+              "装飾人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "summary-reading",
+          "inputSha256": "270365ea8dd439307006e7e0c62d697b8b095483f7cd09ff22669404f87d4e07",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "日本語学習動画の1場面、横16:9の全画面。白地、落ち着いた深緑と灰色、小さな黄色。先生・人物・資格名や肩書きの反復なし。見出し「読み取りから骨子へ」。表示文言:[\"四つの確認項目を拾う\",\"要求を見出しに移す\"]。構図:動詞・対象・数・条件の四つの札が、一枚の骨子メモへ集まる図。見出し部分を緑で強調する。 白地、緑の線、灰色の補助、小さな黄色の強調。人物なし。下部の字幕領域は空ける。。意味理解用の台本（全文を転写しない）:まとめます。問題文から動詞、対象、数、条件を拾います。要求を見出しに移してから、具体的な内容を考えてください。。全内容は画面上70%以内、下30%は字幕用の純白。左右7%以上空ける。360px幅で読める主要文字60px以上相当、短い言葉と大きな図で表す。指定以外の解説・年度・数字・追加条件なし。配色だけ参照表紙から継承する。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/cover-source.a7928e1d.png",
+                "sha256": "a7928e1d1b321249d4aee8a66323602fe21f0076c872a990c401d4fb01f6aa3d"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/summary-reading-source.78e7088e.png",
+              "sha256": "78e7088e4b428b7b0636cbb4c9dea118866bf44ceb0d5783ad59887330d23dd7"
+            },
+            "generatedAt": "2026-10-22T09:17:57.680Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/summary-reading-diagram.8da602b0.png",
+            "sha256": "8da602b051fe7d55ef519743202703cd14783bcdff1a09c6aee49662791452cb",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "78e7088e4b428b7b0636cbb4c9dea118866bf44ceb0d5783ad59887330d23dd7"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-22T09:46:13.050Z",
+            "by": "Codex",
+            "views": [
+              "original",
+              "width-360",
+              "final-mp4-cue-frames"
+            ],
+            "checks": [
+              "台本と図解の意味・文字",
+              "字幕との重なり・表示領域",
+              "装飾人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "summary-outline",
+          "inputSha256": "4411b39e89e6ad401d317a761d75acdfb813af70137364f87e88db5cff6ed9bd",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "日本語学習動画の1場面、横16:9の全画面。白地、落ち着いた深緑と灰色、小さな黄色。先生・人物・資格名や肩書きの反復なし。見出し「骨子だけ作る練習をする」。表示文言:[\"要求と見出しを照合\",\"別年度の指定で組み直す\"]。構図:異なる二枚の問題用紙から、それぞれ異なる見出しの骨子ができる並列図。同じテンプレートの複製にはしない。 白地、緑の線、灰色の補助、小さな黄色の強調。人物なし。下部の字幕領域は空ける。。意味理解用の台本（全文を転写しない）:練習では、本文を書く前に骨子だけ作る回を設けます。別の年度では、その問題の指定を読み直し、見出しから組み替えましょう。。全内容は画面上70%以内、下30%は字幕用の純白。左右7%以上空ける。360px幅で読める主要文字60px以上相当、短い言葉と大きな図で表す。指定以外の解説・年度・数字・追加条件なし。配色だけ参照表紙から継承する。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/cover-source.a7928e1d.png",
+                "sha256": "a7928e1d1b321249d4aee8a66323602fe21f0076c872a990c401d4fb01f6aa3d"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/summary-outline-source.c86fcdd6.png",
+              "sha256": "c86fcdd61b5ed877db71dfbdceaa06fa02aca58bd3f0dcf96d3fe801ae27932c"
+            },
+            "generatedAt": "2026-10-22T09:17:57.813Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/summary-outline-diagram.89cafa87.png",
+            "sha256": "89cafa87bc98535fb2ae992ae0d8a9e8b2a786de9787f55a19b78211b9cc689f",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "c86fcdd61b5ed877db71dfbdceaa06fa02aca58bd3f0dcf96d3fe801ae27932c"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-22T09:46:13.050Z",
+            "by": "Codex",
+            "views": [
+              "original",
+              "width-360",
+              "final-mp4-cue-frames"
+            ],
+            "checks": [
+              "台本と図解の意味・文字",
+              "字幕との重なり・表示領域",
+              "装飾人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "cta-pack",
+          "inputSha256": "68662102c40669acf48cab5a46799a6eff8cf8139e576446a9025f2b43b8c5ef",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "通常動画16:9の教材案内図を作成。見出し「総監記述式 コアパック」。文字は[\"収録内容・対象年度は商品ページへ\"]のみ。構図:白い教材カード一枚に商品名を表示し、下に確認する項目を小さく置く。年度・収録本数・価格の断定は載せない。 白地、緑の線、灰色の補助、小さな黄色の強調。人物なし。下部の字幕領域は空ける。。参照画像の白・深緑・灰色・小黄色の配色だけ引き継ぐ。カードと必要な矢印だけ、人物・先生・肩書き・資格の帯・価格・年度・未確認の収録数は不要。下30%は字幕用の完全な白、上70%を大きく使い、文字は360px幅でも読める太さ。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/cover-diagram.1cc05650.png",
+                "sha256": "1cc0565013352d21b55ac4e5da8176bd16592cb6d3e2c8b2e6c368870d1bfd92"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/cta-pack-source.1302d238.png",
+              "sha256": "1302d23862596afcdb42a27026b00a4e3be4da466dd325ad5c6611d160fc4500"
+            },
+            "generatedAt": "2026-10-22T09:17:57.940Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/cta-pack-diagram.2d0b3715.png",
+            "sha256": "2d0b37155daa4ebf0431c4a5166fa74499d5f4ce8a51b6b75a982f45ad64289e",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "1302d23862596afcdb42a27026b00a4e3be4da466dd325ad5c6611d160fc4500"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-22T09:46:13.050Z",
+            "by": "Codex",
+            "views": [
+              "original",
+              "width-360",
+              "final-mp4-cue-frames"
+            ],
+            "checks": [
+              "台本と図解の意味・文字",
+              "字幕との重なり・表示領域",
+              "装飾人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "cta",
+          "inputSha256": "0ff0e2066c03b3fc5bd3badbd3d56661566b0e51d5bddd482dc99217107edf40",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "通常動画16:9の教材案内図を作成。見出し「続きは概要欄から」。文字は[\"総監記述式 コアパック\"]のみ。構図:中央に商品名と概要欄への案内を配置。下向きの小さな緑矢印を一つ置き、人物や装飾は足さない。 白地、緑の線、灰色の補助、小さな黄色の強調。人物なし。下部の字幕領域は空ける。。参照画像の白・深緑・灰色・小黄色の配色だけ引き継ぐ。カードと必要な矢印だけ、人物・先生・肩書き・資格の帯・価格・年度・未確認の収録数は不要。下30%は字幕用の完全な白、上70%を大きく使い、文字は360px幅でも読める太さ。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/cover-diagram.1cc05650.png",
+                "sha256": "1cc0565013352d21b55ac4e5da8176bd16592cb6d3e2c8b2e6c368870d1bfd92"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/cta-source.d148e611.png",
+              "sha256": "d148e611c85c5367bcccbb563ede53e1e544d6fe693093a0842f2b94632b3a2d"
+            },
+            "generatedAt": "2026-10-22T09:17:58.066Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/cta-diagram.7744b0ea.png",
+            "sha256": "7744b0ea81552a3f4d78e17c39a4bc1832e26ecfdcd24cb1ab23c47eba6e9c06",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "d148e611c85c5367bcccbb563ede53e1e544d6fe693093a0842f2b94632b3a2d"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-22T09:46:13.050Z",
+            "by": "Codex",
+            "views": [
+              "original",
+              "width-360",
+              "final-mp4-cue-frames"
+            ],
+            "checks": [
+              "台本と図解の意味・文字",
+              "字幕との重なり・表示領域",
+              "装飾人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        }
+      ],
+      "storage": {
+        "group": "content-media",
+        "sync": "not-run-user-instruction"
+      }
     }
   },
-  "activeCoverRevision": "cover-pop-20261018"
+  "activeCoverRevision": "cover-diagram-20261022"
 }

@@ -5,10 +5,22 @@
   "title": "5管理を列挙で終わらせずトレードオフにする方法",
   "audience": "技術士総監の記述式で5管理を並べるだけになっている受験者",
   "pain": "5管理を列挙しただけの答案から抜け出せない",
-  "promise": "頻出ペアの衝突と判断根拠で書けるようになる",
+  "promise": "同じ業務の複数案を比べ、制約・判断理由・残余リスクまで説明できる",
   "intent": "exam-point",
   "sourceRefs": [
-    { "type": "site", "path": "content/site/pe-comprehensive-management/management-tradeoffs/article.mdx" }
+    {
+      "type": "external",
+      "url": "https://www.mext.go.jp/content/20251125-mxt_kiban02-000046002_01.pdf",
+      "title": "文部科学省「総合技術監理キーワード集2026」pp.2–3（5管理の関連・トレードオフ・目的や環境に応じた判断）"
+    },
+    {
+      "type": "site",
+      "path": "content/site/pe-comprehensive-management/management-tradeoffs/article.mdx"
+    },
+    {
+      "type": "figure",
+      "path": "content/site/pe-comprehensive-management/keyword-2026/img/figure-five-management-learning.svg"
+    }
   ],
   "primaryCta": {
     "kind": "note-magazine",

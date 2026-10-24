@@ -9,7 +9,7 @@
  *   npm run registry -- import-video-packs [--commit]   # 全動画パック。2 回目は書く行 0。公開中の一覧（own-videos）と件数を突き合わせる
  *   npm run registry -- import-instagram [--commit]      # IG の作品フォルダ全部（照合の記録 snapshot.json の live.list が要る・手元で verify-ig-status）
  *   npm run registry -- import-x [--commit]              # X の下書きフォルダ全部（自分の投稿の一覧 data/x/own-posts と本文で照合）
- *   npm run registry -- prepare-youtube-revision --pub <元の公開ID> --variant <新版名> [--related-to <新版通常動画ID>] [--publish-at <日時>] [--commit --expect <digest>]
+ *   npm run registry -- prepare-youtube-revision --pub <元の公開ID> --variant <新版名> [--copy <同作品内のJSON#fragment>] [--refresh-draft] [--related-to <新版通常動画ID>] [--publish-at <日時>] [--commit --expect <digest>]
  *   npm run registry -- publish-youtube-revision --pub <改訂公開ID> --phase upload|schedule|verify [--commit --expect <digest>] # 既定はローカル検査のみ
  *   npm run registry -- approve --pub <公開 ID> --stage visual|final --expect <digest>   # 運営者だけ（管理画面の確認画面からコピーする）
  *   npm run registry -- stop --pub <公開 ID> --reason user-decision|superseded|gone|unverified-legacy
@@ -40,7 +40,7 @@ const { values: args, positionals } = parseArgs({
     'pack-dir': { type: 'string' }, commit: { type: 'boolean' },
     pub: { type: 'string' }, stage: { type: 'string' }, expect: { type: 'string' }, reason: { type: 'string' },
     variant: { type: 'string' }, 'related-to': { type: 'string' }, 'publish-at': { type: 'string' },
-    phase: { type: 'string' },
+    phase: { type: 'string' }, copy: { type: 'string' }, 'refresh-draft': { type: 'boolean' },
   },
 });
 const [command, target] = positionals;
@@ -273,8 +273,8 @@ async function importX() {
 async function prepareYoutubeRevision() {
   const { prepareYoutubeRevision } = await import('./lib/registry-youtube-revision.mjs');
   const result = prepareYoutubeRevision(ROOT, {
-    pubId: args.pub, variant: args.variant, relatedTo: args['related-to'], publishAt: args['publish-at'],
-    commit: args.commit, expect: args.expect,
+    pubId: args.pub, variant: args.variant, relatedTo: args['related-to'], publishAt: args['publish-at'], copyRef: args.copy,
+    commit: args.commit, expect: args.expect, refreshDraft: args['refresh-draft'],
   });
   console.log(JSON.stringify(result, null, 2));
 }

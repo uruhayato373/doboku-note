@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "publicationId": "pe-comprehensive-management/gokanri-tradeoff/youtube.longform.diagram-led",
+  "revisionOf": "pe-comprehensive-management/gokanri-tradeoff/youtube.longform",
+  "account": "youtube:main",
+  "format": "longform",
+  "title": "5管理を列挙で終わらせずトレードオフにする方法",
+  "description": "5管理を列挙するだけで終わらず、同じ業務の複数案を比較し、判断理由と残余リスクを説明する方法を整理します。\n\n住宅近くの道路補修を練習用の仮例とし、工期に余裕があり昼間の規制を調整できる条件で、夜間集中案と昼間分割案を比較します。選択は条件付きです。法令・必要な品質・安全確保を予算との単純な交換条件にはしません。仮例は実績や公式の模範答案ではありません。\n\n▼ 5管理クロストレードオフの教材\nhttps://note.com/dobokunote/m/m921fbe060575?utm_source=youtube&utm_medium=video&utm_campaign=gokanri-tradeoff&utm_content=longform\n\n出典（2026年10月22日確認）\n文部科学省「総合技術監理キーワード集2026」本文2〜3ページ（5管理の相互関係、目的や環境に応じた判断）\nhttps://www.mext.go.jp/content/20251125-mxt_kiban02-000046002_01.pdf\n\n音声：VOICEVOX:青山龍星\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。",
+  "tags": [
+    "技術士",
+    "総合技術監理部門",
+    "記述式",
+    "5管理"
+  ],
+  "media": {
+    "cover": {
+      "id": "pe-comprehensive-management/gokanri-tradeoff/work/candidate-cover",
+      "path": ".tmp/media/pe-comprehensive-management/gokanri-tradeoff/work/candidate-cover.3c018394.png",
+      "sha256": "3c018394ecb044db8d7c16f1242349558eb9fe189452f9a9d4c1a40b2f1f6b9e"
+    },
+    "scene-001": {
+      "id": "pe-comprehensive-management/gokanri-tradeoff/work/candidate-scene-001",
+      "path": ".tmp/media/pe-comprehensive-management/gokanri-tradeoff/work/candidate-scene-001.3c018394.png",
+      "sha256": "3c018394ecb044db8d7c16f1242349558eb9fe189452f9a9d4c1a40b2f1f6b9e"
+    },
+    "scene-002": {
+      "id": "pe-comprehensive-management/gokanri-tradeoff/work/candidate-scene-002",
+      "path": ".tmp/media/pe-comprehensive-management/gokanri-tradeoff/work/candidate-scene-002.b6a76454.png",
+      "sha256": "b6a76454679d3194ab58d70bba12211ae9c60e94a632e33efd9a0109619a8067"
+    },
+    "scene-003": {
+      "id": "pe-comprehensive-management/gokanri-tradeoff/work/candidate-scene-003",
+      "path": ".tmp/media/pe-comprehensive-management/gokanri-tradeoff/work/candidate-scene-003.1b8f98ee.png",
+      "sha256": "1b8f98eeae94710e007d8631fc7f1e4d23419757b497503965676663ec4d24a1"
+    },
+    "scene-004": {
+      "id": "pe-comprehensive-management/gokanri-tradeoff/work/candidate-scene-004",
+      "path": ".tmp/media/pe-comprehensive-management/gokanri-tradeoff/work/candidate-scene-004.350c9eb8.png",
+      "sha256": "350c9eb84a20208379553ff1013046023649aa25e8402e1416f110f930bf3c07"
+    },
+    "scene-005": {
+      "id": "pe-comprehensive-management/gokanri-tradeoff/work/candidate-scene-005",
+      "path": ".tmp/media/pe-comprehensive-management/gokanri-tradeoff/work/candidate-scene-005.932ce715.png",
+      "sha256": "932ce7150a5c0c71993ca549e57607cecb1bb020d36cfc45f822f68f7bd4fe8a"
+    },
+    "scene-006": {
+      "id": "pe-comprehensive-management/gokanri-tradeoff/work/candidate-scene-006",
+      "path": ".tmp/media/pe-comprehensive-management/gokanri-tradeoff/work/candidate-scene-006.3aa8c853.png",
+      "sha256": "3aa8c853a91463d3d42391650b12e8b4f5da17e4d33821747451871927d1237f"
+    },
+    "scene-007": {
+      "id": "pe-comprehensive-management/gokanri-tradeoff/work/candidate-scene-007",
+      "path": ".tmp/media/pe-comprehensive-management/gokanri-tradeoff/work/candidate-scene-007.9c389c19.png",
+      "sha256": "9c389c193978dfc517c6a535aa2c44e67cda50039150965b96923581fce4bef9"
+    },
+    "scene-008": {
+      "id": "pe-comprehensive-management/gokanri-tradeoff/work/candidate-scene-008",
+      "path": ".tmp/media/pe-comprehensive-management/gokanri-tradeoff/work/candidate-scene-008.7e20fab4.png",
+      "sha256": "7e20fab442a29af54b984329f7c1e243071daf11c2da950ff668cef338b86ec6"
+    },
+    "scene-009": {
+      "id": "pe-comprehensive-management/gokanri-tradeoff/work/candidate-scene-009",
+      "path": ".tmp/media/pe-comprehensive-management/gokanri-tradeoff/work/candidate-scene-009.eee3d4e6.png",
+      "sha256": "eee3d4e6d3f9888a4a0209ddedc657a73e5ce30fa1a42c3a43dd544de6d086df"
+    },
+    "subtitles": {
+      "id": "pe-comprehensive-management/gokanri-tradeoff/work/candidate-subtitles",
+      "path": ".tmp/media/pe-comprehensive-management/gokanri-tradeoff/work/candidate-subtitles.5d5e12db.ass",
+      "sha256": "5d5e12db6082becf971deb1c85f2ab396653152d801f12073b37d3dc1f95fa89"
+    },
+    "video": {
+      "id": "pe-comprehensive-management/gokanri-tradeoff/work/candidate-video",
+      "path": ".tmp/media/pe-comprehensive-management/gokanri-tradeoff/work/candidate-video.31194326.mp4",
+      "sha256": "3119432673ac5896b2cc7dbcb9b80e8ec0b378970d7300ad38c55bf528bcac5a"
+    }
+  },
+  "copySource": "content/sns/video-packs/pe-comprehensive-management/gokanri-tradeoff/youtube.candidate-20261022.json#longform",
+  "localFile": ".tmp/media/pe-comprehensive-management/gokanri-tradeoff/work/candidate-video.31194326.mp4",
+  "sha256": "3119432673ac5896b2cc7dbcb9b80e8ec0b378970d7300ad38c55bf528bcac5a",
+  "thumbnailLocalFile": ".tmp/media/pe-comprehensive-management/gokanri-tradeoff/work/candidate-cover.3c018394.png",
+  "thumbnailSha256": "3c018394ecb044db8d7c16f1242349558eb9fe189452f9a9d4c1a40b2f1f6b9e"
+}

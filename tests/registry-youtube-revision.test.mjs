@@ -1,7 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { createHash } from 'node:crypto';
-import { mkdtempSync, mkdirSync, readFileSync, writeFileSync, rmSync, copyFileSync } from 'node:fs';
+import { mkdtempSync, mkdirSync, readFileSync, writeFileSync, rmSync, copyFileSync, symlinkSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { tmpdir } from 'node:os';
 import { REPO_ROOT } from '../scripts/lib/repository-paths.mjs';
@@ -110,4 +110,62 @@ test('Shortsの新旧関連先を混ぜず、新版通常動画が必要', t => 
   assert.equal(plan.row.relatedTo, preview.publicationId);
   assert.equal(plan.row.platform, undefined);
   assert.equal(plan.checkedMedia, 3);
+});
+
+test('旧文面が無くても同作品の新文面を明示し、旧公開行を保持した下書きを作れる', t => {
+  const root = fixture(t), source = loadRegistry(root).publications[0];
+  delete source.copy;
+  upsertPublications(root, 'youtube', EXAM, [source]);
+  const before = loadRegistry(root).publications[0];
+  const copyRef = `${DEF}/youtube.candidate.json#longform`;
+  writeJson(root, `${DEF}/youtube.candidate.json`, { longform: { title: '改訂した題名', description: '新しい説明', platform: { id: 'must-not-copy' } } });
+  const options = { pubId: PUB, variant: 'diagram-led', copyRef };
+  const preview = prepareYoutubeRevision(root, options);
+  assert.equal(preview.dryRun, true);
+  const saved = prepareYoutubeRevision(root, { ...options, commit: true, expect: preview.digest });
+  const after = loadRegistry(root), input = JSON.parse(readFileSync(join(root, saved.input)));
+  assert.deepEqual(after.publications.find(p => p.id === PUB), before);
+  assert.equal(input.title, '改訂した題名');
+  assert.equal(input.copySource, copyRef);
+  assert.equal(input.platform, undefined);
+  assert.equal(after.publications.find(p => p.revisionOf).status, 'draft');
+});
+
+test('改訂文面の別作品・symlink経由の参照と確認後の文面変更を拒否する', t => {
+  const root = fixture(t), file = `${DEF}/youtube.candidate.json`;
+  writeJson(root, file, { title: '新しい題名', description: '新しい説明' });
+  const options = { pubId: PUB, variant: 'diagram-led', copyRef: file };
+  const preview = prepareYoutubeRevision(root, options);
+  writeJson(root, file, { title: '確認後に変わった題名', description: '新しい説明' });
+  assert.throws(() => prepareYoutubeRevision(root, { ...options, commit: true, expect: preview.digest }), /digest/);
+  const outside = 'content/sns/video-packs/other/youtube.json';
+  writeJson(root, outside, { title: '別作品', description: '別の説明' });
+  assert.throws(() => planYoutubeRevision(root, { ...options, copyRef: outside }), /同じ作品内/);
+  const link = `${DEF}/linked.json`;
+  symlinkSync(join(root, outside), join(root, link));
+  assert.throws(() => planYoutubeRevision(root, { ...options, copyRef: link }), /同じ作品内/);
+  assert.equal(loadRegistry(root).publications.length, 1);
+});
+
+test('未承認draftの画像修正は明示指定とdigestを要求し、前入力を完全保存する', t => {
+  const root = fixture(t), options = { pubId: PUB, variant: 'diagram-led' };
+  const initial = prepareYoutubeRevision(root, options);
+  prepareYoutubeRevision(root, { ...options, commit: true, expect: initial.digest });
+  const old = readFileSync(join(root, initial.input), 'utf8'), before = loadRegistry(root);
+  writeJson(root, `${DEF}/youtube.json`, { longform: { title: '修正文面', description: '新しい説明' } });
+  assert.throws(() => planYoutubeRevision(root, options), /既存の改訂投稿入力/);
+  const preview = prepareYoutubeRevision(root, { ...options, refreshDraft: true });
+  assert.equal(readFileSync(join(root, initial.input), 'utf8'), old);
+  assert.throws(() => prepareYoutubeRevision(root, { ...options, refreshDraft: true, commit: true, expect: initial.digest }), /digest/);
+  const saved = prepareYoutubeRevision(root, { ...options, refreshDraft: true, commit: true, expect: preview.digest });
+  assert.equal(readFileSync(join(root, saved.preservedInput), 'utf8'), old);
+  assert.equal(JSON.parse(readFileSync(join(root, saved.input))).title, '修正文面');
+  assert.deepEqual(loadRegistry(root).publications, before.publications);
+  assert.equal(prepareYoutubeRevision(root, { ...options, refreshDraft: true }).written, 0);
+  const rev = before.publications.find(p => p.revisionOf);
+  for (const patch of [{ status: 'approved' }, { approval: { by: 'user', contentSha256: null, grandfathered: true } }, { platform: { id: 'unknown-upload' } }]) {
+    const reg = structuredClone(before);Object.assign(reg.publications.find(p => p.id === rev.id), patch);
+    assert.throws(() => planYoutubeRevision(root, { ...options, refreshDraft: true }, reg), /既存の改訂公開行/);
+  }
+  assert.throws(() => planYoutubeRevision(root, { ...options, variant: 'absent', refreshDraft: true }), /既存の未承認draft/);
 });

@@ -1,7 +1,7 @@
 /** ローカル候補を改訂版の下書きへ結ぶ。旧公開行・承認・外部IDを複製/更新しない。 */
 import { createHash } from 'node:crypto';
-import { existsSync, readFileSync, writeFileSync } from 'node:fs';
-import { join } from 'node:path';
+import { existsSync, readFileSync, realpathSync, writeFileSync } from 'node:fs';
+import { isAbsolute, join, relative, resolve } from 'node:path';
 import { canonicalJson, idShapeIssues, loadRegistry, loadRegistryConfig, pubIdOf, resolveCopy } from './content-registry.mjs';
 import { upsertPublications } from './content-registry-write.mjs';
 import { RegistryPublications } from './dataset-schemas-content.mjs';
@@ -10,7 +10,7 @@ import { formatJson, readJsonIf } from './json-io.mjs';
 const hash = value => createHash('sha256').update(value).digest('hex');
 const strip = row => Object.fromEntries(Object.entries(row).filter(([k]) => !['file', 'exam', 'channel'].includes(k)));
 
-export function planYoutubeRevision(root, { pubId, variant, relatedTo, publishAt, now = Date.now() }, reg = loadRegistry(root)) {
+export function planYoutubeRevision(root, { pubId, variant, relatedTo, publishAt, copyRef, refreshDraft = false, now = Date.now() }, reg = loadRegistry(root)) {
   const source = reg.publications.find(p => p.id === pubId);
   if (!source || source.channel !== 'youtube' || source.revisionOf) throw new Error('改訂元のYouTube公開行が必要（改訂行からの再改訂は不可）');
   const work = reg.works.find(w => w.id === source.work && w.exam === source.exam);
@@ -35,8 +35,15 @@ export function planYoutubeRevision(root, { pubId, variant, relatedTo, publishAt
     assets[role] = { id: m.id, path: m.store.path, sha256: m.sha256 };
   }
   for (const role of ['video', 'cover', 'subtitles']) if (!assets[role]) throw new Error(`候補の ${role} が無い`);
-  const copy = resolveCopy(root, source.copy);
-  if (!copy?.title || !copy.description) throw new Error('元の文面を解決できない');
+  if (copyRef) {
+    const file = copyRef.split('#')[0];
+    const within = relative(realpathSync(join(root, work.definition)), realpathSync(resolve(root, file)));
+    if (isAbsolute(file) || !within || within.startsWith('..') || isAbsolute(within) || !file.endsWith('.json')) {
+      throw new Error('改訂文面は同じ作品内のJSONを相対パスで指定する');
+    }
+  }
+  const copy = resolveCopy(root, copyRef ?? source.copy);
+  if (!copy?.title || !copy.description) throw new Error('文面を解決できない。旧入力が無い場合は --copy で同じ作品の改訂文面を指定する');
   const file = `${work.definition}/youtube.revision-${variant}.json`;
   const row = {
     id, work: source.work, account: source.account, format: source.format, variant,
@@ -47,6 +54,7 @@ export function planYoutubeRevision(root, { pubId, variant, relatedTo, publishAt
   const input = {
     schemaVersion: 1, publicationId: id, revisionOf: source.id, account: source.account,
     format: source.format, ...copy, media: assets,
+    ...(copyRef ? { copySource: copyRef } : {}),
     localFile: assets.video.path, sha256: assets.video.sha256,
     thumbnailLocalFile: assets.cover.path, thumbnailSha256: assets.cover.sha256,
     ...(relatedTo ? { relatedTo } : {}), ...(publishAt ? { publishAt } : {}),
@@ -55,20 +63,35 @@ export function planYoutubeRevision(root, { pubId, variant, relatedTo, publishAt
   const existing = reg.publications.find(p => p.id === id);
   if (existing && canonicalJson(strip(existing)) !== canonicalJson(row)) throw new Error('既存の改訂公開行と異なる。上書きせず別のvariantで準備する');
   const saved = readJsonIf(root, file);
-  if (saved && canonicalJson(saved) !== canonicalJson(input)) throw new Error('既存の改訂投稿入力と異なる。上書きしない');
-  const digest = hash(canonicalJson({ source, row, input }));
-  return { row, input, file, digest, exam: source.exam, existing: Boolean(existing), checkedMedia: Object.keys(assets).length };
+  if (refreshDraft && (!existing || !saved)) throw new Error('下書き更新には既存の未承認draftと保存済み入力が必要');
+  const changed = Boolean(saved && canonicalJson(saved) !== canonicalJson(input));
+  if (changed && !refreshDraft) throw new Error('既存の改訂投稿入力と異なる。上書きしない');
+  // 公開行の完全一致を上で要求するため、承認・外部ID・実行intentのある行は更新できない。
+  const previous = changed ? readFileSync(join(root, file), 'utf8') : null;
+  const previousSha256 = previous === null ? null : hash(previous);
+  const history = previous === null ? null : file.replace(/\.json$/, `.history-${previousSha256}.json`);
+  const digest = hash(canonicalJson({ source, row, input, ...(previousSha256 ? { previousSha256 } : {}) }));
+  return { row, input, file, digest, history, previous, exam: source.exam, existing: Boolean(existing), checkedMedia: Object.keys(assets).length };
 }
 
 export function prepareYoutubeRevision(root, options) {
   const plan = planYoutubeRevision(root, options);
   if (options.commit) {
     if (options.expect !== plan.digest) throw new Error('dry-run の digest と現在の候補・元の公開行が一致しない');
-    // 新しい入力だけを作る。別セッションが先に作っていれば上書きしない。
-    if (!existsSync(join(root, plan.file))) writeFileSync(join(root, plan.file), formatJson(plan.input), { flag: 'wx' });
+    if (plan.history) {
+      const history = join(root, plan.history);
+      if (existsSync(history)) {
+        if (readFileSync(history, 'utf8') !== plan.previous) throw new Error('下書き履歴の内容が違う。上書きしない');
+      } else writeFileSync(history, plan.previous, { flag: 'wx' });
+      writeFileSync(join(root, plan.file), formatJson(plan.input));
+    } else if (!existsSync(join(root, plan.file))) {
+      // 新しい入力だけを作る。別セッションが先に作っていれば上書きしない。
+      writeFileSync(join(root, plan.file), formatJson(plan.input), { flag: 'wx' });
+    }
     upsertPublications(root, 'youtube', plan.exam, [plan.row]);
   }
   return { publicationId: plan.row.id, revisionOf: plan.row.revisionOf, input: plan.file, digest: plan.digest,
-    checkedMedia: plan.checkedMedia, written: options.commit ? (plan.existing ? 0 : 1) : 0,
+    checkedMedia: plan.checkedMedia, written: options.commit ? (plan.existing && !plan.history ? 0 : 1) : 0,
+    ...(plan.history ? { preservedInput: plan.history } : {}),
     status: 'draft', externalActions: 0, dryRun: !options.commit };
 }

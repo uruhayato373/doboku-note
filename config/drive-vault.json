@@ -353,14 +353,14 @@
       "status": "active",
       "audience": "human",
       "match": {
-        "pathRegex": "^(\\.claude/state/ocr-audit/.+|scripts/kindle-published/cover-designs/.+|content/sns/_assets/character/_source/.+)$"
+        "pathRegex": "^(\\.claude/state/ocr-audit/.+|scripts/kindle-published/cover-designs/.+|content/sns/_assets/character/_source/.+|generated_images/.+\\.png)$"
       },
       "vaultDir": "アーカイブ/repo",
       "keyFrom": "repoRelative",
       "regenerable": false,
       "generator": null,
       "requiredBy": [],
-      "reason": "監査証跡・表紙デザイン案・キャラ素材原本。人の確認と手元の制作CLIが使い、サイト・CIからは配信しない。"
+      "reason": "監査証跡・表紙デザイン案・キャラ素材原本・画像生成の参照元（pop-image.json の references が sha256 で指す generated_images/）。人の確認と手元の制作CLIが使い、サイト・CIからは配信しない。"
     },
     {
       "id": "legacy-r2-orphan",

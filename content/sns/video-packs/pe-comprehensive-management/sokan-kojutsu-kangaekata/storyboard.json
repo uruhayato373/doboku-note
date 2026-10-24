@@ -5,21 +5,22 @@
       "sceneId": "cover",
       "start": 0,
       "end": 3,
-      "narration": "総監の口頭対策です。",
-      "caption": "総監の口頭対策",
+      "narration": "経歴は、判断の理由まで語ります。",
+      "caption": "経歴は、判断の理由まで語る",
       "visual": {
         "kind": "cover",
         "heading": "口頭試験の考え方 経歴を総監の言葉で語る",
         "items": [
           "技術士 総合技術監理部門・口頭試験"
         ]
-      }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/exam-application-guide/article.mdx"
     },
     {
       "sceneId": "premise",
       "start": 3,
       "end": 16,
-      "narration": "総監の口頭試験では、経歴及び応用能力と、体系的専門知識の両方が評価されます。令和8年度の合否決定基準では、それぞれ60パーセント以上が必要です。",
+      "narration": "総監の必須科目の口頭試験では、経歴及び応用能力と、体系的専門知識の両方が評価されます。令和8年度の合否決定基準では、それぞれ60パーセント以上が必要です。",
       "caption": "経歴・応用能力と体系的専門知識",
       "visual": {
         "kind": "points",
@@ -33,7 +34,8 @@
           "section": "口頭試験対策／総監",
           "note": "令和8年度・総監 必須科目の口頭試験／それぞれの基準を満たす"
         }
-      }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/exam-passing-strategy/article.mdx"
     },
     {
       "sceneId": "premise-detail",
@@ -54,14 +56,15 @@
           "source": "content/site/pe-comprehensive-management/keyword-2026/img/figure-five-management-learning.svg",
           "note": "経歴だけ・用語の暗記だけに偏らない"
         }
-      }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/exam-application-guide/article.mdx"
     },
     {
       "sceneId": "whatasked",
       "start": 25,
       "end": 35,
       "narration": "まず、経済性管理、人的資源管理、情報管理、安全管理、社会環境管理の意味を、自分の言葉で説明できるか確認します。",
-      "caption": "管理の意味を業務での判断に結ぶ",
+      "caption": "5管理の意味を自分の言葉で確認",
       "visual": {
         "kind": "points",
         "heading": "5管理で、同じ業務を点検する",
@@ -73,7 +76,8 @@
           "source": "content/site/pe-comprehensive-management/keyword-2026/img/figure-five-management-learning.svg",
           "note": "管理ごとに分けて学び、他の管理への影響も確認する"
         }
-      }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/keyword-2026/img/figure-five-management-learning.svg"
     },
     {
       "sceneId": "whatasked-detail",
@@ -97,14 +101,15 @@
           "source": "content/site/pe-construction/gyoumu-keireki-hyou/img/figure-career-decision-evidence.svg",
           "note": "管理名の列挙で終えず、判断した部分を説明する"
         }
-      }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/exam-application-guide/article.mdx"
     },
     {
       "sceneId": "cases",
       "start": 51,
       "end": 61,
       "narration": "練習用には、説明しやすい業務事例を3件から5件選ぶ方法があります。これは試験で指定された件数ではありません。",
-      "caption": "事例は制約・選択肢・結果で整理",
+      "caption": "練習用の事例を3〜5件選ぶ（件数は目安）",
       "visual": {
         "kind": "points",
         "heading": "まず、説明しやすい業務事例を選ぶ",
@@ -124,13 +129,13 @@
       "sceneId": "cases-detail",
       "start": 61,
       "end": 79,
-      "narration": "それぞれについて、制約、対立する目標、検討した選択肢、採用した対策、結果と残った課題を並べます。工期を守るための増員なら、費用だけでなく、安全教育や情報共有への影響も検討したか振り返ってみましょう。",
-      "caption": "制約と選択肢を整理",
+      "narration": "事例ごとに、制約、対立する目標、選択肢、採用した対策、結果と残った課題を並べます。仮例として、工期を守るための増員を考えます。費用だけでなく、安全教育や情報共有への影響も確認しましょう。",
+      "caption": "仮例：増員の影響を複数の管理で確認",
       "visual": {
         "kind": "points",
         "heading": "増員は、工期だけの問題か",
         "items": [
-          "例：工期を守るために増員",
+          "仮例：工期を守るために増員",
           "経済性管理\n追加費用は？",
           "安全管理\n教育・訓練は？",
           "情報管理\n共有方法は？"
@@ -143,7 +148,7 @@
           "note": "制約・選択肢・採用理由・結果・残った課題を、自分の事実で整理"
         }
       },
-      "sourceRef": "content/site/pe-comprehensive-management/exam-passing-strategy/article.mdx"
+      "sourceRef": "content/site/pe-comprehensive-management/exam-application-guide/article.mdx"
     },
     {
       "sceneId": "story",
@@ -194,7 +199,7 @@
       "start": 106,
       "end": 121,
       "narration": "仕上げは、声に出して質問に答える練習です。なぜ別の対策を選ばなかったか。安全と工期の対立をどう調整したか。残ったリスクを誰がどう管理したか。やり直すなら何を変えるか。",
-      "caption": "判断・残留リスク・用語を声に出す",
+      "caption": "別案・安全と工期・残ったリスク・改善",
       "visual": {
         "kind": "points",
         "heading": "声に出して答える、4つの問い",
@@ -255,7 +260,8 @@
           "type": "recap",
           "section": "口頭試験対策／総監"
         }
-      }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/exam-passing-strategy/article.mdx"
     },
     {
       "sceneId": "cta",
@@ -275,7 +281,15 @@
           "type": "closing",
           "section": "口頭試験対策／総監"
         }
-      }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/exam-application-guide/article.mdx"
     }
-  ]
+  ],
+  "imageDesign": {
+    "mode": "codex-pop",
+    "scope": "all-body",
+    "revision": "body-diagram-reviewed-20261022",
+    "coverRevision": "cover-diagram-20261022",
+    "layout": "diagram-led"
+  }
 }

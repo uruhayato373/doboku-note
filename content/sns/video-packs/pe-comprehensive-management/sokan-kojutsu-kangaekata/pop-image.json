@@ -306,6 +306,1192 @@
           ]
         }
       }
+    },
+    "cover-diagram-20261022": {
+      "version": "pop-poster-v3",
+      "layout": {
+        "mode": "diagram-led"
+      },
+      "generation": {
+        "tool": "image_gen",
+        "prompt": "YouTube通常動画の表紙を1枚生成。横長16:9、1920x1080相当、四辺まで白背景、図解主体の日本語教育デザイン。落ち着いた深緑 #386658、灰 #535e59、強調は小さな淡黄色のみ。装飾人物、キャラクター、肩書き、著者名、ロゴ、写真、立体文字、放射線、派手なPOP装飾は一切なし。技術士総合技術監理部門の口頭試験準備。上端から10%に小さく「技術士 総監」、上中段左寄りに十分大きな2行「口頭試験」「経歴を語る」。下中段 y=47-73% に横並び3つの大きな余白ある角丸箱、箱内文字は左「経験」中央「対立」右「判断」。箱は薄い緑または薄い灰、矢印は左から中央、中央から右へ一本ずつ。右の判断のみ淡黄色の小さな下線。大見出しと箱の文字は太く、360px縮小でも判読できる。意図: 仕事を羅列せず、競合する目標と自分の判断を説明する。図形と全文字は外周7%以上内側、重要情報は画面の上78%内に収める。下端22%は字幕用の静かな白地だが画像全体を縮小して別色枠を足さない。全体を活用し、指定以外の文字は足さない。正確で読みやすい日本語、フラットで落ち着いた均整ある構図。",
+        "references": [],
+        "output": {
+          "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-kangaekata/work/cover-source.57e59f4c.png",
+          "sha256": "57e59f4c875ad2eed19f1deb6e7414bfb2615494a62c04381b90872734cfdb2b"
+        },
+        "generatedAt": "2026-10-22T08:22:20.101Z"
+      },
+      "copy": {
+        "headline": [
+          "技術士 総監",
+          "口頭試験",
+          "経歴を語る"
+        ],
+        "diagram": [
+          "経験",
+          "対立",
+          "判断"
+        ]
+      },
+      "output": {
+        "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-kangaekata/work/cover-diagram.a5414ef0.png",
+        "sha256": "a5414ef0d0623898a496c6866e7bc19cdcb0ef9cf7bce6b5222e3606112be3dd",
+        "width": 1920,
+        "height": 1080
+      },
+      "normalization": {
+        "mode": "full-frame-v1",
+        "sourceSha256": "57e59f4c875ad2eed19f1deb6e7414bfb2615494a62c04381b90872734cfdb2b"
+      },
+      "review": {
+        "status": "ai-reviewed",
+        "checkedAt": "2026-10-22T08:23:48.384Z",
+        "by": "Codex",
+        "views": [
+          "original",
+          "width-360"
+        ],
+        "checks": [
+          "指定文言・文字切れ",
+          "経験→対立→判断の意味",
+          "装飾人物なし",
+          "字幕領域22%"
+        ],
+        "userImageReview": "pending"
+      },
+      "storage": {
+        "group": "content-media",
+        "sync": "not-run-user-instruction"
+      }
+    },
+    "body-diagram-20261022": {
+      "layout": {
+        "mode": "diagram-led"
+      },
+      "images": [
+        {
+          "sceneId": "premise",
+          "inputSha256": "b007a891c07ff562e355cb4bf58b20d16f68c954b6356431a799e2f555dad1fa",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "通常動画の説明図1枚。16:9、1920x1080相当。参照画像から継承するのは白地・落ち着いた緑灰・小黄色・読みやすい日本語のみ。先生、人物、肩書き、資格名の反復、装飾は描かない。主役は説明に必要な図解。上部に中程度の見出し「準備は「経歴」と「知識」の両方」。図解に使う文言:[\"60%以上\\n経歴及び応用能力\",\"60%以上\\n体系的専門知識\"]。構図設計:{\"type\":\"numbers\",\"section\":\"口頭試験対策／総監\",\"note\":\"令和8年度・総監 必須科目の口頭試験／それぞれの基準を満たす\"}。このsceneのみ描く。ナレーションの意味:総監の必須科目の口頭試験では、経歴及び応用能力と、体系的専門知識の両方が評価されます。令和8年度の合否決定基準では、それぞれ60パーセント以上が必要です。。背景説明を勝手に補足しない。five-managementなら中央「同じ業務」から5つの等価な管理（経済性管理/人的資源管理/情報管理/安全管理/社会環境管理）へ線で関連を示す。numbersは比較でなく並列2基準、それぞれ60%以上と『令和8年度・必須科目』を図内に明示。mappingは2行の左→右対応図。全文字と図は外周6%以上内側、下端23%は字幕のため無地の白を保つ。重要文言の下端は画面76%まで。文字は大きく、360px幅で読みやすく。説明文を全部文章として並べない。図の比較には順序矢印を付けない。日本語の文字化けなし。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-kangaekata/work/cover-source.57e59f4c.png",
+                "sha256": "57e59f4c875ad2eed19f1deb6e7414bfb2615494a62c04381b90872734cfdb2b"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-kangaekata/work/premise-source.dadd6ae9.png",
+              "sha256": "dadd6ae9c6ddc5b85dc4d68f119e7dd096e876c23c31e9ee831929ff170dbdc6"
+            },
+            "generatedAt": "2026-10-22T08:40:14.195Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-kangaekata/work/premise-diagram.41e43b84.png",
+            "sha256": "41e43b84863eb8bddded990f12559da4a889ad96ff4ed1e680c66802606dff7f",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "dadd6ae9c6ddc5b85dc4d68f119e7dd096e876c23c31e9ee831929ff170dbdc6"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-22T09:41:38.777Z",
+            "by": "Codex",
+            "views": [
+              "original",
+              "width-360",
+              "final-mp4-cue-frames"
+            ],
+            "checks": [
+              "台本と図解の意味・文字",
+              "字幕との重なり・表示領域",
+              "装飾人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "premise-detail",
+          "inputSha256": "595e2bdf8d8022dbfbdc4dfb48212018d3fe5e24a400bb1ede28d9feb460fdf5",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "通常動画の説明図1枚。16:9、1920x1080相当。参照画像から継承するのは白地・落ち着いた緑灰・小黄色・読みやすい日本語のみ。先生、人物、肩書き、資格名の反復、装飾は描かない。主役は説明に必要な図解。上部に中程度の見出し「知識を、自分の業務へつなぐ」。図解に使う文言:[\"管理の意味を知る → 業務のどこで使ったか\",\"経歴の事実を振り返る → どの知識で判断したか\"]。構図設計:{\"type\":\"mapping\",\"section\":\"口頭試験対策／総監\",\"source\":\"content/site/pe-comprehensive-management/keyword-2026/img/figure-five-management-learning.svg\",\"note\":\"経歴だけ・用語の暗記だけに偏らない\"}。このsceneのみ描く。ナレーションの意味:経歴の説明だけ、用語の暗記だけに偏らず、知識を自分の業務でどう使ったかを結び付けて準備します。。背景説明を勝手に補足しない。five-managementなら中央「同じ業務」から5つの等価な管理（経済性管理/人的資源管理/情報管理/安全管理/社会環境管理）へ線で関連を示す。numbersは比較でなく並列2基準、それぞれ60%以上と『令和8年度・必須科目』を図内に明示。mappingは2行の左→右対応図。全文字と図は外周6%以上内側、下端23%は字幕のため無地の白を保つ。重要文言の下端は画面76%まで。文字は大きく、360px幅で読みやすく。説明文を全部文章として並べない。図の比較には順序矢印を付けない。日本語の文字化けなし。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-kangaekata/work/cover-source.57e59f4c.png",
+                "sha256": "57e59f4c875ad2eed19f1deb6e7414bfb2615494a62c04381b90872734cfdb2b"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-kangaekata/work/premise-detail-source.ab9ff90e.png",
+              "sha256": "ab9ff90ed6c8850c74dc92f8247143511bd6fe27888235c349d1f1b5759025cc"
+            },
+            "generatedAt": "2026-10-22T08:40:14.283Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-kangaekata/work/premise-detail-diagram.67fe3f33.png",
+            "sha256": "67fe3f33308cd6cdc2e534412e611a127ad7cf0884181d0f8f4a43fb25e78086",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "ab9ff90ed6c8850c74dc92f8247143511bd6fe27888235c349d1f1b5759025cc"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-22T09:41:38.788Z",
+            "by": "Codex",
+            "views": [
+              "original",
+              "width-360",
+              "final-mp4-cue-frames"
+            ],
+            "checks": [
+              "台本と図解の意味・文字",
+              "字幕との重なり・表示領域",
+              "装飾人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "whatasked",
+          "inputSha256": "4239e20c21b02b0f5955b530f90a719094ff189089c32d508f72c35adbe94619",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "通常動画の説明図1枚。16:9、1920x1080相当。参照画像から継承するのは白地・落ち着いた緑灰・小黄色・読みやすい日本語のみ。先生、人物、肩書き、資格名の反復、装飾は描かない。主役は説明に必要な図解。上部に中程度の見出し「5管理で、同じ業務を点検する」。図解に使う文言:[]。構図設計:{\"type\":\"diagram\",\"section\":\"口頭試験対策／総監\",\"diagram\":\"five-management\",\"source\":\"content/site/pe-comprehensive-management/keyword-2026/img/figure-five-management-learning.svg\",\"note\":\"管理ごとに分けて学び、他の管理への影響も確認する\"}。このsceneのみ描く。ナレーションの意味:まず、経済性管理、人的資源管理、情報管理、安全管理、社会環境管理の意味を、自分の言葉で説明できるか確認します。。背景説明を勝手に補足しない。five-managementなら中央「同じ業務」から5つの等価な管理（経済性管理/人的資源管理/情報管理/安全管理/社会環境管理）へ線で関連を示す。numbersは比較でなく並列2基準、それぞれ60%以上と『令和8年度・必須科目』を図内に明示。mappingは2行の左→右対応図。全文字と図は外周6%以上内側、下端23%は字幕のため無地の白を保つ。重要文言の下端は画面76%まで。文字は大きく、360px幅で読みやすく。説明文を全部文章として並べない。図の比較には順序矢印を付けない。日本語の文字化けなし。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-kangaekata/work/cover-source.57e59f4c.png",
+                "sha256": "57e59f4c875ad2eed19f1deb6e7414bfb2615494a62c04381b90872734cfdb2b"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-kangaekata/work/whatasked-source.bb989e52.png",
+              "sha256": "bb989e52a4dc46c9f7e96b8d6ac88400f8ed2cf3ebcd6081bb5ce0148c0db947"
+            },
+            "generatedAt": "2026-10-22T08:40:14.371Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-kangaekata/work/whatasked-diagram.b8700f98.png",
+            "sha256": "b8700f988fbd2a41b1b54265e09a53a2dbe224876ef21ea2e082e16561ef757c",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "bb989e52a4dc46c9f7e96b8d6ac88400f8ed2cf3ebcd6081bb5ce0148c0db947"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-22T09:41:38.788Z",
+            "by": "Codex",
+            "views": [
+              "original",
+              "width-360",
+              "final-mp4-cue-frames"
+            ],
+            "checks": [
+              "台本と図解の意味・文字",
+              "字幕との重なり・表示領域",
+              "装飾人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "whatasked-detail",
+          "inputSha256": "75ad2c8ca6ffdd1266ed55fadf318df482e73995bd503bfabe5dd184ad8c4a09",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "16:9通常動画の説明図1枚。白地、落ち着いた緑灰、小黄色。参照画像の配色のみ継承、装飾人物・肩書き・資格名の反復なし。大きな日本語見出し「対策を比べ、選んだ理由を語る」。要素:[\"業務の制約・両立しにくい目標\",\"選択肢 A\\n利点と不利益\",\"選択肢 B\\n利点と不利益\",\"自分の判断・選択の根拠\"]。ナレーション:そのうえで、経歴票の業務では、どの管理が重要だったか、何と何が両立しにくかったか、なぜその対策を選んだかを整理します。単に5管理の名前を並べるだけでは、判断の根拠は伝わりません。。設計:{\"type\":\"diagram\",\"section\":\"口頭試験対策／総監\",\"diagram\":\"decision\",\"source\":\"content/site/pe-construction/gyoumu-keireki-hyou/img/figure-career-decision-evidence.svg\",\"note\":\"管理名の列挙で終えず、判断した部分を説明する\"}。decisionは上に業務制約、中央横並びA/B（等価、2つの比較間に矢印なし）、下へ各線をつなぎ自分の判断・根拠。focusは3〜5件の事例メモの束を図示し『学習上の目安』『試験指定ではない』を簡潔に明示。項目を勝手に増やさない。全文字図形の下端は画面75%以内、下25%は字幕用の白地、外周6%安全域。図や文字を小さくせず重要文言は360px幅で読めるサイズ。指定場面のみ、無関係な施工機械を足さない。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-kangaekata/work/cover-source.57e59f4c.png",
+                "sha256": "57e59f4c875ad2eed19f1deb6e7414bfb2615494a62c04381b90872734cfdb2b"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-kangaekata/work/whatasked-detail-source.17c97632.png",
+              "sha256": "17c976328a8f76bcfa4f972b65e4fc0c77bb5ebff33fb888da8c7362ef9218f4"
+            },
+            "generatedAt": "2026-10-22T08:40:14.458Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-kangaekata/work/whatasked-detail-diagram.03c03774.png",
+            "sha256": "03c037744bdb5147c39ca5e01b75d7c1f62d651087b143aa490e253c139ae0bc",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "17c976328a8f76bcfa4f972b65e4fc0c77bb5ebff33fb888da8c7362ef9218f4"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-22T09:41:38.788Z",
+            "by": "Codex",
+            "views": [
+              "original",
+              "width-360",
+              "final-mp4-cue-frames"
+            ],
+            "checks": [
+              "台本と図解の意味・文字",
+              "字幕との重なり・表示領域",
+              "装飾人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "cases",
+          "inputSha256": "db90fbc64ca0e76581e7fa44d3ff8f5b3afa7f02d15f106b896aef47be637040",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "16:9通常動画の説明図1枚。白地、落ち着いた緑灰、小黄色。参照画像の配色のみ継承、装飾人物・肩書き・資格名の反復なし。大きな日本語見出し「まず、説明しやすい業務事例を選ぶ」。要素:[\"3〜5件から整理してみる\",\"件数は学習上の提案\"]。ナレーション:練習用には、説明しやすい業務事例を3件から5件選ぶ方法があります。これは試験で指定された件数ではありません。。設計:{\"type\":\"focus\",\"section\":\"口頭試験対策／総監\",\"note\":\"試験で指定された件数ではありません\"}。decisionは上に業務制約、中央横並びA/B（等価、2つの比較間に矢印なし）、下へ各線をつなぎ自分の判断・根拠。focusは3〜5件の事例メモの束を図示し『学習上の目安』『試験指定ではない』を簡潔に明示。項目を勝手に増やさない。全文字図形の下端は画面75%以内、下25%は字幕用の白地、外周6%安全域。図や文字を小さくせず重要文言は360px幅で読めるサイズ。指定場面のみ、無関係な施工機械を足さない。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-kangaekata/work/cover-source.57e59f4c.png",
+                "sha256": "57e59f4c875ad2eed19f1deb6e7414bfb2615494a62c04381b90872734cfdb2b"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-kangaekata/work/cases-source.ae3db614.png",
+              "sha256": "ae3db614bff32e29bdfc3747e41e8c7bda00a31764701a598bfd960261e1a2c6"
+            },
+            "generatedAt": "2026-10-22T08:40:14.548Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-kangaekata/work/cases-diagram.6363cb7c.png",
+            "sha256": "6363cb7c498341fe0398acfed6ddbf9ba79cc64f0ad5f3a8e2090a13cec73590",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "ae3db614bff32e29bdfc3747e41e8c7bda00a31764701a598bfd960261e1a2c6"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-22T09:41:38.788Z",
+            "by": "Codex",
+            "views": [
+              "original",
+              "width-360",
+              "final-mp4-cue-frames"
+            ],
+            "checks": [
+              "台本と図解の意味・文字",
+              "字幕との重なり・表示領域",
+              "装飾人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "cases-detail",
+          "inputSha256": "0d9d5cc2fbb768743b4c427e69d9b3a919a94ac36fc5e86c33f504ad87aaa64d",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "16:9通常動画の説明図1枚。白地、落ち着いた緑灰、小黄色。参照画像は配色参考、人物・肩書き・資格名の反復なし。見出し「増員は、工期だけの問題か」。要素:[\"仮例：工期を守るために増員\",\"経済性管理\\n追加費用は？\",\"安全管理\\n教育・訓練は？\",\"情報管理\\n共有方法は？\"]。ナレーションの意味:事例ごとに、制約、対立する目標、選択肢、採用した対策、結果と残った課題を並べます。仮例として、工期を守るための増員を考えます。費用だけでなく、安全教育や情報共有への影響も確認しましょう。。図の上に「仮例：工期を守るために増員」、そこから横並び3箱へ分岐し「追加費用は？」「教育・訓練は？」「共有方法は？」を経済性管理/安全管理/情報管理と結びつける。施工機械や具体人員数は描かない。全文字図形の下端は画面75%以内、下25%は字幕用の白地、外周6%安全域。360px幅で読める文字。要素の重複や指定以外の数字を入れない。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-kangaekata/work/cover-source.57e59f4c.png",
+                "sha256": "57e59f4c875ad2eed19f1deb6e7414bfb2615494a62c04381b90872734cfdb2b"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-kangaekata/work/cases-detail-source.01b86cba.png",
+              "sha256": "01b86cba4cb5d4bd755471b5385f1349f47b7f3727d3c42215f54569d8cf948e"
+            },
+            "generatedAt": "2026-10-22T08:40:14.639Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-kangaekata/work/cases-detail-diagram.3b0d9ea6.png",
+            "sha256": "3b0d9ea6aa421dccfd61ce3a56a30ae2f91dc2090028a25a45ec832cf9c9bbf7",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "01b86cba4cb5d4bd755471b5385f1349f47b7f3727d3c42215f54569d8cf948e"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-22T09:41:38.788Z",
+            "by": "Codex",
+            "views": [
+              "original",
+              "width-360",
+              "final-mp4-cue-frames"
+            ],
+            "checks": [
+              "台本と図解の意味・文字",
+              "字幕との重なり・表示領域",
+              "装飾人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "story",
+          "inputSha256": "789856efd1ff2ddd6e611b0fef2f481b2aa3bece6bea3ce853416e3c2f6baf3c",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "16:9通常動画の説明図1枚。白地、落ち着いた緑灰、小黄色。参照画像は配色参考、人物・肩書き・資格名の反復なし。見出し「役割から、判断・結果へつなぐ」。要素:[\"担当した\\n役割\",\"直面した\\n問題\",\"自分の\\n判断\",\"結果と\\n学び\"]。ナレーションの意味:次に、経歴を短く説明する練習をします。担当した役割、直面した問題、自分の判断、結果と学びを一続きで話します。。4段階の手順を左→右へ、役割→問題→自分の判断→結果と学び。文字以外はシンプルな記録/判断/チェックの線画図形程度。全文字図形の下端は画面75%以内、下25%は字幕用の白地、外周6%安全域。360px幅で読める文字。要素の重複や指定以外の数字を入れない。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-kangaekata/work/cover-source.57e59f4c.png",
+                "sha256": "57e59f4c875ad2eed19f1deb6e7414bfb2615494a62c04381b90872734cfdb2b"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-kangaekata/work/story-source.e34d8055.png",
+              "sha256": "e34d8055e1721470ce24b7b573172e5983874a04b8b3ac43a8d8420614efcf24"
+            },
+            "generatedAt": "2026-10-22T08:40:14.729Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-kangaekata/work/story-diagram.706d738e.png",
+            "sha256": "706d738ea82f04b26c022e8f19a14a971dccb142dd79d1116599154539ff876c",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "e34d8055e1721470ce24b7b573172e5983874a04b8b3ac43a8d8420614efcf24"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-22T09:41:38.788Z",
+            "by": "Codex",
+            "views": [
+              "original",
+              "width-360",
+              "final-mp4-cue-frames"
+            ],
+            "checks": [
+              "台本と図解の意味・文字",
+              "字幕との重なり・表示領域",
+              "装飾人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "story-detail",
+          "inputSha256": "0b9203d349abdbc601e49b09581b120b599ba382a4f9530c7be8c530443600e6",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "16:9通常動画の説明図1枚。白地、落ち着いた緑灰、小黄色、平面図解。参照は配色だけ継承。装飾人物・肩書き・資格名の反復なし。見出し「練習の目安と、本番の指示を分ける」。図に載せる要素:[\"練習\\n2〜3分でまとめる\\n学習上の目安\",\"本番\\n質問の内容に答える\\n試験官の指示に合わせる\"]。意味:2分から3分でまとめる練習は有効ですが、これは学習上の目安です。本番では質問の内容と試験官の指示に合わせます。チームの成果と自分が担った判断を分け、実際に経験していないことは足しません。。構図:{\"type\":\"compare\",\"section\":\"口頭試験対策／総監\",\"note\":\"チームの成果と自分の判断を分け、経験していないことは足さない\"}。compareは左右対等な2列比較、列間に矢印なし。「練習 2〜3分 学習上の目安」と「本番 質問の内容と試験官の指示」を対比。gridは四つの問いを4カードで等しく示す。learning-loopは4つを一周する循環矢印の図、中央「もう一度、声に出す」。指定されたこの場面の構図だけ使い、他場面の構図を混ぜない。重要文字・図は画面上75%に収め下25%白地は字幕領域。外周6%内側。360pxで主文言判読できる大きさ。必要以上の文章や数字は加えない。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-kangaekata/work/cover-source.57e59f4c.png",
+                "sha256": "57e59f4c875ad2eed19f1deb6e7414bfb2615494a62c04381b90872734cfdb2b"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-kangaekata/work/story-detail-source.8c56a341.png",
+              "sha256": "8c56a34118243248a9bb514898435524cb3f38188cdb87e7fc1bb4676873ef71"
+            },
+            "generatedAt": "2026-10-22T08:40:14.821Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-kangaekata/work/story-detail-diagram.5b587ea1.png",
+            "sha256": "5b587ea19ba1fd0dd97bac87539b6ed9ce4b8ba3de24c246a17f4892ebc9d30d",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "8c56a34118243248a9bb514898435524cb3f38188cdb87e7fc1bb4676873ef71"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-22T09:41:38.788Z",
+            "by": "Codex",
+            "views": [
+              "original",
+              "width-360",
+              "final-mp4-cue-frames"
+            ],
+            "checks": [
+              "台本と図解の意味・文字",
+              "字幕との重なり・表示領域",
+              "装飾人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "qa",
+          "inputSha256": "9e1e07d00074e64f9e08fa6b0385f4462de39a0e7fb5ed8e14b5118640dd9c35",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "16:9通常動画の説明図1枚。白地、落ち着いた緑灰、小黄色、平面図解。参照は配色だけ継承。装飾人物・肩書き・資格名の反復なし。見出し「声に出して答える、4つの問い」。図に載せる要素:[\"別の対策を\\n選ばなかった理由は？\",\"安全と工期の対立を\\nどう調整した？\",\"残ったリスクを\\n誰が、どう管理した？\",\"やり直すなら\\n何を変える？\"]。意味:仕上げは、声に出して質問に答える練習です。なぜ別の対策を選ばなかったか。安全と工期の対立をどう調整したか。残ったリスクを誰がどう管理したか。やり直すなら何を変えるか。。構図:{\"type\":\"grid\",\"section\":\"口頭試験対策／総監\"}。compareは左右対等な2列比較、列間に矢印なし。「練習 2〜3分 学習上の目安」と「本番 質問の内容と試験官の指示」を対比。gridは四つの問いを4カードで等しく示す。learning-loopは4つを一周する循環矢印の図、中央「もう一度、声に出す」。指定されたこの場面の構図だけ使い、他場面の構図を混ぜない。重要文字・図は画面上75%に収め下25%白地は字幕領域。外周6%内側。360pxで主文言判読できる大きさ。必要以上の文章や数字は加えない。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-kangaekata/work/cover-source.57e59f4c.png",
+                "sha256": "57e59f4c875ad2eed19f1deb6e7414bfb2615494a62c04381b90872734cfdb2b"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-kangaekata/work/qa-source.334a7bc9.png",
+              "sha256": "334a7bc9bd4e48c740a1641a741af0eee471557416986d5244a7740e00a7ea66"
+            },
+            "generatedAt": "2026-10-22T08:40:14.934Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-kangaekata/work/qa-diagram.afd5f5c8.png",
+            "sha256": "afd5f5c8d3000da6407b349f6a91d8f956fda226200621d7e9d7896d6f34a92b",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "334a7bc9bd4e48c740a1641a741af0eee471557416986d5244a7740e00a7ea66"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-22T09:41:38.788Z",
+            "by": "Codex",
+            "views": [
+              "original",
+              "width-360",
+              "final-mp4-cue-frames"
+            ],
+            "checks": [
+              "台本と図解の意味・文字",
+              "字幕との重なり・表示領域",
+              "装飾人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "qa-detail",
+          "inputSha256": "8f50bd05a721971cb6fdb476926000cb33f35563546776e3ec5d1e4f4912847e",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "16:9通常動画の説明図1枚。白地、落ち着いた緑灰、小黄色、平面図解。参照は配色だけ継承。装飾人物・肩書き・資格名の反復なし。見出し「事実と知識を、往復して確かめる」。図に載せる要素:[\"質問に答える\",\"説明の穴を見つける\",\"業務の事実へ戻る\",\"使った用語を復習\"]。意味:答えが抽象的になったら、業務の事実へ戻します。また、説明に使った総監用語の意味を聞き返されても答えられるよう、体系的専門知識も復習します。。構図:{\"type\":\"diagram\",\"section\":\"口頭試験対策／総監\",\"diagram\":\"learning-loop\",\"source\":\"content/site/pe-comprehensive-management/pdca-cycle/img/figure-pdca-cycle.svg\",\"center\":\"もう一度、声に出す\",\"note\":\"学習手順として再構成。抽象的な答えを、事実と知識で具体化する\"}。compareは左右対等な2列比較、列間に矢印なし。「練習 2〜3分 学習上の目安」と「本番 質問の内容と試験官の指示」を対比。gridは四つの問いを4カードで等しく示す。learning-loopは4つを一周する循環矢印の図、中央「もう一度、声に出す」。指定されたこの場面の構図だけ使い、他場面の構図を混ぜない。重要文字・図は画面上75%に収め下25%白地は字幕領域。外周6%内側。360pxで主文言判読できる大きさ。必要以上の文章や数字は加えない。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-kangaekata/work/cover-source.57e59f4c.png",
+                "sha256": "57e59f4c875ad2eed19f1deb6e7414bfb2615494a62c04381b90872734cfdb2b"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-kangaekata/work/qa-detail-source.3cdc1bee.png",
+              "sha256": "3cdc1bee522a87c02da646aa20c6fcd47815bb2faece3c2e1faf380651054a28"
+            },
+            "generatedAt": "2026-10-22T08:40:15.038Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-kangaekata/work/qa-detail-diagram.721cf15f.png",
+            "sha256": "721cf15ff486ba5ae76f25647fabbf1c5a2a01a23db6f1fad95de22779e4ea2f",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "3cdc1bee522a87c02da646aa20c6fcd47815bb2faece3c2e1faf380651054a28"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-22T09:41:38.788Z",
+            "by": "Codex",
+            "views": [
+              "original",
+              "width-360",
+              "final-mp4-cue-frames"
+            ],
+            "checks": [
+              "台本と図解の意味・文字",
+              "字幕との重なり・表示領域",
+              "装飾人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "summary",
+          "inputSha256": "a489800de10c55ea2e40f755e5bfb0bdf75df0861ba8c5c8e9a7fb4ad1d74f7d",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "16:9通常動画の説明図1枚。白地、落ち着いた緑灰、小黄色。参照は配色のみ。見出し「総監の口頭対策｜準備チェック」。図に載せる文言:[\"経歴と知識の\\n両方を準備\",\"5管理を使った\\n判断を説明\",\"事実・結果を確認し\\n声に出して練習\"]。意味:まとめです。総監の口頭対策では、経歴及び応用能力と体系的専門知識の両方を準備します。業務の事実を整理し、5管理を使った判断と、その結果を説明しましょう。短く答える練習と、用語の確認を往復することが、準備の軸になります。。3つの確認項目を横並び、チェックの小さな記号と関係線で整理。経歴と知識→判断説明→声に出すという学習の流れを穏やかに。資格名、著者肩書き、先生、商品価格は表示しない。背景は四辺まで白、図と重要文字は画面上75%以内に収め、下25%は字幕用の静かな白。外周6%以上安全域。360px幅でも読みやすい太い日本語。指定文言以外の文章を追加しない。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-kangaekata/work/cover-source.57e59f4c.png",
+                "sha256": "57e59f4c875ad2eed19f1deb6e7414bfb2615494a62c04381b90872734cfdb2b"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-kangaekata/work/summary-source.90b33bf3.png",
+              "sha256": "90b33bf3b233cd10f4118b9f8524dd163cf220f76b7db83fd5cfc631087836de"
+            },
+            "generatedAt": "2026-10-22T08:40:15.130Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-kangaekata/work/summary-diagram.f597862d.png",
+            "sha256": "f597862dbc4aa256bb6578d4777c47ae68f5ddc6d998c4ede140077dc541fc1a",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "90b33bf3b233cd10f4118b9f8524dd163cf220f76b7db83fd5cfc631087836de"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-22T09:41:38.788Z",
+            "by": "Codex",
+            "views": [
+              "original",
+              "width-360",
+              "final-mp4-cue-frames"
+            ],
+            "checks": [
+              "台本と図解の意味・文字",
+              "字幕との重なり・表示領域",
+              "装飾人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "cta",
+          "inputSha256": "611891fda4355f118b4c7c8bed779f33788075c53a7bf4174424bf39662ef341",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "16:9通常動画の説明図1枚。白地、落ち着いた緑灰、小黄色。参照は配色のみ。見出し「知識と経験を、総監の言葉で」。図に載せる文言:[\"経歴を整理する\",\"想定問答で、声に出す\",\"教材案内は概要欄へ\"]。意味:さらに経歴の整理と想定問答を練習したい方は、概要欄の教材案内をご覧ください。ご視聴ありがとうございました。。経歴のメモ→声に出す練習→教材案内という3段階をシンプルな線図と文言で配置。吹き出しの記号は可、人物なし。資格名、著者肩書き、先生、商品価格は表示しない。背景は四辺まで白、図と重要文字は画面上75%以内に収め、下25%は字幕用の静かな白。外周6%以上安全域。360px幅でも読みやすい太い日本語。指定文言以外の文章を追加しない。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-kangaekata/work/cover-source.57e59f4c.png",
+                "sha256": "57e59f4c875ad2eed19f1deb6e7414bfb2615494a62c04381b90872734cfdb2b"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-kangaekata/work/cta-source.9599961a.png",
+              "sha256": "9599961ae79eaa847bf3c03551b5a0690ae89f634903bb9420c4991b8aedf103"
+            },
+            "generatedAt": "2026-10-22T08:40:15.224Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-kangaekata/work/cta-diagram.c1d772ef.png",
+            "sha256": "c1d772ef69924dd629547a0e70fd2f410fde1cf9d56407ae46fecab9b01e7fea",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "9599961ae79eaa847bf3c03551b5a0690ae89f634903bb9420c4991b8aedf103"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-22T09:41:38.788Z",
+            "by": "Codex",
+            "views": [
+              "original",
+              "width-360",
+              "final-mp4-cue-frames"
+            ],
+            "checks": [
+              "台本と図解の意味・文字",
+              "字幕との重なり・表示領域",
+              "装飾人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        }
+      ],
+      "storage": {
+        "group": "content-media",
+        "sync": "not-run-user-instruction"
+      }
+    },
+    "body-diagram-reviewed-20261022": {
+      "layout": {
+        "mode": "diagram-led"
+      },
+      "images": [
+        {
+          "sceneId": "premise",
+          "inputSha256": "b007a891c07ff562e355cb4bf58b20d16f68c954b6356431a799e2f555dad1fa",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "通常動画の説明図1枚。16:9、1920x1080相当。参照画像から継承するのは白地・落ち着いた緑灰・小黄色・読みやすい日本語のみ。先生、人物、肩書き、資格名の反復、装飾は描かない。主役は説明に必要な図解。上部に中程度の見出し「準備は「経歴」と「知識」の両方」。図解に使う文言:[\"60%以上\\n経歴及び応用能力\",\"60%以上\\n体系的専門知識\"]。構図設計:{\"type\":\"numbers\",\"section\":\"口頭試験対策／総監\",\"note\":\"令和8年度・総監 必須科目の口頭試験／それぞれの基準を満たす\"}。このsceneのみ描く。ナレーションの意味:総監の必須科目の口頭試験では、経歴及び応用能力と、体系的専門知識の両方が評価されます。令和8年度の合否決定基準では、それぞれ60パーセント以上が必要です。。背景説明を勝手に補足しない。five-managementなら中央「同じ業務」から5つの等価な管理（経済性管理/人的資源管理/情報管理/安全管理/社会環境管理）へ線で関連を示す。numbersは比較でなく並列2基準、それぞれ60%以上と『令和8年度・必須科目』を図内に明示。mappingは2行の左→右対応図。全文字と図は外周6%以上内側、下端23%は字幕のため無地の白を保つ。重要文言の下端は画面76%まで。文字は大きく、360px幅で読みやすく。説明文を全部文章として並べない。図の比較には順序矢印を付けない。日本語の文字化けなし。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-kangaekata/work/cover-source.57e59f4c.png",
+                "sha256": "57e59f4c875ad2eed19f1deb6e7414bfb2615494a62c04381b90872734cfdb2b"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-kangaekata/work/premise-source.dadd6ae9.png",
+              "sha256": "dadd6ae9c6ddc5b85dc4d68f119e7dd096e876c23c31e9ee831929ff170dbdc6"
+            },
+            "generatedAt": "2026-10-22T08:40:14.195Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-kangaekata/work/premise-diagram.41e43b84.png",
+            "sha256": "41e43b84863eb8bddded990f12559da4a889ad96ff4ed1e680c66802606dff7f",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "dadd6ae9c6ddc5b85dc4d68f119e7dd096e876c23c31e9ee831929ff170dbdc6"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-22T09:41:38.777Z",
+            "by": "Codex",
+            "views": [
+              "original",
+              "width-360",
+              "final-mp4-cue-frames"
+            ],
+            "checks": [
+              "台本と図解の意味・文字",
+              "字幕との重なり・表示領域",
+              "装飾人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "premise-detail",
+          "inputSha256": "595e2bdf8d8022dbfbdc4dfb48212018d3fe5e24a400bb1ede28d9feb460fdf5",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "通常動画の説明図1枚。16:9、1920x1080相当。参照画像から継承するのは白地・落ち着いた緑灰・小黄色・読みやすい日本語のみ。先生、人物、肩書き、資格名の反復、装飾は描かない。主役は説明に必要な図解。上部に中程度の見出し「知識を、自分の業務へつなぐ」。図解に使う文言:[\"管理の意味を知る → 業務のどこで使ったか\",\"経歴の事実を振り返る → どの知識で判断したか\"]。構図設計:{\"type\":\"mapping\",\"section\":\"口頭試験対策／総監\",\"source\":\"content/site/pe-comprehensive-management/keyword-2026/img/figure-five-management-learning.svg\",\"note\":\"経歴だけ・用語の暗記だけに偏らない\"}。このsceneのみ描く。ナレーションの意味:経歴の説明だけ、用語の暗記だけに偏らず、知識を自分の業務でどう使ったかを結び付けて準備します。。背景説明を勝手に補足しない。five-managementなら中央「同じ業務」から5つの等価な管理（経済性管理/人的資源管理/情報管理/安全管理/社会環境管理）へ線で関連を示す。numbersは比較でなく並列2基準、それぞれ60%以上と『令和8年度・必須科目』を図内に明示。mappingは2行の左→右対応図。全文字と図は外周6%以上内側、下端23%は字幕のため無地の白を保つ。重要文言の下端は画面76%まで。文字は大きく、360px幅で読みやすく。説明文を全部文章として並べない。図の比較には順序矢印を付けない。日本語の文字化けなし。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-kangaekata/work/cover-source.57e59f4c.png",
+                "sha256": "57e59f4c875ad2eed19f1deb6e7414bfb2615494a62c04381b90872734cfdb2b"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-kangaekata/work/premise-detail-source.ab9ff90e.png",
+              "sha256": "ab9ff90ed6c8850c74dc92f8247143511bd6fe27888235c349d1f1b5759025cc"
+            },
+            "generatedAt": "2026-10-22T08:40:14.283Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-kangaekata/work/premise-detail-diagram.67fe3f33.png",
+            "sha256": "67fe3f33308cd6cdc2e534412e611a127ad7cf0884181d0f8f4a43fb25e78086",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "ab9ff90ed6c8850c74dc92f8247143511bd6fe27888235c349d1f1b5759025cc"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-22T09:41:38.788Z",
+            "by": "Codex",
+            "views": [
+              "original",
+              "width-360",
+              "final-mp4-cue-frames"
+            ],
+            "checks": [
+              "台本と図解の意味・文字",
+              "字幕との重なり・表示領域",
+              "装飾人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "whatasked",
+          "inputSha256": "4239e20c21b02b0f5955b530f90a719094ff189089c32d508f72c35adbe94619",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "通常動画の説明図1枚。16:9、1920x1080相当。参照画像から継承するのは白地・落ち着いた緑灰・小黄色・読みやすい日本語のみ。先生、人物、肩書き、資格名の反復、装飾は描かない。主役は説明に必要な図解。上部に中程度の見出し「5管理で、同じ業務を点検する」。図解に使う文言:[]。構図設計:{\"type\":\"diagram\",\"section\":\"口頭試験対策／総監\",\"diagram\":\"five-management\",\"source\":\"content/site/pe-comprehensive-management/keyword-2026/img/figure-five-management-learning.svg\",\"note\":\"管理ごとに分けて学び、他の管理への影響も確認する\"}。このsceneのみ描く。ナレーションの意味:まず、経済性管理、人的資源管理、情報管理、安全管理、社会環境管理の意味を、自分の言葉で説明できるか確認します。。背景説明を勝手に補足しない。five-managementなら中央「同じ業務」から5つの等価な管理（経済性管理/人的資源管理/情報管理/安全管理/社会環境管理）へ線で関連を示す。numbersは比較でなく並列2基準、それぞれ60%以上と『令和8年度・必須科目』を図内に明示。mappingは2行の左→右対応図。全文字と図は外周6%以上内側、下端23%は字幕のため無地の白を保つ。重要文言の下端は画面76%まで。文字は大きく、360px幅で読みやすく。説明文を全部文章として並べない。図の比較には順序矢印を付けない。日本語の文字化けなし。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-kangaekata/work/cover-source.57e59f4c.png",
+                "sha256": "57e59f4c875ad2eed19f1deb6e7414bfb2615494a62c04381b90872734cfdb2b"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-kangaekata/work/whatasked-source.bb989e52.png",
+              "sha256": "bb989e52a4dc46c9f7e96b8d6ac88400f8ed2cf3ebcd6081bb5ce0148c0db947"
+            },
+            "generatedAt": "2026-10-22T08:40:14.371Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-kangaekata/work/whatasked-diagram.b8700f98.png",
+            "sha256": "b8700f988fbd2a41b1b54265e09a53a2dbe224876ef21ea2e082e16561ef757c",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "bb989e52a4dc46c9f7e96b8d6ac88400f8ed2cf3ebcd6081bb5ce0148c0db947"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-22T09:41:38.788Z",
+            "by": "Codex",
+            "views": [
+              "original",
+              "width-360",
+              "final-mp4-cue-frames"
+            ],
+            "checks": [
+              "台本と図解の意味・文字",
+              "字幕との重なり・表示領域",
+              "装飾人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "whatasked-detail",
+          "inputSha256": "75ad2c8ca6ffdd1266ed55fadf318df482e73995bd503bfabe5dd184ad8c4a09",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "16:9通常動画の説明図1枚。白地、落ち着いた緑灰、小黄色。参照画像の配色のみ継承、装飾人物・肩書き・資格名の反復なし。大きな日本語見出し「対策を比べ、選んだ理由を語る」。要素:[\"業務の制約・両立しにくい目標\",\"選択肢 A\\n利点と不利益\",\"選択肢 B\\n利点と不利益\",\"自分の判断・選択の根拠\"]。ナレーション:そのうえで、経歴票の業務では、どの管理が重要だったか、何と何が両立しにくかったか、なぜその対策を選んだかを整理します。単に5管理の名前を並べるだけでは、判断の根拠は伝わりません。。設計:{\"type\":\"diagram\",\"section\":\"口頭試験対策／総監\",\"diagram\":\"decision\",\"source\":\"content/site/pe-construction/gyoumu-keireki-hyou/img/figure-career-decision-evidence.svg\",\"note\":\"管理名の列挙で終えず、判断した部分を説明する\"}。decisionは上に業務制約、中央横並びA/B（等価、2つの比較間に矢印なし）、下へ各線をつなぎ自分の判断・根拠。focusは3〜5件の事例メモの束を図示し『学習上の目安』『試験指定ではない』を簡潔に明示。項目を勝手に増やさない。全文字図形の下端は画面75%以内、下25%は字幕用の白地、外周6%安全域。図や文字を小さくせず重要文言は360px幅で読めるサイズ。指定場面のみ、無関係な施工機械を足さない。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-kangaekata/work/cover-source.57e59f4c.png",
+                "sha256": "57e59f4c875ad2eed19f1deb6e7414bfb2615494a62c04381b90872734cfdb2b"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-kangaekata/work/whatasked-detail-source.17c97632.png",
+              "sha256": "17c976328a8f76bcfa4f972b65e4fc0c77bb5ebff33fb888da8c7362ef9218f4"
+            },
+            "generatedAt": "2026-10-22T08:40:14.458Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-kangaekata/work/whatasked-detail-diagram.03c03774.png",
+            "sha256": "03c037744bdb5147c39ca5e01b75d7c1f62d651087b143aa490e253c139ae0bc",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "17c976328a8f76bcfa4f972b65e4fc0c77bb5ebff33fb888da8c7362ef9218f4"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-22T09:41:38.788Z",
+            "by": "Codex",
+            "views": [
+              "original",
+              "width-360",
+              "final-mp4-cue-frames"
+            ],
+            "checks": [
+              "台本と図解の意味・文字",
+              "字幕との重なり・表示領域",
+              "装飾人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "cases",
+          "inputSha256": "db90fbc64ca0e76581e7fa44d3ff8f5b3afa7f02d15f106b896aef47be637040",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "16:9通常動画の説明図1枚。白地、落ち着いた緑灰、小黄色。参照画像の配色のみ継承、装飾人物・肩書き・資格名の反復なし。大きな日本語見出し「まず、説明しやすい業務事例を選ぶ」。要素:[\"3〜5件から整理してみる\",\"件数は学習上の提案\"]。ナレーション:練習用には、説明しやすい業務事例を3件から5件選ぶ方法があります。これは試験で指定された件数ではありません。。設計:{\"type\":\"focus\",\"section\":\"口頭試験対策／総監\",\"note\":\"試験で指定された件数ではありません\"}。decisionは上に業務制約、中央横並びA/B（等価、2つの比較間に矢印なし）、下へ各線をつなぎ自分の判断・根拠。focusは3〜5件の事例メモの束を図示し『学習上の目安』『試験指定ではない』を簡潔に明示。項目を勝手に増やさない。全文字図形の下端は画面75%以内、下25%は字幕用の白地、外周6%安全域。図や文字を小さくせず重要文言は360px幅で読めるサイズ。指定場面のみ、無関係な施工機械を足さない。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-kangaekata/work/cover-source.57e59f4c.png",
+                "sha256": "57e59f4c875ad2eed19f1deb6e7414bfb2615494a62c04381b90872734cfdb2b"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-kangaekata/work/cases-source.ae3db614.png",
+              "sha256": "ae3db614bff32e29bdfc3747e41e8c7bda00a31764701a598bfd960261e1a2c6"
+            },
+            "generatedAt": "2026-10-22T08:40:14.548Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-kangaekata/work/cases-diagram.6363cb7c.png",
+            "sha256": "6363cb7c498341fe0398acfed6ddbf9ba79cc64f0ad5f3a8e2090a13cec73590",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "ae3db614bff32e29bdfc3747e41e8c7bda00a31764701a598bfd960261e1a2c6"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-22T09:41:38.788Z",
+            "by": "Codex",
+            "views": [
+              "original",
+              "width-360",
+              "final-mp4-cue-frames"
+            ],
+            "checks": [
+              "台本と図解の意味・文字",
+              "字幕との重なり・表示領域",
+              "装飾人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "cases-detail",
+          "inputSha256": "0d9d5cc2fbb768743b4c427e69d9b3a919a94ac36fc5e86c33f504ad87aaa64d",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "16:9通常動画の説明図1枚。白地、落ち着いた緑灰、小黄色。参照画像は配色参考、人物・肩書き・資格名の反復なし。見出し「増員は、工期だけの問題か」。要素:[\"仮例：工期を守るために増員\",\"経済性管理\\n追加費用は？\",\"安全管理\\n教育・訓練は？\",\"情報管理\\n共有方法は？\"]。ナレーションの意味:事例ごとに、制約、対立する目標、選択肢、採用した対策、結果と残った課題を並べます。仮例として、工期を守るための増員を考えます。費用だけでなく、安全教育や情報共有への影響も確認しましょう。。図の上に「仮例：工期を守るために増員」、そこから横並び3箱へ分岐し「追加費用は？」「教育・訓練は？」「共有方法は？」を経済性管理/安全管理/情報管理と結びつける。施工機械や具体人員数は描かない。全文字図形の下端は画面75%以内、下25%は字幕用の白地、外周6%安全域。360px幅で読める文字。要素の重複や指定以外の数字を入れない。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-kangaekata/work/cover-source.57e59f4c.png",
+                "sha256": "57e59f4c875ad2eed19f1deb6e7414bfb2615494a62c04381b90872734cfdb2b"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-kangaekata/work/cases-detail-source.01b86cba.png",
+              "sha256": "01b86cba4cb5d4bd755471b5385f1349f47b7f3727d3c42215f54569d8cf948e"
+            },
+            "generatedAt": "2026-10-22T08:40:14.639Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-kangaekata/work/cases-detail-diagram.3b0d9ea6.png",
+            "sha256": "3b0d9ea6aa421dccfd61ce3a56a30ae2f91dc2090028a25a45ec832cf9c9bbf7",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "01b86cba4cb5d4bd755471b5385f1349f47b7f3727d3c42215f54569d8cf948e"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-22T09:41:38.788Z",
+            "by": "Codex",
+            "views": [
+              "original",
+              "width-360",
+              "final-mp4-cue-frames"
+            ],
+            "checks": [
+              "台本と図解の意味・文字",
+              "字幕との重なり・表示領域",
+              "装飾人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "story",
+          "inputSha256": "789856efd1ff2ddd6e611b0fef2f481b2aa3bece6bea3ce853416e3c2f6baf3c",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "16:9通常動画の説明図1枚。白地、落ち着いた緑灰、小黄色。参照画像は配色参考、人物・肩書き・資格名の反復なし。見出し「役割から、判断・結果へつなぐ」。要素:[\"担当した\\n役割\",\"直面した\\n問題\",\"自分の\\n判断\",\"結果と\\n学び\"]。ナレーションの意味:次に、経歴を短く説明する練習をします。担当した役割、直面した問題、自分の判断、結果と学びを一続きで話します。。4段階の手順を左→右へ、役割→問題→自分の判断→結果と学び。文字以外はシンプルな記録/判断/チェックの線画図形程度。全文字図形の下端は画面75%以内、下25%は字幕用の白地、外周6%安全域。360px幅で読める文字。要素の重複や指定以外の数字を入れない。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-kangaekata/work/cover-source.57e59f4c.png",
+                "sha256": "57e59f4c875ad2eed19f1deb6e7414bfb2615494a62c04381b90872734cfdb2b"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-kangaekata/work/story-source.e34d8055.png",
+              "sha256": "e34d8055e1721470ce24b7b573172e5983874a04b8b3ac43a8d8420614efcf24"
+            },
+            "generatedAt": "2026-10-22T08:40:14.729Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-kangaekata/work/story-diagram.706d738e.png",
+            "sha256": "706d738ea82f04b26c022e8f19a14a971dccb142dd79d1116599154539ff876c",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "e34d8055e1721470ce24b7b573172e5983874a04b8b3ac43a8d8420614efcf24"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-22T09:41:38.788Z",
+            "by": "Codex",
+            "views": [
+              "original",
+              "width-360",
+              "final-mp4-cue-frames"
+            ],
+            "checks": [
+              "台本と図解の意味・文字",
+              "字幕との重なり・表示領域",
+              "装飾人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "story-detail",
+          "inputSha256": "0b9203d349abdbc601e49b09581b120b599ba382a4f9530c7be8c530443600e6",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "16:9通常動画の説明図1枚。白地、落ち着いた緑灰、小黄色、平面図解。参照は配色だけ継承。装飾人物・肩書き・資格名の反復なし。見出し「練習の目安と、本番の指示を分ける」。図に載せる要素:[\"練習\\n2〜3分でまとめる\\n学習上の目安\",\"本番\\n質問の内容に答える\\n試験官の指示に合わせる\"]。意味:2分から3分でまとめる練習は有効ですが、これは学習上の目安です。本番では質問の内容と試験官の指示に合わせます。チームの成果と自分が担った判断を分け、実際に経験していないことは足しません。。構図:{\"type\":\"compare\",\"section\":\"口頭試験対策／総監\",\"note\":\"チームの成果と自分の判断を分け、経験していないことは足さない\"}。compareは左右対等な2列比較、列間に矢印なし。「練習 2〜3分 学習上の目安」と「本番 質問の内容と試験官の指示」を対比。gridは四つの問いを4カードで等しく示す。learning-loopは4つを一周する循環矢印の図、中央「もう一度、声に出す」。指定されたこの場面の構図だけ使い、他場面の構図を混ぜない。重要文字・図は画面上75%に収め下25%白地は字幕領域。外周6%内側。360pxで主文言判読できる大きさ。必要以上の文章や数字は加えない。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-kangaekata/work/cover-source.57e59f4c.png",
+                "sha256": "57e59f4c875ad2eed19f1deb6e7414bfb2615494a62c04381b90872734cfdb2b"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-kangaekata/work/story-detail-source.8c56a341.png",
+              "sha256": "8c56a34118243248a9bb514898435524cb3f38188cdb87e7fc1bb4676873ef71"
+            },
+            "generatedAt": "2026-10-22T08:40:14.821Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-kangaekata/work/story-detail-diagram.5b587ea1.png",
+            "sha256": "5b587ea19ba1fd0dd97bac87539b6ed9ce4b8ba3de24c246a17f4892ebc9d30d",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "8c56a34118243248a9bb514898435524cb3f38188cdb87e7fc1bb4676873ef71"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-22T09:41:38.788Z",
+            "by": "Codex",
+            "views": [
+              "original",
+              "width-360",
+              "final-mp4-cue-frames"
+            ],
+            "checks": [
+              "台本と図解の意味・文字",
+              "字幕との重なり・表示領域",
+              "装飾人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "qa",
+          "inputSha256": "9e1e07d00074e64f9e08fa6b0385f4462de39a0e7fb5ed8e14b5118640dd9c35",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像を修正。16:9、白地・緑灰・小黄色。見出し「声に出して答える、4つの問い」を保持。循環矢印と中央の黄色い円・「もう一度、声に出す」を完全に取り除く。独立した同サイズ4カードを2列×2行に配置し、順序も接続線も付けない。左上「別の対策を\\n選ばなかった理由は？」右上「安全と工期の対立を\\nどう調整した？」左下「残ったリスクを\\n誰が、どう管理した？」右下「やり直すなら\\n何を変える？」。文字はこの見出しと4つの問いだけ。人物・番号・他の文言なし。すべての図と文字を上部72%以内、下28%は字幕用の完全な白。外周6%以上安全域。大きく明瞭な日本語。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-kangaekata/work/qa-diagram.afd5f5c8.png",
+                "sha256": "afd5f5c8d3000da6407b349f6a91d8f956fda226200621d7e9d7896d6f34a92b"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-kangaekata/work/qa-reviewed-source.7080ad95.png",
+              "sha256": "7080ad95e20a34d5ed65ce45d2e60d6fca8e7e10c93a42507f2c4276866f99b8"
+            },
+            "generatedAt": "2026-10-22T10:02:47.984Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-kangaekata/work/qa-reviewed.4b685b70.png",
+            "sha256": "4b685b70691df896caa39d739ef15336d60ed222f9d69e7a6b08e9722ca97c6d",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "7080ad95e20a34d5ed65ce45d2e60d6fca8e7e10c93a42507f2c4276866f99b8"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-22T10:14:46.055Z",
+            "by": "Codex + independent ai-image-fidelity-auditor",
+            "views": [
+              "original",
+              "width-360",
+              "final-mp4-cue-frames"
+            ],
+            "checks": [
+              "台本と図解の意味・文字",
+              "字幕との重なり・表示領域",
+              "独立監査で指摘された構図・注記の修正"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "qa-detail",
+          "inputSha256": "8f50bd05a721971cb6fdb476926000cb33f35563546776e3ec5d1e4f4912847e",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "16:9通常動画の説明図1枚。白地、落ち着いた緑灰、小黄色、平面図解。参照は配色だけ継承。装飾人物・肩書き・資格名の反復なし。見出し「事実と知識を、往復して確かめる」。図に載せる要素:[\"質問に答える\",\"説明の穴を見つける\",\"業務の事実へ戻る\",\"使った用語を復習\"]。意味:答えが抽象的になったら、業務の事実へ戻します。また、説明に使った総監用語の意味を聞き返されても答えられるよう、体系的専門知識も復習します。。構図:{\"type\":\"diagram\",\"section\":\"口頭試験対策／総監\",\"diagram\":\"learning-loop\",\"source\":\"content/site/pe-comprehensive-management/pdca-cycle/img/figure-pdca-cycle.svg\",\"center\":\"もう一度、声に出す\",\"note\":\"学習手順として再構成。抽象的な答えを、事実と知識で具体化する\"}。compareは左右対等な2列比較、列間に矢印なし。「練習 2〜3分 学習上の目安」と「本番 質問の内容と試験官の指示」を対比。gridは四つの問いを4カードで等しく示す。learning-loopは4つを一周する循環矢印の図、中央「もう一度、声に出す」。指定されたこの場面の構図だけ使い、他場面の構図を混ぜない。重要文字・図は画面上75%に収め下25%白地は字幕領域。外周6%内側。360pxで主文言判読できる大きさ。必要以上の文章や数字は加えない。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-kangaekata/work/cover-source.57e59f4c.png",
+                "sha256": "57e59f4c875ad2eed19f1deb6e7414bfb2615494a62c04381b90872734cfdb2b"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-kangaekata/work/qa-detail-source.3cdc1bee.png",
+              "sha256": "3cdc1bee522a87c02da646aa20c6fcd47815bb2faece3c2e1faf380651054a28"
+            },
+            "generatedAt": "2026-10-22T08:40:15.038Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-kangaekata/work/qa-detail-diagram.721cf15f.png",
+            "sha256": "721cf15ff486ba5ae76f25647fabbf1c5a2a01a23db6f1fad95de22779e4ea2f",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "3cdc1bee522a87c02da646aa20c6fcd47815bb2faece3c2e1faf380651054a28"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-22T09:41:38.788Z",
+            "by": "Codex",
+            "views": [
+              "original",
+              "width-360",
+              "final-mp4-cue-frames"
+            ],
+            "checks": [
+              "台本と図解の意味・文字",
+              "字幕との重なり・表示領域",
+              "装飾人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "summary",
+          "inputSha256": "a489800de10c55ea2e40f755e5bfb0bdf75df0861ba8c5c8e9a7fb4ad1d74f7d",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "16:9通常動画の説明図1枚。白地、落ち着いた緑灰、小黄色。参照は配色のみ。見出し「総監の口頭対策｜準備チェック」。図に載せる文言:[\"経歴と知識の\\n両方を準備\",\"5管理を使った\\n判断を説明\",\"事実・結果を確認し\\n声に出して練習\"]。意味:まとめです。総監の口頭対策では、経歴及び応用能力と体系的専門知識の両方を準備します。業務の事実を整理し、5管理を使った判断と、その結果を説明しましょう。短く答える練習と、用語の確認を往復することが、準備の軸になります。。3つの確認項目を横並び、チェックの小さな記号と関係線で整理。経歴と知識→判断説明→声に出すという学習の流れを穏やかに。資格名、著者肩書き、先生、商品価格は表示しない。背景は四辺まで白、図と重要文字は画面上75%以内に収め、下25%は字幕用の静かな白。外周6%以上安全域。360px幅でも読みやすい太い日本語。指定文言以外の文章を追加しない。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-kangaekata/work/cover-source.57e59f4c.png",
+                "sha256": "57e59f4c875ad2eed19f1deb6e7414bfb2615494a62c04381b90872734cfdb2b"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-kangaekata/work/summary-source.90b33bf3.png",
+              "sha256": "90b33bf3b233cd10f4118b9f8524dd163cf220f76b7db83fd5cfc631087836de"
+            },
+            "generatedAt": "2026-10-22T08:40:15.130Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-kangaekata/work/summary-diagram.f597862d.png",
+            "sha256": "f597862dbc4aa256bb6578d4777c47ae68f5ddc6d998c4ede140077dc541fc1a",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "90b33bf3b233cd10f4118b9f8524dd163cf220f76b7db83fd5cfc631087836de"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-22T09:41:38.788Z",
+            "by": "Codex",
+            "views": [
+              "original",
+              "width-360",
+              "final-mp4-cue-frames"
+            ],
+            "checks": [
+              "台本と図解の意味・文字",
+              "字幕との重なり・表示領域",
+              "装飾人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "cta",
+          "inputSha256": "611891fda4355f118b4c7c8bed779f33788075c53a7bf4174424bf39662ef341",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "16:9通常動画の説明図1枚。白地、落ち着いた緑灰、小黄色。参照は配色のみ。見出し「知識と経験を、総監の言葉で」。図に載せる文言:[\"経歴を整理する\",\"想定問答で、声に出す\",\"教材案内は概要欄へ\"]。意味:さらに経歴の整理と想定問答を練習したい方は、概要欄の教材案内をご覧ください。ご視聴ありがとうございました。。経歴のメモ→声に出す練習→教材案内という3段階をシンプルな線図と文言で配置。吹き出しの記号は可、人物なし。資格名、著者肩書き、先生、商品価格は表示しない。背景は四辺まで白、図と重要文字は画面上75%以内に収め、下25%は字幕用の静かな白。外周6%以上安全域。360px幅でも読みやすい太い日本語。指定文言以外の文章を追加しない。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-kangaekata/work/cover-source.57e59f4c.png",
+                "sha256": "57e59f4c875ad2eed19f1deb6e7414bfb2615494a62c04381b90872734cfdb2b"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-kangaekata/work/cta-source.9599961a.png",
+              "sha256": "9599961ae79eaa847bf3c03551b5a0690ae89f634903bb9420c4991b8aedf103"
+            },
+            "generatedAt": "2026-10-22T08:40:15.224Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-kangaekata/work/cta-diagram.c1d772ef.png",
+            "sha256": "c1d772ef69924dd629547a0e70fd2f410fde1cf9d56407ae46fecab9b01e7fea",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "9599961ae79eaa847bf3c03551b5a0690ae89f634903bb9420c4991b8aedf103"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-22T09:41:38.788Z",
+            "by": "Codex",
+            "views": [
+              "original",
+              "width-360",
+              "final-mp4-cue-frames"
+            ],
+            "checks": [
+              "台本と図解の意味・文字",
+              "字幕との重なり・表示領域",
+              "装飾人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        }
+      ],
+      "storage": {
+        "group": "content-media",
+        "sync": "not-run-user-instruction"
+      }
     }
-  }
+  },
+  "activeCoverRevision": "cover-diagram-20261022",
+  "activeBodyRevision": "body-diagram-reviewed-20261022"
 }

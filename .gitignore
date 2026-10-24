@@ -162,6 +162,8 @@ docs/x-posts/draft/**/status.json
 /*.gif
 /*.webp
 /test.md
+# Codex の画像生成の出力（参照元は Drive の repo-archive へ退避）
+/generated_images/
 
 # 一時出力置き場（.tmp/ 配下はすべて untracked、.gitkeep と README.md のみ追跡）
 /.tmp/*
