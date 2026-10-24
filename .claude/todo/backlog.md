@@ -21,6 +21,10 @@
 
 ## 🔴 高 — 重要度が高い
 
+
+
+
+
 ### [DN-0833] note の閲覧取得が検査不成立でも週の traffic-period を上書きして commit する
 タグ: [インフラ・計測] [領域:管理] [時期:2026-10..2026-11] [種類:不具合] [起票:2026-10-24] [進行中]
 
@@ -31,43 +35,30 @@
 
 
 
-### [DN-0829] Mac の週次レビューの自動実行が、.claude/ への書き込み権限と 600 秒のバックグラウンド待ちの打ち切りで完了しない
+### [DN-0829] Mac の週次レビューの自動実行が 10/31 に rc=0 で完了し、翌週の weekly.md が入ることを確かめる
 タグ: [インフラ・計測] [領域:管理] [時期:2026-10] [種類:不具合] [起票:2026-10-24] [進行中]
 
-**起点**: 2026-10-24 10:49 の Mac の週次レビューの再実行（`npm run weekly-review:install -- --run-now`）が 11:36 に `FAILED rc=1` で止まった。9 月の月次の補完・W42 窓の事業記録・トリアージ・検索改善 3 件は develop に入ったが、`docs/reviews/weekly/2026-W43-review.md` は専用 worktree に未コミットのまま、W44 の週間計画は書けなかった。原因は 2 つ（ログ `~/Library/Logs/doboku-note/weekly-review.log`）。
-1. ヘッドレスの Claude Code が `.claude/` 配下（`.claude/todo/weekly.md`）へ書けなかった。レビューの申し送りに「Write・Edit・Bash とも権限で止まった」とあり、計画の案は worktree の `.tmp/weekly-W44-draft.md` に残っている。`scripts/scheduled/weekly-review.sh` の `--allowedTools` と、`.claude/` の書き込み保護のどちらで止まったかを確かめる
-2. 公開画面の目視を任せたバックグラウンドの作業が終わる前に、「Background tasks still running after 600s; terminating」で本体が終了した。レビューは「公開画面の目視」の節が空のまま、未保存の変更が残って完了扱いにならなかった。`CLAUDE_CODE_PRINT_BG_WAIT_CEILING_MS` を設定するか、目視を待たずに済む段取りにする
+**起点**: 2026-10-24 の Mac の週次レビューの再実行が `FAILED rc=1` で止まった（ヘッドレスの Claude が `.claude/` 配下へ書けない・600 秒のバックグラウンド待ちの打ち切り）。`scripts/scheduled/weekly-review.sh` は、`.claude/` の書き込みを `.tmp/claude-out/` へ逃がしてラッパーが写して commit する形と `CLAUDE_CODE_PRINT_BG_WAIT_CEILING_MS=1800000` に直してある。
 
-**完了条件**: 次の土曜の週次レビューの自動実行が rc=0 で終わり、その週のレビューと翌週の `.claude/todo/weekly.md` が develop に入っている。DN-0819（土曜のチェーン）の前提になる。
+**完了条件**: 10/31 の土曜の週次レビューの自動実行が rc=0 で終わり、その週のレビューと翌週の `.claude/todo/weekly.md` が develop に入っている。
 
 
-### [DN-0819] （DN-0817 段1）土曜の週次レビューの前段に、ログインが要る読む収集・note 同期・GSC の登録リクエストを順につなぐ
-タグ: [インフラ・計測] [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-10-24] [進行中]
+### [DN-0819] （DN-0817 段1）土曜の収集チェーンが 2 週続けて全段 rc=0 で終わることを確かめる
+タグ: [インフラ・計測] [領域:管理] [時期:2026-10..2026-11] [種類:改善] [起票:2026-10-24] [進行中]
 
-**起点**: DN-0817 の段 1。前提は段 0（失敗中の Mac の処理を直す）の完了。
+**起点**: DN-0817 の段 1。土曜の収集（ログイン確認 → 読む収集 → note 同期 → GSC → 週次レビュー）は #1214・#1216 で実装済み。10/24 の手動実行は前段 7 本が合格し、後段の note 同期だけ 180 分の時間切れになった（#1216 で 1 回 80 記事・300 分に修正）。
 
-**やること**: `scripts/scheduled/weekly-review.sh`（土曜 9:30・専用 worktree）の前段に、ログインが要る処理を**順番に 1 本ずつ**つなぐ。ブラウザは同時に 1 本だけ。
-1. ログインの確認と入り直し（`auth-session-refresh` の Mac の分。export と CI の起動はしない）
-2. 読む収集（今 CI と各 launchd が持つもの）: A8（`a8-ui:fetch`）、note のアクセス・売上（`note-traffic-fetch`・`note-sales-fetch`）とライブ照合（`check-note-attachments:live`・`check-note-membership:live`）、KDP（`kdp-report`）、ココナラ（`coconala-orders`・`coconala-analytics`・`coconala-revenue`）、X（`x-own-metrics`）、Instagram（`verify-ig-status`）
-3. note 同期（`note-sync-routine.mjs`。待ちが残ったときの `--catch-up-until` は今の仕組みのまま）
-4. GSC の登録リクエスト 10 件と、月次の理由別 CSV（`check-gsc-ui-due` が DUE のときだけ）
-5. 週次レビュー（今のまま。上で集めた `data/` を読む）
+**残り**: 10/31 と 11/7 の 2 週続けて土曜の回を見る。あわせて DN-0820（記録の鮮度の基準を週次に合わせた分）の確認を兼ねる＝成功した週に `ops-audit` と `weekly-review-guard` が鮮度で鳴らず、1 回飛ばした週（8 日以上）には注意が出る。
 
-各段は前の段が落ちても続け、何が落ちたかをレビューの材料に出す（落ちた段を成功に見せない）。土曜の回が丸ごと動かなかった、または途中で落ちた週は、日曜か次の起動で 1 回だけやり直す。予約投稿（X・Instagram・note）は保留が解けたら同じ流れに 1 段足す（今は SNS の新規投稿が保留中なので入れない）。
-
-**完了条件**: 2 週続けて土曜の回が全段 rc=0 で終わり、集めた記録が develop に入り、その週のレビューがそれを読んでいる。
+**完了条件**: 10/31 と 11/7 の 2 週続けて土曜の回が全段 rc=0 で終わり、集めた記録が develop に入り、その週のレビューがそれを読んでいる。`ops-audit` が鮮度で鳴らない。
 
 
-### [DN-0818] （DN-0817 段0）Mac の週次レビューとココナラ取得の失敗を直す（空き容量の予約・起動の重なり）
+### [DN-0818] （DN-0817 段0）土曜の週次レビューが空き容量の予約で止まらないことを 10/31 に確かめる
 タグ: [インフラ・計測] [領域:管理] [時期:2026-10] [種類:不具合] [起票:2026-10-24] [進行中]
 
-**起点**: DN-0817 の段 0。2026-10-18〜10-24 に Mac の launchd 4 本が失敗した。auth-session-refresh は DN-0816、note-sync のマガジンカバーの Drive 保存は DN-0763 が持つ。note-sync の 10/11 の配布 PDF の取り寄せ失敗（Unknown system error -11）は、10/15 に DN-0567（PR #1082）で取り寄せの中の再試行が入り済みで、10/18 の週次では取り寄せの失敗 0 件（このカードの対象外）。ログ: `~/Library/Logs/doboku-note/<名前>.log`。
+**起点**: DN-0817 の段 0。10/24 の weekly-review は空き 19.1GB が予約 20GiB を割って止まった（Issue #1206）。運営者が `.tmp/media` の 4.69GB を 10/24 に消し、空きは 23GiB になった。coconala-local は launchd ごと外れ、土曜の収集の中で動く。
 
-**残り**:
-1. **weekly-review（10/24 09:30・Issue #1206）**: 復元 0 件なら空きの予約で止めない修正は PR（ブランチ `fix/dn-0818-mac-routines`）。空き自体は 2026-10-24 時点で 19.1GB と予約 20GiB を割っていて、復元が要る週や `local-resource-run` の重い作業は止まる。自動で消せる候補はほぼ無い（`check-disk-hygiene`）。大きいのは `.tmp/media` 5.2GB（うち 4.69GB・2,179 件は Drive で 3 者照合済み＝`npm run media -- pull` で戻せる）と、日付つきの作業フォルダ 14 個 1.9GB。消すかどうかを運営者が決める。10/17 の rc=143 は外からの SIGTERM（スクリプトに時間制限は無く、1 分後に手で再実行して 14:40 に完了）で、止めた主は記録に無い
-2. **coconala-local（10/20）**: gsc-local（毎日 10:30・最長 23 分）と重なって起動を見送った。毎週火曜 05:15（04:17 の disk-hygiene の後）へ移し、この Mac の launchd は登録し直し済み。次の火曜（10/27）の結果を見る
-
-**完了条件**: 次の土曜の weekly-review と次の火曜の coconala-local が rc=0 で終わり、ログに「Insufficient free disk」と「起動を見送り」が無い。
+**完了条件**: 10/31 の土曜の weekly-review が、ログに「Insufficient free disk」なしで完走する。止まったら予約値と `check-disk-hygiene` の候補を見直す。
 
 
 ### [DN-0817] ログインが要る読む処理と書く処理を土曜の Mac の 1 本にまとめ、ほかのセッションは記録を読んで進める（移行計画）
@@ -480,26 +471,8 @@ drive-vault-sync -- --group source-transcript --verify --deep が 240 件中 1 �
 **完了条件**: `launchctl list | grep doboku-note` が weekly-review と disk-hygiene の 2 本だけ、`git worktree list` が人のチェックアウトと weekly-review の 2 行だけ、`npm run quality:audit:ci` が PASS。
 
 
-### [DN-0820] （DN-0817 段2）週次へ移した記録の鮮度の基準を週次に合わせる
-タグ: [インフラ・計測] [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-10-24] [進行中]
-
-**起点**: DN-0817 の段 2。収集が週 1 回になると、毎日〜数日前提の鮮度の基準のままでは毎週注意が鳴る（`ops-audit` の Issue #571 など）。
-
-**やること**: 段 1 で週次へ移した記録について、`scripts/lib/datasets.mjs` の各行の `freshness: { warnDays, failDays }` を週次に合わせる（例: 注意 8 日・失敗 15 日）。`check-gsc-indexing-due`（直近 7 日の受理）など、日数を自前で持つ検査も同じ基準に揃える。値を写さず台帳から引く形にする（`freshnessOf`）。
-
-**完了条件**: 土曜の回が成功した週に `ops-audit` と `weekly-review-guard` が鮮度で鳴らず、1 回飛ばした週（8 日以上）には注意が出ることを、日付を変えたテストで確かめた。
 
 
-### [DN-0816] ログイン維持の日次処理（auth-session-refresh）が 3 日続けて rc=1 で終わる（kdp の印・moshimo の競合）を直す
-タグ: [領域:管理] [時期:2026-10] [種類:不具合] [起票:2026-10-22]
-
-**起点**: 2026-10-22、DN-0362 の完了判定で、Mac の launchd `com.doboku-note.auth-session-refresh`（毎日 17:45）が 10/20・10/21・10/22 の 3 日連続で `FAILED rc=1`（LastExitStatus 256）で終わっていると分かった（`~/Library/Logs/doboku-note/auth-session-refresh.log`）。a8 と note は ok だが、kdp は `autologin-failed` の印が残って blocked、moshimo は「別の認証操作が使用中です」で error、coconala と afb は資格情報（doboku-note-auth-coconala ほか）が無く skipped。
-
-**やること**: (1) kdp の autologin-failed の印が何で付き、どうすれば外れるかを確かめる（KDP の再ログインが要るなら運営者の作業）。(2) moshimo の「別の認証操作が使用中」が、同じ時刻に動く別の処理（ロック）との競合かを確かめ、時刻をずらすかロックの待ち方を直す。(3) 資格情報が未登録の skipped は失敗に数えない（rc の判定）か、登録を運営者に頼む。
-
-**完了条件**: 日次の auth-session-refresh が 3 日続けて rc=0 で終わり、ログに blocked・error が無い（未登録の skipped は理由つきで残してよい）。
-
-**進捗（2026-10-22 夜）**: moshimo の原因は 10/13 の login のロック（pid 21285・もう動いていない）が残っていたこと。持ち主が動いていないことを確かめて手で退避し、同じ形の古いロックは AUTH_LOCK_STALE として場所と持ち主を出すようにした（自動では消さない設計は維持・PR #1192）。外した後の auth:status は note・ココナラ・X・Google・A8 が ok、kdp・instagram・moshimo・afb が expired。**残り（運営者）**: kdp・moshimo・afb・instagram を再ログインする（パスワードと 2 段階認証は人）。その後、日次の auth-session-refresh が 3 日続けて rc=0 になるのを確かめる。
 
 ### [DN-0814] 技術士一次の過去問ページのスマホの INP（良好率 52%）を直す
 タグ: [領域:サイト] [時期:2026-11] [種類:改善] [検証:report-web-vitals] [起票:2026-10-22]
@@ -567,16 +540,12 @@ drive-vault-sync -- --group source-transcript --verify --deep が 240 件中 1 �
 
 **現状（2026-10-21）**: `npm run check-local-data` で staging の上限超えが 5,858 件（10/19 の 1,985 件から増えた）・申告に無い手元データが 163 件。1 件ずつ「置き場へ移す／消す」の判断が要り、消すのは取り消せないので、運営者が出張から戻ってから一緒に進める（2026-10-21 オーナー決定）。
 
-### [DN-0763] 週次 note-sync のマガジンカバー Drive 保存（drive-vault-sync）の失敗を直す
-タグ: [領域:管理] [時期:2026-10] [種類:不具合] [起票:2026-10-18] [期日:2026-10-25]
+### [DN-0763] 週次 note-sync のマガジンカバー Drive 保存（drive-vault-sync）が、次の土曜の収集で失敗しないことを確かめる
+タグ: [領域:管理] [時期:2026-10..2026-11] [種類:不具合] [起票:2026-10-18] [期日:2026-11-01]
 
-**起点**: 週次 note-sync（2026-10-18 03:00・Mac launchd）で、マガジン 9 誌の更新後に `drive-vault-sync --group note-magazine-cover-png --commit` が非 0 で終わり、run 全体が `FAILED rc=1` になった（data/note/sync-log.json の problems「マガジンカバーを Drive へ保存できなかった（drive-vault-sync）」）。記事 95 本・マガジン 9 誌の反映は成功している。
+**起点**: 週次 note-sync（10/18）で `drive-vault-sync --group note-magazine-cover-png --commit` が非 0 で終わった。10/20 に同じコマンドを実行して exit 0（失敗 0・全件 sha256 一致）で、一時的な Drive I/O とみられる。保存段の 1 回再試行と、落ちたときの出力の末尾のログ・problems への記録は #1147 で入った。
 
-**やること**: 同じコマンドを Drive をマウントした Mac で `--commit` 付きで流し、失敗する対象と理由を確かめる。dry-run（10/18）は 111 件を保存待ちとして完走したので、失敗は書き込みの段階。10/11 の PDF 取り寄せの `Unknown system error -11` と同じ Drive I/O か、台帳の lock・ETIMEDOUT かを切り分ける。あわせて note-sync-routine が drive-vault-sync の stderr をログへ残すようにして、次に理由が分かるようにする。
-
-**完了条件**: `node scripts/drive-vault-sync.mjs --group note-magazine-cover-png --commit` が exit 0 で、次の週次 note-sync の problems にこの行が無い。
-
-**進捗（2026-10-20）**: note-sync の worktree で同じコマンドを `--commit` 実行し exit 0（コピー 4・変更なし 107・失敗 0・全件 sha256 一致）。失敗は一時的な Drive I/O とみられる。保存段を 1 回再試行し、落ちたら出力の末尾をログと problems へ残すようにした（#1147）。**残り**: 10/25 ごろの週次 note-sync の problems にこの行が無いことを確かめて閉じる。
+**完了条件**: 10/31 以降の土曜の収集の後段 note-sync の problems に、マガジンカバーを Drive へ保存できなかった行が無い。
 
 
 
@@ -723,20 +692,6 @@ drive-vault-sync -- --group source-transcript --verify --deep が 240 件中 1 �
 
 
 
-### [DN-0598] 経営の指標（business-direction）に YouTube 経由のサイト利用者を主 KPI として足す
-タグ: [インフラ・計測] [領域:戦略] [時期:2026-10..2026-11] [種類:改善] [起票:2026-10-08]
-
-**起点**: `config/business-direction.json` の metrics に YouTube が無い（Instagram は igReach・igFollowers がある）。週次レビューは GA4 の youtube/video 流入（2026-09-17〜23 は0人）を本文で読むだけで、管理画面 `/metrics/business` にも月次の判断にも出ない。2026-10-08 時点で通常動画70本の再生中央値は4回（`data/youtube/own-videos/2026-10-08.json`）。
-**決めること**:
-1. 主 KPI を何にするか。06 §9 の方針は「送客（utm_source=youtube のサイト・note 流入、ココナラへの遷移）が主、登録者・広告収益は主にしない」。候補: YouTube 経由のサイト利用者（GA4・utm_source=youtube）・通常動画の再生の増分（own-videos の合計の差分）・登録者（期末）
-2. 目標を置くか。置くなら実測の期間・対象・理由を添える（business-direction の rules）
-**決めたら**: business-direction.json の metrics に足し、月次・週次のスナップショットを作るスクリプトに取得元を足して `/metrics/business` と `/weekly-review`・`/monthly-review` が読むようにする（欠測を0にしない）。
-
-**判断（週次レビュー 2026-10-10・運営者）**: 送客を主 KPI にする。YouTube 経由のサイト利用者（GA4・utm_source=youtube）を business-direction.json の metrics に足し、目標は置かずに実測を 3 か月ためてから決める。再生の増分・登録者は足さない。
-
-**完了条件（改）**: metrics に YouTube 送客の指標があり、週次・月次のスナップショットが値（欠測は null）を持ち、/metrics/business に出ている。npm run check-business-direction が通る。
-
-**進捗（2026-10-14）**: 指標 `youtubeUsers`（GA4・日本・sessionSource=youtube のアクティブユーザー・資格別には割らない）を business-direction.json に足し、`fetch-business-metrics.mjs` の全体（all）の GA4 集計で取得、週次レビューの下書きの表にも出す（PR feat/youtube-referral-kpi）。check-business-direction は 24 指標で PASS。**残り**: マージ後の CI の定期取得（fetch-metrics）で週次・月次の記録に値が入り、/metrics/business に出ていることを確かめて完了。
 
 ### [DN-0393] 国・都道府県の技術図書の整理を共通仕様書の次（施工管理基準から）へ広げる
 タグ: [コンテンツ品質] [領域:サイト] [時期:2026-10..2026-11] [種類:制作] [起票:2026-09-27]
@@ -1010,43 +965,10 @@ drive-vault-sync -- --group source-transcript --verify --deep が 240 件中 1 �
 
 **確認（2026-10-21）**: 令和9年の測量士・測量士補の日程はまだ公表されていない（令和8年は 2025-11-27 付けの公告。県の案内・受験情報サイトで確認）。gsi.go.jp はこの Mac の curl からも 403 で読めない（ブラウザで開く）。11/27 ごろ以降に公告を見て `exam-calendar.json` を更新する。
 
-### [DN-0484] afb を CI で取得し、取得スクリプト自身が Secrets でログインする形を試す
-タグ: [インフラ・計測] [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-10-01] [進行中]
-
-**起点**: 2026-10-01 にユーザー決定で、ログインが必要な全サービスを CI でも自動で入り直す方針にした。afb はログイン状態を別プロセスへ持ち出せない（`sessionPersistsAcrossProcesses: false`・9/21 CI で requiredlogin へ戻された）ため、`auth-session-refresh --ci` で入り直してから別プロセスの取得スクリプトを動かす形は効かない。
-
-**やること**: (1) afb のログイン画面（`https://www.afi-b.com/pa/`）の入力欄を読み取りで確かめ、`scripts/lib/auth-session-refresh.mjs` の `AUTO_LOGIN` に afb を足す（正本の `autoLogin` も true）。(2) `afb-scan` / `affiliate-status` の afb 経路で、未ログインなら同じプロセス内で `readServiceCredential('afb')` の ID/PW で 1 回だけログインしてから取得する。(3) 正本の afb を `ci.enabled:true`・`credential.ciCredential:true` にし、`login-collectors.yml` の afb step に Secrets を渡す。(4) 毎月 3 日の実行で取得できるかを見て、続けるか戻すかを決める。afb の既定サイトは stats47（`asp-site-guard`）なので、サイト帰属の検査は維持する。
-
-**完了条件**: CI の afb 取得が 1 回以上成功する、または不成立の理由を記録して正本を `ciCredential:false` に戻した。
-
-**2026-10-01 実装**: (1)〜(3) を実装（`openAsp` が同じプロセスで 1 回だけログイン・CI では人を待たずに失敗）。残りは (4) 11/4 の定期実行（または `workflow_dispatch` service=afb）の結果を見て判断する。main へ deploy してから。
-
-### [DN-0483] もしもアフィリエイトの CI 取得を新設し、Secrets で入り直す形を試す
-タグ: [インフラ・計測] [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-10-01] [進行中]
-
-**起点**: 2026-10-01 にユーザー決定で、ログインが必要な全サービスを CI でも自動で入り直す方針にした。もしもは正本で `ci.mode: none`（CI で取得していない）で、手元の `affiliate-status` / `affiliate-apply` だけが使う。口座は stats47 と共用。
-
-**やること**: (1) CI で何を取るか決める（提携状況・成果など `affiliate-status` のもしも経路）。(2) 正本の moshimo を `ci.mode: encrypted-state`・`enabled: true`・cron・`readOnlyScripts` に設定し、Mac の `auth-session-refresh --export` で暗号化 state を渡す。(3) `login-collectors.yml` に moshimo の step と Re-login の対象を足し、正本の `credential.ciCredential` を true にする（Secrets は保管済み）。(4) 数回の実行で取得が続くか・共用口座に追加確認が出ないかを見て、続けるか戻すかを決める。
-
-**完了条件**: CI のもしも取得が 1 回以上成功する、または不成立の理由を記録して戻した。
-
-**2026-10-01 実装**: (1)〜(3) を実装（提携状況を `affiliate-status --asp moshimo --write` で毎週日曜 21:40 UTC に取得）。残りは Mac の `auth-session-refresh --export` でもしもの暗号化 state を渡すこと（DN-0479 と同じ Mac 作業）と、main へ deploy 後の実行結果で (4) を判断すること。
 
 
 
-### [DN-0479] Mac でも全ログインサービスの資格情報をキーチェーンへ登録し、管理画面で揃ったことを確かめる
-タグ: [インフラ・計測] [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-10-01]
 
-**起点**: 2026-10-01 にユーザー決定で、ログインが必要な全サービスの ID/PW を各 PC の OS 資格情報ストアで管理する方針にした。正本は `.claude/config/playwright-auth-profiles.json` の `services.<id>.credential`、確認は管理画面の 管理 ＞ ログインと資格情報（`/ops/auth`）。Windows は note・ココナラを登録済み（同日）で、Mac は未着手。管理画面が見えるのはその PC の登録だけなので、Mac は Mac で確かめる。
-
-**やること**（Mac で。パスワードは対話入力にして引数や履歴に残さない）:
-1. develop を最新にして `npm run admin` を起動し、`/ops/auth` を開いて未登録の行を確かめる。
-2. 全 9 サービスの項目をキーチェーンへ登録する: `security add-generic-password -s doboku-note-auth-<service> -a <ログインID> -w`（service は note・coconala・kdp・a8・moshimo・x・instagram・google・afb）。note・ココナラの ID は dobokunotecom@gmail.com。A8・もしもは stats47 の `stats47-measurement-a8` / `-moshimo` が Mac にあればそれで足りる（doboku-note 側を優先して読む）。
-3. `npm run auth-refresh:install -- --status` で launchd（`com.doboku-note.auth-session-refresh`）が登録済みか確かめる。未登録なら `npm run auth-refresh:install`。
-4. `npm run auth-refresh:install -- --run-now` で 1 回走らせ、`~/Library/Logs/doboku-note/auth-session-refresh.log` と `/ops/auth` の「最新の維持結果」が ok になるのを確かめる。
-5. `node scripts/note-sales-fetch.mjs --month <前月>`（dry-run）で、売上ページのパスワード再確認を資格情報で通せるか（`[1b]` の行）を確かめる。
-
-**完了条件**: Mac の `/ops/auth` で「この PC の資格情報」が 9 件とも登録済み（A8・もしもは共用項目でも可）、定期実行が登録済み、自動ログイン対応の行（note・ココナラ・KDP・A8・もしも）の最新の維持結果が ok か失敗理由が分かる状態。
 
 ### [DN-0478] 2級二次の後に、無料化した週次お題10本の時期表現を来年度も使える言い方へ直す
 タグ: [収益化] [領域:商品] [時期:2026-10] [種類:改善] [起票:2026-10-01] [期日:2026-10-31]
@@ -1280,18 +1202,6 @@ drive-vault-sync -- --group source-transcript --verify --deep が 240 件中 1 �
 
 **完了条件**: 台帳で選んだ note の記事とココナラの出品を、計画の確認→実行で更新でき、実行後に台帳の「ずれ」から消える。
 
-### [DN-0362] Playwright 認証を「人・Mac・CI」の役割分担で設計し直し、ログインの維持を自動化する
-タグ: [インフラ・計測] [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-09-27] [進行中]
-
-**起点**: 2026-09-27、Instagram の状態確認で、自動化用プロファイルの多くが期限切れのまま使う直前まで気づけない構造だと分かった（`.claude/knowledge/reference/playwright-auth-profiles.md` の 9/7 実測で 9 サービス中 6 つが expired）。サービスごとの CI 扱いはあるが、ログインを誰がどこでするかの共通ルールと、ログインの維持・期限切れ検知が無い。文書の一部は Windows 前提（`%LOCALAPPDATA%`）のまま。stats47 には、キーチェーンの ID/PW で切れたときだけ 1 回再ログインし、2FA・CAPTCHA では止めて通知、失敗は 1 回で止める実装がある（`~/stats47/.claude/scripts/measurement/refresh-session.mjs`・`bootstrap-session.mjs`）。A8・もしもは stats47 とログイン状態を共有済み。
-
-**やること**: (1) 役割分担を文書化する＝人（初回ログイン・2FA・キーチェーン登録・失敗印の解除）／Mac の launchd（ログイン維持・CI への状態受け渡し・見た目に関わる書き込み）／CI（読み取りの定期収集のみ。ログインしない・期限切れは検査不成立）。(2) stats47 の refresh-session 方式を共通化し、note・ココナラへ広げる。X・Instagram は凍結・利用制限の危険が大きいので健康診断と通知だけにして再ログインは人が行う。(3) 週1回のログイン健康診断を週次レビューに載せる。(4) 文書の Windows 前提を Mac の実パスへ直す。(5) 2026-09-28 オーナー承認: Windows でも同じ維持を回す＝ID/PW は Windows 資格情報マネージャー（stats47 `credential-store.mjs` と同じ読み口・CI は読まない）、起動はタスクスケジューラ。Windows→CI の受け渡しはしない（CI へは Mac から一方向のまま）。ID/PW をログ・引数・ファイルに出さない。エージェントはパスワードでのログインを実行しない（実行はオーナーか launchd）。
-
-**完了条件**: 役割分担が文書にあり、note・ココナラのログイン維持が launchd（Mac）とタスクスケジューラ（Windows）で動き、週次レビューにログイン健康診断の欄があることを確認したら、このカードを削除する。
-
-**確認（2026-10-22）**: ログイン維持の実装（Mac launchd・Windows タスクスケジューラ・credential-store）は PR #686 で済み、Mac では note と A8 が毎日 ok。残りは (1) 週次レビューにログイン健康診断の欄を足す (2) 役割分担（人・Mac・CI）を playwright-auth-profiles.md に 1 表でまとめる (3) ココナラの資格情報を運営者が Mac のキーチェーンに登録する（未登録で skipped）。日次実行が 10/20〜22 に rc=1 で終わり続けている件（kdp の autologin-failed の印と moshimo の認証操作の競合）は DN-0816 で切り分ける。Windows 側の稼働は運営者が確認する。
-
-**進捗（2026-10-22 夜）**: (1) 週次レビューに auth:status のログインの健康診断を足した (2) 人・Mac・Windows・CI の役割分担を playwright-auth-profiles.md に表でまとめた（PR #1192）。**残り（運営者）**: ココナラの資格情報を Mac のキーチェーンに登録する（登録すれば日次のログイン維持の対象になる）。
 
 ### [DN-0363] SNS の入口→サイト→note/ココナラの経路を台帳と機械監査で管理する
 タグ: [収益化] [領域:SNS] [時期:2026-11] [種類:改善] [起票:2026-09-27]
@@ -1438,14 +1348,6 @@ Windows の PowerShell で repo 直下から順に:
 
 **完了条件**: 通常動画112本とShorts224本を外部実体で照合し、全Shortsの関連動画・予約日時・著者表記が正しく、全機械・意味ゲートがPASSする。6週間後の継続/修正/停止判断とbaselineを記録したらカードを削除する。
 
-### [DN-0317] ログイン必須の計測・書き込みの CI 化を、残りのサービスへ canary で広げる
-タグ: [インフラ・計測] [領域:管理] [時期:2026-12] [種類:改善] [起票:2026-09-25]
-
-**起点**: PR #548 / #549 / #550（2026-09-21 merge）で暗号化 storageState による CI 化の基盤は揃い、a8・coconala・note(traffic) は schedule 起動で緑（2026-09-22〜25）。残りのサービスは `ci.enabled:false` のまま。
-
-**やること**: 読み取りは kdp → x → google → afb の順に、レジストリで `canary:true, enabled:true` → `gh workflow run login-collectors.yml --ref develop -f service=<svc> -f mode=probe-only` を2回 → `-f mode=collect` を別日に3回 → Mac で `npm run auth:status -- --service <svc>` が authenticated のまま → `canary:false` で cron。書き込みは `npm run ops-write:plan` → `ops-write.yml`（最初は `commit=false`）で instagram.publish-bs → note.sync-tags → note.update-body → note.publish → coconala → X 投稿 → X Articles → KDP の順。事前のユーザー操作（Secret `DOBOKU_AUTH_AGE_IDENTITY`・`CLOUDFLARE_ANALYTICS_API_TOKEN`・各サービスの `auth:export`・Environment `external-writes`）が済んでいないサービスはそこで止める。罠は memory の reference_ci_encrypted_state_gotchas。4週安定したら `check-*-due` と ops freshness の `note:` を CI 主経路に書き換える。
-
-**完了条件**: 対象サービスがすべて `canary:false` で cron 稼働するか、サービスごとのカードへ分けたら、このカードを削除する。
 
 ### [DN-0338] 1級土木「ネットワーク式工程表」のtitle・descriptionを「インターフェアリングフロートとは」の検索意図に合わせる
 タグ: [コンテンツ品質] [領域:サイト] [時期:2026-11] [種類:改善] [起票:2026-09-26]
@@ -1467,27 +1369,6 @@ Windows の PowerShell で repo 直下から順に:
 
 **完了条件**: `npm run qualification-market` のココナラ列から * が消え（見送り以外の全資格）、取得物をコミットしたら、このカードを削除する。
 
-### [DN-0311] ココナラの商品展開を「人の作業が主役・PDF は安い入口」へ組み直し、note・KDP と資格ごとに棲み分ける
-タグ: [収益化] [領域:商品] [時期:2026-11] [種類:改善] [起票:2026-09-25]
-
-**起点**: 2026-09-25 に、ココナラの競合（`market-research.json` 9/23 取得・関連358サービス、主要ページは当日取り直し）と自社の note（`data/note/sales.json` 303件）・KDP（`data/kdp/royalties.json` 7〜8月）・ココナラ（`data/coconala/orders.json` 4件・`data/coconala/kpi.json`）を突き合わせた。
-- ココナラ土木では人の作業が売れ筋。ちゃんさと技師の添削2問 ¥12,000 が316件、4問セット ¥24,000 が156件（件数は半分でも売上額はほぼ同じ）、作成代行はセット ¥32,000 が168件で単発 ¥16,000 の138件を上回る。**「セットは売れない」ではない**
-- PDF で売れているのは ¥2,500〜3,500 の安いもの（303geos の解答例186件・予想問題148件）と、YouTube から集客できる出品者のもの（ひげごろー 1級二次模試 ¥30,000・992件。本文で YouTube 経由の購入を案内している）。競合の教材 PDF の中央値は ¥3,750 で、自社の1級フルパック ¥12,000 は外れ値
-- 技術士の添削は ¥2,000〜6,500 が中心で、最多でも評価59件。土木より市場が一桁小さい（例: 3619267 総監・建設の論文指導 ¥11,000・販売実績10件）。自社は今ココナラに技術士の商品が無いので直接の競合ではない
-- 自社 note は累計 ¥638,840 の約8割が技術士（建設 ¥297k・総監 ¥223k）で、売れ筋上位はパックとマガジン（総監 記述式完全パック ¥77k など）。土木は約 ¥95k。KDP は2か月 ¥7,755 で技術士の模範解答集と一次過去問が中心
-- 自社ココナラは受注4件（模試2・フルパック1・添削1）のみで、自社データからは結論が出ない
-
-同日に `coconala-research.mjs` で追加キーワード12個の検索を始め、8個（経験記述 添削／経験記述 作成／施工経験記述／1級土木 二次／施工管理技士 添削／土木 論文 添削／技術士 論文 添削／技術士 二次試験）が完了、「技術士 建設部門」は途中（2/5ページ）で止めた。新しく見つかった関連サービスは45件で、最多でも評価12件（技術士の上下水道・機械・建設の個人添削）。**上位の顔ぶれ（ちゃんさと技師・ひげごろー・303geos・梅村）は変わらない**。残り4キーワードは中断再開できる: `DOBOKU_PW_MIN_FREE_MB=500 node scripts/coconala-research.mjs --query "技術士 建設部門" --query "技術士 総監" --query "土木 模擬試験" --query "コンクリート技士" --max-pages 5 --details 15` → `npm run coconala-research -- --summary-only`。ココナラの外では、土木は独学サポート事務局（作成代行＋添削セット ¥18,900）、技術士は通信講座 ¥69,300〜178,100（スタディング・新技術開発センター・アガルート・SAT・JES）とマッチングサイト（技術士システム）・個人技術士の添削サイトが競合（WebSearch・未精査）。
-
-限界: 競合の販売実績は累計で時期が分からない。技術士の件数は評価件数で代用。YouTube 集客型は例外。季節性（技術士=6〜7月、土木=9〜10月）が混ざる。
-
-**やること**: ユーザーの判断を待つ。案は次の3つ。
-1. ココナラは添削・作成（1級・2級の8件）を主役にし、24時間返却と価格（2テーマ ¥6,000）で差をつける
-2. 高額 PDF（1級・2級フルパック、1級教材一式＋添削 ¥17,000）の受付を止めるか値下げし、安い模試・完成答案だけを入口に残す。空いた枠は添削・作成の見せ方へ回す
-3. 技術士はココナラに出さず note（パック・マガジン）と KDP（安い入口）で売る。来季（2027年4〜7月）に、note 購入者向けの論文添削を ¥5,000 前後でココナラに出すかを改めて決める
-決めたら `docs/strategy/09_販売チャネル競合分析.md` に反映し、出品の変更は `coconala-pause` / `coconala-edit --commit` で行う。1級の試験後の扱い（DN-0310）と、2級の試験後の棚（DN-0264）と同時に決めてよい。
-
-**完了条件**: 3案の採否が決まり、09_販売チャネル競合分析.md とカタログ（`src/lib/coconala-services.ts`）に反映され、`npm run check-coconala-live` が全件一致したら、このカードを削除する。
 
 ### [DN-0278] YouTube 概要欄の冒頭に季節の主商品リンクと保有資格を置き、予約済み・公開済みへ同期する
 タグ: [SNS・マーケ] [領域:SNS] [時期:2026-10..2026-12] [種類:改善] [検証:check-video-publication] [起票:2026-09-23]
@@ -1608,16 +1489,6 @@ Windows の PowerShell で repo 直下から順に:
 
 **進捗（2026-09-27）**: PR #678 で資格ハブ末尾の 3 枚のカードに `internal_nav_click`（label: qualification-map:civil1 / :pe / :pe-cm）を付け、技術士（業務経歴票）へのカードを足した。読み方は 13_土木公務員SEO戦略 第2期に記載。残りは deploy 後 4 週分の遷移数の記録。
 
-### [DN-0367] 受取額（netReceipts）を毎月機械で記録する
-タグ: [インフラ・計測] [領域:管理] [時期:2026-10] [種類:改善] [起票:2026-09-27]
-
-**起点**: 2026-09-27 に NSM を月の受取額へ切り替え、月 ¥100,000 の目標を置いた（[15_KPIツリー.md](../../docs/strategy/15_KPIツリー.md)）。8月分は運営者の再認証のうえ手で拾った（note「売上詳細」の手数料控除後売上・ココナラ売上履歴・KDP 確定値）。毎月手で拾うと記録が抜ける。
-
-**やること**: note の月別「売上詳細」の手数料控除後売上を `note-sales-fetch` と同じ永続プロファイルで取得し、ココナラ売上履歴（控除後・クローズ日）と KDP 確定値を合わせて `subject: netReceipts` の計測記録を書く処理を作り、月次レビューの取得手順に入れる。
-
-**完了条件**: 2026年9月分の netReceipts が機械の取得で complete として記録され、月次レビューの手順から実行できる。
-
-**進捗（2026-09-27）**: `npm run record-net-receipts` を作った（PR）。note の手数料控除後売上は売上管理の月別詳細（`/dashboard/salesmanage?datespan=YYYYMM`）から自動取得、KDP は data/kdp/royalties.json の catalog 対象・確定値、ココナラは `--coconala` で渡す。2026-08 で試運転し 74,218 円（手で拾った値と一致）。残りは 9 月分を 10 月初めの月次で記録すること。ココナラの自動取得は DN-0414。
 
 ### [DN-0368] 運営費用と作業時間の記録方法を決め、時間あたり受取額を出す
 タグ: [インフラ・計測] [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-09-27]
@@ -1646,27 +1517,9 @@ Windows の PowerShell で repo 直下から順に:
 
 **実験**: なし（この仕組みより前に直した /exam/pe-construction/guide/career の 28 日後の確認そのもの。手で比べる）
 
-### [DN-0395] 月次レビューの手順が証拠を残すように、月次レポート（docs/reviews/monthly）を書かせる
-タグ: [インフラ・計測] [領域:戦略] [時期:2026-10] [種類:改善] [起票:2026-09-27]
-
-**起点**: 2026-09-27 に管理画面 戦略 ＞ レビュー ＞ 手順の点検（`/metrics/business/procedure?cadence=monthly`）を作ったところ、月次の 7 手順のうち証拠が残るのはレビュー記録（事業の判断）だけで、検索クラスターの推移・販売の突合・資格の正本と市場・目標と配分・時期付け・実験の判定の 6 手順は「記録が残らない」だった。週次は docs/reviews/weekly のレポートの節で実施を確かめられるが、月次にはレポートが無い。DN-0388 のマージ（#665）が前提。
-
-**やること**: 月次スキル（`.claude/skills/management/monthly-review/SKILL.md`）に週次と同じ形の「出力フォーマット」（手順ごとの節）と保存先 `docs/reviews/monthly/YYYY-MM-review.md` を足し、`.claude/config/review-wiring.json` の monthly の procedure を evidence: sections に切り替える（`scripts/lib/review-wiring.mjs` の buildProcedureView が月次レポートを読むように直す）。
-
-**完了条件**: 次の月次レビュー後に手順の点検（月次）で「記録が残らない」が 0 件になり、`npm run check-review-wiring` と `node --test tests/review-wiring.test.mjs` が通る。
-
-**進捗（2026-09-27）**: 実装済み（PR #665: review-wiring.json の report・月次スキルの出力フォーマット・buildProcedureView）。#665 のマージ後、最初の月次レビューのあとに手順の点検（月次）で完了条件を確かめて削除する。
 
 
 
-### [DN-0414] ココナラの売上履歴（手数料控除後・クローズ日計上）を月別に自動取得し、受取額の記録に入れる
-タグ: [インフラ・計測] [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-09-27]
-
-**起点**: 2026-09-27 に `record-net-receipts`（DN-0367）を作ったとき、ココナラだけ自動取得できなかった。Playwright のココナラのプロファイルはログインが切れていて、ブラウザの画面では売上のページの URL がメニューの奥にあり特定できなかった。手持ちの orders-snapshot / orders.json は販売価格だけで、手数料控除後の額と計上日（クローズ日）を持たない。
-
-**やること**: ココナラの売上管理（売上履歴）のページの URL と DOM を確かめ、月別の手数料控除後の合計を read-only で読む処理を `scripts/lib/net-receipts.mjs` と `record-net-receipts.mjs` に足す（CI の encrypted-state でココナラは取得できる。ローカルはプロファイルの再ログインが要る）。`--coconala` を渡さなくても組み立てられるようにする。
-
-**完了条件**: `npm run record-net-receipts -- --month 2026-09` がココナラの値を自動で取り、手で確かめた額と一致する。
 
 ### [DN-0641] CTA クリック率がサイト平均を下回る 3 ページ（2級 exam-overview・1級 leveling・1級 secondary getting-started）の導線を本文の読む流れに合わせる
 タグ: [収益化] [領域:サイト] [時期:2026-11] [種類:改善] [起票:2026-10-10]
@@ -2556,7 +2409,7 @@ EXP-012（カードの効果測定・事後窓は 2026-11 下旬まで・次の�
 
 **起点**: 総監・建設部門は技術士二次の直前期が年間売上の山になる。価格と品揃えを直前期の前に決めておく。（2026-09-26 に年間ロードマップの重点をバックログへ一本化したときに起票）
 
-**完了条件**: note-magazines.ts の価格と商品ラインナップの品揃えが確定し、月次レビューに記録したら、このカードを削除する。
+**完了条件**: note-magazines.ts の価格と商品ラインナップの品揃えが確定し、月次レビューに記録したら、このカードを削除する。あわせて 2027 年 4〜7 月に、技術士の論文添削をココナラに出すかを再判断する（2026-09 の競合調査では、技術士の添削は市場が土木より一桁小さく、自社のココナラに技術士の商品は無い）。
 
 ### [DN-0331] 年間の EPC で継続する転職案件を決める
 タグ: [収益化] [領域:アフィリエイト] [時期:2027-07..2027-09] [種類:意思決定] [起票:2026-09-26]
@@ -2629,25 +2482,6 @@ EXP-012（カードの効果測定・事後窓は 2026-11 下旬まで・次の�
 
 **完了条件**: 2026-11-06 以降に前後 30 日の閲覧・注文を比べ、導線を残す・文面を変える・外すのどれかを決めて、ココナラ運用文書（coconala-operations.md）の決定ログに 1 行残す。
 
-### [DN-0400] 総監対策 iOS アプリ（買い切り ¥1,800）を作るかを決め、作るなら凍結中の仕様 5 本で着手する
-タグ: [収益化] [領域:商品] [時期:2027-03] [種類:意思決定] [起票:2026-09-27]
-
-**起点**: 2026-09-27 に docs/ を棚卸しし、凍結中の iOS 仕様 5 本（docs/products/01〜05・約 2,400 行）を文書から外してこのカードで持つことにした（運営者の判断）。過去問演習は 2026-06-04 に PWA 先行へ移している（docs/products/06_PWA過去問アプリ設計方針.md）。原文は `git show 747fab5d9:docs/products/<ファイル名>` で読める。
-
-**決まっていたこと**: 技術士（総合技術監理部門）対策・買い切り ¥1,800 の単軸（Free＝R07 全 40 問＋キーワード概要、Premium＝R01〜R06）。最初のリリース目標は 2027-07 の筆記試験（逆算で着手 ≤ 2027-04-01）。着手条件は「Web 月収 ¥15,000 以上」だった（NSM を月の受取額へ切り替えた 2026-09-27 以降は、受取額と目標の差で読み直す）。
-
-**仕様 5 本（着手するときの作業単位）**:
-1. `01_iOSアプリ仕様.md` v3 — 仕様本体（MVP＋Phase 2、成功監視 KPI、試験日カウントダウン・一問一答/4 択の dual モードなど 05 を反映した追加 6 機能）
-2. `02_iOS画面設計.md` v2 — 8 画面のワイヤー・画面遷移・Free/Premium の出し分け（永続保証・法改正なしの訴求）
-3. `03_iOSデータパイプライン.md` v1 — `out/api/v1/*.json` の JSON schema・差分取得・SwiftData upsert（doboku-note 側 `build-ios-data.mjs`）
-4. `04_iOSエコシステム動線.md` v1 — iOS ↔ サイト ↔ note の動線・Apple ガイドライン準拠・クーポン・Universal Link・Phase 別の判断トリガー
-5. `05_iOSベンチマーク調査.md` v1 — 資格学習 iOS アプリ 17 本の横断調査（2026-05-19 時点。再調査は MVP リリース 6 か月後）
-
-**決めること**: 作るか（PWA で足りるか）、作るなら着手月。作ると決めたら 5 本を docs/products/ へ戻して現行化し、この カードを実装カードへ分ける。
-
-**判断（2026-09-27・運営者）**: 保留。2027-03 に受取額と目標の差を見て作るか決める（DN-0382「スマホアプリを作るか」はこのカードへ統合）。
-
-**判断（2026-09-29・運営者）**: 総監・技術士・土木施工管理でまず試作する。実装は DN-0453 で進める。
 
 ### [DN-0403] 総監・建設部門の note 共同マガジンの候補と参加条件を調べる
 タグ: [収益化] [領域:商品] [時期:2026-12] [種類:意思決定] [起票:2026-09-27]
