@@ -5809,6 +5809,23 @@
       "commit": "aaca9d1184e9",
       "verification": "node --test tests/weekly-collect-plan.test.mjs が合格（commandFailureReason の DN-0833 のテストを含む）。PR #1220 の CI 合格",
       "note": "前提の訂正: 2026-10-24 の土曜の収集の note-traffic 段で検査不成立だったのは 1 本目（9 月の月次・記事 20 件。#1215 で直った）。W42 の traffic-period を書いたのは 2 本目の期間の取得で、こちらは検査に合格していた（903 記事・PV 2,984・~/Library/Logs/doboku-note/weekly-review.log 298〜311 行）。note-traffic-fetch は検査に落ちたら書かない作りで、もとから正しい。段の理由が 1 本目の行しか出さず誤読を招いたので、PR #1220 で失敗の理由にどのコマンドかを付けた（commandFailureReason・回帰テスト）。W42 は 10/24 の版（検査合格）を残す判断。9 月の月次は 10/24 17:59 に取り直し済み（900 記事・PV 13,473）。本番反映 main 8ef9a592b。"
+    },
+    {
+      "id": "DN-0824",
+      "at": "2026-10-25",
+      "task": "next を 16.4.1 以上へ上げ、Dependabot の critical 2 件・high 1 件を閉じる",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "none",
+        "ref": "依存の脆弱性は Dependabot の警告と週次レビューの点検が検知の仕組みとして既にあり、今回もそれで見つけた。足す機械ゲートは無い"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "1e45a92ae75e",
+      "verification": "gh api repos/uruhayato373/doboku-note/dependabot/alerts で open 0 件（2026-10-25）。PR #1221・#1222 の CI（build・e2e・lighthouse・audit）合格。npm run check-production-ssr exit 0",
+      "note": "next を 16.4.3、zod を 4.6.7、fast-uri を 3.1.9 へ上げ（PR #1221）、Lighthouse CI の間接依存 chromium-bidi の zod 3.25.76 も overrides で 4 系へ寄せて lockfile の zod を 1 つにした（PR #1222・Lighthouse CI は 4 URL×3 回で合格）。Dependabot の zod・fast-uri の PR #1218・#1219 は R2 の認証が渡らず audit が落ちる作りのため #1221 に取り込んで閉じた。本番反映 main 8ef9a592b・2e283fe81（check-production-ssr 合格）。Dependabot の警告は next #106・#107・#109 と fast-uri #112〜#115 が fixed、zod #110 は auto_dismissed で、open は 0 件。"
     }
   ]
 }

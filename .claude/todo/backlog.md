@@ -362,21 +362,6 @@ drive-vault-sync -- --group source-transcript --verify --deep が 240 件中 1 �
 **完了条件**: 次の index-coverage の run で inspected = sitemap_urls、閾値ゲートが緑か、赤でも上限超過の error が出ない。Issue #1180 が自動クローズする。
 
 
-### [DN-0824] next を 16.4.1 以上へ上げ、Dependabot の critical 2 件・high 1 件を閉じる
-タグ: [インフラ・計測] [領域:管理] [時期:2026-10..2026-11] [種類:不具合] [起票:2026-10-24] [進行中]
-
-**起点**: 週次レビュー（2026-10-19〜2026-10-25）の点検。Dependabot が 10/23 に next の脆弱性 3 件を出した（#106 high・Server Actions の DoS、#107 critical・Image Optimization API の SVG による RCE、#109 critical・`use cache` の RCE）。対象は next >=16.0.0 <=16.4.0、修正版は 16.4.1。手元は 16.3.8（`package.json` は `^16.3.8`）。
-
-本番は `output: 'export'`・`images.unoptimized: true`（`next.config` 8〜10 行）の静的配信なので、Server Actions・画像最適化 API・`use cache` は本番で動いていない見込み。開発サーバー（3020）と管理画面だけが該当しうる。見込みであり未検証。
-
-**やること**:
-1. feature ブランチで next を 16.4.1 以上へ上げ（lockfile も）、`node_modules/next/dist/docs/` の変更点を読む
-2. `npm run build`・`npm run type-check`・`npm run test`・E2E を通し、`curl` で `<main>` と主要語を確かめる
-3. PR（base=develop）でマージし、Dependabot の 3 件が閉じたことを確かめる
-
-**完了条件**: `gh api repos/uruhayato373/doboku-note/dependabot/alerts` で next の open が 0 件。
-
-**進捗（2026-10-24 夜）**: PR #1221 で next 16.4.3・zod 4.6.7・fast-uri 3.1.9 へ上げ、本番反映した（main 8ef9a592b・check-production-ssr 合格）。GitHub の依存グラフ（SBOM）は next 16.4.3 を読んでいるが、Dependabot の警告（#106・#107・#109・#110・#112〜#115）は反映から 1 時間たっても open のまま（警告の更新は Dependabot の再走査待ち）。**残り**: (1) next と fast-uri の警告が閉じたかを `gh api …/dependabot/alerts` で確かめる (2) zod の #110 は、Lighthouse CI の間接依存 `chromium-bidi` が持つ zod 3.25.76（開発用）も勧告の範囲（< 4.6.6・3 系の修正版なし）に入るため、直接の zod を上げても閉じない見込み。overrides で 4 系へ寄せるか、開発用で影響なしとして却下するかを運営者が決める。
 
 
 
