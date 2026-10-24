@@ -56,7 +56,7 @@ export function recordAffiliateExperimentMeasurements(ledger, report, measuredAt
     (experiment.measurements ??= []).push({ source: 'auto', measuredAt, sourceReport: key,
       metric: 'affiliate-design', window: { startDate, endDate: report.data.meta.endDate },
       variants: summarizeAffiliateExperiment(rows), verdictHint: 'review-required',
-      note: '取得窓内の案別イベント回数。週次の窓は重複するため足し合わせない。少数・案別の構成差・同一訪問者の複数表示を確認して人が裁定する。A8成果の案別帰属は未取得。' });
+      note: '取得窓内の案別イベント回数。週次の窓は重複するため足し合わせない。少数・案別の構成差・同一訪問者の複数表示を確認して人が裁定する。A8成果の案別帰属は未取得（ビルドジョブは EXP-043 から B/C で mat が別なので A8 の成果別レポートで読める。建設JOBs・DXコンサルは素材が 1 つで不可）。' });
     appended++;
   }
   return { targets: targets.length, appended, waiting: targets.length - appended };

@@ -26,6 +26,8 @@ export type ResolvedPlacement = {
   /** バナーの GA4 ラベル（記事末は *-endbanner） */
   readonly trackLabel: string;
   readonly card: (slug?: string, need?: CareerNeed | null) => CareerArticleEndCard;
+  /** 意匠実験の B が使うテキスト素材のリンク（PROGRAM_ASSETS の textHref） */
+  readonly textHref?: string | undefined;
 };
 export type ResolvedPlacements = Readonly<Partial<Record<string, ResolvedPlacement>>>;
 
@@ -47,6 +49,7 @@ export function resolvePlacements(page: PlacementPage, now: number = Date.now())
       banner: asset.banner,
       trackLabel: slot === 'article-end' ? asset.trackLabel.replace(/-sidebar$/, '-endbanner') : asset.trackLabel,
       card: asset.card,
+      textHref: asset.textHref,
     };
   }
   return out;
@@ -56,8 +59,8 @@ export function resolvePlacements(page: PlacementPage, now: number = Date.now())
  * 1 ページ 1 ピクセル。実際に描画した面のうち優先順の最も高い面の案件のピクセルを返す（無ければ null）。
  * 発火源の面も返すので、呼び出し側はその面にだけピクセルを付ける。
  */
-export function pixelFor(resolved: ResolvedPlacements, renderedSlots: readonly string[]): { slot: string; pixelSrc: string } | null {
+export function pixelFor(resolved: ResolvedPlacements, renderedSlots: readonly string[]): { slot: string; pixelSrc: string; textHref?: string | undefined } | null {
   const slot = choosePixelCarrier(VOCAB, renderedSlots.filter((s) => resolved[s]));
   const r = slot ? resolved[slot] : undefined;
-  return slot && r ? { slot, pixelSrc: r.banner.pixelSrc } : null;
+  return slot && r ? { slot, pixelSrc: r.banner.pixelSrc, textHref: r.textHref } : null;
 }

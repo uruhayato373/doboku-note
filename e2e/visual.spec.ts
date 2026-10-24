@@ -20,7 +20,7 @@ import { AFFILIATE_VARIANT_KEY } from '../src/lib/affiliate-experiment.mjs';
  */
 const visualRoutes = [...representativeRoutes, '/links'] as const;
 
-// アフィリの意匠実験（EXP-038）のランダム配信で基準画像が揺れないよう、小型カードの B を固定する。
+// アフィリの意匠実験（EXP-043）のランダム配信で基準画像が揺れないよう、小型カードの B を固定する（C はバナー画像の読み込みで揺れる）。
 test.beforeEach(async ({ page }) => {
   await page.addInitScript(key => localStorage.setItem(key, 'B'), AFFILIATE_VARIANT_KEY);
 });

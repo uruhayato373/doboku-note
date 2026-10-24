@@ -1,10 +1,10 @@
 "use client";
 
 import { useSyncExternalStore } from "react";
-import { ArrowRight, Check } from "lucide-react";
-import type { CareerArticleEndCard } from "@/config/affiliate-creatives";
+import { ArrowRight } from "lucide-react";
+import type { CareerArticleEndCard, SidebarAdCreative } from "@/config/affiliate-creatives";
 import { AFFILIATE_EXPERIMENT_ID, AFFILIATE_VARIANTS, assignAffiliateVariant } from "@/lib/affiliate-experiment.mjs";
-import { AFFILIATE_LINK_REFERRER_POLICY, AFFILIATE_LINK_REL, AffiliatePrBadge } from "@/components/ui/AffiliateParts";
+import { AFFILIATE_LINK_REFERRER_POLICY, AFFILIATE_LINK_REL, AffiliatePrBadge, TrackingPixel } from "@/components/ui/AffiliateParts";
 
 let visitorVariant: string | null = null;
 const subscribe = () => () => {};
@@ -25,6 +25,31 @@ function clientSnapshot(): string {
   return visitorVariant!;
 }
 
+/** 訪問者の案（SSR と案の確定前は null）。カードとページ単位のピクセルで同じ割り当てを使う。 */
+function useAffiliateVariant(): string | null {
+  return useSyncExternalStore(subscribe, clientSnapshot, serverSnapshot);
+}
+
+/** ピクセルを出してよい案か。textHref のある案件（ビルドジョブ）の B はテキスト素材のリンクなのでバナーのピクセルを出さない。 */
+function pixelAllowed(assigned: string | null, textHref: string | undefined): boolean {
+  return assigned !== null && !(assigned === "B" && textHref);
+}
+
+/**
+ * 実験面の計測ピクセル。案が決まってから、その案のリンクと同じ素材のときだけ出す。
+ * 案の確定前（SSR）は発火源の印（data-a8-pixel）だけを残し、静的 HTML の 1 ページ 1 ピクセル検査（check-cta-density）がこれを数える。
+ */
+function ExperimentPixel({ assigned, src, textHref }: { readonly assigned: string | null; readonly src: string | undefined; readonly textHref: string | undefined }) {
+  if (!src) return null;
+  if (assigned === null) return <span hidden data-a8-pixel={src} />;
+  return <TrackingPixel src={pixelAllowed(assigned, textHref) ? src : undefined} />;
+}
+
+/** ページ単位の計測ピクセル（DocPage が本文の後に置く 1 発）。 */
+export function AffiliateExperimentPixel({ src, textHref }: { readonly src: string; readonly textHref?: string | undefined }) {
+  return <ExperimentPixel assigned={useAffiliateVariant()} src={src} textHref={textHref} />;
+}
+
 const HEADLINES: Record<string, string> = {
   buildjob: "その資格と経験、いまの待遇に活きている？",
   "kensetsu-jobs": "現場の経験、次の働き方に活かそう。",
@@ -32,22 +57,30 @@ const HEADLINES: Record<string, string> = {
 };
 
 /**
- * EXP-038: A＝今の文章カード（見出し・説明・箇条書き・ボタン）、B＝小型カード（見出し 1 行・要約 1 行・ボタン）。
- * B は幅 36rem 以上の枠（本文）で横一列、狭い枠（スマホ・幅 300px の欄）で縦に積む（container query）。
+ * EXP-043: B＝小型カード（見出し 1 行・要約 1 行・ボタン）、C＝支給の 300×250 バナー＋ボタン。
+ * どちらも幅 36rem 以上の枠（本文）で横一列、狭い枠（スマホ・幅 300px の欄）で縦に積む（container query）。
+ * バナーは A8 の画像を縮小だけで使い、切り抜き・重ね書きをしない（PR はバナーの外に出す）。
  * 公表実績の行は <p> にしない（記事本文の .prose-blog p + p が余白 1.5em を足す）。
- * 計測は両案共通の見出し領域（data-cta-exposure="heading"）が 50% 見えた時点。SSR では A を描き、案の確定前は数えない。
+ * 計測は data-cta-exposure="heading"（B は見出し、C はバナー）が 50% 見えた時点。SSR では B を描き、案の確定前は数えない。
+ * 計測ピクセルは案が決まってから出す。textHref のある案件（ビルドジョブ）の B はテキスト素材のリンクでピクセルを持たない。
  */
-export default function CareerAffiliateExperiment({ card, program, trackLabel, placement }: {
+export default function CareerAffiliateExperiment({ card, program, trackLabel, placement, banner, textHref, pixelSrc }: {
   readonly card: CareerArticleEndCard;
   readonly program: string;
   readonly trackLabel: string;
   readonly placement: string;
+  readonly banner: SidebarAdCreative;
+  readonly textHref?: string | undefined;
+  /** 1 ページ 1 ピクセルの発火源のときだけ渡す（banner のピクセル） */
+  readonly pixelSrc?: string | undefined;
 }) {
-  const assigned = useSyncExternalStore(subscribe, clientSnapshot, serverSnapshot);
-  const variant = assigned ?? "A";
+  const assigned = useAffiliateVariant();
+  const variant = assigned ?? AFFILIATE_VARIANTS[0];
   const title = HEADLINES[program];
+  const href = variant === "B" && textHref ? textHref : card.href;
+  const pixel = <ExperimentPixel assigned={assigned} src={pixelSrc} textHref={textHref} />;
   const link = {
-    href: card.href,
+    href,
     rel: AFFILIATE_LINK_REL,
     referrerPolicy: AFFILIATE_LINK_REFERRER_POLICY,
     target: "_blank",
@@ -59,9 +92,46 @@ export default function CareerAffiliateExperiment({ card, program, trackLabel, p
     "data-cta-program": program,
     style: { textDecoration: "none" },
   } as const;
+  const button = (extra = "") => (
+    <span className={`flex shrink-0 items-center justify-between gap-2 rounded-card-content bg-(--color-affiliate-panel) px-4 py-2.5 text-sm font-bold leading-6 text-(--color-affiliate-on-panel) ${extra}`}>
+      <span>{card.cta}</span><ArrowRight className="h-4 w-4 shrink-0" aria-hidden />
+    </span>
+  );
 
-  if (variant === "B") {
+  if (variant === "C") {
     return (
+      <>
+        <a
+          {...link}
+          className="career-experiment-card @container focus-ring group block rounded-card-content border border-(--rule-soft) bg-(--paper) text-ink-strong shadow-card-content transition-shadow hover:shadow-card-hover dark:border-(--rule-soft)"
+        >
+          <div className="flex flex-col gap-3 p-3 @xl:flex-row @xl:items-center @xl:gap-5 @xl:p-4">
+            <div data-cta-exposure="heading" className="mx-auto w-full max-w-[300px] shrink-0 @xl:mx-0">
+              <img
+                src={banner.imageSrc}
+                alt={banner.alt}
+                width={banner.width}
+                height={banner.height}
+                loading="lazy"
+                className="block h-auto w-full"
+              />
+            </div>
+            <div className="flex min-w-0 flex-1 flex-col gap-2">
+              <div className="flex items-center gap-2 text-xs leading-5 text-ink-muted">
+                <AffiliatePrBadge className="shrink-0" />
+                <span className="min-w-0">{card.category}・{card.service}</span>
+              </div>
+              {button()}
+            </div>
+          </div>
+        </a>
+        {pixel}
+      </>
+    );
+  }
+
+  return (
+    <>
       <a
         {...link}
         className="career-experiment-card @container focus-ring group block rounded-card-content border border-l-4 border-(--rule-soft) border-l-brand bg-(--paper) text-ink-strong shadow-card-content transition-shadow hover:shadow-card-hover dark:border-(--rule-soft) dark:border-l-brand"
@@ -76,43 +146,10 @@ export default function CareerAffiliateExperiment({ card, program, trackLabel, p
             <p className="mt-1 text-[13px] leading-6 text-ink-body">{card.brief ?? card.description}</p>
             {card.proof && <div className="mt-0.5 text-xs leading-5 text-ink-muted">{card.proof}</div>}
           </div>
-          <span className="flex shrink-0 items-center justify-between gap-2 rounded-card-content bg-(--color-affiliate-panel) px-4 py-2.5 text-sm font-bold leading-6 text-(--color-affiliate-on-panel) @xl:max-w-60">
-            <span>{card.cta}</span><ArrowRight className="h-4 w-4 shrink-0" aria-hidden />
-          </span>
+          {button("@xl:max-w-60")}
         </div>
       </a>
-    );
-  }
-
-  return (
-    <a
-      {...link}
-      className="career-experiment-card focus-ring group block overflow-hidden rounded-card-content border-[3px] border-brand bg-(--paper) text-ink-strong shadow-card-content transition-shadow hover:shadow-card-hover dark:border-brand"
-    >
-      <div className="bg-(--accent-fill) px-5 pt-5">
-        <div data-cta-exposure="heading" className="min-h-36 pb-4">
-          <div className="flex items-start justify-between gap-3">
-            <span className="text-xs font-bold leading-5 text-brand-deep dark:text-brand">{card.category}</span>
-            <AffiliatePrBadge className="shrink-0" />
-          </div>
-          <div className="mt-4 text-balance text-2xl font-bold leading-relaxed text-ink-strong">{title}</div>
-        </div>
-        <div className="pb-4 text-sm font-bold text-ink-muted">{card.service}</div>
-      </div>
-      <div className="p-5">
-        <p className="text-sm leading-7 text-ink-body">{card.description}</p>
-        {card.proof && <div className="mt-2 text-xs leading-5 text-ink-muted">{card.proof}</div>}
-        <ul className="my-4 space-y-2">
-          {card.points.map(point => (
-            <li key={point} className="flex items-start gap-2 text-xs leading-5 text-ink-body">
-              <Check className="mt-0.5 h-4 w-4 shrink-0" aria-hidden /><span>{point}</span>
-            </li>
-          ))}
-        </ul>
-        <span className="flex min-h-13 items-center justify-between gap-3 rounded-card-content bg-(--color-affiliate-panel) px-4 py-3 text-sm font-bold leading-6 text-(--color-affiliate-on-panel)">
-          <span>{card.cta}</span><ArrowRight className="h-5 w-5 shrink-0" aria-hidden />
-        </span>
-      </div>
-    </a>
+      {pixel}
+    </>
   );
 }

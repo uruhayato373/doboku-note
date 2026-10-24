@@ -138,8 +138,8 @@ export default function AnalyticsProvider() {
     return () => document.removeEventListener("toggle", onToggle, { capture: true });
   }, [pathname]);
 
-  // CTA の50%以上が見えた時点を計測。アフィリの意匠実験（EXP-038）は案でカードの高さが違うため、
-  // 共通の見出し領域を観測する。案の確定前の SSR 表示は数えない。
+  // CTA の50%以上が見えた時点を計測。アフィリの意匠実験（EXP-043）は案でカードの高さが違うため、
+  // 案ごとの見出し領域（B は見出し、C はバナー）を観測する。案の確定前の SSR 表示は数えない。
   // visible impression として送る。配置ごとのクリック数をページ訪問数で割るのではなく、
   // 実際に見えた回数を分母にして CTR を比較する。同じ要素はページ滞在中 1 回だけ。
   // A8 の 1px ピクセル（ページ読込ベース）とは役割を分ける。

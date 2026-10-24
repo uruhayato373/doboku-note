@@ -44,6 +44,7 @@ import { extractReferencesSection } from '@/lib/extract-references';
 import { lawsOfArticle } from '@/lib/article-laws';
 import type { Pluggable } from 'unified';
 import { pixelFor, resolvePlacements } from '@/lib/affiliate-placement';
+import { AffiliateExperimentPixel } from '@/components/ui/CareerAffiliate/CareerAffiliateExperiment';
 import type React from 'react';
 import { getPublicDocPath } from '@/lib/content-routes';
 import { externalLinkRel } from '@/lib/external-link-rel';
@@ -492,17 +493,8 @@ export async function renderDocPage(slugStr: string) {
               />
             </article>
 
-            {bodyPixelSrc && (
-              <img
-                src={bodyPixelSrc}
-                width={1}
-                height={1}
-                alt=""
-                aria-hidden
-                style={{ position: 'absolute', left: '-9999px' }}
-                suppressHydrationWarning
-              />
-            )}
+            {/* 意匠実験の案が決まってから、その案のリンクと同じ素材のときだけ出す（ビルドジョブの B はテキスト素材でピクセルなし） */}
+            {bodyPixelSrc && <AffiliateExperimentPixel src={bodyPixelSrc} textHref={careerPixel?.textHref} />}
             <ArticleFooter
               endBanner={careerPlacements['article-end'] ?? null}
               careerPixelSrc={careerPixel?.slot === 'article-end' ? careerPixel.pixelSrc : undefined}

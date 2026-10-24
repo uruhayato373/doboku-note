@@ -20,6 +20,8 @@
  *    注意: 素朴な substring カウント（`px.a8.net` や `0.gif` の出現数）は Next.js の RSC ペイロード
  *    （props の JSON 直列化）で ~2 倍に膨らむため使わない。**レンダリング済み `<img>` タグだけ**を
  *    パースして MAT を数える（RSC payload・href の px.a8.net/svt/ejp・banner の bgt は無視）。
+ *    転職アフィリの意匠実験（EXP-043〜）はピクセルを案の確定後にブラウザ側でだけ出すので、静的 HTML には
+ *    `<img>` の代わりに発火源の印 `<span hidden data-a8-pixel="…0.gif?a8mat=MAT">` が残る。これも 1 発として数える。
  *
  * 閾値（design-system.md §8.5 と一致・変更時は両方更新）:
  *   - note スロット（footer 除く: top/sidebar -sb/中間 -mid） ≤ 3
@@ -64,13 +66,14 @@ function countNonFooterNote(html) {
 }
 
 /**
- * レンダリング済み `<img>` インプレッションピクセル（`…0.gif?a8mat=MAT`）から a8mat を抽出し、
- * 同一 MAT の出現回数を数える。RSC payload の JSON は `<img …>` タグでないため対象外＝二重計上しない。
+ * レンダリング済み `<img>` インプレッションピクセル（`…0.gif?a8mat=MAT`）と、意匠実験の発火源の印
+ * （`<span … data-a8-pixel="…0.gif?a8mat=MAT">`）から a8mat を抽出し、同一 MAT の出現回数を数える。
+ * RSC payload の JSON はタグでないため対象外＝二重計上しない。
  * 返り値: { MAT: 回数 } のマップ。
  */
 function impressionMatCounts(html) {
   const counts = {};
-  for (const m of html.matchAll(/<img[^>]*0\.gif\?a8mat=([^"&]+)[^>]*>/g)) {
+  for (const m of html.matchAll(/<(?:img|span)[^>]*(?:src|data-a8-pixel)="[^"]*0\.gif\?a8mat=([^"&]+)[^>]*>/g)) {
     const mat = m[1];
     counts[mat] = (counts[mat] || 0) + 1;
   }
