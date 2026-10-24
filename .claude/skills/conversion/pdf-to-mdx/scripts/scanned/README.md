@@ -1,4 +1,10 @@
-# scanned/ — 単ページスキャン本の PyMuPDF 文字起こし＋図埋め込み スクリプト一式
+# scanned/ — 単ページスキャン本の PyMuPDF レンダリング＋図埋め込み スクリプト一式
+
+> [!warning] 本文 OCR（手順 2・2.5）は 2026-10-24 に廃止した
+> Claude のサブエージェントがページ画像を逐語転記する `ocr_fanout.workflow.js`・`proofread.workflow.js` は削除した
+> （市販書籍の本文を Claude が書き写すと、私的利用でも複製を作る主体が Claude になる）。新しい本は bundle にしてから
+> 経路D の機械 OCR（[`../book-ocr/README.md`](../book-ocr/README.md)）で起こす。手順 3 以降は旧経路で作った章ファイルの
+> 図の手直しに使う。
 
 `--scanned` の **PyMuPDF 経路**（`pdfimages`/ImageMagick が無い環境・**1 PDF ページ＝1 書籍ページ・正立**のスキャン本）用の再利用スクリプト。
 見開き2ページが 90° 回転で格納されたスキャンは本経路を使わず、親手順書 [`../../references/scanned-image-pipeline.md`](../../references/scanned-image-pipeline.md) の pdfimages 経路（回転＋分割）を使う。
@@ -22,11 +28,7 @@ SRC="content/sources/textbook/.../テキスト（○○編）"     # 章PDFが�
 # 1. レンダリング＋バッチ計画（manifest.json を書く）
 python render_pages.py "$SRC" "$WORK" --source-label "テキスト（○○編）" --width 2200
 
-# 2. 本文OCR（Workflow で ocr_fanout.workflow.js。args = manifest の chapters/outDir/batchSize）
-#    → WORK/out/NN__bMM.md
-
-# 2.5 本文OCR校正パス（Workflow で proofread.workflow.js。args は 2 と同じ）
-#    各バッチ md をページ画像と逐語照合して誤読/言い換え/脱落を修正・上書き（任意だが品質に効く）
+# 2. 本文OCR — 廃止（2026-10-24）。旧経路の WORK/out/NN__bMM.md が残っている本だけ 3 以降を回せる
 
 # 3. 章別 .md ＋ README 連結
 python concat_chapters.py "$WORK"
@@ -70,7 +72,6 @@ python trim_placeholders.py "$WORK"
 | 数百ジョブを args inline で破綻 | 章別ジョブファイル＋コーディネータ読込（Load phase） |
 | **bbox が緩く本文段落の写り込み・図の切れ**（locate 単発の限界） | **audit/refine ループ**＝scanned-figure-crop-auditor が実クロップ PNG を見て adjust_bbox を返し、apply_deltas_recrop が算術適用＋再クロップを反復 |
 | 低確信度 bbox で誤クロップ（別図を掴む） | confidence<confThreshold を未埋め込み（crop_embed）＋監査の correct_figure=0→relocate でlocateやり直し |
-| 本文OCRの言い換え/誤読/脱落（密な数値段落） | proofread.workflow.js でページ画像と逐語照合して補正（concat 前の2パス目） |
 | ![図]直後の冗長な（図:…）プレースホルダ | trim_placeholders.py で要点だけに短縮（埋め込み済みのみ） |
 | crop_embed の二重挿入 | 冪等でない。再実行前に concat で章 md を再生成 |
 | 系統 OCR 誤読（築造→施造） | concat の SUBS で一括補正（本ごとに追記可） |

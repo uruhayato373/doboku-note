@@ -3,7 +3,7 @@
 
 紙面はほぼ無彩色なので、肌色域（色相・彩度・明度）の画素がまとまった比率を占める
 ページを候補として挙げる。**候補＝本文が隠れている、ではない**（余白の指も拾う）。
-最終判断は目視か視覚OCRが行う。
+最終判断は目視で行う（確かめるのは候補ページの隠れの有無だけで、本文は書き写さない）。
 
 使い方:
   python3 detect_occlusion.py                     # 全冊
@@ -109,7 +109,7 @@ def main():
 
     print(f"\n検査 {len(books)} 冊 / {total}p、写り込み候補 {flagged_total}p "
           f"({100*flagged_total/max(1,total):.1f}%)、読めない画像 {unreadable}p")
-    print("候補は目視か視覚OCRで確かめる。候補＝本文が隠れている、ではない。")
+    print("候補は目視で確かめる。候補＝本文が隠れている、ではない。")
     if args.out:
         json.dump(results, open(args.out, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
         print(f"→ {args.out}")

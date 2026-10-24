@@ -22,6 +22,8 @@
 - `government-publication` は出典を示し、編集・加工した場合はその旨も明記する。
 - `exam-official` は問題文に限って出典明示のうえ使用し、解答・解説は独自表現で再構成する。
 - `commercial-book` の逐語転載は一文でも公開しない。記事本文は原本の技術的意味を確認したうえで独自に書き直す。
+- 市販書籍の文字起こしは**機械 OCR だけで作る**（2026-10-24）。Claude（サブエージェントを含む）がページ画像を読んで
+  本文を書き写すと、私的利用でも複製を作る主体が Claude になる。詳細は §2-2。
 - 数値や基準は市販教材から写さず、`external-primary` の法令・規格・指針で取り直す。条番号は
   `labor-safety-rules#第240条` のように ID の後ろへ付けられる。
 - 法令（id が `-act`・`-order`・`-rules`・`japan-constitution`）は `egov.lawId` に e-Gov の法令 ID を持つ（e-Gov に単独で無い改正法の通称は `egov.none` に理由）。記事で条を示すときは e-Gov の条へリンクする（`https://laws.e-gov.go.jp/law/<法令 ID>#Mp-At_<条>`、第32条の2 は `32_2`）。法令 ID と条は写し `config/egov-laws.json` で引き、`npm run egov-laws` が照合する（2026-10-13）。写しに残るのは記事のリンク・法令ページの `lawId`・`lawFamily`・この台帳の `egov.lawId`・計画・施策の台帳の `basisLaws` が指す法令だけ
@@ -64,9 +66,12 @@ sourcePdfs:
   - content/sources/books/registry-id__短い書名/source/001.pdf
 pdfPages: 1-6
 printedPages: 10-15
-method: visual-ocr
+method: "machine-ocr(indra-ocr 1.1.2)"
 ---
 ```
+
+`method` は作り方の記録で、`machine-ocr(<エンジンと版>)`（`book_ocr_machine.py`）か `pdf-text-layer`（経路C）を書く。
+`visual-ocr`・`visual-proofread` を含む method は 2026-10-24 より前に Claude が書き写した分で、新規・中身の変更は §2-2 の検査が止める。
 
 記事側は `sources: [registry-id]` とする。`aliases` は旧表記からの移行候補を出すためだけに使い、記事へ
 残さない。出典本文は class の `citation` に応じてページ、資料名と URL、出典節、書名、資料名を示す。
@@ -110,6 +115,26 @@ npm run check-reference-sources -- --deep
 索引が `seed=20 / stride=10` である以上 29 字未満は取りこぼすので、**閾値を 29 未満にするなら
 seed / stride も同時に変える**（`tests/reference-sources.test.mjs` が縛っている）。
 
+## 2-2. 文字起こしは機械 OCR で作り、Claude は参考資料として読む
+
+| 誰が | すること | しないこと |
+|---|---|---|
+| 機械 OCR（obsidian vault の `ocr_pdf.py`・縦書き＝NDLOCR-Lite／横書き＝Indra OCR／文字層を自動選択） | 市販書籍の本文を文字にする（`pdf-to-mdx` 経路D の `book_ocr_machine.py` が呼ぶ） | — |
+| Claude | スクリプトの実行・品質の確認（画像と照らすのは数行まで）・できた OCR テキストを参考資料として読む | ページ画像を読んで本文を書き写す。OCR テキストを会話・記事・note に長く貼る |
+| 記事・note・ノート | 自分の言葉の要約。引用が要るときは短く、出典（書名・ページ）を付ける | `commercial-book` の逐語を公開物に載せる（§1 の「一文でも公開しない」が引用より優先する） |
+
+本人の手書きメモ・官公庁の公開資料（`public-standard`・`government-publication`・`exam-official`）は対象外だが、
+文字にするときはまず同じ OCR スクリプトを使う。決定記録は obsidian vault の `memos/20261024_decision_OCRは機械で行う.md`。
+
+機械で守る仕組み（判定は `scripts/lib/reference-sources.mjs` の `claudeTranscriptionIssue` に 1 つ）:
+
+- `record-reference-book-artifacts` は `--ocr-method` を必須にし、文字起こしの frontmatter の method と一致すること、
+  視覚 OCR でないことを確かめてから登録する
+- `check-reference-book-pages --metadata-only`（CI）が `book-manifest.json` の `ocrArtifacts[].method` を、
+  `check-reference-sources --deep` が Drive の文字起こしの frontmatter と実体の sha256 を見る
+- 廃止前の視覚 OCR 231 件は `.claude/config/reference-sources-baseline.json` の `legacyVisualOcrTranscripts`
+  （論理キー → sha256）に固定し、同じ中身のものだけを残す。機械 OCR で作り直したら一覧から消す
+
 ## 3. 参考文献を 1 冊増やす手順
 
 1. `/asset-route` で利用者を判定し、人または手元の変換スクリプトだけが使う原本は Drive vault の
@@ -122,7 +147,8 @@ seed / stride も同時に変える**（`tests/reference-sources.test.mjs` が�
    取込元が vault 外の同じマイドライブにある場合は、`sourceFiles[].legacyMyDrivePath` にマイドライブルートからの
    相対 PDF パスを記録する。絶対パス、`..`、PDF 以外、複数の旧配置指定は検査で拒否する。
    生成器は取込元を削除しないが、正本登録後は正本を優先して読み、旧取込元が無くても動く。
-4. `pdf-to-mdx --scanned` 等で文字起こしを作り、§2 の frontmatter を付ける。OCR 本文は原本の再現物なので、
+4. `pdf-to-mdx --scanned` の機械 OCR（経路D）か経路C のテキスト層で文字起こしを作り、§2 の frontmatter を付ける
+   （Claude がページ画像から書き写さない・§2-2）。OCR 本文は原本の再現物なので、
    公開記事向けの言い換えは文字起こしではなく記事側で行う。`bookBundle` 書籍の新規 OCR は
    `content/sources/books/{referenceId}__{短い書名}/ocr/` を論理キーにする。
 5. OCR と最終図 crop を作った `bookBundle` 書籍は `npm run record-reference-book-artifacts` の dry-run 後、

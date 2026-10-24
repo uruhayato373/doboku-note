@@ -25,7 +25,7 @@ import {
   validateBookBundleSource,
   validateBookManifestShape,
 } from './lib/reference-book-bundle.mjs';
-import { loadReferenceSources } from './lib/reference-sources.mjs';
+import { claudeTranscriptionIssue, loadReferenceBaseline, loadReferenceSources, parseTranscriptHeader } from './lib/reference-sources.mjs';
 import { REPO_ROOT } from './lib/repository-paths.mjs';
 import { escapeRegExp } from './lib/regexp-escape.mjs';
 
@@ -39,7 +39,7 @@ const COMMIT = args.includes('--commit');
 const SOURCE_ID = value('source-id');
 const OCR_PATH = value('ocr-path');
 const OCR_PAGES = (value('ocr-pages', '') || '').split(',').map((item) => item.trim()).filter(Boolean);
-const OCR_METHOD = value('ocr-method', 'visual-ocr+visual-proofread');
+const OCR_METHOD = value('ocr-method');
 const CROP_PATH = value('crop-path');
 const CROP_PAGE = value('crop-page');
 const FIGURE_ID = value('figure-id');
@@ -60,7 +60,7 @@ const HAS_CROP = Boolean(CROP_PATH || CROP_PAGE || FIGURE_ID || CAPTION || BBOX.
 if (!SOURCE_ID || (!HAS_OCR && !HAS_CROP)) {
   die('--source-id と、OCR一式またはcrop一式の少なくとも一方が必要', 2);
 }
-if (HAS_OCR && (!OCR_PATH || OCR_PAGES.length === 0)) die('OCR は --ocr-path / --ocr-pages を組で指定する', 2);
+if (HAS_OCR && (!OCR_PATH || OCR_PAGES.length === 0 || !OCR_METHOD)) die('OCR は --ocr-path / --ocr-pages / --ocr-method を組で指定する', 2);
 if (HAS_CROP && (!CROP_PATH || !CROP_PAGE || !FIGURE_ID || !CAPTION)) {
   die('crop は --crop-path / --crop-page / --figure-id / --caption を組で指定する', 2);
 }
@@ -146,6 +146,14 @@ function writeJsonAtomic(file, value) {
 }
 
 const ocr = HAS_OCR ? await inspectAsset(OCR_PATH, 'source-transcript') : null;
+if (ocr) {
+  // 文字起こしの frontmatter の method と引数を突き合わせ、Claude の視覚 OCR は廃止前の一覧と同じ中身しか通さない（2026-10-24）
+  const header = parseTranscriptHeader(fs.readFileSync(repoAbs(OCR_PATH), 'utf8'));
+  if (header.method !== OCR_METHOD) die(`${OCR_PATH} の frontmatter method "${header.method || ''}" が --ocr-method と違う`);
+  const issue = claudeTranscriptionIssue({ repoPath: OCR_PATH, method: OCR_METHOD, sha256: ocr.sha256 },
+    loadReferenceBaseline().legacyVisualOcrTranscripts);
+  if (issue) die(`${OCR_PATH}: ${issue}`);
+}
 const crop = HAS_CROP ? await inspectAsset(CROP_PATH, 'reference-book-page-image', true) : null;
 const assets = [ocr, crop].filter(Boolean);
 const timestamp = new Date().toISOString();

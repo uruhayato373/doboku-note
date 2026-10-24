@@ -1,5 +1,11 @@
 # スキャン画像 PDF 取り込みパイプライン（`--scanned`）
 
+> [!warning] 本文の文字起こしは機械 OCR に切り替えた（2026-10-24）
+> この手順書の Step 3（Claude のサブエージェントがページ画像を逐語転記するファンアウト OCR）と校正パスは廃止した。
+> 市販書籍の本文を Claude が書き写すと、私的利用でも複製を作る主体が Claude になる。新しい本は bundle にしてから
+> 経路D の機械 OCR（[`../scripts/book-ocr/README.md`](../scripts/book-ocr/README.md)）で起こす。ここに残すのは
+> 画像の抽出（Step 1–2）・図のクロップ（Step 5–6）の手順と、旧経路の記録。
+
 `pdf-to-mdx --scanned` のメインスレッド側手順書。**テキスト層を持たないスキャン書籍**（自炊した教材・参考書・基準書）を、視覚 OCR で **内部リファレンス Markdown**（`content/sources/textbook/{資格}/{書名}/`）＋図に変換する。
 
 通常の `pdf-to-mdx`（Read の `pages` でテキスト抽出 → 公開 MDX）との違い:
@@ -7,14 +13,14 @@
 | | 通常 `pdf-to-mdx` | `--scanned`（本手順） |
 |---|---|---|
 | 入力 | テキスト層あり PDF | **スキャン画像 PDF（テキスト層なし）** |
-| 抽出 | Read `pages` / pdftotext | **pdfimages（視覚 OCR をサブエージェントで）** |
+| 抽出 | Read `pages` / pdftotext | **pdfimages → 機械 OCR（経路D）** |
 | 出力 | 公開 MDX（`content/site/`） | **内部リファレンス .md（`content/sources/textbook/`）** |
 | 図 | image-policy 準拠で別途 | **PDF から精密クロップして `img/figNN.png` 埋め込み** |
 
 > **著作権**: 市販書籍のスキャンは**原則**、内部リファレンス（論述/二次 writer の参照元 SSOT）専用で、**公開（MDX 化・note 転載）はしない**旨を README に明記する（[[project_pe_construction_secondary]] 等の writer が参照）。
 > **例外（2026-07-03・運営者権利保有書籍）**: 運営者が著作権を保有する書籍は公開派生可。技術士建設部門『論文対策キーワード』は逐語本文＋スキャン図を `content/site/pe-construction/*-ronbun-keyword/` へ公開している（機械スプライス＋図クロップ埋込）。真実源＝`content/sources/textbook/技術士（建設部門）/論文対策キーワード/README.md` 方針ブロック＋`.claude/knowledge/reference/image-policy.md`「運営者権利保有書籍の例外」。1級土木テキスト等・権利未確認の書籍は原則どおり内部リファレンス専用。
 
-ワーカー: 本文 OCR = `scanned-textbook-transcriber`（Generator）／図 bbox = `civil-exam-figure-extractor` と同型の Generator（教材はキャプション照合のため本手順では inline Workflow で実行）。
+ワーカー: 本文 OCR = 機械 OCR（経路D。エージェントは使わない）／図 bbox = `civil-exam-figure-extractor` と同型の Generator（教材はキャプション照合のため本手順では inline Workflow で実行）。
 
 ---
 
@@ -41,7 +47,7 @@
 
 - **レンダリング解像度が OCR 精度を決める**。1700px では密な漢字を誤読する（実例: リース料→リリース料、築造→施造、採算面→保算面、節落ち）。**本文 OCR は 2200px / 図クロップは 2600px / bbox サムネは 800px** を既定にした。
 - **図クロップは locate（単発目測）で終わらせない＝必須の audit/refine ループ**。locate（`figure_bbox.workflow.js`）の出す bbox は 800px サムネからの LLM 目測で**上下境界が緩く、本文段落の写り込み・図の切れが高頻度**（locate の "確信度" は「正しい図か」を測り「枠がタイトか」は測らない）。`civil-exam-figure-extractor`↔`civil-exam-figure-auditor` の過去問ループに倣い、**Evaluator `scanned-figure-crop-auditor` が実クロップ PNG を見て `adjust_bbox`（相対調整値）を返し、`apply_deltas_recrop.py` が算術適用＋再クロップを最大2〜3反復**して締める（4軸: クリップ純度45%/図完全性30%/正図同定15%/alt10%、全軸≥2 で合格）。別図を掴んだ（correct_figure=0）図は `relocate` で locate やり直しへ。**この工程を省くと図品質が低い**（2026-06-24 初回はこれを省略し、本文写り込みの緩い crop を量産した実害）。
-- **本文 OCR の言い換え/誤読は proofread パスで締める**。LLM-OCR は密な数値・手順・規格の段落で原文に無い言い換え・脱落を起こす。`proofread.workflow.js`（concat 前の2パス目）で各バッチ md をページ画像と逐語照合して補正する。
+- **本文 OCR の言い換え/誤読**（旧経路）: LLM-OCR は密な数値・手順・規格の段落で原文に無い言い換え・脱落を起こした。機械 OCR へ切り替えた理由の一つ（同じ入力から同じ出力が出る）。
 - **埋め込み後の冗長プレースホルダ**（`![図]` 直後の長い `（図: …）`）は `trim_placeholders.py` で要点だけに短縮する。
 - **`<!-- p.NN -->` マーカーは PDF ページと 1:1 でない**（重複・無番ページ・末尾の誤番）。図の所在を「マーカー位置」で決め打ちせず、**候補ページ窓（±N）＋キャプション照合**でエージェントに当てさせる。窓幅は drift（marker数−page数）を見て決める（drift≤±1 なら window=2）。
 - **図が多いと bbox 一括 parallel がサーバ側レート制限で失敗する**（135図一括で29図失敗）。**groupSize（40図）ずつ順次 parallel バリア**で負荷を平準化すると失敗0（322図実証）。
@@ -86,13 +92,11 @@ magick "$rot" -crop ${rW}x${H}+${rstart}+0 +repage "$PAGES/gMMMM.jpg"
 - **zsh は未クオート変数を単語分割しない** → `for g in $list` は1回しか回らない。`for g in ${=list}` を使う。
 - **ディスク逼迫に注意**。raw/pages は数百 MB になり、`ENOSPC` だと**コマンド出力すら書けず途中で静かに切れる**（376→289 枚で truncate した実例）。分割が終わったら `raw/` を即削除、`df -h` を要所で確認。破損は灰色（グレー）半ページとして現れる（Step 6 のフォールバックで救済）。
 
-## Step 3: ファンアウト OCR（Workflow）
+## Step 3: 本文 OCR（廃止・機械 OCR へ）
 
-`scanned-textbook-transcriber`（model:sonnet）に **6 ページ/エージェント**で逐語転記させる。各エージェントは**自分用ファイルに Write**し、戻り値は軽量ステータスのみ（巨大テキストを親に通さない）。168 見開き＝336 単ページ＝56 バッチ規模。
-
-- Workflow `args` は**文字列で届くことがある** → スクリプト側で `typeof args === 'string' ? JSON.parse(args) : args` のガードと既定値を必ず入れる。
-- agentType は `general-purpose`（Read 画像＋Write が要るため）。
-- 各エージェントの戻り `sectionHeadings`（`## ` にしたトップ節見出し）を集約しておく＝章分割の境界マップになる。
+旧手順は `scanned-textbook-transcriber`（sonnet）に 6 ページ/エージェントで逐語転記させていた（2026-10-24 にエージェントと
+Workflow `ocr_fanout.workflow.js`・`proofread.workflow.js` を削除）。今は経路D の `book_ocr_machine.py` で起こす。
+Step 4 以降（章ファイルへの分割・図の埋め込み）は旧経路で作った章ファイルの手直しの記録として残す。
 
 ## Step 4: 連結 → 章（節）ファイルへ分割
 

@@ -29,7 +29,7 @@ SNSの表紙・冒頭は [SNS画像ポリシー §0](./sns-image-policy.md) を�
 | 呼出元スキル                                    | 起動エージェント                                                         | 役割                 |
 | ----------------------------------------- | ---------------------------------------------------------------- | ------------------ |
 | `/pdf-to-mdx`                             | `content-qa`                                                     | 変換後品質評価（5軸ルーブリック）  |
-| `/pdf-to-mdx --scanned`                   | `scanned-textbook-transcriber`（OCR/校正）, `civil-exam-figure-extractor` 同型（図 locate）, `scanned-figure-crop-auditor`（図クロップ品質 audit/refine） | スキャン書籍ページ画像の並列 OCR 文字起こし＋図クロップのタイト化ループ |
+| `/pdf-to-mdx --scanned`                   | `civil-exam-figure-extractor` 同型（図 locate）, `scanned-figure-crop-auditor`（図クロップ品質 audit/refine） | 図クロップのタイト化ループ（本文の文字起こしは機械 OCR の `book_ocr_machine.py`。エージェントは起動しない） |
 | `/quality-cycle --profile cem`            | `cem-qa`, `keyword-rewriter`                                     | 評価 → リライト → 再評価ループ |
 | `/quality-cycle --profile civil-textbook` | `civil-construction-review`, `civil-textbook-rewriter`           | 評価 → リライト → 再評価ループ |
 | `/audit-exam-mapping`                     | `exam-keyword-mapping-auditor`                                   | 紐づけ精度の semantic 評価 |
@@ -90,7 +90,6 @@ Shortsの全場面POP差し替えは `yt-shorts-publisher-qa` が原画像と字
 | エージェント                         | 役割                                                                                                   | 種別           | model   | 担当スキル                                                                 | Phase 1 対応                                |
 | ------------------------------ | ---------------------------------------------------------------------------------------------------- | ------------ | ------- | --------------------------------------------------------------------- | ----------------------------------------- |
 | `content-qa`                   | PDF→MDX 変換の品質評価（5軸ルーブリック、過去問・基準書）                                                                    | Evaluator    | sonnet  | check-mdx, （Phase C で削除）                                              | ✅ 運用中                                     |
-| `scanned-textbook-transcriber` | スキャン書籍（テキスト層なし）ページ画像の逐語 OCR 文字起こし（Read 画像＋Write のみ・Bash 不可。`## ` はトップ節専用・図はプレースホルダ・本文は Write して戻り値は軽量ステータス） | Generator    | sonnet  | pdf-to-mdx（`--scanned` のファンアウト OCR ワーカー）                              | ✅ 運用中（2026-06-14 起動）                      |
 | `cem-qa`                       | 技術士総合技術監理キーワードページの品質評価（5軸ルーブリック）                                                                     | Evaluator    | sonnet  | lint-mdx-mobile, check-mdx, check-links, exam-backlinks               | ✅ 運用中                                     |
 | `civil-construction-qa`        | 1級・2級土木 textbook/guide ページの視覚＋網羅率検証（PDF 原本との3モード5軸ルーブリック）                                               | Evaluator    | sonnet  | check-mdx, review-mobile, Playwright MCP                              | ✅ 運用中                                     |
 | `civil-construction-review`    | 1級・2級土木 textbook/guide ＋**解説系 secondary（設問-解答構造を持たない basics/学習ガイド）** の既存 MDX 校正（PDF照合なし、content-principles準拠＋モバイル視認性＋画像キャプション品質）。設問-解答構造の過去問（secondary-r0X 等）は `past-exam-qa` へ | Evaluator    | inherit | lint-mdx-mobile, check-mdx, check-links                               | ✅ 運用中                                     |
@@ -190,6 +189,7 @@ Shortsの全場面POP差し替えは `yt-shorts-publisher-qa` が原画像と字
 | `seo-auditor` | SEO 総合監査（Phase 2 待機・GSC/GA4 取得＋分析の catch-all） | 2026-06-19 退役（統合再設計）。coverage→`gsc-index-auditor` / performance→`metrics-analyzer` / CWV→`performance-auditor` / 取得→CI（`fetch-metrics.yml`・`index-coverage.yml`）。keyword-gap は Phase 2 `content-planner`。真実源 `.claude/knowledge/reference/gsc-management.md` |
 | `brain-operator` | Brain の出品・審査反映 | 2026-09-26 退役（Brain チャネルから完全撤退） |
 | `content-planner` | コンテンツ企画（Phase 2 待機） | 2026-10-20 退役（呼び出し元のスキルが実在しない）。企画は `strategy-advisor` と資格別の企画スキル |
+| `scanned-textbook-transcriber` | スキャン書籍のページ画像を逐語で書き起こす Generator | 2026-10-24 退役（市販書籍の本文を Claude が画像から書き写すと、私的利用でも複製を作る主体が Claude になる）。文字起こしは機械 OCR（`pdf-to-mdx/scripts/book-ocr/book_ocr_machine.py` → obsidian vault の `ocr_pdf.py`）。視覚 OCR の新規・変更は `check-reference-book-pages`・`check-reference-sources --deep`・`record-reference-book-artifacts` が止める |
 
 ## Generator と Evaluator の分離原則
 

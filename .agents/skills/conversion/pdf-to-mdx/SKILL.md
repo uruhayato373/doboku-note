@@ -3,7 +3,7 @@ name: pdf-to-mdx
 description: >
   PDF / 画像から MDX を生成する統合変換スキル。`--exam` フラグで試験別テンプレートを切替え、
   出力ディレクトリ構造・frontmatter スキーマ・カテゴリ推定・PDF 残骸除去を自動化する。
-  `--scanned` でテキスト層なしスキャン書籍を視覚 OCR（pdfimages＋サブエージェント）で内部リファレンス .md ＋図に変換するモードも持つ。
+  `--scanned` でテキスト層なしスキャン書籍を機械 OCR（NDLOCR-Lite／Indra OCR）で内部リファレンス .md ＋図に変換するモードも持つ（Claude は本文を書き写さない）。
   Use when user asks to [PDFをMDXに, PDF変換, 過去問取込, スキャン教材の文字起こし, 書籍OCR, 総監PDF変換, 1級土木PDF変換, /pdf-to-mdx, /pdf-to-mdx --scanned].
 domain: material
 ---
