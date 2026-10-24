@@ -32,7 +32,7 @@ import { readJsonIf, writeJson } from './lib/json-io.mjs';
 import { guardBrowserLaunch, LaunchGuardError } from './lib/playwright-launch.mjs';
 import { REPO_ROOT } from './lib/repository-paths.mjs';
 import { commitAndPush, onBranch } from './lib/routine-commit.mjs';
-import { buildStages, runPassed, stageStatus } from './lib/weekly-collect-plan.mjs';
+import { buildStages, commandFailureReason, runPassed, stageStatus } from './lib/weekly-collect-plan.mjs';
 
 const TAG = '[weekly-collect]';
 const RUNS_ID = 'state.weekly-collect';
@@ -122,14 +122,16 @@ async function runStage(stage) {
     if (busy) { result.status = 'failed'; result.reason = busy.slice(0, 300); return result; }
   }
   const outputs = [];
-  for (const cmd of stage.commands) {
+  for (const [index, cmd] of stage.commands.entries()) {
     const prev = result.exits.length ? result.exits[result.exits.length - 1] : undefined;
     if (cmd.onlyIfPrev && !cmd.onlyIfPrev.includes(prev)) { result.exits.push(null); outputs.push(''); continue; }
     console.log(`${TAG} [${stage.id}] ${cmd.argv.join(' ')}`);
     const r = await runCommand(cmd.argv, { timeoutMin: stage.timeoutMin, env: stage.env ?? {} });
     result.exits.push(r.code);
     outputs.push(r.tail);
-    if (r.code !== 0 && !result.reason) result.reason = r.timedOut ? `${stage.timeoutMin} 分で打ち切り` : lastLine(r.tail).slice(0, 300);
+    if (r.code !== 0 && !result.reason) {
+      result.reason = commandFailureReason({ argv: cmd.argv, index, total: stage.commands.length, line: lastLine(r.tail), timedOut: r.timedOut, timeoutMin: stage.timeoutMin });
+    }
   }
   result.status = stageStatus(stage, result.exits, outputs);
   if (result.status === 'ok') result.reason = '';
