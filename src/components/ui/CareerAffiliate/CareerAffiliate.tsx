@@ -119,7 +119,7 @@ export default function CareerAffiliate({
     };
     return (
       <div className="not-prose my-6">
-        <CareerAffiliateExperiment card={card} program={experiment.program} trackLabel={effService} placement={placement} banner={experiment.asset.banner} textHref={experiment.asset.textHref} pixelSrc={trackingPixelUrl} />
+        <CareerAffiliateExperiment card={card} program={experiment.program} trackLabel={effService} placement={placement} banner={experiment.asset.banner} textHref={experiment.asset.textHref} textPixelSrc={experiment.asset.textPixelSrc} pixelSrc={trackingPixelUrl} />
       </div>
     );
   }

@@ -40,7 +40,7 @@ export default function SidebarAdBanner({
   const experiment = programAssetForHref(href);
   if (experiment) return (
     <div className="not-prose">
-      <CareerAffiliateExperiment card={experiment.asset.card()} program={experiment.program} trackLabel={trackLabel ?? experiment.asset.trackLabel} placement={placement} banner={experiment.asset.banner} textHref={experiment.asset.textHref} pixelSrc={pixelSrc} />
+      <CareerAffiliateExperiment card={experiment.asset.card()} program={experiment.program} trackLabel={trackLabel ?? experiment.asset.trackLabel} placement={placement} banner={experiment.asset.banner} textHref={experiment.asset.textHref} textPixelSrc={experiment.asset.textPixelSrc} pixelSrc={pixelSrc} />
     </div>
   );
   return (

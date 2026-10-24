@@ -493,8 +493,8 @@ export async function renderDocPage(slugStr: string) {
               />
             </article>
 
-            {/* 意匠実験の案が決まってから、その案のリンクと同じ素材のときだけ出す（ビルドジョブの B はテキスト素材でピクセルなし） */}
-            {bodyPixelSrc && <AffiliateExperimentPixel src={bodyPixelSrc} textHref={careerPixel?.textHref} />}
+            {/* 意匠実験の案が決まってから、その案のリンクと同じ素材のピクセルを出す（ビルドジョブの B はテキスト素材のピクセル） */}
+            {bodyPixelSrc && <AffiliateExperimentPixel src={bodyPixelSrc} textHref={careerPixel?.textHref} textPixelSrc={careerPixel?.textPixelSrc} />}
             <ArticleFooter
               endBanner={careerPlacements['article-end'] ?? null}
               careerPixelSrc={careerPixel?.slot === 'article-end' ? careerPixel.pixelSrc : undefined}

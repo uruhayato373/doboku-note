@@ -30,24 +30,31 @@ function useAffiliateVariant(): string | null {
   return useSyncExternalStore(subscribe, clientSnapshot, serverSnapshot);
 }
 
-/** ピクセルを出してよい案か。textHref のある案件（ビルドジョブ）の B はテキスト素材のリンクなのでバナーのピクセルを出さない。 */
-function pixelAllowed(assigned: string | null, textHref: string | undefined): boolean {
-  return assigned !== null && !(assigned === "B" && textHref);
+type PixelSource = {
+  /** 発火源のときだけ渡すバナーのピクセル（無ければこの面からは出さない） */
+  readonly src: string | undefined;
+  readonly textHref?: string | undefined;
+  readonly textPixelSrc?: string | undefined;
+};
+
+/** その案のリンクと同じ素材のピクセル。textHref のある案件（ビルドジョブ）の B はテキスト素材のピクセル（無ければ出さない）。 */
+function pixelForVariant(assigned: string, { src, textHref, textPixelSrc }: PixelSource): string | undefined {
+  return assigned === "B" && textHref ? textPixelSrc : src;
 }
 
 /**
- * 実験面の計測ピクセル。案が決まってから、その案のリンクと同じ素材のときだけ出す。
+ * 実験面の計測ピクセル。案が決まってから、その案のリンクと同じ素材のピクセルを 1 発出す。
  * 案の確定前（SSR）は発火源の印（data-a8-pixel）だけを残し、静的 HTML の 1 ページ 1 ピクセル検査（check-cta-density）がこれを数える。
  */
-function ExperimentPixel({ assigned, src, textHref }: { readonly assigned: string | null; readonly src: string | undefined; readonly textHref: string | undefined }) {
-  if (!src) return null;
-  if (assigned === null) return <span hidden data-a8-pixel={src} />;
-  return <TrackingPixel src={pixelAllowed(assigned, textHref) ? src : undefined} />;
+function ExperimentPixel({ assigned, ...source }: PixelSource & { readonly assigned: string | null }) {
+  if (!source.src) return null;
+  if (assigned === null) return <span hidden data-a8-pixel={source.src} />;
+  return <TrackingPixel src={pixelForVariant(assigned, source)} />;
 }
 
 /** ページ単位の計測ピクセル（DocPage が本文の後に置く 1 発）。 */
-export function AffiliateExperimentPixel({ src, textHref }: { readonly src: string; readonly textHref?: string | undefined }) {
-  return <ExperimentPixel assigned={useAffiliateVariant()} src={src} textHref={textHref} />;
+export function AffiliateExperimentPixel(source: PixelSource & { readonly src: string }) {
+  return <ExperimentPixel assigned={useAffiliateVariant()} {...source} />;
 }
 
 const HEADLINES: Record<string, string> = {
@@ -62,15 +69,16 @@ const HEADLINES: Record<string, string> = {
  * バナーは A8 の画像を縮小だけで使い、切り抜き・重ね書きをしない（PR はバナーの外に出す）。
  * 公表実績の行は <p> にしない（記事本文の .prose-blog p + p が余白 1.5em を足す）。
  * 計測は data-cta-exposure="heading"（B は見出し、C はバナー）が 50% 見えた時点。SSR では B を描き、案の確定前は数えない。
- * 計測ピクセルは案が決まってから出す。textHref のある案件（ビルドジョブ）の B はテキスト素材のリンクでピクセルを持たない。
+ * 計測ピクセルは案が決まってから出す。textHref のある案件（ビルドジョブ）の B はテキスト素材のリンクとピクセル。
  */
-export default function CareerAffiliateExperiment({ card, program, trackLabel, placement, banner, textHref, pixelSrc }: {
+export default function CareerAffiliateExperiment({ card, program, trackLabel, placement, banner, textHref, textPixelSrc, pixelSrc }: {
   readonly card: CareerArticleEndCard;
   readonly program: string;
   readonly trackLabel: string;
   readonly placement: string;
   readonly banner: SidebarAdCreative;
   readonly textHref?: string | undefined;
+  readonly textPixelSrc?: string | undefined;
   /** 1 ページ 1 ピクセルの発火源のときだけ渡す（banner のピクセル） */
   readonly pixelSrc?: string | undefined;
 }) {
@@ -78,7 +86,7 @@ export default function CareerAffiliateExperiment({ card, program, trackLabel, p
   const variant = assigned ?? AFFILIATE_VARIANTS[0];
   const title = HEADLINES[program];
   const href = variant === "B" && textHref ? textHref : card.href;
-  const pixel = <ExperimentPixel assigned={assigned} src={pixelSrc} textHref={textHref} />;
+  const pixel = <ExperimentPixel assigned={assigned} src={pixelSrc} textHref={textHref} textPixelSrc={textPixelSrc} />;
   const link = {
     href,
     rel: AFFILIATE_LINK_REL,

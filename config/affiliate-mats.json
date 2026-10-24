@@ -45,7 +45,7 @@
       ],
       "definedIn": "src/config/affiliate-creatives.ts (PROGRAM_ASSETS.buildjob.textHref・意匠実験 EXP-043 の B)",
       "expiresAt": null,
-      "note": "career 記事の本文中間テキスト CTA 用に発行した mat（2026-07-28〜2026-10-23 は未使用）。2026-10-24 から意匠実験 EXP-043 の B（小型カード）のリンクに使い、C（バナー・NTZCH）と A8 の成果を案別に分ける。8/31 は増額キャンペーンの終了日でリンク失効日ではない。計測ピクセルの URL は控えていないので B ではピクセルを出さない。PR 表記必須。"
+      "note": "career 記事の本文中間テキスト CTA 用に発行した mat（2026-07-28〜2026-10-23 は未使用）。2026-10-24 から意匠実験 EXP-043 の B（小型カード）のリンクに使い、C（バナー・NTZCH）と A8 の成果を案別に分ける。8/31 は増額キャンペーンの終了日でリンク失効日ではない。2026-10-24 に A8 の広告リンク作成（websiteId=002）で素材ID 002・テキストとして発行中なのを確かめ、計測ピクセル（PROGRAM_ASSETS.buildjob.textPixelSrc）も B で出す。PR 表記必須。"
     },
     {
       "mat": "4B5OO5+FHBA2+5B0Y+NU729",
