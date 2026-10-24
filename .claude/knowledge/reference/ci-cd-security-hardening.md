@@ -12,9 +12,9 @@ DN-0137（旧DN-0109 Phase 4）の設計成果物。**実行はユーザーがGi
 | branch protection (`develop`) | 同上・無設定 | 複数セッション常態下でforce-pushされると他セッションの未pushコミットが消える（CLAUDE.md §10で既知のリスク） |
 | GitHub Environments | `Production`(id 2754677196)・`Preview`(id 2755100617)が存在するが、**どのworkflowからも`environment:`キーで参照されていない**（`grep -rln "environment:" .github/workflows/*.yml` → 0件）。`protection_rules:[]`・`can_admins_bypass:true` | 存在するが機能していない飾り設定 |
 | Secrets（15個中4個が未参照） | `ACCESS_KEY_ID`(2024-05-24)・`AWS_CF_ID`(2024-05-24)・`AWS_S3_BUCKET`(2024-05-27)・`SECRET_ACCESS_KEY`(2024-05-24)。`grep -rl "secrets\.<name>" .github/workflows/*.yml`がいずれも0件。登録日から旧AWS S3/CloudFront構成（現CLOUDFLARE_R2_*移行前）の残骸と推定 | 使っていない認証情報が漏洩リスクだけを持ち続けている |
-| Secrets（新規・DN-0254 API 収集の CI 化） | `IG_GRAPH_ACCESS_TOKEN`（`fetch-ig-insights.yml` が使用。Page トークン推奨・`expires_at` は 0＝無期限だが `data_access_expires_at` は要確認・scope: `instagram_basic`, `instagram_manage_insights`, `pages_show_list`, `pages_read_engagement`。ローテはMacで`scripts/ig-graph-token.mjs`を実行→`gh secret set`）・`IG_BUSINESS_ACCOUNT_ID`・`CLOUDFLARE_ANALYTICS_API_TOKEN`（`cloudflare-metrics.yml`/`cloudflare-config-audit.yml`が使用。scope: `Zone.Analytics:Read`, `Zone.Zone:Read`, `Zone.Zone Settings:Read`。既存`CLOUDFLARE_API_TOKEN`にAnalytics:Readがあれば新規登録は省略可＝要確認） | 漏洩時の影響（IG投稿権限・Cloudflareゾーン読み取り）と60日更新の運用負荷。DN-0254参照 |
+| Secrets（新規・DN-0254 API 収集の CI 化） | `IG_GRAPH_ACCESS_TOKEN`・`IG_BUSINESS_ACCOUNT_ID`（`fetch-ig-insights.yml` の廃止〔2026-10-24〕で参照する workflow が無くなった。Graph API は使わない方針のため不要なら削除）・`CLOUDFLARE_ANALYTICS_API_TOKEN`（`cloudflare-metrics.yml`/`cloudflare-config-audit.yml`が使用。scope: `Zone.Analytics:Read`, `Zone.Zone:Read`, `Zone.Zone Settings:Read`。既存`CLOUDFLARE_API_TOKEN`にAnalytics:Readがあれば新規登録は省略可＝要確認） | 漏洩時の影響（IG投稿権限・Cloudflareゾーン読み取り）と60日更新の運用負荷。DN-0254参照 |
 | R2削除 (`r2-delete.yml`) | 既に良い設計: `workflow_dispatch`限定・既定dry-run・`commit=true`明示が必要・`concurrency: {group: r2-delete, cancel-in-progress: false}` | 対応不要 |
-| R2監査キー最小権限化 | `r2-audit.yml`は`CLOUDFLARE_R2_AUDIT_ACCESS_KEY_ID || CLOUDFLARE_R2_ACCESS_KEY_ID`のフォールバック式が既にある（設計済み）が、専用の読み取り専用キー自体が未作成のため常に書き込み可能な既存キーへフォールバックしている | 最小権限化が半分で止まっている |
+| R2監査キー最小権限化 | `r2-sync.yml`の「main と R2 の画像差分」step は`CLOUDFLARE_R2_AUDIT_ACCESS_KEY_ID || CLOUDFLARE_R2_ACCESS_KEY_ID`のフォールバック式が既にある（設計済み）が、専用の読み取り専用キー自体が未作成のため常に書き込み可能な既存キーへフォールバックしている | 最小権限化が半分で止まっている |
 | CODEOWNERS | 無し | 必須レビュー者を指定できない（ただし単独運用なら優先度低） |
 | ワークフロー衛生（SHA-pin・permissions・timeout） | `scripts/check-workflow-hygiene.mjs`が既にpre-commit/quality:auditでゲート済み | 対応不要 |
 
@@ -67,20 +67,13 @@ gh secret delete SECRET_ACCESS_KEY
 
 ### 優先2: 検討事項（ワークフローや運用を変える意思決定）
 
-- **R2監査キーの最小権限化**: Cloudflareダッシュボードで「R2への読み取り専用」スコープのAPIトークンを新規発行し、GitHub Secretsへ`CLOUDFLARE_R2_AUDIT_ACCESS_KEY_ID`/`CLOUDFLARE_R2_AUDIT_SECRET_ACCESS_KEY`として登録する。登録するだけで`r2-audit.yml`のフォールバック式が自動的に優先利用する（ワークフロー変更不要）
+- **R2監査キーの最小権限化**: Cloudflareダッシュボードで「R2への読み取り専用」スコープのAPIトークンを新規発行し、GitHub Secretsへ`CLOUDFLARE_R2_AUDIT_ACCESS_KEY_ID`/`CLOUDFLARE_R2_AUDIT_SECRET_ACCESS_KEY`として登録する。登録するだけで`r2-sync.yml`のフォールバック式が自動的に優先利用する（ワークフロー変更不要）
 - **mainへのPRレビュー必須化**: 単独運用のため必須ではないが、`/deploy`前にセルフレビューの型を強制したいなら「Require a pull request before merging」を有効化（承認数0でも「PRを経由する」制約は課せる）
 - **automation-failure Issue #457のクローズ**: 対象workflowは回復済みだが18日openのまま。dedup仕様で以後の失敗コメントが埋没している。DN-0135のIssue #473と同種のため統合を検討（2026-09-18 から起票元 workflow の次回成功で `--resolve` が自動クローズ。gsc-auto-review channel は gsc-auto-review.yml と weekly-review-guard.yml の両方に配線済み）
 
-## external-writes（ops-write.yml）の権限設計（2026-09-21）
+## 外部サービスへの書き込みは CI で行わない（2026-10-24 DN-0817）
 
-`ops-write.yml`（外部サービスへの書き込み・[04_自動化マップ.md](../../../docs/operations/04_自動化マップ.md)「CI で実行するが承認は人」）を安全に運用するための追加事項:
-
-- **書き込み権限は catalog + plan hash + allowlist の 3 点で縛る**（このいずれか単独では防げない）:
-  1. **catalog**（`.claude/config/ci-write-operations.json`）— 実行できる operation をカタログにあるものだけに限定する。カタログ外の script は起動できない
-  2. **plan hash**（`DOBOKU_CI_WRITE_PLAN_SHA256`・`scripts/lib/ci-write-gate.mjs`）— 人が確認した内容（args・repo 内 inputs のハッシュ）と、CI が実行する内容が同一であることを機械的に保証する。不一致は exit 2 で何もしない
-  3. **allowlist**（`playwright-auth-profiles.json` の `ci.writeScripts`）— resolver（`playwright-auth-profile.mjs`）は、この env が無い、または script がサービスの `writeScripts` に無ければ profile を返さない＝書き込みできない
-- **Instagram は Graph API を使わない（2026-09-23 ユーザー決定）**。それまでは Meta の利用制限でトークンを発行できず `fetch-ig-insights` / `ig-graph-publish` を待機させていたが、制限が解けても戻さない。照合・予約投稿は encrypted-state の Playwright（`login-collectors.yml` / `ops-write.yml` の `instagram.publish-bs`）
-- **GitHub Environment `external-writes`（required reviewer）を推奨**: `ops-write.yml` の `write` job は現状 `environment:` 未指定（Environment 未作成のためコメントアウト中）。作成後は `environment: external-writes` を有効化し、`Required reviewers` を設定すると `commit=true` の dispatch に人の承認が挟まる（上表「1-c」の Environment 活用パターンと同型）。unused Environments の扱い（削除 or 承認ゲート化）を決めるときに合わせて検討する
+note・ココナラ・KDP・X・Instagram への書き込みを CI から行う入口（`ops-write.yml`・`scheduled-publish.yml`・書き込みカタログ・plan hash）は廃止した。書き込みは運営者の Mac で、運営者の依頼を受けたセッションが既存の profile で行う。resolver は CI では profile を返さない（`AUTH_CI_NO_LOGIN`）。Instagram は Graph API を使わない（2026-09-23 ユーザー決定）。
 
 ## 実行後の確認コマンド
 
@@ -90,33 +83,22 @@ gh secret list   # 4件が消えていること
 gh api repos/uruhayato373/doboku-note/environments   # 方針に応じて0件 or Production/Previewが残る
 ```
 
-## Playwright CI encrypted-state（2026-09-21）
+## Playwright CI encrypted-state の廃止（2026-10-24）
 
-### 新Secret
+CI がログインして収集・投稿する仕組み（age 暗号化した storageState を private R2 `auth-state/*` に置き、`DOBOKU_AUTH_*` Secrets の ID/PW で入り直す）は DN-0817 で廃止した。ココナラは hosted runner から 403、KDP・X・Instagram は端末変更やボット確認で失効し、毎週どこかが壊れたため。CI はログインしない。ログインが要る処理は土曜の Mac 収集だけ（[playwright-auth-profiles.md](playwright-auth-profiles.md)）。
 
-- `DOBOKU_AUTH_AGE_IDENTITY` — age秘密identity。`login-collectors.yml`がCIでstorageStateを復号するために読む。Mac側は`auth root/age/identity.txt`に置き、同期しない。
-- `DOBOKU_AUTH_NOTE_USER` / `DOBOKU_AUTH_NOTE_PASSWORD` — note の ID/PW（2026-10-01 オーナー決定・CI がパスワードを持つ例外）。売上ページの端末別パスワード再確認を `scripts/lib/note-reauth.mjs` が 1 回だけ通すために、`login-collectors.yml` の「note: traffic + sales」step と「Re-login with Secrets」step の env にだけ渡す。読み口は `scripts/lib/credential-store.mjs` の `readServiceCredential`（許可 service は資格情報の正本 `playwright-auth-profiles.json` の `credential.ciCredential`）。漏えい時は note のパスワードを変え、Secrets と各 PC の資格情報ストアを更新する。
-- `DOBOKU_AUTH_COCONALA_USER` / `DOBOKU_AUTH_COCONALA_PASSWORD` — ココナラの ID/PW（2026-10-01 オーナー決定）。暗号化 state が切れていたときに `auth-session-refresh.mjs --ci` が 1 回だけ入り直すため、`login-collectors.yml` の「Re-login with Secrets」step の env にだけ渡す。2FA・CAPTCHA は突破しない。漏えい時の手順は note と同じ。
-- `DOBOKU_AUTH_KDP_USER` / `DOBOKU_AUTH_KDP_PASSWORD` — Amazon KDP の ID/PW（2026-10-01 オーナー決定・試行）。ココナラと同じく「Re-login with Secrets」step の env にだけ渡す。Amazon は新しい端末に 2 段階認証を求めやすく、通らなければ止まって Issue に載る。評価と継続の判断は DN-0480。→ 2026-10-16 に入り直しが login_failed、同じ日に手元の自動ログインも止まったので、2026-10-21 に CI から外して Secrets を消した（ワークフローの env からも外した）。
-- `DOBOKU_AUTH_A8_USER` / `DOBOKU_AUTH_A8_PASSWORD` — A8.net の ID/PW（2026-10-01 オーナー決定・試行）。A8 は揮発性 Cookie で、Mac から渡した state が CI 実行時に切れていた（2026-09-22・Issue #570）。「Re-login with Secrets」step の env にだけ渡し、切れていたときだけ 1 回入り直す。stats47 と共用の口座なので失敗は 1 回で止める。評価は DN-0481。
-- `DOBOKU_AUTH_{MOSHIMO,X,INSTAGRAM,GOOGLE,AFB}_USER` / `_PASSWORD` — 2026-10-01 オーナー決定で保管だけする（`credential.ciStored`）。どの workflow の env にも渡していない。CI で使い始めるときは正本の `ciCredential` を true にし、`tests/auth-credential-ssot.test.mjs` が配線を照合する。
+運営者が行う後始末（エージェントは実行しない）:
 
-### R2オブジェクト
+- GitHub Secrets `DOBOKU_AUTH_*`（`AGE_IDENTITY` と各サービスの `_USER` / `_PASSWORD`）を削除する（`gh secret list` で 0 件を確認）
+- private R2（`doboku-note-archive`）の `auth-state/` を削除する
+- Windows のタスク `\doboku-note\auth-session-refresh` を削除する（`schtasks /Delete /TN "\doboku-note\auth-session-refresh" /F`）
+- 漏えいが疑われるなら、各サービスのパスワードを変え、各 PC の資格情報ストアを更新する
 
-- `auth-state/*`（private バケット `doboku-note-archive`）— age暗号化したPlaywright storageState。`config/asset-storage.json`のinvariantsで offload/hydrate/groups の対象外と明記。
-
-### 脅威モデル
-
-- オブジェクト＝収益口座のフルセッション（note/coconala/kdp/x/google/a8/afbのCookie・localStorage）。復号されれば各サービスへその口座としてアクセスできる
-- read-only運用の担保は資格情報自体ではなく allowlist（`ci.readOnlyScripts`/`ci.writeScripts`・resolverの`AUTH_CI_SCRIPT_NOT_ALLOWLISTED`）
-- repo write権限者はSecretsを読めるworkflowを起動できるため復号可能（GitHub側の権限モデルに従う）
-- fork PRにはSecretsが渡らない。`pull_request_target`は使用しない
-- ローテーション手順: `auth:keygen --force` → registryのageRecipient更新 + GitHub Secret更新 → 全サービス`auth:export`再実行 → 旧`state.prev.age`削除
-- 失効手順: 対象サービス側でログアウトする（storageStateは自動的に無効化される）
+資格情報の正本は各 PC の OS 資格情報ストアだけ。fork PR には Secrets が渡らない・`pull_request_target` は使わない、の方針は変わらない。
 
 ## 関連
 
 - `scripts/check-workflow-hygiene.mjs` — SHA-pin/permissions/timeout-minutes・develop へ rebase 無しで push する run:（2026-10-11 追加・競合で記録が落ちる）・node-version の 22 統一（2026-10-11 追加・20 と 22 の混在を止める）の機械ゲート（既に対応済み・本ドキュメントの対象外）
 - `.github/workflows/r2-delete.yml` — 既に良い設計の参考実装（workflow_dispatch限定・dry-run既定）
-- `.claude/knowledge/reference/playwright-auth-profiles.md` §CI — encrypted-stateの詳細設計
+- `.claude/knowledge/reference/playwright-auth-profiles.md` — ログインの役割分担（人・Mac・CI）
 - CLAUDE.md §10「重要なステップごとにチェックポイントを置く」— 複数セッション常態下でのforce-pushの危険性

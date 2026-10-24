@@ -1,13 +1,13 @@
 #!/usr/bin/env node
 /**
- * note-sync-routine.mjs — Mac の launchd（com.doboku-note.note-sync）が毎週回す note の記事単位の同期
+ * note-sync-routine.mjs — 土曜の Mac の収集（weekly-collect の note-sync 段）が回す note の記事単位の同期
  * ---------------------------------------------------------------------------
  * note の記事は、本文・カバー・タグを別々に直すたびにエディタを開いて「更新する」を押すことになる。この週次は、
  * 1 週間にたまった変更を記事ごとにまとめ、**1 記事につき 1 回の更新**で note へ反映する。
  * なぜ Mac か: note への書き込みはログインしたブラウザでしかできず、CI は読み取りだけに限っている
  * （playwright-auth-profile は CI の投稿系スクリプトにプロファイルを渡さない）。判定は CI の check-note-sync と共通。
  *
- * 1 回の実行でやること（scripts/scheduled/note-sync.sh が専用 worktree＝最新の develop で呼ぶ）:
+ * 1 回の実行でやること（scripts/weekly-collect.mjs が収集用 worktree＝最新の develop で呼ぶ）:
  *   1. 反映計画（scripts/lib/note-sync-plan.mjs）＋ note 上の今のカバー → 記事ごとの未反映の部品（本文・カバー・タグ）
  *   2. 本文を上げ直す記事のうち、配布 PDF が手元に無いものは Drive vault から取り寄せる（添付を貼り直すため）
  *   3. note-update-body --sync で記事ごとに 1 回だけ更新（カバー → 本文 → タグ → 更新する → API で確認 → 台帳へ記録）
@@ -77,7 +77,7 @@ function notify(message) {
 
 // 人の checkout で本番を走らせると、今いるブランチへ台帳を commit してしまう
 if (!DRY && git(['symbolic-ref', '-q', 'HEAD']).status === 0) {
-  console.error(`${TAG} ブランチに乗った HEAD では本番を実行しない（専用 worktree で動かす: npm run note-sync:install -- --run-now）。--dry-run は可`);
+  console.error(`${TAG} ブランチに乗った HEAD では本番を実行しない（収集用 worktree で動かす: node scripts/weekly-collect.mjs --only note-sync）。--dry-run は可`);
   process.exit(1);
 }
 

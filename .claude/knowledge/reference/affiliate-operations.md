@@ -27,7 +27,7 @@ A8 / もしも / afb の 3 ASP を横断する。
 > **講座・教材・添削・書籍のアフィリエイトは提携しない・配置しない。**
 > カタログで `redLine: true` の案件は `npm run affiliate:apply` が `--commit` でも申請を拒否する。
 > 本文 prose への再提案は `npm run check-affiliate-prose`（denylist=`src/config/affiliate-prose-denylist.json`）が
-> pre-commit ＋ `r2-audit.yml` で機械検知する。
+> pre-commit ＋ `quality:audit:ci` で機械検知する。
 
 ---
 
@@ -350,7 +350,7 @@ npm run a8-ui:normalize -- --latest
 ```
 
 `headless:false` で起動するので、ログインと CAPTCHA だけ人間が通せば以降は自動で進む
-（`scripts/fetch-a8-ui-csv.mjs`・プロファイルは auth root の `playwright-a8-profile`・定期取得は `login-collectors.yml`（encrypted-state・canary 卒業後））。
+（`scripts/fetch-a8-ui-csv.mjs`・プロファイルは auth root の `playwright-a8-profile`・定期取得は土曜の Mac 収集の a8 段）。
 取り込み後の EPC は `npm run report-buildjob-affiliate` で見る。
 
 **当月分の確定額は翌月以降へずれる**。A8 の承認処理が月をまたぐため `revenueYen: 0` は異常ではなく、
@@ -393,7 +393,7 @@ A8 側の `clicks` は参考値）。A8 から取るのは**成果（発生件�
   - （2026-08-31 までの BuildJob 増額期は 942/50,000＝約 160 クリックで見積もっていた）
 - **現状（2026-10-07 時点）は全案件が判定不能**: 確定成果は全期間で 0 件。
   - 9 月（`data/a8/report-log.json`・サイト別）: doboku-note 49 click・note 2 click・発生 0。
-  - 10 月: A8 の画面でビルドジョブの発生 1 件（¥13,534・未確定）を 10/7 に確認。台帳への取込は `login-collectors` の当月取得が直ってから（DN-0566）。
+  - 10 月: A8 の画面でビルドジョブの発生 1 件（¥13,534・未確定）を 10/7 に確認。台帳への取込は当月取得が直ってから（DN-0566。取得は 2026-10-24 から土曜の Mac 収集）。
   - 2026-07-27 時点（年初〜7 月累計）: ビルドジョブ 56click/確定0（発生 1 件は cancelled）・GKS 30click/0・建設JOBs 16click/0・DX コンサル 35click/0、合計 137 クリック・確定 0 円。
   - 発生 1 件は確定ではない。確定 3 件に届くまで案件の勝敗は判定不能のまま据え置く
 
@@ -535,7 +535,7 @@ A8 側の `clicks` は参考値）。A8 から取るのは**成果（発生件�
 - **判断**: A8 の発生 1 件（ビルドジョブ ¥13,534・未確定）を機に、アクセスがあるのに広告の無い面（実務・公的基準の章末・トップ・ツール・コンクリート技士と RCCM の本文中間）へ広げた（運営者の指示）。2級の学習ページと資格トップは建設JOBs に替えた。2級の二次の受験者は実務経験があり、若い層が多いので、建設JOBs の条件（20〜30 代・経験者）に合う。9/08 に一般配置を止めた理由（対象年齢・経験・電話確認の条件）は、条件に合う読者層に絞って出すことで解く。キャリア記事はビルドジョブのまま。判定は EXP-017（28 日・確定 3 件まで案件の勝敗は決めない）。
 - **10 月の 1 件の出どころ（未特定）**: A8 の成果別レポート（`/report/result`）では、クリック 2026/10/05 10:37:13・申込 10:38:03・PC。リファラは `https://doboku-note.com/` で、ドメインまでしか残っていなかった。GA4 では 10/04〜10/06 の `affiliate_cta_click` が 0 件で、このクリックを取りこぼしている。ページは特定できない（9/08 以降の GA4 のクリックはほぼ二次試験の年度別ページの本文カード＝最有力だが推定）。
 - **残りの面へ展開（EXP-018）**: 本番の全 1,622 ページを取得すると、転職広告の無いページが 272 あった（公的基準の章以外 218・トピック 16・測量士・舗装・建築 19・ツール 11・運営ページ 8）。運営ページを除く 264 ページへ、EXP-017 と面・カテゴリを分けた配置ルール PL-0035〜0041 で広げた（運営者の指示・2026-10-07 20:00 から）。測量士・舗装・建築を外していた理由の記録は無く、#904 で配置ルールにした時点の状態をテストが固定していただけだった。
-- **記録**: A8 の成果別（1 成果 1 行・クリックしたページ付き）を週次 CI（login-collectors の a8）で取り、`data/a8/report-log.json` の `conversions` に残す。`report-career-funnel` が成果をページ・案件・クリック時刻で配置ルールへ寄せ、管理画面 `/affiliate` の「成果の出どころ」に出す。
+- **記録**: A8 の成果別（1 成果 1 行・クリックしたページ付き）を土曜の Mac 収集（a8 段）で取り、`data/a8/report-log.json` の `conversions` に残す。`report-career-funnel` が成果をページ・案件・クリック時刻で配置ルールへ寄せ、管理画面 `/affiliate` の「成果の出どころ」に出す。
 - **再発防止**: (1) 広告リンクにリファラ方針を付け、A8 の成果別レポートにクリックしたページの URL が残るようにした（必須ルール 7）。以後の成果はページまで A8 だけで分かる。(2) クリック計測が中クリック（`auxclick`）も拾うようにした。広告ブロッカー等で GA4 が送れない分は残るので、成果の帰属は A8 のリファラを正とし、GA4 は配置判断の分母に使う（役割分担は 9/26 のとおり）。
 
 ### 2026-10-20（DN-0261・第 2 波の 28 日後・継続し記事末を外す）
@@ -570,7 +570,7 @@ A8 側の `clicks` は参考値）。A8 から取るのは**成果（発生件�
 | `config/cta-placements.json` | 面（GA4 の `cta_placement`）の名前・撤去・1 ページ 1 ピクセルの優先順 |
 | `src/config/affiliate-creatives.ts` | 案件の素材（バナー・本文カードの文言・悩み別 CTA）。`PROGRAM_ASSETS` を案件 id で引く |
 | `data/affiliate/catalog.json` | **どの案件をどの ASP で運用するか**の真実源 |
-| `data/a8/report-log.json` | **A8 成果**（`/a8-report` と週次 CI の login-collectors が upsert）。doboku 分離は `siteSummary`。**`conversions` は成果別（1 成果 1 行・サイト列で分離・`page` がクリックしたページ）＝成果の出どころの真実源**（2026-10-07〜）。月次の成果（月×案件）は持たず、`programPeriod` の単月の期間から導く（`resultsFromReportLog`・2026-10 に `results.json` を廃止） |
+| `data/a8/report-log.json` | **A8 成果**（`/a8-report` の取り込みと土曜の Mac 収集の a8 段が upsert）。doboku 分離は `siteSummary`。**`conversions` は成果別（1 成果 1 行・サイト列で分離・`page` がクリックしたページ）＝成果の出どころの真実源**（2026-10-07〜）。月次の成果（月×案件）は持たず、`programPeriod` の単月の期間から導く（`resultsFromReportLog`・2026-10 に `results.json` を廃止） |
 | `data/afb/outcomes/（日付別の最新）` | **afb 成果**（公式 API・`fetch-afb-outcomes.mjs --commit` が週次で上書き）。サイト分離は行ごとの `assertSiteOrThrow` |
 | `npm run report-buildjob-affiliate` | BuildJob クリック/EPC 週次レポート |
 | 各 MDX | 実際の埋め込み（本文・文面の真実源） |
@@ -585,7 +585,7 @@ A8 側の `clicks` は参考値）。A8 から取るのは**成果（発生件�
 |---|---|---|
 | `npm run check-affiliate-wiring` | カタログ ↔ `affiliate-mats.json` ↔ `a8-report-automation.json` の programIdMap ↔ 消費側の 4 点突合。`placement=active` なのに mat が無い／`redLine:true` なのに配置されている／mats にあってカタログに無い を検知 | pre-commit |
 | `npm run check-affiliate-mats` | 未登録 mat=ERROR / MDX への生 mat 直書き=ERROR / A8 画像 URL の wid が 002（doboku-note）以外=ERROR（stats47 の提携の素材の誤貼り。同じ案件でも mat の第2トークンはサイトごとに違う）/ 失効 creative の配置=WARN | pre-commit |
-| `npm run check-affiliate-prose` | 廃止アフィリ（講座・添削ブランド等）の本文 prose 再提案 | pre-commit ＋ `r2-audit.yml` |
+| `npm run check-affiliate-prose` | 廃止アフィリ（講座・添削ブランド等）の本文 prose 再提案 | pre-commit ＋ `quality:audit:ci` |
 | `node --test tests/affiliate-link-referrer.test.mjs` | 広告リンクの rel とリファラ方針が対になっていること（検査 0 件は失敗）・クリック計測が中クリックを拾うこと | `npm test` |
 | `node --test tests/asp-site-guard.test.mjs` | サイト帰属 assert が不一致で throw すること | `npm test` |
 | `node --test tests/asp-falsenegative-guard.test.mjs` | approved 全滅ドリフトを偽陰性として検出し `--write` を止めること | `npm test` |

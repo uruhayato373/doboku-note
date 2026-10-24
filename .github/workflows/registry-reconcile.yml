@@ -62,14 +62,20 @@ jobs:
           echo "exit_code=$?" >> "$GITHUB_OUTPUT"
 
       # 公開へ進めた動画は、公開実体の照合（verify-video-publication・check-video-publication の V02）にも
-      # 同じ日のうちに載せる。週次の verify-yt-status.yml だけだと、進めた日から次の金曜まで V02 が赤になる（2026-10-09）
+      # 同じ日のうちに載せる（2026-10-09）。2026-10-24 に週次の verify-yt-status.yml をここへまとめ、
+      # 失敗を握りつぶさず（以前は `|| true`）ドリフト・検査不成立を同じ Issue へ載せる（DN-0817）
       - name: Verify video pack publication
+        id: verify_packs
         if: steps.reconcile.outputs.exit_code != '2'
         env:
           YOUTUBE_CLIENT_ID: ${{ secrets.YOUTUBE_CLIENT_ID }}
           YOUTUBE_CLIENT_SECRET: ${{ secrets.YOUTUBE_CLIENT_SECRET }}
           YOUTUBE_REFRESH_TOKEN: ${{ secrets.YOUTUBE_REFRESH_TOKEN }}
-        run: node scripts/verify-video-publication.mjs || true
+        run: |
+          set -o pipefail
+          set +e
+          node scripts/verify-video-publication.mjs 2>&1 | tee "$RUNNER_TEMP/video-verify.log"
+          echo "exit_code=$?" >> "$GITHUB_OUTPUT"
 
       # 検査不成立（exit 2）は何も書いていないので、書き戻しは 0・1 のときだけ
       - name: Publish to develop
@@ -104,18 +110,18 @@ jobs:
           } >> "$GITHUB_STEP_SUMMARY"
 
       - name: Report - drift or inconclusive (automation-failure Issue)
-        if: steps.reconcile.outputs.exit_code != '0'
+        if: steps.reconcile.outputs.exit_code != '0' || (steps.verify_packs.outputs.exit_code != '' && steps.verify_packs.outputs.exit_code != '0')
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
         run: |
           node scripts/report-automation-failure.mjs \
             --channel registry-reconcile \
-            --title "コンテンツ台帳の照合（rc=${{ steps.reconcile.outputs.exit_code }}・1=後戻り/消えた動画・2=検査不成立）" \
-            --body-file "$RUNNER_TEMP/reconcile.log"
+            --title "コンテンツ台帳の照合（rc=${{ steps.reconcile.outputs.exit_code }}・動画パックの公開照合 rc=${{ steps.verify_packs.outputs.exit_code }}・1=ドリフト・2=検査不成立）" \
+            --body-file <(cat "$RUNNER_TEMP/reconcile.log"; echo; echo '--- verify-video-publication ---'; tail -40 "$RUNNER_TEMP/video-verify.log" 2>/dev/null || true)
 
       - name: Resolve - close registry-reconcile Issue on recovery
-        if: steps.reconcile.outputs.exit_code == '0'
+        if: steps.reconcile.outputs.exit_code == '0' && steps.verify_packs.outputs.exit_code == '0'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
@@ -124,7 +130,7 @@ jobs:
             --body "復旧 run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
 
       - name: Fail on drift or inconclusive
-        if: steps.reconcile.outputs.exit_code != '0'
+        if: steps.reconcile.outputs.exit_code != '0' || (steps.verify_packs.outputs.exit_code != '' && steps.verify_packs.outputs.exit_code != '0')
         run: |
           echo "::error::registry-reconcile が rc=${{ steps.reconcile.outputs.exit_code }} で終わりました。.claude/state/registry-reconcile/youtube.json と automation-failure Issue（channel: registry-reconcile）を参照。"
           exit 1

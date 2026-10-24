@@ -24,7 +24,7 @@ title: note 記事 構成テンプレート（売れる9型）— doboku-note �
 ステップ 3〜4（解決策・読後の変化）は、有料記事では **paywall より前**に無い限り読者に届かない。無料部分は購入判断のすべてで、そこに「何が得られるか」が無い記事は、読者が代金に見合うか判断できないまま買うか離脱するかになる。
 
 ```bash
-npm run check-note-intro-benefit    # pre-commit（--staged）＋ CI 全量（r2-audit.yml）
+npm run check-note-intro-benefit    # pre-commit（--staged）＋ CI 全量（quality:audit:ci）
 ```
 
 published かつ `notePricing: paid` の記事に `**この記事でわかること**` が**有料境界より前**にあるかを検査し、無ければ exit 1。導入の並びは `**こんな人のための記事です**`（誰向けか）→ `**この記事でわかること**`（何が得られるか）→ 地の文。

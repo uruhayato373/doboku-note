@@ -4,8 +4,8 @@
  * ---------------------------------------------------------------------------
  * A8 成果レポートの取り込みが止まっていないかを機械判定する surfacer。
  *
- * 取得は `login-collectors.yml`（週次・火 06:20 JST・JST の前月と当月）が CI で回し、手動の `/a8-report`
- * と workflow の `month` 入力が補う。A8 は公開 API が無く Playwright＋暗号化したログイン状態で取るので、
+ * 取得は土曜の Mac 収集（`node scripts/weekly-collect.mjs` の `a8` 段・JST の前月と当月）が回し、手動の
+ * `/a8-report` が補う。A8 は公開 API が無く Playwright のログイン状態で取るので、
  * 取得・正規化・書き戻しのどこかが黙って止まりうる。日次の ops 点検（quality-audit の ops:true）がこれを読む。
  *
  * 判定: `data/a8/ui-last-run.json`（committed マーカー）の
@@ -39,7 +39,7 @@ import { REPO_ROOT as ROOT } from "./lib/repository-paths.mjs";
 
 const MARKER = join(ROOT, datasetPath("a8.ui-last-run"));
 const LOG = join(ROOT, datasetPath("a8.report-log"));
-const REVIEW = "gh workflow run login-collectors.yml -f service=a8（CI）か /a8-report（ローカル・要 A8 ログイン）";
+const REVIEW = "node scripts/weekly-collect.mjs --only a8（運営者の端末・要 A8 ログイン）か /a8-report";
 
 const args = process.argv.slice(2);
 const WANT_JSON = args.includes("--json");
@@ -78,7 +78,7 @@ const pub = collectPublishGap(marker, log);
 if (pub.gap) {
   issues.push(
     `取得（${pub.markerAt}）の後に台帳 report-log が進んでいない（最終更新 ${pub.logAt ?? "なし"}）＝正規化か develop への書き戻しが止まった。` +
-      "login-collectors の publish ジョブと automation-failure Issue を確かめる",
+      "土曜の Mac 収集の記録（state.weekly-collect の a8 段）と書き戻し（push）の失敗を確かめる",
   );
 }
 if (marker && !pub.lastRunOk) {
@@ -137,7 +137,7 @@ const result = {
   issues,
   notes,
   review: REVIEW,
-  note: "取得は login-collectors.yml（週次・前月と当月）。手動は workflow の month 入力か /a8-report。surface のみ。",
+  note: "取得は土曜の Mac 収集（weekly-collect の a8 段・前月と当月）。手動は /a8-report。surface のみ。",
 };
 
 if (WANT_JSON) {

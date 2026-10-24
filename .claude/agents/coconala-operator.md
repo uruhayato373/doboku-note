@@ -15,10 +15,11 @@ domain: product
 ## 前提（実行環境・最重要）
 
 - **出品・内容修正・価格反映は自動化する**（2026-07-18〜）。`/coconala-publish`（`scripts/coconala-publish.mjs` / `coconala-edit.mjs`）が note-publish 流儀で操作＝ログイン済みプロファイル `.local/playwright-coconala-profile`＋account assert（`sellerName`=dobokunote）＋**既定は下書き保存・実公開は `--commit`**。規約は 2026-07-18 時点で自分の出品の自動化を禁じる明示条項は未確認（購入者側の自動応答＝第13条2項22号は対象外）。実行はローカルのマシン限定。
+- **ログインが切れていたら運営者が `npm run auth:login -- --service coconala` で入り直す**（セッションから資格情報でログインしない。CI からの出品・修正〔ops-write〕は 2026-10-24 に廃止）。
 - **トークルームの返信送信・購入者対応は運営者（人間）**。エージェントは納品文面ドラフトまで（「送信しました」と報告しない）。
 - **KPI も read-only で取る**（2026-08-17 方針変更）。`npm run coconala-analytics -- --append-kpi` が分析画面を走査して `data/coconala/analytics.json` → `data/coconala/kpi.json` へ upsert する（旧方針＝手動貼付が正は撤回。貼付が続かず `weekly` が14週 0 行だったため。経緯 → coconala-operations.md §4）。**数値は対象期間の累計（既定30日ローリング）で週次増分ではない**（`cumulative` を見る）。**`0000` はマスクであって 0 ではない**（`null` で記録）。公開ページの競合調査（`coconala-research`）とはスコープが直交。
 - **取引は評価まで終えて完了**（2026-08-11〜）。クローズしただけでは終わりではない。評価期限（概ね完了から2週間）を過ぎるとこちらの評価は公開されず、相手の評価だけが残る。**通知メールは出品アカウントの登録アドレス `dobokunotecom@gmail.com` にしか届かず、Gmail コネクタが繋がっている `uruhayato373` 側には1通も来ない**ので、メールに頼らず `check-coconala-orders`（評価未送信・期限切迫を検知）で拾う。
-- **受注の実体は read-only で取る**（2026-08-05〜）。`npm run coconala-orders` が取引管理（出品）の全タブを走査し `orders-snapshot.json` を生成する。**何が売れたかを推測・記憶で決めない**。KPI と違い、取引は金銭・納品・返信期限に直結し人手転記では取りこぼすため（スコープの切り分け → coconala-operations.md §2.2b）。書き込み操作はしない。
+- **受注の実体は記録を読む**（2026-08-05〜）。`npm run coconala-orders` が取引管理（出品）の全タブを走査し `orders-snapshot.json` を生成するが、その取得は土曜の Mac 収集（`weekly-collect` の coconala 段）で、エージェントのセッションからは実行しない（2026-10-24〜）。`orders-snapshot.json` とその取得日を読み、古ければ「未取得」と書いて、運営者に次の土曜か端末での `node scripts/weekly-collect.mjs --only coconala` を案内する。**何が売れたかを推測・記憶で決めない**。KPI と違い、取引は金銭・納品・返信期限に直結し人手転記では取りこぼすため（スコープの切り分け → coconala-operations.md §2.2b）。書き込み操作はしない。
 - 顧客の提出原稿は**リポジトリに置かない**。scratchpad か `.tmp/` に保存し、commit しない。
 - **長期不在（旅行・出張）は全件受付休止が既定**。購入から48時間以内に連絡しないと取引が自動キャンセルされ、PDF 商品も手作業送付なので無人で売れる商品は無い。復帰は `coconala-pause --resume --absence --commit` の1コマンド（`pauseReason:'absence'` だけを戻す＝恒久廃止は復活しない）。戻し忘れは `check-coconala-wiring` が `resumeOn` 超過で警告する。
 - **公開済みサービスは削除できない**。棚から消すのはアーカイブ（`--archive --all-retired`・`retired` 限定・実質片道）。
@@ -32,7 +33,7 @@ domain: product
 | アカウント（sellerName / profileUrl） | `config/coconala-account.json` |
 | 受注実績（こちらの記録） | `data/coconala/orders.json`（v2・`talkroomId` 必須） |
 | 商品構成の現在地 | カタログの `status`／`pauseReason`（`retired`=恒久廃止・`archivedAt` 済／`absence`=長期不在の一時休止・`resumeOn` に復帰予定日） |
-| 受注の実体（ココナラ側） | `data/coconala/orders-snapshot.json`（`npm run coconala-orders` が生成） |
+| 受注の実体（ココナラ側） | `data/coconala/orders-snapshot.json`（土曜の Mac 収集が `npm run coconala-orders` で生成） |
 | 購入者のメッセージ・添付（1取引） | `.tmp/coconala/talkrooms/{id}/`（`npm run coconala-talkroom -- <id>` が生成・リポジトリ外・個人情報） |
 | 取引後の DM（全メッセージ・添付） | `.tmp/coconala/dm/{id}/`（`npm run coconala-dm -- <dmId>` が生成・messages.json にメッセージ単位・リポジトリ外・個人情報。DM の ID は orders-snapshot.json の inquiries[].dmId） |
 | KPI 週次 | `data/coconala/kpi.json` |

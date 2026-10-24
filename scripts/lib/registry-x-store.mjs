@@ -1,5 +1,5 @@
 /**
- * registry-x-store.mjs — X の書き手（publish-x・x-sync-status・x-publish-scheduled）がコンテンツ台帳を読み書きする唯一の入口（DN-0612）。
+ * registry-x-store.mjs — X の書き手（publish-x・x-sync-status）がコンテンツ台帳を読み書きする唯一の入口（DN-0612）。
  * 正本は台帳（content/registry/publications/x/{exam}.json）。下書きフォルダの status.json は文面と運用の記録（予約の履歴など）を持つ
  * 旧い写しで、P7 で文面を tweets.md へ寄せてから消す。移行のあいだ書き手は status.json も今までどおり書いてよいが、
  * 「投稿してよいか・投稿したか」の判断は台帳を読み、状態が変わったら台帳にも書く。

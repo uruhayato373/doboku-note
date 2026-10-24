@@ -1,14 +1,14 @@
 import { PanelCard, StatusBadge, TableBody, TableCell, TableFrame, TableHead, TableHeader, TableRow } from '@/components/admin';
 import { Stack } from '@/components/layout';
 import { PageHead } from '@/components/ui';
-import { authCredentialsView, type CredentialRow } from '@/lib/auth-credentials';
+import { authCredentialsView, type CollectAuthStage, type CredentialRow } from '@/lib/auth-credentials';
 
 export const dynamic = 'force-dynamic';
 
 /**
  * /ops/auth — ログインが必要な全サービスについて、人が見るべきことだけを出す:
- * ログイン ID・この PC の登録・CI の登録・自動ログインの有無・要対応。
- * 正本は .claude/config/playwright-auth-profiles.json の credential、ID とパスワードは各 PC の資格情報ストア（パスワードは読まない）。
+ * ログイン ID・この PC の登録・自動ログインの有無・要対応・土曜の Mac 収集の直近のログイン確認（auth 段）。
+ * CI（GitHub Actions）はログインしない。正本は .claude/config/playwright-auth-profiles.json の credential、ID とパスワードは各 PC の資格情報ストア（パスワードは読まない）。
  */
 const MACHINE_LABEL = { windows: 'Windows', mac: 'Mac', other: 'この PC' } as const;
 
@@ -17,19 +17,17 @@ function action(r: CredentialRow): { text: string; detail?: string } | null {
   const registered = r.storePresent === true || r.sharedPresent === true;
   if (r.storePresent === false && !registered) return { text: '未登録' };
   if (r.failMarks.length > 0) return { text: 'ログインし直す', detail: `npm run auth:login -- --service ${r.id} の後、失敗印を消す:\n${r.failMarks.join('\n')}` };
-  if (r.lastRefresh && r.lastRefresh.status !== 'ok' && r.lastRefresh.status !== 'skipped') return { text: 'ログインし直す', detail: r.lastRefresh.reason ?? r.lastRefresh.status };
-  const ciWanted = r.ciCredential || r.ciStored;
-  if (ciWanted && (r.ciUser === null || r.ciPassword === null)) return null;
-  if (ciWanted && (!r.ciUser || !r.ciPassword)) return { text: 'CI 未登録' };
   return null;
 }
 
-function ciCell(r: CredentialRow) {
-  if (!r.ciCredential && !r.ciStored) return <span className="text-muted-foreground">—</span>;
-  if (r.ciUser === null || r.ciPassword === null) return <span className="text-muted-foreground">?</span>;
-  if (!r.ciUser || !r.ciPassword) return <StatusBadge tone="warn">未</StatusBadge>;
-  // CI が実際に読むのは ciCredential だけ。保管だけのものは「保管」と出し、理由は自動ログイン欄のツールチップ（方針）
-  return r.ciCredential ? <StatusBadge tone="good">済</StatusBadge> : <StatusBadge tone="info" title={r.policyNote}>保管</StatusBadge>;
+const COLLECT_TONE = { ok: 'good', warn: 'warn', skipped: 'info', failed: 'bad' } as const;
+const COLLECT_LABEL = { ok: '成功', warn: '注意', skipped: '省略', failed: '失敗' } as const;
+
+/** 土曜の収集の auth 段の結果を 1 行で（日時は JST 表示）。 */
+function collectLine(c: CollectAuthStage): string {
+  if (!c.finishedAt) return c.reason;
+  const when = new Date(c.finishedAt).toLocaleString('ja-JP', { timeZone: 'Asia/Tokyo', dateStyle: 'short', timeStyle: 'short' });
+  return `${when} 終了${c.reason ? `・${c.reason}` : ''}`;
 }
 
 export default function AuthCredentialsPage() {
@@ -42,16 +40,23 @@ export default function AuthCredentialsPage() {
     <>
       <PageHead
         title="ログインと資格情報"
-        sub={`${MACHINE_LABEL[v.machine]} · 登録 ${v.rows.length - unregistered.length}/${v.rows.length} · 要対応 ${todo.length} 件 · 毎日のログイン維持 ${v.task.registered === true ? '登録済み' : v.task.registered === false ? '未登録' : '不明'}`}
+        sub={`${MACHINE_LABEL[v.machine]} · 登録 ${v.rows.length - unregistered.length}/${v.rows.length} · 要対応 ${todo.length} 件 · 土曜の収集のログイン確認 ${v.collectAuth.status ? COLLECT_LABEL[v.collectAuth.status] : '記録なし'}`}
       />
       <Stack>
+        <PanelCard title="土曜の Mac 収集のログイン確認" description="weekly-collect の auth 段（切れていれば資格情報で 1 回だけ入り直す）の直近の結果。CI はログインしない">
+          <div className="flex flex-wrap items-center gap-2 text-sm">
+            {v.collectAuth.status
+              ? <StatusBadge tone={COLLECT_TONE[v.collectAuth.status]}>{COLLECT_LABEL[v.collectAuth.status]}</StatusBadge>
+              : <StatusBadge tone="info">記録なし</StatusBadge>}
+            <span>{collectLine(v.collectAuth)}</span>
+          </div>
+        </PanelCard>
         <TableFrame>
           <TableHeader>
             <TableRow>
               <TableHead>サービス</TableHead>
               <TableHead>ログイン ID</TableHead>
               <TableHead title="この PC の資格情報マネージャー（Mac はキーチェーン）">この PC</TableHead>
-              <TableHead title="GitHub Secrets。済＝CI がログインに使う／保管＝登録だけで CI は使わない（理由はマウスで）">CI</TableHead>
               <TableHead title="切れたときに自動でログインし直すか">自動ログイン</TableHead>
               <TableHead>要対応</TableHead>
             </TableRow>
@@ -70,7 +75,6 @@ export default function AuthCredentialsPage() {
                       ? <span className="text-muted-foreground">?</span>
                       : registered ? <StatusBadge tone="good">済</StatusBadge> : <StatusBadge tone="warn">未</StatusBadge>}
                   </TableCell>
-                  <TableCell>{ciCell(r)}</TableCell>
                   <TableCell title={r.policyNote}>{r.autoLogin ? 'する' : <span className="text-muted-foreground">しない</span>}</TableCell>
                   <TableCell>{a ? <StatusBadge tone="bad" title={a.detail}>{a.text}</StatusBadge> : <span className="text-muted-foreground">—</span>}</TableCell>
                 </TableRow>

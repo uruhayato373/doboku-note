@@ -176,7 +176,7 @@ jobs:
   # 動画パック（content/sns/video-packs）の公開済み・予約済みの通常動画・Shorts の題名・概要欄・開示を、
   # youtube.json に合わせて videos.update し、読み直して照合する（publish-video-pack.cjs --phase metadata）。
   # 予約の publishAt と privacy は今の値を保つ。commit=false は対象の確認だけ（YouTube へ書かない）。
-  # 日次の配信（post-youtube-scheduled.yml）は 2026-10-12 から無効なので、こちらの手動専用の workflow に置く。
+  # 日次の配信 workflow（旧 post-youtube-scheduled）は 2026-10-24 に廃止した（ログインを要る取得・投稿は土曜の Mac 収集 weekly-collect と運営者の端末だけ・DN-0817）ので、こちらの手動専用の workflow に置く。
   pack-metadata:
     if: inputs.operation == 'pack-metadata'
     runs-on: ubuntu-latest

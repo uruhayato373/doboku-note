@@ -2,7 +2,6 @@
 /** Windows・Mac共通のPlaywright認証profile診断・login・status・安全移行CLI。 */
 import {
   accessSync,
-  chmodSync,
   constants,
   cpSync,
   existsSync,
@@ -11,16 +10,13 @@ import {
   readFileSync,
   readdirSync,
   statfsSync,
-  writeFileSync,
 } from 'node:fs';
 import { dirname, join, relative, sep } from 'node:path';
 import { hostname } from 'node:os';
 import { fileURLToPath } from 'node:url';
 import {
   PROFILE_CACHE_SUBDIRS,
-  detectCI,
   ensureAuthDirectories,
-  getCIAuthStateConfig,
   legacyWindowsAuthRoots,
   loadAuthRegistry,
   redactAuthDiagnostic,
@@ -34,21 +30,6 @@ import {
 import { acquireAuthLock, readAuthLock, withAuthLock } from './lib/playwright-auth-lock.mjs';
 import { captureAuthSnapshot, classifyAuthSnapshot, loadAuthAdapter, pollAuthStatus } from './lib/playwright-auth-adapters.mjs';
 import { mergeLeanOptions } from './lib/playwright-launch.mjs';
-import {
-  attachCISession,
-  decideWriteback,
-  decryptState,
-  encryptState,
-  filterStateForService,
-  getManifest,
-  getState,
-  nextManifest,
-  objectKeys,
-  planCIServices,
-  putStateWithCAS,
-  sha256Hex,
-  validateExportedState,
-} from './lib/playwright-auth-state.mjs';
 import { REPO_ROOT } from './lib/repository-paths.mjs';
 import { escapeRegExp } from './lib/regexp-escape.mjs';
 
@@ -62,23 +43,18 @@ Usage:
   npm run auth:login -- --service <id> [--json] [--timeout-ms <ms>]
   npm run auth:status -- (--service <id>|--all) [--json]
   npm run auth:migrate -- --service <id> [--commit] [--json]
-  npm run auth:keygen -- [--force] [--json]
-  npm run auth:export -- --service <id> [--json] [--timeout-ms <ms>]
-  npm run auth:ci-restore -- --service <id> [--json]
-  npm run auth:ci-writeback -- --service <id> --collector-exit <n> [--json]
-  npm run auth:ci-plan -- --event <schedule|workflow_dispatch> [--schedule <cron>] [--service <id|all>] [--mode collect|probe-only] --json
 
 Rules:
   login は headed・人間入力のみ。status はread-only。migrateは既定dry-runでsourceを削除しない。
   password/Cookie/token/2FAを引数・出力・Gitへ保存しない。afbの別process statusはunsupported。
-  keygen/export はMac専用。ci-restore/ci-writebackはCI専用（AUTH_CI_ONLY）。`;
+  CI はログインしない（AUTH_CI_NO_LOGIN）。ログインを要る取得は土曜の Mac 収集（weekly-collect）だけ。`;
 
 function valueAfter(argv, flag) {
   const index = argv.indexOf(flag);
   return index >= 0 ? argv[index + 1] : null;
 }
 
-const VALUE_FLAGS = ['--service', '--timeout-ms', '--event', '--schedule', '--mode', '--collector-exit'];
+const VALUE_FLAGS = ['--service', '--timeout-ms'];
 
 export function parseAuthArgs(argv) {
   const command = argv[0] && !argv[0].startsWith('-') ? argv[0] : 'help';
@@ -92,12 +68,6 @@ export function parseAuthArgs(argv) {
     json: rest.includes('--json'),
     help: rest.includes('--help') || rest.includes('-h') || command === 'help',
     timeoutMs: Number(valueAfter(rest, '--timeout-ms') ?? 600000),
-    force: rest.includes('--force'),
-    headed: rest.includes('--headed'),
-    event: valueAfter(rest, '--event'),
-    schedule: valueAfter(rest, '--schedule'),
-    mode: valueAfter(rest, '--mode'),
-    collectorExit: valueAfter(rest, '--collector-exit'),
   };
 }
 
@@ -109,8 +79,8 @@ function authOptions(context = {}) {
     env: context.env ?? process.env,
     homeDir: context.homeDir,
     overrideRoot: context.overrideRoot,
-    isCI: context.isCI ?? false,
-    allowTemporaryInCI: context.allowTemporaryInCI,
+    // 未指定なら env から CI を自動検出する（CI では resolver が AUTH_CI_NO_LOGIN で拒否する）
+    isCI: context.isCI,
   };
 }
 
@@ -478,364 +448,6 @@ export async function loginAuthService(context = {}, service) {
   });
 }
 
-// ---------------------------------------------------------------------------
-// CI encrypted-state コマンド（keygen / export / ci-restore / ci-writeback / ci-plan）
-// ---------------------------------------------------------------------------
-
-/** asset-storage.mjs の bucket 名解決（実 R2 には触れない・呼び出し側が context.s3 を注入すればそちらを使う）。 */
-async function resolveBucketName(bucketKey) {
-  const { loadConfig } = await import('./lib/asset-storage.mjs');
-  const cfg = loadConfig();
-  const bucket = cfg.buckets?.[bucketKey];
-  if (!bucket?.name) throw new Error(`AUTH_CI_STATE_BUCKET_UNKNOWN: asset-storage.json に buckets.${bucketKey} が無い`);
-  return bucket.name;
-}
-
-/**
- * private R2 のクライアントを用意する。優先順位:
- *   1. context.s3（テスト注入）
- *   2. env の R2 key（CI・Secrets）→ 本物の S3 クライアント（CAS 対応）
- *   3. Mac の rclone remote `doboku-r2`（この PC に key を置かない方針のための代替経路・CAS 非対応）
- */
-async function resolveS3Client(context) {
-  if (context.s3) return context.s3;
-  const { loadEnvLocal, makeS3, hasR2Credentials, loadConfig } = await import('./lib/asset-storage.mjs');
-  loadEnvLocal();
-  if (hasR2Credentials()) return makeS3();
-  const { rcloneRemoteAvailable, makeRcloneS3 } = await import('./lib/rclone-s3-adapter.mjs');
-  const remote = loadConfig().buckets?.private?.rcloneRemote ?? 'doboku-r2';
-  if (await rcloneRemoteAvailable(remote)) return makeRcloneS3({ remote });
-  throw new Error(`AUTH_CI_STATE_NO_TRANSPORT: R2 key（env）も rclone remote "${remote}:" も無い。CI は Secrets、Mac は rclone config を確認`);
-}
-
-function writeMetadataFile(service, options, data) {
-  const metadataPath = resolveMetadataPath(service, options);
-  mkdirSync(dirname(metadataPath), { recursive: true });
-  writeFileSync(metadataPath, `${JSON.stringify(data, null, 2)}\n`, 'utf8');
-}
-
-function readMetadataFile(service, options) {
-  const metadataPath = resolveMetadataPath(service, options);
-  try {
-    return JSON.parse(readFileSync(metadataPath, 'utf8'));
-  } catch {
-    return null;
-  }
-}
-
-/** login と同じ「本人確認画面を閉じずに待つ」対話ループ。authenticated になるまで、または timeout まで回す。 */
-async function waitForAuthenticated(adapter, page, service, timeoutMs) {
-  const deadline = Date.now() + timeoutMs;
-  let result = { status: 'unknown', reason: 'account assert未確認' };
-  while (Date.now() < deadline) {
-    const current = await captureAuthSnapshot(service, page).catch(() => ({ url: page.url() }));
-    result = classifyAuthSnapshot(adapter, current);
-    if (result.status === 'blocked') {
-      await page.waitForTimeout(2500);
-      continue;
-    }
-    if (!adapter.expiredPattern.test(current.url ?? '')) {
-      await page.goto(adapter.checkUrl, { waitUntil: 'domcontentloaded', timeout: 60000 }).catch(() => {});
-      await page.waitForTimeout(1000);
-      result = classifyAuthSnapshot(adapter, await captureAuthSnapshot(service, page));
-      if (result.status === 'authenticated') break;
-    }
-    await page.waitForTimeout(2500);
-  }
-  return result;
-}
-
-/** Mac 専用: age identity を新規発行する。identity は auth root 配下に 0600 で保存し、stdout には recipient だけ出す。 */
-export async function keygenAuth(context = {}) {
-  const options = authOptions(context);
-  const root = resolveAuthRoot(options);
-  const ageDir = join(root, 'age');
-  const identityPath = join(ageDir, 'identity.txt');
-  if (existsSync(identityPath) && !context.force) {
-    throw new Error(`AUTH_KEYGEN_EXISTS: ${identityPath} は既に存在します（上書きするには --force）`);
-  }
-  const { generateIdentity, identityToRecipient } = context.age ?? (await import('age-encryption'));
-  const identity = await generateIdentity();
-  const recipient = await identityToRecipient(identity);
-  mkdirSync(ageDir, { recursive: true });
-  writeFileSync(identityPath, `${identity}\n`, { mode: 0o600 });
-  try { chmodSync(identityPath, 0o600); } catch { /* best-effort（Windows には 0600 が無い） */ }
-  const human = [
-    `recipient: ${recipient}`,
-    'この recipient を .claude/config/playwright-auth-profiles.json の ciAuthState.ageRecipient に貼る',
-    `identity は gh secret set DOBOKU_AUTH_AGE_IDENTITY < ${identityPath} で登録する`,
-  ].join('\n');
-  return { ok: true, command: 'keygen', identityPath, recipient, human };
-}
-
-/** Mac 専用: headed ログインで取得した storageState を stateDomains でフィルタし age 暗号化して private R2 へ置く。 */
-export async function exportAuthState(context = {}, service) {
-  if (!service || service === 'all') throw new Error('exportは単一の--serviceが必須');
-  const repoRoot = context.repoRoot ?? REPO_ROOT;
-  const registry = loadAuthRegistry({ cwd: repoRoot });
-  const entry = registry.services[service];
-  if (!entry) throw new Error(`AUTH_UNKNOWN_SERVICE: "${service}" is not registered`);
-  const cfg = getCIAuthStateConfig(registry);
-  if (!cfg.ageRecipient) {
-    throw new Error('AUTH_CI_STATE_RECIPIENT_MISSING: ciAuthState.ageRecipient が未設定です（先に auth:keygen で recipient を発行し registry へ貼る）');
-  }
-  if (!entry.ci || !Array.isArray(entry.ci.stateDomains) || entry.ci.stateDomains.length === 0) {
-    throw new Error(`AUTH_CI_STATE_DOMAINS_MISSING: service "${service}" に ci.stateDomains が無い`);
-  }
-  const adapter = loadAuthAdapter(service, { repoRoot });
-  const options = authOptions(context);
-
-  return withAuthLock(service, { command: 'export', authOptions: options }, async () => {
-    let opened;
-    try {
-      ensureAuthDirectories(service, options);
-      const sameProcess = entry.sessionMode === 'same-process';
-      // --headed: headless を bot 判定で 403 にするサイトは headed で認証確認してから export する
-      opened = await openAuthContext(service, context, sameProcess || Boolean(context.headed));
-      let probeStatus;
-      if (sameProcess) {
-        // afb: login 直後の同一プロセスでしか state が取れないため、export 自体が headed ログインを兼ねる。
-        await opened.page.goto(adapter.loginUrl, { waitUntil: 'domcontentloaded', timeout: context.timeoutMs ?? 60000 });
-        probeStatus = await waitForAuthenticated(adapter, opened.page, service, context.timeoutMs ?? 600000);
-      } else {
-        await opened.page.goto(adapter.checkUrl, { waitUntil: 'domcontentloaded', timeout: context.timeoutMs ?? 60000 });
-        probeStatus = await pollAuthStatus(
-          async () => classifyAuthSnapshot(adapter, await captureAuthSnapshot(service, opened.page)),
-          { attempts: context.statusAttempts ?? 6, sleep: (ms) => opened.page.waitForTimeout(ms) },
-        );
-      }
-      if (probeStatus.status !== 'authenticated') {
-        return { ok: false, service, status: probeStatus.status, reason: probeStatus.reason };
-      }
-
-      const rawState = await opened.browser.storageState();
-      const filtered = filterStateForService(rawState, entry.ci.stateDomains);
-      const validation = validateExportedState(filtered.state, { checkUrl: adapter.checkUrl });
-      if (!validation.ok) return { ok: false, service, status: 'invalid-state', reasons: validation.reasons };
-
-      const bucket = await resolveBucketName(cfg.bucket);
-      const keys = objectKeys(service, cfg);
-      const s3 = await resolveS3Client(context);
-
-      const plaintext = JSON.stringify(filtered.state);
-      const ciphertext = await encryptState(plaintext, cfg.ageRecipient);
-      const ciphertextSha256 = sha256Hex(ciphertext);
-
-      // cas-conflict は 1 回だけ manifest を取り直して再試行する。
-      for (let attempt = 0; attempt < 2; attempt += 1) {
-        const { manifest: prevManifest, etag } = await getManifest({ s3, bucket, key: keys.manifest });
-        const manifest = nextManifest(prevManifest, {
-          source: 'operator',
-          cookieCount: filtered.cookieCount,
-          domains: filtered.domains,
-          ciphertextSha256,
-          now: context.now ?? new Date(),
-        });
-        const putResult = await putStateWithCAS({ s3, bucket, keys, ciphertext, manifest, ifMatchEtag: etag });
-        if (putResult.ok) {
-          writeMetadataFile(service, options, { generation: manifest.generation, cookieCount: filtered.cookieCount, exportedAt: manifest.exportedAt });
-          return {
-            ok: true,
-            service,
-            generation: manifest.generation,
-            cookieCount: filtered.cookieCount,
-            originCount: filtered.originCount,
-            bytes: ciphertext.length,
-          };
-        }
-      }
-      return { ok: false, service, status: 'cas-conflict', reason: '2回リトライしても manifest の競合が解消しなかった' };
-    } finally {
-      if (opened) await opened.browser.close().catch(() => {});
-    }
-  });
-}
-
-/** CI 専用: R2 上の暗号化 state を復号して一時 auth root へ復元し、authenticated を probe する。 */
-export async function ciRestoreAuthState(context = {}, service) {
-  const env = context.env ?? process.env;
-  const isCI = context.isCI ?? detectCI(env);
-  if (!isCI) throw new Error('AUTH_CI_ONLY: ci-restore はCIでのみ実行できます');
-  if (!service || service === 'all') throw new Error('ci-restoreは単一の--serviceが必須');
-  const repoRoot = context.repoRoot ?? REPO_ROOT;
-  const registry = loadAuthRegistry({ cwd: repoRoot });
-  const entry = registry.services[service];
-  if (!entry) throw new Error(`AUTH_UNKNOWN_SERVICE: "${service}" is not registered`);
-  const cfg = getCIAuthStateConfig(registry);
-  const options = authOptions(context);
-  ensureAuthDirectories(service, options);
-
-  const identity = env[cfg.identityEnv];
-  if (!identity) return { ok: false, service, status: 'identity-missing', reason: `${cfg.identityEnv} が未設定`, exitCode: 1 };
-
-  let bucket;
-  let s3;
-  let manifest;
-  let ciphertext;
-  try {
-    bucket = await resolveBucketName(cfg.bucket);
-    s3 = await resolveS3Client(context);
-    const keys = objectKeys(service, cfg);
-    ({ manifest } = await getManifest({ s3, bucket, key: keys.manifest }));
-    ciphertext = await getState({ s3, bucket, key: keys.state });
-  } catch (error) {
-    return { ok: false, service, status: 'error', reason: String(error.message).slice(0, 200), exitCode: 1 };
-  }
-  if (!ciphertext || !manifest) return { ok: false, service, status: 'state-missing', reason: 'R2 に暗号化 state が無い' };
-
-  let plaintext;
-  try {
-    plaintext = await decryptState(ciphertext, identity);
-  } catch (error) {
-    return { ok: false, service, status: 'error', reason: String(error.message).slice(0, 200), exitCode: 1 };
-  }
-
-  const statePath = resolveStatePath(service, options);
-  mkdirSync(dirname(statePath), { recursive: true });
-  writeFileSync(statePath, plaintext, { mode: 0o600 });
-  try { chmodSync(statePath, 0o600); } catch { /* best-effort */ }
-
-  const adapter = loadAuthAdapter(service, { repoRoot });
-  let opened;
-  let attach;
-  let probe;
-  try {
-    opened = await openAuthContext(service, context, false);
-    attach = await attachCISession(opened.browser, service, { statePath, env });
-    await opened.page.goto(adapter.checkUrl, { waitUntil: 'domcontentloaded', timeout: context.timeoutMs ?? 60000 });
-    probe = await pollAuthStatus(
-      async () => classifyAuthSnapshot(adapter, await captureAuthSnapshot(service, opened.page)),
-      { attempts: context.statusAttempts ?? 6, sleep: (ms) => opened.page.waitForTimeout(ms) },
-    );
-    // authenticated 以外は「何が見えていたか」を残す（URL・タイトル・本文先頭・スクリーンショット）。
-    // CI では画面を見られないので、これが無いと unknown の原因（bot 挑戦・別ページ・描画待ち）を切り分けられない。
-    if (probe.status !== 'authenticated') {
-      const snap = await captureAuthSnapshot(service, opened.page).catch(() => ({}));
-      probe.diag = { url: snap.url ?? null, title: snap.title ?? null, textHead: String(snap.text ?? '').replace(/\s+/g, ' ').slice(0, 240), hasPasswordField: !!snap.hasPasswordField };
-      const diagDir = env.DOBOKU_AUTH_DIAG_DIR;
-      if (diagDir) {
-        const { mkdirSync: mk } = await import('node:fs');
-        mk(diagDir, { recursive: true });
-        const shot = join(diagDir, `auth-diag-${service}.png`);
-        await opened.page.screenshot({ path: shot, fullPage: false }).catch(() => {});
-        probe.diag.screenshotPath = shot;
-      }
-    }
-  } catch (error) {
-    return { ok: false, service, status: 'error', reason: String(error.message).slice(0, 200), exitCode: 1 };
-  } finally {
-    if (opened) await opened.browser.close().catch(() => {});
-  }
-
-  const cookies = attach?.restored?.cookieCount ?? 0;
-  if (probe.status === 'authenticated') {
-    writeMetadataFile(service, options, {
-      restoredGeneration: manifest.generation,
-      status: probe.status,
-      statePath,
-      restoredAt: (context.now ?? new Date()).toISOString(),
-    });
-  }
-  return { ok: probe.status === 'authenticated', service, status: probe.status, reason: probe.reason, generation: manifest.generation, cookies, ...(probe.diag ? { diag: probe.diag } : {}) };
-}
-
-/** CI 専用: collector 実行後、書き戻すべきか decideWriteback で判定し、必要なら暗号化して R2 へ書き戻す。 */
-export async function ciWritebackAuthState(context = {}, service, collectorExitCode) {
-  if (!service || service === 'all') throw new Error('ci-writebackは単一の--serviceが必須');
-  const repoRoot = context.repoRoot ?? REPO_ROOT;
-  const registry = loadAuthRegistry({ cwd: repoRoot });
-  const entry = registry.services[service];
-  if (!entry) throw new Error(`AUTH_UNKNOWN_SERVICE: "${service}" is not registered`);
-  const cfg = getCIAuthStateConfig(registry);
-  const options = authOptions(context);
-
-  const metadata = readMetadataFile(service, options);
-  if (!metadata || !metadata.statePath) return { ok: true, command: 'ci-writeback', service, write: false, reason: 'metadata-missing' };
-
-  let stateRaw;
-  try {
-    stateRaw = JSON.parse(readFileSync(metadata.statePath, 'utf8'));
-  } catch {
-    return { ok: true, command: 'ci-writeback', service, write: false, reason: 'state-missing' };
-  }
-
-  const filtered = filterStateForService(stateRaw, entry.ci?.stateDomains ?? []);
-
-  let bucket;
-  let s3;
-  let remoteManifest;
-  let etag;
-  try {
-    bucket = await resolveBucketName(cfg.bucket);
-    s3 = await resolveS3Client(context);
-    ({ manifest: remoteManifest, etag } = await getManifest({ s3, bucket, key: objectKeys(service, cfg).manifest }));
-  } catch (error) {
-    return { ok: false, command: 'ci-writeback', service, exitCode: 1, reason: String(error.message).slice(0, 200) };
-  }
-
-  const decision = decideWriteback({
-    restoredGeneration: metadata.restoredGeneration,
-    remoteManifest,
-    collectorExitCode: Number(collectorExitCode),
-    probeStatus: metadata.status,
-    cookieCount: filtered.cookieCount,
-  });
-  if (!decision.write) return { ok: true, command: 'ci-writeback', service, write: false, reason: decision.reason };
-
-  if (!cfg.ageRecipient) {
-    return { ok: false, command: 'ci-writeback', service, exitCode: 1, reason: 'AUTH_CI_STATE_RECIPIENT_MISSING' };
-  }
-
-  try {
-    const keys = objectKeys(service, cfg);
-    const plaintext = JSON.stringify(filtered.state);
-    const ciphertext = await encryptState(plaintext, cfg.ageRecipient);
-    const ciphertextSha256 = sha256Hex(ciphertext);
-    const manifest = nextManifest(remoteManifest, {
-      source: 'ci',
-      cookieCount: filtered.cookieCount,
-      domains: filtered.domains,
-      ciphertextSha256,
-      now: context.now ?? new Date(),
-    });
-    const putResult = await putStateWithCAS({ s3, bucket, keys, ciphertext, manifest, ifMatchEtag: etag });
-    // cas-conflict は「その間に別の書き手（Mac の export 等）が置いた」＝古い方を潰さなかったという正常な skip。
-    // R2 障害（例外）だけを exit 1 にする。
-    if (!putResult.ok) return { ok: true, command: 'ci-writeback', service, write: false, reason: putResult.reason, generation: remoteManifest?.generation ?? null };
-    return { ok: true, command: 'ci-writeback', service, write: true, reason: 'ok', generation: manifest.generation };
-  } catch (error) {
-    return { ok: false, command: 'ci-writeback', service, exitCode: 1, reason: String(error.message).slice(0, 200) };
-  }
-}
-
-/** GitHub Actions の schedule / workflow_dispatch を service×mode の matrix に変換する（純関数呼び出しの薄いラッパ）。 */
-export function ciPlanAuthState(context = {}, { event, schedule, inputService, inputMode } = {}) {
-  const repoRoot = context.repoRoot ?? REPO_ROOT;
-  const registry = loadAuthRegistry({ cwd: repoRoot });
-  const freshness = scheduleFreshness(registry.services, repoRoot, context.now ?? new Date());
-  const plan = planCIServices(registry.services, { event, schedule, inputService, inputMode, freshness });
-  return { ok: !plan.invalid, command: 'ci-plan', ...plan };
-}
-
-/**
- * ci.skipScheduleIfFresh = { marker, field, hours } を持つ service について、収集マーカー（commit 済み JSON）の
- * 経過時間を返す。マーカーが読めない・時刻が無いときは何も返さない（＝skip しない。取りこぼしより二重実行を選ぶ）。
- */
-export function scheduleFreshness(services, repoRoot, now) {
-  const out = {};
-  for (const [service, entry] of Object.entries(services ?? {})) {
-    const rule = entry?.ci?.skipScheduleIfFresh;
-    if (!rule) continue;
-    try {
-      const marker = JSON.parse(readFileSync(join(repoRoot, rule.marker), 'utf8'));
-      const at = Date.parse(marker?.[rule.field ?? 'collectedAt']);
-      if (!Number.isFinite(at)) continue;
-      out[service] = { ageHours: (now.getTime() - at) / 3600000, maxHours: rule.hours };
-    } catch { /* マーカー無しは skip しない */ }
-  }
-  return out;
-}
-
 export async function executeAuthCommand(argv, context = {}) {
   const args = parseAuthArgs(argv);
   if (args.help) return { ok: true, command: 'help', help: HELP };
@@ -849,24 +461,11 @@ export async function executeAuthCommand(argv, context = {}) {
     for (const service of ids) results.push(await statusAuthService(context, service));
     return { ok: results.every((item) => item.ok), command: 'status', results };
   }
-  if (args.command === 'keygen') return keygenAuth({ ...context, force: args.force });
-  if (args.command === 'export') return { command: 'export', ...(await exportAuthState({ ...context, timeoutMs: args.timeoutMs, headed: args.headed }, args.service)) };
-  if (args.command === 'ci-restore') return { command: 'ci-restore', ...(await ciRestoreAuthState({ ...context, timeoutMs: args.timeoutMs }, args.service)) };
-  if (args.command === 'ci-writeback') return ciWritebackAuthState(context, args.service, args.collectorExit);
-  if (args.command === 'ci-plan') {
-    return ciPlanAuthState(context, {
-      event: args.event,
-      schedule: args.schedule,
-      inputService: args.service,
-      inputMode: args.mode,
-    });
-  }
   throw new Error(`未知のcommand: ${args.command}`);
 }
 
 function printHuman(result) {
   if (result.command === 'help') return result.help;
-  if (result.command === 'keygen') return result.human ?? JSON.stringify(result, null, 2);
   if (result.command === 'paths') {
     return [`auth root: ${result.authRoot}`, ...result.services.map((item) => `${item.service}: profile=${item.profilePath} state=${item.statePath ?? '-'} lock=${item.lockPath}`)].join('\n');
   }
@@ -881,9 +480,6 @@ async function main() {
   try {
     const result = redactAuthDiagnostic(await executeAuthCommand(process.argv.slice(2)));
     console.log(parsed.json ? JSON.stringify(result, null, 2) : printHuman(result));
-    if (result.command === 'ci-plan') {
-      console.error(`enabled ${result.counts?.enabled ?? 0} / due ${result.counts?.due ?? 0} / skipped ${result.counts?.skipped ?? 0}`);
-    }
     process.exitCode = typeof result.exitCode === 'number' ? result.exitCode : (result.ok ? 0 : 2);
   } catch (error) {
     const result = redactAuthDiagnostic({ ok: false, error: error.code ?? 'AUTH_CLI_ERROR', message: error.message });

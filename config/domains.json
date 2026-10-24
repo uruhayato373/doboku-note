@@ -284,6 +284,12 @@
           "match": "/ops/auth"
         },
         {
+          "label": "自動化の台帳",
+          "href": "/ops/automations",
+          "kind": "inventory",
+          "match": "/ops/automations"
+        },
+        {
           "label": "設定",
           "href": "/ops/store?k=config",
           "kind": "inventory",

@@ -66,7 +66,7 @@ if (plan.items.length < MIN_ARTICLES || fetchFailDominant(failed, withId.length)
   process.exit(2);
 }
 if (ready.length || blocked.length || magPlan.pending.length) {
-  console.error(`${TAG} ✗ 未反映 記事 ${ready.length + blocked.length}（止まっている ${blocked.length}）・マガジン ${magPlan.pending.length}。Mac の週次（npm run note-sync:install -- --status）が反映し、止まっている分は管理画面 /content/note-sync`);
+  console.error(`${TAG} ✗ 未反映 記事 ${ready.length + blocked.length}（止まっている ${blocked.length}）・マガジン ${magPlan.pending.length}。土曜の Mac の収集（weekly-collect の note-sync 段）が反映し、止まっている分は管理画面 /content/note-sync`);
   process.exit(1);
 }
 if (!json) console.log(`${TAG} ✓ 公開中の記事・マガジンはすべて原稿どおりに反映済み`);

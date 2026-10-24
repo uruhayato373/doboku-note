@@ -1,28 +1,24 @@
 /**
  * 資格情報の正本（playwright-auth-profiles.json の services.<id>.credential）と、
- * 自動ログインの実装（auth-session-refresh の AUTO_LOGIN）・CI の Secrets 配線（login-collectors.yml）を照合する。
+ * 自動ログインの実装（auth-session-refresh の AUTO_LOGIN）を照合する。CI はログインしないので Secrets の配線は無い（DN-0817）。
  */
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 
 import { AUTO_LOGIN, keychainServiceNames } from '../scripts/lib/auth-session-refresh.mjs';
-import { ciEnvCredentialServices, ciEnvVarNames, cmdkeyListHas, cmdkeyListUser, loadCredentialRegistry, presentSecrets, storedAccounts } from '../scripts/lib/credential-store.mjs';
+import { cmdkeyListHas, cmdkeyListUser, loadCredentialRegistry, presentSecrets, storedAccounts } from '../scripts/lib/credential-store.mjs';
 
 const registry = loadCredentialRegistry();
-const CI_SERVICES = ciEnvCredentialServices();
 const config = JSON.parse(readFileSync('.claude/config/playwright-auth-profiles.json', 'utf8'));
-// Windows の作業ツリーは CRLF なので改行をそろえてから読む
-const workflow = readFileSync('.github/workflows/login-collectors.yml', 'utf8').replace(/\r\n/g, '\n');
 
 test('ログインが必要な全サービスが資格情報の正本を持ち、項目名は doboku-note-auth-<id>', () => {
   assert.deepEqual(registry.map((c) => c.id).sort(), Object.keys(config.services).sort());
   for (const c of registry) {
     assert.equal(c.storeItem, `doboku-note-auth-${c.id}`, c.id);
     assert.equal(typeof c.autoLogin, 'boolean', c.id);
-    assert.equal(typeof c.ciCredential, 'boolean', c.id);
-    assert.equal(typeof c.ciStored, 'boolean', c.id);
-    if (c.ciCredential) assert.equal(c.ciStored, true, `${c.id}: CI で読むなら Secrets の保管が要る`);
+    assert.equal('ciCredential' in c, false, `${c.id}: CI で読む資格情報は持たない`);
+    assert.equal('ciStored' in c, false, `${c.id}: GitHub Secrets に保管しない`);
     assert.ok(c.policyNote && c.policyNote.length >= 10, `${c.id}: policyNote が必要`);
     assert.deepEqual([...c.machines].sort(), ['mac', 'windows'], c.id);
   }
@@ -35,21 +31,11 @@ test('autoLogin=true の service だけが自動ログインのセレクタを�
   }
 });
 
-test('ciCredential=true は自動ログイン対応の service に限り、CI の許可リストと一致する', () => {
-  const ci = registry.filter((c) => c.ciCredential).map((c) => c.id);
-  assert.deepEqual([...CI_SERVICES], ci);
-  for (const id of ci) assert.ok(AUTO_LOGIN[id], `${id}: CI で入り直すには自動ログインのセレクタが要る`);
-});
-
-test('login-collectors は許可した service の Secrets だけを渡し、入り直しの対象も一致する', () => {
-  const passed = [...workflow.matchAll(/secrets\.DOBOKU_AUTH_([A-Z0-9_]+)_PASSWORD/g)].map((m) => m[1].toLowerCase());
-  assert.deepEqual([...new Set(passed)].sort(), [...CI_SERVICES].sort());
-  const relogin = /- name: Re-login with Secrets[^\n]*\n\s+id: relogin\n\s+if: ([^\n]+)/.exec(workflow);
-  assert.ok(relogin, 'Re-login step が無い');
-  const targets = [...relogin[1].matchAll(/matrix\.service == '([a-z0-9]+)'/g)].map((m) => m[1]).sort();
-  // 取得スクリプトの中でログインする service（inProcessOnly）は Re-login の対象にしない
-  assert.deepEqual(targets, CI_SERVICES.filter((id) => !AUTO_LOGIN[id].inProcessOnly).sort());
-  for (const id of CI_SERVICES) assert.ok(workflow.includes(`secrets.${ciEnvVarNames(id).user}`), `${id}: USER の Secret が渡っていない`);
+test('CI はログインしない: .github の yml は資格情報の Secrets（DOBOKU_AUTH_）を渡さない', async () => {
+  const { listFiles } = await import('../scripts/lib/fs-walk.mjs');
+  const files = listFiles('.github', { match: (_p, name) => /\.ya?ml$/.test(name) });
+  assert.ok(files.length >= 10, `検査した yml が少なすぎる（${files.length} 本）`);
+  for (const f of files) assert.doesNotMatch(readFileSync(f, 'utf8'), /DOBOKU_AUTH_[A-Z0-9_]+_(USER|PASSWORD)/, f);
 });
 
 test('cmdkey /list の出力から項目の有無だけを読む（表示言語に依らない）', () => {

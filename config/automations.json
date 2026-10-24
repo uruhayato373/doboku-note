@@ -1,0 +1,602 @@
+{
+  "schemaVersion": 1,
+  "_doc": "docs/operations/04_自動化マップ.md",
+  "automations": [
+    {
+      "id": "weekly-review",
+      "runner": "mac-launchd",
+      "source": "scripts/scheduled/com.doboku-note.weekly-review.plist.tmpl",
+      "title": "土曜の収集と週次レビュー",
+      "triggers": [
+        "launchd"
+      ],
+      "schedule": [
+        "土 09:30"
+      ],
+      "scheduleJst": "毎週土曜 09:30（寝ていた日は起床時）",
+      "login": [
+        "a8",
+        "kdp",
+        "note",
+        "coconala",
+        "google"
+      ],
+      "purpose": "ログインが要る取得と書き込みを 1 本ずつ回し（weekly-collect の前後）、間にヘッドレスの Claude Code で週次・月次レビューと翌週の計画を書いて develop へ push する（DN-0817）",
+      "readers": [
+        "quality-audit:weekly-collect",
+        "issue:weekly-collect",
+        "issue:weekly-review-local",
+        "admin:/metrics/business",
+        "admin:/ops/automations"
+      ],
+      "writes": [
+        "state.weekly-collect",
+        "note.sales",
+        "coconala.analytics",
+        "a8.ui-last-run",
+        "note.sync-log"
+      ]
+    },
+    {
+      "id": "disk-hygiene",
+      "runner": "mac-launchd",
+      "source": "scripts/scheduled/com.doboku-note.disk-hygiene.plist.tmpl",
+      "title": "ディスクの掃除",
+      "triggers": [
+        "launchd"
+      ],
+      "schedule": [
+        "毎日 04:17"
+      ],
+      "scheduleJst": "毎日 04:17",
+      "login": [],
+      "purpose": "Mac の空き容量を見張り、生成物・キャッシュの整理候補を掃除する（ログイン不要）",
+      "readers": [
+        "human"
+      ]
+    },
+    {
+      "id": "asset-hydrate",
+      "runner": "github-actions",
+      "source": ".github/workflows/asset-hydrate.yml",
+      "title": "R2 の退避アセットを artifact で渡す",
+      "triggers": [
+        "workflow_dispatch"
+      ],
+      "schedule": [],
+      "login": [],
+      "purpose": "会社 PC など R2 の資格が無い端末へ、退避したアセットを artifact で渡す",
+      "readers": [
+        "human"
+      ]
+    },
+    {
+      "id": "asset-inbox",
+      "runner": "github-actions",
+      "source": ".github/workflows/asset-inbox.yml",
+      "title": "手元のアセットを R2 へ上げる",
+      "triggers": [
+        "release",
+        "workflow_dispatch"
+      ],
+      "schedule": [],
+      "login": [],
+      "purpose": "inbox を検証して R2 へ上げ、台帳を develop へ書く",
+      "readers": [
+        "human"
+      ]
+    },
+    {
+      "id": "automerge",
+      "runner": "github-actions",
+      "source": ".github/workflows/automerge.yml",
+      "title": "automerge ラベルの PR を緑で squash",
+      "triggers": [
+        "workflow_run",
+        "pull_request"
+      ],
+      "schedule": [],
+      "login": [],
+      "purpose": "Pre-merge・E2E・Lighthouse が緑の automerge ラベル付き PR を squash する（必須チェックの代わり）",
+      "readers": [
+        "pr-gate"
+      ]
+    },
+    {
+      "id": "ci",
+      "runner": "github-actions",
+      "source": ".github/workflows/ci.yml",
+      "title": "Pre-merge check（quality audit + build）",
+      "triggers": [
+        "pull_request",
+        "push"
+      ],
+      "schedule": [],
+      "login": [],
+      "purpose": "PR と develop への push で quality:audit:ci・build・SEO 検査を回す",
+      "readers": [
+        "pr-gate",
+        "issue:pre-merge"
+      ]
+    },
+    {
+      "id": "cloudflare-config-audit",
+      "runner": "github-actions",
+      "source": ".github/workflows/cloudflare-config-audit.yml",
+      "title": "Cloudflare のゾーン設定の監査",
+      "triggers": [
+        "schedule",
+        "workflow_dispatch"
+      ],
+      "schedule": [
+        "47 21 * * 0"
+      ],
+      "scheduleJst": "月 06:47",
+      "login": [],
+      "purpose": "ゾーン設定のずれを検知する",
+      "readers": [
+        "issue:cloudflare-config",
+        "quality-audit:cloudflare-metrics-freshness"
+      ]
+    },
+    {
+      "id": "cloudflare-deploy",
+      "runner": "github-actions",
+      "source": ".github/workflows/cloudflare-deploy.yml",
+      "title": "本番へデプロイ（Cloudflare Pages）",
+      "triggers": [
+        "push",
+        "workflow_dispatch"
+      ],
+      "schedule": [],
+      "login": [],
+      "purpose": "main への push でビルドして Pages へデプロイし、本番の SSR を検査する",
+      "readers": [
+        "deploy"
+      ]
+    },
+    {
+      "id": "cloudflare-metrics",
+      "runner": "github-actions",
+      "source": ".github/workflows/cloudflare-metrics.yml",
+      "title": "Cloudflare のゾーン解析",
+      "triggers": [
+        "schedule",
+        "workflow_dispatch"
+      ],
+      "schedule": [
+        "23 20 * * *"
+      ],
+      "scheduleJst": "毎日 05:23",
+      "login": [],
+      "purpose": "ゾーン解析を data/cloudflare へ記録する",
+      "readers": [
+        "admin:/metrics",
+        "quality-audit:cloudflare-metrics-freshness"
+      ]
+    },
+    {
+      "id": "competitor-scan",
+      "runner": "github-actions",
+      "source": ".github/workflows/competitor-scan.yml",
+      "title": "競合の公開データ（四半期）",
+      "triggers": [
+        "schedule",
+        "workflow_dispatch"
+      ],
+      "schedule": [
+        "17 1 1 1,4,7,10 *"
+      ],
+      "scheduleJst": "1/4/7/10 月 1 日 10:17",
+      "login": [],
+      "purpose": "note・ココナラの公開データを取得する（ログイン不要）",
+      "readers": [
+        "quality-audit:competitor-scan-due",
+        "admin:/strategy/competitors"
+      ]
+    },
+    {
+      "id": "dependabot-retarget",
+      "runner": "github-actions",
+      "source": ".github/workflows/dependabot-retarget.yml",
+      "title": "dependabot の PR を develop へ付け替え",
+      "triggers": [
+        "pull_request_target"
+      ],
+      "schedule": [],
+      "login": [],
+      "purpose": "main 宛ての dependabot の PR を develop 宛てに付け替える",
+      "readers": [
+        "pr-gate"
+      ]
+    },
+    {
+      "id": "e2e",
+      "runner": "github-actions",
+      "source": ".github/workflows/e2e.yml",
+      "title": "Playwright E2E",
+      "triggers": [
+        "pull_request",
+        "schedule",
+        "workflow_dispatch"
+      ],
+      "schedule": [
+        "0 18 * * *"
+      ],
+      "scheduleJst": "毎日 03:00",
+      "login": [],
+      "purpose": "UI 系の PR と毎晩、ローカル配信の E2E を回す（ログイン不要）",
+      "readers": [
+        "pr-gate",
+        "issue:e2e-nightly"
+      ]
+    },
+    {
+      "id": "fetch-metrics",
+      "runner": "github-actions",
+      "source": ".github/workflows/fetch-metrics.yml",
+      "title": "GA4・GSC・Bing の取得",
+      "triggers": [
+        "schedule",
+        "workflow_dispatch"
+      ],
+      "schedule": [
+        "0 21 * * 4"
+      ],
+      "scheduleJst": "金 06:00",
+      "login": [],
+      "purpose": "API キーで GA4・GSC・Bing・事業計測を取得する",
+      "readers": [
+        "quality-audit:gsc-sitemaps-due",
+        "issue:fetch-metrics",
+        "skill:weekly-review"
+      ]
+    },
+    {
+      "id": "gsc-auto-review",
+      "runner": "github-actions",
+      "source": ".github/workflows/gsc-auto-review.yml",
+      "title": "GSC の観測ログ",
+      "triggers": [
+        "schedule",
+        "workflow_dispatch"
+      ],
+      "schedule": [
+        "0 3 * * 5"
+      ],
+      "scheduleJst": "金 12:00",
+      "login": [],
+      "purpose": "GSC の観測ログを記録する",
+      "readers": [
+        "issue:gsc-auto-review"
+      ]
+    },
+    {
+      "id": "index-coverage",
+      "runner": "github-actions",
+      "source": ".github/workflows/index-coverage.yml",
+      "title": "インデックスの監査（URL Inspection）",
+      "triggers": [
+        "schedule",
+        "workflow_dispatch"
+      ],
+      "schedule": [
+        "0 2 * * 3"
+      ],
+      "scheduleJst": "水 11:00",
+      "login": [],
+      "purpose": "sitemap の全 URL を URL Inspection API で検査し履歴を残す",
+      "readers": [
+        "issue:index-coverage",
+        "skill:google-search-growth"
+      ]
+    },
+    {
+      "id": "indexnow-submit",
+      "runner": "github-actions",
+      "source": ".github/workflows/indexnow-submit.yml",
+      "title": "IndexNow へ送信",
+      "triggers": [
+        "workflow_run",
+        "workflow_dispatch"
+      ],
+      "schedule": [],
+      "login": [],
+      "purpose": "デプロイ後に更新 URL を IndexNow へ送る",
+      "readers": [
+        "issue:indexnow"
+      ]
+    },
+    {
+      "id": "lighthouse",
+      "runner": "github-actions",
+      "source": ".github/workflows/lighthouse.yml",
+      "title": "Lighthouse CI",
+      "triggers": [
+        "pull_request"
+      ],
+      "schedule": [],
+      "login": [],
+      "purpose": "UI 系の PR で代表 4 ページを測る",
+      "readers": [
+        "pr-gate"
+      ]
+    },
+    {
+      "id": "note-live-audit",
+      "runner": "github-actions",
+      "source": ".github/workflows/note-live-audit.yml",
+      "title": "note の公開状態の監査",
+      "triggers": [
+        "schedule",
+        "workflow_dispatch"
+      ],
+      "schedule": [
+        "30 22 * * 0"
+      ],
+      "scheduleJst": "月 07:30",
+      "login": [],
+      "purpose": "note の公開 API で構造・タグ・状態・マガジンを照合する（ログイン不要）",
+      "readers": [
+        "issue:note-live-audit",
+        "admin:/content/note"
+      ]
+    },
+    {
+      "id": "note-public-view",
+      "runner": "github-actions",
+      "source": ".github/workflows/note-public-view.yml",
+      "title": "公開画面の撮影（note・YouTube）",
+      "triggers": [
+        "schedule",
+        "workflow_dispatch"
+      ],
+      "schedule": [
+        "15 23 * * 0"
+      ],
+      "scheduleJst": "月 08:15",
+      "login": [],
+      "purpose": "未ログインの読者からの見え方を画面幅ごとに撮る（ログイン不要）",
+      "readers": [
+        "skill:weekly-review"
+      ]
+    },
+    {
+      "id": "ogp-supply",
+      "runner": "github-actions",
+      "source": ".github/workflows/ogp-supply.yml",
+      "title": "OGP の供給（生成 → R2）",
+      "triggers": [
+        "push",
+        "workflow_dispatch",
+        "schedule"
+      ],
+      "schedule": [
+        "0 21 * * 0"
+      ],
+      "scheduleJst": "月 06:00",
+      "login": [],
+      "purpose": "欠けた OGP を生成して R2 へ上げる",
+      "readers": [
+        "deploy"
+      ]
+    },
+    {
+      "id": "ops-audit",
+      "runner": "github-actions",
+      "source": ".github/workflows/ops-audit.yml",
+      "title": "運用の日次点検",
+      "triggers": [
+        "schedule",
+        "workflow_dispatch"
+      ],
+      "schedule": [
+        "45 22 * * *"
+      ],
+      "scheduleJst": "毎日 07:45",
+      "login": [],
+      "purpose": "quality-audit の ops 区分を回し、赤を Issue にする（土曜の収集の停止もここで拾う）",
+      "readers": [
+        "issue:ops"
+      ]
+    },
+    {
+      "id": "production-sweep",
+      "runner": "github-actions",
+      "source": ".github/workflows/production-sweep.yml",
+      "title": "本番の全 URL の検査",
+      "triggers": [
+        "workflow_run",
+        "schedule",
+        "workflow_dispatch"
+      ],
+      "schedule": [
+        "30 20 * * 0"
+      ],
+      "scheduleJst": "月 05:30",
+      "login": [],
+      "purpose": "sitemap の全 URL を本番で検査する",
+      "readers": [
+        "issue:production-sweep"
+      ]
+    },
+    {
+      "id": "psi-audit",
+      "runner": "github-actions",
+      "source": ".github/workflows/psi-audit.yml",
+      "title": "PSI の計測",
+      "triggers": [
+        "schedule",
+        "workflow_dispatch"
+      ],
+      "schedule": [
+        "0 17 * * *"
+      ],
+      "scheduleJst": "毎日 02:00",
+      "login": [],
+      "purpose": "PageSpeed Insights を記録する",
+      "readers": [
+        "admin:/metrics/psi"
+      ]
+    },
+    {
+      "id": "r2-delete",
+      "runner": "github-actions",
+      "source": ".github/workflows/r2-delete.yml",
+      "title": "R2 のオブジェクトの削除",
+      "triggers": [
+        "workflow_dispatch"
+      ],
+      "schedule": [],
+      "login": [],
+      "purpose": "リストにある R2 のオブジェクトを消す唯一の入口（既定は dry-run）",
+      "readers": [
+        "human"
+      ]
+    },
+    {
+      "id": "r2-sync",
+      "runner": "github-actions",
+      "source": ".github/workflows/r2-sync.yml",
+      "title": "画像を R2 へ同期",
+      "triggers": [
+        "push",
+        "workflow_dispatch"
+      ],
+      "schedule": [],
+      "login": [],
+      "purpose": "main への push で画像を R2 へ上げて CDN を purge する",
+      "readers": [
+        "deploy"
+      ]
+    },
+    {
+      "id": "registry-reconcile",
+      "runner": "github-actions",
+      "source": ".github/workflows/registry-reconcile.yml",
+      "title": "コンテンツ台帳と YouTube の照合",
+      "triggers": [
+        "schedule",
+        "workflow_dispatch"
+      ],
+      "schedule": [
+        "43 15 * * *"
+      ],
+      "scheduleJst": "毎日 00:43",
+      "login": [],
+      "purpose": "YouTube の外部 ID を観測して台帳と公開の照合を記録する",
+      "readers": [
+        "issue:registry-reconcile",
+        "admin:/content"
+      ]
+    },
+    {
+      "id": "rerun-cancelled-schedules",
+      "runner": "github-actions",
+      "source": ".github/workflows/rerun-cancelled-schedules.yml",
+      "title": "取り消された定期実行のやり直し",
+      "triggers": [
+        "schedule",
+        "workflow_dispatch"
+      ],
+      "schedule": [
+        "17 */2 * * *"
+      ],
+      "scheduleJst": "2 時間ごと",
+      "login": [],
+      "purpose": "共通の group で取り消された定期 run をやり直す",
+      "readers": [
+        "human"
+      ]
+    },
+    {
+      "id": "sync-yt-descriptions",
+      "runner": "github-actions",
+      "source": ".github/workflows/sync-yt-descriptions.yml",
+      "title": "YouTube の説明文の同期",
+      "triggers": [
+        "workflow_dispatch"
+      ],
+      "schedule": [],
+      "login": [],
+      "purpose": "サムネ・説明文・パックの metadata を YouTube へ反映する",
+      "readers": [
+        "human"
+      ]
+    },
+    {
+      "id": "uptime-ping",
+      "runner": "github-actions",
+      "source": ".github/workflows/uptime-ping.yml",
+      "title": "死活確認",
+      "triggers": [
+        "schedule",
+        "workflow_dispatch"
+      ],
+      "schedule": [
+        "0 23,5,11 * * *"
+      ],
+      "scheduleJst": "毎日 08:00・14:00・20:00",
+      "login": [],
+      "purpose": "本番の SSR の死活を確認する",
+      "readers": [
+        "issue:uptime"
+      ]
+    },
+    {
+      "id": "weekly-review-draft",
+      "runner": "github-actions",
+      "source": ".github/workflows/weekly-review-draft.yml",
+      "title": "週次レビューの下書き",
+      "triggers": [
+        "schedule",
+        "workflow_dispatch"
+      ],
+      "schedule": [
+        "0 4 * * 5"
+      ],
+      "scheduleJst": "金 13:00",
+      "login": [],
+      "purpose": "週次レビューの機械の節を下書きする",
+      "readers": [
+        "skill:weekly-review",
+        "issue:weekly-review-draft"
+      ]
+    },
+    {
+      "id": "weekly-review-guard",
+      "runner": "github-actions",
+      "source": ".github/workflows/weekly-review-guard.yml",
+      "title": "PDCA の見張り",
+      "triggers": [
+        "schedule",
+        "workflow_dispatch"
+      ],
+      "schedule": [
+        "17 2 * * 1"
+      ],
+      "scheduleJst": "月 11:17",
+      "login": [],
+      "purpose": "週次レビューの実在・workflow-health・report の digest を見る",
+      "readers": [
+        "issue:workflow-health",
+        "issue:report-checks"
+      ]
+    },
+    {
+      "id": "youtube-unschedule",
+      "runner": "github-actions",
+      "source": ".github/workflows/youtube-unschedule.yml",
+      "title": "YouTube の予約解除",
+      "triggers": [
+        "workflow_dispatch"
+      ],
+      "schedule": [],
+      "login": [],
+      "purpose": "YouTube の予約を外して台帳に記録する",
+      "readers": [
+        "human"
+      ]
+    }
+  ]
+}

@@ -53,7 +53,7 @@ domain: affiliate
 
 ### A. 状態照合（`/affiliate-status`）
 
-1. `npm run affiliate:status`（read-only）。ログインは人間に依頼して待つ
+1. `data/affiliate/catalog.json` と ASP ごとの `verifiedAt` を読む。古ければ「未確認」と書く（セッションでは `affiliate:status` を動かさない＝ログインが要る収集 script）。実機照合は運営者が端末で `npm run affiliate:status`（read-only・ログインは人間）を実行する
 2. ドリフトが出たら **カタログ側が古いのか実機側が変わったのか**を判断する。
    実機が正なら `--write` で反映、カタログの意図が正なら実機を直す提案をする
 3. `npm run check-affiliate-wiring` で配線の穴（配置済みなのに mat が無い等）を確認
@@ -80,7 +80,7 @@ A8 は確定率 48.97% / EPC 942 円を開示する。同一案件を 2 ASP で�
 
 | 担当 | 担当外（誰の仕事か） |
 |---|---|
-| 3 ASP の提携状態・申請・ASP 間比較 | A8 の成果 CSV 取込 → `a8-report-collector` / `a8-csv-auditor`（`/a8-report`） |
+| 3 ASP の提携状態・申請・ASP 間比較 | A8 の成果 CSV 取込 → 土曜の Mac 収集の a8 段 / `a8-csv-auditor`（`/a8-report`） |
 | afb / もしもの案件走査 | A8 の案件開拓・スコアリング → `/scout-asp`（`a8-catalog.json` の状態機械） |
 | カタログの更新・ドリフト是正 | **サイトのどこに配置するか → 人** |
 | 提携申請の実行計画 | creative の作成・MDX への埋め込み |

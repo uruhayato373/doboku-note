@@ -119,7 +119,7 @@ npm run note-edit-session -- m6854c7437d4d     # マガジン key だけでも�
 - スクリプト: `scripts/note-edit-session.mjs`。**ユーザー自身のターミナルで実行**（ヘッド付きブラウザを表示・操作するため）。
 - **`channel: 'chrome'`（システム Chrome）必須**。publish-x と同じ方式。組み込み Chromium だと Google/note に bot 判定されてログインが「安全でないブラウザ」で弾かれる。システム Chrome ＋ `--disable-blink-features=AutomationControlled` で `navigator.webdriver=false` になり検知回避（2026-06-10 実証）。**App-Bound 暗号化の cookie 抽出は不要**（実 Chrome が自分の cookie を使うだけ）。
 - **初回のみ画面で手動ログイン**（パスワードはスクリプトが扱わない）。セッションは `.local/playwright-note-profile/`（**gitignore 済**・cookie を含むため git に入れない）に永続化され、次回からは自動でログイン済み。
-- **編集・保存は人手**で行う（自動保存はしない）。理由: note 規約・bot 検知・収益アカウントのリスク回避。「自動で編集画面まで開く＋最終入力/保存は人」の半自動が安全境界（本節＝`note-edit-session` の対話編集フローに限る）。**CI（`ops-write.yml`）の note.* 操作は別系統**: plan hash で「人が確認した内容」と「実行される内容」の同一性を機械的に担保することで、決定的スクリプト（`note-publish.mjs` 等）の自動実行を許す。真実源 `.claude/config/ci-write-operations.json` / `scripts/lib/ci-write-gate.mjs`。
+- **編集・保存は人手**で行う（自動保存はしない）。理由: note 規約・bot 検知・収益アカウントのリスク回避。「自動で編集画面まで開く＋最終入力/保存は人」の半自動が安全境界（本節＝`note-edit-session` の対話編集フローに限る）。CI からの note 書き込み（`ops-write.yml`・plan hash）は 2026-10-24 に廃止した。note への書き込みは運営者の依頼を受けたセッションが、運営者の Mac の profile で行う。
 - 自動化が割に合うのは「定型・大量・反復」の書き込み時のみ。単発のタイトル/価格修正は普通に手動編集が最速。
 
 ### マガジン編集フォームの自動操作（2026-06-10 実証済・R8で成功）
@@ -204,7 +204,7 @@ node scripts/note-update-body.mjs --list   <list.txt>   --commit    # 複数記�
 **境界だけを戻す（2026-09-05 新設）**: 価格変更（`note-article-price-sweep`）は「有料エリア設定」を保存する際にラインを先頭へ戻す。復旧は `npm run note-reanchor-boundary -- --list <paths> --commit`（frontmatter `paidBoundary` の H2 へ再設定し、公開 API の無料プレビューが空でないことを 1 本ずつ検証。本文・画像・PDF 添付に触れない）。全文置換の `note-update-body` を復旧に使うと添付が消え画像を再アップロードするので、境界の復旧には使わない（コンクリート 45 本の ¥1,480 改定で実走・45/45）。
 
 **機械ゲート（2層）**:
-- **事前（ソース・network不要）**: `npm run check-note-boundary`（paid published の paidBoundary 解決可能性＝境界H2実在を検査）。pre-commit `--staged` ＋ quality-audit `ci` ＋ r2-audit 全量。新規paid記事の境界欠落＝RULE_GAP を止める。
+- **事前（ソース・network不要）**: `npm run check-note-boundary`（paid published の paidBoundary 解決可能性＝境界H2実在を検査）。pre-commit `--staged` ＋ quality-audit `ci` ＋ quality:audit:ci 全量。新規paid記事の境界欠落＝RULE_GAP を止める。
 - **事後（ライブ・note API）**: `npm run check-note-structure`（公開API無料本文とソース境界を突合し FULL_LOCK/PAYWALL_LEAK/BOUNDARY_SHIFT/IMG_MISSING/PRICE_MISMATCH を検出）。`--ci` で未許可 CRITICAL>0 なら exit 1。既知の境界定義ズレ（BK/総監の偽陽性）は `.claude/config/note-structure-allow.json` の allowlist で WAIVED（backlog解消時に空にする）。
   **取得は curl 経路・偽 PASS は封じ済み（2026-07-28 修正）**: 以前は Node の `fetch` を使っていたためプロキシで全件遮断され、**675/675 が `FETCH_ERR` でも exit 0 を返す＝検査ゼロの偽 PASS** だった。`curl --ssl-no-revoke`（プロキシ env を自動利用）へ置換し、**取得失敗率が 20% を超えたら `--ci` の有無にかかわらず exit 1**（「検査不成立」）にした。出力は必ず「実検査 N本（対象M・取得失敗K）」を示す。レート制限対策として逐次＋250ms スロットル＋失敗時バックオフ（最大4回）を入れてある（対策なしに215本を短時間で2周して148本が取得失敗した実測がある）。
   **初回の実検査結果（2026-07-28・675本すべて取得成功）**: 要対応 CRITICAL 2件＝`FULL_LOCK`（無料プレビュー 0字＝買う前に何も読めない有料記事）を検出。07-24 の境界破壊事故（58本）の復旧漏れと見られる。これは fetch 時代には**一度も検査されていなかった**もの。
@@ -332,8 +332,8 @@ note のタグ上限99で追加できない記事に汎用タグ退避（`--evic
 
 | 層 | ゲート | 見るもの | どこで |
 |---|---|---|---|
-| ソース | `npm run check-note-attachments` | PDF 配布を約束している記事に、添付すべき PDF 実体がディスク上にあるか | pre-commit（`--staged`）＋ CI 全量（r2-audit.yml） |
-| ライブ | `npm run check-note-attachments:live` | 添付リンク（`api/v2/attachments/download`）が期待本数あるか | `login-collectors.yml`（encrypted-state・canary 卒業後）。ローカルはフォールバック（要 note ログイン） |
+| ソース | `npm run check-note-attachments` | PDF 配布を約束している記事に、添付すべき PDF 実体がディスク上にあるか | pre-commit（`--staged`）＋ CI 全量（quality:audit:ci） |
+| ライブ | `npm run check-note-attachments:live` | 添付リンク（`api/v2/attachments/download`）が期待本数あるか | 土曜の Mac 収集の後段（`weekly-collect` の note-live 段）。取り直しは運営者が端末で `--only note-live` |
 
 **添付が失われる入口は4つあり、それぞれ別のゲートで塞ぐ**（横断ゲート1本では「気づくのが遅い」ため、各工程の出口で落とす）:
 
@@ -390,7 +390,7 @@ live 層を CI に載せないのは、**有料エリア内の添付カードが
 
 その陰で**有料記事2本が無料プレビュー0字**、**送客リンク64件がライブでリンク切れ**のまま公開されていた。
 
-`check-gate-coverage` は個々の検査内容に立ち入らず、**ソース走査型ゲートが妥当な件数を拾えているか**だけを見る（走査が壊れれば件数が急減する）。`npm run check-gate-coverage`・r2-audit.yml の週次 CI に配線。故障注入（走査ルートを存在しないパスへ差し替え）で、壊れた側が単体 exit 0 のままメタゲートが exit 1 で捕捉することを実測済み。
+`check-gate-coverage` は個々の検査内容に立ち入らず、**ソース走査型ゲートが妥当な件数を拾えているか**だけを見る（走査が壊れれば件数が急減する）。`npm run check-gate-coverage`・`quality:audit:ci`（ci.yml） に配線。故障注入（走査ルートを存在しないパスへ差し替え）で、壊れた側が単体 exit 0 のままメタゲートが exit 1 で捕捉することを実測済み。
 
 **ゲートを書くときの決まり**: 検査対象数と実検査数を必ず出力する／取得失敗が支配的なら exit 1／ファイル判定はパス全体でなく**ファイル名**で行う／note 記事の走査は `/^article(-[^/\\]+)?\.md$/`／外部取得は `fetch` でなく `curl --ssl-no-revoke`。
 

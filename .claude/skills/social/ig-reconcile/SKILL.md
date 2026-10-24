@@ -3,7 +3,7 @@ name: ig-reconcile
 description: >
   Instagram の公開状態をライブのグリッド＋プランナーと照合し（現状確認）、ローカル SoT
   (posted.json/status.json) のドリフトを是正し、未公開パックを安全に予約投稿まで運ぶ運用スキル。
-  CI 週次 snapshot（`login-collectors.yml` の `verify-ig-status`・encrypted-state）でドリフトを検出→posted.json backfill / draft 誤記録是正→`ig-publish-auditor`
+  記録済みの snapshot（`.claude/state/ig-reconcile/snapshot.json`・セッションはログインして取り直さない）でドリフトを検出→posted.json backfill / draft 誤記録是正→`ig-publish-auditor`
   で公開可否ゲート→`publish-ig-bs` で衝突しない時間帯へ予約→プランナーで実体確認。投稿/予約は
   operator 確認後のみ・公開済み投稿の削除は対象外（不可逆）。Use when user asks to
   [IG公開状態を確認, インスタ公開状態, 未公開を予約投稿, IGのSoTドリフト是正, IG status reconcile, /ig-reconcile].
@@ -30,9 +30,10 @@ IG カルーセルの「実際に公開されているか（現状確認）」�
 
 ### 1. 照合（現状確認・read-only）
 
-照合は CI 週次 `login-collectors.yml`（encrypted-state・`verify-ig-status --no-planner`・PR #549） が Playwright で `.claude/state/ig-reconcile/snapshot.json` を `source:"playwright"` で書く。本スキルはその snapshot を読むのが既定で、Playwright 版 `verify-ig-status` はプランナー実体確認が要るときのフォールバックとして残す。
+照合は `.claude/state/ig-reconcile/snapshot.json`（`source:"playwright"`）を **読む**。セッションはログインして取り直さない（`verify-ig-status` はログインが要る収集 script で、エージェントのセッションでは動かない）。CI の週次取得（`login-collectors.yml`）は 2026-10-24 に廃止し、SNS 保留中のため土曜の Mac 収集にも載せていない。snapshot の取得日を報告の冒頭に書き、古ければ数値を埋めず **「未取得」** と書く。取り直しは運営者が端末で `npm run verify-ig-status` を実行する（プランナー実体確認が要るときも同じ）。
 
 ```bash
+# 運営者が端末で取り直すとき（セッションからは実行しない）
 npm run verify-ig-status            # 全パック / npm run verify-ig-status -- --exam=cem で絞る
 npm run verify-ig-status -- --json  # 機械処理用
 ```
@@ -40,7 +41,7 @@ npm run verify-ig-status -- --json  # 機械処理用
 ドリフトを 7 分類で出す（真実源は reference の表）:
 `published_recorded`(整合) / `published_UNrecorded`(★要 backfill) / `draft_misrecorded`(★) / `recorded_but_gone`(★記録 URL が削除済み) / `scheduled`(予約済み) / `unpublished`(未公開＝予約候補) / `anomaly`(★同テーマ重複・要人手判断)。スナップショットは `.claude/state/ig-reconcile/snapshot.json`。
 
-> Playwright + ログイン済み `<auth root>/profiles/playwright-ig-bs-profile` が必要。**ローカル実行限定**（会社 PC のプロキシ下では外部到達不可）。セッション切れは `publish-ig-bs ... login` で再ログイン。
+> 取得側は Playwright + ログイン済み `<auth root>/profiles/playwright-ig-bs-profile` が必要で、運営者の Mac 限定。セッション切れは運営者が `npm run auth:login -- --service instagram` で入り直す。
 
 ### 2. ドリフト是正（非破壊・operator 確認のうえ）
 
@@ -58,7 +59,7 @@ npm run verify-ig-status -- --json  # 機械処理用
    npx tsx .claude/skills/social/publish-ig-bs/publish-ig-bs.ts post "cem/keyword-packs/<slug>" --schedule 2026-MM-DDT19:00
    ```
    初回・1週間以上空いた後は `--dry-run` を必ず先に。
-3. **プランナーで実体確認**（月ビューの時刻チップ抽出。週送りボタンは効かず／日セルのクリックは投稿作成画面を開くので禁止）。`verify-ig-status`（planner あり）か reference の手順で 19:00 スロットの実在を目視。
+3. **プランナーで実体確認**（月ビューの時刻チップ抽出。週送りボタンは効かず／日セルのクリックは投稿作成画面を開くので禁止）。`publish-ig-bs` の実体確認か、運営者が端末で実行する `verify-ig-status`（planner あり）、または reference の手順で 19:00 スロットの実在を目視。
 
 ## 安全弁（必読）
 
@@ -73,4 +74,4 @@ npm run verify-ig-status -- --json  # 機械処理用
 - `verify-ig-status`（`scripts/verify-ig-status.mjs`）= 照合エンジン（read-only）。`ig-status` = ローカル投稿記録 CRUD。
 - `publish-ig-bs` = 予約投稿エンジン（本スキルが呼ぶ）。
 - `ig-publish-auditor`（Evaluator）= 公開可否ゲート＋異常検出。
-- 週次: CI `login-collectors.yml`（encrypted-state・`verify-ig-status --no-planner`・PR #549） が `.claude/state/ig-reconcile/snapshot.json` を書き、`/weekly-review` はそれを読む（実行しない）。`verify-ig-status` はプランナー実体確認が必要なときのローカルフォールバック。
+- 週次レビューは既存の `.claude/state/ig-reconcile/snapshot.json` を読む（実行しない）。`verify-ig-status` は運営者が端末で取り直すときだけ。

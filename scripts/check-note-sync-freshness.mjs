@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// note の記事単位の同期（Mac の launchd note-sync・日曜 3:00）が止まっていないかを、同期の記録で見る。
+// note の記事単位の同期（土曜の Mac の収集 weekly-collect の note-sync 段・DN-0817）が止まっていないかを、同期の記録で見る。
 // 反映待ち・止まっている記事の判定は check-note-sync（CI の note-sync-live.yml）の担当で、ここは「Mac が回っているか」だけ。
 //
 // なぜ: 同期の記録（data/note/sync-log.json）の古さは週次レビューの手順書に「8 日より古ければ launchd が止まっている」と
@@ -35,13 +35,13 @@ export function assessNoteSyncFreshness(log, nowUtcMs, { maxAgeDays = freshnessD
   const runs = Array.isArray(log?.runs) ? log.runs : [];
   const times = runs.map((r) => Date.parse(r?.startedAt ?? '')).filter(Number.isFinite);
   const inspected = { runs: runs.length, latestStartedAt: times.length ? new Date(Math.max(...times)).toISOString() : null, maxAgeDays };
-  if (!runs.length) return { status: 'FAIL', reasons: ['同期の記録が 1 件も無い（Mac の launchd note-sync が一度も動いていない）'], inspected };
+  if (!runs.length) return { status: 'FAIL', reasons: ['同期の記録が 1 件も無い（土曜の収集の note-sync 段が一度も動いていない）'], inspected };
   if (!times.length) return { status: 'FAIL', reasons: ['同期の記録の startedAt が読めない'], inspected };
   const ageDays = (nowUtcMs - Math.max(...times)) / 86_400_000;
   if (ageDays > maxAgeDays) {
     return {
       status: 'FAIL',
-      reasons: [`最後の同期が ${Math.floor(ageDays)} 日前（上限 ${maxAgeDays} 日）。Mac の launchd note-sync が止まっている（npm run note-sync:install -- --status・~/Library/Logs/doboku-note/note-sync.log）`],
+      reasons: [`最後の同期が ${Math.floor(ageDays)} 日前（上限 ${maxAgeDays} 日）。土曜の収集の note-sync 段が止まっている（npm run check-weekly-collect・~/Library/Logs/doboku-note/weekly-review.log）`],
       inspected,
     };
   }

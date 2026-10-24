@@ -17,7 +17,7 @@ domain: product
 ## 前提（実行環境・最重要）
 
 - **ローカル限定**: KDP ログイン済みプロファイル（`.local/playwright-kdp-profile`）のあるマシンでのみ動作。
-  初回は人が手動ログイン（CAPTCHA/2FA も人）。以降セッション保持で無人。
+  初回は人が手動ログイン（CAPTCHA/2FA も人）。以降セッション保持で無人。切れていたら運営者が `npm run auth:login -- --service kdp` で入り直す（CI からの提出は 2026-10-24 に廃止）。
 - **EPUB/表紙は事前ビルド済みが前提**: `npm run sync-kindle-dist -- --downloads <id>` で
   `~/Downloads/kindle-<id>.(epub|cover)` に配置してから提出する（`/kindle-build` の後工程）。
 
@@ -68,7 +68,7 @@ domain: product
 
 補助:
 - `node scripts/gen-kdp-memo.mjs <id>`（コピペ用メモ txt 生成・メタデータ人手確認用）
-- `npm run kdp-report`（**別スクリプト**・読み取り専用）: KDP レポート画面から月次ロイヤリティを取得し `data/kdp/royalties.json` へ保存。当月/前月のみ・定期取得は login-collectors の毎週金曜（当月と確定前の前月）。`npm run check-kdp-report-freshness` が月次期限・全冊取得・catalog紐付けを日次監視する。売上の把握はこちらで、`kdp-publish` は入稿・価格側という分担 → [sales-tracking.md](../knowledge/reference/sales-tracking.md)
+- `npm run kdp-report`（**別スクリプト**・読み取り専用）: KDP レポート画面から月次ロイヤリティを取得し `data/kdp/royalties.json` へ保存。当月/前月のみ。取得は土曜の Mac 収集の kdp 段（当月と確定前の前月）で、エージェントのセッションからは実行せず `data/kdp/royalties.json` とその取得日を読む（古ければ「未取得」）。`npm run check-kdp-report-freshness` が月次期限・全冊取得・catalog紐付けを日次監視する。売上の把握はこちらで、`kdp-publish` は入稿・価格側という分担 → [sales-tracking.md](../knowledge/reference/sales-tracking.md)
 
 ## 実行手順
 

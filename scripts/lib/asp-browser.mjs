@@ -28,7 +28,6 @@ import {
 } from "./google-console-browser.mjs";
 import { assertSiteOrThrow, extractSiteId, SiteAttributionError } from "./asp-site-guard.mjs";
 import { withSharedConnection } from "./asp-config.mjs";
-import { attachCISession } from "./playwright-auth-state.mjs";
 
 export {
   launchContext,
@@ -104,10 +103,6 @@ async function restoreSession(ctx, asp) {
 export async function openAsp(asp, { isReady, label = "ASP" } = {}) {
   const bcfg = aspBrowserCfg(asp);
   const ctx = await launchContext(bcfg, { headless: asp.browser.headless });
-  // afb・もしもが対象（a8 は自前の restoreA8Session）。もしもは 2026-10-01 から CI で取得する（DN-0483）。
-  if (asp.browser.authService === "afb" || asp.browser.authService === "moshimo") {
-    await attachCISession(ctx, asp.browser.authService, { statePath: statePath(asp) });
-  }
   const session = await restoreSession(ctx, asp);
   const page = ctx.pages()[0] ?? (await ctx.newPage());
 

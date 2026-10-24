@@ -145,9 +145,9 @@ HTTP HEAD（並列 10 / タイムアウト 15 秒）で検証。対象は `conte
 - 外部: `node .claude/skills/quality/check-mdx/scripts/rules/links/check-external-links.mjs`
 - 内部: `npm run check-links`（= `check-links.mjs`。`-- --scope note` 等を付与可）
 
-#### 定期監査（`link-audit.yml`）
+#### 定期監査（quality-audit）
 
-`.github/workflows/link-audit.yml` が毎週土曜 07:00 JST に `npm run check-links-audit`（`--scope all --report`）を実行し、`.claude/state/link-audit/` に結果を蓄積して develop へ `[skip ci]` commit する。Issue は起票せず、`latest-report.md` 自体が記録。
+内部リンクは `npm run quality:audit:ci`（ci.yml）の ci:true 検査で毎回見る。外部リンク（`check-external-links`）と X の生存確認（`check-x-posted-live`）は quality-audit の report 区分で、週次に `weekly-review-guard.yml` の report digest が読む（専用の `link-audit.yml` は 2026-10-24 に廃止）。
 
 ### svg — 埋込 SVG 品質
 

@@ -66,8 +66,8 @@ export function fetchRuns(workflow, branch, limit = 30) {
  *   auditRuns の success/連続失敗は **event を区別しない**ので、workflow_dispatch や
  *   push の成功が「最後の success は 0 日前」を作り、**cron が一度も発火していなくても
  *   健全に見える**。これは契約が禁じる「手動成功による異常隠蔽」そのもの。
- *   login-collectors は canary を全部 dispatch で回して緑にしたので、schedule が
- *   死んでいても手動成功が永久にマスクする。ここは schedule で起動した run だけを見る。
+ *   canary を全部 dispatch で回して緑にした workflow（旧 login-collectors）では、schedule が
+ *   死んでいても手動成功が永久にマスクした。ここは schedule で起動した run だけを見る。
  *
  *   「発火したか」と「成功したか」は別物なので、ここでは conclusion を問わない
  *   （成功/失敗は auditRuns が全 run で見る）。発火の有無・鮮度だけを判定する。

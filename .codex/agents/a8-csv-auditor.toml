@@ -63,7 +63,7 @@ developer_instructions = """
 
 ## 担当外
 
-- 収集の実行・再試行: `a8-report-collector`
+- 収集の実行・再試行: 土曜の Mac 収集（`weekly-collect` の a8 段）。運営者が端末で `node scripts/weekly-collect.mjs --only a8`
 - 正規化の実行・SSOT 書き込み: `scripts/normalize-a8-csv.mjs`（決定的）
 - EPC の良し悪し・A/B 勝者・撤退判断: 親 / ユーザー
 - config・スクリプトの修正: 提案のみ（自分では書き換えない）

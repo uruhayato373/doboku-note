@@ -76,7 +76,7 @@ jobs:
             echo ""
             echo "- 定義: \`scripts/quality-audit.mjs\` の CHECKS（ops:true）"
             echo "- 再現: \`node scripts/quality-audit.mjs --ops\`"
-            echo "- 配信して noteStatus を更新する／note月次取得・転記（\`npm run note-traffic-fetch\`・\`npm run note-sales-fetch\`）／KDP月次取得（\`npm run kdp-report\`）／ココナラ分析（\`npm run coconala-analytics -- --append-kpi\`）を回すと、翌朝の run で自動クローズされる"
+            echo "- 売上・取得の鮮度の赤は土曜の Mac の収集（weekly-collect）が止まっている。Mac で ~/Library/Logs/doboku-note/weekly-review.log と .claude/state/weekly-collect/runs.json を見て、落ちた段を運営者が端末で取り直す（node scripts/weekly-collect.mjs --only <段>）と、翌朝の run で自動クローズされる"
           } > "$RUNNER_TEMP/ops-body.md"
           node scripts/report-automation-failure.mjs \
             --channel ops \

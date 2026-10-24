@@ -171,6 +171,7 @@ export const DATASETS = [
   d('config.disk-hygiene', 'config/disk-hygiene.json', 'config', 'ops', '手元のディスク肥大を止める閾値', { schema: 'ConfigDiskHygiene' }),
   d('config.local-resources', 'config/local-resources.json', 'config', 'ops', '手元 PC の空き容量・メモリの閾値', { schema: 'ConfigLocalResources' }),
   d('config.workflow-health', 'config/workflow-health.json', 'config', 'ops', '重要なワークフローの健全性の閾値', { schema: 'ConfigWorkflowHealth' }),
+  d('config.automations', 'config/automations.json', 'config', 'ops', '自動化の台帳（どこで何がいつ動き、ログインが要るか・何を書き・誰が読むか。check-automations が実物と照合・管理画面 /ops/automations）', { schema: 'ConfigAutomations' }),
   d('config.cloudflare', 'config/cloudflare.json', 'config', 'ops', 'Cloudflare の解析とゾーン設定監視の設定', { schema: 'ConfigCloudflare' }),
 
   // ===== data/: 取得元ごとの記録 =====

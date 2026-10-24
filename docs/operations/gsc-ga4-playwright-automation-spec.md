@@ -23,7 +23,7 @@ Claude Codeに、次の処理を安全かつ再実行可能な形で実装させ
 - GoogleのID・パスワード・Cookie・サービスアカウントJSONをGit管理しない。
 - Playwrightの永続プロファイルは auth root（`npm run auth:paths -- --service google`）に保存する。
 - 初回ログイン、2段階認証、CAPTCHAは人間がheadedブラウザで完了する。
-- CIは暗号化storageState（`login-collectors.yml`・googleはcanary卒業を最後に回す）。失効時は
+- 定期取得は土曜のMac収集（`weekly-collect` のgsc段）。CIはログインしない。失効時は
   `check-gsc-ui-due` の期限surfaceとローカル儀式（`auth:login` → `auth:status`）が正。
 - GSCのPage indexing CSVは例URLが最大1,000件で、総数そのものではない。
 - Indexing APIを一般記事の登録要求に使わない。対象はJobPostingまたはBroadcastEventに限定される。
@@ -36,7 +36,6 @@ Claude Codeに、次の処理を安全かつ再実行可能な形で実装させ
 ```text
 .claude/
 ├── agents/
-│   ├── gsc-browser-collector.md
 │   ├── gsc-csv-auditor.md
 │   └── seo-fix-planner.md
 ├── config/
@@ -289,14 +288,7 @@ URLごとの出力:
 
 ## 8. サブエージェント
 
-### `gsc-browser-collector`
-
-- 種別: Generator
-- model: `sonnet`
-- tools: `Read, Glob, Grep, Bash`
-- Playwright収集スクリプトを実行し、manifestとdebug artifactを確認する。
-- ログイン、2FA、CAPTCHA、対象プロパティ不一致で停止する。
-- 分析やSEO判断はしない。
+収集は土曜のMac収集（`weekly-collect` のgsc段）がスクリプトを直接実行する。収集専用のエージェント `gsc-browser-collector` は2026-10-24に退役した（エージェントのセッションはログインして取りに行かない）。
 
 ### `gsc-csv-auditor`
 
@@ -529,7 +521,6 @@ desired の 2 件（`event_label`・`cta_placement`）は**いずれも登録済
 - .claude/skills/management/google-search-growth/SKILL.md
 - .claude/skills/management/google-search-growth/references/csv-schema.md
 - .claude/skills/management/google-search-growth/references/recovery.md
-- .claude/agents/gsc-browser-collector.md
 - .claude/agents/gsc-csv-auditor.md
 - .claude/agents/seo-fix-planner.md
 - testsとfixtures

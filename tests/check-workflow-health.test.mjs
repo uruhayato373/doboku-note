@@ -3,8 +3,8 @@ import assert from 'node:assert/strict';
 import { auditRuns, auditSchedule } from '../scripts/check-workflow-health.mjs';
 
 // 2026-09-22 追加。契約「event=schedule と手動成功を区別する／未発火・古い schedule も検知」の回帰。
-// login-collectors は canary を全部 workflow_dispatch で緑にしたので、cron が死んでも
-// 手動成功が maxAgeDays を永久にマスクする。schedule 次元がそれを独立に赤にすることを固定する。
+// canary を全部 workflow_dispatch で緑にした workflow（旧 login-collectors）では、cron が死んでも
+// 手動成功が maxAgeDays を永久にマスクした。schedule 次元がそれを独立に赤にすることを固定する。
 
 const DAY = 86_400_000;
 const NOW = Date.parse('2026-10-01T00:00:00Z');
@@ -68,7 +68,7 @@ test('auditRuns: 手動成功が新しくても cron 未発火なら unhealthy�
     run({ event: 'workflow_dispatch', conclusion: 'success', createdAt: new Date(NOW).toISOString() }),
     run({ event: 'workflow_dispatch', conclusion: 'success', createdAt: new Date(NOW - DAY).toISOString() }),
   ];
-  const r = auditRuns('login-collectors.yml', runs, { maxAgeDays: 10, maxConsecutiveFailures: 6, schedule: SCHED }, NOW);
+  const r = auditRuns('weekly-review-draft.yml', runs, { maxAgeDays: 10, maxConsecutiveFailures: 6, schedule: SCHED }, NOW);
   assert.equal(r.ok, false, '手動成功が続いても cron 未発火なら赤');
   assert.equal(r.schedule.kind, 'schedule-never-fired');
   assert.match(r.detail, /一度も発火/);
@@ -79,7 +79,7 @@ test('auditRuns: schedule 発火あり＋手動成功 → healthy', () => {
     run({ event: 'schedule', conclusion: 'success', createdAt: new Date(NOW - DAY).toISOString() }),
     run({ event: 'workflow_dispatch', conclusion: 'success', createdAt: new Date(NOW).toISOString() }),
   ];
-  const r = auditRuns('login-collectors.yml', runs, { maxAgeDays: 10, maxConsecutiveFailures: 6, schedule: SCHED }, NOW);
+  const r = auditRuns('weekly-review-draft.yml', runs, { maxAgeDays: 10, maxConsecutiveFailures: 6, schedule: SCHED }, NOW);
   assert.equal(r.ok, true);
   assert.equal(r.schedule.kind, 'schedule-ok');
 });

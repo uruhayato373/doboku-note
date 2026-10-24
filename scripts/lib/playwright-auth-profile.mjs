@@ -13,34 +13,26 @@
  * このモジュールは password / Cookie / token / 2FA を一切扱わない。保存先パスの計算だけ。
  * Phase 01 時点では既存サービススクリプトはまだこちらへ移行しない（00-master.md 実行順）。
  *
- * CI（2026-09-21・registry version 2）: GitHub Actions では raw profile を使わない。使うのは
- * Mac で `auth:export` した storageState を age 暗号化して private R2 に置いたもので、
- * `auth:ci-restore` が RUNNER_TEMP 配下の一時 root へ復元する。resolver は次の 3 点を**自動で**
- * 強制する（呼び出し側が isCI を渡し忘れても素通りしない）:
- *   1. CI 判定は GITHUB_ACTIONS / CI 環境変数から自動検出
- *   2. CI では DOBOKU_AUTH_SESSION_MODE=encrypted-state かつ root が RUNNER_TEMP / os.tmpdir() 配下
- *      のときだけ許可（テストが明示する allowTemporaryInCI も従来どおり有効）
- *   3. 起動 script（process.argv[1]）が registry の ci.readOnlyScripts に無ければ拒否。
- *      ci.writeScripts は DOBOKU_CI_WRITE_PLAN_SHA256（ops-write の plan hash）があるときだけ許可
- *      → publish 系 script は CI で profile dir を得られない（資格情報でなく allowlist が read-only を担保）
+ * ログインの置き場の規則（DN-0817・registry version 3）: ログインを要る取得・投稿は運営者の Mac だけで行い、
+ * CI（GitHub Actions）はログインしない。resolver が次の 2 点を**自動で**強制する（呼び出し側が isCI や
+ * env を渡し忘れても素通りしない）:
+ *   1. CI（GITHUB_ACTIONS / CI 環境変数）では auth root も profile も state も返さない（AUTH_CI_NO_LOGIN）
+ *   2. エージェントのセッション（CLAUDECODE=1）では、registry の collectors（読み取り専用の収集 script）を
+ *      起動 script（process.argv[1]）とするとき拒否する（AUTH_AGENT_COLLECT_REFUSED）。収集は土曜の Mac 収集
+ *      （scripts/weekly-collect.mjs が DOBOKU_WEEKLY_COLLECT=1 を付けて起動）か運営者の端末だけが行い、
+ *      エージェントは記録済みのデータを読む。writers（運営者の依頼で行う投稿・編集）と未登録の script は許可
  * ---------------------------------------------------------------------------
  */
 import { readFileSync } from 'node:fs';
 import { mkdirSync, existsSync } from 'node:fs';
-import { tmpdir } from 'node:os';
-import { resolve, sep, isAbsolute, win32, posix, relative } from 'node:path';
+import { basename, resolve, sep, isAbsolute, win32, posix, relative } from 'node:path';
 
 const REGISTRY_PATH = '.claude/config/playwright-auth-profiles.json';
 const APP_DIR_NAME = 'doboku-note';
 const AUTH_SUBDIR = 'playwright-auth';
 
-/** CI で常に profile を得てよい script（認証 CLI 自身だけ。restore / writeback / status probe を行う）。 */
-export const CI_ALWAYS_ALLOWED_SCRIPTS = Object.freeze(['scripts/playwright-auth.mjs']);
-export const CI_SESSION_MODE_ENV = 'DOBOKU_AUTH_SESSION_MODE';
-export const CI_SESSION_MODE_VALUE = 'encrypted-state';
-export const CI_WRITE_PLAN_HASH_ENV = 'DOBOKU_CI_WRITE_PLAN_SHA256';
-const CI_MODES = Object.freeze(['encrypted-state', 'none']);
-const CI_OPERATIONS = Object.freeze(['read', 'write']);
+/** 土曜の Mac 収集（scripts/weekly-collect.mjs）が子プロセスに付ける印。エージェントのセッションでも収集 script を通す。 */
+export const WEEKLY_COLLECT_ENV = 'DOBOKU_WEEKLY_COLLECT';
 
 /** GitHub Actions / 汎用 CI の自動検出（pure）。 */
 export function detectCI(env = process.env) {
@@ -111,101 +103,82 @@ export function loadAuthRegistry(options = {}) {
     if (!entry || typeof entry !== 'object' || Array.isArray(entry)) {
       throw new Error(`AUTH_REGISTRY_INVALID_ENTRY: service "${id}" is not an object`);
     }
-    if (entry.ci !== undefined) validateCIBlock(id, entry);
-    else if ((json.version ?? 1) >= 2) {
-      throw new Error(`AUTH_REGISTRY_CI_BLOCK_REQUIRED: service "${id}" has no ci block (registry version ${json.version})`);
-    }
+    validateServiceScripts(id, entry, { required: (json.version ?? 1) >= 3 });
   }
-  return { version: json.version ?? null, services, ciAuthState: json.ciAuthState ?? null };
+  return { version: json.version ?? null, services };
+}
+
+// collectors（読み取り専用の収集 script）に write 系の動詞を含むファイル名が混ざっていないかのヒューリスティック
+// （ファイル名ベース）。書き込みを行う script を collectors に入れると、エージェントのセッションでの拒否を
+// すり抜けるため、registry の読み込みと配線ゲート（check-playwright-auth-wiring）の両方で止める。
+export const WRITE_VERB_RE = /(^|[-_])(publish|delete|update|edit|price|pause|rate|upload|post|apply|create|attach|append|insert|add|reply|replies|swap|convert|reanchor|sync-tags|thumb|profile)([-_.]|$)/;
+
+/** ファイル名（パス全体でなく basename）が write 系動詞を含むか。 */
+export function looksLikeWriteScript(path) {
+  return WRITE_VERB_RE.test(basename(String(path)));
 }
 
 /**
- * registry の ci ブロック（version 2）を検証する（pure・throw で拒否）。
- *   mode: 'encrypted-state' | 'none'
- *   enabled / canary: boolean
- *   operations: ['read'] または ['read','write']（'read' 必須）
- *   cron: enabled のとき 5 フィールドの文字列必須
- *   readOnlyScripts / writeScripts: repo 相対 posix パスの配列（'write' を含まないなら writeScripts は空）
- *   stateDomains: encrypted-state のとき 1 件以上（書き戻し前の cookie フィルタに使う）
- *   skipScheduleIfFresh（任意）: { marker, field?, hours } — 収集マーカーが hours 以内なら定期実行を skip
+ * registry のサービスの script 一覧（version 3）を検証する（pure・throw で拒否）。
+ *   collectors: ログインを要る読み取り専用の収集 script（repo 相対 posix パスの配列・write 系の名前は不可）
+ *   writers: 運営者の依頼で行う投稿・編集 script（repo 相対 posix パスの配列）
+ * required=false（旧版・テスト fixture）は、書かれているときだけ検査する。
  */
-export function validateCIBlock(id, entry) {
-  const ci = entry.ci;
-  const fail = (msg) => { throw new Error(`AUTH_REGISTRY_INVALID_CI: service "${id}": ${msg}`); };
-  if (!ci || typeof ci !== 'object' || Array.isArray(ci)) fail('ci is not an object');
-  if (!CI_MODES.includes(ci.mode)) fail(`ci.mode must be one of ${CI_MODES.join('|')}`);
-  if (typeof ci.enabled !== 'boolean') fail('ci.enabled must be boolean');
-  if (typeof ci.canary !== 'boolean') fail('ci.canary must be boolean');
-  if (!Array.isArray(ci.operations) || !ci.operations.includes('read') || ci.operations.some((o) => !CI_OPERATIONS.includes(o))) {
-    fail(`ci.operations must include 'read' and only ${CI_OPERATIONS.join('|')}`);
-  }
-  for (const key of ['readOnlyScripts', 'writeScripts', 'stateDomains']) {
-    if (!Array.isArray(ci[key]) || ci[key].some((s) => typeof s !== 'string' || s.trim() === '')) fail(`ci.${key} must be an array of non-empty strings`);
-  }
-  if (ci.readOnlyScripts.some((s) => s.includes('\\') || isAbsolute(s))) fail('ci.readOnlyScripts must be repo-relative posix paths');
-  if (ci.writeScripts.some((s) => s.includes('\\') || isAbsolute(s))) fail('ci.writeScripts must be repo-relative posix paths');
-  if (!ci.operations.includes('write') && ci.writeScripts.length > 0) fail('ci.writeScripts must be empty unless operations includes write');
-  if (ci.mode === 'encrypted-state') {
-    if (ci.stateDomains.length === 0) fail('ci.stateDomains required for encrypted-state');
-    if (!entry.stateFileName) fail('stateFileName required for encrypted-state');
-  }
-  if (ci.enabled) {
-    if (ci.mode !== 'encrypted-state') fail('ci.enabled requires mode encrypted-state');
-    if (typeof ci.cron !== 'string' || ci.cron.trim().split(/\s+/).length !== 5) fail('ci.cron (5 fields) required when enabled');
-  }
-  if (ci.cron !== null && ci.cron !== undefined && typeof ci.cron !== 'string') fail('ci.cron must be string or null');
-  if (ci.skipScheduleIfFresh !== undefined) {
-    const rule = ci.skipScheduleIfFresh;
-    if (!rule || typeof rule !== 'object' || typeof rule.marker !== 'string' || rule.marker.includes('\\') || isAbsolute(rule.marker)) {
-      fail('ci.skipScheduleIfFresh.marker must be a repo-relative posix path');
+export function validateServiceScripts(id, entry, { required = false } = {}) {
+  const fail = (msg) => { throw new Error(`AUTH_REGISTRY_INVALID_SCRIPTS: service "${id}": ${msg}`); };
+  for (const key of ['collectors', 'writers']) {
+    const list = entry[key];
+    if (list === undefined) {
+      if (required) fail(`${key} が無い（version 3 は collectors と writers が必須）`);
+      continue;
     }
-    if (!(Number.isFinite(rule.hours) && rule.hours > 0 && rule.hours <= 72)) fail('ci.skipScheduleIfFresh.hours must be 0 < hours <= 72');
-    if (rule.field !== undefined && typeof rule.field !== 'string') fail('ci.skipScheduleIfFresh.field must be a string');
+    if (!Array.isArray(list) || list.some((x) => typeof x !== 'string' || x.trim() === '')) fail(`${key} must be an array of non-empty strings`);
+    if (list.some((x) => x.includes('\\') || isAbsolute(x))) fail(`${key} must be repo-relative posix paths`);
+  }
+  for (const script of entry.collectors ?? []) {
+    if (looksLikeWriteScript(script)) fail(`collectors に write 系動詞のファイル名が混入（${script}）。書き込む script は writers へ`);
   }
   return true;
 }
 
-/** 暗号化 state の置き場設定（registry.ciAuthState）を既定値込みで返す。recipient 未設定は null のまま返す。 */
-export function getCIAuthStateConfig(registry) {
-  const raw = registry?.ciAuthState ?? {};
-  const cfg = {
-    ageRecipient: raw.ageRecipient ?? null,
-    bucket: raw.bucket ?? 'private',
-    keyPrefix: raw.keyPrefix ?? 'auth-state/',
-    identityEnv: raw.identityEnv ?? 'DOBOKU_AUTH_AGE_IDENTITY',
-  };
-  if (cfg.ageRecipient !== null && !/^age1[0-9a-z]{20,}$/.test(cfg.ageRecipient)) {
-    throw new Error('AUTH_CI_STATE_INVALID_RECIPIENT: ciAuthState.ageRecipient must be an age public key (age1...)');
-  }
-  if (!cfg.keyPrefix.endsWith('/')) throw new Error('AUTH_CI_STATE_INVALID_PREFIX: keyPrefix must end with /');
-  return cfg;
-}
-
 /**
- * CI で起動 script がこのサービスの allowlist に入っているかを検査する（CI 以外では常に ok）。
+ * ログインの profile / state / ディレクトリを返してよい呼び出しかを検査する（resolveProfileDir・resolveStatePath・
+ * ensureAuthDirectories の入口）。
+ *   - CI は常に拒否（AUTH_CI_NO_LOGIN）。ログインを要る取得は土曜の Mac 収集だけ
+ *   - エージェントのセッション（CLAUDECODE=1）は、起動 script が collectors に載っていれば拒否
+ *     （AUTH_AGENT_COLLECT_REFUSED）。土曜の Mac 収集が付ける DOBOKU_WEEKLY_COLLECT=1 があれば通す
  * @param {string} serviceId
  * @param {object} entry registry のサービスエントリ
- * @param {{ env?: object, invokedScript?: string, repoRoot?: string, cwd?: string, isCI?: boolean }} [options]
- * @returns {{ ok: true, reason: string, invokedScript: string|null, kind: 'not-ci'|'always'|'read'|'write' }}
+ * @param {{ env?: object, isCI?: boolean, invokedScript?: string, repoRoot?: string, cwd?: string }} [options]
+ * @returns {{ ok: true, kind: 'local'|'agent-writer'|'agent-unlisted'|'weekly-collect' }}
  */
-export function assertCIScriptAllowed(serviceId, entry, options = {}) {
+export function assertLoginProfileAllowed(serviceId, entry, options = {}) {
   const env = options.env ?? process.env;
-  const isCI = options.isCI ?? detectCI(env);
-  if (!isCI) return { ok: true, reason: 'not-ci', invokedScript: null, kind: 'not-ci' };
-  const ci = entry?.ci;
-  if (!ci || ci.mode !== 'encrypted-state') {
-    throw new Error(`AUTH_CI_MODE_NONE: service "${serviceId}" is not enabled for CI (ci.mode=${ci?.mode ?? 'undefined'})`);
-  }
+  assertNotCI(options);
+  if (!detectAgentSession(env)) return { ok: true, kind: 'local' };
+  if (env?.[WEEKLY_COLLECT_ENV] === '1') return { ok: true, kind: 'weekly-collect' };
   const invokedScript = options.invokedScript ?? invokedScriptRelative(options.repoRoot ?? options.cwd ?? process.cwd());
-  if (!invokedScript) throw new Error(`AUTH_CI_SCRIPT_NOT_ALLOWLISTED: service "${serviceId}": invoked script could not be determined`);
-  if (CI_ALWAYS_ALLOWED_SCRIPTS.includes(invokedScript)) return { ok: true, reason: 'auth-cli', invokedScript, kind: 'always' };
-  if (ci.readOnlyScripts.includes(invokedScript)) return { ok: true, reason: 'read-only allowlist', invokedScript, kind: 'read' };
-  if (ci.writeScripts.includes(invokedScript)) {
-    const hash = env?.[CI_WRITE_PLAN_HASH_ENV];
-    if (typeof hash === 'string' && /^[0-9a-f]{64}$/.test(hash)) return { ok: true, reason: 'write allowlist + plan hash', invokedScript, kind: 'write' };
-    throw new Error(`AUTH_CI_WRITE_REQUIRES_PLAN_HASH: service "${serviceId}": ${invokedScript} is a write script; set ${CI_WRITE_PLAN_HASH_ENV} via ops-write`);
+  if (invokedScript && (entry?.collectors ?? []).includes(invokedScript)) {
+    throw new Error(
+      `AUTH_AGENT_COLLECT_REFUSED: service "${serviceId}": ${invokedScript} はログインを要る収集です。エージェントのセッションでは実行しません。`
+      + '記録済みのデータ（と最後に取得した日付）を読んでください。取り直すときは運営者がターミナルで '
+      + '`node scripts/weekly-collect.mjs --only <段>` を実行します。',
+    );
   }
-  throw new Error(`AUTH_CI_SCRIPT_NOT_ALLOWLISTED: service "${serviceId}": ${invokedScript} is not in ci.readOnlyScripts/writeScripts`);
+  return { ok: true, kind: invokedScript && (entry?.writers ?? []).includes(invokedScript) ? 'agent-writer' : 'agent-unlisted' };
+}
+
+/** CI ならログインの置き場（auth root）を一切返さない。 */
+function assertNotCI(options = {}) {
+  const env = options.env ?? process.env;
+  if (options.isCI ?? detectCI(env)) {
+    throw new Error('AUTH_CI_NO_LOGIN: CI（GitHub Actions）はログインしません。ログインを要る取得・投稿は土曜の Mac 収集（scripts/weekly-collect.mjs）と運営者の端末だけで行います。');
+  }
+}
+
+/** エージェントのセッション（Claude Code が実行するコマンドには CLAUDECODE=1 が付く）か。 */
+export function detectAgentSession(env = process.env) {
+  return env?.CLAUDECODE === '1';
 }
 
 /** process.argv[1] を repoRoot 相対の posix パスにする（repo 外・未定義なら null）。 */
@@ -292,7 +265,7 @@ export const PROFILE_CACHE_SUBDIRS = Object.freeze([
  * 危険な auth root（repo root / .git / worktree root / repo 配下 .local / filesystem root /
  * home root 直下 / 空文字 / 相対パス）を拒否する。pure function（filesystem へは触れない）。
  * @param {string} candidatePath
- * @param {{ repoRoot?: string, homeDir?: string, isCI?: boolean, allowTemporaryInCI?: string }} [options]
+ * @param {{ repoRoot?: string, homeDir?: string }} [options]
  * @returns {{ ok: true } | { ok: false, reason: string }}
  */
 export function validateAuthRoot(candidatePath, options = {}) {
@@ -328,23 +301,6 @@ export function validateAuthRoot(candidatePath, options = {}) {
     }
   }
 
-  const env = options.env ?? process.env;
-  const isCI = options.isCI ?? detectCI(env);
-  if (isCI) {
-    // CI で許可する root は 2 種類だけ:
-    //   (a) テストが明示した temporary root（allowTemporaryInCI）配下
-    //   (b) DOBOKU_AUTH_SESSION_MODE=encrypted-state のとき RUNNER_TEMP / os.tmpdir() 配下
-    //       （auth:ci-restore が暗号化 state を復元する一時 root。job 終了時に rm -rf される）
-    const allowedRoots = [];
-    if (options.allowTemporaryInCI) allowedRoots.push(resolve(options.allowTemporaryInCI));
-    if (env?.[CI_SESSION_MODE_ENV] === CI_SESSION_MODE_VALUE) {
-      if (env.RUNNER_TEMP && String(env.RUNNER_TEMP).trim() !== '') allowedRoots.push(resolve(env.RUNNER_TEMP));
-      allowedRoots.push(resolve(options.tmpDir ?? tmpdir()));
-    }
-    const under = allowedRoots.some((a) => normalized === a || normalized.startsWith(a + sep));
-    if (!under) return { ok: false, reason: 'AUTH_PROFILE_UNAVAILABLE_IN_CI' };
-  }
-
   return { ok: true };
 }
 
@@ -352,10 +308,12 @@ export function validateAuthRoot(candidatePath, options = {}) {
  * auth root を解決する。優先順位: 明示 override（DOBOKU_AUTH_ROOT 相当）→ OS 標準既定値。
  * override は絶対パスのみ許可し、危険な場所は拒否する。
  * @param {{ overrideRoot?: string, platform?: NodeJS.Platform, env?: object, homeDir?: string,
- *           repoRoot?: string, isCI?: boolean, allowTemporaryInCI?: string }} [options]
+ *           repoRoot?: string, isCI?: boolean }} [options]
  * @returns {string}
  */
 export function resolveAuthRoot(options = {}) {
+  // CI は auth root（＝実 profile の置き場）を一切返さない。override の一時 root でも同じ。
+  assertNotCI(options);
   const platform = options.platform ?? process.platform;
   const env = options.env ?? process.env;
   const homeDir = options.homeDir ?? process.env.HOME ?? process.env.USERPROFILE;
@@ -367,11 +325,6 @@ export function resolveAuthRoot(options = {}) {
       throw new Error(`AUTH_ROOT_INVALID_OVERRIDE: ${check.reason} (${overrideRoot})`);
     }
     return resolve(overrideRoot);
-  }
-
-  // CI では OS 既定の root（＝実 profile の置き場）を決して使わない。override（一時 root）が必須。
-  if (options.isCI ?? detectCI(env)) {
-    throw new Error('AUTH_PROFILE_UNAVAILABLE_IN_CI: no explicit temporary root provided for CI');
   }
 
   const defaultRoot = resolveDefaultAuthRoot({ platform, env, homeDir });
@@ -388,7 +341,7 @@ export function resolveAuthRoot(options = {}) {
  */
 export function resolveProfileDir(serviceId, options = {}) {
   const entry = getServiceEntry(serviceId, options);
-  assertCIScriptAllowed(serviceId, entry, options);
+  assertLoginProfileAllowed(serviceId, entry, options);
   const root = resolveAuthRoot(options);
   return resolve(root, 'profiles', entry.profileDirName ?? serviceId);
 }
@@ -400,7 +353,7 @@ export function resolveProfileDir(serviceId, options = {}) {
 export function resolveStatePath(serviceId, options = {}) {
   const entry = getServiceEntry(serviceId, options);
   if (!entry.stateFileName) return null;
-  assertCIScriptAllowed(serviceId, entry, options);
+  assertLoginProfileAllowed(serviceId, entry, options);
   const root = resolveAuthRoot(options);
   return resolve(root, 'states', entry.stateFileName);
 }
@@ -425,7 +378,7 @@ export function resolveMetadataPath(serviceId, options = {}) {
  */
 export function ensureAuthDirectories(serviceId, options = {}) {
   const entry = getServiceEntry(serviceId, options);
-  assertCIScriptAllowed(serviceId, entry, options);
+  assertLoginProfileAllowed(serviceId, entry, options);
   const root = resolveAuthRoot(options);
   const profileDir = resolve(root, 'profiles', entry.profileDirName ?? serviceId);
   const locksDir = resolve(root, 'locks');
@@ -460,9 +413,6 @@ export function redactAuthDiagnostic(value, keyHint) {
   // profile/state/lockの**パス**と公開URLはCLIの診断対象そのもの。長いASCII文字列でも
   // secretではないため、keyが明示する診断フィールドではtoken風ヒューリスティックを適用しない。
   if (keyHint && /(?:path|url)$/i.test(keyHint)) return value;
-  // age の公開 recipient（age1…）は公開鍵で、registry に commit する値そのもの。伏せると keygen の
-  // 出力が使えない。秘密 identity は AGE-SECRET-KEY-1… で始まり、この分岐には入らず伏せられる。
-  if (keyHint === 'recipient' && typeof value === 'string' && /^age1[0-9a-z]{20,}$/.test(value)) return value;
   if (value === null || value === undefined) return value;
   if (Array.isArray(value)) return value.map((v) => redactAuthDiagnostic(v));
   if (typeof value === 'object') {

@@ -6,6 +6,8 @@ title: スキル ガバナンス記録
 
 # スキル ガバナンス記録
 
+- 2026-10-24（DN-0817）: ログインが要る収集を土曜の Mac 収集（`weekly-collect`）へ集約。`ads/a8-report`・`ads/affiliate-status`・`management/coconala-analytics`・`management/coconala-status`・`management/google-search-growth`・`social/ig-reconcile` は「記録と最終取得日を読む」に変更（セッションはログインしない・古ければ「未取得」）。`dev/playwright-auth` から keygen／export を削除。`conversion/kdp-publish`・`management/coconala-publish`・`social/note-publish`・`social/publish-ig-bs`・`social/x-repost` の CI 経路（ops-write・scheduled-publish）を削除。エージェント `a8-report-collector`・`gsc-browser-collector` を退役（agents-registry.md）。スキルの新設・削除なし。
+
 - 2026-10-19: `create-pop-image` に2級土木動画の図解主体・控えめな色・装飾キャラクターと著者名なし・`full-frame-v1` 採用の例外を接続。件数は不変。
 
 - 2026-10-18: `yt-shorts-create` 配下の共有合成器でRGB/RGBA混在による冒頭欠落を修正。作業用PNGの色形式を統一し、40場面の実ffmpeg回帰で先頭時刻・冒頭2場面の画素と総尺を確認する。件数は不変。

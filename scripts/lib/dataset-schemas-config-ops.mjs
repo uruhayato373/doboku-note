@@ -764,6 +764,45 @@ export const ConfigWorkflowHealth = z
   .strict()
   .meta({ title: 'ワークフロー健全性の閾値' });
 
+// ---- config.automations --------------------------------------------------------------------------
+
+const AUTOMATION_READER = /^(quality-audit:[\w-]+|issue:[\w-]+|admin:\/[\w/-]*|skill:[\w-]+|pr-gate|deploy|human)$/;
+
+/**
+ * 自動化の台帳（config/automations.json・DN-0817）。どこで（Mac の launchd か GitHub Actions）何がいつ動き、
+ * ログインが要るか・何を書き・誰が読むかの正本。台帳と実物（.github/workflows/*.yml・scripts/scheduled/*.plist.tmpl）の
+ * 一致・CI でログインしないことは scripts/check-automations.mjs が見る。管理画面 /ops/automations が表示する。
+ */
+export const ConfigAutomations = z
+  .object({
+    schemaVersion: z.literal(1),
+    _doc: note,
+    automations: z
+      .array(
+        z
+          .object({
+            id: z.string().regex(/^[a-z0-9-]+$/, '英小文字・数字・ハイフン'),
+            runner: z.enum(['github-actions', 'mac-launchd']),
+            source: z.string().regex(/^(\.github\/workflows\/[\w.-]+\.ya?ml|scripts\/scheduled\/[\w.-]+\.plist\.tmpl)$/, 'ワークフローか plist のテンプレート'),
+            title: text,
+            triggers: z.array(z.enum(['schedule', 'push', 'pull_request', 'pull_request_target', 'workflow_run', 'workflow_dispatch', 'release', 'launchd'])).min(1),
+            schedule: z.array(text).describe('cron（GitHub Actions は UTC の 5 項目）か launchd の時刻（例: 土 09:30）。定期でなければ空'),
+            scheduleJst: text.optional().describe('人が読む JST の時刻'),
+            login: z.array(text).describe('ログインが要るサービス（playwright-auth-profiles.json のキー）。GitHub Actions は必ず空'),
+            purpose: text,
+            readers: z.array(z.string().regex(AUTOMATION_READER, 'quality-audit:<id>・issue:<channel>・admin:/<path>・skill:<name>・pr-gate・deploy・human')).min(1).describe('結果を読む人・検査・画面（読み手のいない自動化は置かない）'),
+            writes: z.array(text).optional().describe('書く記録のデータセット id（scripts/lib/datasets.mjs）'),
+            _note: note,
+          })
+          .strict(),
+      )
+      .min(1)
+      .superRefine(uniqueBy('id'))
+      .superRefine(uniqueBy('source', 'source')),
+  })
+  .strict()
+  .meta({ title: '自動化の台帳' });
+
 // ---- アセット置き場（asset-storage・drive-vault・git-binary-policy）---------------------------
 // 中身の整合（audience と bucket の組・keyFrom の語彙・group 間の重なり・監査の対象）は
 // scripts/lib/asset-storage.mjs・drive-vault.mjs・check-drive-vault・check-git-binary-policy が持つ。型は形だけ。

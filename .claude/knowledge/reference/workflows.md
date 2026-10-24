@@ -27,7 +27,7 @@ title: 推奨ワークフロー
 
 詳細は `.claude/skills/management/weekly-review/SKILL.md` と `.claude/skills/management/plan-weekly/SKILL.md` を参照（`/weekly-plan` は戦略を練り直す週だけ手動で使う）。
 
-**実行主体（2026-10-10〜・3 段）**: (1) 金曜 13:00 JST に CI `weekly-review-draft.yml` が機械の節を `.claude/state/weekly-review/draft.json` に書き、前週のダイジェスト・KPI の欠けを Issue（channel: weekly-review-draft）にする。(2) 土曜 9:30 に Mac の launchd `com.doboku-note.weekly-review`（`scripts/scheduled/weekly-review.sh`・導入は `npm run weekly-review:install`）が専用 worktree でヘッドレスの Claude Code に `/weekly-review` と `/plan-weekly` を回させ develop へ push する。develop に今週分が入らなければ Issue（channel: weekly-review-local）。(3) 判断待ちの諮問はヘッドレスでは聞けないので、レビューの印 `<!-- weekly-review:pending-questions -->` を SessionStart の `check-weekly-review-due` が知らせ、対話セッションで諮る。月曜の guard は従来どおり先週分の実在を見る。経緯: 2026-W40 が抜けた（土曜に対話セッションを開かないと何も始まらず、fetch-metrics の書き戻しが止まっていたことにも気づかなかった）。
+**実行主体（2026-10-10〜・3 段）**: (1) 金曜 13:00 JST に CI `weekly-review-draft.yml` が機械の節を `.claude/state/weekly-review/draft.json` に書き、前週のダイジェスト・KPI の欠けを Issue（channel: weekly-review-draft）にする。(2) 土曜 9:30 に Mac の launchd `com.doboku-note.weekly-review`（`scripts/scheduled/weekly-review.sh`・導入は `npm run weekly-review:install`）が、まず収集用 worktree でログインが要る取得（`weekly-collect --phase pre`：ログイン確認・A8・KDP・note・ココナラ・GSC。2026-10-24〜、DN-0817）を回し、専用 worktree でヘッドレスの Claude Code に `/weekly-review` と `/plan-weekly` を回させ develop へ push し、最後に後段（`--phase post`：note のライブ照合・同期）を回す。レビューは記録と最終取得日を読み、ログインして取りに行かない。収集の失敗は別の Issue（channel: weekly-collect）、日々の点検は `npm run check-weekly-collect`。develop に今週分が入らなければ Issue（channel: weekly-review-local）。(3) 判断待ちの諮問はヘッドレスでは聞けないので、レビューの印 `<!-- weekly-review:pending-questions -->` を SessionStart の `check-weekly-review-due` が知らせ、対話セッションで諮る。月曜の guard は従来どおり先週分の実在を見る。経緯: 2026-W40 が抜けた（土曜に対話セッションを開かないと何も始まらず、fetch-metrics の書き戻しが止まっていたことにも気づかなかった）。
 
 **月次の自動起動（2026-10-17〜）**: 同じ土曜9:30の launchd が毎月3日以降に前月の完成証拠と `nextReviewDate` を読み、未完・再確認日到来なら `/monthly-review YYYY-MM` も実行する。週次が完了済みでも月次を省かない。初回は3日以降最初の土曜、途中の補完は記録の次回日以降の土曜。登録を増やさず、週次と同じロック・専用worktree・失敗通知を使う。SNS保留中は `DOBOKU_SNS_PAUSED=1` でSessionStartのX照合も止め、保存済みデータのみを参照し、認証復旧や新規取得・公開・予約を行わない。完了はdevelop上の月次レポート・事業記録とsnapshot・全点検と行き先・次回日で確認する。
 
@@ -78,8 +78,8 @@ title: 推奨ワークフロー
 │  fetch-metrics.yml (cron: 0 21 * * 4)                           │
 │    │ GSC + GA4 を取得 → data/{gsc,ga4}/reports/        │
 │    ▼                                                            │
-│  link-audit.yml (cron: 0 22 * * 4, 金曜 07:00 JST)              │
-│    │ 内部リンク検証                                              │
+│  quality-audit (ci.yml)                                          │
+│    │ 内部リンク検証（外部リンクは report 区分で週次に読む）       │
 └─────────────────────────────────────────────────────────────────┘
                            │
                            ▼
@@ -141,9 +141,9 @@ title: 推奨ワークフロー
 
 オンデマンド分析が必要な時は `/psi-audit` スキルで `performance-auditor` エージェントを呼び、`.claude/state/improvements/psi-{YYYY-MM-DD}.md` に詳細レポートを出す。
 
-週次レビューでは **`npm run check-content-quality`**（モバイル可読性ラチェット）も回す。全 published MDX を `content-rules.json` の `fullScan` ルール（表/入れ子リスト/段落長/見出し/文体）で走査し、`.claude/state/quality/latest-report.md` に **GA4 人気度順の違反レポート**を出力する。レポート上位（違反数 × activeUsers）の記事を、記事の `category`/`group` に対応する既存の品質サイクル（`/quality-cycle --profile cem`／`civil-textbook` など。ルーティングの真実源は [exam-content-policy.md](exam-content-policy.md) Part 2）へ流してリライトし、表を非表へ・入れ子をフラットへ・長段落を改段する（変換パターンは [content-authoring.md](content-authoring.md)）。既存違反は baseline で grandfather 済みで、CI（`r2-audit.yml`）は **baseline 超過の新規違反のみ赤落ち**させる（機械＝検知、エージェント＝リライト時の表現判断、と役割を分ける）。リライトで違反が減ったら `npm run update-content-quality-baseline` で baseline を刈り込む。
+週次レビューでは **`npm run check-content-quality`**（モバイル可読性ラチェット）も回す。全 published MDX を `content-rules.json` の `fullScan` ルール（表/入れ子リスト/段落長/見出し/文体）で走査し、`.claude/state/quality/latest-report.md` に **GA4 人気度順の違反レポート**を出力する。レポート上位（違反数 × activeUsers）の記事を、記事の `category`/`group` に対応する既存の品質サイクル（`/quality-cycle --profile cem`／`civil-textbook` など。ルーティングの真実源は [exam-content-policy.md](exam-content-policy.md) Part 2）へ流してリライトし、表を非表へ・入れ子をフラットへ・長段落を改段する（変換パターンは [content-authoring.md](content-authoring.md)）。既存違反は baseline で grandfather 済みで、CI（`quality:audit:ci`）は **baseline 超過の新規違反のみ赤落ち**させる（機械＝検知、エージェント＝リライト時の表現判断、と役割を分ける）。リライトで違反が減ったら `npm run update-content-quality-baseline` で baseline を刈り込む。
 
-note 導線の機械監査は CI が担当する。`r2-audit.yml` がソース D1-D4/D6、`note-live-audit.yml` がライブ反映 D5（配線後に再投稿せず live が死ぬドリフト）を週次検査する。修復はログイン済みブラウザが必要な `note-append-cta`、意味的レビューは `/audit-note-funnel --semantic`（`note-funnel-auditor`）をオンデマンドで行う。真実源は [note-funnel-architecture.md](note-funnel-architecture.md)。
+note 導線の機械監査は CI が担当する。`quality-audit`（ci:true）がソース D1-D4/D6、`note-live-audit.yml` がライブ反映 D5（配線後に再投稿せず live が死ぬドリフト）を週次検査する。修復はログイン済みブラウザが必要な `note-append-cta`、意味的レビューは `/audit-note-funnel --semantic`（`note-funnel-auditor`）をオンデマンドで行う。真実源は [note-funnel-architecture.md](note-funnel-architecture.md)。
 
 **`npm run check-note-republish`**（公開記事の本文＋ハッシュタグの再公開ドリフト・creds不要）は `note-live-audit.yml` が週次 artifact として保存する（正常な公開待ちも含むため非ゲート）。本文drift→`note-update-body --commit`、タグdrift→`note-sync-tags --commit` で解消する（ライブが上限99で埋まり dry-run に「余分=N」が出る記事は `--prune --commit`）。有料境界の構成監査 `check-note-structure --ci` も同 workflow が FULL_LOCK/漏洩/画像/価格を検出する。ソース側の境界欠落は `npm run check-note-boundary`（pre-commit＋CI）が事前に止める。
 

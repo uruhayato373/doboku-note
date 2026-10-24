@@ -2,7 +2,7 @@
 
 `content/sns/` 配下の SNS 制作物のうち「再生成可能だが手元に置くと容量を圧迫する」バイナリ（reels の wav・video.mp4・YouTube Shorts の mp4）を、git に溜め込まず **Google Drive vault** へ退避する運用。置き場の判断軸は「誰が使うか」（[asset-storage-policy.md](asset-storage-policy.md) §1・決定木 `/asset-route`）。SNS バイナリは人の手元の JIT 投稿しか読まないので **human tier＝Drive** に置く。
 
-> 2026-09-05（DN-0170）まで reels の wav/mp4 は public R2 `sns/` へ `upload-sns-r2` で退避していた。サイトは配信せず CI も読まない（`post-youtube-scheduled.yml` の Shorts 台帳は 2026-08-18 に手動投入へ切替済み・pending 0・参照キー `sns/youtube-shorts/` は R2 に 0 件）ので、281 件を Drive へ移し R2 側を削除、スクリプトと npm script を廃止した。
+> 2026-09-05（DN-0170）まで reels の wav/mp4 は public R2 `sns/` へ `upload-sns-r2` で退避していた。サイトは配信せず CI も読まない（YouTube Shorts の台帳は 2026-08-18 に手動投入へ切替済み・pending 0・参照キー `sns/youtube-shorts/` は R2 に 0 件。投稿 workflow `post-youtube-scheduled.yml` は 2026-10-24 に廃止）ので、281 件を Drive へ移し R2 側を削除、スクリプトと npm script を廃止した。
 
 ## なぜ必要か
 

@@ -391,7 +391,7 @@
         "scripts/publish-reel-jit.mjs",
         ".claude/skills/social/yt-shorts-create/scripts/per-problem-shorts.mjs"
       ],
-      "reason": "IG リールの wav/mp4 と YouTube Shorts の mp4。読むのは人（手元の JIT 投稿）だけで、サイトは配信せず CI も読まない（post-youtube-scheduled.yml の Shorts 台帳は 2026-08-18 に手動投入へ切替済み・pending 0・参照キー sns/youtube-shorts/ は R2 に 0 件）。2026-09-05（DN-0170）に旧 upload-sns-r2 系統（public R2 sns/）から統合。"
+      "reason": "IG リールの wav/mp4 と YouTube Shorts の mp4。読むのは人（手元の JIT 投稿）だけで、サイトは配信せず CI も読まない（旧 post-youtube-scheduled.yml（廃止済み）の Shorts 台帳は 2026-08-18 に手動投入へ切替済み・pending 0・参照キー sns/youtube-shorts/ は R2 に 0 件）。2026-09-05（DN-0170）に旧 upload-sns-r2 系統（public R2 sns/）から統合。"
     },
     {
       "id": "source-transcript",
