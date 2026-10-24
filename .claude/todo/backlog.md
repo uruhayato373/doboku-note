@@ -342,6 +342,20 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-0821] （DN-0817 段3）Mac の個別の launchd・専用 worktree・Windows のログイン維持のタスクを外す
+タグ: [インフラ・計測] [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-10-24]
+
+**起点**: DN-0817 の段 3。前提は段 1（土曜のチェーン）が 2 週続けて成功していること。
+
+**やること**:
+1. Mac の launchd を外す: `com.doboku-note.auth-session-refresh`（毎日）・`gsc-local`（毎日）・`coconala-local`（毎週）・`note-sync`（毎週）。各 `npm run <名前>:install -- --uninstall`
+2. 専用 worktree を外す: `.claude/worktrees/{auth-session-refresh,coconala-local,gsc-local,note-sync}`（lock を外して `git worktree remove`）。中の未コミットの状態ファイルは先に中身を確かめる
+3. Windows のタスクスケジューラ `\doboku-note\auth-session-refresh` を外す（運営者が Windows で）
+4. 使われなくなった install スクリプト・`scripts/scheduled/*.sh`・package.json の行・commands.md の案内を消す（`npm run check-command-guidance` が通ること）
+
+**完了条件**: `launchctl list | grep doboku-note` が weekly-review と disk-hygiene の 2 本だけ、`git worktree list` が人のチェックアウトと weekly-review の 2 行だけ、`npm run quality:audit:ci` が PASS。
+
+
 ### [DN-0820] （DN-0817 段2）週次へ移した記録の鮮度の基準を週次に合わせる
 タグ: [インフラ・計測] [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-10-24]
 
