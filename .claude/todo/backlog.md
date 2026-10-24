@@ -1564,19 +1564,18 @@ Windows の PowerShell で repo 直下から順に:
 
 **完了条件**: 上の 3 点を直して `npm run check-note-funnel` が通り、ライブへ反映（土曜の収集の後段 note-sync）して `note-funnel-auditor` の再監査で指摘が消えている。
 
-### [DN-0846] DN-0817 の運営者の後片づけ（Windows のタスク削除・GitHub Secrets の DOBOKU_AUTH_* 削除・R2 の auth-state/ 削除・自動化の Issue を閉じる）
+### [DN-0846] DN-0817 の運営者の後片づけ（Windows のタスク削除・R2 の auth-state/ 削除・自動化の Issue を閉じる・お客さま対応の通知の判断）
 タグ: [インフラ・計測] [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-10-24]
 
 **起点**: DN-0817（ログインを土曜の Mac の収集 1 本に集約）の段 3〜5 は PR #1216 で実装した（Mac の個別の launchd・専用 worktree、CI のログイン収集と書き込みの入口・暗号化 state の仕組み、スキルと方針文書）。残りは運営者の作業だけ（旧 DN-0821・DN-0822・DN-0823 の残りをまとめた）。
 
-**やること**（運営者。`gh secret delete` をエージェントが流すときはその都度確認を取る）:
+**やること**（運営者）:
 1. Windows のタスク `\doboku-note\auth-session-refresh` を削除する（Windows で `schtasks /Delete /TN "\doboku-note\auth-session-refresh" /F`）。
-2. GitHub Secrets の `DOBOKU_AUTH_*`（ID/PW 10 個と `DOBOKU_AUTH_AGE_IDENTITY`）を削除する。
 3. R2 の private の `auth-state/` を削除する（`data/r2/delete-list.txt` 経由）。
 4. 自動化の Issue #1186（login-collectors-publish）・#1087（auth-state-kdp）・#864（note-sync）を閉じる（channel が無くなったので人が閉じる）。
 5. お客さま対応の気づき（ココナラの受注・note のコメント）を、週 1 回の土曜の収集ではなくメール通知（Gmail コネクタ）で拾うかを決める（週次の取得だけだと最大 1 週間気づかない・旧 DN-0823 の手順 3）。
 
-**完了条件**: Windows に `auth-session-refresh` のタスクが無く、`gh secret list` に `DOBOKU_AUTH_*` が無く、R2 に `auth-state/` が無く、上の 3 つの Issue が閉じ、5 の判断が backlog かこのカードに記録されている。`git grep -l DOBOKU_AUTH .github` は 0 件（確認済み）。
+**完了条件**: Windows に `auth-session-refresh` のタスクが無く、R2 に `auth-state/` が無く、上の 3 つの Issue が閉じ、5 の判断が backlog かこのカードに記録されている。`git grep -l DOBOKU_AUTH .github` は 0 件（確認済み）。
 
 ## 🟢 低 — 重要度が低い（時期未定を含む）
 
