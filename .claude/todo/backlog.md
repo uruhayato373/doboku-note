@@ -21,6 +21,19 @@
 
 ## 🔴 高 — 重要度が高い
 
+### [DN-0818] （DN-0817 段0）Mac の週次レビュー・ココナラ取得・note 同期の失敗 3 件を直す（空き容量の予約・起動の重なり・Drive の読み取りエラー）
+タグ: [インフラ・計測] [領域:管理] [時期:2026-10] [種類:不具合] [起票:2026-10-24]
+
+**起点**: DN-0817 の段 0。2026-10-18〜10-24 に Mac の launchd 4 本が失敗した。auth-session-refresh は DN-0816、note-sync のマガジンカバーの Drive 保存は DN-0763 が持つ。このカードは残りの 3 件を持つ（ログ: `~/Library/Logs/doboku-note/<名前>.log`）。
+
+**やること**:
+1. **weekly-review（10/24 09:30・Issue #1206）**: `asset-hydrate --group kindle-dist` が「Insufficient free disk for restore」で止まった。復元は 0 MiB（137 件すべて手元にある）なのに、空きが `config/local-resources.json` の `minFreeDiskGiB: 20` を下回ったので止まった（`scripts/asset-hydrate.mjs:100`。調査時点の空きは 21.5GiB）。(a) 復元が 0 件のときは空きの検査で止めない（回帰テスト付き）、(b) `npm run check-disk-hygiene` で空きを戻す、の 2 つ。10/17 の rc=143（途中で止められた）も原因を確かめる
+2. **coconala-local（10/20 10:45）**: 起動の見張り（`scripts/lib/playwright-launch.mjs`）が「同じプロファイル群の Chrome が稼働中（google）」「空きメモリ 1195MB < 1200MB」で起動を見送った。10:30 開始の gsc-local が 10:53 まで動いていて重なった。段 1 でつなげて順に回せば重ならないので、それまでは開始時刻をずらす（gsc-local の終わりより後）
+3. **note-sync（10/11 03:00）**: 配布 PDF の Drive からの取り寄せが「Unknown system error -11」（読み取りの一時エラー）で 19 記事失敗した。DN-0763 の保存段の再試行と同じ形で、取り寄せにも再試行を入れる
+
+**完了条件**: 次の土曜の weekly-review と、次の火曜の coconala-local と日曜の note-sync が rc=0 で終わり、ログに上の 3 つのエラーが無い。
+
+
 ### [DN-0817] ログインが要る読む処理と書く処理を土曜の Mac の 1 本にまとめ、ほかのセッションは記録を読んで進める（移行計画）
 タグ: [インフラ・計測] [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-10-24]
 
