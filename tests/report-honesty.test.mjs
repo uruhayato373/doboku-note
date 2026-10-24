@@ -9,13 +9,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 
-import {
-  classifyRun,
-  collectFailedRequests,
-  classifyCrossCheck,
-  isMeasurementWindowAligned,
-  collectPublishGap,
-} from '../scripts/lib/report-honesty.mjs';
+import { advancesLastRun, classifyRun, collectFailedRequests, classifyCrossCheck, isMeasurementWindowAligned, collectPublishGap } from '../scripts/lib/report-honesty.mjs';
 
 // ── classifyRun: 例外が出なかったことを ok と呼ばない ────────────────────────
 test('classifyRun: 1 単位でも落ちれば partial（実際に踏んだ 1/2 のケース）', () => {
@@ -133,4 +127,10 @@ test('collectPublishGap: 取得の方が新しい＝正規化か書き戻しが�
 test('collectPublishGap: 台帳が無ければ取得があっても gap、マーカーが無ければ gap にしない（未実施は due 側が見る）', () => {
   assert.equal(collectPublishGap({ collectedAt: '2026-10-07T00:00:00Z', status: 'ok' }, null).gap, true);
   assert.equal(collectPublishGap(null, { updatedAt: '2026-10-07T00:00:00Z' }).gap, false);
+});
+
+test('advancesLastRun: 1 件も取れなかった回はマーカーを進めない・部分取得は進める（DN-0828）', () => {
+  assert.equal(advancesLastRun([{ status: 'error' }, { status: 'report-unreachable' }]), false);
+  assert.equal(advancesLastRun([]), false);
+  assert.equal(advancesLastRun([{ status: 'downloaded' }, { status: 'error' }]), true);
 });

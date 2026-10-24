@@ -13,13 +13,15 @@
  * ---------------------------------------------------------------------------
  */
 import { existsSync, readFileSync } from "node:fs";
-import { datasetPath } from "./lib/datasets.mjs";
+import { datasetPath, freshnessDays } from "./lib/datasets.mjs";
 import { evaluateIndexingDue } from "./lib/gsc-indexing-priority.mjs";
 
 const args = process.argv.slice(2);
 const JSON_OUT = args.includes("--json");
 const di = args.indexOf("--days");
-const thresholdDays = di >= 0 && args[di + 1] ? parseInt(args[di + 1], 10) || 7 : 7;
+// 既定は台帳 gsc.indexing-history の freshness.warnDays（土曜の Mac の収集が週 10 件を送る・DN-0820）
+const DEFAULT_DAYS = freshnessDays("gsc.indexing-history", "warnDays");
+const thresholdDays = di >= 0 && args[di + 1] ? parseInt(args[di + 1], 10) || DEFAULT_DAYS : DEFAULT_DAYS;
 
 const pPath = datasetPath("gsc.indexing-priority");
 const hPath = datasetPath("gsc.indexing-history");

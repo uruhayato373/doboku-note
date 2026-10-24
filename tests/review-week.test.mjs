@@ -34,7 +34,16 @@ test('launchd のログ: 最後の start 以降の結果（完了・何もしな
     '=== 2026-10-10T12:44:47+09:00 [weekly-review] start ===',
     '[weekly-review] docs/reviews/weekly/2026-W41-review.md は develop に既にある。何もしない',
   ].join('\n');
-  assert.deepEqual({ ...lastLaunchdRun(log), line: undefined }, { at: '2026-10-10T12:44:47+09:00', result: 'skipped', line: undefined });
+  assert.deepEqual({ ...lastLaunchdRun(log), line: undefined }, { at: '2026-10-10T12:44:47+09:00', result: 'skipped', collectFailed: false, line: undefined });
+  // 今の書式: 完了は evidence complete、再生成しない回にも完了の行が付く、収集の失敗は別に出す（DN-0817）
+  const now = [
+    '=== 2026-10-31T09:30:00+09:00 [weekly-review] start ===',
+    '[weekly-collect] --phase pre rc=1',
+    '=== 2026-10-31T13:00:00+09:00 [weekly-review] evidence complete (docs/reviews/weekly/2026-W44-review.md) ===',
+    '=== 2026-10-31T13:00:01+09:00 [weekly-collect] FAILED rc=1 ===',
+  ].join('\n');
+  assert.deepEqual({ ...lastLaunchdRun(now), line: undefined }, { at: '2026-10-31T09:30:00+09:00', result: 'ok', collectFailed: true, line: undefined });
+  assert.equal(lastLaunchdRun('=== a [weekly-review] start ===\n[weekly-review] 2026-W44 の全成果物を確認。再生成しない\n=== b [weekly-review] evidence complete (x) ===').result, 'skipped');
   assert.equal(lastLaunchdRun(log + '\n=== 2026-10-17T09:30:00+09:00 [weekly-review] start ===\n=== x [weekly-review] FAILED rc=1 ===').result, 'failed');
   assert.equal(lastLaunchdRun('=== 2026-10-17T09:30:00+09:00 [weekly-review] start ===\n...').result, 'running');
   assert.equal(lastLaunchdRun(''), null);

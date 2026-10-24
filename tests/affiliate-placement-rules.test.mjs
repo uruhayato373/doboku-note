@@ -76,6 +76,15 @@ test('公的基準の章以外・トピック・ツールのページ末は Buil
   assert.equal(resolvePlacements({ pageKind: 'standards' }, NOW)['standards-list-end'], undefined);
 });
 
+test('法令は 2026-10-24 から解説の本文中間と一覧の末尾に BuildJob（PL-0042・PL-0043）、それより前は出さない', async () => {
+  const { resolvePlacements } = await load();
+  const after = Date.parse('2026-10-24T12:00:00+09:00');
+  assert.deepEqual(programs(resolvePlacements({ pageKind: 'doc', category: 'laws', isCareerDoc: false }, after)), { 'article-mid': 'buildjob' });
+  assert.deepEqual(programs(resolvePlacements({ pageKind: 'laws-list' }, after)), { 'laws-list-end': 'buildjob' });
+  assert.deepEqual(programs(resolvePlacements({ pageKind: 'doc', category: 'laws', isCareerDoc: false }, NOW)), {});
+  assert.deepEqual(programs(resolvePlacements({ pageKind: 'laws-list' }, NOW)), {});
+});
+
 test('本文の手書き転職カード（article-inline）は MDX にある 4 カテゴリだけ（2級の学習ページは建設JOBs）。技士・RCCM は本文中間と記事末が BuildJob', async () => {
   const { resolvePlacements } = await load();
   for (const category of ['civil-construction-1', 'pe-construction', 'rccm']) {
@@ -152,6 +161,17 @@ test('1 ページ 1 ピクセル: 本文（手書き > 中間）を記事末よ�
   const hub = resolvePlacements({ pageKind: 'category', category: 'civil-construction-1' }, NOW);
   assert.equal(pixelFor(hub, ['category-sidebar', 'category-mobile'])?.slot, 'category-sidebar');
   assert.equal(pixelFor(hub, ['category-mobile']), null);
+});
+
+test('意匠実験の B: テキスト素材のリンクとピクセルは同じ a8mat の組で、発火源に引き継がれる', async () => {
+  const { resolvePlacements, pixelFor } = await load();
+  const mat = (url) => new URL(url).searchParams.get('a8mat');
+  const doc = resolvePlacements({ pageKind: 'doc', category: 'civil-construction-1', isCareerDoc: false }, NOW);
+  const p = pixelFor(doc, ['article-mid']);
+  assert.equal(doc['article-mid'].program, 'buildjob');
+  assert.match(p.textPixelSrc, /^https:\/\/www\d+\.a8\.net\/0\.gif\?a8mat=/);
+  assert.equal(mat(p.textPixelSrc), mat(p.textHref));
+  assert.notEqual(mat(p.textPixelSrc), mat(p.pixelSrc));
 });
 
 test('今のルールは同じ面・重なる期間・交わる対象の組を持たない', () => {

@@ -76,6 +76,12 @@
       "pageKind": "topic",
       "pixelPriority": 1
     },
+    "laws-list-end": {
+      "label": "法令 一覧の末尾",
+      "status": "active",
+      "pageKind": "laws-list",
+      "pixelPriority": 1
+    },
     "tool-end": {
       "label": "ツール ページ末",
       "status": "active",

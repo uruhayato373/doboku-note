@@ -167,6 +167,7 @@ export function AutomationStatus({ a, cadenceId }: { a: Automation; cadenceId: '
                   {a.launchd.last ? (
                     <div>
                       最後の実行 {at(a.launchd.last.at)} <Badge variant={LAUNCHD[a.launchd.last.result].variant}>{LAUNCHD[a.launchd.last.result].label}</Badge>
+                      {a.launchd.last.collectFailed ? <Badge variant="destructive">土曜の収集が失敗</Badge> : null}
                     </div>
                   ) : (
                     <p className="m-0 text-muted-foreground">まだ一度も動いていない</p>

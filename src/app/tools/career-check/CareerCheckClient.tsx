@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useId, useRef, useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 import CareerAffiliate from "@/components/ui/CareerAffiliate/CareerAffiliate";
 import { resolvePlacements } from '@/lib/affiliate-placement';
 import * as gtag from "@/lib/gtag";
@@ -126,6 +126,17 @@ export default function CareerCheckClient({ builtAt }: { builtAt: number }) {
   const resultRef = useRef<HTMLDivElement>(null);
 
   const input: CareerCheckInput = { concern, qualification, experience, workType, role, scale, changeWant };
+
+  // 開発サーバーだけ: 管理画面の広告の見本（/affiliate/preview）が ?previewFocus=career-tool で開いたとき、既定の入力で結果を出して
+  // 広告の面まで描く（計測は送らない）。本番ビルドでは NODE_ENV で消える。
+  useEffect(() => {
+    if (process.env.NODE_ENV !== "development") return;
+    if (new URLSearchParams(window.location.search).get("previewFocus") !== "career-tool") return;
+    const timer = window.setTimeout(() => setResult(evaluateCareerCheck(input)), 0);
+    return () => window.clearTimeout(timer);
+    // 初回の既定値で 1 回だけ出す
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const run = () => {
     const r = evaluateCareerCheck(input);

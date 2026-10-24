@@ -123,3 +123,12 @@ export function collectPublishGap(marker, log) {
   const lastStatus = marker?.status ?? null;
   return { gap, markerAt, logAt, lastStatus, lastRunOk: lastStatus === "ok" };
 }
+
+/**
+ * 取得の最新マーカー（例: data/a8/ui-last-run.json）の日時を進めてよいか。1 件も取れなかった回は進めない（DN-0828）。
+ * 2026-10-24、A8 の 9 月分の取得が ERR_ABORTED で 0 件だったのに collectedAt が進み、成果取込の期限（check-a8-report-due）が緑になった。
+ * 部分取得（一部が取れた）はマーカーを進め、status=partial で残す（取れた分は normalize に載る）。
+ */
+export function advancesLastRun(units) {
+  return (units ?? []).some((u) => u.status === 'downloaded');
+}

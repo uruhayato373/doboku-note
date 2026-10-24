@@ -51,6 +51,10 @@ for (const [weeklyNeeded, dirtyAfter] of [[false, false], [true, false], [true, 
     put('scripts/check-monthly-review-due.mjs', "import {existsSync} from 'node:fs'; const done=existsSync('monthly-done.txt'); if(process.argv.includes('--due-key')) console.log(done?'':'2026-09'); else process.exitCode=done?0:1;\n");
     put('scripts/report-automation-failure.mjs', 'process.exitCode=0;\n');
     put('.claude/scripts/build-doc-meta-index.mjs', "import {writeFileSync} from 'node:fs'; writeFileSync('doc-index-ready','ready');\n");
+    // 土曜の収集（前・後）・Claude の書いた .claude/ のファイルの写し・下書きの作り直し（DN-0817・DN-0829）
+    put('scripts/weekly-collect.mjs', "import {appendFileSync,existsSync} from 'node:fs'; if(!existsSync('doc-index-ready')) throw new Error('metadata not prepared'); appendFileSync(process.env.HOME + '/collect-calls', process.argv[3] + '\\n');\n");
+    put('scripts/apply-claude-out.mjs', 'process.exitCode=0;\n');
+    put('scripts/build-weekly-review-draft.mjs', 'process.exitCode=0;\n');
     git('-C', repo, 'add', '.gitignore', 'scripts', '.claude'); git('-C', repo, 'commit', '-m', 'fixture'); git('-C', repo, 'push', 'origin', 'develop');
     mkdirSync(join(home, '.local/bin'), { recursive: true });
     writeFileSync(join(home, '.local/bin/caffeinate'), '#!/bin/bash\nexit 0\n', { mode: 0o755 });
@@ -62,6 +66,8 @@ for (const [weeklyNeeded, dirtyAfter] of [[false, false], [true, false], [true, 
       const log = readFileSync(join(home, 'Library/Logs/doboku-note/weekly-review.log'), 'utf8');
       assert.match(log, /今回の未保存変更/);
       assert.doesNotMatch(log, /evidence complete/);
+      // レビューが落ちても、後の収集は回る
+      assert.equal(readFileSync(join(home, 'collect-calls'), 'utf8'), 'pre\npost\n');
       return;
     }
     try { execFileSync('/bin/bash', [runner.pathname], { env, timeout: 15000 }); }
@@ -69,6 +75,8 @@ for (const [weeklyNeeded, dirtyAfter] of [[false, false], [true, false], [true, 
     try { execFileSync('/bin/bash', [runner.pathname], { env, timeout: 15000 }); }
     catch (e) { assert.fail(`${e.message}\n${readFileSync(join(home, 'Library/Logs/doboku-note/weekly-review.log'), 'utf8')}`); }
     assert.equal(readFileSync(join(home, 'calls'), 'utf8'), 'called\n');
+    // 収集は毎回、レビューの前と後に回る（レビューが要らない回も）
+    assert.equal(readFileSync(join(home, 'collect-calls'), 'utf8'), 'pre\npost\npre\npost\n');
     assert.equal(git('-C', repo, 'show', 'origin/develop:monthly-done.txt').trim(), 'done');
   } finally { rmSync(tmp, { recursive: true, force: true }); }
 });
