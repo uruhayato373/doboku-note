@@ -11,6 +11,7 @@
  */
 
 import { execFileSync } from 'node:child_process';
+import { createHash } from 'node:crypto';
 import { basename, join, relative } from 'node:path';
 import { existsSync, readFileSync } from 'node:fs';
 import matter from 'gray-matter';
@@ -20,6 +21,7 @@ import {
   buildTranscriptIndex,
   checkCitationEvidence,
   classRuleOf,
+  claudeTranscriptionIssue,
   evaluateMissingSourcesRatchet,
   excludeOfficialRuns,
   findVerbatimRuns,
@@ -180,6 +182,9 @@ function checkDeepTranscripts({ cfg, index, manifest, articles }) {
   }
 
   let transcriptHeaders = 0;
+  // Claude の視覚 OCR は廃止前の一覧と同じ中身だけ許す（2026-10-24）。Drive の実体の sha256 で見る
+  const legacyVisualOcr = loadReferenceBaseline().legacyVisualOcrTranscripts || {};
+  let methodChecks = 0;
   // Drive の読み取り失敗（ETIMEDOUT など）は照合せず件数を WARN で出す（Drive が無い端末と同じ扱い）
   let transcriptUnreadable = 0;
   let unreadableCode = null;
@@ -195,6 +200,10 @@ function checkDeepTranscripts({ cfg, index, manifest, articles }) {
       continue;
     }
     transcriptHeaders += 1;
+    methodChecks += 1;
+    const methodIssue = claudeTranscriptionIssue(
+      { repoPath: relPath, method: header.method, sha256: createHash('sha256').update(raw, 'utf8').digest('hex') }, legacyVisualOcr);
+    if (methodIssue) fail('transcript-method', relPath, methodIssue);
     const resolved = resolveSourceRef(header.source, index);
     if (!resolved.ok) {
       fail('transcript-source', relPath, resolved.suggest
@@ -253,7 +262,7 @@ function checkDeepTranscripts({ cfg, index, manifest, articles }) {
     }
   }
 
-  console.log(`  deep: 文字起こし対象 ${targets.length} 件 / 実体 ${files.length} 件 / frontmatter 実検査 ${transcriptHeaders} 件 / commercial-book 記事×原本 ${verbatimPairs} 組 / 逐語一致 ${verbatimHits} 件`);
+  console.log(`  deep: 文字起こし対象 ${targets.length} 件 / 実体 ${files.length} 件 / frontmatter 実検査 ${transcriptHeaders} 件（方式 ${methodChecks} 件）/ commercial-book 記事×原本 ${verbatimPairs} 組 / 逐語一致 ${verbatimHits} 件`);
   console.log(`  deep: 公式の文章 過去問ページ ${official.questionPages} 本の設問 ${official.questionChars} 字・公的資料の文 ${official.textCount} 件 / 公式の文章として除いた一致 ${officialExcluded} 件 / 比較から外した名称 ${namesMasked} 件`);
   if (official.questionPages === 0) fail('official-texts', datasetPath('config.reference-sources'), '過去問ページの設問が 0 件で、公式の文章を差し引けない（検査不成立）');
   return { transcriptTargets: targets.length, transcriptFiles: files.length - transcriptUnreadable, transcriptUnreadable, transcriptHeaders, verbatimPairs, verbatimHits, officialExcluded };

@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
 """参考文献 bundle の原本PDFに使えるテキスト層があるかを判定する。
 
-視覚OCRに何百エージェントも投じる前に必ず先に回す。book-manifest の
+機械 OCR（経路D）を回す前に必ず先に回す。book-manifest の
 renderProfile.mode（born-digital など）は「ページ画像の作り方」であって
 テキスト層の有無ではないので、判定の根拠に使わない。
 
-  CLEAN_TEXT      テキスト層をそのまま使える。視覚OCRは不要
-  DIRTY_OCR_LAYER テキスト層はあるが既存OCRの品質が低い（字送り・誤字）。視覚OCRが要る
-  NO_TEXT_LAYER   テキスト層なし。視覚OCRが要る
+  CLEAN_TEXT      テキスト層をそのまま使える。OCR は不要
+  DIRTY_OCR_LAYER テキスト層はあるが既存OCRの品質が低い（字送り・誤字）。機械 OCR が要る
+  NO_TEXT_LAYER   テキスト層なし。機械 OCR が要る
 
 使い方: python3 classify_text_layer.py [--vault <Drive vault のパス>]
 """

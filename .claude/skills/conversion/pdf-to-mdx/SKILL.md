@@ -3,7 +3,7 @@ name: pdf-to-mdx
 description: >
   PDF / 画像から MDX を生成する統合変換スキル。`--exam` フラグで試験別テンプレートを切替え、
   出力ディレクトリ構造・frontmatter スキーマ・カテゴリ推定・PDF 残骸除去を自動化する。
-  `--scanned` でテキスト層なしスキャン書籍を視覚 OCR（pdfimages＋サブエージェント）で内部リファレンス .md ＋図に変換するモードも持つ。
+  `--scanned` でテキスト層なしスキャン書籍を機械 OCR（NDLOCR-Lite／Indra OCR）で内部リファレンス .md ＋図に変換するモードも持つ（Claude は本文を書き写さない）。
   Use when user asks to [PDFをMDXに, PDF変換, 過去問取込, スキャン教材の文字起こし, 書籍OCR, 総監PDF変換, 1級土木PDF変換, /pdf-to-mdx, /pdf-to-mdx --scanned].
 domain: material
 ---
@@ -27,20 +27,22 @@ PDF または画像ファイルから doboku-note 用 MDX を生成する統合�
 
 ## スキャン書籍モード（`--scanned`）
 
-テキスト抽出ができないスキャン書籍（自炊した教材・参考書・基準書）を、**視覚 OCR で内部リファレンス Markdown（`content/sources/textbook/`）＋図**に変換する。通常モード（テキスト層 → 公開 MDX）とは抽出方式・出力先・図処理がすべて異なるため、**手順は別ファイルに分離**:
+テキスト抽出ができないスキャン書籍（自炊した教材・参考書・Kindle 取込）を、**機械 OCR で内部リファレンス Markdown＋図**に変換する。通常モード（テキスト層 → 公開 MDX）とは抽出方式・出力先・図処理がすべて異なる。
 
-→ **`references/scanned-image-pipeline.md`** を参照。**着手前に、まず経路C（テキスト層の有無）を機械判定し、視覚OCRが要る本だけ1ページ目視で経路A/Bを判定**する:
+> [!warning] Claude は市販書籍の本文を書き写さない（2026-10-24）
+> ページ画像を Claude（サブエージェントを含む）が読んで本文を書き起こすのは、私的利用でも著作物の複製を Claude が作ることになるのでやらない。文字にするのは機械 OCR（obsidian vault の `ocr_pdf.py`）だけ。Claude がするのは、スクリプトの実行・品質の確認（画像と照らすのは数行まで）・できたテキストを参考資料として読むこと。method に `visual-ocr` を含む文字起こしの新規・変更は検査が止める（`scripts/book-ocr/README.md`「Claude の視覚 OCR を機械で止める」）。
 
-- **経路A: pdfimages 見開き** — 見開き2ページが90°回転で格納されたスキャン。手順書 Step 1-7（bash。pdfimages 抽出→回転/分割→並列OCR→章分割→図クロップ。bash3.2/zsh/ディスク/破損ページの落とし穴も収録）。
-- **経路B: PyMuPDF 単ページ** — 1 PDF ページ＝1 書籍ページ・正立。pdfimages/ImageMagick が無い環境（会社 Windows 等）でも可。再利用スクリプト一式 **`scripts/scanned/`**（`render_pages.py`→OCR Workflow `ocr_fanout.workflow.js`→**校正 Workflow `proofread.workflow.js`**→`concat_chapters.py`→`prep_figures.py`→図 locate Workflow `figure_bbox.workflow.js`→`crop_embed_figures.py --crop-only`→**図 audit/refine ループ**（`prep_audit_jobs.py`→`figure_crop_audit.workflow.js`→`apply_deltas_recrop.py` を反復）→`crop_embed_figures.py`→`trim_placeholders.py`。runbook = `scripts/scanned/README.md`）。解像度 2200px・図 bbox の候補窓＋groupSize 順次処理（レート制限回避）・確信度しきい値・冪等性の知見を織り込み済み。
+**OCR テキストの使い方**: 記事・note・ノートには**自分の言葉の要約**を書く。引用が要るときは短くし、出典（書名・ページ）を付ける。ただし `commercial-book` の逐語は公開物に一文も載せない（[reference-sources-policy.md](../../../knowledge/reference/reference-sources-policy.md) §1 が優先。`check-reference-sources --deep` が 40 字以上の一致を止める）。OCR テキストを会話やファイルに長く貼らない。
 
-- **経路C: テキスト層抽出（born-digital）** — 原本に使えるテキスト層があり、視覚OCRを1ページも回さずに全文が取れる本。**視覚OCRに着手する前に必ず判定する**（`scripts/text-layer/classify_text_layer.py`）。`book-manifest.json` の `renderProfile.mode` は**ページ画像の作り方**でテキスト層の有無ではないので、`born-digital` を「OCR不要」の根拠にしない（Kindle 画面取込などテキスト層の無い `born-digital` が多数ある）。構造は `pdftohtml -xml` の行頭/行末 x（版面の幾何）で決め、`-layout` の空白数は使わない。runbook = `scripts/text-layer/README.md`。
+手順の順:
 
-**着手前の必須チェック（経路A/B 共通）**: 自炊の手持ち撮影は指が写り込んで本文を隠す。視覚OCRは隠れた文字を文脈から埋め、出来上がった文が自然な日本語になるため**後段の校正では検出できない**。OCR に入る前に `scripts/occlusion/detect_occlusion.py` で候補を挙げ、本文が隠れている版面は撮り直しに回す。読めない箇所は 〔判読不能〕 と書き、埋めない。**候補率は「本文が隠れている率」ではない**（肌色の絵・余白を押さえる指・書影も候補に挙がる）。絞り込みに使い、要否は候補ページの目視で決める。実測の内訳は scripts/occlusion/README.md、スキャン結果は .claude/state/assets/reference-book-occlusion-scan.json。
+1. **新しい本は先に bundle にする**（`config/reference-sources.json` に登録 → `npm run build-reference-book-pages -- --source-id <id> --commit` で `source/`・`pages/`・`book-manifest.json`）。見開き分割・回転・Kindle 枠の切り落としはこの段で済む。旧 `content/sources/textbook/` の章別の置き場（経路A/B）は新しい本に使わない
+2. **経路C: テキスト層抽出（born-digital）** — 原本に使えるテキスト層があれば OCR を回さない。**OCR に着手する前に必ず判定する**（`scripts/text-layer/classify_text_layer.py`）。`book-manifest.json` の `renderProfile.mode` は**ページ画像の作り方**でテキスト層の有無ではないので、`born-digital` を「OCR不要」の根拠にしない。runbook = `scripts/text-layer/README.md`
+3. **着手前のゲート**: 自炊の手持ち撮影は指が写り込んで本文を隠す。`scripts/occlusion/detect_occlusion.py` で候補を挙げ、本文が隠れている版面は撮り直しに回す。**候補率は「本文が隠れている率」ではない**（肌色の絵・余白を押さえる指・書影も候補に挙がる）。実測の内訳は scripts/occlusion/README.md、スキャン結果は .claude/state/assets/reference-book-occlusion-scan.json
+4. **経路D: 参考文献 bundle の機械 OCR** — `book_ocr_prep.py`（sha256 照合した原寸画像）→ `book_ocr_machine.py`（`ocr_pdf.py` が縦書き＝NDLOCR-Lite／横書き＝Indra OCR／文字層を自動選択。必ず数ページの試し読みから）→ `book_ocr_concat.py`（48 ページ part・ゲート）→ `register.sh --commit`（`record-reference-book-artifacts` で Drive と台帳へ）。runbook = `scripts/book-ocr/README.md`。マーカーは画像 id `<!-- p0001 -->`（印字ノンブルではない）
+5. **図** — 最終図のクロップは機械の切り出し（`crops/`・`npm run record-reference-book-crops`）。図の位置を決める locate と、実クロップ PNG を4軸採点して `adjust_bbox` を返す `scanned-figure-crop-auditor`（Evaluator・sonnet）は本文を書き写さないので続けて使う。旧経路B の図ループは `scripts/scanned/README.md`
 
-- **経路D: 参考文献 bundle の視覚OCR** — `content/sources/books/` の bundle（Drive の `pages/pNNNN.jpg`）を、Sonnet 第1読（6p/体）→ Tesseract 第二読（無料）→ 一致率の低いページだけ Sonnet 第2読 → 48 ページ part へ連結 → `record-reference-book-artifacts` で Drive と台帳へ、の順で起こす。モデルが読むのは全ページ 1 回＋食い違ったページだけもう 1 回。runbook = `scripts/book-ocr/README.md`。マーカーは画像 id `<!-- p0001 -->`（印字ノンブルではない）。
-
-ワーカー: 本文 OCR/校正 = サブエージェント `scanned-textbook-transcriber`（Generator・sonnet）／図 locate = `civil-exam-figure-extractor` と同型の Generator／**図クロップ品質監査 = `scanned-figure-crop-auditor`（Evaluator・sonnet。実クロップ PNG を4軸採点し `adjust_bbox` を返す。locate 単発では枠が緩く本文写り込み・切れが残るため必須）**。**市販書籍スキャンは内部リファレンス専用＝公開しない**（`content/sources/textbook/**/img` は r2-sync 対象外＝公開R2へ同期されない。README に明記）。文字起こしには `config/reference-sources.json` の ID を示す frontmatter を付け、`source-transcript` group で Drive に同期する。
+**市販書籍スキャンは内部リファレンス専用＝公開しない**（原本・ページ画像・OCR は Git と公開 R2 に置かない。実体は Drive vault）。文字起こしには `config/reference-sources.json` の ID を示す frontmatter を付け、`source-transcript` group で Drive に同期する。
 
 ## 利用可能な exam テンプレート
 
@@ -79,6 +81,7 @@ PDF または画像ファイルから doboku-note 用 MDX を生成する統合�
 - **PDF**: Read ツールの `pages` パラメータで 20 ページずつ読み取り
 - **画像**: Read ツールで直接読み取り
 - **大規模 PDF（20 ページ超）**: Agent tool でサブエージェントに委任。メインでは全体構造の把握のみ
+- 通常モードの入力は公的資料・公式過去問・運営者の著作物に限る。**市販書籍（`commercial-book`）を Read で読んで MDX に起こさない**（文字にするのは `--scanned` の機械 OCR だけ）
 
 ### Step 4: コンテンツ分析
 
@@ -262,9 +265,9 @@ node .claude/scripts/upload-images-to-r2.mjs --prefix {category}/{slug}
 - `.claude/knowledge/reference/content-authoring.md` — MDX 作成詳細ルール
 - `.claude/skills/conversion/pdf-to-mdx/templates/` — 試験別テンプレート
 - `.claude/skills/conversion/pdf-to-mdx/references/clean-pdf-artifacts.md` — PDF 残骸除去詳細
-- `.claude/skills/conversion/pdf-to-mdx/references/scanned-image-pipeline.md` — `--scanned` 手順書（経路A/B）
-- `.claude/skills/conversion/pdf-to-mdx/scripts/scanned/` — 経路B（PyMuPDF 単ページ）再利用スクリプト一式＋runbook
+- `.claude/skills/conversion/pdf-to-mdx/references/scanned-image-pipeline.md` — 旧 `--scanned` 手順書（経路A/B・本文 OCR は廃止。画像抽出と図の知見の記録）
+- `.claude/skills/conversion/pdf-to-mdx/scripts/scanned/` — 旧経路B（PyMuPDF 単ページ）のレンダリングと図ループ（本文 OCR の Workflow は廃止）
 - `.claude/skills/conversion/pdf-to-mdx/scripts/text-layer/` — 経路C（テキスト層抽出）判定スクリプト＋実装例＋runbook
 - `.claude/skills/conversion/pdf-to-mdx/scripts/occlusion/` — 指の写り込み検出（OCR 着手前のゲート）
-- `.claude/skills/conversion/pdf-to-mdx/scripts/book-ocr/` — 経路D（参考文献 bundle の視覚OCR）prep/fanout/tesseract/compare/proofread/concat ＋ runbook
+- `.claude/skills/conversion/pdf-to-mdx/scripts/book-ocr/` — 経路D（参考文献 bundle の機械 OCR）prep/machine/concat ＋ runbook
 - `.claude/scripts/lib/mdx-io.mjs` — CRLF 保持 I/O（必須）

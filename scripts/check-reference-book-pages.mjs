@@ -8,6 +8,8 @@
  * 黙って画像にならず、除外の範囲もずれる）。pdfinfo が無い端末では照合しないと出す。
  * 文字起こしの残り（complete・not-needed 以外のページ）がある本は、参考文献の台帳の bookBundle.ocrPending に
  * 追うカード（backlog に残っているもの）か、しない理由が無いと止める（2026-10-13。54 頁がどのカードにも載っていなかった）。
+ * 文字起こしの method が Claude の視覚 OCR なら、廃止前の一覧（reference-sources-baseline.json の
+ * legacyVisualOcrTranscripts）と同じ sha256 のものだけを通す（2026-10-24。新しい本は機械 OCR で作る）。
  */
 
 import fs from 'node:fs';
@@ -31,7 +33,7 @@ import {
   validateBookManifestShape,
 } from './lib/reference-book-bundle.mjs';
 import { parseBacklog } from './lib/backlog-lib.mjs';
-import { loadReferenceSources } from './lib/reference-sources.mjs';
+import { claudeTranscriptionIssue, CLAUDE_TRANSCRIPTION_METHOD, loadReferenceBaseline, loadReferenceSources } from './lib/reference-sources.mjs';
 import { REPO_ROOT, TODO_ROOT } from './lib/repository-paths.mjs';
 
 const NAME = 'check-reference-book-pages';
@@ -105,6 +107,8 @@ if (!fs.existsSync(backlogFile)) {
 }
 const openBacklogIds = new Set(parseBacklog(fs.readFileSync(backlogFile, 'utf8')).map((card) => card.id).filter(Boolean));
 const ocrRemaining = { books: 0, pages: 0, byCard: 0, byReason: 0 };
+const legacyVisualOcr = loadReferenceBaseline().legacyVisualOcrTranscripts || {};
+const ocrMethods = { checked: 0, legacyVisual: 0 };
 
 for (const source of targets) {
   const label = source.id;
@@ -158,6 +162,10 @@ for (const source of targets) {
   }
 
   for (const artifact of manifest.ocrArtifacts || []) {
+    ocrMethods.checked += 1;
+    const methodIssue = claudeTranscriptionIssue(artifact, legacyVisualOcr);
+    if (methodIssue) fail(label, `${artifact.repoPath}: ${methodIssue}`);
+    else if (CLAUDE_TRANSCRIPTION_METHOD.test(artifact.method || '')) ocrMethods.legacyVisual += 1;
     const entry = driveManifest.entries[artifact.repoPath];
     if (!entry) { fail(label, `${artifact.repoPath} が drive-manifest に無い`); continue; }
     if (entry.group !== 'source-transcript') fail(label, `${artifact.repoPath} の group=${entry.group}`);
@@ -269,6 +277,7 @@ for (const source of targets) {
 }
 
 console.log(`[${NAME}] 対象 ${targets.length} 冊 / manifest ${checkedManifests} 冊 / 文字起こしの残り ${ocrRemaining.books} 冊 ${ocrRemaining.pages} 頁（カードで追う ${ocrRemaining.byCard} 冊・しない理由つき ${ocrRemaining.byReason} 冊）`);
+console.log(`[${NAME}] 文字起こしの方式 ${ocrMethods.checked} 件を検査（廃止前の視覚 OCR ${ocrMethods.legacyVisual} 件・一覧 ${Object.keys(legacyVisualOcr).length} 件）`);
 console.log(`[${NAME}] Drive 実体照合: 原本 ${checkedSources} ファイル（実ページ数 ${checkedPdfPageCounts} 件${pdfinfoMissing ? '・pdfinfo が無く未照合' : ''}） / ページ画像 ${checkedPages} 枚${DEEP ? '（全件）' : `（各冊 約${SAMPLE} 枚）`} / OCR ${checkedOcrArtifacts} / crop ${checkedCrops}`);
 for (const warning of warnings) console.warn(`  ! ${warning}`);
 if (vaultReads > 0 && vaultUnreadable === vaultReads) {

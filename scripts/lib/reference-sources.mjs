@@ -470,6 +470,25 @@ export function parseTranscriptHeader(md) {
   return { kind: 'none' };
 }
 
+/**
+ * 市販書籍の本文を Claude がページ画像から書き写す経路は 2026-10-24 に廃止した（私的利用でも複製を作る主体が
+ * Claude になる）。文字にするのは機械 OCR（book_ocr_machine.py → obsidian vault の ocr_pdf.py）だけ。
+ * method にこの語を持つ文字起こしは、baseline の legacyVisualOcrTranscripts（廃止時点の論理キー → sha256）と
+ * 同じ中身のものだけを許す。新規・中身の変更はエラー文を返し、それ以外は null。
+ */
+export const CLAUDE_TRANSCRIPTION_METHOD = /visual-ocr|visual-proofread/i;
+
+export function claudeTranscriptionIssue({ repoPath, method, sha256 }, legacy = {}) {
+  if (!CLAUDE_TRANSCRIPTION_METHOD.test(String(method || ''))) return null;
+  if (!Object.hasOwn(legacy, repoPath)) {
+    return `method "${method}" は Claude の視覚 OCR で、廃止前の一覧（legacyVisualOcrTranscripts）に無い。機械 OCR（book_ocr_machine.py）で作る`;
+  }
+  if (legacy[repoPath] !== sha256) {
+    return `廃止前の視覚 OCR の中身が変わった（sha256 不一致）。手で直さず、機械 OCR（book_ocr_machine.py）で作り直して一覧から消す`;
+  }
+  return null;
+}
+
 export function loadReferenceBaseline(path = REFERENCE_BASELINE_PATH) {
   if (!existsSync(path)) return { version: 1, description: '', missingSources: [] };
   try { return JSON.parse(readFileSync(path, 'utf-8')); } catch { return { version: 1, description: '', missingSources: [] }; }

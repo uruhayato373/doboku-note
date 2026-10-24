@@ -75,7 +75,7 @@
       "accountConfigPath": "config/coconala-account.json",
       "sessionMode": "profile",
       "interactiveLoginRequired": true,
-      "notes": "sellerName: dobokunote の本文一致 assert あり。 2026-10-13: CI（hosted runner）からはココナラが 403 Forbidden を返すので CI の取得を止め、Mac の coconala-local（launchd 毎週火 10:45・取引一覧・出品分析・売上履歴）を正にした（運営者判断・DN-0667）。",
+      "notes": "sellerName: dobokunote の本文一致 assert あり。 2026-10-13: CI（hosted runner）からはココナラが 403 Forbidden を返すので CI の取得を止め、Mac の coconala-local（launchd 毎週火 05:15・取引一覧・出品分析・売上履歴）を正にした（運営者判断・DN-0667）。",
       "ci": {
         "mode": "encrypted-state",
         "enabled": false,

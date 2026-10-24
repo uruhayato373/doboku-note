@@ -1,9 +1,10 @@
 ---
 name: reference_scanned_pdf_pipeline
-description: "スキャンPDF/書籍の文字起こし・OCR。pdf-to-mdx --scanned 正規版と旧pdftoppm方式の学び・視覚OCRの罠(psm3/jpn_vert・Drive 0バイト・マーカー相対番号)"
+description: "スキャンPDF/書籍の文字起こし・OCR。市販書籍は機械OCRだけ(2026-10-24・Claudeは書き写さない)、旧視覚OCRの学び(psm3/jpn_vert・Drive 0バイト・マーカー相対番号)"
 metadata:
   type: reference
 ---
+> **更新 2026-10-24（市販書籍は機械 OCR だけ）**: 市販書籍の本文を Claude（サブエージェント含む）がページ画像から書き写すのをやめた（私的利用でも複製を作る主体が Claude になる。obsidian vault の決定 `memos/20261024_decision_OCRは機械で行う.md`）。`scanned-textbook-transcriber` と書き写しの Workflow は削除。新経路＝`pdf-to-mdx` 経路D `book_ocr_machine.py`（vault の `ocr_pdf.py`：縦書き NDLOCR-Lite／横書き Indra／文字層）。視覚 OCR の新規・変更は検査が止める（[[reference_quality_audit_system]]）。**下の視覚 OCR の記録は旧経路**。公式過去問（exam-official）の転記は対象外だが、まず OCR スクリプトを使う。
 > **更新 2026-06-14（正規版へ昇格）**: このパイプラインは **`pdf-to-mdx --scanned` スキル** ＋ **`scanned-textbook-transcriber` エージェント**として資産化済み。手順の真実源は `.claude/skills/conversion/pdf-to-mdx/references/scanned-image-pipeline.md`。**抽出は `pdftoppm` ではなく `pdfimages -j` が正**（再ラスタライズせず直接ダンプ＝瞬時・ネイティブ解像度、pdftoppm はネイティブ超え upscale で遅い）。回転は `magick -rotate 90`、見開きは L/R 分割で単頁化（vision の ~1568px downscale 対策＝単頁が borderline 解消）。落とし穴（macOS bash3.2 `declare -A` 不可・zsh `${=var}`・ディスク ENOSPC で静かに truncate→破損ページはスプレッド直接クロップで救済・図は bbox 比率判定→元解像度クロップ埋め込み）も skill reference に収録。技術士建設部門「論文対策キーワード」168見開き→7章312k字＋図31点で実証。**下記は旧 pdftoppm 方式の記録（agent flake 自己修復・details/summary 等の学びは現役）。**
 
 コンクリート主任技師の原典は**手持ち写真スキャン**（90°回転・指写り・縦書き）。レンダリングPNGは表示縮尺だと判読不可だが、回転補正で完全可読になる。

@@ -192,6 +192,7 @@ const ReferenceSourcesBaseline = z
     description: text,
     missingSources: z.array(z.unknown()),
     figureReuseDebt: z.array(z.unknown()),
+    legacyVisualOcrTranscripts: z.record(z.string(), z.string().regex(/^[0-9a-f]{64}$/)),
     _updatedAt: day,
   })
   .strict();
