@@ -6478,12 +6478,12 @@
         "metricId": "a8ConfirmedYen",
         "reviewRecord": "data/business/records/review-2026-10-01T06-45-46-827Z-32027a75-8673-4253-90b2-a16aadb455a1.json"
       },
-      "status": "proposed",
+      "status": "running",
       "created_at": "2026-10-24T02:59:46.600Z",
       "closed_at": null,
       "result": null,
       "learnings": null,
-      "next_check_date": null,
+      "next_check_date": "2026-11-21",
       "actions": [
         "B（小型カード）と C（支給の 300×250 バナー＋ボタン）を、既存の許可済み 3 案件・既存の掲載面へ同率で配信する。面・案件・note の順序は変えない。",
         "ビルドジョブは B をテキスト素材（NTRMQ）、C をバナー素材（NTZCH）のリンクにし、A8 の成果を案別に分ける。計測ピクセルは案が決まってから、その案の素材のピクセルを 1 ページ 1 発（B は NTRMQ・C は NTZCH）。",
@@ -6522,7 +6522,7 @@
       ],
       "measurementPlan": {
         "kind": "affiliate-design",
-        "status": "awaiting-deploy",
+        "status": "running",
         "firstRound": [
           "B",
           "C"
@@ -6559,8 +6559,16 @@
           "at": "2026-10-24T02:59:46.600Z",
           "event": "implement",
           "note": "運営者の指示で、EXP-038 の A を外し、支給バナーを C として B と 2 案に組み直した。計測の仕組み（イベント・CI 取得・週次記録）は実験 ID だけ替えて使う。公開前のため status は proposed。"
+        },
+        {
+          "at": "2026-10-24T05:26:39Z",
+          "event": "start",
+          "note": "PR #1212（EXP-043）・#1213（法令ページの配線・本文中間の枠）を develop へマージし、Pre-merge check 合格の b77091473 を main へ昇格して本番に出した。check-production-ssr 合格。本番のページに EXP-043 の印と B の計測ピクセル（NTRMQ）があり、配信コードに割り当てのキーがあることを確かめた。B/C を約 1/2 ずつ配信する。判定は 28 日後（2026-11-21）。",
+          "commit": "0afe33d6b",
+          "runUrl": "https://github.com/uruhayato373/doboku-note/actions/runs/40065979600"
         }
-      ]
+      ],
+      "started_at": "2026-10-24T05:26:39Z"
     }
   ]
 }
