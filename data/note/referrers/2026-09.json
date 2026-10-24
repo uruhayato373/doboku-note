@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "month": "2026-09",
-  "fetchedAt": "2026-10-21T08:55:39.901Z",
+  "fetchedAt": "2026-10-24T08:59:27.803Z",
   "source": "note ダッシュボード「アクセス状況」（Playwright read-only・自己閲覧を含む）。流入元は閲覧の経路であり購入経路ではない",
   "period": {
     "from": "2026-09-01",
@@ -147,11 +147,11 @@
     {
       "month": "2026-06",
       "sources": {
-        "no referrer": 1236,
-        "note.com": 3930,
-        "Google": 852,
-        "www.bing.com": 531,
-        "search.yahoo.co.jp": 262,
+        "no referrer": 1207,
+        "note.com": 3822,
+        "Google": 792,
+        "www.bing.com": 513,
+        "search.yahoo.co.jp": 250,
         "doboku-note.com": 0,
         "X": 9,
         "notification": 24,
@@ -159,32 +159,32 @@
         "service.smt.docomo.ne.jp": 8,
         "other": 48
       },
-      "total": 6913
+      "total": 6686
     },
     {
       "month": "2026-07",
       "sources": {
-        "no referrer": 3603,
-        "note.com": 5294,
-        "Google": 2661,
-        "www.bing.com": 1310,
-        "search.yahoo.co.jp": 893,
+        "no referrer": 3519,
+        "note.com": 5147,
+        "Google": 2615,
+        "www.bing.com": 1292,
+        "search.yahoo.co.jp": 878,
         "doboku-note.com": 0,
         "X": 30,
         "notification": 8,
-        "copilot.microsoft.com": 13,
+        "copilot.microsoft.com": 10,
         "service.smt.docomo.ne.jp": 6,
-        "other": 54
+        "other": 52
       },
-      "total": 13872
+      "total": 13557
     },
     {
       "month": "2026-08",
       "sources": {
-        "no referrer": 4450,
-        "note.com": 1649,
-        "Google": 618,
-        "www.bing.com": 294,
+        "no referrer": 4441,
+        "note.com": 1609,
+        "Google": 614,
+        "www.bing.com": 290,
         "search.yahoo.co.jp": 242,
         "doboku-note.com": 0,
         "X": 9,
@@ -193,84 +193,84 @@
         "service.smt.docomo.ne.jp": 2,
         "other": 22
       },
-      "total": 7296
+      "total": 7239
     },
     {
       "month": "2026-09",
       "sources": {
-        "no referrer": 10009,
-        "note.com": 1680,
-        "Google": 808,
-        "www.bing.com": 624,
-        "search.yahoo.co.jp": 280,
+        "no referrer": 9996,
+        "note.com": 1663,
+        "Google": 798,
+        "www.bing.com": 615,
+        "search.yahoo.co.jp": 279,
         "doboku-note.com": 79,
         "X": 4,
         "notification": 7,
-        "copilot.microsoft.com": 5,
+        "copilot.microsoft.com": 4,
         "service.smt.docomo.ne.jp": 8,
         "other": 20
       },
-      "total": 13524
+      "total": 13473
     },
     {
       "month": "2026-10",
       "sources": {
-        "no referrer": 9808,
-        "note.com": 1016,
-        "Google": 449,
-        "www.bing.com": 516,
-        "search.yahoo.co.jp": 156,
-        "doboku-note.com": 142,
-        "X": 7,
+        "no referrer": 9987,
+        "note.com": 1175,
+        "Google": 505,
+        "www.bing.com": 597,
+        "search.yahoo.co.jp": 174,
+        "doboku-note.com": 204,
+        "X": 12,
         "notification": 1,
         "copilot.microsoft.com": 1,
         "service.smt.docomo.ne.jp": 5,
-        "other": 12
+        "other": 16
       },
-      "total": 12113
+      "total": 12677
     }
   ],
   "targetMonth": {
     "month": "2026-09",
     "sources": {
-      "no referrer": 10009,
-      "note.com": 1680,
-      "Google": 808,
-      "www.bing.com": 624,
-      "search.yahoo.co.jp": 280,
+      "no referrer": 9996,
+      "note.com": 1663,
+      "Google": 798,
+      "www.bing.com": 615,
+      "search.yahoo.co.jp": 279,
       "doboku-note.com": 79,
       "X": 4,
       "notification": 7,
-      "copilot.microsoft.com": 5,
+      "copilot.microsoft.com": 4,
       "service.smt.docomo.ne.jp": 8,
       "other": 20
     },
-    "total": 13524
+    "total": 13473
   },
   "pie": [
     {
       "source": "no referrer",
-      "pv": 10009,
-      "share": 74
+      "pv": 9996,
+      "share": 74.2
     },
     {
       "source": "note.com",
-      "pv": 1680,
-      "share": 12.4
+      "pv": 1663,
+      "share": 12.3
     },
     {
       "source": "Google",
-      "pv": 808,
-      "share": 6
+      "pv": 798,
+      "share": 5.9
     },
     {
       "source": "www.bing.com",
-      "pv": 624,
+      "pv": 615,
       "share": 4.6
     },
     {
       "source": "search.yahoo.co.jp",
-      "pv": 280,
+      "pv": 279,
       "share": 2.1
     },
     {
@@ -295,7 +295,7 @@
     },
     {
       "source": "copilot.microsoft.com",
-      "pv": 5,
+      "pv": 4,
       "share": 0
     },
     {
@@ -305,10 +305,10 @@
     }
   ],
   "summary": {
-    "impressions": 101171,
-    "pageViews": 13524,
+    "impressions": 98804,
+    "pageViews": 13473,
     "likes": 94,
-    "comments": 1,
-    "salesYen": 104840
+    "comments": null,
+    "salesYen": 103560
   }
 }
