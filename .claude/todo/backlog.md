@@ -342,6 +342,21 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-0824] next を 16.4.1 以上へ上げ、Dependabot の critical 2 件・high 1 件を閉じる
+タグ: [インフラ・計測] [領域:管理] [時期:2026-10..2026-11] [種類:不具合] [起票:2026-10-24]
+
+**起点**: 週次レビュー（2026-10-19〜2026-10-25）の点検。Dependabot が 10/23 に next の脆弱性 3 件を出した（#106 high・Server Actions の DoS、#107 critical・Image Optimization API の SVG による RCE、#109 critical・`use cache` の RCE）。対象は next >=16.0.0 <=16.4.0、修正版は 16.4.1。手元は 16.3.8（`package.json` は `^16.3.8`）。
+
+本番は `output: 'export'`・`images.unoptimized: true`（`next.config` 8〜10 行）の静的配信なので、Server Actions・画像最適化 API・`use cache` は本番で動いていない見込み。開発サーバー（3020）と管理画面だけが該当しうる。見込みであり未検証。
+
+**やること**:
+1. feature ブランチで next を 16.4.1 以上へ上げ（lockfile も）、`node_modules/next/dist/docs/` の変更点を読む
+2. `npm run build`・`npm run type-check`・`npm run test`・E2E を通し、`curl` で `<main>` と主要語を確かめる
+3. PR（base=develop）でマージし、Dependabot の 3 件が閉じたことを確かめる
+
+**完了条件**: `gh api repos/uruhayato373/doboku-note/dependabot/alerts` で next の open が 0 件。
+
+
 ### [DN-0823] （DN-0817 段5）ほかのセッションのスキルを「記録を読む」に変え、ログインの方針文書を書き直す
 タグ: [インフラ・計測] [領域:管理] [時期:2026-12] [種類:改善] [起票:2026-10-24]
 
