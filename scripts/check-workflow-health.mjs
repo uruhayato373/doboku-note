@@ -146,7 +146,7 @@ export function auditRuns(name, runs, { maxAgeDays, maxConsecutiveFailures, sche
   for (const r of sorted) {
     if (r.conclusion === 'success') break;
     // skipped / cancelled は「失敗」ではないので連続失敗を切らずに読み飛ばす。共通 group で待機中に取り消された
-    // 定期実行は rerun-cancelled-schedules.yml が再実行し、それでも欠けたままなら maxAgeDays で拾う（DN-0750）。
+    // 定期実行は maxAgeDays で拾う（再実行の workflow は 0 件の実績で 2026-10-25 に外した・DN-0849）。
     if (r.conclusion === 'failure' || r.conclusion === 'timed_out') consecutiveFailures += 1;
     else break;
   }

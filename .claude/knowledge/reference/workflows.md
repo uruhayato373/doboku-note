@@ -15,10 +15,12 @@ title: 推奨ワークフロー
 ```
 金曜:
 1. 06:00 JST  fetch-metrics.yml（自動）<- GSC + GA4 取得・成長パック・Bing・検索改善の本番反映の検出・実験の自動計測・機会ダイジェスト
-   12:00 JST  gsc-auto-review.yml（自動）<- ダイジェストの OPP に意味の判断を足す
-土曜:
-2. 09:00 JST  /weekly-review          <- 実績を振り返る（計測ダイジェストを埋め込み、全件トリアージで backlog/実験へ起票）
-3. 09:00 JST  /plan-weekly            <- 来週の計画を .claude/todo/weekly.md に書く（[時期:] が今月を含むカードと申し送りの DN から選定）
+土曜 09:30 JST（Mac の launchd・scripts/scheduled/weekly-review.sh が次を順に回す）:
+2. 収集の前段（weekly-collect --phase pre）<- ログインが要る取得と、その検算・note の公開状態の照合
+3. GSC の記録層（run_gsc_record・旧 gsc-auto-review.yml）<- ダイジェストの OPP に意味の判断を足す（失敗は channel gsc-auto-review）
+4. /weekly-review                       <- 実績を振り返る（計測ダイジェストを埋め込み、全件トリアージで backlog/実験へ起票）
+5. /plan-weekly                         <- 来週の計画を .claude/todo/weekly.md に書く（[時期:] が今月を含むカードと申し送りの DN から選定）
+6. 収集の後段（weekly-collect --phase post）<- note のライブ照合・同期
 月曜:
 4. 11:17 JST  weekly-review-guard.yml（自動）<- 先週分の *-review.md 欠落を赤落ち・計測ダイジェストの未処分/未反映を Issue で検知
 ```
@@ -27,7 +29,7 @@ title: 推奨ワークフロー
 
 詳細は `.claude/skills/management/weekly-review/SKILL.md` と `.claude/skills/management/plan-weekly/SKILL.md` を参照（`/weekly-plan` は戦略を練り直す週だけ手動で使う）。
 
-**実行主体（2026-10-10〜・3 段）**: (1) 金曜 13:00 JST に CI `weekly-review-draft.yml` が機械の節を `.claude/state/weekly-review/draft.json` に書き、前週のダイジェスト・KPI の欠けを Issue（channel: weekly-review-draft）にする。(2) 土曜 9:30 に Mac の launchd `com.doboku-note.weekly-review`（`scripts/scheduled/weekly-review.sh`・導入は `npm run weekly-review:install`）が、まず収集用 worktree でログインが要る取得（`weekly-collect --phase pre`：ログイン確認・A8・KDP・note・ココナラ・GSC・note の公開状態の照合〔note-audit〕。各段は取った記録の検算つき。2026-10-24〜、DN-0817）を回し、専用 worktree でヘッドレスの Claude Code に `/weekly-review` と `/plan-weekly` を回させ develop へ push し、最後に後段（`--phase post`：note のライブ照合・同期）を回す。レビューは記録と最終取得日を読み、ログインして取りに行かない。収集の失敗は別の Issue（channel: weekly-collect）、日々の死活は `npm run check-weekly-collect:alive`、段ごとの合否は `npm run check-weekly-collect`（週次レビューが読む・DN-0847）。develop に今週分が入らなければ Issue（channel: weekly-review-local）。(3) 判断待ちの諮問はヘッドレスでは聞けないので、レビューの印 `<!-- weekly-review:pending-questions -->` を SessionStart の `check-weekly-review-due` が知らせ、対話セッションで諮る。月曜の guard は従来どおり先週分の実在を見る。経緯: 2026-W40 が抜けた（土曜に対話セッションを開かないと何も始まらず、fetch-metrics の書き戻しが止まっていたことにも気づかなかった）。
+**実行主体（2026-10-10〜・3 段）**: (1) 金曜の CI の下書き（`weekly-review-draft.yml`）は土曜に作り直すので使われておらず、2026-10-25 に外した（DN-0849）。下書き（`.claude/state/weekly-review/draft.json`）は土曜の Mac が収集の後に作る。(2) 土曜 9:30 に Mac の launchd `com.doboku-note.weekly-review`（`scripts/scheduled/weekly-review.sh`・導入は `npm run weekly-review:install`）が、まず収集用 worktree でログインが要る取得（`weekly-collect --phase pre`：ログイン確認・A8・KDP・note・ココナラ・GSC・note の公開状態の照合〔note-audit〕。各段は取った記録の検算つき。2026-10-24〜、DN-0817）を回し、専用 worktree で GSC の記録層（`run_gsc_record`・ヘッドレスの Claude が観測ログの断片を書き `apply-gsc-records` が追記・失敗は channel gsc-auto-review・DN-0849）を回したあと、ヘッドレスの Claude Code に `/weekly-review` と `/plan-weekly` を回させ develop へ push し、最後に後段（`--phase post`：note のライブ照合・同期）を回す。レビューは記録と最終取得日を読み、ログインして取りに行かない。収集の失敗は別の Issue（channel: weekly-collect）、日々の死活は `npm run check-weekly-collect:alive`、段ごとの合否は `npm run check-weekly-collect`（週次レビューが読む・DN-0847）。develop に今週分が入らなければ Issue（channel: weekly-review-local）。(3) 判断待ちの諮問はヘッドレスでは聞けないので、レビューの印 `<!-- weekly-review:pending-questions -->` を SessionStart の `check-weekly-review-due` が知らせ、対話セッションで諮る。月曜の guard は従来どおり先週分の実在を見る。経緯: 2026-W40 が抜けた（土曜に対話セッションを開かないと何も始まらず、fetch-metrics の書き戻しが止まっていたことにも気づかなかった）。
 
 **月次の自動起動（2026-10-17〜）**: 同じ土曜9:30の launchd が毎月3日以降に前月の完成証拠と `nextReviewDate` を読み、未完・再確認日到来なら `/monthly-review YYYY-MM` も実行する。週次が完了済みでも月次を省かない。初回は3日以降最初の土曜、途中の補完は記録の次回日以降の土曜。登録を増やさず、週次と同じロック・専用worktree・失敗通知を使う。SNS保留中は `DOBOKU_SNS_PAUSED=1` でSessionStartのX照合も止め、保存済みデータのみを参照し、認証復旧や新規取得・公開・予約を行わない。完了はdevelop上の月次レポート・事業記録とsnapshot・全点検と行き先・次回日で確認する。
 

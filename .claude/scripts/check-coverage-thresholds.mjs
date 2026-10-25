@@ -16,7 +16,7 @@
  *   - indexed_ratio が前回比 −5pt 超    … 単月では受験期の需要変動と交絡する
  *   - discovered_not_indexed > 20%     … 原因バケットの切り分けが要る
  *   - hygiene（not_found + redirect）> 0
- *   これらは GitHub Actions（gsc-auto-review.yml）が観測ログに記録し【要確認】通知する担当。
+ *   これらは土曜の週次レビューの前段の GSC の記録層（weekly-review.sh の run_gsc_record・旧 gsc-auto-review.yml・DN-0849）が観測ログに記録し【要確認】通知する担当。
  *   CI を赤くするのは無条件異常だけに絞る＝月次 red の狼少年化を防ぐ。
  *
  * 使い方: node .claude/scripts/check-coverage-thresholds.mjs [--history <path>]
@@ -91,7 +91,7 @@ if (ratio < RATIO_FAIL) {
   errors.push(`indexed_ratio ${(ratio * 100).toFixed(1)}% が警戒しきい値 ${RATIO_FAIL * 100}% を下回った`);
 }
 
-// ── 判断が要る信号（warning・gsc-auto-review.yml が観測ログへ記録する）───────
+// ── 判断が要る信号（warning・土曜の GSC の記録層が観測ログへ記録する）───────
 if (inspected < sitemapUrls) {
   warnings.push(`inspected ${inspected} < sitemap ${sitemapUrls}＝${sitemapUrls - inspected} 件が未検査`);
 }

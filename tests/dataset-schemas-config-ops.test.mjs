@@ -137,7 +137,8 @@ check('ConfigWorkflowHealth', 'config.workflow-health', [
   [(d) => { d.workflows[0].maxAgeDays = 0; }, /workflows\.0\.maxAgeDays/],
   [(d) => { d.workflows.push(d.workflows[0]); }, /ワークフロー@ブランチ「/],
   [(d) => { d.workflows[0].workflow = 'ci'; }, /workflows\.0\.workflow/],
-  [(d) => { d.workflows.find((w) => w.schedule).schedule.activeSince = '2026-09-21'; }, /activeSince/],
+  // cron の発火を見る設定（schedule）を持つ行は 2026-10-25 に無くなった（weekly-review-draft.yml を外した・DN-0849）。壊した設定を自分で足す
+  [(d) => { d.workflows[0].schedule = { activeSince: '2026-09-21', maxAgeDays: 8 }; }, /activeSince/],
   [(d) => { delete d.defaults.maxAgeDays; }, /defaults\.maxAgeDays/],
 ]);
 

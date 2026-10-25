@@ -19,11 +19,11 @@ domain: strategy
 
 3 段で回す（2026-W40 が抜けた反省・[workflows.md](../../../knowledge/reference/workflows.md)「実行主体」）:
 
-1. **金曜 13:00 JST・CI** `weekly-review-draft.yml` が機械で決まる節を `.claude/state/weekly-review/draft.json` に書く（`npm run weekly-review:draft`）。前週のダイジェスト・KPI が欠けていれば automation-failure Issue（channel: weekly-review-draft）
-2. **土曜 9:30・Mac の launchd** `scripts/scheduled/weekly-review.sh` が、先にログインが要る取得を土曜の収集（`scripts/weekly-collect.mjs --phase pre`。A8・KDP・note のアクセスと売上・ココナラ・GSC・note の公開状態の照合〔note-audit・公開 API〕。各段は取った記録の検算つき）で回し、ヘッドレスの Claude Code で本スキルと `/plan-weekly` を回して develop へ push し、最後に時間がかかる照合と note の同期（`--phase post`）を回す（`npm run weekly-review:install`・DN-0817）。レビュー本文・翌週計画・事業レビューとsnapshot・点検と振り分け・backlog検証の5種証跡が揃う場合だけ省略する。不足時は再実行し、揃わなければ Issue（channel: weekly-review-local）
+1. **土曜 9:30・Mac の launchd**（下の 2 と同じ実行）が、収集の後に機械で決まる節を `.claude/state/weekly-review/draft.json` に書く（`npm run weekly-review:draft`）。金曜の CI の下書き（`weekly-review-draft.yml`）は使われていなかったので 2026-10-25 に外した（DN-0849）
+2. **土曜 9:30・Mac の launchd** `scripts/scheduled/weekly-review.sh` が、先にログインが要る取得を土曜の収集（`scripts/weekly-collect.mjs --phase pre`。A8・KDP・note のアクセスと売上・ココナラ・GSC・note の公開状態の照合〔note-audit・公開 API〕。各段は取った記録の検算つき）で回し、続けて GSC の記録層（`run_gsc_record`・失敗は Issue channel gsc-auto-review・DN-0849）を回し、ヘッドレスの Claude Code で本スキルと `/plan-weekly` を回して develop へ push し、最後に時間がかかる照合と note の同期（`--phase post`）を回す（`npm run weekly-review:install`・DN-0817）。レビュー本文・翌週計画・事業レビューとsnapshot・点検と振り分け・backlog検証の5種証跡が揃う場合だけ省略する。不足時は再実行し、揃わなければ Issue（channel: weekly-review-local）
 3. **対話セッション** はヘッドレスが残した諮問待ち（`<!-- weekly-review:pending-questions -->`）を諮る。SessionStart の `check-weekly-review-due` が印と未作成を 1 行で知らせ、月曜の `weekly-review-guard.yml` が先週分の実在を見る
 
-**最初に下書きを読む**: `.claude/state/weekly-review/draft.json` の `markdown`（`week` が今週・`generatedAt` が今週金曜以降のもの）を読み、機械の節はそこから写す。無い・古いときは `node scripts/build-weekly-review-draft.mjs --print` で作り直す。下の Phase 1 の各コマンドは、下書きに無い節と、下書きで欠け・失敗になった材料だけを回す。
+**最初に下書きを読む**: `.claude/state/weekly-review/draft.json` の `markdown`（`week` が今週・`generatedAt` が今日のもの）を読み、機械の節はそこから写す。無い・古いときは `node scripts/build-weekly-review-draft.mjs --print` で作り直す。下の Phase 1 の各コマンドは、下書きに無い節と、下書きで欠け・失敗になった材料だけを回す。
 
 **ヘッドレスで回すとき**（launchd の起動プロンプトがそう伝える）: AskUserQuestion は使えないので、Phase 3.5 の判断待ちは「## バックログの関門」に背景・選択肢・おすすめを 1 件ずつ書き、行頭に `<!-- weekly-review:pending-questions -->` を置く（台帳の 🟣 は残す）。次の対話セッションで諮り、答えで台帳を直してから印を消す。外部への公開・投稿・送信・購入はしない。**Claude の中ではログインしない**（`CLAUDECODE=1` で資格情報が読めない）。ログインが要る取得・照合は直前の土曜の収集が回しているので、その記録と、段ごとの結果 `.claude/state/weekly-collect/runs.json`（`npm run check-weekly-collect` で段ごとの最新の合否。運営者の取り直しも数える）を読み、失敗・skipped の段は理由とともに未取得として書く。段の理由の「検算 <点検 id>」は、取った記録の検算（quality-audit の cadence collect）が落ちたもので、取り直すか記録を直す（DN-0847）。`.claude/` の下のファイルは Claude Code の保護で書けないので、翌週の `.claude/todo/weekly.md` などは `.tmp/claude-out/` の下に同じ相対パスで書く（終了後に `scripts/apply-claude-out.mjs` が写して commit する・DN-0829）。機械で決まる surfacer は CI 側（quality-audit の ops（毎日）/report 区分・weekly-review-guard の job summary）と、下書きの review-checks（週次の点検 `npm run quality:audit:weekly`）が先に回しているので、本スキルは**その結果を読む**ことを優先し、同じ検査を二重に叩かない。
 
@@ -510,8 +510,8 @@ npm run review-checks -- --cadence weekly --run YYYY-Www --write
   open 8 件・最古 43 日が溜まり、この節自体が「消化停止」と書く状態だった）。したがって **open のまま残っている
   ＝まだ復旧していない**と読む。`--resolve` の配線が無い channel（人手ルーティン起票）だけ復旧確認後に人が閉じる。
   起票元は `ci.yml`（Pre-merge が赤）・`uptime-ping.yml`・`weekly-review-guard.yml`（記録層の沈黙／workflow health／
-  report 区分 FAIL）・`index-coverage.yml`・`gsc-auto-review.yml`・`ops-audit.yml`（quality-audit の ops 区分のうち毎日の分＝会員配信・添付・広告の期限・Cloudflare・sitemap・
-  収集の死活）・Mac の weekly-collect（channel weekly-collect＝土曜の収集の段の失敗と検算・note の公開状態の照合の検査不成立・DN-0847）
+  report 区分 FAIL）・`index-coverage.yml`・`ops-audit.yml`（quality-audit の ops 区分のうち毎日の分＝会員配信・添付・広告の期限・Cloudflare・sitemap・
+  収集の死活）・Mac の weekly-collect（channel weekly-collect＝土曜の収集の段の失敗と検算・note の公開状態の照合の検査不成立・DN-0847）・Mac の GSC の記録層（channel gsc-auto-review＝記録が書けなかった・Claude の【要確認】・DN-0849）
 
 
 ### Phase 2.5: 全件トリアージ（必須・計測→改善の起票）
@@ -743,7 +743,7 @@ pre-commit の `scripts/check-handoff-extraction.mjs` が 2026-W39 以降のレ�
 
 ## 運用ルール
 
-- **毎週土曜にローカルで実行**（金曜 06:00 JST の fetch-metrics が成長パック・機会ダイジェスト・実験の自動計測を push し、12:00 の gsc-auto-review が意味の判断を足した後）
+- **毎週土曜にローカルで実行**（金曜 06:00 JST の fetch-metrics が成長パック・機会ダイジェスト・実験の自動計測を push し、この回の直前に Mac の GSC の記録層が意味の判断を観測ログへ足した後）
 - レビューは `docs/reviews/weekly/YYYY-Www-review.md` に保存（GitHub Issue は使わない）
 - レビュー完了後に `/plan-weekly` を実行し、翌週の計画を `.claude/todo/weekly.md` に書く（`/weekly-plan` は手動のみ）
 - 未完了アクションは「来週への申し送り」に振り分け先付きで書き（Phase 4）、次週計画へ引き継ぐ

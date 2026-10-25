@@ -1,6 +1,8 @@
 #!/bin/bash
 # launchd から毎週土曜 9:30 に呼ばれるラッパー（com.doboku-note.weekly-review）。
 #   1. 土曜の収集（前）: ログインが要る取得と、その検算・note の公開状態の照合を scripts/weekly-collect.mjs --phase pre で回す（DN-0817・DN-0819・DN-0847）
+#   1.5 GSC の記録層: 要るときだけヘッドレスの Claude に週次観測・coverage の断片を書かせ、scripts/apply-gsc-records.mjs が
+#      gsc-management.md へ追記して push する（旧 gsc-auto-review.yml・CI の中の Claude をやめて土曜へ寄せた・DN-0849）
 #   2. Mac のヘッドレスの Claude Code で /weekly-review・/plan-weekly と、期日到来の /monthly-review を回し、develop へ push する
 #   3. 土曜の収集（後）: 時間がかかる照合と note への書き込みを --phase post で回す
 # 導入・状態確認・即実行・解除: npm run weekly-review:install [-- --status|--run-now|--uninstall]
@@ -47,6 +49,7 @@ week="未確定"
 review="未確定"
 review_rc=0
 collect_rc=0
+gsc_rc=0
 
 # A concurrent invocation must not reset the active dedicated worktree.
 LOCK="$LOG_DIR/weekly-review.lock"
@@ -99,8 +102,15 @@ finish() {
     notify weekly-review-local "自動の週次レビューが完了しませんでした" "$review_rc" "自動週次レビュー"
   fi
   [ "$collect_rc" -eq 0 ] || echo "=== $(date -Iseconds) [weekly-collect] FAILED rc=$collect_rc ===" >> "$LOG_FILE"
+  # GSC の記録層の失敗は channel gsc-auto-review。復旧は月曜の weekly-review-guard が記録の鮮度で閉じる
+  #（ここで閉じると、Claude が同じ channel に出した異常の報告まで閉じてしまう）
+  if [ "$gsc_rc" -ne 0 ]; then
+    echo "=== $(date -Iseconds) [gsc-record] FAILED rc=$gsc_rc ===" >> "$LOG_FILE"
+    notify gsc-auto-review "土曜の GSC の記録層（週次観測・coverage）が完了しませんでした" "$gsc_rc" "GSC の記録層"
+  fi
   if [ "$review_rc" -ne 0 ]; then exit "$review_rc"; fi
-  exit "$collect_rc"
+  if [ "$collect_rc" -ne 0 ]; then exit "$collect_rc"; fi
+  exit "$gsc_rc"
 }
 trap finish EXIT
 exec >> "$LOG_FILE" 2>&1
@@ -147,8 +157,9 @@ collect_phase() { # pre|post
   [ "$rc" -eq 0 ] || collect_rc=$rc
 }
 
-# set -e は `||` の中の関数では効かないので、各段の失敗を明示して返す
-run_review() {
+# レビュー用の専用 worktree を origin/develop に合わせる（GSC の記録層とレビューが使う）。
+# 前回の未保存変更・未 push commit があれば止める（他人の作業を消さない・失敗の跡を残す）
+prepare_review_worktree() {
   git -C "$REPO" fetch -q origin develop || return 1
   if ! git -C "$REPO" worktree list --porcelain | grep -x "worktree $WT" > /dev/null; then
     git -C "$REPO" worktree prune || return 1
@@ -162,6 +173,51 @@ run_review() {
   git -C "$WT" reset -q --hard origin/develop || return 1
   link_deps "$WT"
   week="$(node -e "import('$WT/scripts/lib/review-week.mjs').then(m=>import('$WT/scripts/lib/jst-date.mjs').then(j=>console.log(m.reviewWeekOfDay(j.todayJst()))))")" || return 1
+}
+
+# GSC の記録層（DN-0849）。失敗しても worktree の残りを退避して戻し、この後のレビューを止めない
+run_gsc_record() {
+  prepare_review_worktree || return $?
+  cd "$WT" || return 1
+  # 実行前のゲートは worktree の外に置く（worktree を汚すと、この後のレビューが「未保存の変更」で止まる）
+  local gates
+  gates="$(mktemp)"
+  node scripts/check-gsc-auto-review.mjs --json > "$gates" || true
+  local need_rc=0
+  node scripts/apply-gsc-records.mjs --needed --before "$gates" || need_rc=$?
+  if [ "$need_rc" -eq 3 ]; then echo '[gsc-record] 週次・coverage とも記録済みか、データが古い。Claude は回さない'; return 0; fi
+  [ "$need_rc" -eq 0 ] || return "$need_rc"
+  local rc=0
+  node .claude/scripts/build-doc-meta-index.mjs --ci > /dev/null || rc=$?
+  rm -rf .tmp/claude-out/gsc && mkdir -p .tmp/claude-out/gsc
+  if [ "$rc" -eq 0 ]; then
+    CLAUDE_CODE_PRINT_BG_WAIT_CEILING_MS=1800000 claude -p "$(cat scripts/scheduled/gsc-record-prompt.md)" \
+      --permission-mode acceptEdits \
+      --allowedTools "Bash Read Write Edit Glob Grep Agent" \
+      --disallowedTools "ScheduleWakeup Bash(git commit:*) Bash(git push:*) Bash(git reset:*) Bash(git checkout:*) Bash(git stash:*) Bash(rm -rf:*)" || rc=$?
+  fi
+  [ "$rc" -ne 0 ] || node scripts/apply-gsc-records.mjs --before "$gates" || rc=$?
+  rm -f "$gates"
+  [ "$rc" -ne 0 ] || rm -rf .tmp/claude-out/gsc
+  git -C "$REPO" fetch -q origin develop || true
+  if [ -n "$(git -C "$WT" status --porcelain)" ] || [ -n "$(git -C "$WT" log --oneline origin/develop..HEAD)" ]; then
+    local keep
+    keep="$LOG_DIR/gsc-record-leftover-$(date +%Y%m%dT%H%M%S)"
+    mkdir -p "$keep"
+    git -C "$WT" -c core.quotepath=false status --porcelain > "$keep/status.txt"
+    git -C "$WT" diff > "$keep/diff.patch"
+    git -C "$WT" format-patch -q origin/develop..HEAD -o "$keep" > /dev/null 2>&1 || true
+    echo "[gsc-record] 残りを退避して origin/develop に戻す（レビューを止めない）: $keep"
+    git -C "$WT" reset -q --hard origin/develop
+    git -C "$WT" clean -q -fd
+    [ "$rc" -ne 0 ] || rc=1
+  fi
+  return "$rc"
+}
+
+# set -e は `||` の中の関数では効かないので、各段の失敗を明示して返す
+run_review() {
+  prepare_review_worktree || return $?
   review="docs/reviews/weekly/${week}-review.md"
   cd "$WT" || return 1
   local month weekly_needed=0 check_rc
@@ -242,6 +298,8 @@ PROMPT
 }
 
 collect_phase pre
+run_gsc_record || gsc_rc=$?
+cd "$REPO"
 run_review || review_rc=$?
 cd "$REPO"
 collect_phase post
