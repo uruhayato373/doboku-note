@@ -10,6 +10,7 @@ import { loadProductSales, matchArticleSales, salesTitleKey, type ProductSales }
 import { artifactRelPaths, loadKindleCatalog } from '../../../../scripts/lib/kindle-catalog.mjs';
 import { isOnKdp, kindleDrift } from '../../../../scripts/lib/kindle-uploaded.mjs';
 import { datasetPath } from '../../../../scripts/lib/datasets.mjs';
+import { yen } from './format';
 
 /**
  * ledger.ts — 管理画面「コンテンツ台帳」（/content/ledger）の表示モデル（DN-0438）。
@@ -114,7 +115,6 @@ interface LineupConfig {
 }
 
 const PRICE_LABEL: Record<string, string> = { paid: '有料', free: '無料', membership: '会員' };
-const yen = (n: number) => `¥${n.toLocaleString('ja-JP')}`;
 /** note 記事の価格。有料は原稿の price（円）を出し、無ければ「有料（価格なし）」 */
 function notePriceLabel(pricing: string, price: number | null | undefined): string | null {
   if (pricing === 'paid') return price ? yen(price) : '有料（価格なし）';

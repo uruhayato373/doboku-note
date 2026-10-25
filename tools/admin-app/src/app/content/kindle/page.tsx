@@ -1,27 +1,25 @@
 import Link from 'next/link';
-import {
-  numCol, PanelCard, TableBody, TableCell, TableFrame, TableHead, TableHeader, TableRow,
-} from '@/components/admin';
+import { numCol, PanelCard, TableBody, TableCell, TableFrame, TableHead, TableHeader, TableRow, StatusBadge, type Tone } from '@/components/admin';
 import { Stack } from '@/components/layout';
 import { PageHead, Kpi } from '@/components/ui';
-import { Badge } from '@/components/ui/badge';
 import { loadKindleView, type KindleBookView } from '@/lib/kindle';
+import { yen } from '@/lib/format';
 
 export const dynamic = 'force-dynamic';
 
-/** status → Badge variant。判定していない状態を緑にしない。 */
-function statusVariant(status: string): 'success' | 'warning' | 'outline' | 'destructive' | 'secondary' {
-  if (status === 'live') return 'success';
-  if (status === 'in_review') return 'warning';
-  if (status === 'ready') return 'outline';
-  if (status === 'rejected') return 'destructive';
-  return 'secondary';
+/** status → StatusBadge の tone。判定していない状態を緑にしない。 */
+function statusTone(status: string): Tone {
+  if (status === 'live') return 'good';
+  if (status === 'in_review') return 'warn';
+  if (status === 'ready') return 'neutral';
+  if (status === 'rejected') return 'bad';
+  return 'info';
 }
 
-function freshnessVariant(f: KindleBookView['freshness']): 'success' | 'destructive' | 'secondary' {
-  if (f === 'fresh') return 'success';
-  if (f === 'stale') return 'destructive';
-  return 'secondary';
+function freshnessTone(f: KindleBookView['freshness']): Tone {
+  if (f === 'fresh') return 'good';
+  if (f === 'stale') return 'bad';
+  return 'info';
 }
 
 function freshnessLabel(f: KindleBookView['freshness']): string {
@@ -33,10 +31,6 @@ function freshnessLabel(f: KindleBookView['freshness']): string {
 function fmtBytes(n: number): string {
   if (n <= 0) return '0 KB';
   return n >= 1024 * 1024 ? `${(n / 1024 / 1024).toFixed(1)} MB` : `${Math.max(1, Math.round(n / 1024))} KB`;
-}
-
-function fmtYen(n: number | undefined): string {
-  return `¥${(n ?? 0).toLocaleString('ja-JP')}`;
 }
 
 /**
@@ -64,7 +58,7 @@ export default async function KindleContentPage() {
         <Kpi label="live" value={summary.byStatus.live ?? 0} />
         <Kpi label="in_review" value={summary.byStatus.in_review ?? 0} />
         <Kpi label="鮮度 stale" value={freshnessOk ? summary.staleCount : '検査不成立'} />
-        <Kpi label="直近月ロイヤリティ" value={royalties?.ok ? `${fmtYen(royalties.total?.royalty)}${royalties.estimated ? '(推計)' : ''}` : '未取得'} />
+        <Kpi label="直近月ロイヤリティ" value={royalties?.ok ? `${yen(royalties.total?.royalty)}${royalties.estimated ? '(推計)' : ''}` : '未取得'} />
       </div>
 
       {!freshnessOk && (
@@ -124,12 +118,12 @@ export default async function KindleContentPage() {
           <>
             <p className="text-sm">
               {royalties.month} 月・doboku-note {royalties.total?.bookCount ?? '—'}冊・電子書籍 {royalties.total?.ebook ?? '—'}
-              ・KENP {royalties.total?.kenp ?? '—'}・ロイヤリティ計 {fmtYen(royalties.total?.royalty)}
+              ・KENP {royalties.total?.kenp ?? '—'}・ロイヤリティ計 {yen(royalties.total?.royalty)}
               {royalties.estimated && <span className="project-warning-text"> （推計値）</span>}
             </p>
             {royalties.accountTotal && (
               <p className="text-sm text-muted-foreground">
-                共有KDP口座全体: {royalties.accountTotal.bookCount ?? '—'}冊・ロイヤリティ {fmtYen(royalties.accountTotal.royalty)}
+                共有KDP口座全体: {royalties.accountTotal.bookCount ?? '—'}冊・ロイヤリティ {yen(royalties.accountTotal.royalty)}
                 {royalties.accountKenpPagesRead != null ? `・KENP既読 ${royalties.accountKenpPagesRead}ページ` : ''}。他サイト分を上の集計から除外。
               </p>
             )}
@@ -144,7 +138,7 @@ export default async function KindleContentPage() {
                   {royalties.perBook.map((b) => (
                     <TableRow key={b.bookId}>
                       <TableCell>{b.title} <span className="font-mono text-xs text-muted-foreground">{b.bookId}</span></TableCell>
-                      <TableCell className={numCol}>{fmtYen(b.royalty)}</TableCell>
+                      <TableCell className={numCol}>{yen(b.royalty)}</TableCell>
                       <TableCell>{b.inCatalog ? '—' : <span className="project-warning-text">未対応</span>}</TableCell>
                     </TableRow>
                   ))}
@@ -200,8 +194,8 @@ function BookRow({ book: b }: { book: KindleBookView }) {
         <div className="font-mono text-xs text-muted-foreground">{b.id}{b.series ? `・${b.series}` : ''}</div>
         {b.epubExists && <div className="text-xs text-muted-foreground">{fmtBytes(b.epubBytes)}</div>}
       </TableCell>
-      <TableCell className={numCol}>{fmtYen(b.priceJpy)}</TableCell>
-      <TableCell><Badge variant={statusVariant(b.status)}>{b.status}</Badge></TableCell>
+      <TableCell className={numCol}>{yen(b.priceJpy)}</TableCell>
+      <TableCell><StatusBadge tone={statusTone(b.status)}>{b.status}</StatusBadge></TableCell>
       <TableCell className="text-xs">{b.version || '—'}</TableCell>
       <TableCell className="text-xs">{b.submittedDate ?? b.publishedDate ?? '—'}</TableCell>
       <TableCell className="text-xs">
@@ -211,7 +205,7 @@ function BookRow({ book: b }: { book: KindleBookView }) {
           <span className="text-muted-foreground">{b.asin ?? b.draftAsin ?? '—'}</span>
         )}
       </TableCell>
-      <TableCell><Badge variant={freshnessVariant(b.freshness)}>{freshnessLabel(b.freshness)}</Badge></TableCell>
+      <TableCell><StatusBadge tone={freshnessTone(b.freshness)}>{freshnessLabel(b.freshness)}</StatusBadge></TableCell>
     </TableRow>
   );
 }

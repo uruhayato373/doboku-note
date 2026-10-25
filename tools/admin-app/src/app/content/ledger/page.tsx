@@ -10,6 +10,7 @@ import { loadLedgerView, type LedgerRow } from '@/lib/ledger';
 import { ctaDrift, drift, inState, jst, STATES } from '@/lib/ledger-status';
 import { datasetPath } from '../../../../../../scripts/lib/datasets.mjs';
 import { DriftBadge } from './drift-badge';
+import { yen } from '@/lib/format';
 
 export const dynamic = 'force-dynamic';
 
@@ -22,7 +23,6 @@ export const dynamic = 'force-dynamic';
 type Query = { t?: string; c?: string; s?: string; cv?: string };
 const NO_THEME = '__none';
 const NO_COVER = '__none';
-const yen = (n: number) => `¥${n.toLocaleString('ja-JP')}`;
 
 /** 販売列。note の有料記事・マガジンだけ数える。販売ログを読めないときは 0 件ではなく「?」 */
 function SalesCell({ r, salesOk }: { r: LedgerRow; salesOk: boolean }) {

@@ -3,7 +3,6 @@ import { DataTable, StatusBadge, type DataTableColumn, type DataTableRow, type T
 import { Grid, Section, Stack } from '@/components/layout';
 import SearchTabs from '@/components/SearchTabs';
 import { PageHead } from '@/components/ui';
-import { Badge } from '@/components/ui/badge';
 import { Card, CardAction, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { findRepoRoot } from '@/lib/repo-root';
@@ -42,10 +41,10 @@ function Delta({ now, before }: { now: number; before: number | undefined }) {
   const d = now - before;
   const Icon = d > 0 ? TrendingUp : d < 0 ? TrendingDown : Minus;
   return (
-    <Badge variant="outline">
+    <StatusBadge tone="neutral">
       <Icon />
       {signed(d)}
-    </Badge>
+    </StatusBadge>
   );
 }
 
@@ -61,6 +60,7 @@ function Metric({ label, value, note }: { label: string; value: string; note?: s
   );
 }
 
+// shadcn の Dashboard の section-cards（CardDescription・CardTitle・CardAction・CardFooter）の公式の形なので Card を直に組む（DN-0851）
 function ClusterCard({ c, bands, experiments }: { c: Cluster; bands: Bands; experiments: Experiment[] }) {
   const p = c.previous;
   const open = experiments.filter((e) => e.phase !== 'closed' && e.phase !== 'abandoned').length;
@@ -254,12 +254,12 @@ export default async function SearchStrategyPage({ searchParams }: { searchParam
           <TabsList aria-label="クラスター" className="max-w-full overflow-x-auto">
             <TabsTrigger href={BASE} active={!selected}>
               すべて
-              <Badge variant="secondary">{total}</Badge>
+              <StatusBadge tone="info">{total}</StatusBadge>
             </TabsTrigger>
             {r.clusters.map((c) => (
               <TabsTrigger key={c.id} href={`${BASE}?cluster=${c.id}`} active={c.id === selected?.id}>
                 {c.label}
-                <Badge variant="secondary">{c.candidateTotal}</Badge>
+                <StatusBadge tone="info">{c.candidateTotal}</StatusBadge>
               </TabsTrigger>
             ))}
           </TabsList>

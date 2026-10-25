@@ -1,19 +1,15 @@
 import Link from 'next/link';
-import { numCol, PanelCard, TableBody, TableCell, TableFrame, TableHead, TableHeader, TableRow } from '@/components/admin';
+import { numCol, PanelCard, TableBody, TableCell, TableFrame, TableHead, TableHeader, TableRow, StatusBadge, type Tone } from '@/components/admin';
 import { PageHead } from '@/components/ui';
 import SectionTabs from '@/components/SectionTabs';
 import UpcomingEvents from '@/components/UpcomingEvents';
-import { Badge } from '@/components/ui/badge';
 import { loadQualificationsView, type QualificationView } from '@/lib/qualifications';
+import { monthDay } from '@/lib/format';
 
 export const dynamic = 'force-dynamic';
 
 const PORTFOLIO_LABEL: Record<string, string> = { active: '展開中', candidate: '候補', declined: '見送り' };
-const PORTFOLIO_VARIANT: Record<string, 'success' | 'outline' | 'secondary'> = { active: 'success', candidate: 'outline', declined: 'secondary' };
-function fmtDate(date: string): string {
-  const [, m, d] = date.split('-').map(Number) as [number, number, number];
-  return `${m}/${d}`;
-}
+const PORTFOLIO_TONE: Record<string, Tone> = { active: 'good', candidate: 'neutral', declined: 'info' };
 
 /**
  * /strategy/qualifications — 資格一覧（人が見る画面）。資格・状態・試験日・合格発表・受験者数・合格率だけを出す。
@@ -92,21 +88,21 @@ function Row({ row: r }: { row: QualificationView }) {
     <TableRow className="align-top">
       <TableCell className="whitespace-nowrap">{r.label}</TableCell>
       <TableCell className="whitespace-nowrap">
-        <Badge variant={PORTFOLIO_VARIANT[r.portfolio] ?? 'secondary'}>{PORTFOLIO_LABEL[r.portfolio] ?? r.portfolio}</Badge>
+        <StatusBadge tone={PORTFOLIO_TONE[r.portfolio] ?? 'info'}>{PORTFOLIO_LABEL[r.portfolio] ?? r.portfolio}</StatusBadge>
         {r.portfolioNote && <div className="text-[11px] text-muted-foreground">{r.portfolioNote}</div>}
       </TableCell>
       <TableCell className="whitespace-nowrap text-xs">
         {r.lines.map((l) => (
           <Past key={l.stage} past={l.exam?.past ?? false}>
             {l.stage && <span className="text-muted-foreground">{l.stage} </span>}
-            {l.exam ? fmtDate(l.exam.date) : l.examWindow ? <span className="text-muted-foreground">{l.examWindow}</span> : '—'}
+            {l.exam ? monthDay(l.exam.date) : l.examWindow ? <span className="text-muted-foreground">{l.examWindow}</span> : '—'}
           </Past>
         ))}
       </TableCell>
       <TableCell className="whitespace-nowrap text-xs">
         {r.lines.map((l) => (
           <Past key={l.stage} past={l.result?.past ?? false}>
-            {l.result ? (l.result.date ? fmtDate(l.result.date) : <span className="text-muted-foreground">{l.result.window}</span>) : '—'}
+            {l.result ? (l.result.date ? monthDay(l.result.date) : <span className="text-muted-foreground">{l.result.window}</span>) : '—'}
           </Past>
         ))}
       </TableCell>

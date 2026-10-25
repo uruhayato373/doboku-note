@@ -1,9 +1,9 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { PageHead } from '@/components/ui';
-import { Badge } from '@/components/ui/badge';
-import { Card, CardContent } from '@/components/ui/card';
 import { loadKindlePreview } from '@/lib/kindle';
+import { StatusBadge } from '@/components/admin';
+import { jstDateTime } from '@/lib/format';
 
 export const dynamic = 'force-dynamic';
 
@@ -22,19 +22,15 @@ export default async function KindlePreviewPage({ params }: { params: Promise<{ 
       <PageHead title={v.title} sub={v.id} />
       <p className="mb-4 flex items-center gap-2">
         <Link href="/content/kindle">← Kindle</Link>
-        <Badge variant="outline">{v.status}</Badge>
-        {v.pages && <span className="text-xs text-muted-foreground">{v.pages.length} ページ・{v.generatedAt?.slice(0, 16).replace('T', ' ')}</span>}
+        <StatusBadge tone="neutral">{v.status}</StatusBadge>
+        {v.pages && <span className="text-xs text-muted-foreground">{v.pages.length} ページ・{jstDateTime(v.generatedAt, { short: true })}</span>}
       </p>
 
       {v.matchesEpub === false && (
-        <Card className="mb-4 py-3">
-          <CardContent className="px-3 text-sm text-(--warn)">EPUB が更新されています。再生成: <code>{command}</code></CardContent>
-        </Card>
+        <p className="project-warning-text mb-4 text-sm">EPUB が更新されています。再生成: <code>{command}</code></p>
       )}
       {!v.pages && (
-        <Card className="mb-4 py-3">
-          <CardContent className="px-3 text-sm">プレビュー未生成: <code>{command}</code></CardContent>
-        </Card>
+        <p className="mb-4 text-sm text-muted-foreground">プレビュー未生成: <code>{command}</code></p>
       )}
 
       <div className="grid grid-cols-[repeat(auto-fill,minmax(240px,1fr))] gap-3">

@@ -3,6 +3,7 @@ import { numCol, TableBody, TableCell, TableFrame, TableHead, TableHeader, Table
 import { PageHead } from '@/components/ui';
 import SectionTabs from '@/components/SectionTabs';
 import { loadCompetitorView, type CompetitorRow } from '@/lib/competitors';
+import { yen } from '@/lib/format';
 
 export const dynamic = 'force-dynamic';
 
@@ -10,7 +11,6 @@ export const dynamic = 'force-dynamic';
  * /strategy/competitors — 競合（人が見る画面）。チャネルはサイドバーの枝にせず画面内のタブにする（domains.json navRules）。
  * 今はココナラだけ。先頭に自社、続けて競合を売上（推定）の多い順に並べ、資格で絞り込む。組み立ては lib/competitors.ts。
  */
-const yen = (n: number | null) => (n === null ? '—' : `¥${n.toLocaleString('ja-JP')}`);
 /** 推定値は ≈ を付ける（競合の売上は公開されておらず、累計販売 × 平均単価の推定）。 */
 const money = (n: number | null, estimated: boolean) => (n === null ? '—' : `${estimated ? '≈' : ''}${yen(n)}`);
 const md = (date: string | null) => {

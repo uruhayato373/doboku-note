@@ -3,9 +3,9 @@ import { ArrowRight } from 'lucide-react';
 import { PageHead } from '@/components/ui';
 import { Grid, Section, Stack } from '@/components/layout';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
-import { StatusBadge, type Tone } from '@/components/admin';
+import { PanelCard, StatCard, StatusBadge, type Tone } from '@/components/admin';
+import { monthDay, withUnit, yen } from '@/lib/format';
 import { loadKpiView, type ReceiptChannel } from '@/lib/kpi-tree';
 import { jstMonth } from '../../../../scripts/lib/jst-date.mjs';
 
@@ -22,11 +22,6 @@ const RECEIPT_STATUS: Record<ReceiptChannel['status'], { label: string; tone: To
   estimate: { label: '推計', tone: 'warn' },
   missing: { label: '未取得', tone: 'bad' },
 };
-const shortDay = (d: string | null) => (d ? `${Number(d.slice(5, 7))}/${Number(d.slice(8, 10))}` : '');
-
-const yen = (v: number | null) => (v == null ? '—' : `¥${v.toLocaleString('ja-JP')}`);
-const fmt = (v: number | null, unit: string) =>
-  v == null ? '—' : unit === '円' ? yen(v) : `${v.toLocaleString('ja-JP')}${unit === '%' ? '%' : ''}`;
 
 function shiftMonth(month: string, delta: number): string {
   const [y, m] = month.split('-').map(Number) as [number, number];
@@ -50,31 +45,15 @@ function Bars({ rows }: { rows: { label: string; value: number | null }[] }) {
   );
 }
 
-function Tile({ label, value, sub }: { label: string; value: string; sub?: string }) {
-  return (
-    <Card className="gap-1 py-3">
-      <CardContent className="flex flex-col gap-1 px-3">
-        <span className="text-xs text-muted-foreground">{label}</span>
-        <span className="text-2xl font-bold tabular-nums">{value}</span>
-        {sub && <span className="text-xs text-muted-foreground">{sub}</span>}
-      </CardContent>
-    </Card>
-  );
-}
-
 /** 詳細ページへの入口。カード全体がリンク。 */
 function LinkCard({ href, title, desc }: { href: string; title: string; desc: string }) {
   return (
     <Link href={href} className="rounded-lg text-inherit no-underline hover:no-underline focus-visible:ring-2 focus-visible:ring-ring">
-      <Card className="h-full transition-colors hover:bg-muted/40">
-        <CardHeader>
-          <CardTitle>{title}</CardTitle>
-          <CardDescription>{desc}</CardDescription>
-        </CardHeader>
-        <CardContent className="flex justify-end text-muted-foreground">
+      <PanelCard title={title} description={desc} className="h-full transition-colors hover:bg-muted/40">
+        <div className="flex justify-end text-muted-foreground">
           <ArrowRight className="size-4" />
-        </CardContent>
-      </Card>
+        </div>
+      </PanelCard>
     </Link>
   );
 }
@@ -103,14 +82,11 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ m
           )}
         </nav>
 
-        <Card>
-          <CardHeader>
-            <CardDescription>
-              月の受取額（手数料控除後）
-              {r.total != null && (r.complete ? ' ・ 確定' : v.month === thisMonth ? ' ・ 今月の途中経過' : ' ・ 確定前（推計・未取得を含む）')}
-            </CardDescription>
-          </CardHeader>
-          <CardContent className="flex flex-col gap-3">
+        <PanelCard
+          title="月の受取額（手数料控除後）"
+          description={r.total != null ? (r.complete ? '確定' : v.month === thisMonth ? '今月の途中経過' : '確定前（推計・未取得を含む）') : undefined}
+        >
+          <div className="flex flex-col gap-3">
             <div className="text-4xl leading-tight font-extrabold tabular-nums">
               {yen(r.total)}
               {v.goal && <span className="text-xs font-normal text-muted-foreground"> / 目標 {yen(v.goal.value)}</span>}
@@ -136,24 +112,22 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ m
                   <StatusBadge tone={RECEIPT_STATUS[c.status].tone}>{RECEIPT_STATUS[c.status].label}</StatusBadge>
                   <span className="text-right tabular-nums">{yen(c.value)}</span>
                   <span className="text-muted-foreground">
-                    {c.asOf && `${shortDay(c.asOf)} 取得 ・ `}
+                    {c.asOf && `${monthDay(c.asOf)} 取得 ・ `}
                     {c.note}
                   </span>
                 </div>
               ))}
             </Stack>
-          </CardContent>
-        </Card>
+          </div>
+        </PanelCard>
 
         <Grid min="lg">
-          <Card>
-            <CardHeader><CardTitle>チャネル別の販売額</CardTitle></CardHeader>
-            <CardContent><Bars rows={v.channels} /></CardContent>
-          </Card>
-          <Card>
-            <CardHeader><CardTitle>資格別の販売額</CardTitle></CardHeader>
-            <CardContent><Bars rows={v.qualifications} /></CardContent>
-          </Card>
+          <PanelCard title="チャネル別の販売額">
+            <Bars rows={v.channels} />
+          </PanelCard>
+          <PanelCard title="資格別の販売額">
+            <Bars rows={v.qualifications} />
+          </PanelCard>
         </Grid>
       </Stack>
 
@@ -162,10 +136,10 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ m
         note={<>検索語は Google の直近 28 日（{v.search.period ?? '未取得'}）・<Link href="/metrics/search-strategy">検索の詳細</Link></>}
       >
         <Grid min="sm">
-          <Tile label="インデックス率" value={fmt(v.site.indexRatio, '%')} />
-          <Tile label="Google クリック" value={fmt(v.site.gscClicks, '')} sub="この月" />
+          <StatCard label="インデックス率" value={withUnit(v.site.indexRatio, '%')} />
+          <StatCard label="Google クリック" value={withUnit(v.site.gscClicks, '')} sub="この月" />
           {v.search.clusters.map((c) => (
-            <Tile
+            <StatCard
               key={c.label}
               label={`${v.search.topLabel}の検索語・${c.label}`}
               value={String(c.top10)}
