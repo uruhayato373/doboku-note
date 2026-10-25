@@ -31,7 +31,7 @@ export const ARTICLES_ROOT = join(SITE_CONTENT_ROOT, 'standards-articles');
 export const TABLE_OVERRIDES_ROOT = join(CONTENT_SOURCES_ROOT, 'standards', 'tables');
 
 /** 文書ごとの差し替え（documentVariants）で置き換える中身の欄。key・layout・review は元のまま */
-const VARIANT_FIELDS = ['kind', 'header', 'rows', 'notes', 'items', 'parts', 'headerFrom', 'headerFill', 'headerless', 'absorbs', 'into', 'absorbsParagraphs'];
+const VARIANT_FIELDS = ['kind', 'header', 'rows', 'notes', 'items', 'parts', 'headerFrom', 'headerFill', 'headerImage', 'headerless', 'absorbs', 'into', 'absorbsParagraphs'];
 
 /**
  * 組み直した表を key → 中身の Map で読む（無ければ空）。
