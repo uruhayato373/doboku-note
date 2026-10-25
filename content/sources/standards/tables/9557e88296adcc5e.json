@@ -1,0 +1,24 @@
+{
+  "key": "9557e88296adcc5e",
+  "kind": "parts",
+  "layout": [
+    "                  材     料      確     認     書",
+    "                                     年月日："
+  ],
+  "parts": [
+    {
+      "kind": "caption",
+      "text": "材料確認書"
+    },
+    {
+      "kind": "text",
+      "text": "年月日："
+    }
+  ],
+  "review": {
+    "status": "approved",
+    "by": "qa",
+    "at": "2026-10-25T03:52:31.712Z",
+    "note": "様式－10 の表題と日付行。表ではないので parts（caption と text）。 ／ QA: p66 の表題（材料確認書）と日付行。表ではなく caption+text で妥当。様式－10・工事名等は版面に無い。"
+  }
+}

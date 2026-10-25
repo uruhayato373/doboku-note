@@ -1,0 +1,39 @@
+{
+  "key": "7d06fe39d7ce9cf2",
+  "kind": "table",
+  "layout": [
+    "              工   事   名"
+  ],
+  "header": [],
+  "headerless": true,
+  "rows": [
+    [
+      "工事名",
+      ""
+    ],
+    [
+      "工期",
+      "自"
+    ],
+    [
+      {
+        "same": "above"
+      },
+      "至"
+    ]
+  ],
+  "notes": [],
+  "headerFrom": null,
+  "absorbsParagraphs": {
+    "before": [],
+    "after": [
+      "自工 期至"
+    ]
+  },
+  "review": {
+    "status": "approved",
+    "by": "qa",
+    "at": "2026-10-25T04:03:58.743Z",
+    "note": "様式－19 の枠付きの表（見出しなし・headerless）。版面は「工事名」だけで、工期の「自」「至」は章記事で表の後の段落「自工 期至」に出ていたため取り込み、工期を縦に結合したセルに戻した。 ／ QA: p117 様式-19 工事名・工期(自/至縦結合)を画像と照合。一致。"
+  }
+}

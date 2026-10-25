@@ -1,0 +1,21 @@
+{
+  "key": "ff71bfa146da7309",
+  "kind": "parts",
+  "layout": [
+    "                特   約    事    項"
+  ],
+  "parts": [
+    {
+      "kind": "caption",
+      "text": "特約事項"
+    }
+  ],
+  "notes": [],
+  "headerFrom": null,
+  "review": {
+    "status": "approved",
+    "by": "qa",
+    "at": "2026-10-25T04:08:36.516Z",
+    "note": "特約事項の枠の見出しだけ。1 列のため caption。 ／ QA: 見出し「特約事項」のみ。p32 画像と一致。枠内の本文 1〜7 は版面に無い。"
+  }
+}

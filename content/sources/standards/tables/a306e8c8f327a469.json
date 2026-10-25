@@ -1,0 +1,21 @@
+{
+  "key": "a306e8c8f327a469",
+  "kind": "parts",
+  "layout": [
+    "           4工      期 自                至"
+  ],
+  "parts": [
+    {
+      "kind": "text",
+      "text": "4工期 自 至"
+    }
+  ],
+  "notes": [],
+  "headerFrom": null,
+  "review": {
+    "status": "approved",
+    "by": "qa",
+    "at": "2026-10-25T04:02:06.676Z",
+    "note": "様式－29 の記の項目 4。表ではなく書式の 1 行。 ／ QA: p136 様式-29 の 4 工期 自 至 の行。画像と一致"
+  }
+}

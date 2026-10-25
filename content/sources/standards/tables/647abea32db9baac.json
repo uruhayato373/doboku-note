@@ -1,0 +1,13 @@
+{
+  "key": "647abea32db9baac",
+  "kind": "verbatim",
+  "layout": [
+    "          C0RT001Z.tif     C0RT002Z.tif    C0RT003Z.tif"
+  ],
+  "review": {
+    "status": "approved",
+    "by": "qa",
+    "at": "2026-10-25T05:34:20.699Z",
+    "note": "図 4 の中のファイル名ラベル（C0RT001Z.tif など）。行・列を持たない図の文字なので版面のまま。 ／ QA: p127 図 4 内のファイル名ラベル。図の文字なので verbatim で妥当。画像には C0RT004Z.tif もあるが版面のテキスト層には無く、版面どおり。"
+  }
+}

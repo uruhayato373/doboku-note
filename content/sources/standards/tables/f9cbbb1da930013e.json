@@ -1,0 +1,19 @@
+{
+  "key": "f9cbbb1da930013e",
+  "layout": [
+    "1.2   目   的"
+  ],
+  "kind": "parts",
+  "parts": [
+    {
+      "kind": "text",
+      "text": "1.2 目的"
+    }
+  ],
+  "review": {
+    "status": "approved",
+    "by": "qa",
+    "at": "2026-10-25T06:54:54.573Z",
+    "note": "表ではなく見出し（1.2 目的）。 ／ QA: p582 の 1.2 目的 見出し"
+  }
+}

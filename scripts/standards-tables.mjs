@@ -154,7 +154,8 @@ function sheets() {
   }
   const rank = (doc) => (doc === 'kinki/common' ? 0 : doc === 'hokkaido/common' ? 1 : 2);
   const chapterRank = (id) => id.split('-').map(Number).reduce((a, n) => a * 100 + n, 0);
-  entries.sort((a, b) => rank(a.document) - rank(b.document) || chapterRank(a.chapterId) - chapterRank(b.chapterId) || a.pages[0] - b.pages[0]);
+  // 束は文書ごとに作る（機関でまとめると文書が入り混じって束が細切れになり、同じ機関の文書どうしで束の名前が重なる。DN-0850）
+  entries.sort((a, b) => rank(a.document) - rank(b.document) || a.document.localeCompare(b.document) || chapterRank(a.chapterId) - chapterRank(b.chapterId) || a.pages[0] - b.pages[0]);
   // 地域版にしかない表で、その機関のページ画像が無いときは、近畿版の同じ表（同じ章・同じキャプション）の画像で構造を見る
   const kinkiRef = (entry) => {
     const same = all.filter((t) => t.document === 'kinki/common' && t.chapterId === entry.chapterId);
@@ -171,7 +172,7 @@ function sheets() {
   const batches = [];
   let current = null;
   for (const entry of entries) {
-    const doc = entry.document.split('/')[0];
+    const doc = entry.document.replace('/', '-');
     if (!current || current.doc !== doc || current.rows + entry.body.length > MAX_ROWS || current.entries.length >= MAX_TABLES) {
       const count = batches.filter((b) => b.doc === doc).length + 1;
       current = { name: `${args.name ? `${args.name}-` : ''}${args.qa ? 'qa-' : ''}${doc}-${String(count).padStart(2, '0')}`, doc, rows: 0, entries: [] };

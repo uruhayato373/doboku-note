@@ -1,0 +1,26 @@
+{
+  "key": "8a4ae46fb2fb4ad0",
+  "kind": "parts",
+  "layout": [
+    "ロード可能である。   URL⇒   https://www.hokudocon.jp/download/"
+  ],
+  "parts": [
+    {
+      "kind": "text",
+      "text": "上記規定集は、（一社）北陸土木コンクリート製品技術協会のホームページからダウンロード可能である。 URL⇒ https://www.hokudocon.jp/download/"
+    }
+  ],
+  "absorbsParagraphs": {
+    "before": [
+      "上記規定集は、（一社）北陸土木コンクリート製品技術協会のホームページからダウン"
+    ],
+    "after": []
+  },
+  "notes": [],
+  "review": {
+    "status": "approved",
+    "by": "qa",
+    "at": "2026-10-25T04:11:17.163Z",
+    "note": "画像p0147（コンクリート二次製品外観合否判定基準（案）の案内文の末尾）。表ではなく本文の段落が途中で版面になったもの。直前の段落（ダウン）とつないで 1 段落にした。 ／ QA: p147 画像照合。本文段落の末尾（ダウン／ロード可能である。URL）を直前段落と 1 段落にした取り込みで正しい。"
+  }
+}

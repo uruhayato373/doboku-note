@@ -70,12 +70,14 @@ domain: site
    ```
 
    `check-standard-articles` の 14（組み直しの照合）・17〜19（文の途中の改行・表から外れた断片・壊れた表）が通ること。
-   描画は CI の `e2e/standards-render.spec.ts`。人の目でまとめて見るなら `npm run standards-table-gallery`（serve か dev が要る）。
+   `check-standard-articles` は版面のまま残った表の数を文書ごとの基準（`config/standards-structure.json` の `readabilityBaselines.verbatimTables`）で止める。組み直して減ったら基準を下げる（検査が「下げられる」と出す）。
+   描画は CI の `e2e/standards-render.spec.ts`（PR は共通仕様書の中身が異なるページ、夜間・手動は `STANDARDS_RENDER_SCOPE=all` で比較の外の文書も全ページ）。人の目でまとめて見るなら `npm run standards-table-gallery`（serve か dev が要る）。
 
 ## 注意
 
 - 構造の判定（表の領域・段落の区切り）を `scripts/lib/standards-structure.mjs` で直すと版面が変わり、該当の表の key が変わる。直したら 1 から回し直す（古い組み直しは使われないだけで消えない。`inventory` で版面が残った表を確かめる）。
 - 地域版だけの表は、その機関の画像が vault に無ければ近畿版の同じ表の画像で構造を見る（作業票に書かれる）。文字はその機関の版面が正。
+- 生成後の検査 19（空の列）を親が機械で直すときは、描画された章記事の列ではなく JSON のセルで空かを判定する。描画は見出しの `{"same":"left"}` と隣り合う同じ文字（「月 月 月」）を 1 つにまとめるので、描画で空の列に文字が入っていることがある（2026-10-25 に描画の列で落として 36 件の文字を消し、版面に戻した。DN-0850）。記入欄だけの様式は落とさず verbatim にするのが安全。版面に戻した表を `headerFrom` で参照している表も適用できなくなるので、生成が通るまで参照側も確かめる。
 
 ## 訂正・追加表（中国地方整備局版）
 
