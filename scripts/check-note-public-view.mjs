@@ -25,7 +25,8 @@
  *   node scripts/check-note-public-view.mjs --all-pages --sample 40  # 全件ブラウザを等間隔に 40 本だけ
  *   node scripts/check-note-public-view.mjs 技術士総監        # パス部分一致で絞る
  *   --out <path>   結果 JSON を保存（CI の成果物）
- *   --review       代表ページを全画面幅で検査・撮影する（.tmp/note-public-view/review/ と index.json）
+ *   --review       代表ページを全画面幅で検査・撮影する（<撮影の置き場>/review/ と index.json）
+ *   --shot-dir <path>  撮影の置き場（既定 .tmp/note-public-view。土曜の収集は NOTE_PUBLIC_VIEW_LOCAL_DIR を渡す）
  * 例外台帳: .claude/config/note-public-view.json（意図した全文ロック・判断待ち）
  * 終了コード: 0 = 異常なし / 1 = 異常あり、または取得失敗が 20% を超えた（検査不成立）
  */
@@ -50,8 +51,8 @@ const SAMPLE = Number(argValue('--sample') || 0);
 const REVIEW = argv.includes('--review');
 const ALL_PAGES = argv.includes('--all-pages');
 const OUT = argValue('--out');
-const FILTER = argv.find((a, i) => !a.startsWith('--') && !['--sample', '--out'].includes(argv[i - 1])) || '';
-const SHOT_DIR = join(ROOT, '.tmp/note-public-view');
+const FILTER = argv.find((a, i) => !a.startsWith('--') && !['--sample', '--out', '--shot-dir'].includes(argv[i - 1])) || '';
+const SHOT_DIR = argValue('--shot-dir') || join(ROOT, '.tmp/note-public-view');
 const REVIEW_DIR = join(SHOT_DIR, 'review');
 // 同時に開く数とページ間の間隔。3 並列・間隔なしで全件を開くと note が途中から 403 を返した（2026-09-23 CI）
 const CONCURRENCY = 2;
@@ -314,7 +315,7 @@ for (const r of bad) console.error(`  BAD  ${r.path}\n       ${r.bad.join(' / ')
 for (const r of warn) console.log(`  WARN ${r.path}: ${r.warn.join(' / ')}`);
 if (OUT) {
   mkdirSync(dirname(OUT), { recursive: true });
-  writeFileSync(OUT, JSON.stringify({ targets: targets.length, apiFail, apiLimited, viewTargets: viewTargets.length, viewFail, representatives: reps.length, repFail, breakpoints: bpReport, reviewCoverage: reviewCoverageResult, bad, warn }, null, 2) + '\n');
+  writeFileSync(OUT, JSON.stringify({ generatedAt: new Date().toISOString(), targets: targets.length, apiFail, apiLimited, viewTargets: viewTargets.length, viewFail, representatives: reps.length, repFail, breakpoints: bpReport, reviewCoverage: reviewCoverageResult, bad, warn }, null, 2) + '\n');
 }
 
 const repLoads = reps.length * BP.note.viewports.length;
@@ -324,7 +325,7 @@ if (failRate > MAX_FETCH_FAIL_RATE) {
   process.exit(1);
 }
 if (bad.length) {
-  console.error(`[check-note-public-view] ✗ 読者から見て不整合 ${bad.length} 本（WARN ${warn.length}）。スクリーンショット: .tmp/note-public-view/`);
+  console.error(`[check-note-public-view] ✗ 読者から見て不整合 ${bad.length} 本（WARN ${warn.length}）。スクリーンショット: ${SHOT_DIR}`);
   process.exit(1);
 }
 if (REVIEW && !reviewCoverageResult?.complete) {

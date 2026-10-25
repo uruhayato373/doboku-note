@@ -588,6 +588,8 @@ export function datasetFiles(root, id) {
 
 /** 最新のファイル（無ければ null） */
 export const latestFile = (root, id) => datasetFiles(root, id)[0] ?? null;
+/** 日付つきの時系列（…/YYYY-MM-DD.json）の最新の日付。無ければ null（競合の再取得の期日と土曜の収集の四半期の段が同じものを読む） */
+export const latestFileDate = (root, id) => latestFile(root, id)?.match(/(\d{4}-\d{2}-\d{2})\.json$/)?.[1] ?? null;
 
 /** その置き場に宣言のある領域 id（ファイルを読まない・サイドバー用） */
 export const areaDomainIds = (area, domainIds) => domainIds.filter((id) => DATASETS.some((x) => areaOf(x) === area && x.domain === id));

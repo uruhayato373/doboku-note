@@ -2,7 +2,7 @@
 /**
  * report-competitor-watch.mjs — ココナラ競合の「変化」と「追跡外の伸びている売り手」を週次で読む形に出す（read-only）
  * ---------------------------------------------------------------------------
- * 四半期の取得（competitor-scan.yml → scout-coconala-competitors / coconala-research）が書いた state を読むだけ。
+ * 四半期の取得（土曜の Mac の収集の competitors 段 → scout-coconala-competitors / coconala-research）が書いた state を読むだけ。
  * 取得はしない。読み手＝週次レビュー（/weekly-review の Step「競合の変化」）。
  *
  *   1. 変化: 競合の時系列の最新（台帳 coconala.competitors）の drift（価格・出品数・撤収・新規追跡）と、累計販売の伸びが大きい売り手

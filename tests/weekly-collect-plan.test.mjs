@@ -1,7 +1,8 @@
 // 土曜の収集の段の表（DN-0817・DN-0819）: 対象の月・期間と、段の合否の決め方
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { buildStages, commandFailureReason, judgeRuns, previousMonth, runPassed, stageStatus, verifyFailureReason } from '../scripts/lib/weekly-collect-plan.mjs';
+import { buildStages, commandFailureReason, competitorsDue, judgeRuns, previousMonth, quarterStart, runPassed, stageStatus, verifyFailureReason } from '../scripts/lib/weekly-collect-plan.mjs';
+import { NOTE_PUBLIC_VIEW_LOCAL_DIR } from '../scripts/lib/note-public-view.mjs';
 
 const argvOf = (stages, id) => stages.find((s) => s.id === id).commands.map((c) => c.argv.join(' '));
 
@@ -132,3 +133,34 @@ test('一番新しい回の書き戻しの問題は段が全部合格でも赤',
   const runs = [...RUNS, { phase: 'only', finishedAt: '2026-10-24T10:00:00Z', stages: [stage('a8', 'ok')], commit: { problem: 'develop への push に失敗' }, leftover: [] }];
   assert.match(judge({ runs }).problems.join('\n'), /only: 2026-10-24 の書き戻しの問題（develop への push に失敗）/);
 });
+
+// DN-0852: CI の note-public-view.yml・competitor-scan.yml を土曜の前段へ移した
+test('note の公開画面の撮影は前段・撮影は収集とレビューが共有する手元の置き場へ・検査不成立は失敗', () => {
+  const stages = buildStages({ today: '2026-10-31' });
+  const npv = stages.find((s) => s.id === 'note-public-view');
+  assert.equal(npv.phase, 'pre');
+  const argv = npv.commands[0].argv.join(' ');
+  assert.match(argv, /check-note-public-view\.mjs --review/);
+  assert.ok(argv.includes(`--shot-dir ${NOTE_PUBLIC_VIEW_LOCAL_DIR}`) && !argv.includes('.tmp/'));
+  assert.equal(stageStatus(npv, [1], ['BAD x']), 'warn');
+  assert.equal(stageStatus(npv, [2], ['検査不成立: 代表ページの撮影成立 3/10']), 'failed');
+  assert.equal(stageStatus(npv, [1], ['✗ 検査不成立: 取得・表示の失敗が 40%']), 'failed');
+});
+
+test('四半期の初日と、競合の取得は四半期の最初の土曜だけ（取得済みなら skip）', () => {
+  assert.equal(quarterStart('2026-10-31'), '2026-10-01');
+  assert.equal(quarterStart('2027-01-02'), '2027-01-01');
+  assert.equal(quarterStart('2026-06-30'), '2026-04-01');
+  assert.equal(competitorsDue({ today: '2026-10-31', lastScans: { note: '2026-10-25', coconala: '2026-10-01' } }), false);
+  assert.equal(competitorsDue({ today: '2027-01-02', lastScans: { note: '2026-10-25', coconala: '2026-10-01' } }), true);
+  assert.equal(competitorsDue({ today: '2026-10-31', lastScans: { note: '2026-10-25', coconala: '2026-09-30' } }), true);
+  assert.equal(competitorsDue({ today: '2026-10-31', lastScans: {} }), true);
+  const skipped = buildStages({ today: '2026-10-31', competitorScans: { note: '2026-10-25', coconala: '2026-10-01' } }).find((s) => s.id === 'competitors');
+  assert.match(skipped.skip, /取得が済んでいる/);
+  const due = buildStages({ today: '2027-01-02', competitorScans: { note: '2026-10-25', coconala: '2026-10-01' } }).find((s) => s.id === 'competitors');
+  assert.equal(due.skip, null);
+  assert.equal(due.phase, 'pre');
+  assert.equal(due.browser, true); // ココナラの 2 本は手元の永続 profile
+  assert.deepEqual(argvOf([due], 'competitors').map((a) => a.split(' ').find((x) => /scout|research/.test(x))), ['scout-note-competitors', 'scripts/coconala-research.mjs', 'scout-coconala-competitors']);
+});
+
