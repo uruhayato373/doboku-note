@@ -11,6 +11,8 @@
  *   2. 壁時計・鮮度を示す語を持つ検査が ci:true に居ない（再混入の検知）
  *   3. --ops / --ci / --report-only の対象が排他で、--ops が 0 件実行を PASS と呼ばない
  *   4. ops 区分を日次で読む配線（ops-audit.yml）が実在し、復旧で自動クローズしている
+ *   5. 回す頻度（cadence・DN-0847）: 毎日（なし）／土曜の週次レビュー（weekly）／土曜の収集の検算（collect）が排他で、
+ *      weekly は review-wiring の weekly.checks、collect は weekly-collect の段の verify から実際に回る
  */
 import { strict as assert } from 'node:assert';
 import { readFileSync } from 'node:fs';
@@ -72,21 +74,48 @@ test('壁時計・鮮度に依存する検査が ci:true に居ない（再混�
   assert.deepEqual(bad, [], `壁時計依存の検査が ci:true にある: ${bad.join(', ')} → ops:true, ci:false にする`);
 });
 
-test('selectsCheck: --ci / --ops / --report-only の対象が排他', async () => {
+test('selectsCheck: --ci / --ops / --weekly / --report-only の対象が排他（collect はどれでも回さない）', async () => {
   const { selectsCheck } = await import('../scripts/quality-audit.mjs');
   const gate = { id: 'g', ci: true };
   const ops = { id: 'o', ci: false, ops: true };
+  const weekly = { id: 'w', ci: false, ops: true, cadence: 'weekly' };
+  const collect = { id: 'c', ci: false, ops: true, cadence: 'collect' };
   const report = { id: 'r', ci: false };
   const info = { id: 'k', ci: false, digest: false };
-  assert.deepEqual([gate, ops, report, info].map((c) => selectsCheck(c, { ci: true })), [true, false, false, false]);
-  assert.deepEqual([gate, ops, report, info].map((c) => selectsCheck(c, { ops: true })), [false, true, false, false]);
-  assert.deepEqual([gate, ops, report, info].map((c) => selectsCheck(c, { reportOnly: true })), [false, false, true, false]);
-  assert.deepEqual([gate, ops, report, info].map((c) => selectsCheck(c, {})), [true, true, true, true]);
+  const all = [gate, ops, weekly, collect, report, info];
+  assert.deepEqual(all.map((c) => selectsCheck(c, { ci: true })), [true, false, false, false, false, false]);
+  assert.deepEqual(all.map((c) => selectsCheck(c, { ops: true })), [false, true, false, false, false, false]);
+  assert.deepEqual(all.map((c) => selectsCheck(c, { weekly: true })), [false, false, true, false, false, false]);
+  assert.deepEqual(all.map((c) => selectsCheck(c, { reportOnly: true })), [false, false, false, false, true, false]);
+  assert.deepEqual(all.map((c) => selectsCheck(c, {})), [true, true, true, true, true, true]);
 });
 
-test('--ops のガードが実装されている（排他・検査ゼロ・ops は ci:false）', () => {
+test('cadence は ops:true にだけ weekly か collect で付き、毎日の ops に週 1 回しか変わらない検算を残さない（DN-0847）', () => {
+  const bad = CHECKS.filter((c) => c.cadence !== undefined && (!c.ops || !['weekly', 'collect'].includes(c.cadence)));
+  assert.deepEqual(bad.map((c) => c.id), []);
+  const daily = CHECKS.filter((c) => c.ops && !c.cadence).map((c) => c.id);
+  // 数日で実害が出るもの・CI の取得の停止・土曜の収集の死活は毎日
+  for (const id of ['note-delivery-due', 'membership-drip', 'affiliate-placements-upcoming', 'registry-due', 'weekly-collect']) assert.ok(daily.includes(id), `${id} が毎日の ops に居ない`);
+  // 土曜の収集が書く記録の検算を毎日回すと、1 段落ちただけで同じ赤が 6 回出る（2026-10-25 に 3 本が赤）
+  for (const id of ['sales-freshness', 'kdp-report-freshness', 'a8-report-due', 'coconala-analytics']) {
+    assert.equal(CHECKS.find((c) => c.id === id)?.cadence, 'collect', `${id} が収集の検算に居ない`);
+  }
+  // 毎日の weekly-collect は死活だけ（段の合否は土曜の Issue と週次レビュー）
+  assert.equal(CHECKS.find((c) => c.id === 'weekly-collect').npm, 'check-weekly-collect:alive');
+});
+
+test('週次の点検（cadence weekly）は土曜の週次レビューが review-checks で回す', () => {
+  const wiring = JSON.parse(readFileSync(join(ROOT, '.claude/config/review-wiring.json'), 'utf8'));
+  assert.ok(CHECKS.some((c) => c.cadence === 'weekly'), 'cadence weekly が 1 件も無い（検査不成立）');
+  assert.ok((wiring.cadences.weekly.checks ?? []).some((k) => k.command === 'quality:audit:weekly'), 'review-wiring の weekly.checks に quality:audit:weekly が無い（週次の点検の読み手が無い）');
+  const pkg = JSON.parse(readFileSync(join(ROOT, 'package.json'), 'utf8'));
+  assert.match(pkg.scripts['quality:audit:weekly'] ?? '', /quality-audit\.mjs --weekly/);
+});
+
+test('--ops / --weekly のガードが実装されている（排他・検査ゼロ・ops は ci:false）', () => {
   assert.match(SRC, /if\s*\(OPS\s*&&\s*\(CI\s*\|\|\s*REPORT_ONLY\)\)/, '--ops と --ci/--report-only の排他ガードが無い');
-  assert.match(SRC, /OPS\s*&&\s*results\.length === 0/, '--ops の検査ゼロ判定が無い');
+  assert.match(SRC, /if\s*\(WEEKLY\s*&&\s*\(CI\s*\|\|\s*REPORT_ONLY\s*\|\|\s*OPS\)\)/, '--weekly と他のモードの排他ガードが無い');
+  assert.match(SRC, /\(OPS\s*\|\|\s*WEEKLY\)\s*&&\s*results\.length === 0/, '--ops / --weekly の検査ゼロ判定が無い');
   assert.match(SRC, /c\.ops\s*&&\s*c\.ci/, 'ops:true かつ ci:true を exit 2 で止める検証が無い');
 });
 

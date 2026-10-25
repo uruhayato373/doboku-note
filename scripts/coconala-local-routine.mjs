@@ -9,7 +9,7 @@
  * 1 回の実行でやること（scripts/weekly-collect.mjs が収集用 worktree＝最新の develop で呼ぶ）:
  *   1. coconala-orders（取引一覧）・coconala-analytics --append-kpi（出品分析）・coconala-revenue（売上履歴＝月の受取額）
  *   2. 台帳（coconala.orders-snapshot・analytics・kpi・revenue）を commit して develop へ push
- *   未ログインなら macOS の通知で知らせる。止まった週は日次 ops 点検（check-sales-freshness・check-coconala-analytics）が拾う。
+ *   未ログインなら macOS の通知で知らせる。止まった週は土曜の収集の検算（check-sales-freshness・check-coconala-analytics・DN-0847）が拾う。
  *
  * CLI（専用 worktree のルートで実行する。ブランチに乗った HEAD では --dry-run 以外を拒否する）:
  *   node scripts/coconala-local-routine.mjs              # 本番（取得・commit・push）

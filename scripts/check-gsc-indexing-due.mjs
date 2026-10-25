@@ -41,5 +41,5 @@ if (JSON_OUT) {
   for (const i of top) console.log(`  ${String(i.impressions).padStart(5)} impr  ${i.status.padEnd(20)} ${i.path}`);
   if (result.due) console.log(`  → ${command}`);
 }
-// --fail-on-due: 期限切れなら exit 1（quality-audit の ops:true が日次で読む＝週次レビューから移した点検・DN-0394）。既定は従来どおり常に exit 0。
+// --fail-on-due: 期限切れなら exit 1（土曜の収集の段の検算＝quality-audit の ops:true・cadence collect が読む・DN-0847。それまでは日次・DN-0394）。既定は従来どおり常に exit 0。
 process.exit(process.argv.includes("--fail-on-due") && result.due ? 1 : 0);

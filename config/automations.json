@@ -21,12 +21,13 @@
         "coconala",
         "google"
       ],
-      "purpose": "ログインが要る取得と書き込みを 1 本ずつ回し（weekly-collect の前後）、間にヘッドレスの Claude Code で週次・月次レビューと翌週の計画を書いて develop へ push する（DN-0817）",
+      "purpose": "ログインが要る取得と書き込みを 1 本ずつ回し（weekly-collect の前後・取った記録の検算つき）、note の公開状態の照合（公開 API）も前段で回す。間にヘッドレスの Claude Code で週次・月次レビュー（週次の点検 quality:audit:weekly を含む）と翌週の計画を書いて develop へ push する（DN-0817・DN-0847）",
       "readers": [
         "quality-audit:weekly-collect",
         "issue:weekly-collect",
         "issue:weekly-review-local",
         "admin:/metrics/business",
+        "admin:/content/note",
         "admin:/ops/automations"
       ],
       "writes": [
@@ -34,7 +35,9 @@
         "note.sales",
         "coconala.analytics",
         "a8.ui-last-run",
-        "note.sync-log"
+        "note.sync-log",
+        "note.status",
+        "note.magazines"
       ]
     },
     {
@@ -129,11 +132,11 @@
         "workflow_dispatch"
       ],
       "schedule": [
-        "47 21 * * 0"
+        "47 13 * * 5"
       ],
-      "scheduleJst": "月 06:47",
+      "scheduleJst": "金 22:47",
       "login": [],
-      "purpose": "ゾーン設定のずれを検知する",
+      "purpose": "ゾーン設定のずれを検知する（土曜の週次レビューが新しい結果を読めるよう金曜の夜に回す・DN-0847）",
       "readers": [
         "issue:cloudflare-config",
         "quality-audit:cloudflare-metrics-freshness"
@@ -323,26 +326,6 @@
       ]
     },
     {
-      "id": "note-live-audit",
-      "runner": "github-actions",
-      "source": ".github/workflows/note-live-audit.yml",
-      "title": "note の公開状態の監査",
-      "triggers": [
-        "schedule",
-        "workflow_dispatch"
-      ],
-      "schedule": [
-        "30 22 * * 0"
-      ],
-      "scheduleJst": "月 07:30",
-      "login": [],
-      "purpose": "note の公開 API で構造・タグ・状態・マガジンを照合する（ログイン不要）",
-      "readers": [
-        "issue:note-live-audit",
-        "admin:/content/note"
-      ]
-    },
-    {
       "id": "note-public-view",
       "runner": "github-actions",
       "source": ".github/workflows/note-public-view.yml",
@@ -395,7 +378,7 @@
       ],
       "scheduleJst": "毎日 07:45",
       "login": [],
-      "purpose": "quality-audit の ops 区分を回し、赤を Issue にする（土曜の収集の停止もここで拾う）",
+      "purpose": "quality-audit の ops 区分のうち毎日の分（数日で実害が出るもの・CI の取得の停止・土曜の収集の死活）を回し、赤を Issue にする。週次の点検と収集の検算は土曜に回す（DN-0847）",
       "readers": [
         "issue:ops"
       ]

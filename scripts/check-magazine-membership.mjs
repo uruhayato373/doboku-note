@@ -34,7 +34,7 @@
  *
  * ネットワークを叩かない: C は snapshot の**オフライン読取**のみ。
  *   ここをライブ取得にすると、プロキシで落ちるたび CI が赤くなり信号が死ぬ。
- *   snapshot の供給は .github/workflows/note-live-audit.yml（週次）が担当する。
+ *   snapshot の供給は土曜の収集の note-audit 段（scripts/lib/weekly-collect-plan.mjs・週次・公開 API）が担当する（DN-0847）。
  *   ただし **古い snapshot を緑と呼ばない**: fetchedAt が STALE_DAYS 超なら軸 C は検査不成立。
  *
  * Usage:
@@ -61,7 +61,7 @@ const SOT_PATH = join(ROOT, 'src/lib/note-magazines.ts');
 const CONFIG_PATH = join(ROOT, datasetPath('config.note-magazine-membership'));
 const SNAPSHOT_PATH = join(ROOT, datasetPath('note.magazines'));
 
-/** 週次 note-live-audit + 2 日のバッファ。これを超えた snapshot は「真実」として使わない。値は台帳 note.magazines の freshness.failDays（管理画面も同じ値を読む）。 */
+/** 週次の note-audit 段（土曜の収集）+ 2 日のバッファ。これを超えた snapshot は「真実」として使わない。値は台帳 note.magazines の freshness.failDays（管理画面も同じ値を読む）。 */
 const STALE_DAYS = freshnessDays('note.magazines', 'failDays');
 
 /** 型別 article-*.md を落とさない（CLAUDE.md §9）。 */
@@ -344,7 +344,7 @@ function main(argv = process.argv.slice(2)) {
     }
   }
   // CI では snapshot 供給の破綻そのものをアラームにする（古い緑を出さない）。
-  if (ci && !freshness.ok) fail(`ライブ軸を検査できない — ${freshness.reason}。note-live-audit.yml の snapshot 供給を確認する`);
+  if (ci && !freshness.ok) fail(`ライブ軸を検査できない — ${freshness.reason}。土曜の収集の note-audit 段（npm run check-weekly-collect）の snapshot 供給を確認する`);
 
   // --- 判定 ---
   // labels（1 ラベル→1 マガジン）と packs（複数ラベルの合算＝パック商品）を同じ表に畳む。

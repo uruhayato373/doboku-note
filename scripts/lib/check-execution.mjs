@@ -6,7 +6,7 @@ export const UNIT_TEST_TIMEOUT_MS = 300_000;
 export function commandTimeoutMs(command, fallbackMs = 180_000) {
   if (command === 'test') return UNIT_TEST_TIMEOUT_MS;
   // Each aggregate bounds its children. An outer 180s deadline used to kill healthy suites.
-  if (['quality:audit:ci', 'quality:audit', 'check-backlog-verify', 'node:check-backlog-verify', 'review-checks', 'node:review-checks'].includes(command)) return 0;
+  if (['quality:audit:ci', 'quality:audit', 'quality:audit:weekly', 'check-backlog-verify', 'node:check-backlog-verify', 'review-checks', 'node:review-checks'].includes(command)) return 0;
   return fallbackMs;
 }
 

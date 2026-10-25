@@ -999,7 +999,7 @@ export const NoteTrafficPeriod = z.object({
   if (r.rows.every(row => row.pageViews !== null) && r.rows.reduce((sum, row) => sum + row.pageViews, 0) !== r.summary.pageViews) flag(ctx, ['rows'], '記事別 PV の合計が全体の PV と合わない');
 }).meta({ title: 'note の指定期間のアクセス状況' });
 
-/** note のマガジンと収録記事の公開状態（data/note/magazines.json）。週次の note-live-audit が verify-note-magazines --contents --json で取る */
+/** note のマガジンと収録記事の公開状態（data/note/magazines.json）。土曜の収集の note-audit 段が verify-note-magazines --contents --json で取る（DN-0847） */
 export const NoteMagazines = z
   .object({
     fetchedAt: utcTime('取得時刻'),

@@ -169,7 +169,7 @@ Windows と Mac の双方で note の別プロセス再利用・worktree 非依�
 | 担い手 | 受け持つこと |
 |---|---|
 | 人（運営者） | 初回ログイン・パスワードと 2 段階認証・CAPTCHA（`npm run auth:login -- --service <id>`）、OS の資格情報ストアへの ID/PW の登録、期限切れの再ログイン、古いロックを外す判断、GitHub Secrets `DOBOKU_AUTH_*` の削除 |
-| Mac（launchd `com.doboku-note.weekly-review`・土 09:30） | `scripts/weekly-collect.mjs`。前段（`--phase pre`）でログイン確認・A8・KDP・note のアクセスと売上・ココナラ・GSC を集め、Claude の週次レビューを挟み、後段（`--phase post`）で note のライブ照合・note 同期・同期の照合を回す。結果は `.claude/state/weekly-collect/runs.json`、日々の点検は `npm run check-weekly-collect`、赤は Issue（channel `weekly-collect`） |
+| Mac（launchd `com.doboku-note.weekly-review`・土 09:30） | `scripts/weekly-collect.mjs`。前段（`--phase pre`）でログイン確認・A8・KDP・note のアクセスと売上・ココナラ・GSC を集め（各段は取った記録の検算つき）、note の公開状態を公開 API で照合し（note-audit）、Claude の週次レビューを挟み、後段（`--phase post`）で note のライブ照合・note 同期・同期の照合を回す。結果は `.claude/state/weekly-collect/runs.json`、日々の死活は `npm run check-weekly-collect:alive`、段ごとの合否は `npm run check-weekly-collect`、赤は Issue（channel `weekly-collect`） |
 | CI | ログインしない。resolver は CI では profile も state も返さない（`AUTH_CI_NO_LOGIN`）。公開 API・サイト・R2 だけを見る |
 | 他のセッション | ログインして取りに行かない。収集の記録と最終取得日を読み、古ければ「未取得」と書く（下記） |
 
@@ -225,7 +225,7 @@ A8・KDP・note のアクセスと売上・ココナラ・GSC の「いま」の
 2. 最終取得日が古い、または空なら、数値を埋めずに「未取得」と書く
 3. 取り直しが要るときは「次の土曜の収集を待つ」か、運営者が端末で `node scripts/weekly-collect.mjs --only <段>` を実行する、と案内する
 
-収集の成否は `npm run check-weekly-collect`（直近の pre と post が合格か・期限内か）で見る。
+収集の成否は `npm run check-weekly-collect`（段ごとの最新の結果が合格か・運営者の `--only` の取り直しを含む・期限内か）で見る。
 
 ## 検証
 

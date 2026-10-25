@@ -13,7 +13,7 @@
 //   （マガジン収録記事の一部など noteUrl で管理する別規約）には field を注入しない。
 //
 // 同系統: verify-note-magazines(マガジン SoT↔live)・audit-note-funnel --live(CTA 反映 D5)。
-//   いずれも note-live-audit.yml が週次実行する。note 公開 API は creds 不要
+//   いずれも土曜の収集の note-audit 段（weekly-collect・DN-0847）が週次実行する。note 公開 API は creds 不要
 //   （会社 PC プロキシ対策の --ssl-no-revoke を踏襲）。連続取得はレート制限されるため
 //   throttle + retry を入れている。
 //

@@ -279,7 +279,7 @@ npm run check-kdp-report-freshness # 取得期限・全書籍行・catalog紐付
 ココナラの売上履歴（`data/coconala/revenue.json`）は土曜の Mac 収集の coconala 段が取る（CI からは 403）。note の過去月は、運営者が収集用 worktree の端末で `node scripts/note-sales-fetch.mjs --month YYYY-MM --commit`。
 `check-kdp-report-freshness` は前月確定（23日以降）・当月推計（28日以降）の2期限に加え、共有KDP口座のうちdoboku-note catalogでLIVEの書籍（対象月末までに出版した本）が全冊取得・紐付けできることを確認する。
 他サイトの書籍行は `externalRows` として数えるが、doboku-noteの取得完全性の母数には入れない。
-`quality:audit --ops` と日次 `ops-audit.yml` が停止を通知し、復旧時に通知を閉じる。月次事業レビューは同じ台帳の
+土曜の収集の kdp 段の検算（quality-audit の cadence collect）が落ちると段が failed になり、Issue（channel weekly-collect）が通知する。取り直して段ごとの最新が全部合格になると自動で閉じる（DN-0847）。月次事業レビューは同じ台帳の
 書籍別行からdoboku-note分の `kdpRoyalty` だけを合算し、推計はpartial、確定かつ全冊紐付け済みのみcompleteとして扱う。
 KENP既読ページは共有口座全体値でサイト帰属できないため、台帳と管理画面には参考表示するが事業レビューへは入れない。
 

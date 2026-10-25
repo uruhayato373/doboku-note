@@ -95,7 +95,7 @@ Google の「Move a site with URL changes」（2026-08-20 更新）の手順ど�
 
 > [!warning] 何が自動で回り、何が回らないか（2026-09-07 更新）
 > **自動（GitHub Actions cron・実績で確認）**: fetch-metrics（週次）/ psi-audit（日次）/
-> index-coverage（週次・2026-09-17〜）/ gsc-auto-review（週次）/ quality-audit（外部リンク・X の生存確認は report 区分）/ r2-sync（main と R2 の画像差分）/ note-live-audit / uptime-ping。
+> index-coverage（週次・2026-09-17〜）/ gsc-auto-review（週次）/ quality-audit（外部リンク・X の生存確認は report 区分）/ r2-sync（main と R2 の画像差分）/ uptime-ping。note の公開状態の照合は土曜の Mac の収集（weekly-collect の note-audit 段・2026-10-25〜・DN-0847）。
 > **オフライン surfacer も CI 側で自動**（`weekly-review-guard.yml` が毎週月曜に実行）:
 > check-experiment-due / check-gsc-ui-due / **check-gsc-auto-review** / check-google-ui-ssot /
 > check-ga4-dimensions を job summary へ出力し、check-internal-links-vs-gsc は hard fail させる。
