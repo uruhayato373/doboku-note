@@ -303,6 +303,16 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-0848] automerge.yml の workflow_run が 10/24 22:37Z 以降に起動せず、ラベル付きの PR が緑でも入らない
+タグ: [インフラ・計測] [領域:管理] [時期:2026-10..2026-11] [種類:不具合] [起票:2026-10-25]
+
+**起点**: 2026-10-25 の PR #1223。automerge ラベルを付けた時点（00:01Z）は audit・build が未完了で「待つ」になった。Pre-merge は 00:04Z に緑で終わったが、automerge.yml の workflow_run が起動せず、10 分後に手で `gh pr merge --squash --match-head-commit` した。automerge.yml の workflow_run の起動は 2026-10-24T22:37Z が最後で、23:29Z の develop への push の Pre-merge 完了でも起動していない（main は 23:00Z の deploy で更新）。`gh workflow list` では active、main の定義の workflows 名は ci.yml の name と一致している。原因は未確認。
+
+**やること**: 起動しない原因を確かめて直す（GitHub 側の遅延・main の定義・workflow_run の制約のどれか）。直らない間は、ラベルを付けても入らないことを `/deploy` やコード系 PR の手順で前提にしない。
+
+**完了条件**: automerge ラベルを付けた PR が、Pre-merge の完了から数分で workflow_run の automerge により squash される（`gh run list --workflow automerge.yml` に event workflow_run の新しい回が出る）。
+
+
 ### [DN-0847] 点検の置き場を入力の頻度と直す人で分け直し、note-live-audit を土曜の前段へ移す
 タグ: [インフラ・計測] [領域:管理] [時期:2026-10..2026-11] [種類:改善] [起票:2026-10-25]
 
