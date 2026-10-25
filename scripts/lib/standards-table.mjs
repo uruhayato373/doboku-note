@@ -282,6 +282,7 @@ export function overrideParts(override) {
         rows: override.rows ?? [],
         headerFrom: override.headerFrom ?? null,
         headerFill: override.headerFill ?? null,
+        headerImage: override.headerImage ?? null,
         headerless: override.headerless === true,
       },
       ...notes,
@@ -354,6 +355,24 @@ function resolveTablePart(part, lookup) {
       const fill = fromTable.header[r]?.[c];
       return String(cell).trim() === '' && typeof fill === 'string' ? fill : cell;
     }));
+  }
+  // 斜線で区切った見出し（左上の枠）などで、見出しの語がテキスト層に無いか崩れて残ったものは、headerImage に
+  // 原本の紙面から読んだ見出しを書くと、表示だけをそれに置き換える（照合の外。header の文字は照合に残る。QA が画像と照合する。DN-0850）
+  if (Array.isArray(part.headerImage) && part.headerImage.length > 0) {
+    const image = part.headerImage.map((row) => [...row]);
+    if (image.some((row) => row.length !== width)) return { error: 'override-bad-header-image' };
+    for (const row of image) {
+      for (let c = 0; c < width; c += 1) {
+        const cell = row[c];
+        if (isSameRef(cell)) {
+          if (cell.same !== 'left' || typeof row[c - 1] !== 'string') return { error: 'override-bad-header-image' };
+          row[c] = row[c - 1];
+        } else if (typeof cell !== 'string' || cell.includes('|')) {
+          return { error: 'override-bad-header-image' };
+        }
+      }
+    }
+    header = image;
   }
   // 原本の表にもともと見出し行が無いもの（近畿版 表3-2-13(2) の飼育試験の表など）は、
   // headerless: true と明示したときだけ空の見出しで出す（GFM は見出し行を省けない）

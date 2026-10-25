@@ -73,6 +73,19 @@ domain: site
    `check-standard-articles` は版面のまま残った表の数を文書ごとの基準（`config/standards-structure.json` の `readabilityBaselines.verbatimTables`）で止める。組み直して減ったら基準を下げる（検査が「下げられる」と出す）。
    描画は CI の `e2e/standards-render.spec.ts`（PR は共通仕様書の中身が異なるページ、夜間・手動は `STANDARDS_RENDER_SCOPE=all` で比較の外の文書も全ページ）。人の目でまとめて見るなら `npm run standards-table-gallery`（serve か dev が要る）。
 
+## 大きな表（MAX_ROWS 行を超える版面）
+
+Writer 1 体に収まらない表は断片に分けて組む（DN-0850。最大 2,324 行・50 ページの表）。
+
+```bash
+npm run standards-tables -- split <key> --name g1          # 空行を区切りに約 220 行ずつの断片の作業票（ページは行数の比率で前後 1 ページの余裕）
+npm run standards-tables -- validate --fragment <断片>      # 断片ごとの文字の過不足（Writer が ✓ にする）
+npm run standards-tables -- merge <key>                    # 断片の parts を順につないで tables/<key>.json（下書き）
+npm run standards-tables -- validate <key>                 # 全体の照合
+```
+
+QA は断片ごとに画像と照合し、全断片が承認されたら親が `review <key> --status approved` で記録する。
+
 ## 注意
 
 - 構造の判定（表の領域・段落の区切り）を `scripts/lib/standards-structure.mjs` で直すと版面が変わり、該当の表の key が変わる。直したら 1 から回し直す（古い組み直しは使われないだけで消えない。`inventory` で版面が残った表を確かめる）。

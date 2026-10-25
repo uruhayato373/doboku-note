@@ -62,6 +62,19 @@ domain: site
 
 `layout` は照合の鍵（空白を除いた文字列の sha256 先頭 16 桁が key）。`review.status` は必ず `"draft"`（承認は QA）。
 
+## 紙面から読んだ見出し（headerImage）
+
+斜線で区切った左上の枠などで、見出しの語がテキスト層に無いか崩れて残ったときは、表の部品に `headerImage` を書く。
+`header` と同じ列数の行の並び（行数は画像どおりでよい）で、各セルは画像から読んだ見出しの語（横の結合は `{"same":"left"}`）。
+表示は `headerImage` に置き換わり、`header` の文字は照合に残る（照合の外なので文字を足してよい唯一の欄）。斜線の枠は「左下の語＼右上の語」と書く。
+見出しが崩れていない表には書かない。
+
+## 大きな表の断片
+
+Writer 1 体に収まらない表は `npm run standards-tables -- split <key>` で断片の作業票に分ける。断片は作業票に書かれた
+`.tmp/standards-tables/fragments/<断片>.json` に `{ "parts": [...] }` だけを書き、`npm run standards-tables -- validate --fragment <断片>` を ✓ にする。
+2 つ目以降の断片で見出しが版面に無い表は `headerFrom: "<key>#0"`（先頭の断片の見出し）。断片をつなぐのは親（`merge`）。
+
 ## 記入欄だけの様式
 
 記入欄（罫線だけの空欄）が大半の様式・報告用紙は、表にすると見出しも全行も空の列が残り、生成後の検査（`check-standard-articles` 19「壊れた表」）に当たる。

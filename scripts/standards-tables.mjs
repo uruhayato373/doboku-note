@@ -16,12 +16,15 @@
  *   npm run standards-tables -- validate --batch <束> | <key…>  文字の過不足の照合と確認用の表（下書きも approved とみなす）
  *   npm run standards-tables -- review <key> --status approved|rejected --note "…"   照合役の判定を書く（review 欄だけ）
  *   npm run standards-tables -- render --agency <機関> --pdf <原本PDF>                vault が無い PC で画像を作る
+ *   npm run standards-tables -- split <key> [--name <接頭辞>]   Writer 1 体に収まらない大きな表（MAX_ROWS 超）を断片の作業票に分ける
+ *   npm run standards-tables -- validate --fragment <断片>       断片（fragments/<断片>.json）の文字の過不足の照合
+ *   npm run standards-tables -- merge <key>                     断片をつないで組み直し（tables/<key>.json・下書き）にする
  *
  * 終了コード: 0 = 成功 / 1 = 照合に落ちた・書けなかった / 2 = 対象 0 件・入力が無い（検査不成立）
  */
 import { createHash } from 'node:crypto';
 import { execFileSync } from 'node:child_process';
-import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { parseCliArgs } from './lib/cli-args.mjs';
 import { readJson, writeJson } from './lib/json-io.mjs';
@@ -36,6 +39,7 @@ const INVENTORY = join(WORK, 'inventory.json');
 const BATCHES = join(WORK, 'batches');
 const PREVIEW = join(WORK, 'preview');
 const RENDERED = join(WORK, 'pages');
+const FRAGMENTS = join(WORK, 'fragments');
 const STANDARDS_VAULT_DIR = '原資料PDF/共通仕様書';
 /** 1 束の大きさ（Writer 1 体が画像と見比べて組める量） */
 const MAX_ROWS = 220;
@@ -52,6 +56,7 @@ const args = parseCliArgs({
   dpi: { type: 'integer', default: 170 },
   document: { type: 'string' },
   chapter: { type: 'string' },
+  fragment: { type: 'string' },
 });
 const [command, ...rest] = args._;
 
@@ -223,6 +228,7 @@ function validate() {
   const all = loadInventory();
   if (!all) return;
   const byKey = new Map(all.map((entry) => [entry.key, entry]));
+  if (args.fragment) return validateFragment(args.fragment);
   const keys = args.batch ? readJson(BATCHES, `${args.batch}.json`).keys : rest;
   if (keys.length === 0) return fail('照合する key が 0 件（--batch か key を渡す）', 2);
   const overrides = loadTableOverrides();
@@ -286,6 +292,112 @@ function validate() {
   if (ng > 0) process.exitCode = 1;
 }
 
+// ---- 大きな表の断片 -----------------------------------------------------
+
+// Writer 1 体に収まらない表（版面が MAX_ROWS 行を超えるもの）は、空行を区切りに断片へ分けて組み、断片の parts を
+// 順につないで 1 つの組み直しにする（照合は全体で文字の過不足ゼロ）。版面にページの区切りは残らないので、
+// 断片の原本ページは行数の比率で割り当て、前後 1 ページの余裕を持たせる（DN-0850）
+function splitRanges(body) {
+  const ranges = [];
+  let start = 0;
+  while (start < body.length) {
+    let end = Math.min(start + MAX_ROWS, body.length);
+    if (end < body.length) {
+      // 断片の後ろ 3 分の 1 にある空行で切る（表の行の途中で切らない）。無ければ MAX_ROWS で切る
+      for (let i = end; i > start + Math.floor(MAX_ROWS * 2 / 3); i -= 1) if (body[i - 1].trim() === '') { end = i; break; }
+    }
+    ranges.push([start, end]);
+    start = end;
+  }
+  return ranges;
+}
+
+function split() {
+  const [key] = rest;
+  const all = loadInventory();
+  if (!all) return;
+  const entry = all.find((e) => e.key === key);
+  if (!entry) return fail(`台帳に ${key} が無い（組み直し済みか、key の打ち間違い）`, 2);
+  const ranges = splitRanges(entry.body);
+  const pageAt = (line) => entry.pages[Math.min(entry.pages.length - 1, Math.floor((line / entry.body.length) * entry.pages.length))];
+  mkdirSync(BATCHES, { recursive: true });
+  mkdirSync(FRAGMENTS, { recursive: true });
+  ranges.forEach(([from, to], index) => {
+    const name = `${args.name ? `${args.name}-` : ''}${key}-${String(index + 1).padStart(2, '0')}`;
+    const first = entry.pages.indexOf(pageAt(from));
+    const last = entry.pages.indexOf(pageAt(Math.max(from, to - 1)));
+    const pages = entry.pages.slice(Math.max(0, first - 1), Math.min(entry.pages.length, last + 2));
+    const images = pages.map((p) => pageImage(entry.document, p)).filter(Boolean);
+    writeJson(BATCHES, `${name}.json`, { name, key, fragment: index + 1, of: ranges.length, from, to });
+    writeFileSync(join(BATCHES, `${name}.md`), [
+      `# 断片の作業票 ${name}（表 ${key} の ${index + 1}/${ranges.length}・版面 ${from + 1}〜${to} 行目・${to - from} 行）`,
+      '',
+      `- 文書: ${entry.document}　章: ${entry.chapterId}　表全体の原本ページ: ${entry.pages[0]}〜${entry.pages[entry.pages.length - 1]}`,
+      `- この断片のページ画像（行数の比率で割り当てた前後 1 ページの余裕つき。版面の先頭と末尾の行が写っているページを探す）: ${images.join(' , ') || 'なし'}`,
+      `- 直前の見出し: ${entry.context || '（章冒頭）'}　キャプション（版面の外。表に含めない）: ${entry.caption.map((c) => c.trim()).join(' ') || 'なし'}`,
+      '',
+      `書く先は ${join(FRAGMENTS, `${name}.json`)}（\`{ "parts": [ … ] }\` だけ。key・layout・review は書かない）。部品の形は組み直しの parts と同じ。`,
+      index === 0
+        ? 'これは表の先頭の断片。見出しはここで組む（後ろの断片が headerFrom で写す）。'
+        : `前の断片から続く表で見出しが版面に無ければ \`header: []\` と \`headerFrom: "${key}#0"\`（先頭の断片の 0 番目の見出し付きの表）を書く。見出しの文字を書き写さない（文字が余る）。`,
+      `照合: npm run standards-tables -- validate --fragment ${name}`,
+      '',
+      '版面（この断片の行。文字はこの行だけから使う）:',
+      '',
+      '```text',
+      ...entry.body.slice(from, to),
+      '```',
+      '',
+    ].join('\n'));
+    console.log(`${name}: ${to - from} 行 / ページ ${pages[0]}〜${pages[pages.length - 1]}`);
+  });
+  console.log(`[standards-tables] ${key}: 断片 ${ranges.length} → ${BATCHES}`);
+}
+
+/** 断片の parts を、断片の版面だけを layout にした仮の組み直しとして照合する（先頭の断片の見出しを headerFrom で写せる） */
+function validateFragment(name) {
+  const meta = readJson(BATCHES, `${name}.json`);
+  const all = loadInventory();
+  if (!all) return;
+  const entry = all.find((e) => e.key === meta.key);
+  if (!entry) return fail(`台帳に ${meta.key} が無い`, 2);
+  const path = join(FRAGMENTS, `${name}.json`);
+  if (!existsSync(path)) return fail(`断片のファイルが無い: ${path}`);
+  const lines = entry.body.slice(meta.from, meta.to);
+  const headName = name.replace(/-\d+$/, '-01');
+  const head = existsSync(join(FRAGMENTS, `${headName}.json`)) ? JSON.parse(readFileSync(join(FRAGMENTS, `${headName}.json`), 'utf8')) : null;
+  const fragment = JSON.parse(readFileSync(path, 'utf8'));
+  const pseudo = { key: tableKey(lines), kind: 'parts', layout: lines, parts: fragment.parts ?? [], review: { status: 'approved' } };
+  const applied = applyTableOverride(lines, pseudo, { lookup: (ref) => (ref === meta.key && head ? { kind: 'parts', parts: head.parts, review: { status: 'approved' } } : undefined) });
+  if (!applied.ok) {
+    console.log(`✗ ${name}: ${applied.reason} ${applied.detail ?? ''}`);
+    process.exitCode = 1;
+    return;
+  }
+  console.log(`✓ ${name}: ${applied.parts.map((p) => (p.kind === 'table' ? `table ${p.header[0].length}列×${p.rows.length}行` : p.kind)).join(' + ')}`);
+}
+
+function merge() {
+  const [key] = rest;
+  const all = loadInventory();
+  if (!all) return;
+  const entry = all.find((e) => e.key === key);
+  if (!entry) return fail(`台帳に ${key} が無い`, 2);
+  const names = readdirSync(BATCHES).filter((f) => f.endsWith('.json') && f.includes(`${key}-`)).map((f) => readJson(BATCHES, f)).filter((m) => m.key === key).sort((a, b) => a.from - b.from);
+  if (names.length === 0) return fail(`${key} の断片の作業票が無い（先に split）`, 2);
+  const missing = names.filter((m) => !existsSync(join(FRAGMENTS, `${m.name}.json`)));
+  if (missing.length) return fail(`断片が足りない: ${missing.map((m) => m.name).join(', ')}`);
+  const parts = names.flatMap((m) => JSON.parse(readFileSync(join(FRAGMENTS, `${m.name}.json`), 'utf8')).parts ?? []);
+  writeJson(TABLE_OVERRIDES_ROOT, `${key}.json`, {
+    key,
+    kind: 'parts',
+    layout: entry.body,
+    parts,
+    review: { status: 'draft', by: 'writer', at: new Date().toISOString(), note: `断片 ${names.length} 件（${names.map((m) => m.name).join(', ')}）をつないだ（DN-0850）` },
+  });
+  console.log(`[standards-tables] ${key}: 断片 ${names.length} 件・部品 ${parts.length} 件 → ${join(TABLE_OVERRIDES_ROOT, `${key}.json`)}（validate ${key} で全体を照合する）`);
+}
+
 // ---- 判定の記録 ---------------------------------------------------------
 
 function review() {
@@ -300,6 +412,6 @@ function review() {
   console.log(`[standards-tables] ${key}: ${args.status}`);
 }
 
-const commands = { inventory, sheets, validate, review, render };
+const commands = { inventory, sheets, validate, review, render, split, merge };
 if (!commands[command]) fail(`使い方: npm run standards-tables -- <${Object.keys(commands).join('|')}> …`, 2);
 else commands[command]();
