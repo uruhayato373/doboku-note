@@ -7,7 +7,7 @@
  * indexnow・workflow-health は npm ci をしないワークフローが読む。読み手にこの型を import しない（型は check-datasets が検査する）。
  */
 import { z } from 'zod';
-import { jstDate, utcTime, offsetTime, flag, uniqueBy } from './dataset-schema-parts.mjs';
+import { jstDate, offsetTime, flag, uniqueBy } from './dataset-schema-parts.mjs';
 import { findOverlaps } from '../../src/lib/affiliate-placement-core.mjs';
 
 // ---- 共通の小さな部品 --------------------------------------------------------------------------
@@ -744,16 +744,6 @@ export const ConfigWorkflowHealth = z
             workflow: z.string().regex(/^[\w.-]+\.ya?ml$/, 'ワークフローのファイル名'),
             branch: text.optional().describe('見るブランチ。省略＝既定ブランチ'),
             ...healthLimits,
-            schedule: z
-              .object({
-                activeSince: utcTime('cron の最初の発火枠'),
-                maxAgeDays: posInt.describe('event=schedule の run だけで見る鮮度（日）'),
-                graceHours: posInt.describe('GitHub の schedule 登録・初回発火の遅延バッファ（時間）'),
-                _why: note,
-              })
-              .strict()
-              .optional()
-              .describe('手動成功が cron の沈黙を隠さないよう、event=schedule の run だけで見る設定'),
             _note: note,
           })
           .strict(),

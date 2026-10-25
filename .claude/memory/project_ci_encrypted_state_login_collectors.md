@@ -15,7 +15,7 @@ metadata:
 
 **How to apply:** 「CI で authenticated が 1 回出た」を成功と呼ばず、**CI 実行後に Mac 側 `auth:status` が authenticated のままか**まで確認する。Google/Meta/Amazon 系は hosted CI に載せない。Mac 側セッションが失効したら `npm run auth:login -- --service <svc>` で回復（google/instagram/kdp は 2026-09-21 に失効中）。書き込み（ops-write / scheduled-publish）は基盤のみで canary 未実施。手順は handoff 2026-09-21。関連 [[reference_ci_encrypted_state_gotchas]]
 
-**2026-09-22 追記（証拠ベース再監査）**: cron は main に載ったが **event=schedule の実績は 0 件**、緑は全部 `workflow_dispatch`（canary）。「cron 稼働中」は誤り＝正しくは「cron 定義済み・初回 schedule 発火は未実証」。`check-workflow-health` は event を区別せず dispatch 成功が cron 停止を永久にマスクしていた（契約「手動成功による異常隠蔽」）→ PR #569 で `auditSchedule`（event=schedule のみで発火の有無/鮮度を判定）と workflow-health.json の schedule 契約を追加。3 サービスは freshness ゲート（a8-report-due/coconala-analytics/sales-freshness 月次照合 ¥71,640 一致）が緑で記録に接続済み。**stats47 は実 schedule で GSC/ココナラ/afb が pass**しており「google は hosted CI 不可」は未確定（disabled は維持）。段階 4（実 schedule 起動）・5（別日連続 2 回）は翌日以降観測＝handoff 2026-09-22。
+**2026-09-22 追記（証拠ベース再監査）**: cron は main に載ったが **event=schedule の実績は 0 件**、緑は全部 `workflow_dispatch`（canary）。「cron 稼働中」は誤り＝正しくは「cron 定義済み・初回 schedule 発火は未実証」。`check-workflow-health` は event を区別せず dispatch 成功が cron 停止を永久にマスクしていた（契約「手動成功による異常隠蔽」）→ PR #569 で `auditSchedule`（event=schedule のみで発火の有無/鮮度を判定）と workflow-health.json の schedule 契約を追加（設定する行が無くなり 2026-10-25 に撤去）。3 サービスは freshness ゲート（a8-report-due/coconala-analytics/sales-freshness 月次照合 ¥71,640 一致）が緑で記録に接続済み。**stats47 は実 schedule で GSC/ココナラ/afb が pass**しており「google は hosted CI 不可」は未確定（disabled は維持）。段階 4（実 schedule 起動）・5（別日連続 2 回）は翌日以降観測＝handoff 2026-09-22。
 
 **2026-09-23 ユーザー決定: Instagram は Graph API を使わない**（Meta の制限が解けても戻さない）。`fetch-ig-insights` / `ig-graph-publish` は使わず、インサイトは欠測のまま扱う。照合・予約投稿は Playwright 経路のみ。
 
