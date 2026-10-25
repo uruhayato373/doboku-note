@@ -8,9 +8,13 @@ name: Auto-merge on green (automerge label)
 #
 # - workflow_run は既定ブランチ（main）版の workflow で動く＝main へ deploy して初めて効く
 # - GITHUB_TOKEN のマージは develop の push CI を起動しない（PR 上で同じ検査が緑になったものだけをマージする）
+# - workflows の名前は glob のパターンとして照合される（`*`・`**`・`+`・`?`・`!` などが特別な文字）。名前の `+` は
+#   `\+` と書かないと「直前の文字の 1 回以上の繰り返し」になり、Pre-merge の完了では一度も起動しなかった
+#   （記録の残る 10-09〜10-25 の Pre-merge の完了 999 回で 0 回。E2E・Lighthouse が後から終わった PR だけがマージされていた・DN-0848）。
+#   単一引用符で書く（YAML の二重引用符では `\+` が不正なエスケープになる）。tests/workflow-run-filters.test.mjs が止める
 on:
   workflow_run:
-    workflows: ["Pre-merge check (quality audit + build)", "Playwright E2E", "Lighthouse CI"]
+    workflows: ['Pre-merge check (quality audit \+ build)', "Playwright E2E", "Lighthouse CI"]
     types: [completed]
   pull_request:
     types: [labeled]

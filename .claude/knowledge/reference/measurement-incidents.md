@@ -8,6 +8,14 @@ title: 計測・検証事故の記録
 
 個別事例は時系列の逆順（新しい順）で追記する。各事例は「現象 / 根本原因 / 気づきの遅延理由（or 検出経緯）/ 適用した対策 / 教訓」を明記する。
 
+## 2026-10-25 — automerge の引き金の名前の `+` が glob と読まれ、Pre-merge の完了で一度も起動していなかった
+
+- 現象: PR #1223 に automerge ラベルを付けたが、Pre-merge（audit・build）が緑で終わっても 10 分マージされず、手で squash した。`automerge.yml` の workflow_run は、記録の残る 10-09〜10-25 に Pre-merge が 999 回完了したうち 0 回しか起動していなかった（近くで起動した 25 回は E2E・Lighthouse の完了で説明できる）。E2E・Lighthouse の完了では 559/782 回・441/637 回起動していた。
+- 根本原因: `on.workflow_run.workflows` の名前は glob のパターンとして照合される（`*`・`**`・`+`・`?`・`!` などが特別）。`"Pre-merge check (quality audit + build)"` の `+` は「直前の文字の 1 回以上の繰り返し」になり、名前の文字としての `+` に一致しなかった。括弧は特別でない（`"Deploy to production (Cloudflare Pages)"` を引き金にする indexnow-submit・production-sweep は起動している）。
+- 気づきの遅延理由: ラベルを付けた PR の多くは E2E・Lighthouse も走り、その完了が Pre-merge より後だったので、別の引き金でマージされていた。E2E・Lighthouse が走らない差分（workflow・scripts の変更）の PR だけが止まり、手でマージして済ませていた。`gh workflow list` は active、名前もバイト単位で一致していて、設定を見ても分からない。引き金の完了時刻と automerge の起動時刻を並べて初めて分かった。
+- 対策: `\+` でエスケープし、YAML の単一引用符で書いた（二重引用符では `\+` が不正なエスケープ）。`tests/workflow-run-filters.test.mjs` が、全ワークフローの workflow_run の名前にエスケープしていない glob の特別な文字が無いことと、名前どおりに一致する `name:` が実在することを止める。workflow_run は既定ブランチの定義で動くので、効くのは main へ deploy してから（DN-0848）。
+- 教訓: GitHub Actions の「名前」や「ブランチ」を書く欄の多くはパターンとして解釈される。記号を含む名前は文字どおりに一致しているかを、起動の実績（引き金の完了と起動の時刻の突き合わせ）で確かめる。設定の見た目と `active` は起動の証拠にならない。
+
 ## 2026-10-24 — ログインが要る処理が Mac・CI・Windows に分かれ、毎週どこかが静かに壊れた（土曜の Mac 1 本へ集約）
 
 - 現象: 10/24 の週に Mac の launchd 4 本が失敗し、週次レビューの自動実行も完了しなかった。10/22 には CI の note 収集が、書き戻しの段で収集分を丸ごと落とした。ログイン系の失敗は Issue に出ても、どの経路が止まったのか（Mac・CI・Windows のどれ）が分からず、直しても別の経路が壊れた。
