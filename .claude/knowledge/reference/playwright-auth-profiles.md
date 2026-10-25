@@ -175,7 +175,7 @@ Windows と Mac の双方で note の別プロセス再利用・worktree 非依�
 
 運営者が 1 段だけ取り直すときは、収集用 worktree（`.claude/worktrees/weekly-collect`）の端末で `node scripts/weekly-collect.mjs --only <段>`
 （段 ID: `auth` `a8` `kdp` `note-traffic` `note-sales` `coconala` `gsc` `note-live` `note-sync` `note-sync-check`）。
-全体の自動化は台帳 `config/automations.json`（管理画面 `/ops/automations`・`npm run check-automations`）が正本で、概観は [04_自動化マップ.md](../../../docs/operations/04_自動化マップ.md)。
+全体の自動化は台帳 `config/automations.json`（管理画面 `/ops/mac`・`/ops/ci`・`npm run check-automations`）が正本で、概観は [04_自動化マップ.md](../../../docs/operations/04_自動化マップ.md)。
 
 **エージェントのセッション（`CLAUDECODE=1`）の線引き**
 

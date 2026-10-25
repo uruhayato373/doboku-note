@@ -1,5 +1,6 @@
 import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
+import Link from 'next/link';
 import { PageHead } from '@/components/ui';
 import { Grid, Section, Stack } from '@/components/layout';
 import { Badge } from '@/components/ui/badge';
@@ -154,27 +155,22 @@ export function AutomationStatus({ a, cadenceId }: { a: Automation; cadenceId: '
         {cadenceId === 'weekly' && (
           <Card>
             <CardHeader>
-              <CardTitle>土曜の自動実行（Mac の launchd）</CardTitle>
+              <CardTitle>土曜の自動実行（Mac）</CardTitle>
             </CardHeader>
             <CardContent className="flex flex-col gap-2 text-sm">
               {!a.launchd ? (
                 <p className="m-0 text-muted-foreground">この端末では確かめられない（macOS のみ）</p>
-              ) : !a.launchd.installed ? (
-                <p className="m-0">未登録。npm run weekly-review:install で登録する</p>
+              ) : a.launchd.last ? (
+                <div>
+                  最後の実行 {at(a.launchd.last.at)} <Badge variant={LAUNCHD[a.launchd.last.result].variant}>{LAUNCHD[a.launchd.last.result].label}</Badge>
+                  {a.launchd.last.collectFailed ? <Badge variant="destructive">土曜の収集が失敗</Badge> : null}
+                  {a.launchd.last.gscFailed ? <Badge variant="destructive">GSC の記録が失敗</Badge> : null}
+                </div>
               ) : (
-                <>
-                  <div>登録済み（毎週土曜 9:30）</div>
-                  {a.launchd.last ? (
-                    <div>
-                      最後の実行 {at(a.launchd.last.at)} <Badge variant={LAUNCHD[a.launchd.last.result].variant}>{LAUNCHD[a.launchd.last.result].label}</Badge>
-                      {a.launchd.last.collectFailed ? <Badge variant="destructive">土曜の収集が失敗</Badge> : null}
-                    </div>
-                  ) : (
-                    <p className="m-0 text-muted-foreground">まだ一度も動いていない</p>
-                  )}
-                  <p className="m-0 text-xs text-muted-foreground">ログ: ~/Library/Logs/doboku-note/weekly-review.log</p>
-                </>
+                <p className="m-0 text-muted-foreground">{a.launchd.installed ? 'まだ一度も動いていない' : '未登録（npm run weekly-review:install で登録する）'}</p>
               )}
+              {/* 段ごとの結果（収集・GSC の記録・レビュー）は Mac の自動実行の画面が正本。ここはレビューの回の目印だけ（DN-0851） */}
+              <Link href="/ops/mac">段ごとの結果は「Mac の自動実行」で見る</Link>
             </CardContent>
           </Card>
         )}
