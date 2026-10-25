@@ -360,3 +360,24 @@ test('組み直し: documentVariants はその文書のときだけ中身の欄�
   assert.deepEqual(hokkaido.layout, base.layout);
   assert.deepEqual(hokkaido.review, base.review);
 });
+
+test('headerImage: 紙面から読んだ見出しで表示だけを置き換え、照合は header の文字で行う（DN-0850）', () => {
+  const layout = ['粗骨材（㎜）の大きさ（㎜）  150  100', '5～80  －  100'];
+  const base = {
+    key: tableKey(layout),
+    kind: 'table',
+    layout,
+    header: [['粗骨材（㎜）の大きさ（㎜）', '150', '100']],
+    rows: [['5～80', '－', '100']],
+    review: { status: 'approved' },
+  };
+  const image = [['粗骨材の大きさ（㎜）＼粗骨材の最大寸法（㎜）', '網ふるいを通る量の重量百分率', { same: 'left' }], ['', '150', '100']];
+  const applied = applyTableOverride(layout, { ...base, headerImage: image });
+  assert.equal(applied.ok, true);
+  const table = applied.parts.find((part) => part.kind === 'table');
+  assert.deepEqual(table.header, [['粗骨材の大きさ（㎜）＼粗骨材の最大寸法（㎜）', '網ふるいを通る量の重量百分率', '網ふるいを通る量の重量百分率'], ['', '150', '100']]);
+  assert.deepEqual(table.rows, [['5～80', '－', '100']]);
+  // 列数が合わない・縦の結合を使う見出しは通さない
+  assert.equal(applyTableOverride(layout, { ...base, headerImage: [['a', 'b']] }).reason, 'override-bad-header-image');
+  assert.equal(applyTableOverride(layout, { ...base, headerImage: [['a', 'b', 'c'], ['d', { same: 'above' }, 'f']] }).reason, 'override-bad-header-image');
+});
