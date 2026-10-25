@@ -4,6 +4,7 @@ import { Stack } from '@/components/layout';
 import { PageHead } from '@/components/ui';
 import { cn } from '@/lib/cn';
 import { loadKpiView, type KpiCell } from '@/lib/kpi-tree';
+import { withUnit } from '@/lib/format';
 
 export const dynamic = 'force-dynamic';
 
@@ -11,14 +12,11 @@ export const dynamic = 'force-dynamic';
 /** 階層ごとの字下げ（頂点 / チャネル / 入口）。 */
 const INDENT = ['pl-2', 'pl-6', 'pl-10'] as const;
 
-const fmt = (v: number | null, unit: string) =>
-  v == null ? '—' : unit === '円' ? `¥${v.toLocaleString('ja-JP')}` : `${v.toLocaleString('ja-JP')}${unit === '%' ? '%' : ''}`;
-
 function Cell({ cell, unit }: { cell: KpiCell | undefined; unit: string }) {
   if (!cell || !cell.applicable) return <TableCell className={`${numCol} text-muted-foreground`}>対象外</TableCell>;
   return (
     <TableCell className={numCol}>
-      {fmt(cell.value, unit)}
+      {withUnit(cell.value, unit)}
       {cell.coverage === 'partial' && <span className="text-xs text-muted-foreground">（一部）</span>}
     </TableCell>
   );

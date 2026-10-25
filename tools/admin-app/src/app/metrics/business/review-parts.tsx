@@ -3,9 +3,6 @@ import { join } from 'node:path';
 import Link from 'next/link';
 import { PageHead } from '@/components/ui';
 import { Grid, Section, Stack } from '@/components/layout';
-import { Badge } from '@/components/ui/badge';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { findRepoRoot } from '@/lib/repo-root';
 import { buildReport, reviewPeriod } from '../../../../../../scripts/lib/business-direction.mjs';
@@ -14,6 +11,8 @@ import { buildGate } from '../../../../../../scripts/lib/backlog-gate.mjs';
 import { todayJst } from '../../../../../../scripts/lib/jst-date.mjs';
 import { reviewWeekLabel } from '../../../../../../scripts/lib/review-week.mjs';
 import { readWeeklyDraft, reviewChecks, weeklyLaunchd } from '../../../../../../scripts/lib/review-automation.mjs';
+import { jstDateTime } from '@/lib/format';
+import { StatusBadge, type Tone, DataTable, PanelCard, StatCard, type DataTableColumn, type DataTableRow } from '@/components/admin';
 
 /**
  * 戦略 ＞ レビュー（週次・月次）の共通部品。画面には人が目で確かめる・決めることだけを出す
@@ -56,29 +55,18 @@ export type Gate = {
   monthly: { lowWithoutWhen: unknown[]; stale: unknown[]; thisMonth: number };
 };
 
-const STEP: Record<StepState, { label: string; variant: 'success' | 'warning' | 'destructive' | 'outline' }> = {
-  ok: { label: '済', variant: 'success' },
-  partial: { label: '一部', variant: 'warning' },
-  missing: { label: '未', variant: 'destructive' },
-  manual: { label: '—', variant: 'outline' },
+const STEP: Record<StepState, { label: string; tone: Tone }> = {
+  ok: { label: '済', tone: 'good' },
+  partial: { label: '一部', tone: 'warn' },
+  missing: { label: '未', tone: 'bad' },
+  manual: { label: '—', tone: 'neutral' },
 };
-const VERDICT: Record<Run['verdict'], { label: string; variant: 'success' | 'warning' | 'destructive' }> = {
-  ok: { label: '実施できた', variant: 'success' },
-  partial: { label: '不足あり', variant: 'warning' },
-  missing: { label: '未実施', variant: 'destructive' },
+const VERDICT: Record<Run['verdict'], { label: string; tone: Tone }> = {
+  ok: { label: '実施できた', tone: 'good' },
+  partial: { label: '不足あり', tone: 'warn' },
+  missing: { label: '未実施', tone: 'bad' },
 };
 export const md = (d: string) => d.slice(5).replace('-', '/');
-
-function Stat({ label, value }: { label: string; value: React.ReactNode }) {
-  return (
-    <Card className="gap-1 py-3">
-      <CardContent className="flex flex-col gap-1 px-3">
-        <span className="text-xs text-muted-foreground">{label}</span>
-        <span className="text-lg font-bold">{value}</span>
-      </CardContent>
-    </Card>
-  );
-}
 
 /** 選んだ回の実施状況。 */
 export function Current({ sel, cadenceId }: { sel: Selected; cadenceId: 'weekly' | 'monthly' }) {
@@ -86,10 +74,10 @@ export function Current({ sel, cadenceId }: { sel: Selected; cadenceId: 'weekly'
   return (
     <Stack gap="sm">
       <Grid min="sm">
-        <Stat label={cadenceId === 'weekly' ? 'レビューの週' : '対象月'} value={runLabel(cadenceId, sel.key)} />
-        <Stat label="振り返り期間" value={sel.period ? `${md(sel.period.startDate)}〜${md(sel.period.endDate)}` : '—'} />
-        <Stat label="記録" value={sel.review ? (sel.review.status === 'provisional' ? '暫定' : '確定') : 'なし'} />
-        <Stat label="判定" value={<Badge variant={v.variant}>{v.label}</Badge>} />
+        <StatCard label={cadenceId === 'weekly' ? 'レビューの週' : '対象月'} value={runLabel(cadenceId, sel.key)} />
+        <StatCard label="振り返り期間" value={sel.period ? `${md(sel.period.startDate)}〜${md(sel.period.endDate)}` : '—'} />
+        <StatCard label="記録" value={sel.review ? (sel.review.status === 'provisional' ? '暫定' : '確定') : 'なし'} />
+        <StatCard label="判定" value={<StatusBadge tone={v.tone}>{v.label}</StatusBadge>} />
       </Grid>
       {sel.reasons.length > 0 && (
         <ul className="m-0 pl-5 text-sm text-muted-foreground">
@@ -102,18 +90,17 @@ export function Current({ sel, cadenceId }: { sel: Selected; cadenceId: 'weekly'
   );
 }
 
-const CHECK_STATE: Record<string, { label: string; variant: 'success' | 'warning' | 'destructive' }> = {
-  ok: { label: '通過', variant: 'success' },
-  fail: { label: '要対応', variant: 'warning' },
-  broken: { label: '検査不成立', variant: 'destructive' },
+const CHECK_STATE: Record<string, { label: string; tone: Tone }> = {
+  ok: { label: '通過', tone: 'good' },
+  fail: { label: '要対応', tone: 'warn' },
+  broken: { label: '検査不成立', tone: 'bad' },
 };
-const LAUNCHD: Record<string, { label: string; variant: 'success' | 'warning' | 'destructive' | 'outline' }> = {
-  ok: { label: '完了', variant: 'success' },
-  skipped: { label: '今週分あり（何もしない）', variant: 'outline' },
-  failed: { label: '失敗', variant: 'destructive' },
-  running: { label: '実行中か途中で止まった', variant: 'warning' },
+const LAUNCHD: Record<string, { label: string; tone: Tone }> = {
+  ok: { label: '完了', tone: 'good' },
+  skipped: { label: '今週分あり（何もしない）', tone: 'neutral' },
+  failed: { label: '失敗', tone: 'bad' },
+  running: { label: '実行中か途中で止まった', tone: 'warn' },
 };
-const at = (iso: string | null | undefined) => (iso ? iso.replace('T', ' ').slice(0, 16) : '—');
 
 /** 回を支える自動化。週次は土曜の下書き・自動実行・点検と Issue、月次は点検と Issue */
 export function AutomationStatus({ a, cadenceId }: { a: Automation; cadenceId: 'weekly' | 'monthly' }) {
@@ -122,11 +109,7 @@ export function AutomationStatus({ a, cadenceId }: { a: Automation; cadenceId: '
     <Section title="自動化と点検">
       <Grid min="lg">
         {cadenceId === 'weekly' && (
-          <Card>
-            <CardHeader>
-              <CardTitle>下書き（土曜の Mac）</CardTitle>
-            </CardHeader>
-            <CardContent className="flex flex-col gap-2 text-sm">
+          <PanelCard title="下書き（土曜の Mac）"><div className="flex flex-col gap-2 text-sm">
               {!a.draft ? (
                 <p className="m-0 text-muted-foreground">まだ無い（土曜の Mac が収集の後に作る・手で作るなら npm run weekly-review:draft）</p>
               ) : 'broken' in a.draft ? (
@@ -134,8 +117,8 @@ export function AutomationStatus({ a, cadenceId }: { a: Automation; cadenceId: '
               ) : (
                 <>
                   <div>
-                    {a.draft.week}・作成 {at(a.draft.generatedAt)}
-                    {a.draft.stale && <Badge variant="warning" className="ml-2">この回の下書きではない</Badge>}
+                    {a.draft.week}・作成 {jstDateTime(a.draft.generatedAt, { short: true })}
+                    {a.draft.stale && <> <StatusBadge tone="warn">この回の下書きではない</StatusBadge></>}
                   </div>
                   {a.draft.missing.length ? (
                     <ul className="m-0 pl-5">
@@ -144,100 +127,92 @@ export function AutomationStatus({ a, cadenceId }: { a: Automation; cadenceId: '
                       ))}
                     </ul>
                   ) : (
-                    <Badge variant="success">必須の材料はそろっている</Badge>
+                    <StatusBadge tone="good">必須の材料はそろっている</StatusBadge>
                   )}
                   {a.draft.failedInputs.length > 0 && <p className="m-0 text-muted-foreground">取得に失敗した材料: {a.draft.failedInputs.join('・')}</p>}
                 </>
               )}
-            </CardContent>
-          </Card>
+            </div>
+          </PanelCard>
         )}
         {cadenceId === 'weekly' && (
-          <Card>
-            <CardHeader>
-              <CardTitle>土曜の自動実行（Mac）</CardTitle>
-            </CardHeader>
-            <CardContent className="flex flex-col gap-2 text-sm">
+          <PanelCard title="土曜の自動実行（Mac）"><div className="flex flex-col gap-2 text-sm">
               {!a.launchd ? (
                 <p className="m-0 text-muted-foreground">この端末では確かめられない（macOS のみ）</p>
               ) : a.launchd.last ? (
                 <div>
-                  最後の実行 {at(a.launchd.last.at)} <Badge variant={LAUNCHD[a.launchd.last.result].variant}>{LAUNCHD[a.launchd.last.result].label}</Badge>
-                  {a.launchd.last.collectFailed ? <Badge variant="destructive">土曜の収集が失敗</Badge> : null}
-                  {a.launchd.last.gscFailed ? <Badge variant="destructive">GSC の記録が失敗</Badge> : null}
+                  最後の実行 {jstDateTime(a.launchd.last.at, { short: true })} <StatusBadge tone={LAUNCHD[a.launchd.last.result].tone}>{LAUNCHD[a.launchd.last.result].label}</StatusBadge>
+                  {a.launchd.last.collectFailed ? <StatusBadge tone="bad">土曜の収集が失敗</StatusBadge> : null}
+                  {a.launchd.last.gscFailed ? <StatusBadge tone="bad">GSC の記録が失敗</StatusBadge> : null}
                 </div>
               ) : (
                 <p className="m-0 text-muted-foreground">{a.launchd.installed ? 'まだ一度も動いていない' : '未登録（npm run weekly-review:install で登録する）'}</p>
               )}
               {/* 段ごとの結果（収集・GSC の記録・レビュー）は Mac の自動実行の画面が正本。ここはレビューの回の目印だけ（DN-0851） */}
               <Link href="/ops/mac">段ごとの結果は「Mac の自動実行」で見る</Link>
-            </CardContent>
-          </Card>
+            </div>
+          </PanelCard>
         )}
-        <Card>
-          <CardHeader>
-            <CardTitle>点検と Issue</CardTitle>
-          </CardHeader>
-          <CardContent className="flex flex-col gap-2 text-sm">
+        <PanelCard title="点検と Issue"><div className="flex flex-col gap-2 text-sm">
             {!a.checks ? (
               <p className="m-0 text-muted-foreground">この回の点検の記録が無い（npm run review-checks）</p>
             ) : (
               <>
-                <div className="text-xs text-muted-foreground">実行 {at(a.checks.ranAt)}</div>
+                <div className="text-xs text-muted-foreground">実行 {jstDateTime(a.checks.ranAt, { short: true })}</div>
                 {a.checks.checks.map((c) => (
                   <div key={c.command} title={c.summary}>
-                    {c.label} <Badge variant={(CHECK_STATE[c.state] ?? CHECK_STATE.fail).variant}>{(CHECK_STATE[c.state] ?? CHECK_STATE.fail).label}</Badge>
+                    {c.label} <StatusBadge tone={(CHECK_STATE[c.state] ?? CHECK_STATE.fail).tone}>{(CHECK_STATE[c.state] ?? CHECK_STATE.fail).label}</StatusBadge>
                   </div>
                 ))}
                 {a.checks.items.length > 0 && (
                   <ul className="m-0 pl-5">
                     {a.checks.items.map((it) => (
                       <li key={it.key}>
-                        {it.label} {it.routed ? <Badge variant="success">行き先あり</Badge> : <Badge variant="warning">行き先なし</Badge>}
+                        {it.label} {it.routed ? <StatusBadge tone="good">行き先あり</StatusBadge> : <StatusBadge tone="warn">行き先なし</StatusBadge>}
                       </li>
                     ))}
                   </ul>
                 )}
               </>
             )}
-          </CardContent>
-        </Card>
+          </div>
+        </PanelCard>
       </Grid>
     </Section>
   );
+}
+
+const STEP_COLUMNS: DataTableColumn[] = [
+  { key: 'order', label: '#', num: true },
+  { key: 'step', label: 'やること', wrap: true },
+  { key: 'state', label: '実施' },
+];
+
+function stepRows(procedure: Procedure): DataTableRow[] {
+  return procedure.steps.map((s, i) => ({
+    id: s.label,
+    values: { order: i + 1, step: `${s.label} ${s.does}`, state: STEP[s.state].label },
+    cells: {
+      step: (
+        <>
+          <div className="font-semibold">{s.label}</div>
+          <div className="text-xs text-muted-foreground">{s.does}</div>
+        </>
+      ),
+      state: (
+        <span title={s.note}>
+          <StatusBadge tone={STEP[s.state].tone}>{STEP[s.state].label}</StatusBadge>
+        </span>
+      ),
+    },
+  }));
 }
 
 /** 手順（何をやるか）と、それぞれ実施できたか。根拠はマウスで出す。 */
 export function Checklist({ procedure }: { procedure: Procedure }) {
   return (
     <Section title="手順">
-      <Card className="py-2">
-        <CardContent className="px-2">
-          <Table>
-            <TableHeader>
-              <TableRow>
-                <TableHead className="w-8">#</TableHead>
-                <TableHead>やること</TableHead>
-                <TableHead className="w-20">実施</TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              {procedure.steps.map((s, i) => (
-                <TableRow key={s.label}>
-                  <TableCell className="align-top text-muted-foreground tabular-nums">{i + 1}</TableCell>
-                  <TableCell className="align-top whitespace-normal">
-                    <div className="font-semibold">{s.label}</div>
-                    <div className="text-xs text-muted-foreground">{s.does}</div>
-                  </TableCell>
-                  <TableCell className="align-top">
-                    <span title={s.note}><Badge variant={STEP[s.state].variant}>{STEP[s.state].label}</Badge></span>
-                  </TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </CardContent>
-      </Card>
+      <DataTable columns={STEP_COLUMNS} rows={stepRows(procedure)} pageSize={20} />
     </Section>
   );
 }
@@ -256,8 +231,8 @@ export function Outcome({ c, review, gate }: { c: Cadence; review: Review | null
   return (
     <Section title="判断">
       <Grid min="lg">
-        <Card>
-          <CardContent className="flex flex-col gap-3 text-sm leading-relaxed">
+        <PanelCard title="判断の記録">
+          <div className="flex flex-col gap-3 text-sm leading-relaxed">
             {review ? (
               <>
                 <div>
@@ -272,14 +247,10 @@ export function Outcome({ c, review, gate }: { c: Cadence; review: Review | null
             ) : (
               <p className="m-0 text-muted-foreground">まだ記録がない</p>
             )}
-          </CardContent>
-        </Card>
+          </div>
+        </PanelCard>
         {gate && (
-          <Card>
-            <CardHeader>
-              <CardTitle>人が決めるカード</CardTitle>
-            </CardHeader>
-            <CardContent>
+          <PanelCard title="人が決めるカード">
               <Grid min="sm">
                 {c.id === 'weekly' ? (
                   <>
@@ -293,8 +264,8 @@ export function Outcome({ c, review, gate }: { c: Cadence; review: Review | null
                   </>
                 )}
               </Grid>
-            </CardContent>
-          </Card>
+            
+          </PanelCard>
         )}
       </Grid>
     </Section>
@@ -411,7 +382,7 @@ export function RunPicker({ base, options, selected }: { base: string; options: 
       {options.map((o, i) => (
         <TabsTrigger key={o.key} href={i === 0 ? base : `${base}?run=${o.key}`} active={o.key === selected}>
           {o.label}
-          <Badge variant={VERDICT[o.verdict].variant}>{VERDICT[o.verdict].label}</Badge>
+          <StatusBadge tone={VERDICT[o.verdict].tone}>{VERDICT[o.verdict].label}</StatusBadge>
         </TabsTrigger>
       ))}
     </TabsList>
@@ -423,9 +394,7 @@ export function ReviewUnavailable({ title }: { title: string }) {
   return (
     <Stack>
       <PageHead title={title} />
-      <Card>
-        <CardContent>設定・計測期間を読み取れない。</CardContent>
-      </Card>
+      <p className="project-warning-text text-sm">設定・計測期間を読み取れない。</p>
     </Stack>
   );
 }

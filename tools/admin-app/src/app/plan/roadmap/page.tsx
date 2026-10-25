@@ -14,6 +14,7 @@ import { loadMarketInputs } from '../../../../../../scripts/lib/market-inputs.mj
 import { salesByQualification } from '../../../../../../scripts/lib/qualification-market.mjs';
 import { parseBacklog, parseWhen } from '../../../../../../scripts/lib/backlog-lib.mjs';
 import { jstMonth } from '../../../../../../scripts/lib/jst-date.mjs';
+import { yen } from '@/lib/format';
 
 export const dynamic = 'force-dynamic';
 
@@ -57,7 +58,6 @@ export default async function RoadmapPage({ searchParams }: { searchParams: Prom
     string,
     { month: string; total: number; items: { id: string; yen: number }[] }
   >;
-  const yen = (n: number) => `¥${n.toLocaleString('ja-JP')}`;
   const annualNotes = todoBoard().files.find((f) => f.id === 'annual')?.notes ?? '';
 
   const cards = (parseBacklog(readFileSync(repoPath('.claude', 'todo', 'backlog.md'), 'utf8')) as {

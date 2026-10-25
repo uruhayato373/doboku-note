@@ -3,10 +3,10 @@ import { EmptyRow, numCol, StatusBadge, TableBody, TableCell, TableFrame, TableH
 import { Stack } from '@/components/layout';
 import { PageHead } from '@/components/ui';
 import { loadDesignView, type DesignMagazine, type DesignPlanned, type DesignSingle, type DesignStage, type Intent, type Ref } from '@/lib/product-design';
+import { yen } from '@/lib/format';
 
 export const dynamic = 'force-dynamic';
 
-const yen = (n: number | null) => (n == null ? '—' : `¥${n.toLocaleString('ja-JP')}`);
 
 const TIERS = [
   { id: 'pack', label: 'パック' },

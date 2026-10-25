@@ -1,8 +1,7 @@
 import Link from 'next/link';
-import { numCol, PanelCard, TableBody, TableCell, TableFrame, TableHead, TableHeader, TableRow } from '@/components/admin';
+import { numCol, PanelCard, TableBody, TableCell, TableFrame, TableHead, TableHeader, TableRow, StatusBadge, type Tone } from '@/components/admin';
 import { PageHead } from '@/components/ui';
 import SectionTabs from '@/components/SectionTabs';
-import { Badge } from '@/components/ui/badge';
 import { loadMarketView, type ChannelCell, type MarketRow } from '@/lib/market';
 
 export const dynamic = 'force-dynamic';
@@ -18,9 +17,9 @@ export const dynamic = 'force-dynamic';
 type SortKey = 'compose' | 'sales' | 'name';
 
 const PORTFOLIO_LABEL: Record<string, string> = { active: '展開中', candidate: '候補', declined: '見送り' };
-const PORTFOLIO_VARIANT: Record<string, 'success' | 'outline' | 'secondary'> = { active: 'success', candidate: 'outline', declined: 'secondary' };
+const PORTFOLIO_TONE: Record<string, Tone> = { active: 'good', candidate: 'neutral', declined: 'info' };
 const DENSITY_LABEL: Record<string, string> = { none: '無', low: '少', mid: '中', high: '多' };
-const DENSITY_VARIANT: Record<string, 'success' | 'outline' | 'warning' | 'destructive'> = { none: 'success', low: 'outline', mid: 'warning', high: 'destructive' };
+const DENSITY_TONE: Record<string, Tone> = { none: 'good', low: 'neutral', mid: 'warn', high: 'bad' };
 
 const md = (date: string) => {
   const [, m, d] = date.split('-').map(Number) as [number, number, number];
@@ -95,7 +94,7 @@ function Density({ cell }: { cell: ChannelCell | undefined }) {
   const tip = [top ? `最大: ${top}` : '', cell.partial ? '専用の検索語が未取得（汎用の検索結果から数えた下限）' : ''].filter(Boolean).join(' / ');
   return (
     <span title={tip || undefined}>
-      <Badge variant={DENSITY_VARIANT[cell.density]}>{DENSITY_LABEL[cell.density]}</Badge> <span className="text-muted-foreground">{cell.strong}{cell.partial ? '*' : ''}</span>
+      <StatusBadge tone={DENSITY_TONE[cell.density]}>{DENSITY_LABEL[cell.density]}</StatusBadge> <span className="text-muted-foreground">{cell.strong}{cell.partial ? '*' : ''}</span>
     </span>
   );
 }
@@ -106,7 +105,7 @@ function Row({ row: r, formatTypes }: { row: MarketRow; formatTypes: Record<stri
     <TableRow className={'align-top' + (r.portfolio === 'declined' ? ' text-muted-foreground' : '')}>
       <TableCell className="whitespace-nowrap">{r.label}</TableCell>
       <TableCell className="whitespace-nowrap">
-        <Badge variant={PORTFOLIO_VARIANT[r.portfolio] ?? 'secondary'}>{PORTFOLIO_LABEL[r.portfolio] ?? r.portfolio}</Badge>
+        <StatusBadge tone={PORTFOLIO_TONE[r.portfolio] ?? 'info'}>{PORTFOLIO_LABEL[r.portfolio] ?? r.portfolio}</StatusBadge>
       </TableCell>
       <TableCell className="text-xs whitespace-normal">
         {compose.length === 0 ? (

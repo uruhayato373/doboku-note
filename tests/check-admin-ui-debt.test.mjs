@@ -49,3 +49,23 @@ test('基準値に無い項目（あとから足した rawTable 等）は 0 と�
   const { regressions } = compare({ 'a.tsx': { rawCard: 0, inlineStyle: 0, rawTable: 1 } }, { 'a.tsx': { rawCard: 0, inlineStyle: 0 } });
   assert.deepEqual(regressions.map((r) => [r.key, r.base, r.now]), [['rawTable', 0, 1]]);
 });
+
+test('shadcn の Card・Badge の直接利用と、手で組んだ表（TableFrame・shadcn の Table）を数える（DN-0851）', () => {
+  const src = [
+    '<Card className="gap-1">',
+    '<Card>',
+    '<CardContent>',
+    '<PanelCard title="x">',
+    '<Badge variant="outline">x</Badge>',
+    '<StatusBadge tone="good">x</StatusBadge>',
+    '<TableFrame>',
+    '<Table>',
+    '<TableRow>',
+    '<DataTable columns={c} rows={r} />',
+  ].join('\n');
+  const c = countDebt(src);
+  assert.equal(c.uiCard, 2);
+  assert.equal(c.uiBadge, 1);
+  assert.equal(c.handTable, 2);
+});
+

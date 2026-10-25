@@ -2,7 +2,8 @@ import { DataTable, PanelCard, StatusBadge, type DataTableColumn, type DataTable
 import { Stack } from '@/components/layout';
 import { PageHead } from '@/components/ui';
 import { loadAutomationIssues, loadAutomations, loadSaturday, type Automation, type CollectVerdict, type SaturdayView } from '@/lib/automations';
-import { at, fileOf, IssueTable, whenOf } from '../automation-parts';
+import { fileOf, IssueTable, whenOf } from '../automation-parts';
+import { jstDateTime } from '@/lib/format';
 
 export const dynamic = 'force-dynamic';
 
@@ -72,14 +73,14 @@ function collectStep(v: CollectVerdict | null, phase: 'pre' | 'post', label: str
   return {
     id, label,
     status: failed ? 'failed' : warn ? 'warn' : 'ok',
-    when: finishedAt ? at(finishedAt) : null,
+    when: finishedAt ? jstDateTime(finishedAt) : null,
     detail: `${stages.length} 段中 成功 ${stages.length - failed - warn - skipped}・注意 ${warn}・失敗か記録なし ${failed}${skipped ? `・飛ばした ${skipped}` : ''}（段ごとは下の表）`,
   };
 }
 
 function gscStep(sat: SaturdayView): Step {
   const base = { id: 'gsc-record', label: 'GSC の記録' };
-  if (sat.launchd?.last?.gscFailed) return { ...base, status: 'failed', when: at(sat.launchd.last.at), detail: '最後の実行のログに [gsc-record] FAILED がある（残りはログの置き場に退避して先へ進む）' };
+  if (sat.launchd?.last?.gscFailed) return { ...base, status: 'failed', when: jstDateTime(sat.launchd.last.at), detail: '最後の実行のログに [gsc-record] FAILED がある（残りはログの置き場に退避して先へ進む）' };
   const g = sat.gsc.gates;
   if (!g) return { ...base, status: 'unknown', when: null, detail: `判定を取れなかった: ${sat.gsc.error ?? '不明'}` };
   const weeklyDue = !g.gscDataStale && !g.weeklyAlreadyLogged;
@@ -97,8 +98,8 @@ function reviewStep(sat: SaturdayView): Step {
   if (!last) return { ...base, status: 'unknown', when: null, detail: 'まだ一度も動いていない' };
   const d = sat.draft;
   const draft = !d ? '下書きはまだ無い' : 'broken' in d ? '下書きのファイルが壊れている'
-    : `下書き ${d.week}（作成 ${at(d.generatedAt)}）・${d.missing.length ? `材料の欠け ${d.missing.length} 件` : '必須の材料はそろっている'}`;
-  return { ...base, status: last.result, when: at(last.at), detail: `${last.result === 'skipped' ? '今週分のレポートがあるので何もしない。' : ''}${draft}` };
+    : `下書き ${d.week}（作成 ${jstDateTime(d.generatedAt)}）・${d.missing.length ? `材料の欠け ${d.missing.length} 件` : '必須の材料はそろっている'}`;
+  return { ...base, status: last.result, when: jstDateTime(last.at), detail: `${last.result === 'skipped' ? '今週分のレポートがあるので何もしない。' : ''}${draft}` };
 }
 
 const STAGE_TONE: Record<string, Tone> = { ok: 'good', warn: 'warn', skipped: 'neutral', failed: 'bad', missing: 'bad' };
@@ -120,7 +121,7 @@ function CollectTable({ v }: { v: CollectVerdict | null }) {
     values: {
       status: STAGE_LABEL[s.status] ?? s.status,
       title: `${PHASE_LABEL[s.phase] ?? s.phase}・${s.title}`,
-      when: s.at ? `${at(s.at)}（${PHASE_LABEL[s.runPhase ?? ''] ?? s.runPhase}）` : null,
+      when: s.at ? `${jstDateTime(s.at)}（${PHASE_LABEL[s.runPhase ?? ''] ?? s.runPhase}）` : null,
       reason: s.reason || null,
     },
     cells: { status: <StatusBadge tone={STAGE_TONE[s.status] ?? 'neutral'}>{STAGE_LABEL[s.status] ?? s.status}</StatusBadge> },
@@ -128,7 +129,7 @@ function CollectTable({ v }: { v: CollectVerdict | null }) {
   return (
     <div className="mb-4">
       <p className="text-sm">
-        {v.phases.map((p) => `${PHASE_LABEL[p.phase]}: ${at(p.finishedAt)}`).join('・')}{' '}
+        {v.phases.map((p) => `${PHASE_LABEL[p.phase]}: ${jstDateTime(p.finishedAt)}`).join('・')}{' '}
         <StatusBadge tone={passed ? 'good' : 'bad'}>{passed ? '合格' : `不合格 ${v.problems.length} 件`}</StatusBadge>
       </p>
       <DataTable columns={STAGE_COLUMNS} rows={stageRows} pageSize={20} />

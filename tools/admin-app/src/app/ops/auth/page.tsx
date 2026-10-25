@@ -2,6 +2,7 @@ import { PanelCard, StatusBadge, TableBody, TableCell, TableFrame, TableHead, Ta
 import { Stack } from '@/components/layout';
 import { PageHead } from '@/components/ui';
 import { authCredentialsView, type CollectAuthStage, type CredentialRow } from '@/lib/auth-credentials';
+import { jstDateTime } from '@/lib/format';
 
 export const dynamic = 'force-dynamic';
 
@@ -26,7 +27,7 @@ const COLLECT_LABEL = { ok: '成功', warn: '注意', skipped: '省略', failed:
 /** 土曜の収集の auth 段の結果を 1 行で（日時は JST 表示）。 */
 function collectLine(c: CollectAuthStage): string {
   if (!c.finishedAt) return c.reason;
-  const when = new Date(c.finishedAt).toLocaleString('ja-JP', { timeZone: 'Asia/Tokyo', dateStyle: 'short', timeStyle: 'short' });
+  const when = jstDateTime(c.finishedAt, { short: true });
   return `${when} 終了${c.reason ? `・${c.reason}` : ''}`;
 }
 

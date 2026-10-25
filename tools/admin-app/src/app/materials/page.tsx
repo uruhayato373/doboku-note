@@ -11,6 +11,7 @@ import { parseBacklog } from '../../../../../scripts/lib/backlog-lib.mjs';
 import { TODO_ROOT } from '../../../../../scripts/lib/repository-paths.mjs';
 import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
+import { num } from '@/lib/format';
 
 type BookCoverage = { pdfPages: number; excludedPdfPages: number; plannedPages: number; imagedPages: number | null; ocr: { complete: number; notNeeded: number; unfinished: number } | null; manifestMatchesPlan: boolean | null; exclusions: { reason: string; pages: number; files: number[] }[]; ocrTracking: string | null; ocrUntracked: boolean };
 
@@ -56,7 +57,6 @@ type Wiring = { bySource: Map<string, SitePage[]>; byPage: Map<string, { sourceI
 
 const categoryLabel = (slug: string) => (categories as { slug: string; label: string }[]).find((c) => c.slug === slug)?.label ?? slug;
 const groupLabels: Record<string, string> = { keyword: 'キーワード', guide: 'ガイド', textbook: 'テキスト', 'past-exam': '過去問', primary: '一次過去問', secondary: '二次過去問', pillar: 'ピラー' };
-const fmt = (n: number) => n.toLocaleString('ja-JP');
 
 const label = (key: string) => (DECISION_LABELS as Record<string, string>)[key] ?? key;
 const evidenceLabels: Record<string, string> = { 'body-reviewed': '本文照合', 'prior-review': '過去の照合記録', 'topic-map': '概念名の対応のみ', 'source-unavailable': '原典不足' };
@@ -303,7 +303,7 @@ function SiteView({ source, wiring, sources }: { source: Source; wiring: Wiring;
       <div className="small mb-2 flex justify-between">
         <Link href="/materials">← 教材一覧へ</Link>
         <span className="muted">
-          配線先 {pages.length} ページ · 検索で表示あり {shown} · 表示 {fmt(pages.reduce((a, p) => a + p.impressions, 0))} · クリック {fmt(pages.reduce((a, p) => a + p.clicks, 0))}
+          配線先 {pages.length} ページ · 検索で表示あり {shown} · 表示 {num(pages.reduce((a, p) => a + p.impressions, 0))} · クリック {num(pages.reduce((a, p) => a + p.clicks, 0))}
           {wiring.gsc.period && `（${wiring.gsc.period}）`}
         </span>
       </div>
@@ -338,8 +338,8 @@ function SiteView({ source, wiring, sources }: { source: Source; wiring: Wiring;
                     </TableCell>
                     <TableCell>{p.published ? <span className="text-xs">公開</span> : <StatusBadge tone="warn">非公開</StatusBadge>}</TableCell>
                     <TableCell className={numCol}>{p.units}</TableCell>
-                    <TableCell className={numCol}>{p.impressions ? fmt(p.impressions) : <span className="text-muted-foreground">0</span>}</TableCell>
-                    <TableCell className={numCol}>{p.clicks ? fmt(p.clicks) : <span className="text-muted-foreground">0</span>}</TableCell>
+                    <TableCell className={numCol}>{p.impressions ? num(p.impressions) : <span className="text-muted-foreground">0</span>}</TableCell>
+                    <TableCell className={numCol}>{p.clicks ? num(p.clicks) : <span className="text-muted-foreground">0</span>}</TableCell>
                     <TableCell className="text-xs whitespace-normal max-w-[240px]">
                       {others.length ? others.map((o) => (
                         <div key={o.sourceId}>

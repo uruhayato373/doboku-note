@@ -3,6 +3,7 @@ import { join } from 'node:path';
 import { datasetFiles, datasetPath } from '../../../../scripts/lib/datasets.mjs';
 import { listedCoconalaServices } from '../../../../src/lib/coconala-services';
 import { findRepoRoot } from './repo-root';
+import { yen } from './format';
 
 /**
  * competitors.ts — `/strategy/competitors`（競合・人が見る画面）の表示モデル。
@@ -83,7 +84,6 @@ function readJson<T>(path: string): T | null {
 
 function changesBetween(base: RawCompetitor, now: RawCompetitor): string[] {
   const out: string[] = [];
-  const yen = (n?: number) => (typeof n === 'number' ? `¥${n.toLocaleString('ja-JP')}` : '—');
   const bs = base.counts?.services;
   const ns = now.counts?.services;
   if (typeof bs === 'number' && typeof ns === 'number' && bs !== ns) out.push(`出品 ${bs}→${ns}`);

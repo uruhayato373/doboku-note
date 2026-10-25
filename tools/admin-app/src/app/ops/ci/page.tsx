@@ -2,7 +2,8 @@ import { DataTable, PanelCard, StatusBadge, type DataTableColumn, type DataTable
 import { Stack } from '@/components/layout';
 import { PageHead } from '@/components/ui';
 import { loadAutomationIssues, loadAutomations, loadWorkflowRuns, type Automation, type WorkflowRunStatus } from '@/lib/automations';
-import { at, fileOf, IssueTable, whenOf } from '../automation-parts';
+import { fileOf, IssueTable, whenOf } from '../automation-parts';
+import { jstDateTime } from '@/lib/format';
 
 export const dynamic = 'force-dynamic';
 
@@ -67,7 +68,7 @@ function ciRows(list: Automation[], runs: Map<string, WorkflowRunStatus>): DataT
         title: `${a.title}（${file}）`,
         when: whenOf(a),
         result,
-        lastRun: r?.latest ? `${at(r.latest.createdAt)}（${EVENT_LABEL[r.latest.event] ?? r.latest.event}）${failures}` : null,
+        lastRun: r?.latest ? `${jstDateTime(r.latest.createdAt)}（${EVENT_LABEL[r.latest.event] ?? r.latest.event}）${failures}` : null,
         health,
         purpose: a.purpose,
         readers: a.readers.join('・'),

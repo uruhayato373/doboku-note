@@ -1,10 +1,10 @@
 import Link from 'next/link';
-import { Badge } from '@/components/ui/badge';
 import { DocDetailView } from '@/components/DocDetailView';
 import { rootById } from '@/lib/document-roots';
 import { projectAnalysis } from '@/lib/project';
 import { backlogIndex } from '@/lib/todo';
 import { DOCUMENT_TYPE_LABELS, DOC_RETENTION_LABELS } from '@/lib/doc-taxonomy';
+import { StatusBadge } from '@/components/admin';
 
 export const dynamic = 'force-dynamic';
 
@@ -74,13 +74,13 @@ export default async function DocsDetailPage({ params }: { params: Promise<{ pat
                   if (!ref) {
                     return (
                       <p className="project-warning-text" key={id}>
-                        <Badge variant="destructive">{id}</Badge> backlog に存在しない（参照切れ）
+                        <StatusBadge tone="bad">{id}</StatusBadge> backlog に存在しない（参照切れ）
                       </p>
                     );
                   }
                   return (
                     <Link className="project-ref" href={`/todo?id=${id}`} key={id}>
-                      <Badge variant="outline">{id}</Badge>
+                      <StatusBadge tone="neutral">{id}</StatusBadge>
                       <span className="project-ref-title">{ref.title}</span>
                       <span className="project-ref-meta">
                         {[ref.kind, ref.due].filter(Boolean).join(' · ')}

@@ -3,8 +3,6 @@ import type { Automation, AutomationIssue, AutomationIssuesView } from '@/lib/au
 
 /** Mac の自動実行（/ops/mac）と CI（/ops/ci）の共通部品（DN-0851） */
 
-export const at = (iso: string | null | undefined) => (iso ? new Date(iso).toLocaleString('ja-JP', { timeZone: 'Asia/Tokyo' }) : '—');
-
 /** 台帳の行の「いつ」。JST の書き方があればそれ、無ければ cron、それも無ければ起動条件 */
 export const whenOf = (a: Automation) => a.scheduleJst ?? (a.schedule.length ? a.schedule.join(' / ') : a.triggers.join('・'));
 

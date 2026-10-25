@@ -1,10 +1,10 @@
 import { existsSync } from 'node:fs';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { StatusBadge, TableBody, TableCell, TableFrame, TableHead, TableRow } from '@/components/admin';
+import { PanelCard, StatusBadge, TableBody, TableCell, TableFrame, TableHead, TableRow } from '@/components/admin';
 import { PageHead } from '@/components/ui';
-import { Card, CardContent } from '@/components/ui/card';
 import { loadLedgerView, readApprovedThumbs } from '@/lib/ledger';
+import { jstDateTime, yen } from '@/lib/format';
 import { repoPath } from '@/lib/repo-root';
 import { readCatalog, readListings } from '../../../../../../../../scripts/lib/coconala-catalog.mjs';
 import { datasetPath } from '../../../../../../../../scripts/lib/datasets.mjs';
@@ -66,33 +66,29 @@ export default async function CoconalaDetailPage({ params }: { params: Promise<{
         {s.serviceUrl ? <a href={s.serviceUrl} target="_blank" rel="noopener noreferrer">公開ページ</a> : null}
       </p>
 
-      <Card className="mb-4">
-        <CardContent>
-          <h3 className="mb-2 font-semibold">公開ページとの照合</h3>
+      <PanelCard title="公開ページとの照合" className="mb-4">
           {!live ? (
             <p className="text-sm text-muted-foreground">出品中ではないので照合していない。</p>
           ) : !live.checkedAt ? (
             <p className="text-sm text-muted-foreground">照合の索引が無い。<code>npm run content-ledger</code> で作る。</p>
           ) : issues.length === 0 ? (
-            <p><StatusBadge tone="good">一致</StatusBadge> タイトル・キャッチコピー・本文・価格・販売状態が正本と同じ（照合 {live.checkedAt.slice(0, 16).replace('T', ' ')} UTC）</p>
+            <p><StatusBadge tone="good">一致</StatusBadge> タイトル・キャッチコピー・本文・価格・販売状態が正本と同じ（照合 {jstDateTime(live.checkedAt, { short: true })}）</p>
           ) : (
             <ul className="list-disc pl-5">
               {issues.map((i) => <li key={i}>{i}</li>)}
             </ul>
           )}
           {live?.image ? <p className="mt-2"><StatusBadge tone="warn">画像</StatusBadge> {live.image}（作り方: <code>/create-pop-image</code>）</p> : null}
-        </CardContent>
-      </Card>
+      </PanelCard>
 
       <div className="grid gap-4 md:grid-cols-[1fr_320px]">
-        <Card>
-          <CardContent>
+        <PanelCard title="出品の内容">
             <TableFrame>
               <TableBody>
                 <Row k="タイトル" v={s.title} />
                 <Row k="キャッチコピー" v={l.catchphrase ?? '—'} />
-                <Row k="価格" v={s.priceYen != null ? `¥${s.priceYen.toLocaleString('ja-JP')}` : '—'} />
-                <Row k="オプション" v={l.options?.length ? l.options.map((o) => `${o.title}（+¥${o.priceYen.toLocaleString('ja-JP')}）`).join(' / ') : '—'} />
+                <Row k="価格" v={yen(s.priceYen)} />
+                <Row k="オプション" v={l.options?.length ? l.options.map((o) => `${o.title}（+${yen(o.priceYen)}）`).join(' / ') : '—'} />
                 <Row k="お届け日数" v={l.deliveryDays != null ? `${l.deliveryDays} 日` : '—'} />
                 <Row k="カテゴリ" v={l.category?._labels ?? '—'} />
                 <Row k="出品日" v={s.listedAt ?? '—'} />
@@ -107,13 +103,10 @@ export default async function CoconalaDetailPage({ params }: { params: Promise<{
                 <pre className="whitespace-pre-wrap text-sm">{l.purchaseNote}</pre>
               </>
             ) : null}
-          </CardContent>
-        </Card>
+        </PanelCard>
 
         <div className="flex flex-col gap-4">
-          <Card>
-            <CardContent>
-              <h3 className="mb-2 font-semibold">商品画像</h3>
+          <PanelCard title="商品画像">
               {thumb && thumbLocal && thumbRel ? (
                 // eslint-disable-next-line @next/next/no-img-element
                 <img src={`/media/coconala/${thumbRel}`} alt="承認済みの商品画像" className="w-full border" />
@@ -121,17 +114,13 @@ export default async function CoconalaDetailPage({ params }: { params: Promise<{
               <p className="text-xs text-muted-foreground">
                 {thumb ? <>承認済み: <code>{thumb.path}</code>{thumbLocal ? '' : '（この端末に無い。Drive vault の coconala-asset から取り戻す）'}</> : '承認済みの POP 画像が無い'}
               </p>
-            </CardContent>
-          </Card>
-          <Card>
-            <CardContent>
-              <h3 className="mb-2 font-semibold">正本（ここを直す）</h3>
+          </PanelCard>
+          <PanelCard title="正本（ここを直す）">
               <ul className="list-disc pl-5 text-sm">
                 {SOURCES.map((x) => <li key={x.file}><code>{x.file}</code> … {x.what}</li>)}
               </ul>
               <p className="mt-2 text-xs text-muted-foreground">直したら <code>/coconala-publish</code> で公開ページへ反映し、<code>npm run content-ledger</code> で照合し直す。</p>
-            </CardContent>
-          </Card>
+          </PanelCard>
         </div>
       </div>
     </>
