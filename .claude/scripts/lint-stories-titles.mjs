@@ -5,7 +5,7 @@
  * 大型タイトル（過去問 cover / Stories ハイライト hero）の visualLength を計測し、
  * fit-title.mjs の 4 段階閾値（OK/WARN/NOTICE/ERROR）で判定する。
  *
- * 真実源: .claude/knowledge/reference/ig-highlight-design-policy.md §4
+ * 真実源: ハイライトの設計の文書（ig-highlight-design-policy.md）は 2026-10-25 に外した（git の履歴にある）
  * util:   .claude/scripts/lib/sns-common/fit-title.mjs
  *
  * スキャン対象:

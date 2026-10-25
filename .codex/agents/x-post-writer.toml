@@ -27,7 +27,7 @@ X 投稿の下書き（`content/sns/x/draft/<NNN>-<exam>-<topic>/tweets.md`）�
 > Generator と Evaluator を分離する — 自己評価バイアスは構造で解決する。
 > **資格別には分かれない**。`exam` パラメータで総監/1級/2級を横断する（IG の各 writer と同じ）。
 
-執筆のみを担う。品質採点は `x-post-qa`、カード画像は `create-x-card`、予約投稿は `publish-x` が担当する。
+執筆のみを担う。品質採点は `x-post-qa`、カード画像は `scripts/gen-x-card.mjs`、予約投稿は `publish-x` が担当する。
 
 ## 入力
 
@@ -116,7 +116,7 @@ findings: 0
 ## 担当外
 
 - **品質採点・偽成功検証** — `x-post-qa`
-- **カード画像生成** — `create-x-card`（`gen-x-card.mjs`）
+- **カード画像生成** — `scripts/gen-x-card.mjs`（create-x-card スキルは 2026-10-25 に外した）
 - **予約投稿** — `publish-x`
 - **リプライ運用** — 人が担う（policy §10）
 """

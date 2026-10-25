@@ -79,5 +79,5 @@ X 投稿下書き（`tweets.md`）と予約投稿状態の **品質評価**を�
 ## 担当外
 
 - **執筆・修正** — `x-post-writer`
-- **カード画像** — `create-x-card`
+- **カード画像** — `scripts/gen-x-card.mjs`（create-x-card スキルは 2026-10-25 に外した）
 - **予約投稿の実行** — `publish-x`

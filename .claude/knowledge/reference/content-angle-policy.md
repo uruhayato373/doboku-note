@@ -6,7 +6,7 @@ title: コンテンツ角度ポリシー（6 切り口）
 
 SNS 投稿の **編集角度（content angle）** の真実源。過去問クイズ偏重から脱し、既存の note 記事・サイト記事の資産を「結論／理由／体験／反論／数字／ハウツー」の 6 切り口で多媒体へ展開するための編集フレームワークと、`angle` パラメータ分業の設計を定義する。
 
-`x-post-policy.md`・`ig-carousel-skill.md`・`ig-reels-policy.md`・`ig-stories-policy.md` とパラレルな位置づけで、各 Generator（`x-post-writer` / `ig-carousel-writer` / `ig-reels-writer` / `ig-stories-writer` / `yt-shorts-title-writer`）と Evaluator が共通参照する。
+`x-post-policy.md`・`ig-carousel-skill.md`・`ig-reels-policy.md` とパラレルな位置づけで、各 Generator（`x-post-writer` / `ig-carousel-writer` / `ig-reels-writer` / `yt-shorts-title-writer`）と Evaluator が共通参照する。
 
 > 設計原則: **資格別にも角度別にもエージェント/スキルを増やさない**。媒体（X / IG / YT）× 機能（Generator/Evaluator）で分業し、試験は `exam` パラメータ、編集角度は `angle` パラメータで横断する（[x-post-policy.md](./x-post-policy.md) と同じ思想）。
 
@@ -139,6 +139,6 @@ SNS 投稿の **編集角度（content angle）** の真実源。過去問クイ
 ## 参照
 
 - 戦略: [01_SNS集客戦略.md](../../../docs/marketing/01_SNS集客戦略.md)（コンテンツ角度フレームワーク節）/ [02_チャネル動線設計.md](../../../docs/marketing/02_チャネル動線設計.md)（UTM・季節）
-- パラレルポリシー: [x-post-policy.md](./x-post-policy.md) / [ig-carousel-skill.md](./ig-carousel-skill.md) / [ig-reels-policy.md](./ig-reels-policy.md) / [ig-stories-policy.md](./ig-stories-policy.md)
+- パラレルポリシー: [x-post-policy.md](./x-post-policy.md) / [ig-carousel-skill.md](./ig-carousel-skill.md) / [ig-reels-policy.md](./ig-reels-policy.md)
 - 資産源: [note 技術士総監コンテンツ計画](../../../content/note/技術士総監/noteコンテンツ計画.md) / [1級土木集客記事クラスター](../../../content/note/1級・2級土木/1級土木/1級土木-集客記事クラスター.md)
 - 数値検証: `note-fact-checker` エージェント（数字角度の突合）

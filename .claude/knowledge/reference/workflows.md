@@ -241,7 +241,6 @@ npm run refresh-indexes   # 全 3 インデックスを一括再生成
 - `/quality-cycle --mode rewrite` — キーワードページ一括リライト
 - `/consolidate-duplicate-keyword` — 重複キーワード統合
 - `/pdf-to-mdx`, `/pdf-to-mdx --exam civil-construction-1` — PDF→MDX 変換
-- `/promote-to-site` — コンテンツ本番移行
 
 **検索インデックス**（`public/search-index.json`）は `npm run build` 時に常に再生成されるため、手動管理不要。
 
@@ -287,8 +286,7 @@ doc・コンテンツは `develop` へ直 push で蓄積する（「1 修正 = 1
 
 ```
 必要に応じて:
-1. /critical-review        <- 重大なリスクを批判的に評価
-2. /pre-mortem             <- 失敗シナリオをシミュレーション
+1. /critical-review        <- 重大なリスクと失敗シナリオを批判的に評価
 ```
 
 ---
