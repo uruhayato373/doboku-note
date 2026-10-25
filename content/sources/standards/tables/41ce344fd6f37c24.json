@@ -1,0 +1,21 @@
+{
+  "key": "41ce344fd6f37c24",
+  "kind": "parts",
+  "layout": [
+    "                    第   ２   章       安全機構"
+  ],
+  "parts": [
+    {
+      "kind": "caption",
+      "text": "第２章 安全機構"
+    }
+  ],
+  "notes": [],
+  "headerFrom": null,
+  "review": {
+    "status": "approved",
+    "by": "qa",
+    "at": "2026-10-25T06:54:51.381Z",
+    "note": "p564 章見出しのみ。表ではない。 ／ QA: 画像と照合。表ではなく章・条の見出しと本文で、caption/text の部品と文言が画像と一致。"
+  }
+}

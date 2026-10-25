@@ -1,0 +1,30 @@
+{
+  "key": "c2b4b5a6db132d04",
+  "kind": "parts",
+  "layout": [
+    "                                    図     書    名",
+    " ■   土木請負工事必携",
+    "  「九州地方整備局」→「事業者の方へ」→「建設技術情報等」→「土木工事                                        施工関連」",
+    "  （https://www.qsr.mlit.go.jp/for_company/kensetu_joho/koujisekou.html）",
+    "  →「土木請負工事必携」"
+  ],
+  "parts": [
+    {
+      "kind": "caption",
+      "text": "図書名"
+    },
+    {
+      "kind": "list",
+      "items": [
+        "■ 土木請負工事必携 「九州地方整備局」→「事業者の方へ」→「建設技術情報等」→「土木工事 施工関連」 （https://www.qsr.mlit.go.jp/for_company/kensetu_joho/koujisekou.html） →「土木請負工事必携」"
+      ]
+    }
+  ],
+  "review": {
+    "status": "approved",
+    "by": "qa",
+    "at": "2026-10-25T05:22:47.309Z",
+    "note": "原本は 1 列の表（見出し「図書名」）で 5 項目あるが、版面には 1 項目目だけがあり、残りは章の本文側に段落として残っている。1 列の表は生成器が表にできないため caption と list にした。項目頭の「■」は版面にあり省けないので先頭に残した。 ／ QA: p172 画像と照合。版面（文字層）には図書名の 1 項目目のみ。残り 4 項目は章本文（5-2.md）側に段落として存在することを確認。1 列表を caption+list にした扱いは妥当。"
+  },
+  "headerFrom": null
+}

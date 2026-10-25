@@ -43,10 +43,9 @@
     "tablesVerbatim": 3
   },
   "tableOutcomes": {
-    "ragged-rows": 1,
+    "override-verbatim": 3,
     "restored-override": 44,
-    "restored": 1,
-    "override-verbatim": 2
+    "restored": 1
   },
   "removedSamples": {
     "runningHeaders": [
@@ -159,8 +158,8 @@
         43
       ],
       "sourceSha256": "3fd6b75cd8383e2997266fed0c450be81380bb8771a50378ffb086c80929bbd2",
-      "outputSha256": "53a89f2ace788aff5391244e651a56de5d9d6e85ba9dc40e68084b2d8478f71f",
-      "outputBytes": 92632,
+      "outputSha256": "c1e9c6b91c61da39f00cd2b6033b2797a6535174df38012b60b3cf475ed8f9b8",
+      "outputBytes": 92674,
       "splitBySection": false,
       "sections": [
         {
@@ -452,7 +451,7 @@
         "tablesVerbatim": 1
       },
       "tableOutcomes": {
-        "ragged-rows": 1,
+        "override-verbatim": 1,
         "restored-override": 11
       },
       "indexable": true,

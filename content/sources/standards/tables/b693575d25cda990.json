@@ -1,0 +1,24 @@
+{
+  "key": "b693575d25cda990",
+  "layout": [
+    " Ｅ型   標準図 レーンマーク作業                  昼間工事"
+  ],
+  "kind": "table",
+  "header": [],
+  "headerless": true,
+  "rows": [
+    [
+      "Ｅ型 標準図",
+      "レーンマーク作業",
+      "昼間工事"
+    ]
+  ],
+  "notes": [],
+  "headerFrom": null,
+  "review": {
+    "status": "approved",
+    "by": "qa",
+    "at": "2026-10-25T04:36:05.049Z",
+    "note": "見出しが版面に無い（標準図の題名行）。 ／ QA: p506 E 型の題名行。3 欄が画像と一致。"
+  }
+}

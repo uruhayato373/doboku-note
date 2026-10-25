@@ -1,0 +1,21 @@
+{
+  "key": "5622ae3d0933d5d0",
+  "kind": "parts",
+  "layout": [
+    "               第   ２   章   関係者との連絡及び調整"
+  ],
+  "parts": [
+    {
+      "kind": "caption",
+      "text": "第２章 関係者との連絡及び調整"
+    }
+  ],
+  "notes": [],
+  "headerFrom": null,
+  "review": {
+    "status": "approved",
+    "by": "qa",
+    "at": "2026-10-25T06:54:50.723Z",
+    "note": "p562 章見出しのみ。表ではない。 ／ QA: 画像と照合。表ではなく章・条の見出しと本文で、caption/text の部品と文言が画像と一致。"
+  }
+}

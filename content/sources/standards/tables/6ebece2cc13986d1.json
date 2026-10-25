@@ -1,0 +1,24 @@
+{
+  "key": "6ebece2cc13986d1",
+  "layout": [
+    "Ａ―３型 標準図 ４車線以上   片側 1 車線以上通行可                 夜間作業"
+  ],
+  "kind": "table",
+  "header": [],
+  "headerless": true,
+  "rows": [
+    [
+      "Ａ―３型 標準図",
+      "４車線以上 片側 1 車線以上通行可",
+      "夜間作業"
+    ]
+  ],
+  "notes": [],
+  "headerFrom": null,
+  "review": {
+    "status": "approved",
+    "by": "qa",
+    "at": "2026-10-25T04:36:01.505Z",
+    "note": "見出しが版面に無い（標準図の題名行）。 ／ QA: p502 A-3 型の題名行。3 欄（呼称・条件・昼夜）が画像と一致。headerless で妥当。"
+  }
+}

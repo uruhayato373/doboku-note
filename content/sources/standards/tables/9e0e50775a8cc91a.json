@@ -1,0 +1,21 @@
+{
+  "key": "9e0e50775a8cc91a",
+  "kind": "parts",
+  "layout": [
+    "                                                   令和   年   月   日"
+  ],
+  "parts": [
+    {
+      "kind": "text",
+      "text": "令和 年 月 日"
+    }
+  ],
+  "notes": [],
+  "headerFrom": null,
+  "review": {
+    "status": "approved",
+    "by": "qa",
+    "at": "2026-10-25T03:58:20.151Z",
+    "note": "本文の日付行（版面は 1 行）。p80・p82・p88 で同じ版面が出る。 ／ QA: p80 日付1行の text。画像と一致。"
+  }
+}

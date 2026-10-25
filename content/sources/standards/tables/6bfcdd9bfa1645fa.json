@@ -1,0 +1,26 @@
+{
+  "key": "6bfcdd9bfa1645fa",
+  "kind": "parts",
+  "layout": [
+    "                         支    給    品         精   算       書",
+    "                                                         年月日："
+  ],
+  "parts": [
+    {
+      "kind": "caption",
+      "text": "支給品精算書"
+    },
+    {
+      "kind": "text",
+      "text": "年月日："
+    }
+  ],
+  "notes": [],
+  "headerFrom": null,
+  "review": {
+    "status": "approved",
+    "by": "qa",
+    "at": "2026-10-25T04:01:57.169Z",
+    "note": "様式－25 の表題と日付。 ／ QA: p128 様式-25 の表題と年月日。画像と一致"
+  }
+}

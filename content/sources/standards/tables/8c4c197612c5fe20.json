@@ -1,0 +1,20 @@
+{
+  "key": "8c4c197612c5fe20",
+  "kind": "parts",
+  "layout": [
+    "                      第１１章      埋     戻   し"
+  ],
+  "parts": [
+    {
+      "kind": "caption",
+      "text": "第１１章 埋戻し"
+    }
+  ],
+  "headerFrom": null,
+  "review": {
+    "status": "approved",
+    "by": "qa",
+    "at": "2026-10-25T06:48:22.412Z",
+    "note": "画像p432は本文ページ（表ではない）。章見出しの1行を caption にした。 ／ QA: p432 画像と照合。本文ページの章見出し 第11章 埋戻し を caption にしたのみ。表ではなく parts が妥当。"
+  }
+}
