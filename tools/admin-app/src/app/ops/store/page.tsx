@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { EmptyRow, numCol, PanelCard, StatusBadge, TableBody, TableCell, TableFrame, TableHead, TableHeader, TableRow } from '@/components/admin';
+import { DataTable, PanelCard, StatusBadge, type DataTableColumn } from '@/components/admin';
 import { Stack } from '@/components/layout';
 import { PageHead } from '@/components/ui';
 import { isStoreArea, loadStoreView, type StoreView } from '@/lib/stores';
@@ -11,6 +11,32 @@ export const dynamic = 'force-dynamic';
 
 const href = (k: string, d?: string, f?: string) =>
   `/ops/store?${new URLSearchParams({ k, ...(d ? { d } : {}), ...(f ? { f } : {}) }).toString()}`;
+const DOMAIN_COLUMNS: DataTableColumn[] = [
+  { key: 'label', label: '領域' },
+  { key: 'datasets', label: 'データセット', num: true },
+  { key: 'files', label: 'ファイル', num: true },
+];
+const DATASET_COLUMNS: DataTableColumn[] = [
+  { key: 'name', label: '名前・説明', wrap: true },
+  { key: 'kind', label: '種類' },
+  { key: 'shape', label: '型' },
+  { key: 'files', label: 'ファイル', num: true },
+  { key: 'updated', label: '更新' },
+];
+const SCHEMA_COLUMNS: DataTableColumn[] = [
+  { key: 'path', label: '場所' },
+  { key: 'type', label: '型', wrap: true },
+  { key: 'description', label: '意味', wrap: true },
+];
+const SHAPE_COLUMNS: DataTableColumn[] = [
+  { key: 'path', label: '場所' },
+  { key: 'type', label: '型' },
+];
+const FILE_COLUMNS: DataTableColumn[] = [
+  { key: 'path', label: 'パス' },
+  { key: 'updated', label: '更新' },
+  { key: 'size', label: '大きさ', num: true, sortable: false }, // 大きさは「12KB」の表示文字列（バイト数ではない）なので並べ替えない
+];
 const Local = () => <StatusBadge tone="neutral" title="手元だけにあり git 管理外（CI からは見えない）">手元のみ</StatusBadge>;
 
 /**
@@ -49,25 +75,16 @@ export default async function StorePage({ searchParams }: { searchParams: Promis
 function Domains({ v }: { v: StoreView }) {
   return (
     <PanelCard title="領域ごと">
-      <TableFrame>
-        <TableHeader>
-          <TableRow>
-            <TableHead>領域</TableHead>
-            <TableHead className={numCol}>データセット</TableHead>
-            <TableHead className={numCol}>ファイル</TableHead>
-          </TableRow>
-        </TableHeader>
-        <TableBody>
-          {v.domains.length === 0 && <EmptyRow colSpan={3}>なし</EmptyRow>}
-          {v.domains.map((d) => (
-            <TableRow key={d.id}>
-              <TableCell><Link href={href(v.area, d.id)}>{d.label}</Link></TableCell>
-              <TableCell className={numCol}>{d.datasets}</TableCell>
-              <TableCell className={numCol}>{d.files}</TableCell>
-            </TableRow>
-          ))}
-        </TableBody>
-      </TableFrame>
+      <DataTable
+        columns={DOMAIN_COLUMNS}
+        rows={v.domains.map((d) => ({
+          id: d.id,
+          values: { label: d.label, datasets: d.datasets, files: d.files },
+          cells: { label: <Link href={href(v.area, d.id)}>{d.label}</Link> },
+        }))}
+        pageSize={100}
+        emptyText="なし"
+      />
     </PanelCard>
   );
 }
@@ -75,31 +92,24 @@ function Domains({ v }: { v: StoreView }) {
 function Rows({ v }: { v: StoreView }) {
   return (
     <PanelCard title={`${v.rows.length} データセット`} description="{ts}・{date} などは日時が入る部分。開くと型・ファイル・参照しているコード">
-      <TableFrame>
-        <TableHeader>
-          <TableRow>
-            <TableHead>名前・説明</TableHead>
-            <TableHead>種類</TableHead>
-            <TableHead>型</TableHead>
-            <TableHead className={numCol}>ファイル</TableHead>
-            <TableHead>更新</TableHead>
-          </TableRow>
-        </TableHeader>
-        <TableBody>
-          {v.rows.map((r) => (
-            <TableRow key={r.id} className="align-top">
-              <TableCell className="whitespace-normal">
+      <DataTable
+        columns={DATASET_COLUMNS}
+        rows={v.rows.map((r) => ({
+          id: r.id,
+          values: { name: `${r.name} ${r.doc}`, kind: r.kind, shape: r.typed ? '型あり' : r.shape, files: r.files, updated: r.updated },
+          cells: {
+            name: (
+              <>
                 <Link href={href(v.area, v.domain?.id, r.id)}><code className="break-all text-xs">{r.name}</code></Link> {r.local && <Local />}
                 <div className="mt-1 text-xs text-muted-foreground">{r.doc}</div>
-              </TableCell>
-              <TableCell className="text-sm">{r.kind}</TableCell>
-              <TableCell className="text-sm">{r.typed ? <StatusBadge tone="good">型あり</StatusBadge> : r.shape}</TableCell>
-              <TableCell className={numCol}>{r.files}</TableCell>
-              <TableCell className="text-sm">{r.updated ?? '—'}</TableCell>
-            </TableRow>
-          ))}
-        </TableBody>
-      </TableFrame>
+              </>
+            ),
+            shape: r.typed ? <StatusBadge tone="good">型あり</StatusBadge> : r.shape,
+          },
+        }))}
+        pageSize={100}
+        filter="名前・説明で絞り込む"
+      />
     </PanelCard>
   );
 }
@@ -135,44 +145,30 @@ function Detail({ v, q }: { v: StoreView; q?: string }) {
               {x.schema.errors.map((e, i) => <li key={`${e.file}${i}`}><code className="text-xs">{e.file}</code> {e.message}</li>)}
             </ul>
           )}
-          <TableFrame>
-            <TableHeader>
-              <TableRow>
-                <TableHead>場所</TableHead>
-                <TableHead>型</TableHead>
-                <TableHead>意味</TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              {x.schema.rows.map((r, i) => (
-                <TableRow key={`${r.path}${i}`}>
-                  <TableCell><code className="text-xs">{r.path}</code></TableCell>
-                  <TableCell className="whitespace-normal text-sm">{r.type}</TableCell>
-                  <TableCell className="whitespace-normal text-sm">{r.description ?? ''}</TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          </TableFrame>
+          <DataTable
+            columns={SCHEMA_COLUMNS}
+            rows={x.schema.rows.map((r, i) => ({
+              id: `${r.path}${i}`,
+              values: { path: r.path, type: r.type, description: r.description },
+              cells: { path: <code className="text-xs">{r.path}</code>, description: r.description ?? '' },
+            }))}
+            pageSize={100}
+            filter="場所・型・意味で絞り込む"
+          />
         </PanelCard>
       ) : (
         x.shape && x.shape.rows.length > 0 && (
           <PanelCard title="型（実物から読んだもの）" description={`型の定義はまだ無い。最新ファイル（${x.files[0]?.path ?? '—'}）から読んだ形で、意味は書かれていない`}>
-            <TableFrame>
-              <TableHeader>
-                <TableRow>
-                  <TableHead>場所</TableHead>
-                  <TableHead>型</TableHead>
-                </TableRow>
-              </TableHeader>
-              <TableBody>
-                {x.shape.rows.map((r, i) => (
-                  <TableRow key={`${r.path}${i}`}>
-                    <TableCell><code className="text-xs">{r.path}</code></TableCell>
-                    <TableCell className="text-sm">{r.type}</TableCell>
-                  </TableRow>
-                ))}
-              </TableBody>
-            </TableFrame>
+            <DataTable
+              columns={SHAPE_COLUMNS}
+              rows={x.shape.rows.map((r, i) => ({
+                id: `${r.path}${i}`,
+                values: { path: r.path, type: r.type },
+                cells: { path: <code className="text-xs">{r.path}</code> },
+              }))}
+              pageSize={100}
+              filter="場所・型で絞り込む"
+            />
           </PanelCard>
         )
       )}
@@ -180,24 +176,16 @@ function Detail({ v, q }: { v: StoreView; q?: string }) {
       {x.files.some((file) => /\.jsonl?$/.test(file.path)) && <DatasetQuery id={x.id} area={v.area} domain={v.domain?.id ?? x.domain} q={q} />}
 
       <PanelCard title={`ファイル ${x.files.length + x.more} 件`} description={x.more ? `新しい順に ${x.files.length} 件` : undefined}>
-        <TableFrame>
-          <TableHeader>
-            <TableRow>
-              <TableHead>パス</TableHead>
-              <TableHead>更新</TableHead>
-              <TableHead className={numCol}>大きさ</TableHead>
-            </TableRow>
-          </TableHeader>
-          <TableBody>
-            {x.files.map((file) => (
-              <TableRow key={file.path}>
-                <TableCell><code className="text-xs">{file.path}</code> {file.untracked && <Local />}</TableCell>
-                <TableCell className="text-sm">{file.updated ?? '—'}</TableCell>
-                <TableCell className={numCol}>{file.size}</TableCell>
-              </TableRow>
-            ))}
-          </TableBody>
-        </TableFrame>
+        <DataTable
+          columns={FILE_COLUMNS}
+          rows={x.files.map((file) => ({
+            id: file.path,
+            values: { path: file.path, updated: file.updated, size: file.size },
+            cells: { path: <><code className="text-xs">{file.path}</code> {file.untracked && <Local />}</> },
+          }))}
+          pageSize={100}
+          filter={x.files.length > 30 ? 'パスで絞り込む' : undefined}
+        />
       </PanelCard>
 
       <PanelCard title={`参照しているコード ${x.refs.length} 件`} description={`「${x.refToken}」を含むファイル（scripts・管理画面・サイト・workflow の文字列一致）`}>

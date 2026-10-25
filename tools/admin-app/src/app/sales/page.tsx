@@ -1,14 +1,19 @@
 import Link from 'next/link';
-import { PanelCard, TableBody, TableCell, TableFrame, TableHead, TableHeader, TableRow, numCol } from '@/components/admin';
+import { DataTable, PanelCard, type DataTableColumn, type DataTableRow } from '@/components/admin';
 import { Stack } from '@/components/layout';
 import { PageHead } from '@/components/ui';
 import { BarChart, type Bar } from '@/components/charts/BarChart';
+import { yen } from '@/lib/format';
 import { salesSummary } from '@/lib/sales';
 import { datasetPath } from '../../../../../scripts/lib/datasets.mjs';
 
 export const dynamic = 'force-dynamic';
 
-const yen = (n: number) => '¥' + Number(n).toLocaleString('en-US');
+const COLUMNS: DataTableColumn[] = [
+  { key: 'title', label: '商品', wrap: true },
+  { key: 'count', label: '件数', num: true },
+  { key: 'revenue', label: '売上', num: true },
+];
 
 export default function SalesPage() {
   const { months, total, source, updatedAt } = salesSummary();
@@ -38,24 +43,17 @@ export default function SalesPage() {
         .reverse()
         .map((m) => (
           <PanelCard key={m.month} title={`${m.month}　${yen(m.revenue)}`} description={`${m.count} 件`}>
-            <TableFrame>
-              <TableHeader>
-                <TableRow>
-                  <TableHead>商品</TableHead>
-                  <TableHead className={numCol}>件数</TableHead>
-                  <TableHead className={numCol}>売上</TableHead>
-                </TableRow>
-              </TableHeader>
-              <TableBody>
-                {m.products.map((p) => (
-                  <TableRow key={p.title}>
-                    <TableCell className="whitespace-normal">{p.title}</TableCell>
-                    <TableCell className={numCol}>{p.count}</TableCell>
-                    <TableCell className={numCol}>{yen(p.revenue)}</TableCell>
-                  </TableRow>
-                ))}
-              </TableBody>
-            </TableFrame>
+            <DataTable
+              columns={COLUMNS}
+              rows={m.products.map(
+                (p): DataTableRow => ({
+                  id: p.title,
+                  values: { title: p.title, count: p.count, revenue: p.revenue },
+                  cells: { revenue: yen(p.revenue) },
+                }),
+              )}
+              pageSize={100}
+            />
           </PanelCard>
         ))}
       </Stack>

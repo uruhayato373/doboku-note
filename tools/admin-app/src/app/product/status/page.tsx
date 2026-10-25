@@ -1,9 +1,10 @@
 import Link from 'next/link';
-import { TableBody, TableCell, TableFrame, TableHead, TableHeader, TableRow, numCol } from '@/components/admin';
+import { DataTable, type DataTableColumn, type DataTableRow } from '@/components/admin';
 import { Stack } from '@/components/layout';
 import { PageHead } from '@/components/ui';
 import NoteStatusPage from '../../content/note-status/page';
 import KindleContentPage from '../../content/kindle/page';
+import { yen } from '@/lib/format';
 import { readCatalog } from '../../../../../../scripts/lib/coconala-catalog.mjs';
 
 export const dynamic = 'force-dynamic';
@@ -15,6 +16,12 @@ const TABS = [
 ] as const;
 
 const COCONALA_STATUS: Record<string, string> = { listed: '出品中', published: '出品中', paused: '休止', draft: '下書き', review: '審査中' };
+
+const COCONALA_COLUMNS: DataTableColumn[] = [
+  { key: 'title', label: '出品' },
+  { key: 'status', label: '状態' },
+  { key: 'price', label: '価格', num: true },
+];
 
 /**
  * /product/status — 販売状態（人が手を打つもの）。チャネルはサイドバーの枝にせずこのページのタブにする
@@ -58,29 +65,20 @@ function Coconala() {
     return <p className="text-sm text-muted-foreground">ココナラの台帳を読み取れません。</p>;
   }
   const order = (s: string) => (s === 'paused' ? 1 : s === 'draft' ? 2 : 0);
-  return (
-    <TableFrame>
-      <TableHeader>
-        <TableRow>
-          <TableHead>出品</TableHead>
-          <TableHead>状態</TableHead>
-          <TableHead className={numCol}>価格</TableHead>
-        </TableRow>
-      </TableHeader>
-      <TableBody>
-        {rows
-          .sort((a, b) => order(a.status) - order(b.status))
-          .map((r) => (
-            <TableRow key={r.id}>
-              <TableCell>{r.serviceUrl ? <a href={r.serviceUrl} target="_blank" rel="noreferrer">{r.shortTitle ?? r.title}</a> : r.shortTitle ?? r.title}</TableCell>
-              <TableCell className={r.status === 'paused' ? 'text-muted-foreground' : undefined}>
-                {COCONALA_STATUS[r.status] ?? r.status}
-                {r.pauseReason === 'retired' ? '（終了）' : ''}
-              </TableCell>
-              <TableCell className={numCol}>{r.priceYen ? `¥${r.priceYen.toLocaleString('en-US')}` : '—'}</TableCell>
-            </TableRow>
-          ))}
-      </TableBody>
-    </TableFrame>
-  );
+  const tableRows: DataTableRow[] = rows
+    .sort((a, b) => order(a.status) - order(b.status))
+    .map((r) => {
+      const title = r.shortTitle ?? r.title;
+      const status = `${COCONALA_STATUS[r.status] ?? r.status}${r.pauseReason === 'retired' ? '（終了）' : ''}`;
+      return {
+        id: r.id,
+        values: { title, status, price: r.priceYen || null },
+        cells: {
+          title: r.serviceUrl ? <a href={r.serviceUrl} target="_blank" rel="noreferrer">{title}</a> : title,
+          status: r.status === 'paused' ? <span className="text-muted-foreground">{status}</span> : status,
+          price: r.priceYen ? yen(r.priceYen) : '—',
+        },
+      };
+    });
+  return <DataTable columns={COCONALA_COLUMNS} rows={tableRows} pageSize={100} />;
 }

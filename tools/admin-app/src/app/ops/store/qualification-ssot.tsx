@@ -1,6 +1,6 @@
 import { readFileSync } from 'node:fs';
 
-import { EmptyRow, numCol, PanelCard, StatusBadge, TableBody, TableCell, TableFrame, TableHead, TableHeader, TableRow, type Tone } from '@/components/admin';
+import { DataTable, PanelCard, StatusBadge, type DataTableColumn, type Tone } from '@/components/admin';
 import { findRepoRoot, repoPath } from '@/lib/repo-root';
 import { auditQualificationSsot, ALLOW_PATH, DERIVED_FILES } from '../../../../../../scripts/lib/qualification-ssot.mjs';
 import { loadExamStages } from '../../../../../../scripts/lib/exam-stages.mjs';
@@ -28,6 +28,30 @@ interface Audit {
 
 const PORTFOLIO_TONE: Record<string, Tone> = { active: 'good', candidate: 'neutral', declined: 'neutral' };
 const orName = (v: string | null | undefined, fallback: string) => v ?? <span className="text-muted-foreground">（{fallback}）</span>;
+
+const QUALIFICATION_COLUMNS: DataTableColumn[] = [
+  { key: 'order', label: '順', num: true },
+  { key: 'label', label: '正式名' },
+  { key: 'shortLabel', label: '短い名前' },
+  { key: 'badgeLabel', label: 'ごく短い名前' },
+  { key: 'id', label: 'id' },
+  { key: 'family', label: 'ファミリー' },
+  { key: 'portfolio', label: '展開' },
+  { key: 'stages', label: '試験区分', wrap: true },
+];
+const GROUP_COLUMNS: DataTableColumn[] = [
+  { key: 'label', label: '正式名' },
+  { key: 'shortLabel', label: '短い名前' },
+  { key: 'badgeLabel', label: 'ごく短い名前' },
+  { key: 'id', label: 'id' },
+  { key: 'members', label: '構成', wrap: true },
+];
+const ALLOW_COLUMNS: DataTableColumn[] = [
+  { key: 'file', label: 'ファイル' },
+  { key: 'path', label: '場所' },
+  { key: 'count', label: '該当', num: true },
+  { key: 'reason', label: '理由', wrap: true },
+];
 
 function load() {
   const root = findRepoRoot();
@@ -79,85 +103,64 @@ export function QualificationSsot() {
       </PanelCard>
 
       <PanelCard title="資格" description="並び順＝この表の順で、商品設計・コンテンツ台帳のメニューも同じ順・同じ短い名前で並ぶ。ごく短い名前はバッジ・カバー・狭い列用。試験区分は exam-formats.json">
-        <TableFrame>
-          <TableHeader>
-            <TableRow>
-              <TableHead className={numCol}>順</TableHead>
-              <TableHead>正式名</TableHead>
-              <TableHead>短い名前</TableHead>
-              <TableHead>ごく短い名前</TableHead>
-              <TableHead>id</TableHead>
-              <TableHead>ファミリー</TableHead>
-              <TableHead>展開</TableHead>
-              <TableHead>試験区分</TableHead>
-            </TableRow>
-          </TableHeader>
-          <TableBody>
-            {reg.qualifications.length === 0 && <EmptyRow colSpan={8}>読めなかった</EmptyRow>}
-            {reg.qualifications.map((q, i) => (
-              <TableRow key={q.id}>
-                <TableCell className={numCol}>{i + 1}</TableCell>
-                <TableCell>{q.label}</TableCell>
-                <TableCell>{orName(q.shortLabel, '正式名')}</TableCell>
-                <TableCell>{orName(q.badgeLabel, '短い名前')}</TableCell>
-                <TableCell><code className="text-xs">{q.id}</code></TableCell>
-                <TableCell>{reg.families[q.family] ?? q.family}</TableCell>
-                <TableCell><StatusBadge tone={PORTFOLIO_TONE[q.portfolio] ?? 'neutral'} title={reg.portfolioStatuses[q.portfolio] ?? q.portfolio}>{q.portfolio}</StatusBadge></TableCell>
-                <TableCell className="whitespace-normal text-sm">{(v.stages.get(q.id) ?? []).map((s) => s.label).join('・') || '—'}</TableCell>
-              </TableRow>
-            ))}
-          </TableBody>
-        </TableFrame>
+        <DataTable
+          columns={QUALIFICATION_COLUMNS}
+          rows={reg.qualifications.map((q, i) => {
+            const stages = (v.stages.get(q.id) ?? []).map((s) => s.label).join('・');
+            return {
+              id: q.id,
+              values: {
+                order: i + 1,
+                label: q.label,
+                shortLabel: q.shortLabel ?? null,
+                badgeLabel: q.badgeLabel ?? null,
+                id: q.id,
+                family: reg.families[q.family] ?? q.family,
+                portfolio: q.portfolio,
+                stages: stages || null,
+              },
+              cells: {
+                shortLabel: orName(q.shortLabel, '正式名'),
+                badgeLabel: orName(q.badgeLabel, '短い名前'),
+                id: <code className="text-xs">{q.id}</code>,
+                portfolio: <StatusBadge tone={PORTFOLIO_TONE[q.portfolio] ?? 'neutral'} title={reg.portfolioStatuses[q.portfolio] ?? q.portfolio}>{q.portfolio}</StatusBadge>,
+              },
+            };
+          })}
+          pageSize={100}
+          emptyText="読めなかった"
+        />
       </PanelCard>
 
       <PanelCard title="まとまり（groups）" description={`複数資格をまとめて扱う単位。カバーのトークン・note 導線・サイトのカテゴリは名前を書かず qualification: でこの id を指す。設定の別名キー（${v.aliases.join('・') || 'なし'}）も検査の対象`}>
-        <TableFrame>
-          <TableHeader>
-            <TableRow>
-              <TableHead>正式名</TableHead>
-              <TableHead>短い名前</TableHead>
-              <TableHead>ごく短い名前</TableHead>
-              <TableHead>id</TableHead>
-              <TableHead>構成</TableHead>
-            </TableRow>
-          </TableHeader>
-          <TableBody>
-            {Object.keys(reg.groups ?? {}).length === 0 && <EmptyRow colSpan={5}>なし</EmptyRow>}
-            {Object.entries(reg.groups ?? {}).map(([id, g]) => (
-              <TableRow key={id}>
-                <TableCell>{g.label}</TableCell>
-                <TableCell>{orName(g.shortLabel, '正式名')}</TableCell>
-                <TableCell>{orName(g.badgeLabel, '短い名前')}</TableCell>
-                <TableCell><code className="text-xs">{id}</code></TableCell>
-                <TableCell className="whitespace-normal text-sm">{g.members.map(nameOf).join('・')}</TableCell>
-              </TableRow>
-            ))}
-          </TableBody>
-        </TableFrame>
+        <DataTable
+          columns={GROUP_COLUMNS}
+          rows={Object.entries(reg.groups ?? {}).map(([id, g]) => ({
+            id,
+            values: { label: g.label, shortLabel: g.shortLabel ?? null, badgeLabel: g.badgeLabel ?? null, id, members: g.members.map(nameOf).join('・') },
+            cells: {
+              shortLabel: orName(g.shortLabel, '正式名'),
+              badgeLabel: orName(g.badgeLabel, '短い名前'),
+              id: <code className="text-xs">{id}</code>,
+            },
+          }))}
+          pageSize={100}
+          emptyText="なし"
+        />
       </PanelCard>
 
       <PanelCard title="許可した例外" description={`資格名とは別の属性なので残してよい箇所（${ALLOW_PATH}）。コードの誤検出は行に「qualification-ssot: allow 理由」を書く。名前を書き込んで使うファイル（${derivedFiles.join('・')}）は npm run sync-qualification-names が registry から書く`}>
-        <TableFrame>
-          <TableHeader>
-            <TableRow>
-              <TableHead>ファイル</TableHead>
-              <TableHead>場所</TableHead>
-              <TableHead className={numCol}>該当</TableHead>
-              <TableHead>理由</TableHead>
-            </TableRow>
-          </TableHeader>
-          <TableBody>
-            {v.allowRules.length === 0 && <EmptyRow colSpan={4}>なし</EmptyRow>}
-            {v.allowRules.map((a) => (
-              <TableRow key={`${a.file}${a.path}`} className="align-top">
-                <TableCell><code className="text-xs">{a.file}</code></TableCell>
-                <TableCell><code className="text-xs">{a.path}</code></TableCell>
-                <TableCell className={numCol}>{allowedCount(a.file, a.reason)}</TableCell>
-                <TableCell className="whitespace-normal text-sm">{a.reason}</TableCell>
-              </TableRow>
-            ))}
-          </TableBody>
-        </TableFrame>
+        <DataTable
+          columns={ALLOW_COLUMNS}
+          rows={v.allowRules.map((a) => ({
+            id: `${a.file}${a.path}`,
+            values: { file: a.file, path: a.path, count: allowedCount(a.file, a.reason), reason: a.reason },
+            cells: { file: <code className="text-xs">{a.file}</code>, path: <code className="text-xs">{a.path}</code> },
+          }))}
+          pageSize={100}
+          filter={v.allowRules.length > 30 ? 'ファイル・場所・理由で絞り込む' : undefined}
+          emptyText="なし"
+        />
       </PanelCard>
     </>
   );

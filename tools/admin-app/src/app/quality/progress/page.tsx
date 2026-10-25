@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { TableBody, TableCell, TableFrame, TableHead, TableHeader, TableRow, numCol } from '@/components/admin';
+import { DataTable, type DataTableColumn, type DataTableRow } from '@/components/admin';
 import { Stack } from '@/components/layout';
 import { PageHead } from '@/components/ui';
 import { findRepoRoot } from '@/lib/repo-root';
@@ -15,6 +15,18 @@ type Row = { slug: string; title: string; gscPos: number | null; impr: number; c
 
 const STATUS_JA: Record<string, string> = { approved: '承認', verified: '採点済み', rewritten: 'リライト済み', 未着手: '未着手' };
 
+const PROGRESS_COLUMNS: DataTableColumn[] = [
+  { key: 'title', label: 'キーワード', wrap: true },
+  { key: 'weighted', label: 'weighted', num: true },
+  { key: 'weakAxes', label: '弱い軸' },
+  { key: 'status', label: '状態' },
+  { key: 'rewriteCount', label: 'リライト', num: true },
+  { key: 'gscPos', label: '順位', num: true },
+  { key: 'impr', label: '表示', num: true },
+  { key: 'clicks', label: 'クリック', num: true },
+  { key: 'lastDate', label: '最終更新' },
+];
+
 export default async function QualityProgressPage({ searchParams }: { searchParams: Promise<{ status?: string; below?: string }> }) {
   const { status, below } = await searchParams;
   const v = loadQualityProgress(findRepoRoot()) as { present: boolean; rows: Row[]; summary: { total: number; lt2: number; lt25: number; byStatus: Record<string, number> } };
@@ -27,6 +39,27 @@ export default async function QualityProgressPage({ searchParams }: { searchPara
     );
   }
   const rows = v.rows.filter((r) => (!status || r.status === status) && (!below || r.weighted < Number(below)));
+  const progressRows: DataTableRow[] = rows.map((r) => ({
+    id: r.slug,
+    values: {
+      title: r.title,
+      weighted: r.weighted,
+      weakAxes: r.weakAxes.join('・') || null,
+      status: STATUS_JA[r.status] ?? r.status,
+      rewriteCount: r.rewriteCount,
+      gscPos: r.gscPos,
+      impr: r.impr,
+      clicks: r.clicks,
+      lastDate: r.lastDate,
+    },
+    cells: {
+      weighted: r.weighted.toFixed(2),
+      weakAxes: <span className="text-xs">{r.weakAxes.join('・') || '—'}</span>,
+      status: <span className="text-xs">{STATUS_JA[r.status] ?? r.status}</span>,
+      gscPos: r.gscPos == null ? '—' : r.gscPos.toFixed(1),
+      lastDate: <span className="text-xs">{r.lastDate}</span>,
+    },
+  }));
   const href = (q: Record<string, string | undefined>) => {
     const p = new URLSearchParams(Object.entries(q).filter(([, x]) => x) as [string, string][]);
     return `/quality/progress${p.size ? `?${p}` : ''}`;
@@ -48,36 +81,7 @@ export default async function QualityProgressPage({ searchParams }: { searchPara
           2.5 未満 {v.summary.lt25}
         </Link>
       </nav>
-      <TableFrame>
-        <TableHeader>
-          <TableRow>
-            <TableHead>キーワード</TableHead>
-            <TableHead className={numCol}>weighted</TableHead>
-            <TableHead>弱い軸</TableHead>
-            <TableHead>状態</TableHead>
-            <TableHead className={numCol}>リライト</TableHead>
-            <TableHead className={numCol}>順位</TableHead>
-            <TableHead className={numCol}>表示</TableHead>
-            <TableHead className={numCol}>クリック</TableHead>
-            <TableHead>最終更新</TableHead>
-          </TableRow>
-        </TableHeader>
-        <TableBody>
-          {rows.map((r) => (
-            <TableRow key={r.slug}>
-              <TableCell className="whitespace-normal">{r.title}</TableCell>
-              <TableCell className={numCol}>{r.weighted.toFixed(2)}</TableCell>
-              <TableCell className="text-xs">{r.weakAxes.join('・') || '—'}</TableCell>
-              <TableCell className="text-xs">{STATUS_JA[r.status] ?? r.status}</TableCell>
-              <TableCell className={numCol}>{r.rewriteCount}</TableCell>
-              <TableCell className={numCol}>{r.gscPos == null ? '—' : r.gscPos.toFixed(1)}</TableCell>
-              <TableCell className={numCol}>{r.impr}</TableCell>
-              <TableCell className={numCol}>{r.clicks}</TableCell>
-              <TableCell className="text-xs">{r.lastDate}</TableCell>
-            </TableRow>
-          ))}
-        </TableBody>
-      </TableFrame>
+      <DataTable columns={PROGRESS_COLUMNS} rows={progressRows} filter="キーワードで絞り込む" />
       </Stack>
     </>
   );

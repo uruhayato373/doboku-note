@@ -1,5 +1,4 @@
-import Link from 'next/link';
-import { numCol, PanelCard, TableBody, TableCell, TableFrame, TableHead, TableHeader, TableRow, StatusBadge, type Tone } from '@/components/admin';
+import { DataTable, PanelCard, StatusBadge, type DataTableColumn, type DataTableRow, type Tone } from '@/components/admin';
 import { PageHead } from '@/components/ui';
 import SectionTabs from '@/components/SectionTabs';
 import UpcomingEvents from '@/components/UpcomingEvents';
@@ -19,32 +18,17 @@ const PORTFOLIO_TONE: Record<string, Tone> = { active: 'good', candidate: 'neutr
  * （月次レビュー）が持つので、この画面には出さない。正本の不整合があるときだけ警告を出す。
  * 区分（一次・二次など）ごとに試験日・合格発表・受験者数・合格率を横に揃え、過ぎた日付は薄く出す。
  */
-type SortKey = 'registry' | 'name' | 'examinees';
+const COLUMNS: DataTableColumn[] = [
+  { key: 'label', label: '資格' },
+  { key: 'portfolio', label: '状態' },
+  { key: 'exam', label: '試験日', sortable: false },
+  { key: 'result', label: '合格発表', sortable: false },
+  { key: 'examinees', label: '受験者数', num: true },
+  { key: 'rate', label: '合格率', num: true, sortable: false },
+];
 
-export default async function QualificationsPage({ searchParams }: { searchParams: Promise<{ sort?: string; dir?: string }> }) {
-  const { sort: sortParam, dir: dirParam } = await searchParams;
+export default function QualificationsPage() {
   const view = loadQualificationsView();
-  const sort: SortKey = sortParam === 'name' || sortParam === 'examinees' ? sortParam : 'registry';
-  const dir = dirParam === 'asc' || dirParam === 'desc' ? dirParam : sort === 'examinees' ? 'desc' : 'asc';
-  const sign = dir === 'asc' ? 1 : -1;
-  const rows = [...view.rows];
-  if (sort === 'name') rows.sort((a, b) => sign * a.label.localeCompare(b.label, 'ja'));
-  // 受験者数が無い資格は向きに関係なく末尾
-  if (sort === 'examinees') rows.sort((a, b) => (a.examineesMax == null ? 1 : b.examineesMax == null ? -1 : sign * (a.examineesMax - b.examineesMax)));
-
-  /** 列見出しのリンク。同じ列をもう一度押すと向きが反転する。 */
-  const SortHead = ({ k, children, className }: { k: SortKey; children: React.ReactNode; className?: string }) => {
-    const active = sort === k;
-    const next = active ? (dir === 'asc' ? 'desc' : 'asc') : k === 'examinees' ? 'desc' : 'asc';
-    return (
-      <TableHead className={className}>
-        <Link href={`/strategy/qualifications?sort=${k}&dir=${next}`}>
-          {children}
-          {active ? (dir === 'asc' ? ' ▲' : ' ▼') : ''}
-        </Link>
-      </TableHead>
-    );
-  };
 
   return (
     <>
@@ -58,23 +42,7 @@ export default async function QualificationsPage({ searchParams }: { searchParam
         </PanelCard>
       )}
 
-      <TableFrame>
-          <TableHeader>
-            <TableRow>
-              <SortHead k="name">資格</SortHead>
-              <TableHead>状態</TableHead>
-              <TableHead>試験日</TableHead>
-              <TableHead>合格発表</TableHead>
-              <SortHead k="examinees" className={numCol}>受験者数</SortHead>
-              <TableHead className={numCol}>合格率</TableHead>
-            </TableRow>
-          </TableHeader>
-          <TableBody>
-            {rows.map((r) => (
-              <Row key={r.id} row={r} />
-            ))}
-          </TableBody>
-      </TableFrame>
+      <DataTable columns={COLUMNS} rows={view.rows.map(toRow)} pageSize={100} />
     </>
   );
 }
@@ -83,35 +51,47 @@ const Past = ({ past, children }: { past: boolean; children: React.ReactNode }) 
   <div className={past ? 'text-muted-foreground' : undefined}>{children}</div>
 );
 
-function Row({ row: r }: { row: QualificationView }) {
-  return (
-    <TableRow className="align-top">
-      <TableCell className="whitespace-nowrap">{r.label}</TableCell>
-      <TableCell className="whitespace-nowrap">
-        <StatusBadge tone={PORTFOLIO_TONE[r.portfolio] ?? 'info'}>{PORTFOLIO_LABEL[r.portfolio] ?? r.portfolio}</StatusBadge>
-        {r.portfolioNote && <div className="text-[11px] text-muted-foreground">{r.portfolioNote}</div>}
-      </TableCell>
-      <TableCell className="whitespace-nowrap text-xs">
-        {r.lines.map((l) => (
-          <Past key={l.stage} past={l.exam?.past ?? false}>
-            {l.stage && <span className="text-muted-foreground">{l.stage} </span>}
-            {l.exam ? monthDay(l.exam.date) : l.examWindow ? <span className="text-muted-foreground">{l.examWindow}</span> : '—'}
-          </Past>
-        ))}
-      </TableCell>
-      <TableCell className="whitespace-nowrap text-xs">
-        {r.lines.map((l) => (
-          <Past key={l.stage} past={l.result?.past ?? false}>
-            {l.result ? (l.result.date ? monthDay(l.result.date) : <span className="text-muted-foreground">{l.result.window}</span>) : '—'}
-          </Past>
-        ))}
-      </TableCell>
-      <TableCell className="whitespace-nowrap text-xs text-right tabular-nums">
-        {r.lines.map((l) => <div key={l.stage}>{l.examinees}</div>)}
-      </TableCell>
-      <TableCell className="whitespace-nowrap text-xs text-right tabular-nums">
-        {r.lines.map((l) => <div key={l.stage}>{l.rate}</div>)}
-      </TableCell>
-    </TableRow>
-  );
+function toRow(r: QualificationView): DataTableRow {
+  const examText = r.lines.map((l) => `${l.stage ? `${l.stage} ` : ''}${l.exam ? monthDay(l.exam.date) : (l.examWindow ?? '—')}`).join(' / ');
+  const resultText = r.lines.map((l) => (l.result ? (l.result.date ? monthDay(l.result.date) : (l.result.window ?? '—')) : '—')).join(' / ');
+  return {
+    id: r.id,
+    values: {
+      label: r.label,
+      portfolio: PORTFOLIO_LABEL[r.portfolio] ?? r.portfolio,
+      exam: examText,
+      result: resultText,
+      examinees: r.examineesMax,
+      rate: r.lines.map((l) => l.rate).join(' / '),
+    },
+    cells: {
+      portfolio: (
+        <>
+          <StatusBadge tone={PORTFOLIO_TONE[r.portfolio] ?? 'info'}>{PORTFOLIO_LABEL[r.portfolio] ?? r.portfolio}</StatusBadge>
+          {r.portfolioNote && <div className="text-[11px] text-muted-foreground">{r.portfolioNote}</div>}
+        </>
+      ),
+      exam: (
+        <div className="text-xs">
+          {r.lines.map((l) => (
+            <Past key={l.stage} past={l.exam?.past ?? false}>
+              {l.stage && <span className="text-muted-foreground">{l.stage} </span>}
+              {l.exam ? monthDay(l.exam.date) : l.examWindow ? <span className="text-muted-foreground">{l.examWindow}</span> : '—'}
+            </Past>
+          ))}
+        </div>
+      ),
+      result: (
+        <div className="text-xs">
+          {r.lines.map((l) => (
+            <Past key={l.stage} past={l.result?.past ?? false}>
+              {l.result ? (l.result.date ? monthDay(l.result.date) : <span className="text-muted-foreground">{l.result.window}</span>) : '—'}
+            </Past>
+          ))}
+        </div>
+      ),
+      examinees: <div className="text-xs">{r.lines.map((l) => <div key={l.stage}>{l.examinees}</div>)}</div>,
+      rate: <div className="text-xs">{r.lines.map((l) => <div key={l.stage}>{l.rate}</div>)}</div>,
+    },
+  };
 }

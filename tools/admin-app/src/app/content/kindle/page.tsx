@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { numCol, PanelCard, TableBody, TableCell, TableFrame, TableHead, TableHeader, TableRow, StatusBadge, type Tone } from '@/components/admin';
+import { DataTable, type DataTableColumn, type DataTableRow, PanelCard, StatusBadge, type Tone } from '@/components/admin';
 import { Stack } from '@/components/layout';
 import { PageHead, Kpi } from '@/components/ui';
 import { loadKindleView, type KindleBookView } from '@/lib/kindle';
@@ -31,6 +31,68 @@ function freshnessLabel(f: KindleBookView['freshness']): string {
 function fmtBytes(n: number): string {
   if (n <= 0) return '0 KB';
   return n >= 1024 * 1024 ? `${(n / 1024 / 1024).toFixed(1)} MB` : `${Math.max(1, Math.round(n / 1024))} KB`;
+}
+
+const BOOK_COLUMNS: DataTableColumn[] = [
+  { key: 'cover', label: '表紙', sortable: false },
+  { key: 'book', label: '書籍' },
+  { key: 'price', label: '価格', num: true },
+  { key: 'status', label: '状態' },
+  { key: 'version', label: '版' },
+  { key: 'date', label: '提出日' },
+  { key: 'asin', label: 'ASIN' },
+  { key: 'freshness', label: '鮮度' },
+];
+
+const ROYALTY_COLUMNS: DataTableColumn[] = [
+  { key: 'book', label: '書籍' },
+  { key: 'royalty', label: 'ロイヤリティ', num: true },
+  { key: 'catalog', label: 'catalog' },
+];
+
+function bookRow(b: KindleBookView): DataTableRow {
+  return {
+    id: b.id,
+    values: {
+      cover: null,
+      book: `${b.title || b.id} ${b.id}${b.series ? `・${b.series}` : ''}`,
+      price: b.priceJpy ?? null,
+      status: b.status,
+      version: b.version || null,
+      date: b.submittedDate ?? b.publishedDate ?? null,
+      asin: b.asin ?? b.draftAsin ?? null,
+      freshness: freshnessLabel(b.freshness),
+    },
+    cells: {
+      cover: b.coverUrl ? (
+        // eslint-disable-next-line @next/next/no-img-element
+        <img src={b.coverUrl} alt="" width={40} loading="lazy" />
+      ) : (
+        <span className="text-muted-foreground">—</span>
+      ),
+      book: (
+        <>
+          <div><Link href={`/content/kindle/${encodeURIComponent(b.id)}`}>{b.title || b.id}</Link></div>
+          <div className="font-mono text-xs text-muted-foreground">{b.id}{b.series ? `・${b.series}` : ''}</div>
+          {b.epubExists && <div className="text-xs text-muted-foreground">{fmtBytes(b.epubBytes)}</div>}
+        </>
+      ),
+      price: yen(b.priceJpy),
+      status: <StatusBadge tone={statusTone(b.status)}>{b.status}</StatusBadge>,
+      version: <span className="text-xs">{b.version || '—'}</span>,
+      date: <span className="text-xs">{b.submittedDate ?? b.publishedDate ?? '—'}</span>,
+      asin: (
+        <span className="text-xs">
+          {b.amazonUrl ? (
+            <a href={b.amazonUrl} target="_blank" rel="noreferrer">{b.asin}</a>
+          ) : (
+            <span className="text-muted-foreground">{b.asin ?? b.draftAsin ?? '—'}</span>
+          )}
+        </span>
+      ),
+      freshness: <StatusBadge tone={freshnessTone(b.freshness)}>{freshnessLabel(b.freshness)}</StatusBadge>,
+    },
+  };
 }
 
 /**
@@ -93,24 +155,13 @@ export default async function KindleContentPage() {
       )}
 
       <PanelCard title="書籍">
-        <TableFrame>
-          <TableHeader>
-            <TableRow>
-              <TableHead>表紙</TableHead>
-              <TableHead>書籍</TableHead>
-              <TableHead className={numCol}>価格</TableHead>
-              <TableHead>状態</TableHead>
-              <TableHead>版</TableHead>
-              <TableHead>提出日</TableHead>
-              <TableHead>ASIN</TableHead>
-              <TableHead>鮮度</TableHead>
-            </TableRow>
-          </TableHeader>
-          <TableBody>
-            {books.map((b) => <BookRow key={b.id} book={b} />)}
-          </TableBody>
-        </TableFrame>
-        {books.length === 0 && <p className="mt-3 text-sm text-muted-foreground">書籍が0件です（catalog.json を確認してください）。</p>}
+        <DataTable
+          columns={BOOK_COLUMNS}
+          rows={books.map(bookRow)}
+          pageSize={100}
+          filter="書籍・ASIN などで絞り込む"
+          emptyText="書籍が0件です（catalog.json を確認してください）。"
+        />
       </PanelCard>
 
       <PanelCard title="ロイヤリティ">
@@ -130,20 +181,21 @@ export default async function KindleContentPage() {
             {royalties.caveat && <p className="text-sm text-muted-foreground">{royalties.caveat}</p>}
             {royalties.fetchedAt && <p className="text-sm text-muted-foreground">取得日時: {royalties.fetchedAt}</p>}
             {royalties.perBook && royalties.perBook.length > 0 && (
-              <TableFrame className="mt-3">
-                <TableHeader>
-                  <TableRow><TableHead>書籍</TableHead><TableHead className={numCol}>ロイヤリティ</TableHead><TableHead>catalog</TableHead></TableRow>
-                </TableHeader>
-                <TableBody>
-                  {royalties.perBook.map((b) => (
-                    <TableRow key={b.bookId}>
-                      <TableCell>{b.title} <span className="font-mono text-xs text-muted-foreground">{b.bookId}</span></TableCell>
-                      <TableCell className={numCol}>{yen(b.royalty)}</TableCell>
-                      <TableCell>{b.inCatalog ? '—' : <span className="project-warning-text">未対応</span>}</TableCell>
-                    </TableRow>
-                  ))}
-                </TableBody>
-              </TableFrame>
+              <div className="mt-3">
+                <DataTable
+                  columns={ROYALTY_COLUMNS}
+                  rows={royalties.perBook.map((b): DataTableRow => ({
+                    id: b.bookId,
+                    values: { book: `${b.title} ${b.bookId}`, royalty: b.royalty ?? null, catalog: b.inCatalog ? '—' : '未対応' },
+                    cells: {
+                      book: <>{b.title} <span className="font-mono text-xs text-muted-foreground">{b.bookId}</span></>,
+                      royalty: yen(b.royalty),
+                      catalog: b.inCatalog ? '—' : <span className="project-warning-text">未対応</span>,
+                    },
+                  }))}
+                  pageSize={100}
+                />
+              </div>
             )}
           </>
         ) : (
@@ -175,37 +227,5 @@ export default async function KindleContentPage() {
       </PanelCard>
       </Stack>
     </>
-  );
-}
-
-function BookRow({ book: b }: { book: KindleBookView }) {
-  return (
-    <TableRow>
-      <TableCell>
-        {b.coverUrl ? (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img src={b.coverUrl} alt="" width={40} loading="lazy" />
-        ) : (
-          <span className="text-muted-foreground">—</span>
-        )}
-      </TableCell>
-      <TableCell>
-        <div><Link href={`/content/kindle/${encodeURIComponent(b.id)}`}>{b.title || b.id}</Link></div>
-        <div className="font-mono text-xs text-muted-foreground">{b.id}{b.series ? `・${b.series}` : ''}</div>
-        {b.epubExists && <div className="text-xs text-muted-foreground">{fmtBytes(b.epubBytes)}</div>}
-      </TableCell>
-      <TableCell className={numCol}>{yen(b.priceJpy)}</TableCell>
-      <TableCell><StatusBadge tone={statusTone(b.status)}>{b.status}</StatusBadge></TableCell>
-      <TableCell className="text-xs">{b.version || '—'}</TableCell>
-      <TableCell className="text-xs">{b.submittedDate ?? b.publishedDate ?? '—'}</TableCell>
-      <TableCell className="text-xs">
-        {b.amazonUrl ? (
-          <a href={b.amazonUrl} target="_blank" rel="noreferrer">{b.asin}</a>
-        ) : (
-          <span className="text-muted-foreground">{b.asin ?? b.draftAsin ?? '—'}</span>
-        )}
-      </TableCell>
-      <TableCell><StatusBadge tone={freshnessTone(b.freshness)}>{freshnessLabel(b.freshness)}</StatusBadge></TableCell>
-    </TableRow>
   );
 }
