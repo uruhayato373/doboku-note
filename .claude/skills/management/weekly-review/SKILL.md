@@ -309,8 +309,8 @@ sales.json が 34 日止まっていたことに誰も気づかず、下流の�
   未生成（fetch-metrics 次回金曜で生成）」と 1 行。
 - 週次スナップショット: `data/business/weekly/` の最新 YYYY-Www.json の `sns` セクション
   （source 別 WoW・合計）も併記できる（上と同じ CI 由来）。
-- YT 公開照合: `.claude/state/video-publication-verify.json`（verify-yt-status.yml が週次で commit）の
-  結果を 1〜2 行で（ドリフト 0 なら「YT 公開状態ドリフトなし」）。台帳の予約→公開は registry-reconcile が毎日見る。
+- YT 公開照合: SNS の保留に合わせて 2026-10-25 に CI（registry-reconcile.yml・verify-video-publication）から外した。
+  照合の記録は更新されないので、保留の間は書かない（再開するときに作り直す）。
 
 分析項目:
 - source 別の週次増減（急落 source・新規に伸びた source を 1 行ずつ）
@@ -511,7 +511,7 @@ npm run review-checks -- --cadence weekly --run YYYY-Www --write
   open 8 件・最古 43 日が溜まり、この節自体が「消化停止」と書く状態だった）。したがって **open のまま残っている
   ＝まだ復旧していない**と読む。`--resolve` の配線が無い channel（人手ルーティン起票）だけ復旧確認後に人が閉じる。
   起票元は `ci.yml`（Pre-merge が赤）・`uptime-ping.yml`・`weekly-review-guard.yml`（記録層の沈黙／workflow health／
-  report 区分 FAIL）・`index-coverage.yml`・`gsc-auto-review.yml`・`ops-audit.yml`（quality-audit の ops 区分のうち毎日の分＝配信・予約・動画照合・Cloudflare・sitemap・
+  report 区分 FAIL）・`index-coverage.yml`・`gsc-auto-review.yml`・`ops-audit.yml`（quality-audit の ops 区分のうち毎日の分＝会員配信・添付・広告の期限・Cloudflare・sitemap・
   収集の死活）・Mac の weekly-collect（channel weekly-collect＝土曜の収集の段の失敗と検算・note の公開状態の照合の検査不成立・DN-0847）
 
 

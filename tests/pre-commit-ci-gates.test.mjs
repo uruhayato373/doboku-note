@@ -19,7 +19,8 @@ test('planGates: staged のパスに応じて回す検査と対象を決める',
   const katex = plan.find((g) => g.id === 'katex-warnings');
   assert.equal(katex.files.length, 2);
   assert.deepEqual(katex.cmd(katex.files).slice(0, 3), ['node', 'scripts/audit-katex-warnings.mjs', '--strict']);
-  assert.deepEqual(planGates(['content/sns/x/review.json']).map((g) => g.id), ['x-review']);
+  // SNS の検査は SNS の保留に合わせて 2026-10-25 に CI と pre-commit の速い検査から外した（再開するときに作り直す）
+  assert.deepEqual(planGates(['content/sns/x/review.json']).map((g) => g.id), []);
   assert.deepEqual(only(['config/note-funnel.json']), ['note-paid-cta']);
   assert.deepEqual(planGates(['docs/README.md']).map((g) => g.id), ['unit-tests', 'domains'], 'docs は領域の割り当て（check-domains）と backlog 参照のテスト');
   assert.deepEqual(planGates(['README.md']), []);
@@ -49,7 +50,7 @@ test('note の原稿・マガジンの写し・収録の期待値を stage し�
 
 test('pre-commit の検査は quality-audit の ci:true か ops:true と同じ id（全量の検査と食い違わない）', () => {
   // 本文を行で探すと複数行の定義（qualification-market など）を読めないので、export された CHECKS を見る（DN-0790）
-  // DN-0805 で ops（日次）へ下げた x-review・knip-ratchet・review-wiring も commit 前には見る（全量は日次の ops が見る）
+  // DN-0805 で ops へ下げた knip-ratchet・review-wiring も commit 前には見る（全量は週次の ops が見る・DN-0847）
   for (const g of GATES) {
     const c = CHECKS.find((x) => x.id === g.id);
     assert.ok(c, `${g.id} が quality-audit に無い`);
@@ -62,7 +63,6 @@ test('台帳・配線の検査は、その正本か読む側を stage したと�
   const cases = [
     ['config/content-series.json', 'content-series'],
     ['content/sources/series/a/b.md', 'content-series'],
-    ['content/registry/works/x.json', 'content-registry'],
     ['config/market-scan.json', 'qualification-market'],
     ['data/coconala/orders.json', 'qualification-market'],
     ['src/config/topics.json', 'topic-wiring'],
@@ -75,7 +75,6 @@ test('台帳・配線の検査は、その正本か読む側を stage したと�
     ['.claude/knowledge/reference/commands.md', 'domains'],
     ['tools/admin-app/src/app/todo/page.tsx', 'domains'],
     ['content/site/standards-articles/chubu/special/manifest.json', 'orphan-ogp'],
-    ['content/sns/video-packs/x/video-pack.json', 'youtube-shorts'],
   ];
   for (const [file, id] of cases) assert.ok(ids([file]).includes(id), `${file} → ${id}`);
   assert.ok(!ids(['content/note/x/y/article.md']).includes('domains'));

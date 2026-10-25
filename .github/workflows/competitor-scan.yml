@@ -1,7 +1,7 @@
 name: Fetch competitor snapshots (quarterly)
 
 # 認証不要で取得できる競合データを四半期ごとに取得し、develop の時系列 state へ保存する。
-# note / Instagram は公開HTTP、ココナラはログイン不要の公開ページを headless Chromium で読む。
+# note は公開HTTP、ココナラはログイン不要の公開ページを headless Chromium で読む。
 # X は個人アカウントのログイン済みCLIのため本workflowの対象外。
 
 on:
@@ -49,7 +49,7 @@ jobs:
           npm run scout-note-competitors 2>&1 | tee /tmp/competitor-note.log
 
       # Instagram の段は SNS 保留中（2026-10-17〜）なので外した。2026-10-01 の回はここだけが落ちて run 全体が赤になった。
-      # 再開するときは scout-ig-competitors の段と下の ig の退避・判定を戻す（DN-0817）
+      # SNS の CI は再開するときに作り直す（2026-10-25 運営者の判断・DN-0817）
 
       - name: Install Chromium for Coconala public pages
         if: always()

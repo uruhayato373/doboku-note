@@ -1,8 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import sharp from 'sharp';
-import { readFileSync } from 'node:fs';
-import yaml from 'js-yaml';
 import { digest, specDigest, buildCoverPlan } from '../scripts/lib/youtube-cover-rollout.mjs';
 import { updateThumbnailBatch } from '../scripts/lib/youtube-thumbnail-batch.mjs';
 import { compareThumbnail, fetchThumbnail } from '../scripts/lib/youtube-thumbnail-image.mjs';
@@ -93,15 +91,6 @@ test('細密な縦画像のCDN整数幅・JPEG変換を揃えても文字欠落�
  assert.equal(result.matched,true);assert.equal(result.fit,'portrait-center');
  const missingStroke=await sharp(portrait).composite([{input:Buffer.from('<svg width="22" height="110"><rect width="22" height="110" fill="white"/></svg>'),left:130,top:165}]).png().toBuffer();
  assert.equal((await compareThumbnail(portrait,await serve(missingStroke))).matched,false);
-});
-test('実更新jobは明示operation・手動commitでのみ起動し、公開artifactは暗号文のみ',()=>{
- const wf=yaml.load(readFileSync(new URL('../.github/workflows/sync-yt-descriptions.yml',import.meta.url),'utf8'));
- const job=wf.jobs['thumbnail-refresh'];assert.equal(job.if,"inputs.operation == 'thumbnail-refresh'");
- assert.equal(job.concurrency['cancel-in-progress'],false);
- assert.equal(wf.on.workflow_dispatch.inputs.commit.default,false);
- const run=job.steps.find(s=>s.env?.APPLY_THUMBNAILS).run;
- assert.match(run,/APPLY_THUMBNAILS.*true/);assert.match(run,/--expect-plan-sha256/);
- assert.equal(job.steps.find(s=>s.uses?.startsWith('actions/upload-artifact@')).with.path,'.tmp/youtube-rollout-export/*.enc.json');
 });
 test('Shortsを横長に中央クロップしただけの画像は全体一致と認めない',async()=>{
  const portrait=await sharp(Buffer.from('<svg width="1080" height="1920"><rect width="1080" height="1920" fill="#0f2742"/><rect x="80" y="100" width="800" height="200" fill="white"/><rect x="150" y="1500" width="500" height="200" fill="gold"/></svg>')).png().toBuffer();
