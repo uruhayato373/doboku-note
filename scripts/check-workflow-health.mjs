@@ -49,11 +49,15 @@ const CONFIG_PATH = join(ROOT, datasetPath('config.workflow-health'));
  * 式が壊れて**空を返す**（2026-08-24 実測。監視ループが無言で空を返し続けた）。
  * 生 JSON を取って Node 側で解釈する。
  */
-export function fetchRuns(workflow, branch, limit = 30) {
+export function runListArgs(workflow, branch, limit = 30) {
   const args = ['run', 'list', '--workflow', workflow, '--limit', String(limit),
     '--json', 'conclusion,status,createdAt,databaseId,event'];
   if (branch) args.push('--branch', branch);
-  const out = execFileSync('gh', args, {
+  return args;
+}
+
+export function fetchRuns(workflow, branch, limit = 30) {
+  const out = execFileSync('gh', runListArgs(workflow, branch, limit), {
     cwd: ROOT, encoding: 'utf8', timeout: 60_000, maxBuffer: 32 * 1024 * 1024,
   });
   return JSON.parse(out);
@@ -115,6 +119,11 @@ export function auditSchedule(name, runs, cfg, now) {
  *
  * config に `schedule` があれば、cron 発火の有無・鮮度も独立に検査する（手動成功で
  * マスクされない）。schedule 次元は run の status を問わない（in_progress も発火の証拠）。
+ *
+ * @param {string} name
+ * @param {{ conclusion: string | null, status: string, createdAt: string, event?: string }[]} runs
+ * @param {{ maxAgeDays: number, maxConsecutiveFailures: number, schedule?: { activeSince: string, maxAgeDays: number, graceHours?: number } }} cfg
+ * @param {number} now
  */
 export function auditRuns(name, runs, { maxAgeDays, maxConsecutiveFailures, schedule }, now) {
   const scheduleAudit = auditSchedule(name, runs, schedule, now);
@@ -166,6 +175,20 @@ export function auditRuns(name, runs, { maxAgeDays, maxConsecutiveFailures, sche
   };
 }
 
+/**
+ * 監視の設定（config/workflow-health.json）を workflow 名で引く表にする。閾値は defaults に各行を重ねる。
+ * 管理画面 /ops/automations も同じ表で「監視中か・閾値」を決める（判定を写さない）。
+ */
+export function healthTargets(config) {
+  const defaults = { maxAgeDays: 10, maxConsecutiveFailures: 3, ...(config?.defaults ?? {}) };
+  return new Map((config?.workflows ?? []).filter((w) => w.workflow).map((w) => [w.workflow, { ...defaults, ...w }]));
+}
+
+/** 一番新しい run（status を問わない・実行中も含む）。無ければ null（純関数） */
+export function latestRun(runs) {
+  return [...(runs ?? [])].sort((a, b) => Date.parse(b.createdAt) - Date.parse(a.createdAt))[0] ?? null;
+}
+
 function fail(msg) { console.error(`✗ 検査不成立: ${msg}`); process.exit(2); }
 
 function main() {
@@ -180,10 +203,10 @@ function main() {
   try { config = JSON.parse(readFileSync(CONFIG_PATH, 'utf8')); } catch (e) { fail(`config を読めない: ${e.message}`); }
   const onlyIdx = process.argv.indexOf('--only');
   const only = onlyIdx >= 0 ? process.argv[onlyIdx + 1] : null;
-  const targets = (config.workflows ?? []).filter((w) => w.workflow && (!only || w.workflow === only));
+  const byName = healthTargets(config);
+  const targets = [...byName.values()].filter((w) => !only || w.workflow === only);
   if (targets.length === 0) fail(only ? `config に ${only} が無い` : 'config の workflows が空');
 
-  const defaults = { maxAgeDays: 10, maxConsecutiveFailures: 3, ...(config.defaults ?? {}) };
   const now = Date.now();
   const rows = [];
   const errors = [];
@@ -191,7 +214,7 @@ function main() {
   for (const t of targets) {
     try {
       const runs = fetchRuns(t.workflow, t.branch, t.limit ?? 30);
-      rows.push(auditRuns(t.workflow, runs, { ...defaults, ...t }, now));
+      rows.push(auditRuns(t.workflow, runs, t, now));
     } catch (e) {
       errors.push({ workflow: t.workflow, error: String(e.message ?? e).slice(0, 160) });
     }
