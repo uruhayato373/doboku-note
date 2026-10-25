@@ -58,6 +58,11 @@ developer_instructions = """
 
 `layout` は照合の鍵（空白を除いた文字列の sha256 先頭 16 桁が key）。`review.status` は必ず `"draft"`（承認は QA）。
 
+## 記入欄だけの様式
+
+記入欄（罫線だけの空欄）が大半の様式・報告用紙は、表にすると見出しも全行も空の列が残り、生成後の検査（`check-standard-articles` 19「壊れた表」）に当たる。
+空の列を作らずに組めないときは `kind: "verbatim"` にして、`review.note` に「記入欄だけの様式」と書く（DN-0850 の試行で 2 件）。
+
 ## 自分で通す検査（決定論ゲート）
 
 ```bash
