@@ -303,6 +303,16 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-0852] note の公開画面の撮影と競合の公開データを CI から土曜の Mac の収集へ移す
+タグ: [領域:管理] [時期:2026-10..2026-11] [種類:改善] [起票:2026-10-26]
+
+**起点**: 2026-10-26、運営者「CI のうち週次（土曜の Mac）に回せるものがもっとあるのでは」。CI 23 本を起動条件・鍵・読み手で見直すと、鍵が要らず読み手が週次レビューと期日の点検だけの 2 本が土曜の流れへ移せる。`note-public-view.yml`（月曜・約 20 分・画像を artifact に残し、土曜のレビューが 5 日前の画像を取り寄せている）と `competitor-scan.yml`（四半期・約 10 分）。
+
+**やること**: 計画 [DN-0852-ci-public-view-competitors-to-saturday.md](../plans/DN-0852-ci-public-view-competitors-to-saturday.md) のとおり、土曜の収集（weekly-collect）に `note-public-view`（前段・毎週）と `competitors`（前段・四半期の最初の土曜だけ）の段を足し、2 本の workflow を無効にして消す。レビューは画像を GitHub の成果物でなく手元の撮影から読む。
+
+**完了条件**: 2 本の workflow が無効で削除済み。土曜の収集の段の表と `/ops/mac` に 2 段が出て、`fetch-note-public-view-shots` が手元の撮影を読む（テストつき）。`npm test`・`npm run quality:audit:ci`・`npm run check-automations` が緑。10/31（土）の自動実行で note-public-view の段が ok か warn。
+
+
 
 
 ### [DN-0850] 公的基準の版面のまま残った表 1,176 種類を原本照合で組み直し、描画検査を全文書へ広げる
