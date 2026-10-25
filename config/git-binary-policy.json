@@ -118,7 +118,8 @@
     "_content_site_note": "2026-10-19: 150→160。公的基準の地方版（工事必携の要綱 4 文書・大冊子 8 文書）の章記事化（standards-articles の .md と manifest 約 7.6 MiB・375 章）で 154 MiB に達した（全文ライブラリから作る散文の成長なので上げる。09-18・10-14・10-16 と同じ扱い）。2026-10-16: 140→150。測量・情報化・自治体・建設業の経営と法務の新しい章（3シリーズ 22 章・自作 SVG 約 64 枚と AI 写真 18 枚の webp）で 141.5 MiB に達した（記事の成長なので上げる・DN-0753）。同じ日に PR #1092 も北海道開発局の道路・河川工事仕様書の章記事化（standards-articles/hokkaido の .md 1.9 MiB）で 140→145 を出しており、両方を合わせた実測は約 143 MiB なので 150 に一本化する（PR #1092 は develop を取り込むときこの値を採る）。2026-10-14: 135→140。国交省 本省版 施工管理基準の全文文字起こし（standards-library の .md 1.5 MiB・DN-0393）で 135.2 MiB に達した（09-18 と同じく散文の成長なので上げる）。2026-09-18: 120→135。08-29 の 69 MiB から標準仕様書の章記事化（standards-library 31 / standards-articles 17 MiB・.md 41.5 MiB）で 120.05 MiB に達し、RCCM ガイド等の散文 659 行の着地で 0.05 MiB 超過した。散文の成長は止める対象ではない。次の締め直しは content/site の .png 25.6 MiB（405 件）を R2 へ退避したとき（DN-0111 Phase 4）",
     "content/site": 160,
     "content/sns": 60,
-    "content/sources": 20,
+    "_content_sources_note": "2026-10-25: 20→30。公的基準の版面のまま残った表を原本照合で組み直した JSON（content/sources/standards/tables・約 1,640 件 13.6 MiB・DN-0850）で 21.2 MiB に達した。生成器（build-standard-articles）が CI のビルドで読む正本の文字データで、R2 へは移せない（散文の成長と同じ扱いで上げる）。",
+    "content/sources": 30,
     "_scripts_note": "2026-09-23: 100→130。I・J系 Kindle 26冊の配布物（表紙 jpg 21 MiB・EPUB 1.7 MiB）で 107.4 MiB に達した。kindle-dist は allowlist で Git 正本と決めている（DN-0151(3)）ため退避せず上限を上げる。表紙は spec と背景から決定的に再生成できるので、次に超えるときは表紙 jpg の追跡をやめて提出時に sync-kindle-dist で作る案を先に検討する",
     "scripts": 130
   },
