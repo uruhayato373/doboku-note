@@ -2,10 +2,11 @@
 /**
  * check-gsc-auto-review.mjs
  * ---------------------------------------------------------------------------
- * GSC 計測「記録」の自動化（クラウドルーティン `doboku-note GSC auto review`・毎週金 12:00 JST）が
- * 沈黙していないかを、**repo 側から**機械判定する surfacer。
+ * GSC 計測「記録」の自動化（土曜の Mac の週次レビューの前段・scripts/scheduled/weekly-review.sh の run_gsc_record。
+ * クラウドルーティン → CI の gsc-auto-review.yml を経て 2026-10-25 に移した・DN-0849）が沈黙していないかを、**repo 側から**機械判定する surfacer。
+ * 書き手の apply-gsc-records も、実行の前後のゲートとしてこの --json を読む。
  *
- * なぜ必要か: ルーティンの生死はクラウド側にしか無く repo からは見えない（routines/SKILL.md）。
+ * なぜ必要か: 自動化の生死は実行する側（Mac の launchd）にしか無く、repo からは見えない。
  * 実際 2026-07・08 の月次カバレッジ 2 回分は CI がデータを commit したのに誰も分析せず、
  * indexed_ratio が 81.6%→71.7% に落ちる間、観測ログへの記録がゼロだった。
  * データ取得（CI）が生きていても記録層が死ぬと同じ事故が再発するため、
@@ -18,8 +19,8 @@
  * 判定:
  *   weekly-auto  DUE = 週次見出しゼロ | 最新が THRESHOLD 日超前
  *   monthly-auto DUE = 最新 inspection-batch 以降の月次見出しが無く、batch から THRESHOLD 日超経過
- *     ※ しきい値 8 日の根拠: ルーティンは金曜発火・batch は毎月1日生成。1 日が土曜の月は
- *       最初の金曜が 7 日後 ＝ 5 日等の短いしきい値だと**正常動作でも DUE 誤検知**する。
+ *     ※ しきい値 8 日の根拠: 記録層は毎週土曜に回る。batch の直後に土曜が来ないと最大 7 日待つ
+ *       ＝ 5 日等の短いしきい値だと**正常動作でも DUE 誤検知**する（金曜の CI だった頃と同じ幅）。
  *
  * 手動エントリ（/gsc-review・/weekly-improve）も充足扱いにする。人が手で記録したなら
  * 「記録層が沈黙している」わけではないため（検知したいのは記録の欠落であって、実行主体ではない）。
@@ -43,7 +44,7 @@ import { REPO_ROOT as ROOT, KNOWLEDGE_ROOT } from "./lib/repository-paths.mjs";
 
 
 const LOG_PATH = join(KNOWLEDGE_ROOT, "reference/gsc-management.md");
-const ROUTINE = "doboku-note GSC auto review（クラウドルーティン・金 12:00 JST）";
+const ROUTINE = "土曜の Mac の週次レビューの前段（weekly-review.sh の run_gsc_record・DN-0849）";
 /** ログが肥大化したら年次アーカイブを促す観測点（無限成長の早期警戒）。 */
 const BLOAT_LINES = 800;
 
@@ -104,7 +105,7 @@ const monthlyEntries = headings.filter((h) => h.monthly);
 // ── weekly-auto ──────────────────────────────────────────────────
 function evalWeekly() {
   const label = "GSC自動レビュー(週次)";
-  const command = `対話セッションで /routines（list-first）→ 停止なら再作成 / 応急は /weekly-improve`;
+  const command = `Mac の ~/Library/Logs/doboku-note/weekly-review.log の [gsc-record] を確かめる（取り直しは npm run weekly-review:install -- --run-now）/ 応急は /weekly-improve`;
   if (brokenInspection) {
     return {
       channel: "weekly-auto",
@@ -141,7 +142,7 @@ function evalWeekly() {
 // ── monthly-auto ─────────────────────────────────────────────────
 function evalMonthly() {
   const label = "GSC自動レビュー(coverage)";
-  const command = `対話セッションで /routines（list-first）→ 停止なら再作成 / 応急は /gsc-review`;
+  const command = `Mac の ~/Library/Logs/doboku-note/weekly-review.log の [gsc-record] を確かめる（取り直しは npm run weekly-review:install -- --run-now）/ 応急は /gsc-review`;
   if (brokenInspection) {
     return {
       channel: "monthly-auto",
@@ -249,7 +250,7 @@ if (WANT_JSON) {
           ? `最新 ${c.latestEntry}（${c.daysSince}日前・次回まで${Math.max(0, THRESHOLD - (c.daysSince ?? 0))}日）`
           : c.logged
             ? `batch ${c.latestBatch} は記録済み（最新月次 ${c.latestEntry}）`
-            : `batch ${c.latestBatch} は未記録だが ${c.daysSinceBatch}日経過（しきい値 ${THRESHOLD}日・次の金曜待ち）`;
+            : `batch ${c.latestBatch} は未記録だが ${c.daysSinceBatch}日経過（しきい値 ${THRESHOLD}日・次の土曜待ち）`;
       console.log(`[${c.label}] OK: ${detail} — ${counts}`);
       if (c.reasons.length) console.log(`  注記: ${c.reasons.join(" / ")}`);
     }
