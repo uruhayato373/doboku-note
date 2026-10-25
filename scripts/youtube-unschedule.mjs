@@ -4,7 +4,7 @@
  *
  * 2026-10-13: 運営者が YouTube の投稿を一旦止め、予約済みの公開も全部取り消すと決めた。後で予約し直せるよう
  * 「非公開でアップロード済み」に戻す（台帳の stopped は戻れない終端なので使わない）。
- * 認証情報は CI にしか無いので .github/workflows/youtube-unschedule.yml から動かす。
+ * 認証情報は CI にしか無いので .github/workflows/youtube-unschedule.yml から動かしていたが、SNS の保留に合わせて 2026-10-25 に CI から外した。再開するときに作り直す。
  *
  * 使い方:
  *   node scripts/youtube-unschedule.mjs              # 試運転（YouTube を読むだけ・書かない）

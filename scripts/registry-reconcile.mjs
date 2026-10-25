@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
  * registry-reconcile.mjs — コンテンツ台帳（content/registry）の YouTube の公開を、YouTube Data API（videos.list）の観測と
- * 突き合わせる（content-registry.md「照合」・DN-0608）。毎日 .github/workflows/registry-reconcile.yml が動かす。
+ * 突き合わせる（content-registry.md「照合」・DN-0608）。毎日 .github/workflows/registry-reconcile.yml が動かしていたが、SNS の保留に合わせて 2026-10-25 に CI から外した。再開するときに作り直す。
  *
  * - 予約（scheduled）の動画が public になっていれば published へ進め、証拠（youtube-api）と公開時刻を書く。
  * - 後戻り（published なのに非公開・消えた）と、期日を過ぎても公開にならない予約は所見として記録するだけ（状態は人が決める）。

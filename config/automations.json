@@ -329,7 +329,7 @@
       "id": "note-public-view",
       "runner": "github-actions",
       "source": ".github/workflows/note-public-view.yml",
-      "title": "公開画面の撮影（note・YouTube）",
+      "title": "公開画面の撮影（note）",
       "triggers": [
         "schedule",
         "workflow_dispatch"
@@ -339,7 +339,7 @@
       ],
       "scheduleJst": "月 08:15",
       "login": [],
-      "purpose": "未ログインの読者からの見え方を画面幅ごとに撮る（ログイン不要）",
+      "purpose": "未ログインの読者からの note の見え方を画面幅ごとに撮る（ログイン不要。YouTube の視聴ページは SNS の保留に合わせて 2026-10-25 に外した）",
       "readers": [
         "skill:weekly-review"
       ]
@@ -454,26 +454,6 @@
       ]
     },
     {
-      "id": "registry-reconcile",
-      "runner": "github-actions",
-      "source": ".github/workflows/registry-reconcile.yml",
-      "title": "コンテンツ台帳と YouTube の照合",
-      "triggers": [
-        "schedule",
-        "workflow_dispatch"
-      ],
-      "schedule": [
-        "43 15 * * *"
-      ],
-      "scheduleJst": "毎日 00:43",
-      "login": [],
-      "purpose": "YouTube の外部 ID を観測して台帳と公開の照合を記録する",
-      "readers": [
-        "issue:registry-reconcile",
-        "admin:/content"
-      ]
-    },
-    {
       "id": "rerun-cancelled-schedules",
       "runner": "github-actions",
       "source": ".github/workflows/rerun-cancelled-schedules.yml",
@@ -488,21 +468,6 @@
       "scheduleJst": "2 時間ごと",
       "login": [],
       "purpose": "共通の group で取り消された定期 run をやり直す",
-      "readers": [
-        "human"
-      ]
-    },
-    {
-      "id": "sync-yt-descriptions",
-      "runner": "github-actions",
-      "source": ".github/workflows/sync-yt-descriptions.yml",
-      "title": "YouTube の説明文の同期",
-      "triggers": [
-        "workflow_dispatch"
-      ],
-      "schedule": [],
-      "login": [],
-      "purpose": "サムネ・説明文・パックの metadata を YouTube へ反映する",
       "readers": [
         "human"
       ]
@@ -564,21 +529,6 @@
       "readers": [
         "issue:workflow-health",
         "issue:report-checks"
-      ]
-    },
-    {
-      "id": "youtube-unschedule",
-      "runner": "github-actions",
-      "source": ".github/workflows/youtube-unschedule.yml",
-      "title": "YouTube の予約解除",
-      "triggers": [
-        "workflow_dispatch"
-      ],
-      "schedule": [],
-      "login": [],
-      "purpose": "YouTube の予約を外して台帳に記録する",
-      "readers": [
-        "human"
       ]
     }
   ]

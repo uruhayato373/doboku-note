@@ -1,13 +1,14 @@
-name: Audit public view (note / YouTube)
+name: Audit public view (note)
 
 # note 公開記事を「未ログインの読者にどう見えるか」で週次検査する（scripts/check-note-public-view.mjs）。
 # API 層（添付 PDF の本数・価格・カバー・無料記事の全文会員限定）とブラウザ層（スマホ幅で画像・リンクカード・
 # はみ出し）。公開 API と公開ページだけを使うのでログイン情報は要らない。
 # 本文の構造の照合（土曜の収集の note-audit 段・DN-0847）とは別にする: ブラウザ層は 20 分ほどかかり、落ちても本文の構造検査の
 # 結果を巻き込まないため。
-# 代表ページ（note は資格×種類ごと 1 本、YouTube は Shorts・通常動画ごと 1 本）は、各サービスのブレイクポイントで
-# 区切った帯ごとの画面幅で撮り、週次レビューでエージェントが見る（config/public-view-breakpoints.json）。
-# YouTube の視聴ページ検査も同じ週に回す（公開状態の API 照合は verify-yt-status.yml）。
+# 代表ページ（資格×種類ごと 1 本）は、note のブレイクポイントで区切った帯ごとの画面幅で撮り、
+# 週次レビューでエージェントが見る（config/public-view-breakpoints.json）。
+# YouTube の視聴ページの検査（scripts/check-youtube-public-view.mjs）は、SNS の保留に合わせて 2026-10-25 に CI から外した。
+# SNS を再開するときに作り直す（運営者の判断）。
 # PR では起動しない（2026-09-23 ユーザー判断: 週次でまとめて見る）。
 
 on:
@@ -63,14 +64,6 @@ jobs:
           if [ -n "${SAMPLE}" ]; then args+=(--sample "${SAMPLE}"); fi
           node scripts/check-note-public-view.mjs "${args[@]}" 2>&1 | tee .tmp/note-public-view.log
 
-      - name: Audit YouTube public view
-        id: youtube
-        if: always()
-        run: |
-          set -o pipefail
-          mkdir -p .tmp/youtube-public-view
-          node scripts/check-youtube-public-view.mjs --review --out .tmp/youtube-public-view/report.json 2>&1 | tee .tmp/youtube-public-view.log
-
       - name: Upload report and screenshots
         if: always()
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
@@ -79,8 +72,6 @@ jobs:
           path: |
             .tmp/note-public-view.log
             .tmp/note-public-view/
-            .tmp/youtube-public-view.log
-            .tmp/youtube-public-view/
           if-no-files-found: ignore
           include-hidden-files: true # .tmp/ 配下（既定では . 始まりのパスを落とす）
           retention-days: 21 # 週次レビュー（土曜・ローカル）が取りに行く。2 回逃しても残る長さ
@@ -92,10 +83,10 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           {
-            echo "note / YouTube の公開ページの見え方に不整合（または検査不成立）。"
+            echo "note の公開ページの見え方に不整合（または検査不成立）。"
             echo ""
             echo '```'
-            grep -hE 'BAD|✗|検査不成立' .tmp/note-public-view.log .tmp/youtube-public-view.log 2>/dev/null | head -60 || true
+            grep -hE 'BAD|✗|検査不成立' .tmp/note-public-view.log 2>/dev/null | head -60 || true
             echo '```'
             echo ""
             echo "- スクリーンショットと結果 JSON: run の成果物 note-public-view"

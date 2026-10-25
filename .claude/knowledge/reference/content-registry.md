@@ -113,7 +113,7 @@ config/content-registry.json          チャネル×形式・アカウント・I
 
 ## 照合（registry-reconcile）
 
-- `.github/workflows/registry-reconcile.yml`（毎日 00:43 JST）が `npm run registry-reconcile` を動かし、台帳の外部 ID を `videos.list` で観測する。
+- **2026-10-25 に SNS の保留に合わせて CI から外した（再開するときに作り直す。以下は外す前の仕組み）。** `.github/workflows/registry-reconcile.yml`（毎日 00:43 JST）が `npm run registry-reconcile` を動かし、台帳の外部 ID を `videos.list` で観測する。
 - 予約（`scheduled`）の動画が public なら `published` へ進め、`platform.evidence`（`youtube-api`・`videos.list@時刻`）と `platform.publishedAt` を書く。台帳を develop へ書き戻す（`ci-data add`）。
 - published なのに非公開・消えた動画は fail の所見、期日（`publishAt`＋`reconcileGraceDays`）を過ぎても非公開の予約と、予約を経ずに public の動画は warn の所見。所見は `.claude/state/registry-reconcile/youtube.json` に残し、状態は人が決める。
 - exit 0＝照合した・1＝fail の所見あり（automation-failure Issue の channel `registry-reconcile`）・2＝検査不成立（認証が無い・API の失敗。何も書かない）。手元に YouTube の認証は無いので、CI でだけ動く。

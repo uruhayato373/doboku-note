@@ -74,11 +74,6 @@ export const GATES = [
     cmd: () => ['node', 'scripts/check-search-improvements.mjs'],
   },
   {
-    id: 'x-review',
-    match: (f) => f.startsWith('content/sns/x/'),
-    cmd: () => ['node', 'scripts/check-x-review.mjs'],
-  },
-  {
     id: 'products',
     // 商品の正本（全チャネル・記事の単品価格）と、その写し・生成物（記事の price・掲載文・note-magazines.ts・coconala-services.ts・Kindle の catalog.json）
     match: (f) =>
@@ -139,12 +134,6 @@ export const GATES = [
     cmd: () => ['node', 'scripts/check-content-series.mjs'],
   },
   {
-    id: 'content-registry',
-    // コンテンツ台帳 R01〜R13（8 回）。比較元（--base）が無いときは遷移の比較を飛ばして形と参照だけを見る
-    match: (f) => f.startsWith('content/registry/'),
-    cmd: () => ['node', 'scripts/check-content-registry.mjs'],
-  },
-  {
     id: 'qualification-market',
     // 展開の判断材料（市場スキャン・競合・売上と受注の資格への分類）（8 回）
     match: (f) => ['config.market-scan', 'config.competitors', 'config.product-lineup', 'config.qualification-registry', 'note.sales', 'coconala.orders'].map((id) => datasetPath(id)).includes(f),
@@ -179,12 +168,6 @@ export const GATES = [
     // 公的基準の章を消したのに OGP の退避台帳に残る（34 回・10/16 の章の削除 1 件で 30 回）。全量で手元 1 秒弱
     match: (f) => f.startsWith('content/site/standards-articles/') || f === datasetPath('config.asset-storage'),
     cmd: () => ['node', 'scripts/check-orphan-ogp.mjs'],
-  },
-  {
-    id: 'youtube-shorts',
-    // 動画パックの Shorts の本数・公開枠の重複・1 日の上限（8 回）。全量で手元 1 秒弱
-    match: (f) => f.startsWith('content/sns/video-packs/') || f.startsWith('content/registry/'),
-    cmd: () => ['node', 'scripts/check-youtube-video-pack-shorts.mjs'],
   },
   {
     id: 'generated-indexes',

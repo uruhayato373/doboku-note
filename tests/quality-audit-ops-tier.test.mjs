@@ -58,10 +58,8 @@ test('ops:true の検査は ci:false（マージゲートに混ざらない）',
   assert.ok(ops.length >= 1, 'ops:true が 1 件も無い（区分が消えた＝検査不成立）');
   assert.deepEqual(ops.filter((c) => c.ci).map((c) => c.id), [], 'ops:true なのに ci:true の検査がある');
   assert.ok(ops.some((c) => c.id === 'membership-drip'), 'membership-drip が ops に居ない（ci に戻すと全 PR が赤になる）');
-  // 2026-10-11: 広告リンクの期限（affiliate-placements）と照合記録の古さ（video-publication）は壁時計依存なので ops 側へ分けた
-  for (const id of ['affiliate-placements-upcoming', 'video-publication-freshness']) {
-    assert.ok(ops.some((c) => c.id === id), `${id} が ops に居ない（壁時計依存の検査が消えたか ci に戻った）`);
-  }
+  // 2026-10-11: 広告リンクの期限（affiliate-placements）は壁時計依存なので ops 側へ分けた
+  assert.ok(ops.some((c) => c.id === 'affiliate-placements-upcoming'), 'affiliate-placements-upcoming が ops に居ない（壁時計依存の検査が消えたか ci に戻った）');
 });
 
 test('壁時計・鮮度に依存する検査が ci:true に居ない（再混入の検知）', () => {
@@ -95,7 +93,7 @@ test('cadence は ops:true にだけ weekly か collect で付き、毎日の op
   assert.deepEqual(bad.map((c) => c.id), []);
   const daily = CHECKS.filter((c) => c.ops && !c.cadence).map((c) => c.id);
   // 数日で実害が出るもの・CI の取得の停止・土曜の収集の死活は毎日
-  for (const id of ['note-delivery-due', 'membership-drip', 'affiliate-placements-upcoming', 'registry-due', 'weekly-collect']) assert.ok(daily.includes(id), `${id} が毎日の ops に居ない`);
+  for (const id of ['note-delivery-due', 'membership-drip', 'affiliate-placements-upcoming', 'weekly-collect']) assert.ok(daily.includes(id), `${id} が毎日の ops に居ない`);
   // 土曜の収集が書く記録の検算を毎日回すと、1 段落ちただけで同じ赤が 6 回出る（2026-10-25 に 3 本が赤）
   for (const id of ['sales-freshness', 'kdp-report-freshness', 'a8-report-due', 'coconala-analytics']) {
     assert.equal(CHECKS.find((c) => c.id === id)?.cadence, 'collect', `${id} が収集の検算に居ない`);
@@ -142,14 +140,12 @@ test('generated-indexes waits for audit writers before comparing worktree change
   assert.equal(CHECKS.find((c) => c.id === 'generated-indexes').serial, true);
 });
 
-test('外部状態で決まる動画の実査ドリフト（V05）は ops だけが見る（DN-0791・2026-10-13 に 1 本の削除で 42 回赤）', () => {
-  const ci = CHECKS.find((c) => c.id === 'video-publication');
-  const ops = CHECKS.find((c) => c.id === 'video-publication-freshness');
-  assert.equal(ci.ci, true);
-  assert.ok(!(ci.cmd ?? []).includes('--freshness'), 'ci の video-publication に --freshness（V03・V05）を付けない');
-  assert.equal(ops.ops, true);
-  assert.notEqual(ops.ci, true);
-  assert.ok(ops.cmd.includes('--freshness'));
+test('SNS（X・Instagram・YouTube）と動画・コンテンツ台帳の検査は CI に置かない（SNS の保留・2026-10-25 運営者の判断）', () => {
+  // 再開するときは必要なものを作り直す。スクリプトは手元の道具として残っている
+  const SNS = /^(x-|instagram-|youtube-|video-|sns-landing|registry-due|content-registry)/;
+  assert.deepEqual(CHECKS.filter((c) => SNS.test(c.id)).map((c) => c.id), []);
+  const snsUrls = CHECKS.find((c) => c.id === 'sns-urls');
+  assert.deepEqual(snsUrls.steps.map((s) => s.label), ['sns-urls-mdx', 'sns-urls-note'], 'sns-urls はサイトの MDX と note のリンクだけを見る');
 });
 
 test('束（steps）は手順を全部回し、1 つでも落ちたら fail・落ちた手順の名前を出す（DN-0805）', async () => {

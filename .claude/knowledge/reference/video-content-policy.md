@@ -309,7 +309,7 @@ APIへ非公開アップロード済みで関連動画設定待ちのShortsは `
 
 生成物の容量が大きいため、転送時は動画を1本ずつ読み、全本のバイナリをメモリに保持しない。Driveとprivate R2の両方で実体をハッシュ照合した完成動画は、手元のキャッシュを整理できる。ローカルmp4がない場合、この計画処理は既知のハッシュに対応するprivate R2実体を読み、ハッシュとffprobeを再検査する（R2の認証情報が必要）。未転送・未検証の完成動画や採用原本を容量対策だけで消さない。再生成可能なWAV・場面PNGは完成mp4の保存検証後に整理できる。
 
-手動workflow `sync-yt-descriptions.yml` の `migration-upload` は計画のハッシュ・チャンネル・旧動画のメタデータ・送信動画のハッシュを照合する。既定dry-run、`commit=true` で通知なしの非公開アップロードだけを行う。既存タイトルとの一致で旧版を再利用しない。private R2へアップロード意図を先に保存し、応答を失った場合は再投稿せず記録と専用タグを照合する。処理完了は動画の尺・縦横寸法・音声ストリームまで実査する。このoperationに公開設定変更・サムネ更新・旧版削除は含まれない。サムネの日次制限中も非公開アップロードの結果を保持し、制限解除後の残工程へ引き継ぐ。
+**2026-10-25 に SNS の保留に合わせて CI から外した（再開するときに作り直す。以下は外す前の仕組み）。** 手動workflow `sync-yt-descriptions.yml` の `migration-upload` は計画のハッシュ・チャンネル・旧動画のメタデータ・送信動画のハッシュを照合する。既定dry-run、`commit=true` で通知なしの非公開アップロードだけを行う。既存タイトルとの一致で旧版を再利用しない。private R2へアップロード意図を先に保存し、応答を失った場合は再投稿せず記録と専用タグを照合する。処理完了は動画の尺・縦横寸法・音声ストリームまで実査する。このoperationに公開設定変更・サムネ更新・旧版削除は含まれない。サムネの日次制限中も非公開アップロードの結果を保持し、制限解除後の残工程へ引き継ぐ。
 
 同じ旧動画を別版へ移行する場合は、計画の任意欄 `receiptScope` に3〜80文字のslugを指定する。実行とreportが使うreceiptだけを `<base>/revisions/<scope>/receipts/` に分け、旧履歴を保持する。省略時は従来の `<base>/receipts/` を使う。media・plans・controlの保存先は共通のまま。
 
@@ -335,7 +335,7 @@ APIへ非公開アップロード済みで関連動画設定待ちのShortsは `
 
 撤去完了の検査は `node scripts/check-youtube-delivery.mjs --require-deleted`。private R2の固定planと最新delivery-stateを照合し、全対象の削除済み記録がそろえばexit 0、残件はexit 1、ゼロ件・plan不一致・dry-run・削除数欠測・36時間超の古い記録・認証不可はexit 2とする。オフラインでは `--state <private-state.json> --plan <private-plan.json>` を渡せる。Gitの集計スナップショットだけから全件撤去とは判定しない。
 
-**公開実体の照合**は 2 本立てで、台帳の予約→公開は別の照合 `registry-reconcile`（毎日・証拠つきで published へ進める・[content-registry.md](content-registry.md)「照合」）が書く。実査 `verify-video-publication`（CI 日次＝`registry-reconcile.yml` が回す・creds 必須。ずれは Issue channel `registry-reconcile`）が videos.list で削除/非公開・概要欄の `utm_campaign={packId}`/`utm_source=youtube` 欠落・公開済み Short の `relatedVideoId` 未設定を検出し `.claude/state/video-publication-verify.json` へ記録する。**creds 不足・API 失敗は 記録を書かずに exit 2（検査不成立）**——「creds が無い」を「異常なし」と記録すると以後ずっと緑が出て事故が埋もれるため。ゲート `check-video-publication`（オフライン・quality:audit ci:true）はその記録の有無・網羅・孤児・報告済みドリフトを見る。記録の古さ（台帳の failDays・既定 14 日）は壁時計依存なので `--freshness` に分け、quality-audit の ops（日次）が見る（2026-10-11）。**published なのに一度も照合していない**状態が最も危険なので V01 で赤にする。対象 0 件（公開前）は件数を明示して PASS（異常 0 件と混同しない）。同じ `videoId` で台帳を明示停止した旧版の過去記録は孤児にせず、現役の照合数と分けて表示する。外部ID不一致・台帳からの削除・停止以外への後退は引き続きV04で止め、現役動画のドリフトも除外しない。是正は人が判断し、`verify-video-publication` は台帳を書き戻さない。
+**公開実体の照合**は 2 本立てで（2026-10-25 に SNS の保留に合わせて CI から外した（再開するときに作り直す。以下は外す前の仕組み）。）、台帳の予約→公開は別の照合 `registry-reconcile`（毎日・証拠つきで published へ進める・[content-registry.md](content-registry.md)「照合」）が書く。実査 `verify-video-publication`（CI 日次＝`registry-reconcile.yml` が回す・creds 必須。ずれは Issue channel `registry-reconcile`）が videos.list で削除/非公開・概要欄の `utm_campaign={packId}`/`utm_source=youtube` 欠落・公開済み Short の `relatedVideoId` 未設定を検出し `.claude/state/video-publication-verify.json` へ記録する。**creds 不足・API 失敗は 記録を書かずに exit 2（検査不成立）**——「creds が無い」を「異常なし」と記録すると以後ずっと緑が出て事故が埋もれるため。ゲート `check-video-publication`（オフライン・quality:audit ci:true）はその記録の有無・網羅・孤児・報告済みドリフトを見る。記録の古さ（台帳の failDays・既定 14 日）は壁時計依存なので `--freshness` に分け、quality-audit の ops（日次）が見る（2026-10-11）。**published なのに一度も照合していない**状態が最も危険なので V01 で赤にする。対象 0 件（公開前）は件数を明示して PASS（異常 0 件と混同しない）。同じ `videoId` で台帳を明示停止した旧版の過去記録は孤児にせず、現役の照合数と分けて表示する。外部ID不一致・台帳からの削除・停止以外への後退は引き続きV04で止め、現役動画のドリフトも除外しない。是正は人が判断し、`verify-video-publication` は台帳を書き戻さない。
 
 - ソース未取得と0件を区別
 - 企画・派生・公開・計測を同じ行で追える
