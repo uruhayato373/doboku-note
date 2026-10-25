@@ -1,9 +1,9 @@
 import Link from 'next/link';
-import { numCol, TableBody, TableCell, TableFrame, TableHead, TableHeader, TableRow } from '@/components/admin';
+import { DataTable, type DataTableColumn, type DataTableRow } from '@/components/admin';
 import { PageHead } from '@/components/ui';
 import SectionTabs from '@/components/SectionTabs';
 import { loadCompetitorView, type CompetitorRow } from '@/lib/competitors';
-import { yen } from '@/lib/format';
+import { num, yen } from '@/lib/format';
 
 export const dynamic = 'force-dynamic';
 
@@ -18,6 +18,21 @@ const md = (date: string | null) => {
   const [, m, d] = date.split('-').map(Number) as [number, number, number];
   return `${m}/${d}`;
 };
+
+const COLUMNS: DataTableColumn[] = [
+  { key: 'label', label: 'セラー' },
+  { key: 'exams', label: '資格' },
+  { key: 'services', label: '出品', num: true },
+  { key: 'priceMin', label: '最低', num: true },
+  { key: 'priceMedian', label: '中央', num: true },
+  { key: 'priceMax', label: '最高', num: true },
+  { key: 'sales', label: '累計販売', num: true },
+  { key: 'salesDelta', label: '販売の増分', num: true },
+  { key: 'revenue', label: '売上', num: true },
+  { key: 'revenueDelta', label: '売上の増分', num: true },
+  { key: 'rating', label: '評価', num: true },
+  { key: 'changes', label: '変化', sortable: false },
+];
 
 export default async function CompetitorsPage({ searchParams }: { searchParams: Promise<{ exam?: string }> }) {
   const { exam } = await searchParams;
@@ -54,63 +69,66 @@ export default async function CompetitorsPage({ searchParams }: { searchParams: 
       {rows.length === 0 ? (
         <p className="text-sm text-muted-foreground">データなし</p>
       ) : (
-        <TableFrame>
-          <TableHeader>
-            <TableRow>
-              <TableHead>セラー</TableHead>
-              <TableHead>資格</TableHead>
-              <TableHead className={numCol}>出品</TableHead>
-              <TableHead className={numCol}>最低</TableHead>
-              <TableHead className={numCol}>中央</TableHead>
-              <TableHead className={numCol}>最高</TableHead>
-              <TableHead className={numCol}>累計販売</TableHead>
-              <TableHead className={numCol}>販売の増分</TableHead>
-              <TableHead className={numCol}>売上</TableHead>
-              <TableHead className={numCol}>売上の増分</TableHead>
-              <TableHead className={numCol}>評価</TableHead>
-              <TableHead>変化</TableHead>
-            </TableRow>
-          </TableHeader>
-          <TableBody>
-            {(!exam || view.self.exams.includes(exam)) && (
-              <Row row={view.self} examLabels={view.examLabels} self />
-            )}
-            {rows.map((r) => (
-              <Row key={r.handle} row={r} examLabels={view.examLabels} />
-            ))}
-          </TableBody>
-        </TableFrame>
+        <DataTable
+          columns={COLUMNS}
+          rows={[
+            ...((!exam || view.self.exams.includes(exam)) ? [toRow(view.self, view.examLabels, true)] : []),
+            ...rows.map((r) => toRow(r, view.examLabels)),
+          ]}
+          pageSize={100}
+        />
       )}
     </>
   );
 }
 
-function Row({ row: r, examLabels, self }: { row: CompetitorRow; examLabels: Record<string, string>; self?: boolean }) {
-  return (
-    <TableRow className={self ? 'font-semibold' : undefined}>
-      <TableCell>
-        {self ? (
+/** 自社の行は太字（先頭に置く。他の行と同じ列・同じ並べ替え）。 */
+function toRow(r: CompetitorRow, examLabels: Record<string, string>, self?: boolean): DataTableRow {
+  const bold = (node: React.ReactNode) => (self ? <span className="font-semibold">{node}</span> : node);
+  const exams = r.exams.map((e) => examLabels[e] ?? e).join('・');
+  const changes = r.changes.join(' / ');
+  return {
+    id: self ? '__self' : r.handle,
+    values: {
+      label: r.label,
+      exams,
+      services: r.services,
+      priceMin: r.priceMin,
+      priceMedian: r.priceMedian,
+      priceMax: r.priceMax,
+      sales: r.sales,
+      salesDelta: r.salesDelta,
+      revenue: r.revenueYen,
+      revenueDelta: r.revenueDeltaYen,
+      rating: r.rating,
+      changes: changes || null,
+    },
+    cells: {
+      label: bold(
+        self ? (
           r.label
         ) : (
           <a href={`https://coconala.com/users/${r.handle}`} target="_blank" rel="noreferrer">
             {r.label}
           </a>
-        )}
-      </TableCell>
-      <TableCell className="text-xs">{r.exams.map((e) => examLabels[e] ?? e).join('・')}</TableCell>
-      <TableCell className={numCol}>{r.services ?? '—'}</TableCell>
-      <TableCell className={numCol}>{yen(r.priceMin)}</TableCell>
-      <TableCell className={numCol}>{yen(r.priceMedian)}</TableCell>
-      <TableCell className={numCol}>{yen(r.priceMax)}</TableCell>
-      <TableCell className={numCol}>{r.sales?.toLocaleString('ja-JP') ?? '—'}</TableCell>
-      <TableCell className={numCol}>{r.salesDelta === null ? '新規' : `+${r.salesDelta}（${md(r.baseDate)}〜）`}</TableCell>
-      <TableCell className={numCol}>
-        {money(r.revenueYen, r.revenueEstimated)}
-        {r.partial && <span className="text-xs text-muted-foreground">（一部）</span>}
-      </TableCell>
-      <TableCell className={numCol}>{r.revenueDeltaYen === null ? '—' : `+${money(r.revenueDeltaYen, r.revenueEstimated)}`}</TableCell>
-      <TableCell className={numCol}>{r.rating ?? '—'}</TableCell>
-      <TableCell className="text-xs">{r.changes.join(' / ') || '—'}</TableCell>
-    </TableRow>
-  );
+        ),
+      ),
+      exams: bold(<span className="text-xs">{exams}</span>),
+      services: bold(r.services ?? '—'),
+      priceMin: bold(yen(r.priceMin)),
+      priceMedian: bold(yen(r.priceMedian)),
+      priceMax: bold(yen(r.priceMax)),
+      sales: bold(num(r.sales)),
+      salesDelta: bold(r.salesDelta === null ? '新規' : `+${r.salesDelta}（${md(r.baseDate)}〜）`),
+      revenue: bold(
+        <>
+          {money(r.revenueYen, r.revenueEstimated)}
+          {r.partial && <span className="text-xs text-muted-foreground">（一部）</span>}
+        </>,
+      ),
+      revenueDelta: bold(r.revenueDeltaYen === null ? '—' : `+${money(r.revenueDeltaYen, r.revenueEstimated)}`),
+      rating: bold(r.rating ?? '—'),
+      changes: bold(<span className="text-xs">{changes || '—'}</span>),
+    },
+  };
 }

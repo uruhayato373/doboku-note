@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { join } from 'node:path';
-import { PanelCard, StatusBadge, type Tone, TableBody, TableCell, TableFrame, TableHead, TableHeader, TableRow } from '@/components/admin';
+import { DataTable, PanelCard, StatusBadge, type DataTableColumn, type DataTableRow, type Tone, TableBody, TableCell, TableFrame, TableHead, TableHeader, TableRow } from '@/components/admin';
 import { PageHead } from '@/components/ui';
 import { roadmapHref, longformPlanHref } from '@/lib/content-plan-links';
 import { findRepoRoot } from '@/lib/repo-root';
@@ -72,6 +72,13 @@ const SOURCE_CHANNEL: Record<ScheduleEventView['sourceId'], ScheduleChannel> = {
   'business-review': 'review',
 };
 const WEEK_HEADERS = ['月', '火', '水', '木', '金', '土', '日'];
+const DAY_COLUMNS: DataTableColumn[] = [
+  { key: 'time', label: '時刻' },
+  { key: 'channel', label: 'チャネル' },
+  { key: 'status', label: '状態' },
+  { key: 'label', label: '内容', wrap: true },
+  { key: 'source', label: 'ソース' },
+];
 
 function isValidMonth(v: string | undefined): v is string {
   return !!v && /^\d{4}-\d{2}$/.test(v);
@@ -217,37 +224,38 @@ function DayDrilldown({ day, events }: { day: string; events: ScheduleEventView[
   return (
     <PanelCard title={`${day}（${weekdayLabel(day)}）の内訳`} description={`${sorted.length}件`} className="schedule-day-card mt-4">
       {sorted.length ? (
-        <TableFrame>
-          <TableHeader>
-            <TableRow>
-              <TableHead>時刻</TableHead>
-              <TableHead>チャネル</TableHead>
-              <TableHead>状態</TableHead>
-              <TableHead>内容</TableHead>
-              <TableHead>ソース</TableHead>
-            </TableRow>
-          </TableHeader>
-          <TableBody>
-            {sorted.map((e) => (
-              <TableRow key={e.id}>
-                <TableCell className="font-mono">{e.time ?? '終日'}</TableCell>
-                <TableCell><span className={`ch-dot ${e.channel}`} /> {CHANNEL_LABEL[e.channel]}</TableCell>
-                <TableCell>
-                  <StatusBadge tone={STATUS_TONE[e.status]}>{STATUS_LABEL[e.status]}</StatusBadge>
-                </TableCell>
-                <TableCell className="whitespace-normal">
-                  {e.label}
-                  {e.detail ? <div className="text-muted-foreground text-xs">{e.detail}</div> : null}
-                </TableCell>
-                <TableCell>
+        <DataTable
+          columns={DAY_COLUMNS}
+          rows={sorted.map(
+            (e): DataTableRow => ({
+              id: e.id,
+              values: {
+                time: e.time ?? '終日',
+                channel: CHANNEL_LABEL[e.channel],
+                status: STATUS_LABEL[e.status],
+                label: e.detail ? `${e.label} ${e.detail}` : e.label,
+                source: e.sourcePath,
+              },
+              cells: {
+                time: <span className="font-mono">{e.time ?? '終日'}</span>,
+                channel: <><span className={`ch-dot ${e.channel}`} /> {CHANNEL_LABEL[e.channel]}</>,
+                status: <StatusBadge tone={STATUS_TONE[e.status]}>{STATUS_LABEL[e.status]}</StatusBadge>,
+                label: (
+                  <>
+                    {e.label}
+                    {e.detail ? <div className="text-muted-foreground text-xs">{e.detail}</div> : null}
+                  </>
+                ),
+                source: (
                   <a href={vscodeLink(e.sourcePath)} className="font-mono text-xs" title={`${e.sourcePath} を VS Code で開く`}>
                     {e.sourcePath}
                   </a>
-                </TableCell>
-              </TableRow>
-            ))}
-          </TableBody>
-        </TableFrame>
+                ),
+              },
+            }),
+          )}
+          pageSize={100}
+        />
       ) : (
         <p className="text-sm text-muted-foreground">この日のイベントはありません</p>
       )}

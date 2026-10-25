@@ -1,4 +1,4 @@
-import { EmptyRow, PanelCard, StatusBadge, TableBody, TableCell, TableFrame, TableHead, TableHeader, TableRow, numCol } from '@/components/admin';
+import { DataTable, PanelCard, StatusBadge, type DataTableColumn, type DataTableRow } from '@/components/admin';
 import { Stack } from '@/components/layout';
 import { Freshness, PageHead, SnapshotPicker } from '@/components/ui';
 import {
@@ -33,6 +33,17 @@ function shortUrl(u: string): string {
   return u.replace(/^https?:\/\/[^/]+/, '') || '/';
 }
 
+const COLUMNS: DataTableColumn[] = [
+  { key: 'url', label: 'URL', wrap: true },
+  { key: 'perfM', label: '性能(M)', num: true },
+  { key: 'perfD', label: '性能(D)', num: true },
+  { key: 'seoM', label: 'SEO(M)', num: true },
+  { key: 'a11yM', label: 'A11y(M)', num: true },
+  { key: 'lcpM', label: 'LCP(M)', num: true },
+  { key: 'clsM', label: 'CLS(M)', num: true },
+  { key: 'tbtM', label: 'TBT(M)', num: true },
+];
+
 export default async function PsiPage({
   searchParams,
 }: {
@@ -60,6 +71,37 @@ export default async function PsiPage({
     return pa - pb; // 性能の低い（要改善）順
   });
 
+  const tableRows: DataTableRow[] = rows.map(([url, e]) => {
+    const m = e.mobile;
+    const d = e.desktop;
+    const lcp = m?.lab_data?.LCP_ms;
+    const cls = m?.lab_data?.CLS;
+    const tbt = m?.lab_data?.TBT_ms;
+    return {
+      id: url,
+      values: {
+        url: shortUrl(url),
+        perfM: m?.scores?.performance ?? null,
+        perfD: d?.scores?.performance ?? null,
+        seoM: m?.scores?.seo ?? null,
+        a11yM: m?.scores?.accessibility ?? null,
+        lcpM: lcp != null ? Math.round(lcp) : null,
+        clsM: cls ?? null,
+        tbtM: tbt != null ? Math.round(tbt) : null,
+      },
+      cells: {
+        url: <span className="font-mono text-xs">{shortUrl(url)}</span>,
+        perfM: <ScoreBadge v={m?.scores?.performance} />,
+        perfD: <ScoreBadge v={d?.scores?.performance} />,
+        seoM: <ScoreBadge v={m?.scores?.seo} />,
+        a11yM: <ScoreBadge v={m?.scores?.accessibility} />,
+        lcpM: lcp != null ? Math.round(lcp) + 'ms' : '—',
+        clsM: cls != null ? cls.toFixed(3) : '—',
+        tbtM: tbt != null ? Math.round(tbt) + 'ms' : '—',
+      },
+    };
+  });
+
   return (
     <>
       <PageHead
@@ -77,47 +119,7 @@ export default async function PsiPage({
       >
         <Stack gap="sm">
           <SnapshotPicker basePath="/metrics/psi" files={history} current={snap?.file ?? ''} />
-          <TableFrame>
-            <TableHeader>
-              <TableRow>
-                <TableHead>URL</TableHead>
-                <TableHead className={numCol}>性能(M)</TableHead>
-                <TableHead className={numCol}>性能(D)</TableHead>
-                <TableHead className={numCol}>SEO(M)</TableHead>
-                <TableHead className={numCol}>A11y(M)</TableHead>
-                <TableHead className={numCol}>LCP(M)</TableHead>
-                <TableHead className={numCol}>CLS(M)</TableHead>
-                <TableHead className={numCol}>TBT(M)</TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              {rows.length === 0 ? <EmptyRow colSpan={8}>PSI バッチデータなし</EmptyRow> : null}
-              {rows.map(([url, e]) => {
-                const m = e.mobile;
-                const d = e.desktop;
-                return (
-                  <TableRow key={url}>
-                    <TableCell className="whitespace-normal font-mono text-xs">{shortUrl(url)}</TableCell>
-                    <TableCell className={numCol}>
-                      <ScoreBadge v={m?.scores?.performance} />
-                    </TableCell>
-                    <TableCell className={numCol}>
-                      <ScoreBadge v={d?.scores?.performance} />
-                    </TableCell>
-                    <TableCell className={numCol}>
-                      <ScoreBadge v={m?.scores?.seo} />
-                    </TableCell>
-                    <TableCell className={numCol}>
-                      <ScoreBadge v={m?.scores?.accessibility} />
-                    </TableCell>
-                    <TableCell className={numCol}>{m?.lab_data?.LCP_ms != null ? Math.round(m.lab_data.LCP_ms) + 'ms' : '—'}</TableCell>
-                    <TableCell className={numCol}>{m?.lab_data?.CLS != null ? m.lab_data.CLS.toFixed(3) : '—'}</TableCell>
-                    <TableCell className={numCol}>{m?.lab_data?.TBT_ms != null ? Math.round(m.lab_data.TBT_ms) + 'ms' : '—'}</TableCell>
-                  </TableRow>
-                );
-              })}
-            </TableBody>
-          </TableFrame>
+          <DataTable columns={COLUMNS} rows={tableRows} pageSize={100} emptyText="PSI バッチデータなし" />
         </Stack>
       </PanelCard>
     </>
