@@ -49,6 +49,11 @@ export function issuePrefix(channel) {
   return `[auto] ${channel}:`;
 }
 
+/** 題名から channel を取る（issuePrefix の逆）。規約に合わなければ null。管理画面が Issue を Mac・CI に振り分ける。 */
+export function channelOfTitle(title) {
+  return /^\[auto\] ([^\s:]+):/.exec(String(title ?? ''))?.[1] ?? null;
+}
+
 /** open Issue 一覧から同 channel のものを探す（ラベルは呼び出し側で絞る）。 */
 export function findExisting(list, channel) {
   const prefix = issuePrefix(channel);

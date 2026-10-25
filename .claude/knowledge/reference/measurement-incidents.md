@@ -37,7 +37,7 @@ title: 計測・検証事故の記録
   - ログインが要る取得と書き込みを、運営者の Mac の土曜の週次レビュー前後（`scripts/weekly-collect.mjs` の前段・後段）に集約。CI・Windows はログインしない。launchd の 4 本・Windows のタスク・CI のログイン系ワークフロー・暗号化 state・`DOBOKU_AUTH_*` Secrets を廃止
   - 定期実行の CI を止めるときは、ファイルの削除より先に `gh workflow disable` で止める（main の YAML が残る間は cron が走る）
   - ヘッドレスの Claude は `.tmp/claude-out/` に書かせ、終了後に `scripts/apply-claude-out.mjs` が許可リスト（`.claude/todo/weekly.md` など）だけを `.claude/` へ写す。バックグラウンド待機は無期限にせず上限を明示し、プロンプトで背景エージェントを禁じる
-  - 自動化の台帳 `config/automations.json` を 1 本に統一し、`npm run check-automations` で実物との一致を検査、管理画面 `/ops/automations` で土曜の収集結果とともに出す
+  - 自動化の台帳 `config/automations.json` を 1 本に統一し、`npm run check-automations` で実物との一致を検査、管理画面の `/ops/mac`（土曜の流れ）と `/ops/ci`（GitHub Actions）で出す
   - エージェントのセッション（`CLAUDECODE=1`）は収集 script を実行しない（resolver が `AUTH_AGENT_COLLECT_REFUSED`）。記録と最終取得日を読み、古ければ「未取得」と書く
 - 教訓: 同じ資格情報を使う処理が複数の実行場所に散ると、失敗の原因が経路の数だけ増え、直しても別の経路が壊れる。ログインが要る処理は 1 か所・週 1 回に寄せ、他は記録を読むだけにする。入力に分類できない 1 件が混ざっても、収集全体を捨てず、その 1 件だけを理由付きで未分類に残す。CI をやめるときは「ファイルを消す」と「cron が止まる」を別の操作として扱う
 

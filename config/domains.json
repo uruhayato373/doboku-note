@@ -284,10 +284,16 @@
           "match": "/ops/auth"
         },
         {
-          "label": "自動化の台帳",
-          "href": "/ops/automations",
-          "kind": "inventory",
-          "match": "/ops/automations"
+          "label": "Mac の自動実行",
+          "href": "/ops/mac",
+          "kind": "results",
+          "match": "/ops/mac"
+        },
+        {
+          "label": "CI（GitHub Actions）",
+          "href": "/ops/ci",
+          "kind": "results",
+          "match": "/ops/ci"
         },
         {
           "label": "設定",

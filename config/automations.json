@@ -29,7 +29,7 @@
         "issue:gsc-auto-review",
         "admin:/metrics/business",
         "admin:/content/note",
-        "admin:/ops/automations"
+        "admin:/ops/mac"
       ],
       "writes": [
         "state.weekly-collect",

@@ -761,7 +761,7 @@ const AUTOMATION_READER = /^(quality-audit:[\w-]+|issue:[\w-]+|admin:\/[\w/-]*|s
 /**
  * 自動化の台帳（config/automations.json・DN-0817）。どこで（Mac の launchd か GitHub Actions）何がいつ動き、
  * ログインが要るか・何を書き・誰が読むかの正本。台帳と実物（.github/workflows/*.yml・scripts/scheduled/*.plist.tmpl）の
- * 一致・CI でログインしないことは scripts/check-automations.mjs が見る。管理画面 /ops/automations が表示する。
+ * 一致・CI でログインしないことは scripts/check-automations.mjs が見る。管理画面 /ops/mac・/ops/ci が表示する。
  */
 export const ConfigAutomations = z
   .object({

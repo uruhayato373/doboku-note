@@ -21,7 +21,7 @@ test('auditRuns: 完了した run が 0 件なら no-runs', () => {
   assert.equal(r.kind, 'no-runs');
 });
 
-// 管理画面 /ops/automations が同じ関数で直近の実行と監視の判定を出す（判定を写さない）
+// 管理画面 /ops/ci が同じ関数で直近の実行と監視の判定を出す（判定を写さない）
 test('latestRun は status を問わず一番新しい run・無ければ null', () => {
   const runs = [
     { status: 'completed', conclusion: 'success', createdAt: '2026-10-24T10:00:00Z' },

@@ -118,7 +118,7 @@ export function auditRuns(name, runs, { maxAgeDays, maxConsecutiveFailures }, no
 
 /**
  * 監視の設定（config/workflow-health.json）を workflow 名で引く表にする。閾値は defaults に各行を重ねる。
- * 管理画面 /ops/automations も同じ表で「監視中か・閾値」を決める（判定を写さない）。
+ * 管理画面 /ops/ci も同じ表で「監視中か・閾値」を決める（判定を写さない）。
  */
 export function healthTargets(config) {
   const defaults = { maxAgeDays: 10, maxConsecutiveFailures: 3, ...(config?.defaults ?? {}) };

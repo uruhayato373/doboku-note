@@ -1,9 +1,12 @@
 import { execFile } from 'node:child_process';
+import { join } from 'node:path';
 import { promisify } from 'node:util';
 
 import { auditRuns, healthTargets, latestRun, runListArgs } from '../../../../scripts/check-workflow-health.mjs';
+import { channelOfTitle, LABEL as ISSUE_LABEL } from '../../../../scripts/report-automation-failure.mjs';
 import { datasetPath, freshnessDays } from '../../../../scripts/lib/datasets.mjs';
 import { readJsonIf } from '../../../../scripts/lib/json-io.mjs';
+import { readWeeklyDraft, WEEKLY_REVIEW_LOG, weeklyLaunchd } from '../../../../scripts/lib/review-automation.mjs';
 import { buildStages, judgeRuns } from '../../../../scripts/lib/weekly-collect-plan.mjs';
 import { findRepoRoot } from './repo-root';
 
@@ -126,4 +129,73 @@ export async function loadWorkflowRuns(automations: Automation[]): Promise<Map<s
     }
   }));
   return out;
+}
+
+/** GSC の記録層（週次観測・coverage）の要否。scripts/check-gsc-auto-review.mjs --json の gates をそのまま使う（判定を写さない） */
+export interface GscRecordGates {
+  gscDataStale: boolean;
+  weeklyAlreadyLogged: boolean;
+  monthlyAlreadyLogged: boolean;
+  latestWeeklyEntry: string | null;
+  latestMonthlyEntry: string | null;
+}
+
+/** 土曜の Mac の流れ（収集の前 → GSC の記録 → 週次レビュー → 収集の後）の、収集以外の段の材料 */
+export interface SaturdayView {
+  launchd: ReturnType<typeof weeklyLaunchd>;
+  draft: ReturnType<typeof readWeeklyDraft>;
+  gsc: { gates: GscRecordGates | null; logPath: string | null; error: string | null };
+  logFile: string;
+}
+
+export async function loadSaturday(): Promise<SaturdayView> {
+  const root = findRepoRoot();
+  let gsc: SaturdayView['gsc'];
+  try {
+    // 記録が要る（due）と exit 1 で終わることがあるので、stdout は終了コードに関わらず読む
+    const stdout = await execFileAsync(process.execPath, [join(root, 'scripts', 'check-gsc-auto-review.mjs'), '--json'], { cwd: root, timeout: 60_000, maxBuffer: 8 * 1024 * 1024 })
+      .then((r) => r.stdout, (e: { stdout?: string; message?: string }) => { if (e.stdout) return e.stdout; throw e; });
+    const j = JSON.parse(stdout) as { gates?: GscRecordGates; logPath?: string };
+    gsc = { gates: j.gates ?? null, logPath: j.logPath ?? null, error: j.gates ? null : 'gates が無い' };
+  } catch (e) {
+    gsc = { gates: null, logPath: null, error: (e instanceof Error ? e.message : String(e)).split('\n')[0].slice(0, 160) };
+  }
+  return { launchd: weeklyLaunchd(root), draft: readWeeklyDraft(root), gsc, logFile: WEEKLY_REVIEW_LOG };
+}
+
+/** 開いている自動化の Issue（automation-failure）の 1 件。runner は台帳の readers の issue:<channel> から引く */
+export interface AutomationIssue {
+  number: number;
+  title: string;
+  url: string;
+  channel: string | null;
+  /** 台帳のどの自動化にも当たらない channel（消した仕組みの残り・配線の無い channel）は null */
+  runner: Automation['runner'] | null;
+  automation: string | null;
+}
+
+export interface AutomationIssuesView {
+  issues: AutomationIssue[];
+  error: string | null;
+}
+
+/** 題名の channel（規約は scripts/report-automation-failure.mjs）を、台帳の readers で Mac と CI に振り分ける（純関数） */
+export function classifyIssues(list: { number: number; title: string; url: string }[], automations: Automation[]): AutomationIssue[] {
+  const byChannel = new Map<string, Automation>();
+  for (const a of automations) for (const r of a.readers) if (r.startsWith('issue:')) byChannel.set(r.slice('issue:'.length), a);
+  return list.map((i) => {
+    const channel = channelOfTitle(i.title);
+    const a = channel ? byChannel.get(channel) : undefined;
+    return { number: i.number, title: i.title, url: i.url, channel, runner: a?.runner ?? null, automation: a?.id ?? null };
+  });
+}
+
+export async function loadAutomationIssues(automations: Automation[]): Promise<AutomationIssuesView> {
+  const root = findRepoRoot();
+  try {
+    const { stdout } = await execFileAsync('gh', ['issue', 'list', '--label', ISSUE_LABEL, '--state', 'open', '--limit', '100', '--json', 'number,title,url'], { cwd: root, timeout: 60_000, maxBuffer: 8 * 1024 * 1024 });
+    return { issues: classifyIssues(JSON.parse(stdout), automations), error: null };
+  } catch (e) {
+    return { issues: [], error: (e instanceof Error ? e.message : String(e)).split('\n')[0].slice(0, 160) };
+  }
 }
