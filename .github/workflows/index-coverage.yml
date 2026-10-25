@@ -8,15 +8,15 @@ name: Index coverage audit (URL Inspection)
 # 設計の真実源: .claude/knowledge/reference/gsc-management.md / 分業: gsc-index-auditor + /gsc-review。
 # URL Inspection は 2,000 URL/日/property が上限。sitemap ~1,420 URL で 1 回 ~35 分（2026-09-07 実測）。
 # 2026-09-17 に月次→週次へ（8/22 URL 移行の再クロール待ち 723 件の収束を週単位で追い、
-# 金曜の gsc-auto-review.yml が毎週 coverage エントリを観測ログへ追記できるようにする）。
+# 土曜の週次レビューの前段の GSC の記録層（weekly-review.sh の run_gsc_record・旧 gsc-auto-review.yml・DN-0849）が毎週 coverage エントリを観測ログへ追記できるようにする）。
 
 on:
   schedule:
-    - cron: "0 2 * * 3" # UTC 02:00 毎週水曜 = JST 11:00 水曜（金曜 JST 12:00 の gsc-auto-review より前）
+    - cron: "0 2 * * 3" # UTC 02:00 毎週水曜 = JST 11:00 水曜（土曜の GSC の記録層より前）
   workflow_dispatch:
 
 # DN-0109 Phase 1: develop への自動書込み系ワークフロー間の push 衝突を防ぐ共通グループ。
-# cancel-in-progress: false が守るのは実行中の run だけ。待機中は 1 件しか残らず古い待機分は取り消される（定期実行は rerun-cancelled-schedules.yml が再実行する・DN-0750）。
+# cancel-in-progress: false が守るのは実行中の run だけ。待機中は 1 件しか残らず古い待機分は取り消される（取り消された定期実行は check-workflow-health の「最後の成功が古い」で拾う。再実行の workflow は 0 件の実績で 2026-10-25 に外した・DN-0849）。
 concurrency:
   group: develop-git-write
   cancel-in-progress: false
@@ -204,7 +204,7 @@ jobs:
       # 機械ゲート: publish の**後**に走らせる（赤でも取得済みデータは develop に残る）。
       # 赤にするのは「機械が無条件に異常と断定できるもの」だけ（inspected 0 / 1900 件上限到達 /
       # indexed_ratio < 60%）。前回比の低下や hygiene は warning に留め、判断は
-      # GitHub Actions `gsc-auto-review.yml` が観測ログへ記録する＝週次 red の狼少年化を防ぐ。
+      # 土曜の GSC の記録層（weekly-review.sh・DN-0849）が観測ログへ記録する＝週次 red の狼少年化を防ぐ。
       - name: Gate - coverage thresholds
         id: coverage_gate
         run: node .claude/scripts/check-coverage-thresholds.mjs

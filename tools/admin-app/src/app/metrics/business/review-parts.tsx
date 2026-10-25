@@ -114,7 +114,7 @@ const LAUNCHD: Record<string, { label: string; variant: 'success' | 'warning' | 
 };
 const at = (iso: string | null | undefined) => (iso ? iso.replace('T', ' ').slice(0, 16) : '—');
 
-/** 回を支える自動化。週次は金曜の下書き・土曜の自動実行・点検と Issue、月次は点検と Issue */
+/** 回を支える自動化。週次は土曜の下書き・自動実行・点検と Issue、月次は点検と Issue */
 export function AutomationStatus({ a, cadenceId }: { a: Automation; cadenceId: 'weekly' | 'monthly' }) {
   if (!a) return null;
   return (
@@ -123,11 +123,11 @@ export function AutomationStatus({ a, cadenceId }: { a: Automation; cadenceId: '
         {cadenceId === 'weekly' && (
           <Card>
             <CardHeader>
-              <CardTitle>金曜の下書き（CI）</CardTitle>
+              <CardTitle>下書き（土曜の Mac）</CardTitle>
             </CardHeader>
             <CardContent className="flex flex-col gap-2 text-sm">
               {!a.draft ? (
-                <p className="m-0 text-muted-foreground">まだ無い（weekly-review-draft.yml が金曜 13:00 に作る・手で作るなら npm run weekly-review:draft）</p>
+                <p className="m-0 text-muted-foreground">まだ無い（土曜の Mac が収集の後に作る・手で作るなら npm run weekly-review:draft）</p>
               ) : 'broken' in a.draft ? (
                 <p className="m-0">下書きのファイルが壊れている</p>
               ) : (
@@ -396,7 +396,7 @@ export function loadReview(cadenceId: 'weekly' | 'monthly', runKey?: string): Re
   };
 }
 
-/** 回を支える自動化（金曜の下書き・土曜の自動実行・点検と Issue）。読めないものは null のまま出す */
+/** 回を支える自動化（土曜の下書き・自動実行・点検と Issue）。読めないものは null のまま出す */
 function loadAutomation(root: string, cadenceId: 'weekly' | 'monthly', key: string): Automation {
   if (!key) return null;
   const reportPath = join(root, 'docs', 'reviews', cadenceId, `${key}-review.md`);

@@ -21,11 +21,12 @@
         "coconala",
         "google"
       ],
-      "purpose": "ログインが要る取得と書き込みを 1 本ずつ回し（weekly-collect の前後・取った記録の検算つき）、note の公開状態の照合（公開 API）も前段で回す。間にヘッドレスの Claude Code で週次・月次レビュー（週次の点検 quality:audit:weekly を含む）と翌週の計画を書いて develop へ push する（DN-0817・DN-0847）",
+      "purpose": "ログインが要る取得と書き込みを 1 本ずつ回し（weekly-collect の前後・取った記録の検算つき）、note の公開状態の照合（公開 API）も前段で回す。続けてヘッドレスの Claude Code で GSC の記録層（週次観測・coverage・改善候補。旧 gsc-auto-review.yml）を書き、週次・月次レビュー（週次の点検 quality:audit:weekly を含む）と翌週の計画を書いて develop へ push する（DN-0817・DN-0847・DN-0849）",
       "readers": [
         "quality-audit:weekly-collect",
         "issue:weekly-collect",
         "issue:weekly-review-local",
+        "issue:gsc-auto-review",
         "admin:/metrics/business",
         "admin:/content/note",
         "admin:/ops/automations"
@@ -37,7 +38,8 @@
         "a8.ui-last-run",
         "note.sync-log",
         "note.status",
-        "note.magazines"
+        "note.magazines",
+        "state.improvements"
       ]
     },
     {
@@ -256,25 +258,6 @@
       ]
     },
     {
-      "id": "gsc-auto-review",
-      "runner": "github-actions",
-      "source": ".github/workflows/gsc-auto-review.yml",
-      "title": "GSC の観測ログ",
-      "triggers": [
-        "schedule",
-        "workflow_dispatch"
-      ],
-      "schedule": [
-        "0 3 * * 5"
-      ],
-      "scheduleJst": "金 12:00",
-      "login": [],
-      "purpose": "GSC の観測ログを記録する",
-      "readers": [
-        "issue:gsc-auto-review"
-      ]
-    },
-    {
       "id": "index-coverage",
       "runner": "github-actions",
       "source": ".github/workflows/index-coverage.yml",
@@ -454,25 +437,6 @@
       ]
     },
     {
-      "id": "rerun-cancelled-schedules",
-      "runner": "github-actions",
-      "source": ".github/workflows/rerun-cancelled-schedules.yml",
-      "title": "取り消された定期実行のやり直し",
-      "triggers": [
-        "schedule",
-        "workflow_dispatch"
-      ],
-      "schedule": [
-        "17 */2 * * *"
-      ],
-      "scheduleJst": "2 時間ごと",
-      "login": [],
-      "purpose": "共通の group で取り消された定期 run をやり直す",
-      "readers": [
-        "human"
-      ]
-    },
-    {
       "id": "uptime-ping",
       "runner": "github-actions",
       "source": ".github/workflows/uptime-ping.yml",
@@ -489,26 +453,6 @@
       "purpose": "本番の SSR の死活を確認する",
       "readers": [
         "issue:uptime"
-      ]
-    },
-    {
-      "id": "weekly-review-draft",
-      "runner": "github-actions",
-      "source": ".github/workflows/weekly-review-draft.yml",
-      "title": "週次レビューの下書き",
-      "triggers": [
-        "schedule",
-        "workflow_dispatch"
-      ],
-      "schedule": [
-        "0 4 * * 5"
-      ],
-      "scheduleJst": "金 13:00",
-      "login": [],
-      "purpose": "週次レビューの機械の節を下書きする",
-      "readers": [
-        "skill:weekly-review",
-        "issue:weekly-review-draft"
       ]
     },
     {

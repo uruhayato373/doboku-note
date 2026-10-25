@@ -292,7 +292,7 @@ export const DATASETS = [
   d('state.todo-claims', '.claude/state/todo-claims.json', 'state', 'plan', 'タスクの claim（二重着手の防止。todo:claim・todo:complete）'),
   d('state.dispatch-log', '.claude/state/dispatch/dispatch-log.json', 'ledger', 'plan', 'タスクの実行記録'),
   d('state.weekly-collect', '.claude/state/weekly-collect/runs.json', 'ledger', 'ops', '土曜の Mac の収集（ログインが要る取得と書き込み）の段ごとの結果（weekly-collect が書く・直近 30 回）', { freshness: { warnDays: 8, failDays: 15 } }),
-  d('state.weekly-review-draft', '.claude/state/weekly-review/draft.json', 'state', 'plan', '週次レビューの下書き（機械で決まる節と取得の成否。build-weekly-review-draft が金曜の fetch-metrics の後に書く）'),
+  d('state.weekly-review-draft', '.claude/state/weekly-review/draft.json', 'state', 'plan', '週次レビューの下書き（機械で決まる節と取得の成否。build-weekly-review-draft が土曜の Mac の収集の後に書く）'),
   d('state.backlog-audit-log', '.claude/state/backlog/audit-log.json', 'ledger', 'plan', 'backlog 棚卸しの処分の記録'),
   d('state.backlog-verify-status', '.claude/state/backlog/verify-status.json', 'state', 'plan', 'backlog カードの完了確認の状態'),
   // 品質サイクル（技術士総監・1級土木）

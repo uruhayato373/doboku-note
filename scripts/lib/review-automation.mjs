@@ -1,7 +1,7 @@
 /**
  * review-automation.mjs — レビューの回を支える自動化の状態を、管理画面（戦略 ＞ レビュー）が読む形にまとめる。
  *
- *   - 金曜の下書き（.claude/state/weekly-review/draft.json・build-weekly-review-draft・weekly-review-draft.yml）
+ *   - 土曜の下書き（.claude/state/weekly-review/draft.json・build-weekly-review-draft・土曜の Mac が収集の後に作る）
  *   - 土曜の自動実行（Mac の launchd com.doboku-note.weekly-review・scripts/scheduled/weekly-review.sh のログ）
  *   - 点検と Issue（review-checks の記録）と、レポートの「点検と Issue」での行き先
  *
@@ -17,7 +17,7 @@ import { latestChecks, checksRouting } from './review-wiring.mjs';
 export const WEEKLY_REVIEW_LOG = join(homedir(), 'Library', 'Logs', 'doboku-note', 'weekly-review.log');
 
 /**
- * 金曜の下書き。無ければ null。week が指定の回と違えば stale
+ * 下書き（土曜の Mac が収集の後に作る）。無ければ null。week が指定の回と違えば stale
  * @param {string} root
  * @param {string | null} [runKey]
  * @returns {{ broken: true } | { week: string, window: { week: string, startDate: string, endDate: string } | null, generatedAt: string | null, missing: string[], failedInputs: string[], stale: boolean } | null}

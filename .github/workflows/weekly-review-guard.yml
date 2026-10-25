@@ -116,7 +116,7 @@ jobs:
             node scripts/check-gsc-auto-review.mjs || true
             echo '```'
             echo ""
-            echo "- 確認: \`gh run list --workflow gsc-auto-review.yml --limit 5\` で直近 run を確認し、必要なら \`gh workflow run gsc-auto-review.yml\` で再実行"
+            echo "- 確認: 記録層は土曜の Mac の週次レビューの前段（weekly-review.sh の run_gsc_record・DN-0849）。Mac の weekly-review.log で gsc-record の行を見る"
             echo "- 応急: \`/gsc-review\`（月次）・\`/weekly-improve\`（週次）を手動実行して観測ログへ追記"
             echo "- 判定ロジック: \`scripts/check-gsc-auto-review.mjs\`"
           } > /tmp/auto-review-body.md

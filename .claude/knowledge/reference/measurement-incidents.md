@@ -783,7 +783,6 @@ curl https://<account>.r2.cloudflarestorage.com/
 |---|---|---|---|---|
 | `psi-audit.yml` | `0 17 * * *` | **develop**（明示） | develop | PSI / Core Web Vitals |
 | `fetch-metrics.yml` | `0 21 * * 4` | **develop**（明示） | develop | GA4 / GSC 週次 |
-| `gsc-auto-review.yml` | `0 3 * * 5` | **develop**（明示） | develop | GSC 週次・月次の記録層 |
 | `index-coverage.yml` | `0 2 * * 3` | **develop**（明示） | develop | GSC index coverage（2026-09-17 に週次へ） |
 | `weekly-review-guard.yml` | `17 2 * * 1` | **develop**（明示） | なし（Issue のみ） | 週次レビュー実施の督促・watchdog |
 | `r2-audit.yml` | `0 22 * * 0` | **main**（明示） | なし | R2 / OGP / 品質ゲート |
