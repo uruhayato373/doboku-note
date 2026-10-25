@@ -1,7 +1,7 @@
 import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import Link from 'next/link';
-import { PanelCard, StatusBadge, TableBody, TableCell, TableFrame, TableHead, TableHeader, TableRow, type Tone } from '@/components/admin';
+import { DataTable, type DataTableColumn, type DataTableRow, PanelCard, StatusBadge, TableBody, TableCell, TableFrame, TableHead, TableHeader, TableRow, type Tone } from '@/components/admin';
 import { Stack } from '@/components/layout';
 import { PageHead } from '@/components/ui';
 import { findRepoRoot } from '@/lib/repo-root';
@@ -37,6 +37,21 @@ type Series = {
   sections: { title: string; items: Item[] }[]; summary: Summary;
 };
 type Card = { id: string; title: string };
+
+const BOOK_COLUMNS: DataTableColumn[] = [
+  { key: 'book', label: '書籍' },
+  { key: 'units', label: '項目', num: true },
+  { key: 'series', label: 'シリーズの章', num: true },
+  { key: 'article', label: 'ほかの記事', num: true },
+  { key: 'excluded', label: '使わない（理由つき）', num: true },
+];
+
+const VISUAL_COLUMNS: DataTableColumn[] = [
+  { key: 'plan', label: '図・写真の計画' },
+  { key: 'stage', label: '段階' },
+  { key: 'crop', label: '元の切り出し図' },
+  { key: 'place', label: '置き場' },
+];
 
 const STAGE_TONE: Record<string, Tone> = {
   embedded: 'good', created: 'info', unreviewed: 'warn', failed: 'bad', cropped: 'info', planned: 'neutral', 'crop-missing': 'bad', skipped: 'neutral',
@@ -114,28 +129,16 @@ export default async function SeriesPage({ searchParams }: { searchParams: Promi
         )}
 
         <PanelCard title="書籍の全項目の割り当て">
-          <TableFrame>
-            <TableHeader>
-              <TableRow>
-                <TableHead>書籍</TableHead>
-                <TableHead>項目</TableHead>
-                <TableHead>シリーズの章</TableHead>
-                <TableHead>ほかの記事</TableHead>
-                <TableHead>使わない（理由つき）</TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              {Object.entries(bv.byBook).map(([id, t]) => (
-                <TableRow key={id}>
-                  <TableCell><Link href={`/materials?id=${encodeURIComponent(id)}`}>{shortTitle.get(id) ?? id}</Link></TableCell>
-                  <TableCell className="tabular-nums">{t.units}</TableCell>
-                  <TableCell className="tabular-nums">{t.series}</TableCell>
-                  <TableCell className="tabular-nums">{t.article}</TableCell>
-                  <TableCell className="tabular-nums">{t.excluded}</TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          </TableFrame>
+          <DataTable
+            columns={BOOK_COLUMNS}
+            rows={Object.entries(bv.byBook).map(([id, t]): DataTableRow => ({
+              id,
+              values: { book: shortTitle.get(id) ?? id, units: t.units, series: t.series, article: t.article, excluded: t.excluded },
+              cells: { book: <Link href={`/materials?id=${encodeURIComponent(id)}`}>{shortTitle.get(id) ?? id}</Link> },
+            }))}
+            pageSize={100}
+            filter="書籍で絞り込む"
+          />
         </PanelCard>
 
         {issues.length > 0 && (
@@ -250,32 +253,30 @@ function ItemImages({ itemKey, title, p, bookDir, shortTitle, pages }: {
         頁 {p.pages.pages}（切り出し待ち {p.pages.pending}・図なし {p.pages.notNeeded}・済み {p.pages.done}） · 切り出し図 {p.crops.length}（未対応 {p.unlinkedCrops}） · 計画 {p.visuals.length}
         {' '}<Link href="/content/series">← 一覧へ</Link>
       </div>
-      <TableFrame>
-        <TableHeader>
-          <TableRow>
-            <TableHead>図・写真の計画</TableHead>
-            <TableHead>段階</TableHead>
-            <TableHead>元の切り出し図</TableHead>
-            <TableHead>置き場</TableHead>
-          </TableRow>
-        </TableHeader>
-        <TableBody>
-          {p.visuals.length === 0 ? (
-            <TableRow><TableCell colSpan={4} className="text-muted-foreground">計画はまだ無い（台帳の visuals に書く）</TableCell></TableRow>
-          ) : p.visuals.map((v) => {
-            const crop = v.crop ? p.crops.find((c) => c.book === v.crop!.book && c.id === v.crop!.id) : null;
-            const src = crop ? mediaUrl(crop.book, crop.path) : null;
-            return (
-              <TableRow key={v.subject} className="align-top">
-                <TableCell className="text-xs">{v.kind === 'photo' ? '写真' : '図'}：{v.subject}{v.skip && <div className="text-muted-foreground">使わない理由: {v.skip}</div>}</TableCell>
-                <TableCell className="whitespace-nowrap"><StatusBadge tone={STAGE_TONE[v.stage]}>{STAGE_LABELS[v.stage]}</StatusBadge></TableCell>
-                <TableCell className="text-xs">{src ? <a href={src} target="_blank" rel="noreferrer"><img src={src} alt={crop?.caption ?? v.crop?.id ?? ''} className="max-h-24" /></a> : (v.crop ? `${v.crop.book}/${v.crop.id}` : '—')}</TableCell>
-                <TableCell className="text-xs font-mono">{v.figKey ?? '—'}</TableCell>
-              </TableRow>
-            );
-          })}
-        </TableBody>
-      </TableFrame>
+      <DataTable
+        columns={VISUAL_COLUMNS}
+        rows={p.visuals.map((v): DataTableRow => {
+          const crop = v.crop ? p.crops.find((c) => c.book === v.crop!.book && c.id === v.crop!.id) : null;
+          const src = crop ? mediaUrl(crop.book, crop.path) : null;
+          return {
+            id: v.subject,
+            values: {
+              plan: `${v.kind === 'photo' ? '写真' : '図'}：${v.subject}${v.skip ? ` 使わない理由: ${v.skip}` : ''}`,
+              stage: STAGE_LABELS[v.stage],
+              crop: v.crop ? `${v.crop.book}/${v.crop.id}` : null,
+              place: v.figKey ?? null,
+            },
+            cells: {
+              plan: <div className="text-xs">{v.kind === 'photo' ? '写真' : '図'}：{v.subject}{v.skip && <div className="text-muted-foreground">使わない理由: {v.skip}</div>}</div>,
+              stage: <StatusBadge tone={STAGE_TONE[v.stage]}>{STAGE_LABELS[v.stage]}</StatusBadge>,
+              crop: <span className="text-xs">{src ? <a href={src} target="_blank" rel="noreferrer"><img src={src} alt={crop?.caption ?? v.crop?.id ?? ''} className="max-h-24" /></a> : (v.crop ? `${v.crop.book}/${v.crop.id}` : '—')}</span>,
+              place: <span className="font-mono text-xs">{v.figKey ?? '—'}</span>,
+            },
+          };
+        })}
+        pageSize={100}
+        emptyText="計画はまだ無い（台帳の visuals に書く）"
+      />
       <div className="small mt-3 mb-1">この章の頁から切り出した図（{p.crops.length}）</div>
       {p.crops.length === 0 ? <div className="text-xs text-muted-foreground">まだ無い（npm run check-content-series -- --crop-jobs の頁を切り出して登録する）</div> : (
         <div className="flex flex-wrap gap-2">

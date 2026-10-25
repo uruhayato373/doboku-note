@@ -2,7 +2,8 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import type { ReactNode } from 'react';
 import {
-  PanelCard, StatusBadge, TableBody, TableCell, TableFrame, TableHead, TableHeader, TableRow, type Tone,
+  DataTable, type DataTableColumn, type DataTableRow,
+  PanelCard, StatusBadge, TableBody, TableCell, TableFrame, TableHead, TableRow, type Tone,
 } from '@/components/admin';
 import { PageHead } from '@/components/ui';
 import CopyButton from '@/components/CopyButton';
@@ -36,6 +37,18 @@ function Row({ k, v }: { k: string; v: ReactNode }) {
     </TableRow>
   );
 }
+
+const SUBTITLE_COLUMNS: DataTableColumn[] = [
+  { key: 'start', label: '開始' },
+  { key: 'end', label: '終了' },
+  { key: 'text', label: '本文', wrap: true },
+];
+const PROVENANCE_COLUMNS: DataTableColumn[] = [
+  { key: 'material', label: '素材' },
+  { key: 'kind', label: 'kind' },
+  { key: 'by', label: 'by' },
+  { key: 'spec', label: 'spec', wrap: true },
+];
 
 const short = (d: string | null) => (d ? d.slice(0, 12) : '—');
 const bytesLabel = (n: number | null) => (n == null ? '' : `${n.toLocaleString('en-US')} B`);
@@ -78,24 +91,19 @@ function MediaBlock({ m, detail, examId, workId }: { m: ItemMedia; detail: Media
     body = detail.subtitles ? (
       <>
         <p className="mb-1 text-sm text-muted-foreground">全 {detail.subtitles.total} 行（先頭 {detail.subtitles.lines.length} 行を表示）</p>
-        <TableFrame>
-          <TableHeader>
-            <TableRow>
-              <TableHead>開始</TableHead>
-              <TableHead>終了</TableHead>
-              <TableHead>本文</TableHead>
-            </TableRow>
-          </TableHeader>
-          <TableBody>
-            {detail.subtitles.lines.map((l, i) => (
-              <TableRow key={i}>
-                <TableCell className="whitespace-nowrap tabular-nums">{l.start}</TableCell>
-                <TableCell className="whitespace-nowrap tabular-nums">{l.end}</TableCell>
-                <TableCell className="whitespace-normal">{l.text}</TableCell>
-              </TableRow>
-            ))}
-          </TableBody>
-        </TableFrame>
+        <DataTable
+          columns={SUBTITLE_COLUMNS}
+          rows={detail.subtitles.lines.map((l, i): DataTableRow => ({
+            id: String(i),
+            values: { start: l.start, end: l.end, text: l.text },
+            cells: {
+              start: <span className="tabular-nums">{l.start}</span>,
+              end: <span className="tabular-nums">{l.end}</span>,
+            },
+          }))}
+          pageSize={100}
+          filter="字幕を絞り込む"
+        />
       </>
     ) : m.availability === 'missing' || detail.textMissing ? <MissingNote examId={examId} workId={workId} /> : <span className="text-sm text-muted-foreground">中身を読めない</span>;
   } else if (!m.src) {
@@ -244,26 +252,15 @@ function Publication({ p, detail, examId, workId }: { p: ItemPublication; detail
       {prov.length ? (
         <div className="flex flex-col gap-1">
           <h3 className="m-0 font-semibold">来歴</h3>
-          <TableFrame>
-            <TableHeader>
-              <TableRow>
-                <TableHead>素材</TableHead>
-                <TableHead>kind</TableHead>
-                <TableHead>by</TableHead>
-                <TableHead>spec</TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              {prov.map((m) => (
-                <TableRow key={m.role}>
-                  <TableCell>{roleLabel(m.role)}</TableCell>
-                  <TableCell>{m.provenance?.kind ?? '—'}</TableCell>
-                  <TableCell>{m.provenance?.by ?? '—'}</TableCell>
-                  <TableCell className="whitespace-normal break-all text-xs">{m.provenance?.spec ?? '—'}</TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          </TableFrame>
+          <DataTable
+            columns={PROVENANCE_COLUMNS}
+            rows={prov.map((m): DataTableRow => ({
+              id: m.role,
+              values: { material: roleLabel(m.role), kind: m.provenance?.kind ?? null, by: m.provenance?.by ?? null, spec: m.provenance?.spec ?? null },
+              cells: { spec: <span className="break-all text-xs">{m.provenance?.spec ?? '—'}</span> },
+            }))}
+            pageSize={100}
+          />
         </div>
       ) : null}
     </section>

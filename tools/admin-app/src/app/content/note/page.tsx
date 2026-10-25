@@ -1,8 +1,7 @@
 import Link from 'next/link';
 import {
-  Facet, FacetHead, FacetShell, StatusBadge,
-  EmptyRow, TableBody, TableCell, TableFrame, TableHead, TableHeader, TableRow,
-  type FacetItem,
+  DataTable, Facet, FacetHead, FacetShell, StatusBadge,
+  type DataTableColumn, type DataTableRow, type FacetItem,
 } from '@/components/admin';
 import { Stack } from '@/components/layout';
 import { PageHead } from '@/components/ui';
@@ -82,6 +81,16 @@ const CONTENT_TYPES: { key: string; label: string }[] = [
   { key: 'learning', label: '学習記事' },
   { key: 'career', label: 'キャリア' },
   { key: 'editorial', label: '一般・雑談' },
+];
+
+const COLUMNS: DataTableColumn[] = [
+  { key: 'title', label: 'タイトル' },
+  { key: 'type', label: '記事区分' },
+  { key: 'theme', label: 'テーマ' },
+  { key: 'pricing', label: '価格' },
+  { key: 'published', label: '公開' },
+  { key: 'sync', label: '同期' },
+  { key: 'cta', label: '導線' },
 ];
 
 function href(q: Query, patch: Partial<Query>): string {
@@ -200,6 +209,83 @@ export default async function ContentNotePage({
   const examKeys = [...examCounts.entries()].sort((a, b) => b[1] - a[1]).map(([k]) => k);
   const filtered = Boolean(exam || contentType || pricing || state || magazine);
 
+  const rows: DataTableRow[] = items.map((i) => {
+    const sync = syncOf(i);
+    const blockerLabel = sync?.blocker ? plan.blockers[sync.blocker]?.label ?? sync.blocker : null;
+    const typeLabel = CONTENT_TYPES.find((type) => type.key === i.contentType)?.label ?? i.contentType;
+    const pricingLabel = i.pricing === 'paid' ? '有料' : i.pricing === 'free' ? '無料' : i.pricing === 'membership' ? '会員' : '?';
+    const ctaLabels = i.ctas.filter((c) => CTA_LABEL[c]).map((c) => CTA_LABEL[c]);
+    const syncLabel = !plan.ok ? '?'
+      : sync?.status === 'blocked' ? '止'
+        : sync?.status === 'ready' ? sync.parts.map((p) => PART_LABEL[p]).join('・')
+          : i.published ? '済' : null;
+    return {
+      id: i.rel,
+      values: {
+        title: i.title,
+        type: typeLabel,
+        theme: i.theme ? i.themeLabel : '未分類',
+        pricing: pricingLabel,
+        published: i.published ? '公開' : '未',
+        sync: syncLabel,
+        cta: ctaLabels.length ? ctaLabels.join('・') : null,
+      },
+      cells: {
+        title: (
+          <div className="max-w-[28rem] truncate" title={i.rel}>
+            {i.noteUrl ? (
+              <a href={i.noteUrl} target="_blank" rel="noopener noreferrer">
+                {i.title}
+              </a>
+            ) : (
+              i.title
+            )}
+          </div>
+        ),
+        theme: i.theme ? (
+          <span className="text-muted-foreground">{i.themeLabel}</span>
+        ) : (
+          <StatusBadge tone="bad" title="content-themes.json のどのルールにも当たらない">未分類</StatusBadge>
+        ),
+        pricing: (
+          <StatusBadge tone={i.pricing === 'paid' ? 'info' : i.pricing === 'free' ? 'good' : 'neutral'}>
+            {pricingLabel}
+          </StatusBadge>
+        ),
+        published: i.published ? (
+          <StatusBadge tone="good">公開</StatusBadge>
+        ) : (
+          <StatusBadge tone="warn">未</StatusBadge>
+        ),
+        sync: !plan.ok ? (
+          <StatusBadge tone="neutral">?</StatusBadge>
+        ) : sync?.status === 'blocked' ? (
+          <StatusBadge tone="bad" title={blockerLabel ?? undefined}>止</StatusBadge>
+        ) : sync?.status === 'ready' ? (
+          <span className="inline-flex flex-wrap gap-1" title={sync.parts.map((p) => PART_LABEL[p]).join('・')}>
+            {sync.parts.map((p) => (
+              <StatusBadge key={p} tone="warn">{PART_LABEL[p]}</StatusBadge>
+            ))}
+          </span>
+        ) : i.published ? (
+          <StatusBadge tone="good">済</StatusBadge>
+        ) : (
+          <span className="text-muted-foreground">—</span>
+        ),
+        cta: (
+          <>
+            <span className="inline-flex flex-wrap gap-1">
+              {i.ctas.filter((c) => CTA_LABEL[c]).map((c) => (
+                <StatusBadge key={c} tone="neutral" title={`<!-- cta:${c} -->`}>{CTA_LABEL[c]}</StatusBadge>
+              ))}
+            </span>
+            {i.ctas.length === 0 ? <span className="text-muted-foreground">—</span> : null}
+          </>
+        ),
+      },
+    };
+  });
+
   const main = (
     <Stack>
             <p className="text-sm text-muted-foreground">
@@ -227,86 +313,12 @@ export default async function ContentNotePage({
               {' '}タイトルをクリックすると note の公開記事を別タブで開く。
             </p>
 
-            <TableFrame>
-                  <TableHeader>
-                    <TableRow>
-                      <TableHead>タイトル</TableHead>
-                      <TableHead className="hidden xl:table-cell">記事区分</TableHead>
-                      <TableHead className="hidden xl:table-cell">テーマ</TableHead>
-                      <TableHead>価格</TableHead>
-                      <TableHead>公開</TableHead>
-                      <TableHead>同期</TableHead>
-                      <TableHead>導線</TableHead>
-                    </TableRow>
-                  </TableHeader>
-                  <TableBody>
-                    {items.length === 0 ? <EmptyRow colSpan={7}>この条件に該当する記事はありません。</EmptyRow> : null}
-                    {items.map((i) => {
-                      const sync = syncOf(i);
-                      const blockerLabel = sync?.blocker ? plan.blockers[sync.blocker]?.label ?? sync.blocker : null;
-                      return (
-                        <TableRow key={i.rel}>
-                          <TableCell className="max-w-[28rem] truncate" title={i.rel}>
-                            {i.noteUrl ? (
-                              <a href={i.noteUrl} target="_blank" rel="noopener noreferrer">
-                                {i.title}
-                              </a>
-                            ) : (
-                              i.title
-                            )}
-                          </TableCell>
-                          <TableCell className="hidden xl:table-cell">
-                            {CONTENT_TYPES.find((type) => type.key === i.contentType)?.label ?? i.contentType}
-                          </TableCell>
-                          <TableCell className="hidden xl:table-cell">
-                            {i.theme ? (
-                              <span className="text-muted-foreground">{i.themeLabel}</span>
-                            ) : (
-                              <StatusBadge tone="bad" title="content-themes.json のどのルールにも当たらない">未分類</StatusBadge>
-                            )}
-                          </TableCell>
-                          <TableCell>
-                            <StatusBadge tone={i.pricing === 'paid' ? 'info' : i.pricing === 'free' ? 'good' : 'neutral'}>
-                              {i.pricing === 'paid' ? '有料' : i.pricing === 'free' ? '無料' : i.pricing === 'membership' ? '会員' : '?'}
-                            </StatusBadge>
-                          </TableCell>
-                          <TableCell>
-                            {i.published ? (
-                              <StatusBadge tone="good">公開</StatusBadge>
-                            ) : (
-                              <StatusBadge tone="warn">未</StatusBadge>
-                            )}
-                          </TableCell>
-                          <TableCell>
-                            {!plan.ok ? (
-                              <StatusBadge tone="neutral">?</StatusBadge>
-                            ) : sync?.status === 'blocked' ? (
-                              <StatusBadge tone="bad" title={blockerLabel ?? undefined}>止</StatusBadge>
-                            ) : sync?.status === 'ready' ? (
-                              <span className="inline-flex flex-wrap gap-1" title={sync.parts.map((p) => PART_LABEL[p]).join('・')}>
-                                {sync.parts.map((p) => (
-                                  <StatusBadge key={p} tone="warn">{PART_LABEL[p]}</StatusBadge>
-                                ))}
-                              </span>
-                            ) : i.published ? (
-                              <StatusBadge tone="good">済</StatusBadge>
-                            ) : (
-                              <span className="text-muted-foreground">—</span>
-                            )}
-                          </TableCell>
-                          <TableCell>
-                            <span className="inline-flex flex-wrap gap-1">
-                              {i.ctas.filter((c) => CTA_LABEL[c]).map((c) => (
-                                <StatusBadge key={c} tone="neutral" title={`<!-- cta:${c} -->`}>{CTA_LABEL[c]}</StatusBadge>
-                              ))}
-                            </span>
-                            {i.ctas.length === 0 ? <span className="text-muted-foreground">—</span> : null}
-                          </TableCell>
-                        </TableRow>
-                      );
-                    })}
-                  </TableBody>
-            </TableFrame>
+            <DataTable
+              columns={COLUMNS}
+              rows={rows}
+              filter="タイトル・テーマなどで絞り込む"
+              emptyText="この条件に該当する記事はありません。"
+            />
     </Stack>
   );
 

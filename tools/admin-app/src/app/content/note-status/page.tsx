@@ -1,12 +1,25 @@
-import {
-  PanelCard, StatusBadge, TableBody, TableCell, TableFrame, TableHead, TableHeader, TableRow, type Tone,
-} from '@/components/admin';
+import { DataTable, type DataTableColumn, type DataTableRow, PanelCard, StatusBadge, type Tone } from '@/components/admin';
 import { Stack } from '@/components/layout';
 import { PageHead } from '@/components/ui';
 import { MAGAZINES_STALE_DAYS, membershipState, STATUS_STALE_DAYS, statusSnapshot } from '@/lib/note-status';
 import { datasetPath } from '../../../../../../scripts/lib/datasets.mjs';
 
 export const dynamic = 'force-dynamic';
+
+const MEMBERSHIP_COLUMNS: DataTableColumn[] = [
+  { key: 'magazine', label: 'マガジン', wrap: true },
+  { key: 'expected', label: '期待' },
+  { key: 'repo', label: 'repo' },
+  { key: 'declared', label: 'SoT' },
+  { key: 'live', label: 'ライブ' },
+  { key: 'verdict', label: '判定' },
+];
+
+const SUMMARY_COLUMNS: DataTableColumn[] = [
+  { key: 'kind', label: '区分' },
+  { key: 'count', label: '件数' },
+  { key: 'meaning', label: '意味' },
+];
 
 /** 鮮度バッジ。0-1 日=good / staleDays 以内=warn / 超過・不明=bad。staleDays は台帳の freshness.failDays。 */
 function Age({ days, staleDays }: { days: number | null; staleDays: number }) {
@@ -66,57 +79,61 @@ export default function NoteStatusPage() {
         </p>
 
         {m.ok && m.rows.length > 0 && (
-          <TableFrame>
-            <TableHeader>
-              <TableRow>
-                <TableHead>マガジン</TableHead>
-                <TableHead>期待</TableHead>
-                <TableHead>repo</TableHead>
-                <TableHead>SoT</TableHead>
-                <TableHead>ライブ</TableHead>
-                <TableHead>判定</TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              {m.rows.map((r) => (
-                <TableRow key={r.id}>
-                  <TableCell className="max-w-[28rem] whitespace-normal">
-                    {r.title || r.id}
-                    <br />
-                    <span className="text-muted-foreground">{r.id}</span>
-                    {r.descWarn && (
-                      <>
-                        <br />
-                        <StatusBadge tone="warn">{r.descWarn}</StatusBadge>
-                      </>
-                    )}
-                  </TableCell>
-                  <TableCell>{r.expected}</TableCell>
-                  <TableCell>
-                    {r.repoCount}
-                    {r.extra ? (
-                      <span className="text-muted-foreground"> {r.extra > 0 ? `+${r.extra}` : r.extra}</span>
-                    ) : null}
-                  </TableCell>
-                  <TableCell>{r.declared ?? <span className="text-muted-foreground">—</span>}</TableCell>
-                  <TableCell>{r.liveCount ?? <span className="text-muted-foreground">—</span>}</TableCell>
-                  <TableCell>
-                    {!r.ok ? (
-                      <StatusBadge tone="bad">{r.detail || r.kind}</StatusBadge>
-                    ) : r.liveCount == null ? (
-                      // ライブを見ていない行を緑にしない。「repo↔SoT は合っている」と
-                      // 「三軸とも合っている」は別物で、緑にすると後者に読める。
-                      <StatusBadge tone="warn">repo↔SoT のみ</StatusBadge>
-                    ) : r.declared == null ? (
-                      <StatusBadge tone="warn">repo↔ライブ のみ</StatusBadge>
-                    ) : (
-                      <StatusBadge tone="good">一致</StatusBadge>
-                    )}
-                  </TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          </TableFrame>
+          <DataTable
+            columns={MEMBERSHIP_COLUMNS}
+            rows={m.rows.map((r): DataTableRow => {
+              const verdict = !r.ok ? r.detail || r.kind : r.liveCount == null ? 'repo↔SoT のみ' : r.declared == null ? 'repo↔ライブ のみ' : '一致';
+              return {
+                id: r.id,
+                values: {
+                  magazine: `${r.title || r.id} ${r.id}`,
+                  expected: r.expected,
+                  repo: r.repoCount,
+                  declared: r.declared ?? null,
+                  live: r.liveCount ?? null,
+                  verdict,
+                },
+                cells: {
+                  magazine: (
+                    <div className="max-w-[28rem]">
+                      {r.title || r.id}
+                      <br />
+                      <span className="text-muted-foreground">{r.id}</span>
+                      {r.descWarn && (
+                        <>
+                          <br />
+                          <StatusBadge tone="warn">{r.descWarn}</StatusBadge>
+                        </>
+                      )}
+                    </div>
+                  ),
+                  repo: (
+                    <>
+                      {r.repoCount}
+                      {r.extra ? (
+                        <span className="text-muted-foreground"> {r.extra > 0 ? `+${r.extra}` : r.extra}</span>
+                      ) : null}
+                    </>
+                  ),
+                  declared: r.declared ?? <span className="text-muted-foreground">—</span>,
+                  live: r.liveCount ?? <span className="text-muted-foreground">—</span>,
+                  verdict: !r.ok ? (
+                    <StatusBadge tone="bad">{r.detail || r.kind}</StatusBadge>
+                  ) : r.liveCount == null ? (
+                    // ライブを見ていない行を緑にしない。「repo↔SoT は合っている」と
+                    // 「三軸とも合っている」は別物で、緑にすると後者に読める。
+                    <StatusBadge tone="warn">repo↔SoT のみ</StatusBadge>
+                  ) : r.declared == null ? (
+                    <StatusBadge tone="warn">repo↔ライブ のみ</StatusBadge>
+                  ) : (
+                    <StatusBadge tone="good">一致</StatusBadge>
+                  ),
+                },
+              };
+            })}
+            pageSize={100}
+            filter="マガジン・判定で絞り込む"
+          />
         )}
 
         {m.ok && (
@@ -170,50 +187,21 @@ export default function NoteStatusPage() {
         </p>
 
         {s.ok && (
-          <TableFrame>
-            <TableHeader>
-              <TableRow>
-                <TableHead>区分</TableHead>
-                <TableHead>件数</TableHead>
-                <TableHead>意味</TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              <TableRow>
-                <TableCell>ドリフト</TableCell>
-                <TableCell>
-                  {s.drift.length ? (
-                    <StatusBadge tone="bad">{s.drift.length}</StatusBadge>
-                  ) : (
-                    <StatusBadge tone="good">0</StatusBadge>
-                  )}
-                </TableCell>
-                <TableCell className="text-muted-foreground">ライブは公開済みだが frontmatter の noteStatus が古い</TableCell>
-              </TableRow>
-              <TableRow>
-                <TableCell>要確認</TableCell>
-                <TableCell>
-                  {s.warn.length ? (
-                    <StatusBadge tone="warn">{s.warn.length}</StatusBadge>
-                  ) : (
-                    <StatusBadge tone="good">0</StatusBadge>
-                  )}
-                </TableCell>
-                <TableCell className="text-muted-foreground">frontmatter は公開を主張するがライブが published でない</TableCell>
-              </TableRow>
-              <TableRow>
-                <TableCell>取得不能</TableCell>
-                <TableCell>
-                  {s.noLive.length ? (
-                    <StatusBadge tone="warn">{s.noLive.length}</StatusBadge>
-                  ) : (
-                    <StatusBadge tone="good">0</StatusBadge>
-                  )}
-                </TableCell>
-                <TableCell className="text-muted-foreground">throttle・予約未 live など。再実行で解消することが多い</TableCell>
-              </TableRow>
-            </TableBody>
-          </TableFrame>
+          <DataTable
+            columns={SUMMARY_COLUMNS}
+            rows={[
+              { id: 'drift', n: s.drift.length, tone: 'bad', kind: 'ドリフト', meaning: 'ライブは公開済みだが frontmatter の noteStatus が古い' },
+              { id: 'warn', n: s.warn.length, tone: 'warn', kind: '要確認', meaning: 'frontmatter は公開を主張するがライブが published でない' },
+              { id: 'noLive', n: s.noLive.length, tone: 'warn', kind: '取得不能', meaning: 'throttle・予約未 live など。再実行で解消することが多い' },
+            ].map((x): DataTableRow => ({
+              id: x.id,
+              values: { kind: x.kind, count: x.n, meaning: x.meaning },
+              cells: {
+                count: x.n ? <StatusBadge tone={x.tone as Tone}>{x.n}</StatusBadge> : <StatusBadge tone="good">0</StatusBadge>,
+                meaning: <span className="text-muted-foreground">{x.meaning}</span>,
+              },
+            }))}
+          />
         )}
 
         {s.ok && s.drift.length > 0 && (
