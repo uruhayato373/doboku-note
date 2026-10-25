@@ -26,7 +26,7 @@ npm run standards-tables -- review <key> --status rejected --note "どのセル�
 |---|---|
 | `batch` | 照合用の作業票。`.tmp/standards-tables/batches/<batch>.md`（`npm run standards-tables -- sheets --qa` が作る） |
 
-最初に `npm run standards-tables -- validate --batch <batch>` を実行する。文字の過不足ゼロの機械照合が通り、
+最初に `npm run standards-tables -- validate --batch <batch>` を実行する。大きな表の断片（`split` の作業票）は `validate --fragment <断片>` で照合し、断片には review 欄が無いので判定は返り値だけで返す（全断片の承認後に親が `review <key>` で記録する。手順書の「大きな表」）。文字の過不足ゼロの機械照合が通り、
 `.tmp/standards-tables/preview/<key>.md` に確認用の表が出る。✗ のものは差し戻し。
 
 ## 見ること（全件・全セル。抜き取りにしない）

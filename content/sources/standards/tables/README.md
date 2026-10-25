@@ -4,7 +4,7 @@
 原本のページ画像と照合して組み直したもの。1 表 1 ファイル（`{key}.json`）。生成器 `scripts/build-standard-articles.mjs` が読む。
 
 2026-10-16 時点で 217 件（近畿版などの共通仕様書 8 文書で共有 95・北海道版 120・四国版／北陸版だけの地域版 9 ほか）。
-共通仕様書で版面のまま残る表は「図の中の文字」の 4 件だけ（各文書）。2026-10-19 以降に加えた必携・マニュアル・特記・参考資料・付表の 13 文書は 1,176 種類が版面のまま残っており、順に組み直している（DN-0850）。文書ごとの残り件数は `config/standards-structure.json` の `readabilityBaselines.verbatimTables`（増やさない）。
+共通仕様書で版面のまま残る表は「図の中の文字」の 4 件だけ（各文書）。2026-10-19 以降に加えた必携・マニュアル・特記・参考資料・付表の 13 文書も 2026-10-25 に組み直し、台帳（inventory）は 0 件（DN-0850）。残る版面は図の中の文字と記入欄だけの様式で、`kind: verbatim` として版面のまま出す。文書ごとの件数は `config/standards-structure.json` の `readabilityBaselines.verbatimTables`（増やさない）。
 
 ## 形
 
@@ -26,7 +26,7 @@
 
 ## 作り方
 
-流れは `/standards-table-rebuild`（`.claude/skills/conversion/standards-table-rebuild/SKILL.md`）、道具は `npm run standards-tables -- inventory|render|sheets|validate|review`、
+流れは `/standards-table-rebuild`（`.claude/skills/conversion/standards-table-rebuild/SKILL.md`）、道具は `npm run standards-tables -- inventory|render|sheets|validate|review|split|merge`（Writer 1 体に収まらない大きな表は split で断片に分ける。手順書の「大きな表」）、
 組み直しは `standards-table-writer`、照合・承認は `standards-table-qa`（`.claude/agents/`）。どの PC でも同じ手順で回せる。
 
 - 原本のページ画像は Google Drive vault（`npm run build-standards-page-images` が作る 270dpi の画像・provenance は `content/sources/standards/{機関}/{文書}/manifest.json`）を使う。vault が見えない PC は発行機関の掲載ページから原本 PDF を取り、`render` で必要なページだけ画像にする（catalog の SHA-256 と違えば拒否）
