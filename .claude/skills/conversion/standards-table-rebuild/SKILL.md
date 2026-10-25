@@ -70,7 +70,8 @@ domain: site
    ```
 
    `check-standard-articles` の 14（組み直しの照合）・17〜19（文の途中の改行・表から外れた断片・壊れた表）が通ること。
-   描画は CI の `e2e/standards-render.spec.ts`。人の目でまとめて見るなら `npm run standards-table-gallery`（serve か dev が要る）。
+   `check-standard-articles` は版面のまま残った表の数を文書ごとの基準（`config/standards-structure.json` の `readabilityBaselines.verbatimTables`）で止める。組み直して減ったら基準を下げる（検査が「下げられる」と出す）。
+   描画は CI の `e2e/standards-render.spec.ts`（PR は共通仕様書の中身が異なるページ、夜間・手動は `STANDARDS_RENDER_SCOPE=all` で比較の外の文書も全ページ）。人の目でまとめて見るなら `npm run standards-table-gallery`（serve か dev が要る）。
 
 ## 注意
 

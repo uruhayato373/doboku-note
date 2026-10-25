@@ -17,7 +17,9 @@ import { standardsRenderTargets } from '../scripts/lib/standards-render-targets.
 const LONG_CELL_CHARS = 12;
 const MIN_LONG_CELL_EM = 4;
 
-const targets = standardsRenderTargets('content/site/standards-articles') as string[];
+// 夜間・手動の E2E は STANDARDS_RENDER_SCOPE=all で比較の外の文書（必携・マニュアル・特記など）も全ページ描画する（DN-0850）
+const scope = process.env.STANDARDS_RENDER_SCOPE === 'all' ? 'all' : 'distinct';
+const targets = standardsRenderTargets('content/site/standards-articles', { scope }) as string[];
 
 test('描画の対象が manifest と比較データから決まっている（検査ゼロを合格にしない）', () => {
   // 近畿版 43 章＋節ページ、北海道版 43 章＋節ページ、差分のある地域版の章
