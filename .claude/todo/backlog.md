@@ -303,6 +303,16 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-0849] CI の rerun-cancelled-schedules と weekly-review-draft を外し、GSC の記録層を土曜の週次レビューへ移す
+タグ: [インフラ・計測] [領域:管理] [時期:2026-10..2026-11] [種類:改善] [起票:2026-10-25]
+
+**起点**: 2026-10-25 に管理画面 `/ops/automations` で CI 26 本を見直した（運営者の依頼）。rerun-cancelled-schedules は記録の残る 44 回すべてで再実行 0 件、weekly-review-draft は土曜の Mac が作り直すので未使用、gsc-auto-review は CI の中で Claude を動かして GSC の記録を書いていて、土曜の週次レビューと役目が重なる。
+
+**やること**: 計画 [DN-0849-ci-trim-gsc-record-to-saturday.md](../plans/DN-0849-ci-trim-gsc-record-to-saturday.md) のとおり、rerun-cancelled-schedules と weekly-review-draft を CI から外し、gsc-auto-review の記録層を土曜の weekly-review.sh（レビューの前）へ移す。
+
+**完了条件**: 3 本の workflow が無効で削除済み。`apply-gsc-records` と weekly-review.sh の GSC の段がテストつきで入り、10/31（土）の自動実行で GSC の週次観測が gsc-management.md に追記され、check-gsc-auto-review の週次が OK になる。
+
+
 ### [DN-0848] automerge.yml の workflow_run が 10/24 22:37Z 以降に起動せず、ラベル付きの PR が緑でも入らない
 タグ: [インフラ・計測] [領域:管理] [時期:2026-10..2026-11] [種類:不具合] [起票:2026-10-25]
 
