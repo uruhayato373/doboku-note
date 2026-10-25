@@ -6,6 +6,9 @@ import { join } from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { renderWeeklyReviewBootstrap, renderWeeklyReviewPlist } from '../scripts/lib/weekly-review-launchd.mjs';
 
+// 収集・GSC の記録・レビューの段を stub で全部回す回は、負荷の無い Mac でも 13 秒かかる。上限が近いと負荷のある時に打ち切られて揺れる（2026-10-25）
+const RUNNER_TIMEOUT_MS = 60_000;
+
 test('persistent bootstrap executes committed runner without reading dirty checkout', () => {
   const tmp = mkdtempSync(join(tmpdir(), 'weekly-launchd-'));
   try {
@@ -66,7 +69,7 @@ for (const [weeklyNeeded, dirtyAfter, gscNeeded = false] of [[false, false], [tr
     const runner = new URL('../scripts/scheduled/weekly-review.sh', import.meta.url);
     const env = { ...process.env, HOME: home, DOBOKU_WEEKLY_REPO: repo, TEST_WEEKLY_NEEDED: weeklyNeeded ? '1' : '0', TEST_REVIEW_DIRTY: dirtyAfter ? '1' : '0', TEST_GSC_NEEDED: gscNeeded ? '1' : '0' };
     if (dirtyAfter) {
-      assert.throws(() => execFileSync('/bin/bash', [runner.pathname], { env, timeout: 15000 }), (e) => e.status === 1);
+      assert.throws(() => execFileSync('/bin/bash', [runner.pathname], { env, timeout: RUNNER_TIMEOUT_MS }), (e) => e.status === 1);
       const log = readFileSync(join(home, 'Library/Logs/doboku-note/weekly-review.log'), 'utf8');
       assert.match(log, /今回の未保存変更/);
       assert.doesNotMatch(log, /evidence complete/);
@@ -74,9 +77,9 @@ for (const [weeklyNeeded, dirtyAfter, gscNeeded = false] of [[false, false], [tr
       assert.equal(readFileSync(join(home, 'collect-calls'), 'utf8'), 'pre\npost\n');
       return;
     }
-    try { execFileSync('/bin/bash', [runner.pathname], { env, timeout: 15000 }); }
+    try { execFileSync('/bin/bash', [runner.pathname], { env, timeout: RUNNER_TIMEOUT_MS }); }
     catch (e) { assert.fail(`${e.message}\n${readFileSync(join(home, 'Library/Logs/doboku-note/weekly-review.log'), 'utf8')}`); }
-    try { execFileSync('/bin/bash', [runner.pathname], { env, timeout: 15000 }); }
+    try { execFileSync('/bin/bash', [runner.pathname], { env, timeout: RUNNER_TIMEOUT_MS }); }
     catch (e) { assert.fail(`${e.message}\n${readFileSync(join(home, 'Library/Logs/doboku-note/weekly-review.log'), 'utf8')}`); }
     assert.equal(readFileSync(join(home, 'calls'), 'utf8'), 'called\n');
     // 収集は毎回、レビューの前と後に回る（レビューが要らない回も）
