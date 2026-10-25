@@ -1,0 +1,951 @@
+{
+  "schemaVersion": 1,
+  "fetchedAt": "2026-10-25T00:56:58.248Z",
+  "platform": "coconala",
+  "caveat": "累計販売実績(totalSales)/nickname は公開プロフィール header 由来（clean）。個別サービスの価格/品揃えは market-research.json（検索由来・土木/技術士 関連のみ＝全出品でない）。プロフィールの出品カードは推薦カルーセルと同一DOM構造で他社品が混入するため使わない。投稿日は非公開＝cadence取得不可。有料本文は取得不可。",
+  "driftBasis": "2026-10-01.json",
+  "drift": [
+    {
+      "handle": "2442601",
+      "type": "removed",
+      "before": 6,
+      "after": 0,
+      "detail": "出品サービス 6→0件"
+    },
+    {
+      "handle": "804799",
+      "type": "removed",
+      "before": 5,
+      "after": 0,
+      "detail": "出品サービス 5→0件"
+    },
+    {
+      "handle": "578238",
+      "type": "removed",
+      "before": 1,
+      "after": 0,
+      "detail": "出品サービス 1→0件"
+    },
+    {
+      "handle": "623717",
+      "type": "removed",
+      "before": 5,
+      "after": 0,
+      "detail": "出品サービス 5→0件"
+    },
+    {
+      "handle": "5561691",
+      "type": "removed",
+      "before": 3,
+      "after": 0,
+      "detail": "出品サービス 3→0件"
+    },
+    {
+      "handle": "1528311",
+      "type": "removed",
+      "before": 2,
+      "after": 0,
+      "detail": "出品サービス 2→0件"
+    },
+    {
+      "handle": "4787672",
+      "type": "removed",
+      "before": 4,
+      "after": 0,
+      "detail": "出品サービス 4→0件"
+    },
+    {
+      "handle": "5240267",
+      "type": "removed",
+      "before": 7,
+      "after": 0,
+      "detail": "出品サービス 7→0件"
+    },
+    {
+      "handle": "2275259",
+      "type": "removed",
+      "before": 3,
+      "after": 0,
+      "detail": "出品サービス 3→0件"
+    },
+    {
+      "handle": "3040228",
+      "type": "removed",
+      "before": 4,
+      "after": 0,
+      "detail": "出品サービス 4→0件"
+    },
+    {
+      "handle": "2302173",
+      "type": "removed",
+      "before": 2,
+      "after": 0,
+      "detail": "出品サービス 2→0件"
+    },
+    {
+      "handle": "1712958",
+      "type": "removed",
+      "before": 1,
+      "after": 0,
+      "detail": "出品サービス 1→0件"
+    },
+    {
+      "handle": "681836",
+      "type": "removed",
+      "before": 3,
+      "after": 0,
+      "detail": "出品サービス 3→0件"
+    },
+    {
+      "handle": "836463",
+      "type": "removed",
+      "before": 2,
+      "after": 0,
+      "detail": "出品サービス 2→0件"
+    },
+    {
+      "handle": "5475567",
+      "type": "removed",
+      "before": 4,
+      "after": 0,
+      "detail": "出品サービス 4→0件"
+    },
+    {
+      "handle": "5271408",
+      "type": "removed",
+      "before": 3,
+      "after": 0,
+      "detail": "出品サービス 3→0件"
+    },
+    {
+      "handle": "1005143",
+      "type": "removed",
+      "before": 3,
+      "after": 0,
+      "detail": "出品サービス 3→0件"
+    },
+    {
+      "handle": "3318018",
+      "type": "removed",
+      "before": 3,
+      "after": 0,
+      "detail": "出品サービス 3→0件"
+    },
+    {
+      "handle": "3948001",
+      "type": "removed",
+      "before": 1,
+      "after": 0,
+      "detail": "出品サービス 1→0件"
+    },
+    {
+      "handle": "2990006",
+      "type": "removed",
+      "before": 6,
+      "after": 0,
+      "detail": "出品サービス 6→0件"
+    },
+    {
+      "handle": "2005610",
+      "type": "removed",
+      "before": 3,
+      "after": 0,
+      "detail": "出品サービス 3→0件"
+    },
+    {
+      "handle": "3321327",
+      "type": "removed",
+      "before": 2,
+      "after": 0,
+      "detail": "出品サービス 2→0件"
+    },
+    {
+      "handle": "1761437",
+      "type": "removed",
+      "before": 3,
+      "after": 0,
+      "detail": "出品サービス 3→0件"
+    }
+  ],
+  "competitors": [
+    {
+      "handle": "2442601",
+      "label": "ちゃんさと技師",
+      "exams": [
+        "civil-construction-1",
+        "civil-construction-2"
+      ],
+      "note": "1級2級土木 経験記述添削の最大手(09で最大競合の一つ)。note=chansato_st と同一主体。主力の経験記述添削は /services/1690708",
+      "profile": {
+        "nickname": "403 Forbidden"
+      },
+      "counts": {
+        "services": 0,
+        "servicesSource": "market-research.json（土木/技術士 検索由来・関連サービスのみ＝全出品ではない）"
+      },
+      "price": {
+        "min": null,
+        "median": null,
+        "max": null,
+        "bands": {
+          "low": 0,
+          "mid": 0,
+          "high": 0,
+          "premium": 0
+        }
+      },
+      "cadence": null,
+      "platformExtra": {
+        "totalSales": null,
+        "totalReviews": 0,
+        "avgRating": null
+      },
+      "services": []
+    },
+    {
+      "handle": "804799",
+      "label": "303geos",
+      "exams": [
+        "civil-construction-2"
+      ],
+      "note": "2級土木 出題分析・経験記述解答例予想。年度予想型",
+      "profile": {
+        "nickname": "403 Forbidden"
+      },
+      "counts": {
+        "services": 0,
+        "servicesSource": "market-research.json（土木/技術士 検索由来・関連サービスのみ＝全出品ではない）"
+      },
+      "price": {
+        "min": null,
+        "median": null,
+        "max": null,
+        "bands": {
+          "low": 0,
+          "mid": 0,
+          "high": 0,
+          "premium": 0
+        }
+      },
+      "cadence": null,
+      "platformExtra": {
+        "totalSales": null,
+        "totalReviews": 0,
+        "avgRating": null
+      },
+      "services": []
+    },
+    {
+      "handle": "578238",
+      "label": "梅村在虎 建設教育",
+      "exams": [
+        "civil-construction-1",
+        "civil-construction-2",
+        "pe-construction"
+      ],
+      "note": "market-research集計で発掘(未登録の最大手)。建設教育・添削系",
+      "profile": {
+        "nickname": "403 Forbidden"
+      },
+      "counts": {
+        "services": 0,
+        "servicesSource": "market-research.json（土木/技術士 検索由来・関連サービスのみ＝全出品ではない）"
+      },
+      "price": {
+        "min": null,
+        "median": null,
+        "max": null,
+        "bands": {
+          "low": 0,
+          "mid": 0,
+          "high": 0,
+          "premium": 0
+        }
+      },
+      "cadence": null,
+      "platformExtra": {
+        "totalSales": null,
+        "totalReviews": 0,
+        "avgRating": null
+      },
+      "services": []
+    },
+    {
+      "handle": "623717",
+      "label": "1級2級土木施工管理技士合格研究室",
+      "exams": [
+        "civil-construction-1",
+        "civil-construction-2"
+      ],
+      "note": "発掘。1級2級土木の合格研究室・経験記述系",
+      "profile": {
+        "nickname": "403 Forbidden"
+      },
+      "counts": {
+        "services": 0,
+        "servicesSource": "market-research.json（土木/技術士 検索由来・関連サービスのみ＝全出品ではない）"
+      },
+      "price": {
+        "min": null,
+        "median": null,
+        "max": null,
+        "bands": {
+          "low": 0,
+          "mid": 0,
+          "high": 0,
+          "premium": 0
+        }
+      },
+      "cadence": null,
+      "platformExtra": {
+        "totalSales": null,
+        "totalReviews": 0,
+        "avgRating": null
+      },
+      "services": []
+    },
+    {
+      "handle": "5561691",
+      "label": "道路プロ0609",
+      "exams": [
+        "civil-construction-1",
+        "civil-construction-2"
+      ],
+      "note": "発掘。道路/土木・経験記述系",
+      "profile": {
+        "nickname": "403 Forbidden"
+      },
+      "counts": {
+        "services": 0,
+        "servicesSource": "market-research.json（土木/技術士 検索由来・関連サービスのみ＝全出品ではない）"
+      },
+      "price": {
+        "min": null,
+        "median": null,
+        "max": null,
+        "bands": {
+          "low": 0,
+          "mid": 0,
+          "high": 0,
+          "premium": 0
+        }
+      },
+      "cadence": null,
+      "platformExtra": {
+        "totalSales": null,
+        "totalReviews": 0,
+        "avgRating": null
+      },
+      "services": []
+    },
+    {
+      "handle": "1528311",
+      "label": "ひげごろー（施工管理技士講師）",
+      "exams": [
+        "civil-construction-1",
+        "civil-construction-2",
+        "building-construction-1",
+        "building-construction-2"
+      ],
+      "note": "market-research で発掘。1級土木二次・1級建築二次の予想模試（PDFのみ・採点なし）で販売数が突出。集客は本人の YouTube（ココナラは手数料分割高と明記）。土木模試の価格上限の実証だがブランド集客前提（09 §D7）",
+      "profile": {
+        "nickname": "403 Forbidden"
+      },
+      "counts": {
+        "services": 0,
+        "servicesSource": "market-research.json（土木/技術士 検索由来・関連サービスのみ＝全出品ではない）"
+      },
+      "price": {
+        "min": null,
+        "median": null,
+        "max": null,
+        "bands": {
+          "low": 0,
+          "mid": 0,
+          "high": 0,
+          "premium": 0
+        }
+      },
+      "cadence": null,
+      "platformExtra": {
+        "totalSales": null,
+        "totalReviews": 0,
+        "avgRating": null
+      },
+      "services": []
+    },
+    {
+      "handle": "4787672",
+      "label": "YOSHI＠技術士",
+      "exams": [
+        "pe-construction",
+        "pe-comprehensive-management"
+      ],
+      "note": "market-research から追加。技術士第二次 筆記論文添削（複数出品）。技術士二次の論文添削で検索上位",
+      "profile": {
+        "nickname": "403 Forbidden"
+      },
+      "counts": {
+        "services": 0,
+        "servicesSource": "market-research.json（土木/技術士 検索由来・関連サービスのみ＝全出品ではない）"
+      },
+      "price": {
+        "min": null,
+        "median": null,
+        "max": null,
+        "bands": {
+          "low": 0,
+          "mid": 0,
+          "high": 0,
+          "premium": 0
+        }
+      },
+      "cadence": null,
+      "platformExtra": {
+        "totalSales": null,
+        "totalReviews": 0,
+        "avgRating": null
+      },
+      "services": []
+    },
+    {
+      "handle": "5240267",
+      "label": "コン吉",
+      "exams": [
+        "pe-construction",
+        "concrete-chief-engineer"
+      ],
+      "note": "market-research から追加。技術士 建設部門 専門キーワード解説集ほか複数出品。建設部門キーワードPDFの直接競合",
+      "profile": {
+        "nickname": "403 Forbidden"
+      },
+      "counts": {
+        "services": 0,
+        "servicesSource": "market-research.json（土木/技術士 検索由来・関連サービスのみ＝全出品ではない）"
+      },
+      "price": {
+        "min": null,
+        "median": null,
+        "max": null,
+        "bands": {
+          "low": 0,
+          "mid": 0,
+          "high": 0,
+          "premium": 0
+        }
+      },
+      "cadence": null,
+      "platformExtra": {
+        "totalSales": null,
+        "totalReviews": 0,
+        "avgRating": null
+      },
+      "services": []
+    },
+    {
+      "handle": "2275259",
+      "label": "けんじ２",
+      "exams": [
+        "pe-water-supply"
+      ],
+      "note": "market-research から追加。技術士（上下水道）論文添削",
+      "profile": {
+        "nickname": "403 Forbidden"
+      },
+      "counts": {
+        "services": 0,
+        "servicesSource": "market-research.json（土木/技術士 検索由来・関連サービスのみ＝全出品ではない）"
+      },
+      "price": {
+        "min": null,
+        "median": null,
+        "max": null,
+        "bands": {
+          "low": 0,
+          "mid": 0,
+          "high": 0,
+          "premium": 0
+        }
+      },
+      "cadence": null,
+      "platformExtra": {
+        "totalSales": null,
+        "totalReviews": 0,
+        "avgRating": null
+      },
+      "services": []
+    },
+    {
+      "handle": "3040228",
+      "label": "ikikd",
+      "exams": [
+        "pe-water-supply",
+        "pe-construction"
+      ],
+      "note": "market-research から追加。技術士（上下水道）キーワード・出典提供",
+      "profile": {
+        "nickname": "403 Forbidden"
+      },
+      "counts": {
+        "services": 0,
+        "servicesSource": "market-research.json（土木/技術士 検索由来・関連サービスのみ＝全出品ではない）"
+      },
+      "price": {
+        "min": null,
+        "median": null,
+        "max": null,
+        "bands": {
+          "low": 0,
+          "mid": 0,
+          "high": 0,
+          "premium": 0
+        }
+      },
+      "cadence": null,
+      "platformExtra": {
+        "totalSales": null,
+        "totalReviews": 0,
+        "avgRating": null
+      },
+      "services": []
+    },
+    {
+      "handle": "2302173",
+      "label": "やふたみんC",
+      "exams": [
+        "rccm",
+        "pe-construction"
+      ],
+      "note": "market-research から追加。RCCM 勉強法指導。技術士建設部門でも出品",
+      "profile": {
+        "nickname": "403 Forbidden"
+      },
+      "counts": {
+        "services": 0,
+        "servicesSource": "market-research.json（土木/技術士 検索由来・関連サービスのみ＝全出品ではない）"
+      },
+      "price": {
+        "min": null,
+        "median": null,
+        "max": null,
+        "bands": {
+          "low": 0,
+          "mid": 0,
+          "high": 0,
+          "premium": 0
+        }
+      },
+      "cadence": null,
+      "platformExtra": {
+        "totalSales": null,
+        "totalReviews": 0,
+        "avgRating": null
+      },
+      "services": []
+    },
+    {
+      "handle": "1712958",
+      "label": "なミタつ",
+      "exams": [
+        "rccm"
+      ],
+      "note": "market-research から追加。RCCM 試験論文添削",
+      "profile": {
+        "nickname": "403 Forbidden"
+      },
+      "counts": {
+        "services": 0,
+        "servicesSource": "market-research.json（土木/技術士 検索由来・関連サービスのみ＝全出品ではない）"
+      },
+      "price": {
+        "min": null,
+        "median": null,
+        "max": null,
+        "bands": {
+          "low": 0,
+          "mid": 0,
+          "high": 0,
+          "premium": 0
+        }
+      },
+      "cadence": null,
+      "platformExtra": {
+        "totalSales": null,
+        "totalReviews": 0,
+        "avgRating": null
+      },
+      "services": []
+    },
+    {
+      "handle": "681836",
+      "label": "ufotofu",
+      "exams": [
+        "pe-comprehensive-management"
+      ],
+      "note": "追加検索（総合技術監理・技術士 上下水道/口頭試験/経験論文 ほか）から追加。総監 択一過去問（技術士機械キーワード集も）。総監 択一 note 教材の直接競合",
+      "profile": {
+        "nickname": "403 Forbidden"
+      },
+      "counts": {
+        "services": 0,
+        "servicesSource": "market-research.json（土木/技術士 検索由来・関連サービスのみ＝全出品ではない）"
+      },
+      "price": {
+        "min": null,
+        "median": null,
+        "max": null,
+        "bands": {
+          "low": 0,
+          "mid": 0,
+          "high": 0,
+          "premium": 0
+        }
+      },
+      "cadence": null,
+      "platformExtra": {
+        "totalSales": null,
+        "totalReviews": 0,
+        "avgRating": null
+      },
+      "services": []
+    },
+    {
+      "handle": "836463",
+      "label": "赤星宏一",
+      "exams": [
+        "pe-comprehensive-management",
+        "pe-construction"
+      ],
+      "note": "追加検索（総合技術監理・技術士 上下水道/口頭試験/経験論文 ほか）から追加。総監記述の模範論文・解説／技術士二次論文アドバイス。総監 模範論文 note の直接競合",
+      "profile": {
+        "nickname": "403 Forbidden"
+      },
+      "counts": {
+        "services": 0,
+        "servicesSource": "market-research.json（土木/技術士 検索由来・関連サービスのみ＝全出品ではない）"
+      },
+      "price": {
+        "min": null,
+        "median": null,
+        "max": null,
+        "bands": {
+          "low": 0,
+          "mid": 0,
+          "high": 0,
+          "premium": 0
+        }
+      },
+      "cadence": null,
+      "platformExtra": {
+        "totalSales": null,
+        "totalReviews": 0,
+        "avgRating": null
+      },
+      "services": []
+    },
+    {
+      "handle": "5475567",
+      "label": "えぬおじ（技術士：道路、土質及び基礎）",
+      "exams": [
+        "pe-comprehensive-management",
+        "pe-construction"
+      ],
+      "note": "追加検索（総合技術監理・技術士 上下水道/口頭試験/経験論文 ほか）から追加。総監キーワード集・口頭試験対策ほか複数出品。総監キーワード note の直接競合",
+      "profile": {
+        "nickname": "403 Forbidden"
+      },
+      "counts": {
+        "services": 0,
+        "servicesSource": "market-research.json（土木/技術士 検索由来・関連サービスのみ＝全出品ではない）"
+      },
+      "price": {
+        "min": null,
+        "median": null,
+        "max": null,
+        "bands": {
+          "low": 0,
+          "mid": 0,
+          "high": 0,
+          "premium": 0
+        }
+      },
+      "cadence": null,
+      "platformExtra": {
+        "totalSales": null,
+        "totalReviews": 0,
+        "avgRating": null
+      },
+      "services": []
+    },
+    {
+      "handle": "5271408",
+      "label": "技術士パパ 建設×総監",
+      "exams": [
+        "pe-construction",
+        "pe-comprehensive-management"
+      ],
+      "note": "追加検索（総合技術監理・技術士 上下水道/口頭試験/経験論文 ほか）から追加。建設×総監の論文指導・口頭準備",
+      "profile": {
+        "nickname": "403 Forbidden"
+      },
+      "counts": {
+        "services": 0,
+        "servicesSource": "market-research.json（土木/技術士 検索由来・関連サービスのみ＝全出品ではない）"
+      },
+      "price": {
+        "min": null,
+        "median": null,
+        "max": null,
+        "bands": {
+          "low": 0,
+          "mid": 0,
+          "high": 0,
+          "premium": 0
+        }
+      },
+      "cadence": null,
+      "platformExtra": {
+        "totalSales": null,
+        "totalReviews": 0,
+        "avgRating": null
+      },
+      "services": []
+    },
+    {
+      "handle": "1005143",
+      "label": "Kugelschreiber",
+      "exams": [
+        "pe-construction"
+      ],
+      "note": "追加検索（総合技術監理・技術士 上下水道/口頭試験/経験論文 ほか）から追加。技術士 口頭試験サポート",
+      "profile": {
+        "nickname": "403 Forbidden"
+      },
+      "counts": {
+        "services": 0,
+        "servicesSource": "market-research.json（土木/技術士 検索由来・関連サービスのみ＝全出品ではない）"
+      },
+      "price": {
+        "min": null,
+        "median": null,
+        "max": null,
+        "bands": {
+          "low": 0,
+          "mid": 0,
+          "high": 0,
+          "premium": 0
+        }
+      },
+      "cadence": null,
+      "platformExtra": {
+        "totalSales": null,
+        "totalReviews": 0,
+        "avgRating": null
+      },
+      "services": []
+    },
+    {
+      "handle": "3318018",
+      "label": "沢村大輝＠技術士",
+      "exams": [
+        "pe-construction"
+      ],
+      "note": "追加検索（総合技術監理・技術士 上下水道/口頭試験/経験論文 ほか）から追加。技術士第二次 口頭試験の模擬練習",
+      "profile": {
+        "nickname": "403 Forbidden"
+      },
+      "counts": {
+        "services": 0,
+        "servicesSource": "market-research.json（土木/技術士 検索由来・関連サービスのみ＝全出品ではない）"
+      },
+      "price": {
+        "min": null,
+        "median": null,
+        "max": null,
+        "bands": {
+          "low": 0,
+          "mid": 0,
+          "high": 0,
+          "premium": 0
+        }
+      },
+      "cadence": null,
+      "platformExtra": {
+        "totalSales": null,
+        "totalReviews": 0,
+        "avgRating": null
+      },
+      "services": []
+    },
+    {
+      "handle": "3948001",
+      "label": "red1yoh",
+      "exams": [
+        "pe-construction"
+      ],
+      "note": "追加検索（総合技術監理・技術士 上下水道/口頭試験/経験論文 ほか）から追加。技術士（建設部門）二次試験対策",
+      "profile": {
+        "nickname": "403 Forbidden"
+      },
+      "counts": {
+        "services": 0,
+        "servicesSource": "market-research.json（土木/技術士 検索由来・関連サービスのみ＝全出品ではない）"
+      },
+      "price": {
+        "min": null,
+        "median": null,
+        "max": null,
+        "bands": {
+          "low": 0,
+          "mid": 0,
+          "high": 0,
+          "premium": 0
+        }
+      },
+      "cadence": null,
+      "platformExtra": {
+        "totalSales": null,
+        "totalReviews": 0,
+        "avgRating": null
+      },
+      "services": []
+    },
+    {
+      "handle": "2990006",
+      "label": "tatsubon",
+      "exams": [
+        "civil-construction-1",
+        "civil-construction-2",
+        "steel-structure-diagnostician"
+      ],
+      "note": "追加検索（総合技術監理・技術士 上下水道/口頭試験/経験論文 ほか）から追加。1級2級土木 経験論文作成サポート・土木鋼構造物診断士 論文添削ほか複数出品",
+      "profile": {
+        "nickname": "403 Forbidden"
+      },
+      "counts": {
+        "services": 0,
+        "servicesSource": "market-research.json（土木/技術士 検索由来・関連サービスのみ＝全出品ではない）"
+      },
+      "price": {
+        "min": null,
+        "median": null,
+        "max": null,
+        "bands": {
+          "low": 0,
+          "mid": 0,
+          "high": 0,
+          "premium": 0
+        }
+      },
+      "cadence": null,
+      "platformExtra": {
+        "totalSales": null,
+        "totalReviews": 0,
+        "avgRating": null
+      },
+      "services": []
+    },
+    {
+      "handle": "2005610",
+      "label": "一級建築士 あつぼ先生",
+      "exams": [
+        "civil-construction-1",
+        "civil-construction-2"
+      ],
+      "note": "report-competitor-watch の追跡外候補から追加。土木施工管理技士 経験記述 添削（関連出品あり）。1級2級土木 添削の中価格帯の大手",
+      "profile": {
+        "nickname": "403 Forbidden"
+      },
+      "counts": {
+        "services": 0,
+        "servicesSource": "market-research.json（土木/技術士 検索由来・関連サービスのみ＝全出品ではない）"
+      },
+      "price": {
+        "min": null,
+        "median": null,
+        "max": null,
+        "bands": {
+          "low": 0,
+          "mid": 0,
+          "high": 0,
+          "premium": 0
+        }
+      },
+      "cadence": null,
+      "platformExtra": {
+        "totalSales": null,
+        "totalReviews": 0,
+        "avgRating": null
+      },
+      "services": []
+    },
+    {
+      "handle": "3321327",
+      "label": "フリーランス技術者K",
+      "exams": [
+        "civil-construction-1",
+        "civil-construction-2"
+      ],
+      "note": "report-competitor-watch の追跡外候補から追加。土木施工管理技士 経験記述 作成代行",
+      "profile": {
+        "nickname": "403 Forbidden"
+      },
+      "counts": {
+        "services": 0,
+        "servicesSource": "market-research.json（土木/技術士 検索由来・関連サービスのみ＝全出品ではない）"
+      },
+      "price": {
+        "min": null,
+        "median": null,
+        "max": null,
+        "bands": {
+          "low": 0,
+          "mid": 0,
+          "high": 0,
+          "premium": 0
+        }
+      },
+      "cadence": null,
+      "platformExtra": {
+        "totalSales": null,
+        "totalReviews": 0,
+        "avgRating": null
+      },
+      "services": []
+    },
+    {
+      "handle": "1761437",
+      "label": "たくえい☘️アステラ法務コンサルティング",
+      "exams": [
+        "civil-construction-1",
+        "civil-construction-2"
+      ],
+      "note": "report-competitor-watch の追跡外候補から追加。ゼロから土木施工経験記述を作成",
+      "profile": {
+        "nickname": "403 Forbidden"
+      },
+      "counts": {
+        "services": 0,
+        "servicesSource": "market-research.json（土木/技術士 検索由来・関連サービスのみ＝全出品ではない）"
+      },
+      "price": {
+        "min": null,
+        "median": null,
+        "max": null,
+        "bands": {
+          "low": 0,
+          "mid": 0,
+          "high": 0,
+          "premium": 0
+        }
+      },
+      "cadence": null,
+      "platformExtra": {
+        "totalSales": null,
+        "totalReviews": 0,
+        "avgRating": null
+      },
+      "services": []
+    }
+  ]
+}
