@@ -1,7 +1,7 @@
 import { DataTable, PanelCard, StatusBadge, type DataTableColumn, type DataTableRow, type Tone } from '@/components/admin';
 import { Stack } from '@/components/layout';
 import { PageHead } from '@/components/ui';
-import { loadAutomations, type Automation, type CollectVerdict } from '@/lib/automations';
+import { loadAutomations, loadWorkflowRuns, type Automation, type CollectVerdict, type WorkflowRunStatus } from '@/lib/automations';
 
 export const dynamic = 'force-dynamic';
 
@@ -9,9 +9,12 @@ export const dynamic = 'force-dynamic';
  * /ops/automations — 自動化の台帳（read-only・DN-0817）。どこで（Mac の launchd か GitHub Actions）何がいつ動き、
  * ログインが要るか・誰が読むか。正本はデータセット config.automations、実物との一致は npm run check-automations（CI）が止める。
  * ログインが要る処理は土曜の Mac の 1 本（weekly-collect）だけで、その段ごとの最新の結果（取り直しを含む）を上に出す。
+ * GitHub Actions は直近の実行を gh で取り、監視中（データセット config.workflow-health）のものは check-workflow-health と同じ判定を出す。
  */
-export default function AutomationsPage() {
+export default async function AutomationsPage() {
   const v = loadAutomations();
+  const runs = await loadWorkflowRuns(v.automations);
+  const runErrors = [...runs.values()].filter((r) => r.error);
   const mac = v.automations.filter((a) => a.runner === 'mac-launchd');
   const ci = v.automations.filter((a) => a.runner === 'github-actions');
   return (
@@ -25,8 +28,9 @@ export default function AutomationsPage() {
         <PanelCard title="Mac の launchd">
           <DataTable columns={COLUMNS} rows={rows(mac)} pageSize={50} />
         </PanelCard>
-        <PanelCard title="GitHub Actions" description="CI はログインしない（ログイン用の Secrets・状態の復元を使うワークフローは check-automations と check-playwright-auth-wiring が止める）">
-          <DataTable columns={COLUMNS} rows={rows(ci)} pageSize={50} />
+        <PanelCard title="GitHub Actions" description={`直近の実行は gh run list から取る。監視は ${v.healthPath} に載る workflow だけで、判定は npm run check-workflow-health と同じ（最後の成功からの日数・連続失敗・cron の発火）。CI はログインしない（check-automations と check-playwright-auth-wiring が止める）`}>
+          {runErrors.length > 0 && <p className="project-warning-text text-sm">直近の実行を取れなかった workflow が {runErrors.length} 本ある（gh の認証・ネットワークを確かめる）: {runErrors[0].error}</p>}
+          <DataTable columns={CI_COLUMNS} rows={ciRows(ci, runs)} pageSize={50} />
         </PanelCard>
       </Stack>
     </>
@@ -68,6 +72,49 @@ function CollectTable({ v }: { v: CollectVerdict | null }) {
       <DataTable columns={STAGE_COLUMNS} rows={stageRows} pageSize={20} />
     </div>
   );
+}
+
+const RUN_LABEL: Record<string, string> = { success: '成功', failure: '失敗', timed_out: '時間切れ', cancelled: '取り消し', skipped: '飛ばした', in_progress: '実行中', queued: '待機中' };
+const RUN_TONE: Record<string, Tone> = { success: 'good', failure: 'bad', timed_out: 'bad', cancelled: 'neutral', skipped: 'neutral', in_progress: 'neutral', queued: 'neutral' };
+const EVENT_LABEL: Record<string, string> = { schedule: '定期', push: 'push', pull_request: 'PR', workflow_dispatch: '手動', workflow_run: '連鎖', release: 'release' };
+
+const CI_COLUMNS: DataTableColumn[] = [
+  { key: 'title', label: '名前', wrap: true },
+  { key: 'when', label: 'いつ', wrap: true },
+  { key: 'result', label: '直近の結果' },
+  { key: 'lastRun', label: '最終実行', wrap: true },
+  { key: 'health', label: '監視', wrap: true },
+  { key: 'purpose', label: '何をするか', wrap: true, sortable: false },
+  { key: 'readers', label: '読み手', wrap: true, sortable: false },
+];
+
+function ciRows(list: Automation[], runs: Map<string, WorkflowRunStatus>): DataTableRow[] {
+  return list.map((a) => {
+    const file = a.source.split('/').pop() as string;
+    const r = runs.get(file);
+    const key = r?.latest ? (r.latest.status === 'completed' ? r.latest.conclusion ?? 'unknown' : r.latest.status) : null;
+    const result = r?.error ? '未取得' : key ? (RUN_LABEL[key] ?? key) : '実行なし';
+    const health = !r || r.error ? null : r.health ? (r.health.ok ? '健全' : `不健全: ${r.health.detail}`) : '監視対象外';
+    const failures = r?.consecutiveFailures ? `・連続失敗 ${r.consecutiveFailures}` : '';
+    return {
+      id: a.id,
+      values: {
+        title: `${a.title}（${file}）`,
+        when: a.scheduleJst ?? (a.schedule.length ? a.schedule.join(' / ') : a.triggers.join('・')),
+        result,
+        lastRun: r?.latest ? `${at(r.latest.createdAt)}（${EVENT_LABEL[r.latest.event] ?? r.latest.event}）${failures}` : null,
+        health,
+        purpose: a.purpose,
+        readers: a.readers.join('・'),
+      },
+      cells: {
+        result: <StatusBadge tone={r?.error ? 'warn' : key ? (RUN_TONE[key] ?? 'neutral') : 'neutral'}>{result}</StatusBadge>,
+        health: health === null ? <span className="text-muted-foreground">—</span>
+          : r?.health ? <StatusBadge tone={r.health.ok ? 'good' : 'bad'}>{health}</StatusBadge>
+          : <span className="text-muted-foreground">{health}</span>,
+      },
+    };
+  });
 }
 
 const COLUMNS: DataTableColumn[] = [
