@@ -52,3 +52,16 @@ test('addService・queryServices: 既知の URL は語だけ足し、語ごと�
   assert.deepEqual(queryServices(research, 'a').map((s) => s.url), ['x']);
   assert.deepEqual(queryServices(research, 'none'), []);
 });
+
+// 2026-10-25: CI の取り直しでヒット 195・1,091 件なのにカードを 0 件しか読めず、10/01 の 1,548 件を空で上書きした
+test('unreadableQueries: ヒットがあるのに 0 件の語と、全部の語で 0 件を拾う・ヒット 0 の語は読めなくてよい', async () => {
+  const { unreadableQueries } = await import('../scripts/lib/coconala-market.mjs');
+  const counts = { a: 0, b: 0, c: 5, d: 0 };
+  const n = (k) => counts[k];
+  assert.deepEqual(unreadableQueries([{ keyword: 'a', totalHits: 195 }, { keyword: 'b', totalHits: 1091 }], n), { unreadable: ['a', 'b'], nothingAtAll: true });
+  assert.deepEqual(unreadableQueries([{ keyword: 'a', totalHits: 195 }, { keyword: 'c', totalHits: 5 }], n), { unreadable: ['a'], nothingAtAll: false });
+  assert.deepEqual(unreadableQueries([{ keyword: 'c', totalHits: 5 }, { keyword: 'd', totalHits: 0 }], n), { unreadable: [], nothingAtAll: false });
+  // ヒット数すら読めない（ページの構造が丸ごと変わった）ときは、全部 0 件で止める
+  assert.deepEqual(unreadableQueries([{ keyword: 'a', totalHits: null }, { keyword: 'd', totalHits: null }], n), { unreadable: [], nothingAtAll: true });
+  assert.deepEqual(unreadableQueries([], n), { unreadable: [], nothingAtAll: false });
+});

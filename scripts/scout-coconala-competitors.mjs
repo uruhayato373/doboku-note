@@ -155,6 +155,13 @@ async function main() {
     process.exit(1);
   }
   const PARTIAL = Boolean(HANDLE_OVERRIDE);
+  // 出品は検索結果（market-research.json）から引く。そこが空なら全セラーが出品 0 件の記録になる
+  //（2026-10-25 に検索結果が空で上書きされ、23 セラーとも 0 件の snapshot を「成功」として書いた）。取る前に止める
+  const market = loadMarketServices();
+  if (market.length === 0) {
+    console.error(`[scout-coconala-competitors] ✗ 検査不成立: ${datasetPath('coconala.market-research')} に出品が 1 件も無い（検索結果の取得が空か壊れている）。snapshot は書かない`);
+    process.exit(1);
+  }
 
   console.log('=== ココナラ競合偵察（公開プロフィール read-only）===');
   console.log(`対象: ${competitors.length} セラー\n`);
@@ -171,7 +178,6 @@ async function main() {
   const ctx = await chromium.launchPersistentContext(PROFILE, leanContextOptions(launchOptions));
   const page = ctx.pages()[0] ?? (await ctx.newPage());
 
-  const market = loadMarketServices();
   const results = [];
   let failed = 0;
   for (const comp of competitors) {

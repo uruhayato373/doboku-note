@@ -48,7 +48,7 @@ import { dirname, join } from 'node:path';
 import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
 import { leanContextOptions } from './lib/playwright-launch.mjs';
 import { datasetPath } from './lib/datasets.mjs';
-import { RESEARCH_VERSION, addService, indexServices, queryServices, toStoredResearch } from './lib/coconala-market.mjs';
+import { RESEARCH_VERSION, addService, indexServices, queryServices, toStoredResearch, unreadableQueries } from './lib/coconala-market.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
 const OUT_PATH = join(ROOT, datasetPath('coconala.market-research'));
@@ -225,6 +225,7 @@ async function main() {
     console.log(`[coconala-research] --refresh: 既存 ${queries.length} 語を取り直す`);
   }
 
+  const attempted = [];
   for (const keyword of queries) {
     // --- 再開: 既存クエリを引き継ぐ ---
     let q = result.queries.find((x) => x.keyword === keyword);
@@ -320,6 +321,12 @@ async function main() {
       if (!hasNext) break;
       await page.waitForTimeout(1500); // 礼節
     }
+    attempted.push(q);
+    // ヒットがあるのに 1 件も読めない語は「完了」にしない（再実行で取り直す・最後に検査不成立で止める）
+    if (unreadableQueries([q], collected).unreadable.length) {
+      console.error(`[coconala-research] ✗ ${keyword}: ヒット ${q.totalHits} 件なのに出品を 1 件も読めない（ページの構造の変更かボット判定）`);
+      continue;
+    }
 
     // 詳細ページ（レビュー数の多い順に上位 N 件・未取得のものだけ）
     const top = queryServices(result, keyword)
@@ -366,6 +373,12 @@ async function main() {
   }
 
   await ctx.close();
+  // 読めなかった語があれば、空や欠けた記録で前回の取得を上書きしない（2026-10-25 に 10/01 の 1,548 件を空で上書きした）
+  const { unreadable, nothingAtAll } = unreadableQueries(attempted, (k) => queryServices(result, k).length);
+  if (unreadable.length || nothingAtAll) {
+    console.error(`[coconala-research] ✗ 検査不成立: 取り直した ${attempted.length} 語のうち ${unreadable.length} 語でヒットがあるのに出品を読めない${nothingAtAll ? '（全部の語で 0 件）' : ''}: ${unreadable.join('・')}。market-research.json と market-summary.json は書かない`);
+    process.exit(1);
+  }
   save(result);
   writeSummary(result);
   console.log(`[coconala-research] ✓ ${result.queries.length} クエリ / ${result.services.length} サービス（URL で一意）を ${OUT_PATH} に保存`);
