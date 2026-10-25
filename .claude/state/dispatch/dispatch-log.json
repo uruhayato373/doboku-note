@@ -5826,6 +5826,19 @@
       "commit": "1e45a92ae75e",
       "verification": "gh api repos/uruhayato373/doboku-note/dependabot/alerts で open 0 件（2026-10-25）。PR #1221・#1222 の CI（build・e2e・lighthouse・audit）合格。npm run check-production-ssr exit 0",
       "note": "next を 16.4.3、zod を 4.6.7、fast-uri を 3.1.9 へ上げ（PR #1221）、Lighthouse CI の間接依存 chromium-bidi の zod 3.25.76 も overrides で 4 系へ寄せて lockfile の zod を 1 つにした（PR #1222・Lighthouse CI は 4 URL×3 回で合格）。Dependabot の zod・fast-uri の PR #1218・#1219 は R2 の認証が渡らず audit が落ちる作りのため #1221 に取り込んで閉じた。本番反映 main 8ef9a592b・2e283fe81（check-production-ssr 合格）。Dependabot の警告は next #106・#107・#109 と fast-uri #112〜#115 が fixed、zod #110 は auto_dismissed で、open は 0 件。"
+    },
+    {
+      "id": "DN-0851",
+      "at": "2026-10-25",
+      "task": "管理画面の自動化を Mac と CI の画面に分け、部品と表を共通化する",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "0063ed0bea93",
+      "verification": "#1233・#1235・#1236 を develop に squash（0559b0ca8・116cbf1e3・0063ed0be）。各 PR の CI（audit・build）が緑。/ops/mac・/ops/ci・/metrics/business/weekly を worktree の管理画面で開き、土曜の流れ（収集の前・GSC の記録・週次レビュー・収集の後）と CI の直近の結果・Issue の振り分けが出ることを確認。check-admin-ui-debt は手組みの表 72→14・shadcn の Card の直接利用 1（section-cards）・Badge 0 で基準値に固定",
+      "note": "管理画面の自動化を /ops/mac（土曜の流れ）と /ops/ci に分け、囲み・状態・書式を共通部品にそろえ、一覧の表を DataTable に移した"
     }
   ]
 }
