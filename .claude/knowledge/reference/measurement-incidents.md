@@ -8,6 +8,14 @@ title: 計測・検証事故の記録
 
 個別事例は時系列の逆順（新しい順）で追記する。各事例は「現象 / 根本原因 / 気づきの遅延理由（or 検出経緯）/ 適用した対策 / 教訓」を明記する。
 
+## 2026-10-25 — ココナラの検索結果を 1 件も読めないまま「完了」とし、前回の 1,548 件を空で上書きした
+
+- 現象: 10/25 に competitor-scan を手動で流したところ、ココナラの段は成功と出た。しかし `coconala-research --refresh` は、検索のヒットが 195・1,091 件あるのに出品カードを 0 件しか読めず（`pagesScanned: 0`・`complete: true`）、`market-research.json`（10/01 の出品 1,548 件）と `market-summary.json` を空で上書きした。続く `scout-coconala-competitors` は出品をその検索結果から引くため、23 セラーとも出品 0 件の snapshot を書いた。develop に入った後、`dataset-schemas-market` のテスト 3 本（実データに 1 件以上ある前提）が赤くなり、無関係な PR #1226 の CI も落ちた。
+- 根本原因: 1 ページ目でカードが 0 件だとページのループを抜け、そのままその語を `complete` にして保存していた。`--refresh` は前回の出品を先に消すので、読めなかった回が空の記録として残った。ヒット数とのずれを確かめる段が無かった。ページの構造の変更か CI のボット判定かは未確認。
+- 検出経緯: PR #1226 の audit の unit-tests の失敗を develop で再現し、直前の bot の commit（quarterly snapshots 2026-10-25）の差分を見た（market-research.json が 22,002 行減っていた）。
+- 対策: 記録を前回の内容に戻した（`0f0bc88`）。`scripts/lib/coconala-market.mjs` の `unreadableQueries` で、ヒットがあるのに 0 件の語と、全部の語で 0 件を拾う。そうした語は `complete` にせず、最後に保存とサマリーの生成をせずに exit 1（検査不成立）で終える。`scout-coconala-competitors` も、検索結果に出品が無ければ snapshot を書かずに exit 1。CI は成功した段だけを公開するので、空の記録は develop に入らない。
+- 教訓: 取得系のスクリプトは「終わった」と「読めた」を分けて判定する。ヒット数など、件数が分かる外部の値があれば、読めた数と突き合わせる。前回の記録を消してから取り直す作りでは、読めなかったときに前回を残す道を先に作る。
+
 ## 2026-10-25 — automerge の引き金の名前の `+` が glob と読まれ、Pre-merge の完了で一度も起動していなかった
 
 - 現象: PR #1223 に automerge ラベルを付けたが、Pre-merge（audit・build）が緑で終わっても 10 分マージされず、手で squash した。`automerge.yml` の workflow_run は、記録の残る 10-09〜10-25 に Pre-merge が 999 回完了したうち 0 回しか起動していなかった（近くで起動した 25 回は E2E・Lighthouse の完了で説明できる）。E2E・Lighthouse の完了では 559/782 回・441/637 回起動していた。

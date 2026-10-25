@@ -19,6 +19,19 @@ export const RESEARCH_VERSION = 2;
 export const queryServices = (research, keyword) => (research.services ?? []).filter((s) => s.queries?.includes(keyword));
 
 /**
+ * 読めなかった検索語（pure）。検索のヒットがあるのに出品を 1 件も読めなかった語と、全部の語で 1 件も読めなかったか。
+ * 2026-10-25 の CI の取り直しでは、ヒット 195・1,091 件なのにカードを 0 件しか読めず（pagesScanned 0）、
+ * 「完了」として 10/01 の出品 1,548 件を空で上書きした。ページの構造の変更かボット判定のどちらでも、記録は書かない。
+ * @param {{ keyword: string, totalHits: number | null }[]} queries 今回取り直した語
+ * @param {(keyword: string) => number} collected 語ごとに読めた出品の数
+ */
+export function unreadableQueries(queries, collected) {
+  const unreadable = queries.filter((q) => (q.totalHits ?? 0) > 0 && collected(q.keyword) === 0).map((q) => q.keyword);
+  const nothingAtAll = queries.length > 0 && queries.every((q) => collected(q.keyword) === 0);
+  return { unreadable, nothingAtAll };
+}
+
+/**
  * 検索語 keyword で見つけた出品を research.services へ足す。URL が既にあれば語だけ足す（先に取った値を採る）。
  * index は URL → 出品の Map（呼び手が持ち回る）。新しく足したら true。
  */
