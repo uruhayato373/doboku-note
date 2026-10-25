@@ -8,45 +8,9 @@
     "rawBadge": 0,
     "uiCard": 1,
     "uiBadge": 0,
-    "handTable": 72
+    "handTable": 14
   },
   "files": {
-    "tools/admin-app/src/app/affiliate/placements/page.tsx": {
-      "rawCard": 0,
-      "inlineStyle": 0,
-      "rawTable": 0,
-      "rawBadge": 0,
-      "uiCard": 0,
-      "uiBadge": 0,
-      "handTable": 2
-    },
-    "tools/admin-app/src/app/affiliate/programs/page.tsx": {
-      "rawCard": 0,
-      "inlineStyle": 0,
-      "rawTable": 0,
-      "rawBadge": 0,
-      "uiCard": 0,
-      "uiBadge": 0,
-      "handTable": 1
-    },
-    "tools/admin-app/src/app/agents/page.tsx": {
-      "rawCard": 0,
-      "inlineStyle": 0,
-      "rawTable": 0,
-      "rawBadge": 0,
-      "uiCard": 0,
-      "uiBadge": 0,
-      "handTable": 1
-    },
-    "tools/admin-app/src/app/content/articles/page.tsx": {
-      "rawCard": 0,
-      "inlineStyle": 0,
-      "rawTable": 0,
-      "rawBadge": 0,
-      "uiCard": 0,
-      "uiBadge": 0,
-      "handTable": 1
-    },
     "tools/admin-app/src/app/content/items/[exam]/[work]/page.tsx": {
       "rawCard": 0,
       "inlineStyle": 0,
@@ -54,36 +18,9 @@
       "rawBadge": 0,
       "uiCard": 0,
       "uiBadge": 0,
-      "handTable": 7
-    },
-    "tools/admin-app/src/app/content/kindle/page.tsx": {
-      "rawCard": 0,
-      "inlineStyle": 0,
-      "rawTable": 0,
-      "rawBadge": 0,
-      "uiCard": 0,
-      "uiBadge": 0,
-      "handTable": 2
+      "handTable": 5
     },
     "tools/admin-app/src/app/content/ledger/coconala/[id]/page.tsx": {
-      "rawCard": 0,
-      "inlineStyle": 0,
-      "rawTable": 0,
-      "rawBadge": 0,
-      "uiCard": 0,
-      "uiBadge": 0,
-      "handTable": 1
-    },
-    "tools/admin-app/src/app/content/ledger/page.tsx": {
-      "rawCard": 0,
-      "inlineStyle": 0,
-      "rawTable": 0,
-      "rawBadge": 0,
-      "uiCard": 0,
-      "uiBadge": 0,
-      "handTable": 1
-    },
-    "tools/admin-app/src/app/content/lifecycle/page.tsx": {
       "rawCard": 0,
       "inlineStyle": 0,
       "rawTable": 0,
@@ -101,70 +38,7 @@
       "uiBadge": 0,
       "handTable": 1
     },
-    "tools/admin-app/src/app/content/magazines/page.tsx": {
-      "rawCard": 0,
-      "inlineStyle": 0,
-      "rawTable": 0,
-      "rawBadge": 0,
-      "uiCard": 0,
-      "uiBadge": 0,
-      "handTable": 1
-    },
-    "tools/admin-app/src/app/content/note-status/page.tsx": {
-      "rawCard": 0,
-      "inlineStyle": 0,
-      "rawTable": 0,
-      "rawBadge": 0,
-      "uiCard": 0,
-      "uiBadge": 0,
-      "handTable": 2
-    },
-    "tools/admin-app/src/app/content/note/page.tsx": {
-      "rawCard": 0,
-      "inlineStyle": 0,
-      "rawTable": 0,
-      "rawBadge": 0,
-      "uiCard": 0,
-      "uiBadge": 0,
-      "handTable": 1
-    },
     "tools/admin-app/src/app/content/series/page.tsx": {
-      "rawCard": 0,
-      "inlineStyle": 0,
-      "rawTable": 0,
-      "rawBadge": 0,
-      "uiCard": 0,
-      "uiBadge": 0,
-      "handTable": 3
-    },
-    "tools/admin-app/src/app/content/video/page.tsx": {
-      "rawCard": 0,
-      "inlineStyle": 0,
-      "rawTable": 0,
-      "rawBadge": 0,
-      "uiCard": 0,
-      "uiBadge": 0,
-      "handTable": 1
-    },
-    "tools/admin-app/src/app/domains/[id]/page.tsx": {
-      "rawCard": 0,
-      "inlineStyle": 0,
-      "rawTable": 0,
-      "rawBadge": 0,
-      "uiCard": 0,
-      "uiBadge": 0,
-      "handTable": 3
-    },
-    "tools/admin-app/src/app/materials/page.tsx": {
-      "rawCard": 0,
-      "inlineStyle": 0,
-      "rawTable": 0,
-      "rawBadge": 0,
-      "uiCard": 0,
-      "uiBadge": 0,
-      "handTable": 3
-    },
-    "tools/admin-app/src/app/metrics/index/page.tsx": {
       "rawCard": 0,
       "inlineStyle": 0,
       "rawTable": 0,
@@ -182,15 +56,6 @@
       "uiBadge": 0,
       "handTable": 1
     },
-    "tools/admin-app/src/app/metrics/psi/page.tsx": {
-      "rawCard": 0,
-      "inlineStyle": 0,
-      "rawTable": 0,
-      "rawBadge": 0,
-      "uiCard": 0,
-      "uiBadge": 0,
-      "handTable": 1
-    },
     "tools/admin-app/src/app/metrics/search-strategy/page.tsx": {
       "rawCard": 0,
       "inlineStyle": 0,
@@ -200,106 +65,7 @@
       "uiBadge": 0,
       "handTable": 0
     },
-    "tools/admin-app/src/app/metrics/video/page.tsx": {
-      "rawCard": 0,
-      "inlineStyle": 0,
-      "rawTable": 0,
-      "rawBadge": 0,
-      "uiCard": 0,
-      "uiBadge": 0,
-      "handTable": 2
-    },
-    "tools/admin-app/src/app/ops/auth/page.tsx": {
-      "rawCard": 0,
-      "inlineStyle": 0,
-      "rawTable": 0,
-      "rawBadge": 0,
-      "uiCard": 0,
-      "uiBadge": 0,
-      "handTable": 1
-    },
-    "tools/admin-app/src/app/ops/store/dataset-query.tsx": {
-      "rawCard": 0,
-      "inlineStyle": 0,
-      "rawTable": 0,
-      "rawBadge": 0,
-      "uiCard": 0,
-      "uiBadge": 0,
-      "handTable": 1
-    },
-    "tools/admin-app/src/app/ops/store/page.tsx": {
-      "rawCard": 0,
-      "inlineStyle": 0,
-      "rawTable": 0,
-      "rawBadge": 0,
-      "uiCard": 0,
-      "uiBadge": 0,
-      "handTable": 5
-    },
-    "tools/admin-app/src/app/ops/store/qualification-ssot.tsx": {
-      "rawCard": 0,
-      "inlineStyle": 0,
-      "rawTable": 0,
-      "rawBadge": 0,
-      "uiCard": 0,
-      "uiBadge": 0,
-      "handTable": 3
-    },
     "tools/admin-app/src/app/plan/roadmap/page.tsx": {
-      "rawCard": 0,
-      "inlineStyle": 0,
-      "rawTable": 0,
-      "rawBadge": 0,
-      "uiCard": 0,
-      "uiBadge": 0,
-      "handTable": 1
-    },
-    "tools/admin-app/src/app/product/design/page.tsx": {
-      "rawCard": 0,
-      "inlineStyle": 0,
-      "rawTable": 0,
-      "rawBadge": 0,
-      "uiCard": 0,
-      "uiBadge": 0,
-      "handTable": 4
-    },
-    "tools/admin-app/src/app/product/status/page.tsx": {
-      "rawCard": 0,
-      "inlineStyle": 0,
-      "rawTable": 0,
-      "rawBadge": 0,
-      "uiCard": 0,
-      "uiBadge": 0,
-      "handTable": 1
-    },
-    "tools/admin-app/src/app/quality/page.tsx": {
-      "rawCard": 0,
-      "inlineStyle": 0,
-      "rawTable": 0,
-      "rawBadge": 0,
-      "uiCard": 0,
-      "uiBadge": 0,
-      "handTable": 1
-    },
-    "tools/admin-app/src/app/quality/PastExamLedgerPanel.tsx": {
-      "rawCard": 0,
-      "inlineStyle": 0,
-      "rawTable": 0,
-      "rawBadge": 0,
-      "uiCard": 0,
-      "uiBadge": 0,
-      "handTable": 2
-    },
-    "tools/admin-app/src/app/quality/progress/page.tsx": {
-      "rawCard": 0,
-      "inlineStyle": 0,
-      "rawTable": 0,
-      "rawBadge": 0,
-      "uiCard": 0,
-      "uiBadge": 0,
-      "handTable": 1
-    },
-    "tools/admin-app/src/app/sales/page.tsx": {
       "rawCard": 0,
       "inlineStyle": 0,
       "rawTable": 0,
@@ -315,43 +81,7 @@
       "rawBadge": 0,
       "uiCard": 0,
       "uiBadge": 0,
-      "handTable": 3
-    },
-    "tools/admin-app/src/app/sns/page.tsx": {
-      "rawCard": 0,
-      "inlineStyle": 0,
-      "rawTable": 0,
-      "rawBadge": 0,
-      "uiCard": 0,
-      "uiBadge": 0,
-      "handTable": 4
-    },
-    "tools/admin-app/src/app/strategy/competitors/page.tsx": {
-      "rawCard": 0,
-      "inlineStyle": 0,
-      "rawTable": 0,
-      "rawBadge": 0,
-      "uiCard": 0,
-      "uiBadge": 0,
-      "handTable": 1
-    },
-    "tools/admin-app/src/app/strategy/market/page.tsx": {
-      "rawCard": 0,
-      "inlineStyle": 0,
-      "rawTable": 0,
-      "rawBadge": 0,
-      "uiCard": 0,
-      "uiBadge": 0,
-      "handTable": 1
-    },
-    "tools/admin-app/src/app/strategy/qualifications/page.tsx": {
-      "rawCard": 0,
-      "inlineStyle": 0,
-      "rawTable": 0,
-      "rawBadge": 0,
-      "uiCard": 0,
-      "uiBadge": 0,
-      "handTable": 1
+      "handTable": 2
     },
     "tools/admin-app/src/app/strategy/taxonomy/page.tsx": {
       "rawCard": 0,
@@ -360,7 +90,7 @@
       "rawBadge": 0,
       "uiCard": 0,
       "uiBadge": 0,
-      "handTable": 2
+      "handTable": 1
     },
     "tools/admin-app/src/app/todo/page.tsx": {
       "rawCard": 0,
@@ -369,7 +99,7 @@
       "rawBadge": 0,
       "uiCard": 0,
       "uiBadge": 0,
-      "handTable": 2
+      "handTable": 1
     }
   }
 }

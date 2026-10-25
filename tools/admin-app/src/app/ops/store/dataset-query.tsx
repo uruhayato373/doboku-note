@@ -1,8 +1,9 @@
-import { EmptyRow, PanelCard, StatusBadge, TableBody, TableCell, TableFrame, TableHead, TableHeader, TableRow } from '@/components/admin';
+import { DataTable, PanelCard, StatusBadge, type DataTableColumn, type DataTableRow } from '@/components/admin';
 import { findRepoRoot } from '@/lib/repo-root';
 import { queryDataset } from '../../../../../../scripts/lib/dataset-query.mjs';
 
 const LIMIT = 50;
+const ROW_COLUMNS: DataTableColumn[] = [{ key: 'row', label: '行', wrap: true, sortable: false }];
 const compact = (row: unknown) => {
   const s = JSON.stringify(row);
   return s.length > 240 ? `${s.slice(0, 240)}…` : s;
@@ -20,6 +21,10 @@ export function DatasetQuery({ id, area, domain, q }: { id: string; area: string
   } catch (e) {
     error = (e as Error).message;
   }
+  const rows: DataTableRow[] = (result?.rows ?? []).map((row, i) => {
+    const text = compact(row);
+    return { id: String(i), values: { row: text }, cells: { row: <code className="break-all text-xs">{text}</code> } };
+  });
   return (
     <PanelCard
       title={<>行を絞る {result && <StatusBadge tone="neutral">{result.total} 行</StatusBadge>}</>}
@@ -35,21 +40,7 @@ export function DatasetQuery({ id, area, domain, q }: { id: string; area: string
       {error ? (
         <p className="text-sm text-muted-foreground">{error}</p>
       ) : (
-        <TableFrame>
-          <TableHeader>
-            <TableRow>
-              <TableHead>行</TableHead>
-            </TableRow>
-          </TableHeader>
-          <TableBody>
-            {result!.rows.length === 0 && <EmptyRow colSpan={1}>該当なし</EmptyRow>}
-            {result!.rows.map((row, i) => (
-              <TableRow key={i}>
-                <TableCell className="whitespace-normal"><code className="break-all text-xs">{compact(row)}</code></TableCell>
-              </TableRow>
-            ))}
-          </TableBody>
-        </TableFrame>
+        <DataTable columns={ROW_COLUMNS} rows={rows} pageSize={LIMIT} emptyText="該当なし" />
       )}
       {result && result.total > result.rows.length && <p className="mt-2 text-xs text-muted-foreground">先頭 {result.rows.length} 行を表示（全 {result.total} 行）</p>}
     </PanelCard>

@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { redirect } from 'next/navigation';
-import { Facet, FacetHead, FacetShell, PanelCard, StatusBadge, TableBody, TableCell, TableFrame, TableHead, TableHeader, TableRow, type FacetItem, type Tone } from '@/components/admin';
+import { DataTable, Facet, FacetHead, FacetShell, PanelCard, StatusBadge, TableBody, TableCell, TableFrame, TableHead, TableHeader, TableRow, type DataTableColumn, type DataTableRow, type FacetItem, type Tone } from '@/components/admin';
 import { PageHead } from '@/components/ui';
 import { MonthlyReviewPlan } from '@/components/MonthlyReviewPlan';
 import { renderMarkdown } from '@/lib/markdown';
@@ -271,7 +271,8 @@ function BacklogTable({
   );
 }
 
-function PlanStatusBadge({ card }: { card: TodoCard }) {
+/** 計画項目の状態ラベルとトーン（値と StatusBadge の両方がこれを使う）。 */
+function planStatus(card: TodoCard): { status: string; tone: Tone } {
   const raw = card.status || '';
   const status = card.complete
     ? '完了'
@@ -285,7 +286,7 @@ function PlanStatusBadge({ card }: { card: TodoCard }) {
             ? '未着手'
             : '計画';
   const tone: Tone = card.complete ? 'good' : /待ち|保留/.test(status) ? 'warn' : /進行|着手/.test(status) ? 'info' : 'neutral';
-  return <StatusBadge tone={tone}>{status}</StatusBadge>;
+  return { status, tone };
 }
 
 function PlanTable({
@@ -301,32 +302,31 @@ function PlanTable({
   if (!cards.length) return <p className="text-sm text-muted-foreground">計画項目がありません</p>;
   const ordered = annual ? cards : [...cards].sort((a, b) => Number(a.complete) - Number(b.complete));
   const hasOwner = !annual && cards.some((card) => card.owner);
-  return (
-    <TableFrame tableClassName="min-w-[680px]">
-      <TableHeader>
-        <TableRow>
-          {!annual ? <TableHead className="w-[190px] max-[900px]:w-[150px]">区分</TableHead> : null}
-          <TableHead>{annual ? '時期・テーマ' : '実行項目'}</TableHead>
-          {!annual ? <TableHead className="w-[116px] max-[900px]:hidden">状態</TableHead> : null}
-          {hasOwner ? <TableHead className="w-[92px]">担当</TableHead> : null}
-        </TableRow>
-      </TableHeader>
-      <TableBody className="[&_td]:align-top">
-        {ordered.map((card) => (
-          <TableRow key={card.path + card.line} className={card.complete ? 'is-complete' : undefined}>
-            {!annual ? <TableCell className="max-[900px]:w-[150px]">{card.section ?? card.fileLabel}</TableCell> : null}
-            <TableCell className="whitespace-normal min-w-0 [overflow-wrap:anywhere]">
-              <TaskLink card={card} />
-              {card.id ? <span className="todo-id">{card.id}</span> : null}
-              {backlogRefs ? <BacklogJoinInfo id={card.id} index={backlogRefs} /> : null}
-            </TableCell>
-            {!annual ? <TableCell><PlanStatusBadge card={card} /></TableCell> : null}
-            {hasOwner ? <TableCell>{card.owner ?? <span className="text-muted-foreground">—</span>}</TableCell> : null}
-          </TableRow>
-        ))}
-      </TableBody>
-    </TableFrame>
-  );
+  const columns: DataTableColumn[] = [
+    ...(!annual ? [{ key: 'section', label: '区分', wrap: true }] : []),
+    { key: 'title', label: annual ? '時期・テーマ' : '実行項目', wrap: true },
+    ...(!annual ? [{ key: 'status', label: '状態' }] : []),
+    ...(hasOwner ? [{ key: 'owner', label: '担当' }] : []),
+  ];
+  const rows: DataTableRow[] = ordered.map((card) => {
+    const { status, tone } = planStatus(card);
+    return {
+      id: card.path + card.line,
+      values: { section: card.section ?? card.fileLabel, title: card.title, status, owner: card.owner ?? null },
+      cells: {
+        title: (
+          <div className="min-w-0 [overflow-wrap:anywhere]">
+            <TaskLink card={card} />
+            {card.id ? <span className="todo-id">{card.id}</span> : null}
+            {backlogRefs ? <BacklogJoinInfo id={card.id} index={backlogRefs} /> : null}
+          </div>
+        ),
+        status: <StatusBadge tone={tone}>{status}</StatusBadge>,
+        owner: card.owner ?? <span className="text-muted-foreground">—</span>,
+      },
+    };
+  });
+  return <DataTable columns={columns} rows={rows} pageSize={100} filter={rows.length > 30 ? '区分・項目で絞り込む' : undefined} />;
 }
 
 export default async function TodoPage({ searchParams }: { searchParams: Promise<Query> }) {
