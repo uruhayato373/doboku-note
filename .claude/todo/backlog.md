@@ -303,6 +303,16 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-0851] 管理画面の自動化を Mac と CI の画面に分け、部品と表を共通化する
+タグ: [領域:管理] [時期:2026-10] [種類:改善] [起票:2026-10-25]
+
+**起点**: 2026-10-25、運営者から「週次レビューで Mac でやることと CI でやることが混ざっている。ページを分け、shadcn の DataTable などで UI をもっと共通化できるはず」。調べると、土曜の Mac の結果は `/ops/automations`（収集の段）と `/metrics/business/weekly`（launchd の最後の実行・下書き）に分かれ、GSC の記録層（DN-0849）の結果はどこにも出ていない。表は DataTable が 6 ページだけで、TableFrame を手で組んだ表が 39 ページ 72 個（少なくとも 49 個は結合・合計行の無い一覧）。shadcn の Card を直接使う画面が 3、Badge が 9、金額・日時の書式が各画面で書き写されている。
+
+**やること**: 計画 [DN-0851-admin-ops-split-ui-commonize.md](../plans/DN-0851-admin-ops-split-ui-commonize.md) のとおり、(1) `/ops/automations` を「Mac の自動実行」`/ops/mac` と「CI」`/ops/ci` に分け、土曜の流れを実行順に 1 本の表で出し、自動化の Issue を Mac・CI・台帳に無い channel に分ける (2) Card→PanelCard・Badge→StatusBadge・金額と日時の書式を 1 か所に寄せる (3) 一覧の表を DataTable に移し、手組みの表を増やさないラチェットを足す。
+
+**完了条件**: 3 本の PR が develop に入り、`/ops/mac`・`/ops/ci` をブラウザで開いて土曜の流れ（収集の前・GSC の記録・週次レビュー・収集の後）と CI の直近の結果が出る。`npm run check-admin-ui-debt` が TableFrame の一覧・shadcn の Card/Badge の直接利用を数え、増えない。`npm run quality:audit:ci` が緑。
+
+
 ### [DN-0850] 公的基準の版面のまま残った表 1,176 種類を原本照合で組み直し、描画検査を全文書へ広げる
 タグ: [領域:サイト] [時期:2026-10..2026-11] [種類:改善] [起票:2026-10-25]
 
