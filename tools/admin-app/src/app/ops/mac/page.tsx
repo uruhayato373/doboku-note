@@ -2,17 +2,16 @@ import { DataTable, PanelCard, StatusBadge, type DataTableColumn, type DataTable
 import { Stack } from '@/components/layout';
 import { PageHead } from '@/components/ui';
 import { loadAutomationIssues, loadAutomations, loadSaturday, type Automation, type CollectVerdict, type SaturdayView } from '@/lib/automations';
-import { fileOf, IssueTable, whenOf } from '../automation-parts';
 import { jstDateTime } from '@/lib/format';
+import { IssueTable, whenOf } from '../automation-parts';
 
 export const dynamic = 'force-dynamic';
 
 /**
- * /ops/mac — Mac の自動実行（read-only・DN-0851）。ログインが要る取得と書き込みは土曜の Mac の 1 本
- * （scripts/scheduled/weekly-review.sh）だけで、収集の前 → GSC の記録 → 週次レビュー → 収集の後の順に回る。
- * その段ごとの最後の結果を実行順に 1 本の表で出す。判定はどれも既存の部品のまま（収集＝weekly-collect-plan の judgeRuns、
- * GSC の記録＝check-gsc-auto-review --json の gates、レビュー＝review-automation の weeklyLaunchd）。
- * CI（GitHub Actions）は /ops/ci。週次レビューの画面は、この画面へのリンクと回の目印だけを持つ。
+ * /ops/mac — Mac の自動実行（read-only・DN-0851）。人が見る画面なので、土曜の流れ（収集の前 → GSC の記録 → 週次レビュー →
+ * 収集の後）の段ごとの結果と、収集の段のうち落ちたものの理由だけを出す。判定は既存の部品のまま
+ * （収集＝weekly-collect-plan の judgeRuns、GSC の記録＝check-gsc-auto-review --json の gates、レビュー＝review-automation の weeklyLaunchd）。
+ * ログの置き場・取り直しのコマンドは scripts/scheduled/weekly-review.sh と docs/operations/04_自動化マップ.md にある。
  */
 export default async function MacAutomationsPage() {
   const v = loadAutomations();
@@ -20,20 +19,20 @@ export default async function MacAutomationsPage() {
   const mac = v.automations.filter((a) => a.runner === 'mac-launchd');
   return (
     <>
-      <PageHead title="Mac の自動実行" sub={`launchd ${mac.length} 本。ログインが要る取得と書き込みは土曜の 1 本だけ（収集の前 → GSC の記録 → 週次レビュー → 収集の後）。台帳は ${v.ledgerPath}（実物との一致は npm run check-automations）`} />
+      <PageHead title="Mac の自動実行" />
       <Stack>
         {v.error && <p className="project-warning-text text-sm">読めなかった: {v.error}</p>}
-        <PanelCard title="土曜の流れ" description={`段ごとの最後の結果（実行順）。ログは ${sat.logFile}。取り直しは npm run weekly-review:install -- --run-now、収集の 1 段だけなら node scripts/weekly-collect.mjs --only <段>`}>
+        <PanelCard title="土曜の流れ">
           <DataTable columns={CHAIN_COLUMNS} rows={chainRows(v.collect, sat)} pageSize={10} />
         </PanelCard>
-        <PanelCard title="収集の段ごとの最新の結果" description={`ログインが要る取得と書き込み、取った記録の検算（scripts/weekly-collect.mjs）。運営者の取り直し（--only）も数える。記録は ${v.runsPath}。日次の死活は check-weekly-collect:alive、この表と同じ判定は check-weekly-collect`}>
+        <PanelCard title="収集の段">
           <CollectTable v={v.collect} />
         </PanelCard>
-        <PanelCard title="Mac の自動化の Issue" description="土曜の収集（weekly-collect）・週次レビュー（weekly-review-local）・GSC の記録（gsc-auto-review）。次の土曜に段が通ると自動で閉じる">
+        <PanelCard title="開いている Issue">
           <IssueTable view={issues} issues={issues.issues.filter((i) => i.runner === 'mac-launchd')} />
         </PanelCard>
-        <PanelCard title="launchd の一覧">
-          <DataTable columns={COLUMNS} rows={rows(mac)} pageSize={50} />
+        <PanelCard title="登録している定期実行">
+          <DataTable columns={LAUNCHD_COLUMNS} rows={launchdRows(mac)} pageSize={10} />
         </PanelCard>
       </Stack>
     </>
@@ -42,119 +41,93 @@ export default async function MacAutomationsPage() {
 
 type StepStatus = 'ok' | 'warn' | 'failed' | 'skipped' | 'running' | 'unknown';
 const STEP_TONE: Record<StepStatus, Tone> = { ok: 'good', warn: 'warn', failed: 'bad', skipped: 'neutral', running: 'warn', unknown: 'neutral' };
-const STEP_LABEL: Record<StepStatus, string> = { ok: '成功', warn: '注意', failed: '失敗', skipped: '飛ばした', running: '実行中か途中で止まった', unknown: '不明' };
-type Step = { id: string; label: string; status: StepStatus; when: string | null; detail: string };
+const STEP_LABEL: Record<StepStatus, string> = { ok: '成功', warn: '注意', failed: '失敗', skipped: '飛ばした', running: '途中で止まった', unknown: '不明' };
+type Step = { id: string; label: string; status: StepStatus; when: string | null; note: string };
 
 const CHAIN_COLUMNS: DataTableColumn[] = [
-  { key: 'order', label: '順', num: true },
-  { key: 'label', label: '段' },
-  { key: 'status', label: '結果' },
-  { key: 'when', label: '最後', wrap: true },
-  { key: 'detail', label: '中身', wrap: true, sortable: false },
+  { key: 'label', label: '段', sortable: false },
+  { key: 'status', label: '結果', sortable: false },
+  { key: 'when', label: '最後', sortable: false },
+  { key: 'note', label: '', wrap: true, sortable: false },
 ];
 
 function chainRows(collect: CollectVerdict | null, sat: SaturdayView): DataTableRow[] {
-  const steps = [collectStep(collect, 'pre', '収集（前）'), gscStep(sat), reviewStep(sat), collectStep(collect, 'post', '収集（後）')];
-  return steps.map((s, i) => ({
+  return [collectStep(collect, 'pre', '収集（前）'), gscStep(sat), reviewStep(sat), collectStep(collect, 'post', '収集（後）')].map((s) => ({
     id: s.id,
-    values: { order: i + 1, label: s.label, status: STEP_LABEL[s.status], when: s.when, detail: s.detail },
-    cells: { status: <StatusBadge tone={STEP_TONE[s.status]}>{STEP_LABEL[s.status]}</StatusBadge> },
+    values: { label: s.label, status: STEP_LABEL[s.status], when: s.when, note: s.note || null },
+    cells: { status: <StatusBadge tone={STEP_TONE[s.status]}>{STEP_LABEL[s.status]}</StatusBadge>, note: <span className="text-muted-foreground">{s.note}</span> },
   }));
 }
 
 function collectStep(v: CollectVerdict | null, phase: 'pre' | 'post', label: string): Step {
   const id = `collect-${phase}`;
-  if (!v) return { id, label, status: 'unknown', when: null, detail: 'まだ一度も回っていない' };
+  if (!v) return { id, label, status: 'unknown', when: null, note: 'まだ一度も回っていない' };
   const stages = v.stages.filter((s) => s.phase === phase);
   const failed = stages.filter((s) => s.status === 'failed' || s.status === 'missing').length;
   const warn = stages.filter((s) => s.status === 'warn').length;
-  const skipped = stages.filter((s) => s.status === 'skipped').length;
   const finishedAt = v.phases.find((p) => p.phase === phase)?.finishedAt;
   return {
     id, label,
     status: failed ? 'failed' : warn ? 'warn' : 'ok',
-    when: finishedAt ? jstDateTime(finishedAt) : null,
-    detail: `${stages.length} 段中 成功 ${stages.length - failed - warn - skipped}・注意 ${warn}・失敗か記録なし ${failed}${skipped ? `・飛ばした ${skipped}` : ''}（段ごとは下の表）`,
+    when: finishedAt ? jstDateTime(finishedAt, { short: true }) : null,
+    note: failed || warn ? [failed && `${failed} 段が失敗`, warn && `${warn} 段に注意`].filter(Boolean).join('・') : '',
   };
 }
 
 function gscStep(sat: SaturdayView): Step {
   const base = { id: 'gsc-record', label: 'GSC の記録' };
-  if (sat.launchd?.last?.gscFailed) return { ...base, status: 'failed', when: jstDateTime(sat.launchd.last.at), detail: '最後の実行のログに [gsc-record] FAILED がある（残りはログの置き場に退避して先へ進む）' };
+  if (sat.launchd?.last?.gscFailed) return { ...base, status: 'failed', when: jstDateTime(sat.launchd.last.at, { short: true }), note: '' };
   const g = sat.gsc.gates;
-  if (!g) return { ...base, status: 'unknown', when: null, detail: `判定を取れなかった: ${sat.gsc.error ?? '不明'}` };
-  const weeklyDue = !g.gscDataStale && !g.weeklyAlreadyLogged;
-  const coverageDue = !g.monthlyAlreadyLogged;
-  const entries = `週次の観測 ${g.latestWeeklyEntry ?? '—'}・coverage ${g.latestMonthlyEntry ?? '—'}（${sat.gsc.logPath ?? 'gsc-management.md'}）`;
-  const notes = [weeklyDue && '週次の記録が要る', coverageDue && 'coverage の記録が要る', g.gscDataStale && 'GSC のデータが古いので週次は求めない'].filter(Boolean).join('・');
-  return { ...base, status: weeklyDue || coverageDue ? 'warn' : 'ok', when: g.latestWeeklyEntry, detail: notes ? `${entries}。${notes}` : entries };
+  if (!g) return { ...base, status: 'unknown', when: null, note: '判定を取れなかった' };
+  const due = [!g.gscDataStale && !g.weeklyAlreadyLogged && '週次の記録が要る', !g.monthlyAlreadyLogged && 'coverage の記録が要る'].filter(Boolean).join('・');
+  return { ...base, status: due ? 'warn' : 'ok', when: g.latestWeeklyEntry?.replaceAll('-', '/') ?? null, note: due };
 }
 
 function reviewStep(sat: SaturdayView): Step {
   const base = { id: 'weekly-review', label: '週次レビュー' };
-  if (!sat.launchd) return { ...base, status: 'unknown', when: null, detail: 'この端末では確かめられない（macOS のみ）' };
-  if (!sat.launchd.installed) return { ...base, status: 'failed', when: null, detail: '未登録（npm run weekly-review:install で登録する）' };
+  if (!sat.launchd) return { ...base, status: 'unknown', when: null, note: 'この端末では確かめられない' };
+  if (!sat.launchd.installed) return { ...base, status: 'failed', when: null, note: '未登録' };
   const last = sat.launchd.last;
-  if (!last) return { ...base, status: 'unknown', when: null, detail: 'まだ一度も動いていない' };
+  if (!last) return { ...base, status: 'unknown', when: null, note: 'まだ一度も動いていない' };
   const d = sat.draft;
-  const draft = !d ? '下書きはまだ無い' : 'broken' in d ? '下書きのファイルが壊れている'
-    : `下書き ${d.week}（作成 ${jstDateTime(d.generatedAt)}）・${d.missing.length ? `材料の欠け ${d.missing.length} 件` : '必須の材料はそろっている'}`;
-  return { ...base, status: last.result, when: jstDateTime(last.at), detail: `${last.result === 'skipped' ? '今週分のレポートがあるので何もしない。' : ''}${draft}` };
+  const missing = d && !('broken' in d) && d.missing.length ? `材料の欠け ${d.missing.length} 件` : '';
+  return { ...base, status: last.result, when: jstDateTime(last.at, { short: true }), note: missing };
 }
 
 const STAGE_TONE: Record<string, Tone> = { ok: 'good', warn: 'warn', skipped: 'neutral', failed: 'bad', missing: 'bad' };
 const STAGE_LABEL: Record<string, string> = { ok: '成功', warn: '注意', skipped: '飛ばした', failed: '失敗', missing: '記録なし' };
-const PHASE_LABEL: Record<string, string> = { pre: '前', post: '後', only: '取り直し' };
+const PHASE_LABEL: Record<string, string> = { pre: '前', post: '後' };
 
 const STAGE_COLUMNS: DataTableColumn[] = [
-  { key: 'status', label: '結果' },
-  { key: 'title', label: '段', wrap: true },
-  { key: 'when', label: 'いつ', wrap: true },
+  { key: 'title', label: '段', wrap: true, sortable: false },
+  { key: 'status', label: '結果', sortable: false },
   { key: 'reason', label: '理由', wrap: true, sortable: false },
 ];
 
+/** 収集の段ごとの最新の結果。落ちた段を上に並べ、理由は 1 行に切る */
 function CollectTable({ v }: { v: CollectVerdict | null }) {
   if (!v) return <p className="text-sm text-muted-foreground">まだ一度も回っていない</p>;
-  const passed = !v.problems.length;
-  const stageRows: DataTableRow[] = v.stages.map((s) => ({
-    id: s.id,
-    values: {
-      status: STAGE_LABEL[s.status] ?? s.status,
-      title: `${PHASE_LABEL[s.phase] ?? s.phase}・${s.title}`,
-      when: s.at ? `${jstDateTime(s.at)}（${PHASE_LABEL[s.runPhase ?? ''] ?? s.runPhase}）` : null,
-      reason: s.reason || null,
-    },
-    cells: { status: <StatusBadge tone={STAGE_TONE[s.status] ?? 'neutral'}>{STAGE_LABEL[s.status] ?? s.status}</StatusBadge> },
-  }));
-  return (
-    <div className="mb-4">
-      <p className="text-sm">
-        {v.phases.map((p) => `${PHASE_LABEL[p.phase]}: ${jstDateTime(p.finishedAt)}`).join('・')}{' '}
-        <StatusBadge tone={passed ? 'good' : 'bad'}>{passed ? '合格' : `不合格 ${v.problems.length} 件`}</StatusBadge>
-      </p>
-      <DataTable columns={STAGE_COLUMNS} rows={stageRows} pageSize={20} />
-    </div>
-  );
+  const rank = (s: string) => (s === 'failed' || s === 'missing' ? 0 : s === 'warn' ? 1 : 2);
+  const stageRows: DataTableRow[] = [...v.stages]
+    .map((s, i) => ({ s, i }))
+    .sort((x, y) => rank(x.s.status) - rank(y.s.status) || x.i - y.i)
+    .map(({ s }) => {
+      // 検査の出力の頭（[check-…] ✗）と 2 文目以降は人には要らない
+      const reason = s.status === 'ok' ? '' : (s.reason ?? '').split(/[\n。]/)[0].replace(/^\[[^\]]+\]\s*[✗✓]?\s*/, '');
+      return {
+        id: s.id,
+        values: { title: `${PHASE_LABEL[s.phase] ?? s.phase}・${s.title.replace(/（[^）]*）$/, '')}`, status: STAGE_LABEL[s.status] ?? s.status, reason: reason || null },
+        cells: { status: <StatusBadge tone={STAGE_TONE[s.status] ?? 'neutral'}>{STAGE_LABEL[s.status] ?? s.status}</StatusBadge>, reason: <span className="text-muted-foreground">{reason}</span> },
+      };
+    });
+  return <DataTable columns={STAGE_COLUMNS} rows={stageRows} pageSize={20} />;
 }
 
-const COLUMNS: DataTableColumn[] = [
-  { key: 'title', label: '名前', wrap: true },
-  { key: 'when', label: 'いつ', wrap: true },
-  { key: 'login', label: 'ログイン' },
-  { key: 'purpose', label: '何をするか', wrap: true, sortable: false },
-  { key: 'readers', label: '読み手', wrap: true, sortable: false },
+const LAUNCHD_COLUMNS: DataTableColumn[] = [
+  { key: 'title', label: '名前', sortable: false },
+  { key: 'when', label: 'いつ', sortable: false },
 ];
 
-function rows(list: Automation[]): DataTableRow[] {
-  return list.map((a) => ({
-    id: a.id,
-    values: {
-      title: `${a.title}（${fileOf(a)}）`,
-      when: whenOf(a),
-      login: a.login.length ? a.login.join('・') : null,
-      purpose: a.purpose,
-      readers: a.readers.join('・'),
-    },
-    cells: { login: a.login.length ? <StatusBadge tone="warn">{a.login.join('・')}</StatusBadge> : <span className="text-muted-foreground">不要</span> },
-  }));
+function launchdRows(list: Automation[]): DataTableRow[] {
+  return list.map((a) => ({ id: a.id, values: { title: a.title, when: whenOf(a) } }));
 }
