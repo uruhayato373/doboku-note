@@ -21,7 +21,7 @@
         "coconala",
         "google"
       ],
-      "purpose": "ログインが要る取得と書き込みを 1 本ずつ回し（weekly-collect の前後・取った記録の検算つき）、note の公開状態の照合（公開 API）も前段で回す。続けてヘッドレスの Claude Code で GSC の記録層（週次観測・coverage・改善候補。旧 gsc-auto-review.yml）を書き、週次・月次レビュー（週次の点検 quality:audit:weekly を含む）と翌週の計画を書いて develop へ push する（DN-0817・DN-0847・DN-0849）",
+      "purpose": "ログインが要る取得と書き込みを 1 本ずつ回し（weekly-collect の前後・取った記録の検算つき）、note の公開状態の照合（公開 API）・公開画面の撮影と競合の公開データ（四半期の最初の土曜だけ）も前段で回す。続けてヘッドレスの Claude Code で GSC の記録層（週次観測・coverage・改善候補。旧 gsc-auto-review.yml）を書き、週次・月次レビュー（週次の点検 quality:audit:weekly を含む）と翌週の計画を書いて develop へ push する（DN-0817・DN-0847・DN-0849・DN-0852）",
       "readers": [
         "quality-audit:weekly-collect",
         "issue:weekly-collect",
@@ -29,7 +29,10 @@
         "issue:gsc-auto-review",
         "admin:/metrics/business",
         "admin:/content/note",
-        "admin:/ops/mac"
+        "admin:/ops/mac",
+        "quality-audit:competitor-scan-due",
+        "admin:/strategy/competitors",
+        "skill:weekly-review"
       ],
       "writes": [
         "state.weekly-collect",
@@ -181,26 +184,6 @@
       ]
     },
     {
-      "id": "competitor-scan",
-      "runner": "github-actions",
-      "source": ".github/workflows/competitor-scan.yml",
-      "title": "競合の公開データ（四半期）",
-      "triggers": [
-        "schedule",
-        "workflow_dispatch"
-      ],
-      "schedule": [
-        "17 1 1 1,4,7,10 *"
-      ],
-      "scheduleJst": "1/4/7/10 月 1 日 10:17",
-      "login": [],
-      "purpose": "note・ココナラの公開データを取得する（ログイン不要）",
-      "readers": [
-        "quality-audit:competitor-scan-due",
-        "admin:/strategy/competitors"
-      ]
-    },
-    {
       "id": "dependabot-retarget",
       "runner": "github-actions",
       "source": ".github/workflows/dependabot-retarget.yml",
@@ -306,25 +289,6 @@
       "purpose": "UI 系の PR で代表 4 ページを測る",
       "readers": [
         "pr-gate"
-      ]
-    },
-    {
-      "id": "note-public-view",
-      "runner": "github-actions",
-      "source": ".github/workflows/note-public-view.yml",
-      "title": "公開画面の撮影（note）",
-      "triggers": [
-        "schedule",
-        "workflow_dispatch"
-      ],
-      "schedule": [
-        "15 23 * * 0"
-      ],
-      "scheduleJst": "月 08:15",
-      "login": [],
-      "purpose": "未ログインの読者からの note の見え方を画面幅ごとに撮る（ログイン不要。YouTube の視聴ページは SNS の保留に合わせて 2026-10-25 に外した）",
-      "readers": [
-        "skill:weekly-review"
       ]
     },
     {

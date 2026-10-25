@@ -36,7 +36,7 @@ twitter -c search "コンクリート診断士 対策" -n 15 | grep -oE '@[A-Za-
 
 ### 1. 機械取得（scout・チャネル別）
 
-通常の四半期実行では、note / ココナラ / IG は GitHub Actions `competitor-scan.yml` の成功と最新スナップショットを確認する。再取得が必要な場合だけ次を手動実行する。
+通常の四半期実行では、note / ココナラは土曜の Mac の収集（weekly-collect の `competitors` 段・四半期の最初の土曜）の結果と最新スナップショットを確認する（管理画面 `/ops/mac`）。IG は SNS 保留中で取っていない。再取得が必要な場合だけ次を手動実行する。
 
 ```bash
 npm run scout-note-competitors                 # note（公開API・curl --ssl-no-revoke・会社PC可）
@@ -72,7 +72,7 @@ npm run scout-youtube-competitors               # YouTube（追跡チャンネ�
 - **X**: 実アカ Playwright だが **read-only 専用**（いいね/フォロー/リプライ機能を持たない）・四半期・≤15プロフィール・jitter 遅延・**challenge/captcha/凍結警告で即中断（自動リトライ禁止）**→ `probe-status.json` に記録。投稿スケジュールと実行を重ねない。方針は [x-post-policy.md](../../../../.claude/knowledge/reference/x-post-policy.md) §11
 - **IG**: **未ログイン公開プロフィール（og:description メタ）を curl で read**（2026-07-20 実証・投稿アカ @dobokunotecom の IG セッション不使用＝足跡ゼロ）。取れるのはフォロワー/フォロー/投稿数まで（個別投稿のエンゲージは要ログインで未対応）
 - **有料本文は全チャネルで取得しない/できない**（中身の質は「未読」扱いで断定しない）
-- **定期取得は GitHub Actions に限定**。`competitor-scan.yml` が note / IG / ココナラを四半期取得し、`check-competitor-scan-due` は Actions 停止と X・YouTube の手動期限を backstop する。新規クラウドルーティンは作らない
+- **定期取得は土曜の Mac の収集に限定**。weekly-collect の `competitors` 段が note / ココナラを四半期の最初の土曜に取得し（取り直しは `node scripts/weekly-collect.mjs --only competitors`）、`check-competitor-scan-due` は段の停止と X・YouTube・market の手動期限を backstop する。新規クラウドルーティンは作らない（DN-0852 で competitor-scan.yml を外した）
 
 ## 勝ち型の抽出 → 原案化（伸びてる投稿レーダー）
 
@@ -84,7 +84,7 @@ X scout は各競合の**エンゲージ上位10投稿**（`engagementLeaders`�
 
 ## 関連
 
-- 機械: `.github/workflows/competitor-scan.yml`・`scripts/scout-{note,x,ig,youtube}-competitors.mjs`・`scout-coconala-competitors.mjs`・`check-competitor-scan-due.mjs`
+- 機械: `scripts/lib/weekly-collect-plan.mjs` の `competitors` 段・`scripts/scout-{note,x,ig,youtube}-competitors.mjs`・`scout-coconala-competitors.mjs`・`check-competitor-scan-due.mjs`
 - 勝ち型の原案化: `x-post-writer`（生成・ユニーク性強制）／`x-post-qa`（§11 near-duplicate ゲート）
 - Evaluator: `competitor-analyst`（[agents-registry.md](../../../../.claude/knowledge/reference/agents-registry.md)）
 - config: `config/competitors.json`（競合ハンドル SSOT・チャネル別）

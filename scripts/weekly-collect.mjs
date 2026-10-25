@@ -30,7 +30,7 @@ import { spawn, spawnSync } from 'node:child_process';
 import { hostname } from 'node:os';
 
 import { parseCliArgs } from './lib/cli-args.mjs';
-import { datasetPath, freshnessDays } from './lib/datasets.mjs';
+import { datasetPath, freshnessDays, latestFileDate } from './lib/datasets.mjs';
 import { readJsonIf, writeJson } from './lib/json-io.mjs';
 import { guardBrowserLaunch, LaunchGuardError } from './lib/playwright-launch.mjs';
 import { REPO_ROOT } from './lib/repository-paths.mjs';
@@ -225,10 +225,13 @@ function resolveIssueIfRecovered() {
   console.log(`${TAG} 段ごとの最新がすべて合格。Issue（channel weekly-collect）の自動クローズ: exit ${r.status}`);
 }
 
+/** note・ココナラの競合の最新の取得日（四半期の competitors 段を回すかを competitorsDue が決める） */
+const competitorScans = () => ({ note: latestFileDate(REPO_ROOT, 'note.competitors'), coconala: latestFileDate(REPO_ROOT, 'coconala.competitors') });
+
 async function main() {
   if (args.verifyLast) return verifyLast();
   const kdp = kdpMonthsDue();
-  const stages = buildStages({ kdpMonths: kdp.months });
+  const stages = buildStages({ kdpMonths: kdp.months, competitorScans: competitorScans() });
   if (args.plan) {
     const view = stages.map((s) => ({ id: s.id, phase: s.phase, title: s.title, skip: s.skip ?? null, commands: s.commands.map((c) => c.argv.join(' ')), verify: (s.verify ?? []).map((id) => ({ id, command: verifyCommand(id).argv.join(' ') })) }));
     if (args.json) console.log(JSON.stringify({ stages: view, kdpProblem: kdp.problem ?? null }, null, 2));

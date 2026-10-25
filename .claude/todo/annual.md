@@ -25,4 +25,4 @@
 
 | サイクル | タスク | 実行 |
 |---|---|---|
-| 四半期（90日） | 販売チャネル競合レビュー（note / IG / ココナラ取得＋意味評価） | `competitor-scan.yml`（機械取得）→ `/competitor-review`（意味評価）。期限の backstop は `npm run check-competitor-scan-due` |
+| 四半期（90日） | 販売チャネル競合レビュー（note / IG / ココナラ取得＋意味評価） | 土曜の Mac の収集の `competitors` 段（機械取得・四半期の最初の土曜）→ `/competitor-review`（意味評価）。期限の backstop は `npm run check-competitor-scan-due` |

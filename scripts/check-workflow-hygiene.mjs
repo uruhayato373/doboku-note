@@ -121,7 +121,7 @@ export function findUnguardedExitCaptures(runScript) {
  *    checkout 時点の HEAD にそのまま commit して `git push origin develop` すると non-fast-forward で
  *    落ちる。scheduled-publish.yml（X の公開済み status）がこれで記録を失うと次回に二重投稿しうる。
  *    `git push` の対象が develop の run: には、同じ run: の中に `git rebase origin/develop`
- *    （または `git pull --rebase`）があることを要求する（competitor-scan.yml が見本）。
+ *    （または `git pull --rebase`）があることを要求する（書き戻しは scripts/ci-data.mjs add が見本）。
  */
 export function findPushWithoutRebase(runScript) {
   const src = String(runScript ?? '').split('\n').map((l) => l.replace(/(^|\s)#.*$/, '')).join('\n');

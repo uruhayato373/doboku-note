@@ -20,6 +20,7 @@
  */
 import { datasetPath } from './datasets.mjs';
 import { jstMonth, todayJst } from './jst-date.mjs';
+import { NOTE_PUBLIC_VIEW_LOCAL_DIR } from './note-public-view.mjs';
 import { reviewWeekOfDay, reviewWindowOfWeek } from './review-week.mjs';
 
 /** 'YYYY-MM' の前月 */
@@ -28,14 +29,31 @@ export function previousMonth(month) {
   return m === 1 ? `${y - 1}-12` : `${y}-${String(m - 1).padStart(2, '0')}`;
 }
 
+/** 'YYYY-MM-DD' を含む四半期の初日（1/4/7/10 月 1 日） */
+export function quarterStart(day) {
+  const [y, m] = day.split('-').map(Number);
+  return `${y}-${String(Math.floor((m - 1) / 3) * 3 + 1).padStart(2, '0')}-01`;
+}
+
+/**
+ * 競合の公開データを取る週か（pure）。note・ココナラのどちらかの最新の取得日が、今の四半期の初日より前（または取得なし）なら取る。
+ * 旧 competitor-scan.yml の 1/4/7/10 月 1 日と同じ周期を、四半期の最初の土曜で回す（DN-0852）。
+ * @param {{ today: string, lastScans: { note?: string | null, coconala?: string | null } }} input
+ */
+export function competitorsDue({ today, lastScans }) {
+  const start = quarterStart(today);
+  return ['note', 'coconala'].some((k) => !lastScans[k] || lastScans[k] < start);
+}
+
 /** note の売上の前月を取り直す期間（月初は前月の明細と月次表示が揃うまで検算が合わない・login-collectors の 14 日と同じ） */
 export const NOTE_SALES_PREV_MONTH_UNTIL_DAY = 14;
 
 /**
- * 段の表。today は JST の 'YYYY-MM-DD'、kdpMonths は `kdp-report --list-due` の結果（実行時に取る）。
- * @param {{ today?: string, kdpMonths?: string[] }} [input]
+ * 段の表。today は JST の 'YYYY-MM-DD'、kdpMonths は `kdp-report --list-due` の結果、competitorScans は
+ * note・ココナラの競合の最新の取得日（どちらも実行時に取る）。
+ * @param {{ today?: string, kdpMonths?: string[], competitorScans?: { note?: string | null, coconala?: string | null } }} [input]
  */
-export function buildStages({ today = todayJst(), kdpMonths = [] } = {}) {
+export function buildStages({ today = todayJst(), kdpMonths = [], competitorScans = {} } = {}) {
   const cur = jstMonth(new Date(`${today}T12:00:00+09:00`).getTime());
   const prev = previousMonth(cur);
   const day = Number(today.slice(8, 10));
@@ -110,6 +128,29 @@ export function buildStages({ today = todayJst(), kdpMonths = [] } = {}) {
         { argv: ['scripts/audit-note-funnel.mjs', '--live', '--ci'], warn: [1], failPattern: '検査不成立' },
         // 題名・価格は原稿が正。note と食い違う記事を「note へ未反映」に戻す（後段の note-sync が上げ直す）。exit 1 = 検査不成立
         { argv: ['scripts/note-reconcile-title-price.mjs', '--commit'] },
+      ],
+    },
+    {
+      id: 'note-public-view', phase: 'pre', title: 'note の公開画面の撮影と見え方の照合', timeoutMin: 45, browser: false,
+      // 旧 note-public-view.yml（CI・月曜・約 20 分）。未ログインの公開 API とブラウザで見え方を検査し、代表ページを画面幅ごとに撮る。
+      // 前段に置くのは、その日のレビューが撮った画像を見るため（fetch-note-public-view-shots が手元の置き場から写す・DN-0852）。
+      // 指摘（exit 1）は warn、取得失敗が支配的・撮影の欠け（「検査不成立」）は failed。ログインは要らないので専用の Chromium で開く
+      commands: [{
+        argv: ['scripts/check-note-public-view.mjs', '--review', '--out', `${NOTE_PUBLIC_VIEW_LOCAL_DIR}/report.json`, '--shot-dir', NOTE_PUBLIC_VIEW_LOCAL_DIR],
+        ok: [0], warn: [1], failPattern: '検査不成立',
+      }],
+    },
+    {
+      id: 'competitors', phase: 'pre', title: '競合の公開データ（四半期）', timeoutMin: 40, browser: true,
+      // 旧 competitor-scan.yml（CI・1/4/7/10 月 1 日・約 10 分）。四半期の最初の土曜だけ取る（competitorsDue）。
+      // ココナラの 2 本は手元の永続 profile（coconala）で開く。読み手は competitor-scan-due（週次の点検）と管理画面 /strategy/competitors
+      skip: competitorsDue({ today, lastScans: competitorScans }) ? null
+        : `今の四半期の取得が済んでいる（note ${competitorScans.note ?? '—'}・ココナラ ${competitorScans.coconala ?? '—'}）`,
+      commands: [
+        { argv: ['npm', 'run', '-s', 'scout-note-competitors'] },
+        // 検索結果を 1 件も読めない取り直しは exit 1（前回の記録を空で上書きしない・#1227）
+        { argv: ['scripts/coconala-research.mjs', '--refresh', '--details', '0'] },
+        { argv: ['npm', 'run', '-s', 'scout-coconala-competitors'] },
       ],
     },
     {
