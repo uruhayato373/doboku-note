@@ -17,7 +17,7 @@
  *     small:  TOKENS.highlightStories.typography.heroSm,  // _maxLen: 16
  *   });
  *
- * 真実源: .claude/knowledge/reference/ig-highlight-design-policy.md §4
+ * 真実源: ハイライトの設計の文書（ig-highlight-design-policy.md）は 2026-10-25 に外した（git の履歴にある）
  */
 
 /**

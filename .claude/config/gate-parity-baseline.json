@@ -20,6 +20,8 @@
     "check-youtube-shorts": "SNS（X・Instagram・YouTube）と動画パック・コンテンツ台帳の検査。SNS の保留に合わせて 2026-10-25 に CI（quality-audit・registry-reconcile.yml などの workflow）から外した。SNS を再開するときに必要なものを作り直す（運営者の判断）。スクリプトは手元の道具として残す",
     "check-instagram-reels": "SNS（X・Instagram・YouTube）と動画パック・コンテンツ台帳の検査。SNS の保留に合わせて 2026-10-25 に CI（quality-audit・registry-reconcile.yml などの workflow）から外した。SNS を再開するときに必要なものを作り直す（運営者の判断）。スクリプトは手元の道具として残す",
     "check-x-card-render": "SNS（X・Instagram・YouTube）と動画パック・コンテンツ台帳の検査。SNS の保留に合わせて 2026-10-25 に CI（quality-audit・registry-reconcile.yml などの workflow）から外した。SNS を再開するときに必要なものを作り直す（運営者の判断）。スクリプトは手元の道具として残す",
-    "check-x-posted-live": "SNS（X・Instagram・YouTube）と動画パック・コンテンツ台帳の検査。SNS の保留に合わせて 2026-10-25 に CI（quality-audit・registry-reconcile.yml などの workflow）から外した。SNS を再開するときに必要なものを作り直す（運営者の判断）。スクリプトは手元の道具として残す"
+    "check-x-posted-live": "SNS（X・Instagram・YouTube）と動画パック・コンテンツ台帳の検査。SNS の保留に合わせて 2026-10-25 に CI（quality-audit・registry-reconcile.yml などの workflow）から外した。SNS を再開するときに必要なものを作り直す（運営者の判断）。スクリプトは手元の道具として残す",
+    "verify-ig-status": "SNS（X・Instagram）の検査。呼び出し元のスキル（ig-reconcile・x-campaign-plan）を 2026-10-25 の棚卸しで外した。SNS は保留中で、再開するときに必要なものを作り直す（運営者の判断）。スクリプトは手元の道具として残す",
+    "check-x-review": "SNS（X・Instagram）の検査。呼び出し元のスキル（ig-reconcile・x-campaign-plan）を 2026-10-25 の棚卸しで外した。SNS は保留中で、再開するときに必要なものを作り直す（運営者の判断）。スクリプトは手元の道具として残す"
   }
 }

@@ -28,7 +28,7 @@ domain: strategy
 | 改善の実行・効果判定 | `/nsm-experiment`。SEO は検索キーワード戦略のサイクル（`/weekly-review` の `search-improvement`） |
 | 販売先の計測 | `/coconala-analytics`、既存note売上取得。アクセスの欠測は手入力記録へ |
 | 競合・収益構造 | `/competitor-review`、`/monetization-strategy` |
-| 設計の批判的評価 | `/critical-review`、`/pre-mortem` |
+| 設計の批判的評価 | `/critical-review` |
 
 委任された場合は取得済みデータと現物を読み、判断と必要な実行を親へ返す。外部公開・価格変更・記事編集・実験状態変更はその実行主体へ渡す。
 

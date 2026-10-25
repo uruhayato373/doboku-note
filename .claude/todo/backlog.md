@@ -292,7 +292,7 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 **準備（2026-10-21・案）**: 準備は DN-0538 の「準備」を参照（PR #1185 は 2026-10-22 にマージ済み・本番反映済み。note・ココナラのライブ反映は未実施）。cece280b1 で、1級と同じ低価格先出しを 2級にも入れる案を作った（civil2 の entry＝完成答案集・次に想定工事バンク。2級の売れ方は完成答案集 4 件・想定工事バンク 2 件）。入口記事 9 本の冒頭を書き換え済み（要確認 0）。**10/26 の残り**: 運営者がこの案で良いか決める → note-update-body で反映、自己採点記事の公開。
 
-### [DN-0339] Instagram の公開済み未記録47件と照合異常45件を /ig-reconcile で解消する
+### [DN-0339] Instagram の公開済み未記録47件と照合異常45件を解消する
 タグ: [SNS・マーケ] [領域:SNS] [時期:2026-11] [種類:不具合] [起票:2026-09-26]
 
 **起点**: 週次レビューの申し送り（data/analysis/growth/digest-2026-W38.json）
@@ -2171,18 +2171,18 @@ Phase 3の評価を戦略SSOTへ反映し、資格拡張の可否を確定した
 **後回し**（2026-10-13 運営者）: 骨子 39 章は Web・e-Gov の一次資料だけで作り終え、第 1 波も確認済みになったので、文字起こし（3 部・約 350 頁・スキャン）の費用に見合う使い道が「論点の抜けの見比べ」に限られる。制作・公開は10/15に承認済み。記事を読んで、許可の章（A-08・A-14 など）や法令の読み方（A-03）で抜けが気になったら着手する。
 **完了条件**: 行政法の文字起こしと候補表が Drive にあり、`check-reference-sources`・`check-reference-book-pages` が緑。`check-content-series --suggest` が行政法の項目を挙げる。
 
-### [DN-0835] SNS 再開時に Instagram の予約補充の仕組みと instagram-campaign.md を実態に一致させる（9/20 から補充が止まっている）
+### [DN-0835] SNS 再開時に Instagram の予約補充の仕組みを作り直す（9/20 から補充が止まっている）
 タグ: [収益化] [領域:SNS] [種類:改善] [起票:2026-10-24]
 
 **保留**: 2026-10-17 のユーザー指示で SNS の新規展開・追加予約は保留中。再開の指示があるまで、予約・認証復旧（Facebook ログイン）・ブラウザでの照合に着手しない。**着手の合図は SNS 保留の解除**。
 
-**起点**: 2026-10-05 の点検で、Instagram 新シリーズ（`content/sns/instagram/campaign.json`・112 テーマ／336 投稿）の予約が 9/20 12:30 を最後に途切れていると分かった。`.claude/knowledge/reference/instagram-campaign.md`（予約と継続配信）は Codex の定期処理 `instagram` が毎日 10:00 に補充すると書くが、`~/.codex/automations/` にも launchd にも無い。2級のテーマ 18 のうち配信済みは `anzen-ippanron-3riyu` だけで、プロフィール（`config/ig-account.json` の displayName・bio）も「技術士・1級土木」のまま。公開済み未記録・照合異常の解消（`/ig-reconcile`）は DN-0339 が持つ。
+**起点**: 2026-10-05 の点検で、Instagram 新シリーズ（`content/sns/instagram/campaign.json`・112 テーマ／336 投稿）の予約が 9/20 12:30 を最後に途切れていると分かった。`.claude/knowledge/reference/instagram-campaign.md`（予約と継続配信）は Codex の定期処理 `instagram` が毎日 10:00 に補充すると書くが、`~/.codex/automations/` にも launchd にも無い。2級のテーマ 18 のうち配信済みは `anzen-ippanron-3riyu` だけで、プロフィール（`config/ig-account.json` の displayName・bio）も「技術士・1級土木」のまま。公開済み未記録・照合異常の解消は DN-0339 が持つ。
 
 **やること**（保留が解けてから）:
-1. 補充の定期処理を作り直すか、`instagram-campaign.md` を実態（手動補充）に直す。
+1. 補充の定期処理を作り直すか、手動補充の手順を書く（手順書 `instagram-campaign.md` は 2026-10-25 に外した・git の履歴にある）。
 2. プロフィールの 2級表記と、試験が終わった 1級直前ハイライト（07_civil-1）の扱いを DN-0363 と合わせて決める。
 
-**完了条件**: 補充の仕組みと `instagram-campaign.md` の記述が一致している。
+**完了条件**: 補充の仕組みと、その手順の記述が一致している。
 
 ### [DN-0838] Kindle の EPUB・表紙の Drive 控え（制作物/Kindle）を、private R2 の正本と sha256 で突き合わせて足す
 タグ: [インフラ・計測] [領域:商品] [種類:改善] [起票:2026-10-24]

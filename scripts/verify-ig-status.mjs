@@ -7,7 +7,7 @@
 //   ライブの IG グリッド＋プランナーと突合し、何がドリフトしているかを分類して出す（read-only）。
 //
 // 設計: verify-note-status.mjs（note 版 reconciler）の IG 版。投稿も削除もしない＝検知と報告のみ。
-//   実際の是正/予約は `/ig-reconcile` スキルが operator 確認のうえ行う。
+//   実際の是正/予約は operator が確認のうえ行う（`/ig-reconcile` スキルは 2026-10-25 に外した）。
 //
 // 照合は運営者の Mac で回す（CI はログインしない・DN-0817）。
 //   Graph API 版（scripts/fetch-ig-insights.mjs --reconcile）は Meta 利用制限で待機（dispatch 専用）。
@@ -251,7 +251,7 @@ else {
     console.log("\n（台帳へ反映するには --registry を付ける。既定は書かない）");
   }
   console.log(`\nドリフト合計 ${driftCount} 件（SoT 整合）／リールギャップ ${cats.reel_gap.length} 件・素材未投稿 ${cats.reel_built_unposted.length} 件（リール軸）。snapshot → .claude/state/ig-reconcile/snapshot.json`);
-  if (driftCount) console.log("→ SoT 是正は `/ig-reconcile`（operator 確認のうえ `verify-ig-status --registry` で台帳へ反映 / 未公開を予約）");
+  if (driftCount) console.log("→ SoT 是正は operator が確認のうえ `verify-ig-status --registry` で台帳へ反映 / 未公開を予約");
   else console.log("✓ SoT ドリフトなし");
   if (cats.reel_gap.length) console.log("→ リールギャップは figure-reel-create.mjs でナレーション付きリール生成 → publish-ig-bs --reel で予約");
 }

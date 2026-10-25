@@ -2,7 +2,7 @@
  * IG Stories ハイライト用モダンシック意匠 ビルダー (v7.1)。
  *
  * 真実源: .claude/knowledge/design-system/instagram-carousel-tokens.json の highlightStories
- * ポリシー: .claude/knowledge/reference/ig-highlight-design-policy.md
+ * ポリシー: ハイライトの設計の文書（ig-highlight-design-policy.md）は 2026-10-25 に外した（git の履歴にある）
  * 戦略: docs/marketing/01_SNS集客戦略.md v7.1 §2 Highlight 6 種
  *
  * 設計意図:
@@ -114,7 +114,7 @@ export function buildHighlightStoriesSlide({ width, height, data }) {
   const centerChildren = [];
 
   // hero title (auto-fit: title の visualLength に応じて hero / heroMid / heroSm を自動選択)
-  // 8 字以上の不適切改行を構造的に防ぐ。詳細: .claude/knowledge/reference/ig-highlight-design-policy.md §4
+  // 8 字以上の不適切改行を構造的に防ぐ。詳細はハイライトの設計の文書（2026-10-25 に外した・git の履歴）
   let heroStyle = null;
   if (data.title) {
     heroStyle = pickTitleSize(data.title, HERO_SIZES);

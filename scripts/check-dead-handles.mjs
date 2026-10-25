@@ -52,7 +52,7 @@ const DEAD = [
 const ALLOW = [
   { re: /^data\//, why: '事業の記録（当時の実測値・競合スナップショットの時系列そのもの）' },
   { re: /^content\/sns\/x\/(draft|published)\/_archive/, why: '旧アカウント時代の投稿アーカイブ' },
-  { re: /^\.claude\/knowledge\/reference\/(x-post-policy|measurement-incidents|ig-publish-reconcile)\.md$/, why: '凍結の経緯そのものを記録している SSOT' },
+  { re: /^\.claude\/knowledge\/reference\/(x-post-policy|measurement-incidents)\.md$/, why: '凍結の経緯そのものを記録している SSOT' },
   { re: /^scripts\/check-dead-handles\.mjs$/, why: '本チェッカ自身（禁止パターンを持つ）' },
   { re: /^docs\/todo\//, why: '起票時の経緯記録' },
 ];

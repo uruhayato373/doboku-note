@@ -3,7 +3,7 @@
  *
  * 真実源: .claude/knowledge/design-system/instagram-carousel-tokens.json
  * 戦略: docs/marketing/01_SNS集客戦略.md v7.1 §2 Highlight 6 種目「教材」
- * ポリシー: .claude/knowledge/reference/ig-stories-policy.md §5 系統 C
+ * ポリシー: Stories の手順書（ig-stories-policy.md）は 2026-10-25 に外した（git の履歴にある）
  *
  * 6 枚構成（slide-data.json の slides[].role に対応）:
  *   1. cover     興味喚起・中立フレーミング「合格者の本棚」

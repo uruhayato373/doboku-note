@@ -165,7 +165,6 @@ OK: 1 (/check-mdx on file1)
 
 - `.claude/skills/quality/review-mobile/SKILL.md` ── MDX モバイル可読性
 - `.claude/skills/quality/check-mdx/SKILL.md` ── MDX 検査統合（8 rules）
-- `.claude/skills/dev/code-review/SKILL.md` ── Next.js コード品質
 - `.claude/skills/ui/design-review/SKILL.md` ── デザインシステム準拠
 - `.claude/skills/management/critical-review/SKILL.md` ── 批判的レビュー
 - `CLAUDE.md` ── ハーネス設計原則、Generator/Evaluator 分離

@@ -10,7 +10,7 @@ SNS 戦略 v7/v7.1（2026-05-28 ピボット）と Instagram 運用の統合記�
 ## 戦略（v7/v7.1）
 - **Instagram＝一次制作**（slide-data.json→カルーセル PNG→Reels mp4）、**YouTube Shorts＝Reels 派生**（`yt-shorts-create --from-reels <pack-id>` 一本化・MDX 直結の `--slug` は廃止）。収益実測ではサイト・X・SNS の売上寄与は小さく収益の本体は note 内回遊（[[project_revenue_diagnosis_2026_06]]）。
 - IG ハイライトは6種（教材を追加）。**二段ロケット動線**: 06_materials のみ note 着地（プロフィール→無料記事→有料マガジン）、他5種はサイト着地。**直接 note 有料リンク禁止。** ハイライト実投稿は 7月中旬（カルーセル4-5本投稿後）の想定だった。
-- エージェント（Generator/Evaluator・sonnet）: ig-reels-writer/qa・ig-stories-writer/qa・ig-highlight-designer/qa・yt-shorts-publisher-qa。意匠: 過去問パック（quiz-slides.mjs・白背景・情報密度）とハイライト（highlight-stories-slides.mjs・モダンシック・ジャンル別6色）は文脈が独立のため統一しない。
+- エージェント（Generator/Evaluator・sonnet）: ig-reels-writer/qa・yt-shorts-publisher-qa（ig-stories-writer/qa・ig-highlight-designer/qa は 2026-10-25 に外した）。意匠: 過去問パック（quiz-slides.mjs・白背景・情報密度）とハイライト（highlight-stories-slides.mjs・モダンシック・ジャンル別6色）は文脈が独立のため統一しない。
 - デザイン: 単一 brand `#1858B5`＋semantic（正答 green/誤答 coral/CTA navy）、Manrope＋NotoSansJP、cover-title「令和X年度 ／ 択一式 過去問 #N」、4段階自動圧縮。5管理別配色・727本キャンペーン・notebook-figure 型は廃止。
 
 ## 投稿経路（現行）
