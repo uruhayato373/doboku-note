@@ -651,10 +651,10 @@ Drive を台帳の版へ戻すと誤りを書き戻す。機械 OCR（part-01.md
 
 **起点**: DN-0110 の6週間判定と DN-0601 の図解版比較には、公開動画の28日窓の視聴指標が要る。取得コードと型・画面は用意されても、CIでの実測と継続記録は未確認。
 **やること**:
-1. GitHub Actions の YouTube API 資格情報に `yt-analytics.readonly` のスコープがあるか `youtube_analytics_probe` で確かめる。無ければ運営者が OAuth を取り直す
+1. 投稿用 OAuth クライアントの Google Cloud プロジェクトで YouTube Analytics API を有効化し、`youtube_analytics_probe` で `yt-analytics.readonly` スコープを確かめる。無ければ運営者が OAuth を取り直す
 2. probe の記録を品質ゲートで照合し、GitHub Actions secret `YOUTUBE_ANALYTICS_ENABLED=true` で週次取得を有効化する
 3. 2週続けて `data/youtube/analytics/{date}.json` が増え、`/metrics/video` で対象数・欠測・平均視聴率・流入元を読めることを確認する
-**前提・罠**: 計測は CI 供給が正（会社 PC から API を叩かない・.claude/rules/operations.md）。資格情報が無いときは記録を書かず exit 2。サムネイルのインプレッションと CTR は YouTube Analytics API の取得項目に無く、必要なら Studio 側の別経路を設計する。
+**前提・罠**: 計測は CI 供給が正（会社 PC から API を叩かない・.claude/rules/operations.md）。2026-10-26 の [CI probe](https://github.com/uruhayato373/doboku-note/actions/runs/40306304982) は API 無効で exit 2、記録なし。同日は GSC 確定前の週を growth pack が拒否したため、再 probe は `measurement_week` を確定済みの週に固定する。サムネイルのインプレッションと CTR は YouTube Analytics API の取得項目に無く、必要なら Studio 側の別経路を設計する。
 **完了条件**: 2週分の有効な記録で、通常動画の平均視聴率と流入元別視聴回数が欠測なく読める。
 
 ### [DN-0596] YouTube の数値（自社は月次・競合は四半期）を GitHub Actions で定期取得し、取り忘れで前回比が切れないようにする
