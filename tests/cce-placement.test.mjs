@@ -3,7 +3,7 @@
 //   - 配合設計の過去問・テキストは配合計算12問、試験概要・傾向は択一直前パック、小論文ガイドは小論文商品
 //   - 2面（textbook-production-qc・primary-construction）も分野別の方針どおり択一商品（到達しない小論文分岐を 2026-10-05 に削除）
 // 実 resolvePlacement を esbuild でトランスパイルして呼ぶ（civil2-placement.test.mjs と同じ方式）。
-import { test } from 'node:test';
+import { test, before, after } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
@@ -22,6 +22,11 @@ async function loadPlacement() {
   }).outputFiles[0].text;
   return import('data:text/javascript,' + encodeURIComponent(js));
 }
+
+// ここは本試験前の配線を固定する。試験日を過ぎたあとの配線は post-exam-cta.test.mjs。実時計に依らないよう試験前に固定する。
+const realNow = Date.now;
+before(() => { Date.now = () => Date.parse('2000-01-01T00:00:00+09:00'); });
+after(() => { Date.now = realNow; });
 
 test('主任技士 分野別の過去問・テキスト: 2面を含めて択一商品を冒頭に出す', async () => {
   const { resolvePlacement } = await loadPlacement();
