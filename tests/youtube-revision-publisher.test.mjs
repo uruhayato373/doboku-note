@@ -144,6 +144,13 @@ test('新IDだけへ非公開/予約/実査結果を保存し、同名旧版と�
   assert.deepEqual(rowOf(f.root, OLD), old); assert.deepEqual(readFileSync(join(f.root, `${DEF}/youtube.json`)), input);
 });
 
+test('APIが制作開示 false を省略しても、他の投稿同一性が合えば採用する', async t => {
+  const f = fixture(t), api = mockYoutube(f);
+  api.mode.afterInsert = () => { delete api.db.get('newvid00001').status.containsSyntheticMedia; };
+  assert.equal((await execute(f, api)).result, 'private-ready');
+  assert.equal(api.calls.insert, 1);
+});
+
 test('upload応答消失はmarker照合で回収し、結果未確認の0件では再投稿しない', async t => {
   const f = fixture(t), api = mockYoutube(f); api.mode.lostUpload = true;
   await assert.rejects(execute(f, api), /upload結果不明/);

@@ -162,8 +162,21 @@ export async function publishYoutubePublication(root, { pubId, phase = 'upload',
     pub.delivery.videoId = id;
   };
   const verifyIdentity = actual => {
-    if (!actual || actual.id !== pub.delivery.videoId || actual.snippet?.channelId !== plan.channel.id || !sameSnippet(actual.snippet, plan.snippet) ||
-        actual.status?.containsSyntheticMedia !== plan.disclosure.containsSyntheticMedia) throw new Error('新動画のID・チャンネル・文面・制作開示が不一致');
+    const fields = {
+      id: actual?.id === pub.delivery.videoId,
+      channel: actual?.snippet?.channelId === plan.channel.id,
+      title: actual?.snippet?.title === plan.snippet.title,
+      description: actual?.snippet?.description === plan.snippet.description,
+      tags: same((actual?.snippet?.tags ?? []).slice().sort(), plan.snippet.tags.slice().sort()),
+      category: actual?.snippet?.categoryId === plan.snippet.categoryId,
+      language: actual?.snippet?.defaultLanguage === plan.snippet.defaultLanguage,
+      audioLanguage: actual?.snippet?.defaultAudioLanguage === plan.snippet.defaultAudioLanguage,
+      syntheticMedia: (actual?.status?.containsSyntheticMedia ?? false) === plan.disclosure.containsSyntheticMedia,
+    };
+    fields.snippet = actual ? sameSnippet(actual.snippet, plan.snippet) : false;
+    if (!actual || !fields.id || !fields.channel || !fields.snippet || !fields.syntheticMedia) {
+      throw new Error(`新動画のID・チャンネル・文面・制作開示が不一致: ${Object.entries(fields).filter(([, ok]) => !ok).map(([key]) => key).join(',')}`);
+    }
     if (!['private', 'public'].includes(actual.status?.privacyStatus)) throw new Error('想定外の公開状態');
   };
   try {
