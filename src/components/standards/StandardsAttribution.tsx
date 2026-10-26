@@ -3,6 +3,7 @@ import SectionCard from '@/components/ui/SectionCard/SectionCard';
 import { getStandardDocument, getStandardEditionDuplicate, standardDocumentPath } from '@/lib/standards';
 import { getStandardChapters, standardChapterPath } from '@/lib/standards-articles';
 import type { StandardDocument, StandardPart } from '@/lib/standards';
+import Disclosure from '@/components/ui/Disclosure/Disclosure';
 
 export default function StandardsAttribution({ document, part, item }: { document?: StandardDocument; part?: StandardPart; item?: number | undefined }) {
   // 同じ要綱を他の機関・版でも収録していて、この文書（冊子の項目）は索引に載せない側なら、載せている 1 本へ案内する
@@ -83,15 +84,14 @@ export default function StandardsAttribution({ document, part, item }: { documen
           </Link>
         </p>
         {document && (
-          <details className="border-t border-(--rule-soft) pt-2">
-            <summary className="focus-ring flex min-h-11 cursor-pointer items-center font-bold">原本・文字起こしの詳細</summary>
+          <Disclosure variant="plain" className="border-t border-(--rule-soft) pt-2" summaryClassName="font-bold" summary="原本・文字起こしの詳細">
             <dl className="space-y-2 break-all pb-3">
               <div><dt>原本 SHA-256</dt><dd>{document.sourceSha256}</dd></div>
               <div><dt>文字起こしの構成</dt><dd>{document.partCount}分冊</dd></div>
               {part && <div><dt>この分冊の SHA-256</dt><dd>{part.sha256}</dd></div>}
               {document.duplicateOf && <div><dt>同一原本</dt><dd><Link href={`/standards/${document.duplicateOf}`} className="text-(--accent) underline">同じ原本を掲載する文書</Link></dd></div>}
             </dl>
-          </details>
+          </Disclosure>
         )}
       </div>
     </SectionCard>

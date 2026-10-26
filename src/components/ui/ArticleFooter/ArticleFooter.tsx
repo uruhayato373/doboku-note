@@ -28,6 +28,7 @@ import RelatedTools from '@/components/ui/RelatedTools';
 import QualificationBridge from '@/components/ui/QualificationBridge/QualificationBridge';
 import { shouldShowQualificationBridge } from '@/config/qualification-bridge';
 import { DISCOVERY_CATEGORIES } from '@/lib/sidebar-discovery';
+import Disclosure from '@/components/ui/Disclosure/Disclosure';
 
 interface ArticleFooterProps {
   /** 記事末の転職バナー（config/affiliate-placements.json の article-end のルール。無ければ置かない）。DocPage が解決して渡す */
@@ -227,11 +228,12 @@ export default function ArticleFooter({
           docGroup === 'textbook') && (
           /* モバイルでは記事一覧が数千 px になり本文の倍近い高さを占めるため（textbook 実測 5,000px）、
              既定は閉じた details にして、開きたい人だけ展開させる。デスクトップはサイドバーで表示済み。 */
-          <details className="mt-8 zenn-desktop:hidden group rounded-card-section border border-(--rule-soft) bg-(--paper) dark:border-(--rule-soft)">
-            <summary className="focus-ring flex min-h-11 cursor-pointer list-none items-center justify-between px-4 py-3 text-[14px] font-bold text-(--ink) [&::-webkit-details-marker]:hidden">
-              <span>{category === 'civil-practice' ? '関連する実務記事を開く' : 'この資格の記事一覧を開く'}</span>
-              <span aria-hidden="true" className="text-(--ink-muted) transition-transform group-open:rotate-180">⌄</span>
-            </summary>
+          <Disclosure
+            radius="section"
+            className="mt-8 zenn-desktop:hidden"
+            summaryClassName="text-[14px] font-bold text-(--ink)"
+            summary={category === 'civil-practice' ? '関連する実務記事を開く' : 'この資格の記事一覧を開く'}
+          >
             <div className="px-3 pb-3">
               <CategoryNavCard
                 variant="mobile"
@@ -241,7 +243,7 @@ export default function ArticleFooter({
                 categoryArticles={categoryArticles}
               />
             </div>
-          </details>
+          </Disclosure>
         )}
 
       {/* guide（キャリア記事を除く）: 次のステップ導線（演習・テキスト・分野へ）。全ビューポート。

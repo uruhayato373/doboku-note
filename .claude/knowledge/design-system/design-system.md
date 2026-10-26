@@ -172,7 +172,7 @@
 | `CardRail`（`ui/CardRail/`） | **横スクロール カードレールの共通コンポーネント**（client）。見た目は globals.css `.card-rail`（scroll-snap・カード幅 clamp で次カード覗き・右端フェード）、この component は左右端の**浮き矢印オーバーレイ**を追加（クリックで 1 画面ぶん scrollBy・端に達した側は自動非表示・全カード収容時は両方非表示・sm 未満は非表示＝モバイルはスワイプのみ）。矢印は角丸なし細線ボタン（DisclosureChevron と同 path）。縦センタリング/左右反転は inline style（Tailwind transform 系は本 build 不可）。CareerSection で使用・他セクションでも再利用可 | `children`（カード群） / `ariaLabel?` |
 | `OgpThumbRow`（`category/CategorySections.tsx`） | **OGP サムネ左＋タイトル右の1行の単一実装**（全資格・カテゴリ hub 共通）。「よく読まれている記事」（`PopularShowcase`・`rank` 付き）と各セクションの OGP 行（`DocSection layout="ogp-rows"`・`rank` 無し）で共用。サムネは `aspect-[1200/630] w-[124px] sm:w-[168px]`。**`self-start` 必須**＝親 flex の `align-items:stretch` がサムネをテキスト列の高さに引き伸ばし `aspect-ratio` を無効化する縦伸び事故を防ぐ（2026-07-15 根治。横並び flex 内で aspect 比を保つ要素には常に付ける）。OGP は R2 配信・全 published で CI 実在保証 | `doc: DocMeta` / `rank?: number` |
 | `DisclosureChevron`（`ui/DisclosureChevron.tsx`） | **アコーディオン（`<details>`）開閉アイコンの単一実装**（細線シェブロン・右向き→開くと 90°回転）。FAQCard・CurriculumList（テキスト章）共通。回転は `.disclosure-chevron`（globals.css の素の CSS）。**Tailwind の transform 変種は正常に効く**（2026-08-20 実測。旧記述は測定ミス＝hidden タブで transition が進まない）ので、素の CSS を使う理由は prose 記事内 `<details>` と見た目を 1 箇所で共有するため。prose 記事内 `<details>` も同一 path を `--disclosure-chevron` マスク＋`[open]` 回転で使う（path の真実源は DisclosureChevron） | `className`（色・サイズ passthrough） |
-| `Disclosure`（`ui/Disclosure/Disclosure.tsx`） | **開閉（native `<details>`）の単一実装**。JS を使わず、閉じても中身は DOM に残る（内部リンクとして読まれる）。見出し行は `disclosure-summary`（globals.css・`::-webkit-details-marker` と `::marker` を両方消す）＋`focus-ring`＋`min-h-11`、矢印は右端の `DisclosureChevron`。新しい開閉は素の `<details>` を書かずにこれを使う（既存の移行状況は下の「開閉と目次ナビ」） | `summary`（左の題名）/ `meta?`（矢印の手前・件数など）/ `variant`: `card`（枠・紙色・開くと枠が accent）/ `plain`（枠なし）/ `summaryClassName?` / その他の `<details>` 属性（`open`・`data-*`）はそのまま渡る |
+| `Disclosure`（`ui/Disclosure/Disclosure.tsx`） | **開閉（native `<details>`）の単一実装**。JS を使わず、閉じても中身は DOM に残る（内部リンクとして読まれる）。見出し行は `disclosure-summary`（globals.css・`::-webkit-details-marker` と `::marker` を両方消す）＋`focus-ring`＋`min-h-11`、矢印は `DisclosureChevron`。src/ の素の `<details>` は `tests/disclosure-ratchet.test.mjs` が止める（例外は件数つき・MDX 記事内の details は対象外） | `summary`（題名・h タグ可）/ `meta?`（矢印の手前・件数など）/ `variant`: `card`（枠・紙色・開くと枠が accent）/ `plain`（枠なし・罫線は `className` で足す）/ `radius`: `content`（既定）/ `section` / `inline`（入力欄と並ぶ小さな部品・余白 px-3 py-2）/ `none`。tailwind-merge は `rounded-card-*` をまとめないので角はクラスの上書きでなくここで決める / `chevron`: `end`（既定）/ `start`（題名が複数行になる FAQ・見出し行を上でそろえる）/ `summaryClassName?` / その他の `<details>` 属性（`open`・`hidden`・`data-*`）はそのまま渡る |
 | `NextStepNav`（`ui/NextStepNav/NextStepNav.tsx`） | guide（要点）記事末の「次のステップ」導線。読者を演習（過去問）・テキスト・分野へ送り行き止まりを解消（リンク先はカテゴリ hub の `sec-*` アンカー＝季節 note CTA と同居）。解決は `src/lib/next-step.ts`（カテゴリ別・純関数）。`MetaCard` の `trackNav` で回遊クリックが `internal_nav_click` 計測に乗る。キャリア記事では非描画（転職導線と非競合）。回遊ナビの GA4 計測は `data-cta="nav"`＋`MetaCard trackNav`／`AnalyticsProvider` の `nav` 種別 | `category` |
 | `QualificationBridge`（`ui/QualificationBridge/QualificationBridge.tsx`） | 実務記事（`civil-practice`）の記事末と共通仕様書の章末に置く「業務経験 → 資格」カード。資格を意識していない読者に立場 3 択（発注者／施工会社／迷っている）で既存の資格ページへの入口を示す。本文に試験文脈を入れない規約は維持し、本文の外に 1 枚だけ置く。対象・文言・遷移先は `src/config/qualification-bridge.ts`。GA4 は root の `data-cta="qualification-bridge"` で表示（`qualification_bridge_impression`）、各リンクの `data-cta-label`（立場）でクリック（`qualification_bridge_click`）。EXP-012 | `placement` |
 | `HubCtaBanner`（`ui/HubCtaBanner/HubCtaBanner.tsx`） | 資格別6:5の完成画像を使う教材導線。カテゴリhub、記事末尾、サイドバーで共用し、直前期は商品画像、平時は資格共通画像を表示する。画像未登録時は背景イラスト＋HTML意匠。既存の季節判定・L2もくじURL・UTMを維持する | `cta` / `placement` |
@@ -180,21 +180,21 @@
 | `MagazineHeroCta`（`ui/MagazineHeroCta/`） | 記事中間・MDX本文の強CTA。完成画像を `NoteImageCta` で表示し、未登録時は資格背景＋円形アバターのHTML意匠へフォールバックする。複数商品の列挙は `variant="inline"`＝`MagazineInlineCard` のcompact表示を使う。公開判定は `getMagazine()`、GA4は商品ID入りラベル・配置・表示インプレッションを共用 | `id`（`MagazineId`）/ `utmContent` / `placement` |
 | `MagazineTopBanner`（`ui/MagazineTopBanner/`） | 記事冒頭の個別教材CTA。通常は完成画像のみを優先し、多問の過去問では`compact`で小さな画像・短縮タイトル・内容を見る案内を横並びにする。2級二次のR07・経験記述の書き方・例文の冒頭に限り、商品名・収録内容も併記する。画像未登録時は短縮タイトル・価格のHTML意匠を表示する。`resolvePlacement().top` と `getMagazine()` で対象・公開可否を決め、既存GA4ラベル・配置を保持する | `magazineId` / `url` / `title` / `price?` / `badge` / `trackLabel` / `compact?` |
 
-**開閉と目次ナビ（2026-10-26 棚卸し）**: 開閉は `Disclosure`、目次・サイドナビの並びは globals.css の `@utility` に寄せる。shadcn/ui・Radix はサイト本体に入れない（静的書き出しの全ページに client JS と 2 系統目のトークンが入るため。管理画面だけで使う）。shadcn の Sidebar の構成（Group / Menu / MenuSub / MenuButton・`data-active`）は名前と構造の参考にだけ使う。フォーカス管理が要る部品（スマホの引き出し・切り替えメニュー）を作るときだけ、その部品に限って再検討する。
+**開閉と目次ナビ（2026-10-26 移行）**: 開閉は `Disclosure`、目次・サイドナビの並びは globals.css の `@utility` に寄せる。shadcn/ui・Radix はサイト本体に入れない（静的書き出しの全ページに client JS と 2 系統目のトークンが入るため。管理画面だけで使う）。shadcn の Sidebar の構成（Group / Menu / MenuSub / MenuButton・`data-active`）は名前と構造の参考にだけ使う。フォーカス管理が要る部品（スマホの引き出し・切り替えメニュー）を作るときだけ、その部品に限って再検討する。
 
-| 箇所 | 枠 | 矢印 | マーカー消し | フォーカス／44px | 状態 |
-|---|---|---|---|---|---|
-| `TableOfContents`（モバイル目次） | card（開くと accent） | lucide `ChevronDown` 180° | `marker:hidden` | あり／あり | `Disclosure` card へ移行済み（矢印をサイト標準の右→下に統一） |
-| `QuestionJumpNav`（問題番号） | なし | `DisclosureChevron` | `::-webkit-details-marker` | あり／あり | `Disclosure` plain へ移行済み |
-| `CurriculumSections`（章・その他のキャリア記事） | card（開くと accent） | `DisclosureChevron` | `marker:hidden` | なし／なし | 未移行（card） |
-| `FAQCard` | 枠・余白は details 側（開くと accent） | `DisclosureChevron`（左） | `marker:hidden` | なし／なし | 未移行（矢印が左。`Disclosure` に左置きを足すか判断が要る） |
-| `ArticleFooter`（モバイルの記事一覧） | `rounded-card-section` | 文字 `⌄` 180° | `::-webkit-details-marker` | あり／あり | 未移行（card） |
-| `Footer`（資格・実務から探す） | 上下の罫線 | `DisclosureChevron` | `::-webkit-details-marker` | あり／あり | 未移行（罫線の形は `className` で足す） |
-| `PolicyList`（ほかの計画） | card（背景なし） | なし | `list-none` だけ | あり／あり | 未移行 |
-| `TopicArticles`（絞り込み・資格ごとの束） | `rounded-card-inline`／card | `DisclosureChevron`／なし（既定の三角） | なし | あり／一部なし | 未移行 |
-| `ArticleSidebar`（運営者・保有資格） | 角あり枠 | なし（既定の三角） | なし | あり／なし | 未移行 |
-| `StandardsAttribution`・`/standards/compare` | 上罫線／角あり枠 | なし／`DisclosureChevron` | なし／`marker:hidden` | あり／あり | 未移行 |
-| `StandardsNavigation`（モバイル欄・ほかの文書・目次の編と章） | 各種 | `DisclosureChevron`／目次は mask | 各種 | あり／あり | 目次は `standards-tree`（PR #1244）。統合後に汎用の `nav-tree` へ改名して `TableOfContents` の並びと共用する |
+| 箇所 | 移行前（枠／矢印／マーカー消し） | 移行後 |
+|---|---|---|
+| `TableOfContents`（モバイル目次） | card／lucide `ChevronDown` 180°／`marker:hidden` | card（矢印をサイト標準の右→下へ） |
+| `QuestionJumpNav`（問題番号） | なし／`DisclosureChevron`／`::-webkit-details-marker` | plain |
+| `CurriculumSections`（章・その他のキャリア記事） | card／`DisclosureChevron`／`marker:hidden`・フォーカスなし | card |
+| `FAQCard` | 枠と余白を details 側／左の `DisclosureChevron`／フォーカスなし | card・`chevron="start"` |
+| `ArticleFooter`（モバイルの記事一覧） | `rounded-card-section`／文字 `⌄` 180° | card・`radius="section"` |
+| `Footer`（資格・実務から探す） | 上下の罫線／`DisclosureChevron` | plain＋`border-y` |
+| `PolicyList`（ほかの計画） | 背景なしの枠／矢印なし | card |
+| `TopicArticles`（絞り込み・資格ごとの束） | `rounded-card-inline`／card、矢印なし（既定の三角） | card・`radius="inline"`／card |
+| `ArticleSidebar`（運営者・保有資格） | 角あり枠／既定の三角 | card・`radius="none"` |
+| `StandardsAttribution`・`/standards/compare` | 上罫線・既定の三角／角あり枠 | plain＋`border-t`／card・`radius="none"` |
+| `StandardsNavigation`（ほかの文書・モバイル欄・目次の編） | 各種 | 未移行（PR #1244 の目次と同時に移す。ラチェットの例外 3 件） |
 
 目次・サイドナビの並びは、`TableOfContents` の `.toc-content`（点と縦線）と基準類の `standards-tree`（縦線は 1 本・表示中は背景色）の 2 形が残る。行ごとに長いクラスや SVG を並べると 1 ページ数十 KB 増える（`standards-tree` で右の欄 58KB → 13KB）ので、並びの見た目は常に globals.css に置き、部品側は構造（`ol`/`li`/`a`・`aria-current`・`data-active`）だけを書く。
 

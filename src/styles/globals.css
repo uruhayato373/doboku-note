@@ -88,9 +88,8 @@
 
 @utility disclosure-summary {
   /* 開閉の見出し行（Disclosure の <summary>）。既定のマーカーを全ブラウザで消す
-     （marker:hidden だけでは Safari の ::-webkit-details-marker が残る）。矢印は DisclosureChevron を右端に置く。 */
+     （marker:hidden だけでは Safari の ::-webkit-details-marker が残る）。縦のそろえ（items-center／items-start）は Disclosure が決める。 */
   display: flex;
-  align-items: center;
   gap: 0.75rem;
   cursor: pointer;
   list-style: none;
