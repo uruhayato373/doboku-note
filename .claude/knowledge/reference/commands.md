@@ -26,7 +26,7 @@ npm run check-e2e-execution -- --report .tmp/e2e-report.json # E2E CIのJSON結�
 npm run check-e2e-targets      # E2E が叩くサイト内 URL が out/ に実在するか（`_redirects` の転送元を叩くと dev で必ず 404 になり、検査が成立しないまま赤が放置される）。**要 `npm run build`** なので quality:audit ではなく ci.yml / e2e.yml の build 後に置く。exit 2=検査不成立
 npm run check-client-chunk-size # build 済み out/_next/static/chunks の JS 1 本が 600KB を超えていないか（client component が doc-meta-index 等の大きい JSON を import すると /search のように 1.66MB になる・DN-0684）。out/ が無ければ exit 2。読み手＝ci.yml の build ジョブ
 npm run check-production-ssr # deploy 後の本番 SSR 検証（exit 0=正常 / 1=壊れている / **2=検査不成立＝接続できていない**。会社PCの HTTP 000／プロキシのブロック HTML をサイト障害と誤読しない・手打ち curl で代用しない）。/deploy と cloudflare-deploy.yml の公開後に実行。社内回線から接続できない場合は同workflowの verify_only=true で再デプロイせず外部検査。
-npm run check-production-sweep # 本番 sitemap 全 URL を実際に叩く（200・自己 canonical・<main>・noindex 無し・og:image 200・セキュリティヘッダ）。deploy 後と日曜に CI（production-sweep.yml）が自動。手元は `-- --sample 50`。exit 1=本番異常 / 2=検査不成立
+npm run check-production-sweep # 本番 sitemap 全 URL を実際に叩く（200・自己 canonical・<main>・noindex 無し・og:image 200・セキュリティヘッダ）。deploy 後と日曜に CI（uptime-ping.yml の sweep ジョブ）が自動。手元は `-- --sample 50`。exit 1=本番異常 / 2=検査不成立
 npm run test:e2e:a11y        # axe（WCAG 2.1 A/AA）を代表 8 ページ×light/dark で実行。critical 0 かつ serious が e2e/a11y-baseline.json を超えないことがゲート。基準更新は :baseline（修正を確認してから・減らす方向のみ）
 npx lhci autorun --config=lighthouserc.json  # Lighthouse を build 成果物（npm run serve）に対し代表4ページ（home/KW記事/過去問/ツール）で実行。**要 `npm run build`**。accessibility/seo ≥0.95・best-practices ≥0.9 は error（マージ不可）、performance ≥0.7 は warn（job summary のみ・lab の揺れが大きいためゲートしない。2026-10-14 まで serve が無圧縮で、二次の過去問ページだけが常に 0.66〜0.69 の warn だった）。PR（lighthouse.yml）で自動実行。**閾値の SSOT は lighthouserc.json**（本番 field 監視の config/psi-config.json とは目的が違うため意図的に別の値・二重管理しない。役割: lighthouserc=マージ前 lab ゲート／psi-config=本番後 field 監視+回帰検出）
 npm run check-command-guidance # 検査やスクリプトが案内するコマンド（npm run / node パス）が実在するか。**正典ドキュメント（CLAUDE.md / AGENTS.md / この一覧 / .claude/rules）の案内も対象**（記載はあるが package.json に無い `npm run serve` を 2026-08-30 まで放置していた再発防止）。2026-10-11 からは .claude/skills・.claude/knowledge・.claude/agents・docs/ の .md と .github/workflows の .yml も走査する（DN-0686。広げた時点で実在しない案内が 7 件あった）
@@ -261,7 +261,7 @@ npm run check-x-posted-live  # 投稿済み X の生存確認。posted_url を�
 npm run fetch-ig-insights          # Instagram Graph API で media+insights+SoT 照合を取得→data/instagram/insights/・.claude/state/ig-reconcile/snapshot.json（手動のみ。Meta 利用制限で Graph API は使えず、定期実行の workflow は無い。0 件取得は exit 2＝成果物を書かない）
 npm run ig-graph-token             # IG_GRAPH_ACCESS_TOKEN のローテ（長期トークン発行→ローカルで `gh secret set` へ手動投入。ローカル専用・秘密値を出力しない）
 npm run fetch-cloudflare-analytics # Cloudflare GraphQL Analytics でゾーン別日次集計を取得→data/cloudflare/zone/（CI 日次 cloudflare-metrics.yml。0 件は exit 2）
-npm run fetch-cloudflare-zone-config # Cloudflare ゾーン設定（キャッシュ/圧縮/WAF/Bot Management）を取得しドリフト検知→.claude/state/cloudflare/zone-config-latest.json（CI 週次 cloudflare-config-audit.yml・金曜 22:47 JST。**ドリフト採用は `--accept-baseline` を人が確認してから**）
+npm run fetch-cloudflare-zone-config # Cloudflare ゾーン設定（キャッシュ/圧縮/WAF/Bot Management）を取得しドリフト検知→.claude/state/cloudflare/zone-config-latest.json（CI 週次 cloudflare-metrics.yml の金曜 22:47 JST の回。**ドリフト採用は `--accept-baseline` を人が確認してから**）
 npm run check-ig-insights-freshness # IG 週次取得の停止とトークン失効 7 日前を検知（quality-audit の ops 区分・snapshot 0 件は FAIL）
 npm run check-cloudflare-metrics-freshness # Cloudflare 日次/月次取得の停止を検知（quality-audit の ops 区分・zone snapshot 3 日超／config 10 日超で FAIL）
 npm run fetch-afb-outcomes         # afb 公式 conversion API で成果（pending/approved/rejected・報酬額）を取得→data/afb/outcomes/（日付別の最新）（`--commit` 必須で書き込み・CI 週次 fetch-metrics.yml。AFB_API_KEY 必須・提携状態スキャンとは別系統）
@@ -286,7 +286,7 @@ npm run gsc-indexing:priority  # 最新 URL 検査 batch × GSC page 実績か�
 npm run check-gsc-indexing-due # 表示実績のある未登録が残っているのに 7 日以上リクエスト無しなら DUE（weekly-review-guard が surface・常に exit 0）
 npm run gsc-sitemaps          # 本番 robots.txt の Sitemap 行（sitemap.xml・期限内の sitemap-legacy.xml）を Search Console API で送信（`-- --submit`・要サービスアカウントの「フル」権限）し、読み込み状況を data/gsc/sitemaps.json へ（fetch-metrics.yml が週次で実行・ログイン不要）
 npm run check-gsc-sitemaps    # sitemaps-latest.json を見て、記録が古い・GSC 未登録・送信失敗・エラー・14 日以上未読み込みなら DUE（weekly-review-guard が surface・常に exit 0）
-npm run indexnow:submit        # sitemap の lastmod が直近 7 日の URL を IndexNow（Bing 等・Google 非対応）へ通知。CI は deploy 成功後に自動（indexnow-submit.yml）。`-- --dry-run` で対象だけ。会社 PC は Node fetch がプロキシを通らず exit 2
+npm run indexnow:submit        # sitemap の lastmod が直近 7 日の URL を IndexNow（Bing 等・Google 非対応）へ通知。CI は deploy 成功後に自動（cloudflare-deploy.yml の indexnow ジョブ）。`-- --dry-run` で対象だけ。会社 PC は Node fetch がプロキシを通らず exit 2
 npm run check-experiment-due   # 実験台帳の再計測/close/decide 期限と要人手（pending_user_actions）を surface（計測→記録→改善→再計測の最後の輪。2026-09-19 に旧 check-experiments-due を統合＝判定は scripts/lib/experiment-due.mjs が唯一。`-- --json` で issues も出す）
 npm run check-jst-date    # 運用記録の日付が UTC・実行環境のタイムゾーン（getFullYear/getMonth/getDate）・+9 時間の自前計算で出ていないか（scripts・.claude・tools を走査。JST の日付は scripts/lib/jst-date.mjs の todayJst・jstMonth・jstDayOf・jstClock だけ。JST 09:00 前の実行事故・pre-commit 同梱）
 npm run check-affiliate-placements # 転職アフィリエイトの配置ルール（config/affiliate-placements.json＝案件×面×対象×期間）を catalog・広告リンク・面の語彙・カテゴリ・実験・MDX の手書きカードと突合し、同じ面の重なりを止める（pre-commit・quality-audit ci）。`-- --upcoming` は 7 日以内の境界で exit 1（ops。SSG は境界の後に再ビルドが要る）

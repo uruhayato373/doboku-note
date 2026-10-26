@@ -1,6 +1,14 @@
-name: Uptime ping
+name: Production check (uptime ping + all-URL sweep)
 
-# サイト健全性監視（旧 Issue #130-C）。
+# 本番を外から確かめる 2 つの検査を 1 本にまとめたもの（DN-0853・旧 production-sweep.yml を統合）。
+# - ping（1 日 3 回）: 代表 3 ページの SSR・body・GA 計装。下に経緯。Issue channel: uptime
+# - sweep（日曜・本番 deploy の成功後・手動の sweep）: sitemap 全 URL を実際に叩く。check-seo-build は out/ の検査で、
+#   Cloudflare 層（_redirects・_headers・キャッシュ・R2 の og:image）は本番でしか見えない。
+#   検査内容と exit code は scripts/check-production-sweep.mjs ヘッダ、閾値は scripts/lib/production-sweep.mjs。
+#   失敗（本番異常 rc=1 / 検査不成立 rc=2）は Issue channel: production-sweep
+# 定期実行と workflow_run はデフォルトブランチ（main）の版で動く。
+#
+# ping: サイト健全性監視（旧 Issue #130-C）。
 # BAILOUT_TO_CLIENT_SIDE_RENDERING（2026-W16 事件）のような「200 だが body 空」
 # パターンも検出する。失敗時は automation-failure Issue へ起票する（限定例外チャネル）。
 # 2026-08-24 まで doc は「task-queue.json に append」と書いていたが、その台帳は
@@ -8,17 +16,32 @@ name: Uptime ping
 
 on:
   schedule:
-    # JST 08:00 / 14:00 / 20:00 (UTC 23:00 / 05:00 / 11:00)
+    # ping: JST 08:00 / 14:00 / 20:00 (UTC 23:00 / 05:00 / 11:00)
     - cron: "0 23,5,11 * * *"
+    # sweep: UTC 20:30 日曜 = JST 05:30 月曜（weekly-review-guard の前）
+    - cron: "30 20 * * 0"
+  workflow_run:
+    workflows: ["Deploy to production (Cloudflare Pages)"]
+    types: [completed]
   workflow_dispatch:
+    inputs:
+      sweep:
+        description: "全 URL の検査を回す（false なら代表 3 ページの ping）"
+        type: boolean
+        default: false
+      sample:
+        description: "全 URL の検査を先頭 N 件だけ（空なら全件）"
+        required: false
+        default: ""
 
 permissions:
-  contents: write
-  # 失敗時に automation-failure Issue を起票する。
+  contents: read
+  # 失敗時に automation-failure Issue を起票する（限定例外）。
   issues: write
 
 jobs:
   ping:
+    if: ${{ (github.event_name == 'schedule' && github.event.schedule == '0 23,5,11 * * *') || (github.event_name == 'workflow_dispatch' && inputs.sweep != true) }}
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
@@ -132,7 +155,7 @@ jobs:
               echo "### 参考"
               echo "- 2026-W16 事件（BAILOUT_TO_CLIENT_SIDE_RENDERING / 6 日データ欠損）の再発防止"
               echo "- 関連: .claude/reference/measurement-incidents.md（2026-W16 BAILOUT）"
-              echo "- workflow: \`.github/workflows/uptime-ping.yml\`"
+              echo "- workflow: \`.github/workflows/uptime-ping.yml\`（ping ジョブ）"
             } > /tmp/failure-report.md
 
             echo "failed=true" >> $GITHUB_OUTPUT
@@ -178,3 +201,72 @@ jobs:
         run: |
           echo "::error::サイト健全性チェック失敗（SSR 壊れ / body 空 / HTTP エラー）。2026-W16 BAILOUT 再発監視。automation-failure Issue を起票済み。"
           exit 1
+
+  sweep:
+    if: ${{ (github.event_name == 'schedule' && github.event.schedule == '30 20 * * 0') || (github.event_name == 'workflow_run' && github.event.workflow_run.conclusion == 'success') || (github.event_name == 'workflow_dispatch' && inputs.sweep == true) }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Setup Node.js
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: "22"
+
+      # deploy 直後は Cloudflare のエッジ伝播が数十秒遅れることがある。1 分待ってから叩く。
+      - name: Wait for edge propagation
+        if: ${{ github.event_name == 'workflow_run' }}
+        run: sleep 60
+
+      # 依存ゼロ（node:child_process + curl）なので npm ci しない。
+      - name: Sweep production
+        id: sweep
+        env:
+          SAMPLE: ${{ inputs.sample }}
+        run: |
+          set +e
+          ARGS=""
+          [ -n "$SAMPLE" ] && ARGS="--sample $SAMPLE"
+          node scripts/check-production-sweep.mjs $ARGS 2>&1 | tee /tmp/sweep.log
+          rc=${PIPESTATUS[0]}
+          set -e
+          echo "rc=$rc" >> "$GITHUB_OUTPUT"
+          {
+            echo "## Production sweep（rc=$rc）"
+            echo '```'
+            head -60 /tmp/sweep.log
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+          exit "$rc"
+
+      - name: Report - production anomaly
+        if: failure() && github.event_name != 'workflow_dispatch'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          {
+            echo "本番全 URL スイープが失敗（rc=${{ steps.sweep.outputs.rc }}）。rc=1 は本番異常（非 200・転送元が sitemap に混入・canonical ずれ・og:image 欠落・セキュリティヘッダ不足）、rc=2 は検査不成立（sitemap 取得不可・接続失敗 5% 超）。"
+            echo ""
+            echo '```'
+            head -80 /tmp/sweep.log 2>/dev/null || echo "(log なし)"
+            echo '```'
+            echo ""
+            echo "- 再実行: \`gh workflow run uptime-ping.yml -f sweep=true\`（手元: \`npm run check-production-sweep -- --sample 50\`）"
+            echo "- 判定: \`scripts/lib/production-sweep.mjs\` / 実行: \`scripts/check-production-sweep.mjs\`"
+          } > /tmp/sweep-body.md
+          node scripts/report-automation-failure.mjs \
+            --channel production-sweep \
+            --title "本番スイープ失敗（rc=${{ steps.sweep.outputs.rc }}）" \
+            --body-file /tmp/sweep-body.md
+
+      # 全 URL が健全に戻ったら production-sweep channel の open Issue を自動クローズ（起票と対）。
+      - name: Resolve - production-sweep Issue (復旧)
+        if: success() && github.event_name != 'workflow_dispatch'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          node scripts/report-automation-failure.mjs --resolve --channel production-sweep \
+            --body "復旧 run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"

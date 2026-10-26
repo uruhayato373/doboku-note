@@ -154,27 +154,6 @@
       ]
     },
     {
-      "id": "cloudflare-config-audit",
-      "runner": "github-actions",
-      "source": ".github/workflows/cloudflare-config-audit.yml",
-      "title": "Cloudflare のゾーン設定の監査",
-      "group": "watch",
-      "triggers": [
-        "schedule",
-        "workflow_dispatch"
-      ],
-      "schedule": [
-        "47 13 * * 5"
-      ],
-      "scheduleJst": "金 22:47",
-      "login": [],
-      "purpose": "ゾーン設定のずれを検知する（土曜の週次レビューが新しい結果を読めるよう金曜の夜に回す・DN-0847）",
-      "readers": [
-        "issue:cloudflare-config",
-        "quality-audit:cloudflare-metrics-freshness"
-      ]
-    },
-    {
       "id": "cloudflare-deploy",
       "runner": "github-actions",
       "source": ".github/workflows/cloudflare-deploy.yml",
@@ -186,29 +165,33 @@
       ],
       "schedule": [],
       "login": [],
-      "purpose": "main への push でビルドして Pages へデプロイし、本番の SSR を検査する",
+      "purpose": "main への push でビルドして Pages へデプロイし、本番の SSR を検査する。成功したら後続のジョブで更新 URL を IndexNow へ送る（旧 indexnow-submit.yml を統合・DN-0853）",
       "readers": [
-        "deploy"
+        "deploy",
+        "issue:indexnow"
       ]
     },
     {
       "id": "cloudflare-metrics",
       "runner": "github-actions",
       "source": ".github/workflows/cloudflare-metrics.yml",
-      "title": "Cloudflare のゾーン解析",
+      "title": "Cloudflare のゾーン解析と設定の監査",
       "group": "metrics",
       "triggers": [
         "schedule",
         "workflow_dispatch"
       ],
       "schedule": [
-        "23 20 * * *"
+        "23 20 * * *",
+        "47 13 * * 5"
       ],
-      "scheduleJst": "毎日 05:23",
+      "scheduleJst": "解析 毎日 05:23・設定の監査 金 22:47",
       "login": [],
-      "purpose": "ゾーン解析を data/cloudflare へ記録する",
+      "purpose": "毎日はゾーン解析を data/cloudflare へ記録し、金曜の夜はゾーン設定のずれを検知する（土曜の週次レビューが新しい結果を読めるよう・DN-0847。旧 cloudflare-config-audit.yml を統合・DN-0853）",
       "readers": [
         "admin:/metrics",
+        "issue:cloudflare-metrics",
+        "issue:cloudflare-config",
         "quality-audit:cloudflare-metrics-freshness"
       ]
     },
@@ -294,23 +277,6 @@
       ]
     },
     {
-      "id": "indexnow-submit",
-      "runner": "github-actions",
-      "source": ".github/workflows/indexnow-submit.yml",
-      "title": "IndexNow へ送信",
-      "group": "release",
-      "triggers": [
-        "workflow_run",
-        "workflow_dispatch"
-      ],
-      "schedule": [],
-      "login": [],
-      "purpose": "デプロイ後に更新 URL を IndexNow へ送る",
-      "readers": [
-        "issue:indexnow"
-      ]
-    },
-    {
       "id": "lighthouse",
       "runner": "github-actions",
       "source": ".github/workflows/lighthouse.yml",
@@ -365,27 +331,6 @@
       "purpose": "quality-audit の ops 区分のうち毎日の分（数日で実害が出るもの・CI の取得の停止・土曜の収集の死活）を回し、赤を Issue にする。週次の点検と収集の検算は土曜に回す（DN-0847）",
       "readers": [
         "issue:ops"
-      ]
-    },
-    {
-      "id": "production-sweep",
-      "runner": "github-actions",
-      "source": ".github/workflows/production-sweep.yml",
-      "title": "本番の全 URL の検査",
-      "group": "release",
-      "triggers": [
-        "workflow_run",
-        "schedule",
-        "workflow_dispatch"
-      ],
-      "schedule": [
-        "30 20 * * 0"
-      ],
-      "scheduleJst": "月 05:30",
-      "login": [],
-      "purpose": "sitemap の全 URL を本番で検査する",
-      "readers": [
-        "issue:production-sweep"
       ]
     },
     {
@@ -445,20 +390,23 @@
       "id": "uptime-ping",
       "runner": "github-actions",
       "source": ".github/workflows/uptime-ping.yml",
-      "title": "死活確認",
+      "title": "本番の検査（死活確認・全 URL）",
       "group": "watch",
       "triggers": [
         "schedule",
+        "workflow_run",
         "workflow_dispatch"
       ],
       "schedule": [
-        "0 23,5,11 * * *"
+        "0 23,5,11 * * *",
+        "30 20 * * 0"
       ],
-      "scheduleJst": "毎日 08:00・14:00・20:00",
+      "scheduleJst": "死活確認 毎日 08:00・14:00・20:00・全 URL 月 05:30 とデプロイの後",
       "login": [],
-      "purpose": "本番の SSR の死活を確認する",
+      "purpose": "1 日 3 回、代表 3 ページの SSR の死活を確認し、週 1 回とデプロイの後に sitemap の全 URL を本番で検査する（旧 production-sweep.yml を統合・DN-0853）",
       "readers": [
-        "issue:uptime"
+        "issue:uptime",
+        "issue:production-sweep"
       ]
     },
     {
