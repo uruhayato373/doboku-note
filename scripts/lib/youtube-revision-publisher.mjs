@@ -12,6 +12,7 @@ import { longformInputHash } from './longform-render-integrity.mjs';
 import { findDuplicateLongforms } from './video-duplicate-check.mjs';
 import { assertChannel, assertProcessed, getVideo, sameSnippet, writableStatus } from './youtube-migration.mjs';
 import { channelInventory } from './youtube-channel-inventory.mjs';
+import sharp from 'sharp';
 
 const sha = bytes => createHash('sha256').update(bytes).digest('hex');
 const same = (a, b) => canonicalJson(a) === canonicalJson(b);
@@ -81,22 +82,76 @@ export function revisionPublishPlan(root, pubId, now = Date.now()) {
   return { pub, source, input, channel, disclosure, assets, facts, digest, marker, snippet, blockers, checkedMedia: Object.keys(assets).length };
 }
 
+/** 初回の通常動画も改訂版と同じ intent・marker・API 実査の経路で扱う。 */
+export function singlePublishPlan(root, pubId, now = Date.now()) {
+  const reg = loadRegistry(root), pub = reg.publications.find(p => p.id === pubId);
+  const parsed = parsePubId(pubId);
+  if (!pub || pub.revisionOf || pub.channel !== 'youtube' || pub.format !== 'longform' || pub.variant ||
+      pub.account !== 'youtube:main' || parsed?.exam !== pub.exam || parsed.work !== pub.work || parsed.format !== 'longform' || parsed.variant) {
+    throw new Error('初回通常動画の公開ID・アカウントが不正');
+  }
+  const work = reg.works.find(w => w.id === pub.work && w.exam === pub.exam);
+  if (work?.kind !== 'video-pack' || pub.copy !== `${work.definition}/youtube.json#longform`) throw new Error('投稿文面の置き場が作品と一致しない');
+  const release = readJson(root, `${work.definition}/youtube.json`);
+  const input = release.longform, byId = new Map(reg.media.map(m => [m.id, m]));
+  const assets = {}, facts = {};
+  for (const role of ['video', 'cover']) {
+    const id = pub.media?.[role], m = byId.get(id);
+    if (!m || id !== `${pub.id}/${role}`) throw new Error(`${role}: 公開行と素材IDが一致しない`);
+    assets[role] = { id, path: m.store.path, sha256: m.sha256 };
+    if (verifiedBytes(root, assets[role]).length !== m.bytes) throw new Error(`${role}: 素材サイズが違う`);
+    facts[role] = { bytes: m.bytes, width: m.width, height: m.height, durationSec: m.durationSec, provenance: m.provenance };
+  }
+  if (release.channel?.id !== readDataset(root, 'config.youtube-formats').channel.id ||
+      release.channel?.title !== readDataset(root, 'config.youtube-formats').channel.title ||
+      input.sha256 !== assets.video.sha256 || input.thumbnailSha256 !== assets.cover.sha256 ||
+      !input.r2Key || !input.thumbnailR2Key || Date.parse(input.publishAt) !== Date.parse(pub.publishAt) ||
+      !(facts.video.durationSec > 0) ||
+      facts.cover.width !== 1920 || facts.cover.height !== 1080 ||
+      facts.video.provenance.renderInputSha256 !== longformInputHash(join(root, work.definition))) throw new Error('投稿入力・完成動画・表紙の結線が不正');
+  const channel = readDataset(root, 'config.youtube-formats').channel;
+  const disclosure = readDataset(root, 'config.youtube-production-disclosure');
+  const utm = readDataset(root, 'config.utm-templates').channels['youtube.longform'];
+  if (!input.title || input.title.length > 100 || !input.description || input.description.length > 5000 ||
+      !input.description.includes(disclosure.authorityNotice) ||
+      ![`utm_source=${utm.source}`, `utm_medium=${utm.medium}`, `utm_campaign=${pub.work}`].every(x => input.description.includes(x))) throw new Error('投稿文面・UTM・制作開示が不正');
+  const digest = sha(canonicalJson({ pubId, input, facts, channel, disclosure }));
+  const marker = `dn-single-${sha(`${pub.id}:${digest}`).slice(0, 40)}`;
+  const snippet = { title: input.title, description: input.description, tags: [...(input.tags ?? []), marker], categoryId: input.categoryId ?? '27', defaultLanguage: 'ja', defaultAudioLanguage: 'ja' };
+  if (snippet.tags.some(t => typeof t !== 'string') || snippet.tags.join(',').length > 500) throw new Error('タグが不正または上限超過');
+  const approval = approvalState(root, pub, byId), blockers = [];
+  if (!['rendered', 'uploaded_private', 'scheduled', 'published'].includes(pub.status)) blockers.push('rendered-state-required');
+  if (!approval.visual.valid || !approval.final.valid || pub.approval?.by !== 'user' || pub.approval.grandfathered) blockers.push('current-approval-missing');
+  if (!(work.qa?.avg >= 2) || work.qa.blocks !== 0) blockers.push('work-qa-not-passed');
+  if (!pub.publishAt || !(Date.parse(pub.publishAt) > now + 300000)) blockers.push('future-slot-missing-or-expired');
+  if (findDuplicateLongforms(root, reg, { candidateId: pub.id }).pairs.length) blockers.push('duplicate-longform');
+  if (reg.publications.some(p => p.id !== pub.id && p.channel === 'youtube' && p.account === pub.account &&
+      (p.platform?.id || p.delivery?.uploadRequestedAt) && byId.get(p.media?.video)?.sha256 === input.sha256)) blockers.push('duplicate-media-publication');
+  if (pub.delivery && (pub.delivery.inputSha256 !== digest || pub.delivery.marker !== marker)) throw new Error('実行開始後に投稿入力が変わっている');
+  if (pub.platform?.id && !pub.delivery?.videoId) throw new Error('外部IDに実行記録が無い。自動投稿しない');
+  return { pub, source: { platform: {} }, input, channel, disclosure, assets, facts, digest, marker, snippet, blockers, checkedMedia: 2 };
+}
+
 /** 依存はYouTube API形のオブジェクト。テストは全てmock。defaultは外部通信なし。 */
-export async function publishYoutubeRevision(root, { pubId, phase = 'upload', commit = false, expect }, { youtube, now = () => Date.now() } = {}) {
+export async function publishYoutubePublication(root, { pubId, phase = 'upload', commit = false, expect }, { youtube, journal, now = () => Date.now() } = {}) {
   if (!['upload', 'schedule', 'verify'].includes(phase)) throw new Error('phaseはupload|schedule|verify');
-  let plan = revisionPublishPlan(root, pubId, now());
+  const publication = loadRegistry(root).publications.find(p => p.id === pubId);
+  const planFor = publication?.revisionOf ? revisionPublishPlan : singlePublishPlan;
+  let plan = planFor(root, pubId, now());
   const summary = { publicationId: pubId, phase, digest: plan.digest, checkedMedia: plan.checkedMedia, blockers: plan.blockers, dryRun: !commit, externalActions: 0 };
   if (!commit) return summary;
   if (expect !== plan.digest) throw new Error('確認した改訂入力digestと一致しない');
   // verifyは読み取りで既知結果を回収できる。新規外部書き込みは承認と未来日時が必須。
   if (phase !== 'verify' && plan.blockers.length) throw new Error(`投稿不可: ${plan.blockers.join(', ')}`);
   if (!youtube) throw new Error('YouTubeクライアントが必要');
+  if (!publication.revisionOf && !journal) throw new Error('初回投稿には非公開R2の実行記録が必要');
   const session = publicationWriteSession(root, 'youtube', plan.pub.exam);
   const at = () => new Date(now()).toISOString();
   let pub = structuredClone(plan.pub);
+  const journalSave = async () => { if (journal) await journal.save({ pubId, delivery: pub.delivery }); };
   const current = () => {
     session.assertUnchanged();
-    const latest = revisionPublishPlan(root, pubId, now());
+    const latest = planFor(root, pubId, now());
     if (latest.digest !== plan.digest) throw new Error('処理中に素材または投稿入力が変わった');
     if (phase !== 'verify' && latest.blockers.length) throw new Error(`投稿不可: ${latest.blockers.join(', ')}`);
     return latest;
@@ -113,20 +168,32 @@ export async function publishYoutubeRevision(root, { pubId, phase = 'upload', co
   };
   try {
     current();
+    if (journal) {
+      const remote = await journal.load();
+      if (remote) {
+        if (remote.pubId !== pubId || remote.delivery?.inputSha256 !== plan.digest || remote.delivery?.marker !== plan.marker) throw new Error('非公開投稿意図と今の入力が不一致');
+        if (pub.delivery && !same(pub.delivery, remote.delivery)) {
+          // R2 は CI が途中停止した後の実行状態。台帳に新しい動画IDがあり R2 だけ古い場合は止める。
+          if (pub.delivery.videoId && remote.delivery.videoId !== pub.delivery.videoId) throw new Error('台帳と非公開投稿意図の動画IDが不一致');
+        }
+        pub.delivery = remote.delivery;
+        save();
+      }
+    }
     await assertChannel(youtube, plan.channel);
     if (!pub.delivery?.videoId) {
       // タイトルだけで旧版を選ばない。全件照合できない場合もinsertしない。
       const inventory = await channelInventory(youtube, plan.channel);
       const hits = inventory.videos.filter(v => v.snippet?.tags?.includes(plan.marker));
-      if (hits.length > 1) throw new Error('改訂markerが複数動画にあるため停止');
+      if (hits.length > 1) throw new Error('投稿markerが複数動画にあるため停止');
       if (hits.length === 1) {
         if (!pub.delivery?.uploadRequestedAt) throw new Error('実行記録のない同marker動画。自動採用しない');
-        claimId(hits[0].id); save();
+        claimId(hits[0].id); await journalSave(); save();
       } else {
         if (pub.delivery?.uploadRequestedAt) throw new Error('upload結果不明。再投稿せずmarkerの実体確認が必要');
         if (phase !== 'upload') throw new Error('先に改訂版を非公開アップロードする');
         const bytes = verifiedBytes(root, plan.assets.video);
-        pub.delivery = { inputSha256: plan.digest, marker: plan.marker, uploadRequestedAt: at() }; save();
+        pub.delivery = { inputSha256: plan.digest, marker: plan.marker, uploadRequestedAt: at() }; await journalSave(); save();
         let response;
         try {
           response = await youtube.videos.insert({ part: 'snippet,status', notifySubscribers: false,
@@ -134,7 +201,7 @@ export async function publishYoutubeRevision(root, { pubId, phase = 'upload', co
             media: { mimeType: 'video/mp4', body: Readable.from([bytes]) } }, { retry: false });
         } catch { throw new Error('upload結果不明。intentを保持し、再投稿せずverifyで照合する'); }
         summary.externalActions++;
-        claimId(response.data?.id); save();
+        claimId(response.data?.id); await journalSave(); save();
       }
     }
     claimId(pub.delivery.videoId);
@@ -143,7 +210,7 @@ export async function publishYoutubeRevision(root, { pubId, phase = 'upload', co
     if (['failed', 'terminated'].includes(actual.processingDetails?.processingStatus) || ['failed', 'rejected', 'deleted'].includes(actual.status?.uploadStatus)) throw new Error('動画処理失敗。旧動画を変更せず新規再投稿もしない');
     const media = { bytes: plan.facts.video.bytes, duration: plan.facts.video.durationSec, width: plan.facts.cover.width, height: plan.facts.cover.height };
     if (!assertProcessed(actual, { oldVideo: { id: plan.source.platform?.id, snippet: { channelId: plan.channel.id } }, media })) return { ...summary, result: 'processing-pending' };
-    pub.delivery.processedAt ??= at();
+    pub.delivery.processedAt ??= at(); await journalSave();
     let scheduled = actual.status.publishAt && Date.parse(actual.status.publishAt) === Date.parse(pub.publishAt);
     if (actual.status.privacyStatus === 'public') {
       if (!pub.delivery.scheduledVerifiedAt || now() < Date.parse(pub.delivery.scheduleAt)) throw new Error('予定外の即時公開。変更せず停止');
@@ -155,17 +222,19 @@ export async function publishYoutubeRevision(root, { pubId, phase = 'upload', co
     pub.times = { ...pub.times, uploaded: pub.times?.uploaded ?? at() };
     if (!scheduled) pub.status = 'uploaded_private';
     save();
-    if (phase === 'upload' && !pub.delivery.thumbnailAcceptedAt) {
-      if (pub.delivery.thumbnailRequestedAt) throw new Error('thumbnail結果不明。自動再送しない');
-      const buffer = verifiedBytes(root, plan.assets.cover);
-      pub.delivery.thumbnailRequestedAt = at(); save();
+    if (['upload', 'schedule'].includes(phase) && !pub.delivery.thumbnailAcceptedAt) {
+      if (pub.delivery.thumbnailRequestedAt) throw new Error('表紙(thumbnail)結果不明。自動再送しない');
+        const source = verifiedBytes(root, plan.assets.cover);
+        const buffer = source.length > 2_097_152 ? await sharp(source).jpeg({ quality: 93, mozjpeg: true }).toBuffer() : source;
+        if (buffer.length > 2_097_152) throw new Error('YouTube表紙の2MB制限を超える');
+      pub.delivery.thumbnailRequestedAt = at(); await journalSave(); save();
       let response;
-      try { response = await youtube.thumbnails.set({ videoId: pub.delivery.videoId, media: { mimeType: 'image/png', body: Readable.from([buffer]) } }, { retry: false }); }
+        try { response = await youtube.thumbnails.set({ videoId: pub.delivery.videoId, media: { mimeType: source.length > 2_097_152 ? 'image/jpeg' : 'image/png', body: Readable.from([buffer]) } }, { retry: false }); }
       catch { throw new Error('thumbnail結果不明。intentを保持して停止'); }
       summary.externalActions++;
       pub.delivery.thumbnailUrls = (response.data?.items ?? []).flatMap(urls);
       if (!pub.delivery.thumbnailUrls.length) throw new Error('thumbnail応答を確認できない。再送しない');
-      pub.delivery.thumbnailAcceptedAt = at(); save();
+      pub.delivery.thumbnailAcceptedAt = at(); await journalSave(); save();
       actual = await getVideo(youtube, pub.delivery.videoId, true); verifyIdentity(actual);
       scheduled = actual.status.publishAt && Date.parse(actual.status.publishAt) === Date.parse(pub.publishAt);
       if (actual.status.privacyStatus !== 'private' || (actual.status.publishAt && (!scheduled || !pub.delivery.scheduleRequestedAt))) throw new Error('表紙設定中に公開状態・予約が変わったため停止');
@@ -174,7 +243,7 @@ export async function publishYoutubeRevision(root, { pubId, phase = 'upload', co
     if (thumbnailVerified) { pub.thumbnail = { ...pub.thumbnail, status: 'set', setAt: pub.delivery.thumbnailAcceptedAt }; save(); }
     if (scheduled) {
       if (!thumbnailVerified) throw new Error('予約実体の表紙読取が未確認');
-      pub.status = 'scheduled'; pub.delivery.scheduledVerifiedAt = at(); pub.times.scheduled ??= at(); save();
+      pub.status = 'scheduled'; pub.delivery.scheduledVerifiedAt = at(); pub.times.scheduled ??= at(); await journalSave(); save();
       return { ...summary, result: 'scheduled-verified', publishAt: actual.status.publishAt };
     }
     if (phase !== 'schedule') return { ...summary, result: thumbnailVerified ? 'private-ready' : 'private-thumbnail-unverified' };
@@ -189,7 +258,7 @@ export async function publishYoutubeRevision(root, { pubId, phase = 'upload', co
     actual = await getVideo(youtube, pub.delivery.videoId, true); verifyIdentity(actual);
     if (actual.status.privacyStatus !== 'private' || actual.status.publishAt) throw new Error('予約直前に公開状態・予約が変わったため停止');
     current();
-    pub.delivery.scheduleRequestedAt = at(); pub.delivery.scheduleAt = pub.publishAt; save();
+    pub.delivery.scheduleRequestedAt = at(); pub.delivery.scheduleAt = pub.publishAt; await journalSave(); save();
     try {
       await youtube.videos.update({ part: 'status', requestBody: { id: pub.delivery.videoId,
         status: { ...writableStatus(actual), privacyStatus: 'private', publishAt: pub.publishAt } } }, { retry: false });
@@ -197,7 +266,12 @@ export async function publishYoutubeRevision(root, { pubId, phase = 'upload', co
     summary.externalActions++;
     actual = await getVideo(youtube, pub.delivery.videoId, true); verifyIdentity(actual);
     if (actual.status.privacyStatus !== 'private' || Date.parse(actual.status.publishAt) !== Date.parse(pub.publishAt)) throw new Error('予約応答の読取不一致。再送せずverifyで照合する');
-    pub.status = 'scheduled'; pub.delivery.scheduledVerifiedAt = at(); pub.times.scheduled = at(); save();
+    pub.status = 'scheduled'; pub.delivery.scheduledVerifiedAt = at(); pub.times.scheduled = at(); await journalSave(); save();
     return { ...summary, result: 'scheduled-verified', publishAt: actual.status.publishAt };
   } finally { session.close(); }
+}
+
+export async function publishYoutubeRevision(root, options, dependencies) {
+  revisionPublishPlan(root, options.pubId, dependencies?.now?.() ?? Date.now());
+  return publishYoutubePublication(root, options, dependencies);
 }

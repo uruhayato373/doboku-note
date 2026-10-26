@@ -103,7 +103,7 @@ SNSの人物・見出しを改修するときは [SNS画像ポリシー §0・§
 | `/publish-ig-bs` | Playwright × Meta Business Suite で IG **カルーセル/リール**を**予約投稿**（`--reel` で reels/video.mp4・IG 単独化・spinbutton 時刻・dry-run 必須）。即時は `--now`（Graph API 経路は 2026-06-17 全廃＝IG 投稿は本スキルに一本化） | `IG予約投稿`, `インスタ予約`, `リール予約`, `Business Suite 投稿`, `/publish-ig-bs` |
 | `/x-repost` | 高エンゲージな技術士総監/1級・2級土木ツイートを検索 → `x-repost-curator` で選別＋引用コメント生成 → Playwright で引用RP（ローカル `/loop` 運用・dry-run 必須） | `Xリポスト`, `引用リポスト`, `/x-repost` |
 | `/yt-shorts-create` | **v7: IG Reels mp4 から YouTube Shorts を派生**（30〜60秒を推奨〔成立条件の検査は縦/正方形・180秒以内〕+ 概要欄差替、`--from-reels`。投稿は3本/日・JST07:30/12:30/20:00、真実源 policy §5-7。MDX 直結 `--slug` は廃止） | `YouTube Shorts`, `YT 派生`, `/yt-shorts-create --from-reels r03-pack-01` |
-| `/video-content` | 動画パック（悩み・出典付き台本・storyboard・CTA）の薄い入口。既存パック重複確認→`video-script-writer` 生成→`check-video-content`→`video-content-qa` 独立採点→承認待ちで停止（BLOCK は指摘だけ Generator へ返す・最大2回）。レンダリング・投稿・承認は担当外（既存 CLI／`registry -- approve`）。契約 `video-content-policy.md` §7 | `動画パックを作る`, `動画台本を作る`, `パックの台本をQA`, `/video-content <exam> <packId>` |
+| `/video-content` | 動画パック（悩み・出典付き台本・storyboard・CTA）の薄い入口。既存パック重複確認→`video-script-writer` 生成→`check-video-content`→`video-content-qa` 独立採点→承認待ちで停止（BLOCK は指摘だけ Generator へ返す・最大2回）。レンダリング・投稿・承認は担当外（初回通常動画の投稿は `registry -- publish-youtube`）。契約 `video-content-policy.md` §7 | `動画パックを作る`, `動画台本を作る`, `パックの台本をQA`, `/video-content <exam> <packId>` |
 
 ### 開発（dev）
 

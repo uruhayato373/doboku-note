@@ -164,7 +164,7 @@ const Publication = z
       thumbnailAcceptedAt: utcTime('表紙設定API応答の確認時刻').optional(), thumbnailUrls: z.array(z.string().url()).optional(),
       scheduleRequestedAt: utcTime('予約開始前の記録').optional(), scheduleAt: offsetTime('要求した予約日時').optional(),
       scheduledVerifiedAt: utcTime('予約を実査した時刻').optional(),
-    }).strict().optional().describe('改訂公開ID専用の実行記録。intentだけ残る操作は重複実行しない'),
+    }).strict().optional().describe('YouTube投稿の実行記録。intentだけ残る操作は重複実行しない'),
     campaigns: z.array(z.string()).optional(),
     sync: z.object({ syncedSha256: sha256, at: utcTime('同期した時刻') }).strict().optional().describe('外部へ最後に同期した中身'),
     times: z
@@ -223,7 +223,8 @@ const Publication = z
     const d = p.delivery;
     if (d) {
       const issue = (key, message) => ctx.addIssue({ code: 'custom', path: ['delivery', key], message });
-      if (!p.revisionOf) issue('inputSha256', 'delivery は改訂公開行専用');
+      if (!p.account.startsWith('youtube:')) issue('inputSha256', 'delivery は YouTube 公開行専用');
+      if (p.variant && !p.revisionOf) issue('inputSha256', 'variantの実行記録には改訂元が必要');
       if (p.platform?.id && p.platform.id !== d.videoId) issue('videoId', 'platform.id と実行記録の動画 ID が不一致');
       if ((d.processedAt || d.thumbnailRequestedAt || d.scheduleRequestedAt) && !d.videoId) issue('videoId', '処理・表紙・予約には動画 ID が必要');
       if (d.thumbnailAcceptedAt && (!d.thumbnailRequestedAt || !d.thumbnailUrls?.length)) issue('thumbnailAcceptedAt', '表紙の開始記録と応答 URL が必要');

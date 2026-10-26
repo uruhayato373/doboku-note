@@ -90,7 +90,7 @@ config/content-registry.json          チャネル×形式・アカウント・I
 - 画面確認の素材は `npm run media -- preview --pub <id> [--commit]`（`scripts/lib/media-preview.mjs`・DN-0603）。無音プレビュー・`contactSheetEverySec` 秒ごとのコンタクトシート（画面遷移用。長尺は `contact-sheet-2` 以降）・全場面を1枚ずつ載せる `scene-sheet`（短い表紙も含む）・数値（`preview-metrics`。冒頭の表紙の秒数・直前と同じ画面の割合・同じ画面が続く箇所。閾値は `config/video-content.json` の `visualCheck`）。
 - 承認は運営者が自分の端末で、画面に出るコマンドをコピーして打つ: `npm run registry -- approve --pub <id> --stage visual|final --expect <digest>`。`--expect` が今の中身の digest と違えば書かない。final は visual の承認が先（YouTube）。AI 生成の素材に判定 ok が無ければ書かない。Claude Code の Bash（`CLAUDECODE=1`）からは実行できない。止めるのは `npm run registry -- stop --pub <id> --reason …`（stopped は戻れない終端）。後で予約し直す前提で予約だけを外すのは `npm run registry -- unschedule --pub <id> --reason …`（scheduled → uploaded_private・元の予約日時を reason に残す。YouTube 側は先に `.github/workflows/youtube-unschedule.yml` で外す。2026-10-13 に YouTube を一旦止めたときに足した）。
 - 予約解除後の `uploaded_private`・予約日時なしでは、旧承認を履歴として保持する。予定が変わったため旧ハッシュの不一致は R07 の INFO にし、非公開化の記録保存を妨げない。再予約時は不一致を FAIL とし、公開・stage の最終承認ゲートも引き続き止める。
-- ハッシュつきの最終承認は、`publish-video-pack.cjs`（longform・thumbnail）と `stage-youtube-renders-r2.mjs` が今の中身と照らし、違えば止める（`finalApprovalGate`。ハッシュの無い承認は今どおり通す）。
+- 初回通常動画のハッシュつき承認は `registry -- publish-youtube` が今の画面・文面・素材と照らし、違えば停止する。転送用の `stage-youtube-renders-r2.mjs` も `finalApprovalGate` を通す。
 - 検査 R07 は比較元（`--base`・CI は PR の base か直前のコミット＝`REGISTRY_BASE`）から状態が変わった行の遷移を見る。`stopped(unverified-legacy)→published` は証拠つきだけ。
 
 ## 素材の置き場
@@ -107,9 +107,15 @@ config/content-registry.json          チャネル×形式・アカウント・I
 
 - `config/content-registry.json` の `cutover` に `youtube` が入り、動画パックの YouTube の状態の正本は台帳になった。写しだった `.claude/state/video-content-status.json` は 2026-10-09 に消した（P7）。`derivatives.longform`・`derivatives.shorts` の形は台帳から `loadVideoState` が作る。Instagram（動画パックのリールを含む）は台帳が正本で、`instagramReel` は派生物の形に含めない（P5）。
 - 変換は `scripts/lib/registry-video-state.mjs` だけが持つ。派生物の欄と台帳の欄は欠けなく往復し（全パックで往復するテストつき）、知らない欄は投げる。書き手が新しい欄を足すときは、型（`dataset-schemas-content.mjs`）と変換の両方に足す。
-- 書き手（`publish-video-pack.cjs`・`prepare-youtube-longforms.mts`）は `loadVideoState`（台帳だけから作る・ファイルは読まない）で読み、`saveVideoState` で台帳の行へ書く。読むだけのスクリプトと管理画面も `loadVideoState` を通す。
+- 旧形式の書き手（`publish-video-pack.cjs`・`prepare-youtube-longforms.mts`）は `loadVideoState`（台帳だけから作る・ファイルは読まない）で読み、`saveVideoState` で台帳の行へ書く。初回通常動画の個別投稿は `registry -- publish-youtube` が公開IDの行を排他して保存する。読むだけのスクリプトと管理画面は `loadVideoState` を通す。
 - 派生物の無い公開（Shorts を作る前の動画パック）は行を作らない。Shorts の行は `youtube.json` の `shorts` に鍵を決めたときにできる。台帳にだけある素の下書き（`status: draft` だけの行）は写しに出さない。
 - 一括の取り込みは `npm run registry -- import-video-packs`（既定 dry-run・2 回目は書く行 0）。公開中の一覧（`youtube.own-videos`）と突き合わせ、公開中なのに published でない本数を出す。
+
+## 初回の YouTube 通常動画を個別予約する
+
+`npm run registry -- mark-rendered --pub <公開ID> --commit` は画面・最終承認と13場面等の完成レンダーを照合して `rendered` に進める。`npm run registry -- publish-youtube --pub <公開ID> --phase upload` は素材SHA・公開文面・承認・未来日時を検査して入力digestを出す（外部通信なし）。
+
+投稿は手動の `youtube-single-publish.yml` に公開IDとそのdigestを渡す。GitHub Actions の YouTube API 資格情報を使い、private R2からSHA照合した動画・表紙を取得する。`upload` は専用markerとprivate R2のintentを先に記録して非公開アップロードし、結果不明なら再投稿せずチャンネル全件照合で回収する。処理後に尺・容量・映像・音声、表紙のAPI応答と再読取を確認してから `schedule` が予約し、YouTube側の公開範囲と `publishAt` の再読取後にだけ台帳を `scheduled` にする。2MBを超える承認済みPNG表紙はYouTubeの容量制限に合わせてJPEGへ圧縮して送信する。workflow は得た状態を `develop` の公開行へ書き戻す。`publish-video-pack.cjs` の同名タイトル検索は初回予約に使わない。
 
 ## 照合（registry-reconcile）
 
