@@ -3,6 +3,7 @@ import { isStructuralTag } from '@/lib/content-taxonomy';
 import { classifyDoc, isCareerDoc } from './doc-classifier';
 import { getMagazine, type MagazineId } from './note-magazines';
 import { resolvePlacement } from './magazine-placement';
+import { examDayEndUtcMs } from './exam-dates';
 
 export const DISCOVERY_CATEGORIES = ['pe-first-stage', 'pe-construction', 'concrete-engineer', 'concrete-chief-engineer', 'concrete-diagnostician', 'civil-practice', 'rccm'];
 const products: Partial<Record<string, MagazineId>> = {
@@ -12,9 +13,20 @@ const products: Partial<Record<string, MagazineId>> = {
   'concrete-diagnostician': 'cd-essay-magazine',
   rccm: 'rccm-mondai3-magazine',
 };
+/**
+ * 資格トップ（doc なし）の固定商品。主任技士は本試験の日まで択一 直前パック（¥2,980）、試験後はまるごとパック。
+ * 資格トップは直前期に検索から来る入口で、高額のまるごとパック（¥7,980）は PC サイドバーで表示あたり 0.28%
+ * しか押されず、スマホでは一覧の最下部だった（DN-0703・GA4 2026-09-24〜10-21）。試験日は config/exam-calendar.json から引く。
+ */
+function categoryProductId(category: string): MagazineId | undefined {
+  if (category === 'concrete-chief-engineer' && Date.now() <= examDayEndUtcMs('concrete-chief-engineer', 'exam')) {
+    return 'cce-takuitsu-chokuzen-pack';
+  }
+  return products[category];
+}
 export function sidebarProduct(category: string, doc?: DocMeta) {
   if (!products[category]) return null;
-  if (!doc) return getMagazine(products[category]!);
+  if (!doc) return getMagazine(categoryProductId(category)!);
   // career 記事に note 商品カードを出さない（学習意図＝note／キャリア意図＝転職アフィリの分離）。
   // classifyDoc は 'career' を返さない（career は group: guide のまま・doc-classifier.ts:11-14）ため、
   // 旧実装 `classifyDoc(doc) === 'career'` は常に false の死んだガードだった（2026-09-22 是正）。
