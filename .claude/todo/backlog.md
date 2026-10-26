@@ -1371,6 +1371,22 @@ Windows の PowerShell で repo 直下から順に:
 
 ## 🟢 低 — 重要度が低い（時期未定を含む）
 
+### [DN-0860] 転送の見直し:
+タグ: [領域:サイト] [時期:2027-04] [種類:意思決定] [起票:2026-10-26]
+
+対象: public/_redirects の BEGIN GENERATED PUBLIC ROUTES より上の、2026-04-13〜2026-06-25 に足した手書きの静的ルール（重複キーワード統合・テキストブック再構成・旧 /docs/exam/* 構造・削除済みコンテンツ・CS 統合）。
+
+外す条件と手順は docs/strategy/05_情報アーキテクチャ.md「転送の見直し（いつ外すか）」。全部を満たした群だけ public/_redirects から外し、1 つでも欠ければ見直しを 6 か月後に延ばす（表の見直し時期も更新）。
+
+確かめること:
+1. 入れてから 12 か月以上
+2. GSC の page 別の表示（data/gsc/reports の最新）で、群の旧 URL の表示が直近 28 日で 0
+3. content/site・content/note・content/sns・content/kindle・content/coconala と note のライブ記事に旧 URL が 0
+4. Cloudflare の配信記録で旧 URL へのアクセスがほぼ 0（経路別に測れなければ「未確認」と書き、0 とみなさない）
+
+完了条件: 外した群は _redirects と表から消え、外さなかった群は理由と次の見直し時期が表に書かれている。
+
+
 ### [DN-0856] サイトの素の <details> を共通部品 Disclosure へ移し、増やさないラチェットを足す
 タグ: [領域:サイト] [種類:改善] [起票:2026-10-26]
 
