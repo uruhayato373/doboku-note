@@ -344,6 +344,7 @@ async function main() {
   if (!PACK_ID || !['longform', 'metadata', 'thumbnail', 'shorts-upload', 'shorts-publish'].includes(PHASE)) {
     throw new Error('Usage: --pack-id ID --phase longform|metadata|thumbnail|shorts-upload|shorts-publish [--dry-run] [--skip-thumbnail] [--related-confirmed]');
   }
+  if (PHASE === 'longform' && !DRY) throw new Error('旧 longform 投稿経路は停止。初回通常動画は npm run registry -- publish-youtube と youtube-single-publish.yml を使う');
   if (!/^[a-z0-9][a-z0-9-]{2,80}$/.test(PACK_ID)) throw new Error('pack-id 形式が不正です');
   const pack = await findPack(PACK_ID);
   const publishPath = path.join(pack.dir, 'youtube.json');

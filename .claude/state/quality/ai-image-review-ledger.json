@@ -2969,6 +2969,90 @@
       "reason": "独立AI画像監査：最終採用PNGを原寸と360pxで実見。指定4文言・ポーズ・顔と手指・安全域に問題なし。ユーザー承認は含まない。",
       "reviewedAt": "2026-10-11T03:36:30.184Z"
     },
+    "media:pe-first-stage/pe1-zentaizou/youtube.longform/cover": {
+      "sha": "abe1a7b7debc5406",
+      "verdict": "ok",
+      "reason": "技術士第一次試験と3科目の文字は正確で、先生の顔・眼鏡・ひげ・服装も参照画像と整合する。",
+      "reviewedAt": "2026-10-26T12:02:24.845Z"
+    },
+    "media:pe-first-stage/pe1-zentaizou/youtube.longform/scene-001": {
+      "sha": "abe1a7b7debc5406",
+      "verdict": "ok",
+      "reason": "coverと同一画像。資格名・3科目・先生の外形と文字を確認した。",
+      "reviewedAt": "2026-10-26T12:02:24.846Z"
+    },
+    "media:pe-first-stage/pe1-zentaizou/youtube.longform/scene-002": {
+      "sha": "c7e7cf6782e5ef4f",
+      "verdict": "ok",
+      "reason": "3科目・合格基準・学習順序の3アイコンと文字が台本に合う。",
+      "reviewedAt": "2026-10-26T12:02:24.846Z"
+    },
+    "media:pe-first-stage/pe1-zentaizou/youtube.longform/scene-003": {
+      "sha": "149d7a16caf344d2",
+      "verdict": "ok",
+      "reason": "基礎・適性・専門を独立した3本のゲージで示し、各科目50%以上と明記する。",
+      "reviewedAt": "2026-10-26T12:02:24.846Z"
+    },
+    "media:pe-first-stage/pe1-zentaizou/youtube.longform/scene-004": {
+      "sha": "3bbb45e55523e38b",
+      "verdict": "ok",
+      "reason": "一次合格から修習技術者・実務経験・二次試験へ進む図と文字が台本に合う。",
+      "reviewedAt": "2026-10-26T12:02:24.846Z"
+    },
+    "media:pe-first-stage/pe1-zentaizou/youtube.longform/scene-005": {
+      "sha": "df0566056520f44f",
+      "verdict": "ok",
+      "reason": "一次合格と指定されたJABEE認定課程修了が修習技術者に合流する図と文字は正確。",
+      "reviewedAt": "2026-10-26T12:02:24.846Z"
+    },
+    "media:pe-first-stage/pe1-zentaizou/youtube.longform/scene-006": {
+      "sha": "5d88b1d98eaaa5b5",
+      "verdict": "ok",
+      "reason": "基礎の5群で各6問から3問、計15問と適性15問全答を左右で正確に示す。",
+      "reviewedAt": "2026-10-26T12:02:24.846Z"
+    },
+    "media:pe-first-stage/pe1-zentaizou/youtube.longform/scene-007": {
+      "sha": "0070e1b226b60125",
+      "verdict": "ok",
+      "reason": "専門科目（建設部門）の35問から25問選択を正確に示し、冊子の装飾線は問題数と誤認させない。主要文字と図は字幕用の下端18%より上に収まる。",
+      "reviewedAt": "2026-10-26T12:02:24.846Z"
+    },
+    "media:pe-first-stage/pe1-zentaizou/youtube.longform/scene-008": {
+      "sha": "3e6f6fab56e16d7b",
+      "verdict": "ok",
+      "reason": "令和8年度の基礎・適性・専門各50%以上を独立メーターと正しい文字で示す。",
+      "reviewedAt": "2026-10-26T12:02:24.846Z"
+    },
+    "media:pe-first-stage/pe1-zentaizou/youtube.longform/scene-009": {
+      "sha": "b83975c5e3d978eb",
+      "verdict": "ok",
+      "reason": "過去問の選択肢は1～5の五肢で、正誤の根拠を調べて次年度へ進む図に整合する。",
+      "reviewedAt": "2026-10-26T12:02:24.846Z"
+    },
+    "media:pe-first-stage/pe1-zentaizou/youtube.longform/scene-010": {
+      "sha": "0a3a01e396ad5082",
+      "verdict": "ok",
+      "reason": "専門・基礎・適性の学習時間配分は棒の長さとラベルが5:3:2で一致し、「目安」も明記する。",
+      "reviewedAt": "2026-10-26T12:02:24.846Z"
+    },
+    "media:pe-first-stage/pe1-zentaizou/youtube.longform/scene-011": {
+      "sha": "dd1bbfaf0ebae765",
+      "verdict": "ok",
+      "reason": "前半専門・中盤基礎5群・直前期適性の順序と3科目継続の補足が台本に合う。",
+      "reviewedAt": "2026-10-26T12:02:24.846Z"
+    },
+    "media:pe-first-stage/pe1-zentaizou/youtube.longform/scene-012": {
+      "sha": "137e3114ab7b19ab",
+      "verdict": "ok",
+      "reason": "基礎・適性・専門の3本柱と過去問から各科目への矢印、二次への進路が整合する。",
+      "reviewedAt": "2026-10-26T12:02:24.846Z"
+    },
+    "media:pe-first-stage/pe1-zentaizou/youtube.longform/scene-013": {
+      "sha": "20e3bf3271798885",
+      "verdict": "ok",
+      "reason": "3科目をPDF合本にまとめる図と全560問、概要欄から通し演習の文字が商品台帳と一致する。",
+      "reviewedAt": "2026-10-26T12:02:24.846Z"
+    },
     "pe-comprehensive-management/liquefaction/img/photo-liquefaction-manhole-uplift": {
       "sha": "f9ac6c9e44a99f05",
       "promptSha": "488373b3151bc865",

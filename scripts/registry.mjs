@@ -7,10 +7,13 @@
  *   npm run registry -- index                      # .tmp/content-registry/index.json（作品・公開・素材・題名・段階を結んだ生成物）
  *   npm run registry -- import-video-pack --pack-dir content/sns/video-packs/{exam}/{packId} [--commit]
  *   npm run registry -- import-video-packs [--commit]   # 全動画パック。2 回目は書く行 0。公開中の一覧（own-videos）と件数を突き合わせる
+ *   npm run registry -- prepare-youtube --pub <公開 ID> --publish-at <日時> [--commit] # 通常動画の文面・予定を登録（承認はしない）
+ *   npm run registry -- mark-rendered --pub <公開 ID> [--commit] # 承認済み通常動画の完成レンダーを実検査して状態を進める
  *   npm run registry -- import-instagram [--commit]      # IG の作品フォルダ全部（照合の記録 snapshot.json の live.list が要る・手元で verify-ig-status）
  *   npm run registry -- import-x [--commit]              # X の下書きフォルダ全部（自分の投稿の一覧 data/x/own-posts と本文で照合）
  *   npm run registry -- prepare-youtube-revision --pub <元の公開ID> --variant <新版名> [--copy <同作品内のJSON#fragment>] [--refresh-draft] [--related-to <新版通常動画ID>] [--publish-at <日時>] [--commit --expect <digest>]
  *   npm run registry -- publish-youtube-revision --pub <改訂公開ID> --phase upload|schedule|verify [--commit --expect <digest>] # 既定はローカル検査のみ
+ *   npm run registry -- publish-youtube --pub <初回通常動画ID> --phase upload|schedule|verify [--commit --expect <digest>] # R2 intent と API 実査
  *   npm run registry -- approve --pub <公開 ID> --stage visual|final --expect <digest>   # 運営者だけ（管理画面の確認画面からコピーする）
  *   npm run registry -- stop --pub <公開 ID> --reason user-decision|superseded|gone|unverified-legacy
  *   npm run registry -- unschedule --pub <公開 ID> --reason <理由>   # 予約を外す（scheduled → uploaded_private・後で予約し直せる）
@@ -22,6 +25,7 @@ import { mkdirSync, writeFileSync } from 'node:fs';
 import { dirname, join, relative, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { parseArgs } from 'node:util';
+import { execFileSync } from 'node:child_process';
 import { loadRegistry, loadRegistryConfig, publicationStage, resolveCopy } from './lib/content-registry.mjs';
 import { upsertPublications, upsertWorks } from './lib/content-registry-write.mjs';
 import { applyVideoRows, loadVideoState, planVideoRows, videoPackRows } from './lib/registry-video-state.mjs';
@@ -92,6 +96,31 @@ function importVideoPack() {
   upsertWorks(ROOT, exam, [work]);
   upsertPublications(ROOT, 'youtube', exam, publications);
   console.log(`書いた: 作品 1・公開 ${publications.length}（${exam}）`);
+}
+
+function prepareYoutube() {
+  if (!args.pub || !args['publish-at']) throw new Error('prepare-youtube には --pub と --publish-at が要る');
+  const reg = loadRegistry(ROOT);
+  const pub = reg.publications.find((p) => p.id === args.pub);
+  if (!pub || pub.channel !== 'youtube' || pub.format !== 'longform') throw new Error(`通常動画の公開行がない: ${args.pub}`);
+  if (!['draft', 'qa_passed'].includes(pub.status) || pub.approval) throw new Error(`${pub.id}: 承認後の文面・予定は変更できない`);
+  const work = reg.works.find((w) => w.id === pub.work && w.exam === pub.exam);
+  if (!work?.definition) throw new Error(`${pub.id}: 作品の定義がない`);
+  const copy = `${work.definition}/youtube.json#longform`;
+  const metadata = resolveCopy(ROOT, copy);
+  const release = readJsonIf(ROOT, `${work.definition}/youtube.json`)?.longform;
+  if (!metadata?.title || !metadata?.description || !Array.isArray(metadata.tags)) throw new Error(`${pub.id}: youtube.json の文面が不完全`);
+  const mediaById = new Map(reg.media.map((m) => [m.id, m]));
+  if (release?.sha256 !== mediaById.get(pub.media?.video)?.sha256 || release?.thumbnailSha256 !== mediaById.get(pub.media?.cover)?.sha256) {
+    throw new Error(`${pub.id}: youtube.json の動画・表紙SHAが台帳と違う`);
+  }
+  const requested = new Date(args['publish-at']);
+  if (!Number.isFinite(requested.getTime()) || requested.getTime() <= Date.now() + 5 * 60_000) throw new Error('公開日時は5分以上先にする');
+  if (!release?.publishAt || new Date(release.publishAt).getTime() !== requested.getTime()) throw new Error('youtube.json と指定した公開日時が違う');
+  console.log(`${pub.id}: ${metadata.title} / ${args['publish-at']} / ${copy}`);
+  if (!args.commit) { console.log('dry-run（台帳へは書いていない）。書くときは --commit'); return; }
+  writePublication(pub, { copy, publishAt: args['publish-at'] });
+  console.log('文面と公開予定を登録した。承認状態は変更していない');
 }
 
 const LEGACY_EVIDENCE = { kind: 'legacy-ledger', ref: 'import-video-packs' };
@@ -180,6 +209,22 @@ function approve() {
   }
   writePublication(pub, { status: next, approval: { by: 'user', at, contentSha256: args.expect } });
   console.log(`最終承認した: ${pub.id}（${pub.status} → ${next}・digest ${args.expect.slice(0, 12)}…）。中身が変わると承認は無効になり、stage と公開が止まる`);
+}
+
+function markRendered() {
+  if (!args.pub) throw new Error('mark-rendered には --pub <公開 ID> が要る');
+  const cfg = loadRegistryConfig(ROOT);
+  const reg = loadRegistry(ROOT);
+  const pub = reg.publications.find((p) => p.id === args.pub);
+  if (!pub || pub.channel !== 'youtube' || pub.format !== 'longform' || pub.revisionOf) throw new Error('元の通常動画の公開行がない');
+  if (pub.status !== 'approved' || !canTransition(cfg, pub.status, 'rendered', pub.channel)) throw new Error(`${pub.id}: approved → rendered の対象ではない`);
+  const mediaById = new Map(reg.media.map((m) => [m.id, m]));
+  const approval = approvalState(ROOT, pub, mediaById);
+  if (!approval.visual.valid || !approval.final.valid || pub.approval?.by !== 'user' || pub.approval.grandfathered) throw new Error('今の画面・文面・素材の承認が必要');
+  execFileSync(process.execPath, [join(ROOT, 'scripts/media.mjs'), 'verify-render', '--work', `${pub.exam}/${pub.work}`], { cwd: ROOT, stdio: 'inherit' });
+  if (!args.commit) { console.log('dry-run（台帳へは書いていない）。書くときは --commit'); return; }
+  writePublication(pub, { status: 'rendered', times: { ...pub.times, rendered: new Date().toISOString() } });
+  console.log(`完成レンダーを検査して状態を進めた: ${pub.id}（approved → rendered）`);
 }
 
 function stop() {
@@ -294,9 +339,30 @@ async function publishYoutubeRevision() {
   console.log(JSON.stringify(await publishYoutubeRevision(ROOT, { ...options, commit: true }, { youtube }), null, 2));
 }
 
-const commands = { list, show, index, 'import-video-pack': importVideoPack, 'import-video-packs': importVideoPacks, 'import-instagram': importInstagram, 'import-x': importX, 'prepare-youtube-revision': prepareYoutubeRevision, 'publish-youtube-revision': publishYoutubeRevision, approve, stop, unschedule };
+async function publishYoutube() {
+  const { publishYoutubePublication, singlePublishPlan } = await import('./lib/youtube-revision-publisher.mjs');
+  const options = { pubId: args.pub, phase: args.phase, expect: args.expect };
+  singlePublishPlan(ROOT, args.pub);
+  if (args.commit) {
+    const { hydrateSinglePublish } = await import('./lib/youtube-single-r2.mjs');
+    await hydrateSinglePublish(ROOT, args.pub);
+  }
+  const preview = await publishYoutubePublication(ROOT, options);
+  if (!args.commit) { console.log(JSON.stringify(preview, null, 2)); return; }
+  if (args.expect !== preview.digest || (args.phase !== 'verify' && preview.blockers.length)) throw new Error(`初回投稿の実行条件が不足: ${preview.blockers.join(', ')}`);
+  const required = ['YOUTUBE_CLIENT_ID', 'YOUTUBE_CLIENT_SECRET', 'YOUTUBE_REFRESH_TOKEN'];
+  if (required.some(key => !process.env[key])) throw new Error('YouTube環境変数が未設定');
+  const { google } = await import('googleapis');
+  const { singlePublishJournal } = await import('./lib/youtube-single-r2.mjs');
+  const auth = new google.auth.OAuth2(process.env.YOUTUBE_CLIENT_ID, process.env.YOUTUBE_CLIENT_SECRET);
+  auth.setCredentials({ refresh_token: process.env.YOUTUBE_REFRESH_TOKEN });
+  const youtube = google.youtube({ version: 'v3', auth, retry: false });
+  console.log(JSON.stringify(await publishYoutubePublication(ROOT, { ...options, commit: true }, { youtube, journal: singlePublishJournal(args.pub) }), null, 2));
+}
+
+const commands = { list, show, index, 'import-video-pack': importVideoPack, 'import-video-packs': importVideoPacks, 'prepare-youtube': prepareYoutube, 'mark-rendered': markRendered, 'import-instagram': importInstagram, 'import-x': importX, 'prepare-youtube-revision': prepareYoutubeRevision, 'publish-youtube-revision': publishYoutubeRevision, 'publish-youtube': publishYoutube, approve, stop, unschedule };
 if (!commands[command]) {
-  console.error('Usage: npm run registry -- list|show|index|import-video-pack|import-video-packs|import-instagram|import-x|prepare-youtube-revision|publish-youtube-revision|approve|stop|unschedule …');
+  console.error('Usage: npm run registry -- list|show|index|import-video-pack|import-video-packs|prepare-youtube|mark-rendered|import-instagram|import-x|prepare-youtube-revision|publish-youtube-revision|publish-youtube|approve|stop|unschedule …');
   process.exit(2);
 }
 await commands[command]();

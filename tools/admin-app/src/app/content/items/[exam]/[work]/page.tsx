@@ -19,7 +19,7 @@ export const dynamic = 'force-dynamic';
  */
 
 const ROLE_LABEL: Record<string, string> = {
-  cover: '表紙', cta: '締め', 'preview-metrics': '無音プレビューの数値', preview: '無音プレビュー', video: '動画', subtitles: '字幕',
+  cover: '表紙', cta: '締め', 'preview-metrics': '無音プレビューの数値', 'scene-sheet': '全場面シート', preview: '無音プレビュー', video: '動画', subtitles: '字幕',
 };
 const roleLabel = (role: string) => ROLE_LABEL[role] ?? (/^scene-\d+$/.test(role) ? `場面 ${Number(role.split('-').pop())}` : /^contact-sheet(-\d+)?$/.test(role) ? `コンタクトシート${role.replace('contact-sheet', '') ? ` ${role.split('-').pop()}` : ''}` : role);
 

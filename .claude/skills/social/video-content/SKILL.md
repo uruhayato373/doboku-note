@@ -27,6 +27,6 @@ domain: sns
 
 ## やらないこと
 
-- レンダリング（`render-longform`）、画面確認（`media -- preview`）、R2/Drive 退避、YouTube/IG/X への投稿、公開状態の照合。これらは既存 CLI と workflow が持つ承認ゲート（[content-registry.md](../../../knowledge/reference/content-registry.md) の `registry -- approve` は運営者が自分の端末で実行）を通す
+- レンダリング（`render-longform`）、画面確認（`media -- preview`）、R2/Drive 退避、YouTube/IG/X への投稿、公開状態の照合。YouTube 初回通常動画は [content-registry.md](../../../knowledge/reference/content-registry.md) の `registry -- publish-youtube` と手動 workflow で進める。Studio の画面権限だけで API 投稿不可とは判断しない
 - 承認（`approved`）の自動補完。ユーザー承認なしに外部公開へ進めない
 - 資格固有の事実監査の再実装（必要なら専門 Evaluator を別途呼ぶよう報告する）

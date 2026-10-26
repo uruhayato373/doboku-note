@@ -24,6 +24,8 @@ domain: product
 ## 通常動画・Shorts
 
 - 2級土木の動画は [動画ポリシー §4](../../../knowledge/reference/video-content-policy.md) の `diagram-led` を優先する。以下の先生・肩書き入り骨格をそのまま適用せず、図解主体・控えめな配色・著者名なし、人物は説明に必要な作業場面だけにする。原本を縮めて余白を足さず `full-frame-v1` で採用する。
+- 通常動画で「表紙はPOP・本文は図解」の指定がある場合、描画前に `storyboard.imageDesign` の `mode=codex-pop`・`scope=all-body`・`layout=diagram-led`・`coverRevision` と、`pop-image.json` の採用改訂を接続する。表紙は `cover-design.json` の `design=pop-poster-v3` と採用PNGを指定する。`npm run check-video-content` の B20 と `npm run media -- verify-render --work <資格>/<作品>` が通るまで旧カード版を完成品として扱わない。
+- `node scripts/video-scene-sheet.mjs <packId>` は render-manifest の全場面を記録順に1枚ずつ載せる。出力の `場面 N/N 件` が storyboard の表紙を含む場面数と一致し、1枚目が採用POP表紙、残り全場面が指定した図解であることを確認する。10秒間隔の `contact-sheet.jpg` は画面の継続時間を見るために使い、短い表紙と全場面の意匠確認には使わない。
 
 - 共通方針の「通常動画・Shortsの承認見本」から内容に合う `revisions` を選び、参照PNGを開いてから制作する。全面画像生成版 `pop-poster-v3` を、既存 `youtube-covers --all` の `pop-v2` 組版で代用しない。
 - 同一画像を再利用するときは保存PNGを復元し、`output.sha256` と照合する。文言・資格・ポーズを変更するときは参照画像と全文プロンプトを引き継いだ新版にする。同一プロンプトからの画素一致は保証しない。

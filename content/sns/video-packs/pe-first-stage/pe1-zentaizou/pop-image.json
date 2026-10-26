@@ -9,8 +9,8 @@
       "copy": {
         "exam": "pe-first-stage",
         "headline": [
-          "一次試験の3科目",
-          "学ぶ順序をつかむ"
+          "3科目の全体像",
+          "何から学ぶ？"
         ],
         "benefit": "",
         "authority": "総監が制作"
@@ -21,33 +21,33 @@
       ],
       "references": [
         {
-          "path": ".tmp/video-render/pop-matome-2kyu-20261010/thumbnail-palm-v1.png",
-          "sha256": "8fd0987d6c7b7ad74645dbfa1971f42f3128e47ed4645c9d93048a579b6542cb"
+          "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/youtube.longform/cover.b87e20c1.png",
+          "sha256": "b87e20c19fda2123d3bac22950472ee7a7427dd2ab11a7cbf63807a6e83c33ad"
         },
         {
-          "path": "content/sns/_assets/character/_source/pop-explaining.png",
-          "sha256": "e88700289679362e7a5ab6867187b32287701b861e55fe0be2d5835b2de527a0"
+          "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
+          "sha256": "1941cd22fa523fcb233e8ab7b8ad756ad7398be8755037b881d8380fb39398f9"
         }
       ],
-      "prompt": "参照画像の右側の先生キャラクターを正確に継承した、動画表紙に組み込む人物だけの高解像度PNG素材を制作してください。白い無地のヘルメット、黒髪、黒縁眼鏡、40代男性の同じ顔とひげ、紺の作業服とネクタイ、黄色と白の反射帯。参照の顔の描線・アニメ塗り・表情を保持。腰から上、正面を向き、画面左へ片手を開いて内容を紹介するポーズ。指は自然な5本指。ヘルメットの頂点・両肘・手指・腰の端まで完全に収め、外側に5%以上の透過余白。人物は画面の大部分を占める。手が左へ大きく突き出しすぎない。背景は完全透明、文字・ロゴ・記号・背景・床・影・看板は一切なし。横長の表紙で文字は左に置くため、人物の顔は素材の中央から少し右。元の表紙にある文字や緑背景は描かない。1人だけ。",
+      "prompt": "添付の1枚目はdoboku-noteで採用済みの全面POP動画表紙の意匠参照、2枚目はこの技術士第一次試験動画の先生キャラクター同一性参照です。新規の16:9横長（1920×1080想定）日本語YouTube動画表紙を作る。鮮やかな青・シアン・ネイビー、黄色と白の極太文字、明確な黒い輪郭、少量の赤、斜めの面と勢いのある背景、右半分に先生キャラクターを大きく。先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。内容は技術士第一次試験の基礎・適性・専門という3科目の全体像と学習順序。左〜中央に正確に『技術士 第一次試験』『3科目の全体像』『何から学ぶ？』の3つを大きく配置。上部の黄色帯に小さく『総監が制作』。下側に基礎・適性・専門の3つの色分けされた学習ノートの図を描き、科目名は『基礎』『適性』『専門』だけ。誤字・余計な文字・合格保証・URL・価格・不明な実績を足さない。数字の3を大きく使ってクリック時に主題が一瞬で伝わる。文字と顔は左右5%・上下5%内、下端18%は後から字幕が重なるので重要な文字や顔を置かず青い背景が全面に続く。古い紺色の帯に白カードを置いたテンプレートへ戻さない。",
       "promptScope": "共有する先生素材の生成。見出しは編集可能な原稿をレンダラーで組版。",
       "format": {
         "width": 1920,
         "height": 1080
       },
       "render": {
-        "template": "character-pop-v2",
-        "variant": "plan",
-        "pose": "pop-explaining"
+        "template": "codex-image-gen",
+        "variant": "question",
+        "pose": "pop-red-pen"
       },
       "output": {
-        "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
-        "sha256": "1941cd22fa523fcb233e8ab7b8ad756ad7398be8755037b881d8380fb39398f9"
+        "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.abe1a7b7.png",
+        "sha256": "abe1a7b7debc540640b2aacb2f333874901e60f25843dca40579ccd42feb7216"
       },
       "review": {
         "status": "agent-reviewed",
         "by": "Codex",
-        "checkedAt": "2026-10-10T15:17:18.121Z",
+        "checkedAt": "2026-10-26T11:46:06.370Z",
         "viewportWidth": 360,
         "checks": [
           "見出しと資格名の可読性",
@@ -59,9 +59,609 @@
       },
       "storage": {
         "group": "content-media",
-        "key": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png"
+        "key": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.abe1a7b7.png"
       },
       "publication": "ローカル差し替え・外部未反映"
+    }
+  },
+  "activeBodyRevision": "body-diagram-20261026",
+  "activeCoverRevision": "cover-pop-20261026",
+  "revisions": {
+    "body-diagram-20261026": {
+      "layout": {
+        "mode": "diagram-led"
+      },
+      "images": [
+        {
+          "sceneId": "promise",
+          "inputSha256": "a92ff0f621bfb7a65d56c82872224ab39820b5ddd1c78034d290ab5a82be540e",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）技術士第一次試験の教育動画本文の1場面。白〜淡いグレー背景、試験の青と深紺の太い線、補助に小さな黄色。シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の背景だけ。文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『動画で分かること』。中央に同じ大きさの3つの円形学習アイコン『3科目』『合格基準』『学習順序』。下に左から右へ進む1本の控えめな青矢印。3つのアイコンに問題冊子・チェック・学習カレンダーの単純な図を添える。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/intro-diagram.90931dda.png",
+                "sha256": "90931dda44627dfeef9487611b9d38ae1b4f4a840de2772860beecd9b359691e"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-first-stage/pe1-zentaizou/work/raw-promise.796ba232.png",
+              "sha256": "796ba232e16f465187198d7c95f9ec59fa68de3256054beb8bcf667d2570acfd"
+            },
+            "generatedAt": "2026-10-26T11:46:06.370Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-first-stage/pe1-zentaizou/work/promise-diagram.c7e7cf67.png",
+            "sha256": "c7e7cf6782e5ef4f90e378ac9927e178f7d4acaa2555c547aabe93df9f8cace3",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "796ba232e16f465187198d7c95f9ec59fa68de3256054beb8bcf667d2570acfd"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-26T11:46:06.370Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字の判読と欠け",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "premise",
+          "inputSha256": "2dcc0bb3b53290d787c5d61aade5c018383e02321082379073c4653ebb5aa022",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）技術士第一次試験の教育動画本文の1場面。白〜淡いグレー背景、試験の青と深紺の太い線、補助に小さな黄色。シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の背景だけ。文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『合計点では判定しない』。基礎・適性・専門の3本の独立した縦ゲージを描き、それぞれ50%以上の目盛りを超えてチェックが付く構図。3本を足し合わせる矢印は描かない。文字は『基礎』『適性』『専門』『各科目50%以上』だけを加える。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/intro-diagram.90931dda.png",
+                "sha256": "90931dda44627dfeef9487611b9d38ae1b4f4a840de2772860beecd9b359691e"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-first-stage/pe1-zentaizou/work/raw-premise.d71246ad.png",
+              "sha256": "d71246addd485ebdb9a1458e23a340646906e9465dadaf1fc0d91dd16ec1d273"
+            },
+            "generatedAt": "2026-10-26T11:46:06.370Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-first-stage/pe1-zentaizou/work/premise-diagram.149d7a16.png",
+            "sha256": "149d7a16caf344d28984543709a8a025d2685463b9e282ea01ba9a9abcb2df1b",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "d71246addd485ebdb9a1458e23a340646906e9465dadaf1fc0d91dd16ec1d273"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-26T11:46:06.370Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字の判読と欠け",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "position",
+          "inputSha256": "d69d55033e81b6d0e1ead3575eae98aee1e7dd9c782a07babc1d44d71422284f",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）技術士第一次試験の教育動画本文の1場面。白〜淡いグレー背景、試験の青と深紺の太い線、補助に小さな黄色。シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の背景だけ。文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『一次合格の位置づけ』。左から『一次合格』→『修習技術者』→『実務経験』→『第二次試験』の4段階を、問題用紙、バッジ、実務ノート、試験用紙の分かりやすい記号で示す。矢印は左から右への時間順のみ。一次合格だけで技術士資格を得たと誤認させない。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/intro-diagram.90931dda.png",
+                "sha256": "90931dda44627dfeef9487611b9d38ae1b4f4a840de2772860beecd9b359691e"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-first-stage/pe1-zentaizou/work/raw-position.f6de61a8.png",
+              "sha256": "f6de61a8bf6cbaa8b75584a8b112d3b046253d82b607a8dd791123d765551ad9"
+            },
+            "generatedAt": "2026-10-26T11:46:06.370Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-first-stage/pe1-zentaizou/work/position-diagram.3bbb45e5.png",
+            "sha256": "3bbb45e55523e38bc997d235cd2da18e6ca699a0b84901cd39f17a5b122db978",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "f6de61a8bf6cbaa8b75584a8b112d3b046253d82b607a8dd791123d765551ad9"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-26T11:46:06.370Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字の判読と欠け",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "position-jabee",
+          "inputSha256": "9d968d41cdf36a1c51a437bda4c7c4a77386e32561fce0a04d68c629c9a3c29a",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）技術士第一次試験の教育動画本文の1場面。白〜淡いグレー背景、青と深紺の太い線、補助に小さな黄色。シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。意味ある文字・図は左右5%・上5%・下18%の内側。下端は字幕用の背景だけ。指定した日本語だけを正確に大きく描く。 見出し『一次合格とJABEE課程』。左の大きな枝『一次試験合格』、右の枝『指定されたJABEE認定課程の修了』が中央の同じ到達点『修習技術者』に合流する図。左右は同等の経路と分かる太さにし、指定されていない課程まで含めない。『同等』という文字を中央に小さく入れる。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/intro-diagram.90931dda.png",
+                "sha256": "90931dda44627dfeef9487611b9d38ae1b4f4a840de2772860beecd9b359691e"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-first-stage/pe1-zentaizou/work/raw-position-jabee.958b47c4.png",
+              "sha256": "958b47c478697ca74cef758e8d4762e27011323c003d55382c680cddbbba82e0"
+            },
+            "generatedAt": "2026-10-26T11:46:06.370Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-first-stage/pe1-zentaizou/work/position-jabee-diagram.df056605.png",
+            "sha256": "df0566056520f44fc024b7746ae70916bdcc8f3f2b33d25d560a7bd820544458",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "958b47c478697ca74cef758e8d4762e27011323c003d55382c680cddbbba82e0"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-26T11:46:06.370Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字の判読と欠け",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "subjects-basic-aptitude",
+          "inputSha256": "c6450912ac8ab1e7b6dc3e15941a2d836aba4cd4fd98f870ec7bb04105e9b503",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）技術士第一次試験の教育動画本文の1場面。白〜淡いグレー背景、青と深紺の太い線、補助に小さな黄色。シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。意味ある文字・図は左右5%・上5%・下18%の内側。下端は字幕用の背景だけ。指定した日本語だけを正確に大きく描く。 見出し『基礎科目と適性科目』。左半分は基礎の5群を5つの大きな円で表し、それぞれ『6問→3問』を選ぶ形、下に合計『15問解答』。右半分は適性の冊子1つで『15問すべて解答』。左右を混ぜず対比する。指定の数字と短いラベル以外は書かない。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/intro-diagram.90931dda.png",
+                "sha256": "90931dda44627dfeef9487611b9d38ae1b4f4a840de2772860beecd9b359691e"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-first-stage/pe1-zentaizou/work/raw-subjects-basic-aptitude.16b6057f.png",
+              "sha256": "16b6057f21b90e63b86209546a07f332f2c48b0b71177565fc7b0c524286ae6b"
+            },
+            "generatedAt": "2026-10-26T11:46:06.370Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-first-stage/pe1-zentaizou/work/subjects-basic-aptitude-diagram.5d88b1d9.png",
+            "sha256": "5d88b1d98eaaa5b5ce574d1a0b53084f089d81f02e263e88f8f3fd029485ba47",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "16b6057f21b90e63b86209546a07f332f2c48b0b71177565fc7b0c524286ae6b"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-26T11:46:06.370Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字の判読と欠け",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "subjects-specialist",
+          "inputSha256": "42f4ed6121b0a62678d0e5150609e14f920943febc9764e3159a4ddbde341240",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Edit the attached Japanese diagram with one layout change only. Make a very large completely BLANK white subtitle zone across the bottom 30% of the image (from y=660 of 941 pixels to the bottom edge). Absolutely NO text, underline, icon, arrow, booklet or colored decoration may touch that bottom 30%. Compress and move the existing title, six side icons/labels, two booklets with decorative horizontal lines, arrow, and the entire bottom phrase 「35問から25問選択」 upward into the top 70% while keeping all text readable. The phrase may sit just beneath the booklets, but its yellow underline must also end above the blank zone. Preserve every Japanese word exactly and do not reintroduce countable square grids. Full-bleed white background, 16:9 educational diagram, no letterbox.",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/work/subjects-specialist-diagram.ecd7079b.png",
+                "sha256": "ecd7079b4030b479d49f61407bbb819b9d8f913d5a7ef7812283b25a77f1b0c5"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-first-stage/pe1-zentaizou/work/raw-subjects-specialist-final.b3f331b2.png",
+              "sha256": "b3f331b217210f6a2d3011559bd5e184668a15a8011b9720fbdfe10a8a98cfa8"
+            },
+            "generatedAt": "2026-10-26T12:00:53.891Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-first-stage/pe1-zentaizou/work/subjects-specialist-diagram.0070e1b2.png",
+            "sha256": "0070e1b226b6012564505f5fdb24474c9ef5a027243ad86a0fcfbb480b64dd0c",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "b3f331b217210f6a2d3011559bd5e184668a15a8011b9720fbdfe10a8a98cfa8"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-26T12:01:19.721Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "35問から25問選択と分野名",
+              "冊子の装飾線が問数と矛盾しない",
+              "字幕用下端18%が白紙"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "criteria",
+          "inputSha256": "44c32f09757a2781676119a5d4896dc9d841b4183ba8a54587d2fefbad5c8fbe",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）技術士第一次試験の教育動画本文の1場面。白〜淡いグレー背景、青と深紺の太い線、小さな黄色の強調。シンプルで大きな図解を主役。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。意味ある文字・図は左右5%・上5%・下18%の内側。下端は字幕用背景だけ。指定した日本語だけを正確に大きく描く。 見出し『令和8年度 合格基準』。基礎・適性・専門の3つの独立した円形メーターを描き、各メーターに大きく『50%以上』とチェックマーク。3つともチェックが必要と分かるよう、下に『3科目それぞれ』。3科目の点数を足す表現は絶対にしない。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/intro-diagram.90931dda.png",
+                "sha256": "90931dda44627dfeef9487611b9d38ae1b4f4a840de2772860beecd9b359691e"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-first-stage/pe1-zentaizou/work/raw-criteria.f1e12e08.png",
+              "sha256": "f1e12e089feea111b5317e53fb7d32acf9c36302be64e603adda9c67be22df50"
+            },
+            "generatedAt": "2026-10-26T11:46:06.370Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-first-stage/pe1-zentaizou/work/criteria-diagram.3e6f6fab.png",
+            "sha256": "3e6f6fab56e16d7befe4e1f6084d6111931043cbf9632a2b5a0acc5773f4dab2",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "f1e12e089feea111b5317e53fb7d32acf9c36302be64e603adda9c67be22df50"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-26T11:46:06.370Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字の判読と欠け",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "study-reason",
+          "inputSha256": "b5c3429f0234cbb4be553d4edfeaa46e3a2a9a10cdd87e4dd3b0f4844ee95810",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "この画像を編集。全体のシンプルな青と白の図解・構図・日本語の見出しを保つ。左の過去問用紙に描かれたA,B,C,Dの4択表現は、技術士第一次試験の五肢択一と食い違うので、選択肢の記号を1,2,3,4,5の5行へ変更する。右の『正誤の根拠』、虫眼鏡、次年度への循環は維持。文字の誤字は作らない。下端18%には重要な図・文字を置かない。16:9横長。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/work/revision-input-study-reason.b56c85e2.png",
+                "sha256": "b56c85e2976bc296c542b641812d59a0d85546e156bda89455ceb8bef65e1894"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-first-stage/pe1-zentaizou/work/raw-study-reason.22dbf84a.png",
+              "sha256": "22dbf84ab60b00e0ce267d37836b4fbd2181d773172d7754ecf7280bc17da456"
+            },
+            "generatedAt": "2026-10-26T11:46:06.370Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-first-stage/pe1-zentaizou/work/study-reason-diagram.b83975c5.png",
+            "sha256": "b83975c5e3d978eb6e4c04790417e4401502e9714feb78b8335585da7569244a",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "22dbf84ab60b00e0ce267d37836b4fbd2181d773172d7754ecf7280bc17da456"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-26T11:46:06.370Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字の判読と欠け",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "phase-design",
+          "inputSha256": "604aac8a58c716c44195d893f040337fe36ab18a3b2e41a2bff8fb9ba3a62927",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）技術士第一次試験の教育動画本文の1場面。白〜淡いグレー背景、青と深紺の太い線、小さな黄色の強調。シンプルで大きな図解を主役。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。意味ある文字・図は左右5%・上5%・下18%の内側。下端は字幕用背景だけ。指定した日本語だけを正確に大きく描く。 見出し『学習時間の配分目安』。一本の長い横棒を5:3:2の比で青・水色・黄色に分け、それぞれ『専門 5』『基礎 3』『適性 2』と大きくラベル。これは学習配分の目安であり試験得点配分ではない。左から専門・基礎・適性の順。棒の下に小さく『目安』。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/intro-diagram.90931dda.png",
+                "sha256": "90931dda44627dfeef9487611b9d38ae1b4f4a840de2772860beecd9b359691e"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-first-stage/pe1-zentaizou/work/raw-phase-design.a6410bd8.png",
+              "sha256": "a6410bd8651dc04a8189f44164a885fce101da5449ff8cdb421d1a7ffd9f2921"
+            },
+            "generatedAt": "2026-10-26T11:46:06.370Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-first-stage/pe1-zentaizou/work/phase-design-diagram.0a3a01e3.png",
+            "sha256": "0a3a01e396ad508272ccb9bee3f1bbf33b1ef924fc62c2a0717b8d544636cee6",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "a6410bd8651dc04a8189f44164a885fce101da5449ff8cdb421d1a7ffd9f2921"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-26T11:46:06.370Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字の判読と欠け",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "phase-steps",
+          "inputSha256": "062db863c9a6fde847047bff262b6544729eeaffb86b7820e9c87c79117d5754",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）技術士第一次試験の教育動画本文の1場面。白〜淡いグレー背景、青と深紺の太い線、小さな黄色の強調。シンプルで大きな図解を主役。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。意味ある文字・図は左右5%・上5%・下18%の内側。下端は字幕用背景だけ。指定した日本語だけを正確に大きく描く。 見出し『3フェーズの学習設計』。左から右へ3つの時間帯を順に描く。第1フェーズ『前半 専門を重点に』、第2フェーズ『中盤 基礎5群を回す』、第3フェーズ『直前期 適性を仕上げる』。専門・基礎・適性の3冊の学習ノートのアイコンを各段階にひとつずつ。科目を一つしか学ばないと誤認させないよう下に『3科目とも継続』という細い補助線。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/intro-diagram.90931dda.png",
+                "sha256": "90931dda44627dfeef9487611b9d38ae1b4f4a840de2772860beecd9b359691e"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-first-stage/pe1-zentaizou/work/raw-phase-steps.03da7e87.png",
+              "sha256": "03da7e87738923c9a9977eabadf890cc4dc62555fce9184ba9c81dbec28734ce"
+            },
+            "generatedAt": "2026-10-26T11:46:06.370Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-first-stage/pe1-zentaizou/work/phase-steps-diagram.dd1bbfaf.png",
+            "sha256": "dd1bbfaf0ebae765be8504bdab9d6ed4d113149c92ec51f8eb0acb15c10d4048",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "03da7e87738923c9a9977eabadf890cc4dc62555fce9184ba9c81dbec28734ce"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-26T11:46:06.370Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字の判読と欠け",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "summary",
+          "inputSha256": "a7b97b26fa558ba3e2b3cb39cfd25b6636d4a98c866785969f73bb75ca8d822e",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）技術士第一次試験の教育動画本文の1場面。白〜淡いグレー背景、青と深紺の太い線、小さな黄色の強調。シンプルで大きな図解を主役。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。意味ある文字・図は左右5%・上5%・下18%の内側。下端は字幕用背景だけ。指定した日本語だけを正確に大きく描く。 見出し『3科目それぞれ基準を満たす』。中央に基礎・適性・専門の3本の同じ大きさの柱がそろって学習計画を支える構図。各柱に一つずつチェック。下に過去問冊子から3本へ分かれる矢印を描き、『過去問を軸に』と表示。一次合格が二次への入口であることは右端に小さな『二次へ』矢印で示す。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/intro-diagram.90931dda.png",
+                "sha256": "90931dda44627dfeef9487611b9d38ae1b4f4a840de2772860beecd9b359691e"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-first-stage/pe1-zentaizou/work/raw-summary.ab2efd6e.png",
+              "sha256": "ab2efd6e2231a80594794553ee1455623fa732be3bbc74a35109ef0fce5aeeeb"
+            },
+            "generatedAt": "2026-10-26T11:46:06.370Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-first-stage/pe1-zentaizou/work/summary-diagram.137e3114.png",
+            "sha256": "137e3114ab7b19ab9ae0e4d0961c2e3314bec2fa298de1a1cadd4edea73ce70c",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "ab2efd6e2231a80594794553ee1455623fa732be3bbc74a35109ef0fce5aeeeb"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-26T11:46:06.370Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字の判読と欠け",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "cta",
+          "inputSha256": "bea6cc674197a56b40ce57b0ce3011ea3af79ef418f4b7c054e6534a6150ad7e",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "この画像を編集。上の『過去問PDF合本 全560問』と基礎・適性・専門の3冊からPDFへ統合する図は正確に維持。下部の大きな『概要欄から通し演習』は現在字幕帯に近すぎるので、図の直下、画面高さ70%以内の位置へ小さめに移し、下端18%は無地の白〜薄灰色だけにする。余計な文字や数字を足さない。図の文字の誤字・欠けを作らない。16:9横長。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/work/revision-input-cta.e10e2b40.png",
+                "sha256": "e10e2b403715e40e6698180e818094a902ccd1c728a42e7954fe2840355ff195"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-first-stage/pe1-zentaizou/work/raw-cta.b2240ee8.png",
+              "sha256": "b2240ee8ea761793571a1e0f9978ad02b8199440d3c0b9456397eb3dcca457ac"
+            },
+            "generatedAt": "2026-10-26T11:46:06.370Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-first-stage/pe1-zentaizou/work/cta-diagram.20e3bf32.png",
+            "sha256": "20e3bf32717988854b177e2c0c2070a51069a6f0097608e84f8eed4cdd11d123",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "b2240ee8ea761793571a1e0f9978ad02b8199440d3c0b9456397eb3dcca457ac"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-26T11:46:06.370Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字の判読と欠け",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        }
+      ],
+      "storage": {
+        "group": "content-media",
+        "sync": "cloud-verified"
+      }
+    },
+    "cover-pop-20261026": {
+      "version": "pop-poster-v3",
+      "generation": {
+        "tool": "image_gen",
+        "prompt": "添付の1枚目はdoboku-noteで採用済みの全面POP動画表紙の意匠参照、2枚目はこの技術士第一次試験動画の先生キャラクター同一性参照です。新規の16:9横長（1920×1080想定）日本語YouTube動画表紙を作る。鮮やかな青・シアン・ネイビー、黄色と白の極太文字、明確な黒い輪郭、少量の赤、斜めの面と勢いのある背景、右半分に先生キャラクターを大きく。先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。内容は技術士第一次試験の基礎・適性・専門という3科目の全体像と学習順序。左〜中央に正確に『技術士 第一次試験』『3科目の全体像』『何から学ぶ？』の3つを大きく配置。上部の黄色帯に小さく『総監が制作』。下側に基礎・適性・専門の3つの色分けされた学習ノートの図を描き、科目名は『基礎』『適性』『専門』だけ。誤字・余計な文字・合格保証・URL・価格・不明な実績を足さない。数字の3を大きく使ってクリック時に主題が一瞬で伝わる。文字と顔は左右5%・上下5%内、下端18%は後から字幕が重なるので重要な文字や顔を置かず青い背景が全面に続く。古い紺色の帯に白カードを置いたテンプレートへ戻さない。",
+        "references": [
+          {
+            "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/youtube.longform/cover.b87e20c1.png",
+            "sha256": "b87e20c19fda2123d3bac22950472ee7a7427dd2ab11a7cbf63807a6e83c33ad"
+          },
+          {
+            "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
+            "sha256": "1941cd22fa523fcb233e8ab7b8ad756ad7398be8755037b881d8380fb39398f9"
+          }
+        ],
+        "output": {
+          "path": ".tmp/media/pe-first-stage/pe1-zentaizou/work/raw-cover.0bfe3baa.png",
+          "sha256": "0bfe3baa4eeddb746619b56bf78fb403162682d475490e52b7ecd397f0f905e2"
+        },
+        "generatedAt": "2026-10-26T11:46:06.370Z"
+      },
+      "copy": {
+        "exam": "pe-first-stage",
+        "headline": [
+          "3科目の全体像",
+          "何から学ぶ？"
+        ],
+        "authority": "総監が制作"
+      },
+      "output": {
+        "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.abe1a7b7.png",
+        "sha256": "abe1a7b7debc540640b2aacb2f333874901e60f25843dca40579ccd42feb7216",
+        "width": 1920,
+        "height": 1080
+      },
+      "normalization": {
+        "mode": "full-frame-v1",
+        "sourceSha256": "0bfe3baa4eeddb746619b56bf78fb403162682d475490e52b7ecd397f0f905e2"
+      },
+      "review": {
+        "status": "ai-reviewed",
+        "userImageReview": "pending",
+        "checkedAt": "2026-10-26T11:46:06.370Z",
+        "by": "Codex",
+        "views": [
+          "original"
+        ],
+        "checks": [
+          "文言・資格名",
+          "顔と安全域"
+        ]
+      },
+      "storage": {
+        "group": "content-media",
+        "sync": "cloud-verified"
+      }
     }
   }
 }
