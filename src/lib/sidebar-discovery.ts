@@ -14,8 +14,8 @@ const products: Partial<Record<string, MagazineId>> = {
   rccm: 'rccm-mondai3-magazine',
 };
 /**
- * 資格トップ（doc なし）の固定商品。主任技士は本試験の日まで択一 直前パック（¥2,980）、試験後はまるごとパック。
- * 資格トップは直前期に検索から来る入口で、高額のまるごとパック（¥7,980）は PC サイドバーで表示あたり 0.28%
+ * 資格トップ（doc なし）の固定商品。主任技士は本試験の日まで択一 直前パック、試験後はまるごとパック。
+ * 資格トップは直前期に検索から来る入口で、高額のまるごとパックは PC サイドバーで表示あたり 0.28%
  * しか押されず、スマホでは一覧の最下部だった（DN-0703・GA4 2026-09-24〜10-21）。試験日は config/exam-calendar.json から引く。
  */
 function categoryProductId(category: string): MagazineId | undefined {
