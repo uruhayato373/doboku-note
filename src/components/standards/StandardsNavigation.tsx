@@ -141,7 +141,8 @@ function chapterNumberLabel(chapter: StandardChapter): string {
 }
 
 /**
- * 編 → 章 → 節 の目次（右の欄の主導線）。表示中の編・章を開き、表示中の節の下に条（ページ内の見出し）を出す。
+ * 編 → 章 → 節 の目次（右の欄の主導線）。表示中の編を開いて表示中の章の節を常に出し、表示中の節の下に条（ページ内の見出し）を出す。
+ * 章名はリンクなので <summary> に入れない（操作できる要素の入れ子＝axe の nested-interactive）。他の章の開閉は章名の横のボタン。
  * 表示中の章の節は HTML に書き、他の章の節は開いたときに toc.json から読む（StandardsTreeChapter）。
  * 見た目は globals.css の standards-tree に集約する（行ごとにクラスを並べない）。
  */
@@ -187,12 +188,12 @@ function DocumentTreeNav({
                     </Link>
                   );
                   if (chapter.sections.length === 0) {
-                    return <li key={chapter.chapterId} className="flex pr-7">{chapterLink}</li>;
+                    return <li key={chapter.chapterId}><div data-tree-row data-tree-leaf>{chapterLink}</div></li>;
                   }
                   if (!activeChapter) {
                     return (
                       <li key={chapter.chapterId}>
-                        <StandardsTreeChapter tocUrl={tocUrl} chapterId={chapter.chapterId}>
+                        <StandardsTreeChapter tocUrl={tocUrl} chapterId={chapter.chapterId} label={`${chapterNumberLabel(chapter)} ${chapter.chapterTitle}`}>
                           {chapterLink}
                         </StandardsTreeChapter>
                       </li>
@@ -200,9 +201,8 @@ function DocumentTreeNav({
                   }
                   return (
                     <li key={chapter.chapterId}>
-                      <details open>
-                        <summary>{chapterLink}</summary>
-                        <ol data-standards-nav="sections">
+                      <div data-tree-row data-tree-leaf>{chapterLink}</div>
+                        <ol data-standards-nav="sections" data-tree-sections>
                           {standardTreeSections(document, chapter, { samePage: currentSection === undefined }).map((section) => {
                             const activeSection = section.number === currentSection;
                             const articles = activeSection
@@ -229,7 +229,6 @@ function DocumentTreeNav({
                             );
                           })}
                         </ol>
-                      </details>
                     </li>
                   );
                 })}
