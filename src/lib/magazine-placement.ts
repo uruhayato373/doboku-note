@@ -797,9 +797,12 @@ function resolvePlacementRaw(
   //    小論文の導線を令和形式テーマ別（cce-essay-reiwa-pack）へ一本化。本文の <MagazineCard> も同じく差し替え。
   //    2026-10-03（DN-0523）: cce-essay-reiwa-pack は 1立場×1テーマの全40答案（¥5,980）へ組み替え。立場別5テーマ・
   //    立場別合格パック（各8誌）は本文で案内し、top は全40答案のまま（8誌から1つを機械的に選べないため）。
+  //    2026-10-26: top を全40答案から無料の立場別もくじ（cce-essay-mokuji）へ。GA4（9/24〜10/21）で top の全40答案は
+  //    表示 80・クリック 0、押されていたのは本文の立場別カード（11）。もくじは立場ごとの商品へ振り分ける入口で、年度に依らず
+  //    試験後も出せる。全40答案は本文中の <MagazineCard>（guide-essay-themes）に残す。
   if (slug === 'concrete-chief-engineer-guide-essay') {
     return {
-      top: slot('cce-essay-reiwa-pack', slug, 'top'),
+      top: slot('cce-essay-mokuji', slug, 'top'),
       inline: [slot('cce-marugoto-pack', slug, 'inline-1')],
     };
   }

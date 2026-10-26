@@ -66,7 +66,7 @@ test('主任技士 配合設計・小論文ガイドは試験日で変わらな�
   const { resolvePlacement } = await loadPlacement();
   for (const t of cceTimes) {
     assert.equal(topIdAt(resolvePlacement, 'concrete-chief-engineer-primary-mix-design', 'primary', t), 'cce-mix-calculation-practice');
-    assert.equal(topIdAt(resolvePlacement, 'concrete-chief-engineer-guide-essay', 'guide', t), 'cce-essay-reiwa-pack');
+    assert.equal(topIdAt(resolvePlacement, 'concrete-chief-engineer-guide-essay', 'guide', t), 'cce-essay-mokuji');
   }
 });
 

@@ -721,6 +721,7 @@ Drive を台帳の版へ戻すと誤りを書き戻す。機械 OCR（part-01.md
 | DN-0641 | 2級 guide/exam-overview の CTA（10/6 反映） | 11/3〜 | 35 日 CTA クリック率。変更前 0.25%（表示 1,177・クリック 3）（digest-2026-W39） |
 | DN-0641 | 1級 textbook/leveling・secondary/getting-started の本文カード（10/26 に追加・本番反映日＋28 日） | 11/23〜（deploy が遅れたらその日から） | 35 日 CTA クリック率。変更前 leveling 0%・getting-started 0.18%（digest-2026-W39）。getting-started は試験後の読者なので少数なら判定保留 |
 | DN-0827 | 本文中（article-inline）＝転職アフィリの手書きカード（note ではない）。EXP-008・EXP-017 の判定に含める | 11/4（EXP-017）・11/17（EXP-008） | 配置別 CTR。変更前 表示 8,147・クリック 11・0.14%（`data/ga4/reports/2026-10-23.json` cta-clicks-by-placement と affiliate-by-page、窓 09-24〜10-21）。今回はカード未変更 |
+| なし | 主任技士 `/exam/concrete-chief-engineer/guide/essay` の先頭の商品カード（全40答案 `cce-essay-reiwa-pack` → 無料の立場別もくじ `cce-essay-mokuji`。本文中の全40答案カードはそのまま） | deploy 日＋28 日（本試験 11/29 を過ぎるので、deploy〜11/29 の日数を同じ長さの反映前と並べる） | 先頭カードのクリック率（GA4 `note_cta_click`・ラベル `cce-essay-mokuji:concrete-chief-engineer-guide-essay-top`）。変更前 4 週（9/24〜10/21）は先頭カード（全40答案）の表示 80・クリック 0、立場別カードは 11 クリック |
 
 **起点**: 16_検索キーワード戦略.md の資格名クラスター（コンクリートは重点資格外なので SEO Rank Watch には載せず、28 日比較で確かめる）。`/exam/concrete-engineer/guide/overview` は GSC（2026-09-01〜09-28）で「コンクリート技士 試験日」4.3 位（表示 18）、「コンクリート技士試験日 2026」7.5 位（14）、「コンクリート技士 2026」10.3 位（7）、「コンクリート技士 問題数」9.4 位（7）に出ているが、クリックは 0。Bing でも「コンクリート技士」4.3 位・表示 1,150・クリック 15（1.3%）。title「コンクリート技士とは｜2026年度試験概要・難易度・勉強法」に「試験日」が無い。本試験は 2026-11-29、申込は 8/25 に締切済み（`config/exam-calendar.json`）。
 

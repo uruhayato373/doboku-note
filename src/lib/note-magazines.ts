@@ -1389,6 +1389,22 @@ const MAGAZINES_RAW = {
     price: '¥2,480（5本セット）',
     badge: 'note 限定 教材',
   },
+  // 無料の案内記事（原稿: content/note/コンクリート主任技士/小論文もくじ/article.md・noteId n3ced0cbfbb42・2026-10-17 公開）。価格・収録は持たない（civil-1-reading-guide と同型の無料単品）。
+  // 2026-10-26: サイト guide-essay の先頭の商品カードを cce-essay-reiwa-pack からこのもくじへ替えるために登録。根拠は GA4（9/24〜10/21）で先頭の全40答案カードが表示80・クリック0、押されていたのは立場別カード（11クリック）。もくじは立場ごとの商品へ振り分ける入口。計測の比較は DN-0532。
+  'cce-essay-mokuji': {
+    id: 'cce-essay-mokuji',
+    published: true,
+    noteUrl: 'https://note.com/dobokunote/n/n3ced0cbfbb42',
+    qualification: 'concrete-chief-engineer',
+    title: 'コンクリート主任技士 小論文｜8つの立場から選ぶ模範答案一覧（無料）',
+    description: '自分の立場と練習したいテーマから小論文の模範答案を選ぶための無料の案内記事。生コン工場・プレキャスト工場・ゼネコン土木施工・維持管理補修・発注者・ゼネコン建築施工・設計コンサルタント・試験検査機関の8立場×5テーマ、全40答案を一覧にし、単品・立場別5テーマ集・合格パック・全40答案集のどれを選ぶか、重複購入を避ける選び方もまとめています。答案は仮想の実務モデルで、著者自身の職歴を意味しません。',
+    shortTitle: '主任技士 小論文 立場別もくじ（無料）',
+    shortDescription: '8つの立場×5テーマの全40答案から、自分の仕事に近い1本と必要な範囲の教材を選べる無料の一覧。',
+    badge: 'note 無料 一覧',
+    ctaCatch: '自分の仕事に近い小論文の答案が、立場から探せます',
+    ctaButton: '無料のもくじで立場を選ぶ',
+    ctaPose: 'pointing',
+  },
   // 2026-10-01（DN-0461）: note から記事・マガジンを削除。過去の販売・投稿の照合用に残す（published: false）。
   'cce-essay-persona-pack': {
     id: 'cce-essay-persona-pack',
