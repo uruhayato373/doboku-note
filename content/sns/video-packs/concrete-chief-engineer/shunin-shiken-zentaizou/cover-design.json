@@ -5,8 +5,8 @@
       "format": "longform",
       "exam": "concrete-chief",
       "headline": [
-        "主任技士の全体",
-        "択一と小論文"
+        "択一×小論文",
+        "どう学ぶ？"
       ],
       "accentLine": 1,
       "subtitle": "",
@@ -14,15 +14,23 @@
         "pose": "pop-red-pen",
         "frame": "waist"
       },
-      "design": "pop-v2",
+      "design": "pop-poster-v3",
       "pop": {
-        "variant": "write",
+        "variant": "question",
         "authority": "総監が制作"
       },
       "approvedImage": {
-        "path": ".tmp/media/concrete-chief-engineer/shunin-shiken-zentaizou/youtube.longform/cover.19cd214e.png",
-        "sha256": "19cd214e72277b2e8e49ebeaa6260be36d0d616259ed1539e434d84ed28ac158",
-        "specSha256": "95f26d55f4d9da9f70f90bf447bfecd412961222d62315d3569fdb2f77c96b64"
+        "path": ".tmp/media/concrete-chief-engineer/shunin-shiken-zentaizou/youtube.longform/cover.729a5a5e.png",
+        "sha256": "729a5a5e70c9b6de85da4e5eaf3c10cf72946541c575850185578e44623ec7e8",
+        "specSha256": "0b80bd76b1066c29c100e7fc181f39db81bdc9ce9cee1888cab796583186bf48",
+        "normalization": {
+          "mode": "full-frame-v1",
+          "sourceSha256": "0a0237dc2484d9d1b3715cc929ab871ddd3a95899979f7ae7a81e1559c334e4a"
+        },
+        "source": {
+          "path": ".tmp/media/concrete-chief-engineer/shunin-shiken-zentaizou/work/raw-cover-safe.0a0237dc.png",
+          "sha256": "0a0237dc2484d9d1b3715cc929ab871ddd3a95899979f7ae7a81e1559c334e4a"
+        }
       }
     },
     "point-overview-1": {

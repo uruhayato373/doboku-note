@@ -6,6 +6,8 @@ title: スキル ガバナンス記録
 
 # スキル ガバナンス記録
 
+- 2026-10-27: `video-content` と `create-pop-image` の担当を、Claude Code の台本 Writer/QA → Codex ImageGen の画像生成へ明記。既存の機械ゲート・承認CLI・予約経路は維持。件数は不変。
+
 - 2026-10-26: `create-pop-image` と `video-content` の引き継ぎを、技術士第一次試験「全体像」で採用したPOP表紙＋全場面図解の通常動画標準へ更新。投稿入口にも旧カード版を拒否する検査を追加。スキル・エージェントの件数は不変。
 
 - 2026-10-25（棚卸し）: 使われ方と依存を数え、ほかで足りる・役目を終えたスキル 11 本・エージェント 5 体・手順書 4 本を退役した（運営者の判断）。スキル: `social/x-campaign-plan`・`social/create-x-card`・`social/ig-reconcile`（X・Instagram。SNS は保留中で、再開するときに作り直す）、`dev/zenn-audit`（一度きりの調査）・`dev/dev-start`（`npm run dev` で足りる）・`dev/pr-create`・`dev/code-review`（Claude Code の標準機能と重なる）・`management/growth-loops`・`management/pre-mortem`（固有の手順が無い一般的な枠組み）・`authoring/promote-to-site`（旧 Obsidian 移行）・`social/note-magazine-sync`（参照 0。マガジンの照合は `verify-note-magazines` と土曜の note-audit 段）。エージェント: `ig-stories-writer`・`ig-stories-qa`・`ig-highlight-designer`・`ig-highlight-qa`・`ig-publish-auditor`。手順書: `ig-stories-policy.md`・`ig-highlight-design-policy.md`・`ig-publish-reconcile.md`・`instagram-campaign.md`。YouTube Shorts の上流（過去問パック・Reels）と、中のスクリプトをほかのコードが読むもの（publish-x・publish-ig-bs・x-repost・ig-figure-pack）は残した。本体は git の履歴にある。
