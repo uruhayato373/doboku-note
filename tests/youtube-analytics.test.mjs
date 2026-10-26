@@ -1,10 +1,12 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
+import { spawnSync } from 'node:child_process';
 import { basicMetrics, trafficSources, analyticsSnapshot, queryVideoAnalytics } from '../scripts/lib/youtube-analytics-report.mjs';
 import { analyticsTargets, reportPeriod } from '../scripts/youtube-analytics.mjs';
 import { YoutubeAnalytics } from '../scripts/lib/dataset-schemas.mjs';
 import { resolveDataset } from '../scripts/lib/datasets.mjs';
 import { checkAnalyticsSnapshot } from '../scripts/check-youtube-analytics.mjs';
+import { REPO_ROOT } from '../scripts/lib/repository-paths.mjs';
 
 const target = { publicationId: 'pe-first-stage/pe1-zentaizou/youtube.longform', videoId: 'abc', packId: 'pe1-zentaizou', kind: 'longform' };
 const basic = { data: { columnHeaders: [{ name: 'views' }, { name: 'averageViewDuration' }, { name: 'averageViewPercentage' }], rows: [[0, 0, 0]] } };
@@ -64,4 +66,14 @@ test('品質ゲートは未取得・未記録の現役動画・古い記録・�
   assert.ok(checkAnalyticsSnapshot(good, [target], { channelId: 'wrong', now }).errors.some((x) => x.includes('チャンネル')));
   assert.ok(checkAnalyticsSnapshot({ ...good, period: { startDate: '2026-10-01', endDate: '2026-10-24' } }, [target], { channelId: 'UCtest', now }).errors.some((x) => x.includes('対象期間')));
   assert.ok(checkAnalyticsSnapshot({ ...good, fetchedAt: '2026-10-01T00:00:00Z' }, [target], { channelId: 'UCtest', now }).errors.some((x) => x.includes('古い')));
+});
+
+test('管理画面の読取経路をtsxで読み込み、公開計測の型を返せる', () => {
+  const script = 'import { videoOutcomes } from "./tools/admin-app/src/lib/video-outcomes.ts"; const a = videoOutcomes().youtubeAnalytics; console.log(JSON.stringify({ok:a.ok,targets:a.targets,measured:a.measured}));';
+  const result = spawnSync('./node_modules/.bin/tsx', ['-e', script], { cwd: REPO_ROOT, encoding: 'utf8' });
+  assert.equal(result.status, 0, result.stderr);
+  const value = JSON.parse(result.stdout);
+  assert.equal(typeof value.ok, 'boolean');
+  assert.equal(typeof value.targets, 'number');
+  assert.equal(typeof value.measured, 'number');
 });

@@ -55,6 +55,5 @@ async function main() {
 }
 
 if (process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1]) {
-  try { await main(); }
-  catch (error) { console.error(`[youtube-analytics] 取得失敗・保存なし: ${error.message}`); process.exitCode = 2; }
+  main().catch((error) => { console.error(`[youtube-analytics] 取得失敗・保存なし: ${error.message}`); process.exitCode = 2; });
 }

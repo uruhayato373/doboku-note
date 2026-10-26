@@ -4,6 +4,7 @@ import { Stack } from '@/components/layout';
 import { PageHead } from '@/components/ui';
 import { videoOutcomes, derivativeLabel } from '@/lib/video-outcomes';
 import { LABELS } from '@/lib/lifecycle';
+import { num } from '@/lib/format';
 import { examLabel, stageClass } from '@/lib/video-board';
 import { datasetDir } from '../../../../../../scripts/lib/datasets.mjs';
 
@@ -104,9 +105,9 @@ export default async function VideoOutcomesPage() {
   const youtubeRows: DataTableRow[] = youtubeAnalytics.videos.map((v) => ({
     id: v.publicationId,
     values: { packId: v.packId, kind: v.kind, views: v.views, duration: v.averageViewDurationSec, percentage: v.averageViewPercentage,
-      traffic: v.trafficSources.slice().sort((a, b) => b.views - a.views).slice(0, 3).map((s) => `${s.type} ${s.views}`).join(' / ') || null },
+      traffic: v.trafficSources.slice().sort((a, b) => b.views - a.views).slice(0, 3).map((s) => `${s.type} ${num(s.views)}`).join(' / ') || null },
     cells: { packId: <span className="font-mono text-xs">{v.packId}</span>, views: count(v.views),
-      duration: v.averageViewDurationSec ?? '—', percentage: v.averageViewPercentage ?? '—' },
+      duration: num(v.averageViewDurationSec), percentage: num(v.averageViewPercentage) },
   }));
 
   return (
