@@ -339,14 +339,6 @@
 
 **完了条件**: 11/30 以降の deploy で両資格の試験後の CTA が本番に出ていて、`check-production-ssr` が exit 0。
 
-### [DN-0868] /links の技術士一次カードを試験後に過去問 PDF へ切り替える
-タグ: [収益化] [領域:サイト] [時期:2026-11] [種類:不具合] [起票:2026-10-26] [期日:2026-11-22]
-
-**起点**: PR #1258 で技術士一次の冒頭 CTA を試験日で切り替えたが、`src/app/links/page.tsx` の一次のカードは試験後も直前パックを出す。過去問 PDF の商品は `shortTitle` を持たないので、表示側の手当てが要る（PR #1258 の本文）。
-
-**やること**: /links の一次カードを、技術士一次の他の面と同じ `isAfterExamDay` で切り替え、試験後は過去問 PDF を出す。表示に要る短い名前を `config/products.json` か表示側で補う。回帰テストを足す。
-
-**完了条件**: 試験日の前後で /links の一次カードが直前パックから過去問 PDF に変わることをテストで確かめ、PR が develop に入っている。
 
 ### [DN-0854] 基準類の右の目次（編・章・節）の試作を本番 build で確かめて全文書へ広げる
 タグ: [領域:サイト] [時期:2026-10] [種類:改善] [起票:2026-10-26]
@@ -642,13 +634,12 @@ Drive を台帳の版へ戻すと誤りを書き戻す。機械 OCR（part-01.md
 
 **完了条件**: 3 年度分が本番に公開され、各問の正答が運営者の確定どおりで、公式正答なしの注記がある。
 
-### [DN-0597] YouTube Analytics の週次取得を有効化し、2回の定期記録を確認する
+### [DN-0597] YouTube Analytics の2回の定期記録を確認する
 タグ: [領域:SNS] [時期:2026-11] [種類:改善] [起票:2026-10-08]
 
-**起点**: DN-0110 の6週間判定と DN-0601 の図解版比較には、公開動画の28日窓の視聴指標が要る。[2026-10-26 の CI probe](https://github.com/uruhayato373/doboku-note/actions/runs/40307434700) で対象3本・指標行3本・台帳不一致0件の初回記録を得た。定期取得は未確認。
+**起点**: DN-0110 の6週間判定と DN-0601 の図解版比較には、公開動画の28日窓の視聴指標が要る。[main の検証 run](https://github.com/uruhayato373/doboku-note/actions/runs/40310233002) で対象3本・指標行3本・台帳不一致0件、取得 rc 0 を確認した。金曜の定期取得は未確認。
 **やること**:
-1. 次の `/deploy` で main に反映する（schedule は main のワークフロー定義で動く）
-2. 2回続けて金曜の定期取得が成功し、`data/youtube/analytics/{date}.json` と `/metrics/video` で対象数・欠測・平均視聴率・流入元を読めることを確認する
+1. 2回続けて金曜の定期取得が成功し、`data/youtube/analytics/{date}.json` と `/metrics/video` で対象数・欠測・平均視聴率・流入元を読めることを確認する
 **前提・罠**: 計測は CI 供給が正（会社 PC から API を叩かない・.claude/rules/operations.md）。GitHub Actions secret `YOUTUBE_ANALYTICS_ENABLED=true` は設定済み。手動 probe を月曜に回すと growth pack は GSC 確定前の週を拒否するため、`measurement_week` を確定済みの週に固定する。サムネイルのインプレッションと CTR は YouTube Analytics API の取得項目に無く、必要なら Studio 側の別経路を設計する。
 **完了条件**: 2回の週次取得で、通常動画の平均視聴率と流入元別視聴回数が欠測なく読める。
 
