@@ -268,16 +268,17 @@
   "pe-first-stage": {
     "examGuide": {
       "title": "受験ガイド",
-      "description": "試験制度・2026年度日程・学習計画・一次合格後のロードマップ",
+      "description": "試験制度・2026年度日程・学習計画・令和8年度の解答速報・一次合格後のロードマップ",
       "slugs": [
         "guide-overview",
         "guide-study-plan",
+        "guide-r08-answers",
         "guide-after-pass"
       ]
     },
     "fields": {
       "title": "科目別対策",
-      "description": "基礎・適性・専門（建設部門）の出題傾向と頻出テーマを科目ごとに整理",
+      "description": "基礎・適性・専門（建設部門・上下水道部門）の出題傾向と頻出テーマを科目ごとに整理",
       "blocks": [
         {
           "id": "basic",
@@ -301,6 +302,13 @@
           "label": "専門科目（建設部門）",
           "slugs": [
             "guide-construction-subject"
+          ]
+        },
+        {
+          "id": "water-supply",
+          "label": "専門科目（上下水道部門）",
+          "slugs": [
+            "guide-water-supply-subject"
           ]
         }
       ]
