@@ -5899,6 +5899,19 @@
         "ref": "tests/growth-opportunities.test.mjs（国の条件なしのページ別で匿名化分の急落を拾う／減衰は同じ取り方の週だけで判定／ダイジェストの表示）と tests/growth-pack.test.mjs（gscPageScope）"
       },
       "note": "gscPageWeek・gscPageBase を国の条件なし（W42 実測で byPage 全体の clicks 100%・国で絞ると 25%）に切替。ページ×検索語と全体集計は従来どおり。比較用の gscPageCoverageWeek の取得と foldGscCoverage は消し（割合はダイジェストが毎週出す）、W42 のパックの旧区画だけ schema に残した。commit は PR のマージ後に確定"
+    },
+    {
+      "id": "DN-0856",
+      "at": "2026-10-26",
+      "task": "サイトの素の <details> を共通部品 Disclosure へ移し、増やさないラチェットを足す",
+      "tier": "low",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "ff1386ec8ff4",
+      "verification": "node --test tests/disclosure-ratchet.test.mjs",
+      "note": "todo-complete.mjs 経由で完了処理"
     }
   ]
 }

@@ -1448,19 +1448,6 @@ Windows の PowerShell で repo 直下から順に:
 完了条件: 外した群は _redirects と表から消え、外さなかった群は理由と次の見直し時期が表に書かれている。
 
 
-### [DN-0856] サイトの素の <details> を共通部品 Disclosure へ移し、増やさないラチェットを足す
-タグ: [領域:サイト] [種類:改善] [起票:2026-10-26]
-
-開閉の共通部品 `Disclosure`（src/components/ui/Disclosure/Disclosure.tsx）を足し、TableOfContents のモバイル目次と QuestionJumpNav を移した（feature/site-disclosure-primitive）。残りの素の `<details>` を移す。差分表は .claude/knowledge/design-system/design-system.md「開閉と目次ナビ」。
-
-残り:
-- card: CurriculumSections（章・その他のキャリア記事）・ArticleFooter（文字の ⌄ をやめる）・PolicyList・TopicArticles・ArticleSidebar・/standards/compare
-- 罫線の形: Footer・StandardsAttribution（className で足す）
-- FAQCard は矢印が左。`Disclosure` に左置きを足すか、右へそろえるかを決める
-- PR #1244 の統合後、`standards-tree` を汎用の `nav-tree` に改名し、TableOfContents の `.toc-content` と並びの形を寄せるかを決める
-- 全部移したら、src/ に素の `<summary>` を増やさないラチェット（MDX 記事内の details は対象外）を足す
-
-完了条件: src/ の素の `<details>` が Disclosure（と StandardsNavigation の目次）だけになり、ラチェットが CI で止める。
 
 
 
