@@ -13,6 +13,7 @@ import { pickCoconalaFor } from "@/lib/exam-key-bridge";
 import { getMagazine, buildMagazineUrl } from "@/lib/note-magazines";
 import { mokujiFor } from "@/lib/note-mokuji";
 import { pe1LeadMagazineId } from "@/lib/magazine-placement";
+import { withTensakuDeadline } from "@/lib/exam-dates";
 import ServiceIcon, { type ServiceChannel } from "@/components/icons/ServiceIcon";
 import { externalLinkRel } from "@/lib/external-link-rel";
 import { AFFILIATE_LINK_REFERRER_POLICY, AFFILIATE_LINK_REL, AffiliatePrBadge, TrackingPixel } from "@/components/ui/AffiliateParts";
@@ -366,7 +367,8 @@ function ExamCardView({ card }: { card: ExamCard }) {
             channel="coconala"
             channelLabel="ココナラ"
             label={coconala.shortTitle ?? coconala.title}
-            sub={coconala.description}
+            // 主任技士の添削は試験日の 4 日前まで受付締めの一文を出す。説明文は 2 行で切れるので先頭に置く。
+            sub={(card.key === "concrete-chief" ? withTensakuDeadline("concrete-chief-engineer", "exam", "") : "") + coconala.description}
             href={coconalaAffiliateHref(coconala.serviceUrl)}
             external
             affiliate
