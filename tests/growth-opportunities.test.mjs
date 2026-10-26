@@ -144,6 +144,45 @@ test('KPIs and bing reconciliation treat missing data as missing, not zero', () 
   assert.deepEqual([reconcileBing(pack, bing).wmtClicks, reconcileBing(pack, bing).ratio], [50, 6]);
 });
 
+// 国の条件なしのページ別（DN-0806）。匿名化された検索語で来ているページも行に入る
+const wide = (rows) => ({ ok: true, truncated: false, rows, meta: { dimensions: ['page'], filters: [] } });
+const jpn = (rows) => ({ ok: true, truncated: false, rows, meta: { dimensions: ['page'], filters: [{ dimension: 'country', operator: 'equals', expression: 'jpn' }] } });
+
+test('国の条件なしのページ別で、匿名化された検索語で来ているページの急落を seo-traffic-drop で拾う（DN-0806）', () => {
+  // /anon は検索語の分かる分が 0（国で絞ると行ごと無い）。国の条件なしなら基線 160 クリック→今週 20 と見える
+  const pack = basePack({ gscPageWeek: wide([pg('/anon', 20), pg('/steady', 40)]), gscPageBase: wide([pg('/anon', 160), pg('/steady', 160)]) });
+  const drops = detectSeo(pack, ctx()).filter((i) => i.type === 'seo-traffic-drop');
+  assert.deepEqual(drops.map((i) => i.key.page), ['/anon']);
+  assert.equal(drops[0].metrics.baseWeeklyClicks, 40);
+  assert.equal(drops[0].expectedWeeklyGain.value, 20);
+  // 国で絞った旧い取り方では /anon の行が無いので、急落が見えない
+  assert.deepEqual(detectSeo(basePack({ gscPageWeek: jpn([pg('/steady', 40)]), gscPageBase: jpn([pg('/steady', 160)]) }), ctx()).filter((i) => i.type === 'seo-traffic-drop'), []);
+});
+
+test('減衰は今週と同じ取り方の週だけで判定し、国で絞った旧パックを混ぜない（DN-0806）', () => {
+  const week = (c, make) => ({ week: 'w', sections: { gscPageWeek: make([pg('/q', c)]) } });
+  const decayOf = (hist, now) => detectSeo(basePack({ gscPageWeek: now }), ctx({ history: hist })).filter((i) => i.type === 'seo-decay');
+  // 同じ取り方（国の条件なし）で 3 週連続の減少 → 検出
+  assert.equal(decayOf([20, 15, 10].map((c) => week(c, wide)), wide([pg('/q', 6)])).length, 1);
+  // 旧パック（国で絞る）が混じる列は、同じ取り方の週が足りず判定しない（母集団が違う比較で減衰を作らない）
+  assert.equal(decayOf([week(20, jpn), week(15, wide), week(10, wide)], wide([pg('/q', 6)])).length, 0);
+  // 旧パックだけの列は、今週も旧い取り方なら従来どおり判定する
+  assert.equal(decayOf([20, 15, 10].map((c) => week(c, jpn)), jpn([pg('/q', 6)])).length, 1);
+});
+
+test('ダイジェストのページ明細は取り方の定義に合う表示になる（DN-0806）', (t) => {
+  const root = mkdtempSync(join(tmpdir(), 'growth-'));
+  t.after(() => rmSync(root, { recursive: true, force: true }));
+  const k = summarizeKpis(basePack({
+    gscPropertyWeek: gsc([{ clicks: 300, impressions: 10000 }]), gscPropertyBase: gsc([{ clicks: 800, impressions: 32000 }]),
+    gscPageWeek: wide([pg('/a', 306, 7946), pg('/b', 0, 102)]), gscPageBase: wide([pg('/a', 77)]),
+    gscPageTotalWeek: gsc([{ clicks: 306, impressions: 7800 }]),
+  }), cfg.revenue).gsc;
+  assert.equal(k.pageRows.scope, 'all-countries');
+  const md = renderMarkdown({ week: 'w', period: { startDate: 'a', endDate: 'b' }, baseline: { startDate: 'c', endDate: 'd' }, inputs: [], kpis: { ga4: null, gsc: k, cta: null }, bingReconciliation: {}, surfaced: [], suppressed: [], notSurfaced: [] });
+  assert.match(md, /ページ明細（国の条件なしのページ別＝匿名化された検索語の分を含み、日本以外の行も含む）: 2 行・306 クリック \/ 8048 表示・byPage 全体（日本）306 クリックの 100% \/ 表示の 103%。急落・減衰の判定に使う。/);
+});
+
 test('全体 KPI はページ明細23と区別して303を使い、全体取得失敗時は明細へすり替えない', () => {
   const sections = {
     gscPropertyWeek: gsc([{ clicks: 303, impressions: 10000 }]),
