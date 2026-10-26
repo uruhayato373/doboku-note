@@ -31,3 +31,4 @@ https://note.com/dobokunote/m/md3518107aa97?utm_source=x&utm_medium=social&utm_c
 #2級土木施工管理技士 #施工管理技士 #模試
 
 ---
+2026-10-26 追記: 1本目は 10/25 の予定を過ぎて未投稿・未投入のまま残っていた。8本とも 11 月の計画（content/sns/x/campaigns/2026-11-pe1-concrete.json）へ組み込み、11/1・3・5・7・9・11・14・16 の夜枠へ日付を直した（本文・UTM は変えていない）。二次口頭の計画（2026-11-pe-oral.json）の販売日と夜枠を避けている。
