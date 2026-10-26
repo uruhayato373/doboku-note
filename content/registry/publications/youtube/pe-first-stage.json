@@ -8,7 +8,7 @@
       "work": "pe1-zentaizou",
       "account": "youtube:main",
       "format": "longform",
-      "status": "rendered",
+      "status": "uploaded_private",
       "media": {
         "cover": "pe-first-stage/pe1-zentaizou/youtube.longform/cover",
         "scene-001": "pe-first-stage/pe1-zentaizou/youtube.longform/scene-001",
@@ -47,13 +47,40 @@
         "contentSha256": "fe04187854d9c05e7b33980b82645082a5c8ef39d3354b6abd2570da6e7ea4e9"
       },
       "times": {
-        "rendered": "2026-10-26T13:18:57.200Z"
+        "rendered": "2026-10-26T13:18:57.200Z",
+        "uploaded": "2026-10-26T13:41:43.382Z"
       },
       "delivery": {
         "inputSha256": "3f61529af7619d442a2feff63b802c08ce3a63489c8c228e969f91da5c51f4e8",
         "marker": "dn-single-3a3b7f054f25a712bf7cc15e02dbf9c021bca91e",
         "uploadRequestedAt": "2026-10-26T13:30:47.489Z",
-        "videoId": "xLQ5bqfUEOE"
+        "videoId": "xLQ5bqfUEOE",
+        "processedAt": "2026-10-26T13:41:42.610Z",
+        "thumbnailRequestedAt": "2026-10-26T13:41:43.814Z",
+        "thumbnailUrls": [
+          "https://i9.ytimg.com/vi/xLQ5bqfUEOE/default.jpg?sqp=CLCw_dYG&rs=AOn4CLDIHFsWLAKP6ovK1XYs4qeVRfbFkg",
+          "https://i9.ytimg.com/vi/xLQ5bqfUEOE/mqdefault.jpg?sqp=CLCw_dYG&rs=AOn4CLCiUOQFxQMnd2ndr4TuJWbzl3cLIA",
+          "https://i9.ytimg.com/vi/xLQ5bqfUEOE/hqdefault.jpg?sqp=CLCw_dYG&rs=AOn4CLDExtfPKrMhUqlcHM5sxkqqT2kqmw",
+          "https://i9.ytimg.com/vi/xLQ5bqfUEOE/sddefault.jpg?sqp=CLCw_dYG&rs=AOn4CLC0ag8iY8fZcLP5o0EA0U_HoSA1mQ",
+          "https://i9.ytimg.com/vi/xLQ5bqfUEOE/maxresdefault.jpg?sqp=CLCw_dYG&rs=AOn4CLDdOsgVBqqoLyDbc7a0VUkzgeT28g",
+          "https://i9.ytimg.com/vi/xLQ5bqfUEOE/fhddefault.jpg?sqp=CLCw_dYG&rs=AOn4CLAPUE-oyMdhNynVmslxwZMOHlo6tA"
+        ],
+        "thumbnailAcceptedAt": "2026-10-26T13:41:47.189Z",
+        "scheduleRequestedAt": "2026-10-26T13:41:52.201Z",
+        "scheduleAt": "2026-10-30T20:00:00+09:00"
+      },
+      "platform": {
+        "id": "xLQ5bqfUEOE",
+        "url": "https://www.youtube.com/watch?v=xLQ5bqfUEOE",
+        "privacy": "private",
+        "evidence": {
+          "kind": "publisher-live-check",
+          "ref": "content/sns/video-packs/pe-first-stage/pe1-zentaizou/youtube.json#longform"
+        }
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-10-26T13:41:47.189Z"
       }
     }
   ]
