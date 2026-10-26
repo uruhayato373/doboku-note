@@ -101,6 +101,117 @@
   }
 }
 
+@utility standards-tree {
+  /* 基準類の右の目次（StandardsNavigation の DocumentTreeNav・StandardsTreeChapter）。編 → 章 → 節 → 条。
+     1 文書 40〜115 章の行に同じクラスと SVG を並べると 1 ページ数十 KB 増えるので、見た目をここに集約する。
+     縦の線は節の段の 1 本だけ。表示中（aria-current）は背景色、表示中の章は data-active で太字。 */
+  & summary {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    padding-right: 0.75rem;
+    cursor: pointer;
+    list-style: none;
+  }
+  & summary::-webkit-details-marker {
+    display: none;
+  }
+  & summary::after {
+    content: '';
+    flex-shrink: 0;
+    width: 1rem;
+    height: 1rem;
+    background-color: var(--ink-muted);
+    -webkit-mask: var(--disclosure-chevron) no-repeat center / 14px;
+    mask: var(--disclosure-chevron) no-repeat center / 14px;
+    transition: transform var(--dur-base) var(--ease-soft);
+  }
+  & details[open] > summary::after {
+    transform: rotate(90deg);
+  }
+  & [data-tree-row] {
+    display: flex;
+    align-items: center;
+  }
+  & [data-tree-leaf] {
+    padding-right: 2rem;
+  }
+  & [data-tree-toggle] {
+    flex-shrink: 0;
+    width: 2rem;
+    height: 2rem;
+    background-color: var(--ink-muted);
+    -webkit-mask: var(--disclosure-chevron) no-repeat center / 14px;
+    mask: var(--disclosure-chevron) no-repeat center / 14px;
+    transition: transform var(--dur-base) var(--ease-soft);
+  }
+  & [data-tree-toggle][aria-expanded='true'] {
+    transform: rotate(90deg);
+  }
+  & [data-tree-book] > summary {
+    justify-content: space-between;
+    min-height: 2.25rem;
+    padding-left: 1rem;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--ink);
+  }
+  & a {
+    display: flex;
+    flex: 1;
+    min-width: 0;
+    min-height: 2rem;
+    align-items: baseline;
+    gap: 0.5rem;
+    padding: 0.25rem 0.75rem 0.25rem 0.5rem;
+    font-size: 13px;
+    line-height: 1.55;
+    color: var(--ink-body);
+    transition: color var(--dur-fast);
+  }
+  & a:hover {
+    color: var(--accent);
+  }
+  & a[data-active] {
+    font-weight: 700;
+    color: var(--ink);
+  }
+  & a[aria-current='page'] {
+    background-color: var(--accent-fill);
+    font-weight: 700;
+    color: var(--accent);
+  }
+  & a > span:first-child {
+    width: 2rem;
+    flex-shrink: 0;
+    @apply font-mono tabular-nums;
+    font-size: 11px;
+    font-weight: 400;
+    color: var(--ink-muted);
+  }
+  & a > span + span {
+    min-width: 0;
+    flex: 1;
+  }
+  & [data-tree-sections] {
+    margin: 0 0 0.25rem 1.375rem;
+    padding-left: 0.5rem;
+    border-left: 1px solid var(--rule-soft);
+  }
+  & [data-tree-sections] ol {
+    margin: 0;
+    padding: 0 0 0.25rem 2.5rem;
+    border-left: 0;
+  }
+  & [data-tree-sections] ol a {
+    display: block;
+    min-height: 0;
+    padding: 0.125rem 0.75rem 0.125rem 0;
+    font-size: 12px;
+    color: var(--ink-muted);
+  }
+}
+
 @utility card-rail {
   /* 横スクロール カードレール（キャリア等の二次セクションを全件縦積みせず畳む）。
      全カテゴリ共通（CareerSection）。scroll-snap で1枚ずつ吸着し、カード幅を

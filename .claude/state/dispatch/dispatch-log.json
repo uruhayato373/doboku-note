@@ -5839,6 +5839,32 @@
       "commit": "0063ed0bea93",
       "verification": "#1233・#1235・#1236 を develop に squash（0559b0ca8・116cbf1e3・0063ed0be）。各 PR の CI（audit・build）が緑。/ops/mac・/ops/ci・/metrics/business/weekly を worktree の管理画面で開き、土曜の流れ（収集の前・GSC の記録・週次レビュー・収集の後）と CI の直近の結果・Issue の振り分けが出ることを確認。check-admin-ui-debt は手組みの表 72→14・shadcn の Card の直接利用 1（section-cards）・Badge 0 で基準値に固定",
       "note": "管理画面の自動化を /ops/mac（土曜の流れ）と /ops/ci に分け、囲み・状態・書式を共通部品にそろえ、一覧の表を DataTable に移した"
+    },
+    {
+      "id": "DN-0239",
+      "at": "2026-10-26",
+      "task": "日本語校正（textlint + prh）の偽陽性ゼロを2週間観察する",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "fc94e433812a",
+      "verification": "git log --since=2026-10-11 -- prh.yml .textlintrc.json が 0 件（2026-10-26・起算から 15 日）。--grep='lint:ja|prh|誤検知' の 6 件は別件の修正",
+      "note": "2 週間の観察で誤検知の修正なし。backlog の監査（2026-10-26）で確認"
+    },
+    {
+      "id": "DN-0817",
+      "at": "2026-10-26",
+      "task": "ログインが要る読む処理と書く処理を土曜の Mac の 1 本にまとめ、ほかのセッションは記録を読んで進める（移行計画）",
+      "tier": "high",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": ".claude/plans/DN-0817-weekly-login-consolidation.md",
+      "commit": "c6ab5f243084",
+      "verification": "launchctl list | grep doboku-note が com.doboku-note.weekly-review と com.doboku-note.disk-hygiene の 2 行（2026-10-26）。git grep -l DOBOKU_AUTH .github が 0 件",
+      "note": "段 1〜5（DN-0819 の実装・DN-0820〜0823→DN-0846）は実装済み。残る確認は DN-0819（10/31・11/7 の土曜の回）と運営者の後片づけ DN-0846 に抽出済み"
     }
   ]
 }
