@@ -14,8 +14,6 @@ import { REPO_ROOT } from '../scripts/lib/repository-paths.mjs';
 
 const ALLOWED = {
   'src/components/ui/Disclosure/Disclosure.tsx': 1,
-  // 基準類の右の欄（文書一覧の「ほか N 文書」・目次の編・モバイルの欄）。PR #1244 の目次と同時に Disclosure へ移す
-  'src/components/standards/StandardsNavigation.tsx': 3,
 };
 
 /** コメントを除いた JSX の <details> の数（コメント中の「<details> の目次リスト」等は数えない） */

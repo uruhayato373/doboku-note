@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { StandardPracticeLinks } from '@/components/ui/SidebarDiscovery';
-import DisclosureChevron from '@/components/ui/DisclosureChevron';
+import Disclosure from '@/components/ui/Disclosure/Disclosure';
 import StandardsTreeActiveScroll from '@/components/standards/StandardsTreeActiveScroll';
 import StandardsTreeChapter from '@/components/standards/StandardsTreeChapter';
 import { standardTreeSections, standardTreeTocPath, usesTreeNav } from '@/lib/standards-tree-nav';
@@ -118,11 +118,12 @@ function DocumentNav({ currentDocument }: { currentDocument: StandardDocument })
         ))}
       </ul>
       {remaining.length > 0 && (
-        <details className="group border-t border-(--rule-soft)">
-          <summary className="focus-ring flex min-h-11 cursor-pointer list-none items-center gap-2 px-4 py-2 text-[12px] font-bold text-(--accent) marker:hidden">
-            <span className="min-w-0 flex-1">ほか{remaining.length}文書を表示</span>
-            <DisclosureChevron className="disclosure-chevron h-4 w-4 shrink-0 text-(--ink-muted)" />
-          </summary>
+        <Disclosure
+          variant="plain"
+          className="border-t border-(--rule-soft)"
+          summaryClassName="px-4 py-2 text-[12px] font-bold text-(--accent)"
+          summary={`ほか${remaining.length}文書を表示`}
+        >
           <ul className="border-t border-(--rule-soft) py-1">
             {remaining.map((document) => (
               <li key={document.documentId}>
@@ -130,7 +131,7 @@ function DocumentNav({ currentDocument }: { currentDocument: StandardDocument })
               </li>
             ))}
           </ul>
-        </details>
+        </Disclosure>
       )}
     </nav>
   );
@@ -171,8 +172,7 @@ function DocumentTreeNav({
         {books.map((book) => {
           const activeBook = book.chapters.some((chapter) => chapter.chapterId === currentChapter?.chapterId);
           return (
-            <details key={book.bookNumber} open={activeBook} data-tree-book>
-              <summary className="focus-ring">{book.bookLabel}</summary>
+            <Disclosure key={book.bookNumber} variant="plain" open={activeBook} data-tree-book summary={book.bookLabel}>
               <ul className="pb-1 pl-2">
                 {book.chapters.map((chapter) => {
                   const activeChapter = chapter.chapterId === currentChapter?.chapterId;
@@ -233,7 +233,7 @@ function DocumentTreeNav({
                   );
                 })}
               </ul>
-            </details>
+            </Disclosure>
           );
         })}
       </div>
@@ -367,17 +367,17 @@ export default function StandardsNavigation({
 
   if (variant === 'mobile') {
     return (
-      <details
-        className="group zenn-desktop:hidden border border-(--rule-soft) bg-(--paper)"
+      <Disclosure
+        radius="none"
+        className="zenn-desktop:hidden"
         data-standards-mobile-nav
-      >
-        <summary className="focus-ring flex min-h-12 cursor-pointer list-none items-center gap-3 px-4 py-3 marker:hidden">
-          <span className="min-w-0 flex-1">
+        summary={
+          <>
             <span className="block text-[15px] font-bold tracking-[0.02em] text-(--ink)">資料内を移動</span>
             <span className="mt-0.5 block truncate text-[11px] text-(--ink-muted)">{contextLabel}</span>
-          </span>
-          <DisclosureChevron className="disclosure-chevron h-4 w-4 shrink-0 text-(--ink-muted)" />
-        </summary>
+          </>
+        }
+      >
         <div className="space-y-3 border-t border-(--rule-soft) bg-(--bg) p-3">
           <Link
             href={parentHref}
@@ -388,7 +388,7 @@ export default function StandardsNavigation({
           {contents}
           {currentChapter && <StandardPracticeLinks title={currentChapter.title} />}
         </div>
-      </details>
+      </Disclosure>
     );
   }
 

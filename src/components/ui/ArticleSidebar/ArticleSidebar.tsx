@@ -10,7 +10,6 @@ import CategoryNavCard from '@/components/ui/CategoryNavCard/CategoryNavCard';
 import PillarNavCard from '@/components/ui/PillarNavCard';
 import { SidebarProduct } from '@/components/ui/SidebarDiscovery';
 import RelatedTools from '@/components/ui/RelatedTools';
-import Disclosure from '@/components/ui/Disclosure/Disclosure';
 
 interface ArticleSidebarProps {
   /** もくじ（L2 索引）タイル。HUB 資格 & 非 career のとき非 null。記事末尾と同一もくじを PC 側で併掲。 */
@@ -62,11 +61,9 @@ export default function ArticleSidebar({
     // ここは中身のみを返す（aside 入れ子の意味論を回避）。
     <>
       {/* ブロック1: 通常フロー（追従させない）——著者・note。
-          読者への信頼提示を先に置き、ファーストビューの商業要素を減らす。 */}
+          読者への信頼提示を先に置き、ファーストビューの商業要素を減らす。運営者はカテゴリ hub の右欄と同じく畳まず常に出す。 */}
       <div className="mb-3">
-        <Disclosure radius="none" summaryClassName="text-sm font-bold text-(--ink)" summary="運営者・保有資格について">
-          <AuthorSidebarCard />
-        </Disclosure>
+        <AuthorSidebarCard />
       </div>
       {/* note もくじタイル（L2 索引）。HUB 資格の全 docs ページで記事末尾と併掲（全ページ統一・2026-07）。
           非 HUB 資格（一次・concrete・reference）と career タグ記事は sidebarMokuji=null で非表示。 */}
