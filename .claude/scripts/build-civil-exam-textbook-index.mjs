@@ -43,6 +43,7 @@ import { readFileSync, readdirSync, statSync, mkdirSync, existsSync } from 'node
 import { join, resolve, dirname } from 'node:path';
 import matter from 'gray-matter';
 import { writeJsonIfChanged } from '../../scripts/lib/write-generated.mjs';
+import { isUnpublishedMdx } from '../../scripts/lib/mdx-published.mjs';
 
 const VERBOSE = process.argv.includes('--verbose');
 const DRY_RUN = process.argv.includes('--dry-run');
@@ -171,7 +172,8 @@ function parseExamQuestions(examFile) {
 }
 
 function buildIndex(base, categoryLabel) {
-  const all = collectMdx(base);
+  // 非公開の下書き（公式正答の無い過去問の確定前など）は、教材からの逆リンクも張らない（DN-0866）
+  const all = collectMdx(base).filter((f) => !isUnpublishedMdx(readFileSync(f.path, 'utf-8')));
   const textbooks = all.filter((f) => f.slug.startsWith('textbook-') || f.slug.startsWith('guide-'));
   const exams = all.filter((f) => f.slug.startsWith('primary-') || f.slug.startsWith('secondary-'));
 
