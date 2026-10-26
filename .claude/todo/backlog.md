@@ -303,6 +303,16 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-0853] CI の重なった 3 組（Cloudflare の 2 本・IndexNow・死活確認と全 URL の検査）をまとめて 21 本を 18 本にする
+タグ: [領域:管理] [時期:2026-10] [種類:改善] [起票:2026-10-26]
+
+**起点**: 2026-10-26、運営者「CI の中で重なっているものをまとめることはできる？」。21 本を起動条件・鍵・中身で見直すと、同じ準備と鍵で動く Cloudflare の 2 本、デプロイの後に別のワークフローとして動く IndexNow、本番を外から確かめる死活確認と全 URL の検査の 3 組が重なっている。
+
+**やること**: 計画（PR で .claude/plans/ に足す）のとおり、`cloudflare-config-audit.yml` を `cloudflare-metrics.yml` へ、`indexnow-submit.yml` を `cloudflare-deploy.yml` の後続ジョブへ、`production-sweep.yml` を `uptime-ping.yml` へ入れて 3 本を消し、台帳・監視・文書を合わせる。main へ出たら古い 3 本を無効にする。
+
+**完了条件**: ワークフローが 18 本。`npm test`・`npm run quality:audit:ci`・`npm run check-automations` が緑。main へ出た後、統合した 3 本の定期実行と、デプロイの後の IndexNow・全 URL の検査がそれぞれ 1 回成功する。
+
+
 ### [DN-0852] note の公開画面の撮影と競合の公開データを CI から土曜の Mac の収集へ移す
 タグ: [領域:管理] [時期:2026-10..2026-11] [種類:改善] [起票:2026-10-26] [進行中]
 
