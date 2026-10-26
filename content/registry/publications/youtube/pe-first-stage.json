@@ -30,7 +30,9 @@
         "preview-metrics": "pe-first-stage/pe1-zentaizou/youtube.longform/preview-metrics",
         "scene-sheet": "pe-first-stage/pe1-zentaizou/youtube.longform/scene-sheet",
         "contact-sheet": "pe-first-stage/pe1-zentaizou/youtube.longform/contact-sheet"
-      }
+      },
+      "copy": "content/sns/video-packs/pe-first-stage/pe1-zentaizou/youtube.json#longform",
+      "publishAt": "2026-10-30T20:00:00+09:00"
     }
   ]
 }

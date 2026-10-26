@@ -142,6 +142,7 @@ config/content-registry.json          チャネル×形式・アカウント・I
 npm run registry -- list --channel youtube --exam civil-construction-2
 npm run registry -- show civil-construction-2/matome-2kyu-chokuzen/youtube.longform
 npm run registry -- import-video-pack --pack-dir content/sns/video-packs/civil-construction-2/matome-2kyu-chokuzen
+npm run registry -- prepare-youtube --pub <公開ID> --publish-at <ISO日時> --commit  # 文面・予定だけ。承認は変えない
 npm run registry -- import-video-packs          # 全動画パック（own-videos と件数を突き合わせる）
 npm run registry-reconcile -- --dry             # YouTube の観測と照合（認証は CI。手元は exit 2）
 npm run registry -- index
