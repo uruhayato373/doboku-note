@@ -69687,6 +69687,19 @@
       "verifiedAt": "2026-10-22T09:20:35.586Z",
       "width": 2396,
       "height": 1078
+    },
+    "content/site/civil-construction-2/secondary-r08/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/civil-construction-2/secondary-r08/ogp.png",
+      "sha256": "05ab5a9ec2d2d71f09f78d057b51ac79d7a3aa401c15c7249a8934f1b41176d4",
+      "bytes": 667485,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-26T06:30:22.679Z",
+      "width": 1200,
+      "height": 630,
+      "srcHash": "08688d55cb628fcd"
     }
   },
   "note": "DN-0111 Phase 3。秘密値・署名 URL・絶対パスを書かないこと。",
