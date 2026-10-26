@@ -90,6 +90,11 @@ test('/links の技術士一次カード: 試験日まで直前パック、翌�
   }
 });
 
+test('/links の主任技士 添削カード: 受付締めの一文を説明文の先頭に置く（2 行で切れても見える）', () => {
+  const page = readFileSync(join(ROOT, 'src/app/links/page.tsx'), 'utf8');
+  assert.match(page, /sub=\{\(card\.key === "concrete-chief" \? withTensakuDeadline\("concrete-chief-engineer", "exam", ""\) : ""\) \+ coconala\.description\}/);
+});
+
 test('技術士一次 合格後ページは試験の前後どちらも二次（建設部門）の入口、過去問は過去問 PDF のまま', async () => {
   const { resolvePlacement } = await loadPlacement();
   for (const t of pe1Times) {
