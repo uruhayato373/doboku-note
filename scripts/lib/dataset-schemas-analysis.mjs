@@ -124,7 +124,7 @@ export const GrowthPack = z
             }).strict()).min(1),
           }).strict(),
           failedSection,
-        ]).optional().describe('ページ別の取り方ごとの合計（DN-0806・急落・減衰の検出の取り方を決めるため）'),
+        ]).optional().describe('ページ別の取り方ごとの合計（DN-0806）。W42 のパックだけが持つ旧区画。取り方を国の条件なしに切り替えたため、以降のパックは取得しない'),
       })
       .strict()
       .describe('取得した区画。取れなかった区画は ok:false と error（全滅のときはファイルを書かない）'),
@@ -155,7 +155,7 @@ const KPI_GA4 = z.object({
 }).strict();
 const KPI_GSC = z.object({
   basis: z.enum(['property-total', 'page-row-sum']).optional().describe('全体集計か旧パックの取得ページ行合計か'),
-  pageRows: z.object({ count: count('取得ページ行数'), clicks: num('明細クリック'), impressions: num('明細表示'), byPageTotalClicks: num('byPage 全体クリック').nullable(), byPageTotalImpressions: num('byPage 全体表示').nullable() }).strict().optional(),
+  pageRows: z.object({ scope: z.string().optional().describe('ページ別の取り方（all-countries＝国の条件なし・country:jpn＝国で絞る・unspecified＝取得条件の記録なし）'), count: count('取得ページ行数'), clicks: num('明細クリック'), impressions: num('明細表示'), byPageTotalClicks: num('byPage 全体クリック').nullable(), byPageTotalImpressions: num('byPage 全体表示').nullable() }).strict().optional(),
   clicks: num('今週のクリック'),
   baseWeeklyClicks: num('基線の週平均クリック'),
   deltaPct: DELTA_PCT,

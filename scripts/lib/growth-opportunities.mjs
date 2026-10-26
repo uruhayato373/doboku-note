@@ -11,6 +11,7 @@ import { createHash } from 'node:crypto';
 import { judgeLedger } from './experiment-due.mjs';
 import { addDays } from './business-direction.mjs';
 import { isLegacyPath } from './legacy-routes.mjs';
+import { gscPageScope } from './growth-pack.mjs';
 
 export const oppId = (type, key) => `OPP-${createHash('sha256').update(`${type}|${key}`).digest('hex').slice(0, 10)}`;
 
@@ -122,7 +123,9 @@ export function detectSeo(pack, ctx) {
     }
   }
   // 継続的な減衰（過去パックの週次クリックが decayWeeks 回連続で減少）
-  const series = [...(ctx.history ?? []), pack].filter((p) => p.sections?.gscPageWeek?.ok).slice(-(seo.decayWeeks + 1));
+  // ページ別の取り方（国で絞る／絞らない）が違う週は母集団が違うので、今週と同じ取り方の週だけを並べる（DN-0806）
+  const scope = gscPageScope(s.gscPageWeek);
+  const series = [...(ctx.history ?? []), pack].filter((p) => p.sections?.gscPageWeek?.ok && gscPageScope(p.sections.gscPageWeek) === scope).slice(-(seo.decayWeeks + 1));
   if (series.length === seo.decayWeeks + 1) {
     const maps = series.map((p) => new Map(combineGscRows([p.sections.gscPageWeek.rows], legacy).map((r) => [r.page, r.clicks])));
     for (const [page, first] of maps[0]) {
@@ -325,7 +328,7 @@ export function summarizeKpis(pack, rv) {
   if (gw?.ok && gb?.ok && gw.rows.length && gb.rows.length) {
     const w = sum(gw.rows), b = sum(gb.rows);
     kpi.gsc = { basis: hasTotals ? 'property-total' : 'page-row-sum', clicks: w.clicks, baseWeeklyClicks: round(b.clicks / 4), deltaPct: pct(w.clicks, b.clicks / 4), impressions: w.impressions, baseWeeklyImpressions: round(b.impressions / 4), ctrPct: w.impressions ? round((w.clicks / w.impressions) * 100, 2) : null };
-    if (s.gscPageWeek?.ok) kpi.gsc.pageRows = { count: s.gscPageWeek.rows.length, ...sum(s.gscPageWeek.rows), byPageTotalClicks: s.gscPageTotalWeek?.ok ? s.gscPageTotalWeek.rows[0]?.clicks ?? null : null, byPageTotalImpressions: s.gscPageTotalWeek?.ok ? s.gscPageTotalWeek.rows[0]?.impressions ?? null : null };
+    if (s.gscPageWeek?.ok) kpi.gsc.pageRows = { scope: gscPageScope(s.gscPageWeek), count: s.gscPageWeek.rows.length, ...sum(s.gscPageWeek.rows), byPageTotalClicks: s.gscPageTotalWeek?.ok ? s.gscPageTotalWeek.rows[0]?.clicks ?? null : null, byPageTotalImpressions: s.gscPageTotalWeek?.ok ? s.gscPageTotalWeek.rows[0]?.impressions ?? null : null };
   }
   if (s.ga4Events?.ok) {
     const events = [...new Set([...rv.ctaClickEvents, ...rv.ctaImpressionEvents, 'quiz_start', 'quiz_complete', 'standards_data_download'])];
