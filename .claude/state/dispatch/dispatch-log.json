@@ -5955,6 +5955,19 @@
       "commit": "baa147b0b89e",
       "verification": "note-update-body --commit が API で本文の更新を確認。npm run check-note-funnel がドリフトなし",
       "note": "独立の L2 は作らず、建設部門もくじ（n7279ca0d926f）に「これから第一次試験を受ける人へ」の節を足し、一次の 3 本とサイトの演習へつないだ。note 反映済み。理由は note-funnel-architecture.md の L2 表に 1 行"
+    },
+    {
+      "id": "DN-0871",
+      "at": "2026-10-26",
+      "task": "技術士一次の KDP（d-00〜d-03）の価格と、サイトから KDP へ張るかを決める",
+      "tier": "hold",
+      "kind": "意思決定",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "fcd42bc50efa",
+      "verification": "kdp-publish --sync-status で d-00 livePriceJpy 1250・priceMatch true・pendingChanges false。npm run check-kindle-prices 57 冊 問題 0",
+      "note": "運営者決定（2026-10-26）: d-00 を ¥990→¥1,250 に改定（882ec5f4c・日本の実効レート 35%・KDP 本棚で ¥1,250 販売中を確認・未出版だった 9/4 修正版 EPUB も同時に出版）。サイトから KDP へは張らず note の過去問 PDF へ送る（理由は 04_収益化戦略.md）。d-03（→¥980）は strategy.md の保留に残る"
     }
   ]
 }
