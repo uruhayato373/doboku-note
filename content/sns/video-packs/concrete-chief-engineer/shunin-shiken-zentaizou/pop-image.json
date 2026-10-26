@@ -93,6 +93,39 @@
         "group": "content-media",
         "sync": "cloud-verified"
       }
+    },
+    "cover-pop-candidate-safe-20261026": {
+      "version": "pop-poster-v3",
+      "generation": {
+        "tool": "image_gen",
+        "prompt": "Revise this Japanese YouTube cover with a strict SUBTITLE SAFE BAND. Draw an imaginary horizontal boundary at 78% of canvas height. ALL non-background content, including the two document icons, the teacher's shoulders and hands, energetic comic strokes, and all Japanese lettering, must end ABOVE that boundary. The bottom 22% of the frame must be only an uninterrupted purple/violet gradient with subtle diagonal texture, completely empty of foreground shapes. Preserve exact Japanese text: 総監が制作 / コンクリート主任技士 / 択一×小論文 / どう学ぶ？. Preserve the same teacher character and bold POP style. This is a full-bleed 16:9 image; no frame or white margin. Shrink the upper composition as needed while keeping its text legible. No new words.",
+        "references": [{
+          "path": ".tmp/media/concrete-chief-engineer/shunin-shiken-zentaizou/work/cover-candidate-revised.21eebe4c.png",
+          "sha256": "21eebe4cf10d413f755e1dc3bf43ff5895a1273403e6c9677639fffb2b43f8f3"
+        }],
+        "output": {
+          "path": ".tmp/media/concrete-chief-engineer/shunin-shiken-zentaizou/work/raw-cover-safe.0a0237dc.png",
+          "sha256": "0a0237dc2484d9d1b3715cc929ab871ddd3a95899979f7ae7a81e1559c334e4a"
+        },
+        "generatedAt": "2026-10-26T14:58:02Z"
+      },
+      "copy": {"exam": "concrete-chief", "headline": ["択一×小論文", "どう学ぶ？"], "authority": "総監が制作"},
+      "output": {
+        "path": ".tmp/media/concrete-chief-engineer/shunin-shiken-zentaizou/work/cover-candidate-safe.729a5a5e.png",
+        "sha256": "729a5a5e70c9b6de85da4e5eaf3c10cf72946541c575850185578e44623ec7e8",
+        "width": 1920,
+        "height": 1080
+      },
+      "normalization": {"mode": "full-frame-v1", "sourceSha256": "0a0237dc2484d9d1b3715cc929ab871ddd3a95899979f7ae7a81e1559c334e4a"},
+      "review": {
+        "status": "candidate",
+        "userImageReview": "pending",
+        "checkedAt": "2026-10-26T14:58:00Z",
+        "by": "Codex",
+        "views": ["original", "1920x1080"],
+        "checks": ["文言・資格名", "顔と安全域", "字幕領域"]
+      },
+      "storage": {"group": "content-media", "sync": "cloud-verified"}
     }
   },
   "outputs": {
