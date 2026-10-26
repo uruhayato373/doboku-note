@@ -1755,6 +1755,17 @@
         "colors": 16
       }
     },
+    "civil-construction-2/secondary-r08/img/q8-excavator-scene": {
+      "pdf": "https://www.jctc.jp/wjctcp/wp-content/uploads/2026/10/20261026d_mondaib1.pdf",
+      "page": 8,
+      "dpi": 300,
+      "cropBox": [
+        863,
+        1476,
+        2213,
+        2785
+      ]
+    },
     "civil-practice/3d-measurement-selection/img/photo-terrestrial-laser-scanner": {
       "kind": "ai-generated",
       "tool": "Codex",
