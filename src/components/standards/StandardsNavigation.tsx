@@ -3,7 +3,6 @@ import { StandardPracticeLinks } from '@/components/ui/SidebarDiscovery';
 import DisclosureChevron from '@/components/ui/DisclosureChevron';
 import StandardsTreeActiveScroll from '@/components/standards/StandardsTreeActiveScroll';
 import StandardsTreeChapter from '@/components/standards/StandardsTreeChapter';
-import { TREE_ROW, TREE_SECTION_LINK, TREE_SECTIONS, TREE_SUMMARY } from '@/components/standards/standards-tree-classes';
 import { standardTreeSections, standardTreeTocPath, usesTreeNav } from '@/lib/standards-tree-nav';
 import {
   getStandardDocuments,
@@ -144,7 +143,7 @@ function chapterNumberLabel(chapter: StandardChapter): string {
 /**
  * 編 → 章 → 節 の目次（右の欄の主導線）。表示中の編・章を開き、表示中の節の下に条（ページ内の見出し）を出す。
  * 表示中の章の節は HTML に書き、他の章の節は開いたときに toc.json から読む（StandardsTreeChapter）。
- * 縦の線は節の段の 1 本だけにし、表示中の位置は背景色で示す。
+ * 見た目は globals.css の standards-tree に集約する（行ごとにクラスを並べない）。
  */
 function DocumentTreeNav({
   document,
@@ -167,39 +166,28 @@ function DocumentTreeNav({
       >
         {document.role === 'common' ? '土木工事共通仕様書' : document.title}・目次
       </Link>
-      <div data-standards-nav="tree">
+      <div className="standards-tree" data-standards-nav="tree">
         {books.map((book) => {
           const activeBook = book.chapters.some((chapter) => chapter.chapterId === currentChapter?.chapterId);
           return (
-            <details key={book.bookNumber} open={activeBook}>
-              <summary className={`${TREE_SUMMARY} focus-ring min-h-9 pl-4`}>
-                <span className="min-w-0 flex-1 text-[13px] font-bold text-(--ink)">{book.bookLabel}</span>
-                <DisclosureChevron className="disclosure-chevron h-4 w-4 shrink-0 text-(--ink-muted)" />
-              </summary>
-              <ul className="pb-1">
+            <details key={book.bookNumber} open={activeBook} data-tree-book>
+              <summary className="focus-ring">{book.bookLabel}</summary>
+              <ul className="pb-1 pl-2">
                 {book.chapters.map((chapter) => {
                   const activeChapter = chapter.chapterId === currentChapter?.chapterId;
-                  const chapterIsPage = activeChapter && currentSection === undefined;
                   const chapterLink = (
                     <Link
                       href={standardChapterPath(document, chapter)}
-                      className={`${TREE_ROW} min-w-0 flex-1 pl-2 ${
-                        chapterIsPage
-                          ? 'bg-(--accent-fill) font-bold text-(--accent)'
-                          : activeChapter
-                            ? 'font-bold text-(--ink)'
-                            : 'text-(--ink-body) hover:text-(--accent)'
-                      }`}
-                      aria-current={chapterIsPage ? 'page' : undefined}
+                      className="focus-ring"
+                      aria-current={activeChapter && currentSection === undefined ? 'page' : undefined}
+                      data-active={activeChapter ? '' : undefined}
                     >
-                      <span className="w-8 shrink-0 font-mono text-[11px] tabular-nums text-(--ink-muted)">
-                        {chapterNumberLabel(chapter)}
-                      </span>
-                      <span className="min-w-0 flex-1">{chapter.chapterTitle}</span>
+                      <span>{chapterNumberLabel(chapter)}</span>
+                      <span>{chapter.chapterTitle}</span>
                     </Link>
                   );
                   if (chapter.sections.length === 0) {
-                    return <li key={chapter.chapterId} className="flex pl-2 pr-7">{chapterLink}</li>;
+                    return <li key={chapter.chapterId} className="flex pr-7">{chapterLink}</li>;
                   }
                   if (!activeChapter) {
                     return (
@@ -213,11 +201,8 @@ function DocumentTreeNav({
                   return (
                     <li key={chapter.chapterId}>
                       <details open>
-                        <summary className={`${TREE_SUMMARY} pl-2`}>
-                          {chapterLink}
-                          <DisclosureChevron className="disclosure-chevron h-4 w-4 shrink-0 text-(--ink-muted)" />
-                        </summary>
-                        <ol className={TREE_SECTIONS} data-standards-nav="sections">
+                        <summary>{chapterLink}</summary>
+                        <ol data-standards-nav="sections">
                           {standardTreeSections(document, chapter, { samePage: currentSection === undefined }).map((section) => {
                             const activeSection = section.number === currentSection;
                             const articles = activeSection
@@ -225,26 +210,15 @@ function DocumentTreeNav({
                               : [];
                             return (
                               <li key={section.number}>
-                                <Link
-                                  href={section.href}
-                                  className={
-                                    activeSection
-                                      ? `${TREE_ROW} bg-(--accent-fill) pl-1 font-bold text-(--accent)`
-                                      : TREE_SECTION_LINK
-                                  }
-                                  aria-current={activeSection ? 'page' : undefined}
-                                >
-                                  <span className="w-7 shrink-0 font-mono text-[11px] tabular-nums text-(--ink-muted)">{section.number}節</span>
-                                  <span className="min-w-0 flex-1">{section.title}</span>
+                                <Link href={section.href} className="focus-ring" aria-current={activeSection ? 'page' : undefined}>
+                                  <span>{section.number}節</span>
+                                  <span>{section.title}</span>
                                 </Link>
                                 {articles.length > 0 && (
-                                  <ol className="pb-1 pl-10">
+                                  <ol>
                                     {articles.map((article) => (
                                       <li key={article.number}>
-                                        <a
-                                          href={`#${generateHeadingId(article.headingText)}`}
-                                          className="focus-ring block py-0.5 pr-3 text-[12px] leading-[1.55] text-(--ink-muted) hover:text-(--accent)"
-                                        >
+                                        <a href={`#${generateHeadingId(article.headingText)}`} className="focus-ring">
                                           {article.title}
                                         </a>
                                       </li>

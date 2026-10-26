@@ -2,8 +2,6 @@
 
 import Link from 'next/link';
 import { useState, type ReactNode } from 'react';
-import DisclosureChevron from '@/components/ui/DisclosureChevron';
-import { TREE_SECTION_LINK, TREE_SECTIONS, TREE_SUMMARY } from '@/components/standards/standards-tree-classes';
 
 type TreeSection = { number: number; title: string; href: string };
 
@@ -24,8 +22,8 @@ function loadToc(url: string): Promise<Record<string, TreeSection[]>> {
 }
 
 /**
- * 表示中でない章。開いたときに toc.json から節を読んで並べる。
- * 章名はリンク（章ページへ）、行の残りとシェブロンで開閉する。
+ * 表示中でない章。開いたときに toc.json から節を読んで並べる（見た目は globals.css の standards-tree）。
+ * 章名はリンク（章ページへ）、行の残りとシェブロンで開閉する。読み込みの案内は開いてから出す。
  */
 export default function StandardsTreeChapter({
   tocUrl,
@@ -37,35 +35,33 @@ export default function StandardsTreeChapter({
   children: ReactNode;
 }) {
   const [sections, setSections] = useState<TreeSection[] | null>(null);
-  const [failed, setFailed] = useState(false);
+  const [state, setState] = useState<'idle' | 'loading' | 'failed'>('idle');
 
   function handleToggle(event: React.SyntheticEvent<HTMLDetailsElement>) {
     if (!event.currentTarget.open || sections) return;
+    setState('loading');
     loadToc(tocUrl)
       .then((toc) => setSections(toc[chapterId] ?? []))
-      .catch(() => setFailed(true));
+      .catch(() => setState('failed'));
   }
 
   return (
     <details onToggle={handleToggle}>
-      <summary className={`${TREE_SUMMARY} pl-2`}>
-        {children}
-        <DisclosureChevron className="disclosure-chevron h-4 w-4 shrink-0 text-(--ink-muted)" />
-      </summary>
+      <summary>{children}</summary>
       {sections ? (
-        <ol className={TREE_SECTIONS}>
+        <ol>
           {sections.map((section) => (
             <li key={section.number}>
-              <Link href={section.href} className={TREE_SECTION_LINK}>
-                <span className="w-7 shrink-0 font-mono text-[11px] tabular-nums text-(--ink-muted)">{section.number}節</span>
-                <span className="min-w-0 flex-1">{section.title}</span>
+              <Link href={section.href} className="focus-ring">
+                <span>{section.number}節</span>
+                <span>{section.title}</span>
               </Link>
             </li>
           ))}
         </ol>
-      ) : (
+      ) : state !== 'idle' && (
         <p className="py-1 pl-10 text-[12px] text-(--ink-muted)" role="status">
-          {failed ? '節の一覧を読み込めませんでした。章名から章ページを開いてください。' : '読み込み中…'}
+          {state === 'failed' ? '節の一覧を読み込めませんでした。章名から章ページを開いてください。' : '読み込み中…'}
         </p>
       )}
     </details>
