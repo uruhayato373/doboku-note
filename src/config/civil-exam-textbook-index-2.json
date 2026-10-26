@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-26T06:28:35.666Z",
+  "generated_at": "2026-10-26T22:47:59.815Z",
   "questionToTextbooks": {
     "primary-h18": {
       "問題-6": [
@@ -105,6 +105,148 @@
         {
           "slug": "guide-quality-management",
           "title": "品質管理の重要ポイント",
+          "score": 0.6
+        }
+      ],
+      "問題-61": [
+        {
+          "slug": "guide-river-sabo-key-points",
+          "title": "河川・砂防の重要ポイント",
+          "score": 1.75
+        },
+        {
+          "slug": "guide-concrete-key-points",
+          "title": "コンクリートの重要ポイント",
+          "score": 1.6
+        },
+        {
+          "slug": "guide-foundation-key-points",
+          "title": "基礎工の重要ポイント",
+          "score": 1.6
+        },
+        {
+          "slug": "guide-quality-management",
+          "title": "品質管理の重要ポイント",
+          "score": 1.6
+        },
+        {
+          "slug": "guide-safety-management",
+          "title": "安全管理の重要ポイント",
+          "score": 1.6
+        }
+      ]
+    },
+    "primary-h21": {
+      "問題-4": [
+        {
+          "slug": "guide-earthwork-key-points",
+          "title": "土工の重要ポイント",
+          "score": 0.6
+        }
+      ],
+      "問題-7": [
+        {
+          "slug": "guide-concrete-key-points",
+          "title": "コンクリートの重要ポイント",
+          "score": 0.6
+        }
+      ],
+      "問題-48": [
+        {
+          "slug": "guide-construction-plan-key-points",
+          "title": "施工計画の重要ポイント",
+          "score": 0.9
+        }
+      ],
+      "問題-51": [
+        {
+          "slug": "guide-schedule-management",
+          "title": "工程管理の重要ポイント",
+          "score": 0.6
+        }
+      ],
+      "問題-56": [
+        {
+          "slug": "guide-quality-management",
+          "title": "品質管理の重要ポイント",
+          "score": 0.6
+        }
+      ],
+      "問題-57": [
+        {
+          "slug": "guide-quality-management",
+          "title": "品質管理の重要ポイント",
+          "score": 0.75
+        }
+      ],
+      "問題-61": [
+        {
+          "slug": "guide-river-sabo-key-points",
+          "title": "河川・砂防の重要ポイント",
+          "score": 1.9
+        },
+        {
+          "slug": "guide-concrete-key-points",
+          "title": "コンクリートの重要ポイント",
+          "score": 1.75
+        },
+        {
+          "slug": "guide-foundation-key-points",
+          "title": "基礎工の重要ポイント",
+          "score": 1.75
+        },
+        {
+          "slug": "guide-quality-management",
+          "title": "品質管理の重要ポイント",
+          "score": 1.75
+        },
+        {
+          "slug": "guide-safety-management",
+          "title": "安全管理の重要ポイント",
+          "score": 1.75
+        }
+      ]
+    },
+    "primary-h25": {
+      "問題-24": [
+        {
+          "slug": "guide-dam-tunnel-key-points",
+          "title": "ダム・トンネルの重要ポイント",
+          "score": 0.6
+        }
+      ],
+      "問題-47": [
+        {
+          "slug": "guide-construction-plan-key-points",
+          "title": "施工計画の重要ポイント",
+          "score": 1.05
+        }
+      ],
+      "問題-50": [
+        {
+          "slug": "guide-schedule-management",
+          "title": "工程管理の重要ポイント",
+          "score": 0.9
+        }
+      ],
+      "問題-51": [
+        {
+          "slug": "guide-schedule-management",
+          "title": "工程管理の重要ポイント",
+          "score": 0.6
+        }
+      ],
+      "問題-57": [
+        {
+          "slug": "guide-quality-management",
+          "title": "品質管理の重要ポイント",
+          "score": 0.6
+        }
+      ],
+      "問題-58": [
+        {
+          "slug": "guide-concrete-key-points",
+          "title": "コンクリートの重要ポイント",
           "score": 0.6
         }
       ],
@@ -1784,6 +1926,12 @@
   "textbookToQuestions": {
     "guide-concrete-key-points": [
       {
+        "examSlug": "primary-h21",
+        "examTitle": "平成21年度 学科試験",
+        "section": "問題-61",
+        "score": 1.75
+      },
+      {
         "examSlug": "primary-h18",
         "examTitle": "平成18年度 学科試験",
         "section": "問題-61",
@@ -1792,6 +1940,12 @@
       {
         "examSlug": "primary-h20",
         "examTitle": "平成20年度 学科試験",
+        "section": "問題-61",
+        "score": 1.6
+      },
+      {
+        "examSlug": "primary-h25",
+        "examTitle": "平成25年度 学科試験",
         "section": "問題-61",
         "score": 1.6
       },
@@ -1890,18 +2044,6 @@
         "examTitle": "令和8年度 第2次検定",
         "section": "問題-7",
         "score": 0.75
-      },
-      {
-        "examSlug": "primary-h18",
-        "examTitle": "平成18年度 学科試験",
-        "section": "問題-6",
-        "score": 0.6
-      },
-      {
-        "examSlug": "primary-h18",
-        "examTitle": "平成18年度 学科試験",
-        "section": "問題-58",
-        "score": 0.6
       }
     ],
     "guide-construction-plan-key-points": [
@@ -1916,6 +2058,12 @@
         "examTitle": "令和7年度 第1次検定 後期",
         "section": "問題-60",
         "score": 1.2
+      },
+      {
+        "examSlug": "primary-h25",
+        "examTitle": "平成25年度 学科試験",
+        "section": "問題-47",
+        "score": 1.05
       },
       {
         "examSlug": "primary-r08-zenki",
@@ -1933,6 +2081,12 @@
         "examSlug": "primary-h18",
         "examTitle": "平成18年度 学科試験",
         "section": "問題-47",
+        "score": 0.9
+      },
+      {
+        "examSlug": "primary-h21",
+        "examTitle": "平成21年度 学科試験",
+        "section": "問題-48",
         "score": 0.9
       },
       {
@@ -2012,12 +2166,6 @@
         "examTitle": "令和6年度 第2次検定",
         "section": "問題-9",
         "score": 0.6
-      },
-      {
-        "examSlug": "secondary-r08",
-        "examTitle": "令和8年度 第2次検定",
-        "section": "問題-9",
-        "score": 0.6
       }
     ],
     "guide-schedule-management": [
@@ -2076,6 +2224,12 @@
         "score": 0.9
       },
       {
+        "examSlug": "primary-h25",
+        "examTitle": "平成25年度 学科試験",
+        "section": "問題-50",
+        "score": 0.9
+      },
+      {
         "examSlug": "primary-r05-zenki",
         "examTitle": "令和5年度 第1次検定 前期",
         "section": "問題-56",
@@ -2124,25 +2278,25 @@
         "score": 0.6
       },
       {
-        "examSlug": "primary-h26",
-        "examTitle": "平成26年度 学科試験",
+        "examSlug": "primary-h21",
+        "examTitle": "平成21年度 学科試験",
         "section": "問題-51",
         "score": 0.6
       },
       {
-        "examSlug": "primary-h27",
-        "examTitle": "平成27年度 学科試験",
-        "section": "問題-50",
-        "score": 0.6
-      },
-      {
-        "examSlug": "primary-h27",
-        "examTitle": "平成27年度 学科試験",
+        "examSlug": "primary-h25",
+        "examTitle": "平成25年度 学科試験",
         "section": "問題-51",
         "score": 0.6
       }
     ],
     "guide-river-sabo-key-points": [
+      {
+        "examSlug": "primary-h21",
+        "examTitle": "平成21年度 学科試験",
+        "section": "問題-61",
+        "score": 1.9
+      },
       {
         "examSlug": "primary-h18",
         "examTitle": "平成18年度 学科試験",
@@ -2152,6 +2306,12 @@
       {
         "examSlug": "primary-h20",
         "examTitle": "平成20年度 学科試験",
+        "section": "問題-61",
+        "score": 1.75
+      },
+      {
+        "examSlug": "primary-h25",
+        "examTitle": "平成25年度 学科試験",
         "section": "問題-61",
         "score": 1.75
       },
@@ -2200,6 +2360,12 @@
     ],
     "guide-foundation-key-points": [
       {
+        "examSlug": "primary-h21",
+        "examTitle": "平成21年度 学科試験",
+        "section": "問題-61",
+        "score": 1.75
+      },
+      {
         "examSlug": "primary-h18",
         "examTitle": "平成18年度 学科試験",
         "section": "問題-61",
@@ -2208,6 +2374,12 @@
       {
         "examSlug": "primary-h20",
         "examTitle": "平成20年度 学科試験",
+        "section": "問題-61",
+        "score": 1.6
+      },
+      {
+        "examSlug": "primary-h25",
+        "examTitle": "平成25年度 学科試験",
         "section": "問題-61",
         "score": 1.6
       },
@@ -2244,6 +2416,12 @@
     ],
     "guide-quality-management": [
       {
+        "examSlug": "primary-h21",
+        "examTitle": "平成21年度 学科試験",
+        "section": "問題-61",
+        "score": 1.75
+      },
+      {
         "examSlug": "primary-h18",
         "examTitle": "平成18年度 学科試験",
         "section": "問題-61",
@@ -2252,6 +2430,12 @@
       {
         "examSlug": "primary-h20",
         "examTitle": "平成20年度 学科試験",
+        "section": "問題-61",
+        "score": 1.6
+      },
+      {
+        "examSlug": "primary-h25",
+        "examTitle": "平成25年度 学科試験",
         "section": "問題-61",
         "score": 1.6
       },
@@ -2310,6 +2494,12 @@
         "score": 1.6
       },
       {
+        "examSlug": "primary-h21",
+        "examTitle": "平成21年度 学科試験",
+        "section": "問題-57",
+        "score": 0.75
+      },
+      {
         "examSlug": "secondary-r08",
         "examTitle": "令和8年度 第2次検定",
         "section": "問題-1",
@@ -2322,6 +2512,18 @@
         "score": 0.6
       },
       {
+        "examSlug": "primary-h21",
+        "examTitle": "平成21年度 学科試験",
+        "section": "問題-56",
+        "score": 0.6
+      },
+      {
+        "examSlug": "primary-h25",
+        "examTitle": "平成25年度 学科試験",
+        "section": "問題-57",
+        "score": 0.6
+      },
+      {
         "examSlug": "primary-h26",
         "examTitle": "平成26年度 学科試験",
         "section": "問題-56",
@@ -2332,39 +2534,15 @@
         "examTitle": "平成26年度 学科試験",
         "section": "問題-57",
         "score": 0.6
-      },
-      {
-        "examSlug": "primary-h27",
-        "examTitle": "平成27年度 学科試験",
-        "section": "問題-56",
-        "score": 0.6
-      },
-      {
-        "examSlug": "primary-h27",
-        "examTitle": "平成27年度 学科試験",
-        "section": "問題-59",
-        "score": 0.6
-      },
-      {
-        "examSlug": "primary-r03-kouki",
-        "examTitle": "令和3年度 第1次検定 後期",
-        "section": "問題-50",
-        "score": 0.6
-      },
-      {
-        "examSlug": "primary-r03-zenki",
-        "examTitle": "令和3年度 第1次検定 前期",
-        "section": "問題-50",
-        "score": 0.6
-      },
-      {
-        "examSlug": "primary-r03-zenki",
-        "examTitle": "令和3年度 第1次検定 前期",
-        "section": "問題-51",
-        "score": 0.6
       }
     ],
     "guide-safety-management": [
+      {
+        "examSlug": "primary-h21",
+        "examTitle": "平成21年度 学科試験",
+        "section": "問題-61",
+        "score": 1.75
+      },
       {
         "examSlug": "primary-h18",
         "examTitle": "平成18年度 学科試験",
@@ -2374,6 +2552,12 @@
       {
         "examSlug": "primary-h20",
         "examTitle": "平成20年度 学科試験",
+        "section": "問題-61",
+        "score": 1.6
+      },
+      {
+        "examSlug": "primary-h25",
+        "examTitle": "平成25年度 学科試験",
         "section": "問題-61",
         "score": 1.6
       },
@@ -2506,6 +2690,12 @@
         "score": 0.6
       },
       {
+        "examSlug": "primary-h25",
+        "examTitle": "平成25年度 学科試験",
+        "section": "問題-24",
+        "score": 0.6
+      },
+      {
         "examSlug": "primary-h26",
         "examTitle": "平成26年度 学科試験",
         "section": "問題-24",
@@ -2582,12 +2772,6 @@
         "examTitle": "令和6年度 第1次検定 前期",
         "section": "問題-51",
         "score": 0.6
-      },
-      {
-        "examSlug": "primary-r07-kouki",
-        "examTitle": "令和7年度 第1次検定 後期",
-        "section": "問題-29",
-        "score": 0.6
       }
     ],
     "guide-water-sewer-key-points": [
@@ -2601,6 +2785,68 @@
         "examSlug": "primary-h20",
         "examTitle": "平成20年度 学科試験",
         "section": "問題-36",
+        "score": 0.6
+      }
+    ],
+    "guide-earthwork-key-points": [
+      {
+        "examSlug": "primary-r03-zenki",
+        "examTitle": "令和3年度 第1次検定 前期",
+        "section": "問題-61",
+        "score": 1.45
+      },
+      {
+        "examSlug": "primary-r04-zenki",
+        "examTitle": "令和4年度 第1次検定 前期",
+        "section": "問題-61",
+        "score": 1.45
+      },
+      {
+        "examSlug": "primary-r05-zenki",
+        "examTitle": "令和5年度 第1次検定 前期",
+        "section": "問題-61",
+        "score": 1.45
+      },
+      {
+        "examSlug": "primary-r06-zenki",
+        "examTitle": "令和6年度 第1次検定 前期",
+        "section": "問題-66",
+        "score": 1.45
+      },
+      {
+        "examSlug": "primary-r07-kouki",
+        "examTitle": "令和7年度 第1次検定 後期",
+        "section": "問題-66",
+        "score": 1.45
+      },
+      {
+        "examSlug": "primary-r07-zenki",
+        "examTitle": "令和7年度 第1次検定 前期",
+        "section": "問題-66",
+        "score": 1.45
+      },
+      {
+        "examSlug": "secondary-r04",
+        "examTitle": "令和4年度 第2次検定",
+        "section": "問題-9",
+        "score": 0.75
+      },
+      {
+        "examSlug": "primary-h21",
+        "examTitle": "平成21年度 学科試験",
+        "section": "問題-4",
+        "score": 0.6
+      },
+      {
+        "examSlug": "secondary-r07",
+        "examTitle": "令和7年度 第2次検定",
+        "section": "問題-4",
+        "score": 0.6
+      },
+      {
+        "examSlug": "secondary-r08",
+        "examTitle": "令和8年度 第2次検定",
+        "section": "問題-6",
         "score": 0.6
       }
     ],
@@ -2782,62 +3028,6 @@
         "score": 0.6
       }
     ],
-    "guide-earthwork-key-points": [
-      {
-        "examSlug": "primary-r03-zenki",
-        "examTitle": "令和3年度 第1次検定 前期",
-        "section": "問題-61",
-        "score": 1.45
-      },
-      {
-        "examSlug": "primary-r04-zenki",
-        "examTitle": "令和4年度 第1次検定 前期",
-        "section": "問題-61",
-        "score": 1.45
-      },
-      {
-        "examSlug": "primary-r05-zenki",
-        "examTitle": "令和5年度 第1次検定 前期",
-        "section": "問題-61",
-        "score": 1.45
-      },
-      {
-        "examSlug": "primary-r06-zenki",
-        "examTitle": "令和6年度 第1次検定 前期",
-        "section": "問題-66",
-        "score": 1.45
-      },
-      {
-        "examSlug": "primary-r07-kouki",
-        "examTitle": "令和7年度 第1次検定 後期",
-        "section": "問題-66",
-        "score": 1.45
-      },
-      {
-        "examSlug": "primary-r07-zenki",
-        "examTitle": "令和7年度 第1次検定 前期",
-        "section": "問題-66",
-        "score": 1.45
-      },
-      {
-        "examSlug": "secondary-r04",
-        "examTitle": "令和4年度 第2次検定",
-        "section": "問題-9",
-        "score": 0.75
-      },
-      {
-        "examSlug": "secondary-r07",
-        "examTitle": "令和7年度 第2次検定",
-        "section": "問題-4",
-        "score": 0.6
-      },
-      {
-        "examSlug": "secondary-r08",
-        "examTitle": "令和8年度 第2次検定",
-        "section": "問題-6",
-        "score": 0.6
-      }
-    ],
     "guide-law-key-points": [
       {
         "examSlug": "primary-r03-zenki",
@@ -2971,9 +3161,9 @@
   },
   "meta": {
     "textbookCount": 29,
-    "examCount": 28,
-    "questionsWithMatches": 181,
-    "totalMatches": 275,
+    "examCount": 30,
+    "questionsWithMatches": 195,
+    "totalMatches": 297,
     "threshold": 0.45
   }
 }
