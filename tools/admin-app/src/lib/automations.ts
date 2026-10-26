@@ -18,6 +18,8 @@ export interface Automation {
   runner: 'github-actions' | 'mac-launchd';
   source: string;
   title: string;
+  /** まとまり（AutomationGroup の id）。GitHub Actions の行だけが持つ */
+  group?: string;
   triggers: string[];
   schedule: string[];
   scheduleJst?: string;
@@ -34,8 +36,12 @@ export interface CollectRun { phase: string; startedAt: string; finishedAt: stri
 export interface LatestStage { id: string; title: string; phase: string; status: CollectStage['status'] | 'missing'; reason: string; at: string | null; runPhase: string | null }
 export interface CollectVerdict { stages: LatestStage[]; phases: { phase: string; finishedAt: string; ageDays: number }[]; problems: string[]; failDays: number }
 
+/** GitHub Actions の行のまとまり（台帳の groups・並びは /ops/ci の区画の順） */
+export interface AutomationGroup { id: string; title: string }
+
 export interface AutomationsView {
   automations: Automation[];
+  groups: AutomationGroup[];
   collect: CollectVerdict | null;
   ledgerPath: string;
   runsPath: string;
@@ -62,10 +68,11 @@ export function loadAutomations(): AutomationsView {
   const runsPath = datasetPath('state.weekly-collect');
   const healthPath = datasetPath('config.workflow-health');
   try {
-    const ledger = readJsonIf(root, ledgerPath) as { automations: Automation[] } | null;
+    const ledger = readJsonIf(root, ledgerPath) as { automations: Automation[]; groups?: AutomationGroup[] } | null;
     const runs = (readJsonIf(root, runsPath) as { runs: CollectRun[] } | null)?.runs ?? [];
     return {
       automations: ledger?.automations ?? [],
+      groups: ledger?.groups ?? [],
       collect: runs.length ? judgeCollect(runs) : null,
       ledgerPath,
       runsPath,
@@ -73,7 +80,7 @@ export function loadAutomations(): AutomationsView {
       error: ledger ? null : `${ledgerPath} が無い`,
     };
   } catch (e) {
-    return { automations: [], collect: null, ledgerPath, runsPath, healthPath, error: e instanceof Error ? e.message : String(e) };
+    return { automations: [], groups: [], collect: null, ledgerPath, runsPath, healthPath, error: e instanceof Error ? e.message : String(e) };
   }
 }
 

@@ -1,6 +1,28 @@
 {
   "schemaVersion": 1,
   "_doc": "docs/operations/04_自動化マップ.md",
+  "groups": [
+    {
+      "id": "pr",
+      "title": "PR とマージの関門"
+    },
+    {
+      "id": "release",
+      "title": "本番へ出す"
+    },
+    {
+      "id": "metrics",
+      "title": "定期の計測と記録"
+    },
+    {
+      "id": "watch",
+      "title": "見張りと点検"
+    },
+    {
+      "id": "manual",
+      "title": "手で動かす道具"
+    }
+  ],
   "automations": [
     {
       "id": "weekly-review",
@@ -68,6 +90,7 @@
       "runner": "github-actions",
       "source": ".github/workflows/asset-hydrate.yml",
       "title": "R2 の退避アセットを artifact で渡す",
+      "group": "manual",
       "triggers": [
         "workflow_dispatch"
       ],
@@ -83,6 +106,7 @@
       "runner": "github-actions",
       "source": ".github/workflows/asset-inbox.yml",
       "title": "手元のアセットを R2 へ上げる",
+      "group": "manual",
       "triggers": [
         "release",
         "workflow_dispatch"
@@ -99,6 +123,7 @@
       "runner": "github-actions",
       "source": ".github/workflows/automerge.yml",
       "title": "automerge ラベルの PR を緑で squash",
+      "group": "pr",
       "triggers": [
         "workflow_run",
         "pull_request"
@@ -115,6 +140,7 @@
       "runner": "github-actions",
       "source": ".github/workflows/ci.yml",
       "title": "Pre-merge check（quality audit + build）",
+      "group": "pr",
       "triggers": [
         "pull_request",
         "push"
@@ -132,6 +158,7 @@
       "runner": "github-actions",
       "source": ".github/workflows/cloudflare-config-audit.yml",
       "title": "Cloudflare のゾーン設定の監査",
+      "group": "watch",
       "triggers": [
         "schedule",
         "workflow_dispatch"
@@ -152,6 +179,7 @@
       "runner": "github-actions",
       "source": ".github/workflows/cloudflare-deploy.yml",
       "title": "本番へデプロイ（Cloudflare Pages）",
+      "group": "release",
       "triggers": [
         "push",
         "workflow_dispatch"
@@ -168,6 +196,7 @@
       "runner": "github-actions",
       "source": ".github/workflows/cloudflare-metrics.yml",
       "title": "Cloudflare のゾーン解析",
+      "group": "metrics",
       "triggers": [
         "schedule",
         "workflow_dispatch"
@@ -188,6 +217,7 @@
       "runner": "github-actions",
       "source": ".github/workflows/dependabot-retarget.yml",
       "title": "dependabot の PR を develop へ付け替え",
+      "group": "pr",
       "triggers": [
         "pull_request_target"
       ],
@@ -203,6 +233,7 @@
       "runner": "github-actions",
       "source": ".github/workflows/e2e.yml",
       "title": "Playwright E2E",
+      "group": "pr",
       "triggers": [
         "pull_request",
         "schedule",
@@ -224,6 +255,7 @@
       "runner": "github-actions",
       "source": ".github/workflows/fetch-metrics.yml",
       "title": "GA4・GSC・Bing の取得",
+      "group": "metrics",
       "triggers": [
         "schedule",
         "workflow_dispatch"
@@ -245,6 +277,7 @@
       "runner": "github-actions",
       "source": ".github/workflows/index-coverage.yml",
       "title": "インデックスの監査（URL Inspection）",
+      "group": "metrics",
       "triggers": [
         "schedule",
         "workflow_dispatch"
@@ -265,6 +298,7 @@
       "runner": "github-actions",
       "source": ".github/workflows/indexnow-submit.yml",
       "title": "IndexNow へ送信",
+      "group": "release",
       "triggers": [
         "workflow_run",
         "workflow_dispatch"
@@ -281,6 +315,7 @@
       "runner": "github-actions",
       "source": ".github/workflows/lighthouse.yml",
       "title": "Lighthouse CI",
+      "group": "pr",
       "triggers": [
         "pull_request"
       ],
@@ -296,6 +331,7 @@
       "runner": "github-actions",
       "source": ".github/workflows/ogp-supply.yml",
       "title": "OGP の供給（生成 → R2）",
+      "group": "release",
       "triggers": [
         "push",
         "workflow_dispatch",
@@ -316,6 +352,7 @@
       "runner": "github-actions",
       "source": ".github/workflows/ops-audit.yml",
       "title": "運用の日次点検",
+      "group": "watch",
       "triggers": [
         "schedule",
         "workflow_dispatch"
@@ -335,6 +372,7 @@
       "runner": "github-actions",
       "source": ".github/workflows/production-sweep.yml",
       "title": "本番の全 URL の検査",
+      "group": "release",
       "triggers": [
         "workflow_run",
         "schedule",
@@ -355,6 +393,7 @@
       "runner": "github-actions",
       "source": ".github/workflows/psi-audit.yml",
       "title": "PSI の計測",
+      "group": "metrics",
       "triggers": [
         "schedule",
         "workflow_dispatch"
@@ -374,6 +413,7 @@
       "runner": "github-actions",
       "source": ".github/workflows/r2-delete.yml",
       "title": "R2 のオブジェクトの削除",
+      "group": "manual",
       "triggers": [
         "workflow_dispatch"
       ],
@@ -389,6 +429,7 @@
       "runner": "github-actions",
       "source": ".github/workflows/r2-sync.yml",
       "title": "画像を R2 へ同期",
+      "group": "release",
       "triggers": [
         "push",
         "workflow_dispatch"
@@ -405,6 +446,7 @@
       "runner": "github-actions",
       "source": ".github/workflows/uptime-ping.yml",
       "title": "死活確認",
+      "group": "watch",
       "triggers": [
         "schedule",
         "workflow_dispatch"
@@ -424,6 +466,7 @@
       "runner": "github-actions",
       "source": ".github/workflows/weekly-review-guard.yml",
       "title": "PDCA の見張り",
+      "group": "watch",
       "triggers": [
         "schedule",
         "workflow_dispatch"
