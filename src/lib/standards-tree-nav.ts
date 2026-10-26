@@ -7,7 +7,7 @@ import { generateHeadingId } from '@/lib/toc';
 
 /**
  * 右の欄を 編 → 章 → 節 の 1 本の目次にする文書＝章を構造化した文書（manifest のある文書）。
- * 構造化前の文書は従来どおり分冊（PDF ページ）が主導線。
+ * 章の無い文書は右の欄に同じ機関の文書一覧だけを出す（原本の逐語ページ＝分冊は 2026-10-26 に公開をやめた）。
  */
 export function usesTreeNav(document: Pick<StandardDocument, 'agencyId' | 'documentId'>): boolean {
   return hasStandardChapters(document.agencyId, document.documentId);
