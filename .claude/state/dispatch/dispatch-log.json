@@ -5912,6 +5912,49 @@
       "commit": "ff1386ec8ff4",
       "verification": "node --test tests/disclosure-ratchet.test.mjs",
       "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-0870",
+      "at": "2026-10-26",
+      "task": "ココナラの主任技士 完全パック PDF（services/4426935）が販売停止になっているかを確かめる",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "none",
+        "ref": "不具合は起きていなかった。出品は 10/5 にアーカイブ済みで、公開ページは受付終了（購入不可）。coconala-pause の一覧に出ないのはアーカイブ済みのため"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "baa147b0b89e",
+      "verification": "公開ページ https://coconala.com/services/4426935 の表示が受付終了。coconala-pause の出品一覧に無し（アーカイブ済み）",
+      "note": "2026-10-26 に公開ページを開いて「受付終了」を確認。config/products.json の status paused・archivedAt 2026-10-05 と一致"
+    },
+    {
+      "id": "DN-0873",
+      "at": "2026-10-26",
+      "task": "ココナラの既存の検索語（コンクリート主任技士ほか 27 語）を取り直し、市場スキャンを全部 10 月以降のデータにする",
+      "tier": "low",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "baa147b0b89e",
+      "verification": "data/coconala/market-research.json の 46 クエリが complete・fetchedAt 2026-10-26。check-datasets 違反 0",
+      "note": "coconala-research.mjs --refresh --max-pages 10 --details 0 で全 46 語を取り直し（失敗 0・1,870 サービス）。fetchedAt 2026-10-26T10:21Z。--refresh が既存語の取り直しの指定で、スクリプトの変更は不要だった"
+    },
+    {
+      "id": "DN-0874",
+      "at": "2026-10-26",
+      "task": "note に技術士一次のもくじ（L2）を作るかを決め、作るなら一次の 3 本と建設部門もくじから張る",
+      "tier": "low",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "baa147b0b89e",
+      "verification": "note-update-body --commit が API で本文の更新を確認。npm run check-note-funnel がドリフトなし",
+      "note": "独立の L2 は作らず、建設部門もくじ（n7279ca0d926f）に「これから第一次試験を受ける人へ」の節を足し、一次の 3 本とサイトの演習へつないだ。note 反映済み。理由は note-funnel-architecture.md の L2 表に 1 行"
     }
   ]
 }
