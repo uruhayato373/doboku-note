@@ -164,9 +164,10 @@ export function buildStages({ today = todayJst(), kdpMonths = [], competitorScan
       id: 'note-sync', phase: 'post', title: 'note の記事の同期（本文・カバー・タグ）', timeoutMin: 300, browser: true, selfCommits: true,
       // Drive の取り寄せと note を同じ実行で開くので、この段だけブラウザの並行を許す（旧 note-sync.sh と同じ）
       env: { DOBOKU_PW_ALLOW_PARALLEL: '1' },
-      // 1 記事に約 1.4 分かかる。2026-10-24 の初回は取り寄せ 268 件に 1.5 時間かかり、200 記事では時間内に収まらなかった。
-      // 1 回 80 記事に絞り、残りは翌週へ（急ぐときは運営者が --only note-sync を別の日に回す）。途中で止めても公開中の記事は変わらない
-      commands: [{ argv: ['scripts/note-sync-routine.mjs', '--max', '80'] }],
+      // 2026-10-24 の初回は 180 分で打ち切られ、実行記録も台帳も残らなかった（1 記事の更新は実測で約 3.6 分・Drive の取り寄せが停滞して 33 件失敗）。
+      // 上限 80 記事に加えて、開始から 270 分（段の上限 300 分の 30 分前）で区切る。締め切りまでに終わる分だけ更新して記録・push し、
+      // 残りは翌週へ回す（急ぐときは運営者が --only note-sync を別の日に回す）。途中で止めても公開中の記事は変わらない
+      commands: [{ argv: ['scripts/note-sync-routine.mjs', '--max', '80', '--deadline-min', '270'] }],
       verify: ['note-sync-freshness'],
     },
     {
