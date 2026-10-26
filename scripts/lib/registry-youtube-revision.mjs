@@ -3,9 +3,11 @@ import { createHash } from 'node:crypto';
 import { existsSync, readFileSync, realpathSync, writeFileSync } from 'node:fs';
 import { isAbsolute, join, relative, resolve } from 'node:path';
 import { canonicalJson, idShapeIssues, loadRegistry, loadRegistryConfig, pubIdOf, resolveCopy } from './content-registry.mjs';
-import { upsertPublications } from './content-registry-write.mjs';
+import { upsertPublications, upsertWorks } from './content-registry-write.mjs';
 import { RegistryPublications } from './dataset-schemas-content.mjs';
 import { formatJson, readJsonIf } from './json-io.mjs';
+import { isVisualRole } from './media-review.mjs';
+import { todayJst } from './jst-date.mjs';
 
 const hash = value => createHash('sha256').update(value).digest('hex');
 const strip = row => Object.fromEntries(Object.entries(row).filter(([k]) => !['file', 'exam', 'channel'].includes(k)));
@@ -61,12 +63,16 @@ export function planYoutubeRevision(root, { pubId, variant, relatedTo, publishAt
   };
   RegistryPublications.parse({ schemaVersion: 1, exam: source.exam, channel: 'youtube', publications: [row] });
   const existing = reg.publications.find(p => p.id === id);
+  if (existing && refreshDraft) {
+    const visualExtras = Object.fromEntries(Object.entries(existing.media ?? {}).filter(([role]) => !(role in assets) && isVisualRole(role)));
+    row.media = { ...row.media, ...visualExtras };
+  }
   if (existing && canonicalJson(strip(existing)) !== canonicalJson(row)) throw new Error('既存の改訂公開行と異なる。上書きせず別のvariantで準備する');
   const saved = readJsonIf(root, file);
   if (refreshDraft && (!existing || !saved)) throw new Error('下書き更新には既存の未承認draftと保存済み入力が必要');
   const changed = Boolean(saved && canonicalJson(saved) !== canonicalJson(input));
   if (changed && !refreshDraft) throw new Error('既存の改訂投稿入力と異なる。上書きしない');
-  // 公開行の完全一致を上で要求するため、承認・外部ID・実行intentのある行は更新できない。
+  // 既存の画面確認素材だけを保持し、承認・外部ID・実行intentのある行は更新できない。
   const previous = changed ? readFileSync(join(root, file), 'utf8') : null;
   const previousSha256 = previous === null ? null : hash(previous);
   const history = previous === null ? null : file.replace(/\.json$/, `.history-${previousSha256}.json`);
@@ -94,4 +100,24 @@ export function prepareYoutubeRevision(root, options) {
     checkedMedia: plan.checkedMedia, written: options.commit ? (plan.existing && !plan.history ? 0 : 1) : 0,
     ...(plan.history ? { preservedInput: plan.history } : {}),
     status: 'draft', externalActions: 0, dryRun: !options.commit };
+}
+
+/** 独立QAの結果を改訂公開行と作品へ記録する。承認は運営者の別操作。 */
+export function recordYoutubeRevisionQa(root, { pubId, avg, blocks, commit = false, at = todayJst() }) {
+  const reg = loadRegistry(root), pub = reg.publications.find(p => p.id === pubId);
+  const work = reg.works.find(w => w.id === pub?.work && w.exam === pub?.exam);
+  if (!pub?.revisionOf || pub.channel !== 'youtube' || pub.format !== 'longform' ||
+      !['draft', 'qa_blocked', 'qa_passed'].includes(pub.status) || pub.approval || !work) {
+    throw new Error('未承認の改訂通常動画だけQA結果を記録できる');
+  }
+  if (!Number.isFinite(avg) || avg < 0 || avg > 3 || !Number.isInteger(blocks) || blocks < 0) {
+    throw new Error('QAの平均0〜3とBLOCK件数を指定してください');
+  }
+  const qa = { avg, blocks, at, by: 'Claude Code video-content-qa' };
+  const status = avg >= 2 && blocks === 0 ? 'qa_passed' : 'qa_blocked';
+  if (commit) {
+    upsertWorks(root, pub.exam, [{ ...work, qa }]);
+    upsertPublications(root, 'youtube', pub.exam, [{ ...pub, status }]);
+  }
+  return { publicationId: pubId, qa, status, written: commit ? 1 : 0, dryRun: !commit };
 }

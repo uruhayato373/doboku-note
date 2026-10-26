@@ -9,6 +9,8 @@ domain: sns
 
 動画パック 1 本の制作を、生成と採点を分離したまま回す入口。**生成・採点・投稿のロジックはここに複製しない**（Generator は `video-script-writer`、Evaluator は `video-content-qa`、機械ゲートは `check-video-content`）。契約は [video-content-policy.md](../../../knowledge/reference/video-content-policy.md) §7、設計は [06_動画コンテンツ運用設計.md](../../../../docs/marketing/06_動画コンテンツ運用設計.md) §4。
 
+通常動画の制作担当は、シナリオ・台本の執筆と内容QAを Claude Code の `video-script-writer` / `video-content-qa` に渡し、画像の新規生成だけを Codex ImageGen に渡す。Codex から進める場合も同じ担当に依頼し、QAの指摘を Writer に戻してから画像生成へ進む。画像のSHA結線・レンダー・予約は既存CLIの契約に従う。
+
 ## 使い方
 
 ```

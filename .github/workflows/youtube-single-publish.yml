@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       publication:
-        description: '承認済みの初回通常動画の公開ID'
+        description: '承認済みの通常動画の公開ID（初回または個別改訂版）'
         required: true
         type: string
       expect:
@@ -43,13 +43,15 @@ jobs:
       - run: npm ci --legacy-peer-deps --ignore-scripts
       - name: Validate one publication and input digest
         run: |
-          [[ "$PUB_ID" =~ ^[a-z0-9-]+/[a-z0-9-]+/youtube\.longform$ ]]
+          [[ "$PUB_ID" =~ ^[a-z0-9-]+/[a-z0-9-]+/youtube\.longform(\.[a-z0-9-]+)?$ ]]
           [[ "$EXPECT" =~ ^[a-f0-9]{64}$ ]]
       - name: Upload private and wait for processing, cover, schedule
         run: |
-          npm run registry -- publish-youtube --pub "$PUB_ID" --phase upload --commit --expect "$EXPECT"
+          command=publish-youtube
+          if [[ "$PUB_ID" == *'/youtube.longform.'* ]]; then command=publish-youtube-revision; fi
+          npm run registry -- "$command" --pub "$PUB_ID" --phase upload --commit --expect "$EXPECT"
           for attempt in {1..15}; do
-            npm run registry -- publish-youtube --pub "$PUB_ID" --phase schedule --commit --expect "$EXPECT"
+            npm run registry -- "$command" --pub "$PUB_ID" --phase schedule --commit --expect "$EXPECT"
             if node -e 'const p=require("./content/registry/publications/youtube/"+process.env.PUB_ID.split("/")[0]+".json").publications.find(p=>p.id===process.env.PUB_ID);process.exit(p?.status==="scheduled"?0:1)'; then
               echo "YouTube schedule verified in registry"
               exit 0
@@ -61,7 +63,7 @@ jobs:
       - name: Preserve verified registry state on develop
         if: always()
         run: |
-          if [[ ! "$PUB_ID" =~ ^[a-z0-9-]+/[a-z0-9-]+/youtube\.longform$ ]]; then exit 1; fi
+          if [[ ! "$PUB_ID" =~ ^[a-z0-9-]+/[a-z0-9-]+/youtube\.longform(\.[a-z0-9-]+)?$ ]]; then exit 1; fi
           exam="${PUB_ID%%/*}"
           git add "content/registry/publications/youtube/${exam}.json"
           if ! git diff --cached --quiet; then

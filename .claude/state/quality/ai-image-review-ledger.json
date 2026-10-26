@@ -2375,6 +2375,72 @@
       "reason": "参照キャラクターと整合する顔・服装、CTAを指す手と答案を持つ手が自然で、完成答案集への案内と指定8文字列が各動画の施工経験記述の用途に合う。",
       "reviewedAt": "2026-10-17T06:04:25.228Z"
     },
+    "media:concrete-chief-engineer/shunin-shiken-zentaizou/work/candidate-cover": {
+      "sha": "729a5a5e70c9b6de",
+      "verdict": "ok",
+      "reason": "文字: 「総監が制作」「コンクリート」「主任技士」「択一×小論文」「どう学ぶ？」を指示の綴りと1字ずつ照合し、すべて一致した。形: 主人公の手・ペン・マークシートと小論文用紙の二つの書類に崩れはない。字幕域: 下端の紫の無地帯は残っている。人物の肩は約850px、書類の角は約870pxで、78%線（842px）を最大約30px超えるが、サムネイルでは実害にならない。",
+      "reviewedAt": "2026-10-26T22:22:56.346Z"
+    },
+    "media:concrete-chief-engineer/shunin-shiken-zentaizou/work/candidate-cta": {
+      "sha": "d960d3490f35518f",
+      "verdict": "ok",
+      "reason": "文字: 「次の学習へ」「分野別の要点」「試験の全体像」「小論文の書き方」「概要欄のリンクから」が指示と一字一句一致し、余計な語もURLもない。図: 中央の試験概要から左の本、右の書類＋鉛筆へ枝分かれする構成で、本文の「概要欄のリンク」案内と矛盾しない。内容は約846pxまでで、淡色の字幕帯は空いている。",
+      "reviewedAt": "2026-10-26T22:22:56.347Z"
+    },
+    "media:concrete-chief-engineer/shunin-shiken-zentaizou/work/candidate-scene-001": {
+      "sha": "729a5a5e70c9b6de",
+      "verdict": "ok",
+      "reason": "画像は candidate-cover と同一（ハッシュ 729a5a5e）で、文字は指示と1字ずつ一致する。人物・書類・ペンに崩れはない。下端の紫の無地帯は確保されており、書類角が78%線を約30px超える点はサムネイルでは実害にならない。",
+      "reviewedAt": "2026-10-26T22:22:56.347Z"
+    },
+    "media:concrete-chief-engineer/shunin-shiken-zentaizou/work/candidate-scene-002": {
+      "sha": "902a2d2ac34ad66c",
+      "verdict": "ok",
+      "reason": "premise: 「分野により」の限定、技士の実施と主任技士の判断・立案、下部字幕域を実画素で確認。Claude画像忠実性監査 ok。",
+      "reviewedAt": "2026-10-26T22:48:43.374Z"
+    },
+    "media:concrete-chief-engineer/shunin-shiken-zentaizou/work/candidate-scene-003": {
+      "sha": "7418aeb318b163c4",
+      "verdict": "ok",
+      "reason": "文字: 「主任技士の役割」「計画」「管理」「指導」が一致し、余計な文字はない。図: 同径の3円が矢印でつながり、計画は図面と鉛筆、管理はチェックリスト、指導は画面とミキサー車を表す。円筒供試体が下に1つあり、本文の計画・管理・指導とも矛盾しない。供試体は中央円の縁に触れ、下端は約856pxだが、読み取りは妨げない。",
+      "reviewedAt": "2026-10-26T22:22:56.347Z"
+    },
+    "media:concrete-chief-engineer/shunin-shiken-zentaizou/work/candidate-scene-004": {
+      "sha": "0aaa505e61b971e4",
+      "verdict": "ok",
+      "reason": "画像を Read で確認した。左の解答用紙は4行すべてが丸4つで、各行ちょうど4選択肢になっている。文字は指定どおりで、「試験は二本立て」「四肢択一式」「小論文」と、「基準点を超える」2枚に誤字・崩れ・余計な文字は無い。意味のある要素は円の下端でも約72.5%（y≈783/1080）で、78%より上に収まっている。下22%は淡い背景だけで、字幕用に空いている。右の答案用紙と鉛筆のアイコン、「+」の配置にも破綻は無い。",
+      "reviewedAt": "2026-10-26T22:22:56.347Z"
+    },
+    "media:concrete-chief-engineer/shunin-shiken-zentaizou/work/candidate-scene-005": {
+      "sha": "b868b693e9255d16",
+      "verdict": "ok",
+      "reason": "文字: 見出し「選考基準の主な項目」と8ラベル「用材料」「配合設計」「試験」「プラント」「製造・品質管理」「施工」「環境問題」「その他」が指示どおりで、2行×4つ。図: 材料の山・計量カップ・圧縮試験機・サイロ＋ミキサー車・コテなどが各項目と合う。数字や構造設計の主張もない。下端は約876pxで、78%線は超えるが字幕域の淡色帯（約880px〜）には入っていない。",
+      "reviewedAt": "2026-10-26T22:22:56.347Z"
+    },
+    "media:concrete-chief-engineer/shunin-shiken-zentaizou/work/candidate-scene-006": {
+      "sha": "2c307ccc000a9365",
+      "verdict": "ok",
+      "reason": "step3: 用材料の品質試験という範囲、新材料の判断・立案、小論文の実務経験記述と字幕域を実画素で確認。Claude画像忠実性監査 ok。",
+      "reviewedAt": "2026-10-26T22:48:43.375Z"
+    },
+    "media:concrete-chief-engineer/shunin-shiken-zentaizou/work/candidate-scene-007": {
+      "sha": "b4e0eba4fdfd14f5",
+      "verdict": "ok",
+      "reason": "step4: 択一と小論文の強弱に応じた2分岐と毎週見直す案内、字幕域を実画素で確認。Claude画像忠実性監査 ok。",
+      "reviewedAt": "2026-10-26T22:48:43.375Z"
+    },
+    "media:concrete-chief-engineer/shunin-shiken-zentaizou/work/candidate-scene-008": {
+      "sha": "c061bae1c453b32b",
+      "verdict": "ok",
+      "reason": "文字: 「学習の3つの軸」「判断・立案」「分野を横断」「択一と小論文」が指示と一致し、余計な語・統計もない。図: 電球＋文書、3つの円のベン図、選択式＋記述用紙＋鉛筆は、それぞれのラベルと合う。内容の下端は約812pxで、78%線の内側に収まっている。3円の間の矢印は順序のように見えるが、教材として誤りとまでは言えない。",
+      "reviewedAt": "2026-10-26T22:22:56.347Z"
+    },
+    "media:concrete-chief-engineer/shunin-shiken-zentaizou/work/candidate-scene-009": {
+      "sha": "d960d3490f35518f",
+      "verdict": "ok",
+      "reason": "画像は candidate-cta と同一（ハッシュ d960d349）。「次の学習へ」「分野別の要点」「試験の全体像」「小論文の書き方」「概要欄のリンクから」が指示と一字一句一致し、図の崩れも余計な語もない。内容は約846pxまでで、字幕帯は空いている。",
+      "reviewedAt": "2026-10-26T22:22:56.347Z"
+    },
     "media:pe-comprehensive-management/gokanri-tradeoff/work/candidate-cover": {
       "sha": "3c018394ecb044db",
       "verdict": "ok",

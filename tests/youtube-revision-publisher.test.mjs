@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { createHash } from 'node:crypto';
+import { createHash, randomBytes } from 'node:crypto';
 import { mkdtempSync, mkdirSync, copyFileSync, existsSync, readFileSync, writeFileSync, rmSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { tmpdir } from 'node:os';
@@ -8,7 +8,9 @@ import { REPO_ROOT } from '../scripts/lib/repository-paths.mjs';
 import { loadRegistry, approvalHash, approvalParts } from '../scripts/lib/content-registry.mjs';
 import { upsertWorks, upsertPublications, upsertMedia, publicationWriteSession } from '../scripts/lib/content-registry-write.mjs';
 import { prepareYoutubeRevision } from '../scripts/lib/registry-youtube-revision.mjs';
-import { publishYoutubeRevision, revisionPublishPlan } from '../scripts/lib/youtube-revision-publisher.mjs';
+import { publishYoutubeRevision, revisionPublishPlan, thumbnailUpload } from '../scripts/lib/youtube-revision-publisher.mjs';
+import { stageRevisionAssets } from '../scripts/lib/youtube-single-r2.mjs';
+import sharp from 'sharp';
 import { longformInputHash } from '../scripts/lib/longform-render-integrity.mjs';
 import { approvalState } from '../scripts/lib/media-review.mjs';
 import { readJson, writeJson } from '../scripts/lib/json-io.mjs';
@@ -19,6 +21,18 @@ const EXAM = 'civil-construction-2', WORK = 'revision-fixture', OLD = `${EXAM}/$
 const DEF = `content/sns/video-packs/${EXAM}/${WORK}`, NOW = Date.parse('2026-10-21T00:00:00Z'), SLOT = '2026-10-25T20:00:00+09:00';
 const sha = bytes => createHash('sha256').update(bytes).digest('hex');
 const rowOf = (root, id = NEW) => loadRegistry(root).publications.find(p => p.id === id);
+test('2MB超のPOP表紙はアップロード前にJPEGへ圧縮して上限を確認する', async t => {
+  const root = mkdtempSync(join(tmpdir(), 'revision-thumbnail-'));
+  t.after(() => rmSync(root, { recursive: true, force: true }));
+  const source = await sharp(randomBytes(3_000_000), { raw: { width: 1000, height: 1000, channels: 3 } }).png().toBuffer();
+  assert.ok(source.length > 2_097_152);
+  const path = 'cover.png';
+  writeFileSync(join(root, path), source);
+  const upload = await thumbnailUpload(root, { path, sha256: sha(source) });
+  assert.equal(upload.mimeType, 'image/jpeg');
+  assert.ok(upload.bytes.length <= 2_097_152);
+  assert.equal((await sharp(upload.bytes).metadata()).format, 'jpeg');
+});
 function fixture(t) {
   const root = mkdtempSync(join(tmpdir(), 'revision-publisher-'));
   t.after(() => rmSync(root, { recursive: true, force: true }));
@@ -137,6 +151,25 @@ test('dry-runはAPIに触れず、旧公開ID・未承認・別SHAを外部操�
   const input = readJson(f.root, rowOf(f.root).copy); writeFileSync(join(f.root, input.localFile), 'modified');
   assert.throws(() => revisionPublishPlan(f.root, NEW, NOW), /SHA/);
   assert.deepEqual(rowOf(f.root, OLD), old);
+});
+
+test('画面確認用の追加素材があっても改訂入力の13役割だけを投稿・転送対象にする', async t => {
+  const f = fixture(t), row = rowOf(f.root);
+  upsertPublications(f.root, 'youtube', EXAM, [{ ...row, media: { ...row.media, preview: `${NEW}/preview` } }]);
+  assert.equal(revisionPublishPlan(f.root, NEW, NOW).checkedMedia, 3);
+  const staged = await stageRevisionAssets(f.root, NEW);
+  assert.equal(staged.checked, 3);
+  assert.equal(staged.staged, 0);
+});
+
+test('CIはMP4と表紙だけを復元でき、転送前には全候補素材の実体を要求する', async t => {
+  const f = fixture(t), reg = loadRegistry(f.root);
+  const subtitles = reg.media.find(m => m.id === `${EXAM}/${WORK}/work/candidate-subtitles`);
+  rmSync(join(f.root, subtitles.store.path));
+  const plan = revisionPublishPlan(f.root, NEW, NOW);
+  assert.equal(plan.checkedMedia, 3);
+  assert.equal(plan.checkedFiles, 2);
+  await assert.rejects(stageRevisionAssets(f.root, NEW), /subtitles: ローカル素材/);
 });
 
 test('新IDだけへ非公開/予約/実査結果を保存し、同名旧版と旧入力を保持、再実行で二重投稿しない', async t => {

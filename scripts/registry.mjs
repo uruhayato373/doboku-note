@@ -12,7 +12,9 @@
  *   npm run registry -- import-instagram [--commit]      # IG の作品フォルダ全部（照合の記録 snapshot.json の live.list が要る・手元で verify-ig-status）
  *   npm run registry -- import-x [--commit]              # X の下書きフォルダ全部（自分の投稿の一覧 data/x/own-posts と本文で照合）
  *   npm run registry -- prepare-youtube-revision --pub <元の公開ID> --variant <新版名> [--copy <同作品内のJSON#fragment>] [--refresh-draft] [--related-to <新版通常動画ID>] [--publish-at <日時>] [--commit --expect <digest>]
+ *   npm run registry -- record-youtube-revision-qa --pub <改訂公開ID> --avg <0〜3> --blocks <件数> [--commit]
  *   npm run registry -- publish-youtube-revision --pub <改訂公開ID> --phase upload|schedule|verify [--commit --expect <digest>] # 既定はローカル検査のみ
+ *   npm run registry -- stage-youtube-revision --pub <改訂公開ID> [--commit --expect <digest>] # CIへの一時転送用private R2
  *   npm run registry -- publish-youtube --pub <初回通常動画ID> --phase upload|schedule|verify [--commit --expect <digest>] # R2 intent と API 実査
  *   npm run registry -- approve --pub <公開 ID> --stage visual|final --expect <digest>   # 運営者だけ（管理画面の確認画面からコピーする）
  *   npm run registry -- stop --pub <公開 ID> --reason user-decision|superseded|gone|unverified-legacy
@@ -45,6 +47,7 @@ const { values: args, positionals } = parseArgs({
     pub: { type: 'string' }, stage: { type: 'string' }, expect: { type: 'string' }, reason: { type: 'string' },
     variant: { type: 'string' }, 'related-to': { type: 'string' }, 'publish-at': { type: 'string' },
     phase: { type: 'string' }, copy: { type: 'string' }, 'refresh-draft': { type: 'boolean' },
+    avg: { type: 'string' }, blocks: { type: 'string' },
   },
 });
 const [command, target] = positionals;
@@ -324,9 +327,21 @@ async function prepareYoutubeRevision() {
   console.log(JSON.stringify(result, null, 2));
 }
 
+async function recordYoutubeRevisionQa() {
+  const { recordYoutubeRevisionQa } = await import('./lib/registry-youtube-revision.mjs');
+  const result = recordYoutubeRevisionQa(ROOT, {
+    pubId: args.pub, avg: Number(args.avg), blocks: Number(args.blocks), commit: Boolean(args.commit),
+  });
+  console.log(JSON.stringify(result, null, 2));
+}
+
 async function publishYoutubeRevision() {
   const { publishYoutubeRevision } = await import('./lib/youtube-revision-publisher.mjs');
   const options = { pubId: args.pub, phase: args.phase, expect: args.expect };
+  if (args.commit) {
+    const { hydrateRevisionPublish } = await import('./lib/youtube-single-r2.mjs');
+    await hydrateRevisionPublish(ROOT, args.pub);
+  }
   const preview = await publishYoutubeRevision(ROOT, options);
   if (!args.commit) { console.log(JSON.stringify(preview, null, 2)); return; }
   if (args.expect !== preview.digest || (args.phase !== 'verify' && preview.blockers.length)) throw new Error(`改訂版の実行条件が不足: ${preview.blockers.join(', ')}`);
@@ -337,6 +352,16 @@ async function publishYoutubeRevision() {
   auth.setCredentials({ refresh_token: process.env.YOUTUBE_REFRESH_TOKEN });
   const youtube = google.youtube({ version: 'v3', auth, retry: false });
   console.log(JSON.stringify(await publishYoutubeRevision(ROOT, { ...options, commit: true }, { youtube }), null, 2));
+}
+
+async function stageYoutubeRevision() {
+  const { revisionPublishPlan } = await import('./lib/youtube-revision-publisher.mjs');
+  const { stageRevisionAssets } = await import('./lib/youtube-single-r2.mjs');
+  const plan = revisionPublishPlan(ROOT, args.pub);
+  if (args.commit && args.expect !== plan.digest) throw new Error('確認した改訂入力digestと一致しない');
+  if (args.commit && plan.blockers.length) throw new Error(`改訂版の転送条件が不足: ${plan.blockers.join(', ')}`);
+  const result = await stageRevisionAssets(ROOT, args.pub, { commit: Boolean(args.commit) });
+  console.log(JSON.stringify({ ...result, digest: plan.digest }, null, 2));
 }
 
 async function publishYoutube() {
@@ -360,9 +385,9 @@ async function publishYoutube() {
   console.log(JSON.stringify(await publishYoutubePublication(ROOT, { ...options, commit: true }, { youtube, journal: singlePublishJournal(args.pub) }), null, 2));
 }
 
-const commands = { list, show, index, 'import-video-pack': importVideoPack, 'import-video-packs': importVideoPacks, 'prepare-youtube': prepareYoutube, 'mark-rendered': markRendered, 'import-instagram': importInstagram, 'import-x': importX, 'prepare-youtube-revision': prepareYoutubeRevision, 'publish-youtube-revision': publishYoutubeRevision, 'publish-youtube': publishYoutube, approve, stop, unschedule };
+const commands = { list, show, index, 'import-video-pack': importVideoPack, 'import-video-packs': importVideoPacks, 'prepare-youtube': prepareYoutube, 'mark-rendered': markRendered, 'import-instagram': importInstagram, 'import-x': importX, 'prepare-youtube-revision': prepareYoutubeRevision, 'record-youtube-revision-qa': recordYoutubeRevisionQa, 'stage-youtube-revision': stageYoutubeRevision, 'publish-youtube-revision': publishYoutubeRevision, 'publish-youtube': publishYoutube, approve, stop, unschedule };
 if (!commands[command]) {
-  console.error('Usage: npm run registry -- list|show|index|import-video-pack|import-video-packs|prepare-youtube|mark-rendered|import-instagram|import-x|prepare-youtube-revision|publish-youtube-revision|publish-youtube|approve|stop|unschedule …');
+  console.error('Usage: npm run registry -- list|show|index|import-video-pack|import-video-packs|prepare-youtube|mark-rendered|import-instagram|import-x|prepare-youtube-revision|record-youtube-revision-qa|stage-youtube-revision|publish-youtube-revision|publish-youtube|approve|stop|unschedule …');
   process.exit(2);
 }
 await commands[command]();

@@ -175,7 +175,11 @@ npm run media -- pull --work civil-construction-2/matome-2kyu-chokuzen
 
 この準備入口はローカルの下書き作成だけで、承認・転送・投稿を行わない。`loadVideoState` は改訂行を旧投稿処理へ流さず、`publish-video-pack.cjs` はこの改訂入力には未対応。旧IDの上書きや、承認をコピーして既存経路へ通す方法は使わない。
 
-改訂版の個別投稿は `npm run registry -- publish-youtube-revision --pub <新公開ID> --phase upload|schedule|verify` を使う。既定は外部通信のないローカル検査で、作品・素材ID・実ファイルSHA・制作入力・承認・予定を照合する。`--commit --expect <digest>` でのみ既存のYouTube環境変数を使用する。`upload` は承認済みの現素材と5分以上先の予定を必要とし、非公開で投入する。`schedule` は処理完了（サイズ・尺・映像/音声stream）と表紙のAPI応答/読取を確認してから指定日時を予約し、実際の状態・日時の再読取後にだけ成功を保存する。Shortsは新版通常動画へのStudio関連先確認記録と、その動画がpublic/unlistedで視聴可能であることも必要。関連先の設定・確認自体はこのコマンドでは行わない。R2/Drive同期・承認生成・旧動画変更・自動配信再開は行わない。
+独立した `video-content-qa` の採点後は `npm run registry -- record-youtube-revision-qa --pub <新公開ID> --avg <0〜3> --blocks <件数> --commit` で作品のQA値と改訂公開行の `qa_passed` / `qa_blocked` を記録する。これは画面・最終承認を代行しない。
+
+改訂版の個別投稿は `npm run registry -- publish-youtube-revision --pub <新公開ID> --phase upload|schedule|verify` を使う。既定は外部通信のないローカル検査で、作品・素材ID・実ファイルSHA・制作入力・承認・予定を照合する。`--commit --expect <digest>` でのみ既存のYouTube環境変数を使用する。`upload` は承認済みの現素材と5分以上先の予定を必要とし、非公開で投入する。`schedule` は処理完了（サイズ・尺・映像/音声stream）と表紙のAPI応答/読取を確認してから指定日時を予約し、実際の状態・日時の再読取後にだけ成功を保存する。Shortsは新版通常動画へのStudio関連先確認記録と、その動画がpublic/unlistedで視聴可能であることも必要。関連先の設定・確認自体はこのコマンドでは行わない。承認生成・旧動画変更・自動配信再開は行わない。
+
+改訂版通常動画を CI から予約する場合は、手元で `npm run registry -- stage-youtube-revision --pub <新公開ID> --commit --expect <digest>` を実行する。全候補素材のSHAを手元で照合し、YouTube API が使う MP4 と表紙の2ファイルだけを private R2 へ一時転送して読み戻す。投稿時のCIは `.tmp/media` の無い checkout へその2ファイルをSHA照合して復元し、ほかの素材は台帳・生成記録のメタデータと照合する。`youtube-single-publish.yml` に改訂版公開IDと `publish-youtube-revision` dry-run の digest を渡す。改訂版Shortsはこの workflow の対象外。
 
 外部操作前に新公開行の `delivery` へ入力digest・一意なmarker・開始記録を保存し、応答を受けた新YouTube IDを即記録する。応答消失時は `--phase verify` のローカル検査でdigestを確認し、`--commit --expect <digest>` で外部の読取とローカルへの結果保存だけを行う。アップロードの結果は所有チャンネル全件からmarkerで一意に照合し、題名一致では採用しない。0件・複数件、表紙応答不明、予約未反映は再送しない。API応答が失われても実際の予約が要求日時と一致すれば、verifyで記録を確定できる。入力変更・処理失敗・未解決の結果は停止し、開始記録や外部IDを消して再投入しない。
 
