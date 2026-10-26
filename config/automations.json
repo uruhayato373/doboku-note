@@ -266,11 +266,12 @@
         "workflow_dispatch"
       ],
       "schedule": [
-        "0 2 * * 3"
+        "0 2 * * 3",
+        "0 2 * * 4,5"
       ],
-      "scheduleJst": "水 11:00",
+      "scheduleJst": "水 11:00（未完了なら木・金 11:00 に続ける）",
       "login": [],
-      "purpose": "sitemap の全 URL を URL Inspection API で検査し履歴を残す",
+      "purpose": "sitemap の全 URL を URL Inspection API で検査し履歴を残す。1 回 1,900 件までで、超えた分は木・金の回が続きから検査し、全件がそろった回だけを履歴に積む（DN-0825）",
       "readers": [
         "issue:index-coverage",
         "skill:google-search-growth"

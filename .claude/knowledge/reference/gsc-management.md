@@ -21,7 +21,7 @@ Google Search Console の継続管理（インデックス被覆・検索パフ�
 
 | 担当 | 種別 | 責務 | 入力 → 出力 |
 |---|---|---|---|
-| `index-coverage.yml` | CI（**週次**・水 JST 11:00。2026-09-17 に月次から変更） | 全 sitemap URL の URL Inspection（5 並列・checkpoint・~35 分）+ 履歴追記 + **登録リクエスト順位表**（`data/gsc/indexing-priority.{json,txt}`＝表示実績のある未登録を先頭に、表示 0 は**型ごとの期待値**〔同じ型の登録済み 1 本あたり 28 日表示（最大の 1 本を除く平均）× 型の未登録率。登録済み 3 本未満の型は上位のまとまりの平均で代用・根拠は json の `types`〕の降順、直近 14 日にリクエスト済みは除外）。完走しなかった月は batch に `partial:true` が立ち、history には積まず完全性ゲートで赤にする（2026-09-01 の 120 分 cancelled の再発防止） | API/sitemap → `url-inspection/*.json` + `data/gsc/index-coverage.json`（develop） |
+| `index-coverage.yml` | CI（**週次**・水 JST 11:00 に周回を始め、未完了なら木・金の同じ時刻に続ける。2026-09-17 に月次から変更） | 全 sitemap URL の URL Inspection（5 並列・checkpoint・~35 分。1 回 1,900 件までで、超えた分は翌日の回が続きから検査し、全件がそろった回だけを履歴に積む＝周回・`scripts/lib/inspection-cycle.mjs`・DN-0825）+ 履歴追記 + **登録リクエスト順位表**（`data/gsc/indexing-priority.{json,txt}`＝表示実績のある未登録を先頭に、表示 0 は**型ごとの期待値**〔同じ型の登録済み 1 本あたり 28 日表示（最大の 1 本を除く平均）× 型の未登録率。登録済み 3 本未満の型は上位のまとまりの平均で代用・根拠は json の `types`〕の降順、直近 14 日にリクエスト済みは除外）。未完了の回は batch に `partial:true` が立ち、history には積まず翌日の回が続ける。金曜の回でも未完了なら完全性ゲートで赤にする（2026-09-01 の 120 分 cancelled の再発防止） | API/sitemap → `url-inspection/*.json` + `data/gsc/index-coverage.json`（develop） |
 | `fetch-metrics.yml` | CI（週次・金 JST 6:00） | GSC query/date/page/page×query + GA4。あわせて本番 robots.txt の sitemap を Search Console API で送信し読み込み状況を記録（`gsc-sitemaps`・ログイン不要）。成長パック（前の完了週×28 日基線の GA4/GSC 全件）・Bing・GA4 Admin API の観測・実験の自動計測・機会ダイジェストも同じ run で作る（[growth-cycle.md](growth-cycle.md)） | API → `data/{gsc,ga4}/・data/analysis/growth/・data/bing/` |
 | `gsc-index-auditor` | Evaluator（sonnet） | coverage 分類・indexed_ratio・履歴差分・原因バケット・hygiene URL surface | url-inspection + history → 診断テキスト（audit-only） |
 | `metrics-analyzer` | Evaluator（sonnet） | index 済みページの performance 8 パターン（SNS-Source-Shift＋page×query の Cannibalization/Content-Decay 含む） | gsc/ga4（`gsc.page-query` 含む）→ `improvements/*.md` |
@@ -33,7 +33,7 @@ Google Search Console の継続管理（インデックス被覆・検索パフ�
 | `/google-search-growth` | Skill（月次。**取得と正規化は土曜の Mac 収集（`weekly-collect` の gsc 段）が `check-gsc-ui-due` の DUE で自動実行**・評価と承認はセッション） | GSC 理由別 **UI CSV**（API で取れない例 URL）を Playwright 取得 → 正規化 → URL Inspection/GSC page×query/GA4/sitemap/_redirects/生成HTML と突合 → 修正アクション分類（gsc-csv-auditor/seo-fix-planner）→ approval gate | ブラウザ → `gsc-ui/<run>/`（raw・gitignore）＋ **`gsc-ui/ssot/`（追跡 SSOT）** ＋ `improvements/search-growth-latest.md` |
 | `check-gsc-ui-due` | Script（surfacer） | 月次 UI 取得の期限催促。**日数だけでなく完全性も見る**＝`lastComplete` の年齢（30日）／`lastAttempt.complete !== true` のいずれかで DUE。gsc-ui（必須）と ga4-ui（任意）の 2 チャネル | committed `{gsc-ui,ga4-ui}/last-run.json` → weekly-review が DUE を surface |
 | `check-gsc-auto-review` | Script（surfacer・オフライン） | **記録層の沈黙検知**。観測ログの見出しを走査し「週次エントリが 8 日超前」「最新 inspection-batch が 8 日超未記録」を DUE 判定。走査 0 件は OK でなく「検査不能」。weekly-review-guard が実行し DUE なら Issue 起票 | `gsc-management.md` 見出し + batch 日付 → DUE 一覧 |
-| `check-coverage-thresholds` | Script（ゲート・CI） | 月次データ publish 直後の機械ゲート。**赤=無条件異常のみ**（inspected 0 / sitemap > 1,900 の上限到達 / ratio < 60%）。前月比 −5pt・discovered > 20%・hygiene > 0 は warning に留め土曜の GSC の記録層（`weekly-review.sh` の run_gsc_record）の判断へ回す | `data/gsc/index-coverage.json` → exit 0/1 |
+| `check-coverage-thresholds` | Script（ゲート・CI） | 月次データ publish 直後の機械ゲート。**赤=無条件異常のみ**（inspected 0 / 未検査の残る行＝inspected < sitemap_urls / ratio < 60%）。前月比 −5pt・discovered > 20%・hygiene > 0 は warning に留め土曜の GSC の記録層（`weekly-review.sh` の run_gsc_record）の判断へ回す | `data/gsc/index-coverage.json` → exit 0/1 |
 | `check-google-ui-ssot` | Script（ゲート） | 追跡 SSOT の整合（marker ↔ history ↔ urls の runId・スキーマ・truncated・**検査ゼロ**）。SSOT が空／直近実行が不完全なら exit 1 | `gsc-ui/ssot/**` → exit 0/1 |
 | `ga4-admin-setup` | Script（ローカル手動・Playwright） | GA4 管理画面の設定を desired state と突合し、**不足カスタムディメンションを作成**（既定 dry-run・`--commit` で実行）。データ保持は観測のみ | `config/ga4-admin-desired-state.json` → `metrics/ga4-admin/inventory-latest.json` |
 | `check-ga4-dimensions` | Script（ゲート・オフライン） | desired state と最後の実機観測を突合。blocking なカスタムディメンション（`event_label`/`cta_placement`）が未登録なら exit 1 | inventory-latest → exit 0/1 |
@@ -75,7 +75,7 @@ Google の「Move a site with URL changes」（2026-08-20 更新）の手順ど�
 | `indexed_ratio` | < 60% | ≥ 80% |
 | `discovered_not_indexed` 割合 | > 20% | ≤ 20% |
 | hygiene（404 / redirect） | > 0 | 0 |
-| 未検査差分（`inspected < sitemap_urls`） | sitemap > 1,900（quota 上限） | — |
+| 未検査差分（`inspected < sitemap_urls`） | > 0（周回が完了した回だけが履歴に積まれるので、差があれば周回が壊れている） | 0 |
 
 ## cadence
 

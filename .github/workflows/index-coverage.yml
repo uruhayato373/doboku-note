@@ -7,13 +7,23 @@ name: Index coverage audit (URL Inspection)
 # ローカルは creds 未設定で叩けない（計測は CI/CD 供給が正・measurement-incidents.md 2026-06-05）ため CI で実行。
 # 設計の真実源: .claude/knowledge/reference/gsc-management.md / 分業: gsc-index-auditor + /gsc-review。
 # URL Inspection は 2,000 URL/日/property が上限。sitemap ~1,420 URL で 1 回 ~35 分（2026-09-07 実測）。
+# 1 回の検査は安全側に 1,900 件まで。sitemap がそれを超えると（2026-10-21 に 2,017 件）水曜の回は未完了で終わり、
+# 木曜・金曜の回が続きから検査して、全件がそろった回だけを履歴に積む（周回・scripts/lib/inspection-cycle.mjs・DN-0825）。
+# 続ける周回が無い日（前の回で完了した）の木曜・金曜は何もしない。
 # 2026-09-17 に月次→週次へ（8/22 URL 移行の再クロール待ち 723 件の収束を週単位で追い、
 # 土曜の週次レビューの前段の GSC の記録層（weekly-review.sh の run_gsc_record・旧 gsc-auto-review.yml・DN-0849）が毎週 coverage エントリを観測ログへ追記できるようにする）。
 
 on:
   schedule:
-    - cron: "0 2 * * 3" # UTC 02:00 毎週水曜 = JST 11:00 水曜（土曜の GSC の記録層より前）
+    - cron: "0 2 * * 3" # UTC 02:00 毎週水曜 = JST 11:00 水曜（土曜の GSC の記録層より前）。新しい周回を始める
+    - cron: "0 2 * * 4,5" # 木曜・金曜の同じ時刻。未完了の周回があれば続きを検査する（無ければ何もしない）
   workflow_dispatch:
+    inputs:
+      mode:
+        description: "auto＝未完了の周回があれば続き、無ければ新しい周回 / new＝必ず新しい周回"
+        type: choice
+        options: [auto, new]
+        default: auto
 
 # DN-0109 Phase 1: develop への自動書込み系ワークフロー間の push 衝突を防ぐ共通グループ。
 # cancel-in-progress: false が守るのは実行中の run だけ。待機中は 1 件しか残らず古い待機分は取り消される（取り消された定期実行は check-workflow-health の「最後の成功が古い」で拾う。再実行の workflow は 0 件の実績で 2026-10-25 に外した・DN-0849）。
@@ -69,16 +79,30 @@ jobs:
           printf '%s' "$GOOGLE_SERVICE_ACCOUNT_KEY_JSON" > credentials/gsc-service-account.json
           chmod 600 credentials/gsc-service-account.json
 
-      - name: Build URL list from live sitemap
+      # 今回検査する URL を決める（1 回 1,900 件まで。続きの回は前回までの結果を引き継ぐ）。
+      # 金曜の回は周回の最後の機会なので、そこで未完了なら完全性ゲートで赤にする（FINAL）。
+      - name: Build URL list from live sitemap and plan the cycle
+        id: plan
+        env:
+          EVENT: ${{ github.event_name }}
+          SCHEDULE: ${{ github.event.schedule }}
+          INPUT_MODE: ${{ inputs.mode }}
         run: |
           mkdir -p .tmp
           node .claude/scripts/list-sitemap-urls.mjs > .tmp/all-urls.txt
-          # URL Inspection は 2,000 URL/日/property が上限。安全側に 1,900 で頭打ち。
-          head -n 1900 .tmp/all-urls.txt > .tmp/inspect-urls.txt
           echo "SITEMAP_COUNT=$(wc -l < .tmp/all-urls.txt | tr -d ' ')" >> "$GITHUB_ENV"
-          echo "sitemap URLs: $(wc -l < .tmp/all-urls.txt) / inspecting: $(wc -l < .tmp/inspect-urls.txt)"
+          if [ "$EVENT" = "schedule" ]; then
+            if [ "$SCHEDULE" = "0 2 * * 3" ]; then MODE=new; else MODE=continue; fi
+            if [ "$(date -u +%u)" = "5" ]; then echo "final=true" >> "$GITHUB_OUTPUT"; else echo "final=false" >> "$GITHUB_OUTPUT"; fi
+          else
+            MODE="${INPUT_MODE:-auto}"
+            echo "final=false" >> "$GITHUB_OUTPUT"
+          fi
+          node .claude/scripts/inspection-cycle.mjs plan --sitemap .tmp/all-urls.txt --mode "$MODE" \
+            --out .tmp/inspect-urls.txt --carry .tmp/inspection-carry.json --outputs "$GITHUB_OUTPUT"
 
       - name: Fetch fresh GSC page snapshot (28d)
+        if: steps.plan.outputs.action != 'skip'
         env:
           GOOGLE_SERVICE_ACCOUNT_KEY_PATH: ./credentials/gsc-service-account.json
         run: npm run fetch-gsc-data -- --dimension page --days 28 --limit 1000
@@ -87,43 +111,46 @@ jobs:
       # 新規取得を止めて部分結果を flush し exit 3 で返る（timeout 自体は 124 を返す）。-k 60 は
       # flush が終わらない場合の保険で、その場合も直近 checkpoint（100 件ごと）までは残っている。
       # 部分結果は publish はするが history には積まず、後段の完全性ゲートで赤にする。
-      - name: URL Inspection (all sitemap URLs)
+      # 今回分を検査したあと、引き継いだ結果と合わせて「今の sitemap に対する 1 つの batch」に書き換える（merge）。
+      # 出力の partial・completed・total は sitemap 全体に対する数（未完了なら次の実行が続ける）。
+      - name: URL Inspection (this run's share of the cycle)
         id: inspect
+        if: steps.plan.outputs.action != 'skip'
         env:
           GOOGLE_SERVICE_ACCOUNT_KEY_PATH: ./credentials/gsc-service-account.json
         run: |
-          set +e
-          timeout -s INT -k 60 180m \
-            node .claude/scripts/inspect-url.mjs --file .tmp/inspect-urls.txt --concurrency 5 --checkpoint-every 100 \
-            > /tmp/inspect.log 2>&1
-          rc=$?
-          set -e
-          echo "--- tail of inspection log ---"
-          tail -8 /tmp/inspect.log
-          echo "inspect-url exit code: $rc"
+          FRESH=""
+          if [ "${{ steps.plan.outputs.inspect_count }}" != "0" ]; then
+            BEFORE=$(node scripts/ci-data.mjs latest gsc.url-inspection || true)
+            set +e
+            timeout -s INT -k 60 180m \
+              node .claude/scripts/inspect-url.mjs --file .tmp/inspect-urls.txt --batch --concurrency 5 --checkpoint-every 100 \
+              > /tmp/inspect.log 2>&1
+            rc=$?
+            set -e
+            echo "--- tail of inspection log ---"
+            tail -8 /tmp/inspect.log
+            echo "inspect-url exit code: $rc"
 
-          LATEST=$(node scripts/ci-data.mjs latest gsc.url-inspection || true)
-          if [ -z "$LATEST" ]; then echo "::error::inspection batch not produced（checkpoint も残っていない）"; exit 1; fi
-          PARTIAL=$(jq -r '.partial // false' "$LATEST")
-          COMPLETED=$(jq -r '.completed // (.results|length)' "$LATEST")
-          TOTAL=$(jq -r '.total // (.results|length)' "$LATEST")
-          {
-            echo "partial=$PARTIAL"
-            echo "completed=$COMPLETED"
-            echo "total=$TOTAL"
-          } >> "$GITHUB_OUTPUT"
+            FRESH=$(node scripts/ci-data.mjs latest gsc.url-inspection || true)
+            if [ -z "$FRESH" ] || [ "$FRESH" = "$BEFORE" ]; then echo "::error::inspection batch not produced（checkpoint も残っていない）"; exit 1; fi
+            FRESH_PARTIAL=$(jq -r '.partial // false' "$FRESH")
 
-          # 124 = timeout が INT を送った / 3 = inspect-url が中断 flush / 137 = -k で KILL された
-          case "$rc" in
-            0) ;;
-            124|3|137)
-              if [ "$PARTIAL" != "true" ]; then echo "::error::rc=$rc なのに batch が partial でない（flush の契約が壊れている）"; exit 1; fi
-              echo "::warning::URL Inspection が制限時間内に完走せず（rc=$rc）。部分結果 $COMPLETED/$TOTAL を publish し、完全性ゲートで赤にする"
-              ;;
-            *) exit "$rc" ;;
-          esac
+            # 124 = timeout が INT を送った / 3 = inspect-url が中断 flush / 137 = -k で KILL された
+            case "$rc" in
+              0) ;;
+              124|3|137)
+                if [ "$FRESH_PARTIAL" != "true" ]; then echo "::error::rc=$rc なのに batch が partial でない（flush の契約が壊れている）"; exit 1; fi
+                echo "::warning::URL Inspection が制限時間内に完走せず（rc=$rc）。済んだ分を引き継ぎ、次の実行が続ける"
+                ;;
+              *) exit "$rc" ;;
+            esac
+          fi
+          node .claude/scripts/inspection-cycle.mjs merge --sitemap .tmp/all-urls.txt --carry .tmp/inspection-carry.json \
+            ${FRESH:+--fresh "$FRESH"} --outputs "$GITHUB_OUTPUT"
 
       - name: Summarize coverage_state (→ job summary)
+        if: steps.plan.outputs.action != 'skip'
         run: |
           LATEST=$(node scripts/ci-data.mjs latest gsc.url-inspection || true)
           if [ -z "$LATEST" ]; then echo "::error::inspection batch not produced"; exit 1; fi
@@ -142,9 +169,11 @@ jobs:
 
       # 書いた記録を一時退避する。パスは台帳（scripts/lib/datasets.mjs）から引き、YAML に書かない（DN-0498）
       - name: Stage outputs
+        if: steps.plan.outputs.action != 'skip'
         run: node scripts/ci-data.mjs save "$RUNNER_TEMP/idx-out" --paths data
 
       - name: Publish to develop (+ append history)
+        if: steps.plan.outputs.action != 'skip'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -160,18 +189,18 @@ jobs:
           node scripts/ci-data.mjs restore "$RUNNER_TEMP/idx-out"
 
           # develop の現行 history.json に対し、今回 batch を1エントリ追記（冪等: 同 date は skip）。
-          # 部分結果（partial=true）は history に積まない: 分母が偽って小さくなり indexed_ratio が
-          # 動いてしまう。batch ファイルだけ残して、完全性ゲートで赤にする。
+          # 未完了の周回（partial=true）は history に積まない: 分母が偽って小さくなり indexed_ratio が
+          # 動いてしまう。batch ファイルだけ残し、次の実行が続きを検査する（金曜でも未完了なら完全性ゲートで赤）。
           LATEST=$(node scripts/ci-data.mjs latest gsc.url-inspection || true)
           if [ "${{ steps.inspect.outputs.partial }}" = "true" ]; then
             echo "partial batch（${{ steps.inspect.outputs.completed }}/${{ steps.inspect.outputs.total }}）: history には追記しない"
-            SUBJECT="chore(metrics): index-coverage audit $(date -u +%Y-%m-%dT%H:%MZ) PARTIAL ${{ steps.inspect.outputs.completed }}/${{ steps.inspect.outputs.total }} [skip ci]"
+            SUBJECT="chore(metrics): index-coverage audit $(date -u +%Y-%m-%dT%H:%MZ) PARTIAL ${{ steps.inspect.outputs.completed }}/${{ steps.inspect.outputs.total }}（周回 ${{ steps.plan.outputs.runs }} 回目） [skip ci]"
           else
             node .claude/scripts/append-coverage-history.mjs \
               --batch "$LATEST" \
               --date "$(date -u +%Y-%m-%d)" \
               --sitemap-count "${SITEMAP_COUNT:-0}" \
-              --notes "weekly cron (index-coverage.yml)"
+              --notes "weekly cron (index-coverage.yml・周回 ${{ steps.plan.outputs.runs }} 回で全件)"
             # 登録リクエストの順位表（表示実績のある未登録を先頭に、表示 0 は型ごとの期待値の降順）。人間は先頭から 10 件/日送るだけ。
             node scripts/build-gsc-indexing-priority.mjs
             SUBJECT="chore(metrics): index-coverage audit $(date -u +%Y-%m-%dT%H:%MZ) [skip ci]"
@@ -190,23 +219,29 @@ jobs:
           git rebase origin/develop
           git push origin HEAD:develop
 
-      # 完全性ゲート: publish の**後**（部分結果は develop に残す）。inspect が完走しなかった週は
-      # history が更新されず、閾値ゲートは前月のエントリを見て緑になってしまうので、ここで赤にする。
+      # 完全性ゲート: publish の**後**（部分結果は develop に残す）。未完了の周回は次の実行（翌日）が続けるので
+      # 水曜・木曜は赤にしない。周回の最後の機会（金曜）でも未完了なら history が更新されない週になるので赤にする。
       - name: Gate - inspection completeness
         id: completeness_gate
+        if: steps.plan.outputs.action != 'skip'
         run: |
           if [ "${{ steps.inspect.outputs.partial }}" = "true" ]; then
-            echo "::error::URL Inspection が完走していない（${{ steps.inspect.outputs.completed }}/${{ steps.inspect.outputs.total }}）。history は未更新。並列度/step timeout（index-coverage.yml）を見直すか、workflow_dispatch で再実行"
-            exit 1
+            if [ "${{ steps.plan.outputs.final }}" = "true" ]; then
+              echo "::error::URL Inspection の周回が金曜までに完了しなかった（${{ steps.inspect.outputs.completed }}/${{ steps.inspect.outputs.total }}・周回 ${{ steps.plan.outputs.runs }} 回目）。history は未更新。並列度/step timeout（index-coverage.yml）を見直すか、workflow_dispatch（mode=auto）で続きを検査"
+              exit 1
+            fi
+            echo "::notice::未完了（${{ steps.inspect.outputs.completed }}/${{ steps.inspect.outputs.total }}）。次の実行が続きを検査する"
+            exit 0
           fi
           echo "[completeness] ${{ steps.inspect.outputs.completed }}/${{ steps.inspect.outputs.total }} 件を検査・完走"
 
-      # 機械ゲート: publish の**後**に走らせる（赤でも取得済みデータは develop に残る）。
-      # 赤にするのは「機械が無条件に異常と断定できるもの」だけ（inspected 0 / 1900 件上限到達 /
+      # 機械ゲート: publish の**後**に走らせる（赤でも取得済みデータは develop に残る）。履歴に積んだ回（周回が完了した回）だけ。
+      # 赤にするのは「機械が無条件に異常と断定できるもの」だけ（inspected 0 / 未検査の残る行 /
       # indexed_ratio < 60%）。前回比の低下や hygiene は warning に留め、判断は
       # 土曜の GSC の記録層（weekly-review.sh・DN-0849）が観測ログへ記録する＝週次 red の狼少年化を防ぐ。
       - name: Gate - coverage thresholds
         id: coverage_gate
+        if: steps.plan.outputs.action != 'skip' && steps.inspect.outputs.partial != 'true'
         run: node .claude/scripts/check-coverage-thresholds.mjs
 
       - name: Report - coverage threshold failure

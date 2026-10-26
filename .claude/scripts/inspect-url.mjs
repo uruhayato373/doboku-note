@@ -12,6 +12,7 @@
  *   npm run inspect-url -- --url <URL> --json
  *   npm run inspect-url -- --file urls.txt                        # 複数 URL 順次検査
  *   npm run inspect-url -- --top 10                               # GSC 上位 10 ページを検査
+ *   npm run inspect-url -- --file urls.txt --batch                # 1 件でもバッチ（gsc.url-inspection）に書く（周回の続き・DN-0825）
  *
  * 必要な環境変数 (.env.local):
  *   GOOGLE_SERVICE_ACCOUNT_KEY_PATH (Step 1 と同じ)
@@ -56,12 +57,14 @@ function parseArgs() {
     json: { type: "boolean" },
     concurrency: { type: "integer" },
     "checkpoint-every": { type: "integer" },
+    batch: { type: "boolean" },
   });
   return {
     url: a.url,
     file: a.file,
     top: a.top,
     json: a.json,
+    batch: a.batch,
     concurrency: a.concurrency === null ? Number(process.env.INSPECT_CONCURRENCY) || DEFAULT_CONCURRENCY : Math.max(1, a.concurrency || 1),
     checkpointEvery: a.checkpointEvery === null ? DEFAULT_CHECKPOINT_EVERY : Math.max(1, a.checkpointEvery || 1),
   };
@@ -258,9 +261,9 @@ async function getTopUrlsFromGsc(auth, top) {
  * 出力ファイル名は開始時に確定する（checkpoint と最終保存が同じファイルを上書きする）。
  * 途中で落ちても「最後の checkpoint までの部分結果」が同名で残り、CI がそれを拾える。
  */
-function resolveOutputPath(total) {
+function resolveOutputPath(total, batch = false) {
   const timestamp = new Date().toISOString().replace(/[:.]/g, "-").slice(0, 19);
-  const path = datasetPath(total > 1 ? "gsc.url-inspection" : "gsc.url-inspection-single", { ts: timestamp });
+  const path = datasetPath(total > 1 || batch ? "gsc.url-inspection" : "gsc.url-inspection-single", { ts: timestamp });
   if (!existsSync(dirname(path))) mkdirSync(dirname(path), { recursive: true });
   return path;
 }
@@ -311,7 +314,8 @@ async function main() {
 
   console.log(`URL Inspection: ${urls.length} URL（同時 ${opts.concurrency} / checkpoint ${opts.checkpointEvery} 件ごと）`);
 
-  const filepath = resolveOutputPath(urls.length);
+  const asBatch = urls.length > 1 || Boolean(opts.batch);
+  const filepath = resolveOutputPath(urls.length, asBatch);
   const settled = new Array(urls.length);
 
   // SIGINT/SIGTERM（CI の `timeout -s INT` を含む）: 新規取得をやめ、進行中の数件が返ったら
@@ -334,7 +338,7 @@ async function main() {
       const result = await inspectUrl(auth, url);
       const summary = extractSummary(result, url);
       if (!opts.json) printSummary(summary);
-      return urls.length > 1 ? batchSummary(summary) : summary;
+      return asBatch ? batchSummary(summary) : summary;
     },
     {
       shouldStop: () => stopping,
