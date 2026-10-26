@@ -115,7 +115,7 @@ test('第1編から第2編へ切り替わる箇所が別の章記事に分かれ
 
   const nav = page.locator(testInfo.project.name === 'mobile-chromium' ? '[data-standards-mobile-nav]' : '[data-standards-sidebar]');
   if (testInfo.project.name === 'mobile-chromium') await nav.locator(':scope > summary').click();
-  await nav.locator('[data-standards-nav="chapters"] summary').filter({ hasText: '材料編' }).click();
+  await nav.locator('[data-standards-nav="tree"] summary').filter({ hasText: '材料編' }).click();
   await nav.locator('a[href="/standards/chubu/common/chapters/2-1"]').click();
   await expect(page).toHaveURL(/\/standards\/chubu\/common\/chapters\/2-1$/);
   await expect(page.locator('main h1')).toContainText('第1章 一般事項');
@@ -148,7 +148,7 @@ test('章記事のナビが現在章を強調し、モバイルでは折りた�
     await expect(mobileNav).toBeVisible();
     await expect(page.locator('[data-standards-sidebar]')).toBeHidden();
     await mobileNav.locator(':scope > summary').click();
-    await expect(mobileNav.locator('[data-standards-nav="chapters"] a[aria-current="page"]')).toContainText(
+    await expect(mobileNav.locator('[data-standards-nav="tree"] a[aria-current="page"]')).toContainText(
       '無筋・鉄筋コンクリート',
     );
     return;
@@ -156,10 +156,10 @@ test('章記事のナビが現在章を強調し、モバイルでは折りた�
 
   const sidebar = page.locator('[data-standards-sidebar]');
   await expect(sidebar).toBeVisible();
-  await expect(sidebar.locator('[data-standards-nav="chapters"] a[aria-current="page"]')).toContainText(
+  await expect(sidebar.locator('[data-standards-nav="tree"] a[aria-current="page"]')).toContainText(
     '無筋・鉄筋コンクリート',
   );
-  // 章記事では「この章の節」目次が出る。アンカーは本文見出しの id と一致していなければ飛べない。
+  // 章記事では目次の表示中の章の下に節が出る。アンカーは本文見出しの id と一致していなければ飛べない。
   const firstSection = sidebar.locator('[data-standards-nav="sections"] a').first();
   const href = await firstSection.getAttribute('href');
   expect(href).toBeTruthy();

@@ -19,7 +19,6 @@ import {
   standardChapterPath,
   type StandardChapter,
 } from '@/lib/standards-articles';
-import { standardSectionPath } from '@/lib/standards-section-split.mjs';
 import { generateHeadingId } from '@/lib/toc';
 
 type StandardsNavigationProps = {
@@ -138,125 +137,6 @@ function DocumentNav({ currentDocument }: { currentDocument: StandardDocument })
   );
 }
 
-/**
- * 編ごとに章を束ねた目次。文書ページと章記事の主導線で、PDF の分冊位置ではなく
- * 原本の編・章構造で移動する。構造化前の文書では章がゼロ件なので呼び出し側が出さない。
- */
-function ChapterNav({
-  document,
-  currentChapter,
-}: {
-  document: StandardDocument;
-  currentChapter?: StandardChapter | undefined;
-}) {
-  const books = groupChaptersByBook(getStandardChapters(document.agencyId, document.documentId));
-  const total = books.reduce((sum, book) => sum + book.chapters.length, 0);
-
-  return (
-    <nav aria-label="章を移動" className="border border-(--rule-soft) bg-(--paper)">
-      <NavHeading count={total}>章から読む</NavHeading>
-      <div data-standards-nav="chapters">
-        {books.map((book) => {
-          const activeBook = book.chapters.some(
-            (chapter) => chapter.chapterId === currentChapter?.chapterId,
-          );
-          return (
-            <details
-              key={book.bookNumber}
-              open={activeBook}
-              className="group border-b border-(--rule-soft) last:border-b-0"
-            >
-              <summary className="focus-ring flex min-h-11 cursor-pointer list-none items-center gap-2 px-4 py-2 marker:hidden">
-                <span className="min-w-0 flex-1 text-[13px] font-bold leading-normal text-(--ink-body)">
-                  {book.bookLabel}
-                </span>
-                <span className="font-mono text-[11px] tabular-nums text-(--ink-muted)">
-                  {book.chapters.length}
-                </span>
-                <DisclosureChevron className="disclosure-chevron h-4 w-4 shrink-0 text-(--ink-muted)" />
-              </summary>
-              <ul className="border-t border-(--rule-soft) py-1">
-                {book.chapters.map((chapter) => {
-                  const active = chapter.chapterId === currentChapter?.chapterId;
-                  return (
-                    <li key={chapter.chapterId}>
-                      <Link
-                        href={standardChapterPath(document, chapter)}
-                        className={navLinkClass(active)}
-                        aria-current={active ? 'page' : undefined}
-                      >
-                        <span className="w-8 shrink-0 font-mono text-[11px] tabular-nums text-(--ink-muted)">
-                          {chapter.chapterLabel !== undefined ? chapter.chapterLabel.replace(/^第/, '') : `${chapter.chapterNumber}章`}
-                        </span>
-                        <span className="min-w-0 flex-1">{chapter.chapterTitle}</span>
-                      </Link>
-                    </li>
-                  );
-                })}
-              </ul>
-            </details>
-          );
-        })}
-      </div>
-    </nav>
-  );
-}
-
-/**
- * 表示中の章の節目次。アンカーは src/lib/toc.ts の generateHeadingId で導出する
- * （rehypeHeadingIds が本文へ振る ID と同じ関数＝ここに ID を持たせて第 2 の真実源にしない）。
- * 節ページに分けた章（splitBySection）は、アンカーではなく節ページへ移動する。
- */
-function SectionNav({
-  document,
-  chapter,
-  currentSection,
-}: {
-  document: StandardDocument;
-  chapter: StandardChapter;
-  currentSection?: number | undefined;
-}) {
-  if (chapter.sections.length === 0) return null;
-  return (
-    <nav aria-label="この章の節を移動" className="border border-(--rule-soft) bg-(--paper)">
-      <NavHeading count={chapter.sections.length}>この章の節</NavHeading>
-      <ol className="py-1" data-standards-nav="sections">
-        {chapter.sections.map((section) => {
-          const label = (
-            <>
-              <span className="w-8 shrink-0 font-mono text-[11px] tabular-nums text-(--ink-muted)">
-                {section.number}節
-              </span>
-              <span className="min-w-0 flex-1">{section.title}</span>
-            </>
-          );
-          if (!chapter.splitBySection) {
-            return (
-              <li key={section.number}>
-                <a href={`#${generateHeadingId(section.headingText)}`} className={navLinkClass(false)}>
-                  {label}
-                </a>
-              </li>
-            );
-          }
-          const active = section.number === currentSection;
-          return (
-            <li key={section.number}>
-              <Link
-                href={standardSectionPath(document, chapter, section.number)}
-                className={navLinkClass(active)}
-                aria-current={active ? 'page' : undefined}
-              >
-                {label}
-              </Link>
-            </li>
-          );
-        })}
-      </ol>
-    </nav>
-  );
-}
-
 function chapterNumberLabel(chapter: StandardChapter): string {
   return chapter.chapterLabel !== undefined ? chapter.chapterLabel.replace(/^第/, '') : `${chapter.chapterNumber}章`;
 }
@@ -337,7 +217,7 @@ function DocumentTreeNav({
                           {chapterLink}
                           <DisclosureChevron className="disclosure-chevron h-4 w-4 shrink-0 text-(--ink-muted)" />
                         </summary>
-                        <ol className={TREE_SECTIONS}>
+                        <ol className={TREE_SECTIONS} data-standards-nav="sections">
                           {standardTreeSections(document, chapter, { samePage: currentSection === undefined }).map((section) => {
                             const activeSection = section.number === currentSection;
                             const articles = activeSection
@@ -447,12 +327,8 @@ function NavigationContents({
 }: Omit<StandardsNavigationProps, 'variant'>) {
   if (!currentDocument) return <AgencyNav currentAgency={agencyId} />;
 
-  const hasChapters =
-    getStandardChapters(currentDocument.agencyId, currentDocument.documentId).length > 0;
-
-  // 面ごとに出すもの: 文書ページ=編・章一覧 / 章記事=章一覧＋この章の節 / 逐語ページ=分冊＋PDFページ。
-  // 章が未生成の文書は従来どおり分冊が主導線になる。
-  if (hasChapters && !currentPart && usesTreeNav(currentDocument)) {
+  // 章を構造化した文書は 編 → 章 → 節 の目次 1 本。未構造化の文書と逐語ページは分冊が主導線。
+  if (!currentPart && usesTreeNav(currentDocument)) {
     return (
       <>
         {!currentChapter && <DocumentNav currentDocument={currentDocument} />}
@@ -463,16 +339,8 @@ function NavigationContents({
 
   return (
     <>
-      {!currentPart && !currentChapter && <DocumentNav currentDocument={currentDocument} />}
-      {currentChapter && (
-        <SectionNav document={currentDocument} chapter={currentChapter} currentSection={currentSection} />
-      )}
-      {hasChapters && !currentPart && (
-        <ChapterNav document={currentDocument} currentChapter={currentChapter} />
-      )}
-      {(!hasChapters || currentPart) && (
-        <PartNav document={currentDocument} currentPart={currentPart} />
-      )}
+      {!currentPart && <DocumentNav currentDocument={currentDocument} />}
+      <PartNav document={currentDocument} currentPart={currentPart} />
       {currentPart && pageNumbers.length > 0 && <PageNav pageNumbers={pageNumbers} />}
     </>
   );
@@ -512,10 +380,7 @@ export default function StandardsNavigation({
         ? `${agency?.agencyName ?? '発行機関'}の文書一覧`
         : '全国の基準類一覧';
   // 目次 1 本の文書は目次の頭に文書へのリンクがあるので、右の欄の「資料内を移動」の枠を出さない。
-  const treeMode = Boolean(
-    currentDocument && !currentPart && usesTreeNav(currentDocument)
-      && getStandardChapters(currentDocument.agencyId, currentDocument.documentId).length > 0,
-  );
+  const treeMode = Boolean(currentDocument && !currentPart && usesTreeNav(currentDocument));
   const contents = (
     <NavigationContents
       agencyId={agencyId}

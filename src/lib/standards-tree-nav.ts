@@ -1,25 +1,22 @@
 import 'server-only';
 
-import type { StandardDocument } from '@/lib/standards';
-import { getStandardChapters, standardChapterPath, type StandardChapter } from '@/lib/standards-articles';
+import { getStandardDocuments, type StandardDocument } from '@/lib/standards';
+import { getStandardChapters, hasStandardChapters, standardChapterPath, type StandardChapter } from '@/lib/standards-articles';
 import { standardSectionPath } from '@/lib/standards-section-split.mjs';
 import { generateHeadingId } from '@/lib/toc';
 
 /**
- * 試作: 右の欄を 編 → 章 → 節 の 1 本の目次にする文書。
- * 効果と重さを近畿の共通仕様書で確かめてから広げる。
+ * 右の欄を 編 → 章 → 節 の 1 本の目次にする文書＝章を構造化した文書（manifest のある文書）。
+ * 構造化前の文書は従来どおり分冊（PDF ページ）が主導線。
  */
-const TREE_NAV_DOCUMENTS = new Set(['kinki/common']);
-
 export function usesTreeNav(document: Pick<StandardDocument, 'agencyId' | 'documentId'>): boolean {
-  return TREE_NAV_DOCUMENTS.has(`${document.agencyId}/${document.documentId}`);
+  return hasStandardChapters(document.agencyId, document.documentId);
 }
 
 export function treeNavDocumentKeys(): { agency: string; document: string }[] {
-  return [...TREE_NAV_DOCUMENTS].map((key) => {
-    const [agency = '', document = ''] = key.split('/');
-    return { agency, document };
-  });
+  return getStandardDocuments()
+    .filter((document) => usesTreeNav(document))
+    .map((document) => ({ agency: document.agencyId, document: document.documentId }));
 }
 
 /** 目次の節 1 件。表示中の章は HTML に書き、他の章は toc.json から開いたときに読む。 */
