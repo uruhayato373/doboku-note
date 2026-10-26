@@ -1,6 +1,6 @@
 #!/usr/bin/env node
-// Cloudflare zone analytics 日次取得（cloudflare-metrics.yml）と
-// zone 設定監査（cloudflare-config-audit.yml）の停止を検査する。
+// Cloudflare zone analytics 日次取得と zone 設定監査（どちらも cloudflare-metrics.yml・
+// 設定の監査は金曜の cron）の停止を検査する。
 // ドリフト自体（設定が意図と食い違っているか）はここでは判定しない（別 channel の担当）。
 //
 // 判定:
@@ -79,7 +79,7 @@ export function assessCloudflareFreshness({ zoneSnapshot, configLatest }, nowUtc
 
   // config latest
   if (!configLatest) {
-    reasons.push('zone-config-latest.json が無い（cloudflare-config-audit.yml が止まっている）');
+    reasons.push('zone-config-latest.json が無い（cloudflare-metrics.yml の金曜の設定の監査が止まっている）');
     status = 'FAIL';
   } else {
     const fetchedAt = configLatest.fetchedAt;

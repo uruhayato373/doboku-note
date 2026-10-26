@@ -526,7 +526,7 @@ export const ConfigGrowthCycle = z
 
 // ---- config.indexnow ---------------------------------------------------------------------------
 
-/** IndexNow の更新通知の設定（config/indexnow.json）。npm ci をしない indexnow-submit.yml が読む */
+/** IndexNow の更新通知の設定（config/indexnow.json）。npm ci をしない cloudflare-deploy.yml の indexnow ジョブが読む */
 export const ConfigIndexnow = z
   .object({
     schemaVersion: z.literal(1),

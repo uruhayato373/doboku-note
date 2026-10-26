@@ -1,18 +1,36 @@
-name: ☁️ Fetch Cloudflare zone analytics (daily)
+name: ☁️ Cloudflare zone analytics (daily) + config audit (Friday)
 
-# Cloudflare Zone Analytics（GraphQL）から日次でトラフィック指標を取得し、
-# 記録（台帳 cloudflare.zone）として commit する。
-# 失敗・成功は automation-failure Issue（channel: cloudflare-metrics）で通知する
-# （scripts/report-automation-failure.mjs）。
+# Cloudflare の 2 つの定期実行を 1 本にまとめたもの（DN-0853・旧 cloudflare-config-audit.yml を統合）。
+# 準備（npm ci・doc-meta-index）・鍵・develop への書き戻しが同じなので、1 ジョブの中で何を回すかを分ける。
 #
-# 前提 Secrets: CLOUDFLARE_ANALYTICS_API_TOKEN / CLOUDFLARE_API_TOKEN / CLOUDFLARE_ACCOUNT_ID
-# 実装: scripts/fetch-cloudflare-analytics.mjs（lib: scripts/lib/cloudflare-analytics.mjs）
-# exit: 0 取得成功 / 1 認証・ネットワーク失敗 / 2 検査不成立（0 件取得。成果物は書かない）
+# - 毎日（23 20 * * *）: Zone Analytics（GraphQL）の日次トラフィック指標を取得し、記録（台帳 cloudflare.zone）として commit する
+#   実装: scripts/fetch-cloudflare-analytics.mjs（lib: scripts/lib/cloudflare-analytics.mjs）
+#   exit: 0 取得成功 / 1 認証・ネットワーク失敗 / 2 検査不成立（0 件取得。成果物は書かない）。Issue channel: cloudflare-metrics
+# - 金曜（47 13 * * 5）: ゾーン設定（キャッシュ/圧縮/WAF/Bot Management）を REST API から取得し、baseline との差分だけを検知する
+#   read-only audit。是正はしない。土曜の週次レビューが新しい結果を読めるよう金曜の夜に回す（DN-0847）
+#   実装: scripts/fetch-cloudflare-zone-config.mjs（lib: scripts/lib/cloudflare-zone-config.mjs）
+#   exit: 0 ドリフトなし / 1 認証・ネットワーク失敗 / 2 ドリフトあり。Issue channel: cloudflare-config
+#   rc=2（ドリフトあり）は**是正 or 承認するまで赤が正常**。手動実行の accept_baseline: true で現在値を新しい baseline として
+#   commit すると緑に戻る。
+#
+# 前提 Secrets: CLOUDFLARE_ANALYTICS_API_TOKEN（Zone Settings:Read を含む読み取り専用・無ければ CLOUDFLARE_API_TOKEN に fallback）
+#   / CLOUDFLARE_API_TOKEN / CLOUDFLARE_ACCOUNT_ID
 
 on:
   schedule:
-    - cron: "23 20 * * *" # JST 05:23（UTC 20:23）
+    - cron: "23 20 * * *" # 解析: JST 05:23（UTC 20:23）
+    - cron: "47 13 * * 5" # 設定の監査: JST 22:47 金曜（UTC 13:47 金曜）
   workflow_dispatch:
+    inputs:
+      target:
+        description: "回すもの（analytics＝解析・config＝設定の監査・both＝両方）"
+        type: choice
+        options: [analytics, config, both]
+        default: analytics
+      accept_baseline:
+        description: "設定の監査で、現在のゾーン設定を新しい baseline として承認する（config か both のとき）"
+        type: boolean
+        default: false
 
 # DN-0109 Phase 1: develop への自動書込み系ワークフロー間の push 衝突を防ぐ共通グループ。
 # cancel-in-progress: false が守るのは実行中の run だけ。待機中は 1 件しか残らず古い待機分は取り消される（取り消された定期実行は check-workflow-health の「最後の成功が古い」で拾う。再実行の workflow は 0 件の実績で 2026-10-25 に外した・DN-0849）。
@@ -29,6 +47,28 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
+      # 定期実行はどちらの cron で起きたかで、手動は target で決める
+      - name: Decide what to run
+        id: plan
+        env:
+          EVENT: ${{ github.event_name }}
+          SCHEDULE: ${{ github.event.schedule }}
+          TARGET: ${{ inputs.target }}
+        run: |
+          analytics=false; config=false
+          if [ "$EVENT" = "schedule" ]; then
+            [ "$SCHEDULE" = "47 13 * * 5" ] && config=true || analytics=true
+          else
+            case "$TARGET" in
+              config) config=true ;;
+              both) analytics=true; config=true ;;
+              *) analytics=true ;;
+            esac
+          fi
+          echo "analytics=$analytics" >> "$GITHUB_OUTPUT"
+          echo "config=$config" >> "$GITHUB_OUTPUT"
+          echo "解析: $analytics / 設定の監査: $config"
+
       - name: Checkout develop
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
@@ -52,6 +92,7 @@ jobs:
 
       - name: Fetch Cloudflare zone analytics
         id: fetch
+        if: steps.plan.outputs.analytics == 'true'
         continue-on-error: true
         env:
           CLOUDFLARE_ANALYTICS_API_TOKEN: ${{ secrets.CLOUDFLARE_ANALYTICS_API_TOKEN }}
@@ -64,25 +105,53 @@ jobs:
           node scripts/fetch-cloudflare-analytics.mjs 2>&1 | tee "$RUNNER_TEMP/cf.log"
           echo "exit_code=$?" >> "$GITHUB_OUTPUT"
 
-      - name: Publish to develop (data/)
+      - name: Audit Cloudflare zone config
+        id: audit
+        if: steps.plan.outputs.config == 'true'
+        continue-on-error: true
+        env:
+          CLOUDFLARE_ANALYTICS_API_TOKEN: ${{ secrets.CLOUDFLARE_ANALYTICS_API_TOKEN }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          ACCEPT_BASELINE: ${{ inputs.accept_baseline }}
+        run: |
+          set -o pipefail
+          set +e
+          ARGS=""
+          if [ "$ACCEPT_BASELINE" = "true" ]; then
+            ARGS="--accept-baseline"
+          fi
+          node scripts/fetch-cloudflare-zone-config.mjs $ARGS 2>&1 | tee "$RUNNER_TEMP/cf-config.log"
+          echo "exit_code=$?" >> "$GITHUB_OUTPUT"
+
+      - name: Publish to develop (data/ と .claude/state/cloudflare/)
+        env:
+          ANALYTICS: ${{ steps.plan.outputs.analytics }}
+          CONFIG: ${{ steps.plan.outputs.config }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          node scripts/prune-state-snapshots.mjs --commit --family cloudflare
-
-          # 取得が失敗した run では書いたファイルが無い。ci-data は無いパスを飛ばすので「取得失敗」が「publish 失敗」に見えない
-          node scripts/ci-data.mjs add --paths data
+          if [ "$ANALYTICS" = "true" ]; then
+            node scripts/prune-state-snapshots.mjs --commit --family cloudflare
+            # 取得が失敗した run では書いたファイルが無い。ci-data は無いパスを飛ばすので「取得失敗」が「publish 失敗」に見えない
+            node scripts/ci-data.mjs add --paths data
+          fi
+          # 取得が失敗した run ではディレクトリ自体が無い。pathspec 不一致で git が exit 128 になり
+          # 「取得失敗」が「publish 失敗」に見えるのを避ける（2026-09-21 初回 run で実測）。
+          if [ "$CONFIG" = "true" ] && [ -d .claude/state/cloudflare ]; then git add .claude/state/cloudflare; fi
           if git diff --cached --quiet; then
             echo "No changes to publish"
             exit 0
           fi
-          git commit -m "chore(metrics): cloudflare zone analytics daily $(date -u +%Y-%m-%dT%H:%MZ) [skip ci]"
+          what=$([ "$CONFIG" = "true" ] && echo "zone config audit weekly" || echo "zone analytics daily")
+          git commit -m "chore(metrics): cloudflare $what $(date -u +%Y-%m-%dT%H:%MZ) [skip ci]"
           git pull --rebase origin develop
           git push origin develop
 
+      # ---- 解析の通知（channel: cloudflare-metrics）----
       - name: Build failure body (rc=2 は検査不成立と明記)
-        if: steps.fetch.outputs.exit_code != '0'
+        if: steps.plan.outputs.analytics == 'true' && steps.fetch.outputs.exit_code != '0'
         run: |
           {
             echo "fetch-cloudflare-analytics.mjs が失敗しました（rc=${{ steps.fetch.outputs.exit_code }}）。"
@@ -99,7 +168,7 @@ jobs:
           } > "$RUNNER_TEMP/cf-body.md"
 
       - name: Report - fetch failure (automation-failure Issue)
-        if: steps.fetch.outputs.exit_code != '0'
+        if: steps.plan.outputs.analytics == 'true' && steps.fetch.outputs.exit_code != '0'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
@@ -110,7 +179,7 @@ jobs:
             --body-file "$RUNNER_TEMP/cf-body.md"
 
       - name: Resolve - close cloudflare-metrics Issue on recovery
-        if: steps.fetch.outputs.exit_code == '0'
+        if: steps.plan.outputs.analytics == 'true' && steps.fetch.outputs.exit_code == '0'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
@@ -118,8 +187,47 @@ jobs:
           node scripts/report-automation-failure.mjs --resolve --channel cloudflare-metrics \
             --body "復旧 run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
 
-      - name: Fail on fetch error
-        if: steps.fetch.outputs.exit_code != '0'
+      # ---- 設定の監査の通知（channel: cloudflare-config）----
+      - name: Report - config drift (automation-failure Issue)
+        if: steps.plan.outputs.config == 'true' && steps.audit.outputs.exit_code == '2'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
         run: |
-          echo "::error::fetch-cloudflare-analytics.mjs が失敗しました（rc=${{ steps.fetch.outputs.exit_code }}）。automation-failure Issue（channel: cloudflare-metrics）を参照。"
+          node scripts/report-automation-failure.mjs \
+            --channel cloudflare-config \
+            --title "Cloudflare zone 設定ドリフト" \
+            --body-file .claude/state/cloudflare/zone-config-drift.json
+
+      - name: Report - config fetch failure (automation-failure Issue)
+        if: steps.plan.outputs.config == 'true' && steps.audit.outputs.exit_code == '1'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        run: |
+          node scripts/report-automation-failure.mjs \
+            --channel cloudflare-config \
+            --title "Cloudflare zone config 取得失敗" \
+            --body-file "$RUNNER_TEMP/cf-config.log"
+
+      - name: Resolve - close cloudflare-config Issue on recovery
+        if: steps.plan.outputs.config == 'true' && steps.audit.outputs.exit_code == '0'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        run: |
+          node scripts/report-automation-failure.mjs --resolve --channel cloudflare-config \
+            --body "復旧 run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+
+      - name: Fail on fetch error, drift or audit error
+        if: (steps.plan.outputs.analytics == 'true' && steps.fetch.outputs.exit_code != '0') || (steps.plan.outputs.config == 'true' && steps.audit.outputs.exit_code != '0')
+        run: |
+          if [ "${{ steps.plan.outputs.analytics }}" = "true" ] && [ "${{ steps.fetch.outputs.exit_code }}" != "0" ]; then
+            echo "::error::fetch-cloudflare-analytics.mjs が失敗しました（rc=${{ steps.fetch.outputs.exit_code }}）。automation-failure Issue（channel: cloudflare-metrics）を参照。"
+          fi
+          if [ "${{ steps.plan.outputs.config }}" = "true" ] && [ "${{ steps.audit.outputs.exit_code }}" = "2" ]; then
+            echo "::error::Cloudflare zone 設定にドリフトを検出しました。.claude/state/cloudflare/zone-config-drift.json を確認し、意図した変更なら手動実行（target=config・accept_baseline=true）で承認してください。"
+          elif [ "${{ steps.plan.outputs.config }}" = "true" ] && [ "${{ steps.audit.outputs.exit_code }}" != "0" ]; then
+            echo "::error::fetch-cloudflare-zone-config.mjs が認証/ネットワークエラーで失敗しました（rc=${{ steps.audit.outputs.exit_code }}）。"
+          fi
           exit 1

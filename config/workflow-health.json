@@ -54,13 +54,8 @@
     {
       "workflow": "cloudflare-metrics.yml",
       "maxAgeDays": 3,
-      "maxConsecutiveFailures": 3
-    },
-    {
-      "workflow": "cloudflare-config-audit.yml",
-      "maxAgeDays": 10,
-      "maxConsecutiveFailures": 4,
-      "_note": "ドリフト中は赤が正常。沈黙（最後の成功からの日数）を主に見る"
+      "maxConsecutiveFailures": 3,
+      "_note": "毎日の解析と金曜の設定の監査（DN-0853 で統合）。設定のドリフト中は金曜の run だけ赤になるが、毎日の成功で連続失敗は切れる。設定の監査の沈黙は check-cloudflare-metrics-freshness（config 10 日超）が拾う"
     },
     {
       "workflow": "weekly-review-guard.yml",

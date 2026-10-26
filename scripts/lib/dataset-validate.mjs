@@ -3,7 +3,7 @@
  * 台帳の各行は型を名前（`schema: 'NoteSalesLog'`）で指す。
  *
  * なぜ分けるか: 台帳は 200 近いスクリプトがパスを引くためだけに読む。台帳が zod を読み込むと、npm ci をしない
- * ワークフロー（indexnow-submit.yml・ops-audit.yml など）が ERR_MODULE_NOT_FOUND で落ちる（2026-10-02 に実際に起きた）。
+ * ワークフロー（cloudflare-deploy.yml の indexnow ジョブ・ops-audit.yml など）が ERR_MODULE_NOT_FOUND で落ちる（2026-10-02 に実際に起きた）。
  * 台帳は依存ゼロに保ち、型が要る検査（check-datasets・ci-data add・管理画面）だけがここを読む。
  */
 import { readFileSync } from 'node:fs';

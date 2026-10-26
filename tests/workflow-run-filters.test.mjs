@@ -6,7 +6,7 @@
  *   Pre-merge の完了では一度も起動しなかった（記録の残る 10-09〜10-25 の完了 999 回で 0 回）。ラベルを付けた PR は、
  *   E2E・Lighthouse が Pre-merge より後に終わったときだけ入り、E2E・Lighthouse が走らない PR は緑でも入らなかった。
  *   特別な文字は `\` でエスケープする（YAML の二重引用符では `\+` が不正なので単一引用符で書く）。括弧は特別ではない
- *   （"Deploy to production (Cloudflare Pages)" を引き金にする indexnow-submit・production-sweep は起動している）。
+ *   （"Deploy to production (Cloudflare Pages)" を引き金にする旧 indexnow-submit・production-sweep は起動していた。今は uptime-ping の sweep ジョブ）。
  *
  * パターン（`*` など）で複数のワークフローを指す書き方は使っていないので、ここでは名前どおりの一致だけを認める。
  */
