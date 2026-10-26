@@ -9,7 +9,8 @@
  *   GA4: landingPage × sessionSource × channel（sessions / engagedSessions / activeUsers / keyEvents）
  *        pagePath × eventName（eventCount / totalUsers。対象イベントは config/growth-cycle.json）
  *        いずれも country=Japan・参照スパム除外・全件ページング（lib/ga4-client.mjs）
- *   GSC: page と page×query（週・基線、country=jpn・web・final）
+ *   GSC: page（週・基線）は国の条件なし、page×query（週・基線）は country=jpn・いずれも web・final
+ *        国で絞ったページ別は匿名化された検索語の分を含まず byPage 全体の 25% しか見えないため、ページ別だけ絞らない（DN-0806）
  *
  * Usage:
  *   node scripts/fetch-growth-pack.mjs                  # 前の完了週（JST）
@@ -24,7 +25,7 @@ import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import dotenv from 'dotenv';
 import { addDays, GSC_FINAL_LAG_DAYS, jst } from './lib/business-direction.mjs';
-import { packPeriods, foldLanding, foldEvents, foldGsc, foldGscTotal, foldGscCoverage } from './lib/growth-pack.mjs';
+import { packPeriods, foldLanding, foldEvents, foldGsc, foldGscTotal } from './lib/growth-pack.mjs';
 import { ga4FromEnv, japanFilter, spamExclusion, andFilter, runReportAll, isLimited } from '../.claude/scripts/lib/ga4-client.mjs';
 import { getAuth, fetchSearchAnalytics } from '../.claude/skills/analytics/fetch-gsc-data/scripts/fetch-gsc-data.mjs';
 import { datasetDir, datasetPath } from './lib/datasets.mjs';
@@ -93,12 +94,14 @@ async function main() {
     return { rowCount: report.rowCount, truncated: report.truncated, limited: isLimited(report.metadata), rows: foldEvents(report) };
   });
 
-  const gsc = (range, dims) => async () =>
-    foldGsc(await fetchSearchAnalytics(gscAuth, { startDate: range.startDate, endDate: range.endDate, effectiveDimensions: dims, all: true, country: cfg.gscCountry }));
+  // ページ別は国で絞らない。国の条件を付けると Google は検索語の分かる分だけで集計し、匿名化された検索語の分が落ちる
+  // （W42 は byPage 全体の clicks 25%・DN-0759・DN-0806）。日本以外の行を含むが、全体の clicks の 100% を拾える
+  const gsc = (range, dims, country) => async () =>
+    foldGsc(await fetchSearchAnalytics(gscAuth, { startDate: range.startDate, endDate: range.endDate, effectiveDimensions: dims, all: true, ...(country ? { country } : {}) }));
   await run('gscPageWeek', gsc(period, ['page']));
   await run('gscPageBase', gsc(baseline, ['page']));
-  await run('gscPageQueryWeek', gsc(period, ['page', 'query']));
-  await run('gscPageQueryBase', gsc(baseline, ['page', 'query']));
+  await run('gscPageQueryWeek', gsc(period, ['page', 'query'], cfg.gscCountry));
+  await run('gscPageQueryBase', gsc(baseline, ['page', 'query'], cfg.gscCountry));
   // 全体の KPI は page/query を含めない集計から取る。明細行は Google 側で一部が落ちるため全体ではない。
   for (const [which, range] of [['Week', period], ['Base', baseline]]) {
     for (const [label, aggregationType] of [['Property', 'byProperty'], ['PageTotal', 'byPage']]) {
@@ -108,38 +111,20 @@ async function main() {
     }
   }
 
-  // ページ別の取り方ごとの合計（DN-0806）。国で絞ったページ別は匿名化された検索語の分を含まない（DN-0759）ので、
-  // 急落・減衰の検出を切り替える前に、取り方を変えた合計が byPage 全体のどれだけを拾うかを毎週残す
-  await run('gscPageCoverageWeek', async () => {
-    const q = (dims, country) => fetchSearchAnalytics(gscAuth, { startDate: period.startDate, endDate: period.endDate, effectiveDimensions: dims, all: true, ...(country ? { country } : {}) });
-    const total = sections.gscPageTotalWeek?.ok ? sections.gscPageTotalWeek.rows[0] : null;
-    return foldGscCoverage({
-      startDate: period.startDate,
-      endDate: period.endDate,
-      byPageTotal: total ? { clicks: total.clicks, impressions: total.impressions } : null,
-      variants: [
-        { name: 'page・国で絞る（いまの取り方）', result: await q(['page'], cfg.gscCountry) },
-        { name: 'page・国の条件なし（全世界）', result: await q(['page']) },
-        { name: 'page×country・条件なしで日本の行だけ', result: await q(['page', 'country']), country: cfg.gscCountry },
-      ],
-    });
-  });
-
   const pack = {
     schemaVersion: 1,
     week,
     period,
     baseline,
     generatedAt: new Date().toISOString(),
-    filters: { ga4: 'country=Japan・参照スパム除外（lib/ga4-client.mjs）', gsc: `country=${cfg.gscCountry}・web・final（日付は太平洋時間）` },
+    filters: { ga4: 'country=Japan・参照スパム除外（lib/ga4-client.mjs）', gsc: `ページ別（gscPageWeek・gscPageBase）は国の条件なし（日本以外を含む）、ページ×検索語は country=${cfg.gscCountry}、無次元の全体集計は country=${cfg.gscCountry}・いずれも web・final（日付は太平洋時間）` },
     sections,
   };
 
   const failed = Object.entries(sections).filter(([, s]) => !s.ok);
   for (const [name, s] of Object.entries(sections)) {
     const detail = !s.ok ? `失敗 ${s.error}`
-      : s.variants ? s.variants.map((v) => `${v.name} ${v.clicks} クリック（byPage 全体の ${v.clickSharePct ?? '—'}%）`).join(' / ')
-        : `${s.rows.length} 行${s.truncated ? '（打ち切り）' : ''}${s.limited ? '（thresholding/sampling）' : ''}`;
+      : `${s.rows.length} 行${s.truncated ? '（打ち切り）' : ''}${s.limited ? '（thresholding/sampling）' : ''}`;
     console.log(`${TAG} ${name}: ${detail}`);
   }
   console.log(`${TAG} ${week}（${period.startDate}〜${period.endDate}・基線 ${baseline.startDate}〜${baseline.endDate}）区画 ${Object.keys(sections).length} 件中 取得 ${Object.keys(sections).length - failed.length} / 失敗 ${failed.length}`);

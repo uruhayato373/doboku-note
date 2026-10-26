@@ -10,7 +10,7 @@ title: 成長サイクル（GA4 起点の計測→記録→改善）
 
 | 段 | 担当 | 入力 → 出力 |
 |---|---|---|
-| 計測 | CI `fetch-metrics.yml`（金 06:00 JST）の `fetch-growth-pack` | GA4 Data API（landingPage×流入元×channel／pagePath×eventName）と GSCの無次元byProperty全体値とpage／page×query明細を、**前の完了週（月〜日・JST）＋直前28日の基線**で取得 → `data/analysis/growth/pack-YYYY-Www.json`。GSC明細は国で絞るため検索語の分かる分だけの部分集計（匿名化分を含まない・DN-0759）。取り方を変えたページ別の合計と byPage 全体の比を `gscPageCoverageWeek` に残す（DN-0806） |
+| 計測 | CI `fetch-metrics.yml`（金 06:00 JST）の `fetch-growth-pack` | GA4 Data API（landingPage×流入元×channel／pagePath×eventName）と GSCの無次元byProperty全体値とpage／page×query明細を、**前の完了週（月〜日・JST）＋直前28日の基線**で取得 → `data/analysis/growth/pack-YYYY-Www.json`。GSCのページ別（`gscPageWeek`/`gscPageBase`）は国の条件なしで取る（国で絞ると検索語の分かる分だけになり byPage 全体の約25%・DN-0759。日本以外の行を含む・DN-0806）。ページ×検索語は country=jpn。急落・減衰はこのページ別で判定し、減衰は同じ取り方の週だけを並べる（旧パックは国で絞った取り方）。ダイジェストが byPage 全体に対する割合を出す |
 | 計測（外部） | 同 `fetch-bing-webmaster`・`ga4-admin-api check` | Bing の実クリック・表示 → `metrics/bing/`／GA4 管理設定（ディメンション・キーイベント・保持）→ `metrics/ga4-admin/inventory-latest.json` |
 | 分析 | 同 `build-growth-digest`（オフライン・決定的） | パック×収益カバレッジ×Bing×実験台帳×triage-log → `metrics/growth/digest-YYYY-Www.json`（安定 ID `OPP-…` 付きの機会） |
 | 意味の判断 | 土曜の Mac の GSC の記録層（週次レビューの前段・旧 CI の `gsc-auto-review.yml`・DN-0849）の `metrics-analyzer` | ダイジェストの `OPP-…` を引用して「なぜ・何を確かめるか」を足す（再抽出しない） |
