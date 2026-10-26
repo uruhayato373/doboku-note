@@ -8,6 +8,14 @@ title: 計測・検証事故の記録
 
 個別事例は時系列の逆順（新しい順）で追記する。各事例は「現象 / 根本原因 / 気づきの遅延理由（or 検出経緯）/ 適用した対策 / 教訓」を明記する。
 
+## 2026-10-26 — YouTube Analytics の管理画面読取は型検査だけでは成立しなかった
+
+- 現象: `youtube.analytics` の型・管理画面の TypeScript 検査は通ったが、`tsx` で `/metrics/video` の読取関数を実行すると `ERR_REQUIRE_ASYNC_MODULE` になった。
+- 根本原因: 管理画面が import する取得スクリプトに top-level `await` があり、`tsx` の CJS 変換で読めなかった。
+- 検出経緯: CI の初回記録を取得後、管理画面の実データ読取をローカルで実行して発見した。型検査は実行時の import 形式を確認していなかった。
+- 対策: 取得スクリプトの直起動を `main().catch(...)` に替え、`tests/youtube-analytics.test.mjs` に管理画面読取関数の `tsx` 実行を加えた。
+- 教訓: スクリプトを管理画面から再利用するときは、Zod と `tsc` に加えて実際の読取経路を一度実行する。
+
 ## 2026-10-25 — ココナラの検索結果を 1 件も読めないまま「完了」とし、前回の 1,548 件を空で上書きした
 
 - 現象: 10/25 に competitor-scan を手動で流したところ、ココナラの段は成功と出た。しかし `coconala-research --refresh` は、検索のヒットが 195・1,091 件あるのに出品カードを 0 件しか読めず（`pagesScanned: 0`・`complete: true`）、`market-research.json`（10/01 の出品 1,548 件）と `market-summary.json` を空で上書きした。続く `scout-coconala-competitors` は出品をその検索結果から引くため、23 セラーとも出品 0 件の snapshot を書いた。develop に入った後、`dataset-schemas-market` のテスト 3 本（実データに 1 件以上ある前提）が赤くなり、無関係な PR #1226 の CI も落ちた。

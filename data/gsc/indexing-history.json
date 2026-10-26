@@ -1385,6 +1385,44 @@
         "/practice/open-geospatial-data",
         "/practice/polymer-construction-materials"
       ]
+    },
+    {
+      "runId": "2026-10-26T10-25-55Z",
+      "collectedAt": "2026-10-26T10:25:56.000Z",
+      "mode": "dry-run",
+      "status": "dry-ok",
+      "filter": {
+        "category": null,
+        "group": null
+      },
+      "inspected": 1,
+      "accepted": 0,
+      "alreadyIndexed": 0,
+      "unreadable": 0,
+      "slugs": [
+        "/exam/pe-first-stage/guide/r08-answers"
+      ],
+      "acceptedSlugs": []
+    },
+    {
+      "runId": "2026-10-26T10-26-12Z",
+      "collectedAt": "2026-10-26T10:26:12.438Z",
+      "mode": "commit",
+      "status": "ok",
+      "filter": {
+        "category": null,
+        "group": null
+      },
+      "inspected": 1,
+      "accepted": 1,
+      "alreadyIndexed": 0,
+      "unreadable": 0,
+      "slugs": [
+        "/exam/pe-first-stage/guide/r08-answers"
+      ],
+      "acceptedSlugs": [
+        "/exam/pe-first-stage/guide/r08-answers"
+      ]
     }
   ]
 }

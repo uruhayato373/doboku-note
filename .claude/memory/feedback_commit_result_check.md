@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: feedback
   originSessionId: 3c72cd1c-c293-47b9-b4e5-0885769894f1
-  modified: 2026-10-12T08:47:15.690Z
+  modified: 2026-10-26T10:37:14.197Z
 ---
 
 コマンドの成否は、出力の見た目でなく実体で確かめる。
@@ -18,6 +18,7 @@ metadata:
 - `npm run todo:complete … --commit` は backlog.md・dispatch-log.json に加えて、週間計画に行があれば `.claude/todo/weekly.md` も書き換える。2 つだけ pathspec で commit して weekly.md を残し、develop の backlog-schema（weekly-ref）が赤になった（2026-10-12・DN-0654）。完了の後は `git status --short .claude/todo .claude/state/dispatch` で書き換わった全ファイルを見て commit する
 - 実データ（計画 JSON など）を複製して作るテストは、後で同じ実データに書いた値を引き継ぐ。`salesAdjacencyReason` を計画に書いた直後に「理由が無ければ NG」のテストが落ち、develop が赤になった（2026-10-12・#1013）。複製したら検査対象の欄を先に消してから変える。仕様（cards.json）を消したら、同じ物を指す台帳（x-card-render.json）の行も同じコミットで消す
 - `git status` の一覧から add するファイルを作らない。ローカルで `quality-audit` を回すと `.claude/state/quality/figure-crop-report.json`・`.claude/state/svg-audit.json` などを書き換え、一覧に紛れて自分の変更と一緒に commit した（2026-10-21・taxonomy PR。push 前に amend で外した）。add は自分が編集したファイルの一覧から作り、commit 後に `git show --stat HEAD` で入ったファイルを見る
+- `todo-complete … | grep … | tail -3` の後に `;` で commit と push を続けると、完了処理が FAIL（docs が DN を参照している・claim が無い）でも claim だけのコミットが「完了にする」の題で push される（2026-10-26・DN-0871 の fcd42bc50。直後に完了をやり直した）。完了処理と commit は `&&` でつなぐか、完了処理の結果を見てから commit する。完了処理の前に `todo-claim --owner` が要り、カードの DN を docs が参照していると止まる
 
 **Why:** 緑に見える出力と実体の食い違いは、後から気づくほど手戻りが大きい（[[feedback_gate_zero_coverage_false_pass]] と同じ構造）。
 **How to apply:** commit・push・rebase・Workflow 起動の直後に、HEAD・origin・args の実体を 1 回見る。

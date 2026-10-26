@@ -155,6 +155,17 @@ https://note.com/dobokunote/m/m476ad50d2942
 
 ---
 
+## これから第一次試験を受ける人へ
+
+二次の建設部門へ進む前に、第一次試験（基礎・適性・専門 建設部門）がある人向けの教材です。一次は四肢択一なので、過去問を年度ごとに解いて全選択肢の正誤理由まで確かめるのが近道です。
+
+- [技術士 第一次試験 過去問PDF 合本](https://note.com/dobokunote/n/n466132e6fd74) — 令和元〜7年度の全560問を、全選択肢の解説つきで紙でも解ける形にまとめました
+- [技術士 第一次試験 直前暗記ノート](https://note.com/dobokunote/n/n7b4f17a09d3f) — 3科目の数値・定義を一問一答156問で確認できます
+- [技術士 第一次試験 直前パック](https://note.com/dobokunote/m/mfa3fcffdd85d) — 過去問PDFと暗記ノートのセットです
+- [サイトの過去問演習（無料）](https://doboku-note.com/tools/kakomon-quiz/pe-first-stage?utm_source=note&utm_medium=referral&utm_campaign=102-pe-construction-index) — 年度・科目を選んでその場で解けます
+
+---
+
 ## 目的から逆引き
 
 - **必須科目Iの型と模範解答がほしい** → [必須科目I 模範解答集](https://note.com/dobokunote/m/m0f3bc3933454)
@@ -162,6 +173,7 @@ https://note.com/dobokunote/m/m476ad50d2942
 - **選択科目が道路以外** → 必須Iとセットの [トンネル](https://note.com/dobokunote/m/m2029e394e260)・[都市計画](https://note.com/dobokunote/m/m5f63da67c0f3)・[河川砂防](https://note.com/dobokunote/m/m99468c7c717f)・[鋼コン](https://note.com/dobokunote/m/m56b2dcc4cca2)・[土質基礎](https://note.com/dobokunote/m/m621daa62a087)・[鉄道](https://note.com/dobokunote/m/m98f92c18412e)・[建設環境](https://note.com/dobokunote/m/me506e9bdde6a)・[港湾空港](https://note.com/dobokunote/m/m64bd0cbd7111)・[施工計画](https://note.com/dobokunote/m/m8bc3c8660afb)・[電力土木](https://note.com/dobokunote/m/m476ad50d2942) まるごと合格パックが割安（全11科目）
 - **自分の選択科目の模範解答がほしい** → 上の「選択科目の模範解答」から該当科目を
 - **発注者・合格者視点の解答を読みたい** → 道路・河川・都市計画は合格者解答、他科目は発注者監修
+- **まだ第一次試験の前** → 上の「これから第一次試験を受ける人へ」から過去問PDFと無料の演習を
 
 ---
 

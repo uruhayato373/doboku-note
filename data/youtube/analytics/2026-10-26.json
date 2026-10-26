@@ -1,0 +1,109 @@
+{
+  "schemaVersion": 1,
+  "fetchedAt": "2026-10-26T10:27:32.439Z",
+  "source": "youtube-analytics-api-v2",
+  "channelId": "UCHRnXPqoc0Hls8nXiK_ZYqA",
+  "period": {
+    "startDate": "2026-09-27",
+    "endDate": "2026-10-24"
+  },
+  "coverage": {
+    "targets": 3,
+    "measured": 3,
+    "noData": 0
+  },
+  "videos": [
+    {
+      "publicationId": "civil-construction-2/anzen-touan-gutaika-kaitei/youtube.longform",
+      "videoId": "GCyAWGoJthU",
+      "packId": "anzen-touan-gutaika-kaitei",
+      "kind": "longform",
+      "state": "measured",
+      "views": 17,
+      "averageViewDurationSec": 62,
+      "averageViewPercentage": 61.42999999999999,
+      "trafficSources": [
+        {
+          "type": "NO_LINK_OTHER",
+          "views": 1
+        },
+        {
+          "type": "YT_SEARCH",
+          "views": 14
+        },
+        {
+          "type": "RELATED_VIDEO",
+          "views": 1
+        },
+        {
+          "type": "EXT_URL",
+          "views": 1
+        }
+      ]
+    },
+    {
+      "publicationId": "civil-construction-2/gakka-2kyu-doko/youtube.longform",
+      "videoId": "lNI2f_SjCTk",
+      "packId": "gakka-2kyu-doko",
+      "kind": "longform",
+      "state": "measured",
+      "views": 31,
+      "averageViewDurationSec": 63,
+      "averageViewPercentage": 65.25,
+      "trafficSources": [
+        {
+          "type": "NO_LINK_OTHER",
+          "views": 1
+        },
+        {
+          "type": "SUBSCRIBER",
+          "views": 4
+        },
+        {
+          "type": "YT_CHANNEL",
+          "views": 4
+        },
+        {
+          "type": "YT_SEARCH",
+          "views": 4
+        },
+        {
+          "type": "RELATED_VIDEO",
+          "views": 18
+        }
+      ]
+    },
+    {
+      "publicationId": "civil-construction-2/hinshitsu-touan-gutaika/youtube.longform",
+      "videoId": "7fEJR-WD8Ng",
+      "packId": "hinshitsu-touan-gutaika",
+      "kind": "longform",
+      "state": "measured",
+      "views": 20,
+      "averageViewDurationSec": 37,
+      "averageViewPercentage": 33.34,
+      "trafficSources": [
+        {
+          "type": "NO_LINK_OTHER",
+          "views": 0
+        },
+        {
+          "type": "SUBSCRIBER",
+          "views": 1
+        },
+        {
+          "type": "YT_CHANNEL",
+          "views": 1
+        },
+        {
+          "type": "YT_SEARCH",
+          "views": 15
+        },
+        {
+          "type": "RELATED_VIDEO",
+          "views": 3
+        }
+      ]
+    }
+  ]
+}

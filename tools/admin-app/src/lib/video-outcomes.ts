@@ -3,6 +3,12 @@ import { existsSync, readFileSync } from 'node:fs';
 import { STAGE_LABELS } from '../../../../scripts/lib/content-lifecycle.mjs';
 import { loadRegistry } from '../../../../scripts/lib/content-registry.mjs';
 import { datasetDir } from '../../../../scripts/lib/datasets.mjs';
+import { readDataset, readLatest } from '../../../../scripts/lib/dataset-io.mjs';
+import { YoutubeAnalytics } from '../../../../scripts/lib/dataset-schemas.mjs';
+import type { z } from 'zod';
+import { youtubePublications } from '../../../../scripts/lib/registry-youtube-view.mjs';
+import { checkAnalyticsSnapshot } from '../../../../scripts/check-youtube-analytics.mjs';
+import { analyticsTargets } from '../../../../scripts/youtube-analytics.mjs';
 import { loadVideoState } from '../../../../scripts/lib/registry-video-state.mjs';
 import {
   loadConfig as loadVideoConfig,
@@ -66,7 +72,17 @@ export interface VideoOutcomes {
   };
   /** パックに紐づかない campaign（note/X 等の既存 UTM。参考表示用） */
   otherCampaigns: { campaign: string; sessions: number; activeUsers: number }[];
-  /** 公開実体の照合（verify-video-publication が CI で書く記録）。未実行と異常0件を区別する */
+  /** 台帳の公開IDで結んだYouTube Analytics。APIの空行は0ではなくno-data。 */
+  youtubeAnalytics: {
+    ok: boolean;
+    reason: string | null;
+    fetchedAt: string | null;
+    period: { startDate: string; endDate: string } | null;
+    targets: number;
+    measured: number;
+    videos: z.infer<typeof YoutubeAnalytics>['videos'];
+  };
+  /** 公開実体の照合記録。未実行と異常0件を区別する */
   verification: {
     exists: boolean;
     verifiedAt: string | null;
@@ -182,6 +198,17 @@ export function videoOutcomes(): VideoOutcomes {
   const root = findRepoRoot();
   const rows: VideoOutcomeRow[] = [];
 
+  const youtubeFile = readLatest(root, 'youtube.analytics');
+  const youtubeParsed = youtubeFile ? YoutubeAnalytics.safeParse(youtubeFile.data) : null;
+  const youtubeTargets = analyticsTargets(youtubePublications(root));
+  const youtubeChannelId = readDataset(root, 'config.youtube-formats').channel.id;
+  const youtubeCheck = checkAnalyticsSnapshot(youtubeFile?.data ?? null, youtubeTargets, { channelId: youtubeChannelId });
+  const youtubeAnalytics: VideoOutcomes['youtubeAnalytics'] = youtubeParsed?.success && youtubeCheck.errors.length === 0
+    ? { ok: true, reason: null, fetchedAt: youtubeParsed.data.fetchedAt, period: youtubeParsed.data.period,
+        targets: youtubeCheck.targets, measured: youtubeCheck.measured, videos: youtubeParsed.data.videos }
+    : { ok: false, reason: youtubeCheck.errors.join(' / '), fetchedAt: null, period: null,
+        targets: youtubeCheck.targets, measured: youtubeCheck.measured, videos: [] };
+
   // ── 1) 企画 × 派生物の公開状態 ──
   const packs = loadPackSummaries(root, loadVideoConfig(root)) as {
     packId: string; exam: string; slug: string; title: string; stage: string | null; cta: string | null;
@@ -284,7 +311,7 @@ export function videoOutcomes(): VideoOutcomes {
       a.packId.localeCompare(b.packId),
   );
 
-  return { rows, metrics, otherCampaigns, verification: readVerification() };
+  return { rows, metrics, otherCampaigns, youtubeAnalytics, verification: readVerification() };
 }
 
 export { STAGE_LABELS };

@@ -1,176 +1,23 @@
 {
   "schemaVersion": 1,
-  "runId": "2026-10-24T01-30-07Z",
-  "collectedAt": "2026-10-24T01:30:07.177Z",
+  "runId": "2026-10-26T10-26-12Z",
+  "collectedAt": "2026-10-26T10:26:12.438Z",
   "property": "sc-domain:doboku-note.com",
   "mode": "commit",
-  "scriptVersion": "dc001e664",
+  "scriptVersion": "5a619cf04",
   "filter": {
     "category": null,
     "group": null
   },
   "limit": 10,
-  "targetCount": 206,
+  "targetCount": 1,
   "items": [
     {
-      "slug": "/practice/development-permit-public-facilities",
-      "url": "https://doboku-note.com/practice/development-permit-public-facilities",
+      "slug": "/exam/pe-first-stage/guide/r08-answers",
+      "url": "https://doboku-note.com/exam/pe-first-stage/guide/r08-answers",
       "inspected": {
         "state": "not-indexed",
         "reason": "URL が Google に認識されていません",
-        "lastCrawl": null,
-        "discoveredVia": "sitemap",
-        "crawlAllowed": null,
-        "indexingAllowed": null
-      },
-      "request": {
-        "requested": true,
-        "status": "accepted"
-      },
-      "reachedVerdict": true
-    },
-    {
-      "slug": "/practice/explaining-to-residents-and-council",
-      "url": "https://doboku-note.com/practice/explaining-to-residents-and-council",
-      "inspected": {
-        "state": "not-indexed",
-        "reason": "検出 - インデックス未登録",
-        "lastCrawl": null,
-        "discoveredVia": "sitemap",
-        "crawlAllowed": null,
-        "indexingAllowed": null
-      },
-      "request": {
-        "requested": true,
-        "status": "accepted"
-      },
-      "reachedVerdict": true
-    },
-    {
-      "slug": "/practice/land-acquisition-compensation",
-      "url": "https://doboku-note.com/practice/land-acquisition-compensation",
-      "inspected": {
-        "state": "not-indexed",
-        "reason": "検出 - インデックス未登録",
-        "lastCrawl": null,
-        "discoveredVia": "sitemap",
-        "crawlAllowed": null,
-        "indexingAllowed": null
-      },
-      "request": {
-        "requested": true,
-        "status": "accepted"
-      },
-      "reachedVerdict": true
-    },
-    {
-      "slug": "/practice/municipal-civil-engineer-work",
-      "url": "https://doboku-note.com/practice/municipal-civil-engineer-work",
-      "inspected": {
-        "state": "not-indexed",
-        "reason": "検出 - インデックス未登録",
-        "lastCrawl": null,
-        "discoveredVia": "sitemap",
-        "crawlAllowed": null,
-        "indexingAllowed": null
-      },
-      "request": {
-        "requested": true,
-        "status": "accepted"
-      },
-      "reachedVerdict": true
-    },
-    {
-      "slug": "/practice/municipal-engineer-qualifications",
-      "url": "https://doboku-note.com/practice/municipal-engineer-qualifications",
-      "inspected": {
-        "state": "not-indexed",
-        "reason": "検出 - インデックス未登録",
-        "lastCrawl": null,
-        "discoveredVia": "sitemap",
-        "crawlAllowed": null,
-        "indexingAllowed": null
-      },
-      "request": {
-        "requested": true,
-        "status": "accepted"
-      },
-      "reachedVerdict": true
-    },
-    {
-      "slug": "/practice/municipal-gis",
-      "url": "https://doboku-note.com/practice/municipal-gis",
-      "inspected": {
-        "state": "not-indexed",
-        "reason": "検出 - インデックス未登録",
-        "lastCrawl": null,
-        "discoveredVia": "sitemap",
-        "crawlAllowed": null,
-        "indexingAllowed": null
-      },
-      "request": {
-        "requested": true,
-        "status": "accepted"
-      },
-      "reachedVerdict": true
-    },
-    {
-      "slug": "/practice/national-prefecture-municipal-roles",
-      "url": "https://doboku-note.com/practice/national-prefecture-municipal-roles",
-      "inspected": {
-        "state": "not-indexed",
-        "reason": "検出 - インデックス未登録",
-        "lastCrawl": null,
-        "discoveredVia": "sitemap",
-        "crawlAllowed": null,
-        "indexingAllowed": null
-      },
-      "request": {
-        "requested": true,
-        "status": "accepted"
-      },
-      "reachedVerdict": true
-    },
-    {
-      "slug": "/practice/nature-oriented-river-works",
-      "url": "https://doboku-note.com/practice/nature-oriented-river-works",
-      "inspected": {
-        "state": "not-indexed",
-        "reason": "検出 - インデックス未登録",
-        "lastCrawl": null,
-        "discoveredVia": "sitemap",
-        "crawlAllowed": null,
-        "indexingAllowed": null
-      },
-      "request": {
-        "requested": true,
-        "status": "accepted"
-      },
-      "reachedVerdict": true
-    },
-    {
-      "slug": "/practice/open-geospatial-data",
-      "url": "https://doboku-note.com/practice/open-geospatial-data",
-      "inspected": {
-        "state": "not-indexed",
-        "reason": "URL が Google に認識されていません",
-        "lastCrawl": null,
-        "discoveredVia": "sitemap",
-        "crawlAllowed": null,
-        "indexingAllowed": null
-      },
-      "request": {
-        "requested": true,
-        "status": "accepted"
-      },
-      "reachedVerdict": true
-    },
-    {
-      "slug": "/practice/polymer-construction-materials",
-      "url": "https://doboku-note.com/practice/polymer-construction-materials",
-      "inspected": {
-        "state": "not-indexed",
-        "reason": "検出 - インデックス未登録",
         "lastCrawl": null,
         "discoveredVia": "sitemap",
         "crawlAllowed": null,
@@ -185,8 +32,8 @@
   ],
   "status": "ok",
   "summary": {
-    "inspected": 10,
-    "accepted": 10,
+    "inspected": 1,
+    "accepted": 1,
     "alreadyIndexed": 0,
     "unreadable": 0
   }

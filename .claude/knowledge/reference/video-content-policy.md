@@ -18,7 +18,7 @@ title: 動画コンテンツ運用ポリシー
 | 再生成可能バイナリ | Google Drive vault `制作物/動画レンダー/`（`video-render-artifact`。人しか使わない＝サイトも CI も読まない。真実源 [asset-storage-policy.md](asset-storage-policy.md) §1） | mp4、wav、字幕、frame、生成済み画像 |
 | 戦略・判断 | `docs/marketing/06_動画コンテンツ運用設計.md` | 優先順位、KPI、段階実装 |
 | 動画の型と採否・自社チャンネル | `config/youtube-formats.json`（台帳 `config.youtube-formats`） | 型（単論点・図解・総まとめ・一問一答 等）の status・尺・送り先・根拠・判断カード |
-| チャンネルの数値の記録 | `data/youtube/own-videos/{date}.json`（月次・`npm run youtube-own-metrics`）・`data/youtube/competitors/{date}.json`（四半期・`npm run scout-youtube-competitors`） | 動画ごとの累計再生・尺、型ごとの要約、競合の尺・題名の語ごとの再生中央値と前回比 |
+| チャンネルの数値の記録 | `data/youtube/own-videos/{date}.json`（月次・`npm run youtube-own-metrics`）・`data/youtube/analytics/{date}.json`（28日窓・`npm run youtube-analytics`）・`data/youtube/competitors/{date}.json`（四半期・`npm run scout-youtube-competitors`） | 一覧の累計再生・尺、Analytics APIの平均視聴時間・視聴率・流入元、競合の再生中央値と前回比。Analytics はOAuth検証後にCIを有効化する。サムネイルのインプレッション・CTRはAnalytics APIで取得できないため別の取得元が要る |
 
 制作意図と可変状態を同じJSONに保存しない。公開の状態はコンテンツ台帳（`content/registry/`）が持つ（旧 Shorts の台帳 `youtube-schedule.json` は取り込んで 2026-10-09 に消した）。
 
@@ -288,12 +288,12 @@ manifest parse失敗、sourceRefs未解決、status parse失敗はFAIL（PASSに
 |---|---|
 | `/content/video` | 企画ボード（資格・段階フィルタ・QA 点・台本/構成の有無・主 CTA） |
 | `/content/lifecycle` | 全チャネル共通ステージ横断（企画→下書き→公開） |
-| `/metrics/video` | 動画成果（派生物ごとの公開状態 × GA4 送客・`utm_campaign = packId` で join） |
+| `/metrics/video` | 動画成果（派生物の公開状態 × YouTube視聴・流入元 × GA4送客。動画IDと`utm_campaign = packId`で結合） |
 | `/sns` の「動画パック 派生物」節 | SNS 投稿状況との join |
 
 行の組み立ては `scripts/lib/video-content-check.mjs` の `loadPackSummaries`、状態の共通ステージ写像は `scripts/lib/content-lifecycle.mjs`（[content-lifecycle.md](./content-lifecycle.md)）が唯一の実装で、CLI・admin が同じものを使う。
 
-**計測は CI 供給が正**（会社 PC からライブ API を叩かない）。`fetch-metrics.yml` の「Fetch GA4 (campaign, 28d…)」が `ga4.campaign` を週次で供給し、`/metrics/video` はそれを読むだけ。**スナップショット未取得は 0 件として扱わず「未取得」と表示する**（送客ゼロと区別）。配線（fetcher の dimension・workflow のステップ・出力名と読み取り prefix の一致）は `tests/video-outcomes-wiring.test.mjs` が固定する。
+**計測は CI 供給が正**（会社 PC からライブ API を叩かない）。`fetch-metrics.yml` が `ga4.campaign` を週次で供給する。YouTube Analytics は GitHub Actions secret `YOUTUBE_ANALYTICS_ENABLED=true` または手動の `youtube_analytics_probe` で取得し、`check-youtube-analytics` が台帳・対象数・期間・鮮度を照合する。定期実行は main のワークフロー定義を使うため、コードを main へ反映してから有効になる。`/metrics/video` は両 snapshot を読むだけ。**スナップショット未取得・品質ゲート不成立は 0 件として扱わず「未取得」と表示する**。GA4の配線は `tests/video-outcomes-wiring.test.mjs`、YouTubeの型と品質ゲートは `tests/youtube-analytics.test.mjs` が固定する。
 
 **旧 Shorts（台帳の kind `legacy-short`・旧台帳 `youtube-schedule.json` は 2026-10-09 に消した）は動画パックと別系統**。IG 過去問パック由来のlegacy 200本（13 uploaded・187 retired）で、再開しない。DN-0110の承認済み112パックから派生する224本は各 `youtube.json.shorts[]` が計画、コンテンツ台帳（`content/registry/`）が実行状態の正本（`loadVideoState` の `derivatives.shorts[]` は台帳から作る形）。`prepare → render → private R2 stage → API private upload → Studioで関連動画設定 → API予約` の順で進め、画面でも2系統を混ぜない。
 
