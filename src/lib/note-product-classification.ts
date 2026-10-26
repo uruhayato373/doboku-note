@@ -10,7 +10,7 @@ const MATERIAL_RULES = [
   ['pdf', /takuitsu.*pdf$/],
   ['notes', /anki-note$|ichiji-ronten$|r8-bunseki$/],
   ['practice', /mock3-pdf$|mix-.*practice$|r8-mc-50$|takuitsu-yosou-50$|^r8-essay-forecast$/],
-  ['written', /^essay-.*-magazine$|experience-essay$|pastexam-essay$|combo-essay$|keiken-|koji-bank$|small-infra-|gakka-kijutsu$|essay-reiwa-pack$|^cd-(essay-magazine|structure-case-bank|road-bridge-pack|water-underground-pack|building-facility-pack|problem-[ab]-pack)$|^pe-construction-.*-magazine$|^rccm-mondai[13]-|^setsumon3-|^tradeoff-/],
+  ['written', /^essay-.*-magazine$|experience-essay$|pastexam-essay$|combo-essay$|keiken-|koji-bank$|small-infra-|gakka-kijutsu$|essay-reiwa-pack$|essay-mokuji$|^cd-(essay-magazine|structure-case-bank|road-bridge-pack|water-underground-pack|building-facility-pack|problem-[ab]-pack)$|^pe-construction-.*-magazine$|^rccm-mondai[13]-|^setsumon3-|^tradeoff-/],
   ['pack', /pack$/],
 ] as const;
 

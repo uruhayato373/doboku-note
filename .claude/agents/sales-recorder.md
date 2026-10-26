@@ -170,6 +170,7 @@ productId は `article:<slug>` 形式。slug は商品名から推定:
 | `コンクリート主任技士 小論文 模範答案｜{立場}｜{テーマ}｜令和形式`（立場別 単品 ¥980・2026-10-03〜） | `article:cce-reiwa-{slug}-{theme}`（frontmatter の utmCampaign と同じ。theme は environment／durability／productivity／climate-quality／workforce） |
 | `コンクリート主任技士 小論文 模範答案｜生コン工場｜耐久性`（実務立場別 単品） | `article:cce-persona-namacon-durability` |
 | `コンクリート主任技士 小論文 模範答案｜生コン工場｜環境配慮`（実務立場別 単品） | `article:cce-persona-namacon-environment` |
+| `コンクリート主任技士 小論文｜8つの立場から選ぶ模範答案一覧`（無料の案内記事。売上は発生しない） | `article:cce-essay-mokuji` |
 | `コンクリート主任技士｜令和8年度 四肢択一 予想50問` | `article:cce-r8-mc-50` |
 | `コンクリート主任技士｜四肢択一 直前暗記ノート`（¥980・2026-09-17） | `article:cce-anki-note` |
 | `コンクリート診断士｜四肢択一演習98問 PDF`（¥1,480・2026-09-20） | `article:cd-takuitsu-98-pdf` |
