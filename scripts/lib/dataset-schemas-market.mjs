@@ -9,7 +9,7 @@
  * fetch-a8-ui-csv.mjs と .claude/skills/ads/scout-asp/scripts/a8-browser.ts（A8）。
  */
 import { z } from 'zod';
-import { utcTime, offsetTime, count, yen, orNull, flag, uniqueBy } from './dataset-schema-parts.mjs';
+import { utcTime, offsetTime, jstDate, count, yen, orNull, flag, uniqueBy } from './dataset-schema-parts.mjs';
 
 // ---- 競合の時系列（共通の部品）-----------------------------------------------------------------
 
@@ -792,6 +792,42 @@ export const YoutubeOwnVideos = z
     }
   })
   .meta({ title: '自社 YouTube の動画' });
+
+/** 公開台帳の videoId で結んだ YouTube Analytics API の28日窓。空の API 行は 0 にせず no-data として残す。 */
+export const YoutubeAnalytics = z
+  .object({
+    schemaVersion: z.literal(1),
+    fetchedAt: utcTime('取得時刻'),
+    source: z.literal('youtube-analytics-api-v2'),
+    channelId: z.string().min(1).describe('認証済みの対象チャンネル ID'),
+    period: z.object({ startDate: jstDate('対象期間の開始日'), endDate: jstDate('対象期間の終了日') }).strict(),
+    coverage: z.object({ targets: count('公開台帳で対象になった動画数'), measured: count('基本指標の API 行があった動画数'), noData: count('基本指標の API 行が無かった動画数') }).strict(),
+    videos: z.array(z.object({
+      publicationId: z.string().min(1).describe('コンテンツ台帳の公開 ID'),
+      videoId: z.string().min(1).describe('YouTube 動画 ID'),
+      packId: z.string().min(1).describe('動画パック ID'),
+      kind: z.enum(['longform', 'short']),
+      state: z.enum(['measured', 'no-data']).describe('API の基本指標行の有無'),
+      views: orNull(count('期間内の視聴回数'), 'API 行なしは null（0 回と区別）'),
+      averageViewDurationSec: orNull(z.number().min(0).describe('平均視聴時間（秒）'), 'API 行なしは null'),
+      averageViewPercentage: orNull(z.number().min(0).describe('平均視聴率（%）'), 'API 行なしは null。再視聴で100%を超えうる'),
+      trafficSources: z.array(z.object({ type: z.string().min(1), views: count('期間内の流入元別視聴回数') }).strict()).superRefine(uniqueBy('type', '流入元')).describe('insightTrafficSourceType。API に行が無ければ空配列'),
+    }).strict()).superRefine(uniqueBy('videoId', '動画 ID')),
+  })
+  .strict()
+  .superRefine((s, ctx) => {
+    if (s.period.startDate > s.period.endDate) flag(ctx, ['period'], '開始日が終了日より後');
+    if (s.coverage.targets !== s.videos.length) flag(ctx, ['coverage', 'targets'], '対象数が動画行数と合わない');
+    const measured = s.videos.filter((v) => v.state === 'measured').length;
+    if (s.coverage.measured !== measured || s.coverage.noData !== s.videos.length - measured) flag(ctx, ['coverage'], '取得数と欠測数が動画行と合わない');
+    s.videos.forEach((v, i) => {
+      const values = [v.views, v.averageViewDurationSec, v.averageViewPercentage];
+      if (v.state === 'no-data' && values.some((x) => x !== null)) flag(ctx, ['videos', i], 'no-data の指標は null');
+      if (v.state === 'measured' && values.some((x) => x === null)) flag(ctx, ['videos', i], 'measured の指標は数値');
+      if (v.state === 'no-data' && v.trafficSources.length) flag(ctx, ['videos', i, 'trafficSources'], '基本指標が無いのに流入元の行がある');
+    });
+  })
+  .meta({ title: 'YouTube Analytics の動画別指標' });
 
 const YoutubeCompetitorRow = z
   .object({

@@ -24,6 +24,15 @@ const CAMPAIGN_COLUMNS: DataTableColumn[] = [
   { key: 'users', label: 'ユーザー', num: true },
 ];
 
+const YOUTUBE_COLUMNS: DataTableColumn[] = [
+  { key: 'packId', label: 'packId' },
+  { key: 'kind', label: '形式' },
+  { key: 'views', label: '視聴回数', num: true },
+  { key: 'duration', label: '平均視聴時間（秒）', num: true },
+  { key: 'percentage', label: '平均視聴率（%）', num: true },
+  { key: 'traffic', label: '主な流入元', sortable: false },
+];
+
 /** 送客の数。未取得（null）と 0 を薄い字で区別して出す。 */
 const count = (n: number | null) => (n === null ? <span className="text-muted-foreground">—</span> : n || <span className="text-muted-foreground">0</span>);
 
@@ -34,7 +43,7 @@ const count = (n: number | null) => (n === null ? <span className="text-muted-fo
  * **未取得と 0 件を区別**して表示し、未取得のときに全件 0 の緑を出さない。
  */
 export default async function VideoOutcomesPage() {
-  const { rows, metrics, otherCampaigns, verification } = videoOutcomes();
+  const { rows, metrics, otherCampaigns, youtubeAnalytics, verification } = videoOutcomes();
   const published = rows.filter((r) => r.anyPublished);
   const measurable = metrics.ok ? published.filter((r) => (r.sessions ?? 0) > 0).length : null;
 
@@ -92,12 +101,19 @@ export default async function VideoOutcomesPage() {
     values: { campaign: c.campaign, sessions: c.sessions, users: c.activeUsers },
     cells: { campaign: <span className="font-mono text-xs">{c.campaign}</span> },
   }));
+  const youtubeRows: DataTableRow[] = youtubeAnalytics.videos.map((v) => ({
+    id: v.publicationId,
+    values: { packId: v.packId, kind: v.kind, views: v.views, duration: v.averageViewDurationSec, percentage: v.averageViewPercentage,
+      traffic: v.trafficSources.slice().sort((a, b) => b.views - a.views).slice(0, 3).map((s) => `${s.type} ${s.views}`).join(' / ') || null },
+    cells: { packId: <span className="font-mono text-xs">{v.packId}</span>, views: count(v.views),
+      duration: v.averageViewDurationSec ?? '—', percentage: v.averageViewPercentage ?? '—' },
+  }));
 
   return (
     <>
       <PageHead
         title="動画成果"
-        sub="動画パック × 公開状態 × GA4 送客（utm_campaign = packId で join・read-only）"
+        sub="動画パック × 公開状態 × YouTube視聴 × GA4送客（read-only）"
       />
 
       <nav className="project-crumbs" aria-label="パンくず">
@@ -109,6 +125,21 @@ export default async function VideoOutcomesPage() {
       </nav>
 
       <Stack>
+      <PanelCard title="YouTubeの視聴" description={`YouTube Analytics（${datasetDir('youtube.analytics')}/・CI供給）`}>
+        {youtubeAnalytics.ok ? (
+          <div className="filterbar">
+            <StatusBadge tone="good">取得済み</StatusBadge>
+            <StatusBadge tone="neutral">期間 {youtubeAnalytics.period?.startDate} 〜 {youtubeAnalytics.period?.endDate}</StatusBadge>
+            <StatusBadge tone="neutral">対象 {youtubeAnalytics.targets} 本・指標あり {youtubeAnalytics.measured} 本</StatusBadge>
+          </div>
+        ) : <p><StatusBadge tone="neutral">未取得</StatusBadge> {youtubeAnalytics.reason}</p>}
+        <p className="text-xs text-muted-foreground">APIに行がない動画は「—」。サムネイルの表示回数とCTRはこのAPIの取得対象外。</p>
+      </PanelCard>
+
+      {youtubeAnalytics.ok && <PanelCard title="動画別の視聴" description="公開台帳のYouTube IDで照合した28日窓">
+        <DataTable columns={YOUTUBE_COLUMNS} rows={youtubeRows} filter="packId で絞り込む" />
+      </PanelCard>}
+
       <PanelCard title="計測データ" description={`GA4 の campaign（${datasetDir('ga4.reports')}/・CI 供給）`}>
         {metrics.ok ? (
           <div className="filterbar">
@@ -132,13 +163,12 @@ export default async function VideoOutcomesPage() {
         )}
       </PanelCard>
 
-      <PanelCard title="公開実体の照合" description="verify-video-publication（CI 週次）· .claude/state/video-publication-verify.json">
+      <PanelCard title="公開実体の照合" description="verify-video-publication の直近記録 · .claude/state/video-publication-verify.json">
         {!verification.exists ? (
           <>
             <p><StatusBadge tone="neutral">未実行</StatusBadge></p>
             <p className="text-xs text-muted-foreground">
-              まだ一度も実査していない。公開済みの派生物が出たら CI（🔎 Verify YouTube publish status）が
-              毎週照合し、削除・非公開・概要欄の UTM 欠落・Short の関連動画未設定を検出する。
+              まだ一度も実査していない。公開照合のCIは停止中。再開後は削除・非公開・概要欄のUTM欠落・Shortの関連動画未設定を検出する。
             </p>
           </>
         ) : (

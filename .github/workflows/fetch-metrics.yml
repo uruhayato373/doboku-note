@@ -17,6 +17,10 @@ on:
         description: "develop へ書き戻さず、取得結果を検証用 artifact に保存"
         type: boolean
         default: false
+      youtube_analytics_probe:
+        description: "YouTube Analytics を今回だけ検証する（通常の週次運用は YOUTUBE_ANALYTICS_ENABLED で有効化）"
+        type: boolean
+        default: false
       affiliate_days:
         description: "アフィリエイトのページ別の窓（日数・既定 28）。成果の出どころをさかのぼるときに延ばす"
         required: false
@@ -39,6 +43,8 @@ jobs:
   fetch:
     runs-on: ubuntu-latest
     timeout-minutes: 20
+    env:
+      YOUTUBE_ANALYTICS_ENABLED: ${{ secrets.YOUTUBE_ANALYTICS_ENABLED }}
     steps:
       - name: Checkout develop
         # schedule はデフォルトブランチ（main）を checkout するため、ref を明示しないと
@@ -140,6 +146,19 @@ jobs:
           GOOGLE_SERVICE_ACCOUNT_KEY_PATH: ./credentials/gsc-service-account.json
           GA4_PROPERTY_ID: ${{ secrets.GA4_PROPERTY_ID }}
         run: npm run fetch-ga4-data -- --dimension campaign --days 28 --limit 200
+
+      - name: Fetch YouTube Analytics (published video packs, 28d)
+        id: youtubeanalytics
+        if: ${{ env.YOUTUBE_ANALYTICS_ENABLED == 'true' || inputs.youtube_analytics_probe }}
+        continue-on-error: true
+        env:
+          YOUTUBE_CLIENT_ID: ${{ secrets.YOUTUBE_CLIENT_ID }}
+          YOUTUBE_CLIENT_SECRET: ${{ secrets.YOUTUBE_CLIENT_SECRET }}
+          YOUTUBE_REFRESH_TOKEN: ${{ secrets.YOUTUBE_REFRESH_TOKEN }}
+        run: |
+          set +e
+          npm run youtube-analytics -- --check && npm run youtube-analytics && npm run check-youtube-analytics
+          echo "rc=$?" >> "$GITHUB_OUTPUT"
 
       - name: Fetch GSC
         env:
@@ -482,7 +501,9 @@ jobs:
         env:
           BUSINESS_OUTCOME: ${{ steps.business.outcome }}
           GROWTH_RC: ${{ steps.growth.outputs.rc }}
-        run: test "$BUSINESS_OUTCOME" = success && test "$GROWTH_RC" = 0
+          YOUTUBE_ENABLED: ${{ env.YOUTUBE_ANALYTICS_ENABLED == 'true' || inputs.youtube_analytics_probe }}
+          YOUTUBE_RC: ${{ steps.youtubeanalytics.outputs.rc }}
+        run: test "$BUSINESS_OUTCOME" = success && test "$GROWTH_RC" = 0 && { test "$YOUTUBE_ENABLED" != true || test "$YOUTUBE_RC" = 0; }
 
       - name: Report measurement alerts
         if: ${{ always() && !inputs.validation_only }}
@@ -494,6 +515,8 @@ jobs:
           GROWTH_RC: ${{ steps.growth.outputs.rc }}
           BING_RC: ${{ steps.bing.outputs.rc }}
           GA4ADMIN_RC: ${{ steps.ga4admin.outputs.rc }}
+          YOUTUBE_ENABLED: ${{ env.YOUTUBE_ANALYTICS_ENABLED == 'true' || inputs.youtube_analytics_probe }}
+          YOUTUBE_RC: ${{ steps.youtubeanalytics.outputs.rc }}
           CAREER_FUNNEL_RC: ${{ steps.careerfunnel.outputs.rc }}
           AFFILIATE_BY_PAGE_RC: ${{ steps.affiliatebypage.outputs.rc }}
           AFFILIATE_EXPERIMENT_OUTCOME: ${{ steps.affiliateexperiment.outcome }}
@@ -510,6 +533,7 @@ jobs:
           [ "$GROWTH_RC" = "1" ] && anomalies+=("成長パック（fetch-growth-pack）の取得失敗（区画ごとの error は pack の sections を参照）")
           [ "$BING_RC" = "1" ] && anomalies+=("Bing Webmaster の取得失敗")
           [ "$GA4ADMIN_RC" = "1" ] && anomalies+=("GA4 Admin API の観測失敗")
+          [ "$YOUTUBE_ENABLED" = "true" ] && [ "$YOUTUBE_RC" != "0" ] && invalid+=("YouTube Analytics: 認証・API・対象数・台帳照合のいずれかが不成立（youtube-analytics のログを参照）")
           [ "$CAREER_FUNNEL_RC" = "1" ] && anomalies+=("転職アフィリエイトのファネル（report-career-funnel）の生成失敗")
           [ "$CAREER_FUNNEL_RC" = "2" ] && invalid+=("転職アフィリエイトのファネル: GA4 ラベル別か GSC が無く検査不成立")
           [ "$AFFILIATE_BY_PAGE_RC" = "1" ] && anomalies+=("アフィリエイトのページ別（fetch-ga4-cta-clicks --by-page）の取得失敗か表示 0 件")
