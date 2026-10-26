@@ -303,6 +303,12 @@
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-0875] ココナラ主任技士添削とnote自己紹介から11/29直前期の文言を外す
+タグ: [領域:商品] [時期:2026-11] [種類:改善] [起票:2026-10-26] [期日:2026-11-30]
+
+試験（11/29）後に、config/coconala-listings.json の coconala-cce-essay-tensaku の body から【本試験（11/29）前の返却について】の節を削除し、npm run coconala-edit -- --service coconala-cce-essay-tensaku --fields body（dry-run）→ 同 --commit → npm run check-coconala-live で緑を確認する。あわせて content/note/プロフィール.md の採用版（直前期案内）を次の版へ替え、note の自己紹介欄へ手で反映する。
+
+
 ### [DN-0872] 主任技士の試験後（11/30〜合格発表 2027-01-15）の受け皿を作る: 令和8年度の小論文の出題をガイドへ追記し、合格発表待ちの読者の導線を決める
 タグ: [コンテンツ品質] [領域:教材] [時期:2026-12] [種類:制作] [起票:2026-10-26]
 

@@ -14,10 +14,10 @@ import { jstDayTime, jstLabel, jstMonth } from './jst-date.mjs';
 import { MEDIA_ROOT } from './media-paths.mjs';
 
 /** 画面確認（音声なし）で見る素材の役割。visualDigest はこの役割の sha を並べる（長尺のコンタクトシートは contact-sheet-2 以降に続く） */
-export const VISUAL_ROLES = ['cover', 'cta', 'contact-sheet', 'preview', 'preview-metrics'];
+export const VISUAL_ROLES = ['cover', 'cta', 'scene-sheet', 'contact-sheet', 'preview', 'preview-metrics'];
 export const isVisualRole = (role) => VISUAL_ROLES.includes(role) || /^(contact-sheet-\d+|scene-\d+)$/.test(role);
 /** 画面に出す順（画面が先、音声は後） */
-const ROLE_ORDER = ['cover', 'scene', 'cta', 'preview-metrics', 'contact-sheet', 'preview', 'video', 'subtitles'];
+const ROLE_ORDER = ['cover', 'scene', 'cta', 'preview-metrics', 'scene-sheet', 'contact-sheet', 'preview', 'video', 'subtitles'];
 const roleRank = (role) => (/^scene-\d+$/.test(role) ? ROLE_ORDER.indexOf('scene') + Number(role.split('-').pop()) / 10000 : ROLE_ORDER.includes(role) ? ROLE_ORDER.indexOf(role) : /^contact-sheet-\d+$/.test(role) ? ROLE_ORDER.indexOf('contact-sheet') + Number(role.split('-').pop()) / 1000 : ROLE_ORDER.length);
 
 /**

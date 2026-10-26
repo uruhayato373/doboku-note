@@ -355,6 +355,25 @@
       ]
     },
     {
+      "id": "youtube-single-publish",
+      "runner": "github-actions",
+      "source": ".github/workflows/youtube-single-publish.yml",
+      "title": "承認済み YouTube 通常動画の個別予約",
+      "group": "manual",
+      "triggers": [
+        "workflow_dispatch"
+      ],
+      "schedule": [],
+      "login": [],
+      "purpose": "公開IDと入力digestを固定し、private R2のintent・YouTube API実査を経て予約する",
+      "readers": [
+        "human"
+      ],
+      "writes": [
+        "registry.youtube"
+      ]
+    },
+    {
       "id": "r2-delete",
       "runner": "github-actions",
       "source": ".github/workflows/r2-delete.yml",

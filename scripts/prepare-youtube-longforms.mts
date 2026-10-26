@@ -6,6 +6,7 @@
  * --metadata: レンダー実体を検証して youtube.json を生成し、status を rendered にする。
  * --report:   予約一覧を TSV で表示する（書き込みなし）。
  * --scope compilation --pack-id ID --publish-at ISO: 総まとめ（compilation.json）1本を予約に載せる。
+ * --scope single --pack-id ID --publish-at ISO: QA済み通常動画1本のmetadataを作る（承認状態は変えない）。
  *   civil/concrete の予約（DN-0110 の承認済み112本）には総まとめを混ぜない。
  *   承認前の --metadata は youtube.json だけを書き、state（approvedBy・rendered）は変えない。
  */
@@ -30,7 +31,7 @@ const CHANNEL = { id: 'UCHRnXPqoc0Hls8nXiK_ZYqA', title: 'doboku-note' } as cons
 const PRODUCTION_DISCLOSURE = readDataset(ROOT, 'config.youtube-production-disclosure');
 const TARGET_EXAMS = [
   'civil-construction-1', 'civil-construction-2',
-  'concrete-engineer', 'concrete-chief-engineer',
+  'concrete-engineer', 'concrete-chief-engineer', 'pe-first-stage',
 ] as const;
 
 type TargetExam = (typeof TARGET_EXAMS)[number];
@@ -81,6 +82,17 @@ function buildCompilationSchedule() {
     return [{ dir, manifest: readJsonAt(join(dir, 'video-pack.json')) as Manifest, publishAt: publishAtArg }];
   }
   throw new Error(`総まとめパックがない: ${onlyPackId}`);
+}
+
+function buildSingleSchedule() {
+  if (!onlyPackId || !publishAtArg) throw new Error('--scope single には --pack-id と --publish-at が要る');
+  if (!Number.isFinite(new Date(publishAtArg).getTime())) throw new Error(`--publish-at が ISO 日時ではない: ${publishAtArg}`);
+  for (const exam of TARGET_EXAMS) {
+    const dir = join(PACKS_ROOT, exam, onlyPackId);
+    if (!existsSync(join(dir, 'video-pack.json')) || existsSync(join(dir, 'compilation.json'))) continue;
+    return [{ dir, manifest: readJsonAt(join(dir, 'video-pack.json')) as Manifest, publishAt: publishAtArg }];
+  }
+  throw new Error(`通常動画パックがない: ${onlyPackId}`);
 }
 
 const oneKyuEarly = [
@@ -208,7 +220,8 @@ function buildSchedule(state: any) {
   if (scope === 'civil') return buildCivilSchedule(state);
   if (scope === 'concrete') return buildConcreteSchedule();
   if (scope === 'compilation') return buildCompilationSchedule();
-  throw new Error(`未知の --scope: ${scope}（civil|concrete|compilation）`);
+  if (scope === 'single') return buildSingleSchedule();
+  throw new Error(`未知の --scope: ${scope}（civil|concrete|compilation|single）`);
 }
 
 function cta(manifest: Manifest) {
@@ -273,13 +286,14 @@ const EXTRA_KEYWORD: Record<TargetExam, string> = {
   'civil-construction-2': '土木施工管理技士', // qualification-ssot: allow YouTube の追加検索語で資格名ではない
   'concrete-engineer': 'コンクリート', // qualification-ssot: allow YouTube の追加検索語で資格名ではない
   'concrete-chief-engineer': 'コンクリート', // qualification-ssot: allow YouTube の追加検索語で資格名ではない
+  'pe-first-stage': '技術士', // qualification-ssot: allow YouTube の追加検索語で資格名ではない
 };
 function examMeta(exam: TargetExam) {
   const label = qualificationShortLabel(REGISTRY, exam);
   const extra = EXTRA_KEYWORD[exam];
   // 動画タグは「正式名・短い名前」、短い名前が正式名と同じならファミリーの語を足す（従来の並びと同じ）
   const tags = [...new Set([qualificationLabel(REGISTRY, exam), label, ...(label === qualificationLabel(REGISTRY, exam) ? [extra] : [])])];
-  return { label, tags, hashtags: `#${label} #${extra} #試験対策` };
+  return { label, tags, hashtags: `#${label.replace(/\s+/g, '')} #${extra} #試験対策` };
 }
 
 function clock(sec: number) {
@@ -351,7 +365,8 @@ function makeYoutube(dir: string, manifest: Manifest, publishAt: string, existin
 
 async function main() {
   const modes = [flag('--schedule'), flag('--metadata'), flag('--report')].filter(Boolean).length;
-  if (modes !== 1) throw new Error('Usage: npx tsx scripts/prepare-youtube-longforms.mts --schedule|--metadata|--report [--scope civil|concrete|compilation] [--pack-id ID] [--publish-at ISO] [--render-root PATH]');
+  if (modes !== 1) throw new Error('Usage: npx tsx scripts/prepare-youtube-longforms.mts --schedule|--metadata|--report [--scope civil|concrete|compilation|single] [--pack-id ID] [--publish-at ISO] [--render-root PATH]');
+  if (scope === 'single' && flag('--schedule')) throw new Error('--scope single の承認は運営者の registry approve だけで行う');
   // 状態の正本はコンテンツ台帳。読み書きは台帳の入口（registry-video-state.mjs）だけを通す
   const state = loadVideoState(ROOT);
   const schedule = buildSchedule(state);
@@ -372,6 +387,7 @@ async function main() {
     if (!derivative?.qa || derivative.qa.avg < 2 || derivative.qa.blocks !== 0) {
       throw new Error(`${packId}: QA PASS がありません`);
     }
+    if (scope === 'single' && derivative.approvedBy === 'user') throw new Error(`${packId}: 承認後は単発metadataを再生成しない`);
     state.packs[packId] ??= { derivatives: {} };
     if (flag('--schedule')) {
       state.packs[packId].derivatives.longform = {
@@ -398,6 +414,8 @@ async function main() {
   console.log(`${flag('--schedule') ? 'approved' : 'rendered'}: ${updated}本（state を更新した本数）`);
   if (scope === 'compilation') {
     console.log(`総まとめ: ${targets.map((t) => `${t.manifest.packId} ${t.publishAt}`).join(', ')}`);
+  } else if (scope === 'single') {
+    console.log(`通常動画: ${targets.map((t) => `${t.manifest.packId} ${t.publishAt}`).join(', ')}`);
   } else if (scope === 'civil') {
     console.log('1級: 2026-09-08〜2026-10-03 / 65本（既公開1本と合計66本）');
     console.log('2級: 2026-10-05〜2026-10-22 / 18本');

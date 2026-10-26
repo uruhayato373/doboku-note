@@ -5,24 +5,24 @@
       "format": "longform",
       "exam": "pe-first-stage",
       "headline": [
-        "一次試験の3科目",
-        "学ぶ順序をつかむ"
+        "3科目の全体像",
+        "何から学ぶ？"
       ],
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "pop-explaining",
+        "pose": "pop-red-pen",
         "frame": "waist"
       },
-      "design": "pop-v2",
+      "design": "pop-poster-v3",
       "pop": {
-        "variant": "plan",
+        "variant": "question",
         "authority": "総監が制作"
       },
       "approvedImage": {
-        "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
-        "sha256": "1941cd22fa523fcb233e8ab7b8ad756ad7398be8755037b881d8380fb39398f9",
-        "specSha256": "9dd67e35be59715d5494abe2e9fe981f2b3ad13e6e73ec787795cb3fd00db129"
+        "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.abe1a7b7.png",
+        "sha256": "abe1a7b7debc540640b2aacb2f333874901e60f25843dca40579ccd42feb7216",
+        "specSha256": "6f544df0134711b46eede191a786b69574d01554eb6fad2d7279dd8639757239"
       }
     }
   }

@@ -14,6 +14,17 @@ test('replacing a scene image invalidates visual approval even when the cover st
  assert.equal(isVisualRole('video'),false);
 });
 
+test('replacing the exact scene sheet invalidates visual approval',()=>{
+ const media=new Map([['cover',{sha256:'a'.repeat(64)}],['sheet',{sha256:'b'.repeat(64)}]]);
+ const pub={account:'youtube:main',format:'longform',media:{cover:'cover','scene-sheet':'sheet'}};
+ const before=approvalState('',pub,media);
+ pub.review={visual:{status:'approved',digest:before.visual.current}};
+ assert.equal(isVisualRole('scene-sheet'),true);
+ assert.equal(approvalState('',pub,media).visual.valid,true);
+ media.set('sheet',{sha256:'c'.repeat(64)});
+ assert.equal(approvalState('',pub,media).visual.valid,false);
+});
+
 test('公開予定月はJSTで月跨ぎを扱い、未設定を日付のある公開と区別する', () => {
  const base={exam:'civil-construction-2',work:'example',format:'longform',account:'youtube:main',status:'scheduled',channel:'youtube'};
  const reg={works:[{id:'example',exam:base.exam,kind:'video-pack'}],media:[],publications:[

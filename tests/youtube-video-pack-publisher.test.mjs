@@ -1,9 +1,18 @@
 import assert from 'node:assert/strict';
 import { createRequire } from 'node:module';
 import { test } from 'node:test';
+import { spawnSync } from 'node:child_process';
+import { join } from 'node:path';
+import { REPO_ROOT } from '../scripts/lib/repository-paths.mjs';
 
 const require = createRequire(import.meta.url);
 const { videoSnippet, videoStatus, assertLongformPublishable, assertRegistryFinalApproval, FINAL_APPROVAL_PHASES } = require('../.claude/scripts/youtube/publish-video-pack.cjs');
+
+test('旧longform実行入口はAPIより前に停止する', () => {
+  const run = spawnSync(process.execPath, [join(REPO_ROOT, '.claude/scripts/youtube/publish-video-pack.cjs'), '--pack-id', 'unused-fixture', '--phase', 'longform'], { encoding: 'utf8' });
+  assert.equal(run.status, 1);
+  assert.match(run.stderr, /旧 longform 投稿経路は停止/);
+});
 
 test('videoSnippet は新規投稿と既存動画の再同期で同じメタデータを返す', () => {
   assert.deepEqual(videoSnippet({

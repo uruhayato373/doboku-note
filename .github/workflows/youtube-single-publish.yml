@@ -1,0 +1,73 @@
+name: YouTube Single Publish
+
+on:
+  workflow_dispatch:
+    inputs:
+      publication:
+        description: '承認済みの初回通常動画の公開ID'
+        required: true
+        type: string
+      expect:
+        description: 'registry publish-youtube dry-run の入力digest（64桁）'
+        required: true
+        type: string
+
+concurrency:
+  group: youtube-single-publish
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      PUB_ID: ${{ inputs.publication }}
+      EXPECT: ${{ inputs.expect }}
+      YOUTUBE_CLIENT_ID: ${{ secrets.YOUTUBE_CLIENT_ID }}
+      YOUTUBE_CLIENT_SECRET: ${{ secrets.YOUTUBE_CLIENT_SECRET }}
+      YOUTUBE_REFRESH_TOKEN: ${{ secrets.YOUTUBE_REFRESH_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      CLOUDFLARE_R2_ACCESS_KEY_ID: ${{ secrets.CLOUDFLARE_R2_ACCESS_KEY_ID }}
+      CLOUDFLARE_R2_SECRET_ACCESS_KEY: ${{ secrets.CLOUDFLARE_R2_SECRET_ACCESS_KEY }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: develop
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci --legacy-peer-deps --ignore-scripts
+      - name: Validate one publication and input digest
+        run: |
+          [[ "$PUB_ID" =~ ^[a-z0-9-]+/[a-z0-9-]+/youtube\.longform$ ]]
+          [[ "$EXPECT" =~ ^[a-f0-9]{64}$ ]]
+      - name: Upload private and wait for processing, cover, schedule
+        run: |
+          npm run registry -- publish-youtube --pub "$PUB_ID" --phase upload --commit --expect "$EXPECT"
+          for attempt in {1..15}; do
+            npm run registry -- publish-youtube --pub "$PUB_ID" --phase schedule --commit --expect "$EXPECT"
+            if node -e 'const p=require("./content/registry/publications/youtube/"+process.env.PUB_ID.split("/")[0]+".json").publications.find(p=>p.id===process.env.PUB_ID);process.exit(p?.status==="scheduled"?0:1)'; then
+              echo "YouTube schedule verified in registry"
+              exit 0
+            fi
+            sleep 20
+          done
+          echo 'YouTube processing or cover verification did not finish in time' >&2
+          exit 1
+      - name: Preserve verified registry state on develop
+        if: always()
+        run: |
+          if [[ ! "$PUB_ID" =~ ^[a-z0-9-]+/[a-z0-9-]+/youtube\.longform$ ]]; then exit 1; fi
+          exam="${PUB_ID%%/*}"
+          git add "content/registry/publications/youtube/${exam}.json"
+          if ! git diff --cached --quiet; then
+            git config user.name 'doboku-note-bot'
+            git config user.email 'bot@doboku-note.com'
+            git commit -m "Record verified YouTube publication state"
+            git pull --rebase origin develop
+            git push origin HEAD:develop
+          fi
