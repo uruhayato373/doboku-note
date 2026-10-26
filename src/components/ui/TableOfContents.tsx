@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { ChevronDown } from 'lucide-react';
+import Disclosure from '@/components/ui/Disclosure/Disclosure';
 import MetaCard from '@/components/ui/MetaCard/MetaCard';
 
 interface TocItem {
@@ -118,30 +118,19 @@ export default function TableOfContents({ headings, variant = 'sidebar' }: Table
 
   if (variant === 'mobile') {
     return (
-      <details
-        className="group rounded-card-content border border-(--rule-soft) bg-(--paper) open:border-(--accent) transition-colors"
+      <Disclosure
         data-cta="nav"
         data-cta-label="mobile-article-toc"
+        summary={<span className="font-serif text-[16px] font-bold text-(--ink)">このページの内容</span>}
+        meta={<span className="font-mono text-[11px] tabular-nums text-(--ink-muted)">{groups.length}項目</span>}
       >
-        <summary className="focus-ring flex min-h-11 cursor-pointer list-none items-center gap-3 rounded-card-content px-4 py-3 marker:hidden">
-          <span className="min-w-0 flex-1 font-serif text-[16px] font-bold text-(--ink)">
-            このページの内容
-          </span>
-          <span className="shrink-0 font-mono text-[11px] tabular-nums text-(--ink-muted)">
-            {groups.length}項目
-          </span>
-          <ChevronDown
-            aria-hidden="true"
-            className="h-4 w-4 text-(--ink-muted) transition-transform group-open:rotate-180"
-          />
-        </summary>
         <nav
           aria-label="このページの目次"
           className="toc-content toc-content-mobile max-h-[55vh] overflow-y-auto border-t border-(--rule-soft) px-4 py-3"
         >
           {tocList}
         </nav>
-      </details>
+      </Disclosure>
     );
   }
 

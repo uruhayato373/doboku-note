@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { type DocMeta } from '@/lib/docs';
 import { DocCard, OgpThumbRow } from '@/components/category/CategorySections';
 import { getPublicDocPath } from '@/lib/content-routes';
-import DisclosureChevron from '@/components/ui/DisclosureChevron';
+import Disclosure from '@/components/ui/Disclosure/Disclosure';
 import CardRail from '@/components/ui/CardRail';
 
 // カテゴリページの「体系（受験ガイド / 分野別 / テキスト章）」をテキスト目次調のリストで見せる共有コンポーネント群。
@@ -153,23 +153,25 @@ export function CurriculumList({
               </div>
             )}
             {collapsible && block.label ? (
-              <details className="group rounded-card-content border border-(--rule-soft) bg-(--paper) open:border-(--accent) transition-colors">
-                {/* E-1: 章番号(mono accent) + タイトル + N記事 + 右端シェブロン（1行）。
-                    章の中身は開いて確認する（閉状態のトピックプレビューは冗長のため撤去）。 */}
-                <summary className="flex cursor-pointer list-none items-center gap-3 px-4 py-3 marker:hidden">
-                  {block.chapterNo && (
-                    <span className="shrink-0 font-mono text-[11px] font-bold tracking-wider text-(--accent)">
-                      {block.chapterNo}
-                    </span>
-                  )}
-                  <span className="min-w-0 flex-1 truncate font-serif text-lg font-bold text-(--ink)">{block.label}</span>
-                  <span className="shrink-0 font-mono text-[11px] tabular-nums text-(--ink-muted)">{count}記事</span>
-                  <DisclosureChevron className="text-(--ink-muted)" />
-                </summary>
+              // E-1: 章番号(mono accent) + タイトル + N記事 + 右端シェブロン（1行）。
+              // 章の中身は開いて確認する（閉状態のトピックプレビューは冗長のため撤去）。
+              <Disclosure
+                summary={
+                  <span className="flex min-w-0 items-center gap-3">
+                    {block.chapterNo && (
+                      <span className="shrink-0 font-mono text-[11px] font-bold tracking-wider text-(--accent)">
+                        {block.chapterNo}
+                      </span>
+                    )}
+                    <span className="min-w-0 truncate font-serif text-lg font-bold text-(--ink)">{block.label}</span>
+                  </span>
+                }
+                meta={<span className="font-mono text-[11px] tabular-nums text-(--ink-muted)">{count}記事</span>}
+              >
                 <div className="border-t border-(--rule-soft) px-4">
                   <ChapterRows block={block} numbered={numbered} thumbnails={thumbnails} />
                 </div>
-              </details>
+              </Disclosure>
             ) : (
               <>
                 {block.label && (
@@ -223,17 +225,16 @@ export function CareerSection({
         ))}
       </CardRail>
       {overflow.length > 0 && (
-        <details className="group mt-4 rounded-card-content border border-(--rule-soft) bg-(--paper) open:border-(--accent) transition-colors">
-          {/* テキスト章アコーディオン（CurriculumList collapsible）と同型の 1 行 summary */}
-          <summary className="flex cursor-pointer list-none items-center gap-3 px-4 py-3 marker:hidden">
-            <span className="min-w-0 flex-1 truncate font-serif text-lg font-bold text-(--ink)">その他のキャリア記事</span>
-            <span className="shrink-0 font-mono text-[11px] tabular-nums text-(--ink-muted)">{overflow.length}記事</span>
-            <DisclosureChevron className="text-(--ink-muted)" />
-          </summary>
+        // テキスト章アコーディオン（CurriculumList collapsible）と同型の 1 行 summary
+        <Disclosure
+          className="mt-4"
+          summary={<span className="block truncate font-serif text-lg font-bold text-(--ink)">その他のキャリア記事</span>}
+          meta={<span className="font-mono text-[11px] tabular-nums text-(--ink-muted)">{overflow.length}記事</span>}
+        >
           <div className="border-t border-(--rule-soft) px-4">
             <CurriculumList blocks={[{ docs: overflow }]} />
           </div>
-        </details>
+        </Disclosure>
       )}
     </CurriculumSection>
   );

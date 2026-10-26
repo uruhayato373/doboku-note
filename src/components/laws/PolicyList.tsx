@@ -5,6 +5,7 @@
  * 件数の多いテーマ（自治体の土木職 40 件など）は、新しい順に initial 件を見せ、残りは折りたたむ（初期 HTML には全件を出す）。
  */
 import Link from 'next/link';
+import Disclosure from '@/components/ui/Disclosure/Disclosure';
 import type { LawLink, Policy } from '@/lib/law-wiring';
 
 const KIND_LABEL: Record<Policy['kind'], string> = { council: '審議会', plan: '計画', policy: '施策・制度' };
@@ -18,10 +19,9 @@ export default function PolicyList({ policies, initial = 6 }: { policies: readon
     <div data-cta="nav" data-cta-label="policy-map">
       <PolicyItems policies={head} />
       {rest.length > 0 && (
-        <details className="group mt-5 rounded-card-content border border-(--rule-soft) dark:border-(--rule-soft)">
-          <summary className="focus-ring flex min-h-11 cursor-pointer list-none items-center px-4 text-sm font-medium text-(--accent)">ほかの計画・施策・審議会（{rest.length}件）</summary>
+        <Disclosure className="mt-5" summaryClassName="text-sm font-medium text-(--accent)" summary={`ほかの計画・施策・審議会（${rest.length}件）`}>
           <div className="border-t border-(--rule-soft) px-4 py-5 dark:border-(--rule-soft)"><PolicyItems policies={rest} /></div>
-        </details>
+        </Disclosure>
       )}
     </div>
   );

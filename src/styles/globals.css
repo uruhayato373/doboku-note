@@ -86,34 +86,25 @@
   }
 }
 
+@utility disclosure-summary {
+  /* 開閉の見出し行（Disclosure の <summary>）。既定のマーカーを全ブラウザで消す
+     （marker:hidden だけでは Safari の ::-webkit-details-marker が残る）。縦のそろえ（items-center／items-start）は Disclosure が決める。 */
+  display: flex;
+  gap: 0.75rem;
+  cursor: pointer;
+  list-style: none;
+  &::-webkit-details-marker {
+    display: none;
+  }
+  &::marker {
+    content: '';
+  }
+}
+
 @utility standards-tree {
   /* 基準類の右の目次（StandardsNavigation の DocumentTreeNav・StandardsTreeChapter）。編 → 章 → 節 → 条。
      1 文書 40〜115 章の行に同じクラスと SVG を並べると 1 ページ数十 KB 増えるので、見た目をここに集約する。
      縦の線は節の段の 1 本だけ。表示中（aria-current）は背景色、表示中の章は data-active で太字。 */
-  & summary {
-    display: flex;
-    align-items: center;
-    gap: 0.25rem;
-    padding-right: 0.75rem;
-    cursor: pointer;
-    list-style: none;
-  }
-  & summary::-webkit-details-marker {
-    display: none;
-  }
-  & summary::after {
-    content: '';
-    flex-shrink: 0;
-    width: 1rem;
-    height: 1rem;
-    background-color: var(--ink-muted);
-    -webkit-mask: var(--disclosure-chevron) no-repeat center / 14px;
-    mask: var(--disclosure-chevron) no-repeat center / 14px;
-    transition: transform var(--dur-base) var(--ease-soft);
-  }
-  & details[open] > summary::after {
-    transform: rotate(90deg);
-  }
   & [data-tree-row] {
     display: flex;
     align-items: center;
@@ -134,9 +125,9 @@
     transform: rotate(90deg);
   }
   & [data-tree-book] > summary {
-    justify-content: space-between;
+    /* 開閉の形は Disclosure（disclosure-summary・矢印）。ここは目次の行の高さ・余白・字だけ */
     min-height: 2.25rem;
-    padding-left: 1rem;
+    padding: 0 0.75rem 0 1rem;
     font-size: 13px;
     font-weight: 700;
     color: var(--ink);

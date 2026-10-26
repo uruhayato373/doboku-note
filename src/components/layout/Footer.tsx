@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import DisclosureChevron from '@/components/ui/DisclosureChevron';
+import Disclosure from '@/components/ui/Disclosure/Disclosure';
 import { getAllCategories, getCategoryHubPath } from '@/lib/categories';
 
 const categories = getAllCategories().filter(category => category.visible !== false);
@@ -47,14 +47,16 @@ export default function Footer() {
           </nav>
         </div>
 
-        <details className="group mt-3 border-y border-(--rule-soft) sm:hidden">
-          <summary className="focus-ring flex min-h-11 cursor-pointer list-none items-center justify-between gap-3 text-sm font-bold text-(--ink) [&::-webkit-details-marker]:hidden">
-            資格・実務から探す<DisclosureChevron />
-          </summary>
+        <Disclosure
+          variant="plain"
+          className="mt-3 border-y border-(--rule-soft) sm:hidden"
+          summaryClassName="text-sm font-bold text-(--ink)"
+          summary="資格・実務から探す"
+        >
           <nav aria-label="フッターの資格・実務一覧" className="pb-2">
             <CategoryLinks />
           </nav>
-        </details>
+        </Disclosure>
 
         <nav aria-label="フッターのサイト案内" className="mt-3 sm:border-t sm:border-(--rule-soft) sm:pt-2">
           <ul className="flex flex-wrap gap-x-5">
