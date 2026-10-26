@@ -342,11 +342,11 @@ async function publishYoutubeRevision() {
 async function publishYoutube() {
   const { publishYoutubePublication, singlePublishPlan } = await import('./lib/youtube-revision-publisher.mjs');
   const options = { pubId: args.pub, phase: args.phase, expect: args.expect };
-  singlePublishPlan(ROOT, args.pub);
   if (args.commit) {
     const { hydrateSinglePublish } = await import('./lib/youtube-single-r2.mjs');
     await hydrateSinglePublish(ROOT, args.pub);
   }
+  singlePublishPlan(ROOT, args.pub);
   const preview = await publishYoutubePublication(ROOT, options);
   if (!args.commit) { console.log(JSON.stringify(preview, null, 2)); return; }
   if (args.expect !== preview.digest || (args.phase !== 'verify' && preview.blockers.length)) throw new Error(`初回投稿の実行条件が不足: ${preview.blockers.join(', ')}`);
