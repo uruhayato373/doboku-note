@@ -78,16 +78,16 @@ config/content-registry.json          チャネル×形式・アカウント・I
 
 ハッシュは `scripts/lib/content-registry.mjs` の `approvalHash()` だけが計算する（CLI・検査・管理画面が同じ関数を使う）。
 
-- `review.visual.digest`: 画面確認（音声なし）の素材（表紙・締め・場面・コンタクトシート）の `role:sha256` を並べたもの。
+- `review.visual.digest`: 画面確認（音声なし）の素材（表紙・締め・場面・全場面シート・コンタクトシート・無音プレビュー・数値）の `role:sha256` を並べたもの。全場面シートのSHA変更もvisual承認を無効にする。
 - `approval.contentSha256`（最終）: 完成版の素材の `role:sha256` に、アカウント・形式・`publishAt`・解決した文面（題名・概要欄・タグ／キャプション／本文）を足したもの。
 - どれかが変わると承認は無効になる。未公開なら検査と stage が止め、公開済みなら「要同期」として出す（概要欄の表記漏れなどを機械で見つけるため）。
 - ハッシュの無い承認は `grandfathered: true`・`contentSha256: null`。今の台帳の `approvedBy: user` を写したもの（過去の承認と、ハッシュつきの承認 CLI（P3）ができるまでの `prepare-youtube-longforms --schedule`）がこれになる。
 
 ## 確認画面と承認（P3・2026-10-09）
 
-- 管理画面 `/content/items`（一覧）と `/content/items/{exam}/{work}`（詳細）。形は `scripts/lib/media-review.mjs` だけが組み立て、画面は読むだけ（ボタンはコピーとリンクだけ）。並びは「画面が先、音声は後」（表紙・全場面の画像・締め・画面確認の数値・コンタクトシート・無音プレビュー → 完成動画・字幕）。
+- 管理画面 `/content/items`（一覧）と `/content/items/{exam}/{work}`（詳細）。形は `scripts/lib/media-review.mjs` だけが組み立て、画面は読むだけ（ボタンはコピーとリンクだけ）。並びは「画面が先、音声は後」（表紙・全場面の画像・締め・画面確認の数値・全場面シート・コンタクトシート・無音プレビュー → 完成動画・字幕）。
 - 素材は手元（`/media/cmedia/…`）か Drive のマウント（`/media/vault/…`・名前の sha8 と台帳の bytes が一致するときだけ）から配信する。配信は Range（206・416）と HEAD に対応し、全配信元で realpath を検査する。判定は `scripts/lib/media-serve.mjs`・`http-range.mjs`。Drive の手元に落ちていない素材は 409「要復元」で、画面は pull のコマンドを出す。Drive の絶対パス（メールアドレスを含む）は画面にも応答にも出さない。
-- 画面確認の素材は `npm run media -- preview --pub <id> [--commit]`（`scripts/lib/media-preview.mjs`・DN-0603）。無音プレビュー・`contactSheetEverySec` 秒ごとのコンタクトシート（長尺は `contact-sheet-2` 以降）・数値（`preview-metrics`。冒頭の表紙の秒数・直前と同じ画面の割合・同じ画面が続く箇所。閾値は `config/video-content.json` の `visualCheck`）。
+- 画面確認の素材は `npm run media -- preview --pub <id> [--commit]`（`scripts/lib/media-preview.mjs`・DN-0603）。無音プレビュー・`contactSheetEverySec` 秒ごとのコンタクトシート（画面遷移用。長尺は `contact-sheet-2` 以降）・全場面を1枚ずつ載せる `scene-sheet`（短い表紙も含む）・数値（`preview-metrics`。冒頭の表紙の秒数・直前と同じ画面の割合・同じ画面が続く箇所。閾値は `config/video-content.json` の `visualCheck`）。
 - 承認は運営者が自分の端末で、画面に出るコマンドをコピーして打つ: `npm run registry -- approve --pub <id> --stage visual|final --expect <digest>`。`--expect` が今の中身の digest と違えば書かない。final は visual の承認が先（YouTube）。AI 生成の素材に判定 ok が無ければ書かない。Claude Code の Bash（`CLAUDECODE=1`）からは実行できない。止めるのは `npm run registry -- stop --pub <id> --reason …`（stopped は戻れない終端）。後で予約し直す前提で予約だけを外すのは `npm run registry -- unschedule --pub <id> --reason …`（scheduled → uploaded_private・元の予約日時を reason に残す。YouTube 側は先に `.github/workflows/youtube-unschedule.yml` で外す。2026-10-13 に YouTube を一旦止めたときに足した）。
 - 予約解除後の `uploaded_private`・予約日時なしでは、旧承認を履歴として保持する。予定が変わったため旧ハッシュの不一致は R07 の INFO にし、非公開化の記録保存を妨げない。再予約時は不一致を FAIL とし、公開・stage の最終承認ゲートも引き続き止める。
 - ハッシュつきの最終承認は、`publish-video-pack.cjs`（longform・thumbnail）と `stage-youtube-renders-r2.mjs` が今の中身と照らし、違えば止める（`finalApprovalGate`。ハッシュの無い承認は今どおり通す）。

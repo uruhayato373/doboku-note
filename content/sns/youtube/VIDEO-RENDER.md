@@ -35,6 +35,8 @@ node scripts/render-video-pack-shorts.mjs --pack-dir content/sns/video-packs/civ
 
 ## 図解を使った場面画像の確認
 
+`node scripts/video-scene-sheet.mjs <packId>` は `render-manifest.json` の全場面を記録順に1枚ずつ並べ、画像SHAと `N/N` 件を照合する。短い表紙が10秒刻みのコンタクトシートから抜けても、このシートの1枚目には必ず載る。表紙POP・本文図解の指定では、採用意匠をこのシートで確認してから台帳へ取り込む。`npm run media -- preview --pub <公開ID> --commit` でも同じ全場面シートを `scene-sheet` 素材として台帳とローカル素材へ登録し、続く `npm run media -- sync --work <資格>/<作品> --commit` でDriveへ保存する。
+
 通常動画の `visual.art` は、章扉・対応図・比較・手順・記入例・サイト図解を再構成した画像を指定する。総まとめは生成済みstoryboardを直接直さず、`compilation.json.visuals[sceneId]` を更新して `build-video-compilation` を実行する。語り・字幕・尺は変わらない。図解の `art.source` には参照元SVGの実在パスを記録する。
 
 音声を後工程にする場合は `render-longform --skip-tts --resume --refresh-png` で画像を生成し、全場面のスクリーンショットを確認する。`media promote --pub <公開ID> --commit` は画像のみのrender-manifestから表紙と場面画像を取り込み、既存動画・字幕を保持する。その後 `media sync --work <資格>/<作品> --commit` と `media verify --work <資格>/<作品>` を通し、管理画面の作品詳細で採用画像を確認する。画像確認済みと完成動画の確認済みは分けて記録する。

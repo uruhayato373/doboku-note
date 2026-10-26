@@ -10,7 +10,9 @@
       "visual": {
         "kind": "cover",
         "heading": "技術士一次の全体像",
-        "items": ["3科目の構成と学習設計"]
+        "items": [
+          "3科目の構成と学習設計"
+        ]
       }
     },
     {
@@ -21,7 +23,11 @@
       "caption": "3科目の構成から学習順序まで",
       "visual": {
         "heading": "この動画で分かること",
-        "items": ["基礎・適性・専門の構成", "各科目の合格基準", "試験日から逆算する学習順序"]
+        "items": [
+          "基礎・適性・専門の構成",
+          "各科目の合格基準",
+          "試験日から逆算する学習順序"
+        ]
       }
     },
     {
@@ -32,7 +38,10 @@
       "caption": "誤解：合計点さえ超えればいい",
       "visual": {
         "heading": "誤解：合計点さえ超えればいい",
-        "items": ["基礎・適性・専門は独立して基準を満たす必要", "1科目の大きな落ち込みは挽回できない"]
+        "items": [
+          "基礎・適性・専門は独立して基準を満たす必要",
+          "1科目の大きな落ち込みは挽回できない"
+        ]
       }
     },
     {
@@ -43,7 +52,10 @@
       "caption": "一次合格は修習技術者、二次への通過点",
       "visual": {
         "heading": "一次試験の位置づけ",
-        "items": ["合格後は修習技術者", "二次試験受験資格への通過点"]
+        "items": [
+          "合格後は修習技術者",
+          "二次試験受験資格への通過点"
+        ]
       },
       "sourceRef": "content/site/pe-first-stage/guide-overview/article.mdx"
     },
@@ -55,7 +67,10 @@
       "caption": "指定されたJABEE認定課程は一次合格と同等",
       "visual": {
         "heading": "一次合格とJABEE課程",
-        "items": ["技術士を名乗るには二次合格と登録が必要", "指定されたJABEE認定課程は一次合格と同等"]
+        "items": [
+          "技術士を名乗るには二次合格と登録が必要",
+          "指定されたJABEE認定課程は一次合格と同等"
+        ]
       },
       "sourceRef": "content/site/pe-first-stage/guide-overview/article.mdx"
     },
@@ -67,7 +82,11 @@
       "caption": "基礎は5群×6問中3問選択、適性は15問全問",
       "visual": {
         "heading": "基礎科目・適性科目の構成",
-        "items": ["基礎：30問（5群×6問）中15問選択", "適性：15問を全問解答", "全科目マークシート五肢択一"]
+        "items": [
+          "基礎：30問（5群×6問）中15問選択",
+          "適性：15問を全問解答",
+          "全科目マークシート五肢択一"
+        ]
       },
       "sourceRef": "content/site/pe-first-stage/guide-overview/article.mdx"
     },
@@ -79,7 +98,11 @@
       "caption": "専門は35問中25問選択、範囲は建設分野全体",
       "visual": {
         "heading": "専門科目（建設部門）の構成",
-        "items": ["35問中25問を選択解答", "土質・構造力学・水理・コンクリート等", "施工・環境まで範囲は広い"]
+        "items": [
+          "35問中25問を選択解答",
+          "土質・構造力学・水理・コンクリート等",
+          "施工・環境まで範囲は広い"
+        ]
       },
       "sourceRef": "content/site/pe-first-stage/guide-overview/article.mdx"
     },
@@ -91,7 +114,11 @@
       "caption": "令和8年度は各科目50％以上が合格基準",
       "visual": {
         "heading": "合格基準の考え方",
-        "items": ["令和8年度は各科目50％以上", "3科目それぞれ独立して基準を満たす", "専門科目は苦手分野を作らない学習を"]
+        "items": [
+          "令和8年度は各科目50％以上",
+          "3科目それぞれ独立して基準を満たす",
+          "専門科目は苦手分野を作らない学習を"
+        ]
       },
       "sourceRef": "content/site/pe-first-stage/guide-overview/article.mdx"
     },
@@ -103,7 +130,10 @@
       "caption": "過去問は論点の繰り返しを見つける教材",
       "visual": {
         "heading": "過去問中心の学習法",
-        "items": ["論点は年度をまたいで繰り返し出題", "正答番号でなく正誤の根拠を説明できる状態へ"]
+        "items": [
+          "論点は年度をまたいで繰り返し出題",
+          "正答番号でなく正誤の根拠を説明できる状態へ"
+        ]
       },
       "sourceRef": "content/site/pe-first-stage/guide-study-plan/article.mdx"
     },
@@ -115,7 +145,10 @@
       "caption": "学習時間の配分目安は専門・基礎・適性で5:3:2",
       "visual": {
         "heading": "学習時間の配分",
-        "items": ["専門:基礎:適性＝5:3:2を目安に", "範囲の広い専門科目から着手"]
+        "items": [
+          "専門:基礎:適性＝5:3:2を目安に",
+          "範囲の広い専門科目から着手"
+        ]
       },
       "sourceRef": "content/site/pe-first-stage/guide-study-plan/article.mdx"
     },
@@ -127,7 +160,11 @@
       "caption": "専門→基礎→適性を試験日から逆算",
       "visual": {
         "heading": "3フェーズの学習設計",
-        "items": ["前半：専門科目を重点的に", "中盤：基礎科目の5群を均等に", "直前期：適性科目を仕上げる"]
+        "items": [
+          "前半：専門科目を重点的に",
+          "中盤：基礎科目の5群を均等に",
+          "直前期：適性科目を仕上げる"
+        ]
       },
       "sourceRef": "content/site/pe-first-stage/guide-study-plan/article.mdx"
     },
@@ -139,7 +176,11 @@
       "caption": "3科目それぞれ基準を満たす学習設計を",
       "visual": {
         "heading": "まとめ",
-        "items": ["一次合格＝修習技術者、二次への通過点", "3科目それぞれ基準を満たす学習が必要", "専門→基礎→適性の順で過去問中心に"]
+        "items": [
+          "一次合格＝修習技術者、二次への通過点",
+          "3科目それぞれ基準を満たす学習が必要",
+          "専門→基礎→適性の順で過去問中心に"
+        ]
       }
     },
     {
@@ -151,8 +192,17 @@
       "visual": {
         "kind": "cover",
         "heading": "過去問PDF合本 全560問",
-        "items": ["概要欄リンクから通し演習"]
+        "items": [
+          "概要欄リンクから通し演習"
+        ]
       }
     }
-  ]
+  ],
+  "imageDesign": {
+    "mode": "codex-pop",
+    "scope": "all-body",
+    "revision": "body-diagram-20261026",
+    "coverRevision": "cover-pop-20261026",
+    "layout": "diagram-led"
+  }
 }

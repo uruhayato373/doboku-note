@@ -1,6 +1,6 @@
 /**
  * media-preview.mjs — 音声の前の画面確認の素材を作る（DN-0603・npm run media -- preview）。
- * render-manifest.json（render-longform が書く）の場面から、無音プレビュー mp4・コンタクトシート・数値の JSON を
+ * render-manifest.json（render-longform が書く）の場面から、無音プレビュー mp4・10秒間隔のコンタクトシート・全場面シート・数値の JSON を
  * .tmp/video-render/{packId}/preview/ に作り、--commit で ID の置き場（.tmp/media/{pubId}/）へ sha 入りの名前で写して台帳に書く。
  * 閾値は config/video-content.json の visualCheck。注意は承認を止めない（人が画面で判断する）。
  */
@@ -12,6 +12,7 @@ import { loadRegistry, mediaIdOf, parsePubId } from './content-registry.mjs';
 import { findDuplicateLongforms } from './video-duplicate-check.mjs';
 import { readDataset } from './dataset-io.mjs';
 import { mediaPath, mimeOf } from './media-paths.mjs';
+import { createSceneSheet } from '../video-scene-sheet.mjs';
 
 const FFMPEG_FULL = '/opt/homebrew/opt/ffmpeg-full/bin/ffmpeg';
 const FONTS_DIR = '.claude/skills/conversion/ogp-create/assets/fonts';
@@ -211,8 +212,10 @@ export async function runPreview(root, { pub, commit }) {
   const outAbs = join(root, outRel);
   mkdirSync(outAbs, { recursive: true });
   let sheets;
+  let sceneSheet;
   try {
     sheets = buildPreviewMedia(root, { renderDir, manifest, scenes, visualCheck, designTotal });
+    sceneSheet = await createSceneSheet(root, packId);
   } catch (e) {
     return fail(e.message);
   }
@@ -221,6 +224,7 @@ export async function runPreview(root, { pub, commit }) {
   const files = [
     { role: 'preview', file: 'preview.mp4', ext: 'mp4' },
     ...sheets.map((s) => ({ ...s, ext: 'jpg' })),
+    { role: 'scene-sheet', file: sceneSheet.file, ext: 'jpg' },
     { role: 'preview-metrics', file: 'preview-metrics.json', ext: 'json' },
   ].map((f) => {
     const buf = readFileSync(join(outAbs, f.file));
