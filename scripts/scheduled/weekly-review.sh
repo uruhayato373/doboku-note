@@ -257,7 +257,7 @@ ${tasks}
 これは Mac の launchd から起動したヘッドレスの実行（scripts/scheduled/weekly-review.sh）で、作業場所は専用の worktree（detached HEAD・origin/develop）です。人は見ていません。次を守ってください。
 - 最初に .claude/state/weekly-review/draft.json の markdown（土曜の収集の後に作り直した機械の節）を読み、無いか古ければ node scripts/build-weekly-review-draft.mjs --print で作り直す。数字は写し、転記し直さない。
 - ログインが要る取得（ブラウザ・note/ココナラ/A8/KDP/GSC の画面）はしない。直前に土曜の収集（scripts/weekly-collect.mjs）が取った記録を読む。収集の段ごとの結果は .claude/state/weekly-collect/runs.json の最後の pre の回にある（npm run check-weekly-collect で段ごとの最新の合否）。失敗・skipped の段は理由とともに「未取得の材料」に書き、0 や成功に読み替えない。段の理由の「検算 <点検 id>」は取った記録の検算の失敗で、取り直しか記録の修正を申し送る。note の公開状態の照合（note-audit 段・公開 API）の指摘も同じ回の理由にある。
-- .claude/ の下のファイルは Claude Code の保護で Edit・Write・Bash の書き込みが拒否される。書く必要があるファイル（翌週の .claude/todo/weekly.md・.claude/state/proofread-learnings/YYYY-MM-DD.md）は、.tmp/claude-out/ の下に同じ相対パスで書く（例: .tmp/claude-out/.claude/todo/weekly.md）。backlog は、起票は npm run todo:add、完了は npm run todo:complete、削除は node scripts/backlog-edit.mjs を使う（node のスクリプトは書ける）。カードの本文を直すときだけ、mkdir -p .tmp/claude-out/.claude/todo && cp .claude/todo/backlog.md .tmp/claude-out/.claude/todo/backlog.md してから写しを直す。サブエージェント（todo-planner など）に書かせるときも、この置き場を指示する。これらは自分で commit しない（終了後にラッパーが写して commit する）。
+- .claude/ の下のファイルは Claude Code の保護で Edit・Write・Bash の書き込みが拒否される。書く必要があるファイル（翌週の .claude/todo/weekly.md・.claude/state/proofread-learnings/YYYY-MM-DD.md）は、.tmp/claude-out/ の下に .claude/ を外した相対パスで書く（例: .claude/todo/weekly.md → .tmp/claude-out/todo/weekly.md。途中に .claude を含めると、その書き込みも拒否される）。backlog は、起票は npm run todo:add、完了は npm run todo:complete、削除は node scripts/backlog-edit.mjs を使う（node のスクリプトは書ける）。カードの本文を直すときだけ、mkdir -p .tmp/claude-out/todo && cp .claude/todo/backlog.md .tmp/claude-out/todo/backlog.md してから写しを直す。サブエージェント（todo-planner など）に書かせるときも、この置き場を指示する。これらは自分で commit しない（終了後にラッパーが写して commit する）。
 - バックグラウンドの実行（Agent や Bash の run_in_background）は使わず、前景で終わるのを待つ。ScheduleWakeup は使えない。ターンを終えると実行が終わる。
 - AskUserQuestion は使えない。判断待ち（🟣）の諮問は「## バックログの関門」に「諮問待ち（次の対話セッションで諮る）」として背景・選択肢・おすすめを 1 件ずつ書き、行頭に <!-- weekly-review:pending-questions --> を置く。台帳の 🟣 はそのまま残す。
 - 現在の重点は2級土木とコンクリート主任技士のサイト・note教材。主任技士は8立場を維持する。EXP-014・015・016と docs/reviews/critical/2026-10-17-civil2-cce-content-quality.md の公開済み改善を読み、週次・月次の結果と次の一手へ引き継ぐ。POP画像だけをクリック減少の原因と断定しない。
@@ -267,7 +267,7 @@ ${tasks}
 - quality:audit:ci・check-backlog-verify の再実行は終了を待ってから commit・rebase する。生成物の検査中に HEAD を動かすと検査不成立になる。
 - 起動時の専用worktreeはcleanだった。以下は今回の前処理が生成した変更で、他人の変更ではない。レビューとともに各パスを明示して保存・pushし、git status --porcelainが空になるまで終えない（検査記録の時刻更新も対象）:
 ${precheck_changes}
-- 週次が実行対象なら、レビューの保存後に /plan-weekly で来週の計画を .tmp/claude-out/.claude/todo/weekly.md に書く。月次だけの回では週間計画を再生成しない。
+- 週次が実行対象なら、レビューの保存後に /plan-weekly で来週の計画を .tmp/claude-out/todo/weekly.md に書く（ラッパーが .claude/todo/weekly.md へ写す）。月次だけの回では週間計画を再生成しない。
 - 最後に node scripts/check-weekly-review.mjs --week ${week} を回す。週間計画はラッパーが写した後に成立するので、それ以外の欠けを補う。月次も対象なら node scripts/check-monthly-review-due.mjs --month ${month} が exit 0、同コマンドの --due-key が空になることを確かめる。既存 md だけで完了にしない。
 - 最後に、作ったファイル・起票した DN・諮問待ちの件数・未取得の材料を 10 行以内で書いて終える。
 PROMPT
