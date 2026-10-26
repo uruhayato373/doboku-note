@@ -11,8 +11,11 @@
  *   2. 解説の番号付きの行（`N. …✅` か `(N) …✅`）から ✅ と ❌ の番号を取る。番号付きの行に印が無い問題は数えるだけ。
  *   3. 正答の番号の集合が ✅ の集合か ❌ の集合のどちらかと一致しなければ不整合。
  *   4. 問いの文の向きが読めたときは向きまで照合する（否定なのに正答が ✅、肯定なのに正答が ❌ は印が全部逆）。
- *      「該当しない」「許可を必要としない」「改善の必要がない」のような語は、否定が選ぶ向きなのか中身なのかが
- *      文から決まらず、既存記事でも ✅ と ❌ が半々なので向きを照合しない（集合の一致だけ見る）。
+ *      「該当しない」「許可を必要としない」「適用されない」「対象とならない」「含まれない」を選ぶ問いも否定として扱い、
+ *      問いに当てはまる選択肢＝正答だけを ❌ にそろえる（DN-0673。✅/❌ は「記述が正しいか」の印で、「該当しない」と
+ *      述べる記述そのものは正しくても、サイトの演習は ✅ を「○ 適当」・❌ を「× 適当でない」と出すため、
+ *      問いの向きで正答の ○× をそろえる）。「改善の必要がない」のように選ぶ対象が肯定の中身の語は向きを照合しない
+ *      （集合の一致だけ見る）。
  *   5. ①〜④・ア〜エの記述を数える／組み合わせる問題で、記述ごとの解説に選択肢と同じ `1.` を振っていれば不整合
  *      （演習データは `N.` の行を選択肢 N の解説として読むので、記述①の解説が選択肢 1 に付く）。
  *   6. 1 行の解説が「…正しい。 ❌」「…誤り ✅」のように、行末の判定の語と印で食い違えば不整合。
@@ -26,6 +29,11 @@ const RIGHT = /(適当|適切|正しい|妥当)/u;
 const NEGATION = /(ない|不|誤(?!差))/u;
 const COUNT = /(いくつ|の数)/u;
 const COMBINATION = /組合せ/u;
+// 「該当しない」「許可を必要としない」のように、当てはまらないものを選ぶ問い（DN-0673）。語のあと、問いの終わり（どれか・選べ）まで
+// 他の述語を挟まないものだけ（句点の前に別の文が入る場合は読まない）。○×を組み合わせる問い（「含まれるものを○、含まれないものを×として」）は
+// 選ぶ対象が組合せなので対象外
+const NOT_APPLY = /(該当しない|必要としない|必要のない|適用されない|対象とならない|対象にならない|含まれ(?:て)?いない|含まれない|(?:項目|反応|同一)(?:では|で)ない)(?:[^。？?]{0,24}?)(?:どれか|いくつか|選べ)/u;
+const MARK_PAIR = /[○〇][^。]*[×✕]|[×✕][^。]*[○〇]/u;
 // 問いの文で、選ぶ対象を述べる部分（「…適当でないものはどれか」の「適当でない」）
 const POLARITY_PHRASE = /([^、，,。\s]{1,24}?)(?:もの|語句|記述|数値)(?:の組合せ|の数)?(?:として)?[、，,]?\s*(?:は|を)?[、，,]?\s*(?:次の|下記の|以下の)?(?:うち)?[、，,]?\s*(?:どれか|いくつか|選べ)/u;
 // 記述の見出し（①〜⑤・ア〜オ・(イ)〜(ホ)）
@@ -63,9 +71,11 @@ export function stemPolarity(stem) {
   if (!question) return null;
   if (COUNT.test(question)) return 'count';
   const phrase = question.match(POLARITY_PHRASE)?.[1];
-  if (!phrase) return null;
-  if (WRONG.test(phrase)) return 'neg';
-  if (RIGHT.test(phrase) && !NEGATION.test(phrase.replace(RIGHT, ''))) return 'pos';
+  if (phrase) {
+    if (WRONG.test(phrase)) return 'neg';
+    if (RIGHT.test(phrase) && !NEGATION.test(phrase.replace(RIGHT, ''))) return 'pos';
+  }
+  if (!COMBINATION.test(question) && !MARK_PAIR.test(question) && NOT_APPLY.test(question)) return 'neg';
   return null;
 }
 
@@ -157,7 +167,7 @@ export function checkArticleMarks(raw) {
     const polarity = stemPolarity(stem);
     if (polarity === 'neg' || polarity === 'pos') {
       result.directionChecked++;
-      if (polarity === 'neg' && !ngMatches) result.issues.push(`${head}: 問い方は否定（適当でない等）なのに正答 ${nums.join('・')} が ✅（印が逆）`);
+      if (polarity === 'neg' && !ngMatches) result.issues.push(`${head}: 問い方は否定（適当でない・該当しない等）なのに正答 ${nums.join('・')} が ✅（印が逆）`);
       if (polarity === 'pos' && !okMatches) result.issues.push(`${head}: 問い方は肯定（適当な等）なのに正答 ${nums.join('・')} が ❌（印が逆）`);
     }
   }
