@@ -1,0 +1,486 @@
+{
+  "policy": ".claude/knowledge/reference/pop-image-policy.md",
+  "designVersion": "pop-20260927",
+  "source": "content/sns/x/draft/110-concrete-chief-persona-needs",
+  "channel": "x",
+  "format": {
+    "width": 1200,
+    "height": 675,
+    "aspect": "16:9",
+    "spec": ".claude/knowledge/reference/sns-image-policy.md"
+  },
+  "request": "運営者の指示「X は Codex を利用して POP な画像にしてほしい」（2026-10-26）",
+  "colorDecision": {
+    "コンクリート主任技士": "紫（pop-image-policy の資格主色・承認済み主任技士原本と同じ）。小論文・主任技士の択一・添削は主任技士の投稿。",
+    "コンクリート主任技士・技士": "紫。原稿は exam=concrete-chief の一系列で、主任技士・技士の両方に効く数値・用語の投稿は系列の主色に揃え、ラベルで両資格を示す。",
+    "コンクリート技士": "技士の資格色 #287a62（src/lib/exam-brand.ts の concrete → globals.css --exam-concrete）。pop-image-policy は「その他の資格は媒体の既存資格色を引き継ぐ」とし、紫は主任技士に割り当てられているため、技士だけに向けた投稿（113 の 08・19・20・26）は紫にせず、主任技士の教材と誤認させない。"
+  },
+  "authorityRule": "note・ココナラ教材＝総監が制作、添削＝総監が直接添削、骨子指導＋添削＝総監が直接指導・添削、無料の解説投稿＝総監が解説、当日の応援・試験後のねぎらい（113 の 27・28）は肩書き帯なし。",
+  "storage": "採用 PNG は Git（publish-x が img/tweet-NN-*.png を自動添付）。生成原本は .tmp/cce-pop/raw（一時）。",
+  "outputs": {
+    "t01": {
+      "copy": {
+        "examLabel": "コンクリート主任技士",
+        "persona": "生コン工場の立場",
+        "headline": "暑中対策を「判断」へ",
+        "benefit": "立場別 小論文5テーマ",
+        "authority": "総監が制作"
+      },
+      "evidence": [
+        "content/sns/x/draft/110-concrete-chief-persona-needs/tweets.md#Tweet01",
+        "config/products.json#cce-reiwa-namacon-pack（令和形式5テーマ）"
+      ],
+      "pose": "赤ペンで答案を確認しながらこちらを向く",
+      "references": [
+        {
+          "path": "content/coconala/assets/pop-20260927/thumb-cce-essay-tensaku.png",
+          "sha256": "0ad039fb31a33e1fc70f1ef07d01d7cc88003210681e4b6995bb72be82833143"
+        },
+        {
+          "path": "content/coconala/assets/pop-20260927/thumb-cce-essay-pdf.png",
+          "sha256": "c9a407d15ff965033ae02e910a38c32c10493ae0904ec76396d01360c6728959"
+        },
+        {
+          "path": "content/coconala/assets/pop-20260927/thumb-cce-takuitsu-pdf.png",
+          "sha256": "3779cf896009eb106a3d1107385ceef13d02c9140a499b1e2470850353de46fd"
+        }
+      ],
+      "model": "gpt-6-astra",
+      "prompt": "添付の承認済みコンクリート主任技士POP画像3枚（ココナラ商品サムネイル）をデザインと人物の参照に、doboku-noteの資格学習用X投稿画像を新規制作。\n横長16:9（最終1200×675）。文字・顔・手は全周約5%の安全域の内側に収め、余分な空白を減らして文字と人物を大きくする。背景は四辺まで連続させ、無地の余白帯は作らない。画像の縮小・切り取りはこちらで行うので、生成した16:9の原寸のまま保存する。\n左上に資格名「コンクリート主任技士」を白の極太文字で大きく。資格の主色: 紫（濃い紫〜青紫のグラデーション。承認済み主任技士原本と同じ）。白・黄色の極太文字、適度な濃紺の輪郭、少量の赤で強調する参照画像と同じPOPの勢い。\n立場が一目で分かるよう、資格名の下に立場ラベル「生コン工場の立場」を黄色の帯に大きな濃紺文字で置く。背景に生コンプラント（バッチャープラント）とアジテータ車、温度計のアイコンを淡く描き、どの職場かすぐ分かるようにする。\n主題（最も大きな見出し）: 「暑中対策を「判断」へ」。補足は「立場別 小論文5テーマ」だけ。\n下部に著者の専門性の黄色帯: 「総監が制作」（対象資格の表示とは別の領域に置き、総監の教材と誤認させない）。\n先生（doboku-note先生）は右側に大きく、参照画像と完全に同一人物: 40代男性、黒の短髪、黒縁メガネ、短いあごひげ、白い無地のヘルメット、濃紺の作業服・白シャツ・紺ネクタイ・黄色の反射ベスト。ポーズ: 赤ペンで答案を確認しながらこちらを向く。顔・手と文字を重ねない。\n指定した文字列以外の日本語・英語・数字を描かない。ブランド名、URL、価格、ハッシュタグ、根拠のない実績、合格保証は入れない。\n幅360pxのスマホ表示でも資格名と見出しが読める大きな文字にし、細かな説明を詰め込まない。文字は誤字なく正確に。",
+      "generation": {
+        "tool": "scripts/lib/codex-image.mjs generateWithCodex（codex exec の image_gen）",
+        "path": ".tmp/cce-pop/raw/110-01.png",
+        "sha256": "6c8b95dc937ebdea580c0f371f3db8ecbb4bb554d669edf43234218c07f8818c",
+        "width": 1672,
+        "height": 941,
+        "previous": [
+          {
+            "path": ".tmp/cce-pop/raw/110-01.v1.png",
+            "sha256": "eb10400a7a361ee2e3029d365c42a149971bd11324f327af9c03ee371a00b9b2",
+            "width": 1200,
+            "height": 675,
+            "note": "不採用（review.note 参照）"
+          }
+        ]
+      },
+      "output": {
+        "path": "content/sns/x/draft/110-concrete-chief-persona-needs/img/tweet-01-namacon.png",
+        "sha256": "950655a63e6387e717ca4be708cde904a67dd9f410a5c8282c103de4d9c76627",
+        "width": 1200,
+        "height": 675,
+        "resize": "1672×941（16:9）→1200×675 の一様縮小（sharp・fit fill、比の差1%未満）。切り取り・余白追加なし。Git 容量（content/sns 予算 60 MiB）のため 256 色パレット PNG に減色"
+      },
+      "review": {
+        "reviewedAt": "2026-10-26T15:49:29.439Z",
+        "by": "Claude（制作担当の目視）",
+        "viewportWidths": [
+          1200,
+          360
+        ],
+        "result": "ok",
+        "note": "資格名・立場ラベル・見出し・補足・帯が指定どおり。生コンプラントとアジテータ車で立場が分かる。赤ペンの先生は参照と同一。360pxで判読可。",
+        "userImageReview": "pending"
+      },
+      "publication": "未公開（X 予約は運営者が実施）"
+    },
+    "t02": {
+      "copy": {
+        "examLabel": "コンクリート主任技士",
+        "persona": "プレキャスト工場の立場",
+        "headline": "人手不足でも品質を守る",
+        "benefit": "立場別 小論文5テーマ",
+        "authority": "総監が制作"
+      },
+      "evidence": [
+        "content/sns/x/draft/110-concrete-chief-persona-needs/tweets.md#Tweet02",
+        "config/products.json#cce-reiwa-precast-pack（令和形式5テーマ）"
+      ],
+      "pose": "答案を片手に持ち、もう一方の手で論点を指し示す",
+      "references": [
+        {
+          "path": "content/coconala/assets/pop-20260927/thumb-cce-essay-tensaku.png",
+          "sha256": "0ad039fb31a33e1fc70f1ef07d01d7cc88003210681e4b6995bb72be82833143"
+        },
+        {
+          "path": "content/coconala/assets/pop-20260927/thumb-cce-essay-pdf.png",
+          "sha256": "c9a407d15ff965033ae02e910a38c32c10493ae0904ec76396d01360c6728959"
+        },
+        {
+          "path": "content/coconala/assets/pop-20260927/thumb-cce-takuitsu-pdf.png",
+          "sha256": "3779cf896009eb106a3d1107385ceef13d02c9140a499b1e2470850353de46fd"
+        }
+      ],
+      "model": "gpt-6-astra",
+      "prompt": "添付の承認済みコンクリート主任技士POP画像3枚（ココナラ商品サムネイル）をデザインと人物の参照に、doboku-noteの資格学習用X投稿画像を新規制作。\n横長16:9（最終1200×675）。文字・顔・手は全周約5%の安全域の内側に収め、余分な空白を減らして文字と人物を大きくする。背景は四辺まで連続させ、無地の余白帯は作らない。画像の縮小・切り取りはこちらで行うので、生成した16:9の原寸のまま保存する。\n左上に資格名「コンクリート主任技士」を白の極太文字で大きく。資格の主色: 紫（濃い紫〜青紫のグラデーション。承認済み主任技士原本と同じ）。白・黄色の極太文字、適度な濃紺の輪郭、少量の赤で強調する参照画像と同じPOPの勢い。\n立場が一目で分かるよう、資格名の下に立場ラベル「プレキャスト工場の立場」を黄色の帯に大きな濃紺文字で置く。背景にプレキャスト工場の屋内（型枠に並ぶコンクリート製品・天井クレーン）を淡く描き、どの職場かすぐ分かるようにする。\n主題（最も大きな見出し）: 「人手不足でも品質を守る」。補足は「立場別 小論文5テーマ」だけ。\n下部に著者の専門性の黄色帯: 「総監が制作」（対象資格の表示とは別の領域に置き、総監の教材と誤認させない）。\n先生（doboku-note先生）は右側に大きく、参照画像と完全に同一人物: 40代男性、黒の短髪、黒縁メガネ、短いあごひげ、白い無地のヘルメット、濃紺の作業服・白シャツ・紺ネクタイ・黄色の反射ベスト。ポーズ: 答案を片手に持ち、もう一方の手で論点を指し示す。顔・手と文字を重ねない。\n指定した文字列以外の日本語・英語・数字を描かない。ブランド名、URL、価格、ハッシュタグ、根拠のない実績、合格保証は入れない。\n幅360pxのスマホ表示でも資格名と見出しが読める大きな文字にし、細かな説明を詰め込まない。文字は誤字なく正確に。",
+      "generation": {
+        "tool": "scripts/lib/codex-image.mjs generateWithCodex（codex exec の image_gen）",
+        "path": ".tmp/cce-pop/raw/110-02.png",
+        "sha256": "ccfa968bd6cb2dbe265d9403653729bbcf4d27a6cfed6b9653ddb32ffe12705d",
+        "width": 1672,
+        "height": 941,
+        "previous": []
+      },
+      "output": {
+        "path": "content/sns/x/draft/110-concrete-chief-persona-needs/img/tweet-02-precast.png",
+        "sha256": "951a76f7f5bcfe6a3181bed9cf489413a8e0da093bb6fd045289a65aa6e5af05",
+        "width": 1200,
+        "height": 675,
+        "resize": "1672×941（16:9）→1200×675 の一様縮小（sharp・fit fill、比の差1%未満）。切り取り・余白追加なし。Git 容量（content/sns 予算 60 MiB）のため 256 色パレット PNG に減色"
+      },
+      "review": {
+        "reviewedAt": "2026-10-26T15:49:30.402Z",
+        "by": "Claude（制作担当の目視）",
+        "viewportWidths": [
+          1200,
+          360
+        ],
+        "result": "ok",
+        "note": "プレキャスト工場の立場ラベルと工場屋内。文言は指定どおり。360pxで判読可。",
+        "userImageReview": "pending"
+      },
+      "publication": "未公開（X 予約は運営者が実施）"
+    },
+    "t03": {
+      "copy": {
+        "examLabel": "コンクリート主任技士",
+        "persona": "土木施工の立場",
+        "headline": "作業の羅列から「選んだ理由」へ",
+        "benefit": "立場別 小論文5テーマ",
+        "authority": "総監が制作"
+      },
+      "evidence": [
+        "content/sns/x/draft/110-concrete-chief-persona-needs/tweets.md#Tweet03",
+        "config/products.json#cce-reiwa-civil-contractor-pack（令和形式5テーマ）"
+      ],
+      "pose": "赤ペンで答案に丸をつける",
+      "references": [
+        {
+          "path": "content/coconala/assets/pop-20260927/thumb-cce-essay-tensaku.png",
+          "sha256": "0ad039fb31a33e1fc70f1ef07d01d7cc88003210681e4b6995bb72be82833143"
+        },
+        {
+          "path": "content/coconala/assets/pop-20260927/thumb-cce-essay-pdf.png",
+          "sha256": "c9a407d15ff965033ae02e910a38c32c10493ae0904ec76396d01360c6728959"
+        },
+        {
+          "path": "content/coconala/assets/pop-20260927/thumb-cce-takuitsu-pdf.png",
+          "sha256": "3779cf896009eb106a3d1107385ceef13d02c9140a499b1e2470850353de46fd"
+        }
+      ],
+      "model": "gpt-6-astra",
+      "prompt": "添付の承認済みコンクリート主任技士POP画像3枚（ココナラ商品サムネイル）をデザインと人物の参照に、doboku-noteの資格学習用X投稿画像を新規制作。\n横長16:9（最終1200×675）。文字・顔・手は全周約5%の安全域の内側に収め、余分な空白を減らして文字と人物を大きくする。背景は四辺まで連続させ、無地の余白帯は作らない。画像の縮小・切り取りはこちらで行うので、生成した16:9の原寸のまま保存する。\n左上に資格名「コンクリート主任技士」を白の極太文字で大きく。資格の主色: 紫（濃い紫〜青紫のグラデーション。承認済み主任技士原本と同じ）。白・黄色の極太文字、適度な濃紺の輪郭、少量の赤で強調する参照画像と同じPOPの勢い。\n立場が一目で分かるよう、資格名の下に立場ラベル「土木施工の立場」を黄色の帯に大きな濃紺文字で置く。背景に橋脚や擁壁のコンクリート打設現場（ポンプ車・バイブレータ）を淡く描き、どの職場かすぐ分かるようにする。\n主題（最も大きな見出し）: 「作業の羅列から「選んだ理由」へ」。補足は「立場別 小論文5テーマ」だけ。\n下部に著者の専門性の黄色帯: 「総監が制作」（対象資格の表示とは別の領域に置き、総監の教材と誤認させない）。\n先生（doboku-note先生）は右側に大きく、参照画像と完全に同一人物: 40代男性、黒の短髪、黒縁メガネ、短いあごひげ、白い無地のヘルメット、濃紺の作業服・白シャツ・紺ネクタイ・黄色の反射ベスト。ポーズ: 赤ペンで答案に丸をつける。顔・手と文字を重ねない。\n指定した文字列以外の日本語・英語・数字を描かない。ブランド名、URL、価格、ハッシュタグ、根拠のない実績、合格保証は入れない。\n幅360pxのスマホ表示でも資格名と見出しが読める大きな文字にし、細かな説明を詰め込まない。文字は誤字なく正確に。",
+      "generation": {
+        "tool": "scripts/lib/codex-image.mjs generateWithCodex（codex exec の image_gen）",
+        "path": ".tmp/cce-pop/raw/110-03.png",
+        "sha256": "1b1b05598b34b8b511eac71b9d26c08daa38e862edd058e5cad65f0e606c4fe2",
+        "width": 1672,
+        "height": 941,
+        "previous": []
+      },
+      "output": {
+        "path": "content/sns/x/draft/110-concrete-chief-persona-needs/img/tweet-03-civil-contractor.png",
+        "sha256": "81e68d5ec62f7fab96ffc3a3c7328d1d1bb6cc4afdbc8f5dc92f0ed501179357",
+        "width": 1200,
+        "height": 675,
+        "resize": "1672×941（16:9）→1200×675 の一様縮小（sharp・fit fill、比の差1%未満）。切り取り・余白追加なし。Git 容量（content/sns 予算 60 MiB）のため 256 色パレット PNG に減色"
+      },
+      "review": {
+        "reviewedAt": "2026-10-26T15:49:31.342Z",
+        "by": "Claude（制作担当の目視）",
+        "viewportWidths": [
+          1200,
+          360
+        ],
+        "result": "ok",
+        "note": "土木施工の立場。打設現場の背景。「作業の羅列から『選んだ理由』へ」指定どおり。360pxで判読可。",
+        "userImageReview": "pending"
+      },
+      "publication": "未公開（X 予約は運営者が実施）"
+    },
+    "t04": {
+      "copy": {
+        "examLabel": "コンクリート主任技士",
+        "persona": "維持管理・補修の立場",
+        "headline": "補修工法を選んだ根拠まで",
+        "benefit": "立場別 小論文5テーマ",
+        "authority": "総監が制作"
+      },
+      "evidence": [
+        "content/sns/x/draft/110-concrete-chief-persona-needs/tweets.md#Tweet04",
+        "config/products.json#cce-reiwa-maintenance-pack（令和形式5テーマ）"
+      ],
+      "pose": "考えるポーズで顎に手を当てる",
+      "references": [
+        {
+          "path": "content/coconala/assets/pop-20260927/thumb-cce-essay-tensaku.png",
+          "sha256": "0ad039fb31a33e1fc70f1ef07d01d7cc88003210681e4b6995bb72be82833143"
+        },
+        {
+          "path": "content/coconala/assets/pop-20260927/thumb-cce-essay-pdf.png",
+          "sha256": "c9a407d15ff965033ae02e910a38c32c10493ae0904ec76396d01360c6728959"
+        },
+        {
+          "path": "content/coconala/assets/pop-20260927/thumb-cce-takuitsu-pdf.png",
+          "sha256": "3779cf896009eb106a3d1107385ceef13d02c9140a499b1e2470850353de46fd"
+        }
+      ],
+      "model": "gpt-6-astra",
+      "prompt": "添付の承認済みコンクリート主任技士POP画像3枚（ココナラ商品サムネイル）をデザインと人物の参照に、doboku-noteの資格学習用X投稿画像を新規制作。\n横長16:9（最終1200×675）。文字・顔・手は全周約5%の安全域の内側に収め、余分な空白を減らして文字と人物を大きくする。背景は四辺まで連続させ、無地の余白帯は作らない。画像の縮小・切り取りはこちらで行うので、生成した16:9の原寸のまま保存する。\n左上に資格名「コンクリート主任技士」を白の極太文字で大きく。資格の主色: 紫（濃い紫〜青紫のグラデーション。承認済み主任技士原本と同じ）。白・黄色の極太文字、適度な濃紺の輪郭、少量の赤で強調する参照画像と同じPOPの勢い。\n立場が一目で分かるよう、資格名の下に立場ラベル「維持管理・補修の立場」を黄色の帯に大きな濃紺文字で置く。背景に橋梁の点検（点検ハンマー・ひび割れのある桁）を淡く描き、どの職場かすぐ分かるようにする。\n主題（最も大きな見出し）: 「補修工法を選んだ根拠まで」。補足は「立場別 小論文5テーマ」だけ。\n下部に著者の専門性の黄色帯: 「総監が制作」（対象資格の表示とは別の領域に置き、総監の教材と誤認させない）。\n先生（doboku-note先生）は右側に大きく、参照画像と完全に同一人物: 40代男性、黒の短髪、黒縁メガネ、短いあごひげ、白い無地のヘルメット、濃紺の作業服・白シャツ・紺ネクタイ・黄色の反射ベスト。ポーズ: 考えるポーズで顎に手を当てる。顔・手と文字を重ねない。\n指定した文字列以外の日本語・英語・数字を描かない。ブランド名、URL、価格、ハッシュタグ、根拠のない実績、合格保証は入れない。\n幅360pxのスマホ表示でも資格名と見出しが読める大きな文字にし、細かな説明を詰め込まない。文字は誤字なく正確に。",
+      "generation": {
+        "tool": "scripts/lib/codex-image.mjs generateWithCodex（codex exec の image_gen）",
+        "path": ".tmp/cce-pop/raw/110-04.png",
+        "sha256": "a6ce3c1922e2059e46046611b62b919abd7b8fa13629e1ad9a3009c103db2f7b",
+        "width": 1672,
+        "height": 941,
+        "previous": []
+      },
+      "output": {
+        "path": "content/sns/x/draft/110-concrete-chief-persona-needs/img/tweet-04-maintenance.png",
+        "sha256": "ea2d8435a167ddc5ff3c03e1411ad42001542025093775a0f8d4aaafe69ce076",
+        "width": 1200,
+        "height": 675,
+        "resize": "1672×941（16:9）→1200×675 の一様縮小（sharp・fit fill、比の差1%未満）。切り取り・余白追加なし。Git 容量（content/sns 予算 60 MiB）のため 256 色パレット PNG に減色"
+      },
+      "review": {
+        "reviewedAt": "2026-10-26T15:49:32.104Z",
+        "by": "Claude（制作担当の目視）",
+        "viewportWidths": [
+          1200,
+          360
+        ],
+        "result": "ok",
+        "note": "維持管理・補修の立場。考えるポーズ。文言は指定どおり。360pxで判読可。",
+        "userImageReview": "pending"
+      },
+      "publication": "未公開（X 予約は運営者が実施）"
+    },
+    "t05": {
+      "copy": {
+        "examLabel": "コンクリート主任技士",
+        "persona": "発注者・監督員の立場",
+        "headline": "確認・審査・協議の判断を書く",
+        "benefit": "立場別 小論文5テーマ",
+        "authority": "総監が制作"
+      },
+      "evidence": [
+        "content/sns/x/draft/110-concrete-chief-persona-needs/tweets.md#Tweet05",
+        "config/products.json#cce-reiwa-owner-pack（令和形式5テーマ）"
+      ],
+      "pose": "クリップボードの書類を確認する",
+      "references": [
+        {
+          "path": "content/coconala/assets/pop-20260927/thumb-cce-essay-tensaku.png",
+          "sha256": "0ad039fb31a33e1fc70f1ef07d01d7cc88003210681e4b6995bb72be82833143"
+        },
+        {
+          "path": "content/coconala/assets/pop-20260927/thumb-cce-essay-pdf.png",
+          "sha256": "c9a407d15ff965033ae02e910a38c32c10493ae0904ec76396d01360c6728959"
+        },
+        {
+          "path": "content/coconala/assets/pop-20260927/thumb-cce-takuitsu-pdf.png",
+          "sha256": "3779cf896009eb106a3d1107385ceef13d02c9140a499b1e2470850353de46fd"
+        }
+      ],
+      "model": "gpt-6-astra",
+      "prompt": "添付の承認済みコンクリート主任技士POP画像3枚（ココナラ商品サムネイル）をデザインと人物の参照に、doboku-noteの資格学習用X投稿画像を新規制作。\n横長16:9（最終1200×675）。文字・顔・手は全周約5%の安全域の内側に収め、余分な空白を減らして文字と人物を大きくする。背景は四辺まで連続させ、無地の余白帯は作らない。画像の縮小・切り取りはこちらで行うので、生成した16:9の原寸のまま保存する。\n左上に資格名「コンクリート主任技士」を白の極太文字で大きく。資格の主色: 紫（濃い紫〜青紫のグラデーション。承認済み主任技士原本と同じ）。白・黄色の極太文字、適度な濃紺の輪郭、少量の赤で強調する参照画像と同じPOPの勢い。\n立場が一目で分かるよう、資格名の下に立場ラベル「発注者・監督員の立場」を黄色の帯に大きな濃紺文字で置く。背景に現場事務所の打合せ机と図面を淡く描き、どの職場かすぐ分かるようにする。\n主題（最も大きな見出し）: 「確認・審査・協議の判断を書く」。補足は「立場別 小論文5テーマ」だけ。\n下部に著者の専門性の黄色帯: 「総監が制作」（対象資格の表示とは別の領域に置き、総監の教材と誤認させない）。\n先生（doboku-note先生）は右側に大きく、参照画像と完全に同一人物: 40代男性、黒の短髪、黒縁メガネ、短いあごひげ、白い無地のヘルメット、濃紺の作業服・白シャツ・紺ネクタイ・黄色の反射ベスト。ポーズ: クリップボードの書類を確認する。顔・手と文字を重ねない。\n指定した文字列以外の日本語・英語・数字を描かない。ブランド名、URL、価格、ハッシュタグ、根拠のない実績、合格保証は入れない。\n幅360pxのスマホ表示でも資格名と見出しが読める大きな文字にし、細かな説明を詰め込まない。文字は誤字なく正確に。",
+      "generation": {
+        "tool": "scripts/lib/codex-image.mjs generateWithCodex（codex exec の image_gen）",
+        "path": ".tmp/cce-pop/raw/110-05.png",
+        "sha256": "56dca39be665c639e74428ef75347270f93b64f28ff9503d5c8b492ff6837348",
+        "width": 1672,
+        "height": 941,
+        "previous": []
+      },
+      "output": {
+        "path": "content/sns/x/draft/110-concrete-chief-persona-needs/img/tweet-05-owner.png",
+        "sha256": "e3cbbd93cb0721b71a6e2646a296f136442306ff8217624ac8f688058189c852",
+        "width": 1200,
+        "height": 675,
+        "resize": "1672×941（16:9）→1200×675 の一様縮小（sharp・fit fill、比の差1%未満）。切り取り・余白追加なし。Git 容量（content/sns 予算 60 MiB）のため 256 色パレット PNG に減色"
+      },
+      "review": {
+        "reviewedAt": "2026-10-26T15:49:32.759Z",
+        "by": "Claude（制作担当の目視）",
+        "viewportWidths": [
+          1200,
+          360
+        ],
+        "result": "ok",
+        "note": "発注者・監督員の立場。クリップボードで確認。文言は指定どおり。360pxで判読可。",
+        "userImageReview": "pending"
+      },
+      "publication": "未公開（X 予約は運営者が実施）"
+    },
+    "t06": {
+      "copy": {
+        "examLabel": "コンクリート主任技士",
+        "persona": "建築施工の立場",
+        "headline": "かぶり・養生・型枠の判断",
+        "benefit": "立場別 小論文5テーマ",
+        "authority": "総監が制作"
+      },
+      "evidence": [
+        "content/sns/x/draft/110-concrete-chief-persona-needs/tweets.md#Tweet06",
+        "config/products.json#cce-reiwa-building-contractor-pack（令和形式5テーマ）"
+      ],
+      "pose": "両手で2枚の答案を見比べる",
+      "references": [
+        {
+          "path": "content/coconala/assets/pop-20260927/thumb-cce-essay-tensaku.png",
+          "sha256": "0ad039fb31a33e1fc70f1ef07d01d7cc88003210681e4b6995bb72be82833143"
+        },
+        {
+          "path": "content/coconala/assets/pop-20260927/thumb-cce-essay-pdf.png",
+          "sha256": "c9a407d15ff965033ae02e910a38c32c10493ae0904ec76396d01360c6728959"
+        },
+        {
+          "path": "content/coconala/assets/pop-20260927/thumb-cce-takuitsu-pdf.png",
+          "sha256": "3779cf896009eb106a3d1107385ceef13d02c9140a499b1e2470850353de46fd"
+        }
+      ],
+      "model": "gpt-6-astra",
+      "prompt": "添付の承認済みコンクリート主任技士POP画像3枚（ココナラ商品サムネイル）をデザインと人物の参照に、doboku-noteの資格学習用X投稿画像を新規制作。\n横長16:9（最終1200×675）。文字・顔・手は全周約5%の安全域の内側に収め、余分な空白を減らして文字と人物を大きくする。背景は四辺まで連続させ、無地の余白帯は作らない。画像の縮小・切り取りはこちらで行うので、生成した16:9の原寸のまま保存する。\n左上に資格名「コンクリート主任技士」を白の極太文字で大きく。資格の主色: 紫（濃い紫〜青紫のグラデーション。承認済み主任技士原本と同じ）。白・黄色の極太文字、適度な濃紺の輪郭、少量の赤で強調する参照画像と同じPOPの勢い。\n立場が一目で分かるよう、資格名の下に立場ラベル「建築施工の立場」を黄色の帯に大きな濃紺文字で置く。背景に建築の躯体工事（柱・梁の型枠と鉄筋、ビルの骨組み）を淡く描き、どの職場かすぐ分かるようにする。\n主題（最も大きな見出し）: 「かぶり・養生・型枠の判断」。補足は「立場別 小論文5テーマ」だけ。\n下部に著者の専門性の黄色帯: 「総監が制作」（対象資格の表示とは別の領域に置き、総監の教材と誤認させない）。\n先生（doboku-note先生）は右側に大きく、参照画像と完全に同一人物: 40代男性、黒の短髪、黒縁メガネ、短いあごひげ、白い無地のヘルメット、濃紺の作業服・白シャツ・紺ネクタイ・黄色の反射ベスト。ポーズ: 両手で2枚の答案を見比べる。顔・手と文字を重ねない。\n指定した文字列以外の日本語・英語・数字を描かない。ブランド名、URL、価格、ハッシュタグ、根拠のない実績、合格保証は入れない。\n幅360pxのスマホ表示でも資格名と見出しが読める大きな文字にし、細かな説明を詰め込まない。文字は誤字なく正確に。",
+      "generation": {
+        "tool": "scripts/lib/codex-image.mjs generateWithCodex（codex exec の image_gen）",
+        "path": ".tmp/cce-pop/raw/110-06.png",
+        "sha256": "b98986b2e1106f818a8c1a7ed6c198f9e4c529df8a555d13ce0d8781418d4f31",
+        "width": 1672,
+        "height": 941,
+        "previous": []
+      },
+      "output": {
+        "path": "content/sns/x/draft/110-concrete-chief-persona-needs/img/tweet-06-building.png",
+        "sha256": "c08740b6140c2bffef6de68653e8a8b2914f937ad45222163b8a909f87c74dfc",
+        "width": 1200,
+        "height": 675,
+        "resize": "1672×941（16:9）→1200×675 の一様縮小（sharp・fit fill、比の差1%未満）。切り取り・余白追加なし。Git 容量（content/sns 予算 60 MiB）のため 256 色パレット PNG に減色"
+      },
+      "review": {
+        "reviewedAt": "2026-10-26T15:49:33.837Z",
+        "by": "Claude（制作担当の目視）",
+        "viewportWidths": [
+          1200,
+          360
+        ],
+        "result": "ok",
+        "note": "建築施工の立場。躯体の型枠・鉄筋の背景、答案を見比べる。文言は指定どおり。360pxで判読可。",
+        "userImageReview": "pending"
+      },
+      "publication": "未公開（X 予約は運営者が実施）"
+    },
+    "t07": {
+      "copy": {
+        "examLabel": "コンクリート主任技士",
+        "persona": "設計コンサルの立場",
+        "headline": "耐久性・費用・環境を比べて提案",
+        "benefit": "立場別 小論文5テーマ",
+        "authority": "総監が制作"
+      },
+      "evidence": [
+        "content/sns/x/draft/110-concrete-chief-persona-needs/tweets.md#Tweet07",
+        "config/products.json#cce-reiwa-design-consultant-pack（令和形式5テーマ）"
+      ],
+      "pose": "両手で2枚の資料を見比べる",
+      "references": [
+        {
+          "path": "content/coconala/assets/pop-20260927/thumb-cce-essay-tensaku.png",
+          "sha256": "0ad039fb31a33e1fc70f1ef07d01d7cc88003210681e4b6995bb72be82833143"
+        },
+        {
+          "path": "content/coconala/assets/pop-20260927/thumb-cce-essay-pdf.png",
+          "sha256": "c9a407d15ff965033ae02e910a38c32c10493ae0904ec76396d01360c6728959"
+        },
+        {
+          "path": "content/coconala/assets/pop-20260927/thumb-cce-takuitsu-pdf.png",
+          "sha256": "3779cf896009eb106a3d1107385ceef13d02c9140a499b1e2470850353de46fd"
+        }
+      ],
+      "model": "gpt-6-astra",
+      "prompt": "添付の承認済みコンクリート主任技士POP画像3枚（ココナラ商品サムネイル）をデザインと人物の参照に、doboku-noteの資格学習用X投稿画像を新規制作。\n横長16:9（最終1200×675）。文字・顔・手は全周約5%の安全域の内側に収め、余分な空白を減らして文字と人物を大きくする。背景は四辺まで連続させ、無地の余白帯は作らない。画像の縮小・切り取りはこちらで行うので、生成した16:9の原寸のまま保存する。\n左上に資格名「コンクリート主任技士」を白の極太文字で大きく。資格の主色: 紫（濃い紫〜青紫のグラデーション。承認済み主任技士原本と同じ）。白・黄色の極太文字、適度な濃紺の輪郭、少量の赤で強調する参照画像と同じPOPの勢い。\n立場が一目で分かるよう、資格名の下に立場ラベル「設計コンサルの立場」を黄色の帯に大きな濃紺文字で置く。背景に設計事務所の机（図面・比較表）を淡く描き、どの職場かすぐ分かるようにする。\n主題（最も大きな見出し）: 「耐久性・費用・環境を比べて提案」。補足は「立場別 小論文5テーマ」だけ。\n下部に著者の専門性の黄色帯: 「総監が制作」（対象資格の表示とは別の領域に置き、総監の教材と誤認させない）。\n先生（doboku-note先生）は右側に大きく、参照画像と完全に同一人物: 40代男性、黒の短髪、黒縁メガネ、短いあごひげ、白い無地のヘルメット、濃紺の作業服・白シャツ・紺ネクタイ・黄色の反射ベスト。ポーズ: 両手で2枚の資料を見比べる。顔・手と文字を重ねない。\n指定した文字列以外の日本語・英語・数字を描かない。ブランド名、URL、価格、ハッシュタグ、根拠のない実績、合格保証は入れない。\n幅360pxのスマホ表示でも資格名と見出しが読める大きな文字にし、細かな説明を詰め込まない。文字は誤字なく正確に。",
+      "generation": {
+        "tool": "scripts/lib/codex-image.mjs generateWithCodex（codex exec の image_gen）",
+        "path": ".tmp/cce-pop/raw/110-07.png",
+        "sha256": "5dd3048d9197bca802b683aec542239601f898d629634ce51a07a9d8f802d7b0",
+        "width": 1672,
+        "height": 941,
+        "previous": []
+      },
+      "output": {
+        "path": "content/sns/x/draft/110-concrete-chief-persona-needs/img/tweet-07-design-consultant.png",
+        "sha256": "c14acad7716d435b62ac07a39f71ad596c992749f2fb10a78d3effbec5a09137",
+        "width": 1200,
+        "height": 675,
+        "resize": "1672×941（16:9）→1200×675 の一様縮小（sharp・fit fill、比の差1%未満）。切り取り・余白追加なし。Git 容量（content/sns 予算 60 MiB）のため 256 色パレット PNG に減色"
+      },
+      "review": {
+        "reviewedAt": "2026-10-26T15:49:34.718Z",
+        "by": "Claude（制作担当の目視）",
+        "viewportWidths": [
+          1200,
+          360
+        ],
+        "result": "ok",
+        "note": "設計コンサルの立場。2枚の資料を見比べる。文言は指定どおり。360pxで判読可。",
+        "userImageReview": "pending"
+      },
+      "publication": "未公開（X 予約は運営者が実施）"
+    },
+    "t08": {
+      "copy": {
+        "examLabel": "コンクリート主任技士",
+        "persona": "試験・検査機関の立場",
+        "headline": "記録と信頼性をつなぐ",
+        "benefit": "立場別 小論文5テーマ",
+        "authority": "総監が制作"
+      },
+      "evidence": [
+        "content/sns/x/draft/110-concrete-chief-persona-needs/tweets.md#Tweet08",
+        "config/products.json#cce-reiwa-testing-pack（令和形式5テーマ）"
+      ],
+      "pose": "供試体の記録表を確認する",
+      "references": [
+        {
+          "path": "content/coconala/assets/pop-20260927/thumb-cce-essay-tensaku.png",
+          "sha256": "0ad039fb31a33e1fc70f1ef07d01d7cc88003210681e4b6995bb72be82833143"
+        },
+        {
+          "path": "content/coconala/assets/pop-20260927/thumb-cce-essay-pdf.png",
+          "sha256": "c9a407d15ff965033ae02e910a38c32c10493ae0904ec76396d01360c6728959"
+        },
+        {
+          "path": "content/coconala/assets/pop-20260927/thumb-cce-takuitsu-pdf.png",
+          "sha256": "3779cf896009eb106a3d1107385ceef13d02c9140a499b1e2470850353de46fd"
+        }
+      ],
+      "model": "gpt-6-astra",
+      "prompt": "添付の承認済みコンクリート主任技士POP画像3枚（ココナラ商品サムネイル）をデザインと人物の参照に、doboku-noteの資格学習用X投稿画像を新規制作。\n横長16:9（最終1200×675）。文字・顔・手は全周約5%の安全域の内側に収め、余分な空白を減らして文字と人物を大きくする。背景は四辺まで連続させ、無地の余白帯は作らない。画像の縮小・切り取りはこちらで行うので、生成した16:9の原寸のまま保存する。\n左上に資格名「コンクリート主任技士」を白の極太文字で大きく。資格の主色: 紫（濃い紫〜青紫のグラデーション。承認済み主任技士原本と同じ）。白・黄色の極太文字、適度な濃紺の輪郭、少量の赤で強調する参照画像と同じPOPの勢い。\n立場が一目で分かるよう、資格名の下に立場ラベル「試験・検査機関の立場」を黄色の帯に大きな濃紺文字で置く。背景に試験室（円柱供試体・圧縮試験機）を淡く描き、どの職場かすぐ分かるようにする。\n主題（最も大きな見出し）: 「記録と信頼性をつなぐ」。補足は「立場別 小論文5テーマ」だけ。\n下部に著者の専門性の黄色帯: 「総監が制作」（対象資格の表示とは別の領域に置き、総監の教材と誤認させない）。\n先生（doboku-note先生）は右側に大きく、参照画像と完全に同一人物: 40代男性、黒の短髪、黒縁メガネ、短いあごひげ、白い無地のヘルメット、濃紺の作業服・白シャツ・紺ネクタイ・黄色の反射ベスト。ポーズ: 供試体の記録表を確認する。顔・手と文字を重ねない。\n指定した文字列以外の日本語・英語・数字を描かない。ブランド名、URL、価格、ハッシュタグ、根拠のない実績、合格保証は入れない。\n幅360pxのスマホ表示でも資格名と見出しが読める大きな文字にし、細かな説明を詰め込まない。文字は誤字なく正確に。",
+      "generation": {
+        "tool": "scripts/lib/codex-image.mjs generateWithCodex（codex exec の image_gen）",
+        "path": ".tmp/cce-pop/raw/110-08.png",
+        "sha256": "983d35b205505e98ebb831d2ef0846cd8d4565df34b3b1e5ebf410441c3c87d1",
+        "width": 1672,
+        "height": 941,
+        "previous": []
+      },
+      "output": {
+        "path": "content/sns/x/draft/110-concrete-chief-persona-needs/img/tweet-08-testing.png",
+        "sha256": "b6d9846cba61bf2cc04fc6ad039ec7a898e3aeaea13753cfc8b4f7176f9bc8a6",
+        "width": 1200,
+        "height": 675,
+        "resize": "1672×941（16:9）→1200×675 の一様縮小（sharp・fit fill、比の差1%未満）。切り取り・余白追加なし。Git 容量（content/sns 予算 60 MiB）のため 256 色パレット PNG に減色"
+      },
+      "review": {
+        "reviewedAt": "2026-10-26T15:49:35.629Z",
+        "by": "Claude（制作担当の目視）",
+        "viewportWidths": [
+          1200,
+          360
+        ],
+        "result": "ok",
+        "note": "試験・検査機関の立場。供試体と記録表。文言は指定どおり。360pxで判読可。",
+        "userImageReview": "pending"
+      },
+      "publication": "未公開（X 予約は運営者が実施）"
+    }
+  }
+}
