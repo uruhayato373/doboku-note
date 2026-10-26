@@ -10,13 +10,13 @@
     "websiteUrl": "https://doboku-note.com/links",
     "headerCopy": "発注者の視点で、土木資格の「評価される答案」を設計する。",
     "pinnedPost": {
-      "status": "scheduled",
+      "status": "posted",
       "campaign": "pe1-cce-final-pin",
       "source": "未投稿の原稿（content/sns/x/draft/111-pe1-concrete-pinned-2026-11・4 部スレッド: 技術士一次 直前パック／一次の無料過去問演習／主任技士 小論文もくじ（ココナラ添削 11/25 受付分まで）／技士 直前パック）",
-      "postUrl": "https://x.com/doboku373/status/2106490904156750098",
-      "postedAt": "2026-10-04T06:05:48+09:00",
+      "postUrl": "https://x.com/doboku373/status/2114705375127863454",
+      "postedAt": "2026-10-26T22:07:12+09:00",
       "reviewAfter": "2026-11-23",
-      "_note": "status=scheduled は差し替え原稿が未投稿の状態。postUrl・postedAt は型が必須のため、差し替え前の固定（105・2級 10/25 直前・civil2-final-pin）の値のまま。111 を即時投稿（--immediate）して固定したら status=pinned・postUrl・postedAt を新しい投稿の値に更新する。自己紹介は同時に npm run x-profile-sync で正本に合わせる。11/23 に一次の部分（試験後）を見直し、コンクリート（11/29）後に次の固定へ差し替える"
+      "_note": "2026-10-26 にスレッド 4 部を投稿（ヘッドだけ先に投稿し、x-thread-replies でリプライ 3 本をつないだ）。固定の操作はスクリプトが無く運営者が X の画面で行う。固定したら status を pinned にする。11/23 に一次の試験後の内容へ見直す"
     },
     "location": "兵庫県神戸市"
   },
