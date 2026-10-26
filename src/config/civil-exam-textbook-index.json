@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-21T16:18:45.487Z",
+  "generated_at": "2026-10-26T06:53:24.966Z",
   "questionToTextbooks": {
     "primary-h18-a": {
       "問題-1": [
@@ -17736,29 +17736,29 @@
       ],
       "問題-11": [
         {
+          "slug": "guide-concrete-key-points",
+          "title": "コンクリートの重要ポイント",
+          "score": 2
+        },
+        {
+          "slug": "guide-construction-plan",
+          "title": "施工計画の重要ポイント",
+          "score": 2
+        },
+        {
+          "slug": "guide-earthwork-key-points",
+          "title": "土工の重要ポイント",
+          "score": 2
+        },
+        {
           "slug": "guide-quality-management",
           "title": "品質管理の重要ポイント",
           "score": 2
         },
         {
-          "slug": "guide-concrete-key-points",
-          "title": "コンクリートの重要ポイント",
-          "score": 1.9
-        },
-        {
-          "slug": "guide-construction-plan",
-          "title": "施工計画の重要ポイント",
-          "score": 1.9
-        },
-        {
-          "slug": "guide-earthwork-key-points",
-          "title": "土工の重要ポイント",
-          "score": 1.75
-        },
-        {
-          "slug": "guide-four-management",
-          "title": "施工管理4大管理まとめ",
-          "score": 1.5
+          "slug": "guide-environment-management",
+          "title": "環境保全管理の重要ポイント",
+          "score": 1.65
         }
       ]
     },
@@ -19927,6 +19927,12 @@
         "score": 2
       },
       {
+        "examSlug": "secondary-r04",
+        "examTitle": "令和4年度 第2次検定",
+        "section": "問題-11",
+        "score": 2
+      },
+      {
         "examSlug": "secondary-r03",
         "examTitle": "令和3年度 第2次検定",
         "section": "問題-4",
@@ -19954,12 +19960,6 @@
         "examSlug": "primary-r03-a",
         "examTitle": "令和3年度 第1次検定 問題A",
         "section": "問題-23",
-        "score": 1.75
-      },
-      {
-        "examSlug": "secondary-r04",
-        "examTitle": "令和4年度 第2次検定",
-        "section": "問題-11",
         "score": 1.75
       },
       {
@@ -22355,14 +22355,14 @@
     ],
     "guide-construction-plan": [
       {
-        "examSlug": "secondary-r03",
-        "examTitle": "令和3年度 第2次検定",
-        "section": "問題-11",
-        "score": 1.9
-      },
-      {
         "examSlug": "secondary-r04",
         "examTitle": "令和4年度 第2次検定",
+        "section": "問題-11",
+        "score": 2
+      },
+      {
+        "examSlug": "secondary-r03",
+        "examTitle": "令和3年度 第2次検定",
         "section": "問題-11",
         "score": 1.9
       },
@@ -22919,12 +22919,6 @@
         "score": 1.5
       },
       {
-        "examSlug": "secondary-r04",
-        "examTitle": "令和4年度 第2次検定",
-        "section": "問題-11",
-        "score": 1.5
-      },
-      {
         "examSlug": "secondary-r08",
         "examTitle": "令和8年度 第2次検定",
         "section": "問題-1",
@@ -23023,6 +23017,12 @@
       {
         "examSlug": "secondary-r06",
         "examTitle": "令和6年度 2次試験（第二次検定）解答例",
+        "section": "問題-1",
+        "score": 0.9
+      },
+      {
+        "examSlug": "secondary-r07",
+        "examTitle": "令和7年度 第2次検定",
         "section": "問題-1",
         "score": 0.9
       }
@@ -25113,6 +25113,12 @@
     ],
     "guide-environment-management": [
       {
+        "examSlug": "secondary-r04",
+        "examTitle": "令和4年度 第2次検定",
+        "section": "問題-11",
+        "score": 1.65
+      },
+      {
         "examSlug": "primary-r01-b",
         "examTitle": "令和元年度 第1次検定 問題B",
         "section": "問題-34",
@@ -25224,12 +25230,6 @@
         "examSlug": "secondary-r04",
         "examTitle": "令和4年度 第2次検定",
         "section": "問題-1",
-        "score": 0.6
-      },
-      {
-        "examSlug": "secondary-r05",
-        "examTitle": "令和5年度 第2次検定",
-        "section": "問題-7",
         "score": 0.6
       }
     ],
