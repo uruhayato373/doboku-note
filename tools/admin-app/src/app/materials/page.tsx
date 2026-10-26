@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { numCol, PanelCard, StatusBadge, TableBody, TableCell, TableFrame, TableHead, TableHeader, TableRow } from '@/components/admin';
+import { DataTable, PanelCard, StatusBadge, type DataTableColumn, type DataTableRow } from '@/components/admin';
 import { PageHead } from '@/components/ui';
 import { findRepoRoot } from '@/lib/repo-root';
 import { expansionReport, sourceSummary, linkedProductsByUnit, siteWiring, DECISION_LABELS } from '../../../../../scripts/lib/content-expansion.mjs';
@@ -11,6 +11,7 @@ import { parseBacklog } from '../../../../../scripts/lib/backlog-lib.mjs';
 import { TODO_ROOT } from '../../../../../scripts/lib/repository-paths.mjs';
 import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
+import { num } from '@/lib/format';
 
 type BookCoverage = { pdfPages: number; excludedPdfPages: number; plannedPages: number; imagedPages: number | null; ocr: { complete: number; notNeeded: number; unfinished: number } | null; manifestMatchesPlan: boolean | null; exclusions: { reason: string; pages: number; files: number[] }[]; ocrTracking: string | null; ocrUntracked: boolean };
 
@@ -56,12 +57,44 @@ type Wiring = { bySource: Map<string, SitePage[]>; byPage: Map<string, { sourceI
 
 const categoryLabel = (slug: string) => (categories as { slug: string; label: string }[]).find((c) => c.slug === slug)?.label ?? slug;
 const groupLabels: Record<string, string> = { keyword: 'キーワード', guide: 'ガイド', textbook: 'テキスト', 'past-exam': '過去問', primary: '一次過去問', secondary: '二次過去問', pillar: 'ピラー' };
-const fmt = (n: number) => n.toLocaleString('ja-JP');
 
 const label = (key: string) => (DECISION_LABELS as Record<string, string>)[key] ?? key;
 const evidenceLabels: Record<string, string> = { 'body-reviewed': '本文照合', 'prior-review': '過去の照合記録', 'topic-map': '概念名の対応のみ', 'source-unavailable': '原典不足' };
 const needsAttention = (u: Unit) => u.pending || u.sourceWaiting || u.stale;
 const pct = (n: number, d: number) => (d ? `${Math.round((n / d) * 100)}%` : '—');
+const ratio = (n: number, d: number) => (d ? (n / d) * 100 : null);
+const Dash = () => <span className="text-muted-foreground">—</span>;
+
+const SOURCE_COLUMNS: DataTableColumn[] = [
+  { key: 'title', label: '教材', wrap: true },
+  { key: 'units', label: '論点', num: true },
+  { key: 'content', label: '本文', num: true },
+  { key: 'visual', label: '図解', num: true },
+  { key: 'sns', label: 'SNS', num: true },
+  { key: 'products', label: '商品', num: true },
+  { key: 'pages', label: '配線先', num: true },
+  { key: 'shown', label: '検索で表示', num: true },
+  { key: 'planned', label: '展開予定', num: true },
+  { key: 'attention', label: '要確認', num: true },
+];
+const UNIT_COLUMNS: DataTableColumn[] = [
+  { key: 'need', label: '論点', wrap: true },
+  { key: 'content', label: '本文' },
+  { key: 'visual', label: '図解' },
+  { key: 'derivative', label: 'SNS' },
+  { key: 'articles', label: '記事', num: true },
+  { key: 'snsFiles', label: 'SNS原稿', num: true },
+  { key: 'products', label: '関連商品', wrap: true },
+  { key: 'backlog', label: '展開予定' },
+];
+const PAGE_COLUMNS: DataTableColumn[] = [
+  { key: 'title', label: 'ページ', wrap: true },
+  { key: 'state', label: '状態' },
+  { key: 'units', label: '論点', num: true },
+  { key: 'impressions', label: '表示', num: true },
+  { key: 'clicks', label: 'クリック', num: true },
+  { key: 'others', label: 'ほかの教材', wrap: true },
+];
 
 /** 本文の割合（対象外を除いた論点に対する内容対応ありの割合）と、100% に届かない理由の内訳。 */
 function ContentCell({ m }: { m: Summary }) {
@@ -117,6 +150,54 @@ export default async function MaterialsPage({ searchParams }: { searchParams: Pr
 }
 
 function List({ sources, issues, products, wiring }: { sources: Source[]; issues: string[]; products: (u: Unit) => string[]; wiring: Wiring }) {
+  const rows: DataTableRow[] = sources.map((s) => {
+    const m = sourceSummary(s) as Summary;
+    const attention = m.pending + m.blocked + m.stale;
+    const productUnits = s.units.filter((u) => products(u).length > 0).length;
+    const pages = wiring.bySource.get(s.sourceId) ?? [];
+    const shown = pages.filter((p) => p.impressions > 0).length;
+    const siteHref = `/materials?id=${encodeURIComponent(s.sourceId)}&view=site`;
+    return {
+      id: s.sourceId,
+      values: {
+        title: s.title,
+        units: m.units,
+        content: ratio(m.content, m.contentTarget),
+        visual: m.visual,
+        sns: m.sns,
+        products: productUnits ? ratio(productUnits, m.units) : null,
+        pages: pages.length || null,
+        shown: pages.length ? ratio(shown, pages.length) : null,
+        planned: m.planned || null,
+        attention,
+      },
+      cells: {
+        title: <Link href={`/materials?id=${encodeURIComponent(s.sourceId)}`}>{s.title}</Link>,
+        content: <ContentCell m={m} />,
+        visual: (
+          <>
+            {m.visual}
+            {m.visualNeeded > 0 && <span className="project-warning-text"> +要{m.visualNeeded}</span>}
+          </>
+        ),
+        sns: (
+          <>
+            {m.sns}
+            {m.snsNeeded > 0 && <span className="project-warning-text"> +要{m.snsNeeded}</span>}
+          </>
+        ),
+        products: productUnits ? pct(productUnits, m.units) : <Dash />,
+        pages: pages.length ? <Link href={siteHref}>{pages.length}</Link> : <Dash />,
+        shown: pages.length ? pct(shown, pages.length) : <Dash />,
+        planned: m.planned || <Dash />,
+        attention: attention ? (
+          <Link className="project-warning-text" href={`/materials?id=${encodeURIComponent(s.sourceId)}&only=attention`}>{attention}</Link>
+        ) : (
+          <span className="text-muted-foreground">0</span>
+        ),
+      },
+    };
+  });
   return (
     <>
       <PageHead title="教材" />
@@ -127,63 +208,7 @@ function List({ sources, issues, products, wiring }: { sources: Source[]; issues
           </ul>
         </PanelCard>
       )}
-      <TableFrame>
-        <TableHeader>
-          <TableRow>
-            <TableHead>教材</TableHead>
-            <TableHead className={numCol}>論点</TableHead>
-            <TableHead className={numCol}>本文</TableHead>
-            <TableHead className={numCol}>図解</TableHead>
-            <TableHead className={numCol}>SNS</TableHead>
-            <TableHead className={numCol}>商品</TableHead>
-            <TableHead className={numCol}>配線先</TableHead>
-            <TableHead className={numCol}>検索で表示</TableHead>
-            <TableHead className={numCol}>展開予定</TableHead>
-            <TableHead className={numCol}>要確認</TableHead>
-          </TableRow>
-        </TableHeader>
-        <TableBody>
-          {sources.map((s) => {
-            const m = sourceSummary(s) as Summary;
-            const attention = m.pending + m.blocked + m.stale;
-            return (
-              <TableRow key={s.sourceId}>
-                <TableCell>
-                  <Link href={`/materials?id=${encodeURIComponent(s.sourceId)}`}>{s.title}</Link>
-                </TableCell>
-                <TableCell className={numCol}>{m.units}</TableCell>
-                <TableCell className={numCol}><ContentCell m={m} /></TableCell>
-                <TableCell className={numCol}>
-                  {m.visual}
-                  {m.visualNeeded > 0 && <span className="project-warning-text"> +要{m.visualNeeded}</span>}
-                </TableCell>
-                <TableCell className={numCol}>
-                  {m.sns}
-                  {m.snsNeeded > 0 && <span className="project-warning-text"> +要{m.snsNeeded}</span>}
-                </TableCell>
-                <TableCell className={numCol}>{(() => { const n = s.units.filter((u) => products(u).length > 0).length; return n ? pct(n, m.units) : <span className="text-muted-foreground">—</span>; })()}</TableCell>
-                {(() => {
-                  const pages = wiring.bySource.get(s.sourceId) ?? [];
-                  const shown = pages.filter((p) => p.impressions > 0).length;
-                  const href = `/materials?id=${encodeURIComponent(s.sourceId)}&view=site`;
-                  return (
-                    <>
-                      <TableCell className={numCol}>{pages.length ? <Link href={href}>{pages.length}</Link> : <span className="text-muted-foreground">—</span>}</TableCell>
-                      <TableCell className={numCol}>{pages.length ? pct(shown, pages.length) : <span className="text-muted-foreground">—</span>}</TableCell>
-                    </>
-                  );
-                })()}
-                <TableCell className={numCol}>{m.planned || <span className="text-muted-foreground">—</span>}</TableCell>
-                <TableCell className={numCol}>{attention ? (
-                    <Link className="project-warning-text" href={`/materials?id=${encodeURIComponent(s.sourceId)}&only=attention`}>{attention}</Link>
-                  ) : (
-                    <span className="text-muted-foreground">0</span>
-                  )}</TableCell>
-              </TableRow>
-            );
-          })}
-        </TableBody>
-      </TableFrame>
+      <DataTable columns={SOURCE_COLUMNS} rows={rows} pageSize={100} filter="教材で絞り込む" />
       <p className="small muted mt-2">
         本文＝内容対応ありの論点 ÷（論点 − 対象外）。対象外は意図して展開しない論点（旧年度の手続き・見出しだけの構造・対象外の部門など）。
         原典待ちは原本のページが無く展開できない論点、一部対応は原本の一部しか照合できていない論点。行を開くと論点ごとの理由が見られる。
@@ -198,6 +223,71 @@ function Detail({ source, products, onlyAttention, sitePages, book }: { source: 
   const base = `/materials?id=${encodeURIComponent(source.sourceId)}`;
   const siteCount = (u: Unit) => u.artifacts.filter((a) => a.path.startsWith('content/site/')).length;
   const snsCount = (u: Unit) => u.artifacts.filter((a) => a.path.startsWith('content/sns/')).length;
+  const unitRows: DataTableRow[] = units.map((u) => {
+    const prods = products(u);
+    const contentText = label(u.content) + (u.stale ? '・再確認' : '');
+    const warnDecision = (d: string) => ['needed', 'unreviewed'].includes(d);
+    return {
+      id: u.id,
+      values: {
+        need: u.need,
+        content: contentText,
+        visual: label(u.visual.decision),
+        derivative: label(u.derivative.decision),
+        articles: siteCount(u) || null,
+        snsFiles: snsCount(u) || null,
+        products: prods.map((p) => p.split('/').pop()!).join(' ') || null,
+        backlog: (u.backlogIds ?? []).join(' ') || null,
+      },
+      cells: {
+        need: (
+          <div className="max-w-[420px]">
+            <details>
+              <summary>{u.need}</summary>
+              <div className="text-xs mt-1">
+                <p>{u.reason}</p>
+                <p>図解：{u.visual.reason}</p>
+                <p>SNS：{u.derivative.reason}</p>
+                {u.artifacts.map((a) => (
+                  <div key={a.path} className="font-mono">
+                    {a.path}
+                    {a.state !== 'current' && <strong className="project-warning-text">（{a.state === 'missing' ? '実体なし' : '確認後に変更'}）</strong>}
+                  </div>
+                ))}
+                <p className="text-muted-foreground">確認の深さ：{evidenceLabels[u.evidenceLevel] ?? u.evidenceLevel} · 根拠：{u.locators.join(' / ')}</p>
+              </div>
+            </details>
+          </div>
+        ),
+        content: <State text={contentText} warn={needsAttention(u)} />,
+        visual: <State text={label(u.visual.decision)} warn={warnDecision(u.visual.decision)} />,
+        derivative: <State text={label(u.derivative.decision)} warn={warnDecision(u.derivative.decision)} />,
+        articles: siteCount(u) || <span className="text-muted-foreground">—</span>,
+        snsFiles: snsCount(u) || <span className="text-muted-foreground">—</span>,
+        products: (
+          <div className="text-xs max-w-[260px]">
+            {prods.length ? (
+              <>
+                {prods.slice(0, 2).map((p) => <div key={p}>{p.split('/').pop()}</div>)}
+                {prods.length > 2 && <div className="text-muted-foreground">ほか {prods.length - 2} 件</div>}
+              </>
+            ) : (
+              <span className="text-muted-foreground">—</span>
+            )}
+          </div>
+        ),
+        backlog: (
+          <>
+            {(u.backlogIds ?? []).map((b) => (
+              <Link key={b} href={`/todo?f=backlog&id=${encodeURIComponent(b)}`} className="mr-1.5">
+                {b}
+              </Link>
+            ))}
+          </>
+        ),
+      },
+    };
+  });
   return (
     <>
       <PageHead title={`教材：${source.title}`} />
@@ -217,67 +307,7 @@ function Detail({ source, products, onlyAttention, sitePages, book }: { source: 
       </nav>
       {book && <BookCoverageLine book={book} />}
       {source.scopeNote && <p className="small muted">{source.scopeNote}</p>}
-      <TableFrame>
-        <TableHeader>
-          <TableRow>
-            <TableHead>論点</TableHead>
-            <TableHead>本文</TableHead>
-            <TableHead>図解</TableHead>
-            <TableHead>SNS</TableHead>
-            <TableHead className={numCol}>記事</TableHead>
-            <TableHead className={numCol}>SNS原稿</TableHead>
-            <TableHead>関連商品</TableHead>
-            <TableHead>展開予定</TableHead>
-          </TableRow>
-        </TableHeader>
-        <TableBody>
-          {units.map((u) => (
-            <TableRow key={u.id}>
-              <TableCell className="whitespace-normal max-w-[420px]">
-                <details>
-                  <summary>{u.need}</summary>
-                  <div className="text-xs mt-1">
-                    <p>{u.reason}</p>
-                    <p>図解：{u.visual.reason}</p>
-                    <p>SNS：{u.derivative.reason}</p>
-                    {u.artifacts.map((a) => (
-                      <div key={a.path} className="font-mono">
-                        {a.path}
-                        {a.state !== 'current' && <strong className="project-warning-text">（{a.state === 'missing' ? '実体なし' : '確認後に変更'}）</strong>}
-                      </div>
-                    ))}
-                    <p className="text-muted-foreground">確認の深さ：{evidenceLabels[u.evidenceLevel] ?? u.evidenceLevel} · 根拠：{u.locators.join(' / ')}</p>
-                  </div>
-                </details>
-              </TableCell>
-              <TableCell>
-                <State text={label(u.content) + (u.stale ? '・再確認' : '')} warn={needsAttention(u)} />
-              </TableCell>
-              <TableCell><State text={label(u.visual.decision)} warn={['needed', 'unreviewed'].includes(u.visual.decision)} /></TableCell>
-              <TableCell><State text={label(u.derivative.decision)} warn={['needed', 'unreviewed'].includes(u.derivative.decision)} /></TableCell>
-              <TableCell className={numCol}>{siteCount(u) || <span className="text-muted-foreground">—</span>}</TableCell>
-              <TableCell className={numCol}>{snsCount(u) || <span className="text-muted-foreground">—</span>}</TableCell>
-              <TableCell className="text-xs whitespace-normal max-w-[260px]">
-                {products(u).length ? (
-                  <>
-                    {products(u).slice(0, 2).map((p) => <div key={p}>{p.split('/').pop()}</div>)}
-                    {products(u).length > 2 && <div className="text-muted-foreground">ほか {products(u).length - 2} 件</div>}
-                  </>
-                ) : (
-                  <span className="text-muted-foreground">—</span>
-                )}
-              </TableCell>
-              <TableCell>
-                {(u.backlogIds ?? []).map((b) => (
-                  <Link key={b} href={`/todo?f=backlog&id=${encodeURIComponent(b)}`} className="mr-1.5">
-                    {b}
-                  </Link>
-                ))}
-              </TableCell>
-            </TableRow>
-          ))}
-        </TableBody>
-      </TableFrame>
+      <DataTable columns={UNIT_COLUMNS} rows={unitRows} filter="論点で絞り込む" />
     </>
   );
 }
@@ -303,7 +333,7 @@ function SiteView({ source, wiring, sources }: { source: Source; wiring: Wiring;
       <div className="small mb-2 flex justify-between">
         <Link href="/materials">← 教材一覧へ</Link>
         <span className="muted">
-          配線先 {pages.length} ページ · 検索で表示あり {shown} · 表示 {fmt(pages.reduce((a, p) => a + p.impressions, 0))} · クリック {fmt(pages.reduce((a, p) => a + p.clicks, 0))}
+          配線先 {pages.length} ページ · 検索で表示あり {shown} · 表示 {num(pages.reduce((a, p) => a + p.impressions, 0))} · クリック {num(pages.reduce((a, p) => a + p.clicks, 0))}
           {wiring.gsc.period && `（${wiring.gsc.period}）`}
         </span>
       </div>
@@ -317,41 +347,44 @@ function SiteView({ source, wiring, sources }: { source: Source; wiring: Wiring;
       {[...sections].map(([key, list]) => (
         <div key={key} className="mb-4">
           <PanelCard title={<>{key} <span className="text-xs font-normal text-muted-foreground">{list.length} ページ</span></>}>
-          <TableFrame>
-            <TableHeader>
-              <TableRow>
-                <TableHead>ページ</TableHead>
-                <TableHead>状態</TableHead>
-                <TableHead className={numCol}>論点</TableHead>
-                <TableHead className={numCol}>表示</TableHead>
-                <TableHead className={numCol}>クリック</TableHead>
-                <TableHead>ほかの教材</TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              {list.map((p) => {
-                const others = (wiring.byPage.get(p.slug) ?? []).filter((o) => o.sourceId !== source.sourceId);
-                return (
-                  <TableRow key={p.slug}>
-                    <TableCell className="whitespace-normal max-w-[420px]">
+          <DataTable
+            columns={PAGE_COLUMNS}
+            rows={list.map((p) => {
+              const others = (wiring.byPage.get(p.slug) ?? []).filter((o) => o.sourceId !== source.sourceId);
+              return {
+                id: p.slug,
+                values: {
+                  title: p.title,
+                  state: p.published ? '公開' : '非公開',
+                  units: p.units,
+                  impressions: p.impressions,
+                  clicks: p.clicks,
+                  others: others.map((o) => titleOf(o.sourceId)).join('・') || null,
+                },
+                cells: {
+                  title: (
+                    <div className="max-w-[420px]">
                       {p.url ? <a href={`${SITE_ORIGIN}${p.url}`} target="_blank" rel="noreferrer">{p.title}</a> : p.title}
-                    </TableCell>
-                    <TableCell>{p.published ? <span className="text-xs">公開</span> : <StatusBadge tone="warn">非公開</StatusBadge>}</TableCell>
-                    <TableCell className={numCol}>{p.units}</TableCell>
-                    <TableCell className={numCol}>{p.impressions ? fmt(p.impressions) : <span className="text-muted-foreground">0</span>}</TableCell>
-                    <TableCell className={numCol}>{p.clicks ? fmt(p.clicks) : <span className="text-muted-foreground">0</span>}</TableCell>
-                    <TableCell className="text-xs whitespace-normal max-w-[240px]">
+                    </div>
+                  ),
+                  state: p.published ? <span className="text-xs">公開</span> : <StatusBadge tone="warn">非公開</StatusBadge>,
+                  impressions: p.impressions ? num(p.impressions) : <span className="text-muted-foreground">0</span>,
+                  clicks: p.clicks ? num(p.clicks) : <span className="text-muted-foreground">0</span>,
+                  others: (
+                    <div className="text-xs max-w-[240px]">
                       {others.length ? others.map((o) => (
                         <div key={o.sourceId}>
                           <Link href={`/materials?id=${encodeURIComponent(o.sourceId)}&view=site`}>{titleOf(o.sourceId)}</Link>
                         </div>
                       )) : <span className="text-muted-foreground">—</span>}
-                    </TableCell>
-                  </TableRow>
-                );
-              })}
-            </TableBody>
-          </TableFrame>
+                    </div>
+                  ),
+                },
+              };
+            })}
+            pageSize={100}
+            filter={list.length > 30 ? 'ページで絞り込む' : undefined}
+          />
           </PanelCard>
         </div>
       ))}

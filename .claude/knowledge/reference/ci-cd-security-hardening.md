@@ -12,7 +12,7 @@ DN-0137（旧DN-0109 Phase 4）の設計成果物。**実行はユーザーがGi
 | branch protection (`develop`) | 同上・無設定 | 複数セッション常態下でforce-pushされると他セッションの未pushコミットが消える（CLAUDE.md §10で既知のリスク） |
 | GitHub Environments | `Production`(id 2754677196)・`Preview`(id 2755100617)が存在するが、**どのworkflowからも`environment:`キーで参照されていない**（`grep -rln "environment:" .github/workflows/*.yml` → 0件）。`protection_rules:[]`・`can_admins_bypass:true` | 存在するが機能していない飾り設定 |
 | Secrets（15個中4個が未参照） | `ACCESS_KEY_ID`(2024-05-24)・`AWS_CF_ID`(2024-05-24)・`AWS_S3_BUCKET`(2024-05-27)・`SECRET_ACCESS_KEY`(2024-05-24)。`grep -rl "secrets\.<name>" .github/workflows/*.yml`がいずれも0件。登録日から旧AWS S3/CloudFront構成（現CLOUDFLARE_R2_*移行前）の残骸と推定 | 使っていない認証情報が漏洩リスクだけを持ち続けている |
-| Secrets（新規・DN-0254 API 収集の CI 化） | `IG_GRAPH_ACCESS_TOKEN`・`IG_BUSINESS_ACCOUNT_ID`（`fetch-ig-insights.yml` の廃止〔2026-10-24〕で参照する workflow が無くなった。Graph API は使わない方針のため不要なら削除）・`CLOUDFLARE_ANALYTICS_API_TOKEN`（`cloudflare-metrics.yml`/`cloudflare-config-audit.yml`が使用。scope: `Zone.Analytics:Read`, `Zone.Zone:Read`, `Zone.Zone Settings:Read`。既存`CLOUDFLARE_API_TOKEN`にAnalytics:Readがあれば新規登録は省略可＝要確認） | 漏洩時の影響（IG投稿権限・Cloudflareゾーン読み取り）と60日更新の運用負荷。DN-0254参照 |
+| Secrets（新規・DN-0254 API 収集の CI 化） | `IG_GRAPH_ACCESS_TOKEN`・`IG_BUSINESS_ACCOUNT_ID`（`fetch-ig-insights.yml` の廃止〔2026-10-24〕で参照する workflow が無くなった。Graph API は使わない方針のため不要なら削除）・`CLOUDFLARE_ANALYTICS_API_TOKEN`（`cloudflare-metrics.yml`（毎日の解析と金曜の設定の監査）が使用。scope: `Zone.Analytics:Read`, `Zone.Zone:Read`, `Zone.Zone Settings:Read`。既存`CLOUDFLARE_API_TOKEN`にAnalytics:Readがあれば新規登録は省略可＝要確認） | 漏洩時の影響（IG投稿権限・Cloudflareゾーン読み取り）と60日更新の運用負荷。DN-0254参照 |
 | R2削除 (`r2-delete.yml`) | 既に良い設計: `workflow_dispatch`限定・既定dry-run・`commit=true`明示が必要・`concurrency: {group: r2-delete, cancel-in-progress: false}` | 対応不要 |
 | R2監査キー最小権限化 | `r2-sync.yml`の「main と R2 の画像差分」step は`CLOUDFLARE_R2_AUDIT_ACCESS_KEY_ID || CLOUDFLARE_R2_ACCESS_KEY_ID`のフォールバック式が既にある（設計済み）が、専用の読み取り専用キー自体が未作成のため常に書き込み可能な既存キーへフォールバックしている | 最小権限化が半分で止まっている |
 | CODEOWNERS | 無し | 必須レビュー者を指定できない（ただし単独運用なら優先度低） |
@@ -69,7 +69,7 @@ gh secret delete SECRET_ACCESS_KEY
 
 - **R2監査キーの最小権限化**: Cloudflareダッシュボードで「R2への読み取り専用」スコープのAPIトークンを新規発行し、GitHub Secretsへ`CLOUDFLARE_R2_AUDIT_ACCESS_KEY_ID`/`CLOUDFLARE_R2_AUDIT_SECRET_ACCESS_KEY`として登録する。登録するだけで`r2-sync.yml`のフォールバック式が自動的に優先利用する（ワークフロー変更不要）
 - **mainへのPRレビュー必須化**: 単独運用のため必須ではないが、`/deploy`前にセルフレビューの型を強制したいなら「Require a pull request before merging」を有効化（承認数0でも「PRを経由する」制約は課せる）
-- **automation-failure Issue #457のクローズ**: 対象workflowは回復済みだが18日openのまま。dedup仕様で以後の失敗コメントが埋没している。DN-0135のIssue #473と同種のため統合を検討（2026-09-18 から起票元 workflow の次回成功で `--resolve` が自動クローズ。gsc-auto-review channel は gsc-auto-review.yml と weekly-review-guard.yml の両方に配線済み）
+- **automation-failure Issue #457のクローズ**: 対象workflowは回復済みだが18日openのまま。dedup仕様で以後の失敗コメントが埋没している。DN-0135のIssue #473と同種のため統合を検討（2026-09-18 から起票元 workflow の次回成功で `--resolve` が自動クローズ。gsc-auto-review channel は土曜の Mac の weekly-review.sh が起票し、weekly-review-guard.yml が記録の鮮度で閉じる・2026-10-25〜 DN-0849）
 
 ## 外部サービスへの書き込みは CI で行わない（2026-10-24 DN-0817）
 

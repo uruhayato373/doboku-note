@@ -8,6 +8,22 @@ title: 計測・検証事故の記録
 
 個別事例は時系列の逆順（新しい順）で追記する。各事例は「現象 / 根本原因 / 気づきの遅延理由（or 検出経緯）/ 適用した対策 / 教訓」を明記する。
 
+## 2026-10-25 — ココナラの検索結果を 1 件も読めないまま「完了」とし、前回の 1,548 件を空で上書きした
+
+- 現象: 10/25 に competitor-scan を手動で流したところ、ココナラの段は成功と出た。しかし `coconala-research --refresh` は、検索のヒットが 195・1,091 件あるのに出品カードを 0 件しか読めず（`pagesScanned: 0`・`complete: true`）、`market-research.json`（10/01 の出品 1,548 件）と `market-summary.json` を空で上書きした。続く `scout-coconala-competitors` は出品をその検索結果から引くため、23 セラーとも出品 0 件の snapshot を書いた。develop に入った後、`dataset-schemas-market` のテスト 3 本（実データに 1 件以上ある前提）が赤くなり、無関係な PR #1226 の CI も落ちた。
+- 根本原因: 1 ページ目でカードが 0 件だとページのループを抜け、そのままその語を `complete` にして保存していた。`--refresh` は前回の出品を先に消すので、読めなかった回が空の記録として残った。ヒット数とのずれを確かめる段が無かった。ページの構造の変更か CI のボット判定かは未確認。
+- 検出経緯: PR #1226 の audit の unit-tests の失敗を develop で再現し、直前の bot の commit（quarterly snapshots 2026-10-25）の差分を見た（market-research.json が 22,002 行減っていた）。
+- 対策: 記録を前回の内容に戻した（`0f0bc88`）。`scripts/lib/coconala-market.mjs` の `unreadableQueries` で、ヒットがあるのに 0 件の語と、全部の語で 0 件を拾う。そうした語は `complete` にせず、最後に保存とサマリーの生成をせずに exit 1（検査不成立）で終える。`scout-coconala-competitors` も、検索結果に出品が無ければ snapshot を書かずに exit 1。CI は成功した段だけを公開するので、空の記録は develop に入らない。
+- 教訓: 取得系のスクリプトは「終わった」と「読めた」を分けて判定する。ヒット数など、件数が分かる外部の値があれば、読めた数と突き合わせる。前回の記録を消してから取り直す作りでは、読めなかったときに前回を残す道を先に作る。
+
+## 2026-10-25 — automerge の引き金の名前の `+` が glob と読まれ、Pre-merge の完了で一度も起動していなかった
+
+- 現象: PR #1223 に automerge ラベルを付けたが、Pre-merge（audit・build）が緑で終わっても 10 分マージされず、手で squash した。`automerge.yml` の workflow_run は、記録の残る 10-09〜10-25 に Pre-merge が 999 回完了したうち 0 回しか起動していなかった（近くで起動した 25 回は E2E・Lighthouse の完了で説明できる）。E2E・Lighthouse の完了では 559/782 回・441/637 回起動していた。
+- 根本原因: `on.workflow_run.workflows` の名前は glob のパターンとして照合される（`*`・`**`・`+`・`?`・`!` などが特別）。`"Pre-merge check (quality audit + build)"` の `+` は「直前の文字の 1 回以上の繰り返し」になり、名前の文字としての `+` に一致しなかった。括弧は特別でない（`"Deploy to production (Cloudflare Pages)"` を引き金にする indexnow-submit・production-sweep は起動している）。
+- 気づきの遅延理由: ラベルを付けた PR の多くは E2E・Lighthouse も走り、その完了が Pre-merge より後だったので、別の引き金でマージされていた。E2E・Lighthouse が走らない差分（workflow・scripts の変更）の PR だけが止まり、手でマージして済ませていた。`gh workflow list` は active、名前もバイト単位で一致していて、設定を見ても分からない。引き金の完了時刻と automerge の起動時刻を並べて初めて分かった。
+- 対策: `\+` でエスケープし、YAML の単一引用符で書いた（二重引用符では `\+` が不正なエスケープ）。`tests/workflow-run-filters.test.mjs` が、全ワークフローの workflow_run の名前にエスケープしていない glob の特別な文字が無いことと、名前どおりに一致する `name:` が実在することを止める。workflow_run は既定ブランチの定義で動くので、効くのは main へ deploy してから（DN-0848）。
+- 教訓: GitHub Actions の「名前」や「ブランチ」を書く欄の多くはパターンとして解釈される。記号を含む名前は文字どおりに一致しているかを、起動の実績（引き金の完了と起動の時刻の突き合わせ）で確かめる。設定の見た目と `active` は起動の証拠にならない。
+
 ## 2026-10-24 — ログインが要る処理が Mac・CI・Windows に分かれ、毎週どこかが静かに壊れた（土曜の Mac 1 本へ集約）
 
 - 現象: 10/24 の週に Mac の launchd 4 本が失敗し、週次レビューの自動実行も完了しなかった。10/22 には CI の note 収集が、書き戻しの段で収集分を丸ごと落とした。ログイン系の失敗は Issue に出ても、どの経路が止まったのか（Mac・CI・Windows のどれ）が分からず、直しても別の経路が壊れた。
@@ -21,7 +37,7 @@ title: 計測・検証事故の記録
   - ログインが要る取得と書き込みを、運営者の Mac の土曜の週次レビュー前後（`scripts/weekly-collect.mjs` の前段・後段）に集約。CI・Windows はログインしない。launchd の 4 本・Windows のタスク・CI のログイン系ワークフロー・暗号化 state・`DOBOKU_AUTH_*` Secrets を廃止
   - 定期実行の CI を止めるときは、ファイルの削除より先に `gh workflow disable` で止める（main の YAML が残る間は cron が走る）
   - ヘッドレスの Claude は `.tmp/claude-out/` に書かせ、終了後に `scripts/apply-claude-out.mjs` が許可リスト（`.claude/todo/weekly.md` など）だけを `.claude/` へ写す。バックグラウンド待機は無期限にせず上限を明示し、プロンプトで背景エージェントを禁じる
-  - 自動化の台帳 `config/automations.json` を 1 本に統一し、`npm run check-automations` で実物との一致を検査、管理画面 `/ops/automations` で土曜の収集結果とともに出す
+  - 自動化の台帳 `config/automations.json` を 1 本に統一し、`npm run check-automations` で実物との一致を検査、管理画面の `/ops/mac`（土曜の流れ）と `/ops/ci`（GitHub Actions）で出す
   - エージェントのセッション（`CLAUDECODE=1`）は収集 script を実行しない（resolver が `AUTH_AGENT_COLLECT_REFUSED`）。記録と最終取得日を読み、古ければ「未取得」と書く
 - 教訓: 同じ資格情報を使う処理が複数の実行場所に散ると、失敗の原因が経路の数だけ増え、直しても別の経路が壊れる。ログインが要る処理は 1 か所・週 1 回に寄せ、他は記録を読むだけにする。入力に分類できない 1 件が混ざっても、収集全体を捨てず、その 1 件だけを理由付きで未分類に残す。CI をやめるときは「ファイルを消す」と「cron が止まる」を別の操作として扱う
 
@@ -767,7 +783,6 @@ curl https://<account>.r2.cloudflarestorage.com/
 |---|---|---|---|---|
 | `psi-audit.yml` | `0 17 * * *` | **develop**（明示） | develop | PSI / Core Web Vitals |
 | `fetch-metrics.yml` | `0 21 * * 4` | **develop**（明示） | develop | GA4 / GSC 週次 |
-| `gsc-auto-review.yml` | `0 3 * * 5` | **develop**（明示） | develop | GSC 週次・月次の記録層 |
 | `index-coverage.yml` | `0 2 * * 3` | **develop**（明示） | develop | GSC index coverage（2026-09-17 に週次へ） |
 | `weekly-review-guard.yml` | `17 2 * * 1` | **develop**（明示） | なし（Issue のみ） | 週次レビュー実施の督促・watchdog |
 | `r2-audit.yml` | `0 22 * * 0` | **main**（明示） | なし | R2 / OGP / 品質ゲート |

@@ -1,0 +1,21 @@
+{
+  "key": "7a6598da405074ab",
+  "kind": "parts",
+  "layout": [
+    "                  説   明    事    項"
+  ],
+  "parts": [
+    {
+      "kind": "caption",
+      "text": "説明事項"
+    }
+  ],
+  "notes": [],
+  "headerFrom": null,
+  "review": {
+    "status": "approved",
+    "by": "qa",
+    "at": "2026-10-25T04:08:34.212Z",
+    "note": "現場説明書の枠の見出し「説明事項」だけ。1 列のため caption。 ／ QA: 見出し「説明事項」のみ（枠の見出し）。p26 画像と一致。枠内の本文は版面に無い。"
+  }
+}

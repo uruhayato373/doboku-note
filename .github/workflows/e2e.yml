@@ -69,7 +69,8 @@ permissions:
 jobs:
   e2e:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    # 夜間・手動は公的基準の全文書を描画する（STANDARDS_RENDER_SCOPE=all・DN-0850）ので長めに取る
+    timeout-minutes: ${{ github.event_name == 'pull_request' && 30 || 60 }}
 
     steps:
       - name: Checkout
@@ -124,6 +125,8 @@ jobs:
         env:
           PLAYWRIGHT_JSON_OUTPUT_NAME: .tmp/e2e-report.json
           PLAYWRIGHT_HTML_OPEN: never
+          # PR は共通仕様書の中身が異なるページだけ、夜間・手動は比較の外の文書（必携・マニュアル・特記など）も全ページ
+          STANDARDS_RENDER_SCOPE: ${{ github.event_name == 'pull_request' && 'distinct' || 'all' }}
         run: npm run test:e2e -- --reporter=line,html,json
 
       - name: Check E2E execution coverage

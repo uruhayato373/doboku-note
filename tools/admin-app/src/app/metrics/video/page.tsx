@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { PanelCard, StatusBadge, TableBody, TableCell, TableFrame, TableHead, TableHeader, TableRow, numCol, type Tone } from '@/components/admin';
+import { DataTable, PanelCard, StatusBadge, type DataTableColumn, type DataTableRow, type Tone } from '@/components/admin';
 import { Stack } from '@/components/layout';
 import { PageHead } from '@/components/ui';
 import { videoOutcomes, derivativeLabel } from '@/lib/video-outcomes';
@@ -8,6 +8,24 @@ import { examLabel, stageClass } from '@/lib/video-board';
 import { datasetDir } from '../../../../../../scripts/lib/datasets.mjs';
 
 export const dynamic = 'force-dynamic';
+
+const PACK_COLUMNS: DataTableColumn[] = [
+  { key: 'stage', label: '段階' },
+  { key: 'packId', label: 'packId' },
+  { key: 'derivatives', label: '派生物の公開状態', sortable: false },
+  { key: 'sessions', label: 'セッション', num: true },
+  { key: 'users', label: 'ユーザー', num: true },
+  { key: 'cta', label: '主CTA' },
+];
+
+const CAMPAIGN_COLUMNS: DataTableColumn[] = [
+  { key: 'campaign', label: 'campaign' },
+  { key: 'sessions', label: 'セッション', num: true },
+  { key: 'users', label: 'ユーザー', num: true },
+];
+
+/** 送客の数。未取得（null）と 0 を薄い字で区別して出す。 */
+const count = (n: number | null) => (n === null ? <span className="text-muted-foreground">—</span> : n || <span className="text-muted-foreground">0</span>);
 
 /**
  * /metrics/video — 動画パックの「公開状態 × 送客成果」（read-only）。
@@ -19,6 +37,61 @@ export default async function VideoOutcomesPage() {
   const { rows, metrics, otherCampaigns, verification } = videoOutcomes();
   const published = rows.filter((r) => r.anyPublished);
   const measurable = metrics.ok ? published.filter((r) => (r.sessions ?? 0) > 0).length : null;
+
+  const packRows: DataTableRow[] = rows.map((r) => ({
+    id: r.packId,
+    values: {
+      stage: r.stage ? LABELS[r.stage] : '不明',
+      packId: r.packId,
+      derivatives: r.derivatives.length === 0 ? '未登録' : r.derivatives.map((d) => `${derivativeLabel(d.key)}:${d.status}`).join(' '),
+      sessions: r.sessions,
+      users: r.activeUsers,
+      cta: r.cta ?? null,
+    },
+    cells: {
+      stage: (
+        <StatusBadge tone={stageClass(r.stage) as Tone}>
+          {r.stage ? LABELS[r.stage] : '不明'}
+        </StatusBadge>
+      ),
+      packId: (
+        <div className="font-mono">
+          <Link href={`/content/content~sns/video-packs/${r.exam}/${r.slug}`}>{r.packId}</Link>
+          <div className="text-xs text-muted-foreground">{examLabel(r.exam)}</div>
+        </div>
+      ),
+      derivatives: (
+        <div className="text-xs">
+          {r.derivatives.length === 0 ? (
+            <span className="text-muted-foreground">未登録</span>
+          ) : (
+            r.derivatives.map((d) => (
+              <span key={d.key} className="mr-2">
+                {derivativeLabel(d.key)}:{' '}
+                <span className="font-mono">{d.status}</span>
+                {d.videoId && <span className="text-muted-foreground"> ({d.videoId})</span>}
+                {d.key.startsWith('shorts') &&
+                  ['published', 'measured'].includes(d.status) &&
+                  !d.relatedVideoId && (
+                    <span className="ml-1">
+                      <StatusBadge tone="bad">関連動画なし</StatusBadge>
+                    </span>
+                  )}
+              </span>
+            ))
+          )}
+        </div>
+      ),
+      sessions: count(r.sessions),
+      users: count(r.activeUsers),
+      cta: <span className="font-mono text-xs">{r.cta ?? '—'}</span>,
+    },
+  }));
+  const campaignRows: DataTableRow[] = otherCampaigns.map((c) => ({
+    id: c.campaign,
+    values: { campaign: c.campaign, sessions: c.sessions, users: c.activeUsers },
+    cells: { campaign: <span className="font-mono text-xs">{c.campaign}</span> },
+  }));
 
   return (
     <>
@@ -115,82 +188,12 @@ export default async function VideoOutcomesPage() {
       </PanelCard>
 
       <PanelCard title="パック別" description="公開済み → 送客の多い順">
-        <TableFrame>
-            <TableHeader>
-              <TableRow>
-                <TableHead>段階</TableHead>
-                <TableHead>packId</TableHead>
-                <TableHead>派生物の公開状態</TableHead>
-                <TableHead className={numCol}>セッション</TableHead>
-                <TableHead className={numCol}>ユーザー</TableHead>
-                <TableHead>主CTA</TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              {rows.map((r) => (
-                <TableRow key={r.packId}>
-                  <TableCell>
-                    <StatusBadge tone={stageClass(r.stage) as Tone}>
-                      {r.stage ? LABELS[r.stage] : '不明'}
-                    </StatusBadge>
-                  </TableCell>
-                  <TableCell className="font-mono">
-                    <Link href={`/content/content~sns/video-packs/${r.exam}/${r.slug}`}>{r.packId}</Link>
-                    <div className="text-xs text-muted-foreground">{examLabel(r.exam)}</div>
-                  </TableCell>
-                  <TableCell className="text-xs">
-                    {r.derivatives.length === 0 ? (
-                      <span className="text-muted-foreground">未登録</span>
-                    ) : (
-                      r.derivatives.map((d) => (
-                        <span key={d.key} className="mr-2">
-                          {derivativeLabel(d.key)}:{' '}
-                          <span className="font-mono">{d.status}</span>
-                          {d.videoId && <span className="text-muted-foreground"> ({d.videoId})</span>}
-                          {d.key.startsWith('shorts') &&
-                            ['published', 'measured'].includes(d.status) &&
-                            !d.relatedVideoId && (
-                              <span className="ml-1">
-                                <StatusBadge tone="bad">関連動画なし</StatusBadge>
-                              </span>
-                            )}
-                        </span>
-                      ))
-                    )}
-                  </TableCell>
-                  <TableCell className={numCol}>
-                    {r.sessions === null ? <span className="text-muted-foreground">—</span> : r.sessions || <span className="text-muted-foreground">0</span>}
-                  </TableCell>
-                  <TableCell className={numCol}>
-                    {r.activeUsers === null ? <span className="text-muted-foreground">—</span> : r.activeUsers || <span className="text-muted-foreground">0</span>}
-                  </TableCell>
-                  <TableCell className="font-mono text-xs">{r.cta ?? '—'}</TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-        </TableFrame>
+        <DataTable columns={PACK_COLUMNS} rows={packRows} filter="packId で絞り込む" />
       </PanelCard>
 
       {metrics.ok && otherCampaigns.length > 0 && (
         <PanelCard title="パック外の campaign" description="既存 UTM（note・X 等）。動画パックとは無関係だが取り違え防止に併記">
-          <TableFrame>
-              <TableHeader>
-                <TableRow>
-                  <TableHead>campaign</TableHead>
-                  <TableHead className={numCol}>セッション</TableHead>
-                  <TableHead className={numCol}>ユーザー</TableHead>
-                </TableRow>
-              </TableHeader>
-              <TableBody>
-                {otherCampaigns.map((c) => (
-                  <TableRow key={c.campaign}>
-                    <TableCell className="font-mono text-xs">{c.campaign}</TableCell>
-                    <TableCell className={numCol}>{c.sessions}</TableCell>
-                    <TableCell className={numCol}>{c.activeUsers}</TableCell>
-                  </TableRow>
-                ))}
-              </TableBody>
-          </TableFrame>
+          <DataTable columns={CAMPAIGN_COLUMNS} rows={campaignRows} pageSize={100} />
         </PanelCard>
       )}
       </Stack>

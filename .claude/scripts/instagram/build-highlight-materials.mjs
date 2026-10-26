@@ -5,7 +5,7 @@
  * ハイライト系統 A 用 Stories PNG を一括生成する汎用スクリプト。
  *
  * 戦略: docs/marketing/01_SNS集客戦略.md v7.1 §2 Highlight 6 種
- * ポリシー: .claude/knowledge/reference/ig-stories-policy.md §5 系統 A / C
+ * ポリシー: Stories の手順書（ig-stories-policy.md）は 2026-10-25 に外した（git の履歴にある）
  *
  * 対応ハイライト (戦略 v7.1 §2 のハイライト 1〜6 種の順序):
  *   - content/sns/instagram/highlights/01_intro/             まず読む

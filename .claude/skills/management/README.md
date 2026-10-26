@@ -10,10 +10,8 @@
 | `/weekly-review` | 週次レビューを生成 | 毎週土曜 09:00 JST（自動・クラウドルーティン・2026-09-19 に金曜 20:00 から変更） |
 | `/critical-review` | 設計書・計画書に対する批判的レビュー | 随時 |
 | `/knowledge` | 過去の失敗と学びを参照・追記 | バグ解決時 |
-| `/growth-loops` | 成長ループ（フライホイール）の設計・評価 | 四半期ごと |
 | `/monetization-strategy` | 収益化戦略のブレインストーム | 四半期ごと |
 | `/north-star-metric` | North Star Metric と Input Metrics の定義 | 初回 + 見直し時 |
-| `/pre-mortem` | Pre-Mortem（事前検死）の実施 | 四半期ごと |
 
 ## 推奨ワークフロー
 
@@ -21,11 +19,10 @@
 
 ```
 1. /north-star-metric     <- 最重要指標を決める
-2. /growth-loops           <- 指標を伸ばす成長メカニズムを設計
-3. /monetization-strategy  <- 収益化手段を検討
+2. /monetization-strategy  <- 収益化手段を検討
 ```
 
-この順序が重要。NSM が定まらないと成長ループの優先度が決まらず、成長の見通しがないと収益化の議論が空転する。
+この順序が重要。NSM が定まらないと、収益化の議論が空転する。
 
 ### 週次運用（毎週のルーティン）
 

@@ -100,20 +100,20 @@ Step 4 の修正後、自動で以下を実行して結果を報告する。**�
 
 全部 OK なら Step 6 へ。fail したら内容を報告してユーザに判断を委ねる（本スキルは修正まではしない）。
 
-### Step 6: `/pr-create` 呼出確認
+### Step 6: PR の作成の確認
 
 以下のプロンプトを出してユーザに選ばせる:
 
 ```
 修正 + 検証 OK。次のアクションを選んでください:
-  1. /pr-create           ── 現ブランチから PR を作成
+  1. PR を作る            ── 現ブランチから gh pr create（base は develop）
   2. commit のみ           ── 変更をステージ済みまでに留める
   3. 何もしない            ── 終了
 
 選択 (1/2/3):
 ```
 
-選択 1: `/pr-create` を呼び出す（title / body の草案生成まで本スキルで行い、最終承認は `/pr-create` 内で）
+選択 1: title / body の草案を本スキルで作り、ユーザの承認を得てから `gh pr create --base develop` で開く（2026-10-25 に `/pr-create` スキルを外した）
 選択 2: ユーザが手動で commit するよう案内して終了
 選択 3: 「/simplify 完了」と報告して終了
 
@@ -159,7 +159,6 @@ src/components/ui/Callout/Callout.tsx
 
 - `CLAUDE.md` ── 「12 原則」（§1-§4 が実装の行動原則・§5 がハーネス設計原則）
 - `.claude/knowledge/reference/content-authoring.md` ── MDX コンポーネント・frontmatter 規約
-- `.claude/skills/dev/code-review/SKILL.md` ── コード品質レビュー（観点が重複するため、/simplify は「修正提案型」、/code-review は「批判型」と使い分け）
-- `.claude/skills/dev/pr-create/SKILL.md` ── Step 6 で呼び出す PR 作成スキル
+- Claude Code 標準の `/code-review` ── コード品質レビュー（観点が重複するため、/simplify は「修正提案型」、/code-review は「批判型」と使い分け）
 - `scripts/lint-ui.mjs` ── UI 静的 lint（Step 5-1 で呼ぶ）
 - `scripts/pre-commit-mdx.mjs` ── MDX pre-commit 検証（Step 5-2 で呼ぶ）

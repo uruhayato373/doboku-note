@@ -135,7 +135,9 @@ test('ワークフローが ci-data に渡す台帳の id は、すべて解決�
     for (const m of text.matchAll(/ci-data\.mjs[^\n]*?--(?:exclude-)?datasets\s+([A-Za-z0-9.,-]+)/g)) for (const id of m[1].split(',')) ids.add(id);
     for (const m of text.matchAll(/ci-data\.mjs\s+(?:latest|path|put)\s+([A-Za-z0-9.-]+)/g)) ids.add(m[1]);
   }
-  assert.ok(ids.size >= 10, `ワークフローから id を拾えていない（${ids.size} 件）`);
+  // 拾えた数の下限は「抽出の正規表現が壊れて 0 件で素通りしない」ための床。CI を減らすたびに実数が減る
+  // （2026-10-26 に competitor-scan.yml を土曜の収集へ移して 6 件・DN-0852）。下限は実数より少し下に置く
+  assert.ok(ids.size >= 5, `ワークフローから id を拾えていない（${ids.size} 件）`);
   for (const id of ids) assert.ok(resolveDataset(id) || id in REPORT_KINDS, `ワークフローの id ${id} が台帳に無い（消すなら RETIRED_IDS に後継を書く）`);
 });
 

@@ -1,8 +1,6 @@
-import Link from 'next/link';
-import { numCol, PanelCard, TableBody, TableCell, TableFrame, TableHead, TableHeader, TableRow } from '@/components/admin';
+import { DataTable, PanelCard, StatusBadge, type DataTableColumn, type DataTableRow, type Tone } from '@/components/admin';
 import { PageHead } from '@/components/ui';
 import SectionTabs from '@/components/SectionTabs';
-import { Badge } from '@/components/ui/badge';
 import { loadMarketView, type ChannelCell, type MarketRow } from '@/lib/market';
 
 export const dynamic = 'force-dynamic';
@@ -15,12 +13,10 @@ export const dynamic = 'force-dynamic';
  * 組み立ては scripts/lib/qualification-market.mjs（npm run qualification-market と同じ実装）。
  * 取得日・検索語・出典は正本と CLI が持つので出さない。正本の不整合と要対応は件数だけ出す。
  */
-type SortKey = 'compose' | 'sales' | 'name';
-
 const PORTFOLIO_LABEL: Record<string, string> = { active: '展開中', candidate: '候補', declined: '見送り' };
-const PORTFOLIO_VARIANT: Record<string, 'success' | 'outline' | 'secondary'> = { active: 'success', candidate: 'outline', declined: 'secondary' };
+const PORTFOLIO_TONE: Record<string, Tone> = { active: 'good', candidate: 'neutral', declined: 'info' };
 const DENSITY_LABEL: Record<string, string> = { none: '無', low: '少', mid: '中', high: '多' };
-const DENSITY_VARIANT: Record<string, 'success' | 'outline' | 'warning' | 'destructive'> = { none: 'success', low: 'outline', mid: 'warning', high: 'destructive' };
+const DENSITY_TONE: Record<string, Tone> = { none: 'good', low: 'neutral', mid: 'warn', high: 'bad' };
 
 const md = (date: string) => {
   const [, m, d] = date.split('-').map(Number) as [number, number, number];
@@ -30,26 +26,28 @@ const yen = (n: number) => (n > 0 ? `¥${Math.round(n / 1000).toLocaleString('ja
 /** 日付未発表の期間の文言を短くする（例: 2026年12月上旬〜2027年1月中旬の受験者に別途通知する日 → 12月上旬〜1月中旬）。 */
 const shortWindow = (w: string) => w.replace(/の受験者に.*$/, '').replace(/\d{4}年/g, '');
 
-export default async function MarketPage({ searchParams }: { searchParams: Promise<{ sort?: string }> }) {
-  const { sort: sortParam } = await searchParams;
-  const view = loadMarketView();
-  const sort: SortKey = sortParam === 'sales' || sortParam === 'name' ? sortParam : 'compose';
-  const order: Record<string, number> = { active: 0, candidate: 1, declined: 2 };
-  const rows = [...view.rows].sort((a, b) => {
-    if (sort === 'name') return a.label.localeCompare(b.label, 'ja');
-    if (sort === 'sales') return b.salesYen - a.salesYen || (b.composeExaminees ?? -1) - (a.composeExaminees ?? -1);
-    return (order[a.portfolio] ?? 3) - (order[b.portfolio] ?? 3) || (b.composeExaminees ?? -1) - (a.composeExaminees ?? -1);
-  });
-  const actionCount = view.rows.reduce((n, r) => n + r.actions.length, 0);
+const COLUMNS: DataTableColumn[] = [
+  { key: 'label', label: '資格' },
+  { key: 'portfolio', label: '状態' },
+  { key: 'compose', label: '自分で書く区分', wrap: true, sortable: false },
+  { key: 'examinees', label: '受験者', num: true },
+  { key: 'buy', label: '買われる時期', sortable: false },
+  { key: 'sales', label: '売上', num: true },
+  { key: 'youtube', label: 'YouTube' },
+  { key: 'note', label: 'note' },
+  { key: 'coconala', label: 'ココナラ' },
+  { key: 'x', label: 'X', num: true },
+  { key: 'ig', label: 'IG', num: true },
+];
 
-  const SortHead = ({ k, children, className }: { k: SortKey; children: React.ReactNode; className?: string }) => (
-    <TableHead className={className}>
-      <Link href={`/strategy/market?sort=${k}`}>
-        {children}
-        {sort === k ? ' ▼' : ''}
-      </Link>
-    </TableHead>
+/** 初期の並びは 展開中 → 候補 → 見送り、同じ状態の中では受験者数の多い順。列見出しで並べ替えられる。 */
+export default function MarketPage() {
+  const view = loadMarketView();
+  const order: Record<string, number> = { active: 0, candidate: 1, declined: 2 };
+  const rows = [...view.rows].sort(
+    (a, b) => (order[a.portfolio] ?? 3) - (order[b.portfolio] ?? 3) || (b.composeExaminees ?? -1) - (a.composeExaminees ?? -1),
   );
+  const actionCount = view.rows.reduce((n, r) => n + r.actions.length, 0);
 
   return (
     <>
@@ -63,28 +61,7 @@ export default async function MarketPage({ searchParams }: { searchParams: Promi
       )}
       {actionCount > 0 && <p className="text-sm text-muted-foreground">要対応 {actionCount} 件（npm run qualification-market）。ココナラの * は下限。</p>}
 
-      <TableFrame>
-        <TableHeader>
-          <TableRow>
-            <SortHead k="name">資格</SortHead>
-            <TableHead>状態</TableHead>
-            <TableHead>自分で書く区分</TableHead>
-            <SortHead k="compose" className={numCol}>受験者</SortHead>
-            <TableHead>買われる時期</TableHead>
-            <SortHead k="sales" className={numCol}>売上</SortHead>
-            <TableHead>YouTube</TableHead>
-            <TableHead>note</TableHead>
-            <TableHead>ココナラ</TableHead>
-            <TableHead className={numCol}>X</TableHead>
-            <TableHead className={numCol}>IG</TableHead>
-          </TableRow>
-        </TableHeader>
-        <TableBody>
-          {rows.map((r) => (
-            <Row key={r.id} row={r} formatTypes={view.formatTypes} />
-          ))}
-        </TableBody>
-      </TableFrame>
+      <DataTable columns={COLUMNS} rows={rows.map((r) => toRow(r, view.formatTypes))} pageSize={100} />
     </>
   );
 }
@@ -95,45 +72,68 @@ function Density({ cell }: { cell: ChannelCell | undefined }) {
   const tip = [top ? `最大: ${top}` : '', cell.partial ? '専用の検索語が未取得（汎用の検索結果から数えた下限）' : ''].filter(Boolean).join(' / ');
   return (
     <span title={tip || undefined}>
-      <Badge variant={DENSITY_VARIANT[cell.density]}>{DENSITY_LABEL[cell.density]}</Badge> <span className="text-muted-foreground">{cell.strong}{cell.partial ? '*' : ''}</span>
+      <StatusBadge tone={DENSITY_TONE[cell.density]}>{DENSITY_LABEL[cell.density]}</StatusBadge> <span className="text-muted-foreground">{cell.strong}{cell.partial ? '*' : ''}</span>
     </span>
   );
 }
 
-function Row({ row: r, formatTypes }: { row: MarketRow; formatTypes: Record<string, string> }) {
+function toRow(r: MarketRow, formatTypes: Record<string, string>): DataTableRow {
   const compose = r.stages.filter((s) => s.compose);
-  return (
-    <TableRow className={'align-top' + (r.portfolio === 'declined' ? ' text-muted-foreground' : '')}>
-      <TableCell className="whitespace-nowrap">{r.label}</TableCell>
-      <TableCell className="whitespace-nowrap">
-        <Badge variant={PORTFOLIO_VARIANT[r.portfolio] ?? 'secondary'}>{PORTFOLIO_LABEL[r.portfolio] ?? r.portfolio}</Badge>
-      </TableCell>
-      <TableCell className="text-xs whitespace-normal">
-        {compose.length === 0 ? (
-          <span className="text-muted-foreground">なし（{r.stages.map((s) => s.types.map((t) => formatTypes[t] ?? t).join('・')).join(' / ') || '未登録'}）</span>
-        ) : (
-          compose.map((s) => (
-            <div key={s.key}>
-              <span className="text-muted-foreground">{s.label} </span>
-              {s.types.map((t) => formatTypes[t] ?? t).join('・')}
-            </div>
-          ))
-        )}
-      </TableCell>
-      <TableCell className="whitespace-nowrap text-xs text-right tabular-nums">
-        {r.composeExaminees != null ? `${r.composeExaminees.toLocaleString('ja-JP')}人` : '—'}
-      </TableCell>
-      <TableCell className="whitespace-nowrap text-xs">
-        {compose.length === 0
-          ? '—'
-          : compose.map((s) => <div key={s.key}>{s.buy ? `${md(s.buy.from)}〜${md(s.buy.to)}` : <span className="text-muted-foreground">{s.examWindow ? shortWindow(s.examWindow) : '—'}</span>}</div>)}
-      </TableCell>
-      <TableCell className="text-xs text-right tabular-nums">{yen(r.salesYen)}</TableCell>
-      <TableCell className="whitespace-nowrap text-xs"><Density cell={r.channels.youtube} /></TableCell>
-      <TableCell className="whitespace-nowrap text-xs"><Density cell={r.channels.note} /></TableCell>
-      <TableCell className="whitespace-nowrap text-xs"><Density cell={r.channels.coconala} /></TableCell>
-      <TableCell className="text-xs text-right tabular-nums">{r.channels.x.tracked.length || '—'}</TableCell>
-      <TableCell className="text-xs text-right tabular-nums">{r.channels.ig.tracked.length || '—'}</TableCell>
-    </TableRow>
-  );
+  const typeText = (types: string[]) => types.map((t) => formatTypes[t] ?? t).join('・');
+  const composeText =
+    compose.length === 0
+      ? `なし（${r.stages.map((s) => typeText(s.types)).join(' / ') || '未登録'}）`
+      : compose.map((s) => `${s.label} ${typeText(s.types)}`).join(' / ');
+  const buyText = compose.length === 0 ? '—' : compose.map((s) => (s.buy ? `${md(s.buy.from)}〜${md(s.buy.to)}` : s.examWindow ? shortWindow(s.examWindow) : '—')).join(' / ');
+  // 見送りの資格は行全体を薄く出す
+  const dim = (node: React.ReactNode) => (r.portfolio === 'declined' ? <span className="text-muted-foreground">{node}</span> : node);
+  const density = (cell: ChannelCell | undefined) => (cell?.density ? (cell.strong ?? 0) : null);
+  return {
+    id: r.id,
+    values: {
+      label: r.label,
+      portfolio: PORTFOLIO_LABEL[r.portfolio] ?? r.portfolio,
+      compose: composeText,
+      examinees: r.composeExaminees,
+      buy: buyText,
+      sales: r.salesYen,
+      youtube: density(r.channels.youtube),
+      note: density(r.channels.note),
+      coconala: density(r.channels.coconala),
+      x: r.channels.x.tracked.length || null,
+      ig: r.channels.ig.tracked.length || null,
+    },
+    cells: {
+      label: dim(r.label),
+      portfolio: <StatusBadge tone={PORTFOLIO_TONE[r.portfolio] ?? 'info'}>{PORTFOLIO_LABEL[r.portfolio] ?? r.portfolio}</StatusBadge>,
+      compose: dim(
+        <div className="text-xs">
+          {compose.length === 0 ? (
+            <span className="text-muted-foreground">{composeText}</span>
+          ) : (
+            compose.map((s) => (
+              <div key={s.key}>
+                <span className="text-muted-foreground">{s.label} </span>
+                {typeText(s.types)}
+              </div>
+            ))
+          )}
+        </div>,
+      ),
+      examinees: dim(<span className="text-xs">{r.composeExaminees != null ? `${r.composeExaminees.toLocaleString('ja-JP')}人` : '—'}</span>),
+      buy: dim(
+        <div className="text-xs">
+          {compose.length === 0
+            ? '—'
+            : compose.map((s) => <div key={s.key}>{s.buy ? `${md(s.buy.from)}〜${md(s.buy.to)}` : <span className="text-muted-foreground">{s.examWindow ? shortWindow(s.examWindow) : '—'}</span>}</div>)}
+        </div>,
+      ),
+      sales: dim(<span className="text-xs">{yen(r.salesYen)}</span>),
+      youtube: dim(<span className="text-xs"><Density cell={r.channels.youtube} /></span>),
+      note: dim(<span className="text-xs"><Density cell={r.channels.note} /></span>),
+      coconala: dim(<span className="text-xs"><Density cell={r.channels.coconala} /></span>),
+      x: dim(<span className="text-xs">{r.channels.x.tracked.length || '—'}</span>),
+      ig: dim(<span className="text-xs">{r.channels.ig.tracked.length || '—'}</span>),
+    },
+  };
 }

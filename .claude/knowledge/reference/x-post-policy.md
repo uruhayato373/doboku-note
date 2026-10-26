@@ -35,7 +35,7 @@ Evaluator（`x-post-qa`）が共通参照する。
 node scripts/check-x-length.mjs                 # 全ドラフト（既定280・[longform]は25,000で判定）
 node scripts/check-x-length.mjs --draft 040     # 単一
 node scripts/check-x-length.mjs --over          # 違反のみ
-node scripts/check-x-length.mjs --pending-only  # 投稿済み（posted/replaced）を除く。CI ゲート quality-audit x-length はこれ（2026-09-23〜）
+node scripts/check-x-length.mjs --pending-only  # 投稿済み（posted/replaced）を除く。CI ゲート quality-audit x-length はこれだった（2026-09-23〜10-25。SNS の保留に合わせて CI から外した・再開するときに作り直す）
 ```
 
 > 既知の落とし穴: `check-x-length` は Windows で空振りした事例あり（[[measurement-incidents]] 系）。違反ゼロ表示を鵜呑みにせず、weighted 計算を目視確認する。
@@ -57,7 +57,7 @@ node scripts/check-x-length.mjs --pending-only  # 投稿済み（posted/replaced
 content/sns/x/
 ├── draft/<NNN>-<exam>-<topic>/      ← 試験を slug に含める（多資格識別）
 │   ├── tweets.md                     ← 280 weighted 以下の投稿群
-│   └── img/tweet-NN-<slug>.png       ← create-x-card 生成（任意）
+│   └── img/tweet-NN-<slug>.png       ← scripts/gen-x-card.mjs 生成（任意）
 ├── published/                        ← 投稿済みアーカイブ
 └── README.md                         ← テンプレ規約（本 policy へのリンク）
 ```
@@ -180,7 +180,7 @@ content/sns/x/
   - 新旧の対応の真実源は `public/_redirects`。資格以降をハイフンでつなぐ（`/exam/<資格>/primary-r03-kouki`）と 404 になる。
 - **検証の仕組み化（2026-06-08 新設・2026-09-24 新 URL 対応）**: `node scripts/check-sns-urls.mjs` が `content/sns/**` の新 URL を `public/_redirects` の転送先と、旧 `/docs/` を doc-meta-index と突合し、本番に無いものを検出する（打ち間違いには正しい URL を提案する）。pre-commit に `--staged` で組込済み（broken があるとコミット不可）。旧 `/docs/` は `check-x-utm` が警告で数える（予約済み投稿の承認 hash を壊さないため落とさない）。背景: 2026-06 に X 投稿 149 件のリンク切れ（560+ impressions ロス）が発生 → 接頭辞欠落が原因。
 
-## 7. サマリカード画像（create-x-card）
+## 7. サマリカード画像（scripts/gen-x-card.mjs）
 
 ### 先生付きカードと予約原稿の確認
 
@@ -384,7 +384,7 @@ PNGのコピーだけでは旧描画台帳の原稿hashが残り、`check-x-revi
 ## 参照
 
 - 戦略: `docs/marketing/01_SNS集客戦略.md`（X 節）/ `02_チャネル動線設計.md`（UTM）
-- 連携スキル: `social-post`（X 投稿テキスト生成）/ `create-x-card`（カード画像）/ `publish-x`（予約投稿）
+- 連携スキル: `social-post`（X 投稿テキスト生成）/ `scripts/gen-x-card.mjs`（カード画像・create-x-card スキルは 2026-10-25 に外した）/ `publish-x`（予約投稿）
 - エージェント: `x-post-writer`（Generator）/ `x-post-qa`（Evaluator）
 - IG 対応物: `ig-carousel-policy.md`・`ig-reels-policy.md`（パラレル設計の参考）
 

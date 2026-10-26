@@ -1,4 +1,4 @@
-import { TableBody, TableCell, TableFrame, TableHead, TableHeader, TableRow, numCol } from '@/components/admin';
+import { DataTable, type DataTableColumn, type DataTableRow } from '@/components/admin';
 import SearchTabs from '@/components/SearchTabs';
 import { PageHead } from '@/components/ui';
 import { findRepoRoot } from '@/lib/repo-root';
@@ -17,42 +17,41 @@ const pct = (r: Ratio | undefined) => (r?.ratio == null ? '—' : `${(r.ratio * 
 export default function IndexPage() {
   const root = findRepoRoot();
   const quals = (direction(root) as { qualifications: { id: string; label: string }[] }).qualifications;
-  const rows = (indexHistory(root) as { date: string }[])
+  const history = (indexHistory(root) as { date: string }[])
     .map((e) => expandEntry(e, quals.map((q) => q.id)) as { date: string; all: Ratio; byQualification: Record<string, Ratio> })
     .reverse();
+
+  const columns: DataTableColumn[] = [
+    { key: 'date', label: '検査日' },
+    { key: 'all', label: '全体', num: true },
+    ...quals.map((q) => ({ key: `q:${q.id}`, label: q.label, num: true })),
+  ];
+  const rows: DataTableRow[] = history.map((r) => {
+    const values: DataTableRow['values'] = { date: r.date, all: r.all.ratio };
+    const cells: NonNullable<DataTableRow['cells']> = {
+      all: (
+        <>
+          {pct(r.all)} <span className="text-xs text-muted-foreground">{r.all.indexed}/{r.all.inspected}</span>
+        </>
+      ),
+    };
+    for (const q of quals) {
+      const v = r.byQualification[q.id];
+      values[`q:${q.id}`] = v?.ratio ?? null;
+      cells[`q:${q.id}`] = (
+        <>
+          {pct(v)} {v && v.inspected > 0 && <span className="text-xs text-muted-foreground">{v.indexed}/{v.inspected}</span>}
+        </>
+      );
+    }
+    return { id: r.date, values, cells };
+  });
+
   return (
     <>
       <PageHead title="検索" sub="インデックス率（URL 検査・週次）" />
       <SearchTabs current="/metrics/index" />
-      <TableFrame>
-        <TableHeader>
-          <TableRow>
-            <TableHead>検査日</TableHead>
-            <TableHead className={numCol}>全体</TableHead>
-            {quals.map((q) => (
-              <TableHead key={q.id} className={numCol}>{q.label}</TableHead>
-            ))}
-          </TableRow>
-        </TableHeader>
-        <TableBody>
-          {rows.map((r) => (
-            <TableRow key={r.date}>
-              <TableCell>{r.date}</TableCell>
-              <TableCell className={numCol}>
-                {pct(r.all)} <span className="text-xs text-muted-foreground">{r.all.indexed}/{r.all.inspected}</span>
-              </TableCell>
-              {quals.map((q) => {
-                const v = r.byQualification[q.id];
-                return (
-                  <TableCell key={q.id} className={numCol}>
-                    {pct(v)} {v && v.inspected > 0 && <span className="text-xs text-muted-foreground">{v.indexed}/{v.inspected}</span>}
-                  </TableCell>
-                );
-              })}
-            </TableRow>
-          ))}
-        </TableBody>
-      </TableFrame>
+      <DataTable columns={columns} rows={rows} pageSize={100} />
     </>
   );
 }

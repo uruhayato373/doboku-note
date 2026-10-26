@@ -62,7 +62,7 @@ YouTube の後付けサムネ処理は `node .claude/scripts/youtube/set-thumbna
 
 保存後は対象 ID・公開状態・日時・実表示を読み直して確認する。予約重複や意図しない即時公開がないことを確認し、「素材生成済み／外部更新済み／実表示確認済み」を区別して報告する。
 
-全チャンネルの対象確認は `scripts/youtube-thumbnail-rollout.mjs --mode inventory`。既存 `sync-yt-descriptions.yml` の手動入力 `operation=thumbnail-inventory` で、選択したrefのコードを使う（従来の `descriptions` jobとは排他）。uploadsを全ページ取得し、総件数・重複・詳細取得の被覆・口座を検査する。0件/欠落は検査不成立。YouTubeへの書き込みはない。公開リポジトリのログへ非公開動画情報を出さず、`--mode keygen` で手元に生成した一時公開鍵だけを `report_public_key` へ渡す。artifactは暗号化JSONのみ・保持3日。秘密鍵は手元の `.tmp/youtube-rollout/keys.json` に留め、Git/CIへ送らない。取得したartifactは `--mode decrypt --input PATH --key-file .tmp/youtube-rollout/keys.json` で手元へ復号する。
+全チャンネルの対象確認は `scripts/youtube-thumbnail-rollout.mjs --mode inventory`。**2026-10-25 に SNS の保留に合わせて CI から外した（再開するときに作り直す。以下は外す前の仕組み）。** 既存 `sync-yt-descriptions.yml` の手動入力 `operation=thumbnail-inventory` で、選択したrefのコードを使う（従来の `descriptions` jobとは排他）。uploadsを全ページ取得し、総件数・重複・詳細取得の被覆・口座を検査する。0件/欠落は検査不成立。YouTubeへの書き込みはない。公開リポジトリのログへ非公開動画情報を出さず、`--mode keygen` で手元に生成した一時公開鍵だけを `report_public_key` へ渡す。artifactは暗号化JSONのみ・保持3日。秘密鍵は手元の `.tmp/youtube-rollout/keys.json` に留め、Git/CIへ送らない。取得したartifactは `--mode decrypt --input PATH --key-file .tmp/youtube-rollout/keys.json` で手元へ復号する。
 
 uploadsのページ境界で同じ公開IDが重複する場合は、投稿台帳のIDを `videos.list` で実査して不足を補完する。重複を除くだけで完了とはしない。口座が一致する実体の総数＝uploadsの総数、かつuploads由来の未取得IDが0であることを要求する。重複・補完ID・削除済み台帳IDは暗号化記録へ残し、削除済み動画を再投稿しない。
 

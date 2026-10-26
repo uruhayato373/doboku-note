@@ -13,3 +13,5 @@ metadata:
 **Why:** 保留中の作業を勧めると、ユーザーに不要な操作（ログイン復旧など）を頼むことになり、方針への信頼を損なう。
 
 **How to apply:** SNS 系のカード（領域:SNS・Instagram・X・YouTube の公開・予約）を候補に出す前に、最新の週次レビュー冒頭と `git grep -n "SNS.\{0,10\}保留" -- .claude/todo docs/reviews` で保留中かを確かめる。保留中なら候補から外し、外したことを一言添える。[[project-sns-v7-pivot]]
+
+2026-10-25、ユーザーは「SNS の CI は全部削除し、必要になったら作ればいい」と判断した。保留の印（paused）で残す案は退けられた。YouTube・Instagram・X の workflow（registry-reconcile・youtube-unschedule・sync-yt-descriptions・note-public-view の YouTube 段）と quality-audit の SNS 検査 15 本を CI から外した（スクリプトは手元に残す）。SNS 系の自動化を足す・戻す提案は、再開の指示が出るまでしない。

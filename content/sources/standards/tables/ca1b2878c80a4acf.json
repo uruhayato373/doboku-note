@@ -1,0 +1,21 @@
+{
+  "key": "ca1b2878c80a4acf",
+  "kind": "parts",
+  "layout": [
+    "   「１．施工計画         （９）安全管理         」を参照"
+  ],
+  "parts": [
+    {
+      "kind": "text",
+      "text": "「１．施工計画 （９）安全管理 」を参照"
+    }
+  ],
+  "notes": [],
+  "headerFrom": null,
+  "review": {
+    "status": "approved",
+    "by": "qa",
+    "at": "2026-10-25T05:40:21.321Z",
+    "note": "画像p0083。表ではなく本文の 1 行（（1）施工計画書への記載の下の参照先）。表の枠は無い。parts の text にした。 ／ QA: p83 画像と照合。表枠なしの本文 1 行を text にしており妥当。"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "key": "1deedc46b5fc1f1d",
+  "kind": "parts",
+  "layout": [
+    "                                                                                                                            工事名        ○○橋梁下部工事                       請負業者名 ○○建設（株）"
+  ],
+  "parts": [
+    {
+      "kind": "table",
+      "header": [],
+      "headerless": true,
+      "rows": [
+        [
+          "工事名",
+          "○○橋梁下部工事",
+          "請負業者名",
+          "○○建設（株）"
+        ]
+      ]
+    }
+  ],
+  "notes": [],
+  "headerFrom": null,
+  "review": {
+    "status": "approved",
+    "by": "qa",
+    "at": "2026-10-25T05:56:04.543Z",
+    "note": "p238 の流れ図に縮小して載せた様式の工事名の行。 ／ QA: p238 右上の縮小様式の工事名の行。4 列の対応を画像で確認。"
+  }
+}

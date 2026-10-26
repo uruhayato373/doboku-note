@@ -29,11 +29,11 @@ SHA-256 が完全一致する重複なので生成しない（2026-10-16 に北�
 `noindex, follow` で読める状態を保つ。sitemap に載るのは近畿の 43 章と 3-2 の節ページ（本文 200KB 以上の章は節ページに分ける）。
 
 **表は可逆に復元できるものだけ GFM**（近畿 164 件中 5 件）。基準類一覧は箇条書き、残りは原本のページ画像と照合して
-組み直した `content/sources/standards/tables/{key}.json`（承認済み 217 件・文字の過不足ゼロを機械検査）で出す（2026-10-16）。
+組み直した `content/sources/standards/tables/{key}.json`（承認済み 217 件・文字の過不足ゼロを機械検査）で出す（2026-10-16）。2026-10-25 に DN-0850 で版面のまま残った表を 0 件にした（inventory 0・残る verbatim は図の中の文字と記入欄だけの様式・崩れた見出しは headerImage・大きな表は split/merge）。
 理由コードは台帳に記録する。可逆性検査
 （セル連結が元行と一致）と空セル禁止が無いと、列を静かに取り違える。
 
-コマンド: `build-standard-articles` / `build-standards-ogp` / `check-standard-articles`（19 検査。17〜19 は読める形＝文の途中の改行・表のはぐれ断片・壊れた表）。描画は `e2e/standards-render.spec.ts`（中身が異なるページすべて）、目視は `standards-table-gallery`。
+コマンド: `build-standard-articles` / `build-standards-ogp` / `check-standard-articles`（19 検査。17〜19 は読める形＝文の途中の改行・表のはぐれ断片・壊れた表）。描画は `e2e/standards-render.spec.ts`（PR は中身が異なる 168 ページ、夜間・手動は `STANDARDS_RENDER_SCOPE=all` で比較の外の文書も 618 ページ）、目視は `standards-table-gallery`（`--all`）。版面のまま残った表の数は `readabilityBaselines.verbatimTables` のラチェット（DN-0850）。
 OGP は章ごとに `chapters/{id}/ogp.png` へ生成し asset-storage の `site-ogp-png` グループに
 自動一致させる（R2 供給・URL 導出が記事と同じ仕組みに乗る）。**ogp-supply.yml の paths は
 MDX だけでなく manifest と生成器も見る**——入れ忘れると章を足しても供給が発火せず、

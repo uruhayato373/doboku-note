@@ -1,6 +1,6 @@
 ---
 name: feedback_mdx_script_frontmatter_safety
-description: "MDXを正規表現/スクリプトで書き換えるときはfrontmatterを分離。Pythonのopen()テキストモードは単独\\rを\\nに化かすのでnewline=''かbytesで編集"
+description: "MDXを正規表現/スクリプトで書き換えるときはfrontmatterを分離。Pythonのopen()テキストモードは単独\\rを\\nに化かすのでnewline=''かbytesで編集。編集スクリプトは引用符なしheredocで渡さない（`…`が実行される）"
 metadata:
   type: feedback
 ---
@@ -24,3 +24,8 @@ return fm + body;
 2026-09-26、CLAUDE.md の1行を python3 の `open(p).read()` → `write()` で書き換えたら、既存の行中の単独 `\r` が改行に変わり 150→151 行になって `check-claude-md-size` が落ちた（HEAD の bytes から1行だけ置換して復元）。テキストモードは universal newlines で `\r` を `\n` に変換するため、関係ない行の差分・行数超過・CRLF 混在を生む。
 - repo のファイルを Python で編集するときは `open(p, encoding='utf-8', newline='')` か bytes（`rb`/`wb`）で読み書きする。
 - 編集後は `git diff --stat` で想定外の行数が無いか、CR 数（`tr -cd '\r' | wc -c`）が HEAD と同じかを見る。MDX は従来どおり `writeMdxFile`。関連: [[feedback_verify_your_excuses]]
+
+## 編集スクリプトを引用符なしの heredoc（`<<EOF`）で渡さない
+`python3 - <<EOF` のように区切りを引用符で囲まないと、シェルは本文の `` `…` `` を**コマンドとして実行**してから Python に渡す。
+- **Why:** 2026-10-25、doc の置換スクリプトの文字列にあった `` `npm run admin` `` が実行され、共有の作業フォルダで管理画面の dev サーバーが立ち上がり直した（kill-port 3021 で元のサーバーが止まった）。`` `config/automations.json` `` なども実行を試みて「permission denied」になり、置換は 1 件も適用されなかった。破壊は無かったが、`npm run` を含む doc を置換するたびに起こりうる。
+- **How to apply:** 置換スクリプトは Write で scratchpad の `.py`／`.mjs` に書いてから `python3 -I <file>`／`node <file>` で実行する。heredoc を使うなら必ず `<<'EOF'`（引用符つき）。シェル変数を渡したいときは heredoc に埋め込まず引数（`sys.argv`）で渡す。

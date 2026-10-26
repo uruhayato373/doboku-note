@@ -14,11 +14,11 @@ domain: site
 
 ## いつ使うか
 
-> [!important] 通常は GitHub Actions が自動で記録する（2026-08-06〜）
-> `.github/workflows/gsc-auto-review.yml`（金 JST 12:00）が、未記録の inspection-batch を見つけると
+> [!important] 通常は土曜の Mac が自動で記録する（2026-10-25〜。それまでは CI の gsc-auto-review.yml）
+> 週次レビューの前段の GSC の記録層（`scripts/scheduled/weekly-review.sh` の run_gsc_record・DN-0849）が、未記録の inspection-batch を見つけると
 > `gsc-index-auditor` を起動し観測ログへ `### YYYY-MM-DD（月次・自動レビュー）` を自動追記する。
-> **本スキルは応急・深掘り・上書き用**＝①月初から金曜を待たずに見たい ②自動エントリの判断を
-> 人が上書きしたい ③ `gsc-auto-review.yml` が失敗・沈黙した（`npm run check-gsc-auto-review` が DUE / `automation-failure`
+> **本スキルは応急・深掘り・上書き用**＝①月初から土曜を待たずに見たい ②自動エントリの判断を
+> 人が上書きしたい ③ 土曜の GSC の記録層が失敗・沈黙した（`npm run check-gsc-auto-review` が DUE / `automation-failure`
 > Issue が立った）とき。自動エントリと同日付で手動エントリを足してよい（append-only）。
 
 - 毎月 `index-coverage.yml`（CI・月初 JST 11:00）が走った**翌日以降**（最新スナップショットが develop に commit 済みの状態）

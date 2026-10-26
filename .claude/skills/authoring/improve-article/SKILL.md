@@ -241,7 +241,7 @@ frontmatter の `category` / `group` から呼び出す Evaluator を決定:
 
 1. 入力ファイルの存在確認
 2. dev server 起動確認: `curl -s -o /dev/null -w "%{http_code}" http://localhost:3020` が `200`
-3. 起動していなければ「`/dev-start` を実行してください」と報告して中止
+3. 起動していなければ「`npm run dev` を実行してください」と報告して中止
 4. `pdftotext -v` と `pdfinfo -v` が成功するか確認。失敗時は `brew install poppler`
 
 #### Step 2: 決定論的前処理（旧 verify-pdf-mdx scripts）

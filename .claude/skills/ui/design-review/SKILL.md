@@ -132,7 +132,7 @@ UI コンポーネントを書く Generator（Claude Code 本体）と視覚回�
 ### 前提確認
 
 - `npm run dev` が port 3020 で起動しているか（`curl -s -o /dev/null -w "%{http_code}" http://localhost:3020` が `200`）
-- 起動していなければ「`/dev-start` を実行してください」と報告して中止
+- 起動していなければ「`npm run dev` を実行してください」と報告して中止
 
 ### 静的 lint（決定論的）
 

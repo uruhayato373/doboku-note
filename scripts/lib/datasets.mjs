@@ -171,7 +171,7 @@ export const DATASETS = [
   d('config.disk-hygiene', 'config/disk-hygiene.json', 'config', 'ops', '手元のディスク肥大を止める閾値', { schema: 'ConfigDiskHygiene' }),
   d('config.local-resources', 'config/local-resources.json', 'config', 'ops', '手元 PC の空き容量・メモリの閾値', { schema: 'ConfigLocalResources' }),
   d('config.workflow-health', 'config/workflow-health.json', 'config', 'ops', '重要なワークフローの健全性の閾値', { schema: 'ConfigWorkflowHealth' }),
-  d('config.automations', 'config/automations.json', 'config', 'ops', '自動化の台帳（どこで何がいつ動き、ログインが要るか・何を書き・誰が読むか。check-automations が実物と照合・管理画面 /ops/automations）', { schema: 'ConfigAutomations' }),
+  d('config.automations', 'config/automations.json', 'config', 'ops', '自動化の台帳（どこで何がいつ動き、ログインが要るか・何を書き・誰が読むか。check-automations が実物と照合・管理画面 /ops/mac・/ops/ci）', { schema: 'ConfigAutomations' }),
   d('config.cloudflare', 'config/cloudflare.json', 'config', 'ops', 'Cloudflare の解析とゾーン設定監視の設定', { schema: 'ConfigCloudflare' }),
 
   // ===== data/: 取得元ごとの記録 =====
@@ -292,7 +292,7 @@ export const DATASETS = [
   d('state.todo-claims', '.claude/state/todo-claims.json', 'state', 'plan', 'タスクの claim（二重着手の防止。todo:claim・todo:complete）'),
   d('state.dispatch-log', '.claude/state/dispatch/dispatch-log.json', 'ledger', 'plan', 'タスクの実行記録'),
   d('state.weekly-collect', '.claude/state/weekly-collect/runs.json', 'ledger', 'ops', '土曜の Mac の収集（ログインが要る取得と書き込み）の段ごとの結果（weekly-collect が書く・直近 30 回）', { freshness: { warnDays: 8, failDays: 15 } }),
-  d('state.weekly-review-draft', '.claude/state/weekly-review/draft.json', 'state', 'plan', '週次レビューの下書き（機械で決まる節と取得の成否。build-weekly-review-draft が金曜の fetch-metrics の後に書く）'),
+  d('state.weekly-review-draft', '.claude/state/weekly-review/draft.json', 'state', 'plan', '週次レビューの下書き（機械で決まる節と取得の成否。build-weekly-review-draft が土曜の Mac の収集の後に書く）'),
   d('state.backlog-audit-log', '.claude/state/backlog/audit-log.json', 'ledger', 'plan', 'backlog 棚卸しの処分の記録'),
   d('state.backlog-verify-status', '.claude/state/backlog/verify-status.json', 'state', 'plan', 'backlog カードの完了確認の状態'),
   // 品質サイクル（技術士総監・1級土木）
@@ -323,7 +323,7 @@ export const DATASETS = [
   d('state.figure-provenance', '.claude/state/figure-provenance.json', 'state', 'site', '図の出所の索引（audit-figures）'),
   d('state.figure-text-audit', '.claude/state/figure-text-audit.json', 'evidence', 'site', '図の文字の監査結果'),
   d('state.svg-audit', '.claude/state/svg-audit.json', 'state', 'site', 'SVG の機械監査（refresh-indexes）'),
-  d('state.cloudflare-zone-config', '.claude/state/cloudflare/zone-config-{name}.json', 'state', 'ops', 'Cloudflare のゾーン設定の基準線・最新・ドリフト（cloudflare-config-audit.yml が develop へ書く）'),
+  d('state.cloudflare-zone-config', '.claude/state/cloudflare/zone-config-{name}.json', 'state', 'ops', 'Cloudflare のゾーン設定の基準線・最新・ドリフト（cloudflare-metrics.yml の金曜の設定の監査が develop へ書く）'),
   d('state.svg-catalog', '.claude/state/svg-catalog.json', 'state', 'site', 'SVG の一覧（生成索引）'),
   // 品質ゲートの基準と採点（quality/）
   d('state.quality-baselines', '.claude/state/quality/{name}-baseline.json', 'config', 'ops', '品質ゲートの基準線（lint・knip・画像・git バイナリ・図のクロップ・エージェントの説明）'),
@@ -588,6 +588,8 @@ export function datasetFiles(root, id) {
 
 /** 最新のファイル（無ければ null） */
 export const latestFile = (root, id) => datasetFiles(root, id)[0] ?? null;
+/** 日付つきの時系列（…/YYYY-MM-DD.json）の最新の日付。無ければ null（競合の再取得の期日と土曜の収集の四半期の段が同じものを読む） */
+export const latestFileDate = (root, id) => latestFile(root, id)?.match(/(\d{4}-\d{2}-\d{2})\.json$/)?.[1] ?? null;
 
 /** その置き場に宣言のある領域 id（ファイルを読まない・サイドバー用） */
 export const areaDomainIds = (area, domainIds) => domainIds.filter((id) => DATASETS.some((x) => areaOf(x) === area && x.domain === id));

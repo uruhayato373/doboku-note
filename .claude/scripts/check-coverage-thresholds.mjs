@@ -8,15 +8,17 @@
  *
  * 赤にするもの（無条件の異常）:
  *   - inspected == 0            … 検査ゼロを PASS と呼ばない（CLAUDE.md §9）
- *   - sitemap_urls > 1900       … URL Inspection の 1,900 件上限に到達＝**サイレントな切り詰め**。
- *                                 indexed_ratio の分母だけが増えて比率が偽って下がる
+ *   - inspected < sitemap_urls  … 検査していない URL がある＝**サイレントな切り詰め**。indexed_ratio の分母だけが
+ *                                 増えて比率が偽って下がる。1 日の上限（1,900 件）を超える分は次の日の実行が続けて検査し、
+ *                                 全件がそろった回だけが履歴に積まれる（scripts/lib/inspection-cycle.mjs・DN-0825）ので、
+ *                                 履歴に未検査の残る行があれば周回が壊れている
  *   - indexed_ratio < 0.60      … gsc-management.md の警戒しきい値
  *
  * warning に留めるもの（判断が要る信号）:
  *   - indexed_ratio が前回比 −5pt 超    … 単月では受験期の需要変動と交絡する
  *   - discovered_not_indexed > 20%     … 原因バケットの切り分けが要る
  *   - hygiene（not_found + redirect）> 0
- *   これらは GitHub Actions（gsc-auto-review.yml）が観測ログに記録し【要確認】通知する担当。
+ *   これらは土曜の週次レビューの前段の GSC の記録層（weekly-review.sh の run_gsc_record・旧 gsc-auto-review.yml・DN-0849）が観測ログに記録し【要確認】通知する担当。
  *   CI を赤くするのは無条件異常だけに絞る＝月次 red の狼少年化を防ぐ。
  *
  * 使い方: node .claude/scripts/check-coverage-thresholds.mjs [--history <path>]
@@ -33,8 +35,6 @@ const args = process.argv.slice(2);
 const hi = args.indexOf("--history");
 const HISTORY = hi >= 0 && args[hi + 1] ? args[hi + 1] : datasetPath("gsc.index-coverage-history");
 
-/** URL Inspection の 1 日上限 2,000 に対する安全マージン（index-coverage.yml の head -n と一致させる）。 */
-const INSPECT_CAP = 1900;
 const RATIO_FAIL = 0.6;
 const RATIO_DROP_WARN = 0.05;
 const DISCOVERED_WARN = 0.2;
@@ -82,19 +82,16 @@ console.log(
 if (inspected === 0) {
   errors.push("inspected が 0 件＝1 件も検査できていない（URL Inspection の失敗を疑う）");
 }
-if (sitemapUrls > INSPECT_CAP) {
+if (inspected < sitemapUrls) {
   errors.push(
-    `sitemap_urls ${sitemapUrls} が上限 ${INSPECT_CAP} を超過＝検査対象がサイレントに切り詰められ、indexed_ratio が偽って低く出る。index-coverage.yml の分割取得が必要`,
+    `inspected ${inspected} < sitemap ${sitemapUrls}＝${sitemapUrls - inspected} 件が未検査のまま履歴に積まれ、indexed_ratio が偽って低く出る（周回 scripts/lib/inspection-cycle.mjs を疑う）`,
   );
 }
 if (ratio < RATIO_FAIL) {
   errors.push(`indexed_ratio ${(ratio * 100).toFixed(1)}% が警戒しきい値 ${RATIO_FAIL * 100}% を下回った`);
 }
 
-// ── 判断が要る信号（warning・gsc-auto-review.yml が観測ログへ記録する）───────
-if (inspected < sitemapUrls) {
-  warnings.push(`inspected ${inspected} < sitemap ${sitemapUrls}＝${sitemapUrls - inspected} 件が未検査`);
-}
+// ── 判断が要る信号（warning・土曜の GSC の記録層が観測ログへ記録する）───────
 if (prev && typeof prev.indexed_ratio === "number") {
   const drop = prev.indexed_ratio - ratio;
   if (drop > RATIO_DROP_WARN) {

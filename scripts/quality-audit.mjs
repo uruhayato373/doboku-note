@@ -13,7 +13,8 @@
  * 使い方:
  *   node scripts/quality-audit.mjs         # 全チェック実行 → .claude/state/quality/audit-latest.{json,md}
  *   node scripts/quality-audit.mjs --ci    # ci:true の厳格サブセットのみ・fail は exit 1、timeout/検査不成立は exit 2・レポート書込なし
- *   node scripts/quality-audit.mjs --ops   # ops:true（運用アラート）のみ・fail で exit 1・0 件実行で exit 2（ops-audit.yml が日次で回す）
+ *   node scripts/quality-audit.mjs --ops   # ops:true（運用アラート）のうち毎日の分のみ・fail で exit 1・0 件実行で exit 2（ops-audit.yml が日次で回す）
+ *   node scripts/quality-audit.mjs --weekly # ops:true の cadence:'weekly' のみ（土曜の週次レビューが review-checks の quality:audit:weekly で回す・DN-0847）
  *   node scripts/quality-audit.mjs --json  # 結果 JSON を stdout に出す（レポートファイルも書く）
  *
  * 設計:
@@ -25,6 +26,10 @@
  *   - `ops: true` = 運用アラート（投稿・配信・転記の遅れ）。ci:false 必須。PR は絶対に赤くしない。
  *     ops-audit.yml が日次で `--ops` を回し、FAIL は automation-failure Issue（channel: ops）へ、
  *     復旧は同 workflow の成功で自動クローズ（report-automation-failure --resolve）。
+ *     cadence で回す頻度を分ける（DN-0847）。入力が週 1 回しか変わらない検査を毎日回すと、同じ赤が 6 回出て読まれなくなる。
+ *       なし       … 毎日（--ops）。数日で実害が出るもの・CI の取得の停止・土曜の収集の死活
+ *       'weekly'  … 土曜の週次レビュー（--weekly）。期日が週・月の単位のもの・結果がリポジトリの中身だけで決まるもの
+ *       'collect' … 土曜の収集の段の検算（scripts/lib/weekly-collect-plan.mjs の verify）。--ops でも --weekly でも回さない
  *   - `ci: false`（ops 無し）= report-only（棚卸し・情報提供。census/knip 等。--ci では実行しない）。
  *   - `skip(env)` が理由文字列を返したらスキップ（dev server 必須・build 成果物必須など）。
  *   - 外部 API・公開更新（note/R2/deploy/fetch-*）は定義に載せない（副作用ゼロを保証）。
@@ -70,6 +75,12 @@ if (CI && REPORT_ONLY) {
 const OPS = argv.includes('--ops');
 if (OPS && (CI || REPORT_ONLY)) {
   process.stderr.write('[quality-audit] --ops は --ci / --report-only と併用できません（対象が排他）\n');
+  process.exit(2);
+}
+/** --weekly: ops:true の cadence:'weekly' だけを実行する（土曜の週次レビュー・DN-0847）。他のモードとは対象が排他。 */
+const WEEKLY = argv.includes('--weekly');
+if (WEEKLY && (CI || REPORT_ONLY || OPS)) {
+  process.stderr.write('[quality-audit] --weekly は --ci / --report-only / --ops と併用できません（対象が排他）\n');
   process.exit(2);
 }
 const EMIT_JSON = argv.includes('--json');
@@ -150,20 +161,12 @@ export const CHECKS = [
   { id: 'lint-ja', npm: 'lint:ja', timeout: 120_000, ci: true, note: '日本語校正（textlint + prh）。staged の content/site/**/*.mdx だけの表記ゆれ（送り仮名違い・全角英数）ラチェット（DN-0239）。全件は lint:ja:all で report' },
   { id: 'orphan-figures', npm: 'check-orphan-figures', timeout: 90_000, ci: true },
   { id: 'backlog-schema', npm: 'check-backlog-schema', timeout: 30_000, ci: true, note: 'backlog タグ行の語彙・[検証:]の実在・パーサ契約（admin と sweep が同じカードを見ているか）' },
-  // 動画パック（DN-0110 Phase 0・2026-08-28 追加）。Phase 1 未着手（packs root 不在）は明示して exit 0、
-  // root があるのに 0 件は exit 2（検査不成立）。チェッカー自体の健全性は unit-tests の fixture が担保。
-  { id: 'video-content', npm: 'check-video-content', timeout: 60_000, ci: true, note: `動画パックの manifest/sourceRef 漏洩/CTA・UTM/storyboard/逐語転用/バイナリ混入/status 整合（真実源 video-content-policy.md §8 ＋ ${datasetPath('config.video-content')}）` },
-  { id: 'content-registry', npm: 'check-content-registry', timeout: 60_000, ci: true, note: 'コンテンツ台帳（content/registry）の検査 R01〜R11（content-registry.md）。0 件・ID・参照・件数・Drive の sha・状態と承認ハッシュ・外部 ID・通常動画の台本重複・切り替え前のチャネルが今の台帳と一致するか。結果は PR の差分だけで決まる' },
-  { id: 'registry-due', npm: 'check-registry-due', timeout: 30_000, ci: false, ops: true, note: '予約のまま公開の予定を猶予より過ぎた公開（壁時計依存なので ops）。読み手＝日次 ops-audit の automation-failure Issue と /weekly-review。照合（registry-reconcile・P2）が公開へ進めるまでの遅れを見張る' },
-  { id: 'instagram-reels', npm: 'check-instagram-reels', timeout: 60_000, ci: true, note: '動画パックから派生する Instagram Reels の対象数・資格別被覆・媒体設定を固定' },
-  { id: 'youtube-shorts', npm: 'check-youtube-shorts', timeout: 60_000, ci: true, note: '112動画パック×2本のShortsメタデータ、タイトル/UTM/著者表記/scene/通常動画後の公開枠と1日3本上限を固定' },
+  // SNS（X・Instagram・YouTube）と動画パック・コンテンツ台帳の検査は、SNS の保留に合わせて 2026-10-25 に CI から外した
+  //（video-content・content-registry・registry-due・instagram-reels・youtube-shorts・video-publication・x-length・x-utm・
+  // x-campaign-plan・x-review・x-card-render・x-posted-live・youtube-cover-handoff・sns-landing-cta）。スクリプトは手元の道具として残す。
+  // SNS を再開するときに必要なものを作り直す（運営者の判断）。
 
-  // 公開実体の照合が「実際に回っているか」を見るゲート（DN-0110 Phase 3・2026-08-28 追加）。
-  // 実査そのもの（verify-video-publication）は creds が要るので CI/Mac 専用。ここはオフラインで
-  // 「published なのに一度も照合していない / 記録が古い / 記録が実査のドリフトを報告している」を赤にする。
-  { id: 'video-publication', npm: 'check-video-publication', timeout: 30_000, ci: true, note: '公開済み派生物の実体照合が回っているか（未照合・記録の孤児・実査ドリフト）。記録の古さ（V03）と実査のドリフト（V05・YouTube 側の削除や非公開）は PR の差分で直せないので ops 側が日次で見る（DN-0791）。対象0件は明示して PASS' },
-  { id: 'video-publication-freshness', cmd: ['node', 'scripts/check-video-publication.mjs', '--freshness'], timeout: 30_000, ci: false, ops: true, note: '公開済み派生物の照合記録が台帳の failDays より古いか（V03・壁時計依存）と、実査のドリフト（V05・外部状態）。読み手＝ops-audit.yml（日次 --ops → automation-failure Issue channel ops・実査が回れば自動クローズ）' },
-  { id: 'codex-compat', npm: 'check-codex-compat', timeout: 60_000, ci: false, ops: true, note: 'DN-0805（2026-10-21）で ci から ops へ下げた（読み手＝日次 ops-audit の automation-failure Issue）。止めた不具合が無く、merge を止める必要は薄い。pre-commit では従来どおり見る。AGENTS.md / .agents/skills が CLAUDE.md / .claude/skills（正典）から生成された状態と一致するか（第2SSOTドリフトの再発防止・DN-0098）' },
+  { id: 'codex-compat', npm: 'check-codex-compat', timeout: 60_000, ci: false, ops: true, cadence: 'weekly', note: 'DN-0805（2026-10-21）で ci から ops へ下げた（読み手＝週次レビュー（土曜に npm run quality:audit:weekly を review-checks が回し、レビューの「点検と Issue」で全件に行き先を書く・DN-0847））。止めた不具合が無く、merge を止める必要は薄い。pre-commit では従来どおり見る。AGENTS.md / .agents/skills が CLAUDE.md / .claude/skills（正典）から生成された状態と一致するか（第2SSOTドリフトの再発防止・DN-0098）' },
   { id: 'external-write-orphans', npm: 'check-external-write-orphans', timeout: 300_000, ci: false, note: '「外部へは成功・台帳の書き戻しは失敗」の検出（2026-06-17 の YouTube 事故＝6本アップ済みなのに台帳 pending が実例）。gh 経由で run ログを読むためネットワークが要る＝ci:false。run ログの取得失敗が 1 本でもあれば exit 2（検査不成立・DN-0225）。読み手＝weekly-review-guard の report digest（--report-only・FAIL は automation-failure Issue）。2026-09-30 に週次レビューの直接実行から外した（DN-0394）' },
   { id: 'ogp-line-count', npm: 'check-ogp-line-count', timeout: 180_000, ci: false, note: 'OGP タイトルの折返し行数を実測する surfacer（判定はしない）。読み手＝DN-0057 の着手時。check-ogp-title-fit はフォントサイズしか見ていないので、行数はここでしか分からない' },
   { id: 'relative-links', npm: 'check-relative-links', timeout: 60_000, ci: true, note: 'Markdown の相対リンク `](../x)` の実在。check-doc-refs はリンクテキストしか見ないので、置き場を変えると href だけが黙って壊る' },
@@ -191,7 +194,7 @@ export const CHECKS = [
   },
   { id: 'content-series', npm: 'check-content-series', timeout: 30_000, ci: true, note: 'サイト記事のシリーズ企画の台帳（content-series.json）を検査（根拠の参考文献 id・既存と補強の記事の実在・関連記事・対象外の理由・入口）。状態は記事の実体から出し、件数だけ表示する' },
   { id: 'egov-links', npm: 'egov-laws', timeout: 60_000, ci: true, note: '記事の e-Gov 法令検索へのリンク（法令 ID・条）と参考文献の台帳の法令の e-Gov の法令 ID を、e-Gov の写し（台帳 config.egov-laws）と照合（通信しない）。e-Gov の画面は無い ID でも 200 を返すのでリンク切れの検査では見つからない（2026-10-13 に 13 法令 26 か所）' },
-  { id: 'egov-drift', cmd: ['node', 'scripts/egov-laws.mjs', '--drift'], timeout: 900_000, ci: false, ops: true, note: '写しより後に改正が施行された法令と、それにリンクする記事（e-Gov 法令 API と通信する・壁時計依存なので ops）。読み手＝日次 ops-audit の automation-failure Issue。記事を改正に合わせて確かめたら npm run egov-laws -- --sync で写しを進める' },
+  { id: 'egov-drift', cmd: ['node', 'scripts/egov-laws.mjs', '--drift'], timeout: 900_000, ci: false, ops: true, cadence: 'weekly', note: '写しより後に改正が施行された法令と、それにリンクする記事（e-Gov 法令 API と通信する・壁時計依存なので ops）。読み手＝週次レビュー（土曜に npm run quality:audit:weekly を review-checks が回し、レビューの「点検と Issue」で全件に行き先を書く・DN-0847）。記事を改正に合わせて確かめたら npm run egov-laws -- --sync で写しを進める' },
   { id: 'reference-book-pages', npm: 'check-reference-book-pages', args: ['--metadata-only'], timeout: 120_000, ci: true, note: '参考文献 ID 単位の書籍 bundle を検査（1冊1ディレクトリ・原本 sha256・分冊順・通しページ被覆・Drive 台帳結線）。CI は manifest のみ検査する。Drive の bytes/sha256 は通常の check-reference-book-pages で別途照合する' },
   { id: 'figure-embed-dims', npm: 'check-figure-embed-dims', timeout: 90_000, ci: true, note: 'ArticleImage の width/height と SVG の実 viewBox の突合。従来は r2-audit（週次 cron）と pre-commit(staged) だけで、push 経路に backstop が無かった' },
   { id: 'bold-rendering', npm: 'check-bold-rendering', timeout: 120_000, ci: true, note: '閉じ/開き ** が flanking を満たさず太字にならずアスタリスクが本文に出る事故。remark で実パースして text ノードに ** が残るかで判定する（規則の再実装ではない）。2026-09-23 から note 記事（content/note の article*.md）も対象' },
@@ -222,27 +225,26 @@ export const CHECKS = [
   { id: 'note-delivery-due', npm: 'check-note-delivery-due', timeout: 30_000, ci: false, ops: true, note: '購入者が商品（PDF 添付）を受け取れない状態の放置（2026-08-11 の事故＝約束した添付が無いまま 4 日販売）。committed state の鮮度（実査 STALE_DAYS 超）・未解消・取得失敗を見る。実査本体は check-note-attachments:live（ローカル・要ログイン）。読み手＝ops-audit.yml（日次 --ops → automation-failure Issue channel ops・復旧で自動クローズ）。2026-09-19 まで週次スキル内で LLM が叩くだけだった' },
   // ココナラ分析 snapshot と kpi.json の整合（オフライン）。取得本体 coconala-analytics.mjs は要ログインでローカル専用なので、
   // ここは「取得が回っていない／新商品が snapshot に無い」を週次で拾う（2026-09-19 まで週次スキル内で LLM が叩くだけだった）。
-  { id: 'coconala-analytics', npm: 'check-coconala-analytics', timeout: 60_000, ci: false, ops: true, note: 'ココナラ分析の鮮度・listed全件取得・kpi.json整合を検査。取得は土曜の Mac の収集（weekly-collect の coconala 段・2026-10-24〜。CI からは 403）。読み手＝ops-audit.yml（日次Issue）。鮮度は台帳 coconala.analytics の failDays。' },
+  { id: 'coconala-analytics', npm: 'check-coconala-analytics', timeout: 60_000, ci: false, ops: true, cadence: 'collect', note: 'ココナラ分析の鮮度・listed全件取得・kpi.json整合を検査。取得は土曜の Mac の収集（weekly-collect の coconala 段・2026-10-24〜。CI からは 403）。読み手＝土曜の収集 weekly-collect の段の検算（verify。落ちたら段が failed になり Issue channel weekly-collect と週次レビューが読む・DN-0847）。鮮度は台帳 coconala.analytics の failDays。' },
   // ココナラの公開ページ（ログイン不要の構造化データ）とカタログ／listings の突合。外部の状態に依存するので ops 区分。
-  { id: 'coconala-live', npm: 'check-coconala-live', timeout: 240_000, ci: false, ops: true, note: 'ココナラ公開ページの価格・タイトル・キャッチ・本文・出品者・販売状態がカタログ／listings と、出品者プロフィールの職業・アピール・自己紹介文が coconala-account.json と一致するか（2026-09-23 新設・プロフィールは 2026-09-27 追加）。読み手＝ops-audit.yml（日次 --ops）→ automation-failure Issue（channel ops）。exit 2 は取得失敗が過半＝検査不成立' },
-  { id: 'sales-freshness', npm: 'check-sales-freshness', timeout: 30_000, ci: false, ops: true, note: '売上転記（note-sales-fetch）の停止と、note-traffic-fetchで取得済みの月次売上表示との金額不一致を検知する（updatedAt が 21 日超または月次不一致で赤・閑散期でも偽赤にならない）。2026-07 は 18% しか転記されず 34 日誰も気づかなかった。取得は土曜の Mac の収集（weekly-collect の note-sales 段）。読み手＝ops-audit.yml（日次 --ops → automation-failure Issue channel ops・復旧で自動クローズ）' },
-  { id: 'kdp-report-freshness', npm: 'check-kdp-report-freshness', timeout: 30_000, ci: false, ops: true, note: 'KDP 月次ロイヤリティの取得停止を検知する。毎月23日以降は前月確定値（翌月16日以降の取得・週次の取得が 16〜22 日に入る）、28日以降は当月推計値、共有口座のうちその月末時点で LIVE だった doboku-note の本（kdpLiveBookIdsAsOf）の catalog 紐付けを要求する（月末後に出た本を前月の期待冊数に数えない）。取得は土曜の Mac の収集（weekly-collect の kdp 段）。読み手＝ops-audit.yml（日次 --ops → automation-failure Issue channel ops・復旧で自動クローズ）' },
-  { id: 'a8-report-due', cmd: ['node', 'scripts/check-a8-report-due.mjs', '--fail-on-due'], timeout: 30_000, ci: false, ops: true, note: 'A8 成果レポートの取り込み（土曜の Mac の収集 weekly-collect の a8 段・手動は /a8-report）が台帳 a8.ui-last-run の warnDays を超えて止まっていないか、取得の後に台帳が進んでいない（書き戻しが落ちた）か。読み手＝ops-audit.yml（日次 --ops → automation-failure Issue channel ops・復旧で自動クローズ）。2026-09-30 に週次レビューの点検から移した（DN-0394）' },
-  { id: 'gsc-ui-due', cmd: ['node', 'scripts/check-gsc-ui-due.mjs', '--fail-on-due'], timeout: 30_000, ci: false, ops: true, note: 'GSC UI の理由別 CSV 取得（土曜の Mac の収集 weekly-collect の gsc 段・月次）が台帳 gsc.ui-last-run の failDays を超えて止まっていないか（期日は warnDays・期日の後の最初の土曜に取る）。読み手＝ops-audit.yml（日次 --ops → automation-failure Issue channel ops・復旧で自動クローズ）。2026-09-30 に週次レビューの点検から移した（DN-0394）' },
-  { id: 'competitor-scan-due', cmd: ['node', 'scripts/check-competitor-scan-due.mjs', '--fail-on-due'], timeout: 30_000, ci: false, ops: true, note: '競合・市場の再スキャンが 90 日を超えていないか（note/coconala/ig は competitor-scan.yml の停止の backstop、x・youtube・market は手動）。読み手＝ops-audit.yml（日次 --ops → automation-failure Issue channel ops・復旧で自動クローズ）。2026-09-30 に週次レビューの点検から移した（DN-0394）' },
-  { id: 'gsc-indexing-due', cmd: ['node', 'scripts/check-gsc-indexing-due.mjs', '--fail-on-due'], timeout: 30_000, ci: false, ops: true, note: '表示実績のある未登録 URL が残るのに、台帳 gsc.indexing-history の warnDays の間に登録リクエストが無い＝土曜の Mac の収集（weekly-collect の gsc 段・週 10 件）が止まっている。読み手＝ops-audit.yml（日次 --ops → automation-failure Issue channel ops・復旧で自動クローズ）。2026-09-30 に週次レビューの点検から移した（DN-0394）' },
+  { id: 'coconala-live', npm: 'check-coconala-live', timeout: 240_000, ci: false, ops: true, cadence: 'weekly', note: 'ココナラ公開ページの価格・タイトル・キャッチ・本文・出品者・販売状態がカタログ／listings と、出品者プロフィールの職業・アピール・自己紹介文が coconala-account.json と一致するか（2026-09-23 新設・プロフィールは 2026-09-27 追加）。読み手＝週次レビュー（土曜に npm run quality:audit:weekly を review-checks が回し、レビューの「点検と Issue」で全件に行き先を書く・DN-0847）。exit 2 は取得失敗が過半＝検査不成立' },
+  { id: 'sales-freshness', npm: 'check-sales-freshness', timeout: 30_000, ci: false, ops: true, cadence: 'collect', note: '売上転記（note-sales-fetch）の停止と、note-traffic-fetchで取得済みの月次売上表示との金額不一致を検知する（updatedAt が 21 日超または月次不一致で赤・閑散期でも偽赤にならない）。2026-07 は 18% しか転記されず 34 日誰も気づかなかった。取得は土曜の Mac の収集（weekly-collect の note-sales 段）。読み手＝土曜の収集 weekly-collect の段の検算（verify。落ちたら段が failed になり Issue channel weekly-collect と週次レビューが読む・DN-0847）' },
+  { id: 'kdp-report-freshness', npm: 'check-kdp-report-freshness', timeout: 30_000, ci: false, ops: true, cadence: 'collect', note: 'KDP 月次ロイヤリティの取得停止を検知する。毎月23日以降は前月確定値（翌月16日以降の取得・週次の取得が 16〜22 日に入る）、28日以降は当月推計値、共有口座のうちその月末時点で LIVE だった doboku-note の本（kdpLiveBookIdsAsOf）の catalog 紐付けを要求する（月末後に出た本を前月の期待冊数に数えない）。取得は土曜の Mac の収集（weekly-collect の kdp 段）。読み手＝土曜の収集 weekly-collect の段の検算（verify。落ちたら段が failed になり Issue channel weekly-collect と週次レビューが読む・DN-0847）' },
+  { id: 'a8-report-due', cmd: ['node', 'scripts/check-a8-report-due.mjs', '--fail-on-due'], timeout: 30_000, ci: false, ops: true, cadence: 'collect', note: 'A8 成果レポートの取り込み（土曜の Mac の収集 weekly-collect の a8 段・手動は /a8-report）が台帳 a8.ui-last-run の warnDays を超えて止まっていないか、取得の後に台帳が進んでいない（書き戻しが落ちた）か。読み手＝土曜の収集 weekly-collect の段の検算（verify。落ちたら段が failed になり Issue channel weekly-collect と週次レビューが読む・DN-0847）。2026-09-30 に週次レビューの点検から移した（DN-0394）' },
+  { id: 'gsc-ui-due', cmd: ['node', 'scripts/check-gsc-ui-due.mjs', '--fail-on-due'], timeout: 30_000, ci: false, ops: true, cadence: 'collect', note: 'GSC UI の理由別 CSV 取得（土曜の Mac の収集 weekly-collect の gsc 段・月次）が台帳 gsc.ui-last-run の failDays を超えて止まっていないか（期日は warnDays・期日の後の最初の土曜に取る）。読み手＝土曜の収集 weekly-collect の段の検算（verify。落ちたら段が failed になり Issue channel weekly-collect と週次レビューが読む・DN-0847）。2026-09-30 に週次レビューの点検から移した（DN-0394）' },
+  { id: 'competitor-scan-due', cmd: ['node', 'scripts/check-competitor-scan-due.mjs', '--fail-on-due'], timeout: 30_000, ci: false, ops: true, cadence: 'weekly', note: '競合・市場の再スキャンが 90 日を超えていないか（note/coconala は土曜の収集の competitors 段の停止の backstop、x・youtube・market は手動、ig は SNS 保留中）。読み手＝週次レビュー（土曜に npm run quality:audit:weekly を review-checks が回し、レビューの「点検と Issue」で全件に行き先を書く・DN-0847）。2026-09-30 に週次レビューの点検から移した（DN-0394）' },
+  { id: 'gsc-indexing-due', cmd: ['node', 'scripts/check-gsc-indexing-due.mjs', '--fail-on-due'], timeout: 30_000, ci: false, ops: true, cadence: 'collect', note: '表示実績のある未登録 URL が残るのに、台帳 gsc.indexing-history の warnDays の間に登録リクエストが無い＝土曜の Mac の収集（weekly-collect の gsc 段・週 10 件）が止まっている。読み手＝土曜の収集 weekly-collect の段の検算（verify。落ちたら段が failed になり Issue channel weekly-collect と週次レビューが読む・DN-0847）。2026-09-30 に週次レビューの点検から移した（DN-0394）' },
   { id: 'gsc-sitemaps-due', cmd: ['node', 'scripts/check-gsc-sitemaps.mjs', '--fail-on-due'], timeout: 30_000, ci: false, ops: true, note: 'sitemap の送信・Google の読み込み（fetch-metrics.yml が書く sitemaps-latest.json）の異常と記録の古さ。読み手＝ops-audit.yml（日次 --ops → automation-failure Issue channel ops・復旧で自動クローズ）。2026-09-30 に週次レビューの点検から移した（DN-0394）' },
-  { id: 'monthly-review-due', cmd: ['node', 'scripts/check-monthly-review-due.mjs'], timeout: 30_000, ci: false, ops: true, note: '毎月の期日以降に前月の月次レビュー記録が無いと exit 1（SessionStart でも出る）。読み手＝ops-audit.yml（日次 --ops → automation-failure Issue channel ops・復旧で自動クローズ）。2026-09-30 に週次レビューの点検から移した（DN-0394）' },
-  { id: 'ga4-dimensions', npm: 'check-ga4-dimensions', timeout: 30_000, ci: false, ops: true, note: 'GA4 カスタムディメンションの不足（望む状態 ga4-admin-desired-state.json と取得済み inventory の突合）。赤なら ga4-admin:apply（ローカル・要ログイン）。読み手＝ops-audit.yml（日次 --ops → automation-failure Issue channel ops・復旧で自動クローズ）。2026-09-30 に週次レビューの点検から移した（DN-0394）' },
-  { id: 'cloudflare-metrics-freshness', npm: 'check-cloudflare-metrics-freshness', timeout: 30_000, ci: false, ops: true, note: 'Cloudflare zone analytics 日次取得（cloudflare-metrics.yml）と zone 設定監査（cloudflare-config-audit.yml）の停止を検知する。ドリフト自体は channel cloudflare-config が持つ。読み手＝ops-audit.yml（日次 --ops）' },
-  { id: 'note-sync-freshness', npm: 'check-note-sync-freshness', timeout: 30_000, ci: false, ops: true, note: '土曜の Mac の収集（weekly-collect の note-sync 段）が止まっていないか。同期の記録（台帳 note.sync-log）の最新の startedAt が freshness.failDays 超前なら FAIL。読み手＝ops-audit.yml（日次 --ops）→ automation-failure Issue（channel ops）。反映待ちの記事の判定は check-note-sync（同じ収集の note-sync-check 段）の担当' },
-  { id: 'weekly-collect', npm: 'check-weekly-collect', timeout: 30_000, ci: false, ops: true, note: '土曜の Mac の収集（ログインが要る取得と書き込み・weekly-collect）の直近の pre と post が合格で、台帳 state.weekly-collect の failDays 以内か。Mac が寝ていた・段が落ちた・書き戻しが落ちたを日次で拾う。読み手＝ops-audit.yml（日次 --ops → automation-failure Issue channel ops・復旧で自動クローズ）（DN-0819）' },
+  { id: 'monthly-review-due', cmd: ['node', 'scripts/check-monthly-review-due.mjs'], timeout: 30_000, ci: false, ops: true, cadence: 'weekly', note: '毎月の期日以降に前月の月次レビュー記録が無いと exit 1（SessionStart でも出る）。読み手＝週次レビュー（土曜に npm run quality:audit:weekly を review-checks が回し、レビューの「点検と Issue」で全件に行き先を書く・DN-0847）。2026-09-30 に週次レビューの点検から移した（DN-0394）' },
+  { id: 'ga4-dimensions', npm: 'check-ga4-dimensions', timeout: 30_000, ci: false, ops: true, cadence: 'weekly', note: 'GA4 カスタムディメンションの不足（望む状態 ga4-admin-desired-state.json と取得済み inventory の突合）。赤なら ga4-admin:apply（ローカル・要ログイン）。読み手＝週次レビュー（土曜に npm run quality:audit:weekly を review-checks が回し、レビューの「点検と Issue」で全件に行き先を書く・DN-0847）。2026-09-30 に週次レビューの点検から移した（DN-0394）' },
+  { id: 'cloudflare-metrics-freshness', npm: 'check-cloudflare-metrics-freshness', timeout: 30_000, ci: false, ops: true, note: 'Cloudflare zone analytics 日次取得と zone 設定監査（どちらも cloudflare-metrics.yml・設定の監査は金曜）の停止を検知する。ドリフト自体は channel cloudflare-config が持つ。読み手＝ops-audit.yml（日次 --ops）' },
+  { id: 'note-sync-freshness', npm: 'check-note-sync-freshness', timeout: 30_000, ci: false, ops: true, cadence: 'collect', note: '土曜の Mac の収集（weekly-collect の note-sync 段）が止まっていないか。同期の記録（台帳 note.sync-log）の最新の startedAt が freshness.failDays 超前なら FAIL。読み手＝土曜の収集 weekly-collect の段の検算（verify。落ちたら段が failed になり Issue channel weekly-collect と週次レビューが読む・DN-0847）。反映待ちの記事の判定は check-note-sync（同じ収集の note-sync-check 段）の担当' },
+  { id: 'weekly-collect', npm: 'check-weekly-collect:alive', timeout: 30_000, ci: false, ops: true, note: '土曜の Mac の収集（ログインが要る取得と書き込み・weekly-collect）の死活。直近の pre と post が台帳 state.weekly-collect の failDays 以内に回ったかだけを見る（Mac が寝ていた・launchd が外れた）。段ごとの合否は土曜に Issue channel weekly-collect と週次レビュー（check-weekly-collect）が読み、毎日は繰り返さない（DN-0847）。読み手＝ops-audit.yml（日次 --ops → automation-failure Issue channel ops・復旧で自動クローズ）（DN-0819）' },
   // カタログ↔listings↔画像↔受注／KPI／売上の整合と、PDF 商品の価格ルール（note より安く売らない）。結果はリポジトリの差分だけで決まる。
   { id: 'coconala-wiring', npm: 'check-coconala-wiring', timeout: 60_000, ci: true, note: 'pre-commit（--staged）だけだと hook を通らない commit や note 価格の変更で取りこぼすため CI でも全件検査（2026-09-23）' },
   { id: 'sales-mapping', npm: 'check-sales-mapping', timeout: 60_000, ci: true, note: 'sales.json の productId と note-magazines.ts の公開済み単品が sales-recorder.md の mapping に文書化されているか（初売上前の新商品も先行検知）' },
   { id: 'note-funnel', npm: 'check-note-funnel', timeout: 90_000, ci: true },
   { id: 'magazine-cta-reachability', npm: 'check-magazine-cta:ci', timeout: 120_000, ci: true, note: '公開マガジンがサイト内で 1 面以上 CTA として出るか（top / 中間CTA / MagazineCard）と、1級・2級土木の公開記事に CTA ゼロのページが無いか。baseline 外の新規 0 面・ゼロページで落ちる' },
-  { id: 'sns-landing-cta', npm: 'audit-sns-landing-cta:ci', timeout: 120_000, ci: true, note: 'SNS 原稿・X 予約のリンク先（転職・practice 除く）に note 導線が冒頭（top / 早い MagazineCard / ツールの静的ブロック）にあるか。未配線で落ちる（DN-0364）' },
   { id: 'note-hashtags', npm: 'check-note-hashtags', timeout: 90_000, ci: true, note: 'note 記事ハッシュタグ 90 個以上（全量 backstop・pre-commit は staged のみ）' },
   { id: 'note-boundary', npm: 'check-note-boundary', timeout: 90_000, ci: true, note: 'paid published 記事の有料境界(paidBoundary)解決可能性（全ロック/漏洩の RULE_GAP 再発防止・全量）' },
   { id: 'rccm-essay', npm: 'check-rccm-essay', timeout: 60_000, ci: true, note: 'RCCM 問題III 模範論文の出題条件（1,200〜1,600 字・指定用語「」4 語以上・問題再現節なし・paidBoundary 実在）。対象 0 件は exit 2＝検査不成立で赤（記事が 1 本も無い状態で緑にしない）' },
@@ -267,12 +269,9 @@ export const CHECKS = [
   // （feedback: gate-zero-coverage-false-pass）。いずれもオフライン（doc-meta-index と repo のみ）・
   // 1 秒未満・diff で結果が決まるので ci:true の条件を満たす。
   { id: 'note-site-utm', npm: 'check-note-site-utm', timeout: 60_000, ci: true, note: 'note 本文からサイト記事（/exam 等）への送客リンクの UTM 規約と旧 /docs URL の禁止（全量 backstop・pre-commit は staged のみ）' },
-  { id: 'x-length', cmd: ['node', 'scripts/check-x-length.mjs', '--pending-only', '--over'], timeout: 60_000, ci: true, note: '未投稿の X 投稿が 280 字（重み付き）を超えていないか。投稿済み（posted/replaced）は X 上で確定済みなので対象外。2026-09-23 まで CI に無く、投稿済み 1 件が 290 字だった' },
-  { id: 'x-utm', npm: 'check-x-utm', timeout: 60_000, ci: true, note: 'X 投稿の送客リンクの UTM 規約（全量 backstop・pre-commit は staged のみ）' },
-  { id: 'sns-urls', timeout: 180_000, ci: true, note: 'SNS 投稿・MDX 本文・note 本文の /docs/ リンクと新 URL の実在（同じ check-sns-urls.mjs の 3 モードを 1 検査で回す・DN-0805 で統合。pre-commit は staged だけ）', steps: [
-    { label: 'sns-urls', cmd: ['node', 'scripts/check-sns-urls.mjs'], timeout: 60_000, note: 'SNS 投稿の /docs/ リンクが doc-meta-index に、新 URL が _redirects の転送先に実在するか（全量 backstop・pre-commit は staged のみ）' },
-    { label: 'sns-urls-mdx', cmd: ['node', 'scripts/check-sns-urls.mjs', '--mdx'], timeout: 60_000, note: '同上の MDX 本文コーパス（全量のみ・pre-commit では走らない）' },
-    { label: 'sns-urls-note', cmd: ['node', 'scripts/check-sns-urls.mjs', '--note'], timeout: 60_000, note: '同上の note 本文コーパス（content/note/**/*.md・全量のみ・pre-commit では走らない）' },
+  { id: 'sns-urls', timeout: 180_000, ci: true, note: 'MDX 本文・note 本文の /docs/ リンクと新 URL の実在（同じ check-sns-urls.mjs の 2 モードを 1 検査で回す・DN-0805 で統合。SNS 投稿のモードは SNS の保留に合わせて 2026-10-25 に外した。pre-commit は staged だけ）', steps: [
+    { label: 'sns-urls-mdx', cmd: ['node', 'scripts/check-sns-urls.mjs', '--mdx'], timeout: 60_000, note: 'MDX 本文コーパス（全量のみ・pre-commit では走らない）' },
+    { label: 'sns-urls-note', cmd: ['node', 'scripts/check-sns-urls.mjs', '--note'], timeout: 60_000, note: 'note 本文コーパス（content/note/**/*.md・全量のみ・pre-commit では走らない）' },
   ] },
   // ── ops（運用アラート）── 壁時計依存。PR の diff では直せないので ci:true に置かない（ヘッダ「設計」参照）。
   { id: 'membership-drip', npm: 'check-membership-drip', timeout: 30_000, ci: false, ops: true, note: '会員配信ドリップの遅れ・実体欠落。配信表(README)が真実源で、予定日を GRACE_DAYS 以上過ぎた未配信は赤。2026-08-27 に学科02が2日遅れで沈黙していた（カード側の日付が正典とずれていて気づけなかった）。読み手＝ops-audit.yml（日次 --ops → automation-failure Issue channel ops・復旧で自動クローズ）。2026-09-18 まで ci 区分に居て 30 日に 13 回 Pre-merge を落としていたため ops へ移した' },
@@ -295,12 +294,9 @@ export const CHECKS = [
   { id: 'answer-marks', npm: 'check-answer-marks', timeout: 60_000, ci: true, note: '過去問 MDX の正答と解説の ✅/❌ の整合（集合・問い方の向き・解説の文と印の食い違い・記述（①〜）の解説の番号・ExamPoint の印。DN-0665）。全資格の過去問記事を照合し、照合した問題が 0 なら検査不成立。読み手＝PR の CI（記事の diff だけで決まる）' },
   { id: 'qualification-market', npm: 'check-qualification-market', timeout: 30_000, ci: true, note: '展開の判断材料の正本（market-scan の検索語・*-competitors の exams・売上の資格への分類）の整合。壁時計に依存しない' },
   { id: 'year-staleness', npm: 'check-year-staleness', timeout: 60_000, ci: false, note: 'ガイド・keyword 記事の title/seoTitle/description に残る前年度以前の年度表現（DN-0426）。過去問・年度別記事（group past-exam/primary/secondary、r05-essay-* 等の年度スラッグ）は主題なので除外。年度切替（毎年1月）の直後 2 週間だけ ci:true へ上げ、0 件になったら ci:false へ戻す。読み手＝/weekly-review（年度切替直後のみ確認）' },
-  { id: 'review-wiring', npm: 'check-review-wiring', timeout: 30_000, ci: false, ops: true, note: 'DN-0805（2026-10-21）で ci から ops へ下げた（読み手＝日次 ops-audit の automation-failure Issue）。止めた不具合が無く、merge を止める必要は薄い。pre-commit では従来どおり見る。週次・月次レビューのスキルの実行コマンドと配線の正本（review-wiring.json）の一致。管理画面の配線図が実態とずれないため' },
-  { id: 'search-triage', npm: 'check-search-triage', timeout: 60_000, ci: false, ops: true, note: '検索改善の週次の処置（受け皿外・旧 URL・誘導の見直し・改善の記録の無い実験・判定待ち・本番に入らない改善）が残っていないか。旧 URL・誘導の期限が壁時計に依存するので ops。読み手＝週次レビュー（要処置が残れば ops Issue が開き、処置で自動クローズ。週次の完了条件は search-improvement triage --check --weekly）' },
+  { id: 'review-wiring', npm: 'check-review-wiring', timeout: 30_000, ci: false, ops: true, cadence: 'weekly', note: 'DN-0805（2026-10-21）で ci から ops へ下げた（読み手＝週次レビュー（土曜に npm run quality:audit:weekly を review-checks が回し、レビューの「点検と Issue」で全件に行き先を書く・DN-0847））。止めた不具合が無く、merge を止める必要は薄い。pre-commit では従来どおり見る。週次・月次レビューのスキルの実行コマンドと配線の正本（review-wiring.json）の一致。管理画面の配線図が実態とずれないため' },
+  { id: 'search-triage', npm: 'check-search-triage', timeout: 60_000, ci: false, ops: true, cadence: 'weekly', note: '検索改善の週次の処置（受け皿外・旧 URL・誘導の見直し・改善の記録の無い実験・判定待ち・本番に入らない改善）が残っていないか。旧 URL・誘導の期限が壁時計に依存するので ops。読み手＝週次レビュー（土曜に npm run quality:audit:weekly を review-checks が回す・DN-0847。週次の完了条件は search-improvement triage --check --weekly）' },
   { id: 'search-improvements', npm: 'check-search-improvements', timeout: 30_000, ci: true, note: '検索改善の実験（experiments.json の kind search-strategy）に改善の記録の無いもの（起票だけで止まる状態）が無いか・起点が検索キーワード戦略のカード（改善のカード積み）が無いか・旧来のカードとの ID の結び付き（committed state だけ・壁時計に依存しない）。改善は直して npm run search-improvement -- record' },
-  { id: 'x-campaign-plan', npm: 'check-x-campaign-plan', timeout: 30_000, ci: true, note: 'X月間計画の日付・導線・URL・販売投稿間隔を検査' },
-  { id: 'x-review', npm: 'check-x-review', timeout: 30_000, ci: false, ops: true, note: 'DN-0805（2026-10-21）で ci から ops へ下げた（読み手＝日次 ops-audit の automation-failure Issue）。止めた不具合が無く、merge を止める必要は薄い。pre-commit では従来どおり見る。X確認期間の原稿・時刻・公開マガジン導線・先生カードの再生成元を検査' },
-  { id: 'x-card-render', npm: 'check-x-card-render', timeout: 30_000, ci: false, ops: true, note: 'DN-0805（2026-10-21）で ci から ops へ下げた（読み手＝日次 ops-audit の automation-failure Issue）。止めた不具合が無く、merge を止める必要は薄い。pre-commit では従来どおり見る。Xカード画像の配色・主題・生URL焼込みを描画台帳で検査（画像は開かない）' },
   // 420秒は 876 件の実走で 440秒かかり僅かに超過してフラップした（2026-08-25 実測）。
   // 8 並列化で 263秒まで縮めたうえで、ネットワーク変動の余裕を見て 600秒にした。
   { id: 'outbound-links', npm: 'check-outbound-links', timeout: 600_000, ci: false, note: '送客先 note.com URL の生死を public API で実査（取得失敗が2割超なら検査不成立で赤）。外部 API 依存で 1 分半かかり、push 毎に note API を叩くと 403 を招くため週次 report（weekly-review-guard）へ移した（2026-09-30）' },
@@ -322,7 +318,6 @@ export const CHECKS = [
   { id: 'ogp-coverage', npm: 'check-ogp-coverage', timeout: 90_000, ci: false, note: '読み手＝weekly-review-guard の report digest（--report-only を週次実行し FAIL は automation-failure Issue へ集約）。r2-audit.yml が週次で同スクリプトを赤落ちゲートとして実行しており、こちらは横断監査での再掲' },
   // 2026-10-24 に週次の link-audit.yml から移した（内部リンクは internal-links の ci:true が見る・DN-0817）。外部の状態に依存するので report
   { id: 'external-links', npm: 'check-external-links', timeout: 600_000, ci: false, note: '外部リンクの生存。読み手＝weekly-review-guard の report digest（--report-only を週次実行し FAIL は automation-failure Issue channel report-checks）' },
-  { id: 'x-posted-live', npm: 'check-x-posted-live', timeout: 300_000, ci: false, note: '投稿済みの X が消えていないか。読み手＝weekly-review-guard の report digest（週次・Issue channel report-checks）' },
   { id: 'ogp-design', npm: 'check-ogp-design', timeout: 120_000, ci: false, note: '読み手＝weekly-review-guard の report digest（--report-only を週次実行し FAIL は automation-failure Issue へ集約）' },
   { id: 'quality-census', npm: 'quality-census', timeout: 180_000, ci: false, note: 'census.json 再生成（薄層可視化）。読み手＝weekly-review-guard の report digest（--report-only を週次実行し FAIL は automation-failure Issue へ集約）。生成物は /quality-cycle と admin の /quality が読む' },
   // digest: false — knip 全量は **常に非ゼロ**（デッドコードは baseline で管理する前提）。
@@ -340,7 +335,6 @@ export const CHECKS = [
   // 置き場ルール（誰が使うか: site→public R2 / ci→private R2 / human→Google Drive vault）と Drive 台帳の整合（2026-09-05 追加）。
   // 共通仕様書のページ画像 3.4GB を private R2 へ上げかけた再発防止。CI は Drive を持たないので
   // マウント無しでは「実体検査 0 件」と明示して設定・台帳・ルーティング衝突・audience だけを判定する。
-  { id: 'youtube-cover-handoff', npm: 'check-youtube-cover-handoff', timeout: 120_000, ci: true, note: '採用カバーのDrive台帳登録・読み戻し記録・入力変更を検査。クラウド実体は読まない' },
   { id: 'drive-vault', npm: 'check-drive-vault', args: ['--metadata-only'], timeout: 120_000, ci: true, note: 'audience・ルーティング・drive-manifest の整合を検査。Drive 実体検査は通常の check-drive-vault で行う' },
   // ローカルディスクの肥大は gitignore 済み・ホーム配下・worktree に溜まるので CI にも pre-commit にも
   // 映らない（2026-09-10 に空き 7.5GB まで落ちて初めて気づいた）。ローカル（Mac / Windows）でだけ意味がある検査。
@@ -362,7 +356,7 @@ export const CHECKS = [
   // baseline 更新: npm run check-git-binary-policy -- --update-baseline
   { id: 'snapshot-lifetime', cmd: ['node', 'scripts/prune-state-snapshots.mjs', '--check-coverage'], timeout: 60_000, ci: true, note: 'data/ の日付付きファイルすべてに寿命（台帳 scripts/lib/datasets.mjs の retain）が宣言されているか（中身を変えない台帳と手元だけの生データは除く）。未宣言＝誰も消せず永久に増える系列。削除本体は書き手の workflow（psi-audit / fetch-metrics / index-coverage）が commit 直前に --commit で実行' },
   { id: 'git-binary-policy', npm: 'check-git-binary-policy', timeout: 120_000, ci: true, note: '生成物・著作権物・巨大 blob・拡張子偽装の新規追跡を baseline ラチェットで止める（HEAD 4.16GiB / remote 11GB の再発防止）' },
-  { id: 'knip-ratchet', npm: 'check-knip-ratchet', timeout: 300_000, ci: false, ops: true, note: 'DN-0805（2026-10-21）で ci から ops へ下げた（読み手＝日次 ops-audit の automation-failure Issue）。止めた不具合が無く、merge を止める必要は薄い。pre-commit では従来どおり見る。デッドコードが baseline から増えていないか' },
+  { id: 'knip-ratchet', npm: 'check-knip-ratchet', timeout: 300_000, ci: false, ops: true, cadence: 'weekly', note: 'DN-0805（2026-10-21）で ci から ops へ下げた（読み手＝週次レビュー（土曜に npm run quality:audit:weekly を review-checks が回し、レビューの「点検と Issue」で全件に行き先を書く・DN-0847））。止めた不具合が無く、merge を止める必要は薄い。pre-commit では従来どおり見る。デッドコードが baseline から増えていないか' },
   {
     id: 'cta-density', npm: 'check-cta-density', timeout: 90_000, ci: false,
     note: '読み手＝weekly-review-guard の report digest（--report-only を週次実行し FAIL は automation-failure Issue へ集約）（out 未ビルドなら skip 理由付きで報告される）',
@@ -452,16 +446,28 @@ export const CHECKS = [
   }
 }
 
+/** cadence の値（DN-0847）。ops:true の検査だけが持てる。 */
+export const CADENCES = ['weekly', 'collect'];
+{
+  const bad = CHECKS.filter((c) => c.cadence !== undefined && (!c.ops || !CADENCES.includes(c.cadence))).map((c) => c.id);
+  if (bad.length) {
+    process.stderr.write(`[quality-audit] ✗ 検査不成立: cadence は ops:true の検査に ${CADENCES.join('・')} のどれかで付ける: ${bad.join(', ')}\n`);
+    process.exit(2);
+  }
+}
+
 /**
  * どのモードでどの検査を走らせるか。純関数（テストが import する）。
  *   ci         … ci:true のみ
  *   reportOnly … ci:false かつ ops でなく digest:false でもないもの
- *   ops        … ops:true のみ
+ *   ops        … ops:true のうち cadence の無いもの（毎日）
+ *   weekly     … ops:true のうち cadence:'weekly'（cadence:'collect' はどのモードでも選ばない＝収集の段が回す）
  *   full       … すべて
  */
 export function selectsCheck(check, mode) {
   if (mode.ci) return Boolean(check.ci);
-  if (mode.ops) return Boolean(check.ops);
+  if (mode.ops) return Boolean(check.ops) && !check.cadence;
+  if (mode.weekly) return Boolean(check.ops) && check.cadence === 'weekly';
   if (mode.reportOnly) return !check.ci && !check.ops && check.digest !== false;
   return true;
 }
@@ -491,7 +497,7 @@ export function partitionReportOnly(results) {
   };
 }
 
-function resolveCommand(check) {
+export function resolveCommand(check) {
   if (check.cmd) return check.cmd;
   if (check.npm) {
     if (!PKG.scripts || !PKG.scripts[check.npm]) return null; // 未定義 script
@@ -543,7 +549,7 @@ async function runCheck(check) {
   // digest:false は「常に非ゼロで判定に使えない情報出力」なので週次 Issue の対象からも外す
   // （毎週飛ぶ通知は読まれなくなる）。ops は日次の別チャネル（ops-audit.yml）が読むので
   // 週次 digest からも外す（同じ FAIL が 2 つの Issue に出ると片方が読まれなくなる）。
-  if (!selectsCheck(check, { ci: CI, ops: OPS, reportOnly: REPORT_ONLY })) return null;
+  if (!selectsCheck(check, { ci: CI, ops: OPS, weekly: WEEKLY, reportOnly: REPORT_ONLY })) return null;
   if (check.skip) {
     const reason = await check.skip();
     if (reason) return { id: check.id, ci: check.ci, ops: Boolean(check.ops), status: 'skip', skipReason: reason, durationMs: 0, note: check.note, expectedFail: check.expectedFail ?? null };
@@ -617,7 +623,7 @@ function buildMarkdown(results, meta) {
   L.push('# 機械品質監査レポート (quality:audit)');
   L.push('');
   L.push(`- 生成: ${meta.stamp}`);
-  L.push(`- モード: ${CI ? 'CI（厳格サブセット）' : OPS ? 'ops（運用アラート）' : 'フル（report / ops 含む）'}`);
+  L.push(`- モード: ${CI ? 'CI（厳格サブセット）' : OPS ? 'ops（運用アラート・毎日）' : WEEKLY ? 'weekly（運用アラート・土曜の週次）' : 'フル（report / ops 含む）'}`);
   const counts = results.reduce((a, r) => { a[r.status] = (a[r.status] || 0) + 1; return a; }, {});
   L.push(`- 結果: pass ${counts.pass || 0} / fail ${counts.fail || 0} / timeout ${counts.timeout || 0} / inconclusive ${counts.inconclusive || 0} / skip ${counts.skip || 0}`);
   L.push('');
@@ -684,7 +690,7 @@ async function main() {
   const meta = { stamp, census: censusSummary() };
   const failed = results.filter((r) => r.status === 'fail' || r.status === 'timeout');
 
-  if (!CI && !OPS) {
+  if (!CI && !OPS && !WEEKLY) {
     mkdirSync(OUT_DIR, { recursive: true });
     writeFileSync(JSON_OUT, JSON.stringify({ generated_at: stamp, ci: CI, results, census: meta.census }, null, 2));
     writeFileSync(MD_OUT, buildMarkdown(results, meta));
@@ -722,16 +728,17 @@ async function main() {
     }
   }
 
-  // --ops: 検査ゼロを PASS と呼ばない（ops フラグ構成が壊れた）。FAIL は詳細を出して exit 1。
-  if (OPS && results.length === 0) {
-    process.stderr.write('[quality-audit] ✗ 検査不成立: ops:true の検査が 1 件も実行されなかった\n');
+  // --ops / --weekly: 検査ゼロを PASS と呼ばない（ops フラグ・cadence の構成が壊れた）。FAIL は詳細を出して exit 1。
+  const opsLabel = WEEKLY ? 'ops:true・cadence weekly' : 'ops:true（毎日）';
+  if ((OPS || WEEKLY) && results.length === 0) {
+    process.stderr.write(`[quality-audit] ✗ 検査不成立: ${opsLabel} の検査が 1 件も実行されなかった\n`);
     process.exitCode = 2;
-  } else if (OPS && failed.length) {
+  } else if ((OPS || WEEKLY) && failed.length) {
     for (const r of failed) {
       process.stderr.write(`\n--- ${r.id} — ${r.status} (exit ${r.exitCode}) ---\n`);
       process.stderr.write((r.excerpt || '(出力なし)') + '\n');
     }
-    process.stderr.write(`[quality-audit] ops 区分の失敗: ${failed.map((f) => f.id).join(', ')}\n`);
+    process.stderr.write(`[quality-audit] ${WEEKLY ? 'weekly' : 'ops'} 区分の失敗: ${failed.map((f) => f.id).join(', ')}\n`);
     process.exitCode = 1;
   }
 

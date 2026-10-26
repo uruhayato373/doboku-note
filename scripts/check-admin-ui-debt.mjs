@@ -13,6 +13,10 @@
  *   inlineStyle  style={{ の出現
  *   rawTable     生の <table（2026-09-29 追加。表は components/admin の TableFrame＋shadcn の Table 部品で組む）
  *   rawBadge     className に単語 "badge" を含む（状態表示は components/admin の StatusBadge＝shadcn の Badge）
+ *   uiCard       shadcn の <Card> をページで直に組む（2026-10-25 追加・DN-0851。区画は PanelCard、数字 1 つは StatCard）
+ *   uiBadge      shadcn の <Badge> をページで直に使う（状態は StatusBadge の tone）
+ *   handTable    表を手で組む（<TableFrame> と shadcn の <Table>）。一覧は DataTable（並べ替え・絞り込み・ページ送り）で作り、
+ *                行・列の結合や合計行など形の違う表だけ TableFrame に残す
  *
  * 判定:
  *   基準値（.claude/config/admin-ui-debt-baseline.json）より増えたページがあれば exit 1。
@@ -39,8 +43,11 @@ const TAG = '[check-admin-ui-debt]';
 const RE_CLASSNAME = /className=(?:"([^"]*)"|'([^']*)'|\{`([^`]*)`\})/g;
 const RE_STYLE = /style=\{\{/g;
 const RE_TABLE = /<table\b/g;
-export const KEYS = ['rawCard', 'inlineStyle', 'rawTable', 'rawBadge'];
-const LABEL = { rawCard: '生の card クラス', inlineStyle: 'インライン style', rawTable: '生の <table>', rawBadge: '生の badge クラス' };
+const RE_UI_CARD = /<Card[\s>]/g;
+const RE_UI_BADGE = /<Badge[\s>]/g;
+const RE_HAND_TABLE = /<TableFrame[\s>]|<Table[\s>]/g;
+export const KEYS = ['rawCard', 'inlineStyle', 'rawTable', 'rawBadge', 'uiCard', 'uiBadge', 'handTable'];
+const LABEL = { rawCard: '生の card クラス', inlineStyle: 'インライン style', rawTable: '生の <table>', rawBadge: '生の badge クラス', uiCard: 'shadcn の Card の直接利用', uiBadge: 'shadcn の Badge の直接利用', handTable: '手で組んだ表' };
 
 /** ソース 1 本の件数を数える（テストから使う純関数）。 */
 export function countDebt(src) {
@@ -55,7 +62,10 @@ export function countDebt(src) {
   rawBadge += (src.match(/className=\{\s*['"`]badge\b/g) || []).length;
   const inlineStyle = (src.match(RE_STYLE) || []).length;
   const rawTable = (src.match(RE_TABLE) || []).length;
-  return { rawCard, inlineStyle, rawTable, rawBadge };
+  const uiCard = (src.match(RE_UI_CARD) || []).length;
+  const uiBadge = (src.match(RE_UI_BADGE) || []).length;
+  const handTable = (src.match(RE_HAND_TABLE) || []).length;
+  return { rawCard, inlineStyle, rawTable, rawBadge, uiCard, uiBadge, handTable };
 }
 
 /** 基準値と比べる（テストから使う純関数）。 */
@@ -90,7 +100,7 @@ function main() {
 
   if (argv.includes('--update')) {
     const doc = {
-      _comment: 'check-admin-ui-debt のラチェット基準値。ページごとの生 card クラス・インライン style・生の <table>・生の badge クラスの件数。増えたら CI が落ちる。shadcn 部品へ移して減らしたら `node scripts/check-admin-ui-debt.mjs --update` で下げる（DN-0432）。',
+      _comment: 'check-admin-ui-debt のラチェット基準値。ページごとの生 card クラス・インライン style・生の <table>・生の badge クラス・shadcn の Card と Badge の直接利用・手で組んだ表の件数。増えたら CI が落ちる。shadcn 部品へ移して減らしたら `node scripts/check-admin-ui-debt.mjs --update` で下げる（DN-0432）。',
       _updatedAt: todayJst(),
       totals,
       files: Object.fromEntries(Object.entries(current).sort(([a], [b]) => a.localeCompare(b))),
@@ -120,7 +130,7 @@ function main() {
       console.log(`  info ${i.file}: ${what} ${i.base} → ${i.now}（--update で基準値を下げる）`);
     }
     if (!regressions.length) console.log(`${TAG} ✓ 増えたページなし`);
-    else console.log(`${TAG} components/admin（TableFrame・PanelCard・StatusBadge・FacetShell）と components/ui/*・components/layout.tsx を使う`);
+    else console.log(`${TAG} components/admin（一覧は DataTable・区画は PanelCard・数字は StatCard・状態は StatusBadge・絞り込みは FacetShell）と components/layout.tsx を使う`);
   }
   return regressions.length ? 1 : 0;
 }

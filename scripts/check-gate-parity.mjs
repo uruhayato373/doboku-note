@@ -81,6 +81,9 @@ const otherCallers = () =>
     // SessionStart フック（scripts/session-start.mjs の CHECKS）も配線点。ここから呼ばれる surfacer
     // （backlog-due / weekly-review-due 等）をオーファン扱いすると baseline へ逃がす誘因になる（2026-09-19）。
     join(ROOT, 'scripts/session-start.mjs'),
+    // 土曜の Mac の収集の段の表（scripts/weekly-collect.mjs が回す）。note の公開状態の照合（旧 note-live-audit.yml）と
+    // 反映の照合はここから scripts/ のパスで呼ばれる（DN-0847。それまで check-note-sync を baseline に逃がしていた）
+    join(ROOT, 'scripts/lib/weekly-collect-plan.mjs'),
   ]);
 
 const scripts = checkScripts();

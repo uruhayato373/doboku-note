@@ -16,7 +16,7 @@
  *
  * --adopt-live: 一回きりの整理用。note の値を正として原稿の title / price とマガジンの noteTitle を書き換える（2026-10-01 に 1 度だけ使った）。
  *
- * 週次: .github/workflows/note-live-audit.yml が --commit で回して develop へ commit する。
+ * 週次: 土曜の収集の note-audit 段（scripts/lib/weekly-collect-plan.mjs）が --commit で回し、weekly-collect が develop へ commit する（DN-0847）。
  * 取得は note 公開 API（curl --ssl-no-revoke・認証不要）。記事の取得失敗が 20% を超えるかマガジン一覧が取れなければ検査不成立で exit 1。
  *
  * 使い方:

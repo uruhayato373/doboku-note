@@ -292,7 +292,7 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 **準備（2026-10-21・案）**: 準備は DN-0538 の「準備」を参照（PR #1185 は 2026-10-22 にマージ済み・本番反映済み。note・ココナラのライブ反映は未実施）。cece280b1 で、1級と同じ低価格先出しを 2級にも入れる案を作った（civil2 の entry＝完成答案集・次に想定工事バンク。2級の売れ方は完成答案集 4 件・想定工事バンク 2 件）。入口記事 9 本の冒頭を書き換え済み（要確認 0）。**10/26 の残り**: 運営者がこの案で良いか決める → note-update-body で反映、自己採点記事の公開。
 
-### [DN-0339] Instagram の公開済み未記録47件と照合異常45件を /ig-reconcile で解消する
+### [DN-0339] Instagram の公開済み未記録47件と照合異常45件を解消する
 タグ: [SNS・マーケ] [領域:SNS] [時期:2026-11] [種類:不具合] [起票:2026-09-26]
 
 **起点**: 週次レビューの申し送り（data/analysis/growth/digest-2026-W38.json）
@@ -302,6 +302,84 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 **完了条件**: 次の CI 照合 snapshot で published_UNrecorded と anomaly が 0、または残りの各件に理由（削除済み・対象外など）が台帳に記録されている。
 
 ## 🟡 中 — 重要度が中くらい
+
+### [DN-0854] 基準類の右の目次（編・章・節）の試作を本番 build で確かめて全文書へ広げる
+タグ: [領域:サイト] [時期:2026-10] [種類:改善] [起票:2026-10-26]
+
+基準類（/standards）の右の欄を 編 → 章 → 節 の 1 本の目次にする試作を、近畿の共通仕様書（kinki/common）だけに入れた（ブランチ feature/standards-tree-nav・未 push）。他の章の節は toc.json（46KB）から開いたときに読む。
+
+残り:
+- `npm run build` で本番の節ページの重さを測る（dev では元 400KB → 463KB）。out/standards/kinki/common/toc.json が書き出されるかも確かめる
+- スマホ幅（「資料内を移動」の中の目次）の表示を確かめる
+- 章の境目をまたぐ「次の節」
+- 問題なければ他の 8 文書へ広げ（src/lib/standards-tree-nav.ts の TREE_NAV_DOCUMENTS）、/doc-sync を回して PR（base = develop）
+
+完了条件: build 後の out/ に toc.json があり、節ページの重さの増分を記録したうえで、対象文書を広げた PR が develop に入る。
+
+
+### [DN-0853] CI の重なった 3 組（Cloudflare の 2 本・IndexNow・死活確認と全 URL の検査）をまとめて 21 本を 18 本にする
+タグ: [領域:管理] [時期:2026-10] [種類:改善] [起票:2026-10-26]
+
+**起点**: 2026-10-26、運営者「CI の中で重なっているものをまとめることはできる？」。21 本を起動条件・鍵・中身で見直すと、同じ準備と鍵で動く Cloudflare の 2 本、デプロイの後に別のワークフローとして動く IndexNow、本番を外から確かめる死活確認と全 URL の検査の 3 組が重なっている。
+
+**やること**: 計画 [DN-0853-ci-consolidate-overlaps.md](../plans/DN-0853-ci-consolidate-overlaps.md) のとおり、`cloudflare-config-audit.yml` を `cloudflare-metrics.yml` へ、`indexnow-submit.yml` を `cloudflare-deploy.yml` の後続ジョブへ、`production-sweep.yml` を `uptime-ping.yml` へ入れて 3 本を消し、台帳・監視・文書を合わせる。
+
+**完了条件**: ワークフローが 18 本。`npm test`・`npm run quality:audit:ci`・`npm run check-automations` が緑。main へ出た後、統合した 3 本の定期実行と、デプロイの後の IndexNow・全 URL の検査がそれぞれ 1 回成功する。
+
+
+### [DN-0852] note の公開画面の撮影と競合の公開データを CI から土曜の Mac の収集へ移す
+タグ: [領域:管理] [時期:2026-10..2026-11] [種類:改善] [起票:2026-10-26] [進行中]
+
+**起点**: 2026-10-26、運営者「CI のうち週次（土曜の Mac）に回せるものがもっとあるのでは」。CI 23 本を起動条件・鍵・読み手で見直すと、鍵が要らず読み手が週次レビューと期日の点検だけの 2 本が土曜の流れへ移せる。`note-public-view.yml`（月曜・約 20 分・画像を artifact に残し、土曜のレビューが 5 日前の画像を取り寄せている）と `competitor-scan.yml`（四半期・約 10 分）。
+
+**やること**: 計画 [DN-0852-ci-public-view-competitors-to-saturday.md](../plans/DN-0852-ci-public-view-competitors-to-saturday.md) のとおり、土曜の収集（weekly-collect）に `note-public-view`（前段・毎週）と `competitors`（前段・四半期の最初の土曜だけ）の段を足し、2 本の workflow を無効にして消す。レビューは画像を GitHub の成果物でなく手元の撮影から読む。
+
+**完了条件**: 2 本の workflow が無効で削除済み。土曜の収集の段の表と `/ops/mac` に 2 段が出て、`fetch-note-public-view-shots` が手元の撮影を読む（テストつき）。`npm test`・`npm run quality:audit:ci`・`npm run check-automations` が緑。10/31（土）の自動実行で note-public-view の段が ok か warn。
+
+
+
+
+### [DN-0850] 公的基準の版面のまま残った表 1,176 種類を原本照合で組み直し、描画検査を全文書へ広げる
+タグ: [領域:サイト] [時期:2026-10..2026-11] [種類:改善] [起票:2026-10-25]
+
+共通仕様書以外の 13 文書（必携・マニュアル・特記・参考資料・付表）で、表 1,176 種類（1,284 件）が版面のまま（等幅のコードブロック）残っている。12 件すべてが枠からはみ出し、多段の見出しの表は列の対応が読めない（例: 北海道独自 2-2 章）。描画検査とギャラリーは共通仕様書 4 文書の 168 ページしか見ていなかった。
+
+1. 機械の検査: 描画検査を夜間・手動の E2E で全文書へ広げる。版面の表の数を文書ごとの基準（増やさない）にする
+2. 見比べと修正: /standards-table-rebuild を文書ごとに Workflow で回す（Writer→QA→差し戻し 2 往復まで）。試行は hokkaido/local と chubu/special の 11 束。実測の費用を見て残り 166 束へ進む
+3. 組み直し後は描画のスクショと原本のページ画像を抜き取りで見比べる
+4. 300 行を超える表 10 件は今回の対象外（Writer 1 体に収まらない）。ページ単位に分けるかは全体の後で決める
+
+完了条件: 対象 13 文書の版面の表が 300 行超の 10 件だけになり、check-standard-articles と夜間の描画検査が通る。
+
+
+### [DN-0849] CI の rerun-cancelled-schedules と weekly-review-draft を外し、GSC の記録層を土曜の週次レビューへ移す
+タグ: [インフラ・計測] [領域:管理] [時期:2026-10..2026-11] [種類:改善] [起票:2026-10-25]
+
+**起点**: 2026-10-25 に管理画面 `/ops/automations` で CI 26 本を見直した（運営者の依頼）。rerun-cancelled-schedules は記録の残る 44 回すべてで再実行 0 件、weekly-review-draft は土曜の Mac が作り直すので未使用、gsc-auto-review は CI の中で Claude を動かして GSC の記録を書いていて、土曜の週次レビューと役目が重なる。
+
+**やること**: 計画 [DN-0849-ci-trim-gsc-record-to-saturday.md](../plans/DN-0849-ci-trim-gsc-record-to-saturday.md) のとおり、rerun-cancelled-schedules と weekly-review-draft を CI から外し、gsc-auto-review の記録層を土曜の weekly-review.sh（レビューの前）へ移す。
+
+**完了条件**: 3 本の workflow が無効で削除済み。`apply-gsc-records` と weekly-review.sh の GSC の段がテストつきで入り、10/31（土）の自動実行で GSC の週次観測が gsc-management.md に追記され、check-gsc-auto-review の週次が OK になる。
+
+
+### [DN-0848] automerge.yml の workflow_run が 10/24 22:37Z 以降に起動せず、ラベル付きの PR が緑でも入らない
+タグ: [インフラ・計測] [領域:管理] [時期:2026-10..2026-11] [種類:不具合] [起票:2026-10-25]
+
+**起点**: 2026-10-25 の PR #1223。Pre-merge が緑で終わっても automerge.yml の workflow_run が起動せず、手で squash した。原因は `on.workflow_run.workflows` の名前が glob として照合され、"Pre-merge check (quality audit + build)" の `+` が文字どおりに一致しなかったこと（10-09〜10-25 の Pre-merge の完了 999 回で起動 0 回・E2E・Lighthouse の完了だけで起動していた）。PR #1224 で `\+` にエスケープし、tests/workflow-run-filters.test.mjs で再発を止めた。
+
+**やること**: PR #1224 を develop へ入れ、main へ deploy する（workflow_run は main の定義で動く）。deploy の後、最初にラベルを付けた PR で、Pre-merge の完了から数分で automerge が起動してマージすることを確かめる。
+
+**完了条件**: `gh run list --workflow automerge.yml` に、Pre-merge の完了の直後の event workflow_run の回があり、その PR が squash で入っている。
+
+### [DN-0847] 点検の置き場を入力の頻度と直す人で分け直し、note-live-audit を土曜の前段へ移す
+タグ: [インフラ・計測] [領域:管理] [時期:2026-10..2026-11] [種類:改善] [起票:2026-10-25]
+
+**起点**: 2026-10-25 の調査。日次の ops-audit（26 本）の多くは、土曜の Mac の収集が週 1 回だけ書くデータの鮮度と検算を見ていて、1 段落ちると同じ赤が毎朝 6 回出る（10/25 は sales-freshness・kdp-report-freshness・weekly-collect）。note-live-audit（CI・月曜・40 分）は 19 回中 13 回が赤で、直すにはログインが要る。
+
+**やること**: 計画 [DN-0847-ops-cadence-split.md](../plans/DN-0847-ops-cadence-split.md) のとおり、点検を毎日の見張り・収集の検算（段の verify）・週次の点検（quality:audit:weekly）に分け、note-live-audit を土曜の前段へ移し、cloudflare-config-audit を金曜の夜へ移す。
+
+**完了条件**: `--ops` が毎日の 8 本だけ、`npm run quality:audit:weekly` が週次の 11 本を回し、`weekly-collect --plan` に note-audit と各段の verify が出る。note-live-audit.yml が無効で削除済み。10/31（土）の自動実行で前段の note-audit と verify が回り、下書きに quality:audit:weekly が出る。
+
 
 ### [DN-0834] EXP-043 の案別の計測が、公開後の GA4 の週次取得に B・C とも届いているかを 10/27 に確かめる
 タグ: [領域:アフィリエイト] [時期:2026-10] [種類:改善] [起票:2026-10-24] [期日:2026-10-28]
@@ -355,28 +433,12 @@ drive-vault-sync -- --group source-transcript --verify --deep が 240 件中 1 �
 **起点**: 週次レビュー（2026-10-19〜2026-10-25）の点検。Issue #1180（10/21）: 月次 index coverage の閾値ゲートが赤。sitemap 2,017 URL が検査の上限 1,900 を超え、117 件が未検査のまま indexed_ratio が 80.6%（前回 10/14 は 90.5%）と低く出た。比率の低下は切り詰めによる偽の低下を含み、登録の悪化とは読まない。
 
 **やること**:
-1. `index-coverage.yml` の URL Inspection を分割取得にして、sitemap の全 URL を検査する（1 日の上限は日を分けて回す）
-2. 上限を超えたときは比率を出さず「検査不成立」で止める今の挙動を保つ
-3. 分割後の run で inspected と sitemap の件数が一致することを確かめる
+1. 周回（水曜に始め、1 日 1,900 件を超えた分を木・金の回が続きから検査し、全件がそろった回だけ履歴に積む）を入れた PR を develop と main へ出す
+2. main へ出た後の水曜・木曜の run で inspected と sitemap の件数が一致することを確かめる
 
 **完了条件**: 次の index-coverage の run で inspected = sitemap_urls、閾値ゲートが緑か、赤でも上限超過の error が出ない。Issue #1180 が自動クローズする。
 
 
-### [DN-0824] next を 16.4.1 以上へ上げ、Dependabot の critical 2 件・high 1 件を閉じる
-タグ: [インフラ・計測] [領域:管理] [時期:2026-10..2026-11] [種類:不具合] [起票:2026-10-24] [進行中]
-
-**起点**: 週次レビュー（2026-10-19〜2026-10-25）の点検。Dependabot が 10/23 に next の脆弱性 3 件を出した（#106 high・Server Actions の DoS、#107 critical・Image Optimization API の SVG による RCE、#109 critical・`use cache` の RCE）。対象は next >=16.0.0 <=16.4.0、修正版は 16.4.1。手元は 16.3.8（`package.json` は `^16.3.8`）。
-
-本番は `output: 'export'`・`images.unoptimized: true`（`next.config` 8〜10 行）の静的配信なので、Server Actions・画像最適化 API・`use cache` は本番で動いていない見込み。開発サーバー（3020）と管理画面だけが該当しうる。見込みであり未検証。
-
-**やること**:
-1. feature ブランチで next を 16.4.1 以上へ上げ（lockfile も）、`node_modules/next/dist/docs/` の変更点を読む
-2. `npm run build`・`npm run type-check`・`npm run test`・E2E を通し、`curl` で `<main>` と主要語を確かめる
-3. PR（base=develop）でマージし、Dependabot の 3 件が閉じたことを確かめる
-
-**完了条件**: `gh api repos/uruhayato373/doboku-note/dependabot/alerts` で next の open が 0 件。
-
-**進捗（2026-10-24 夜）**: PR #1221 で next 16.4.3・zod 4.6.7・fast-uri 3.1.9 へ上げ、本番反映した（main 8ef9a592b・check-production-ssr 合格）。GitHub の依存グラフ（SBOM）は next 16.4.3 を読んでいるが、Dependabot の警告（#106・#107・#109・#110・#112〜#115）は反映から 1 時間たっても open のまま（警告の更新は Dependabot の再走査待ち）。**残り**: (1) next と fast-uri の警告が閉じたかを `gh api …/dependabot/alerts` で確かめる (2) zod の #110 は、Lighthouse CI の間接依存 `chromium-bidi` が持つ zod 3.25.76（開発用）も勧告の範囲（< 4.6.6・3 系の修正版なし）に入るため、直接の zod を上げても閉じない見込み。overrides で 4 系へ寄せるか、開発用で影響なしとして却下するかを運営者が決める。
 
 
 
@@ -2157,18 +2219,18 @@ Phase 3の評価を戦略SSOTへ反映し、資格拡張の可否を確定した
 **後回し**（2026-10-13 運営者）: 骨子 39 章は Web・e-Gov の一次資料だけで作り終え、第 1 波も確認済みになったので、文字起こし（3 部・約 350 頁・スキャン）の費用に見合う使い道が「論点の抜けの見比べ」に限られる。制作・公開は10/15に承認済み。記事を読んで、許可の章（A-08・A-14 など）や法令の読み方（A-03）で抜けが気になったら着手する。
 **完了条件**: 行政法の文字起こしと候補表が Drive にあり、`check-reference-sources`・`check-reference-book-pages` が緑。`check-content-series --suggest` が行政法の項目を挙げる。
 
-### [DN-0835] SNS 再開時に Instagram の予約補充の仕組みと instagram-campaign.md を実態に一致させる（9/20 から補充が止まっている）
+### [DN-0835] SNS 再開時に Instagram の予約補充の仕組みを作り直す（9/20 から補充が止まっている）
 タグ: [収益化] [領域:SNS] [種類:改善] [起票:2026-10-24]
 
 **保留**: 2026-10-17 のユーザー指示で SNS の新規展開・追加予約は保留中。再開の指示があるまで、予約・認証復旧（Facebook ログイン）・ブラウザでの照合に着手しない。**着手の合図は SNS 保留の解除**。
 
-**起点**: 2026-10-05 の点検で、Instagram 新シリーズ（`content/sns/instagram/campaign.json`・112 テーマ／336 投稿）の予約が 9/20 12:30 を最後に途切れていると分かった。`.claude/knowledge/reference/instagram-campaign.md`（予約と継続配信）は Codex の定期処理 `instagram` が毎日 10:00 に補充すると書くが、`~/.codex/automations/` にも launchd にも無い。2級のテーマ 18 のうち配信済みは `anzen-ippanron-3riyu` だけで、プロフィール（`config/ig-account.json` の displayName・bio）も「技術士・1級土木」のまま。公開済み未記録・照合異常の解消（`/ig-reconcile`）は DN-0339 が持つ。
+**起点**: 2026-10-05 の点検で、Instagram 新シリーズ（`content/sns/instagram/campaign.json`・112 テーマ／336 投稿）の予約が 9/20 12:30 を最後に途切れていると分かった。`.claude/knowledge/reference/instagram-campaign.md`（予約と継続配信）は Codex の定期処理 `instagram` が毎日 10:00 に補充すると書くが、`~/.codex/automations/` にも launchd にも無い。2級のテーマ 18 のうち配信済みは `anzen-ippanron-3riyu` だけで、プロフィール（`config/ig-account.json` の displayName・bio）も「技術士・1級土木」のまま。公開済み未記録・照合異常の解消は DN-0339 が持つ。
 
 **やること**（保留が解けてから）:
-1. 補充の定期処理を作り直すか、`instagram-campaign.md` を実態（手動補充）に直す。
+1. 補充の定期処理を作り直すか、手動補充の手順を書く（手順書 `instagram-campaign.md` は 2026-10-25 に外した・git の履歴にある）。
 2. プロフィールの 2級表記と、試験が終わった 1級直前ハイライト（07_civil-1）の扱いを DN-0363 と合わせて決める。
 
-**完了条件**: 補充の仕組みと `instagram-campaign.md` の記述が一致している。
+**完了条件**: 補充の仕組みと、その手順の記述が一致している。
 
 ### [DN-0838] Kindle の EPUB・表紙の Drive 控え（制作物/Kindle）を、private R2 の正本と sha256 で突き合わせて足す
 タグ: [インフラ・計測] [領域:商品] [種類:改善] [起票:2026-10-24]

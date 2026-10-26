@@ -1,15 +1,15 @@
 import Link from 'next/link';
 import {
-  EmptyRow, Facet, FacetHead, FacetShell, StatusBadge,
-  TableBody, TableCell, TableFrame, TableHead, TableHeader, TableRow,
-  type FacetItem,
+  DataTable, Facet, FacetHead, FacetShell, StatusBadge,
+  type DataTableColumn, type DataTableRow, type FacetItem,
 } from '@/components/admin';
 import { PageHead } from '@/components/ui';
 import { channelById, type AdminChannelId } from '@/lib/channel-registry';
 import { loadLedgerView, type LedgerRow } from '@/lib/ledger';
-import { ctaDrift, drift, inState, jst, STATES } from '@/lib/ledger-status';
+import { ctaDrift, drift, inState, jst, STATES, type Drift } from '@/lib/ledger-status';
 import { datasetPath } from '../../../../../../scripts/lib/datasets.mjs';
 import { DriftBadge } from './drift-badge';
+import { yen } from '@/lib/format';
 
 export const dynamic = 'force-dynamic';
 
@@ -22,7 +22,6 @@ export const dynamic = 'force-dynamic';
 type Query = { t?: string; c?: string; s?: string; cv?: string };
 const NO_THEME = '__none';
 const NO_COVER = '__none';
-const yen = (n: number) => `¥${n.toLocaleString('ja-JP')}`;
 
 /** 販売列。note の有料記事・マガジンだけ数える。販売ログを読めないときは 0 件ではなく「?」 */
 function SalesCell({ r, salesOk }: { r: LedgerRow; salesOk: boolean }) {
@@ -31,6 +30,8 @@ function SalesCell({ r, salesOk }: { r: LedgerRow; salesOk: boolean }) {
   if (!r.sales) return <span className="text-muted-foreground">0</span>;
   return <span className="text-foreground" title={`最後に売れた日 ${r.sales.lastDate}`}>{r.sales.count} 件 {yen(r.sales.revenue)}</span>;
 }
+
+const DRIFT_LABEL: Record<Drift['state'], string> = { ok: '済', drift: 'ずれ', blocked: '止', unknown: '?', none: '—' };
 
 function href(q: Query, patch: Partial<Query>): string {
   const params = new URLSearchParams();
@@ -100,10 +101,78 @@ export default async function LedgerPage({ searchParams }: { searchParams: Promi
   const filtered = Boolean(theme || channel || state || cover);
   // チャネルで絞ったら列は同じ値だけになるので出さない。note だけは記事とマガジンが混ざるので種類を出す
   const kindCol = !channel ? 'チャネル' : channel === 'note' ? '種類' : null;
-  const colCount = 9 + (kindCol ? 1 : 0);
   const indexStale = view.index.generatedAt ? Date.now() - Date.parse(view.index.generatedAt) > 6 * 3_600_000 : false;
   const title = [theme ? (theme === NO_THEME ? '未分類' : view.themeLabel(theme)) : null, channel ? channelLabel.get(channel) : null, cover ? view.coverCategoryLabel(cover === NO_COVER ? null : cover) : null]
     .filter(Boolean).join(' × ');
+
+  const columns: DataTableColumn[] = [
+    { key: 'title', label: 'タイトル' },
+    ...(kindCol ? [{ key: 'kind', label: kindCol }] : []),
+    { key: 'themes', label: 'テーマ' },
+    { key: 'cover', label: <span title="note 記事のカバー画像を用途別に管理する分類">カバー分類</span> },
+    { key: 'price', label: '価格' },
+    { key: 'sales', label: <span title={`note の販売履歴（${datasetPath('note.sales')}）の累計。マガジンは id、単品記事は題名で照合。マウスで最後に売れた日`}>販売</span> },
+    { key: 'stage', label: '状態' },
+    { key: 'body', label: <span title="公開ページが正本どおりか。note＝原稿の本文・タグ（同期の判定）／ココナラ＝タイトル・キャッチコピー・本文・販売状態（公開ページの照合）。済／ずれ（マウスで理由）／止＝反映できない／?＝照合していない">本文</span> },
+    { key: 'image', label: <span title="note＝カバー画像が原稿どおりか／ココナラ＝承認済みの POP 画像が登録されているか">画像</span> },
+    { key: 'cta', label: <span title="原稿の導線（ココナラ・パックなど）のリンク先が、note の公開記事に順番・位置どおり出ているか（公開 API で照合・マウスで内訳）。済／ずれ／?＝取得失敗">導線</span> },
+  ];
+  const tableRows: DataTableRow[] = rows.map((r) => {
+    const themes = r.themes.length ? r.themes.map((t) => view.themeLabel(t)).join('・') : '未分類';
+    const coverLabel = r.channel !== 'note' || r.kind !== '記事' ? '—' : r.coverCategory ? view.coverCategoryLabel(r.coverCategory) : '未分類';
+    const body = drift(r, 'body', blockerLabel);
+    const image = drift(r, 'cover', blockerLabel);
+    const cta = ctaDrift(r);
+    const paidNote = r.channel === 'note' && r.price !== '無料';
+    return {
+      id: r.key,
+      values: {
+        title: r.magazine ? `${r.title} ${r.magazine}` : r.title,
+        kind: channel ? r.kind : `${channelLabel.get(r.channel) ?? r.channel}・${r.kind}`,
+        themes,
+        cover: coverLabel,
+        price: r.price ?? null,
+        sales: !paidNote || !view.salesOk ? null : (r.sales?.revenue ?? 0),
+        stage: r.stageLabel,
+        body: DRIFT_LABEL[body.state],
+        image: DRIFT_LABEL[image.state],
+        cta: DRIFT_LABEL[cta.state],
+      },
+      cells: {
+        title: (
+          <div className="max-w-[28rem] truncate" title={r.path ?? r.key}>
+            {r.detailHref ? <Link href={r.detailHref}>{r.title}</Link>
+              : r.url ? <a href={r.url} target="_blank" rel="noopener noreferrer">{r.title}</a> : r.title}
+            {r.magazine ? <div className="truncate text-xs text-muted-foreground" title="この記事を収録しているマガジン（原稿の noteMagazine）">収録: {r.magazine}</div> : null}
+          </div>
+        ),
+        kind: <span className="text-muted-foreground">{channel ? r.kind : `${channelLabel.get(r.channel) ?? r.channel}・${r.kind}`}</span>,
+        themes: (
+          <div className="max-w-[12rem] truncate text-muted-foreground">
+            {r.themes.length ? themes : <StatusBadge tone="bad" title="テーマのルールに当たらない">未分類</StatusBadge>}
+          </div>
+        ),
+        cover: (
+          <div className="max-w-[12rem] truncate text-muted-foreground">
+            {r.channel !== 'note' || r.kind !== '記事' ? '—'
+              : r.coverCategory ? coverLabel
+                : <StatusBadge tone="bad" title="カバー分類のルールに当たらない">未分類</StatusBadge>}
+          </div>
+        ),
+        price: (
+          <span className="text-muted-foreground">
+            {r.price ?? '—'}
+            {r.live?.price.length ? <> <StatusBadge tone="warn" title={r.live.price.join(' / ')}>ずれ</StatusBadge></> : null}
+          </span>
+        ),
+        sales: <SalesCell r={r} salesOk={view.salesOk} />,
+        stage: <StatusBadge tone={r.published ? 'good' : 'neutral'}>{r.stageLabel}</StatusBadge>,
+        body: <DriftBadge {...body} />,
+        image: <DriftBadge {...image} />,
+        cta: <DriftBadge {...cta} />,
+      },
+    };
+  });
 
   const main = (
     <div className="flex flex-col gap-3">
@@ -131,54 +200,12 @@ export default async function LedgerPage({ searchParams }: { searchParams: Promi
         </p>
       ))}
 
-      <TableFrame>
-        <TableHeader>
-          <TableRow>
-            <TableHead>タイトル</TableHead>
-            {kindCol ? <TableHead>{kindCol}</TableHead> : null}
-            <TableHead className="hidden xl:table-cell">テーマ</TableHead>
-            <TableHead className="hidden lg:table-cell" title="note 記事のカバー画像を用途別に管理する分類">カバー分類</TableHead>
-            <TableHead>価格</TableHead>
-            <TableHead title={`note の販売履歴（${datasetPath('note.sales')}）の累計。マガジンは id、単品記事は題名で照合。マウスで最後に売れた日`}>販売</TableHead>
-            <TableHead>状態</TableHead>
-            <TableHead title="公開ページが正本どおりか。note＝原稿の本文・タグ（同期の判定）／ココナラ＝タイトル・キャッチコピー・本文・販売状態（公開ページの照合）。済／ずれ（マウスで理由）／止＝反映できない／?＝照合していない">本文</TableHead>
-            <TableHead title="note＝カバー画像が原稿どおりか／ココナラ＝承認済みの POP 画像が登録されているか">画像</TableHead>
-            <TableHead title="原稿の導線（ココナラ・パックなど）のリンク先が、note の公開記事に順番・位置どおり出ているか（公開 API で照合・マウスで内訳）。済／ずれ／?＝取得失敗">導線</TableHead>
-          </TableRow>
-        </TableHeader>
-        <TableBody>
-          {rows.length === 0 ? <EmptyRow colSpan={colCount}>この条件に該当する制作物はありません。</EmptyRow> : null}
-          {rows.map((r) => (
-            <TableRow key={r.key}>
-              <TableCell className="max-w-[28rem] truncate" title={r.path ?? r.key}>
-                {r.detailHref ? <Link href={r.detailHref}>{r.title}</Link>
-                  : r.url ? <a href={r.url} target="_blank" rel="noopener noreferrer">{r.title}</a> : r.title}
-                {r.magazine ? <div className="truncate text-xs text-muted-foreground" title="この記事を収録しているマガジン（原稿の noteMagazine）">収録: {r.magazine}</div> : null}
-              </TableCell>
-              {kindCol ? (
-                <TableCell className="text-muted-foreground">{channel ? r.kind : `${channelLabel.get(r.channel) ?? r.channel}・${r.kind}`}</TableCell>
-              ) : null}
-              <TableCell className="hidden max-w-[12rem] truncate text-muted-foreground xl:table-cell">
-                {r.themes.length ? r.themes.map((t) => view.themeLabel(t)).join('・') : <StatusBadge tone="bad" title="テーマのルールに当たらない">未分類</StatusBadge>}
-              </TableCell>
-              <TableCell className="hidden max-w-[12rem] truncate text-muted-foreground lg:table-cell">
-                {r.channel !== 'note' || r.kind !== '記事' ? '—'
-                  : r.coverCategory ? view.coverCategoryLabel(r.coverCategory)
-                    : <StatusBadge tone="bad" title="カバー分類のルールに当たらない">未分類</StatusBadge>}
-              </TableCell>
-              <TableCell className="text-muted-foreground">
-                {r.price ?? '—'}
-                {r.live?.price.length ? <> <StatusBadge tone="warn" title={r.live.price.join(' / ')}>ずれ</StatusBadge></> : null}
-              </TableCell>
-              <TableCell className="whitespace-nowrap"><SalesCell r={r} salesOk={view.salesOk} /></TableCell>
-              <TableCell><StatusBadge tone={r.published ? 'good' : 'neutral'}>{r.stageLabel}</StatusBadge></TableCell>
-              <TableCell><DriftBadge {...drift(r, 'body', blockerLabel)} /></TableCell>
-              <TableCell><DriftBadge {...drift(r, 'cover', blockerLabel)} /></TableCell>
-              <TableCell><DriftBadge {...ctaDrift(r)} /></TableCell>
-            </TableRow>
-          ))}
-        </TableBody>
-      </TableFrame>
+      <DataTable
+        columns={columns}
+        rows={tableRows}
+        filter="タイトル・テーマなどで絞り込む"
+        emptyText="この条件に該当する制作物はありません。"
+      />
     </div>
   );
 

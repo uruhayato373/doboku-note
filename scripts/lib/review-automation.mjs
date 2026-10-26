@@ -1,7 +1,7 @@
 /**
  * review-automation.mjs — レビューの回を支える自動化の状態を、管理画面（戦略 ＞ レビュー）が読む形にまとめる。
  *
- *   - 金曜の下書き（.claude/state/weekly-review/draft.json・build-weekly-review-draft・weekly-review-draft.yml）
+ *   - 土曜の下書き（.claude/state/weekly-review/draft.json・build-weekly-review-draft・土曜の Mac が収集の後に作る）
  *   - 土曜の自動実行（Mac の launchd com.doboku-note.weekly-review・scripts/scheduled/weekly-review.sh のログ）
  *   - 点検と Issue（review-checks の記録）と、レポートの「点検と Issue」での行き先
  *
@@ -17,7 +17,7 @@ import { latestChecks, checksRouting } from './review-wiring.mjs';
 export const WEEKLY_REVIEW_LOG = join(homedir(), 'Library', 'Logs', 'doboku-note', 'weekly-review.log');
 
 /**
- * 金曜の下書き。無ければ null。week が指定の回と違えば stale
+ * 下書き（土曜の Mac が収集の後に作る）。無ければ null。week が指定の回と違えば stale
  * @param {string} root
  * @param {string | null} [runKey]
  * @returns {{ broken: true } | { week: string, window: { week: string, startDate: string, endDate: string } | null, generatedAt: string | null, missing: string[], failedInputs: string[], stale: boolean } | null}
@@ -41,6 +41,7 @@ export function readWeeklyDraft(root, runKey = null) {
  * ログの末尾から最後の実行（start と 完了 / FAILED / 再生成しない）を拾う（純関数）。
  * 完了は `evidence complete`（2026-10-10 以前は `ok`）、再生成しない回も完了の行が付く。
  * 土曜の収集の失敗（`[weekly-collect] FAILED`）はレビューの結果と分けて collectFailed に出す（DN-0817）。
+ * GSC の記録層の失敗（`[gsc-record] FAILED`・DN-0849）も同じ形で gscFailed に出す。
  */
 export function lastLaunchdRun(logText) {
   const lines = String(logText).split(/\r?\n/);
@@ -53,14 +54,15 @@ export function lastLaunchdRun(logText) {
   const failed = tail.find((l) => /\[weekly-review\] FAILED/.test(l));
   const skipped = tail.find((l) => /既にある。何もしない|全成果物を確認。再生成しない/.test(l));
   const collectFailed = tail.some((l) => /\[weekly-collect\] FAILED/.test(l));
+  const gscFailed = tail.some((l) => /\[gsc-record\] FAILED/.test(l));
   const result = failed ? 'failed' : skipped ? 'skipped' : ok ? 'ok' : 'running';
-  return { at, result, collectFailed, line: (failed ?? skipped ?? ok ?? lines[start]).replace(/^=== |===$/g, '').trim() };
+  return { at, result, collectFailed, gscFailed, line: (failed ?? skipped ?? ok ?? lines[start]).replace(/^=== |===$/g, '').trim() };
 }
 
 /**
  * 土曜の自動実行（launchd）の登録状況と最後の実行。macOS 以外は null
  * @param {string} root
- * @returns {{ installed: boolean, last: { at: string | null, result: 'ok' | 'failed' | 'skipped' | 'running', collectFailed: boolean, line: string } | null } | null}
+ * @returns {{ installed: boolean, last: { at: string | null, result: 'ok' | 'failed' | 'skipped' | 'running', collectFailed: boolean, gscFailed: boolean, line: string } | null } | null}
  */
 export function weeklyLaunchd(root) {
   if (process.platform !== 'darwin') return null;

@@ -12,6 +12,7 @@
  *   node scripts/standards-table-gallery.mjs                          # http://localhost:3025 を撮る
  *   node scripts/standards-table-gallery.mjs --base http://localhost:3020 --only /standards/kinki
  *   node scripts/standards-table-gallery.mjs --channel msedge          # Playwright のブラウザが無い PC
+ *   node scripts/standards-table-gallery.mjs --all --only /standards/hokkaido/local   # 比較の外の文書（必携・特記など）も対象にする
  * 出力: .tmp/standards-table-gallery/index.html（画像は同じフォルダ）
  *
  * 終了コード: 0 = 撮影した / 1 = 一部のページを開けなかった / 2 = 表を 1 枚も撮れなかった（検査不成立と同じ扱い）
@@ -27,13 +28,14 @@ const args = parseCliArgs({
   base: { type: 'string', default: 'http://localhost:3025' },
   only: { type: 'string' },
   channel: { type: 'string' },
+  all: { type: 'boolean' },
   out: { type: 'string', default: join(REPO_ROOT, '.tmp', 'standards-table-gallery') },
 });
 
 const escapeHtml = (text) => String(text).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]);
 
 async function main() {
-  const targets = standardsRenderTargets(join(SITE_CONTENT_ROOT, 'standards-articles')).filter(
+  const targets = standardsRenderTargets(join(SITE_CONTENT_ROOT, 'standards-articles'), { scope: args.all ? 'all' : 'distinct' }).filter(
     (url) => !args.only || url.startsWith(args.only),
   );
   if (targets.length === 0) {

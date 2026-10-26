@@ -1,0 +1,47 @@
+{
+  "key": "c2b4b5a6db132d04",
+  "kind": "parts",
+  "layout": [
+    "                                    図     書    名",
+    " ■   土木請負工事必携",
+    "  「九州地方整備局」→「事業者の方へ」→「建設技術情報等」→「土木工事                                        施工関連」",
+    "  （https://www.qsr.mlit.go.jp/for_company/kensetu_joho/koujisekou.html）",
+    "  →「土木請負工事必携」"
+  ],
+  "parts": [
+    {
+      "kind": "caption",
+      "text": "図書名"
+    },
+    {
+      "kind": "list",
+      "items": [
+        "■ 土木請負工事必携 「九州地方整備局」→「事業者の方へ」→「建設技術情報等」→「土木工事 施工関連」 （https://www.qsr.mlit.go.jp/for_company/kensetu_joho/koujisekou.html） →「土木請負工事必携」",
+        "■ 土木工事共通仕様書■ 区画線設置工事共通仕様書■ 植栽工事共通仕様書 「九州地方整備局」→「事業者の方へ」→「建設技術情報等」→「土木工事 施工関連」（https://www.qsr.mlit.go.jp/for_company/kensetu_joho/koujisekou.html） →「土木工事共通仕様書等」",
+        "■ 土木工事設計要領（第Ⅰ編：共通編、第Ⅱ編：河川編、第Ⅲ編：道路編）「九州地方整備局」→「事業者の方へ」→「建設技術情報等」→「共通事項（設計要領）」（https://www.qsr.mlit.go.jp/for_company/kensetu_joho/kyoutu/index.html）→「九州地方整備局「土木工事設計要領」」",
+        "■ 土木工事施工管理基準及び規格値（品質、出来形）■ 写真管理基準 「九州地方整備局」→「事業者の方へ」→「建設技術情報等」→「土木工事 施工関連」（https://www.qsr.mlit.go.jp/for_company/kensetu_joho/koujisekou.html） →「管理基準」",
+        "■ 示方書等■ 指針等（コンクリート標準示方書、道路橋示方書等。なお、使用する図書名は「土木工事設計要領第Ⅰ編：共通編」に記載しているので参照のこと。）"
+      ]
+    }
+  ],
+  "review": {
+    "status": "approved",
+    "by": "qa",
+    "at": "2026-10-25T09:24:28.148Z",
+    "note": "原本は 1 列の表（見出し「図書名」）で 5 項目あるが、版面には 1 項目目だけがあり、残りは章の本文側に段落として残っている。1 列の表は生成器が表にできないため caption と list にした。項目頭の「■」は版面にあり省けないので先頭に残した。 ／ QA: p172 画像と照合。版面（文字層）には図書名の 1 項目目のみ。残り 4 項目は章本文（5-2.md）側に段落として存在することを確認。1 列表を caption+list にした扱いは妥当。 ／ 修正(fix-41): 画像p172で 5 項目の 1 列表と確認。表の直後に段落へ化けていた 2〜5 項目（8 段落）を absorbsParagraphs.after で取り込み、list の項目 2〜5 に置いた。見出し（図書名）は崩れておらず headerImage は不要。 ／ QA: fix-41 QA: p172 画像で 1 列 5 項目の枠（見出し 図書名）と照合。absorbsParagraphs.after の 8 段落は項目 2〜5 の本文（■ の並び・URL・遷移先）で、list の項目 2〜5 と一致。見出しは崩れておらず headerImage 不要。"
+  },
+  "headerFrom": null,
+  "absorbsParagraphs": {
+    "before": [],
+    "after": [
+      "■ 土木工事共通仕様書■ 区画線設置工事共通仕様書■ 植栽工事共通仕様書",
+      "「九州地方整備局」→「事業者の方へ」→「建設技術情報等」→「土木工事 施工関連」（https://www.qsr.mlit.go.jp/for_company/kensetu_joho/koujisekou.html）",
+      "→「土木工事共通仕様書等」",
+      "■ 土木工事設計要領（第Ⅰ編：共通編、第Ⅱ編：河川編、第Ⅲ編：道路編）「九州地方整備局」→「事業者の方へ」→「建設技術情報等」→「共通事項（設計要領）」（https://www.qsr.mlit.go.jp/for_company/kensetu_joho/kyoutu/index.html）→「九州地方整備局「土木工事設計要領」」",
+      "■ 土木工事施工管理基準及び規格値（品質、出来形）■ 写真管理基準",
+      "「九州地方整備局」→「事業者の方へ」→「建設技術情報等」→「土木工事 施工関連」（https://www.qsr.mlit.go.jp/for_company/kensetu_joho/koujisekou.html）",
+      "→「管理基準」",
+      "■ 示方書等■ 指針等（コンクリート標準示方書、道路橋示方書等。なお、使用する図書名は「土木工事設計要領第Ⅰ編：共通編」に記載しているので参照のこと。）"
+    ]
+  }
+}

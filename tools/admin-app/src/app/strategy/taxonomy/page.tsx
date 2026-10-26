@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { numCol, PanelCard, TableBody, TableCell, TableFrame, TableHead, TableHeader, TableRow } from '@/components/admin';
+import { DataTable, numCol, PanelCard, TableBody, TableCell, TableFrame, TableHead, TableHeader, TableRow, type DataTableColumn, type DataTableRow } from '@/components/admin';
 import { PageHead } from '@/components/ui';
 import SectionTabs from '@/components/SectionTabs';
 import { domainList, domainOverview } from '@/lib/domains';
@@ -17,6 +17,29 @@ export default function TaxonomyPage() {
   const cfg = loadDomains(findRepoRoot()) as { navKinds?: Record<string, string>; navRules?: string[] };
   const kinds = cfg.navKinds ?? {};
   const roles = [...new Set(domains.map((d) => d.role))];
+
+  const kindColumns: DataTableColumn[] = [
+    { key: 'label', label: '領域' },
+    ...Object.entries(kinds).map(([k, v]) => ({ key: `kind:${k}`, label: <span title={v}>{v.split('（')[0]}</span>, wrap: true, sortable: false })),
+  ];
+  const kindRows: DataTableRow[] = domains.map((d) => {
+    const values: DataTableRow['values'] = { label: d.label };
+    const cells: NonNullable<DataTableRow['cells']> = {};
+    for (const k of Object.keys(kinds)) {
+      const items = d.nav.filter((v) => v.kind === k);
+      values[`kind:${k}`] = items.map((v) => v.label).join(' ');
+      cells[`kind:${k}`] = (
+        <div className="text-xs">
+          {items.map((v) => (
+            <div key={v.href}>
+              <Link href={v.href}>{v.label}</Link>
+            </div>
+          ))}
+        </div>
+      );
+    }
+    return { id: d.id, values, cells };
+  });
 
   return (
     <>
@@ -61,34 +84,7 @@ export default function TaxonomyPage() {
       </TableFrame>
 
       <PanelCard title="各領域の画面（種類別）" className="mt-4">
-        <TableFrame>
-          <TableHeader>
-            <TableRow>
-              <TableHead>領域</TableHead>
-              {Object.entries(kinds).map(([k, v]) => (
-                <TableHead key={k} title={v}>{v.split('（')[0]}</TableHead>
-              ))}
-            </TableRow>
-          </TableHeader>
-          <TableBody>
-            {domains.map((d) => (
-              <TableRow key={d.id}>
-                <TableCell>{d.label}</TableCell>
-                {Object.keys(kinds).map((k) => (
-                  <TableCell key={k} className="text-xs whitespace-normal">
-                    {d.nav
-                      .filter((v) => v.kind === k)
-                      .map((v) => (
-                        <div key={v.href}>
-                          <Link href={v.href}>{v.label}</Link>
-                        </div>
-                      ))}
-                  </TableCell>
-                ))}
-              </TableRow>
-            ))}
-          </TableBody>
-        </TableFrame>
+        <DataTable columns={kindColumns} rows={kindRows} pageSize={100} />
       </PanelCard>
 
       {cfg.navRules?.length ? (

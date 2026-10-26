@@ -1,12 +1,19 @@
-import {
-  StatusBadge, TableBody, TableCell, TableFrame, TableHead, TableHeader, TableRow,
-} from '@/components/admin';
+import { DataTable, type DataTableColumn, type DataTableRow, StatusBadge } from '@/components/admin';
 import { PageHead } from '@/components/ui';
 import { Stack } from '@/components/layout';
 import { magazines } from '@/lib/content';
 import { membershipState } from '@/lib/note-status';
 
 export const dynamic = 'force-dynamic';
+
+const COLUMNS: DataTableColumn[] = [
+  { key: 'title', label: 'タイトル' },
+  { key: 'id', label: 'id' },
+  { key: 'price', label: '価格' },
+  { key: 'repoCount', label: 'repo 記事' },
+  { key: 'published', label: '公開' },
+  { key: 'badge', label: 'バッジ' },
+];
 
 /**
  * note マガジン一覧（商品が主語）。SoT = src/lib/note-magazines.ts。
@@ -26,6 +33,41 @@ export default function ContentMagazinesPage() {
   const membership = membershipState();
   const repoCount = new Map(membership.rows.map((r) => [r.id, r.repoCount]));
   const unreferenced = new Set(membership.unreferenced);
+  const rows: DataTableRow[] = mags.map((m) => ({
+    id: m.id,
+    values: {
+      title: m.title ?? m.id,
+      id: m.id,
+      price: m.priceStr ?? null,
+      repoCount: !membership.ok ? '?' : unreferenced.has(m.id) ? 'ラベル無' : (repoCount.get(m.id) ?? 0),
+      published: m.published && m.noteUrl ? '公開' : '未公開',
+      badge: m.badge ?? null,
+    },
+    cells: {
+      title: <span className="block max-w-[28rem] truncate" title={m.title ?? m.id}>{m.title ?? m.id}</span>,
+      id: <span className="block max-w-[16rem] truncate font-mono text-xs" title={m.id}>{m.id}</span>,
+      price: m.priceStr ?? '',
+      repoCount: !membership.ok ? (
+        <StatusBadge tone="neutral" title={membership.error ?? ''}>?</StatusBadge>
+      ) : unreferenced.has(m.id) ? (
+        <StatusBadge tone="neutral" title="この id を指す noteMagazine ラベルが無い">
+          ラベル無
+        </StatusBadge>
+      ) : (repoCount.get(m.id) ?? 0) === 0 ? (
+        <StatusBadge tone="warn">0</StatusBadge>
+      ) : (
+        repoCount.get(m.id)
+      ),
+      published: m.published && m.noteUrl ? (
+        <a href={m.noteUrl} target="_blank" rel="noopener noreferrer">
+          公開
+        </a>
+      ) : (
+        <StatusBadge tone="warn">未公開</StatusBadge>
+      ),
+      badge: <span className="text-xs text-muted-foreground">{m.badge ?? ''}</span>,
+    },
+  }));
   return (
     <>
       <PageHead
@@ -46,50 +88,7 @@ export default function ContentMagazinesPage() {
             {membership.error}
           </p>
         )}
-        <TableFrame>
-          <TableHeader>
-            <TableRow>
-              <TableHead>タイトル</TableHead>
-              <TableHead className="hidden xl:table-cell">id</TableHead>
-              <TableHead>価格</TableHead>
-              <TableHead>repo 記事</TableHead>
-              <TableHead>公開</TableHead>
-              <TableHead>バッジ</TableHead>
-            </TableRow>
-          </TableHeader>
-          <TableBody>
-              {mags.map((m) => (
-                <TableRow key={m.id}>
-                  <TableCell className="max-w-[28rem] truncate" title={m.title ?? m.id}>{m.title ?? m.id}</TableCell>
-                  <TableCell className="hidden max-w-[16rem] truncate font-mono text-xs xl:table-cell" title={m.id}>{m.id}</TableCell>
-                  <TableCell>{m.priceStr ?? ''}</TableCell>
-                  <TableCell>
-                    {!membership.ok ? (
-                      <StatusBadge tone="neutral" title={membership.error ?? ''}>?</StatusBadge>
-                    ) : unreferenced.has(m.id) ? (
-                      <StatusBadge tone="neutral" title="この id を指す noteMagazine ラベルが無い">
-                        ラベル無
-                      </StatusBadge>
-                    ) : (repoCount.get(m.id) ?? 0) === 0 ? (
-                      <StatusBadge tone="warn">0</StatusBadge>
-                    ) : (
-                      repoCount.get(m.id)
-                    )}
-                  </TableCell>
-                  <TableCell>
-                    {m.published && m.noteUrl ? (
-                      <a href={m.noteUrl} target="_blank" rel="noopener noreferrer">
-                        公開
-                      </a>
-                    ) : (
-                      <StatusBadge tone="warn">未公開</StatusBadge>
-                    )}
-                  </TableCell>
-                  <TableCell className="text-xs text-muted-foreground">{m.badge ?? ''}</TableCell>
-                </TableRow>
-              ))}
-          </TableBody>
-        </TableFrame>
+        <DataTable columns={COLUMNS} rows={rows} filter="タイトル・id で絞り込む" />
       </Stack>
     </>
   );

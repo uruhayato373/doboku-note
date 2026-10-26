@@ -1,0 +1,21 @@
+{
+  "key": "d49a60ae9fdcdc0e",
+  "kind": "parts",
+  "layout": [
+    "                   指   導    事    項"
+  ],
+  "parts": [
+    {
+      "kind": "caption",
+      "text": "指導事項"
+    }
+  ],
+  "notes": [],
+  "headerFrom": null,
+  "review": {
+    "status": "approved",
+    "by": "qa",
+    "at": "2026-10-25T04:08:37.131Z",
+    "note": "指導事項の枠の見出しだけ。1 列のため caption。 ／ QA: 見出し「指導事項」のみ。p33 画像と一致。枠内の本文は版面に無い。"
+  }
+}

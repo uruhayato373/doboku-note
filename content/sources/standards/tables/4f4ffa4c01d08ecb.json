@@ -1,0 +1,21 @@
+{
+  "key": "4f4ffa4c01d08ecb",
+  "kind": "parts",
+  "layout": [
+    "２．工期     自    令和   年    月    日       至    令和   年    月     日"
+  ],
+  "parts": [
+    {
+      "kind": "text",
+      "text": "２．工期 自 令和 年 月 日 至 令和 年 月 日"
+    }
+  ],
+  "notes": [],
+  "headerFrom": null,
+  "review": {
+    "status": "approved",
+    "by": "qa",
+    "at": "2026-10-25T03:58:23.069Z",
+    "note": "様式の 1 行（２．工期）。 ／ QA: p82 工期1行の text。画像と一致。"
+  }
+}

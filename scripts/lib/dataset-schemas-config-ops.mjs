@@ -7,7 +7,7 @@
  * indexnow・workflow-health は npm ci をしないワークフローが読む。読み手にこの型を import しない（型は check-datasets が検査する）。
  */
 import { z } from 'zod';
-import { jstDate, utcTime, offsetTime, flag, uniqueBy } from './dataset-schema-parts.mjs';
+import { jstDate, offsetTime, flag, uniqueBy } from './dataset-schema-parts.mjs';
 import { findOverlaps } from '../../src/lib/affiliate-placement-core.mjs';
 
 // ---- 共通の小さな部品 --------------------------------------------------------------------------
@@ -526,7 +526,7 @@ export const ConfigGrowthCycle = z
 
 // ---- config.indexnow ---------------------------------------------------------------------------
 
-/** IndexNow の更新通知の設定（config/indexnow.json）。npm ci をしない indexnow-submit.yml が読む */
+/** IndexNow の更新通知の設定（config/indexnow.json）。npm ci をしない cloudflare-deploy.yml の indexnow ジョブが読む */
 export const ConfigIndexnow = z
   .object({
     schemaVersion: z.literal(1),
@@ -744,16 +744,6 @@ export const ConfigWorkflowHealth = z
             workflow: z.string().regex(/^[\w.-]+\.ya?ml$/, 'ワークフローのファイル名'),
             branch: text.optional().describe('見るブランチ。省略＝既定ブランチ'),
             ...healthLimits,
-            schedule: z
-              .object({
-                activeSince: utcTime('cron の最初の発火枠'),
-                maxAgeDays: posInt.describe('event=schedule の run だけで見る鮮度（日）'),
-                graceHours: posInt.describe('GitHub の schedule 登録・初回発火の遅延バッファ（時間）'),
-                _why: note,
-              })
-              .strict()
-              .optional()
-              .describe('手動成功が cron の沈黙を隠さないよう、event=schedule の run だけで見る設定'),
             _note: note,
           })
           .strict(),
@@ -771,12 +761,18 @@ const AUTOMATION_READER = /^(quality-audit:[\w-]+|issue:[\w-]+|admin:\/[\w/-]*|s
 /**
  * 自動化の台帳（config/automations.json・DN-0817）。どこで（Mac の launchd か GitHub Actions）何がいつ動き、
  * ログインが要るか・何を書き・誰が読むかの正本。台帳と実物（.github/workflows/*.yml・scripts/scheduled/*.plist.tmpl）の
- * 一致・CI でログインしないことは scripts/check-automations.mjs が見る。管理画面 /ops/automations が表示する。
+ * 一致・CI でログインしないことは scripts/check-automations.mjs が見る。管理画面 /ops/mac・/ops/ci が表示する。
+ * GitHub Actions の行は groups のどれか 1 つに属し、/ops/ci は groups の順に区画を分けて出す。
  */
 export const ConfigAutomations = z
   .object({
     schemaVersion: z.literal(1),
     _doc: note,
+    groups: z
+      .array(z.object({ id: z.string().regex(/^[a-z0-9-]+$/, '英小文字・数字・ハイフン'), title: text }).strict())
+      .min(1)
+      .superRefine(uniqueBy('id', 'まとまりの id'))
+      .describe('GitHub Actions の行のまとまり（並びは管理画面 /ops/ci の区画の順）'),
     automations: z
       .array(
         z
@@ -785,6 +781,7 @@ export const ConfigAutomations = z
             runner: z.enum(['github-actions', 'mac-launchd']),
             source: z.string().regex(/^(\.github\/workflows\/[\w.-]+\.ya?ml|scripts\/scheduled\/[\w.-]+\.plist\.tmpl)$/, 'ワークフローか plist のテンプレート'),
             title: text,
+            group: z.string().optional().describe('まとまり（groups の id）。GitHub Actions の行は必須で、Mac の行には付けない'),
             triggers: z.array(z.enum(['schedule', 'push', 'pull_request', 'pull_request_target', 'workflow_run', 'workflow_dispatch', 'release', 'launchd'])).min(1),
             schedule: z.array(text).describe('cron（GitHub Actions は UTC の 5 項目）か launchd の時刻（例: 土 09:30）。定期でなければ空'),
             scheduleJst: text.optional().describe('人が読む JST の時刻'),
@@ -801,6 +798,18 @@ export const ConfigAutomations = z
       .superRefine(uniqueBy('source', 'source')),
   })
   .strict()
+  .superRefine((v, ctx) => {
+    const ids = new Set(v.groups.map((g) => g.id));
+    v.automations.forEach((a, i) => {
+      const at = ['automations', i, 'group'];
+      if (a.runner === 'github-actions' && !a.group) flag(ctx, at, 'GitHub Actions の行は group（groups の id）が要る');
+      else if (a.runner !== 'github-actions' && a.group) flag(ctx, at, 'group は GitHub Actions の行だけに付ける');
+      else if (a.group && !ids.has(a.group)) flag(ctx, at, `まとまり「${a.group}」が groups に無い`);
+    });
+    v.groups.forEach((g, i) => {
+      if (!v.automations.some((a) => a.group === g.id)) flag(ctx, ['groups', i, 'id'], `まとまり「${g.id}」に属する行が無い`);
+    });
+  })
   .meta({ title: '自動化の台帳' });
 
 // ---- アセット置き場（asset-storage・drive-vault・git-binary-policy）---------------------------

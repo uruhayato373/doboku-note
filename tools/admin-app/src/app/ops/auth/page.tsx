@@ -1,7 +1,8 @@
-import { PanelCard, StatusBadge, TableBody, TableCell, TableFrame, TableHead, TableHeader, TableRow } from '@/components/admin';
+import { DataTable, PanelCard, StatusBadge, type DataTableColumn, type DataTableRow } from '@/components/admin';
 import { Stack } from '@/components/layout';
 import { PageHead } from '@/components/ui';
 import { authCredentialsView, type CollectAuthStage, type CredentialRow } from '@/lib/auth-credentials';
+import { jstDateTime } from '@/lib/format';
 
 export const dynamic = 'force-dynamic';
 
@@ -20,13 +21,21 @@ function action(r: CredentialRow): { text: string; detail?: string } | null {
   return null;
 }
 
+const CREDENTIAL_COLUMNS: DataTableColumn[] = [
+  { key: 'service', label: 'サービス' },
+  { key: 'user', label: 'ログイン ID' },
+  { key: 'registered', label: <span title="この PC の資格情報マネージャー（Mac はキーチェーン）">この PC</span> },
+  { key: 'autoLogin', label: <span title="切れたときに自動でログインし直すか">自動ログイン</span> },
+  { key: 'action', label: '要対応' },
+];
+
 const COLLECT_TONE = { ok: 'good', warn: 'warn', skipped: 'info', failed: 'bad' } as const;
 const COLLECT_LABEL = { ok: '成功', warn: '注意', skipped: '省略', failed: '失敗' } as const;
 
 /** 土曜の収集の auth 段の結果を 1 行で（日時は JST 表示）。 */
 function collectLine(c: CollectAuthStage): string {
   if (!c.finishedAt) return c.reason;
-  const when = new Date(c.finishedAt).toLocaleString('ja-JP', { timeZone: 'Asia/Tokyo', dateStyle: 'short', timeStyle: 'short' });
+  const when = jstDateTime(c.finishedAt, { short: true });
   return `${when} 終了${c.reason ? `・${c.reason}` : ''}`;
 }
 
@@ -34,6 +43,25 @@ export default function AuthCredentialsPage() {
   const v = authCredentialsView();
   const todo = v.rows.map((r) => ({ r, a: action(r) })).filter((x) => x.a);
   const unregistered = v.rows.filter((r) => action(r)?.text === '未登録');
+  const credentialRows: DataTableRow[] = v.rows.map((r) => {
+    const a = action(r);
+    const user = r.storeUser ?? (r.sharedPresent ? r.sharedUser : null);
+    const registered = r.storePresent === true || r.sharedPresent === true;
+    const unknown = r.storePresent === null && r.sharedPresent === null;
+    return {
+      id: r.id,
+      values: { service: r.label, user, registered: unknown ? '?' : registered ? '済' : '未', autoLogin: r.autoLogin ? 'する' : 'しない', action: a ? a.text : null },
+      cells: {
+        service: <span className="font-medium">{r.label}</span>,
+        user: user ?? <span className="text-muted-foreground">—</span>,
+        registered: unknown
+          ? <span className="text-muted-foreground">?</span>
+          : registered ? <StatusBadge tone="good">済</StatusBadge> : <StatusBadge tone="warn">未</StatusBadge>,
+        autoLogin: <span title={r.policyNote}>{r.autoLogin ? 'する' : <span className="text-muted-foreground">しない</span>}</span>,
+        action: a ? <StatusBadge tone="bad" title={a.detail}>{a.text}</StatusBadge> : <span className="text-muted-foreground">—</span>,
+      },
+    };
+  });
   const registerCmd = v.machine === 'mac' ? v.register.mac : v.register.windows;
 
   return (
@@ -51,37 +79,7 @@ export default function AuthCredentialsPage() {
             <span>{collectLine(v.collectAuth)}</span>
           </div>
         </PanelCard>
-        <TableFrame>
-          <TableHeader>
-            <TableRow>
-              <TableHead>サービス</TableHead>
-              <TableHead>ログイン ID</TableHead>
-              <TableHead title="この PC の資格情報マネージャー（Mac はキーチェーン）">この PC</TableHead>
-              <TableHead title="切れたときに自動でログインし直すか">自動ログイン</TableHead>
-              <TableHead>要対応</TableHead>
-            </TableRow>
-          </TableHeader>
-          <TableBody>
-            {v.rows.map((r) => {
-              const a = action(r);
-              const user = r.storeUser ?? (r.sharedPresent ? r.sharedUser : null);
-              const registered = r.storePresent === true || r.sharedPresent === true;
-              return (
-                <TableRow key={r.id}>
-                  <TableCell className="font-medium">{r.label}</TableCell>
-                  <TableCell>{user ?? <span className="text-muted-foreground">—</span>}</TableCell>
-                  <TableCell>
-                    {r.storePresent === null && r.sharedPresent === null
-                      ? <span className="text-muted-foreground">?</span>
-                      : registered ? <StatusBadge tone="good">済</StatusBadge> : <StatusBadge tone="warn">未</StatusBadge>}
-                  </TableCell>
-                  <TableCell title={r.policyNote}>{r.autoLogin ? 'する' : <span className="text-muted-foreground">しない</span>}</TableCell>
-                  <TableCell>{a ? <StatusBadge tone="bad" title={a.detail}>{a.text}</StatusBadge> : <span className="text-muted-foreground">—</span>}</TableCell>
-                </TableRow>
-              );
-            })}
-          </TableBody>
-        </TableFrame>
+        <DataTable columns={CREDENTIAL_COLUMNS} rows={credentialRows} pageSize={100} />
 
         {unregistered.length > 0 && registerCmd && (
           <PanelCard title="未登録のサービスを登録する" description="ターミナルで実行し、聞かれたらパスワードを入力する。登録後にこのページを再読み込みする">

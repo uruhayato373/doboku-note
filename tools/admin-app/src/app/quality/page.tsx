@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { PanelCard, StatusBadge, TableBody, TableCell, TableFrame, TableHead, TableHeader, TableRow, numCol } from '@/components/admin';
+import { DataTable, PanelCard, StatusBadge, type DataTableColumn, type DataTableRow } from '@/components/admin';
 import { Stack } from '@/components/layout';
 import { PageHead } from '@/components/ui';
 import LineChart from '@/components/charts/LineChart';
@@ -8,6 +8,13 @@ import type { Tone } from '@/components/admin';
 import PastExamLedgerPanel from './PastExamLedgerPanel';
 
 export const dynamic = 'force-dynamic';
+
+const RULE_COLUMNS: DataTableColumn[] = [
+  { key: 'rule', label: 'ルール' },
+  { key: 'severity', label: '重大度' },
+  { key: 'files', label: '記事数', num: true },
+  { key: 'total', label: '違反数', num: true },
+];
 
 const sevTone = (s: Severity | string): Tone => (s === 'HIGH' ? 'bad' : s === 'LOW' ? 'neutral' : 'warn');
 
@@ -23,6 +30,12 @@ export default function QualityPage() {
       .sort((a, b) => a.date.localeCompare(b.date))
       .map((p) => ({ label: p.date.slice(5), value: p.violations }));
   })();
+
+  const ruleRows: DataTableRow[] = byRule.map((r) => ({
+    id: r.rule,
+    values: { rule: r.rule, severity: r.severity, files: r.files, total: r.total },
+    cells: { rule: <StatusBadge tone={sevTone(r.severity)}>{r.rule}</StatusBadge> },
+  }));
 
   const winStr = win ? `${win.start}〜${win.end}` : '';
 
@@ -90,28 +103,7 @@ export default function QualityPage() {
 
       {/* ルール別 */}
       <PanelCard title="ルール別（違反の内訳）">
-        <TableFrame>
-          <TableHeader>
-            <TableRow>
-              <TableHead>ルール</TableHead>
-              <TableHead>重大度</TableHead>
-              <TableHead className={numCol}>記事数</TableHead>
-              <TableHead className={numCol}>違反数</TableHead>
-            </TableRow>
-          </TableHeader>
-          <TableBody>
-            {byRule.map((r) => (
-              <TableRow key={r.rule}>
-                <TableCell>
-                  <StatusBadge tone={sevTone(r.severity)}>{r.rule}</StatusBadge>
-                </TableCell>
-                <TableCell>{r.severity}</TableCell>
-                <TableCell className={numCol}>{r.files}</TableCell>
-                <TableCell className={numCol}>{r.total}</TableCell>
-              </TableRow>
-            ))}
-          </TableBody>
-        </TableFrame>
+        <DataTable columns={RULE_COLUMNS} rows={ruleRows} pageSize={100} />
       </PanelCard>
       </Stack>
     </>

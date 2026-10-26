@@ -97,3 +97,11 @@ test('起票している channel には --resolve の配線がある（起票だ
   const orphan = [...filed].filter((c) => !resolved.has(c));
   assert.deepEqual(orphan, [], `復旧経路（--resolve）が無い channel: ${orphan.join(', ')}`);
 });
+
+test('channelOfTitle: 題名の [auto] <channel>: から channel を取る（issuePrefix の逆・規約外は null）', async () => {
+  const { channelOfTitle, issuePrefix } = await import('../scripts/report-automation-failure.mjs');
+  assert.equal(channelOfTitle(`${issuePrefix('weekly-collect')} 土曜の収集が完了しませんでした`), 'weekly-collect');
+  assert.equal(channelOfTitle('[auto] auth-state-kdp: login collector kdp: expired'), 'auth-state-kdp');
+  assert.equal(channelOfTitle('依存の脆弱性 next'), null);
+  assert.equal(channelOfTitle(undefined), null);
+});

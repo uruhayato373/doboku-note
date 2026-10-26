@@ -1,11 +1,10 @@
 import { PageHead } from '@/components/ui';
 import { Grid, Stack } from '@/components/layout';
-import { Badge } from '@/components/ui/badge';
-import { Card, CardContent } from '@/components/ui/card';
 import { TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { noteSyncPlan, noteSyncRuns, type SyncItem, type SyncPart } from '@/lib/note-sync';
 import { NOTE_BASE } from '../../../../../../scripts/lib/site-identity.mjs';
+import { jstDateTime } from '@/lib/format';
+import { DataTable, StatCard, StatusBadge, type DataTableColumn, type DataTableRow } from '@/components/admin';
 
 export const dynamic = 'force-dynamic';
 
@@ -18,18 +17,6 @@ const TABS = [
 type TabId = (typeof TABS)[number]['id'];
 
 const noteUrl = (noteId: string) => `${NOTE_BASE}/n/${noteId}`;
-const dt = (iso: string) => iso.slice(5, 16).replace('T', ' ').replace('-', '/');
-
-function Stat({ label, value }: { label: string; value: React.ReactNode }) {
-  return (
-    <Card className="gap-1 py-3">
-      <CardContent className="flex flex-col gap-1 px-3">
-        <span className="text-xs text-muted-foreground">{label}</span>
-        <span className="text-lg font-bold">{value}</span>
-      </CardContent>
-    </Card>
-  );
-}
 
 function Title({ item }: { item: SyncItem }) {
   return (
@@ -43,11 +30,80 @@ function Parts({ item }: { item: SyncItem }) {
   return (
     <span className="flex flex-wrap gap-1">
       {item.parts.map((p) => (
-        <Badge key={p} variant="secondary">{PART_LABEL[p]}</Badge>
+        <StatusBadge key={p} tone="info">{PART_LABEL[p]}</StatusBadge>
       ))}
-      {item.needsPdfPull && <Badge variant="outline">PDF 取り寄せ</Badge>}
+      {item.needsPdfPull && <StatusBadge tone="neutral">PDF 取り寄せ</StatusBadge>}
     </span>
   );
+}
+
+const partsText = (i: SyncItem) => [...i.parts.map((p) => PART_LABEL[p]), ...(i.needsPdfPull ? ['PDF 取り寄せ'] : [])].join('・');
+
+const BLOCKED_COLUMNS: DataTableColumn[] = [
+  { key: 'title', label: '記事', wrap: true },
+  { key: 'reason', label: '理由', wrap: true },
+  { key: 'action', label: '直し方', wrap: true, sortable: false },
+  { key: 'parts', label: '未反映' },
+];
+
+type Plan = ReturnType<typeof noteSyncPlan>;
+function blockedRows(items: SyncItem[], blockers: Plan['blockers']): DataTableRow[] {
+  return items.map((i) => ({
+    id: i.path,
+    values: { title: i.title, reason: blockers[i.blocker ?? '']?.label ?? i.blocker ?? null, action: blockers[i.blocker ?? '']?.action ?? null, parts: partsText(i) },
+    cells: {
+      title: <Title item={i} />,
+      reason: (
+        <>
+          {blockers[i.blocker ?? '']?.label ?? i.blocker}
+          {i.abort && <span className="block text-xs text-muted-foreground">{jstDateTime(i.abort.at, { short: true })} {i.abort.reason}</span>}
+        </>
+      ),
+      action: <span className="text-xs">{blockers[i.blocker ?? '']?.action}</span>,
+      parts: <Parts item={i} />,
+    },
+  }));
+}
+
+const READY_COLUMNS: DataTableColumn[] = [
+  { key: 'title', label: '記事', wrap: true },
+  { key: 'exam', label: '資格' },
+  { key: 'parts', label: '未反映' },
+];
+
+function readyRows(items: SyncItem[]): DataTableRow[] {
+  return items.map((i) => ({
+    id: i.path,
+    values: { title: i.title, exam: i.exam ?? null, parts: partsText(i) },
+    cells: { title: <Title item={i} />, exam: <span className="text-xs">{i.exam}</span>, parts: <Parts item={i} /> },
+  }));
+}
+
+const RUN_COLUMNS: DataTableColumn[] = [
+  { key: 'finishedAt', label: '終了' },
+  { key: 'articlesUpdated', label: '記事 更新', num: true },
+  { key: 'articlesFailed', label: '記事 失敗', num: true },
+  { key: 'magazinesUpdated', label: 'マガジン 更新', num: true },
+  { key: 'problems', label: '失敗・問題', wrap: true, sortable: false },
+];
+
+function runRows(runs: ReturnType<typeof noteSyncRuns>): DataTableRow[] {
+  return runs.map((r) => ({
+    id: r.startedAt,
+    values: {
+      finishedAt: r.finishedAt,
+      articlesUpdated: r.articles.updated.length,
+      articlesFailed: r.articles.failed.length,
+      magazinesUpdated: r.magazines.updated.length,
+      problems: [...r.articles.failed.map((f) => `${f.path.split('/').slice(-2, -1)[0]}: ${f.reason}`), ...r.magazines.failed.map((f) => `${f.key}: ${f.reason}`), ...r.problems].slice(0, 8).join(' / ') || null,
+    },
+    cells: {
+      finishedAt: jstDateTime(r.finishedAt, { short: true }),
+      articlesUpdated: `${r.articles.updated.length}/${r.articles.attempted}`,
+      magazinesUpdated: `${r.magazines.updated.length}/${r.magazines.attempted}`,
+      problems: <span className="text-xs">{[...r.articles.failed.map((f) => `${f.path.split('/').slice(-2, -1)[0]}: ${f.reason}`), ...r.magazines.failed.map((f) => `${f.key}: ${f.reason}`), ...r.problems].slice(0, 8).join(' / ')}</span>,
+    },
+  }));
 }
 
 export default async function NoteSyncPage({ searchParams }: { searchParams: Promise<{ tab?: string }> }) {
@@ -64,123 +120,43 @@ export default async function NoteSyncPage({ searchParams }: { searchParams: Pro
     <Stack>
       <PageHead title="note 反映" />
       {!plan.ok ? (
-        <Card>
-          <CardContent>
-            <Badge variant="destructive">取得失敗</Badge> {plan.error}
-          </CardContent>
-        </Card>
+        <p className="project-warning-text text-sm">
+          <StatusBadge tone="bad">取得失敗</StatusBadge> {plan.error}
+        </p>
       ) : (
         <>
           <Grid min="sm">
-            <Stat label="止まっている" value={plan.counts.blocked} />
-            <Stat label="反映待ち" value={plan.counts.ready} />
-            <Stat label="反映済み" value={plan.counts.synced} />
-            <Stat label="前回の週次" value={last ? `${dt(last.finishedAt)}・${last.articles.updated.length} 件` : 'なし'} />
+            <StatCard label="止まっている" value={plan.counts.blocked} />
+            <StatCard label="反映待ち" value={plan.counts.ready} />
+            <StatCard label="反映済み" value={plan.counts.synced} />
+            <StatCard label="前回の週次" value={last ? `${jstDateTime(last.finishedAt, { short: true })}・${last.articles.updated.length} 件` : 'なし'} />
           </Grid>
 
           <TabsList aria-label="反映の状態">
             {TABS.map((t) => (
               <TabsTrigger key={t.id} href={`/content/note-sync?tab=${t.id}`} active={t.id === tab}>
                 {t.label}
-                <Badge variant={t.id === 'blocked' && count.blocked ? 'warning' : 'secondary'}>{count[t.id]}</Badge>
+                <StatusBadge tone={t.id === 'blocked' && count.blocked ? 'warn' : 'info'}>{count[t.id]}</StatusBadge>
               </TabsTrigger>
             ))}
           </TabsList>
 
-          {tab === 'blocked' && (
-            <Card className="py-2">
-              <CardContent className="px-2">
-                <Table>
-                  <TableHeader>
-                    <TableRow>
-                      <TableHead>記事</TableHead>
-                      <TableHead>理由</TableHead>
-                      <TableHead>直し方</TableHead>
-                      <TableHead>未反映</TableHead>
-                    </TableRow>
-                  </TableHeader>
-                  <TableBody>
-                    {blocked.map((i) => (
-                      <TableRow key={i.path}>
-                        <TableCell className="max-w-80 whitespace-normal"><Title item={i} /></TableCell>
-                        <TableCell className="whitespace-normal">
-                          {plan.blockers[i.blocker ?? '']?.label ?? i.blocker}
-                          {i.abort && <span className="block text-xs text-muted-foreground">{dt(i.abort.at)} {i.abort.reason}</span>}
-                        </TableCell>
-                        <TableCell className="max-w-96 whitespace-normal text-xs">{plan.blockers[i.blocker ?? '']?.action}</TableCell>
-                        <TableCell><Parts item={i} /></TableCell>
-                      </TableRow>
-                    ))}
-                  </TableBody>
-                </Table>
-              </CardContent>
-            </Card>
-          )}
+          {tab === 'blocked' && <DataTable columns={BLOCKED_COLUMNS} rows={blockedRows(blocked, plan.blockers)} filter="記事・理由で絞り込む" />}
 
           {tab === 'ready' && (
             <>
               <Grid min="sm">
-                <Stat label="本文" value={plan.counts.parts.body} />
-                <Stat label="カバー" value={plan.counts.parts.cover} />
-                <Stat label="タグ" value={plan.counts.parts.tags} />
-                <Stat label="題名" value={plan.counts.parts.title ?? 0} />
-                <Stat label="PDF 取り寄せ" value={plan.counts.pdfPull} />
+                <StatCard label="本文" value={plan.counts.parts.body} />
+                <StatCard label="カバー" value={plan.counts.parts.cover} />
+                <StatCard label="タグ" value={plan.counts.parts.tags} />
+                <StatCard label="題名" value={plan.counts.parts.title ?? 0} />
+                <StatCard label="PDF 取り寄せ" value={plan.counts.pdfPull} />
               </Grid>
-              <Card className="py-2">
-                <CardContent className="px-2">
-                  <Table>
-                    <TableHeader>
-                      <TableRow>
-                        <TableHead>記事</TableHead>
-                        <TableHead>資格</TableHead>
-                        <TableHead>未反映</TableHead>
-                      </TableRow>
-                    </TableHeader>
-                    <TableBody>
-                      {ready.map((i) => (
-                        <TableRow key={i.path}>
-                          <TableCell className="max-w-96 whitespace-normal"><Title item={i} /></TableCell>
-                          <TableCell className="text-xs">{i.exam}</TableCell>
-                          <TableCell><Parts item={i} /></TableCell>
-                        </TableRow>
-                      ))}
-                    </TableBody>
-                  </Table>
-                </CardContent>
-              </Card>
+              <DataTable columns={READY_COLUMNS} rows={readyRows(ready)} filter="記事・資格で絞り込む" />
             </>
           )}
 
-          {tab === 'runs' && (
-            <Card className="py-2">
-              <CardContent className="px-2">
-                <Table>
-                  <TableHeader>
-                    <TableRow>
-                      <TableHead>終了</TableHead>
-                      <TableHead>記事 更新</TableHead>
-                      <TableHead>記事 失敗</TableHead>
-                      <TableHead>マガジン 更新</TableHead>
-                      <TableHead>失敗・問題</TableHead>
-                    </TableRow>
-                  </TableHeader>
-                  <TableBody>
-                    {runs.map((r) => (
-                      <TableRow key={r.startedAt}>
-                        <TableCell>{dt(r.finishedAt)}</TableCell>
-                        <TableCell>{r.articles.updated.length}/{r.articles.attempted}</TableCell>
-                        <TableCell>{r.articles.failed.length}</TableCell>
-                        <TableCell>{r.magazines.updated.length}/{r.magazines.attempted}</TableCell>
-                        <TableCell className="max-w-96 whitespace-normal text-xs">
-                          {[...r.articles.failed.map((f) => `${f.path.split('/').slice(-2, -1)[0]}: ${f.reason}`), ...r.magazines.failed.map((f) => `${f.key}: ${f.reason}`), ...r.problems].slice(0, 8).join(' / ')}
-                        </TableCell>
-                      </TableRow>
-                    ))}
-                  </TableBody>
-                </Table>
-              </CardContent>
-            </Card>
-          )}
+          {tab === 'runs' && <DataTable columns={RUN_COLUMNS} rows={runRows(runs)} />}
         </>
       )}
     </Stack>

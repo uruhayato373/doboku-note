@@ -1,11 +1,8 @@
 import Link from 'next/link';
-import {
-  numCol, PanelCard, TableBody, TableCell, TableFrame, TableHead, TableHeader, TableRow,
-} from '@/components/admin';
+import { numCol, PanelCard, TableBody, TableCell, TableFrame, TableHead, TableHeader, TableRow, StatusBadge, type Tone } from '@/components/admin';
 import { Stack } from '@/components/layout';
 import { PageHead } from '@/components/ui';
 import UpcomingEvents from '@/components/UpcomingEvents';
-import { Badge } from '@/components/ui/badge';
 import { loadLineupView, type LineupItem, type LineupRow } from '@/lib/lineup';
 import { datasetPath } from '../../../../../../scripts/lib/datasets.mjs';
 
@@ -13,12 +10,12 @@ export const dynamic = 'force-dynamic';
 
 const STAGE_ORDER = ['published', 'review', 'scheduled', 'draft', 'planned', 'retired', 'unknown'];
 
-function stageVariant(stage: string): 'success' | 'warning' | 'outline' | 'secondary' | 'destructive' {
-  if (stage === 'published') return 'success';
-  if (stage === 'review' || stage === 'scheduled') return 'warning';
-  if (stage === 'draft' || stage === 'planned') return 'outline';
-  if (stage === 'unknown') return 'destructive';
-  return 'secondary';
+function stageTone(stage: string): Tone {
+  if (stage === 'published') return 'good';
+  if (stage === 'review' || stage === 'scheduled') return 'warn';
+  if (stage === 'draft' || stage === 'planned') return 'neutral';
+  if (stage === 'unknown') return 'bad';
+  return 'info';
 }
 
 /**
@@ -194,7 +191,7 @@ function ItemTile({ item: i }: { item: LineupItem }) {
           {i.stage !== 'published' && (
             <>
               {' '}
-              <Badge variant={stageVariant(i.stage)}>{i.stageLabel}</Badge>
+              <StatusBadge tone={stageTone(i.stage)}>{i.stageLabel}</StatusBadge>
             </>
           )}
         </div>

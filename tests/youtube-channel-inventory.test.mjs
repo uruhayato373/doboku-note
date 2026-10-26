@@ -1,7 +1,5 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { readFileSync } from 'node:fs';
-import yaml from 'js-yaml';
 import { channelInventory } from '../scripts/lib/youtube-channel-inventory.mjs';
 import { createEnvelopeKeys, sealReport, openReport } from '../scripts/lib/youtube-rollout-envelope.mjs';
 const expected = { id: 'UCHRnXPqoc0Hls8nXiK_ZYqA', title: 'doboku-note' };
@@ -47,13 +45,4 @@ test('uploadsで欠けた1本は所有動画検索と詳細の口座照合で補
   assert.deepEqual(result.evidence.supplementedFromLedger, []);
   yt.videos.list = async ({ id }) => ({ data: { items: id.split(',').map(id => ({ id, snippet: { channelId: id === '8qhSsq9-x6k' ? 'other-channel' : expected.id } })) } });
   await assert.rejects(channelInventory(yt, expected), /channel mismatch/);
-});
-test('棚卸しモードは既定の operation で、artifactは暗号文だけ', () => {
-  const wf = yaml.load(readFileSync(new URL('../.github/workflows/sync-yt-descriptions.yml', import.meta.url), 'utf8'));
-  assert.equal(wf.on.workflow_dispatch.inputs.operation.default, 'thumbnail-inventory');
-  assert.equal(wf.jobs.sync, undefined);
-  const job = wf.jobs['thumbnail-inventory'];
-  assert.equal(job.if, "inputs.operation == 'thumbnail-inventory'");
-  assert.ok(job.steps.find(s => s.run?.includes('--mode inventory')));
-  assert.equal(job.steps.find(s => s.uses?.startsWith('actions/upload-artifact@')).with.path, '.tmp/youtube-rollout-export/*.enc.json');
 });

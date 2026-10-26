@@ -7,7 +7,7 @@
  *   一画面で並べて、**ズレと「そもそも判定できていない」を区別して見えるようにする**のがこの画面の目的。
  *
  * 方針（tools/admin-app/README.md）:
- *   - ライブ API は叩かない。ライブの値は CI（note-live-audit.yml 週次）が供給する
+ *   - ライブ API は叩かない。ライブの値は土曜の収集の note-audit 段（週次・DN-0847）が供給する
  *     `data/note/*.json` を読むだけ。
  *   - 判定ロジックは CLI 側に残し、ここは `--json` を実行して結果を表示するだけ。
  *   - **取得に失敗したら空ではなく `ok:false` を返す**（CLAUDE.md §9「検査ゼロを PASS と呼ばない」）。
@@ -143,7 +143,7 @@ const EMPTY_STATUS = {
 /**
  * 記事別のライブ公開状態。**ここは CLI を実行しない**——照合には note API への
  * 数百リクエストが要り、管理画面の役割ではない（README「ライブ API は叩かない」）。
- * CI（note-live-audit.yml 週次）が書いた snapshot を読むだけ。無ければ `ok:false`。
+ * 土曜の収集の note-audit 段（週次）が書いた snapshot を読むだけ。無ければ `ok:false`。
  */
 export function statusSnapshot(now: number = Date.now()): StatusSnapshot {
   try {

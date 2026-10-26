@@ -13,7 +13,7 @@ title: 成長サイクル（GA4 起点の計測→記録→改善）
 | 計測 | CI `fetch-metrics.yml`（金 06:00 JST）の `fetch-growth-pack` | GA4 Data API（landingPage×流入元×channel／pagePath×eventName）と GSCの無次元byProperty全体値とpage／page×query明細を、**前の完了週（月〜日・JST）＋直前28日の基線**で取得 → `data/analysis/growth/pack-YYYY-Www.json`。GSC明細は国で絞るため検索語の分かる分だけの部分集計（匿名化分を含まない・DN-0759）。取り方を変えたページ別の合計と byPage 全体の比を `gscPageCoverageWeek` に残す（DN-0806） |
 | 計測（外部） | 同 `fetch-bing-webmaster`・`ga4-admin-api check` | Bing の実クリック・表示 → `metrics/bing/`／GA4 管理設定（ディメンション・キーイベント・保持）→ `metrics/ga4-admin/inventory-latest.json` |
 | 分析 | 同 `build-growth-digest`（オフライン・決定的） | パック×収益カバレッジ×Bing×実験台帳×triage-log → `metrics/growth/digest-YYYY-Www.json`（安定 ID `OPP-…` 付きの機会） |
-| 意味の判断 | CI `gsc-auto-review.yml`（金 12:00）の `metrics-analyzer` | ダイジェストの `OPP-…` を引用して「なぜ・何を確かめるか」を足す（再抽出しない） |
+| 意味の判断 | 土曜の Mac の GSC の記録層（週次レビューの前段・旧 CI の `gsc-auto-review.yml`・DN-0849）の `metrics-analyzer` | ダイジェストの `OPP-…` を引用して「なぜ・何を確かめるか」を足す（再抽出しない） |
 | 評価 | 同 publish 内の `search-improvement sync --write`（検索改善の本番反映の検出）→ `measure-experiments`（reset 後の develop 最新に対して） | `measure`仕様は前後の窓を自動計測し、事後窓完了で`VERDICT_DUE`。`measurementPlan.kind=affiliate-design`は保存済み案別実測を`measurements[]`へ追記し、28日で再検討する。少数データは保留 |
 | 異常 | `fetch-metrics.yml` の Report step | 取得失敗・整合性違反は Issue `fetch-metrics`、検査不成立（キー未設定・権限不足）は `fetch-metrics-check-invalid`。復旧で自動クローズ |
 | 処分 | ローカル土曜の `/weekly-review`（Agent G・Phase 2.5） | `growth-digest --print` をレビューへ埋め込み、`growth-triage apply` で全件を backlog / 実験 / 裁定 / 束ね / 却下 / 保留に振り分け → `metrics/growth/triage-log.json` |

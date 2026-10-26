@@ -7,9 +7,17 @@
  * ブラウザでしか分からない「画像が読み込めるか・カードが描画されるか・スマホ幅ではみ出すか」は
  * evaluateRendered で判定する（DOM 計測値を受け取るだけで、ブラウザには依存しない）。
  *
- * 実行側: scripts/check-note-public-view.mjs（週次 .github/workflows/note-public-view.yml）。
+ * 実行側: scripts/check-note-public-view.mjs（土曜の Mac の収集 weekly-collect の note-public-view 段・DN-0852）。
  */
+import { homedir } from 'node:os';
+import { join } from 'node:path';
 import { stripTags } from './note-live-check.mjs';
+
+/**
+ * 土曜の収集が撮った結果と画像の置き場（Mac の手元・git 管理外）。収集（weekly-collect の worktree）と週次レビュー（weekly-review の worktree）は
+ * 別の作業ツリーで動くので `.tmp/` ではなく両方から同じ場所を読む。毎週上書きする（DN-0852）。
+ */
+export const NOTE_PUBLIC_VIEW_LOCAL_DIR = join(homedir(), 'Library', 'Caches', 'doboku-note', 'note-public-view');
 
 /** リンクカードの描画高さの下限。正常は 139〜210px（2026-09-23・40 本実測）。空の枠だけならこれを下回る。 */
 export const MIN_CARD_HEIGHT = 60;

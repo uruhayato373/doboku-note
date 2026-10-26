@@ -306,11 +306,12 @@ export const ConfigStandardsStructure = z
           .object({
             midSentenceBreaks: z.number().int().nonnegative().describe('文の途中の改行の候補の基準（増やさない）'),
             strayTableFragments: z.number().int().nonnegative().describe('表の前後の短い段落の基準（増やさない）'),
+            verbatimTables: z.number().int().nonnegative().describe('版面のまま残った表（コードブロック）の基準（増やさない・組み直したら下げる）'),
           })
           .strict(),
       )
       .optional()
-      .describe('check-standard-articles 17・18 の基準（文書ごと）'),
+      .describe('check-standard-articles 17・18 と表の扱い（版面のまま残った表）の基準（文書ごと）'),
     comparison: z
       .object({
         _comment: doc().optional(),

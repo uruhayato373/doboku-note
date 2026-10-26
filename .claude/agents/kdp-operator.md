@@ -68,7 +68,7 @@ domain: product
 
 補助:
 - `node scripts/gen-kdp-memo.mjs <id>`（コピペ用メモ txt 生成・メタデータ人手確認用）
-- `npm run kdp-report`（**別スクリプト**・読み取り専用）: KDP レポート画面から月次ロイヤリティを取得し `data/kdp/royalties.json` へ保存。当月/前月のみ。取得は土曜の Mac 収集の kdp 段（当月と確定前の前月）で、エージェントのセッションからは実行せず `data/kdp/royalties.json` とその取得日を読む（古ければ「未取得」）。`npm run check-kdp-report-freshness` が月次期限・全冊取得・catalog紐付けを日次監視する。売上の把握はこちらで、`kdp-publish` は入稿・価格側という分担 → [sales-tracking.md](../knowledge/reference/sales-tracking.md)
+- `npm run kdp-report`（**別スクリプト**・読み取り専用）: KDP レポート画面から月次ロイヤリティを取得し `data/kdp/royalties.json` へ保存。当月/前月のみ。取得は土曜の Mac 収集の kdp 段（当月と確定前の前月）で、エージェントのセッションからは実行せず `data/kdp/royalties.json` とその取得日を読む（古ければ「未取得」）。`npm run check-kdp-report-freshness` が月次期限・全冊取得・catalog紐付けを土曜の収集の kdp 段の検算として監視する。売上の把握はこちらで、`kdp-publish` は入稿・価格側という分担 → [sales-tracking.md](../knowledge/reference/sales-tracking.md)
 
 ## 実行手順
 

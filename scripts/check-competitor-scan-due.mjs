@@ -4,8 +4,8 @@
  * ---------------------------------------------------------------------------
  * 競合の再取得（scout-*-competitors）が四半期サイクル（既定90日）に対して期限切れかを
  * 全チャネル（note / coconala / x / ig / youtube）と、資格キーワードでの市場スキャン（market）で機械判定する surfacer。
- * note / coconala / ig は competitor-scan.yml が四半期に自動取得し、本 surfacer は
- * その失敗・停止の backstop。X はログイン済み個人セッションが
+ * note / coconala は土曜の Mac の収集（weekly-collect の competitors 段・四半期の最初の土曜）が自動取得し、本 surfacer は
+ * その失敗・停止の backstop（DN-0852。旧 competitor-scan.yml）。X はログイン済み個人セッションが
  * 必要なため、weekly-review-guard / weekly-review から手動期限を通知する。YouTube も手動（npm run scout-youtube-competitors）。
  *
  * 判定: 各チャネルの時系列（台帳 <取得元>.competitors・market は analysis.qualification-market）の最新の日付から経過日数
@@ -20,17 +20,17 @@
  * ---------------------------------------------------------------------------
  */
 
-import { freshnessDays, latestFile } from './lib/datasets.mjs';
+import { freshnessDays, latestFileDate } from './lib/datasets.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
 
 // チャネル → 時系列の台帳の id
 const PLATFORMS = {
-  note: { dataset: 'note.competitors', automation: 'ci', review: 'competitor-scan.yml の失敗を確認。取得済みなら /competitor-review --platform note で意味分析' },
-  coconala: { dataset: 'coconala.competitors', automation: 'ci', review: 'competitor-scan.yml の失敗を確認。取得済みなら /competitor-review --platform coconala で意味分析' },
+  note: { dataset: 'note.competitors', automation: 'weekly-collect', review: '土曜の収集の competitors 段を確認（取り直しは node scripts/weekly-collect.mjs --only competitors）。取得済みなら /competitor-review --platform note で意味分析' },
+  coconala: { dataset: 'coconala.competitors', automation: 'weekly-collect', review: '土曜の収集の competitors 段を確認（取り直しは node scripts/weekly-collect.mjs --only competitors）。取得済みなら /competitor-review --platform coconala で意味分析' },
   x: { dataset: 'x.competitors', review: '/competitor-review --platform x' },
-  // SNS 保留中（2026-10-17〜）は competitor-scan.yml の Instagram の段を外しているので期限で鳴らさない。再開時に paused を外す（DN-0817）
-  ig: { dataset: 'instagram.competitors', automation: 'ci', paused: 'SNS 保留中（2026-10-17〜）', review: 'competitor-scan.yml の失敗を確認。取得済みなら /competitor-review --platform ig で意味分析' },
+  // SNS 保留中（2026-10-17〜）は Instagram の取得を回していないので期限で鳴らさない。再開時に取得の置き場を決めて paused を外す（DN-0817）
+  ig: { dataset: 'instagram.competitors', paused: 'SNS 保留中（2026-10-17〜）', review: 'npm run scout-ig-competitors → /competitor-review --platform ig で意味分析' },
   // YouTube は一覧（yt-dlp）を手元で取る。分析の文章は docs/marketing/07c（画面・尺・型）
   youtube: { dataset: 'youtube.competitors', review: 'npm run scout-youtube-competitors → docs/marketing/07c の再取得手順で前回と比べる' },
   // 資格ごとの混み具合（YouTube・note・ココナラの検索）。展開の判断（npm run qualification-market）が読む
@@ -46,10 +46,7 @@ const thresholdOf = (dataset) => DAYS_OVERRIDE ?? freshnessDays(dataset, 'warnDa
 const pi = args.indexOf('--platform');
 const ONLY = pi >= 0 && args[pi + 1] ? args[pi + 1] : null;
 
-function latestScanDate(dataset) {
-  const latest = latestFile(ROOT, dataset);
-  return latest ? latest.match(/(\d{4}-\d{2}-\d{2})\.json$/)?.[1] ?? null : null;
-}
+const latestScanDate = (dataset) => latestFileDate(ROOT, dataset);
 
 const platforms = ONLY ? { [ONLY]: PLATFORMS[ONLY] } : PLATFORMS;
 if (ONLY && !PLATFORMS[ONLY]) {
@@ -92,5 +89,5 @@ if (WANT_JSON) {
     }
   }
 }
-// --fail-on-due: 期限切れなら exit 1（quality-audit の ops:true が日次で読む＝週次レビューから移した点検・DN-0394）。既定は従来どおり常に exit 0。
+// --fail-on-due: 期限切れなら exit 1（quality-audit の ops:true・cadence weekly＝土曜の週次レビューが読む・DN-0847。それまでは日次・DN-0394）。既定は従来どおり常に exit 0。
 process.exit(args.includes("--fail-on-due") && dueList.length > 0 ? 1 : 0);

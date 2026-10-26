@@ -1,6 +1,28 @@
 {
   "schemaVersion": 1,
   "_doc": "docs/operations/04_自動化マップ.md",
+  "groups": [
+    {
+      "id": "pr",
+      "title": "PR とマージの関門"
+    },
+    {
+      "id": "release",
+      "title": "本番へ出す"
+    },
+    {
+      "id": "metrics",
+      "title": "定期の計測と記録"
+    },
+    {
+      "id": "watch",
+      "title": "見張りと点検"
+    },
+    {
+      "id": "manual",
+      "title": "手で動かす道具"
+    }
+  ],
   "automations": [
     {
       "id": "weekly-review",
@@ -21,20 +43,28 @@
         "coconala",
         "google"
       ],
-      "purpose": "ログインが要る取得と書き込みを 1 本ずつ回し（weekly-collect の前後）、間にヘッドレスの Claude Code で週次・月次レビューと翌週の計画を書いて develop へ push する（DN-0817）",
+      "purpose": "ログインが要る取得と書き込みを 1 本ずつ回し（weekly-collect の前後・取った記録の検算つき）、note の公開状態の照合（公開 API）・公開画面の撮影と競合の公開データ（四半期の最初の土曜だけ）も前段で回す。続けてヘッドレスの Claude Code で GSC の記録層（週次観測・coverage・改善候補。旧 gsc-auto-review.yml）を書き、週次・月次レビュー（週次の点検 quality:audit:weekly を含む）と翌週の計画を書いて develop へ push する（DN-0817・DN-0847・DN-0849・DN-0852）",
       "readers": [
         "quality-audit:weekly-collect",
         "issue:weekly-collect",
         "issue:weekly-review-local",
+        "issue:gsc-auto-review",
         "admin:/metrics/business",
-        "admin:/ops/automations"
+        "admin:/content/note",
+        "admin:/ops/mac",
+        "quality-audit:competitor-scan-due",
+        "admin:/strategy/competitors",
+        "skill:weekly-review"
       ],
       "writes": [
         "state.weekly-collect",
         "note.sales",
         "coconala.analytics",
         "a8.ui-last-run",
-        "note.sync-log"
+        "note.sync-log",
+        "note.status",
+        "note.magazines",
+        "state.improvements"
       ]
     },
     {
@@ -60,6 +90,7 @@
       "runner": "github-actions",
       "source": ".github/workflows/asset-hydrate.yml",
       "title": "R2 の退避アセットを artifact で渡す",
+      "group": "manual",
       "triggers": [
         "workflow_dispatch"
       ],
@@ -75,6 +106,7 @@
       "runner": "github-actions",
       "source": ".github/workflows/asset-inbox.yml",
       "title": "手元のアセットを R2 へ上げる",
+      "group": "manual",
       "triggers": [
         "release",
         "workflow_dispatch"
@@ -91,6 +123,7 @@
       "runner": "github-actions",
       "source": ".github/workflows/automerge.yml",
       "title": "automerge ラベルの PR を緑で squash",
+      "group": "pr",
       "triggers": [
         "workflow_run",
         "pull_request"
@@ -107,6 +140,7 @@
       "runner": "github-actions",
       "source": ".github/workflows/ci.yml",
       "title": "Pre-merge check（quality audit + build）",
+      "group": "pr",
       "triggers": [
         "pull_request",
         "push"
@@ -120,79 +154,45 @@
       ]
     },
     {
-      "id": "cloudflare-config-audit",
-      "runner": "github-actions",
-      "source": ".github/workflows/cloudflare-config-audit.yml",
-      "title": "Cloudflare のゾーン設定の監査",
-      "triggers": [
-        "schedule",
-        "workflow_dispatch"
-      ],
-      "schedule": [
-        "47 21 * * 0"
-      ],
-      "scheduleJst": "月 06:47",
-      "login": [],
-      "purpose": "ゾーン設定のずれを検知する",
-      "readers": [
-        "issue:cloudflare-config",
-        "quality-audit:cloudflare-metrics-freshness"
-      ]
-    },
-    {
       "id": "cloudflare-deploy",
       "runner": "github-actions",
       "source": ".github/workflows/cloudflare-deploy.yml",
       "title": "本番へデプロイ（Cloudflare Pages）",
+      "group": "release",
       "triggers": [
         "push",
         "workflow_dispatch"
       ],
       "schedule": [],
       "login": [],
-      "purpose": "main への push でビルドして Pages へデプロイし、本番の SSR を検査する",
+      "purpose": "main への push でビルドして Pages へデプロイし、本番の SSR を検査する。成功したら後続のジョブで更新 URL を IndexNow へ送る（旧 indexnow-submit.yml を統合・DN-0853）",
       "readers": [
-        "deploy"
+        "deploy",
+        "issue:indexnow"
       ]
     },
     {
       "id": "cloudflare-metrics",
       "runner": "github-actions",
       "source": ".github/workflows/cloudflare-metrics.yml",
-      "title": "Cloudflare のゾーン解析",
+      "title": "Cloudflare のゾーン解析と設定の監査",
+      "group": "metrics",
       "triggers": [
         "schedule",
         "workflow_dispatch"
       ],
       "schedule": [
-        "23 20 * * *"
+        "23 20 * * *",
+        "47 13 * * 5"
       ],
-      "scheduleJst": "毎日 05:23",
+      "scheduleJst": "解析 毎日 05:23・設定の監査 金 22:47",
       "login": [],
-      "purpose": "ゾーン解析を data/cloudflare へ記録する",
+      "purpose": "毎日はゾーン解析を data/cloudflare へ記録し、金曜の夜はゾーン設定のずれを検知する（土曜の週次レビューが新しい結果を読めるよう・DN-0847。旧 cloudflare-config-audit.yml を統合・DN-0853）",
       "readers": [
         "admin:/metrics",
+        "issue:cloudflare-metrics",
+        "issue:cloudflare-config",
         "quality-audit:cloudflare-metrics-freshness"
-      ]
-    },
-    {
-      "id": "competitor-scan",
-      "runner": "github-actions",
-      "source": ".github/workflows/competitor-scan.yml",
-      "title": "競合の公開データ（四半期）",
-      "triggers": [
-        "schedule",
-        "workflow_dispatch"
-      ],
-      "schedule": [
-        "17 1 1 1,4,7,10 *"
-      ],
-      "scheduleJst": "1/4/7/10 月 1 日 10:17",
-      "login": [],
-      "purpose": "note・ココナラの公開データを取得する（ログイン不要）",
-      "readers": [
-        "quality-audit:competitor-scan-due",
-        "admin:/strategy/competitors"
       ]
     },
     {
@@ -200,6 +200,7 @@
       "runner": "github-actions",
       "source": ".github/workflows/dependabot-retarget.yml",
       "title": "dependabot の PR を develop へ付け替え",
+      "group": "pr",
       "triggers": [
         "pull_request_target"
       ],
@@ -215,6 +216,7 @@
       "runner": "github-actions",
       "source": ".github/workflows/e2e.yml",
       "title": "Playwright E2E",
+      "group": "pr",
       "triggers": [
         "pull_request",
         "schedule",
@@ -236,6 +238,7 @@
       "runner": "github-actions",
       "source": ".github/workflows/fetch-metrics.yml",
       "title": "GA4・GSC・Bing の取得",
+      "group": "metrics",
       "triggers": [
         "schedule",
         "workflow_dispatch"
@@ -253,58 +256,25 @@
       ]
     },
     {
-      "id": "gsc-auto-review",
-      "runner": "github-actions",
-      "source": ".github/workflows/gsc-auto-review.yml",
-      "title": "GSC の観測ログ",
-      "triggers": [
-        "schedule",
-        "workflow_dispatch"
-      ],
-      "schedule": [
-        "0 3 * * 5"
-      ],
-      "scheduleJst": "金 12:00",
-      "login": [],
-      "purpose": "GSC の観測ログを記録する",
-      "readers": [
-        "issue:gsc-auto-review"
-      ]
-    },
-    {
       "id": "index-coverage",
       "runner": "github-actions",
       "source": ".github/workflows/index-coverage.yml",
       "title": "インデックスの監査（URL Inspection）",
+      "group": "metrics",
       "triggers": [
         "schedule",
         "workflow_dispatch"
       ],
       "schedule": [
-        "0 2 * * 3"
+        "0 2 * * 3",
+        "0 2 * * 4,5"
       ],
-      "scheduleJst": "水 11:00",
+      "scheduleJst": "水 11:00（未完了なら木・金 11:00 に続ける）",
       "login": [],
-      "purpose": "sitemap の全 URL を URL Inspection API で検査し履歴を残す",
+      "purpose": "sitemap の全 URL を URL Inspection API で検査し履歴を残す。1 回 1,900 件までで、超えた分は木・金の回が続きから検査し、全件がそろった回だけを履歴に積む（DN-0825）",
       "readers": [
         "issue:index-coverage",
         "skill:google-search-growth"
-      ]
-    },
-    {
-      "id": "indexnow-submit",
-      "runner": "github-actions",
-      "source": ".github/workflows/indexnow-submit.yml",
-      "title": "IndexNow へ送信",
-      "triggers": [
-        "workflow_run",
-        "workflow_dispatch"
-      ],
-      "schedule": [],
-      "login": [],
-      "purpose": "デプロイ後に更新 URL を IndexNow へ送る",
-      "readers": [
-        "issue:indexnow"
       ]
     },
     {
@@ -312,6 +282,7 @@
       "runner": "github-actions",
       "source": ".github/workflows/lighthouse.yml",
       "title": "Lighthouse CI",
+      "group": "pr",
       "triggers": [
         "pull_request"
       ],
@@ -323,49 +294,11 @@
       ]
     },
     {
-      "id": "note-live-audit",
-      "runner": "github-actions",
-      "source": ".github/workflows/note-live-audit.yml",
-      "title": "note の公開状態の監査",
-      "triggers": [
-        "schedule",
-        "workflow_dispatch"
-      ],
-      "schedule": [
-        "30 22 * * 0"
-      ],
-      "scheduleJst": "月 07:30",
-      "login": [],
-      "purpose": "note の公開 API で構造・タグ・状態・マガジンを照合する（ログイン不要）",
-      "readers": [
-        "issue:note-live-audit",
-        "admin:/content/note"
-      ]
-    },
-    {
-      "id": "note-public-view",
-      "runner": "github-actions",
-      "source": ".github/workflows/note-public-view.yml",
-      "title": "公開画面の撮影（note・YouTube）",
-      "triggers": [
-        "schedule",
-        "workflow_dispatch"
-      ],
-      "schedule": [
-        "15 23 * * 0"
-      ],
-      "scheduleJst": "月 08:15",
-      "login": [],
-      "purpose": "未ログインの読者からの見え方を画面幅ごとに撮る（ログイン不要）",
-      "readers": [
-        "skill:weekly-review"
-      ]
-    },
-    {
       "id": "ogp-supply",
       "runner": "github-actions",
       "source": ".github/workflows/ogp-supply.yml",
       "title": "OGP の供給（生成 → R2）",
+      "group": "release",
       "triggers": [
         "push",
         "workflow_dispatch",
@@ -386,6 +319,7 @@
       "runner": "github-actions",
       "source": ".github/workflows/ops-audit.yml",
       "title": "運用の日次点検",
+      "group": "watch",
       "triggers": [
         "schedule",
         "workflow_dispatch"
@@ -395,29 +329,9 @@
       ],
       "scheduleJst": "毎日 07:45",
       "login": [],
-      "purpose": "quality-audit の ops 区分を回し、赤を Issue にする（土曜の収集の停止もここで拾う）",
+      "purpose": "quality-audit の ops 区分のうち毎日の分（数日で実害が出るもの・CI の取得の停止・土曜の収集の死活）を回し、赤を Issue にする。週次の点検と収集の検算は土曜に回す（DN-0847）",
       "readers": [
         "issue:ops"
-      ]
-    },
-    {
-      "id": "production-sweep",
-      "runner": "github-actions",
-      "source": ".github/workflows/production-sweep.yml",
-      "title": "本番の全 URL の検査",
-      "triggers": [
-        "workflow_run",
-        "schedule",
-        "workflow_dispatch"
-      ],
-      "schedule": [
-        "30 20 * * 0"
-      ],
-      "scheduleJst": "月 05:30",
-      "login": [],
-      "purpose": "sitemap の全 URL を本番で検査する",
-      "readers": [
-        "issue:production-sweep"
       ]
     },
     {
@@ -425,6 +339,7 @@
       "runner": "github-actions",
       "source": ".github/workflows/psi-audit.yml",
       "title": "PSI の計測",
+      "group": "metrics",
       "triggers": [
         "schedule",
         "workflow_dispatch"
@@ -444,6 +359,7 @@
       "runner": "github-actions",
       "source": ".github/workflows/r2-delete.yml",
       "title": "R2 のオブジェクトの削除",
+      "group": "manual",
       "triggers": [
         "workflow_dispatch"
       ],
@@ -459,6 +375,7 @@
       "runner": "github-actions",
       "source": ".github/workflows/r2-sync.yml",
       "title": "画像を R2 へ同期",
+      "group": "release",
       "triggers": [
         "push",
         "workflow_dispatch"
@@ -471,96 +388,26 @@
       ]
     },
     {
-      "id": "registry-reconcile",
-      "runner": "github-actions",
-      "source": ".github/workflows/registry-reconcile.yml",
-      "title": "コンテンツ台帳と YouTube の照合",
-      "triggers": [
-        "schedule",
-        "workflow_dispatch"
-      ],
-      "schedule": [
-        "43 15 * * *"
-      ],
-      "scheduleJst": "毎日 00:43",
-      "login": [],
-      "purpose": "YouTube の外部 ID を観測して台帳と公開の照合を記録する",
-      "readers": [
-        "issue:registry-reconcile",
-        "admin:/content"
-      ]
-    },
-    {
-      "id": "rerun-cancelled-schedules",
-      "runner": "github-actions",
-      "source": ".github/workflows/rerun-cancelled-schedules.yml",
-      "title": "取り消された定期実行のやり直し",
-      "triggers": [
-        "schedule",
-        "workflow_dispatch"
-      ],
-      "schedule": [
-        "17 */2 * * *"
-      ],
-      "scheduleJst": "2 時間ごと",
-      "login": [],
-      "purpose": "共通の group で取り消された定期 run をやり直す",
-      "readers": [
-        "human"
-      ]
-    },
-    {
-      "id": "sync-yt-descriptions",
-      "runner": "github-actions",
-      "source": ".github/workflows/sync-yt-descriptions.yml",
-      "title": "YouTube の説明文の同期",
-      "triggers": [
-        "workflow_dispatch"
-      ],
-      "schedule": [],
-      "login": [],
-      "purpose": "サムネ・説明文・パックの metadata を YouTube へ反映する",
-      "readers": [
-        "human"
-      ]
-    },
-    {
       "id": "uptime-ping",
       "runner": "github-actions",
       "source": ".github/workflows/uptime-ping.yml",
-      "title": "死活確認",
+      "title": "本番の検査（死活確認・全 URL）",
+      "group": "watch",
       "triggers": [
         "schedule",
+        "workflow_run",
         "workflow_dispatch"
       ],
       "schedule": [
-        "0 23,5,11 * * *"
+        "0 23,5,11 * * *",
+        "30 20 * * 0"
       ],
-      "scheduleJst": "毎日 08:00・14:00・20:00",
+      "scheduleJst": "死活確認 毎日 08:00・14:00・20:00・全 URL 月 05:30 とデプロイの後",
       "login": [],
-      "purpose": "本番の SSR の死活を確認する",
+      "purpose": "1 日 3 回、代表 3 ページの SSR の死活を確認し、週 1 回とデプロイの後に sitemap の全 URL を本番で検査する（旧 production-sweep.yml を統合・DN-0853）",
       "readers": [
-        "issue:uptime"
-      ]
-    },
-    {
-      "id": "weekly-review-draft",
-      "runner": "github-actions",
-      "source": ".github/workflows/weekly-review-draft.yml",
-      "title": "週次レビューの下書き",
-      "triggers": [
-        "schedule",
-        "workflow_dispatch"
-      ],
-      "schedule": [
-        "0 4 * * 5"
-      ],
-      "scheduleJst": "金 13:00",
-      "login": [],
-      "purpose": "週次レビューの機械の節を下書きする",
-      "readers": [
-        "skill:weekly-review",
-        "issue:weekly-review-draft"
+        "issue:uptime",
+        "issue:production-sweep"
       ]
     },
     {
@@ -568,6 +415,7 @@
       "runner": "github-actions",
       "source": ".github/workflows/weekly-review-guard.yml",
       "title": "PDCA の見張り",
+      "group": "watch",
       "triggers": [
         "schedule",
         "workflow_dispatch"
@@ -581,21 +429,6 @@
       "readers": [
         "issue:workflow-health",
         "issue:report-checks"
-      ]
-    },
-    {
-      "id": "youtube-unschedule",
-      "runner": "github-actions",
-      "source": ".github/workflows/youtube-unschedule.yml",
-      "title": "YouTube の予約解除",
-      "triggers": [
-        "workflow_dispatch"
-      ],
-      "schedule": [],
-      "login": [],
-      "purpose": "YouTube の予約を外して台帳に記録する",
-      "readers": [
-        "human"
       ]
     }
   ]

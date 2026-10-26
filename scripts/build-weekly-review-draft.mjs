@@ -4,8 +4,9 @@
  *
  * なぜ: 2026-W40 の週次レビューが 1 週抜けた。原因は (1) 土曜に対話セッションを開かないと何も始まらない、
  * (2) fetch-metrics の書き戻しが 10/7 から止まっていたのにレビューを開くまで誰も気づかなかった、の 2 つ。
- * 金曜の fetch-metrics の後に CI でこれを回し、材料の欠けをその日のうちに赤（automation-failure Issue）にする。
- * 土曜のセッション（人か Mac の launchd）は判断の節（トリアージ・関門・申し送り）だけを書けばよくなる。
+ * 土曜の Mac（scripts/scheduled/weekly-review.sh）が収集の後にこれを回し、ヘッドレスの Claude は判断の節（トリアージ・関門・申し送り）だけを書く。
+ * 2026-10-10〜10-25 は金曜の CI（weekly-review-draft.yml）でも回していたが、土曜に作り直すので使われておらず外した（DN-0849）。
+ * 材料の欠けは取得元（fetch-metrics など）が自分の Issue に出す。
  *
  * 集めるもの（すべてオフライン。GitHub の Issue だけ gh を使う）: 計測ダイジェスト（W−1）・資格別 KPI（W−1 窓と前週）・
  * ダイジェストの未処分・実験の期限・点検と Issue・バックログの関門と健全性・検索の改善候補・PSI と実ユーザー計測・
@@ -16,7 +17,7 @@
  *   node scripts/build-weekly-review-draft.mjs                # 今週（JST の今日を含む ISO 週）の下書きを書く
  *   node scripts/build-weekly-review-draft.mjs --week 2026-W42
  *   node scripts/build-weekly-review-draft.mjs --print        # 書かずに Markdown を stdout へ
- *   node scripts/build-weekly-review-draft.mjs --check        # 書かずに材料の有無だけ確かめる（CI の完走確認）
+ *   node scripts/build-weekly-review-draft.mjs --check        # 書かずに材料の有無だけ確かめる（完走確認）
  *
  * 書き先: 台帳の state.weekly-review-draft（最新 1 本を上書き。履歴は git）
  * exit: 0 必須の材料がそろった / 1 必須の材料が欠けた（下書きは欠けを明記して書く）/ 2 検査不成立（引数・週の不正）

@@ -20,7 +20,7 @@ const AdminUiDebtBaseline = z
   .object({
     _comment: note('説明'),
     _updatedAt: day,
-    totals: z.object({ rawCard: intCount, inlineStyle: intCount, rawTable: intCount, rawBadge: intCount }).strict(),
+    totals: z.object({ rawCard: intCount, inlineStyle: intCount, rawTable: intCount, rawBadge: intCount, uiCard: intCount, uiBadge: intCount, handTable: intCount }).strict(),
     files: z.record(relPath, z.record(text, intCount)),
   })
   .strict();

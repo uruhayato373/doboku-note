@@ -857,6 +857,11 @@ function checkTables(def, { manifest, agencyId, documentId, document, overrides,
   notes.push(
     `GFM ${gfmFound} 件・基準類の一覧 ${listFound} 件・原本照合の組み直し ${overrideFound} 件（うち原典との一致確認 ${verified} 件） / 版面保持 ${verbatimFound} 件・理由内訳 ${Object.entries(manifest.tableOutcomes ?? {}).filter(([r]) => !r.startsWith('restored')).map(([r, c]) => `${r} ${c}`).join(' / ') || 'なし'}`,
   );
+  // 版面保持（コードブロック）の表は読めないので、文書ごとの基準を超えたら止める（増やさない・組み直したら下げる。DN-0850）
+  const verbatimLimit = overrides?.readabilityBaselines?.[`${agencyId}/${documentId}`]?.verbatimTables;
+  if (verbatimLimit === undefined) violations.push(`設定 readabilityBaselines に ${agencyId}/${documentId} の verbatimTables（版面のまま残った表の基準）が無い（件数 ${verbatimFound}）`);
+  else if (verbatimFound > verbatimLimit) violations.push(`版面のまま残った表が ${verbatimFound - verbatimLimit} 件増えた（${verbatimFound} > 基準 ${verbatimLimit}）。原本と照合して組み直す（/standards-table-rebuild）`);
+  else if (verbatimFound < verbatimLimit) notes.push(`版面のまま残った表の基準を ${verbatimFound} に下げられる（${datasetPath('config.standards-structure')} の readabilityBaselines.verbatimTables）`);
   return result(def, { status: verdict(violations, []), checked: total, unit: '表', violations, notes });
 }
 

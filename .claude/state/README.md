@@ -35,7 +35,7 @@
 | `book-coverage.json` | 書籍ごとの網羅の要約（判定件数・判定日・展開した記事とコミット。見出しは持たない）。見出しを含む候補表と意味判定は Drive vault の `原資料PDF/書籍/<dir>/coverage/`（repo 側の写しは `content/sources/books/<dir>/coverage/`・git 管理外） | `npm run audit-reference-book-coverage`・判定は Evaluator |
 | `civil-quality-scores.json` | 1級土木版の評価結果 | `/civil-textbook-cycle --mode score` |
 | `civil-quality-cycle-state.json` | 1級土木版の状態遷移 | `/civil-textbook-cycle` |
-| `cloudflare/zone-config-latest.json` | Cloudflare ゾーン設定の最新スナップショット（ドリフト検知の基準） | `.github/workflows/cloudflare-config-audit.yml`（月次） |
+| `cloudflare/zone-config-latest.json` | Cloudflare ゾーン設定の最新スナップショット（ドリフト検知の基準） | `.github/workflows/cloudflare-metrics.yml`（金曜 22:47 JST の設定の監査の回） |
 | `ig-reconcile/` | Instagram の SoT 照合結果（`verify-ig-status`・運営者が端末で取り直す。CI 週次の取得は 2026-10-24 に廃止） | `verify-ig-status` |
 | `exam-keyword-cycles/` | 過去問起点校正サイクルの進捗 JSON | `/exam-keyword-cycle` |
 | `proofread-learnings/` | 校正学習の蒸留ログ | `/distill-proofread-learnings` |

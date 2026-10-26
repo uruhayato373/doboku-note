@@ -21,7 +21,7 @@
  *   node scripts/check-x-length.mjs --draft 004      # 単一
  *   node scripts/check-x-length.mjs --over           # 違反のみ表示
  *   node scripts/check-x-length.mjs --json           # JSON 出力
- *   node scripts/check-x-length.mjs --pending-only   # 投稿済み（status.json の posted/replaced）を除く＝CI ゲート（quality-audit x-length）
+ *   node scripts/check-x-length.mjs --pending-only   # 投稿済み（status.json の posted/replaced）を除く＝旧 CI ゲート（quality-audit x-length。SNS の保留に合わせて 2026-10-25 に CI から外した。再開するときに作り直す）
  *
  * Exit code: 違反があれば 1
  */

@@ -1,7 +1,10 @@
 name: Audit ops alerts (投稿・配信・販売計測の遅れ)
 
-# quality-audit の ops 区分（`ops: true`＝運用アラート）を日次で回し、遅れを automation-failure
+# quality-audit の ops 区分（`ops: true`＝運用アラート）のうち毎日の分を回し、遅れを automation-failure
 # Issue（channel: ops）へ届ける。復旧（全 PASS）で同 Issue を自動クローズする。
+# 毎日の分＝数日で実害が出るもの・CI の取得の停止・土曜の収集の死活（DN-0847）。週 1 回しか入力が変わらない
+# 点検は、毎日回すと同じ赤が 6 回出て読まれなくなるので、土曜に回す（cadence weekly＝週次レビュー、
+# cadence collect＝土曜の収集の段の検算）。
 #
 # なぜ Pre-merge check（ci.yml）から分けるか（2026-09-18）:
 #   membership-drip（会員記事の配信予定日超過）は ci:true に置かれていて、記事が 2 日遅れるたびに
@@ -76,7 +79,7 @@ jobs:
             echo ""
             echo "- 定義: \`scripts/quality-audit.mjs\` の CHECKS（ops:true）"
             echo "- 再現: \`node scripts/quality-audit.mjs --ops\`"
-            echo "- 売上・取得の鮮度の赤は土曜の Mac の収集（weekly-collect）が止まっている。Mac で ~/Library/Logs/doboku-note/weekly-review.log と .claude/state/weekly-collect/runs.json を見て、落ちた段を運営者が端末で取り直す（node scripts/weekly-collect.mjs --only <段>）と、翌朝の run で自動クローズされる"
+            echo "- weekly-collect の赤は土曜の Mac の収集が期限内に回っていない（Mac が寝ていた・launchd が外れた）。Mac で ~/Library/Logs/doboku-note/weekly-review.log を見て npm run weekly-review:install -- --status。段ごとの失敗と取った記録の検算は Issue（channel weekly-collect）と週次レビューが読む（取り直しは node scripts/weekly-collect.mjs --only <段>）"
           } > "$RUNNER_TEMP/ops-body.md"
           node scripts/report-automation-failure.mjs \
             --channel ops \

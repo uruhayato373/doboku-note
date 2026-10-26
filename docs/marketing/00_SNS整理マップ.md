@@ -38,9 +38,9 @@
 |---|---|---|---|---|---|---|
 | IG カルーセル | BOFU・保存 | 週2 | 自動 | `ig-carousel-writer` | `ig-carousel-qa` | — |
 | IG Reels | TOFU・リーチ（一次制作） | 週3 | 自動(TTS+ffmpeg) | `ig-reels-writer` | `ig-reels-qa` | ※完成mp4の評価役なし |
-| IG ストーリーズ | 進入・双方向 | 随時 | 半手動 | `ig-stories-writer` | `ig-stories-qa` | — |
-| IG ハイライト | follow判断 | 四半期/6種 | 半手動 | `ig-highlight-designer` | `ig-highlight-qa` | ※6種実制作が未整備 |
-| IG 公開 | — | — | — | — | `ig-publish-auditor` | `/ig-reconcile`（時刻衝突は目視） |
+| IG ストーリーズ | 進入・双方向 | 随時 | 半手動 | （2026-10-25 に外した） | （同） | — |
+| IG ハイライト | follow判断 | 四半期/6種 | 半手動 | （2026-10-25 に外した） | （同） | ※6種実制作が未整備 |
+| IG 公開 | — | — | — | — | （2026-10-25 に外した） | `verify-ig-status`（時刻衝突は目視） |
 | YT 通常動画 | 検索・信頼・送客 | 承認済み112本 | 自動レンダー＋API予約 | `video-script-writer` | `video-content-qa` | `render-longform`＋人承認 |
 | YT Shorts | TOFU・発見 | 承認済み224本＋legacy凍結台帳 | 動画パック直結生成＋日次private upload | `youtube-shorts:prepare/render/stage` | `yt-shorts-publisher-qa` | Studio関連動画設定→API予約 |
 | X | TOFU・信頼 | 週数本 | 手動（別アカウントで運用再開） | `x-post-writer` | `x-post-qa`／`x-repost-curator` | 旧アカ凍結（2026-06-12）→別アカウントで再開。`/publish-x` は当面手動運用 |
@@ -61,12 +61,12 @@
 
 | 種別 | 課題 | 優先 |
 |---|---|---|
-| インフラ | UTM 統一＝**実装済**（templates＋builder＋YT生成配線完了＋X UTMゲート check-x-utm）。GA4 SNS流入 breakdown＋週次snapshot復旧＋YT公開照合 verify-video-publication も配線済（2026-07-04。2026-10-24 から `registry-reconcile.yml` が毎日回す） | 🟢 |
+| インフラ | UTM 統一＝**実装済**（templates＋builder＋YT生成配線完了＋X UTMゲート check-x-utm）。GA4 SNS流入 breakdown＋週次snapshot復旧＋YT公開照合 verify-video-publication も配線済だった（2026-07-04〜）。2026-10-25 に SNS の保留に合わせて CI（registry-reconcile.yml・X UTM などの検査）から外した。再開するときに作り直す | 保留 |
 | doc整合 | 索引の版ドリフト（CLAUDE.md 索引 v5→v7・v1→v2 是正済）／X 凍結対応は `x-post-policy §11`（§11.6 復帰ゲート新設）に一本化・01 は参照化で解消済 | 🟢 |
 | インフラ | note CTA ライブ反映が月次のみ（新規公開で未反映が再発） | 🟡 |
 | エージェント | 動画マスターのGenerator/Evaluatorが無い。`video-script-writer` / `video-content-qa` の1組だけをDN-0110で新設する | 🟡 |
 | 制作 | IG ハイライト6種の実制作は残。YT 16:9/9:16・字幕焼き込みは実装済み | 🟡🟢 |
-| エージェント | 投稿時刻の衝突自動検出（現状 `ig-publish-auditor` は目視） | 🟢 |
+| エージェント | 投稿時刻の衝突自動検出（`ig-publish-auditor` は 2026-10-25 に外した） | 保留 |
 
 **現行順序**: 承認済み112通常動画＋224Shortsを段階公開 → 6週間計測 → 実績テーマだけ追加資格・IG/X/Threadsへ拡張。動画schema・縦横レンダー・管理画面は実装済み。
 
@@ -86,9 +86,9 @@
 | IG カルーセル | 過去問クイズ／自己紹介 | `slide-data.json`(v2) | `/ig-post-create`・再生成`/ig-carousel-restyle` | `ig-carousel-writer` → `ig-carousel-qa` | `ig-carousel-policy.md`／`ig-carousel-skill.md` |
 | IG 図解カルーセル | 総監／1級土木／技術士建設部門／技術士第一次の学習図 | サイトSVG＋`source.json`・4枚SVG・`caption.txt` | `/ig-figure-pack` | 制作者が各PNGの意味・可読性を目視＋`check-ig-cover`／`check-ig-cta` | `ig-figure-pack/SKILL.md`／`figure-canvas-policy.md` |
 | IG Reels | 過去問1問1リール／論点解説／逆転体験談 | `reels/script.json`(+`caption.txt`) | `/ig-reel-create`（1問=`per-problem-shorts.mjs --ig-mode`） | `ig-reels-writer` → `ig-reels-qa` | `ig-reels-policy.md` |
-| IG ストーリーズ | 4枚連投・投票/質問ステッカー・リンク導線 | `stories/caption.txt`＋`stories/note.md` | `node .claude/scripts/instagram/build-stories.mjs` ＋ エージェント（**専用スキルなし＝node＋agent 運用**） | `ig-stories-writer` → `ig-stories-qa` | `ig-stories-policy.md` |
-| IG ハイライト | 6種（intro/カルーセル目次/Reelsまとめ/FAQ/お知らせ/教材） | `highlights/NN_*/slide-data.json` | `node .claude/scripts/instagram/build-highlight-materials.mjs`（**専用スキルなし＝node＋agent 運用**） | `ig-highlight-designer` → `ig-highlight-qa` | `ig-highlight-design-policy.md` |
-| IG 予約投稿 | カルーセル/リールの予約 | — | `/publish-ig-bs`（照合`/ig-reconcile`） | — → `ig-publish-auditor` | `ig-publish-reconcile.md` |
+| IG ストーリーズ | 4枚連投・投票/質問ステッカー・リンク導線 | `stories/caption.txt`＋`stories/note.md` | `node .claude/scripts/instagram/build-stories.mjs` ＋ エージェント（**専用スキルなし＝node＋agent 運用**） | （エージェント・手順書は 2026-10-25 に外した） | — |
+| IG ハイライト | 6種（intro/カルーセル目次/Reelsまとめ/FAQ/お知らせ/教材） | `highlights/NN_*/slide-data.json` | `node .claude/scripts/instagram/build-highlight-materials.mjs`（**専用スキルなし＝node＋agent 運用**） | （エージェント・手順書は 2026-10-25 に外した） | — |
+| IG 予約投稿 | カルーセル/リールの予約 | — | `/publish-ig-bs`（照合 `verify-ig-status`） | —（`ig-publish-auditor`・手順書は 2026-10-25 に外した） | — |
 | YT Shorts | legacy過去問＋動画パック固有論点 | legacy=台帳の kind `legacy-short`（187 retired）、新規=`youtube.json.shorts[]`＋台帳 `content/registry/` | legacy生成器／`youtube-shorts:prepare/render/stage` | `yt-shorts-title-writer` → `yt-shorts-publisher-qa` | `yt-shorts-publisher-policy.md`／`video-content-policy.md` |
 | 動画パック／YT通常動画 | 悩み直撃解説・思考法・聞き流し・商品導線 | `video-pack.json`＋`script.md`＋`storyboard.json`＋`youtube.json` | `render-longform`＋動画パックpublisher | `video-script-writer` → `video-content-qa` | `video-content-policy.md`／`06_動画コンテンツ運用設計.md` |
 | X | 過去問クイズ／カウントダウン／体験断片／angle分割 | `content/sns/x/{draft,published}/NNN-*/tweets.md` | `/social-post --platform x`・カード`/create-x-card`・引用RP`/x-repost`・（投稿`/publish-x`＝§11.6 到達まで停止・人手） | `x-post-writer` → `x-post-qa`（引用=`x-repost-curator`） | `x-post-policy.md`（§11＝凍結ガード） |

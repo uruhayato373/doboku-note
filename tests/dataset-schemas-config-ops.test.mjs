@@ -137,7 +137,6 @@ check('ConfigWorkflowHealth', 'config.workflow-health', [
   [(d) => { d.workflows[0].maxAgeDays = 0; }, /workflows\.0\.maxAgeDays/],
   [(d) => { d.workflows.push(d.workflows[0]); }, /ワークフロー@ブランチ「/],
   [(d) => { d.workflows[0].workflow = 'ci'; }, /workflows\.0\.workflow/],
-  [(d) => { d.workflows.find((w) => w.schedule).schedule.activeSince = '2026-09-21'; }, /activeSince/],
   [(d) => { delete d.defaults.maxAgeDays; }, /defaults\.maxAgeDays/],
 ]);
 

@@ -4,7 +4,7 @@
  * 公開状態の照合（Data API）は既存の verify-yt-status が持つが、ドリフトを出しても workflow は緑のまま
  * 誰も読んでいなかった（2026-09-17〜 recorded_but_gone 6 件）。ここは視聴者から見られるかを oEmbed で
  * 判定して週次の失敗にし、代表動画の見た目（画面幅ごとの撮影）を扱う。
- * 実行側: scripts/check-youtube-public-view.mjs（週次 note-public-view.yml に同居）。
+ * 実行側: scripts/check-youtube-public-view.mjs（週次 note-public-view.yml に同居していたが、SNS の保留に合わせて 2026-10-25 に CI から外した。再開するときに作り直す。手元で回すのは可）。
  */
 
 /**

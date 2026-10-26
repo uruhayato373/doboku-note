@@ -1,0 +1,966 @@
+{
+  "key": "15238bb8a0cc3f60",
+  "kind": "parts",
+  "layout": [
+    "                        表 2      SXF Ver.2.0 のレイヤ分類一覧表",
+    "                                                            図形要素",
+    "分類             図形名称            レイヤ名                                その他      着色       備   考",
+    "                                                    面   線   点   （文字列、ラスタ）",
+    "      道路中心線           C-BMK                             ●                   黄",
+    "      距離標             C-BMK-BMKZ-KMPOST                     ●      ●        緑    距離標の地物コードを追加",
+    "      管理区域界           C-BMK-BMKZ-BOUNDARY               ●                   橙",
+    "      測点              C-BMK-BMKZ-STATION                                    緑    距離標の地物コード（測点番",
+    "                                                            ●      ●",
+    "                                                                                 号）を追加",
+    "本        車道部          C-STR-STRZ-ROADWAY            ●                       暗灰   道路面を構成する地物",
+    "要        車道交差部        C-STR-STRZ-CROSSING           ●                       暗灰   (隣接する面データの境界形",
+    "",
+    "      道路面地物",
+    "",
+    "         踏切道          C-STR-STRZ-RAILROADCROSS      ●                        赤   状一致が必要)",
+    "領",
+    "         軌道敷          C-STR-STRZ-TRAMAREA           ●                        赤",
+    "で        島            C-STR-STRZ-ISLAND             ●                       黄緑",
+    "規        路面電車停留所      C-STR-STRZ-TRAMSTOP           ●                        赤",
+    "定        歩道部          C-STR-STRZ-SIDEWALK           ●                        桃",
+    "し        自転車駐車場       C-STR-STRZ-BICYCLEPARK        ●                       暗灰",
+    "た        自動車駐車場       C-STR-STRZ-CARPARK            ●                       暗灰",
+    "      植栽              C-STR-STRZ-PLANT              ●                       黄緑   道路面以外を構成する地物",
+    "地     区画線             C-STR-STRZ-LINE                   ●                   白    (隣接面データの形状一致は",
+    "物     停止線             C-STR-STRZ-STOPLINE               ●                   白    必要としない)",
+    "を     横断歩道            C-STR-STRZ-CROSSWALK          ●                       白",
+    "格     横断歩道橋           C-STR-STRZ-PEDESTRIANBRIDGE   ●                       赤",
+    "納     地下横断歩道          C-STR-STRZ-UNDERPASSWALK      ●                       赤",
+    "す     建築物             C-STR-STRZ-BUILDING           ●                       茶",
+    "      橋脚              C-STR-STRZ-PIER               ●                       赤",
+    "る     盛土法面            C-STR-STRZ-BANK               ●                       緑",
+    "レ     切土法面            C-STR-STRZ-CUT                ●                       橙",
+    "イ     斜面対策工           C-STR-STRZ-SLOPE              ●   ●   ●               赤",
+    "ヤ     擁壁              C-STR-STRZ-WALL               ●                       赤",
+    "      ﾎﾞｯｸｽｶﾙﾊﾞｰﾄ     C-STR-STRZ-BOX                ●                       赤",
+    "      ｼｪｯﾄﾞ           C-STR-STRZ-SHED               ●                       赤",
+    "      ｼｪﾙﾀｰ           C-STR-STRZ-SHELTER            ●                       赤",
+    "      橋梁              C-STR-STRZ-BRIDGE             ●                       赤",
+    "      ﾄﾝﾈﾙ            C-STR-STRZ-TUNNEL             ●                       紫",
+    "",
+    "                                                              図形要素",
+    "",
+    "分類          図形名称                     レイヤ名                            その他      着色        備   考",
+    "                                                     面    線   点   （文字列、ラスタ）",
+    "     外枠                     C-TTL                                    ●             図面表記用",
+    "     ﾀｲﾄﾙ枠                  C-TTL-FRAM                               ●             (図枠､表題欄、地形図)",
+    "     区切り線、罫線                C-TTL-LINE                               ●",
+    "     文字列                    C-TTL-TXT                                ●",
+    "     現況地物                   C-BGD                                    ●",
+    "     等高線の計曲線                C-BGD-HICN                               ●",
+    "そ    等高線の主曲線                C-BGD-LWCN                               ●",
+    "",
+    "の    主な横断構造物                C-BGD-CRST                               ●",
+    "     ﾗｽﾀ化された地図              C-BGD-RSTR                    ●          ●             ●：ラスタ形式の地形図を利",
+    "他    特に明示すべき現況地物            C-BGD-EXST                               ●             用する場合、図枠とファイル",
+    "の    旗上げ                    C-BGD-HTXT                               ●             名コードを追加",
+    "レ    基準となる点(測量ﾎﾟｲﾝﾄ)        C-BMK-SRVR                               ●",
+    "     用地境界(幅杭)               C-BMK-ROW                                ●",
+    "イ    旗上げ                    C-BMK-HTXT                               ●",
+    "ヤ    主構造物外形線(道路幅員)          C-STR                                    ●",
+    "     構造物1(橋梁)               C-STR-STR1                               ●",
+    "     構造物2(ﾄﾝﾈﾙ)             C-STR-STR2                               ●",
+    "               …                          …           …   …   …       …        …",
+    "",
+    "     旗上げ                    C-STR-HTXT                               ●",
+    "     ﾊｯﾁ、ｼﾝﾎﾞﾙ、塗りつぶし、記号 等   C-DCR                                    ●",
+    "                                                 凡例：●：SXF Ver.3.xで規定，●：SXF Ver.2.0用に新たに追加"
+  ],
+  "parts": [
+    {
+      "kind": "caption",
+      "text": "表 2 SXF Ver.2.0 のレイヤ分類一覧表"
+    },
+    {
+      "kind": "table",
+      "header": [
+        [
+          "分類",
+          "図形名称",
+          {
+            "same": "left"
+          },
+          "レイヤ名",
+          "図形要素",
+          {
+            "same": "left"
+          },
+          {
+            "same": "left"
+          },
+          {
+            "same": "left"
+          },
+          "着色",
+          "備考"
+        ],
+        [
+          "",
+          "",
+          "",
+          "",
+          "面",
+          "線",
+          "点",
+          "その他（文字列、ラスタ）",
+          "",
+          ""
+        ]
+      ],
+      "rows": [
+        [
+          "本要領で規定した地物を格納するレイヤ",
+          "道路中心線",
+          {
+            "same": "left"
+          },
+          "C-BMK",
+          "",
+          "●",
+          "",
+          "",
+          "黄",
+          ""
+        ],
+        [
+          {
+            "same": "above"
+          },
+          "距離標",
+          {
+            "same": "left"
+          },
+          "C-BMK-BMKZ-KMPOST",
+          "",
+          "",
+          "●",
+          "●",
+          "緑",
+          "距離標の地物コードを追加"
+        ],
+        [
+          {
+            "same": "above"
+          },
+          "管理区域界",
+          {
+            "same": "left"
+          },
+          "C-BMK-BMKZ-BOUNDARY",
+          "",
+          "●",
+          "",
+          "",
+          "橙",
+          ""
+        ],
+        [
+          {
+            "same": "above"
+          },
+          "測点",
+          {
+            "same": "left"
+          },
+          "C-BMK-BMKZ-STATION",
+          "",
+          "",
+          "●",
+          "●",
+          "緑",
+          "距離標の地物コード（測点番号）を追加"
+        ],
+        [
+          {
+            "same": "above"
+          },
+          "道路面地物",
+          "車道部",
+          "C-STR-STRZ-ROADWAY",
+          "●",
+          "",
+          "",
+          "",
+          "暗灰",
+          "道路面を構成する地物(隣接する面データの境界形状一致が必要)"
+        ],
+        [
+          {
+            "same": "above"
+          },
+          {
+            "same": "above"
+          },
+          "車道交差部",
+          "C-STR-STRZ-CROSSING",
+          "●",
+          "",
+          "",
+          "",
+          "暗灰",
+          {
+            "same": "above"
+          }
+        ],
+        [
+          {
+            "same": "above"
+          },
+          {
+            "same": "above"
+          },
+          "踏切道",
+          "C-STR-STRZ-RAILROADCROSS",
+          "●",
+          "",
+          "",
+          "",
+          "赤",
+          {
+            "same": "above"
+          }
+        ],
+        [
+          {
+            "same": "above"
+          },
+          {
+            "same": "above"
+          },
+          "軌道敷",
+          "C-STR-STRZ-TRAMAREA",
+          "●",
+          "",
+          "",
+          "",
+          "赤",
+          {
+            "same": "above"
+          }
+        ],
+        [
+          {
+            "same": "above"
+          },
+          {
+            "same": "above"
+          },
+          "島",
+          "C-STR-STRZ-ISLAND",
+          "●",
+          "",
+          "",
+          "",
+          "黄緑",
+          {
+            "same": "above"
+          }
+        ],
+        [
+          {
+            "same": "above"
+          },
+          {
+            "same": "above"
+          },
+          "路面電車停留所",
+          "C-STR-STRZ-TRAMSTOP",
+          "●",
+          "",
+          "",
+          "",
+          "赤",
+          {
+            "same": "above"
+          }
+        ],
+        [
+          {
+            "same": "above"
+          },
+          {
+            "same": "above"
+          },
+          "歩道部",
+          "C-STR-STRZ-SIDEWALK",
+          "●",
+          "",
+          "",
+          "",
+          "桃",
+          {
+            "same": "above"
+          }
+        ],
+        [
+          {
+            "same": "above"
+          },
+          {
+            "same": "above"
+          },
+          "自転車駐車場",
+          "C-STR-STRZ-BICYCLEPARK",
+          "●",
+          "",
+          "",
+          "",
+          "暗灰",
+          {
+            "same": "above"
+          }
+        ],
+        [
+          {
+            "same": "above"
+          },
+          {
+            "same": "above"
+          },
+          "自動車駐車場",
+          "C-STR-STRZ-CARPARK",
+          "●",
+          "",
+          "",
+          "",
+          "暗灰",
+          {
+            "same": "above"
+          }
+        ],
+        [
+          {
+            "same": "above"
+          },
+          "植栽",
+          {
+            "same": "left"
+          },
+          "C-STR-STRZ-PLANT",
+          "●",
+          "",
+          "",
+          "",
+          "黄緑",
+          "道路面以外を構成する地物(隣接面データの形状一致は必要としない)"
+        ],
+        [
+          {
+            "same": "above"
+          },
+          "区画線",
+          {
+            "same": "left"
+          },
+          "C-STR-STRZ-LINE",
+          "",
+          "●",
+          "",
+          "",
+          "白",
+          {
+            "same": "above"
+          }
+        ],
+        [
+          {
+            "same": "above"
+          },
+          "停止線",
+          {
+            "same": "left"
+          },
+          "C-STR-STRZ-STOPLINE",
+          "",
+          "●",
+          "",
+          "",
+          "白",
+          {
+            "same": "above"
+          }
+        ],
+        [
+          {
+            "same": "above"
+          },
+          "横断歩道",
+          {
+            "same": "left"
+          },
+          "C-STR-STRZ-CROSSWALK",
+          "●",
+          "",
+          "",
+          "",
+          "白",
+          {
+            "same": "above"
+          }
+        ],
+        [
+          {
+            "same": "above"
+          },
+          "横断歩道橋",
+          {
+            "same": "left"
+          },
+          "C-STR-STRZ-PEDESTRIANBRIDGE",
+          "●",
+          "",
+          "",
+          "",
+          "赤",
+          {
+            "same": "above"
+          }
+        ],
+        [
+          {
+            "same": "above"
+          },
+          "地下横断歩道",
+          {
+            "same": "left"
+          },
+          "C-STR-STRZ-UNDERPASSWALK",
+          "●",
+          "",
+          "",
+          "",
+          "赤",
+          {
+            "same": "above"
+          }
+        ],
+        [
+          {
+            "same": "above"
+          },
+          "建築物",
+          {
+            "same": "left"
+          },
+          "C-STR-STRZ-BUILDING",
+          "●",
+          "",
+          "",
+          "",
+          "茶",
+          {
+            "same": "above"
+          }
+        ],
+        [
+          {
+            "same": "above"
+          },
+          "橋脚",
+          {
+            "same": "left"
+          },
+          "C-STR-STRZ-PIER",
+          "●",
+          "",
+          "",
+          "",
+          "赤",
+          {
+            "same": "above"
+          }
+        ],
+        [
+          {
+            "same": "above"
+          },
+          "盛土法面",
+          {
+            "same": "left"
+          },
+          "C-STR-STRZ-BANK",
+          "●",
+          "",
+          "",
+          "",
+          "緑",
+          {
+            "same": "above"
+          }
+        ],
+        [
+          {
+            "same": "above"
+          },
+          "切土法面",
+          {
+            "same": "left"
+          },
+          "C-STR-STRZ-CUT",
+          "●",
+          "",
+          "",
+          "",
+          "橙",
+          {
+            "same": "above"
+          }
+        ],
+        [
+          {
+            "same": "above"
+          },
+          "斜面対策工",
+          {
+            "same": "left"
+          },
+          "C-STR-STRZ-SLOPE",
+          "●",
+          "●",
+          "●",
+          "",
+          "赤",
+          {
+            "same": "above"
+          }
+        ],
+        [
+          {
+            "same": "above"
+          },
+          "擁壁",
+          {
+            "same": "left"
+          },
+          "C-STR-STRZ-WALL",
+          "●",
+          "",
+          "",
+          "",
+          "赤",
+          {
+            "same": "above"
+          }
+        ],
+        [
+          {
+            "same": "above"
+          },
+          "ﾎﾞｯｸｽｶﾙﾊﾞｰﾄ",
+          {
+            "same": "left"
+          },
+          "C-STR-STRZ-BOX",
+          "●",
+          "",
+          "",
+          "",
+          "赤",
+          {
+            "same": "above"
+          }
+        ],
+        [
+          {
+            "same": "above"
+          },
+          "ｼｪｯﾄﾞ",
+          {
+            "same": "left"
+          },
+          "C-STR-STRZ-SHED",
+          "●",
+          "",
+          "",
+          "",
+          "赤",
+          {
+            "same": "above"
+          }
+        ],
+        [
+          {
+            "same": "above"
+          },
+          "ｼｪﾙﾀｰ",
+          {
+            "same": "left"
+          },
+          "C-STR-STRZ-SHELTER",
+          "●",
+          "",
+          "",
+          "",
+          "赤",
+          {
+            "same": "above"
+          }
+        ],
+        [
+          {
+            "same": "above"
+          },
+          "橋梁",
+          {
+            "same": "left"
+          },
+          "C-STR-STRZ-BRIDGE",
+          "●",
+          "",
+          "",
+          "",
+          "赤",
+          {
+            "same": "above"
+          }
+        ],
+        [
+          {
+            "same": "above"
+          },
+          "ﾄﾝﾈﾙ",
+          {
+            "same": "left"
+          },
+          "C-STR-STRZ-TUNNEL",
+          "●",
+          "",
+          "",
+          "",
+          "紫",
+          {
+            "same": "above"
+          }
+        ]
+      ],
+      "headerFrom": null
+    },
+    {
+      "kind": "table",
+      "header": [
+        [
+          "分類",
+          "図形名称",
+          "レイヤ名",
+          "図形要素",
+          {
+            "same": "left"
+          },
+          {
+            "same": "left"
+          },
+          {
+            "same": "left"
+          },
+          "着色",
+          "備考"
+        ],
+        [
+          "",
+          "",
+          "",
+          "面",
+          "線",
+          "点",
+          "その他（文字列、ラスタ）",
+          "",
+          ""
+        ]
+      ],
+      "rows": [
+        [
+          "その他のレイヤ",
+          "外枠",
+          "C-TTL",
+          "",
+          "",
+          "",
+          "●",
+          "",
+          "図面表記用(図枠､表題欄、地形図)"
+        ],
+        [
+          {
+            "same": "above"
+          },
+          "ﾀｲﾄﾙ枠",
+          "C-TTL-FRAM",
+          "",
+          "",
+          "",
+          "●",
+          "",
+          {
+            "same": "above"
+          }
+        ],
+        [
+          {
+            "same": "above"
+          },
+          "区切り線、罫線",
+          "C-TTL-LINE",
+          "",
+          "",
+          "",
+          "●",
+          "",
+          {
+            "same": "above"
+          }
+        ],
+        [
+          {
+            "same": "above"
+          },
+          "文字列",
+          "C-TTL-TXT",
+          "",
+          "",
+          "",
+          "●",
+          "",
+          {
+            "same": "above"
+          }
+        ],
+        [
+          {
+            "same": "above"
+          },
+          "現況地物",
+          "C-BGD",
+          "",
+          "",
+          "",
+          "●",
+          "",
+          {
+            "same": "above"
+          }
+        ],
+        [
+          {
+            "same": "above"
+          },
+          "等高線の計曲線",
+          "C-BGD-HICN",
+          "",
+          "",
+          "",
+          "●",
+          "",
+          {
+            "same": "above"
+          }
+        ],
+        [
+          {
+            "same": "above"
+          },
+          "等高線の主曲線",
+          "C-BGD-LWCN",
+          "",
+          "",
+          "",
+          "●",
+          "",
+          {
+            "same": "above"
+          }
+        ],
+        [
+          {
+            "same": "above"
+          },
+          "主な横断構造物",
+          "C-BGD-CRST",
+          "",
+          "",
+          "",
+          "●",
+          "",
+          {
+            "same": "above"
+          }
+        ],
+        [
+          {
+            "same": "above"
+          },
+          "ﾗｽﾀ化された地図",
+          "C-BGD-RSTR",
+          "",
+          "●",
+          "",
+          "●",
+          "",
+          "●：ラスタ形式の地形図を利用する場合、図枠とファイル名コードを追加"
+        ],
+        [
+          {
+            "same": "above"
+          },
+          "特に明示すべき現況地物",
+          "C-BGD-EXST",
+          "",
+          "",
+          "",
+          "●",
+          "",
+          {
+            "same": "above"
+          }
+        ],
+        [
+          {
+            "same": "above"
+          },
+          "旗上げ",
+          "C-BGD-HTXT",
+          "",
+          "",
+          "",
+          "●",
+          "",
+          {
+            "same": "above"
+          }
+        ],
+        [
+          {
+            "same": "above"
+          },
+          "基準となる点(測量ﾎﾟｲﾝﾄ)",
+          "C-BMK-SRVR",
+          "",
+          "",
+          "",
+          "●",
+          "",
+          ""
+        ],
+        [
+          {
+            "same": "above"
+          },
+          "用地境界(幅杭)",
+          "C-BMK-ROW",
+          "",
+          "",
+          "",
+          "●",
+          "",
+          ""
+        ],
+        [
+          {
+            "same": "above"
+          },
+          "旗上げ",
+          "C-BMK-HTXT",
+          "",
+          "",
+          "",
+          "●",
+          "",
+          ""
+        ],
+        [
+          {
+            "same": "above"
+          },
+          "主構造物外形線(道路幅員)",
+          "C-STR",
+          "",
+          "",
+          "",
+          "●",
+          "",
+          ""
+        ],
+        [
+          {
+            "same": "above"
+          },
+          "構造物1(橋梁)",
+          "C-STR-STR1",
+          "",
+          "",
+          "",
+          "●",
+          "",
+          ""
+        ],
+        [
+          {
+            "same": "above"
+          },
+          "構造物2(ﾄﾝﾈﾙ)",
+          "C-STR-STR2",
+          "",
+          "",
+          "",
+          "●",
+          "",
+          ""
+        ],
+        [
+          {
+            "same": "above"
+          },
+          "…",
+          "…",
+          "…",
+          "…",
+          "…",
+          "…",
+          "…",
+          ""
+        ],
+        [
+          {
+            "same": "above"
+          },
+          "旗上げ",
+          "C-STR-HTXT",
+          "",
+          "",
+          "",
+          "●",
+          "",
+          ""
+        ],
+        [
+          {
+            "same": "above"
+          },
+          "ﾊｯﾁ、ｼﾝﾎﾞﾙ、塗りつぶし、記号 等",
+          "C-DCR",
+          "",
+          "",
+          "",
+          "●",
+          "",
+          ""
+        ]
+      ],
+      "headerFrom": null
+    },
+    {
+      "kind": "note",
+      "text": "凡例：●：SXF Ver.3.xで規定，●：SXF Ver.2.0用に新たに追加"
+    }
+  ],
+  "review": {
+    "status": "approved",
+    "by": "qa",
+    "at": "2026-10-25T05:34:20.511Z",
+    "note": "表 2 は p124 と p125 にまたがり、p125 の頭で見出しが繰り返されるため 2 つの表に分けた（版面の見出しも 2 回ある）。p124 の表は 分類 列の下に「道路面地物」の小分類列があるので、図形名称を 2 列にかけた。●のうち青字（SXF Ver.2.0 用に追加）は距離標・測点のその他列と ﾗｽﾀ化された地図 の線・その他列だが、文字は同じ●。p125 の「…」行は原本では縦の点（⋮）で印刷。備考欄の「…を利用する場合」の●は青字の凡例記号。 ／ QA: p124-125 表 2 を全 30+20 行・全列で画像と照合。面/線/点/その他の●の位置、着色、備考、道路面地物の小分類列、備考の結合、⋮行、凡例すべて一致。p125 頭で見出しが繰り返されるため 2 表に分割は妥当。青字●は文字としては同じ●。"
+  }
+}
