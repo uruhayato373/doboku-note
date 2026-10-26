@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /** One frame per rendered scene, including a short opening cover. */
 import { createHash } from 'node:crypto';
-import { existsSync, mkdirSync, readFileSync } from 'node:fs';
+import { existsSync, mkdirSync, readFileSync, readdirSync, unlinkSync } from 'node:fs';
 import { basename, join, resolve } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import sharp from 'sharp';
@@ -42,6 +42,9 @@ export async function createSceneSheet(root, packId) {
   const output = join(outputDir, `scene-sheet-${revision}.jpg`);
   await sharp({ create: { width: cols * tileWidth, height: rows * (imageHeight + labelHeight), channels: 3, background: '#f4f6f8' } })
     .composite(layers).jpeg({ quality: 90 }).toFile(output);
+  for (const name of readdirSync(outputDir)) {
+    if (name !== basename(output) && /^scene-sheet-(?:[a-f0-9]{8}|\d+)(?:-[a-f0-9]{8})?\.jpg$/.test(name)) unlinkSync(join(outputDir, name));
+  }
   return { file: basename(output), output, sceneCount: scenes.length };
 }
 

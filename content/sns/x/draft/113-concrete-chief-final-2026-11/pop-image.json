@@ -1,0 +1,1687 @@
+{
+  "policy": ".claude/knowledge/reference/pop-image-policy.md",
+  "designVersion": "pop-20260927",
+  "source": "content/sns/x/draft/113-concrete-chief-final-2026-11",
+  "channel": "x",
+  "format": {
+    "width": 1200,
+    "height": 675,
+    "aspect": "16:9",
+    "spec": ".claude/knowledge/reference/sns-image-policy.md"
+  },
+  "request": "運営者の指示「X は Codex を利用して POP な画像にしてほしい」（2026-10-26）",
+  "colorDecision": {
+    "コンクリート主任技士": "紫（pop-image-policy の資格主色・承認済み主任技士原本と同じ）。小論文・主任技士の択一・添削は主任技士の投稿。",
+    "コンクリート主任技士・技士": "紫。原稿は exam=concrete-chief の一系列で、主任技士・技士の両方に効く数値・用語の投稿は系列の主色に揃え、ラベルで両資格を示す。",
+    "コンクリート技士": "技士の資格色 #287a62（src/lib/exam-brand.ts の concrete → globals.css --exam-concrete）。pop-image-policy は「その他の資格は媒体の既存資格色を引き継ぐ」とし、紫は主任技士に割り当てられているため、技士だけに向けた投稿（113 の 08・19・20・26）は紫にせず、主任技士の教材と誤認させない。"
+  },
+  "authorityRule": "note・ココナラ教材＝総監が制作、添削＝総監が直接添削、骨子指導＋添削＝総監が直接指導・添削、無料の解説投稿＝総監が解説、当日の応援・試験後のねぎらい（113 の 27・28）は肩書き帯なし。",
+  "storage": "採用 PNG は Git（publish-x が img/tweet-NN-*.png を自動添付）。生成原本は .tmp/cce-pop/raw（一時）。",
+  "outputs": {
+    "t01": {
+      "copy": {
+        "examLabel": "コンクリート主任技士・技士",
+        "headline": "計量の許容差",
+        "points": [
+          "セメント・水 ±1%",
+          "骨材・混和剤 ±3%",
+          "混和材 ±2%（高炉スラグ微粉末は ±1%）"
+        ],
+        "authority": "総監が解説"
+      },
+      "evidence": [
+        "content/sns/x/draft/113-concrete-chief-final-2026-11/tweets.md#Tweet01"
+      ],
+      "pose": "指を立ててポイントを示す",
+      "references": [
+        {
+          "path": "content/coconala/assets/pop-20260927/thumb-cce-essay-tensaku.png",
+          "sha256": "0ad039fb31a33e1fc70f1ef07d01d7cc88003210681e4b6995bb72be82833143"
+        },
+        {
+          "path": "content/coconala/assets/pop-20260927/thumb-cce-essay-pdf.png",
+          "sha256": "c9a407d15ff965033ae02e910a38c32c10493ae0904ec76396d01360c6728959"
+        },
+        {
+          "path": "content/coconala/assets/pop-20260927/thumb-cce-takuitsu-pdf.png",
+          "sha256": "3779cf896009eb106a3d1107385ceef13d02c9140a499b1e2470850353de46fd"
+        }
+      ],
+      "model": "gpt-6-astra",
+      "prompt": "添付の承認済みコンクリート主任技士POP画像3枚（ココナラ商品サムネイル）をデザインと人物の参照に、doboku-noteの資格学習用X投稿画像を新規制作。\n横長16:9（最終1200×675）。文字・顔・手は全周約5%の安全域の内側に収め、余分な空白を減らして文字と人物を大きくする。背景は四辺まで連続させ、無地の余白帯は作らない。画像の縮小・切り取りはこちらで行うので、生成した16:9の原寸のまま保存する。\n左上に資格名「コンクリート主任技士・技士」を白の極太文字で大きく。資格の主色: 紫（濃い紫〜青紫のグラデーション。承認済み主任技士原本と同じ）。白・黄色の極太文字、適度な濃紺の輪郭、少量の赤で強調する参照画像と同じPOPの勢い。\n主題（最も大きな見出し、1〜2行）: 「計量の許容差」。\n要点は白い札またはカードに、次の文字列をそのまま1項目1行で: 「セメント・水 ±1%」、「骨材・混和剤 ±3%」、「混和材 ±2%（高炉スラグ微粉末は ±1%）」。\n下部に著者の専門性の黄色帯: 「総監が解説」（対象資格の表示とは別の領域に置き、総監の教材と誤認させない）。\n先生（doboku-note先生）は右側に大きく、参照画像と完全に同一人物: 40代男性、黒の短髪、黒縁メガネ、短いあごひげ、白い無地のヘルメット、濃紺の作業服・白シャツ・紺ネクタイ・黄色の反射ベスト。ポーズ: 指を立ててポイントを示す。顔・手と文字を重ねない。\n指定した文字列以外の日本語・英語・数字を描かない。ブランド名、URL、価格、ハッシュタグ、根拠のない実績、合格保証は入れない。\n幅360pxのスマホ表示でも資格名と見出しが読める大きな文字にし、細かな説明を詰め込まない。文字は誤字なく正確に。",
+      "generation": {
+        "tool": "scripts/lib/codex-image.mjs generateWithCodex（codex exec の image_gen）",
+        "path": ".tmp/cce-pop/raw/113-01.png",
+        "sha256": "3887aa419ec3f9241ce0e8e6a09460077c21a4e18fab755f0446383fa4242e16",
+        "width": 1672,
+        "height": 941,
+        "previous": []
+      },
+      "output": {
+        "path": "content/sns/x/draft/113-concrete-chief-final-2026-11/img/tweet-01-keiryo-kyoyosa.png",
+        "sha256": "60b6bd757e978c15bccd32e711bec04b810b5a1a0d8535a2924df1dc79df232f",
+        "width": 1200,
+        "height": 675,
+        "resize": "1672×941（16:9）→1200×675 の一様縮小（sharp・fit fill、比の差1%未満）。切り取り・余白追加なし。Git 容量（content/sns 予算 60 MiB）のため 256 色パレット PNG に減色"
+      },
+      "review": {
+        "reviewedAt": "2026-10-26T15:49:36.448Z",
+        "by": "Claude（制作担当の目視）",
+        "viewportWidths": [
+          1200,
+          360
+        ],
+        "result": "ok",
+        "note": "許容差（セメント・水±1%、骨材・混和剤±3%、混和材±2%・高炉スラグ微粉末±1%）が投稿本文と一致。括弧内は小さいが原寸で判読可。",
+        "userImageReview": "pending"
+      },
+      "publication": "未公開（X 予約は運営者が実施）"
+    },
+    "t02": {
+      "copy": {
+        "examLabel": "コンクリート主任技士",
+        "headline": "小論文は4項目",
+        "points": [
+          "(1)表題 (2)現状と課題",
+          "(3)業務との関係 (4)今後の対策"
+        ],
+        "benefit": "字数の重心は(3)",
+        "authority": "総監が解説"
+      },
+      "evidence": [
+        "content/sns/x/draft/113-concrete-chief-final-2026-11/tweets.md#Tweet02"
+      ],
+      "pose": "赤ペンで答案を確認する",
+      "references": [
+        {
+          "path": "content/coconala/assets/pop-20260927/thumb-cce-essay-tensaku.png",
+          "sha256": "0ad039fb31a33e1fc70f1ef07d01d7cc88003210681e4b6995bb72be82833143"
+        },
+        {
+          "path": "content/coconala/assets/pop-20260927/thumb-cce-essay-pdf.png",
+          "sha256": "c9a407d15ff965033ae02e910a38c32c10493ae0904ec76396d01360c6728959"
+        },
+        {
+          "path": "content/coconala/assets/pop-20260927/thumb-cce-takuitsu-pdf.png",
+          "sha256": "3779cf896009eb106a3d1107385ceef13d02c9140a499b1e2470850353de46fd"
+        }
+      ],
+      "model": "gpt-6-astra",
+      "prompt": "添付の承認済みコンクリート主任技士POP画像3枚（ココナラ商品サムネイル）をデザインと人物の参照に、doboku-noteの資格学習用X投稿画像を新規制作。\n横長16:9（最終1200×675）。文字・顔・手は全周約5%の安全域の内側に収め、余分な空白を減らして文字と人物を大きくする。背景は四辺まで連続させ、無地の余白帯は作らない。画像の縮小・切り取りはこちらで行うので、生成した16:9の原寸のまま保存する。\n左上に資格名「コンクリート主任技士」を白の極太文字で大きく。資格の主色: 紫（濃い紫〜青紫のグラデーション。承認済み主任技士原本と同じ）。白・黄色の極太文字、適度な濃紺の輪郭、少量の赤で強調する参照画像と同じPOPの勢い。\n主題（最も大きな見出し、1〜2行）: 「小論文は4項目」。\n要点は白い札またはカードに、次の文字列をそのまま1項目1行で: 「(1)表題 (2)現状と課題」、「(3)業務との関係 (4)今後の対策」。\n補足は「字数の重心は(3)」だけ。\n下部に著者の専門性の黄色帯: 「総監が解説」（対象資格の表示とは別の領域に置き、総監の教材と誤認させない）。\n先生（doboku-note先生）は右側に大きく、参照画像と完全に同一人物: 40代男性、黒の短髪、黒縁メガネ、短いあごひげ、白い無地のヘルメット、濃紺の作業服・白シャツ・紺ネクタイ・黄色の反射ベスト。ポーズ: 赤ペンで答案を確認する。顔・手と文字を重ねない。\n指定した文字列以外の日本語・英語・数字を描かない。ブランド名、URL、価格、ハッシュタグ、根拠のない実績、合格保証は入れない。\n幅360pxのスマホ表示でも資格名と見出しが読める大きな文字にし、細かな説明を詰め込まない。文字は誤字なく正確に。",
+      "generation": {
+        "tool": "scripts/lib/codex-image.mjs generateWithCodex（codex exec の image_gen）",
+        "path": ".tmp/cce-pop/raw/113-02.png",
+        "sha256": "392d3dafde5cd5080e51b0f0b42c27278f0f6318502b431fbe028fcd6b590a92",
+        "width": 1672,
+        "height": 941,
+        "previous": []
+      },
+      "output": {
+        "path": "content/sns/x/draft/113-concrete-chief-final-2026-11/img/tweet-02-essay-4items.png",
+        "sha256": "3fa2a7d0b7c3d9012aa9a04cc164712fb734c5e566b06d01c206a9d52c326353",
+        "width": 1200,
+        "height": 675,
+        "resize": "1672×941（16:9）→1200×675 の一様縮小（sharp・fit fill、比の差1%未満）。切り取り・余白追加なし。Git 容量（content/sns 予算 60 MiB）のため 256 色パレット PNG に減色"
+      },
+      "review": {
+        "reviewedAt": "2026-10-26T15:49:37.238Z",
+        "by": "Claude（制作担当の目視）",
+        "viewportWidths": [
+          1200,
+          360
+        ],
+        "result": "ok",
+        "note": "4項目と「字数の重心は(3)」が投稿本文と一致。",
+        "userImageReview": "pending"
+      },
+      "publication": "未公開（X 予約は運営者が実施）"
+    },
+    "t03": {
+      "copy": {
+        "examLabel": "コンクリート主任技士・技士",
+        "headline": "配合計算は手順で解く",
+        "points": [
+          "求める値",
+          "既知の値",
+          "単位",
+          "関係式"
+        ],
+        "benefit": "書き出してから代入",
+        "authority": "総監が解説"
+      },
+      "evidence": [
+        "content/sns/x/draft/113-concrete-chief-final-2026-11/tweets.md#Tweet03"
+      ],
+      "pose": "電卓と計算用紙を手に考える",
+      "references": [
+        {
+          "path": "content/coconala/assets/pop-20260927/thumb-cce-essay-tensaku.png",
+          "sha256": "0ad039fb31a33e1fc70f1ef07d01d7cc88003210681e4b6995bb72be82833143"
+        },
+        {
+          "path": "content/coconala/assets/pop-20260927/thumb-cce-essay-pdf.png",
+          "sha256": "c9a407d15ff965033ae02e910a38c32c10493ae0904ec76396d01360c6728959"
+        },
+        {
+          "path": "content/coconala/assets/pop-20260927/thumb-cce-takuitsu-pdf.png",
+          "sha256": "3779cf896009eb106a3d1107385ceef13d02c9140a499b1e2470850353de46fd"
+        }
+      ],
+      "model": "gpt-6-astra",
+      "prompt": "添付の承認済みコンクリート主任技士POP画像3枚（ココナラ商品サムネイル）をデザインと人物の参照に、doboku-noteの資格学習用X投稿画像を新規制作。\n横長16:9（最終1200×675）。文字・顔・手は全周約5%の安全域の内側に収め、余分な空白を減らして文字と人物を大きくする。背景は四辺まで連続させ、無地の余白帯は作らない。画像の縮小・切り取りはこちらで行うので、生成した16:9の原寸のまま保存する。\n左上に資格名「コンクリート主任技士・技士」を白の極太文字で大きく。資格の主色: 紫（濃い紫〜青紫のグラデーション。承認済み主任技士原本と同じ）。白・黄色の極太文字、適度な濃紺の輪郭、少量の赤で強調する参照画像と同じPOPの勢い。\n主題（最も大きな見出し、1〜2行）: 「配合計算は手順で解く」。\n要点は白い札またはカードに、次の文字列をそのまま1項目1行で: 「求める値」、「既知の値」、「単位」、「関係式」。\n補足は「書き出してから代入」だけ。\n下部に著者の専門性の黄色帯: 「総監が解説」（対象資格の表示とは別の領域に置き、総監の教材と誤認させない）。\n先生（doboku-note先生）は右側に大きく、参照画像と完全に同一人物: 40代男性、黒の短髪、黒縁メガネ、短いあごひげ、白い無地のヘルメット、濃紺の作業服・白シャツ・紺ネクタイ・黄色の反射ベスト。ポーズ: 電卓と計算用紙を手に考える。顔・手と文字を重ねない。\n指定した文字列以外の日本語・英語・数字を描かない。ブランド名、URL、価格、ハッシュタグ、根拠のない実績、合格保証は入れない。\n幅360pxのスマホ表示でも資格名と見出しが読める大きな文字にし、細かな説明を詰め込まない。文字は誤字なく正確に。",
+      "generation": {
+        "tool": "scripts/lib/codex-image.mjs generateWithCodex（codex exec の image_gen）",
+        "path": ".tmp/cce-pop/raw/113-03.png",
+        "sha256": "18a09a8262fdbfde7e211b3a4c06227e138878694f8bd1fde2666e1272eee641",
+        "width": 1672,
+        "height": 941,
+        "previous": []
+      },
+      "output": {
+        "path": "content/sns/x/draft/113-concrete-chief-final-2026-11/img/tweet-03-haigo-tejun.png",
+        "sha256": "1d8f7a7b76a1aa284ffdb448997b42564d1cdb97d55901bab6a4ae85bad3284e",
+        "width": 1200,
+        "height": 675,
+        "resize": "1672×941（16:9）→1200×675 の一様縮小（sharp・fit fill、比の差1%未満）。切り取り・余白追加なし。Git 容量（content/sns 予算 60 MiB）のため 256 色パレット PNG に減色"
+      },
+      "review": {
+        "reviewedAt": "2026-10-26T15:49:38.041Z",
+        "by": "Claude（制作担当の目視）",
+        "viewportWidths": [
+          1200,
+          360
+        ],
+        "result": "ok",
+        "note": "求める値・既知の値・単位・関係式と「書き出してから代入」が本文と一致。",
+        "userImageReview": "pending"
+      },
+      "publication": "未公開（X 予約は運営者が実施）"
+    },
+    "t04": {
+      "copy": {
+        "examLabel": "コンクリート主任技士",
+        "headline": "小論文 経験を答案に直す手順",
+        "benefit": "出題テーマの推移 平成24〜令和7年度",
+        "authority": "総監が解説"
+      },
+      "evidence": [
+        "content/sns/x/draft/113-concrete-chief-final-2026-11/tweets.md#Tweet04"
+      ],
+      "pose": "答案を指して説明する",
+      "references": [
+        {
+          "path": "content/coconala/assets/pop-20260927/thumb-cce-essay-tensaku.png",
+          "sha256": "0ad039fb31a33e1fc70f1ef07d01d7cc88003210681e4b6995bb72be82833143"
+        },
+        {
+          "path": "content/coconala/assets/pop-20260927/thumb-cce-essay-pdf.png",
+          "sha256": "c9a407d15ff965033ae02e910a38c32c10493ae0904ec76396d01360c6728959"
+        },
+        {
+          "path": "content/coconala/assets/pop-20260927/thumb-cce-takuitsu-pdf.png",
+          "sha256": "3779cf896009eb106a3d1107385ceef13d02c9140a499b1e2470850353de46fd"
+        }
+      ],
+      "model": "gpt-6-astra",
+      "prompt": "添付の承認済みコンクリート主任技士POP画像3枚（ココナラ商品サムネイル）をデザインと人物の参照に、doboku-noteの資格学習用X投稿画像を新規制作。\n横長16:9（最終1200×675）。文字・顔・手は全周約5%の安全域の内側に収め、余分な空白を減らして文字と人物を大きくする。背景は四辺まで連続させ、無地の余白帯は作らない。画像の縮小・切り取りはこちらで行うので、生成した16:9の原寸のまま保存する。\n左上に資格名「コンクリート主任技士」を白の極太文字で大きく。資格の主色: 紫（濃い紫〜青紫のグラデーション。承認済み主任技士原本と同じ）。白・黄色の極太文字、適度な濃紺の輪郭、少量の赤で強調する参照画像と同じPOPの勢い。\n主題（最も大きな見出し、1〜2行）: 「小論文 経験を答案に直す手順」。\n補足は「出題テーマの推移 平成24〜令和7年度」だけ。\n下部に著者の専門性の黄色帯: 「総監が解説」（対象資格の表示とは別の領域に置き、総監の教材と誤認させない）。\n先生（doboku-note先生）は右側に大きく、参照画像と完全に同一人物: 40代男性、黒の短髪、黒縁メガネ、短いあごひげ、白い無地のヘルメット、濃紺の作業服・白シャツ・紺ネクタイ・黄色の反射ベスト。ポーズ: 答案を指して説明する。顔・手と文字を重ねない。\n指定した文字列以外の日本語・英語・数字を描かない。ブランド名、URL、価格、ハッシュタグ、根拠のない実績、合格保証は入れない。\n幅360pxのスマホ表示でも資格名と見出しが読める大きな文字にし、細かな説明を詰め込まない。文字は誤字なく正確に。\n漢字は字形を正確に（特に「験」の右側は「㑒」。「論」「題」も崩さない）。",
+      "generation": {
+        "tool": "scripts/lib/codex-image.mjs generateWithCodex（codex exec の image_gen）",
+        "path": ".tmp/cce-pop/raw/113-04.png",
+        "sha256": "7c09ebd495a56aa54969e9232bcb6835198bd6cb821ea98d86023c4e9419a90f",
+        "width": 1672,
+        "height": 941,
+        "previous": [
+          {
+            "path": ".tmp/cce-pop/raw/113-04.v1.png",
+            "sha256": "4f32a89871e4457ea43c307c3f948285e6419a6ea8a05bf9fc78fc87d24d411f",
+            "width": 1672,
+            "height": 941,
+            "note": "不採用（review.note 参照）"
+          }
+        ]
+      },
+      "output": {
+        "path": "content/sns/x/draft/113-concrete-chief-final-2026-11/img/tweet-04-essay-guide.png",
+        "sha256": "96391c0000e3abded129377ca14abb555145e9eeb5c8ec3744ba393c92e3373a",
+        "width": 1200,
+        "height": 675,
+        "resize": "1672×941（16:9）→1200×675 の一様縮小（sharp・fit fill、比の差1%未満）。切り取り・余白追加なし。Git 容量（content/sns 予算 60 MiB）のため 256 色パレット PNG に減色"
+      },
+      "review": {
+        "reviewedAt": "2026-10-26T15:49:38.751Z",
+        "by": "Claude（制作担当の目視）",
+        "viewportWidths": [
+          1200,
+          360
+        ],
+        "result": "ok",
+        "note": "初版は見出しに小論文の語がなく主題が曖昧なため「小論文 経験を答案に直す手順」で再生成（初版は generation.previous）。平成24〜令和7年度は本文と一致。",
+        "userImageReview": "pending"
+      },
+      "publication": "未公開（X 予約は運営者が実施）"
+    },
+    "t05": {
+      "copy": {
+        "examLabel": "コンクリート主任技士・技士",
+        "headline": "スランプと空気量の許容差",
+        "points": [
+          "スランプ 8〜18cm → ±2.5cm",
+          "スランプ 21cm → ±1.5cm",
+          "空気量 4.5% → ±1.5%"
+        ],
+        "authority": "総監が解説"
+      },
+      "evidence": [
+        "content/sns/x/draft/113-concrete-chief-final-2026-11/tweets.md#Tweet05"
+      ],
+      "pose": "指を立ててポイントを示す",
+      "references": [
+        {
+          "path": "content/coconala/assets/pop-20260927/thumb-cce-essay-tensaku.png",
+          "sha256": "0ad039fb31a33e1fc70f1ef07d01d7cc88003210681e4b6995bb72be82833143"
+        },
+        {
+          "path": "content/coconala/assets/pop-20260927/thumb-cce-essay-pdf.png",
+          "sha256": "c9a407d15ff965033ae02e910a38c32c10493ae0904ec76396d01360c6728959"
+        },
+        {
+          "path": "content/coconala/assets/pop-20260927/thumb-cce-takuitsu-pdf.png",
+          "sha256": "3779cf896009eb106a3d1107385ceef13d02c9140a499b1e2470850353de46fd"
+        }
+      ],
+      "model": "gpt-6-astra",
+      "prompt": "添付の承認済みコンクリート主任技士POP画像3枚（ココナラ商品サムネイル）をデザインと人物の参照に、doboku-noteの資格学習用X投稿画像を新規制作。\n横長16:9（最終1200×675）。文字・顔・手は全周約5%の安全域の内側に収め、余分な空白を減らして文字と人物を大きくする。背景は四辺まで連続させ、無地の余白帯は作らない。画像の縮小・切り取りはこちらで行うので、生成した16:9の原寸のまま保存する。\n左上に資格名「コンクリート主任技士・技士」を白の極太文字で大きく。資格の主色: 紫（濃い紫〜青紫のグラデーション。承認済み主任技士原本と同じ）。白・黄色の極太文字、適度な濃紺の輪郭、少量の赤で強調する参照画像と同じPOPの勢い。\n主題（最も大きな見出し、1〜2行）: 「スランプと空気量の許容差」。\n要点は白い札またはカードに、次の文字列をそのまま1項目1行で: 「スランプ 8〜18cm → ±2.5cm」、「スランプ 21cm → ±1.5cm」、「空気量 4.5% → ±1.5%」。\n下部に著者の専門性の黄色帯: 「総監が解説」（対象資格の表示とは別の領域に置き、総監の教材と誤認させない）。\n先生（doboku-note先生）は右側に大きく、参照画像と完全に同一人物: 40代男性、黒の短髪、黒縁メガネ、短いあごひげ、白い無地のヘルメット、濃紺の作業服・白シャツ・紺ネクタイ・黄色の反射ベスト。ポーズ: 指を立ててポイントを示す。顔・手と文字を重ねない。\n指定した文字列以外の日本語・英語・数字を描かない。ブランド名、URL、価格、ハッシュタグ、根拠のない実績、合格保証は入れない。\n幅360pxのスマホ表示でも資格名と見出しが読める大きな文字にし、細かな説明を詰め込まない。文字は誤字なく正確に。",
+      "generation": {
+        "tool": "scripts/lib/codex-image.mjs generateWithCodex（codex exec の image_gen）",
+        "path": ".tmp/cce-pop/raw/113-05.png",
+        "sha256": "a417e5641a7de03fd4f89515d8e782f0a2824be1082d01e05d3642d49015479e",
+        "width": 1672,
+        "height": 941,
+        "previous": []
+      },
+      "output": {
+        "path": "content/sns/x/draft/113-concrete-chief-final-2026-11/img/tweet-05-slump-kuuki.png",
+        "sha256": "b4f4b28d71296131ac68f2d379b8343f9aa52fe4dac4cbdb76a108b00e110da4",
+        "width": 1200,
+        "height": 675,
+        "resize": "1672×941（16:9）→1200×675 の一様縮小（sharp・fit fill、比の差1%未満）。切り取り・余白追加なし。Git 容量（content/sns 予算 60 MiB）のため 256 色パレット PNG に減色"
+      },
+      "review": {
+        "reviewedAt": "2026-10-26T15:49:39.550Z",
+        "by": "Claude（制作担当の目視）",
+        "viewportWidths": [
+          1200,
+          360
+        ],
+        "result": "ok",
+        "note": "スランプ8〜18cm±2.5cm・21cm±1.5cm・空気量4.5%±1.5%が本文と一致。",
+        "userImageReview": "pending"
+      },
+      "publication": "未公開（X 予約は運営者が実施）"
+    },
+    "t06": {
+      "copy": {
+        "examLabel": "コンクリート主任技士",
+        "headline": "3時間を逆算する",
+        "points": [
+          "択一を先に",
+          "骨子 → 清書 → 見直し"
+        ],
+        "authority": "総監が解説"
+      },
+      "evidence": [
+        "content/sns/x/draft/113-concrete-chief-final-2026-11/tweets.md#Tweet06"
+      ],
+      "pose": "腕時計を見て時間を確認する",
+      "references": [
+        {
+          "path": "content/coconala/assets/pop-20260927/thumb-cce-essay-tensaku.png",
+          "sha256": "0ad039fb31a33e1fc70f1ef07d01d7cc88003210681e4b6995bb72be82833143"
+        },
+        {
+          "path": "content/coconala/assets/pop-20260927/thumb-cce-essay-pdf.png",
+          "sha256": "c9a407d15ff965033ae02e910a38c32c10493ae0904ec76396d01360c6728959"
+        },
+        {
+          "path": "content/coconala/assets/pop-20260927/thumb-cce-takuitsu-pdf.png",
+          "sha256": "3779cf896009eb106a3d1107385ceef13d02c9140a499b1e2470850353de46fd"
+        }
+      ],
+      "model": "gpt-6-astra",
+      "prompt": "添付の承認済みコンクリート主任技士POP画像3枚（ココナラ商品サムネイル）をデザインと人物の参照に、doboku-noteの資格学習用X投稿画像を新規制作。\n横長16:9（最終1200×675）。文字・顔・手は全周約5%の安全域の内側に収め、余分な空白を減らして文字と人物を大きくする。背景は四辺まで連続させ、無地の余白帯は作らない。画像の縮小・切り取りはこちらで行うので、生成した16:9の原寸のまま保存する。\n左上に資格名「コンクリート主任技士」を白の極太文字で大きく。資格の主色: 紫（濃い紫〜青紫のグラデーション。承認済み主任技士原本と同じ）。白・黄色の極太文字、適度な濃紺の輪郭、少量の赤で強調する参照画像と同じPOPの勢い。\n主題（最も大きな見出し、1〜2行）: 「3時間を逆算する」。\n要点は白い札またはカードに、次の文字列をそのまま1項目1行で: 「択一を先に」、「骨子 → 清書 → 見直し」。\n下部に著者の専門性の黄色帯: 「総監が解説」（対象資格の表示とは別の領域に置き、総監の教材と誤認させない）。\n先生（doboku-note先生）は右側に大きく、参照画像と完全に同一人物: 40代男性、黒の短髪、黒縁メガネ、短いあごひげ、白い無地のヘルメット、濃紺の作業服・白シャツ・紺ネクタイ・黄色の反射ベスト。ポーズ: 腕時計を見て時間を確認する。顔・手と文字を重ねない。\n指定した文字列以外の日本語・英語・数字を描かない。ブランド名、URL、価格、ハッシュタグ、根拠のない実績、合格保証は入れない。\n幅360pxのスマホ表示でも資格名と見出しが読める大きな文字にし、細かな説明を詰め込まない。文字は誤字なく正確に。",
+      "generation": {
+        "tool": "scripts/lib/codex-image.mjs generateWithCodex（codex exec の image_gen）",
+        "path": ".tmp/cce-pop/raw/113-06.png",
+        "sha256": "bb7f7bbc890930b7383c55223bb2a96444967de7aac846c7035bd3acbe414fe3",
+        "width": 1672,
+        "height": 941,
+        "previous": []
+      },
+      "output": {
+        "path": "content/sns/x/draft/113-concrete-chief-final-2026-11/img/tweet-06-jikan-haibun.png",
+        "sha256": "50074007d3fd4ffff9fe49e45ec59eb5b5ea2648a0ebe38b1452fe8a8d8ceafa",
+        "width": 1200,
+        "height": 675,
+        "resize": "1672×941（16:9）→1200×675 の一様縮小（sharp・fit fill、比の差1%未満）。切り取り・余白追加なし。Git 容量（content/sns 予算 60 MiB）のため 256 色パレット PNG に減色"
+      },
+      "review": {
+        "reviewedAt": "2026-10-26T15:49:40.165Z",
+        "by": "Claude（制作担当の目視）",
+        "viewportWidths": [
+          1200,
+          360
+        ],
+        "result": "ok",
+        "note": "3時間・択一を先に・骨子→清書→見直しが本文と一致。",
+        "userImageReview": "pending"
+      },
+      "publication": "未公開（X 予約は運営者が実施）"
+    },
+    "t07": {
+      "copy": {
+        "examLabel": "コンクリート主任技士・技士",
+        "headline": "暑中と寒中の境目",
+        "points": [
+          "暑中 日平均25℃超",
+          "寒中 日平均4℃以下",
+          "暑中の打込み温度 35℃以下"
+        ],
+        "authority": "総監が解説"
+      },
+      "evidence": [
+        "content/sns/x/draft/113-concrete-chief-final-2026-11/tweets.md#Tweet07"
+      ],
+      "pose": "両手で左右を見比べる（暑中と寒中の比較）",
+      "references": [
+        {
+          "path": "content/coconala/assets/pop-20260927/thumb-cce-essay-tensaku.png",
+          "sha256": "0ad039fb31a33e1fc70f1ef07d01d7cc88003210681e4b6995bb72be82833143"
+        },
+        {
+          "path": "content/coconala/assets/pop-20260927/thumb-cce-essay-pdf.png",
+          "sha256": "c9a407d15ff965033ae02e910a38c32c10493ae0904ec76396d01360c6728959"
+        },
+        {
+          "path": "content/coconala/assets/pop-20260927/thumb-cce-takuitsu-pdf.png",
+          "sha256": "3779cf896009eb106a3d1107385ceef13d02c9140a499b1e2470850353de46fd"
+        }
+      ],
+      "model": "gpt-6-astra",
+      "prompt": "添付の承認済みコンクリート主任技士POP画像3枚（ココナラ商品サムネイル）をデザインと人物の参照に、doboku-noteの資格学習用X投稿画像を新規制作。\n横長16:9（最終1200×675）。文字・顔・手は全周約5%の安全域の内側に収め、余分な空白を減らして文字と人物を大きくする。背景は四辺まで連続させ、無地の余白帯は作らない。画像の縮小・切り取りはこちらで行うので、生成した16:9の原寸のまま保存する。\n左上に資格名「コンクリート主任技士・技士」を白の極太文字で大きく。資格の主色: 紫（濃い紫〜青紫のグラデーション。承認済み主任技士原本と同じ）。白・黄色の極太文字、適度な濃紺の輪郭、少量の赤で強調する参照画像と同じPOPの勢い。\n主題（最も大きな見出し、1〜2行）: 「暑中と寒中の境目」。\n要点は白い札またはカードに、次の文字列をそのまま1項目1行で: 「暑中 日平均25℃超」、「寒中 日平均4℃以下」、「暑中の打込み温度 35℃以下」。\n下部に著者の専門性の黄色帯: 「総監が解説」（対象資格の表示とは別の領域に置き、総監の教材と誤認させない）。\n先生（doboku-note先生）は右側に大きく、参照画像と完全に同一人物: 40代男性、黒の短髪、黒縁メガネ、短いあごひげ、白い無地のヘルメット、濃紺の作業服・白シャツ・紺ネクタイ・黄色の反射ベスト。ポーズ: 両手で左右を見比べる（暑中と寒中の比較）。顔・手と文字を重ねない。\n指定した文字列以外の日本語・英語・数字を描かない。ブランド名、URL、価格、ハッシュタグ、根拠のない実績、合格保証は入れない。\n幅360pxのスマホ表示でも資格名と見出しが読める大きな文字にし、細かな説明を詰め込まない。文字は誤字なく正確に。",
+      "generation": {
+        "tool": "scripts/lib/codex-image.mjs generateWithCodex（codex exec の image_gen）",
+        "path": ".tmp/cce-pop/raw/113-07.png",
+        "sha256": "ea3b1c494c25d77ff13832857777df41ff81d3974beb56dc45d9e6d7c2377460",
+        "width": 1672,
+        "height": 941,
+        "previous": []
+      },
+      "output": {
+        "path": "content/sns/x/draft/113-concrete-chief-final-2026-11/img/tweet-07-shochu-kanchu.png",
+        "sha256": "505c47ce16f230371bf14a1e5054d846c772f16906f0142a8ae4e566bb176ed6",
+        "width": 1200,
+        "height": 675,
+        "resize": "1672×941（16:9）→1200×675 の一様縮小（sharp・fit fill、比の差1%未満）。切り取り・余白追加なし。Git 容量（content/sns 予算 60 MiB）のため 256 色パレット PNG に減色"
+      },
+      "review": {
+        "reviewedAt": "2026-10-26T15:49:40.951Z",
+        "by": "Claude（制作担当の目視）",
+        "viewportWidths": [
+          1200,
+          360
+        ],
+        "result": "ok",
+        "note": "暑中25℃超・寒中4℃以下・打込み35℃以下が本文と一致。太陽と雪の図は手と重ならない。",
+        "userImageReview": "pending"
+      },
+      "publication": "未公開（X 予約は運営者が実施）"
+    },
+    "t08": {
+      "copy": {
+        "examLabel": "コンクリート技士",
+        "headline": "試験まであと2週間",
+        "benefit": "2時間の通し演習と見直し",
+        "authority": "総監が解説"
+      },
+      "evidence": [
+        "content/sns/x/draft/113-concrete-chief-final-2026-11/tweets.md#Tweet08"
+      ],
+      "pose": "カレンダーを指して計画を示す",
+      "references": [
+        {
+          "path": "content/coconala/assets/pop-20260927/thumb-cce-essay-tensaku.png",
+          "sha256": "0ad039fb31a33e1fc70f1ef07d01d7cc88003210681e4b6995bb72be82833143"
+        },
+        {
+          "path": "content/coconala/assets/pop-20260927/thumb-cce-essay-pdf.png",
+          "sha256": "c9a407d15ff965033ae02e910a38c32c10493ae0904ec76396d01360c6728959"
+        },
+        {
+          "path": "content/coconala/assets/pop-20260927/thumb-cce-takuitsu-pdf.png",
+          "sha256": "3779cf896009eb106a3d1107385ceef13d02c9140a499b1e2470850353de46fd"
+        }
+      ],
+      "model": "gpt-6-astra",
+      "prompt": "添付の承認済みコンクリート主任技士POP画像3枚（ココナラ商品サムネイル）をデザインと人物の参照に、doboku-noteの資格学習用X投稿画像を新規制作。\n横長16:9（最終1200×675）。文字・顔・手は全周約5%の安全域の内側に収め、余分な空白を減らして文字と人物を大きくする。背景は四辺まで連続させ、無地の余白帯は作らない。画像の縮小・切り取りはこちらで行うので、生成した16:9の原寸のまま保存する。\n左上に資格名「コンクリート技士」を白の極太文字で大きく。資格の主色: 緑寄りのティール（#287a62 を主色。紫は使わない）。白・黄色の極太文字、適度な濃紺の輪郭、少量の赤で強調する参照画像と同じPOPの勢い。\n主題（最も大きな見出し、1〜2行）: 「試験まであと2週間」。\n補足は「2時間の通し演習と見直し」だけ。\n下部に著者の専門性の黄色帯: 「総監が解説」（対象資格の表示とは別の領域に置き、総監の教材と誤認させない）。\n先生（doboku-note先生）は右側に大きく、参照画像と完全に同一人物: 40代男性、黒の短髪、黒縁メガネ、短いあごひげ、白い無地のヘルメット、濃紺の作業服・白シャツ・紺ネクタイ・黄色の反射ベスト。ポーズ: カレンダーを指して計画を示す。顔・手と文字を重ねない。\n指定した文字列以外の日本語・英語・数字を描かない。ブランド名、URL、価格、ハッシュタグ、根拠のない実績、合格保証は入れない。\n幅360pxのスマホ表示でも資格名と見出しが読める大きな文字にし、細かな説明を詰め込まない。文字は誤字なく正確に。",
+      "generation": {
+        "tool": "scripts/lib/codex-image.mjs generateWithCodex（codex exec の image_gen）",
+        "path": ".tmp/cce-pop/raw/113-08.png",
+        "sha256": "c9d5268ac414256b6f74dd12705fbe2de6a5d11cdd12dba3d65d51299e2bda97",
+        "width": 1672,
+        "height": 941,
+        "previous": []
+      },
+      "output": {
+        "path": "content/sns/x/draft/113-concrete-chief-final-2026-11/img/tweet-08-study-plan.png",
+        "sha256": "b0c52b6085f37e87f9658538187225dec738dfabb690b319813942c4f1eb5555",
+        "width": 1200,
+        "height": 675,
+        "resize": "1672×941（16:9）→1200×675 の一様縮小（sharp・fit fill、比の差1%未満）。切り取り・余白追加なし。Git 容量（content/sns 予算 60 MiB）のため 256 色パレット PNG に減色"
+      },
+      "review": {
+        "reviewedAt": "2026-10-26T15:49:41.787Z",
+        "by": "Claude（制作担当の目視）",
+        "viewportWidths": [
+          1200,
+          360
+        ],
+        "result": "ok",
+        "note": "技士の資格色（緑寄りティール）。「あと2週間」「2時間の通し演習と見直し」は本文と一致。",
+        "userImageReview": "pending"
+      },
+      "publication": "未公開（X 予約は運営者が実施）"
+    },
+    "t09": {
+      "copy": {
+        "examLabel": "コンクリート主任技士・技士",
+        "headline": "配合強度の割増しは2本立て",
+        "points": [
+          "α1 と α2",
+          "大きい方を採る"
+        ],
+        "benefit": "変動係数が大きいほど割増しも大きい",
+        "authority": "総監が解説"
+      },
+      "evidence": [
+        "content/sns/x/draft/113-concrete-chief-final-2026-11/tweets.md#Tweet09"
+      ],
+      "pose": "電卓を持って説明する",
+      "references": [
+        {
+          "path": "content/coconala/assets/pop-20260927/thumb-cce-essay-tensaku.png",
+          "sha256": "0ad039fb31a33e1fc70f1ef07d01d7cc88003210681e4b6995bb72be82833143"
+        },
+        {
+          "path": "content/coconala/assets/pop-20260927/thumb-cce-essay-pdf.png",
+          "sha256": "c9a407d15ff965033ae02e910a38c32c10493ae0904ec76396d01360c6728959"
+        },
+        {
+          "path": "content/coconala/assets/pop-20260927/thumb-cce-takuitsu-pdf.png",
+          "sha256": "3779cf896009eb106a3d1107385ceef13d02c9140a499b1e2470850353de46fd"
+        }
+      ],
+      "model": "gpt-6-astra",
+      "prompt": "添付の承認済みコンクリート主任技士POP画像3枚（ココナラ商品サムネイル）をデザインと人物の参照に、doboku-noteの資格学習用X投稿画像を新規制作。\n横長16:9（最終1200×675）。文字・顔・手は全周約5%の安全域の内側に収め、余分な空白を減らして文字と人物を大きくする。背景は四辺まで連続させ、無地の余白帯は作らない。画像の縮小・切り取りはこちらで行うので、生成した16:9の原寸のまま保存する。\n左上に資格名「コンクリート主任技士・技士」を白の極太文字で大きく。資格の主色: 紫（濃い紫〜青紫のグラデーション。承認済み主任技士原本と同じ）。白・黄色の極太文字、適度な濃紺の輪郭、少量の赤で強調する参照画像と同じPOPの勢い。\n主題（最も大きな見出し、1〜2行）: 「配合強度の割増しは2本立て」。\n要点は白い札またはカードに、次の文字列をそのまま1項目1行で: 「α1 と α2」、「大きい方を採る」。\n補足は「変動係数が大きいほど割増しも大きい」だけ。\n下部に著者の専門性の黄色帯: 「総監が解説」（対象資格の表示とは別の領域に置き、総監の教材と誤認させない）。\n先生（doboku-note先生）は右側に大きく、参照画像と完全に同一人物: 40代男性、黒の短髪、黒縁メガネ、短いあごひげ、白い無地のヘルメット、濃紺の作業服・白シャツ・紺ネクタイ・黄色の反射ベスト。ポーズ: 電卓を持って説明する。顔・手と文字を重ねない。\n指定した文字列以外の日本語・英語・数字を描かない。ブランド名、URL、価格、ハッシュタグ、根拠のない実績、合格保証は入れない。\n幅360pxのスマホ表示でも資格名と見出しが読める大きな文字にし、細かな説明を詰め込まない。文字は誤字なく正確に。",
+      "generation": {
+        "tool": "scripts/lib/codex-image.mjs generateWithCodex（codex exec の image_gen）",
+        "path": ".tmp/cce-pop/raw/113-09.png",
+        "sha256": "aa563b6c546aff07d55cac0d57fc890f95cf3e33d33ad53c8512e39fd8fab03b",
+        "width": 1672,
+        "height": 941,
+        "previous": []
+      },
+      "output": {
+        "path": "content/sns/x/draft/113-concrete-chief-final-2026-11/img/tweet-09-haigo-kyodo.png",
+        "sha256": "f466f088ede6a168b022a36fb4570baa74b5d8398aeffff1c41769cf581e188e",
+        "width": 1200,
+        "height": 675,
+        "resize": "1672×941（16:9）→1200×675 の一様縮小（sharp・fit fill、比の差1%未満）。切り取り・余白追加なし。Git 容量（content/sns 予算 60 MiB）のため 256 色パレット PNG に減色"
+      },
+      "review": {
+        "reviewedAt": "2026-10-26T15:49:42.713Z",
+        "by": "Claude（制作担当の目視）",
+        "viewportWidths": [
+          1200,
+          360
+        ],
+        "result": "ok",
+        "note": "α1とα2・大きい方を採る・変動係数の関係が本文と一致。式そのものは入れていない。",
+        "userImageReview": "pending"
+      },
+      "publication": "未公開（X 予約は運営者が実施）"
+    },
+    "t10": {
+      "copy": {
+        "examLabel": "コンクリート主任技士",
+        "headline": "小論文 添削",
+        "points": [
+          "48時間以内に返却",
+          "書き直し1回込み"
+        ],
+        "benefit": "受付は11/25（水）まで",
+        "authority": "総監が直接添削"
+      },
+      "evidence": [
+        "content/sns/x/draft/113-concrete-chief-final-2026-11/tweets.md#Tweet10"
+      ],
+      "pose": "赤ペンで答案に赤入れする（承認済み添削原本と同じ役割）",
+      "references": [
+        {
+          "path": "content/coconala/assets/pop-20260927/thumb-cce-essay-tensaku.png",
+          "sha256": "0ad039fb31a33e1fc70f1ef07d01d7cc88003210681e4b6995bb72be82833143"
+        },
+        {
+          "path": "content/coconala/assets/pop-20260927/thumb-cce-essay-pdf.png",
+          "sha256": "c9a407d15ff965033ae02e910a38c32c10493ae0904ec76396d01360c6728959"
+        },
+        {
+          "path": "content/coconala/assets/pop-20260927/thumb-cce-takuitsu-pdf.png",
+          "sha256": "3779cf896009eb106a3d1107385ceef13d02c9140a499b1e2470850353de46fd"
+        }
+      ],
+      "model": "gpt-6-astra",
+      "prompt": "添付の承認済みコンクリート主任技士POP画像3枚（ココナラ商品サムネイル）をデザインと人物の参照に、doboku-noteの資格学習用X投稿画像を新規制作。\n横長16:9（最終1200×675）。文字・顔・手は全周約5%の安全域の内側に収め、余分な空白を減らして文字と人物を大きくする。背景は四辺まで連続させ、無地の余白帯は作らない。画像の縮小・切り取りはこちらで行うので、生成した16:9の原寸のまま保存する。\n左上に資格名「コンクリート主任技士」を白の極太文字で大きく。資格の主色: 紫（濃い紫〜青紫のグラデーション。承認済み主任技士原本と同じ）。白・黄色の極太文字、適度な濃紺の輪郭、少量の赤で強調する参照画像と同じPOPの勢い。\n主題（最も大きな見出し、1〜2行）: 「小論文 添削」。\n要点は白い札またはカードに、次の文字列をそのまま1項目1行で: 「48時間以内に返却」、「書き直し1回込み」。\n補足は「受付は11/25（水）まで」だけ。\n下部に著者の専門性の黄色帯: 「総監が直接添削」（対象資格の表示とは別の領域に置き、総監の教材と誤認させない）。\n先生（doboku-note先生）は右側に大きく、参照画像と完全に同一人物: 40代男性、黒の短髪、黒縁メガネ、短いあごひげ、白い無地のヘルメット、濃紺の作業服・白シャツ・紺ネクタイ・黄色の反射ベスト。ポーズ: 赤ペンで答案に赤入れする（承認済み添削原本と同じ役割）。顔・手と文字を重ねない。\n指定した文字列以外の日本語・英語・数字を描かない。ブランド名、URL、価格、ハッシュタグ、根拠のない実績、合格保証は入れない。\n幅360pxのスマホ表示でも資格名と見出しが読める大きな文字にし、細かな説明を詰め込まない。文字は誤字なく正確に。",
+      "generation": {
+        "tool": "scripts/lib/codex-image.mjs generateWithCodex（codex exec の image_gen）",
+        "path": ".tmp/cce-pop/raw/113-10.png",
+        "sha256": "9aa66208dd6d50a96404e4e32e4f7a282b8a95fc14b9d30ffee1fa009fade053",
+        "width": 1672,
+        "height": 940,
+        "previous": []
+      },
+      "output": {
+        "path": "content/sns/x/draft/113-concrete-chief-final-2026-11/img/tweet-10-tensaku.png",
+        "sha256": "48ab39b9426dd393244d0083b2b7cd1f7cc210274d18b37e90d5cf93add2bd02",
+        "width": 1200,
+        "height": 675,
+        "resize": "1672×940（16:9）→1200×675 の一様縮小（sharp・fit fill、比の差1%未満）。切り取り・余白追加なし。Git 容量（content/sns 予算 60 MiB）のため 256 色パレット PNG に減色"
+      },
+      "review": {
+        "reviewedAt": "2026-10-26T15:49:43.440Z",
+        "by": "Claude（制作担当の目視）",
+        "viewportWidths": [
+          1200,
+          360
+        ],
+        "result": "ok",
+        "note": "48時間以内・書き直し1回込み・受付11/25（水）まで・総監が直接添削。価格・URLなし。",
+        "userImageReview": "pending"
+      },
+      "publication": "未公開（X 予約は運営者が実施）"
+    },
+    "t11": {
+      "copy": {
+        "examLabel": "コンクリート主任技士",
+        "headline": "小論文が書けない？",
+        "points": [
+          "担当した業務",
+          "困った条件",
+          "判断したこと",
+          "確認した記録",
+          "今後の改善"
+        ],
+        "benefit": "まず5行のメモから",
+        "authority": "総監が解説"
+      },
+      "evidence": [
+        "content/sns/x/draft/113-concrete-chief-final-2026-11/tweets.md#Tweet11"
+      ],
+      "pose": "メモ帳を見せながら優しく語りかける",
+      "references": [
+        {
+          "path": "content/coconala/assets/pop-20260927/thumb-cce-essay-tensaku.png",
+          "sha256": "0ad039fb31a33e1fc70f1ef07d01d7cc88003210681e4b6995bb72be82833143"
+        },
+        {
+          "path": "content/coconala/assets/pop-20260927/thumb-cce-essay-pdf.png",
+          "sha256": "c9a407d15ff965033ae02e910a38c32c10493ae0904ec76396d01360c6728959"
+        },
+        {
+          "path": "content/coconala/assets/pop-20260927/thumb-cce-takuitsu-pdf.png",
+          "sha256": "3779cf896009eb106a3d1107385ceef13d02c9140a499b1e2470850353de46fd"
+        }
+      ],
+      "model": "gpt-6-astra",
+      "prompt": "添付の承認済みコンクリート主任技士POP画像3枚（ココナラ商品サムネイル）をデザインと人物の参照に、doboku-noteの資格学習用X投稿画像を新規制作。\n横長16:9（最終1200×675）。文字・顔・手は全周約5%の安全域の内側に収め、余分な空白を減らして文字と人物を大きくする。背景は四辺まで連続させ、無地の余白帯は作らない。画像の縮小・切り取りはこちらで行うので、生成した16:9の原寸のまま保存する。\n左上に資格名「コンクリート主任技士」を白の極太文字で大きく。資格の主色: 紫（濃い紫〜青紫のグラデーション。承認済み主任技士原本と同じ）。白・黄色の極太文字、適度な濃紺の輪郭、少量の赤で強調する参照画像と同じPOPの勢い。\n主題（最も大きな見出し、1〜2行）: 「小論文が書けない？」。\n要点は白い札またはカードに、次の文字列をそのまま1項目1行で: 「担当した業務」、「困った条件」、「判断したこと」、「確認した記録」、「今後の改善」。\n補足は「まず5行のメモから」だけ。\n下部に著者の専門性の黄色帯: 「総監が解説」（対象資格の表示とは別の領域に置き、総監の教材と誤認させない）。\n先生（doboku-note先生）は右側に大きく、参照画像と完全に同一人物: 40代男性、黒の短髪、黒縁メガネ、短いあごひげ、白い無地のヘルメット、濃紺の作業服・白シャツ・紺ネクタイ・黄色の反射ベスト。ポーズ: メモ帳を見せながら優しく語りかける。顔・手と文字を重ねない。\n指定した文字列以外の日本語・英語・数字を描かない。ブランド名、URL、価格、ハッシュタグ、根拠のない実績、合格保証は入れない。\n幅360pxのスマホ表示でも資格名と見出しが読める大きな文字にし、細かな説明を詰め込まない。文字は誤字なく正確に。",
+      "generation": {
+        "tool": "scripts/lib/codex-image.mjs generateWithCodex（codex exec の image_gen）",
+        "path": ".tmp/cce-pop/raw/113-11.png",
+        "sha256": "94092aecd614b6abc59a7fd6779c9b0eb499f6236d2b23293a231e9fa3c7b11f",
+        "width": 1672,
+        "height": 941,
+        "previous": []
+      },
+      "output": {
+        "path": "content/sns/x/draft/113-concrete-chief-final-2026-11/img/tweet-11-kakenai.png",
+        "sha256": "e467fdea631d58ad1d92556fe559a7e01a500450ffe5f6645eab21ee55aadc0b",
+        "width": 1200,
+        "height": 675,
+        "resize": "1672×941（16:9）→1200×675 の一様縮小（sharp・fit fill、比の差1%未満）。切り取り・余白追加なし。Git 容量（content/sns 予算 60 MiB）のため 256 色パレット PNG に減色"
+      },
+      "review": {
+        "reviewedAt": "2026-10-26T15:49:44.257Z",
+        "by": "Claude（制作担当の目視）",
+        "viewportWidths": [
+          1200,
+          360
+        ],
+        "result": "ok",
+        "note": "5行メモの5項目が本文と一致。",
+        "userImageReview": "pending"
+      },
+      "publication": "未公開（X 予約は運営者が実施）"
+    },
+    "t12": {
+      "copy": {
+        "examLabel": "コンクリート主任技士・技士",
+        "headline": "取り違えやすい用語",
+        "points": [
+          "吸水量：絶乾 → 表乾",
+          "表面水：表乾 → 湿潤",
+          "配合計算の基準は表乾"
+        ],
+        "authority": "総監が解説"
+      },
+      "evidence": [
+        "content/sns/x/draft/113-concrete-chief-final-2026-11/tweets.md#Tweet12"
+      ],
+      "pose": "両手で2枚のカードを見比べる",
+      "references": [
+        {
+          "path": "content/coconala/assets/pop-20260927/thumb-cce-essay-tensaku.png",
+          "sha256": "0ad039fb31a33e1fc70f1ef07d01d7cc88003210681e4b6995bb72be82833143"
+        },
+        {
+          "path": "content/coconala/assets/pop-20260927/thumb-cce-essay-pdf.png",
+          "sha256": "c9a407d15ff965033ae02e910a38c32c10493ae0904ec76396d01360c6728959"
+        },
+        {
+          "path": "content/coconala/assets/pop-20260927/thumb-cce-takuitsu-pdf.png",
+          "sha256": "3779cf896009eb106a3d1107385ceef13d02c9140a499b1e2470850353de46fd"
+        }
+      ],
+      "model": "gpt-6-astra",
+      "prompt": "添付の承認済みコンクリート主任技士POP画像3枚（ココナラ商品サムネイル）をデザインと人物の参照に、doboku-noteの資格学習用X投稿画像を新規制作。\n横長16:9（最終1200×675）。文字・顔・手は全周約5%の安全域の内側に収め、余分な空白を減らして文字と人物を大きくする。背景は四辺まで連続させ、無地の余白帯は作らない。画像の縮小・切り取りはこちらで行うので、生成した16:9の原寸のまま保存する。\n左上に資格名「コンクリート主任技士・技士」を白の極太文字で大きく。資格の主色: 紫（濃い紫〜青紫のグラデーション。承認済み主任技士原本と同じ）。白・黄色の極太文字、適度な濃紺の輪郭、少量の赤で強調する参照画像と同じPOPの勢い。\n主題（最も大きな見出し、1〜2行）: 「取り違えやすい用語」。\n要点は白い札またはカードに、次の文字列をそのまま1項目1行で: 「吸水量：絶乾 → 表乾」、「表面水：表乾 → 湿潤」、「配合計算の基準は表乾」。\n下部に著者の専門性の黄色帯: 「総監が解説」（対象資格の表示とは別の領域に置き、総監の教材と誤認させない）。\n先生（doboku-note先生）は右側に大きく、参照画像と完全に同一人物: 40代男性、黒の短髪、黒縁メガネ、短いあごひげ、白い無地のヘルメット、濃紺の作業服・白シャツ・紺ネクタイ・黄色の反射ベスト。ポーズ: 両手で2枚のカードを見比べる。顔・手と文字を重ねない。\n指定した文字列以外の日本語・英語・数字を描かない。ブランド名、URL、価格、ハッシュタグ、根拠のない実績、合格保証は入れない。\n幅360pxのスマホ表示でも資格名と見出しが読める大きな文字にし、細かな説明を詰め込まない。文字は誤字なく正確に。",
+      "generation": {
+        "tool": "scripts/lib/codex-image.mjs generateWithCodex（codex exec の image_gen）",
+        "path": ".tmp/cce-pop/raw/113-12.png",
+        "sha256": "5a83306e6d7f9ec3c7eab2b3a9d6f76d3c225522002c2ef26bfa3a2520ab02e8",
+        "width": 1672,
+        "height": 941,
+        "previous": []
+      },
+      "output": {
+        "path": "content/sns/x/draft/113-concrete-chief-final-2026-11/img/tweet-12-kotsuzai-mizu.png",
+        "sha256": "ede56b5ec77ce58db56221a3fd1478303aecf38feea65c4f7c09cc5601c9442f",
+        "width": 1200,
+        "height": 675,
+        "resize": "1672×941（16:9）→1200×675 の一様縮小（sharp・fit fill、比の差1%未満）。切り取り・余白追加なし。Git 容量（content/sns 予算 60 MiB）のため 256 色パレット PNG に減色"
+      },
+      "review": {
+        "reviewedAt": "2026-10-26T15:49:45.255Z",
+        "by": "Claude（制作担当の目視）",
+        "viewportWidths": [
+          1200,
+          360
+        ],
+        "result": "ok",
+        "note": "吸水量・表面水・表乾基準が本文と一致。",
+        "userImageReview": "pending"
+      },
+      "publication": "未公開（X 予約は運営者が実施）"
+    },
+    "t13": {
+      "copy": {
+        "examLabel": "コンクリート主任技士",
+        "headline": "択一 直前パック",
+        "points": [
+          "予想50問",
+          "配合計算12問",
+          "一問一答157問"
+        ],
+        "benefit": "試験まで8日",
+        "authority": "総監が制作"
+      },
+      "evidence": [
+        "content/sns/x/draft/113-concrete-chief-final-2026-11/tweets.md#Tweet13"
+      ],
+      "pose": "資料を指して紹介する（承認済み択一原本と同じ役割）",
+      "references": [
+        {
+          "path": "content/coconala/assets/pop-20260927/thumb-cce-essay-tensaku.png",
+          "sha256": "0ad039fb31a33e1fc70f1ef07d01d7cc88003210681e4b6995bb72be82833143"
+        },
+        {
+          "path": "content/coconala/assets/pop-20260927/thumb-cce-essay-pdf.png",
+          "sha256": "c9a407d15ff965033ae02e910a38c32c10493ae0904ec76396d01360c6728959"
+        },
+        {
+          "path": "content/coconala/assets/pop-20260927/thumb-cce-takuitsu-pdf.png",
+          "sha256": "3779cf896009eb106a3d1107385ceef13d02c9140a499b1e2470850353de46fd"
+        }
+      ],
+      "model": "gpt-6-astra",
+      "prompt": "添付の承認済みコンクリート主任技士POP画像3枚（ココナラ商品サムネイル）をデザインと人物の参照に、doboku-noteの資格学習用X投稿画像を新規制作。\n横長16:9（最終1200×675）。文字・顔・手は全周約5%の安全域の内側に収め、余分な空白を減らして文字と人物を大きくする。背景は四辺まで連続させ、無地の余白帯は作らない。画像の縮小・切り取りはこちらで行うので、生成した16:9の原寸のまま保存する。\n左上に資格名「コンクリート主任技士」を白の極太文字で大きく。資格の主色: 紫（濃い紫〜青紫のグラデーション。承認済み主任技士原本と同じ）。白・黄色の極太文字、適度な濃紺の輪郭、少量の赤で強調する参照画像と同じPOPの勢い。\n主題（最も大きな見出し、1〜2行）: 「択一 直前パック」。\n要点は白い札またはカードに、次の文字列をそのまま1項目1行で: 「予想50問」、「配合計算12問」、「一問一答157問」。\n補足は「試験まで8日」だけ。\n下部に著者の専門性の黄色帯: 「総監が制作」（対象資格の表示とは別の領域に置き、総監の教材と誤認させない）。\n先生（doboku-note先生）は右側に大きく、参照画像と完全に同一人物: 40代男性、黒の短髪、黒縁メガネ、短いあごひげ、白い無地のヘルメット、濃紺の作業服・白シャツ・紺ネクタイ・黄色の反射ベスト。ポーズ: 資料を指して紹介する（承認済み択一原本と同じ役割）。顔・手と文字を重ねない。\n指定した文字列以外の日本語・英語・数字を描かない。ブランド名、URL、価格、ハッシュタグ、根拠のない実績、合格保証は入れない。\n幅360pxのスマホ表示でも資格名と見出しが読める大きな文字にし、細かな説明を詰め込まない。文字は誤字なく正確に。",
+      "generation": {
+        "tool": "scripts/lib/codex-image.mjs generateWithCodex（codex exec の image_gen）",
+        "path": ".tmp/cce-pop/raw/113-13.png",
+        "sha256": "36b9e2a4d8debd80faef730c21baf5fd9d5e22b5c389d5e4aaae282bad5cb7fe",
+        "width": 1672,
+        "height": 941,
+        "previous": []
+      },
+      "output": {
+        "path": "content/sns/x/draft/113-concrete-chief-final-2026-11/img/tweet-13-chokuzen-pack.png",
+        "sha256": "df63a00b3032b51fc9aeef7e18edd3c87d16e2a20224ff52779e7c87c0f7534a",
+        "width": 1200,
+        "height": 675,
+        "resize": "1672×941（16:9）→1200×675 の一様縮小（sharp・fit fill、比の差1%未満）。切り取り・余白追加なし。Git 容量（content/sns 予算 60 MiB）のため 256 色パレット PNG に減色"
+      },
+      "review": {
+        "reviewedAt": "2026-10-26T15:49:46.248Z",
+        "by": "Claude（制作担当の目視）",
+        "viewportWidths": [
+          1200,
+          360
+        ],
+        "result": "ok",
+        "note": "予想50問・配合計算12問・一問一答157問（本文・products.json coconala-cce-takuitsu-pdf と一致）、試験まで8日。総監が制作。",
+        "userImageReview": "pending"
+      },
+      "publication": "未公開（X 予約は運営者が実施）"
+    },
+    "t14": {
+      "copy": {
+        "examLabel": "コンクリート主任技士・技士",
+        "headline": "ASRは3条件",
+        "points": [
+          "反応性骨材",
+          "水酸化アルカリ",
+          "水分"
+        ],
+        "benefit": "抑制対策も3方式",
+        "authority": "総監が解説"
+      },
+      "evidence": [
+        "content/sns/x/draft/113-concrete-chief-final-2026-11/tweets.md#Tweet14"
+      ],
+      "pose": "指を3本立てて示す",
+      "references": [
+        {
+          "path": "content/coconala/assets/pop-20260927/thumb-cce-essay-tensaku.png",
+          "sha256": "0ad039fb31a33e1fc70f1ef07d01d7cc88003210681e4b6995bb72be82833143"
+        },
+        {
+          "path": "content/coconala/assets/pop-20260927/thumb-cce-essay-pdf.png",
+          "sha256": "c9a407d15ff965033ae02e910a38c32c10493ae0904ec76396d01360c6728959"
+        },
+        {
+          "path": "content/coconala/assets/pop-20260927/thumb-cce-takuitsu-pdf.png",
+          "sha256": "3779cf896009eb106a3d1107385ceef13d02c9140a499b1e2470850353de46fd"
+        }
+      ],
+      "model": "gpt-6-astra",
+      "prompt": "添付の承認済みコンクリート主任技士POP画像3枚（ココナラ商品サムネイル）をデザインと人物の参照に、doboku-noteの資格学習用X投稿画像を新規制作。\n横長16:9（最終1200×675）。文字・顔・手は全周約5%の安全域の内側に収め、余分な空白を減らして文字と人物を大きくする。背景は四辺まで連続させ、無地の余白帯は作らない。画像の縮小・切り取りはこちらで行うので、生成した16:9の原寸のまま保存する。\n左上に資格名「コンクリート主任技士・技士」を白の極太文字で大きく。資格の主色: 紫（濃い紫〜青紫のグラデーション。承認済み主任技士原本と同じ）。白・黄色の極太文字、適度な濃紺の輪郭、少量の赤で強調する参照画像と同じPOPの勢い。\n主題（最も大きな見出し、1〜2行）: 「ASRは3条件」。\n要点は白い札またはカードに、次の文字列をそのまま1項目1行で: 「反応性骨材」、「水酸化アルカリ」、「水分」。\n補足は「抑制対策も3方式」だけ。\n下部に著者の専門性の黄色帯: 「総監が解説」（対象資格の表示とは別の領域に置き、総監の教材と誤認させない）。\n先生（doboku-note先生）は右側に大きく、参照画像と完全に同一人物: 40代男性、黒の短髪、黒縁メガネ、短いあごひげ、白い無地のヘルメット、濃紺の作業服・白シャツ・紺ネクタイ・黄色の反射ベスト。ポーズ: 指を3本立てて示す。顔・手と文字を重ねない。\n指定した文字列以外の日本語・英語・数字を描かない。ブランド名、URL、価格、ハッシュタグ、根拠のない実績、合格保証は入れない。\n幅360pxのスマホ表示でも資格名と見出しが読める大きな文字にし、細かな説明を詰め込まない。文字は誤字なく正確に。",
+      "generation": {
+        "tool": "scripts/lib/codex-image.mjs generateWithCodex（codex exec の image_gen）",
+        "path": ".tmp/cce-pop/raw/113-14.png",
+        "sha256": "ba7b90403e54a0b47c752f824ac35fab21c50c0de15316bb8cd370f12c086e8b",
+        "width": 1672,
+        "height": 941,
+        "previous": []
+      },
+      "output": {
+        "path": "content/sns/x/draft/113-concrete-chief-final-2026-11/img/tweet-14-asr.png",
+        "sha256": "83458a16122833e8800bee445c0cd507de190c7f7a0c8c71434f9fbb0f0eab5d",
+        "width": 1200,
+        "height": 675,
+        "resize": "1672×941（16:9）→1200×675 の一様縮小（sharp・fit fill、比の差1%未満）。切り取り・余白追加なし。Git 容量（content/sns 予算 60 MiB）のため 256 色パレット PNG に減色"
+      },
+      "review": {
+        "reviewedAt": "2026-10-26T15:49:47.030Z",
+        "by": "Claude（制作担当の目視）",
+        "viewportWidths": [
+          1200,
+          360
+        ],
+        "result": "ok",
+        "note": "ASRの3条件・抑制3方式が本文と一致。",
+        "userImageReview": "pending"
+      },
+      "publication": "未公開（X 予約は運営者が実施）"
+    },
+    "t15": {
+      "copy": {
+        "examLabel": "コンクリート主任技士・技士",
+        "headline": "混和材の反応の呼び名",
+        "points": [
+          "高炉スラグ微粉末：潜在水硬性",
+          "フライアッシュ・シリカフューム：ポゾラン反応"
+        ],
+        "authority": "総監が解説"
+      },
+      "evidence": [
+        "content/sns/x/draft/113-concrete-chief-final-2026-11/tweets.md#Tweet15"
+      ],
+      "pose": "両手で左右を見比べる",
+      "references": [
+        {
+          "path": "content/coconala/assets/pop-20260927/thumb-cce-essay-tensaku.png",
+          "sha256": "0ad039fb31a33e1fc70f1ef07d01d7cc88003210681e4b6995bb72be82833143"
+        },
+        {
+          "path": "content/coconala/assets/pop-20260927/thumb-cce-essay-pdf.png",
+          "sha256": "c9a407d15ff965033ae02e910a38c32c10493ae0904ec76396d01360c6728959"
+        },
+        {
+          "path": "content/coconala/assets/pop-20260927/thumb-cce-takuitsu-pdf.png",
+          "sha256": "3779cf896009eb106a3d1107385ceef13d02c9140a499b1e2470850353de46fd"
+        }
+      ],
+      "model": "gpt-6-astra",
+      "prompt": "添付の承認済みコンクリート主任技士POP画像3枚（ココナラ商品サムネイル）をデザインと人物の参照に、doboku-noteの資格学習用X投稿画像を新規制作。\n横長16:9（最終1200×675）。文字・顔・手は全周約5%の安全域の内側に収め、余分な空白を減らして文字と人物を大きくする。背景は四辺まで連続させ、無地の余白帯は作らない。画像の縮小・切り取りはこちらで行うので、生成した16:9の原寸のまま保存する。\n左上に資格名「コンクリート主任技士・技士」を白の極太文字で大きく。資格の主色: 紫（濃い紫〜青紫のグラデーション。承認済み主任技士原本と同じ）。白・黄色の極太文字、適度な濃紺の輪郭、少量の赤で強調する参照画像と同じPOPの勢い。\n主題（最も大きな見出し、1〜2行）: 「混和材の反応の呼び名」。\n要点は白い札またはカードに、次の文字列をそのまま1項目1行で: 「高炉スラグ微粉末：潜在水硬性」、「フライアッシュ・シリカフューム：ポゾラン反応」。\n下部に著者の専門性の黄色帯: 「総監が解説」（対象資格の表示とは別の領域に置き、総監の教材と誤認させない）。\n先生（doboku-note先生）は右側に大きく、参照画像と完全に同一人物: 40代男性、黒の短髪、黒縁メガネ、短いあごひげ、白い無地のヘルメット、濃紺の作業服・白シャツ・紺ネクタイ・黄色の反射ベスト。ポーズ: 両手で左右を見比べる。顔・手と文字を重ねない。\n指定した文字列以外の日本語・英語・数字を描かない。ブランド名、URL、価格、ハッシュタグ、根拠のない実績、合格保証は入れない。\n幅360pxのスマホ表示でも資格名と見出しが読める大きな文字にし、細かな説明を詰め込まない。文字は誤字なく正確に。",
+      "generation": {
+        "tool": "scripts/lib/codex-image.mjs generateWithCodex（codex exec の image_gen）",
+        "path": ".tmp/cce-pop/raw/113-15.png",
+        "sha256": "6160216cf2c2d5e6c7293e171d1b8c2c13d9ea4be9533970be75ff53202178e9",
+        "width": 1672,
+        "height": 941,
+        "previous": []
+      },
+      "output": {
+        "path": "content/sns/x/draft/113-concrete-chief-final-2026-11/img/tweet-15-konwazai.png",
+        "sha256": "6b4a15bcf71d7a4e5b6f002ac98fa0292f863ebe85de51830617d1f9fe275a46",
+        "width": 1200,
+        "height": 675,
+        "resize": "1672×941（16:9）→1200×675 の一様縮小（sharp・fit fill、比の差1%未満）。切り取り・余白追加なし。Git 容量（content/sns 予算 60 MiB）のため 256 色パレット PNG に減色"
+      },
+      "review": {
+        "reviewedAt": "2026-10-26T15:49:47.873Z",
+        "by": "Claude（制作担当の目視）",
+        "viewportWidths": [
+          1200,
+          360
+        ],
+        "result": "ok",
+        "note": "潜在水硬性／ポゾラン反応の対応が本文と一致。",
+        "userImageReview": "pending"
+      },
+      "publication": "未公開（X 予約は運営者が実施）"
+    },
+    "t16": {
+      "copy": {
+        "examLabel": "コンクリート主任技士",
+        "headline": "題材が決まらない方へ",
+        "points": [
+          "骨子の指導",
+          "答案の添削"
+        ],
+        "benefit": "受付は11/25（水）まで",
+        "authority": "総監が直接指導・添削"
+      },
+      "evidence": [
+        "content/sns/x/draft/113-concrete-chief-final-2026-11/tweets.md#Tweet16"
+      ],
+      "pose": "答案を手に相談に乗るように語りかける",
+      "references": [
+        {
+          "path": "content/coconala/assets/pop-20260927/thumb-cce-essay-tensaku.png",
+          "sha256": "0ad039fb31a33e1fc70f1ef07d01d7cc88003210681e4b6995bb72be82833143"
+        },
+        {
+          "path": "content/coconala/assets/pop-20260927/thumb-cce-essay-pdf.png",
+          "sha256": "c9a407d15ff965033ae02e910a38c32c10493ae0904ec76396d01360c6728959"
+        },
+        {
+          "path": "content/coconala/assets/pop-20260927/thumb-cce-takuitsu-pdf.png",
+          "sha256": "3779cf896009eb106a3d1107385ceef13d02c9140a499b1e2470850353de46fd"
+        }
+      ],
+      "model": "gpt-6-astra",
+      "prompt": "添付の承認済みコンクリート主任技士POP画像3枚（ココナラ商品サムネイル）をデザインと人物の参照に、doboku-noteの資格学習用X投稿画像を新規制作。\n横長16:9（最終1200×675）。文字・顔・手は全周約5%の安全域の内側に収め、余分な空白を減らして文字と人物を大きくする。背景は四辺まで連続させ、無地の余白帯は作らない。画像の縮小・切り取りはこちらで行うので、生成した16:9の原寸のまま保存する。\n左上に資格名「コンクリート主任技士」を白の極太文字で大きく。資格の主色: 紫（濃い紫〜青紫のグラデーション。承認済み主任技士原本と同じ）。白・黄色の極太文字、適度な濃紺の輪郭、少量の赤で強調する参照画像と同じPOPの勢い。\n主題（最も大きな見出し、1〜2行）: 「題材が決まらない方へ」。\n要点は白い札またはカードに、次の文字列をそのまま1項目1行で: 「骨子の指導」、「答案の添削」。\n補足は「受付は11/25（水）まで」だけ。\n下部に著者の専門性の黄色帯: 「総監が直接指導・添削」（対象資格の表示とは別の領域に置き、総監の教材と誤認させない）。\n先生（doboku-note先生）は右側に大きく、参照画像と完全に同一人物: 40代男性、黒の短髪、黒縁メガネ、短いあごひげ、白い無地のヘルメット、濃紺の作業服・白シャツ・紺ネクタイ・黄色の反射ベスト。ポーズ: 答案を手に相談に乗るように語りかける。顔・手と文字を重ねない。\n指定した文字列以外の日本語・英語・数字を描かない。ブランド名、URL、価格、ハッシュタグ、根拠のない実績、合格保証は入れない。\n幅360pxのスマホ表示でも資格名と見出しが読める大きな文字にし、細かな説明を詰め込まない。文字は誤字なく正確に。",
+      "generation": {
+        "tool": "scripts/lib/codex-image.mjs generateWithCodex（codex exec の image_gen）",
+        "path": ".tmp/cce-pop/raw/113-16.png",
+        "sha256": "3dea6d9947b6f5b284124ce935b60d3284751c605fcf837ab81a76a9bc4d4a70",
+        "width": 1672,
+        "height": 941,
+        "previous": []
+      },
+      "output": {
+        "path": "content/sns/x/draft/113-concrete-chief-final-2026-11/img/tweet-16-tensaku-shido.png",
+        "sha256": "d764c76512e5d5d1cd7e24cdde292c309312030f8d7417bbcd5c296c9dc44989",
+        "width": 1200,
+        "height": 675,
+        "resize": "1672×941（16:9）→1200×675 の一様縮小（sharp・fit fill、比の差1%未満）。切り取り・余白追加なし。Git 容量（content/sns 予算 60 MiB）のため 256 色パレット PNG に減色"
+      },
+      "review": {
+        "reviewedAt": "2026-10-26T15:49:48.917Z",
+        "by": "Claude（制作担当の目視）",
+        "viewportWidths": [
+          1200,
+          360
+        ],
+        "result": "ok",
+        "note": "骨子の指導・答案の添削・受付11/25（水）まで。肩書きは指導と添削の両方なので「総監が直接指導・添削」。",
+        "userImageReview": "pending"
+      },
+      "publication": "未公開（X 予約は運営者が実施）"
+    },
+    "t17": {
+      "copy": {
+        "examLabel": "コンクリート主任技士",
+        "headline": "小論文は設問を読み切ってから",
+        "points": [
+          "何について",
+          "どの立場で",
+          "何を論じるか"
+        ],
+        "authority": "総監が解説"
+      },
+      "evidence": [
+        "content/sns/x/draft/113-concrete-chief-final-2026-11/tweets.md#Tweet17"
+      ],
+      "pose": "虫眼鏡で問題用紙を確認する",
+      "references": [
+        {
+          "path": "content/coconala/assets/pop-20260927/thumb-cce-essay-tensaku.png",
+          "sha256": "0ad039fb31a33e1fc70f1ef07d01d7cc88003210681e4b6995bb72be82833143"
+        },
+        {
+          "path": "content/coconala/assets/pop-20260927/thumb-cce-essay-pdf.png",
+          "sha256": "c9a407d15ff965033ae02e910a38c32c10493ae0904ec76396d01360c6728959"
+        },
+        {
+          "path": "content/coconala/assets/pop-20260927/thumb-cce-takuitsu-pdf.png",
+          "sha256": "3779cf896009eb106a3d1107385ceef13d02c9140a499b1e2470850353de46fd"
+        }
+      ],
+      "model": "gpt-6-astra",
+      "prompt": "添付の承認済みコンクリート主任技士POP画像3枚（ココナラ商品サムネイル）をデザインと人物の参照に、doboku-noteの資格学習用X投稿画像を新規制作。\n横長16:9（最終1200×675）。文字・顔・手は全周約5%の安全域の内側に収め、余分な空白を減らして文字と人物を大きくする。背景は四辺まで連続させ、無地の余白帯は作らない。画像の縮小・切り取りはこちらで行うので、生成した16:9の原寸のまま保存する。\n左上に資格名「コンクリート主任技士」を白の極太文字で大きく。資格の主色: 紫（濃い紫〜青紫のグラデーション。承認済み主任技士原本と同じ）。白・黄色の極太文字、適度な濃紺の輪郭、少量の赤で強調する参照画像と同じPOPの勢い。\n主題（最も大きな見出し、1〜2行）: 「小論文は設問を読み切ってから」。\n要点は白い札またはカードに、次の文字列をそのまま1項目1行で: 「何について」、「どの立場で」、「何を論じるか」。\n下部に著者の専門性の黄色帯: 「総監が解説」（対象資格の表示とは別の領域に置き、総監の教材と誤認させない）。\n先生（doboku-note先生）は右側に大きく、参照画像と完全に同一人物: 40代男性、黒の短髪、黒縁メガネ、短いあごひげ、白い無地のヘルメット、濃紺の作業服・白シャツ・紺ネクタイ・黄色の反射ベスト。ポーズ: 虫眼鏡で問題用紙を確認する。顔・手と文字を重ねない。\n指定した文字列以外の日本語・英語・数字を描かない。ブランド名、URL、価格、ハッシュタグ、根拠のない実績、合格保証は入れない。\n幅360pxのスマホ表示でも資格名と見出しが読める大きな文字にし、細かな説明を詰め込まない。文字は誤字なく正確に。\n漢字は字形を正確に（特に「験」の右側は「㑒」。「論」「題」も崩さない）。",
+      "generation": {
+        "tool": "scripts/lib/codex-image.mjs generateWithCodex（codex exec の image_gen）",
+        "path": ".tmp/cce-pop/raw/113-17.png",
+        "sha256": "866ce7d05fb8cfe98a41d43dba54fb5f0051010fb072f86d9468c59be243838b",
+        "width": 1672,
+        "height": 941,
+        "previous": [
+          {
+            "path": ".tmp/cce-pop/raw/113-17.v1.png",
+            "sha256": "a874005e98a9b069839da48429854df9b6c1308718b7d9c4316b4f7dd032d8a9",
+            "width": 1672,
+            "height": 941,
+            "note": "不採用（review.note 参照）"
+          }
+        ]
+      },
+      "output": {
+        "path": "content/sns/x/draft/113-concrete-chief-final-2026-11/img/tweet-17-setsumon-bunkai.png",
+        "sha256": "ad7585968767d523f3f67c593964cd4673ac8c5348ffc1f8a0f498fe92b0073e",
+        "width": 1200,
+        "height": 675,
+        "resize": "1672×941（16:9）→1200×675 の一様縮小（sharp・fit fill、比の差1%未満）。切り取り・余白追加なし。Git 容量（content/sns 予算 60 MiB）のため 256 色パレット PNG に減色"
+      },
+      "review": {
+        "reviewedAt": "2026-10-26T15:49:49.771Z",
+        "by": "Claude（制作担当の目視）",
+        "viewportWidths": [
+          1200,
+          360
+        ],
+        "result": "ok",
+        "note": "初版は見出しに小論文の語がなく択一と紛れるため「小論文は設問を読み切ってから」で再生成（初版は generation.previous）。3項目は本文と一致。",
+        "userImageReview": "pending"
+      },
+      "publication": "未公開（X 予約は運営者が実施）"
+    },
+    "t18": {
+      "copy": {
+        "examLabel": "コンクリート主任技士",
+        "headline": "択一の出題傾向",
+        "benefit": "施工は打込み・養生・マスコンがほぼ毎年",
+        "authority": "総監が解説"
+      },
+      "evidence": [
+        "content/sns/x/draft/113-concrete-chief-final-2026-11/tweets.md#Tweet18"
+      ],
+      "pose": "グラフの資料を指して説明する",
+      "references": [
+        {
+          "path": "content/coconala/assets/pop-20260927/thumb-cce-essay-tensaku.png",
+          "sha256": "0ad039fb31a33e1fc70f1ef07d01d7cc88003210681e4b6995bb72be82833143"
+        },
+        {
+          "path": "content/coconala/assets/pop-20260927/thumb-cce-essay-pdf.png",
+          "sha256": "c9a407d15ff965033ae02e910a38c32c10493ae0904ec76396d01360c6728959"
+        },
+        {
+          "path": "content/coconala/assets/pop-20260927/thumb-cce-takuitsu-pdf.png",
+          "sha256": "3779cf896009eb106a3d1107385ceef13d02c9140a499b1e2470850353de46fd"
+        }
+      ],
+      "model": "gpt-6-astra",
+      "prompt": "添付の承認済みコンクリート主任技士POP画像3枚（ココナラ商品サムネイル）をデザインと人物の参照に、doboku-noteの資格学習用X投稿画像を新規制作。\n横長16:9（最終1200×675）。文字・顔・手は全周約5%の安全域の内側に収め、余分な空白を減らして文字と人物を大きくする。背景は四辺まで連続させ、無地の余白帯は作らない。画像の縮小・切り取りはこちらで行うので、生成した16:9の原寸のまま保存する。\n左上に資格名「コンクリート主任技士」を白の極太文字で大きく。資格の主色: 紫（濃い紫〜青紫のグラデーション。承認済み主任技士原本と同じ）。白・黄色の極太文字、適度な濃紺の輪郭、少量の赤で強調する参照画像と同じPOPの勢い。\n主題（最も大きな見出し、1〜2行）: 「択一の出題傾向」。\n補足は「施工は打込み・養生・マスコンがほぼ毎年」だけ。\n下部に著者の専門性の黄色帯: 「総監が解説」（対象資格の表示とは別の領域に置き、総監の教材と誤認させない）。\n先生（doboku-note先生）は右側に大きく、参照画像と完全に同一人物: 40代男性、黒の短髪、黒縁メガネ、短いあごひげ、白い無地のヘルメット、濃紺の作業服・白シャツ・紺ネクタイ・黄色の反射ベスト。ポーズ: グラフの資料を指して説明する。顔・手と文字を重ねない。\n指定した文字列以外の日本語・英語・数字を描かない。ブランド名、URL、価格、ハッシュタグ、根拠のない実績、合格保証は入れない。\n幅360pxのスマホ表示でも資格名と見出しが読める大きな文字にし、細かな説明を詰め込まない。文字は誤字なく正確に。",
+      "generation": {
+        "tool": "scripts/lib/codex-image.mjs generateWithCodex（codex exec の image_gen）",
+        "path": ".tmp/cce-pop/raw/113-18.png",
+        "sha256": "94769b4f54b1f09f3a60d0e7a559e53cbec238b99f763527ef74404fdf7d5111",
+        "width": 1672,
+        "height": 941,
+        "previous": []
+      },
+      "output": {
+        "path": "content/sns/x/draft/113-concrete-chief-final-2026-11/img/tweet-18-trends.png",
+        "sha256": "1500163849c3979a35f8198b7645758e493b0c06c34cb0ec4148f17d302033aa",
+        "width": 1200,
+        "height": 675,
+        "resize": "1672×941（16:9）→1200×675 の一様縮小（sharp・fit fill、比の差1%未満）。切り取り・余白追加なし。Git 容量（content/sns 予算 60 MiB）のため 256 色パレット PNG に減色"
+      },
+      "review": {
+        "reviewedAt": "2026-10-26T15:49:50.518Z",
+        "by": "Claude（制作担当の目視）",
+        "viewportWidths": [
+          1200,
+          360
+        ],
+        "result": "ok",
+        "note": "択一の出題傾向・施工は打込み・養生・マスコンがほぼ毎年が本文と一致。棒グラフは装飾で数値なし。",
+        "userImageReview": "pending"
+      },
+      "publication": "未公開（X 予約は運営者が実施）"
+    },
+    "t19": {
+      "copy": {
+        "examLabel": "コンクリート技士",
+        "headline": "試験まであと4日",
+        "points": [
+          "間違えた問題",
+          "弱点メモ"
+        ],
+        "benefit": "新しい教材は増やさない",
+        "authority": "総監が解説"
+      },
+      "evidence": [
+        "content/sns/x/draft/113-concrete-chief-final-2026-11/tweets.md#Tweet19"
+      ],
+      "pose": "落ち着いた笑顔で親指を立てる",
+      "references": [
+        {
+          "path": "content/coconala/assets/pop-20260927/thumb-cce-essay-tensaku.png",
+          "sha256": "0ad039fb31a33e1fc70f1ef07d01d7cc88003210681e4b6995bb72be82833143"
+        },
+        {
+          "path": "content/coconala/assets/pop-20260927/thumb-cce-essay-pdf.png",
+          "sha256": "c9a407d15ff965033ae02e910a38c32c10493ae0904ec76396d01360c6728959"
+        },
+        {
+          "path": "content/coconala/assets/pop-20260927/thumb-cce-takuitsu-pdf.png",
+          "sha256": "3779cf896009eb106a3d1107385ceef13d02c9140a499b1e2470850353de46fd"
+        }
+      ],
+      "model": "gpt-6-astra",
+      "prompt": "添付の承認済みコンクリート主任技士POP画像3枚（ココナラ商品サムネイル）をデザインと人物の参照に、doboku-noteの資格学習用X投稿画像を新規制作。\n横長16:9（最終1200×675）。文字・顔・手は全周約5%の安全域の内側に収め、余分な空白を減らして文字と人物を大きくする。背景は四辺まで連続させ、無地の余白帯は作らない。画像の縮小・切り取りはこちらで行うので、生成した16:9の原寸のまま保存する。\n左上に資格名「コンクリート技士」を白の極太文字で大きく。資格の主色: 緑寄りのティール（#287a62 を主色。紫は使わない）。白・黄色の極太文字、適度な濃紺の輪郭、少量の赤で強調する参照画像と同じPOPの勢い。\n主題（最も大きな見出し、1〜2行）: 「試験まであと4日」。\n要点は白い札またはカードに、次の文字列をそのまま1項目1行で: 「間違えた問題」、「弱点メモ」。\n補足は「新しい教材は増やさない」だけ。\n下部に著者の専門性の黄色帯: 「総監が解説」（対象資格の表示とは別の領域に置き、総監の教材と誤認させない）。\n先生（doboku-note先生）は右側に大きく、参照画像と完全に同一人物: 40代男性、黒の短髪、黒縁メガネ、短いあごひげ、白い無地のヘルメット、濃紺の作業服・白シャツ・紺ネクタイ・黄色の反射ベスト。ポーズ: 落ち着いた笑顔で親指を立てる。顔・手と文字を重ねない。\n指定した文字列以外の日本語・英語・数字を描かない。ブランド名、URL、価格、ハッシュタグ、根拠のない実績、合格保証は入れない。\n幅360pxのスマホ表示でも資格名と見出しが読める大きな文字にし、細かな説明を詰め込まない。文字は誤字なく正確に。",
+      "generation": {
+        "tool": "scripts/lib/codex-image.mjs generateWithCodex（codex exec の image_gen）",
+        "path": ".tmp/cce-pop/raw/113-19.png",
+        "sha256": "679b3a3b0e12b423d8526602262ba47bfc5ff9b94662ec0e20416674b55d2683",
+        "width": 1672,
+        "height": 941,
+        "previous": []
+      },
+      "output": {
+        "path": "content/sns/x/draft/113-concrete-chief-final-2026-11/img/tweet-19-nokori4.png",
+        "sha256": "7017c898aebb85459dd4d5adc3ad11129a354ae75cfafffbc47265396d8a4613",
+        "width": 1200,
+        "height": 675,
+        "resize": "1672×941（16:9）→1200×675 の一様縮小（sharp・fit fill、比の差1%未満）。切り取り・余白追加なし。Git 容量（content/sns 予算 60 MiB）のため 256 色パレット PNG に減色"
+      },
+      "review": {
+        "reviewedAt": "2026-10-26T15:49:51.298Z",
+        "by": "Claude（制作担当の目視）",
+        "viewportWidths": [
+          1200,
+          360
+        ],
+        "result": "ok",
+        "note": "技士の資格色。あと4日・間違えた問題・弱点メモ・新しい教材は増やさないが本文と一致。",
+        "userImageReview": "pending"
+      },
+      "publication": "未公開（X 予約は運営者が実施）"
+    },
+    "t20": {
+      "copy": {
+        "examLabel": "コンクリート技士",
+        "headline": "択一 直前パック",
+        "points": [
+          "配合計算・JIS判断 12問",
+          "一問一答139問"
+        ],
+        "benefit": "試験は4日後",
+        "authority": "総監が制作"
+      },
+      "evidence": [
+        "content/sns/x/draft/113-concrete-chief-final-2026-11/tweets.md#Tweet20"
+      ],
+      "pose": "資料を指して紹介する",
+      "references": [
+        {
+          "path": "content/coconala/assets/pop-20260927/thumb-cce-essay-tensaku.png",
+          "sha256": "0ad039fb31a33e1fc70f1ef07d01d7cc88003210681e4b6995bb72be82833143"
+        },
+        {
+          "path": "content/coconala/assets/pop-20260927/thumb-cce-essay-pdf.png",
+          "sha256": "c9a407d15ff965033ae02e910a38c32c10493ae0904ec76396d01360c6728959"
+        },
+        {
+          "path": "content/coconala/assets/pop-20260927/thumb-cce-takuitsu-pdf.png",
+          "sha256": "3779cf896009eb106a3d1107385ceef13d02c9140a499b1e2470850353de46fd"
+        }
+      ],
+      "model": "gpt-6-astra",
+      "prompt": "添付の承認済みコンクリート主任技士POP画像3枚（ココナラ商品サムネイル）をデザインと人物の参照に、doboku-noteの資格学習用X投稿画像を新規制作。\n横長16:9（最終1200×675）。文字・顔・手は全周約5%の安全域の内側に収め、余分な空白を減らして文字と人物を大きくする。背景は四辺まで連続させ、無地の余白帯は作らない。画像の縮小・切り取りはこちらで行うので、生成した16:9の原寸のまま保存する。\n左上に資格名「コンクリート技士」を白の極太文字で大きく。資格の主色: 緑寄りのティール（#287a62 を主色。紫は使わない）。白・黄色の極太文字、適度な濃紺の輪郭、少量の赤で強調する参照画像と同じPOPの勢い。\n主題（最も大きな見出し、1〜2行）: 「択一 直前パック」。\n要点は白い札またはカードに、次の文字列をそのまま1項目1行で: 「配合計算・JIS判断 12問」、「一問一答139問」。\n補足は「試験は4日後」だけ。\n下部に著者の専門性の黄色帯: 「総監が制作」（対象資格の表示とは別の領域に置き、総監の教材と誤認させない）。\n先生（doboku-note先生）は右側に大きく、参照画像と完全に同一人物: 40代男性、黒の短髪、黒縁メガネ、短いあごひげ、白い無地のヘルメット、濃紺の作業服・白シャツ・紺ネクタイ・黄色の反射ベスト。ポーズ: 資料を指して紹介する。顔・手と文字を重ねない。\n指定した文字列以外の日本語・英語・数字を描かない。ブランド名、URL、価格、ハッシュタグ、根拠のない実績、合格保証は入れない。\n幅360pxのスマホ表示でも資格名と見出しが読める大きな文字にし、細かな説明を詰め込まない。文字は誤字なく正確に。",
+      "generation": {
+        "tool": "scripts/lib/codex-image.mjs generateWithCodex（codex exec の image_gen）",
+        "path": ".tmp/cce-pop/raw/113-20.png",
+        "sha256": "1babfed611fa0c36e8ab49ac5da098fcc3f861d8ce3089b5d1fae80bbb7f29a0",
+        "width": 1672,
+        "height": 941,
+        "previous": []
+      },
+      "output": {
+        "path": "content/sns/x/draft/113-concrete-chief-final-2026-11/img/tweet-20-gishi-pack.png",
+        "sha256": "ad65997acedca930ab0ac875ae5ce171e1921a5d898ea1c0d7404aa49d3bfc15",
+        "width": 1200,
+        "height": 675,
+        "resize": "1672×941（16:9）→1200×675 の一様縮小（sharp・fit fill、比の差1%未満）。切り取り・余白追加なし。Git 容量（content/sns 予算 60 MiB）のため 256 色パレット PNG に減色"
+      },
+      "review": {
+        "reviewedAt": "2026-10-26T15:49:52.375Z",
+        "by": "Claude（制作担当の目視）",
+        "viewportWidths": [
+          1200,
+          360
+        ],
+        "result": "ok",
+        "note": "技士の資格色。配合計算・JIS判断12問・一問一答139問（本文・products.json の技士直前パックと一致）、試験は4日後。総監が制作。",
+        "userImageReview": "pending"
+      },
+      "publication": "未公開（X 予約は運営者が実施）"
+    },
+    "t21": {
+      "copy": {
+        "examLabel": "コンクリート主任技士・技士",
+        "headline": "打重ね時間と湿潤養生",
+        "points": [
+          "打重ね：25℃以下 2.5時間 / 25℃超 2.0時間",
+          "湿潤養生（15℃以上）：普通5日 / B種7日"
+        ],
+        "authority": "総監が解説"
+      },
+      "evidence": [
+        "content/sns/x/draft/113-concrete-chief-final-2026-11/tweets.md#Tweet21"
+      ],
+      "pose": "指を立ててポイントを示す",
+      "references": [
+        {
+          "path": "content/coconala/assets/pop-20260927/thumb-cce-essay-tensaku.png",
+          "sha256": "0ad039fb31a33e1fc70f1ef07d01d7cc88003210681e4b6995bb72be82833143"
+        },
+        {
+          "path": "content/coconala/assets/pop-20260927/thumb-cce-essay-pdf.png",
+          "sha256": "c9a407d15ff965033ae02e910a38c32c10493ae0904ec76396d01360c6728959"
+        },
+        {
+          "path": "content/coconala/assets/pop-20260927/thumb-cce-takuitsu-pdf.png",
+          "sha256": "3779cf896009eb106a3d1107385ceef13d02c9140a499b1e2470850353de46fd"
+        }
+      ],
+      "model": "gpt-6-astra",
+      "prompt": "添付の承認済みコンクリート主任技士POP画像3枚（ココナラ商品サムネイル）をデザインと人物の参照に、doboku-noteの資格学習用X投稿画像を新規制作。\n横長16:9（最終1200×675）。文字・顔・手は全周約5%の安全域の内側に収め、余分な空白を減らして文字と人物を大きくする。背景は四辺まで連続させ、無地の余白帯は作らない。画像の縮小・切り取りはこちらで行うので、生成した16:9の原寸のまま保存する。\n左上に資格名「コンクリート主任技士・技士」を白の極太文字で大きく。資格の主色: 紫（濃い紫〜青紫のグラデーション。承認済み主任技士原本と同じ）。白・黄色の極太文字、適度な濃紺の輪郭、少量の赤で強調する参照画像と同じPOPの勢い。\n主題（最も大きな見出し、1〜2行）: 「打重ね時間と湿潤養生」。\n要点は白い札またはカードに、次の文字列をそのまま1項目1行で: 「打重ね：25℃以下 2.5時間 / 25℃超 2.0時間」、「湿潤養生（15℃以上）：普通5日 / B種7日」。\n下部に著者の専門性の黄色帯: 「総監が解説」（対象資格の表示とは別の領域に置き、総監の教材と誤認させない）。\n先生（doboku-note先生）は右側に大きく、参照画像と完全に同一人物: 40代男性、黒の短髪、黒縁メガネ、短いあごひげ、白い無地のヘルメット、濃紺の作業服・白シャツ・紺ネクタイ・黄色の反射ベスト。ポーズ: 指を立ててポイントを示す。顔・手と文字を重ねない。\n指定した文字列以外の日本語・英語・数字を描かない。ブランド名、URL、価格、ハッシュタグ、根拠のない実績、合格保証は入れない。\n幅360pxのスマホ表示でも資格名と見出しが読める大きな文字にし、細かな説明を詰め込まない。文字は誤字なく正確に。",
+      "generation": {
+        "tool": "scripts/lib/codex-image.mjs generateWithCodex（codex exec の image_gen）",
+        "path": ".tmp/cce-pop/raw/113-21.png",
+        "sha256": "58d24c08142ef631652142fb1e4f8d4258df96d9a5eae090909e4156ec09f790",
+        "width": 1672,
+        "height": 941,
+        "previous": []
+      },
+      "output": {
+        "path": "content/sns/x/draft/113-concrete-chief-final-2026-11/img/tweet-21-uchikasane-yojo.png",
+        "sha256": "1eae94feb849199670d2f7f989a094ab3b22bbd1d1d2fd65b0713271f4779380",
+        "width": 1200,
+        "height": 675,
+        "resize": "1672×941（16:9）→1200×675 の一様縮小（sharp・fit fill、比の差1%未満）。切り取り・余白追加なし。Git 容量（content/sns 予算 60 MiB）のため 256 色パレット PNG に減色"
+      },
+      "review": {
+        "reviewedAt": "2026-10-26T15:49:53.207Z",
+        "by": "Claude（制作担当の目視）",
+        "viewportWidths": [
+          1200,
+          360
+        ],
+        "result": "ok",
+        "note": "打重ね25℃以下2.5時間/25℃超2.0時間、湿潤養生15℃以上 普通5日/B種7日が本文と一致。",
+        "userImageReview": "pending"
+      },
+      "publication": "未公開（X 予約は運営者が実施）"
+    },
+    "t22": {
+      "copy": {
+        "examLabel": "コンクリート主任技士",
+        "headline": "自分の立場の答案から",
+        "points": [
+          "8つの立場",
+          "5テーマ",
+          "全40答案"
+        ],
+        "benefit": "無料のもくじ",
+        "authority": "総監が制作"
+      },
+      "evidence": [
+        "content/sns/x/draft/113-concrete-chief-final-2026-11/tweets.md#Tweet22"
+      ],
+      "pose": "答案の束を手に紹介する",
+      "references": [
+        {
+          "path": "content/coconala/assets/pop-20260927/thumb-cce-essay-tensaku.png",
+          "sha256": "0ad039fb31a33e1fc70f1ef07d01d7cc88003210681e4b6995bb72be82833143"
+        },
+        {
+          "path": "content/coconala/assets/pop-20260927/thumb-cce-essay-pdf.png",
+          "sha256": "c9a407d15ff965033ae02e910a38c32c10493ae0904ec76396d01360c6728959"
+        },
+        {
+          "path": "content/coconala/assets/pop-20260927/thumb-cce-takuitsu-pdf.png",
+          "sha256": "3779cf896009eb106a3d1107385ceef13d02c9140a499b1e2470850353de46fd"
+        }
+      ],
+      "model": "gpt-6-astra",
+      "prompt": "添付の承認済みコンクリート主任技士POP画像3枚（ココナラ商品サムネイル）をデザインと人物の参照に、doboku-noteの資格学習用X投稿画像を新規制作。\n横長16:9（最終1200×675）。文字・顔・手は全周約5%の安全域の内側に収め、余分な空白を減らして文字と人物を大きくする。背景は四辺まで連続させ、無地の余白帯は作らない。画像の縮小・切り取りはこちらで行うので、生成した16:9の原寸のまま保存する。\n左上に資格名「コンクリート主任技士」を白の極太文字で大きく。資格の主色: 紫（濃い紫〜青紫のグラデーション。承認済み主任技士原本と同じ）。白・黄色の極太文字、適度な濃紺の輪郭、少量の赤で強調する参照画像と同じPOPの勢い。\n主題（最も大きな見出し、1〜2行）: 「自分の立場の答案から」。\n要点は白い札またはカードに、次の文字列をそのまま1項目1行で: 「8つの立場」、「5テーマ」、「全40答案」。\n補足は「無料のもくじ」だけ。\n下部に著者の専門性の黄色帯: 「総監が制作」（対象資格の表示とは別の領域に置き、総監の教材と誤認させない）。\n先生（doboku-note先生）は右側に大きく、参照画像と完全に同一人物: 40代男性、黒の短髪、黒縁メガネ、短いあごひげ、白い無地のヘルメット、濃紺の作業服・白シャツ・紺ネクタイ・黄色の反射ベスト。ポーズ: 答案の束を手に紹介する。顔・手と文字を重ねない。\n指定した文字列以外の日本語・英語・数字を描かない。ブランド名、URL、価格、ハッシュタグ、根拠のない実績、合格保証は入れない。\n幅360pxのスマホ表示でも資格名と見出しが読める大きな文字にし、細かな説明を詰め込まない。文字は誤字なく正確に。",
+      "generation": {
+        "tool": "scripts/lib/codex-image.mjs generateWithCodex（codex exec の image_gen）",
+        "path": ".tmp/cce-pop/raw/113-22.png",
+        "sha256": "509fe15db5c1472d33b7901882bdd7b45d2378ff27b013e95cddd78ce6a62915",
+        "width": 1672,
+        "height": 941,
+        "previous": []
+      },
+      "output": {
+        "path": "content/sns/x/draft/113-concrete-chief-final-2026-11/img/tweet-22-essay-mokuji.png",
+        "sha256": "f6120acc9f827fc060806469b96d5238db8648fa617998bab646f4ed7fd6e08c",
+        "width": 1200,
+        "height": 675,
+        "resize": "1672×941（16:9）→1200×675 の一様縮小（sharp・fit fill、比の差1%未満）。切り取り・余白追加なし。Git 容量（content/sns 予算 60 MiB）のため 256 色パレット PNG に減色"
+      },
+      "review": {
+        "reviewedAt": "2026-10-26T15:49:54.222Z",
+        "by": "Claude（制作担当の目視）",
+        "viewportWidths": [
+          1200,
+          360
+        ],
+        "result": "ok",
+        "note": "8つの立場・5テーマ・全40答案・無料のもくじが本文と一致。",
+        "userImageReview": "pending"
+      },
+      "publication": "未公開（X 予約は運営者が実施）"
+    },
+    "t23": {
+      "copy": {
+        "examLabel": "コンクリート主任技士・技士",
+        "headline": "試験方法はJIS番号と対で",
+        "points": [
+          "スランプ A 1101",
+          "空気量（圧力法） A 1128",
+          "圧縮強度 A 1108",
+          "ブリーディング A 1123"
+        ],
+        "authority": "総監が解説"
+      },
+      "evidence": [
+        "content/sns/x/draft/113-concrete-chief-final-2026-11/tweets.md#Tweet23"
+      ],
+      "pose": "指を立ててポイントを示す",
+      "references": [
+        {
+          "path": "content/coconala/assets/pop-20260927/thumb-cce-essay-tensaku.png",
+          "sha256": "0ad039fb31a33e1fc70f1ef07d01d7cc88003210681e4b6995bb72be82833143"
+        },
+        {
+          "path": "content/coconala/assets/pop-20260927/thumb-cce-essay-pdf.png",
+          "sha256": "c9a407d15ff965033ae02e910a38c32c10493ae0904ec76396d01360c6728959"
+        },
+        {
+          "path": "content/coconala/assets/pop-20260927/thumb-cce-takuitsu-pdf.png",
+          "sha256": "3779cf896009eb106a3d1107385ceef13d02c9140a499b1e2470850353de46fd"
+        }
+      ],
+      "model": "gpt-6-astra",
+      "prompt": "添付の承認済みコンクリート主任技士POP画像3枚（ココナラ商品サムネイル）をデザインと人物の参照に、doboku-noteの資格学習用X投稿画像を新規制作。\n横長16:9（最終1200×675）。文字・顔・手は全周約5%の安全域の内側に収め、余分な空白を減らして文字と人物を大きくする。背景は四辺まで連続させ、無地の余白帯は作らない。画像の縮小・切り取りはこちらで行うので、生成した16:9の原寸のまま保存する。\n左上に資格名「コンクリート主任技士・技士」を白の極太文字で大きく。資格の主色: 紫（濃い紫〜青紫のグラデーション。承認済み主任技士原本と同じ）。白・黄色の極太文字、適度な濃紺の輪郭、少量の赤で強調する参照画像と同じPOPの勢い。\n主題（最も大きな見出し、1〜2行）: 「試験方法はJIS番号と対で」。\n要点は白い札またはカードに、次の文字列をそのまま1項目1行で: 「スランプ A 1101」、「空気量（圧力法） A 1128」、「圧縮強度 A 1108」、「ブリーディング A 1123」。\n下部に著者の専門性の黄色帯: 「総監が解説」（対象資格の表示とは別の領域に置き、総監の教材と誤認させない）。\n先生（doboku-note先生）は右側に大きく、参照画像と完全に同一人物: 40代男性、黒の短髪、黒縁メガネ、短いあごひげ、白い無地のヘルメット、濃紺の作業服・白シャツ・紺ネクタイ・黄色の反射ベスト。ポーズ: 指を立ててポイントを示す。顔・手と文字を重ねない。\n指定した文字列以外の日本語・英語・数字を描かない。ブランド名、URL、価格、ハッシュタグ、根拠のない実績、合格保証は入れない。\n幅360pxのスマホ表示でも資格名と見出しが読める大きな文字にし、細かな説明を詰め込まない。文字は誤字なく正確に。",
+      "generation": {
+        "tool": "scripts/lib/codex-image.mjs generateWithCodex（codex exec の image_gen）",
+        "path": ".tmp/cce-pop/raw/113-23.png",
+        "sha256": "53e8384bba1ec7ed43b8c33e535f873ba3c58e887880bae4ed78e912070f8957",
+        "width": 1672,
+        "height": 941,
+        "previous": []
+      },
+      "output": {
+        "path": "content/sns/x/draft/113-concrete-chief-final-2026-11/img/tweet-23-jis-shiken.png",
+        "sha256": "f4a4fcc5868b9767e51264d5e94837251b9fb749e86c72bc3e2c213ccd7de2b8",
+        "width": 1200,
+        "height": 675,
+        "resize": "1672×941（16:9）→1200×675 の一様縮小（sharp・fit fill、比の差1%未満）。切り取り・余白追加なし。Git 容量（content/sns 予算 60 MiB）のため 256 色パレット PNG に減色"
+      },
+      "review": {
+        "reviewedAt": "2026-10-26T15:49:55.047Z",
+        "by": "Claude（制作担当の目視）",
+        "viewportWidths": [
+          1200,
+          360
+        ],
+        "result": "ok",
+        "note": "JIS A 1101/1128/1108/1123 の対応が本文と一致。",
+        "userImageReview": "pending"
+      },
+      "publication": "未公開（X 予約は運営者が実施）"
+    },
+    "t24": {
+      "copy": {
+        "examLabel": "コンクリート主任技士・技士",
+        "headline": "プレテンとポステン",
+        "points": [
+          "プレテンション：先に緊張 → 付着で伝える",
+          "ポストテンション：硬化後に緊張 → 定着・グラウト"
+        ],
+        "authority": "総監が解説"
+      },
+      "evidence": [
+        "content/sns/x/draft/113-concrete-chief-final-2026-11/tweets.md#Tweet24"
+      ],
+      "pose": "両手で左右を見比べる",
+      "references": [
+        {
+          "path": "content/coconala/assets/pop-20260927/thumb-cce-essay-tensaku.png",
+          "sha256": "0ad039fb31a33e1fc70f1ef07d01d7cc88003210681e4b6995bb72be82833143"
+        },
+        {
+          "path": "content/coconala/assets/pop-20260927/thumb-cce-essay-pdf.png",
+          "sha256": "c9a407d15ff965033ae02e910a38c32c10493ae0904ec76396d01360c6728959"
+        },
+        {
+          "path": "content/coconala/assets/pop-20260927/thumb-cce-takuitsu-pdf.png",
+          "sha256": "3779cf896009eb106a3d1107385ceef13d02c9140a499b1e2470850353de46fd"
+        }
+      ],
+      "model": "gpt-6-astra",
+      "prompt": "添付の承認済みコンクリート主任技士POP画像3枚（ココナラ商品サムネイル）をデザインと人物の参照に、doboku-noteの資格学習用X投稿画像を新規制作。\n横長16:9（最終1200×675）。文字・顔・手は全周約5%の安全域の内側に収め、余分な空白を減らして文字と人物を大きくする。背景は四辺まで連続させ、無地の余白帯は作らない。画像の縮小・切り取りはこちらで行うので、生成した16:9の原寸のまま保存する。\n左上に資格名「コンクリート主任技士・技士」を白の極太文字で大きく。資格の主色: 紫（濃い紫〜青紫のグラデーション。承認済み主任技士原本と同じ）。白・黄色の極太文字、適度な濃紺の輪郭、少量の赤で強調する参照画像と同じPOPの勢い。\n主題（最も大きな見出し、1〜2行）: 「プレテンとポステン」。\n要点は白い札またはカードに、次の文字列をそのまま1項目1行で: 「プレテンション：先に緊張 → 付着で伝える」、「ポストテンション：硬化後に緊張 → 定着・グラウト」。\n下部に著者の専門性の黄色帯: 「総監が解説」（対象資格の表示とは別の領域に置き、総監の教材と誤認させない）。\n先生（doboku-note先生）は右側に大きく、参照画像と完全に同一人物: 40代男性、黒の短髪、黒縁メガネ、短いあごひげ、白い無地のヘルメット、濃紺の作業服・白シャツ・紺ネクタイ・黄色の反射ベスト。ポーズ: 両手で左右を見比べる。顔・手と文字を重ねない。\n指定した文字列以外の日本語・英語・数字を描かない。ブランド名、URL、価格、ハッシュタグ、根拠のない実績、合格保証は入れない。\n幅360pxのスマホ表示でも資格名と見出しが読める大きな文字にし、細かな説明を詰め込まない。文字は誤字なく正確に。",
+      "generation": {
+        "tool": "scripts/lib/codex-image.mjs generateWithCodex（codex exec の image_gen）",
+        "path": ".tmp/cce-pop/raw/113-24.png",
+        "sha256": "3c9d77b8ff75dae1c7cde9288b505f9288a625d77e93ec6d7210b0c56dbe8432",
+        "width": 1672,
+        "height": 941,
+        "previous": []
+      },
+      "output": {
+        "path": "content/sns/x/draft/113-concrete-chief-final-2026-11/img/tweet-24-pre-post.png",
+        "sha256": "349f064700f6115f78455d16c8cb1ef3f24d22ef74afa8cac255e70593b1d2b3",
+        "width": 1200,
+        "height": 675,
+        "resize": "1672×941（16:9）→1200×675 の一様縮小（sharp・fit fill、比の差1%未満）。切り取り・余白追加なし。Git 容量（content/sns 予算 60 MiB）のため 256 色パレット PNG に減色"
+      },
+      "review": {
+        "reviewedAt": "2026-10-26T15:49:55.869Z",
+        "by": "Claude（制作担当の目視）",
+        "viewportWidths": [
+          1200,
+          360
+        ],
+        "result": "ok",
+        "note": "プレテン・ポステンの説明が本文と一致。",
+        "userImageReview": "pending"
+      },
+      "publication": "未公開（X 予約は運営者が実施）"
+    },
+    "t25": {
+      "copy": {
+        "examLabel": "コンクリート主任技士",
+        "headline": "明日は本番",
+        "points": [
+          "骨子を決めてから清書",
+          "見直しの時間を残す",
+          "受験番号・選択番号の記入確認"
+        ],
+        "authority": "総監が解説"
+      },
+      "evidence": [
+        "content/sns/x/draft/113-concrete-chief-final-2026-11/tweets.md#Tweet25"
+      ],
+      "pose": "チェックリストを確認する",
+      "references": [
+        {
+          "path": "content/coconala/assets/pop-20260927/thumb-cce-essay-tensaku.png",
+          "sha256": "0ad039fb31a33e1fc70f1ef07d01d7cc88003210681e4b6995bb72be82833143"
+        },
+        {
+          "path": "content/coconala/assets/pop-20260927/thumb-cce-essay-pdf.png",
+          "sha256": "c9a407d15ff965033ae02e910a38c32c10493ae0904ec76396d01360c6728959"
+        },
+        {
+          "path": "content/coconala/assets/pop-20260927/thumb-cce-takuitsu-pdf.png",
+          "sha256": "3779cf896009eb106a3d1107385ceef13d02c9140a499b1e2470850353de46fd"
+        }
+      ],
+      "model": "gpt-6-astra",
+      "prompt": "添付の承認済みコンクリート主任技士POP画像3枚（ココナラ商品サムネイル）をデザインと人物の参照に、doboku-noteの資格学習用X投稿画像を新規制作。\n横長16:9（最終1200×675）。文字・顔・手は全周約5%の安全域の内側に収め、余分な空白を減らして文字と人物を大きくする。背景は四辺まで連続させ、無地の余白帯は作らない。画像の縮小・切り取りはこちらで行うので、生成した16:9の原寸のまま保存する。\n左上に資格名「コンクリート主任技士」を白の極太文字で大きく。資格の主色: 紫（濃い紫〜青紫のグラデーション。承認済み主任技士原本と同じ）。白・黄色の極太文字、適度な濃紺の輪郭、少量の赤で強調する参照画像と同じPOPの勢い。\n主題（最も大きな見出し、1〜2行）: 「明日は本番」。\n要点は白い札またはカードに、次の文字列をそのまま1項目1行で: 「骨子を決めてから清書」、「見直しの時間を残す」、「受験番号・選択番号の記入確認」。\n下部に著者の専門性の黄色帯: 「総監が解説」（対象資格の表示とは別の領域に置き、総監の教材と誤認させない）。\n先生（doboku-note先生）は右側に大きく、参照画像と完全に同一人物: 40代男性、黒の短髪、黒縁メガネ、短いあごひげ、白い無地のヘルメット、濃紺の作業服・白シャツ・紺ネクタイ・黄色の反射ベスト。ポーズ: チェックリストを確認する。顔・手と文字を重ねない。\n指定した文字列以外の日本語・英語・数字を描かない。ブランド名、URL、価格、ハッシュタグ、根拠のない実績、合格保証は入れない。\n幅360pxのスマホ表示でも資格名と見出しが読める大きな文字にし、細かな説明を詰め込まない。文字は誤字なく正確に。",
+      "generation": {
+        "tool": "scripts/lib/codex-image.mjs generateWithCodex（codex exec の image_gen）",
+        "path": ".tmp/cce-pop/raw/113-25.png",
+        "sha256": "858519bddaa680e9839c928abbbb39db60870f1e4c523f40808df0f0a0a038f9",
+        "width": 1672,
+        "height": 941,
+        "previous": []
+      },
+      "output": {
+        "path": "content/sns/x/draft/113-concrete-chief-final-2026-11/img/tweet-25-zenjitsu-chief.png",
+        "sha256": "b3f04cb4d5dbd6cdfbf253e88720ac871c25850ffe168a6dd2b4ff9aba062b61",
+        "width": 1200,
+        "height": 675,
+        "resize": "1672×941（16:9）→1200×675 の一様縮小（sharp・fit fill、比の差1%未満）。切り取り・余白追加なし。Git 容量（content/sns 予算 60 MiB）のため 256 色パレット PNG に減色"
+      },
+      "review": {
+        "reviewedAt": "2026-10-26T15:49:56.767Z",
+        "by": "Claude（制作担当の目視）",
+        "viewportWidths": [
+          1200,
+          360
+        ],
+        "result": "ok",
+        "note": "主任技士の前日。3項目が本文と一致。",
+        "userImageReview": "pending"
+      },
+      "publication": "未公開（X 予約は運営者が実施）"
+    },
+    "t26": {
+      "copy": {
+        "examLabel": "コンクリート技士",
+        "headline": "明日は本番",
+        "points": [
+          "受験票・会場・持ち物",
+          "電卓の種類",
+          "迷った問題へ戻る時間"
+        ],
+        "authority": "総監が解説"
+      },
+      "evidence": [
+        "content/sns/x/draft/113-concrete-chief-final-2026-11/tweets.md#Tweet26"
+      ],
+      "pose": "チェックリストを確認する",
+      "references": [
+        {
+          "path": "content/coconala/assets/pop-20260927/thumb-cce-essay-tensaku.png",
+          "sha256": "0ad039fb31a33e1fc70f1ef07d01d7cc88003210681e4b6995bb72be82833143"
+        },
+        {
+          "path": "content/coconala/assets/pop-20260927/thumb-cce-essay-pdf.png",
+          "sha256": "c9a407d15ff965033ae02e910a38c32c10493ae0904ec76396d01360c6728959"
+        },
+        {
+          "path": "content/coconala/assets/pop-20260927/thumb-cce-takuitsu-pdf.png",
+          "sha256": "3779cf896009eb106a3d1107385ceef13d02c9140a499b1e2470850353de46fd"
+        }
+      ],
+      "model": "gpt-6-astra",
+      "prompt": "添付の承認済みコンクリート主任技士POP画像3枚（ココナラ商品サムネイル）をデザインと人物の参照に、doboku-noteの資格学習用X投稿画像を新規制作。\n横長16:9（最終1200×675）。文字・顔・手は全周約5%の安全域の内側に収め、余分な空白を減らして文字と人物を大きくする。背景は四辺まで連続させ、無地の余白帯は作らない。画像の縮小・切り取りはこちらで行うので、生成した16:9の原寸のまま保存する。\n左上に資格名「コンクリート技士」を白の極太文字で大きく。資格の主色: 緑寄りのティール（#287a62 を主色。紫は使わない）。白・黄色の極太文字、適度な濃紺の輪郭、少量の赤で強調する参照画像と同じPOPの勢い。\n主題（最も大きな見出し、1〜2行）: 「明日は本番」。\n要点は白い札またはカードに、次の文字列をそのまま1項目1行で: 「受験票・会場・持ち物」、「電卓の種類」、「迷った問題へ戻る時間」。\n下部に著者の専門性の黄色帯: 「総監が解説」（対象資格の表示とは別の領域に置き、総監の教材と誤認させない）。\n先生（doboku-note先生）は右側に大きく、参照画像と完全に同一人物: 40代男性、黒の短髪、黒縁メガネ、短いあごひげ、白い無地のヘルメット、濃紺の作業服・白シャツ・紺ネクタイ・黄色の反射ベスト。ポーズ: チェックリストを確認する。顔・手と文字を重ねない。\n指定した文字列以外の日本語・英語・数字を描かない。ブランド名、URL、価格、ハッシュタグ、根拠のない実績、合格保証は入れない。\n幅360pxのスマホ表示でも資格名と見出しが読める大きな文字にし、細かな説明を詰め込まない。文字は誤字なく正確に。",
+      "generation": {
+        "tool": "scripts/lib/codex-image.mjs generateWithCodex（codex exec の image_gen）",
+        "path": ".tmp/cce-pop/raw/113-26.png",
+        "sha256": "fbc27a430b23bf13b69930623939d46171766db0a64757314087edce72af64e1",
+        "width": 1672,
+        "height": 941,
+        "previous": []
+      },
+      "output": {
+        "path": "content/sns/x/draft/113-concrete-chief-final-2026-11/img/tweet-26-zenjitsu-gishi.png",
+        "sha256": "2ba1d527f40ef88944d46e9da6d2d901cb70558424f20a38946f2f5af011b6fa",
+        "width": 1200,
+        "height": 675,
+        "resize": "1672×941（16:9）→1200×675 の一様縮小（sharp・fit fill、比の差1%未満）。切り取り・余白追加なし。Git 容量（content/sns 予算 60 MiB）のため 256 色パレット PNG に減色"
+      },
+      "review": {
+        "reviewedAt": "2026-10-26T15:49:57.731Z",
+        "by": "Claude（制作担当の目視）",
+        "viewportWidths": [
+          1200,
+          360
+        ],
+        "result": "ok",
+        "note": "技士の資格色。受験票・会場・持ち物、電卓の種類、迷った問題へ戻る時間が本文と一致。",
+        "userImageReview": "pending"
+      },
+      "publication": "未公開（X 予約は運営者が実施）"
+    },
+    "t27": {
+      "copy": {
+        "examLabel": "コンクリート主任技士・技士",
+        "headline": "本試験の朝",
+        "points": [
+          "主任技士 3時間",
+          "技士 2時間"
+        ],
+        "benefit": "落ち着いて、一問ずつ",
+        "authority": null
+      },
+      "evidence": [
+        "content/sns/x/draft/113-concrete-chief-final-2026-11/tweets.md#Tweet27"
+      ],
+      "pose": "笑顔でガッツポーズして応援する",
+      "references": [
+        {
+          "path": "content/coconala/assets/pop-20260927/thumb-cce-essay-tensaku.png",
+          "sha256": "0ad039fb31a33e1fc70f1ef07d01d7cc88003210681e4b6995bb72be82833143"
+        },
+        {
+          "path": "content/coconala/assets/pop-20260927/thumb-cce-essay-pdf.png",
+          "sha256": "c9a407d15ff965033ae02e910a38c32c10493ae0904ec76396d01360c6728959"
+        },
+        {
+          "path": "content/coconala/assets/pop-20260927/thumb-cce-takuitsu-pdf.png",
+          "sha256": "3779cf896009eb106a3d1107385ceef13d02c9140a499b1e2470850353de46fd"
+        }
+      ],
+      "model": "gpt-6-astra",
+      "prompt": "添付の承認済みコンクリート主任技士POP画像3枚（ココナラ商品サムネイル）をデザインと人物の参照に、doboku-noteの資格学習用X投稿画像を新規制作。\n横長16:9（最終1200×675）。文字・顔・手は全周約5%の安全域の内側に収め、余分な空白を減らして文字と人物を大きくする。背景は四辺まで連続させ、無地の余白帯は作らない。画像の縮小・切り取りはこちらで行うので、生成した16:9の原寸のまま保存する。\n左上に資格名「コンクリート主任技士・技士」を白の極太文字で大きく。資格の主色: 紫（濃い紫〜青紫のグラデーション。承認済み主任技士原本と同じ）。白・黄色の極太文字、適度な濃紺の輪郭、少量の赤で強調する参照画像と同じPOPの勢い。\n主題（最も大きな見出し、1〜2行）: 「本試験の朝」。\n要点は白い札またはカードに、次の文字列をそのまま1項目1行で: 「主任技士 3時間」、「技士 2時間」。\n補足は「落ち着いて、一問ずつ」だけ。\n著者の肩書き帯は入れない。\n先生（doboku-note先生）は右側に大きく、参照画像と完全に同一人物: 40代男性、黒の短髪、黒縁メガネ、短いあごひげ、白い無地のヘルメット、濃紺の作業服・白シャツ・紺ネクタイ・黄色の反射ベスト。ポーズ: 笑顔でガッツポーズして応援する。顔・手と文字を重ねない。\n指定した文字列以外の日本語・英語・数字を描かない。ブランド名、URL、価格、ハッシュタグ、根拠のない実績、合格保証は入れない。\n幅360pxのスマホ表示でも資格名と見出しが読める大きな文字にし、細かな説明を詰め込まない。文字は誤字なく正確に。",
+      "generation": {
+        "tool": "scripts/lib/codex-image.mjs generateWithCodex（codex exec の image_gen）",
+        "path": ".tmp/cce-pop/raw/113-27.png",
+        "sha256": "2ae63c8e18eb9b599ab80805486cfcdb4de04ef58921c287ff5ddd29aaf72461",
+        "width": 1672,
+        "height": 941,
+        "previous": []
+      },
+      "output": {
+        "path": "content/sns/x/draft/113-concrete-chief-final-2026-11/img/tweet-27-tojitsu.png",
+        "sha256": "7b520d6734312a8bca1a693ff89a9247dbb7d5a8396fd269fff280e63c10f039",
+        "width": 1200,
+        "height": 675,
+        "resize": "1672×941（16:9）→1200×675 の一様縮小（sharp・fit fill、比の差1%未満）。切り取り・余白追加なし。Git 容量（content/sns 予算 60 MiB）のため 256 色パレット PNG に減色"
+      },
+      "review": {
+        "reviewedAt": "2026-10-26T15:49:58.481Z",
+        "by": "Claude（制作担当の目視）",
+        "viewportWidths": [
+          1200,
+          360
+        ],
+        "result": "ok",
+        "note": "主任技士3時間・技士2時間が本文と一致。応援投稿のため肩書き帯なし。ガッツポーズ。",
+        "userImageReview": "pending"
+      },
+      "publication": "未公開（X 予約は運営者が実施）"
+    },
+    "t28": {
+      "copy": {
+        "examLabel": "コンクリート主任技士・技士",
+        "headline": "試験、おつかれさまでした",
+        "benefit": "今夜はゆっくり休んで",
+        "authority": null
+      },
+      "evidence": [
+        "content/sns/x/draft/113-concrete-chief-final-2026-11/tweets.md#Tweet28"
+      ],
+      "pose": "穏やかな笑顔で軽く会釈し、ねぎらう",
+      "references": [
+        {
+          "path": "content/coconala/assets/pop-20260927/thumb-cce-essay-tensaku.png",
+          "sha256": "0ad039fb31a33e1fc70f1ef07d01d7cc88003210681e4b6995bb72be82833143"
+        },
+        {
+          "path": "content/coconala/assets/pop-20260927/thumb-cce-essay-pdf.png",
+          "sha256": "c9a407d15ff965033ae02e910a38c32c10493ae0904ec76396d01360c6728959"
+        },
+        {
+          "path": "content/coconala/assets/pop-20260927/thumb-cce-takuitsu-pdf.png",
+          "sha256": "3779cf896009eb106a3d1107385ceef13d02c9140a499b1e2470850353de46fd"
+        }
+      ],
+      "model": "gpt-6-astra",
+      "prompt": "添付の承認済みコンクリート主任技士POP画像3枚（ココナラ商品サムネイル）をデザインと人物の参照に、doboku-noteの資格学習用X投稿画像を新規制作。\n横長16:9（最終1200×675）。文字・顔・手は全周約5%の安全域の内側に収め、余分な空白を減らして文字と人物を大きくする。背景は四辺まで連続させ、無地の余白帯は作らない。画像の縮小・切り取りはこちらで行うので、生成した16:9の原寸のまま保存する。\n左上に資格名「コンクリート主任技士・技士」を白の極太文字で大きく。資格の主色: 紫（濃い紫〜青紫のグラデーション。承認済み主任技士原本と同じ）。白・黄色の極太文字、適度な濃紺の輪郭、少量の赤で強調する参照画像と同じPOPの勢い。\n主題（最も大きな見出し、1〜2行）: 「試験、おつかれさまでした」。\n補足は「今夜はゆっくり休んで」だけ。\n著者の肩書き帯は入れない。\n先生（doboku-note先生）は右側に大きく、参照画像と完全に同一人物: 40代男性、黒の短髪、黒縁メガネ、短いあごひげ、白い無地のヘルメット、濃紺の作業服・白シャツ・紺ネクタイ・黄色の反射ベスト。ポーズ: 穏やかな笑顔で軽く会釈し、ねぎらう。顔・手と文字を重ねない。\n指定した文字列以外の日本語・英語・数字を描かない。ブランド名、URL、価格、ハッシュタグ、根拠のない実績、合格保証は入れない。\n幅360pxのスマホ表示でも資格名と見出しが読める大きな文字にし、細かな説明を詰め込まない。文字は誤字なく正確に。\n漢字は字形を正確に（特に「験」の右側は「㑒」。「論」「題」も崩さない）。",
+      "generation": {
+        "tool": "scripts/lib/codex-image.mjs generateWithCodex（codex exec の image_gen）",
+        "path": ".tmp/cce-pop/raw/113-28.png",
+        "sha256": "91fdc1e5994ae40b354843eacf320f1d82f4f4980e73686b13f3b1e07ad6c107",
+        "width": 1672,
+        "height": 941,
+        "previous": [
+          {
+            "path": ".tmp/cce-pop/raw/113-28.v1.png",
+            "sha256": "036386008a050e6cca03d31e77e9e777c84d210325bbd1bfbcf7b8d0446cf950",
+            "width": 1672,
+            "height": 941,
+            "note": "不採用（review.note 参照）"
+          }
+        ]
+      },
+      "output": {
+        "path": "content/sns/x/draft/113-concrete-chief-final-2026-11/img/tweet-28-otsukare.png",
+        "sha256": "73ce81517c933d07824bf30eac1e8987a8085450e277fb513b320326dca78dc5",
+        "width": 1200,
+        "height": 675,
+        "resize": "1672×941（16:9）→1200×675 の一様縮小（sharp・fit fill、比の差1%未満）。切り取り・余白追加なし。Git 容量（content/sns 予算 60 MiB）のため 256 色パレット PNG に減色"
+      },
+      "review": {
+        "reviewedAt": "2026-10-26T15:49:59.284Z",
+        "by": "Claude（制作担当の目視）",
+        "viewportWidths": [
+          1200,
+          360
+        ],
+        "result": "ok",
+        "note": "初版は「験」の字形が崩れていたため再生成（初版は generation.previous）。ねぎらい投稿のため肩書き帯なし。会釈のポーズ。",
+        "userImageReview": "pending"
+      },
+      "publication": "未公開（X 予約は運営者が実施）"
+    }
+  }
+}

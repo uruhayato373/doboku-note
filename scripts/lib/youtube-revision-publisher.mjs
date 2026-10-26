@@ -9,6 +9,7 @@ import { readDataset } from './dataset-io.mjs';
 import { readJson } from './json-io.mjs';
 import { approvalState } from './media-review.mjs';
 import { longformInputHash } from './longform-render-integrity.mjs';
+import { requirePopDiagramStandard } from './longform-pop-images.mjs';
 import { findDuplicateLongforms } from './video-duplicate-check.mjs';
 import { assertChannel, assertProcessed, getVideo, sameSnippet, writableStatus } from './youtube-migration.mjs';
 import { channelInventory } from './youtube-channel-inventory.mjs';
@@ -51,6 +52,7 @@ export function revisionPublishPlan(root, pubId, now = Date.now()) {
       input.thumbnailSha256 !== assets.cover.sha256 || input.thumbnailLocalFile !== assets.cover.path) throw new Error('MP4・表紙・字幕の結線が不正');
   if (!(facts.video.durationSec > 0) || !(facts.cover.width > 0) || !(facts.cover.height > 0) || facts.cover.bytes > 2097152) throw new Error('動画の実尺・画面寸法・表紙サイズが不正');
   if (pub.format === 'longform') {
+    requirePopDiagramStandard(root, join(root, work.definition));
     if (facts.video.provenance.renderInputSha256 !== longformInputHash(join(root, work.definition))) throw new Error('完成動画の制作入力が古い');
   } else {
     if (!assets.recipe) throw new Error('Shorts再現記録が無い');
@@ -102,6 +104,7 @@ export function singlePublishPlan(root, pubId, now = Date.now()) {
     if (verifiedBytes(root, assets[role]).length !== m.bytes) throw new Error(`${role}: 素材サイズが違う`);
     facts[role] = { bytes: m.bytes, width: m.width, height: m.height, durationSec: m.durationSec, provenance: m.provenance };
   }
+  requirePopDiagramStandard(root, join(root, work.definition));
   if (release.channel?.id !== readDataset(root, 'config.youtube-formats').channel.id ||
       release.channel?.title !== readDataset(root, 'config.youtube-formats').channel.title ||
       input.sha256 !== assets.video.sha256 || input.thumbnailSha256 !== assets.cover.sha256 ||
@@ -133,7 +136,7 @@ export function singlePublishPlan(root, pubId, now = Date.now()) {
 }
 
 /** 依存はYouTube API形のオブジェクト。テストは全てmock。defaultは外部通信なし。 */
-export async function publishYoutubePublication(root, { pubId, phase = 'upload', commit = false, expect }, { youtube, journal, now = () => Date.now() } = {}) {
+export async function publishYoutubePublication(root, { pubId, phase = 'upload', commit = false, expect }, { youtube, journal, now = () => Date.now(), wait = ms => new Promise(resolve => setTimeout(resolve, ms)) } = {}) {
   if (!['upload', 'schedule', 'verify'].includes(phase)) throw new Error('phaseはupload|schedule|verify');
   const publication = loadRegistry(root).publications.find(p => p.id === pubId);
   const planFor = publication?.revisionOf ? revisionPublishPlan : singlePublishPlan;
@@ -162,8 +165,21 @@ export async function publishYoutubePublication(root, { pubId, phase = 'upload',
     pub.delivery.videoId = id;
   };
   const verifyIdentity = actual => {
-    if (!actual || actual.id !== pub.delivery.videoId || actual.snippet?.channelId !== plan.channel.id || !sameSnippet(actual.snippet, plan.snippet) ||
-        actual.status?.containsSyntheticMedia !== plan.disclosure.containsSyntheticMedia) throw new Error('新動画のID・チャンネル・文面・制作開示が不一致');
+    const fields = {
+      id: actual?.id === pub.delivery.videoId,
+      channel: actual?.snippet?.channelId === plan.channel.id,
+      title: actual?.snippet?.title === plan.snippet.title,
+      description: actual?.snippet?.description === plan.snippet.description,
+      tags: same((actual?.snippet?.tags ?? []).slice().sort(), plan.snippet.tags.slice().sort()),
+      category: actual?.snippet?.categoryId === plan.snippet.categoryId,
+      language: actual?.snippet?.defaultLanguage === plan.snippet.defaultLanguage,
+      audioLanguage: actual?.snippet?.defaultAudioLanguage === plan.snippet.defaultAudioLanguage,
+      syntheticMedia: (actual?.status?.containsSyntheticMedia ?? false) === plan.disclosure.containsSyntheticMedia,
+    };
+    fields.snippet = actual ? sameSnippet(actual.snippet, plan.snippet) : false;
+    if (!actual || !fields.id || !fields.channel || !fields.snippet || !fields.syntheticMedia) {
+      throw new Error(`新動画のID・チャンネル・文面・制作開示が不一致: ${Object.entries(fields).filter(([, ok]) => !ok).map(([key]) => key).join(',')}`);
+    }
     if (!['private', 'public'].includes(actual.status?.privacyStatus)) throw new Error('想定外の公開状態');
   };
   try {
@@ -264,7 +280,11 @@ export async function publishYoutubePublication(root, { pubId, phase = 'upload',
         status: { ...writableStatus(actual), privacyStatus: 'private', publishAt: pub.publishAt } } }, { retry: false });
     } catch { throw new Error('schedule結果不明。intentを保持し、再送せずverifyで照合する'); }
     summary.externalActions++;
-    actual = await getVideo(youtube, pub.delivery.videoId, true); verifyIdentity(actual);
+    for (let attempt = 0; attempt < 5; attempt++) {
+      if (attempt) await wait(2000);
+      actual = await getVideo(youtube, pub.delivery.videoId, true); verifyIdentity(actual);
+      if (actual.status.privacyStatus === 'private' && Date.parse(actual.status.publishAt) === Date.parse(pub.publishAt)) break;
+    }
     if (actual.status.privacyStatus !== 'private' || Date.parse(actual.status.publishAt) !== Date.parse(pub.publishAt)) throw new Error('予約応答の読取不一致。再送せずverifyで照合する');
     pub.status = 'scheduled'; pub.delivery.scheduledVerifiedAt = at(); pub.times.scheduled = at(); await journalSave(); save();
     return { ...summary, result: 'scheduled-verified', publishAt: actual.status.publishAt };

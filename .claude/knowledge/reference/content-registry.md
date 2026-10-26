@@ -115,7 +115,9 @@ config/content-registry.json          チャネル×形式・アカウント・I
 
 `npm run registry -- mark-rendered --pub <公開ID> --commit` は画面・最終承認と13場面等の完成レンダーを照合して `rendered` に進める。`npm run registry -- publish-youtube --pub <公開ID> --phase upload` は素材SHA・公開文面・承認・未来日時を検査して入力digestを出す（外部通信なし）。
 
-投稿は手動の `youtube-single-publish.yml` に公開IDとそのdigestを渡す。GitHub Actions の YouTube API 資格情報を使い、private R2からSHA照合した動画・表紙を取得する。`upload` は専用markerとprivate R2のintentを先に記録して非公開アップロードし、結果不明なら再投稿せずチャンネル全件照合で回収する。処理後に尺・容量・映像・音声、表紙のAPI応答と再読取を確認してから `schedule` が予約し、YouTube側の公開範囲と `publishAt` の再読取後にだけ台帳を `scheduled` にする。2MBを超える承認済みPNG表紙はYouTubeの容量制限に合わせてJPEGへ圧縮して送信する。workflow は得た状態を `develop` の公開行へ書き戻す。同名タイトルを探す旧 `publish-video-pack.cjs --phase longform` は実行入口でも停止する。
+投稿は手動の `youtube-single-publish.yml` に公開IDとそのdigestを渡す。GitHub Actions の YouTube API 資格情報を使い、private R2からSHA照合した動画・表紙を取得する。`upload` は専用markerとprivate R2のintentを先に記録して非公開アップロードし、結果不明なら再投稿せずチャンネル全件照合で回収する。APIの再読取は動画ID・チャンネル・文面を照合し、制作開示の `false` が応答で省略された場合だけ同値として扱う。処理後に尺・容量・映像・音声、表紙のAPI応答と再読取を確認してから `schedule` が予約し、YouTube側の公開範囲と `publishAt` の再読取後にだけ台帳を `scheduled` にする。2MBを超える承認済みPNG表紙はYouTubeの容量制限に合わせてJPEGへ圧縮して送信する。workflow は得た状態を `develop` の公開行へ書き戻す。同名タイトルを探す旧 `publish-video-pack.cjs --phase longform` は実行入口でも停止する。
+
+Actions の checkout には `.tmp/media` がない。`publish-youtube --commit` は公開IDだけを先に確認し、private R2から動画・表紙を取得してSHAを照合した後に投稿計画と承認を検査する。ローカルの素材がある環境だけでdry-runを通しても、この順序は確認できない。
 
 ## 照合（registry-reconcile）
 

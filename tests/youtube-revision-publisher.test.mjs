@@ -13,6 +13,7 @@ import { longformInputHash } from '../scripts/lib/longform-render-integrity.mjs'
 import { approvalState } from '../scripts/lib/media-review.mjs';
 import { readJson, writeJson } from '../scripts/lib/json-io.mjs';
 import { RegistryPublications } from '../scripts/lib/dataset-schemas-content.mjs';
+import { writeVisualStandardFixture } from './helpers/youtube-visual-standard.mjs';
 
 const EXAM = 'civil-construction-2', WORK = 'revision-fixture', OLD = `${EXAM}/${WORK}/youtube.longform`, NEW = `${OLD}.diagram-led`;
 const DEF = `content/sns/video-packs/${EXAM}/${WORK}`, NOW = Date.parse('2026-10-21T00:00:00Z'), SLOT = '2026-10-25T20:00:00+09:00';
@@ -26,7 +27,8 @@ function fixture(t) {
   const channel = readJson(root, 'config/youtube-formats.json').channel;
   const disclosure = readJson(root, 'config/youtube-production-disclosure.json');
   writeJson(root, `${DEF}/video-pack.json`, { exam: EXAM, packId: WORK, outputs: { longform: true, shorts: 0 } });
-  writeJson(root, `${DEF}/storyboard.json`, { scenes: [] });
+  const coverDigest = sha(Buffer.from('new-cover'));
+  writeVisualStandardFixture(root, DEF, { path: `.tmp/media/${EXAM}/${WORK}/work/candidate-cover.${coverDigest.slice(0, 8)}.png`, sha256: coverDigest });
   writeJson(root, `${DEF}/youtube.json`, { longform: { title: '同じ題名', description: `${disclosure.authorityNotice}\nutm_source=youtube&utm_medium=video&utm_campaign=${WORK}`, tags: ['学習'] } });
   upsertWorks(root, EXAM, [{ id: WORK, kind: 'video-pack', definition: DEF, qa: { avg: 3, blocks: 0, at: '2026-10-21', by: 'fixture' } }]);
   upsertPublications(root, 'youtube', EXAM, [{ id: OLD, work: WORK, format: 'longform', account: 'youtube:main', status: 'published',
@@ -80,7 +82,15 @@ function mockYoutube(f) {
     channels: { list: async () => { calls.read++; return { data: { items: [{ id: mode.wrongChannel ? 'wrong-channel' : f.channel.id, snippet: { title: f.channel.title }, contentDetails: { relatedPlaylists: { uploads: 'uploads' } } }] } }; } },
     playlistItems: { list: async () => ({ data: { items: [...db.keys()].map(videoId => ({ contentDetails: { videoId } })), pageInfo: { totalResults: db.size } } }) },
     videos: {
-      list: async ({ id }) => { calls.read++; const ids = Array.isArray(id) ? id : id.split(','); return { data: { items: structuredClone(ids.map(x => db.get(x)).filter(Boolean)) } }; },
+      list: async ({ id }) => {
+        calls.read++; const ids = Array.isArray(id) ? id : id.split(',');
+        const items = structuredClone(ids.map(x => db.get(x)).filter(Boolean));
+        if (mode.staleScheduleReads > 0 && db.get('newvid00001')?.status.publishAt) {
+          const video = items.find(x => x.id === 'newvid00001');
+          if (video) { delete video.status.publishAt; mode.staleScheduleReads--; }
+        }
+        return { data: { items } };
+      },
       insert: async (args, options) => {
         calls.insert++; assert.equal(options.retry, false); assert.equal(args.requestBody.status.privacyStatus, 'private'); assert.equal(args.requestBody.status.publishAt, undefined);
         assert.deepEqual(await consume(args.media.body), f.buffers.video);
@@ -113,7 +123,7 @@ function mockYoutube(f) {
   };
   return { youtube, db, calls, mode };
 }
-const execute = async (f, api, phase = 'upload', id = NEW) => publishYoutubeRevision(f.root, { pubId: id, phase, commit: true, expect: revisionPublishPlan(f.root, id, NOW).digest }, { youtube: api.youtube, now: () => NOW });
+const execute = async (f, api, phase = 'upload', id = NEW) => publishYoutubeRevision(f.root, { pubId: id, phase, commit: true, expect: revisionPublishPlan(f.root, id, NOW).digest }, { youtube: api.youtube, now: () => NOW, wait: async () => {} });
 
 test('dry-runはAPIに触れず、旧公開ID・未承認・別SHAを外部操作前に止める', async t => {
   const f = fixture(t), api = mockYoutube(f), old = rowOf(f.root, OLD);
@@ -142,6 +152,13 @@ test('新IDだけへ非公開/予約/実査結果を保存し、同名旧版と�
   assert.equal((await publishYoutubeRevision(f.root, { pubId: NEW, phase: 'verify', commit: true, expect: revisionPublishPlan(f.root, NEW, later).digest }, { youtube: api.youtube, now: () => later })).result, 'published-verified');
   assert.equal(rowOf(f.root).platform.publishedAt, undefined); // 観測時刻を実公開時刻と偽らない
   assert.deepEqual(rowOf(f.root, OLD), old); assert.deepEqual(readFileSync(join(f.root, `${DEF}/youtube.json`)), input);
+});
+
+test('APIが制作開示 false を省略しても、他の投稿同一性が合えば採用する', async t => {
+  const f = fixture(t), api = mockYoutube(f);
+  api.mode.afterInsert = () => { delete api.db.get('newvid00001').status.containsSyntheticMedia; };
+  assert.equal((await execute(f, api)).result, 'private-ready');
+  assert.equal(api.calls.insert, 1);
 });
 
 test('upload応答消失はmarker照合で回収し、結果未確認の0件では再投稿しない', async t => {
@@ -243,6 +260,15 @@ test('予約日時の実査不一致・途中の即時公開は成功扱いせ�
   changed.mode.afterThumbnail = () => { changed.db.get('newvid00001').status.privacyStatus = 'public'; };
   await assert.rejects(execute(other, changed), /公開状態/); assert.equal(changed.calls.update, 0);
   await assert.rejects(execute(other, changed, 'verify'), /即時公開/);
+});
+
+test('予約更新直後の古いAPI読取は再送せず再読取で確定する', async t => {
+  const f = fixture(t), api = mockYoutube(f); await execute(f, api);
+  api.mode.staleScheduleReads = 2;
+  assert.equal((await execute(f, api, 'schedule')).result, 'scheduled-verified');
+  assert.equal(api.calls.update, 1);
+  assert.equal(rowOf(f.root).status, 'scheduled');
+  assert.equal(api.mode.staleScheduleReads, 0);
 });
 
 test('外部IDだけの行・実行後の入力変更・不完全なdeliveryを拒否し、開始失敗のlockを残さない', async t => {

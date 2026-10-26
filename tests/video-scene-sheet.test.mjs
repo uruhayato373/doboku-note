@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import { execFileSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
-import { mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { join, relative } from 'node:path';
 import test from 'node:test';
 import sharp from 'sharp';
@@ -24,10 +24,14 @@ test('scene sheet includes a short cover and excludes stale PNG files', async ()
       if (sceneId !== 'stale') scenes.push({ sceneId, png, pngSha256: createHash('sha256').update(bytes).digest('hex'), actualSec: sceneId === 'cover' ? 2 : 10 });
     }
     writeFileSync(join(renderDir, 'render-manifest.json'), JSON.stringify({ scenes }));
+    mkdirSync(join(renderDir, 'preview'), { recursive: true });
+    const staleSheet = join(renderDir, 'preview', 'scene-sheet-13.jpg');
+    writeFileSync(staleSheet, 'previous render');
     const output = execFileSync(process.execPath, ['scripts/video-scene-sheet.mjs', packId], { cwd: REPO_ROOT, encoding: 'utf8' });
     assert.match(output, /場面 2\/2 件/);
     const image = output.trim().split(': ').at(-1);
     assert.equal(relative(renderDir, image).startsWith('preview/scene-sheet-'), true);
+    assert.equal(existsSync(staleSheet), false);
     const { data, info } = await sharp(readFileSync(image)).raw().toBuffer({ resolveWithObject: true });
     const rgb = (x, y) => [...data.subarray((y * info.width + x) * info.channels, (y * info.width + x) * info.channels + 3)];
     assert.ok(rgb(320, 180)[0] > 150); // cover, even though it lasts under ten seconds

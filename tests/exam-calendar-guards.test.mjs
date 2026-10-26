@@ -32,3 +32,11 @@ test('正しい日付と X 台帳の投稿日は誤検知しない', () => {
   ];
   for (const line of ok) assert.deepEqual(findForbidden(line), [], line);
 });
+
+test('10/27: 2 級の文脈がある行だけ止め、当日の記録の日付は通す', () => {
+  assert.deepEqual(findForbidden('2級の第二次検定は2026-10-27に実施'), ['2級後期・第二次は2026-10-25']);
+  assert.deepEqual(findForbidden('2級後期は10月27日'), ['2級後期・第二次は10月25日']);
+  assert.deepEqual(findForbidden('タグ: [種類:改善] [起票:2026-10-27]'), []);
+  assert.deepEqual(findForbidden('3面アフィリ方針（2026-10-27 採用）'), []);
+  assert.deepEqual(findForbidden('予約 2026-10-27T21:05'), []);
+});

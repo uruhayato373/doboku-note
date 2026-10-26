@@ -133,7 +133,7 @@ npx tsx .claude/skills/social/publish-x/publish-x.ts 004 \
 | `<draft>` | ✓ | `content/sns/x/draft/` 配下のディレクトリ名。先頭番号のみ（`004`）でも可 |
 | `[<date>...]` | - | 予約日時 JST (`YYYY-MM-DDTHH:MM`)。ツイート数と一致させる |
 | `--tweet N` | - | 特定ツイートのみ投稿（1-based、省略時は全ツイート） |
-| `--immediate` | - | 予約ではなく即時投稿（`--tweet` と組み合わせ推奨） |
+| `--immediate` | - | 予約ではなく即時投稿。**1 回 1 本だけ**（`--tweet N` と組み合わせる）。予約の日時も `--immediate` も無いときは止まる（10 月 27 日、日時なしで 22 本が即時投稿に落ちた事故の再発防止・`scripts/lib/x-post-mode.mjs`） |
 | `--head-only` | - | `[thread]` のヘッドだけ即時投稿し、リプライを pending として status.json へ残す。続けて `x-thread-replies --run` を実行 |
 | `--dry-run` | - | 実投稿せず予約モード到達まで確認 |
 

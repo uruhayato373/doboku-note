@@ -27,6 +27,7 @@
  *      予約モード未確認のまま投稿ボタンを押すと即時投稿が発火する（2026-04-18 事故実績）。
  */
 import { chromium, type BrowserContext, type Page } from "playwright";
+import { resolvePostMode } from "../../../../scripts/lib/x-post-mode.mjs";
 import * as path from "path";
 import * as fs from "fs";
 import { resolveProfileDir } from "../../../../scripts/lib/playwright-auth-profile.mjs";
@@ -369,17 +370,14 @@ function parseArgs(): PostJob[] {
     throw new Error(`指定されたツイートがありません`);
   }
 
-  if (!immediate && dates.length > 0 && dates.length !== tweets.length) {
-    throw new Error(
-      `日時の数 (${dates.length}) とツイート数 (${tweets.length}) が一致しません`
-    );
-  }
+  // 日時なしで即時投稿に落ちて 22 本を連投した事故（10 月 27 日）の再発防止。判定は lib に 1 か所。
+  const plan = resolvePostMode({ immediate, dates, count: tweets.length });
 
   return tweets.map((tweet, i) => ({
     tweet,
     draftDir,
     allTweets,
-    scheduledDate: immediate || dates.length === 0 ? null : new Date(dates[i] + "+09:00"),
+    scheduledDate: plan.mode === "immediate" ? null : new Date(plan.dates[i] + "+09:00"),
   }));
 }
 
