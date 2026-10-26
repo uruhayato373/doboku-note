@@ -1,44 +1,44 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-26T06:00:49.396Z",
-  "fetchedAt": "2026-10-01T07:12:11.663Z",
+  "generatedAt": "2026-10-26T10:25:28.852Z",
+  "fetchedAt": "2026-10-26T10:21:47.333Z",
   "source": "data/coconala/market-research.json",
   "note": "エージェント参照用の派生 SSOT。生データは source を read。再生成: npm run coconala-research -- --summary-only",
   "keywords": [
     {
       "keyword": "土木施工管理技士",
       "totalHits": 195,
-      "collected": 188,
+      "collected": 190,
       "priceYen": {
         "min": 100,
         "median": 5000,
-        "mean": 7837,
+        "mean": 7664,
         "max": 50000
       },
       "segments": {
-        "tensaku": 58,
         "daiko": 34,
+        "tensaku": 57,
         "other": 40,
-        "soudan": 33,
+        "soudan": 36,
         "shindan": 14,
         "kyozai": 9
       },
       "topByReviews": [
         {
-          "title": "1級建築2次模擬　出題予想模擬試験販売しています",
+          "title": "2級建築施工 2次 出題予想模擬試験販売開始します",
           "seller": "ひげごろー（ひげごろ〜）施工管理技士講師",
-          "priceYen": 30000,
+          "priceYen": 25000,
           "rating": 4.8,
-          "reviews": 1276,
-          "segment": "other",
-          "url": "https://coconala.com/services/3021449"
+          "reviews": 617,
+          "segment": "kyozai",
+          "url": "https://coconala.com/services/3481696"
         },
         {
           "title": "新出題形式対応！土木施工の経験記述を添削します",
           "seller": "ちゃんさと技師",
           "priceYen": 12000,
           "rating": 4.9,
-          "reviews": 320,
+          "reviews": 323,
           "segment": "tensaku",
           "url": "https://coconala.com/services/1690708"
         },
@@ -47,7 +47,7 @@
           "seller": "303geos",
           "priceYen": 3500,
           "rating": 4.6,
-          "reviews": 186,
+          "reviews": 192,
           "segment": "other",
           "url": "https://coconala.com/services/801186"
         },
@@ -56,7 +56,7 @@
           "seller": "ちゃんさと技師",
           "priceYen": 32000,
           "rating": 5,
-          "reviews": 174,
+          "reviews": 185,
           "segment": "daiko",
           "url": "https://coconala.com/services/2196022"
         },
@@ -65,7 +65,7 @@
           "seller": "ちゃんさと技師",
           "priceYen": 24000,
           "rating": 5,
-          "reviews": 162,
+          "reviews": 164,
           "segment": "tensaku",
           "url": "https://coconala.com/services/2280554"
         }
@@ -74,28 +74,28 @@
     {
       "keyword": "技術士",
       "totalHits": 1091,
-      "collected": 597,
+      "collected": 596,
       "priceYen": {
         "min": 100,
-        "median": 4500,
-        "mean": 14135,
+        "median": 4000,
+        "mean": 13919,
         "max": 650000
       },
       "segments": {
-        "daiko": 49,
-        "soudan": 165,
-        "tensaku": 73,
-        "other": 247,
-        "kyozai": 41,
+        "daiko": 51,
+        "tensaku": 72,
+        "soudan": 171,
+        "other": 241,
+        "kyozai": 39,
         "shindan": 22
       },
       "topByReviews": [
         {
-          "title": "ご依頼3,100件以上❗内定報告が続々届いています",
+          "title": "ご依頼3,100件以上！内定報告が続々届いています",
           "seller": "就活サポーターTAKU",
           "priceYen": 5500,
           "rating": 5,
-          "reviews": 3152,
+          "reviews": 3214,
           "segment": "other",
           "url": "https://coconala.com/services/1481648"
         },
@@ -104,7 +104,7 @@
           "seller": "Hanako♡",
           "priceYen": 3500,
           "rating": 5,
-          "reviews": 1384,
+          "reviews": 1392,
           "segment": "other",
           "url": "https://coconala.com/services/2969177"
         },
@@ -122,7 +122,7 @@
           "seller": "就活サポーターTAKU",
           "priceYen": 4000,
           "rating": 5,
-          "reviews": 476,
+          "reviews": 478,
           "segment": "tensaku",
           "url": "https://coconala.com/services/1567111"
         },
@@ -140,46 +140,37 @@
     {
       "keyword": "土木施工管理",
       "totalHits": 255,
-      "collected": 249,
+      "collected": 255,
       "priceYen": {
         "min": 100,
         "median": 5000,
-        "mean": 9835,
+        "mean": 9986,
         "max": 230000
       },
       "segments": {
-        "tensaku": 64,
-        "daiko": 54,
-        "other": 63,
-        "soudan": 42,
-        "shindan": 14,
+        "daiko": 56,
+        "tensaku": 62,
+        "other": 64,
+        "soudan": 46,
+        "shindan": 15,
         "kyozai": 12
       },
       "topByReviews": [
         {
-          "title": "1級建築2次模擬　出題予想模擬試験販売しています",
+          "title": "2級建築施工 2次 出題予想模擬試験販売開始します",
           "seller": "ひげごろー（ひげごろ〜）施工管理技士講師",
-          "priceYen": 30000,
+          "priceYen": 25000,
           "rating": 4.8,
-          "reviews": 1276,
-          "segment": "other",
-          "url": "https://coconala.com/services/3021449"
-        },
-        {
-          "title": "1級土木2次模擬　出題予想模擬試験販売します",
-          "seller": "ひげごろー（ひげごろ〜）施工管理技士講師",
-          "priceYen": 30000,
-          "rating": 4.8,
-          "reviews": 992,
-          "segment": "other",
-          "url": "https://coconala.com/services/3000164"
+          "reviews": 617,
+          "segment": "kyozai",
+          "url": "https://coconala.com/services/3481696"
         },
         {
           "title": "新出題形式対応！土木施工の経験記述を添削します",
           "seller": "ちゃんさと技師",
           "priceYen": 12000,
           "rating": 4.9,
-          "reviews": 320,
+          "reviews": 323,
           "segment": "tensaku",
           "url": "https://coconala.com/services/1690708"
         },
@@ -188,7 +179,7 @@
           "seller": "303geos",
           "priceYen": 3500,
           "rating": 4.6,
-          "reviews": 186,
+          "reviews": 192,
           "segment": "other",
           "url": "https://coconala.com/services/801186"
         },
@@ -197,57 +188,57 @@
           "seller": "ちゃんさと技師",
           "priceYen": 32000,
           "rating": 5,
-          "reviews": 174,
+          "reviews": 185,
           "segment": "daiko",
           "url": "https://coconala.com/services/2196022"
+        },
+        {
+          "title": "新出題形式対応！土木の経験記述セットで添削します",
+          "seller": "ちゃんさと技師",
+          "priceYen": 24000,
+          "rating": 5,
+          "reviews": 164,
+          "segment": "tensaku",
+          "url": "https://coconala.com/services/2280554"
         }
       ]
     },
     {
       "keyword": "経験記述",
       "totalHits": 526,
-      "collected": 528,
+      "collected": 539,
       "priceYen": {
         "min": 100,
         "median": 4000,
-        "mean": 8809,
+        "mean": 9002,
         "max": 400000
       },
       "segments": {
-        "tensaku": 165,
-        "daiko": 60,
-        "other": 158,
+        "daiko": 64,
+        "tensaku": 160,
+        "other": 169,
         "shindan": 13,
         "soudan": 121,
-        "kyozai": 11
+        "kyozai": 12
       },
       "topByReviews": [
-        {
-          "title": "1級建築2次模擬　出題予想模擬試験販売しています",
-          "seller": "ひげごろー（ひげごろ〜）施工管理技士講師",
-          "priceYen": 30000,
-          "rating": 4.8,
-          "reviews": 1276,
-          "segment": "other",
-          "url": "https://coconala.com/services/3021449"
-        },
-        {
-          "title": "1級土木2次模擬　出題予想模擬試験販売します",
-          "seller": "ひげごろー（ひげごろ〜）施工管理技士講師",
-          "priceYen": 30000,
-          "rating": 4.8,
-          "reviews": 992,
-          "segment": "other",
-          "url": "https://coconala.com/services/3000164"
-        },
         {
           "title": "驚くほど見違える！公務員試験ES、小論文添削します",
           "seller": "元国家公務員mihiro",
           "priceYen": 6000,
           "rating": 4.8,
-          "reviews": 738,
+          "reviews": 740,
           "segment": "tensaku",
           "url": "https://coconala.com/services/340306"
+        },
+        {
+          "title": "2級建築施工 2次 出題予想模擬試験販売開始します",
+          "seller": "ひげごろー（ひげごろ〜）施工管理技士講師",
+          "priceYen": 25000,
+          "rating": 4.8,
+          "reviews": 617,
+          "segment": "kyozai",
+          "url": "https://coconala.com/services/3481696"
         },
         {
           "title": "恋人・片思いの本音本心/恋愛関係の結末を霊視します",
@@ -266,24 +257,33 @@
           "reviews": 392,
           "segment": "soudan",
           "url": "https://coconala.com/services/1673850"
+        },
+        {
+          "title": "新出題形式対応！土木施工の経験記述を添削します",
+          "seller": "ちゃんさと技師",
+          "priceYen": 12000,
+          "rating": 4.9,
+          "reviews": 323,
+          "segment": "tensaku",
+          "url": "https://coconala.com/services/1690708"
         }
       ]
     },
     {
       "keyword": "技術士 口頭試験",
       "totalHits": 72,
-      "collected": 74,
+      "collected": 72,
       "priceYen": {
         "min": 1000,
         "median": 3000,
-        "mean": 4743,
+        "mean": 4701,
         "max": 40000
       },
       "segments": {
         "kyozai": 6,
-        "tensaku": 19,
-        "soudan": 24,
+        "tensaku": 18,
         "other": 24,
+        "soudan": 23,
         "shindan": 1
       },
       "topByReviews": [
@@ -292,7 +292,7 @@
           "seller": "carriereキャリエール_深瀬⭐︎",
           "priceYen": 4000,
           "rating": 5,
-          "reviews": 251,
+          "reviews": 254,
           "segment": "other",
           "url": "https://coconala.com/services/2923506"
         },
@@ -301,7 +301,7 @@
           "seller": "carriereキャリエール_深瀬⭐︎",
           "priceYen": 12000,
           "rating": 5,
-          "reviews": 135,
+          "reviews": 137,
           "segment": "soudan",
           "url": "https://coconala.com/services/2015425"
         },
@@ -310,7 +310,7 @@
           "seller": "With Toku",
           "priceYen": 2500,
           "rating": 5,
-          "reviews": 51,
+          "reviews": 53,
           "segment": "other",
           "url": "https://coconala.com/services/2312360"
         },
@@ -324,43 +324,34 @@
           "url": "https://coconala.com/services/3139449"
         },
         {
-          "title": "技術士試験の口頭試験をサポートします",
-          "seller": "Kugelschreiber",
-          "priceYen": 6000,
-          "rating": 5,
-          "reviews": 24,
-          "segment": "soudan",
-          "url": "https://coconala.com/services/2600534"
+          "title": "技術士　建設部門　専門キーワード解説集を提供します",
+          "seller": "コン吉",
+          "priceYen": 2000,
+          "rating": 4.9,
+          "reviews": 21,
+          "segment": "kyozai",
+          "url": "https://coconala.com/services/3598583"
         }
       ]
     },
     {
       "keyword": "技術士 申込書",
       "totalHits": 32,
-      "collected": 34,
+      "collected": 32,
       "priceYen": {
         "min": 1000,
         "median": 3000,
-        "mean": 13750,
+        "mean": 13047,
         "max": 100000
       },
       "segments": {
         "soudan": 5,
-        "tensaku": 18,
-        "other": 5,
+        "other": 6,
+        "tensaku": 16,
         "kyozai": 2,
-        "daiko": 4
+        "daiko": 3
       },
       "topByReviews": [
-        {
-          "title": "接続検討申込書【太陽光、蓄電所等】を代理作成します",
-          "seller": "フォトン電気設計",
-          "priceYen": 42000,
-          "rating": 4.9,
-          "reviews": 55,
-          "segment": "daiko",
-          "url": "https://coconala.com/services/2314425"
-        },
         {
           "title": "技術士試験の論文添削、アドバイスします",
           "seller": "ikikd",
@@ -396,6 +387,15 @@
           "reviews": 7,
           "segment": "tensaku",
           "url": "https://coconala.com/services/2949615"
+        },
+        {
+          "title": "技術士二次試験の「業務内容の詳細」を添削します",
+          "seller": "エンジニアのザワ",
+          "priceYen": 3000,
+          "rating": 5,
+          "reviews": 5,
+          "segment": "tensaku",
+          "url": "https://coconala.com/services/2723955"
         }
       ]
     },
@@ -406,8 +406,8 @@
       "priceYen": {
         "min": 1000,
         "median": 3000,
-        "mean": 6412,
-        "max": 32000
+        "mean": 5647,
+        "max": 30000
       },
       "segments": {
         "soudan": 6,
@@ -421,7 +421,7 @@
           "seller": "松浦 お順",
           "priceYen": 1500,
           "rating": 5,
-          "reviews": 2995,
+          "reviews": 3016,
           "segment": "daiko",
           "url": "https://coconala.com/services/1521174"
         },
@@ -448,7 +448,7 @@
           "seller": "うめさんのイラストや",
           "priceYen": 8000,
           "rating": 5,
-          "reviews": 72,
+          "reviews": 73,
           "segment": "other",
           "url": "https://coconala.com/services/2973016"
         },
@@ -466,28 +466,28 @@
     {
       "keyword": "コンクリート診断士",
       "totalHits": 29,
-      "collected": 30,
+      "collected": 31,
       "priceYen": {
         "min": 100,
-        "median": 4500,
-        "mean": 14390,
+        "median": 4000,
+        "mean": 14248,
         "max": 100000
       },
       "segments": {
+        "kyozai": 5,
+        "tensaku": 8,
         "soudan": 4,
-        "kyozai": 6,
-        "tensaku": 7,
-        "shindan": 7,
-        "other": 5,
-        "daiko": 1
+        "shindan": 8,
+        "daiko": 1,
+        "other": 5
       },
       "topByReviews": [
         {
           "title": "Google認定資格者がGoolge広告運用します",
           "seller": "たくや｜WEB広告運用・マーケティング",
-          "priceYen": 30000,
+          "priceYen": 40000,
           "rating": 4.9,
-          "reviews": 72,
+          "reviews": 77,
           "segment": "other",
           "url": "https://coconala.com/services/2716166"
         },
@@ -505,7 +505,7 @@
           "seller": "コン吉",
           "priceYen": 2000,
           "rating": 4.9,
-          "reviews": 19,
+          "reviews": 21,
           "segment": "kyozai",
           "url": "https://coconala.com/services/3598583"
         },
@@ -532,28 +532,18 @@
     {
       "keyword": "コンクリート主任技士",
       "totalHits": 5,
-      "collected": 7,
+      "collected": 6,
       "priceYen": {
         "min": 2000,
         "median": 5000,
-        "mean": 6857,
+        "mean": 6667,
         "max": 20000
       },
       "segments": {
-        "kyozai": 1,
         "tensaku": 5,
         "soudan": 1
       },
       "topByReviews": [
-        {
-          "title": "コンクリート主任技士の完全パックを送ります",
-          "seller": "dobokunote",
-          "priceYen": 8000,
-          "rating": null,
-          "reviews": null,
-          "segment": "kyozai",
-          "url": "https://coconala.com/services/4426935"
-        },
         {
           "title": "建設・安全書類1点を実務目線でレビューします",
           "seller": "安全AIポータル｜建設・安全×AI",
@@ -589,52 +579,52 @@
           "reviews": null,
           "segment": "tensaku",
           "url": "https://coconala.com/services/4425046"
+        },
+        {
+          "title": "現役の発注者が技術資料をレビューします",
+          "seller": "インフラ技術の視点",
+          "priceYen": 5000,
+          "rating": null,
+          "reviews": null,
+          "segment": "tensaku",
+          "url": "https://coconala.com/services/4019966"
         }
       ]
     },
     {
       "keyword": "2級土木",
       "totalHits": 158,
-      "collected": 151,
+      "collected": 149,
       "priceYen": {
         "min": 100,
         "median": 5000,
-        "mean": 7423,
+        "mean": 7441,
         "max": 60000
       },
       "segments": {
-        "tensaku": 55,
         "daiko": 27,
-        "other": 35,
-        "soudan": 21,
+        "tensaku": 53,
+        "other": 34,
+        "soudan": 20,
         "shindan": 5,
-        "kyozai": 8
+        "kyozai": 10
       },
       "topByReviews": [
         {
-          "title": "1級建築2次模擬　出題予想模擬試験販売しています",
+          "title": "2級建築施工 2次 出題予想模擬試験販売開始します",
           "seller": "ひげごろー（ひげごろ〜）施工管理技士講師",
-          "priceYen": 30000,
+          "priceYen": 25000,
           "rating": 4.8,
-          "reviews": 1276,
-          "segment": "other",
-          "url": "https://coconala.com/services/3021449"
-        },
-        {
-          "title": "1級土木2次模擬　出題予想模擬試験販売します",
-          "seller": "ひげごろー（ひげごろ〜）施工管理技士講師",
-          "priceYen": 30000,
-          "rating": 4.8,
-          "reviews": 992,
-          "segment": "other",
-          "url": "https://coconala.com/services/3000164"
+          "reviews": 617,
+          "segment": "kyozai",
+          "url": "https://coconala.com/services/3481696"
         },
         {
           "title": "新出題形式対応！土木施工の経験記述を添削します",
           "seller": "ちゃんさと技師",
           "priceYen": 12000,
           "rating": 4.9,
-          "reviews": 320,
+          "reviews": 323,
           "segment": "tensaku",
           "url": "https://coconala.com/services/1690708"
         },
@@ -643,7 +633,7 @@
           "seller": "303geos",
           "priceYen": 3500,
           "rating": 4.6,
-          "reviews": 186,
+          "reviews": 192,
           "segment": "other",
           "url": "https://coconala.com/services/801186"
         },
@@ -652,53 +642,53 @@
           "seller": "ちゃんさと技師",
           "priceYen": 24000,
           "rating": 5,
-          "reviews": 162,
+          "reviews": 164,
           "segment": "tensaku",
           "url": "https://coconala.com/services/2280554"
+        },
+        {
+          "title": "2026年★二次検定の予想問題と重点項目を送ります",
+          "seller": "303geos",
+          "priceYen": 2500,
+          "rating": 4.7,
+          "reviews": 152,
+          "segment": "other",
+          "url": "https://coconala.com/services/801208"
         }
       ]
     },
     {
       "keyword": "施工管理 模擬試験",
       "totalHits": 9,
-      "collected": 6,
+      "collected": 5,
       "priceYen": {
-        "min": 1500,
+        "min": 2000,
         "median": 3000,
-        "mean": 11583,
-        "max": 30000
+        "mean": 7800,
+        "max": 25000
       },
       "segments": {
-        "other": 4,
-        "kyozai": 2
+        "kyozai": 3,
+        "other": 2
       },
       "topByReviews": [
         {
-          "title": "1級建築2次模擬　出題予想模擬試験販売しています",
+          "title": "2級建築施工 2次 出題予想模擬試験販売開始します",
           "seller": "ひげごろー（ひげごろ〜）施工管理技士講師",
-          "priceYen": 30000,
+          "priceYen": 25000,
           "rating": 4.8,
-          "reviews": 1276,
-          "segment": "other",
-          "url": "https://coconala.com/services/3021449"
+          "reviews": 617,
+          "segment": "kyozai",
+          "url": "https://coconala.com/services/3481696"
         },
         {
-          "title": "1級土木2次模擬　出題予想模擬試験販売します",
-          "seller": "ひげごろー（ひげごろ〜）施工管理技士講師",
-          "priceYen": 30000,
-          "rating": 4.8,
-          "reviews": 992,
-          "segment": "other",
-          "url": "https://coconala.com/services/3000164"
-        },
-        {
-          "title": "2級土木第二次検定！出題予想模擬試験を販売します",
-          "seller": "どぼくじら＠資格取得支援",
-          "priceYen": 1500,
-          "rating": 4.7,
-          "reviews": 27,
-          "segment": "other",
-          "url": "https://coconala.com/services/3764960"
+          "title": "本気で作った二次試験の予想問題を提供します",
+          "seller": "sekokan_55",
+          "priceYen": 3000,
+          "rating": 5,
+          "reviews": 2,
+          "segment": "kyozai",
+          "url": "https://coconala.com/services/4421542"
         },
         {
           "title": "R8二級土木 一次検定（後期）の勉強。半分にします",
@@ -710,69 +700,79 @@
           "url": "https://coconala.com/services/4372801"
         },
         {
-          "title": "本気で作った二次試験の予想問題を提供します",
-          "seller": "sekokan_55",
+          "title": "技術士建設部門の口頭試験を模擬面接で対策します",
+          "seller": "kwcbaseじゅんち",
+          "priceYen": 6000,
+          "rating": null,
+          "reviews": null,
+          "segment": "other",
+          "url": "https://coconala.com/services/4464123"
+        },
+        {
+          "title": "技術士（建設部門）口頭試験の模擬面接をします",
+          "seller": "mikioooooo",
           "priceYen": 3000,
-          "rating": 5,
-          "reviews": 1,
-          "segment": "kyozai",
-          "url": "https://coconala.com/services/4421542"
+          "rating": null,
+          "reviews": null,
+          "segment": "other",
+          "url": "https://coconala.com/services/4279817"
         }
       ]
     },
     {
       "keyword": "経験記述 添削",
       "totalHits": 214,
-      "collected": 210,
+      "collected": 211,
       "priceYen": {
         "min": 1000,
         "median": 4000,
-        "mean": 6531,
+        "mean": 6472,
         "max": 100000
       },
       "segments": {
-        "tensaku": 149,
         "daiko": 9,
+        "tensaku": 150,
         "shindan": 1,
-        "soudan": 29,
-        "other": 22
+        "other": 20,
+        "soudan": 30,
+        "kyozai": 1
       },
       "topByReviews": [
-        {
-          "title": "1級建築2次模擬　出題予想模擬試験販売しています",
-          "seller": "ひげごろー（ひげごろ〜）施工管理技士講師",
-          "priceYen": 30000,
-          "rating": 4.8,
-          "reviews": 1276,
-          "segment": "other",
-          "url": "https://coconala.com/services/3021449"
-        },
-        {
-          "title": "1級土木2次模擬　出題予想模擬試験販売します",
-          "seller": "ひげごろー（ひげごろ〜）施工管理技士講師",
-          "priceYen": 30000,
-          "rating": 4.8,
-          "reviews": 992,
-          "segment": "other",
-          "url": "https://coconala.com/services/3000164"
-        },
         {
           "title": "驚くほど見違える！公務員試験ES、小論文添削します",
           "seller": "元国家公務員mihiro",
           "priceYen": 6000,
           "rating": 4.8,
-          "reviews": 738,
+          "reviews": 740,
           "segment": "tensaku",
           "url": "https://coconala.com/services/340306"
+        },
+        {
+          "title": "2級建築施工 2次 出題予想模擬試験販売開始します",
+          "seller": "ひげごろー（ひげごろ〜）施工管理技士講師",
+          "priceYen": 25000,
+          "rating": 4.8,
+          "reviews": 617,
+          "segment": "kyozai",
+          "url": "https://coconala.com/services/3481696"
         },
         {
           "title": "新出題形式対応！土木施工の経験記述を添削します",
           "seller": "ちゃんさと技師",
           "priceYen": 12000,
           "rating": 4.9,
-          "reviews": 320,
+          "reviews": 323,
           "segment": "tensaku",
           "url": "https://coconala.com/services/1690708"
+        },
+        {
+          "title": "文系のレポート・卒業論文をサポートします",
+          "seller": "国語の人",
+          "priceYen": 1500,
+          "rating": 4.9,
+          "reviews": 284,
+          "segment": "tensaku",
+          "url": "https://coconala.com/services/2425239"
         },
         {
           "title": "情報処理技術者試験　論文試験の答案を添削採点します",
@@ -788,39 +788,30 @@
     {
       "keyword": "経験記述 作成",
       "totalHits": 269,
-      "collected": 264,
+      "collected": 270,
       "priceYen": {
         "min": 1000,
         "median": 4500,
-        "mean": 10994,
+        "mean": 10574,
         "max": 200000
       },
       "segments": {
-        "tensaku": 86,
-        "daiko": 50,
-        "other": 78,
-        "soudan": 40,
-        "kyozai": 7,
-        "shindan": 3
+        "daiko": 53,
+        "tensaku": 88,
+        "other": 82,
+        "soudan": 37,
+        "kyozai": 8,
+        "shindan": 2
       },
       "topByReviews": [
         {
-          "title": "1級建築2次模擬　出題予想模擬試験販売しています",
+          "title": "2級建築施工 2次 出題予想模擬試験販売開始します",
           "seller": "ひげごろー（ひげごろ〜）施工管理技士講師",
-          "priceYen": 30000,
+          "priceYen": 25000,
           "rating": 4.8,
-          "reviews": 1276,
-          "segment": "other",
-          "url": "https://coconala.com/services/3021449"
-        },
-        {
-          "title": "1級土木2次模擬　出題予想模擬試験販売します",
-          "seller": "ひげごろー（ひげごろ〜）施工管理技士講師",
-          "priceYen": 30000,
-          "rating": 4.8,
-          "reviews": 992,
-          "segment": "other",
-          "url": "https://coconala.com/services/3000164"
+          "reviews": 617,
+          "segment": "kyozai",
+          "url": "https://coconala.com/services/3481696"
         },
         {
           "title": "大学/就職/昇進　論文・レポート作成サポートします",
@@ -836,7 +827,7 @@
           "seller": "ちゃんさと技師",
           "priceYen": 12000,
           "rating": 4.9,
-          "reviews": 320,
+          "reviews": 323,
           "segment": "tensaku",
           "url": "https://coconala.com/services/1690708"
         },
@@ -848,52 +839,52 @@
           "reviews": 269,
           "segment": "soudan",
           "url": "https://coconala.com/services/1752064"
+        },
+        {
+          "title": "統計解析の専門家が解析を支援します",
+          "seller": "MedStat Pro（解析・論文支援）",
+          "priceYen": 10000,
+          "rating": 4.9,
+          "reviews": 263,
+          "segment": "soudan",
+          "url": "https://coconala.com/services/1029351"
         }
       ]
     },
     {
       "keyword": "施工経験記述",
       "totalHits": 121,
-      "collected": 109,
+      "collected": 106,
       "priceYen": {
         "min": 1000,
         "median": 5000,
-        "mean": 6963,
+        "mean": 6458,
         "max": 32000
       },
       "segments": {
-        "tensaku": 64,
         "daiko": 16,
-        "other": 24,
+        "tensaku": 61,
+        "other": 23,
         "shindan": 1,
         "soudan": 3,
-        "kyozai": 1
+        "kyozai": 2
       },
       "topByReviews": [
         {
-          "title": "1級建築2次模擬　出題予想模擬試験販売しています",
+          "title": "2級建築施工 2次 出題予想模擬試験販売開始します",
           "seller": "ひげごろー（ひげごろ〜）施工管理技士講師",
-          "priceYen": 30000,
+          "priceYen": 25000,
           "rating": 4.8,
-          "reviews": 1276,
-          "segment": "other",
-          "url": "https://coconala.com/services/3021449"
-        },
-        {
-          "title": "1級土木2次模擬　出題予想模擬試験販売します",
-          "seller": "ひげごろー（ひげごろ〜）施工管理技士講師",
-          "priceYen": 30000,
-          "rating": 4.8,
-          "reviews": 992,
-          "segment": "other",
-          "url": "https://coconala.com/services/3000164"
+          "reviews": 617,
+          "segment": "kyozai",
+          "url": "https://coconala.com/services/3481696"
         },
         {
           "title": "新出題形式対応！土木施工の経験記述を添削します",
           "seller": "ちゃんさと技師",
           "priceYen": 12000,
           "rating": 4.9,
-          "reviews": 320,
+          "reviews": 323,
           "segment": "tensaku",
           "url": "https://coconala.com/services/1690708"
         },
@@ -902,7 +893,7 @@
           "seller": "303geos",
           "priceYen": 3500,
           "rating": 4.6,
-          "reviews": 186,
+          "reviews": 192,
           "segment": "other",
           "url": "https://coconala.com/services/801186"
         },
@@ -911,54 +902,54 @@
           "seller": "ちゃんさと技師",
           "priceYen": 32000,
           "rating": 5,
-          "reviews": 174,
+          "reviews": 185,
           "segment": "daiko",
           "url": "https://coconala.com/services/2196022"
+        },
+        {
+          "title": "新出題形式対応！土木の経験記述セットで添削します",
+          "seller": "ちゃんさと技師",
+          "priceYen": 24000,
+          "rating": 5,
+          "reviews": 164,
+          "segment": "tensaku",
+          "url": "https://coconala.com/services/2280554"
         }
       ]
     },
     {
       "keyword": "1級土木 二次",
       "totalHits": 66,
-      "collected": 57,
+      "collected": 55,
       "priceYen": {
         "min": 1000,
         "median": 4000,
-        "mean": 6474,
-        "max": 30000
+        "mean": 5464,
+        "max": 25000
       },
       "segments": {
         "daiko": 6,
-        "tensaku": 28,
+        "tensaku": 25,
         "other": 11,
-        "soudan": 6,
-        "kyozai": 6
+        "kyozai": 7,
+        "soudan": 6
       },
       "topByReviews": [
         {
-          "title": "1級建築2次模擬　出題予想模擬試験販売しています",
+          "title": "2級建築施工 2次 出題予想模擬試験販売開始します",
           "seller": "ひげごろー（ひげごろ〜）施工管理技士講師",
-          "priceYen": 30000,
+          "priceYen": 25000,
           "rating": 4.8,
-          "reviews": 1276,
-          "segment": "other",
-          "url": "https://coconala.com/services/3021449"
-        },
-        {
-          "title": "1級土木2次模擬　出題予想模擬試験販売します",
-          "seller": "ひげごろー（ひげごろ〜）施工管理技士講師",
-          "priceYen": 30000,
-          "rating": 4.8,
-          "reviews": 992,
-          "segment": "other",
-          "url": "https://coconala.com/services/3000164"
+          "reviews": 617,
+          "segment": "kyozai",
+          "url": "https://coconala.com/services/3481696"
         },
         {
           "title": "2026年★施工条件予想し経験記述の解答例送ります",
           "seller": "303geos",
           "priceYen": 3500,
           "rating": 4.6,
-          "reviews": 186,
+          "reviews": 192,
           "segment": "other",
           "url": "https://coconala.com/services/801186"
         },
@@ -967,7 +958,7 @@
           "seller": "303geos",
           "priceYen": 2500,
           "rating": 4.7,
-          "reviews": 149,
+          "reviews": 152,
           "segment": "other",
           "url": "https://coconala.com/services/801208"
         },
@@ -979,43 +970,52 @@
           "reviews": 31,
           "segment": "tensaku",
           "url": "https://coconala.com/services/2414292"
+        },
+        {
+          "title": "2023年度1級2級施工管理技術検定記述添削します",
+          "seller": "Jaques",
+          "priceYen": 6500,
+          "rating": 4.9,
+          "reviews": 25,
+          "segment": "tensaku",
+          "url": "https://coconala.com/services/1282512"
         }
       ]
     },
     {
       "keyword": "施工管理技士 添削",
       "totalHits": 146,
-      "collected": 139,
+      "collected": 147,
       "priceYen": {
         "min": 100,
         "median": 4000,
-        "mean": 6774,
+        "mean": 6524,
         "max": 65000
       },
       "segments": {
+        "daiko": 14,
         "tensaku": 80,
-        "daiko": 12,
-        "soudan": 19,
         "shindan": 3,
-        "other": 21,
+        "soudan": 19,
+        "other": 27,
         "kyozai": 4
       },
       "topByReviews": [
         {
-          "title": "1級建築2次模擬　出題予想模擬試験販売しています",
+          "title": "2級建築施工 2次 出題予想模擬試験販売開始します",
           "seller": "ひげごろー（ひげごろ〜）施工管理技士講師",
-          "priceYen": 30000,
+          "priceYen": 25000,
           "rating": 4.8,
-          "reviews": 1276,
-          "segment": "other",
-          "url": "https://coconala.com/services/3021449"
+          "reviews": 617,
+          "segment": "kyozai",
+          "url": "https://coconala.com/services/3481696"
         },
         {
           "title": "新出題形式対応！土木施工の経験記述を添削します",
           "seller": "ちゃんさと技師",
           "priceYen": 12000,
           "rating": 4.9,
-          "reviews": 320,
+          "reviews": 323,
           "segment": "tensaku",
           "url": "https://coconala.com/services/1690708"
         },
@@ -1024,7 +1024,7 @@
           "seller": "ちゃんさと技師",
           "priceYen": 24000,
           "rating": 5,
-          "reviews": 162,
+          "reviews": 164,
           "segment": "tensaku",
           "url": "https://coconala.com/services/2280554"
         },
@@ -1033,7 +1033,7 @@
           "seller": "一級建築士 あつぼ先生",
           "priceYen": 5000,
           "rating": 4.9,
-          "reviews": 127,
+          "reviews": 128,
           "segment": "tensaku",
           "url": "https://coconala.com/services/2518861"
         },
@@ -1051,19 +1051,19 @@
     {
       "keyword": "土木 論文 添削",
       "totalHits": 55,
-      "collected": 56,
+      "collected": 53,
       "priceYen": {
         "min": 1000,
         "median": 5000,
-        "mean": 6321,
+        "mean": 6085,
         "max": 29000
       },
       "segments": {
         "daiko": 3,
-        "tensaku": 38,
+        "tensaku": 36,
         "soudan": 9,
         "other": 3,
-        "kyozai": 3
+        "kyozai": 2
       },
       "topByReviews": [
         {
@@ -1071,7 +1071,7 @@
           "seller": "岡田＠現役公務員（元人事課採用担当）",
           "priceYen": 10000,
           "rating": 5,
-          "reviews": 91,
+          "reviews": 97,
           "segment": "daiko",
           "url": "https://coconala.com/services/3585585"
         },
@@ -1089,7 +1089,7 @@
           "seller": "たくえい☘️アステラ法務コンサルティング",
           "priceYen": 4000,
           "rating": 4.9,
-          "reviews": 22,
+          "reviews": 23,
           "segment": "tensaku",
           "url": "https://coconala.com/services/3661884"
         },
@@ -1116,19 +1116,19 @@
     {
       "keyword": "技術士 論文 添削",
       "totalHits": 210,
-      "collected": 216,
+      "collected": 210,
       "priceYen": {
-        "min": 1000,
+        "min": 100,
         "median": 3000,
-        "mean": 4817,
+        "mean": 4715,
         "max": 50000
       },
       "segments": {
         "daiko": 4,
-        "tensaku": 161,
-        "soudan": 19,
-        "other": 25,
-        "kyozai": 7
+        "tensaku": 156,
+        "soudan": 20,
+        "other": 24,
+        "kyozai": 6
       },
       "topByReviews": [
         {
@@ -1136,9 +1136,18 @@
           "seller": "ロックメロン",
           "priceYen": 1500,
           "rating": 5,
-          "reviews": 739,
+          "reviews": 742,
           "segment": "other",
           "url": "https://coconala.com/services/358291"
+        },
+        {
+          "title": "完璧な英文にイギリス人プロが校正・リライトします",
+          "seller": "WordWizard",
+          "priceYen": 1500,
+          "rating": 5,
+          "reviews": 573,
+          "segment": "tensaku",
+          "url": "https://coconala.com/services/1353593"
         },
         {
           "title": "思いが読み手に伝わる！プロ翻訳家が英訳・和訳します",
@@ -1148,15 +1157,6 @@
           "reviews": 570,
           "segment": "other",
           "url": "https://coconala.com/services/593218"
-        },
-        {
-          "title": "完璧な英文にイギリス人プロが校正・リライトします",
-          "seller": "WordWizard",
-          "priceYen": 1500,
-          "rating": 5,
-          "reviews": 569,
-          "segment": "tensaku",
-          "url": "https://coconala.com/services/1353593"
         },
         {
           "title": "ロシア語・英語⇔日本語の翻訳をいたします",
@@ -1181,19 +1181,19 @@
     {
       "keyword": "技術士 二次試験",
       "totalHits": 127,
-      "collected": 124,
+      "collected": 121,
       "priceYen": {
         "min": 100,
         "median": 3000,
-        "mean": 4868,
+        "mean": 4575,
         "max": 36000
       },
       "segments": {
         "daiko": 3,
-        "tensaku": 60,
-        "soudan": 24,
-        "other": 21,
+        "tensaku": 54,
+        "other": 23,
         "kyozai": 15,
+        "soudan": 25,
         "shindan": 1
       },
       "topByReviews": [
@@ -1211,7 +1211,7 @@
           "seller": "Orange Gear",
           "priceYen": 3000,
           "rating": 5,
-          "reviews": 68,
+          "reviews": 70,
           "segment": "other",
           "url": "https://coconala.com/services/2011766"
         },
@@ -1220,7 +1220,7 @@
           "seller": "YOSHI＠技術士",
           "priceYen": 2000,
           "rating": 5,
-          "reviews": 59,
+          "reviews": 61,
           "segment": "tensaku",
           "url": "https://coconala.com/services/3519699"
         },
@@ -1247,18 +1247,18 @@
     {
       "keyword": "技術士 建設部門",
       "totalHits": 69,
-      "collected": 66,
+      "collected": 59,
       "priceYen": {
         "min": 1000,
-        "median": 4000,
-        "mean": 5652,
+        "median": 3000,
+        "mean": 5127,
         "max": 25000
       },
       "segments": {
-        "tensaku": 32,
-        "soudan": 15,
         "other": 11,
-        "kyozai": 7,
+        "tensaku": 26,
+        "kyozai": 6,
+        "soudan": 15,
         "daiko": 1
       },
       "topByReviews": [
@@ -1272,13 +1272,13 @@
           "url": "https://coconala.com/services/2693992"
         },
         {
-          "title": "技術士試験の口頭試験をサポートします",
-          "seller": "Kugelschreiber",
-          "priceYen": 6000,
-          "rating": 5,
-          "reviews": 24,
-          "segment": "soudan",
-          "url": "https://coconala.com/services/2600534"
+          "title": "技術士　建設部門　専門キーワード解説集を提供します",
+          "seller": "コン吉",
+          "priceYen": 2000,
+          "rating": 4.9,
+          "reviews": 21,
+          "segment": "kyozai",
+          "url": "https://coconala.com/services/3598583"
         },
         {
           "title": "技術士二次試験の論文、勉強法などアドバイスします",
@@ -1290,15 +1290,6 @@
           "url": "https://coconala.com/services/824100"
         },
         {
-          "title": "技術士　建設部門　専門キーワード解説集を提供します",
-          "seller": "コン吉",
-          "priceYen": 2000,
-          "rating": 4.9,
-          "reviews": 19,
-          "segment": "kyozai",
-          "url": "https://coconala.com/services/3598583"
-        },
-        {
           "title": "技術士（建設部門）2次試験対策をサポートします",
           "seller": "red1yoh",
           "priceYen": 3500,
@@ -1306,23 +1297,32 @@
           "reviews": 17,
           "segment": "soudan",
           "url": "https://coconala.com/services/2770790"
+        },
+        {
+          "title": "技術士試験（建設）の「試験対策」を指導します",
+          "seller": "やふたみんC",
+          "priceYen": 3000,
+          "rating": 4.8,
+          "reviews": 15,
+          "segment": "soudan",
+          "url": "https://coconala.com/services/2269752"
         }
       ]
     },
     {
       "keyword": "総合技術監理",
       "totalHits": 50,
-      "collected": 44,
+      "collected": 39,
       "priceYen": {
         "min": 1000,
-        "median": 5000,
-        "mean": 6375,
+        "median": 3000,
+        "mean": 5615,
         "max": 50000
       },
       "segments": {
-        "tensaku": 16,
-        "soudan": 9,
-        "kyozai": 13,
+        "kyozai": 12,
+        "tensaku": 13,
+        "soudan": 8,
         "other": 6
       },
       "topByReviews": [
@@ -1354,13 +1354,13 @@
           "url": "https://coconala.com/services/1689991"
         },
         {
-          "title": "技術士試験の口頭試験をサポートします",
-          "seller": "Kugelschreiber",
-          "priceYen": 6000,
-          "rating": 5,
-          "reviews": 24,
-          "segment": "soudan",
-          "url": "https://coconala.com/services/2600534"
+          "title": "技術士　建設部門　専門キーワード解説集を提供します",
+          "seller": "コン吉",
+          "priceYen": 2000,
+          "rating": 4.9,
+          "reviews": 21,
+          "segment": "kyozai",
+          "url": "https://coconala.com/services/3598583"
         },
         {
           "title": "技術士二次試験の論文、勉強法などアドバイスします",
@@ -1440,18 +1440,18 @@
     {
       "keyword": "技術士 上下水道",
       "totalHits": 24,
-      "collected": 24,
+      "collected": 23,
       "priceYen": {
         "min": 1000,
         "median": 4000,
-        "mean": 7813,
+        "mean": 7891,
         "max": 50000
       },
       "segments": {
         "daiko": 1,
-        "soudan": 6,
-        "other": 8,
         "tensaku": 6,
+        "soudan": 5,
+        "other": 8,
         "kyozai": 3
       },
       "topByReviews": [
@@ -1474,20 +1474,20 @@
           "url": "https://coconala.com/services/1689991"
         },
         {
-          "title": "技術士試験の口頭試験をサポートします",
-          "seller": "Kugelschreiber",
-          "priceYen": 6000,
-          "rating": 5,
-          "reviews": 24,
-          "segment": "soudan",
-          "url": "https://coconala.com/services/2600534"
+          "title": "新形式OK！ゼロから土木施工経験記述を作成します",
+          "seller": "たくえい☘️アステラ法務コンサルティング",
+          "priceYen": 5000,
+          "rating": 4.7,
+          "reviews": 23,
+          "segment": "daiko",
+          "url": "https://coconala.com/services/3876781"
         },
         {
           "title": "新形式OK！土木施工管理技士試験経験記述添削します",
           "seller": "たくえい☘️アステラ法務コンサルティング",
           "priceYen": 4000,
           "rating": 4.9,
-          "reviews": 22,
+          "reviews": 23,
           "segment": "tensaku",
           "url": "https://coconala.com/services/3661884"
         },
@@ -1505,33 +1505,24 @@
     {
       "keyword": "技術士 口頭試験 模擬",
       "totalHits": 19,
-      "collected": 19,
+      "collected": 18,
       "priceYen": {
         "min": 1000,
         "median": 3000,
-        "mean": 4395,
+        "mean": 4000,
         "max": 18000
       },
       "segments": {
-        "tensaku": 3,
-        "other": 9,
+        "tensaku": 2,
+        "other": 10,
         "kyozai": 2,
-        "soudan": 5
+        "soudan": 4
       },
       "topByReviews": [
         {
-          "title": "技術士試験の口頭試験をサポートします",
-          "seller": "Kugelschreiber",
-          "priceYen": 6000,
-          "rating": 5,
-          "reviews": 24,
-          "segment": "soudan",
-          "url": "https://coconala.com/services/2600534"
-        },
-        {
           "title": "技術士第二次試験口頭試験の模擬練習します",
           "seller": "沢村大輝＠技術士",
-          "priceYen": 2500,
+          "priceYen": 3000,
           "rating": 5,
           "reviews": 18,
           "segment": "other",
@@ -1542,7 +1533,7 @@
           "seller": "YOSHI＠技術士",
           "priceYen": 2500,
           "rating": 4.9,
-          "reviews": 12,
+          "reviews": 14,
           "segment": "other",
           "url": "https://coconala.com/services/3344528"
         },
@@ -1563,6 +1554,15 @@
           "reviews": 6,
           "segment": "kyozai",
           "url": "https://coconala.com/services/3510205"
+        },
+        {
+          "title": "技術士の口頭試験を受ける方へ模擬面接を行います",
+          "seller": "三人三脚　技術士 機械部門",
+          "priceYen": 3000,
+          "rating": 5,
+          "reviews": 3,
+          "segment": "other",
+          "url": "https://coconala.com/services/2501096"
         }
       ]
     },
@@ -1572,14 +1572,14 @@
       "collected": 9,
       "priceYen": {
         "min": 1500,
-        "median": 4000,
-        "mean": 4722,
+        "median": 3000,
+        "mean": 4167,
         "max": 11000
       },
       "segments": {
+        "tensaku": 6,
         "soudan": 1,
-        "kyozai": 3,
-        "tensaku": 5
+        "kyozai": 2
       },
       "topByReviews": [
         {
@@ -1619,30 +1619,30 @@
           "url": "https://coconala.com/services/4155976"
         },
         {
-          "title": "コンクリート主任技士の完全パックを送ります",
-          "seller": "dobokunote",
-          "priceYen": 8000,
+          "title": "技術士　建設部門　過去問－解答骨子集　を提供します",
+          "seller": "コン吉",
+          "priceYen": 2000,
           "rating": null,
-          "reviews": null,
+          "reviews": 1,
           "segment": "kyozai",
-          "url": "https://coconala.com/services/4426935"
+          "url": "https://coconala.com/services/4340335"
         }
       ]
     },
     {
       "keyword": "技術士 経験論文",
       "totalHits": 105,
-      "collected": 104,
+      "collected": 101,
       "priceYen": {
-        "min": 160,
-        "median": 3500,
-        "mean": 5237,
+        "min": 100,
+        "median": 3000,
+        "mean": 5031,
         "max": 36000
       },
       "segments": {
         "daiko": 3,
-        "tensaku": 68,
-        "soudan": 14,
+        "tensaku": 64,
+        "soudan": 15,
         "other": 17,
         "kyozai": 2
       },
@@ -1661,7 +1661,7 @@
           "seller": "YOSHI＠技術士",
           "priceYen": 2000,
           "rating": 5,
-          "reviews": 59,
+          "reviews": 61,
           "segment": "tensaku",
           "url": "https://coconala.com/services/3519699"
         },
@@ -1697,17 +1697,17 @@
     {
       "keyword": "技術士 総監 択一",
       "totalHits": 19,
-      "collected": 20,
+      "collected": 18,
       "priceYen": {
         "min": 1000,
         "median": 2000,
-        "mean": 3100,
+        "mean": 2667,
         "max": 10000
       },
       "segments": {
+        "kyozai": 8,
         "tensaku": 8,
-        "kyozai": 9,
-        "soudan": 2,
+        "soudan": 1,
         "other": 1
       },
       "topByReviews": [
@@ -1721,20 +1721,11 @@
           "url": "https://coconala.com/services/2937635"
         },
         {
-          "title": "技術士試験の口頭試験をサポートします",
-          "seller": "Kugelschreiber",
-          "priceYen": 6000,
-          "rating": 5,
-          "reviews": 24,
-          "segment": "soudan",
-          "url": "https://coconala.com/services/2600534"
-        },
-        {
           "title": "技術士　建設部門　専門キーワード解説集を提供します",
           "seller": "コン吉",
           "priceYen": 2000,
           "rating": 4.9,
-          "reviews": 19,
+          "reviews": 21,
           "segment": "kyozai",
           "url": "https://coconala.com/services/3598583"
         },
@@ -1755,6 +1746,15 @@
           "reviews": 8,
           "segment": "kyozai",
           "url": "https://coconala.com/services/1798961"
+        },
+        {
+          "title": "技術士二次試験出願資料（業務詳細等）を添削します",
+          "seller": "コン吉",
+          "priceYen": 3000,
+          "rating": 5,
+          "reviews": 6,
+          "segment": "tensaku",
+          "url": "https://coconala.com/services/3627734"
         }
       ]
     },
@@ -1765,15 +1765,15 @@
       "priceYen": {
         "min": 100,
         "median": 3000,
-        "mean": 4453,
+        "mean": 4441,
         "max": 36000
       },
       "segments": {
         "daiko": 3,
         "tensaku": 52,
-        "soudan": 22,
         "other": 22,
         "kyozai": 16,
+        "soudan": 22,
         "shindan": 1
       },
       "topByReviews": [
@@ -1791,7 +1791,7 @@
           "seller": "Orange Gear",
           "priceYen": 3000,
           "rating": 5,
-          "reviews": 68,
+          "reviews": 70,
           "segment": "other",
           "url": "https://coconala.com/services/2011766"
         },
@@ -1800,7 +1800,7 @@
           "seller": "YOSHI＠技術士",
           "priceYen": 2000,
           "rating": 5,
-          "reviews": 59,
+          "reviews": 61,
           "segment": "tensaku",
           "url": "https://coconala.com/services/3519699"
         },
@@ -1857,7 +1857,7 @@
           "seller": "コン吉",
           "priceYen": 2000,
           "rating": 4.9,
-          "reviews": 19,
+          "reviews": 21,
           "segment": "kyozai",
           "url": "https://coconala.com/services/3598583"
         },
@@ -1897,7 +1897,7 @@
       "priceYen": {
         "min": 100,
         "median": 3000,
-        "mean": 3863,
+        "mean": 3525,
         "max": 13000
       },
       "segments": {
@@ -1946,7 +1946,7 @@
         {
           "title": "現役技術士が技術士二次試験の答案を添削します",
           "seller": "コーチ｜技術士・労働衛生コンサルタント",
-          "priceYen": 5000,
+          "priceYen": 3000,
           "rating": null,
           "reviews": null,
           "segment": "tensaku",
@@ -2030,7 +2030,7 @@
       "priceYen": {
         "min": 1000,
         "median": 3000,
-        "mean": 8500,
+        "mean": 8538,
         "max": 50000
       },
       "segments": {
@@ -2042,7 +2042,7 @@
         {
           "title": "技術士第二次試験口頭試験の模擬練習します",
           "seller": "沢村大輝＠技術士",
-          "priceYen": 2500,
+          "priceYen": 3000,
           "rating": 5,
           "reviews": 18,
           "segment": "other",
@@ -2076,13 +2076,13 @@
           "url": "https://coconala.com/services/2300342"
         },
         {
-          "title": null,
-          "seller": "熊坂　治",
-          "priceYen": 3000,
-          "rating": 1,
+          "title": "技術士　建設部門　過去問－解答骨子集　を提供します",
+          "seller": "コン吉",
+          "priceYen": 2000,
+          "rating": null,
           "reviews": 1,
-          "segment": "other",
-          "url": "https://coconala.com/services/7662"
+          "segment": "kyozai",
+          "url": "https://coconala.com/services/4340335"
         }
       ]
     },
@@ -2092,14 +2092,14 @@
       "collected": 13,
       "priceYen": {
         "min": 100,
-        "median": 2000,
-        "mean": 3008,
+        "median": 2500,
+        "mean": 3123,
         "max": 7000
       },
       "segments": {
         "tensaku": 2,
-        "soudan": 7,
-        "other": 4
+        "soudan": 6,
+        "other": 5
       },
       "topByReviews": [
         {
@@ -2155,13 +2155,13 @@
       "collected": 4,
       "priceYen": {
         "min": 3000,
-        "median": 5000,
-        "mean": 9250,
+        "median": 4000,
+        "mean": 8750,
         "max": 25000
       },
       "segments": {
-        "tensaku": 1,
         "soudan": 1,
+        "tensaku": 1,
         "other": 2
       },
       "topByReviews": [
@@ -2177,7 +2177,7 @@
         {
           "title": "労働衛生コンサルタント試験の合格戦略を相談します",
           "seller": "コーチ｜技術士・労働衛生コンサルタント",
-          "priceYen": 5000,
+          "priceYen": 3000,
           "rating": null,
           "reviews": null,
           "segment": "soudan",
@@ -2206,20 +2206,20 @@
     {
       "keyword": "1級建築施工管理技士",
       "totalHits": 240,
-      "collected": 119,
+      "collected": 240,
       "priceYen": {
         "min": 100,
         "median": 4000,
-        "mean": 7459,
+        "mean": 8282,
         "max": 100000
       },
       "segments": {
-        "daiko": 17,
-        "other": 40,
-        "tensaku": 25,
-        "soudan": 20,
-        "shindan": 11,
-        "kyozai": 6
+        "daiko": 32,
+        "tensaku": 45,
+        "other": 78,
+        "soudan": 54,
+        "kyozai": 11,
+        "shindan": 20
       },
       "topByReviews": [
         {
@@ -2236,7 +2236,7 @@
           "seller": "303geos",
           "priceYen": 3500,
           "rating": 4.6,
-          "reviews": 186,
+          "reviews": 192,
           "segment": "other",
           "url": "https://coconala.com/services/801186"
         },
@@ -2254,7 +2254,7 @@
           "seller": "303geos",
           "priceYen": 2500,
           "rating": 4.7,
-          "reviews": 149,
+          "reviews": 152,
           "segment": "other",
           "url": "https://coconala.com/services/801208"
         },
@@ -2263,7 +2263,7 @@
           "seller": "一級建築士 あつぼ先生",
           "priceYen": 5000,
           "rating": 4.9,
-          "reviews": 127,
+          "reviews": 128,
           "segment": "tensaku",
           "url": "https://coconala.com/services/2518861"
         }
@@ -2272,20 +2272,20 @@
     {
       "keyword": "2級建築施工管理技士",
       "totalHits": 223,
-      "collected": 120,
+      "collected": 224,
       "priceYen": {
         "min": 100,
         "median": 4000,
-        "mean": 7726,
+        "mean": 8208,
         "max": 100000
       },
       "segments": {
-        "daiko": 17,
-        "other": 41,
-        "tensaku": 23,
-        "soudan": 19,
-        "shindan": 12,
-        "kyozai": 8
+        "daiko": 29,
+        "tensaku": 41,
+        "other": 75,
+        "soudan": 50,
+        "kyozai": 11,
+        "shindan": 18
       },
       "topByReviews": [
         {
@@ -2302,7 +2302,7 @@
           "seller": "303geos",
           "priceYen": 3500,
           "rating": 4.6,
-          "reviews": 186,
+          "reviews": 192,
           "segment": "other",
           "url": "https://coconala.com/services/801186"
         },
@@ -2320,7 +2320,7 @@
           "seller": "303geos",
           "priceYen": 2500,
           "rating": 4.7,
-          "reviews": 149,
+          "reviews": 152,
           "segment": "other",
           "url": "https://coconala.com/services/801208"
         },
@@ -2329,7 +2329,7 @@
           "seller": "一級建築士 あつぼ先生",
           "priceYen": 5000,
           "rating": 4.9,
-          "reviews": 127,
+          "reviews": 128,
           "segment": "tensaku",
           "url": "https://coconala.com/services/2518861"
         }
@@ -2338,20 +2338,20 @@
     {
       "keyword": "1級管工事施工管理技士",
       "totalHits": 151,
-      "collected": 120,
+      "collected": 152,
       "priceYen": {
         "min": 100,
-        "median": 5000,
-        "mean": 9053,
+        "median": 4500,
+        "mean": 9361,
         "max": 150000
       },
       "segments": {
-        "daiko": 23,
-        "other": 42,
-        "soudan": 19,
-        "tensaku": 28,
+        "daiko": 32,
+        "tensaku": 31,
+        "other": 52,
+        "soudan": 28,
         "shindan": 6,
-        "kyozai": 2
+        "kyozai": 3
       },
       "topByReviews": [
         {
@@ -2359,7 +2359,7 @@
           "seller": "303geos",
           "priceYen": 3500,
           "rating": 4.6,
-          "reviews": 186,
+          "reviews": 192,
           "segment": "other",
           "url": "https://coconala.com/services/801186"
         },
@@ -2368,7 +2368,7 @@
           "seller": "303geos",
           "priceYen": 2500,
           "rating": 4.7,
-          "reviews": 149,
+          "reviews": 152,
           "segment": "other",
           "url": "https://coconala.com/services/801208"
         },
@@ -2377,7 +2377,7 @@
           "seller": "ちゃんさと技師",
           "priceYen": 16000,
           "rating": 5,
-          "reviews": 141,
+          "reviews": 146,
           "segment": "daiko",
           "url": "https://coconala.com/services/1930448"
         },
@@ -2386,7 +2386,7 @@
           "seller": "一級建築士 あつぼ先生",
           "priceYen": 5000,
           "rating": 4.9,
-          "reviews": 127,
+          "reviews": 128,
           "segment": "tensaku",
           "url": "https://coconala.com/services/2518861"
         },
@@ -2395,7 +2395,7 @@
           "seller": "フリーランス技術者K",
           "priceYen": 10000,
           "rating": 4.9,
-          "reviews": 76,
+          "reviews": 80,
           "segment": "daiko",
           "url": "https://coconala.com/services/2346732"
         }
@@ -2413,9 +2413,9 @@
       },
       "segments": {
         "daiko": 23,
+        "tensaku": 31,
         "other": 34,
         "soudan": 28,
-        "tensaku": 31,
         "shindan": 2
       },
       "topByReviews": [
@@ -2424,7 +2424,7 @@
           "seller": "303geos",
           "priceYen": 3500,
           "rating": 4.6,
-          "reviews": 186,
+          "reviews": 192,
           "segment": "other",
           "url": "https://coconala.com/services/801186"
         },
@@ -2433,7 +2433,7 @@
           "seller": "303geos",
           "priceYen": 2500,
           "rating": 4.7,
-          "reviews": 149,
+          "reviews": 152,
           "segment": "other",
           "url": "https://coconala.com/services/801208"
         },
@@ -2442,7 +2442,7 @@
           "seller": "ちゃんさと技師",
           "priceYen": 16000,
           "rating": 5,
-          "reviews": 141,
+          "reviews": 146,
           "segment": "daiko",
           "url": "https://coconala.com/services/1930448"
         },
@@ -2451,7 +2451,7 @@
           "seller": "一級建築士 あつぼ先生",
           "priceYen": 5000,
           "rating": 4.9,
-          "reviews": 127,
+          "reviews": 128,
           "segment": "tensaku",
           "url": "https://coconala.com/services/2518861"
         },
@@ -2460,7 +2460,7 @@
           "seller": "フリーランス技術者K",
           "priceYen": 10000,
           "rating": 4.9,
-          "reviews": 76,
+          "reviews": 80,
           "segment": "daiko",
           "url": "https://coconala.com/services/2346732"
         }
@@ -2477,8 +2477,8 @@
         "max": 7000
       },
       "segments": {
-        "daiko": 2,
         "tensaku": 2,
+        "daiko": 2,
         "other": 1,
         "shindan": 1,
         "soudan": 1
@@ -2489,7 +2489,7 @@
           "seller": "道路プロ0609",
           "priceYen": 3000,
           "rating": 5,
-          "reviews": 34,
+          "reviews": 36,
           "segment": "tensaku",
           "url": "https://coconala.com/services/3846142"
         },
@@ -2512,15 +2512,6 @@
           "url": "https://coconala.com/services/2505221"
         },
         {
-          "title": "御社の様式で施工体制台帳と体系図を作ります",
-          "seller": "現役施工管理AI建設未来会議",
-          "priceYen": 3000,
-          "rating": null,
-          "reviews": null,
-          "segment": "daiko",
-          "url": "https://coconala.com/services/4359971"
-        },
-        {
           "title": "1級土木の経験記述を現場10年のプロが添削します",
           "seller": "TERRAFT 石﨑",
           "priceYen": 3000,
@@ -2528,6 +2519,15 @@
           "reviews": null,
           "segment": "tensaku",
           "url": "https://coconala.com/services/4271165"
+        },
+        {
+          "title": "御社の様式で施工体制台帳と体系図を作ります",
+          "seller": "現役施工管理AI建設未来会議",
+          "priceYen": 3000,
+          "rating": null,
+          "reviews": null,
+          "segment": "daiko",
+          "url": "https://coconala.com/services/4359971"
         }
       ]
     },
@@ -2550,11 +2550,11 @@
       },
       "topByReviews": [
         {
-          "title": "ご依頼3,100件以上❗内定報告が続々届いています",
+          "title": "ご依頼3,100件以上！内定報告が続々届いています",
           "seller": "就活サポーターTAKU",
           "priceYen": 5500,
           "rating": 5,
-          "reviews": 3152,
+          "reviews": 3214,
           "segment": "other",
           "url": "https://coconala.com/services/1481648"
         },
@@ -2563,7 +2563,7 @@
           "seller": "就活サポーターTAKU",
           "priceYen": 4000,
           "rating": 5,
-          "reviews": 476,
+          "reviews": 478,
           "segment": "tensaku",
           "url": "https://coconala.com/services/1567111"
         },
@@ -2590,7 +2590,7 @@
           "seller": "岡田＠現役公務員（元人事課採用担当）",
           "priceYen": 10000,
           "rating": 5,
-          "reviews": 91,
+          "reviews": 97,
           "segment": "daiko",
           "url": "https://coconala.com/services/3585585"
         }
@@ -2611,8 +2611,8 @@
         "tensaku": 7,
         "kyozai": 5,
         "soudan": 38,
-        "other": 41,
-        "shindan": 4
+        "shindan": 4,
+        "other": 41
       },
       "topByReviews": [
         {
@@ -2674,9 +2674,9 @@
       },
       "segments": {
         "daiko": 7,
+        "tensaku": 2,
         "soudan": 13,
         "shindan": 1,
-        "tensaku": 2,
         "other": 13
       },
       "topByReviews": [
@@ -2699,31 +2699,31 @@
           "url": "https://coconala.com/services/2966786"
         },
         {
-          "title": "新形式OK！土木施工管理技士試験経験記述添削します",
-          "seller": "たくえい☘️アステラ法務コンサルティング",
-          "priceYen": 4000,
-          "rating": 4.9,
-          "reviews": 22,
-          "segment": "tensaku",
-          "url": "https://coconala.com/services/3661884"
-        },
-        {
           "title": "新形式OK！ゼロから土木施工経験記述を作成します",
           "seller": "たくえい☘️アステラ法務コンサルティング",
           "priceYen": 5000,
           "rating": 4.7,
-          "reviews": 18,
+          "reviews": 23,
           "segment": "daiko",
           "url": "https://coconala.com/services/3876781"
         },
         {
-          "title": "独学OK!測量士補試験に合格する方法教えます",
-          "seller": "マイケル_副業の達人",
-          "priceYen": 2500,
-          "rating": 5,
+          "title": "新形式OK！土木施工管理技士試験経験記述添削します",
+          "seller": "たくえい☘️アステラ法務コンサルティング",
+          "priceYen": 4000,
+          "rating": 4.9,
+          "reviews": 23,
+          "segment": "tensaku",
+          "url": "https://coconala.com/services/3661884"
+        },
+        {
+          "title": "資格試験合格に向けて勉強方法をアドバイスします",
+          "seller": "資格ちゃん",
+          "priceYen": 1000,
+          "rating": 4.7,
           "reviews": 12,
           "segment": "soudan",
-          "url": "https://coconala.com/services/2005689"
+          "url": "https://coconala.com/services/2502497"
         }
       ]
     },
@@ -2800,7 +2800,7 @@
           "seller": "コン吉",
           "priceYen": 2000,
           "rating": 4.9,
-          "reviews": 19,
+          "reviews": 21,
           "segment": "kyozai",
           "url": "https://coconala.com/services/3598583"
         },
