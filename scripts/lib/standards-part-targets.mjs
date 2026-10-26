@@ -53,16 +53,19 @@ export function standardPartTarget(library, agencyId, documentId, partSlug, page
   return standardPageTarget(document, page ?? part.firstPage);
 }
 
+/** 章の無い文書の全分冊を文書ページへ送る動的ルール（1 本。章のある文書の分冊は前に置く静的ルールが先に当たる） */
+export const PART_FALLBACK_RULE = '/standards/:agency/:document/part-* /standards/:agency/:document 301';
+
 /**
- * _redirects の行。章のある文書は分冊ごとの静的ルール、章の無い文書は文書ごとの splat 1 本
- * （Cloudflare Pages の上限: 静的 2,000・動的 100）。
+ * _redirects の行。章のある文書は分冊ごとの静的ルール、章の無い文書は PART_FALLBACK_RULE 1 本にまとめる
+ * （Cloudflare Pages の上限: 静的 2,000・動的 100。動的は文書ごとに 1 本だと 49 本で余裕を食う）。
  */
 export function standardPartRedirectRules(library = loadStandardsLibrary()) {
   const staticRules = [];
   const dynamicRules = [];
   for (const document of library) {
     if (document.chapters.length === 0) {
-      dynamicRules.push(`${documentPath(document)}/part-* ${documentPath(document)} 301`);
+      if (dynamicRules.length === 0) dynamicRules.push(PART_FALLBACK_RULE);
       continue;
     }
     for (const part of document.parts) {
@@ -74,5 +77,8 @@ export function standardPartRedirectRules(library = loadStandardsLibrary()) {
 
 /** 前回この生成が出した splat（入力の動的ルールとして数え直さない） */
 export function isGeneratedPartRule(line) {
-  return /^\/standards\/[a-z0-9-]+\/[a-z0-9-]+\/part-\*\s+\/standards\/[a-z0-9-]+\/[a-z0-9-]+\s+301$/.test(String(line).trim());
+  const trimmed = String(line).trim().replace(/\s+/g, ' ');
+  // 文書ごとの splat（2026-10-26 の初版）も前回の生成物として数え直さない
+  return trimmed === PART_FALLBACK_RULE
+    || /^\/standards\/[a-z0-9-]+\/[a-z0-9-]+\/part-\* \/standards\/[a-z0-9-]+\/[a-z0-9-]+ 301$/.test(trimmed);
 }

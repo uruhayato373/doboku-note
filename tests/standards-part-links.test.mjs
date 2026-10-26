@@ -11,6 +11,7 @@ import { listFiles } from '../scripts/lib/fs-walk.mjs';
 import { REPO_ROOT, SITE_CONTENT_ROOT } from '../scripts/lib/repository-paths.mjs';
 import {
   PART_URL,
+  PART_FALLBACK_RULE,
   isGeneratedPartRule,
   loadStandardsLibrary,
   standardPartRedirectRules,
@@ -37,15 +38,19 @@ test('src/ に逐語ページのルートが無い', () => {
   assert.deepEqual(routes, []);
 });
 
-test('全分冊の旧 URL が _redirects で転送される（章のある文書は分冊ごと、無い文書は splat）', () => {
+test('全分冊の旧 URL が _redirects で転送される（章のある文書は分冊ごと、無い文書は動的ルール 1 本）', () => {
   const library = loadStandardsLibrary();
   const { staticRules, dynamicRules } = standardPartRedirectRules(library);
   const redirects = readFileSync(join(REPO_ROOT, 'public', '_redirects'), 'utf8');
   for (const rule of [...staticRules, ...dynamicRules]) assert.ok(redirects.includes(rule), `_redirects に無い: ${rule}`);
   const partCount = library.reduce((sum, document) => sum + (document.chapters.length > 0 ? document.parts.length : 0), 0);
   assert.equal(staticRules.length, partCount);
-  assert.equal(dynamicRules.length, library.filter((document) => document.chapters.length === 0).length);
+  assert.deepEqual(dynamicRules, library.some((document) => document.chapters.length === 0) ? [PART_FALLBACK_RULE] : []);
   assert.ok(dynamicRules.every(isGeneratedPartRule));
+  // 動的ルールは静的ルールの後ろ（章のある文書の分冊は静的ルールが先に当たる）
+  const lines = redirects.split(/\r?\n/).map((line) => line.trim());
+  const lastStatic = Math.max(...staticRules.map((rule) => lines.indexOf(rule)));
+  assert.ok(dynamicRules.every((rule) => lines.indexOf(rule) > lastStatic), '動的ルールが静的ルールより前にある');
 });
 
 test('行き先の型: ページを含む章、節ページに分けた章は節、台帳に無い分冊は null', () => {

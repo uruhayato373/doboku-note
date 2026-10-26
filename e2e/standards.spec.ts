@@ -93,7 +93,9 @@ test('part-03 から part-04 をまたぐ章が、境界の前後とも 1 ペー
 test('章記事に原本の逐語ページ（分冊）への導線が無い', async ({ page }) => {
   // 原本の逐語ページは 2026-10-26 に公開をやめた（旧 URL は _redirects で章・文書へ転送）。利用者向けの画面に出さない
   await page.goto('/standards/chubu/common/chapters/1-3');
-  await expect(page.locator('main a[href*="/part-"], main a[data-source-pages]')).toHaveCount(0);
+  const hrefs = await page.locator('main a').evaluateAll((links) => links.map((link) => link.getAttribute('href') ?? ''));
+  expect(hrefs.filter((href) => /part-\d+/.test(href))).toEqual([]);
+  await expect(page.locator('main a[data-source-pages]')).toHaveCount(0);
   await expect(page.getByRole('heading', { name: '原典PDFページで確認する' })).toHaveCount(0);
   await expect(page.locator('main article header')).not.toContainText('原本PDF');
 });
