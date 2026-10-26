@@ -78,6 +78,18 @@ test('技術士一次 概要・学習計画・解答速報: 試験日まで直�
   }
 });
 
+test('/links の技術士一次カード: 試験日まで直前パック、翌日から過去問 PDF（どちらも短い名前を持つ）', async () => {
+  const { pe1LeadMagazineId } = await loadPlacement();
+  assert.deepEqual(pe1Times.map((t) => pe1LeadMagazineId(t)), ['pe1-chokuzen-pack', 'pe1-chokuzen-pack', 'pe1-takuitsu-pdf', 'pe1-takuitsu-pdf']);
+  const page = readFileSync(join(ROOT, 'src/app/links/page.tsx'), 'utf8');
+  assert.match(page, /getMagazine\(pe1LeadMagazineId\(\)\)/);
+  assert.doesNotMatch(page, /getMagazine\("pe1-chokuzen-pack"\)/);
+  const products = JSON.parse(readFileSync(join(ROOT, 'config/products.json'), 'utf8')).products;
+  for (const id of ['pe1-chokuzen-pack', 'pe1-takuitsu-pdf']) {
+    assert.ok(products.find((p) => p.id === id)?.catalog?.shortTitle, `${id} の shortTitle`);
+  }
+});
+
 test('技術士一次 合格後ページは試験の前後どちらも二次（建設部門）の入口、過去問は過去問 PDF のまま', async () => {
   const { resolvePlacement } = await loadPlacement();
   for (const t of pe1Times) {
