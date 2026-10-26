@@ -3,7 +3,7 @@ import { isStructuralTag } from '@/lib/content-taxonomy';
 import { classifyDoc, isCareerDoc } from './doc-classifier';
 import { getMagazine, type MagazineId } from './note-magazines';
 import { resolvePlacement } from './magazine-placement';
-import { examDayEndUtcMs } from './exam-dates';
+import { isAfterExamDay } from './exam-dates';
 
 export const DISCOVERY_CATEGORIES = ['pe-first-stage', 'pe-construction', 'concrete-engineer', 'concrete-chief-engineer', 'concrete-diagnostician', 'civil-practice', 'rccm'];
 const products: Partial<Record<string, MagazineId>> = {
@@ -19,7 +19,7 @@ const products: Partial<Record<string, MagazineId>> = {
  * しか押されず、スマホでは一覧の最下部だった（DN-0703・GA4 2026-09-24〜10-21）。試験日は config/exam-calendar.json から引く。
  */
 function categoryProductId(category: string): MagazineId | undefined {
-  if (category === 'concrete-chief-engineer' && Date.now() <= examDayEndUtcMs('concrete-chief-engineer', 'exam')) {
+  if (category === 'concrete-chief-engineer' && !isAfterExamDay('concrete-chief-engineer', 'exam')) {
     return 'cce-takuitsu-chokuzen-pack';
   }
   return products[category];

@@ -127,6 +127,24 @@ const zeroPageBaseline: Record<string, string> = baselineJson.zeroPage ?? {};
 const PAGE_GATE_CATEGORIES = new Set(['civil-construction-1', 'civil-construction-2', 'pe-first-stage', 'pe-construction', 'pe-comprehensive-management', 'concrete-engineer', 'concrete-chief-engineer', 'concrete-diagnostician', 'rccm']);
 
 type Reach = { id: string; routes: string[]; categories: Set<string> };
+
+// 試験日で商品が切り替わる面（直前パック→来年向け商品など）があるので、全試験の前と全試験の後の 2 時点で
+// 到達を数える。今日の日付だけで数えると、試験日を過ぎた日の push で直前向けの商品が 0 面になり、
+// 差分と無関係に CI が赤くなる（壁時計に依存する検査をゲートにしない）。商品の到達は 2 時点の和、
+// ページの CTA ゼロはどちらかの時点で 0 なら 0 とみなす。
+const PROBE_TIMES = [Date.parse('2000-01-01T00:00:00+09:00'), Date.parse('2999-01-01T00:00:00+09:00')] as const;
+
+function collectReach(nowMs: number): Map<string, Reach> {
+  const realNow = Date.now;
+  Date.now = () => nowMs;
+  try {
+    return collectReachAt();
+  } finally {
+    Date.now = realNow;
+  }
+}
+
+function collectReachAt(): Map<string, Reach> {
 const reach = new Map<string, Reach>();
 const ensure = (id: string): Reach => {
   let r = reach.get(id);
@@ -174,6 +192,19 @@ for (const cat of DISCOVERY_CATEGORIES) {
   if (!mag) continue;
   const r = ensure(mag.id); r.routes.push(`category-page:${cat}`); r.categories.add(cat);
 }
+return reach;
+}
+
+const reachByProbe = PROBE_TIMES.map(collectReach);
+const reach = new Map<string, Reach>();
+for (const probe of reachByProbe) {
+  for (const [id, r] of probe) {
+    const merged = reach.get(id) ?? { id, routes: [], categories: new Set<string>() };
+    for (const route of r.routes) if (!merged.routes.includes(route)) merged.routes.push(route);
+    for (const c of r.categories) merged.categories.add(c);
+    reach.set(id, merged);
+  }
+}
 
 const published = Object.values(NOTE_MAGAZINES).filter((m) => m.published && m.noteUrl);
 const zero = published.filter((m) => !(reach.get(m.id)?.routes.length));
@@ -207,18 +238,23 @@ if (newZero.length) {
 // ── ページ単位: 1級・2級土木の公開記事に note CTA が 1 つも出ないページ ──────────────
 // 面の数え方はマガジン単位と同じ（top / 中間 CTA / MagazineCard / 非 HUB のサイドバー）。
 // career 記事は note CTA を出さない設計（resolvePlacement の 0 番ガード）なので対象外。
-const pageSurfaces = new Map<string, number>();
-for (const r of reach.values()) {
-  for (const route of r.routes) {
-    const slug = route.slice(route.indexOf(':') + 1);
-    pageSurfaces.set(slug, (pageSurfaces.get(slug) ?? 0) + 1);
+const pageSurfacesByProbe = reachByProbe.map((probe) => {
+  const surfaces = new Map<string, number>();
+  for (const r of probe.values()) {
+    for (const route of r.routes) {
+      const slug = route.slice(route.indexOf(':') + 1);
+      surfaces.set(slug, (surfaces.get(slug) ?? 0) + 1);
+    }
   }
-}
+  return surfaces;
+});
+// どちらの時点でも 1 面以上ある（＝試験の前後どちらでも CTA が出る）ページだけを「あり」とする
+const hasSurface = (slug: string): boolean => pageSurfacesByProbe.every((m) => (m.get(slug) ?? 0) > 0);
 const gateDocs = docs.filter((d) => PAGE_GATE_CATEGORIES.has(d.category) && d.isPublished);
 const gateTargets = gateDocs.filter((d) => !d.isCareer);
-const zeroPages = gateTargets.filter((d) => !pageSurfaces.get(d.slug) && !resolveHubCta(d.category));
+const zeroPages = gateTargets.filter((d) => !hasSurface(d.slug) && !resolveHubCta(d.category));
 const newZeroPages = zeroPages.filter((d) => !zeroPageBaseline[d.slug]);
-const fixedPages = Object.keys(zeroPageBaseline).filter((slug) => pageSurfaces.get(slug));
+const fixedPages = Object.keys(zeroPageBaseline).filter((slug) => hasSurface(slug));
 console.log(`\n[page-gate] 教材のある9資格の公開記事 ${gateDocs.length} 本（career ${gateDocs.length - gateTargets.length} 本は対象外）/ 実検査 ${gateTargets.length} 本 / CTA ゼロ ${zeroPages.length} 本（baseline 外 ${newZeroPages.length} 本）`);
 for (const d of zeroPages) {
   console.log(`  ${zeroPageBaseline[d.slug] ? '-' : '✗'} ${d.slug}${zeroPageBaseline[d.slug] ? `（baseline: ${zeroPageBaseline[d.slug]}）` : ''}`);

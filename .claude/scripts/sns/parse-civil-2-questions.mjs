@@ -16,6 +16,7 @@ import { writeGeneratedJson } from '../../../scripts/lib/generated-json.mjs';
 import { join, relative } from 'node:path';
 import { extractStatementExplanations } from '../../../scripts/lib/statement-explanations.mjs';
 import { REPO_ROOT, SITE_CONTENT_ROOT } from '../../../scripts/lib/repository-paths.mjs';
+import { isUnpublishedMdx } from '../../../scripts/lib/mdx-published.mjs';
 
 const POSTS = join(SITE_CONTENT_ROOT, 'civil-construction-2');
 const OUT = join(REPO_ROOT, 'src/config/civil-2-exam-questions.json');
@@ -33,6 +34,8 @@ function parseArticle(dir) {
   const term = m[2] ?? null;               // zenki | kouki | null（年1回）
   const year = term ? `${baseYear}${term === 'zenki' ? 'z' : 'k'}` : baseYear; // r05z / r05k / h26
   const raw = readFileSync(join(POSTS, dir, 'article.mdx'), 'utf8').replace(/\r\n/g, '\n');
+  // 非公開の下書き（公式正答の無い年度で、運営者の確定前）は演習データへ入れない（DN-0866）
+  if (isUnpublishedMdx(raw)) return { year, term, questions: [], skipped: true };
   const body = stripFrontmatter(raw);
   const blocks = body.split(/^## 問題 No\./m).slice(1);
   const out = [];
@@ -101,12 +104,15 @@ function parseArticle(dir) {
 const dirs = readdirSync(POSTS).filter((d) => /^primary-[hr]\d{2}(-(zenki|kouki))?$/.test(d)).sort();
 const byYear = {};
 const termOf = {};
+const skipped = [];
 for (const d of dirs) {
   const r = parseArticle(d);
   if (!r) continue;
+  if (r.skipped) { skipped.push(d); continue; }
   (byYear[r.year] ||= []).push(...r.questions);
   termOf[r.year] = r.term;
 }
+if (skipped.length) console.log(`非公開の下書きを除外: ${skipped.join(' ')}`);
 const years = Object.keys(byYear).sort().map((year) => ({ year, term: termOf[year], questions: byYear[year].sort((a, b) => a.no - b.no) }));
 const result = { generatedAt: new Date().toISOString().slice(0, 19) + 'Z', exam: 'civil-2', years };
 if (!writeGeneratedJson(OUT, result, { newline: false })) console.log('変更なし（書かない）');

@@ -110,6 +110,11 @@ https://note.com/dobokunote/m/m09d20bfd9738
 
 購入前に試験の全体像だけ確認したい方は、[コンクリート主任技士 試験概要](https://doboku-note.com/exam/concrete-chief-engineer/guide/overview?utm_source=note&utm_medium=referral&utm_campaign=cce-marugoto&utm_content=guide-overview)を無料で公開しています。
 
+<!-- cta:coconala-custom -->
+自分で書いた小論文を見てほしいときは、ココナラで個別に添削しています（書き直し1回込み）。本試験前の返却は11/25（水）までの受付分です。
+
+https://coconala.com/services/4425046
+
 ---
 
 <!-- cta:concrete-mokuji -->
