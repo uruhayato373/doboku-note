@@ -3,13 +3,29 @@
   "scope": "pe-first-stage",
   "media": [
     {
+      "id": "pe-first-stage/pe1-zentaizou/youtube.longform/contact-sheet",
+      "role": "contact-sheet",
+      "type": "image/jpeg",
+      "sha256": "1ed4d12ad98cd351108128ebdb4ae1ed9c7716e18a6292df95c78a39b9154d74",
+      "bytes": 419113,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/contact-sheet.1ed4d12a.jpg"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "media-preview",
+        "spec": "content/sns/video-packs/pe-first-stage/pe1-zentaizou/storyboard.json"
+      },
+      "width": 1920,
+      "height": 1620
+    },
+    {
       "id": "pe-first-stage/pe1-zentaizou/youtube.longform/cover",
       "role": "cover",
       "type": "image/png",
       "sha256": "1941cd22fa523fcb233e8ab7b8ad756ad7398be8755037b881d8380fb39398f9",
       "bytes": 704052,
-      "width": 1920,
-      "height": 1080,
       "store": {
         "tier": "drive",
         "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png"
@@ -20,7 +36,316 @@
         "spec": "content/sns/video-packs/pe-first-stage/pe1-zentaizou/cover-design.json#covers/longform",
         "specSha256": "9dd67e35be59715d5494abe2e9fe981f2b3ad13e6e73ec787795cb3fd00db129"
       },
-      "legacyPaths": []
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-first-stage/pe1-zentaizou/youtube.longform/preview",
+      "role": "preview",
+      "type": "video/mp4",
+      "sha256": "ca4515bcad4693acb40a8776512c1883be611bdcd4a09dde6fd2949a8634ba06",
+      "bytes": 2196951,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/preview.ca4515bc.mp4"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "media-preview",
+        "spec": "content/sns/video-packs/pe-first-stage/pe1-zentaizou/storyboard.json"
+      },
+      "durationSec": 175.435
+    },
+    {
+      "id": "pe-first-stage/pe1-zentaizou/youtube.longform/preview-metrics",
+      "role": "preview-metrics",
+      "type": "application/json",
+      "sha256": "19e6854345ae86627b9d5dead0176af7fd58fa2556eaac09157f213a4b95d93b",
+      "bytes": 502,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/preview-metrics.19e68543.json"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "media-preview",
+        "spec": "content/sns/video-packs/pe-first-stage/pe1-zentaizou/storyboard.json"
+      }
+    },
+    {
+      "id": "pe-first-stage/pe1-zentaizou/youtube.longform/scene-001",
+      "role": "scene-001",
+      "type": "image/png",
+      "sha256": "1941cd22fa523fcb233e8ab7b8ad756ad7398be8755037b881d8380fb39398f9",
+      "bytes": 704052,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/scene-001.1941cd22.png"
+      },
+      "provenance": {
+        "kind": "template",
+        "by": "brand-video-pack",
+        "spec": "content/sns/video-packs/pe-first-stage/pe1-zentaizou/cover-design.json#longform",
+        "specSha256": "9dd67e35be59715d5494abe2e9fe981f2b3ad13e6e73ec787795cb3fd00db129"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-first-stage/pe1-zentaizou/youtube.longform/scene-002",
+      "role": "scene-002",
+      "type": "image/png",
+      "sha256": "4bc2074b009d3837055cff277f4960038ec6ad0883f5df88997f444e517909ef",
+      "bytes": 92950,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/scene-002.4bc2074b.png"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/pe-first-stage/pe1-zentaizou/storyboard.json#promise"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-first-stage/pe1-zentaizou/youtube.longform/scene-003",
+      "role": "scene-003",
+      "type": "image/png",
+      "sha256": "78183bc164af0de488ef3c7fe501d22e112811cce9bfcfa19c820237c0ba5d5d",
+      "bytes": 107580,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/scene-003.78183bc1.png"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/pe-first-stage/pe1-zentaizou/storyboard.json#premise"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-first-stage/pe1-zentaizou/youtube.longform/scene-004",
+      "role": "scene-004",
+      "type": "image/png",
+      "sha256": "1a80e597bd5a9fdb392cc6f27944ae40517baf7c627bac1e82054b6385675f5c",
+      "bytes": 86513,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/scene-004.1a80e597.png"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/pe-first-stage/pe1-zentaizou/storyboard.json#position"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-first-stage/pe1-zentaizou/youtube.longform/scene-005",
+      "role": "scene-005",
+      "type": "image/png",
+      "sha256": "a2fef4a16fe7dcd9bcdb7730b901cf5f17d7cc74f62f0f27786fb49d17f95b20",
+      "bytes": 100579,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/scene-005.a2fef4a1.png"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/pe-first-stage/pe1-zentaizou/storyboard.json#position-jabee"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-first-stage/pe1-zentaizou/youtube.longform/scene-006",
+      "role": "scene-006",
+      "type": "image/png",
+      "sha256": "f6d8308dbccf2403657548486a54b0d947ad1bbc0f81ceeb357f1775567f5690",
+      "bytes": 98663,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/scene-006.f6d8308d.png"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/pe-first-stage/pe1-zentaizou/storyboard.json#subjects-basic-aptitude"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-first-stage/pe1-zentaizou/youtube.longform/scene-007",
+      "role": "scene-007",
+      "type": "image/png",
+      "sha256": "9bb90ab13da9592cde782a33099a591f5bd134c91f66725ea830f5cfcb3b4e09",
+      "bytes": 102201,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/scene-007.9bb90ab1.png"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/pe-first-stage/pe1-zentaizou/storyboard.json#subjects-specialist"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-first-stage/pe1-zentaizou/youtube.longform/scene-008",
+      "role": "scene-008",
+      "type": "image/png",
+      "sha256": "e1cbc3336600cfc15cef2ece891edbd8e5a8e17db5d83a6d10cef91bf6d96e3d",
+      "bytes": 104918,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/scene-008.e1cbc333.png"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/pe-first-stage/pe1-zentaizou/storyboard.json#criteria"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-first-stage/pe1-zentaizou/youtube.longform/scene-009",
+      "role": "scene-009",
+      "type": "image/png",
+      "sha256": "19c1eea3195533d37996c5e2b98b6f43274220bbccce3736e23ceeffcdc51caf",
+      "bytes": 105804,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/scene-009.19c1eea3.png"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/pe-first-stage/pe1-zentaizou/storyboard.json#study-reason"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-first-stage/pe1-zentaizou/youtube.longform/scene-010",
+      "role": "scene-010",
+      "type": "image/png",
+      "sha256": "b02e4fc68aa57f769b66c2654b704443421e1144985d0cfd0b782b3284cf9479",
+      "bytes": 82798,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/scene-010.b02e4fc6.png"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/pe-first-stage/pe1-zentaizou/storyboard.json#phase-design"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-first-stage/pe1-zentaizou/youtube.longform/scene-011",
+      "role": "scene-011",
+      "type": "image/png",
+      "sha256": "49e4f2ccc8c1939e347a7b23397e41f6b9e3b3520e12538d3e0387d88e61e09f",
+      "bytes": 95814,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/scene-011.49e4f2cc.png"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/pe-first-stage/pe1-zentaizou/storyboard.json#phase-steps"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-first-stage/pe1-zentaizou/youtube.longform/scene-012",
+      "role": "scene-012",
+      "type": "image/png",
+      "sha256": "80beca105c06119ec4bb518709534a1d816f818df3ea57503d1a36cb8d082ad1",
+      "bytes": 125965,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/scene-012.80beca10.png"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/pe-first-stage/pe1-zentaizou/storyboard.json#summary"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-first-stage/pe1-zentaizou/youtube.longform/scene-013",
+      "role": "scene-013",
+      "type": "image/png",
+      "sha256": "6adaedb7654d85fdf6bd1e4c8344eff3d4f8019056ad6c819fa8d5cd11731bd0",
+      "bytes": 43214,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/scene-013.6adaedb7.png"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/pe-first-stage/pe1-zentaizou/storyboard.json#cta"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-first-stage/pe1-zentaizou/youtube.longform/subtitles",
+      "role": "subtitles",
+      "type": "text/x-ssa",
+      "sha256": "6445dc04965b716a9a788aeb5d7dc8a9bf4c4a919d567584c5771d04cf652752",
+      "bytes": 6048,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/subtitles.6445dc04.ass"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/pe-first-stage/pe1-zentaizou/storyboard.json"
+      }
+    },
+    {
+      "id": "pe-first-stage/pe1-zentaizou/youtube.longform/video",
+      "role": "video",
+      "type": "video/mp4",
+      "sha256": "c43975b9e43d83098a219e3b232b4146fd8d02033d40f4ab228db04454a31614",
+      "bytes": 10419169,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/video.c43975b9.mp4"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/pe-first-stage/pe1-zentaizou/storyboard.json",
+        "specSha256": "6597431d2007440cf19e49b20cfcce55472f1e15cf446edabeb0fc7fe454d79e",
+        "renderInputSha256": "db0f03041bf0934dfcb02836dd3b8004cf6999b188b9ab1bcb7f6fe49730ee7f",
+        "tts": {
+          "engine": "VOICEVOX",
+          "speaker": 13,
+          "credit": "VOICEVOX:青山龍星"
+        }
+      },
+      "durationSec": 175.433
     }
   ]
 }
