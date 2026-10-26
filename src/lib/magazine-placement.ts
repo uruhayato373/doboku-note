@@ -20,6 +20,7 @@ import { getMagazine, type MagazineId } from './note-magazines';
 import examCalendar from '../../config/exam-calendar.json';
 import { matchNoteProductPage } from './note-product-classification';
 import { extractReferencesSection } from './extract-references';
+import { isAfterExamDay } from './exam-dates';
 
 export interface PlacementSlot {
   readonly magazineId: MagazineId;
@@ -811,21 +812,25 @@ function resolvePlacementRaw(
   //      2026-10-05（DN-0529）: 分野別の過去問・テキストは択一商品を出す方針を正とし、後段にあった「textbook-production-qc・
   //      primary-construction の top を小論文 全40答案にする」分岐（ここで先に return するため到達しなかった）を消した。
   //      小論文の商品は guide-essay と全40答案の誌面で案内する。
+  //      2026-10-26: 本試験日（exam-calendar.json）の翌日からは直前向け（直前パック・予想50問・暗記ノート）をやめ、
+  //      来年にも使える商品へ切り替える。概要・傾向は小論文（令和形式は毎年 1 題で年度に依らない・添削の導線と同じ向き）、
+  //      分野別の過去問・テキストは年度に依らない配合計算 12 問。ビルド時の Date.now で決まる（次の deploy から反映）。
+  const cceAfterExam = isAfterExamDay('concrete-chief-engineer', 'exam');
   if (slug === 'concrete-chief-engineer-guide-overview' || slug === 'concrete-chief-engineer-guide-trends') {
     return {
-      top: slot('cce-takuitsu-chokuzen-pack', slug, 'top'),
+      top: slot(cceAfterExam ? 'cce-essay-reiwa-pack' : 'cce-takuitsu-chokuzen-pack', slug, 'top'),
       inline: [],
     };
   }
   if (/^concrete-chief-engineer-primary-/.test(slug) && slug !== 'concrete-chief-engineer-primary-mix-design') {
     return {
-      top: slot('cce-r8-mc-50', slug, 'top'),
+      top: slot(cceAfterExam ? 'cce-mix-calculation-practice' : 'cce-r8-mc-50', slug, 'top'),
       inline: [],
     };
   }
   if (/^concrete-chief-engineer-textbook-/.test(slug) && slug !== 'concrete-chief-engineer-textbook-mix-design') {
     return {
-      top: slot('cce-anki-note', slug, 'top'),
+      top: slot(cceAfterExam ? 'cce-mix-calculation-practice' : 'cce-anki-note', slug, 'top'),
       inline: [],
     };
   }
@@ -923,8 +928,20 @@ function resolvePlacementRaw(
   if (/^pe-first-stage-guide-(basic-subject|aptitude-subject|construction-subject|calculus-numerical-calculation|matrix-vector-calculation|resistance-circuit-calculation)$/.test(slug)) {
     return { top: slot('pe1-anki-note', slug, 'top'), inline: [] };
   }
+  // 2026-10-26: 試験日（11/22）の翌日からは「直前」の直前パックをやめ、年度をまたいで使う過去問 PDF へ。
+  //   暗記ノートは説明に試験日・年度が無く、旧年度・上下水道ページの理由（年度に依存しない要点整理）も変わらないので据え置く。
+  const pe1AfterExam = isAfterExamDay('pe-first-stage', 'exam');
   if (slug === 'pe-first-stage-guide-overview' || slug === 'pe-first-stage-guide-study-plan') {
-    return { top: slot('pe1-chokuzen-pack', slug, 'top'), inline: [] };
+    return { top: slot(pe1AfterExam ? 'pe1-takuitsu-pdf' : 'pe1-chokuzen-pack', slug, 'top'), inline: [] };
+  }
+  // 解答速報: 試験前は直前パック、翌日からは自己採点のあとに続けやすい過去問 PDF。
+  //   末尾の本文カードは二次の入口（必須科目I）に固定で、一次合格の見込みがある読者を受ける。
+  if (slug === 'pe-first-stage-guide-r08-answers') {
+    return { top: slot(pe1AfterExam ? 'pe1-takuitsu-pdf' : 'pe1-chokuzen-pack', slug, 'top'), inline: [] };
+  }
+  // 合格後のロードマップ: 次の受験段階は建設部門の二次試験なので、入口の必須科目I 模範解答集へ。
+  if (slug === 'pe-first-stage-guide-after-pass') {
+    return { top: slot('pe-construction-required-magazine', slug, 'top'), inline: [] };
   }
 
   // コンクリート診断士 試験概要（19users・非HUB で商品到達性ゼロだった）→ 記述式 模範答案集。

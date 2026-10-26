@@ -10,12 +10,17 @@ import { DEFAULT_OG_IMAGE } from "@/lib/metadata";
 import { SITE_ORIGIN } from "@/config/site-identity.mjs";
 import { withNoteUtm } from "@/lib/note-utm";
 import AffiliateSlot from "@/components/ui/AffiliateSlot/AffiliateSlot";
+import SeeAlso from "@/components/ui/SeeAlso/SeeAlso";
+import { isAfterExamDay } from "@/lib/exam-dates";
 
 // 演習画面は結果表示後にしか note 導線が出ず、SSR の HTML には導線が無かった
 // （2026-09-27 配線監査 DN-0364）。演習の下に静的な note 商品カードを置く。
+// 直前パックは試験日（config/exam-calendar.json）の翌日から外す。ビルド時の日付で決まる。
 const NOTE_PRODUCTS: readonly { id: MagazineId; lead: string }[] = [
   { id: "pe1-takuitsu-pdf", lead: "紙に書き込んで間違いを反復する 3 科目 7 年分" },
-  { id: "pe1-chokuzen-pack", lead: "過去問 PDF と暗記ノートをまとめた直前パック" },
+  ...(isAfterExamDay("pe-first-stage", "exam")
+    ? []
+    : [{ id: "pe1-chokuzen-pack" as MagazineId, lead: "過去問 PDF と暗記ノートをまとめた直前パック" }]),
 ];
 
 export const metadata: Metadata = {
@@ -109,6 +114,14 @@ export default function PeFirstStageQuizPage() {
         }
       />
       <KakomonQuizClient config={QUIZ_CONFIG} />
+      <div className="max-w-[760px] mx-auto px-4 sm:px-6 pb-6">
+        <SeeAlso
+          href="/exam/pe-first-stage/guide/r08-answers"
+          title="令和8年度 解答速報｜公式正答の確認先と自己採点の進め方"
+          reason="試験後は公式の正答で基礎・適性・専門を自己採点して、合格発表までの動き方を確認できます。"
+          ctaLabel="quiz-pe-first-stage-r08-answers"
+        />
+      </div>
       <div className="max-w-[760px] mx-auto px-4 sm:px-6 pb-10">
         <div className="text-[11px] font-bold uppercase tracking-wider text-(--ink-muted) mb-3">
           紙でも反復する（note）
