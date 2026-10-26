@@ -11,7 +11,6 @@ import { listFiles } from '../scripts/lib/fs-walk.mjs';
 import { REPO_ROOT, SITE_CONTENT_ROOT } from '../scripts/lib/repository-paths.mjs';
 import {
   PART_URL,
-  PART_FALLBACK_RULE,
   isGeneratedPartRule,
   loadStandardsLibrary,
   standardPartRedirectRules,
@@ -38,19 +37,18 @@ test('src/ に逐語ページのルートが無い', () => {
   assert.deepEqual(routes, []);
 });
 
-test('全分冊の旧 URL が _redirects で転送される（章のある文書は分冊ごと、無い文書は動的ルール 1 本）', () => {
+test('全分冊の旧 URL が _redirects の静的ルールで 1 件ずつ転送される', () => {
   const library = loadStandardsLibrary();
-  const { staticRules, dynamicRules } = standardPartRedirectRules(library);
-  const redirects = readFileSync(join(REPO_ROOT, 'public', '_redirects'), 'utf8');
-  for (const rule of [...staticRules, ...dynamicRules]) assert.ok(redirects.includes(rule), `_redirects に無い: ${rule}`);
-  const partCount = library.reduce((sum, document) => sum + (document.chapters.length > 0 ? document.parts.length : 0), 0);
-  assert.equal(staticRules.length, partCount);
-  assert.deepEqual(dynamicRules, library.some((document) => document.chapters.length === 0) ? [PART_FALLBACK_RULE] : []);
-  assert.ok(dynamicRules.every(isGeneratedPartRule));
-  // 動的ルールは静的ルールの後ろ（章のある文書の分冊は静的ルールが先に当たる）
-  const lines = redirects.split(/\r?\n/).map((line) => line.trim());
-  const lastStatic = Math.max(...staticRules.map((rule) => lines.indexOf(rule)));
-  assert.ok(dynamicRules.every((rule) => lines.indexOf(rule) > lastStatic), '動的ルールが静的ルールより前にある');
+  const rules = standardPartRedirectRules(library);
+  const lines = new Set(readFileSync(join(REPO_ROOT, 'public', '_redirects'), 'utf8').split(/\r?\n/).map((line) => line.trim()));
+  const partCount = library.reduce((sum, document) => sum + document.parts.length, 0);
+  assert.ok(partCount > 200, `分冊が ${partCount} 件しかない（台帳の読み誤り）`);
+  assert.equal(rules.length, partCount);
+  for (const rule of rules) assert.ok(lines.has(rule), `_redirects に無い: ${rule}`);
+  // 動的ルール（splat・placeholder）でまとめない（書き漏らしが黙って文書ページへ流れる）
+  const dynamic = [...lines].filter((line) => line.startsWith('/standards/') && /[*:]/.test(line.split(/\s+/)[0] ?? ''));
+  assert.deepEqual(dynamic, []);
+  assert.ok(isGeneratedPartRule('/standards/:agency/:document/part-* /standards/:agency/:document 301'));
 });
 
 test('行き先の型: ページを含む章、節ページに分けた章は節、台帳に無い分冊は null', () => {

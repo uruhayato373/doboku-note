@@ -78,15 +78,13 @@ const generated = [
   '/docs /exam 301',
   '/category /exam 301',
   '',
-  '# Standards verbatim part pages (removed 2026-10-26) → the chapter or section holding the first page of each part',
-  ...partRules.staticRules,
+  '# Standards verbatim part pages (removed 2026-10-26) → the chapter or section holding the first page of each part (document page if no chapters)',
+  ...partRules,
   '',
   '# Dynamic redirects must remain after every static redirect (Cloudflare Pages contract)',
   ...dynamicRedirects,
   '# /docs slugs that follow the public-URL rule: longest prefix first (first match wins), after every static rule',
   ...plan.dynamicRules.map((rule) => `${rule.from} ${rule.to} 301`),
-  '# Standards documents without chapters: every verbatim part page → the document page',
-  ...partRules.dynamicRules,
   endMarker,
 ].join('\n');
 
@@ -108,5 +106,5 @@ if (staticRules.length > 2000 || dynamicRules > 100) {
 
 writeFileSync(path, output);
 console.log(`[public-routes] ✓ docs=${allRoutes.length} (static ${routes.length} / dynamic-covered ${plan.coveredRoutes.length}), categories=${getAllCategories().length}`);
-console.log(`[public-routes] standards parts: static ${partRules.staticRules.length} / dynamic ${partRules.dynamicRules.length}`);
+console.log(`[public-routes] standards parts: static ${partRules.length}`);
 console.log(`[public-routes] Cloudflare rules: static=${staticRules.length}/2000, dynamic=${dynamicRules}/100`);
