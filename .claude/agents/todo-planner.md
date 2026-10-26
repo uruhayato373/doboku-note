@@ -129,7 +129,7 @@ monthly.md は `## 今月の成果目標`（3 つまで）だけ。今月のタ�
    - 週内に絶対終わらない大タスクはサブタスクに分割して今週分だけ書く
 
 4. **weekly.md を直接更新**
-   - `lib/mdx-io.mjs` の `writeMdxFile` は使わず、通常の `Write` ツールで書き込む（weekly.md は Markdown で MDX ではない）
+   - `lib/mdx-io.mjs` の `writeMdxFile` は使わず、通常の `Write` ツールで書き込む（weekly.md は Markdown で MDX ではない）（土曜のヘッドレスの週次レビューから呼ばれたときは `.claude/` に書けないので `.tmp/claude-out/todo/weekly.md` に書く。ラッパーが `.claude/todo/weekly.md` へ写す・`scripts/scheduled/weekly-review.sh`）
    - 前週の完了チェックをそのままに、新しい週ヘッダーで上書きする
    - CRLF は Windows 環境のため LF で統一しない（既存改行コードに合わせる）
 

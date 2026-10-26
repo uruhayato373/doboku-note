@@ -26,7 +26,7 @@ URL Inspection のスナップショットを読み込み、**サイトの index
 
 ## 担当外（他エージェント/CI の責務）
 
-- **URL Inspection データの取得**: `index-coverage.yml`（CI・月次）。本エージェントは取得済み JSON を読むだけ
+- **URL Inspection データの取得**: `index-coverage.yml`（CI・週次・全件そろった回だけ履歴に積む周回）。本エージェントは取得済み JSON を読むだけ
 - **index 済みページの performance 分析**（CTR/rank ＋ SNS 流入の 6 パターン）: `metrics-analyzer`
 - **CWV / PSI**: `performance-auditor`
 - **修正の実施**（meta 書換・リダイレクト修正・ページ統合・noindex 付与）: ユーザー判断 / 各 Generator
@@ -38,7 +38,7 @@ URL Inspection のスナップショットを読み込み、**サイトの index
 
 | ファイル | 取得元 |
 |---|---|
-| `data/gsc/url-inspection/*.json`（最新） | `index-coverage.yml`（CI 月次） |
+| `data/gsc/url-inspection/*.json`（最新） | `index-coverage.yml`（CI 週次。`partial: true` の batch は周回の途中なので率に使わない） |
 | `data/gsc/index-coverage.json` | 同 CI が append |
 
 履歴が 1 点しか無い場合は差分をスキップし「初回/単一点」と明示する。

@@ -41,7 +41,7 @@ domain: site
 |---|---|
 | `check-seo-build --json` の stdout（または保存 JSON） | `npm run build` 後に親が実行 |
 | `data/analysis/seo-meta.json`（最新） | `/check-seo-meta` |
-| `data/gsc/index-coverage.json` | 月次 CI |
+| `data/gsc/index-coverage.json` | 週次 CI（index-coverage.yml） |
 | `out/sitemap.xml` | `npm run build` |
 
 `out/` や JSON が無い場合は「build 未実行／スキャナ未実行」と 1 行で報告し、憶測で埋めない。

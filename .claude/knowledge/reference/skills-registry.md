@@ -71,18 +71,18 @@ title: スキル ガバナンス記録
 ```
 .claude/skills/
 ├── ads/             # 4 — A8 開拓/成果取込 ＋ 3 ASP（A8/もしも/afb）横断の提携状態照合・提携申請
-├── authoring/       # 12 — 記事を作る
+├── authoring/       # 11 — 記事を作る
 ├── conversion/      # 9 — 形式変換（MDX / OGP 画像 / 紙用 PDF / Kindle EPUB）＋ KDP 入稿・出版 ＋ OGP 意匠の素案試作 ＋ 公式過去問原本の取得・退避 ＋ 公的基準の表の組み直し
 ├── quality/         # 17 — MDX・note 公開前品質検査・記事図クロップの品質ループ
-├── management/      # 24 — 計画・分析・戦略
-├── dev/             # 15 — 開発・CI/CD・ローカルPlaywright認証運用・アセット置き場の判定
+├── management/      # 22 — 計画・分析・戦略
+├── dev/             # 11 — 開発・CI/CD・ローカルPlaywright認証運用・アセット置き場の判定
 ├── analytics/       # 2 — サイト分析
-├── social/          # 26 — SNS 投稿・note運用
+├── social/          # 22 — SNS 投稿・note運用
 ├── metrics/         # 1 — 売上記録
 └── ui/              # 1 — UI/UX デザイン
 ```
 
-合計 **111 スキル**（10 カテゴリ・SKILL.md 実数）。Phase 2 待機 6 本（`skills-guide.md` 末尾）は**計画のみ＝ファイル未作成**なのでこの数に含めない。
+合計 **100 スキル**（10 カテゴリ・SKILL.md 実数・2026-10-25 に 11 本を退役）。Phase 2 待機 6 本（`skills-guide.md` 末尾）は**計画のみ＝ファイル未作成**なのでこの数に含めない。
 
 > 2026-09-05 新設: `dev/asset-route`（Git の外に置くアセットの置き場を **誰が使うか** で決める決定木＋コマンド。サイトが配信→public R2 / GitHub Actions が読み書き→private R2 / 人か手元のスクリプトだけ→Google Drive vault）。背景＝同日、共通仕様書のページ画像 3.4GB を「教材ページ画像→private R2」の行に従って private R2 へ上げかけた。その行はスキャン書籍の著作権のために書かれたもので、資産の種類で列挙する旧ルールには判断軸が無かった。`asset-storage.json` の全 group に `audience` を必須化し（`loadConfig`・`tests/asset-storage.test.mjs`・新 `check-drive-vault` の 3 か所で止める）、Drive 側は独立した系 `drive-vault.json` / `drive-vault-sync` / `drive-manifest.json` にした（R2 の fail-closed なコードに第 3 バケットの分岐を足さない）。**新エージェントは作らない**（検査は決定的スクリプトで足りる・CLAUDE.md §9）。合計 `104→105`、dev `14→15`。
 
