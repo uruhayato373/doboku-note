@@ -28,7 +28,7 @@ domain: product
    snapshot が古い/無いときは exit 2＝**検査不成立**なので「受注 0 件」と報告せず「未取得」と書き、運営者に次の土曜か端末での `node scripts/weekly-collect.mjs --only coconala` を案内する。
 1. **整合チェック**: `node scripts/check-coconala-wiring.mjs` を実行し結果を報告（listed なのに serviceUrl 空・未知 serviceId・priceYen 不一致・**paused の理由欠落**・**復帰予定日 `resumeOn` の超過** 等）。
    ⚠ が出たら**棚が止まったままになっていないか**を必ず報告する（長期不在の全件休止から戻し忘れると、売上ゼロのまま誰も気づかない）。
-2. **KPI 取得**: `npm run coconala-analytics -- --append-kpi` → `npm run check-coconala-analytics`（詳細は `/coconala-analytics`）。`data/coconala/kpi.json` の `weekly` / `blogsWeekly` へ `weekOf`（ISO 週初＝月曜）単位で upsert される。数値の**手動貼付があればそれも正規化してよい**。**読み取れない項目は `null`。推測で埋めない**。
+2. **KPI を読む**: 取得（`coconala-analytics -- --append-kpi`）は土曜の Mac の収集（weekly-collect の coconala 段）だけが行う。セッションはログインして取りに行かず、`data/coconala/kpi.json` の `weekly` / `blogsWeekly`（`weekOf`＝ISO 週初の月曜）と `npm run check-coconala-analytics` の鮮度を読み、古ければ「未取得」と書く（詳細は `/coconala-analytics`）。数値の**手動貼付があればそれも正規化してよい**。**読み取れない項目は `null`。推測で埋めない**。
    数値は `period` 区間の累計（`cumulative: true`・既定30日ローリング）なので、**前週行との引き算で「今週の伸び」を出さない**。
 3. **受注サマリ**: `data/coconala/orders.json` から 直近4週の serviceId 別 受注件数・平均 `tensakuMinutes` を集計。
 4. **判定を報告**:

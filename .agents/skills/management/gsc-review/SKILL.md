@@ -1,7 +1,7 @@
 ---
 name: gsc-review
 description: >
-  月次 GSC index coverage レビューのオーケストレータ。CI（index-coverage.yml）が更新した
+  週次 GSC index coverage レビューのオーケストレータ（土曜の記録層の応急・深掘り用）。CI（index-coverage.yml）が更新した
   url-inspection スナップショットと data/gsc/index-coverage.json を gsc-index-auditor で診断し、
   .claude/knowledge/reference/gsc-management.md の「観測・判断ログ」へユーザー判断つきで追記する流れを統括する。
   performance（CTR/rank）は /weekly-improve（metrics-analyzer）、CWV は performance-auditor の担当で直交。
