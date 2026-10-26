@@ -303,6 +303,20 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-0854] 基準類の右の目次（編・章・節）の試作を本番 build で確かめて全文書へ広げる
+タグ: [領域:サイト] [時期:2026-10] [種類:改善] [起票:2026-10-26]
+
+基準類（/standards）の右の欄を 編 → 章 → 節 の 1 本の目次にする試作を、近畿の共通仕様書（kinki/common）だけに入れた（ブランチ feature/standards-tree-nav・未 push）。他の章の節は toc.json（46KB）から開いたときに読む。
+
+残り:
+- `npm run build` で本番の節ページの重さを測る（dev では元 400KB → 463KB）。out/standards/kinki/common/toc.json が書き出されるかも確かめる
+- スマホ幅（「資料内を移動」の中の目次）の表示を確かめる
+- 章の境目をまたぐ「次の節」
+- 問題なければ他の 8 文書へ広げ（src/lib/standards-tree-nav.ts の TREE_NAV_DOCUMENTS）、/doc-sync を回して PR（base = develop）
+
+完了条件: build 後の out/ に toc.json があり、節ページの重さの増分を記録したうえで、対象文書を広げた PR が develop に入る。
+
+
 ### [DN-0853] CI の重なった 3 組（Cloudflare の 2 本・IndexNow・死活確認と全 URL の検査）をまとめて 21 本を 18 本にする
 タグ: [領域:管理] [時期:2026-10] [種類:改善] [起票:2026-10-26]
 
