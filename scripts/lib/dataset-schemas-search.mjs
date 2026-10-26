@@ -528,6 +528,10 @@ const inspectionDoc = (resultsMax, { requireCounts }) =>
       partial: requireCounts ? z.boolean().describe('total 件すべてが済んでいないとき true（途中の保存・中断）') : z.boolean().optional(),
       completed: requireCounts ? count('済んだ件数') : count('済んだ件数').optional(),
       total: requireCounts ? count('検査対象の件数') : count('検査対象の件数').optional(),
+      cycle: z
+        .strictObject({ startedAt: utcTime('周回の開始'), runs: z.number().int().min(1).describe('この batch までの実行の回数') })
+        .optional()
+        .describe('1 日の上限を超える分を次の日の実行が続けて検査する周回（scripts/lib/inspection-cycle.mjs・DN-0825）。total は sitemap の件数'),
       results: z.array(inspectionResult).superRefine(uniqueBy('url', 'url')).max(resultsMax),
     })
     .superRefine((doc, ctx) => {
