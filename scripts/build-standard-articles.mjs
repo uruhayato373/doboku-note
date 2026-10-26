@@ -86,32 +86,15 @@ function amendmentPagesOf(catalog, amendments, target) {
   return { source, target, label: amendments.label, byChapter, rowsByChapter, complete, scopePages: scopePages.length, approvedPages: approved.size };
 }
 
-/** ページ番号の並びを連続区間に畳む（[3,4,5,9] → [[3,5],[9,9]]）。 */
-function pageRanges(pages) {
-  const ranges = [];
-  for (const page of [...new Set(pages)].sort((a, b) => a - b)) {
-    const last = ranges[ranges.length - 1];
-    if (last && page === last[1] + 1) last[1] = page;
-    else ranges.push([page, page]);
-  }
-  return ranges;
-}
+// 原本の逐語ページ（part-NN）は 2026-10-26 に公開をやめた。章記事に原本ページへのリンクを出さない
+// （照合はエージェントが content/site/standards-library の文字起こしで行う。行き先は scripts/lib/standards-part-targets.mjs）。
+// <SourceRef pages kind /> は表・図の出所ページの目印として残す（サイトは何も描画しない・check-standard-articles が表の区切りと出所を検査する）。
 
-/** 逐語分冊の該当ページへのリンク（src/lib/standards-articles.ts の resolveSourcePageHref と同じ形）。 */
-function libraryPageHref(document, page) {
-  const part = document.parts.find((p) => page >= p.firstPage && page <= p.lastPage);
-  return part ? `/standards/${document.agencyId}/${document.documentId}/${part.slug}#pdf-page-${page}` : null;
-}
-
-function renderAmendmentNote(amendment, pages, inserted) {
-  const links = pageRanges(pages).map(([first, last]) => {
-    const label = first === last ? `原本 p.${first}` : `原本 p.${first}–${last}`;
-    return `[${label}](${libraryPageHref(amendment.source, first)})`;
-  });
+function renderAmendmentNote(amendment, inserted) {
   // 案内も差し込みと同じ目印で囲む（地域差分・読みやすさの検査が本文から除けるように）
   const note = inserted
-    ? `> この章の条ごとに、${amendment.label}が定める訂正・追加を差し込んでいます（${amendment.source.title}・${links.join('、')}）。`
-    : `> この章には、${amendment.label}が定める訂正・追加があります（${amendment.source.title}・${links.join('、')}）。`;
+    ? `> この章の条ごとに、${amendment.label}が定める訂正・追加を差し込んでいます（${amendment.source.title}）。`
+    : `> この章には、${amendment.label}が定める訂正・追加があります（${amendment.source.title}）。`;
   return [AMENDMENT_BLOCK_START, '', note, '', AMENDMENT_BLOCK_END].join('\n');
 }
 
@@ -122,12 +105,9 @@ function renderAmendmentRow(row, amendment, { withArticle }) {
     row.clause ? `項 ${row.clause}` : null,
     row.heading,
   ].filter(Boolean).map((text) => escapeInline(text)).join('｜');
-  const pageLinks = pageRanges(row.pages)
-    .map(([first, last]) => `[原本 p.${first === last ? first : `${first}–${last}`}](${libraryPageHref(amendment.source, first)})`)
-    .join('、');
   // 訂正・追加の欄が原本で空欄の行は印を出さない
   const mark = row.kind.trim() ? `〔${escapeInline(row.kind)}〕` : '';
-  const blocks = [`**${[mark, label].filter(Boolean).join(' ') || '（欄なし）'}**（${pageLinks}）`];
+  const blocks = [`**${[mark, label].filter(Boolean).join(' ') || '（欄なし）'}**`];
   const line = (cells) => `| ${cells.map((cell) => escapeInline(cell)).join(' | ')} |`;
   const gfm = ([head, ...rest]) => [line(head), `| ${head.map(() => '---').join(' | ')} |`, ...rest.map(line)].join('\n');
   for (const paragraph of row.body) {
@@ -565,7 +545,7 @@ export function buildDocument(document, overrides, { write = true, verbatimTable
     const rows = amendment?.rowsByChapter.get(chapter.chapterId) ?? [];
     const markdown = renderChapter(
       chapter, tableOutcomes, tableOverrides, chapterTables,
-      amendmentPages ? renderAmendmentNote(amendment, amendmentPages, rows.length > 0) : null,
+      amendmentPages ? renderAmendmentNote(amendment, rows.length > 0) : null,
       rows.length ? { amendment, rows } : null,
     );
     verbatimTables.push(...chapterTables.map((table) => ({ ...table, document: `${document.agencyId}/${document.documentId}` })));

@@ -743,3 +743,9 @@ EXP-006 の本判定は予定どおり next_check 2026-08-27 に、カバレッ�
   3. `/standards/hokuriku/common` の canonical 不一致（正規＝shikoku/common）は内容重複の可能性を 1 件だけ確認する価値あり
 - 異常フラグ: **あり** — 前回比 −9.9pt（>5pt 低下）・inspected 1,900 < sitemap 2,017。いずれも実体は分母急増＋workflow の件数上限であり、既存ページの index 脱落ではない
 - 注記: 自動生成・最終決定は人間。batch 実体は `data/gsc/url-inspection/2026-10-21T06-45-10.json`。ratio は indexed/sitemap 基準（inspected 基準なら 85.6%）。history の by_qualification には tools/topics が含まれない
+
+### 2026-10-26（基準類の逐語分冊 part-N の公開停止）
+
+- 判断（ユーザー指示）: `/standards/{agency}/{document}/part-NN` の逐語分冊 280 URL の公開をやめた。利用者には章・節・文書ページだけを見せ、原本との照合はエージェントが `content/site/standards-library` の文字起こしで行う
+- 打ち手: 旧 URL は `public/_redirects` で 301（章のある 24 文書は分冊の先頭ページを含む章・節へ 214 本、章の無い 49 文書は文書ページへ splat 49 本）。章の無い文書の文書ページは本文が無いので noindex
+- 読み方: 次回以降の URL 検査・sitemap の分母は part-N の分だけ減る（索引率の変化を part-N の除外と取り違えない）。転送先の章ページの索引化を数週間観測する
