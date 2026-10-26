@@ -8,7 +8,7 @@
       "work": "pe1-zentaizou",
       "account": "youtube:main",
       "format": "longform",
-      "status": "uploaded_private",
+      "status": "scheduled",
       "media": {
         "cover": "pe-first-stage/pe1-zentaizou/youtube.longform/cover",
         "scene-001": "pe-first-stage/pe1-zentaizou/youtube.longform/scene-001",
@@ -48,7 +48,8 @@
       },
       "times": {
         "rendered": "2026-10-26T13:18:57.200Z",
-        "uploaded": "2026-10-26T13:41:43.382Z"
+        "uploaded": "2026-10-26T13:41:43.382Z",
+        "scheduled": "2026-10-26T13:43:42.047Z"
       },
       "delivery": {
         "inputSha256": "3f61529af7619d442a2feff63b802c08ce3a63489c8c228e969f91da5c51f4e8",
@@ -67,7 +68,8 @@
         ],
         "thumbnailAcceptedAt": "2026-10-26T13:41:47.189Z",
         "scheduleRequestedAt": "2026-10-26T13:41:52.201Z",
-        "scheduleAt": "2026-10-30T20:00:00+09:00"
+        "scheduleAt": "2026-10-30T20:00:00+09:00",
+        "scheduledVerifiedAt": "2026-10-26T13:43:46.213Z"
       },
       "platform": {
         "id": "xLQ5bqfUEOE",
