@@ -86,6 +86,22 @@
   }
 }
 
+@utility disclosure-summary {
+  /* 開閉の見出し行（Disclosure の <summary>）。既定のマーカーを全ブラウザで消す
+     （marker:hidden だけでは Safari の ::-webkit-details-marker が残る）。矢印は DisclosureChevron を右端に置く。 */
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  cursor: pointer;
+  list-style: none;
+  &::-webkit-details-marker {
+    display: none;
+  }
+  &::marker {
+    content: '';
+  }
+}
+
 @utility card-rail {
   /* 横スクロール カードレール（キャリア等の二次セクションを全件縦積みせず畳む）。
      全カテゴリ共通（CareerSection）。scroll-snap で1枚ずつ吸着し、カード幅を
