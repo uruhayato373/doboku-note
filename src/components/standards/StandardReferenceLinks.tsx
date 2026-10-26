@@ -11,7 +11,7 @@ export default function StandardReferenceLinks({ documents }: { documents: Stand
         この章が参照する基準
       </h2>
       <p className="mt-1 text-[13px] leading-[1.7] text-(--ink-muted)">
-        本文で言及している基準の全文文字起こしです。規格値・測定基準は原典PDFのページと照らして確認できます。
+        本文で言及している基準です。
       </p>
       <ul className="mt-3 space-y-2">
         {documents.map((document) => (

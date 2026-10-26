@@ -7,6 +7,7 @@ import { getAllCategories, getCategoryHubPath } from '../src/lib/categories';
 import { REPO_ROOT } from './lib/repository-paths.mjs';
 import { planDocRedirects, isGeneratedDocRule } from './lib/docs-redirect-plan.mjs';
 import { ROUTE_TABLE_PREFIX, isLegacyPath } from './lib/legacy-routes.mjs';
+import { isGeneratedPartRule, standardPartRedirectRules } from './lib/standards-part-targets.mjs';
 
 const path = join(REPO_ROOT, 'public/_redirects');
 const startMarker = '# BEGIN GENERATED PUBLIC ROUTES';
@@ -50,7 +51,7 @@ function canonicalizeExistingTargets(value: string): string {
 // 動的ルールの後ろに静的ルールを置くと、後続も動的上限（100件）の対象として
 // 打ち切られるため、既存のワイルドカードを全て管理ブロック末尾へ移動する。
 // 前回この生成が出した /docs の動的ルールは入力に数えない（毎回 plan から作り直す）。
-const dynamicRedirects = [...new Set(source.split('\n').filter(isDynamicRedirect).map((line) => line.trim()).filter((line) => !isGeneratedDocRule(line)))];
+const dynamicRedirects = [...new Set(source.split('\n').filter(isDynamicRedirect).map((line) => line.trim()).filter((line) => !isGeneratedDocRule(line) && !isGeneratedPartRule(line)))];
 const base = canonicalizeExistingTargets(stripManagedBlock(source))
   .split('\n')
   .filter((line) => !isDynamicRedirect(line))
@@ -62,6 +63,8 @@ const allRoutes = getAllPublicDocRoutes();
 const plan = planDocRedirects(allRoutes.map((route) => ({ legacySlug: route.legacySlug, path: route.path })));
 const routes = plan.staticRoutes;
 const routeTable = [...plan.coveredRoutes].sort((a, b) => a.path.localeCompare(b.path));
+// 基準類の逐語ページ（part-NN）は公開をやめた（2026-10-26）。行き先は standards-part-targets.mjs が決める。
+const partRules = standardPartRedirectRules();
 const generated = [
   startMarker,
   '# /docs flat URLs → intent-based canonical URLs (one-to-one, permanent)',
@@ -74,6 +77,9 @@ const generated = [
   ...getAllCategories().map((category) => `/category/${category.slug} ${getCategoryHubPath(category.slug)} 301`),
   '/docs /exam 301',
   '/category /exam 301',
+  '',
+  '# Standards verbatim part pages (removed 2026-10-26) → the chapter or section holding the first page of each part (document page if no chapters)',
+  ...partRules,
   '',
   '# Dynamic redirects must remain after every static redirect (Cloudflare Pages contract)',
   ...dynamicRedirects,
@@ -100,4 +106,5 @@ if (staticRules.length > 2000 || dynamicRules > 100) {
 
 writeFileSync(path, output);
 console.log(`[public-routes] ✓ docs=${allRoutes.length} (static ${routes.length} / dynamic-covered ${plan.coveredRoutes.length}), categories=${getAllCategories().length}`);
+console.log(`[public-routes] standards parts: static ${partRules.length}`);
 console.log(`[public-routes] Cloudflare rules: static=${staticRules.length}/2000, dynamic=${dynamicRules}/100`);

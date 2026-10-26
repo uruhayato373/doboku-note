@@ -4,7 +4,6 @@ import Link from 'next/link';
 import PageShell from '@/components/layout/PageShell';
 import PageHeader from '@/components/layout/PageHeader';
 import TwoColumnShell from '@/components/layout/TwoColumnShell';
-import SectionCard from '@/components/ui/SectionCard/SectionCard';
 import StandardsAttribution from '@/components/standards/StandardsAttribution';
 import StandardDataLinks from '@/components/standards/StandardDataLinks';
 import StandardTopicLinks from '@/components/standards/StandardTopicLinks';
@@ -15,8 +14,6 @@ import {
   getStandardDocuments,
   isStandardPartIndexable,
   standardDocumentPath,
-  standardPartLabel,
-  standardPartPath,
 } from '@/lib/standards';
 import {
   getStandardChapters,
@@ -45,16 +42,17 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
   if (!entry) return { title: '文書が見つかりません', robots: { index: false, follow: false } };
   const chapterCount = getStandardChapters(agency, document).length;
   const metadata = buildPageMetadata({
-    title: chapterCount > 0 ? `${entry.title} 章別全文` : `${entry.title} 全文文字起こし`,
+    title: chapterCount > 0 ? `${entry.title} 章別全文` : entry.title,
     description:
       chapterCount > 0
-        ? `${entry.agencyName}「${entry.title}」を編・章・節の構造で読める全${chapterCount}章。原本PDF全${entry.pages.toLocaleString('ja-JP')}ページの逐語文字起こしと原典URL・SHA-256も併載しています。`
-        : `${entry.agencyName}「${entry.title}」全${entry.pages.toLocaleString('ja-JP')}ページの文字起こし。PDFページ番号、原典URL、SHA-256、目視確認・判読注記を明示しています。`,
+        ? `${entry.agencyName}「${entry.title}」を編・章・節の構造で読める全${chapterCount}章。`
+        : `${entry.agencyName}「${entry.title}」（全${entry.pages.toLocaleString('ja-JP')}ページ）の文書情報と出典。`,
     path: standardDocumentPath(entry),
   });
   // 同じ要綱を他の機関・版でも収録している文書（設定 editionCanonical）と、近畿以外の共通仕様書（本文の 98.7% が同じ・
-  // 2026-10-22 DN-0677）は、分冊・章と同じ判定で 1 本だけ索引に載せる。読める状態は保つ（noindex, follow）
-  return isStandardPartIndexable(entry) ? metadata : { ...metadata, robots: { index: false, follow: true } };
+  // 2026-10-22 DN-0677）は、章と同じ判定で 1 本だけ索引に載せる。読める状態は保つ（noindex, follow）。
+  // 章の無い文書は本文（逐語ページ）の公開をやめた（2026-10-26）ので、文書情報だけのページを索引に載せない。
+  return chapterCount > 0 && isStandardPartIndexable(entry) ? metadata : { ...metadata, robots: { index: false, follow: true } };
 }
 
 export default async function StandardDocumentPage({ params }: { params: Promise<Params> }) {
@@ -62,7 +60,7 @@ export default async function StandardDocumentPage({ params }: { params: Promise
   const entry = getStandardDocument(agency, document);
   if (!entry) notFound();
   const relatedTopics = getTopicsForStandardDocument(entry);
-  // 章が生成済みなら「章から読む」を主導線にし、分冊一覧は原典照合用の副次セクションへ下げる。
+  // 章が生成済みなら「章から読む」が本文の入口。原本ページ（逐語文字起こし）への案内は出さない（2026-10-26 に公開をやめた）。
   const chapters = getStandardChapters(agency, document);
   const books = groupChaptersByBook(chapters);
 
@@ -92,23 +90,11 @@ export default async function StandardDocumentPage({ params }: { params: Promise
         ]}
         title={entry.title}
         lead={chapters.length > 0
-          ? `${entry.agencyName}が公表する「${entry.title}」全${chapters.length}章（全${entry.pages.toLocaleString('ja-JP')}ページ）を編・章ごとに読めます。原本PDF・発行元ページへのリンクはページ末尾の出典欄にあります。`
-          : `${entry.agencyName}が公表する「${entry.title}」全${entry.pages.toLocaleString('ja-JP')}ページの文字起こしです。原本PDF・発行元ページへのリンクはページ末尾の出典欄にあります。`}
+          ? `${entry.agencyName}が公表する「${entry.title}」全${chapters.length}章を編・章ごとに読めます。`
+          : `${entry.agencyName}が公表する「${entry.title}」です。章ごとの本文はまだ掲載していません。発行元のページはページ末尾の出典欄にあります。`}
         meta={<span className="text-sm">{entry.edition} · {chapters.length > 0 ? `${chapters.length}章 · ` : ''}{entry.pages.toLocaleString('ja-JP')}ページ</span>}
       />
         <div className="pt-5">
-        {entry.unreadableRanges.length > 0 && (
-          <SectionCard title="原本画質による判読注記" padding="compact" className="mb-6 border-(--color-warn)">
-            <ul className="space-y-3 text-[13px] leading-[1.8] text-(--ink-body)">
-              {entry.unreadableRanges.map((range) => (
-                <li key={`${range.page}-${range.range}`}>
-                  <strong>PDF page {range.page}：</strong>{range.range}
-                </li>
-              ))}
-            </ul>
-          </SectionCard>
-        )}
-
         {books.length > 0 && (
           <section aria-labelledby="chapters" className="mb-8">
             <h2 id="chapters" className="text-2xl font-bold text-(--ink)">章から読む</h2>
@@ -132,7 +118,7 @@ export default async function StandardDocumentPage({ params }: { params: Promise
                             {standardChapterHeading(chapter)}
                           </span>
                           <span className="mt-1 block font-mono text-[11px] text-(--ink-muted)">
-                            {chapter.sections.length}節 · 原本 p.{chapter.firstPage}–{chapter.lastPage}
+                            {chapter.sections.length}節
                           </span>
                         </span>
                         <span className="shrink-0 font-mono text-[11px] text-(--ink-muted)">→</span>
@@ -145,29 +131,6 @@ export default async function StandardDocumentPage({ params }: { params: Promise
           </section>
         )}
 
-        <section aria-labelledby="transcription-parts">
-          <h2 id="transcription-parts" className="text-xl font-bold text-(--ink)">原典PDFページで確認する</h2>
-          <p className="mt-2 text-[14px] leading-[1.8] text-(--ink-muted)">
-            {books.length > 0
-              ? '章記事の元になった逐語文字起こしです。紙面の改行・空白・ページ番号をそのまま保っているため、原本との照合に使えます。1分冊は原則50ページです。'
-              : '1分冊は原則50ページです。各ページ見出しの番号は原本PDF上のページ番号です。'}
-          </p>
-          <ol className="mt-4 divide-y divide-(--rule-soft) border-y border-(--rule-soft) bg-(--paper)">
-            {entry.parts.map((part) => (
-              <li key={part.slug}>
-                <Link
-                  href={standardPartPath(entry, part)}
-                  className="focus-ring flex min-h-14 items-center justify-between gap-4 px-4 py-3 transition-colors hover:bg-(--accent-fill)"
-                >
-                  <span className="font-medium text-(--ink)">
-                    {[standardPartLabel(entry, part), `PDF page ${part.firstPage}–${part.lastPage}`].filter(Boolean).join('｜')}
-                  </span>
-                  <span className="font-mono text-[11px] text-(--ink-muted)">{part.pageCount}頁 →</span>
-                </Link>
-              </li>
-            ))}
-          </ol>
-        </section>
 
         {books.length > 0 && <StandardDataLinks document={entry} />}
 

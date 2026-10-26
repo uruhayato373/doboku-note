@@ -8,9 +8,7 @@ import {
   getStandardDocuments,
   getStandardsCatalog,
   standardDocumentPath,
-  standardPartPath,
   type StandardDocument,
-  type StandardPart,
 } from '@/lib/standards';
 import {
   getStandardChapters,
@@ -23,11 +21,9 @@ import { generateHeadingId } from '@/lib/toc';
 type StandardsNavigationProps = {
   agencyId: string;
   currentDocument?: StandardDocument | undefined;
-  currentPart?: StandardPart | undefined;
   currentChapter?: StandardChapter | undefined;
   /** 節ページ（splitBySection の章）で表示中の節番号 */
   currentSection?: number | undefined;
-  pageNumbers?: number[] | undefined;
   variant?: 'sidebar' | 'mobile';
 };
 
@@ -242,66 +238,17 @@ function DocumentTreeNav({
   );
 }
 
-function PartNav({ document, currentPart }: { document: StandardDocument; currentPart?: StandardPart | undefined }) {
-  return (
-    <nav aria-label="分冊を移動" className="border border-(--rule-soft) bg-(--paper)">
-      <NavHeading count={document.parts.length}>原典PDFページ</NavHeading>
-      <ol className="py-1" data-standards-nav="parts">
-        {document.parts.map((part, index) => {
-          const active = part.slug === currentPart?.slug;
-          return (
-            <li key={part.slug}>
-              <Link
-                href={standardPartPath(document, part)}
-                className={navLinkClass(active)}
-                aria-current={active ? 'page' : undefined}
-              >
-                <span className="w-5 shrink-0 font-mono text-[11px] tabular-nums text-(--ink-muted)">
-                  {String(index + 1).padStart(2, '0')}
-                </span>
-                <span className="min-w-0 flex-1">PDF {part.firstPage}–{part.lastPage}</span>
-              </Link>
-            </li>
-          );
-        })}
-      </ol>
-    </nav>
-  );
-}
-
-function PageNav({ pageNumbers }: { pageNumbers: number[] }) {
-  return (
-    <nav aria-label="この分冊のページ" className="border border-(--rule-soft) bg-(--paper)">
-      <NavHeading count={pageNumbers.length}>ページへ移動</NavHeading>
-      <ol className="grid grid-cols-5 gap-px bg-(--rule-soft) p-px" data-standards-nav="pages">
-        {pageNumbers.map((page) => (
-          <li key={page} className="bg-(--paper)">
-            <a
-              href={`#pdf-page-${page}`}
-              className="focus-ring flex min-h-11 items-center justify-center font-mono text-[11px] tabular-nums text-(--ink-body) transition-colors hover:bg-(--accent-fill) hover:text-(--accent)"
-              aria-label={`PDF page ${page}へ移動`}
-            >
-              {page}
-            </a>
-          </li>
-        ))}
-      </ol>
-    </nav>
-  );
-}
-
 function NavigationContents({
   agencyId,
   currentDocument,
-  currentPart,
   currentChapter,
   currentSection,
-  pageNumbers = [],
 }: Omit<StandardsNavigationProps, 'variant'>) {
   if (!currentDocument) return <AgencyNav currentAgency={agencyId} />;
 
-  // 章を構造化した文書は 編 → 章 → 節 の目次 1 本。未構造化の文書と逐語ページは分冊が主導線。
-  if (!currentPart && usesTreeNav(currentDocument)) {
+  // 章を構造化した文書は 編 → 章 → 節 の目次 1 本。章の無い文書は同じ機関の文書一覧だけ
+  // （原本の逐語ページ＝分冊は 2026-10-26 に公開をやめた）。
+  if (usesTreeNav(currentDocument)) {
     return (
       <>
         {!currentChapter && <DocumentNav currentDocument={currentDocument} />}
@@ -310,58 +257,46 @@ function NavigationContents({
     );
   }
 
-  return (
-    <>
-      {!currentPart && <DocumentNav currentDocument={currentDocument} />}
-      <PartNav document={currentDocument} currentPart={currentPart} />
-      {currentPart && pageNumbers.length > 0 && <PageNav pageNumbers={pageNumbers} />}
-    </>
-  );
+  return <DocumentNav currentDocument={currentDocument} />;
 }
 
 export default function StandardsNavigation({
   agencyId,
   currentDocument,
-  currentPart,
   currentChapter,
   currentSection,
-  pageNumbers,
   variant = 'sidebar',
 }: StandardsNavigationProps) {
   const agency = getStandardsCatalog().agencies.find((entry) => entry.agencyId === agencyId);
   const sectionTitle = currentSection !== undefined
     ? currentChapter?.sections.find((section) => section.number === currentSection)?.headingText
     : undefined;
-  const contextLabel = currentPart
-    ? `PDF ${currentPart.firstPage}–${currentPart.lastPage}`
-    : currentChapter
-      ? sectionTitle ? `${currentChapter.title} ${sectionTitle}` : currentChapter.title
-      : currentDocument?.title ?? agency?.agencyName ?? '基準類';
-  // 節ページの親は章ページ（節の一覧）。章・分冊の親は文書目次。
+  const contextLabel = currentChapter
+    ? sectionTitle ? `${currentChapter.title} ${sectionTitle}` : currentChapter.title
+    : currentDocument?.title ?? agency?.agencyName ?? '基準類';
+  // 節ページの親は章ページ（節の一覧）。章の親は文書目次。
   const parentHref = sectionTitle && currentChapter && currentDocument
     ? standardChapterPath(currentDocument, currentChapter)
-    : (currentPart || currentChapter) && currentDocument
+    : currentChapter && currentDocument
       ? standardDocumentPath(currentDocument)
       : currentDocument
         ? `/standards/${agencyId}`
         : '/standards';
   const parentLabel = sectionTitle
     ? '章の節一覧へ戻る'
-    : currentPart || currentChapter
+    : currentChapter
       ? '文書目次へ戻る'
       : currentDocument
         ? `${agency?.agencyName ?? '発行機関'}の文書一覧`
         : '全国の基準類一覧';
   // 目次 1 本の文書は目次の頭に文書へのリンクがあるので、右の欄の「資料内を移動」の枠を出さない。
-  const treeMode = Boolean(currentDocument && !currentPart && usesTreeNav(currentDocument));
+  const treeMode = Boolean(currentDocument && usesTreeNav(currentDocument));
   const contents = (
     <NavigationContents
       agencyId={agencyId}
       currentDocument={currentDocument}
-      currentPart={currentPart}
       currentChapter={currentChapter}
       currentSection={currentSection}
-      pageNumbers={pageNumbers}
     />
   );
 

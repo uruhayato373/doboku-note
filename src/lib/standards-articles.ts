@@ -2,7 +2,7 @@ import 'server-only';
 
 import { readFileSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
-import { getStandardDocument, type StandardDocument, type StandardPart } from '@/lib/standards';
+import { getStandardDocument, type StandardDocument } from '@/lib/standards';
 import { getSiteAssetR2Url } from '@/lib/r2-image-loader';
 import { chapterPreambleText, sectionPageMarkdown, splitChapterBySection } from '@/lib/standards-section-split.mjs';
 import { standardBookLabel } from '@/lib/standards-chapter-labels';
@@ -222,29 +222,6 @@ export function standardChapterPath(
   chapter: Pick<StandardChapter, 'chapterId'>,
 ): string {
   return `/standards/${document.agencyId}/${document.documentId}/chapters/${chapter.chapterId}`;
-}
-
-/**
- * PDF ページ番号から、それを収録する分冊とアンカーを引く。
- * 章記事の `<SourceRef>` が原典の逐語ページへ戻るための唯一の解決口。
- */
-export function resolveSourcePageHref(document: StandardDocument, page: number): string | null {
-  const part: StandardPart | undefined = document.parts.find(
-    (candidate) => page >= candidate.firstPage && page <= candidate.lastPage,
-  );
-  if (!part) return null;
-  return `/standards/${document.agencyId}/${document.documentId}/${part.slug}#pdf-page-${page}`;
-}
-
-/**
- * `<SourceRef pages="151-153" />` の値をページ番号へ展開する。
- * 表示は範囲のまま、リンク先は先頭ページにする（原典はページ単位でしかアンカーを持たない）。
- */
-export function parseSourcePages(value: string): { first: number; last: number } | null {
-  const match = value.match(/^(\d+)(?:-(\d+))?$/);
-  if (!match) return null;
-  const first = Number(match[1]);
-  return { first, last: match[2] ? Number(match[2]) : first };
 }
 
 /**

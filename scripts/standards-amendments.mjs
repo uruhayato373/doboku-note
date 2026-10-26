@@ -192,8 +192,9 @@ if (command === 'sheets') {
       const want = expected.get(chapter.chapterId) ?? 0;
       const recorded = chapter.amendments?.rows ?? 0;
       const text = readFileSync(join(ARTICLES_ROOT, agency, documentKey, chapter.file), 'utf8');
-      // 行は `> **…**（[原本 p.N](…)）` で始まる（本文の `*` は逃がしてあるので行の見出しだけが当たる）
-      const rendered = (text.match(/^> \*\*.+\*\*（\[原本 p\./gm) ?? []).length;
+      // 行は `> **…**` だけの 1 行（本文の `*` は逃がしてあるので行の見出しだけが当たる）。原本ページへのリンクは
+      // 逐語ページの公開をやめた 2026-10-26 から付けない（build-standard-articles.mjs）
+      const rendered = (text.match(/^> \*\*.+\*\*$/gm) ?? []).length;
       checkedRows += rendered;
       if (recorded !== want || rendered !== want) {
         violations.push(`${target} ${chapter.chapterId}: 訂正・追加の行が 組み直し ${want} / manifest ${recorded} / 章記事 ${rendered}`);
