@@ -80,7 +80,15 @@ function mockYoutube(f) {
     channels: { list: async () => { calls.read++; return { data: { items: [{ id: mode.wrongChannel ? 'wrong-channel' : f.channel.id, snippet: { title: f.channel.title }, contentDetails: { relatedPlaylists: { uploads: 'uploads' } } }] } }; } },
     playlistItems: { list: async () => ({ data: { items: [...db.keys()].map(videoId => ({ contentDetails: { videoId } })), pageInfo: { totalResults: db.size } } }) },
     videos: {
-      list: async ({ id }) => { calls.read++; const ids = Array.isArray(id) ? id : id.split(','); return { data: { items: structuredClone(ids.map(x => db.get(x)).filter(Boolean)) } }; },
+      list: async ({ id }) => {
+        calls.read++; const ids = Array.isArray(id) ? id : id.split(',');
+        const items = structuredClone(ids.map(x => db.get(x)).filter(Boolean));
+        if (mode.staleScheduleReads > 0 && db.get('newvid00001')?.status.publishAt) {
+          const video = items.find(x => x.id === 'newvid00001');
+          if (video) { delete video.status.publishAt; mode.staleScheduleReads--; }
+        }
+        return { data: { items } };
+      },
       insert: async (args, options) => {
         calls.insert++; assert.equal(options.retry, false); assert.equal(args.requestBody.status.privacyStatus, 'private'); assert.equal(args.requestBody.status.publishAt, undefined);
         assert.deepEqual(await consume(args.media.body), f.buffers.video);
@@ -113,7 +121,7 @@ function mockYoutube(f) {
   };
   return { youtube, db, calls, mode };
 }
-const execute = async (f, api, phase = 'upload', id = NEW) => publishYoutubeRevision(f.root, { pubId: id, phase, commit: true, expect: revisionPublishPlan(f.root, id, NOW).digest }, { youtube: api.youtube, now: () => NOW });
+const execute = async (f, api, phase = 'upload', id = NEW) => publishYoutubeRevision(f.root, { pubId: id, phase, commit: true, expect: revisionPublishPlan(f.root, id, NOW).digest }, { youtube: api.youtube, now: () => NOW, wait: async () => {} });
 
 test('dry-runはAPIに触れず、旧公開ID・未承認・別SHAを外部操作前に止める', async t => {
   const f = fixture(t), api = mockYoutube(f), old = rowOf(f.root, OLD);
@@ -250,6 +258,15 @@ test('予約日時の実査不一致・途中の即時公開は成功扱いせ�
   changed.mode.afterThumbnail = () => { changed.db.get('newvid00001').status.privacyStatus = 'public'; };
   await assert.rejects(execute(other, changed), /公開状態/); assert.equal(changed.calls.update, 0);
   await assert.rejects(execute(other, changed, 'verify'), /即時公開/);
+});
+
+test('予約更新直後の古いAPI読取は再送せず再読取で確定する', async t => {
+  const f = fixture(t), api = mockYoutube(f); await execute(f, api);
+  api.mode.staleScheduleReads = 2;
+  assert.equal((await execute(f, api, 'schedule')).result, 'scheduled-verified');
+  assert.equal(api.calls.update, 1);
+  assert.equal(rowOf(f.root).status, 'scheduled');
+  assert.equal(api.mode.staleScheduleReads, 0);
 });
 
 test('外部IDだけの行・実行後の入力変更・不完全なdeliveryを拒否し、開始失敗のlockを残さない', async t => {
