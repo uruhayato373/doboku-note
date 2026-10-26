@@ -2,6 +2,9 @@ import Link from 'next/link';
 import { StandardPracticeLinks } from '@/components/ui/SidebarDiscovery';
 import DisclosureChevron from '@/components/ui/DisclosureChevron';
 import StandardsTreeActiveScroll from '@/components/standards/StandardsTreeActiveScroll';
+import StandardsTreeChapter from '@/components/standards/StandardsTreeChapter';
+import { TREE_ROW, TREE_SECTION_LINK, TREE_SECTIONS, TREE_SUMMARY } from '@/components/standards/standards-tree-classes';
+import { standardTreeSections, standardTreeTocPath, usesTreeNav } from '@/lib/standards-tree-nav';
 import {
   getStandardDocuments,
   getStandardsCatalog,
@@ -254,26 +257,14 @@ function SectionNav({
   );
 }
 
-/**
- * 試作: 文書全体を 編 → 章 → 節 の 1 本の目次にする文書（右の欄で章ページを経由せず節へ移る）。
- * 効果と重さを近畿の共通仕様書で確かめてから広げる。
- */
-const TREE_NAV_DOCUMENTS = new Set(['kinki/common']);
-
-function usesTreeNav(document: StandardDocument): boolean {
-  return TREE_NAV_DOCUMENTS.has(`${document.agencyId}/${document.documentId}`);
-}
-
-const TREE_SUMMARY =
-  'focus-ring flex min-h-10 cursor-pointer list-none items-center gap-2 py-1.5 pr-3 marker:hidden';
-
 function chapterNumberLabel(chapter: StandardChapter): string {
   return chapter.chapterLabel !== undefined ? chapter.chapterLabel.replace(/^第/, '') : `${chapter.chapterNumber}章`;
 }
 
 /**
- * 編 → 章 → 節 の目次。表示中の編を開いて表示中の章の節を出し、表示中の節の下に条（ページ内の見出し）を出す。
- * 節ページに分けた章は節ページへ、分けていない章は章ページのアンカーへ移る（SectionNav と同じ規則）。
+ * 編 → 章 → 節 の目次（右の欄の主導線）。表示中の編・章を開き、表示中の節の下に条（ページ内の見出し）を出す。
+ * 表示中の章の節は HTML に書き、他の章の節は開いたときに toc.json から読む（StandardsTreeChapter）。
+ * 縦の線は節の段の 1 本だけにし、表示中の位置は背景色で示す。
  */
 function DocumentTreeNav({
   document,
@@ -285,37 +276,39 @@ function DocumentTreeNav({
   currentSection?: number | undefined;
 }) {
   const books = groupChaptersByBook(getStandardChapters(document.agencyId, document.documentId));
-  const total = books.reduce((sum, book) => sum + book.chapters.length, 0);
+  const tocUrl = standardTreeTocPath(document);
 
   return (
-    <nav aria-label="目次" className="border border-(--rule-soft) bg-(--paper)">
-      <NavHeading count={total}>目次</NavHeading>
+    <nav aria-label="目次" className="border border-(--rule-soft) bg-(--paper) py-2 dark:border-(--rule-soft)">
+      <Link
+        href={standardDocumentPath(document)}
+        className="focus-ring block px-4 pb-2 pt-1 text-[12px] font-bold text-(--ink-muted) hover:text-(--accent)"
+        aria-current={!currentChapter ? 'page' : undefined}
+      >
+        {document.role === 'common' ? '土木工事共通仕様書' : document.title}・目次
+      </Link>
       <div data-standards-nav="tree">
         {books.map((book) => {
           const activeBook = book.chapters.some((chapter) => chapter.chapterId === currentChapter?.chapterId);
           return (
-            <details key={book.bookNumber} open={activeBook} className="border-b border-(--rule-soft) last:border-b-0">
-              <summary className={`${TREE_SUMMARY} pl-4`}>
-                <span className="min-w-0 flex-1 text-[13px] font-bold leading-normal text-(--ink-body)">{book.bookLabel}</span>
-                <span className="font-mono text-[11px] tabular-nums text-(--ink-muted)">{book.chapters.length}</span>
+            <details key={book.bookNumber} open={activeBook}>
+              <summary className={`${TREE_SUMMARY} focus-ring min-h-9 pl-4`}>
+                <span className="min-w-0 flex-1 text-[13px] font-bold text-(--ink)">{book.bookLabel}</span>
                 <DisclosureChevron className="disclosure-chevron h-4 w-4 shrink-0 text-(--ink-muted)" />
               </summary>
               <ul className="pb-1">
                 {book.chapters.map((chapter) => {
                   const activeChapter = chapter.chapterId === currentChapter?.chapterId;
-                  const chapterPath = standardChapterPath(document, chapter);
                   const chapterIsPage = activeChapter && currentSection === undefined;
-                  // 節を出すのは表示中の章だけ（全章の節 404 件を出すと 1 ページ約 1MB 増える）。
-                  const showSections = activeChapter && chapter.sections.length > 0;
                   const chapterLink = (
                     <Link
-                      href={chapterPath}
-                      className={`flex min-w-0 flex-1 items-baseline gap-2 border-l-4 py-1 pl-2 text-[13px] leading-[1.55] ${
+                      href={standardChapterPath(document, chapter)}
+                      className={`${TREE_ROW} min-w-0 flex-1 pl-2 ${
                         chapterIsPage
-                          ? 'border-(--accent) font-bold text-(--ink)'
+                          ? 'bg-(--accent-fill) font-bold text-(--accent)'
                           : activeChapter
-                            ? 'border-transparent font-bold text-(--ink)'
-                            : 'border-transparent text-(--ink-body) hover:text-(--accent)'
+                            ? 'font-bold text-(--ink)'
+                            : 'text-(--ink-body) hover:text-(--accent)'
                       }`}
                       aria-current={chapterIsPage ? 'page' : undefined}
                     >
@@ -325,59 +318,63 @@ function DocumentTreeNav({
                       <span className="min-w-0 flex-1">{chapter.chapterTitle}</span>
                     </Link>
                   );
-                  if (!showSections) {
+                  if (chapter.sections.length === 0) {
+                    return <li key={chapter.chapterId} className="flex pl-2 pr-7">{chapterLink}</li>;
+                  }
+                  if (!activeChapter) {
                     return (
-                      <li key={chapter.chapterId} className="flex min-h-10 items-center py-1.5 pl-3 pr-3">
-                        {chapterLink}
+                      <li key={chapter.chapterId}>
+                        <StandardsTreeChapter tocUrl={tocUrl} chapterId={chapter.chapterId}>
+                          {chapterLink}
+                        </StandardsTreeChapter>
                       </li>
                     );
                   }
                   return (
                     <li key={chapter.chapterId}>
                       <details open>
-                        <summary className={`${TREE_SUMMARY} pl-3`}>
+                        <summary className={`${TREE_SUMMARY} pl-2`}>
                           {chapterLink}
                           <DisclosureChevron className="disclosure-chevron h-4 w-4 shrink-0 text-(--ink-muted)" />
                         </summary>
-                          <ol className="mb-1 ml-[52px] border-l border-(--rule-soft)">
-                            {chapter.sections.map((section) => {
-                              const activeSection = activeChapter && section.number === currentSection;
-                              const anchor = `#${generateHeadingId(section.headingText)}`;
-                              const href = chapter.splitBySection
-                                ? standardSectionPath(document, chapter, section.number)
-                                : anchor;
-                              return (
-                                <li key={section.number}>
-                                  <Link
-                                    href={href}
-                                    className={`focus-ring -ml-px flex min-h-9 items-baseline gap-2 border-l-2 py-1 pl-3 pr-3 text-[13px] leading-[1.55] transition-colors ${
-                                      activeSection
-                                        ? 'border-(--accent) bg-(--accent-fill) font-bold text-(--ink)'
-                                        : 'border-transparent text-(--ink-body) hover:border-(--rule) hover:text-(--ink)'
-                                    }`}
-                                    aria-current={activeSection ? 'page' : undefined}
-                                  >
-                                    <span className="w-7 shrink-0 font-mono text-[11px] tabular-nums text-(--ink-muted)">{section.number}節</span>
-                                    <span className="min-w-0 flex-1">{section.title}</span>
-                                  </Link>
-                                  {activeSection && section.articles.length > 0 && (
-                                    <ol className="mb-1 ml-9 space-y-0.5 border-l border-(--rule-soft) py-1">
-                                      {section.articles.map((article) => (
-                                        <li key={article.number}>
-                                          <a
-                                            href={`#${generateHeadingId(article.headingText)}`}
-                                            className="focus-ring -ml-px block border-l-2 border-transparent py-0.5 pl-3 pr-2 text-[12px] leading-[1.55] text-(--ink-muted) hover:border-(--rule) hover:text-(--ink)"
-                                          >
-                                            {article.title}
-                                          </a>
-                                        </li>
-                                      ))}
-                                    </ol>
-                                  )}
-                                </li>
-                              );
-                            })}
-                          </ol>
+                        <ol className={TREE_SECTIONS}>
+                          {standardTreeSections(document, chapter, { samePage: currentSection === undefined }).map((section) => {
+                            const activeSection = section.number === currentSection;
+                            const articles = activeSection
+                              ? chapter.sections.find((entry) => entry.number === section.number)?.articles ?? []
+                              : [];
+                            return (
+                              <li key={section.number}>
+                                <Link
+                                  href={section.href}
+                                  className={
+                                    activeSection
+                                      ? `${TREE_ROW} bg-(--accent-fill) pl-1 font-bold text-(--accent)`
+                                      : TREE_SECTION_LINK
+                                  }
+                                  aria-current={activeSection ? 'page' : undefined}
+                                >
+                                  <span className="w-7 shrink-0 font-mono text-[11px] tabular-nums text-(--ink-muted)">{section.number}節</span>
+                                  <span className="min-w-0 flex-1">{section.title}</span>
+                                </Link>
+                                {articles.length > 0 && (
+                                  <ol className="pb-1 pl-10">
+                                    {articles.map((article) => (
+                                      <li key={article.number}>
+                                        <a
+                                          href={`#${generateHeadingId(article.headingText)}`}
+                                          className="focus-ring block py-0.5 pr-3 text-[12px] leading-[1.55] text-(--ink-muted) hover:text-(--accent)"
+                                        >
+                                          {article.title}
+                                        </a>
+                                      </li>
+                                    ))}
+                                  </ol>
+                                )}
+                              </li>
+                            );
+                          })}
+                        </ol>
                       </details>
                     </li>
                   );
@@ -514,6 +511,11 @@ export default function StandardsNavigation({
       : currentDocument
         ? `${agency?.agencyName ?? '発行機関'}の文書一覧`
         : '全国の基準類一覧';
+  // 目次 1 本の文書は目次の頭に文書へのリンクがあるので、右の欄の「資料内を移動」の枠を出さない。
+  const treeMode = Boolean(
+    currentDocument && !currentPart && usesTreeNav(currentDocument)
+      && getStandardChapters(currentDocument.agencyId, currentDocument.documentId).length > 0,
+  );
   const contents = (
     <NavigationContents
       agencyId={agencyId}
@@ -554,7 +556,7 @@ export default function StandardsNavigation({
 
   return (
     <div className="sticky top-6 max-h-[calc(100vh-3rem)] space-y-3 overflow-y-auto" data-standards-sidebar>
-      <div className="border border-(--rule-soft) bg-(--paper) p-5">
+      {!treeMode && <div className="border border-(--rule-soft) bg-(--paper) p-5">
         <div className="text-[11px] font-bold tracking-[0.08em] text-(--accent)">基準類ナビ</div>
         <h2 className="mt-2 text-[18px] font-bold tracking-[0.02em] text-(--ink)">資料内を移動</h2>
         <p className="mt-2 line-clamp-2 text-[13px] leading-[1.7] text-(--ink-muted)">{contextLabel}</p>
@@ -564,7 +566,7 @@ export default function StandardsNavigation({
         >
           ← {parentLabel}
         </Link>
-      </div>
+      </div>}
       {contents}
       {currentChapter && <StandardPracticeLinks title={currentChapter.title} />}
     </div>
