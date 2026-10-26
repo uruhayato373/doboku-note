@@ -12,10 +12,12 @@ title: .claude/knowledge/reference/ 索引
 
 | 参照先 | 内容 | いつ読むか |
 |---|---|---|
+| [business-review.md](./business-review.md) | 事業計測とレビューの記録の置き場と手順（判断理由の正典はプロダクト戦略・機械設定は `config/business-direction.json`） | 週次・月次レビューで計測・目標・判断を記録するとき |
 | [commands.md](./commands.md) | 頻用コマンド全一覧（用途別・各コマンドの理由と罠。CLAUDE.md から移設） | `npm run` で何を叩くか探すとき／新 script を package.json に足したとき |
 | [.claude/knowledge/reference/content-authoring.md](./content-authoring.md) | MDX コンポーネント・過去問構造・モバイル視認性詳細・画像配信・frontmatter テンプレ | MDX を書く・編集するとき |
 | [.claude/knowledge/reference/content-expansion.md](./content-expansion.md) | 全教材の論点→記事・図解・SNSの対応表と、未確認・原典待ち・変更後の再確認を管理する手順 | 教材展開・図解整備・週次/月次レビュー時 |
 | [.claude/knowledge/reference/content-taxonomy.md](./content-taxonomy.md) | コンテンツ分類の SSOT（領域×資格×記事型×テーマ×タグの語彙と規則・テーマの軸・状態・所属と記事末の回遊の配線・週次と月次の点検（§6）・タグの正規表記＝日本語名と別名・原本 class → 展開先の加工ルール表と commercial-book の brief 方式・新規記事のチェックリスト）。値は `src/config/{content-taxonomy,categories,tags,topics}.json`、検査は `npm run check-content-taxonomy` | frontmatter（category/group/tags/topics）を決めるとき・新資格/新タグ/新テーマを足すとき・原本から記事を起こすとき |
+| [local-resource-policy.md](./local-resource-policy.md) | ローカルの容量・メモリの運用（重い処理の排他・空き 20GiB とメモリ 3GiB の下限・R2 復元の上限。設定の真実源は `config/local-resources.json`） | build・レンダー・R2 の復元を手元で回すとき・空き容量の下限で止まったとき |
 | [.claude/knowledge/reference/disk-hygiene.md](./disk-hygiene.md) | ローカル容量の運用 SSOT（何が溜まるかの実測・**worktree の置き場と後始末**・`--fix` が消すものとガード・報告のみに留める履歴・launchd の導入/確認/解除・⚠ 行の対処）。機械可読は `config/disk-hygiene.json`、検査は `npm run check-disk-hygiene` | `[disk-hygiene] ⚠` が出たとき・worktree を切る/畳むとき・空き容量が減ったとき |
 | [.claude/knowledge/reference/book-coverage-expansion.md](./book-coverage-expansion.md) | 書籍の網羅の判定で決まった追記をサイトへ書き足す手順（Writer の独自性・事実・書き方・新規記事・図、QA の 5 観点、AI 写真の作り方、シリーズの章を brief → 執筆 → 軽い QA で書く §4） | 判定の計画から記事へ追記・新規記事を起こすとき・シリーズの台帳の章を書くとき |
 | [.claude/knowledge/reference/concrete-practice-sources.md](./concrete-practice-sources.md) | コンクリートの実務シリーズで原文を確かめた一次資料（JIS A 5308・共通仕様書の条・国交省の通知・論文）の URL と値 | シリーズの章を書く・確かめるとき（ここに無い値だけを検索する） |

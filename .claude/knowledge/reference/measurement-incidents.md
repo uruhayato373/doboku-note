@@ -785,10 +785,6 @@ curl https://<account>.r2.cloudflarestorage.com/
 | `fetch-metrics.yml` | `0 21 * * 4` | **develop**（明示） | develop | GA4 / GSC 週次 |
 | `index-coverage.yml` | `0 2 * * 3` | **develop**（明示） | develop | GSC index coverage（2026-09-17 に週次へ） |
 | `weekly-review-guard.yml` | `17 2 * * 1` | **develop**（明示） | なし（Issue のみ） | 週次レビュー実施の督促・watchdog |
-| `r2-audit.yml` | `0 22 * * 0` | **main**（明示） | なし | R2 / OGP / 品質ゲート |
-| `post-youtube-scheduled.yml` | `17 8 * * *` | **develop**（明示） | develop | YouTube 通常動画・Shorts 予約投稿 |
-| `link-audit.yml` | `0 22 * * 4` | **develop**（明示） | develop | リンク切れ |
-| `verify-yt-status.yml` | `0 20 * * 4` | **develop**（明示） | develop | YouTube 公開状態 |
 | `uptime-ping.yml` | `0 23,5,11 * * *` | **develop**（明示） | なし | 死活監視（shell のみ） |
 
 **計測スクリプトを変更したら、「いつから新しいデータが入るか」は該当 workflow の実行ブランチを見て答えること。** `main` 実行のジョブなら deploy 日が基準になる。

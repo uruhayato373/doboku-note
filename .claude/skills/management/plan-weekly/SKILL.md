@@ -28,7 +28,7 @@ domain: plan
    - `.claude/knowledge/reference/codex-division-of-labor.md`（Codex に振れる作業の基準）
    - `git log --oneline -20`（直近の実績）
 2. 今週の優先タスクを 🔴/🟡/🟢 で決定し、Codex 候補を `[Codex候補]` で明示する
-3. `.claude/todo/weekly.md` を直接書き換える（確認なし）
+3. `.claude/todo/weekly.md` を直接書き換える（確認なし）（土曜のヘッドレスの週次レビューから呼ばれたときは `.claude/` に書けないので `.tmp/claude-out/todo/weekly.md` に書く。ラッパーが `.claude/todo/weekly.md` へ写す・`scripts/scheduled/weekly-review.sh`）
 
 ## 呼ぶタイミング
 

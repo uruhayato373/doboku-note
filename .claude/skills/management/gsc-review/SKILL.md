@@ -1,7 +1,7 @@
 ---
 name: gsc-review
 description: >
-  月次 GSC index coverage レビューのオーケストレータ。CI（index-coverage.yml）が更新した
+  週次 GSC index coverage レビューのオーケストレータ（土曜の記録層の応急・深掘り用）。CI（index-coverage.yml）が更新した
   url-inspection スナップショットと data/gsc/index-coverage.json を gsc-index-auditor で診断し、
   .claude/knowledge/reference/gsc-management.md の「観測・判断ログ」へユーザー判断つきで追記する流れを統括する。
   performance（CTR/rank）は /weekly-improve（metrics-analyzer）、CWV は performance-auditor の担当で直交。
@@ -21,7 +21,7 @@ domain: site
 > 人が上書きしたい ③ 土曜の GSC の記録層が失敗・沈黙した（`npm run check-gsc-auto-review` が DUE / `automation-failure`
 > Issue が立った）とき。自動エントリと同日付で手動エントリを足してよい（append-only）。
 
-- 毎月 `index-coverage.yml`（CI・月初 JST 11:00）が走った**翌日以降**（最新スナップショットが develop に commit 済みの状態）
+- `index-coverage.yml`（CI・週次。水曜 JST 11:00 に周回を始め、1 日 1,900 件を超えた分は木・金に続け、全件そろった回だけ履歴に積む）の後。ふだんは土曜の Mac の記録層が自動で記録するので、これは応急・深掘り用
 - index coverage の急変を疑うとき
 
 > performance（impressions/CTR/順位の改善候補）は守備範囲外＝`/weekly-improve`（`metrics-analyzer`）へ。本スキルは coverage 専任。
@@ -35,7 +35,7 @@ domain: site
 1. **データ確認**
    - `data/gsc/url-inspection/` の最新ファイルの日付を確認
    - `data/gsc/index-coverage.json` の最新エントリ日付を確認
-   - 最新 batch が当月でなければ、CI 未実行と判断し `gh workflow run index-coverage.yml` を案内（実行はユーザー判断）
+   - 最新の完了した batch が 8 日より古ければ、CI 未実行か周回の未完了と判断し `gh workflow run index-coverage.yml`（mode=auto で続きを検査）を案内（実行はユーザー判断）
 
 2. **診断（gsc-index-auditor を起動）**
    - サブエージェント `gsc-index-auditor` を呼ぶ（最新 batch と history を読ませる）
@@ -77,5 +77,5 @@ domain: site
 
 - `.claude/knowledge/reference/gsc-management.md` — GSC 管理 SSOT（分業/閾値/判断マトリクス/観測ログ）
 - `.claude/agents/gsc-index-auditor.md` — 診断 Evaluator（本スキルが起動）
-- `.github/workflows/index-coverage.yml` — 月次取得 CI
+- `.github/workflows/index-coverage.yml` — 週次取得 CI（周回・DN-0825）
 - `.claude/skills/management/weekly-improve/SKILL.md` — performance 側（直交・補完）

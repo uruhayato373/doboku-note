@@ -185,7 +185,7 @@ ls content/sns/youtube/$(date +%Y-%m-%d)-r03-pack-01/
 - **必ずこの `shorts.mp4`（≤60 秒）をアップロードする**。IG Reels のフル `video.mp4`（≈145 秒）を直アップすると **YouTube が「通常動画」扱い**にし Shorts フィードに乗らない（実機確認）。
 - **予約投稿フロー**: `upload-shorts-to-r2.mjs` で `shorts.mp4` + `thumbnail.png` を R2 へアップする。旧 Shorts は台帳（`content/registry/`・kind `legacy-short`）で、2026-10-09 に旧台帳 `youtube-schedule.json` と旧投稿スクリプトを消した。新規の公開は動画パックの経路（policy §4）。
 - **タイトル**: **`yt-shorts-title-writer`（Generator）が論点タイトルを自動生成**して既定タイトルを上書き（policy §2）。親が featured 設問文を抽出して渡す（agent は Bash 不可）。`yt-shorts-publisher-qa` が規約適合を採点。
-- **偽成功検証**: アップロード後 `videos.list(part=status)` で privacyStatus=private + publishAt + duration≤60s を実査（policy §7）。CI ログ「公開設定: unlisted」は表示バグで実値は private。
+- **偽成功検証**: アップロード後 `videos.list(part=status)` で privacyStatus=private + publishAt + duration≤60s を実査（policy §7）。アップロードしたスクリプトのログの「公開設定: unlisted」は表示バグで実値は private（投稿を回していた `post-youtube-scheduled.yml` は 2026-10-24 に廃止）。
 
 ## 範囲外（後続タスク）
 
