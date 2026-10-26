@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import ContentThumbnail from '@/components/ui/ContentThumbnail';
-import DisclosureChevron from '@/components/ui/DisclosureChevron';
+import Disclosure from '@/components/ui/Disclosure/Disclosure';
 
 export type TopicArea = 'exam' | 'practice' | 'standards' | 'laws';
 export type TopicArticle = { href: string; title: string; description: string; category: string; categoryLabel: string; categoryOrder: number; area: TopicArea; kind: string; image: string; subgroup?: string | undefined };
@@ -35,13 +35,12 @@ export default function TopicArticles({ articles, areaLabels, featured: entry = 
   return <div>
     <div className="mb-3 flex flex-wrap items-start gap-2">
       <label className="min-w-0 flex-1"><span className="sr-only">記事を絞り込む</span><input type="search" className={`${control} w-full`} value={query} onChange={e=>setQuery(e.target.value)} placeholder="記事名・内容で検索" /></label>
-      <details className="group rounded-card-inline border border-(--rule-soft) bg-(--paper) open:w-full">
-        <summary className="focus-ring flex min-h-11 cursor-pointer list-none items-center gap-2 px-3 text-sm text-(--ink)">絞り込み<DisclosureChevron /></summary>
+      <Disclosure radius="inline" className="open:w-full" summaryClassName="text-sm text-(--ink)" summary="絞り込み">
         <div className="grid gap-3 border-t border-(--rule-soft) p-3 sm:grid-cols-2">
           <label className="text-sm text-(--ink)">資格・領域<select className={`${control} mt-1 w-full`} value={category} onChange={e=>setCategory(e.target.value)}><option value="">すべて</option>{categories.map(([value,label])=><option key={value} value={value}>{label}</option>)}</select></label>
           <label className="text-sm text-(--ink)">記事の種類<select className={`${control} mt-1 w-full`} value={kind} onChange={e=>setKind(e.target.value)}><option value="">すべて</option>{kinds.map(value=><option key={value}>{value}</option>)}</select></label>
         </div>
-      </details>
+      </Disclosure>
     </div>
     <div className="mb-4 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-(--ink-muted)"><p role="status">{count}件</p>{category && <span>{categories.find(([value])=>value===category)?.[1]}</span>}{kind && <span>{kind}</span>}{filtered && <button className="focus-ring min-h-11 text-(--accent) underline" onClick={()=>{setCategory('');setKind('');setQuery('');}}>絞り込みを解除</button>}</div>
     {!filtered && <h3 className="mb-3 text-lg font-bold text-(--ink)">はじめに読む</h3>}
@@ -68,13 +67,12 @@ export default function TopicArticles({ articles, areaLabels, featured: entry = 
             {cats.map(([value,label])=>{
               const rows = rowsOf(value);
               const matches = rows.filter(match);
-              return <details key={`${value}-${filtered}`} open={filtered} hidden={!matches.length} className="rounded-card-content border border-(--rule-soft) bg-(--paper)">
-                <summary className="focus-ring cursor-pointer px-4 py-4 font-bold text-(--ink)"><h4 className="inline">{label}</h4> <span className="text-sm font-normal text-(--ink-muted)">{matches.length}件</span></summary>
+              return <Disclosure key={`${value}-${filtered}`} open={filtered} hidden={!matches.length} summaryClassName="font-bold text-(--ink)" summary={<><h4 className="inline">{label}</h4> <span className="text-sm font-normal text-(--ink-muted)">{matches.length}件</span></>}>
                 {bySubgroup(rows).map(([subgroup, items])=><div key={subgroup || '-'}>
                   {subgroup && <p hidden={!items.some(match)} className="border-t border-(--rule-soft) px-4 pt-4 text-sm font-bold text-(--ink-muted)">{subgroup}（{items.filter(match).length}件）</p>}
                   <ul className="px-4">{items.map(a=><li key={a.href} hidden={!match(a)} className="border-t border-(--rule-soft)"><Link className="focus-ring block py-4 hover:text-(--accent)" href={a.href}><span className="text-xs text-(--ink-muted)">{a.kind}</span><h5 className="mt-1 font-bold text-(--ink)">{a.title}</h5><p className="mt-1 line-clamp-2 text-sm text-(--ink-muted)">{a.description}</p></Link></li>)}</ul>
                 </div>)}
-              </details>;
+              </Disclosure>;
             })}
           </div>
         </section>;

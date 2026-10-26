@@ -27,13 +27,14 @@ test('仕様書の階層ナビをデスクトップとモバイルで利用で�
     await expect(sidebar.locator('[data-standards-nav="agencies"] a[aria-current="page"]')).toContainText('中部地方整備局');
   }
 
-  await page.goto('/standards/chubu/common/part-01');
+  await page.goto('/standards/chubu/common');
   if (testInfo.project.name === 'mobile-chromium') {
     await expect(page.locator('[data-standards-mobile-nav]')).toBeVisible();
   } else {
-    const partSidebar = page.locator('[data-standards-sidebar]');
-    await expect(partSidebar.locator('[data-standards-nav="parts"] a[aria-current="page"]')).toContainText('PDF 1–50');
-    await expect(partSidebar.locator('[data-standards-nav="pages"] a[href="#pdf-page-1"]')).toBeVisible();
+    const documentSidebar = page.locator('[data-standards-sidebar]');
+    await expect(documentSidebar.locator('[data-standards-nav="tree"]')).toBeVisible();
+    // 原本の逐語ページ（分冊・PDF ページ）への導線は出さない（2026-10-26 に公開をやめた）
+    await expect(documentSidebar.locator('[data-standards-nav="parts"], [data-standards-nav="pages"]')).toHaveCount(0);
   }
 
   const overflow = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
@@ -47,8 +48,6 @@ test('テーマと仕様書を双方向に回遊できる', async ({ page }) => 
   await page.goto('/standards/kinki/common');
   await expect(page.locator('[aria-labelledby="standard-related-topics"] a[href="/topics/safety-laws"]')).toBeVisible();
 
-  await page.goto('/standards/kinki/hikkei/part-08');
-  await expect(page.locator('[aria-labelledby="standard-related-topics"] a[href="/topics/safety-laws"]')).toBeVisible();
 });
 
 test('安全管理の実務記事から総監・土木施工管理・コンクリート資格へ移動できる', async ({ page }) => {
@@ -71,8 +70,8 @@ test('文書ページの主導線が「章から読む」で、章記事へ移�
 
   const chapters = page.getByRole('heading', { name: '章から読む', level: 2 });
   await expect(chapters).toBeVisible();
-  // 分冊一覧は削除せず、原典照合用の副次セクションとして残す
-  await expect(page.getByRole('heading', { name: '原典PDFページで確認する', level: 2 })).toBeVisible();
+  // 原本の逐語ページ（分冊）の一覧は出さない（2026-10-26 に公開をやめた。照合はエージェントが文字起こしで行う）
+  await expect(page.getByRole('heading', { name: '原典PDFページで確認する' })).toHaveCount(0);
 
   await page.getByRole('link', { name: /第3章 無筋・鉄筋コンクリート/ }).first().click();
   await expect(page).toHaveURL(/\/standards\/chubu\/common\/chapters\/1-3$/);
@@ -82,10 +81,6 @@ test('文書ページの主導線が「章から読む」で、章記事へ移�
 test('part-03 から part-04 をまたぐ章が、境界の前後とも 1 ページに収まっている', async ({ page }) => {
   // 1-3 は原本 p.133-161（part-03 の末尾から part-04 の PDF page 151 以降まで）
   await page.goto('/standards/chubu/common/chapters/1-3');
-  // 表示ラベルの列挙ではなく、両分冊の原典に実際に戻れることを確認する。
-  for (const part of ['part-03', 'part-04']) {
-    await expect(page.locator(`[data-standards-chapter="1-3"] a[data-source-pages][href*="/${part}#"]`).first()).toBeVisible();
-  }
 
   const article = page.locator('[data-standards-chapter="1-3"]');
   // part-03 側（p.133 の第1節）と part-04 側（p.151 の第9節 暑中コンクリート）が同じ記事に並ぶ
@@ -95,32 +90,27 @@ test('part-03 から part-04 をまたぐ章が、境界の前後とも 1 ペー
   await expect(article.getByRole('heading', { name: '1-3-9-1 一般事項', level: 3 })).toBeVisible();
 });
 
-test('章記事から該当 PDF ページの逐語文字起こしへ戻れる', async ({ page }) => {
+test('章記事に原本の逐語ページ（分冊）への導線が無い', async ({ page }) => {
+  // 原本の逐語ページは 2026-10-26 に公開をやめた（旧 URL は _redirects で章・文書へ転送）。利用者向けの画面に出さない
   await page.goto('/standards/chubu/common/chapters/1-3');
-
-  // 表と図には必ず原典への導線が付く（版面を GFM へ復元せずコードブロックで出しているため）
-  const sourceRef = page.locator('a[data-source-pages]').first();
-  await expect(sourceRef).toBeVisible();
-  await expect(sourceRef).toHaveAttribute('href', /\/standards\/chubu\/common\/part-\d+#pdf-page-\d+/);
-
-  await page.getByRole('link', { name: /逐語文字起こし PDF page 133 を開く/ }).click();
-  await expect(page).toHaveURL(/\/standards\/chubu\/common\/part-03#pdf-page-133$/);
-  await expect(page.locator('#pdf-page-133')).toBeVisible();
+  const hrefs = await page.locator('main a').evaluateAll((links) => links.map((link) => link.getAttribute('href') ?? ''));
+  expect(hrefs.filter((href) => /part-\d+/.test(href))).toEqual([]);
+  await expect(page.locator('main a[data-source-pages]')).toHaveCount(0);
+  await expect(page.getByRole('heading', { name: '原典PDFページで確認する' })).toHaveCount(0);
+  await expect(page.locator('main article header')).not.toContainText('原本PDF');
 });
 
 test('第1編から第2編へ切り替わる箇所が別の章記事に分かれている', async ({ page }, testInfo) => {
   // 原本 p.161 が第1編の末尾、p.162 から第2編。柱（running header）で切っている。
   await page.goto('/standards/chubu/common/chapters/1-3');
-  await expect(page.locator('main').first()).toContainText(/原本PDFの\s*133–161\s*ページ/);
 
   const nav = page.locator(testInfo.project.name === 'mobile-chromium' ? '[data-standards-mobile-nav]' : '[data-standards-sidebar]');
   if (testInfo.project.name === 'mobile-chromium') await nav.locator(':scope > summary').click();
-  await nav.locator('[data-standards-nav="chapters"] summary').filter({ hasText: '材料編' }).click();
+  await nav.locator('[data-standards-nav="tree"] summary').filter({ hasText: '材料編' }).click();
   await nav.locator('a[href="/standards/chubu/common/chapters/2-1"]').click();
   await expect(page).toHaveURL(/\/standards\/chubu\/common\/chapters\/2-1$/);
   await expect(page.locator('main h1')).toContainText('第1章 一般事項');
   await expect(page.locator('main').first()).toContainText('第2編 材料編');
-  await expect(page.locator('main').first()).toContainText(/原本PDFの\s*162–164\s*ページ/);
 });
 
 test('複雑な表が横スクロールでき、ページ全体は横に溢れない', async ({ page }) => {
@@ -148,7 +138,7 @@ test('章記事のナビが現在章を強調し、モバイルでは折りた�
     await expect(mobileNav).toBeVisible();
     await expect(page.locator('[data-standards-sidebar]')).toBeHidden();
     await mobileNav.locator(':scope > summary').click();
-    await expect(mobileNav.locator('[data-standards-nav="chapters"] a[aria-current="page"]')).toContainText(
+    await expect(mobileNav.locator('[data-standards-nav="tree"] a[aria-current="page"]')).toContainText(
       '無筋・鉄筋コンクリート',
     );
     return;
@@ -156,10 +146,10 @@ test('章記事のナビが現在章を強調し、モバイルでは折りた�
 
   const sidebar = page.locator('[data-standards-sidebar]');
   await expect(sidebar).toBeVisible();
-  await expect(sidebar.locator('[data-standards-nav="chapters"] a[aria-current="page"]')).toContainText(
+  await expect(sidebar.locator('[data-standards-nav="tree"] a[aria-current="page"]')).toContainText(
     '無筋・鉄筋コンクリート',
   );
-  // 章記事では「この章の節」目次が出る。アンカーは本文見出しの id と一致していなければ飛べない。
+  // 章記事では目次の表示中の章の下に節が出る。アンカーは本文見出しの id と一致していなければ飛べない。
   const firstSection = sidebar.locator('[data-standards-nav="sections"] a').first();
   const href = await firstSection.getAttribute('href');
   expect(href).toBeTruthy();
@@ -215,12 +205,6 @@ test('章の途中で終わる part と、章の途中から始まる part の�
   await expect(article.getByRole('heading', { name: '第1節 適用', level: 2 })).toBeVisible();
   await expect(article.getByRole('heading', { name: '第15節 袋詰コンクリート', level: 2 })).toBeVisible();
 
-  // 原典への導線は part-03 と part-04 の両方を指す
-  const hrefs = await article.locator('a[data-source-pages]').evaluateAll((links) =>
-    links.map((link) => link.getAttribute('href') ?? ''),
-  );
-  expect(hrefs.some((href) => href.includes('/part-03#'))).toBeTruthy();
-  expect(hrefs.some((href) => href.includes('/part-04#'))).toBeTruthy();
 });
 
 test('最大の章（167ページ）は節ページに分かれ、節目次から目的の節へ移れる', async ({ page }, testInfo) => {

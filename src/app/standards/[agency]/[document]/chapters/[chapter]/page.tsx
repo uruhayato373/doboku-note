@@ -1,6 +1,5 @@
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
-import Link from 'next/link';
 import remarkGfm from 'remark-gfm';
 import PageShell from '@/components/layout/PageShell';
 import TwoColumnShell from '@/components/layout/TwoColumnShell';
@@ -16,14 +15,13 @@ import StandardDataLinks from '@/components/standards/StandardDataLinks';
 import StandardsNavigation from '@/components/standards/StandardsNavigation';
 import StandardTopicLinks from '@/components/standards/StandardTopicLinks';
 import StandardReferenceLinks from '@/components/standards/StandardReferenceLinks';
-import SourceRef from '@/components/standards/SourceRef';
 import QualificationBridge from '@/components/ui/QualificationBridge/QualificationBridge';
 import AffiliateSlot from '@/components/ui/AffiliateSlot/AffiliateSlot';
 import rehypeHeadingIds from '@/lib/rehype-heading-ids';
 import rehypeScrollableFocus from '@/lib/rehype-scrollable-focus';
 import rehypeShortTableCells from '@/lib/rehype-short-table-cells';
 import { buildPageMetadata } from '@/lib/metadata';
-import { getReferencedStandardDocuments, getStandardDocuments, standardDocumentPath, standardPartPath } from '@/lib/standards';
+import { getReferencedStandardDocuments, getStandardDocuments, standardDocumentPath } from '@/lib/standards';
 import {
   getStandardChapter,
   getStandardChapters,
@@ -65,7 +63,7 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
     description:
       `${entry.agencyName}「${entry.title}」${target.title}の全文。` +
       `${target.sections.length}節・${target.stats.articles ?? 0}条を編・章・節の構造で読めます` +
-      `${sectionNames ? `（${sectionNames} ほか）` : ''}。原本PDF ${target.firstPage}–${target.lastPage}ページ。`,
+      `${sectionNames ? `（${sectionNames} ほか）` : ''}。`,
     path: standardChapterPath(entry, target),
   });
   // 章ごとの OGP（機関名 + 第N編 + 第M章）。buildPageMetadata の既定は og-default.png で、
@@ -94,10 +92,6 @@ export default async function StandardChapterPage({ params }: { params: Promise<
   const relatedTopics = getTopicsForStandardText(entry, markdown);
   const referencedDocuments = getReferencedStandardDocuments(entry, markdown);
 
-  const firstPart = entry.parts.find(
-    (part) => target.firstPage >= part.firstPage && target.firstPage <= part.lastPage,
-  );
-
   const schema = buildStandardChapterStructuredData(entry, target, {
     markdown: standardsDataPath(entry, target, 'md'),
     jsonLd: standardsDataPath(entry, target, 'jsonld'),
@@ -114,10 +108,9 @@ export default async function StandardChapterPage({ params }: { params: Promise<
     pre: StandardVerbatimTable,
     // 中国版に差し込んだ地方の訂正・追加のうち、原本の図（画像）を出す
     ArticleImage,
-    // 生成器が埋めた <SourceRef pages="151-153" /> に、原典へ戻すための文書コンテキストを束ねる
-    SourceRef: (props: { pages: string; kind?: 'section' | 'table' | 'figure' }) => (
-      <SourceRef {...props} document={entry} />
-    ),
+    // <SourceRef> は表・図の出所ページの目印（生成器が置き、check-standard-articles とエージェントの照合が読む）。
+    // 原本の逐語ページは 2026-10-26 に公開をやめたので、サイトには何も出さない
+    SourceRef: () => null,
     // はみ出すときだけキーボードで操作でき、案内を出す（scrollable-region-focusable）
     table: StandardScrollTable,
   };
@@ -150,7 +143,7 @@ export default async function StandardChapterPage({ params }: { params: Promise<
             ]}
             label={standardBookLabel(target)}
             title={standardChapterHeading(target)}
-            meta={[entry.agencyName, entry.edition, `原本PDF ${target.firstPage}–${target.lastPage}ページ`].filter((item): item is string => Boolean(item))}
+            meta={[entry.agencyName, entry.edition].filter((item): item is string => Boolean(item))}
           />
 
           <div className="mt-6 zenn-desktop:hidden">
@@ -183,24 +176,10 @@ export default async function StandardChapterPage({ params }: { params: Promise<
             </div>
           )}
 
-          <section
-            aria-labelledby="chapter-source"
-            className="mt-10 border-t border-(--rule-soft) pt-6"
-          >
-            <h2 id="chapter-source" className="text-lg font-bold text-(--ink)">原典PDFページで確認する</h2>
-            <p className="mt-2 text-[13px] leading-[1.8] text-(--ink-muted)">
-              この章は原本PDFの {target.firstPage}–{target.lastPage} ページから構成しています。紙面の改行・空白をそのまま保った逐語文字起こしは分冊ページで確認できます。
-            </p>
-            {firstPart && (
-              <Link
-                href={`${standardPartPath(entry, firstPart)}#pdf-page-${target.firstPage}`}
-                className="focus-ring mt-3 inline-flex min-h-11 items-center text-[13px] font-bold text-(--accent) hover:underline"
-              >
-                逐語文字起こし PDF page {target.firstPage} を開く →
-              </Link>
-            )}
+          {/* 原本ページ（逐語文字起こし）への案内は出さない（2026-10-26 に公開をやめた。照合はエージェントが文字起こしで行う） */}
+          <div className="mt-10 border-t border-(--rule-soft) pt-2">
             <StandardDataLinks document={entry} chapter={target} />
-          </section>
+          </div>
 
           <StandardReferenceLinks documents={referencedDocuments} />
           <StandardTopicLinks topics={relatedTopics} />

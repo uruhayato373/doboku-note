@@ -9,7 +9,7 @@ title: スキル ナビゲーションガイド
 
 参考書籍の原本・画像・OCRを扱うときは `/asset-route` と [保存方針](./asset-storage-policy.md) §1-1を参照する。正本PDFは1箇所、文字起こしは各原資料内 `ocr/`。`/pdf-to-mdx --scanned` は既存book bundleの `pages/` を再利用し、新規OCR/cropは `record-reference-book-artifacts` で来歴を登録する。
 
-SNSの人物・見出しを改修するときは [SNS画像ポリシー §0・§0.1](./sns-image-policy.md) を起点に、ig-post-create／ig-carousel-restyle／ig-reel-create／yt-shorts-create で制作する。既存予約・公開状態は publish-ig-bs／publish-x／ig-reconcile で実体と照合する。 Xの継続監視は publish-x の `check-x-queue-health` 手順を使う。通常動画の共有合成器はPNGの色形式を揃えて冒頭欠落を防ぎ、画像と字幕をWAV実尺へ同期し、全場面画像は `media promote` で登録する。ポーズ選びは管理画面 `/gallery/characters` と [キャラクター素材ポリシー](./character-asset-policy.md) を参照する。
+SNSの人物・見出しを改修するときは [SNS画像ポリシー §0・§0.1](./sns-image-policy.md) を起点に、ig-post-create／ig-carousel-restyle／ig-reel-create／yt-shorts-create で制作する。既存予約・公開状態は publish-ig-bs／publish-x と、運営者が回す `verify-ig-status` で実体と照合する。 Xの継続監視は publish-x の `check-x-queue-health` 手順を使う。通常動画の共有合成器はPNGの色形式を揃えて冒頭欠落を防ぎ、画像と字幕をWAV実尺へ同期し、全場面画像は `media promote` で登録する。ポーズ選びは管理画面 `/gallery/characters` と [キャラクター素材ポリシー](./character-asset-policy.md) を参照する。
 
 ---
 
@@ -55,6 +55,7 @@ SNSの人物・見出しを改修するときは [SNS画像ポリシー §0・§
 | `/check-mdx` | MDX 品質検査の統合 Evaluator（10 ルール） | `MDX検査`, `lint`, `構文チェック`, `/check-mdx --rules <rule>` |
 | `/quality-cycle` | 品質サイクル（スコア→リライト→検証→レビュー） | `品質サイクル`, `cem品質上げ`, `/quality-cycle --profile {cem\|civil-textbook}` |
 | `/exam-backlinks` | 過去問⇔キーワード紐付け確認・再生成 | `バックリンク確認`, `/exam-backlinks` |
+| `/audit-pe-first-stage`（`quality/pe-first-stage-audit`） | 技術士第一次試験の全 21 ページの原典視覚突合・正答照合・構造検査。監査記録は `.claude/state/pe-first-stage-audit/` | `pe-first-stage監査`, `技術士第一次試験QA`, `/audit-pe-first-stage` |
 | `/audit-exam-mapping` | 過去問⇔キーワード紐づけマップの精度監査 | `紐づけ監査`, `/audit-exam-mapping` |
 | `/build-exam-notebook` | 過去問 MDX を NotebookLM notebook に投入 | `NotebookLM投入`, `/build-exam-notebook` |
 | `/verify-exam-coverage` | キーワードが過去問論点をカバーしているか検証 | `論点カバレッジ確認`, `/verify-exam-coverage` |
@@ -200,7 +201,7 @@ SNSの人物・見出しを改修するときは [SNS画像ポリシー §0・§
 - SNS 流入 breakdown: `fetch-metrics.yml`（金 06:00 JST）が `npm run fetch-ga4-data -- --dimension sourceMedium --sns-only` を回し `ga4.source-medium-sns` を蓄積。週次スナップショット（`weekly-metrics/`）にも SNS 流入（source 別 WoW）が入る
 - 週次レビュー: `/weekly-review` の **Agent F**（SNS 流入・投稿実績）＋ `metrics-analyzer` の **Pattern 6 SNS-Source-Shift**（急落/新規成長 source を surface）
 - X UTM ゲート: `npm run check-x-utm`（pre-commit・X 送客リンクに `utm_source=x`/`utm_medium=social` 必須）
-- YT 公開照合（2026-10-25 に SNS の保留に合わせて CI から外した（再開するときに作り直す。以下は外す前の仕組み）。）: 台帳の予約→公開は `registry-reconcile.yml`（毎日）、動画パックの公開実体は `npm run check-video-publication`（`registry-reconcile.yml` が毎日 `verify-video-publication` を回す）
+- YT 公開照合: 2026-10-25 に SNS の保留に合わせて CI の毎日の照合（`registry-reconcile.yml`）を外した。いまは手元の `npm run check-video-publication` だけ
 - IG 公開照合: 運営者が `verify-ig-status`（`/ig-reconcile` スキルは 2026-10-25 に外した）／型・雛形の索引: `docs/marketing/00_SNS整理マップ.md §型カタログ`
 
 ### PDF を MDX に変換したい

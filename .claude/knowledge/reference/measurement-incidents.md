@@ -63,7 +63,7 @@ title: 計測・検証事故の記録
 - 現象: W42 週次で、同じ日本・web・final・10/5〜10/11 のプロパティ全体が 303 クリック（無次元 byProperty）・byPage 全体が 306 なのに、成長パックのページ明細（dimensions [page]・country=jpn）は 189 行・23 クリック / 1,727 表示（8%）だった
 - 根本原因（実測）: 国の条件を付けたページ別の行の合計は、同じ条件のページ×検索語（471 行）の合計と完全に一致した（週 23 / 1,727、基線 9/7〜10/4 も 77 / 6,493）。Google は条件つきのページ別を検索語の分かる分だけで集計し、匿名化された検索語の分（このサイトでは全体の約 9 割）を入れない。国の条件なしのページ別（CI 日次 `data/gsc/reports/2026-10-17.json`・9/16〜10/13）は 1,315 行・1,203 クリックで、同じ期間のページ×検索語 142 の 8.5 倍あり、条件なしなら匿名化分も入る。取得の不具合ではない（要求は rowLimit 25000・返却 189 行・打ち切りなし）
 - 検出経緯: W42 週次（10/17）で数字の不一致に気づき、DN-0759 で 2 経路の要求条件（dimensions・filters・aggregationType）と行の合計を照合した
-- 対策: 全体の KPI は無次元の集計（byProperty）だけを使う（従来どおり）。ダイジェストのページ明細の表示に、定義（日本で絞ったページ別＝検索語が分かる分だけの下限）と byPage 全体に対する割合を出す（`scripts/build-growth-digest.mjs`）。急落・減衰の検出がこの下限の行で判定している件は、取り方を CI で比べて切り替える（DN-0806）
+- 対策: 全体の KPI は無次元の集計（byProperty）だけを使う（従来どおり）。ダイジェストのページ明細の表示に、定義（日本で絞ったページ別＝検索語が分かる分だけの下限）と byPage 全体に対する割合を出す（`scripts/build-growth-digest.mjs`）。急落・減衰の検出がこの下限の行で判定している件は、W42 の実測（国で絞る＝byPage 全体の clicks 25%、国の条件なし＝100%）を受けて、ページ別（gscPageWeek・gscPageBase）だけ国の条件なしの取り方へ切り替えた（DN-0806。日本以外の行を含む。ページ×検索語と全体集計は従来どおり）。減衰は取り方が違う週を混ぜず、今週と同じ取り方の週だけで判定する（`gscPageScope`）
 - 教訓: GSC で国などの条件を付けたページ別は「ページ×検索語」と同じ母集団になる。ページ別の行の合計を全体の代わりに使わない。2 つの数字を比べるときは、要求条件まで揃えて照合する
 
 ## 2026-10-21 — 場面中点の確認では字幕の語中分断を見落とす
@@ -785,10 +785,6 @@ curl https://<account>.r2.cloudflarestorage.com/
 | `fetch-metrics.yml` | `0 21 * * 4` | **develop**（明示） | develop | GA4 / GSC 週次 |
 | `index-coverage.yml` | `0 2 * * 3` | **develop**（明示） | develop | GSC index coverage（2026-09-17 に週次へ） |
 | `weekly-review-guard.yml` | `17 2 * * 1` | **develop**（明示） | なし（Issue のみ） | 週次レビュー実施の督促・watchdog |
-| `r2-audit.yml` | `0 22 * * 0` | **main**（明示） | なし | R2 / OGP / 品質ゲート |
-| `post-youtube-scheduled.yml` | `17 8 * * *` | **develop**（明示） | develop | YouTube 通常動画・Shorts 予約投稿 |
-| `link-audit.yml` | `0 22 * * 4` | **develop**（明示） | develop | リンク切れ |
-| `verify-yt-status.yml` | `0 20 * * 4` | **develop**（明示） | develop | YouTube 公開状態 |
 | `uptime-ping.yml` | `0 23,5,11 * * *` | **develop**（明示） | なし | 死活監視（shell のみ） |
 
 **計測スクリプトを変更したら、「いつから新しいデータが入るか」は該当 workflow の実行ブランチを見て答えること。** `main` 実行のジョブなら deploy 日が基準になる。

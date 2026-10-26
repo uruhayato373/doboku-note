@@ -115,36 +115,14 @@ export function foldGscTotal(result) {
 }
 
 /**
- * ページ別の取り方ごとの合計（DN-0806）。国で絞ったページ別は検索語の分かる分だけの集計になり、匿名化された
- * 検索語の分が入らない（DN-0759・W41 は byPage 全体の 8%）。急落・減衰の検出をどの取り方に切り替えるかを
- * 決めるために、同じ週で取り方を変えた合計と byPage 全体を並べて残す。country を渡すと keys の 2 番目が
- * その国の行だけを足す（dimensions [page, country]）。
- *
- * @param {{ startDate: string, endDate: string, byPageTotal: { clicks: number, impressions: number } | null,
- *   variants: { name: string, result: { meta: object, rows: { keys: string[], clicks: number, impressions: number }[] }, country?: string }[] }} input
+ * ページ別（gscPageWeek・gscPageBase）の取り方。meta.filters に国の条件があれば 'country:jpn'、無ければ 'all-countries'。
+ * 国で絞った旧パックは匿名化された検索語の分を含まない下限（W42 は byPage 全体の clicks 25%）で、国の条件なしの
+ * 新しいパック（DN-0806）とは母集団が違う。連続する週を比べる減衰の検出は同じ取り方どうしだけで行う。
+ * meta が無い（書式が古い・テストの fixture）ときは 'unspecified'。
  */
-export function foldGscCoverage({ startDate, endDate, byPageTotal, variants }) {
-  const share = (n, total) => (total ? Math.round((n / total) * 1000) / 10 : null);
-  return {
-    startDate,
-    endDate,
-    byPageTotal,
-    variants: variants.map(({ name, result, country }) => {
-      const rows = country ? result.rows.filter((r) => r.keys[1] === country) : result.rows;
-      const clicks = rows.reduce((a, r) => a + r.clicks, 0);
-      const impressions = rows.reduce((a, r) => a + r.impressions, 0);
-      return {
-        name,
-        dimensions: result.meta.dimensions,
-        filters: result.meta.filters ?? [],
-        ...(country ? { keepCountry: country } : {}),
-        rowCount: rows.length,
-        truncated: result.meta.truncated === true,
-        clicks,
-        impressions,
-        clickSharePct: share(clicks, byPageTotal?.clicks),
-        impressionSharePct: share(impressions, byPageTotal?.impressions),
-      };
-    }),
-  };
+export function gscPageScope(section) {
+  const meta = section?.meta;
+  if (!meta) return 'unspecified';
+  const country = (meta.filters ?? []).find((f) => f.dimension === 'country');
+  return country ? `country:${country.expression}` : 'all-countries';
 }

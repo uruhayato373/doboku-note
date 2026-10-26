@@ -127,10 +127,19 @@ export function renderMarkdown(d) {
   if (d.kpis.gsc) {
     const g = d.kpis.gsc;
     L.push(`GSC（日本・web・${g.basis === 'property-total' ? 'プロパティ全体' : '取得ページ行合計・下限'}）: クリック ${fmt(g.clicks)}（基線週平均 ${fmt(g.baseWeeklyClicks)}・${delta(g.deltaPct)}）/ 表示 ${fmt(g.impressions)} / CTR ${g.ctrPct ?? '—'}%`, '');
-    // 国で絞ったページ別は、Google が検索語の分かる分だけで集計する（匿名化された検索語の分が入らず、ページ×検索語の合計と一致する・DN-0759）
     if (g.pageRows) {
-      const share = g.pageRows.byPageTotalClicks ? `・byPage 全体 ${fmt(g.pageRows.byPageTotalClicks)} クリックの ${Math.round((g.pageRows.clicks / g.pageRows.byPageTotalClicks) * 100)}%` : '';
-      L.push(`ページ明細（日本で絞ったページ別＝検索語が分かる分だけの下限。匿名化された検索語の分を含まない）: ${g.pageRows.count} 行・${g.pageRows.clicks} クリック / ${g.pageRows.impressions} 表示${share}。全体の KPI・資格別の合計には使わない。`, '');
+      const p = g.pageRows;
+      const shareOf = (n, total) => (total ? Math.round((n / total) * 100) : null);
+      const cShare = shareOf(p.clicks, p.byPageTotalClicks), iShare = shareOf(p.impressions, p.byPageTotalImpressions);
+      if (p.scope === 'all-countries') {
+        // 国の条件を付けないページ別は匿名化された検索語の分も入る。日本以外の行を含むので byPage 全体（日本）を少し超えることがある（DN-0806）
+        const share = cShare != null ? `・byPage 全体（日本）${fmt(p.byPageTotalClicks)} クリックの ${cShare}%${iShare != null ? ` / 表示の ${iShare}%` : ''}` : '';
+        L.push(`ページ明細（国の条件なしのページ別＝匿名化された検索語の分を含み、日本以外の行も含む）: ${p.count} 行・${p.clicks} クリック / ${p.impressions} 表示${share}。急落・減衰の判定に使う。全体の KPI・資格別の合計には使わない。`, '');
+      } else {
+        // 国で絞ったページ別は、Google が検索語の分かる分だけで集計する（匿名化された検索語の分が入らず、ページ×検索語の合計と一致する・DN-0759）
+        const share = cShare != null ? `・byPage 全体 ${fmt(p.byPageTotalClicks)} クリックの ${cShare}%` : '';
+        L.push(`ページ明細（日本で絞ったページ別＝検索語が分かる分だけの下限。匿名化された検索語の分を含まない）: ${p.count} 行・${p.clicks} クリック / ${p.impressions} 表示${share}。全体の KPI・資格別の合計には使わない。`, '');
+      }
     }
   }
   else L.push('GSC: **欠測**', '');

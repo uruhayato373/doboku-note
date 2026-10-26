@@ -8,7 +8,7 @@ title: サブエージェント詳細レジストリ
 
 SNSの表紙・冒頭は [SNS画像ポリシー §0](./sns-image-policy.md) を共通参照する。ig-carousel-writer／ig-reels-writer／x-post-writer は短い見出しと台帳のポーズ候補を制作担当へ渡し、対応QAおよびyt-shorts-publisher-qaは画像の判読・同一性・重なりを確認する。ポーズ分類の真実源は [キャラクター素材ポリシー](./character-asset-policy.md) が案内する台帳で、一覧確認は管理画面 `/gallery/characters`。画像QAから外部投稿の更新完了を推定しない。通常動画・ShortsのPOPは [承認見本](./pop-image-policy.md) と `pop-image.json` を参照し、`ai-image-fidelity-auditor` が文字・人物の忠実性、`yt-shorts-publisher-qa` がShorts表紙・操作UIを確認する。画像のみの入力は動画4軸を採点しない。
 
-> **件数の SSOT**: エージェント数の真実源は `.claude/agents/*.md` の実数（`find .claude/agents -maxdepth 1 -name '*.md' | wc -l`＝現在 **86**）と下記「エージェント一覧」表。CLAUDE.md など他 doc は件数を重複記載せずここを指す。追加/削除は同一 commit でこの表を更新する。
+> **件数の SSOT**: エージェント数の真実源は `.claude/agents/*.md` の実数（`find .claude/agents -maxdepth 1 -name '*.md' | wc -l`＝現在 **81**（2026-10-25 に 5 体を退役））と下記「エージェント一覧」表。CLAUDE.md など他 doc は件数を重複記載せずここを指す。追加/削除は同一 commit でこの表を更新する。
 
 **description の運用**: 呼出時の概要は 300 code points 以下とし、詳細な手順・制約は各 agent 本文を読む。Codex 用 TOML は原本から自動生成する。`node scripts/check-agent-descriptions.mjs` が全件を検査し、新規超過・悪化を拒否する。
 
@@ -79,7 +79,6 @@ SNSの表紙・冒頭は [SNS画像ポリシー §0](./sns-image-policy.md) を�
 | **ガイド品質サイクル（親が起動・全資格 `group: guide`）** | `guide-qa`, `guide-rewriter`, `guide-fact-checker`           | ①機械スクリーン `check-guide-length`（3000字）＋`lint-mdx-mobile`（6-2〜4/15-x/12-x）→ ②`guide-qa` 5軸採点 → ③`guide-rewriter` で修正/加筆/密度向上（bulk=sonnet・フラグシップ=opus）→ ④`guide-fact-checker` で加筆事実を WebSearch 一次照合 → ⑤検出を `guide-rewriter` が正値で是正 → 機械再検証・commit は親。`quality-cycle` skill 未統合のため当面は親が fan-out で起動（profile 化は運用頻度が上がってから） |
 
 ---|---|
-| `/keyword-gap`, `/exam-demand`, `/discover-exam-season` | `content-planner` |
 
 ---
 

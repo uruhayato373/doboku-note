@@ -298,7 +298,7 @@
       "requiredBy": [
         "scripts/kdp-publish.mjs"
       ],
-      "reason": "KDP へ入稿する EPUB と表紙の人用の控え（制作物/Kindle）。正本は private R2（asset-storage.json の kindle-dist group・2026-10-12・DN-0562）で、同じパスを両 tier の active にすると check-drive-vault が衝突として止めるため pending にしてある。Drive の既存 110 件と台帳の sha256 の突き合わせは DN-0838 で行い、R2 から取り戻したものを控えに足す"
+      "reason": "KDP へ入稿する EPUB と表紙の人用の控え（制作物/Kindle）。正本は private R2（asset-storage.json の kindle-dist group・2026-10-12・DN-0562）で、同じパスを両 tier の active にすると check-drive-vault が衝突として止めるため pending にしてある。Drive 側の 137 件は 2026-10-26 に R2 と sha256 が全件一致することを確かめて台帳を更新済み（pending のまま置くのは上記の衝突のため）"
     },
     {
       "id": "coconala-asset",

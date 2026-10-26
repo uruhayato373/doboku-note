@@ -40,7 +40,7 @@ import { leanContextOptions } from './lib/playwright-launch.mjs';
 import { datasetPath } from './lib/datasets.mjs';
 import { isKdpEstimated, kdpMonthsDue } from './lib/net-receipts.mjs';
 import { kdpLiveBookIdsAsOf } from './lib/kindle-catalog.mjs';
-import { parseKdpMarketplaces, parseKdpKenpTotal, kdpScope } from './lib/kdp-report-parsers.mjs';
+import { parseKdpMarketplaces, parseKdpKenpTotal, kdpScope, mergeKdpBookRows } from './lib/kdp-report-parsers.mjs';
 import { writeDataset } from './lib/dataset-write.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
@@ -262,7 +262,8 @@ try {
     total: { bookCount: total.bookCount, ebook: total.ebook, print: total.print, kenp: total.kenp, royalty: total.royalty },
     kenpPagesRead,
     marketplaces,
-    books: books.sort((a, b) => b.royalty - a.royalty),
+    // 同じ bookId の行は 1 行に合算（ページ送りの終了判定は total.bookCount と生の行数で済んだ後）
+    books: mergeKdpBookRows(books).sort((a, b) => b.royalty - a.royalty),
   };
   entry.scope = kdpScope(entry.books, total.bookCount, kdpLiveBookIdsAsOf(catalogBooks, entry.range.end));
   if (entry.scope.missingDobokuBookIds.length) {

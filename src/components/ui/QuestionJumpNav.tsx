@@ -1,4 +1,4 @@
-import DisclosureChevron from '@/components/ui/DisclosureChevron';
+import Disclosure from '@/components/ui/Disclosure/Disclosure';
 
 // 年度別過去問（問題番号が H2 で並ぶ 1 ページ）の問題番号ジャンプ。
 // 通常 TOC は「問番号の羅列」になるため出していない（DocPage.isQuestionSeries）が、
@@ -31,11 +31,11 @@ export default function QuestionJumpNav({ headings }: { headings: Heading[] }) {
       >
         問{items[0]!.n}から読む <span aria-hidden="true" className="ml-2">↓</span>
       </a>
-      <details>
-        <summary className="focus-ring flex min-h-11 cursor-pointer list-none items-center justify-between gap-2 text-[13px] font-bold text-(--ink) [&::-webkit-details-marker]:hidden">
-          <span>問題番号を選ぶ <span className="font-normal text-(--ink-muted)">（全{items.length}問）</span></span>
-          <DisclosureChevron />
-        </summary>
+      <Disclosure
+        variant="plain"
+        summaryClassName="text-[13px] font-bold text-(--ink)"
+        summary={<>問題番号を選ぶ <span className="font-normal text-(--ink-muted)">（全{items.length}問）</span></>}
+      >
         <ol className="mt-2 flex flex-wrap gap-1.5">
           {items.map((it) => (
             <li key={it.id}>
@@ -49,7 +49,7 @@ export default function QuestionJumpNav({ headings }: { headings: Heading[] }) {
             </li>
           ))}
         </ol>
-      </details>
+      </Disclosure>
     </nav>
   );
 }

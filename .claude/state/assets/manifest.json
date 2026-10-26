@@ -73,12 +73,12 @@
     "content/note/1級・2級土木/1級土木/1級経験記述で落ちる答案/img/cover.png": {
       "bucket": "private",
       "r2Key": "note/covers/1級・2級土木/1級土木/1級経験記述で落ちる答案/img/cover.png",
-      "sha256": "3a4f9e345e6767625ef73ecb18f04fa78762c314cd7146a4328c5a9592f4de9a",
-      "bytes": 462594,
+      "sha256": "24d312ba0a79a9a44894a468b9dab56f1653322c8b95b664e1e7cea32f895a77",
+      "bytes": 462902,
       "visibility": "private",
       "regenerable": false,
       "group": "note-cover-png",
-      "verifiedAt": "2026-09-28T21:27:47.277Z",
+      "verifiedAt": "2026-10-26T06:15:06.949Z",
       "width": 1280,
       "height": 670,
       "logicalPath": "content/note/1級・2級土木/1級土木/1級経験記述で落ちる答案/img/cover.png",
@@ -69687,6 +69687,19 @@
       "verifiedAt": "2026-10-22T09:20:35.586Z",
       "width": 2396,
       "height": 1078
+    },
+    "content/site/civil-construction-2/secondary-r08/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/civil-construction-2/secondary-r08/ogp.png",
+      "sha256": "05ab5a9ec2d2d71f09f78d057b51ac79d7a3aa401c15c7249a8934f1b41176d4",
+      "bytes": 667485,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-26T06:30:22.679Z",
+      "width": 1200,
+      "height": 630,
+      "srcHash": "08688d55cb628fcd"
     }
   },
   "note": "DN-0111 Phase 3。秘密値・署名 URL・絶対パスを書かないこと。",

@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import type { StandardDocument } from '@/lib/standards';
-import { standardSectionPageRange, type StandardChapter } from '@/lib/standards-articles';
+import type { StandardChapter } from '@/lib/standards-articles';
 import { standardSectionPath } from '@/lib/standards-section-split.mjs';
 import { generateHeadingId } from '@/lib/toc';
 
@@ -23,9 +23,8 @@ export default function StandardSectionIndex({
         この章は原本 {chapter.firstPage}–{chapter.lastPage} ページと長いため、{chapter.sections.length}節に分けて掲載しています。読みたい節・条を選んでください。
       </p>
       <ol className="mt-5 space-y-4">
-        {chapter.sections.map((section, index) => {
+        {chapter.sections.map((section) => {
           const href = standardSectionPath(document, chapter, section.number);
-          const pages = standardSectionPageRange(chapter, index);
           return (
             <li key={section.number} className="border border-(--rule-soft) bg-(--paper) dark:border-(--rule-soft)">
               <Link
@@ -34,9 +33,9 @@ export default function StandardSectionIndex({
               >
                 <span className="min-w-0 flex-1">
                   <span className="block font-bold text-(--ink)">{section.headingText}</span>
-                  <span className="mt-1 block font-mono text-[11px] text-(--ink-muted)">
-                    {section.articles.length > 0 && `${section.articles.length}条 · `}原本 p.{pages.first}–{pages.last}
-                  </span>
+                  {section.articles.length > 0 && (
+                    <span className="mt-1 block font-mono text-[11px] text-(--ink-muted)">{section.articles.length}条</span>
+                  )}
                 </span>
                 <span className="shrink-0 font-mono text-[11px] text-(--ink-muted)">→</span>
               </Link>

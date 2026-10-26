@@ -27,7 +27,6 @@ Google Search Console の継続管理（インデックス被覆・検索パフ�
 | `metrics-analyzer` | Evaluator（sonnet） | index 済みページの performance 8 パターン（SNS-Source-Shift＋page×query の Cannibalization/Content-Decay 含む） | gsc/ga4（`gsc.page-query` 含む）→ `improvements/*.md` |
 | `performance-auditor` | Evaluator（sonnet） | CWV / PSI | psi → improvements |
 | **GSC の記録層（`scripts/scheduled/weekly-review.sh` の run_gsc_record）** | **土曜の Mac（週次レビューの前段・2026-10-25〜・DN-0849。旧 CI の `gsc-auto-review.yml`）** | **記録層の自動化**。ヘッドレスの Claude Code が `scripts/scheduled/gsc-record-prompt.md` に沿って断片を `.tmp/claude-out/gsc/` に書き、`scripts/apply-gsc-records.mjs` が検査して追記・push する（Claude は `.claude/` に書けない）。毎週 metrics-analyzer を起動し観測ログへ週次エントリを追記。未記録の inspection-batch があれば同一実行で gsc-index-auditor も起動し coverage エントリ（見出し `（coverage・自動レビュー）`・旧称 月次）を追記。異常時のみ `automation-failure` Issue 起票。**重い JSON 走査は sonnet サブエージェント側**（親は生の計測 JSON とログ全文を読まない） | committed state → `gsc-management.md` 観測ログ ＋ `improvements/*.md`（develop へ push） |
-| ~~`doboku-note GSC auto review`~~ | クラウドルーティン（**退役 2026-08-06**） | 上記 CI が引き継ぎ自走を確認したため `enabled:false`。実行履歴が repo から見えないためクラウドは正にしない | — |
 | `/gsc-review` | Skill（月次・**手動**） | 土曜の GSC の記録層の応急・深掘り・上書き用。CI データ確認 → gsc-index-auditor 起動 → 観測ログ追記 | — |
 | `/weekly-improve` | Skill（週次・**手動**） | 同上（performance 側）。metrics-analyzer 起動 | — |
 | `/google-search-growth` | Skill（月次。**取得と正規化は土曜の Mac 収集（`weekly-collect` の gsc 段）が `check-gsc-ui-due` の DUE で自動実行**・評価と承認はセッション） | GSC 理由別 **UI CSV**（API で取れない例 URL）を Playwright 取得 → 正規化 → URL Inspection/GSC page×query/GA4/sitemap/_redirects/生成HTML と突合 → 修正アクション分類（gsc-csv-auditor/seo-fix-planner）→ approval gate | ブラウザ → `gsc-ui/<run>/`（raw・gitignore）＋ **`gsc-ui/ssot/`（追跡 SSOT）** ＋ `improvements/search-growth-latest.md` |
@@ -743,3 +742,9 @@ EXP-006 の本判定は予定どおり next_check 2026-08-27 に、カバレッ�
   3. `/standards/hokuriku/common` の canonical 不一致（正規＝shikoku/common）は内容重複の可能性を 1 件だけ確認する価値あり
 - 異常フラグ: **あり** — 前回比 −9.9pt（>5pt 低下）・inspected 1,900 < sitemap 2,017。いずれも実体は分母急増＋workflow の件数上限であり、既存ページの index 脱落ではない
 - 注記: 自動生成・最終決定は人間。batch 実体は `data/gsc/url-inspection/2026-10-21T06-45-10.json`。ratio は indexed/sitemap 基準（inspected 基準なら 85.6%）。history の by_qualification には tools/topics が含まれない
+
+### 2026-10-26（基準類の逐語分冊 part-N の公開停止）
+
+- 判断（ユーザー指示）: `/standards/{agency}/{document}/part-NN` の逐語分冊 280 URL の公開をやめた。利用者には章・節・文書ページだけを見せ、原本との照合はエージェントが `content/site/standards-library` の文字起こしで行う
+- 打ち手: 旧 URL は `public/_redirects` で 301（章のある 24 文書は分冊の先頭ページを含む章・節へ 214 本、章の無い 49 文書は文書ページへ 66 本。すべて静的ルール）。章の無い文書の文書ページは本文が無いので noindex
+- 読み方: 次回以降の URL 検査・sitemap の分母は part-N の分だけ減る（索引率の変化を part-N の除外と取り違えない）。転送先の章ページの索引化を数週間観測する

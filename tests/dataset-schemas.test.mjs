@@ -323,6 +323,28 @@ test('kdp.royalties: 正しい月は通り、返品で負になる金額・マ�
   assertOk(K, kdpLog(refund));
 });
 
+test('kdp.royalties: 同じ bookId が 2 行に分かれた月は止める（bookId が null の他サイトの本は重複してよい）', () => {
+  const K = SCHEMAS.KdpRoyalties;
+  const split = kdpMonth({
+    total: { bookCount: 3, ebook: 100, print: 0, kenp: 50, royalty: 150 },
+    books: [
+      { bookId: 'a-01', title: 'A', ebook: 100, print: 0, kenp: 0, royalty: 100 },
+      { bookId: 'a-01', title: 'A', ebook: 0, print: 0, kenp: 0, royalty: 0 },
+      { bookId: null, title: 'B', ebook: 0, print: 0, kenp: 50, royalty: 50 },
+    ],
+  });
+  assertFails(K, kdpLog(split), /months\.2026-08\.books\.1: bookId「a-01」が重複/);
+  const external = kdpMonth({
+    total: { bookCount: 3, ebook: 100, print: 0, kenp: 50, royalty: 150 },
+    books: [
+      { bookId: 'a-01', title: 'A', ebook: 100, print: 0, kenp: 0, royalty: 100 },
+      { bookId: null, title: 'B', ebook: 0, print: 0, kenp: 50, royalty: 50 },
+      { bookId: null, title: 'C', ebook: 0, print: 0, kenp: 0, royalty: 0 },
+    ],
+  });
+  assertOk(K, kdpLog(external));
+});
+
 test('kdp.royalties: royalty と 3 項目・本の合計と全体・期間・KENP 既読・範囲の件数の食い違いを止める（1 円の丸めは許す）', () => {
   const K = SCHEMAS.KdpRoyalties;
   assertOk(K, kdpLog(kdpMonth({ total: { bookCount: 2, ebook: 100, print: 0, kenp: 50, royalty: 151 } })));

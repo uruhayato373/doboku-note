@@ -14,14 +14,13 @@ import StandardsAttribution from '@/components/standards/StandardsAttribution';
 import StandardsNavigation from '@/components/standards/StandardsNavigation';
 import StandardTopicLinks from '@/components/standards/StandardTopicLinks';
 import StandardReferenceLinks from '@/components/standards/StandardReferenceLinks';
-import SourceRef from '@/components/standards/SourceRef';
 import QualificationBridge from '@/components/ui/QualificationBridge/QualificationBridge';
 import AffiliateSlot from '@/components/ui/AffiliateSlot/AffiliateSlot';
 import rehypeHeadingIds from '@/lib/rehype-heading-ids';
 import rehypeScrollableFocus from '@/lib/rehype-scrollable-focus';
 import rehypeShortTableCells from '@/lib/rehype-short-table-cells';
 import { buildPageMetadata } from '@/lib/metadata';
-import { getReferencedStandardDocuments, getStandardDocuments, standardDocumentPath, standardPartPath } from '@/lib/standards';
+import { getReferencedStandardDocuments, getStandardDocuments, standardDocumentPath } from '@/lib/standards';
 import {
   getStandardChapterSection,
   getStandardChapters,
@@ -64,15 +63,14 @@ function resolve(params: Params) {
 export async function generateMetadata({ params }: { params: Promise<Params> }): Promise<Metadata> {
   const resolved = resolve(await params);
   if (!resolved) return { title: '節が見つかりません', robots: { index: false, follow: false } };
-  const { document: entry, chapter, section, index } = resolved;
-  const pages = standardSectionPageRange(chapter, index);
+  const { document: entry, chapter, section } = resolved;
   const articleNames = section.articles.slice(0, 3).map((article) => article.title).join('・');
   const base = buildPageMetadata({
     title: `${section.headingText}（${chapter.chapterTitle}）｜${entry.title}`,
     description:
       `${entry.agencyName}「${entry.title}」${chapter.title} ${section.headingText}の全文。` +
       `${section.articles.length}条を条・項の構造で読めます` +
-      `${articleNames ? `（${articleNames} ほか）` : ''}。原本PDF ${pages.first}–${pages.last}ページ。`,
+      `${articleNames ? `（${articleNames} ほか）` : ''}。`,
     path: standardSectionPath(entry, chapter, section.number),
   });
   // OGP は章のカードを使う（機関名 + 第N編 + 第M章）。節ごとには作らない。
@@ -99,7 +97,6 @@ export default async function StandardSectionPage({ params }: { params: Promise<
   const next = chapter.sections[index + 1];
   const relatedTopics = getTopicsForStandardText(entry, markdown);
   const referencedDocuments = getReferencedStandardDocuments(entry, markdown);
-  const firstPart = entry.parts.find((part) => pages.first >= part.firstPage && pages.first <= part.lastPage);
   const schema = buildStandardSectionStructuredData(entry, chapter, section, pages);
 
   // 章ページ（chapters/[chapter]/page.tsx）と同じ描画設定。数式は無いので KaTeX は積まない。
@@ -112,9 +109,9 @@ export default async function StandardSectionPage({ params }: { params: Promise<
     pre: StandardVerbatimTable,
     // 中国版に差し込んだ地方の訂正・追加のうち、原本の図（画像）を出す
     ArticleImage,
-    SourceRef: (props: { pages: string; kind?: 'section' | 'table' | 'figure' }) => (
-      <SourceRef {...props} document={entry} />
-    ),
+    // <SourceRef> は表・図の出所ページの目印（生成器が置き、check-standard-articles とエージェントの照合が読む）。
+    // 原本の逐語ページは 2026-10-26 に公開をやめたので、サイトには何も出さない
+    SourceRef: () => null,
     // はみ出すときだけキーボードで操作でき、案内を出す（scrollable-region-focusable）
     table: StandardScrollTable,
   };
@@ -155,7 +152,7 @@ export default async function StandardSectionPage({ params }: { params: Promise<
             ]}
             label={`${standardBookLabel(chapter)} ${standardChapterHeading(chapter)}`}
             title={section.headingText}
-            meta={[entry.agencyName, entry.edition, `原本PDF ${pages.first}–${pages.last}ページ`].filter((item): item is string => Boolean(item))}
+            meta={[entry.agencyName, entry.edition].filter((item): item is string => Boolean(item))}
           />
 
           <div className="mt-6 zenn-desktop:hidden">
@@ -196,21 +193,6 @@ export default async function StandardSectionPage({ params }: { params: Promise<
               </Link>
             )}
           </nav>
-
-          <section aria-labelledby="section-source" className="mt-10 border-t border-(--rule-soft) pt-6">
-            <h2 id="section-source" className="text-lg font-bold text-(--ink)">原典PDFページで確認する</h2>
-            <p className="mt-2 text-[13px] leading-[1.8] text-(--ink-muted)">
-              この節は原本PDFの {pages.first}–{pages.last} ページから構成しています。紙面の改行・空白をそのまま保った逐語文字起こしは分冊ページで確認できます。
-            </p>
-            {firstPart && (
-              <Link
-                href={`${standardPartPath(entry, firstPart)}#pdf-page-${pages.first}`}
-                className="focus-ring mt-3 inline-flex min-h-11 items-center text-[13px] font-bold text-(--accent) hover:underline"
-              >
-                逐語文字起こし PDF page {pages.first} を開く →
-              </Link>
-            )}
-          </section>
 
           <StandardReferenceLinks documents={referencedDocuments} />
           <StandardTopicLinks topics={relatedTopics} />

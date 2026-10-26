@@ -26,6 +26,28 @@ export function parseKdpMarketplaces(text) {
   return { scanned, rows };
 }
 
+/**
+ * 同じ bookId が付いた行を 1 行に合算する（初出順は保つ）。
+ * KDP は同一タイトルを 2 行に分けて出すことがある（2026-07/09/10 の e-01・片方は全項目 0）。
+ * 読み手（受取額・月次・資格別集計）はみな bookId で絞って royalty を足すだけなので、合算しても合計は変わらず、
+ * bookId の重複（kdp-report-freshness の FAIL）だけが消える。bookId が null の他サイトの本は、別の本かもしれないので合算しない。
+ */
+export function mergeKdpBookRows(books) {
+  const merged = [];
+  const byId = new Map();
+  for (const book of books) {
+    const first = book.bookId ? byId.get(book.bookId) : null;
+    if (!first) {
+      const row = { ...book };
+      merged.push(row);
+      if (book.bookId) byId.set(book.bookId, row);
+      continue;
+    }
+    for (const key of ['ebook', 'print', 'kenp', 'royalty']) first[key] += book[key];
+  }
+  return merged;
+}
+
 /** 母数は対象月に公開済みの当サイト書籍。共有口座の他書籍と停止済み書籍を分ける。 */
 export function kdpScope(books, accountBookCount, expectedIds) {
   const found = new Set(books.map((book) => book.bookId).filter(Boolean));

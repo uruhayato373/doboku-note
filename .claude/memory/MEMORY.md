@@ -12,7 +12,7 @@
 - [自動化の置き場](feedback_cloud_routines_minimized.md) — ルーティン0・CIはIssue通知
 - [マガジン再収録](feedback_magazine_atomic_recollection.md) — 1答案1記事・切り口を消さない
 - [記事構成規約](feedback_content_structure.md) — 図・太字・3000字・価格直書き禁止
-- [デプロイ規律](feedback_deploy_discipline.md) — 性質別ブランチ・昇格手順・3点commit・PRの向き先・squash判定・準備ブランチはdraft PR
+- [デプロイ規律](feedback_deploy_discipline.md) — 性質別ブランチ・PRはエージェントで見張り緑ならsquash（既定）・昇格手順・3点commit・PRの向き先・squash判定・準備ブランチはdraft PR
 - [直pushもCIゲート](feedback_direct_push_ci_gate.md) — スキル・config・追跡解除は audit:ci 後
 - [総監論文執筆規約](feedback_essay_char_limit.md) — 600字・散文・一般レベル
 - [総監ペルソナ採否](feedback_essay_persona_authentic_seat.md) — 経験座限定・ADRが真実源

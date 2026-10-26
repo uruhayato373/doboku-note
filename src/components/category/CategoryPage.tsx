@@ -73,6 +73,9 @@ export default async function CategoryPage({
   const hubCtaMobile = resolveHubCta(slug, { utmSuffix: 'mob' });
   // ココナラ（自社出品・A8 経由）。記事末尾と同じ部品で、資格トップでは見出し直後に出す。
   const offsiteCta = resolveOffsiteCta(slug);
+  // もくじタイルを持たない資格のうち、スマホで note 商品を見出し直後へ出す資格（それ以外は一覧の最下部）。
+  // 主任技士は資格トップが直前期の入口で、最下部だと本試験までに読まれない（DN-0703）。
+  const productFirstOnMobile = slug === 'concrete-chief-engineer' && !hubCtaMobile;
   // モバイル本文中の visible バナー（pixelSrc を渡さない＝PC サイドバー側が唯一の発火源）。
   // 各案件を 1 枚ずつの node にしてビューのグループ境界に分散配置する（カードの隙間に「両方」）。
   const mobileCareerAds = mobileAd
@@ -149,6 +152,11 @@ export default async function CategoryPage({
                 <HubCtaBanner cta={hubCtaMobile} placement="category-mobile" />
               </div>
             )}
+            {productFirstOnMobile && (
+              <div className="zenn-desktop:hidden mt-6 mx-auto max-w-[360px]">
+                <SidebarProduct category={slug} placement="category-mobile" />
+              </div>
+            )}
             <OffsiteCta items={offsiteCta} heading="この資格に関連するサービス" />
             {slug === 'reference-materials' && (
               <section className="border-b border-(--rule-soft) py-6" aria-labelledby="reference-materials-about">
@@ -216,7 +224,7 @@ export default async function CategoryPage({
               <ConcreteEngineerProduct placement="category-mobile" />
               <ConcreteEngineerRelated />
             </div>}
-            {slug !== 'concrete-engineer' && !hubCtaMobile && <div className="zenn-desktop:hidden mt-8"><SidebarProduct category={slug} placement="category-mobile" /></div>}
+            {slug !== 'concrete-engineer' && !hubCtaMobile && !productFirstOnMobile && <div className="zenn-desktop:hidden mt-8"><SidebarProduct category={slug} placement="category-mobile" /></div>}
         </TwoColumnShell>
     </PageShell>
   );

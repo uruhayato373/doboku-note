@@ -1,6 +1,6 @@
 ---
 name: feedback_deploy_discipline
-description: "ブランチ運用(doc/バルクはdevelop直・コードはPR)・UI反復中は本番デプロイしない・develop→main昇格の安全手順・MDXコンポーネント3点同時commit"
+description: "ブランチ運用(doc/バルクはdevelop直・コードはPR)・PRはエージェントで見張り緑ならsquash(既定)・UI反復中は本番デプロイしない・develop→main昇格の安全手順・MDXコンポーネント3点同時commit"
 metadata:
   type: feedback
 ---
@@ -15,6 +15,11 @@ metadata:
 - CSS・ビルド絡みは `.next` 削除 → dev 再起動 → ブラウザ hard-refresh で実機確認してから deploy。main への deploy は「ユーザーが視認確認した」または「明示的に deploy 指示」のとき。
 
 **Why（3 段階）:** (1) 2026-04-21 KaTeX フォント修正を 3 段階（PR #55/#56→#57/#58→#59/#60）で main へ deploy し Cloudflare Pages ビルド＋Actions を浪費（「main への小刻み deploy 禁止」）。(2) 2026-04-23 全変更 PR 運用が個人開発で過剰（並行ブランチ 9+・develop 32 コミット遅延・self-merge ばかり）→性質別運用へ。(3) 2026-04-24「起点過去問 1 問 = 1 PR」の過小粒度 PR で worktree が 3+ 孤児化、AV スキャナ負荷で Kernel-Power 41 / BugCheck=0 の OS フリーズ→バルク content も develop 直 push 既定、worktree は例外化。
+
+## PR を出したら、エージェントで CI を見張り、緑なら develop へ squash で入れる（既定・2026-10-26）
+運営者「agentで監視をデフォルトにしておいて」。PR（base = develop）を出したら、マージしてよいかを聞かずに、バックグラウンドのサブエージェント（sonnet）で `gh pr checks <n> --watch` を待たせ、全チェックが pass（skipped は可）かつ MERGEABLE なら `gh pr merge <n> --squash --delete-branch` まで進める（`--admin` は使わない）。赤やコンフリクトならマージせずに原因を報告し、直してから同じ形で見張り直す。マージ後は MERGED とマージコミットを確かめ、作業用の worktree を片づけて報告する。
+- **Why:** 2026-10-26 の 1 日で PR #1228〜#1243 の十数本を毎回「緑なら入れますか」と聞き、毎回「エージェントで見張って入れて」と返された。聞く手間だけが増えていた。
+- **How to apply:** 対象は develop 宛ての PR だけ。main への昇格（デプロイ）は従来どおり運営者の「デプロイして」か `/deploy` を待つ。base が develop でない PR・draft の PR・運営者が「自分で見る」と言った PR は見張らない。
 
 ## UI/デザイン反復中は毎回本番デプロイしない
 2026-06-16、総監 r0X-secondary のペルソナ導線修正で、選択肢ラベルに「…してからデプロイ」があったため即 develop→main 昇格したところ、「デザインを大幅修正していきたいので毎回デプロイするのはやめたい」と表明された。develop 反映かローカル `npm run dev`（:3020）で反復し、**本番デプロイはユーザーが明示的に「デプロイして」と言ったときか設計確定時のみ**。develop/ブランチに公開プレビュー URL は無い（main push のみ本番）。完了報告は「develop 反映済み・本番は未デプロイ」と明示し、選択肢にも「デプロイ」を既定で含めない。

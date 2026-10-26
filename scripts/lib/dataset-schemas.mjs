@@ -160,6 +160,8 @@ export const KdpRoyalties = z
       }
       // 3 項目はそれぞれ丸めて表示されるので、合計が 1 円ずれることがある
       if (!sumEquals([e.total.ebook, e.total.print, e.total.kenp], e.total.royalty, 1)) flag(ctx, at('total', 'royalty'), `royalty ${e.total.royalty} が ebook＋print＋kenp と合わない`);
+      // 同じ本が 2 行に分かれたまま入ると kdp-report-freshness が FAIL する（2026-09 の e-01）。取り込みは mergeKdpBookRows で 1 行に合算する
+      uniqueBy('bookId', 'bookId')(e.books, { addIssue: (issue) => ctx.addIssue({ ...issue, path: at('books', ...issue.path) }) });
       e.books.forEach((b, i) => {
         if (!sumEquals([b.ebook, b.print, b.kenp], b.royalty, 1)) flag(ctx, at('books', i, 'royalty'), `${b.title}: royalty ${b.royalty} が ebook＋print＋kenp と合わない`);
       });

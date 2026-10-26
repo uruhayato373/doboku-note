@@ -5,7 +5,7 @@ import PageShell from '@/components/layout/PageShell';
 import PageHeader from '@/components/layout/PageHeader';
 import SectionBlock from '@/components/layout/SectionBlock';
 import SectionCard from '@/components/ui/SectionCard/SectionCard';
-import DisclosureChevron from '@/components/ui/DisclosureChevron';
+import Disclosure from '@/components/ui/Disclosure/Disclosure';
 import { buildPageMetadata } from '@/lib/metadata';
 import { getStandardsComparison, inferStandardEdition } from '@/lib/standards-comparison';
 import { SITE_ORIGIN } from '@/config/site-identity.mjs';
@@ -144,20 +144,21 @@ export default function StandardsComparePage() {
 
         <div className="space-y-4">
           {comparison.changes.map((change) => (
-            <details
+            <Disclosure
               key={`${change.agencyId}-${change.chapterId}`}
-              className="group border border-(--rule-soft) bg-(--paper)"
-            >
-              <summary className="focus-ring flex min-h-16 cursor-pointer list-none items-center gap-4 px-5 py-4 marker:hidden">
-                <span className="min-w-0 flex-1">
+              radius="none"
+              summary={
+                <>
                   <span className="block text-[12px] font-bold text-(--accent)">{change.agencyName}</span>
                   <span className="mt-1 block font-bold text-(--ink)">{change.chapterTitle}</span>
-                </span>
-                <span className="shrink-0 text-right text-[11px] tabular-nums text-(--ink-muted)">
+                </>
+              }
+              meta={
+                <span className="block text-right text-[11px] tabular-nums text-(--ink-muted)">
                   {change.hunks.length}箇所<br />−{change.removedLines} / ＋{change.addedLines}
                 </span>
-                <DisclosureChevron className="text-(--ink-muted)" />
-              </summary>
+              }
+            >
               <div className="border-t border-(--rule-soft) px-5 py-5">
                 <div className="mb-4 flex flex-wrap gap-x-5 gap-y-2 text-[13px]">
                   <Link
@@ -197,7 +198,7 @@ export default function StandardsComparePage() {
                   ))}
                 </div>
               </div>
-            </details>
+            </Disclosure>
           ))}
         </div>
       </SectionBlock>

@@ -24,6 +24,7 @@
  *  10. 同じ画像の重複 — 2 枚目が note の CDN 確定に至らず全文更新が中断する（lib/note-duplicate-images.mjs）
  *  11. インラインのバッククォート — note は `〇〇` を記号のまま出す。目印は【〇〇】（lib/note-inline-code.mjs）
  *  12. 同じココナラ出品の重複 — 導線は冒頭（有料ラインの前）の 1 か所に寄せる。有料ラインより後ろの cta:coconala-buyer（購入者向け）だけは例外（lib/note-duplicate-coconala.mjs）
+ *  13. タスクリスト記法（- [ ]）— note は対応せず `[ ]` を記号のまま出す。チェック欄は「- □ 」で書く（lib/note-task-list.mjs・DN-0830）
  *   8. 段落長（無料記事のみ） — notePricing: free の地の文段落が表示 200 字以上でブロック
  *      （B5 基準 = 1段落2-3文。模範論文など有料は散文答案が仕様のため対象外。SKIP_NOTE_PARA=1 で回避）
  *
@@ -39,6 +40,7 @@ import { checkLineEndings } from './lib/line-endings.mjs';
 import { findAnswerStartLine, isAnswerPart } from './lib/note-answer-zone.mjs';
 import { findDuplicateImages } from './lib/note-duplicate-images.mjs';
 import { findInlineCode } from './lib/note-inline-code.mjs';
+import { findTaskLists } from './lib/note-task-list.mjs';
 import { findDuplicateCoconala } from './lib/note-duplicate-coconala.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 import { runBody, isCliEntry, runAsCli } from './lib/cli-run.mjs';
@@ -298,6 +300,13 @@ function checkInlineCode(content) {
     msg: `インラインのバッククォート ${h.text} は note で記号のまま表示される。目印は【〇〇】、数値・式はバッククォートを外す（DN-0277）`,
   }));
 }
+// 13. タスクリスト記法（- [ ]）。note は対応せず `[ ]` を記号のまま出す。チェック欄は「- □ 」で書く。
+function checkTaskList(content) {
+  return findTaskLists(content).map((h) => ({
+    line: h.line,
+    msg: `タスクリスト記法（- [ ]）は note で [ ] が記号のまま表示される。「- □ 」を頭に付けた箇条書きにする（DN-0830）: ${h.text}`,
+  }));
+}
 // 12. 同じココナラ出品の重複。冒頭の 1 か所に寄せる。有料ラインより後ろの購入者向け導線（cta:coconala-buyer）は数えない。
 function checkDuplicateCoconala(content) {
   return findDuplicateCoconala(content).map((d) => ({
@@ -336,7 +345,7 @@ const partialState = buildPartialInjectionState(files);
 let violations = 0;
 for (const f of files) {
   const content = readFileSync(f, 'utf8');
-  const issues = [...checkPipeTable(content), ...checkMojibake(content), ...checkLineEndingIssue(content), ...checkMagazineLinkCard(content), ...checkMagazineCta(f), ...checkNote3set(f), ...checkBoldParen(f), ...checkPartialInjection(f, partialState), ...checkDeprecatedSection(content), ...checkToolArtifact(content), ...checkParagraphLength(f, content), ...checkMultilineBlockquote(content), ...checkDuplicateImages(content), ...checkInlineCode(content), ...checkDuplicateCoconala(content)];
+  const issues = [...checkPipeTable(content), ...checkMojibake(content), ...checkLineEndingIssue(content), ...checkMagazineLinkCard(content), ...checkMagazineCta(f), ...checkNote3set(f), ...checkBoldParen(f), ...checkPartialInjection(f, partialState), ...checkDeprecatedSection(content), ...checkToolArtifact(content), ...checkParagraphLength(f, content), ...checkMultilineBlockquote(content), ...checkDuplicateImages(content), ...checkInlineCode(content), ...checkDuplicateCoconala(content), ...checkTaskList(content)];
   if (issues.length) {
     violations += issues.length;
     const rel = f.replace(ROOT + '\\', '').replace(ROOT + '/', '').replace(/\\/g, '/');
