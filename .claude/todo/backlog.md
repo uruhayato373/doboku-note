@@ -473,6 +473,8 @@ drive-vault-sync -- --group source-transcript --verify --deep が 240 件中 1 �
 
 **完了条件**: `npm run youtube-own-metrics -- --dry-run` が通常動画の再生数を全本（または欠測の理由つきで大半）取れ、exit 0 になる。
 
+**止まっている所（2026-10-26）**: Mac の yt-dlp 2026.06.09 で一覧 3 本とも view_count が null。`brew upgrade yt-dlp` は「Command Line Tools for Xcode 27.0 を入れて」と止まった。運営者が CLT を更新したら yt-dlp を更新して取り直す。それでも null なら Data API 案へ。
+
 
 
 
@@ -1183,14 +1185,6 @@ Windows の PowerShell で repo 直下から順に:
 **完了条件**: 予約済み・公開済みの全件の概要欄が新テンプレートと一致し、`verify-video-publication` の実査が通る。
 
 
-### [DN-0346] ココナラの資格別の市場スキャンを取り直し、展開の判断のココナラ列を下限から実測に変える
-タグ: [インフラ・計測] [領域:戦略] [時期:2026-11] [種類:改善] [起票:2026-09-26]
-
-**起点**: 2026-09-26 の市場スキャンで、ココナラの資格別の検索語 26 語は Playwright のメモリガード（空き 1,175MB < 閾値 1,200MB）で取得できなかった。管理画面 戦略 ＞ 資格と市場 ＞ 展開の判断のココナラ列は、汎用の検索結果から数えた下限（*）のまま。
-
-**やること**: 管理画面の dev サーバーなど大きいプロセスを止めて空きを作り、`npm run scan-qualification-market -- --channel coconala` を実行する（ガードの閾値は下げない）。
-
-**完了条件**: `npm run qualification-market` のココナラ列から * が消え（見送り以外の全資格）、取得物をコミットしたら、このカードを削除する。
 
 
 ### [DN-0220] 図解整備を公開・配信し資格別KPIの初回実測を閉じる
