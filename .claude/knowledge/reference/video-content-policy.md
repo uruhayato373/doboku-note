@@ -293,7 +293,7 @@ manifest parse失敗、sourceRefs未解決、status parse失敗はFAIL（PASSに
 
 行の組み立ては `scripts/lib/video-content-check.mjs` の `loadPackSummaries`、状態の共通ステージ写像は `scripts/lib/content-lifecycle.mjs`（[content-lifecycle.md](./content-lifecycle.md)）が唯一の実装で、CLI・admin が同じものを使う。
 
-**計測は CI 供給が正**（会社 PC からライブ API を叩かない）。`fetch-metrics.yml` が `ga4.campaign` を週次で供給する。YouTube Analytics は GitHub Actions secret `YOUTUBE_ANALYTICS_ENABLED=true` または手動の `youtube_analytics_probe` で取得し、`check-youtube-analytics` が台帳・対象数・期間・鮮度を照合する。`/metrics/video` は両 snapshot を読むだけ。**スナップショット未取得・品質ゲート不成立は 0 件として扱わず「未取得」と表示する**。GA4の配線は `tests/video-outcomes-wiring.test.mjs`、YouTubeの型と品質ゲートは `tests/youtube-analytics.test.mjs` が固定する。
+**計測は CI 供給が正**（会社 PC からライブ API を叩かない）。`fetch-metrics.yml` が `ga4.campaign` を週次で供給する。YouTube Analytics は GitHub Actions secret `YOUTUBE_ANALYTICS_ENABLED=true` または手動の `youtube_analytics_probe` で取得し、`check-youtube-analytics` が台帳・対象数・期間・鮮度を照合する。定期実行は main のワークフロー定義を使うため、コードを main へ反映してから有効になる。`/metrics/video` は両 snapshot を読むだけ。**スナップショット未取得・品質ゲート不成立は 0 件として扱わず「未取得」と表示する**。GA4の配線は `tests/video-outcomes-wiring.test.mjs`、YouTubeの型と品質ゲートは `tests/youtube-analytics.test.mjs` が固定する。
 
 **旧 Shorts（台帳の kind `legacy-short`・旧台帳 `youtube-schedule.json` は 2026-10-09 に消した）は動画パックと別系統**。IG 過去問パック由来のlegacy 200本（13 uploaded・187 retired）で、再開しない。DN-0110の承認済み112パックから派生する224本は各 `youtube.json.shorts[]` が計画、コンテンツ台帳（`content/registry/`）が実行状態の正本（`loadVideoState` の `derivatives.shorts[]` は台帳から作る形）。`prepare → render → private R2 stage → API private upload → Studioで関連動画設定 → API予約` の順で進め、画面でも2系統を混ぜない。
 
