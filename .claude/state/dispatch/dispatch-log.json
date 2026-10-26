@@ -5865,6 +5865,20 @@
       "commit": "c6ab5f243084",
       "verification": "launchctl list | grep doboku-note が com.doboku-note.weekly-review と com.doboku-note.disk-hygiene の 2 行（2026-10-26）。git grep -l DOBOKU_AUTH .github が 0 件",
       "note": "段 1〜5（DN-0819 の実装・DN-0820〜0823→DN-0846）は実装済み。残る確認は DN-0819（10/31・11/7 の土曜の回）と運営者の後片づけ DN-0846 に抽出済み"
+    },
+    {
+      "id": "DN-0826",
+      "at": "2026-10-26",
+      "task": "KDP 台帳の 2026-09 で bookId e-01 が 2 行に付き kdp-report-freshness が FAIL するのを直す",
+      "tier": "mid",
+      "kind": "不具合",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": null,
+      "verification": "node scripts/check-kdp-report-freshness.mjs が exit 0（口座書籍行 79 件・LIVE 33 冊）。2026-09 の dobokuRoyalty ¥9,828・total ¥9,988 は不変。npm run test は e2e-execution の 1 件（node_modules 共有の worktree で playwright --list が失敗）以外 pass",
+      "prevention": { "type": "gate", "ref": "scripts/lib/dataset-schemas.mjs（kdp.royalties の bookId 一意）と tests/kdp-report-parsers.test.mjs（mergeKdpBookRows）" },
+      "note": "KDP が同一タイトルを 2 行（片方は全項目 0）で返す。取り込みで同じ bookId を合算し、2026-07/09/10 の台帳を同じ関数で直した。commit は PR のマージ後に確定"
     }
   ]
 }
