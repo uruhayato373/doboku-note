@@ -23,7 +23,7 @@ domain: sns
 3. **機械ゲート**: `npm run check-video-content`。FAIL は QA に渡さず Generator へ指摘だけを返して手順 2 へ（修正ラウンドは最大 2 回）
 4. **Evaluator を独立に呼ぶ**: `video-content-qa` にパックのパスだけを渡す（Generator の自己評価や結論は渡さない）
 5. **BLOCK 時**: QA の指摘だけを `video-script-writer` に返す（手順 2〜4 を繰り返す。2 回で解消しなければユーザーへ報告）
-6. **PASS 後は承認待ちで停止**: 結果（軸別得点・平均・実行したコマンドと結果）を報告する
+6. **PASS 後は画像制作への引き継ぎを示して承認待ちで停止**: 結果（軸別得点・平均・実行したコマンドと結果）を報告する。通常動画の次工程は `/create-pop-image` の「POP表紙＋全本文の図解」。今回の採用見本と `storyboard.imageDesign`・`pop-image.json`・`cover-design.json` の結線を渡す。台本だけのQA合格を予約可能と報告しない
 
 ## やらないこと
 

@@ -95,6 +95,10 @@ title: 動画コンテンツ運用ポリシー
 
 各sceneは `sceneId`、開始/終了、ナレーション、画面要素、sourceRef、captionを持つ。画面要素は既存図版を優先し、新規図版は既存画像ポリシーに従う。
 
+**今後予約する16:9通常動画の標準は「POP表紙＋全本文のシンプルな図解」**。2026-10-26に採用した[技術士第一次試験の表紙・全13場面](../../../content/sns/video-packs/pe-first-stage/pe1-zentaizou/pop-image.json)を意匠の基準にする。表紙は `pop-poster-v3` の大きな主題・資格名・資格色を使い、本文と締めは白〜淡色の背景に大きな比較・手順・因果図を置く。本文を表紙のような広告画面や旧式の箇条書きカードで反復しない。2級土木の本文は従来どおり控えめな緑の図解とし、表紙の人物も主題に応じて省ける。
+
+新規予約・改訂予約の入口は、`storyboard.imageDesign` の `mode=codex-pop`・`scope=all-body`・`layout=diagram-led`・`coverRevision`、`pop-image.json` の全場面記録、`cover-design.json` の `pop-poster-v3` 採用画像が一致しなければ停止する。過去の公開済み動画をこの条件だけで再投稿しない。画像制作中は原稿と生成履歴を保存し、完成PNGの実体SHA・字幕入り完成映像・全場面シートを見てから承認へ渡す。
+
 - 16:9通常動画: 1920×1080
 - 縦型派生: 1080×1920
 - 字幕は音声と一致させ、1画面へ長文を詰めない
@@ -131,7 +135,7 @@ Shortsのプラットフォーム上限と、doboku-noteが採用する推奨尺
 
 compare の本文は 36px 未満にしない（収まらなければ例外で止める。下限は sheet の記入欄・ラベル 24px、compare のラベル 26px、吹き出し 30px）。スマホで読めないので、下限近くまで縮むときは文字を縮めず場面を分ける。改行は全場面で、「、」「：」「・」「〜」「／」「→」と全角空白の後ろ、「（」「「」の前を優先し、無ければ語の切れ目で行う（英数字の並び「1,500m3」は分けない）。行頭に句読点と「・」を置かない（2026-10-08 に全場面へ広げた。それまでの character・compare・sheet 以外は文字数での改行で「リ/スク」「1,500m/3」が出ていた）。語の切れ目ではどの文字サイズでも収まらない狭い枠だけ、文字数での改行に戻す（描画できていた画面を止めない）。文字の小さい既存SVGは `figure` で縮小表示せず `flow[]` で組み直す。
 
-全場面の意匠確認は `node scripts/video-scene-sheet.mjs <packId>`（先に `render-longform`）で行う。render-manifest の採用PNGだけを順に並べ、表紙を含む場面数 `N/N` と各画像SHAが一致しないと停止する。表紙POP・本文図解の指定では、1枚目と残り全場面の意匠をこのシートで確認する。10秒間隔のコンタクトシートは画面遷移用で、短い表紙や全場面の確認には使わない。`npm run media -- preview --pub <公開ID> --commit` は全場面シートも `scene-sheet` 素材として台帳とローカル素材へ登録し、続く `npm run media -- sync --work <資格>/<作品> --commit` でDriveへ保存する。
+全場面の意匠確認は `node scripts/video-scene-sheet.mjs <packId>`（先に `render-longform`）で行う。render-manifest の採用PNGだけを順に並べ、表紙を含む場面数 `N/N` と各画像SHAが一致しないと停止する。確認時はコマンドが返したパス、または台帳の `scene-sheet` 素材が指すSHA付きファイルを開く。同じpreviewフォルダに残る古い `scene-sheet-13.jpg` 等をファイル名だけで選ばない。1枚目と残り全場面の意匠を確認し、10秒間隔のコンタクトシートは画面遷移用に使う。`npm run media -- preview --pub <公開ID> --commit` は全場面シートも `scene-sheet` 素材として台帳とローカル素材へ登録し、続く `npm run media -- sync --work <資格>/<作品> --commit` でDriveへ保存する。
 
 公開前の画面確認は `npm run video-preview-sheet -- --pack-dir <パック>`（先に `render-longform --skip-tts`。台帳の公開 ID から回すときは `npm run media -- preview --pub`）で行う。数値（冒頭の表紙の秒数・直前と同じ画面・20秒以上同じ画面が続く箇所）は `render-manifest.json` と PNG だけで出るので動画も ffmpeg も要らず、ffmpeg が無いと無音プレビューとコンタクトシートは作れず exit 2（検査不成立）になる。閾値は `config/video-content.json` の `visualCheck`。手で回すときは、先に全場面シートの `N/N` と1枚目の表紙・残り全画像を確認する。続いて `--skip-tts` の PNG と字幕から設計尺どおりの無音プレビューを作り、10秒ごとに1枚切り出したコンタクトシートで画面遷移を確認する（下のコマンド。`<dir>` は `.tmp/video-render/{packId}`。設計尺は台本の長さからの見積もりで、音声付きの実尺とは異なる。Mac の Homebrew 版 ffmpeg は libass を持たず `ass` フィルタが無いので、`/opt/homebrew/opt/ffmpeg-full/bin/ffmpeg` を使う）。見るのは、冒頭10秒以内に表紙から本題へ移るか、同じ画面が20秒以上続かないか、文字のはみ出し・語の途中での改行・吹き出しと人物の重なりがないか。試作の比較（10秒ごとの比較で直前と同じ画面だった回数は、旧形式40回中32回、図解版19回中2回）と競合の画面分析は [07c](../../../docs/marketing/07c_YouTube競合動画の画面分析_2026-10.md)。
 

@@ -11,6 +11,7 @@ import { approvalState } from '../scripts/lib/media-review.mjs';
 import { longformInputHash } from '../scripts/lib/longform-render-integrity.mjs';
 import { readJson, writeJson } from '../scripts/lib/json-io.mjs';
 import { publishYoutubePublication, singlePublishPlan } from '../scripts/lib/youtube-revision-publisher.mjs';
+import { writeVisualStandardFixture } from './helpers/youtube-visual-standard.mjs';
 
 const EXAM = 'pe-first-stage', WORK = 'single-fixture', PUB = `${EXAM}/${WORK}/youtube.longform`;
 const DEF = `content/sns/video-packs/${EXAM}/${WORK}`;
@@ -27,7 +28,8 @@ function fixture(t) {
   const channel = readJson(root, 'config/youtube-formats.json').channel;
   const disclosure = readJson(root, 'config/youtube-production-disclosure.json');
   writeJson(root, `${DEF}/video-pack.json`, { exam: EXAM, packId: WORK, outputs: { longform: true, shorts: 0 } });
-  writeJson(root, `${DEF}/storyboard.json`, { scenes: [] });
+  const coverDigest = sha(Buffer.from('single-cover'));
+  writeVisualStandardFixture(root, DEF, { path: `.tmp/media/${EXAM}/${WORK}/youtube.longform/cover.${coverDigest.slice(0, 8)}.png`, sha256: coverDigest });
   const media = {};
   for (const role of ['video', 'cover']) {
     const data = Buffer.from(`single-${role}`), digest = sha(data);
@@ -61,6 +63,14 @@ test('初回通常動画は承認・素材SHA・日時を検査し、入力変�
   const input = readJson(root, `${DEF}/youtube.json`);
   input.longform.title = '承認後の別題名'; writeJson(root, `${DEF}/youtube.json`, input);
   assert.ok(singlePublishPlan(root, PUB, NOW).blockers.includes('current-approval-missing'));
+});
+
+test('POP表紙または図解本文の指定を外した通常動画は投稿計画で止める', t => {
+  const { root } = fixture(t);
+  const storyboard = readJson(root, `${DEF}/storyboard.json`);
+  delete storyboard.imageDesign.coverRevision;
+  writeJson(root, `${DEF}/storyboard.json`, storyboard);
+  assert.throws(() => singlePublishPlan(root, PUB, NOW), /POP表紙/);
 });
 
 test('アップロード応答を失ってもR2 intentから同じ動画を二重投入しない', async t => {

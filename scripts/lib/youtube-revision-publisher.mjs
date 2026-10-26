@@ -9,6 +9,7 @@ import { readDataset } from './dataset-io.mjs';
 import { readJson } from './json-io.mjs';
 import { approvalState } from './media-review.mjs';
 import { longformInputHash } from './longform-render-integrity.mjs';
+import { requirePopDiagramStandard } from './longform-pop-images.mjs';
 import { findDuplicateLongforms } from './video-duplicate-check.mjs';
 import { assertChannel, assertProcessed, getVideo, sameSnippet, writableStatus } from './youtube-migration.mjs';
 import { channelInventory } from './youtube-channel-inventory.mjs';
@@ -51,6 +52,7 @@ export function revisionPublishPlan(root, pubId, now = Date.now()) {
       input.thumbnailSha256 !== assets.cover.sha256 || input.thumbnailLocalFile !== assets.cover.path) throw new Error('MP4・表紙・字幕の結線が不正');
   if (!(facts.video.durationSec > 0) || !(facts.cover.width > 0) || !(facts.cover.height > 0) || facts.cover.bytes > 2097152) throw new Error('動画の実尺・画面寸法・表紙サイズが不正');
   if (pub.format === 'longform') {
+    requirePopDiagramStandard(root, join(root, work.definition));
     if (facts.video.provenance.renderInputSha256 !== longformInputHash(join(root, work.definition))) throw new Error('完成動画の制作入力が古い');
   } else {
     if (!assets.recipe) throw new Error('Shorts再現記録が無い');
@@ -102,6 +104,7 @@ export function singlePublishPlan(root, pubId, now = Date.now()) {
     if (verifiedBytes(root, assets[role]).length !== m.bytes) throw new Error(`${role}: 素材サイズが違う`);
     facts[role] = { bytes: m.bytes, width: m.width, height: m.height, durationSec: m.durationSec, provenance: m.provenance };
   }
+  requirePopDiagramStandard(root, join(root, work.definition));
   if (release.channel?.id !== readDataset(root, 'config.youtube-formats').channel.id ||
       release.channel?.title !== readDataset(root, 'config.youtube-formats').channel.title ||
       input.sha256 !== assets.video.sha256 || input.thumbnailSha256 !== assets.cover.sha256 ||
