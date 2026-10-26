@@ -813,6 +813,18 @@ test('config.domains: サイドバーの画面の欄・リンクの形・領域 
   assertFails(D, mutateLatest('config.domains', (r) => { r.documents['docs/x.md'] = 3; }), /^documents\.docs\/x\.md/);
 });
 
+test('config.automations: まとまりの無い CI の行・Mac の行のまとまり・groups に無いまとまり・行の無いまとまりを止める', () => {
+  const A = SCHEMAS.ConfigAutomations;
+  const ci = (r) => r.automations.findIndex((a) => a.runner === 'github-actions');
+  const mac = (r) => r.automations.findIndex((a) => a.runner === 'mac-launchd');
+  assertOk(A, latest('config.automations').value);
+  assertFails(A, mutateLatest('config.automations', (r) => { delete r.automations[ci(r)].group; }), /^automations\.\d+\.group: GitHub Actions の行は group/);
+  assertFails(A, mutateLatest('config.automations', (r) => { r.automations[mac(r)].group = r.groups[0].id; }), /^automations\.\d+\.group: group は GitHub Actions の行だけ/);
+  assertFails(A, mutateLatest('config.automations', (r) => { r.automations[ci(r)].group = 'nope'; }), /まとまり「nope」が groups に無い/);
+  assertFails(A, mutateLatest('config.automations', (r) => { r.groups.push({ id: 'empty', title: '空' }); }), /まとまり「empty」に属する行が無い/);
+  assertFails(A, mutateLatest('config.automations', (r) => { r.groups.push({ ...r.groups[0] }); }), /^groups\.\d+: まとまりの id/);
+});
+
 test('config.product-lineup: マスの書式・ルールの欠けを止める（マスの実在・正規表現の妥当性は validateLineupConfig）', () => {
   const P = SCHEMAS.ProductLineup;
   assertOk(P, latest('config.product-lineup').value);
