@@ -165,41 +165,30 @@
 
 **残作業**:
 1. 顧客の実際の原稿と公開許諾を得て、無料記事「添削で直った答案の実例」を制作・公開する。素材待ちのため工事・数値・添削前後は創作しない。
-2. 10/26 に `npm run note-traffic-fetch -- --month 2026-10 --commit` で新しい無料記事2本と予想模試のPVを取り、ココナラ2級の受注実体とともに10/25までの推移を記録する。受注・PV・受取額・対応時間で値下げ実験を評価し、価格と試験後の出品（2テーマ版・PDFの再開）を判断する。
-3. 受付中の全3テーマ版 2 件（添削 `4418778`・骨子 `4418785`）は 10/18 の締切後の受付が終わっているので、締切後に休止するかを決める（集約は DN-0538）。
+2. 10/26 に `npm run note-traffic-fetch -- --month 2026-10 --commit` で新しい無料記事2本と予想模試のPVを取り、10/25までの推移を記録する。ココナラ2級の受注・値下げ実験の評価と、試験後の価格・出品（全3テーマ版の休止を含む）の判断は DN-0538 の手順 1・3 で行う。
 
 **試験後の更新（10/26）**: Xの固定・自己紹介、土木もくじ冒頭の10/25向け案内を試験後へ更新する。
 
 **検証対象**: 2週間の仕上げ手順 `nc30a5646f239`、R8二次出題予想 `ncad207369238`、土木もくじ `n4fde0f62dc20`。受付中の全3テーマ版は添削 `4418778`（1日）と骨子 `4418785`（各返却24時間、ご本人の執筆期間を含め全体約4日）。
 
-**完了条件**: 実例記事を公開し、10/26の評価に欠測と実測を区別した数字があり、試験後の価格・受付状態を決めている。
+**完了条件**: 実例記事を公開し、10/26 の note の PV の記録に欠測と実測を区別した数字がある（ココナラの価格・受付状態の判断は DN-0538）。
 
 
 
-### [DN-0538] ココナラの経験記述添削を 1 商品（services/4418735）へ集約し、旧 8 商品を片付ける
-タグ: [収益化] [領域:商品] [時期:2026-11] [種類:改善] [起票:2026-10-05] [期日:2026-11-15]
+### [DN-0538] 2級本試験後のココナラの棚の切り替え（経験記述添削を 1 商品 services/4418735 へ集約し、旧 8 商品と予想模試 PDF 2 本を片付ける）
+タグ: [収益化] [領域:商品] [時期:2026-10..2026-11] [種類:改善] [起票:2026-10-05] [期日:2026-11-15]
 
-**起点**: 2026-10-05 のユーザー決定（ココナラ展開キット.md §2 決定ログ「10/26 以降の年間の棚」）。添削・指導を級・テーマ数・形式で 8 商品に分けたため閲覧とレビューが散り、人の作業の受注は 1 件だけ。旧 DN-0264（本試験後の棚を据え置くか休止するか）はこの設計で答えたので統合した。
+**起点**: 2026-10-05 のユーザー決定（ココナラ展開キット.md §2 決定ログ「10/26 以降の年間の棚」）。添削・指導を級・テーマ数・形式で 8 商品に分けたため閲覧とレビューが散り、人の作業の受注は 1 件だけ。旧 DN-0264（本試験後の棚を据え置くか休止するか）はこの設計で答えたので統合した。あわせて 2026-09-29 の決定で、模試は note の予想模試 3 回（`civil-1-r8-mock3-pdf`・`civil-2-r8-mock3-pdf`）へ一本化し、ココナラの予想模試 PDF 2 本（`coconala-1kyu-moshi-pdf`・`coconala-2kyu-moshi-pdf`）は本試験の翌日以降にアーカイブする。2026-10-26 の backlog 監査で、同じ日の同じ操作を書いていた模試 PDF のカード（旧 DN-0442）と、全3テーマ版 2 件の休止の判断（DN-0445 の項目 3）をここへまとめた。
 
 **やること**（2級本試験 10/25 の翌日以降）:
 1. 10/26 に 2級の値下げ実験（全3テーマ ¥5,000・骨子 ¥6,500）の受注件数と、10月の閲覧・注文（`npm run coconala-analytics`）を記録し、カタログに入れた価格（基本 ¥6,000＋オプション・`coconala-listings.json` の options）を据え置くか直すか決める。オプションの数量・上限はライブの編集画面で確かめる。
 2. note・サイト（`src/lib/offsite-cta.ts` ほか）・ココナラブログの送り先を 4350199・4418778・4418785・4317375・4317796 から 4418735 へ付け替える。note はライブ反映の一括更新に載せ、ブログは `coconala-blog-publish --update --commit`。
-3. 運営者の判断で、統合商品をライブへ反映（`coconala-edit --service coconala-tensaku-4theme --commit`）し、旧 7 商品と `1kyu-premium` を `coconala-pause` で休止→アーカイブする。
+3. 運営者の判断で、統合商品をライブへ反映（`coconala-edit --service coconala-tensaku-4theme --commit`）し、旧 7 商品（受付中の全3テーマ版 添削 `4418778`・骨子 `4418785` を含む。10/18 の締切後の受付は終わっている）と `1kyu-premium` を `coconala-pause` で休止→アーカイブする。
+4. 予想模試 PDF 2 本（`coconala-1kyu-moshi-pdf`・`coconala-2kyu-moshi-pdf`）は、カタログを `status:'paused'`・`pauseReason:'retired'`・`archivedAt` にし、`coconala-pause --service <id> --commit` → `--archive --service <id> --commit` で休止してからアーカイブする。送り先にしていたココナラブログ `2kyu-moshi-tsukaikata`・`yosou-mondai-kaku-renshu` は note の予想模試へ付け替え、主題が模試 PDF の見本の `2kyu-moshi-mihon` は取り下げか書き換えかを決める。
 
-**完了条件**: ココナラの経験記述添削の公開が 4418735 の 1 件だけになり、`npm run check-coconala-wiring`・`npm run check-coconala-blog`・`npm run check-coconala-live` が通り、リポジトリに旧 5 商品の URL への送客が残っていない。
+**完了条件**: ココナラの経験記述添削の公開が 4418735 の 1 件だけになり、予想模試 PDF 2 本が出品一覧から消え（coconala-pause が実測で確認）、`npm run check-coconala-wiring`・`npm run check-coconala-blog`・`npm run check-coconala-live` が通り、リポジトリに旧 5 商品と模試 PDF の URL への送客が残っていない。
 
-**準備（2026-10-21・マージ済み）**: ブランチ `prep/civil2-after-exam-1026` は運営者の指示で 2026-10-22 に前倒しして develop へマージし本番へ反映した（PR #1185・6b56dd6d8）。サイトの送り先の集約先と 2級の添削・模試は反映時点で一時休止のため、サイトの表示は変わっておらず、note・ココナラのライブ反映は未実施。4d19e4a3f でサイトの CTA の送り先を coconala-tensaku-4theme の 1 本へ、60a2dedb9 でココナラブログ 15 本の funnel・カード・案内文を集約先に書き直した（check-coconala-blog 15/15 OK・集約先が今は一時休止なので警告あり）。カタログ（coconala-listings.json）の集約先の本文とオプションは既にある。**10/26 の残り**: 受注と閲覧の記録 → `coconala-edit --service coconala-tensaku-4theme --commit` でライブ反映・listed 化 → 旧 7 商品と 1kyu-premium を休止→アーカイブ → ブログを `coconala-blog-publish --update --commit`。
-
-### [DN-0442] 本試験後にココナラの予想模試 PDF 2本をアーカイブし、note の予想模試へ一本化する
-タグ: [収益化] [領域:商品] [時期:2026-10] [種類:改善] [起票:2026-09-29] [期日:2026-10-31]
-
-**起点**: 2026-09-29 のユーザー決定（ココナラ展開キット.md §2 決定ログ）で、ココナラは添削系へ精選し、模試は note の予想模試3回（`civil-1-r8-mock3-pdf`・`civil-2-r8-mock3-pdf`・どちらも公開中）へ一本化する。ただし 1級の模試 PDF はココナラの受注4件のうち2件で、本試験の直前に売れているので、本試験までは受け付ける。同日に模範答案セット2本は先にアーカイブした（送り先の付け替え込み）。
-
-**やること**: 1級は本試験（10/4）の翌日以降、2級は本試験（10/25）の翌日以降に、それぞれ次を行う。(1) 模試 PDF を送り先にしている箇所を付け替える（`src/lib/offsite-cta.ts`、ココナラブログ `2kyu-moshi-tsukaikata`・`2kyu-moshi-mihon`・`yosou-mondai-kaku-renshu`。ブログは `coconala-blog-publish --update --commit` で公開記事も直す）。(2) カタログを `status:'paused'`・`pauseReason:'retired'`・`archivedAt` にし、`coconala-pause --service <id> --commit` → `--archive --service <id> --commit` で休止してからアーカイブする。
-
-**完了条件**: `coconala-1kyu-moshi-pdf` と `coconala-2kyu-moshi-pdf` がココナラの出品一覧から消え（coconala-pause が実測で確認）、`npm run check-coconala-blog` と `npm run check-coconala-live` が通る。
-
-**準備（2026-10-21）**: 準備は DN-0538 の「準備」を参照（PR #1185 は 2026-10-22 にマージ済み・本番反映済み。note・ココナラのライブ反映は未実施）。4d19e4a3f でサイトの CTA から模試 PDF 2 本を外し、60a2dedb9 でココナラブログの送り先を書き直した。2kyu-moshi-mihon は主題が模試 PDF の見本なので、取り下げか書き換えかを 10/26 に決める。**10/26 の残り**: カタログを paused/retired → `coconala-pause --service <id> --commit` → `--archive`、ブログを `coconala-blog-publish --update --commit`。
+**準備（2026-10-21・マージ済み）**: ブランチ `prep/civil2-after-exam-1026` は運営者の指示で 2026-10-22 に前倒しして develop へマージし本番へ反映した（PR #1185・6b56dd6d8）。サイトの送り先の集約先と 2級の添削・模試は反映時点で一時休止のため、サイトの表示は変わっておらず、note・ココナラのライブ反映は未実施。4d19e4a3f でサイトの CTA の送り先を coconala-tensaku-4theme の 1 本へ、60a2dedb9 でココナラブログ 15 本の funnel・カード・案内文を集約先に書き直した（check-coconala-blog 15/15 OK・集約先が今は一時休止なので警告あり）。カタログ（coconala-listings.json）の集約先の本文とオプションは既にある。サイトの CTA から模試 PDF 2 本は 4d19e4a3f で外した。**10/26 の残り**: 受注と閲覧の記録 → `coconala-edit --service coconala-tensaku-4theme --commit` でライブ反映・listed 化 → 旧 7 商品と 1kyu-premium、模試 PDF 2 本を休止→アーカイブ → ブログを `coconala-blog-publish --update --commit`。
 
 ### [DN-0262] 1級・2級土木 第2次検定 記述 Kindle（I・J系）26冊を KDP へ3回に分けて提出する
 タグ: [収益化] [領域:商品] [時期:2026-10..2026-12] [種類:制作] [起票:2026-09-23]
