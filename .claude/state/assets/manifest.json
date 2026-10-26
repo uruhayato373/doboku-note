@@ -69700,6 +69700,58 @@
       "width": 1200,
       "height": 630,
       "srcHash": "08688d55cb628fcd"
+    },
+    "content/site/civil-construction-2/primary-h21/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/civil-construction-2/primary-h21/ogp.png",
+      "sha256": "e65692312399a31e3aadcdd5afb6a8b7aee76ae6ee1fb175316f89709ca95a88",
+      "bytes": 666935,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-26T23:50:30.327Z",
+      "width": 1200,
+      "height": 630,
+      "srcHash": "2d7a21eae4bbc0a3"
+    },
+    "content/site/civil-construction-2/primary-h25/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/civil-construction-2/primary-h25/ogp.png",
+      "sha256": "8232af42efa0c1ce3e38cd2bed65e77615ca5106ff6774355a583e86557ba836",
+      "bytes": 667083,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-26T23:50:30.739Z",
+      "width": 1200,
+      "height": 630,
+      "srcHash": "4f4a64c577d64106"
+    },
+    "content/site/civil-construction-1/primary-h25-b/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/civil-construction-1/primary-h25-b/ogp.png",
+      "sha256": "eef90a894e4ab75b272f783e80cbe8fedd1b67aec13109ccd3d9a73efe843d83",
+      "bytes": 577335,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-26T23:50:30.913Z",
+      "width": 1200,
+      "height": 630,
+      "srcHash": "3b8d8403ace06202"
+    },
+    "content/site/civil-construction-1/primary-h25-a/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/civil-construction-1/primary-h25-a/ogp.png",
+      "sha256": "11146f4ee581c115f1b8bef2dfaadeee68f7e3cd4daf1d66ac3ed6f547daed7a",
+      "bytes": 577541,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-26T23:50:32.045Z",
+      "width": 1200,
+      "height": 630,
+      "srcHash": "b7a8b4b0397cf292"
     }
   },
   "note": "DN-0111 Phase 3。秘密値・署名 URL・絶対パスを書かないこと。",
