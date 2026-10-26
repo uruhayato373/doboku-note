@@ -277,6 +277,8 @@ npm run check-kdp-report-freshness # 取得期限・全書籍行・catalog紐付
 翌月16日より前に取った値は `estimated: true`、16日以降の取得は `estimated: false` で記録する（2026-10-11 から日付で判定）。取得できなかった項目は 0 埋めせず `null` で残す。
 手動で今すぐ取るときは、運営者が収集用 worktree（`.claude/worktrees/weekly-collect`）の端末で `node scripts/weekly-collect.mjs --only kdp`。セッションからは取りに行かず、`data/kdp/royalties.json` とその最終取得日を読む。
 ココナラの売上履歴（`data/coconala/revenue.json`）は土曜の Mac 収集の coconala 段が取る（CI からは 403）。note の過去月は、運営者が収集用 worktree の端末で `node scripts/note-sales-fetch.mjs --month YYYY-MM --commit`。
+取り込みは同じ bookId の行（KDP が同一タイトルを 2 行に分けて返すことがある）を `mergeKdpBookRows` で 1 行に合算する。bookId の重複は台帳の型（`kdp.royalties`）が止める。
+
 `check-kdp-report-freshness` は前月確定（23日以降）・当月推計（28日以降）の2期限に加え、共有KDP口座のうちdoboku-note catalogでLIVEの書籍（対象月末までに出版した本）が全冊取得・紐付けできることを確認する。
 他サイトの書籍行は `externalRows` として数えるが、doboku-noteの取得完全性の母数には入れない。
 土曜の収集の kdp 段の検算（quality-audit の cadence collect）が落ちると段が failed になり、Issue（channel weekly-collect）が通知する。取り直して段ごとの最新が全部合格になると自動で閉じる（DN-0847）。月次事業レビューは同じ台帳の
