@@ -39,35 +39,11 @@
 - [ ] ログに「Insufficient free disk」が無い（旧 DN-0818。10/24 は空き 19.1GB が予約 20GiB を割って止まった・Issue #1206）。止まったら予約値と `check-disk-hygiene` の候補を見直す
 - [ ] note 記事の同期（note-sync）が段の上限で打ち切られず、`data/note/sync-log.json` に今回の run が残り、Issue #1217 が復旧で閉じる（旧 DN-0855。PR #1243 の締め切り・Drive の取り寄せの上限と再起動・一時的な失敗の単発やり直し。deferred の内訳も見る）
 - [ ] note-sync の problems に、マガジンカバーを Drive へ保存できなかった行が無い（旧 DN-0763）
+- [ ] 口頭対策 n5bc0bcde96ac（建設部門-口頭試験対策）が note-sync で反映され、公開面でチェック記号 `- [ ]` が 0・360px と広幅で崩れていない（旧 DN-0760 の残り。原稿は 495fc9d20 で直し済み・前回は添付の日次上限で中断）
 
 **完了条件**: 10/31 と 11/7 の 2 週続けて土曜の回が全段 rc=0 で終わり、集めた記録が develop に入り、その週のレビューがそれを読んでいる。`ops-audit` が鮮度で鳴らない。上の段ごとの確認が 10/31 に済んでいる。
 
 
-### [DN-0817] ログインが要る読む処理と書く処理を土曜の Mac の 1 本にまとめ、ほかのセッションは記録を読んで進める（移行計画）
-タグ: [インフラ・計測] [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-10-24] [進行中]
-
-**起点**: 2026-10-24、運営者の判断。ログインが要る処理が Mac の launchd 6 本（毎日 2・毎週 4）・CI（`login-collectors.yml`・`scheduled-publish.yml`・`ops-write.yml`）・Windows のタスクスケジューラに分かれ、毎週どこかが壊れている（10/18〜10/24 に Mac の 4 本が失敗）。ログインして読む計測と、ログインして書く操作を**土曜の Mac の 1 本（週次レビューの前段）**にまとめ、ほかのセッションはログインせず記録（`data/` など）を読んで進める。これは 2026-10-01 の「ログインが要る全サービスを CI でも自動で入り直す」決定（DN-0479・DN-0483・DN-0484）と DN-0362 の役割分担を置き換える。
-
-**調査で分かったこと（2026-10-24）**:
-- CI のログイン収集は読むだけで、書き込みはログイン状態の書き戻しだけ。実際に CI で動いているのは note と A8 の 2 サービス（`playwright-auth-profiles.json` の `ci.enabled`）。毎日の `auth-session-refresh` は CI の A8 の state を新しく保つためにある
-- 時刻どおりの公開は各サービスの予約機能が持つ（X の予約キュー・Business Suite・`note-publish --schedule`・YouTube の `publishAt`）。Mac は週 1 回まとめて予約を入れれば足りる
-- note 同期は既に週次（1 日の添付 90 件の上限があり、大量の変更だけ `--catch-up-until` で毎日流す）
-- GSC の登録リクエストは毎日 10 件だが、候補 226 件のうち表示実績があるのは 3 件、EXP-006 は partial で「同じ URL への反復は終了」。週 10 件で足りる
-- 土曜に全部つなげた所要時間はログから 3〜5 時間の見込み
-
-**段（この順に進める。各段のカードに完了条件）**:
-0. 失敗中の Mac の処理を直す（DN-0816・DN-0819（旧 DN-0763・DN-0818 の確認を含む）。note-sync の配布 PDF の取り寄せは DN-0567 で修正済み）
-1. 土曜のチェーンを作る（ログイン確認 → 読む収集 → note 同期 → GSC の登録リクエストと月次 CSV → 週次レビュー、落ちた回のやり直し）（DN-0819）
-2. 鮮度の基準を週次に合わせる（DN-0820）
-3. Mac の個別の launchd・worktree・Windows のタスクを止める（DN-0821）
-4. CI のログイン収集と書き込みの入口を外す（暗号化 state・Secrets を含む）（DN-0822）
-5. ほかのセッションのスキルを「記録を読む」に変え、方針文書を書き直す（DN-0823）
-
-**残すもの**: API キーで動く CI（GA4・GSC の API、PSI、YouTube、Cloudflare、Bing）、`disk-hygiene` の launchd、人がその場で判断する書き込み（価格・出品・KDP 入稿・返信・公開）。後者は土曜に保ったログインをそのまま使い、切れていたら人が `auth:login` で入る。
-
-**実装計画**: [DN-0817-weekly-login-consolidation.md](../plans/DN-0817-weekly-login-consolidation.md)（2026-10-24 承認。自動化の台帳・管理画面・CI の棚卸しを段に加えた）
-
-**完了条件**: 段 0〜5 のカードがすべて完了し、ログインが要る定期処理が Mac の土曜の 1 本だけになっている（`launchctl list | grep doboku-note` が週次と disk-hygiene だけ、CI に `DOBOKU_AUTH_*` を読むワークフローが 0 本）。
 
 
 
@@ -99,16 +75,19 @@
 
 **完了条件**: 2026-11-02 までに 2級 令和8年度 第2次検定の問題と解答例が本番にあり、past-exam-qa の指摘が直っている。
 
-**準備（2026-10-21）**: 置き場は `content/site/civil-construction-2/secondary-r08/article.mdx`（/exam/civil-construction-2/secondary/r08）を新しく作る。1級 r08 は枠ページ無しの `secondary-r08` 1 本で、2級も r03〜r07 が `secondary-rNN` なので揃える。構成は 2級 r07 と同じ（問題1 経験記述〔工事概要〕〔設問1〕〔設問2〕・問題2〜9・出典。frontmatter は `group: secondary`・`officialQuestions: true`・`sources`）。枠ページ（guide-r08-secondary-answers・10/11 から「解答例 令和8年」で表示あり）とは検索語が重なるので、r08 の公開と同じ commit で枠の seoTitle・冒頭を「答案の見直し方・合格発表まで」に寄せ、冒頭から r08 へリンクする（301 にはしない＝見直し手順の節は枠にしか無い）。10/26 13 時の公表後: 原典 PDF 取得→問題の転記と照合→解答例→past-exam-qa→refresh-indexes→main へ出すかは運営者（出張中は deploy しない約束なので、期日 11/02 に間に合わせるなら運営者の判断が要る）。
+**準備（2026-10-21）**: 置き場は `content/site/civil-construction-2/secondary-r08/article.mdx`（/exam/civil-construction-2/secondary/r08）。骨組み（`published: false`・本文に「公表後に書く」の仮置き）は #1185（6b56dd6d8）で作成済みなので、公表後は問題の転記・解答例・past-exam-qa・枠ページの seoTitle 調整・公開を進める。1級 r08 は枠ページ無しの `secondary-r08` 1 本で、2級も r03〜r07 が `secondary-rNN` なので揃える。構成は 2級 r07 と同じ（問題1 経験記述〔工事概要〕〔設問1〕〔設問2〕・問題2〜9・出典。frontmatter は `group: secondary`・`officialQuestions: true`・`sources`）。枠ページ（guide-r08-secondary-answers・10/11 から「解答例 令和8年」で表示あり）とは検索語が重なるので、r08 の公開と同じ commit で枠の seoTitle・冒頭を「答案の見直し方・合格発表まで」に寄せ、冒頭から r08 へリンクする（301 にはしない＝見直し手順の節は枠にしか無い）。10/26 13 時の公表後: 原典 PDF 取得→問題の転記と照合→解答例→past-exam-qa→refresh-indexes→main へ出すかは運営者（出張中は deploy しない約束なので、期日 11/02 に間に合わせるなら運営者の判断が要る）。
 
-### [DN-0670] 2級土木の既存動画4本に技術表現の訂正を反映する
+### [DN-0670] 2級土工の動画 6 本（公開 1・非公開 2・差し替え用の改訂 3）を承認して YouTube へ反映する（技術表現の訂正と VOICEVOX のクレジット）
 タグ: [領域:商品] [時期:2026-10] [種類:不具合] [検証:check-video-content] [起票:2026-10-11]
 
-gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2kyu の画像/台本を、締固め度の現場乾燥密度、配合とスランプ、原因別ひび割れ対策、工事選定条件の断定回避へ修正した。総まとめ動画への反映と別に、元4本の外部公開状態を照合し、必要な動画再生成・画像確認・訂正説明または差替えを行う。
+**起点**: 2級土木の既存動画の技術表現の訂正（締固め度の現場乾燥密度・配合とスランプ・原因別ひび割れ対策・工事選定条件の断定回避・2026-10-11）と、VOICEVOX の利用条件（話者13 青山龍星は「VOICEVOX:青山龍星」のクレジット記載・2026-10-08 に確認）。YouTube 整理（10/15）で残るのは gakka-2kyu-doko の通常動画 lNI2f_SjCTk（10/12 公開）・非公開の Shorts 2 本と、その差し替え用の改訂 3 本（diagram-led・10/19 以降の図解版）だけ。6 本の概要欄にクレジットを足し、改訂 3 本は訂正後の版で作ってある（501fde370・check-content-registry PASS・check-video-publication PASS）。2026-10-26 の backlog 監査で、クレジットのカード（旧 DN-0605）をここへまとめた。運営者の判断で SNS 保留の例外として進める。
 
-**対象の絞り込み（2026-10-15）**: YouTube 整理で gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2kyu は台帳で全 stopped。残るのは gakka-2kyu-doko の通常動画（lNI2f_SjCTk・10/12 公開）と非公開の Shorts 2 本だけ。この 3 本が 10/11 の訂正後に作られたものかを確かめ、古ければ差し替える。
+**残り（運営者・承認はエージェントからは実行できない＝registry の規約）**:
+1. `npm run admin` の確認画面で 6 本の表紙・動画・文面を確かめて承認する
+2. 公開済み lNI2f_SjCTk の概要欄を metadata の同期で反映する
+3. 改訂 3 本を `npm run registry -- publish-youtube-revision --pub <改訂公開ID> --phase upload` → schedule → verify で差し替え、旧版の扱いを決める
 
-**進捗（2026-10-22）**: 運営者の判断で SNS 保留の例外として進める。差し替え先は台帳の改訂行（gakka-2kyu-doko の youtube.longform.diagram-led と Shorts 2 本の diagram-led・draft・10/19 以降の図解版）で、概要欄に VOICEVOX のクレジットも足した（DN-0605）。**残り（運営者）**: 管理画面の確認画面で改訂 3 本の表紙・動画・文面を確かめて承認 → `npm run registry -- publish-youtube-revision --pub <改訂公開ID> --phase upload` → schedule → verify で差し替え、旧版の扱いを決める。承認はエージェントからは実行できない。
+**完了条件**: 残る公開・非公開の動画の概要欄に「VOICEVOX:青山龍星」があり、YouTube の実体が訂正後の版に差し替わっている（`youtube.json`・台帳と YouTube の実体が一致）。
 
 ### [DN-0440] コンクリート主任技士の小論文添削を、直前期（11月）の受注に応えられる状態にする
 タグ: [収益化] [領域:商品] [時期:2026-10..2026-11] [種類:改善] [起票:2026-09-29] [期日:2026-10-31]
@@ -137,20 +116,6 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 
 
-
-### [DN-0605] YouTube の予約・公開済み動画の概要欄に VOICEVOX のクレジット（VOICEVOX:青山龍星）を入れる
-タグ: [領域:SNS] [時期:2026-10] [種類:不具合] [起票:2026-10-08]
-
-**起点**: 2026-10-08、VOICEVOX エンジン（0.25.2）の speaker_info で、話者13（青山龍星）の利用条件が「VOICEVOX:青山龍星」のクレジット記載と確認した。予約・公開済みの通常動画（DN-0110 の112本）の概要欄（各パックの `youtube.json` の longform.description）にはこの表記が無い。2026-10-08 から `scripts/prepare-youtube-longforms.mts` が生成する概要欄に `音声：VOICEVOX:青山龍星` を入れるようにした（以後の生成分だけ）。Shorts の概要欄も同じ確認が要る。
-**やること**:
-1. 全パックの `youtube.json`（longform と shorts）の概要欄にクレジットが入るよう再生成する。civil の `--scope` は 1級の本数ずれ（66本）で今は止まるので、先にそこを直す
-2. 予約・公開済みの動画へ `publish-video-pack.cjs --phase metadata`（CI 経由）で同期する。DN-0278（概要欄の冒頭リンク）と同じ同期なので、まとめて1回で行う
-3. 公開画面の概要欄でクレジットが出ていることを数本で確かめる
-**完了条件**: 予約・公開済みの全通常動画と Shorts の概要欄に「VOICEVOX:青山龍星」があり、`youtube.json` と YouTube の実体が一致する。
-
-**対象の絞り込み（2026-10-15）**: YouTube 整理で公開・非公開が残るのは gakka-2kyu-doko の 3 本（通常動画 lNI2f_SjCTk・Shorts 2 本）だけで、3 本とも youtube.json の概要欄にクレジットが無い。これから上げる qa_passed の 43 本は youtube.json がまだ無く、10/08 以降の生成器が入れる。残りはこの 3 本の概要欄へのクレジットの追加と同期（承認の内容ハッシュと CI の metadata 同期の手順に沿う）。
-
-**進捗（2026-10-22）**: 運営者の判断で SNS 保留の例外として進める（利用条件の表記のため）。台帳の全 YouTube 公開行を調べると、クレジットが無いのは 2級 土工（gakka-2kyu-doko）の公開 1・非公開 2 と、その差し替え用の改訂（diagram-led）3 本だけだった（ほかの公開・予約・改訂は入っている）。6 本の概要欄に「音声：VOICEVOX:青山龍星」を足した（501fde370・check-content-registry PASS・check-video-publication PASS）。**残り（運営者）**: `npm run admin` の確認画面で 6 本の文面を確かめて承認し、YouTube への同期（公開済み lNI2f_SjCTk は metadata の同期、改訂 3 本は DN-0670 の差し替え）を行う。承認はエージェントからは実行できない（registry の規約）。
 
 ### [DN-0500] 技術士一次試験 令和8年度（11/22）の解答速報ページを事前に用意し、公式正答の公開後すぐ埋める
 タグ: [SNS・マーケ] [領域:サイト] [時期:2026-11] [種類:制作] [起票:2026-10-02] [期日:2026-11-22]
@@ -392,7 +357,7 @@ drive-vault-sync -- --group source-transcript --verify --deep が 240 件中 1 �
 
 **やること**: (1) 6 本の `- [ ]` を note で崩れない書き方（例:「□ 」を頭に付けた箇条書き）へ直し、公開済み 4 本は note 同期で反映する。(2) note 原稿の `- [ ]` を止める検査を pre-commit に足す（既存の note 原稿の検査に 1 本加える形で、回帰テスト付き）。
 
-**完了条件**: `git grep -E "^\s*[-*] \[[ xX]\] " -- 'content/note/**/article*.md'` が 0 件、検査が新しい `- [ ]` を止めることをテストで確かめ、公開済み 4 本が note に反映されている（次の公開画面の目視で `[ ]` が出ない）。
+**完了条件**: `git -c core.quotepath=false grep -c -E "^\s*[-*] \[[ xX]\] " -- ':(glob)content/note/**/article*.md'` が 0 件（`-c` なしの行数や quotepath=true では日本語のパスが拾えず偽の 0 になる・2026-10-26 の監査で実測）、検査が新しい `- [ ]` を止めることをテストで確かめ、公開済み 4 本が note に反映されている（次の公開画面の目視で `[ ]` が出ない）。
 
 
 
@@ -486,7 +451,7 @@ drive-vault-sync -- --group source-transcript --verify --deep が 240 件中 1 �
 **停止条件**: 4 週間の期限付きの計測。統合・退役の判断のカードで hook も外す。
 **完了条件**: hook のテストが通り、記録先に 1 週間分の記録がある。
 
-**確認（2026-10-22）**: hook は PR #1154 で入り、テスト 6 件 pass。記録は 10/21 から 65 行（約 1.5 日）。1 週間分がたまる 10/28 以降に完了判定する。ただし今の記録は kind=agent だけで、skill・スラッシュコマンドの行が 0。10/28 までに /skill を使ったセッションで skill/slash の行が出るかを確かめ、出なければ matcher か UserPromptSubmit の配線を直す。
+**確認（2026-10-22）**: hook は PR #1154 で入り、テスト 6 件 pass。記録は 10/21 から 65 行（約 1.5 日）。1 週間分がたまる 10/28 以降に完了判定する。skill・スラッシュコマンドの行も出ている（2026-10-26 時点で 119 行＝agent 116・command 2・skill 1。配線の心配は解消）。Windows 側の記録は未確認。
 
 ### [DN-0771] 手元データの期限切れ（.tmp・.claude/state）を片付ける
 タグ: [インフラ・計測] [領域:サイト] [時期:2026-10] [種類:改善] [起票:2026-10-19]
@@ -1360,7 +1325,7 @@ Windows の PowerShell で repo 直下から順に:
 | 12 | KDP Select 自動更新オフ A-00〜A-06（旧DN-0089） | note 択一PDF（`n155093f42183`・¥1,980・公開済み）との抵触リスクを安全側に倒すと判断（2026-08-27）。e-02 は Select 非加入方針・A 系列は収録範囲違い（422問論点別 vs 1162問全年度）だが部分集合の可能性が否定できない | KDP 管理画面で A-00〜A-06 の「KDPセレクトへの自動登録」をオフ。**期限=独占明け 2026-10-06 より前（10月上旬）**。10/6 を過ぎて自動更新されなければ制約自体が消滅。**2026-10-22 時点で期限を過ぎた**。KDP 本棚で A-00〜A-06 の Select の状態（自動更新されたか）を確かめ、更新されていなければこの行を消す |
 | 19 | 技術士第一次試験 KDP Select早期解除の回答反映 | D-00／D-03の状態は`scripts/kindle-published/catalog.json`の`notes`を真実源とする。申請受付のローカル証跡は`.tmp/kdp-select-support-result.json`にあり、Amazonからの回答待ち | 回答受信後、KDP本棚で両書籍のSelect状態を実査する。解除済みならcatalogと`content/kindle/strategy.md`へ反映し、noteとの併売可否を確定する。未解除なら回答内容に従い再連絡し、解除確認前に恒常併売を確定しない |
 | 13 | LINE 一次→二次ブリッジの器 | 磁石記事・配信台本3通・友だち追加CTA文言は完成済み。残るのは外部アカウントと実URLだけ | LINE公式アカウント開設→`delivery-script.md`を管理画面へ転記→`friend-add-cta.md`のプレースホルダーを実URLへ差し替え、X・note・サイトへ配置 |
-| 15 | Cloudflare / R2 認証キーの最小権限化 | 固定90/180日ローテーションの根拠はない。R2監査専用キーの作成手順は`ci-cd-security-hardening.md`に既存 | Cloudflare管理画面で`CLOUDFLARE_API_TOKEN`の実期限・権限を確認し、R2読み取り専用キーを`CLOUDFLARE_R2_AUDIT_*`へ登録。`r2-audit.yml`が汎用キーへフォールバックせず成功することを確認 |
+| 15 | Cloudflare / R2 認証キーの最小権限化 | 固定90/180日ローテーションの根拠はない。R2監査専用キーの作成手順は`ci-cd-security-hardening.md`に既存 | Cloudflare管理画面で`CLOUDFLARE_API_TOKEN`の実期限・権限を確認し、R2読み取り専用キーを`CLOUDFLARE_R2_AUDIT_*`へ登録。`r2-sync.yml` の main と R2 の差分の検査（diff-r2・旧 `r2-audit.yml` は 2026-10-24 に統合して削除）が汎用キーへフォールバックせず成功することを確認 |
 | 16 | コンクリート主任技士の原典待ち問題 | H25 skip 18問・H24 conflict 4問とR6/R7はローカル原典がなく、推測補完できない。詳細は`exam-content-policy.md`の主任技士メモが真実源（2026-09-30 追記: 図SVG化の過程で Drive vault `原資料PDF/書籍/concrete-chief-textbook-202{2,4}__*/pages/` のページ画像から H25・R01 の問題が目視で読めることを確認。サイトに節が無く図だけ先に作った4枚＝H25問15問題図・H25問19解説傾向図・R01問26問題図/解説図を同 vault の `crops/held-svg/` に退避。R01問26 も未収録。節を起こしたら図を配線する） | 原典入手後に問題・公式解答表を視覚照合し、復元できた設問だけ追加。解答キーに合わせた本文創作は禁止 |
 | 17 | コンクリート診断士 98問＋既存8本＋新規8本の技術内容レビュー | 一次演習98問、既存記述式8記事、サイト`guide-essay`、構造物別の新規8記事と商品は公開済み。レビュー表は`content/note/コンクリート診断士/技術レビューチェックリスト.md` | 公開中の教材を有資格者が技術レビューし、指摘をサイト・note・Kindleの該当原稿へ反映する。原典照合できない数値を推測で補わない |
 | 18 | GA4 UIバックアップとbing流入の外部照合 | Data API・週次`metrics-analyzer`・note referral集計・商品別期間効率は稼働済み。GA4 UI CSVは3ユニットとも未成立。最新14日のbingは2,683 usersだが日本比率99.4%・engagement 71.3%で自動bot署名は`flagged:false` | ログイン済みGA4 UIで正式レポート名を確定しfixtureを更新する。Bing Webmasterとdevice・landing・新規/再訪を突合し、件数比だけでbot除外しない。API主経路は継続する |
@@ -1480,19 +1445,6 @@ Windows の PowerShell で repo 直下から順に:
 
 
 
-
-### [DN-0760] note公開3記事の問題数表記・編集メモ・チェック記号を原稿と公開面で整える
-タグ: [コンテンツ品質] [領域:商品] [時期:2026-10] [種類:不具合] [起票:2026-10-17]
-
-**起点**: 週次レビュー（2026-10-12〜2026-10-18）。計測対象は10/5〜10/11、現物確認は10/17。
-
-**やること**: 週次レビュー（2026-10-12〜2026-10-18）。10/12の公開画像と10/17原稿を照合。RCCM n6a82c25cc9de は本文Q.159件・表紙159問・products159問に対し原稿title/H1と公開題名が150問。AI記事 n06ff627e32d4 は「公開後にURL反映」「公開時にこの位置へ文脈内で配置予定」が露出。口頭対策 n5bc0bcde96ac は - [ ] がそのまま表示。各原稿を読者向けの確定文面へ直し、既存同期で題名/本文を反映する。数を機械集計してから表記を統一し、有料境界・PDF・価格を保持する。
-
-**完了条件**: 3記事の原稿検査が通り、公開題名/本文を再取得し表記と編集メモの解消を記録。360pxと広幅の画面で再確認する。公開未反映を完了にしない。
-
-**進捗（2026-10-18）**: 3 記事の原稿を直した（495fc9d20）。RCCM n6a82c25cc9de（題名・本文・カバー）と AI n06ff627e32d4（本文）は note-update-body --sync で反映し、公開 API で題名「一問一答159問」・編集メモ 0・1級 AI 記事へのリンク・価格 980 円の維持を確かめ、360px と広幅で目視した。口頭対策 n5bc0bcde96ac は PDF の貼り直しが要り、当日の添付上限（90）で本文を触らずに保留。**残り**: 10/19 以降に `note-update-body --sync --list` で口頭対策を反映し、公開面でチェック記号 0 を確かめる。
-
-**確認（2026-10-22）**: 口頭対策 n5bc0bcde96ac は note-sync-plan で status=ready（本文の drift・前回は attachment-daily-limit で中断）。公開 API の更新日は 2026-09-19 のままで未反映。次の土曜（10/31）の収集の後段 note-sync で反映される。反映後に公開面でチェック記号 0 と 360px・広幅の表示を確かめて完了にする。
 
 ### [DN-0662] コンクリート技士・主任技士・診断士のオリジナル問題による iOS アプリを企画する
 タグ: [収益化] [領域:商品] [時期:2026-10] [種類:改善] [起票:2026-10-11]
