@@ -13,6 +13,7 @@ import { longformInputHash } from '../scripts/lib/longform-render-integrity.mjs'
 import { approvalState } from '../scripts/lib/media-review.mjs';
 import { readJson, writeJson } from '../scripts/lib/json-io.mjs';
 import { RegistryPublications } from '../scripts/lib/dataset-schemas-content.mjs';
+import { writeVisualStandardFixture } from './helpers/youtube-visual-standard.mjs';
 
 const EXAM = 'civil-construction-2', WORK = 'revision-fixture', OLD = `${EXAM}/${WORK}/youtube.longform`, NEW = `${OLD}.diagram-led`;
 const DEF = `content/sns/video-packs/${EXAM}/${WORK}`, NOW = Date.parse('2026-10-21T00:00:00Z'), SLOT = '2026-10-25T20:00:00+09:00';
@@ -26,7 +27,8 @@ function fixture(t) {
   const channel = readJson(root, 'config/youtube-formats.json').channel;
   const disclosure = readJson(root, 'config/youtube-production-disclosure.json');
   writeJson(root, `${DEF}/video-pack.json`, { exam: EXAM, packId: WORK, outputs: { longform: true, shorts: 0 } });
-  writeJson(root, `${DEF}/storyboard.json`, { scenes: [] });
+  const coverDigest = sha(Buffer.from('new-cover'));
+  writeVisualStandardFixture(root, DEF, { path: `.tmp/media/${EXAM}/${WORK}/work/candidate-cover.${coverDigest.slice(0, 8)}.png`, sha256: coverDigest });
   writeJson(root, `${DEF}/youtube.json`, { longform: { title: '同じ題名', description: `${disclosure.authorityNotice}\nutm_source=youtube&utm_medium=video&utm_campaign=${WORK}`, tags: ['学習'] } });
   upsertWorks(root, EXAM, [{ id: WORK, kind: 'video-pack', definition: DEF, qa: { avg: 3, blocks: 0, at: '2026-10-21', by: 'fixture' } }]);
   upsertPublications(root, 'youtube', EXAM, [{ id: OLD, work: WORK, format: 'longform', account: 'youtube:main', status: 'published',

@@ -3,6 +3,98 @@
   "designVersion": "pop-20260927",
   "channel": "youtube",
   "source": "content/sns/video-packs/concrete-chief-engineer/shunin-shiken-zentaizou",
+  "revisions": {
+    "cover-pop-candidate-20261026": {
+      "version": "pop-poster-v3",
+      "generation": {
+        "tool": "image_gen",
+        "prompt": "Use the attached image as a STYLE and CHARACTER continuity reference, not as content to copy. Create a NEW full-bleed 16:9 YouTube educational video cover for Japanese exam コンクリート主任技士. POP poster treatment matching the reference's energetic typography, diagonal motion, expressive teacher character with the same face, black-rim glasses, slight beard, blank white hardhat, navy work clothes, and bold dark outlines. Change the main palette to vivid purple and violet with navy, white and bright yellow, a small red accent. Make the qualification the largest clear text: 「コンクリート主任技士」. The main learning hook should read exactly 「択一×小論文」 and supporting question exactly 「どう学ぶ？」. A narrow yellow authority strip reads exactly 「総監が制作」. Include a simple visual at the lower left: a multiple-choice answer sheet and a short essay page as two distinct learning tracks. Keep all Japanese glyphs exactly correct; no other text, no invented numbers, no URL, no price, no guarantee. Teacher large on right. Keep important text and face within side/top 5% and above bottom 18% subtitle area, while the purple background fills all four edges. Do not reproduce the old white-card cover layout; this should be as punchy and readable at 360px as the reference. 1920x1080 intended.",
+        "references": [
+          {
+            "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.abe1a7b7.png",
+            "sha256": "abe1a7b7debc540640b2aacb2f333874901e60f25843dca40579ccd42feb7216"
+          }
+        ],
+        "output": {
+          "path": ".tmp/media/concrete-chief-engineer/shunin-shiken-zentaizou/work/raw-cover.2dbfe652.png",
+          "sha256": "2dbfe652f720f64e8d8ef5c41d48c9025eabfe258e78743dd63765c44029ae07"
+        },
+        "generatedAt": "2026-10-26T14:45:21Z"
+      },
+      "copy": {
+        "exam": "concrete-chief",
+        "headline": ["択一×小論文", "どう学ぶ？"],
+        "authority": "総監が制作"
+      },
+      "output": {
+        "path": ".tmp/media/concrete-chief-engineer/shunin-shiken-zentaizou/work/cover-candidate.8b3bab6b.png",
+        "sha256": "8b3bab6bb38800c0f0cf0ee29ed15a88953576c266ae2ef71ca8adbd77fe391a",
+        "width": 1920,
+        "height": 1080
+      },
+      "normalization": {
+        "mode": "full-frame-v1",
+        "sourceSha256": "2dbfe652f720f64e8d8ef5c41d48c9025eabfe258e78743dd63765c44029ae07"
+      },
+      "review": {
+        "status": "candidate",
+        "userImageReview": "pending",
+        "checkedAt": "2026-10-26T14:48:23Z",
+        "by": "Codex",
+        "views": ["original", "1920x1080"],
+        "checks": ["文言・資格名", "顔と安全域"]
+      },
+      "storage": {
+        "group": "content-media",
+        "sync": "cloud-verified"
+      }
+    },
+    "cover-pop-candidate-revised-20261026": {
+      "version": "pop-poster-v3",
+      "generation": {
+        "tool": "image_gen",
+        "prompt": "Edit the attached image as the same POP YouTube cover. Preserve the exact Japanese wording, character identity, purple/violet palette, energetic comic style, and the two learning-track icons. Correct one layout issue: move every important text element and both icons upward so the entire lowest 18% of the 16:9 frame is just continuous purple/violet background with no letters, icons, hands, face, or other focal object; it must be safe for subtitles. Maintain full bleed to all four edges and no white card frame. Keep title fully visible, no misspelled Japanese and no new wording. Intended final 1920x1080.",
+        "references": [
+          {
+            "path": ".tmp/media/concrete-chief-engineer/shunin-shiken-zentaizou/work/cover-candidate.8b3bab6b.png",
+            "sha256": "8b3bab6bb38800c0f0cf0ee29ed15a88953576c266ae2ef71ca8adbd77fe391a"
+          }
+        ],
+        "output": {
+          "path": ".tmp/media/concrete-chief-engineer/shunin-shiken-zentaizou/work/raw-cover-revised.a8ef5f76.png",
+          "sha256": "a8ef5f7674c1101ca538f806141a6f177e846d46023197a7e6e4f8e244b422c5"
+        },
+        "generatedAt": "2026-10-26T14:50:13Z"
+      },
+      "copy": {
+        "exam": "concrete-chief",
+        "headline": ["択一×小論文", "どう学ぶ？"],
+        "authority": "総監が制作"
+      },
+      "output": {
+        "path": ".tmp/media/concrete-chief-engineer/shunin-shiken-zentaizou/work/cover-candidate-revised.21eebe4c.png",
+        "sha256": "21eebe4cf10d413f755e1dc3bf43ff5895a1273403e6c9677639fffb2b43f8f3",
+        "width": 1920,
+        "height": 1080
+      },
+      "normalization": {
+        "mode": "full-frame-v1",
+        "sourceSha256": "a8ef5f7674c1101ca538f806141a6f177e846d46023197a7e6e4f8e244b422c5"
+      },
+      "review": {
+        "status": "candidate",
+        "userImageReview": "pending",
+        "checkedAt": "2026-10-26T14:51:56Z",
+        "by": "Codex",
+        "views": ["original", "1920x1080"],
+        "checks": ["文言・資格名", "顔と安全域", "字幕領域"]
+      },
+      "storage": {
+        "group": "content-media",
+        "sync": "cloud-verified"
+      }
+    }
+  },
   "outputs": {
     "longform": {
       "publicationId": "concrete-chief-engineer/shunin-shiken-zentaizou/youtube.longform",

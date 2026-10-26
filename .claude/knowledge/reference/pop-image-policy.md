@@ -46,6 +46,8 @@ Shortsの操作UI用安全域は、重要な文字と顔を避ける範囲とし
 
 2026-10-11にユーザーが「この感じでショートも通常動画も」と承認した意匠。内容に合わせて次の見本を選ぶ。各JSONの `revisions` が参照PNG・全生成指示・出力SHAの正本。意匠の承認は、媒体寸法・Shorts操作UIの確認や動画への採用完了を意味しない。
 
+通常動画の新しい基準は[技術士第一次試験・全体像](../../../content/sns/video-packs/pe-first-stage/pe1-zentaizou/pop-image.json)の `cover-pop-20261026` と `body-diagram-20261026`。表紙は全面POP、本文と締めは図解主体とし、表紙のポスター表現を全場面へコピーしない。参照画像の原本SHA・生成指示・採用PNGのSHAはこのJSONから引く。古い `pop-v2` の表紙や文字カードへ戻さない。具体的な結線と投稿停止条件は[動画ポリシー §4](./video-content-policy.md)に従う。
+
 | 内容とポーズ | 原稿・生成履歴（revisionsのキー） |
 |---|---|
 | Shorts全面構図・土試料の指差し／4テーマ案内（表紙・本文・締め） | [2級土木・土工](../../../content/sns/video-packs/civil-construction-2/gakka-2kyu-doko/pop-image.json)（`shorts-pop-fullbleed-20261012`。`publications[].images` の最終 `output` を参照し、途中の余白が大きい生成案は使わない） |

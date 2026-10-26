@@ -89,3 +89,21 @@ export function readLongformPopImages(root, packDir, storyboard, { local = false
   }
   return images;
 }
+
+/** 新規予約する通常動画の画面標準。旧テンプレートへの無指定フォールバックを公開入口で止める。 */
+export function requirePopDiagramStandard(root, packDir) {
+  const storyboard = JSON.parse(readFileSync(join(packDir, 'storyboard.json'), 'utf8'));
+  const design = storyboard.imageDesign;
+  if (design?.mode !== 'codex-pop' || design.scope !== 'all-body' || design.layout !== 'diagram-led' || !design.coverRevision) {
+    throw new Error('通常動画はPOP表紙＋全本文の図解主体画像を指定してください');
+  }
+  const images = readLongformPopImages(root, packDir, storyboard);
+  if (images.size !== storyboard.scenes.length - 1) throw new Error('図解の採用場面数が原稿と一致しません');
+  const pop = JSON.parse(readFileSync(join(packDir, 'pop-image.json'), 'utf8'));
+  const cover = pop.revisions[design.coverRevision];
+  if (cover.normalization?.mode !== 'full-frame-v1' || cover.normalization.sourceSha256 !== cover.generation.output?.sha256 ||
+      cover.output.width !== 1920 || cover.output.height !== 1080 || !cover.generation.references?.length) {
+    throw new Error('POP表紙の全面採用・参照画像・1920×1080の記録が必要です');
+  }
+  return images;
+}
