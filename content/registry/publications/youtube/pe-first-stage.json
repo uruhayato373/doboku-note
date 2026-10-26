@@ -8,7 +8,7 @@
       "work": "pe1-zentaizou",
       "account": "youtube:main",
       "format": "longform",
-      "status": "approved",
+      "status": "rendered",
       "media": {
         "cover": "pe-first-stage/pe1-zentaizou/youtube.longform/cover",
         "scene-001": "pe-first-stage/pe1-zentaizou/youtube.longform/scene-001",
@@ -45,6 +45,9 @@
         "by": "user",
         "at": "2026-10-26T12:43:27.419Z",
         "contentSha256": "fe04187854d9c05e7b33980b82645082a5c8ef39d3354b6abd2570da6e7ea4e9"
+      },
+      "times": {
+        "rendered": "2026-10-26T13:18:57.200Z"
       }
     }
   ]
