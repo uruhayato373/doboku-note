@@ -133,7 +133,7 @@ export function singlePublishPlan(root, pubId, now = Date.now()) {
 }
 
 /** 依存はYouTube API形のオブジェクト。テストは全てmock。defaultは外部通信なし。 */
-export async function publishYoutubePublication(root, { pubId, phase = 'upload', commit = false, expect }, { youtube, journal, now = () => Date.now() } = {}) {
+export async function publishYoutubePublication(root, { pubId, phase = 'upload', commit = false, expect }, { youtube, journal, now = () => Date.now(), wait = ms => new Promise(resolve => setTimeout(resolve, ms)) } = {}) {
   if (!['upload', 'schedule', 'verify'].includes(phase)) throw new Error('phaseはupload|schedule|verify');
   const publication = loadRegistry(root).publications.find(p => p.id === pubId);
   const planFor = publication?.revisionOf ? revisionPublishPlan : singlePublishPlan;
@@ -277,7 +277,11 @@ export async function publishYoutubePublication(root, { pubId, phase = 'upload',
         status: { ...writableStatus(actual), privacyStatus: 'private', publishAt: pub.publishAt } } }, { retry: false });
     } catch { throw new Error('schedule結果不明。intentを保持し、再送せずverifyで照合する'); }
     summary.externalActions++;
-    actual = await getVideo(youtube, pub.delivery.videoId, true); verifyIdentity(actual);
+    for (let attempt = 0; attempt < 5; attempt++) {
+      if (attempt) await wait(2000);
+      actual = await getVideo(youtube, pub.delivery.videoId, true); verifyIdentity(actual);
+      if (actual.status.privacyStatus === 'private' && Date.parse(actual.status.publishAt) === Date.parse(pub.publishAt)) break;
+    }
     if (actual.status.privacyStatus !== 'private' || Date.parse(actual.status.publishAt) !== Date.parse(pub.publishAt)) throw new Error('予約応答の読取不一致。再送せずverifyで照合する');
     pub.status = 'scheduled'; pub.delivery.scheduledVerifiedAt = at(); pub.times.scheduled = at(); await journalSave(); save();
     return { ...summary, result: 'scheduled-verified', publishAt: actual.status.publishAt };
