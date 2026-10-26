@@ -250,6 +250,8 @@ npm run youtube-unschedule        # 台帳で scheduled の YouTube の公開予
 npm run check-registry-due     # 予約のまま公開の予定を猶予（config の reconcileGraceDays）より過ぎた公開を出す（ops・壁時計依存なので CI ゲートにしない）
 npm run check-video-publication # 公開済み派生物の実体照合が回っているか（未照合・記録の孤児・実査ドリフト。記録の古さ（V03）と実査のドリフト（V05）は `--freshness`）。実査本体は verify-video-publication で creds 必須・**対象0件は明示してPASS**。quality-audit・registry-reconcile.yml からはSNS の保留に合わせて 2026-10-25 に CI から外した。再開するときに作り直す
 npm run youtube-own-metrics   # 自社 YouTube の動画ごとの再生数・尺を一覧（yt-dlp）から取り data/youtube/own-videos/YYYY-MM-DD.json へ（月次・動画パックと型を videoId で照合・`--dry-run`）。視聴維持率・クリック率は取れない（Analytics が要る）。罠: 日本語表示の一覧は「万」の再生数を null にするので英語表示と結合している
+npm run youtube-analytics -- --check # 公開台帳の計測対象数を外部通信なしで確認。通常実行は YouTube Analytics API から28日窓の視聴回数・平均視聴時間・平均視聴率・流入元を取得し、型検証後 data/youtube/analytics/YYYY-MM-DD.json へ保存（CIのOAuth認証が必要・不足時 exit 2）。サムネイルのインプレッション/CTRはAPIの対象外
+npm run check-youtube-analytics # 最新のYouTube Analytics記録を公開台帳のID・対象数・鮮度と照合。未取得は0件成功にせず exit 1
 npm run scout-youtube-competitors # config/competitors.json の youtube の各チャンネルの通常動画（新しい順100本）の再生・尺・題名の語ごとの中央値を data/youtube/competitors/YYYY-MM-DD.json へ（四半期・前回比 drift・`--handle UC…` は .tmp/）。一覧だけ読み、動画の再生用 API と映像は触らない（クラウドの IP でロボット確認・403 になるため）
 npm run x-own-metrics     # 自投稿の反応（いいね/RT）を採取→型×時間帯×導線の表（data/x/own-posts/・**中央値で読む**。impressions/replies は CLI が返さず取得不可）
 npm run check-x-posted-live  # 投稿済み X の生存確認。posted_url を持つものだけログイン不要の oEmbed で照合（DN-0276・quality-audit の report 区分＝weekly-review-guard が週次で読む）。404=凍結/削除の疑い、posted_url が無い投稿済みの件数も出す（検査ゼロを PASS にしない）。posted_url は publish-x.ts が投稿直後にベストエフォートで書く

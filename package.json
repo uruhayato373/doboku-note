@@ -535,6 +535,8 @@
     "wire-note-paid-cta": "node scripts/wire-note-paid-cta.mjs",
     "x-own-metrics": "node scripts/x-own-metrics.mjs",
     "youtube-own-metrics": "node scripts/youtube-own-metrics.mjs",
+    "youtube-analytics": "node scripts/youtube-analytics.mjs",
+    "check-youtube-analytics": "node scripts/check-youtube-analytics.mjs",
     "x-article:prepare": "node scripts/prepare-x-article-teaser.mjs",
     "x-article:publish": "node scripts/x-article-publish.mjs",
     "x-queue-surfacer": "node scripts/x-queue-surfacer.mjs",

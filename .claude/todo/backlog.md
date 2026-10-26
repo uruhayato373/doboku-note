@@ -642,16 +642,15 @@ Drive を台帳の版へ戻すと誤りを書き戻す。機械 OCR（part-01.md
 
 **完了条件**: 3 年度分が本番に公開され、各問の正答が運営者の確定どおりで、公式正答なしの注記がある。
 
-### [DN-0597] YouTube Analytics（視聴維持率・インプレッションのクリック率・流入元・Shorts→関連動画）を CI で取得し data/youtube へ残す
+### [DN-0597] YouTube Analytics の週次取得を有効化し、2回の定期記録を確認する
 タグ: [領域:SNS] [時期:2026-11] [種類:改善] [起票:2026-10-08]
 
-**起点**: 一覧から取れるのは累計の再生数と尺だけ（`data/youtube/own-videos/` の caveat）。DN-0110 の6週間判定（Shorts→関連動画の流入・視聴維持）と DN-0601 の図解版の比較（28日の視聴維持）には YouTube Analytics が要る。いまは数値が無く、判定できない。
+**起点**: DN-0110 の6週間判定と DN-0601 の図解版比較には、公開動画の28日窓の視聴指標が要る。[2026-10-26 の CI probe](https://github.com/uruhayato373/doboku-note/actions/runs/40307434700) で対象3本・指標行3本・台帳不一致0件の初回記録を得た。定期取得は未確認。
 **やること**:
-1. GitHub Actions の YouTube API の資格情報（投稿・予約に使っているもの）に `yt-analytics.readonly` のスコープがあるか確かめる。無ければ運営者が OAuth を取り直す（スコープの追加は運営者の操作）
-2. 動画ごとの views・averageViewDuration・averageViewPercentage・impressions・impressionsClickThroughRate・trafficSourceType（Shorts の関連動画・YouTube 検索・ブラウジングを分ける）を週次で取り、`data/youtube/analytics/{date}.json` へ。台帳（`scripts/lib/datasets.mjs`）に宣言し、型（zod）を付ける
-3. 管理画面 `/metrics/video` で packId と結合して表示し、未取得は「未取得」と出す（0 件と混ぜない）
-**前提・罠**: 計測は CI 供給が正（会社 PC から API を叩かない・.claude/rules/operations.md）。資格情報が無いときは記録を書かず exit 2（検査不成立）。インプレッションのクリック率は公開から48時間ほど遅れる。
-**完了条件**: 記録が2週続けて増え、DN-0110 の判定と DN-0601 の比較に要る指標（Shorts→関連動画の視聴回数、通常動画の平均視聴率）が欠測なく読める。
+1. PR #1260 を develop へ取り込み、次の `/deploy` で main に反映する（schedule は main のワークフロー定義で動く）
+2. 2回続けて金曜の定期取得が成功し、`data/youtube/analytics/{date}.json` と `/metrics/video` で対象数・欠測・平均視聴率・流入元を読めることを確認する
+**前提・罠**: 計測は CI 供給が正（会社 PC から API を叩かない・.claude/rules/operations.md）。GitHub Actions secret `YOUTUBE_ANALYTICS_ENABLED=true` は設定済み。手動 probe を月曜に回すと growth pack は GSC 確定前の週を拒否するため、`measurement_week` を確定済みの週に固定する。サムネイルのインプレッションと CTR は YouTube Analytics API の取得項目に無く、必要なら Studio 側の別経路を設計する。
+**完了条件**: 2回の週次取得で、通常動画の平均視聴率と流入元別視聴回数が欠測なく読める。
 
 ### [DN-0596] YouTube の数値（自社は月次・競合は四半期）を GitHub Actions で定期取得し、取り忘れで前回比が切れないようにする
 タグ: [領域:SNS] [時期:2026-11] [種類:改善] [検証:check-competitor-scan-due] [起票:2026-10-08]
