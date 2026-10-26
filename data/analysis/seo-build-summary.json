@@ -171,14 +171,12 @@
     },
     {
       "date": "2026-10-26",
-      "generatedAt": "2026-10-26T07:32:02.149Z",
+      "generatedAt": "2026-10-26T07:56:31.787Z",
       "sitemapUrls": 1968,
       "checked": 1968,
-      "errors": 58,
+      "errors": 0,
       "warnings": 407,
-      "errorsByCode": {
-        "broken_internal_link": 58
-      },
+      "errorsByCode": {},
       "warningsByCode": {
         "jsonld_recommended_missing": 407
       }
