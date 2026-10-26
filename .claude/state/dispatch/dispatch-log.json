@@ -5892,7 +5892,7 @@
       "executor": "claude-code",
       "outcome": "done",
       "plan": null,
-      "commit": null,
+      "commit": "aefb5ce1a",
       "verification": "node --test tests/growth-pack.test.mjs tests/growth-opportunities.test.mjs tests/dataset-schemas-analysis.test.mjs が pass。npm run lint・npm run test・check-doc-refs の結果は PR 本文。GSC API はローカルで叩いていない（CI の次回取得で確認）",
       "prevention": {
         "type": "gate",
