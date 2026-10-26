@@ -12,6 +12,7 @@ import { EXAM_BRAND, type ExamKey } from "@/lib/exam-brand";
 import { pickCoconalaFor } from "@/lib/exam-key-bridge";
 import { getMagazine, buildMagazineUrl } from "@/lib/note-magazines";
 import { mokujiFor } from "@/lib/note-mokuji";
+import { pe1LeadMagazineId } from "@/lib/magazine-placement";
 import ServiceIcon, { type ServiceChannel } from "@/components/icons/ServiceIcon";
 import { externalLinkRel } from "@/lib/external-link-rel";
 import { AFFILIATE_LINK_REFERRER_POLICY, AFFILIATE_LINK_REL, AffiliatePrBadge, TrackingPixel } from "@/components/ui/AffiliateParts";
@@ -305,7 +306,7 @@ function ExamCardView({ card }: { card: ExamCard }) {
   const brand = EXAM_BRAND[card.key];
   const mokuji = mokujiFor(card.key);
   const coconala = pickCoconalaFor(card.key);
-  const noteProduct = !mokuji && card.key === "pe-first-stage" ? getMagazine("pe1-chokuzen-pack") : null;
+  const noteProduct = !mokuji && card.key === "pe-first-stage" ? getMagazine(pe1LeadMagazineId()) : null;
 
   return (
     <div className="card-surface-content overflow-hidden p-0">

@@ -69,6 +69,14 @@ export function resolveCivil1PrimaryLead(nowMs = Date.now()): MagazineId {
 }
 
 /**
+ * 技術士一次の主商品（概要・学習計画・解答速報の冒頭と /links のカード）。
+ * 本試験当日（JST）までは直前パック、翌日からは年度をまたいで使う過去問 PDF。
+ */
+export function pe1LeadMagazineId(nowMs = Date.now()): MagazineId {
+  return isAfterExamDay('pe-first-stage', 'exam', nowMs) ? 'pe1-takuitsu-pdf' : 'pe1-chokuzen-pack';
+}
+
+/**
  * 2級二次ページ（年度別・二次の始め方）の冒頭 CTA を、試験日のSSOTに合わせて切り替える。
  * 第二次検定当日（JST）までは直前総仕上げパック、翌日からは二次まるごとパックを案内する。
  *
@@ -933,14 +941,13 @@ function resolvePlacementRaw(
   }
   // 2026-10-26: 試験日（11/22）の翌日からは「直前」の直前パックをやめ、年度をまたいで使う過去問 PDF へ。
   //   暗記ノートは説明に試験日・年度が無く、旧年度・上下水道ページの理由（年度に依存しない要点整理）も変わらないので据え置く。
-  const pe1AfterExam = isAfterExamDay('pe-first-stage', 'exam');
   if (slug === 'pe-first-stage-guide-overview' || slug === 'pe-first-stage-guide-study-plan') {
-    return { top: slot(pe1AfterExam ? 'pe1-takuitsu-pdf' : 'pe1-chokuzen-pack', slug, 'top'), inline: [] };
+    return { top: slot(pe1LeadMagazineId(), slug, 'top'), inline: [] };
   }
   // 解答速報: 試験前は直前パック、翌日からは自己採点のあとに続けやすい過去問 PDF。
   //   末尾の本文カードは二次の入口（必須科目I）に固定で、一次合格の見込みがある読者を受ける。
   if (slug === 'pe-first-stage-guide-r08-answers') {
-    return { top: slot(pe1AfterExam ? 'pe1-takuitsu-pdf' : 'pe1-chokuzen-pack', slug, 'top'), inline: [] };
+    return { top: slot(pe1LeadMagazineId(), slug, 'top'), inline: [] };
   }
   // 合格後のロードマップ: 次の受験段階は建設部門の二次試験なので、入口の必須科目I 模範解答集へ。
   if (slug === 'pe-first-stage-guide-after-pass') {

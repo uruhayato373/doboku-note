@@ -45,7 +45,7 @@
 1. **ヒーローバンド**: アバター + アカウント名 + キャッチコピー1行 + 名乗り（資格数は `EXAM_CARDS.length` から。保有資格は `sm` 以上だけ）+ **グループチップ**（`#group-{id}` へジャンプ。`EXAM_GROUPS` から導出）+ **運営者の導線 1 行**（X・note もくじ〔L1〕・`/about`）。スマホも横並びの小型版
 2. **資格カード**（`ExamCardView`）: `EXAM_GROUPS` 配下に置き、モバイル1列／`sm` 2列／3枚のグループは`lg` 3列。1枚は資格ブランド帯 + 見出し + tagline + **最大3行**。スマホでは帯をテーマ色の線だけにし（イラストは `sm` 以上）、グループの説明文も省く
    - ①**サイトで無料学習** → `/exam/{...}`（内部リンク）
-   - ②**note もくじ（L2）** → `config/note-funnel.json` の `exams.{key}.L2` を参照（**存在時のみ**。URLをページに直書きしない）。L2 未作成の技術士第一次は、`note-magazines.ts` の `pe1-chokuzen-pack` を実商品の教材行として表示する
+   - ②**note もくじ（L2）** → `config/note-funnel.json` の `exams.{key}.L2` を参照（**存在時のみ**。URLをページに直書きしない）。L2 未作成の技術士第一次は、`magazine-placement.ts` の `pe1LeadMagazineId()`（本試験当日までは直前パック `pe1-chokuzen-pack`、翌日から過去問 PDF `pe1-takuitsu-pdf`・ビルド時の日付で決まる）を実商品の教材行として表示する
    - ③**個別サービス** → 資格に紐づく listed のココナラから**代表 1 件**。`pickCoconalaFor`（`src/lib/exam-key-bridge.ts`）が選ぶ。**0 件なら行ごと省略**（主任技士は添削を含む 3 行、技士・診断士は 2 行）
    - 技術士第一次は①サイト行と②直前パックの教材行を表示する（2026-10-03）
    - 各行はアイコン（`ServiceIcon`）+ リンク名 + チャネル小ラベル + 特徴 1 行。特徴は `line-clamp: 2`（商品 `description` は 170〜210 字あり、素で出すと 1 行だけ 220px になる）
