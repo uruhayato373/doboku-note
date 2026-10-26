@@ -15,6 +15,7 @@ import { writeGeneratedJson } from '../../../scripts/lib/generated-json.mjs';
 import { join, relative } from 'node:path';
 import { extractStatementExplanations } from '../../../scripts/lib/statement-explanations.mjs';
 import { REPO_ROOT, SITE_CONTENT_ROOT } from '../../../scripts/lib/repository-paths.mjs';
+import { isUnpublishedMdx } from '../../../scripts/lib/mdx-published.mjs';
 
 const POSTS = join(SITE_CONTENT_ROOT, 'civil-construction-1');
 const OUT = join(REPO_ROOT, 'src/config/civil-1-exam-questions.json');
@@ -31,6 +32,8 @@ function parseArticle(dir) {
   const year = m[1];
   const part = (m[2] || 'a').toUpperCase();
   const raw = readFileSync(join(POSTS, dir, 'article.mdx'), 'utf8').replace(/\r\n/g, '\n'); // CRLF の作業ツリーでも \r を残さない（DN-0714）
+  // 非公開の下書き（公式正答の無い年度で、運営者の確定前）は演習データへ入れない（DN-0866）
+  if (isUnpublishedMdx(raw)) return { year, part, questions: [], skipped: true };
   const body = stripFrontmatter(raw);
   const blocks = body.split(/^## 問題 No\./m).slice(1);
   const out = [];
@@ -98,11 +101,14 @@ function parseArticle(dir) {
 
 const dirs = readdirSync(POSTS).filter((d) => /^primary-[hr]\d{2}(-[ab])?$/.test(d)).sort();
 const byYear = {};
+const skipped = [];
 for (const d of dirs) {
   const r = parseArticle(d);
   if (!r) continue;
+  if (r.skipped) { skipped.push(d); continue; }
   (byYear[r.year] ||= []).push(...r.questions);
 }
+if (skipped.length) console.log(`非公開の下書きを除外: ${skipped.join(' ')}`);
 const years = Object.keys(byYear).sort().map((year) => ({ year, questions: byYear[year].sort((a, b) => a.part.localeCompare(b.part) || a.no - b.no) }));
 const result = { generatedAt: new Date().toISOString().slice(0, 19) + 'Z', exam: 'civil-1', years };
 if (!writeGeneratedJson(OUT, result, { newline: false })) console.log('変更なし（書かない）');
