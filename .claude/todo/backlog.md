@@ -332,6 +332,9 @@
 
 drive-vault-sync -- --group source-transcript --verify --deep が 240 件中 1 件の不一致で FAIL（2026-10-24 確認）。content/sources/textbook/技術士（総監）/テキスト/総監論文対策/総監論文に求められるもの.md の Drive 実体が 2026-09-30 に更新され（26,556→26,554 bytes）、drive-manifest の sha256 と違う。同じ本の README（content/sources/books/pe-cem-essay-guide__総監論文対策/README.md）が p.24 の指で隠れた箇所を文脈で埋めた誤りを記録しており、その手直しの可能性がある。check-reference-sources --deep も transcript-method（廃止前の視覚 OCR の中身が変わった・PR #1211）で同じファイルを止める。どちらの中身を正とするかを決め、視覚 OCR を手で直すのでなく機械 OCR（book_ocr_machine.py）で作り直すか、Drive を台帳の版へ戻す。完了条件: drive-vault-sync --group source-transcript --verify --deep と check-reference-sources --deep が exit 0。
 
+止まっている所（2026-10-26）: どちらを正とするかの判断待ち。Drive 実体と台帳の版の差は 2 行だけで、ページ画像 p0015（版面 p.36）・p0016（p.37）と照らすと Drive 側（「(1)(2) で書いていない条件を追加する」「この条件を満たすものである。」）が原本どおり、台帳側（「(1) で…」「⇒ (2) の条件を満たす…」）が誤り。
+Drive を台帳の版へ戻すと誤りを書き戻す。機械 OCR（part-01.md）は指の写り込みで崩れていて代わりにならない。選択肢は legacyVisualOcrTranscripts の sha256 を Drive の版へ更新する例外を認めるか、本の撮り直しを待つか。なお check-reference-sources --deep には別件の verbatim 7 件の FAIL（civil1-textbook の 3 記事）もあり、この 1 件を直しても exit 0 にならない。
+
 
 ### [DN-0830] note 原稿のタスクリスト記法（- [ ]）が note でそのまま出るのを直し、検査で止める（公開 4 本・計 70 行）
 タグ: [コンテンツ品質] [領域:商品] [時期:2026-11] [種類:不具合] [起票:2026-10-24]
@@ -784,6 +787,9 @@ drive-vault-sync -- --group source-transcript --verify --deep が 240 件中 1 �
 **やること**: Drive をマウントした PC（Mac）で、最新の develop から `node scripts/generate-magazine-covers.mjs` でマガジンの `_cover.png` を作り直し、`node scripts/drive-vault-sync.mjs --group note-magazine-cover-png --commit` で控えを保存する。作り直した画像の sha256 が台帳の `magazineCovers[*].sha256` と一致することを確かめてから保存する（一致しなければ保存せず理由を書く）。
 
 **完了条件**: `node scripts/drive-vault-sync.mjs --group note-magazine-cover-png` の差分が 0 件で、2026-10-07 に登録した誌の控えが vault にある。
+
+止まっている所（2026-10-26）: マガジンカバー側とカバー未退避 14 件は済み。残りは記事カバーの local-newer 139 件（本体 Mac の作業ツリー）。うち 135 件は note に登録済みの版（text-first 設計・2026-09-28）が R2 にあり、手元が 8/31〜9/24 の旧版なので R2 へ上げてはいけない（手元を `asset-hydrate` で R2 から戻す側）。
+残る 3 件は採用版の判断待ち: 総監 設問3国家施策バンク/00-序章 は手元・R2・note 登録のどれも別の値、技術士建設部門・総監の「筆記合格発表後にやること-無料」は note 登録の記録なし。
 
 
 ### [DN-0514] 2級土木の note 商品ラインナップを試験後に整理する（販売 0 の 18 商品の見せ方・工種別パックを工事バンクの入口に）
@@ -1446,6 +1452,9 @@ Windows の PowerShell で repo 直下から順に:
 
 **完了条件**: npm run check-local-data と npm run check-drive-vault が通り、手元にしか無い PDF が 0 件。
 
+止まっている所（2026-10-26）: 本体 Mac の PDF 1,472 本を洗い出した。930 本は Drive 台帳と sha256 一致、71 本（content/note の配布 PDF。再生成で sha256 が必ず変わる）は台帳の版と手元が違い、470 本は台帳外（.tmp の作業用 433 本・.local/cache 37 本）。
+71 本の上書きと .tmp の扱い（Drive へ上げるか捨てるか）は判断が要り、「ローカルに原本を残さない」は削除を伴うので未着手。check-local-data は PDF 以外の申告外 171 件、check-drive-vault は .tmp/video-render の 37 件で落ちており、PDF では落ちていない。
+
 
 
 
@@ -1996,17 +2005,6 @@ Phase 3の評価を戦略SSOTへ反映し、資格拡張の可否を確定した
 
 **完了条件**: ストーリーズの投稿が `publish-ig-bs` の dry-run で通るか、できない根拠が方針文書に書かれている。
 
-### [DN-0838] Kindle の EPUB・表紙の Drive 控え（制作物/Kindle）を、private R2 の正本と sha256 で突き合わせて足す
-タグ: [インフラ・計測] [領域:商品] [種類:改善] [起票:2026-10-24]
-
-**起点**: KDP 入稿物（`kindle-dist`）の正本は 2026-10-12（DN-0562）に private R2 `kindle/dist/` へ変わった（`config/asset-storage.json`）。人が入稿に使う控えは Drive `制作物/Kindle`（`config/drive-vault.json` の kindle-dist は両 tier の active にすると衝突するため pending）。Drive には同名の 110 件が既にあり、台帳との sha256 の突き合わせが未了。`--commit` の `drive-vault-sync` は同名を上書きするので、先に同名の sha256 を比べて差分だけにする。
-
-**やること**:
-1. private R2 の正本と Drive `制作物/Kindle` の同名ファイルの sha256 を比べ、差分と足りないものだけを `node scripts/drive-vault-sync.mjs --group kindle-dist` で同期する（重複作成しない）。
-2. Drive から全バイトを読み戻して R2 の sha256 と一致することを確かめ、`.claude/state/assets/drive-manifest.json` に登録して pending を active に切り替える。
-3. 空の復元先から既存の pull 経路で復元できることを確かめる（Mac 実機。未確認ならその制約を報告に残す）。
-
-**完了条件**: 対象数と実検査数が一致し、全件が Drive へ同期・台帳登録され、Drive の読み戻しと復元で sha256 が一致している。R2 の実体は削除しない（削除は別途ユーザー判断）。
 
 ### [DN-0839] Tailwind v4 の対象未満ブラウザ（iOS 16.3 以下・macOS Safari 16.3 以下）の比率を GA4 の探索で一度確かめる
 タグ: [インフラ・計測] [領域:サイト] [種類:改善] [起票:2026-10-24]
