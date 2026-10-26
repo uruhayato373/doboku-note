@@ -2,14 +2,15 @@
   "schemaVersion": 1,
   "title": "先生と学ぶ、秋の資格対策",
   "from": "2026-09-15",
-  "to": "2026-10-31",
+  "to": "2026-11-29",
   "timezone": "Asia/Tokyo",
   "plans": [
     "content/sns/x/campaigns/2026-09-civil.json",
     "content/sns/x/campaigns/2026-10-character.json",
     "content/sns/x/campaigns/2026-10-civil-final.json",
     "content/sns/x/campaigns/2026-10-rccm.json",
-    "content/sns/x/campaigns/2026-10-civil2-lastweek.json"
+    "content/sns/x/campaigns/2026-10-civil2-lastweek.json",
+    "content/sns/x/campaigns/2026-11-pe1-concrete.json"
   ],
   "drafts": [
     "090-civil-2026-09-a",
@@ -22,7 +23,10 @@
     "097-civil2-final-2026-10",
     "104-rccm-2026-10",
     "106-civil2-lastweek-2026-10",
-    "107-civil2-coconala-2026-10"
+    "107-civil2-coconala-2026-10",
+    "110-concrete-chief-persona-needs",
+    "112-pe-first-stage-final-2026-11",
+    "113-concrete-chief-final-2026-11"
   ],
   "newCardDrafts": [
     "091-civil-2026-09-b",

@@ -34,7 +34,7 @@
       "同じ URL を3本以上の予約に貼らない（無料演習は 11/3・11/10 の2本だけ）。価格は本文に書かない（正本は config/products.json）",
       "コンクリートは主任技士と技士を同日に実施する。exam は concrete-chief にそろえ、技士の投稿は topic に「技士」と書く。タグは #コンクリート主任技士 #コンクリート技士 を基本に1〜3個（x-post-policy §4）",
       "解答速報（一次 11/22 夕方以降・サイト /exam/pe-first-stage/guide/r08-answers）は予約に馴染まないため計画に入れず、試験後に即時投稿で扱う",
-      "linkless・site の原稿は未作成。x-post-writer がこの計画の日付・型・着地先を変えずに書き、予約は1週間分ずつ（x-post-policy §11.2）"
+      "linkless・site・販売の原稿は 112（技術士一次22本）と 113（コンクリート28本）に作成済み（2026-10-26）。日付・時刻・型・着地先は計画のまま。予約は1週間分ずつ（x-post-policy §11.2）。status.json の scheduled は計画であり実予約の完了ではない"
     ]
   },
   "posts": [
@@ -47,7 +47,9 @@
       "funnel": "linkless",
       "target": null,
       "image": null,
-      "topic": "適性科目・技術士法の3義務2責務"
+      "topic": "適性科目・技術士法の3義務2責務",
+      "draft": "112-pe-first-stage-final-2026-11",
+      "tweet": 1
     },
     {
       "date": "2026-11-01",
@@ -71,7 +73,9 @@
       "funnel": "linkless",
       "target": null,
       "image": null,
-      "topic": "主任技士 択一・材料と配合の数値"
+      "topic": "主任技士 択一・材料と配合の数値",
+      "draft": "113-concrete-chief-final-2026-11",
+      "tweet": 1
     },
     {
       "date": "2026-11-02",
@@ -82,7 +86,9 @@
       "funnel": "note",
       "target": "https://note.com/dobokunote/m/mfa3fcffdd85d?utm_source=x&utm_medium=social&utm_campaign=pe1-cce-2026-11&utm_content=202611-02-note",
       "image": null,
-      "topic": "残り3週間の仕上げ（過去問PDF＋暗記ノート）"
+      "topic": "残り3週間の仕上げ（過去問PDF＋暗記ノート）",
+      "draft": "112-pe-first-stage-final-2026-11",
+      "tweet": 2
     },
     {
       "date": "2026-11-03",
@@ -93,7 +99,9 @@
       "funnel": "site",
       "target": "https://doboku-note.com/tools/kakomon-quiz/pe-first-stage?utm_source=x&utm_medium=social&utm_campaign=pe1-cce-2026-11&utm_content=202611-03",
       "image": null,
-      "topic": "基礎科目・解析"
+      "topic": "基礎科目・解析",
+      "draft": "112-pe-first-stage-final-2026-11",
+      "tweet": 3
     },
     {
       "date": "2026-11-03",
@@ -117,7 +125,9 @@
       "funnel": "linkless",
       "target": null,
       "image": null,
-      "topic": "専門科目・土質基礎"
+      "topic": "専門科目・土質基礎",
+      "draft": "112-pe-first-stage-final-2026-11",
+      "tweet": 4
     },
     {
       "date": "2026-11-04",
@@ -128,7 +138,9 @@
       "funnel": "linkless",
       "target": null,
       "image": null,
-      "topic": "主任技士 小論文・令和形式の1題約1,000字"
+      "topic": "主任技士 小論文・令和形式の1題約1,000字",
+      "draft": "113-concrete-chief-final-2026-11",
+      "tweet": 2
     },
     {
       "date": "2026-11-05",
@@ -139,7 +151,9 @@
       "funnel": "linkless",
       "target": null,
       "image": null,
-      "topic": "基礎科目・情報論理"
+      "topic": "基礎科目・情報論理",
+      "draft": "112-pe-first-stage-final-2026-11",
+      "tweet": 5
     },
     {
       "date": "2026-11-05",
@@ -163,7 +177,9 @@
       "funnel": "linkless",
       "target": null,
       "image": null,
-      "topic": "技士 択一・配合計算の手順"
+      "topic": "技士 択一・配合計算の手順",
+      "draft": "113-concrete-chief-final-2026-11",
+      "tweet": 3
     },
     {
       "date": "2026-11-06",
@@ -174,7 +190,9 @@
       "funnel": "site",
       "target": "https://doboku-note.com/exam/pe-first-stage/guide/study-plan?utm_source=x&utm_medium=social&utm_campaign=pe1-cce-2026-11&utm_content=202611-06",
       "image": null,
-      "topic": "1か月を切ってからの勉強法"
+      "topic": "1か月を切ってからの勉強法",
+      "draft": "112-pe-first-stage-final-2026-11",
+      "tweet": 6
     },
     {
       "date": "2026-11-07",
@@ -185,7 +203,9 @@
       "funnel": "linkless",
       "target": null,
       "image": null,
-      "topic": "適性科目・公益の確保"
+      "topic": "適性科目・公益の確保",
+      "draft": "112-pe-first-stage-final-2026-11",
+      "tweet": 7
     },
     {
       "date": "2026-11-07",
@@ -209,7 +229,9 @@
       "funnel": "linkless",
       "target": null,
       "image": null,
-      "topic": "基礎科目・設計計画（信頼性）"
+      "topic": "基礎科目・設計計画（信頼性）",
+      "draft": "112-pe-first-stage-final-2026-11",
+      "tweet": 8
     },
     {
       "date": "2026-11-08",
@@ -220,7 +242,9 @@
       "funnel": "site",
       "target": "https://doboku-note.com/exam/concrete-chief-engineer/guide/essay?utm_source=x&utm_medium=social&utm_campaign=pe1-cce-2026-11&utm_content=202611-08",
       "image": null,
-      "topic": "主任技士 小論文の書き方"
+      "topic": "主任技士 小論文の書き方",
+      "draft": "113-concrete-chief-final-2026-11",
+      "tweet": 4
     },
     {
       "date": "2026-11-09",
@@ -231,7 +255,9 @@
       "funnel": "linkless",
       "target": null,
       "image": null,
-      "topic": "3科目の時間配分と見直し"
+      "topic": "3科目の時間配分と見直し",
+      "draft": "112-pe-first-stage-final-2026-11",
+      "tweet": 9
     },
     {
       "date": "2026-11-09",
@@ -255,7 +281,9 @@
       "funnel": "linkless",
       "target": null,
       "image": null,
-      "topic": "技士 択一・スランプと空気量の許容差"
+      "topic": "技士 択一・スランプと空気量の許容差",
+      "draft": "113-concrete-chief-final-2026-11",
+      "tweet": 5
     },
     {
       "date": "2026-11-10",
@@ -266,7 +294,9 @@
       "funnel": "site",
       "target": "https://doboku-note.com/tools/kakomon-quiz/pe-first-stage?utm_source=x&utm_medium=social&utm_campaign=pe1-cce-2026-11&utm_content=202611-10",
       "image": null,
-      "topic": "間違い復習モードの使い方"
+      "topic": "間違い復習モードの使い方",
+      "draft": "112-pe-first-stage-final-2026-11",
+      "tweet": 10
     },
     {
       "date": "2026-11-11",
@@ -277,7 +307,9 @@
       "funnel": "linkless",
       "target": null,
       "image": null,
-      "topic": "専門科目・鋼構造とコンクリート"
+      "topic": "専門科目・鋼構造とコンクリート",
+      "draft": "112-pe-first-stage-final-2026-11",
+      "tweet": 11
     },
     {
       "date": "2026-11-11",
@@ -301,7 +333,9 @@
       "funnel": "linkless",
       "target": null,
       "image": null,
-      "topic": "主任技士 小論文の時間配分"
+      "topic": "主任技士 小論文の時間配分",
+      "draft": "113-concrete-chief-final-2026-11",
+      "tweet": 6
     },
     {
       "date": "2026-11-12",
@@ -312,7 +346,9 @@
       "funnel": "note",
       "target": "https://note.com/dobokunote/n/n466132e6fd74?utm_source=x&utm_medium=social&utm_campaign=pe1-cce-2026-11&utm_content=202611-12-note",
       "image": null,
-      "topic": "紙で周回する全560問"
+      "topic": "紙で周回する全560問",
+      "draft": "112-pe-first-stage-final-2026-11",
+      "tweet": 12
     },
     {
       "date": "2026-11-13",
@@ -323,7 +359,9 @@
       "funnel": "linkless",
       "target": null,
       "image": null,
-      "topic": "適性科目・知的財産と個人情報"
+      "topic": "適性科目・知的財産と個人情報",
+      "draft": "112-pe-first-stage-final-2026-11",
+      "tweet": 13
     },
     {
       "date": "2026-11-13",
@@ -334,7 +372,9 @@
       "funnel": "linkless",
       "target": null,
       "image": null,
-      "topic": "技士 択一・暑中と寒中コンクリート"
+      "topic": "技士 択一・暑中と寒中コンクリート",
+      "draft": "113-concrete-chief-final-2026-11",
+      "tweet": 7
     },
     {
       "date": "2026-11-14",
@@ -345,7 +385,9 @@
       "funnel": "linkless",
       "target": null,
       "image": null,
-      "topic": "基礎科目・材料化学バイオ"
+      "topic": "基礎科目・材料化学バイオ",
+      "draft": "112-pe-first-stage-final-2026-11",
+      "tweet": 14
     },
     {
       "date": "2026-11-14",
@@ -369,7 +411,9 @@
       "funnel": "site",
       "target": "https://doboku-note.com/exam/concrete-engineer/guide/study-plan?utm_source=x&utm_medium=social&utm_campaign=pe1-cce-2026-11&utm_content=202611-15",
       "image": null,
-      "topic": "技士 残り2週間の学習計画"
+      "topic": "技士 残り2週間の学習計画",
+      "draft": "113-concrete-chief-final-2026-11",
+      "tweet": 8
     },
     {
       "date": "2026-11-15",
@@ -380,7 +424,9 @@
       "funnel": "linkless",
       "target": null,
       "image": null,
-      "topic": "専門科目・河川砂防"
+      "topic": "専門科目・河川砂防",
+      "draft": "112-pe-first-stage-final-2026-11",
+      "tweet": 15
     },
     {
       "date": "2026-11-16",
@@ -391,7 +437,9 @@
       "funnel": "site",
       "target": "https://doboku-note.com/exam/pe-first-stage/guide/aptitude-subject?utm_source=x&utm_medium=social&utm_campaign=pe1-cce-2026-11&utm_content=202611-16",
       "image": null,
-      "topic": "適性科目の得点の取り方"
+      "topic": "適性科目の得点の取り方",
+      "draft": "112-pe-first-stage-final-2026-11",
+      "tweet": 16
     },
     {
       "date": "2026-11-16",
@@ -415,7 +463,9 @@
       "funnel": "linkless",
       "target": null,
       "image": null,
-      "topic": "主任技士 択一・配合計算の公式"
+      "topic": "主任技士 択一・配合計算の公式",
+      "draft": "113-concrete-chief-final-2026-11",
+      "tweet": 9
     },
     {
       "date": "2026-11-17",
@@ -426,7 +476,9 @@
       "funnel": "linkless",
       "target": null,
       "image": null,
-      "topic": "基礎科目・解析の単位"
+      "topic": "基礎科目・解析の単位",
+      "draft": "112-pe-first-stage-final-2026-11",
+      "tweet": 17
     },
     {
       "date": "2026-11-18",
@@ -437,7 +489,9 @@
       "funnel": "linkless",
       "target": null,
       "image": null,
-      "topic": "残り4日の過ごし方"
+      "topic": "残り4日の過ごし方",
+      "draft": "112-pe-first-stage-final-2026-11",
+      "tweet": 18
     },
     {
       "date": "2026-11-18",
@@ -448,7 +502,9 @@
       "funnel": "coconala",
       "target": "https://coconala.com/services/4425046",
       "image": null,
-      "topic": "主任技士 小論文の添削（11/25受付分まで本試験前に返却）"
+      "topic": "主任技士 小論文の添削（11/25受付分まで本試験前に返却）",
+      "draft": "113-concrete-chief-final-2026-11",
+      "tweet": 10
     },
     {
       "date": "2026-11-19",
@@ -459,7 +515,9 @@
       "funnel": "linkless",
       "target": null,
       "image": null,
-      "topic": "主任技士 小論文が書けない"
+      "topic": "主任技士 小論文が書けない",
+      "draft": "113-concrete-chief-final-2026-11",
+      "tweet": 11
     },
     {
       "date": "2026-11-19",
@@ -470,7 +528,9 @@
       "funnel": "linkless",
       "target": null,
       "image": null,
-      "topic": "適性科目・技術士法の条文の語句"
+      "topic": "適性科目・技術士法の条文の語句",
+      "draft": "112-pe-first-stage-final-2026-11",
+      "tweet": 19
     },
     {
       "date": "2026-11-20",
@@ -481,7 +541,9 @@
       "funnel": "linkless",
       "target": null,
       "image": null,
-      "topic": "技士 択一・JISの用語"
+      "topic": "技士 択一・JISの用語",
+      "draft": "113-concrete-chief-final-2026-11",
+      "tweet": 12
     },
     {
       "date": "2026-11-20",
@@ -492,7 +554,9 @@
       "funnel": "note",
       "target": "https://note.com/dobokunote/n/n7b4f17a09d3f?utm_source=x&utm_medium=social&utm_campaign=pe1-cce-2026-11&utm_content=202611-20-note",
       "image": null,
-      "topic": "残り2日の暗記（一問一答156問）"
+      "topic": "残り2日の暗記（一問一答156問）",
+      "draft": "112-pe-first-stage-final-2026-11",
+      "tweet": 20
     },
     {
       "date": "2026-11-21",
@@ -503,7 +567,9 @@
       "funnel": "linkless",
       "target": null,
       "image": null,
-      "topic": "前日の持ち物と時間配分（購入は促さない）"
+      "topic": "前日の持ち物と時間配分（購入は促さない）",
+      "draft": "112-pe-first-stage-final-2026-11",
+      "tweet": 21
     },
     {
       "date": "2026-11-21",
@@ -514,7 +580,9 @@
       "funnel": "note",
       "target": "https://note.com/dobokunote/m/mfdf781d7222b?utm_source=x&utm_medium=social&utm_campaign=pe1-cce-2026-11&utm_content=202611-21-note",
       "image": null,
-      "topic": "主任技士 択一（予想50問＋配合計算12問＋暗記157問）"
+      "topic": "主任技士 択一（予想50問＋配合計算12問＋暗記157問）",
+      "draft": "113-concrete-chief-final-2026-11",
+      "tweet": 13
     },
     {
       "date": "2026-11-22",
@@ -525,7 +593,9 @@
       "funnel": "linkless",
       "target": null,
       "image": null,
-      "topic": "本試験当日の朝"
+      "topic": "本試験当日の朝",
+      "draft": "112-pe-first-stage-final-2026-11",
+      "tweet": 22
     },
     {
       "date": "2026-11-22",
@@ -536,7 +606,9 @@
       "funnel": "linkless",
       "target": null,
       "image": null,
-      "topic": "主任技士 択一・耐久性（塩害・ASR）"
+      "topic": "主任技士 択一・耐久性（塩害・ASR）",
+      "draft": "113-concrete-chief-final-2026-11",
+      "tweet": 14
     },
     {
       "date": "2026-11-23",
@@ -547,7 +619,9 @@
       "funnel": "linkless",
       "target": null,
       "image": null,
-      "topic": "技士 択一・骨材と混和材料"
+      "topic": "技士 択一・骨材と混和材料",
+      "draft": "113-concrete-chief-final-2026-11",
+      "tweet": 15
     },
     {
       "date": "2026-11-23",
@@ -558,7 +632,9 @@
       "funnel": "coconala",
       "target": "https://coconala.com/services/4425046",
       "image": null,
-      "topic": "添削の受付は11/25まで（最終案内・前回と別の角度）"
+      "topic": "添削の受付は11/25まで（最終案内・前回と別の角度）",
+      "draft": "113-concrete-chief-final-2026-11",
+      "tweet": 16
     },
     {
       "date": "2026-11-24",
@@ -569,7 +645,9 @@
       "funnel": "linkless",
       "target": null,
       "image": null,
-      "topic": "主任技士 小論文・題意への応答"
+      "topic": "主任技士 小論文・題意への応答",
+      "draft": "113-concrete-chief-final-2026-11",
+      "tweet": 17
     },
     {
       "date": "2026-11-24",
@@ -580,7 +658,9 @@
       "funnel": "site",
       "target": "https://doboku-note.com/exam/concrete-chief-engineer/guide/trends?utm_source=x&utm_medium=social&utm_campaign=pe1-cce-2026-11&utm_content=202611-24",
       "image": null,
-      "topic": "主任技士 小論文の出題傾向"
+      "topic": "主任技士 小論文の出題傾向",
+      "draft": "113-concrete-chief-final-2026-11",
+      "tweet": 18
     },
     {
       "date": "2026-11-25",
@@ -591,7 +671,9 @@
       "funnel": "linkless",
       "target": null,
       "image": null,
-      "topic": "技士 残り4日"
+      "topic": "技士 残り4日",
+      "draft": "113-concrete-chief-final-2026-11",
+      "tweet": 19
     },
     {
       "date": "2026-11-25",
@@ -602,7 +684,9 @@
       "funnel": "note",
       "target": "https://note.com/dobokunote/m/m49ac37c76bef?utm_source=x&utm_medium=social&utm_campaign=pe1-cce-2026-11&utm_content=202611-25-note",
       "image": null,
-      "topic": "技士 択一（配合計算・JIS判断12問＋暗記139問）"
+      "topic": "技士 択一（配合計算・JIS判断12問＋暗記139問）",
+      "draft": "113-concrete-chief-final-2026-11",
+      "tweet": 20
     },
     {
       "date": "2026-11-26",
@@ -613,7 +697,9 @@
       "funnel": "linkless",
       "target": null,
       "image": null,
-      "topic": "主任技士 択一・施工（打重ね・養生）"
+      "topic": "主任技士 択一・施工（打重ね・養生）",
+      "draft": "113-concrete-chief-final-2026-11",
+      "tweet": 21
     },
     {
       "date": "2026-11-26",
@@ -624,7 +710,9 @@
       "funnel": "note",
       "target": "https://note.com/dobokunote/n/n3ced0cbfbb42?utm_source=x&utm_medium=social&utm_campaign=pe1-cce-2026-11&utm_content=202611-26-note",
       "image": null,
-      "topic": "主任技士 立場別もくじ（無料）"
+      "topic": "主任技士 立場別もくじ（無料）",
+      "draft": "113-concrete-chief-final-2026-11",
+      "tweet": 22
     },
     {
       "date": "2026-11-27",
@@ -635,7 +723,9 @@
       "funnel": "linkless",
       "target": null,
       "image": null,
-      "topic": "技士 択一・品質管理の試験方法"
+      "topic": "技士 択一・品質管理の試験方法",
+      "draft": "113-concrete-chief-final-2026-11",
+      "tweet": 23
     },
     {
       "date": "2026-11-27",
@@ -646,7 +736,9 @@
       "funnel": "linkless",
       "target": null,
       "image": null,
-      "topic": "主任技士 択一・製品とプレストレス"
+      "topic": "主任技士 択一・製品とプレストレス",
+      "draft": "113-concrete-chief-final-2026-11",
+      "tweet": 24
     },
     {
       "date": "2026-11-28",
@@ -657,7 +749,9 @@
       "funnel": "linkless",
       "target": null,
       "image": null,
-      "topic": "主任技士 前日（小論文の時間配分・購入は促さない）"
+      "topic": "主任技士 前日（小論文の時間配分・購入は促さない）",
+      "draft": "113-concrete-chief-final-2026-11",
+      "tweet": 25
     },
     {
       "date": "2026-11-28",
@@ -668,7 +762,9 @@
       "funnel": "linkless",
       "target": null,
       "image": null,
-      "topic": "技士 前日（持ち物・計算の手順・購入は促さない）"
+      "topic": "技士 前日（持ち物・計算の手順・購入は促さない）",
+      "draft": "113-concrete-chief-final-2026-11",
+      "tweet": 26
     },
     {
       "date": "2026-11-29",
@@ -679,7 +775,9 @@
       "funnel": "linkless",
       "target": null,
       "image": null,
-      "topic": "本試験当日の朝"
+      "topic": "本試験当日の朝",
+      "draft": "113-concrete-chief-final-2026-11",
+      "tweet": 27
     },
     {
       "date": "2026-11-29",
@@ -690,7 +788,9 @@
       "funnel": "linkless",
       "target": null,
       "image": null,
-      "topic": "試験後の振り返り（販売なし）"
+      "topic": "試験後の振り返り（販売なし）",
+      "draft": "113-concrete-chief-final-2026-11",
+      "tweet": 28
     }
   ]
 }

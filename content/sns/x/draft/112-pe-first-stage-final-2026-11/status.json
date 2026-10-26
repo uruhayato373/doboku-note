@@ -1,0 +1,160 @@
+{
+  "exam": "pe-first-stage",
+  "tweets": {
+    "1": {
+      "title": "11/01 07:45 pe-first-stage / 引っかけ集 / linkless",
+      "text": "技術士法の引っかけは、正しい条文に一言足す型。\n・秘密保持は、技術士でなくなった後も続く\n・名称表示で示すのは、登録を受けた技術部門（実務経験年数を足す肢は誤り）\n・公益確保と資質向上は「義務」ではなく「責務」\n主語と範囲を一語ずつ確認。\n\n#技術士 #技術士第一次試験 #技術士法",
+      "status": "scheduled",
+      "scheduled_at": "2026-11-01T07:45:00+09:00",
+      "posted_at": null
+    },
+    "2": {
+      "title": "11/02 19:50 pe-first-stage / 直前パック / note",
+      "text": "試験まで3週間を切りました。この時期は教材を増やすより、過去問を紙で周回して、抜けを暗記で埋める方が効きます。令和元〜7年度の全560問を全選択肢の解説つきで印刷できるPDFと、一問一答156問を、2点にまとめました。\n\nhttps://note.com/dobokunote/m/mfa3fcffdd85d?utm_source=x&utm_medium=social&utm_campaign=pe1-cce-2026-11&utm_content=202611-02-note\n#技術士 #技術士第一次試験",
+      "status": "scheduled",
+      "scheduled_at": "2026-11-02T19:50:00+09:00",
+      "posted_at": null
+    },
+    "3": {
+      "title": "11/03 08:10 pe-first-stage / 過去問1問1答 / site",
+      "text": "勾配ベクトルの長さは、偏微分の組を点に代入してから、成分の2乗和の平方根で出す。ベクトルそのものと、その長さ（スカラー）を取り違えない。無料演習で、基礎科目だけを選んで続けて解けます。\n\nhttps://doboku-note.com/tools/kakomon-quiz/pe-first-stage?utm_source=x&utm_medium=social&utm_campaign=pe1-cce-2026-11&utm_content=202611-03\n#技術士 #技術士第一次試験 #基礎科目",
+      "status": "scheduled",
+      "scheduled_at": "2026-11-03T08:10:00+09:00",
+      "posted_at": null
+    },
+    "4": {
+      "title": "11/04 07:30 pe-first-stage / 暗記フレーズ / linkless",
+      "text": "土質は3本の式で覚える。\nダルシー：流速 v＝Q/A＝k・h/L\n有効応力：σ′＝σ−u\n水平有効応力：σh′＝K0・σv′（全応力へ戻すなら水圧 u を足す）\n計算前に「何を足し、何を引くか」を決めておく。\n\n#技術士 #技術士第一次試験 #土質基礎",
+      "status": "scheduled",
+      "scheduled_at": "2026-11-04T07:30:00+09:00",
+      "posted_at": null
+    },
+    "5": {
+      "title": "11/05 12:15 pe-first-stage / 引っかけ集 / linkless",
+      "text": "TCPのふくそう制御は、スロースタートが指数的に増え、ふくそう回避は1RTTにつき1セグメントずつ線形に増える。タイムアウトでは、しきい値を半分にしてウィンドウを初期化。「どちらも指数的」と書く肢は誤り。\n\n#技術士 #技術士第一次試験 #情報工学",
+      "status": "scheduled",
+      "scheduled_at": "2026-11-05T12:15:00+09:00",
+      "posted_at": null
+    },
+    "6": {
+      "title": "11/06 12:50 pe-first-stage / 学習計画 / site",
+      "text": "試験まで16日。範囲を広げず、直近年度を繰り返す時期です。専門科目の直近3年、基礎科目の直近3年、残りを適性科目と通し演習に。誤答は、理由を説明できるまで解き直す。\n\nhttps://doboku-note.com/exam/pe-first-stage/guide/study-plan?utm_source=x&utm_medium=social&utm_campaign=pe1-cce-2026-11&utm_content=202611-06\n#技術士 #技術士第一次試験 #勉強法",
+      "status": "scheduled",
+      "scheduled_at": "2026-11-06T12:50:00+09:00",
+      "posted_at": null
+    },
+    "7": {
+      "title": "11/07 12:25 pe-first-stage / 引っかけ集 / linkless",
+      "text": "「公益の確保」の肢は、2つの軸で切る。\n①公衆の安全・健康・福祉を最優先にしているか\n②力量を超える業務は、他の技術士や専門家と協業する姿勢か\n助力を求めず、自分の知識だけで対応する肢は、倫理綱領の趣旨に反する。\n\n#技術士 #技術士第一次試験 #適性科目",
+      "status": "scheduled",
+      "scheduled_at": "2026-11-07T12:25:00+09:00",
+      "posted_at": null
+    },
+    "8": {
+      "title": "11/08 07:20 pe-first-stage / 暗記フレーズ / linkless",
+      "text": "信頼度の暗記は2行。\n直列系：各要素の信頼度の積（1つ壊れたら全体が止まる）\n並列系：1−（各要素の故障確率の積）（全部壊れて初めて止まる）\n直列は要素を足すほど下がり、並列は足すほど上がる。\n\n#技術士 #技術士第一次試験 #基礎科目",
+      "status": "scheduled",
+      "scheduled_at": "2026-11-08T07:20:00+09:00",
+      "posted_at": null
+    },
+    "9": {
+      "title": "11/09 08:35 pe-first-stage / 時間配分 / linkless",
+      "text": "3科目の動き方を、先に決めておく。基礎は5群から3問ずつ、適性は15問すべて、専門は35問から25問。各科目で50%以上が必要なので、1科目の取りこぼしを他では埋められない。迷う問題には印をつけて、最後に戻る。\n\n#技術士 #技術士第一次試験 #時間配分",
+      "status": "scheduled",
+      "scheduled_at": "2026-11-09T08:35:00+09:00",
+      "posted_at": null
+    },
+    "10": {
+      "title": "11/10 12:10 pe-first-stage / 過去問1問1答 / site",
+      "text": "間違えた問題は、無料演習の「間違いだけ復習」で解き直せます。間違えた問題が自動で貯まり、解き直して正解すると一覧から消える。記録はこの端末のブラウザに保存。残り12日、周回の仕上げに。\n\nhttps://doboku-note.com/tools/kakomon-quiz/pe-first-stage?utm_source=x&utm_medium=social&utm_campaign=pe1-cce-2026-11&utm_content=202611-10\n#技術士 #技術士第一次試験 #過去問",
+      "status": "scheduled",
+      "scheduled_at": "2026-11-10T12:10:00+09:00",
+      "posted_at": null
+    },
+    "11": {
+      "title": "11/11 12:30 pe-first-stage / 引っかけ集 / linkless",
+      "text": "鋼構造とコンクリートは、逆向きの言い切りに注意。\n・耐候性鋼材は、飛来塩分の多い環境には向かない\n・溶接は下向きが基本。上向き溶接は避ける\n・遅れ破壊は、引張強さが約1000N/mm²を超える高力ボルトで問題になる\n・寒冷地の主な劣化は、凍害\n\n#技術士 #技術士第一次試験 #専門科目",
+      "status": "scheduled",
+      "scheduled_at": "2026-11-11T12:30:00+09:00",
+      "posted_at": null
+    },
+    "12": {
+      "title": "11/12 20:20 pe-first-stage / 過去問PDF / note",
+      "text": "残り10日で全560問を1周するなら、1日56問。紙なら、通勤の電車でも電波のない場所でも回せます。令和元〜7年度の基礎・適性・専門を、全選択肢の正誤理由つきでA4に印刷できるPDFにしました。周回記録のシート付き。\n\nhttps://note.com/dobokunote/n/n466132e6fd74?utm_source=x&utm_medium=social&utm_campaign=pe1-cce-2026-11&utm_content=202611-12-note\n#技術士 #技術士第一次試験",
+      "status": "scheduled",
+      "scheduled_at": "2026-11-12T20:20:00+09:00",
+      "posted_at": null
+    },
+    "13": {
+      "title": "11/13 08:15 pe-first-stage / 暗記フレーズ / linkless",
+      "text": "産業財産権は4つ。特許権・実用新案権・意匠権・商標権。著作権は含まれない。個人情報の「個人識別符号」は、指紋や声紋、歩行の態様などの身体的特徴を限定列挙したもの。列挙にない特徴を混ぜる肢に注意。\n\n#技術士 #技術士第一次試験 #適性科目",
+      "status": "scheduled",
+      "scheduled_at": "2026-11-13T08:15:00+09:00",
+      "posted_at": null
+    },
+    "14": {
+      "title": "11/14 12:20 pe-first-stage / 引っかけ集 / linkless",
+      "text": "結晶粒を細かくすると、強度は上がる（ホール・ペッチ）。粗大化して強度を上げる、は逆。単位胞の原子数は、体心立方が2個、面心立方が4個。アルミ・銅・ニッケルは面心立方で、延性に富む。\n\n#技術士 #技術士第一次試験 #材料化学",
+      "status": "scheduled",
+      "scheduled_at": "2026-11-14T12:20:00+09:00",
+      "posted_at": null
+    },
+    "15": {
+      "title": "11/15 12:35 pe-first-stage / 過去問1問1答 / linkless",
+      "text": "ドレーン工法は、堤体への浸透を「防ぐ」工法ではない。浸透した水を排出して浸潤線を下げ、安定性を高める。砂防の流路工は、急勾配を避ける。流速と洗掘を抑えるため。言い切りの一語で、誤りが作られる。\n\n#技術士 #技術士第一次試験 #河川砂防",
+      "status": "scheduled",
+      "scheduled_at": "2026-11-15T12:35:00+09:00",
+      "posted_at": null
+    },
+    "16": {
+      "title": "11/16 12:10 pe-first-stage / 論点解説 / site",
+      "text": "適性科目は15問すべて解答。条文の丸暗記より、似た用語の入れ替えを見抜けるかで決まります。誤りの型は2つ。正しい条文に余計な一文を足す型と、2つの定義をそっくり入れ替える型。5分野の頻出論点を整理しました。\n\nhttps://doboku-note.com/exam/pe-first-stage/guide/aptitude-subject?utm_source=x&utm_medium=social&utm_campaign=pe1-cce-2026-11&utm_content=202611-16\n#技術士 #技術士第一次試験 #適性科目",
+      "status": "scheduled",
+      "scheduled_at": "2026-11-16T12:10:00+09:00",
+      "posted_at": null
+    },
+    "17": {
+      "title": "11/17 12:55 pe-first-stage / 引っかけ集 / linkless",
+      "text": "解析の計算は、公式より先に単位を書き出す。1Pa＝1N/m²、1J＝1N・m、1W＝1J/s。データ量の問題は、バイトとビットの換算（×8）を忘れると桁がずれる。求める値・既知の値・単位・関係式を並べてから代入。\n\n#技術士 #技術士第一次試験 #基礎科目",
+      "status": "scheduled",
+      "scheduled_at": "2026-11-17T12:55:00+09:00",
+      "posted_at": null
+    },
+    "18": {
+      "title": "11/18 07:35 pe-first-stage / 共感フック / linkless",
+      "text": "残り4日。まだ手を付けていない分野があっても、今から全部は終わりません。それで大丈夫です。やるのは、解けなかった問題の理由を言葉にすることと、直近の過去問を1回、時間を測って通すこと。新しい教材は、増やさない。\n\n#技術士 #技術士第一次試験",
+      "status": "scheduled",
+      "scheduled_at": "2026-11-18T07:35:00+09:00",
+      "posted_at": null
+    },
+    "19": {
+      "title": "11/19 12:15 pe-first-stage / 暗記フレーズ / linkless",
+      "text": "秘密保持義務の条文は、語句で穴を作られる。「正当な理由がなく」「知り得た秘密を漏らし、又は盗用してはならない」「技術士でなくなった後においても同様」。漏らすだけでなく盗用も禁止、退職後も続く、の2点。\n\n#技術士 #技術士第一次試験 #技術士法",
+      "status": "scheduled",
+      "scheduled_at": "2026-11-19T12:15:00+09:00",
+      "posted_at": null
+    },
+    "20": {
+      "title": "11/20 19:55 pe-first-stage / 暗記ノート / note",
+      "text": "残り2日の暗記は、一問一答で数値と条文の抜けだけを探す。基礎・適性・専門（建設部門）の頻出を156問に絞った暗記ノートです。最初の基礎科目は、無料で読めます。\n\nhttps://note.com/dobokunote/n/n7b4f17a09d3f?utm_source=x&utm_medium=social&utm_campaign=pe1-cce-2026-11&utm_content=202611-20-note\n#技術士 #技術士第一次試験",
+      "status": "scheduled",
+      "scheduled_at": "2026-11-20T19:55:00+09:00",
+      "posted_at": null
+    },
+    "21": {
+      "title": "11/21 12:25 pe-first-stage / 前日の学習点検 / linkless",
+      "text": "前日は、新しいことを足さない。\n①集合時刻・会場・持ち物を、受験票と実施案内で確認\n②誤答した問題の理由を、声に出して説明\n③適性科目の条文の語句を、一通り見る\n④早く寝る\n時間が余ったら、解いた問題の見直しに。\n\n#技術士 #技術士第一次試験",
+      "status": "scheduled",
+      "scheduled_at": "2026-11-21T12:25:00+09:00",
+      "posted_at": null
+    },
+    "22": {
+      "title": "11/22 07:10 pe-first-stage / 当日の応援 / linkless",
+      "text": "今日は技術士第一次試験。ここまで続けてきた分は、もう身についています。迷う問題には印をつけて先へ、見直しの時間は残して。会場では、深呼吸を。いってらっしゃい。\n\n#技術士 #技術士第一次試験",
+      "status": "scheduled",
+      "scheduled_at": "2026-11-22T07:10:00+09:00",
+      "posted_at": null
+    }
+  },
+  "updatedAt": "2026-10-26T13:05:37.749Z"
+}
