@@ -6079,6 +6079,19 @@
       "commit": "c5fc91e5758f",
       "verification": "check-standard-articles 24 文書 PASS（480）・tests/standards-*.test.mjs 103 件・PR の CI 全通過",
       "note": "PR #1278（c5fc91e57）。先に「つながない側」の回帰を固定してから、本文の幅を「3 行以上が揃って届く最も広い幅」に変えた。77 か所をつなぎ（全件目視・誤った結合 0）、以前から誤ってつながっていた 35 か所を切った。中部特記 1-1 の交通誘導警備員 ①〜⑤ は 1 項目 1 段落"
+    },
+    {
+      "id": "DN-0885",
+      "at": "2026-10-27",
+      "task": "データ配線の残り: ツール名・演習件数・資格キーの語彙・管理画面の書式・タグの旧い綴りを正本に寄せる",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "e0a163017ae5",
+      "verification": "node --test tests/data-wiring.test.mjs tests/admin-format-ratchet.test.mjs",
+      "note": "PR #1281（e0a163017）で 1〜6 を develop にマージ。SNS 系の資格キーの表は公開記録の ID を動かさないため値を変えずテストで縛った。categories.json の seoTitle の件数は JSON のため残した"
     }
   ]
 }
