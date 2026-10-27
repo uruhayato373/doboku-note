@@ -20,3 +20,15 @@ test('管理画面のページで yen・num を定義し直さない（format.ts
   const outside = out.split('\n').filter(Boolean).map((l) => l.replace(/\\/g, '/')).filter((l) => !ALLOWED.has(l.split(':')[0]));
   assert.deepEqual(outside, [], 'tools/admin-app/src/lib/format.ts の yen・num を使う');
 });
+
+test('管理画面で「¥」付きの金額をテンプレート文字列で組み立てるのは format.ts と許可した画面だけ', () => {
+  let out = '';
+  try {
+    out = execFileSync('git', ['grep', '-n', '-E', '`¥\$\{', '--', ':(glob)tools/admin-app/src/**'], { cwd: REPO_ROOT, encoding: 'utf8' });
+  } catch (e) {
+    if (e.status !== 1) throw e;
+  }
+  const allowed = new Set(['tools/admin-app/src/lib/format.ts', ...ALLOWED.keys()]);
+  const outside = out.split('\n').filter(Boolean).map((l) => l.replace(/\/g, '/')).filter((l) => !allowed.has(l.split(':')[0]));
+  assert.deepEqual(outside, [], '金額は tools/admin-app/src/lib/format.ts の yen を使う');
+});
