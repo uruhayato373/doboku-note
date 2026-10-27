@@ -1258,7 +1258,7 @@
       "format": "longform",
       "variant": "pop-diagram",
       "revisionOf": "concrete-chief-engineer/shunin-shiken-zentaizou/youtube.longform",
-      "status": "approved",
+      "status": "scheduled",
       "copy": "content/sns/video-packs/concrete-chief-engineer/shunin-shiken-zentaizou/youtube.revision-pop-diagram.json",
       "media": {
         "cover": "concrete-chief-engineer/shunin-shiken-zentaizou/work/candidate-cover",
@@ -1292,6 +1292,43 @@
         "by": "user",
         "at": "2026-10-27T12:07:31.650Z",
         "contentSha256": "d7c69850e1af995392697f41de3174ca92919227b9e51b96d0ba481cbed2083a"
+      },
+      "delivery": {
+        "inputSha256": "f45b1d409c33959bfe11b4754044ad57e3e677704b49b4cf9fcee815a3471b0c",
+        "marker": "dn-revision-ebe01983ce8c2a7fca90ab2df4b98df84623e081",
+        "uploadRequestedAt": "2026-10-27T12:15:22.222Z",
+        "videoId": "n7mNQ2VCflE",
+        "processedAt": "2026-10-27T12:16:04.782Z",
+        "thumbnailRequestedAt": "2026-10-27T12:16:04.839Z",
+        "thumbnailUrls": [
+          "https://i9.ytimg.com/vi/n7mNQ2VCflE/default.jpg?sqp=CMSrgtcG&rs=AOn4CLChWT7kfhhKXVP6SMEbCe1Ngy432Q",
+          "https://i9.ytimg.com/vi/n7mNQ2VCflE/mqdefault.jpg?sqp=CMSrgtcG&rs=AOn4CLDDSdBKk4Pkwojriz1f9OhvtBUrZg",
+          "https://i9.ytimg.com/vi/n7mNQ2VCflE/hqdefault.jpg?sqp=CMSrgtcG&rs=AOn4CLBUwxNT2sYS89wIxbjYDgs1liCwFA",
+          "https://i9.ytimg.com/vi/n7mNQ2VCflE/sddefault.jpg?sqp=CMSrgtcG&rs=AOn4CLByMAG3mgz4WgkDA5_66Jx10_qd1Q",
+          "https://i9.ytimg.com/vi/n7mNQ2VCflE/maxresdefault.jpg?sqp=CMSrgtcG&rs=AOn4CLB6in1sngVgvfR2Sx-615DSLW0UZQ",
+          "https://i9.ytimg.com/vi/n7mNQ2VCflE/fhddefault.jpg?sqp=CMSrgtcG&rs=AOn4CLCzBgm0W3U9-OaYmRDG7QFTjBGzxg"
+        ],
+        "thumbnailAcceptedAt": "2026-10-27T12:16:10.169Z",
+        "scheduleRequestedAt": "2026-10-27T12:16:10.527Z",
+        "scheduleAt": "2026-11-01T20:00:00+09:00",
+        "scheduledVerifiedAt": "2026-10-27T12:16:13.166Z"
+      },
+      "platform": {
+        "id": "n7mNQ2VCflE",
+        "url": "https://www.youtube.com/watch?v=n7mNQ2VCflE",
+        "privacy": "private",
+        "evidence": {
+          "kind": "publisher-live-check",
+          "ref": "content/sns/video-packs/concrete-chief-engineer/shunin-shiken-zentaizou/youtube.revision-pop-diagram.json"
+        }
+      },
+      "times": {
+        "uploaded": "2026-10-27T12:16:04.782Z",
+        "scheduled": "2026-10-27T12:16:13.167Z"
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-10-27T12:16:10.169Z"
       }
     },
     {
