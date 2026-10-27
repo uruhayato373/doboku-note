@@ -136,7 +136,7 @@
       "format": "longform",
       "variant": "pop-diagram",
       "revisionOf": "concrete-chief-engineer/shunin-chokuzen-senryaku/youtube.longform",
-      "status": "qa_passed",
+      "status": "approved",
       "copy": "content/sns/video-packs/concrete-chief-engineer/shunin-chokuzen-senryaku/youtube.revision-pop-diagram.json",
       "media": {
         "cover": "concrete-chief-engineer/shunin-chokuzen-senryaku/work/candidate-cover",
@@ -160,7 +160,20 @@
         "scene-sheet": "concrete-chief-engineer/shunin-chokuzen-senryaku/youtube.longform.pop-diagram/scene-sheet",
         "preview-metrics": "concrete-chief-engineer/shunin-chokuzen-senryaku/youtube.longform.pop-diagram/preview-metrics"
       },
-      "publishAt": "2026-10-31T20:00:00+09:00"
+      "publishAt": "2026-10-31T20:00:00+09:00",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "user",
+          "at": "2026-10-27T11:27:43.181Z",
+          "digest": "8e09800adb8b0e5765c5c9ebb9d2f21187c9ca76ebcdf613622b3b47feeda43d"
+        }
+      },
+      "approval": {
+        "by": "user",
+        "at": "2026-10-27T11:27:46.707Z",
+        "contentSha256": "d24befb5f23b62fbdee07ba595b73b42c9d11fe6ef5b898a9c431f3cc9672619"
+      }
     },
     {
       "id": "concrete-chief-engineer/shunin-chokuzen-senryaku/youtube.short.point-step1-1",
