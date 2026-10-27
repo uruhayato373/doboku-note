@@ -9,7 +9,7 @@
     "unavailable": "その ASP に案件自体が無い",
     "unknown": "未確認（調べていない。none と区別する）"
   },
-  "updatedAt": "2026-09-07T21:26:44.604Z",
+  "updatedAt": "2026-10-27T05:30:00.000Z",
   "verifiedAt": "2026-09-08",
   "_verifiedNote": "2026-09-08部分照合: A8は口座a25050375786の案件詳細、BuildJobは広告作成websiteId002/既存mat一致まで確認。もしも4案件はshop_site_id672381とselectedOption=doboku-noteを実機確認。afbは今回未確認、旧値保持。各ASPのverifiedAt/verificationScopeを参照。",
   "programs": {
@@ -212,9 +212,10 @@
       "asps": {
         "a8": {
           "programId": "s00000021947001",
-          "status": "none",
+          "status": "applying",
           "rewardYen": 2930,
-          "epcYen": 0
+          "epcYen": 0,
+          "note": "2026-10-27 申請（運営者指示。読み取り検索で見つけた転職案件をまとめて申請）。afb では提携済み"
         },
         "moshimo": {
           "status": "unknown"
@@ -332,6 +333,212 @@
         },
         "afb": {
           "status": "unknown"
+        }
+      }
+    },
+    "plex-job": {
+      "label": "プレックスジョブ（施工管理特化の転職エージェント）",
+      "vertical": "civil-career",
+      "placement": "none",
+      "decision": "施工管理に特化。1級土木は72歳以下が成果対象（資格別に年齢上限）。A8 の案件開始は 2026-10-26 で EPC 未出。配置は承認後に、ビルドジョブ・建設JOBs と同じ面での比較として決める。",
+      "asps": {
+        "a8": {
+          "programId": "s00000027873001",
+          "status": "applying",
+          "rewardYen": 7519,
+          "note": "2026-10-27 申請（運営者指示。読み取り検索で見つけた転職案件をまとめて申請）。成果=WEB無料キャリア相談申込後30日以内の電話確認"
+        },
+        "moshimo": {
+          "status": "unknown"
+        },
+        "afb": {
+          "status": "unknown"
+        }
+      }
+    },
+    "kenchiku-tenshoku": {
+      "label": "建築転職（建築系技術者に特化した転職エージェント）",
+      "vertical": "civil-career",
+      "placement": "none",
+      "decision": "もしもで審査なし・即時提携（doboku-note と stats47）。面談実施で成果。建築寄りなので土木読者への配置可否は別途判断。",
+      "asps": {
+        "a8": {
+          "status": "unknown"
+        },
+        "moshimo": {
+          "promotionId": "4183",
+          "status": "approved",
+          "rewardYen": 16000,
+          "note": "2026-10-27 申請（運営者指示。読み取り検索で見つけた転職案件をまとめて申請）。stats47（638943）も提携中"
+        },
+        "afb": {
+          "status": "unknown"
+        }
+      }
+    },
+    "recruit-direct-scout": {
+      "label": "リクルートダイレクトスカウト（ハイクラス向けスカウト型）",
+      "vertical": "pe-career",
+      "placement": "none",
+      "decision": "技術士・総監ページ向けの候補。大手の総合サービスで建設特化ではない。",
+      "asps": {
+        "a8": {
+          "programId": "s00000018087001",
+          "status": "applying",
+          "rewardYen": 1730,
+          "epcYen": 174.25,
+          "confirmRatePct": 40.74,
+          "note": "2026-10-27 申請（運営者指示。読み取り検索で見つけた転職案件をまとめて申請）"
+        },
+        "moshimo": {
+          "status": "unknown"
+        },
+        "afb": {
+          "pid": "9385",
+          "status": "applying",
+          "rewardYen": 3905,
+          "note": "2026-10-27 申請（運営者指示。読み取り検索で見つけた転職案件をまとめて申請）。stats47 も同時申請（状態は未確認）"
+        }
+      }
+    },
+    "recruit-agent": {
+      "label": "リクルートエージェント（総合転職エージェント）",
+      "vertical": "general-career",
+      "placement": "none",
+      "decision": "総合型で建設特化ではない。単価は登録系で約2,000円。",
+      "asps": {
+        "a8": {
+          "programId": "s00000011454002",
+          "status": "applying",
+          "rewardYen": 2000,
+          "epcYen": 277.06,
+          "confirmRatePct": 44.62,
+          "note": "2026-10-27 申請（運営者指示。読み取り検索で見つけた転職案件をまとめて申請）"
+        },
+        "moshimo": {
+          "promotionId": "3802",
+          "status": "applying",
+          "rewardYen": 2000,
+          "note": "2026-10-27 申請（運営者指示。読み取り検索で見つけた転職案件をまとめて申請）。stats47 も申請中"
+        },
+        "afb": {
+          "pid": "6872",
+          "status": "applying",
+          "rewardYen": 2200,
+          "note": "2026-10-27 申請（運営者指示。読み取り検索で見つけた転職案件をまとめて申請）。stats47 も同時申請（状態は未確認）"
+        }
+      }
+    },
+    "rikunabi-next": {
+      "label": "リクナビNEXT（総合転職サイト）",
+      "vertical": "general-career",
+      "placement": "none",
+      "decision": "総合型の会員登録。A8 の EPC は 0.44 円と低い。",
+      "asps": {
+        "a8": {
+          "programId": "s00000021064001",
+          "status": "applying",
+          "rewardYen": 1700,
+          "epcYen": 0.44,
+          "note": "2026-10-27 申請（運営者指示。読み取り検索で見つけた転職案件をまとめて申請）"
+        },
+        "moshimo": {
+          "status": "unknown"
+        },
+        "afb": {
+          "pid": "6873",
+          "status": "applying",
+          "rewardYen": 1870,
+          "note": "2026-10-27 申請（運営者指示。読み取り検索で見つけた転職案件をまとめて申請）。stats47 も同時申請（状態は未確認）"
+        }
+      }
+    },
+    "bizreach": {
+      "label": "ビズリーチ（ハイクラス転職サイト）",
+      "vertical": "pe-career",
+      "placement": "none",
+      "decision": "afb で「クローズド」表示。申請しても承認されない可能性がある。",
+      "asps": {
+        "a8": {
+          "status": "unavailable",
+          "note": "A8 は就活向けのビズリーチ・キャンパスだけ"
+        },
+        "moshimo": {
+          "status": "unavailable"
+        },
+        "afb": {
+          "pid": "6340",
+          "status": "applying",
+          "rewardYen": 5922,
+          "note": "2026-10-27 申請（運営者指示。読み取り検索で見つけた転職案件をまとめて申請）。stats47 も同時申請（状態は未確認）"
+        }
+      }
+    },
+    "myvision-agent": {
+      "label": "MyVisionエージェント（ハイクラス転職エージェント）",
+      "vertical": "pe-career",
+      "placement": "none",
+      "decision": "ハイクラス向け。ビルドジョブと同じ運営会社。",
+      "asps": {
+        "a8": {
+          "status": "unknown"
+        },
+        "moshimo": {
+          "promotionId": "7797",
+          "status": "applying",
+          "rewardYen": 18000,
+          "note": "2026-10-27 申請（運営者指示。読み取り検索で見つけた転職案件をまとめて申請）。stats47 も申請中"
+        },
+        "afb": {
+          "status": "unknown"
+        }
+      }
+    },
+    "axis-agent": {
+      "label": "AXIS Agent（コンサル・IT のハイクラス転職）",
+      "vertical": "pe-career",
+      "placement": "none",
+      "decision": "コンサル・IT 寄り。技術士・総監の転職先としての適合は配置前に確かめる。",
+      "asps": {
+        "a8": {
+          "programId": "s00000020769001",
+          "status": "applying",
+          "rewardYen": 18000,
+          "epcYen": 59.88,
+          "confirmRatePct": 83.33,
+          "note": "2026-10-27 申請（運営者指示。読み取り検索で見つけた転職案件をまとめて申請）"
+        },
+        "moshimo": {
+          "promotionId": "2502",
+          "status": "applying",
+          "rewardYen": 18000,
+          "note": "2026-10-27 申請（運営者指示。読み取り検索で見つけた転職案件をまとめて申請）。stats47 も申請中"
+        },
+        "afb": {
+          "status": "unknown"
+        }
+      }
+    },
+    "mynavi-job20s": {
+      "label": "マイナビジョブ20's（20代・第二新卒向け）",
+      "vertical": "general-career",
+      "placement": "none",
+      "decision": "20代・第二新卒向けで読者層とのずれが大きい。2級土木の若手向け面に限って検討する。",
+      "asps": {
+        "a8": {
+          "programId": "s00000027373001",
+          "status": "applying",
+          "rewardYen": 2000,
+          "note": "2026-10-27 以前から申請中（申請元のサイトは未確認）"
+        },
+        "moshimo": {
+          "status": "unknown"
+        },
+        "afb": {
+          "pid": "9055",
+          "status": "applying",
+          "rewardYen": 3383,
+          "note": "2026-10-27 申請（運営者指示。読み取り検索で見つけた転職案件をまとめて申請）。stats47 も同時申請（状態は未確認）"
         }
       }
     }
