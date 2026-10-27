@@ -25,6 +25,7 @@ import { getTopicsForStandardDocument } from '@/lib/topics';
 import { buildStandardDocumentStructuredData } from '@/lib/standards-structured-data';
 import AffiliateSlot from '@/components/ui/AffiliateSlot/AffiliateSlot';
 import { standardsAgencyPath } from '@/lib/route-paths';
+import { getAreaLabel } from '@/lib/content-taxonomy';
 
 type Params = { agency: string; document: string };
 
@@ -86,7 +87,7 @@ export default async function StandardDocumentPage({ params }: { params: Promise
         className="border-b border-(--rule-soft) py-6 sm:py-8"
         breadcrumb={[
           { label: 'ホーム', href: '/' },
-          { label: '基準類', href: '/standards' },
+          { label: getAreaLabel('standards'), href: '/standards' },
           { label: entry.agencyName, href: standardsAgencyPath(entry.agencyId) },
         ]}
         title={entry.title}

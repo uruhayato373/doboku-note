@@ -11,6 +11,7 @@ import { getStandardsComparison, inferStandardEdition } from '@/lib/standards-co
 import { SITE_ORIGIN } from '@/config/site-identity.mjs';
 import AffiliateSlot from '@/components/ui/AffiliateSlot/AffiliateSlot';
 import { standardsChapterPath, standardsDocumentPath } from '@/lib/route-paths';
+import { getAreaLabel } from '@/lib/content-taxonomy';
 
 export const metadata: Metadata = buildPageMetadata({
   title: '地方整備局別 土木工事共通仕様書の差分比較',
@@ -58,7 +59,7 @@ export default function StandardsComparePage() {
         variant="band"
         breadcrumb={[
           { label: 'ホーム', href: '/' },
-          { label: '基準類', href: '/standards' },
+          { label: getAreaLabel('standards'), href: '/standards' },
           { label: '地域差分' },
         ]}
         label="地域差分"

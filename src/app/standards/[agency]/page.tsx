@@ -10,6 +10,7 @@ import { buildPageMetadata } from '@/lib/metadata';
 import { getStandardDocuments, getStandardsCatalog } from '@/lib/standards';
 import AffiliateSlot from '@/components/ui/AffiliateSlot/AffiliateSlot';
 import { standardsAgencyPath } from '@/lib/route-paths';
+import { getAreaLabel } from '@/lib/content-taxonomy';
 
 type Params = { agency: string };
 
@@ -69,7 +70,7 @@ export default async function StandardsAgencyPage({ params }: { params: Promise<
       <PageHeader
         variant="inline"
         className="border-b border-(--rule-soft) py-6 sm:py-8"
-        breadcrumb={[{ label: 'ホーム', href: '/' }, { label: '基準類', href: '/standards' }, { label: entry.agencyName }]}
+        breadcrumb={[{ label: 'ホーム', href: '/' }, { label: getAreaLabel('standards'), href: '/standards' }, { label: entry.agencyName }]}
         title={commonDoc ? `${entry.agencyName} 土木工事共通仕様書${edition ? `（${edition}）` : ''}` : agencyHeading(entry.agencyName, documents)}
         lead={leadDoc
           ? `${entry.agencyName}が公表する最新版「${leadDoc.title}」（全${leadDoc.pages.toLocaleString('ja-JP')}ページ）を含む${entry.documentCount}文書を収録しています。下の一覧から文書を選ぶと、版・章ごとに読めます。原本PDFと発行元ページへのリンクはページ末尾の出典欄にあります。`

@@ -11,6 +11,7 @@ import { getStandardChapters } from '@/lib/standards-articles';
 import { getStandardsComparison } from '@/lib/standards-comparison';
 import { buildStandardsDatasetStructuredData } from '@/lib/standards-structured-data';
 import AffiliateSlot from '@/components/ui/AffiliateSlot/AffiliateSlot';
+import { getAreaLabel } from '@/lib/content-taxonomy';
 
 export const metadata: Metadata = buildPageMetadata({
   title: '土木工事共通仕様書のJSON-LD・Markdownデータ',
@@ -68,7 +69,7 @@ export default function StandardsDataPage() {
         variant="band"
         breadcrumb={[
           { label: 'ホーム', href: '/' },
-          { label: '基準類', href: '/standards' },
+          { label: getAreaLabel('standards'), href: '/standards' },
           { label: '機械可読データ' },
         ]}
         label="機械可読データ"

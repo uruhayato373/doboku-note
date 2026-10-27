@@ -13,6 +13,7 @@ import {
   type QuizFunnelPlacement,
 } from "@/lib/quiz/funnel";
 import { withNoteUtm } from "@/lib/note-utm";
+import { quizQuestionCount, quizYearCount, quizYearRange } from "@/lib/quiz-summary";
 
 /**
  * 1級土木 第一次検定 過去問 フル演習エンジン（v1・オンライン先行）。
@@ -49,7 +50,7 @@ const DEFAULT_CONFIG: KakomonQuizConfig = {
   exam: "civil-1",
   dataUrl: "/quiz/civil-1.json",
   intro:
-    "1級土木施工管理技士 第一次検定の過去問を、1問ずつ即採点＋全選択肢の解説つきで演習できます。平成26〜令和7年度の全1,098問を無料で収録しています。",
+    `1級土木施工管理技士 第一次検定の過去問を、1問ずつ即採点＋全選択肢の解説つきで演習できます。${quizYearRange('civil-1')}の${quizYearCount('civil-1')}年度分・全${quizQuestionCount('civil-1')}問を無料で収録しています。`,
   sourceNote:
     "出典: 1級土木施工管理技術検定 第一次検定 過去問（各設問は原典で照合済み）。施工管理法（応用能力）等の図・記述系設問は4択演習の対象外です。",
   yearTitleSuffix: "・第一次検定",
@@ -740,7 +741,7 @@ function PremiumInterestCard({
           解くだけで終わらない学習管理へ
         </h2>
         <p className="mt-2 text-sm leading-7 text-(--ink-body)">
-          全1,098問の無料演習はそのまま。苦手分野の分析、復習スケジュール、端末間同期を追加する買い切り機能を検討しています。
+          全{quizQuestionCount("civil-1")}問の無料演習はそのまま。苦手分野の分析、復習スケジュール、端末間同期を追加する買い切り機能を検討しています。
         </p>
         <div className="mt-4 rounded-card-content bg-(--bg) p-4 text-sm leading-6 text-(--ink-body)">
           価格仮説は<strong className="text-(--ink)">資格ごと買い切り ¥980〜¥1,480</strong>。現在は需要検証中で、決済も連絡先入力もありません。

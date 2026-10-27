@@ -7,6 +7,18 @@ import { SITE_ORIGIN } from "@/config/site-identity.mjs";
 import { getCategoryHubPath } from '@/lib/categories';
 import { getPublicDocPath } from '@/lib/content-routes';
 import { getOgpImageUrl } from '@/lib/r2-image-loader';
+import { qualificationLabel } from "@/lib/qualification-names";
+
+// キーワード集を持つ資格。名前は registry の正式名から作る（総監だけ版の年を付ける）
+const KEYWORD_SET_EDITION: Readonly<Record<string, string>> = {
+  "pe-comprehensive-management": " 2026",
+  "civil-construction-1": "",
+  "civil-construction-2": "",
+};
+const keywordSetName = (category: string | undefined): string =>
+  category && category in KEYWORD_SET_EDITION
+    ? `${qualificationLabel(category)} キーワード集${KEYWORD_SET_EDITION[category]}`
+    : "土木系資格試験 キーワード集";
 
 interface StructuredDataProps {
   type: "article" | "website" | "organization";
@@ -74,13 +86,7 @@ function generateDefinedTermSchema(meta: DocMeta | PostData, baseUrl: string) {
     url: `${baseUrl}${getPublicDocPath(slug)}`,
     inDefinedTermSet: {
       "@type": "DefinedTermSet",
-      name: category === "pe-comprehensive-management"
-        ? "技術士 総合技術監理部門 キーワード集 2026"
-        : category === "civil-construction-1"
-          ? "1級土木施工管理技士 キーワード集"
-          : category === "civil-construction-2"
-            ? "2級土木施工管理技士 キーワード集"
-            : "土木系資格試験 キーワード集",
+      name: keywordSetName(category),
       url: category === "pe-comprehensive-management"
         ? `${baseUrl}${getPublicDocPath('pe-comprehensive-management-keyword-2026')}`
         : `${baseUrl}${getCategoryHubPath(category || 'uncategorized')}`,

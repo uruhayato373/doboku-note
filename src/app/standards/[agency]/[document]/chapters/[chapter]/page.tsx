@@ -38,6 +38,7 @@ import {
   standardsDataPath,
 } from '@/lib/standards-structured-data';
 import { standardsAgencyPath } from '@/lib/route-paths';
+import { getAreaLabel } from '@/lib/content-taxonomy';
 
 type Params = { agency: string; document: string; chapter: string };
 
@@ -135,7 +136,7 @@ export default async function StandardChapterPage({ params }: { params: Promise<
           <StandardsArticleHeader
             breadcrumb={[
               { label: 'ホーム', href: '/' },
-              { label: '基準類', href: '/standards' },
+              { label: getAreaLabel('standards'), href: '/standards' },
               { label: entry.agencyName, href: standardsAgencyPath(entry.agencyId) },
               {
                 label: entry.role === 'common' ? '土木工事共通仕様書' : entry.title,

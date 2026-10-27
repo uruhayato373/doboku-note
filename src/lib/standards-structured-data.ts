@@ -5,6 +5,7 @@ import { generateHeadingId } from '@/lib/toc';
 import { SITE_ORIGIN } from '@/config/site-identity.mjs';
 import { standardSectionPath } from '@/lib/standards-section-split.mjs';
 import { standardsChapterPath, standardsDocumentPath } from '@/lib/route-paths';
+import { getAreaLabel } from '@/lib/content-taxonomy';
 
 const SITE_ORGANIZATION_ID = `${SITE_ORIGIN}/#organization`;
 
@@ -261,7 +262,7 @@ export function buildStandardChapterStructuredData(
 
   const breadcrumb = [
     { name: 'ホーム', item: SITE_ORIGIN },
-    { name: '基準類', item: `${SITE_ORIGIN}/standards` },
+    { name: getAreaLabel('standards'), item: `${SITE_ORIGIN}/standards` },
     { name: document.agencyName, item: `${SITE_ORIGIN}/standards/${document.agencyId}` },
     { name: document.title, item: documentUrl },
     { name: chapter.title, item: chapterUrl },
@@ -339,7 +340,7 @@ export function buildStandardSectionStructuredData(
   const sectionId = `${chapterUrl}#section-${chapter.bookNumber}-${chapter.chapterNumber}-${section.number}`;
   const breadcrumb = [
     { name: 'ホーム', item: SITE_ORIGIN },
-    { name: '基準類', item: `${SITE_ORIGIN}/standards` },
+    { name: getAreaLabel('standards'), item: `${SITE_ORIGIN}/standards` },
     { name: document.agencyName, item: `${SITE_ORIGIN}/standards/${document.agencyId}` },
     { name: document.title, item: documentUrl },
     { name: chapter.title, item: chapterUrl },

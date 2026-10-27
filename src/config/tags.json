@@ -112,12 +112,15 @@
   {
     "name": "技術士（総合技術監理部門）",
     "slug": "pe-comprehensive-management-exam",
-    "class": "qualification"
+    "class": "qualification",
+    "qualification": "pe-comprehensive-management"
   },
   {
-    "name": "技術士（第一次試験）",
+    "name": "技術士 第一次試験",
     "slug": "pe-first-stage-exam",
-    "class": "qualification"
+    "class": "qualification",
+    "qualification": "pe-first-stage",
+    "aliases": ["技術士（第一次試験）"]
   },
   {
     "name": "基礎科目",

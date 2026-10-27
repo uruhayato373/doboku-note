@@ -67,3 +67,21 @@ test('キャリア記事の軽い URL 変換（careerArticlePath）は、サイ�
   assert.ok(slugs.size >= 5, `キャリア記事の slug を拾えていない（${slugs.size}）`);
   for (const slug of slugs) assert.equal(careerArticlePath(slug), getPublicDocPath(slug), slug);
 });
+
+test('サイトの資格色（globals.css の --exam-*）と note 表紙の色（note-cover-tokens.json の base）は、文書にした差を除いて同じ', () => {
+  const css = readFileSync('src/styles/globals.css', 'utf8');
+  // ライト（最初の定義）だけを比べる。ダークの上書きは後ろに出る
+  const site = {};
+  for (const m of css.matchAll(/--exam-([a-z0-9-]+):\s*(#[0-9a-fA-F]{6})/g)) site[m[1]] ??= m[2].toLowerCase();
+  const tokens = readJson('.claude/knowledge/design-system/note-cover-tokens.json').exams;
+  // サイトの変数名 → 表紙のキー（総監と一次は同じ --exam-pe を使う）
+  const pairs = { 'civil-1': 'civil-1', 'civil-2': 'civil-2', pe: 'pe-comprehensive', 'pe-construction': 'pe-construction', concrete: 'concrete-engineer', 'concrete-chief': 'concrete-chief', 'concrete-diagnosis': 'concrete-diagnosis', rccm: 'rccm', surveyor: 'surveyor', pavement: 'pavement' };
+  // 意図した差（.claude/knowledge/reference/brand-image-system.md の表に理由を書いたものだけ）
+  const documented = new Set(['concrete', 'concrete-chief']);
+  assert.ok(Object.keys(site).length >= 8, '--exam-* を読めていない');
+  for (const [cssKey, tokenKey] of Object.entries(pairs)) {
+    assert.ok(site[cssKey] && tokens[tokenKey], `${cssKey} / ${tokenKey} が見つからない`);
+    if (documented.has(cssKey)) continue;
+    assert.equal(site[cssKey], tokens[tokenKey].base.toLowerCase(), `${cssKey}: サイト ${site[cssKey]} と表紙 ${tokens[tokenKey].base} が違う（意図した差なら brand-image-system.md に理由を書いて documented に足す）`);
+  }
+});

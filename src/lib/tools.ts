@@ -1,3 +1,5 @@
+import { quizQuestionCount } from '@/lib/quiz-summary';
+
 export const TOOLS = [
   {
     href: "/tools/kakomon-quiz/pe-first-stage",
@@ -8,7 +10,7 @@ export const TOOLS = [
   {
     href: "/tools/kakomon-quiz",
     title: "1級土木 過去問 無料演習",
-    desc: "1級土木 第一次検定の過去問 全1,098問を4択で演習。年度別・ランダム・間違い復習、即採点＋全選択肢解説つき。",
+    desc: `1級土木 第一次検定の過去問 全${quizQuestionCount('civil-1')}問を4択で演習。年度別・ランダム・間違い復習、即採点＋全選択肢解説つき。`,
     tag: "演習",
   },
   {
