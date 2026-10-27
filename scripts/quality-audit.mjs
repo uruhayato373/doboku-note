@@ -302,7 +302,11 @@ export const CHECKS = [
   { id: 'outbound-links', npm: 'check-outbound-links', timeout: 600_000, ci: false, note: '送客先 note.com URL の生死を public API で実査（取得失敗が2割超なら検査不成立で赤）。外部 API 依存で 1 分半かかり、push 毎に note API を叩くと 403 を招くため週次 report（weekly-review-guard）へ移した（2026-09-30）' },
   // BROKEN_SLUG 166→0（RelatedKeywords 解決を categories.json 由来へ統一・2026-07-13）を受け、
   // site scope の内部リンク切れを ci gate へ昇格（--scope site。build 前 source link 契約）。
-  { id: 'internal-links', cmd: ['npm', 'run', '--silent', 'check-links', '--', '--scope', 'site'], timeout: 180_000, ci: true, note: 'site scope の /docs・/category・anchor リンク切れ（RelatedKeywords 共通 resolver）' },
+  // 共通仕様書の章・節ページ（/standards/…）は check-links の対象外なので、同じ対象（site の MDX の内部リンク）を見る step として束ねる（DN-0879）。
+  { id: 'internal-links', timeout: 240_000, ci: true, note: 'site の MDX の内部リンク切れを 1 検査で回す（手順ごとの理由は各 step の note）', steps: [
+    { label: 'site-links', cmd: ['npm', 'run', '--silent', 'check-links', '--', '--scope', 'site'], timeout: 180_000, note: 'site scope の /docs・/category・anchor リンク切れ（RelatedKeywords 共通 resolver）' },
+    { label: 'standards-links', npm: 'check-standards-links', timeout: 60_000, note: '過去問の解説などから共通仕様書の章・節・条（/standards/…#条の見出し）へのリンク先が catalog・manifest・章記事に実在するか。章・節・条の番号は毎年の改定で変わり、章記事を作り直すとリンクだけが黙って切れる。リンクを 1 本も見つけられなければ検査不成立で赤（DN-0879）' },
+  ] },
   { id: 'topic-wiring', npm: 'check-topic-wiring', timeout: 60_000, ci: true, note: '全国10機関・topic参照・公開実務ガイドのタグ接続を機械検査。実務記事が検索だけに孤立する回帰を止める' },
   { id: 'katex-warnings', npm: 'audit-katex:ci', timeout: 240_000, ci: true, note: 'build の KaTeX strict 警告を数式単位で検出（remark-math パイプライン。0 件を維持）' },
 
