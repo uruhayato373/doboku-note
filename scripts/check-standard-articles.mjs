@@ -68,7 +68,7 @@ const CHECK_DEFS = [
   { id: 17, name: '文の途中で段落が切れていない（基準以下）' },
   { id: 18, name: '表から外れた断片が増えていない（基準以下）' },
   { id: 19, name: '壊れた表（見出しも中身も空・全行が空の列）が無い' },
-  { id: 20, name: '図の SourceRef ごとに原本から切り出した画像がある' },
+  { id: 20, name: '図の SourceRef・表の領域の図のキャプションごとに原本から切り出した画像がある' },
 ];
 
 const PASS = 'PASS';
@@ -493,10 +493,12 @@ function checkSourceRefs(def, { manifest, document, agencyId, documentId, overri
 }
 
 /**
- * 20. 図の SourceRef ごとに画像がある（DN-0865）。
+ * 20. 図の SourceRef・表の領域の図のキャプションごとに画像がある（DN-0865・DN-0881）。
  * 原本で画像になっている図・表（テキスト層にキャプションしか無いもの）は、原本のページ画像から切り出した webp を
  * キャプションと SourceRef の間に置く。台帳（content/sources/standards/{agency}/{document}/figures.json）・
  * 章記事の <ArticleImage>・img/ の実体の 3 つが 1 対 1 で合っていることを見る。
+ * 表の領域・組み直した表の中に出た図のキャプション（太字の 1 行で図の番号を持つもの・DN-0881）も同じく数え、
+ * キャプションの直後に画像があることを見る（台帳の sourceRef はその表の SourceRef のページ）。
  */
 function checkFigures(def, { manifest, agencyId, documentId }) {
   const documentKey = `${agencyId}/${documentId}`;
@@ -518,7 +520,11 @@ function checkFigures(def, { manifest, agencyId, documentId }) {
     if (text === null) continue; // ファイル欠落は検査 5/6 が FAIL にする
     for (const ref of figureRefsOf(text)) {
       refs += 1;
-      const where = `${chapter.file}:${ref.line} 図「${ref.caption ?? '（キャプションなし）'}」p${ref.sourceRef}`;
+      const where = `${chapter.file}:${ref.line} 図「${ref.caption ?? '（キャプションなし）'}」p${ref.sourceRef}${ref.inTable ? '（表の領域）' : ''}`;
+      if (ref.inTable && ref.sourceRef === null) {
+        violations.push(`${where}: 後ろに表の SourceRef が無い（台帳のページを決められない）`);
+        continue;
+      }
       if (!ref.file) {
         violations.push(`${where}: 画像が無い（原本のページ画像から切り出して台帳に足す）`);
         continue;

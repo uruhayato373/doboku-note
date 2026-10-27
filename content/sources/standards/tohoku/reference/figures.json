@@ -45,6 +45,69 @@
         "at": "2026-10-27",
         "method": "切り出しを出所のページ画像と並べて目視で照合（図の切れ・本文やキャプションの写り込み・隣の図）"
       }
+    },
+    {
+      "chapterId": "37-4",
+      "sourceRef": "706-708",
+      "caption": "図 3 橋梁上部構造の測定位置（例）",
+      "imagePage": 707,
+      "bbox": [
+        315,
+        326,
+        1922,
+        1180
+      ],
+      "file": "fig-p0707-1.webp",
+      "width": 1200,
+      "height": 638,
+      "review": {
+        "status": "approved",
+        "by": "scanned-figure-crop-auditor",
+        "at": "2026-10-27",
+        "method": "切り出しを出所のページ画像と並べて目視で照合（図の切れ・本文やキャプションの写り込み・隣の図）"
+      }
+    },
+    {
+      "chapterId": "37-4",
+      "sourceRef": "706-708",
+      "caption": "図 4 橋梁下部構造の測定位置（例）",
+      "imagePage": 707,
+      "bbox": [
+        313,
+        1364,
+        1924,
+        2571
+      ],
+      "file": "fig-p0707-2.webp",
+      "width": 1200,
+      "height": 899,
+      "review": {
+        "status": "approved",
+        "by": "scanned-figure-crop-auditor",
+        "at": "2026-10-27",
+        "method": "切り出しを出所のページ画像と並べて目視で照合（図の切れ・本文やキャプションの写り込み・隣の図）"
+      }
+    },
+    {
+      "chapterId": "37-4",
+      "sourceRef": "706-708",
+      "caption": "図 5 微破壊・非破壊試験の測定箇所配置図（例）",
+      "imagePage": 708,
+      "bbox": [
+        347,
+        234,
+        1911,
+        1136
+      ],
+      "file": "fig-p0708-1.webp",
+      "width": 1200,
+      "height": 692,
+      "review": {
+        "status": "approved",
+        "by": "scanned-figure-crop-auditor",
+        "at": "2026-10-27",
+        "method": "切り出しを出所のページ画像と並べて目視で照合（図の切れ・本文やキャプションの写り込み・隣の図）"
+      }
     }
   ]
 }
