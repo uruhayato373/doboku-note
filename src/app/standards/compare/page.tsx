@@ -10,6 +10,7 @@ import { buildPageMetadata } from '@/lib/metadata';
 import { getStandardsComparison, inferStandardEdition } from '@/lib/standards-comparison';
 import { SITE_ORIGIN } from '@/config/site-identity.mjs';
 import AffiliateSlot from '@/components/ui/AffiliateSlot/AffiliateSlot';
+import { standardsChapterPath, standardsDocumentPath } from '@/lib/route-paths';
 
 export const metadata: Metadata = buildPageMetadata({
   title: '地方整備局別 土木工事共通仕様書の差分比較',
@@ -97,7 +98,7 @@ export default function StandardsComparePage() {
                 <tr key={row.agencyId}>
                   <td className="px-4 py-3 align-top">
                     <Link
-                      href={`/standards/${row.agencyId}/${row.documentId}`}
+                      href={standardsDocumentPath(row.agencyId, row.documentId)}
                       className="focus-ring font-bold text-(--ink) hover:text-(--accent) hover:underline"
                     >
                       {row.agencyName}
@@ -168,7 +169,7 @@ export default function StandardsComparePage() {
                     比較基準の近畿版
                   </Link>
                   <Link
-                    href={`/standards/${change.agencyId}/common/chapters/${change.chapterId}`}
+                    href={standardsChapterPath(change.agencyId, 'common', change.chapterId)}
                     className="focus-ring inline-flex min-h-11 items-center text-(--accent) hover:underline"
                   >
                     {change.agencyName}版

@@ -51,3 +51,13 @@ export function qualificationBadgeLabel(registry, id) {
   const q = entry(registry, id);
   return q?.badgeLabel || qualificationShortLabel(registry, id);
 }
+
+/** まとまり（groups）のメンバーの資格 id。未知のまとまりは空配列 */
+export function qualificationGroupMembers(registry, groupId) {
+  return [...(registry.groups?.[groupId]?.members ?? [])];
+}
+
+/** id がまとまり groupId のメンバーか（「1級・2級土木だけ」などの分岐は資格 id を並べて書かず、これで判定する） */
+export function isQualificationGroupMember(registry, groupId, id) {
+  return typeof id === 'string' && qualificationGroupMembers(registry, groupId).includes(id);
+}

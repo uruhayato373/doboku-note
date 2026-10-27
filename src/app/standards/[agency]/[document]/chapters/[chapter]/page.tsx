@@ -37,6 +37,7 @@ import {
   buildStandardChapterStructuredData,
   standardsDataPath,
 } from '@/lib/standards-structured-data';
+import { standardsAgencyPath } from '@/lib/route-paths';
 
 type Params = { agency: string; document: string; chapter: string };
 
@@ -135,7 +136,7 @@ export default async function StandardChapterPage({ params }: { params: Promise<
             breadcrumb={[
               { label: 'ホーム', href: '/' },
               { label: '基準類', href: '/standards' },
-              { label: entry.agencyName, href: `/standards/${entry.agencyId}` },
+              { label: entry.agencyName, href: standardsAgencyPath(entry.agencyId) },
               {
                 label: entry.role === 'common' ? '土木工事共通仕様書' : entry.title,
                 href: standardDocumentPath(entry),

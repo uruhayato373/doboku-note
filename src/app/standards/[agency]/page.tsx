@@ -9,6 +9,7 @@ import StandardsNavigation from '@/components/standards/StandardsNavigation';
 import { buildPageMetadata } from '@/lib/metadata';
 import { getStandardDocuments, getStandardsCatalog } from '@/lib/standards';
 import AffiliateSlot from '@/components/ui/AffiliateSlot/AffiliateSlot';
+import { standardsAgencyPath } from '@/lib/route-paths';
 
 type Params = { agency: string };
 
@@ -43,7 +44,7 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
       ? `${entry.agencyName} 土木工事共通仕様書${edition ? `（${edition}）` : ''}・工事必携`
       : agencyHeading(entry.agencyName, documents),
     description: `${entry.agencyName}が公開する${leadDoc ? `「${leadDoc.title}」` : '技術基準'}${entry.documentCount > 1 ? `ほか${entry.documentCount}文書` : ''}、全${entry.pages.toLocaleString('ja-JP')}ページの文字起こし一覧。原典・版・QA情報を明示しています。`,
-    path: `/standards/${agency}`,
+    path: standardsAgencyPath(agency),
   });
 }
 

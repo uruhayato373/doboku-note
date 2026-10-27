@@ -7,6 +7,7 @@ import SectionBlock from '@/components/layout/SectionBlock';
 import { buildPageMetadata } from '@/lib/metadata';
 import { getTopicDocs, getTopicStandards, getTopicsByFacet } from '@/lib/topics';
 import AffiliateSlot from '@/components/ui/AffiliateSlot/AffiliateSlot';
+import { topicPath } from '@/lib/route-paths';
 
 export const metadata: Metadata = buildPageMetadata({
   title: '土木技術のテーマ別索引',
@@ -33,7 +34,7 @@ export default function TopicsPage() {
             return (
               <Link
                 key={topic.slug}
-                href={`/topics/${topic.slug}`}
+                href={topicPath(topic.slug)}
                 className="focus-ring card-interactive border border-(--rule-soft) bg-(--paper) p-5 transition-[border-color,box-shadow] hover:border-(--accent)"
               >
                 <TopicIcon slug={topic.slug} />

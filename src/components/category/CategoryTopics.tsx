@@ -7,6 +7,7 @@
 import Link from 'next/link';
 import { getTopicsForCategory } from '@/lib/topics';
 import type { DocMeta } from '@/lib/docs';
+import { topicPath } from '@/lib/route-paths';
 
 export default function CategoryTopics({ docs }: { docs: DocMeta[] }) {
   const items = getTopicsForCategory(docs);
@@ -21,7 +22,7 @@ export default function CategoryTopics({ docs }: { docs: DocMeta[] }) {
         {items.map(({ topic, inCategory, total }) => (
           <li key={topic.slug}>
             <Link
-              href={`/topics/${topic.slug}`}
+              href={topicPath(topic.slug)}
               className="focus-ring block h-full rounded-card-content border border-(--rule-soft) px-4 py-3 transition-colors hover:border-(--accent) dark:border-(--rule-soft)"
             >
               <span className="block text-[15px] font-medium text-(--ink)">{topic.label}</span>

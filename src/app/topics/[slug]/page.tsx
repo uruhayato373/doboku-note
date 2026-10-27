@@ -20,6 +20,7 @@ import { TopicLaws, LawDirectory } from '@/components/topics/TopicLaws';
 import { getLawDirectory, getTopicLaws, getTopicPolicies } from '@/lib/law-wiring';
 import PolicyList from '@/components/laws/PolicyList';
 import { peSectionLabel } from '@/lib/pe-keyword-nav';
+import { topicPath } from '@/lib/route-paths';
 
 type Params = { slug: string };
 
@@ -35,7 +36,7 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
     ? buildPageMetadata({
         title: topic.seoTitle ?? `${topic.label}｜試験・実務・基準を横断`,
         description: topic.description,
-        path: `/topics/${topic.slug}`,
+        path: topicPath(topic.slug),
         // 育成中のテーマは昇格基準（content-taxonomy.md §6）を満たすまで検索に出さない。サイトマップも out/ の robots を見て外す
         noindex: !isTopicIndexable(topic),
       })
@@ -141,7 +142,7 @@ export default async function TopicPage({ params }: { params: Promise<Params> })
             {relatedTopics.map(({ topic: related, shared }) => (
               <li key={related.slug}>
                 <Link
-                  href={`/topics/${related.slug}`}
+                  href={topicPath(related.slug)}
                   className="focus-ring card-interactive block h-full border border-(--rule-soft) bg-(--paper) p-4 transition-[border-color,box-shadow] hover:border-(--accent) dark:border-(--rule-soft)"
                 >
                   <TopicIcon slug={related.slug} />

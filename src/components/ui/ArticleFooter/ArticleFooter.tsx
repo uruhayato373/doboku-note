@@ -29,6 +29,7 @@ import QualificationBridge from '@/components/ui/QualificationBridge/Qualificati
 import { shouldShowQualificationBridge } from '@/config/qualification-bridge';
 import { DISCOVERY_CATEGORIES } from '@/lib/sidebar-discovery';
 import Disclosure from '@/components/ui/Disclosure/Disclosure';
+import { isCivilConstructionCategory } from '@/lib/qualification-names';
 
 interface ArticleFooterProps {
   /** 記事末の転職バナー（config/affiliate-placements.json の article-end のルール。無ければ置かない）。DocPage が解決して渡す */
@@ -157,7 +158,7 @@ export default function ArticleFooter({
       )}
 
       {/* Civil primary/secondary: 関連テキスト章 (過去問→教材、1級・2級共通) */}
-      {(category === 'civil-construction-1' || category === 'civil-construction-2') &&
+      {isCivilConstructionCategory(category) &&
         (docGroup === 'primary' || docGroup === 'secondary') && (
           <div className="mt-8">
             <RelatedTextbooks currentMeta={meta} categoryArticles={categoryArticles} />
@@ -207,7 +208,7 @@ export default function ArticleFooter({
           本文インライン CareerAffiliate（href のみ）は MDX 側で維持。 */}
 
       {/* Civil textbook: 前後章ナビ + 過去問逆引き（1級・2級共通） */}
-      {(category === 'civil-construction-1' || category === 'civil-construction-2') &&
+      {isCivilConstructionCategory(category) &&
         docGroup === 'textbook' && (
           <>
             <div className="mt-8">

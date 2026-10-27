@@ -6,6 +6,7 @@ import { getStandardDocument, type StandardDocument } from '@/lib/standards';
 import { getSiteAssetR2Url } from '@/lib/r2-image-loader';
 import { chapterPreambleText, sectionPageMarkdown, splitChapterBySection } from '@/lib/standards-section-split.mjs';
 import { standardBookLabel } from '@/lib/standards-chapter-labels';
+import { standardsChapterPath } from '@/lib/route-paths';
 
 export { standardBookLabel, standardChapterHeading } from '@/lib/standards-chapter-labels';
 
@@ -221,7 +222,7 @@ export function standardChapterPath(
   document: Pick<StandardDocument, 'agencyId' | 'documentId'>,
   chapter: Pick<StandardChapter, 'chapterId'>,
 ): string {
-  return `/standards/${document.agencyId}/${document.documentId}/chapters/${chapter.chapterId}`;
+  return standardsChapterPath(document.agencyId, document.documentId, chapter.chapterId);
 }
 
 /**

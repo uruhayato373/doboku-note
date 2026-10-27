@@ -16,6 +16,7 @@ import type { PeChapter } from '@/config/pe-chapters';
 import MetaCard from '@/components/ui/MetaCard/MetaCard';
 import { peKeywordPageExists } from '@/lib/pe-keyword-nav';
 import { getPublicDocPath } from '@/lib/content-routes';
+import { isCivilConstructionCategory } from '@/lib/qualification-names';
 
 const peChapters = peChaptersData.chapters as PeChapter[];
 
@@ -330,7 +331,7 @@ export default function CategoryNavCard({ variant, category, currentSlug, docGro
     }
   }
 
-  if (category === 'civil-construction-1' || category === 'civil-construction-2') {
+  if (isCivilConstructionCategory(category)) {
     switch (docGroup) {
       case 'guide': {
         // 学習系ガイドのみを curriculum の意図順で出す。

@@ -14,6 +14,7 @@ import MetaCard from '@/components/ui/MetaCard/MetaCard';
 import MetaListItem from '@/components/ui/MetaListItem/MetaListItem';
 import PolicyList from '@/components/laws/PolicyList';
 import type { LawPageData } from '@/lib/law-wiring';
+import { topicPath } from '@/lib/route-paths';
 
 export default function LawPageSections({ data }: { data: LawPageData }) {
   const { topics, policies, articles, docsByArea, enforced } = data;
@@ -25,7 +26,7 @@ export default function LawPageSections({ data }: { data: LawPageData }) {
           <p className="text-sm text-(--ink-muted) mb-4">この法令を本文で引く記事が多い分野・立場のテーマです（かっこ内は記事の本数）。</p>
           <p className="flex flex-wrap gap-x-4 gap-y-2 text-[15px]" data-cta="nav" data-cta-label="law-page:topics">
             {topics.map((t) => (
-              <Link key={t.slug} href={`/topics/${t.slug}`} className="text-(--accent) hover:underline">
+              <Link key={t.slug} href={topicPath(t.slug)} className="text-(--accent) hover:underline">
                 {t.label}<span className="ml-1 text-[12px] text-(--ink-muted)">（{t.count}）</span>
               </Link>
             ))}

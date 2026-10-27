@@ -32,7 +32,7 @@ export type ExamKey =
  * 黙って総監の見た目で出た（DN-0794）。資格を足して商品を出すときは、ここに 1 行足す
  * （無いとビルドで throw し、tests/exam-brand-qualification.test.mjs が落ちる）。
  */
-const QUALIFICATION_TO_EXAM_KEY: Readonly<Record<string, ExamKey>> = {
+export const QUALIFICATION_TO_EXAM_KEY: Readonly<Record<string, ExamKey>> = {
   'pe-comprehensive-management': 'tankan',
   'pe-construction': 'pe-construction',
   'pe-first-stage': 'pe-first-stage',

@@ -16,6 +16,7 @@ import MetaCard from '@/components/ui/MetaCard/MetaCard';
 import MetaListItem from '@/components/ui/MetaListItem/MetaListItem';
 import type { WiredDoc } from '@/lib/article-end-wiring';
 import type { LawTopicLink } from '@/lib/law-wiring';
+import { topicPath } from '@/lib/route-paths';
 
 export interface ArticleLaw {
   readonly lawId: string;
@@ -70,7 +71,7 @@ export default function ArticleLaws({ laws, siblings, lawTopics, pageLinks }: {
               <p className="ml-5 mt-2 flex flex-wrap items-baseline gap-x-3 gap-y-1 text-xs" data-cta="nav" data-cta-label="law-topics">
                 <span className="text-(--ink-muted)">関わるテーマ</span>
                 {topics.map((t) => (
-                  <Link key={t.slug} href={`/topics/${t.slug}`} className="text-(--accent) hover:underline">{t.label}</Link>
+                  <Link key={t.slug} href={topicPath(t.slug)} className="text-(--accent) hover:underline">{t.label}</Link>
                 ))}
               </p>
             )}

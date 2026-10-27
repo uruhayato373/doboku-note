@@ -3,7 +3,7 @@ import MetaCard from './MetaCard/MetaCard';
 import type { DocMeta } from '@/lib/docs';
 import { getDocsMetaByCategory } from '@/lib/docs';
 import { getPublicDocPath } from '@/lib/content-routes';
-import { getCategoryBySlug } from '@/lib/categories';
+import { getCategoryBySlug, getCategoryHubPath } from '@/lib/categories';
 import { resolveNavTitle } from '@/lib/doc-title';
 import { discoveryGroups, sidebarProduct } from '@/lib/sidebar-discovery';
 import { resolvePlacement } from '@/lib/magazine-placement';
@@ -22,7 +22,7 @@ export function DiscoveryNav({category,currentSlug,docs}: {category:string;curre
  return <MetaCard padding="compact" ariaLabel="分野・科目から復習" trackNav="article-discovery">
   <h2 className="text-lg font-bold text-(--ink)">分野・科目から復習</h2>
   {groups.map(g=><div key={g.title} className="mt-3"><h3 className="text-sm font-bold text-(--ink-muted)">{g.title}</h3><ul className="divide-y divide-(--rule-soft)">{g.docs.map(d=><li key={d.slug}><Link className="focus-ring flex min-h-11 items-center py-2 text-sm text-(--accent) hover:underline" href={getPublicDocPath(d.slug)}>{resolveNavTitle(d).main}</Link></li>)}</ul></div>)}
-  <Link className="focus-ring mt-2 flex min-h-11 items-center text-sm font-bold text-(--accent) hover:underline" href={category==='civil-practice'?'/practice':`/exam/${category}`}>{getCategoryBySlug(category)?.label}の一覧 →</Link>
+  <Link className="focus-ring mt-2 flex min-h-11 items-center text-sm font-bold text-(--accent) hover:underline" href={getCategoryHubPath(category)}>{getCategoryBySlug(category)?.label}の一覧 →</Link>
   {category === 'civil-practice' && <Link className="focus-ring flex min-h-11 items-center text-sm text-(--accent) hover:underline" href="/standards">発行機関別に基準・仕様書を確認 →</Link>}
   {category.startsWith('concrete-') && <Link className="focus-ring flex min-h-11 items-center text-sm text-(--accent) hover:underline" href="/topics/concrete">コンクリートの関連テーマ →</Link>}
  </MetaCard>;
