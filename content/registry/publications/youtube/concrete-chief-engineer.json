@@ -908,7 +908,7 @@
       "format": "longform",
       "variant": "pop-diagram",
       "revisionOf": "concrete-chief-engineer/shunin-ochiru-shouronbun/youtube.longform",
-      "status": "approved",
+      "status": "scheduled",
       "copy": "content/sns/video-packs/concrete-chief-engineer/shunin-ochiru-shouronbun/youtube.revision-pop-diagram.json",
       "media": {
         "cover": "concrete-chief-engineer/shunin-ochiru-shouronbun/work/candidate-cover",
@@ -941,6 +941,43 @@
         "by": "user",
         "at": "2026-10-27T14:41:44.491Z",
         "contentSha256": "af6f034b6fe55b513cfad663eb915e46b1064b8333194346b290b9f1c399dfbd"
+      },
+      "delivery": {
+        "inputSha256": "2750639bed0d44207bff74f5e6479b71966cceb4683c0c7aa6c4e24fec95bce7",
+        "marker": "dn-revision-f5636436371cf201ff85e5e54f189c5063d2c912",
+        "uploadRequestedAt": "2026-10-27T14:46:35.516Z",
+        "videoId": "aMWOpun3m-0",
+        "processedAt": "2026-10-27T14:47:23.212Z",
+        "thumbnailRequestedAt": "2026-10-27T14:47:23.276Z",
+        "thumbnailUrls": [
+          "https://i9.ytimg.com/vi/aMWOpun3m-0/default.jpg?sqp=COzxgtcG&rs=AOn4CLD6jf30j3JloaMRKnkHHKJOKcVIug",
+          "https://i9.ytimg.com/vi/aMWOpun3m-0/mqdefault.jpg?sqp=COzxgtcG&rs=AOn4CLCcryZVTQOiF2BPmRr7lAdrijiLXQ",
+          "https://i9.ytimg.com/vi/aMWOpun3m-0/hqdefault.jpg?sqp=COzxgtcG&rs=AOn4CLB_sQ8w8cD1T8sT-xv_P6KxoaUNvg",
+          "https://i9.ytimg.com/vi/aMWOpun3m-0/sddefault.jpg?sqp=COzxgtcG&rs=AOn4CLAFeL1jqdjvYWp7lXYQ8NelvJ518w",
+          "https://i9.ytimg.com/vi/aMWOpun3m-0/maxresdefault.jpg?sqp=COzxgtcG&rs=AOn4CLDpicnDxyWl62ZWRxS-daDO-1kzWQ",
+          "https://i9.ytimg.com/vi/aMWOpun3m-0/fhddefault.jpg?sqp=COzxgtcG&rs=AOn4CLBmPekQUXI41Utt58wGDSmWguhUeg"
+        ],
+        "thumbnailAcceptedAt": "2026-10-27T14:47:26.368Z",
+        "scheduleRequestedAt": "2026-10-27T14:47:29.551Z",
+        "scheduleAt": "2026-11-02T20:00:00+09:00",
+        "scheduledVerifiedAt": "2026-10-27T14:47:32.278Z"
+      },
+      "platform": {
+        "id": "aMWOpun3m-0",
+        "url": "https://www.youtube.com/watch?v=aMWOpun3m-0",
+        "privacy": "private",
+        "evidence": {
+          "kind": "publisher-live-check",
+          "ref": "content/sns/video-packs/concrete-chief-engineer/shunin-ochiru-shouronbun/youtube.revision-pop-diagram.json"
+        }
+      },
+      "times": {
+        "uploaded": "2026-10-27T14:47:23.212Z",
+        "scheduled": "2026-10-27T14:47:32.278Z"
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-10-27T14:47:26.368Z"
       }
     },
     {
