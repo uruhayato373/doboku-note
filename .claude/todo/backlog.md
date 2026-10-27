@@ -21,20 +21,6 @@
 
 ## 🔴 高 — 重要度が高い
 
-### [DN-0865] 基準類の章記事に図の画像を入れる（59 章・166 か所・原本ページ画像から切り出し）
-タグ: [領域:サイト] [時期:2026-11] [種類:不具合] [起票:2026-10-26]
-
-**Mac で実施**（運営者の決定・2026-10-26）。原本のページ画像と PDF は Google Drive vault にあり、Windows の会社 PC では vault がマウントされていない（scripts/lib/drive-vault.mjs の resolveVaultRoot が root=null）。
-
-基準類の章記事（content/site/standards-articles/**）は、本文中の図を「**図3-3**」のキャプションと `<SourceRef pages="54" kind="figure" />`（出所ページの目印・サイトは何も描画しない）だけで出しており、図の画像が 1 枚も入っていない。59 章・166 か所（`grep -rc 'kind="figure"' content/site/standards-articles`）。実例 /standards/chubu/special/chapters/1-3 の図3-3（原本 p.54）。逐語ページ（PR #1248 で公開停止）も文字だけだったので、利用者は図を一度も見られていない。
-
-進め方:
-1. ページ画像を用意する（`node scripts/build-standards-page-images.mjs --role all`・vault の 原資料PDF/共通仕様書/{整備局}/{原本PDF名}/pages/p0001.jpg）
-2. `<SourceRef kind="figure">` の 166 か所について、出所ページの画像から図をタイトに切り出して webp にし、章記事の img/ に置く（中国版の訂正・追加の図＝scripts/standards-amendments.mjs の figure と同じ置き場・R2 は main の r2-sync）。切り出しは figure-crop-worker、照合は scanned-figure-crop-auditor（Generator/Evaluator 分離）
-3. 生成器 scripts/build-standard-articles.mjs が、キャプションの位置に `<ArticleImage>`（alt にキャプション）を差し込むようにする。切り出しの台帳（図 id・ページ・bbox・ファイル）は content/sources/standards/ 側に置き、生成器が読む
-4. check-standard-articles に「figure の SourceRef ごとに画像がある」検査を足す（検査数を出力・0 件で PASS にしない）
-
-完了条件: 166 か所すべてに図の画像が入り、検査が全件を実検査して PASS、/standards/chubu/special/chapters/1-3 で図3-3 が見える PR が develop に入る。
 
 
 

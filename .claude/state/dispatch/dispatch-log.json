@@ -6015,6 +6015,23 @@
       "commit": "c688c1f75bb7",
       "verification": "check-standard-articles 全 PASS・tests/standards-linebreaks.test.mjs・PR の CI 全通過",
       "note": "PR #1275（1f2421acc）。ページをまたぐ文の結合（約 180 か所）・番号つき箇条の分割（約 1,400 か所）・式の「ここで、」の分離。check-standard-articles 24 文書 456 検査 PASS。17 の判定を「読点で終わる段落の次が語で始まる」まで広げ、基準値を新しい実数（248→200）にした。同じページ内で文が割れる残りは DN-0880"
+    },
+    {
+      "id": "DN-0865",
+      "at": "2026-10-27",
+      "task": "基準類の章記事に図の画像を入れる（59 章・166 か所・原本ページ画像から切り出し）",
+      "tier": "high",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "scripts/check-standard-articles.mjs"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "5585b43bf8ba",
+      "verification": "check-standard-articles 24 文書 480 検査 PASS・tests/standards-figures.test.mjs・PR の CI 全通過",
+      "note": "PR #1276（5585b43bf）。166/166 か所（59 章）に原本ページから切り出した図（74 枚・webp）を差し込み、台帳 content/sources/standards/*/figures.json を生成器が読む。照合は scanned-figure-crop-auditor 3 体で 74 枚すべて・差し戻し 1 件を切り直し。check-standard-articles の検査 20 が台帳・ArticleImage・実体の 1 対 1 を止める（166 件実検査）。本番は main の r2-sync 後に表示。図の目印が無いキャプション 12 か所は DN-0881"
     }
   ]
 }
