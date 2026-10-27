@@ -4,7 +4,7 @@ import { mkdirSync, mkdtempSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { dirname, join } from 'node:path';
 import { execFileSync } from 'node:child_process';
-import { addedLines, backlogTextProblems } from '../scripts/lib/backlog-text-guards.mjs';
+import { addedLines, backlogTextProblems, existsInRef } from '../scripts/lib/backlog-text-guards.mjs';
 import { DOMAINS_PATH } from '../scripts/lib/domains.mjs';
 import { addCard } from '../scripts/todo-add.mjs';
 
@@ -47,6 +47,17 @@ function fixtureRoot() {
   git(['-c', 'user.name=t', '-c', 'user.email=t@example.com', '-c', 'commit.gpgsign=false', 'commit', '-q', '-m', 'init']);
   return root;
 }
+
+test('ref が無い checkout（CI の PR）では作業ツリーで宛先を判定する', () => {
+  const root = fixtureRoot();
+  try {
+    const exists = existsInRef(root, 'origin/develop');
+    assert.equal(exists('.claude/todo/backlog.md'), true);
+    assert.equal(exists('.claude/todo/no-such.md'), false);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
 
 test('todo:add は試験日の誤記を含む本文のカードを作らない（push の前に投げる）', () => {
   const root = fixtureRoot();

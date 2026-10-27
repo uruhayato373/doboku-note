@@ -10,6 +10,8 @@
  * 見るのは書き換えで増えた行だけ（既存の行の違反は CI 側の全量検査が見る）。
  */
 import { execFileSync } from 'node:child_process';
+import { existsSync } from 'node:fs';
+import { join } from 'node:path';
 import { auditLinks } from '../check-relative-links.mjs';
 import { findForbidden } from './exam-calendar-guards.mjs';
 
@@ -28,8 +30,16 @@ export function addedLines(before, after) {
   return out;
 }
 
-/** ref の tree にパス（ファイルかディレクトリ）があるか。積む土台は origin/develop なので手元の作業ツリーでは判定しない */
+/**
+ * ref の tree にパス（ファイルかディレクトリ）があるか。積む土台は origin/develop なので手元の作業ツリーでは判定しない。
+ * ref が無い checkout（CI の PR の checkout は origin/develop を取らない）では作業ツリーで判定する。
+ */
 export function existsInRef(root, ref) {
+  try {
+    execFileSync('git', ['rev-parse', '--verify', '-q', `${ref}^{commit}`], { cwd: root, stdio: 'ignore' });
+  } catch {
+    return (p) => existsSync(join(root, p));
+  }
   return (p) => {
     try {
       execFileSync('git', ['cat-file', '-e', `${ref}:${p}`], { cwd: root, stdio: 'ignore' });
