@@ -5985,6 +5985,19 @@
       "commit": "1cb0efcfcbce",
       "verification": "node --test tests/post-exam-cta.test.mjs 10 pass・PR の CI 全通過",
       "note": "PR #1262（1cb0efcfc）。一次の主商品の判定を pe1LeadMagazineId に集約し、冒頭 CTA と /links で共有。/links の一次カードが試験日の前後で直前パック→過去問 PDF に変わり、両商品が shortTitle を持つことをテストで固定。本番反映は試験翌日の deploy（DN-0867）"
+    },
+    {
+      "id": "DN-0185",
+      "at": "2026-10-27",
+      "task": "共通仕様書データ公開の計測を立ち上げ、加工受託の入口として評価する",
+      "tier": "low",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "d7a1dba20553",
+      "verification": "data/ga4/reports/2026-10-23.json の page・cta-clicks（/standards/data）を確認",
+      "note": "運営者の判断（2026-10-27）: ページとデータは公開を続け、加工受託の入口としての追跡はやめる。4 週（9/24〜10/21）で /standards/data 利用者 5・standards_data_download 5 件（desktop）・データ加工の問い合わせ 0。判断を 04_収益化戦略.md の公的基準データ整備の節に 1 行残した"
     }
   ]
 }
