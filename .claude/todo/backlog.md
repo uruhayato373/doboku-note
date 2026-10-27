@@ -263,6 +263,34 @@
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-0899] 測量士・舗装・管工事の公開済み note 商品 6 点を商品の正本へ登録し、サイトに商品カードを出す
+タグ: [収益化] [領域:商品] [時期:2026-11..2026-12] [種類:改善] [起票:2026-10-28]
+
+**起点**: 2026-10-28、運営者「note で公開できるものは今全て公開してほしい」。競合の確認より先に、測量士・舗装・管工事の商品を note で公開した。公開済みの商品は次の 6 点。
+- 測量士 午後記述 分野別マガジン m4e09480baf15（¥2,980・序章 n23ccc71205a7 と No.1〜5 の 6 本を収録）
+- 測量士 計算の型20 n1ac56686482b（¥1,480）
+- 舗装 1級経験記述マガジン mc26a56a3a7c5（¥2,480・序章 na287266cf068 と工程・出来形品質・安全の 4 本を収録）
+- 舗装 1級選択問題 n0eafbe26a8d6（¥1,480）
+- 舗装 2級経験記述 n058f02626a5b（¥980）
+- 管工事 機器別模範解答バンク n538762ec7f12（¥1,980）
+
+商品の正本（`config/products.json`）に、この 3 資格の商品がまだ 1 つも無い。そのため、サイトの測量士 9 ページ・舗装 4 ページには商品カードが出ない（DN-0890 の全ページ判定）。
+
+**やること**:
+1. `config/products.json` に 6 商品を足す
+   - id は `surveyor-`・`pavement-1-`・`pavement-2-`・`pipe-work-` で始める
+   - マガジンは members に記事のパスを並べる
+   - 題名・説明は各 `note掲載文.txt` と記事の frontmatter から取る
+2. `npm run product -- gen` で `src/lib/note-magazines.ts` の生成ブロックを作る
+3. `config/product-lineup.json` の salesRules に `^pipe-work-` を足す
+4. `config/note-magazine-membership.json` の excluded にある「測量士午後-分野別」「舗装1級-経験記述」を labels へ移す
+5. 検査を通す: `npm run check-products`・`npm run verify-note-magazines`・`npm run verify-note-status`
+6. サイトの測量士・舗装のページに商品カードを出す（`magazine-placement.ts` か本文の `<MagazineCard>`）。DN-0355 の note-funnel・/links も同時に配線する
+7. 価格を決めるための競合確認（旧 DN-0354・DN-0353 の手順 1）は、公開の後でも価格を変えられるので、販売の始まる前（測量士は 12 月、舗装は 1 月）に `competitor-review` で行う
+
+**完了条件**: `npm run check-products` と `npm run verify-note-magazines` が通り、本番の測量士・舗装のページに商品カードが出ている。
+
+
 ### [DN-0898] YouTube無音プレビューの終端に最終場面の尺が重複する
 タグ: [領域:商品] [時期:2026-11] [種類:不具合] [起票:2026-10-27]
 
