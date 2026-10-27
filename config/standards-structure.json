@@ -82,8 +82,8 @@
       "verbatimTables": 4
     },
     "chubu/special": {
-      "midSentenceBreaks": 4,
-      "strayTableFragments": 19,
+      "midSentenceBreaks": 1,
+      "strayTableFragments": 20,
       "verbatimTables": 6
     },
     "tohoku/special": {
@@ -102,7 +102,7 @@
       "verbatimTables": 24
     },
     "kyushu/hikkei-common-09": {
-      "midSentenceBreaks": 16,
+      "midSentenceBreaks": 12,
       "strayTableFragments": 4,
       "verbatimTables": 0
     },
@@ -117,12 +117,12 @@
       "verbatimTables": 0
     },
     "tohoku/reference": {
-      "midSentenceBreaks": 23,
-      "strayTableFragments": 714,
+      "midSentenceBreaks": 22,
+      "strayTableFragments": 715,
       "verbatimTables": 39
     },
     "kinki/hikkei": {
-      "midSentenceBreaks": 65,
+      "midSentenceBreaks": 61,
       "strayTableFragments": 355,
       "verbatimTables": 41
     },
