@@ -1,8 +1,12 @@
 ---
 notePricing: free
 noteContentType: learning
-noteStatus: draft
+noteStatus: published
 utmCampaign: civil2-niji-postexam-r8
+title: "2級土木 R8第二次検定を終えたら｜自己採点の目安と、合格発表（2/3）までにやること【無料】"
+notePublishedAt: "2026-10-27"
+noteId: "n6b1410beec5c"
+noteUrl: "https://note.com/dobokunote/n/n6b1410beec5c"
 coverTitle: ["2級土木 R8二次を終えたら", "自己採点の目安と合格発表までにやること"]
 cover:
   variant: crop-safe-v4
