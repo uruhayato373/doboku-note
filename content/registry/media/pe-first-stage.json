@@ -438,6 +438,481 @@
       "durationSec": 172.967
     },
     {
+      "id": "pe-first-stage/pe1-tekisei-3shiten/youtube.longform/contact-sheet",
+      "role": "contact-sheet",
+      "type": "image/jpeg",
+      "sha256": "b4222e0bb277ffe546f85e9abd17effd09ba238b5daa775fa69a42dc4763faf2",
+      "bytes": 642726,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-tekisei-3shiten/youtube.longform/contact-sheet.b4222e0b.jpg"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "media-preview",
+        "spec": "content/sns/video-packs/pe-first-stage/pe1-tekisei-3shiten/storyboard.json"
+      },
+      "width": 1920,
+      "height": 1620
+    },
+    {
+      "id": "pe-first-stage/pe1-tekisei-3shiten/youtube.longform/cover",
+      "role": "cover",
+      "type": "image/png",
+      "sha256": "065a283fc49f19dea110f39334da714374e2f1f7bef1b677e30ec99a7d595d26",
+      "bytes": 3051320,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-tekisei-3shiten/youtube.longform/cover.065a283f.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "New 16:9 cobalt/cyan Japanese POP YouTube poster in reference style; teacher on right; exact copy: 総監が制作 / 技術士第一次試験 / 適性科目 / 正誤判定 3つの視点; all important content top 70%, bottom 30% clear for subtitles.",
+        "promptSha256": "f922ebc3e3841a95bb8fa26af7a88f959e670dcf6b86da1741d598739a21a7df",
+        "generatedAt": "2026-10-27T22:20:20.768Z"
+      },
+      "width": 1920,
+      "height": 1080,
+      "legacyPaths": [
+        ".tmp/media/pe-first-stage/pe1-tekisei-3shiten/work/cover-pop.065a283f.png"
+      ]
+    },
+    {
+      "id": "pe-first-stage/pe1-tekisei-3shiten/youtube.longform/cta",
+      "role": "cta",
+      "type": "image/png",
+      "sha256": "ebe15b77e1ac0e3bf7aede107bdd891e9f724569d647bb2a27bcf2877a82d8d9",
+      "bytes": 1722096,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-tekisei-3shiten/youtube.longform/cta.ebe15b77.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Clean CTA diagram 過去問PDF合本 showing generic PDF binder 全560問, tabs 基礎・適性・専門, note 専門は建設部門, arrow to 概要欄から; bottom 20% blank.",
+        "promptSha256": "792522a8c8473c533a47dad3c077d442b89c521da134add568365700d97c798a",
+        "generatedAt": "2026-10-27T22:20:22.266Z"
+      },
+      "width": 1920,
+      "height": 1080,
+      "legacyPaths": [
+        ".tmp/media/pe-first-stage/pe1-tekisei-3shiten/work/cta-diagram.ebe15b77.png"
+      ]
+    },
+    {
+      "id": "pe-first-stage/pe1-tekisei-3shiten/youtube.longform/preview",
+      "role": "preview",
+      "type": "video/mp4",
+      "sha256": "bd96594ced2aa6c3930a11a7f4a92dcf99f81ec1a3f46b5db4d4895aef84708d",
+      "bytes": 6768474,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-tekisei-3shiten/youtube.longform/preview.bd96594c.mp4"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "media-preview",
+        "spec": "content/sns/video-packs/pe-first-stage/pe1-tekisei-3shiten/storyboard.json"
+      },
+      "durationSec": 213.461
+    },
+    {
+      "id": "pe-first-stage/pe1-tekisei-3shiten/youtube.longform/preview-metrics",
+      "role": "preview-metrics",
+      "type": "application/json",
+      "sha256": "b9bccb00d67c6081c971519532eda0b32f1206cad89e20ed358cd433233c2cc3",
+      "bytes": 514,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-tekisei-3shiten/youtube.longform/preview-metrics.b9bccb00.json"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "media-preview",
+        "spec": "content/sns/video-packs/pe-first-stage/pe1-tekisei-3shiten/storyboard.json"
+      }
+    },
+    {
+      "id": "pe-first-stage/pe1-tekisei-3shiten/youtube.longform/scene-001",
+      "role": "scene-001",
+      "type": "image/png",
+      "sha256": "065a283fc49f19dea110f39334da714374e2f1f7bef1b677e30ec99a7d595d26",
+      "bytes": 3051320,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-tekisei-3shiten/youtube.longform/scene-001.065a283f.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "New 16:9 cobalt/cyan Japanese POP YouTube poster in reference style; teacher on right; exact copy: 総監が制作 / 技術士第一次試験 / 適性科目 / 正誤判定 3つの視点; all important content top 70%, bottom 30% clear for subtitles.",
+        "promptSha256": "f922ebc3e3841a95bb8fa26af7a88f959e670dcf6b86da1741d598739a21a7df",
+        "generatedAt": "2026-10-27T22:20:20.768Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-first-stage/pe1-tekisei-3shiten/youtube.longform/scene-002",
+      "role": "scene-002",
+      "type": "image/png",
+      "sha256": "cb11a2a568469101854341e80d63744a27fba9d97e131ef6f1be6fbdccdf76ea",
+      "bytes": 1733596,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-tekisei-3shiten/youtube.longform/scene-002.cb11a2a5.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Clean white/navy/pale-blue educational diagram, three numbered circles connected left to right: 主語・範囲, 数値・順序, 断定表現; bottom 20% blank.",
+        "promptSha256": "d5fcc373e2e9d05d47256f08365d2415a97e6755c0a40872aee9534a738bdb8d",
+        "generatedAt": "2026-10-27T22:20:20.858Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-first-stage/pe1-tekisei-3shiten/youtube.longform/scene-003",
+      "role": "scene-003",
+      "type": "image/png",
+      "sha256": "383eeff41f3413c0189b30ebae875c2f7ddd2ec72fd1c3657fc76f405b801cb7",
+      "bytes": 1788378,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-tekisei-3shiten/youtube.longform/scene-003.383eeff4.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Clean three-card educational diagram of official aptitude-subject format: 技術士法 第4章, 15問・全問解答, 13:30〜14:30; bottom 20% blank.",
+        "promptSha256": "f3a63f0f63f557f241946d08e42d3329431e2f3dabf6d2981e8484d913782e4c",
+        "generatedAt": "2026-10-27T22:20:20.948Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-first-stage/pe1-tekisei-3shiten/youtube.longform/scene-004",
+      "role": "scene-004",
+      "type": "image/png",
+      "sha256": "c6ddd6ee10bf5ab557d77e11919a86a4dbc0ca0c7116b4d37fc807fe31bc4822",
+      "bytes": 1475642,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-tekisei-3shiten/youtube.longform/scene-004.c6ddd6ee.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Clean diagram comparing 覚えた内容 and 選択肢 cards with magnifying glass finding mismatch; bottom 20% blank.",
+        "promptSha256": "3da48d4c35d87978a19a6c50d0ff91f2eb95409d62836b3e1dd13d1e4fa379a2",
+        "generatedAt": "2026-10-27T22:20:21.046Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-first-stage/pe1-tekisei-3shiten/youtube.longform/scene-005",
+      "role": "scene-005",
+      "type": "image/png",
+      "sha256": "470891f0d1bd8d6b7421ba09c9fc02ef5b226a28cc5def63b5294d69e323cbdb",
+      "bytes": 1595331,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-tekisei-3shiten/youtube.longform/scene-005.470891f0.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Clean two-card diagram of representative error patterns: 余計な一文を追加 and 定義を入れ替え; bottom 20% blank.",
+        "promptSha256": "317ca69d7b248531cde24c6912ada78bf35ae50aaf7005539bf8d2f8c80adcb3",
+        "generatedAt": "2026-10-27T22:20:21.137Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-first-stage/pe1-tekisei-3shiten/youtube.longform/scene-006",
+      "role": "scene-006",
+      "type": "image/png",
+      "sha256": "181eb11a034a17eda8080f27a8f219b005b1db4296dc32c7d375fc3f8ef435ab",
+      "bytes": 1920243,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-tekisei-3shiten/youtube.longform/scene-006.181eb11a.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Clean diagram for 視点1：主語と範囲 showing person, concentric scope circles, and time from 技術士 to 元技術士; bottom 20% blank.",
+        "promptSha256": "f63da838b85f19c06e0967c3910e55a4e0135aaa2d0f3df11845b235137f39ae",
+        "generatedAt": "2026-10-27T22:20:21.228Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-first-stage/pe1-tekisei-3shiten/youtube.longform/scene-007",
+      "role": "scene-007",
+      "type": "image/png",
+      "sha256": "60f3c2df9c124ec01ca3fe3823ca8576b7eedb088400728bc3e88ab2c0509655",
+      "bytes": 1606244,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-tekisei-3shiten/youtube.longform/scene-007.60f3c2df.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Clean diagram for 視点2：数値と順序, 1→2→3 versus 1→3→2 with red X; bottom 20% blank.",
+        "promptSha256": "27d1446354fb3bef896e66ab86f5c64f875c0a28d54e81aeb63a3c71f3dc137f",
+        "generatedAt": "2026-10-27T22:20:21.332Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-first-stage/pe1-tekisei-3shiten/youtube.longform/scene-008",
+      "role": "scene-008",
+      "type": "image/png",
+      "sha256": "5e7718ea413feb39e9b008484d0016d08c52b4eff67c7de0f2bfc15539d65053",
+      "bytes": 1735302,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-tekisei-3shiten/youtube.longform/scene-008.5e7718ea.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Clean diagram for 視点3：断定表現 with 必ず and 限る speech bubbles balanced against 規定と照合; bottom 20% blank.",
+        "promptSha256": "6d596b0d5c2c636ecbe963b31e41284a25fba8f213c7276f1fc908da681d92fb",
+        "generatedAt": "2026-10-27T22:20:21.428Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-first-stage/pe1-tekisei-3shiten/youtube.longform/scene-009",
+      "role": "scene-009",
+      "type": "image/png",
+      "sha256": "6386760d4ab61c17a0ee6af320ccc71eacbd7aacf01d53847a94628bac2d1be8",
+      "bytes": 1783952,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-tekisei-3shiten/youtube.longform/scene-009.6386760d.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Clean diagram, fictional example 1 badge 実際の出題ではありません, civil engineer, secrecy lock, time arrow 技術士→元技術士; bottom 20% blank.",
+        "promptSha256": "fea06d99c2be6b824c69669a7bd5f8c630fa4577435c9d99e684559889ad156c",
+        "generatedAt": "2026-10-27T22:20:21.526Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-first-stage/pe1-tekisei-3shiten/youtube.longform/scene-010",
+      "role": "scene-010",
+      "type": "image/png",
+      "sha256": "3a86c0154f7e6d17f0da953e10755c5b794a2237bb1bef035dce2cbe29c73543",
+      "bytes": 1978570,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-tekisei-3shiten/youtube.longform/scene-010.3a86c015.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Clean diagram 視点1：いつまで続く？ with continuous secrecy lock timeline from 技術士 to 元技術士; small 仮の例 badge; bottom 20% blank.",
+        "promptSha256": "31abaa45e09d11b5a5e5547e559911356e9802568a7fd6d92e15a4b16245a188",
+        "generatedAt": "2026-10-27T22:20:21.636Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-first-stage/pe1-tekisei-3shiten/youtube.longform/scene-011",
+      "role": "scene-011",
+      "type": "image/png",
+      "sha256": "88f76e65679dc211c42e9853fee8191a7beb7d66ea22531f32aae6cd499f3a27",
+      "bytes": 1676421,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-tekisei-3shiten/youtube.longform/scene-011.88f76e65.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Clean diagram, fictional example 2 badge 実際の出題ではありません, name badge card with 登録部門 and 実務経験年数？ rows; bottom 20% blank.",
+        "promptSha256": "66a8bdda8af122c802ca1e4dc17b027a7a6c514f682cc0100042f968a9170f01",
+        "generatedAt": "2026-10-27T22:20:21.758Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-first-stage/pe1-tekisei-3shiten/youtube.longform/scene-012",
+      "role": "scene-012",
+      "type": "image/png",
+      "sha256": "3ea5b137cbf3af18b7e256402ba7d95f0175af88a2c6222ac89935d873a018c6",
+      "bytes": 1784290,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-tekisei-3shiten/youtube.longform/scene-012.3ea5b137.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Clean comparison of official rulebook 登録部門を明示 and fictional condition 経験年数も必ず？, highlighting 必ず; bottom 20% blank.",
+        "promptSha256": "64e794da2c80ddf5def9a5612321afb66d255e0cf2088dc9e4cc58adbc476962",
+        "generatedAt": "2026-10-27T22:20:21.866Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-first-stage/pe1-tekisei-3shiten/youtube.longform/scene-013",
+      "role": "scene-013",
+      "type": "image/png",
+      "sha256": "3624c8b4eaa371254aa204ebaede8bdf71ca7c3bc3d3fdc4b47ada3faa6cb3a7",
+      "bytes": 1673820,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-tekisei-3shiten/youtube.longform/scene-013.3624c8b4.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Clean diagram 3つの印で確認: underline 主語・範囲, circle 数値・順序, square 断定表現 along fictional answer strip; bottom 20% blank.",
+        "promptSha256": "b2ca08d9ff66304accb372c572f1646c9681f5279e2a3310daf5582c85260b32",
+        "generatedAt": "2026-10-27T22:20:21.974Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-first-stage/pe1-tekisei-3shiten/youtube.longform/scene-014",
+      "role": "scene-014",
+      "type": "image/png",
+      "sha256": "bb39f478ae0a712ad2a8cf6dbc99fe118a4bd035f409fe5aa1733f202ab7d1f4",
+      "bytes": 1749340,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-tekisei-3shiten/youtube.longform/scene-014.bb39f478.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Clean diagram 過去問で練習 with generic question card branching to three perspective boxes and 理由を説明 bubble; bottom 20% blank.",
+        "promptSha256": "d0f8bf8f6c4b976bd0645795f85b347a1d8c91a1b8cdb7791c980c96fe2addde",
+        "generatedAt": "2026-10-27T22:20:22.074Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-first-stage/pe1-tekisei-3shiten/youtube.longform/scene-015",
+      "role": "scene-015",
+      "type": "image/png",
+      "sha256": "0bf5015bfc79a3c926e2d30daab53a2b93c223b27fd0c36057f87a43399f03f4",
+      "bytes": 1735122,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-tekisei-3shiten/youtube.longform/scene-015.0bf5015b.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Clean diagram まとめ：順に読む with three numbered circles and 最新情報は公式で確認 note; bottom 20% blank.",
+        "promptSha256": "062e56d413004d3657d47102388ad822490d445276e3805315e9e67ef4a93a87",
+        "generatedAt": "2026-10-27T22:20:22.175Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-first-stage/pe1-tekisei-3shiten/youtube.longform/scene-016",
+      "role": "scene-016",
+      "type": "image/png",
+      "sha256": "ebe15b77e1ac0e3bf7aede107bdd891e9f724569d647bb2a27bcf2877a82d8d9",
+      "bytes": 1722096,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-tekisei-3shiten/youtube.longform/scene-016.ebe15b77.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Clean CTA diagram 過去問PDF合本 showing generic PDF binder 全560問, tabs 基礎・適性・専門, note 専門は建設部門, arrow to 概要欄から; bottom 20% blank.",
+        "promptSha256": "792522a8c8473c533a47dad3c077d442b89c521da134add568365700d97c798a",
+        "generatedAt": "2026-10-27T22:20:22.266Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-first-stage/pe1-tekisei-3shiten/youtube.longform/scene-sheet",
+      "role": "scene-sheet",
+      "type": "image/jpeg",
+      "sha256": "6af85ca249b6e6d36d8262b8bf4146a214d4290ff44a42ce623f967dcf52f7a2",
+      "bytes": 872174,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-tekisei-3shiten/youtube.longform/scene-sheet.6af85ca2.jpg"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "media-preview",
+        "spec": "content/sns/video-packs/pe-first-stage/pe1-tekisei-3shiten/storyboard.json"
+      },
+      "width": 1920,
+      "height": 2388
+    },
+    {
+      "id": "pe-first-stage/pe1-tekisei-3shiten/youtube.longform/subtitles",
+      "role": "subtitles",
+      "type": "text/x-ssa",
+      "sha256": "8a695534dcc6586f3d744b9721146de11f2f2df5526c10f2912eadc5567e4b7c",
+      "bytes": 7255,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-tekisei-3shiten/youtube.longform/subtitles.8a695534.ass"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/pe-first-stage/pe1-tekisei-3shiten/storyboard.json"
+      }
+    },
+    {
+      "id": "pe-first-stage/pe1-tekisei-3shiten/youtube.longform/video",
+      "role": "video",
+      "type": "video/mp4",
+      "sha256": "4209f343276b99b49a06d1f02f72997b40ad9aca730c88788687b1b621675dd4",
+      "bytes": 24899856,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-tekisei-3shiten/youtube.longform/video.4209f343.mp4"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/pe-first-stage/pe1-tekisei-3shiten/storyboard.json",
+        "specSha256": "f24ac31d5f2e8279e6015e27f9f492606d7e5b728319e4f3800950a9f484bc37",
+        "renderInputSha256": "9933fdd2204962599685ddba59f24f6b3a76641f52948c3cce1a7d0185e4eb82",
+        "tts": {
+          "engine": "VOICEVOX",
+          "speaker": 13,
+          "credit": "VOICEVOX:青山龍星"
+        }
+      },
+      "durationSec": 213.461
+    },
+    {
       "id": "pe-first-stage/pe1-zentaizou/youtube.longform/contact-sheet",
       "role": "contact-sheet",
       "type": "image/jpeg",

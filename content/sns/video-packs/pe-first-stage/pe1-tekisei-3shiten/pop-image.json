@@ -1,0 +1,794 @@
+{
+  "policy": ".claude/knowledge/reference/pop-image-policy.md",
+  "designVersion": "pop-20260927",
+  "channel": "youtube",
+  "source": "content/sns/video-packs/pe-first-stage/pe1-tekisei-3shiten",
+  "outputs": {
+    "longform": {
+      "publicationId": "pe-first-stage/pe1-tekisei-3shiten/youtube.longform",
+      "copy": {
+        "exam": "pe-first-stage",
+        "headline": [
+          "適性科目",
+          "正誤判定",
+          "3つの視点"
+        ],
+        "benefit": "",
+        "authority": "総監が制作"
+      },
+      "evidence": [
+        "content/sns/video-packs/pe-first-stage/pe1-tekisei-3shiten/cover-design.json#covers/longform",
+        "content/sns/video-packs/pe-first-stage/pe1-tekisei-3shiten/storyboard.json"
+      ],
+      "references": [
+        {
+          "path": ".tmp/media/pe-first-stage/pe1-kiso-senmon/youtube.longform/cover.145b4650.png",
+          "sha256": "145b46501cbe0898d5fcea91f7a4e67a52eb4a514876cb47a62baef3af337907"
+        }
+      ],
+      "prompt": "New 16:9 cobalt/cyan Japanese POP YouTube poster in reference style; teacher on right; exact copy: 総監が制作 / 技術士第一次試験 / 適性科目 / 正誤判定 3つの視点; all important content top 70%, bottom 30% clear for subtitles.",
+      "promptRecord": "semantic-summary",
+      "promptScope": "新規表紙全体を生成",
+      "format": {
+        "width": 1920,
+        "height": 1080
+      },
+      "render": {
+        "template": "codex-image-gen",
+        "variant": "question",
+        "pose": "pop-red-pen"
+      },
+      "output": {
+        "path": ".tmp/media/pe-first-stage/pe1-tekisei-3shiten/work/cover-pop.065a283f.png",
+        "sha256": "065a283fc49f19dea110f39334da714374e2f1f7bef1b677e30ec99a7d595d26"
+      },
+      "review": {
+        "status": "agent-reviewed",
+        "by": "Codex",
+        "checkedAt": "2026-10-27T22:20:22.371Z",
+        "viewportWidth": 360,
+        "checks": [
+          "資格名・見出しの可読性",
+          "文字化け",
+          "顔と字幕領域",
+          "内容整合"
+        ]
+      },
+      "storage": {
+        "group": "content-media",
+        "key": ".tmp/media/pe-first-stage/pe1-tekisei-3shiten/work/cover-pop.065a283f.png"
+      },
+      "publication": "予約準備中"
+    }
+  },
+  "activeBodyRevision": "body-diagram-20261028",
+  "activeCoverRevision": "cover-pop-20261028",
+  "revisions": {
+    "body-diagram-20261028": {
+      "layout": {
+        "mode": "diagram-led"
+      },
+      "images": [
+        {
+          "sceneId": "answer",
+          "inputSha256": "5322378761cf070fd143017cb64bf04c18cb49d2434a39499ea897fb83fdcc0d",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Clean white/navy/pale-blue educational diagram, three numbered circles connected left to right: 主語・範囲, 数値・順序, 断定表現; bottom 20% blank.",
+            "promptRecord": "semantic-summary",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-senmon/work/answer-diagram.2edf1fac.png",
+                "sha256": "2edf1fac7b994d4ef2cd7bcb0195f654e92672226ff5cd6fec38cd6b8ff4c9fc"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-first-stage/pe1-tekisei-3shiten/work/raw-answer.a45c91cd.png",
+              "sha256": "a45c91cd5828e03ab3caa68e1f0c9236d6c696e96da0b0d5acc55532cfb07301"
+            },
+            "generatedAt": "2026-10-27T22:20:20.858Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-first-stage/pe1-tekisei-3shiten/work/answer-diagram.cb11a2a5.png",
+            "sha256": "cb11a2a568469101854341e80d63744a27fba9d97e131ef6f1be6fbdccdf76ea",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "a45c91cd5828e03ab3caa68e1f0c9236d6c696e96da0b0d5acc55532cfb07301"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-27T22:20:22.371Z",
+            "by": "Codex",
+            "views": [
+              "1920x1080"
+            ],
+            "checks": [
+              "内容整合",
+              "文字の可読性",
+              "字幕領域"
+            ]
+          }
+        },
+        {
+          "sceneId": "rules",
+          "inputSha256": "76876f88c768905cb1c4d81a539f30efc46b4764ddf663176d12385abf70d27e",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Clean three-card educational diagram of official aptitude-subject format: 技術士法 第4章, 15問・全問解答, 13:30〜14:30; bottom 20% blank.",
+            "promptRecord": "semantic-summary",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-senmon/work/answer-diagram.2edf1fac.png",
+                "sha256": "2edf1fac7b994d4ef2cd7bcb0195f654e92672226ff5cd6fec38cd6b8ff4c9fc"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-first-stage/pe1-tekisei-3shiten/work/raw-rules.3a141ff0.png",
+              "sha256": "3a141ff0b24cc403972550819197a9a566730e3a1edaaf8e28a3e754ca94adce"
+            },
+            "generatedAt": "2026-10-27T22:20:20.948Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-first-stage/pe1-tekisei-3shiten/work/rules-diagram.383eeff4.png",
+            "sha256": "383eeff41f3413c0189b30ebae875c2f7ddd2ec72fd1c3657fc76f405b801cb7",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "3a141ff0b24cc403972550819197a9a566730e3a1edaaf8e28a3e754ca94adce"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-27T22:20:22.371Z",
+            "by": "Codex",
+            "views": [
+              "1920x1080"
+            ],
+            "checks": [
+              "内容整合",
+              "文字の可読性",
+              "字幕領域"
+            ]
+          }
+        },
+        {
+          "sceneId": "pain",
+          "inputSha256": "adeeb917ab288a6db3ff631fa0b488d61349eb53396ea0ea01f89318466691b4",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Clean diagram comparing 覚えた内容 and 選択肢 cards with magnifying glass finding mismatch; bottom 20% blank.",
+            "promptRecord": "semantic-summary",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-senmon/work/answer-diagram.2edf1fac.png",
+                "sha256": "2edf1fac7b994d4ef2cd7bcb0195f654e92672226ff5cd6fec38cd6b8ff4c9fc"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-first-stage/pe1-tekisei-3shiten/work/raw-pain.02cb0c24.png",
+              "sha256": "02cb0c2416144052e270b00af86dedad44c98f17c142b7f0d51d980b881926b3"
+            },
+            "generatedAt": "2026-10-27T22:20:21.046Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-first-stage/pe1-tekisei-3shiten/work/pain-diagram.c6ddd6ee.png",
+            "sha256": "c6ddd6ee10bf5ab557d77e11919a86a4dbc0ca0c7116b4d37fc807fe31bc4822",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "02cb0c2416144052e270b00af86dedad44c98f17c142b7f0d51d980b881926b3"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-27T22:20:22.371Z",
+            "by": "Codex",
+            "views": [
+              "1920x1080"
+            ],
+            "checks": [
+              "内容整合",
+              "文字の可読性",
+              "字幕領域"
+            ]
+          }
+        },
+        {
+          "sceneId": "misread",
+          "inputSha256": "4638bb16d2a350527f9ae8a4618e8735d0d1b2d5cc9fee6f695f62fb9425640e",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Clean two-card diagram of representative error patterns: 余計な一文を追加 and 定義を入れ替え; bottom 20% blank.",
+            "promptRecord": "semantic-summary",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-senmon/work/answer-diagram.2edf1fac.png",
+                "sha256": "2edf1fac7b994d4ef2cd7bcb0195f654e92672226ff5cd6fec38cd6b8ff4c9fc"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-first-stage/pe1-tekisei-3shiten/work/raw-misread.46693aa1.png",
+              "sha256": "46693aa16feb39325f5b7dc426da52ba20e95669e81789e08dfdcfa89026c540"
+            },
+            "generatedAt": "2026-10-27T22:20:21.137Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-first-stage/pe1-tekisei-3shiten/work/misread-diagram.470891f0.png",
+            "sha256": "470891f0d1bd8d6b7421ba09c9fc02ef5b226a28cc5def63b5294d69e323cbdb",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "46693aa16feb39325f5b7dc426da52ba20e95669e81789e08dfdcfa89026c540"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-27T22:20:22.371Z",
+            "by": "Codex",
+            "views": [
+              "1920x1080"
+            ],
+            "checks": [
+              "内容整合",
+              "文字の可読性",
+              "字幕領域"
+            ]
+          }
+        },
+        {
+          "sceneId": "view1",
+          "inputSha256": "06072d502316f7189a84860224db9948eb3c9819911f3e214df6e6da5fc65220",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Clean diagram for 視点1：主語と範囲 showing person, concentric scope circles, and time from 技術士 to 元技術士; bottom 20% blank.",
+            "promptRecord": "semantic-summary",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-senmon/work/answer-diagram.2edf1fac.png",
+                "sha256": "2edf1fac7b994d4ef2cd7bcb0195f654e92672226ff5cd6fec38cd6b8ff4c9fc"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-first-stage/pe1-tekisei-3shiten/work/raw-view1.0c869eaa.png",
+              "sha256": "0c869eaaa18620312c5784605af7c53b7919ca0478b999586032fd1ab68dd0cf"
+            },
+            "generatedAt": "2026-10-27T22:20:21.228Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-first-stage/pe1-tekisei-3shiten/work/view1-diagram.181eb11a.png",
+            "sha256": "181eb11a034a17eda8080f27a8f219b005b1db4296dc32c7d375fc3f8ef435ab",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "0c869eaaa18620312c5784605af7c53b7919ca0478b999586032fd1ab68dd0cf"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-27T22:20:22.371Z",
+            "by": "Codex",
+            "views": [
+              "1920x1080"
+            ],
+            "checks": [
+              "内容整合",
+              "文字の可読性",
+              "字幕領域"
+            ]
+          }
+        },
+        {
+          "sceneId": "view2",
+          "inputSha256": "645252bd140173b5d2fa763b42968e18cf3b953e865a11167abaa88a013b30fb",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Clean diagram for 視点2：数値と順序, 1→2→3 versus 1→3→2 with red X; bottom 20% blank.",
+            "promptRecord": "semantic-summary",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-senmon/work/answer-diagram.2edf1fac.png",
+                "sha256": "2edf1fac7b994d4ef2cd7bcb0195f654e92672226ff5cd6fec38cd6b8ff4c9fc"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-first-stage/pe1-tekisei-3shiten/work/raw-view2.6354832b.png",
+              "sha256": "6354832b604bf37f359668708dc654d78a0ddbac6b4b3332d4b76ce953556cce"
+            },
+            "generatedAt": "2026-10-27T22:20:21.332Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-first-stage/pe1-tekisei-3shiten/work/view2-diagram.60f3c2df.png",
+            "sha256": "60f3c2df9c124ec01ca3fe3823ca8576b7eedb088400728bc3e88ab2c0509655",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "6354832b604bf37f359668708dc654d78a0ddbac6b4b3332d4b76ce953556cce"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-27T22:20:22.371Z",
+            "by": "Codex",
+            "views": [
+              "1920x1080"
+            ],
+            "checks": [
+              "内容整合",
+              "文字の可読性",
+              "字幕領域"
+            ]
+          }
+        },
+        {
+          "sceneId": "view3",
+          "inputSha256": "4e03e2720c2d200fe57dd2f08be72540924e7a64de972012a85551afbe0698df",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Clean diagram for 視点3：断定表現 with 必ず and 限る speech bubbles balanced against 規定と照合; bottom 20% blank.",
+            "promptRecord": "semantic-summary",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-senmon/work/answer-diagram.2edf1fac.png",
+                "sha256": "2edf1fac7b994d4ef2cd7bcb0195f654e92672226ff5cd6fec38cd6b8ff4c9fc"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-first-stage/pe1-tekisei-3shiten/work/raw-view3.cd9dfe69.png",
+              "sha256": "cd9dfe690e619c3c5c1840a0218eaba0682e54c9c045eb4b104d7c14b159b0d1"
+            },
+            "generatedAt": "2026-10-27T22:20:21.428Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-first-stage/pe1-tekisei-3shiten/work/view3-diagram.5e7718ea.png",
+            "sha256": "5e7718ea413feb39e9b008484d0016d08c52b4eff67c7de0f2bfc15539d65053",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "cd9dfe690e619c3c5c1840a0218eaba0682e54c9c045eb4b104d7c14b159b0d1"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-27T22:20:22.371Z",
+            "by": "Codex",
+            "views": [
+              "1920x1080"
+            ],
+            "checks": [
+              "内容整合",
+              "文字の可読性",
+              "字幕領域"
+            ]
+          }
+        },
+        {
+          "sceneId": "example0",
+          "inputSha256": "1a7d552f3a61aa59e215c7616e245da239925496a3c6ff9c6ed2b579111df3e5",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Clean diagram, fictional example 1 badge 実際の出題ではありません, civil engineer, secrecy lock, time arrow 技術士→元技術士; bottom 20% blank.",
+            "promptRecord": "semantic-summary",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-senmon/work/answer-diagram.2edf1fac.png",
+                "sha256": "2edf1fac7b994d4ef2cd7bcb0195f654e92672226ff5cd6fec38cd6b8ff4c9fc"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-first-stage/pe1-tekisei-3shiten/work/raw-example0.58a53106.png",
+              "sha256": "58a531067a4d7fd39395a34bd27aaa398f169a77481c58ced34268ea4aff3edc"
+            },
+            "generatedAt": "2026-10-27T22:20:21.526Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-first-stage/pe1-tekisei-3shiten/work/example0-diagram.6386760d.png",
+            "sha256": "6386760d4ab61c17a0ee6af320ccc71eacbd7aacf01d53847a94628bac2d1be8",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "58a531067a4d7fd39395a34bd27aaa398f169a77481c58ced34268ea4aff3edc"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-27T22:20:22.371Z",
+            "by": "Codex",
+            "views": [
+              "1920x1080"
+            ],
+            "checks": [
+              "内容整合",
+              "文字の可読性",
+              "字幕領域"
+            ]
+          }
+        },
+        {
+          "sceneId": "example1",
+          "inputSha256": "87136f8b7592858df1e3dd6600c3b6a6125d4c2bfbd33ac0a84bf0db0ea2896c",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Clean diagram 視点1：いつまで続く？ with continuous secrecy lock timeline from 技術士 to 元技術士; small 仮の例 badge; bottom 20% blank.",
+            "promptRecord": "semantic-summary",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-senmon/work/answer-diagram.2edf1fac.png",
+                "sha256": "2edf1fac7b994d4ef2cd7bcb0195f654e92672226ff5cd6fec38cd6b8ff4c9fc"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-first-stage/pe1-tekisei-3shiten/work/raw-example1.a29e715f.png",
+              "sha256": "a29e715f74c269363b384bc29c3ef5e8b84d6b7900e3bbf2bb2f3f854bfaa142"
+            },
+            "generatedAt": "2026-10-27T22:20:21.636Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-first-stage/pe1-tekisei-3shiten/work/example1-diagram.3a86c015.png",
+            "sha256": "3a86c0154f7e6d17f0da953e10755c5b794a2237bb1bef035dce2cbe29c73543",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "a29e715f74c269363b384bc29c3ef5e8b84d6b7900e3bbf2bb2f3f854bfaa142"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-27T22:20:22.371Z",
+            "by": "Codex",
+            "views": [
+              "1920x1080"
+            ],
+            "checks": [
+              "内容整合",
+              "文字の可読性",
+              "字幕領域"
+            ]
+          }
+        },
+        {
+          "sceneId": "example2",
+          "inputSha256": "9466b1a7a44d9ff0323fb46bb1b4ee3ca3c97f72e5919658de665fbd08dfe740",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Clean diagram, fictional example 2 badge 実際の出題ではありません, name badge card with 登録部門 and 実務経験年数？ rows; bottom 20% blank.",
+            "promptRecord": "semantic-summary",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-senmon/work/answer-diagram.2edf1fac.png",
+                "sha256": "2edf1fac7b994d4ef2cd7bcb0195f654e92672226ff5cd6fec38cd6b8ff4c9fc"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-first-stage/pe1-tekisei-3shiten/work/raw-example2.4fe04f9b.png",
+              "sha256": "4fe04f9b865e9bc93f8403184cb3982dcb605a2fd5548dc491b97781580f0d7f"
+            },
+            "generatedAt": "2026-10-27T22:20:21.758Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-first-stage/pe1-tekisei-3shiten/work/example2-diagram.88f76e65.png",
+            "sha256": "88f76e65679dc211c42e9853fee8191a7beb7d66ea22531f32aae6cd499f3a27",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "4fe04f9b865e9bc93f8403184cb3982dcb605a2fd5548dc491b97781580f0d7f"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-27T22:20:22.371Z",
+            "by": "Codex",
+            "views": [
+              "1920x1080"
+            ],
+            "checks": [
+              "内容整合",
+              "文字の可読性",
+              "字幕領域"
+            ]
+          }
+        },
+        {
+          "sceneId": "example3",
+          "inputSha256": "804208347da497d12b28e61f137d7e6a9b5b9b3279ed27e765b987ce73dafcf2",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Clean comparison of official rulebook 登録部門を明示 and fictional condition 経験年数も必ず？, highlighting 必ず; bottom 20% blank.",
+            "promptRecord": "semantic-summary",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-senmon/work/answer-diagram.2edf1fac.png",
+                "sha256": "2edf1fac7b994d4ef2cd7bcb0195f654e92672226ff5cd6fec38cd6b8ff4c9fc"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-first-stage/pe1-tekisei-3shiten/work/raw-example3.5caad646.png",
+              "sha256": "5caad64690ee78a24ac922925411f0e1894ecfe8f524587c79af6c1f27e7b8d3"
+            },
+            "generatedAt": "2026-10-27T22:20:21.866Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-first-stage/pe1-tekisei-3shiten/work/example3-diagram.3ea5b137.png",
+            "sha256": "3ea5b137cbf3af18b7e256402ba7d95f0175af88a2c6222ac89935d873a018c6",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "5caad64690ee78a24ac922925411f0e1894ecfe8f524587c79af6c1f27e7b8d3"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-27T22:20:22.371Z",
+            "by": "Codex",
+            "views": [
+              "1920x1080"
+            ],
+            "checks": [
+              "内容整合",
+              "文字の可読性",
+              "字幕領域"
+            ]
+          }
+        },
+        {
+          "sceneId": "routine",
+          "inputSha256": "03e450dd6c77bbf21ec032cc76123e8f015bb4f518613ecf7f38162d2e3d14a4",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Clean diagram 3つの印で確認: underline 主語・範囲, circle 数値・順序, square 断定表現 along fictional answer strip; bottom 20% blank.",
+            "promptRecord": "semantic-summary",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-senmon/work/answer-diagram.2edf1fac.png",
+                "sha256": "2edf1fac7b994d4ef2cd7bcb0195f654e92672226ff5cd6fec38cd6b8ff4c9fc"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-first-stage/pe1-tekisei-3shiten/work/raw-routine.4b0add54.png",
+              "sha256": "4b0add543d67bc709bf1930fedcd484f5c0b132b9bbfe76826e3ccba1a444a15"
+            },
+            "generatedAt": "2026-10-27T22:20:21.974Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-first-stage/pe1-tekisei-3shiten/work/routine-diagram.3624c8b4.png",
+            "sha256": "3624c8b4eaa371254aa204ebaede8bdf71ca7c3bc3d3fdc4b47ada3faa6cb3a7",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "4b0add543d67bc709bf1930fedcd484f5c0b132b9bbfe76826e3ccba1a444a15"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-27T22:20:22.371Z",
+            "by": "Codex",
+            "views": [
+              "1920x1080"
+            ],
+            "checks": [
+              "内容整合",
+              "文字の可読性",
+              "字幕領域"
+            ]
+          }
+        },
+        {
+          "sceneId": "practice",
+          "inputSha256": "1266c919d2fa4744ab9118199cc4b962148dfc38f83e93ab9caf7db8353b1aa2",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Clean diagram 過去問で練習 with generic question card branching to three perspective boxes and 理由を説明 bubble; bottom 20% blank.",
+            "promptRecord": "semantic-summary",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-senmon/work/answer-diagram.2edf1fac.png",
+                "sha256": "2edf1fac7b994d4ef2cd7bcb0195f654e92672226ff5cd6fec38cd6b8ff4c9fc"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-first-stage/pe1-tekisei-3shiten/work/raw-practice.3e774fc2.png",
+              "sha256": "3e774fc295eb4c18c31064eb0d1d7a7b7c2a5ea98db8b36295220d0d6af080c7"
+            },
+            "generatedAt": "2026-10-27T22:20:22.074Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-first-stage/pe1-tekisei-3shiten/work/practice-diagram.bb39f478.png",
+            "sha256": "bb39f478ae0a712ad2a8cf6dbc99fe118a4bd035f409fe5aa1733f202ab7d1f4",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "3e774fc295eb4c18c31064eb0d1d7a7b7c2a5ea98db8b36295220d0d6af080c7"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-27T22:20:22.371Z",
+            "by": "Codex",
+            "views": [
+              "1920x1080"
+            ],
+            "checks": [
+              "内容整合",
+              "文字の可読性",
+              "字幕領域"
+            ]
+          }
+        },
+        {
+          "sceneId": "summary",
+          "inputSha256": "263f61cd5af88430ac5d5e35306ebb3ab84fd7da6df1c050947e3f832c265879",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Clean diagram まとめ：順に読む with three numbered circles and 最新情報は公式で確認 note; bottom 20% blank.",
+            "promptRecord": "semantic-summary",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-senmon/work/answer-diagram.2edf1fac.png",
+                "sha256": "2edf1fac7b994d4ef2cd7bcb0195f654e92672226ff5cd6fec38cd6b8ff4c9fc"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-first-stage/pe1-tekisei-3shiten/work/raw-summary.629f90b7.png",
+              "sha256": "629f90b7f09dbfb349f26c39d69f6c18a4cc461c69b36aa06bb36d283d50e8ce"
+            },
+            "generatedAt": "2026-10-27T22:20:22.175Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-first-stage/pe1-tekisei-3shiten/work/summary-diagram.0bf5015b.png",
+            "sha256": "0bf5015bfc79a3c926e2d30daab53a2b93c223b27fd0c36057f87a43399f03f4",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "629f90b7f09dbfb349f26c39d69f6c18a4cc461c69b36aa06bb36d283d50e8ce"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-27T22:20:22.371Z",
+            "by": "Codex",
+            "views": [
+              "1920x1080"
+            ],
+            "checks": [
+              "内容整合",
+              "文字の可読性",
+              "字幕領域"
+            ]
+          }
+        },
+        {
+          "sceneId": "cta",
+          "inputSha256": "5cf086af02380093c2a2f396a6d94e099dcabd3e7b4a9ce46291dbe564def656",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Clean CTA diagram 過去問PDF合本 showing generic PDF binder 全560問, tabs 基礎・適性・専門, note 専門は建設部門, arrow to 概要欄から; bottom 20% blank.",
+            "promptRecord": "semantic-summary",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-senmon/work/answer-diagram.2edf1fac.png",
+                "sha256": "2edf1fac7b994d4ef2cd7bcb0195f654e92672226ff5cd6fec38cd6b8ff4c9fc"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-first-stage/pe1-tekisei-3shiten/work/raw-cta.bb8699a8.png",
+              "sha256": "bb8699a866ae26a4243f88fc3f39111f7abd11bbd13ace3989d05cfcc1c8dc9a"
+            },
+            "generatedAt": "2026-10-27T22:20:22.266Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-first-stage/pe1-tekisei-3shiten/work/cta-diagram.ebe15b77.png",
+            "sha256": "ebe15b77e1ac0e3bf7aede107bdd891e9f724569d647bb2a27bcf2877a82d8d9",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "bb8699a866ae26a4243f88fc3f39111f7abd11bbd13ace3989d05cfcc1c8dc9a"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-27T22:20:22.371Z",
+            "by": "Codex",
+            "views": [
+              "1920x1080"
+            ],
+            "checks": [
+              "内容整合",
+              "文字の可読性",
+              "字幕領域"
+            ]
+          }
+        }
+      ],
+      "storage": {
+        "group": "content-media",
+        "sync": "pending"
+      }
+    },
+    "cover-pop-20261028": {
+      "version": "pop-poster-v3",
+      "generation": {
+        "tool": "image_gen",
+        "prompt": "New 16:9 cobalt/cyan Japanese POP YouTube poster in reference style; teacher on right; exact copy: 総監が制作 / 技術士第一次試験 / 適性科目 / 正誤判定 3つの視点; all important content top 70%, bottom 30% clear for subtitles.",
+        "promptRecord": "semantic-summary",
+        "references": [
+          {
+            "path": ".tmp/media/pe-first-stage/pe1-kiso-senmon/youtube.longform/cover.145b4650.png",
+            "sha256": "145b46501cbe0898d5fcea91f7a4e67a52eb4a514876cb47a62baef3af337907"
+          }
+        ],
+        "output": {
+          "path": ".tmp/media/pe-first-stage/pe1-tekisei-3shiten/work/raw-cover.28405138.png",
+          "sha256": "28405138ca07b8ceb5b6cac7dae162662a5d99d9466fdb08a13454b6f2d326c0"
+        },
+        "generatedAt": "2026-10-27T22:20:20.768Z"
+      },
+      "copy": {
+        "exam": "pe-first-stage",
+        "headline": [
+          "適性科目",
+          "正誤判定",
+          "3つの視点"
+        ],
+        "authority": "総監が制作"
+      },
+      "output": {
+        "path": ".tmp/media/pe-first-stage/pe1-tekisei-3shiten/work/cover-pop.065a283f.png",
+        "sha256": "065a283fc49f19dea110f39334da714374e2f1f7bef1b677e30ec99a7d595d26",
+        "width": 1920,
+        "height": 1080
+      },
+      "normalization": {
+        "mode": "full-frame-v1",
+        "sourceSha256": "28405138ca07b8ceb5b6cac7dae162662a5d99d9466fdb08a13454b6f2d326c0"
+      },
+      "review": {
+        "status": "ai-reviewed",
+        "userImageReview": "pending",
+        "checkedAt": "2026-10-27T22:20:22.371Z",
+        "by": "Codex",
+        "views": [
+          "1920x1080"
+        ],
+        "checks": [
+          "資格名・見出し",
+          "顔と字幕領域"
+        ]
+      },
+      "storage": {
+        "group": "content-media",
+        "sync": "pending"
+      }
+    }
+  }
+}

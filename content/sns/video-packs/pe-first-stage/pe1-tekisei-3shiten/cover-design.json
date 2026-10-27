@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "pe-first-stage",
+      "headline": [
+        "適性科目",
+        "正誤判定",
+        "3つの視点"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pop-red-pen",
+        "frame": "waist"
+      },
+      "design": "pop-poster-v3",
+      "pop": {
+        "variant": "question",
+        "authority": "総監が制作"
+      },
+      "approvedImage": {
+        "path": ".tmp/media/pe-first-stage/pe1-tekisei-3shiten/work/cover-pop.065a283f.png",
+        "sha256": "065a283fc49f19dea110f39334da714374e2f1f7bef1b677e30ec99a7d595d26",
+        "specSha256": "bf6b3b41ecd92e92916dc95f18ab17922252e9f3d9618668e7c9511e56b1d209",
+        "normalization": {
+          "mode": "full-frame-v1",
+          "sourceSha256": "28405138ca07b8ceb5b6cac7dae162662a5d99d9466fdb08a13454b6f2d326c0"
+        },
+        "source": {
+          "path": ".tmp/media/pe-first-stage/pe1-tekisei-3shiten/work/raw-cover.28405138.png",
+          "sha256": "28405138ca07b8ceb5b6cac7dae162662a5d99d9466fdb08a13454b6f2d326c0"
+        }
+      }
+    }
+  }
+}

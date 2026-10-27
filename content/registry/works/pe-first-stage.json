@@ -116,6 +116,17 @@
       "definition": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-15"
     },
     {
+      "id": "pe1-tekisei-3shiten",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/pe-first-stage/pe1-tekisei-3shiten",
+      "qa": {
+        "avg": 2.5,
+        "blocks": 0,
+        "at": "2026-10-28",
+        "by": "Claude Code video-content-qa"
+      }
+    },
+    {
       "id": "pe1-zentaizou",
       "kind": "video-pack",
       "definition": "content/sns/video-packs/pe-first-stage/pe1-zentaizou",
