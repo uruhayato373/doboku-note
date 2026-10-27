@@ -95,3 +95,56 @@ test('ツールのページは自分の題・説明をツール一覧（src/lib/
     assert.ok(!page.includes(`"${title}"`) && !page.includes(`'${title}'`), `${href}: 題「${title}」を書き写している（toolByHref で引く）`);
   }
 });
+
+// ---- SNS・表紙のスクリプトが持つ資格キーの表（値を変えると公開記録の ID が動くので、表は残し正本との一致だけを縛る） ----
+const objectLiteral = (file, name) => {
+  const src = readFileSync(file, 'utf8');
+  const start = src.indexOf(`${name} = {`);
+  assert.ok(start >= 0, `${file}: ${name} が見つからない`);
+  const body = src.slice(start, src.indexOf('};', start));
+  return Object.fromEntries([...body.matchAll(/['"]?([a-z0-9+-]+)['"]?\s*:\s*['"]([a-z0-9-]+)['"]/g)].map((m) => [m[1], m[2]]));
+};
+
+test('SNS・動画・図解の資格キーの表は、資格の registry と表紙の色の定義（note-cover-tokens の qualification）に食い違わない', async () => {
+  const { isQualificationRef } = await import('../scripts/lib/qualification-names.mjs');
+  const registry = readJson(datasetPath('config.qualification-registry'));
+  const tokens = readJson('.claude/knowledge/design-system/note-cover-tokens.json').exams;
+  const tables = {
+    'X の EXAM_ALIAS': objectLiteral('scripts/lib/registry-x-state.mjs', 'EXAM_ALIAS'),
+    'Instagram の EXAM_OF_DIR': objectLiteral('scripts/lib/registry-ig-state.mjs', 'EXAM_OF_DIR'),
+    '図解パックの FIGURE_PACK_CATEGORIES': objectLiteral('.claude/scripts/sns/lib/figure-pack-labels.mjs', 'FIGURE_PACK_CATEGORIES'),
+  };
+  for (const [name, table] of Object.entries(tables)) {
+    assert.ok(Object.keys(table).length >= 4, `${name} を読めていない`);
+    for (const [key, qualification] of Object.entries(table)) {
+      assert.ok(isQualificationRef(registry, qualification), `${name}: ${key} → ${qualification} は registry に無い`);
+      if (tokens[key]?.qualification) assert.equal(qualification, tokens[key].qualification, `${name}: ${key} が表紙の色の定義（${tokens[key].qualification}）と違う`);
+    }
+  }
+  // 動画パックは向きが逆（資格 id → 色のキー）
+  const palette = objectLiteral('scripts/lib/longform-render.mjs', 'EXAM_TO_PALETTE');
+  for (const [qualification, key] of Object.entries(palette)) {
+    assert.ok(isQualificationRef(registry, qualification), `EXAM_TO_PALETTE: ${qualification} は registry に無い`);
+    assert.equal(tokens[key]?.qualification, qualification, `EXAM_TO_PALETTE: ${qualification} → ${key} が表紙の色の定義と違う`);
+  }
+});
+
+test('マガジン表紙の資格ラベル（generate-magazine-covers の category）は registry の名前か、理由を書いた書き分け', async () => {
+  const { qualificationLabel, qualificationShortLabel, qualificationBadgeLabel } = await import('../scripts/lib/qualification-names.mjs');
+  const registry = readJson(datasetPath('config.qualification-registry'));
+  const tokens = readJson('.claude/knowledge/design-system/note-cover-tokens.json').exams;
+  // 意図した書き分け: 建設部門の二次試験の教材だと分かるように「第二次」を付ける
+  const VARIANTS = { 'pe-construction': ['技術士（建設部門・第二次）'] };
+  const src = readFileSync('scripts/generate-magazine-covers.mjs', 'utf8');
+  const entries = [...src.matchAll(/magazineDir: '([^']+)'[\s\S]*?category: '([^']+)'/g)].map((m) => ({ dir: m[1], category: m[2] }));
+  assert.ok(entries.length >= 50, `表紙の定義を読めていない（${entries.length}）`);
+  for (const { dir, category } of entries) {
+    // 置き場のフォルダのうち一番深い資格のフォルダで決める（1級・2級土木/1級土木/… は 1級土木）
+    const segments = dir.split('/').reverse();
+    const key = segments.map((seg) => Object.keys(tokens).find((k) => tokens[k].dir === seg)).find(Boolean);
+    assert.ok(key && tokens[key].qualification, `${dir}: 資格を引けない`);
+    const q = tokens[key].qualification;
+    const allowed = new Set([qualificationLabel(registry, q), qualificationShortLabel(registry, q), qualificationBadgeLabel(registry, q), ...(VARIANTS[q] ?? [])]);
+    assert.ok(allowed.has(category), `${dir}: 「${category}」は ${q} の名前（${[...allowed].join('・')}）と違う`);
+  }
+});
