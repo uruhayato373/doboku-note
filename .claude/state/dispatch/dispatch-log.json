@@ -6122,6 +6122,23 @@
       "commit": "1fc2c086c540",
       "verification": "node --test tests/note-live-update-verify.test.mjs（旧実装で落ち修正後 7/7）・npm test fail 0",
       "note": "pickUpdateProbes を行の中の差分から断片を取る形にした（PR #1288・1fc2c086c）"
+    },
+    {
+      "id": "DN-0893",
+      "at": "2026-10-27",
+      "task": "todo:add が試験日の検査（check-exam-calendar）を通さずに push する抜けをふさぐ",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "tests/todo-add.test.mjs"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "a383933a23b6",
+      "verification": "node --test tests/todo-add.test.mjs tests/search-improvement.test.mjs tests/pre-commit-ci-gates.test.mjs（旧実装で todo-add 2 件が落ち、修正後に通る）・PR #1290 の CI 全 pass",
+      "note": "addCard に findForbidden・auditLinks、withNoneMarker に findForbidden を入れた。pre-commit の unit-tests は gateEnv で hook の git 変数を外す（PR #1290・a383933a2）"
     }
   ]
 }

@@ -305,20 +305,6 @@
 
 **完了条件**: 公開中の出品で `coconala-edit --fields body` の dry-run が本文の欄を見つけ、欄が無いときは失敗で止まる PR が develop に入る。
 
-### [DN-0893] todo:add が試験日の検査（check-exam-calendar）を通さずに push する抜けをふさぐ
-タグ: [領域:管理] [時期:2026-10] [種類:不具合] [検証:test] [起票:2026-10-27] [進行中]
-
-**起点**: DN-0890 と DN-0892 を起票したとき、本文に日付と資格の級・検定の段階が近くに並ぶ文があった。`check-exam-calendar` の既知の誤記パターン（試験日の書き間違い）に当たる形だったが、`npm run todo:add -- --commit` はそのまま origin/develop へ push した。後から手で直した（a142cf379）が、その間は develop の CI（quality-audit の exam-calendar・ci:true）が赤だった可能性がある。
-
-**原因**: `todo:add` は `scripts/lib/git-direct-commit.mjs` の `commitFileToRemoteBranch` で、一時 index と commit-tree を使って origin/develop へ直接積む。このため pre-commit フックは走らない（同ファイル冒頭のコメントに「呼び出し側が transform の中で検査する」とある）。`scripts/todo-add.mjs` の transform は backlog のスキーマ検査（`validateCards` など）だけを行い、`check-exam-calendar` の走査対象に `.claude/todo` が入っている（`scripts/check-exam-calendar.mjs` の scanRoots）のに、その検査を呼んでいない。同じ lib を使う `scripts/search-improvement.mjs` も同じ形の抜けがあるか未確認。
-
-**やること**:
-1. `todo-add.mjs` の transform で、新しい backlog の本文に `scripts/lib/exam-calendar-guards.mjs` の `findForbidden` を当て、引っかかったら throw して push しない（dry-run でも同じ判定を出す）
-2. pre-commit が `.claude/todo` に当てているほかの検査で、commit-tree 経路が素通りしているものを洗い出し、必要なら同じく transform に入れる（`scripts/install-pre-commit.mjs` の構成と突き合わせる）
-3. `search-improvement.mjs`（`commitFilesToRemoteBranch`）の書き込み先に同じ抜けがないか確かめ、あれば同様に直す
-4. 回帰テスト: 本文に「2級」と禁止の日付を並べた todo:add が exit 1 で止まり、push しないことを確かめる
-
-**完了条件**: 禁止パターンを含む本文の `todo:add --commit` が push 前に止まり、新しいテストが `npm run test` で通る。
 
 
 ### [DN-0892] 建築施工管理（1級・2級）の note 商品の競合分析と商品案を作り、DN-0427 の判断材料にする
