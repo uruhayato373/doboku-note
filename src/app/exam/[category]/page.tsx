@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import CategoryPage from '@/components/category/CategoryPage';
 import { buildPageMetadata } from '@/lib/metadata';
 import { getCategoryBySlug, getExamCategories } from '@/lib/categories';
+import { examHubPath } from '@/lib/route-paths';
 
 type Params = { category: string };
 
@@ -21,7 +22,7 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
   return buildPageMetadata({
     title: definition.seoTitle ?? definition.label,
     description: definition.description ?? definition.subtitle,
-    path: `/exam/${category}`,
+    path: examHubPath(category),
   });
 }
 

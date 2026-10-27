@@ -18,6 +18,7 @@ import { renderQuizMarkdown, stripMarkdown } from './lib/quiz-markdown.mjs';
 import { jstDayOf } from './lib/jst-date.mjs';
 import { extractStatementExplanations, renderStatementsHtml, withStatementHtml } from './lib/statement-explanations.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
+import { writeJsonIfChanged } from './lib/write-generated.mjs';
 
 // 出力先。既定は配信用の public/quiz。テストは --out-dir で一時ディレクトリへ出し、追跡中の生成物を書き換えない。
 const outDirArg = process.argv.indexOf('--out-dir');
@@ -514,8 +515,10 @@ function buildPeFirstStageDataset({ exam, examLabel, srcPath }) {
 
 function main() {
   let totalQ = 0;
+  const summary = {};
   for (const source of SOURCES.filter((s) => s.web !== false)) {
     const dataset = buildDataset(source);
+    summary[source.exam] = quizSummary(dataset);
     const outPath = resolve(OUT_DIR, `${source.exam}.json`);
     mkdirSync(dirname(outPath), { recursive: true });
     // 決定的な出力（改行は LF）。生成物なので pre-commit の対象外だが LF で統一。
@@ -527,6 +530,21 @@ function main() {
     );
   }
   console.log(`[build-quiz-data] 合計 ${totalQ} 問を生成`);
+  // 画面の「全◯問・◯〜◯年度」は配信データから数えた要約を読む（手で書いた件数が年度の追加に追いつかなかった・2026-10-27）。
+  // テストの --out-dir では追跡中の要約を書き換えない
+  if (outDirArg < 0) writeJsonIfChanged(resolve(ROOT, 'src/config/quiz-summary.json'), { schemaVersion: 1, exams: summary }, { volatileKeys: [] });
+}
+
+/** 演習データの要約（問題数・年度数・最も古い年度と新しい年度の表示名）。年度は新しい順に並んでいる前提にしない */
+export function quizSummary(dataset) {
+  const labels = new Map(dataset.years.map((y) => [y.year, y.yearLabel]));
+  const order = [...labels.keys()].sort((a, b) => peYearRank(a) - peYearRank(b));
+  return {
+    questions: dataset.questions.length,
+    years: order.length,
+    firstYearLabel: labels.get(order[0]),
+    lastYearLabel: labels.get(order.at(-1)),
+  };
 }
 
 // iOS の書き出しが import して使うので、直接実行されたときだけ public/quiz を書く

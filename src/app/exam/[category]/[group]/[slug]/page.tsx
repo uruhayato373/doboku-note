@@ -9,6 +9,7 @@ import {
   getAllPublicDocRoutes,
   isKnownPublicGroup,
 } from '@/lib/content-routes';
+import { NOT_FOUND_TITLE } from '@/lib/metadata';
 
 type Params = { category: string; group: string; slug: string };
 
@@ -33,7 +34,7 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
   const resolved = resolve(await params);
   return resolved
     ? buildDocMetadata(resolved)
-    : { title: 'ページが見つかりません', robots: { index: false, follow: false } };
+    : { title: NOT_FOUND_TITLE, robots: { index: false, follow: false } };
 }
 
 export default async function ExamDocPage({ params }: { params: Promise<Params> }) {

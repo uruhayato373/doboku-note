@@ -1,11 +1,12 @@
 import Link from 'next/link';
 import Disclosure from '@/components/ui/Disclosure/Disclosure';
 import { getAllCategories, getCategoryHubPath } from '@/lib/categories';
+import { getAreaLabel } from '@/lib/content-taxonomy';
 
 const categories = getAllCategories().filter(category => category.visible !== false);
 const siteLinks = [
   ['/tools', '計算・演習'],
-  ['/standards', '基準類・仕様書'],
+  ['/standards', getAreaLabel('standards')],
   ['/topics', 'テーマ別索引'],
   ['/about', '運営者情報'],
   ['/contact', 'お問い合わせ'],

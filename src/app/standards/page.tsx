@@ -8,6 +8,7 @@ import StandardsAttribution from '@/components/standards/StandardsAttribution';
 import { buildPageMetadata } from '@/lib/metadata';
 import { getStandardsCatalog } from '@/lib/standards';
 import AffiliateSlot from '@/components/ui/AffiliateSlot/AffiliateSlot';
+import { standardsAgencyPath } from '@/lib/route-paths';
 
 const { totals } = getStandardsCatalog();
 
@@ -44,7 +45,7 @@ export default function StandardsPage() {
             <ul className="grid gap-x-4 sm:grid-cols-2">
               {catalog.agencies.map((agency) => (
                 <li key={agency.agencyId} className="border-b border-(--rule-soft)">
-                  <Link href={`/standards/${agency.agencyId}`} className={rowLink}>
+                  <Link href={standardsAgencyPath(agency.agencyId)} className={rowLink}>
                     <span className="min-w-0">
                       <span className="block font-bold">{agency.agencyName}</span>
                       <span className="mt-1 block text-sm text-(--ink-body)">{agency.documentCount}文書 · {agency.pages.toLocaleString('ja-JP')}ページ</span>

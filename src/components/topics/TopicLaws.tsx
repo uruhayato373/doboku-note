@@ -7,6 +7,7 @@
  */
 import Link from 'next/link';
 import type { LawDirectoryRow, LawLink, TopicLaw } from '@/lib/law-wiring';
+import { topicPath } from '@/lib/route-paths';
 
 /** 法令名。法令ページがあれば内部リンク＋小さく e-Gov、無ければ e-Gov へ */
 function LawName({ law }: { law: LawLink }) {
@@ -67,7 +68,7 @@ export function LawDirectory({ rows }: { rows: readonly LawDirectoryRow[] }) {
             {row.topics.length > 0 && (
               <p className="mt-1 flex flex-wrap gap-x-3 gap-y-1 text-[13px]">
                 {row.topics.map((t) => (
-                  <Link key={t.slug} href={`/topics/${t.slug}`} className="text-(--ink-body) hover:text-(--accent) hover:underline">
+                  <Link key={t.slug} href={topicPath(t.slug)} className="text-(--ink-body) hover:text-(--accent) hover:underline">
                     {t.label}<span className="ml-1 text-(--ink-muted)">（{t.count}）</span>
                   </Link>
                 ))}

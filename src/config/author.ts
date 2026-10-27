@@ -7,6 +7,7 @@ import noteFunnel from "../../config/note-funnel.json";
 import xAccount from "../../config/x-account.json";
 import { SITE_ORIGIN } from "@/config/site-identity.mjs";
 import { withNoteUtm } from "@/lib/note-utm";
+import { qualificationLabel } from "@/lib/qualification-names";
 
 export const AUTHOR = {
   name: "架（かける）",
@@ -16,29 +17,29 @@ export const AUTHOR = {
   // フル版 bio（/about ページ・Article schema 用）
   bio: "地方自治体の土木職（発注者）として、道路・河川等の公共インフラの計画・設計・発注・工事監督・維持管理を横断的に担い退職。在職中から退職後にかけて、1級土木施工管理技士・1級舗装施工管理技術者・測量士・コンクリート主任技士・コンクリート診断士・技術士（建設部門）・技術士（上下水道部門）・技術士（総合技術監理部門）を取得。ペンネーム「架（かける）」には、橋を架けるように、受験者と合格・実務と試験・現役と次世代のあいだに橋渡しをするというコンセプトを込めている。発注者として培った「事業全体を俯瞰し、経済性・安全・人的資源・情報・社会環境の5管理を統合する」視点を、これから受験に向かう技術者へ架け渡していく。令和8年度の技術士総監 本試験では、記述式テーマ「地方創生」を試験7週間前の2026年6月1日公開の教材（設問(3)国家施策バンク）で事前収録するなど、国土交通白書と連動した出題分析を強みとする。",
   qualifications: [
-    "1級土木施工管理技士",
-    "2級土木施工管理技士",
-    "技術士（建設部門）",
-    "技術士（上下水道部門）",
-    "技術士（総合技術監理部門）",
-    "コンクリート主任技士",
-    "コンクリート診断士",
-    "1級舗装施工管理技術者",
-    "測量士",
+    qualificationLabel('civil-construction-1'),
+    qualificationLabel('civil-construction-2'),
+    qualificationLabel('pe-construction'),
+    qualificationLabel('pe-water-supply'),
+    qualificationLabel('pe-comprehensive-management'),
+    qualificationLabel('concrete-chief-engineer'),
+    qualificationLabel('concrete-diagnostician'),
+    qualificationLabel('pavement-1'),
+    qualificationLabel('surveyor'),
     "行政書士",
     "応用情報技術者",
     "基本情報技術者",
   ],
   knowsAbout: [
-    "1級土木施工管理技士",
-    "2級土木施工管理技士",
-    "技術士 建設部門",
-    "技術士 上下水道部門",
-    "技術士 総合技術監理部門",
-    "コンクリート主任技士",
-    "コンクリート診断士",
-    "1級舗装施工管理技術者",
-    "測量士",
+    qualificationLabel('civil-construction-1'),
+    qualificationLabel('civil-construction-2'),
+    qualificationLabel('pe-construction'),
+    qualificationLabel('pe-water-supply'),
+    qualificationLabel('pe-comprehensive-management'),
+    qualificationLabel('concrete-chief-engineer'),
+    qualificationLabel('concrete-diagnostician'),
+    qualificationLabel('pavement-1'),
+    qualificationLabel('surveyor'),
     "行政書士",
     "応用情報技術者",
     "基本情報技術者",

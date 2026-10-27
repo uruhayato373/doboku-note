@@ -4,6 +4,7 @@ import { getAllDocsMeta, type DocMeta } from '@/lib/docs';
 import { getStandardDocuments, type StandardDocument } from '@/lib/standards';
 import { canonicalTag } from '@/lib/content-taxonomy';
 import { topicsOfDoc } from '@/lib/topic-membership.mjs';
+import { topicPath } from '@/lib/route-paths';
 
 /** テーマの軸（content-taxonomy.json の topicFacets）。分野・工種／施工管理・マネジメント／法令・制度／読み手・立場 */
 export type TopicFacet = 'field' | 'management' | 'law' | 'audience';
@@ -61,7 +62,7 @@ export function getTopicBySlug(slug: string): Topic | null {
 export function getTopicPathForTag(tag: string): string | null {
   const canonical = canonicalTag(tag);
   const topic = topics.find((candidate) => candidate.tags.some((t) => canonicalTag(t) === canonical));
-  return topic ? `/topics/${topic.slug}` : null;
+  return topic ? topicPath(topic.slug) : null;
 }
 
 // 記事 → 所属テーマの slug。判定は検査・報告と同じ src/lib/topic-membership.mjs。ビルド中は全記事で何度も引くので slug で覚える

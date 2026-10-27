@@ -1,5 +1,6 @@
 import categoriesData from '@/config/categories.json';
 import { getAreaHubPath, getCategoryArea, type PublicArea } from '@/lib/content-taxonomy';
+import { examHubPath } from '@/lib/route-paths';
 
 export type CategoryDef = {
   slug: string;
@@ -73,6 +74,6 @@ export function getCategoryLabel(slug: string): string {
  */
 export function getCategoryHubPath(slug: string): string {
   const area = getCategoryArea(slug);
-  if (area === 'exam') return `/exam/${slug}`;
+  if (area === 'exam') return examHubPath(slug);
   return getAreaHubPath(area);
 }

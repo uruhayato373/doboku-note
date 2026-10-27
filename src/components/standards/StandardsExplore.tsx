@@ -5,6 +5,7 @@ import { getDocsMetaByCategory } from '@/lib/docs';
 import { getPublicDocPath } from '@/lib/content-routes';
 import { resolveNavTitle } from '@/lib/doc-title';
 import { getAllTopics } from '@/lib/topics';
+import { topicPath } from '@/lib/route-paths';
 
 // 基準書の規定を実務へつなぐ入口。表示名・公開状態は既存の索引から解決する。
 const topicSlugs = ['quality-management', 'construction-management', 'concrete', 'earthwork-foundations', 'safety-laws', 'roads'];
@@ -31,7 +32,7 @@ export default function StandardsExplore() {
           {topicSlugs.flatMap(slug => {
             const topic = topics.find(item => item.slug === slug);
             return topic ? [
-              <Link key={slug} href={`/topics/${slug}`} data-cta="nav" data-cta-label="standards-topic"
+              <Link key={slug} href={topicPath(slug)} data-cta="nav" data-cta-label="standards-topic"
                 className="focus-ring flex min-h-11 items-center justify-between gap-2 px-2 py-2 text-sm font-bold text-(--accent) transition-colors hover:bg-(--accent-fill)">
                 {topic.label}<span aria-hidden="true">›</span>
               </Link>,

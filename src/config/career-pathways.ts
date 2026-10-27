@@ -28,7 +28,11 @@ export type CareerNeed =
   | "application"
   | "service-choice";
 
-const careerArticlePath = (slug: string) => {
+/**
+ * キャリア記事の旧 slug → 公開パス。サイト本体の正本は content-routes.ts の getPublicDocPath だが、
+ * 記事の索引ごとクライアントの束に入るのを避けるため軽い変換をここに 1 つだけ持つ（一致は tests/data-wiring.test.mjs が見る）
+ */
+export const careerArticlePath = (slug: string) => {
   const civil2 = 'civil-construction-2-guide-';
   if (slug.startsWith(civil2)) return `/exam/civil-construction-2/guide/${slug.slice(civil2.length)}`;
   return `/exam/civil-construction-1/guide/${slug.replace(/^civil-construction-1-guide-/, '')}`;

@@ -862,7 +862,7 @@ export const NoteProduct = z
     id: z.string().regex(/^[a-z0-9][a-z0-9-]*$/, '英小文字・数字・ハイフンだけ'),
     channel: z.literal('note'),
     qualification: z.string(),
-    stage: z.string(),
+    stage: z.enum(STAGE_KEYS).describe('試験区分（exam-formats.json の stageKeys と同じ語彙）'),
     /** 系列: 経験記述・学科記述・横断・一次 など */
     series: z.enum(['keiken', 'gakka', 'cross', 'first', 'other']),
     /** 設計上の層 */
@@ -918,7 +918,7 @@ export const KindleProduct = z
     id: z.string().regex(/^kindle-[a-z0-9-]+$/, 'kindle- ＋英小文字・数字・ハイフン'),
     channel: z.literal('kindle'),
     qualification: z.string(),
-    stage: z.string(),
+    stage: z.enum(STAGE_KEYS).describe('試験区分（exam-formats.json の stageKeys と同じ語彙）'),
     series: z.enum(['keiken', 'gakka', 'cross', 'first', 'other']),
     tier: z.literal('book'),
     persona: z.string().nullable().default(null),
@@ -948,7 +948,7 @@ export const CoconalaProduct = z
     id: z.string().regex(/^coconala-[a-z0-9-]+$/, 'coconala- ＋英小文字・数字・ハイフン'),
     channel: z.literal('coconala'),
     qualification: z.string(),
-    stage: z.string(),
+    stage: z.enum(STAGE_KEYS).describe('試験区分（exam-formats.json の stageKeys と同じ語彙）'),
     series: z.enum(['keiken', 'gakka', 'cross', 'first', 'other']),
     tier: z.literal('service'),
     persona: z.string().nullable().default(null),

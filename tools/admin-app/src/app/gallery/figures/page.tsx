@@ -1,5 +1,6 @@
 import { Facet, FacetHead, FacetShell, type FacetItem } from '@/components/admin';
 import Thumb from '@/components/Thumb';
+import { publicPathFromSlug } from '../../../../../../scripts/lib/url-normalization.mjs';
 import { PageHead } from '@/components/ui';
 import { scanFigures, type FigureItem } from '@/lib/gallery';
 import { SITE_ORIGIN } from '../../../../../../scripts/lib/site-identity.mjs';
@@ -58,7 +59,7 @@ export default async function FiguresGallery({
           <section key={slug} className="flex flex-col gap-2">
             <h3 className="m-0 flex items-baseline gap-3 text-sm font-semibold">
               <span>{shortTitle(list[0].docTitle, catLabel[list[0].category])}</span>
-              <a href={`${SITE_ORIGIN}/docs/${slug}`} target="_blank" rel="noreferrer" className="text-xs font-normal">
+              <a href={`${SITE_ORIGIN}${publicPathFromSlug(slug) ?? `/docs/${slug}`}`} target="_blank" rel="noreferrer" className="text-xs font-normal">
                 サイトで開く
               </a>
             </h3>

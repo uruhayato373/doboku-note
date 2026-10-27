@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { getTopicPathForTag } from '@/lib/topics';
+import { formatDotDate } from "@/lib/display-date";
 
 interface MetaRowProps {
   tags?: string[] | undefined;
@@ -13,12 +14,7 @@ interface MetaRowProps {
   variant?: "footer" | "byline" | undefined;
 }
 
-function formatDate(iso?: string): string | null {
-  if (!iso) return null;
-  const d = new Date(iso);
-  if (Number.isNaN(d.getTime())) return null;
-  return `${d.getFullYear()}.${String(d.getMonth() + 1).padStart(2, "0")}.${String(d.getDate()).padStart(2, "0")}`;
-}
+const formatDate = (iso?: string): string | null => formatDotDate(iso);
 
 export default function MetaRow({
   tags,

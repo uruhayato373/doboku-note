@@ -16,6 +16,7 @@ import { loadKindleCatalog, coverMediaUrl } from '../../../../scripts/lib/kindle
 
 import { magazines } from './content';
 import { findRepoRoot, repoPath } from './repo-root';
+import { yen } from './format';
 
 /**
  * lineup.ts — `/content/lineup`（read-only）の表示モデル。
@@ -125,7 +126,7 @@ export function loadCoconalaItems(): LineupItem[] {
       channel: 'coconala',
       id: s.id,
       title: s.shortTitle ?? s.title,
-      price: s.priceYen != null ? `¥${s.priceYen.toLocaleString('ja-JP')}` : null,
+      price: s.priceYen != null ? yen(s.priceYen) : null,
       stage,
       stageLabel: stageLabel(stage),
       url: s.serviceUrl || null,
@@ -142,7 +143,7 @@ export function loadKindleItems(): LineupItem[] {
       channel: 'kindle',
       id: b.id,
       title: b.title,
-      price: b.priceJpy ? `¥${b.priceJpy.toLocaleString('ja-JP')}` : null,
+      price: b.priceJpy ? yen(b.priceJpy) : null,
       stage,
       stageLabel: stageLabel(stage),
       url: b.status === 'live' && b.asin ? `https://www.amazon.co.jp/dp/${b.asin}` : null,

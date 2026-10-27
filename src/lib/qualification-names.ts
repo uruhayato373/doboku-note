@@ -7,6 +7,7 @@
  */
 import registry from '../../config/qualification-registry.json';
 import {
+  isQualificationGroupMember,
   qualificationLabel as labelOf,
   qualificationShortLabel as shortOf,
 } from '../../scripts/lib/qualification-names.mjs';
@@ -15,3 +16,6 @@ import {
 export const qualificationLabel = (id: string): string => labelOf(registry, id);
 /** 画面の短い名前（例: 技術士 総監） */
 export const qualificationShortLabel = (id: string): string => shortOf(registry, id);
+/** 1級・2級土木（registry の groups.civil-construction-1-2）の資格か。資格 id を並べて書かずにこれで判定する */
+export const isCivilConstructionCategory = (id: string | null | undefined): id is string =>
+  isQualificationGroupMember(registry, 'civil-construction-1-2', id);

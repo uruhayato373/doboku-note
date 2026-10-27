@@ -16,7 +16,7 @@ import {
   RefreshCw,
   Mail,
 } from 'lucide-react';
-import { DEFAULT_OG_IMAGE } from '@/lib/metadata';
+import { DEFAULT_OG_IMAGE, SITE_TITLE } from '@/lib/metadata';
 import { SITE_ORIGIN } from '@/config/site-identity.mjs';
 
 export const metadata: Metadata = {
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
         url: DEFAULT_OG_IMAGE,
         width: 1200,
         height: 630,
-        alt: 'doboku-note - 土木系資格試験 専門技術ノート',
+        alt: SITE_TITLE,
       },
     ],
   },

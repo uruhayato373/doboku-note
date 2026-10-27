@@ -4,7 +4,11 @@ import seoMeta from "../../config/seo-meta-config.json";
 
 /** ページ個別の og:image を持たないページの既定画像（絶対 URL） */
 export const DEFAULT_OG_IMAGE = `${SITE_ORIGIN}/images/og-default.png`;
-const DEFAULT_OG_ALT = "doboku-note - 土木系資格試験 専門技術ノート";
+/** サイトの既定の題（トップ・運営ページの og:image の代替テキストも同じ） */
+export const SITE_TITLE = "doboku-note - 土木系資格試験 専門技術ノート";
+/** 見つからないページの題（not-found と、記事・法令・実務の動的ルートの metadata が共有する） */
+export const NOT_FOUND_TITLE = "ページが見つかりません";
+const DEFAULT_OG_ALT = SITE_TITLE;
 /** 検索スニペットの description の上限。正本は config/seo-meta-config.json の thresholds（lint・build 後の検査も同じ値を読む） */
 const META_DESCRIPTION_MAX = seoMeta.thresholds.description.max_length;
 
@@ -65,7 +69,7 @@ export function buildPageMetadata({
 
 export const getCommonSeoData = () => ({
   title: {
-    default: "doboku-note - 土木系資格試験 専門技術ノート",
+    default: SITE_TITLE,
     template: "%s | doboku-note",
   },
   description:
@@ -118,7 +122,7 @@ export const getCommonSeoData = () => ({
     type: "website",
     locale: "ja_JP",
     // og:url も root に置かない（canonical と同じ継承事故を避ける）。各ページが自己 og:url を明示。
-    title: "doboku-note - 土木系資格試験 専門技術ノート",
+    title: SITE_TITLE,
     description:
       "1級土木施工管理技士・技術士（総合技術監理部門）の試験対策サイト。体系的な技術解説と過去問で合格をサポート。",
     siteName: "doboku-note",
@@ -126,12 +130,12 @@ export const getCommonSeoData = () => ({
       url: DEFAULT_OG_IMAGE,
       width: 1200,
       height: 630,
-      alt: "doboku-note - 土木系資格試験 専門技術ノート",
+      alt: SITE_TITLE,
     }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "doboku-note - 土木系資格試験 専門技術ノート",
+    title: SITE_TITLE,
     description:
       "1級土木施工管理技士・技術士（総合技術監理部門）の試験対策サイト。体系的な技術解説と過去問で合格をサポート。",
     images: [DEFAULT_OG_IMAGE],

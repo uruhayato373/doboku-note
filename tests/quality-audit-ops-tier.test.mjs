@@ -164,7 +164,7 @@ test('束（steps）は手順を全部回し、1 つでも落ちたら fail・�
 
 test('束の検査は全部 steps を持ち、各手順に label・timeout・npm か cmd がある', () => {
   const bundles = CHECKS.filter((c) => c.steps);
-  assert.deepEqual(bundles.map((c) => c.id).sort(), ['admin-ui', 'internal-links', 'report-generators', 'sns-urls', 'workflow-static']);
+  assert.deepEqual(bundles.map((c) => c.id).sort(), ['admin-ui', 'affiliate-placements', 'internal-links', 'report-generators', 'sns-urls', 'workflow-static']);
   for (const b of bundles) {
     for (const s of b.steps) {
       assert.ok(s.label && Number.isFinite(s.timeout) && (s.npm || s.cmd), `${b.id}: ${JSON.stringify(s).slice(0, 80)}`);

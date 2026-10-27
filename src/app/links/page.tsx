@@ -20,32 +20,8 @@ import { AFFILIATE_LINK_REFERRER_POLICY, AFFILIATE_LINK_REL, AffiliatePrBadge, T
 import { COCONALA_A8_PIXEL, coconalaAffiliateHref } from "@/config/affiliate-creatives";
 import { SITE_ORIGIN } from "@/config/site-identity.mjs";
 import { withNoteUtm } from "@/lib/note-utm";
+import { qualificationLabel } from "@/lib/qualification-names";
 
-export const metadata: Metadata = {
-  // title テンプレート "%s | doboku-note" がサイト名を付与するため、ここでは重ねない
-  // （旧: "Links — doboku-note の入口" + テンプレ = サイト名二重だった）。
-  title: "Links — SNS・note・サイトの入口",
-  description:
-    "発注者視点で土木・建設系9資格の合格を支援。技術士第一次・建設部門・総合技術監理部門、1級／2級土木施工管理技士、コンクリート技士・主任技士・診断士、RCCMの無料解説と教材への入口まとめ。",
-  alternates: {
-    canonical: `${SITE_ORIGIN}/links`,
-  },
-  openGraph: {
-    type: "website",
-    title: "Links — doboku-note の入口",
-    description:
-      "技術士・土木施工管理・コンクリート系・RCCMの9資格を、無料サイト解説から教材まで分野別に案内します。",
-    url: `${SITE_ORIGIN}/links`,
-    images: [
-      {
-        url: `${SITE_ORIGIN}/images/og-links.png`,
-        width: 1200,
-        height: 630,
-        alt: "doboku-note 土木・建設系9資格の試験対策コンテンツ一覧",
-      },
-    ],
-  },
-};
 
 /**
  * 資格カード（2026-07-28 再設計）。
@@ -72,7 +48,7 @@ type ExamCard = {
 const EXAM_CARDS: ExamCard[] = [
   {
     key: "pe-first-stage",
-    heading: "技術士 第一次試験",
+    heading: qualificationLabel('pe-first-stage'),
     tagline: "適性・基礎・専門（建設部門）を、年度別の過去問で固める",
     site: {
       label: "過去問から学ぶ",
@@ -82,7 +58,7 @@ const EXAM_CARDS: ExamCard[] = [
   },
   {
     key: "pe-construction",
-    heading: "技術士（建設部門）第二次試験",
+    heading: `${qualificationLabel('pe-construction')} 第二次試験`,
     tagline: "必須科目I・選択科目を発注者視点でフル解答",
     site: {
       label: "サイトで無料学習",
@@ -92,7 +68,7 @@ const EXAM_CARDS: ExamCard[] = [
   },
   {
     key: "tankan",
-    heading: "技術士（総合技術監理部門）",
+    heading: qualificationLabel('pe-comprehensive-management'),
     tagline: "択一・記述・口頭の全体を、無料キーワード集から仕上げまで",
     site: {
       label: "キーワード集を読む",
@@ -102,7 +78,7 @@ const EXAM_CARDS: ExamCard[] = [
   },
   {
     key: "civil-1",
-    heading: "1級土木施工管理技士",
+    heading: qualificationLabel('civil-construction-1'),
     tagline: "一次・二次の対策と、施工経験記述の完成答案",
     site: {
       label: "サイトで無料学習",
@@ -112,7 +88,7 @@ const EXAM_CARDS: ExamCard[] = [
   },
   {
     key: "civil-2",
-    heading: "2級土木施工管理技士",
+    heading: qualificationLabel('civil-construction-2'),
     tagline: "初めての受検でも、経験記述の答案と一次・二次の過去問で仕上げる",
     site: {
       label: "サイトで無料学習",
@@ -122,7 +98,7 @@ const EXAM_CARDS: ExamCard[] = [
   },
   {
     key: "concrete",
-    heading: "コンクリート技士",
+    heading: qualificationLabel('concrete-engineer'),
     tagline: "材料・配合・試験・製造・施工を、日常業務レベルから固める",
     site: {
       label: "サイトで無料学習",
@@ -132,7 +108,7 @@ const EXAM_CARDS: ExamCard[] = [
   },
   {
     key: "concrete-chief",
-    heading: "コンクリート主任技士",
+    heading: qualificationLabel('concrete-chief-engineer'),
     tagline: "材料・配合・施工・耐久性を体系化し、択一と小論文に備える",
     site: {
       label: "サイトで無料学習",
@@ -142,7 +118,7 @@ const EXAM_CARDS: ExamCard[] = [
   },
   {
     key: "concrete-diagnosis",
-    heading: "コンクリート診断士",
+    heading: qualificationLabel('concrete-diagnostician'),
     tagline: "変状・劣化から調査、評価、補修補強まで一つの流れで学ぶ",
     site: {
       label: "サイトで無料学習",
@@ -152,7 +128,7 @@ const EXAM_CARDS: ExamCard[] = [
   },
   {
     key: "rccm",
-    heading: "RCCM",
+    heading: qualificationLabel('rccm'),
     tagline: "問題III 管理技術力の公開テーマを読み解き、業務経験論文を業務実績と整合させる",
     site: {
       label: "サイトで無料学習",
@@ -161,6 +137,32 @@ const EXAM_CARDS: ExamCard[] = [
     },
   },
 ];
+
+export const metadata: Metadata = {
+  // title テンプレート "%s | doboku-note" がサイト名を付与するため、ここでは重ねない
+  // （旧: "Links — doboku-note の入口" + テンプレ = サイト名二重だった）。
+  title: "Links — SNS・note・サイトの入口",
+  description:
+    `発注者視点で土木・建設系${EXAM_CARDS.length}資格の合格を支援。技術士第一次・建設部門・総合技術監理部門、1級／2級土木施工管理技士、コンクリート技士・主任技士・診断士、RCCMの無料解説と教材への入口まとめ。`,
+  alternates: {
+    canonical: `${SITE_ORIGIN}/links`,
+  },
+  openGraph: {
+    type: "website",
+    title: "Links — doboku-note の入口",
+    description:
+      `技術士・土木施工管理・コンクリート系・RCCMの${EXAM_CARDS.length}資格を、無料サイト解説から教材まで分野別に案内します。`,
+    url: `${SITE_ORIGIN}/links`,
+    images: [
+      {
+        url: `${SITE_ORIGIN}/images/og-links.png`,
+        width: 1200,
+        height: 630,
+        alt: `doboku-note 土木・建設系${EXAM_CARDS.length}資格の試験対策コンテンツ一覧`,
+      },
+    ],
+  },
+};
 
 // 並びは主力商品の順（2026-10-04 に 2級土木を主力へ切り替え、土木を先頭・2級を 1級より前にした）。
 // スマホの 1 画面目に入るのは先頭グループの最初のカードだけなので、ここが SNS から来た人の第一候補になる。

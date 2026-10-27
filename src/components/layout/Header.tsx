@@ -5,6 +5,7 @@ import { useState, useEffect, useRef } from "react";
 import ThemeToggle from "../ui/ThemeToggle/ThemeToggle";
 import categoriesData from "@/config/categories.json";
 import { CategoryDef, getCategoryHubPath } from "@/lib/categories";
+import { getAreaLabel } from '@/lib/content-taxonomy';
 
 const categories = (categoriesData as CategoryDef[]).filter(c => c.visible !== false);
 
@@ -310,7 +311,7 @@ export default function Header() {
                 className="focus-ring flex flex-col items-center gap-1 text-(--ink-body) hover:text-(--accent) hover:bg-(--accent-fill) px-3 py-2 rounded-card-inline transition-colors"
               >
                 <BookOpen className="w-5 h-5" />
-                <span className="text-[11px] font-medium">基準類</span>
+                <span className="text-[11px] font-medium">{getAreaLabel('standards')}</span>
               </Link>
 
               <Link
@@ -415,7 +416,7 @@ export default function Header() {
               className="focus-ring flex min-h-11 items-center gap-3 text-(--ink-body) hover:text-(--accent) hover:bg-(--accent-fill) px-3 py-2.5 rounded-card-inline transition-colors"
             >
               <BookOpen className="w-5 h-5" />
-              <span className="font-medium">基準類・仕様書</span>
+              <span className="font-medium">{getAreaLabel('standards')}</span>
             </Link>
 
             <Link

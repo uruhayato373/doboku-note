@@ -583,8 +583,8 @@ A8 側の `clicks` は参考値）。A8 から取るのは**成果（発生件�
 
 | コマンド | 検査内容 | 配線 |
 |---|---|---|
-| `npm run check-affiliate-wiring` | カタログ ↔ `affiliate-mats.json` ↔ `a8-report-automation.json` の programIdMap ↔ 消費側の 4 点突合。`placement=active` なのに mat が無い／`redLine:true` なのに配置されている／mats にあってカタログに無い を検知 | pre-commit |
-| `npm run check-affiliate-mats` | 未登録 mat=ERROR / MDX への生 mat 直書き=ERROR / A8 画像 URL の wid が 002（doboku-note）以外=ERROR（stats47 の提携の素材の誤貼り。同じ案件でも mat の第2トークンはサイトごとに違う）/ 失効 creative の配置=WARN | pre-commit |
+| `npm run check-affiliate-wiring` | カタログ ↔ `affiliate-mats.json` ↔ `a8-report-automation.json` の programIdMap ↔ 消費側の 4 点突合。`placement=active` なのに mat が無い／`redLine:true` なのに配置されている／mats にあってカタログに無い を検知 | pre-commit・quality-audit ci（`affiliate-placements` の束・2026-10-27〜） |
+| `npm run check-affiliate-mats` | 未登録 mat=ERROR / MDX への生 mat 直書き=ERROR / A8 画像 URL の wid が 002（doboku-note）以外=ERROR（stats47 の提携の素材の誤貼り。同じ案件でも mat の第2トークンはサイトごとに違う）/ 失効 creative の配置=WARN | pre-commit・quality-audit ci（`affiliate-placements` の束・2026-10-27〜） |
 | `npm run check-affiliate-prose` | 廃止アフィリ（講座・添削ブランド等）の本文 prose 再提案 | pre-commit ＋ `quality:audit:ci` |
 | `node --test tests/affiliate-link-referrer.test.mjs` | 広告リンクの rel とリファラ方針が対になっていること（検査 0 件は失敗）・クリック計測が中クリックを拾うこと | `npm test` |
 | `node --test tests/asp-site-guard.test.mjs` | サイト帰属 assert が不一致で throw すること | `npm test` |

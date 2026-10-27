@@ -457,6 +457,7 @@ const MAGAZINES_RAW = {
     ctaCatch: 'キーワードの丸暗記で止まっていませんか？',
     ctaButton: '精読ガイドを見てみる',
     ctaPose: 'pointing',
+    price: '¥1,980',
   },
   'tankan-takuitsu-heisei-pdf': {
     id: 'tankan-takuitsu-heisei-pdf',

@@ -30,7 +30,7 @@ import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { AREAS, DATASETS, KINDS, areaOf, datasetFiles, datasetsFor, freshnessProblems, listAreaFiles, matchFiles, pathMatchesId, patternOf, resolveDataset } from './lib/datasets.mjs';
 import { readDataset } from './lib/dataset-io.mjs';
-import { REF_TARGETS, checkRefs, refResolvers } from './lib/dataset-refs.mjs';
+import { checkRefs, refContext, refDeclarationError, refResolvers } from './lib/dataset-refs.mjs';
 import { schemaOf, validateFiles } from './lib/dataset-validate.mjs';
 import { loadDomains } from './lib/domains.mjs';
 import { findDuplicateKeys } from './lib/json-duplicate-keys.mjs';
@@ -198,10 +198,11 @@ const refDatasets = DATASETS.filter((x) => x.refs);
 let refsChecked = 0;
 let refsBroken = 0;
 let refFiles = 0;
-const resolvers = refResolvers({ root: ROOT, registry: readDataset(ROOT, 'config.qualification-registry'), products: readDataset(ROOT, 'config.products') });
+const resolvers = refResolvers({ root: ROOT, ...refContext((id) => readDataset(ROOT, id)) });
+let refsMismatched = 0;
 for (const x of refDatasets) {
-  const bad = !Array.isArray(x.refs) || x.refs.some((r) => typeof r?.at !== 'string' || !r.at || !REF_TARGETS.includes(r.to));
-  if (bad) { errors.push(`${x.id}: refs は [{ at: '場所', to: '${REF_TARGETS.join("'|'")}' }] で書く`); continue; }
+  const declErrors = Array.isArray(x.refs) ? x.refs.map(refDeclarationError).filter(Boolean) : ['refs は配列'];
+  if (declErrors.length) { errors.push(`${x.id}: refs の書き方の誤り — ${declErrors.join('／')}（scripts/lib/dataset-refs.mjs）`); continue; }
   const files = datasetFiles(ROOT, x.id).map((file) => ({ file, data: JSON.parse(readFileSync(join(ROOT, file), 'utf8')) }));
   if (!files.length) { warnings.push(`${x.id}: refs を宣言しているがファイルが手元に無く、参照を検査していない`); continue; }
   refFiles += files.length;
@@ -210,13 +211,17 @@ for (const x of refDatasets) {
   if (r.checked === 0) errors.push(`${x.id}: refs（${x.refs.map((ref) => ref.at).join('・')}）の場所に値が 1 件も無い。場所の書き方を確かめる`);
   for (const b of r.broken) {
     refsBroken++;
-    errors.push(`${b.file}: ${b.where} の「${b.value}」は ${b.to} に実在しない（参照切れ）`);
+    (b.severity === 'warn' ? warnings : errors).push(`${b.file}: ${b.where} の「${b.value}」は ${b.to} に実在しない（参照切れ）`);
+  }
+  for (const m of r.mismatched) {
+    refsMismatched++;
+    (m.severity === 'warn' ? warnings : errors).push(`${m.file}: ${m.where} の「${m.value}」が ${m.to}「${m.expected}」と違う（写しの不一致）`);
   }
 }
 
 const count = (pred) => DATASETS.filter(pred).length;
 console.log(
-  `[check-datasets] 設定・データ・作業状態 ${files.length} ファイル / データセット ${DATASETS.length}（型あり ${typed.length}・Drive vault ${count((x) => x.drive)}・手元だけ ${count((x) => x.local)}・未着手 ${count((x) => x.planned)}）を実検査 / 型の検査 ${validated} ファイル / 重複キーの走査 ${dupScanned} ファイル / 直書きの走査 ${codeFiles.length} ファイル（名前で引ける台帳のファイル名 ${basenames.size}・.claude/state/ の直書き ${Object.keys(stateLiterals).length} ファイル ${stateLiteralTotal} 件）/ id の参照 ${idRefs} 件 / ワークフロー・package.json のパス ${settingPaths} 件 / 参照（refs）${refDatasets.length} データセット・${refFiles} ファイル・${refsChecked} 件（参照切れ ${refsBroken}）/ 違反 ${errors.length} 件`,
+  `[check-datasets] 設定・データ・作業状態 ${files.length} ファイル / データセット ${DATASETS.length}（型あり ${typed.length}・Drive vault ${count((x) => x.drive)}・手元だけ ${count((x) => x.local)}・未着手 ${count((x) => x.planned)}）を実検査 / 型の検査 ${validated} ファイル / 重複キーの走査 ${dupScanned} ファイル / 直書きの走査 ${codeFiles.length} ファイル（名前で引ける台帳のファイル名 ${basenames.size}・.claude/state/ の直書き ${Object.keys(stateLiterals).length} ファイル ${stateLiteralTotal} 件）/ id の参照 ${idRefs} 件 / ワークフロー・package.json のパス ${settingPaths} 件 / 参照（refs）${refDatasets.length} データセット・${refFiles} ファイル・${refsChecked} 件（参照切れ ${refsBroken}・写しの不一致 ${refsMismatched}）/ 違反 ${errors.length} 件`,
 );
 if (files.length === 0) inconclusive('config/・data/・.claude/state/ のファイルを 1 件も読めなかった');
 if (codeFiles.length === 0) inconclusive('直書きを走査するコードを 1 件も読めなかった');
