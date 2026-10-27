@@ -902,6 +902,48 @@
       "stopReason": "user-decision"
     },
     {
+      "id": "concrete-chief-engineer/shunin-ochiru-shouronbun/youtube.longform.pop-diagram",
+      "work": "shunin-ochiru-shouronbun",
+      "account": "youtube:main",
+      "format": "longform",
+      "variant": "pop-diagram",
+      "revisionOf": "concrete-chief-engineer/shunin-ochiru-shouronbun/youtube.longform",
+      "status": "approved",
+      "copy": "content/sns/video-packs/concrete-chief-engineer/shunin-ochiru-shouronbun/youtube.revision-pop-diagram.json",
+      "media": {
+        "cover": "concrete-chief-engineer/shunin-ochiru-shouronbun/work/candidate-cover",
+        "cta": "concrete-chief-engineer/shunin-ochiru-shouronbun/work/candidate-cta",
+        "scene-001": "concrete-chief-engineer/shunin-ochiru-shouronbun/work/candidate-scene-001",
+        "scene-002": "concrete-chief-engineer/shunin-ochiru-shouronbun/work/candidate-scene-002",
+        "scene-003": "concrete-chief-engineer/shunin-ochiru-shouronbun/work/candidate-scene-003",
+        "scene-004": "concrete-chief-engineer/shunin-ochiru-shouronbun/work/candidate-scene-004",
+        "scene-005": "concrete-chief-engineer/shunin-ochiru-shouronbun/work/candidate-scene-005",
+        "scene-006": "concrete-chief-engineer/shunin-ochiru-shouronbun/work/candidate-scene-006",
+        "scene-007": "concrete-chief-engineer/shunin-ochiru-shouronbun/work/candidate-scene-007",
+        "scene-008": "concrete-chief-engineer/shunin-ochiru-shouronbun/work/candidate-scene-008",
+        "subtitles": "concrete-chief-engineer/shunin-ochiru-shouronbun/work/candidate-subtitles",
+        "video": "concrete-chief-engineer/shunin-ochiru-shouronbun/work/candidate-video",
+        "preview": "concrete-chief-engineer/shunin-ochiru-shouronbun/youtube.longform.pop-diagram/preview",
+        "scene-sheet": "concrete-chief-engineer/shunin-ochiru-shouronbun/youtube.longform.pop-diagram/scene-sheet",
+        "preview-metrics": "concrete-chief-engineer/shunin-ochiru-shouronbun/youtube.longform.pop-diagram/preview-metrics",
+        "contact-sheet": "concrete-chief-engineer/shunin-ochiru-shouronbun/youtube.longform.pop-diagram/contact-sheet"
+      },
+      "publishAt": "2026-11-02T20:00:00+09:00",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "user",
+          "at": "2026-10-27T14:41:38.709Z",
+          "digest": "3f16a55438f984e00de0be5739c5b67eba9708876c49ae1e82385dc62276982f"
+        }
+      },
+      "approval": {
+        "by": "user",
+        "at": "2026-10-27T14:41:44.491Z",
+        "contentSha256": "af6f034b6fe55b513cfad663eb915e46b1064b8333194346b290b9f1c399dfbd"
+      }
+    },
+    {
       "id": "concrete-chief-engineer/shunin-ochiru-shouronbun/youtube.short.point-chusho-2",
       "work": "shunin-ochiru-shouronbun",
       "account": "youtube:main",
@@ -1277,6 +1319,48 @@
       },
       "reason": "2026-10-13 運営者が YouTube の投稿を一旦止め、公開予約を外した（元の予約 2026-11-17T11:00:00Z）",
       "stopReason": "user-decision"
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-r8-juuten/youtube.longform.pop-diagram",
+      "work": "shunin-r8-juuten",
+      "account": "youtube:main",
+      "format": "longform",
+      "variant": "pop-diagram",
+      "revisionOf": "concrete-chief-engineer/shunin-r8-juuten/youtube.longform",
+      "status": "approved",
+      "copy": "content/sns/video-packs/concrete-chief-engineer/shunin-r8-juuten/youtube.revision-pop-diagram.json",
+      "media": {
+        "cover": "concrete-chief-engineer/shunin-r8-juuten/work/candidate-cover",
+        "cta": "concrete-chief-engineer/shunin-r8-juuten/work/candidate-cta",
+        "scene-001": "concrete-chief-engineer/shunin-r8-juuten/work/candidate-scene-001",
+        "scene-002": "concrete-chief-engineer/shunin-r8-juuten/work/candidate-scene-002",
+        "scene-003": "concrete-chief-engineer/shunin-r8-juuten/work/candidate-scene-003",
+        "scene-004": "concrete-chief-engineer/shunin-r8-juuten/work/candidate-scene-004",
+        "scene-005": "concrete-chief-engineer/shunin-r8-juuten/work/candidate-scene-005",
+        "scene-006": "concrete-chief-engineer/shunin-r8-juuten/work/candidate-scene-006",
+        "scene-007": "concrete-chief-engineer/shunin-r8-juuten/work/candidate-scene-007",
+        "scene-008": "concrete-chief-engineer/shunin-r8-juuten/work/candidate-scene-008",
+        "subtitles": "concrete-chief-engineer/shunin-r8-juuten/work/candidate-subtitles",
+        "video": "concrete-chief-engineer/shunin-r8-juuten/work/candidate-video",
+        "preview": "concrete-chief-engineer/shunin-r8-juuten/youtube.longform.pop-diagram/preview",
+        "scene-sheet": "concrete-chief-engineer/shunin-r8-juuten/youtube.longform.pop-diagram/scene-sheet",
+        "preview-metrics": "concrete-chief-engineer/shunin-r8-juuten/youtube.longform.pop-diagram/preview-metrics",
+        "contact-sheet": "concrete-chief-engineer/shunin-r8-juuten/youtube.longform.pop-diagram/contact-sheet"
+      },
+      "publishAt": "2026-11-03T20:00:00+09:00",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "user",
+          "at": "2026-10-27T14:44:13.567Z",
+          "digest": "5d754a017445d549171e84dda1c257cb84ebe4e599449a772e24bdd364d65d67"
+        }
+      },
+      "approval": {
+        "by": "user",
+        "at": "2026-10-27T14:44:13.846Z",
+        "contentSha256": "a99a631f294d7053aabfe46d3ffeceb024afe05788ac6484b762e1c45bea2832"
+      }
     },
     {
       "id": "concrete-chief-engineer/shunin-r8-juuten/youtube.short.point-four-tiers-2",

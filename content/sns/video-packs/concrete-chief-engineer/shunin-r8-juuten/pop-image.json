@@ -181,5 +181,364 @@
       },
       "publication": "ローカル差し替え・外部未反映"
     }
+  },
+  "activeCoverRevision": "cover-pop-20261027",
+  "activeBodyRevision": "body-diagram-20261027",
+  "revisions": {
+    "cover-pop-20261027": {
+      "version": "pop-poster-v3",
+      "generation": {
+        "tool": "image_gen",
+        "prompt": "Use attached POP cover as teacher/style continuity reference only. Create a NEW full-bleed 16:9 Japanese YouTube POP cover. Same man on right: black-rim glasses, slight beard, blank white hardhat, navy work jacket, red pen. Violet comic background, thick yellow/white/red lettering. Exact copy only: 「総監が制作」「コンクリート主任技士」「直前期」「過去問の回し方」「3ステップ」. Place all copy on LEFT and teacher on RIGHT, with all their visible content completely inside the TOP 72% of the canvas. The entire BOTTOM 28% must be plain continuous purple background with absolutely NO text, icon, paper, arrow, hand, illustration or border; reserved for subtitles. Do not show numbered exam sheets. This is a practice workflow, no prediction or success guarantee. No white border. Exact Japanese glyphs readable at 360px. Intended 1920x1080.",
+        "references": [
+          {
+            "path": ".tmp/media/concrete-chief-engineer/shunin-shiken-zentaizou/youtube.longform/cover.729a5a5e.png",
+            "sha256": "729a5a5e70c9b6de85da4e5eaf3c10cf72946541c575850185578e44623ec7e8"
+          }
+        ],
+        "output": {
+          "path": ".tmp/media/concrete-chief-engineer/shunin-r8-juuten/work/raw-cover-pop.6547d7fe.png",
+          "sha256": "6547d7fea276d97c607e63912997a91a62bd5502127815b52d90b4bfa79057f5"
+        },
+        "generatedAt": "2026-10-27T14:13:15.380Z"
+      },
+      "copy": {
+        "exam": "concrete-chief",
+        "headline": [
+          "過去問の回し方",
+          "3ステップ"
+        ],
+        "authority": "総監が制作"
+      },
+      "output": {
+        "path": ".tmp/media/concrete-chief-engineer/shunin-r8-juuten/work/cover-pop.44cba497.png",
+        "sha256": "44cba497e85faff1ce0a9290b34fb60bd8dd2fa89fdb49eb24cb77223593a693",
+        "width": 1920,
+        "height": 1080
+      },
+      "normalization": {
+        "mode": "full-frame-v1",
+        "sourceSha256": "6547d7fea276d97c607e63912997a91a62bd5502127815b52d90b4bfa79057f5"
+      },
+      "review": {
+        "status": "ai-reviewed",
+        "userImageReview": "pending",
+        "checkedAt": "2026-10-27T14:42:29.023Z",
+        "by": "Codex",
+        "views": [
+          "1920x1080"
+        ],
+        "checks": [
+          "文言・資格名",
+          "顔と安全域",
+          "字幕領域"
+        ]
+      },
+      "storage": {
+        "group": "content-media",
+        "sync": "pending"
+      }
+    },
+    "body-diagram-20261027": {
+      "layout": {
+        "mode": "diagram-led"
+      },
+      "images": [
+        {
+          "sceneId": "premise",
+          "inputSha256": "e5e884842df70a5c06b9d4ed6f5fe2548362e7fed881c3d06204f1ecaadcd042",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Create a fresh full-bleed 16:9 Japanese educational DIAGRAM slide. Attached image is style reference only: white to pale lavender, navy/violet outlines, restrained yellow, no teacher/photo. Bottom 22% completely empty for subtitles. Heading exactly 「出題状況表を索引に」. Draw a simple matrix with YEAR columns and TOPIC rows, one highlighted topic row connecting question numbers across years. Large labels exactly 「平成21〜令和5年度」「項目」「年度」「問題番号」. At side show scattered papers converging into one topic row. Do not present this as current official 2026 categories or prediction. No invented numeric frequencies, scores, or extra text. Readable at 360px.",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/work/promise-diagram.c7e7cf67.png",
+                "sha256": "c7e7cf6782e5ef4f90e378ac9927e178f7d4acaa2555c547aabe93df9f8cace3"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-chief-engineer/shunin-r8-juuten/work/raw-premise.60786032.png",
+              "sha256": "607860326b260438f409c614210dfb27430456f8d4732ac8dd09d8adafa75f72"
+            },
+            "generatedAt": "2026-10-27T14:19:13.353Z"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-chief-engineer/shunin-r8-juuten/work/premise-diagram.b0976216.png",
+            "sha256": "b097621691991970f205dbc88a3865c41f9234f27ed5b85eb1e43167af590ad7",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "607860326b260438f409c614210dfb27430456f8d4732ac8dd09d8adafa75f72"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-10-27T14:42:29.027Z",
+            "by": "Codex",
+            "views": [
+              "1920x1080"
+            ],
+            "checks": [
+              "内容整合",
+              "文言",
+              "字幕領域"
+            ]
+          }
+        },
+        {
+          "sceneId": "overview",
+          "inputSha256": "2fac84eb3d0944afe1143da9f61e53ddfec60e7ba6ff07c47fe1f87673d711f8",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Create a fresh full-bleed 16:9 Japanese educational DIAGRAM slide, style reference attached. White to pale lavender, navy/violet lines, small yellow highlights. No teacher/photo. Bottom 22% empty for subtitles. Heading exactly 「STEP 1 まず1年分」. Draw one exam paper going through a timer-like full run, then two marked piles: 「誤答」 and 「迷った問題」, each with a small tag 「分野・項目」. A clear arrow points to 「弱点を把握」. No score target, no pass/fail mark, no fake statistics or extra words. Readable at 360px.",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/work/promise-diagram.c7e7cf67.png",
+                "sha256": "c7e7cf6782e5ef4f90e378ac9927e178f7d4acaa2555c547aabe93df9f8cace3"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-chief-engineer/shunin-r8-juuten/work/raw-overview.61b4fbe2.png",
+              "sha256": "61b4fbe2f4072c50e02f0da543de2608df35aeb120a051aa75043fc91d47768a"
+            },
+            "generatedAt": "2026-10-27T14:19:13.353Z"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-chief-engineer/shunin-r8-juuten/work/overview-diagram.a6f4df43.png",
+            "sha256": "a6f4df439c854f56f4cb9cb01c41764999decd8530eda04f171bec14e9de51ba",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "61b4fbe2f4072c50e02f0da543de2608df35aeb120a051aa75043fc91d47768a"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-10-27T14:42:29.030Z",
+            "by": "Codex",
+            "views": [
+              "1920x1080"
+            ],
+            "checks": [
+              "内容整合",
+              "文言",
+              "字幕領域"
+            ]
+          }
+        },
+        {
+          "sceneId": "four-tiers",
+          "inputSha256": "36b76fdb8340f50a9d28aa5249d5cd5c8033e74ac52273703213d9d92d0eb8af",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Create a fresh full-bleed 16:9 Japanese educational DIAGRAM slide. Attached image style reference only. White to pale lavender, navy/violet lines, small yellow emphasis; no teacher/photo. Bottom 22% completely empty. Exact heading 「STEP 2 弱点を縦串で」. Show a simple abstract matrix of one highlighted weak topic across FOUR columns labelled ONLY 「年度A」「年度B」「年度C」「年度D」. Do NOT print any calendar years, especially no 2024/2025/2026, because the underlying source table ends at 令和5年度. Beside it a re-practice loop labelled 「解き直す」. The highlighted row label 「同じ項目」. Top small label 「年度をまたぐ」. No numeric frequency, no scores, no other writing. Large Japanese glyphs at 360px.",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/work/promise-diagram.c7e7cf67.png",
+                "sha256": "c7e7cf6782e5ef4f90e378ac9927e178f7d4acaa2555c547aabe93df9f8cace3"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-chief-engineer/shunin-r8-juuten/work/raw-four-tiers.7a6d4ae3.png",
+              "sha256": "7a6d4ae33e1fa25248ff7b2fa5dd9d3652c4f38227fa88f3441a7588f3a07ce3"
+            },
+            "generatedAt": "2026-10-27T14:19:13.353Z"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-chief-engineer/shunin-r8-juuten/work/four-tiers-diagram.38e55508.png",
+            "sha256": "38e555083e52815d59d2ad2e325a77ff16bd404be53d2b1442c4a98f513ee7a0",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "7a6d4ae33e1fa25248ff7b2fa5dd9d3652c4f38227fa88f3441a7588f3a07ce3"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-10-27T14:42:29.034Z",
+            "by": "Codex",
+            "views": [
+              "1920x1080"
+            ],
+            "checks": [
+              "内容整合",
+              "文言",
+              "字幕領域"
+            ]
+          }
+        },
+        {
+          "sceneId": "priority-order",
+          "inputSha256": "cd9b782cfb0df3d557629b0699efe4a4effdfffb257035dc7b5b7b0ac0b01f30",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Create a fresh full-bleed 16:9 Japanese educational DIAGRAM slide; attached image style reference only. White to pale lavender, navy/violet lines, small yellow emphasis; no teacher/photo. Bottom 22% completely empty. Heading exactly 「STEP 3 聞かれ方を確認」. Draw a four-choice exam question with the command word highlighted: two adjacent tabs labelled 「適当」 and 「不適当」, with a magnifying glass over the instruction line. Under four abstract answer-choice circles, show a short verification path labelled 「4肢の理由を言える？」. Do not mark any choice as an actual exam answer. No score claims, statistics, or extra text. Readable at 360px.",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/work/promise-diagram.c7e7cf67.png",
+                "sha256": "c7e7cf6782e5ef4f90e378ac9927e178f7d4acaa2555c547aabe93df9f8cace3"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-chief-engineer/shunin-r8-juuten/work/raw-priority-order.bf746860.png",
+              "sha256": "bf746860eea9c2f284bafc7e1b796a23511aee3d96474222bfee0564e6b62904"
+            },
+            "generatedAt": "2026-10-27T14:19:13.355Z"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-chief-engineer/shunin-r8-juuten/work/priority-order-diagram.716349a5.png",
+            "sha256": "716349a596f8b1f8702775f313038474bebe0fca08653009b39184c198a7c3b6",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "bf746860eea9c2f284bafc7e1b796a23511aee3d96474222bfee0564e6b62904"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-10-27T14:42:29.037Z",
+            "by": "Codex",
+            "views": [
+              "1920x1080"
+            ],
+            "checks": [
+              "内容整合",
+              "文言",
+              "字幕領域"
+            ]
+          }
+        },
+        {
+          "sceneId": "limits",
+          "inputSha256": "84c8bd95da371478f9de04bd09f29ea2c80eed94fb6696ae23381150fb7fe637",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Create a fresh full-bleed 16:9 Japanese educational DIAGRAM slide, using attached image only as style reference. White to pale lavender, navy/violet lines, small yellow accents; no teacher/photo. Bottom 22% completely empty for subtitles. Heading exactly 「復習前に出典を確認」. TWO clearly separate panels. Left: a historical question-index table headed exactly 「出題状況表 H21〜R5」. Do not write any text about R6 onward, as this table simply covers historical analysis and DOES NOT make future years ineligible for the exam. Right: a paper icon headed exactly 「2025年度 主任技士 問題13」, with notice label exactly 「採点対象外の公式通知」. No actual question or answer choice. No extra text, dates or statistics. Ensure readable Japanese at 360px and all panel borders visible above the empty band.",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/work/promise-diagram.c7e7cf67.png",
+                "sha256": "c7e7cf6782e5ef4f90e378ac9927e178f7d4acaa2555c547aabe93df9f8cace3"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-chief-engineer/shunin-r8-juuten/work/raw-limits.6dda5ce3.png",
+              "sha256": "6dda5ce39565c988196e8bc605878bf6dfc97416a1b040896438baed2df43c15"
+            },
+            "generatedAt": "2026-10-27T14:36:35.673Z"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-chief-engineer/shunin-r8-juuten/work/limits-diagram.5f282075.png",
+            "sha256": "5f28207591d94c9d2180d2288eb5fd31ef193ed224aa6b02bccec2fdd8ddc3f4",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "6dda5ce39565c988196e8bc605878bf6dfc97416a1b040896438baed2df43c15"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-10-27T14:42:29.040Z",
+            "by": "Codex",
+            "views": [
+              "1920x1080"
+            ],
+            "checks": [
+              "内容整合",
+              "文言",
+              "字幕領域"
+            ]
+          }
+        },
+        {
+          "sceneId": "summary",
+          "inputSha256": "f6fb1622b6a3ae91953bd0286a4cc01c5d625cc83940840a360cd93b6f5f0a61",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Create a fresh full-bleed 16:9 Japanese educational DIAGRAM slide; attached image style reference only. White to pale lavender, clean navy/violet lines, small yellow highlights; no teacher/photo. Bottom 22% completely empty for subtitles. Heading exactly 「過去問を回す3ステップ」. Draw a large horizontal three-step flow with ONE short label at each stage: 「1年分を一巡」→「弱点を年度横断」→「4肢の理由を確認」. Use simple paper, matrix, magnifier icons. Do not add score targets, predicted topics, statistics, promises, or other text. Readable at 360px.",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/work/promise-diagram.c7e7cf67.png",
+                "sha256": "c7e7cf6782e5ef4f90e378ac9927e178f7d4acaa2555c547aabe93df9f8cace3"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-chief-engineer/shunin-r8-juuten/work/raw-summary.a31f3364.png",
+              "sha256": "a31f3364ddf4ec09f9a6576ccfc9967b02d42131afc31ebb776a05a4c9260980"
+            },
+            "generatedAt": "2026-10-27T14:19:13.353Z"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-chief-engineer/shunin-r8-juuten/work/summary-diagram.46918426.png",
+            "sha256": "46918426d9cb7e75e871202e2bb6c68fb40cd576aa1b86beb515a3823bfd28fd",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "a31f3364ddf4ec09f9a6576ccfc9967b02d42131afc31ebb776a05a4c9260980"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-10-27T14:42:29.043Z",
+            "by": "Codex",
+            "views": [
+              "1920x1080"
+            ],
+            "checks": [
+              "内容整合",
+              "文言",
+              "字幕領域"
+            ]
+          }
+        },
+        {
+          "sceneId": "cta",
+          "inputSha256": "dec0461eddf39e8abf58c1aaf1cee2b6e7f3a01afd680a34c684217b9e920b6d",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Make a clean 16:9 Japanese educational infographic slide based on attached style reference only. White-to-pale-lavender background, navy/violet lines, small yellow highlights, no teacher/photo. Bottom 25% completely empty for subtitles. Heading exactly 「初見の問題で確かめる」. In the centre show THREE large, simple steps: an unbranded question booklet labelled exactly 「50問＋施工14問」, a four-choice explanation icon labelled exactly 「4肢の理由」, a simple chart labelled exactly 「分野別に確認」. Small text exactly 「概要欄から」 above the empty band. Carefully write exactly the given Japanese strings, with no stray glyphs, extra numerals, brand claims, price or success guarantee. Do not show any exact exam question. Large glyphs readable at 360px.",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/work/promise-diagram.c7e7cf67.png",
+                "sha256": "c7e7cf6782e5ef4f90e378ac9927e178f7d4acaa2555c547aabe93df9f8cace3"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-chief-engineer/shunin-r8-juuten/work/raw-cta.9c3327bf.png",
+              "sha256": "9c3327bf25874633157b726c613f80d4401d36f928153eee479f48d5c7ed31b0"
+            },
+            "generatedAt": "2026-10-27T14:19:13.353Z"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-chief-engineer/shunin-r8-juuten/work/cta-diagram.4d4cc05d.png",
+            "sha256": "4d4cc05daa688abb41254f5aba468b5bf34b35f40547e48994571423117f2c05",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "9c3327bf25874633157b726c613f80d4401d36f928153eee479f48d5c7ed31b0"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-10-27T14:42:29.046Z",
+            "by": "Codex",
+            "views": [
+              "1920x1080"
+            ],
+            "checks": [
+              "内容整合",
+              "文言",
+              "字幕領域"
+            ]
+          }
+        }
+      ]
+    }
   }
 }
