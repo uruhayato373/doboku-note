@@ -52,6 +52,22 @@ test('processing checks reject truncation, wrong account, and missing audio', ()
   v.contentDetails.duration = 'PT41S'; v.fileDetails.audioStreams = []; assert.throws(() => assertProcessed(v, item), /stream/);
   v.snippet.channelId = 'other'; assert.throws(() => assertProcessed(v, item), /Wrong/);
 });
+test('processed status waits for stream metadata before checking stream integrity', () => {
+  const v = structuredClone(processed);
+  delete v.fileDetails;
+  assert.equal(assertProcessed(v, item), false);
+  v.fileDetails = structuredClone(processed.fileDetails);
+  delete v.fileDetails.videoStreams;
+  assert.equal(assertProcessed(v, item), false);
+  v.fileDetails.videoStreams = [{ widthPixels: 1920, heightPixels: 1080 }];
+  delete v.fileDetails.audioStreams;
+  assert.equal(assertProcessed(v, item), false);
+  v.fileDetails.audioStreams = [{}];
+  delete v.fileDetails.videoStreams[0].widthPixels;
+  assert.equal(assertProcessed(v, item), false);
+  v.fileDetails.videoStreams[0].widthPixels = 1280;
+  assert.throws(() => assertProcessed(v, item), /stream/);
+});
 test('receipt from another render cannot be reused', async () => {
   const f = fixture(); await uploadReplacement(f.youtube, item, f.options);
   await assert.rejects(uploadReplacement(f.youtube, { ...item, media: { ...item.media, sha256: 'b'.repeat(64) } }, f.options), /conflict/);

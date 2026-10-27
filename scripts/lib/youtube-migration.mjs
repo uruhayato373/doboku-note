@@ -53,6 +53,7 @@ export function assertOldUnchanged(actual, frozen) {
 export function assertProcessed(video, item) {
   if (!video || video.snippet.channelId !== item.oldVideo.snippet.channelId || video.id === item.oldVideo.id) throw new Error('Wrong replacement video');
   if (video.processingDetails?.processingStatus !== 'succeeded' || video.status.uploadStatus !== 'processed') return false;
+  if (!video.fileDetails || video.fileDetails.fileSize == null) return false;
   // contentDetails rounds to whole seconds; YouTube reported 94s for a 92.997s
   // source while fileDetails retained 92.966s (one video frame shorter).
   // Allow that display rounding, but independently check precise input duration.
@@ -62,7 +63,9 @@ export function assertProcessed(video, item) {
   // In that case retain the original one-second display tolerance, not zero.
   if ((hasPreciseDuration && (!Number.isFinite(preciseDuration) || Math.abs(preciseDuration - item.media.duration) > 0.1)) || Math.abs(durationSeconds(video.contentDetails.duration) - item.media.duration) > (hasPreciseDuration ? 1.1 : 1)) throw new Error(`Replacement duration differs: API=${video.contentDetails.duration}, file=${preciseDuration}s, source=${item.media.duration}s`);
   if (Number(video.fileDetails?.fileSize) !== item.media.bytes) throw new Error('Replacement uploaded file size differs');
+  if (!video.fileDetails?.videoStreams || !video.fileDetails?.audioStreams) return false;
   const stream = video.fileDetails?.videoStreams?.[0];
+  if (stream && (stream.widthPixels == null || stream.heightPixels == null)) return false;
   if (!stream || stream.widthPixels !== item.media.width || stream.heightPixels !== item.media.height || !video.fileDetails?.audioStreams?.length) throw new Error('Replacement video/audio stream mismatch');
   return true;
 }

@@ -1,3 +1,4 @@
+import './lib/isolate-git-env.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { mkdtempSync, mkdirSync, writeFileSync, rmSync, symlinkSync, utimesSync, existsSync } from 'node:fs';

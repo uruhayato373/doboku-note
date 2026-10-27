@@ -1,0 +1,691 @@
+{
+  "policy": ".claude/knowledge/reference/pop-image-policy.md",
+  "designVersion": "pop-20260927",
+  "channel": "youtube",
+  "source": "content/sns/video-packs/pe-first-stage/pe1-kiso-senmon",
+  "outputs": {
+    "longform": {
+      "publicationId": "pe-first-stage/pe1-kiso-senmon/youtube.longform",
+      "copy": {
+        "exam": "pe-first-stage",
+        "headline": [
+          "基礎科目",
+          "6問から3問",
+          "選び方"
+        ],
+        "benefit": "",
+        "authority": "総監が制作"
+      },
+      "evidence": [
+        "content/sns/video-packs/pe-first-stage/pe1-kiso-senmon/cover-design.json#covers/longform",
+        "content/sns/video-packs/pe-first-stage/pe1-kiso-senmon/storyboard.json"
+      ],
+      "references": [
+        {
+          "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.abe1a7b7.png",
+          "sha256": "abe1a7b7debc540640b2aacb2f333874901e60f25843dca40579ccd42feb7216"
+        }
+      ],
+      "prompt": "Create a NEW full-bleed 16:9 Japanese YouTube POP cover, using the attached image only for teacher identity and cobalt comic style. Reduce the amount of wording so the subtitle-safe area is genuinely clear. Exact visible copy only: small top strip 「総監が制作」, huge left upper lines 「技術士第一次試験」「基礎科目」, huge red/yellow left mid line 「6問から3問」, one compact final word 「選び方」. Teacher on right with plain white helmet, black-rim glasses, slight beard, navy work jacket and reflector straps, red pen; same face as reference. ALL copy, both hands and face, all decorations must be completely ABOVE the 65%-height horizontal line. The entire LOWER 35% of the image must be only continuous electric-blue diagonal-streak background, free of text, people, icons, badges, buildings, or other detail, so subtitles can be overlaid. Keep large readable bold outlined glyphs; use less overall vertical height than reference. No additional Japanese text or claims, no watermark.",
+      "promptScope": "新規表紙全体を生成",
+      "format": {
+        "width": 1920,
+        "height": 1080
+      },
+      "render": {
+        "template": "codex-image-gen",
+        "variant": "question",
+        "pose": "pop-red-pen"
+      },
+      "output": {
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-senmon/work/cover-pop.145b4650.png",
+        "sha256": "145b46501cbe0898d5fcea91f7a4e67a52eb4a514876cb47a62baef3af337907"
+      },
+      "review": {
+        "status": "agent-reviewed",
+        "by": "Codex",
+        "checkedAt": "2026-10-27T15:11:20.671Z",
+        "viewportWidth": 360,
+        "checks": [
+          "資格名・見出しの可読性",
+          "文字化け",
+          "顔と字幕領域",
+          "内容整合"
+        ]
+      },
+      "storage": {
+        "group": "content-media",
+        "key": ".tmp/media/pe-first-stage/pe1-kiso-senmon/work/cover-pop.145b4650.png"
+      },
+      "publication": "予約準備中"
+    }
+  },
+  "activeBodyRevision": "body-diagram-20261028",
+  "activeCoverRevision": "cover-pop-20261028",
+  "revisions": {
+    "body-diagram-20261028": {
+      "layout": {
+        "mode": "diagram-led"
+      },
+      "images": [
+        {
+          "sceneId": "answer",
+          "inputSha256": "7a3d54015d08420bd5fe68165d6d7668bf36ad69d195dda665c0212ed62c5bb4",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Create a fresh full-frame 16:9 Japanese educational diagram. Use attached diagram as style reference only: white to pale blue, navy outlines, yellow highlights, large bold Japanese, no character. Bottom 22% visually empty for subtitles. Heading exactly 「結論：6問を見て3問を選ぶ」. Across the centre, three large rounded steps with simple paper, check and clock icons: 「6問を見渡す」→「再現できる3問」→「深入りしない」. Do not include an actual exam question, score or other text. At 360px width every label remains readable.",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/work/promise-diagram.c7e7cf67.png",
+                "sha256": "c7e7cf6782e5ef4f90e378ac9927e178f7d4acaa2555c547aabe93df9f8cace3"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-first-stage/pe1-kiso-senmon/work/raw-answer.eee8d744.png",
+              "sha256": "eee8d7442e9244c081e536ec3796289ae50547cff90ac4c05166bc3d3277d0a4"
+            },
+            "generatedAt": "2026-10-27T15:11:19.496Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-first-stage/pe1-kiso-senmon/work/answer-diagram.2edf1fac.png",
+            "sha256": "2edf1fac7b994d4ef2cd7bcb0195f654e92672226ff5cd6fec38cd6b8ff4c9fc",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "eee8d7442e9244c081e536ec3796289ae50547cff90ac4c05166bc3d3277d0a4"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-27T15:11:20.671Z",
+            "by": "Codex",
+            "views": [
+              "1920x1080"
+            ],
+            "checks": [
+              "内容整合",
+              "文字の可読性",
+              "字幕領域"
+            ]
+          }
+        },
+        {
+          "sceneId": "rules",
+          "inputSha256": "64fb117bdd997e75e2e98be7cbcb388b7aa2727e8c7265023fc8a47cd592a63e",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Fresh full-frame 16:9 Japanese educational diagram in the attached blue navy/yellow white style. Bottom 22% empty for subtitles. Heading exactly 「公式の決まり」. Show five clear horizontal groups, each containing SIX small blank question boxes, with exactly THREE highlighted in each group. Beside them a simple calendar and clock with large exact labels 「11月22日」 and 「15:00〜16:00」, and a bold result label 「計15問」. The 5×6 and 5×3 structure must be visually correct. No scoring claim, answer key, predicted question or extra text. Large readable typography.",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/work/promise-diagram.c7e7cf67.png",
+                "sha256": "c7e7cf6782e5ef4f90e378ac9927e178f7d4acaa2555c547aabe93df9f8cace3"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-first-stage/pe1-kiso-senmon/work/raw-rules.cf5b4f15.png",
+              "sha256": "cf5b4f15cf7034312f7f2b854f8f0f78cfb355c3c0edab9f4938d9477af0d80e"
+            },
+            "generatedAt": "2026-10-27T15:11:19.579Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-first-stage/pe1-kiso-senmon/work/rules-diagram.d6cfdb53.png",
+            "sha256": "d6cfdb53a2772214eff3207f35f8c03538f764dff4c2c74dedff0c522a66b630",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "cf5b4f15cf7034312f7f2b854f8f0f78cfb355c3c0edab9f4938d9477af0d80e"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-27T15:11:20.671Z",
+            "by": "Codex",
+            "views": [
+              "1920x1080"
+            ],
+            "checks": [
+              "内容整合",
+              "文字の可読性",
+              "字幕領域"
+            ]
+          }
+        },
+        {
+          "sceneId": "proposal",
+          "inputSha256": "a0e06999846b1321b189230841cb28872b81b60674a88504c55997c170e87bc5",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Fresh full-frame 16:9 Japanese educational diagram, white/pale-blue navy/yellow style reference attached. Bottom 22% empty for subtitles. Heading exactly 「ここからは動画の提案」. Draw a clean separation line: a small official-rules card on left labelled 「公式：各群3問」, and a larger notebook on right labelled 「提案：2周で選ぶ」. Under right notebook show only three small icons for 「印」「時間」「予行演習」. No implication that the two-pass approach is an official rule. No extra text. Readable at 360px.",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/work/promise-diagram.c7e7cf67.png",
+                "sha256": "c7e7cf6782e5ef4f90e378ac9927e178f7d4acaa2555c547aabe93df9f8cace3"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-first-stage/pe1-kiso-senmon/work/raw-proposal.dca954d3.png",
+              "sha256": "dca954d34e2c4d2697e002ba74fe61e34d054d90f17d7757719445f01cbe37d6"
+            },
+            "generatedAt": "2026-10-27T15:11:19.666Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-first-stage/pe1-kiso-senmon/work/proposal-diagram.04371443.png",
+            "sha256": "0437144332160431859e53bca35ff222f60c2a1481b571a509fa9dd849587b3c",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "dca954d34e2c4d2697e002ba74fe61e34d054d90f17d7757719445f01cbe37d6"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-27T15:11:20.671Z",
+            "by": "Codex",
+            "views": [
+              "1920x1080"
+            ],
+            "checks": [
+              "内容整合",
+              "文字の可読性",
+              "字幕領域"
+            ]
+          }
+        },
+        {
+          "sceneId": "pass1",
+          "inputSha256": "1648619998f9cd65cd41449d7a8248a0460f0a98aa063334dfe0ec2a50f8b168",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Full-frame 16:9 Japanese diagram in white/pale-blue navy/yellow style, attached image as style reference only. Bottom 22% empty. Heading exactly 「1周目：6問を見渡す」. Show six blank exam cards in one row feeding into three broad baskets: 「再現できそう」「説明できそう」「今日は厳しい」. This is sorting only; no card answered, no correct choice mark. Exact visible Japanese only those labels and heading. Large clear icons and generous spacing.",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/work/promise-diagram.c7e7cf67.png",
+                "sha256": "c7e7cf6782e5ef4f90e378ac9927e178f7d4acaa2555c547aabe93df9f8cace3"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-first-stage/pe1-kiso-senmon/work/raw-pass1.240c92d1.png",
+              "sha256": "240c92d1f0baf904bffa923e9db3650ccfe18074d4ad09069b19133eac99a53a"
+            },
+            "generatedAt": "2026-10-27T15:11:19.756Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-first-stage/pe1-kiso-senmon/work/pass1-diagram.c8ee0231.png",
+            "sha256": "c8ee0231c6abc1c87d8a3c0e1692240e5908df027d87f18c373330c1bc3e23aa",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "240c92d1f0baf904bffa923e9db3650ccfe18074d4ad09069b19133eac99a53a"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-27T15:11:20.671Z",
+            "by": "Codex",
+            "views": [
+              "1920x1080"
+            ],
+            "checks": [
+              "内容整合",
+              "文字の可読性",
+              "字幕領域"
+            ]
+          }
+        },
+        {
+          "sceneId": "pass2",
+          "inputSha256": "0054da0c3b0f97a09ae023ba5d1301071dc8e525129c6cfde1bd97a722917b76",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Full-frame 16:9 Japanese diagram, white/pale-blue navy/yellow, no person, bottom 22% blank for subtitles. Heading exactly 「2周目：3問を選ぶ」. Show six blank question tiles; highlight EXACTLY three and leave three pale. Selection based on two simple check panels: 「計算：途中式」 and 「知識：誤りの理由」. Arrow from highlighted tiles to a big label 「再現できる3問」. No actual exam content, no score or guaranteed result. Legible at 360px.",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/work/promise-diagram.c7e7cf67.png",
+                "sha256": "c7e7cf6782e5ef4f90e378ac9927e178f7d4acaa2555c547aabe93df9f8cace3"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-first-stage/pe1-kiso-senmon/work/raw-pass2.d5dfa206.png",
+              "sha256": "d5dfa206cd96d4d4f8c69c958afdf2516203792784fdcb63ed2f8362b11bd3d9"
+            },
+            "generatedAt": "2026-10-27T15:11:19.844Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-first-stage/pe1-kiso-senmon/work/pass2-diagram.03bdb8c3.png",
+            "sha256": "03bdb8c3781c4cbb5b6baaccfbff8c358f228c65f399bbf4cb9ef1de5d8894d6",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "d5dfa206cd96d4d4f8c69c958afdf2516203792784fdcb63ed2f8362b11bd3d9"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-27T15:11:20.671Z",
+            "by": "Codex",
+            "views": [
+              "1920x1080"
+            ],
+            "checks": [
+              "内容整合",
+              "文字の可読性",
+              "字幕領域"
+            ]
+          }
+        },
+        {
+          "sceneId": "example1",
+          "inputSha256": "e6ae873cf6a47532392aedf7de594c689d5740de13c9a83266bd71d7007ba629",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Full-frame 16:9 Japanese educational diagram, white/pale-blue navy/yellow, bottom 22% empty. Heading exactly 「仮の例：6問を仕分け」. Draw precisely SIX numbered but content-free tiles. Two blue tiles labelled as a group 「途中式が書ける 2問」, one yellow tile labelled 「理由を説明 1問」, three gray tiles labelled as a group 「公式が出ない 3問」. Large top badge 「仮の例」. No invented exam question or answer. Correct counts are essential. Readable at 360px.",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/work/promise-diagram.c7e7cf67.png",
+                "sha256": "c7e7cf6782e5ef4f90e378ac9927e178f7d4acaa2555c547aabe93df9f8cace3"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-first-stage/pe1-kiso-senmon/work/raw-example1.8faf5c7d.png",
+              "sha256": "8faf5c7d786f4a805cc53df88b857a77a742d1bc65e19b5208cff9429fc68e1b"
+            },
+            "generatedAt": "2026-10-27T15:11:19.933Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-first-stage/pe1-kiso-senmon/work/example1-diagram.66999d30.png",
+            "sha256": "66999d304ee74eab8d49473856d38f56fc1be4d6f2fe9ff8856238675558781c",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "8faf5c7d786f4a805cc53df88b857a77a742d1bc65e19b5208cff9429fc68e1b"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-27T15:11:20.671Z",
+            "by": "Codex",
+            "views": [
+              "1920x1080"
+            ],
+            "checks": [
+              "内容整合",
+              "文字の可読性",
+              "字幕領域"
+            ]
+          }
+        },
+        {
+          "sceneId": "example2",
+          "inputSha256": "fecd1aac5191640710cd472bacef2bfce714335a5ab902063a6a6f49abf85731",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Full-frame 16:9 Japanese diagram in same white/pale-blue navy/yellow style, bottom 22% empty. Heading exactly 「仮の例：2問＋1問」. Draw a clear visual equation: two blue blank question tiles plus one yellow blank tile flowing into THREE highlighted selected tiles. Small note 「実際の出題ではない」. No other numbers, no actual exam question, no correctness mark. Clean large glyphs at 360px.",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/work/promise-diagram.c7e7cf67.png",
+                "sha256": "c7e7cf6782e5ef4f90e378ac9927e178f7d4acaa2555c547aabe93df9f8cace3"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-first-stage/pe1-kiso-senmon/work/raw-example2.a66d605c.png",
+              "sha256": "a66d605cfa29023d4e39c3d0934310f1190b13ee12d3b1a38770261c4ec30780"
+            },
+            "generatedAt": "2026-10-27T15:11:20.020Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-first-stage/pe1-kiso-senmon/work/example2-diagram.31ed9a00.png",
+            "sha256": "31ed9a005b1a403c50aa96f2fb5337522cf5cc2c27e0097a72f460d1d0c30880",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "a66d605cfa29023d4e39c3d0934310f1190b13ee12d3b1a38770261c4ec30780"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-27T15:11:20.671Z",
+            "by": "Codex",
+            "views": [
+              "1920x1080"
+            ],
+            "checks": [
+              "内容整合",
+              "文字の可読性",
+              "字幕領域"
+            ]
+          }
+        },
+        {
+          "sceneId": "stop1",
+          "inputSha256": "e983868e8ce42257ecadfd8a00d78a759f07a3f40453263d69acd9c962705964",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Fresh full-frame 16:9 Japanese educational diagram, white/pale-blue navy/yellow, bottom 22% empty. Heading exactly 「難しい計算に深入りしない」. A formula cloud with question mark labelled 「公式が出ない」, a simple arrow that redirects toward a neat solvable worksheet labelled 「再現できる問題へ」. No red cross over math generally; convey choosing a different question, not skipping the entire group. No fabricated numerical problem. Large labels only.",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/work/promise-diagram.c7e7cf67.png",
+                "sha256": "c7e7cf6782e5ef4f90e378ac9927e178f7d4acaa2555c547aabe93df9f8cace3"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-first-stage/pe1-kiso-senmon/work/raw-stop1.d7f6ea10.png",
+              "sha256": "d7f6ea10b7f3d67ad4b955eb1688d429eea31e9895e83238b72499832f2b4fa4"
+            },
+            "generatedAt": "2026-10-27T15:11:20.108Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-first-stage/pe1-kiso-senmon/work/stop1-diagram.60e9c530.png",
+            "sha256": "60e9c5309321957c9f005cd973577fdcecf6ca3f153eb22fe4ebfa0094d29aa4",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "d7f6ea10b7f3d67ad4b955eb1688d429eea31e9895e83238b72499832f2b4fa4"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-27T15:11:20.671Z",
+            "by": "Codex",
+            "views": [
+              "1920x1080"
+            ],
+            "checks": [
+              "内容整合",
+              "文字の可読性",
+              "字幕領域"
+            ]
+          }
+        },
+        {
+          "sceneId": "stop2",
+          "inputSha256": "3cf40cc7475b185cafaa54521d2b3e869002ffe471d3cebb0534223874079cd2",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Fresh full-frame 16:9 Japanese diagram, white/pale-blue navy/yellow, bottom 22% empty. Heading exactly 「時間の目安は自分で決める」. A simple clock and a marked question tile feeding into a next tile. Use exact short labels 「目安を決める」「超えたら印」「次へ」. Add a small but readable tag 「動画の提案」. Do not display any fixed official per-question minutes. No extra text or numbers.",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/work/promise-diagram.c7e7cf67.png",
+                "sha256": "c7e7cf6782e5ef4f90e378ac9927e178f7d4acaa2555c547aabe93df9f8cace3"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-first-stage/pe1-kiso-senmon/work/raw-stop2.f361c3a4.png",
+              "sha256": "f361c3a44680abddca39c2b0927eba853c4adf6f3d2f9b23431783f90e15a4d7"
+            },
+            "generatedAt": "2026-10-27T15:11:20.207Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-first-stage/pe1-kiso-senmon/work/stop2-diagram.53914943.png",
+            "sha256": "539149435f36ea0b9593ac6d02369b26d5959e91547b0e3a1f7134877a95c32d",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "f361c3a44680abddca39c2b0927eba853c4adf6f3d2f9b23431783f90e15a4d7"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-27T15:11:20.671Z",
+            "by": "Codex",
+            "views": [
+              "1920x1080"
+            ],
+            "checks": [
+              "内容整合",
+              "文字の可読性",
+              "字幕領域"
+            ]
+          }
+        },
+        {
+          "sceneId": "rehearse1",
+          "inputSha256": "f2fbbde003cc0c9defbf6532208cd1df2e5a5f0baf3018caba2a3c7d9c5f10c8",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Full-frame 16:9 Japanese diagram matching attached simple white/pale-blue navy/yellow style, bottom 22% empty. Heading exactly 「過去問で予行演習」. Show one generic past-exam booklet flowing through three large steps 「見渡す」→「決める」→「解く」, then a loopback bubble 「振り返る」. Small badge 「動画の提案」. Do not depict a real question or official schedule. Large legible Japanese.",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/work/promise-diagram.c7e7cf67.png",
+                "sha256": "c7e7cf6782e5ef4f90e378ac9927e178f7d4acaa2555c547aabe93df9f8cace3"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-first-stage/pe1-kiso-senmon/work/raw-rehearse1.919c4dfc.png",
+              "sha256": "919c4dfcbcf38703709ccaa4e22fa68cf77469ccc3fe07c906cd25fe59cc081e"
+            },
+            "generatedAt": "2026-10-27T15:11:20.293Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-first-stage/pe1-kiso-senmon/work/rehearse1-diagram.551a9517.png",
+            "sha256": "551a9517a1cbc1c2fa6b0f96052d9e8ebba1ada81367dc105ef1a02d7dacf265",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "919c4dfcbcf38703709ccaa4e22fa68cf77469ccc3fe07c906cd25fe59cc081e"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-27T15:11:20.671Z",
+            "by": "Codex",
+            "views": [
+              "1920x1080"
+            ],
+            "checks": [
+              "内容整合",
+              "文字の可読性",
+              "字幕領域"
+            ]
+          }
+        },
+        {
+          "sceneId": "rehearse2",
+          "inputSha256": "06b1870e82a12b16dd6006baafb010ba81000e1a1511f2380fde70ff6b4893a7",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Full-frame 16:9 Japanese educational diagram, white/pale-blue navy/yellow, bottom 22% empty. Heading exactly 「自己採点は解答した15問」. Show a generic answer sheet with exactly 15 highlighted answer dots grouped visually as 5 groups of 3, and other gray unselected dots faint in background. A magnifier points to the selected dots. No pass score, no actual answer, no claim of exam result. Large legible Japanese.",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/work/promise-diagram.c7e7cf67.png",
+                "sha256": "c7e7cf6782e5ef4f90e378ac9927e178f7d4acaa2555c547aabe93df9f8cace3"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-first-stage/pe1-kiso-senmon/work/raw-rehearse2.4e031143.png",
+              "sha256": "4e03114327a9c0cd3b6a0474875098feb5c98c590e746429d654454eb9cec3a0"
+            },
+            "generatedAt": "2026-10-27T15:11:20.384Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-first-stage/pe1-kiso-senmon/work/rehearse2-diagram.0faf329f.png",
+            "sha256": "0faf329f6242385404c69792f0c3d07bd3e61fd235a0616e60260e60931f084f",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "4e03114327a9c0cd3b6a0474875098feb5c98c590e746429d654454eb9cec3a0"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-27T15:11:20.671Z",
+            "by": "Codex",
+            "views": [
+              "1920x1080"
+            ],
+            "checks": [
+              "内容整合",
+              "文字の可読性",
+              "字幕領域"
+            ]
+          }
+        },
+        {
+          "sceneId": "summary",
+          "inputSha256": "a08b5c16adbb60406a4bdd3e9c924fe53826e9b4514f8e42e48f703cd7dc0278",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Full-frame 16:9 Japanese educational diagram, white/pale-blue navy/yellow, bottom 22% empty. Heading exactly 「2周＋深入りしない」. Three wide horizontal linked steps: 「6問を見渡す」→「3問を選ぶ」→「難問で粘らない」. Use paper, check and move-on icons. Mark as 「動画の提案」 in a small badge. No extra exam numbers, grade, prediction or success guarantee. Large readable Japanese.",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/work/promise-diagram.c7e7cf67.png",
+                "sha256": "c7e7cf6782e5ef4f90e378ac9927e178f7d4acaa2555c547aabe93df9f8cace3"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-first-stage/pe1-kiso-senmon/work/raw-summary.3204151c.png",
+              "sha256": "3204151c1f1022388c6512047d9f3d9290d993a44212180b30c48da9c1f50522"
+            },
+            "generatedAt": "2026-10-27T15:11:20.485Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-first-stage/pe1-kiso-senmon/work/summary-diagram.f1b31dbb.png",
+            "sha256": "f1b31dbb0731c2cd1cffcf974c57da9777b2b5cfb51e8e19b4bd9e36f322194b",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "3204151c1f1022388c6512047d9f3d9290d993a44212180b30c48da9c1f50522"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-27T15:11:20.671Z",
+            "by": "Codex",
+            "views": [
+              "1920x1080"
+            ],
+            "checks": [
+              "内容整合",
+              "文字の可読性",
+              "字幕領域"
+            ]
+          }
+        },
+        {
+          "sceneId": "cta",
+          "inputSha256": "9bf2430a478e7ee9229a6a2c6b465faf274d988e919a3c4ec8630feec864477f",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Full-frame 16:9 Japanese educational CTA diagram in white/pale-blue navy/yellow style reference attached, bottom 25% empty for subtitles. Heading exactly 「過去問PDF合本」. Draw one large unbranded booklet titled exactly 「全560問」. Under it three short subject tabs: 「基礎」「適性」「専門（建設部門）」. A simple arrow points to label 「概要欄から」 just above blank band. Do not suggest that other specialist departments are included. No price, success guarantee, brand logo, actual questions or extra text. Large legible typography at 360px.",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/work/promise-diagram.c7e7cf67.png",
+                "sha256": "c7e7cf6782e5ef4f90e378ac9927e178f7d4acaa2555c547aabe93df9f8cace3"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-first-stage/pe1-kiso-senmon/work/raw-cta.73605260.png",
+              "sha256": "73605260415533fe179efa1715b51fcbd13a51147bff3f6524985743855de885"
+            },
+            "generatedAt": "2026-10-27T15:11:20.581Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-first-stage/pe1-kiso-senmon/work/cta-diagram.edd29855.png",
+            "sha256": "edd29855f265b1cfc1fd0bf6c6c504589b318dbc3faa589fe073bdb493d575ff",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "73605260415533fe179efa1715b51fcbd13a51147bff3f6524985743855de885"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-27T15:11:20.671Z",
+            "by": "Codex",
+            "views": [
+              "1920x1080"
+            ],
+            "checks": [
+              "内容整合",
+              "文字の可読性",
+              "字幕領域"
+            ]
+          }
+        }
+      ],
+      "storage": {
+        "group": "content-media",
+        "sync": "pending"
+      }
+    },
+    "cover-pop-20261028": {
+      "version": "pop-poster-v3",
+      "generation": {
+        "tool": "image_gen",
+        "prompt": "Create a NEW full-bleed 16:9 Japanese YouTube POP cover, using the attached image only for teacher identity and cobalt comic style. Reduce the amount of wording so the subtitle-safe area is genuinely clear. Exact visible copy only: small top strip 「総監が制作」, huge left upper lines 「技術士第一次試験」「基礎科目」, huge red/yellow left mid line 「6問から3問」, one compact final word 「選び方」. Teacher on right with plain white helmet, black-rim glasses, slight beard, navy work jacket and reflector straps, red pen; same face as reference. ALL copy, both hands and face, all decorations must be completely ABOVE the 65%-height horizontal line. The entire LOWER 35% of the image must be only continuous electric-blue diagonal-streak background, free of text, people, icons, badges, buildings, or other detail, so subtitles can be overlaid. Keep large readable bold outlined glyphs; use less overall vertical height than reference. No additional Japanese text or claims, no watermark.",
+        "references": [
+          {
+            "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.abe1a7b7.png",
+            "sha256": "abe1a7b7debc540640b2aacb2f333874901e60f25843dca40579ccd42feb7216"
+          }
+        ],
+        "output": {
+          "path": ".tmp/media/pe-first-stage/pe1-kiso-senmon/work/raw-cover.9061a582.png",
+          "sha256": "9061a58214ef006228ec6e689b4e45d812ed4887f6c4acc6cc303d5ab683bd18"
+        },
+        "generatedAt": "2026-10-27T15:11:19.409Z"
+      },
+      "copy": {
+        "exam": "pe-first-stage",
+        "headline": [
+          "基礎科目",
+          "6問から3問",
+          "選び方"
+        ],
+        "authority": "総監が制作"
+      },
+      "output": {
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-senmon/work/cover-pop.145b4650.png",
+        "sha256": "145b46501cbe0898d5fcea91f7a4e67a52eb4a514876cb47a62baef3af337907",
+        "width": 1920,
+        "height": 1080
+      },
+      "normalization": {
+        "mode": "full-frame-v1",
+        "sourceSha256": "9061a58214ef006228ec6e689b4e45d812ed4887f6c4acc6cc303d5ab683bd18"
+      },
+      "review": {
+        "status": "ai-reviewed",
+        "userImageReview": "pending",
+        "checkedAt": "2026-10-27T15:11:20.671Z",
+        "by": "Codex",
+        "views": [
+          "1920x1080"
+        ],
+        "checks": [
+          "資格名・見出し",
+          "顔と字幕領域"
+        ]
+      },
+      "storage": {
+        "group": "content-media",
+        "sync": "pending"
+      }
+    }
+  }
+}

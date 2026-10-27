@@ -4,6 +4,7 @@
 // 未コミットのまま止まった worktree を、一時 git リポジトリで検出する。squash でマージ済みを「未マージ」と誤って挙げない。
 // 前提: 一時リポジトリは base を `develop`（origin が無いときの代替）にして、リモート側は bare を origin に置いて確かめる。
 
+import './lib/isolate-git-env.mjs';
 import { test, before, after } from 'node:test';
 import assert from 'node:assert/strict';
 import { execFileSync } from 'node:child_process';

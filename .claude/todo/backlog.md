@@ -263,19 +263,16 @@
 
 ## 🟡 中 — 重要度が中くらい
 
-### [DN-0897] テストの一時リポジトリの git init が pre-commit の GIT_DIR を引き継ぎ、親リポジトリの core.bare を書き換える
-タグ: [領域:管理] [時期:2026-10] [種類:不具合] [検証:test] [起票:2026-10-27]
+### [DN-0898] YouTube無音プレビューの終端に最終場面の尺が重複する
+タグ: [領域:商品] [時期:2026-11] [種類:不具合] [起票:2026-10-27]
 
-**起点**: DN-0893 の回帰テストが pre-commit（unit-tests の ownTests）の中で一時ディレクトリに `git init` したとき、フックが渡す GIT_DIR・GIT_INDEX_FILE を引き継いで親リポジトリの `.git/config` に `core.bare = true` を書いた。本体の checkout と全 worktree で `git status` が「must be run in a work tree」で止まった（手で false に戻した）。テストは `startsWith('GIT_')` の環境変数を外して直した（`tests/x-card-render-scope.test.mjs` と同じ形）。
+**起点**: 2026-10-27 の通常動画プレビューで、レンダー済み MP4 と無音プレビューの尺が一致しない。shunin-ochiru-shouronbun は 119.861 秒対 136.000 秒、shunin-r8-juuten は 115.392 秒対 130.600 秒（ffprobe）。preview-metrics.json は実尺を報告するため、確認用動画の終端だけが余分に続く。
 
-**残っている危険**: `tests/*.test.mjs` のうち `'init'` で git を呼び、GIT_ の環境変数を外していないものが 21 本ある（todo-add・backlog-edit・ci-data・replay-onto-develop・sync-index-after-commit・pre-commit-install-guard ほか）。そのテストファイル自身を stage した commit では pre-commit の unit-tests が ownTests として走らせるので、同じ事故が起きうる。
+**やること**: scripts/lib/media-preview.mjs の ffconcat 末尾重複画像の処理を修正し、無音プレビューの実尺を場面秒数の合計に合わせる。既存の確定済み予約行のプレビュー素材・承認を暗黙に差し替えない。
 
-**やること**:
-1. テストの一時リポジトリを作る共通部品（GIT_ を外した env で git を呼ぶ）を `tests/` か `scripts/lib/` に 1 つ置き、21 本をそれに寄せる
-2. ラチェットのテストを足す: `tests/` で git の `init`・`clone` を呼ぶのに GIT_ を外していないファイルの数を増やさない（直したら下げる）
-3. pre-commit の unit-tests を走らせる側（`scripts/pre-commit-ci-gates.mjs`）で、子プロセスへ渡す env から GIT_DIR・GIT_INDEX_FILE・GIT_WORK_TREE を外すことも検討する（根本で止める）
+**完了条件**: 最終 CTA 場面が余分に繰り返されず、ffprobe で得る preview.mp4 の長さが preview-metrics.json の previewSec と 1 フレーム以内で一致する回帰検査を追加する。
 
-**完了条件**: 21 本が共通部品か env の除外を使い、ラチェットのテストが `npm run test` で通る。
+
 
 
 
@@ -515,17 +512,9 @@
 
 **起点**: 2026-10-26、運営者「CI の中で重なっているものをまとめることはできる？」。21 本を起動条件・鍵・中身で見直すと、同じ準備と鍵で動く Cloudflare の 2 本、デプロイの後に別のワークフローとして動く IndexNow、本番を外から確かめる死活確認と全 URL の検査の 3 組が重なっている。
 
-**残り**: 統合（計画 [DN-0853-ci-consolidate-overlaps.md](../plans/DN-0853-ci-consolidate-overlaps.md)・PR #1241）は develop と main（2026-10-26 デプロイ・bf212639c）に入り、ワークフローは 18 本。デプロイ後の `indexnow` ジョブと、`uptime-ping.yml` の全 URL の検査（workflow_run）は同じ sha で成功した。残りは統合した `cloudflare-metrics.yml` の定期実行の確認だけ。
+**残り**: 統合（計画 [DN-0853-ci-consolidate-overlaps.md](../plans/DN-0853-ci-consolidate-overlaps.md)・PR #1241）は main に入り、解析の定期実行も 10/27（run 40423113674）に成功した。残りは統合した `cloudflare-metrics.yml` の設定の監査の定期実行の確認だけ。
 
-**完了条件**: `cloudflare-metrics.yml` の解析の定期実行（10/27 JST 05:23）と設定の監査の定期実行（10/30 金曜 JST 22:47）がそれぞれ 1 回成功する。
-
-**統合（2026-10-26 棚卸し）: 旧 DN-0848「automerge.yml の workflow_run が 10/24 22:37Z 以降に起動せず、ラベル付きの PR が緑でも入らない」**
-
-**起点**: 2026-10-25 の PR #1223。Pre-merge が緑で終わっても automerge.yml の workflow_run が起動せず、手で squash した。原因は `on.workflow_run.workflows` の名前が glob として照合され、"Pre-merge check (quality audit + build)" の `+` が文字どおりに一致しなかったこと（10-09〜10-25 の Pre-merge の完了 999 回で起動 0 回・E2E・Lighthouse の完了だけで起動していた）。PR #1224 で `\+` にエスケープし、tests/workflow-run-filters.test.mjs で再発を止めた。
-
-**やること**: PR #1224 を develop へ入れ、main へ deploy する（workflow_run は main の定義で動く）。deploy の後、最初にラベルを付けた PR で、Pre-merge の完了から数分で automerge が起動してマージすることを確かめる。
-
-**完了条件**: `gh run list --workflow automerge.yml` に、Pre-merge の完了の直後の event workflow_run の回があり、その PR が squash で入っている。
+**完了条件**: `cloudflare-metrics.yml` の設定の監査の定期実行（10/30 金曜 JST 22:47）が 1 回成功する。
 
 **統合（2026-10-26 棚卸し）: 旧 DN-0825「index coverage の検査が sitemap 2,017 URL を上限 1,900 で切り詰めるので、分割取得にして全件を検査する」**
 

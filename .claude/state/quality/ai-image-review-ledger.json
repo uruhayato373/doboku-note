@@ -2519,6 +2519,126 @@
       "reason": "全場面シートと原寸画像で「本番形式で確かめる」の日本語、図解内容、資格名と字幕余白を照合し、台本と整合することを確認。",
       "reviewedAt": "2026-10-27T13:33:05.167Z"
     },
+    "media:concrete-chief-engineer/shunin-ochiru-shouronbun/work/candidate-cover": {
+      "sha": "60ab1c34582e50a2",
+      "verdict": "ok",
+      "reason": "資格名、小論文、4つの見直しの文字と先生の顔、下部字幕域を原寸で確認した。",
+      "reviewedAt": "2026-10-27T14:33:34.697Z"
+    },
+    "media:concrete-chief-engineer/shunin-ochiru-shouronbun/work/candidate-cta": {
+      "sha": "cb3020d1bb48e922",
+      "verdict": "ok",
+      "reason": "立場を選び答案例を読み自分の事実で書く順序、概要欄案内と字幕域を確認した。",
+      "reviewedAt": "2026-10-27T14:33:34.727Z"
+    },
+    "media:concrete-chief-engineer/shunin-ochiru-shouronbun/work/candidate-scene-001": {
+      "sha": "60ab1c34582e50a2",
+      "verdict": "ok",
+      "reason": "POP表紙の資格名、主題、先生の外形、字幕用の紫背景を原寸で確認した。",
+      "reviewedAt": "2026-10-27T14:33:34.727Z"
+    },
+    "media:concrete-chief-engineer/shunin-ochiru-shouronbun/work/candidate-scene-002": {
+      "sha": "7c275d79a3aff175",
+      "verdict": "ok",
+      "reason": "4観点を自己点検と明記し、公式採点項目ではない注意書きと図の整合を確認した。",
+      "reviewedAt": "2026-10-27T14:33:34.727Z"
+    },
+    "media:concrete-chief-engineer/shunin-ochiru-shouronbun/work/candidate-scene-003": {
+      "sha": "99aa5de31f2d4519",
+      "verdict": "ok",
+      "reason": "一般論から自分の業務へ移る図で、誰が・判断・根拠の文字を確認した。",
+      "reviewedAt": "2026-10-27T14:33:34.727Z"
+    },
+    "media:concrete-chief-engineer/shunin-ochiru-shouronbun/work/candidate-scene-004": {
+      "sha": "e8b8715bc13abf03",
+      "verdict": "ok",
+      "reason": "抽象表現から条件・確認・対策へ具体化する図と日本語ラベルを確認した。",
+      "reviewedAt": "2026-10-27T14:33:34.727Z"
+    },
+    "media:concrete-chief-engineer/shunin-ochiru-shouronbun/work/candidate-scene-005": {
+      "sha": "9df21279ad0fb646",
+      "verdict": "ok",
+      "reason": "設問の字数行数、業務との関係、後半の注意の3図が全枠見え字幕域も空いている。",
+      "reviewedAt": "2026-10-27T14:33:34.727Z"
+    },
+    "media:concrete-chief-engineer/shunin-ochiru-shouronbun/work/candidate-scene-006": {
+      "sha": "5f140d436d68c7f3",
+      "verdict": "ok",
+      "reason": "何について・どの立場で・何を論じるの設問分解と脱線の分岐を確認した。",
+      "reviewedAt": "2026-10-27T14:33:34.727Z"
+    },
+    "media:concrete-chief-engineer/shunin-ochiru-shouronbun/work/candidate-scene-007": {
+      "sha": "df836191d8575b5f",
+      "verdict": "ok",
+      "reason": "4つの見直しの見出しと各項目の文字が本文に合い、字幕域を確保している。",
+      "reviewedAt": "2026-10-27T14:33:34.727Z"
+    },
+    "media:concrete-chief-engineer/shunin-ochiru-shouronbun/work/candidate-scene-008": {
+      "sha": "cb3020d1bb48e922",
+      "verdict": "ok",
+      "reason": "答案例から自分の事実で書く導線と概要欄の案内、文字の破綻なしを確認した。",
+      "reviewedAt": "2026-10-27T14:33:34.727Z"
+    },
+    "media:concrete-chief-engineer/shunin-r8-juuten/work/candidate-cover": {
+      "sha": "44cba497e85faff1",
+      "verdict": "ok",
+      "reason": "資格名、直前期、過去問の回し方、3ステップの文字と先生の顔、下部字幕域を確認した。",
+      "reviewedAt": "2026-10-27T14:43:56.317Z"
+    },
+    "media:concrete-chief-engineer/shunin-r8-juuten/work/candidate-cta": {
+      "sha": "4d4cc05daa688abb",
+      "verdict": "ok",
+      "reason": "50問＋施工14問、4肢の理由、分野別確認の文字が商品内容と一致し、字幕域を確認した。",
+      "reviewedAt": "2026-10-27T14:43:56.318Z"
+    },
+    "media:concrete-chief-engineer/shunin-r8-juuten/work/candidate-scene-001": {
+      "sha": "44cba497e85faff1",
+      "verdict": "ok",
+      "reason": "POP表紙の資格名、過去問の回し方、3ステップ、人物と字幕域を確認した。",
+      "reviewedAt": "2026-10-27T14:43:56.318Z"
+    },
+    "media:concrete-chief-engineer/shunin-r8-juuten/work/candidate-scene-002": {
+      "sha": "b097621691991970",
+      "verdict": "ok",
+      "reason": "出題状況表は平成21〜令和5年度の範囲と明記され、項目別索引の図と合う。",
+      "reviewedAt": "2026-10-27T14:43:56.318Z"
+    },
+    "media:concrete-chief-engineer/shunin-r8-juuten/work/candidate-scene-003": {
+      "sha": "a6f4df439c854f56",
+      "verdict": "ok",
+      "reason": "1年分の一巡から誤答・迷いを分け弱点を把握する手順が図と一致した。",
+      "reviewedAt": "2026-10-27T14:43:56.318Z"
+    },
+    "media:concrete-chief-engineer/shunin-r8-juuten/work/candidate-scene-004": {
+      "sha": "38e555083e52815d",
+      "verdict": "ok",
+      "reason": "年度A〜Dの抽象列で同じ項目を横断する図であり、分析外の年号を含まない。",
+      "reviewedAt": "2026-10-27T14:43:56.318Z"
+    },
+    "media:concrete-chief-engineer/shunin-r8-juuten/work/candidate-scene-005": {
+      "sha": "716349a596f8b1f8",
+      "verdict": "ok",
+      "reason": "適当・不適当の聞かれ方と4肢の理由を確認する図で、架空の正答を示さない。",
+      "reviewedAt": "2026-10-27T14:43:56.318Z"
+    },
+    "media:concrete-chief-engineer/shunin-r8-juuten/work/candidate-scene-006": {
+      "sha": "5f28207591d94c9d",
+      "verdict": "ok",
+      "reason": "令和5年度までの表と2025年度問題13の公式通知を区別して示し、文字を確認した。",
+      "reviewedAt": "2026-10-27T14:43:56.318Z"
+    },
+    "media:concrete-chief-engineer/shunin-r8-juuten/work/candidate-scene-007": {
+      "sha": "46918426d9cb7e75",
+      "verdict": "ok",
+      "reason": "一巡、弱点の年度横断、4肢理由の3手順が本文に合い、下部字幕域が空く。",
+      "reviewedAt": "2026-10-27T14:43:56.318Z"
+    },
+    "media:concrete-chief-engineer/shunin-r8-juuten/work/candidate-scene-008": {
+      "sha": "4d4cc05daa688abb",
+      "verdict": "ok",
+      "reason": "50問＋施工14問、4肢の理由、分野別確認を誤字なく示し、字幕域を確認した。",
+      "reviewedAt": "2026-10-27T14:43:56.318Z"
+    },
     "media:concrete-chief-engineer/shunin-shiken-zentaizou/work/candidate-cover": {
       "sha": "729a5a5e70c9b6de",
       "verdict": "ok",
@@ -3244,6 +3364,102 @@
       "verdict": "ok",
       "reason": "独立AI画像監査：最終採用PNGを原寸と360pxで実見。指定4文言・ポーズ・顔と手指・安全域に問題なし。ユーザー承認は含まない。",
       "reviewedAt": "2026-10-11T03:36:30.184Z"
+    },
+    "media:pe-first-stage/pe1-kiso-senmon/youtube.longform/cover": {
+      "sha": "145b46501cbe0898",
+      "verdict": "ok",
+      "reason": "表紙の資格名、6問から3問、先生の顔、字幕領域を確認した。",
+      "reviewedAt": "2026-10-27T15:15:36.362Z"
+    },
+    "media:pe-first-stage/pe1-kiso-senmon/youtube.longform/cta": {
+      "sha": "edd29855f265b1cf",
+      "verdict": "ok",
+      "reason": "全560問、基礎・適性・専門は建設部門と示し商品内容と一致する。",
+      "reviewedAt": "2026-10-27T15:15:36.363Z"
+    },
+    "media:pe-first-stage/pe1-kiso-senmon/youtube.longform/scene-001": {
+      "sha": "145b46501cbe0898",
+      "verdict": "ok",
+      "reason": "表紙の資格名、6問から3問、先生の顔、字幕領域を確認した。",
+      "reviewedAt": "2026-10-27T15:15:36.363Z"
+    },
+    "media:pe-first-stage/pe1-kiso-senmon/youtube.longform/scene-002": {
+      "sha": "2edf1fac7b994d4e",
+      "verdict": "ok",
+      "reason": "6問を見渡し、再現できる3問を選ぶ提案が台本に一致する。",
+      "reviewedAt": "2026-10-27T15:15:36.363Z"
+    },
+    "media:pe-first-stage/pe1-kiso-senmon/youtube.longform/scene-003": {
+      "sha": "d6cfdb53a2772214",
+      "verdict": "ok",
+      "reason": "5群各6問から3問、計15問と日時を正しく表示する。",
+      "reviewedAt": "2026-10-27T15:15:36.363Z"
+    },
+    "media:pe-first-stage/pe1-kiso-senmon/youtube.longform/scene-004": {
+      "sha": "0437144332160431",
+      "verdict": "ok",
+      "reason": "公式の決まりと動画の提案を明確に分けている。",
+      "reviewedAt": "2026-10-27T15:15:36.363Z"
+    },
+    "media:pe-first-stage/pe1-kiso-senmon/youtube.longform/scene-005": {
+      "sha": "c8ee0231c6abc1c8",
+      "verdict": "ok",
+      "reason": "6問を見渡す仕分けの図で、正答を創作していない。",
+      "reviewedAt": "2026-10-27T15:15:36.363Z"
+    },
+    "media:pe-first-stage/pe1-kiso-senmon/youtube.longform/scene-006": {
+      "sha": "03bdb8c3781c4cbb",
+      "verdict": "ok",
+      "reason": "6問から3問を選ぶ図と判断基準が一致する。",
+      "reviewedAt": "2026-10-27T15:15:36.363Z"
+    },
+    "media:pe-first-stage/pe1-kiso-senmon/youtube.longform/scene-007": {
+      "sha": "66999d304ee74eab",
+      "verdict": "ok",
+      "reason": "仮の例で2問＋1問＋3問の内訳が正しい。",
+      "reviewedAt": "2026-10-27T15:15:36.363Z"
+    },
+    "media:pe-first-stage/pe1-kiso-senmon/youtube.longform/scene-008": {
+      "sha": "31ed9a005b1a403c",
+      "verdict": "ok",
+      "reason": "仮の例の2問＋1問が3問になり、実際の出題ではないと明記する。",
+      "reviewedAt": "2026-10-27T15:15:36.363Z"
+    },
+    "media:pe-first-stage/pe1-kiso-senmon/youtube.longform/scene-009": {
+      "sha": "60e9c5309321957c",
+      "verdict": "ok",
+      "reason": "公式が出ない問題から再現できる別問へ移る図である。",
+      "reviewedAt": "2026-10-27T15:15:36.363Z"
+    },
+    "media:pe-first-stage/pe1-kiso-senmon/youtube.longform/scene-010": {
+      "sha": "539149435f36ea0b",
+      "verdict": "ok",
+      "reason": "時間の目安が動画の提案と明記され、固定の公式時間はない。",
+      "reviewedAt": "2026-10-27T15:15:36.363Z"
+    },
+    "media:pe-first-stage/pe1-kiso-senmon/youtube.longform/scene-011": {
+      "sha": "551a9517a1cbc1c2",
+      "verdict": "ok",
+      "reason": "過去問で見渡す・決める・解く・振り返る順が台本と一致する。",
+      "reviewedAt": "2026-10-27T15:15:36.363Z"
+    },
+    "media:pe-first-stage/pe1-kiso-senmon/youtube.longform/scene-012": {
+      "sha": "0faf329f62423854",
+      "verdict": "ok",
+      "reason": "解答した15問だけを自己採点する図で、5群各3問を示す。",
+      "reviewedAt": "2026-10-27T15:15:36.363Z"
+    },
+    "media:pe-first-stage/pe1-kiso-senmon/youtube.longform/scene-013": {
+      "sha": "f1b31dbb0731c2cd",
+      "verdict": "ok",
+      "reason": "見渡す、3問を選ぶ、難問で粘らない手順が台本と一致する。",
+      "reviewedAt": "2026-10-27T15:15:36.363Z"
+    },
+    "media:pe-first-stage/pe1-kiso-senmon/youtube.longform/scene-014": {
+      "sha": "edd29855f265b1cf",
+      "verdict": "ok",
+      "reason": "全560問、基礎・適性・専門は建設部門と示し商品内容と一致する。",
+      "reviewedAt": "2026-10-27T15:15:36.363Z"
     },
     "media:pe-first-stage/pe1-zentaizou/youtube.longform/cover": {
       "sha": "abe1a7b7debc5406",

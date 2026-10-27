@@ -4,6 +4,90 @@
   "exam": "pe-first-stage",
   "publications": [
     {
+      "id": "pe-first-stage/pe1-kiso-senmon/youtube.longform",
+      "work": "pe1-kiso-senmon",
+      "account": "youtube:main",
+      "format": "longform",
+      "status": "scheduled",
+      "copy": "content/sns/video-packs/pe-first-stage/pe1-kiso-senmon/youtube.json#longform",
+      "media": {
+        "cover": "pe-first-stage/pe1-kiso-senmon/youtube.longform/cover",
+        "cta": "pe-first-stage/pe1-kiso-senmon/youtube.longform/cta",
+        "scene-001": "pe-first-stage/pe1-kiso-senmon/youtube.longform/scene-001",
+        "scene-002": "pe-first-stage/pe1-kiso-senmon/youtube.longform/scene-002",
+        "scene-003": "pe-first-stage/pe1-kiso-senmon/youtube.longform/scene-003",
+        "scene-004": "pe-first-stage/pe1-kiso-senmon/youtube.longform/scene-004",
+        "scene-005": "pe-first-stage/pe1-kiso-senmon/youtube.longform/scene-005",
+        "scene-006": "pe-first-stage/pe1-kiso-senmon/youtube.longform/scene-006",
+        "scene-007": "pe-first-stage/pe1-kiso-senmon/youtube.longform/scene-007",
+        "scene-008": "pe-first-stage/pe1-kiso-senmon/youtube.longform/scene-008",
+        "scene-009": "pe-first-stage/pe1-kiso-senmon/youtube.longform/scene-009",
+        "scene-010": "pe-first-stage/pe1-kiso-senmon/youtube.longform/scene-010",
+        "scene-011": "pe-first-stage/pe1-kiso-senmon/youtube.longform/scene-011",
+        "scene-012": "pe-first-stage/pe1-kiso-senmon/youtube.longform/scene-012",
+        "scene-013": "pe-first-stage/pe1-kiso-senmon/youtube.longform/scene-013",
+        "scene-014": "pe-first-stage/pe1-kiso-senmon/youtube.longform/scene-014",
+        "video": "pe-first-stage/pe1-kiso-senmon/youtube.longform/video",
+        "subtitles": "pe-first-stage/pe1-kiso-senmon/youtube.longform/subtitles",
+        "preview": "pe-first-stage/pe1-kiso-senmon/youtube.longform/preview",
+        "contact-sheet": "pe-first-stage/pe1-kiso-senmon/youtube.longform/contact-sheet",
+        "scene-sheet": "pe-first-stage/pe1-kiso-senmon/youtube.longform/scene-sheet",
+        "preview-metrics": "pe-first-stage/pe1-kiso-senmon/youtube.longform/preview-metrics"
+      },
+      "publishAt": "2026-11-04T20:00:00+09:00",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "user",
+          "at": "2026-10-27T15:21:09.840Z",
+          "digest": "16145c3e4221e7f03a8c9a354142d1c7620e4932d28d3865fef5da38c278eebe"
+        }
+      },
+      "approval": {
+        "by": "user",
+        "at": "2026-10-27T15:21:10.126Z",
+        "contentSha256": "7ff43e117e94af44e2ce67875eb61601a38faada914f92de571605bae376c164"
+      },
+      "times": {
+        "rendered": "2026-10-27T15:21:10.797Z",
+        "uploaded": "2026-10-27T15:27:01.739Z",
+        "scheduled": "2026-10-27T15:27:18.095Z"
+      },
+      "delivery": {
+        "inputSha256": "7b3f01284fe4c2d355bdee32cc4d07eb6e82668013f76766a553c87ea1f806a9",
+        "marker": "dn-single-8abfda2276bf25a762f53a91ad364a21610610f9",
+        "uploadRequestedAt": "2026-10-27T15:24:07.078Z",
+        "videoId": "p8fZi3a2Un8",
+        "processedAt": "2026-10-27T15:27:00.890Z",
+        "thumbnailRequestedAt": "2026-10-27T15:27:01.782Z",
+        "thumbnailUrls": [
+          "https://i9.ytimg.com/vi/p8fZi3a2Un8/default.jpg?sqp=CMyEg9cG&rs=AOn4CLCse6RfPD5P8cfZm-22PeAxPaSHnw",
+          "https://i9.ytimg.com/vi/p8fZi3a2Un8/mqdefault.jpg?sqp=CMyEg9cG&rs=AOn4CLDhSXEv2tpbAt0FPMLY5Hav9KyWPw",
+          "https://i9.ytimg.com/vi/p8fZi3a2Un8/hqdefault.jpg?sqp=CMyEg9cG&rs=AOn4CLD7Pu3JE7K0sc7qXnvzC3Bd8rJ6yg",
+          "https://i9.ytimg.com/vi/p8fZi3a2Un8/sddefault.jpg?sqp=CMyEg9cG&rs=AOn4CLB9q1ZGxKSbF3q_heJsuLUSk9yEXQ",
+          "https://i9.ytimg.com/vi/p8fZi3a2Un8/maxresdefault.jpg?sqp=CMyEg9cG&rs=AOn4CLDcX6WXj0XWBPokHCrLGfgd-aJl2Q",
+          "https://i9.ytimg.com/vi/p8fZi3a2Un8/fhddefault.jpg?sqp=CMyEg9cG&rs=AOn4CLDklPPDmVL7LhOJOzuhd0jh4iTczA"
+        ],
+        "thumbnailAcceptedAt": "2026-10-27T15:27:08.254Z",
+        "scheduleRequestedAt": "2026-10-27T15:27:14.532Z",
+        "scheduleAt": "2026-11-04T20:00:00+09:00",
+        "scheduledVerifiedAt": "2026-10-27T15:27:18.095Z"
+      },
+      "platform": {
+        "id": "p8fZi3a2Un8",
+        "url": "https://www.youtube.com/watch?v=p8fZi3a2Un8",
+        "privacy": "private",
+        "evidence": {
+          "kind": "publisher-live-check",
+          "ref": "content/sns/video-packs/pe-first-stage/pe1-kiso-senmon/youtube.json#longform"
+        }
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-10-27T15:27:08.254Z"
+      }
+    },
+    {
       "id": "pe-first-stage/pe1-zentaizou/youtube.longform",
       "work": "pe1-zentaizou",
       "account": "youtube:main",

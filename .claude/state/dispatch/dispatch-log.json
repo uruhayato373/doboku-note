@@ -6139,6 +6139,23 @@
       "commit": "39ab9c0592b2",
       "verification": "node --test tests/backlog-text-guards.test.mjs tests/todo-add.test.mjs tests/search-improvement.test.mjs（61 pass）・CLI dry-run で誤記と存在しない相対リンクの本文が止まることを確認",
       "note": "addCard と search-improvement の backlog 書き換えで、増えた行に check-exam-calendar の禁止パターンと check-relative-links の宛先の実在（origin/develop）を当てる（scripts/lib/backlog-text-guards.mjs）"
+    },
+    {
+      "id": "DN-0897",
+      "at": "2026-10-28",
+      "task": "テストの一時リポジトリの git init が pre-commit の GIT_DIR を引き継ぎ、親リポジトリの core.bare を書き換える",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "tests/test-git-env-isolation.test.mjs"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "1343713b3ac4",
+      "verification": null,
+      "note": "todo-complete.mjs 経由で完了処理"
     }
   ]
 }

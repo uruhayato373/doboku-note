@@ -2,6 +2,7 @@
  * scripts/replay-onto-develop.mjs（DN-0559）: 同じパッチ・衝突・commit 失敗の後に呼ばれた、の 3 通りを
  * 一時の git リポジトリ（origin も一時の bare）で固定する。
  */
+import './lib/isolate-git-env.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { execFileSync, spawnSync } from 'node:child_process';

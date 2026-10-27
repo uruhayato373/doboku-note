@@ -5,6 +5,7 @@
  * 一時ディレクトリに「scripts/sync-codex-compat.mjs」を自分自身のコピーとして配置し、
  * そこを subprocess で起動する（本物の AGENTS.md / .agents / Git index には一切触れない）。
  */
+import './lib/isolate-git-env.mjs';
 import { strict as assert } from 'node:assert';
 import test from 'node:test';
 import { mkdirSync, writeFileSync, readFileSync, rmSync, existsSync } from 'node:fs';

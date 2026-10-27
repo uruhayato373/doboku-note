@@ -1412,6 +1412,321 @@
       ]
     },
     {
+      "id": "concrete-chief-engineer/shunin-ochiru-shouronbun/work/candidate-cover",
+      "role": "candidate-cover",
+      "type": "image/png",
+      "sha256": "60ab1c34582e50a2efac0f08ef9ca3aae2ea5dca920737eb060aa28da1451d64",
+      "bytes": 3519015,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-ochiru-shouronbun/work/candidate-cover.60ab1c34.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Use the attached approved cover as STYLE AND CHARACTER continuity reference, not content to copy. Make a fresh full-bleed 16:9 YouTube POP poster for the コンクリート主任技士 exam. Same teacher identity: black rim glasses, slight beard, blank white hard hat, navy construction jacket, red pen, teacher large on right. Energetic violet/purple background, yellow, navy, white and limited red accents; bold dynamic typography. Text must be exactly: 「総監が制作」「コンクリート主任技士」「小論文」「書けたつもり？」「4つの見直し」. This is a study self-check, NOT an official scoring rubric or pass/fail prediction. Show a handwritten essay page and four simple checkmarks at lower left, no scores. Do not add numbers besides the specified 4, pricing, URLs, guarantees, or other text. Keep all foreground, including the teacher and words, above y=80% and within side/top 5%, with the lowest 20% only uninterrupted purple background for subtitles. Every edge full bleed, no white card frame. Japanese glyphs exact and readable at 360px. 1920x1080 intended.",
+        "promptSha256": "ddaa444112534e461bd2627a205d78868a215a9760d33f279659641fdc7e3f0f",
+        "generatedAt": "2026-10-27T13:58:30.522Z"
+      },
+      "width": 1920,
+      "height": 1080,
+      "legacyPaths": [
+        ".tmp/media/concrete-chief-engineer/shunin-ochiru-shouronbun/work/cover-pop.60ab1c34.png"
+      ]
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-ochiru-shouronbun/work/candidate-cta",
+      "role": "candidate-cta",
+      "type": "image/png",
+      "sha256": "cb3020d1bb48e9221f95bf30e4298a2f05b7c5495807bf027757d61399847e60",
+      "bytes": 1972028,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-ochiru-shouronbun/work/candidate-cta.cb3020d1.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Create a fresh full-bleed 16:9 Japanese educational diagram slide using attached image as diagram style reference only. White to pale lavender, navy/violet outlines, small yellow highlights. No teacher, no photo, no book cover mockup with fictitious branding. Keep bottom 22% completely empty for subtitles. Large heading exactly 「答案例を自分の立場に」. Depict a simple open notebook with several labelled role tabs 「立場を選ぶ」「答案例を読む」「自分の事実で書く」 connected by a clear three-step flow. Small footer above subtitle safe area exactly 「概要欄から」. This is an invitation to a real essay-example magazine; no prices, guarantees, official endorsement or extra text. Readable at 360px.",
+        "promptSha256": "dedbb674143db9c890738884cada0c435d05fcbeb6bcea05e83b4a5f1e9feba0",
+        "generatedAt": "2026-10-27T14:06:50.667Z"
+      },
+      "width": 1920,
+      "height": 1080,
+      "legacyPaths": [
+        ".tmp/media/concrete-chief-engineer/shunin-ochiru-shouronbun/work/cta-diagram.cb3020d1.png"
+      ]
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-ochiru-shouronbun/work/candidate-scene-001",
+      "role": "candidate-scene-001",
+      "type": "image/png",
+      "sha256": "60ab1c34582e50a2efac0f08ef9ca3aae2ea5dca920737eb060aa28da1451d64",
+      "bytes": 3519015,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-ochiru-shouronbun/work/candidate-scene-001.60ab1c34.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Use the attached approved cover as STYLE AND CHARACTER continuity reference, not content to copy. Make a fresh full-bleed 16:9 YouTube POP poster for the コンクリート主任技士 exam. Same teacher identity: black rim glasses, slight beard, blank white hard hat, navy construction jacket, red pen, teacher large on right. Energetic violet/purple background, yellow, navy, white and limited red accents; bold dynamic typography. Text must be exactly: 「総監が制作」「コンクリート主任技士」「小論文」「書けたつもり？」「4つの見直し」. This is a study self-check, NOT an official scoring rubric or pass/fail prediction. Show a handwritten essay page and four simple checkmarks at lower left, no scores. Do not add numbers besides the specified 4, pricing, URLs, guarantees, or other text. Keep all foreground, including the teacher and words, above y=80% and within side/top 5%, with the lowest 20% only uninterrupted purple background for subtitles. Every edge full bleed, no white card frame. Japanese glyphs exact and readable at 360px. 1920x1080 intended.",
+        "promptSha256": "ddaa444112534e461bd2627a205d78868a215a9760d33f279659641fdc7e3f0f",
+        "generatedAt": "2026-10-27T13:58:30.522Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-ochiru-shouronbun/work/candidate-scene-002",
+      "role": "candidate-scene-002",
+      "type": "image/png",
+      "sha256": "7c275d79a3aff1751ba2aead5d0ed3092498ff3f4cf3dc33669102c5eba9abd8",
+      "bytes": 1963340,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-ochiru-shouronbun/work/candidate-scene-002.7c275d79.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Create a fresh full-bleed 16:9 Japanese educational diagram slide. Use attached image only as diagram style reference. White-to-pale-lavender background, clean navy/violet outlines, small yellow emphasis, no teacher character, no photo, no decorative card collage. Keep bottom 22% blank for subtitles. Large heading exactly 「4観点は自己点検」. Draw a central essay manuscript with four surrounding simple labelled checks: 「技術的妥当性」「論理構成」「実務経験の具体性」「技術理解」. Add one clear caution strip above subtitle-safe area exactly 「公式の採点項目・配点ではない」. These are study self-check lenses, not official JCI grading criteria. Do not draw grades, scores, pass/fail stamps, percentages or any extra text. Use readable Japanese glyphs at 360px.",
+        "promptSha256": "a8b71a3b64422e894178747a098e84aa7b5bf932d67353cf725d2c9906c3abdc",
+        "generatedAt": "2026-10-27T14:03:03.145Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-ochiru-shouronbun/work/candidate-scene-003",
+      "role": "candidate-scene-003",
+      "type": "image/png",
+      "sha256": "99aa5de31f2d4519aacfd26a742ebfa4f6c36493f27454722a389fa60602f414",
+      "bytes": 1595812,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-ochiru-shouronbun/work/candidate-scene-003.99aa5de3.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Create a fresh full-bleed 16:9 Japanese educational diagram slide. Use attached image only as diagram style reference. White-to-pale-lavender background, clean navy/violet outlines, small yellow emphasis, no teacher character, no photo. Keep bottom 22% blank for subtitles. Large heading exactly 「見直し1 一般論だけ？」. Show a simple before/after comparison about a concrete engineering essay: left sheet labelled 「一般論」 with vague textbook lines, right sheet labelled 「自分の業務」 with three large check boxes 「誰が」「何を判断」「根拠を確認」. Simple arrow from left to right. No invented project facts, scores, percentages or extra text. Every element readable at 360px.",
+        "promptSha256": "a1e14d44eae09bcfbf85ce1d8601210c8ba5aa03a604858c2eb51bbd72b6a783",
+        "generatedAt": "2026-10-27T14:03:03.145Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-ochiru-shouronbun/work/candidate-scene-004",
+      "role": "candidate-scene-004",
+      "type": "image/png",
+      "sha256": "e8b8715bc13abf034a39560acb98062bfadd09d0c44390621f6f0e7d3bc17b7f",
+      "bytes": 1850405,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-ochiru-shouronbun/work/candidate-scene-004.e8b8715b.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Create a fresh full-bleed 16:9 Japanese educational diagram slide using the attached image for diagram style only. White to pale lavender background; navy/violet lines, restrained yellow highlights; no teacher, no photograph, no decorative card collage. Bottom 22% must be completely empty for subtitles. Large heading exactly 「見直し2 抽象表現だけ？」. Compare an essay excerpt: left a cloud labelled 「適切に管理した」 with a question mark; right a clean three-step sequence 「条件」→「確認」→「対策」. Make clear that a concrete description gives the reader substance. Do not invent any project facts or add grades, scores, statistics, percentages, or extra words. Readable at 360px.",
+        "promptSha256": "1a38626e20771928b7b710f45eaf389286351fe35b1bad1ede76e723216d2fb8",
+        "generatedAt": "2026-10-27T14:04:43.388Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-ochiru-shouronbun/work/candidate-scene-005",
+      "role": "candidate-scene-005",
+      "type": "image/png",
+      "sha256": "9df21279ad0fb64609186950fafb5bd3c9dc417e8304b997109c7e5be23438eb",
+      "bytes": 1797655,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-ochiru-shouronbun/work/candidate-scene-005.9df21279.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Create a NEW simple 16:9 Japanese educational diagram slide, using the attached picture only as style reference. White-to-pale-lavender full-bleed background, navy/violet outlines, small yellow highlights. Diagram content must fit entirely inside the TOP 65% of the frame, including every outline, arrow and label. Keep the bottom 35% completely empty background for subtitles. Large heading at top exactly 「見直し3 字数と構成」. Beneath heading, draw three small compact icons in ONE horizontal row: a generic exam instruction sheet labelled 「設問の字数・行数」; a compact complete answer form labelled 「業務との関係」; a small warning triangle and compact answer form labelled 「後半が尻すぼみ？」. All three forms must be shown WHOLE with their bottom borders visible, no part cropped by the empty zone. Avoid real official form layout, fixed word counts, scores, additional section names or extra text. Japanese glyphs large enough at 360px.",
+        "promptSha256": "cd3e3dd84c4bf93cd7029b023ccb2e1318e041fd52c83e5914f810715a099521",
+        "generatedAt": "2026-10-27T14:27:54.776Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-ochiru-shouronbun/work/candidate-scene-006",
+      "role": "candidate-scene-006",
+      "type": "image/png",
+      "sha256": "5f140d436d68c7f37d7ada0fed6d048c5b288692dd82e9b194e7989afa2aa285",
+      "bytes": 1849344,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-ochiru-shouronbun/work/candidate-scene-006.5f140d43.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Create a fresh full-bleed 16:9 Japanese educational diagram slide using attached image for diagram style only. White to pale lavender background; navy/violet lines, restrained yellow highlights; no teacher, no photo. Bottom 22% empty for subtitles. Large heading exactly 「見直し4 設問に答える」. Draw a question sheet on left with three highlighted underlines 「何について」「どの立場で」「何を論じる」, an arrow to an answer sheet on right with those three labels ticked. A side branch labelled 「脱線」 should visibly lead away from the answer sheet but not dominate. This is a learning self-check, not official marking. No scores, pass/fail or extra text. Readable at 360px.",
+        "promptSha256": "903f2c2e24d4bc57079f1e737bc619f15c32572bbd345afb0d47e2d258afa9f7",
+        "generatedAt": "2026-10-27T14:04:43.388Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-ochiru-shouronbun/work/candidate-scene-007",
+      "role": "candidate-scene-007",
+      "type": "image/png",
+      "sha256": "df836191d8575b5f3d668ace2427ad6e8b54460558ea9a613edde14d1a99fcc6",
+      "bytes": 1798213,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-ochiru-shouronbun/work/candidate-scene-007.df836191.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Create a fresh full-bleed 16:9 Japanese educational diagram slide using attached image as diagram style reference only. White to pale lavender, clean navy/violet lines, small yellow emphasis; no teacher, no photo. Keep bottom 22% completely empty for subtitles. Large heading exactly 「提出前の4つの見直し」. Show four clear numbered checkpoints arranged as a 2x2 grid, with text exactly 「1 一般論だけ？」「2 抽象表現だけ？」「3 字数と構成」「4 設問に答える」. In the center a simple essay page icon. This is a study self-check, not official grading. No scores, pass/fail, percentage, extra statistics or other text. Readable at 360px.",
+        "promptSha256": "73ee4b2411a44048618256ed1901386bf431773785b8cee809a14031bea67e65",
+        "generatedAt": "2026-10-27T14:06:31.908Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-ochiru-shouronbun/work/candidate-scene-008",
+      "role": "candidate-scene-008",
+      "type": "image/png",
+      "sha256": "cb3020d1bb48e9221f95bf30e4298a2f05b7c5495807bf027757d61399847e60",
+      "bytes": 1972028,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-ochiru-shouronbun/work/candidate-scene-008.cb3020d1.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Create a fresh full-bleed 16:9 Japanese educational diagram slide using attached image as diagram style reference only. White to pale lavender, navy/violet outlines, small yellow highlights. No teacher, no photo, no book cover mockup with fictitious branding. Keep bottom 22% completely empty for subtitles. Large heading exactly 「答案例を自分の立場に」. Depict a simple open notebook with several labelled role tabs 「立場を選ぶ」「答案例を読む」「自分の事実で書く」 connected by a clear three-step flow. Small footer above subtitle safe area exactly 「概要欄から」. This is an invitation to a real essay-example magazine; no prices, guarantees, official endorsement or extra text. Readable at 360px.",
+        "promptSha256": "dedbb674143db9c890738884cada0c435d05fcbeb6bcea05e83b4a5f1e9feba0",
+        "generatedAt": "2026-10-27T14:06:50.667Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-ochiru-shouronbun/work/candidate-subtitles",
+      "role": "candidate-subtitles",
+      "type": "text/x-ssa",
+      "sha256": "0f662a48530029aa07ec9bcb74deaaeac795d16fc4feb251780304c51cf60a4e",
+      "bytes": 4565,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-ochiru-shouronbun/work/candidate-subtitles.0f662a48.ass"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-ochiru-shouronbun/storyboard.json"
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-ochiru-shouronbun/work/candidate-video",
+      "role": "candidate-video",
+      "type": "video/mp4",
+      "sha256": "e9670d24aa0d56155afdc85d31c2fcca011b5d5d4a22fbba1e386c784fabbd9c",
+      "bytes": 14714693,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-ochiru-shouronbun/work/candidate-video.e9670d24.mp4"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-ochiru-shouronbun/storyboard.json",
+        "specSha256": "7f602c453730d8f5024b088d6e09c9b9de2faf592eb290b9ee3bc2f1b19f9ee4",
+        "renderInputSha256": "d77198f6d883bafb6334e7175f57dd54877956d1eac9f52584a135cba439352d",
+        "tts": {
+          "engine": "VOICEVOX",
+          "speaker": 13,
+          "credit": "VOICEVOX:青山龍星"
+        }
+      },
+      "durationSec": 119.861
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-ochiru-shouronbun/youtube.longform.pop-diagram/contact-sheet",
+      "role": "contact-sheet",
+      "type": "image/jpeg",
+      "sha256": "5f01f35d912c1c4488b47df4eddefbfaf36e2c7da0ef4ea7c0195e5e71c51ac9",
+      "bytes": 454901,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-ochiru-shouronbun/youtube.longform.pop-diagram/contact-sheet.5f01f35d.jpg"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "media-preview",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-ochiru-shouronbun/storyboard.json"
+      },
+      "width": 1920,
+      "height": 1620
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-ochiru-shouronbun/youtube.longform.pop-diagram/preview",
+      "role": "preview",
+      "type": "video/mp4",
+      "sha256": "7b106ed0318199854d1ee47faab5485de0b902da017dda394f177841442643e2",
+      "bytes": 3683784,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-ochiru-shouronbun/youtube.longform.pop-diagram/preview.7b106ed0.mp4"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "media-preview",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-ochiru-shouronbun/storyboard.json"
+      },
+      "durationSec": 119.861
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-ochiru-shouronbun/youtube.longform.pop-diagram/preview-metrics",
+      "role": "preview-metrics",
+      "type": "application/json",
+      "sha256": "8fc5010ac2fbe22e36e312c64d0525b1d36a4ceb156db5770b19629bf9af7af4",
+      "bytes": 702,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-ochiru-shouronbun/youtube.longform.pop-diagram/preview-metrics.8fc5010a.json"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "media-preview",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-ochiru-shouronbun/storyboard.json"
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-ochiru-shouronbun/youtube.longform.pop-diagram/scene-sheet",
+      "role": "scene-sheet",
+      "type": "image/jpeg",
+      "sha256": "d4d555c65e47eeb682dbdfbb09d8520994c8de6ae4167de8f1ea274f82d46888",
+      "bytes": 504198,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-ochiru-shouronbun/youtube.longform.pop-diagram/scene-sheet.d4d555c6.jpg"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "media-preview",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-ochiru-shouronbun/storyboard.json"
+      },
+      "width": 1920,
+      "height": 1194
+    },
+    {
       "id": "concrete-chief-engineer/shunin-ochiru-shouronbun/youtube.longform/cover",
       "role": "cover",
       "type": "image/png",
@@ -1770,6 +2085,321 @@
         ".tmp/video-render/youtube-covers-a-rollout-20260909/283.png",
         ".tmp/media/concrete-chief-engineer/shunin-properties-ronten/youtube.short.point-consistency-1/cover.479803db.png"
       ]
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-r8-juuten/work/candidate-cover",
+      "role": "candidate-cover",
+      "type": "image/png",
+      "sha256": "44cba497e85faff1ce0a9290b34fb60bd8dd2fa89fdb49eb24cb77223593a693",
+      "bytes": 3533048,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-r8-juuten/work/candidate-cover.44cba497.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Use attached POP cover as teacher/style continuity reference only. Create a NEW full-bleed 16:9 Japanese YouTube POP cover. Same man on right: black-rim glasses, slight beard, blank white hardhat, navy work jacket, red pen. Violet comic background, thick yellow/white/red lettering. Exact copy only: 「総監が制作」「コンクリート主任技士」「直前期」「過去問の回し方」「3ステップ」. Place all copy on LEFT and teacher on RIGHT, with all their visible content completely inside the TOP 72% of the canvas. The entire BOTTOM 28% must be plain continuous purple background with absolutely NO text, icon, paper, arrow, hand, illustration or border; reserved for subtitles. Do not show numbered exam sheets. This is a practice workflow, no prediction or success guarantee. No white border. Exact Japanese glyphs readable at 360px. Intended 1920x1080.",
+        "promptSha256": "7e46452c8de4fc039b752ff4bda825830116cdff90e2e3e405e8508c12facf4e",
+        "generatedAt": "2026-10-27T14:13:15.380Z"
+      },
+      "width": 1920,
+      "height": 1080,
+      "legacyPaths": [
+        ".tmp/media/concrete-chief-engineer/shunin-r8-juuten/work/cover-pop.44cba497.png"
+      ]
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-r8-juuten/work/candidate-cta",
+      "role": "candidate-cta",
+      "type": "image/png",
+      "sha256": "4d4cc05daa688abb41254f5aba468b5bf34b35f40547e48994571423117f2c05",
+      "bytes": 1743717,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-r8-juuten/work/candidate-cta.4d4cc05d.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Make a clean 16:9 Japanese educational infographic slide based on attached style reference only. White-to-pale-lavender background, navy/violet lines, small yellow highlights, no teacher/photo. Bottom 25% completely empty for subtitles. Heading exactly 「初見の問題で確かめる」. In the centre show THREE large, simple steps: an unbranded question booklet labelled exactly 「50問＋施工14問」, a four-choice explanation icon labelled exactly 「4肢の理由」, a simple chart labelled exactly 「分野別に確認」. Small text exactly 「概要欄から」 above the empty band. Carefully write exactly the given Japanese strings, with no stray glyphs, extra numerals, brand claims, price or success guarantee. Do not show any exact exam question. Large glyphs readable at 360px.",
+        "promptSha256": "c04d6ce23c163300f5e729619a1abf77cb9b374ea5838136c354247babcf61f8",
+        "generatedAt": "2026-10-27T14:19:13.353Z"
+      },
+      "width": 1920,
+      "height": 1080,
+      "legacyPaths": [
+        ".tmp/media/concrete-chief-engineer/shunin-r8-juuten/work/cta-diagram.4d4cc05d.png"
+      ]
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-r8-juuten/work/candidate-scene-001",
+      "role": "candidate-scene-001",
+      "type": "image/png",
+      "sha256": "44cba497e85faff1ce0a9290b34fb60bd8dd2fa89fdb49eb24cb77223593a693",
+      "bytes": 3533048,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-r8-juuten/work/candidate-scene-001.44cba497.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Use attached POP cover as teacher/style continuity reference only. Create a NEW full-bleed 16:9 Japanese YouTube POP cover. Same man on right: black-rim glasses, slight beard, blank white hardhat, navy work jacket, red pen. Violet comic background, thick yellow/white/red lettering. Exact copy only: 「総監が制作」「コンクリート主任技士」「直前期」「過去問の回し方」「3ステップ」. Place all copy on LEFT and teacher on RIGHT, with all their visible content completely inside the TOP 72% of the canvas. The entire BOTTOM 28% must be plain continuous purple background with absolutely NO text, icon, paper, arrow, hand, illustration or border; reserved for subtitles. Do not show numbered exam sheets. This is a practice workflow, no prediction or success guarantee. No white border. Exact Japanese glyphs readable at 360px. Intended 1920x1080.",
+        "promptSha256": "7e46452c8de4fc039b752ff4bda825830116cdff90e2e3e405e8508c12facf4e",
+        "generatedAt": "2026-10-27T14:13:15.380Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-r8-juuten/work/candidate-scene-002",
+      "role": "candidate-scene-002",
+      "type": "image/png",
+      "sha256": "b097621691991970f205dbc88a3865c41f9234f27ed5b85eb1e43167af590ad7",
+      "bytes": 1972873,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-r8-juuten/work/candidate-scene-002.b0976216.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Create a fresh full-bleed 16:9 Japanese educational DIAGRAM slide. Attached image is style reference only: white to pale lavender, navy/violet outlines, restrained yellow, no teacher/photo. Bottom 22% completely empty for subtitles. Heading exactly 「出題状況表を索引に」. Draw a simple matrix with YEAR columns and TOPIC rows, one highlighted topic row connecting question numbers across years. Large labels exactly 「平成21〜令和5年度」「項目」「年度」「問題番号」. At side show scattered papers converging into one topic row. Do not present this as current official 2026 categories or prediction. No invented numeric frequencies, scores, or extra text. Readable at 360px.",
+        "promptSha256": "184e141b2735f049465045c4c56e438198f0a3635b6cef9a8a87863a9f8962b9",
+        "generatedAt": "2026-10-27T14:19:13.353Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-r8-juuten/work/candidate-scene-003",
+      "role": "candidate-scene-003",
+      "type": "image/png",
+      "sha256": "a6f4df439c854f56f4cb9cb01c41764999decd8530eda04f171bec14e9de51ba",
+      "bytes": 1997407,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-r8-juuten/work/candidate-scene-003.a6f4df43.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Create a fresh full-bleed 16:9 Japanese educational DIAGRAM slide, style reference attached. White to pale lavender, navy/violet lines, small yellow highlights. No teacher/photo. Bottom 22% empty for subtitles. Heading exactly 「STEP 1 まず1年分」. Draw one exam paper going through a timer-like full run, then two marked piles: 「誤答」 and 「迷った問題」, each with a small tag 「分野・項目」. A clear arrow points to 「弱点を把握」. No score target, no pass/fail mark, no fake statistics or extra words. Readable at 360px.",
+        "promptSha256": "b6eb1c2c51f5feb45b7a8ce50f24eb331cfd3fbbf68f17debb246610940c5b18",
+        "generatedAt": "2026-10-27T14:19:13.353Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-r8-juuten/work/candidate-scene-004",
+      "role": "candidate-scene-004",
+      "type": "image/png",
+      "sha256": "38e555083e52815d59d2ad2e325a77ff16bd404be53d2b1442c4a98f513ee7a0",
+      "bytes": 1764024,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-r8-juuten/work/candidate-scene-004.38e55508.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Create a fresh full-bleed 16:9 Japanese educational DIAGRAM slide. Attached image style reference only. White to pale lavender, navy/violet lines, small yellow emphasis; no teacher/photo. Bottom 22% completely empty. Exact heading 「STEP 2 弱点を縦串で」. Show a simple abstract matrix of one highlighted weak topic across FOUR columns labelled ONLY 「年度A」「年度B」「年度C」「年度D」. Do NOT print any calendar years, especially no 2024/2025/2026, because the underlying source table ends at 令和5年度. Beside it a re-practice loop labelled 「解き直す」. The highlighted row label 「同じ項目」. Top small label 「年度をまたぐ」. No numeric frequency, no scores, no other writing. Large Japanese glyphs at 360px.",
+        "promptSha256": "784a16f442cff3ea56b3d99859c696f420503dbfd5e8a34aaa4c0cf0eff9a789",
+        "generatedAt": "2026-10-27T14:19:13.353Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-r8-juuten/work/candidate-scene-005",
+      "role": "candidate-scene-005",
+      "type": "image/png",
+      "sha256": "716349a596f8b1f8702775f313038474bebe0fca08653009b39184c198a7c3b6",
+      "bytes": 1646633,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-r8-juuten/work/candidate-scene-005.716349a5.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Create a fresh full-bleed 16:9 Japanese educational DIAGRAM slide; attached image style reference only. White to pale lavender, navy/violet lines, small yellow emphasis; no teacher/photo. Bottom 22% completely empty. Heading exactly 「STEP 3 聞かれ方を確認」. Draw a four-choice exam question with the command word highlighted: two adjacent tabs labelled 「適当」 and 「不適当」, with a magnifying glass over the instruction line. Under four abstract answer-choice circles, show a short verification path labelled 「4肢の理由を言える？」. Do not mark any choice as an actual exam answer. No score claims, statistics, or extra text. Readable at 360px.",
+        "promptSha256": "4b9e61e0730c80889c8000f8308f443483b9dbcb1f7bb606e44664906a8f4ad1",
+        "generatedAt": "2026-10-27T14:19:13.355Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-r8-juuten/work/candidate-scene-006",
+      "role": "candidate-scene-006",
+      "type": "image/png",
+      "sha256": "5f28207591d94c9d2180d2288eb5fd31ef193ed224aa6b02bccec2fdd8ddc3f4",
+      "bytes": 1734544,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-r8-juuten/work/candidate-scene-006.5f282075.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Create a fresh full-bleed 16:9 Japanese educational DIAGRAM slide, using attached image only as style reference. White to pale lavender, navy/violet lines, small yellow accents; no teacher/photo. Bottom 22% completely empty for subtitles. Heading exactly 「復習前に出典を確認」. TWO clearly separate panels. Left: a historical question-index table headed exactly 「出題状況表 H21〜R5」. Do not write any text about R6 onward, as this table simply covers historical analysis and DOES NOT make future years ineligible for the exam. Right: a paper icon headed exactly 「2025年度 主任技士 問題13」, with notice label exactly 「採点対象外の公式通知」. No actual question or answer choice. No extra text, dates or statistics. Ensure readable Japanese at 360px and all panel borders visible above the empty band.",
+        "promptSha256": "eeaa058765c879b4e58a1fc88c4b3bafb4929d48173b2d5ba7e8c2a60803ee6b",
+        "generatedAt": "2026-10-27T14:36:35.673Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-r8-juuten/work/candidate-scene-007",
+      "role": "candidate-scene-007",
+      "type": "image/png",
+      "sha256": "46918426d9cb7e75e871202e2bb6c68fb40cd576aa1b86beb515a3823bfd28fd",
+      "bytes": 1769367,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-r8-juuten/work/candidate-scene-007.46918426.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Create a fresh full-bleed 16:9 Japanese educational DIAGRAM slide; attached image style reference only. White to pale lavender, clean navy/violet lines, small yellow highlights; no teacher/photo. Bottom 22% completely empty for subtitles. Heading exactly 「過去問を回す3ステップ」. Draw a large horizontal three-step flow with ONE short label at each stage: 「1年分を一巡」→「弱点を年度横断」→「4肢の理由を確認」. Use simple paper, matrix, magnifier icons. Do not add score targets, predicted topics, statistics, promises, or other text. Readable at 360px.",
+        "promptSha256": "09a4feb7ccb6f078b2d70f0ff9ba29ec89e07b82d4e5bb9f0aa55481829758b4",
+        "generatedAt": "2026-10-27T14:19:13.353Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-r8-juuten/work/candidate-scene-008",
+      "role": "candidate-scene-008",
+      "type": "image/png",
+      "sha256": "4d4cc05daa688abb41254f5aba468b5bf34b35f40547e48994571423117f2c05",
+      "bytes": 1743717,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-r8-juuten/work/candidate-scene-008.4d4cc05d.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Make a clean 16:9 Japanese educational infographic slide based on attached style reference only. White-to-pale-lavender background, navy/violet lines, small yellow highlights, no teacher/photo. Bottom 25% completely empty for subtitles. Heading exactly 「初見の問題で確かめる」. In the centre show THREE large, simple steps: an unbranded question booklet labelled exactly 「50問＋施工14問」, a four-choice explanation icon labelled exactly 「4肢の理由」, a simple chart labelled exactly 「分野別に確認」. Small text exactly 「概要欄から」 above the empty band. Carefully write exactly the given Japanese strings, with no stray glyphs, extra numerals, brand claims, price or success guarantee. Do not show any exact exam question. Large glyphs readable at 360px.",
+        "promptSha256": "c04d6ce23c163300f5e729619a1abf77cb9b374ea5838136c354247babcf61f8",
+        "generatedAt": "2026-10-27T14:19:13.353Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-r8-juuten/work/candidate-subtitles",
+      "role": "candidate-subtitles",
+      "type": "text/x-ssa",
+      "sha256": "59839ff81691993d1ffadc85c2d10b12d75963ff5f52271de0ddf792df50bc5a",
+      "bytes": 4034,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-r8-juuten/work/candidate-subtitles.59839ff8.ass"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-r8-juuten/storyboard.json"
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-r8-juuten/work/candidate-video",
+      "role": "candidate-video",
+      "type": "video/mp4",
+      "sha256": "5097b3622fc497d73470d4d084ab5a7e00ecb17bdcae84709b281847538a27ce",
+      "bytes": 13507046,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-r8-juuten/work/candidate-video.5097b362.mp4"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-r8-juuten/storyboard.json",
+        "specSha256": "ff4e1352813cedd2ceabf973747ae658452511c5b5d35c495c4851cecdc3585c",
+        "renderInputSha256": "eae466d1c373f2f1d0b0d19aeadd67521ad4d332f5a9fcadc6d9931be2be8f74",
+        "tts": {
+          "engine": "VOICEVOX",
+          "speaker": 13,
+          "credit": "VOICEVOX:青山龍星"
+        }
+      },
+      "durationSec": 115.392
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-r8-juuten/youtube.longform.pop-diagram/contact-sheet",
+      "role": "contact-sheet",
+      "type": "image/jpeg",
+      "sha256": "e0432223fed10d25bfe1a8e93f04118283b93a5e412acde49cce73e0e5b3f306",
+      "bytes": 428223,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-r8-juuten/youtube.longform.pop-diagram/contact-sheet.e0432223.jpg"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "media-preview",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-r8-juuten/storyboard.json"
+      },
+      "width": 1920,
+      "height": 1620
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-r8-juuten/youtube.longform.pop-diagram/preview",
+      "role": "preview",
+      "type": "video/mp4",
+      "sha256": "cfb3b963ce398b6480d935d10a662d175b6ce1fcc88dded571f89f056f14b6f5",
+      "bytes": 3447193,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-r8-juuten/youtube.longform.pop-diagram/preview.cfb3b963.mp4"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "media-preview",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-r8-juuten/storyboard.json"
+      },
+      "durationSec": 115.392
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-r8-juuten/youtube.longform.pop-diagram/preview-metrics",
+      "role": "preview-metrics",
+      "type": "application/json",
+      "sha256": "fb0d2551f83625c6e59b0db71800381e6b5b782372c3fa8b8f174de09a6147e1",
+      "bytes": 624,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-r8-juuten/youtube.longform.pop-diagram/preview-metrics.fb0d2551.json"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "media-preview",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-r8-juuten/storyboard.json"
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-r8-juuten/youtube.longform.pop-diagram/scene-sheet",
+      "role": "scene-sheet",
+      "type": "image/jpeg",
+      "sha256": "7be99304833fca39b77061971facd6995a0418d3aa2659e8d758a15e5b2bf854",
+      "bytes": 506839,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-r8-juuten/youtube.longform.pop-diagram/scene-sheet.7be99304.jpg"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "media-preview",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-r8-juuten/storyboard.json"
+      },
+      "width": 1920,
+      "height": 1194
     },
     {
       "id": "concrete-chief-engineer/shunin-r8-juuten/youtube.longform/cover",
