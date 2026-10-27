@@ -609,9 +609,7 @@ Drive を台帳の版へ戻すと誤りを書き戻す。機械 OCR（part-01.md
 
 **実施済み**: 本省版 令和8年3月（269 ページ）を全文ライブラリ /standards/mlit/sekou-kanri-kijun（6 分冊）に足した（`npm run add-standards-document`・利用条件は国交省の公共データ利用規約 PDL1.0＝出典と加工の明記）。章記事からの案内（8 機関 × 4 章の末尾の「この章が参照する基準」）も入れた。本番反映は 2026-10-14（main 8dc591533）。
 
-**残り**:
-1. Mac で原本 PDF（https://www.mlit.go.jp/tec/content/001990185.pdf・SHA-256 ae9d1ba85098f4bd913021ad4e354b85010d3c28930cf9480611859343e18b41）を Drive vault の 原資料PDF/共通仕様書 の下（本省）へ置き、`build-standards-page-images --agency mlit --role all` でページ画像を作る。
-2. 2026-11-11 以降に、表示を共通仕様書と比べた 28 日比較をこのカードに記録する。
+**残り**: 2026-11-11 以降に、表示を共通仕様書と比べた 28 日比較をこのカードに記録する。（原本 PDF の vault への配置とページ画像は済み・2026-10-27 に確認: 原資料PDF/共通仕様書/国土交通省/sekou-kanri-kijun__001990185.pdf の SHA-256 が上の値と一致、pages 269 枚、repo の content/sources/standards/mlit/sekou-kanri-kijun/manifest.json あり）
 
 **完了条件**: 次の図書 1 種の整理ページが公開され（済）、ページ画像が作られ、反映 28 日後の表示を共通仕様書と比べた記録が本カードにある。
 
