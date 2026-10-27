@@ -6045,6 +6045,40 @@
       "commit": "04dfa819cdb2",
       "verification": "本番 4 ページが 200・「公式の正答は非公表」表示、check-answer-marks 整合、check-past-exam-ledger FAIL 0",
       "note": "3 年度分を本番に公開（main 5cc34af05）。運営者の判断で 1級 H25 問題A の正答を 3 問改めた（No.12 4→1・No.32 3→2・No.33 2→4）。解説は別年度の公式過去問・国交省 土木工事共通仕様書・メーカーと JSCA の工法資料・JR 東日本の技術資料・Drive の解説書の文字起こしで具体にした（04dfa819c ほか）。No.12 肢1 を直接述べる杭基礎施工便覧・道路橋示方書と、No.43 の営業線工事保安関係標準仕様書の原文は Web に無く確かめられない（市販・非公開の資料が手に入ったときに見直す）"
+    },
+    {
+      "id": "DN-0881",
+      "at": "2026-10-27",
+      "task": "基準類の章記事で、表の領域などに出た図のキャプション 12 か所にも原本から切り出した図を入れる",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "scripts/check-standard-articles.mjs"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "c5fc91e5758f",
+      "verification": "check-standard-articles 24 文書 PASS・tests/standards-*.test.mjs・PR の CI 全通過",
+      "note": "PR #1277（6d31e8274）。カードの 12 か所に加え、番号の前に横線のある図（図−1 など）15 か所も同じ不具合として入れ、計 27 か所。検査 20 を太字の図キャプションまで広げ、実検査 193 件・画像あり 193 件。照合は scanned-figure-crop-auditor 3 体で 27 枚 ok（1 体が出所ページを開かなかった分は手で照合）"
+    },
+    {
+      "id": "DN-0880",
+      "at": "2026-10-27",
+      "task": "基準類の章記事で、同じページの中で文が割れる箇所をつなぐ（DN-0864 の残り）",
+      "tier": "low",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "tests/standards-linebreaks.test.mjs"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "c5fc91e5758f",
+      "verification": "check-standard-articles 24 文書 PASS（480）・tests/standards-*.test.mjs 103 件・PR の CI 全通過",
+      "note": "PR #1278（c5fc91e57）。先に「つながない側」の回帰を固定してから、本文の幅を「3 行以上が揃って届く最も広い幅」に変えた。77 か所をつなぎ（全件目視・誤った結合 0）、以前から誤ってつながっていた 35 か所を切った。中部特記 1-1 の交通誘導警備員 ①〜⑤ は 1 項目 1 段落"
     }
   ]
 }
