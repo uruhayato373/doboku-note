@@ -1098,7 +1098,8 @@ function checkSectionPages(def, { manifest, agencyId, documentId, overrides }) {
  * 2026-10-16、文の途中で段落が切れる（ぶら下げ字下げ・ページの変わり目）・表の見出しが段落に化ける・
  * 長い文のセルが押しつぶされる、を利用者が画面で見つけた。文字の取りこぼし・ハッシュ・件数の検査は
  * すべて合格していた（中身が正しくても読めない形は捕まえていなかった）。ここでは生成器とは別の実装で、
- *   17: 句点で終わらない段落の次に、文頭に来ない字（ひらがな・読点・閉じ括弧）で始まる段落が続く箇所
+ *   17: 句点で終わらない段落の次に、文頭に来ない字（ひらがな・読点・閉じ括弧）で始まる段落が続く箇所と、
+ *       読点で終わる段落の次に語（漢字・かな）で始まる段落が続く箇所（ページの変わり目の分断。DN-0864）
  *   18: 表（とその SourceRef）の前後にある、句点の無い短い段落（見出し・行が表から外れた疑い）
  *   19: 見出しも中身も空の表・全行が空の列を持つ表
  * を数える。17・18 は原本の書き方で正しく分かれる箇所（「東北地方──30㎝」の一覧・表の上の小見出し）も
@@ -1118,6 +1119,7 @@ function checkReadability([midDef, strayDef, brokenDef], { manifest, agencyId, d
   };
   const notStart = /^[ぁ-ゖ、。ー）」』】〕］]/;
   const sentenceEnd = /[。）」』：]$/;
+  const wordStart = /^[\p{Script=Han}\p{Script=Hiragana}\p{Script=Katakana}ー]/u;
   const mid = [];
   const stray = [];
   const broken = [];
@@ -1140,7 +1142,11 @@ function checkReadability([midDef, strayDef, brokenDef], { manifest, agencyId, d
         let p = i - 1;
         while (p >= 0 && kindOf(blocks[p]) === 'meta') p -= 1;
         const prev = (blocks[p] ?? '').replace(/^> /, '').trim();
-        if (kindOf(blocks[p]) === 'para' && !sentenceEnd.test(prev) && notStart.test(body)) {
+        // 式の後の「ここで、Ｆ：推定強度」は変数の説明の始まり（文の途中ではない。DN-0864）
+        const formulaLegend = /^ここで[、，]/.test(body) && !/[、，]$/.test(prev);
+        // 読点で終わる段落の次に語で始まる段落が続くのも文の途中（ページの変わり目の「…確認するため、」⏎「破砕混合の際に…」。DN-0864）
+        const afterComma = /[、，]$/.test(prev) && wordStart.test(body);
+        if (kindOf(blocks[p]) === 'para' && !sentenceEnd.test(prev) && ((notStart.test(body) && !formulaLegend) || afterComma)) {
           mid.push(`${chapter.chapterId}: …${prev.slice(-12)} ⏎ ${body.slice(0, 16)}`);
         }
         const nearTable = [blocks[i - 2], blocks[i - 1], blocks[i + 1], blocks[i + 2]].some(
