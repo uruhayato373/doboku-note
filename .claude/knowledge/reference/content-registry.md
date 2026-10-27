@@ -171,7 +171,7 @@ npm run media -- pull --work civil-construction-2/matome-2kyu-chokuzen
 
 新版文面を別入力から指定する場合は `--copy <同作品内のJSON#fragment>` を付ける。作品ディレクトリ内の実パスだけを受け付け、参照元を新版入力の `copySource` に記録する。指定文面もdigestに含むため、dry-run後に文面を変えた場合は再検査が必要。旧公開行・旧入力は変更しない。
 
-既定では既存の改訂入力の不一致を拒否する。未承認の `draft`・`qa_passed`・`qa_blocked` 入力を更新する場合だけ `--refresh-draft` を指定する（初回作成には使用不可）。QA済み行の入力を変えた場合は `draft` に戻してQAをやり直す。公開行は予定draft行と状態以外が一致することを条件とし、承認・外部情報・操作記録等の追加情報がある行は拒否する。更新前JSONをSHA付きhistoryファイルへ完全保存し、dry-runのdigestにも更新前入力SHAを含める。元の公開行・元の入力は変更しない。
+既定では既存の改訂入力の不一致を拒否する。未承認の `draft`・`qa_passed`・`qa_blocked` 入力を更新する場合だけ `--refresh-draft` を指定する（初回作成には使用不可）。未来の `--publish-at` 変更もこの経路で行う。QA済み行の入力を変えた場合は `draft` に戻してQAをやり直す。公開行は予定draft行と状態・予定以外が一致することを条件とし、承認・外部情報・操作記録等の追加情報がある行は拒否する。更新前JSONをSHA付きhistoryファイルへ完全保存し、dry-runのdigestにも更新前入力SHAを含める。元の公開行・元の入力は変更しない。
 
 この準備入口はローカルの下書き作成だけで、承認・転送・投稿を行わない。`loadVideoState` は改訂行を旧投稿処理へ流さず、`publish-video-pack.cjs` はこの改訂入力には未対応。旧IDの上書きや、承認をコピーして既存経路へ通す方法は使わない。
 

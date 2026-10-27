@@ -1607,18 +1607,18 @@
       "id": "concrete-chief-engineer/shunin-shiken-zentaizou/work/candidate-scene-005",
       "role": "candidate-scene-005",
       "type": "image/png",
-      "sha256": "b868b693e9255d16500008416e59df0844b8a9a20ebf944388c535fac112e78e",
-      "bytes": 2196218,
+      "sha256": "ebd9048fbdfe13b068d2323a8ca0ab44b78dc2f0ef97f583b38a6dc73bb2fd5b",
+      "bytes": 2146443,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/concrete-chief-engineer/shunin-shiken-zentaizou/work/candidate-scene-005.b868b693.png"
+        "path": ".tmp/media/concrete-chief-engineer/shunin-shiken-zentaizou/work/candidate-scene-005.ebd9048f.png"
       },
       "provenance": {
         "kind": "ai-generated",
         "tool": "codex",
-        "prompt": "Create ONE new full-bleed 16:9 educational diagram slide for a Japanese コンクリート主任技士 video. Use attached image as style reference only. White to very light lavender background, thick dark purple and navy outlines, restrained yellow accent, large simple icons, diagram-led, no human character, no poster typography, no bullet-card layout. All meaningful text and graphics above 78% height; bottom 22% continuous empty pale background reserved for subtitles. Japanese text must be exactly as specified, no extra words or numbers. Do not imply unsupported exam facts. Intended 1920x1080. Heading『選考基準の主な項目』. A simple clustered concept map with eight readable labels:『用材料』『配合設計』『試験』『プラント』『製造・品質管理』『施工』『環境問題』『その他』. Exactly eight clusters, grouped into 2 rows of 4. Small related icons, no invented syllabus numbers, no structural design claim.",
-        "promptSha256": "8984ebeaa3d354010713ff581ad3bb775bdb0fa09c0f022c0bb2c5f122116b6b",
-        "generatedAt": "2026-10-26T22:06:14.300Z"
+        "prompt": "Correct the grouping in this Japanese educational diagram. There must be EXACTLY eight labeled circles. Purple group of SIX technical topics on the LEFT in a 3 columns × 2 rows grid: top row 「用材料」「配合設計」「試験」, bottom row 「プラント」「製造・品質管理」「施工」. Green group of TWO broader-knowledge topics on the RIGHT in one column: top 「環境問題」, bottom 「その他」. Do not put 「プラント」 in the green group. Keep title exactly 「選考基準の主な項目」 and maintain clean white 16:9 background, navy outline icons, yellow underlines, large highly readable Japanese labels. No other text, no statistic. Keep generous lower subtitle-safe whitespace. The grouped concepts must be visually unambiguous.",
+        "promptSha256": "bf930c5197cfaa0d3f18aa8a6121c0b879b9a7c689dca2ea5c0d26f83a5e3b28",
+        "generatedAt": "2026-10-27T11:46:43.181Z"
       },
       "width": 1920,
       "height": 1080
@@ -1647,18 +1647,18 @@
       "id": "concrete-chief-engineer/shunin-shiken-zentaizou/work/candidate-scene-007",
       "role": "candidate-scene-007",
       "type": "image/png",
-      "sha256": "b4e0eba4fdfd14f5c0f13bdb7a253e59efd763fd63a874321e3770b4fdbb8620",
-      "bytes": 1969964,
+      "sha256": "031bfb5852b07e60d150cdb6879f9899fc7f46d6b62c34a889398866daf7ca84",
+      "bytes": 2095587,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/concrete-chief-engineer/shunin-shiken-zentaizou/work/candidate-scene-007.b4e0eba4.png"
+        "path": ".tmp/media/concrete-chief-engineer/shunin-shiken-zentaizou/work/candidate-scene-007.031bfb58.png"
       },
       "provenance": {
         "kind": "ai-generated",
         "tool": "codex",
-        "prompt": "Edit existing step4 diagram to show two study-time branches: 択一が安定・小論文が弱い → 択一演習の一部を小論文へ; 択一が不安定 → 小論文の時間を過去問へ. 毎週見直す. Preserve subtitle safe band.",
-        "promptSha256": "f83854f019e18843580886b1accdff8ffc0d54c35a9c6fac5e6797a8b1cc0cde",
-        "generatedAt": "2026-10-26T22:47:26.220Z"
+        "prompt": "Edit this existing 16:9 Japanese educational diagram to match the revised narration: 「時間配分は公式基準ではなく、当サイトの提案です。基礎と過去問で固め、小論文も早めに1本書きます。小論文が弱ければ平日の択一演習の一部を書く時間へ、択一が不安定なら週末の小論文の時間を過去問へ回し、毎週見直します。」 Preserve the existing exact two-branch diagram and all labels: top conditions 「択一が安定・小論文が弱い」「択一が不安定」, bottom actions 「択一演習の一部を小論文へ」「小論文の時間を過去問へ」, feedback label 「毎週見直す」. Preserve downward action arrows and the two outer feedback arrows pointing UP to the top condition boxes. Add one modest, clearly legible label under the title: 「当サイトの学習案」. This makes clear the study-time allocation is editorial advice, not an official JCI requirement. Do not add other text or change the direction of arrows. Keep clean white 16:9 full-frame background, navy outlines, soft purple arrows, yellow highlights, large Japanese text, and the bottom subtitle-safe whitespace.",
+        "promptSha256": "e6f9123d1e98b8196804de6d5e7b233b7e3a7d84ec4357373d795377a966f1ec",
+        "generatedAt": "2026-10-27T11:56:46.989Z"
       },
       "width": 1920,
       "height": 1080
@@ -1707,11 +1707,11 @@
       "id": "concrete-chief-engineer/shunin-shiken-zentaizou/work/candidate-subtitles",
       "role": "candidate-subtitles",
       "type": "text/x-ssa",
-      "sha256": "0103333bc300436f8e276de747e566e3fd9661c8724a8ffe437dd31218a36f3a",
-      "bytes": 5324,
+      "sha256": "190784797feb7d20f0715c6680f21243312ada27e392e8d1c0e14dd4cb2a52c0",
+      "bytes": 4658,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/concrete-chief-engineer/shunin-shiken-zentaizou/work/candidate-subtitles.0103333b.ass"
+        "path": ".tmp/media/concrete-chief-engineer/shunin-shiken-zentaizou/work/candidate-subtitles.19078479.ass"
       },
       "provenance": {
         "kind": "render",
@@ -1723,35 +1723,35 @@
       "id": "concrete-chief-engineer/shunin-shiken-zentaizou/work/candidate-video",
       "role": "candidate-video",
       "type": "video/mp4",
-      "sha256": "7b3cbb3f7a700eabc6b45e285734925b792e61e2934da3ad05bc07ed3406f8f5",
-      "bytes": 19344597,
+      "sha256": "5dcb273a5d700d6cb0f0bf8158c3dcc9a9a060d0efec81c70dd78e7dc601532e",
+      "bytes": 16032869,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/concrete-chief-engineer/shunin-shiken-zentaizou/work/candidate-video.7b3cbb3f.mp4"
+        "path": ".tmp/media/concrete-chief-engineer/shunin-shiken-zentaizou/work/candidate-video.5dcb273a.mp4"
       },
       "provenance": {
         "kind": "render",
         "by": "render-longform",
         "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-shiken-zentaizou/storyboard.json",
-        "specSha256": "3a77aecafb5838d55bfc5021632a2374135f097a1b9ce890c76c44fab5ceb65d",
-        "renderInputSha256": "c940225e5c2780f277f46d6ebf53c8b11edaefec6a0dd2caa210915e55308814",
+        "specSha256": "5122b82c281452323e33f89c7bf73d2b920a3b873ea884c53612d438a3881f71",
+        "renderInputSha256": "c2aac55e15c5b7262d7c8de0efa106d52228b1a4a51175f4b42d5dc8aa75aafd",
         "tts": {
           "engine": "VOICEVOX",
           "speaker": 13,
           "credit": "VOICEVOX:青山龍星"
         }
       },
-      "durationSec": 160.523
+      "durationSec": 139.933
     },
     {
       "id": "concrete-chief-engineer/shunin-shiken-zentaizou/youtube.longform.pop-diagram/contact-sheet",
       "role": "contact-sheet",
       "type": "image/jpeg",
-      "sha256": "721cbecf637cd1c7da69e04ec8a79756f67aa56c0c728488989947040a70e0ba",
-      "bytes": 583763,
+      "sha256": "c4a19b7b78b188602dff48617dd951f96c284359b220e223fdccaba0333d8296",
+      "bytes": 518768,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/concrete-chief-engineer/shunin-shiken-zentaizou/youtube.longform.pop-diagram/contact-sheet.721cbecf.jpg"
+        "path": ".tmp/media/concrete-chief-engineer/shunin-shiken-zentaizou/youtube.longform.pop-diagram/contact-sheet.c4a19b7b.jpg"
       },
       "provenance": {
         "kind": "render",
@@ -1765,28 +1765,28 @@
       "id": "concrete-chief-engineer/shunin-shiken-zentaizou/youtube.longform.pop-diagram/preview",
       "role": "preview",
       "type": "video/mp4",
-      "sha256": "245ef611284ebece01f5858ad0adc44c28c34bdba84cf80176b40cd289b856c8",
-      "bytes": 4151538,
+      "sha256": "849c7d0211410e576861e0199e98c2f77fc2dc996c51aa0097af66bcdc3834a2",
+      "bytes": 3903153,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/concrete-chief-engineer/shunin-shiken-zentaizou/youtube.longform.pop-diagram/preview.245ef611.mp4"
+        "path": ".tmp/media/concrete-chief-engineer/shunin-shiken-zentaizou/youtube.longform.pop-diagram/preview.849c7d02.mp4"
       },
       "provenance": {
         "kind": "render",
         "by": "media-preview",
         "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-shiken-zentaizou/storyboard.json"
       },
-      "durationSec": 160.523
+      "durationSec": 139.936
     },
     {
       "id": "concrete-chief-engineer/shunin-shiken-zentaizou/youtube.longform.pop-diagram/preview-metrics",
       "role": "preview-metrics",
       "type": "application/json",
-      "sha256": "7ffb1ec8f037e2f0a5737de7592a7f3c629597a70c30c524edfec100f290868d",
-      "bytes": 1054,
+      "sha256": "0adb872cee79ab18db28ec8542732bf0bba80de72ff122ffd36351ed5a8de8f4",
+      "bytes": 702,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/concrete-chief-engineer/shunin-shiken-zentaizou/youtube.longform.pop-diagram/preview-metrics.7ffb1ec8.json"
+        "path": ".tmp/media/concrete-chief-engineer/shunin-shiken-zentaizou/youtube.longform.pop-diagram/preview-metrics.0adb872c.json"
       },
       "provenance": {
         "kind": "render",
@@ -1798,11 +1798,11 @@
       "id": "concrete-chief-engineer/shunin-shiken-zentaizou/youtube.longform.pop-diagram/scene-sheet",
       "role": "scene-sheet",
       "type": "image/jpeg",
-      "sha256": "eeb7d2f1e0035d5dcde1c0e920eb378c3391c1badce087b2195b944e1b839386",
-      "bytes": 553054,
+      "sha256": "5b64f0ab3a479f21a5531a26d95a714a1dfae7b512d1f66e5ba0c0a1cfba4f49",
+      "bytes": 562451,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/concrete-chief-engineer/shunin-shiken-zentaizou/youtube.longform.pop-diagram/scene-sheet.eeb7d2f1.jpg"
+        "path": ".tmp/media/concrete-chief-engineer/shunin-shiken-zentaizou/youtube.longform.pop-diagram/scene-sheet.5b64f0ab.jpg"
       },
       "provenance": {
         "kind": "render",

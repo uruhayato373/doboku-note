@@ -70,8 +70,8 @@ export function planYoutubeRevision(root, { pubId, variant, relatedTo, publishAt
     row.media = { ...row.media, ...visualExtras };
     if (!changed && ['qa_passed', 'qa_blocked'].includes(existing.status)) row.status = existing.status;
   }
-  const comparedExisting = refreshDraft && changed && ['qa_passed', 'qa_blocked'].includes(existing?.status)
-    ? { ...existing, status: 'draft' } : existing;
+  const comparedExisting = refreshDraft && changed && ['draft', 'qa_passed', 'qa_blocked'].includes(existing?.status)
+    ? { ...existing, status: 'draft', ...(publishAt ? { publishAt } : {}) } : existing;
   if (existing && canonicalJson(strip(comparedExisting)) !== canonicalJson(row)) throw new Error('既存の改訂公開行と異なる。上書きせず別のvariantで準備する');
   if (refreshDraft && (!existing || !saved)) throw new Error('下書き更新には既存の未承認draftと保存済み入力が必要');
   if (changed && !refreshDraft) throw new Error('既存の改訂投稿入力と異なる。上書きしない');
