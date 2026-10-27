@@ -531,12 +531,6 @@
 
 **完了条件**: `cloudflare-metrics.yml` の解析の定期実行（10/27 JST 05:23）と設定の監査の定期実行（10/30 金曜 JST 22:47）がそれぞれ 1 回成功する。
 
-**統合（2026-10-26 棚卸し）: 旧 DN-0850「公的基準の版面のまま残った表 1,176 種類を原本照合で組み直し、描画検査を全文書へ広げる」**
-
-組み直し（#1232・#1238・版面のまま残った表は 0 件）と、描画検査の全文書化（`e2e.yml` の夜間・`STANDARDS_RENDER_SCOPE`）は済み。`npm run check-standard-articles` は 24 文書 456 件 PASS（2026-10-26）。残りは、全文書版が入った main（2026-10-26 デプロイ・bf212639c）での初回の夜間 E2E の確認だけ（それまでの夜間の成功は、変更が入る前の main だった）。
-
-完了条件: 10/27 朝以降の夜間 E2E（`gh run list --workflow e2e.yml --event schedule`）が、bf212639c 以降の main で成功する。
-
 **統合（2026-10-26 棚卸し）: 旧 DN-0848「automerge.yml の workflow_run が 10/24 22:37Z 以降に起動せず、ラベル付きの PR が緑でも入らない」**
 
 **起点**: 2026-10-25 の PR #1223。Pre-merge が緑で終わっても automerge.yml の workflow_run が起動せず、手で squash した。原因は `on.workflow_run.workflows` の名前が glob として照合され、"Pre-merge check (quality audit + build)" の `+` が文字どおりに一致しなかったこと（10-09〜10-25 の Pre-merge の完了 999 回で起動 0 回・E2E・Lighthouse の完了だけで起動していた）。PR #1224 で `\+` にエスケープし、tests/workflow-run-filters.test.mjs で再発を止めた。
