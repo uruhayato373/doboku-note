@@ -29,6 +29,8 @@ CI からの公開・更新（`ops-write.yml`）は廃止した。note への書
 
 ## 使い方
 
+公開できる記事を探すときは、先に `npm run note-unpublished` で未公開の記事と足りないもの（表紙の指定・hashtags・有料の価格と境界）を出す。公開状態の正本は frontmatter の `noteId`・`noteStatus`（content/registry/ は note を持たない）。日付や運営者の判断で止めている記事かは、backlog のカードで確かめる。
+
 ```
 node scripts/note-publish.mjs --article <article.md path>          # 下書き作成のみ（既定・安全）
 node scripts/note-publish.mjs --article <article.md path> --commit # 即時公開（境界検証ゲート付き）

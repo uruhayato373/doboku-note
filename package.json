@@ -440,6 +440,7 @@
     "note-edit-session": "node scripts/note-edit-session.mjs",
     "note-inject-magazine-url": "node .claude/scripts/note/inject-magazine-url.cjs",
     "note-lint": "node scripts/note-lint.mjs",
+    "note-unpublished": "node scripts/note-unpublished.mjs",
     "check-note-content-type": "node scripts/check-note-content-type.mjs",
     "migrate-note-content-type": "node scripts/migrate-note-content-type.mjs",
     "migrate-note-content-type:write": "node scripts/migrate-note-content-type.mjs --write",

@@ -7,7 +7,8 @@ paths:
   - "content/registry/**"
 ---
 
-- 公開の事実（ID・状態・予定・外部 ID・承認・素材の参照）の正本はコンテンツ台帳 `content/registry/`（[content-registry.md](../knowledge/reference/content-registry.md)）。書き手は `npm run registry`・`npm run media` だけで、手で編集しない
+- YouTube・Instagram・X の公開の事実（ID・状態・予定・外部 ID・承認・素材の参照）の正本はコンテンツ台帳 `content/registry/`（[content-registry.md](../knowledge/reference/content-registry.md)）。書き手は `npm run registry`・`npm run media` だけで、手で編集しない
+- **note の公開状態の正本は記事の frontmatter（`noteId`・`noteStatus`）**で、台帳は note を持たない。未公開の記事と公開の前に足りないものは `npm run note-unpublished` で出す（frontmatter を手の正規表現で読まない・CRLF を読み落とす）
 
 表紙・商品サムネイルの新規制作／改修は [キャラクターPOP画像方針](../knowledge/reference/pop-image-policy.md) と `/create-pop-image` を使う。媒体の安全域と公開手順は各正典に従う。
 

@@ -5,6 +5,7 @@ title: コンテンツ台帳（content/registry）— 全チャネルの公開�
 # コンテンツ台帳（content/registry）
 
 2026-10-09 に運営者が決めた、YouTube・Shorts・Instagram・X（今後の Threads・TikTok を含む）の**公開の事実の正本**。
+note・ココナラ・Kindle は対象外（note の公開状態の正本は記事の frontmatter の `noteId`・`noteStatus` で、未公開の一覧は `npm run note-unpublished`）。
 公開済みも含めて 1 件の投稿を 1 つの ID で引き、その ID から台本・状態・承認・外部 ID・素材・観測値・確認画面までたどれるようにする。
 段階の進め方はバックログの P1〜P7（DN-0614・DN-0608〜DN-0613）。
 
