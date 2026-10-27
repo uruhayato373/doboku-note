@@ -1364,7 +1364,7 @@
       "format": "longform",
       "variant": "pop-diagram",
       "revisionOf": "concrete-chief-engineer/shunin-r8-juuten/youtube.longform",
-      "status": "approved",
+      "status": "scheduled",
       "copy": "content/sns/video-packs/concrete-chief-engineer/shunin-r8-juuten/youtube.revision-pop-diagram.json",
       "media": {
         "cover": "concrete-chief-engineer/shunin-r8-juuten/work/candidate-cover",
@@ -1397,6 +1397,43 @@
         "by": "user",
         "at": "2026-10-27T14:44:13.846Z",
         "contentSha256": "a99a631f294d7053aabfe46d3ffeceb024afe05788ac6484b762e1c45bea2832"
+      },
+      "delivery": {
+        "inputSha256": "99a58801756abf1e2068c91afe2f5693ea455acc236f7f734e4d6f5040a792bc",
+        "marker": "dn-revision-ec6b69f2a5bc12bcf17586843eb0d40ccaca1eac",
+        "uploadRequestedAt": "2026-10-27T14:48:26.164Z",
+        "videoId": "RcIxuN7-uI0",
+        "processedAt": "2026-10-27T14:49:08.283Z",
+        "thumbnailRequestedAt": "2026-10-27T14:49:08.336Z",
+        "thumbnailUrls": [
+          "https://i9.ytimg.com/vi/RcIxuN7-uI0/default.jpg?sqp=COzxgtcG&rs=AOn4CLAyHy5Rs2F6bgGBkKUB-O42ddJr2A",
+          "https://i9.ytimg.com/vi/RcIxuN7-uI0/mqdefault.jpg?sqp=COzxgtcG&rs=AOn4CLAenWsBvZg-rVKKBL3KKgO2W-iDRg",
+          "https://i9.ytimg.com/vi/RcIxuN7-uI0/hqdefault.jpg?sqp=COzxgtcG&rs=AOn4CLCNJnwxsP3UslBB7st4h5RUalCHcg",
+          "https://i9.ytimg.com/vi/RcIxuN7-uI0/sddefault.jpg?sqp=COzxgtcG&rs=AOn4CLDdZqgXReyTa1ly67S4k4iTS0Qwkw",
+          "https://i9.ytimg.com/vi/RcIxuN7-uI0/maxresdefault.jpg?sqp=COzxgtcG&rs=AOn4CLAY2QaAuWBxPrUnCFbMeclAbMr_7g",
+          "https://i9.ytimg.com/vi/RcIxuN7-uI0/fhddefault.jpg?sqp=COzxgtcG&rs=AOn4CLBR6SI3MorrCmyBS0x990klBSLUZQ"
+        ],
+        "thumbnailAcceptedAt": "2026-10-27T14:49:11.223Z",
+        "scheduleRequestedAt": "2026-10-27T14:49:11.560Z",
+        "scheduleAt": "2026-11-03T20:00:00+09:00",
+        "scheduledVerifiedAt": "2026-10-27T14:49:14.281Z"
+      },
+      "platform": {
+        "id": "RcIxuN7-uI0",
+        "url": "https://www.youtube.com/watch?v=RcIxuN7-uI0",
+        "privacy": "private",
+        "evidence": {
+          "kind": "publisher-live-check",
+          "ref": "content/sns/video-packs/concrete-chief-engineer/shunin-r8-juuten/youtube.revision-pop-diagram.json"
+        }
+      },
+      "times": {
+        "uploaded": "2026-10-27T14:49:08.283Z",
+        "scheduled": "2026-10-27T14:49:14.281Z"
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-10-27T14:49:11.223Z"
       }
     },
     {
