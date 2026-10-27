@@ -6092,6 +6092,19 @@
       "commit": "e0a163017ae5",
       "verification": "node --test tests/data-wiring.test.mjs tests/admin-format-ratchet.test.mjs",
       "note": "PR #1281（e0a163017）で 1〜6 を develop にマージ。SNS 系の資格キーの表は公開記録の ID を動かさないため値を変えずテストで縛った。categories.json の seoTitle の件数は JSON のため残した"
+    },
+    {
+      "id": "DN-0544",
+      "at": "2026-10-27",
+      "task": "2級二次（10/25）の後に、note の冒頭 CTA を見直し、試験後の無料フォロー記事を公開する",
+      "tier": "high",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "a7e4a11660d1",
+      "verification": "note公開API（9本の新冒頭・自己採点記事 published/無料/is_limited=false・もくじに両自己採点記事）／audit-note-funnel --live ドリフトなし",
+      "note": "2級入口9本の冒頭を試験後の低価格先出しへライブ反映（3af76419b）・自己採点記事 n6b1410beec5c を公開・土木もくじを試験後の案内へ（2ebc6f711）。旧DN-0445の残りはDN-0895へ"
     }
   ]
 }
