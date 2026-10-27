@@ -291,6 +291,18 @@
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-0894] coconala-edit が公開中の出品の今の編集画面で本文の欄を見つけられない（dry-run が偽の ok を返す）
+タグ: [領域:商品] [時期:2026-11] [種類:不具合] [起票:2026-10-27]
+
+**起点**: 2026-10-27、主任技士添削（services/4425046・公開中）の出品文を `npm run coconala-edit -- --service coconala-cce-essay-tensaku --fields body` で直そうとしたら、dry-run が `body(内容): selector 不在(#ServiceHead)` を出した。公開中の出品の編集画面（/mypage/services/{id}）は作りが変わっていて、本文の欄は自動で付く ID の textarea（例 `v-0-1-8`）になっている。`scripts/lib/coconala-form.mjs` は旧画面の `#ServiceHead`・`#ServiceBody` などを前提にしている。今回は運営者が画面で手作業で保存した。dry-run は「OK」を返すので、本文が入らないまま `--commit` すると「更新したのに変わっていない」偽成功になる。
+
+**やること**:
+1. 今の編集画面の欄（サービスタイトル・キャッチコピー・サービス内容・購入にあたってのお願い・価格・お届け日数）を、ラベルの文言から引く形で特定する（自動の ID に頼らない）。`scripts/coconala-discover.mjs` は運営者がターミナルで回す（エージェントからは実行できない）
+2. `coconala-form.mjs` を直し、欄が見つからないときは dry-run も失敗にする（いまは「selector 不在」を出しても ok を返す）
+3. 反映後は `npm run check-coconala-live` で本文の一致を確かめる手順を、`coconala-edit` の出力に出す
+
+**完了条件**: 公開中の出品で `coconala-edit --fields body` の dry-run が本文の欄を見つけ、欄が無いときは失敗で止まる PR が develop に入る。
+
 ### [DN-0893] todo:add が試験日の検査（check-exam-calendar）を通さずに push する抜けをふさぐ
 タグ: [領域:管理] [時期:2026-10] [種類:不具合] [検証:test] [起票:2026-10-27]
 
