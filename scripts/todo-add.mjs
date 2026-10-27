@@ -22,6 +22,7 @@ import { fileURLToPath } from 'node:url';
 import { CANONICAL_CATEGORIES, KINDS, TIER, findOrphanHeadings, parseBacklog } from './lib/backlog-lib.mjs';
 import { backlogGitLog, nextId } from './backlog-edit.mjs';
 import { validateCards } from './check-backlog-schema.mjs';
+import { backlogTextProblems, existsInRef } from './lib/backlog-text-guards.mjs';
 import { loadDomains } from './lib/domains.mjs';
 import { commitFileToRemoteBranch } from './lib/git-direct-commit.mjs';
 import { todayJst } from './lib/jst-date.mjs';
@@ -86,8 +87,10 @@ export function validateNewCard(before, after, id, tierEmoji, opts) {
 /**
  * backlog の中身（current）へカードを 1 枚差し込んだ文書と ID を返す（採番・組み立て・check-backlog-schema と同じ検査）。
  * 検査に落ちたら投げる。search-improvement の add（カードと実験台帳を 1 commit で積む）も使う。
+ * 直接積むと pre-commit が走らないので、本文の試験日の誤記と相対リンクの宛先もここで見る（DN-0893）。
+ * exists は相対リンクの宛先の実在判定（既定は積む土台の origin/develop）。
  */
-export function addCard(current, { title, tier, kind, domain, category, when, due, verify, body }, { root = ROOT, today = todayJst() } = {}) {
+export function addCard(current, { title, tier, kind, domain, category, when, due, verify, body }, { root = ROOT, today = todayJst(), exists = existsInRef(root, 'origin/develop') } = {}) {
   const tierEmoji = resolveTier(tier);
   if (!tierEmoji) throw new Error(`重要度が不正: ${tier}`);
   const pkg = JSON.parse(readFileSync(join(root, 'package.json'), 'utf8'));
@@ -101,7 +104,7 @@ export function addCard(current, { title, tier, kind, domain, category, when, du
   if (r.degraded) throw new Error('git の履歴を読めず採番できない（削除済みの番号と衝突しうるので止める）');
   const cardLines = buildCard({ id: r.next, title: title.trim(), kind, domain, category, when, due, verify, today, body });
   const text = insertCard(current, tierEmoji, cardLines);
-  const problems = validateNewCard(current, text, r.next, tierEmoji, opts);
+  const problems = [...validateNewCard(current, text, r.next, tierEmoji, opts), ...backlogTextProblems(current, text, { exists })];
   if (problems.length) throw new Error(`カードが検査に通らない:\n  - ${problems.join('\n  - ')}`);
   return { id: r.next, text, cardLines };
 }

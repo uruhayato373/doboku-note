@@ -43,6 +43,7 @@ import { formatDataset } from './lib/dataset-write.mjs';
 import { commitFilesToRemoteBranch } from './lib/git-direct-commit.mjs';
 import { jstDayOf, todayJst } from './lib/jst-date.mjs';
 import { findCard } from './backlog-edit.mjs';
+import { backlogTextProblems, existsInRef } from './lib/backlog-text-guards.mjs';
 import { BACKLOG } from './todo-add.mjs';
 import { buildContentIndex } from './lib/content-index.mjs';
 import { CONFIG, buildSearchOpportunities } from './lib/search-opportunities.mjs';
@@ -88,7 +89,12 @@ function apply({ backlog: needsBacklog = false, ledger: needsLedger = true, conf
       texts[LEDGER] = formatDataset(LEDGER_ID, ledger).text;
     }
     if (needsConfig) texts[CONFIG] = formatDataset('config.search-strategy', config).text;
-    if (needsBacklog && out.backlog != null) texts[BACKLOG] = out.backlog;
+    if (needsBacklog && out.backlog != null) {
+      // --commit は pre-commit を通らないので、backlog の本文の検査をここで当てる（DN-0893）
+      const problems = backlogTextProblems(current[BACKLOG], out.backlog, { exists: existsInRef(ROOT, BASE_BRANCH) });
+      if (problems.length) fail(`backlog の本文が検査に通らない:\n  - ${problems.join('\n  - ')}`);
+      texts[BACKLOG] = out.backlog;
+    }
     return { texts, message: out.message, result: out.result };
   };
   if (args.commit) {
