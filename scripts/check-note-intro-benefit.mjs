@@ -28,6 +28,7 @@ import { join, relative } from 'node:path';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 import { listFiles } from './lib/fs-walk.mjs';
 import { runBody, isCliEntry, runAsCli } from './lib/cli-run.mjs';
+import { INTRO_BENEFIT_MARKER, introBenefitGap } from './lib/note-publication-state.mjs';
 
 // in-process でも呼べるよう run() に包んである（DN-0688・pre-commit-dispatch が import して呼ぶ）。
 // process.argv / process.exit / process.exitCode は runBody が渡す __argv / __exit / __status への読み替え。
@@ -37,7 +38,7 @@ export async function run({ argv = process.argv.slice(2) } = {}) {
 
 const BASE = join(ROOT, 'content/note');
 const ALLOW_PATH = join(ROOT, '.claude/config/note-intro-benefit-allow.json');
-const MARKER = '**この記事でわかること**';
+const MARKER = INTRO_BENEFIT_MARKER;
 
 const argv = __argv.slice(2);
 const STAGED = argv.includes('--staged');
@@ -73,13 +74,10 @@ for (const file of listFiles(BASE, { match: (_p, name) => ARTICLE_RE.test(name) 
   if (allowSet.has(noteId)) { exempt++; continue; }
 
   const price = isPaid ? (fmv(fm, 'price') || '?') : 0;
-  const at = t.indexOf(MARKER);
-  if (at < 0) { missing.push({ rel, noteId, price }); continue; }
-  if (!isPaid) continue;                                    // 無料は位置の制約なし
-  // 無料プレビュー内（有料境界より前）にあるか
-  const bre = fmv(fm, 'paidBoundary') || '試験問題|予想問題';
-  const bm = t.match(new RegExp('^##\\s*(?:' + bre + ')', 'm'));
-  if (bm && at > bm.index) afterBoundary.push({ rel, noteId, price });
+  // 無料は位置の制約なし。有料は無料プレビュー内（有料境界より前）に要る
+  const gap = introBenefitGap(t, { isPaid, paidBoundary: fmv(fm, 'paidBoundary') });
+  if (gap === 'missing') missing.push({ rel, noteId, price });
+  if (gap === 'after-boundary') afterBoundary.push({ rel, noteId, price });
 }
 
 console.log(`[check-note-intro-benefit${STAGED ? ' --staged' : ''}] 実検査 有料 ${paid} 件 / 無料 ${free} 件 / 会員限定skip ${membership} 件 / allowlist適用 ${exempt} 件`);

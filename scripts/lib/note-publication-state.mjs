@@ -10,6 +10,24 @@ export const NOTE_STATE_SOURCE = 'frontmatter の noteId・noteStatus（content/
 /** 有料境界の見出しの既定（note-publish.mjs の BOUNDARY と同じ）。 */
 export const DEFAULT_PAID_BOUNDARY = '試験問題|予想問題';
 
+/** 本文に残ると note-publish.mjs が公開を止める書きかけの印（マガジンの URL など）。 */
+export const NOTE_PLACEHOLDER_RE = /\{\{|※note\s*公開後|MAGAZINE_URL/;
+
+/** 「何が得られるか」の節の目印。公開済みの記事は check-note-intro-benefit が pre-commit で止める。 */
+export const INTRO_BENEFIT_MARKER = '**この記事でわかること**';
+
+/**
+ * 「この記事でわかること」の節の位置を見る（check-note-intro-benefit と note-unpublished が使う）。
+ * @returns {null|'missing'|'after-boundary'} 有料は境界の見出しより前（無料プレビューの中）に要る
+ */
+export function introBenefitGap(text, { isPaid, paidBoundary }) {
+  const at = text.indexOf(INTRO_BENEFIT_MARKER);
+  if (at < 0) return 'missing';
+  if (!isPaid) return null;
+  const boundary = text.match(new RegExp(`^##\\s*(?:${paidBoundary || DEFAULT_PAID_BOUNDARY})`, 'm'));
+  return boundary && at > boundary.index ? 'after-boundary' : null;
+}
+
 /**
  * frontmatter から公開状態を決める。
  * @returns {{ state: 'published'|'draft'|'unrecorded', conflicts: string[] }}
@@ -29,7 +47,7 @@ export function notePublicationState(data) {
 }
 
 /**
- * note-publish.mjs が公開の前に止まる条件を、ブラウザを開かずに先に見る。
+ * note-publish.mjs が公開の前に止まる条件と、公開した直後に pre-commit が止める条件を、ブラウザを開かずに先に見る。
  * 表紙は公開のたびに frontmatter の cover から作るので、img/cover.png の有無では決めない。
  * @param {{ data: object, body: string, isPaid: boolean }} article parseNoteArticle の戻り値
  * @param {{ hasHashtags: boolean, coverTarget: boolean }} files
@@ -41,6 +59,10 @@ export function notePublishGaps(article, { hasHashtags, coverTarget }) {
   if (!data.title && !/^#\s+\S/m.test(body)) gaps.push('タイトルが無い（title か本文の H1）');
   if (!coverTarget || !data.cover || typeof data.cover !== 'object') gaps.push('表紙の指定（frontmatter の cover）が無い');
   if (!hasHashtags) gaps.push('hashtags.txt が無い');
+  if (NOTE_PLACEHOLDER_RE.test(body)) gaps.push('書きかけの印（{{MAGAZINE_URL}} など）が本文に残っている。マガジンを先に作って URL を埋める');
+  const benefit = introBenefitGap(body, { isPaid, paidBoundary: data.paidBoundary });
+  if (benefit === 'missing') gaps.push(`${INTRO_BENEFIT_MARKER} の節が無い（公開すると pre-commit の check-note-intro-benefit が止める。H2 の見出しでは数えない）`);
+  if (benefit === 'after-boundary') gaps.push(`${INTRO_BENEFIT_MARKER} が有料境界より後ろにあり、購入前に読めない`);
   if (isPaid) {
     if (!(Number(data.price) > 0)) gaps.push('有料なのに price が無い');
     const boundary = new RegExp(`^##\\s+(${data.paidBoundary || DEFAULT_PAID_BOUNDARY})`, 'm');
