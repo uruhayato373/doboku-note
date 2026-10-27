@@ -92,7 +92,7 @@
       "work": "pe1-tekisei-3shiten",
       "account": "youtube:main",
       "format": "longform",
-      "status": "rendered",
+      "status": "scheduled",
       "copy": "content/sns/video-packs/pe-first-stage/pe1-tekisei-3shiten/youtube.json#longform",
       "media": {
         "cover": "pe-first-stage/pe1-tekisei-3shiten/youtube.longform/cover",
@@ -135,7 +135,42 @@
         "contentSha256": "a7652a20132f5c3adb30c05db86cb47001ad14e40caa94598ca683860f429058"
       },
       "times": {
-        "rendered": "2026-10-27T22:25:26.286Z"
+        "rendered": "2026-10-27T22:25:26.286Z",
+        "uploaded": "2026-10-27T22:29:26.547Z",
+        "scheduled": "2026-10-27T22:29:34.928Z"
+      },
+      "delivery": {
+        "inputSha256": "5eeca13f8e4c580364f22023d1be24104ff92a1a4340c862267af04f11f23c4d",
+        "marker": "dn-single-6cbb7592da364662091773a006882968dd719419",
+        "uploadRequestedAt": "2026-10-27T22:28:41.030Z",
+        "videoId": "hevqxT9zH7A",
+        "processedAt": "2026-10-27T22:29:25.680Z",
+        "thumbnailRequestedAt": "2026-10-27T22:29:26.592Z",
+        "thumbnailUrls": [
+          "https://i9.ytimg.com/vi/hevqxT9zH7A/default.jpg?sqp=CLzJhNcG&rs=AOn4CLAEJRPBLc0pPEz0LhIdbyRX1hmO3w",
+          "https://i9.ytimg.com/vi/hevqxT9zH7A/mqdefault.jpg?sqp=CLzJhNcG&rs=AOn4CLCNvhBbj1tHmdPZmtOtEg0GJzyjpA",
+          "https://i9.ytimg.com/vi/hevqxT9zH7A/hqdefault.jpg?sqp=CLzJhNcG&rs=AOn4CLAncCKecaA-WoXmXVsS1m4e0aVj6A",
+          "https://i9.ytimg.com/vi/hevqxT9zH7A/sddefault.jpg?sqp=CLzJhNcG&rs=AOn4CLDH2eyH03maXHqX2JWdf8-CB17TCw",
+          "https://i9.ytimg.com/vi/hevqxT9zH7A/maxresdefault.jpg?sqp=CLzJhNcG&rs=AOn4CLBVIvv_FfyEqxQ62dFQZDDyj6W48w",
+          "https://i9.ytimg.com/vi/hevqxT9zH7A/fhddefault.jpg?sqp=CLzJhNcG&rs=AOn4CLDv6QZt6WKujpqaz6ZcHkT5Rsv4HQ"
+        ],
+        "thumbnailAcceptedAt": "2026-10-27T22:29:30.177Z",
+        "scheduleRequestedAt": "2026-10-27T22:29:31.235Z",
+        "scheduleAt": "2026-11-05T20:00:00+09:00",
+        "scheduledVerifiedAt": "2026-10-27T22:29:34.928Z"
+      },
+      "platform": {
+        "id": "hevqxT9zH7A",
+        "url": "https://www.youtube.com/watch?v=hevqxT9zH7A",
+        "privacy": "private",
+        "evidence": {
+          "kind": "publisher-live-check",
+          "ref": "content/sns/video-packs/pe-first-stage/pe1-tekisei-3shiten/youtube.json#longform"
+        }
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-10-27T22:29:30.177Z"
       }
     },
     {
