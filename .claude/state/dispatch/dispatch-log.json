@@ -6032,6 +6032,19 @@
       "commit": "5585b43bf8ba",
       "verification": "check-standard-articles 24 文書 480 検査 PASS・tests/standards-figures.test.mjs・PR の CI 全通過",
       "note": "PR #1276（5585b43bf）。166/166 か所（59 章）に原本ページから切り出した図（74 枚・webp）を差し込み、台帳 content/sources/standards/*/figures.json を生成器が読む。照合は scanned-figure-crop-auditor 3 体で 74 枚すべて・差し戻し 1 件を切り直し。check-standard-articles の検査 20 が台帳・ArticleImage・実体の 1 対 1 を止める（166 件実検査）。本番は main の r2-sync 後に表示。図の目印が無いキャプション 12 か所は DN-0881"
+    },
+    {
+      "id": "DN-0866",
+      "at": "2026-10-27",
+      "task": "1級 平成25年度・2級 平成21・25年度の択一を、運営者が正答を確定してから公開する（公式正答なし）",
+      "tier": "mid",
+      "kind": "制作",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "04dfa819cdb2",
+      "verification": "本番 4 ページが 200・「公式の正答は非公表」表示、check-answer-marks 整合、check-past-exam-ledger FAIL 0",
+      "note": "3 年度分を本番に公開（main 5cc34af05）。運営者の判断で 1級 H25 問題A の正答を 3 問改めた（No.12 4→1・No.32 3→2・No.33 2→4）。解説は別年度の公式過去問・国交省 土木工事共通仕様書・メーカーと JSCA の工法資料・JR 東日本の技術資料・Drive の解説書の文字起こしで具体にした（04dfa819c ほか）。No.12 肢1 を直接述べる杭基礎施工便覧・道路橋示方書と、No.43 の営業線工事保安関係標準仕様書の原文は Web に無く確かめられない（市販・非公開の資料が手に入ったときに見直す）"
     }
   ]
 }
