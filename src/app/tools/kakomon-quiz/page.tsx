@@ -6,6 +6,9 @@ import { DEFAULT_OG_IMAGE } from "@/lib/metadata";
 import { SITE_ORIGIN } from "@/config/site-identity.mjs";
 import AffiliateSlot from "@/components/ui/AffiliateSlot/AffiliateSlot";
 import { quizQuestionCount, quizYearCount, quizYearRange } from "@/lib/quiz-summary";
+import { toolByHref } from "@/lib/tools";
+
+const tool = toolByHref("/tools/kakomon-quiz");
 
 export const metadata: Metadata = {
   title: `1級土木 過去問 無料演習｜第一次検定 全${quizQuestionCount('civil-1')}問を4択クイズ`,
@@ -36,7 +39,7 @@ export default function KakomonQuizPage() {
         width="760"
         breadcrumb={[{ label: "Home", href: "/" }, { label: "Tools", href: "/tools" }]}
         label="無料ツール"
-        title="1級土木 過去問 無料演習"
+        title={tool.title}
         lead={
           <>
             <strong className="text-(--ink)">1級土木施工管理技士 第一次検定</strong>の過去問を、その場で解ける<strong className="text-(--ink)">4択演習</strong>です。1問ずつ即採点し、全選択肢の解説を表示します（{quizYearRange("civil-1")}・全{quizQuestionCount("civil-1")}問／年度別・ランダム・間違い復習）。

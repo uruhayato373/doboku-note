@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import ToolsIndexCard from "@/components/ui/ToolsIndexCard";
 
 /**
  * 工事原価 構成比計算ツール（クライアント）。
@@ -182,15 +183,7 @@ export default function CostStructureClient() {
               費目構成と差異の見方、設計変更の協議記録を解説
             </div>
           </Link>
-          <Link
-            href="/tools"
-            className="focus-ring card-surface-content block p-4 shadow-none transition-colors hover:border-(--accent)"
-          >
-            <div className="font-bold text-(--ink)">無料ツール一覧</div>
-            <div className="text-sm text-(--ink-body) mt-1">
-              現場管理値の計算ツールをまとめて見る
-            </div>
-          </Link>
+          <ToolsIndexCard description="現場管理値の計算ツールをまとめて見る" />
         </div>
       </div>
     </div>

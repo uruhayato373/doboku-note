@@ -22,31 +22,6 @@ import { SITE_ORIGIN } from "@/config/site-identity.mjs";
 import { withNoteUtm } from "@/lib/note-utm";
 import { qualificationLabel } from "@/lib/qualification-names";
 
-export const metadata: Metadata = {
-  // title テンプレート "%s | doboku-note" がサイト名を付与するため、ここでは重ねない
-  // （旧: "Links — doboku-note の入口" + テンプレ = サイト名二重だった）。
-  title: "Links — SNS・note・サイトの入口",
-  description:
-    "発注者視点で土木・建設系9資格の合格を支援。技術士第一次・建設部門・総合技術監理部門、1級／2級土木施工管理技士、コンクリート技士・主任技士・診断士、RCCMの無料解説と教材への入口まとめ。",
-  alternates: {
-    canonical: `${SITE_ORIGIN}/links`,
-  },
-  openGraph: {
-    type: "website",
-    title: "Links — doboku-note の入口",
-    description:
-      "技術士・土木施工管理・コンクリート系・RCCMの9資格を、無料サイト解説から教材まで分野別に案内します。",
-    url: `${SITE_ORIGIN}/links`,
-    images: [
-      {
-        url: `${SITE_ORIGIN}/images/og-links.png`,
-        width: 1200,
-        height: 630,
-        alt: "doboku-note 土木・建設系9資格の試験対策コンテンツ一覧",
-      },
-    ],
-  },
-};
 
 /**
  * 資格カード（2026-07-28 再設計）。
@@ -162,6 +137,32 @@ const EXAM_CARDS: ExamCard[] = [
     },
   },
 ];
+
+export const metadata: Metadata = {
+  // title テンプレート "%s | doboku-note" がサイト名を付与するため、ここでは重ねない
+  // （旧: "Links — doboku-note の入口" + テンプレ = サイト名二重だった）。
+  title: "Links — SNS・note・サイトの入口",
+  description:
+    `発注者視点で土木・建設系${EXAM_CARDS.length}資格の合格を支援。技術士第一次・建設部門・総合技術監理部門、1級／2級土木施工管理技士、コンクリート技士・主任技士・診断士、RCCMの無料解説と教材への入口まとめ。`,
+  alternates: {
+    canonical: `${SITE_ORIGIN}/links`,
+  },
+  openGraph: {
+    type: "website",
+    title: "Links — doboku-note の入口",
+    description:
+      `技術士・土木施工管理・コンクリート系・RCCMの${EXAM_CARDS.length}資格を、無料サイト解説から教材まで分野別に案内します。`,
+    url: `${SITE_ORIGIN}/links`,
+    images: [
+      {
+        url: `${SITE_ORIGIN}/images/og-links.png`,
+        width: 1200,
+        height: 630,
+        alt: `doboku-note 土木・建設系${EXAM_CARDS.length}資格の試験対策コンテンツ一覧`,
+      },
+    ],
+  },
+};
 
 // 並びは主力商品の順（2026-10-04 に 2級土木を主力へ切り替え、土木を先頭・2級を 1級より前にした）。
 // スマホの 1 画面目に入るのは先頭グループの最初のカードだけなので、ここが SNS から来た人の第一候補になる。

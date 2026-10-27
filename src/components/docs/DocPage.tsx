@@ -8,7 +8,7 @@ import { getAllComponents } from '@/lib/component-loader';
 import { getCategoryLabel } from '@/lib/categories';
 import { classifyDoc, getGroupLabel, isCareerDoc } from '@/lib/doc-classifier';
 import { Metadata } from 'next';
-import { normalizeMetaDescription } from '@/lib/metadata';
+import { NOT_FOUND_TITLE, normalizeMetaDescription } from '@/lib/metadata';
 import { getOgpImageUrl } from '@/lib/r2-image-loader';
 import StructuredData from '@/components/seo/StructuredData';
 import remarkMath from 'remark-math';
@@ -161,7 +161,7 @@ export async function buildDocMetadata(slugStr: string): Promise<Metadata> {
 
   if (!doc) {
     return {
-      title: 'ページが見つかりません',
+      title: NOT_FOUND_TITLE,
       description: 'このページは存在しません。',
     };
   }

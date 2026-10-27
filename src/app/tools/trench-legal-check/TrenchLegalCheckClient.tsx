@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import ToolsIndexCard from "@/components/ui/ToolsIndexCard";
 
 /**
  * 溝掘削 法令チェッカー（クライアント）。
@@ -203,15 +204,7 @@ export default function TrenchLegalCheckClient() {
               法令の構造と判断の考え方を解説した記事
             </div>
           </Link>
-          <Link
-            href="/tools"
-            className="focus-ring card-surface-content block p-4 shadow-none transition-colors hover:border-(--accent)"
-          >
-            <div className="font-bold text-(--ink)">無料ツール一覧</div>
-            <div className="text-sm text-(--ink-body) mt-1">
-              現場管理値の計算ツールをまとめて見る
-            </div>
-          </Link>
+          <ToolsIndexCard description="現場管理値の計算ツールをまとめて見る" />
         </div>
       </div>
     </div>

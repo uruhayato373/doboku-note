@@ -85,3 +85,13 @@ test('サイトの資格色（globals.css の --exam-*）と note 表紙の色�
     assert.equal(site[cssKey], tokens[tokenKey].base.toLowerCase(), `${cssKey}: サイト ${site[cssKey]} と表紙 ${tokens[tokenKey].base} が違う（意図した差なら brand-image-system.md に理由を書いて documented に足す）`);
   }
 });
+
+test('ツールのページは自分の題・説明をツール一覧（src/lib/tools.ts）から引き、同じ文字列を書き写さない', () => {
+  const src = readFileSync('src/lib/tools.ts', 'utf8');
+  const tools = [...src.matchAll(/href: "([^"]+)",\s*title: "([^"]+)"/g)].map((m) => ({ href: m[1], title: m[2] }));
+  assert.ok(tools.length >= 10, `ツール一覧を読めていない（${tools.length}）`);
+  for (const { href, title } of tools) {
+    const page = readFileSync(`src/app${href}/page.tsx`, 'utf8');
+    assert.ok(!page.includes(`"${title}"`) && !page.includes(`'${title}'`), `${href}: 題「${title}」を書き写している（toolByHref で引く）`);
+  }
+});

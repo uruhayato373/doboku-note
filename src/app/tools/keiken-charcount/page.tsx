@@ -9,6 +9,9 @@ import AffiliateSlot from "@/components/ui/AffiliateSlot/AffiliateSlot";
 import { buildMagazineUrl, getMagazine, type MagazineId } from "@/lib/note-magazines";
 import { DEFAULT_OG_IMAGE } from "@/lib/metadata";
 import { SITE_ORIGIN } from "@/config/site-identity.mjs";
+import { toolByHref } from "@/lib/tools";
+
+const tool = toolByHref("/tools/keiken-charcount");
 
 // 答案を書いている最中の人が来る高 intent ページ。記事への内部リンク（クライアント側）に加えて、
 // note の完成答案集とココナラ添削へ直接つなぐ（2026-09-27 配線監査 DN-0364）。
@@ -65,7 +68,7 @@ export default function KeikenCharcountPage() {
         width="760"
         breadcrumb={[{ label: "Home", href: "/" }, { label: "Tools", href: "/tools" }]}
         label="無料ツール"
-        title="施工経験記述 文字数チェッカー"
+        title={tool.title}
         lead={
           <>
             <strong className="text-(--ink)">1級・2級土木施工管理技士 第2次検定 問題1（施工経験記述）</strong>の答案が、本番の<strong className="text-(--ink)">解答欄の字数</strong>に収まるかを無料でチェックします。級・出題形式・設問を選び、答案を貼り付けるだけ。

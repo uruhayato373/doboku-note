@@ -5,6 +5,9 @@ import ConcretePumpPlanClient from "./ConcretePumpPlanClient";
 import { DEFAULT_OG_IMAGE } from "@/lib/metadata";
 import { SITE_ORIGIN } from "@/config/site-identity.mjs";
 import AffiliateSlot from "@/components/ui/AffiliateSlot/AffiliateSlot";
+import { toolByHref } from "@/lib/tools";
+
+const tool = toolByHref("/tools/concrete-pump-plan");
 
 export const metadata: Metadata = {
   // title template `%s | doboku-note` で自動付与されるため "doboku-note" は重ねない
@@ -30,7 +33,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "ポンプ車・アジテータ車 配車計算ツール",
+    title: tool.title,
     description: "台数計算と圧送距離の水平換算長を、その場で確認。",
     images: [DEFAULT_OG_IMAGE],
   },
@@ -44,7 +47,7 @@ export default function ConcretePumpPlanPage() {
         width="760"
         breadcrumb={[{ label: "Home", href: "/" }, { label: "Tools", href: "/tools" }]}
         label="無料ツール"
-        title="ポンプ車・アジテータ車 配車計算ツール"
+        title={tool.title}
         lead={
           <>
             総打込み量と作業時間から<strong className="text-(--ink)">ポンプ車の必要台数</strong>を、積載量と往復時間から<strong className="text-(--ink)">アジテータ車の必要台数</strong>を計算します。圧送ルートの<strong className="text-(--ink)">水平換算長</strong>が100mの目安に収まるかも同じ画面で確認できます。

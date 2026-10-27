@@ -5,6 +5,9 @@ import CostStructureClient from "./CostStructureClient";
 import { DEFAULT_OG_IMAGE } from "@/lib/metadata";
 import { SITE_ORIGIN } from "@/config/site-identity.mjs";
 import AffiliateSlot from "@/components/ui/AffiliateSlot/AffiliateSlot";
+import { toolByHref } from "@/lib/tools";
+
+const tool = toolByHref("/tools/cost-structure");
 
 export const metadata: Metadata = {
   // title template `%s | doboku-note` で自動付与されるため "doboku-note" は重ねない
@@ -14,7 +17,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/tools/cost-structure" },
   openGraph: {
     type: "website",
-    title: "工事原価 構成比計算ツール",
+    title: tool.title,
     description: "費目ごとの金額から、請負工事費に占める構成比を計算・可視化。",
     url: `${SITE_ORIGIN}/tools/cost-structure`,
     siteName: "doboku-note",
@@ -29,7 +32,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "工事原価 構成比計算ツール",
+    title: tool.title,
     description: "費目ごとの構成比を、その場で確認。判定はしません。",
     images: [DEFAULT_OG_IMAGE],
   },
@@ -43,7 +46,7 @@ export default function CostStructurePage() {
         width="760"
         breadcrumb={[{ label: "Home", href: "/" }, { label: "Tools", href: "/tools" }]}
         label="無料ツール"
-        title="工事原価 構成比計算ツール"
+        title={tool.title}
         lead={
           <>
             直接工事費・共通仮設費・現場管理費・一般管理費等の金額を入れると、請負工事費に占める<strong className="text-(--ink)">構成比</strong>を計算します。<strong className="text-(--ink)">「赤字かどうか」は判定しません</strong>——公的な判定基準が存在しないためです。自社の実績・計画との比較材料としてお使いください。

@@ -5,6 +5,9 @@ import RebarSpliceCheckClient from "./RebarSpliceCheckClient";
 import { DEFAULT_OG_IMAGE } from "@/lib/metadata";
 import { SITE_ORIGIN } from "@/config/site-identity.mjs";
 import AffiliateSlot from "@/components/ui/AffiliateSlot/AffiliateSlot";
+import { toolByHref } from "@/lib/tools";
+
+const tool = toolByHref("/tools/rebar-splice-check");
 
 export const metadata: Metadata = {
   // title template `%s | doboku-note` で自動付与されるため "doboku-note" は重ねない
@@ -29,7 +32,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "鉄筋継手 判定ツール",
+    title: tool.title,
     description: "千鳥配置のずらし量とガス圧接ふくらみ検査基準を、その場で確認。",
     images: [DEFAULT_OG_IMAGE],
   },
@@ -43,7 +46,7 @@ export default function RebarSpliceCheckPage() {
         width="760"
         breadcrumb={[{ label: "Home", href: "/" }, { label: "Tools", href: "/tools" }]}
         label="無料ツール"
-        title="鉄筋継手 判定ツール"
+        title={tool.title}
         lead={
           <>
             継手長さと鉄筋径から<strong className="text-(--ink)">千鳥配置のずらし量</strong>（継手長さ+25d）を計算し、ガス圧接部の<strong className="text-(--ink)">ふくらみの実測値</strong>がJIS Z 3120の検査基準を満たすかを判定します。

@@ -1,10 +1,10 @@
-import { quizQuestionCount } from '@/lib/quiz-summary';
+import { quizQuestionCount, quizYearRange } from '@/lib/quiz-summary';
 
 export const TOOLS = [
   {
     href: "/tools/kakomon-quiz/pe-first-stage",
     title: "技術士第一次試験 過去問 無料演習",
-    desc: "基礎・適性・専門（建設部門・上下水道部門）の平成23〜令和7年度と令和元年度再試験 全1,830問。年度別・科目別・ランダム・間違い復習、図・数式・全選択肢解説つき。",
+    desc: `基礎・適性・専門（建設部門・上下水道部門）の${quizYearRange('pe-first-stage')}と令和元年度再試験 全${quizQuestionCount('pe-first-stage')}問。年度別・科目別・ランダム・間違い復習、図・数式・全選択肢解説つき。`,
     tag: "演習",
   },
   {
@@ -108,4 +108,11 @@ export function getRelatedTools(category: string, slug = '') {
   else if (category === 'civil-practice') paths = ['concrete-time-check', 'sling-tension'];
   else if (category === 'concrete-engineer' || category === 'concrete-chief-engineer') paths = ['water-content', 'concrete-maturity'];
   return paths.flatMap(path => TOOLS.filter(t => t.href === `/tools/${path}`)).slice(0, 2);
+}
+
+/** ツールのページが自分の題・説明をツール一覧（TOOLS）から引く。一覧に無い href は投げる（ページと一覧の食い違いをビルドで止める） */
+export function toolByHref(href: string) {
+  const tool = TOOLS.find((t) => t.href === href);
+  if (!tool) throw new Error(`ツール一覧（src/lib/tools.ts）に ${href} が無い`);
+  return tool;
 }
