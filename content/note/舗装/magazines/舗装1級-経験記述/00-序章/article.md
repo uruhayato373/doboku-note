@@ -4,7 +4,10 @@ notePricing: free
 noteSeries: 舗装1級-経験記述
 noteContentType: learning
 noteMagazine: 舗装1級-経験記述
-noteStatus: draft
+notePublishedAt: "2026-10-28"
+noteId: "na287266cf068"
+noteUrl: "https://note.com/dobokunote/n/na287266cf068"
+noteStatus: published
 utmCampaign: pavement-2027
 cover:
   variant: crop-safe-v4

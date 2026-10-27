@@ -4,8 +4,11 @@ notePricing: paid
 noteContentType: product
 price: 980
 paidBoundary: "模範答案"
-noteStatus: draft
+noteStatus: published
 utmCampaign: pavement-2027
+notePublishedAt: "2026-10-28"
+noteId: "n058f02626a5b"
+noteUrl: "https://note.com/dobokunote/n/n058f02626a5b"
 cover:
   variant: crop-safe-v4
   leadIn: "2級舗装 応用試験 問1"

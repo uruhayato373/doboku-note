@@ -3,8 +3,12 @@ notePricing: paid
 noteContentType: product
 price: 1480
 paidBoundary: "計算の型20"
-noteStatus: draft
+noteStatus: published
 utmCampaign: surveyor-2027
+title: "測量士 午後 記述式の計算問題を「型20本」で解く ｜令和4〜8年の例題つき"
+notePublishedAt: "2026-10-28"
+noteId: "n1ac56686482b"
+noteUrl: "https://note.com/dobokunote/n/n1ac56686482b"
 cover:
   variant: crop-safe-v4
   leadIn: "測量士 午後 記述式"

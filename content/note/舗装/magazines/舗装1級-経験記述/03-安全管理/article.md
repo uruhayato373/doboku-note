@@ -4,7 +4,10 @@ notePricing: paid
 noteSeries: 舗装1級-経験記述
 noteContentType: product
 noteMagazine: 舗装1級-経験記述
-noteStatus: draft
+notePublishedAt: "2026-10-28"
+noteId: "n0ed2713e3986"
+noteUrl: "https://note.com/dobokunote/n/n0ed2713e3986"
+noteStatus: published
 utmCampaign: pavement-2027
 price: 980
 paidBoundary: "模範答案"
