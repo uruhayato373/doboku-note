@@ -278,16 +278,28 @@ function renderChapter(chapter, tableOutcomes = [], tableOverrides = new Map(), 
     const override = body.length ? tableOverrides.get(tableKey(body)) : undefined;
     const declared = override?.absorbsParagraphs;
     if (!declared || override.review?.status !== 'approved') return;
-    // before・after とも原本の並び順。before は表の直前の段落で終わり、after は表の直後の段落から始まる
-    const neighbors = (texts, start) => texts.map((text, k) => {
-      const neighbor = chapter.nodes[start + k];
-      // 段落（番号付きの項 `（2）…` を含む）だけを取り込む。注記・キャプション・見出しは取り込まない
-      const found = neighbor && neighbor.role !== 'heading' && ['paragraph', 'item'].includes(neighbor.type) ? joinWrapped(neighbor.lines) : null;
-      return found !== null && stripSpacesForMatch(found) === stripSpacesForMatch(text) ? neighbor : null;
-    });
+    // before・after とも原本の並び順。before は表の直前の段落で終わり、after は表の直後の段落から始まる。
+    // 宣言の段落の区切りと生成器の段落の区切りは一致しなくてよい（DN-0864 で箇条を 1 行ずつの段落に分けた）。
+    // 表から離れる向きに段落をたどり、空白を除いてつないだ文字が宣言をつないだ文字とちょうど一致したら取り込む
+    const neighbors = (texts, start, step) => {
+      const want = stripSpacesForMatch(texts.join(''));
+      if (!want) return [];
+      const found = [];
+      let acc = '';
+      for (let k = start; k >= 0 && k < chapter.nodes.length; k += step) {
+        const neighbor = chapter.nodes[k];
+        // 段落（番号付きの項 `（2）…` を含む）だけを取り込む。注記・キャプション・見出しは取り込まない
+        if (neighbor.role === 'heading' || !['paragraph', 'item'].includes(neighbor.type)) return [null];
+        const text = stripSpacesForMatch(joinWrapped(neighbor.lines));
+        acc = step > 0 ? acc + text : text + acc;
+        found.push(neighbor);
+        if (acc.length >= want.length) return acc === want ? found : [null];
+      }
+      return [null];
+    };
     const matched = [
-      ...neighbors(declared.before ?? [], index - (declared.before ?? []).length),
-      ...neighbors(declared.after ?? [], index + 1),
+      ...neighbors(declared.before ?? [], index - 1, -1),
+      ...neighbors(declared.after ?? [], index + 1, 1),
     ];
     if (matched.some((n) => n === null)) {
       paragraphMismatch.add(node);

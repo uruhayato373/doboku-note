@@ -162,6 +162,26 @@ const CLAUSE_INDENT_TOLERANCE = 6;
 const RE_ITEM = /^[\s　]{0,4}[（(](\d+)[）)][\s　]*(.*?)[\s　]*$/;
 /** 丸数字の細目: `① 振動数の多い振動機を用いて…`（段落の始まり。折り返しの続きとしてつながない） */
 const RE_CIRCLED_ITEM = /^[\s　]{0,6}(?:[①-⑳]|[0-9０-９]{1,2}[）)])/;
+/**
+ * 字下げの深い号・細目・中黒の箇条（DN-0864）。中部の特記仕様書は `      (2)    テストハンマー…` のように
+ * 号を字下げ 6 桁に組み、番号の後ろに広い空白を置く。RE_ITEM（字下げ 4 桁まで）に当たらず、前の行が右端まで
+ * 詰まっていると折り返しとみなして (1)〜(7) が 1 段落につながっていた。番号の後ろに空白がある号（文中の
+ * `(1)の規定` は空白を置かない）・丸数字・中黒の行は、字下げの深さによらず新しい段落の始まりにする
+ */
+const RE_DEEP_ITEM = /^[\s　]*[（(]([0-9０-９]{1,2})[）)][\s　]+\S/;
+const RE_LIST_MARK = /^[\s　]*(?:[①-⑳]|[0-9０-９]{1,2}[）)]|・)/;
+/**
+ * 式の後の変数の説明（`ここで、 Ｆ ： 推定強度`）。ひらがなで始まっても前の段落（式）の続きではない。
+ * `また、` `ただし、` は振り仮名の行（東北の参考資料の `げた`）をはさんで文が続く紙面があるので対象にしない
+ */
+const RE_SENTENCE_OPENER = /^ここで[、，]/;
+/** ページをまたぐ文の継ぎ目: 前のページは語の途中の字で終わり、次のページは語の続きの字で始まる（数字・括弧・記号は除く） */
+const RE_MID_WORD_END = /[\p{Script=Han}\p{Script=Hiragana}\p{Script=Katakana}ー、，「]$/u;
+const RE_MID_WORD_START = /^[\p{Script=Han}\p{Script=Hiragana}\p{Script=Katakana}ー「]/u;
+/** 様式・図・表の番号で始まる行（`様式－34`・`図 21 …`）。前のページの文の続きではない */
+const RE_CAPTION_LIKE = /^(?:様式|図|表)[\s　]*[-－―ー0-9０-９]/;
+/** 字間を空けて組んだ行（`な 資 料 に 基 づ い た 架 設`）。版面の飾りでページをまたぐ文の判定に使えない */
+const RE_SPACED_LETTERS = /(?:\S[ 　]){4}\S/;
 /** 規格番号を 1 行ずつ並べた一覧の項目: `JIS A 5011-1（コンクリート用スラグ骨材…）`（折り返しの続きとしてつながない） */
 const RE_STANDARD_ENTRY = /^[\s　]*(?:JIS|JSCE|JHS|JPI|JASS|ISO|ASTM)[\s　]+[A-Z0-9]/;
 /** 文の終わり（段落をここで閉じてよい字）と、文頭に来ない字（前の段落の続きである印） */
@@ -449,7 +469,27 @@ function classifyHeading(line, context) {
  * 表領域は GFM へ復元せず原文レイアウトのコードブロックとして出す（内容を捨てないことを優先）。
  * キャプションだけの chunk とその直後の表 chunk は 1 つに束ねる。
  */
-function segmentToBlocks(segment) {
+/**
+ * ページごとの本文の幅（散文の行の表示幅の最大）。ページをまたぐ文の前のページの最後の行が右端まで詰まっているかを見る。
+ * 表の行（広い空白を持つ行）は本文より横に広いことがあるので数えない。版面からはみ出した 1 行（中部の特記仕様書 p.29 の
+ * `注：体感マットについては…`）に引きずられないよう、最大ではなく上から 1 割の位置の幅をとる
+ */
+function pageWidthsOf(entries) {
+  const byPage = new Map();
+  for (const entry of entries) {
+    if (isLayoutLine(entry.text) || hasWideGap(entry.text)) continue;
+    const width = displayWidth(entry.text.replace(/[\s　]+$/, ''));
+    byPage.set(entry.page, [...(byPage.get(entry.page) ?? []), width]);
+  }
+  const widths = new Map();
+  for (const [page, list] of byPage) {
+    list.sort((a, b) => b - a);
+    widths.set(page, list[Math.floor(list.length * 0.1)]);
+  }
+  return widths;
+}
+
+function segmentToBlocks(segment, pageWidths = null) {
   const chunks = [];
   let current = [];
   for (const entry of segment) {
@@ -552,12 +592,34 @@ function segmentToBlocks(segment) {
   // 空行をはさんで文が続く紙面（ページの変わり目・版面の余白）で、段落が文の途中で切れていた
   // （近畿版 1-1「…監督職員を通じ」⏎「て発注者に通知しなければならない。」）。前の段落が句点で終わらず、
   // 次の段落が文頭に来ない字（ひらがな・読点・閉じ括弧）で始まるなら、1 つの段落につなぐ。
+  // ページをまたぐ文（DN-0864）: ページ番号の行を除くと前後のページの間に空行が残り、中部の特記仕様書 p.43 末尾
+  // 「…前後の補正」と p.44 先頭「値を比例配分して…」が別の段落になっていた（次の行が漢字で始まるので上の規則に
+  // 当たらない）。前のページの最後の行が語の途中の字（漢字・かな・読点）で終わり、そのページの版面の右端まで
+  // 詰まっていて、次のページの先頭の段落が語の続きの字で始まり文を含む（号・箇条・様式名・「目 次」「（白 紙）」・
+  // 柱やページ番号の残りではない）なら、同じ段落の続きとみなす
+  const pageWidth = pageWidths ?? pageWidthsOf(segment);
   const joined = [];
   for (const block of blocks) {
     const prev = joined[joined.length - 1];
-    const prevText = prev && ['paragraph', 'item', 'note'].includes(prev.type) ? trimBoth(prev.lines[prev.lines.length - 1].text) : '';
+    const prevLast = prev && ['paragraph', 'item', 'note'].includes(prev.type) ? prev.lines[prev.lines.length - 1] : null;
+    const prevText = prevLast ? trimBoth(prevLast.text) : '';
     const firstText = block.type === 'paragraph' ? trimBoth(block.lines[0].text) : '';
-    if (prevText && firstText && !RE_SENTENCE_END.test(prevText) && RE_NOT_SENTENCE_START.test(firstText)) {
+    const acrossPage =
+      prevLast !== null &&
+      block.lines[0].page > prevLast.page &&
+      displayWidth(prevLast.text.replace(/[\s　]+$/, '')) >= pageWidth.get(prevLast.page) * 0.85 &&
+      RE_MID_WORD_END.test(prevText) &&
+      RE_MID_WORD_START.test(firstText) &&
+      !RE_CAPTION_LIKE.test(firstText) &&
+      !RE_CAPTION_LIKE.test(trimBoth(prev.lines[0].text)) &&
+      // 番号・中黒・※ つきの 1 行で読点の無いもの（`２）施工実施上の留意事項及び施工方法`・`※「完成平面図」作成の
+      // 適用工事のみ提出する資料`）は小見出し・箇条・注。次のページの本文とつながない
+      !(prev.lines.length === 1 && /^[\s　]*(?:[（(]?[0-9０-９]{1,2}[）)]|[①-⑳]|[・※])/.test(prev.lines[0].text) && !/[、，]/.test(prevText)) &&
+      !RE_SPACED_LETTERS.test(prevText) &&
+      block.lines.some((entry) => entry.text.includes('。'));
+    const opensSentence = RE_SENTENCE_OPENER.test(firstText) && !/[、，]$/.test(prevText);
+    const continues = RE_NOT_SENTENCE_START.test(firstText) && !opensSentence;
+    if (prevText && firstText && !RE_SENTENCE_END.test(prevText) && (continues || acrossPage)) {
       prev.lines.push(...block.lines);
       prev.pages = uniquePages(prev.lines);
       continue;
@@ -602,8 +664,8 @@ function proseBlocks(chunk) {
   let previous = null;
   for (const entry of chunk) {
     const note = RE_NOTE.test(entry.text);
-    const item = entry.text.match(RE_ITEM);
-    const circled = RE_CIRCLED_ITEM.test(entry.text) || RE_STANDARD_ENTRY.test(entry.text);
+    const item = entry.text.match(RE_ITEM) ?? entry.text.match(RE_DEEP_ITEM);
+    const circled = RE_CIRCLED_ITEM.test(entry.text) || RE_LIST_MARK.test(entry.text) || RE_STANDARD_ENTRY.test(entry.text);
     // 項目のぶら下げ字下げ（`（1）…おそれのあるも` の次行を字下げして `のを除去し…`）は、字下げが深くても
     // 文の続き。前の行が右端まで詰まっていて句点で終わっていなければ折り返しとみなす（近畿版 3-2-3-12 で
     // 文の途中に段落が入っていた）。字下げした段落の始まり（前の行が句点で終わる）はこれまでどおり分ける。
@@ -617,7 +679,7 @@ function proseBlocks(chunk) {
       if (current) blocks.push(current);
       current = {
         type: note ? 'note' : item ? 'item' : 'paragraph',
-        ...(item ? { itemNumber: Number(item[1]) } : {}),
+        ...(item ? { itemNumber: toInt(item[1]) } : {}),
         lines: [entry],
       };
     } else {
@@ -940,9 +1002,11 @@ export function analyzeDocument(document, overrides = {}) {
     let segment = [];
     const tablePageRanges = override.tablePages ?? [];
     const isTablePage = (page) => tablePageRanges.some(([from, to]) => page >= from && page <= to);
+    // ページをまたぐ文の判定に使う版面の幅は、見出しで切った segment ではなくページ全体の行から測る
+    const widths = pageWidthsOf(lines);
     const flush = () => {
       if (!segment.length) return;
-      nodes.push(...segmentToBlocks(segment).map((b) => ({ ...b, role: 'body' })));
+      nodes.push(...segmentToBlocks(segment, widths).map((b) => ({ ...b, role: 'body' })));
       segment = [];
     };
     // 設定 tablePages のページは 1 ページ全体を 1 つの表の版面にする（行を落とさず、見出し・段落の判定をしない）
