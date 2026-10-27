@@ -65,8 +65,9 @@ const SLOTS = {
  * regen（作り直すコマンド・手順）・
  * planned（置き場は決めたがまだ 1 件も無い）・retain（日付つきファイルの寿命。scripts/prune-state-snapshots.mjs が消す）・
  * freshness（最新の記録の古さの閾値。検査と管理画面が freshnessOf・freshnessDays で引く）
- * refs（中の値が指す先。[{ at: '場所', to: 'qualification'|'product'|'article' }]。check-datasets が全ファイルで参照先の実在を見る＝外部キー相当。
- *   場所の書き方と参照先は scripts/lib/dataset-refs.mjs。DN-0586）
+ * refs（中の値が指す先。[{ at: '場所', to: 'qualification'|'product'|'article'|'experiment'|'affiliate-program'|'metric', keys?, prefix?, ignore?, severity?, copies? }]。
+ *   check-datasets が全ファイルで参照先の実在と写しの一致を見る＝外部キー相当。参照切れは既定で error、生成した索引の過去分など書き換えない記録は
+ *   severity: 'warn'。場所の書き方・参照先・任意の欄は scripts/lib/dataset-refs.mjs。DN-0586・2026-10-27 に参照先と任意の欄を足した）
  *
  * retain: { family, keepNewest: N }   新しい N 件を残す
  *         { family, maxAgeDays: D }   D 日より古いものを消す（最新 1 件は必ず残す）
@@ -86,7 +87,7 @@ const d = (id, path, kind, domain, doc, opts = {}) => ({ id, path, kind, domain,
 export const DATASETS = [
   // ===== config/: 事業・試験・商品の正本と、スクリプト・CI・サイトの設定 =====
   // 戦略
-  d('config.business-direction', 'config/business-direction.json', 'config', 'strategy', '重点資格・KPI の定義・レビュー周期', { schema: 'ConfigBusinessDirection', refs: [{ at: 'qualifications[].id', to: 'qualification' }] }),
+  d('config.business-direction', 'config/business-direction.json', 'config', 'strategy', '重点資格・KPI の定義・レビュー周期', { schema: 'ConfigBusinessDirection', refs: [{ at: 'qualifications[].id', to: 'qualification' }, { at: 'metrics[].appliesTo', to: 'qualification', ignore: ['all'] }] }),
   d('config.qualification-registry', 'config/qualification-registry.json', 'config', 'strategy', '資格の一覧・名前・並び順・展開状態', { schema: 'QualificationRegistry' }),
   d('config.exam-calendar', 'config/exam-calendar.json', 'config', 'strategy', '試験日程', { schema: 'ExamCalendar' }),
   d('config.exam-formats', 'config/exam-formats.json', 'config', 'strategy', '試験区分・出題形式・過去問の公開範囲', { schema: 'ConfigExamFormats' }),
@@ -104,7 +105,7 @@ export const DATASETS = [
   d('config.note-membership', 'config/note-membership.json', 'config', 'product', 'note メンバーシップの会費・特典', { schema: 'ConfigNoteMembership' }),
   d('config.note-magazine-membership', 'config/note-magazine-membership.json', 'config', 'product', 'マガジン収録の期待値', { schema: 'ConfigNoteMagazineMembership' }),
   d('config.note-price-consistency', 'config/note-price-consistency.json', 'config', 'product', '単品価格のずれを止める検査の設定', { schema: 'ConfigNotePriceConsistency' }),
-  d('config.note-intro-standard', 'config/note-intro-standard.json', 'config', 'product', 'note 記事の冒頭の標準（1級・2級・両方の型を variants に）', { schema: 'ConfigNoteIntroStandard' }),
+  d('config.note-intro-standard', 'config/note-intro-standard.json', 'config', 'product', 'note 記事の冒頭の標準（1級・2級・両方の型を variants に）', { schema: 'ConfigNoteIntroStandard', refs: [{ at: 'variants.*.magazines', to: 'product', keys: true, ignore: ['civil-mokuji'], copies: { url: 'catalog.noteUrl' } }] }),
   d('config.note-covers', 'config/note-covers.json', 'config', 'product', 'note カバーの設定（記事の上書き・分類の語彙・マガジンの文言）', { schema: 'ConfigNoteCovers' }),
   d('config.coconala-account', 'config/coconala-account.json', 'config', 'product', 'ココナラの出品アカウント', { schema: 'ConfigCoconalaAccount' }),
   d('config.coconala-listings', 'config/coconala-listings.json', 'config', 'product', 'ココナラ出品の投入用データ', { schema: 'CoconalaListings' }),
@@ -118,7 +119,7 @@ export const DATASETS = [
   d('config.a8-report-automation', 'config/a8-report-automation.json', 'config', 'affiliate', 'A8 のレポート CSV 取得の設定', { schema: 'ConfigA8ReportAutomation' }),
   d('config.career-funnel', 'config/career-funnel.json', 'config', 'affiliate', '転職アフィリエイトのファネルの設定', { schema: 'ConfigCareerFunnel' }),
   d('config.affiliate-mats', 'config/affiliate-mats.json', 'config', 'affiliate', 'A8 の広告リンク（mat）の許可リスト', { schema: 'ConfigAffiliateMats' }),
-  d('config.affiliate-placements', 'config/affiliate-placements.json', 'config', 'affiliate', '転職アフィリエイトの配置ルール（案件×面×対象×期間）', { schema: 'ConfigAffiliatePlacements' }),
+  d('config.affiliate-placements', 'config/affiliate-placements.json', 'config', 'affiliate', '転職アフィリエイトの配置ルール（案件×面×対象×期間）', { schema: 'ConfigAffiliatePlacements', refs: [{ at: 'rules[].program', to: 'affiliate-program' }, { at: 'rules[].experiment', to: 'experiment' }] }),
   d('config.cta-placements', 'config/cta-placements.json', 'config', 'affiliate', 'サイトの広告・送客の配置（GA4 の cta_placement）の語彙と状態', { schema: 'ConfigCtaPlacements' }),
   // サイト
   d('config.content-rules', 'config/content-rules.json', 'config', 'site', 'サイト記事の機械品質ルールの重大度と適用範囲', { schema: 'ConfigContentRules' }),
@@ -150,13 +151,13 @@ export const DATASETS = [
   d('config.youtube-formats', 'config/youtube-formats.json', 'config', 'sns', 'YouTube の動画の型と採否（商品展開）・自社チャンネル', { schema: 'ConfigYoutubeFormats' }),
   d('config.content-registry', 'config/content-registry.json', 'config', 'sns', 'コンテンツ台帳の設定（チャネル×形式・ID 規則・状態の語彙と遷移・切り替え済みのチャネル）', { schema: 'ConfigContentRegistry' }),
   // コンテンツ台帳（content/registry）。資格ごとの 1 ファイル。設計は content-registry.md
-  d('registry.works', 'content/registry/works/{name}', 'config', 'sns', 'コンテンツ台帳: 作品（資格ごと）', { schema: 'RegistryWorks' }),
-  d('registry.youtube', 'content/registry/publications/youtube/{name}', 'config', 'sns', 'コンテンツ台帳: YouTube の公開（資格ごと）', { schema: 'RegistryPublications' }),
-  d('registry.instagram', 'content/registry/publications/instagram/{name}', 'config', 'sns', 'コンテンツ台帳: Instagram の公開（資格ごと）', { schema: 'RegistryPublications' }),
-  d('registry.x', 'content/registry/publications/x/{name}', 'config', 'sns', 'コンテンツ台帳: X の公開（資格ごと）', { schema: 'RegistryPublications' }),
+  d('registry.works', 'content/registry/works/{name}', 'config', 'sns', 'コンテンツ台帳: 作品（資格ごと）', { schema: 'RegistryWorks', refs: [{ at: 'exam', to: 'qualification', ignore: ['account'] }] }),
+  d('registry.youtube', 'content/registry/publications/youtube/{name}', 'config', 'sns', 'コンテンツ台帳: YouTube の公開（資格ごと）', { schema: 'RegistryPublications', refs: [{ at: 'exam', to: 'qualification', ignore: ['account'] }] }),
+  d('registry.instagram', 'content/registry/publications/instagram/{name}', 'config', 'sns', 'コンテンツ台帳: Instagram の公開（資格ごと）', { schema: 'RegistryPublications', refs: [{ at: 'exam', to: 'qualification', ignore: ['account'] }] }),
+  d('registry.x', 'content/registry/publications/x/{name}', 'config', 'sns', 'コンテンツ台帳: X の公開（資格ごと）', { schema: 'RegistryPublications', refs: [{ at: 'exam', to: 'qualification', ignore: ['account'] }] }),
   d('registry.threads', 'content/registry/publications/threads/{name}', 'config', 'sns', 'コンテンツ台帳: Threads の公開（資格ごと）', { schema: 'RegistryPublications', planned: true }),
   d('registry.tiktok', 'content/registry/publications/tiktok/{name}', 'config', 'sns', 'コンテンツ台帳: TikTok の公開（資格ごと）', { schema: 'RegistryPublications', planned: true }),
-  d('registry.media', 'content/registry/media/{name}', 'config', 'sns', 'コンテンツ台帳: 素材（資格ごと・brand）', { schema: 'RegistryMedia' }),
+  d('registry.media', 'content/registry/media/{name}', 'config', 'sns', 'コンテンツ台帳: 素材（資格ごと・brand）', { schema: 'RegistryMedia', refs: [{ at: 'scope', to: 'qualification', ignore: ['brand'] }] }),
   // 教材
   d('config.reference-sources', 'config/reference-sources.json', 'config', 'material', '参考文献（原本・一次資料）の区分と扱い', { schema: 'ConfigReferenceSources' }),
   d('config.policy-registry', 'config/policy-registry.json', 'config', 'material', '国の計画・施策・審議会の台帳（根拠法・所管・決定日・一次資料の URL・関わる横断テーマ）。分野・立場のテーマのページと法令ページの制度の地図に出す（content-taxonomy.md §6-3）', { schema: 'ConfigPolicyRegistry' }),
@@ -255,14 +256,14 @@ export const DATASETS = [
   d('r2.delete-list', 'data/r2/delete-list.txt', 'ledger', 'ops', 'R2 から消すオブジェクトの一覧（1 行 1 キー。削除済みはコメント行で残す）'),
 
   // ===== data/: 自社で発生した記録 =====
-  d('business.measurement', 'data/business/records/measurement-{ts}-{uuid}.json', 'ledger', 'strategy', 'KPI の計測値', { immutable: true, schema: 'BusinessMeasurement' }),
+  d('business.measurement', 'data/business/records/measurement-{ts}-{uuid}.json', 'ledger', 'strategy', 'KPI の計測値', { immutable: true, schema: 'BusinessMeasurement', refs: [{ at: 'qualification', to: 'qualification', ignore: ['all'] }] }),
   d('business.snapshot', 'data/business/records/snapshot-{ts}-{uuid}.json', 'ledger', 'strategy', 'KPI の一覧の時点記録', { immutable: true, schema: 'BusinessSnapshot' }),
-  d('business.target', 'data/business/records/target-{ts}-{uuid}.json', 'ledger', 'strategy', 'KPI の目標', { immutable: true, schema: 'BusinessTarget' }),
-  d('business.review', 'data/business/records/review-{ts}-{uuid}.json', 'ledger', 'strategy', '週次・月次レビューの判断', { immutable: true, schema: 'BusinessReview' }),
+  d('business.target', 'data/business/records/target-{ts}-{uuid}.json', 'ledger', 'strategy', 'KPI の目標', { immutable: true, schema: 'BusinessTarget', refs: [{ at: 'qualification', to: 'qualification', ignore: ['all'] }, { at: 'metric', to: 'metric' }] }),
+  d('business.review', 'data/business/records/review-{ts}-{uuid}.json', 'ledger', 'strategy', '週次・月次レビューの判断', { immutable: true, schema: 'BusinessReview', refs: [{ at: 'qualification', to: 'qualification', ignore: ['all'] }, { at: 'experimentIds', to: 'experiment' }] }),
   d('business.site-to-sales', 'data/business/records/site-to-sales-{month}{rev}.json', 'evidence', 'strategy', 'サイトから売上への暦月の突合', { immutable: true, schema: 'BusinessSiteToSales' }),
   d('business.checks-monthly', 'data/business/records/checks-monthly-{month}{rerun}.json', 'evidence', 'strategy', '月次レビューの点検の振り分け', { immutable: true, schema: 'BusinessChecksMonthly' }),
   d('business.checks-weekly', 'data/business/records/checks-weekly-{week}{rerun}.json', 'evidence', 'strategy', '週次レビューの点検の振り分け', { immutable: true, schema: 'BusinessChecksWeekly' }),
-  d('business.experiments', 'data/business/experiments.json', 'state', 'strategy', '実験の台帳（仮説・期間・判定）', { schema: 'Experiments' }),
+  d('business.experiments', 'data/business/experiments.json', 'state', 'strategy', '実験の台帳（仮説・期間・判定）', { schema: 'Experiments', refs: [{ at: 'experiments[].measure.scope.productIds', to: 'product' }, { at: 'experiments[].businessContext.metricId', to: 'metric' }] }),
   // 受け箱（別リポジトリの obsidian mail-triage が毎日 develop へ直接書く。売上の正本ではない）
   d('inbox.mail-events', 'data/inbox/mail-events.json', 'state', 'ops', 'メールから拾ったイベントの受け箱（obsidian mail-triage が書く・最大 500 件）', { schema: 'InboxMailEvents' }),
   d('business.weekly', 'data/business/weekly/{week}.json', 'series', 'strategy', '週次レビュー用の計測のまとめ（窓は確定した月〜日・ファイル名の週はその窓の ISO 週）', { retain: { family: 'weekly-metrics', keepNewest: 26 }, schema: 'WeeklyMetrics' }),
@@ -312,7 +313,7 @@ export const DATASETS = [
   d('state.exam-keyword-cycles-progress', '.claude/state/exam-keyword-cycles/progress.json', 'state', 'site', '過去問起点の校正サイクルの進み具合（/exam-keyword-cycle）'),
   d('state.exam-keyword-umbrella-drafts', '.claude/state/exam-keyword-cycles/umbrella-drafts/{name}.md', 'raw', 'site', '同上の親キーワードの下書き', { local: true, regen: '/exam-keyword-cycle が作り直す' }),
   d('state.exam-keyword-audits', '.claude/state/exam-keyword-audits/{name}/{**}', 'evidence', 'site', '過去問とキーワードの紐づけ監査（/audit-exam-mapping）'),
-  d('state.exam-keyword-map', '.claude/state/exam-keyword-map.json', 'state', 'site', '過去問→キーワードの対応（生成索引）'),
+  d('state.exam-keyword-map', '.claude/state/exam-keyword-map.json', 'state', 'site', '過去問→キーワードの対応（生成索引）', { refs: [{ at: 'pe-comprehensive-management.*.*', to: 'article', prefix: 'pe-comprehensive-management/', severity: 'warn' }] }),
   d('state.essay-keyword-frequency', '.claude/state/essay-keyword-frequency.json', 'state', 'site', '技術士総監の記述式に出たキーワードの頻度'),
   d('state.keyword-summaries', '.claude/state/keyword-summaries.json', 'state', 'site', 'キーワードページの要約（生成索引）'),
   d('state.pe-textbook-keyword-coverage', '.claude/state/pe-textbook-keyword-coverage.json', 'state', 'site', '技術士総監の教材→キーワードページの網羅'),
