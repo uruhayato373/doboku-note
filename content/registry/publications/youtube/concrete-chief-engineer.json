@@ -136,7 +136,7 @@
       "format": "longform",
       "variant": "pop-diagram",
       "revisionOf": "concrete-chief-engineer/shunin-chokuzen-senryaku/youtube.longform",
-      "status": "approved",
+      "status": "scheduled",
       "copy": "content/sns/video-packs/concrete-chief-engineer/shunin-chokuzen-senryaku/youtube.revision-pop-diagram.json",
       "media": {
         "cover": "concrete-chief-engineer/shunin-chokuzen-senryaku/work/candidate-cover",
@@ -178,7 +178,38 @@
         "inputSha256": "389c9310f9e28030539abbf133d2b66e651ffd9d8e747b20a0627737fbc741fb",
         "marker": "dn-revision-6eac1c2d0323433cba2dfe4a0c5ee4caf75123e3",
         "uploadRequestedAt": "2026-10-27T11:29:51.709Z",
-        "videoId": "z2KPTSlIP1I"
+        "videoId": "z2KPTSlIP1I",
+        "processedAt": "2026-10-27T11:32:12.701Z",
+        "thumbnailRequestedAt": "2026-10-27T11:32:12.754Z",
+        "thumbnailUrls": [
+          "https://i9.ytimg.com/vi/z2KPTSlIP1I/default.jpg?sqp=CLiWgtcG&rs=AOn4CLACdrM9_svjgIdYzgSkJl3-lvqPtw",
+          "https://i9.ytimg.com/vi/z2KPTSlIP1I/mqdefault.jpg?sqp=CLiWgtcG&rs=AOn4CLB9v7g5JHVS-11KfUGSOWS7pcUrhw",
+          "https://i9.ytimg.com/vi/z2KPTSlIP1I/hqdefault.jpg?sqp=CLiWgtcG&rs=AOn4CLDh8WtxQtb8jODomjzZAd_3tohMwA",
+          "https://i9.ytimg.com/vi/z2KPTSlIP1I/sddefault.jpg?sqp=CLiWgtcG&rs=AOn4CLBhRzZEZrlqEhXPjSRYixocWAhSog",
+          "https://i9.ytimg.com/vi/z2KPTSlIP1I/maxresdefault.jpg?sqp=CLiWgtcG&rs=AOn4CLApSzDJDyU6VTdJfIxOD1lD-OoEdQ",
+          "https://i9.ytimg.com/vi/z2KPTSlIP1I/fhddefault.jpg?sqp=CLiWgtcG&rs=AOn4CLDvxwuwW3LbY2Sw_cYYswlRkwQrVA"
+        ],
+        "thumbnailAcceptedAt": "2026-10-27T11:32:17.540Z",
+        "scheduleRequestedAt": "2026-10-27T11:32:20.823Z",
+        "scheduleAt": "2026-10-31T20:00:00+09:00",
+        "scheduledVerifiedAt": "2026-10-27T11:32:23.621Z"
+      },
+      "platform": {
+        "id": "z2KPTSlIP1I",
+        "url": "https://www.youtube.com/watch?v=z2KPTSlIP1I",
+        "privacy": "private",
+        "evidence": {
+          "kind": "publisher-live-check",
+          "ref": "content/sns/video-packs/concrete-chief-engineer/shunin-chokuzen-senryaku/youtube.revision-pop-diagram.json"
+        }
+      },
+      "times": {
+        "uploaded": "2026-10-27T11:32:12.701Z",
+        "scheduled": "2026-10-27T11:32:23.621Z"
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-10-27T11:32:17.540Z"
       }
     },
     {
