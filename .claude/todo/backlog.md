@@ -306,7 +306,7 @@
 **完了条件**: 公開中の出品で `coconala-edit --fields body` の dry-run が本文の欄を見つけ、欄が無いときは失敗で止まる PR が develop に入る。
 
 ### [DN-0893] todo:add が試験日の検査（check-exam-calendar）を通さずに push する抜けをふさぐ
-タグ: [領域:管理] [時期:2026-10] [種類:不具合] [検証:test] [起票:2026-10-27]
+タグ: [領域:管理] [時期:2026-10] [種類:不具合] [検証:test] [起票:2026-10-27] [進行中]
 
 **起点**: DN-0890 と DN-0892 を起票したとき、本文に日付と資格の級・検定の段階が近くに並ぶ文があった。`check-exam-calendar` の既知の誤記パターン（試験日の書き間違い）に当たる形だったが、`npm run todo:add -- --commit` はそのまま origin/develop へ push した。後から手で直した（a142cf379）が、その間は develop の CI（quality-audit の exam-calendar・ci:true）が赤だった可能性がある。
 

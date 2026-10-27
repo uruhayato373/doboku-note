@@ -306,7 +306,7 @@ npm run report-career-funnel      # キャリアファネル（流入→回遊�
 ## 台帳・ドキュメント整合
 
 ```bash
-npm run todo:add -- --title … --tier 高|中|低|判断待ち --kind 不具合|改善|意思決定|制作 --domain <領域> (--body "…" | --body-file <path>) [--category …] [--when YYYY-MM] [--due YYYY-MM-DD] [--verify <npm script>] [--trailer "…"] [--commit] # backlog へ 1 枚起票（採番・重要度の見出しへの差し込み・check-backlog-schema と同じ検査）し、origin/develop へ直接 commit・push する。作業ツリー・index・今のブランチに触れないので、共有 checkout で別セッションがブランチを切り替えていても別ブランチへ載らない。既定は dry-run・最後の行が ID。手元へは git pull。罠: `--kind 定期` は backlog に置けないので拒否する
+npm run todo:add -- --title … --tier 高|中|低|判断待ち --kind 不具合|改善|意思決定|制作 --domain <領域> (--body "…" | --body-file <path>) [--category …] [--when YYYY-MM] [--due YYYY-MM-DD] [--verify <npm script>] [--trailer "…"] [--commit] # backlog へ 1 枚起票（採番・重要度の見出しへの差し込み・check-backlog-schema と同じ検査・本文への試験日の誤記パターンと相対リンクの実在の検査）し、origin/develop へ直接 commit・push する。作業ツリー・index・今のブランチに触れないので、共有 checkout で別セッションがブランチを切り替えていても別ブランチへ載らない。既定は dry-run・最後の行が ID。手元へは git pull。罠: `--kind 定期` は backlog に置けないので拒否する。commit-tree で積むので pre-commit は走らず、本文の検査はこのコマンドの中だけ
 npm run report-defect-learning -- --since YYYY-MM-DD # 期間内に起票・完了した不具合と、完了時の再発防止（検査 / memory / 正典 / 残すもの無し）の内訳。読み手は /weekly-review の backlog 消化サマリ。不具合の完了は todo:complete --prevention が必須（check-dispatch-log が止める）
 npm run check-backlog-schema # backlog タグ行の語彙・[検証:]の実在・ID(DN-####)必須/重複・完了 prose の混入（pre-commit --staged ＋ quality:audit）
 npm run check-backlog-health # 台帳の候補 surfacer（🟢に沈んだ不具合・種類の矛盾・重複候補・検証ゲート欠落・S16 マージの状態が古いままのカード。判定はせず常に exit 0）。S16 は gh と git ls-remote を引くので、SessionStart の `--due` と `--record-audit` では走らない。取得できなければ「判定不能」と出す
