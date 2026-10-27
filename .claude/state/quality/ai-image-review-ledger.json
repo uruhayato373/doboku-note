@@ -2496,10 +2496,10 @@
       "reviewedAt": "2026-10-26T22:22:56.347Z"
     },
     "media:concrete-chief-engineer/shunin-shiken-zentaizou/work/candidate-scene-005": {
-      "sha": "b868b693e9255d16",
+      "sha": "ebd9048fbdfe13b0",
       "verdict": "ok",
-      "reason": "文字: 見出し「選考基準の主な項目」と8ラベル「用材料」「配合設計」「試験」「プラント」「製造・品質管理」「施工」「環境問題」「その他」が指示どおりで、2行×4つ。図: 材料の山・計量カップ・圧縮試験機・サイロ＋ミキサー車・コテなどが各項目と合う。数字や構造設計の主張もない。下端は約876pxで、78%線は超えるが字幕域の淡色帯（約880px〜）には入っていない。",
-      "reviewedAt": "2026-10-26T22:22:56.347Z"
+      "reason": "JCI選考基準の技術6項目と環境問題・その他2項目が正しく分かれ、日本語ラベルが正確で読みやすい。",
+      "reviewedAt": "2026-10-27T12:01:58.070Z"
     },
     "media:concrete-chief-engineer/shunin-shiken-zentaizou/work/candidate-scene-006": {
       "sha": "2c307ccc000a9365",
@@ -2508,10 +2508,10 @@
       "reviewedAt": "2026-10-26T22:48:43.375Z"
     },
     "media:concrete-chief-engineer/shunin-shiken-zentaizou/work/candidate-scene-007": {
-      "sha": "b4e0eba4fdfd14f5",
+      "sha": "031bfb5852b07e60",
       "verdict": "ok",
-      "reason": "step4: 択一と小論文の強弱に応じた2分岐と毎週見直す案内、字幕域を実画素で確認。Claude画像忠実性監査 ok。",
-      "reviewedAt": "2026-10-26T22:48:43.375Z"
+      "reason": "択一と小論文の弱点に応じた時間振替が正しい方向で示され、毎週見直す矢印は上段の弱点判定へ戻る。",
+      "reviewedAt": "2026-10-27T12:01:58.070Z"
     },
     "media:concrete-chief-engineer/shunin-shiken-zentaizou/work/candidate-scene-008": {
       "sha": "c061bae1c453b32b",
