@@ -305,6 +305,16 @@
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-0881] 基準類の章記事で、表の領域などに出た図のキャプション 12 か所にも原本から切り出した図を入れる
+タグ: [領域:サイト] [時期:2026-11] [種類:不具合] [起票:2026-10-27]
+
+DN-0865 で `<SourceRef kind="figure">` の 166 か所には原本から切り出した図を入れたが、それ以外の形で出ている図のキャプションが 12 か所あり、画像が無い（2026-10-27 の走査・太字の「図…」の直後に画像も figure の SourceRef も無いもの）。chubu/special 2（1-3 の図3-1・図3-2。キャプションが表の領域に吸われ `kind="table"` の SourceRef の側にある）、kinki/hikkei 4（30-2・8-1）、kyushu/hikkei-common-08 3（1-3）、tohoku/reference 3。
+
+進め方: 生成器（scripts/build-standard-articles.mjs）がこれらの図のキャプションを caption の node として出すか、表の node の中のキャプションにも台帳（content/sources/standards/{agency}/{document}/figures.json・scripts/lib/standards-figures.mjs）の図を差し込めるようにし、DN-0865 と同じ切り出しと照合で画像を足す。check-standard-articles の検査 20 が数える対象を「太字の図キャプション」まで広げ、12 か所が数に入ることを確かめる。
+
+完了条件: 12 か所に画像が入り、検査 20 がそれらも実検査して PASS。
+
+
 ### [DN-0879] 過去問の解説から、正誤の根拠になる共通仕様書の章へ結ぶ（公式正答なしの年度から）
 タグ: [コンテンツ品質] [領域:教材] [時期:2026-11..2026-12] [種類:改善] [起票:2026-10-27]
 
