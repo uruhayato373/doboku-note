@@ -9,7 +9,7 @@ import { loadRegistry, loadRegistryConfig } from '../scripts/lib/content-registr
 import { upsertMedia, upsertPublications, upsertWorks } from '../scripts/lib/content-registry-write.mjs';
 import { checkRegistry } from '../scripts/lib/content-registry-check.mjs';
 import { projectVideoState, videoPackRows } from '../scripts/lib/registry-video-state.mjs';
-import { planYoutubeRevision, prepareYoutubeRevision } from '../scripts/lib/registry-youtube-revision.mjs';
+import { planYoutubeRevision, prepareYoutubeRevision, recordYoutubeRevisionQa } from '../scripts/lib/registry-youtube-revision.mjs';
 import { writeJson } from '../scripts/lib/json-io.mjs';
 
 const EXAM = 'civil-construction-2', WORK = 'revision-example';
@@ -95,6 +95,31 @@ test('改訂をoutputsに重複計上せず、別作品への改訂参照と素�
   assert.ok(report.issues.some(i => i.code === 'R12' && i.severity === 'FAIL'));
 });
 
+test('改訂公開行の画面確認素材を投稿入力の素材と混同しない', t => {
+  const root = fixture(t), options = { pubId: PUB, variant: 'diagram-led' };
+  const preview = prepareYoutubeRevision(root, options);
+  prepareYoutubeRevision(root, { ...options, commit: true, expect: preview.digest });
+  const revision = loadRegistry(root).publications.find(p => p.revisionOf);
+  upsertPublications(root, 'youtube', EXAM, [{ ...revision, media: { ...revision.media, preview: revision.media.cover } }]);
+  const report = checkRegistry(root);
+  assert.equal(report.counts.checkedRevisionInputs, 1);
+  assert.ok(!report.issues.some(i => i.code === 'R12' && i.severity === 'FAIL'));
+});
+
+test('独立QAの合格だけが未承認改訂行をqa_passedにし、承認は記録しない', t => {
+  const root = fixture(t), options = { pubId: PUB, variant: 'diagram-led' };
+  const preview = prepareYoutubeRevision(root, options);
+  prepareYoutubeRevision(root, { ...options, commit: true, expect: preview.digest });
+  const pubId = preview.publicationId;
+  assert.equal(recordYoutubeRevisionQa(root, { pubId, avg: 2.67, blocks: 0 }).written, 0);
+  assert.equal(recordYoutubeRevisionQa(root, { pubId, avg: 2.67, blocks: 0, commit: true, at: '2026-10-27' }).status, 'qa_passed');
+  const reg = loadRegistry(root), row = reg.publications.find(p => p.id === pubId);
+  assert.equal(row.status, 'qa_passed');
+  assert.equal(row.approval, undefined);
+  assert.deepEqual(reg.works.find(w => w.id === WORK).qa, { avg: 2.67, blocks: 0, at: '2026-10-27', by: 'Claude Code video-content-qa' });
+  assert.throws(() => recordYoutubeRevisionQa(root, { pubId, avg: 2.67, blocks: -1 }), /QAの平均/);
+});
+
 test('Shortsの新旧関連先を混ぜず、新版通常動画が必要', t => {
   const root = fixture(t), options = { pubId: PUB, variant: 'diagram-led' };
   const preview = prepareYoutubeRevision(root, options);
@@ -168,4 +193,19 @@ test('未承認draftの画像修正は明示指定とdigestを要求し、前入
     assert.throws(() => planYoutubeRevision(root, { ...options, refreshDraft: true }, reg), /既存の改訂公開行/);
   }
   assert.throws(() => planYoutubeRevision(root, { ...options, variant: 'absent', refreshDraft: true }), /既存の未承認draft/);
+});
+
+test('画面確認素材を追加した未承認draftも入力だけ更新でき、承認済み行は拒否する', t => {
+  const root = fixture(t), options = { pubId: PUB, variant: 'diagram-led' };
+  const initial = prepareYoutubeRevision(root, options);
+  prepareYoutubeRevision(root, { ...options, commit: true, expect: initial.digest });
+  const reg = loadRegistry(root), row = reg.publications.find(p => p.revisionOf);
+  upsertPublications(root, 'youtube', EXAM, [{ ...row, media: { ...row.media, preview: `${row.id}/preview` } }]);
+  writeJson(root, `${DEF}/youtube.json`, { longform: { title: '画面確認後の修正文面', description: '新しい説明' } });
+  const preview = prepareYoutubeRevision(root, { ...options, refreshDraft: true });
+  prepareYoutubeRevision(root, { ...options, refreshDraft: true, commit: true, expect: preview.digest });
+  assert.equal(loadRegistry(root).publications.find(p => p.id === row.id).media.preview, `${row.id}/preview`);
+  const approved = loadRegistry(root);
+  approved.publications.find(p => p.id === row.id).approval = { by: 'user', contentSha256: '0'.repeat(64) };
+  assert.throws(() => planYoutubeRevision(root, { ...options, refreshDraft: true }, approved), /既存の改訂公開行/);
 });

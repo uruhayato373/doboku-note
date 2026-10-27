@@ -23,7 +23,10 @@
       },
       "copy": {
         "exam": "concrete-chief",
-        "headline": ["択一×小論文", "どう学ぶ？"],
+        "headline": [
+          "択一×小論文",
+          "どう学ぶ？"
+        ],
         "authority": "総監が制作"
       },
       "output": {
@@ -41,8 +44,14 @@
         "userImageReview": "pending",
         "checkedAt": "2026-10-26T14:48:23Z",
         "by": "Codex",
-        "views": ["original", "1920x1080"],
-        "checks": ["文言・資格名", "顔と安全域"]
+        "views": [
+          "original",
+          "1920x1080"
+        ],
+        "checks": [
+          "文言・資格名",
+          "顔と安全域"
+        ]
       },
       "storage": {
         "group": "content-media",
@@ -68,7 +77,10 @@
       },
       "copy": {
         "exam": "concrete-chief",
-        "headline": ["択一×小論文", "どう学ぶ？"],
+        "headline": [
+          "択一×小論文",
+          "どう学ぶ？"
+        ],
         "authority": "総監が制作"
       },
       "output": {
@@ -86,8 +98,15 @@
         "userImageReview": "pending",
         "checkedAt": "2026-10-26T14:51:56Z",
         "by": "Codex",
-        "views": ["original", "1920x1080"],
-        "checks": ["文言・資格名", "顔と安全域", "字幕領域"]
+        "views": [
+          "original",
+          "1920x1080"
+        ],
+        "checks": [
+          "文言・資格名",
+          "顔と安全域",
+          "字幕領域"
+        ]
       },
       "storage": {
         "group": "content-media",
@@ -99,33 +118,828 @@
       "generation": {
         "tool": "image_gen",
         "prompt": "Revise this Japanese YouTube cover with a strict SUBTITLE SAFE BAND. Draw an imaginary horizontal boundary at 78% of canvas height. ALL non-background content, including the two document icons, the teacher's shoulders and hands, energetic comic strokes, and all Japanese lettering, must end ABOVE that boundary. The bottom 22% of the frame must be only an uninterrupted purple/violet gradient with subtle diagonal texture, completely empty of foreground shapes. Preserve exact Japanese text: 総監が制作 / コンクリート主任技士 / 択一×小論文 / どう学ぶ？. Preserve the same teacher character and bold POP style. This is a full-bleed 16:9 image; no frame or white margin. Shrink the upper composition as needed while keeping its text legible. No new words.",
-        "references": [{
-          "path": ".tmp/media/concrete-chief-engineer/shunin-shiken-zentaizou/work/cover-candidate-revised.21eebe4c.png",
-          "sha256": "21eebe4cf10d413f755e1dc3bf43ff5895a1273403e6c9677639fffb2b43f8f3"
-        }],
+        "references": [
+          {
+            "path": ".tmp/media/concrete-chief-engineer/shunin-shiken-zentaizou/work/cover-candidate-revised.21eebe4c.png",
+            "sha256": "21eebe4cf10d413f755e1dc3bf43ff5895a1273403e6c9677639fffb2b43f8f3"
+          }
+        ],
         "output": {
           "path": ".tmp/media/concrete-chief-engineer/shunin-shiken-zentaizou/work/raw-cover-safe.0a0237dc.png",
           "sha256": "0a0237dc2484d9d1b3715cc929ab871ddd3a95899979f7ae7a81e1559c334e4a"
         },
         "generatedAt": "2026-10-26T14:58:02Z"
       },
-      "copy": {"exam": "concrete-chief", "headline": ["択一×小論文", "どう学ぶ？"], "authority": "総監が制作"},
+      "copy": {
+        "exam": "concrete-chief",
+        "headline": [
+          "択一×小論文",
+          "どう学ぶ？"
+        ],
+        "authority": "総監が制作"
+      },
       "output": {
         "path": ".tmp/media/concrete-chief-engineer/shunin-shiken-zentaizou/work/cover-candidate-safe.729a5a5e.png",
         "sha256": "729a5a5e70c9b6de85da4e5eaf3c10cf72946541c575850185578e44623ec7e8",
         "width": 1920,
         "height": 1080
       },
-      "normalization": {"mode": "full-frame-v1", "sourceSha256": "0a0237dc2484d9d1b3715cc929ab871ddd3a95899979f7ae7a81e1559c334e4a"},
+      "normalization": {
+        "mode": "full-frame-v1",
+        "sourceSha256": "0a0237dc2484d9d1b3715cc929ab871ddd3a95899979f7ae7a81e1559c334e4a"
+      },
       "review": {
         "status": "candidate",
         "userImageReview": "pending",
         "checkedAt": "2026-10-26T14:58:00Z",
         "by": "Codex",
-        "views": ["original", "1920x1080"],
-        "checks": ["文言・資格名", "顔と安全域", "字幕領域"]
+        "views": [
+          "original",
+          "1920x1080"
+        ],
+        "checks": [
+          "文言・資格名",
+          "顔と安全域",
+          "字幕領域"
+        ]
       },
-      "storage": {"group": "content-media", "sync": "cloud-verified"}
+      "storage": {
+        "group": "content-media",
+        "sync": "cloud-verified"
+      }
+    },
+    "cover-pop-20261027": {
+      "version": "pop-poster-v3",
+      "generation": {
+        "tool": "image_gen",
+        "prompt": "Revise this Japanese YouTube cover with a strict SUBTITLE SAFE BAND. Draw an imaginary horizontal boundary at 78% of canvas height. ALL non-background content, including the two document icons, the teacher's shoulders and hands, energetic comic strokes, and all Japanese lettering, must end ABOVE that boundary. The bottom 22% of the frame must be only an uninterrupted purple/violet gradient with subtle diagonal texture, completely empty of foreground shapes. Preserve exact Japanese text: 総監が制作 / コンクリート主任技士 / 択一×小論文 / どう学ぶ？. Preserve the same teacher character and bold POP style. This is a full-bleed 16:9 image; no frame or white margin. Shrink the upper composition as needed while keeping its text legible. No new words.",
+        "references": [
+          {
+            "path": ".tmp/media/concrete-chief-engineer/shunin-shiken-zentaizou/work/cover-candidate-revised.21eebe4c.png",
+            "sha256": "21eebe4cf10d413f755e1dc3bf43ff5895a1273403e6c9677639fffb2b43f8f3"
+          }
+        ],
+        "output": {
+          "path": ".tmp/media/concrete-chief-engineer/shunin-shiken-zentaizou/work/raw-cover-safe.0a0237dc.png",
+          "sha256": "0a0237dc2484d9d1b3715cc929ab871ddd3a95899979f7ae7a81e1559c334e4a"
+        },
+        "generatedAt": "2026-10-26T14:58:02Z"
+      },
+      "copy": {
+        "exam": "concrete-chief",
+        "headline": [
+          "択一×小論文",
+          "どう学ぶ？"
+        ],
+        "authority": "総監が制作"
+      },
+      "output": {
+        "path": ".tmp/media/concrete-chief-engineer/shunin-shiken-zentaizou/youtube.longform/cover.729a5a5e.png",
+        "sha256": "729a5a5e70c9b6de85da4e5eaf3c10cf72946541c575850185578e44623ec7e8",
+        "width": 1920,
+        "height": 1080
+      },
+      "normalization": {
+        "mode": "full-frame-v1",
+        "sourceSha256": "0a0237dc2484d9d1b3715cc929ab871ddd3a95899979f7ae7a81e1559c334e4a"
+      },
+      "review": {
+        "status": "ai-reviewed",
+        "userImageReview": "pending",
+        "checkedAt": "2026-10-26T14:58:00Z",
+        "by": "Codex",
+        "views": [
+          "original",
+          "1920x1080"
+        ],
+        "checks": [
+          "文言・資格名",
+          "顔と安全域",
+          "字幕領域"
+        ]
+      },
+      "storage": {
+        "group": "content-media",
+        "sync": "cloud-verified"
+      }
+    },
+    "body-diagram-20261027": {
+      "layout": {
+        "mode": "diagram-led"
+      },
+      "images": [
+        {
+          "sceneId": "premise",
+          "inputSha256": "67e36d9e276ccefb9ca0881251ac409e02d5e5570d9bbe14bd98041b0c739c2f",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Create ONE new full-bleed 16:9 educational diagram slide for a Japanese コンクリート主任技士 video. Use attached image as style reference only. White to very light lavender background, thick dark purple and navy outlines, restrained yellow accent, large simple icons, diagram-led, no human character, no poster typography, no bullet-card layout. All meaningful text and graphics above 78% height; bottom 22% continuous empty pale background reserved for subtitles. Japanese text must be exactly as specified, no extra words or numbers. Do not imply unsupported exam facts. Intended 1920x1080. Heading『技士と主任技士の違い』. Two side-by-side simple roles: left icon test sheet with label『技士：実施』, right icon plan and decision arrows with label『主任技士：判断・立案』. Use a purple line between roles, no directional arrow that suggests promotion requirement.",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/work/promise-diagram.c7e7cf67.png",
+                "sha256": "c7e7cf6782e5ef4f90e378ac9927e178f7d4acaa2555c547aabe93df9f8cace3"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-chief-engineer/shunin-shiken-zentaizou/work/raw-premise.3a698d3c.png",
+              "sha256": "3a698d3c5f14b1971a5e9243eb551a6a21dbd260486a4e033a82da17385b75d3"
+            },
+            "generatedAt": "2026-10-26T22:06:14.299Z"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-chief-engineer/shunin-shiken-zentaizou/work/premise-diagram.9386fb04.png",
+            "sha256": "9386fb04186c9596dc98c481a874ccd0f198ca511b228692a96f1334b7ed60fd",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "3a698d3c5f14b1971a5e9243eb551a6a21dbd260486a4e033a82da17385b75d3"
+          },
+          "review": {
+            "status": "candidate",
+            "userReview": "pending",
+            "checkedAt": "2026-10-26T22:06:14.300Z",
+            "by": "Codex",
+            "views": [
+              "original",
+              "1920x1080"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "日本語の判読",
+              "字幕安全域"
+            ]
+          }
+        },
+        {
+          "sceneId": "overview",
+          "inputSha256": "47ac4a5cdce6bfeac5fcecf7473396725c85ae38ffa191f8e157a43177f75bb4",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Create ONE new full-bleed 16:9 educational diagram slide for a Japanese コンクリート主任技士 video. Use attached image as style reference only. White to very light lavender background, thick dark purple and navy outlines, restrained yellow accent, large simple icons, diagram-led, no human character, no poster typography, no bullet-card layout. All meaningful text and graphics above 78% height; bottom 22% continuous empty pale background reserved for subtitles. Japanese text must be exactly as specified, no extra words or numbers. Do not imply unsupported exam facts. Intended 1920x1080. Heading『主任技士の役割』. Three connected equal purple circles with icons and labels『計画』『管理』『指導』. Below these, a simple concrete cylinder test specimen icon; no extra text.",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/work/promise-diagram.c7e7cf67.png",
+                "sha256": "c7e7cf6782e5ef4f90e378ac9927e178f7d4acaa2555c547aabe93df9f8cace3"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-chief-engineer/shunin-shiken-zentaizou/work/raw-overview.7491c746.png",
+              "sha256": "7491c746cb97b95b23720757edb87a8c4bc33604638496912c2338a45c4ecc23"
+            },
+            "generatedAt": "2026-10-26T22:06:14.300Z"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-chief-engineer/shunin-shiken-zentaizou/work/overview-diagram.7418aeb3.png",
+            "sha256": "7418aeb318b163c483539e5bcbec77048625d83a897266280b0f90e77e44d225",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "7491c746cb97b95b23720757edb87a8c4bc33604638496912c2338a45c4ecc23"
+          },
+          "review": {
+            "status": "candidate",
+            "userReview": "pending",
+            "checkedAt": "2026-10-26T22:06:14.300Z",
+            "by": "Codex",
+            "views": [
+              "original",
+              "1920x1080"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "日本語の判読",
+              "字幕安全域"
+            ]
+          }
+        },
+        {
+          "sceneId": "step1",
+          "inputSha256": "2986a198f4ff9356a1365d4927cb69584ae69317d5352f4372c2de299deaac46",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Edit the supplied Japanese educational video diagram. Keep the same clear white/lavender 16:9 full-frame style, the exact readable heading 「試験は二本立て」, two equal circles with labels 「四肢択一式」「小論文」 and the two 「基準点を超える」 badges, and the answer-sheet icon with exactly FOUR choice bubbles in EACH row. Preserve the visual meaning and spelling. Critical layout fix: shrink and move BOTH circular diagrams upward so their lowest strokes are at 68% of the canvas height or higher. Keep the bottom 32% entirely empty pale background for subtitles: absolutely no circle stroke, badge, shadow, divider line, or meaningful marks there. No extra text or numbers. Retain strong mobile legibility.",
+            "references": [
+              {
+                "path": ".tmp/media/concrete-chief-engineer/shunin-shiken-zentaizou/work/step1-diagram-final.717f3c50.png",
+                "sha256": "717f3c50ac63c7098e9418b8aead0375f3da859770de43a4f2959fd95408393f"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-chief-engineer/shunin-shiken-zentaizou/work/raw-step1-safe.c904ef36.png",
+              "sha256": "c904ef36d6ccd8505b7c2c6a2897307636b649e6f462d12269c5f032fd267b05"
+            },
+            "generatedAt": "2026-10-26T22:21:51.880Z"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-chief-engineer/shunin-shiken-zentaizou/work/step1-diagram-safe.0aaa505e.png",
+            "sha256": "0aaa505e61b971e476905a695754b96b25b99f2626b670284190a610b2e1457f",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "c904ef36d6ccd8505b7c2c6a2897307636b649e6f462d12269c5f032fd267b05"
+          },
+          "review": {
+            "status": "candidate",
+            "userReview": "pending",
+            "checkedAt": "2026-10-26T22:21:51.881Z",
+            "by": "Codex",
+            "views": [
+              "original",
+              "1920x1080"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "日本語の判読",
+              "字幕安全域"
+            ]
+          }
+        },
+        {
+          "sceneId": "step2",
+          "inputSha256": "b027bc1f7b9ce749527b5fce9379618f5078513879daaf839ef2d61abc49750f",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Create ONE new full-bleed 16:9 educational diagram slide for a Japanese コンクリート主任技士 video. Use attached image as style reference only. White to very light lavender background, thick dark purple and navy outlines, restrained yellow accent, large simple icons, diagram-led, no human character, no poster typography, no bullet-card layout. All meaningful text and graphics above 78% height; bottom 22% continuous empty pale background reserved for subtitles. Japanese text must be exactly as specified, no extra words or numbers. Do not imply unsupported exam facts. Intended 1920x1080. Heading『選考基準の主な項目』. A simple clustered concept map with eight readable labels:『用材料』『配合設計』『試験』『プラント』『製造・品質管理』『施工』『環境問題』『その他』. Exactly eight clusters, grouped into 2 rows of 4. Small related icons, no invented syllabus numbers, no structural design claim.",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/work/promise-diagram.c7e7cf67.png",
+                "sha256": "c7e7cf6782e5ef4f90e378ac9927e178f7d4acaa2555c547aabe93df9f8cace3"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-chief-engineer/shunin-shiken-zentaizou/work/raw-step2.f1519fc2.png",
+              "sha256": "f1519fc2cbff8831048f89ca5ef904c81671d3faffb10435057aeb085db96580"
+            },
+            "generatedAt": "2026-10-26T22:06:14.300Z"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-chief-engineer/shunin-shiken-zentaizou/work/step2-diagram.b868b693.png",
+            "sha256": "b868b693e9255d16500008416e59df0844b8a9a20ebf944388c535fac112e78e",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "f1519fc2cbff8831048f89ca5ef904c81671d3faffb10435057aeb085db96580"
+          },
+          "review": {
+            "status": "candidate",
+            "userReview": "pending",
+            "checkedAt": "2026-10-26T22:06:14.300Z",
+            "by": "Codex",
+            "views": [
+              "original",
+              "1920x1080"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "日本語の判読",
+              "字幕安全域"
+            ]
+          }
+        },
+        {
+          "sceneId": "step3",
+          "inputSha256": "ef27d186e864f01b8bfd5a2cdd40344e65ab7d6f38a7ca0d3159892911e4a4e4",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Edit the attached slide with a stricter layout correction. Preserve exact heading and all Japanese labels, same icons and two parallel circles. Move and SHRINK the entire two-circle diagram substantially so the lowest point of every circle and every label ends at 68% of canvas height. The bottom 32% of the 16:9 image must be completely empty pale background, including no circle stroke, shadows, yellow underline, text or any marks. You may use more white space between heading and circles only if needed. Keep the heading fully legible at top and the two circles side by side, centered. Exact text:『求められる役割の違い』『技士』『試験・判定』『主任技士』『新材料の使用可否』『使い方の立案も担う』. No other words, no numerical claims, no crop at edges.",
+            "references": [
+              {
+                "path": ".tmp/media/concrete-chief-engineer/shunin-shiken-zentaizou/work/raw-step3-second.2644b539.png",
+                "sha256": "2644b53971575311b5ab48082204358c7df65ffdb95bf71da5f067c62694eec5"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-chief-engineer/shunin-shiken-zentaizou/work/raw-step3-final.ce85fa4b.png",
+              "sha256": "ce85fa4b25f7b9b5e28c2e3aa785ef0145ffda8cf7f1adb529b4dca0e63ae6aa"
+            },
+            "generatedAt": "2026-10-26T22:17:13.733Z"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-chief-engineer/shunin-shiken-zentaizou/work/step3-diagram-final.3bda082d.png",
+            "sha256": "3bda082dfc8dfd860b815d459d387ffdbc620bf18daae652c2a48183392bad33",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "ce85fa4b25f7b9b5e28c2e3aa785ef0145ffda8cf7f1adb529b4dca0e63ae6aa"
+          },
+          "review": {
+            "status": "candidate",
+            "userReview": "pending",
+            "checkedAt": "2026-10-26T22:17:13.733Z",
+            "by": "Codex",
+            "views": [
+              "original",
+              "1920x1080"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "日本語の判読",
+              "字幕安全域"
+            ]
+          }
+        },
+        {
+          "sceneId": "step4",
+          "inputSha256": "ea5d999ccb90521a73f3c988f2b1a646c99bfad28711bf63b591882a93d128bc",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Edit this Japanese educational diagram slide for a concrete chief engineer exam video. Keep the two parallel learning tracks, clean white/lavender style, purple/navy outlines, 16:9 full bleed, and blank bottom 22% for subtitles. Make one precise improvement: below the final calendar icon in the rightmost circle, add a large readable label exactly『弱い側に時間を多めに』. Keep all existing Japanese labels correct, no extra text. To fit, reduce the rightmost calendar icon slightly if needed, but all meaningful text and graphics must remain above the 78% horizontal boundary. The idea is to compare multiple-choice practice and essay writing, then allocate more study time to the weaker side, without fixed numerical ratios.",
+            "references": [
+              {
+                "path": ".tmp/media/concrete-chief-engineer/shunin-shiken-zentaizou/work/raw-step4.437a328a.png",
+                "sha256": "437a328a30efda6224449c5f0429a99badc4c8ae8cf2ccc3970c7fd0e2603408"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-chief-engineer/shunin-shiken-zentaizou/work/raw-step4-revised.386c740c.png",
+              "sha256": "386c740c9699449601147aecb2e8e0f05ee30737eb26ab5130e5fe518e19dae9"
+            },
+            "generatedAt": "2026-10-26T22:06:14.301Z"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-chief-engineer/shunin-shiken-zentaizou/work/step4-diagram-revised.6d0b1962.png",
+            "sha256": "6d0b196280b175ebaf73840b0a841cf8d98ffc03fd7669f315a2a926a0bde327",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "386c740c9699449601147aecb2e8e0f05ee30737eb26ab5130e5fe518e19dae9"
+          },
+          "review": {
+            "status": "candidate",
+            "userReview": "pending",
+            "checkedAt": "2026-10-26T22:06:14.301Z",
+            "by": "Codex",
+            "views": [
+              "original",
+              "1920x1080"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "日本語の判読",
+              "字幕安全域"
+            ]
+          }
+        },
+        {
+          "sceneId": "summary",
+          "inputSha256": "96a1f34015012705dd66fea381ae779276abed9ec6ed13934e7fe0f7f290600b",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Create ONE new full-bleed 16:9 educational diagram slide for a Japanese コンクリート主任技士 video. Use attached image as style reference only. White to very light lavender background, thick dark purple and navy outlines, restrained yellow accent, large simple icons, diagram-led, no human character, no poster typography, no bullet-card layout. All meaningful text and graphics above 78% height; bottom 22% continuous empty pale background reserved for subtitles. Japanese text must be exactly as specified, no extra words or numbers. Do not imply unsupported exam facts. Intended 1920x1080. Heading『学習の3つの軸』. Three large equal circles with clear icons and labels『判断・立案』『分野を横断』『択一と小論文』. Purple and light lavender palette, no list card, no fake statistics.",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/work/promise-diagram.c7e7cf67.png",
+                "sha256": "c7e7cf6782e5ef4f90e378ac9927e178f7d4acaa2555c547aabe93df9f8cace3"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-chief-engineer/shunin-shiken-zentaizou/work/raw-summary.6ef77a92.png",
+              "sha256": "6ef77a92f1dfc63afc87e832f4b6026e9f5842fa1681290ca742979913bbc8d8"
+            },
+            "generatedAt": "2026-10-26T22:06:14.301Z"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-chief-engineer/shunin-shiken-zentaizou/work/summary-diagram.c061bae1.png",
+            "sha256": "c061bae1c453b32b61dc463877d3f9f18fba3f5bf5711e0758e8b7e6942f3533",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "6ef77a92f1dfc63afc87e832f4b6026e9f5842fa1681290ca742979913bbc8d8"
+          },
+          "review": {
+            "status": "candidate",
+            "userReview": "pending",
+            "checkedAt": "2026-10-26T22:06:14.301Z",
+            "by": "Codex",
+            "views": [
+              "original",
+              "1920x1080"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "日本語の判読",
+              "字幕安全域"
+            ]
+          }
+        },
+        {
+          "sceneId": "cta",
+          "inputSha256": "0e23c65d12e1ab1ecd73985f485e1a0a03e5460e901cced6546b7a05c7b311e0",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Create ONE new full-bleed 16:9 educational diagram slide for a Japanese コンクリート主任技士 video. Use attached image as style reference only. White to very light lavender background, thick dark purple and navy outlines, restrained yellow accent, large simple icons, diagram-led, no human character, no poster typography, no bullet-card layout. All meaningful text and graphics above 78% height; bottom 22% continuous empty pale background reserved for subtitles. Japanese text must be exactly as specified, no extra words or numbers. Do not imply unsupported exam facts. Intended 1920x1080. Heading『次の学習へ』. A simple branching roadmap: center exam overview icon labeled『試験の全体像』, to left a book icon labeled『分野別の要点』, to right a worksheet icon labeled『小論文の書き方』. At bottom above subtitle-safe band a small label『概要欄のリンクから』. No URL, no extra words.",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/work/promise-diagram.c7e7cf67.png",
+                "sha256": "c7e7cf6782e5ef4f90e378ac9927e178f7d4acaa2555c547aabe93df9f8cace3"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-chief-engineer/shunin-shiken-zentaizou/work/raw-cta.4fd054cd.png",
+              "sha256": "4fd054cda311f5fc1c9f33f0a168f17d7daa264d79eceaa0c8c489161a810ffa"
+            },
+            "generatedAt": "2026-10-26T22:06:14.301Z"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-chief-engineer/shunin-shiken-zentaizou/work/cta-diagram.d960d349.png",
+            "sha256": "d960d3490f35518f31e117c062645149ed5290766bfe28e92636a8e419fd5cbc",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "4fd054cda311f5fc1c9f33f0a168f17d7daa264d79eceaa0c8c489161a810ffa"
+          },
+          "review": {
+            "status": "candidate",
+            "userReview": "pending",
+            "checkedAt": "2026-10-26T22:06:14.301Z",
+            "by": "Codex",
+            "views": [
+              "original",
+              "1920x1080"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "日本語の判読",
+              "字幕安全域"
+            ]
+          }
+        }
+      ]
+    },
+    "body-diagram-qa-20261027": {
+      "layout": {
+        "mode": "diagram-led"
+      },
+      "images": [
+        {
+          "sceneId": "premise",
+          "inputSha256": "67e36d9e276ccefb9ca0881251ac409e02d5e5570d9bbe14bd98041b0c739c2f",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Edit existing premise diagram: preserve 16:9 simple white/lavender two-circle graphic. Keep title 技士と主任技士の違い and left 技士：実施. Correct right to 主任技士：分野により判断・立案. Leave bottom subtitle band empty.",
+            "references": [
+              {
+                "path": ".tmp/media/concrete-chief-engineer/shunin-shiken-zentaizou/work/premise-diagram.9386fb04.png",
+                "sha256": "9386fb04186c9596dc98c481a874ccd0f198ca511b228692a96f1334b7ed60fd"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-chief-engineer/shunin-shiken-zentaizou/work/raw-premise-qa.e0e61781.png",
+              "sha256": "e0e617812e16cdf4b8d13b62a7041390e30555d59e3de30cf2f484bb4486c5c6"
+            },
+            "generatedAt": "2026-10-26T22:47:26.018Z"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-chief-engineer/shunin-shiken-zentaizou/work/premise-diagram-qa.902a2d2a.png",
+            "sha256": "902a2d2ac34ad66ca506280fa0febec1d57bd79baba0d91c8e0b92fba8594939",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "e0e617812e16cdf4b8d13b62a7041390e30555d59e3de30cf2f484bb4486c5c6"
+          },
+          "review": {
+            "status": "candidate",
+            "userReview": "pending",
+            "checkedAt": "2026-10-26T22:47:26.019Z",
+            "by": "Codex",
+            "views": [
+              "original",
+              "1920x1080"
+            ],
+            "checks": [
+              "限定条件と図の意味",
+              "日本語の判読",
+              "字幕安全域"
+            ]
+          }
+        },
+        {
+          "sceneId": "overview",
+          "inputSha256": "47ac4a5cdce6bfeac5fcecf7473396725c85ae38ffa191f8e157a43177f75bb4",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Create ONE new full-bleed 16:9 educational diagram slide for a Japanese コンクリート主任技士 video. Use attached image as style reference only. White to very light lavender background, thick dark purple and navy outlines, restrained yellow accent, large simple icons, diagram-led, no human character, no poster typography, no bullet-card layout. All meaningful text and graphics above 78% height; bottom 22% continuous empty pale background reserved for subtitles. Japanese text must be exactly as specified, no extra words or numbers. Do not imply unsupported exam facts. Intended 1920x1080. Heading『主任技士の役割』. Three connected equal purple circles with icons and labels『計画』『管理』『指導』. Below these, a simple concrete cylinder test specimen icon; no extra text.",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/work/promise-diagram.c7e7cf67.png",
+                "sha256": "c7e7cf6782e5ef4f90e378ac9927e178f7d4acaa2555c547aabe93df9f8cace3"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-chief-engineer/shunin-shiken-zentaizou/work/raw-overview.7491c746.png",
+              "sha256": "7491c746cb97b95b23720757edb87a8c4bc33604638496912c2338a45c4ecc23"
+            },
+            "generatedAt": "2026-10-26T22:06:14.300Z"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-chief-engineer/shunin-shiken-zentaizou/work/overview-diagram.7418aeb3.png",
+            "sha256": "7418aeb318b163c483539e5bcbec77048625d83a897266280b0f90e77e44d225",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "7491c746cb97b95b23720757edb87a8c4bc33604638496912c2338a45c4ecc23"
+          },
+          "review": {
+            "status": "candidate",
+            "userReview": "pending",
+            "checkedAt": "2026-10-26T22:06:14.300Z",
+            "by": "Codex",
+            "views": [
+              "original",
+              "1920x1080"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "日本語の判読",
+              "字幕安全域"
+            ]
+          }
+        },
+        {
+          "sceneId": "step1",
+          "inputSha256": "2986a198f4ff9356a1365d4927cb69584ae69317d5352f4372c2de299deaac46",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Edit the supplied Japanese educational video diagram. Keep the same clear white/lavender 16:9 full-frame style, the exact readable heading 「試験は二本立て」, two equal circles with labels 「四肢択一式」「小論文」 and the two 「基準点を超える」 badges, and the answer-sheet icon with exactly FOUR choice bubbles in EACH row. Preserve the visual meaning and spelling. Critical layout fix: shrink and move BOTH circular diagrams upward so their lowest strokes are at 68% of the canvas height or higher. Keep the bottom 32% entirely empty pale background for subtitles: absolutely no circle stroke, badge, shadow, divider line, or meaningful marks there. No extra text or numbers. Retain strong mobile legibility.",
+            "references": [
+              {
+                "path": ".tmp/media/concrete-chief-engineer/shunin-shiken-zentaizou/work/step1-diagram-final.717f3c50.png",
+                "sha256": "717f3c50ac63c7098e9418b8aead0375f3da859770de43a4f2959fd95408393f"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-chief-engineer/shunin-shiken-zentaizou/work/raw-step1-safe.c904ef36.png",
+              "sha256": "c904ef36d6ccd8505b7c2c6a2897307636b649e6f462d12269c5f032fd267b05"
+            },
+            "generatedAt": "2026-10-26T22:21:51.880Z"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-chief-engineer/shunin-shiken-zentaizou/work/step1-diagram-safe.0aaa505e.png",
+            "sha256": "0aaa505e61b971e476905a695754b96b25b99f2626b670284190a610b2e1457f",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "c904ef36d6ccd8505b7c2c6a2897307636b649e6f462d12269c5f032fd267b05"
+          },
+          "review": {
+            "status": "candidate",
+            "userReview": "pending",
+            "checkedAt": "2026-10-26T22:21:51.881Z",
+            "by": "Codex",
+            "views": [
+              "original",
+              "1920x1080"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "日本語の判読",
+              "字幕安全域"
+            ]
+          }
+        },
+        {
+          "sceneId": "step2",
+          "inputSha256": "b027bc1f7b9ce749527b5fce9379618f5078513879daaf839ef2d61abc49750f",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Create ONE new full-bleed 16:9 educational diagram slide for a Japanese コンクリート主任技士 video. Use attached image as style reference only. White to very light lavender background, thick dark purple and navy outlines, restrained yellow accent, large simple icons, diagram-led, no human character, no poster typography, no bullet-card layout. All meaningful text and graphics above 78% height; bottom 22% continuous empty pale background reserved for subtitles. Japanese text must be exactly as specified, no extra words or numbers. Do not imply unsupported exam facts. Intended 1920x1080. Heading『選考基準の主な項目』. A simple clustered concept map with eight readable labels:『用材料』『配合設計』『試験』『プラント』『製造・品質管理』『施工』『環境問題』『その他』. Exactly eight clusters, grouped into 2 rows of 4. Small related icons, no invented syllabus numbers, no structural design claim.",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/work/promise-diagram.c7e7cf67.png",
+                "sha256": "c7e7cf6782e5ef4f90e378ac9927e178f7d4acaa2555c547aabe93df9f8cace3"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-chief-engineer/shunin-shiken-zentaizou/work/raw-step2.f1519fc2.png",
+              "sha256": "f1519fc2cbff8831048f89ca5ef904c81671d3faffb10435057aeb085db96580"
+            },
+            "generatedAt": "2026-10-26T22:06:14.300Z"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-chief-engineer/shunin-shiken-zentaizou/work/step2-diagram.b868b693.png",
+            "sha256": "b868b693e9255d16500008416e59df0844b8a9a20ebf944388c535fac112e78e",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "f1519fc2cbff8831048f89ca5ef904c81671d3faffb10435057aeb085db96580"
+          },
+          "review": {
+            "status": "candidate",
+            "userReview": "pending",
+            "checkedAt": "2026-10-26T22:06:14.300Z",
+            "by": "Codex",
+            "views": [
+              "original",
+              "1920x1080"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "日本語の判読",
+              "字幕安全域"
+            ]
+          }
+        },
+        {
+          "sceneId": "step3",
+          "inputSha256": "ef27d186e864f01b8bfd5a2cdd40344e65ab7d6f38a7ca0d3159892911e4a4e4",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Edit existing step3 diagram: title 用材料の品質試験での違い, compare 技士：試験・判定 and 主任技士：新材料の使用可否を判断し、使い方を立案, add 小論文：実務経験を踏まえて記述. Keep all content above 76% frame height.",
+            "references": [
+              {
+                "path": ".tmp/media/concrete-chief-engineer/shunin-shiken-zentaizou/work/step3-diagram-final.3bda082d.png",
+                "sha256": "3bda082dfc8dfd860b815d459d387ffdbc620bf18daae652c2a48183392bad33"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-chief-engineer/shunin-shiken-zentaizou/work/raw-step3-qa.c636e89b.png",
+              "sha256": "c636e89b7367148e2c3f993e7f0ceb88eb66bff52363819f7ba0b95b4208da02"
+            },
+            "generatedAt": "2026-10-26T22:47:26.116Z"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-chief-engineer/shunin-shiken-zentaizou/work/step3-diagram-qa.2c307ccc.png",
+            "sha256": "2c307ccc000a9365b7b6d7540cfc34cade736270a4dec0820c8af30013685d7f",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "c636e89b7367148e2c3f993e7f0ceb88eb66bff52363819f7ba0b95b4208da02"
+          },
+          "review": {
+            "status": "candidate",
+            "userReview": "pending",
+            "checkedAt": "2026-10-26T22:47:26.116Z",
+            "by": "Codex",
+            "views": [
+              "original",
+              "1920x1080"
+            ],
+            "checks": [
+              "限定条件と図の意味",
+              "日本語の判読",
+              "字幕安全域"
+            ]
+          }
+        },
+        {
+          "sceneId": "step4",
+          "inputSha256": "ea5d999ccb90521a73f3c988f2b1a646c99bfad28711bf63b591882a93d128bc",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Edit existing step4 diagram to show two study-time branches: 択一が安定・小論文が弱い → 択一演習の一部を小論文へ; 択一が不安定 → 小論文の時間を過去問へ. 毎週見直す. Preserve subtitle safe band.",
+            "references": [
+              {
+                "path": ".tmp/media/concrete-chief-engineer/shunin-shiken-zentaizou/work/step4-diagram-revised.6d0b1962.png",
+                "sha256": "6d0b196280b175ebaf73840b0a841cf8d98ffc03fd7669f315a2a926a0bde327"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-chief-engineer/shunin-shiken-zentaizou/work/raw-step4-qa.0091aa62.png",
+              "sha256": "0091aa6272cbd668e1c843bc109d8e868dce6df2507eabb8bbf77f13a283a848"
+            },
+            "generatedAt": "2026-10-26T22:47:26.220Z"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-chief-engineer/shunin-shiken-zentaizou/work/step4-diagram-qa.b4e0eba4.png",
+            "sha256": "b4e0eba4fdfd14f5c0f13bdb7a253e59efd763fd63a874321e3770b4fdbb8620",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "0091aa6272cbd668e1c843bc109d8e868dce6df2507eabb8bbf77f13a283a848"
+          },
+          "review": {
+            "status": "candidate",
+            "userReview": "pending",
+            "checkedAt": "2026-10-26T22:47:26.220Z",
+            "by": "Codex",
+            "views": [
+              "original",
+              "1920x1080"
+            ],
+            "checks": [
+              "限定条件と図の意味",
+              "日本語の判読",
+              "字幕安全域"
+            ]
+          }
+        },
+        {
+          "sceneId": "summary",
+          "inputSha256": "96a1f34015012705dd66fea381ae779276abed9ec6ed13934e7fe0f7f290600b",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Create ONE new full-bleed 16:9 educational diagram slide for a Japanese コンクリート主任技士 video. Use attached image as style reference only. White to very light lavender background, thick dark purple and navy outlines, restrained yellow accent, large simple icons, diagram-led, no human character, no poster typography, no bullet-card layout. All meaningful text and graphics above 78% height; bottom 22% continuous empty pale background reserved for subtitles. Japanese text must be exactly as specified, no extra words or numbers. Do not imply unsupported exam facts. Intended 1920x1080. Heading『学習の3つの軸』. Three large equal circles with clear icons and labels『判断・立案』『分野を横断』『択一と小論文』. Purple and light lavender palette, no list card, no fake statistics.",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/work/promise-diagram.c7e7cf67.png",
+                "sha256": "c7e7cf6782e5ef4f90e378ac9927e178f7d4acaa2555c547aabe93df9f8cace3"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-chief-engineer/shunin-shiken-zentaizou/work/raw-summary.6ef77a92.png",
+              "sha256": "6ef77a92f1dfc63afc87e832f4b6026e9f5842fa1681290ca742979913bbc8d8"
+            },
+            "generatedAt": "2026-10-26T22:06:14.301Z"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-chief-engineer/shunin-shiken-zentaizou/work/summary-diagram.c061bae1.png",
+            "sha256": "c061bae1c453b32b61dc463877d3f9f18fba3f5bf5711e0758e8b7e6942f3533",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "6ef77a92f1dfc63afc87e832f4b6026e9f5842fa1681290ca742979913bbc8d8"
+          },
+          "review": {
+            "status": "candidate",
+            "userReview": "pending",
+            "checkedAt": "2026-10-26T22:06:14.301Z",
+            "by": "Codex",
+            "views": [
+              "original",
+              "1920x1080"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "日本語の判読",
+              "字幕安全域"
+            ]
+          }
+        },
+        {
+          "sceneId": "cta",
+          "inputSha256": "0e23c65d12e1ab1ecd73985f485e1a0a03e5460e901cced6546b7a05c7b311e0",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Create ONE new full-bleed 16:9 educational diagram slide for a Japanese コンクリート主任技士 video. Use attached image as style reference only. White to very light lavender background, thick dark purple and navy outlines, restrained yellow accent, large simple icons, diagram-led, no human character, no poster typography, no bullet-card layout. All meaningful text and graphics above 78% height; bottom 22% continuous empty pale background reserved for subtitles. Japanese text must be exactly as specified, no extra words or numbers. Do not imply unsupported exam facts. Intended 1920x1080. Heading『次の学習へ』. A simple branching roadmap: center exam overview icon labeled『試験の全体像』, to left a book icon labeled『分野別の要点』, to right a worksheet icon labeled『小論文の書き方』. At bottom above subtitle-safe band a small label『概要欄のリンクから』. No URL, no extra words.",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/work/promise-diagram.c7e7cf67.png",
+                "sha256": "c7e7cf6782e5ef4f90e378ac9927e178f7d4acaa2555c547aabe93df9f8cace3"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-chief-engineer/shunin-shiken-zentaizou/work/raw-cta.4fd054cd.png",
+              "sha256": "4fd054cda311f5fc1c9f33f0a168f17d7daa264d79eceaa0c8c489161a810ffa"
+            },
+            "generatedAt": "2026-10-26T22:06:14.301Z"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-chief-engineer/shunin-shiken-zentaizou/work/cta-diagram.d960d349.png",
+            "sha256": "d960d3490f35518f31e117c062645149ed5290766bfe28e92636a8e419fd5cbc",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "4fd054cda311f5fc1c9f33f0a168f17d7daa264d79eceaa0c8c489161a810ffa"
+          },
+          "review": {
+            "status": "candidate",
+            "userReview": "pending",
+            "checkedAt": "2026-10-26T22:06:14.301Z",
+            "by": "Codex",
+            "views": [
+              "original",
+              "1920x1080"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "日本語の判読",
+              "字幕安全域"
+            ]
+          }
+        }
+      ]
     }
   },
   "outputs": {
@@ -306,5 +1120,7 @@
       },
       "publication": "ローカル差し替え・外部未反映"
     }
-  }
+  },
+  "activeCoverRevision": "cover-pop-20261027",
+  "activeBodyRevision": "body-diagram-qa-20261027"
 }

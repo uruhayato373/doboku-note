@@ -243,7 +243,8 @@ export function checkRegistry(root, opts = {}) {
   for (const p of reg.publications.filter(p => p.channel === 'youtube' && p.revisionOf)) {
     counts.checkedRevisionInputs++;
     const input = p.copy && readJsonIf(root, p.copy);
-    const assets = Object.fromEntries(Object.entries(p.media ?? {}).map(([role, id]) => {
+    const assets = Object.fromEntries(Object.keys(input?.media ?? {}).map(role => {
+      const id = p.media?.[role];
       const m = mediaById.get(id);
       return [role, m ? { id, path: m.store.path, sha256: m.sha256 } : null];
     }));

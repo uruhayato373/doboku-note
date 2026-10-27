@@ -22,7 +22,7 @@ Google Drive 側が `config/drive-vault.json`（台帳 `.claude/state/assets/dri
 | audience（誰が使うか） | 置き場 | 例 |
 |---|---|---|
 | **`site`** サイトが配信する | public R2 `doboku-note`（`storage.doboku-note.com`） | 記事図版（`posts/`）・OGP |
-| **`ci`** GitHub Actions が読み書きする | R2（public / private / byVisibility） | 現在該当なし（2026-09-29 まで note カバー PNG。生成と登録を Mac の週次へ移したので human＋例外 R2 になった） |
+| **`ci`** GitHub Actions が読み書きする | R2（public / private / byVisibility） | OGP 背景・Kindle 配布物。YouTube 改訂版の予約時は MP4 と表紙だけを private R2 経由で一時転送する |
 | **`human`** 人か手元のスクリプトだけが使う | Google Drive vault `マイドライブ/doboku-note/` | 原本 PDF・ページ画像・文字起こし・配布 PDF・未投稿レンダー・Kindle・ココナラ素材 |
 
 - **機械表現**: `asset-storage.json` の全 group に `audience` が必須。`site ⇒ bucket public`、`ci ⇒ private|byVisibility`。
@@ -30,6 +30,7 @@ Google Drive 側が `config/drive-vault.json`（台帳 `.claude/state/assets/dri
   （20 字以上）を書く。`loadConfig`・`tests/asset-storage.test.mjs`・`check-drive-vault` の 3 か所が止める。
 - **CI は Drive を持たない**。これが 2 行目（`ci`）を分ける唯一の理由。ワークフローから `drive-vault-sync` を呼ばず、
   `asset-inbox-ingest` は Drive 管轄のパスを拒否する。
+- YouTube 改訂版の正本は `content-media` の Drive。予約を実行する CI へ渡す MP4 と表紙は `registry -- stage-youtube-revision` が private R2 の `youtube-revision-assets/` に一時転送し、CI が SHA-256 を照合して復元する。詳細は [content-registry.md](content-registry.md)。
 - **同じパスが両 tier に一致する状態を作らない**。`check-drive-vault` が `git ls-files ∪ ignore 済み` を走査して衝突を FAIL にする。
 - **Git に残すもの**は変わらない: 記事・SNS の原本（.md / frontmatter / slide-data / caption / status）、真正ベクター .svg、
   各台帳（`manifest.json` / `drive-manifest.json`）と README。

@@ -1,6 +1,6 @@
 /** 個別改訂版専用。旧動画・R2・自動配信へ書かず、外部操作前にintentを台帳へ保存する。 */
 import { createHash } from 'node:crypto';
-import { readFileSync } from 'node:fs';
+import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { Readable } from 'node:stream';
 import { canonicalJson, loadRegistry, parsePubId } from './content-registry.mjs';
@@ -26,6 +26,14 @@ function verifiedBytes(root, asset) {
   return bytes;
 }
 
+export async function thumbnailUpload(root, asset) {
+  const source = verifiedBytes(root, asset);
+  const compressed = source.length > 2_097_152;
+  const bytes = compressed ? await sharp(source).jpeg({ quality: 93, mozjpeg: true }).toBuffer() : source;
+  if (bytes.length > 2_097_152) throw new Error('YouTube表紙の2MB制限を超える');
+  return { bytes, mimeType: compressed ? 'image/jpeg' : 'image/png' };
+}
+
 /** 常にローカルだけで検査。承認・未来日時の不足を返し、外部クライアントを作らない。 */
 export function revisionPublishPlan(root, pubId, now = Date.now()) {
   const reg = loadRegistry(root), pub = reg.publications.find(p => p.id === pubId);
@@ -40,17 +48,23 @@ export function revisionPublishPlan(root, pubId, now = Date.now()) {
   if (input.publicationId !== pub.id || input.revisionOf !== source.id || input.format !== pub.format || input.account !== pub.account ||
       input.publishAt !== pub.publishAt || input.relatedTo !== pub.relatedTo) throw new Error('改訂投稿入力と公開行が一致しない');
   const assets = {}, facts = {};
-  for (const [role, id] of Object.entries(pub.media ?? {})) {
+  let checkedFiles = 0;
+  for (const [role, id] of Object.entries(input.media ?? {}).map(([role, asset]) => [role, asset.id])) {
+    if (pub.media?.[role] !== id) throw new Error(`${role}: 公開行と改訂入力の素材IDが一致しない`);
     const m = byId.get(id);
     const expectedId = `${pub.exam}/${pub.work}/work/candidate-${pub.format === 'short' ? `${source.variant}-` : ''}${role}`;
     if (!m || id !== expectedId) throw new Error('素材が別作品・別variant・別の役割を指している');
     assets[role] = { id, path: m.store.path, sha256: m.sha256 };
-    if (!same(input.media?.[role], assets[role]) || verifiedBytes(root, assets[role]).length !== m.bytes) throw new Error('素材ID・SHA・サイズが一致しない');
+    if (!same(input.media?.[role], assets[role])) throw new Error('素材ID・SHA・サイズが一致しない');
+    if (['video', 'cover'].includes(role) || existsSync(join(root, assets[role].path))) {
+      if (verifiedBytes(root, assets[role]).length !== m.bytes) throw new Error('素材ID・SHA・サイズが一致しない');
+      checkedFiles++;
+    }
     facts[role] = { bytes: m.bytes, width: m.width, height: m.height, durationSec: m.durationSec, provenance: m.provenance };
   }
   if (!same(input.media, assets) || !assets.video || !assets.cover || !assets.subtitles || input.sha256 !== assets.video.sha256 || input.localFile !== assets.video.path ||
       input.thumbnailSha256 !== assets.cover.sha256 || input.thumbnailLocalFile !== assets.cover.path) throw new Error('MP4・表紙・字幕の結線が不正');
-  if (!(facts.video.durationSec > 0) || !(facts.cover.width > 0) || !(facts.cover.height > 0) || facts.cover.bytes > 2097152) throw new Error('動画の実尺・画面寸法・表紙サイズが不正');
+  if (!(facts.video.durationSec > 0) || !(facts.cover.width > 0) || !(facts.cover.height > 0)) throw new Error('動画の実尺・画面寸法・表紙サイズが不正');
   if (pub.format === 'longform') {
     requirePopDiagramStandard(root, join(root, work.definition));
     if (facts.video.provenance.renderInputSha256 !== longformInputHash(join(root, work.definition))) throw new Error('完成動画の制作入力が古い');
@@ -81,7 +95,7 @@ export function revisionPublishPlan(root, pubId, now = Date.now()) {
   if (pub.delivery && (pub.delivery.inputSha256 !== digest || pub.delivery.marker !== marker)) throw new Error('実行開始後に改訂入力が変わっている');
   if (pub.platform?.id && !pub.delivery?.videoId) throw new Error('外部IDのある改訂行に実行記録が無い。自動投稿しない');
   if (pub.delivery?.videoId && pub.platform?.id && pub.delivery.videoId !== pub.platform.id) throw new Error('実行記録と外部IDが不一致');
-  return { pub, source, input, channel, disclosure, assets, facts, digest, marker, snippet, blockers, checkedMedia: Object.keys(assets).length };
+  return { pub, source, input, channel, disclosure, assets, facts, digest, marker, snippet, blockers, checkedMedia: Object.keys(assets).length, checkedFiles };
 }
 
 /** 初回の通常動画も改訂版と同じ intent・marker・API 実査の経路で扱う。 */
@@ -141,7 +155,8 @@ export async function publishYoutubePublication(root, { pubId, phase = 'upload',
   const publication = loadRegistry(root).publications.find(p => p.id === pubId);
   const planFor = publication?.revisionOf ? revisionPublishPlan : singlePublishPlan;
   let plan = planFor(root, pubId, now());
-  const summary = { publicationId: pubId, phase, digest: plan.digest, checkedMedia: plan.checkedMedia, blockers: plan.blockers, dryRun: !commit, externalActions: 0 };
+  const thumbnail = await thumbnailUpload(root, plan.assets.cover);
+  const summary = { publicationId: pubId, phase, digest: plan.digest, checkedMedia: plan.checkedMedia, checkedFiles: plan.checkedFiles ?? plan.checkedMedia, blockers: plan.blockers, dryRun: !commit, externalActions: 0 };
   if (!commit) return summary;
   if (expect !== plan.digest) throw new Error('確認した改訂入力digestと一致しない');
   // verifyは読み取りで既知結果を回収できる。新規外部書き込みは承認と未来日時が必須。
@@ -240,12 +255,9 @@ export async function publishYoutubePublication(root, { pubId, phase = 'upload',
     save();
     if (['upload', 'schedule'].includes(phase) && !pub.delivery.thumbnailAcceptedAt) {
       if (pub.delivery.thumbnailRequestedAt) throw new Error('表紙(thumbnail)結果不明。自動再送しない');
-        const source = verifiedBytes(root, plan.assets.cover);
-        const buffer = source.length > 2_097_152 ? await sharp(source).jpeg({ quality: 93, mozjpeg: true }).toBuffer() : source;
-        if (buffer.length > 2_097_152) throw new Error('YouTube表紙の2MB制限を超える');
       pub.delivery.thumbnailRequestedAt = at(); await journalSave(); save();
       let response;
-        try { response = await youtube.thumbnails.set({ videoId: pub.delivery.videoId, media: { mimeType: source.length > 2_097_152 ? 'image/jpeg' : 'image/png', body: Readable.from([buffer]) } }, { retry: false }); }
+        try { response = await youtube.thumbnails.set({ videoId: pub.delivery.videoId, media: { mimeType: thumbnail.mimeType, body: Readable.from([thumbnail.bytes]) } }, { retry: false }); }
       catch { throw new Error('thumbnail結果不明。intentを保持して停止'); }
       summary.externalActions++;
       pub.delivery.thumbnailUrls = (response.data?.items ?? []).flatMap(urls);

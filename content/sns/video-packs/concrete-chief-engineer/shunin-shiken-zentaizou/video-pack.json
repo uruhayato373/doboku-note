@@ -5,12 +5,22 @@
   "title": "コンクリート主任技士の全体像 — 四肢択一×小論文の二本立て",
   "audience": "コンクリート主任技士の受験を決めた技術者",
   "pain": "四肢択一と小論文の二本立てで何をどの配分で仕込むべきか掴めない",
-  "promise": "JCI公式区分に沿った出題分野と試験の全体像が分かり配分を決められる",
+  "promise": "試験の全体像と択一・小論文の学習時間の考え方が分かる",
   "intent": "roadmap",
   "sourceRefs": [
     {
       "type": "site",
       "path": "content/site/concrete-chief-engineer/guide-overview/article.mdx"
+    },
+    {
+      "type": "external",
+      "url": "https://www.jci-net.or.jp/j/exam/gishi/pdf/shg_2026_tbk.pdf",
+      "title": "日本コンクリート工学会 2026年度コンクリート主任技士試験 受験申込みの手引き"
+    },
+    {
+      "type": "external",
+      "url": "https://www.jci-net.or.jp/j/exam/gishi/pdf/gishi_2026_20260605.pdf",
+      "title": "日本コンクリート工学会 コンクリート技士試験・コンクリート主任技士試験 受験のご案内"
     }
   ],
   "primaryCta": {

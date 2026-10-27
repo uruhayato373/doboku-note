@@ -335,7 +335,7 @@ APIへ非公開アップロード済みで関連動画設定待ちのShortsは `
 
 再生確認、Shorts関連動画、依存リンク更新は、証拠がない間は待機理由として残す。CIはこれらの確認済みフラグを自作しない。削除前のAPI・サムネ実査は毎回CIが実行して証拠を保存するため、手書きの削除監査記録は不要。手動字幕がある対象は `captionVerification.tracks[]` の `oldId/newId/contentMatched/newLastUpdated` と実トラックを照合し、旧字幕の更新や未保存があれば停止する。旧版削除済みの未予約Shortsは、関連先IDの確認記録と公開/限定公開の実体を確認し、各 `youtube.json` の未来の日時へ予約する。過ぎた枠を一斉公開に読み替えず `expired-publication-slot` として停止する。移行中の公開Git台帳には旧IDが残るため、private台帳との参照更新を済ませるまでは依存リンク確認を完了扱いにしない。
 
-日次キューに入らない新規の承認済み通常動画は、手動の `youtube-single-publish.yml` で公開IDと確認済みdigestを固定して投入する（[content-registry.md](content-registry.md)「初回の YouTube 通常動画を個別予約する」）。廃止前の `pack_publish=<packId>:<longform|thumbnail>[:PUBLISH]` と同名タイトル検索は使わない。改訂版の個別投稿は `npm run registry -- publish-youtube-revision`（同文書「公開済み素材と未反映の改訂版」）。
+日次キューに入らない承認済み通常動画は、手動の `youtube-single-publish.yml` で公開IDと確認済みdigestを固定して投入する（[content-registry.md](content-registry.md)「初回の YouTube 通常動画を個別予約する」）。初回は `publish-youtube`、改訂版公開IDは `publish-youtube-revision` へ振り分ける。廃止前の `pack_publish=<packId>:<longform|thumbnail>[:PUBLISH]` と同名タイトル検索は使わない。改訂版CLIの個別実行手順は同文書「公開済み素材と未反映の改訂版」。
 
 旧形式の10素材（YouTube実体は重複1本を含む11本）は `content/sns/youtube/legacy-refresh.json` と `scripts/refresh-legacy-youtube.mjs` で再生成する（`--only <key>` で部分再生成）。過去問8素材はハッシュ照合した原本の設問・解答・音声を保ち、表紙とCTAを差し替える。キーワード2素材は既存サイト記事に基づく編集可能なスライド原稿から再描画する。出力は `.tmp/video-render/legacy-brand-a/`、画像確認前の状態は `rendered` であり公開可能とは扱わない。確認後の移行計画は `legacy-metadata.json` の既存タイトル・現内容に即した概要欄・正規URL/UTMを取り込む。
 

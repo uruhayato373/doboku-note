@@ -1169,6 +1169,36 @@
       "stopReason": "user-decision"
     },
     {
+      "id": "concrete-chief-engineer/shunin-shiken-zentaizou/youtube.longform.pop-diagram",
+      "work": "shunin-shiken-zentaizou",
+      "account": "youtube:main",
+      "format": "longform",
+      "variant": "pop-diagram",
+      "revisionOf": "concrete-chief-engineer/shunin-shiken-zentaizou/youtube.longform",
+      "status": "qa_passed",
+      "copy": "content/sns/video-packs/concrete-chief-engineer/shunin-shiken-zentaizou/youtube.revision-pop-diagram.json",
+      "media": {
+        "cover": "concrete-chief-engineer/shunin-shiken-zentaizou/work/candidate-cover",
+        "cta": "concrete-chief-engineer/shunin-shiken-zentaizou/work/candidate-cta",
+        "scene-001": "concrete-chief-engineer/shunin-shiken-zentaizou/work/candidate-scene-001",
+        "scene-002": "concrete-chief-engineer/shunin-shiken-zentaizou/work/candidate-scene-002",
+        "scene-003": "concrete-chief-engineer/shunin-shiken-zentaizou/work/candidate-scene-003",
+        "scene-004": "concrete-chief-engineer/shunin-shiken-zentaizou/work/candidate-scene-004",
+        "scene-005": "concrete-chief-engineer/shunin-shiken-zentaizou/work/candidate-scene-005",
+        "scene-006": "concrete-chief-engineer/shunin-shiken-zentaizou/work/candidate-scene-006",
+        "scene-007": "concrete-chief-engineer/shunin-shiken-zentaizou/work/candidate-scene-007",
+        "scene-008": "concrete-chief-engineer/shunin-shiken-zentaizou/work/candidate-scene-008",
+        "scene-009": "concrete-chief-engineer/shunin-shiken-zentaizou/work/candidate-scene-009",
+        "subtitles": "concrete-chief-engineer/shunin-shiken-zentaizou/work/candidate-subtitles",
+        "video": "concrete-chief-engineer/shunin-shiken-zentaizou/work/candidate-video",
+        "preview": "concrete-chief-engineer/shunin-shiken-zentaizou/youtube.longform.pop-diagram/preview",
+        "scene-sheet": "concrete-chief-engineer/shunin-shiken-zentaizou/youtube.longform.pop-diagram/scene-sheet",
+        "preview-metrics": "concrete-chief-engineer/shunin-shiken-zentaizou/youtube.longform.pop-diagram/preview-metrics",
+        "contact-sheet": "concrete-chief-engineer/shunin-shiken-zentaizou/youtube.longform.pop-diagram/contact-sheet"
+      },
+      "publishAt": "2026-11-06T20:00:00+09:00"
+    },
+    {
       "id": "concrete-chief-engineer/shunin-shiken-zentaizou/youtube.short.point-overview-1",
       "work": "shunin-shiken-zentaizou",
       "account": "youtube:main",
