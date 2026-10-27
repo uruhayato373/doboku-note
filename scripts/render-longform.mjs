@@ -11,7 +11,7 @@
  * mp4 合成は Mac または GitHub Actions で同コマンドを完走させる（戦略 06 §5.3）。
  *
  * Usage:
- *   node scripts/render-longform.mjs --pack-dir content/sns/video-packs/{exam}/{slug} [--skip-tts] [--speaker 1] [--loudnorm]
+ *   node scripts/render-longform.mjs --pack-dir content/sns/video-packs/{exam}/{slug} [--skip-tts] [--speaker <VOICEVOX ID>] [--loudnorm]
  *
  * 前提（mp4 まで作る場合）: VOICEVOX エンジン起動中、ffmpeg が PATH に存在
  */
@@ -29,6 +29,7 @@ import {
 } from './lib/longform-render.mjs';
 import { narrationInput, reusableNarration, sha256 } from './lib/video-narration-cache.mjs';
 import { readLongformPopImages } from './lib/longform-pop-images.mjs';
+import { readDataset } from './lib/dataset-io.mjs';
 import { verifyLearningFrame } from './lib/learning-frame.mjs';
 import { longformInputHash, verifyLongformRender } from './lib/longform-render-integrity.mjs';
 import { renderYoutubeCover, validateCoverDesign } from './lib/youtube-cover.mjs';
@@ -41,7 +42,7 @@ const { values: args } = parseArgs({
   args: process.argv.slice(2),
   options: {
     'pack-dir': { type: 'string' },
-    speaker: { type: 'string', default: '1' },
+    speaker: { type: 'string', default: String(readDataset(ROOT, 'config.character-poses').identity.voicevoxSpeaker) },
     'skip-tts': { type: 'boolean' },
     'skip-png': { type: 'boolean' },
     resume: { type: 'boolean' },

@@ -209,3 +209,20 @@ test('画面確認素材を追加した未承認draftも入力だけ更新でき
   approved.publications.find(p => p.id === row.id).approval = { by: 'user', contentSha256: '0'.repeat(64) };
   assert.throws(() => planYoutubeRevision(root, { ...options, refreshDraft: true }, approved), /既存の改訂公開行/);
 });
+
+test('QA済みでも未承認なら文面修正を履歴保存してdraftへ戻す', t => {
+  const root = fixture(t), options = { pubId: PUB, variant: 'diagram-led' };
+  const initial = prepareYoutubeRevision(root, options);
+  prepareYoutubeRevision(root, { ...options, commit: true, expect: initial.digest });
+  const qa = recordYoutubeRevisionQa(root, { pubId: initial.publicationId, avg: 2.5, blocks: 0, commit: true });
+  assert.equal(qa.status, 'qa_passed');
+  const before = readFileSync(join(root, initial.input), 'utf8');
+  writeJson(root, `${DEF}/youtube.json`, { longform: { title: 'QA後の修正文面', description: '新しい説明' } });
+  assert.throws(() => planYoutubeRevision(root, options), /既存の改訂公開行/);
+  const preview = prepareYoutubeRevision(root, { ...options, refreshDraft: true });
+  const saved = prepareYoutubeRevision(root, { ...options, refreshDraft: true, commit: true, expect: preview.digest });
+  assert.equal(readFileSync(join(root, saved.preservedInput), 'utf8'), before);
+  assert.equal(loadRegistry(root).publications.find(p => p.id === initial.publicationId).status, 'draft');
+  assert.equal(JSON.parse(readFileSync(join(root, saved.input))).title, 'QA後の修正文面');
+  assert.equal(prepareYoutubeRevision(root, { ...options, refreshDraft: true }).written, 0);
+});

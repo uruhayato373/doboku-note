@@ -181,5 +181,479 @@
       },
       "publication": "ローカル差し替え・外部未反映"
     }
+  },
+  "activeBodyRevision": "body-diagram-chokuzen-20261027",
+  "activeCoverRevision": "cover-pop-chokuzen-20261027",
+  "revisions": {
+    "body-diagram-chokuzen-20261027": {
+      "layout": {
+        "mode": "diagram-led"
+      },
+      "images": [
+        {
+          "sceneId": "premise",
+          "inputSha256": "5681d0a7862a7da6cee2abfe5e2ca903839cd86f443aa833f602235a12af32d6",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "添付画像は採用済みコンクリート主任技士の教育動画本文図解の意匠参照です。新規の16:9横長1場面を作る。白〜ごく淡い紫の背景、太い濃紺と紫の線、控えめな黄色の下線、読みやすい大きな日本語、シンプルなアイコンと概念図。本文は図解が主役。POP広告、先生人物、白い箇条書きカード、細かい文字、写実写真は禁止。意味のある文字と図は左右5%・上5%・下18%の内側。下18%は字幕用の淡い背景だけ。余計な文言、数字、ロゴ、URLは足さない。文字は指定したものだけを正確に描く。 見出し「分野ごと捨てない」。中央に2つの大きな対比円。左は分野全体をゴミ箱に捨てる図に大きな赤い×と文字「分野ごと捨てる」。右は分野を保ち、その中の小さな低頻度項目だけを後へ移す図に大きな青い○と文字「低頻度項目だけ後回し」。矢印で左から右への考え方の転換。文字はこの3つだけ。",
+            "references": [
+              {
+                "path": ".tmp/media/concrete-chief-engineer/shunin-shiken-zentaizou/work/overview-diagram.7418aeb3.png",
+                "sha256": "7418aeb318b163c483539e5bcbec77048625d83a897266280b0f90e77e44d225"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-chief-engineer/shunin-chokuzen-senryaku/work/raw-premise-20261027.png",
+              "sha256": "715e87d123f8a7c8eb9ea7dd7b66d1c9c7ae802e4b80ca00ef81646cfe6541a8"
+            },
+            "generatedAt": "2026-10-27T10:45:36.062Z"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-chief-engineer/shunin-chokuzen-senryaku/work/premise-diagram.e425a014.png",
+            "sha256": "e425a014928c1cd08464b6881a1e9a1ba7cd7da6e3ecd41e33a2c699c0cfffaf",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "715e87d123f8a7c8eb9ea7dd7b66d1c9c7ae802e4b80ca00ef81646cfe6541a8"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-27T10:45:36.062Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ]
+          }
+        },
+        {
+          "sceneId": "basis",
+          "inputSha256": "84207aeb5a50ec11623df7deeb68183e783c8a4bb49a0cb6a869aa15580b6cd8",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "添付画像は採用済みコンクリート主任技士の教育動画本文図解の意匠参照です。新規の16:9横長1場面を作る。白〜ごく淡い紫の背景、太い濃紺と紫の線、控えめな黄色の下線、読みやすい大きな日本語、シンプルなアイコンと概念図。本文は図解が主役。POP広告、先生人物、白い箇条書きカード、細かい文字、写実写真は禁止。意味のある文字と図は左右5%・上5%・下18%の内側。下18%は字幕用の淡い背景だけ。余計な文言、数字、ロゴ、URLは足さない。文字は指定したものだけを正確に描く。 見出し「根拠と分析範囲」。横長の一本の年表で、左から「平成21年度」「令和5年度」までを太い紫色の分析範囲として塗り、右側の「令和6年度以降」は薄い灰色の未分析範囲として明確に分ける。下に小さく「原典の出題状況表から傾向を整理」。実データの棒グラフや出題数は描かない。文字はこの5つだけ。",
+            "references": [
+              {
+                "path": ".tmp/media/concrete-chief-engineer/shunin-shiken-zentaizou/work/overview-diagram.7418aeb3.png",
+                "sha256": "7418aeb318b163c483539e5bcbec77048625d83a897266280b0f90e77e44d225"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-chief-engineer/shunin-chokuzen-senryaku/work/raw-basis-20261027.png",
+              "sha256": "0eb2d21b1bacd2cfc98de9a3fd13d28dd44825b861d96d5002854032d188b6a9"
+            },
+            "generatedAt": "2026-10-27T10:45:36.062Z"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-chief-engineer/shunin-chokuzen-senryaku/work/basis-diagram.e115e39f.png",
+            "sha256": "e115e39f00b8a598d1a42183db65535b96a155ccf41eac50c8e808f28b0a8745",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "0eb2d21b1bacd2cfc98de9a3fd13d28dd44825b861d96d5002854032d188b6a9"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-27T10:45:36.062Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ]
+          }
+        },
+        {
+          "sceneId": "step1",
+          "inputSha256": "2f5203b31969f0de11e8d125c33c32def196d7f2c195bfe2f903a368e4f6474e",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "このコンクリート主任技士動画の図解を、短くなった新しい読み上げに合わせて再生成。元画像の7分野の構成、すべての分野名、見出し『先に固める七分野』、下の『分野ごと捨てない』、色と線のスタイルを保つ。七分野は毎年または多くの年に出るので分野ごと捨てず先に固める。用材料内の補強材だけ優先度がやや下がることを小さく示す。人物・広告要素なし、文字化けなし、下端18%は字幕用に空白。16:9。",
+            "references": [
+              {
+                "path": ".tmp/media/concrete-chief-engineer/shunin-chokuzen-senryaku/work/raw-step1-20261027.png",
+                "sha256": "b4c2c5328507d85ceb90d6823178e1d0a8a1d59dbb6e17d078c873418c5ba16e"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-chief-engineer/shunin-chokuzen-senryaku/work/raw-step1-tight-20261027.png",
+              "sha256": "0ede21e4f1407a20d626c5abd1f978b6049a043028982d2e7fc25c6a1d3bf3d9"
+            },
+            "generatedAt": "2026-10-27T11:01:18.992Z"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-chief-engineer/shunin-chokuzen-senryaku/work/step1-diagram.96ad12ea.png",
+            "sha256": "96ad12ea8e778feb497d9cb39bb26d982bd6bbdab15312e172e7b7006587bb35",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "0ede21e4f1407a20d626c5abd1f978b6049a043028982d2e7fc25c6a1d3bf3d9"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-27T11:01:18.993Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ]
+          }
+        },
+        {
+          "sceneId": "step2",
+          "inputSha256": "fec23f664e74b861525254353f1d8a23d28ad34fe1ef9a65dea425942165c924",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "既存の教育図解を編集。色・構図・他の文字・アイコン・下端字幕余白は維持。左下の一番左の項目名『運搬・打込み』だけを『運搬・打込み・締固め・打継ぎ』に変更してください。2行になってよいので、読みやすく枠内に収める。それ以外の7項目名や頻度区分は変えない。16:9。",
+            "references": [
+              {
+                "path": ".tmp/media/concrete-chief-engineer/shunin-chokuzen-senryaku/work/raw-step2-tight-20261027.png",
+                "sha256": "4373b1ab769f9f7822c732908f0f3f319d0af1fe6945b6e2b1fa6c0bfe79cd10"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-chief-engineer/shunin-chokuzen-senryaku/work/raw-step2-tight-final-20261027.png",
+              "sha256": "d95fe93086b1fb57ebcc2e9d2f083e063b3ae7a57714be242e4a3bab64e1e018"
+            },
+            "generatedAt": "2026-10-27T11:01:19.091Z"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-chief-engineer/shunin-chokuzen-senryaku/work/step2-diagram.43404930.png",
+            "sha256": "43404930426dadd95dcc92d82f6dd1b60b69ce7827c5e55e98b9a8a75ea20630",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "d95fe93086b1fb57ebcc2e9d2f083e063b3ae7a57714be242e4a3bab64e1e018"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-27T11:01:19.091Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ]
+          }
+        },
+        {
+          "sceneId": "step3",
+          "inputSha256": "7cf72f3b2f4f6f86349733ef4490bceafb99374c734f54cb7048b7a95bf9cae9",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "このコンクリート主任技士の学習図解を、短くなった語りに合わせて再生成。元画像と同じシンプルな図解意匠、左右の整理を維持する。見出し『低頻度と出題なし』。左の大きな枠『施工の低頻度』に4項目『高流動・流動化』『水中』『海洋』『舗装・ダム』。右上の枠『水（用材料）』『表の後半で確認なし』。右下の枠『水密・その他各種』『原典目次で出題なし』。水と水密を混同しない。読める日本語、余計な文言なし。白〜淡いグレー背景、紫青の太線、黄色は強調だけ。広告風ポスターや人物は描かない。下端18%は字幕用に空白。16:9。",
+            "references": [
+              {
+                "path": ".tmp/media/concrete-chief-engineer/shunin-chokuzen-senryaku/work/raw-step3-20261027.png",
+                "sha256": "f6f6a159fd31f4fe10c8a5f81ebeb470c5f5b8c2428f12d743c66c4e568125e3"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-chief-engineer/shunin-chokuzen-senryaku/work/raw-step3-tight-20261027.png",
+              "sha256": "2f9bcb7782ad9df615f98e59fb4e27784ab92b88c298210c708c70b94186d70c"
+            },
+            "generatedAt": "2026-10-27T11:01:19.174Z"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-chief-engineer/shunin-chokuzen-senryaku/work/step3-diagram.7f60f283.png",
+            "sha256": "7f60f283368bc2c82d4af589a503dd7ee8a21a36fa1533b048923ab47bfa4c0d",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "2f9bcb7782ad9df615f98e59fb4e27784ab92b88c298210c708c70b94186d70c"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-27T11:01:19.174Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ]
+          }
+        },
+        {
+          "sceneId": "tiers",
+          "inputSha256": "0b52fe3a4e157429383a14d4c849a400c2df62bd9cab71cef93a82aaa4f1aa80",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "添付画像は採用済みコンクリート主任技士の教育動画本文図解の意匠参照です。新規の16:9横長1場面を作る。白〜ごく淡い紫の背景、太い濃紺と紫の線、控えめな黄色の下線、読みやすい大きな日本語、シンプルなアイコンと概念図。本文は図解が主役。POP広告、先生人物、白い箇条書きカード、細かい文字、写実写真は禁止。意味のある文字と図は左右5%・上5%・下18%の内側。下18%は字幕用の淡い背景だけ。余計な文言、数字、ロゴ、URLは足さない。文字は指定したものだけを正確に描く。 見出し「優先順位の三段階」。画面中央に大きく上へ上がる3段の学習階段図。最上段は濃紫と黄色で「先に固める」、中段は青紫で「余力で」、最下段は薄灰紫で「後回し」。各段の横に小さく順に「毎年〜多くの年」「低頻度」「近年出題なし」。三段の順序が一目で分かる。表や白い箇条書きカードにはしない。文字は指定のみ。",
+            "references": [
+              {
+                "path": ".tmp/media/concrete-chief-engineer/shunin-shiken-zentaizou/work/overview-diagram.7418aeb3.png",
+                "sha256": "7418aeb318b163c483539e5bcbec77048625d83a897266280b0f90e77e44d225"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-chief-engineer/shunin-chokuzen-senryaku/work/raw-tiers-20261027.png",
+              "sha256": "d7b4f1378245f063a2ae3ca2f681cd372faad8592b3164d13411d4b4411b5afc"
+            },
+            "generatedAt": "2026-10-27T10:45:36.062Z"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-chief-engineer/shunin-chokuzen-senryaku/work/tiers-diagram.7aa01065.png",
+            "sha256": "7aa01065b3d5907e10643704926c108752810779e259058cc96ea40c3c5af5a4",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "d7b4f1378245f063a2ae3ca2f681cd372faad8592b3164d13411d4b4411b5afc"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-27T10:45:36.062Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ]
+          }
+        },
+        {
+          "sceneId": "example",
+          "inputSha256": "2f25e93b90bbec809bb56d9caaf75b64af7028086549fe8c901d62a4649aa46d",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "このコンクリート主任技士の教育動画図解を、短くなった新しい読み上げに合わせて再生成。元画像の意味と単純な横向き矢印構図を保持。見出し『時間の振り分け』。左に水中コンクリートの小さなアイコンと時計、ラベル『水中コンクリート』。左から右へ紫の太い矢印、矢印上に『時間を移す』。右に寒中・暑中の雪と太陽のアイコン、復習ノート、ラベル『寒中・暑中を復習』。最下部の字幕用余白の上に短く『定番の弱点を先に直す』。文字は正確に。水中を定番と誤認させず、寒中・暑中を先に直す意味が分かるよう強調。白〜淡いグレー、紫青と黄色、人物や広告風ポスターはなし。下端18%は字幕用の背景のみ。16:9。",
+            "references": [
+              {
+                "path": ".tmp/media/concrete-chief-engineer/shunin-chokuzen-senryaku/work/raw-example-20261027.png",
+                "sha256": "abf1120b8d942b019ef6d676f30042ddb41fd37acc6c4e8b9610ecc2bb40a000"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-chief-engineer/shunin-chokuzen-senryaku/work/raw-example-tight-20261027.png",
+              "sha256": "04e5244272cbd7a23b1826ca5eccb87eeca1ee6d27f38ed2a3829d2f159e1422"
+            },
+            "generatedAt": "2026-10-27T11:01:19.261Z"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-chief-engineer/shunin-chokuzen-senryaku/work/example-diagram.7aaa8ef3.png",
+            "sha256": "7aaa8ef35c5190362a809d7998e975944600ee2c3807c8f062cf190a99bb3444",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "04e5244272cbd7a23b1826ca5eccb87eeca1ee6d27f38ed2a3829d2f159e1422"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-27T11:01:19.261Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ]
+          }
+        },
+        {
+          "sceneId": "step4",
+          "inputSha256": "f0acc23e3c24dbb17415e2f8ab0cb29a49efce6633d6bbd1619805c68bbb3f5e",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "この既存の教育図解を編集。見出し『分野別の縦串』、表の年度と項目ラベル、施工列の黄色い強調枠、右の拡大鏡、下端の字幕用余白は完全に維持する。唯一の変更は黄色い施工列の各年のチェックマークを全部消して空白にすること。チェックマークは実際の出題記録に見えるため不正確。文字・数字を追加しない。表の全てのデータセルを空白にし、縦1列だけ枠でなぞる説明図にする。",
+            "references": [
+              {
+                "path": ".tmp/media/concrete-chief-engineer/shunin-chokuzen-senryaku/work/raw-step4-edited-20261027.png",
+                "sha256": "65a56fc4835e390a10292b51892784ab77b0cb48a9030d48ccf5d10990373b04"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-chief-engineer/shunin-chokuzen-senryaku/work/raw-step4-final-20261027.png",
+              "sha256": "16d2e3d8aed449038599f15d0996ee81ebc3f8cc83b0c590a68db4b6b0c7244c"
+            },
+            "generatedAt": "2026-10-27T10:45:36.062Z"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-chief-engineer/shunin-chokuzen-senryaku/work/step4-diagram.b2990355.png",
+            "sha256": "b29903553ee914deb14c3d04d5ef89df80096270ba1ea6543635b06e2962729a",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "16d2e3d8aed449038599f15d0996ee81ebc3f8cc83b0c590a68db4b6b0c7244c"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-27T10:45:36.062Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ]
+          }
+        },
+        {
+          "sceneId": "essay",
+          "inputSha256": "6d4ebc01de3c396b0dff2725ca2bb028176c3f34c8286e58c9728befb2a8c8e2",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "このコンクリート主任技士動画の学習図解を短くなった新しい語りに合わせて再生成。元画像の意味を保持し、見出し『択一と小論文を並行』。左に択一の回答用紙と基準点を示す単純なゲージ、右に小論文の原稿用紙と基準点を示す同じゲージ。両方の基準点を超える必要条件だけを描き、これだけで必ず合格と断言しない。小さな注記に『それぞれ基準点』『論旨を明確に』のみ。箇条書き可・整った文章が望ましいという趣旨を、あえて小さな文字では詰め込まない。元画像の紫青太線、白〜淡いグレー背景、黄色の強調、字幕用の下端18%の空白を保つ。人物、広告風ポスターなし。文字化けなし。16:9。",
+            "references": [
+              {
+                "path": ".tmp/media/concrete-chief-engineer/shunin-chokuzen-senryaku/work/raw-essay-20261027.png",
+                "sha256": "221138c02c6b3c03c0fbf2106a18aeb8d8f4e0c94b0d2a11fe8548c667f11413"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-chief-engineer/shunin-chokuzen-senryaku/work/raw-essay-tight-20261027.png",
+              "sha256": "64ecea7cf5898f5b3b0ed81696d0d2521f34e345ec2809e289e447bc389874c8"
+            },
+            "generatedAt": "2026-10-27T11:01:19.360Z"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-chief-engineer/shunin-chokuzen-senryaku/work/essay-diagram.627997d6.png",
+            "sha256": "627997d664caa7f2e7e89008715d1116cb661389a369b102db3d3b47e6a8a504",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "64ecea7cf5898f5b3b0ed81696d0d2521f34e345ec2809e289e447bc389874c8"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-27T11:01:19.360Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ]
+          }
+        },
+        {
+          "sceneId": "summary",
+          "inputSha256": "380cd7bba26c0db539fb625bae813b38999f0f8d15bdc554bfea62a8ff3ef002",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像はdoboku-noteの教育動画本文に採用されたシンプルな図解の意匠参照です。新規の16:9横長（1920×1080想定）コンクリート主任技士の教育動画本文『まとめ』場面。白〜淡いグレー背景、深い紫と青の太い線、黄色は強調のみ。広告風ポスターや人物、白い箇条書きカードは描かない。図解を画面の主役にする。左側に大きく三段の階段図：上『先に固める』、中『余力で』、下『後回し』。各段に小さく上『毎年〜多くの年』、中『低頻度』、下『近年出題なし』。右側には短く正確に『平成21〜令和5年度の表』『小論文も並行』をそれぞれシンプルな年表アイコン、鉛筆アイコンと添える。文字は指定したものだけ正確に。全ての意味ある文字と図を左右5%、上5%、下18%の内側に。下端18%は字幕用に背景のみで空ける。全体に余裕を持たせ、読みやすく、前の場面の学習図解と統一する。",
+            "references": [
+              {
+                "path": ".tmp/media/concrete-chief-engineer/shunin-shiken-zentaizou/work/overview-diagram.7418aeb3.png",
+                "sha256": "7418aeb318b163c483539e5bcbec77048625d83a897266280b0f90e77e44d225"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-chief-engineer/shunin-chokuzen-senryaku/work/raw-summary-20261027.png",
+              "sha256": "06437a59e82e2afffd020bb093e9d6b3c66a459b94f04694af53b9fb6c8cf152"
+            },
+            "generatedAt": "2026-10-27T10:45:36.062Z"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-chief-engineer/shunin-chokuzen-senryaku/work/summary-diagram.b89d4c33.png",
+            "sha256": "b89d4c33898d722e19773b6bd37b66bd2555ea59ef4fd20e7d2128e5ddcfffac",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "06437a59e82e2afffd020bb093e9d6b3c66a459b94f04694af53b9fb6c8cf152"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-27T10:45:36.062Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ]
+          }
+        },
+        {
+          "sceneId": "cta",
+          "inputSha256": "0980f71b7db6cfd605e828746d1aee8ee90d536e13d22be0acae5fb668aa157c",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像はdoboku-noteの教育動画本文に採用されたシンプルな図解の意匠参照です。新規の16:9横長（1920×1080想定）コンクリート主任技士の教育動画本文の最後のCTA場面。白〜淡いグレー背景、深い紫と青の太い線、黄色は強調のみ。広告風POPポスターや人物、白い箇条書きカードは描かず、学習ツールのシンプルな図解を主役にする。見出しは正確に『直前パック』。中央に同じ大きさで三つの大きな学習アイコン：問題用紙『予想問題』、計算機『配合計算』、ノート『暗記ノート』。三つから右向きの一本の矢印を『概要欄』へつなぐ。文字は指定した日本語だけ正確に。商品価格、実績、URL、余計な文言は足さない。意味ある文字と図は左右5%、上5%、下18%の内側に。下端18%は字幕用に背景だけ空ける。全体に余裕を持たせ、前の場面の学習図解と統一する。",
+            "references": [
+              {
+                "path": ".tmp/media/concrete-chief-engineer/shunin-shiken-zentaizou/work/overview-diagram.7418aeb3.png",
+                "sha256": "7418aeb318b163c483539e5bcbec77048625d83a897266280b0f90e77e44d225"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-chief-engineer/shunin-chokuzen-senryaku/work/raw-cta-20261027.png",
+              "sha256": "8b0803a3a4e0a5ff30df800d0a55820de75780e93152ca10df689b13802455ad"
+            },
+            "generatedAt": "2026-10-27T10:45:36.062Z"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-chief-engineer/shunin-chokuzen-senryaku/work/cta-diagram.1fb7c3b5.png",
+            "sha256": "1fb7c3b5c4a44c339b1a136dcd2d5bdd5df8bffd7125a3dc4b1f76cc1b691751",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "8b0803a3a4e0a5ff30df800d0a55820de75780e93152ca10df689b13802455ad"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-27T10:45:36.062Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ]
+          }
+        }
+      ]
+    },
+    "cover-pop-chokuzen-20261027": {
+      "version": "pop-poster-v3",
+      "generation": {
+        "tool": "image_gen",
+        "prompt": "採用済みのコンクリート主任技士POP表紙の人物と色・構図を参照し、新しい16:9表紙を作る。紫を基調に黄色と白の大きな文字、右半分に同じ先生キャラクター。正確に『コンクリート主任技士』『直前期の優先順位』『どこを固める？』『総監が制作』と描く。下端18%は字幕用に空ける。",
+        "references": [
+          {
+            "path": ".tmp/media/concrete-chief-engineer/shunin-shiken-zentaizou/youtube.longform/cover.729a5a5e.png",
+            "sha256": "729a5a5e70c9b6de85da4e5eaf3c10cf72946541c575850185578e44623ec7e8"
+          }
+        ],
+        "output": {
+          "path": ".tmp/media/concrete-chief-engineer/shunin-chokuzen-senryaku/work/raw-cover-pop-20261027.png",
+          "sha256": "e34e5aa0335f526e1e549dcf377e8e2d08b0016dd5ffa98c785de6d3481950d1"
+        },
+        "generatedAt": "2026-10-27T10:45:36.062Z"
+      },
+      "copy": {
+        "exam": "concrete-chief",
+        "headline": [
+          "直前期の優先順位",
+          "どこを固める？"
+        ],
+        "authority": "総監が制作"
+      },
+      "output": {
+        "path": ".tmp/media/concrete-chief-engineer/shunin-chokuzen-senryaku/youtube.longform/cover.8612c666.png",
+        "sha256": "8612c666d23f8e352f63f3cb5672d94e73f24b392ba86eefd2d89364f6ade767",
+        "width": 1920,
+        "height": 1080
+      },
+      "normalization": {
+        "mode": "full-frame-v1",
+        "sourceSha256": "e34e5aa0335f526e1e549dcf377e8e2d08b0016dd5ffa98c785de6d3481950d1"
+      },
+      "review": {
+        "status": "ai-reviewed",
+        "userImageReview": "pending",
+        "checkedAt": "2026-10-27T10:45:36.062Z",
+        "by": "Codex",
+        "views": [
+          "original"
+        ]
+      }
+    }
   }
 }

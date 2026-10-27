@@ -5,7 +5,7 @@
   "title": "主任技士 直前期の総仕上げ — 頻出度で絞る",
   "audience": "試験直前期のコンクリート主任技士受験者",
   "pain": "残り時間で全分野は回せず何を捨てて何を固めるか決められない",
-  "promise": "頻出度と配点感から直前期に固める分野の絞り方が分かる",
+  "promise": "原典の平成21〜令和5年度の出題状況表から、直前期に先に固める項目と後回しにする項目の分け方が分かる",
   "intent": "howto",
   "sourceRefs": [
     {
@@ -15,11 +15,16 @@
     {
       "type": "site",
       "path": "content/site/concrete-chief-engineer/guide-overview/article.mdx"
+    },
+    {
+      "type": "external",
+      "url": "https://www.jci-net.or.jp/j/exam/gishi/pdf/shg_2026_tbk.pdf",
+      "title": "日本コンクリート工学会 コンクリート技士・主任技士試験 2026年度 受験の手引き（17ページ）"
     }
   ],
   "primaryCta": {
     "kind": "note-magazine",
-    "targetId": "cce-r8-mc-50",
+    "targetId": "cce-takuitsu-chokuzen-pack",
     "campaign": "shunin-chokuzen-senryaku"
   },
   "outputs": {
