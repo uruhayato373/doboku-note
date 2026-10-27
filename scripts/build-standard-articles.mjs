@@ -27,6 +27,7 @@ import { writeMdxFile } from '../.claude/scripts/lib/mdx-io.mjs';
 import { applyTableOverride, tableKey, tryGfmTable, tryStandardsList } from './lib/standards-table.mjs';
 import { pathToFileURL } from 'node:url';
 import { datasetPath } from './lib/datasets.mjs';
+import { figureLookup, renderFigureImage } from './lib/standards-figures.mjs';
 import { editionDuplicateOf } from '../src/lib/standards-editions.mjs';
 import {
   AMENDMENT_BLOCK_END,
@@ -222,7 +223,11 @@ function renderOverridePart(part) {
 const formatPages = (pages) =>
   pages.length === 0 ? '' : pages.length === 1 ? `${pages[0]}` : `${pages[0]}-${pages[pages.length - 1]}`;
 
-function renderChapter(chapter, tableOutcomes = [], tableOverrides = new Map(), verbatimTables = [], amendmentNote = null, amendmentRows = null) {
+/**
+ * figureOf: (chapterId, sourceRef, caption) → 差し込む <ArticleImage> の文字列 | null。
+ * 切り出した図が台帳に無いキャプションは今までどおりキャプションと SourceRef だけを出す（検査 20 が落とす）。
+ */
+function renderChapter(chapter, tableOutcomes = [], tableOverrides = new Map(), verbatimTables = [], amendmentNote = null, amendmentRows = null, figureOf = null) {
   // 章記事は next-mdx-remote で MDX としてコンパイルする（<SourceRef> を解決するため）。
   // MDX は HTML コメントを受け付けないので、注記は MDX コメント {/* */} で書く。
   const lines = [
@@ -398,8 +403,12 @@ function renderChapter(chapter, tableOutcomes = [], tableOverrides = new Map(), 
       continue;
     }
     if (node.type === 'caption') {
-      // 原本では図表が画像で、テキスト層にキャプションしか無いケース。原本ページへ返す。
-      push(`**${escapeInline(joinWrapped(node.lines))}**`);
+      // 原本では図表が画像で、テキスト層にキャプションしか無いケース。原本のページ画像から切り出した図を
+      // キャプションの下に置く（台帳 content/sources/standards/{agency}/{document}/figures.json・DN-0865）
+      const caption = joinWrapped(node.lines);
+      push(`**${escapeInline(caption)}**`);
+      const figure = figureOf?.(chapter.chapterId, pages, caption);
+      if (figure) push(figure);
       push(`<SourceRef pages="${pages}" kind="figure" />`);
       continue;
     }
@@ -548,6 +557,14 @@ export function buildDocument(document, overrides, { write = true, verbatimTable
     `${document.agencyId}/${document.documentId}`,
   );
 
+  // 原本のページ画像から切り出した図（台帳 content/sources/standards/{agency}/{document}/figures.json）
+  const documentKey = `${document.agencyId}/${document.documentId}`;
+  const lookupFigure = figureLookup(documentKey);
+  const figureOf = (chapterId, sourceRef, caption) => {
+    const entry = lookupFigure(chapterId, sourceRef, caption);
+    return entry ? renderFigureImage(documentKey, entry) : null;
+  };
+
   const chapters = analysis.chapters.map((chapter) => {
     // 冊子の項目（近畿の必携の 14 項 公衆災害防止対策要綱など）が他の収録の方を索引に載せる側なら、その章は載せない
     const itemEdition = chapter.item ? editionDuplicateOf(overrides, `${document.agencyId}/${document.documentId}`, chapter.item) : null;
@@ -559,6 +576,7 @@ export function buildDocument(document, overrides, { write = true, verbatimTable
       chapter, tableOutcomes, tableOverrides, chapterTables,
       amendmentPages ? renderAmendmentNote(amendment, rows.length > 0) : null,
       rows.length ? { amendment, rows } : null,
+      figureOf,
     );
     verbatimTables.push(...chapterTables.map((table) => ({ ...table, document: `${document.agencyId}/${document.documentId}` })));
     const file = `chapters/${chapter.chapterId}.md`;

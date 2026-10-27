@@ -1,0 +1,134 @@
+{
+  "schemaVersion": 1,
+  "document": "hokkaido/local",
+  "source": "原本のページ画像（Drive vault の 原資料PDF/共通仕様書/{整備局}/{原本名}/pages/pNNNN.jpg・270dpi）",
+  "note": "bbox はページ画像のピクセル。file は bbox で切って幅 1200px を超えるものだけ縮めた webp（品質 80）。形と使い方は scripts/lib/standards-figures.mjs の冒頭",
+  "figures": [
+    {
+      "chapterId": "9-2",
+      "sourceRef": "88",
+      "caption": "図 1-1-1（参考図）",
+      "imagePage": 88,
+      "bbox": [
+        436,
+        914,
+        1791,
+        2676
+      ],
+      "file": "fig-p0088-1.webp",
+      "width": 1200,
+      "height": 1560,
+      "review": {
+        "status": "approved",
+        "by": "scanned-figure-crop-auditor",
+        "at": "2026-10-27",
+        "method": "切り出しを出所のページ画像と並べて目視で照合（図の切れ・本文やキャプションの写り込み・隣の図）"
+      }
+    },
+    {
+      "chapterId": "10-6",
+      "sourceRef": "117",
+      "caption": "図 6-1",
+      "imagePage": 117,
+      "bbox": [
+        691,
+        404,
+        1641,
+        1369
+      ],
+      "file": "fig-p0117-1.webp",
+      "width": 950,
+      "height": 965,
+      "review": {
+        "status": "approved",
+        "by": "scanned-figure-crop-auditor",
+        "at": "2026-10-27",
+        "method": "切り出しを出所のページ画像と並べて目視で照合（図の切れ・本文やキャプションの写り込み・隣の図）"
+      }
+    },
+    {
+      "chapterId": "10-6",
+      "sourceRef": "121",
+      "caption": "図 6-2",
+      "imagePage": 121,
+      "bbox": [
+        508,
+        852,
+        1800,
+        2724
+      ],
+      "file": "fig-p0121-1.webp",
+      "width": 1200,
+      "height": 1739,
+      "review": {
+        "status": "approved",
+        "by": "scanned-figure-crop-auditor",
+        "at": "2026-10-27",
+        "method": "切り出しを出所のページ画像と並べて目視で照合（図の切れ・本文やキャプションの写り込み・隣の図）"
+      }
+    },
+    {
+      "chapterId": "10-6",
+      "sourceRef": "122",
+      "caption": "図 6-3",
+      "imagePage": 122,
+      "bbox": [
+        589,
+        392,
+        1778,
+        964
+      ],
+      "file": "fig-p0122-1.webp",
+      "width": 1189,
+      "height": 572,
+      "review": {
+        "status": "approved",
+        "by": "scanned-figure-crop-auditor",
+        "at": "2026-10-27",
+        "method": "切り出しを出所のページ画像と並べて目視で照合（図の切れ・本文やキャプションの写り込み・隣の図）"
+      }
+    },
+    {
+      "chapterId": "10-7",
+      "sourceRef": "126",
+      "caption": "図 7-1",
+      "imagePage": 126,
+      "bbox": [
+        438,
+        1007,
+        1601,
+        2718
+      ],
+      "file": "fig-p0126-1.webp",
+      "width": 1163,
+      "height": 1711,
+      "review": {
+        "status": "approved",
+        "by": "scanned-figure-crop-auditor",
+        "at": "2026-10-27",
+        "method": "切り出しを出所のページ画像と並べて目視で照合（図の切れ・本文やキャプションの写り込み・隣の図）"
+      }
+    },
+    {
+      "chapterId": "10-8",
+      "sourceRef": "127",
+      "caption": "図 8-1",
+      "imagePage": 127,
+      "bbox": [
+        584,
+        991,
+        1770,
+        2716
+      ],
+      "file": "fig-p0127-1.webp",
+      "width": 1186,
+      "height": 1725,
+      "review": {
+        "status": "approved",
+        "by": "scanned-figure-crop-auditor",
+        "at": "2026-10-27",
+        "method": "切り出しを出所のページ画像と並べて目視で照合（図の切れ・本文やキャプションの写り込み・隣の図）"
+      }
+    }
+  ]
+}

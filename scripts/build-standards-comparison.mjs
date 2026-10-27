@@ -21,7 +21,8 @@ function normalizeMarkdownLines(source) {
     .replace(/^\{\/\*[\s\S]*?\*\/\}\s*/u, '')
     .split(/\r?\n/u)
     .map((line) => line.trim().replace(/[\t\u3000 ]+/gu, ' '))
-    .filter((line) => line && !line.startsWith('<SourceRef '));
+    // 原本から切り出した図（img/fig-*.webp・DN-0865）は src が文書ごとに違うだけなので、SourceRef と同じく比べない
+    .filter((line) => line && !line.startsWith('<SourceRef ') && !/^<ArticleImage src="[^"]*\/img\/fig-/u.test(line));
 }
 
 // Myers diff。共通仕様書はほぼ同一で差分 D が小さいため、長い章でも O((N+M)D) で比較できる。

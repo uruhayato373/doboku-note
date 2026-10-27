@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "document": "tohoku/reference",
+  "source": "原本のページ画像（Drive vault の 原資料PDF/共通仕様書/{整備局}/{原本名}/pages/pNNNN.jpg・270dpi）",
+  "note": "bbox はページ画像のピクセル。file は bbox で切って幅 1200px を超えるものだけ縮めた webp（品質 80）。形と使い方は scripts/lib/standards-figures.mjs の冒頭",
+  "figures": [
+    {
+      "chapterId": "40-1",
+      "sourceRef": "777",
+      "caption": "表6－1　地山条件に応じた計測項目",
+      "imagePage": 777,
+      "bbox": [
+        278,
+        1548,
+        1952,
+        2867
+      ],
+      "file": "fig-p0777-1.webp",
+      "width": 1200,
+      "height": 946,
+      "review": {
+        "status": "approved",
+        "by": "scanned-figure-crop-auditor",
+        "at": "2026-10-27",
+        "method": "切り出しを出所のページ画像と並べて目視で照合（図の切れ・本文やキャプションの写り込み・隣の図）"
+      }
+    },
+    {
+      "chapterId": "40-1",
+      "sourceRef": "778",
+      "caption": "表6－2　地山試料試験項目（標準）",
+      "imagePage": 778,
+      "bbox": [
+        278,
+        594,
+        1952,
+        2893
+      ],
+      "file": "fig-p0778-1.webp",
+      "width": 1200,
+      "height": 1648,
+      "review": {
+        "status": "approved",
+        "by": "scanned-figure-crop-auditor",
+        "at": "2026-10-27",
+        "method": "切り出しを出所のページ画像と並べて目視で照合（図の切れ・本文やキャプションの写り込み・隣の図）"
+      }
+    }
+  ]
+}
