@@ -2,7 +2,11 @@
 notePricing: free
 noteContentType: learning
 noteMagazine: 測量士午後-分野別
-noteStatus: draft
+title: "測量士 午後 記述式の全体像と選択2題の選び方 ｜過去5年（令和4〜8年）の出題傾向"
+notePublishedAt: "2026-10-28"
+noteId: "n23ccc71205a7"
+noteUrl: "https://note.com/dobokunote/n/n23ccc71205a7"
+noteStatus: published
 utmCampaign: surveyor-2027
 cover:
   variant: crop-safe-v4
@@ -17,13 +21,13 @@ cover:
 
 本記事の運営者は測量士の有資格者（2020年取得）・技術士（建設部門ほか）です。
 
-## こんな人のための記事です
+**こんな人のための記事です**
 
 - 午後の記述式で何が出るのか、全体像から知りたい人
 - 選択 No.2〜No.5 のうち、どの2題を選ぶか決めきれない人
 - 何から手をつけ、どの順に仕上げるかの計画を立てたい人
 
-## この記事でわかること
+**この記事でわかること**
 
 - 午後記述の構成と、令和4〜8年の5年間で変わったこと・変わらないこと
 - 必須 No.1 と、選択 No.2〜No.5 の出題内容の全体像
@@ -131,4 +135,4 @@ cover:
 
 必須 No.1 と、各選択分野の記事、およびマガジン全体への案内はこちらです。
 
-{{MAGAZINE_URL}}
+https://note.com/dobokunote/m/m4e09480baf15

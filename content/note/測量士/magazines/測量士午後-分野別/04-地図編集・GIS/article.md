@@ -4,7 +4,11 @@ noteContentType: product
 price: 980
 paidBoundary: "解き方の型"
 noteMagazine: 測量士午後-分野別
-noteStatus: draft
+title: "地図編集・GIS（投影） ｜測量士 午後 記述式 解き方の型と過去5年（令和4〜8年）解説"
+notePublishedAt: "2026-10-28"
+noteId: "n3d49f218df90"
+noteUrl: "https://note.com/dobokunote/n/n3d49f218df90"
+noteStatus: published
 utmCampaign: surveyor-2027
 cover:
   variant: crop-safe-v4
@@ -19,13 +23,13 @@ cover:
 
 本記事の運営者は測量士の有資格者（2020年取得）・技術士（建設部門ほか）です。
 
-## こんな人のための記事です
+**こんな人のための記事です**
 
 - 午後の選択 No.4（地図編集・投影・GIS。新科目名は測図測量・地理情報システム、旧・地図編集）を選ぶか迷っていて、何が出るかを先に知りたい人
 - 図葉数の数え上げ、図郭の左下隅の座標、縮尺係数 0.9999 を、毎年落とさず取りたい人
 - GIS の機能語句（バッファ・ボロノイ分割など）と、メタデータ・データ品質の穴埋めを一気に固めたい人
 
-## この記事でわかること
+**この記事でわかること**
 
 - 令和4〜8年の No.4 で何が問われたかの一覧と、この分野を選ぶべき人・避けるべき人
 - 図葉数と図郭左下隅、平面直角座標系と縮尺係数、横メルカトル図法、地理院タイル、GIS の機能語句、メタデータ・品質の型
@@ -394,4 +398,4 @@ a ○。b ×（標高点の標高値の型は Real で、整数でなく実数�
 
 他の分野の記事と、マガジン全体への入口はこちらです。
 
-{{MAGAZINE_URL}}
+https://note.com/dobokunote/m/m4e09480baf15

@@ -4,7 +4,11 @@ noteContentType: product
 price: 980
 paidBoundary: "解き方の型"
 noteMagazine: 測量士午後-分野別
-noteStatus: draft
+title: "応用測量（路線・用地・河川） ｜測量士 午後 記述式 解き方の型と過去5年（令和4〜8年）解説"
+notePublishedAt: "2026-10-28"
+noteId: "n5a26d1470d92"
+noteUrl: "https://note.com/dobokunote/n/n5a26d1470d92"
+noteStatus: published
 utmCampaign: surveyor-2027
 cover:
   variant: crop-safe-v4
@@ -19,13 +23,13 @@ cover:
 
 本記事の運営者は測量士の有資格者（2020年取得）・技術士（建設部門ほか）です。
 
-## こんな人のための記事です
+**こんな人のための記事です**
 
 - 午後の選択 No.5（応用測量）を選ぶか迷っていて、何が出るかを先に知りたい人
 - 単曲線・緩和曲線の計算と、用地測量の杭の本数を確実に点にしたい人
 - 「境界点間距離の点検」や「精度管理表の判定」のような、記述で落としやすい問いを型で覚えたい人
 
-## この記事でわかること
+**この記事でわかること**
 
 - 令和4〜8年の No.5 で何が問われたかの一覧と、この分野を選ぶべき人・避けるべき人
 - 単曲線・緩和曲線、曲率図、杭の本数、用地面積、河川の流積の計算を、途中式まで追える型
@@ -441,4 +445,4 @@ cover:
 
 他の分野の記事と、分野別マガジン全体への案内はこちらです。
 
-{{MAGAZINE_URL}}
+https://note.com/dobokunote/m/m4e09480baf15
