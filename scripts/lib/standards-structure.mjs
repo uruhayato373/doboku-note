@@ -646,6 +646,35 @@ function isWrappedProse(chunk) {
   return rest.every((n) => n === rest[0]) && indentOf(chunk[0].text) >= rest[0];
 }
 
+/**
+ * 字下げした行が段落・注・見出しの始まりである印（DN-0880）。折り返しの続きとみなさない。
+ * - 様式・図・表の番号の後ろに空白（`様式－１ 施工体制台帳`・`図1-4 標識の例`）。文中の参照（`表1-2に示す`・`図-9 の作図例`）は除く
+ * - 注（`注：`・`注1）`・`※`・`［注］`）
+ * - 番号つきの見出し（`2.保安灯`。小数 `2.5m`・年 `1988．` は除く）・カナや英字の見出し（`ア 交通誘導`・`(ア) 交通誘導`・`(ｂ) 部分払金`）
+ * - 記号の凡例（`●：作成主体`・`×：作成する必要のない書類`）
+ * 字間を空けて組んだ行（`ト グ ラ ム`）と、読点で終わる行に続く行（文の中の列挙 `…、４．見学路`）には使わない
+ */
+const RE_BLOCK_OPENER = new RegExp([
+  /^(?:様式|図|表)[\s　]*[-－―ー]?[\s　]*[0-9０-９]+(?:[-－―ー・.．][0-9０-９]+)*(?:[\s　]+(?![はのにをでがともへや、，])|$)/.source,
+  /^(?:注[\s　]*[0-9０-９]*[：:）)]|※|[［\[]\s*注)/.source,
+  /^[0-9０-９]{1,2}[．.](?![0-9０-９])/.source,
+  /^(?:[ア-ン][\s　．.]|[（(][ア-ンa-zａ-ｚA-ZＡ-Ｚ][）)])/.source,
+  /^[●○◎■□◆◇△▲×][：:]/.source,
+].join('|'));
+
+/**
+ * 段落の折り返しを見るための本文の幅（DN-0880）。chunk の行の表示幅の最大をそのまま使うと、版面からはみ出した 1 行
+ * （中部の特記仕様書 p.29 の `注：体感マットについては…` は 94・本文は 76〜78）に引きずられ、右端まで詰まった行を
+ * 折り返しと見なせず、交通誘導警備員の ①〜⑤ が 1 行ずつの段落に割れていた。
+ * 3 行以上が揃って届く最も広い幅（その幅から 2 桁以内に 3 行以上ある幅）を本文の幅とする。ただし最大の 8 割に
+ * 届かないとき（短い行が揃っているだけの様式・記入欄・一覧）は外れ値ではないので最大をとる（これまでと同じ）
+ */
+function bodyWidthOf(widths) {
+  const sorted = [...widths].sort((a, b) => b - a);
+  const supported = sorted.find((width) => sorted.filter((w) => w <= width && w >= width - 2).length >= 3);
+  return supported !== undefined && supported >= sorted[0] * 0.8 ? supported : sorted[0];
+}
+
 function uniquePages(entries) {
   return [...new Set(entries.map((e) => e.page))].sort((a, b) => a - b);
 }
@@ -657,8 +686,18 @@ function uniquePages(entries) {
  */
 function proseBlocks(chunk) {
   const base = Math.min(...chunk.map((e) => indentOf(e.text)));
-  // 行が版面の右端まで詰まっているか（＝紙面の幅で折り返した行か）を見るための chunk 内の最大の表示幅
-  const maxWidth = Math.max(...chunk.map((e) => displayWidth(e.text.replace(/[\s　]+$/, ''))));
+  // 行が版面の右端まで詰まっているか（＝紙面の幅で折り返した行か）を見るための chunk 内の最大の表示幅と、
+  // はみ出した 1 行を除いた本文の幅（bodyWidthOf・DN-0880）
+  const widthOf = (entry) => displayWidth(entry.text.replace(/[\s　]+$/, ''));
+  const maxWidth = Math.max(...chunk.map(widthOf));
+  const bodyWidth = bodyWidthOf(chunk.map(widthOf));
+  // 本文の幅でだけ詰まっている行（最大の幅では詰まっていない）は、読点を含む文の行のときだけ折り返しとみなす。
+  // 様式の記入欄・一覧・CSV の行（`商号又は名称`・`KP001U,,`）は短い行が揃っていて本文の幅が低く出るため
+  const fullLine = (entry) => {
+    const text = trimBoth(entry.text);
+    if (widthOf(entry) >= maxWidth * 0.85) return true;
+    return widthOf(entry) >= bodyWidth * 0.85 && /[、，]/.test(text) && !/[？?！!]$/.test(text);
+  };
   const blocks = [];
   let current = null;
   let previous = null;
@@ -669,10 +708,12 @@ function proseBlocks(chunk) {
     // 項目のぶら下げ字下げ（`（1）…おそれのあるも` の次行を字下げして `のを除去し…`）は、字下げが深くても
     // 文の続き。前の行が右端まで詰まっていて句点で終わっていなければ折り返しとみなす（近畿版 3-2-3-12 で
     // 文の途中に段落が入っていた）。字下げした段落の始まり（前の行が句点で終わる）はこれまでどおり分ける。
+    // 様式・図表の番号・注・番号つきの見出しで始まる字下げの行は、前の行が詰まっていても折り返しの続きではない（DN-0880）
     const wrapped =
       previous !== null &&
-      displayWidth(previous.text.replace(/[\s　]+$/, '')) >= maxWidth * 0.85 &&
-      !trimBoth(previous.text).endsWith('。');
+      fullLine(previous) &&
+      !trimBoth(previous.text).endsWith('。') &&
+      !(RE_BLOCK_OPENER.test(trimBoth(entry.text)) && !RE_SPACED_LETTERS.test(trimBoth(entry.text)) && !/[、，]$/.test(trimBoth(previous.text)));
     const startsNew = (!wrapped && indentOf(entry.text) > base) || note || item || circled;
     previous = entry;
     if (!current || startsNew) {
