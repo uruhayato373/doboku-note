@@ -545,7 +545,7 @@
       "format": "longform",
       "variant": "pop-diagram-v2",
       "revisionOf": "concrete-chief-engineer/shunin-hinshutsu-yusen/youtube.longform",
-      "status": "approved",
+      "status": "scheduled",
       "copy": "content/sns/video-packs/concrete-chief-engineer/shunin-hinshutsu-yusen/youtube.revision-pop-diagram-v2.json",
       "media": {
         "cover": "concrete-chief-engineer/shunin-hinshutsu-yusen/work/candidate-cover",
@@ -578,6 +578,43 @@
         "by": "user",
         "at": "2026-10-27T13:40:25.336Z",
         "contentSha256": "340dc1b6d3bfd89c4a55b0d0688ab9b717651b07b9a0a17629728fc43a177145"
+      },
+      "delivery": {
+        "inputSha256": "d5f615b795cd127fa21e8a935eba9820eda102c80dc48394fa2da234975e0385",
+        "marker": "dn-revision-bec775417241736d300bdaa979b72eb2ddec67cb",
+        "uploadRequestedAt": "2026-10-27T13:44:28.614Z",
+        "videoId": "W-oc8NWXTR0",
+        "processedAt": "2026-10-27T13:45:11.713Z",
+        "thumbnailRequestedAt": "2026-10-27T13:45:11.776Z",
+        "thumbnailUrls": [
+          "https://i9.ytimg.com/vi/W-oc8NWXTR0/default.jpg?sqp=CNzVgtcG&rs=AOn4CLDZ1vN1DMY5tkgYVeRBHGczyLZK0A",
+          "https://i9.ytimg.com/vi/W-oc8NWXTR0/mqdefault.jpg?sqp=CNzVgtcG&rs=AOn4CLB2G0DJxjvOKuUN-5Eax18dGMALyA",
+          "https://i9.ytimg.com/vi/W-oc8NWXTR0/hqdefault.jpg?sqp=CNzVgtcG&rs=AOn4CLCx0fpm1bZbaWgJkl5YxhmX5F1iUQ",
+          "https://i9.ytimg.com/vi/W-oc8NWXTR0/sddefault.jpg?sqp=CNzVgtcG&rs=AOn4CLAqLacLnmJbrg5EN3mmkc2VtdQmYA",
+          "https://i9.ytimg.com/vi/W-oc8NWXTR0/maxresdefault.jpg?sqp=CNzVgtcG&rs=AOn4CLBTHjI8F-6wzdt-g4zfdn0ZFHHQeA",
+          "https://i9.ytimg.com/vi/W-oc8NWXTR0/fhddefault.jpg?sqp=CNzVgtcG&rs=AOn4CLAkHuji8pG1xXaaIsDubfp42hD8iw"
+        ],
+        "thumbnailAcceptedAt": "2026-10-27T13:45:14.199Z",
+        "scheduleRequestedAt": "2026-10-27T13:45:14.792Z",
+        "scheduleAt": "2026-10-28T20:00:00+09:00",
+        "scheduledVerifiedAt": "2026-10-27T13:45:17.575Z"
+      },
+      "platform": {
+        "id": "W-oc8NWXTR0",
+        "url": "https://www.youtube.com/watch?v=W-oc8NWXTR0",
+        "privacy": "private",
+        "evidence": {
+          "kind": "publisher-live-check",
+          "ref": "content/sns/video-packs/concrete-chief-engineer/shunin-hinshutsu-yusen/youtube.revision-pop-diagram-v2.json"
+        }
+      },
+      "times": {
+        "uploaded": "2026-10-27T13:45:11.713Z",
+        "scheduled": "2026-10-27T13:45:17.575Z"
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-10-27T13:45:14.199Z"
       }
     },
     {
