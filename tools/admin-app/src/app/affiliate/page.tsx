@@ -2,11 +2,10 @@ import { DataTable, PanelCard, StatusBadge } from '@/components/admin';
 import { Grid, Stack } from '@/components/layout';
 import { PageHead, Kpi } from '@/components/ui';
 import { affiliateSummary, affiliatePlacements, affiliateExperiments, affiliateRules, affiliateClickLog, affiliateConversions } from '@/lib/affiliate';
+import { num, yen } from '@/lib/format';
 
 export const dynamic = 'force-dynamic';
 
-const yen = (v: number | null) => (v == null ? '—' : '¥' + Number(v).toLocaleString('en-US'));
-const num = (v: number | null) => (v == null ? '—' : Number(v).toLocaleString('en-US'));
 const rate = (c: number, i: number) => (i ? `${((c / i) * 100).toFixed(2)}%` : '—');
 const md = (d: string) => d.slice(5).replace('-', '/');
 

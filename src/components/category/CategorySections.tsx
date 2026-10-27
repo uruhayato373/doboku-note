@@ -10,14 +10,12 @@ import {
   subjectFullLabel,
 } from '@/lib/pe-construction-subjects';
 import { getPublicDocPath } from '@/lib/content-routes';
+import { formatDotDate } from '@/lib/display-date';
 
 /** カード表示用の更新日を YYYY.MM.DD で返す（取れなければ null）。LatestArticles と同じ整形。 */
 function cardDate(doc: DocMeta): string | null {
   const iso = doc.updatedAt ?? doc.dateModified ?? doc.lastRewrittenAt ?? doc.publishedAt ?? doc.created;
-  if (!iso) return null;
-  const d = new Date(iso);
-  if (Number.isNaN(d.getTime())) return null;
-  return `${d.getFullYear()}.${String(d.getMonth() + 1).padStart(2, '0')}.${String(d.getDate()).padStart(2, '0')}`;
+  return formatDotDate(iso);
 }
 
 export function DocCard({ doc }: { doc: DocMeta }) {

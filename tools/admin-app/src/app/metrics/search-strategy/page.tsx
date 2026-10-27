@@ -9,6 +9,7 @@ import { findRepoRoot } from '@/lib/repo-root';
 import { buildSearchOpportunities, candidateMarks } from '../../../../../../scripts/lib/search-opportunities.mjs';
 import { PHASES, RESULTS } from '../../../../../../scripts/lib/search-improvement.mjs';
 import { SITE_ORIGIN } from '../../../../../../scripts/lib/site-identity.mjs';
+import { num } from '@/lib/format';
 
 export const dynamic = 'force-dynamic';
 
@@ -32,7 +33,6 @@ const QUERY_SHOWN = 3;
 const MARK_TONE: Record<string, Tone> = { experiment: 'info', 'legacy-action': 'warn', 'legacy-wait': 'neutral', 'off-target': 'warn', routed: 'info', 'routed-action': 'warn', last: 'neutral', todo: 'neutral' };
 const PHASE_TONE: Record<string, Tone> = { filed: 'info', implemented: 'warn', measuring: 'info', 'verdict-due': 'warn', closed: 'good', abandoned: 'neutral' };
 const md = (d: string) => d.slice(5).replace('-', '/');
-const num = (n: number) => n.toLocaleString();
 const signed = (d: number) => (d === 0 ? '±0' : `${d > 0 ? '+' : ''}${num(d)}`);
 
 /** 前期との差のバッジ（件数は多いほど良い）。 */
