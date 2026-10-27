@@ -8,7 +8,7 @@
       "work": "pe1-kiso-senmon",
       "account": "youtube:main",
       "format": "longform",
-      "status": "rendered",
+      "status": "scheduled",
       "copy": "content/sns/video-packs/pe-first-stage/pe1-kiso-senmon/youtube.json#longform",
       "media": {
         "cover": "pe-first-stage/pe1-kiso-senmon/youtube.longform/cover",
@@ -49,13 +49,42 @@
         "contentSha256": "7ff43e117e94af44e2ce67875eb61601a38faada914f92de571605bae376c164"
       },
       "times": {
-        "rendered": "2026-10-27T15:21:10.797Z"
+        "rendered": "2026-10-27T15:21:10.797Z",
+        "uploaded": "2026-10-27T15:27:01.739Z",
+        "scheduled": "2026-10-27T15:27:18.095Z"
       },
       "delivery": {
         "inputSha256": "7b3f01284fe4c2d355bdee32cc4d07eb6e82668013f76766a553c87ea1f806a9",
         "marker": "dn-single-8abfda2276bf25a762f53a91ad364a21610610f9",
         "uploadRequestedAt": "2026-10-27T15:24:07.078Z",
-        "videoId": "p8fZi3a2Un8"
+        "videoId": "p8fZi3a2Un8",
+        "processedAt": "2026-10-27T15:27:00.890Z",
+        "thumbnailRequestedAt": "2026-10-27T15:27:01.782Z",
+        "thumbnailUrls": [
+          "https://i9.ytimg.com/vi/p8fZi3a2Un8/default.jpg?sqp=CMyEg9cG&rs=AOn4CLCse6RfPD5P8cfZm-22PeAxPaSHnw",
+          "https://i9.ytimg.com/vi/p8fZi3a2Un8/mqdefault.jpg?sqp=CMyEg9cG&rs=AOn4CLDhSXEv2tpbAt0FPMLY5Hav9KyWPw",
+          "https://i9.ytimg.com/vi/p8fZi3a2Un8/hqdefault.jpg?sqp=CMyEg9cG&rs=AOn4CLD7Pu3JE7K0sc7qXnvzC3Bd8rJ6yg",
+          "https://i9.ytimg.com/vi/p8fZi3a2Un8/sddefault.jpg?sqp=CMyEg9cG&rs=AOn4CLB9q1ZGxKSbF3q_heJsuLUSk9yEXQ",
+          "https://i9.ytimg.com/vi/p8fZi3a2Un8/maxresdefault.jpg?sqp=CMyEg9cG&rs=AOn4CLDcX6WXj0XWBPokHCrLGfgd-aJl2Q",
+          "https://i9.ytimg.com/vi/p8fZi3a2Un8/fhddefault.jpg?sqp=CMyEg9cG&rs=AOn4CLDklPPDmVL7LhOJOzuhd0jh4iTczA"
+        ],
+        "thumbnailAcceptedAt": "2026-10-27T15:27:08.254Z",
+        "scheduleRequestedAt": "2026-10-27T15:27:14.532Z",
+        "scheduleAt": "2026-11-04T20:00:00+09:00",
+        "scheduledVerifiedAt": "2026-10-27T15:27:18.095Z"
+      },
+      "platform": {
+        "id": "p8fZi3a2Un8",
+        "url": "https://www.youtube.com/watch?v=p8fZi3a2Un8",
+        "privacy": "private",
+        "evidence": {
+          "kind": "publisher-live-check",
+          "ref": "content/sns/video-packs/pe-first-stage/pe1-kiso-senmon/youtube.json#longform"
+        }
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-10-27T15:27:08.254Z"
       }
     },
     {
