@@ -45,7 +45,7 @@ const THEMES = [
 const pathOf = (local) => {
   const slug = `civil-construction-1-${local}`;
   const path = publicPathFromSlug(slug);
-  if (!path) throw new Error(`${slug} の公開パスが引けない（public/_redirects を作り直す: npm run build-public-route-redirects）`);
+  if (!path) throw new Error(`${slug} の公開パスが引けない（public/_redirects を作り直す: npm run build-public-redirects）`);
   return path;
 };
 const STRATEGY_LINK = `- [試験ガイド・戦略](${pathOf('guide-strategy')})`;
