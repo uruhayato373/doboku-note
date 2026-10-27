@@ -3,6 +3,7 @@
  *
  * 守りたい事故（DN-0659）: 判定し直す前の展開コミットを、新しい計画の展開として数え、`--status` が進んだように見える。
  */
+import './lib/isolate-git-env.mjs';
 import { strict as assert } from 'node:assert';
 import { execFileSync } from 'node:child_process';
 import { mkdtempSync, mkdirSync, rmSync, writeFileSync } from 'node:fs';

@@ -1,4 +1,5 @@
 // dispatch-log.json の merge driver（DN-0635）。一時の git リポジトリで、末尾に別々の記録を足した 2 本を合わせる。
+import './lib/isolate-git-env.mjs';
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { mkdtempSync, mkdirSync, readFileSync, writeFileSync, copyFileSync, rmSync } from 'node:fs';

@@ -1,5 +1,6 @@
 // pathspec commit（git commit -- <path>）では pre-commit が書き換えて stage した内容が本物の index に入らず、
 // index にだけ古い版が残る（2026-10-06・backfill-mdx-dates の dateModified）。post-commit がそれを HEAD に揃える。
+import './lib/isolate-git-env.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { mkdtempSync, writeFileSync, rmSync, chmodSync } from 'node:fs';

@@ -1,5 +1,6 @@
 // check-note-republish の「301 で等価な張り替えだけ」の判定（DN-0297）。
 // 2026-09-24 に PR #598 の張り替えで要再公開が 674 本になり、本当に要る 404 修正の 1 本が埋もれた。
+import './lib/isolate-git-env.mjs';
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { Buffer } from 'node:buffer';
