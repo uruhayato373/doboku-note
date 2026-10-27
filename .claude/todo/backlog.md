@@ -1518,6 +1518,16 @@ Windows の PowerShell で repo 直下から順に:
 
 ## 🟢 低 — 重要度が低い（時期未定を含む）
 
+### [DN-0889] Windows の手元で npm test が 46〜47 件落ちる原因を分けて直す（CI では通る）
+タグ: [領域:管理] [時期:2026-11] [種類:不具合] [起票:2026-10-27]
+
+**起点**: 2026-10-27、Windows の手元で `npm test` を全量で回すと 3,637 件中 46〜47 件が落ちた（PR #1281 の作業中）。同じ変更で CI（Linux）の audit（unit-tests を含む）は通ったので、手元の環境に固有の失敗と見ている。落ちたのは 28 ファイル: admin-document-store・admin-figure-sns-board・agent-hooks・check-execution・check-mdx-images・client-chunk-size・disk-hygiene・e2e-execution・instagram-campaign・longform-pop-images・merge-dispatch-log・post-exam-cta・pre-commit-hook・pre-commit-install-guard・prh-verb-forms・product-note-derive（掲載文の改行コード CRLF/LF）・quality-audit-ops-tier（DN-0886 の 2）・replay-onto-develop・report-automation-failure・standard-articles-platform・standards-figures・video-cache-prune・video-scene-sheet・weekly-review-launchd・write-all-sync・youtube-analytics・youtube-revision-publisher・youtube-single-publisher。
+
+**やること**: 原因で分ける（改行コード・パス区切り・シェル・時刻依存・手元に無い生成物）。直せるものは直し、Windows で意図して回さないものは理由をつけて skip する。手元で全量が緑になれば、手元の失敗と自分の変更の失敗を見分けられる。
+
+**完了条件**: Windows の手元で `npm test` の失敗が 0 件、または残りが理由つきの skip だけになっている。
+
+
 ### [DN-0886] データ配線の検査経路の判断: SNS 系検査の CI 復帰・Windows で落ちる束のテスト・refs の日付での warn 分け・src の日本時間検査
 タグ: [領域:管理] [時期:2026-11] [種類:意思決定] [起票:2026-10-27]
 
