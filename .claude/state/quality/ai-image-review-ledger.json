@@ -2375,6 +2375,90 @@
       "reason": "参照キャラクターと整合する顔・服装、CTAを指す手と答案を持つ手が自然で、完成答案集への案内と指定8文字列が各動画の施工経験記述の用途に合う。",
       "reviewedAt": "2026-10-17T06:04:25.228Z"
     },
+    "media:concrete-chief-engineer/shunin-chokuzen-senryaku/work/candidate-cover": {
+      "sha": "8612c666d23f8e35",
+      "verdict": "ok",
+      "reason": "資格名と優先順位の文言が正確で、人物の顔・眼鏡・ヘルメット・手指に破綻がない。",
+      "reviewedAt": "2026-10-27T11:14:41.644Z"
+    },
+    "media:concrete-chief-engineer/shunin-chokuzen-senryaku/work/candidate-cta": {
+      "sha": "1fb7c3b5c4a44c33",
+      "verdict": "ok",
+      "reason": "完成動画の最終場面と同じSHAで、予想問題・配合計算・暗記ノートから概要欄への案内が台本と一致する。",
+      "reviewedAt": "2026-10-27T11:14:41.645Z"
+    },
+    "media:concrete-chief-engineer/shunin-chokuzen-senryaku/work/candidate-scene-001": {
+      "sha": "8612c666d23f8e35",
+      "verdict": "ok",
+      "reason": "POP表紙の資格名と問いが正確で、人物の装備と手指に破綻がない。",
+      "reviewedAt": "2026-10-27T11:14:41.645Z"
+    },
+    "media:concrete-chief-engineer/shunin-chokuzen-senryaku/work/candidate-scene-002": {
+      "sha": "e425a014928c1cd0",
+      "verdict": "ok",
+      "reason": "分野全体を捨てず低頻度項目だけ後回しにする対比が語りと一致する。",
+      "reviewedAt": "2026-10-27T11:14:41.645Z"
+    },
+    "media:concrete-chief-engineer/shunin-chokuzen-senryaku/work/candidate-scene-003": {
+      "sha": "e115e39f00b8a598",
+      "verdict": "ok",
+      "reason": "平成21年度から令和5年度を分析範囲とし令和6年度以降を別色に分けている。",
+      "reviewedAt": "2026-10-27T11:14:41.645Z"
+    },
+    "media:concrete-chief-engineer/shunin-chokuzen-senryaku/work/candidate-scene-004": {
+      "sha": "96ad12ea8e778feb",
+      "verdict": "ok",
+      "reason": "七分野の名称がそろい用材料の補強材だけ優先度を下げる注記が語りと整合する。",
+      "reviewedAt": "2026-10-27T11:14:41.645Z"
+    },
+    "media:concrete-chief-engineer/shunin-chokuzen-senryaku/work/candidate-scene-005": {
+      "sha": "43404930426dadd9",
+      "verdict": "ok",
+      "reason": "施工項目をほぼ毎年と多くの年に分け、締固め・打継ぎを含む名称が読める。",
+      "reviewedAt": "2026-10-27T11:14:41.645Z"
+    },
+    "media:concrete-chief-engineer/shunin-chokuzen-senryaku/work/candidate-scene-006": {
+      "sha": "7f60f283368bc2c8",
+      "verdict": "ok",
+      "reason": "施工の低頻度、水の表後半で確認なし、目次で出題なしを別々に示す。",
+      "reviewedAt": "2026-10-27T11:14:41.645Z"
+    },
+    "media:concrete-chief-engineer/shunin-chokuzen-senryaku/work/candidate-scene-007": {
+      "sha": "7aa01065b3d5907e",
+      "verdict": "ok",
+      "reason": "三段の優先順位と各頻度区分の対応が語りと一致する。",
+      "reviewedAt": "2026-10-27T11:14:41.645Z"
+    },
+    "media:concrete-chief-engineer/shunin-chokuzen-senryaku/work/candidate-scene-008": {
+      "sha": "7aaa8ef35c519036",
+      "verdict": "ok",
+      "reason": "水中コンクリートから寒中・暑中の復習へ時間を移す矢印の向きが正しい。",
+      "reviewedAt": "2026-10-27T11:14:41.645Z"
+    },
+    "media:concrete-chief-engineer/shunin-chokuzen-senryaku/work/candidate-scene-009": {
+      "sha": "b29903553ee914de",
+      "verdict": "ok",
+      "reason": "年度を縦、項目を横に置き同じ項目の縦列だけを強調し、セルは空欄で架空の記録がない。",
+      "reviewedAt": "2026-10-27T11:14:41.645Z"
+    },
+    "media:concrete-chief-engineer/shunin-chokuzen-senryaku/work/candidate-scene-010": {
+      "sha": "627997d664caa7f2",
+      "verdict": "ok",
+      "reason": "択一と小論文を別々の基準点ゲージで示し両方が必要という語りに一致する。",
+      "reviewedAt": "2026-10-27T11:14:41.645Z"
+    },
+    "media:concrete-chief-engineer/shunin-chokuzen-senryaku/work/candidate-scene-011": {
+      "sha": "b89d4c33898d722e",
+      "verdict": "ok",
+      "reason": "三段の優先順位、平成21〜令和5年度の範囲、小論文の並行を正確に再掲する。",
+      "reviewedAt": "2026-10-27T11:14:41.645Z"
+    },
+    "media:concrete-chief-engineer/shunin-chokuzen-senryaku/work/candidate-scene-012": {
+      "sha": "1fb7c3b5c4a44c33",
+      "verdict": "ok",
+      "reason": "予想問題・配合計算・暗記ノートから概要欄へ進む構図が現行CTAと一致する。",
+      "reviewedAt": "2026-10-27T11:14:41.645Z"
+    },
     "media:concrete-chief-engineer/shunin-shiken-zentaizou/work/candidate-cover": {
       "sha": "729a5a5e70c9b6de",
       "verdict": "ok",

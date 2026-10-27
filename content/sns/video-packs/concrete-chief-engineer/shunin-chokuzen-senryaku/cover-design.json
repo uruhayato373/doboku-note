@@ -5,8 +5,8 @@
       "format": "longform",
       "exam": "concrete-chief",
       "headline": [
-        "主任技士の直前",
-        "総仕上げの順序"
+        "直前期の優先順位",
+        "どこを固める？"
       ],
       "accentLine": 1,
       "subtitle": "",
@@ -14,15 +14,15 @@
         "pose": "pop-explaining",
         "frame": "waist"
       },
-      "design": "pop-v2",
+      "design": "pop-poster-v3",
       "pop": {
         "variant": "plan",
         "authority": "総監が制作"
       },
       "approvedImage": {
-        "path": ".tmp/media/concrete-chief-engineer/shunin-chokuzen-senryaku/youtube.longform/cover.f6f6c61f.png",
-        "sha256": "f6f6c61f197485254e3ecd11fd6ade99fbe3ffd8cfd3f9d2c709f57b62a2c065",
-        "specSha256": "9f89b44ef115998b5fb5def0e534f84c0f97557c2d43511d58a813b70df22ed6"
+        "path": ".tmp/media/concrete-chief-engineer/shunin-chokuzen-senryaku/youtube.longform/cover.8612c666.png",
+        "sha256": "8612c666d23f8e352f63f3cb5672d94e73f24b392ba86eefd2d89364f6ade767",
+        "specSha256": "e398c310c2d7d2d461aba5074cdef09e556aac079440cf995031c56045697918"
       }
     },
     "point-step1-1": {
