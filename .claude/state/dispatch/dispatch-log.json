@@ -6122,6 +6122,23 @@
       "commit": "1fc2c086c540",
       "verification": "node --test tests/note-live-update-verify.test.mjs（旧実装で落ち修正後 7/7）・npm test fail 0",
       "note": "pickUpdateProbes を行の中の差分から断片を取る形にした（PR #1288・1fc2c086c）"
+    },
+    {
+      "id": "DN-0893",
+      "at": "2026-10-27",
+      "task": "todo:add が試験日の検査（check-exam-calendar）を通さずに push する抜けをふさぐ",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "tests/backlog-text-guards.test.mjs"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "39ab9c0592b2",
+      "verification": "node --test tests/backlog-text-guards.test.mjs tests/todo-add.test.mjs tests/search-improvement.test.mjs（61 pass）・CLI dry-run で誤記と存在しない相対リンクの本文が止まることを確認",
+      "note": "addCard と search-improvement の backlog 書き換えで、増えた行に check-exam-calendar の禁止パターンと check-relative-links の宛先の実在（origin/develop）を当てる（scripts/lib/backlog-text-guards.mjs）"
     }
   ]
 }
