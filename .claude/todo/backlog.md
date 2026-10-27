@@ -291,6 +291,22 @@
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-0885] データ配線の残り: ツール名・演習件数・資格キーの語彙・管理画面の書式・タグの旧い綴りを正本に寄せる
+タグ: [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-10-27]
+
+**起点**: 2026-10-27 のデータ配線の監査（ブランチ feat/data-wiring）で、表示文言とマスタの写しのうち今回は直さなかったもの。いずれも今は値が一致しているか、表示の差が小さい。
+
+**やること**:
+1. ツール名・説明の二重定義をなくす: `src/lib/tools.ts` と各 `src/app/tools/*/page.tsx` の metadata・OG・twitter（1 ページで 3 回）。「無料ツール一覧」のリンクの直書き 7 つ（`*Client.tsx`）・「ページが見つかりません」4 か所・サイト名の題 5 か所も 1 か所から引く
+2. 技術士一次の演習ページ（`src/app/tools/kakomon-quiz/pe-first-stage/page.tsx`・`CategoryViews.tsx:281`・`tools.ts:5`）の「全1,830問・平成23〜令和7年度」も `src/lib/quiz-summary.ts` から出す（1級土木は済み）
+3. `/links` の「9資格」（`src/app/links/page.tsx:29,37,44`）を `EXAM_CARDS.length` から作る（metadata の定義順を直す）
+4. 資格キーの語彙の残り（X の `EXAM_ALIAS`・IG の `EXAM_OF_DIR`・動画パックの `EXAM_TO_PALETTE`・図解パックの `FIGURE_PACK_CATEGORIES`・`generate-magazine-covers.mjs` の `category` 文字列）を registry と `exam-brand.ts` の `QUALIFICATION_TO_EXAM_KEY` から作る。コンクリート技士・診断士が X で 'account' に落ちる件を含む
+5. 管理画面の `ui.tsx` の `fmt.int`・`lineup.ts` の価格整形を `tools/admin-app/src/lib/format.ts` に寄せる
+6. タグ「技術士（第一次試験）」の旧い綴りを使う記事 76 本を正規の「技術士 第一次試験」に直し、`src/config/tags.json` の別名を外す（frontmatter だけの変更なので dateModified は動かさない）
+
+**完了条件**: 上の写しが正本からの読み込みか導出になり、増やさないテスト（ラチェット）か値の一致のテストがある。
+
+
 ### [DN-0883] 資格別の商品分けを配置ルールに落とし、PC で 2 社を並べる比較を実装する（EXP-043 の判定後）
 タグ: [領域:アフィリエイト] [時期:2026-11] [種類:改善] [起票:2026-10-27]
 
