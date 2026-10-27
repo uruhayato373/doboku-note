@@ -1,6 +1,6 @@
 ---
 name: feedback_verify_your_excuses
-description: 報告・提案の前に実体で裏取り。棚卸しは件数でなく既存カード・ラチェット・実在・障害履歴と照合・「検証できない」の理由自体を検証・溜まった物は生成元を見る・自分のコマンドの副産物か確認・外部仕様を断定しない・ツール出力の幻覚に注意・画像の出所を見た目で断定しない
+description: 報告・提案の前に実体で裏取り。棚卸しは件数でなく既存カード・ラチェット・実在・障害履歴と照合・「検証できない」の理由自体を検証・溜まった物は生成元を見る・自分のコマンドの副産物か確認・外部仕様を断定しない・ツール出力の幻覚に注意・画像の出所を見た目で断定しない・異常な件数を見たら自分の集計を先に疑う
 metadata:
   node_type: memory
   type: feedback
@@ -25,6 +25,10 @@ metadata:
 - 未コミット差分を報告する前に、そのセッションで実行した build・refresh-indexes・generate 系の書込先を確認し、`git diff` の中身（generated_at だけか実データか）で帰属と要否を決める。生成物のずれは `npm run check-generated-indexes`。
 - 同日、使い方を見るつもりの `node scripts/normalize-a8-csv.mjs --help` が未知の引数を無視して古い手元 run を取り込み A8 の SSOT 2ファイルを書き換えた（git checkout で復元・引数検証を追加）。**書き込み系スクリプトの使い方は実行せず冒頭 docstring / parseArgs を Read して確認**。
 - 2026-10-02、構文確認のつもりの `node -e "import('./scripts/report-search-growth.mjs')"` が CLI 本体を実行し `.claude/state/improvements/search-growth-latest.md` を書き換えた（git restore で復元）。**CLI スクリプトの確認は `node --check`、`import()` での確認は副作用の無い lib だけ**。サブエージェントへの指示にも「CLI は実行しない」と書く。同日、`npm run test` が追跡中の `public/quiz` を書き換える既存の副作用も見つかった（DN-0511）ので、テスト後も `git status` で差分の帰属を見る。
+
+## 異常な件数を見たら、説明を作る前に自分の集計を疑う
+2026-10-28、「note で公開できるものを全て公開」の棚卸しで、frontmatter を `^---\n` の正規表現で直読みし、CRLF の記事 692 本を未公開と数えた。そのうえ確かめずに「公開の事実は content/registry/ に移っているので frontmatter では判断できない」と説明を作って運営者に伝えた（registry は YouTube・Instagram・X だけで note を持たない）。同じ流れで「img/cover.png が無いので公開できない」とも思い込んだ（表紙は公開時に frontmatter の cover から作る）。
+- **How to apply:** 全体の 7 割が未公開のような桁違いの数字は、まず自分のコマンドの誤りを疑う。理由を述べる前に、その理由の実体（台帳の中身・スクリプトの解決方法）を 1 手で見る。note の未公開は `npm run note-unpublished`（gray-matter で読み、読めない記事は exit 1）で出し、手で frontmatter を読む正規表現を書かない。
 
 ## 外部仕様を断定しない
 戦略・分析で外部の第三者仕様（ASP 規約・検索エンジンの挙動・他社プロダクト仕様・法令の細部）を確定事実のように断定しない（LLM は一次情報未確認のまま過度に強い因果・一律禁止・不可避と書きがち）。
