@@ -40,3 +40,8 @@ test('10/27: 2 級の文脈がある行だけ止め、当日の記録の日付�
   assert.deepEqual(findForbidden('3面アフィリ方針（2026-10-27 採用）'), []);
   assert.deepEqual(findForbidden('予約 2026-10-27T21:05'), []);
 });
+
+test('10/27: 「土木施工管理」だけでは 2 級の文脈とみなさない', () => {
+  assert.deepEqual(findForbidden('2026-10-27 に、資格別の商品分け（土木施工管理＝建設特化）を設計した'), []);
+  assert.deepEqual(findForbidden('2級土木の後期は 2026-10-27'), ['2級後期・第二次は2026-10-25']);
+});
