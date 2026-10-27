@@ -124,6 +124,7 @@ npm run build-takuitsu-pdf      # 択一MDXをnote配布用A4 PDFへ変換（`--
 npm run build-standards-comparison # 近畿版を基準に各地方整備局版の本文差分を章・行単位で生成（`content/site/standards-articles/comparison.json`）
 npm run build-standards-data     # 構造化章記事から公開用 Markdown / JSON-LD / 索引JSONを `public/standards-data/` へ生成（派生物・Git追跡外・本番build同梱）
 npm run check-standards-data     # 公開用データ全章の形式・条数・出典/加工主体分離・noindex/CORSヘッダーを検査（build-standards-dataが自動実行。CI auditでも事前生成して必須検査、生成漏れはskipせず失敗）
+npm run check-standards-links   # site の MDX（過去問の解説など）から共通仕様書の章・節・条（`/standards/…#3-2-6-12-コンクリート舗装工`）へのリンク先が catalog・manifest・章記事に実在するか（章・節・条は毎年の改定で変わる。節ページに分けた章（3-2）の条へは `/sections/{節}` で結ぶ。リンク 0 本は検査不成立で exit 1。quality-audit の internal-links の step・CI ゲート・DN-0879）
 npm run build-standards-ogp     # 章記事ごとの OGP 画像を生成（章は MDX でないため `npm run ogp` の射程外。描画は ogp-create の lib を再利用し見た目をサイトと揃える。R2 供給は ogp-supply.yml が代行） `--write-srchash` は章の srcHash を退避台帳へ書く。CI は実体の有無でなく台帳の srcHash 一致で再生成を飛ばす（2026-10-11・DN-0683）
 npm run check-standard-articles # 上の 19 検査（本文の取りこぼし0・全ページ割当・条番号整合・見出しレベル・SHA-256 一致・重複 indexable・**catalog 72 文書の被覆と除外理由の実データ検証**・表の可逆性・**章ごとの OGP 被覆**・節ページの切り出し・**読める形（版面のまま残った表は文書別の verbatimTables 基準以下・文の途中の改行・表から外れた断片は基準以下／壊れた表 0）**。exit 2=検査不成立）
 npm run standards-table-gallery  # 公的基準の章・節ページの表を撮って 1 枚の HTML に並べる（目視用・ゲートではない。対象は「中身が異なるページすべて」、`--all` で比較の外の文書（必携・マニュアル・特記など）も。要 serve/dev。Playwright のブラウザが無い PC は --channel msedge。Git Bash では MSYS_NO_PATHCONV=1 を付けないと --only の /standards/… が化ける）
