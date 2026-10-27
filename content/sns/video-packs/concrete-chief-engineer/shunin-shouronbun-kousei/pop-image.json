@@ -181,5 +181,415 @@
       },
       "publication": "ローカル差し替え・外部未反映"
     }
+  },
+  "activeCoverRevision": "cover-pop-20261027",
+  "activeBodyRevision": "body-diagram-20261027",
+  "revisions": {
+    "cover-pop-20261027": {
+      "version": "pop-poster-v3",
+      "generation": {
+        "tool": "image_gen",
+        "prompt": "Reconstructed production brief (original tool prompt unavailable in exported metadata): Use the attached successful POP cover as character and style reference. Create a new full-bleed 16:9 YouTube cover for コンクリート主任技士. Keep the same teacher with glasses, white hardhat, navy workwear and red pen on the right; energetic violet, yellow, red comic poster. Exact text: 総監が制作 / コンクリート主任技士 / 小論文 / 何から書く？ / 項目×行数で骨子. No other writing. Keep all foreground above the bottom 20% subtitle-safe band.",
+        "references": [
+          {
+            "path": ".tmp/media/concrete-chief-engineer/shunin-shiken-zentaizou/youtube.longform/cover.729a5a5e.png",
+            "sha256": "729a5a5e70c9b6de85da4e5eaf3c10cf72946541c575850185578e44623ec7e8"
+          }
+        ],
+        "output": {
+          "path": ".tmp/media/concrete-chief-engineer/shunin-shouronbun-kousei/work/raw-cover-pop-20261027.png",
+          "sha256": "3bbf4732cb9abb0881eebfa30e1ee5f295e26913ee75ee5676d4fdeb19ede9be"
+        },
+        "generatedAt": "2026-10-27T12:50:02.222Z",
+        "promptRecord": "reconstructed"
+      },
+      "copy": {
+        "exam": "concrete-chief",
+        "headline": [
+          "小論文",
+          "何から書く？"
+        ],
+        "authority": "総監が制作"
+      },
+      "output": {
+        "path": ".tmp/media/concrete-chief-engineer/shunin-shouronbun-kousei/work/cover-pop.192d62f7.png",
+        "sha256": "192d62f7eb14c46a9bd83dddbc5d1f683c14c56c5e2d3a4f686b4133c4f0c0b0",
+        "width": 1920,
+        "height": 1080
+      },
+      "normalization": {
+        "mode": "full-frame-v1",
+        "sourceSha256": "3bbf4732cb9abb0881eebfa30e1ee5f295e26913ee75ee5676d4fdeb19ede9be"
+      },
+      "review": {
+        "status": "ai-reviewed",
+        "userImageReview": "pending",
+        "checkedAt": "2026-10-27T13:09:07.028Z",
+        "by": "Codex",
+        "views": [
+          "1920x1080"
+        ],
+        "checks": [
+          "文言・資格名",
+          "顔と安全域",
+          "字幕領域"
+        ]
+      },
+      "storage": {
+        "group": "content-media",
+        "sync": "pending"
+      }
+    },
+    "body-diagram-20261027": {
+      "layout": {
+        "mode": "diagram-led"
+      },
+      "images": [
+        {
+          "sceneId": "premise",
+          "inputSha256": "4087ecbfdfffa8917dd2d62dca132f8d2abf72d0b3a1fe8b09ec0b400a27d3e7",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Reconstructed production brief (original tool prompt unavailable in exported metadata): Create one 16:9 Japanese educational diagram slide, using the reference for diagram style only. White-to-light-lavender background, navy and violet outlines, yellow highlights, simple accurate icons, no character. Leave bottom 22% empty for subtitles. Scene heading: 誤解：知識量を書き並べる試験. Depict this narration and visual faithfully: 小論文は知識の量を競う試験だと思われがちですが、そこが誤解です。用語を説明できることと、自分の現場の判断として書けることは別の力。答案は、知識を自分の業務に結びつけて組み立てます。 {\"heading\":\"誤解：知識量を書き並べる試験\",\"items\":[\"用語の説明\",\"自分の現場の判断として書く\"],\"flow\":[\"知識\",\"自分の業務に結びつける\",\"答案\"]}. No extra facts, statistics, or unsupported claims.",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/work/promise-diagram.c7e7cf67.png",
+                "sha256": "c7e7cf6782e5ef4f90e378ac9927e178f7d4acaa2555c547aabe93df9f8cace3"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-chief-engineer/shunin-shouronbun-kousei/work/raw-premise.c1a53f32.png",
+              "sha256": "c1a53f32439e046b11cdf48c7d355bef1764a3cd08c34747ed99cc5b38014c33"
+            },
+            "generatedAt": "2026-10-27T13:03:52.475Z",
+            "promptRecord": "reconstructed"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-chief-engineer/shunin-shouronbun-kousei/work/premise-diagram.b0f66a22.png",
+            "sha256": "b0f66a2257edac5889e27a002d4ecf83b7f513bc567c5330b239b0795894945e",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "c1a53f32439e046b11cdf48c7d355bef1764a3cd08c34747ed99cc5b38014c33"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-10-27T13:09:07.033Z",
+            "by": "Codex",
+            "views": [
+              "1920x1080"
+            ],
+            "checks": [
+              "内容整合",
+              "文言",
+              "字幕領域"
+            ]
+          }
+        },
+        {
+          "sceneId": "items",
+          "inputSha256": "8dad481741c2305ae14868b46a7d4abc34d518a7673a1d52592bcae3ebdcb3e0",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Reconstructed production brief (original tool prompt unavailable in exported metadata): Create one 16:9 Japanese educational diagram slide, using the reference for diagram style only. White-to-light-lavender background, navy and violet outlines, yellow highlights, simple accurate icons, no character. Leave bottom 22% empty for subtitles. Scene heading: 過去問の項目と行数（二次情報の整理）. Depict this narration and visual faithfully: 問題文は日本コンクリート工学会から公開されていません。合格者・受験者が公開した記事を突き合わせた二次情報では、令和7年度は三項目で、取り組みが15〜20行、対策が10〜15行。令和6年度は四項目でした。項目も行数も年度で変わります。今年度の形式は、受験案内と本番の解答用紙で確認してください。 {\"kind\":\"sheet\",\"heading\":\"過去問の項目と行数（二次情報の整理）\",\"sheetTitle\":\"令和7年度（3項目）／令和6年度（4項目）\",\"rows\":[{\"label\":\"令和7年度\",\"value\":\"表題（1行）\",\"state\":\"done\"},{\"label\":\"令和7年度\",\"value\":\"業務での技術的取り組み（15〜20行）\",\"state\":\"done\"},{\"label\":\"令和7年度\",\"value\":\"今後の技術的対策（10〜15行）\",\"state\":\"done\"},{\"label\":\"令和6年度\",\"value\":\"テーマ番号と表題（1〜2行）\",\"state\":\"done\"},{\"label\":\"令和6年度\",\"value\":\"現状とその原因（7〜10行）\",\"state\":\"done\"},{\"label\":\"令和6年度\",\"value\":\"業務の現状と課題（7〜10行）\",\"state\":\"done\"},{\"label\":\"令和6年度\",\"value\":\"講じるべき行動・活動（10〜14行）\",\"state\":\"done\"}]}. No extra facts, statistics, or unsupported claims.",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/work/promise-diagram.c7e7cf67.png",
+                "sha256": "c7e7cf6782e5ef4f90e378ac9927e178f7d4acaa2555c547aabe93df9f8cace3"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-chief-engineer/shunin-shouronbun-kousei/work/raw-items.5d722c3b.png",
+              "sha256": "5d722c3b0860afe0bd7b33446b3b09b7d18d82291c05f668f0332a420e96dbea"
+            },
+            "generatedAt": "2026-10-27T13:03:52.476Z",
+            "promptRecord": "reconstructed"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-chief-engineer/shunin-shouronbun-kousei/work/items-diagram.ca716c78.png",
+            "sha256": "ca716c7884f3f16c3f92f29f0f59c3573de1a375d42b846b385d88c8552118d9",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "5d722c3b0860afe0bd7b33446b3b09b7d18d82291c05f668f0332a420e96dbea"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-10-27T13:09:07.036Z",
+            "by": "Codex",
+            "views": [
+              "1920x1080"
+            ],
+            "checks": [
+              "内容整合",
+              "文言",
+              "字幕領域"
+            ]
+          }
+        },
+        {
+          "sceneId": "mapping",
+          "inputSha256": "781909859de1392acb8cb3b56d73766c39affd45d32eea3420e52a323cf5f2d0",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Reconstructed production brief (original tool prompt unavailable in exported metadata): Create one 16:9 Japanese educational diagram slide, using the reference for diagram style only. White-to-light-lavender background, navy and violet outlines, yellow highlights, simple accurate icons, no character. Leave bottom 22% empty for subtitles. Scene heading: 4つの骨格に置き換える. Depict this narration and visual faithfully: 項目名が変わっても、骨格は四つに置き換えられます。表題、現状と課題、自分の業務での取り組み、今後の対策です。年度によって欠ける項目もあるので、行数の配分は本番の解答用紙に合わせて決めます。 {\"heading\":\"4つの骨格に置き換える\",\"items\":[\"表題\",\"現状と課題\",\"自分の業務での取り組み\",\"今後の対策\"],\"flow\":[\"表題\",\"現状と課題\",\"業務での取り組み\",\"今後の対策\"]}. No extra facts, statistics, or unsupported claims.",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/work/promise-diagram.c7e7cf67.png",
+                "sha256": "c7e7cf6782e5ef4f90e378ac9927e178f7d4acaa2555c547aabe93df9f8cace3"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-chief-engineer/shunin-shouronbun-kousei/work/raw-mapping.ce17fdc3.png",
+              "sha256": "ce17fdc30366353e94ece5a990cd27a6d52ee63b27fc048ca2607fe48a917d11"
+            },
+            "generatedAt": "2026-10-27T13:03:52.476Z",
+            "promptRecord": "reconstructed"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-chief-engineer/shunin-shouronbun-kousei/work/mapping-diagram.74cdf3b6.png",
+            "sha256": "74cdf3b649d76d2b4f231c230cee3e3bbfe655018193d2afe589e16ccc51337f",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "ce17fdc30366353e94ece5a990cd27a6d52ee63b27fc048ca2607fe48a917d11"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-10-27T13:09:07.040Z",
+            "by": "Codex",
+            "views": [
+              "1920x1080"
+            ],
+            "checks": [
+              "内容整合",
+              "文言",
+              "字幕領域"
+            ]
+          }
+        },
+        {
+          "sceneId": "outline-frame",
+          "inputSha256": "7c4b79d0fe5b1a502f42e2450cb03356682fd6f9a5d97d12877711f4b93760af",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Reconstructed production brief (original tool prompt unavailable in exported metadata): Create one 16:9 Japanese educational diagram slide, using the reference for diagram style only. White-to-light-lavender background, navy and violet outlines, yellow highlights, simple accurate icons, no character. Leave bottom 22% empty for subtitles. Scene heading: 骨子の例（仮）. Depict this narration and visual faithfully: 骨子の例です。仮に環境負荷低減を選び、生コン工場の配合担当という立場で組みます。実在の工事ではない仮の例です。表題は、混合セメントの採用拡大によるCO2の低減。現状は、セメント製造に伴う排出の大きさを一行で置きます。 {\"kind\":\"sheet\",\"heading\":\"骨子の例（仮）\",\"sheetTitle\":\"テーマ：環境負荷低減\",\"rows\":[{\"label\":\"表題\",\"value\":\"混合セメントの採用拡大によるCO2低減\",\"state\":\"done\"},{\"label\":\"現状と課題\",\"value\":\"セメント製造に伴う排出が大きい\",\"state\":\"done\"},{\"label\":\"業務での取り組み\",\"state\":\"todo\"},{\"label\":\"今後の対策\",\"state\":\"todo\"}]}. No extra facts, statistics, or unsupported claims.",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/work/promise-diagram.c7e7cf67.png",
+                "sha256": "c7e7cf6782e5ef4f90e378ac9927e178f7d4acaa2555c547aabe93df9f8cace3"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-chief-engineer/shunin-shouronbun-kousei/work/raw-outline-frame.50a41b91.png",
+              "sha256": "50a41b91f5c61110ed26bed384092d3af313bdce89ca043865dd02f8342243d1"
+            },
+            "generatedAt": "2026-10-27T13:03:52.475Z",
+            "promptRecord": "reconstructed"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-chief-engineer/shunin-shouronbun-kousei/work/outline-frame-diagram.a0fbe89e.png",
+            "sha256": "a0fbe89eb566d2bfcfb41ed33487a6dfc7dd837a33c31caeec0b87753da5d3c9",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "50a41b91f5c61110ed26bed384092d3af313bdce89ca043865dd02f8342243d1"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-10-27T13:09:07.044Z",
+            "by": "Codex",
+            "views": [
+              "1920x1080"
+            ],
+            "checks": [
+              "内容整合",
+              "文言",
+              "字幕領域"
+            ]
+          }
+        },
+        {
+          "sceneId": "outline-work",
+          "inputSha256": "53b2e508172c361d426a8dd3024ade25888e8744ee328e54a1ab9ae83d156791",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Reconstructed production brief (original tool prompt unavailable in exported metadata): Create one 16:9 Japanese educational diagram slide, using the reference for diagram style only. White-to-light-lavender background, navy and violet outlines, yellow highlights, simple accurate icons, no character. Leave bottom 22% empty for subtitles. Scene heading: 骨子の例（仮）つづき. Depict this narration and visual faithfully: 取り組みは、誰が、何を、どの指標で確かめたかの順に置きます。配合担当として置換率を検討し、強度と中性化への影響を試験で確認した、と書きます。数値は自分の実績に置き換えます。今後の対策は、自分が提案できる範囲に絞ります。 {\"kind\":\"sheet\",\"heading\":\"骨子の例（仮）つづき\",\"sheetTitle\":\"テーマ：環境負荷低減\",\"rows\":[{\"label\":\"誰が\",\"value\":\"配合担当として\",\"state\":\"done\"},{\"label\":\"何を\",\"value\":\"置換率を検討\",\"state\":\"done\"},{\"label\":\"どの指標で\",\"value\":\"強度・中性化への影響を試験で確認\",\"state\":\"focus\"},{\"label\":\"今後の対策\",\"value\":\"提案できる範囲に絞る\",\"state\":\"done\"}]}. No extra facts, statistics, or unsupported claims.",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/work/promise-diagram.c7e7cf67.png",
+                "sha256": "c7e7cf6782e5ef4f90e378ac9927e178f7d4acaa2555c547aabe93df9f8cace3"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-chief-engineer/shunin-shouronbun-kousei/work/raw-outline-work.a51ad5cc.png",
+              "sha256": "a51ad5cc3cd59ace8a83fa399e0f61fde70b7712ce1aa651a033378ff1e7617b"
+            },
+            "generatedAt": "2026-10-27T13:07:41.513Z",
+            "promptRecord": "reconstructed"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-chief-engineer/shunin-shouronbun-kousei/work/outline-work-diagram.a287be97.png",
+            "sha256": "a287be97b9deb4d010cea0cfabbd830fa9b5f5e42fa01d969fc2299c0d9184b6",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "a51ad5cc3cd59ace8a83fa399e0f61fde70b7712ce1aa651a033378ff1e7617b"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-10-27T13:09:07.049Z",
+            "by": "Codex",
+            "views": [
+              "1920x1080"
+            ],
+            "checks": [
+              "内容整合",
+              "文言",
+              "字幕領域"
+            ]
+          }
+        },
+        {
+          "sceneId": "selfcheck",
+          "inputSha256": "5c006ccca2dbede55203b553f65d88ea39e75e8b61eb3f71284d081514fc6691",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Reconstructed production brief (original tool prompt unavailable in exported metadata): Create one 16:9 Japanese educational diagram slide, using the reference for diagram style only. White-to-light-lavender background, navy and violet outlines, yellow highlights, simple accurate icons, no character. Leave bottom 22% empty for subtitles. Scene heading: 自己点検の4観点（当サイト）. Depict this narration and visual faithfully: 書き終えたら見直します。技術的妥当性、論理構成、実務経験の具体性、技術の理解の四つは、当サイトの自己点検の観点で、日本コンクリート工学会の採点基準ではありません。まず、設問の項目に答えているかを確かめてください。 {\"heading\":\"自己点検の4観点（当サイト）\",\"items\":[\"技術的妥当性\",\"論理構成\",\"実務経験の具体性\",\"技術の理解\",\"公式の採点項目ではない\"]}. No extra facts, statistics, or unsupported claims.",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/work/promise-diagram.c7e7cf67.png",
+                "sha256": "c7e7cf6782e5ef4f90e378ac9927e178f7d4acaa2555c547aabe93df9f8cace3"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-chief-engineer/shunin-shouronbun-kousei/work/raw-selfcheck.e77a80a4.png",
+              "sha256": "e77a80a470a17304deb2178909e6d82d8da4cb10507f6e3d2ae422085cb02934"
+            },
+            "generatedAt": "2026-10-27T13:07:41.957Z",
+            "promptRecord": "reconstructed"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-chief-engineer/shunin-shouronbun-kousei/work/selfcheck-diagram.e3b386b4.png",
+            "sha256": "e3b386b461302c30ebc45f04d2b73263be0f06addec2fbf20c26baba86463521",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "e77a80a470a17304deb2178909e6d82d8da4cb10507f6e3d2ae422085cb02934"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-10-27T13:09:07.054Z",
+            "by": "Codex",
+            "views": [
+              "1920x1080"
+            ],
+            "checks": [
+              "内容整合",
+              "文言",
+              "字幕領域"
+            ]
+          }
+        },
+        {
+          "sceneId": "summary",
+          "inputSha256": "3bc73fc9abd139a7f173b0ceed405419b750524c476141cc91f55bbd906c41ae",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Reconstructed production brief (original tool prompt unavailable in exported metadata): Create one 16:9 Japanese educational diagram slide, using the reference for diagram style only. White-to-light-lavender background, navy and violet outlines, yellow highlights, simple accurate icons, no character. Leave bottom 22% empty for subtitles. Scene heading: まとめ. Depict this narration and visual faithfully: まとめます。項目と行数を確認し、4つの骨格に置き換え、骨子を先に書き、最後に自己点検。時間が足りなくても、骨子が先です。 {\"heading\":\"まとめ\",\"items\":[\"① 用紙の項目と行数を確認\",\"② 4つの骨格に置き換える\",\"③ 骨子を先に書く\",\"④ 自己点検で見直す\"],\"flow\":[\"項目確認\",\"骨格\",\"骨子\",\"自己点検\"]}. No extra facts, statistics, or unsupported claims.",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/work/promise-diagram.c7e7cf67.png",
+                "sha256": "c7e7cf6782e5ef4f90e378ac9927e178f7d4acaa2555c547aabe93df9f8cace3"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-chief-engineer/shunin-shouronbun-kousei/work/raw-summary.ae4d77bb.png",
+              "sha256": "ae4d77bb6f70784e08a05779929786d273cff83bd8acc609e1472ccde8234c3a"
+            },
+            "generatedAt": "2026-10-27T13:07:42.184Z",
+            "promptRecord": "reconstructed"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-chief-engineer/shunin-shouronbun-kousei/work/summary-diagram.d1457d96.png",
+            "sha256": "d1457d9663f2062ade429a418de2eb71fbea90e0b1c3b10511ec98744d1e3dea",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "ae4d77bb6f70784e08a05779929786d273cff83bd8acc609e1472ccde8234c3a"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-10-27T13:09:07.058Z",
+            "by": "Codex",
+            "views": [
+              "1920x1080"
+            ],
+            "checks": [
+              "内容整合",
+              "文言",
+              "字幕領域"
+            ]
+          }
+        },
+        {
+          "sceneId": "cta",
+          "inputSha256": "fd9dbd107e119a29239e8867c8254640b1a5084bf72497d3d2d1ad20c1f07db9",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Reconstructed production brief (original tool prompt unavailable in exported metadata): Create one 16:9 Japanese educational diagram slide, using the reference for diagram style only. White-to-light-lavender background, navy and violet outlines, yellow highlights, simple accurate icons, no character. Leave bottom 22% empty for subtitles. Scene heading: 立場から答案を探す. Depict this narration and visual faithfully: 自分の立場に近い答案は、概要欄の無料のもくじから探せます。ご視聴ありがとうございました。 {\"kind\":\"cover\",\"heading\":\"立場から答案を探す\",\"items\":[\"小論文 8つの立場もくじ（無料・概要欄）\"]}. No extra facts, statistics, or unsupported claims.",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/work/promise-diagram.c7e7cf67.png",
+                "sha256": "c7e7cf6782e5ef4f90e378ac9927e178f7d4acaa2555c547aabe93df9f8cace3"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-chief-engineer/shunin-shouronbun-kousei/work/raw-cta.0b90a1fb.png",
+              "sha256": "0b90a1fb051391808a3979d55467c055aa7f71158d51755a08aae54f8d4b93a7"
+            },
+            "generatedAt": "2026-10-27T13:07:42.449Z",
+            "promptRecord": "reconstructed"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-chief-engineer/shunin-shouronbun-kousei/work/cta-diagram.9a3b4ae6.png",
+            "sha256": "9a3b4ae66f8c478673e2dba5e505482b67b6a355a7e9ae0da4e3e8d8bce1192a",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "0b90a1fb051391808a3979d55467c055aa7f71158d51755a08aae54f8d4b93a7"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-10-27T13:09:07.063Z",
+            "by": "Codex",
+            "views": [
+              "1920x1080"
+            ],
+            "checks": [
+              "内容整合",
+              "文言",
+              "字幕領域"
+            ]
+          }
+        }
+      ]
+    }
   }
 }

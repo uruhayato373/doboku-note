@@ -28,7 +28,7 @@ test('既存の行の違反は見ない（全量は CI の check-exam-calendar �
 
 test('増えた行の相対リンクは宛先の実在で判定する', () => {
   const after = BEFORE.replace('本文', '本文\n[計画](../plans/x.md)');
-  assert.match(backlogTextProblems(BEFORE, after, { exists: none }).join('\n'), /check-relative-links.*\.\.\/plans\/x\.md/);
+  assert.match(backlogTextProblems(BEFORE, after, { exists: none }).join('\n'), /\[relative-links\] \.\.\/plans\/x\.md/);
   assert.deepEqual(backlogTextProblems(BEFORE, after, { exists: (p) => p === '.claude/plans/x.md' }), []);
 });
 

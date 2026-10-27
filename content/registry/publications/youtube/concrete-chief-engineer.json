@@ -496,6 +496,128 @@
       "stopReason": "user-decision"
     },
     {
+      "id": "concrete-chief-engineer/shunin-hinshutsu-yusen/youtube.longform.pop-diagram",
+      "work": "shunin-hinshutsu-yusen",
+      "account": "youtube:main",
+      "format": "longform",
+      "variant": "pop-diagram",
+      "revisionOf": "concrete-chief-engineer/shunin-hinshutsu-yusen/youtube.longform",
+      "status": "stopped",
+      "copy": "content/sns/video-packs/concrete-chief-engineer/shunin-hinshutsu-yusen/youtube.revision-pop-diagram.json",
+      "media": {
+        "cover": "concrete-chief-engineer/shunin-hinshutsu-yusen/work/candidate-cover",
+        "cta": "concrete-chief-engineer/shunin-hinshutsu-yusen/work/candidate-cta",
+        "scene-001": "concrete-chief-engineer/shunin-hinshutsu-yusen/work/candidate-scene-001",
+        "scene-002": "concrete-chief-engineer/shunin-hinshutsu-yusen/work/candidate-scene-002",
+        "scene-003": "concrete-chief-engineer/shunin-hinshutsu-yusen/work/candidate-scene-003",
+        "scene-004": "concrete-chief-engineer/shunin-hinshutsu-yusen/work/candidate-scene-004",
+        "scene-005": "concrete-chief-engineer/shunin-hinshutsu-yusen/work/candidate-scene-005",
+        "scene-006": "concrete-chief-engineer/shunin-hinshutsu-yusen/work/candidate-scene-006",
+        "scene-007": "concrete-chief-engineer/shunin-hinshutsu-yusen/work/candidate-scene-007",
+        "scene-008": "concrete-chief-engineer/shunin-hinshutsu-yusen/work/candidate-scene-008",
+        "subtitles": "concrete-chief-engineer/shunin-hinshutsu-yusen/work/candidate-subtitles",
+        "video": "concrete-chief-engineer/shunin-hinshutsu-yusen/work/candidate-video",
+        "preview": "concrete-chief-engineer/shunin-hinshutsu-yusen/youtube.longform.pop-diagram/preview",
+        "contact-sheet": "concrete-chief-engineer/shunin-hinshutsu-yusen/youtube.longform.pop-diagram/contact-sheet",
+        "scene-sheet": "concrete-chief-engineer/shunin-hinshutsu-yusen/youtube.longform.pop-diagram/scene-sheet",
+        "preview-metrics": "concrete-chief-engineer/shunin-hinshutsu-yusen/youtube.longform.pop-diagram/preview-metrics"
+      },
+      "publishAt": "2026-10-28T20:00:00+09:00",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "user",
+          "at": "2026-10-27T13:36:19.332Z",
+          "digest": "ccd4bc4e898edb443c78ca7084bbee59e6e54c7982315be02f2e2d905eb87bad"
+        }
+      },
+      "approval": {
+        "by": "user",
+        "at": "2026-10-27T13:36:19.925Z",
+        "contentSha256": "1695061d751f7581c1ae72934ddbf0c7151384d20f0dda236d0b8651e8f5a397"
+      },
+      "stopReason": "superseded"
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-hinshutsu-yusen/youtube.longform.pop-diagram-v2",
+      "work": "shunin-hinshutsu-yusen",
+      "account": "youtube:main",
+      "format": "longform",
+      "variant": "pop-diagram-v2",
+      "revisionOf": "concrete-chief-engineer/shunin-hinshutsu-yusen/youtube.longform",
+      "status": "scheduled",
+      "copy": "content/sns/video-packs/concrete-chief-engineer/shunin-hinshutsu-yusen/youtube.revision-pop-diagram-v2.json",
+      "media": {
+        "cover": "concrete-chief-engineer/shunin-hinshutsu-yusen/work/candidate-cover",
+        "cta": "concrete-chief-engineer/shunin-hinshutsu-yusen/work/candidate-cta",
+        "scene-001": "concrete-chief-engineer/shunin-hinshutsu-yusen/work/candidate-scene-001",
+        "scene-002": "concrete-chief-engineer/shunin-hinshutsu-yusen/work/candidate-scene-002",
+        "scene-003": "concrete-chief-engineer/shunin-hinshutsu-yusen/work/candidate-scene-003",
+        "scene-004": "concrete-chief-engineer/shunin-hinshutsu-yusen/work/candidate-scene-004",
+        "scene-005": "concrete-chief-engineer/shunin-hinshutsu-yusen/work/candidate-scene-005",
+        "scene-006": "concrete-chief-engineer/shunin-hinshutsu-yusen/work/candidate-scene-006",
+        "scene-007": "concrete-chief-engineer/shunin-hinshutsu-yusen/work/candidate-scene-007",
+        "scene-008": "concrete-chief-engineer/shunin-hinshutsu-yusen/work/candidate-scene-008",
+        "subtitles": "concrete-chief-engineer/shunin-hinshutsu-yusen/work/candidate-subtitles",
+        "video": "concrete-chief-engineer/shunin-hinshutsu-yusen/work/candidate-video",
+        "preview": "concrete-chief-engineer/shunin-hinshutsu-yusen/youtube.longform.pop-diagram-v2/preview",
+        "contact-sheet": "concrete-chief-engineer/shunin-hinshutsu-yusen/youtube.longform.pop-diagram-v2/contact-sheet",
+        "scene-sheet": "concrete-chief-engineer/shunin-hinshutsu-yusen/youtube.longform.pop-diagram-v2/scene-sheet",
+        "preview-metrics": "concrete-chief-engineer/shunin-hinshutsu-yusen/youtube.longform.pop-diagram-v2/preview-metrics"
+      },
+      "publishAt": "2026-10-28T20:00:00+09:00",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "user",
+          "at": "2026-10-27T13:40:24.349Z",
+          "digest": "5008405c519e8b4ed35dfb74fd73de7a4cdb0b2295f48588779f37d4d9ac0424"
+        }
+      },
+      "approval": {
+        "by": "user",
+        "at": "2026-10-27T13:40:25.336Z",
+        "contentSha256": "340dc1b6d3bfd89c4a55b0d0688ab9b717651b07b9a0a17629728fc43a177145"
+      },
+      "delivery": {
+        "inputSha256": "d5f615b795cd127fa21e8a935eba9820eda102c80dc48394fa2da234975e0385",
+        "marker": "dn-revision-bec775417241736d300bdaa979b72eb2ddec67cb",
+        "uploadRequestedAt": "2026-10-27T13:44:28.614Z",
+        "videoId": "W-oc8NWXTR0",
+        "processedAt": "2026-10-27T13:45:11.713Z",
+        "thumbnailRequestedAt": "2026-10-27T13:45:11.776Z",
+        "thumbnailUrls": [
+          "https://i9.ytimg.com/vi/W-oc8NWXTR0/default.jpg?sqp=CNzVgtcG&rs=AOn4CLDZ1vN1DMY5tkgYVeRBHGczyLZK0A",
+          "https://i9.ytimg.com/vi/W-oc8NWXTR0/mqdefault.jpg?sqp=CNzVgtcG&rs=AOn4CLB2G0DJxjvOKuUN-5Eax18dGMALyA",
+          "https://i9.ytimg.com/vi/W-oc8NWXTR0/hqdefault.jpg?sqp=CNzVgtcG&rs=AOn4CLCx0fpm1bZbaWgJkl5YxhmX5F1iUQ",
+          "https://i9.ytimg.com/vi/W-oc8NWXTR0/sddefault.jpg?sqp=CNzVgtcG&rs=AOn4CLAqLacLnmJbrg5EN3mmkc2VtdQmYA",
+          "https://i9.ytimg.com/vi/W-oc8NWXTR0/maxresdefault.jpg?sqp=CNzVgtcG&rs=AOn4CLBTHjI8F-6wzdt-g4zfdn0ZFHHQeA",
+          "https://i9.ytimg.com/vi/W-oc8NWXTR0/fhddefault.jpg?sqp=CNzVgtcG&rs=AOn4CLAkHuji8pG1xXaaIsDubfp42hD8iw"
+        ],
+        "thumbnailAcceptedAt": "2026-10-27T13:45:14.199Z",
+        "scheduleRequestedAt": "2026-10-27T13:45:14.792Z",
+        "scheduleAt": "2026-10-28T20:00:00+09:00",
+        "scheduledVerifiedAt": "2026-10-27T13:45:17.575Z"
+      },
+      "platform": {
+        "id": "W-oc8NWXTR0",
+        "url": "https://www.youtube.com/watch?v=W-oc8NWXTR0",
+        "privacy": "private",
+        "evidence": {
+          "kind": "publisher-live-check",
+          "ref": "content/sns/video-packs/concrete-chief-engineer/shunin-hinshutsu-yusen/youtube.revision-pop-diagram-v2.json"
+        }
+      },
+      "times": {
+        "uploaded": "2026-10-27T13:45:11.713Z",
+        "scheduled": "2026-10-27T13:45:17.575Z"
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-10-27T13:45:14.199Z"
+      }
+    },
+    {
       "id": "concrete-chief-engineer/shunin-hinshutsu-yusen/youtube.short.point-overview-1",
       "work": "shunin-hinshutsu-yusen",
       "account": "youtube:main",
@@ -1424,6 +1546,130 @@
       },
       "reason": "2026-10-13 運営者が YouTube の投稿を一旦止め、公開予約を外した（元の予約 2026-11-15T11:00:00Z）",
       "stopReason": "user-decision"
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-shouronbun-kousei/youtube.longform.pop-diagram",
+      "work": "shunin-shouronbun-kousei",
+      "account": "youtube:main",
+      "format": "longform",
+      "variant": "pop-diagram",
+      "revisionOf": "concrete-chief-engineer/shunin-shouronbun-kousei/youtube.longform",
+      "status": "stopped",
+      "copy": "content/sns/video-packs/concrete-chief-engineer/shunin-shouronbun-kousei/youtube.revision-pop-diagram.json",
+      "media": {
+        "cover": "concrete-chief-engineer/shunin-shouronbun-kousei/work/candidate-cover",
+        "cta": "concrete-chief-engineer/shunin-shouronbun-kousei/work/candidate-cta",
+        "scene-001": "concrete-chief-engineer/shunin-shouronbun-kousei/work/candidate-scene-001",
+        "scene-002": "concrete-chief-engineer/shunin-shouronbun-kousei/work/candidate-scene-002",
+        "scene-003": "concrete-chief-engineer/shunin-shouronbun-kousei/work/candidate-scene-003",
+        "scene-004": "concrete-chief-engineer/shunin-shouronbun-kousei/work/candidate-scene-004",
+        "scene-005": "concrete-chief-engineer/shunin-shouronbun-kousei/work/candidate-scene-005",
+        "scene-006": "concrete-chief-engineer/shunin-shouronbun-kousei/work/candidate-scene-006",
+        "scene-007": "concrete-chief-engineer/shunin-shouronbun-kousei/work/candidate-scene-007",
+        "scene-008": "concrete-chief-engineer/shunin-shouronbun-kousei/work/candidate-scene-008",
+        "scene-009": "concrete-chief-engineer/shunin-shouronbun-kousei/work/candidate-scene-009",
+        "subtitles": "concrete-chief-engineer/shunin-shouronbun-kousei/work/candidate-subtitles",
+        "video": "concrete-chief-engineer/shunin-shouronbun-kousei/work/candidate-video",
+        "preview": "concrete-chief-engineer/shunin-shouronbun-kousei/youtube.longform.pop-diagram/preview",
+        "contact-sheet": "concrete-chief-engineer/shunin-shouronbun-kousei/youtube.longform.pop-diagram/contact-sheet",
+        "scene-sheet": "concrete-chief-engineer/shunin-shouronbun-kousei/youtube.longform.pop-diagram/scene-sheet",
+        "preview-metrics": "concrete-chief-engineer/shunin-shouronbun-kousei/youtube.longform.pop-diagram/preview-metrics"
+      },
+      "publishAt": "2026-10-29T20:00:00+09:00",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "user",
+          "at": "2026-10-27T13:36:19.628Z",
+          "digest": "c07eda9245a9ad875a0b4f06c1b4d54c8ea81c9817083c6c83d146f12d675960"
+        }
+      },
+      "approval": {
+        "by": "user",
+        "at": "2026-10-27T13:36:20.226Z",
+        "contentSha256": "885581cfd3e9fa149149ca6900d0d59f3517688fc47772a23ca16bf7a01b4c73"
+      },
+      "stopReason": "superseded"
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-shouronbun-kousei/youtube.longform.pop-diagram-v2",
+      "work": "shunin-shouronbun-kousei",
+      "account": "youtube:main",
+      "format": "longform",
+      "variant": "pop-diagram-v2",
+      "revisionOf": "concrete-chief-engineer/shunin-shouronbun-kousei/youtube.longform",
+      "status": "scheduled",
+      "copy": "content/sns/video-packs/concrete-chief-engineer/shunin-shouronbun-kousei/youtube.revision-pop-diagram-v2.json",
+      "media": {
+        "cover": "concrete-chief-engineer/shunin-shouronbun-kousei/work/candidate-cover",
+        "cta": "concrete-chief-engineer/shunin-shouronbun-kousei/work/candidate-cta",
+        "scene-001": "concrete-chief-engineer/shunin-shouronbun-kousei/work/candidate-scene-001",
+        "scene-002": "concrete-chief-engineer/shunin-shouronbun-kousei/work/candidate-scene-002",
+        "scene-003": "concrete-chief-engineer/shunin-shouronbun-kousei/work/candidate-scene-003",
+        "scene-004": "concrete-chief-engineer/shunin-shouronbun-kousei/work/candidate-scene-004",
+        "scene-005": "concrete-chief-engineer/shunin-shouronbun-kousei/work/candidate-scene-005",
+        "scene-006": "concrete-chief-engineer/shunin-shouronbun-kousei/work/candidate-scene-006",
+        "scene-007": "concrete-chief-engineer/shunin-shouronbun-kousei/work/candidate-scene-007",
+        "scene-008": "concrete-chief-engineer/shunin-shouronbun-kousei/work/candidate-scene-008",
+        "scene-009": "concrete-chief-engineer/shunin-shouronbun-kousei/work/candidate-scene-009",
+        "subtitles": "concrete-chief-engineer/shunin-shouronbun-kousei/work/candidate-subtitles",
+        "video": "concrete-chief-engineer/shunin-shouronbun-kousei/work/candidate-video",
+        "preview": "concrete-chief-engineer/shunin-shouronbun-kousei/youtube.longform.pop-diagram-v2/preview",
+        "contact-sheet": "concrete-chief-engineer/shunin-shouronbun-kousei/youtube.longform.pop-diagram-v2/contact-sheet",
+        "scene-sheet": "concrete-chief-engineer/shunin-shouronbun-kousei/youtube.longform.pop-diagram-v2/scene-sheet",
+        "preview-metrics": "concrete-chief-engineer/shunin-shouronbun-kousei/youtube.longform.pop-diagram-v2/preview-metrics"
+      },
+      "publishAt": "2026-10-29T20:00:00+09:00",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "user",
+          "at": "2026-10-27T13:40:24.839Z",
+          "digest": "b9cfbc5503adf5fc2e8518748832ceaaa9aa3ef9a27499ee62c61fb85b36056d"
+        }
+      },
+      "approval": {
+        "by": "user",
+        "at": "2026-10-27T13:40:25.916Z",
+        "contentSha256": "4f70313603a3f40580d1bac103579ff0f34ac56a691f4149d96bc62fd0244095"
+      },
+      "delivery": {
+        "inputSha256": "2e52736e819c977be83a21898311f48f5ca27c61bb1d3458b37252eef8770b50",
+        "marker": "dn-revision-9cf6d56fb578395a41f4fb12b6dc7fe05fc6ab9b",
+        "uploadRequestedAt": "2026-10-27T13:46:14.704Z",
+        "videoId": "mViqz6hWEeo",
+        "processedAt": "2026-10-27T13:46:57.401Z",
+        "thumbnailRequestedAt": "2026-10-27T13:46:57.462Z",
+        "thumbnailUrls": [
+          "https://i9.ytimg.com/vi/mViqz6hWEeo/default.jpg?sqp=CNzVgtcG&rs=AOn4CLAqJMXFbaOAB9pm4TmBigJf7o-KnQ",
+          "https://i9.ytimg.com/vi/mViqz6hWEeo/mqdefault.jpg?sqp=CNzVgtcG&rs=AOn4CLBuWuryvyntrMpmaTFlkiNNqlYDiA",
+          "https://i9.ytimg.com/vi/mViqz6hWEeo/hqdefault.jpg?sqp=CNzVgtcG&rs=AOn4CLDEsSbhOL5sDplGoCIHcboOyCamoA",
+          "https://i9.ytimg.com/vi/mViqz6hWEeo/sddefault.jpg?sqp=CNzVgtcG&rs=AOn4CLBpoG4LvHG85ZV8jDf03R5DumHdug",
+          "https://i9.ytimg.com/vi/mViqz6hWEeo/maxresdefault.jpg?sqp=CNzVgtcG&rs=AOn4CLAxeVVOs7F4rjHBPECMT3iVx_hx4Q",
+          "https://i9.ytimg.com/vi/mViqz6hWEeo/fhddefault.jpg?sqp=CNzVgtcG&rs=AOn4CLBUJ3GevNa3glhPVeOPlcjro8wnng"
+        ],
+        "thumbnailAcceptedAt": "2026-10-27T13:47:00.270Z",
+        "scheduleRequestedAt": "2026-10-27T13:47:00.658Z",
+        "scheduleAt": "2026-10-29T20:00:00+09:00",
+        "scheduledVerifiedAt": "2026-10-27T13:47:03.738Z"
+      },
+      "platform": {
+        "id": "mViqz6hWEeo",
+        "url": "https://www.youtube.com/watch?v=mViqz6hWEeo",
+        "privacy": "private",
+        "evidence": {
+          "kind": "publisher-live-check",
+          "ref": "content/sns/video-packs/concrete-chief-engineer/shunin-shouronbun-kousei/youtube.revision-pop-diagram-v2.json"
+        }
+      },
+      "times": {
+        "uploaded": "2026-10-27T13:46:57.401Z",
+        "scheduled": "2026-10-27T13:47:03.738Z"
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-10-27T13:47:00.270Z"
+      }
     },
     {
       "id": "concrete-chief-engineer/shunin-shouronbun-kousei/youtube.short.point-kanten-1",

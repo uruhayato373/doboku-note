@@ -263,6 +263,21 @@
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-0897] テストの一時リポジトリの git init が pre-commit の GIT_DIR を引き継ぎ、親リポジトリの core.bare を書き換える
+タグ: [領域:管理] [時期:2026-10] [種類:不具合] [検証:test] [起票:2026-10-27]
+
+**起点**: DN-0893 の回帰テストが pre-commit（unit-tests の ownTests）の中で一時ディレクトリに `git init` したとき、フックが渡す GIT_DIR・GIT_INDEX_FILE を引き継いで親リポジトリの `.git/config` に `core.bare = true` を書いた。本体の checkout と全 worktree で `git status` が「must be run in a work tree」で止まった（手で false に戻した）。テストは `startsWith('GIT_')` の環境変数を外して直した（`tests/x-card-render-scope.test.mjs` と同じ形）。
+
+**残っている危険**: `tests/*.test.mjs` のうち `'init'` で git を呼び、GIT_ の環境変数を外していないものが 21 本ある（todo-add・backlog-edit・ci-data・replay-onto-develop・sync-index-after-commit・pre-commit-install-guard ほか）。そのテストファイル自身を stage した commit では pre-commit の unit-tests が ownTests として走らせるので、同じ事故が起きうる。
+
+**やること**:
+1. テストの一時リポジトリを作る共通部品（GIT_ を外した env で git を呼ぶ）を `tests/` か `scripts/lib/` に 1 つ置き、21 本をそれに寄せる
+2. ラチェットのテストを足す: `tests/` で git の `init`・`clone` を呼ぶのに GIT_ を外していないファイルの数を増やさない（直したら下げる）
+3. pre-commit の unit-tests を走らせる側（`scripts/pre-commit-ci-gates.mjs`）で、子プロセスへ渡す env から GIT_DIR・GIT_INDEX_FILE・GIT_WORK_TREE を外すことも検討する（根本で止める）
+
+**完了条件**: 21 本が共通部品か env の除外を使い、ラチェットのテストが `npm run test` で通る。
+
+
 
 
 ### [DN-0895] 2級二次の試験後: 10月の導線の PV を記録し、添削の実例記事を公開する

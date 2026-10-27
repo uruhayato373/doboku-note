@@ -1,0 +1,90 @@
+{
+  "schemaVersion": 1,
+  "publicationId": "concrete-chief-engineer/shunin-shouronbun-kousei/youtube.longform.pop-diagram-v2",
+  "revisionOf": "concrete-chief-engineer/shunin-shouronbun-kousei/youtube.longform",
+  "account": "youtube:main",
+  "format": "longform",
+  "title": "【コンクリート主任技士】小論文は何から書く？ 項目と行数から骨子を作る",
+  "description": "コンクリート主任技士の小論文で、解答用紙の項目と行数から骨子を先に作る手順を説明します。過去年度の項目・行数は受験者・合格者の公開情報を整理した二次情報です。年度によって形式が異なるため、今年度は受験案内と本番の解答用紙を確認してください。動画内の自己点検は当サイトの学習用観点で、公式採点基準ではありません。\n\n▼ 小論文の無料もくじ（立場・テーマ別に探せます）\nhttps://note.com/dobokunote/n/n3ced0cbfbb42?utm_source=youtube&utm_medium=video&utm_campaign=shunin-shouronbun-kousei&utm_content=longform\n\n▼ 2026年度の公式受験案内\nhttps://www.jci-net.or.jp/j/exam/gishi/pdf/shg_2026_tbk.pdf\n\n音声：VOICEVOX:青山龍星\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n#コンクリート主任技士 #小論文 #試験対策",
+  "tags": [
+    "コンクリート主任技士",
+    "コンクリート",
+    "小論文",
+    "答案構成",
+    "試験対策",
+    "doboku-note"
+  ],
+  "media": {
+    "cover": {
+      "id": "concrete-chief-engineer/shunin-shouronbun-kousei/work/candidate-cover",
+      "path": ".tmp/media/concrete-chief-engineer/shunin-shouronbun-kousei/work/candidate-cover.192d62f7.png",
+      "sha256": "192d62f7eb14c46a9bd83dddbc5d1f683c14c56c5e2d3a4f686b4133c4f0c0b0"
+    },
+    "cta": {
+      "id": "concrete-chief-engineer/shunin-shouronbun-kousei/work/candidate-cta",
+      "path": ".tmp/media/concrete-chief-engineer/shunin-shouronbun-kousei/work/candidate-cta.9a3b4ae6.png",
+      "sha256": "9a3b4ae66f8c478673e2dba5e505482b67b6a355a7e9ae0da4e3e8d8bce1192a"
+    },
+    "scene-001": {
+      "id": "concrete-chief-engineer/shunin-shouronbun-kousei/work/candidate-scene-001",
+      "path": ".tmp/media/concrete-chief-engineer/shunin-shouronbun-kousei/work/candidate-scene-001.192d62f7.png",
+      "sha256": "192d62f7eb14c46a9bd83dddbc5d1f683c14c56c5e2d3a4f686b4133c4f0c0b0"
+    },
+    "scene-002": {
+      "id": "concrete-chief-engineer/shunin-shouronbun-kousei/work/candidate-scene-002",
+      "path": ".tmp/media/concrete-chief-engineer/shunin-shouronbun-kousei/work/candidate-scene-002.b0f66a22.png",
+      "sha256": "b0f66a2257edac5889e27a002d4ecf83b7f513bc567c5330b239b0795894945e"
+    },
+    "scene-003": {
+      "id": "concrete-chief-engineer/shunin-shouronbun-kousei/work/candidate-scene-003",
+      "path": ".tmp/media/concrete-chief-engineer/shunin-shouronbun-kousei/work/candidate-scene-003.ca716c78.png",
+      "sha256": "ca716c7884f3f16c3f92f29f0f59c3573de1a375d42b846b385d88c8552118d9"
+    },
+    "scene-004": {
+      "id": "concrete-chief-engineer/shunin-shouronbun-kousei/work/candidate-scene-004",
+      "path": ".tmp/media/concrete-chief-engineer/shunin-shouronbun-kousei/work/candidate-scene-004.74cdf3b6.png",
+      "sha256": "74cdf3b649d76d2b4f231c230cee3e3bbfe655018193d2afe589e16ccc51337f"
+    },
+    "scene-005": {
+      "id": "concrete-chief-engineer/shunin-shouronbun-kousei/work/candidate-scene-005",
+      "path": ".tmp/media/concrete-chief-engineer/shunin-shouronbun-kousei/work/candidate-scene-005.a0fbe89e.png",
+      "sha256": "a0fbe89eb566d2bfcfb41ed33487a6dfc7dd837a33c31caeec0b87753da5d3c9"
+    },
+    "scene-006": {
+      "id": "concrete-chief-engineer/shunin-shouronbun-kousei/work/candidate-scene-006",
+      "path": ".tmp/media/concrete-chief-engineer/shunin-shouronbun-kousei/work/candidate-scene-006.a287be97.png",
+      "sha256": "a287be97b9deb4d010cea0cfabbd830fa9b5f5e42fa01d969fc2299c0d9184b6"
+    },
+    "scene-007": {
+      "id": "concrete-chief-engineer/shunin-shouronbun-kousei/work/candidate-scene-007",
+      "path": ".tmp/media/concrete-chief-engineer/shunin-shouronbun-kousei/work/candidate-scene-007.e3b386b4.png",
+      "sha256": "e3b386b461302c30ebc45f04d2b73263be0f06addec2fbf20c26baba86463521"
+    },
+    "scene-008": {
+      "id": "concrete-chief-engineer/shunin-shouronbun-kousei/work/candidate-scene-008",
+      "path": ".tmp/media/concrete-chief-engineer/shunin-shouronbun-kousei/work/candidate-scene-008.d1457d96.png",
+      "sha256": "d1457d9663f2062ade429a418de2eb71fbea90e0b1c3b10511ec98744d1e3dea"
+    },
+    "scene-009": {
+      "id": "concrete-chief-engineer/shunin-shouronbun-kousei/work/candidate-scene-009",
+      "path": ".tmp/media/concrete-chief-engineer/shunin-shouronbun-kousei/work/candidate-scene-009.9a3b4ae6.png",
+      "sha256": "9a3b4ae66f8c478673e2dba5e505482b67b6a355a7e9ae0da4e3e8d8bce1192a"
+    },
+    "subtitles": {
+      "id": "concrete-chief-engineer/shunin-shouronbun-kousei/work/candidate-subtitles",
+      "path": ".tmp/media/concrete-chief-engineer/shunin-shouronbun-kousei/work/candidate-subtitles.4870f34a.ass",
+      "sha256": "4870f34a0d6366b2147ecee5c61c23a79b3e0eed1059d1402dc3611e735a2157"
+    },
+    "video": {
+      "id": "concrete-chief-engineer/shunin-shouronbun-kousei/work/candidate-video",
+      "path": ".tmp/media/concrete-chief-engineer/shunin-shouronbun-kousei/work/candidate-video.cf0c1507.mp4",
+      "sha256": "cf0c15074c6572afe386313efcdf993452311266dcdae10b8bf77e06a8068b55"
+    }
+  },
+  "copySource": "content/sns/video-packs/concrete-chief-engineer/shunin-shouronbun-kousei/youtube.revision-copy-pop-diagram-v2.json",
+  "localFile": ".tmp/media/concrete-chief-engineer/shunin-shouronbun-kousei/work/candidate-video.cf0c1507.mp4",
+  "sha256": "cf0c15074c6572afe386313efcdf993452311266dcdae10b8bf77e06a8068b55",
+  "thumbnailLocalFile": ".tmp/media/concrete-chief-engineer/shunin-shouronbun-kousei/work/candidate-cover.192d62f7.png",
+  "thumbnailSha256": "192d62f7eb14c46a9bd83dddbc5d1f683c14c56c5e2d3a4f686b4133c4f0c0b0",
+  "publishAt": "2026-10-29T20:00:00+09:00"
+}

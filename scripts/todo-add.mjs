@@ -7,6 +7,8 @@
  * 切り替えたブランチへ載る事故も起きた（2026-10-07 の DN-0567）。ここでは 1 コマンドで次をまとめる:
  *   採番（backlog の全ブランチの履歴から最大＋1）→ カードの組み立て → 重要度の見出しの先頭へ差し込み →
  *   check-backlog-schema と同じ検査 → origin/develop へ commit・push（lib/git-direct-commit.mjs）
+ * commit-tree で積むので pre-commit は走らない。pre-commit が backlog に当てる検査のうち、カード 1 枚で
+ * 壊れうるもの（試験日の誤記パターン・相対リンクの実在）は addCard の中で当てる（DN-0893）。
  *
  * Usage:
  *   npm run todo:add -- --title "…" --tier 高|中|低|判断待ち --kind 不具合|改善|意思決定|制作 --domain 商品 \

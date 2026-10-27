@@ -49,7 +49,7 @@ export function existsInRef(root, ref) {
  */
 export function backlogTextProblems(before, after, { exists }) {
   const added = addedLines(before, after).join('\n');
-  const problems = findForbidden(added).map((reason) => `[check-exam-calendar] 試験日の誤記パターン: ${reason}`);
-  for (const b of auditLinks(BACKLOG_PATH, added, exists)) problems.push(`[check-relative-links] 宛先が origin/develop に無い: ${b.link}`);
+  const problems = findForbidden(added).map((reason) => `[exam-calendar] ${reason}（check-exam-calendar が CI で止める書き方）`);
+  for (const b of auditLinks(BACKLOG_PATH, added, exists)) problems.push(`[relative-links] ${b.link} が origin/develop に無い（check-relative-links が CI で止める）`);
   return problems;
 }
