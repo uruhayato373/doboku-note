@@ -3,7 +3,11 @@ notePricing: free
 noteSeries: 技術士建設部門-無料入口
 noteContentType: learning
 utmCampaign: pe-merit-process
-noteStatus: draft
+title: "技術士を受けて得たもの｜合否より先に残る5つの力と、正直なデメリット"
+notePublishedAt: "2026-10-28"
+noteId: "nf1bb265e9a7b"
+noteUrl: "https://note.com/dobokunote/n/nf1bb265e9a7b"
+noteStatus: published
 coverTitle: ["技術士を受けて", "得たもの"]
 cover:
   variant: crop-safe-v4
