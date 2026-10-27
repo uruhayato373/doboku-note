@@ -4,7 +4,7 @@
 > 真実源: 各 `video-pack.json` ＋ コンテンツ台帳 `content/registry/`（YouTube の状態は台帳が正本）。契約: `.claude/knowledge/reference/video-content-policy.md`
 > 管理画面の企画ボード（資格・段階で絞り込める表）: `/content/video`
 
-パック数: **166**（更新: 2026-10-18）
+パック数: **167**（更新: 2026-10-27）
 
 ## 1級土木施工管理技士（67）
 
@@ -91,7 +91,7 @@
 | `gakka-2kyu-kiso` | 2級土木 基礎工の頻出点 — 杭とケーソンの整理 | 既製杭・場所打ち杭の工法の違いが名前だけで判別できない | exam-point | 停止 | 台本/構成 | `civil-2-takuitsu-pdf` |
 | `gakka-2kyu-sekokeikaku` | 2級土木 施工管理法の頻出点 — 計画・工程・安全・品質 | 施工管理法は範囲が広く分野ごとの頻出点が見えていない | exam-point | 停止 | 台本/構成 | `civil-2-takuitsu-pdf` |
 | `gakka-kijutsu-2kyu` | 2級二次の学科記述 — 出る分野と解答の型 | 経験記述以外の記述問題に何がどの形式で出るか分からない | exam-point | 停止 | 台本/構成 | `civil-2-gakka-kijutsu` |
-| `hinshitsu-touan-gutaika` | 品質管理｜試験をした、だけで終わらせない | 品質管理の答案が「試験をした」で終わり、現場条件に合った管理の内容が伝わらない | howto | 予約 | 台本/構成 | `civil-2-experience-essay` |
+| `hinshitsu-touan-gutaika` | 品質管理｜試験をした、だけで終わらせない | 品質管理の答案が「試験をした」で終わり、現場条件に合った管理の内容が伝わらない | howto | 公開 | 台本/構成 | `civil-2-experience-essay` |
 | `keiken-2kyu-level` | 2級で求められる記述レベルはここまで | 特殊工法や高度な内容を書けないと受からないと思っている | exam-point | 停止 | 台本/構成 | `coconala-shindan` |
 | `keiken-anzen-2kyu-kakikata` | 2級 安全管理テーマの書き方 — 現場の数字で具体化する | 安全管理の検討内容をどう具体化すればよいか分からない | howto | 停止 | 台本/構成 | `civil-2-experience-essay` |
 | `keiken-daizai-erabi` | 題材選び｜規模より自分の経験 | 小規模な工事しか経験がなく、施工経験記述に書ける題材がないと思っている | howto | 予約 | 台本/構成 | `civil-2-experience-essay` |
@@ -110,11 +110,12 @@
 | `study-plan-2kyu` | 2級土木の勉強計画 — 仕事と両立する学習設計 | 仕事と両立しながら何をいつまでに進めるか計画できない | roadmap | 停止 | 台本/構成 | `links-hub` |
 | `touan-teishutsu-check` | 答案の見直し｜条件・処置・結果のつながりを確認 | 施工経験記述を書き終えたが、内容や事実のどこを見直せばよいか分からない | howto | 予約 | 台本/構成 | `civil-2-experience-essay` |
 
-## 技術士 第一次試験（1）
+## 技術士 第一次試験（2）
 
 | packId | タイトル | 悩み | intent | 段階 | 台本/構成 | 主CTA |
 |---|---|---|---|---|---|---|
-| `pe1-zentaizou` | 技術士一次の全体像 — 3科目の構成と学習設計 | 基礎・適性・専門の3科目で何をどの配分から仕込めばよいか掴めない | roadmap | レビュー | 台本/構成 | `pe1-takuitsu-pdf` |
+| `pe1-kiso-senmon` | 技術士一次 基礎科目の6問から3問の選び方 | 基礎科目の5群それぞれで、6問からどの3問を選べばよいか分からない | exam-point | 未登録 | 台本/構成 | `pe1-takuitsu-pdf` |
+| `pe1-zentaizou` | 技術士一次の全体像 — 3科目の構成と学習設計 | 基礎・適性・専門の3科目で何をどの配分から仕込めばよいか掴めない | roadmap | 予約 | 台本/構成 | `pe1-takuitsu-pdf` |
 
 ## 技術士（建設部門）（29）
 
@@ -159,7 +160,7 @@
 | `hakusho-map` | 白書はどれを読む？5管理×27白書の使い分け | 白書が多すぎてどれをどこまで読むべきか分からない | roadmap | レビュー | 台本/構成 | `tankan-reading-guide` |
 | `kata-oudan-ryuyo` | 1つの論文パターンを複数年度へ流用する | 過去問ごとに別の答案を用意する準備量に耐えられない | howto | レビュー | 台本/構成 | `essay-core-pack` |
 | `kikinagashi-sokan-keyword` | 耳で覚える総監キーワード — 5管理の核を反復する | 5管理のキーワードが多すぎて机の学習だけでは反復が足りない | exam-point | レビュー | 台本/構成 | `tankan-takuitsu-reiwa-pdf` |
-| `monbun-yomikata` | 総監記述式で設問の役割を取り違えない読み方 | 長い問題文のどこを読み、各設問で何を書けばよいか分からない | howto | レビュー | 台本/構成 | `essay-core-pack` |
+| `monbun-yomikata` | 総監記述式｜問題文の要求事項を答案骨子へつなぐ | 長い問題文の要求事項を拾い、答案の見出しや骨子に対応づけられない | howto | レビュー | 台本/構成 | `essay-core-pack` |
 | `persona-settei` | 論文の立場（ペルソナ）はどう選ぶか | 自分の経歴でどの立場から書けば減点されないか分からない | howto | レビュー | 台本/構成 | `essay-complete-pack` |
 | `r8-yosou-theme` | R8予想テーマの読み方 — 白書から出題を絞る | 出題テーマの山張りを根拠なくやってしまう | exam-point | レビュー | 台本/構成 | `r8-essay-forecast` |
 | `sanso-kozo` | 合否を分ける三層構造 — 前提・施策・最大リスク | 設問ごとに何を書くべきかの役割分担が分からない | exam-point | レビュー | 台本/構成 | `essay-complete-pack` |
@@ -191,18 +192,18 @@
 | packId | タイトル | 悩み | intent | 段階 | 台本/構成 | 主CTA |
 |---|---|---|---|---|---|---|
 | `kikinagashi-shunin-suchi` | 聞き流し 主任技士 頻出数値・JIS規定 | 机に向かう時間が取れず数値規定の反復が足りないまま直前期に入る | exam-point | 停止 | 台本/構成 | `cce-r8-mc-50` |
-| `shunin-chokuzen-senryaku` | 主任技士 直前期の総仕上げ — 頻出度で絞る | 残り時間で全分野は回せず何を捨てて何を固めるか決められない | howto | 停止 | 台本/構成 | `cce-r8-mc-50` |
+| `shunin-chokuzen-senryaku` | 主任技士 直前期の総仕上げ — 頻出度で絞る | 残り時間で全分野は回せず何を捨てて何を固めるか決められない | howto | 停止 | 台本/構成 | `cce-takuitsu-chokuzen-pack` |
 | `shunin-construction-ronten` | 主任技士「施工」の頻出論点 | ポンプ圧送から養生まで工程が広く数値規定の暗記が追いつかない | exam-point | 停止 | 台本/構成 | `cce-r8-mc-50` |
 | `shunin-durability-ronten` | 主任技士「コンクリートの耐久性」の頻出論点 | 中性化・塩害・凍害・ASRの劣化機構がごちゃつき対策の対応づけを間違える | exam-point | 停止 | 台本/構成 | `cce-r8-mc-50` |
-| `shunin-hinshutsu-yusen` | 主任技士 四肢択一の頻出分野 — 学習の優先順位 | 全分野を均等に回すには時間が足りず捨て分野の判断もつかない | exam-point | 停止 | 台本/構成 | `cce-r8-mc-50` |
+| `shunin-hinshutsu-yusen` | 主任技士 四肢択一の頻出分野 — 学習の優先順位 | 全分野を均等に回すには時間が足りず、どこから手を付けるか決められない | exam-point | 停止 | 台本/構成 | `cce-r8-mc-50` |
 | `shunin-materials-ronten` | 主任技士「コンクリート用材料」の頻出論点 | ポルトランドセメントの種類も混和材料の使い分けも似た記述が多く覚え分けられない | exam-point | 停止 | 台本/構成 | `cce-r8-mc-50` |
 | `shunin-mix-design-ronten` | 主任技士「配(調)合設計」の頻出論点 | 水セメント比や単位量の計算手順が安定せず本番で時間を溶かす | exam-point | 停止 | 台本/構成 | `cce-mix-calculation-practice` |
-| `shunin-ochiru-shouronbun` | 落ちる小論文の共通点 — 主任技士で評価されない答案 | 書けた気になっているが評価される答案なのか自分で判断できない | diagnosis | 停止 | 台本/構成 | `cce-essay-reiwa-pack` |
+| `shunin-ochiru-shouronbun` | 主任技士 小論文でやりがちな4つの見直し — 設問に答える答案へ | 書き終えた小論文が設問に答えられているか、自分で確かめる方法が分からない | diagnosis | 停止 | 台本/構成 | `cce-essay-reiwa-pack` |
 | `shunin-production-qc-ronten` | 主任技士「製造・品質管理／検査」の頻出論点 | JIS A 5308の規定値と検査ルールが細かく丸暗記では本番で出てこない | exam-point | 停止 | 台本/構成 | `cce-r8-mc-50` |
 | `shunin-products-ronten` | 主任技士「コンクリート製品」の頻出論点 | 工場製品の製造方法は現場経験だけではイメージが湧かず後回しになりがち | exam-point | 停止 | 台本/構成 | `cce-r8-mc-50` |
 | `shunin-properties-ronten` | 主任技士「コンクリートの性質」の頻出論点 | ワーカビリティーやブリーディングなどフレッシュ性状の用語が混ざって選択肢で迷う | exam-point | 停止 | 台本/構成 | `cce-r8-mc-50` |
-| `shunin-r8-juuten` | 主任技士 R8の重点分野予想 — 頻出度からこう導く | 直前期にどの分野へ張るべきか予想の根拠が持てない | exam-point | 停止 | 台本/構成 | `cce-r8-mc-50` |
+| `shunin-r8-juuten` | 主任技士 直前期の過去問の回し方 — 一巡・弱点再演習・設問の聞かれ方確認 | 試験直前期に、択一の過去問をどの順でどう回せばよいか決められない | exam-point | 停止 | 台本/構成 | `cce-r8-mc-50` |
 | `shunin-shiken-zentaizou` | コンクリート主任技士の全体像 — 四肢択一×小論文の二本立て | 四肢択一と小論文の二本立てで何をどの配分で仕込むべきか掴めない | roadmap | 停止 | 台本/構成 | `links-hub` |
-| `shunin-shouronbun-kousei` | 主任技士 小論文の答案構成 — 評価される観点から逆算する | 技術的な文章を書き慣れておらず1,000字の構成が組めない | howto | 停止 | 台本/構成 | `cce-essay-reiwa-pack` |
+| `shunin-shouronbun-kousei` | 主任技士 小論文の答案構成 — 項目と行数から骨子を作る | 技術的な文章を書き慣れておらず、1,000字前後の答案構成が組めない | howto | 停止 | 台本/構成 | `cce-essay-mokuji` |
 | `shunin-shouronbun-theme` | 主任技士 小論文のテーマ傾向 — 何が問われてきたか | どんなテーマが出るか分からず経験の棚卸しが的外れになりそうで不安 | exam-point | 停止 | 台本/構成 | `cce-essay-reiwa-pack` |
 | `shunin-structural-design-ronten` | 主任技士「コンクリート構造の設計」の頻出論点 | 曲げやせん断の構造計算は久しぶりで解き方を思い出せない | exam-point | 停止 | 台本/構成 | `cce-r8-mc-50` |

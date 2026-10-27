@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "pe-first-stage",
+      "headline": [
+        "基礎科目",
+        "6問から3問",
+        "選び方"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pop-red-pen",
+        "frame": "waist"
+      },
+      "design": "pop-poster-v3",
+      "pop": {
+        "variant": "question",
+        "authority": "総監が制作"
+      },
+      "approvedImage": {
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-senmon/work/cover-pop.145b4650.png",
+        "sha256": "145b46501cbe0898d5fcea91f7a4e67a52eb4a514876cb47a62baef3af337907",
+        "specSha256": "45057aedb3ca610e24b416943285d29e0781e9363704c1a9c5d5e896291f2695",
+        "normalization": {
+          "mode": "full-frame-v1",
+          "sourceSha256": "9061a58214ef006228ec6e689b4e45d812ed4887f6c4acc6cc303d5ab683bd18"
+        },
+        "source": {
+          "path": ".tmp/media/pe-first-stage/pe1-kiso-senmon/work/raw-cover.9061a582.png",
+          "sha256": "9061a58214ef006228ec6e689b4e45d812ed4887f6c4acc6cc303d5ab683bd18"
+        }
+      }
+    }
+  }
+}

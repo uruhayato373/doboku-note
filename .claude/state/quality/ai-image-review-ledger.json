@@ -3365,6 +3365,102 @@
       "reason": "独立AI画像監査：最終採用PNGを原寸と360pxで実見。指定4文言・ポーズ・顔と手指・安全域に問題なし。ユーザー承認は含まない。",
       "reviewedAt": "2026-10-11T03:36:30.184Z"
     },
+    "media:pe-first-stage/pe1-kiso-senmon/youtube.longform/cover": {
+      "sha": "145b46501cbe0898",
+      "verdict": "ok",
+      "reason": "表紙の資格名、6問から3問、先生の顔、字幕領域を確認した。",
+      "reviewedAt": "2026-10-27T15:15:36.362Z"
+    },
+    "media:pe-first-stage/pe1-kiso-senmon/youtube.longform/cta": {
+      "sha": "edd29855f265b1cf",
+      "verdict": "ok",
+      "reason": "全560問、基礎・適性・専門は建設部門と示し商品内容と一致する。",
+      "reviewedAt": "2026-10-27T15:15:36.363Z"
+    },
+    "media:pe-first-stage/pe1-kiso-senmon/youtube.longform/scene-001": {
+      "sha": "145b46501cbe0898",
+      "verdict": "ok",
+      "reason": "表紙の資格名、6問から3問、先生の顔、字幕領域を確認した。",
+      "reviewedAt": "2026-10-27T15:15:36.363Z"
+    },
+    "media:pe-first-stage/pe1-kiso-senmon/youtube.longform/scene-002": {
+      "sha": "2edf1fac7b994d4e",
+      "verdict": "ok",
+      "reason": "6問を見渡し、再現できる3問を選ぶ提案が台本に一致する。",
+      "reviewedAt": "2026-10-27T15:15:36.363Z"
+    },
+    "media:pe-first-stage/pe1-kiso-senmon/youtube.longform/scene-003": {
+      "sha": "d6cfdb53a2772214",
+      "verdict": "ok",
+      "reason": "5群各6問から3問、計15問と日時を正しく表示する。",
+      "reviewedAt": "2026-10-27T15:15:36.363Z"
+    },
+    "media:pe-first-stage/pe1-kiso-senmon/youtube.longform/scene-004": {
+      "sha": "0437144332160431",
+      "verdict": "ok",
+      "reason": "公式の決まりと動画の提案を明確に分けている。",
+      "reviewedAt": "2026-10-27T15:15:36.363Z"
+    },
+    "media:pe-first-stage/pe1-kiso-senmon/youtube.longform/scene-005": {
+      "sha": "c8ee0231c6abc1c8",
+      "verdict": "ok",
+      "reason": "6問を見渡す仕分けの図で、正答を創作していない。",
+      "reviewedAt": "2026-10-27T15:15:36.363Z"
+    },
+    "media:pe-first-stage/pe1-kiso-senmon/youtube.longform/scene-006": {
+      "sha": "03bdb8c3781c4cbb",
+      "verdict": "ok",
+      "reason": "6問から3問を選ぶ図と判断基準が一致する。",
+      "reviewedAt": "2026-10-27T15:15:36.363Z"
+    },
+    "media:pe-first-stage/pe1-kiso-senmon/youtube.longform/scene-007": {
+      "sha": "66999d304ee74eab",
+      "verdict": "ok",
+      "reason": "仮の例で2問＋1問＋3問の内訳が正しい。",
+      "reviewedAt": "2026-10-27T15:15:36.363Z"
+    },
+    "media:pe-first-stage/pe1-kiso-senmon/youtube.longform/scene-008": {
+      "sha": "31ed9a005b1a403c",
+      "verdict": "ok",
+      "reason": "仮の例の2問＋1問が3問になり、実際の出題ではないと明記する。",
+      "reviewedAt": "2026-10-27T15:15:36.363Z"
+    },
+    "media:pe-first-stage/pe1-kiso-senmon/youtube.longform/scene-009": {
+      "sha": "60e9c5309321957c",
+      "verdict": "ok",
+      "reason": "公式が出ない問題から再現できる別問へ移る図である。",
+      "reviewedAt": "2026-10-27T15:15:36.363Z"
+    },
+    "media:pe-first-stage/pe1-kiso-senmon/youtube.longform/scene-010": {
+      "sha": "539149435f36ea0b",
+      "verdict": "ok",
+      "reason": "時間の目安が動画の提案と明記され、固定の公式時間はない。",
+      "reviewedAt": "2026-10-27T15:15:36.363Z"
+    },
+    "media:pe-first-stage/pe1-kiso-senmon/youtube.longform/scene-011": {
+      "sha": "551a9517a1cbc1c2",
+      "verdict": "ok",
+      "reason": "過去問で見渡す・決める・解く・振り返る順が台本と一致する。",
+      "reviewedAt": "2026-10-27T15:15:36.363Z"
+    },
+    "media:pe-first-stage/pe1-kiso-senmon/youtube.longform/scene-012": {
+      "sha": "0faf329f62423854",
+      "verdict": "ok",
+      "reason": "解答した15問だけを自己採点する図で、5群各3問を示す。",
+      "reviewedAt": "2026-10-27T15:15:36.363Z"
+    },
+    "media:pe-first-stage/pe1-kiso-senmon/youtube.longform/scene-013": {
+      "sha": "f1b31dbb0731c2cd",
+      "verdict": "ok",
+      "reason": "見渡す、3問を選ぶ、難問で粘らない手順が台本と一致する。",
+      "reviewedAt": "2026-10-27T15:15:36.363Z"
+    },
+    "media:pe-first-stage/pe1-kiso-senmon/youtube.longform/scene-014": {
+      "sha": "edd29855f265b1cf",
+      "verdict": "ok",
+      "reason": "全560問、基礎・適性・専門は建設部門と示し商品内容と一致する。",
+      "reviewedAt": "2026-10-27T15:15:36.363Z"
+    },
     "media:pe-first-stage/pe1-zentaizou/youtube.longform/cover": {
       "sha": "abe1a7b7debc5406",
       "verdict": "ok",

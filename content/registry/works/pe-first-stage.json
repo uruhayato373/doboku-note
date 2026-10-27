@@ -15,6 +15,17 @@
       "legacyKey": "095-pe-first-stage-2026-10"
     },
     {
+      "id": "pe1-kiso-senmon",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/pe-first-stage/pe1-kiso-senmon",
+      "qa": {
+        "avg": 2.67,
+        "blocks": 0,
+        "at": "2026-10-28",
+        "by": "Claude Code video-content-qa"
+      }
+    },
+    {
       "id": "pe1-kw-balanced-bridge",
       "kind": "ig-pack",
       "definition": "content/sns/instagram/pe-first-stage/keyword-packs/balanced-bridge"

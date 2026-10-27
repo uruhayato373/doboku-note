@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "packId": "pe1-kiso-senmon",
+  "exam": "pe-first-stage",
+  "title": "技術士一次 基礎科目の6問から3問の選び方",
+  "audience": "2026年11月22日の技術士第一次試験を直前に控えた受験者",
+  "pain": "基礎科目の5群それぞれで、6問からどの3問を選べばよいか分からない",
+  "promise": "6問を見渡し、再現できる3問を選び、難しい計算に深入りしない2周の手順（動画の提案）が分かる",
+  "intent": "exam-point",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/pe-first-stage/guide-basic-subject/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/pe-first-stage/guide-r08-answers/article.mdx"
+    },
+    {
+      "type": "external",
+      "url": "https://www.engineer.or.jp/c_topics/011/011423.html",
+      "title": "令和8年度技術士第一次試験の実施案内（日本技術士会）"
+    },
+    {
+      "type": "external",
+      "url": "https://www.engineer.or.jp/c_topics/011/attached/attach_11780_2.pdf",
+      "title": "令和8年度技術士第一次試験 受験申込案内（日本技術士会・PDF）"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "pe1-takuitsu-pdf",
+    "campaign": "pe1-kiso-senmon"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 0,
+    "instagramCarousel": false,
+    "instagramReel": false,
+    "xThread": false,
+    "threadsBrief": false
+  }
+}

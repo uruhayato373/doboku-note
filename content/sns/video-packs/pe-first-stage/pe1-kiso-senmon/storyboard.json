@@ -1,0 +1,228 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 4,
+      "narration": "基礎科目、3問の選び方です。",
+      "caption": "基礎科目 6問から3問の選び方",
+      "visual": {
+        "kind": "cover",
+        "heading": "基礎科目 6問から3問",
+        "items": [
+          "直前に使う2周の選び方"
+        ]
+      }
+    },
+    {
+      "sceneId": "answer",
+      "start": 4,
+      "end": 16,
+      "narration": "結論から言います。まず6問すべてを見渡し、次に手順を再現できる3問を選び、難しい計算には深入りしない。この2周で進める方法を、この動画の提案としてお伝えします。",
+      "caption": "結論：見渡す、再現できる3問、深入りしない",
+      "visual": {
+        "heading": "結論：見渡す→再現できる3問→深入りしない",
+        "items": [
+          "6問を全部見渡す",
+          "再現できる3問を選ぶ",
+          "難しい計算に深入りしない"
+        ]
+      },
+      "sourceRef": "content/site/pe-first-stage/guide-basic-subject/article.mdx"
+    },
+    {
+      "sceneId": "rules",
+      "start": 16,
+      "end": 30,
+      "narration": "公式の受験申込案内によると、試験日は2026年11月22日、基礎科目は午後3時から4時の1時間です。5つの群から各6問、計30問が出題され、各群から3問ずつ、計15問を解答します。",
+      "caption": "公式：5群から各3問、計15問を解答",
+      "visual": {
+        "heading": "公式の決まり（令和8年度 申込案内）",
+        "items": [
+          "2026年11月22日（日）",
+          "基礎科目 15:00-16:00",
+          "5群×6問=30問から各群3問、計15問を解答"
+        ]
+      },
+      "sourceRef": "content/site/pe-first-stage/guide-basic-subject/article.mdx"
+    },
+    {
+      "sceneId": "proposal",
+      "start": 30,
+      "end": 38,
+      "narration": "ここから先の2周の進め方、印の付け方、時間の目安、予行演習は、公式の決まりではなく、この動画の提案です。",
+      "caption": "ここから先は公式ではなく動画の提案",
+      "visual": {
+        "heading": "ここから先は動画の提案",
+        "items": [
+          "2周の進め方",
+          "印の付け方・時間の目安",
+          "予行演習"
+        ]
+      },
+      "sourceRef": "content/site/pe-first-stage/guide-basic-subject/article.mdx"
+    },
+    {
+      "sceneId": "pass1",
+      "start": 38,
+      "end": 50,
+      "narration": "1周目は解き始めず、6問すべてに目を通します。手順が再現できそうか、選択肢の誤りを説明できそうか、今日は厳しいかを仕分け、印だけを問題冊子に残します。",
+      "caption": "1周目：6問を見渡して仕分ける",
+      "visual": {
+        "heading": "1周目：解かずに6問を見渡す",
+        "items": [
+          "再現できそう",
+          "説明できそう",
+          "今日は厳しい"
+        ]
+      },
+      "sourceRef": "content/site/pe-first-stage/guide-basic-subject/article.mdx"
+    },
+    {
+      "sceneId": "pass2",
+      "start": 50,
+      "end": 63,
+      "narration": "2周目で、再現できる3問を選びます。計算問題は、途中式を最後まで書き出せるかで判断します。知識問題は、誤りの選択肢がなぜ誤りかを、自分の言葉で説明できるかで判断します。",
+      "caption": "2周目：再現できる3問を選ぶ",
+      "visual": {
+        "heading": "2周目：再現できる3問を選ぶ",
+        "items": [
+          "計算：途中式を書き出せるか",
+          "知識：誤りの理由を説明できるか",
+          "選んだ3問から解く"
+        ]
+      },
+      "sourceRef": "content/site/pe-first-stage/guide-basic-subject/article.mdx"
+    },
+    {
+      "sceneId": "example1",
+      "start": 63,
+      "end": 75,
+      "narration": "仮の例で考えます。ある群の6問のうち、途中式を最後まで書けそうな問題が2問、誤りの理由を説明できそうな知識問題が1問、公式が出てこない問題が3問あったとします。",
+      "caption": "仮の例：書けそう2、説明できそう1、厳しい3",
+      "visual": {
+        "heading": "仮の例：ある群の6問",
+        "items": [
+          "途中式を書けそう：2問",
+          "誤りの理由を説明できそう：1問",
+          "公式が出てこない：3問"
+        ]
+      },
+      "sourceRef": "content/site/pe-first-stage/guide-basic-subject/article.mdx"
+    },
+    {
+      "sceneId": "example2",
+      "start": 75,
+      "end": 85,
+      "narration": "この場合は、書けそうな2問と説明できそうな1問で、ちょうど3問になります。これは説明のための仮の例で、実際の出題ではありません。",
+      "caption": "仮の例：書けそう2問＋説明できそう1問",
+      "visual": {
+        "heading": "仮の例：選ぶのは3問",
+        "items": [
+          "書けそうな2問＋説明できそうな1問",
+          "説明用の仮定で、実際の出題ではない"
+        ]
+      },
+      "sourceRef": "content/site/pe-first-stage/guide-basic-subject/article.mdx"
+    },
+    {
+      "sceneId": "stop1",
+      "start": 85,
+      "end": 96,
+      "narration": "計算が重い群では、公式を思い出せない問題に時間をかけすぎがちです。深入りしないとは、粘って探すより、手順を再現できる別の問題へ移ることです。",
+      "caption": "難しい計算には深入りしない",
+      "visual": {
+        "heading": "難しい計算に深入りしない",
+        "items": [
+          "公式が出ない問題で粘らない",
+          "手順を再現できる別の問題へ移る"
+        ]
+      },
+      "sourceRef": "content/site/pe-first-stage/guide-basic-subject/article.mdx"
+    },
+    {
+      "sceneId": "stop2",
+      "start": 96,
+      "end": 106,
+      "narration": "解答前に自分で時間の目安を決め、超えたら印を付けて移ります。この目安は提案で、公式の時間配分ではなく、結果を保証するものでもありません。",
+      "caption": "時間の目安は提案であり公式ではない",
+      "visual": {
+        "heading": "時間の目安は自分で決める（提案）",
+        "items": [
+          "解答前に目安を決める",
+          "超えたら印を付けて移る",
+          "公式の時間配分ではない"
+        ]
+      },
+      "sourceRef": "content/site/pe-first-stage/guide-basic-subject/article.mdx"
+    },
+    {
+      "sceneId": "rehearse1",
+      "start": 106,
+      "end": 120,
+      "narration": "選び方は、直前に過去問で予行演習して固めます。年度を一つ選び、5群それぞれで見渡す、決める、解く、を通します。終わったら、選ばなかった問題のほうが解きやすくなかったかを振り返ります。",
+      "caption": "過去問で予行演習して振り返る",
+      "visual": {
+        "heading": "過去問で予行演習（提案）",
+        "items": [
+          "年度を一つ選ぶ",
+          "5群で 見渡す→決める→解く",
+          "選ばなかった問題を振り返る"
+        ]
+      },
+      "sourceRef": "content/site/pe-first-stage/guide-r08-answers/article.mdx"
+    },
+    {
+      "sceneId": "rehearse2",
+      "start": 120,
+      "end": 128,
+      "narration": "試験後の自己採点は、解答した15問だけを数えます。手順は、令和8年度の解答速報の記事にまとめています。",
+      "caption": "自己採点は解答した15問だけ",
+      "visual": {
+        "heading": "試験後の自己採点",
+        "items": [
+          "数えるのは解答した15問だけ"
+        ]
+      },
+      "sourceRef": "content/site/pe-first-stage/guide-r08-answers/article.mdx"
+    },
+    {
+      "sceneId": "summary",
+      "start": 128,
+      "end": 140,
+      "narration": "まとめます。6問を見渡す。再現できる3問を選ぶ。難しい計算に深入りしない。この2周の手順を、過去問で予行演習してから11月22日の本番に臨んでください。",
+      "caption": "見渡す→選ぶ→深入りしない",
+      "visual": {
+        "heading": "まとめ",
+        "items": [
+          "1周目：6問を見渡す",
+          "2周目：再現できる3問を選ぶ",
+          "難しい計算に深入りしない"
+        ]
+      }
+    },
+    {
+      "sceneId": "cta",
+      "start": 140,
+      "end": 155,
+      "narration": "ここまでの内容は動画の提案です。基礎・適性・専門の過去問を通しで演習したい方は、概要欄のリンクから過去問PDF合本をご覧ください。専門科目は建設部門の収録です。ご視聴ありがとうございました。",
+      "caption": "続きは概要欄のリンクから（専門は建設部門）",
+      "visual": {
+        "kind": "cover",
+        "heading": "過去問PDF合本 全560問（専門は建設部門）",
+        "items": [
+          "基礎・適性・専門を通しで演習",
+          "概要欄リンクから"
+        ]
+      }
+    }
+  ],
+  "imageDesign": {
+    "mode": "codex-pop",
+    "scope": "all-body",
+    "revision": "body-diagram-20261028",
+    "coverRevision": "cover-pop-20261028",
+    "layout": "diagram-led"
+  }
+}
