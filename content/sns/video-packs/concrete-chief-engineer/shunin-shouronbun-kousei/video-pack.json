@@ -2,20 +2,40 @@
   "schemaVersion": 1,
   "packId": "shunin-shouronbun-kousei",
   "exam": "concrete-chief-engineer",
-  "title": "主任技士 小論文の答案構成 — 評価される観点から逆算する",
+  "title": "主任技士 小論文の答案構成 — 項目と行数から骨子を作る",
   "audience": "コンクリート主任技士の小論文対策を始める受験者",
-  "pain": "技術的な文章を書き慣れておらず1,000字の構成が組めない",
-  "promise": "評価される観点から逆算した答案構成の型で書き始められる",
+  "pain": "技術的な文章を書き慣れておらず、1,000字前後の答案構成が組めない",
+  "promise": "過去問の項目と行数から、骨子を先に作って書き始められる",
   "intent": "howto",
   "sourceRefs": [
     {
       "type": "site",
       "path": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+    },
+    {
+      "type": "external",
+      "url": "https://www.jci-net.or.jp/j/exam/gishi/pdf/shg_2026_tbk.pdf",
+      "title": "日本コンクリート工学会 コンクリート主任技士・技士 2026年度 受験案内（小論文の出題形式の一般記述のみの根拠。R6/R7の項目・行数は含まない）"
+    },
+    {
+      "type": "external",
+      "url": "https://koneka1130.com/31568/",
+      "title": "コンクリート技士・主任技士+診断士 勉強ノート「コンクリート主任技士 小論文の出題傾向と対策法」（二次情報。令和7年度の項目・行数 15〜20行/10〜15行 を確認）"
+    },
+    {
+      "type": "external",
+      "url": "https://fire-nao.com/license-syuningishi",
+      "title": "FIREしたいナオの生活「コンクリート主任技士の勉強方法と記述(小論文)の解答作成」（二次情報。令和6年度の項目・行数 1〜2/7〜10/7〜10/10〜14行 を確認）"
+    },
+    {
+      "type": "note",
+      "path": "content/note/コンクリート主任技士/小論文もくじ/article.md",
+      "access": "free"
     }
   ],
   "primaryCta": {
     "kind": "note-magazine",
-    "targetId": "cce-essay-reiwa-pack",
+    "targetId": "cce-essay-mokuji",
     "campaign": "shunin-shouronbun-kousei"
   },
   "outputs": {

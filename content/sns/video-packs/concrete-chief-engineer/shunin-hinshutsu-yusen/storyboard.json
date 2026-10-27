@@ -4,109 +4,193 @@
     {
       "sceneId": "cover",
       "start": 0,
-      "end": 15,
-      "narration": "四肢択一の出題分野は多く、均等に回す時間はなかなか取れません。今日は頻出度から仕込む順番を整理します。",
-      "caption": "頻出分野で学習の優先順位を決める",
+      "end": 12,
+      "narration": "択一は、過去の出題表で学ぶ順番を決めます。",
+      "caption": "記載の多い項目から固め、少ない項目は後に回す",
       "visual": {
         "kind": "cover",
         "heading": "主任技士 択一の頻出分野",
-        "items": ["四肢択一 学習の優先順位"]
+        "items": [
+          "記載の多い項目から固める",
+          "記載の少ない項目は後に回す"
+        ]
       }
     },
     {
       "sceneId": "premise",
-      "start": 15,
-      "end": 55,
-      "narration": "分野をすべて同じ重さで対策しがちですが、項目単位で見ると濃淡がはっきりしています。毎年出る項目と、数年に一度、近年は出ない項目に分かれます。",
-      "caption": "分野は同じでも項目には濃淡がある",
+      "start": 12,
+      "end": 40,
+      "narration": "過去の表で各分野に繰り返し記載があると、項目も同じ頻度だと考えがちです。実際には分野の内側に濃淡があります。しかも見ているのは、平成21年度から令和5年度までの表です。令和6年度以降は分析していません。11月29日の試験の範囲は、2026年のJCI試験案内で別に確認します。",
+      "caption": "分野は毎年出ても、項目には濃淡がある",
       "visual": {
-        "heading": "誤解：分野は均等に対策すべき",
-        "items": ["項目単位では出題頻度に差がある", "毎年出る／低頻度／出題なしに分かれる"]
+        "kind": "compare",
+        "heading": "考え方の違い",
+        "ngLabel": "よくある考え方",
+        "okLabel": "この動画の見方",
+        "rows": [
+          {
+            "label": "分野",
+            "ng": "毎年出るから中身も同じ重さ",
+            "ok": "分野は毎年出ても項目に濃淡"
+          },
+          {
+            "label": "範囲",
+            "ng": "最新の傾向だと思う",
+            "ok": "令和5年度までの表の読み取り"
+          }
+        ]
       },
       "sourceRef": "content/site/concrete-chief-engineer/guide-trends/article.mdx"
     },
     {
-      "sceneId": "overview",
-      "start": 55,
-      "end": 100,
-      "narration": "四肢択一は8分野が柱です。用材料、性質、耐久性、配合設計、製造品質管理、施工、製品、構造の設計。最大の分野は13項目を抱える施工です。",
-      "caption": "出題は8分野、最大は施工",
+      "sceneId": "basis",
+      "start": 40,
+      "end": 58,
+      "narration": "使うのは、項目別の出題状況表です。年度の列に出題番号が記載されているかを目安に、記載の多い少ないを分けました。言えるのはその期間の並びまでで、次の試験の予告ではありません。",
+      "caption": "見ているのは過去の出題状況表だけ",
       "visual": {
-        "heading": "出題分野の全体像",
-        "items": ["8分野が柱、いずれも毎年出題", "施工は13項目で最大ボリューム"]
+        "kind": "sheet",
+        "heading": "出題状況表の見方",
+        "sheetTitle": "H21〜R5 項目別の出題状況",
+        "rows": [
+          {
+            "label": "対象期間",
+            "value": "平成21年度〜令和5年度",
+            "state": "done"
+          },
+          {
+            "label": "目安",
+            "value": "年度の列に出題番号の記載があるか",
+            "state": "done"
+          },
+          {
+            "label": "言えること",
+            "value": "その期間の並び方まで",
+            "state": "focus"
+          },
+          {
+            "label": "言えないこと",
+            "value": "令和6年度以降・今後の出題",
+            "state": "ng"
+          }
+        ]
       },
       "sourceRef": "content/site/concrete-chief-engineer/guide-trends/article.mdx"
     },
     {
-      "sceneId": "step1",
-      "start": 100,
+      "sceneId": "fields",
+      "start": 58,
+      "end": 80,
+      "narration": "四肢択一は、用材料、性質、耐久性、配合設計、製造品質管理、施工、製品、構造の設計の8分野です。これは過去の表の区分で、2026年の公式区分ではありません。どの分野も多くの年に記載があるので、分野ごと切ることはできません。濃淡は分野の内側にあります。",
+      "caption": "8分野は過去表の区分。公式区分ではない",
+      "visual": {
+        "kind": "points",
+        "heading": "過去表の8分野と濃淡の出る場所",
+        "items": [
+          "8分野はH21〜R5の過去表の区分（2026年の公式区分ではない）",
+          "期間中の多くの年に、どの分野も記載があった",
+          "濃淡が出るのは分野の内側の項目"
+        ]
+      },
+      "sourceRef": "content/site/concrete-chief-engineer/guide-trends/article.mdx"
+    },
+    {
+      "sceneId": "core",
+      "start": 80,
+      "end": 104,
+      "narration": "先に固めるのは、記載の多い年が続く項目です。用材料はセメント・骨材・混和材料。性質はフレッシュと硬化コンクリート。耐久性は劣化機構。配合設計は基本と計算です。性質と耐久性は続けて出ることが多いので、まとめて学ぶと進めやすくなります。",
+      "caption": "先に固める、記載の多い定番項目",
+      "visual": {
+        "kind": "points",
+        "heading": "STEP 1　記載の多い項目から",
+        "items": [
+          "用材料：セメント・骨材・混和材料",
+          "性質：フレッシュと硬化／耐久性：劣化機構",
+          "配合設計：基本事項と計算",
+          "性質と耐久性はまとめて学ぶ"
+        ]
+      },
+      "sourceRef": "content/site/concrete-chief-engineer/guide-trends/article.mdx"
+    },
+    {
+      "sceneId": "construction",
+      "start": 104,
+      "end": 142,
+      "narration": "施工は13項目あり、差が最も大きい分野です。記載が多いのは、運搬から打継ぎ、養生・仕上げ、型枠、鉄筋、寒中暑中、マスコン、プレストレストコンクリート。これを先に固めます。高流動、水中、海洋、舗装・ダムは記載が限られ、余力で広げます。水密とその他各種は出題なしとされ、最後です。ただ、記載がないことと出ないことは別なので、見出しと用語だけは見ておきます。",
+      "caption": "施工13項目は3段。多い→限られる→なしの順",
+      "visual": {
+        "kind": "sheet",
+        "heading": "施工13項目の3段階（H21〜R5の表）",
+        "sheetTitle": "固める順番",
+        "rows": [
+          {
+            "label": "1段目 先に固める",
+            "value": "運搬〜打継ぎ／養生・仕上げ／型枠・鉄筋／寒中暑中／マスコン／プレストレスト",
+            "state": "done"
+          },
+          {
+            "label": "2段目 余力で広げる",
+            "value": "高流動／水中／海洋／舗装・ダム（記載は限られる）",
+            "state": "focus"
+          },
+          {
+            "label": "3段目 最後に見出しだけ",
+            "value": "水密／その他各種（出題なしとされた項目）",
+            "state": "ng"
+          }
+        ]
+      },
+      "sourceRef": "content/site/concrete-chief-engineer/guide-trends/article.mdx"
+    },
+    {
+      "sceneId": "check",
+      "start": 142,
       "end": 160,
-      "narration": "用材料のセメント・骨材・混和材料、性質のフレッシュ・硬化コンクリート、耐久性の劣化機構は、いずれもほぼ毎年出る定番です。性質と耐久性はまとめて学習すると効率的です。",
-      "caption": "定番項目をまず固める",
+      "narration": "試験は11月29日です。この整理は令和5年度までの過去表です。2026年の範囲は、JCI試験案内の出題範囲を示す表6で確認してください。表6はaからhの区分で、過去表の8分野とは別です。",
+      "caption": "範囲はJCI案内の表6で確認する",
       "visual": {
-        "heading": "STEP 1　定番項目を先に固める",
-        "items": ["用材料：セメント・骨材・混和材料", "性質と耐久性はまとめて学習", "配合設計は解法パターンで得点源"]
+        "kind": "compare",
+        "heading": "過去の表と2026年の範囲",
+        "ngLabel": "過去の出題状況表",
+        "okLabel": "2026年のJCI試験案内",
+        "rows": [
+          {
+            "label": "期間・試験日",
+            "ng": "平成21年度〜令和5年度",
+            "ok": "11月29日の試験を確認"
+          },
+          {
+            "label": "区分",
+            "ng": "過去表の8分野（構造の設計など）",
+            "ok": "案内の表6（a〜h）の範囲を確認"
+          }
+        ]
       },
       "sourceRef": "content/site/concrete-chief-engineer/guide-trends/article.mdx"
-    },
-    {
-      "sceneId": "step2",
-      "start": 160,
-      "end": 220,
-      "narration": "施工は13項目中もっとも頻出度の差が大きい分野です。運搬・打込み・締固め・打継ぎ、養生・仕上げ、型枠・支保工、鉄筋、寒中暑中、マスコンは定番項目です。",
-      "caption": "施工は定番6項目から手をつける",
-      "visual": {
-        "heading": "STEP 2　施工は定番6項目から",
-        "items": ["運搬・打込み・締固め・打継ぎ", "養生・仕上げ／型枠・支保工／鉄筋", "寒中暑中・マスコンも定番"]
-      },
-      "sourceRef": "content/site/concrete-chief-engineer/guide-trends/article.mdx"
-    },
-    {
-      "sceneId": "step3",
-      "start": 220,
-      "end": 270,
-      "narration": "水は近年、単独項目としての出題が確認できません。水密コンクリートとその他各種コンクリートも同様に、後回しにしてよい項目です。",
-      "caption": "深追い不要な項目を見極める",
-      "visual": {
-        "heading": "STEP 3　学習負荷を抑えてよい項目",
-        "items": ["水は近年出題確認できず", "水密コンクリート・その他各種も後回し可"]
-      },
-      "sourceRef": "content/site/concrete-chief-engineer/guide-trends/article.mdx"
-    },
-    {
-      "sceneId": "step4",
-      "start": 270,
-      "end": 330,
-      "narration": "用材料を最初に固め、性質と耐久性をまとめ、配合設計、製造品質管理、施工の定番6項目、製品と構造の設計へ進みます。過去問は分野別の縦串で解くと効果的です。",
-      "caption": "順序は定番分野から低頻度項目へ",
-      "visual": {
-        "heading": "STEP 4　学習順序と過去問の使い方",
-        "items": ["用材料→性質・耐久性→配合設計", "施工定番→製品・構造の設計", "過去問は分野別の縦串で解く"]
-      },
-      "sourceRef": "content/site/concrete-chief-engineer/guide-trends/article.mdx"
-    },
-    {
-      "sceneId": "summary",
-      "start": 330,
-      "end": 375,
-      "narration": "分野全体は毎年出ていても、項目単位では濃淡があります。定番項目から固め、低頻度・出題なしの項目は後回しにする。これが得点を積み上げる近道です。",
-      "caption": "定番項目優先、低頻度は後回し",
-      "visual": {
-        "heading": "まとめ",
-        "items": ["① 分野は8つ、項目には濃淡がある", "② 定番項目から先に固める", "③ 低頻度・出題なしは後回し"]
-      }
     },
     {
       "sceneId": "cta",
-      "start": 375,
-      "end": 405,
-      "narration": "分野別の頻出度を確認しながら演習したい方は、概要欄のリンクから択一演習パックをご覧ください。ご視聴ありがとうございました。",
-      "caption": "続きは概要欄のリンクから",
+      "start": 160,
+      "end": 176,
+      "narration": "固めたあとは、本番形式で確かめます。令和8年度の予想50問と施工14問に、全選択肢の解説と分野別の採点表がついています。概要欄からご覧ください。出題の的中を保証するものではありません。",
+      "caption": "概要欄から予想50問＋施工14問。的中は保証しない",
       "visual": {
         "kind": "cover",
-        "heading": "頻出度を見ながら演習する",
-        "items": ["択一演習パック（概要欄リンク）"]
-      }
+        "heading": "本番形式で確かめる",
+        "items": [
+          "令和8年度 予想50問＋施工14問（概要欄リンク）",
+          "全選択肢の解説＋分野別の採点表",
+          "出題の的中を保証するものではありません"
+        ]
+      },
+      "sourceRef": "content/site/concrete-chief-engineer/guide-trends/article.mdx"
     }
-  ]
+  ],
+  "imageDesign": {
+    "mode": "codex-pop",
+    "scope": "all-body",
+    "revision": "body-diagram-20261027",
+    "coverRevision": "cover-pop-20261027",
+    "layout": "diagram-led"
+  }
 }

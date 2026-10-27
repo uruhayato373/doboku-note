@@ -5,8 +5,8 @@
       "format": "longform",
       "exam": "concrete-chief",
       "headline": [
-        "主任技士の択一",
-        "学習の優先順位"
+        "択一",
+        "どこから解く？"
       ],
       "accentLine": 1,
       "subtitle": "",
@@ -14,15 +14,23 @@
         "pose": "pop-explaining",
         "frame": "waist"
       },
-      "design": "pop-v2",
+      "design": "pop-poster-v3",
       "pop": {
         "variant": "explain",
         "authority": "総監が制作"
       },
       "approvedImage": {
-        "path": ".tmp/media/concrete-chief-engineer/shunin-hinshutsu-yusen/youtube.longform/cover.51c7bb93.png",
-        "sha256": "51c7bb93173b143b82d1f72583208d4512e4d563c0dc07f0f3b5cffc1077d708",
-        "specSha256": "6472ff1d680793cff4dd3526499a1a910162132f7cc046f92326322b76b92edf"
+        "path": ".tmp/media/concrete-chief-engineer/shunin-hinshutsu-yusen/work/cover-pop.45f82789.png",
+        "sha256": "45f82789fc2e2ff7abb8b2928ed9a3e90ae1de960037d184664fb56f567e1a25",
+        "specSha256": "d17e362931b541f586b44f7ad31d4468dcfbe3f84fd3e4ce229d233516847e4a",
+        "normalization": {
+          "mode": "full-frame-v1",
+          "sourceSha256": "01e42393f08e5fa5ec76ad2c737aecb7239444330e2983b3ccef21cfde092876"
+        },
+        "source": {
+          "path": ".tmp/media/concrete-chief-engineer/shunin-hinshutsu-yusen/work/raw-cover-pop-20261027.png",
+          "sha256": "01e42393f08e5fa5ec76ad2c737aecb7239444330e2983b3ccef21cfde092876"
+        }
       }
     },
     "point-overview-1": {

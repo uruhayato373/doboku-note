@@ -2459,6 +2459,66 @@
       "reason": "予想問題・配合計算・暗記ノートから概要欄へ進む構図が現行CTAと一致する。",
       "reviewedAt": "2026-10-27T11:14:41.645Z"
     },
+    "media:concrete-chief-engineer/shunin-hinshutsu-yusen/work/candidate-cover": {
+      "sha": "45f82789fc2e2ff7",
+      "verdict": "ok",
+      "reason": "全場面シートと原寸画像で「candidate-cover」の日本語、図解内容、資格名と字幕余白を照合し、台本と整合することを確認。",
+      "reviewedAt": "2026-10-27T13:33:05.163Z"
+    },
+    "media:concrete-chief-engineer/shunin-hinshutsu-yusen/work/candidate-cta": {
+      "sha": "97280eba7ccc5876",
+      "verdict": "ok",
+      "reason": "全場面シートと原寸画像で「candidate-cta」の日本語、図解内容、資格名と字幕余白を照合し、台本と整合することを確認。",
+      "reviewedAt": "2026-10-27T13:33:05.167Z"
+    },
+    "media:concrete-chief-engineer/shunin-hinshutsu-yusen/work/candidate-scene-001": {
+      "sha": "45f82789fc2e2ff7",
+      "verdict": "ok",
+      "reason": "全場面シートと原寸画像で「主任技士 択一の頻出分野」の日本語、図解内容、資格名と字幕余白を照合し、台本と整合することを確認。",
+      "reviewedAt": "2026-10-27T13:33:05.167Z"
+    },
+    "media:concrete-chief-engineer/shunin-hinshutsu-yusen/work/candidate-scene-002": {
+      "sha": "93f4fd5ac8f02688",
+      "verdict": "ok",
+      "reason": "全場面シートと原寸画像で「考え方の違い」の日本語、図解内容、資格名と字幕余白を照合し、台本と整合することを確認。",
+      "reviewedAt": "2026-10-27T13:33:05.167Z"
+    },
+    "media:concrete-chief-engineer/shunin-hinshutsu-yusen/work/candidate-scene-003": {
+      "sha": "eb4637e857bf1e74",
+      "verdict": "ok",
+      "reason": "全場面シートと原寸画像で「出題状況表の見方」の日本語、図解内容、資格名と字幕余白を照合し、台本と整合することを確認。",
+      "reviewedAt": "2026-10-27T13:33:05.167Z"
+    },
+    "media:concrete-chief-engineer/shunin-hinshutsu-yusen/work/candidate-scene-004": {
+      "sha": "dffe9077cdb2ae35",
+      "verdict": "ok",
+      "reason": "全場面シートと原寸画像で「過去表の8分野と濃淡の出る場所」の日本語、図解内容、資格名と字幕余白を照合し、台本と整合することを確認。",
+      "reviewedAt": "2026-10-27T13:33:05.167Z"
+    },
+    "media:concrete-chief-engineer/shunin-hinshutsu-yusen/work/candidate-scene-005": {
+      "sha": "c96478833f284fa0",
+      "verdict": "ok",
+      "reason": "全場面シートと原寸画像で「STEP 1　記載の多い項目から」の日本語、図解内容、資格名と字幕余白を照合し、台本と整合することを確認。",
+      "reviewedAt": "2026-10-27T13:33:05.167Z"
+    },
+    "media:concrete-chief-engineer/shunin-hinshutsu-yusen/work/candidate-scene-006": {
+      "sha": "986af45a41cb7f95",
+      "verdict": "ok",
+      "reason": "全場面シートと原寸画像で「施工13項目の3段階（H21〜R5の表）」の日本語、図解内容、資格名と字幕余白を照合し、台本と整合することを確認。",
+      "reviewedAt": "2026-10-27T13:33:05.167Z"
+    },
+    "media:concrete-chief-engineer/shunin-hinshutsu-yusen/work/candidate-scene-007": {
+      "sha": "7b3382ca3702be59",
+      "verdict": "ok",
+      "reason": "全場面シートと原寸画像で「過去の表と2026年の範囲」の日本語、図解内容、資格名と字幕余白を照合し、台本と整合することを確認。",
+      "reviewedAt": "2026-10-27T13:33:05.167Z"
+    },
+    "media:concrete-chief-engineer/shunin-hinshutsu-yusen/work/candidate-scene-008": {
+      "sha": "97280eba7ccc5876",
+      "verdict": "ok",
+      "reason": "全場面シートと原寸画像で「本番形式で確かめる」の日本語、図解内容、資格名と字幕余白を照合し、台本と整合することを確認。",
+      "reviewedAt": "2026-10-27T13:33:05.167Z"
+    },
     "media:concrete-chief-engineer/shunin-shiken-zentaizou/work/candidate-cover": {
       "sha": "729a5a5e70c9b6de",
       "verdict": "ok",
@@ -2524,6 +2584,72 @@
       "verdict": "ok",
       "reason": "画像は candidate-cta と同一（ハッシュ d960d349）。「次の学習へ」「分野別の要点」「試験の全体像」「小論文の書き方」「概要欄のリンクから」が指示と一字一句一致し、図の崩れも余計な語もない。内容は約846pxまでで、字幕帯は空いている。",
       "reviewedAt": "2026-10-26T22:22:56.347Z"
+    },
+    "media:concrete-chief-engineer/shunin-shouronbun-kousei/work/candidate-cover": {
+      "sha": "192d62f7eb14c46a",
+      "verdict": "ok",
+      "reason": "全場面シートと原寸画像で「candidate-cover」の日本語、図解内容、資格名と字幕余白を照合し、台本と整合することを確認。",
+      "reviewedAt": "2026-10-27T13:33:05.167Z"
+    },
+    "media:concrete-chief-engineer/shunin-shouronbun-kousei/work/candidate-cta": {
+      "sha": "9a3b4ae66f8c4786",
+      "verdict": "ok",
+      "reason": "全場面シートと原寸画像で「candidate-cta」の日本語、図解内容、資格名と字幕余白を照合し、台本と整合することを確認。",
+      "reviewedAt": "2026-10-27T13:33:05.167Z"
+    },
+    "media:concrete-chief-engineer/shunin-shouronbun-kousei/work/candidate-scene-001": {
+      "sha": "192d62f7eb14c46a",
+      "verdict": "ok",
+      "reason": "全場面シートと原寸画像で「小論文の答案構成」の日本語、図解内容、資格名と字幕余白を照合し、台本と整合することを確認。",
+      "reviewedAt": "2026-10-27T13:33:05.167Z"
+    },
+    "media:concrete-chief-engineer/shunin-shouronbun-kousei/work/candidate-scene-002": {
+      "sha": "b0f66a2257edac58",
+      "verdict": "ok",
+      "reason": "全場面シートと原寸画像で「誤解：知識量を書き並べる試験」の日本語、図解内容、資格名と字幕余白を照合し、台本と整合することを確認。",
+      "reviewedAt": "2026-10-27T13:33:05.167Z"
+    },
+    "media:concrete-chief-engineer/shunin-shouronbun-kousei/work/candidate-scene-003": {
+      "sha": "ca716c7884f3f16c",
+      "verdict": "ok",
+      "reason": "全場面シートと原寸画像で「過去問の項目と行数（二次情報の整理）」の日本語、図解内容、資格名と字幕余白を照合し、台本と整合することを確認。",
+      "reviewedAt": "2026-10-27T13:33:05.167Z"
+    },
+    "media:concrete-chief-engineer/shunin-shouronbun-kousei/work/candidate-scene-004": {
+      "sha": "74cdf3b649d76d2b",
+      "verdict": "ok",
+      "reason": "全場面シートと原寸画像で「4つの骨格に置き換える」の日本語、図解内容、資格名と字幕余白を照合し、台本と整合することを確認。",
+      "reviewedAt": "2026-10-27T13:33:05.167Z"
+    },
+    "media:concrete-chief-engineer/shunin-shouronbun-kousei/work/candidate-scene-005": {
+      "sha": "a0fbe89eb566d2bf",
+      "verdict": "ok",
+      "reason": "全場面シートと原寸画像で「骨子の例（仮）」の日本語、図解内容、資格名と字幕余白を照合し、台本と整合することを確認。",
+      "reviewedAt": "2026-10-27T13:33:05.168Z"
+    },
+    "media:concrete-chief-engineer/shunin-shouronbun-kousei/work/candidate-scene-006": {
+      "sha": "a287be97b9deb4d0",
+      "verdict": "ok",
+      "reason": "全場面シートと原寸画像で「骨子の例（仮）つづき」の日本語、図解内容、資格名と字幕余白を照合し、台本と整合することを確認。",
+      "reviewedAt": "2026-10-27T13:33:05.168Z"
+    },
+    "media:concrete-chief-engineer/shunin-shouronbun-kousei/work/candidate-scene-007": {
+      "sha": "e3b386b461302c30",
+      "verdict": "ok",
+      "reason": "全場面シートと原寸画像で「自己点検の4観点（当サイト）」の日本語、図解内容、資格名と字幕余白を照合し、台本と整合することを確認。",
+      "reviewedAt": "2026-10-27T13:33:05.168Z"
+    },
+    "media:concrete-chief-engineer/shunin-shouronbun-kousei/work/candidate-scene-008": {
+      "sha": "d1457d9663f2062a",
+      "verdict": "ok",
+      "reason": "全場面シートと原寸画像で「まとめ」の日本語、図解内容、資格名と字幕余白を照合し、台本と整合することを確認。",
+      "reviewedAt": "2026-10-27T13:33:05.168Z"
+    },
+    "media:concrete-chief-engineer/shunin-shouronbun-kousei/work/candidate-scene-009": {
+      "sha": "9a3b4ae66f8c4786",
+      "verdict": "ok",
+      "reason": "全場面シートと原寸画像で「立場から答案を探す」の日本語、図解内容、資格名と字幕余白を照合し、台本と整合することを確認。",
+      "reviewedAt": "2026-10-27T13:33:05.168Z"
     },
     "media:pe-comprehensive-management/gokanri-tradeoff/work/candidate-cover": {
       "sha": "3c018394ecb044db",

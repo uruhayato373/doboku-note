@@ -181,5 +181,372 @@
       },
       "publication": "ローカル差し替え・外部未反映"
     }
+  },
+  "activeCoverRevision": "cover-pop-20261027",
+  "activeBodyRevision": "body-diagram-20261027",
+  "revisions": {
+    "cover-pop-20261027": {
+      "version": "pop-poster-v3",
+      "generation": {
+        "tool": "image_gen",
+        "prompt": "Reconstructed production brief (original tool prompt unavailable in exported metadata): Use the attached successful POP cover as character and style reference. Create a new full-bleed 16:9 YouTube cover for コンクリート主任技士. Keep the same teacher with glasses, white hardhat, navy workwear and red pen on the right; energetic violet, yellow, red comic poster. Exact text: 総監が制作 / コンクリート主任技士 / 択一 / どこから解く？ / 学習の優先順位. No other writing. Keep all foreground above the bottom 20% subtitle-safe band.",
+        "references": [
+          {
+            "path": ".tmp/media/concrete-chief-engineer/shunin-shiken-zentaizou/youtube.longform/cover.729a5a5e.png",
+            "sha256": "729a5a5e70c9b6de85da4e5eaf3c10cf72946541c575850185578e44623ec7e8"
+          }
+        ],
+        "output": {
+          "path": ".tmp/media/concrete-chief-engineer/shunin-hinshutsu-yusen/work/raw-cover-pop-20261027.png",
+          "sha256": "01e42393f08e5fa5ec76ad2c737aecb7239444330e2983b3ccef21cfde092876"
+        },
+        "generatedAt": "2026-10-27T12:48:51.624Z",
+        "promptRecord": "reconstructed"
+      },
+      "copy": {
+        "exam": "concrete-chief",
+        "headline": [
+          "択一",
+          "どこから解く？"
+        ],
+        "authority": "総監が制作"
+      },
+      "output": {
+        "path": ".tmp/media/concrete-chief-engineer/shunin-hinshutsu-yusen/work/cover-pop.45f82789.png",
+        "sha256": "45f82789fc2e2ff7abb8b2928ed9a3e90ae1de960037d184664fb56f567e1a25",
+        "width": 1920,
+        "height": 1080
+      },
+      "normalization": {
+        "mode": "full-frame-v1",
+        "sourceSha256": "01e42393f08e5fa5ec76ad2c737aecb7239444330e2983b3ccef21cfde092876"
+      },
+      "review": {
+        "status": "ai-reviewed",
+        "userImageReview": "pending",
+        "checkedAt": "2026-10-27T13:09:06.986Z",
+        "by": "Codex",
+        "views": [
+          "1920x1080"
+        ],
+        "checks": [
+          "文言・資格名",
+          "顔と安全域",
+          "字幕領域"
+        ]
+      },
+      "storage": {
+        "group": "content-media",
+        "sync": "pending"
+      }
+    },
+    "body-diagram-20261027": {
+      "layout": {
+        "mode": "diagram-led"
+      },
+      "images": [
+        {
+          "sceneId": "premise",
+          "inputSha256": "be1467d9f7a0dedefd5c4754bf1f5da53c28d0327cd5b03512b7376057441735",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Reconstructed production brief (original tool prompt unavailable in exported metadata): Create one 16:9 Japanese educational diagram slide, using the reference for diagram style only. White-to-light-lavender background, navy and violet outlines, yellow highlights, simple accurate icons, no character. Leave bottom 22% empty for subtitles. Scene heading: 考え方の違い. Depict this narration and visual faithfully: 過去の表で各分野に繰り返し記載があると、項目も同じ頻度だと考えがちです。実際には分野の内側に濃淡があります。しかも見ているのは、平成21年度から令和5年度までの表です。令和6年度以降は分析していません。11月29日の試験の範囲は、2026年のJCI試験案内で別に確認します。 {\"kind\":\"compare\",\"heading\":\"考え方の違い\",\"ngLabel\":\"よくある考え方\",\"okLabel\":\"この動画の見方\",\"rows\":[{\"label\":\"分野\",\"ng\":\"毎年出るから中身も同じ重さ\",\"ok\":\"分野は毎年出ても項目に濃淡\"},{\"label\":\"範囲\",\"ng\":\"最新の傾向だと思う\",\"ok\":\"令和5年度までの表の読み取り\"}]}. No extra facts, statistics, or unsupported claims.",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/work/promise-diagram.c7e7cf67.png",
+                "sha256": "c7e7cf6782e5ef4f90e378ac9927e178f7d4acaa2555c547aabe93df9f8cace3"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-chief-engineer/shunin-hinshutsu-yusen/work/raw-premise.c26a2d3c.png",
+              "sha256": "c26a2d3cd7a8f5cd7775ab84b6d4d0e5928b6018ca6d06d1080d3b46e6ec0934"
+            },
+            "generatedAt": "2026-10-27T12:56:40.175Z",
+            "promptRecord": "reconstructed"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-chief-engineer/shunin-hinshutsu-yusen/work/premise-diagram.93f4fd5a.png",
+            "sha256": "93f4fd5ac8f0268892fc7c8cb8e8b22b907f08e2e7a452bbe7b621ae1daed6df",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "c26a2d3cd7a8f5cd7775ab84b6d4d0e5928b6018ca6d06d1080d3b46e6ec0934"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-10-27T13:09:06.991Z",
+            "by": "Codex",
+            "views": [
+              "1920x1080"
+            ],
+            "checks": [
+              "内容整合",
+              "文言",
+              "字幕領域"
+            ]
+          }
+        },
+        {
+          "sceneId": "basis",
+          "inputSha256": "67d7c6fbd75e13301c243d0b453d83602fc1682dda1081a52575b7cdb4b8ff06",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Reconstructed production brief (original tool prompt unavailable in exported metadata): Create one 16:9 Japanese educational diagram slide, using the reference for diagram style only. White-to-light-lavender background, navy and violet outlines, yellow highlights, simple accurate icons, no character. Leave bottom 22% empty for subtitles. Scene heading: 出題状況表の見方. Depict this narration and visual faithfully: 使うのは、項目別の出題状況表です。年度の列に出題番号が記載されているかを目安に、記載の多い少ないを分けました。言えるのはその期間の並びまでで、次の試験の予告ではありません。 {\"kind\":\"sheet\",\"heading\":\"出題状況表の見方\",\"sheetTitle\":\"H21〜R5 項目別の出題状況\",\"rows\":[{\"label\":\"対象期間\",\"value\":\"平成21年度〜令和5年度\",\"state\":\"done\"},{\"label\":\"目安\",\"value\":\"年度の列に出題番号の記載があるか\",\"state\":\"done\"},{\"label\":\"言えること\",\"value\":\"その期間の並び方まで\",\"state\":\"focus\"},{\"label\":\"言えないこと\",\"value\":\"令和6年度以降・今後の出題\",\"state\":\"ng\"}]}. No extra facts, statistics, or unsupported claims.",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/work/promise-diagram.c7e7cf67.png",
+                "sha256": "c7e7cf6782e5ef4f90e378ac9927e178f7d4acaa2555c547aabe93df9f8cace3"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-chief-engineer/shunin-hinshutsu-yusen/work/raw-basis.928262bf.png",
+              "sha256": "928262bfff48cab5947388ce6ab7d8a315ee010baf0828de4266594149025445"
+            },
+            "generatedAt": "2026-10-27T12:59:25.706Z",
+            "promptRecord": "reconstructed"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-chief-engineer/shunin-hinshutsu-yusen/work/basis-diagram.eb4637e8.png",
+            "sha256": "eb4637e857bf1e749d4ebde80ce9ac10ffe3d546f6dcea2244a46a6069ba3d83",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "928262bfff48cab5947388ce6ab7d8a315ee010baf0828de4266594149025445"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-10-27T13:09:06.996Z",
+            "by": "Codex",
+            "views": [
+              "1920x1080"
+            ],
+            "checks": [
+              "内容整合",
+              "文言",
+              "字幕領域"
+            ]
+          }
+        },
+        {
+          "sceneId": "fields",
+          "inputSha256": "979a89e62fdcc5b368b9958d7415ba9b1b5d50b9da3a86a2b868eed6a4bd4d3f",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Reconstructed production brief (original tool prompt unavailable in exported metadata): Create one 16:9 Japanese educational diagram slide, using the reference for diagram style only. White-to-light-lavender background, navy and violet outlines, yellow highlights, simple accurate icons, no character. Leave bottom 22% empty for subtitles. Scene heading: 過去表の8分野と濃淡の出る場所. Depict this narration and visual faithfully: 四肢択一は、用材料、性質、耐久性、配合設計、製造品質管理、施工、製品、構造の設計の8分野です。これは過去の表の区分で、2026年の公式区分ではありません。どの分野も多くの年に記載があるので、分野ごと切ることはできません。濃淡は分野の内側にあります。 {\"kind\":\"points\",\"heading\":\"過去表の8分野と濃淡の出る場所\",\"items\":[\"8分野はH21〜R5の過去表の区分（2026年の公式区分ではない）\",\"期間中の多くの年に、どの分野も記載があった\",\"濃淡が出るのは分野の内側の項目\"]}. No extra facts, statistics, or unsupported claims.",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/work/promise-diagram.c7e7cf67.png",
+                "sha256": "c7e7cf6782e5ef4f90e378ac9927e178f7d4acaa2555c547aabe93df9f8cace3"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-chief-engineer/shunin-hinshutsu-yusen/work/raw-fields.9a789344.png",
+              "sha256": "9a7893442b46ec6c475c3541f50c4cd8edad64c1b4a6cbd3583a5307c3e9f99e"
+            },
+            "generatedAt": "2026-10-27T12:58:45.993Z",
+            "promptRecord": "reconstructed"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-chief-engineer/shunin-hinshutsu-yusen/work/fields-diagram.dffe9077.png",
+            "sha256": "dffe9077cdb2ae3501171a57940441c3be31898d4d706665ce66aa9b51870845",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "9a7893442b46ec6c475c3541f50c4cd8edad64c1b4a6cbd3583a5307c3e9f99e"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-10-27T13:09:07.000Z",
+            "by": "Codex",
+            "views": [
+              "1920x1080"
+            ],
+            "checks": [
+              "内容整合",
+              "文言",
+              "字幕領域"
+            ]
+          }
+        },
+        {
+          "sceneId": "core",
+          "inputSha256": "d47607e324185845779f087d07c5f8ca6a61b2d1d094109d9bc4cd4058c5c646",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Reconstructed production brief (original tool prompt unavailable in exported metadata): Create one 16:9 Japanese educational diagram slide, using the reference for diagram style only. White-to-light-lavender background, navy and violet outlines, yellow highlights, simple accurate icons, no character. Leave bottom 22% empty for subtitles. Scene heading: STEP 1　記載の多い項目から. Depict this narration and visual faithfully: 先に固めるのは、記載の多い年が続く項目です。用材料はセメント・骨材・混和材料。性質はフレッシュと硬化コンクリート。耐久性は劣化機構。配合設計は基本と計算です。性質と耐久性は続けて出ることが多いので、まとめて学ぶと進めやすくなります。 {\"kind\":\"points\",\"heading\":\"STEP 1　記載の多い項目から\",\"items\":[\"用材料：セメント・骨材・混和材料\",\"性質：フレッシュと硬化／耐久性：劣化機構\",\"配合設計：基本事項と計算\",\"性質と耐久性はまとめて学ぶ\"]}. No extra facts, statistics, or unsupported claims.",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/work/promise-diagram.c7e7cf67.png",
+                "sha256": "c7e7cf6782e5ef4f90e378ac9927e178f7d4acaa2555c547aabe93df9f8cace3"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-chief-engineer/shunin-hinshutsu-yusen/work/raw-core.aaf3f9ce.png",
+              "sha256": "aaf3f9ceab5c87a84d09b72f37994a6cb67d99a99cf6b74feb7154c8ed6bfa4e"
+            },
+            "generatedAt": "2026-10-27T12:58:45.993Z",
+            "promptRecord": "reconstructed"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-chief-engineer/shunin-hinshutsu-yusen/work/core-diagram.c9647883.png",
+            "sha256": "c96478833f284fa05e0a8ed69b647a5c5309a68a0244a76794e98a079bda8d3b",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "aaf3f9ceab5c87a84d09b72f37994a6cb67d99a99cf6b74feb7154c8ed6bfa4e"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-10-27T13:09:07.004Z",
+            "by": "Codex",
+            "views": [
+              "1920x1080"
+            ],
+            "checks": [
+              "内容整合",
+              "文言",
+              "字幕領域"
+            ]
+          }
+        },
+        {
+          "sceneId": "construction",
+          "inputSha256": "8916182bff95f20f8d8ad88b52efabd7de74bcba4079c203c6d9e5dfd3b01ce5",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Reconstructed production brief (original tool prompt unavailable in exported metadata): Create one 16:9 Japanese educational diagram slide, using the reference for diagram style only. White-to-light-lavender background, navy and violet outlines, yellow highlights, simple accurate icons, no character. Leave bottom 22% empty for subtitles. Scene heading: 施工13項目の3段階（H21〜R5の表）. Depict this narration and visual faithfully: 施工は13項目あり、差が最も大きい分野です。記載が多いのは、運搬から打継ぎ、養生・仕上げ、型枠、鉄筋、寒中暑中、マスコン、プレストレストコンクリート。これを先に固めます。高流動、水中、海洋、舗装・ダムは記載が限られ、余力で広げます。水密とその他各種は出題なしとされ、最後です。ただ、記載がないことと出ないことは別なので、見出しと用語だけは見ておきます。 {\"kind\":\"sheet\",\"heading\":\"施工13項目の3段階（H21〜R5の表）\",\"sheetTitle\":\"固める順番\",\"rows\":[{\"label\":\"1段目 先に固める\",\"value\":\"運搬〜打継ぎ／養生・仕上げ／型枠・鉄筋／寒中暑中／マスコン／プレストレスト\",\"state\":\"done\"},{\"label\":\"2段目 余力で広げる\",\"value\":\"高流動／水中／海洋／舗装・ダム（記載は限られる）\",\"state\":\"focus\"},{\"label\":\"3段目 最後に見出しだけ\",\"value\":\"水密／その他各種（出題なしとされた項目）\",\"state\":\"ng\"}]}. No extra facts, statistics, or unsupported claims.",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/work/promise-diagram.c7e7cf67.png",
+                "sha256": "c7e7cf6782e5ef4f90e378ac9927e178f7d4acaa2555c547aabe93df9f8cace3"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-chief-engineer/shunin-hinshutsu-yusen/work/raw-construction.6306a2e5.png",
+              "sha256": "6306a2e5e9a1a452b931750a4a62f3eb6a99165503276808dd429d9bd4c891c4"
+            },
+            "generatedAt": "2026-10-27T13:01:14.545Z",
+            "promptRecord": "reconstructed"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-chief-engineer/shunin-hinshutsu-yusen/work/construction-diagram.986af45a.png",
+            "sha256": "986af45a41cb7f9559c84fe55a1d62669047b3bf5dbec860ce24b8a5fa83121d",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "6306a2e5e9a1a452b931750a4a62f3eb6a99165503276808dd429d9bd4c891c4"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-10-27T13:09:07.009Z",
+            "by": "Codex",
+            "views": [
+              "1920x1080"
+            ],
+            "checks": [
+              "内容整合",
+              "文言",
+              "字幕領域"
+            ]
+          }
+        },
+        {
+          "sceneId": "check",
+          "inputSha256": "3d4a2e55287b79038d15dc0f05bc689721fb37113d19421a1c3a318cfb0ca89d",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Reconstructed production brief (original tool prompt unavailable in exported metadata): Create one 16:9 Japanese educational diagram slide, using the reference for diagram style only. White-to-light-lavender background, navy and violet outlines, yellow highlights, simple accurate icons, no character. Leave bottom 22% empty for subtitles. Scene heading: 過去の表と2026年の範囲. Depict this narration and visual faithfully: 試験は11月29日です。この整理は令和5年度までの過去表です。2026年の範囲は、JCI試験案内の出題範囲を示す表6で確認してください。表6はaからhの区分で、過去表の8分野とは別です。 {\"kind\":\"compare\",\"heading\":\"過去の表と2026年の範囲\",\"ngLabel\":\"過去の出題状況表\",\"okLabel\":\"2026年のJCI試験案内\",\"rows\":[{\"label\":\"期間・試験日\",\"ng\":\"平成21年度〜令和5年度\",\"ok\":\"11月29日の試験を確認\"},{\"label\":\"区分\",\"ng\":\"過去表の8分野（構造の設計など）\",\"ok\":\"案内の表6（a〜h）の範囲を確認\"}]}. No extra facts, statistics, or unsupported claims.",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/work/promise-diagram.c7e7cf67.png",
+                "sha256": "c7e7cf6782e5ef4f90e378ac9927e178f7d4acaa2555c547aabe93df9f8cace3"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-chief-engineer/shunin-hinshutsu-yusen/work/raw-check.58858427.png",
+              "sha256": "58858427f6f1938680a7785e73f5d71ede059f6f19de42e41223a19a86d7aac5"
+            },
+            "generatedAt": "2026-10-27T13:01:14.546Z",
+            "promptRecord": "reconstructed"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-chief-engineer/shunin-hinshutsu-yusen/work/check-diagram.7b3382ca.png",
+            "sha256": "7b3382ca3702be596e59039192aaa25f2ac5acb887702867df612990de49b896",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "58858427f6f1938680a7785e73f5d71ede059f6f19de42e41223a19a86d7aac5"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-10-27T13:09:07.013Z",
+            "by": "Codex",
+            "views": [
+              "1920x1080"
+            ],
+            "checks": [
+              "内容整合",
+              "文言",
+              "字幕領域"
+            ]
+          }
+        },
+        {
+          "sceneId": "cta",
+          "inputSha256": "a355a2a244f2ed9766aee5abc6284a9bcb71f885957847265bb1f4206ec38ea1",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Reconstructed production brief (original tool prompt unavailable in exported metadata): Create one 16:9 Japanese educational diagram slide, using the reference for diagram style only. White-to-light-lavender background, navy and violet outlines, yellow highlights, simple accurate icons, no character. Leave bottom 22% empty for subtitles. Scene heading: 本番形式で確かめる. Depict this narration and visual faithfully: 固めたあとは、本番形式で確かめます。令和8年度の予想50問と施工14問に、全選択肢の解説と分野別の採点表がついています。概要欄からご覧ください。出題の的中を保証するものではありません。 {\"kind\":\"cover\",\"heading\":\"本番形式で確かめる\",\"items\":[\"令和8年度 予想50問＋施工14問（概要欄リンク）\",\"全選択肢の解説＋分野別の採点表\",\"出題の的中を保証するものではありません\"]}. No extra facts, statistics, or unsupported claims.",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/work/promise-diagram.c7e7cf67.png",
+                "sha256": "c7e7cf6782e5ef4f90e378ac9927e178f7d4acaa2555c547aabe93df9f8cace3"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-chief-engineer/shunin-hinshutsu-yusen/work/raw-cta.9239b45a.png",
+              "sha256": "9239b45a7b40b31d36e2a41f84b4ccdec27715eac6dc3586a269f424dda6ab61"
+            },
+            "generatedAt": "2026-10-27T13:01:14.546Z",
+            "promptRecord": "reconstructed"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-chief-engineer/shunin-hinshutsu-yusen/work/cta-diagram.97280eba.png",
+            "sha256": "97280eba7ccc587653db321206327fb8b5096769cea576dc35fbfd7174a881a9",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "9239b45a7b40b31d36e2a41f84b4ccdec27715eac6dc3586a269f424dda6ab61"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-10-27T13:09:07.017Z",
+            "by": "Codex",
+            "views": [
+              "1920x1080"
+            ],
+            "checks": [
+              "内容整合",
+              "文言",
+              "字幕領域"
+            ]
+          }
+        }
+      ]
+    }
   }
 }
