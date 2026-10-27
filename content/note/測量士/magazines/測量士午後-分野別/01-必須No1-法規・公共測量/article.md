@@ -4,7 +4,11 @@ noteContentType: product
 price: 980
 paidBoundary: "解き方の型"
 noteMagazine: 測量士午後-分野別
-noteStatus: draft
+title: "必須 No.1 法規・公共測量 ｜測量士 午後 記述式 解き方の型と過去5年（令和4〜8年）解説"
+notePublishedAt: "2026-10-28"
+noteId: "nf4e96f065d41"
+noteUrl: "https://note.com/dobokunote/n/nf4e96f065d41"
+noteStatus: published
 utmCampaign: surveyor-2027
 cover:
   variant: crop-safe-v4
@@ -19,13 +23,13 @@ cover:
 
 本記事の運営者は測量士の有資格者（2020年取得）・技術士（建設部門ほか）です。
 
-## こんな人のための記事です
+**こんな人のための記事です**
 
 - 午後の必須 No.1（測量法・公共測量の手続・作業規程）を、毎年確実に得点源にしたい人
 - 語句の穴埋めを、丸暗記ではなく「条文の読み方」で取りたい人
 - 安全管理・情報管理・新技術の記述問題を、短い定型で書けるようになりたい人
 
-## この記事でわかること
+**この記事でわかること**
 
 - 令和4〜8年の No.1 で何が問われたかの一覧と、必須問題としての向き合い方
 - 測量法の条文・公共測量の手続・作業規程の準則を、語句穴埋めと正誤判定に使える形で読む型
@@ -383,4 +387,4 @@ cover:
 
 他の分野の記事と、分野別マガジン全体への案内はこちらです。
 
-{{MAGAZINE_URL}}
+https://note.com/dobokunote/m/m4e09480baf15
