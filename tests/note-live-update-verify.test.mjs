@@ -36,6 +36,17 @@ test('新しい文が公開本文に出ていれば「更新された」', () =>
   assert.equal(updateVerdict(probes, liveBodyText(newHtml)), 'updated');
 });
 
+test('段落の途中だけを差し替えた更新でも、変わった部分から断片を選んで確かめる（DN-0896）', () => {
+  // 2026-10-27、行の先頭 20 字が更新前と同じだったため断片が 0 件になり、[5g] が確認を飛ばした
+  const pre = '<p>筆者は元・地方自治体の土木職（発注者）で、1級土木施工管理技士を保有しています。令和8年度の第二次検定は10月25日です。残り日数に合わせて、骨子づくりと文章化を前半に置きます。</p>';
+  const md = '筆者は元・地方自治体の土木職（発注者）で、1級土木施工管理技士を保有しています。令和8年度の第二次検定（10月25日）は終わりました。受検した方の自己採点の目安は、[R8第二次検定を終えたら](https://note.com/dobokunote/n/n6b1410beec5c)にまとめています。残り日数に合わせて、骨子づくりと文章化を前半に置きます。';
+  const probes = pickUpdateProbes(visibleProbeLines(md), liveBodyText(pre));
+  assert.ok(probes.length > 0, '段落の途中の差し替えから断片を選べていない');
+  assert.equal(updateVerdict(probes, liveBodyText(pre)), 'not-updated');
+  const post = `<p>${md.replace(/\[([^\]]+)\]\([^)]+\)/, '<a href="https://note.com/dobokunote/n/n6b1410beec5c">$1</a>')}</p>`;
+  assert.equal(updateVerdict(probes, liveBodyText(post)), 'updated');
+});
+
 test('見える本文が変わらない更新（新しい文が無い）は確かめようがないので判定しない', () => {
   const same = 'このマガジンには、5つの系統について8つの立場ごとに書いた模範答案40本を収録しています。';
   const probes = pickUpdateProbes(visibleProbeLines(same), liveBodyText(OLD_HTML));

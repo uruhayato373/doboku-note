@@ -413,13 +413,23 @@ export function visibleProbeLines(markdown, { isPaid = false, boundary = null, t
   return trialTail ? out.slice(0, -2) : out;
 }
 
-/** 新しい原稿の公開範囲の文のうち、更新前の公開本文に無いものから確認用の断片（先頭20字）を選ぶ。 */
+/**
+ * 新しい原稿の公開範囲の文のうち、更新前の公開本文に無い部分から確認用の断片（20字）を選ぶ。
+ * 行の先頭だけを見ると、段落の途中だけを差し替えた更新で断片が 0 件になり、確認が飛ぶ（DN-0896）。
+ * そのため行の中を 1 字ずつずらし、更新前の本文に無い最初の 20 字を使う。
+ */
 export function pickUpdateProbes(lines, preText, limit = 3) {
   const pre = squashText(preText);
   const probes = [];
   for (const line of lines) {
-    const frag = squashText(line).slice(0, 20);
-    if (frag.length < 12 || pre.includes(frag) || probes.includes(frag)) continue;
+    const text = squashText(line);
+    if (text.length < 12) continue;
+    let frag = null;
+    for (let i = 0; i + 20 <= Math.max(text.length, 20); i++) {
+      const w = text.slice(i, i + 20);
+      if (!pre.includes(w)) { frag = w; break; }
+    }
+    if (!frag || probes.includes(frag)) continue;
     probes.push(frag);
     if (probes.length >= limit) break;
   }
