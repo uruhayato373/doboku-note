@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * check-standard-articles.mjs — 構造化章記事（レイヤー2）の生成物を 19 検査で検証する。
+ * check-standard-articles.mjs — 構造化章記事（レイヤー2）の生成物を 20 検査で検証する。
  *
  *   node scripts/check-standard-articles.mjs                # 設定 build.documents を検査
  *   node scripts/check-standard-articles.mjs chubu/common   # 対象を明示
@@ -35,6 +35,7 @@ import { pathToFileURL } from 'node:url';
 import { datasetPath } from './lib/datasets.mjs';
 import { chapterPreambleText, sectionPageMarkdown, splitChapterBySection } from '../src/lib/standards-section-split.mjs';
 import { stripAmendmentBlocks } from './lib/standards-amendments.mjs';
+import { figureImagePath, figureKey, figureRefsOf, loadFigureLedger, validateFigureEntry } from './lib/standards-figures.mjs';
 
 const sha256 = (value) => createHash('sha256').update(value).digest('hex');
 
@@ -67,6 +68,7 @@ const CHECK_DEFS = [
   { id: 17, name: '文の途中で段落が切れていない（基準以下）' },
   { id: 18, name: '表から外れた断片が増えていない（基準以下）' },
   { id: 19, name: '壊れた表（見出しも中身も空・全行が空の列）が無い' },
+  { id: 20, name: '図の SourceRef ごとに原本から切り出した画像がある' },
 ];
 
 const PASS = 'PASS';
@@ -488,6 +490,61 @@ function checkSourceRefs(def, { manifest, document, agencyId, documentId, overri
     });
   }
   return result(def, { status: verdict(violations, []), checked: refs, unit: 'SourceRef', violations });
+}
+
+/**
+ * 20. 図の SourceRef ごとに画像がある（DN-0865）。
+ * 原本で画像になっている図・表（テキスト層にキャプションしか無いもの）は、原本のページ画像から切り出した webp を
+ * キャプションと SourceRef の間に置く。台帳（content/sources/standards/{agency}/{document}/figures.json）・
+ * 章記事の <ArticleImage>・img/ の実体の 3 つが 1 対 1 で合っていることを見る。
+ */
+function checkFigures(def, { manifest, agencyId, documentId }) {
+  const documentKey = `${agencyId}/${documentId}`;
+  const violations = [];
+  const ledger = loadFigureLedger(documentKey);
+  const entries = ledger?.figures ?? [];
+  const byKey = new Map();
+  for (const entry of entries) {
+    const key = figureKey(entry.chapterId, entry.sourceRef, entry.caption);
+    for (const problem of validateFigureEntry(entry)) violations.push(`台帳 ${entry.chapterId} p${entry.sourceRef}「${entry.caption}」: ${problem}`);
+    if (byKey.has(key)) violations.push(`台帳 ${entry.chapterId} p${entry.sourceRef}「${entry.caption}」が 2 件ある`);
+    byKey.set(key, entry);
+  }
+  const used = new Set();
+  let refs = 0;
+  let images = 0;
+  for (const chapter of manifest.chapters) {
+    const { text } = readChapterFile(agencyId, documentId, chapter.file);
+    if (text === null) continue; // ファイル欠落は検査 5/6 が FAIL にする
+    for (const ref of figureRefsOf(text)) {
+      refs += 1;
+      const where = `${chapter.file}:${ref.line} 図「${ref.caption ?? '（キャプションなし）'}」p${ref.sourceRef}`;
+      if (!ref.file) {
+        violations.push(`${where}: 画像が無い（原本のページ画像から切り出して台帳に足す）`);
+        continue;
+      }
+      const entry = ref.caption === null ? null : byKey.get(figureKey(chapter.chapterId, ref.sourceRef, ref.caption));
+      if (!entry) violations.push(`${where}: 台帳に無い図の画像 ${ref.file}`);
+      else {
+        used.add(entry);
+        if (entry.file !== ref.file) violations.push(`${where}: 画像 ${ref.file} が台帳の ${entry.file} と違う`);
+      }
+      if (!existsSync(figureImagePath(documentKey, ref.file))) violations.push(`${where}: img/${ref.file} の実体が無い`);
+      else images += 1;
+    }
+  }
+  for (const entry of entries) {
+    if (!used.has(entry)) violations.push(`台帳 ${entry.chapterId} p${entry.sourceRef}「${entry.caption}」が章記事のどの図にも当たらない（キャプション・ページが変わった疑い）`);
+  }
+  if (refs === 0 && entries.length === 0) {
+    return result(def, { status: PASS, checked: manifest.chapters.length, unit: '章（図の SourceRef 0 件・台帳なし）', violations });
+  }
+  return result(def, {
+    status: verdict(violations, []),
+    checked: refs,
+    unit: `図の SourceRef（画像あり ${images}・台帳 ${entries.length}）`,
+    violations,
+  });
 }
 
 /**
@@ -1235,6 +1292,8 @@ function renderText(report) {
   const t = report.totals;
   lines.push('');
   lines.push(`合計: 対象文書 ${report.documents.length} 件 / PASS ${t.pass} ・ WARN ${t.warn} ・ FAIL ${t.fail} ・ 検査不成立 ${t.inconclusive}`);
+  if (report.figures) lines.push(`図（検査 20）: 画像があるべき図の SourceRef ${report.figures.refs} 件を実検査 / 画像が入った図 ${report.figures.images} 件`);
+  if (report.error) lines.push(report.error);
   lines.push(
     report.exitCode === 0
       ? '判定: 全検査 PASS'
@@ -1319,6 +1378,7 @@ function main() {
         checkChapterOgp(CHECK_DEFS[14], { ...context, assetManifest }),
         checkSectionPages(CHECK_DEFS[15], { ...context, overrides }),
         ...checkReadability([CHECK_DEFS[16], CHECK_DEFS[17], CHECK_DEFS[18]], { ...context, overrides }),
+        checkFigures(CHECK_DEFS[19], context),
       ],
     });
   }
@@ -1330,6 +1390,17 @@ function main() {
       else if (check.status === FAIL) report.totals.fail += 1;
       else report.totals.inconclusive += 1;
     }
+  }
+
+  // 検査 20 の全文書の合計。既定（build.documents 全量）で図の SourceRef が 0 件なら図を 1 件も検査できていない
+  const figureChecks = report.documents.flatMap((doc) => doc.checks.filter((check) => check.id === 20 && check.unit.startsWith('図の')));
+  report.figures = {
+    refs: figureChecks.reduce((sum, check) => sum + check.checked, 0),
+    images: figureChecks.reduce((sum, check) => sum + Number(check.unit.match(/画像あり (\d+)/)?.[1] ?? 0), 0),
+  };
+  if (explicit.length === 0 && contexts.length > 0 && report.figures.refs === 0) {
+    report.totals.inconclusive += 1;
+    report.error = '図の SourceRef が全文書で 0 件。図の画像を 1 件も検査できていない（検査不成立）';
   }
 
   report.exitCode = report.totals.inconclusive > 0 ? 2 : report.totals.fail > 0 ? 1 : 0;
