@@ -273,19 +273,6 @@
 **完了条件**: 最終 CTA 場面が余分に繰り返されず、ffprobe で得る preview.mp4 の長さが preview-metrics.json の previewSec と 1 フレーム以内で一致する回帰検査を追加する。
 
 
-### [DN-0897] テストの一時リポジトリの git init が pre-commit の GIT_DIR を引き継ぎ、親リポジトリの core.bare を書き換える
-タグ: [領域:管理] [時期:2026-10] [種類:不具合] [検証:test] [起票:2026-10-27]
-
-**起点**: DN-0893 の回帰テストが pre-commit（unit-tests の ownTests）の中で一時ディレクトリに `git init` したとき、フックが渡す GIT_DIR・GIT_INDEX_FILE を引き継いで親リポジトリの `.git/config` に `core.bare = true` を書いた。本体の checkout と全 worktree で `git status` が「must be run in a work tree」で止まった（手で false に戻した）。テストは `startsWith('GIT_')` の環境変数を外して直した（`tests/x-card-render-scope.test.mjs` と同じ形）。
-
-**残っている危険**: `tests/*.test.mjs` のうち `'init'` で git を呼び、GIT_ の環境変数を外していないものが 21 本ある（todo-add・backlog-edit・ci-data・replay-onto-develop・sync-index-after-commit・pre-commit-install-guard ほか）。そのテストファイル自身を stage した commit では pre-commit の unit-tests が ownTests として走らせるので、同じ事故が起きうる。
-
-**やること**:
-1. テストの一時リポジトリを作る共通部品（GIT_ を外した env で git を呼ぶ）を `tests/` か `scripts/lib/` に 1 つ置き、21 本をそれに寄せる
-2. ラチェットのテストを足す: `tests/` で git の `init`・`clone` を呼ぶのに GIT_ を外していないファイルの数を増やさない（直したら下げる）
-3. pre-commit の unit-tests を走らせる側（`scripts/pre-commit-ci-gates.mjs`）で、子プロセスへ渡す env から GIT_DIR・GIT_INDEX_FILE・GIT_WORK_TREE を外すことも検討する（根本で止める）
-
-**完了条件**: 21 本が共通部品か env の除外を使い、ラチェットのテストが `npm run test` で通る。
 
 
 
@@ -528,14 +515,6 @@
 **残り**: 統合（計画 [DN-0853-ci-consolidate-overlaps.md](../plans/DN-0853-ci-consolidate-overlaps.md)・PR #1241）は main に入り、解析の定期実行も 10/27（run 40423113674）に成功した。残りは統合した `cloudflare-metrics.yml` の設定の監査の定期実行の確認だけ。
 
 **完了条件**: `cloudflare-metrics.yml` の設定の監査の定期実行（10/30 金曜 JST 22:47）が 1 回成功する。
-
-**統合（2026-10-26 棚卸し）: 旧 DN-0848「automerge.yml の workflow_run が 10/24 22:37Z 以降に起動せず、ラベル付きの PR が緑でも入らない」**
-
-**起点**: 2026-10-25 の PR #1223。Pre-merge が緑で終わっても automerge.yml の workflow_run が起動せず、手で squash した。原因は `on.workflow_run.workflows` の名前が glob として照合され、"Pre-merge check (quality audit + build)" の `+` が文字どおりに一致しなかったこと（10-09〜10-25 の Pre-merge の完了 999 回で起動 0 回・E2E・Lighthouse の完了だけで起動していた）。PR #1224 で `\+` にエスケープし、tests/workflow-run-filters.test.mjs で再発を止めた。
-
-**やること**: 起動の修正は効いている（10/27 15:38Z、PR #1292 の Pre-merge の完了の 1 分後に workflow_run で起動した）。残りは、automerge ラベルを付けた PR が実際に squash で入るのを 1 回見ること。
-
-**完了条件**: automerge ラベル付きの PR が、Pre-merge の完了の直後の workflow_run の回で squash で入っている。
 
 **統合（2026-10-26 棚卸し）: 旧 DN-0825「index coverage の検査が sitemap 2,017 URL を上限 1,900 で切り詰めるので、分割取得にして全件を検査する」**
 

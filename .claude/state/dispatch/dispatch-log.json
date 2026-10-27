@@ -6139,6 +6139,23 @@
       "commit": "a383933a23b6",
       "verification": "node --test tests/todo-add.test.mjs tests/search-improvement.test.mjs tests/pre-commit-ci-gates.test.mjs（旧実装で todo-add 2 件が落ち、修正後に通る）・PR #1290 の CI 全 pass",
       "note": "addCard に findForbidden・auditLinks、withNoneMarker に findForbidden を入れた。pre-commit の unit-tests は gateEnv で hook の git 変数を外す（PR #1290・a383933a2）"
+    },
+    {
+      "id": "DN-0897",
+      "at": "2026-10-28",
+      "task": "テストの一時リポジトリの git init が pre-commit の GIT_DIR を引き継ぎ、親リポジトリの core.bare を書き換える",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "tests/test-git-env-isolation.test.mjs"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "1343713b3ac4",
+      "verification": null,
+      "note": "todo-complete.mjs 経由で完了処理"
     }
   ]
 }
