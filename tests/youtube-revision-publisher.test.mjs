@@ -103,6 +103,10 @@ function mockYoutube(f) {
           const video = items.find(x => x.id === 'newvid00001');
           if (video) { delete video.status.publishAt; mode.staleScheduleReads--; }
         }
+        if (mode.staleTagReads > 0) {
+          const video = items.find(x => x.id === 'newvid00001');
+          if (video) { delete video.snippet.tags; mode.staleTagReads--; }
+        }
         return { data: { items } };
       },
       insert: async (args, options) => {
@@ -192,6 +196,23 @@ test('APIが制作開示 false を省略しても、他の投稿同一性が合�
   api.mode.afterInsert = () => { delete api.db.get('newvid00001').status.containsSyntheticMedia; };
   assert.equal((await execute(f, api)).result, 'private-ready');
   assert.equal(api.calls.insert, 1);
+});
+
+test('アップロード直後のタグ反映遅延は再読取し、別動画を投稿しない', async t => {
+  const f = fixture(t), api = mockYoutube(f);
+  api.mode.staleTagReads = 2;
+  assert.equal((await execute(f, api)).result, 'private-ready');
+  assert.equal(api.mode.staleTagReads, 0);
+  assert.equal(api.calls.insert, 1);
+  assert.equal(api.calls.thumbnail, 1);
+});
+
+test('タグの不一致が続く場合は予約せず、同一性検査を緩めない', async t => {
+  const f = fixture(t), api = mockYoutube(f);
+  api.mode.staleTagReads = 100;
+  await assert.rejects(execute(f, api), /不一致: tags,snippet/);
+  assert.equal(api.calls.insert, 1);
+  assert.equal(api.calls.thumbnail, 0);
 });
 
 test('upload応答消失はmarker照合で回収し、結果未確認の0件では再投稿しない', async t => {
