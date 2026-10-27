@@ -1258,7 +1258,7 @@
       "format": "longform",
       "variant": "pop-diagram",
       "revisionOf": "concrete-chief-engineer/shunin-shiken-zentaizou/youtube.longform",
-      "status": "qa_passed",
+      "status": "approved",
       "copy": "content/sns/video-packs/concrete-chief-engineer/shunin-shiken-zentaizou/youtube.revision-pop-diagram.json",
       "media": {
         "cover": "concrete-chief-engineer/shunin-shiken-zentaizou/work/candidate-cover",
@@ -1279,7 +1279,20 @@
         "preview-metrics": "concrete-chief-engineer/shunin-shiken-zentaizou/youtube.longform.pop-diagram/preview-metrics",
         "contact-sheet": "concrete-chief-engineer/shunin-shiken-zentaizou/youtube.longform.pop-diagram/contact-sheet"
       },
-      "publishAt": "2026-11-01T20:00:00+09:00"
+      "publishAt": "2026-11-01T20:00:00+09:00",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "user",
+          "at": "2026-10-27T12:07:28.133Z",
+          "digest": "2f70e247c0cbdc669b987e3082eb4a21dbbbba904705293905fa5472498506ed"
+        }
+      },
+      "approval": {
+        "by": "user",
+        "at": "2026-10-27T12:07:31.650Z",
+        "contentSha256": "d7c69850e1af995392697f41de3174ca92919227b9e51b96d0ba481cbed2083a"
+      }
     },
     {
       "id": "concrete-chief-engineer/shunin-shiken-zentaizou/youtube.short.point-overview-1",
