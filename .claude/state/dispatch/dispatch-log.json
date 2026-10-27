@@ -5998,6 +5998,23 @@
       "commit": "d7a1dba20553",
       "verification": "data/ga4/reports/2026-10-23.json の page・cta-clicks（/standards/data）を確認",
       "note": "運営者の判断（2026-10-27）: ページとデータは公開を続け、加工受託の入口としての追跡はやめる。4 週（9/24〜10/21）で /standards/data 利用者 5・standards_data_download 5 件（desktop）・データ加工の問い合わせ 0。判断を 04_収益化戦略.md の公的基準データ整備の節に 1 行残した"
+    },
+    {
+      "id": "DN-0864",
+      "at": "2026-10-27",
+      "task": "基準類の章記事の改行を直す（ページをまたぐ文の分断・番号つき箇条の連結）",
+      "tier": "high",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "tests/standards-linebreaks.test.mjs"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "c688c1f75bb7",
+      "verification": "check-standard-articles 全 PASS・tests/standards-linebreaks.test.mjs・PR の CI 全通過",
+      "note": "PR #1275（1f2421acc）。ページをまたぐ文の結合（約 180 か所）・番号つき箇条の分割（約 1,400 か所）・式の「ここで、」の分離。check-standard-articles 24 文書 456 検査 PASS。17 の判定を「読点で終わる段落の次が語で始まる」まで広げ、基準値を新しい実数（248→200）にした。同じページ内で文が割れる残りは DN-0880"
     }
   ]
 }
