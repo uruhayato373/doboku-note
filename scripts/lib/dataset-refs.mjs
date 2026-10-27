@@ -17,6 +17,7 @@
  *   experiment        … data/business/experiments.json の experiments[].id
  *   affiliate-program … data/affiliate/catalog.json の programs のキー
  *   metric            … config/business-direction.json の metrics[].id
+ *   backlog-card      … .claude/todo/backlog.md のカード（### [DN-####]）。完了したカードは消えるので、作業中の記録（claim など）だけに使う
  *
  * 任意の欄（2026-10-27 に足した）:
  *   keys: true          … 場所の値（オブジェクト）のキーを参照として数える（例: 商品 id をキーにした写しの表）
@@ -27,11 +28,12 @@
  *                         参照先の欄は「.」区切り（例 'catalog.noteUrl'）。不一致は severity に従う
  */
 
-import { existsSync } from 'node:fs';
+import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { isQualificationRef } from './qualification-names.mjs';
+import { TODO_ROOT } from './repository-paths.mjs';
 
-export const REF_TARGETS = ['qualification', 'product', 'article', 'experiment', 'affiliate-program', 'metric'];
+export const REF_TARGETS = ['qualification', 'product', 'article', 'experiment', 'affiliate-program', 'metric', 'backlog-card'];
 export const REF_OPTION_KEYS = ['at', 'to', 'keys', 'prefix', 'ignore', 'severity', 'copies'];
 
 /**
@@ -71,7 +73,8 @@ const pick = (obj, path) => String(path).split('.').reduce((o, k) => (o == null 
  * @param {{ root: string, registry: object, products: { products?: { id: string }[] }, experiments?: object, catalog?: object, direction?: object }} ctx
  * @returns {Record<string, (value: unknown) => unknown>}
  */
-export function refResolvers({ root, registry, products, experiments, catalog, direction }) {
+export function refResolvers({ root, registry, products, experiments, catalog, direction, backlog }) {
+  const cards = new Set([...String(backlog ?? '').matchAll(/^### \[(DN-\d{4})\]/gm)].map((m) => m[1]));
   const byId = (rows) => new Map((rows ?? []).map((r) => [r.id, r]));
   const productIds = byId(products?.products);
   const experimentIds = byId(Array.isArray(experiments) ? experiments : experiments?.experiments);
@@ -85,6 +88,7 @@ export function refResolvers({ root, registry, products, experiments, catalog, d
     experiment: (v) => (typeof v === 'string' ? experimentIds.get(v) : undefined),
     'affiliate-program': (v) => (typeof v === 'string' && Object.hasOwn(programs, v) ? programs[v] : undefined),
     metric: (v) => (typeof v === 'string' ? metricIds.get(v) : undefined),
+    'backlog-card': (v) => (typeof v === 'string' && cards.has(v) ? true : undefined),
   };
 }
 
@@ -97,7 +101,7 @@ export function refDeclarationError(ref) {
   if (ref.severity !== undefined && !['error', 'warn'].includes(ref.severity)) return 'severity は error か warn';
   if (ref.ignore !== undefined && !(Array.isArray(ref.ignore) && ref.ignore.every((x) => typeof x === 'string'))) return 'ignore は文字列の配列';
   if (ref.copies !== undefined && !(ref.copies && typeof ref.copies === 'object' && Object.values(ref.copies).every((x) => typeof x === 'string'))) return 'copies は { 欄: 参照先の欄 }';
-  if (ref.copies && ['qualification', 'article'].includes(ref.to)) return `${ref.to} は行を持たないので copies を使えない`;
+  if (ref.copies && ['qualification', 'article', 'backlog-card'].includes(ref.to)) return `${ref.to} は行を持たないので copies を使えない`;
   return null;
 }
 
@@ -142,4 +146,5 @@ export const refContext = (read) => ({
   experiments: read('business.experiments'),
   catalog: read('affiliate.catalog'),
   direction: read('config.business-direction'),
+  backlog: readFileSync(join(TODO_ROOT, 'backlog.md'), 'utf8'),
 });

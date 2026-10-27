@@ -158,16 +158,6 @@ export default async function CategoryPage({
               </div>
             )}
             <OffsiteCta items={offsiteCta} heading="この資格に関連するサービス" />
-            {slug === 'reference-materials' && (
-              <section className="border-b border-(--rule-soft) py-6" aria-labelledby="reference-materials-about">
-                <h2 id="reference-materials-about" className="font-serif text-[20px] font-bold text-(--ink)">
-                  公的資料を実務判断に使いやすく整理
-                </h2>
-                <p className="mt-2 max-w-[65ch] text-[14px] leading-[1.9] text-(--ink-body)">
-                  国土交通省・地方整備局・自治体が公開する設計便覧や土木工事共通仕様書から、設計・施工時に確認しやすい規定を資料別に整理しています。原典の代替ではなく、該当箇所を探すための索引として利用し、最終判断では各発注機関が公開する最新版の原文と適用条件を確認してください。
-                </p>
-              </section>
-            )}
             <div className="pt-8 text-[17px] leading-[1.9]">
           {docs.length === 0 ? (
             <div className="text-center py-12">

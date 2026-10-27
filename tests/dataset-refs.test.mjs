@@ -96,5 +96,5 @@ test('refDeclarationError: 宣言の書き間違いを止める（未知の欄�
   assert.match(refDeclarationError({ at: 'a', to: 'product', sevrity: 'warn' }), /未知の欄/);
   assert.match(refDeclarationError({ at: 'a', to: 'product', severity: 'info' }), /severity/);
   assert.match(refDeclarationError({ at: 'a', to: 'article', copies: { x: 'y' } }), /copies を使えない/);
-  assert.deepEqual(REF_TARGETS, ['qualification', 'product', 'article', 'experiment', 'affiliate-program', 'metric']);
+  assert.deepEqual(REF_TARGETS, ['qualification', 'product', 'article', 'experiment', 'affiliate-program', 'metric', 'backlog-card']);
 });

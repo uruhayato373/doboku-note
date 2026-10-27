@@ -28,6 +28,7 @@
 import { transformMdxFile, readMdxFile } from './lib/mdx-io.mjs';
 import { existsSync } from 'node:fs';
 import { resolve } from 'node:path';
+import { publicPathFromSlug } from '../../scripts/lib/url-normalization.mjs';
 
 const BASE = resolve('content/site/civil-construction-1');
 const DRY_RUN = process.argv.includes('--dry-run');
@@ -40,11 +41,17 @@ const THEMES = [
   { theme: 'quality-management', label: '品質管理' },
 ];
 
-const PATH_PREFIX = '/docs/civil-construction-1-';
-const STRATEGY_LINK = `- [試験ガイド・戦略](${PATH_PREFIX}guide-strategy)`;
-const FOUR_MGMT_LINK = `- [4つの管理](${PATH_PREFIX}guide-four-management)`;
-const EXPERIENCE_GUIDE_LINK = `- [経験記述・ガイド](${PATH_PREFIX}secondary-experience-writing-guide)`;
-const EXPERIENCE_EXAMPLES_LINK = `- [経験記述・記述例](${PATH_PREFIX}secondary-experience-writing-examples)`;
+// 書き込むリンクは公開の正規パス（旧 /docs/ は 301 を挟む）。正規パスが引けない slug は止める
+const pathOf = (local) => {
+  const slug = `civil-construction-1-${local}`;
+  const path = publicPathFromSlug(slug);
+  if (!path) throw new Error(`${slug} の公開パスが引けない（public/_redirects を作り直す: npm run build-public-route-redirects）`);
+  return path;
+};
+const STRATEGY_LINK = `- [試験ガイド・戦略](${pathOf('guide-strategy')})`;
+const FOUR_MGMT_LINK = `- [4つの管理](${pathOf('guide-four-management')})`;
+const EXPERIENCE_GUIDE_LINK = `- [経験記述・ガイド](${pathOf('secondary-experience-writing-guide')})`;
+const EXPERIENCE_EXAMPLES_LINK = `- [経験記述・記述例](${pathOf('secondary-experience-writing-examples')})`;
 const YEARS = ['r03', 'r04', 'r05', 'r06', 'r07'];
 
 function file(slug) {
@@ -65,14 +72,14 @@ function buildLinks(currentSlug, currentLabel) {
       ? `secondary-${themeMatch.theme}-past-problems`
       : `secondary-${themeMatch.theme}-basics`;
     const pairLabel = isBasics ? `${themeMatch.label}・過去問題` : `${themeMatch.label}・基礎知識`;
-    lines.push(`- [${pairLabel}](${PATH_PREFIX}${pair})`);
+    lines.push(`- [${pairLabel}](${pathOf(`${pair}`)})`);
 
     // 他テーマの同種（basics または past-problems）に最大 2 件リンク
     const sameSideOthers = THEMES.filter((t) => t.theme !== themeMatch.theme).slice(0, 2);
     for (const t of sameSideOthers) {
       const otherSlug = isBasics ? `secondary-${t.theme}-basics` : `secondary-${t.theme}-past-problems`;
       const otherLabel = isBasics ? `${t.label}・基礎知識` : `${t.label}・過去問題`;
-      lines.push(`- [${otherLabel}](${PATH_PREFIX}${otherSlug})`);
+      lines.push(`- [${otherLabel}](${pathOf(`${otherSlug}`)})`);
     }
 
     lines.push(EXPERIENCE_GUIDE_LINK);
@@ -85,19 +92,19 @@ function buildLinks(currentSlug, currentLabel) {
 
   // experience グループ
   if (currentSlug === 'secondary-experience-writing-guide') {
-    lines.push(`- [経験記述・記述例](${PATH_PREFIX}secondary-experience-writing-examples)`);
+    lines.push(`- [経験記述・記述例](${pathOf(`secondary-experience-writing-examples`)})`);
     lines.push(STRATEGY_LINK);
     lines.push(FOUR_MGMT_LINK);
     for (const t of THEMES.slice(0, 2)) {
-      lines.push(`- [${t.label}・基礎知識](${PATH_PREFIX}secondary-${t.theme}-basics)`);
+      lines.push(`- [${t.label}・基礎知識](${pathOf(`secondary-${t.theme}-basics`)})`);
     }
     return lines;
   }
   if (currentSlug === 'secondary-experience-writing-examples') {
-    lines.push(`- [経験記述・ガイド](${PATH_PREFIX}secondary-experience-writing-guide)`);
+    lines.push(`- [経験記述・ガイド](${pathOf(`secondary-experience-writing-guide`)})`);
     lines.push(STRATEGY_LINK);
     for (const y of YEARS) {
-      lines.push(`- [令和${y.replace('r0', '')}年度 第2次検定](${PATH_PREFIX}secondary-${y})`);
+      lines.push(`- [令和${y.replace('r0', '')}年度 第2次検定](${pathOf(`secondary-${y}`)})`);
     }
     return lines;
   }
@@ -106,7 +113,7 @@ function buildLinks(currentSlug, currentLabel) {
   if (/^secondary-r0[3-7]$/.test(currentSlug)) {
     // 各テーマの basics 全件 + experience + strategy
     for (const t of THEMES) {
-      lines.push(`- [${t.label}・基礎知識](${PATH_PREFIX}secondary-${t.theme}-basics)`);
+      lines.push(`- [${t.label}・基礎知識](${pathOf(`secondary-${t.theme}-basics`)})`);
     }
     lines.push(EXPERIENCE_GUIDE_LINK);
     lines.push(EXPERIENCE_EXAMPLES_LINK);
@@ -114,7 +121,7 @@ function buildLinks(currentSlug, currentLabel) {
     // 他年度へのリンク（自分以外）
     for (const y of YEARS) {
       if (`secondary-${y}` === currentSlug) continue;
-      lines.push(`- [令和${y.replace('r0', '')}年度 第2次検定](${PATH_PREFIX}secondary-${y})`);
+      lines.push(`- [令和${y.replace('r0', '')}年度 第2次検定](${pathOf(`secondary-${y}`)})`);
     }
     return lines;
   }

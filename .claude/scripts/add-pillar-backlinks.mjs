@@ -21,6 +21,7 @@ import { join } from "node:path";
 import { readMdxFile, writeMdxFile } from "./lib/mdx-io.mjs";
 import { parseCliArgs } from "../../scripts/lib/cli-args.mjs";
 import { SITE_CONTENT_ROOT } from "../../scripts/lib/repository-paths.mjs";
+import { publicPathFromSlug } from "../../scripts/lib/url-normalization.mjs";
 
 // ── Config ──
 
@@ -122,12 +123,13 @@ function processFile(filePath, area) {
   const { raw, eol } = readMdxFile(filePath);
 
   // 既にピラーへのリンクがあれば skip
-  if (raw.includes(`/docs/${pillar.slug}`)) {
+  const pillarPath = publicPathFromSlug(pillar.slug) ?? `/docs/${pillar.slug}`;
+  if (raw.includes(`/docs/${pillar.slug}`) || raw.includes(pillarPath)) {
     return { status: "skip-already-linked" };
   }
 
   // 挿入する文字列
-  const insertion = `> 📘 **[${pillar.label} 学習ガイド](/docs/${pillar.slug})** — ${pillar.sub}`;
+  const insertion = `> 📘 **[${pillar.label} 学習ガイド](${pillarPath})** — ${pillar.sub}`;
 
   // 「## 総合技術監理における位置づけ」セクションの直下に挿入
   // セクションが無い場合は body 末尾（最初の <RelatedKeywords> または "## 参考資料" の前）に追加
