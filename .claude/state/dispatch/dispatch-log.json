@@ -6156,6 +6156,19 @@
       "commit": "1343713b3ac4",
       "verification": null,
       "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-0888",
+      "at": "2026-10-28",
+      "task": "note 無料記事「技術士を受けて得たもの」の表紙を作って公開する",
+      "tier": "mid",
+      "kind": "制作",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "6f4382507066",
+      "verification": null,
+      "note": "todo-complete.mjs 経由で完了処理"
     }
   ]
 }

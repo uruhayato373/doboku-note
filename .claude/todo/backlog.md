@@ -347,17 +347,6 @@
 **完了条件**: `npm run check-magazine-cta -- --ci` がもくじを数えない判定で baseline 外 0、新しいテストが通り、本番で見直しページと配線した各ページに商品カードが出る。
 
 
-### [DN-0888] note 無料記事「技術士を受けて得たもの」の表紙を作って公開する
-タグ: [領域:商品] [時期:2026-11] [種類:制作] [起票:2026-10-27]
-
-**起点**: 2026-10-27、note 無料記事「技術士を受けて得たもの｜合否より先に残る5つの力と、正直なデメリット」の下書きを作った（`content/note/技術士建設部門/技術士を受けて得たもの-無料/article.md`・hashtags.txt 95 タグ・commit ee1efcce2）。原文の引用や組織・人数・個人が分かる具体は書いていない。費用は金額を一次情報で確かめていないので項目名だけ。表紙画像（img/cover.png）が無く、note の三点セット（article.md・cover.png・hashtags.txt）がそろっていない。
-
-**やること**:
-1. 表紙画像を作る（`/create-pop-image` か note カバーの生成。frontmatter の cover 欄は記入済み）
-2. 公開前の確認（note-publish-enhancement.md の工程・段落の長さ・リンクカード・建設部門もくじへの導線）
-3. 公開し、`noteUrl`・`noteId` を記録する。公開後にサイトの `pe-construction/public-servant-merit` から note へのリンクを足すか決める
-
-**完了条件**: 記事が note で公開され、公開状態が台帳と frontmatter に記録されている。
 
 
 ### [DN-0887] 技術士メリットの X 投稿シリーズ 8 本（114-pe-merit-series）の日時を決めて予約する
