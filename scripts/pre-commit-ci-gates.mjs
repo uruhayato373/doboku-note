@@ -49,9 +49,13 @@ export const UNIT_TEST_RULES = [
   { match: (f) => /^docs\/.+\.md$/.test(f) || f === '.claude/todo/backlog.md', tests: ['tests/project-task-refs.test.mjs'] },
 ];
 
-/** staged のファイルに当たるテスト（重複なし・規則の順） */
+/**
+ * staged のファイルに当たるテスト（重複なし・規則の順）。staged のテストファイル自身も回す
+ * （2026-10-27 に構文エラーのテストがそのまま commit された。規則はテストを選ぶだけで、変えたテスト自身は回していなかった）
+ */
 export function unitTestsFor(files) {
-  return [...new Set(UNIT_TEST_RULES.filter((r) => files.some((f) => r.match(f))).flatMap((r) => r.tests))];
+  const ownTests = files.filter((f) => /^tests\/[^/]+\.test\.mjs$/.test(f));
+  return [...new Set([...UNIT_TEST_RULES.filter((r) => files.some((f) => r.match(f))).flatMap((r) => r.tests), ...ownTests])];
 }
 
 export const GATES = [

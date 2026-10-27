@@ -83,7 +83,7 @@ test('台帳・配線の検査は、その正本か読む側を stage したと�
 
 test('unit-tests は staged に関係する実データのテストだけを回す（DN-0790）', () => {
   assert.deepEqual(unitTestsFor(['scripts/x.mjs']), ['tests/git-exec-maxbuffer.test.mjs', 'tests/env-example.test.mjs', 'tests/script-helpers-ratchet.test.mjs', 'tests/read-json-ratchet.test.mjs']);
-  assert.deepEqual(unitTestsFor(['tests/x.test.mjs']), ['tests/script-helpers-ratchet.test.mjs', 'tests/read-json-ratchet.test.mjs'], 'テストの変更でも写しのラチェットを回す');
+  assert.deepEqual(unitTestsFor(['tests/x.test.mjs']), ['tests/script-helpers-ratchet.test.mjs', 'tests/read-json-ratchet.test.mjs', 'tests/x.test.mjs'], 'テストの変更でも写しのラチェットと、変えたテスト自身を回す（2026-10-27）');
   assert.ok(unitTestsFor(['content/site/standards-articles/kanto/a/chapters/1/article.mdx']).includes('tests/standards-ogp-guards.test.mjs'));
   assert.ok(unitTestsFor(['content/note/x/y/article.md']).includes('tests/content-theme.test.mjs'));
   assert.ok(unitTestsFor(['data/coconala/orders.json']).includes('tests/dataset-schemas.test.mjs'));
