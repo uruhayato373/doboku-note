@@ -302,7 +302,7 @@
 3. `/links` の「9資格」（`src/app/links/page.tsx:29,37,44`）を `EXAM_CARDS.length` から作る（metadata の定義順を直す）
 4. 資格キーの語彙の残り（X の `EXAM_ALIAS`・IG の `EXAM_OF_DIR`・動画パックの `EXAM_TO_PALETTE`・図解パックの `FIGURE_PACK_CATEGORIES`・`generate-magazine-covers.mjs` の `category` 文字列）を registry と `exam-brand.ts` の `QUALIFICATION_TO_EXAM_KEY` から作る。コンクリート技士・診断士が X で 'account' に落ちる件を含む
 5. 管理画面の `ui.tsx` の `fmt.int`・`lineup.ts` の価格整形を `tools/admin-app/src/lib/format.ts` に寄せる
-6. タグ「技術士（第一次試験）」の旧い綴りを使う記事 76 本を正規の「技術士 第一次試験」に直し、`src/config/tags.json` の別名を外す（frontmatter だけの変更なので dateModified は動かさない）
+6. （2026-10-27 済み・PR #1281 の 0e4c598b5）タグ「技術士（第一次試験）」の旧い綴りを使う記事 76 本を正規の綴りに直し、別名を外した
 
 **完了条件**: 上の写しが正本からの読み込みか導出になり、増やさないテスト（ラチェット）か値の一致のテストがある。
 
