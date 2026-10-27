@@ -525,17 +525,17 @@
 
 **起点**: 2026-10-26、運営者「CI の中で重なっているものをまとめることはできる？」。21 本を起動条件・鍵・中身で見直すと、同じ準備と鍵で動く Cloudflare の 2 本、デプロイの後に別のワークフローとして動く IndexNow、本番を外から確かめる死活確認と全 URL の検査の 3 組が重なっている。
 
-**残り**: 統合（計画 [DN-0853-ci-consolidate-overlaps.md](../plans/DN-0853-ci-consolidate-overlaps.md)・PR #1241）は develop と main（2026-10-26 デプロイ・bf212639c）に入り、ワークフローは 18 本。デプロイ後の `indexnow` ジョブと、`uptime-ping.yml` の全 URL の検査（workflow_run）は同じ sha で成功した。残りは統合した `cloudflare-metrics.yml` の定期実行の確認だけ。
+**残り**: 統合（計画 [DN-0853-ci-consolidate-overlaps.md](../plans/DN-0853-ci-consolidate-overlaps.md)・PR #1241）は main に入り、解析の定期実行も 10/27（run 40423113674）に成功した。残りは統合した `cloudflare-metrics.yml` の設定の監査の定期実行の確認だけ。
 
-**完了条件**: `cloudflare-metrics.yml` の解析の定期実行（10/27 JST 05:23）と設定の監査の定期実行（10/30 金曜 JST 22:47）がそれぞれ 1 回成功する。
+**完了条件**: `cloudflare-metrics.yml` の設定の監査の定期実行（10/30 金曜 JST 22:47）が 1 回成功する。
 
 **統合（2026-10-26 棚卸し）: 旧 DN-0848「automerge.yml の workflow_run が 10/24 22:37Z 以降に起動せず、ラベル付きの PR が緑でも入らない」**
 
 **起点**: 2026-10-25 の PR #1223。Pre-merge が緑で終わっても automerge.yml の workflow_run が起動せず、手で squash した。原因は `on.workflow_run.workflows` の名前が glob として照合され、"Pre-merge check (quality audit + build)" の `+` が文字どおりに一致しなかったこと（10-09〜10-25 の Pre-merge の完了 999 回で起動 0 回・E2E・Lighthouse の完了だけで起動していた）。PR #1224 で `\+` にエスケープし、tests/workflow-run-filters.test.mjs で再発を止めた。
 
-**やること**: PR #1224 を develop へ入れ、main へ deploy する（workflow_run は main の定義で動く）。deploy の後、最初にラベルを付けた PR で、Pre-merge の完了から数分で automerge が起動してマージすることを確かめる。
+**やること**: 起動の修正は効いている（10/27 15:38Z、PR #1292 の Pre-merge の完了の 1 分後に workflow_run で起動した）。残りは、automerge ラベルを付けた PR が実際に squash で入るのを 1 回見ること。
 
-**完了条件**: `gh run list --workflow automerge.yml` に、Pre-merge の完了の直後の event workflow_run の回があり、その PR が squash で入っている。
+**完了条件**: automerge ラベル付きの PR が、Pre-merge の完了の直後の workflow_run の回で squash で入っている。
 
 **統合（2026-10-26 棚卸し）: 旧 DN-0825「index coverage の検査が sitemap 2,017 URL を上限 1,900 で切り詰めるので、分割取得にして全件を検査する」**
 
