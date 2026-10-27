@@ -128,7 +128,7 @@ npm run note-edit-session -- m6854c7437d4d     # マガジン key だけでも�
 - **フィールド**: `input[type=text]`=マガジンタイトル ／ `textarea`[0]=説明 ／ `textarea`[1]=アピールポイント ／ `input[type=number]`=販売価格 ／ ボタン「更新」=保存。
 - **文字数制約（超過すると「更新」が disabled のまま＝保存不可）**: マガジンタイトル ≈ 30 字以内（旧 29 字 OK）、**アピールポイント 250 字以内**（エラー文「文字数は250文字以内にしてください」）、説明は長文可（373 字で OK）。
 - **React 制御入力の注意**: `fill()` だけでは「更新」が有効化しないことがある。各欄に `input`/`change` イベントを明示 dispatch ＋ 実キーストロークのナッジ。**クリック前に `更新` ボタンの `isDisabled()` を確認**し、有効化を待ってから押す。値は `inputValue()` で読み戻し照合してから保存。
-- **保存後検証**: note API（`creators/.../contents?kind=magazine`）で `name`/`price` を実体確認。更新したマガジンは page1 先頭へ移動する（updatedAt 順）。
+- **保存後検証**: note API（`creators/.../contents?kind=magazine`）で `name`/`price` を実体確認。一覧（`contents?kind=magazine`・クリエイターページのマガジンタブ）の並びは更新日の順ではない。2026-10-27 に一次の直前パック（mfa3fcffdd85d）を値を変えずに保存し直しても、page1 に入らず先頭へも移らなかった（旧記載「更新したマガジンは page1 先頭へ移動する（updatedAt 順）」は誤り）。page1 に無いマガジンは page を進めて探す。通常のアカウントではマガジンの並び替えの手段が見当たらず、目立たせたいものは記事の「クリエイターページに固定表示」で代える。
 - **YAML 値の注入**: heredoc 内の `new RegExp()` はエスケープが壊れる。block scalar 抽出は**リテラル正規表現**で別 node ステップ化し、値を JSON に書き出してから Playwright スクリプトへ渡す。
 
 ### 記事をマガジンへ収録（追加）: note-magazine-add（2026-06-15 新設・Windows実証）
