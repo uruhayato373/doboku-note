@@ -156,6 +156,11 @@ test('検査: 改善の記録の無い EXP・起点が検索キーワード戦�
   assert.equal(make({ id: 'EXP-033' }).searchStrategy.page, '/exam/x/guide/y');
 });
 
+test('なし（理由）に試験日の誤記パターンがあれば書かない（DN-0893）', () => {
+  const text = '## 🟡\n\n### [DN-0900] t\nタグ: [領域:サイト]\n\n**起点**: 検索キーワード戦略\n';
+  assert.throws(() => withNoneMarker(text, 6, '2級の第二次検定は 2026-10-27 で終わったため'), /check-exam-calendar/);
+});
+
 test('なし（理由）の行は改行コードを保ち、backlog の実物の形（parseBacklog）でも読める', () => {
   const text = '## 🟡\r\n\r\n### [DN-0900] t\r\nタグ: [領域:サイト]\r\n\r\n**起点**: 検索キーワード戦略\r\n';
   const out = withNoneMarker(text, 6, '新しいページ群の整理');

@@ -7,6 +7,8 @@
  * 切り替えたブランチへ載る事故も起きた（2026-10-07 の DN-0567）。ここでは 1 コマンドで次をまとめる:
  *   採番（backlog の全ブランチの履歴から最大＋1）→ カードの組み立て → 重要度の見出しの先頭へ差し込み →
  *   check-backlog-schema と同じ検査 → origin/develop へ commit・push（lib/git-direct-commit.mjs）
+ * commit-tree で積むので pre-commit は走らない。pre-commit が backlog に当てる検査のうち、カード 1 枚で
+ * 壊れうるもの（試験日の誤記パターン・相対リンクの実在）は addCard の中で当てる（DN-0893）。
  *
  * Usage:
  *   npm run todo:add -- --title "…" --tier 高|中|低|判断待ち --kind 不具合|改善|意思決定|制作 --domain 商品 \
@@ -22,6 +24,8 @@ import { fileURLToPath } from 'node:url';
 import { CANONICAL_CATEGORIES, KINDS, TIER, findOrphanHeadings, parseBacklog } from './lib/backlog-lib.mjs';
 import { backlogGitLog, nextId } from './backlog-edit.mjs';
 import { validateCards } from './check-backlog-schema.mjs';
+import { auditLinks } from './check-relative-links.mjs';
+import { findForbidden } from './lib/exam-calendar-guards.mjs';
 import { loadDomains } from './lib/domains.mjs';
 import { commitFileToRemoteBranch } from './lib/git-direct-commit.mjs';
 import { todayJst } from './lib/jst-date.mjs';
@@ -85,7 +89,7 @@ export function validateNewCard(before, after, id, tierEmoji, opts) {
 
 /**
  * backlog の中身（current）へカードを 1 枚差し込んだ文書と ID を返す（採番・組み立て・check-backlog-schema と同じ検査）。
- * 検査に落ちたら投げる。search-improvement の add（カードと実験台帳を 1 commit で積む）も使う。
+ * 検査に落ちたら投げる（transform の中で投げるので push しない）。
  */
 export function addCard(current, { title, tier, kind, domain, category, when, due, verify, body }, { root = ROOT, today = todayJst() } = {}) {
   const tierEmoji = resolveTier(tier);
@@ -102,6 +106,9 @@ export function addCard(current, { title, tier, kind, domain, category, when, du
   const cardLines = buildCard({ id: r.next, title: title.trim(), kind, domain, category, when, due, verify, today, body });
   const text = insertCard(current, tierEmoji, cardLines);
   const problems = validateNewCard(current, text, r.next, tierEmoji, opts);
+  const cardText = cardLines.join('\n');
+  for (const reason of findForbidden(cardText)) problems.push(`[exam-calendar] ${reason}（check-exam-calendar が CI で止める書き方）`);
+  for (const l of auditLinks(BACKLOG, cardText, (p) => existsSync(join(root, p)))) problems.push(`[relative-links] ${l.link} が無い（${l.resolved}）`);
   if (problems.length) throw new Error(`カードが検査に通らない:\n  - ${problems.join('\n  - ')}`);
   return { id: r.next, text, cardLines };
 }

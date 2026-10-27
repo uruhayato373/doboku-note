@@ -15,6 +15,7 @@
  */
 import { completeOn, specErrors } from './experiment-measure.mjs';
 import { jstDayOf } from './jst-date.mjs';
+import { findForbidden } from './exam-calendar-guards.mjs';
 
 export const KIND = 'search-strategy';
 /** 計測が終わっていない状態（同じページに 2 つ目を記録しない） */
@@ -139,8 +140,13 @@ export function buildExperiment({ id, card = null, cluster, candidate, period, s
   return exp;
 }
 
-/** 実験にしないカードに理由を書く（link --none）。cardEnd はカードの最終行（1 始まり）。 */
+/**
+ * 実験にしないカードに理由を書く（link --none）。cardEnd はカードの最終行（1 始まり）。
+ * commit-tree で積むので pre-commit は走らない。理由に試験日の誤記パターンがあれば書かずに投げる（DN-0893）。
+ */
 export function withNoneMarker(text, cardEnd, reason) {
+  const forbidden = findForbidden(reason);
+  if (forbidden.length) throw new Error(`理由が試験日の検査（check-exam-calendar）に当たる: ${forbidden.join(' / ')}`);
   const eol = text.includes('\r\n') ? '\r\n' : '\n';
   const lines = text.split(eol);
   lines.splice(cardEnd, 0, '', `${CARD_MARKER} ${NONE_MARK}${reason.trim()}）`);
