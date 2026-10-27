@@ -24,6 +24,7 @@ on:
       - "config/standards-structure.json"
       - "config/utm-templates.json"
       - "config/x-account.json"
+      - "scripts/lib/jst-date.mjs"
       - "scripts/lib/qualification-names.mjs"
       - "scripts/lib/repository-paths.mjs"
       - "next.config.mjs"
