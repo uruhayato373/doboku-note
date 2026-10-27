@@ -27,7 +27,7 @@ import { writeMdxFile } from '../.claude/scripts/lib/mdx-io.mjs';
 import { applyTableOverride, tableKey, tryGfmTable, tryStandardsList } from './lib/standards-table.mjs';
 import { pathToFileURL } from 'node:url';
 import { datasetPath } from './lib/datasets.mjs';
-import { figureLookup, renderFigureImage } from './lib/standards-figures.mjs';
+import { figureLookup, isFigureCaption, renderFigureImage } from './lib/standards-figures.mjs';
 import { editionDuplicateOf } from '../src/lib/standards-editions.mjs';
 import {
   AMENDMENT_BLOCK_END,
@@ -348,7 +348,13 @@ function renderChapter(chapter, tableOutcomes = [], tableOverrides = new Map(), 
         push(`<SourceRef pages="${pages}" kind="table" />`);
         continue;
       }
-      if (caption.length) push(`**${escapeInline(caption.map((l) => l.trim()).join(' '))}**`);
+      // 表の領域に吸われた図のキャプション（中部の特記 1-3 の図3-1）にも、台帳の図を差し込む（DN-0881）
+      const pushTableCaption = (text) => {
+        push(`**${escapeInline(text)}**`);
+        const figure = isFigureCaption(text) ? figureOf?.(chapter.chapterId, pages, text) : null;
+        if (figure) push(figure);
+      };
+      if (caption.length) pushTableCaption(caption.map((l) => l.trim()).join(' '));
 
       // 原本と照合して組み直した表（content/sources/standards/tables）。検証済みで文字の過不足が
       // ゼロのものだけ使う。検証済みなのに文字が合わないのは組み直しの誤りなので生成を止める。
@@ -376,7 +382,10 @@ function renderChapter(chapter, tableOutcomes = [], tableOverrides = new Map(), 
           const extra = absorbedParagraphs.get(node) ?? {};
           push(['```text', ...(extra.before ?? []), ...body, ...(extra.after ?? []), '```'].join('\n'));
         } else {
-          for (const part of applied.parts) push(renderOverridePart(part));
+          for (const part of applied.parts) {
+            if (part.kind === 'caption') pushTableCaption(part.text);
+            else push(renderOverridePart(part));
+          }
         }
         push(`<SourceRef pages="${pages}" kind="table" />`);
         continue;

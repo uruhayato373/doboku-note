@@ -14,6 +14,8 @@
  *   - imagePage は切り出したページ。キャプションがページの末尾で図が次のページにあるときは sourceRef と違う
  *   - bbox は 270dpi のページ画像のピクセル。file の画像は bbox で切った後、幅 1200px を超えるものだけ縮めている
  *
+ *   - 表の領域・組み直した表の中に出た図のキャプション（DN-0881）は、sourceRef にその表の SourceRef のページを書く
+ *
  * 生成器（build-standard-articles.mjs）はこの台帳を読んでキャプションの位置に <ArticleImage> を差し込み、
  * check-standard-articles（検査 20）が「図の SourceRef ごとに画像がある」ことと、台帳と章記事の食い違いを見る。
  */
@@ -78,13 +80,41 @@ export function renderFigureImage(documentKey, entry) {
 }
 
 /**
- * 章記事 1 本の図を数える（検査用）。`<SourceRef kind="figure">` ごとに、その直前のブロック（空行を除く）が
- * <ArticleImage> かを見て、画像の file を返す。直前が画像でなければ file は null。
+ * 図のキャプションの文字か（`図3-1`・`図 19 …`・`図−1 …`・`図５−２ …`・`図-4 …`）。図の番号を持たない
+ * `図 一 覧`・`図書名` は図ではない。表の領域・組み直した表の中に出た図のキャプション（DN-0881）を拾うのに使う。
+ */
+export const isFigureCaption = (text) => /^図[\s　]*[-−－]?[\s　]*[0-9０-９]/.test(text);
+
+/**
+ * 章記事 1 本の図を数える（検査用）。
+ * - `<SourceRef kind="figure">` ごとに、その直前のブロック（空行を除く）が <ArticleImage> かを見て、画像の file を返す。
+ *   直前が画像でなければ file は null。
+ * - 表の領域・組み直した表の中に出た図のキャプション（太字の 1 行で、図の番号を持つもの・DN-0881）は、
+ *   直後のブロックが <ArticleImage> かを見る。sourceRef はその後ろで最初の `<SourceRef kind="table">` のページ
+ *   （生成器が台帳を引くのと同じ値）。inTable: true を付ける。
  */
 export function figureRefsOf(markdown) {
   const lines = markdown.split('\n');
   const refs = [];
+  let inCode = false;
   lines.forEach((line, index) => {
+    if (line.startsWith('```')) inCode = !inCode;
+    if (inCode) return;
+    const bold = line.match(/^\*\*(.+)\*\*$/)?.[1]?.replace(/\\(.)/g, '$1');
+    if (bold && isFigureCaption(bold)) {
+      let k = index + 1;
+      while (k < lines.length && !lines[k].trim()) k += 1;
+      // 図の SourceRef の直前のキャプション（下の分岐で数える）
+      const imageLine = lines[k]?.match(/^<ArticleImage src="[^"]*\/img\/([^"/]+)"/);
+      let n = imageLine ? k + 1 : k;
+      while (n < lines.length && !lines[n].trim()) n += 1;
+      if (/^<SourceRef pages="[^"]*" kind="figure" \/>$/.test(lines[n] ?? '')) return;
+      let s = index + 1;
+      while (s < lines.length && !/^<SourceRef /.test(lines[s])) s += 1;
+      const sourceRef = lines[s]?.match(/^<SourceRef pages="([^"]*)" kind="table" \/>$/)?.[1] ?? null;
+      refs.push({ line: index + 1, sourceRef, file: imageLine?.[1] ?? null, caption: bold, inTable: true });
+      return;
+    }
     const ref = line.match(/^<SourceRef pages="([^"]*)" kind="figure" \/>$/);
     if (!ref) return;
     let k = index - 1;
