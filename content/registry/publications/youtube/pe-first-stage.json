@@ -15,7 +15,7 @@
       "work": "pe1-kiso-2s-complement",
       "account": "youtube:main",
       "format": "longform",
-      "status": "rendered",
+      "status": "scheduled",
       "media": {
         "cover": "pe-first-stage/pe1-kiso-2s-complement/youtube.longform/cover",
         "scene-001": "pe-first-stage/pe1-kiso-2s-complement/youtube.longform/scene-001",
@@ -52,7 +52,42 @@
         "contentSha256": "c195503a0e649cbc10ffaa213ae9dc388e1355589ea16cee44409b606dbb5135"
       },
       "times": {
-        "rendered": "2026-10-28T22:37:52.526Z"
+        "rendered": "2026-10-28T22:37:52.526Z",
+        "uploaded": "2026-10-28T22:51:26.789Z",
+        "scheduled": "2026-10-28T22:51:35.448Z"
+      },
+      "delivery": {
+        "inputSha256": "ae77f5a106642bc1baa095c7e77988740447db04c45c8e3da1b25d3eb916b061",
+        "marker": "dn-single-509c27b2341d1916ccc78a049a0051b03e746272",
+        "uploadRequestedAt": "2026-10-28T22:50:34.704Z",
+        "videoId": "LfGrUP0DahI",
+        "processedAt": "2026-10-28T22:51:25.974Z",
+        "thumbnailRequestedAt": "2026-10-28T22:51:26.832Z",
+        "thumbnailUrls": [
+          "https://i9.ytimg.com/vi/LfGrUP0DahI/default.jpg?sqp=CJj4idcG&rs=AOn4CLBMcYiu_ql3cr4MBEOeowsV3mFlnw",
+          "https://i9.ytimg.com/vi/LfGrUP0DahI/mqdefault.jpg?sqp=CJj4idcG&rs=AOn4CLAQzB0_nKEq5WrPms14xVmemyQKCA",
+          "https://i9.ytimg.com/vi/LfGrUP0DahI/hqdefault.jpg?sqp=CJj4idcG&rs=AOn4CLCd8QJ6r9XMLjbkcR8dCdkv-glYpA",
+          "https://i9.ytimg.com/vi/LfGrUP0DahI/sddefault.jpg?sqp=CJj4idcG&rs=AOn4CLBeAJU0YOAOaEg2IWo69CgnSSHU4A",
+          "https://i9.ytimg.com/vi/LfGrUP0DahI/maxresdefault.jpg?sqp=CJj4idcG&rs=AOn4CLBrriVVTeXpvlsaRTKSGtG4WWZpvA",
+          "https://i9.ytimg.com/vi/LfGrUP0DahI/fhddefault.jpg?sqp=CJj4idcG&rs=AOn4CLDTt-BfD1VmLKo8lkelWPRzLMZr3g"
+        ],
+        "thumbnailAcceptedAt": "2026-10-28T22:51:30.771Z",
+        "scheduleRequestedAt": "2026-10-28T22:51:31.847Z",
+        "scheduleAt": "2026-11-03T23:30:00Z",
+        "scheduledVerifiedAt": "2026-10-28T22:51:35.448Z"
+      },
+      "platform": {
+        "id": "LfGrUP0DahI",
+        "url": "https://www.youtube.com/watch?v=LfGrUP0DahI",
+        "privacy": "private",
+        "evidence": {
+          "kind": "publisher-live-check",
+          "ref": "content/sns/video-packs/pe-first-stage/pe1-kiso-2s-complement/youtube.json#longform"
+        }
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-10-28T22:51:30.771Z"
       }
     },
     {
