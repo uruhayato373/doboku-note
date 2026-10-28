@@ -17,3 +17,6 @@ zsh の `path` は PATH と連動する配列なので、`for f in ...; do path=
 
 ## ancestor の確認は「何も commit していない」ときも通る（2026-10-23）
 `todo-complete --commit`（完了処理の実行で、git commit はしない）の後に ancestor 確認 → `git worktree remove --force` とつなぎ、未 commit のカード削除を作業ツリーごと消した。HEAD が origin/develop のままなら ancestor は必ず真になる。消す前は ancestor に加えて `git status --porcelain` が空であることも確かめ、`--force` は空を確かめた後だけ使う。
+
+## 外向きの操作は commit の成否に && でつなぐ（2026-10-28）
+note の無料記事の下書きを commit してから公開する手順を `git commit … ; git push … ; node scripts/note-publish.mjs --commit` と `;` でつなぎ、pre-commit が止めた（記事カタログの stage 漏れ）のに公開まで進んだ。中身は検査済みで実害は無かったが、検査の止めを素通りして取り消しの効かない操作をした。note の公開・push・デプロイのような外向きの操作は、直前の commit と検査に `&&` でつなぎ、`git log -1` で commit ができたことを確かめてから実行する。
