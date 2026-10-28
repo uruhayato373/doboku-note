@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "_doc": "docs/marketing/06_動画コンテンツ運用設計.md",
-  "updatedAt": "2026-10-26",
+  "updatedAt": "2026-10-28",
   "cadence": "実予約は公開台帳の日程を参照。2級土木の新規枠を止め、11/22の技術士第一次試験と11/29のコンクリート系試験を優先する。通常動画を毎日1本公開することを制作目標とし、公開日時は完成版の確認後に決める。再案内は公開本数に数えない。",
   "productionRule": "直近7本を先行して台本・内容QA、POP表紙・図解、レンダー、画面・最終承認まで進める。台本・内容QAはClaude Code、画像の新規生成はCodex ImageGenを担当する。既存の品質・承認・予約ゲートは維持する。変更のない音声・字幕は再利用。R8予想と年度依存箇所は実質改稿して再QA。目標日と予定は公開承認や外部予約を意味しない。",
   "reviewRule": "毎月最初の営業日に翌2か月の公式試験日・教材・制作余力を再確認。公開28日後の視聴維持・教材クリック・受取・制作時間を記録し、欠測は0にしない。試行2本の結果で拡充を判断。2027年度日程は公式発表後に改訂し、未確認の日付を試験日として確定しない。 優先度はP1＝受験期限が近い主軸の制作、P2＝季節集中・既存資産の再活用、P3＝試行。試験日は既存の試験日程台帳、表示期間は年間ロードマップの設定を参照する。",
@@ -1432,6 +1432,50 @@
       "target": "2026-10-29",
       "priority": "P1",
       "note": "ユーザーの追加5本予約依頼。内容QA・画像QA・完成動画確認を経て予約。実日時・動画IDは公開台帳を参照。送客先 civil-2-experience-essay。Shorts・Reels・カルーセル・Xへの派生は別工程。"
+    },
+    {
+      "id": "cc-shunin-cement-4kagoubutsu-finish",
+      "exam": "concrete-chief-engineer",
+      "publicationId": "concrete-chief-engineer/shunin-cement-4kagoubutsu/youtube.longform",
+      "action": "finish",
+      "start": "2026-10-28",
+      "ready": "2026-11-17",
+      "target": "2026-11-20",
+      "priority": "P1",
+      "note": "2026-10-28 に Codex のセッションが追加した日次動画（内容・画像の確認済み・qa_passed）。予約日が未定のため試験日の直前へ仮配分した（予約の事実ではない）。予約したら公開台帳を正とし、この行の日付を見直す。"
+    },
+    {
+      "id": "cc-shunin-rekka-taio-finish",
+      "exam": "concrete-chief-engineer",
+      "publicationId": "concrete-chief-engineer/shunin-rekka-taio/youtube.longform",
+      "action": "finish",
+      "start": "2026-10-28",
+      "ready": "2026-11-17",
+      "target": "2026-11-20",
+      "priority": "P1",
+      "note": "2026-10-28 に Codex のセッションが追加した日次動画（内容・画像の確認済み・qa_passed）。予約日が未定のため試験日の直前へ仮配分した（予約の事実ではない）。予約したら公開台帳を正とし、この行の日付を見直す。"
+    },
+    {
+      "id": "pe1-kiso-kairo-setsuten-finish",
+      "exam": "pe-first-stage",
+      "publicationId": "pe-first-stage/pe1-kiso-kairo-setsuten/youtube.longform",
+      "action": "finish",
+      "start": "2026-10-28",
+      "ready": "2026-11-14",
+      "target": "2026-11-18",
+      "priority": "P1",
+      "note": "2026-10-28 に Codex のセッションが追加した日次動画（内容・画像の確認済み・qa_passed）。予約日が未定のため試験日の直前へ仮配分した（予約の事実ではない）。予約したら公開台帳を正とし、この行の日付を見直す。"
+    },
+    {
+      "id": "pe1-kiso-newton-hou-finish",
+      "exam": "pe-first-stage",
+      "publicationId": "pe-first-stage/pe1-kiso-newton-hou/youtube.longform",
+      "action": "finish",
+      "start": "2026-10-28",
+      "ready": "2026-11-14",
+      "target": "2026-11-18",
+      "priority": "P1",
+      "note": "2026-10-28 に Codex のセッションが追加した日次動画（内容・画像の確認済み・qa_passed）。予約日が未定のため試験日の直前へ仮配分した（予約の事実ではない）。予約したら公開台帳を正とし、この行の日付を見直す。"
     }
   ]
 }
