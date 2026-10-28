@@ -33,7 +33,7 @@
       },
       "status": "scheduled",
       "copy": "content/sns/video-packs/pe-first-stage/pe1-kiso-gyouretsu-vector/youtube.json#longform",
-      "publishAt": "2026-11-08T20:00:00+09:00",
+      "publishAt": "2026-11-01T08:30:00+09:00",
       "review": {
         "visual": {
           "status": "approved",
@@ -44,13 +44,13 @@
       },
       "approval": {
         "by": "user",
-        "at": "2026-10-28T00:30:48.468Z",
-        "contentSha256": "b5c2b3431f2655d33f47c235febbabac6d17eee7d0d4400dd0a00b2cfdcf1d8e"
+        "at": "2026-10-28T10:19:44.582Z",
+        "contentSha256": "d6cbc11d008f9f26f3dfbf4e7963bca436e5a73761d18e3db659cabfda1cf909"
       },
       "times": {
         "rendered": "2026-10-28T00:30:57.681Z",
         "uploaded": "2026-10-28T00:48:27.527Z",
-        "scheduled": "2026-10-28T00:48:36.365Z"
+        "scheduled": "2026-10-28T10:19:44.582Z"
       },
       "delivery": {
         "inputSha256": "713e5dfde06bce086d43168b6edab8f76bec24f7a7000278c936add0b74dda89",
@@ -68,9 +68,9 @@
           "https://i9.ytimg.com/vi/DnFUe-knWns/fhddefault.jpg?sqp=CIyLhdcG&rs=AOn4CLDv50EOlWtrHi-qdorrLtLlEFsI3g"
         ],
         "thumbnailAcceptedAt": "2026-10-28T00:48:31.809Z",
-        "scheduleRequestedAt": "2026-10-28T00:48:32.958Z",
-        "scheduleAt": "2026-11-08T20:00:00+09:00",
-        "scheduledVerifiedAt": "2026-10-28T00:48:36.365Z"
+        "scheduleRequestedAt": "2026-10-28T10:19:44.582Z",
+        "scheduleAt": "2026-11-01T08:30:00+09:00",
+        "scheduledVerifiedAt": "2026-10-28T10:19:44.582Z"
       },
       "platform": {
         "id": "DnFUe-knWns",
@@ -208,7 +208,7 @@
         "scene-sheet": "pe-first-stage/pe1-kiso-senmon/youtube.longform/scene-sheet",
         "preview-metrics": "pe-first-stage/pe1-kiso-senmon/youtube.longform/preview-metrics"
       },
-      "publishAt": "2026-11-04T20:00:00+09:00",
+      "publishAt": "2026-10-30T08:30:00+09:00",
       "review": {
         "visual": {
           "status": "approved",
@@ -219,13 +219,13 @@
       },
       "approval": {
         "by": "user",
-        "at": "2026-10-27T15:21:10.126Z",
-        "contentSha256": "7ff43e117e94af44e2ce67875eb61601a38faada914f92de571605bae376c164"
+        "at": "2026-10-28T10:19:31.425Z",
+        "contentSha256": "556ac902b52b175989ccfe0017ce7be3c1e31cd1dad66fbc4c80c85e2f8b5d95"
       },
       "times": {
         "rendered": "2026-10-27T15:21:10.797Z",
         "uploaded": "2026-10-27T15:27:01.739Z",
-        "scheduled": "2026-10-27T15:27:18.095Z"
+        "scheduled": "2026-10-28T10:19:31.425Z"
       },
       "delivery": {
         "inputSha256": "7b3f01284fe4c2d355bdee32cc4d07eb6e82668013f76766a553c87ea1f806a9",
@@ -243,9 +243,9 @@
           "https://i9.ytimg.com/vi/p8fZi3a2Un8/fhddefault.jpg?sqp=CMyEg9cG&rs=AOn4CLDklPPDmVL7LhOJOzuhd0jh4iTczA"
         ],
         "thumbnailAcceptedAt": "2026-10-27T15:27:08.254Z",
-        "scheduleRequestedAt": "2026-10-27T15:27:14.532Z",
-        "scheduleAt": "2026-11-04T20:00:00+09:00",
-        "scheduledVerifiedAt": "2026-10-27T15:27:18.095Z"
+        "scheduleRequestedAt": "2026-10-28T10:19:31.425Z",
+        "scheduleAt": "2026-10-30T08:30:00+09:00",
+        "scheduledVerifiedAt": "2026-10-28T10:19:31.425Z"
       },
       "platform": {
         "id": "p8fZi3a2Un8",
@@ -292,7 +292,7 @@
       },
       "status": "scheduled",
       "copy": "content/sns/video-packs/pe-first-stage/pe1-senmon-kensetsu-25mon/youtube.json#longform",
-      "publishAt": "2026-11-06T20:00:00+09:00",
+      "publishAt": "2026-10-31T20:30:00+09:00",
       "review": {
         "visual": {
           "status": "approved",
@@ -303,13 +303,13 @@
       },
       "approval": {
         "by": "user",
-        "at": "2026-10-28T00:30:47.698Z",
-        "contentSha256": "9a926be07ad6e373da3c7c917ec416690393684b80d5eb3c2f7dc9f1926fe61f"
+        "at": "2026-10-28T10:19:42.567Z",
+        "contentSha256": "3d7c6ec012397dbf86702ab37eca04eb818d65a9ec3a7b8a7fad193ff200ac26"
       },
       "times": {
         "rendered": "2026-10-28T00:30:57.088Z",
         "uploaded": "2026-10-28T00:43:52.434Z",
-        "scheduled": "2026-10-28T00:44:06.320Z"
+        "scheduled": "2026-10-28T10:19:42.567Z"
       },
       "delivery": {
         "inputSha256": "dddf5c1732dd0f55d415c78879ddc2296cddb1e459cfb96cdd6969c069b8a92f",
@@ -327,9 +327,9 @@
           "https://i9.ytimg.com/vi/gRUKhWDZJhk/fhddefault.jpg?sqp=COCIhdcG&rs=AOn4CLBLmpOKjAM81e2PHvCNgl7optTmmw"
         ],
         "thumbnailAcceptedAt": "2026-10-28T00:43:59.380Z",
-        "scheduleRequestedAt": "2026-10-28T00:44:01.344Z",
-        "scheduleAt": "2026-11-06T20:00:00+09:00",
-        "scheduledVerifiedAt": "2026-10-28T00:44:06.320Z"
+        "scheduleRequestedAt": "2026-10-28T10:19:42.567Z",
+        "scheduleAt": "2026-10-31T20:30:00+09:00",
+        "scheduledVerifiedAt": "2026-10-28T10:19:42.567Z"
       },
       "platform": {
         "id": "gRUKhWDZJhk",
@@ -378,7 +378,7 @@
         "scene-sheet": "pe-first-stage/pe1-tekisei-3shiten/youtube.longform/scene-sheet",
         "preview-metrics": "pe-first-stage/pe1-tekisei-3shiten/youtube.longform/preview-metrics"
       },
-      "publishAt": "2026-11-05T20:00:00+09:00",
+      "publishAt": "2026-10-31T14:30:00+09:00",
       "review": {
         "visual": {
           "status": "approved",
@@ -389,13 +389,13 @@
       },
       "approval": {
         "by": "user",
-        "at": "2026-10-27T22:25:17.915Z",
-        "contentSha256": "a7652a20132f5c3adb30c05db86cb47001ad14e40caa94598ca683860f429058"
+        "at": "2026-10-28T10:19:40.201Z",
+        "contentSha256": "b6d9ccfc3422e6b0277c024e4816f901185847a22d87866b716a8a2ddfc8137a"
       },
       "times": {
         "rendered": "2026-10-27T22:25:26.286Z",
         "uploaded": "2026-10-27T22:29:26.547Z",
-        "scheduled": "2026-10-27T22:29:34.928Z"
+        "scheduled": "2026-10-28T10:19:40.201Z"
       },
       "delivery": {
         "inputSha256": "5eeca13f8e4c580364f22023d1be24104ff92a1a4340c862267af04f11f23c4d",
@@ -413,9 +413,9 @@
           "https://i9.ytimg.com/vi/hevqxT9zH7A/fhddefault.jpg?sqp=CLzJhNcG&rs=AOn4CLDv6QZt6WKujpqaz6ZcHkT5Rsv4HQ"
         ],
         "thumbnailAcceptedAt": "2026-10-27T22:29:30.177Z",
-        "scheduleRequestedAt": "2026-10-27T22:29:31.235Z",
-        "scheduleAt": "2026-11-05T20:00:00+09:00",
-        "scheduledVerifiedAt": "2026-10-27T22:29:34.928Z"
+        "scheduleRequestedAt": "2026-10-28T10:19:40.201Z",
+        "scheduleAt": "2026-10-31T14:30:00+09:00",
+        "scheduledVerifiedAt": "2026-10-28T10:19:40.201Z"
       },
       "platform": {
         "id": "hevqxT9zH7A",
@@ -460,7 +460,7 @@
         "contact-sheet": "pe-first-stage/pe1-zentaizou/youtube.longform/contact-sheet"
       },
       "copy": "content/sns/video-packs/pe-first-stage/pe1-zentaizou/youtube.json#longform",
-      "publishAt": "2026-10-30T20:00:00+09:00",
+      "publishAt": "2026-10-29T14:30:00+09:00",
       "review": {
         "visual": {
           "status": "approved",
@@ -471,13 +471,13 @@
       },
       "approval": {
         "by": "user",
-        "at": "2026-10-26T12:43:27.419Z",
-        "contentSha256": "fe04187854d9c05e7b33980b82645082a5c8ef39d3354b6abd2570da6e7ea4e9"
+        "at": "2026-10-28T10:19:27.108Z",
+        "contentSha256": "9731eca2d04ceed409521e10db4e1eda611abe08ecbadd511fe4b0505aab17c8"
       },
       "times": {
         "rendered": "2026-10-26T13:18:57.200Z",
         "uploaded": "2026-10-26T13:41:43.382Z",
-        "scheduled": "2026-10-26T13:43:42.047Z"
+        "scheduled": "2026-10-28T10:19:27.108Z"
       },
       "delivery": {
         "inputSha256": "3f61529af7619d442a2feff63b802c08ce3a63489c8c228e969f91da5c51f4e8",
@@ -495,9 +495,9 @@
           "https://i9.ytimg.com/vi/xLQ5bqfUEOE/fhddefault.jpg?sqp=CLCw_dYG&rs=AOn4CLAPUE-oyMdhNynVmslxwZMOHlo6tA"
         ],
         "thumbnailAcceptedAt": "2026-10-26T13:41:47.189Z",
-        "scheduleRequestedAt": "2026-10-26T13:41:52.201Z",
-        "scheduleAt": "2026-10-30T20:00:00+09:00",
-        "scheduledVerifiedAt": "2026-10-26T13:43:46.213Z"
+        "scheduleRequestedAt": "2026-10-28T10:19:27.108Z",
+        "scheduleAt": "2026-10-29T14:30:00+09:00",
+        "scheduledVerifiedAt": "2026-10-28T10:19:27.108Z"
       },
       "platform": {
         "id": "xLQ5bqfUEOE",
