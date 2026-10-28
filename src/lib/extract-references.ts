@@ -17,10 +17,9 @@
  *   - 太字の `**` は描画しないので外す
  */
 
-export interface ReferencePart {
-  text: string;
-  url?: string;
-}
+import { inlineParts, stripBold, type InlinePart } from './inline-links';
+
+export type ReferencePart = InlinePart;
 
 export interface ReferenceItem {
   title: string;
@@ -77,10 +76,8 @@ function parseListItems(sectionBody: string): ReferenceItem[] {
   return items;
 }
 
-const LINK_RE = /\[([^\]]+)\]\(([^)\s]+)\)/g;
-
 function parseLine(rawBody: string): ReferenceItem {
-  const body = rawBody.replace(/\*\*(.+?)\*\*/g, '$1');
+  const body = stripBold(rawBody);
   // 形式: [title](url) followed by optional （source）
   const linkMatch = body.match(/^\[([^\]]+)\]\(([^)]+)\)(.*)$/);
 
@@ -104,15 +101,7 @@ function parseLine(rawBody: string): ReferenceItem {
 }
 
 function parseInlineLinks(body: string): ReferenceItem {
-  const parts: ReferencePart[] = [];
-  let last = 0;
-  for (const m of body.matchAll(LINK_RE)) {
-    const at = m.index ?? 0;
-    if (at > last) parts.push({ text: body.slice(last, at) });
-    parts.push({ text: m[1] ?? '', url: m[2] ?? '' });
-    last = at + m[0].length;
-  }
-  if (last < body.length) parts.push({ text: body.slice(last) });
+  const parts = inlineParts(body);
   return { title: parts.map((p) => p.text).join('').trim(), url: '', parts };
 }
 

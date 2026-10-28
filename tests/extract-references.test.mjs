@@ -31,3 +31,14 @@ test('行の途中のリンク・複数のリンクは parts に分け、記法�
   assert.deepEqual(b.parts, [{ text: 'X', url: '/docs/x' }, { text: '・' }, { text: 'Y', url: 'https://y' }]);
   for (const item of [a, b]) assert.doesNotMatch(item.title, /\]\(|\*\*/);
 });
+
+test('FAQ の回答など平文の [題](URL) と **太字** は文とリンクに分け、構造化データには記法を外した文を渡す', () => {
+  const cli = join(ROOT, 'node_modules/tsx/dist/cli.mjs');
+  const out = JSON.parse(execFileSync(process.execPath, [cli, '-e', `
+    import { inlineParts, inlinePlainText } from './src/lib/inline-links.ts';
+    const a = '本ページは [R8 候補テーマ予測](/docs/x) で抽出した **T8** です';
+    process.stdout.write(JSON.stringify({ parts: inlineParts(a), plain: inlinePlainText(a) }));
+  `], { cwd: ROOT, encoding: 'utf8' }));
+  assert.deepEqual(out.parts, [{ text: '本ページは ' }, { text: 'R8 候補テーマ予測', url: '/docs/x' }, { text: ' で抽出した T8 です' }]);
+  assert.equal(out.plain, '本ページは R8 候補テーマ予測 で抽出した T8 です');
+});
