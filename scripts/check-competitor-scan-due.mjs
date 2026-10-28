@@ -3,7 +3,8 @@
  * check-competitor-scan-due.mjs
  * ---------------------------------------------------------------------------
  * 競合の再取得（scout-*-competitors）が四半期サイクル（既定90日）に対して期限切れかを
- * 全チャネル（note / coconala / x / ig / youtube）と、資格キーワードでの市場スキャン（market）で機械判定する surfacer。
+ * 全チャネル（note / coconala / x / ig / youtube）と、資格キーワードでの市場スキャン（market）と、悩み別の外の調査（demand・
+ * config/demand-map.json の research）で機械判定する surfacer。
  * note / coconala は土曜の Mac の収集（weekly-collect の competitors 段・四半期の最初の土曜）が自動取得し、本 surfacer は
  * その失敗・停止の backstop（DN-0852。旧 competitor-scan.yml）。X はログイン済み個人セッションが
  * 必要なため、weekly-review-guard / weekly-review から手動期限を通知する。YouTube も手動（npm run scout-youtube-competitors）。
@@ -21,6 +22,9 @@
  */
 
 import { freshnessDays, latestFileDate } from './lib/datasets.mjs';
+import { readDatasetIf } from './lib/dataset-io.mjs';
+import { researchDue } from './lib/demand-map.mjs';
+import { todayJst } from './lib/jst-date.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
 
@@ -35,6 +39,8 @@ const PLATFORMS = {
   youtube: { dataset: 'youtube.competitors', review: 'npm run scout-youtube-competitors → docs/marketing/07c の再取得手順で前回と比べる' },
   // 資格ごとの混み具合（YouTube・note・ココナラの検索）。展開の判断（npm run qualification-market）が読む
   market: { dataset: 'analysis.qualification-market', review: 'npm run scan-qualification-market -- --coconala → /competitor-review で展開の判断を見直す' },
+  // 悩み別の外の調査（ディープリサーチ・競合の論点地図・需要の証拠）。前回の日と間隔は config/demand-map.json の research が持つ（1 回 1 資格）
+  demand: { dataset: 'config.demand-map', research: true, review: 'docs/strategy/21「悩みの軸」の運用の手順で次の資格を調べ、demand-map.json の research.runs に追記する（次の資格は npm run report-demand-map）' },
 };
 
 const args = process.argv.slice(2);
@@ -42,11 +48,15 @@ const WANT_JSON = args.includes('--json');
 const di = args.indexOf('--days');
 // しきい値はチャネルごとに台帳（scripts/lib/datasets.mjs）の freshness.warnDays。--days は全チャネルに掛ける一時的な上書き
 const DAYS_OVERRIDE = di >= 0 && args[di + 1] ? parseInt(args[di + 1], 10) || null : null;
-const thresholdOf = (dataset) => DAYS_OVERRIDE ?? freshnessDays(dataset, 'warnDays');
+const demandResearch = () => {
+  const map = readDatasetIf(ROOT, 'config.demand-map');
+  return map?.research ? researchDue(map, todayJst()) : null;
+};
+const thresholdOf = (dataset) => DAYS_OVERRIDE ?? (dataset === 'config.demand-map' ? demandResearch()?.intervalDays ?? 90 : freshnessDays(dataset, 'warnDays'));
 const pi = args.indexOf('--platform');
 const ONLY = pi >= 0 && args[pi + 1] ? args[pi + 1] : null;
 
-const latestScanDate = (dataset) => latestFileDate(ROOT, dataset);
+const latestScanDate = (dataset) => (dataset === 'config.demand-map' ? demandResearch()?.last?.date ?? null : latestFileDate(ROOT, dataset));
 
 const platforms = ONLY ? { [ONLY]: PLATFORMS[ONLY] } : PLATFORMS;
 if (ONLY && !PLATFORMS[ONLY]) {

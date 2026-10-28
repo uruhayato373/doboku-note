@@ -1,0 +1,856 @@
+{
+  "schemaVersion": 1,
+  "_doc": "悩みと商品候補の地図（正本）。配線は「悩み → 立場 → 資格・テーマ・法令 → 商品」の順。pains＝悩み（HARM・深さ・需要の証拠・ハブの候補）、positions＝立場（公開したものは src/config/topics.json の facet: audience のテーマ）、candidates＝商品候補（類似／差別の軸・需要の証拠・指標・判定日・停止条件。販売を始めたら productIds で実売を引く）。打ち手（ハブ・導線の実験）は data/business/experiments.json に置き、demand.painId でここの悩みを指す。判断の考え方は docs/strategy/21_分類の軸と回遊の配線2026-10.md「悩みの軸」、競合と需要の証拠は docs/strategy/09_販売チャネル競合分析.md §F。evidence は観測した事実だけを書き、仮説は hypothesis、取れなかった値は unverified に書く（推測を確定値にしない）。管理画面 戦略＞資格と市場＞悩みと商品候補（/strategy/demand）が表示する。research＝外の調査の順番と記録（四半期・1 回 1 資格）。毎月は npm run report-demand-map で判定日と悩みの検索語を読む（月次レビュー）。",
+  "updatedAt": "2026-10-28",
+  "pains": [
+    {
+      "id": "pass-exam",
+      "label": "資格を取りたい（試験に受かりたい）",
+      "harm": [
+        "A"
+      ],
+      "depth": "core",
+      "why": "売上のほぼ全部が試験対策の教材。読者が自分で払う理由（合格）がはっきりしている。",
+      "phrases": [
+        "技術士 難易度",
+        "経験記述 書き方",
+        "不合格 理由",
+        "独学 勉強法",
+        "論文 添削",
+        "業務内容の詳細 書き方"
+      ],
+      "evidence": [
+        {
+          "kind": "sales",
+          "summary": "note の売上は試験対策の教材だけで成り立っている。資格別では建設部門・総監・1級土木の順",
+          "value": "342 件・¥752,840（資格別: 建設部門 ¥300,000・総監 ¥247,560・1級土木 ¥162,760・2級土木 ¥57,660）",
+          "source": "data/note/sales.json（2026-05-11〜2026-10-24）・資格別は npm run qualification-market（product-lineup.json で資格へ写した値）",
+          "observedAt": "2026-10-28"
+        },
+        {
+          "kind": "gsc",
+          "summary": "勉強・難易度・合格率・参考書の検索語が表示とクリックの大半",
+          "value": "85 語・表示 388・クリック 20（全体は 1,482 語・表示 9,295・クリック 376）",
+          "source": "data/gsc/reports/2026-10-23.json#query（2026-09-22〜10-19）",
+          "observedAt": "2026-10-28"
+        },
+        {
+          "kind": "research",
+          "summary": "技術士の受験者は『題意から外れる』『専門の深掘りに偏る』『業務経歴の棚卸しができない』『添削の返却が遅い・抽象的』を悩みに挙げる",
+          "source": "https://gijutsushi-goukaku.jp/2025/11/04/ ・https://kay-sokan.pro/ ・https://jobhouse.jp/construction/columns/1594（NotebookLM ディープリサーチで収集）",
+          "observedAt": "2026-10-28"
+        },
+        {
+          "kind": "research",
+          "summary": "1級土木の経験記述は『書ける工事がない・小さい』『合格水準か自分で判断できない』『2テーマ化への不安』『教えてくれる先輩がいない』",
+          "source": "https://sekokan-base.com/articles/detail/2669/ ・https://kensetsu-data.co.jp/journal/post-7759/ ・https://note.com/chic_emu3929/n/n21a15f157bc2（NotebookLM ディープリサーチで収集）",
+          "observedAt": "2026-10-28"
+        },
+        {
+          "kind": "video",
+          "summary": "YouTube 競合の動画で語られる受験者の悩みは「業務内容の詳細が書けない」「自分の業務が技術士らしい課題にならない」「口頭で詰まる」「問題と課題の区別がつかない」が多い（コメントは未取得）",
+          "value": "5 チャンネル・50 本の要約",
+          "source": "YouTube 競合 5 チャンネルの通常動画（再生数は動画ページを yt-dlp で取得・416 本。題名の語で機械分類）。調査メモ docs/strategy/09 §F",
+          "observedAt": "2026-10-28"
+        }
+      ],
+      "hubs": [
+        {
+          "title": "技術士（建設部門）に受かるまでの地図：一次 → 必須・選択 → 業務内容の詳細 → 口頭",
+          "status": "idea",
+          "positions": [
+            "general-contractor",
+            "consultant-engineer",
+            "municipal-civil-engineer"
+          ],
+          "note": "既存の資格トップ /exam/pe-construction と役割が重なる。作るなら資格トップの強化として扱い、別 URL にしない（食い合い防止）"
+        }
+      ]
+    },
+    {
+      "id": "change-job",
+      "label": "転職したい（施工管理から発注者側・コンサルへ）",
+      "harm": [
+        "A",
+        "M"
+      ],
+      "depth": "core",
+      "why": "転職アフィリエイト（記事 45 本）と資格教材の両方につながる。立場を変えたい人は、移る先で効く資格（1級土木・技術士・RCCM）の教材を買う理由がある。",
+      "phrases": [
+        "施工管理から転職",
+        "施工管理 辞めたい",
+        "発注者支援 転職",
+        "土木 公務員 転職",
+        "建設コンサル 転職"
+      ],
+      "evidence": [
+        {
+          "kind": "gsc",
+          "summary": "転職・公務員・エージェントの語は表示があるのにクリックがほぼ無い",
+          "value": "39 語・表示 185・クリック 4。『施工管理から転職』表示 16・平均 20.4 位、『施工管理 転職エージェント』表示 12・37.9 位",
+          "source": "data/gsc/reports/2026-10-23.json#query（2026-09-22〜10-19）",
+          "observedAt": "2026-10-28"
+        },
+        {
+          "kind": "research",
+          "summary": "移る方向は 施工管理 → 発注者支援・自治体・建設コンサル・インフラ会社が中心。異業種への転職は資格と経験が生きず年収が下がる例が挙がる",
+          "source": "https://sekokan-base.com/articles/detail/34/ ・https://8shigyo.com/contents/96 ・https://www.kenchiku-kyujin.jp/column2/reason-for-leaving（転職メディアの記載・NotebookLM ディープリサーチで収集）",
+          "observedAt": "2026-10-28"
+        }
+      ],
+      "hypothesis": "『発注者側の仕事が自分にできるか』『移る先でどの資格が要るか』は、元自治体の土木職で発注者として 20 年以上働いた運営者だけが一次情報で答えられる。転職メディアは求人の紹介が目的で、発注者の仕事の中身を書けていない（09 §F の空白）。",
+      "hubs": [
+        {
+          "title": "施工管理から発注者側（自治体・発注者支援・コンサル）へ移りたい人の地図：仕事の中身・要る資格・移り方",
+          "status": "idea",
+          "positions": [
+            "career-changer",
+            "general-contractor",
+            "municipal-civil-engineer"
+          ],
+          "note": "キャリア記事 45 本のうち転職先の柱（career-path）を束ねる。中身の薄いハブは検索に出さない（doc 21 の昇格基準）"
+        }
+      ]
+    },
+    {
+      "id": "raise-pay",
+      "label": "給料を上げたい（資格で年収・手当を上げたい）",
+      "harm": [
+        "M"
+      ],
+      "depth": "core",
+      "why": "資格を取る動機そのもの。『技術士で年収は上がるか』『1級と2級の差』は試験対策の入口になる。",
+      "phrases": [
+        "土木施工管理技士 年収",
+        "技術士 年収",
+        "技術士 資格手当",
+        "1級 2級 年収 差"
+      ],
+      "evidence": [
+        {
+          "kind": "gsc",
+          "summary": "年収の語は上位に出ているがクリックが無い",
+          "value": "6 語・表示 28・クリック 0。『土木施工管理技士 年収』表示 14・平均 5.8 位",
+          "source": "data/gsc/reports/2026-10-23.json#query（2026-09-22〜10-19）",
+          "observedAt": "2026-10-28"
+        },
+        {
+          "kind": "research",
+          "summary": "技術士の資格手当は月 2〜3 万円、取得の一時金 10〜30 万円の例。1級土木は月 1〜3 万円",
+          "value": "企業の公開例: JR東海コンサルタンツ 月 2 万円・一時金 20 万円",
+          "source": "https://jobhouse.jp/construction/columns/1581 ・https://www.jrcc.co.jp/recruit/work_style/welfare.php ・https://sekokan-base.com/articles/detail/291/",
+          "observedAt": "2026-10-28"
+        }
+      ],
+      "hypothesis": "年収・手当の相場は転職メディアが既に書いており、相場の記事では差がつかない。差がつくのは『その資格で何の役（管理技術者・照査・監理技術者）に就けるか』と、そこへの最短の受け方。",
+      "hubs": [
+        {
+          "title": "技術士を取って給料を上げたい人の地図：手当・就ける役・受け方の順番",
+          "status": "idea",
+          "positions": [
+            "consultant-engineer",
+            "general-contractor"
+          ],
+          "note": "pass-exam のハブと役割を分けられるかを運営者が判断する（同じ読み手なら 1 本にまとめる）"
+        }
+      ]
+    },
+    {
+      "id": "work-skill",
+      "label": "仕事ができるようになりたい（実務の段取り・判断）",
+      "harm": [
+        "A"
+      ],
+      "depth": "core",
+      "why": "実務記事（自治体の土木担当シリーズ・共通仕様書）の読み手。今は有料商品が無く、試験の答案の題材（自分の業務の課題）と重なる。",
+      "phrases": [
+        "施工計画 書き方",
+        "監督員 仕事",
+        "設計変更 進め方",
+        "現場 段取り"
+      ],
+      "evidence": [
+        {
+          "kind": "gsc",
+          "summary": "『仕事ができない・向いていない』型の検索語はほとんど表示されていない",
+          "value": "3 語・表示 4",
+          "source": "data/gsc/reports/2026-10-23.json#query（2026-09-22〜10-19）",
+          "observedAt": "2026-10-28"
+        },
+        {
+          "kind": "research",
+          "summary": "施工管理の退職理由に『業務過多・QCDS の責任の重さ・処理しきれない不安』が挙がる",
+          "source": "https://www.kenchiku-kyujin.jp/column2/reason-for-leaving（NotebookLM ディープリサーチで収集）",
+          "observedAt": "2026-10-28"
+        }
+      ],
+      "hypothesis": "実務の悩みは検索語としては『仕事ができない』ではなく作業名（設計変更・施工計画書・監督）で表れる。実務記事への流入は作業名で測る（未計測）。有料化は試験の答案の題材づくり（自分の業務を課題に言い換える）と組み合わせると買う理由ができる。"
+    },
+    {
+      "id": "relationships",
+      "label": "人間関係（職人・上司・発注者との板挟み）",
+      "harm": [
+        "R"
+      ],
+      "depth": "shallow",
+      "why": "kazu-note（公務員ノート）と読者・役割が重なる。土木ノートでは転職の理由の一つとして転職記事の中で触れるにとどめ、ハブ・商品は作らない。",
+      "phrases": [
+        "施工管理 人間関係",
+        "職人 怖い",
+        "発注者 板挟み"
+      ],
+      "evidence": [
+        {
+          "kind": "research",
+          "summary": "施工管理の退職理由に関係者の板挟み・職人との関係が挙がる",
+          "source": "https://www.kenchiku-kyujin.jp/column2/reason-for-leaving（NotebookLM ディープリサーチで収集）",
+          "observedAt": "2026-10-28"
+        }
+      ]
+    },
+    {
+      "id": "better-life",
+      "label": "もっといい生活をしたい（休み・転勤・家族との時間）",
+      "harm": [
+        "M",
+        "H"
+      ],
+      "depth": "shallow",
+      "why": "kazu-note と読者が重なる。転職したい（change-job）の動機として扱い、単独のハブ・商品は作らない。",
+      "phrases": [
+        "施工管理 休み",
+        "転勤 なし 土木",
+        "ホワイト 土木"
+      ],
+      "evidence": [
+        {
+          "kind": "research",
+          "summary": "転勤・長時間労働・休日の電話対応が施工管理を辞める理由の上位に挙がる",
+          "source": "https://sekokan-base.com/articles/detail/34/（NotebookLM ディープリサーチで収集）",
+          "observedAt": "2026-10-28"
+        }
+      ]
+    }
+  ],
+  "positions": [
+    {
+      "id": "municipal-civil-engineer",
+      "label": "自治体の土木職（発注者）",
+      "status": "live",
+      "topic": "municipal-civil-engineers",
+      "pains": [
+        "pass-exam",
+        "work-skill",
+        "change-job"
+      ],
+      "evidence": [
+        {
+          "kind": "gsc",
+          "summary": "土木公務員クラスターの検索語",
+          "value": "21 語・表示 101・クリック 4",
+          "source": "src/config/topics.json の demandEvidence（report-search-opportunities 2026-10-21）",
+          "observedAt": "2026-10-21"
+        },
+        {
+          "kind": "sales",
+          "summary": "総監の自治体ペルソナの論文マガジンが売れている",
+          "value": "9 件・¥14,960",
+          "source": "data/note/sales.json（productId に municipality を含む・2026-05-11〜10-24）",
+          "observedAt": "2026-10-28"
+        }
+      ]
+    },
+    {
+      "id": "general-contractor",
+      "label": "ゼネコン・施工会社の施工管理",
+      "status": "candidate",
+      "pains": [
+        "pass-exam",
+        "raise-pay",
+        "change-job"
+      ],
+      "evidence": [
+        {
+          "kind": "sales",
+          "summary": "総監のゼネコンのペルソナの論文マガジンが売れている",
+          "value": "3 件・¥7,440",
+          "source": "data/note/sales.json（essay-general-contractor-magazine）",
+          "observedAt": "2026-10-28"
+        },
+        {
+          "kind": "research",
+          "summary": "1級土木の受験者の多くが施工会社の現場代理人・主任技術者。経験記述で立場と権限の書き分けに迷う",
+          "source": "https://enwell-works.com/1kyu-doboku-keiken-kijutsu-2026/（NotebookLM ディープリサーチで収集）",
+          "observedAt": "2026-10-28"
+        }
+      ],
+      "note": "読み手の数は最大だが、記事に立場のタグ（`施工会社` など）が無く、テーマにするには記事の束が要る。昇格は doc 21 の基準（三方向のうち 2 方向）で判断する。"
+    },
+    {
+      "id": "consultant-engineer",
+      "label": "建設コンサル会社の技術者",
+      "status": "candidate",
+      "pains": [
+        "pass-exam",
+        "raise-pay"
+      ],
+      "evidence": [
+        {
+          "kind": "sales",
+          "summary": "建設部門の選択科目マガジン（道路・トンネル・鉄道・都市計画・鋼コン・土質など）が科目ごとに 5〜12 件ずつ売れている。読み手の多くはコンサルと推測（購入者の勤め先は記録していない）",
+          "value": "建設部門 ¥300,000（売上は 6〜7 月に集中し 8 月以降に急減）",
+          "source": "npm run qualification-market・data/note/sales.json（bk-*・pe-construction-*）",
+          "observedAt": "2026-10-28"
+        },
+        {
+          "kind": "sales",
+          "summary": "総監のコンサルのペルソナの論文マガジンが売れている",
+          "value": "5 件・¥12,400",
+          "source": "data/note/sales.json（productId に consultant を含む）",
+          "observedAt": "2026-10-28"
+        },
+        {
+          "kind": "research",
+          "summary": "技術士は建設コンサルの管理技術者・照査技術者の要件で、昇進・手当に直結すると転職メディアが書く",
+          "source": "https://8shigyo.com/contents/132 ・https://jobhouse.jp/construction/columns/1581",
+          "observedAt": "2026-10-28"
+        }
+      ],
+      "note": "購入者の立場は記録していないので、商品の売れ方から立場を推すのは仮説。RCCM（2026-09 から展開）も同じ読み手。"
+    },
+    {
+      "id": "young-engineer",
+      "label": "若手（20代・経験 5 年未満）",
+      "status": "candidate",
+      "pains": [
+        "pass-exam",
+        "work-skill",
+        "change-job"
+      ],
+      "evidence": [
+        {
+          "kind": "research",
+          "summary": "令和 6 年度の受検資格の見直しで 19 歳以上が第一次検定を受けられ、若手が経験記述で小さな工事・立場の不明な工事を選びがち",
+          "source": "https://sekokan-base.com/articles/detail/7138/（NotebookLM ディープリサーチで収集）",
+          "observedAt": "2026-10-28"
+        }
+      ],
+      "note": "既存の記事 civil-construction-2/guide-young-career がある。2級土木・技術士一次の入口と重なる。"
+    },
+    {
+      "id": "career-changer",
+      "label": "施工管理から転職を考える人",
+      "status": "candidate",
+      "pains": [
+        "change-job",
+        "raise-pay",
+        "better-life"
+      ],
+      "evidence": [
+        {
+          "kind": "gsc",
+          "summary": "転職の高意図語は表示 221・クリック 4",
+          "value": "表示 221・クリック 4",
+          "source": "data/analysis/career-funnel.md（GSC 2026-09-22〜10-19）",
+          "observedAt": "2026-10-22"
+        },
+        {
+          "kind": "ga4",
+          "summary": "キャリア記事 45 本のうち 28 本が GA4 の上位ページに入る",
+          "value": "28 / 45 本",
+          "source": "data/analysis/career-funnel.md",
+          "observedAt": "2026-10-22"
+        }
+      ],
+      "note": "転職アフィリエイトの読み手。立場のテーマにするなら、キャリア記事の柱 career-path（config/career-funnel.json）を束ねる。"
+    }
+  ],
+  "candidates": [
+    {
+      "id": "PC-001",
+      "title": "口頭試験の想定問答と準備ロードマップ（既存 note を筆記合格発表に合わせて売る）",
+      "qualification": "pe-construction",
+      "pain": "pass-exam",
+      "positions": [
+        "consultant-engineer",
+        "general-contractor",
+        "municipal-civil-engineer"
+      ],
+      "axis": "similar",
+      "harm": [
+        "A"
+      ],
+      "readerProblem": "筆記に受かった後、口頭で何を聞かれ、業務内容の詳細を2分でどう話すかが分からない",
+      "value": "改訂コンピテンシーの試問事項ごとの想定問答と、合格発表から当日までの週ごとの準備",
+      "payReason": "試問事項は公表されているが、自分の業務に当てはめた答え方と落ちる答え方の型は無料では揃わない",
+      "format": "note 単品（既存）",
+      "priceIdea": "¥1,980（現行）",
+      "demandEvidence": [
+        {
+          "kind": "competitor",
+          "summary": "ココナラの技術士の口頭試験の出品が多く、レビューが付いている",
+          "value": "31 出品・価格の中央値 ¥3,000・レビュー計 84 件",
+          "source": "data/coconala/market-research.json（2026-10-26 取得・タイトルに「技術士」を含む出品を領域別に集計）",
+          "observedAt": "2026-10-28"
+        },
+        {
+          "kind": "competitor",
+          "summary": "note の最大手が口頭試験対策を高価格のマガジンで売っている",
+          "value": "¥46,810",
+          "source": "data/note/competitors/2026-10-25.json（sosou_nino）",
+          "observedAt": "2026-10-28"
+        },
+        {
+          "kind": "sales",
+          "summary": "自社の既存商品は筆記合格発表の前でまだ 1 件",
+          "value": "1 件・¥1,980",
+          "source": "data/note/sales.json（pe-construction-oral-guide・2026-10-12）",
+          "observedAt": "2026-10-28"
+        },
+        {
+          "kind": "video",
+          "summary": "口頭試験の動画は本数が多い（需要があり、競合も厚い）",
+          "value": "68 本・合計再生 140,913・中央値 817",
+          "source": "YouTube 競合 5 チャンネルの通常動画（再生数は動画ページを yt-dlp で取得・416 本。題名の語で機械分類）。調査メモ docs/strategy/09 §F",
+          "observedAt": "2026-10-28"
+        }
+      ],
+      "unverified": [
+        "口頭試験の時期（11〜1 月）に何件売れるか（前年の自社実績が無い）",
+        "note の記事から買った人の流入元（note の販売に UTM が残らない）"
+      ],
+      "metric": "pe-construction-oral-guide の note 販売件数（2026-11-04〜2027-01-31）と、建設部門の資格トップ・必須Ⅰの記事からの note CTA クリック（GA4 note_cta_click）",
+      "judgeDate": "2027-02-05",
+      "stopCondition": "12/20 までに商品ページへのクリックが 100 件あって販売が 0 件なら、訴求と価格を見直す（作り足さない）",
+      "nextCheck": "11/4 の筆記合格発表の前に、建設部門の資格トップと必須Ⅰ・選択科目の記事に口頭試験への導線があるかを確かめる",
+      "status": "live",
+      "productIds": [
+        "pe-construction-oral-guide"
+      ],
+      "experimentId": "EXP-047",
+      "card": "DN-0902"
+    },
+    {
+      "id": "PC-002",
+      "title": "口頭試験の想定質問を、受験者の業務内容の詳細から作る（ココナラ・再出品の検討）",
+      "qualification": "pe-construction",
+      "pain": "pass-exam",
+      "positions": [
+        "consultant-engineer",
+        "general-contractor",
+        "municipal-civil-engineer"
+      ],
+      "axis": "similar",
+      "harm": [
+        "A"
+      ],
+      "readerProblem": "自分の業務内容の詳細から、どこを突っ込まれるかが自分では見えない",
+      "value": "本人の事実から想定質問と答えの骨子を返す（創作しない）",
+      "payReason": "想定問答集は汎用で、自分の経歴に当てた質問は人にしか作れない",
+      "format": "ココナラ（テキスト完結）",
+      "priceIdea": "¥5,000（アーカイブ前の価格）",
+      "demandEvidence": [
+        {
+          "kind": "competitor",
+          "summary": "建設部門の口頭試験の出品者が累計で販売を積んでいる",
+          "value": "沢村大輝 累計 113 件・YOSHI＠技術士 累計 98 件（プロフィールの累計・口頭以外を含む）",
+          "source": "data/coconala/competitors/2026-10-01.json",
+          "observedAt": "2026-10-28"
+        },
+        {
+          "kind": "competitor",
+          "summary": "口頭試験の出品のレビュー",
+          "value": "31 出品・レビュー計 84 件",
+          "source": "data/coconala/market-research.json（2026-10-26 取得・タイトルに「技術士」を含む出品を領域別に集計）",
+          "observedAt": "2026-10-28"
+        }
+      ],
+      "unverified": [
+        "2026-09-25 に 2 出品をアーカイブした理由（コミットに記録が無い）",
+        "運営者の受注の稼働（11〜1 月に何件受けられるか）"
+      ],
+      "metric": "ココナラの閲覧・お気に入り・受注件数（npm run coconala-analytics）",
+      "judgeDate": "2027-01-31",
+      "stopCondition": "出品から 30 日で閲覧 100 件・受注 0 件なら再びアーカイブする",
+      "nextCheck": "運営者にアーカイブの理由と稼働を確かめ、再出品するかを決める（公開は運営者の承認）",
+      "status": "idea",
+      "card": "DN-0903"
+    },
+    {
+      "id": "PC-003",
+      "title": "業務内容の詳細（720字）を自分の業務から組み立てる型と添削",
+      "qualification": "pe-construction",
+      "pain": "pass-exam",
+      "positions": [
+        "consultant-engineer",
+        "general-contractor",
+        "municipal-civil-engineer"
+      ],
+      "axis": "similar",
+      "harm": [
+        "A"
+      ],
+      "readerProblem": "自分の業務が技術士にふさわしい課題になっているか、720字に何を書けばよいかが分からない（口頭試験はこの記述から聞かれる）",
+      "value": "業務を「立場・課題・技術的な提案・成果」に言い換える型と、添削で直すところ",
+      "payReason": "経歴票は人ごとに違い、汎用の例文では足りない。申込の前（3〜4 月）に書き直せる時間は短い",
+      "format": "note 単品（型）＋ココナラ（添削）",
+      "priceIdea": "note ¥1,480・ココナラ ¥3,000〜4,000",
+      "demandEvidence": [
+        {
+          "kind": "competitor",
+          "summary": "ココナラの経歴票・申込書の出品",
+          "value": "11 出品・価格の中央値 ¥3,000・レビュー計 36 件（YOSHI＠技術士 21 件）",
+          "source": "data/coconala/market-research.json（2026-10-26 取得・タイトルに「技術士」を含む出品を領域別に集計）",
+          "observedAt": "2026-10-28"
+        },
+        {
+          "kind": "research",
+          "summary": "受験者の悩みに「業務経歴の棚卸し（課題や工夫の言語化）ができない」が挙がる",
+          "source": "https://jobhouse.jp/construction/columns/1594（NotebookLM ディープリサーチで収集）",
+          "observedAt": "2026-10-28"
+        },
+        {
+          "kind": "video",
+          "summary": "業務内容の詳細（実務経験証明書）の動画は本数が少ないのに再生が集まる",
+          "value": "10 本・合計再生 26,541。申込み直前の注意点の動画が 10,846 回",
+          "source": "https://www.youtube.com/watch?v=gOAXFvL4IIo ・YouTube 競合 5 チャンネルの通常動画（再生数は動画ページを yt-dlp で取得・416 本。題名の語で機械分類）。調査メモ docs/strategy/09 §F",
+          "observedAt": "2026-10-28"
+        }
+      ],
+      "unverified": [
+        "令和9年度の受験申込書の様式（R8 から変わるか）",
+        "note で型だけを買う人がいるか（自社の実績なし）"
+      ],
+      "metric": "note の販売件数とココナラの受注件数（2027-02-01〜04-15）",
+      "judgeDate": "2027-04-30",
+      "stopCondition": "申込締切（4 月中旬）までに note の販売 3 件未満・ココナラ受注 0 件なら翌年は作り足さない",
+      "nextCheck": "令和9年度の受験申込案内の公開（例年 12〜1 月）を待って様式を確かめる",
+      "status": "idea",
+      "card": "DN-0911"
+    },
+    {
+      "id": "PC-004",
+      "title": "必須科目I 模範解答集の令和9年度版への更新",
+      "qualification": "pe-construction",
+      "pain": "pass-exam",
+      "positions": [
+        "consultant-engineer",
+        "general-contractor",
+        "municipal-civil-engineer"
+      ],
+      "axis": "similar",
+      "harm": [
+        "A"
+      ],
+      "readerProblem": "必須Iは全員が受ける科目で、毎年の新しい出題（国の計画・施策）に合わせた答案が欲しい",
+      "value": "過去問の模範解答と次年度の予想を、改訂コンピテンシーに合わせて毎年更新する",
+      "payReason": "問題は公表されるが模範解答は公表されない。競合は年 1 回の更新で高い価格を付けている",
+      "format": "note マガジン（既存）",
+      "priceIdea": "現行価格を維持（競合 ¥9,500）",
+      "demandEvidence": [
+        {
+          "kind": "sales",
+          "summary": "建設部門で最も売れている商品",
+          "value": "16 件・約 ¥55,680",
+          "source": "data/note/sales.json（pe-construction-required-magazine と bk-i-required-essay-magazine）",
+          "observedAt": "2026-10-28"
+        },
+        {
+          "kind": "competitor",
+          "summary": "競合の必須の問題別模範解答の価格",
+          "value": "¥9,500",
+          "source": "data/note/competitors/2026-10-25.json（gijyutsushi）",
+          "observedAt": "2026-10-28"
+        }
+      ],
+      "unverified": [
+        "令和9年度の出題の傾向（国の計画の改定）"
+      ],
+      "metric": "必須Iの 2 商品の note 販売件数（2027-05-01〜07-31）を前年同期と比べる",
+      "judgeDate": "2027-08-15",
+      "stopCondition": "前年同期の半分を下回ったら、更新の範囲と価格を見直す",
+      "nextCheck": "建設部門の noteコンテンツ計画.md に R9 更新の時期（2027 年 4 月まで）が入っているかを確かめる",
+      "status": "live",
+      "productIds": [
+        "pe-construction-required-magazine"
+      ],
+      "salesIds": [
+        "bk-i-required-essay-magazine"
+      ],
+      "card": "DN-0914"
+    },
+    {
+      "id": "PC-005",
+      "title": "筆記論文の添削（ココナラ・運営者の合格科目に限る）",
+      "qualification": "pe-construction",
+      "pain": "pass-exam",
+      "positions": [
+        "consultant-engineer",
+        "general-contractor",
+        "municipal-civil-engineer"
+      ],
+      "axis": "similar",
+      "harm": [
+        "A"
+      ],
+      "readerProblem": "自分の論文のどこが題意から外れているか、自分では分からない。大手の添削は高く、返ってくるのが遅い",
+      "value": "題意・発注者の視点・トレードオフの書き方に絞った添削を、返却の期限を決めて返す",
+      "payReason": "大手講座は 3〜23 万円で回数に上限がある。個人の添削は安いが質がばらつく",
+      "format": "ココナラ",
+      "priceIdea": "¥3,000〜6,500（1 通・返却期限つき）",
+      "demandEvidence": [
+        {
+          "kind": "competitor",
+          "summary": "ココナラの技術士の論文添削は出品・レビューとも最多",
+          "value": "65 出品・価格の中央値 ¥3,000・レビュー計 380 件（YOSHI＠技術士 61 件）",
+          "source": "data/coconala/market-research.json（2026-10-26 取得・タイトルに「技術士」を含む出品を領域別に集計）",
+          "observedAt": "2026-10-28"
+        },
+        {
+          "kind": "competitor",
+          "summary": "通信講座の価格帯",
+          "value": "¥29,700〜¥232,960",
+          "source": "https://www.agaroot.jp/gijyutsu/column/school-comparison/（運営がアガルートの比較ページ）",
+          "observedAt": "2026-10-28"
+        }
+      ],
+      "unverified": [
+        "運営者の添削の稼働（6〜7 月に何通返せるか）",
+        "合格科目外（道路・港湾以外）の論文を受けるか"
+      ],
+      "metric": "ココナラの受注件数と評価（2027-04-01〜07-15）",
+      "judgeDate": "2027-07-31",
+      "stopCondition": "稼働が週 3 時間を超えるか、評価 4.5 未満が 2 件出たら受付を絞る",
+      "nextCheck": "運営者が受ける科目と稼働の上限を決める（工数の判断は運営者）",
+      "status": "idea",
+      "card": "DN-0903"
+    },
+    {
+      "id": "PC-006",
+      "title": "施工会社・コンサルの技術者が、自分の業務を発注者の目で課題に言い換える（論文と業務内容の詳細）",
+      "qualification": "pe-construction",
+      "pain": "pass-exam",
+      "positions": [
+        "general-contractor",
+        "consultant-engineer"
+      ],
+      "axis": "differentiated",
+      "harm": [
+        "A"
+      ],
+      "readerProblem": "専門の工夫を詳しく書くほど「部分最適」と見られる。発注者が事業全体で何を課題と見るかが、施工会社・コンサルの立場からは見えない",
+      "value": "自治体で道路・港湾の計画・設計・工事監督を 20 年以上担った運営者が、発注者の判断の順番（必要性・制約・費用・説明責任）で業務を言い換える例と手順",
+      "payReason": "受験講座の講師の多くはコンサル・メーカー出身で、発注者の判断を一次で書ける売り手が見当たらない。自分の業務に当てる手順は無料記事では足りない",
+      "format": "note 単品（立場別の例つき）",
+      "priceIdea": "¥2,980",
+      "demandEvidence": [
+        {
+          "kind": "research",
+          "summary": "不合格の理由に「専門技術の深掘りに偏り、事業全体の調整を書いていない（部分最適）」が挙がる",
+          "source": "https://gijutsushi-goukaku.jp/2025/11/04/ ・https://gijyutushijyuken.com/2022/10/21/4917/（NotebookLM ディープリサーチで収集）",
+          "observedAt": "2026-10-28"
+        },
+        {
+          "kind": "competitor",
+          "summary": "note・ココナラの建設部門の出品に「発注者の視点」を売りにした商品が見当たらない（タイトルの語で確認）",
+          "value": "該当 0 件",
+          "source": "data/note/competitors/2026-10-25.json・data/coconala/market-research.json（2026-10-26 取得・タイトルに「技術士」を含む出品を領域別に集計）",
+          "observedAt": "2026-10-28"
+        },
+        {
+          "kind": "owner",
+          "summary": "運営者は技術士（建設・総監）・1級土木施工管理技士で、自治体で道路・港湾の計画設計と工事監督を 20 年以上担った",
+          "source": "src/config/author.ts（資格の正本）と運営者の申告（2026-10-28 の壁打ち。在職年数は author.ts に未記載）",
+          "observedAt": "2026-10-28"
+        },
+        {
+          "kind": "video",
+          "summary": "競合の動画は題意の読み方と課題の型までで、発注者（行政）の判断の順番を具体的に扱う動画が見当たらない（NotebookLM に入れた 50 本の要約と題名で判定。動画本体は全部は見ていない）",
+          "value": "50 本中 0 本",
+          "source": "YouTube 競合 5 チャンネルの通常動画（再生数は動画ページを yt-dlp で取得・416 本。題名の語で機械分類）。調査メモ docs/strategy/09 §F",
+          "observedAt": "2026-10-28"
+        }
+      ],
+      "unverified": [
+        "この切り口に払う人がいるか（悩みの一次情報は二次資料経由）"
+      ],
+      "metric": "note の販売件数（公開から 90 日）と、建設部門の記事からの CTA クリック",
+      "judgeDate": "2027-07-31",
+      "stopCondition": "公開から 90 日で商品ページのクリック 150 件・販売 3 件未満なら、単品をやめて必須I・選択科目のマガジンの章に入れる",
+      "nextCheck": "無料記事で「発注者が課題と見る順番」を 1 本出し、クリックと滞在を見てから有料を作る",
+      "status": "idea",
+      "card": "DN-0908"
+    },
+    {
+      "id": "PC-007",
+      "title": "施工管理から発注者側（自治体・発注者支援・建設コンサル）へ移る手引き：仕事の中身・要る資格・職務経歴書",
+      "qualification": "civil-construction-1",
+      "pain": "change-job",
+      "positions": [
+        "career-changer",
+        "general-contractor"
+      ],
+      "axis": "differentiated",
+      "harm": [
+        "A",
+        "M"
+      ],
+      "readerProblem": "発注者側の仕事が自分にできるか、移った後に何をするのか、どの資格があれば通るのかが分からない",
+      "value": "発注者として 20 年以上働いた運営者が、監督員・積算・設計変更・検査の実際と、施工管理の経験がどこで生きるかを書く。要る資格（1級土木・技術士・RCCM）の順番を示す",
+      "payReason": "転職メディアは求人の紹介が目的で、発注者の仕事の中身を当事者の目で書いていない",
+      "format": "note 単品＋サイトの無料記事（転職アフィリエイトの導線と分ける）",
+      "priceIdea": "¥1,980",
+      "demandEvidence": [
+        {
+          "kind": "qa",
+          "summary": "知恵袋の技術士の転職・年収の相談が多い",
+          "value": "「技術士 転職」約 5,299 件・「技術士 年収」約 2,291 件（50 代でコンサルへ転職した場合の年収の質問が閲覧 16,097 回）",
+          "source": "https://chiebukuro.yahoo.co.jp/search?p=技術士+転職&type=smt",
+          "observedAt": "2026-10-28"
+        },
+        {
+          "kind": "gsc",
+          "summary": "『施工管理から転職』は表示があるのに 20 位前後",
+          "value": "表示 16・平均 20.4 位",
+          "source": "data/gsc/reports/2026-10-23.json#query（2026-09-22〜10-19）",
+          "observedAt": "2026-10-28"
+        },
+        {
+          "kind": "competitor",
+          "summary": "ココナラに建設部門×転職の専門の出品が見当たらない",
+          "value": "0 件（キャリア相談は製造業の 1 件だけ）",
+          "source": "data/coconala/market-research.json（2026-10-26 取得・タイトルに「技術士」を含む出品を領域別に集計）",
+          "observedAt": "2026-10-28"
+        },
+        {
+          "kind": "video",
+          "summary": "技術士の年収・転職を題名に持つ動画が無い",
+          "value": "416 本中 0 本（キャリア・メリット系は 2 本・中央値 4,005 回）",
+          "source": "YouTube 競合 5 チャンネルの通常動画（再生数は動画ページを yt-dlp で取得・416 本。題名の語で機械分類）。調査メモ docs/strategy/09 §F",
+          "observedAt": "2026-10-28"
+        }
+      ],
+      "unverified": [
+        "手引きに払う人がいるか（転職の悩みは無料で調べる人が多い可能性）",
+        "転職アフィリエイトのクリックと食い合うか"
+      ],
+      "metric": "note の販売件数と、キャリア記事からの note CTA クリック・転職アフィリエイトのクリック（同じページで両方を読む）",
+      "judgeDate": "2027-04-30",
+      "stopCondition": "公開から 90 日で販売 3 件未満、または転職アフィリエイトのクリックが公開前の 28 日より 2 割以上落ちたら止める",
+      "nextCheck": "悩みのハブ（EXP-045）を先に作り、ハブからの回遊で読み手がいるかを確かめてから有料を作る",
+      "status": "idea",
+      "card": "DN-0907",
+      "experimentId": "EXP-045"
+    },
+    {
+      "id": "PC-008",
+      "title": "一般部門に受かった後の次の一手：総監に進むか（手当・就ける役・受け方の順番で判断する）",
+      "qualification": "pe-comprehensive-management",
+      "pain": "raise-pay",
+      "positions": [
+        "consultant-engineer",
+        "general-contractor",
+        "municipal-civil-engineer"
+      ],
+      "axis": "differentiated",
+      "harm": [
+        "M",
+        "A"
+      ],
+      "readerProblem": "建設部門に受かった後、総監まで取る意味（給料・役職）があるかが分からない",
+      "value": "建設部門と総監の両方を持つ運営者が、総監で就ける役・会社の評価・受け方（択一と記述の準備期間）を自分の経験で書く",
+      "payReason": "年収・手当の相場は無料で読めるが、建設部門の保有者が総監に進むかの判断の材料は揃っていない",
+      "format": "サイトの無料記事を入口に、総監の既存商品へつなぐ（単品は作らない案も含めて判断）",
+      "priceIdea": "単品なら ¥1,480",
+      "demandEvidence": [
+        {
+          "kind": "sales",
+          "summary": "総監の売上は建設部門に次いで大きい",
+          "value": "¥247,560",
+          "source": "npm run qualification-market（data/note/sales.json を product-lineup.json で資格へ写した値・2026-05-11〜10-24）",
+          "observedAt": "2026-10-28"
+        },
+        {
+          "kind": "research",
+          "summary": "総監の受験者の約 6 割が建設部門の出身",
+          "value": "約 60〜65%",
+          "source": "https://jobhouse.jp/construction/columns/1594（転職メディアの記載・一次は未確認）",
+          "observedAt": "2026-10-28"
+        }
+      ],
+      "unverified": [
+        "総監の受験者の出身部門の一次データ（日本技術士会の統計で確かめる）",
+        "単品にするか、無料記事から既存の総監商品へつなぐだけにするか"
+      ],
+      "metric": "無料記事から総監の商品への note CTA クリック（GA4）と、総監の商品の販売件数",
+      "judgeDate": "2027-03-31",
+      "stopCondition": "公開から 60 日で記事の閲覧 300 未満なら単品化しない",
+      "nextCheck": "日本技術士会の統計で総監の受験者の出身部門を確かめる",
+      "status": "idea",
+      "card": "DN-0903"
+    },
+    {
+      "id": "PC-009",
+      "title": "工事監督の目で読む設計図書・数量・検査（現場で「仕事ができる」ようになる）",
+      "qualification": "civil-construction-1",
+      "pain": "work-skill",
+      "positions": [
+        "young-engineer",
+        "general-contractor"
+      ],
+      "axis": "differentiated",
+      "harm": [
+        "A"
+      ],
+      "readerProblem": "設計図書・数量・検査で監督員が何を見ているか分からず、手戻りや指摘が多い",
+      "value": "自治体の工事監督の経験から、監督員が確かめる順番と、指摘されない書類の作り方",
+      "payReason": "施工管理の参考書は試験向けで、発注者側の確認の順番を書いたものが見当たらない",
+      "format": "まず無料の実務記事で反応を見る（有料は Kindle か note）",
+      "priceIdea": "未定",
+      "demandEvidence": [
+        {
+          "kind": "owner",
+          "summary": "運営者は自治体で工事監督を 20 年以上担った",
+          "source": "src/config/author.ts（資格の正本）と運営者の申告（2026-10-28 の壁打ち。在職年数は author.ts に未記載）",
+          "observedAt": "2026-10-28"
+        },
+        {
+          "kind": "research",
+          "summary": "施工管理の退職理由に「業務過多・責任の重さ・処理しきれない不安」が挙がる",
+          "source": "https://www.kenchiku-kyujin.jp/column2/reason-for-leaving（NotebookLM ディープリサーチで収集）",
+          "observedAt": "2026-10-28"
+        }
+      ],
+      "unverified": [
+        "検索の需要（作業名の検索語の表示・クリック）",
+        "有料で払う人がいるか"
+      ],
+      "metric": "実務記事（civil-practice）の作業名の検索語の表示・クリックと、記事の閲覧",
+      "judgeDate": "2027-03-31",
+      "stopCondition": "無料記事 3 本を出して 60 日で検索の表示が合計 100 未満なら有料化しない",
+      "nextCheck": "既存の自治体の土木担当シリーズで、設計図書・検査の記事の検索の表示を確かめる",
+      "status": "idea",
+      "card": "DN-0903"
+    }
+  ],
+  "research": {
+    "intervalDays": 90,
+    "rotation": [
+      "pe-construction",
+      "civil-construction-1",
+      "pe-comprehensive-management",
+      "rccm"
+    ],
+    "runs": [
+      {
+        "date": "2026-10-28",
+        "qualification": "pe-construction",
+        "scope": "受験者・転職・年収・仕事の悩み（NotebookLM ディープリサーチ 4 冊）、YouTube 競合 5 チャンネルの論点地図、ココナラ・note・通信講座の需要の証拠、自社の GSC・売上",
+        "notes": [
+          "docs/strategy/09_販売チャネル競合分析.md §F",
+          "docs/strategy/21_分類の軸と回遊の配線2026-10.md 悩みの軸"
+        ]
+      }
+    ]
+  }
+}

@@ -405,6 +405,12 @@ export const CHECKS = [
       note: 'キャリアファネル集計（流入→回遊→CTA→成果）が実行可能か（成果物は書かない・月次レビューと EXP-008 が読む）',
     },
     {
+      label: 'demand-map-report',
+      cmd: ['node', 'scripts/report-demand-map.mjs', '--check'],
+      timeout: 30_000,
+      note: '悩みと商品候補の地図（判定日・判断待ち・軸ごとの実売・悩みの検索語・四半期の調査の期限）が完走するか（成果物は書かない。読み手＝月次レビュー）',
+    },
+    {
       label: 'taxonomy-wiring-report',
       cmd: ['node', 'scripts/report-taxonomy-wiring.mjs', '--check'],
       timeout: 60_000,
