@@ -1634,7 +1634,7 @@
       "work": "shunin-rekka-taio",
       "account": "youtube:main",
       "format": "longform",
-      "status": "rendered",
+      "status": "scheduled",
       "media": {
         "cover": "concrete-chief-engineer/shunin-rekka-taio/youtube.longform/cover",
         "scene-001": "concrete-chief-engineer/shunin-rekka-taio/youtube.longform/scene-001",
@@ -1675,7 +1675,42 @@
         "contentSha256": "e36ef23fde1cb0413431d247a65b2b19c2877145586ae863d75f60283ae17c6c"
       },
       "times": {
-        "rendered": "2026-10-28T10:40:54.086Z"
+        "rendered": "2026-10-28T10:40:54.086Z",
+        "uploaded": "2026-10-28T10:45:12.760Z",
+        "scheduled": "2026-10-28T10:45:25.270Z"
+      },
+      "delivery": {
+        "inputSha256": "93041261301779128a6aacbca223c5c460a1a6c9020de0a173f8c8ddb8c942b2",
+        "marker": "dn-single-04b8f535c8276420e5808aaaca4ee85126e97c21",
+        "uploadRequestedAt": "2026-10-28T10:44:22.660Z",
+        "videoId": "T9t0ykZoKLk",
+        "processedAt": "2026-10-28T10:45:12.113Z",
+        "thumbnailRequestedAt": "2026-10-28T10:45:12.861Z",
+        "thumbnailUrls": [
+          "https://i9.ytimg.com/vi/T9t0ykZoKLk/default.jpg?sqp=CKykh9cG&rs=AOn4CLCOKd47vvVHiJeGPQTvBWcV0iqIFg",
+          "https://i9.ytimg.com/vi/T9t0ykZoKLk/mqdefault.jpg?sqp=CKykh9cG&rs=AOn4CLAeMWj3vtbwpiRgqOGf4Rj5tWqf3Q",
+          "https://i9.ytimg.com/vi/T9t0ykZoKLk/hqdefault.jpg?sqp=CKykh9cG&rs=AOn4CLB5r9fgWKIYmuvDe4kVDQNG7XdGcw",
+          "https://i9.ytimg.com/vi/T9t0ykZoKLk/sddefault.jpg?sqp=CKykh9cG&rs=AOn4CLCu4THeN0yHDIwUcg7CqJgM5UITqA",
+          "https://i9.ytimg.com/vi/T9t0ykZoKLk/maxresdefault.jpg?sqp=CKykh9cG&rs=AOn4CLDFv4gd7EJp0eCAroE5f93W88uoFg",
+          "https://i9.ytimg.com/vi/T9t0ykZoKLk/fhddefault.jpg?sqp=CKykh9cG&rs=AOn4CLCOFmVrxTWQx4vt4xgLsFtNUZqrNw"
+        ],
+        "thumbnailAcceptedAt": "2026-10-28T10:45:16.557Z",
+        "scheduleRequestedAt": "2026-10-28T10:45:21.596Z",
+        "scheduleAt": "2026-11-02T14:30:00+09:00",
+        "scheduledVerifiedAt": "2026-10-28T10:45:25.270Z"
+      },
+      "platform": {
+        "id": "T9t0ykZoKLk",
+        "url": "https://www.youtube.com/watch?v=T9t0ykZoKLk",
+        "privacy": "private",
+        "evidence": {
+          "kind": "publisher-live-check",
+          "ref": "content/sns/video-packs/concrete-chief-engineer/shunin-rekka-taio/youtube.json#longform"
+        }
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-10-28T10:45:16.557Z"
       }
     },
     {
