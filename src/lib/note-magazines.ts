@@ -2602,21 +2602,6 @@ const MAGAZINES_RAW = {
   },
   // </generated:products pavement-2>
 
-  // <generated:products pipe-work> config/products.json から生成（npm run product -- gen）。手で直さない
-  // 2026-10-28 公開（n538762ec7f12・¥1,980・境界=機器別の模範解答）（DN-0899）。
-  'pipe-work-kikibetsu-bank': {
-    id: 'pipe-work-kikibetsu-bank',
-    published: true,
-    noteUrl: 'https://note.com/dobokunote/n/n538762ec7f12',
-    qualification: 'pipe-work',
-    title: '管工事施工管理技士 第二次検定「施工記述」機器別 模範解答バンク（1級・2級／令和6年度からの新形式）',
-    description: '令和6年度からの第二次検定「施工記述」（指定された機器の施工上の留意事項・特徴・試運転調整）について、衛生設備・空調設備の13機器の模範解答をまとめた。数値は公共建築工事標準仕様書（機械設備工事編）令和7年版などの公的資料で確認できたものだけを載せている。',
-    shortTitle: '管工事 施工記述 機器別模範解答バンク',
-    shortDescription: '令和6年度からの新形式に対応。衛生・空調の13機器の留意事項・特徴・試運転調整。',
-    price: '¥1,980',
-    badge: 'note 限定 教材',
-  },
-  // </generated:products pipe-work>
 
 } as const satisfies Record<string, NoteMagazine>;
 

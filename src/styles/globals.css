@@ -923,7 +923,6 @@
     --exam-rccm: #9c3d1e;            /* RCCM＝赤褐色（note-cover-tokens.json exams.rccm.base と同一） */
     --exam-surveyor: #1f5f8b;        /* 測量士＝青 */
     --exam-pavement: #4a4a52;        /* 舗装＝アスファルト灰 */
-    --exam-pipe-work: #1d6a7a;       /* 管工事＝深い青緑（note-cover-tokens.json exams.pipe-work.base と同一） */
 
     /* CTA バナー画像上の文字色。背景イラスト（cta-bg/*.webp）は常に明色でテーマ非追従のため、
        文字はダーク固定にして可読性を担保する（.dark で上書きしない＝両テーマで同値）。 */
@@ -1050,7 +1049,6 @@
     --exam-rccm: #d9805c;
     --exam-surveyor: #6fa8d6;
     --exam-pavement: #a3a3ad;
-    --exam-pipe-work: #5fb0bf;
 
     /* Editorial palette — Soft Editorial dark (2026-07)。
        paper を bg より 1 段明るくしカードに浮遊感を与える。ink 系は寒色寄せで accent と色温度統一。 */

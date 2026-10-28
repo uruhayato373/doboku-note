@@ -26,8 +26,7 @@ export type ExamKey =
   | 'concrete-diagnosis'
   | 'rccm'
   | 'surveyor'
-  | 'pavement'
-  | 'pipe-work';
+  | 'pavement';
 
 /**
  * 商品の資格（config/products.json の qualification＝registry の資格 id か group id）→ 資格キー。
@@ -50,8 +49,6 @@ export const QUALIFICATION_TO_EXAM_KEY: Readonly<Record<string, ExamKey>> = {
   surveyor: 'surveyor',
   'pavement-1': 'pavement',
   'pavement-2': 'pavement',
-  // 1級・2級を横断する施工記述の商品（管工事は資格の group id で持つ）
-  'pipe-work': 'pipe-work',
 };
 
 /**
@@ -137,7 +134,7 @@ export const EXAM_BRAND: Record<ExamKey, ExamBrand> = {
     label: qualificationShortLabel('rccm'),
     themeVar: '--exam-rccm',
   },
-  // 測量士・舗装・管工事（2026-10-28 に商品を公開・DN-0899）は背景イラスト未整備のためテーマ色のベタ塗り。
+  // 測量士・舗装（2026-10-28 に商品を公開・DN-0899）は背景イラスト未整備のためテーマ色のベタ塗り。
   surveyor: {
     label: qualificationShortLabel('surveyor'),
     themeVar: '--exam-surveyor',
@@ -145,10 +142,6 @@ export const EXAM_BRAND: Record<ExamKey, ExamBrand> = {
   pavement: {
     label: qualificationShortLabel('pavement'),
     themeVar: '--exam-pavement',
-  },
-  'pipe-work': {
-    label: qualificationShortLabel('pipe-work'),
-    themeVar: '--exam-pipe-work',
   },
 };
 

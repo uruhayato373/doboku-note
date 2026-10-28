@@ -1999,6 +1999,241 @@
           "result": "原寸と幅360pxで、コピー一致・判読・文字切れなし・先生の同一性を確認"
         }
       }
+    },
+    "surveyor-written": {
+      "qualification": "surveyor",
+      "material": "written",
+      "source": [
+        "surveyor-gogo-bunya-magazine"
+      ],
+      "evidence": [
+        "src/lib/note-magazines.ts#surveyor-gogo-bunya-magazine"
+      ],
+      "body": {
+        "format": {
+          "width": 1774,
+          "height": 887
+        },
+        "copy": {
+          "qualification": "測量士",
+          "title": "記述式対策",
+          "button": "教材の内容を見る"
+        },
+        "references": [
+          {
+            "path": "content/coconala/assets/pop-20260927/thumb-tensaku-set.png",
+            "sha256": "ad9f644b36ac32b383624b1fbcc21f966f7e79516036d00bbe702b200d21c6e6"
+          },
+          {
+            "path": "content/site/pe-first-stage/_shared/img/cta-pdf-body.webp",
+            "sha256": "d17bf0108e2f7c17c570c0d12c91d0595318467a4df52d9e36db28c7472e94cc"
+          }
+        ],
+        "prompt": "Generate ONE complete finished raster website CTA banner, exactly 2:1 landscape, 1600×800 or equivalent. Reference 1 is the approved Japanese teacher identity: preserve face, hair, black glasses, light beard, white plain helmet, navy work clothes and yellow safety vest. Reference 2 supplies the approved disciplined website composition, flat color panels, no scenery. Replace ALL reference wording. Use solid #1f5f8b dark qualification color on left 65%, white on right 35%, small yellow accent; no decorative textures. Exact text ONLY: qualification label 「測量士」, large bold headline 「記述式対策」, bottom dark evergreen #065F46 flat button with white bold 「教材の内容を見る」 and white arrow. The qualification label must be readable and proportionate, wrap a long label into two lines if necessary, preserving exact spelling. Headline and qualification hierarchy large and legible at 360px width. SAME mature Japanese male teacher on right, friendly holding plain study sheets with abstract gray lines, red pen pointing at them; no sample writing. At least 5% safe margins, no overlapping/cut letters or face. Do NOT copy reference content, prices, counts, year, author claims, brand, URL, logos or extra text. This is a shared artwork family; actual individual product name, year/subject coverage and price will appear as separate site caption, never invent them in the image. Return the entire actual raster to display as-is, not a browser/mockup, no HTML reconstruction. Preserve aspect ratio; no stretched or cropped poster.",
+        "original": {
+          "filename": "exec-5dd4310a-9083-4da9-8354-889b72bbfa7f.png",
+          "sha256": "9ff9b49cb3ae459a7c59e85e4841dd39d750d78fcfad565672b85c7ddb5182d6"
+        },
+        "output": {
+          "path": "content/site/surveyor/_shared/img/cta-written-body-v1.webp",
+          "url": "https://storage.doboku-note.com/posts/surveyor/_shared/img/cta-written-body-v1.webp?v=5b5d99c9a2a9",
+          "sha256": "5b5d99c9a2a9ae9b9fcfc287ec0ded03a010bbbe18dce1aa991d45e009b90bea",
+          "bytes": 117676,
+          "quality": 85
+        },
+        "review": {
+          "date": "2026-10-28",
+          "result": "原寸と幅360pxで、コピー一致・判読・文字切れなし・先生の同一性を確認"
+        }
+      }
+    },
+    "surveyor-notes": {
+      "qualification": "surveyor",
+      "material": "notes",
+      "source": [
+        "surveyor-keisan-20"
+      ],
+      "evidence": [
+        "src/lib/note-magazines.ts#surveyor-keisan-20"
+      ],
+      "body": {
+        "format": {
+          "width": 1774,
+          "height": 887
+        },
+        "copy": {
+          "qualification": "測量士",
+          "title": "要点整理",
+          "button": "教材の内容を見る"
+        },
+        "references": [
+          {
+            "path": "content/coconala/assets/pop-20260927/thumb-tensaku-set.png",
+            "sha256": "ad9f644b36ac32b383624b1fbcc21f966f7e79516036d00bbe702b200d21c6e6"
+          },
+          {
+            "path": "content/site/pe-first-stage/_shared/img/cta-pdf-body.webp",
+            "sha256": "d17bf0108e2f7c17c570c0d12c91d0595318467a4df52d9e36db28c7472e94cc"
+          }
+        ],
+        "prompt": "Generate ONE complete finished raster website CTA banner, exactly 2:1 landscape, 1600×800 or equivalent. Reference 1 is the approved Japanese teacher identity: preserve face, hair, black glasses, light beard, white plain helmet, navy work clothes and yellow safety vest. Reference 2 supplies the approved disciplined website composition, flat color panels, no scenery. Replace ALL reference wording. Use solid #1f5f8b dark qualification color on left 65%, white on right 35%, small yellow accent; no decorative textures. Exact text ONLY: qualification label 「測量士」, large bold headline 「要点整理」, bottom dark evergreen #065F46 flat button with white bold 「教材の内容を見る」 and white arrow. The qualification label must be readable and proportionate, wrap a long label into two lines if necessary, preserving exact spelling. Headline and qualification hierarchy large and legible at 360px width. SAME mature Japanese male teacher on right, friendly holding plain study sheets with abstract gray lines, red pen pointing at them; no sample writing. At least 5% safe margins, no overlapping/cut letters or face. Do NOT copy reference content, prices, counts, year, author claims, brand, URL, logos or extra text. This is a shared artwork family; actual individual product name, year/subject coverage and price will appear as separate site caption, never invent them in the image. Return the entire actual raster to display as-is, not a browser/mockup, no HTML reconstruction. Preserve aspect ratio; no stretched or cropped poster.",
+        "original": {
+          "filename": "exec-5da6dc00-5083-4d5b-badc-059342d21b7c.png",
+          "sha256": "8696502bd5e675cf597cd2935a3d054c5179790168e69f9825eefcb6dda96bf3"
+        },
+        "output": {
+          "path": "content/site/surveyor/_shared/img/cta-notes-body-v1.webp",
+          "url": "https://storage.doboku-note.com/posts/surveyor/_shared/img/cta-notes-body-v1.webp?v=2a48ef8c9fee",
+          "sha256": "2a48ef8c9fee65f133da2c6a5b2b4a0b52779f50afb7dc5a6ff0b2cc07f02be1",
+          "bytes": 118592,
+          "quality": 85
+        },
+        "review": {
+          "date": "2026-10-28",
+          "result": "原寸と幅360pxで、コピー一致・判読・文字切れなし・先生の同一性を確認"
+        }
+      }
+    },
+    "pavement-1-written": {
+      "qualification": "pavement-1",
+      "material": "written",
+      "source": [
+        "pavement-1-keiken-magazine"
+      ],
+      "evidence": [
+        "src/lib/note-magazines.ts#pavement-1-keiken-magazine"
+      ],
+      "body": {
+        "format": {
+          "width": 1774,
+          "height": 887
+        },
+        "copy": {
+          "qualification": "1級舗装",
+          "title": "記述式対策",
+          "button": "教材の内容を見る"
+        },
+        "references": [
+          {
+            "path": "content/coconala/assets/pop-20260927/thumb-tensaku-set.png",
+            "sha256": "ad9f644b36ac32b383624b1fbcc21f966f7e79516036d00bbe702b200d21c6e6"
+          },
+          {
+            "path": "content/site/pe-first-stage/_shared/img/cta-pdf-body.webp",
+            "sha256": "d17bf0108e2f7c17c570c0d12c91d0595318467a4df52d9e36db28c7472e94cc"
+          }
+        ],
+        "prompt": "Generate ONE complete finished raster website CTA banner, exactly 2:1 landscape, 1600×800 or equivalent. Reference 1 is the approved Japanese teacher identity: preserve face, hair, black glasses, light beard, white plain helmet, navy work clothes and yellow safety vest. Reference 2 supplies the approved disciplined website composition, flat color panels, no scenery. Replace ALL reference wording. Use solid #4a4a52 dark qualification color on left 65%, white on right 35%, small yellow accent; no decorative textures. Exact text ONLY: qualification label 「1級舗装」, large bold headline 「記述式対策」, bottom dark evergreen #065F46 flat button with white bold 「教材の内容を見る」 and white arrow. The qualification label must be readable and proportionate, wrap a long label into two lines if necessary, preserving exact spelling. Headline and qualification hierarchy large and legible at 360px width. SAME mature Japanese male teacher on right, friendly holding plain study sheets with abstract gray lines, red pen pointing at them; no sample writing. At least 5% safe margins, no overlapping/cut letters or face. Do NOT copy reference content, prices, counts, year, author claims, brand, URL, logos or extra text. This is a shared artwork family; actual individual product name, year/subject coverage and price will appear as separate site caption, never invent them in the image. Return the entire actual raster to display as-is, not a browser/mockup, no HTML reconstruction. Preserve aspect ratio; no stretched or cropped poster.",
+        "original": {
+          "filename": "exec-1c33c364-9bb2-4ad4-a6eb-5d8f6223c39a.png",
+          "sha256": "f4a96d960043bfc37a62ffab54052a587659441784b72d3572a6b7c15ab18da8"
+        },
+        "output": {
+          "path": "content/site/pavement/_shared/img/cta-1-written-body-v1.webp",
+          "url": "https://storage.doboku-note.com/posts/pavement/_shared/img/cta-1-written-body-v1.webp?v=f1bcb3a36bbc",
+          "sha256": "f1bcb3a36bbca322cef9fad037e9299d424df404b890519b1c1dd7ab107b11d8",
+          "bytes": 120034,
+          "quality": 85
+        },
+        "review": {
+          "date": "2026-10-28",
+          "result": "原寸と幅360pxで、コピー一致・判読・文字切れなし・先生の同一性を確認"
+        }
+      }
+    },
+    "pavement-1-notes": {
+      "qualification": "pavement-1",
+      "material": "notes",
+      "source": [
+        "pavement-1-sentaku-hinshutsu"
+      ],
+      "evidence": [
+        "src/lib/note-magazines.ts#pavement-1-sentaku-hinshutsu"
+      ],
+      "body": {
+        "format": {
+          "width": 1774,
+          "height": 887
+        },
+        "copy": {
+          "qualification": "1級舗装",
+          "title": "要点整理",
+          "button": "教材の内容を見る"
+        },
+        "references": [
+          {
+            "path": "content/coconala/assets/pop-20260927/thumb-tensaku-set.png",
+            "sha256": "ad9f644b36ac32b383624b1fbcc21f966f7e79516036d00bbe702b200d21c6e6"
+          },
+          {
+            "path": "content/site/pe-first-stage/_shared/img/cta-pdf-body.webp",
+            "sha256": "d17bf0108e2f7c17c570c0d12c91d0595318467a4df52d9e36db28c7472e94cc"
+          }
+        ],
+        "prompt": "Generate ONE complete finished raster website CTA banner, exactly 2:1 landscape, 1600×800 or equivalent. Reference 1 is the approved Japanese teacher identity: preserve face, hair, black glasses, light beard, white plain helmet, navy work clothes and yellow safety vest. Reference 2 supplies the approved disciplined website composition, flat color panels, no scenery. Replace ALL reference wording. Use solid #4a4a52 dark qualification color on left 65%, white on right 35%, small yellow accent; no decorative textures. Exact text ONLY: qualification label 「1級舗装」, large bold headline 「要点整理」, bottom dark evergreen #065F46 flat button with white bold 「教材の内容を見る」 and white arrow. The qualification label must be readable and proportionate, wrap a long label into two lines if necessary, preserving exact spelling. Headline and qualification hierarchy large and legible at 360px width. SAME mature Japanese male teacher on right, friendly holding plain study sheets with abstract gray lines, red pen pointing at them; no sample writing. At least 5% safe margins, no overlapping/cut letters or face. Do NOT copy reference content, prices, counts, year, author claims, brand, URL, logos or extra text. This is a shared artwork family; actual individual product name, year/subject coverage and price will appear as separate site caption, never invent them in the image. Return the entire actual raster to display as-is, not a browser/mockup, no HTML reconstruction. Preserve aspect ratio; no stretched or cropped poster.",
+        "original": {
+          "filename": "exec-98d9647c-7f76-4335-9f9e-9bc0b9012441.png",
+          "sha256": "b945abbf39d6874bea84e555f1755f9f60225bf16ca6e3324a064c205d66fe21"
+        },
+        "output": {
+          "path": "content/site/pavement/_shared/img/cta-1-notes-body-v1.webp",
+          "url": "https://storage.doboku-note.com/posts/pavement/_shared/img/cta-1-notes-body-v1.webp?v=90f51836cf2f",
+          "sha256": "90f51836cf2f48e209ded97be36acad409377468ebbe361d7c600f8c8714d121",
+          "bytes": 110850,
+          "quality": 85
+        },
+        "review": {
+          "date": "2026-10-28",
+          "result": "原寸と幅360pxで、コピー一致・判読・文字切れなし・先生の同一性を確認"
+        }
+      }
+    },
+    "pavement-2-written": {
+      "qualification": "pavement-2",
+      "material": "written",
+      "source": [
+        "pavement-2-keiken"
+      ],
+      "evidence": [
+        "src/lib/note-magazines.ts#pavement-2-keiken"
+      ],
+      "body": {
+        "format": {
+          "width": 1774,
+          "height": 887
+        },
+        "copy": {
+          "qualification": "2級舗装",
+          "title": "記述式対策",
+          "button": "教材の内容を見る"
+        },
+        "references": [
+          {
+            "path": "content/coconala/assets/pop-20260927/thumb-tensaku-set.png",
+            "sha256": "ad9f644b36ac32b383624b1fbcc21f966f7e79516036d00bbe702b200d21c6e6"
+          },
+          {
+            "path": "content/site/pe-first-stage/_shared/img/cta-pdf-body.webp",
+            "sha256": "d17bf0108e2f7c17c570c0d12c91d0595318467a4df52d9e36db28c7472e94cc"
+          }
+        ],
+        "prompt": "Generate ONE complete finished raster website CTA banner, exactly 2:1 landscape, 1600×800 or equivalent. Reference 1 is the approved Japanese teacher identity: preserve face, hair, black glasses, light beard, white plain helmet, navy work clothes and yellow safety vest. Reference 2 supplies the approved disciplined website composition, flat color panels, no scenery. Replace ALL reference wording. Use solid #4a4a52 dark qualification color on left 65%, white on right 35%, small yellow accent; no decorative textures. Exact text ONLY: qualification label 「2級舗装」, large bold headline 「記述式対策」, bottom dark evergreen #065F46 flat button with white bold 「教材の内容を見る」 and white arrow. The qualification label must be readable and proportionate, wrap a long label into two lines if necessary, preserving exact spelling. Headline and qualification hierarchy large and legible at 360px width. SAME mature Japanese male teacher on right, friendly holding plain study sheets with abstract gray lines, red pen pointing at them; no sample writing. At least 5% safe margins, no overlapping/cut letters or face. Do NOT copy reference content, prices, counts, year, author claims, brand, URL, logos or extra text. This is a shared artwork family; actual individual product name, year/subject coverage and price will appear as separate site caption, never invent them in the image. Return the entire actual raster to display as-is, not a browser/mockup, no HTML reconstruction. Preserve aspect ratio; no stretched or cropped poster.",
+        "original": {
+          "filename": "exec-5fff97d4-7984-4b21-8988-ee6eedee2167.png",
+          "sha256": "bc40270f4f4b7676c5dbc3cbddf1d75e05e9cd8ed8555bcf502f302ebd70d6c5"
+        },
+        "output": {
+          "path": "content/site/pavement/_shared/img/cta-2-written-body-v1.webp",
+          "url": "https://storage.doboku-note.com/posts/pavement/_shared/img/cta-2-written-body-v1.webp?v=ff27e02c020d",
+          "sha256": "ff27e02c020d8ba61f8af1cff0206a900a6ed833aa49150fe817dc23f021aa1f",
+          "bytes": 120480,
+          "quality": 85
+        },
+        "review": {
+          "date": "2026-10-28",
+          "result": "原寸と幅360pxで、コピー一致・判読・文字切れなし・先生の同一性を確認"
+        }
+      }
     }
   },
   "tiles": {
@@ -2333,6 +2568,117 @@
       "review": {
         "date": "2026-10-03",
         "result": "原寸と幅300pxで、コピー一致・判読・文字切れなし・先生の同一性を確認"
+      }
+    },
+    "surveyor": {
+      "format": {
+        "width": 1374,
+        "height": 1145
+      },
+      "copy": {
+        "qualification": "測量士",
+        "title": "学習教材",
+        "button": "教材の内容を見る"
+      },
+      "references": [
+        {
+          "path": "content/coconala/assets/pop-20260927/thumb-tensaku-set.png",
+          "sha256": "ad9f644b36ac32b383624b1fbcc21f966f7e79516036d00bbe702b200d21c6e6"
+        },
+        {
+          "path": "content/site/pe-first-stage/_shared/img/cta-pdf-body.webp",
+          "sha256": "d17bf0108e2f7c17c570c0d12c91d0595318467a4df52d9e36db28c7472e94cc"
+        }
+      ],
+      "prompt": "Generate ONE complete finished raster website CTA banner, exactly 6:5 landscape, 1200×1000 or equivalent. Reference 1 is the approved Japanese teacher identity: preserve face, hair, black glasses, light beard, white plain helmet, navy work clothes and yellow safety vest. Reference 2 supplies the approved disciplined website composition, flat color panels, no scenery. Replace ALL reference wording. Use solid #1f5f8b dark qualification color on left 65%, white on right 35%, small yellow accent; no decorative textures. Exact text ONLY: qualification label 「測量士」, large bold headline 「学習教材」, bottom dark evergreen #065F46 flat button with white bold 「教材の内容を見る」 and white arrow. The qualification label must be readable and proportionate, wrap a long label into two lines if necessary, preserving exact spelling. Headline and qualification hierarchy large and legible at 300px width. SAME mature Japanese male teacher on right, friendly holding plain study sheets with abstract gray lines, red pen pointing at them; no sample writing. At least 5% safe margins, no overlapping/cut letters or face. Do NOT copy reference content, prices, counts, year, author claims, brand, URL, logos or extra text. This is a shared artwork family; actual individual product name, year/subject coverage and price will appear as separate site caption, never invent them in the image. Return the entire actual raster to display as-is, not a browser/mockup, no HTML reconstruction. Preserve aspect ratio; no stretched or cropped poster.",
+      "original": {
+        "filename": "exec-ac0105f5-f9da-4dea-90b3-828c14bd0d20.png",
+        "sha256": "8aff0cde840df42c0964232c0f11c2f37307d3a805f530fa2569b61ab5483e40"
+      },
+      "output": {
+        "path": "content/site/surveyor/_shared/img/cta-tile-tile-v1.webp",
+        "url": "https://storage.doboku-note.com/posts/surveyor/_shared/img/cta-tile-tile-v1.webp?v=fe85c9628f31",
+        "sha256": "fe85c9628f31d74e02be70920be7b4e12bb37f58a63de1755eacd48ddfa32334",
+        "bytes": 122330,
+        "quality": 85
+      },
+      "review": {
+        "date": "2026-10-28",
+        "result": "原寸と幅360pxで、コピー一致・判読・文字切れなし・先生の同一性を確認"
+      }
+    },
+    "pavement-1": {
+      "format": {
+        "width": 1374,
+        "height": 1145
+      },
+      "copy": {
+        "qualification": "1級舗装",
+        "title": "学習教材",
+        "button": "教材の内容を見る"
+      },
+      "references": [
+        {
+          "path": "content/coconala/assets/pop-20260927/thumb-tensaku-set.png",
+          "sha256": "ad9f644b36ac32b383624b1fbcc21f966f7e79516036d00bbe702b200d21c6e6"
+        },
+        {
+          "path": "content/site/pe-first-stage/_shared/img/cta-pdf-body.webp",
+          "sha256": "d17bf0108e2f7c17c570c0d12c91d0595318467a4df52d9e36db28c7472e94cc"
+        }
+      ],
+      "prompt": "Generate ONE complete finished raster website CTA banner, exactly 6:5 landscape, 1200×1000 or equivalent. Reference 1 is the approved Japanese teacher identity: preserve face, hair, black glasses, light beard, white plain helmet, navy work clothes and yellow safety vest. Reference 2 supplies the approved disciplined website composition, flat color panels, no scenery. Replace ALL reference wording. Use solid #4a4a52 dark qualification color on left 65%, white on right 35%, small yellow accent; no decorative textures. Exact text ONLY: qualification label 「1級舗装」, large bold headline 「学習教材」, bottom dark evergreen #065F46 flat button with white bold 「教材の内容を見る」 and white arrow. The qualification label must be readable and proportionate, wrap a long label into two lines if necessary, preserving exact spelling. Headline and qualification hierarchy large and legible at 300px width. SAME mature Japanese male teacher on right, friendly holding plain study sheets with abstract gray lines, red pen pointing at them; no sample writing. At least 5% safe margins, no overlapping/cut letters or face. Do NOT copy reference content, prices, counts, year, author claims, brand, URL, logos or extra text. This is a shared artwork family; actual individual product name, year/subject coverage and price will appear as separate site caption, never invent them in the image. Return the entire actual raster to display as-is, not a browser/mockup, no HTML reconstruction. Preserve aspect ratio; no stretched or cropped poster.",
+      "original": {
+        "filename": "exec-ed78a563-8ff1-48d3-9348-1f1a8a2ce899.png",
+        "sha256": "4514c6c4ce0ebe035c11e28babde80489e48833875f6340fe23cdc289284f48e"
+      },
+      "output": {
+        "path": "content/site/pavement/_shared/img/cta-1-tile-tile-v1.webp",
+        "url": "https://storage.doboku-note.com/posts/pavement/_shared/img/cta-1-tile-tile-v1.webp?v=28e21ed905b1",
+        "sha256": "28e21ed905b139977bcb0779d7069e1b6d7854a1735f9fc9ab9b68e04ff0e08e",
+        "bytes": 115640,
+        "quality": 85
+      },
+      "review": {
+        "date": "2026-10-28",
+        "result": "原寸と幅360pxで、コピー一致・判読・文字切れなし・先生の同一性を確認"
+      }
+    },
+    "pavement-2": {
+      "format": {
+        "width": 1374,
+        "height": 1145
+      },
+      "copy": {
+        "qualification": "2級舗装",
+        "title": "学習教材",
+        "button": "教材の内容を見る"
+      },
+      "references": [
+        {
+          "path": "content/coconala/assets/pop-20260927/thumb-tensaku-set.png",
+          "sha256": "ad9f644b36ac32b383624b1fbcc21f966f7e79516036d00bbe702b200d21c6e6"
+        },
+        {
+          "path": "content/site/pe-first-stage/_shared/img/cta-pdf-body.webp",
+          "sha256": "d17bf0108e2f7c17c570c0d12c91d0595318467a4df52d9e36db28c7472e94cc"
+        }
+      ],
+      "prompt": "Generate ONE complete finished raster website CTA banner, exactly 6:5 landscape, 1200×1000 or equivalent. Reference 1 is the approved Japanese teacher identity: preserve face, hair, black glasses, light beard, white plain helmet, navy work clothes and yellow safety vest. Reference 2 supplies the approved disciplined website composition, flat color panels, no scenery. Replace ALL reference wording. Use solid #4a4a52 dark qualification color on left 65%, white on right 35%, small yellow accent; no decorative textures. Exact text ONLY: qualification label 「2級舗装」, large bold headline 「学習教材」, bottom dark evergreen #065F46 flat button with white bold 「教材の内容を見る」 and white arrow. The qualification label must be readable and proportionate, wrap a long label into two lines if necessary, preserving exact spelling. Headline and qualification hierarchy large and legible at 300px width. SAME mature Japanese male teacher on right, friendly holding plain study sheets with abstract gray lines, red pen pointing at them; no sample writing. At least 5% safe margins, no overlapping/cut letters or face. Do NOT copy reference content, prices, counts, year, author claims, brand, URL, logos or extra text. This is a shared artwork family; actual individual product name, year/subject coverage and price will appear as separate site caption, never invent them in the image. Return the entire actual raster to display as-is, not a browser/mockup, no HTML reconstruction. Preserve aspect ratio; no stretched or cropped poster.",
+      "original": {
+        "filename": "exec-5d6e9dfc-2bf0-4b75-b35e-7b726f8f7dcc.png",
+        "sha256": "6f58bb1c5f1bd1d1dd9f7545e6f08f1311698c78250de8f175d9f787be125352"
+      },
+      "output": {
+        "path": "content/site/pavement/_shared/img/cta-2-tile-tile-v1.webp",
+        "url": "https://storage.doboku-note.com/posts/pavement/_shared/img/cta-2-tile-tile-v1.webp?v=4a7845dd90d1",
+        "sha256": "4a7845dd90d14c10a31edb96b5b2f8c4647f2a46cfaebca1f33c25b9a15af557",
+        "bytes": 118966,
+        "quality": 85
+      },
+      "review": {
+        "date": "2026-10-28",
+        "result": "原寸と幅360pxで、コピー一致・判読・文字切れなし・先生の同一性を確認"
       }
     }
   },
