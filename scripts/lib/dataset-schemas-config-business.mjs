@@ -994,3 +994,122 @@ export const ConfigProducts = z
   })
   .strict()
   .meta({ title: '商品の正本' });
+
+// ---- 悩みと商品候補の地図（config/demand-map.json） --------------------------------------------
+
+const HARM = z.enum(['H', 'A', 'R', 'M']);
+const harmList = z.array(HARM).min(1).superRefine((xs, ctx) => {
+  if (new Set(xs).size !== xs.length) flag(ctx, [], 'HARM が重複している');
+});
+
+/** 需要の証拠 1 件（観測した事実だけ。仮説は hypothesis 欄へ）。取れなかった値は value を書かず unverified に回す */
+const demandEvidence = z
+  .object({
+    kind: z.enum(['gsc', 'ga4', 'sales', 'competitor', 'review', 'qa', 'video', 'research', 'owner']).describe('出所の種類（owner は運営者の実務経験・判断）'),
+    summary: text.describe('何が観測されたか（1 文）'),
+    value: text.optional().describe('数値（表示・クリック・販売数・価格・件数など。単位つき）'),
+    source: text.describe('出典（データのパス#節・URL・文書のパス）'),
+    observedAt: jstDate('観測日'),
+  })
+  .strict();
+
+const painHub = z
+  .object({
+    title: text.describe('ハブの見出し（検索される言い方）'),
+    status: z.enum(['idea', 'decided', 'live', 'dropped']).describe('idea=AI の候補 / decided=運営者が決めた / live=公開 / dropped=作らない'),
+    path: z.string().regex(/^\//).optional().describe('公開した URL のパス'),
+    positions: z.array(QID).describe('主に向ける立場（positions[].id）'),
+    note: text.optional(),
+  })
+  .strict();
+
+/** 悩みと商品候補の地図。配線は「悩み → 立場 → 資格・テーマ・法令 → 商品」。打ち手（ハブ・導線の実験）は experiments.json の demand.painId がこの悩みを指す */
+export const ConfigDemandMap = z
+  .object({
+    schemaVersion: z.literal(1),
+    _doc: text,
+    updatedAt: jstDate('最終更新'),
+    pains: z
+      .array(
+        z
+          .object({
+            id: QID,
+            label: text.describe('悩み（読者の言葉）'),
+            harm: harmList,
+            depth: z.enum(['core', 'shallow']).describe('core=お金が動く主軸 / shallow=kazu-note と読者が重なるので深追いしない'),
+            why: text.describe('この深さにした理由'),
+            phrases: strList.describe('検索・相談で使われる言い方'),
+            evidence: z.array(demandEvidence).describe('需要の証拠'),
+            hypothesis: text.optional().describe('仮説（証拠と分ける）'),
+            hubs: z.array(painHub).optional().describe('悩みごとのハブの候補'),
+          })
+          .strict(),
+      )
+      .min(1)
+      .superRefine(uniqueBy('id')),
+    positions: z
+      .array(
+        z
+          .object({
+            id: QID,
+            label: text,
+            status: z.enum(['live', 'candidate', 'hold']).describe('live=テーマ（topics.json の facet: audience）として公開 / candidate=証拠を見て検討中 / hold=見送り'),
+            topic: QID.optional().describe('公開したテーマの slug（src/config/topics.json）'),
+            pains: z.array(QID).min(1).describe('この立場で強い悩み（pains[].id）'),
+            evidence: z.array(demandEvidence),
+            note: text.optional(),
+          })
+          .strict(),
+      )
+      .min(1)
+      .superRefine(uniqueBy('id')),
+    candidates: z
+      .array(
+        z
+          .object({
+            id: z.string().regex(/^PC-\d{3}$/, 'PC-000 の形'),
+            title: text,
+            qualification: QID.describe('資格 id（qualification-registry.json）。資格をまたぐ商品は family の id'),
+            pain: QID.describe('pains[].id'),
+            positions: z.array(QID).describe('positions[].id'),
+            axis: z.enum(['similar', 'differentiated']).describe('similar=類似商品（競合で売れている需要を品質・新しさ・形式・価格で取る）/ differentiated=差別商品（誰も満たしていない悩みを当事者の権威で取る）'),
+            harm: harmList,
+            readerProblem: text.describe('読者の課題'),
+            value: text.describe('提供価値'),
+            payReason: text.describe('無料との違い・支払う理由'),
+            format: text.describe('形式（note マガジン・ココナラ・Kindle など）'),
+            priceIdea: text.optional().describe('価格の案（確定値は商品の正本）'),
+            demandEvidence: z.array(demandEvidence).min(1).describe('需要の証拠（類似＝競合の販売数・価格・レビュー / 差別＝悩みの一次情報と競合の論点の空白）'),
+            unverified: strList.describe('未確認の点'),
+            metric: text.describe('指標'),
+            judgeDate: jstDate('判定日'),
+            stopCondition: text.describe('停止条件'),
+            nextCheck: text.describe('次の検証'),
+            status: z.enum(['idea', 'decided', 'building', 'live', 'stopped']).describe('idea=候補 / decided=運営者が作ると決めた / building=制作中 / live=販売中 / stopped=停止'),
+            productIds: z.array(text).optional().describe('販売を始めた商品 id（商品の正本の id）。実売の比較はこの id で売上を引く'),
+            salesIds: z.array(text).optional().describe('売上記録（note の販売履歴）の productId が商品の id と違うときの id（bk-* など sales-recorder の旧系統）。productIds と合わせて実売を引く'),
+            experimentId: z.string().regex(/^EXP-\d{3}$/).optional().describe('計測する実験（experiments.json）'),
+            card: z.string().regex(/^DN-\d{4}$/).optional().describe('作業のカード（backlog）'),
+          })
+          .strict(),
+      )
+      .superRefine(uniqueBy('id')),
+  })
+  .strict()
+  .superRefine((m, ctx) => {
+    const pains = new Set(m.pains.map((p) => p.id));
+    const positions = new Set(m.positions.map((p) => p.id));
+    m.pains.forEach((p, i) =>
+      (p.hubs ?? []).forEach((h, j) =>
+        h.positions.forEach((id) => { if (!positions.has(id)) flag(ctx, ['pains', i, 'hubs', j, 'positions'], `立場 ${id} が positions に無い`); }),
+      ),
+    );
+    m.positions.forEach((p, i) => p.pains.forEach((id) => { if (!pains.has(id)) flag(ctx, ['positions', i, 'pains'], `悩み ${id} が pains に無い`); }));
+    m.candidates.forEach((c, i) => {
+      if (!pains.has(c.pain)) flag(ctx, ['candidates', i, 'pain'], `悩み ${c.pain} が pains に無い`);
+      c.positions.forEach((id) => { if (!positions.has(id)) flag(ctx, ['candidates', i, 'positions'], `立場 ${id} が positions に無い`); });
+      if (c.status === 'live' && !(c.productIds ?? []).length) flag(ctx, ['candidates', i, 'productIds'], '販売中なのに商品 id が無い（実売を比べられない）');
+    });
+    m.positions.forEach((p, i) => { if (p.status === 'live' && !p.topic) flag(ctx, ['positions', i, 'topic'], '公開した立場はテーマの slug が要る'); });
+  })
+  .meta({ title: '悩みと商品候補の地図' });

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-24T02:59:46.600Z",
+  "updated_at": "2026-10-28T04:02:16.000Z",
   "experiments": [
     {
       "id": "EXP-002",
@@ -6569,6 +6569,173 @@
         }
       ],
       "started_at": "2026-10-24T05:26:39Z"
+    },
+    {
+      "id": "EXP-044",
+      "title": "テーマのハブを読む価値のあるページにする（道路・河川・コンクリートの 3 つで型を作る）",
+      "hypothesis": "テーマのハブ（/topics/*）は検索のクリックが 0。見出しを検索される言い方（例「道路の技術士・1級土木の勉強の順番」）に合わせ、学ぶ順番の地図・要点・資格ごとの出題の違いを本文に足せば、ハブ自体が検索に出て、ハブから記事と教材へ回遊する",
+      "target_metric": "3 ハブ（/topics/roads・/topics/rivers-disaster-prevention・/topics/concrete）の GSC 表示・クリック（本番反映の前 28 日・後 28 日）と、ハブの internal_nav_click（label topic-page）・note CTA クリック（placement topic-page）",
+      "target_delta": "3 ハブ合計の表示が 2 倍以上、クリックが 1 以上、ハブからの回遊クリックが増える。表示が前後とも 10 未満なら判定不能",
+      "status": "proposed",
+      "created_at": "2026-10-28",
+      "next_check_date": "2027-01-31",
+      "baseline": {
+        "measured_at": "2026-10-28",
+        "source": "data/gsc/reports/2026-10-23.json#page（2026-09-22〜10-19）",
+        "topicsPagesWithImpressions": 8,
+        "impressions": 11,
+        "clicks": 0,
+        "note": "全 22 テーマのうち表示が出たのは 8 ページ・合計 11 表示。道路・河川は表示 0、コンクリートは 2 表示・平均 5.5 位"
+      },
+      "actions": [
+        "1. 3 ハブの検索語と、分野名＋資格名の検索語（例「道路 技術士」）を GSC から集める",
+        "2. 見出し・description・冒頭の答えを検索される言い方に合わせる案を作り、運営者が実務の判断で決める",
+        "3. 学ぶ順番の地図（図 1 枚）と、資格ごとの出題の違いの要点を本文に足す",
+        "4. 本番反映の日を history に記録し、前後 28 日で判定する"
+      ],
+      "history": [
+        {
+          "at": "2026-10-28T04:02:16.000Z",
+          "event": "recorded",
+          "note": "悩みの軸・類似／差別・配線の調査（docs/strategy/21 §悩みの軸）から起票。判定日と停止条件は始める前に決めた"
+        }
+      ],
+      "demand": {
+        "qualification": "all",
+        "painId": "pass-exam",
+        "harm": [
+          "A"
+        ],
+        "readerNeed": "分野（道路・河川・コンクリート）ごとに、どの資格で何が問われ、どの順番で学べばよいかを 1 枚で知りたい",
+        "demandEvidence": "テーマのハブは検索のクリック 0（doc 21「運用」）。分野名＋資格の検索語は資格別の記事に分散している（未集計）",
+        "stopCondition": "本番反映から 56 日で 3 ハブ合計の表示が前の 28 日を超えなければ、ほかのテーマへ広げない（中身の薄いハブは検索に出さない doc 21 の基準は維持）",
+        "nextVerification": "3 ハブの直す前の検索語（GSC page×query）を取り、見出しの案を運営者が決める",
+        "card": "DN-0906"
+      }
+    },
+    {
+      "id": "EXP-045",
+      "title": "悩みのハブ「施工管理から発注者側へ移りたい人の地図」を作り、キャリア記事と教材をつなぐ",
+      "hypothesis": "転職の高意図語は表示 221・クリック 4 で、キャリア記事 45 本は資格ごとに散らばっている。悩み（施工管理から発注者側・コンサルへ移りたい）を最上位に置き、立場 → 要る資格 → 記事・教材の順に並べたハブを作れば、検索の受け皿になり、転職アフィリエイトと資格教材の両方へ送れる",
+      "target_metric": "ハブの GSC 表示・クリック、ハブからキャリア記事・資格の記事への internal_nav_click、転職アフィリエイトのクリック、note CTA クリック（公開後 56 日）",
+      "target_delta": "公開後 56 日でハブの表示 100 以上、ハブからの回遊クリック 20 以上。転職アフィリエイトのクリック（キャリア記事全体）を下げない",
+      "status": "proposed",
+      "created_at": "2026-10-28",
+      "next_check_date": "2027-03-31",
+      "baseline": {
+        "measured_at": "2026-10-22",
+        "source": "data/analysis/career-funnel.md（GSC 2026-09-22〜10-19・GA4 2026-09-24〜10-21）",
+        "highIntentImpressions": 221,
+        "highIntentClicks": 4,
+        "careerArticles": 45
+      },
+      "actions": [
+        "1. キャリア記事 45 本を「移る先（発注者支援・自治体・コンサル・インフラ会社）× 要る資格」で並べた候補を作る",
+        "2. 運営者が並びと見出しを決める（発注者の実務の判断）",
+        "3. 中身の基準（doc 21 の昇格基準）を満たしてから検索に出す。満たすまでは noindex で記事末の回遊にだけ使う",
+        "4. EXP-043（転職アフィリエイトの意匠）と同じページ・同じ指標に重ねないよう、アフィリエイトの枠の位置は変えない"
+      ],
+      "history": [
+        {
+          "at": "2026-10-28T04:02:16.000Z",
+          "event": "recorded",
+          "note": "悩みの軸・類似／差別・配線の調査（docs/strategy/21 §悩みの軸）から起票。判定日と停止条件は始める前に決めた"
+        }
+      ],
+      "demand": {
+        "qualification": "all",
+        "painId": "change-job",
+        "harm": [
+          "A",
+          "M"
+        ],
+        "readerNeed": "発注者側（自治体・発注者支援・コンサル）の仕事が自分にできるか、どの資格があれば移れるかを知りたい",
+        "demandEvidence": "知恵袋「技術士 転職」約 5,299 件・GSC「施工管理から転職」表示 16・平均 20.4 位（demand-map.json の change-job）",
+        "stopCondition": "公開から 56 日で表示 30 未満なら noindex に戻し、記事末の回遊だけに使う。転職アフィリエイトのクリックが公開前 28 日より 2 割以上落ちたら構成を戻す",
+        "nextVerification": "ハブの見出し・並べる記事・立場の分け方を運営者が実務の判断で決める（AI は候補を出すだけ）",
+        "card": "DN-0907"
+      }
+    },
+    {
+      "id": "EXP-046",
+      "title": "立場のテーマ「建設コンサルタントの技術者」を育成中（noindex）で作り、記事末の回遊と教材の枠を測る",
+      "hypothesis": "立場のテーマは「自治体の土木職」だけ。建設部門の選択科目マガジンの買い手はコンサルの技術者が多いと推測される。コンサルの技術者向けの記事（技術士・RCCM・総監のコンサルのペルソナ）を 1 つのテーマに束ねれば、記事末からの回遊と教材のクリックが増える",
+      "target_metric": "テーマのページの internal_nav_click（topic-page）と教材の枠の note CTA クリック、記事末の「この記事のテーマ」からの送客（topic-hub:hub）。公開後 56 日",
+      "target_delta": "記事末からテーマへの送客クリックが 56 日で 20 以上、教材の枠のクリックが 5 以上",
+      "status": "proposed",
+      "created_at": "2026-10-28",
+      "next_check_date": "2027-02-28",
+      "baseline": {
+        "measured_at": "2026-10-28",
+        "source": "src/config/topics.json（facet: audience は municipal-civil-engineers の 1 件だけ）",
+        "audienceTopics": 1
+      },
+      "actions": [
+        "1. 立場の候補（ゼネコン・コンサル・若手・転職を考える人）の証拠を demand-map.json の positions で比べ、最初の 1 つを運営者が決める",
+        "2. 決めた立場のタグを記事に付け、テーマを育成中（noindex）で作る",
+        "3. テーマのページに教材の枠（topics.json の products）を置く",
+        "4. doc 21 の昇格基準を満たしたら公開ハブにする"
+      ],
+      "history": [
+        {
+          "at": "2026-10-28T04:02:16.000Z",
+          "event": "recorded",
+          "note": "悩みの軸・類似／差別・配線の調査（docs/strategy/21 §悩みの軸）から起票。判定日と停止条件は始める前に決めた"
+        }
+      ],
+      "demand": {
+        "qualification": "pe-construction",
+        "painId": "pass-exam",
+        "harm": [
+          "A",
+          "M"
+        ],
+        "readerNeed": "コンサルの技術者が、技術士（建設・総監）と RCCM のどれをどの順で取り、業務でどう生かすかを知りたい",
+        "demandEvidence": "建設部門の選択科目マガジンが科目ごとに 5〜8 件売れている・総監のコンサルのペルソナ 5 件（購入者の勤め先は記録なし。立場は推測）",
+        "stopCondition": "56 日で記事末からの送客が 10 未満なら、立場のテーマにせず資格のナビに戻す",
+        "nextVerification": "コンサル向けの記事に付ける立場のタグ（例 `建設コンサルタント`）と、ゼネコン・若手を先にするかを運営者が決める",
+        "card": "DN-0903"
+      }
+    },
+    {
+      "id": "EXP-047",
+      "title": "技術士（建設部門）の筆記合格発表（11/4）に合わせ、口頭試験の教材への導線を資格トップと必須I・選択科目の記事に置く",
+      "hypothesis": "口頭試験の教材（note ¥1,980）は 1 件しか売れていないが、筆記合格発表の前で需要の山はこれから。合格した人が最初に読む資格トップと、自分が受けた科目の記事に口頭試験への導線を置けば、11〜1 月に売れる",
+      "target_metric": "pe-construction-oral-guide の note 販売件数（2026-11-04〜2027-01-31）と、建設部門の記事からの口頭試験への note CTA クリック",
+      "target_delta": "販売 10 件以上（未計測の初年度なので目安。人が判定する）",
+      "status": "proposed",
+      "created_at": "2026-10-28",
+      "next_check_date": "2027-02-05",
+      "baseline": {
+        "measured_at": "2026-10-28",
+        "source": "data/note/sales.json",
+        "oralGuideSales": 1,
+        "oralGuideYen": 1980
+      },
+      "actions": [
+        "1. 建設部門の資格トップ・必須I・選択科目の記事で、口頭試験の教材への導線が出ているかを本番で確かめる",
+        "2. 出ていなければ、11/4 の前に配置を足す（試験日までの切り替えは fac356aa2 の技術士一次と同じ仕組み）",
+        "3. 11/4〜1/31 の販売とクリックを週次レビューで読む"
+      ],
+      "history": [
+        {
+          "at": "2026-10-28T04:02:16.000Z",
+          "event": "recorded",
+          "note": "悩みの軸・類似／差別・配線の調査（docs/strategy/21 §悩みの軸）から起票。判定日と停止条件は始める前に決めた"
+        }
+      ],
+      "demand": {
+        "qualification": "pe-construction",
+        "painId": "pass-exam",
+        "harm": [
+          "A"
+        ],
+        "readerNeed": "筆記に受かった直後に、口頭で何を聞かれ、業務内容の詳細をどう話すかを準備したい",
+        "demandEvidence": "ココナラの技術士の口頭試験 31 出品・レビュー 84 件、note 最大手の口頭対策 ¥46,810（demand-map.json の PC-001）",
+        "stopCondition": "12/20 までに商品ページへのクリック 100 件で販売 0 件なら、訴求と価格を見直す（作り足さない）",
+        "nextVerification": "資格トップ（src/lib/magazine-placement.ts の配置条件）に口頭試験の枠が出ているかを本番で確かめる",
+        "card": "DN-0902"
+      }
     }
   ]
 }
