@@ -1,4 +1,5 @@
-import { loadDemandView } from '../../../../scripts/lib/demand-map.mjs';
+import { loadDemandView, researchDue } from '../../../../scripts/lib/demand-map.mjs';
+import { todayJst } from '../../../../scripts/lib/jst-date.mjs';
 import { loadRegistry } from '../../../../scripts/lib/qualification-registry.mjs';
 import { qualificationShortLabel } from '../../../../scripts/lib/qualification-names.mjs';
 import { findRepoRoot } from './repo-root';
@@ -83,6 +84,13 @@ export interface AxisTotal {
   count: number;
   yen: number;
 }
+export interface ResearchDue {
+  last: { date: string; qualification: string; scope: string } | null;
+  next: string;
+  nextLabel: string;
+  dueDate: string;
+  due: boolean;
+}
 export interface DemandView {
   updatedAt: string;
   pains: Pain[];
@@ -90,16 +98,19 @@ export interface DemandView {
   candidates: Candidate[];
   actions: Action[];
   axisTotals: Record<'similar' | 'differentiated', AxisTotal>;
+  research: ResearchDue;
   errors: string[];
 }
 
 export function loadDemand(): DemandView | null {
   const root = findRepoRoot();
-  const view = loadDemandView(root) as Omit<DemandView, 'candidates'> & { candidates: Omit<Candidate, 'qualificationLabel'>[] } | null;
+  const view = loadDemandView(root) as (Omit<DemandView, 'candidates' | 'research'> & { candidates: Omit<Candidate, 'qualificationLabel'>[]; research: { intervalDays: number; rotation: string[]; runs: { date: string; qualification: string; scope: string }[] } }) | null;
   if (!view) return null;
   const registry = loadRegistry(root);
+  const due = researchDue({ research: view.research }, todayJst());
   return {
     ...view,
+    research: { last: due.last, next: due.next, nextLabel: qualificationShortLabel(registry, due.next) ?? due.next, dueDate: due.dueDate, due: due.due },
     candidates: view.candidates.map((c) => ({ ...c, qualificationLabel: qualificationShortLabel(registry, c.qualification) ?? c.qualification })),
   };
 }

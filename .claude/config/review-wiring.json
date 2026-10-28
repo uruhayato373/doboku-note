@@ -425,6 +425,12 @@
           "role": "判断"
         },
         {
+          "command": "report-demand-map",
+          "label": "悩みと商品候補（判定日・判断待ち・類似／差別の実売・悩みの検索語・四半期の調査の期限）",
+          "stage": "商品・品質",
+          "role": "判断"
+        },
+        {
           "command": "qualification-market",
           "label": "資格別の展開の判断材料",
           "stage": "商品・品質",

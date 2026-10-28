@@ -1094,6 +1094,25 @@ export const ConfigDemandMap = z
           .strict(),
       )
       .superRefine(uniqueBy('id')),
+    research: z
+      .object({
+        intervalDays: z.number().int().positive().describe('外の調査（ディープリサーチ・競合の論点地図・需要の証拠）を回す間隔（日）。check-competitor-scan-due の demand が読む'),
+        rotation: z.array(QID).min(1).describe('調査する資格の順番（1 回に 1 資格。買われる時期の 2〜3 か月前に番が来るように並べる）'),
+        runs: z
+          .array(
+            z
+              .object({
+                date: jstDate('調査した日'),
+                qualification: QID,
+                scope: text.describe('何を調べたか'),
+                notes: strList.describe('調査の記録の置き場（文書の節・調査メモ）'),
+              })
+              .strict(),
+          )
+          .describe('調査した回（古い順に追記）'),
+      })
+      .strict()
+      .describe('四半期の外の調査の順番と記録（月次は台帳を読んで判定するだけ）'),
   })
   .strict()
   .superRefine((m, ctx) => {
@@ -1111,5 +1130,9 @@ export const ConfigDemandMap = z
       if (c.status === 'live' && !(c.productIds ?? []).length) flag(ctx, ['candidates', i, 'productIds'], '販売中なのに商品 id が無い（実売を比べられない）');
     });
     m.positions.forEach((p, i) => { if (p.status === 'live' && !p.topic) flag(ctx, ['positions', i, 'topic'], '公開した立場はテーマの slug が要る'); });
+    m.research.runs.forEach((r, i) => {
+      if (i > 0 && r.date < m.research.runs[i - 1].date) flag(ctx, ['research', 'runs', i, 'date'], '調査の回は古い順に追記する');
+      if (!m.research.rotation.includes(r.qualification)) flag(ctx, ['research', 'runs', i, 'qualification'], `${r.qualification} が rotation に無い`);
+    });
   })
   .meta({ title: '悩みと商品候補の地図' });

@@ -200,9 +200,14 @@ export default function DemandPage() {
           <ul className="text-xs">{view.errors.map((e) => <li key={e}>{e}</li>)}</ul>
         </PanelCard>
       )}
-      <div className="grid gap-3 sm:grid-cols-2 mb-4">
+      <div className="grid gap-3 sm:grid-cols-3 mb-4">
         <StatCard label="類似商品（売れている需要を品質・形式・価格で取る）" value={t.similar.selling ? yen(t.similar.yen) : '販売前'} sub={`候補 ${t.similar.candidates}・販売中 ${t.similar.selling}・${num(t.similar.count)}件`} />
         <StatCard label="差別商品（満たされていない悩みを当事者の権威で取る）" value={t.differentiated.selling ? yen(t.differentiated.yen) : '販売前'} sub={`候補 ${t.differentiated.candidates}・販売中 ${t.differentiated.selling}・${num(t.differentiated.count)}件`} />
+        <StatCard
+          label="四半期の外の調査（1 回 1 資格）"
+          value={<StatusBadge tone={view.research.due ? 'warn' : 'neutral'}>{`次 ${view.research.nextLabel}・${md(view.research.dueDate)}${view.research.due ? ' 期限' : ''}`}</StatusBadge>}
+          sub={view.research.last ? `前回 ${view.research.last.date}` : '前回なし'}
+        />
       </div>
       <PanelCard title="悩み" description={`配線の最上位。更新 ${view.updatedAt}`}>
         <DataTable columns={painColumns} rows={painRows} pageSize={50} />

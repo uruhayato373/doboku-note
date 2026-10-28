@@ -63,7 +63,7 @@ export function buildDemandView({ map, experiments, sales }) {
   }));
   const painIds = new Set(map.pains.map((p) => p.id));
   const errors = actions.filter((a) => !painIds.has(a.painId)).map((a) => `${a.id} の demand.painId「${a.painId}」が demand-map.json の pains に無い`);
-  return { updatedAt: map.updatedAt, pains, positions: map.positions, candidates, actions, axisTotals, errors };
+  return { updatedAt: map.updatedAt, pains, positions: map.positions, candidates, actions, axisTotals, research: map.research, errors };
 }
 
 export function loadDemandView(root) {
@@ -72,4 +72,48 @@ export function loadDemandView(root) {
   const experiments = readDatasetIf(root, 'business.experiments')?.experiments ?? [];
   const sales = readDatasetIf(root, 'note.sales')?.sales ?? [];
   return buildDemandView({ map, experiments, sales });
+}
+
+const addDays = (date, days) => new Date(Date.parse(`${date}T00:00:00Z`) + days * 86400000).toISOString().slice(0, 10);
+
+/**
+ * 四半期の外の調査の期限。最後の回の次の資格（rotation を一周する）と、最後の回から intervalDays 後の期限を返す。
+ * 回が無ければ rotation の先頭がすぐ期限（初回）。
+ */
+export function researchDue(map, today) {
+  const { intervalDays, rotation, runs } = map.research;
+  const last = runs.at(-1) ?? null;
+  const next = last ? rotation[(rotation.indexOf(last.qualification) + 1) % rotation.length] : rotation[0];
+  const dueDate = last ? addDays(last.date, intervalDays) : today;
+  return { last, next, dueDate, intervalDays, due: dueDate <= today };
+}
+
+const CLOSED = new Set(['stopped', 'done', 'abandoned']);
+
+/** 判定日が until 以前で、まだ閉じていない商品候補と打ち手（月次レビューで判定か延長の理由を書く対象） */
+export function dueJudgements(view, until) {
+  return [
+    ...view.candidates.filter((c) => !CLOSED.has(c.status) && c.judgeDate <= until).map((c) => ({ id: c.id, title: c.title, status: c.status, date: c.judgeDate, stop: c.stopCondition })),
+    ...view.actions.filter((a) => !CLOSED.has(a.status) && a.judgeDate && a.judgeDate <= until).map((a) => ({ id: a.id, title: a.title, status: a.status, date: a.judgeDate, stop: a.stopCondition })),
+  ].sort((a, b) => a.date.localeCompare(b.date));
+}
+
+/**
+ * 悩みの言い方（phrases）を含む GSC の検索語の表示・クリック。言い方の語（空白区切り）がすべて検索語に入っていれば当たりとする。
+ * @param {{ keys: string[], impressions: number, clicks: number }[]} rows GSC の query の行
+ */
+export function painSearchMetrics(pains, rows) {
+  const norm = (s) => s.replace(/\s+/g, ' ').trim();
+  return pains.map((p) => {
+    const tokenSets = p.phrases.map((ph) => norm(ph).split(' '));
+    const hits = rows.filter((r) => tokenSets.some((ts) => ts.every((t) => norm(r.keys[0]).includes(t))));
+    return {
+      id: p.id,
+      label: p.label,
+      queries: hits.length,
+      impressions: hits.reduce((n, r) => n + r.impressions, 0),
+      clicks: hits.reduce((n, r) => n + r.clicks, 0),
+      top: [...hits].sort((a, b) => b.impressions - a.impressions).slice(0, 3).map((r) => ({ query: r.keys[0], impressions: r.impressions, clicks: r.clicks, position: Math.round(r.position * 10) / 10 })),
+    };
+  });
 }

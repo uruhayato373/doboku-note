@@ -21,6 +21,7 @@ const map = (candidates) => ({
   pains: [{ id: 'pass-exam', label: 'l', harm: ['A'], depth: 'core', why: 'w', phrases: [], evidence: [] }],
   positions: [{ id: 'consultant', label: 'l', status: 'candidate', pains: ['pass-exam'], evidence: [] }],
   candidates,
+  research: { intervalDays: 90, rotation: ['pe-construction'], runs: [] },
 });
 
 test('実売は productIds と salesIds で引き、接頭辞を外す。販売前の候補は数えない（0 円にしない）', () => {
@@ -54,4 +55,26 @@ test('実データ: 地図が型を満たし、打ち手の悩みが全部地図
   assert.ok(v, 'config/demand-map.json が読める');
   assert.deepEqual(v.errors, []);
   assert.ok(v.candidates.length > 0 && v.actions.length > 0);
+});
+
+test('四半期の調査: 最後の回の次の資格を rotation から一周で選び、間隔の日数で期限を出す', async () => {
+  const { researchDue } = await import('../scripts/lib/demand-map.mjs');
+  const research = (runs) => ({ research: { intervalDays: 90, rotation: ['a', 'b'], runs } });
+  assert.deepEqual(researchDue(research([]), '2026-10-28'), { last: null, next: 'a', dueDate: '2026-10-28', intervalDays: 90, due: true });
+  const r = researchDue(research([{ date: '2026-10-28', qualification: 'b', scope: 's' }]), '2027-01-25');
+  assert.equal(r.next, 'a');
+  assert.equal(r.dueDate, '2027-01-26');
+  assert.equal(r.due, false);
+});
+
+test('月次: 判定日が来た未完の候補・打ち手だけを拾い、悩みの言い方は語がすべて入った検索語に当てる', async () => {
+  const { dueJudgements, painSearchMetrics } = await import('../scripts/lib/demand-map.mjs');
+  const view = {
+    candidates: [{ id: 'PC-001', title: 't', status: 'idea', judgeDate: '2026-10-31', stopCondition: 's' }, { id: 'PC-002', title: 't', status: 'stopped', judgeDate: '2026-10-01', stopCondition: 's' }],
+    actions: [{ id: 'EXP-001', title: 't', status: 'proposed', judgeDate: '2026-11-30', stopCondition: null }],
+  };
+  assert.deepEqual(dueJudgements(view, '2026-10-31').map((d) => d.id), ['PC-001']);
+  const rows = [{ keys: ['土木施工管理技士年収'], impressions: 8, clicks: 0, position: 6.3 }, { keys: ['技術士 年収'], impressions: 3, clicks: 1, position: 9 }];
+  const [m] = painSearchMetrics([{ id: 'raise-pay', label: 'l', phrases: ['土木施工管理技士 年収'] }], rows);
+  assert.deepEqual([m.queries, m.impressions, m.clicks], [1, 8, 0]);
 });
