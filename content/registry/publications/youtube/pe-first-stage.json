@@ -407,7 +407,7 @@
         "preview-metrics": "pe-first-stage/pe1-kiso-xor-shingihyou/youtube.longform/preview-metrics"
       },
       "copy": "content/sns/video-packs/pe-first-stage/pe1-kiso-xor-shingihyou/youtube.json#longform",
-      "status": "rendered",
+      "status": "scheduled",
       "publishAt": "2026-11-03T08:30:00+09:00",
       "review": {
         "visual": {
@@ -423,7 +423,42 @@
         "contentSha256": "bfaa3510c469c6c290a191f92b415e3f81b2433174e819ce8f3d8a2fe79ba0a8"
       },
       "times": {
-        "rendered": "2026-10-28T12:11:36.111Z"
+        "rendered": "2026-10-28T12:11:36.111Z",
+        "uploaded": "2026-10-28T12:21:04.759Z",
+        "scheduled": "2026-10-28T12:21:12.728Z"
+      },
+      "delivery": {
+        "inputSha256": "82ce3aa95ffed773174a9a0f6922c5805d43bb69a9f332c5980cee5f8cee3593",
+        "marker": "dn-single-c6627cfccb6eb3b2b07a3cc3dcd544917000ce16",
+        "uploadRequestedAt": "2026-10-28T12:19:37.301Z",
+        "videoId": "-Oeh3Gi8-yU",
+        "processedAt": "2026-10-28T12:21:03.371Z",
+        "thumbnailRequestedAt": "2026-10-28T12:21:04.794Z",
+        "thumbnailUrls": [
+          "https://i9.ytimg.com/vi/-Oeh3Gi8-yU/default.jpg?sqp=CPDQh9cG&rs=AOn4CLCslEm9xTw9UgGitW7YkAUsffFrIg",
+          "https://i9.ytimg.com/vi/-Oeh3Gi8-yU/mqdefault.jpg?sqp=CPDQh9cG&rs=AOn4CLBnXXx5vlXuFMBFmP7KOs94WYWNxQ",
+          "https://i9.ytimg.com/vi/-Oeh3Gi8-yU/hqdefault.jpg?sqp=CPDQh9cG&rs=AOn4CLDSgKNaBe76tVFACgnVVCtQWwq9SQ",
+          "https://i9.ytimg.com/vi/-Oeh3Gi8-yU/sddefault.jpg?sqp=CPDQh9cG&rs=AOn4CLCCVjyFlM2s1NCr7sYNWsPON-nnAw",
+          "https://i9.ytimg.com/vi/-Oeh3Gi8-yU/maxresdefault.jpg?sqp=CPDQh9cG&rs=AOn4CLAunrhRhI5KvQg9h1AjbDyyTvWLSg",
+          "https://i9.ytimg.com/vi/-Oeh3Gi8-yU/fhddefault.jpg?sqp=CPDQh9cG&rs=AOn4CLAK7SkwdcPmLFQehiNMiUuH196ujA"
+        ],
+        "thumbnailAcceptedAt": "2026-10-28T12:21:08.092Z",
+        "scheduleRequestedAt": "2026-10-28T12:21:09.162Z",
+        "scheduleAt": "2026-11-03T08:30:00+09:00",
+        "scheduledVerifiedAt": "2026-10-28T12:21:12.728Z"
+      },
+      "platform": {
+        "id": "-Oeh3Gi8-yU",
+        "url": "https://www.youtube.com/watch?v=-Oeh3Gi8-yU",
+        "privacy": "private",
+        "evidence": {
+          "kind": "publisher-live-check",
+          "ref": "content/sns/video-packs/pe-first-stage/pe1-kiso-xor-shingihyou/youtube.json#longform"
+        }
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-10-28T12:21:08.092Z"
       }
     },
     {
