@@ -415,6 +415,868 @@
       "durationSec": 226.7
     },
     {
+      "id": "pe-first-stage/pe1-kiso-kairo-setsuten/youtube.longform/contact-sheet",
+      "role": "contact-sheet",
+      "type": "image/jpeg",
+      "sha256": "f3519b1d6b300a770f288fd03fb0c76de4c7bb407382490dbaeb38f96a32ec41",
+      "bytes": 739939,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-kairo-setsuten/youtube.longform/contact-sheet.f3519b1d.jpg"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "media-preview",
+        "spec": "content/sns/video-packs/pe-first-stage/pe1-kiso-kairo-setsuten/storyboard.json"
+      },
+      "width": 1920,
+      "height": 1620
+    },
+    {
+      "id": "pe-first-stage/pe1-kiso-kairo-setsuten/youtube.longform/cover",
+      "role": "cover",
+      "type": "image/png",
+      "sha256": "6ad23834962f8baf0dc953052246d90ec6c11efe855016435f38b91b927228e9",
+      "bytes": 3716944,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-kairo-setsuten/youtube.longform/cover.6ad23834.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Create a NEW 16:9 POP Japanese YouTube thumbnail using attached approved cover as visual style and teacher identity reference. Exact BIG title 「技術士第一次試験」「回路の接続点」「線の形にだまされない」 and small yellow strip 「総監が制作」. Energetic teal blue yellow orange background, white helmet navy workwear teacher on right holding red pen. On left ONLY an abstract three-node connection map: three large separate circles marked A, C, B, C glows green; thin lines may join A-C and C-B, but NO resistors, NO complete electric circuit, NO extra lower path, NO battery. Focus on node labels. Full bleed, accurate Japanese, bottom 18% uncluttered.",
+        "promptSha256": "1b53bf404efc0cc590a956bb657086ee9c30e1e361e8e4efb0b06ddf81337b4b",
+        "generatedAt": "2026-10-28T00:21:31.985Z"
+      },
+      "width": 1920,
+      "height": 1080,
+      "legacyPaths": [
+        ".tmp/media/pe-first-stage/pe1-kiso-kairo-setsuten/work/cover-pop.6ad23834.png"
+      ]
+    },
+    {
+      "id": "pe-first-stage/pe1-kiso-kairo-setsuten/youtube.longform/preview",
+      "role": "preview",
+      "type": "video/mp4",
+      "sha256": "503fe6e552fc0a3e80c9a8408600343bfb8dd2a791b5a080191bcec83cf9d354",
+      "bytes": 6650168,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-kairo-setsuten/youtube.longform/preview.503fe6e5.mp4"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "media-preview",
+        "spec": "content/sns/video-packs/pe-first-stage/pe1-kiso-kairo-setsuten/storyboard.json"
+      },
+      "durationSec": 229.771
+    },
+    {
+      "id": "pe-first-stage/pe1-kiso-kairo-setsuten/youtube.longform/preview-metrics",
+      "role": "preview-metrics",
+      "type": "application/json",
+      "sha256": "f56b6eb61fa64e2f154adfb703974d527471bf0e2312511fd9dc5301f476b378",
+      "bytes": 682,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-kairo-setsuten/youtube.longform/preview-metrics.f56b6eb6.json"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "media-preview",
+        "spec": "content/sns/video-packs/pe-first-stage/pe1-kiso-kairo-setsuten/storyboard.json"
+      }
+    },
+    {
+      "id": "pe-first-stage/pe1-kiso-kairo-setsuten/youtube.longform/scene-001",
+      "role": "scene-001",
+      "type": "image/png",
+      "sha256": "6ad23834962f8baf0dc953052246d90ec6c11efe855016435f38b91b927228e9",
+      "bytes": 3716944,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-kairo-setsuten/youtube.longform/scene-001.6ad23834.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Create a NEW 16:9 POP Japanese YouTube thumbnail using attached approved cover as visual style and teacher identity reference. Exact BIG title 「技術士第一次試験」「回路の接続点」「線の形にだまされない」 and small yellow strip 「総監が制作」. Energetic teal blue yellow orange background, white helmet navy workwear teacher on right holding red pen. On left ONLY an abstract three-node connection map: three large separate circles marked A, C, B, C glows green; thin lines may join A-C and C-B, but NO resistors, NO complete electric circuit, NO extra lower path, NO battery. Focus on node labels. Full bleed, accurate Japanese, bottom 18% uncluttered.",
+        "promptSha256": "1b53bf404efc0cc590a956bb657086ee9c30e1e361e8e4efb0b06ddf81337b4b",
+        "generatedAt": "2026-10-28T00:21:31.985Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-first-stage/pe1-kiso-kairo-setsuten/youtube.longform/scene-002",
+      "role": "scene-002",
+      "type": "image/png",
+      "sha256": "19805aff12b6dde526a68343be9ffa737b9650b3c88ba662a72ee59dcc9692b2",
+      "bytes": 1924348,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-kairo-setsuten/youtube.longform/scene-002.19805aff.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Create NEW Japanese 16:9 educational diagram using attached image only as white/pale-grey navy green style reference. Heading 「接続点が先」. Three large numbered steps ONLY, no electrical source icon and NO battery polarity symbol ANYWHERE. Step ① 「点に名前」 beside three separate colored circles A,C,B. Step ② 「同じ二点なら並列」 beside two resistor branches BOTH between node C and node B labeled 12Ω and 4Ω. Step ③ 「分岐なしなら直列」 beside simple one-path A --3Ω-- C --3Ω-- B. Correct topology, no source, no voltage label, no current direction arrow. Large legible labels above lower 18% subtitle area.",
+        "promptSha256": "9e7466fd96b92359fb3071575e7fa0fbc8aa976aa5baf9b8211ea83b70dee756",
+        "generatedAt": "2026-10-28T00:21:31.985Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-first-stage/pe1-kiso-kairo-setsuten/youtube.longform/scene-003",
+      "role": "scene-003",
+      "type": "image/png",
+      "sha256": "9571ea37d3260e62471355008067355c63392a3713acf288181267a994982eac",
+      "bytes": 2070695,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-kairo-setsuten/youtube.longform/scene-003.9571ea37.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Create a NEW precise Japanese 16:9 educational diagram, attached image only as style reference: white pale grey background, strong navy lines, blue current, green correct emphasis and yellow highlights. No person. Keep all meaning above lower 18% subtitle area. Large labels only. Heading 「見た目で決めない」. Three simplified circuit silhouettes: diagonal wiring, cube-edge resistance, misleading horizontally drawn resistors. Central red question 「横＝並列？」 crossed out. Large labels 「斜め」「立体」「接続点」. Conceptual warning, not solved numeric circuit.",
+        "promptSha256": "c90cb58b2e72955976e1efcc5f6d1ec16bcaad2a31e39f1e060b7dbdbaf4273b",
+        "generatedAt": "2026-10-28T00:21:31.985Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-first-stage/pe1-kiso-kairo-setsuten/youtube.longform/scene-004",
+      "role": "scene-004",
+      "type": "image/png",
+      "sha256": "de58d474ed195739276c713ef51a29b0af7d437cc275e28d72948601ea478f35",
+      "bytes": 1745679,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-kairo-setsuten/youtube.longform/scene-004.de58d474.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Create a NEW precise Japanese 16:9 educational diagram, attached image only as style reference: white pale grey background, strong navy lines, blue current, green correct emphasis and yellow highlights. No person. Keep all meaning above lower 18% subtitle area. Large labels only. Heading 「3Ωと12Ωを足す前に」. Exact circuit A --3Ω-- C, then from C two distinct branches to B, upper 12Ω, lower 4Ω. Highlight three-wire junction at C. Red tempting equation 「3+12？」 crossed out, green note 「Cから4Ωの枝」. No wrong topology.",
+        "promptSha256": "2cb79e8c60d8f9276813e6479ca3d2923712933b36c3d6c2fc9f900777c60b5a",
+        "generatedAt": "2026-10-28T00:21:31.985Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-first-stage/pe1-kiso-kairo-setsuten/youtube.longform/scene-005",
+      "role": "scene-005",
+      "type": "image/png",
+      "sha256": "f29fb2885a17e3a5423115ebb5953db9460dff39b190e11ddae50c8da7cf6e7f",
+      "bytes": 1637357,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-kairo-setsuten/youtube.longform/scene-005.f29fb288.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Create a NEW precise Japanese 16:9 educational diagram, attached image only as style reference: white pale grey background, strong navy lines, blue current, green correct emphasis and yellow highlights. No person. Keep all meaning above lower 18% subtitle area. Large labels only. Heading 「A−B間 12V」. Exact network A --3Ω-- C, and C-to-B two branches upper 12Ω and lower 4Ω, ideal 12V source across A-B. Nodes A C B clear. Labels 3Ω,12Ω,4Ω only. Thick wires, no crossing accidental junction.",
+        "promptSha256": "2fb5a22ad536cd268f28f29b5f36ece9e6d0611e340087b0560346ab0b5a1256",
+        "generatedAt": "2026-10-28T00:21:31.985Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-first-stage/pe1-kiso-kairo-setsuten/youtube.longform/scene-006",
+      "role": "scene-006",
+      "type": "image/png",
+      "sha256": "82765c4e4215ad215ba089bb30e9883c7a6a9c8bf74e5e6c2fb0a3d01f76c9cb",
+      "bytes": 1512735,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-kairo-setsuten/youtube.longform/scene-006.82765c4e.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Create a NEW precise Japanese 16:9 educational diagram, attached image only as style reference: white pale grey background, strong navy lines, blue current, green correct emphasis and yellow highlights. No person. Keep all meaning above lower 18% subtitle area. Large labels only. Heading 「点を先に書き込む」. Exact network A --3Ω-- C; C-to-B parallel branches 12Ω and 4Ω; 12V source A-B. Enlarge A C B nodes. Arrows label 「A−C：3Ω」「C−B：12Ωと4Ω」. No fourth point.",
+        "promptSha256": "799bc5ffe83b7988df686f7232b8b333702af6ab79c0864103ab0c5278f6cb68",
+        "generatedAt": "2026-10-28T00:21:31.985Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-first-stage/pe1-kiso-kairo-setsuten/youtube.longform/scene-007",
+      "role": "scene-007",
+      "type": "image/png",
+      "sha256": "24c12da7a1ef33012f74a912deec36d80a044ef95f984ef56ccbf32061fcaa07",
+      "bytes": 1782474,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-kairo-setsuten/youtube.longform/scene-007.24c12da7.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Create a NEW precise Japanese 16:9 educational diagram, attached image only as style reference: white pale grey background, strong navy lines, blue current, green correct emphasis and yellow highlights. No person. Keep all meaning above lower 18% subtitle area. Large labels only. Heading 「両端が同じ二点」. Isolate resistors 12Ω upper branch and 4Ω lower branch between SAME left C and right B. Color potential at C blue and at B green; both branches share endpoints. Large 「12Ω ∥ 4Ω」「同じ電圧」. No series connection.",
+        "promptSha256": "b157bba6a83d80add7f03a84ab073be9c80af0eba25b4ce45fc45737e6cc627f",
+        "generatedAt": "2026-10-28T00:21:31.985Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-first-stage/pe1-kiso-kairo-setsuten/youtube.longform/scene-008",
+      "role": "scene-008",
+      "type": "image/png",
+      "sha256": "1c68584e95d2c11c095d66d88e5c56510f52b47c25abc229c21f94e11551efc0",
+      "bytes": 1669869,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-kairo-setsuten/youtube.longform/scene-008.1c68584e.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Create a NEW precise Japanese 16:9 educational diagram, attached image only as style reference: white pale grey background, thick navy wires, blue current, green correct emphasis, yellow highlights. No person. Keep all meaning above lower 18% subtitle area. Large legible Japanese labels only. Heading 「並列を先に合成」. Two resistors 12Ω and 4Ω in parallel between same C and B, arrow to one equivalent 3Ω resistor. Show correct large calculation 「12×4÷(12+4)=3Ω」 and note 「4Ωより小さい」. No incorrect arithmetic.",
+        "promptSha256": "de17d9bc09c2b03c8ab0657903c6015b9fc9b5c70449d58893595f92f292824f",
+        "generatedAt": "2026-10-28T00:21:31.985Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-first-stage/pe1-kiso-kairo-setsuten/youtube.longform/scene-009",
+      "role": "scene-009",
+      "type": "image/png",
+      "sha256": "b5832a33f7333e50b61e65751e7649a1f32648fb81231d417d67c989c407e3bc",
+      "bytes": 1757032,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-kairo-setsuten/youtube.longform/scene-009.b5832a33.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Create a NEW precise Japanese 16:9 educational diagram, attached image only as style reference: white pale grey background, thick navy wires, blue current, green correct emphasis, yellow highlights. No person. Keep all meaning above lower 18% subtitle area. Large legible Japanese labels only. Heading 「置換したら直列」. A --3Ω-- C --3Ω-- B with no branches at C AFTER equivalent replacement. Big green arrow to 「3+3=6Ω」. Small inset old parallel C-B network 12Ω∥4Ω transformed to 3Ω. No extra branch in final.",
+        "promptSha256": "15b40063ff43472d12ac79dc62621c379a45dd560491756329aa0df7f5f965a5",
+        "generatedAt": "2026-10-28T00:21:31.985Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-first-stage/pe1-kiso-kairo-setsuten/youtube.longform/scene-010",
+      "role": "scene-010",
+      "type": "image/png",
+      "sha256": "4d595d1d2b0208a2f9c89e84188793350fe5c1ceca59111ca63b51b29c735226",
+      "bytes": 1680749,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-kairo-setsuten/youtube.longform/scene-010.4d595d1d.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Create a NEW precise Japanese 16:9 educational diagram, attached image only as style reference: white pale grey background, thick navy wires, blue current, green correct emphasis, yellow highlights. No person. Keep all meaning above lower 18% subtitle area. Large legible Japanese labels only. Heading 「電流で検算」. Source 12V across A-B, A-C 3Ω, C-B 12Ω∥4Ω. Label total current 「2A」, voltage drop each stage 「6V」. In C-B upper 12Ω branch 「0.5A」 and lower 4Ω branch 「1.5A」 merge to 2A. All numbers internally consistent.",
+        "promptSha256": "6f31fe74e4d008ad9384c837b74f5281ce019277e845d63c11928c629afcd51e",
+        "generatedAt": "2026-10-28T00:21:31.985Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-first-stage/pe1-kiso-kairo-setsuten/youtube.longform/scene-011",
+      "role": "scene-011",
+      "type": "image/png",
+      "sha256": "4e07401af5ac5952110798d869bcf261665fea517f55b7c1a2ea0d3af0a1f31c",
+      "bytes": 1731465,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-kairo-setsuten/youtube.longform/scene-011.4e07401a.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Create a NEW precise Japanese 16:9 educational diagram, attached image only as style reference: white pale grey background, thick navy wires, blue current, green correct emphasis, yellow highlights. No person. Keep all meaning above lower 18% subtitle area. Large legible Japanese labels only. Heading 「直列と並列の判定」. Two simple panels. Left single path two resistors with no junction: 「直列：同じ電流」. Right two branches sharing exact same two nodes: 「並列：同じ電圧」. Differentiate thick arrows/current vs node color/potential. No cross wires.",
+        "promptSha256": "f9d23049e78bd522ae8de5bb483a38c323395d8cc7367e01ba16e28cef35b3e8",
+        "generatedAt": "2026-10-28T00:21:31.985Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-first-stage/pe1-kiso-kairo-setsuten/youtube.longform/scene-012",
+      "role": "scene-012",
+      "type": "image/png",
+      "sha256": "5cc43309d9f41a7afbc1f4272f7b41bd37f0846542ce9b63551e18a3c718de74",
+      "bytes": 1938443,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-kairo-setsuten/youtube.longform/scene-012.5cc43309.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Create a NEW precise Japanese 16:9 educational diagram, attached image only as style reference: white pale grey background, thick navy wires, blue current, green correct emphasis, yellow highlights. No person. Keep all meaning above lower 18% subtitle area. Large legible Japanese labels only. Heading 「3点で確認」. Large clean checklist with three pictograms: ① two endpoint nodes and label 「両端は同じ点か」, ② branching junction and 「分岐はないか」, ③ Ω symbol and total resistor smaller than smallest branch for parallel, label 「単位と大小」. No false numeric equation.",
+        "promptSha256": "ed3c7d738d55b8f75f6724a4a3d202d8a7ae9c1f3ff714d42e32e332e0483b96",
+        "generatedAt": "2026-10-28T00:21:31.985Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-first-stage/pe1-kiso-kairo-setsuten/youtube.longform/scene-013",
+      "role": "scene-013",
+      "type": "image/png",
+      "sha256": "52f5ce73a9c0c1cb46444927f3166bdb45d85289857931b71f1b02241bfb0c75",
+      "bytes": 1793711,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-kairo-setsuten/youtube.longform/scene-013.52f5ce73.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Create NEW simple Japanese 16:9 educational graphic using attached image only as clean white pale-grey navy green style reference. NO circuit drawings of any kind, NO tetrahedron, NO resistor icon, NO schematic, NO geometric shape that could imply exam topology. Heading 「過去問で接続点を見る」. Two large plain rectangular text cards only: left 「令和6年度 基礎 I-3-6」 with a generic open-book icon; right 「令和7年度 基礎 I-3-5」 with a generic open-book icon. Between or below them one large instruction 「同じ点に同じ文字」 and a simple pencil icon. Keep lower 18% empty for captions. Accurate Japanese characters and numerals, no extra words.",
+        "promptSha256": "4f444fae58459cd1ecc3e79c945a4e8f0eab94288b99f9c6d15090843cb559c2",
+        "generatedAt": "2026-10-28T00:21:31.985Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-first-stage/pe1-kiso-kairo-setsuten/youtube.longform/scene-014",
+      "role": "scene-014",
+      "type": "image/png",
+      "sha256": "fd5ebb82e7da3a906a3f7639af3d06155fd0f17c1bc254b41293e9fe0e254dc5",
+      "bytes": 2054129,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-kairo-setsuten/youtube.longform/scene-014.fd5ebb82.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Create NEW precise Japanese 16:9 educational process diagram using attached image only as style reference. White pale grey, navy and green, no person. Heading 「点→並列→直列→検算」. Four large panels with ONLY simple correct symbols, NO detailed circuit or calculated resistor numbers except specified: ① circles A C B 「接続点」; ② two simple parallel branch resistor icons between C and B, labeled 「12Ω ∥ 4Ω = 3Ω」; ③ two series resistor icons A-C 3Ω and C-B 3Ω, labeled 「3Ω + 3Ω = 6Ω」; ④ blue currents split into upper 0.5A and lower 1.5A then recombine 2A, labeled 「0.5A + 1.5A = 2A」. Ensure all numeric equations exactly right and branches never cross. Meaning above lower 18% subtitle area.",
+        "promptSha256": "61fbfd387fac1eee7a0e549f1bfbe8c9a58bfeca83e16e4d33853bad76a0a220",
+        "generatedAt": "2026-10-28T00:21:31.985Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-first-stage/pe1-kiso-kairo-setsuten/youtube.longform/scene-015",
+      "role": "scene-015",
+      "type": "image/png",
+      "sha256": "3a3278bccb978821b05539395093eefc07eaab4666f6dc0fbfbff205348d2213",
+      "bytes": 2244493,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-kairo-setsuten/youtube.longform/scene-015.3a3278bc.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Create a NEW precise Japanese 16:9 educational diagram, attached image only as style reference: white pale grey background, thick navy wires, blue current, green correct emphasis, yellow highlights. No person. Keep all meaning above lower 18% subtitle area. Large legible Japanese labels only. Heading 「通しで演習」. Clean educational closing diagram with 3 large cards labeled 「基礎」「適性」「専門」 and one practice pencil/check mark. Text 「概要欄から」. No link, QR code, sales graphic or dense prose.",
+        "promptSha256": "bfec87bfb9e12e01539ef17e07a4d6933a60aead22566afd47641e0cd3a15106",
+        "generatedAt": "2026-10-28T00:21:31.985Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-first-stage/pe1-kiso-kairo-setsuten/youtube.longform/scene-sheet",
+      "role": "scene-sheet",
+      "type": "image/jpeg",
+      "sha256": "4615279d4078155c9034d04ce75d368ae5439a6fa31df32464745a1dbf394cfd",
+      "bytes": 879107,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-kairo-setsuten/youtube.longform/scene-sheet.4615279d.jpg"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "media-preview",
+        "spec": "content/sns/video-packs/pe-first-stage/pe1-kiso-kairo-setsuten/storyboard.json"
+      },
+      "width": 1920,
+      "height": 1990
+    },
+    {
+      "id": "pe-first-stage/pe1-kiso-kairo-setsuten/youtube.longform/subtitles",
+      "role": "subtitles",
+      "type": "text/x-ssa",
+      "sha256": "f391181e6630d0fe67c7093719678ff702d0aba45ee8902515701db95c9bf9ad",
+      "bytes": 7782,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-kairo-setsuten/youtube.longform/subtitles.f391181e.ass"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/pe-first-stage/pe1-kiso-kairo-setsuten/storyboard.json"
+      }
+    },
+    {
+      "id": "pe-first-stage/pe1-kiso-kairo-setsuten/youtube.longform/video",
+      "role": "video",
+      "type": "video/mp4",
+      "sha256": "7eafd2e4b699ed1cd6a2791ec400572ab4def1f108f4bbbee94d49411d52809b",
+      "bytes": 25716391,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-kairo-setsuten/youtube.longform/video.7eafd2e4.mp4"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/pe-first-stage/pe1-kiso-kairo-setsuten/storyboard.json",
+        "specSha256": "e2d94753cb355b106a8a5e358abd64636ab76af08b9c6b473dee4567f8f98660",
+        "renderInputSha256": "d8f41a4421cbb63a2c7ff2dddbc22703ded4ae6c511cb4190da09e56dbff406a",
+        "tts": {
+          "engine": "VOICEVOX",
+          "speaker": 13,
+          "credit": "VOICEVOX:青山龍星"
+        }
+      },
+      "durationSec": 229.8
+    },
+    {
+      "id": "pe-first-stage/pe1-kiso-newton-hou/youtube.longform/contact-sheet",
+      "role": "contact-sheet",
+      "type": "image/jpeg",
+      "sha256": "504d5f3c2311735e530620a693b88ece7b6187c85944670f22007b6b408fdaa5",
+      "bytes": 729735,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/youtube.longform/contact-sheet.504d5f3c.jpg"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "media-preview",
+        "spec": "content/sns/video-packs/pe-first-stage/pe1-kiso-newton-hou/storyboard.json"
+      },
+      "width": 1920,
+      "height": 1620
+    },
+    {
+      "id": "pe-first-stage/pe1-kiso-newton-hou/youtube.longform/contact-sheet-2",
+      "role": "contact-sheet-2",
+      "type": "image/jpeg",
+      "sha256": "3959f0915b7c007413809f2a08277261ade6c7da8f5df239cc58d750c9485ebe",
+      "bytes": 98276,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/youtube.longform/contact-sheet-2.3959f091.jpg"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "media-preview",
+        "spec": "content/sns/video-packs/pe-first-stage/pe1-kiso-newton-hou/storyboard.json"
+      },
+      "width": 1920,
+      "height": 1620
+    },
+    {
+      "id": "pe-first-stage/pe1-kiso-newton-hou/youtube.longform/cover",
+      "role": "cover",
+      "type": "image/png",
+      "sha256": "1180900fac85acce7826e1fbec943150ef9ecc364f2dbddd4035209138f4b26f",
+      "bytes": 3647286,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/youtube.longform/cover.1180900f.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "NEW POP 16:9 Japanese YouTube thumbnail using attached approved cover as style and teacher identity reference. Large accurate text 「技術士第一次試験」「ニュートン法」「接線で次の近似解へ」. Yellow strip 「総監が制作」. Energetic teal blue yellow orange background; white helmet navy workwear teacher at right with red pen. At left a simple blue parabola crossing x-axis and a red tangent line from point on parabola toward x-axis; NO equations or numerical labels. Full bleed, lower 18% clean.",
+        "promptSha256": "a6035fd572eeed7ee54c4bae566c1e84c64eaa0ce5632a73916db468621b2d3d",
+        "generatedAt": "2026-10-28T00:21:07.257Z"
+      },
+      "width": 1920,
+      "height": 1080,
+      "legacyPaths": [
+        ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/cover-pop.1180900f.png"
+      ]
+    },
+    {
+      "id": "pe-first-stage/pe1-kiso-newton-hou/youtube.longform/preview",
+      "role": "preview",
+      "type": "video/mp4",
+      "sha256": "7b1c0aacebd307ad5e1b72a6880eba53a19e4b54f58854370dd6b257d7f0de2c",
+      "bytes": 5891419,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/youtube.longform/preview.7b1c0aac.mp4"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "media-preview",
+        "spec": "content/sns/video-packs/pe-first-stage/pe1-kiso-newton-hou/storyboard.json"
+      },
+      "durationSec": 248.789
+    },
+    {
+      "id": "pe-first-stage/pe1-kiso-newton-hou/youtube.longform/preview-metrics",
+      "role": "preview-metrics",
+      "type": "application/json",
+      "sha256": "01b594b307cbd22961cb1f71c208f779c196199e99db30d0f564c2795b5590ae",
+      "bytes": 1507,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/youtube.longform/preview-metrics.01b594b3.json"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "media-preview",
+        "spec": "content/sns/video-packs/pe-first-stage/pe1-kiso-newton-hou/storyboard.json"
+      }
+    },
+    {
+      "id": "pe-first-stage/pe1-kiso-newton-hou/youtube.longform/scene-001",
+      "role": "scene-001",
+      "type": "image/png",
+      "sha256": "1180900fac85acce7826e1fbec943150ef9ecc364f2dbddd4035209138f4b26f",
+      "bytes": 3647286,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/youtube.longform/scene-001.1180900f.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "NEW POP 16:9 Japanese YouTube thumbnail using attached approved cover as style and teacher identity reference. Large accurate text 「技術士第一次試験」「ニュートン法」「接線で次の近似解へ」. Yellow strip 「総監が制作」. Energetic teal blue yellow orange background; white helmet navy workwear teacher at right with red pen. At left a simple blue parabola crossing x-axis and a red tangent line from point on parabola toward x-axis; NO equations or numerical labels. Full bleed, lower 18% clean.",
+        "promptSha256": "a6035fd572eeed7ee54c4bae566c1e84c64eaa0ce5632a73916db468621b2d3d",
+        "generatedAt": "2026-10-28T00:21:07.257Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-first-stage/pe1-kiso-newton-hou/youtube.longform/scene-002",
+      "role": "scene-002",
+      "type": "image/png",
+      "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887",
+      "bytes": 1884319,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/youtube.longform/scene-002.2d6c31ce.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Create a NEW Japanese 16:9 educational diagram with clean white pale grey background, bold navy text, blue and green accents like attached style. Large legible labels above lower 18% caption safe zone. Draw NO parabola, NO curved function plot, NO x-y coordinate graph, NO fabricated numerical geometry. Heading 「接線で次の値へ」. Three large conceptual cards with exact labels 「高さ f(x₀)」→「傾き f′(x₀)」→「横の移動 f(x₀)/f′(x₀)」. Beneath, large exact update formula 「x₁ = x₀ − f(x₀)/f′(x₀)」. Use a simple RIGHT TRIANGLE icon with vertical height and horizontal run only, not a function curve.",
+        "promptSha256": "0abed36fe247ecebb59ca75cc62c965e7e22f82126324ed6c5b3a8d9ca273e3f",
+        "generatedAt": "2026-10-28T00:21:07.257Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-first-stage/pe1-kiso-newton-hou/youtube.longform/scene-003",
+      "role": "scene-003",
+      "type": "image/png",
+      "sha256": "b8ca16e8c210e41228c4dafa41c68251b22581b87e45c196d51a404a115ecab3",
+      "bytes": 1851945,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/youtube.longform/scene-003.b8ca16e8.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Create NEW mathematically accurate Japanese 16:9 educational diagram using attached image only as simple white pale-grey navy/green style reference. NO graph, NO curve, NO axes, NO tangent drawing, NO number line. All text large and above lower 18% subtitle zone. Heading 「分母を忘れない」. Left red crossed-out formula card EXACT 「x−f(x)」 with label 「誤り」. Right green formula card EXACT 「x−f(x)/f′(x)」 with label 「正しい形」. Below three large boxes 「高さ f(x)」→「傾き f′(x)」→「横の移動 f(x)/f′(x)」. No direction of movement implied without sign.",
+        "promptSha256": "7a94abb88fa9517a28f02a5d562a513a10090df41732e40f806fd14350f9c4ae",
+        "generatedAt": "2026-10-28T00:21:07.257Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-first-stage/pe1-kiso-newton-hou/youtube.longform/scene-004",
+      "role": "scene-004",
+      "type": "image/png",
+      "sha256": "9f9a92b31be90d803d5709a78366f6ec3e9aad854160e751b390d90d00eeb415",
+      "bytes": 1836822,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/youtube.longform/scene-004.9f9a92b3.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Create a NEW Japanese 16:9 educational diagram with clean white pale grey background, bold navy text, blue and green accents like attached style. Large legible labels above lower 18% caption safe zone. Draw NO parabola, NO curved function plot, NO x-y coordinate graph, NO fabricated numerical geometry. Heading 「初期値 x₀=3」. Three big clean formula cards connected by arrows: 「f(x)=x²−5」 and 「f(3)=4」, 「f′(x)=2x」 and 「f′(3)=6」. A fourth small card 「高さ4・傾き6」. No curve or axes. Correct Japanese and exact expressions only.",
+        "promptSha256": "618ecb2cd9416a0d6baaec28c4cb2ac93f336bde167f04a2a817e6da8f3eab39",
+        "generatedAt": "2026-10-28T00:21:07.257Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-first-stage/pe1-kiso-newton-hou/youtube.longform/scene-005",
+      "role": "scene-005",
+      "type": "image/png",
+      "sha256": "838a7ee0808ca43444e133c1886420028d0177dc55cef35d8b6307cdb4be5481",
+      "bytes": 1710022,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/youtube.longform/scene-005.838a7ee0.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Create a NEW Japanese 16:9 educational diagram with clean white pale grey background, bold navy text, blue and green accents like attached style. Large legible labels above lower 18% caption safe zone. Draw NO parabola, NO curved function plot, NO x-y coordinate graph, NO fabricated numerical geometry. Heading 「高さ÷傾き」. Draw ONLY one straight green rising tangent line as a geometric right triangle, not a function graph. Vertical leg height 4, horizontal leg run 2/3 toward LEFT from base point x₀=3 to intercept x₁=7/3. Labels 「高さ4」「傾き6」「横の移動4÷6=2/3」. A straight line slope 6 must rise 4 over horizontal 2/3. No parabola, no formula f(x)=...",
+        "promptSha256": "a6fb7d4d28a5557fc5ca3aed4305f902d1f1a6d71502c62605689c861b444608",
+        "generatedAt": "2026-10-28T00:21:07.257Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-first-stage/pe1-kiso-newton-hou/youtube.longform/scene-006",
+      "role": "scene-006",
+      "type": "image/png",
+      "sha256": "f5581df4d5d377a7294959bbe89fc7de8bfbca08336e1b666676c192225459e1",
+      "bytes": 1574090,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/youtube.longform/scene-006.f5581df4.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Create NEW mathematically precise Japanese 16:9 educational diagram, attached image only as style reference. White pale grey canvas, navy axes and labels, green correct step, blue curves, yellow highlights. No person. Avoid tiny text. Meaning above lower 18% subtitle safe zone. Draw coordinate geometry precisely, no impossible curve or mislabeled axis. Heading 「1回目の更新」. Simple clean equation steps large and exact: 「x₁ = 3 − 4/6」「= 3 − 2/3」「= 7/3」. Number line 3 then arrow left to 7/3 then √5≈2.236 further slightly left. No other values.",
+        "promptSha256": "760425a36e4729c3afc0ff6f2936d933a0f9c8e515f2de613a7bd641bb9c1a75",
+        "generatedAt": "2026-10-28T00:21:07.257Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-first-stage/pe1-kiso-newton-hou/youtube.longform/scene-007",
+      "role": "scene-007",
+      "type": "image/png",
+      "sha256": "55ca6b08cdb1df933ed1ecb9425888f66ba00bec2464f2f7dad722e0af3f0cb1",
+      "bytes": 1705743,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/youtube.longform/scene-007.55ca6b08.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Create NEW precise Japanese 16:9 educational diagram with white pale grey background, navy text, green and blue highlights matching attached style. Heading 「2回目の更新」. Show ONLY three sequential large formula cards from left to right, NO number line and NO graph to avoid ordering errors. Card 1 EXACT math 「f(7/3)=4/9」. Card 2 EXACT math 「f′(7/3)=14/3」. Card 3 EXACT math 「x₂=7/3−(4/9)÷(14/3)=47/21」. All numbers and fractions mathematically accurate, no substituted or duplicated symbols. Small subtitle 「近似解へ近づく」. No other numbers. Bottom 18% blank for captions.",
+        "promptSha256": "51d518cf837f03eb00203e44d825a781b307ec69487dd403c41e2b1e18707e94",
+        "generatedAt": "2026-10-28T00:21:07.257Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-first-stage/pe1-kiso-newton-hou/youtube.longform/scene-008",
+      "role": "scene-008",
+      "type": "image/png",
+      "sha256": "0168690a56463687580a93423e3f58e64b32cab89b6798981c86bdc8ff96b6f3",
+      "bytes": 1683442,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/youtube.longform/scene-008.0168690a.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Create a NEW Japanese 16:9 educational diagram with clean white pale grey background, bold navy text, blue and green accents like attached style. Large legible labels above lower 18% caption safe zone. Draw NO parabola, NO curved function plot, NO x-y coordinate graph, NO fabricated numerical geometry. Heading 「残差で検算」. Two large number cards and a horizontal number line with LEFT-to-RIGHT positions √5≈2.2361, 47/21≈2.2381; these two points close together, 47/21 on RIGHT. Big exact formula 「f(47/21)=4/441」 and green check. No function graph, no vertical axis, no curve.",
+        "promptSha256": "546875cb8bf061c0ccfa542825bc6ed01e93bd5a3c4a41b07f57d5bbecd0dce7",
+        "generatedAt": "2026-10-28T00:21:07.257Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-first-stage/pe1-kiso-newton-hou/youtube.longform/scene-009",
+      "role": "scene-009",
+      "type": "image/png",
+      "sha256": "710581909649aacb3875778db918db8f66810e2809c2b3838732ff65642886e8",
+      "bytes": 1958885,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/youtube.longform/scene-009.71058190.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Create NEW mathematically accurate Japanese 16:9 educational diagram using attached image only as simple white pale-grey navy/green style reference. NO graph, NO curve, NO axes, NO tangent drawing, NO number line. All text large and above lower 18% subtitle zone. Heading 「分母は傾き」. Three large exact concept cards: blue 「高さ f(x₀)」, green 「傾き f′(x₀)」, yellow 「横の移動 f(x₀)/f′(x₀)」, with simple division symbol between first two. Big red crossed-out expression 「x₀−f(x₀)」. Large bottom label 「高さだけは引かない」. No coordinate geometry.",
+        "promptSha256": "d1b3a14c02b5c70ecf24cc07a23ba49e299dc419c854287151a881b438c96e9f",
+        "generatedAt": "2026-10-28T00:21:07.257Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-first-stage/pe1-kiso-newton-hou/youtube.longform/scene-010",
+      "role": "scene-010",
+      "type": "image/png",
+      "sha256": "954a1ca3b64e9d539127ddb24ffdfa6b40dd0701903031fe1cd26e18d9a8eacc",
+      "bytes": 1987557,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/youtube.longform/scene-010.954a1ca3.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Create NEW mathematically precise Japanese 16:9 educational diagram, attached image only as style reference. White pale grey canvas, navy axes and labels, green correct step, blue curves, yellow highlights. No person or dense table. Avoid tiny text. Meaning above lower 18% subtitle safe zone. Heading 「分母を外すと別の値」. Two large calculation cards, green 「正しい x₂=47/21」 and red 「誤り x₂=61/27」 with red cross. Below, two accurate residuals green 「4/441」 versus red 「76/729」. No unrequested decimal conversion.",
+        "promptSha256": "658ef29e397ae3a88f205eebe7ee6124fbf2d6be9c820ae7a4a8d79143272306",
+        "generatedAt": "2026-10-28T00:21:07.257Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-first-stage/pe1-kiso-newton-hou/youtube.longform/scene-011",
+      "role": "scene-011",
+      "type": "image/png",
+      "sha256": "507eb7ba700bd2bd734df1923d64a7dd2ed5735d9816be503ebe9cdab7a60883",
+      "bytes": 1638677,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/youtube.longform/scene-011.507eb7ba.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Create a NEW Japanese 16:9 educational diagram with clean white pale grey background, bold navy text, blue and green accents like attached style. Large legible labels above lower 18% caption safe zone. Draw NO parabola, NO curved function plot, NO x-y coordinate graph, NO fabricated numerical geometry. Heading 「傾きが小さいと大きく動く」. Formula cards only: 「x₀=1/2」, 「f(x₀)=−19/4」, 「f′(x₀)=1」, update arrow to 「x₁=21/4」. Small warning 「f′=0 は割れない」. A horizontal arrow to right labeled 「大きな移動」. NO graph, no line, no axes, no curve.",
+        "promptSha256": "5358e7446073cc102fdfa513aa0516d5ae7e2ae754b013e01c3fafba340097f9",
+        "generatedAt": "2026-10-28T00:21:07.257Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-first-stage/pe1-kiso-newton-hou/youtube.longform/scene-012",
+      "role": "scene-012",
+      "type": "image/png",
+      "sha256": "ee44cab5003a7b85c05932c6d5c1e70d85b921f32128a48973652413075aaf15",
+      "bytes": 1777802,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/youtube.longform/scene-012.ee44cab5.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Create NEW Japanese 16:9 educational graphic, simple white pale-grey background, navy/green/yellow style like attached reference. NO coordinate graphs, NO function curves, NO axes, NO decorative math equations not requested. Large accurate labels above bottom 18% subtitle area. Heading 「過去問で確かめる」. A practice sheet card with exact heading 「令和6年度 基礎 I-3-3」, then a clean four-step flow of simple boxes 「f(x)を求める」→「f′(x)を求める」→「更新する」→「検算する」. Small warning 「更新前の値を使う」. No exam question reproduction.",
+        "promptSha256": "aef1e9f95917701dee35b363725383e8276b990bf8416a0b80390ef3b0a1f367",
+        "generatedAt": "2026-10-28T00:21:07.257Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-first-stage/pe1-kiso-newton-hou/youtube.longform/scene-013",
+      "role": "scene-013",
+      "type": "image/png",
+      "sha256": "d19fcaf8c96891436101707f3d0c6e6c91e90eb4b9ddc224965ab0e40b702386",
+      "bytes": 1853814,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/youtube.longform/scene-013.d19fcaf8.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Create NEW Japanese 16:9 educational graphic, simple white pale-grey background, navy/green/yellow style like attached reference. NO coordinate graphs, NO function curves, NO axes, NO decorative math equations not requested. Large accurate labels above bottom 18% subtitle area. Heading 「高さ÷傾きで横へ」. Three large numbered cards: ① 「高さ f(x)」 and 「傾き f′(x)」; ② exact formula 「x−f(x)/f′(x)」; ③ 「新しい値で検算」 with green checkmark. No geometric diagram or graphs.",
+        "promptSha256": "c8890f57c56eac30fc888c87639d347f8441ce1965d551459e4c30ef8b94ed09",
+        "generatedAt": "2026-10-28T00:21:07.257Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-first-stage/pe1-kiso-newton-hou/youtube.longform/scene-014",
+      "role": "scene-014",
+      "type": "image/png",
+      "sha256": "46fef6d0312b120d3e9230f9e2603cbd5501f739099322d025d78987f1a00208",
+      "bytes": 2004703,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/youtube.longform/scene-014.46fef6d0.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Create NEW Japanese 16:9 educational graphic, simple white pale-grey background, navy/green/yellow style like attached reference. NO coordinate graphs, NO function curves, NO axes, NO decorative math equations not requested. Large accurate labels above bottom 18% subtitle area. Heading 「通しで演習」. Three large clean learning cards only, labelled 「基礎」「適性」「専門」. Underneath one pencil, check mark, and text 「概要欄から」. NO function curve, NO coordinate graph, NO equations, no URL.",
+        "promptSha256": "eff4f0a4d8afbed650dfd3da6da8a92c6e4488440a90a394f018eb2057da4198",
+        "generatedAt": "2026-10-28T00:21:07.257Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-first-stage/pe1-kiso-newton-hou/youtube.longform/scene-sheet",
+      "role": "scene-sheet",
+      "type": "image/jpeg",
+      "sha256": "45d62e62d34eb839688183c460c693407bcc4288110b6394d60ca4c1e3fcef76",
+      "bytes": 837401,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/youtube.longform/scene-sheet.45d62e62.jpg"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "media-preview",
+        "spec": "content/sns/video-packs/pe-first-stage/pe1-kiso-newton-hou/storyboard.json"
+      },
+      "width": 1920,
+      "height": 1990
+    },
+    {
+      "id": "pe-first-stage/pe1-kiso-newton-hou/youtube.longform/subtitles",
+      "role": "subtitles",
+      "type": "text/x-ssa",
+      "sha256": "2f2e75eb1e27f937ad7a578890d38038965fce346cb745f0e11f273dfda63b7f",
+      "bytes": 8023,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/youtube.longform/subtitles.2f2e75eb.ass"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/pe-first-stage/pe1-kiso-newton-hou/storyboard.json"
+      }
+    },
+    {
+      "id": "pe-first-stage/pe1-kiso-newton-hou/youtube.longform/video",
+      "role": "video",
+      "type": "video/mp4",
+      "sha256": "81e5ffac747df7d909a4f8b039f118b95c8ebf000c47d2fa7ac4c627c68ff8fe",
+      "bytes": 26992945,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/youtube.longform/video.81e5ffac.mp4"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/pe-first-stage/pe1-kiso-newton-hou/storyboard.json",
+        "specSha256": "87bfe5c56460b8f199f2df1352396600fb78ee657e51e82dfdb35a2ffff5c8d2",
+        "renderInputSha256": "08c36df4e4b68f021ed7460fa3b33e77592e118eadca9296a18505d51c486847",
+        "tts": {
+          "engine": "VOICEVOX",
+          "speaker": 13,
+          "credit": "VOICEVOX:青山龍星"
+        }
+      },
+      "durationSec": 248.8
+    },
+    {
       "id": "pe-first-stage/pe1-kiso-senmon/youtube.longform/contact-sheet",
       "role": "contact-sheet",
       "type": "image/jpeg",

@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "channel": {
+    "id": "UCHRnXPqoc0Hls8nXiK_ZYqA",
+    "title": "doboku-note"
+  },
+  "longform": {
+    "key": "longform",
+    "title": "【技術士 第一次】技術士一次 基礎科目 直列と並列は接続点の名前から読む",
+    "description": "2026年11月22日の技術士第一次試験を控え、基礎科目の電気回路の合成抵抗に不安がある受験者向けに、「技術士一次 基礎科目 直列と並列は接続点の名前から読む」を解説します。\n\nこの動画で分かること：接続点に名前を付け、両端と分岐で直列・並列を判断する読み方が、仮の1回路で分かる\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 教材・完成答案で深掘りする\nhttps://note.com/dobokunote/n/n466132e6fd74?utm_source=youtube&utm_medium=video&utm_campaign=pe1-kiso-kairo-setsuten&utm_content=longform\n\n※制度・日程は変更される場合があります。受検年度の公式情報も確認してください。\n音声：VOICEVOX:青山龍星\n\n#技術士第一次 #技術士 #試験対策",
+    "tags": [
+      "技術士 第一次試験",
+      "技術士 第一次",
+      "勉強法",
+      "答案の書き方",
+      "doboku-note"
+    ],
+    "categoryId": "27",
+    "publishAt": "2026-11-10T20:00:00+09:00",
+    "r2Key": "video/render/pe1-kiso-kairo-setsuten/video.mp4",
+    "thumbnailR2Key": "video/render/pe1-kiso-kairo-setsuten/img/00-cover.png",
+    "sha256": "7eafd2e4b699ed1cd6a2791ec400572ab4def1f108f4bbbee94d49411d52809b",
+    "thumbnailSha256": "6ad23834962f8baf0dc953052246d90ec6c11efe855016435f38b91b927228e9"
+  },
+  "shorts": []
+}
