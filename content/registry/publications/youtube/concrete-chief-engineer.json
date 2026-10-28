@@ -474,7 +474,47 @@
       "work": "shunin-haigou-zettaiyouseki",
       "account": "youtube:main",
       "format": "longform",
-      "status": "qa_passed"
+      "status": "rendered",
+      "media": {
+        "cover": "concrete-chief-engineer/shunin-haigou-zettaiyouseki/youtube.longform/cover",
+        "scene-001": "concrete-chief-engineer/shunin-haigou-zettaiyouseki/youtube.longform/scene-001",
+        "scene-002": "concrete-chief-engineer/shunin-haigou-zettaiyouseki/youtube.longform/scene-002",
+        "scene-003": "concrete-chief-engineer/shunin-haigou-zettaiyouseki/youtube.longform/scene-003",
+        "scene-004": "concrete-chief-engineer/shunin-haigou-zettaiyouseki/youtube.longform/scene-004",
+        "scene-005": "concrete-chief-engineer/shunin-haigou-zettaiyouseki/youtube.longform/scene-005",
+        "scene-006": "concrete-chief-engineer/shunin-haigou-zettaiyouseki/youtube.longform/scene-006",
+        "scene-007": "concrete-chief-engineer/shunin-haigou-zettaiyouseki/youtube.longform/scene-007",
+        "scene-008": "concrete-chief-engineer/shunin-haigou-zettaiyouseki/youtube.longform/scene-008",
+        "scene-009": "concrete-chief-engineer/shunin-haigou-zettaiyouseki/youtube.longform/scene-009",
+        "scene-010": "concrete-chief-engineer/shunin-haigou-zettaiyouseki/youtube.longform/scene-010",
+        "scene-011": "concrete-chief-engineer/shunin-haigou-zettaiyouseki/youtube.longform/scene-011",
+        "scene-012": "concrete-chief-engineer/shunin-haigou-zettaiyouseki/youtube.longform/scene-012",
+        "scene-013": "concrete-chief-engineer/shunin-haigou-zettaiyouseki/youtube.longform/scene-013",
+        "video": "concrete-chief-engineer/shunin-haigou-zettaiyouseki/youtube.longform/video",
+        "subtitles": "concrete-chief-engineer/shunin-haigou-zettaiyouseki/youtube.longform/subtitles",
+        "preview": "concrete-chief-engineer/shunin-haigou-zettaiyouseki/youtube.longform/preview",
+        "contact-sheet": "concrete-chief-engineer/shunin-haigou-zettaiyouseki/youtube.longform/contact-sheet",
+        "scene-sheet": "concrete-chief-engineer/shunin-haigou-zettaiyouseki/youtube.longform/scene-sheet",
+        "preview-metrics": "concrete-chief-engineer/shunin-haigou-zettaiyouseki/youtube.longform/preview-metrics"
+      },
+      "copy": "content/sns/video-packs/concrete-chief-engineer/shunin-haigou-zettaiyouseki/youtube.json#longform",
+      "publishAt": "2026-11-07T20:00:00+09:00",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "user",
+          "at": "2026-10-28T00:40:24.537Z",
+          "digest": "24df2211e0d876ee86b897a723c99f795dc0982ecf35ee1a0396aa98d54a8386"
+        }
+      },
+      "approval": {
+        "by": "user",
+        "at": "2026-10-28T00:40:29.685Z",
+        "contentSha256": "a9160d821d5d9183d1e5b3a7316173fb2a38046c4f4e1c9dc2cb12890bc30099"
+      },
+      "times": {
+        "rendered": "2026-10-28T00:40:36.485Z"
+      }
     },
     {
       "id": "concrete-chief-engineer/shunin-hinshutsu-yusen/youtube.longform",

@@ -758,6 +758,398 @@
       ]
     },
     {
+      "id": "concrete-chief-engineer/shunin-haigou-zettaiyouseki/youtube.longform/contact-sheet",
+      "role": "contact-sheet",
+      "type": "image/jpeg",
+      "sha256": "117fb10177845c3ef6c19011acae87c477e451488a8b72de7450d407b614650e",
+      "bytes": 897812,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-haigou-zettaiyouseki/youtube.longform/contact-sheet.117fb101.jpg"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "media-preview",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-haigou-zettaiyouseki/storyboard.json"
+      },
+      "width": 1920,
+      "height": 1620
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-haigou-zettaiyouseki/youtube.longform/cover",
+      "role": "cover",
+      "type": "image/png",
+      "sha256": "578fbc43688f1584cb44963da299c3eab8434d244b79b24f78a483ab8552c626",
+      "bytes": 3696740,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-haigou-zettaiyouseki/youtube.longform/cover.578fbc43.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Create a NEW 16:9 Japanese YouTube thumbnail for doboku-note, using the attached approved orange-red concrete-chief-engineer POP poster as the visual style and teacher identity reference only. Do not reuse its text. Exact large Japanese title: 「コンクリート主任技士」「配合計算」「合計1000Lでは正誤が分からない」. Small yellow authority strip: 「総監が制作」. Vibrant POP design, orange, red, yellow, navy, heavy Japanese typography with outlines, diagonal dynamic background. Friendly Japanese civil engineer teacher with white hard hat and navy workwear on right, pen pointing at a large simple 1000 L concrete mix volume diagram. Show 1000 L as a tempting but insufficient check, not a green correct checkmark. Full bleed, high contrast, no fine-print, no other text, no gibberish, lower 18% kept uncluttered for subtitles.",
+        "promptSha256": "efc3b48f30744030eb65f36d159ed5664f4b9072fc8ff6bd532f90f1f8bb67d2",
+        "generatedAt": "2026-10-27T23:23:35.107Z"
+      },
+      "width": 1920,
+      "height": 1080,
+      "legacyPaths": [
+        ".tmp/media/concrete-chief-engineer/shunin-haigou-zettaiyouseki/work/cover-pop.578fbc43.png"
+      ]
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-haigou-zettaiyouseki/youtube.longform/preview",
+      "role": "preview",
+      "type": "video/mp4",
+      "sha256": "2a1213276ccb86a5bbaf6ecb49fb046ca0c473015b0d2703a93f8ac21912fbfd",
+      "bytes": 6281145,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-haigou-zettaiyouseki/youtube.longform/preview.2a121327.mp4"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "media-preview",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-haigou-zettaiyouseki/storyboard.json"
+      },
+      "durationSec": 239.648
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-haigou-zettaiyouseki/youtube.longform/preview-metrics",
+      "role": "preview-metrics",
+      "type": "application/json",
+      "sha256": "74fd4c2ed1794da3036ce5e38b34274321ae61f685178e5a75e83d8fcd26de14",
+      "bytes": 1560,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-haigou-zettaiyouseki/youtube.longform/preview-metrics.74fd4c2e.json"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "media-preview",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-haigou-zettaiyouseki/storyboard.json"
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-haigou-zettaiyouseki/youtube.longform/scene-001",
+      "role": "scene-001",
+      "type": "image/png",
+      "sha256": "578fbc43688f1584cb44963da299c3eab8434d244b79b24f78a483ab8552c626",
+      "bytes": 3696740,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-haigou-zettaiyouseki/youtube.longform/scene-001.578fbc43.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Create a NEW 16:9 Japanese YouTube thumbnail for doboku-note, using the attached approved orange-red concrete-chief-engineer POP poster as the visual style and teacher identity reference only. Do not reuse its text. Exact large Japanese title: 「コンクリート主任技士」「配合計算」「合計1000Lでは正誤が分からない」. Small yellow authority strip: 「総監が制作」. Vibrant POP design, orange, red, yellow, navy, heavy Japanese typography with outlines, diagonal dynamic background. Friendly Japanese civil engineer teacher with white hard hat and navy workwear on right, pen pointing at a large simple 1000 L concrete mix volume diagram. Show 1000 L as a tempting but insufficient check, not a green correct checkmark. Full bleed, high contrast, no fine-print, no other text, no gibberish, lower 18% kept uncluttered for subtitles.",
+        "promptSha256": "efc3b48f30744030eb65f36d159ed5664f4b9072fc8ff6bd532f90f1f8bb67d2",
+        "generatedAt": "2026-10-27T23:23:35.107Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-haigou-zettaiyouseki/youtube.longform/scene-002",
+      "role": "scene-002",
+      "type": "image/png",
+      "sha256": "7dec0e5292328b2427f1a046342ada69012d809c29d83480218b69a95687153c",
+      "bytes": 2403228,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-haigou-zettaiyouseki/youtube.longform/scene-002.7dec0e52.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Create a NEW Japanese 16:9 educational diagram, white/pale grey background, navy green blue thick clean graphic matching attached style. EXACT heading 「質量でなく絶対容積で足す」. Left three material piles on scales with ONLY labels 「質量 kg」 and red X; middle large arrow label 「密度で割る」; right same three materials as distinct volume blocks with ONLY label 「絶対容積 L」 and green circle. Below prominent caution EXACT 「合計1,000Lだけでは正誤不明」 and small 「細骨材は残りで出す」. ABSOLUTELY NO numerical kg or L amounts for any individual material, no fabricated quantities, no arithmetic examples. Keep bottom 18% clear.",
+        "promptSha256": "b1f0f8884291cfe7265d8269cd8fcb1c531eb99b1fdb6ab9e8024e89d86ddfeb",
+        "generatedAt": "2026-10-28T00:21:52.014Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-haigou-zettaiyouseki/youtube.longform/scene-003",
+      "role": "scene-003",
+      "type": "image/png",
+      "sha256": "52628d205449cda355b5aaf4bf7d9d7b8b3f89629cd9ddf0c13b2502cde7c06e",
+      "bytes": 2080722,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-haigou-zettaiyouseki/youtube.longform/scene-003.52628d20.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "NEW 16:9 full-frame Japanese educational diagram for a concrete-chief-engineer normal YouTube video. Use attached image only as a style reference: plain white-to-pale-blue background, bold navy Japanese headings, a few cyan/blue arrows and small yellow highlights. Create a NEW accurate subject diagram. No human, no advertising poster, no dense table, no white list card. Very large Japanese text, no extra words or numbers beyond those specified. Keep lower 18% blank for subtitles. Show a simple labeled design sheet, large heading 「仮の条件」 and yellow tag 「過去問ではありません」. Four clean condition chips with exact text: 「水結合材比 50%」, 「単位水量 165kg」, 「空気量 4.5%」, 「結合材の内訳 60:25:15」. No other numbers.",
+        "promptSha256": "5d88337a77c13e63706cbcd9fe7584de40ad793f9c9ebe03a00e359355ce3e17",
+        "generatedAt": "2026-10-27T23:23:35.107Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-haigou-zettaiyouseki/youtube.longform/scene-004",
+      "role": "scene-004",
+      "type": "image/png",
+      "sha256": "fe86f9abe28cdb088065a8a223f9117d9ef743bbcbf23a650c67af44b8bffcbe",
+      "bytes": 2304283,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-haigou-zettaiyouseki/youtube.longform/scene-004.fe86f9ab.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "NEW 16:9 full-frame Japanese educational diagram for a concrete-chief-engineer normal YouTube video. Use attached image only as a style reference: plain white-to-pale-blue background, bold navy Japanese headings, a few cyan/blue arrows and small yellow highlights. Create a NEW accurate subject diagram. No human, no advertising poster, no dense table, no white list card. Very large Japanese text, no extra words or numbers beyond those specified. Keep lower 18% blank for subtitles. Show three separate material granule icons with large labels only: 「セメント 3.15」, 「スラグ 2.90」, 「フライアッシュ 2.20」. Large heading 「密度は材料ごとに違う」 and small unit 「kg/L」. Do not merge densities, do not include other material numbers.",
+        "promptSha256": "915c08b1e17593669909fb70ed7b1c25e5d0ef9e4820a718acda31694eaca81b",
+        "generatedAt": "2026-10-27T23:23:35.107Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-haigou-zettaiyouseki/youtube.longform/scene-005",
+      "role": "scene-005",
+      "type": "image/png",
+      "sha256": "0c9c5280bc628155ecf76a3e85956bff269693c47abe5fd08a88c2fb8f03cc87",
+      "bytes": 1786083,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-haigou-zettaiyouseki/youtube.longform/scene-005.0c9c5280.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "NEW 16:9 full-frame Japanese educational diagram for a concrete-chief-engineer normal YouTube video. Use attached image only as a style reference: plain white-to-pale-blue background, bold navy Japanese headings, a few cyan/blue arrows and small yellow highlights. Create a NEW accurate subject diagram. No human, no advertising poster, no dense table, no white list card. Very large Japanese text, no extra words or numbers beyond those specified. Keep lower 18% blank for subtitles. A simple equation and branching flow, heading 「結合材 330kgを分ける」. Top equation 「165÷0.50＝330kg」. Branch into exactly three colored blocks 「セメント 198kg」, 「スラグ 82.5kg」, 「フライアッシュ 49.5kg」. All numbers accurate, no extra text.",
+        "promptSha256": "dcf6def96cb17fac8db1ac0c68bab915292778c882686ff5dc65a6a3bb5d16a7",
+        "generatedAt": "2026-10-27T23:23:35.107Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-haigou-zettaiyouseki/youtube.longform/scene-006",
+      "role": "scene-006",
+      "type": "image/png",
+      "sha256": "0e51e52a4716cbcc5d7de40b72a44b4628c25b8a749dd998191df3fecba19cef",
+      "bytes": 2094571,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-haigou-zettaiyouseki/youtube.longform/scene-006.0e51e52a.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "NEW 16:9 full-frame Japanese educational diagram for a concrete-chief-engineer normal YouTube video. Use attached image only as a style reference: plain white-to-pale-blue background, bold navy Japanese headings, a few cyan/blue arrows and small yellow highlights. Create a NEW accurate subject diagram. No human, no advertising poster, no dense table, no white list card. Very large Japanese text, no extra words or numbers beyond those specified. Keep lower 18% blank for subtitles. Three vertical arrows from mass to volume, heading 「密度で割って容積に」. Exactly these equations in large text: 「198÷3.15＝62.9L」, 「82.5÷2.90＝28.4L」, 「49.5÷2.20＝22.5L」. Identify each row with small labels セメント, スラグ, フライアッシュ. No total yet and no extra numbers.",
+        "promptSha256": "ffa6432906b9046304fe7903d82de9611fd7b9c3f4c7cdce994a6d0bb02016f6",
+        "generatedAt": "2026-10-27T23:23:35.107Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-haigou-zettaiyouseki/youtube.longform/scene-007",
+      "role": "scene-007",
+      "type": "image/png",
+      "sha256": "9309573644f907242e768a4209f41c9d101f36fcc71efdf1c4194531814e3d5f",
+      "bytes": 2196016,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-haigou-zettaiyouseki/youtube.longform/scene-007.93095736.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "NEW 16:9 full-frame Japanese educational diagram for a concrete-chief-engineer normal YouTube video. Use attached image only as a style reference: plain white-to-pale-blue background, bold navy Japanese headings, a few cyan/blue arrows and small yellow highlights. Create a NEW accurate subject diagram. No human, no advertising poster, no dense table, no white list card. Very large Japanese text, no extra words or numbers beyond those specified. Keep lower 18% blank for subtitles. Draw a simple measuring container showing coarse aggregate and gaps, then the actual solid aggregate volume. Large heading 「粗骨材の実容積」. Main flow exactly 「620L × 0.61 ＝ 378.2L」. Label left 「かさ容積」, middle 「実積率」, right 「絶対容積」. Avoid filling the container entirely; voids are essential.",
+        "promptSha256": "7c49edd2d18314ed94564c22a52533f98a1394951e6ffd67538ab28e92b40dd5",
+        "generatedAt": "2026-10-27T23:23:35.107Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-haigou-zettaiyouseki/youtube.longform/scene-008",
+      "role": "scene-008",
+      "type": "image/png",
+      "sha256": "fa109f3c2eca173856395e21947d0701213617a64bb8a65286faa88402944b8d",
+      "bytes": 1762667,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-haigou-zettaiyouseki/youtube.longform/scene-008.fa109f3c.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "NEW 16:9 full-frame Japanese educational diagram for a concrete-chief-engineer normal YouTube video. Use attached image only as a style reference: plain white-to-pale-blue background, bold navy Japanese headings, cyan/blue arrows, small yellow highlights. Create a NEW accurate subject diagram. No person, no advertising poster, no dense table, no white list card. Large readable text only, no extra words or numbers beyond specified. Keep lower 18% blank for subtitles. Heading 「残りが細骨材」. Draw one large 1000L bar separated into blue filled segment labeled 「ここまで 702.0L」 and yellow remaining segment labeled 「細骨材 298.0L」. Main equation exactly 「1000－702.0＝298.0L」. This is a subtraction by construction, so do not show a green correctness checkmark.",
+        "promptSha256": "08e23993e1b40fd488719a2f32066f00b828ca2c78d9c2577144284c7b96db6e",
+        "generatedAt": "2026-10-27T23:23:35.107Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-haigou-zettaiyouseki/youtube.longform/scene-009",
+      "role": "scene-009",
+      "type": "image/png",
+      "sha256": "39b0f4a318e4603b4afba73b14451be32edce773985d63106acbb29972a58aa1",
+      "bytes": 1739961,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-haigou-zettaiyouseki/youtube.longform/scene-009.39b0f4a3.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Create a corrected NEW 16:9 full-frame Japanese educational diagram. The previous image incorrectly used a division sign between the volumes and masses. This new image MUST show multiplication, with only two simple horizontal rows and no fraction or other math notation. Style from reference: white background, navy bold Japanese, blue arrows, yellow highlight, no person, lower 18% blank for subtitles. Main heading exactly 「容積から質量へ」. Top row: a gray aggregate icon, large text exactly 「378.2L × 2.65」, blue right arrow, large text exactly 「約1002kg」. Bottom row: a sand icon, large text exactly 「298.0L × 2.60」, blue right arrow, large text exactly 「約775kg」. Small bottom note above blank subtitle zone exactly 「s/a＝44.1%」. Do not show a division symbol anywhere. No other text or numbers.",
+        "promptSha256": "be44e45f16729cc6b04a92885202998757a310a2a216474427c383255ed72e8e",
+        "generatedAt": "2026-10-27T23:23:35.107Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-haigou-zettaiyouseki/youtube.longform/scene-010",
+      "role": "scene-010",
+      "type": "image/png",
+      "sha256": "6e9f213ff63c6a3983dc6c6e6e71f479fff72b4c1f80eca952ff9ffdb4c570b2",
+      "bytes": 2156666,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-haigou-zettaiyouseki/youtube.longform/scene-010.6e9f213f.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "NEW 16:9 full-frame Japanese educational diagram for a concrete-chief-engineer normal YouTube video. Use attached image only as a style reference: plain white-to-pale-blue background, bold navy Japanese headings, cyan/blue arrows, small yellow highlights. Create a NEW accurate subject diagram. No person, no advertising poster, no dense table, no white list card. Large readable text only, no extra words or numbers beyond specified. Keep lower 18% blank for subtitles. Heading 「合計1000Lは証拠にならない」. Show a 1000L bar with a neutral question mark, not a green checkmark. Below three large separate verification icons and labels: 「割り算」 「材料ごとの密度」 「細骨材率」. Small supporting phrase 「各行を独立に確かめる」. No claim that total proves correctness.",
+        "promptSha256": "63eb4a471c055aef519c22d79e05dd161e9306ccb1a3b1bec371744383645c39",
+        "generatedAt": "2026-10-27T23:23:35.107Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-haigou-zettaiyouseki/youtube.longform/scene-011",
+      "role": "scene-011",
+      "type": "image/png",
+      "sha256": "837e419c452298d2c2adbf7c7be6374db32ca372598d97c172c568eab8535a3a",
+      "bytes": 2303165,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-haigou-zettaiyouseki/youtube.longform/scene-011.837e419c.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "NEW 16:9 full-frame Japanese educational diagram for a concrete-chief-engineer normal YouTube video. Use attached image only as a style reference: plain white-to-pale-blue background, bold navy Japanese headings, cyan/blue arrows, small yellow highlights. Create a NEW accurate subject diagram. No person, no advertising poster, no dense table, no white list card. Large readable text only, no extra words or numbers beyond specified. Keep lower 18% blank for subtitles. Heading 「誤りでも合計は1000L」. A simple two-column branch. Wrong branch with red cross: 「330÷3.15＝104.8L」 then 「細骨材307.0L」 and 「s/a 44.8%」. Correct branch with blue check: 「結合材113.8L」 then 「細骨材298.0L」 and 「s/a 44.1%」. Both branches flow to a neutral 「合計1000L」. Do not suggest the total distinguishes branches. All numbers exact.",
+        "promptSha256": "996eb3ca5d52b948c4a1b45ea39d4967d1dedc4ca00c4ab1b7f079df40c9c14c",
+        "generatedAt": "2026-10-27T23:23:35.107Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-haigou-zettaiyouseki/youtube.longform/scene-012",
+      "role": "scene-012",
+      "type": "image/png",
+      "sha256": "be586c9fac80a037a0e4b8c94b61d2351a77f7279447ab679bf7edc050b28110",
+      "bytes": 2368608,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-haigou-zettaiyouseki/youtube.longform/scene-012.be586c9f.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "NEW 16:9 full-frame Japanese educational diagram for a concrete-chief-engineer normal YouTube video. Use attached image only as a style reference: plain white-to-pale-blue background, bold navy Japanese headings, cyan/blue arrows, small yellow highlights. Create a NEW accurate subject diagram. No person, no advertising poster, no dense table, no white list card. Large readable text only, no extra words or numbers beyond specified. Keep lower 18% blank for subtitles. Heading 「配合計算の3点」. Three large connected circular icons with only these captions: 「絶対容積にそろえる」 「合計だけで判断しない」 「各式とs/aを確かめる」. Show simple mass-to-volume blocks and calculator, no other numerical text.",
+        "promptSha256": "ba0fa10aa61c861611e76bf7e740ea532a350649cc777279ab849635b1fd2560",
+        "generatedAt": "2026-10-27T23:23:35.107Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-haigou-zettaiyouseki/youtube.longform/scene-013",
+      "role": "scene-013",
+      "type": "image/png",
+      "sha256": "f3b829eaf6584411030d78a8d0832e57e39fc00391cd0ba40b38e05167e24617",
+      "bytes": 2083952,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-haigou-zettaiyouseki/youtube.longform/scene-013.f3b829ea.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "NEW 16:9 full-frame Japanese educational diagram for a concrete-chief-engineer normal YouTube video. Use attached image only as a style reference: plain white-to-pale-blue background, bold navy Japanese headings, cyan/blue arrows, small yellow highlights. Create a NEW accurate subject diagram. No person, no advertising poster, no dense table, no white list card. Large readable text only, no extra words or numbers beyond specified. Keep lower 18% blank for subtitles. Heading 「配合計算を練習」. Draw one simple study workbook icon with prominent 「実戦演習12問」 and small badge 「途中式・全選択肢解説」. At bottom above the subtitle-safe zone: 「概要欄へ」 with a simple down arrow. No price, no guarantee, no person, no URL.",
+        "promptSha256": "08165a27d8b76acd53dc57d4e30648f3800703edea640537b92f629c38d14240",
+        "generatedAt": "2026-10-27T23:23:35.107Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-haigou-zettaiyouseki/youtube.longform/scene-sheet",
+      "role": "scene-sheet",
+      "type": "image/jpeg",
+      "sha256": "efde380cd2c3e340de78557de163c8254db09b7c5fc449ae79daa50498b513f8",
+      "bytes": 924620,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-haigou-zettaiyouseki/youtube.longform/scene-sheet.efde380c.jpg"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "media-preview",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-haigou-zettaiyouseki/storyboard.json"
+      },
+      "width": 1920,
+      "height": 1990
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-haigou-zettaiyouseki/youtube.longform/subtitles",
+      "role": "subtitles",
+      "type": "text/x-ssa",
+      "sha256": "6e63215866591faa99736a9ffeb4ecdb77735b3c5c0614a788166aede63301c9",
+      "bytes": 7071,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-haigou-zettaiyouseki/youtube.longform/subtitles.6e632158.ass"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-haigou-zettaiyouseki/storyboard.json"
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-haigou-zettaiyouseki/youtube.longform/video",
+      "role": "video",
+      "type": "video/mp4",
+      "sha256": "0610a622f319e9779f9e14be5bc1b07a08ca7a36072c0b2b73f1b9d9a8f046ec",
+      "bytes": 29724956,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-haigou-zettaiyouseki/youtube.longform/video.0610a622.mp4"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-haigou-zettaiyouseki/storyboard.json",
+        "specSha256": "37e188c35e69a1c6bfe86ad384701f9721169a3a4668863ba31106e5208c7b12",
+        "renderInputSha256": "16f23e91ced526228b5b71f6dc730c83f5b772bcfede382256f879e135e9cf95",
+        "tts": {
+          "engine": "VOICEVOX",
+          "speaker": 13,
+          "credit": "VOICEVOX:青山龍星"
+        }
+      },
+      "durationSec": 239.7
+    },
+    {
       "id": "concrete-chief-engineer/shunin-hinshutsu-yusen/work/candidate-cover",
       "role": "candidate-cover",
       "type": "image/png",
