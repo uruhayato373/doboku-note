@@ -3,7 +3,11 @@ notePricing: free
 noteSeries: 技術士建設部門-無料入口
 noteContentType: learning
 utmCampaign: pe-merit-process
-noteStatus: draft
+title: "技術士を受けて得たもの｜合否より先に残る5つの力と、正直なデメリット"
+notePublishedAt: "2026-10-28"
+noteId: "nf1bb265e9a7b"
+noteUrl: "https://note.com/dobokunote/n/nf1bb265e9a7b"
+noteStatus: published
 coverTitle: ["技術士を受けて", "得たもの"]
 cover:
   variant: crop-safe-v4
@@ -35,6 +39,9 @@ cover:
 受験を考え始めた頃は、「発注者の自分に技術士は必要なのか」と何度も迷いました。業務独占の資格ではなく、持っていなくても仕事は回るからです。
 
 この記事では、受験を勧誘するのではなく、受けて何が残ったかを正直に書きます。私自身の実感に加えて、技術士を持つ技術者に話を聞いたときによく挙がる声を、特定の職場に寄らない形でまとめました。
+
+<!-- cta:pack-top -->
+> 建設部門は「必須科目I＋選択科目」の組み合わせで合否が決まります。全受験者共通の[必須科目I 模範解答集（R03-R07＋R8予想）](https://note.com/dobokunote/m/m0f3bc3933454)がまず1冊目。あなたの選択科目の模範解答集は[建設部門もくじ](https://note.com/dobokunote/n/n7279ca0d926f)から選べます（単品を1本ずつ買うより約8割お得）。
 
 ## 受験の過程で身につく3つの力
 
@@ -109,5 +116,12 @@ https://note.com/dobokunote/n/na4f084f1ad6d
 https://note.com/dobokunote/n/n279ac7c6fe6a
 
 建設部門のほかの記事・科目別の模範解答は、建設部門もくじから一覧できます。
+
+https://note.com/dobokunote/n/n7279ca0d926f
+
+---
+
+<!-- cta:pe-construction-mokuji -->
+建設部門のほかの記事・科目別 模範解答は「建設部門もくじ」から一覧できます。
 
 https://note.com/dobokunote/n/n7279ca0d926f

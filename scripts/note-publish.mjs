@@ -51,6 +51,7 @@ import { todayJst } from './lib/jst-date.mjs';
 import { leanContextOptions } from './lib/playwright-launch.mjs';
 import { NOTE_BASE } from './lib/site-identity.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
+import { NOTE_PLACEHOLDER_RE } from './lib/note-publication-state.mjs';
 
 const PROFILE = resolveProfileDir('note', { cwd: ROOT, repoRoot: ROOT });
 const PROXY = process.env.HTTPS_PROXY || process.env.HTTP_PROXY || '';
@@ -144,7 +145,7 @@ if (isPaid) {
 }
 
 // ガード: プレースホルダ残・空タイトル
-if (/\{\{|※note\s*公開後|MAGAZINE_URL/.test(body)) { console.error('ABORT: プレースホルダが本文に残存'); process.exit(1); }
+if (NOTE_PLACEHOLDER_RE.test(body)) { console.error('ABORT: プレースホルダが本文に残存'); process.exit(1); }
 if (!title) { console.error('ABORT: タイトルが空'); process.exit(1); }
 // isPaid は price > 0 が条件なので、price の無い有料記事は黙って無料で公開されていた。価格の正本は frontmatter の price
 if (notePricing === 'paid' && !(price > 0)) { console.error('ABORT: notePricing: paid なのに frontmatter に price（円）が無い'); process.exit(1); }

@@ -4,7 +4,10 @@ notePricing: paid
 noteSeries: 舗装1級-経験記述
 noteContentType: product
 noteMagazine: 舗装1級-経験記述
-noteStatus: draft
+notePublishedAt: "2026-10-28"
+noteId: "n924bdcaacc6a"
+noteUrl: "https://note.com/dobokunote/n/n924bdcaacc6a"
+noteStatus: published
 utmCampaign: pavement-2027
 price: 980
 paidBoundary: "模範答案"
@@ -26,11 +29,17 @@ cover:
 - 課題200字・対策300字・結果100字を、字数内にまとめる型がほしい
 - 新設・切削オーバーレイ・コンクリート舗装・歩道のうち、自分の工事の種類に合わせて書き換えたい
 
+**この記事でわかること**
+
+- 出来形・品質管理で問われていることと、課題・対策・結果の骨組み
+- 課題200字・対策300字・結果100字に収めた模範答案
+- 新設・切削オーバーレイ・コンクリート舗装・歩道の置換え表と、自分の工事へ置き換える手順
+
 ---
 
-本記事は **舗装1級-経験記述** マガジンの収録記事です。序章（無料）と、工程管理・出来形・品質管理・安全管理の3本をそろえたセット構成です。
+本記事は マガジン「1級舗装 応用試験 経験記述 模範答案集」の収録記事です。序章（無料）と、工程管理・出来形・品質管理・安全管理の3本をそろえたセット構成です。
 
-{{MAGAZINE_URL}}
+https://note.com/dobokunote/m/mc26a56a3a7c5
 
 ---
 

@@ -1,10 +1,13 @@
 ---
 notePricing: free
-noteStatus: draft
+noteStatus: published
 title: "【技術士 上下水道部門】二次試験 業務経歴票の書き方｜自治体・水道事業体の職員向け「業務内容の詳細」720字"
 noteSeries: 技術士上下水道部門-無料入口
 noteContentType: learning
 utmCampaign: pe-water-keirekihyo
+notePublishedAt: "2026-10-28"
+noteId: "n6cd69bf307ba"
+noteUrl: "https://note.com/dobokunote/n/n6cd69bf307ba"
 coverTitle:
   - 技術士二次 業務経歴票
   - 上下水道職の720字の作り方

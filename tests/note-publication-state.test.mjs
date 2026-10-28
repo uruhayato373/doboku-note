@@ -9,7 +9,7 @@ import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import test from 'node:test';
 import { parseNoteArticle } from '../scripts/lib/note-frontmatter.mjs';
-import { notePublicationState, notePublishGaps } from '../scripts/lib/note-publication-state.mjs';
+import { introBenefitGap, notePublicationState, notePublishGaps } from '../scripts/lib/note-publication-state.mjs';
 import { REPO_ROOT } from '../scripts/lib/repository-paths.mjs';
 
 test('CRLF の記事でも noteId を読み、公開済みと判定する', () => {
@@ -33,12 +33,23 @@ test('noteId が無ければ noteStatus で下書きか記録なしかを分け�
 });
 
 test('表紙は img/cover.png ではなく frontmatter の cover で判定し、有料は価格と境界の見出しを要る', () => {
-  const free = { data: { title: 't', cover: { headline: 'h' } }, body: '# t\n本文', isPaid: false };
+  const free = { data: { title: 't', cover: { headline: 'h' } }, body: '# t\n\n**この記事でわかること**\n\n- a', isPaid: false };
   assert.deepEqual(notePublishGaps(free, { hasHashtags: true, coverTarget: true }), []);
-  const paid = { data: { title: 't', cover: { headline: 'h' }, price: 980, paidBoundary: '解き方の型' }, body: '## 導入\n\n## 解き方の型\n', isPaid: true };
+  const paid = { data: { title: 't', cover: { headline: 'h' }, price: 980, paidBoundary: '解き方の型' }, body: '## 導入\n\n**この記事でわかること**\n\n## 解き方の型\n', isPaid: true };
   assert.deepEqual(notePublishGaps(paid, { hasHashtags: true, coverTarget: true }), []);
   const broken = { data: { title: 't' }, body: '## 導入\n', isPaid: true };
-  assert.equal(notePublishGaps(broken, { hasHashtags: false, coverTarget: true }).length, 4);
+  assert.equal(notePublishGaps(broken, { hasHashtags: false, coverTarget: true }).length, 5);
+});
+
+test('公開の後で止まる 2 つを公開の前に拾う: 書きかけのマガジン URL と「この記事でわかること」の欠け（2026-10-28）', () => {
+  const base = { data: { title: 't', cover: { headline: 'h' } }, isPaid: false };
+  const placeholder = notePublishGaps({ ...base, body: '**この記事でわかること**\n\n{{MAGAZINE_URL}}' }, { hasHashtags: true, coverTarget: true });
+  assert.equal(placeholder.length, 1);
+  assert.match(placeholder[0], /書きかけ/);
+  // H2 の見出しで書いた節は、公開後の check-note-intro-benefit が数えないので、ここでも欠けとして返す
+  assert.equal(introBenefitGap('## この記事でわかること\n\n- a', { isPaid: false }), 'missing');
+  assert.equal(introBenefitGap('## 解き方の型\n\n**この記事でわかること**', { isPaid: true, paidBoundary: '解き方の型' }), 'after-boundary');
+  assert.equal(introBenefitGap('**この記事でわかること**\n\n## 試験問題', { isPaid: true }), null);
 });
 
 test('npm run note-unpublished はリポジトリの全記事を読めて、公開済みを未公開に数えない', () => {
