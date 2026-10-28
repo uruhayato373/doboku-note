@@ -77,6 +77,18 @@ export function pe1LeadMagazineId(nowMs = Date.now()): MagazineId {
 }
 
 /**
+ * 資格トップ（/exam/{資格}・サイドバーとスマホの枠）の商品のうち、試験日で切り替えるもの。切り替えない資格は undefined。
+ * 資格トップは直前期に検索から来る入口なので、本試験の日までは直前パックを出す。
+ * 主任技士は高額のまるごとパックが PC サイドバーで表示あたり 0.28% しか押されなかった（DN-0703・GA4 2026-09-24〜10-21）。
+ * 技術士一次は過去問 PDF に固定されていて、概要・学習計画・/links が出す直前パックと食い違っていた（2026-10-28 の点検）。
+ */
+export function categoryLeadMagazineId(category: string, nowMs = Date.now()): MagazineId | undefined {
+  if (category === 'pe-first-stage') return pe1LeadMagazineId(nowMs);
+  if (category === 'concrete-chief-engineer' && !isAfterExamDay('concrete-chief-engineer', 'exam', nowMs)) return 'cce-takuitsu-chokuzen-pack';
+  return undefined;
+}
+
+/**
  * 2級二次ページ（年度別・二次の始め方）の冒頭 CTA を、試験日のSSOTに合わせて切り替える。
  * 第二次検定当日（JST）までは直前総仕上げパック、翌日からは二次まるごとパックを案内する。
  *

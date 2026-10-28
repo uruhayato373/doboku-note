@@ -2,8 +2,7 @@ import type { DocMeta } from './docs';
 import { isStructuralTag } from '@/lib/content-taxonomy';
 import { classifyDoc, isCareerDoc } from './doc-classifier';
 import { getMagazine, type MagazineId } from './note-magazines';
-import { resolvePlacement } from './magazine-placement';
-import { isAfterExamDay } from './exam-dates';
+import { categoryLeadMagazineId, resolvePlacement } from './magazine-placement';
 
 export const DISCOVERY_CATEGORIES = ['pe-first-stage', 'pe-construction', 'concrete-engineer', 'concrete-chief-engineer', 'concrete-diagnostician', 'civil-practice', 'rccm'];
 const products: Partial<Record<string, MagazineId>> = {
@@ -13,16 +12,9 @@ const products: Partial<Record<string, MagazineId>> = {
   'concrete-diagnostician': 'cd-essay-magazine',
   rccm: 'rccm-mondai3-magazine',
 };
-/**
- * 資格トップ（doc なし）の固定商品。主任技士は本試験の日まで択一 直前パック、試験後はまるごとパック。
- * 資格トップは直前期に検索から来る入口で、高額のまるごとパックは PC サイドバーで表示あたり 0.28%
- * しか押されず、スマホでは一覧の最下部だった（DN-0703・GA4 2026-09-24〜10-21）。試験日は config/exam-calendar.json から引く。
- */
+/** 資格トップ（doc なし）の商品。試験日で切り替える資格は magazine-placement の categoryLeadMagazineId が決める。 */
 function categoryProductId(category: string): MagazineId | undefined {
-  if (category === 'concrete-chief-engineer' && !isAfterExamDay('concrete-chief-engineer', 'exam')) {
-    return 'cce-takuitsu-chokuzen-pack';
-  }
-  return products[category];
+  return categoryLeadMagazineId(category) ?? products[category];
 }
 export function sidebarProduct(category: string, doc?: DocMeta) {
   if (!products[category]) return null;

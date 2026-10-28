@@ -154,3 +154,13 @@ test('offsite-cta: 主任技士の添削の文言に、締めの日の前だけ�
     assert.doesNotMatch(items[0], /受付/);
   }
 });
+
+test('資格トップの商品: 技術士一次と主任技士は試験日まで直前パック、翌日から通年の商品（ほかの資格は切り替えない）', async () => {
+  const { categoryLeadMagazineId } = await loadPlacement();
+  assert.deepEqual(pe1Times.map((t) => categoryLeadMagazineId('pe-first-stage', t)),
+    ['pe1-chokuzen-pack', 'pe1-chokuzen-pack', 'pe1-takuitsu-pdf', 'pe1-takuitsu-pdf']);
+  // 主任技士は試験後に undefined を返し、sidebar-discovery の固定（まるごとパック）へ戻る
+  assert.deepEqual(cceTimes.map((t) => categoryLeadMagazineId('concrete-chief-engineer', t)),
+    ['cce-takuitsu-chokuzen-pack', 'cce-takuitsu-chokuzen-pack', undefined, undefined]);
+  assert.equal(categoryLeadMagazineId('rccm', cceTimes[0]), undefined);
+});
