@@ -22,6 +22,7 @@
           "match": "/strategy/qualifications",
           "matchAlso": [
             "/strategy/market",
+            "/strategy/demand",
             "/strategy/competitors"
           ]
         },

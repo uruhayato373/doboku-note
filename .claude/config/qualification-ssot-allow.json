@@ -20,6 +20,11 @@
       "file": "src/config/category-curriculum.json",
       "path": "$.*.fields.blocks[*].label",
       "reason": "カリキュラムの分野ブロック id（concrete など）が資格ファミリー id と同じ綴りなだけ。分野名の正本は category-curriculum.json"
+    },
+    {
+      "file": "config/demand-map.json",
+      "path": "$.candidates[*].title",
+      "reason": "商品候補の題名（教材の案の名前）。資格は qualification 欄で registry を指し、題名には資格名を書かない"
     }
   ]
 }

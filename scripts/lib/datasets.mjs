@@ -93,6 +93,7 @@ export const DATASETS = [
   d('config.exam-formats', 'config/exam-formats.json', 'config', 'strategy', '試験区分・出題形式・過去問の公開範囲', { schema: 'ConfigExamFormats' }),
   d('config.exam-stats', 'config/exam-stats.json', 'config', 'strategy', '受験者数・合格率', { schema: 'ConfigExamStats' }),
   d('config.market-scan', 'config/market-scan.json', 'config', 'strategy', '資格ごとの市場（競合の混み具合）を取る検索語と閾値', { schema: 'ConfigMarketScan' }),
+  d('config.demand-map', 'config/demand-map.json', 'config', 'strategy', '悩みと商品候補の地図（悩み → 立場 → 商品。類似／差別の軸と需要の証拠）', { schema: 'ConfigDemandMap', refs: [{ at: 'candidates[].qualification', to: 'qualification' }, { at: 'candidates[].productIds', to: 'product' }, { at: 'candidates[].experimentId', to: 'experiment' }] }),
   d('config.competitors', 'config/competitors.json', 'config', 'strategy', '競合の追跡リスト（note・ココナラ・Instagram・X・YouTube の枠ごと）', { schema: 'ConfigCompetitors' }),
   // 計画
   d('config.youtube-longform-plan', 'config/youtube-longform-plan.json', 'config', 'plan', '通常動画の年間編集計画（制作期限・公開目標。実予約は公開台帳）', { schema: 'ConfigYoutubeLongformPlan', refs: [{ at: 'entries[].exam', to: 'qualification' }] }),

@@ -156,6 +156,7 @@
     "scan-qualification-market": "node scripts/scan-qualification-market.mjs",
     "roll-backlog-when": "node scripts/roll-backlog-when.mjs",
     "report-search-opportunities": "node scripts/report-search-opportunities.mjs",
+    "report-demand-map": "node scripts/report-demand-map.mjs",
     "report-taxonomy-wiring": "node scripts/report-taxonomy-wiring.mjs",
     "check-taxonomy-wiring": "node scripts/report-taxonomy-wiring.mjs --actions",
     "search-improvement": "node scripts/search-improvement.mjs",
