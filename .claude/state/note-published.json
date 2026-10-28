@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "updatedAt": "2026-10-27T23:23:18.900Z",
+  "updatedAt": "2026-10-27T23:58:38.477Z",
   "items": [
     {
       "slug": "1級・2級土木/1級土木/1級経験記述R6新形式と設問書き分け",
@@ -18636,7 +18636,9 @@
       "contentType": "learning",
       "series": null,
       "noteMagazine": "測量士午後-分野別",
-      "magazines": [],
+      "magazines": [
+        "surveyor-gogo-bunya-magazine"
+      ],
       "utmCampaign": "surveyor-2027",
       "title": "測量士 午後 記述式の全体像と選択2題の選び方 ｜過去5年（令和4〜8年）の出題傾向"
     },
@@ -18654,7 +18656,9 @@
       "contentType": "product",
       "series": null,
       "noteMagazine": "測量士午後-分野別",
-      "magazines": [],
+      "magazines": [
+        "surveyor-gogo-bunya-magazine"
+      ],
       "utmCampaign": "surveyor-2027",
       "title": "必須 No.1 法規・公共測量 ｜測量士 午後 記述式 解き方の型と過去5年（令和4〜8年）解説"
     },
@@ -18672,7 +18676,9 @@
       "contentType": "product",
       "series": null,
       "noteMagazine": "測量士午後-分野別",
-      "magazines": [],
+      "magazines": [
+        "surveyor-gogo-bunya-magazine"
+      ],
       "utmCampaign": "surveyor-2027",
       "title": "基準点測量・水準測量 ｜測量士 午後 記述式 解き方の型と過去5年（令和4〜8年）解説"
     },
@@ -18690,7 +18696,9 @@
       "contentType": "product",
       "series": null,
       "noteMagazine": "測量士午後-分野別",
-      "magazines": [],
+      "magazines": [
+        "surveyor-gogo-bunya-magazine"
+      ],
       "utmCampaign": "surveyor-2027",
       "title": "写真測量・レーザ測量（地形測量） ｜測量士 午後 記述式 解き方の型と過去5年（令和4〜8年）解説"
     },
@@ -18708,7 +18716,9 @@
       "contentType": "product",
       "series": null,
       "noteMagazine": "測量士午後-分野別",
-      "magazines": [],
+      "magazines": [
+        "surveyor-gogo-bunya-magazine"
+      ],
       "utmCampaign": "surveyor-2027",
       "title": "地図編集・GIS（投影） ｜測量士 午後 記述式 解き方の型と過去5年（令和4〜8年）解説"
     },
@@ -18726,7 +18736,9 @@
       "contentType": "product",
       "series": null,
       "noteMagazine": "測量士午後-分野別",
-      "magazines": [],
+      "magazines": [
+        "surveyor-gogo-bunya-magazine"
+      ],
       "utmCampaign": "surveyor-2027",
       "title": "応用測量（路線・用地・河川） ｜測量士 午後 記述式 解き方の型と過去5年（令和4〜8年）解説"
     },
@@ -18761,7 +18773,9 @@
       "contentType": "learning",
       "series": "舗装1級-経験記述",
       "noteMagazine": "舗装1級-経験記述",
-      "magazines": [],
+      "magazines": [
+        "pavement-1-keiken-magazine"
+      ],
       "utmCampaign": "pavement-2027",
       "title": "1級舗装 応用試験 問1（経験記述）の書き方｜課題→対策→結果の組み方と字数配分"
     },
@@ -18779,7 +18793,9 @@
       "contentType": "product",
       "series": "舗装1級-経験記述",
       "noteMagazine": "舗装1級-経験記述",
-      "magazines": [],
+      "magazines": [
+        "pavement-1-keiken-magazine"
+      ],
       "utmCampaign": "pavement-2027",
       "title": "1級舗装 応用試験 問1｜工程管理 模範答案と工種別の置換え表"
     },
@@ -18797,7 +18813,9 @@
       "contentType": "product",
       "series": "舗装1級-経験記述",
       "noteMagazine": "舗装1級-経験記述",
-      "magazines": [],
+      "magazines": [
+        "pavement-1-keiken-magazine"
+      ],
       "utmCampaign": "pavement-2027",
       "title": "1級舗装 応用試験 問1｜出来形・品質管理 模範答案と工種別の置換え表"
     },
@@ -18815,7 +18833,9 @@
       "contentType": "product",
       "series": "舗装1級-経験記述",
       "noteMagazine": "舗装1級-経験記述",
-      "magazines": [],
+      "magazines": [
+        "pavement-1-keiken-magazine"
+      ],
       "utmCampaign": "pavement-2027",
       "title": "1級舗装 応用試験 問1｜安全管理 模範答案と工種別の置換え表"
     },
@@ -19707,6 +19727,27 @@
       "published": true
     },
     {
+      "id": "pavement-1-keiken-magazine",
+      "key": "mc26a56a3a7c5",
+      "title": "1級舗装 応用試験 問1（経験記述）模範答案集｜工程・出来形品質・安全",
+      "price": "¥2,480（3本・単品合計¥2,940）",
+      "published": true
+    },
+    {
+      "id": "pavement-1-sentaku-hinshutsu",
+      "key": null,
+      "title": "1級舗装 応用試験 選択問題（問2〜5）の頻出論点｜路床CBRm・TA計算・測定機器・維持修繕工法の解き方",
+      "price": "¥1,480",
+      "published": true
+    },
+    {
+      "id": "pavement-2-keiken",
+      "key": null,
+      "title": "2級舗装 応用試験 問1（経験記述）の模範答案｜課題78字・対策218字の書き方と3本の答案例",
+      "price": "¥980",
+      "published": true
+    },
+    {
       "id": "pe-construction-construction-planning-magazine",
       "key": "m1562f66d9654",
       "title": "技術士 建設部門 2次｜施工計画・施工設備及び積算 選択科目 模範解答集（R03-R07＋R8予想）",
@@ -19903,6 +19944,13 @@
       "published": true
     },
     {
+      "id": "pipe-work-kikibetsu-bank",
+      "key": null,
+      "title": "管工事施工管理技士 第二次検定「施工記述」機器別 模範解答バンク（1級・2級／令和6年度からの新形式）",
+      "price": "¥1,980",
+      "published": true
+    },
+    {
       "id": "r8-essay-forecast",
       "key": "m6854c7437d4d",
       "title": "令和8年度 総監記述式 R8予想問題集 2026最終予想｜出る6テーマ × 専門分野を問わない解答骨子",
@@ -19991,6 +20039,20 @@
       "key": "m91516dfc27ac",
       "title": "総監記述式 設問(3)国家施策バンク｜将来課題11テーマ × 国家施策オプション集",
       "price": "¥2,980",
+      "published": true
+    },
+    {
+      "id": "surveyor-gogo-bunya-magazine",
+      "key": "m4e09480baf15",
+      "title": "測量士 午後 記述式｜分野別 解き方の型と過去5年（令和4〜8年）解説",
+      "price": "¥2,980（5分野・単品合計¥4,900）",
+      "published": true
+    },
+    {
+      "id": "surveyor-keisan-20",
+      "key": null,
+      "title": "測量士 午後 記述式の計算問題を「型20本」で解く｜令和4〜8年の例題つき",
+      "price": "¥1,480",
       "published": true
     },
     {
