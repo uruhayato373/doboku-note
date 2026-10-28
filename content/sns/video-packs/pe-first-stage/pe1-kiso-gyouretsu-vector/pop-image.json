@@ -1,0 +1,698 @@
+{
+  "policy": ".claude/knowledge/reference/pop-image-policy.md",
+  "designVersion": "pop-20260927",
+  "channel": "youtube",
+  "source": "content/sns/video-packs/pe-first-stage/pe1-kiso-gyouretsu-vector",
+  "outputs": {
+    "longform": {
+      "publicationId": "pe-first-stage/pe1-kiso-gyouretsu-vector/youtube.longform",
+      "copy": {
+        "exam": "pe-first-stage",
+        "headline": [
+          "射影の計算",
+          "内積→ベクトル"
+        ],
+        "benefit": "",
+        "authority": "総監が制作"
+      },
+      "evidence": [
+        "content/sns/video-packs/pe-first-stage/pe1-kiso-gyouretsu-vector/cover-design.json#covers/longform",
+        "content/sns/video-packs/pe-first-stage/pe1-kiso-gyouretsu-vector/storyboard.json"
+      ],
+      "references": [
+        {
+          "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.abe1a7b7.png",
+          "sha256": "abe1a7b7debc540640b2aacb2f333874901e60f25843dca40579ccd42feb7216"
+        }
+      ],
+      "prompt": "Create a NEW 16:9 Japanese YouTube thumbnail, using provided approved blue POP image as style and same bespectacled white-helmet teacher reference only. Exact large text 「技術士第一次試験」「射影の計算」「内積→ベクトル」. Small text 「基礎科目」「総監が制作」. Vivid cobalt/cyan/navy/yellow, thick outlined Japanese type, diagonal energy, teacher right holding red pen, left a bold coordinate vector cast onto another arrow with a right-angle marker. Full-bleed POP, no other text, lower 18% uncluttered.",
+      "format": {
+        "width": 1920,
+        "height": 1080
+      },
+      "render": {
+        "template": "codex-image-gen",
+        "variant": "question",
+        "pose": "pop-red-pen"
+      },
+      "output": {
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-gyouretsu-vector/work/cover-pop.ec9f3aa7.png",
+        "sha256": "ec9f3aa7b01725b89ac03d37ab48d4764431352a45cde602d04ec1e031f0458f"
+      },
+      "review": {
+        "status": "agent-reviewed",
+        "by": "Codex",
+        "checkedAt": "2026-10-27T23:30:12.581Z",
+        "viewportWidth": 360,
+        "checks": [
+          "見出しと資格名の可読性",
+          "文字化け",
+          "文字・人物の切れ",
+          "内容と見出しの整合"
+        ],
+        "userImageReview": "pending"
+      },
+      "storage": {
+        "group": "content-media",
+        "key": ".tmp/media/pe-first-stage/pe1-kiso-gyouretsu-vector/work/cover-pop.ec9f3aa7.png"
+      },
+      "publication": "ローカル差し替え・外部未反映"
+    }
+  },
+  "activeBodyRevision": "body-diagram-20261028",
+  "activeCoverRevision": "cover-pop-20261028",
+  "revisions": {
+    "body-diagram-20261028": {
+      "layout": {
+        "mode": "diagram-led"
+      },
+      "images": [
+        {
+          "sceneId": "answer",
+          "inputSha256": "713eca9e4138cc19a7663077cc606be460b3e82f027edd5d0df7d56c4f05f1b1",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "NEW 16:9 full-frame Japanese educational diagram for an engineer first-stage YouTube video. Use the attached image only as style reference for plain white-to-pale-blue background, bold navy text, blue arrows, small yellow highlights. Create a new simple original diagram, not a poster. No person, no dense table, no white bullet list card. Large accurate text only, no extra words/numbers. Lower 18% blank for video subtitles. Heading 「射影は3手順」. Three large connected numbered circles. Exactly: 「① 内積÷b·b」, 「② bに掛ける」, 「③ 直交で確かめる」. A simple diagonal vector casts an arrow shadow onto another vector, with a right-angle marker. Make arrows mathematically coherent.",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/work/promise-diagram.c7e7cf67.png",
+                "sha256": "c7e7cf6782e5ef4f90e378ac9927e178f7d4acaa2555c547aabe93df9f8cace3"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-first-stage/pe1-kiso-gyouretsu-vector/work/raw-answer.a5ddc21e.png",
+              "sha256": "a5ddc21e8b9185b9a5d51e9c7577f7c9c3377978fa816456ce0c19e4c14d082e"
+            },
+            "generatedAt": "2026-10-27T23:30:12.581Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-first-stage/pe1-kiso-gyouretsu-vector/work/answer-diagram.7be541cb.png",
+            "sha256": "7be541cbeeaa30943c4c047f806786e3ad36dce142439d8094427fc1cd847b39",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "a5ddc21e8b9185b9a5d51e9c7577f7c9c3377978fa816456ce0c19e4c14d082e"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-27T23:30:12.581Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字・数値の判読",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "pain",
+          "inputSha256": "0e991350d7f678d00748ac3b1c59008730075c4694bb174d25dc2142df016fe9",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "NEW 16:9 full-frame Japanese educational diagram for an engineer first-stage YouTube video. Use the attached image only as style reference for plain white-to-pale-blue background, bold navy text, blue arrows, small yellow highlights. Create a new simple original diagram, not a poster. No person, no dense table, no white bullet list card. Large accurate text only, no extra words/numbers. Lower 18% blank for video subtitles. Heading 「内積だけでは答えにならない」. Left a single large number bubble 「a·b＝20」 with a question mark. Right a vector arrow 「b＝(2,1)」 with a ruler and label 「長さ√5」. Simple separation emphasizing scalar versus vector. No false equation.",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/work/promise-diagram.c7e7cf67.png",
+                "sha256": "c7e7cf6782e5ef4f90e378ac9927e178f7d4acaa2555c547aabe93df9f8cace3"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-first-stage/pe1-kiso-gyouretsu-vector/work/raw-pain.e69f90e5.png",
+              "sha256": "e69f90e501866a06bcb32aeac48b6796ef05d316bdd092af605b85805e01f501"
+            },
+            "generatedAt": "2026-10-27T23:30:12.581Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-first-stage/pe1-kiso-gyouretsu-vector/work/pain-diagram.d9c14720.png",
+            "sha256": "d9c14720a3fb66466cbbfe1d3c958e23c1aab2d0e991c157e7f3d187d0cfb6c4",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "e69f90e501866a06bcb32aeac48b6796ef05d316bdd092af605b85805e01f501"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-27T23:30:12.581Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字・数値の判読",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "misread",
+          "inputSha256": "078bb51ab6aa668c072efe6dff87bdc083348f4e557f432b1d37285e1db6e9a6",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "NEW 16:9 full-frame Japanese educational diagram for an engineer first-stage YouTube video. Use the attached image only as style reference for plain white-to-pale-blue background, bold navy text, blue arrows, small yellow highlights. Create a new simple original diagram, not a poster. No person, no dense table, no white bullet list card. Large accurate text only, no extra words/numbers. Lower 18% blank for video subtitles. Heading 「3つの量を分ける」. Three distinct large icon circles: 「内積＝数」 with 20, 「射影＝矢印」 with p=(8,4), 「長さ＝距離」 with 4√5. No equality arrows connecting these different types.",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/work/promise-diagram.c7e7cf67.png",
+                "sha256": "c7e7cf6782e5ef4f90e378ac9927e178f7d4acaa2555c547aabe93df9f8cace3"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-first-stage/pe1-kiso-gyouretsu-vector/work/raw-misread.b42cc86b.png",
+              "sha256": "b42cc86b67514b7c637c69a5a6198c3255fa559b5ef850430be0b3ea2e418206"
+            },
+            "generatedAt": "2026-10-27T23:30:12.581Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-first-stage/pe1-kiso-gyouretsu-vector/work/misread-diagram.0caa05ce.png",
+            "sha256": "0caa05ceb7f55df86152296c0873abd2106167e9495cc10d11222031889feabc",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "b42cc86b67514b7c637c69a5a6198c3255fa559b5ef850430be0b3ea2e418206"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-27T23:30:12.581Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字・数値の判読",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "setup",
+          "inputSha256": "00d175ac1be328f47e378ce61cb5dc99b17aef48e1f2195aaab6032fff8f4254",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "NEW 16:9 full-frame Japanese educational diagram for an engineer first-stage YouTube video. Use the attached image only as style reference for plain white-to-pale-blue background, bold navy text, blue arrows, small yellow highlights. Create a new simple original diagram, not a poster. No person, no dense table, no white bullet list card. Large accurate text only, no extra words/numbers. Lower 18% blank for video subtitles. Heading 「説明用の仮の例」 and small badge 「実際の出題ではありません」. Coordinate plane axes x and y, two arrows from origin: a=(5,10) steep upward and b=(2,1) shallow right/up. Label exactly 「a=(5,10)」「b=(2,1)」. b is not unit length, small 「|b|=√5」. Ensure a tip is at (5,10), b tip at (2,1), not same direction.",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/work/promise-diagram.c7e7cf67.png",
+                "sha256": "c7e7cf6782e5ef4f90e378ac9927e178f7d4acaa2555c547aabe93df9f8cace3"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-first-stage/pe1-kiso-gyouretsu-vector/work/raw-setup.ebf6ff51.png",
+              "sha256": "ebf6ff51aa8baa6aa914ecb1d677df5d0cb1d2a54276f542e51bfbcda4afa59e"
+            },
+            "generatedAt": "2026-10-27T23:30:12.581Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-first-stage/pe1-kiso-gyouretsu-vector/work/setup-diagram.a43d577f.png",
+            "sha256": "a43d577f8b07a533dabe0909a19f41d4887a8b4039b8e58a080be50c347d42ac",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "ebf6ff51aa8baa6aa914ecb1d677df5d0cb1d2a54276f542e51bfbcda4afa59e"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-27T23:30:12.581Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字・数値の判読",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "step1",
+          "inputSha256": "d322efb0180e16c84f1406d3466bf79124d2ad6c1c3065dd069b7d72fdc32c3e",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "NEW 16:9 full-frame Japanese educational diagram for an engineer first-stage YouTube video. Use the attached image only as style reference for plain white-to-pale-blue background, bold navy text, blue arrows, small yellow highlights. Create a new simple original diagram, not a poster. No person, no dense table, no white bullet list card. Large accurate text only, no extra words/numbers. Lower 18% blank for video subtitles. Heading 「分子と分母を分ける」. Huge stacked fraction with numerator exactly 「a·b＝5×2＋10×1＝20」 and denominator exactly 「b·b＝2²＋1²＝5」. Beside it a large yellow 「20÷5＝4」. No extra terms or reversed numerator.",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/work/promise-diagram.c7e7cf67.png",
+                "sha256": "c7e7cf6782e5ef4f90e378ac9927e178f7d4acaa2555c547aabe93df9f8cace3"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-first-stage/pe1-kiso-gyouretsu-vector/work/raw-step1.2711d4d6.png",
+              "sha256": "2711d4d6d937e1f373f42093cf892557215e9bb0299ddd8940fbbeca88bc4bb7"
+            },
+            "generatedAt": "2026-10-27T23:30:12.581Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-first-stage/pe1-kiso-gyouretsu-vector/work/step1-diagram.e7dc3781.png",
+            "sha256": "e7dc3781a8929dcd0c07131070f7bfd4606cc1a1da0af22b33b49ba8c7b2c58f",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "2711d4d6d937e1f373f42093cf892557215e9bb0299ddd8940fbbeca88bc4bb7"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-27T23:30:12.581Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字・数値の判読",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "step2",
+          "inputSha256": "2abefa95c0bbb109a951902433ea6ffb9ab587156eefe7561a9b4673a7810ac4",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Correct the vector geometry in a NEW 16:9 educational diagram. The attached previous image is only a style reference; it wrongly drew b=(2,1) as a horizontal arrow. On a clearly labeled x-y coordinate plane, draw BOTH arrows from the SAME origin O along the SAME oblique ray of slope 1/2: a short blue arrow from O to (2,1) labeled exactly 「b=(2,1)」 and a long yellow arrow from O to (8,4) labeled exactly 「p=4b=(8,4)」. The long vector must be four times the short vector, ending at x=8,y=4. Main heading exactly 「係数4をbに掛ける」. Small side badge exactly 「a·b=20は係数ではない」. No other text or numbers. White/pale blue, navy labels, blue/yellow highlights, lower 18% blank, no person, no extra arrows, no horizontal b.",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-gyouretsu-vector/work/ref-step2.25737c5f.png",
+                "sha256": "25737c5faa3566a28d1e0a33f56a6fba08c89125d1f5f3190800d729f5985f9b"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-first-stage/pe1-kiso-gyouretsu-vector/work/raw-step2.d3b0b000.png",
+              "sha256": "d3b0b000ad8c763a985c2a33c895866452ef5d4010526a40b3022ccfd06bb47b"
+            },
+            "generatedAt": "2026-10-27T23:30:12.581Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-first-stage/pe1-kiso-gyouretsu-vector/work/step2-diagram.44400f5f.png",
+            "sha256": "44400f5f2d4420a16f39ed9b4c75854e49bda2487b83ef4f4e82da5a11c7d1a0",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "d3b0b000ad8c763a985c2a33c895866452ef5d4010526a40b3022ccfd06bb47b"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-27T23:30:12.581Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字・数値の判読",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "step3",
+          "inputSha256": "cf382a54ae56418b015f910cbc8ce99b1ee3572b288df673c4e358780b7e588a",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "NEW 16:9 full-frame Japanese educational diagram for an engineer first-stage YouTube video. Use the attached image only as style reference for plain white-to-pale-blue background, bold navy text, blue arrows, small yellow highlights. Create a new original simple diagram, not a poster. No person, no dense table, no white bullet list card. Large accurate text only. Lower 18% blank for video subtitles. Heading 「残りは直交する」. One clean right triangle with a=(5,10) as a vector from origin to top, p=(8,4) as vector from origin to projection foot, and a−p=(−3,6) as vector from foot to a tip. Mark a right angle between p and a−p. Large arithmetic exactly 「(−3,6)·(2,1)=−6+6=0」. Avoid placing a−p along b.",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/work/promise-diagram.c7e7cf67.png",
+                "sha256": "c7e7cf6782e5ef4f90e378ac9927e178f7d4acaa2555c547aabe93df9f8cace3"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-first-stage/pe1-kiso-gyouretsu-vector/work/raw-step3.dd5da893.png",
+              "sha256": "dd5da893517e2326c413d43baf00372641cec33f3f51443576dcc024cafcefa4"
+            },
+            "generatedAt": "2026-10-27T23:30:12.581Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-first-stage/pe1-kiso-gyouretsu-vector/work/step3-diagram.bdeb88f6.png",
+            "sha256": "bdeb88f644e0c06cefc777ee9ec7c636121a5ae56797a26db0ecde671066b92d",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "dd5da893517e2326c413d43baf00372641cec33f3f51443576dcc024cafcefa4"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-27T23:30:12.581Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字・数値の判読",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "size",
+          "inputSha256": "fcfc49a5d505efbf633660fc139b572fdd4f669cacfecd476dddf22db0bf0ff2",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "NEW 16:9 full-frame Japanese educational diagram for an engineer first-stage YouTube video. Use the attached image only as style reference for plain white-to-pale-blue background, bold navy text, blue arrows, small yellow highlights. Create a new original simple diagram, not a poster. No person, no dense table, no white bullet list card. Large accurate text only. Lower 18% blank for video subtitles. Heading 「長さを聞かれたら」. Right triangle from vector p=(8,4), horizontal leg 8, vertical leg 4. Large formula exactly 「|p|=√(8²+4²)=4√5」. Mark hypotenuse p. No other numbers.",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/work/promise-diagram.c7e7cf67.png",
+                "sha256": "c7e7cf6782e5ef4f90e378ac9927e178f7d4acaa2555c547aabe93df9f8cace3"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-first-stage/pe1-kiso-gyouretsu-vector/work/raw-size.a1498119.png",
+              "sha256": "a149811941daa7c25400b494b9953ea31b44c686685d27d9874aa357f3c7ee22"
+            },
+            "generatedAt": "2026-10-27T23:30:12.581Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-first-stage/pe1-kiso-gyouretsu-vector/work/size-diagram.e7afbd0b.png",
+            "sha256": "e7afbd0bf69b3575fedf45aff777f7759133c2ac61a5967a152fab842498a57c",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "a149811941daa7c25400b494b9953ea31b44c686685d27d9874aa357f3c7ee22"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-27T23:30:12.581Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字・数値の判読",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "unit",
+          "inputSha256": "e90cdeff3ccb17f3a4addf09d73b20b9052eff0b18c1cfdf174559e3a5ac5487",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "NEW 16:9 full-frame Japanese educational diagram for an engineer first-stage YouTube video. Use the attached image only as style reference for plain white-to-pale-blue background, bold navy text, blue arrows, small yellow highlights. Create a new original simple diagram, not a poster. No person, no dense table, no white bullet list card. Large accurate text only. Lower 18% blank for video subtitles. Heading 「bの長さを確認」. Two clean large side-by-side circles. Left 「一般のb」 with formula 「(a·b)/(b·b) × b」 and a small ruler showing |b|≠1. Right 「単位ベクトル」 with formula 「(a·b)b」 and a small ruler showing |b|=1. Large navy text, do not imply the denominators can always be omitted.",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/work/promise-diagram.c7e7cf67.png",
+                "sha256": "c7e7cf6782e5ef4f90e378ac9927e178f7d4acaa2555c547aabe93df9f8cace3"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-first-stage/pe1-kiso-gyouretsu-vector/work/raw-unit.d5435aef.png",
+              "sha256": "d5435aef0194e21d0e383e6ba54cb5c6a849aa0a7d5323e3225281715a480b29"
+            },
+            "generatedAt": "2026-10-27T23:30:12.581Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-first-stage/pe1-kiso-gyouretsu-vector/work/unit-diagram.c35e0aaf.png",
+            "sha256": "c35e0aafaf489d7e4d0185cbfc9f75bc14fd9fab94f7a7b8a81256ca7698014f",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "d5435aef0194e21d0e383e6ba54cb5c6a849aa0a7d5323e3225281715a480b29"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-27T23:30:12.581Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字・数値の判読",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "routine",
+          "inputSha256": "e40cc76feb1e66c96657bbb0ba554b0b7d51dfd744a0ad0c99ff80c0825259c8",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "NEW 16:9 full-frame Japanese educational diagram for an engineer first-stage YouTube video. Use the attached image only as style reference for plain white-to-pale-blue background, bold navy text, blue arrows, small yellow highlights. Create a new original simple diagram, not a poster. No person, no dense table, no white bullet list card. Large accurate text only. Lower 18% blank for video subtitles. Heading 「解く順序（動画の提案）」. Four large numbered connected circles, exact concise labels 「① 型を書く」 「② bの長さ」 「③ 分子・分母」 「④ 直交で検算」. Small vector arrow and right-angle icon. No extra text.",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/work/promise-diagram.c7e7cf67.png",
+                "sha256": "c7e7cf6782e5ef4f90e378ac9927e178f7d4acaa2555c547aabe93df9f8cace3"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-first-stage/pe1-kiso-gyouretsu-vector/work/raw-routine.5ffb8d60.png",
+              "sha256": "5ffb8d60005e877b9a4d93fe9ad5b8267f55a9261a881371da5d0e59a5984d0b"
+            },
+            "generatedAt": "2026-10-27T23:30:12.581Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-first-stage/pe1-kiso-gyouretsu-vector/work/routine-diagram.a610f0b4.png",
+            "sha256": "a610f0b40480dcb9f65c80e71a6a6fb937e5f96a77794fdfd0d205bbf154da4d",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "5ffb8d60005e877b9a4d93fe9ad5b8267f55a9261a881371da5d0e59a5984d0b"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-27T23:30:12.581Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字・数値の判読",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "practice",
+          "inputSha256": "a52c5c000d006ba7f8f810360407a243d27c458e26bf596c09d88b95ec000b3c",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "NEW 16:9 full-frame Japanese educational diagram for an engineer first-stage YouTube video. Use the attached image only as style reference for plain white-to-pale-blue background, bold navy text, blue arrows, small yellow highlights. Create a new original simple diagram, not a poster. No person, no dense table, no white bullet list card. Large accurate text only. Lower 18% blank for video subtitles. Heading 「過去問で確かめる」. Draw a simple anonymous exam question sheet (no copied text) and a study notebook with two large columns exactly 「型」 and 「検算」. Small label 「令和6年度 基礎科目 Ⅰ-3-2」. Do not reproduce a real exam question or answer.",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/work/promise-diagram.c7e7cf67.png",
+                "sha256": "c7e7cf6782e5ef4f90e378ac9927e178f7d4acaa2555c547aabe93df9f8cace3"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-first-stage/pe1-kiso-gyouretsu-vector/work/raw-practice.229db823.png",
+              "sha256": "229db8234b98a42b710c17cd32c68dd88d5eadc6b6260dca3942c66e62c33152"
+            },
+            "generatedAt": "2026-10-27T23:30:12.581Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-first-stage/pe1-kiso-gyouretsu-vector/work/practice-diagram.679d3dc1.png",
+            "sha256": "679d3dc167e5fd73cef7f28b90b8f9972c57e7ac7f975a0e000404222cdf5fb1",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "229db8234b98a42b710c17cd32c68dd88d5eadc6b6260dca3942c66e62c33152"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-27T23:30:12.581Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字・数値の判読",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "summary",
+          "inputSha256": "5f6aebbc4533068b73a254c68792874edb232f028ba8dd0071ae6ece6ac1c7d4",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "NEW 16:9 full-frame Japanese educational diagram for an engineer first-stage YouTube video. Use the attached image only as style reference for plain white-to-pale-blue background, bold navy text, blue arrows, small yellow highlights. Create a new original simple diagram, not a poster. No person, no dense table, no white bullet list card. Large accurate text only. Lower 18% blank for video subtitles. Heading 「射影の3点」. Three large connected icons with exact labels 「内積は数」 「射影はベクトル」 「直交で確かめる」. Small vector shadow diagram with a right angle. No formulas or other text.",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/work/promise-diagram.c7e7cf67.png",
+                "sha256": "c7e7cf6782e5ef4f90e378ac9927e178f7d4acaa2555c547aabe93df9f8cace3"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-first-stage/pe1-kiso-gyouretsu-vector/work/raw-summary.fc4ee6b4.png",
+              "sha256": "fc4ee6b40c64eb0e330426f5baed6df23711a13e6e6247bd80d1abdd8b146c30"
+            },
+            "generatedAt": "2026-10-27T23:30:12.581Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-first-stage/pe1-kiso-gyouretsu-vector/work/summary-diagram.1fde968f.png",
+            "sha256": "1fde968fa606ef79172669e172a3bf84c53ff7792d40329ef70b57d35501cecf",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "fc4ee6b40c64eb0e330426f5baed6df23711a13e6e6247bd80d1abdd8b146c30"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-27T23:30:12.581Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字・数値の判読",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "cta",
+          "inputSha256": "c627b6fa10b9a64d8b9ffab032836eb2bd213673b83523e8e836152174c43985",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "NEW 16:9 full-frame Japanese educational diagram for an engineer first-stage YouTube video. Use the attached image only as style reference for plain white-to-pale-blue background, bold navy text, blue arrows, small yellow highlights. Create a new original simple diagram, not a poster. No person, no dense table, no white bullet list card. Large accurate text only. Lower 18% blank for video subtitles. Heading 「過去問で反復」. One simple booklet icon with exact large text 「第一次試験 560問」 and small text 「専門は建設部門」. A bold down arrow toward 「概要欄へ」. No price, no pass guarantee, no URL, no person.",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/work/promise-diagram.c7e7cf67.png",
+                "sha256": "c7e7cf6782e5ef4f90e378ac9927e178f7d4acaa2555c547aabe93df9f8cace3"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-first-stage/pe1-kiso-gyouretsu-vector/work/raw-cta.e7ebbac5.png",
+              "sha256": "e7ebbac5caf3b7807858b2bea4162408056696d9f8fc895146f68988ac06636c"
+            },
+            "generatedAt": "2026-10-27T23:30:12.581Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-first-stage/pe1-kiso-gyouretsu-vector/work/cta-diagram.d66f01c4.png",
+            "sha256": "d66f01c4f16bb74db7cf3b8a270e381cf659842eca91b85e7393e56206001111",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "e7ebbac5caf3b7807858b2bea4162408056696d9f8fc895146f68988ac06636c"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-27T23:30:12.581Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字・数値の判読",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        }
+      ]
+    },
+    "cover-pop-20261028": {
+      "version": "pop-poster-v3",
+      "generation": {
+        "tool": "image_gen",
+        "prompt": "Create a NEW 16:9 Japanese YouTube thumbnail, using provided approved blue POP image as style and same bespectacled white-helmet teacher reference only. Exact large text 「技術士第一次試験」「射影の計算」「内積→ベクトル」. Small text 「基礎科目」「総監が制作」. Vivid cobalt/cyan/navy/yellow, thick outlined Japanese type, diagonal energy, teacher right holding red pen, left a bold coordinate vector cast onto another arrow with a right-angle marker. Full-bleed POP, no other text, lower 18% uncluttered.",
+        "references": [
+          {
+            "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.abe1a7b7.png",
+            "sha256": "abe1a7b7debc540640b2aacb2f333874901e60f25843dca40579ccd42feb7216"
+          }
+        ],
+        "output": {
+          "path": ".tmp/media/pe-first-stage/pe1-kiso-gyouretsu-vector/work/raw-cover.96d847fa.png",
+          "sha256": "96d847fab4e3ed5ef0ef15be922968aac904c9fe8b703aba2f29071e0d78f741"
+        },
+        "generatedAt": "2026-10-27T23:30:12.581Z"
+      },
+      "copy": {
+        "exam": "pe-first-stage",
+        "headline": [
+          "射影の計算",
+          "内積→ベクトル"
+        ],
+        "authority": "総監が制作"
+      },
+      "output": {
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-gyouretsu-vector/work/cover-pop.ec9f3aa7.png",
+        "sha256": "ec9f3aa7b01725b89ac03d37ab48d4764431352a45cde602d04ec1e031f0458f",
+        "width": 1920,
+        "height": 1080
+      },
+      "normalization": {
+        "mode": "full-frame-v1",
+        "sourceSha256": "96d847fab4e3ed5ef0ef15be922968aac904c9fe8b703aba2f29071e0d78f741"
+      },
+      "review": {
+        "status": "ai-reviewed",
+        "userImageReview": "pending",
+        "checkedAt": "2026-10-27T23:30:12.581Z",
+        "by": "Codex",
+        "views": [
+          "original"
+        ],
+        "checks": [
+          "文言・資格名",
+          "顔と安全域"
+        ]
+      },
+      "storage": {
+        "group": "content-media",
+        "sync": "local"
+      }
+    }
+  }
+}

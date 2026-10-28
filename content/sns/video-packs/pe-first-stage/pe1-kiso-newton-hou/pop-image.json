@@ -1,0 +1,698 @@
+{
+  "policy": ".claude/knowledge/reference/pop-image-policy.md",
+  "designVersion": "pop-20260927",
+  "channel": "youtube",
+  "source": "content/sns/video-packs/pe-first-stage/pe1-kiso-newton-hou",
+  "outputs": {
+    "longform": {
+      "publicationId": "pe-first-stage/pe1-kiso-newton-hou/youtube.longform",
+      "copy": {
+        "exam": "pe-first-stage",
+        "headline": [
+          "ニュートン法",
+          "接線で近似解"
+        ],
+        "benefit": "",
+        "authority": "総監が制作"
+      },
+      "evidence": [
+        "content/sns/video-packs/pe-first-stage/pe1-kiso-newton-hou/cover-design.json#covers/longform",
+        "content/sns/video-packs/pe-first-stage/pe1-kiso-newton-hou/storyboard.json"
+      ],
+      "references": [
+        {
+          "path": ".tmp/media/pe-first-stage/pe1-kiso-gyouretsu-vector/work/cover-pop.ec9f3aa7.png",
+          "sha256": "ec9f3aa7b01725b89ac03d37ab48d4764431352a45cde602d04ec1e031f0458f"
+        }
+      ],
+      "prompt": "NEW POP 16:9 Japanese YouTube thumbnail using attached approved cover as style and teacher identity reference. Large accurate text 「技術士第一次試験」「ニュートン法」「接線で次の近似解へ」. Yellow strip 「総監が制作」. Energetic teal blue yellow orange background; white helmet navy workwear teacher at right with red pen. At left a simple blue parabola crossing x-axis and a red tangent line from point on parabola toward x-axis; NO equations or numerical labels. Full bleed, lower 18% clean.",
+      "format": {
+        "width": 1920,
+        "height": 1080
+      },
+      "render": {
+        "template": "codex-image-gen",
+        "variant": "question",
+        "pose": "pop-red-pen"
+      },
+      "output": {
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/cover-pop.1180900f.png",
+        "sha256": "1180900fac85acce7826e1fbec943150ef9ecc364f2dbddd4035209138f4b26f"
+      },
+      "review": {
+        "status": "agent-reviewed",
+        "by": "Codex",
+        "checkedAt": "2026-10-28T00:07:45.989Z",
+        "viewportWidth": 360,
+        "checks": [
+          "見出しと資格名の可読性",
+          "文字化け",
+          "文字・人物の切れ",
+          "内容と見出しの整合"
+        ],
+        "userImageReview": "pending"
+      },
+      "storage": {
+        "group": "content-media",
+        "key": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/cover-pop.1180900f.png"
+      },
+      "publication": "ローカル差し替え・外部未反映"
+    }
+  },
+  "activeBodyRevision": "body-diagram-20261028",
+  "activeCoverRevision": "cover-pop-20261028",
+  "revisions": {
+    "body-diagram-20261028": {
+      "layout": {
+        "mode": "diagram-led"
+      },
+      "images": [
+        {
+          "sceneId": "answer",
+          "inputSha256": "6361ee302cbbd9b01fa6512e921e9f35d921ccba8f1e9e39c9e5af4b8ca39351",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Create NEW mathematically precise Japanese 16:9 educational diagram, attached image only as style reference. White pale grey canvas, navy axes and labels, green correct step, blue curves, yellow highlights. No person. Avoid tiny text. Meaning above lower 18% subtitle safe zone. Draw coordinate geometry precisely, no impossible curve or mislabeled axis. Heading 「接線で次の値へ」. Draw graph of f(x)=x²−5, positive branch near x=3: point (3,4) on rising parabola, tangent intersects x-axis to LEFT of 3 at x₁=7/3. Clear horizontal shift left. Large correct formula 「x₁ = x₀ − f(x₀)/f′(x₀)」. Labels 「高さ」「傾き」「次の値」. No other numbers.",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-gyouretsu-vector/work/answer-diagram.7be541cb.png",
+                "sha256": "7be541cbeeaa30943c4c047f806786e3ad36dce142439d8094427fc1cd847b39"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/raw-answer.65f47981.png",
+              "sha256": "65f4798100162c60e20b243154ee3c9e69fe347ee54a9e84bb8a3b8085445b33"
+            },
+            "generatedAt": "2026-10-28T00:07:45.989Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.80bde946.png",
+            "sha256": "80bde946a9613920a0a8d0ea17b006cf9460fe0d8cbf3f850f8ca1c350a9172e",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "65f4798100162c60e20b243154ee3c9e69fe347ee54a9e84bb8a3b8085445b33"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-28T00:07:45.989Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字・数値の判読",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "pain",
+          "inputSha256": "c218c1f5c48aead536450592fc1838f16eb953df50adb88d2874f7c282e31fe9",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Create NEW mathematically precise Japanese 16:9 educational diagram, attached image only as style reference. White pale grey canvas, navy axes and labels, green correct step, blue curves, yellow highlights. No person. Avoid tiny text. Meaning above lower 18% subtitle safe zone. Draw coordinate geometry precisely, no impossible curve or mislabeled axis. Heading 「分母を忘れない」. Simple comparison of correctly formed fraction f(x)/f′(x) with f′(x) bright green and incorrect 「x−f(x)」 in red crossed out. Tiny tangent graph shows vertical height and horizontal shift, labels 「高さ」「傾き」「横の移動」. No fabricated numeric values.",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-gyouretsu-vector/work/answer-diagram.7be541cb.png",
+                "sha256": "7be541cbeeaa30943c4c047f806786e3ad36dce142439d8094427fc1cd847b39"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/raw-pain.3d308ad0.png",
+              "sha256": "3d308ad0923dd0fb842387560f96142e6da95fa7e240f7c29a72ddfdc6766f12"
+            },
+            "generatedAt": "2026-10-28T00:07:45.989Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/pain-diagram.f17eb495.png",
+            "sha256": "f17eb495ad296997a51f5cfd97e2cf9e3e8af95d35c531065199545b59ffc80b",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "3d308ad0923dd0fb842387560f96142e6da95fa7e240f7c29a72ddfdc6766f12"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-28T00:07:45.989Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字・数値の判読",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "setup",
+          "inputSha256": "a25190b10c94f6f789fe1064ba603f9f9b8825c0eaf388b382cb6e9ad0e9d827",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Create NEW mathematically precise Japanese 16:9 educational diagram, attached image only as style reference. White pale grey canvas, navy axes and labels, green correct step, blue curves, yellow highlights. No person. Avoid tiny text. Meaning above lower 18% subtitle safe zone. Draw coordinate geometry precisely, no impossible curve or mislabeled axis. Heading 「初期値 x₀=3」. Graph f(x)=x²−5 with point (3,4) and increasing tangent slope at x=3. Large 3 cards exact 「f(3)=4」「f′(x)=2x」「f′(3)=6」. Axes x y, point clearly above x-axis.",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-gyouretsu-vector/work/answer-diagram.7be541cb.png",
+                "sha256": "7be541cbeeaa30943c4c047f806786e3ad36dce142439d8094427fc1cd847b39"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/raw-setup.b99d89d6.png",
+              "sha256": "b99d89d6c9b1dc219f2f05781545b531162e73c2eeba1556d00cadd000df975a"
+            },
+            "generatedAt": "2026-10-28T00:07:45.989Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/setup-diagram.a68b2c3c.png",
+            "sha256": "a68b2c3cd54540a592b63a0cca9639316779285cf963907782d5aaccdcac7152",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "b99d89d6c9b1dc219f2f05781545b531162e73c2eeba1556d00cadd000df975a"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-28T00:07:45.989Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字・数値の判読",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "tangent",
+          "inputSha256": "0de9204d451794638485d276c907589096c47bf5693bbecfe75295050d00562e",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Create NEW mathematically precise Japanese 16:9 educational diagram, attached image only as style reference. White pale grey canvas, navy axes and labels, green correct step, blue curves, yellow highlights. No person. Avoid tiny text. Meaning above lower 18% subtitle safe zone. Draw coordinate geometry precisely, no impossible curve or mislabeled axis. Heading 「高さ ÷ 傾き」. Tangent at (3,4) on rising branch of f(x)=x²−5 slopes UP to the RIGHT, and intersects x-axis LEFT at x=7/3. Blue vertical height 4 at x=3, green slope rise 6 per horizontal 1, red horizontal move LEFT 4÷6=2/3. Make geometry consistent.",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-gyouretsu-vector/work/answer-diagram.7be541cb.png",
+                "sha256": "7be541cbeeaa30943c4c047f806786e3ad36dce142439d8094427fc1cd847b39"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/raw-tangent.3b4d01c9.png",
+              "sha256": "3b4d01c91f27f42db38fef08b37efd05b49276f5871e37e5b9e9993bdd98bb66"
+            },
+            "generatedAt": "2026-10-28T00:07:45.989Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/tangent-diagram.200d0e46.png",
+            "sha256": "200d0e463cd86b45b09931ff1493bf38c2fd28601298703a6b6f5dd6e3344af6",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "3b4d01c91f27f42db38fef08b37efd05b49276f5871e37e5b9e9993bdd98bb66"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-28T00:07:45.989Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字・数値の判読",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "step1",
+          "inputSha256": "e006abb5136f7bdf7cf30ce5ee6b02af198a373cbbd11f7e49dfbc7d89990549",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Create NEW mathematically precise Japanese 16:9 educational diagram, attached image only as style reference. White pale grey canvas, navy axes and labels, green correct step, blue curves, yellow highlights. No person. Avoid tiny text. Meaning above lower 18% subtitle safe zone. Draw coordinate geometry precisely, no impossible curve or mislabeled axis. Heading 「1回目の更新」. Simple clean equation steps large and exact: 「x₁ = 3 − 4/6」「= 3 − 2/3」「= 7/3」. Number line 3 then arrow left to 7/3 then √5≈2.236 further slightly left. No other values.",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-gyouretsu-vector/work/answer-diagram.7be541cb.png",
+                "sha256": "7be541cbeeaa30943c4c047f806786e3ad36dce142439d8094427fc1cd847b39"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/raw-step1.101f0600.png",
+              "sha256": "101f06001d462b1bd20e82090d2e62f5f56142c09ebc686c4ce8cb8a5389426f"
+            },
+            "generatedAt": "2026-10-28T00:07:45.989Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/step1-diagram.f5581df4.png",
+            "sha256": "f5581df4d5d377a7294959bbe89fc7de8bfbca08336e1b666676c192225459e1",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "101f06001d462b1bd20e82090d2e62f5f56142c09ebc686c4ce8cb8a5389426f"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-28T00:07:45.989Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字・数値の判読",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "step2",
+          "inputSha256": "f5d9e9ea6e7c1c8940b2b6b7f64fd2060ec5ae919354a3f50b8e9cb60d54494e",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Create NEW precise Japanese 16:9 educational diagram with white pale grey background, navy text, green and blue highlights matching attached style. Heading 「2回目の更新」. Show ONLY three sequential large formula cards from left to right, NO number line and NO graph to avoid ordering errors. Card 1 EXACT math 「f(7/3)=4/9」. Card 2 EXACT math 「f′(7/3)=14/3」. Card 3 EXACT math 「x₂=7/3−(4/9)÷(14/3)=47/21」. All numbers and fractions mathematically accurate, no substituted or duplicated symbols. Small subtitle 「近似解へ近づく」. No other numbers. Bottom 18% blank for captions.",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-gyouretsu-vector/work/answer-diagram.7be541cb.png",
+                "sha256": "7be541cbeeaa30943c4c047f806786e3ad36dce142439d8094427fc1cd847b39"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/raw-step2.d9254846.png",
+              "sha256": "d9254846fc6173241ddb239a9239af0358e63e15ec3acfd0169aaee59ed364c8"
+            },
+            "generatedAt": "2026-10-28T00:07:45.989Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/step2-diagram.55ca6b08.png",
+            "sha256": "55ca6b08cdb1df933ed1ecb9425888f66ba00bec2464f2f7dad722e0af3f0cb1",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "d9254846fc6173241ddb239a9239af0358e63e15ec3acfd0169aaee59ed364c8"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-28T00:07:45.989Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字・数値の判読",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "check",
+          "inputSha256": "9ef1b1af87146780219226cd9b8b40e0c58cdf93f5c38a852f0b0574522cb2a5",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Create NEW mathematically precise Japanese 16:9 educational diagram, attached image only as style reference. White pale grey canvas, navy axes and labels, green correct step, blue curves, yellow highlights. No person. Avoid tiny text. Meaning above lower 18% subtitle safe zone. Draw coordinate geometry precisely, no impossible curve or mislabeled axis. Heading 「残差で検算」. Number line x≈2.236: mark √5 ≈2.2361 and 47/21≈2.2381 to the RIGHT. Large exact residual 「f(47/21)=4/441」 and green check. Small parabola near zero crossing. No incorrect decimal labels.",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-gyouretsu-vector/work/answer-diagram.7be541cb.png",
+                "sha256": "7be541cbeeaa30943c4c047f806786e3ad36dce142439d8094427fc1cd847b39"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/raw-check.b79ab8b2.png",
+              "sha256": "b79ab8b2e36d0c14c6fb776f9dfaef4c0fb7032845d6d40edc9b99cbc7485419"
+            },
+            "generatedAt": "2026-10-28T00:07:45.989Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/check-diagram.0630c982.png",
+            "sha256": "0630c982438d1c00f7fe9efdfd738fdc6f61dc2aeb72daf0845cce79122b9cd3",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "b79ab8b2e36d0c14c6fb776f9dfaef4c0fb7032845d6d40edc9b99cbc7485419"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-28T00:07:45.989Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字・数値の判読",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "denominator",
+          "inputSha256": "e0d8ba0dc6a2c2dc28456e302d71c29216c90723934487b638528562642b6de2",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Create NEW mathematically precise Japanese 16:9 educational diagram, attached image only as style reference. White pale grey canvas, navy axes and labels, green correct step, blue curves, yellow highlights. No person or dense table. Avoid tiny text. Meaning above lower 18% subtitle safe zone. Heading 「分母は傾き」. Vertical blue arrow at x=3 from x-axis to point (3,4) labeled 「高さ f(3)=4」; rising tangent slope f′(3)=6; horizontal leftward move from 3 to 7/3 labeled 「高さ÷傾き=4÷6」. Red incorrect 「3−4=−1」 crossed out. Geometry must be consistent.",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-gyouretsu-vector/work/answer-diagram.7be541cb.png",
+                "sha256": "7be541cbeeaa30943c4c047f806786e3ad36dce142439d8094427fc1cd847b39"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/raw-denominator.a31700e6.png",
+              "sha256": "a31700e6503930a0b417164b1c250d91ead9e97e7332133bf5986f812531ebff"
+            },
+            "generatedAt": "2026-10-28T00:07:45.989Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/denominator-diagram.21c617db.png",
+            "sha256": "21c617db8f43fbd1f5aeac2912bd615b697f1552515eada55358567b474ce08c",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "a31700e6503930a0b417164b1c250d91ead9e97e7332133bf5986f812531ebff"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-28T00:07:45.989Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字・数値の判読",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "olddenom",
+          "inputSha256": "c58b4cfc62619e5cbf6ab4d425bbd768f0370698f0b61b264b4ad6f3e612f78b",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Create NEW mathematically precise Japanese 16:9 educational diagram, attached image only as style reference. White pale grey canvas, navy axes and labels, green correct step, blue curves, yellow highlights. No person or dense table. Avoid tiny text. Meaning above lower 18% subtitle safe zone. Heading 「分母を外すと別の値」. Two large calculation cards, green 「正しい x₂=47/21」 and red 「誤り x₂=61/27」 with red cross. Below, two accurate residuals green 「4/441」 versus red 「76/729」. No unrequested decimal conversion.",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-gyouretsu-vector/work/answer-diagram.7be541cb.png",
+                "sha256": "7be541cbeeaa30943c4c047f806786e3ad36dce142439d8094427fc1cd847b39"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/raw-olddenom.a19f98f2.png",
+              "sha256": "a19f98f275a5452f99bdd833ae60fe82d3575c57333a429a13860d392b6b8787"
+            },
+            "generatedAt": "2026-10-28T00:07:45.989Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/olddenom-diagram.954a1ca3.png",
+            "sha256": "954a1ca3b64e9d539127ddb24ffdfa6b40dd0701903031fe1cd26e18d9a8eacc",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "a19f98f275a5452f99bdd833ae60fe82d3575c57333a429a13860d392b6b8787"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-28T00:07:45.989Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字・数値の判読",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "slope",
+          "inputSha256": "ae4e88106018e7a9733584016acb7716909fdbb3e6a9db012490498493ac87f8",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Create NEW mathematically precise Japanese 16:9 educational diagram, attached image only as style reference. White pale grey canvas, navy axes and labels, green correct step, blue curves, yellow highlights. No person or dense table. Avoid tiny text. Meaning above lower 18% subtitle safe zone. Heading 「傾きが小さいと大きく動く」. Graph f(x)=x²−5 at x₀=1/2: point y=−19/4 below x-axis, positive tangent slope 1 intersects x-axis at x₁=21/4 far to RIGHT. Large exact labels 「f(1/2)=−19/4」「f′(1/2)=1」「x₁=21/4」. Small warning 「f′=0 は割れない」. Ensure line slopes UP right.",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-gyouretsu-vector/work/answer-diagram.7be541cb.png",
+                "sha256": "7be541cbeeaa30943c4c047f806786e3ad36dce142439d8094427fc1cd847b39"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/raw-slope.1c1878d8.png",
+              "sha256": "1c1878d8c0e18a7ccc1d4dddc3c4bfaeca663a76f1364ca50c663befe6528d59"
+            },
+            "generatedAt": "2026-10-28T00:07:45.989Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/slope-diagram.077e315e.png",
+            "sha256": "077e315e2c62922c9975bde0013d996e2dbfd616afeb1d8ab3b1c3af37bb5227",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "1c1878d8c0e18a7ccc1d4dddc3c4bfaeca663a76f1364ca50c663befe6528d59"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-28T00:07:45.989Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字・数値の判読",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "practice",
+          "inputSha256": "d8be15facf706c0466c9015f6a550b01555b7af2040beffa38fa4b0fac5a5eea",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Create NEW mathematically precise Japanese 16:9 educational diagram, attached image only as style reference. White pale grey canvas, navy axes and labels, green correct step, blue curves, yellow highlights. No person or dense table. Avoid tiny text. Meaning above lower 18% subtitle safe zone. Heading 「過去問で確かめる」. Clean practice worksheet with heading 「令和6年度 基礎 I-3-3」, two highlighted input boxes 「f(x)」「f′(x)」 and arrow 「更新前に確認」. No reproduced exam question, no false equation.",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-gyouretsu-vector/work/answer-diagram.7be541cb.png",
+                "sha256": "7be541cbeeaa30943c4c047f806786e3ad36dce142439d8094427fc1cd847b39"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/raw-practice.f8a400dc.png",
+              "sha256": "f8a400dc164e8f5ddb3a332085a152c7653d2719d0db6b516127589bde2232d1"
+            },
+            "generatedAt": "2026-10-28T00:07:45.989Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/practice-diagram.afb78e11.png",
+            "sha256": "afb78e11a391cf895c599c813639ea1eb5fbe222cdb463dbb2aa87dd53f97739",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "f8a400dc164e8f5ddb3a332085a152c7653d2719d0db6b516127589bde2232d1"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-28T00:07:45.989Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字・数値の判読",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "summary",
+          "inputSha256": "198363b5d94a7a1837f610bfdce0f30de1d7842cbebc3aae3b79e29813211dee",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Create NEW mathematically precise Japanese 16:9 educational diagram, attached image only as style reference. White pale grey canvas, navy axes and labels, green correct step, blue curves, yellow highlights. No person or dense table. Avoid tiny text. Meaning above lower 18% subtitle safe zone. Heading 「高さ÷傾きで横へ」. Three accurate large steps: graph of rising parabola and leftward tangent intersection, formula 「x − f(x)/f′(x)」, check mark 「新しい値を代入して検算」. No detailed numeric curve, no numbers that could conflict.",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-gyouretsu-vector/work/answer-diagram.7be541cb.png",
+                "sha256": "7be541cbeeaa30943c4c047f806786e3ad36dce142439d8094427fc1cd847b39"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/raw-summary.f079a5d3.png",
+              "sha256": "f079a5d33daf5280651656aa978766084dc0830d2f72bf7c9a255975596f2e4a"
+            },
+            "generatedAt": "2026-10-28T00:07:45.989Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/summary-diagram.1ed47a78.png",
+            "sha256": "1ed47a7874181d2a5ade7b94053576aa566b90b4b916ad2631606d17cfcb92dc",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "f079a5d33daf5280651656aa978766084dc0830d2f72bf7c9a255975596f2e4a"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-28T00:07:45.989Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字・数値の判読",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "cta",
+          "inputSha256": "c627b6fa10b9a64d8b9ffab032836eb2bd213673b83523e8e836152174c43985",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Create NEW mathematically precise Japanese 16:9 educational diagram, attached image only as style reference. White pale grey canvas, navy axes and labels, green correct step, blue curves, yellow highlights. No person or dense table. Avoid tiny text. Meaning above lower 18% subtitle safe zone. Heading 「通しで演習」. Clean educational closing diagram with 3 large cards 「基礎」「適性」「専門」, practice pencil and check mark, text 「概要欄から」. No link, QR code or dense sales copy.",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-gyouretsu-vector/work/answer-diagram.7be541cb.png",
+                "sha256": "7be541cbeeaa30943c4c047f806786e3ad36dce142439d8094427fc1cd847b39"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/raw-cta.38f89219.png",
+              "sha256": "38f892190b8c1454f629780bfb536ab6cf9ced1ab62b3d0a066110821e1e151c"
+            },
+            "generatedAt": "2026-10-28T00:07:45.989Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/cta-diagram.f1c1789a.png",
+            "sha256": "f1c1789a38f76cd2a9650d2a0e067ab85b9ce8e361644a1e86a01d59f8c7a31f",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "38f892190b8c1454f629780bfb536ab6cf9ced1ab62b3d0a066110821e1e151c"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-28T00:07:45.989Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字・数値の判読",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        }
+      ]
+    },
+    "cover-pop-20261028": {
+      "version": "pop-poster-v3",
+      "generation": {
+        "tool": "image_gen",
+        "prompt": "NEW POP 16:9 Japanese YouTube thumbnail using attached approved cover as style and teacher identity reference. Large accurate text 「技術士第一次試験」「ニュートン法」「接線で次の近似解へ」. Yellow strip 「総監が制作」. Energetic teal blue yellow orange background; white helmet navy workwear teacher at right with red pen. At left a simple blue parabola crossing x-axis and a red tangent line from point on parabola toward x-axis; NO equations or numerical labels. Full bleed, lower 18% clean.",
+        "references": [
+          {
+            "path": ".tmp/media/pe-first-stage/pe1-kiso-gyouretsu-vector/work/cover-pop.ec9f3aa7.png",
+            "sha256": "ec9f3aa7b01725b89ac03d37ab48d4764431352a45cde602d04ec1e031f0458f"
+          }
+        ],
+        "output": {
+          "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/raw-cover.0a0dca12.png",
+          "sha256": "0a0dca12764c7d81e7ecd707d87dd6621dd51df2d24f79134356474399600642"
+        },
+        "generatedAt": "2026-10-28T00:07:45.989Z"
+      },
+      "copy": {
+        "exam": "pe-first-stage",
+        "headline": [
+          "ニュートン法",
+          "接線で近似解"
+        ],
+        "authority": "総監が制作"
+      },
+      "output": {
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/cover-pop.1180900f.png",
+        "sha256": "1180900fac85acce7826e1fbec943150ef9ecc364f2dbddd4035209138f4b26f",
+        "width": 1920,
+        "height": 1080
+      },
+      "normalization": {
+        "mode": "full-frame-v1",
+        "sourceSha256": "0a0dca12764c7d81e7ecd707d87dd6621dd51df2d24f79134356474399600642"
+      },
+      "review": {
+        "status": "ai-reviewed",
+        "userImageReview": "pending",
+        "checkedAt": "2026-10-28T00:07:45.989Z",
+        "by": "Codex",
+        "views": [
+          "original"
+        ],
+        "checks": [
+          "文言・資格名",
+          "顔と安全域"
+        ]
+      },
+      "storage": {
+        "group": "content-media",
+        "sync": "local"
+      }
+    }
+  }
+}

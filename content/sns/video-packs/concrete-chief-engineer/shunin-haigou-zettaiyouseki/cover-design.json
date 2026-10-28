@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "concrete-chief",
+      "headline": [
+        "配合計算",
+        "合計1000L",
+        "正誤が不明"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pop-red-pen",
+        "frame": "waist"
+      },
+      "design": "pop-poster-v3",
+      "pop": {
+        "variant": "question",
+        "authority": "総監が制作"
+      },
+      "approvedImage": {
+        "path": ".tmp/media/concrete-chief-engineer/shunin-haigou-zettaiyouseki/work/cover-pop.578fbc43.png",
+        "sha256": "578fbc43688f1584cb44963da299c3eab8434d244b79b24f78a483ab8552c626",
+        "specSha256": "36a004c3e364af9b7aaaea131585a0c31e969fdf77929845ffd5d12ea3297106"
+      }
+    }
+  }
+}

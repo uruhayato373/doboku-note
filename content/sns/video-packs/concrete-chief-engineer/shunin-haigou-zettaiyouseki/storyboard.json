@@ -1,0 +1,355 @@
+{
+  "format": "longform-16x9",
+  "imageDesign": {
+    "mode": "codex-pop",
+    "scope": "all-body",
+    "revision": "body-diagram-20261028",
+    "coverRevision": "cover-pop-20261028",
+    "layout": "diagram-led"
+  },
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 3,
+      "narration": "合計1000Lは証拠にならない",
+      "caption": "合計1000Lは証拠にならない",
+      "visual": {
+        "kind": "cover",
+        "heading": "配合計算を1問、確かめながら",
+        "items": [
+          "仮の条件で絶対容積を足し合わせる",
+          "合計1,000Lは正しさの証拠ではない"
+        ]
+      }
+    },
+    {
+      "sceneId": "premise",
+      "start": 3,
+      "end": 29,
+      "narration": "配合計算は、細骨材を残りで出すので、合計は必ず1000リットルになります。合計では正誤が分かりません。よくある間違いは、キログラムのまま材料を足すこと。材料ごとに密度が違うので、まず容積に直します。足してよいのは、リットルにそろえた絶対容積だけ。今日は仮の条件を一つ使い、各計算を確かめながら通します。",
+      "caption": "足してよいのは、リットルにそろえた絶対容積だけ",
+      "visual": {
+        "heading": "質量では足さない、容積で足す",
+        "items": [
+          "kg：材料ごとに密度が違う",
+          "L：密度で割って絶対容積にそろえる",
+          "細骨材は1,000Lの残りとして出す"
+        ]
+      },
+      "sourceRef": "content/site/concrete-chief-engineer/textbook-mix-design/article.mdx"
+    },
+    {
+      "sceneId": "conditions",
+      "start": 29,
+      "end": 51,
+      "narration": "条件を見ます。これは理解のための仮の設定で、過去問の数値ではありません。水結合材比50パーセント、単位水量165、空気量4.5パーセント。結合材はセメント、高炉スラグ微粉末、フライアッシュの三つで、質量比は60対25対15です。",
+      "caption": "仮の条件：水結合材比50%・単位水量165kg・空気量4.5%",
+      "visual": {
+        "kind": "sheet",
+        "heading": "仮の条件（過去問ではありません）",
+        "sheetTitle": "1m3あたりの与条件",
+        "rows": [
+          {
+            "label": "水結合材比",
+            "value": "50.0%",
+            "state": "done"
+          },
+          {
+            "label": "単位水量",
+            "value": "165kg/m3",
+            "state": "done"
+          },
+          {
+            "label": "空気量",
+            "value": "4.5%",
+            "state": "done"
+          },
+          {
+            "label": "結合材の質量比",
+            "value": "セメント60：スラグ25：フライアッシュ15",
+            "state": "done"
+          }
+        ]
+      },
+      "sourceRef": "content/site/concrete-chief-engineer/textbook-mix-design/article.mdx"
+    },
+    {
+      "sceneId": "densities",
+      "start": 51,
+      "end": 69,
+      "narration": "密度も与えられています。セメント3.15、高炉スラグ微粉末2.90、フライアッシュ2.20。粗骨材は、かさ容積620リットルで実積率61パーセント、密度2.65。細骨材の密度は2.60です。",
+      "caption": "密度：C 3.15・BS 2.90・FA 2.20・粗骨材 2.65・細骨材 2.60",
+      "visual": {
+        "kind": "sheet",
+        "heading": "材料の密度（kg/L）",
+        "sheetTitle": "材料ごとの密度",
+        "rows": [
+          {
+            "label": "セメント",
+            "value": "3.15",
+            "state": "done"
+          },
+          {
+            "label": "高炉スラグ微粉末",
+            "value": "2.90",
+            "state": "done"
+          },
+          {
+            "label": "フライアッシュ",
+            "value": "2.20",
+            "state": "done"
+          },
+          {
+            "label": "粗骨材",
+            "value": "2.65（かさ容積620L・実積率61.0%）",
+            "state": "done"
+          },
+          {
+            "label": "細骨材",
+            "value": "2.60",
+            "state": "done"
+          }
+        ]
+      },
+      "sourceRef": "content/site/concrete-chief-engineer/textbook-mix-design/article.mdx"
+    },
+    {
+      "sceneId": "binder",
+      "start": 69,
+      "end": 88,
+      "narration": "最初は単位結合材量です。水165を水結合材比0.50で割ると、330キログラム。これを60対25対15で分けて、セメント198、高炉スラグ微粉末82.5、フライアッシュ49.5キログラムになります。",
+      "caption": "165÷0.50＝330kg を 60：25：15 で分ける",
+      "visual": {
+        "heading": "単位結合材量を出して分ける",
+        "flow": [
+          "水165 ÷ 0.50 ＝ 結合材330kg",
+          "セメント 330×0.60 ＝ 198kg",
+          "スラグ 330×0.25 ＝ 82.5kg",
+          "フライアッシュ 330×0.15 ＝ 49.5kg"
+        ],
+        "items": [
+          "結合材330kg",
+          "セメント198kg",
+          "高炉スラグ微粉末82.5kg",
+          "フライアッシュ49.5kg"
+        ]
+      },
+      "sourceRef": "content/site/concrete-chief-engineer/textbook-mix-design/article.mdx"
+    },
+    {
+      "sceneId": "volumes",
+      "start": 88,
+      "end": 110,
+      "narration": "次に、それぞれの密度で割って絶対容積にします。水は165.0。セメントは198割る3.15で62.9。スラグは28.4、フライアッシュは22.5。結合材三つは、密度ごとに別々に割ります。空気は4.5に10を掛けて45.0です。",
+      "caption": "密度ごとに割る：水165.0・C 62.9・BS 28.4・FA 22.5・空気45.0",
+      "visual": {
+        "kind": "sheet",
+        "heading": "絶対容積（L/m3）",
+        "sheetTitle": "密度で割って容積にそろえる",
+        "rows": [
+          {
+            "label": "水",
+            "value": "165 ÷ 1.00 ＝ 165.0",
+            "state": "done"
+          },
+          {
+            "label": "セメント",
+            "value": "198 ÷ 3.15 ＝ 62.9",
+            "state": "done"
+          },
+          {
+            "label": "高炉スラグ微粉末",
+            "value": "82.5 ÷ 2.90 ＝ 28.4",
+            "state": "done"
+          },
+          {
+            "label": "フライアッシュ",
+            "value": "49.5 ÷ 2.20 ＝ 22.5",
+            "state": "done"
+          },
+          {
+            "label": "空気",
+            "value": "4.5 × 10 ＝ 45.0",
+            "state": "focus"
+          }
+        ]
+      },
+      "sourceRef": "content/site/concrete-chief-engineer/textbook-mix-design/article.mdx"
+    },
+    {
+      "sceneId": "coarse",
+      "start": 110,
+      "end": 125,
+      "narration": "粗骨材は、かさ容積620に実積率0.61を掛けます。378.2リットル。かさ容積には粒の間のすき間が含まれるので、実積率を掛けて粒そのものの容積にします。",
+      "caption": "粗骨材：620×0.61＝378.2L（実積率でかさ容積を実容積に）",
+      "visual": {
+        "heading": "粗骨材はかさ容積から実容積へ",
+        "flow": [
+          "かさ容積 620L（すき間を含む）",
+          "× 実積率 0.61",
+          "粗骨材の絶対容積 378.2L"
+        ],
+        "items": [
+          "かさ容積620L",
+          "実積率61.0%",
+          "絶対容積378.2L"
+        ]
+      },
+      "sourceRef": "content/site/concrete-chief-engineer/textbook-mix-design/article.mdx"
+    },
+    {
+      "sceneId": "fine",
+      "start": 125,
+      "end": 141,
+      "narration": "残りが細骨材です。ここまでの合計は、水、セメント、スラグ、フライアッシュ、空気、粗骨材で702.0リットル。1000から引いて、細骨材は298.0リットルです。",
+      "caption": "細骨材＝1000−702.0＝298.0L",
+      "visual": {
+        "heading": "残りの容積が細骨材",
+        "flow": [
+          "165.0＋62.9＋28.4＋22.5＋45.0＋378.2 ＝ 702.0",
+          "1000 − 702.0 ＝ 298.0L"
+        ],
+        "items": [
+          "ここまでの合計 702.0L",
+          "1,000L から引く",
+          "細骨材の絶対容積 298.0L",
+          "残りで出すので、合計は常に1,000L"
+        ]
+      },
+      "sourceRef": "content/site/concrete-chief-engineer/textbook-mix-design/article.mdx"
+    },
+    {
+      "sceneId": "units",
+      "start": 141,
+      "end": 164,
+      "narration": "最後に単位量へ戻して、細骨材率を確かめます。粗骨材は378.2に2.65を掛けて約1002キログラム。細骨材は298.0に2.60を掛けて約775キログラム。細骨材率は、298.0を298.0と378.2の合計で割って、44.1パーセントです。",
+      "caption": "G 約1002kg・S 約775kg・細骨材率 s/a ＝ 44.1%",
+      "visual": {
+        "kind": "sheet",
+        "heading": "単位量と細骨材率",
+        "sheetTitle": "容積から質量へ戻す",
+        "rows": [
+          {
+            "label": "粗骨材 G",
+            "value": "378.2 × 2.65 ＝ 約1002kg",
+            "state": "done"
+          },
+          {
+            "label": "細骨材 S",
+            "value": "298.0 × 2.60 ＝ 約775kg",
+            "state": "done"
+          },
+          {
+            "label": "細骨材率 s/a",
+            "value": "298.0 ÷ (298.0＋378.2) ＝ 44.1%",
+            "state": "focus"
+          }
+        ]
+      },
+      "sourceRef": "content/site/concrete-chief-engineer/textbook-mix-design/article.mdx"
+    },
+    {
+      "sceneId": "check",
+      "start": 164,
+      "end": 192,
+      "narration": "検算の落とし穴です。細骨材は1000から他を引いて出すので、途中が間違っていても、合計は必ず1000になります。合計の一致は正しさの証拠ではありません。確かめるのは、個々の割り算と掛け算、材料ごとの密度、単位、そして細骨材率です。",
+      "caption": "細骨材は残りで出すので、合計は常に1000L",
+      "visual": {
+        "kind": "sheet",
+        "heading": "合計1,000Lは証拠にならない",
+        "sheetTitle": "個別に確かめる点",
+        "rows": [
+          {
+            "label": "割り算・掛け算",
+            "value": "各式を一つずつ計算し直す",
+            "state": "done"
+          },
+          {
+            "label": "密度",
+            "value": "材料ごとの密度で割る",
+            "state": "done"
+          },
+          {
+            "label": "単位",
+            "value": "kg と L を混ぜない",
+            "state": "done"
+          },
+          {
+            "label": "細骨材率 s/a",
+            "value": "298.0 ÷ (298.0＋378.2) ＝ 44.1%",
+            "state": "focus"
+          },
+          {
+            "label": "合計",
+            "value": "1000.0L（常に成立するので証拠ではない）",
+            "state": "focus"
+          }
+        ]
+      },
+      "sourceRef": "content/site/concrete-chief-engineer/textbook-mix-design/article.mdx"
+    },
+    {
+      "sceneId": "pitfalls",
+      "start": 192,
+      "end": 220,
+      "narration": "間違いの型は三つあります。一つ目は、結合材330をセメントの密度だけで割ること。104.8になり、正しい113.8から9リットルずれます。すると細骨材は307.0リットル、細骨材率は44.8パーセントにずれますが、合計は1000のままです。二つ目は、空気の45リットルを入れ忘れること。三つ目は、細骨材率を質量で計算することです。",
+      "caption": "誤りがあっても合計は1000L。結合材の密度・空気・s/aを確認",
+      "visual": {
+        "kind": "compare",
+        "heading": "誤りがあっても合計は1,000L",
+        "ngLabel": "間違い",
+        "okLabel": "正しい",
+        "rows": [
+          {
+            "label": "結合材",
+            "ng": "330をセメントの密度だけで割る（104.8L → 細骨材307.0L・s/a 44.8%、合計は1000のまま）",
+            "ok": "3種を別々に割って足す（113.8L → 細骨材298.0L・s/a 44.1%）"
+          },
+          {
+            "label": "空気",
+            "ng": "45Lを入れ忘れる（細骨材が45L多く出て、合計は1000のまま）",
+            "ok": "空気量×10を必ず入れる"
+          },
+          {
+            "label": "細骨材率",
+            "ng": "質量kgの比で出す",
+            "ok": "絶対容積の比で出す"
+          }
+        ]
+      },
+      "sourceRef": "content/site/concrete-chief-engineer/textbook-mix-design/article.mdx"
+    },
+    {
+      "sceneId": "summary",
+      "start": 220,
+      "end": 239,
+      "narration": "まとめです。一つ、足すのは質量でなく絶対容積。二つ、細骨材は残りで出すので、合計1000では正誤が分からない。三つ、各割り算、材料ごとの密度、単位、細骨材率を一つずつ確かめる。",
+      "caption": "容積で足す・合計は証拠にならない・各計算を確かめる",
+      "visual": {
+        "heading": "今日の3点",
+        "items": [
+          "足すのは質量でなく絶対容積",
+          "細骨材は残りで出すので合計1,000Lは証拠にならない",
+          "割り算・密度・単位・s/aを個別に確かめる"
+        ]
+      },
+      "sourceRef": "content/site/concrete-chief-engineer/textbook-mix-design/article.mdx"
+    },
+    {
+      "sceneId": "cta",
+      "start": 239,
+      "end": 254,
+      "narration": "ここまでの計算を、自分の手で繰り返してみてください。配合計算を扱った実戦演習12問は、全問に途中式と全選択肢の解説がついています。概要欄からご覧ください。",
+      "caption": "概要欄：配合計算 実戦演習12問（途中式・全選択肢解説）",
+      "visual": {
+        "kind": "cover",
+        "heading": "配合計算を手で繰り返す",
+        "items": [
+          "実戦演習12問（概要欄リンク）",
+          "全問に途中式と全選択肢の解説"
+        ]
+      }
+    }
+  ]
+}

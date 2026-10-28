@@ -1,0 +1,248 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 4,
+      "narration": "専門科目、25問の選び方です。",
+      "caption": "専門科目 35問から25問の選び方",
+      "visual": {
+        "kind": "cover",
+        "heading": "専門科目 35問から25問",
+        "items": [
+          "建設部門の分野別・選び方"
+        ]
+      }
+    },
+    {
+      "sceneId": "answer",
+      "start": 4,
+      "end": 22,
+      "narration": "結論から言います。公式の形式は、35問出題され25問を選んで解答するものです。そのうえで、この動画では力学系12問と都市計画・水理8問の20問を軸にし、残り15問から5問を足す学習方針を提案します。1問しか出ない分野も丸ごとは外しません。",
+      "caption": "公式は35問から25問選択。20問＋5問は本動画の提案",
+      "visual": {
+        "heading": "公式：35問出題、25問選択",
+        "items": [
+          "本動画の提案：20問を軸に5問を足す",
+          "1問分野は丸ごと外さない"
+        ]
+      },
+      "sourceRef": "content/site/pe-first-stage/guide-construction-subject/article.mdx"
+    },
+    {
+      "sceneId": "misread",
+      "start": 22,
+      "end": 40,
+      "narration": "誤解しやすい点が二つあります。10問は解かなくてよいから、出題が少ない分野は最初から捨てる。あるいは、全16分野を同じ深さで学ぶ。前者は逃げ道を減らし、後者は限られた時間を分散させます。",
+      "caption": "誤解：少ない分野を捨てる／全分野を同じ深さ",
+      "visual": {
+        "heading": "誤解しやすい二つの前提",
+        "items": [
+          "出題が少ない分野は最初から捨てる",
+          "全16分野を同じ深さで学ぶ",
+          "逃げ道を減らす／時間を分散させる"
+        ]
+      },
+      "sourceRef": "content/site/pe-first-stage/guide-construction-subject/article.mdx"
+    },
+    {
+      "sceneId": "map",
+      "start": 40,
+      "end": 57,
+      "narration": "まず全体像です。令和元年度から7年度の過去問を数えると、専門科目は16分野です。問題番号のならびで、力学系の12問、計画・水工系の14問、電力土木から建設環境までの9問に分かれます。",
+      "caption": "16分野は3つのまとまり：12問・14問・9問",
+      "visual": {
+        "heading": "35問の3つのまとまり",
+        "items": [
+          "力学系：12問",
+          "計画・水工系：14問",
+          "電力土木〜建設環境：9問"
+        ]
+      },
+      "sourceRef": "content/site/pe-first-stage/guide-construction-subject/article.mdx"
+    },
+    {
+      "sceneId": "counts",
+      "start": 57,
+      "end": 78,
+      "narration": "分野ごとの出題数には差があります。土質及び基礎、都市及び地方計画、水理が各4問で最多。鋼構造とコンクリートが各3問。構造力学、河川、海岸、電力土木、施工計画、建設環境が各2問。港湾空港、砂防、道路、鉄道、トンネルは各1問です。",
+      "caption": "出題数：4問が3分野、1問が5分野",
+      "visual": {
+        "heading": "分野別の出題数の目安",
+        "items": [
+          "4問：土質・都市計画・水理",
+          "3問：鋼構造・コンクリート",
+          "2問：6分野",
+          "1問：港湾空港・砂防・道路・鉄道・トンネル"
+        ]
+      },
+      "sourceRef": "content/site/pe-first-stage/guide-construction-subject/article.mdx"
+    },
+    {
+      "sceneId": "core",
+      "start": 78,
+      "end": 98,
+      "narration": "軸にする20問はここです。土質、構造力学、鋼構造、コンクリートの力学系で12問。都市計画と水理で8問。数値計算を含む基本事項や、制度の名称と要件を区別させる設問が多いので、ここを先に確実に取れる状態にします。",
+      "caption": "軸の20問：力学系12問＋都市・水理8問",
+      "visual": {
+        "heading": "軸にする20問",
+        "items": [
+          "力学系 12問（土質・構造力学・鋼構造・コンクリート）",
+          "都市計画・水理 8問",
+          "先に確実に取れる状態へ"
+        ]
+      },
+      "sourceRef": "content/site/pe-first-stage/guide-construction-subject/article.mdx"
+    },
+    {
+      "sceneId": "rest",
+      "start": 98,
+      "end": 114,
+      "narration": "残りの15問は、河川、海岸、港湾空港、砂防、電力土木、道路、鉄道、トンネル、施工計画、建設環境です。20問を固めたうえで、この15問から5問を選べば25問になります。",
+      "caption": "残り15問から5問を選んで25問",
+      "visual": {
+        "heading": "残り15問から5問",
+        "items": [
+          "河川・海岸・港湾空港・砂防",
+          "電力土木・道路・鉄道・トンネル",
+          "施工計画・建設環境"
+        ]
+      },
+      "sourceRef": "content/site/pe-first-stage/guide-construction-subject/article.mdx"
+    },
+    {
+      "sceneId": "trap",
+      "start": 114,
+      "end": 131,
+      "narration": "では、1問しか出ない五つの分野をまとめて外すとどうなるか。選べる問題は30問に減り、そこから25問を確保します。余裕は5問だけで、力学系や計画系で少し失点しただけでも苦しくなります。",
+      "caption": "5分野を外すと30問から25問、余裕は5問",
+      "visual": {
+        "heading": "1問分野を5つ外すと",
+        "items": [
+          "選べる問題：35問→30問",
+          "30問から25問を確保",
+          "余裕は5問だけ"
+        ]
+      },
+      "sourceRef": "content/site/pe-first-stage/guide-construction-subject/article.mdx"
+    },
+    {
+      "sceneId": "shallow",
+      "start": 131,
+      "end": 150,
+      "narration": "1問分野は、深く学ぶ必要はありません。過去問に出た用語と、正誤の判断根拠を確かめる程度なら、大きな失点にはつながりにくいと考えられます。判定できる論点を増やし、選べる問題の数を保つ。これが安全策です。",
+      "caption": "1問分野は過去問の用語と根拠だけ確認",
+      "visual": {
+        "heading": "1問分野は浅く広く",
+        "items": [
+          "過去問に出た用語を確認",
+          "正誤の判断根拠を押さえる",
+          "選べる問題の数を保つ"
+        ]
+      },
+      "sourceRef": "content/site/pe-first-stage/guide-construction-subject/article.mdx"
+    },
+    {
+      "sceneId": "example1",
+      "start": 150,
+      "end": 161,
+      "narration": "説明用の仮の例です。軸の20問のうち、本番で選べそうな問題が17問だったとします。25問まで、あと8問足りません。",
+      "caption": "仮の例：軸の20問のうち選べそうなのは17問",
+      "visual": {
+        "heading": "仮の例：軸の20問を数える",
+        "items": [
+          "選べそうな問題：17問",
+          "25問まであと8問",
+          "説明用の仮定で、実際の出題ではない"
+        ]
+      },
+      "sourceRef": "content/site/pe-first-stage/guide-construction-subject/article.mdx"
+    },
+    {
+      "sceneId": "example2",
+      "start": 161,
+      "end": 177,
+      "narration": "この8問は残り15問から選びます。1問分野も候補に入れていれば15問から、五つの1問分野を外していれば10問から選ぶことになり、前者のほうが選び先が広がります。",
+      "caption": "仮の例：残り15問から8問を選ぶ",
+      "visual": {
+        "heading": "仮の例：不足の8問をどこから",
+        "items": [
+          "1問分野あり：15問から8問",
+          "1問分野なし：10問から8問"
+        ]
+      },
+      "sourceRef": "content/site/pe-first-stage/guide-construction-subject/article.mdx"
+    },
+    {
+      "sceneId": "caution",
+      "start": 177,
+      "end": 197,
+      "narration": "気をつける点が二つあります。出題数の表は目安で、年度により1問前後ずれます。また令和7年度のⅢ-13では、市街地開発事業に含まれる事業を二種類だけに限定する記述が誤りの選択肢でした。数や範囲を限定する言い方に注意し、根拠法や適用場面の違いまで押さえてください。",
+      "caption": "出題数は年度で1問前後／限定表現に注意",
+      "visual": {
+        "heading": "気をつける点",
+        "items": [
+          "出題数の表は目安（年度で1問前後）",
+          "R7 Ⅲ-13：市街地開発事業を2種類だけと限定→誤り",
+          "根拠法・適用場面の違いまで"
+        ]
+      },
+      "sourceRef": "content/site/pe-first-stage/r07-construction/article.mdx"
+    },
+    {
+      "sceneId": "priority",
+      "start": 197,
+      "end": 207,
+      "narration": "学習時間の厚みは、出題数の多い順に変えます。4問の三分野、3問の二分野、2問の六分野、1問の五分野の順です。",
+      "caption": "学習の厚み：4問分野→3問→2問→1問",
+      "visual": {
+        "heading": "学習時間の厚みの順",
+        "items": [
+          "4問の3分野",
+          "3問の2分野",
+          "2問の6分野",
+          "1問の5分野"
+        ]
+      },
+      "sourceRef": "content/site/pe-first-stage/guide-construction-subject/article.mdx"
+    },
+    {
+      "sceneId": "summary",
+      "start": 207,
+      "end": 219,
+      "narration": "まとめます。20問を軸にする。残り15問から5問を足す。1問分野は丸ごと外さず、浅く広く拾う。この順で25問を確保してください。",
+      "caption": "20問を軸、5問を足す、1問分野は浅く",
+      "visual": {
+        "heading": "まとめ",
+        "items": [
+          "20問を軸にする",
+          "残り15問から5問を足す",
+          "1問分野は丸ごと外さず浅く広く"
+        ]
+      }
+    },
+    {
+      "sceneId": "cta",
+      "start": 219,
+      "end": 234,
+      "narration": "専門科目の建設部門を令和元年度から7年度まで年度ごとに通しで確かめたい方は、概要欄のリンクから過去問PDF合本をご覧ください。ご視聴ありがとうございました。",
+      "caption": "続きは概要欄のリンクから",
+      "visual": {
+        "kind": "cover",
+        "heading": "過去問PDF合本（専門は建設部門）",
+        "items": [
+          "令和元〜7年度を通しで確認",
+          "概要欄リンクから"
+        ]
+      }
+    }
+  ],
+  "imageDesign": {
+    "mode": "codex-pop",
+    "scope": "all-body",
+    "revision": "body-diagram-20261028",
+    "coverRevision": "cover-pop-20261028",
+    "layout": "diagram-led"
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "packId": "pe1-kiso-gyouretsu-vector",
+  "exam": "pe-first-stage",
+  "title": "技術士一次 基礎科目 ベクトルの射影を求める1つの手順",
+  "audience": "2026年11月22日の技術士第一次試験を控え、基礎科目の行列・ベクトルの計算に不安がある受験者",
+  "pain": "基礎科目のベクトルの射影で、内積の値をどう使うか分からず、式を丸暗記になる",
+  "promise": "内積÷長さの2乗を向きに掛け、直交で検算する射影の1手順が、仮の数字で分かる",
+  "intent": "howto",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/pe-first-stage/guide-matrix-vector-calculation/article.mdx"
+    },
+    {
+      "type": "figure",
+      "path": "content/site/pe-first-stage/guide-matrix-vector-calculation/img/figure-vector-projection.svg"
+    },
+    {
+      "type": "site",
+      "path": "content/site/pe-first-stage/r06-basic/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "pe1-takuitsu-pdf",
+    "campaign": "pe1-kiso-gyouretsu-vector"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 0,
+    "instagramCarousel": false,
+    "instagramReel": false,
+    "xThread": false,
+    "threadsBrief": false
+  }
+}

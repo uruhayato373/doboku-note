@@ -98,6 +98,13 @@
       "stopReason": "user-decision"
     },
     {
+      "id": "concrete-chief-engineer/shunin-cement-4kagoubutsu/youtube.longform",
+      "work": "shunin-cement-4kagoubutsu",
+      "account": "youtube:main",
+      "format": "longform",
+      "status": "draft"
+    },
+    {
       "id": "concrete-chief-engineer/shunin-chokuzen-senryaku/youtube.longform",
       "work": "shunin-chokuzen-senryaku",
       "account": "youtube:main",
@@ -461,6 +468,13 @@
         "cta": "brand/bridge-notebook-a/cta-shorts"
       },
       "stopReason": "user-decision"
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-haigou-zettaiyouseki/youtube.longform",
+      "work": "shunin-haigou-zettaiyouseki",
+      "account": "youtube:main",
+      "format": "longform",
+      "status": "draft"
     },
     {
       "id": "concrete-chief-engineer/shunin-hinshutsu-yusen/youtube.longform",
@@ -1497,6 +1511,13 @@
         "cta": "brand/bridge-notebook-a/cta-shorts"
       },
       "stopReason": "user-decision"
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-rekka-taio/youtube.longform",
+      "work": "shunin-rekka-taio",
+      "account": "youtube:main",
+      "format": "longform",
+      "status": "draft"
     },
     {
       "id": "concrete-chief-engineer/shunin-shiken-zentaizou/youtube.longform",

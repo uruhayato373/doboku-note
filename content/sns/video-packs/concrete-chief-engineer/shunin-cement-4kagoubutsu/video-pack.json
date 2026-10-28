@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "packId": "shunin-cement-4kagoubutsu",
+  "exam": "concrete-chief-engineer",
+  "title": "主任技士 セメント4化合物は強度が出る時期で並べる",
+  "audience": "コンクリート主任技士の択一で、セメントの組成化合物の特性を取り違える受験者",
+  "pain": "C3SとC2Sの早期強度・長期強度の役割が入れ替わった選択肢で、どちらが正しいか迷う",
+  "promise": "4つの組成化合物を強度に主に効く時期で並べ、C3SとC2Sの取り違えを見分ける手順が分かる",
+  "intent": "exam-point",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/concrete-chief-engineer/textbook-materials/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "cce-r8-mc-50",
+    "campaign": "shunin-cement-4kagoubutsu"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 0,
+    "instagramCarousel": false,
+    "instagramReel": false,
+    "xThread": false,
+    "threadsBrief": false
+  }
+}

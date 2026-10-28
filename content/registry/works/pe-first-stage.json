@@ -15,6 +15,21 @@
       "legacyKey": "095-pe-first-stage-2026-10"
     },
     {
+      "id": "pe1-kiso-gyouretsu-vector",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/pe-first-stage/pe1-kiso-gyouretsu-vector"
+    },
+    {
+      "id": "pe1-kiso-kairo-setsuten",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/pe-first-stage/pe1-kiso-kairo-setsuten"
+    },
+    {
+      "id": "pe1-kiso-newton-hou",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/pe-first-stage/pe1-kiso-newton-hou"
+    },
+    {
       "id": "pe1-kiso-senmon",
       "kind": "video-pack",
       "definition": "content/sns/video-packs/pe-first-stage/pe1-kiso-senmon",
@@ -114,6 +129,11 @@
       "id": "pe1-r07-p15",
       "kind": "ig-pack",
       "definition": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-15"
+    },
+    {
+      "id": "pe1-senmon-kensetsu-25mon",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/pe-first-stage/pe1-senmon-kensetsu-25mon"
     },
     {
       "id": "pe1-tekisei-3shiten",

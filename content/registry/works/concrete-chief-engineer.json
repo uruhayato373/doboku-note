@@ -32,6 +32,11 @@
       }
     },
     {
+      "id": "shunin-cement-4kagoubutsu",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/concrete-chief-engineer/shunin-cement-4kagoubutsu"
+    },
+    {
       "id": "shunin-chokuzen-senryaku",
       "kind": "video-pack",
       "definition": "content/sns/video-packs/concrete-chief-engineer/shunin-chokuzen-senryaku",
@@ -63,6 +68,11 @@
         "at": "2026-09-01",
         "by": "general-purpose (video-content-qa 代行・6軸)"
       }
+    },
+    {
+      "id": "shunin-haigou-zettaiyouseki",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/concrete-chief-engineer/shunin-haigou-zettaiyouseki"
     },
     {
       "id": "shunin-hinshutsu-yusen",
@@ -151,6 +161,11 @@
         "at": "2026-10-27",
         "by": "Claude Code video-content-qa"
       }
+    },
+    {
+      "id": "shunin-rekka-taio",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/concrete-chief-engineer/shunin-rekka-taio"
     },
     {
       "id": "shunin-shiken-zentaizou",

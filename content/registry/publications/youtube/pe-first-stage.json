@@ -4,6 +4,27 @@
   "exam": "pe-first-stage",
   "publications": [
     {
+      "id": "pe-first-stage/pe1-kiso-gyouretsu-vector/youtube.longform",
+      "work": "pe1-kiso-gyouretsu-vector",
+      "account": "youtube:main",
+      "format": "longform",
+      "status": "draft"
+    },
+    {
+      "id": "pe-first-stage/pe1-kiso-kairo-setsuten/youtube.longform",
+      "work": "pe1-kiso-kairo-setsuten",
+      "account": "youtube:main",
+      "format": "longform",
+      "status": "draft"
+    },
+    {
+      "id": "pe-first-stage/pe1-kiso-newton-hou/youtube.longform",
+      "work": "pe1-kiso-newton-hou",
+      "account": "youtube:main",
+      "format": "longform",
+      "status": "draft"
+    },
+    {
       "id": "pe-first-stage/pe1-kiso-senmon/youtube.longform",
       "work": "pe1-kiso-senmon",
       "account": "youtube:main",
@@ -86,6 +107,13 @@
         "status": "set",
         "setAt": "2026-10-27T15:27:08.254Z"
       }
+    },
+    {
+      "id": "pe-first-stage/pe1-senmon-kensetsu-25mon/youtube.longform",
+      "work": "pe1-senmon-kensetsu-25mon",
+      "account": "youtube:main",
+      "format": "longform",
+      "status": "draft"
     },
     {
       "id": "pe-first-stage/pe1-tekisei-3shiten/youtube.longform",

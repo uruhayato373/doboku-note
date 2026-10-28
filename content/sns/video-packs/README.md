@@ -4,7 +4,7 @@
 > 真実源: 各 `video-pack.json` ＋ コンテンツ台帳 `content/registry/`（YouTube の状態は台帳が正本）。契約: `.claude/knowledge/reference/video-content-policy.md`
 > 管理画面の企画ボード（資格・段階で絞り込める表）: `/content/video`
 
-パック数: **168**（更新: 2026-10-28）
+パック数: **175**（更新: 2026-10-28）
 
 ## 1級土木施工管理技士（67）
 
@@ -110,11 +110,15 @@
 | `study-plan-2kyu` | 2級土木の勉強計画 — 仕事と両立する学習設計 | 仕事と両立しながら何をいつまでに進めるか計画できない | roadmap | 停止 | 台本/構成 | `links-hub` |
 | `touan-teishutsu-check` | 答案の見直し｜条件・処置・結果のつながりを確認 | 施工経験記述を書き終えたが、内容や事実のどこを見直せばよいか分からない | howto | 予約 | 台本/構成 | `civil-2-experience-essay` |
 
-## 技術士 第一次試験（3）
+## 技術士 第一次試験（7）
 
 | packId | タイトル | 悩み | intent | 段階 | 台本/構成 | 主CTA |
 |---|---|---|---|---|---|---|
+| `pe1-kiso-gyouretsu-vector` | 技術士一次 基礎科目 ベクトルの射影を求める1つの手順 | 基礎科目のベクトルの射影で、内積の値をどう使うか分からず、式を丸暗記になる | howto | 未登録 | 台本/構成 | `pe1-takuitsu-pdf` |
+| `pe1-kiso-kairo-setsuten` | 技術士一次 基礎科目 直列と並列は接続点の名前から読む | 基礎科目の回路で、図の形から直列か並列かを決めてしまい、合成抵抗の途中で手が止まる | howto | 未登録 | 台本/構成 | `pe1-takuitsu-pdf` |
+| `pe1-kiso-newton-hou` | 技術士一次 基礎科目 ニュートン法の分母は高さを横の距離に直す | 基礎科目のニュートン法で、なぜ導関数で割るのか分からず、更新式を丸暗記になる | howto | 未登録 | 台本/構成 | `pe1-takuitsu-pdf` |
 | `pe1-kiso-senmon` | 技術士一次 基礎科目の6問から3問の選び方 | 基礎科目の5群それぞれで、6問からどの3問を選べばよいか分からない | exam-point | 予約 | 台本/構成 | `pe1-takuitsu-pdf` |
+| `pe1-senmon-kensetsu-25mon` | 技術士一次 専門科目（建設）35問から25問の選び方 | 専門科目（建設部門）の35問から25問を選ぶとき、どの分野を軸にして何を外してよいか分からない | exam-point | 未登録 | 台本/構成 | `pe1-takuitsu-pdf` |
 | `pe1-tekisei-3shiten` | 技術士一次 適性科目の正誤判定で見る3つの視点 | 適性科目で、覚えたはずの内容でも選択肢の正誤判定に迷う | exam-point | 予約 | 台本/構成 | `pe1-takuitsu-pdf` |
 | `pe1-zentaizou` | 技術士一次の全体像 — 3科目の構成と学習設計 | 基礎・適性・専門の3科目で何をどの配分から仕込めばよいか掴めない | roadmap | 予約 | 台本/構成 | `pe1-takuitsu-pdf` |
 
@@ -188,14 +192,16 @@
 | `gishi-shiken-zentaizou` | コンクリート技士の全体像 — 試験概要と勉強法 | 初受験で試験形式も出題分野も分からずどこから手を付けるか決められない | roadmap | 停止 | 台本/構成 | `links-hub` |
 | `gishi-shunin-dochira` | 技士と主任技士どちらを受けるか — 違いで判断する | 2つの資格の難易度や位置づけの違いが分からずどちらを受けるか決められない | diagnosis | 停止 | 台本/構成 | `links-hub` |
 
-## コンクリート主任技士（16）
+## コンクリート主任技士（19）
 
 | packId | タイトル | 悩み | intent | 段階 | 台本/構成 | 主CTA |
 |---|---|---|---|---|---|---|
 | `kikinagashi-shunin-suchi` | 聞き流し 主任技士 頻出数値・JIS規定 | 机に向かう時間が取れず数値規定の反復が足りないまま直前期に入る | exam-point | 停止 | 台本/構成 | `cce-r8-mc-50` |
+| `shunin-cement-4kagoubutsu` | 主任技士 セメント4化合物は強度が出る時期で並べる | C3SとC2Sの早期強度・長期強度の役割が入れ替わった選択肢で、どちらが正しいか迷う | exam-point | 未登録 | 台本/構成 | `cce-r8-mc-50` |
 | `shunin-chokuzen-senryaku` | 主任技士 直前期の総仕上げ — 頻出度で絞る | 残り時間で全分野は回せず何を捨てて何を固めるか決められない | howto | 停止 | 台本/構成 | `cce-takuitsu-chokuzen-pack` |
 | `shunin-construction-ronten` | 主任技士「施工」の頻出論点 | ポンプ圧送から養生まで工程が広く数値規定の暗記が追いつかない | exam-point | 停止 | 台本/構成 | `cce-r8-mc-50` |
 | `shunin-durability-ronten` | 主任技士「コンクリートの耐久性」の頻出論点 | 中性化・塩害・凍害・ASRの劣化機構がごちゃつき対策の対応づけを間違える | exam-point | 停止 | 台本/構成 | `cce-r8-mc-50` |
+| `shunin-haigou-zettaiyouseki` | 主任技士 配合計算を1問、絶対容積で最後まで解く | 配合計算で、細骨材を残りで出すため合計が必ず1,000Lになり、途中の誤りに気づけない | howto | 未登録 | 台本/構成 | `cce-mix-calculation-practice` |
 | `shunin-hinshutsu-yusen` | 主任技士 四肢択一の頻出分野 — 学習の優先順位 | 全分野を均等に回すには時間が足りず、どこから手を付けるか決められない | exam-point | 停止 | 台本/構成 | `cce-r8-mc-50` |
 | `shunin-materials-ronten` | 主任技士「コンクリート用材料」の頻出論点 | ポルトランドセメントの種類も混和材料の使い分けも似た記述が多く覚え分けられない | exam-point | 停止 | 台本/構成 | `cce-r8-mc-50` |
 | `shunin-mix-design-ronten` | 主任技士「配(調)合設計」の頻出論点 | 水セメント比や単位量の計算手順が安定せず本番で時間を溶かす | exam-point | 停止 | 台本/構成 | `cce-mix-calculation-practice` |
@@ -204,6 +210,7 @@
 | `shunin-products-ronten` | 主任技士「コンクリート製品」の頻出論点 | 工場製品の製造方法は現場経験だけではイメージが湧かず後回しになりがち | exam-point | 停止 | 台本/構成 | `cce-r8-mc-50` |
 | `shunin-properties-ronten` | 主任技士「コンクリートの性質」の頻出論点 | ワーカビリティーやブリーディングなどフレッシュ性状の用語が混ざって選択肢で迷う | exam-point | 停止 | 台本/構成 | `cce-r8-mc-50` |
 | `shunin-r8-juuten` | 主任技士 直前期の過去問の回し方 — 一巡・弱点再演習・設問の聞かれ方確認 | 試験直前期に、択一の過去問をどの順でどう回せばよいか決められない | exam-point | 停止 | 台本/構成 | `cce-r8-mc-50` |
+| `shunin-rekka-taio` | 主任技士 耐久性は対策より先に劣化機構を決める | 耐久性の問題で、対策が効く劣化機構を確かめず、効果が似ているという類推で選んでしまう | howto | 未登録 | 台本/構成 | `cce-r8-mc-50` |
 | `shunin-shiken-zentaizou` | コンクリート主任技士の全体像 — 四肢択一×小論文の二本立て | 四肢択一と小論文の二本立てで何をどの配分で仕込むべきか掴めない | roadmap | 停止 | 台本/構成 | `links-hub` |
 | `shunin-shouronbun-kousei` | 主任技士 小論文の答案構成 — 項目と行数から骨子を作る | 技術的な文章を書き慣れておらず、1,000字前後の答案構成が組めない | howto | 停止 | 台本/構成 | `cce-essay-mokuji` |
 | `shunin-shouronbun-theme` | 主任技士 小論文のテーマ傾向 — 何が問われてきたか | どんなテーマが出るか分からず経験の棚卸しが的外れになりそうで不安 | exam-point | 停止 | 台本/構成 | `cce-essay-reiwa-pack` |

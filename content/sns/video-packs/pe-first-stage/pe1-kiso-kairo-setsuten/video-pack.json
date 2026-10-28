@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "packId": "pe1-kiso-kairo-setsuten",
+  "exam": "pe-first-stage",
+  "title": "技術士一次 基礎科目 直列と並列は接続点の名前から読む",
+  "audience": "2026年11月22日の技術士第一次試験を控え、基礎科目の電気回路の合成抵抗に不安がある受験者",
+  "pain": "基礎科目の回路で、図の形から直列か並列かを決めてしまい、合成抵抗の途中で手が止まる",
+  "promise": "接続点に名前を付け、両端と分岐で直列・並列を判断する読み方が、仮の1回路で分かる",
+  "intent": "howto",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/pe-first-stage/guide-resistance-circuit-calculation/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/pe-first-stage/r06-basic/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/pe-first-stage/r07-basic/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "pe1-takuitsu-pdf",
+    "campaign": "pe1-kiso-kairo-setsuten"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 0,
+    "instagramCarousel": false,
+    "instagramReel": false,
+    "xThread": false,
+    "threadsBrief": false
+  }
+}
