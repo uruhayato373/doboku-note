@@ -31,7 +31,7 @@
         "scene-sheet": "pe-first-stage/pe1-kiso-gyouretsu-vector/youtube.longform/scene-sheet",
         "preview-metrics": "pe-first-stage/pe1-kiso-gyouretsu-vector/youtube.longform/preview-metrics"
       },
-      "status": "rendered",
+      "status": "scheduled",
       "copy": "content/sns/video-packs/pe-first-stage/pe1-kiso-gyouretsu-vector/youtube.json#longform",
       "publishAt": "2026-11-08T20:00:00+09:00",
       "review": {
@@ -48,7 +48,42 @@
         "contentSha256": "b5c2b3431f2655d33f47c235febbabac6d17eee7d0d4400dd0a00b2cfdcf1d8e"
       },
       "times": {
-        "rendered": "2026-10-28T00:30:57.681Z"
+        "rendered": "2026-10-28T00:30:57.681Z",
+        "uploaded": "2026-10-28T00:48:27.527Z",
+        "scheduled": "2026-10-28T00:48:36.365Z"
+      },
+      "delivery": {
+        "inputSha256": "713e5dfde06bce086d43168b6edab8f76bec24f7a7000278c936add0b74dda89",
+        "marker": "dn-single-502643529315b1e9663949a6cbb76b422bdda34f",
+        "uploadRequestedAt": "2026-10-28T00:47:35.878Z",
+        "videoId": "DnFUe-knWns",
+        "processedAt": "2026-10-28T00:48:26.714Z",
+        "thumbnailRequestedAt": "2026-10-28T00:48:27.576Z",
+        "thumbnailUrls": [
+          "https://i9.ytimg.com/vi/DnFUe-knWns/default.jpg?sqp=CIyLhdcG&rs=AOn4CLCzOdobQ3RT9xdjA2wCY_RtrWo07g",
+          "https://i9.ytimg.com/vi/DnFUe-knWns/mqdefault.jpg?sqp=CIyLhdcG&rs=AOn4CLAMzwzFClfvXaZ87ukC4sAh8Bvv0A",
+          "https://i9.ytimg.com/vi/DnFUe-knWns/hqdefault.jpg?sqp=CIyLhdcG&rs=AOn4CLCizuM9vcoPVdh_DJ4VSGG0graqsg",
+          "https://i9.ytimg.com/vi/DnFUe-knWns/sddefault.jpg?sqp=CIyLhdcG&rs=AOn4CLCkMdUfCaVeCJskjPdamznwjZYi9w",
+          "https://i9.ytimg.com/vi/DnFUe-knWns/maxresdefault.jpg?sqp=CIyLhdcG&rs=AOn4CLA7v5IolErhXpoPsW7lQ5kGcEIUaQ",
+          "https://i9.ytimg.com/vi/DnFUe-knWns/fhddefault.jpg?sqp=CIyLhdcG&rs=AOn4CLDv50EOlWtrHi-qdorrLtLlEFsI3g"
+        ],
+        "thumbnailAcceptedAt": "2026-10-28T00:48:31.809Z",
+        "scheduleRequestedAt": "2026-10-28T00:48:32.958Z",
+        "scheduleAt": "2026-11-08T20:00:00+09:00",
+        "scheduledVerifiedAt": "2026-10-28T00:48:36.365Z"
+      },
+      "platform": {
+        "id": "DnFUe-knWns",
+        "url": "https://www.youtube.com/watch?v=DnFUe-knWns",
+        "privacy": "private",
+        "evidence": {
+          "kind": "publisher-live-check",
+          "ref": "content/sns/video-packs/pe-first-stage/pe1-kiso-gyouretsu-vector/youtube.json#longform"
+        }
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-10-28T00:48:31.809Z"
       }
     },
     {
