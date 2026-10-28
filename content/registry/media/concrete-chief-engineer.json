@@ -2884,6 +2884,436 @@
       ]
     },
     {
+      "id": "concrete-chief-engineer/shunin-rekka-taio/youtube.longform/contact-sheet",
+      "role": "contact-sheet",
+      "type": "image/jpeg",
+      "sha256": "311e5517632385190af792a7784c064ba64a7b7696c20085771a8353a00feb4d",
+      "bytes": 1039829,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-rekka-taio/youtube.longform/contact-sheet.311e5517.jpg"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "media-preview",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-rekka-taio/storyboard.json"
+      },
+      "width": 1920,
+      "height": 1620
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-rekka-taio/youtube.longform/contact-sheet-2",
+      "role": "contact-sheet-2",
+      "type": "image/jpeg",
+      "sha256": "02f51b5dc0abbeaa981dac201543c3232b19306e1daf777188a7d2b2049f2a3c",
+      "bytes": 231284,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-rekka-taio/youtube.longform/contact-sheet-2.02f51b5d.jpg"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "media-preview",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-rekka-taio/storyboard.json"
+      },
+      "width": 1920,
+      "height": 1620
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-rekka-taio/youtube.longform/cover",
+      "role": "cover",
+      "type": "image/png",
+      "sha256": "82b2413fd4de9bca533831f27e1cd6bc792b0b3c9d2d46d876d8dcc3ee2f97b1",
+      "bytes": 4276831,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-rekka-taio/youtube.longform/cover.82b2413f.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Create a NEW high-impact Japanese 16:9 POP YouTube thumbnail using attached approved concrete-chief-engineer cover as style and teacher identity reference. Exact large text 「コンクリート主任技士」「耐久性」「対策より先に機構」. Small yellow strip 「総監が制作」. Orange/red/yellow/navy energetic background, big outlined Japanese typography, teacher in white helmet and navy workwear on right pointing red pen. On left concrete surface flaking and large connected three badges 「形」「機構」「対策」. Full bleed, no old flat card, no other text, lower 18% uncluttered.",
+        "promptSha256": "19d616121e0e5453295671240048dd4c9bc468dfcad1c3aefc7e4a91e7428d33",
+        "generatedAt": "2026-10-28T00:21:19.740Z"
+      },
+      "width": 1920,
+      "height": 1080,
+      "legacyPaths": [
+        ".tmp/media/concrete-chief-engineer/shunin-rekka-taio/work/cover-pop.82b2413f.png"
+      ]
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-rekka-taio/youtube.longform/preview",
+      "role": "preview",
+      "type": "video/mp4",
+      "sha256": "0bbda83b36967173fb0ebac1063928e322ee45b349ded02566139dbcb3a3e433",
+      "bytes": 7765928,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-rekka-taio/youtube.longform/preview.0bbda83b.mp4"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "media-preview",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-rekka-taio/storyboard.json"
+      },
+      "durationSec": 280.075
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-rekka-taio/youtube.longform/preview-metrics",
+      "role": "preview-metrics",
+      "type": "application/json",
+      "sha256": "e8c62766abcb42e4b514cd2c2b6143d924b599a076fdcdcfc8cc8f4ae3e73640",
+      "bytes": 2284,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-rekka-taio/youtube.longform/preview-metrics.e8c62766.json"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "media-preview",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-rekka-taio/storyboard.json"
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-rekka-taio/youtube.longform/scene-001",
+      "role": "scene-001",
+      "type": "image/png",
+      "sha256": "82b2413fd4de9bca533831f27e1cd6bc792b0b3c9d2d46d876d8dcc3ee2f97b1",
+      "bytes": 4276831,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-rekka-taio/youtube.longform/scene-001.82b2413f.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Create a NEW high-impact Japanese 16:9 POP YouTube thumbnail using attached approved concrete-chief-engineer cover as style and teacher identity reference. Exact large text 「コンクリート主任技士」「耐久性」「対策より先に機構」. Small yellow strip 「総監が制作」. Orange/red/yellow/navy energetic background, big outlined Japanese typography, teacher in white helmet and navy workwear on right pointing red pen. On left concrete surface flaking and large connected three badges 「形」「機構」「対策」. Full bleed, no old flat card, no other text, lower 18% uncluttered.",
+        "promptSha256": "19d616121e0e5453295671240048dd4c9bc468dfcad1c3aefc7e4a91e7428d33",
+        "generatedAt": "2026-10-28T00:21:19.740Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-rekka-taio/youtube.longform/scene-002",
+      "role": "scene-002",
+      "type": "image/png",
+      "sha256": "fed07c044ea642e5dd28fd853f294e93faee9c3349d1dc965dd8c1823fff49cc",
+      "bytes": 2527848,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-rekka-taio/youtube.longform/scene-002.fed07c04.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "NEW 16:9 full-frame Japanese educational diagram for a concrete-chief-engineer normal YouTube video. Use attached image only as style reference for simple white/pale-grey background, bold dark navy and green lines, clear blue water and small yellow highlights. Create a new technically accurate sectional diagram. No human, no dense table, no advertising poster, no fine print. Meaning-bearing content above lower 18% subtitle area. Exact large Japanese labels specified, no extra text. Heading 「形→機構→対策」. Three large connected circles with exactly: 「①損傷の形」 showing surface flake, 「②壊れる機構」 showing water/ice pressure, 「③効く対策」 showing a measured shield. Thick arrows in that order. Do not show a treatment as automatically correct.",
+        "promptSha256": "e0efdfd263f11b941cc97dab789d032851540f221933d0e47da1e34c49986604",
+        "generatedAt": "2026-10-28T00:21:19.740Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-rekka-taio/youtube.longform/scene-003",
+      "role": "scene-003",
+      "type": "image/png",
+      "sha256": "767a17ef6feb1b1703750d91fa6a6b22f39f8666378b9103489870bc01b73ce3",
+      "bytes": 2421801,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-rekka-taio/youtube.longform/scene-003.767a17ef.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "NEW 16:9 full-frame Japanese educational diagram for a concrete-chief-engineer normal YouTube video. Use attached image only as style reference for simple white/pale-grey background, bold dark navy and green lines, clear blue water and small yellow highlights. Create a new technically accurate sectional diagram. No human, no dense table, no advertising poster, no fine print. Meaning-bearing content above lower 18% subtitle area. Exact large Japanese labels specified, no extra text. Heading 「似ている対策も効く先が違う」. One treatment icon branches to two mechanisms: concrete pore ice pressure with label 「凍害：組織」 and steel corrosion with label 「塩害：鉄筋」. Each branch has a question mark, not a universal green check. Bottom phrase 「機構ごとに確かめる」.",
+        "promptSha256": "9641e71340fd073a12ffdd0070e81e5bf70076dd556f0f3b4d4e69185beb1d20",
+        "generatedAt": "2026-10-28T00:21:19.740Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-rekka-taio/youtube.longform/scene-004",
+      "role": "scene-004",
+      "type": "image/png",
+      "sha256": "3d5e568a968e38bd0b1965a73f321f65103ed6a739d8ec43d5b60c2d1e9f53b5",
+      "bytes": 2872568,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-rekka-taio/youtube.longform/scene-004.3d5e568a.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Create a NEW accurate Japanese 16:9 educational diagram, use attached image only for simple white pale grey background, dark navy thick lines, green and blue accents. Heading 「仮の事例：表面が薄くはがれる」. Show a roadside concrete slab in cold climate in winter, with VERY THIN layer of surface mortar flaking off in several shallow patches (scaling), while concrete slab remains structurally intact and deep steel rebar is NOT exposed. Small snowflake and road deicing salt icon. A person may not appear. A large red question marker beside surface means cause still needs investigation. Labels exactly 「薄い表層のはがれ」「凍結防止剤の散布」「原因は調査で確認」. Do not draw big chunk spall, gaping crack, visible rebar, or detached boulders. Keep text above bottom 18% safe zone.",
+        "promptSha256": "924d8110f5305fdbc4194c2bb3adaca2677ba366449ee45f22e996f6aa45ecf3",
+        "generatedAt": "2026-10-28T00:21:19.740Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-rekka-taio/youtube.longform/scene-005",
+      "role": "scene-005",
+      "type": "image/png",
+      "sha256": "491de3690d3bd3f27539e8da7c1cea5294085d53cf4a6c9e2c2dc32a735c7a50",
+      "bytes": 2500636,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-rekka-taio/youtube.longform/scene-005.491de369.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "NEW 16:9 full-frame Japanese educational diagram for a concrete-chief-engineer normal YouTube video. Use attached image only as style reference for simple white/pale-grey background, bold dark navy and green lines, clear blue water and small yellow highlights. Create a new technically accurate sectional diagram. No human, no dense table, no advertising poster, no fine print. Meaning-bearing content above lower 18% subtitle area. Exact large Japanese labels specified, no extra text. Heading 「損傷の形は手がかり」. Side-by-side clear concrete cross sections: left thin surface scaling flakes labeled 「スケーリング」; right one aggregate pushing out a small surface cone labeled 「ポップアウト」. A small yellow note 「他の原因もある」 applies to the right. No definitive diagnosis checkmark.",
+        "promptSha256": "f959d1d5977a000cf75d5fc2817cc2c28cfc07108e9ee0afc66de845f32c64d7",
+        "generatedAt": "2026-10-28T00:21:19.740Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-rekka-taio/youtube.longform/scene-006",
+      "role": "scene-006",
+      "type": "image/png",
+      "sha256": "a60d7745cf52400d8e5102b4588d50165909b0bcc2088a04e248b09e491a34f3",
+      "bytes": 3635366,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-rekka-taio/youtube.longform/scene-006.a60d7745.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "NEW 16:9 full-frame Japanese educational diagram for a concrete-chief-engineer normal YouTube video. Use attached image only as style reference for simple white/pale-grey background, bold dark navy and green lines, clear blue water and small yellow highlights. Create a new technically accurate sectional diagram. No human, no dense table, no advertising poster, no fine print. Meaning-bearing content above lower 18% subtitle area. Exact large Japanese labels specified, no extra text. Heading 「凍害は組織を傷める」. Enlarged concrete pore cross-section: frozen water ice region expands, unfrozen water is pushed sideways by thick blue arrows, pore wall develops a small crack. Label only 「氷」 「未凍結水」 「水圧」 「組織のひび」. Show steel bar far away and not the target. No excessive microscopic realism.",
+        "promptSha256": "e223c2e1f64da2481bc82d13ae322b148ad7ae6908c82781debbc904bde242bd",
+        "generatedAt": "2026-10-28T00:21:19.740Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-rekka-taio/youtube.longform/scene-007",
+      "role": "scene-007",
+      "type": "image/png",
+      "sha256": "9049d43b08116c4973fde8dc593226e13cf6430fba0bb52c366eea8ec0042c2f",
+      "bytes": 3159217,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-rekka-taio/youtube.longform/scene-007.9049d43b.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "NEW 16:9 full-frame Japanese educational diagram for a concrete-chief-engineer normal YouTube video. Use attached image only as style reference for simple white/pale-grey background, bold dark navy and green lines, clear blue water and small yellow highlights. Create a new technically accurate sectional diagram. No human, no dense table, no advertising poster, no fine print. Meaning-bearing content above lower 18% subtitle area. Exact large Japanese labels specified, no extra text. Heading 「表層と鉄筋で別の機構」. One concrete cross-section with upper surface peeling labeled 「表層：凍害」 and deeper reinforcing steel rust labeled 「鉄筋位置：塩害」. Small salt particles enter from top. Yellow crossed-out claim exactly 「塩分で凍害が緩む」. Keep mechanisms visually separate and no claim that every flake is certainly frost damage.",
+        "promptSha256": "426ca9ced438ae2e7f43178c325e80617c7f7e8ea2c4d85543c430eef4a04565",
+        "generatedAt": "2026-10-28T00:21:19.740Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-rekka-taio/youtube.longform/scene-008",
+      "role": "scene-008",
+      "type": "image/png",
+      "sha256": "5d129e6596fff9390c0ac2be179e67b6b216d713675538608d176b74a3f53ec3",
+      "bytes": 2545513,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-rekka-taio/youtube.longform/scene-008.5d129e65.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Create a NEW accurate Japanese 16:9 educational diagram, image attached only as style reference: simple white pale grey canvas, thick dark navy and green lines, clear blue water, sparse yellow accents. No person. Full frame. Keep meaning above bottom 18% subtitle safe zone. Large legible Japanese labels only, no tiny text or decorative prose. Heading 「塗装鉄筋が守る場所」. Cross-section of concrete with top surface flaking from frost, deep steel rebar with protective epoxy coating. Green shield ONLY around rebar; no shield at surface. Big arrows to labels 「表層の凍害：効かない」 and 「鉄筋の塩害：効く」. Technically clear separation.",
+        "promptSha256": "bdb415f9ce74d14fc46306c6d023f8df887d60b7ceec9406519c4b9e5ed054e0",
+        "generatedAt": "2026-10-28T00:21:19.740Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-rekka-taio/youtube.longform/scene-009",
+      "role": "scene-009",
+      "type": "image/png",
+      "sha256": "dab13fb943a2c4e0f003cbe5e94dc59ad2e287cd9a90f21a7a1b5d0dbb84b784",
+      "bytes": 2589917,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-rekka-taio/youtube.longform/scene-009.dab13fb9.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Create a NEW accurate Japanese 16:9 educational diagram, image attached only as style reference: simple white pale grey canvas, thick dark navy and green lines, clear blue water, sparse yellow accents. No person. Full frame. Keep meaning above bottom 18% subtitle safe zone. Large legible Japanese labels only, no tiny text or decorative prose. Heading 「凍害への対策」. Three side-by-side large technical icons with labels 「AE剤：逃げ場の気泡」, 「水セメント比を下げる」, 「吸水しにくい骨材」. Center drawing clearly shows multiple SMALL uniformly distributed entrained air voids in concrete with water escaping into them; no large hollow caverns.",
+        "promptSha256": "d298949c3ebe669551e80b6da63ba92f46c8af5e774d0960ae550652eee2fbde",
+        "generatedAt": "2026-10-28T00:21:19.740Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-rekka-taio/youtube.longform/scene-010",
+      "role": "scene-010",
+      "type": "image/png",
+      "sha256": "4b04c8cd1170be6a3b887160bcaaae9076416a0a99db3a4bbf98492786328d85",
+      "bytes": 2685769,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-rekka-taio/youtube.longform/scene-010.4b04c8cd.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Create NEW accurate Japanese 16:9 educational diagram using attached image only as style reference: white pale grey background, dark navy outlines, light blue water, green correct highlight, no person. Heading 「AE気泡の逃げ場」. TWO CLEARLY SEPARATE concrete pore cross-sections: LEFT sparse air voids very far apart, blue water pressure wave reaches concrete wall and forms ONE red crack, label 「まばら：水圧が残る」. RIGHT many small round uniform air voids, blue water pressure arrows move into the nearest AIR VOID and STOP there; NO crack anywhere on the RIGHT, no blue stream exiting to wall, all concrete wall unbroken, label 「細かく均一：水圧を逃がす」. Air bubbles drawn as EMPTY WHITE CIRCLES, not liquid droplets or ice crystals. Do not draw a giant void. Large text above bottom 18% caption safe area.",
+        "promptSha256": "b011354226fe15f6be73a89a28eff7ee65bdaf51a6ec384b706043603493535c",
+        "generatedAt": "2026-10-28T00:21:19.740Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-rekka-taio/youtube.longform/scene-011",
+      "role": "scene-011",
+      "type": "image/png",
+      "sha256": "23dadc2e0feee3f1a0f64c87aa2d0fef92cf36e762fd1282ac0c31fdbf8e059d",
+      "bytes": 2398556,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-rekka-taio/youtube.longform/scene-011.23dadc2e.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Create a NEW accurate Japanese 16:9 educational diagram, image attached only as style reference: simple white pale grey canvas, thick dark navy and green lines, clear blue water, sparse yellow accents. No person. Full frame. Keep meaning above bottom 18% subtitle safe zone. Large legible Japanese labels only, no tiny text or decorative prose. Heading 「塩害への対策」. Concrete cross section with chloride particles entering from top and steel rebar below. Show three complementary defenses clearly: longer depth to rebar labeled 「かぶり厚さ」; lower-permeability concrete with slow dotted chloride path labeled 「水セメント比を下げる」; green coating only on steel labeled 「塗装鉄筋」. Small note 「中性化とのバランスも確認」. No blanket claim of zero ingress.",
+        "promptSha256": "493c34c8ce8b773eff3a856996ddb3e348eeaa4190a8ded3b9b48aa20b5c74f1",
+        "generatedAt": "2026-10-28T00:21:19.740Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-rekka-taio/youtube.longform/scene-012",
+      "role": "scene-012",
+      "type": "image/png",
+      "sha256": "6c37558a610f90e6e2cbebfcf97786c70d8b25597e895c7d3c9ee46cd6ce8f15",
+      "bytes": 2414321,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-rekka-taio/youtube.longform/scene-012.6c37558a.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Create a NEW accurate Japanese 16:9 educational diagram, image attached only as style reference: simple white pale grey canvas, thick dark navy and green lines, clear blue water, sparse yellow accents. No person. Full frame. Keep meaning above bottom 18% subtitle safe zone. Large legible Japanese labels only, no tiny text or decorative prose. Heading 「対策と機構を結ぶ」. Four clean rows of large paired pictograms, not a dense table. 「AE剤→凍害」 air void icon; 「塗装鉄筋→塩害」 coated steel icon; 「かぶり厚さ→塩害」 longer ingress path; 「水セメント比を下げる→両方」 dense concrete icon. Each arrow aligned; no other labels.",
+        "promptSha256": "860ed478b0a3f64731f99dc8de6c0676c13556403278d65faa246ba42de0280d",
+        "generatedAt": "2026-10-28T00:21:19.740Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-rekka-taio/youtube.longform/scene-013",
+      "role": "scene-013",
+      "type": "image/png",
+      "sha256": "7114005d262b1a5579624a949d6c8f886b2d5008923687dc97edb41987612b7b",
+      "bytes": 2264039,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-rekka-taio/youtube.longform/scene-013.7114005d.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Create a NEW accurate Japanese 16:9 educational diagram, image attached only as style reference: simple white pale grey canvas, thick dark navy and green lines, clear blue water, sparse yellow accents. No person. Full frame. Keep meaning above bottom 18% subtitle safe zone. Large legible Japanese labels only, no tiny text or decorative prose. Heading 「形→機構→対策」. Three large horizontal stages: ① surface flake labeled 「形を見る」, ② distinct water freezing in concrete and chloride reaching steel labeled 「壊す場所を確かめる」, ③ AE air bubbles on concrete side and coating on steel side labeled 「機構ごとに対策」. Never cross connect frost to rebar coating.",
+        "promptSha256": "e941700d41dc68d84daec953c721675350420a1ae59aa7c9d57667e57ac57117",
+        "generatedAt": "2026-10-28T00:21:19.740Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-rekka-taio/youtube.longform/scene-014",
+      "role": "scene-014",
+      "type": "image/png",
+      "sha256": "444a944d020187e642e0be85b616365c2675df4eb535ae210fd724dc95f5e7aa",
+      "bytes": 1902145,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-rekka-taio/youtube.longform/scene-014.444a944d.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Create a NEW accurate Japanese 16:9 educational diagram, image attached only as style reference: simple white pale grey canvas, thick dark navy and green lines, clear blue water, sparse yellow accents. No person. Full frame. Keep meaning above bottom 18% subtitle safe zone. Large legible Japanese labels only, no tiny text or decorative prose. Heading 「四肢択一で確認」. A single practice question sheet icon with four answer circles, small concrete cube and magnifying glass. Large text 「令和8年度 予想問題」 and 「各肢の正誤理由」. Clean educational closing card, no URL or QR code.",
+        "promptSha256": "e0bedecc767ea4cb0027397ff050c640c35f2152e9585aa77817b08d6904d0d2",
+        "generatedAt": "2026-10-28T00:21:19.740Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-rekka-taio/youtube.longform/scene-sheet",
+      "role": "scene-sheet",
+      "type": "image/jpeg",
+      "sha256": "dba3e175804da079c8949602c37109ed18d19f0170fb9967dc5906a11e84fd27",
+      "bytes": 1154623,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-rekka-taio/youtube.longform/scene-sheet.dba3e175.jpg"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "media-preview",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-rekka-taio/storyboard.json"
+      },
+      "width": 1920,
+      "height": 1990
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-rekka-taio/youtube.longform/subtitles",
+      "role": "subtitles",
+      "type": "text/x-ssa",
+      "sha256": "623a68de0ff55911e91658dcf271bc026afeeb2e681f062d23984b2ec108929e",
+      "bytes": 9215,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-rekka-taio/youtube.longform/subtitles.623a68de.ass"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-rekka-taio/storyboard.json"
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-rekka-taio/youtube.longform/video",
+      "role": "video",
+      "type": "video/mp4",
+      "sha256": "30b47928d001752dd0478dfe93dfd3b35f985b1ddcd52df38325603ba74c454f",
+      "bytes": 38575124,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-rekka-taio/youtube.longform/video.30b47928.mp4"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-rekka-taio/storyboard.json",
+        "specSha256": "e2d940faf53fe4a4a0cb0beb09bc82d85157ac6d10db3d4c47929b1b11148961",
+        "renderInputSha256": "7b02907fbbd24f3acf36ffb5be94396d1def8e8d60b4984cabf772cf70e6024f",
+        "tts": {
+          "engine": "VOICEVOX",
+          "speaker": 13,
+          "credit": "VOICEVOX:青山龍星"
+        }
+      },
+      "durationSec": 280.1
+    },
+    {
       "id": "concrete-chief-engineer/shunin-shiken-zentaizou/work/candidate-cover",
       "role": "candidate-cover",
       "type": "image/png",
