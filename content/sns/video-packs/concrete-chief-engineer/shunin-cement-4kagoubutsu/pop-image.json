@@ -10,7 +10,8 @@
         "exam": "concrete-chief-engineer",
         "headline": [
           "セメント4化合物",
-          "早期と長期"
+          "早期と長期",
+          "を見分ける"
         ],
         "benefit": "",
         "authority": "総監が制作"
@@ -42,7 +43,7 @@
       "review": {
         "status": "agent-reviewed",
         "by": "Codex",
-        "checkedAt": "2026-10-28T00:07:47.939Z",
+        "checkedAt": "2026-10-28T00:20:52.585Z",
         "viewportWidth": 360,
         "checks": [
           "見出しと資格名の可読性",
@@ -83,7 +84,7 @@
               "path": ".tmp/media/concrete-chief-engineer/shunin-cement-4kagoubutsu/work/raw-answer.dd37f220.png",
               "sha256": "dd37f220acd3f7ade44b2406848e37730fb7bf73eec56029b0ae5dca8dd693c8"
             },
-            "generatedAt": "2026-10-28T00:07:47.939Z"
+            "generatedAt": "2026-10-28T00:20:52.585Z"
           },
           "output": {
             "path": ".tmp/media/concrete-chief-engineer/shunin-cement-4kagoubutsu/work/answer-diagram.42eff8b4.png",
@@ -98,7 +99,7 @@
           "review": {
             "status": "ai-reviewed",
             "userReview": "pending",
-            "checkedAt": "2026-10-28T00:07:47.939Z",
+            "checkedAt": "2026-10-28T00:20:52.585Z",
             "by": "Codex",
             "views": [
               "original"
@@ -127,7 +128,7 @@
               "path": ".tmp/media/concrete-chief-engineer/shunin-cement-4kagoubutsu/work/raw-premise.f4924a01.png",
               "sha256": "f4924a01947fe53058ef4625ceb0b3fb35dee88e569654115d72055cb54debec"
             },
-            "generatedAt": "2026-10-28T00:07:47.939Z"
+            "generatedAt": "2026-10-28T00:20:52.585Z"
           },
           "output": {
             "path": ".tmp/media/concrete-chief-engineer/shunin-cement-4kagoubutsu/work/premise-diagram.09789158.png",
@@ -142,7 +143,7 @@
           "review": {
             "status": "ai-reviewed",
             "userReview": "pending",
-            "checkedAt": "2026-10-28T00:07:47.939Z",
+            "checkedAt": "2026-10-28T00:20:52.585Z",
             "by": "Codex",
             "views": [
               "original"
@@ -171,7 +172,7 @@
               "path": ".tmp/media/concrete-chief-engineer/shunin-cement-4kagoubutsu/work/raw-axes.b64a7d8c.png",
               "sha256": "b64a7d8c9af63395e12ea4595850bdd860076d58292f3bd99c93d86b2455c97b"
             },
-            "generatedAt": "2026-10-28T00:07:47.939Z"
+            "generatedAt": "2026-10-28T00:20:52.585Z"
           },
           "output": {
             "path": ".tmp/media/concrete-chief-engineer/shunin-cement-4kagoubutsu/work/axes-diagram.0d7eeb05.png",
@@ -186,7 +187,7 @@
           "review": {
             "status": "ai-reviewed",
             "userReview": "pending",
-            "checkedAt": "2026-10-28T00:07:47.939Z",
+            "checkedAt": "2026-10-28T00:20:52.585Z",
             "by": "Codex",
             "views": [
               "original"
@@ -215,7 +216,7 @@
               "path": ".tmp/media/concrete-chief-engineer/shunin-cement-4kagoubutsu/work/raw-c3s.25c7baea.png",
               "sha256": "25c7baea28e96989d51017d2861328c591ca6bf8647af2d1d1acec2b6334627e"
             },
-            "generatedAt": "2026-10-28T00:07:47.939Z"
+            "generatedAt": "2026-10-28T00:20:52.585Z"
           },
           "output": {
             "path": ".tmp/media/concrete-chief-engineer/shunin-cement-4kagoubutsu/work/c3s-diagram.079d3c83.png",
@@ -230,7 +231,7 @@
           "review": {
             "status": "ai-reviewed",
             "userReview": "pending",
-            "checkedAt": "2026-10-28T00:07:47.939Z",
+            "checkedAt": "2026-10-28T00:20:52.585Z",
             "by": "Codex",
             "views": [
               "original"
@@ -259,7 +260,7 @@
               "path": ".tmp/media/concrete-chief-engineer/shunin-cement-4kagoubutsu/work/raw-c2s.aaf88a1f.png",
               "sha256": "aaf88a1fc76bf1f783f15dc81e9e4cf54fae0762975ad48a8a966e4895e36ec4"
             },
-            "generatedAt": "2026-10-28T00:07:47.939Z"
+            "generatedAt": "2026-10-28T00:20:52.585Z"
           },
           "output": {
             "path": ".tmp/media/concrete-chief-engineer/shunin-cement-4kagoubutsu/work/c2s-diagram.c68fccdc.png",
@@ -274,7 +275,7 @@
           "review": {
             "status": "ai-reviewed",
             "userReview": "pending",
-            "checkedAt": "2026-10-28T00:07:47.939Z",
+            "checkedAt": "2026-10-28T00:20:52.585Z",
             "by": "Codex",
             "views": [
               "original"
@@ -303,7 +304,7 @@
               "path": ".tmp/media/concrete-chief-engineer/shunin-cement-4kagoubutsu/work/raw-pair.f56a7e13.png",
               "sha256": "f56a7e13c7c89a602a6146160f11e9f17de6ff9704563132cd62aed5e82d4433"
             },
-            "generatedAt": "2026-10-28T00:07:47.939Z"
+            "generatedAt": "2026-10-28T00:20:52.585Z"
           },
           "output": {
             "path": ".tmp/media/concrete-chief-engineer/shunin-cement-4kagoubutsu/work/pair-diagram.9a2124dc.png",
@@ -318,7 +319,7 @@
           "review": {
             "status": "ai-reviewed",
             "userReview": "pending",
-            "checkedAt": "2026-10-28T00:07:47.939Z",
+            "checkedAt": "2026-10-28T00:20:52.585Z",
             "by": "Codex",
             "views": [
               "original"
@@ -347,7 +348,7 @@
               "path": ".tmp/media/concrete-chief-engineer/shunin-cement-4kagoubutsu/work/raw-c3a.40f1af52.png",
               "sha256": "40f1af5243574edc8d833b928683b766cc857aab058059ecd27e1590579b2859"
             },
-            "generatedAt": "2026-10-28T00:07:47.939Z"
+            "generatedAt": "2026-10-28T00:20:52.585Z"
           },
           "output": {
             "path": ".tmp/media/concrete-chief-engineer/shunin-cement-4kagoubutsu/work/c3a-diagram.b33d9c8a.png",
@@ -362,7 +363,7 @@
           "review": {
             "status": "ai-reviewed",
             "userReview": "pending",
-            "checkedAt": "2026-10-28T00:07:47.939Z",
+            "checkedAt": "2026-10-28T00:20:52.585Z",
             "by": "Codex",
             "views": [
               "original"
@@ -391,7 +392,7 @@
               "path": ".tmp/media/concrete-chief-engineer/shunin-cement-4kagoubutsu/work/raw-c4af.cd2ebe73.png",
               "sha256": "cd2ebe738a87dc354087c989f3c50304bd0ddb817dbf2216a19ee700b0807b4a"
             },
-            "generatedAt": "2026-10-28T00:07:47.939Z"
+            "generatedAt": "2026-10-28T00:20:52.585Z"
           },
           "output": {
             "path": ".tmp/media/concrete-chief-engineer/shunin-cement-4kagoubutsu/work/c4af-diagram.212765d9.png",
@@ -406,7 +407,7 @@
           "review": {
             "status": "ai-reviewed",
             "userReview": "pending",
-            "checkedAt": "2026-10-28T00:07:47.939Z",
+            "checkedAt": "2026-10-28T00:20:52.585Z",
             "by": "Codex",
             "views": [
               "original"
@@ -424,7 +425,7 @@
           "inputSha256": "713fc3ceb2a8744cc408774fb6b753723ba189d936980473ab2dcfd5bd0e9cd7",
           "generation": {
             "tool": "image_gen",
-            "prompt": "Create a NEW Japanese 16:9 educational diagram using attached image only as visual style reference. Simple white pale grey background, bold navy and green lines, sparse yellow highlights. Clean scientific icons, no human. Large legible labels only, all above lower 18% subtitle safe zone. Keep all chemistry claims qualitative and technically cautious. Heading 「主な寄与時期の目安」. A horizontal time continuum with gradient transitions (no vertical boundary line) and three broad overlapping colored bands: C3A initial/one day; C3S early/around 28 days; C2S later/beyond 28 days. Below small C4AF tag 「強度への寄与は小さい」. Prominent note 「28日は目安、境界ではない」. Do NOT draw non-overlapping isolated slots or equal-width bands.",
+            "prompt": "Create NEW accurate Japanese 16:9 educational diagram using attached white pale grey navy green style reference. Heading 「主な寄与時期の目安」. Draw three HORIZONTAL overlapping translucent BANDS, all of roughly equal height, across time from initial to later: C3A predominantly initial around 1 day, C3S predominantly early around 28 days, C2S predominantly later, with visually GRADUAL overlap. The bands indicate TIMES OF CONTRIBUTION only, NOT accumulated strength and NOT decreasing strength curves. NO VERTICAL strength axis, NO bell curves, NO downward sloping areas, NO plotted amount. Labels 「C3A：初期」「C3S：早期」「C2S：長期」「28日は目安、境界ではない」. Add small separate C4AF badge 「強度寄与は小さい」. Meaning above bottom 18% caption area.",
             "references": [
               {
                 "path": ".tmp/media/concrete-chief-engineer/shunin-rekka-taio/work/answer-diagram.fed07c04.png",
@@ -432,25 +433,25 @@
               }
             ],
             "output": {
-              "path": ".tmp/media/concrete-chief-engineer/shunin-cement-4kagoubutsu/work/raw-timeline.328ff4f2.png",
-              "sha256": "328ff4f24736e0452a1d90478535dc5fad69e877e15b09fda8ca3e2bddcecd1b"
+              "path": ".tmp/media/concrete-chief-engineer/shunin-cement-4kagoubutsu/work/raw-timeline.10c9cb3b.png",
+              "sha256": "10c9cb3b99d010bb243eee620d597cf2294ab2a09ed5705c1e6e61b22e6e2c55"
             },
-            "generatedAt": "2026-10-28T00:07:47.939Z"
+            "generatedAt": "2026-10-28T00:20:52.585Z"
           },
           "output": {
-            "path": ".tmp/media/concrete-chief-engineer/shunin-cement-4kagoubutsu/work/timeline-diagram.b88499eb.png",
-            "sha256": "b88499eb64368a61770b95aaf8f452da965a25c0c364a498b0fcba2fe27aaf60",
+            "path": ".tmp/media/concrete-chief-engineer/shunin-cement-4kagoubutsu/work/timeline-diagram.56239928.png",
+            "sha256": "562399282d21e31f6b73de15a4e6ea7722494a1f0ae4f6595fe4c8f15a780dbe",
             "width": 1920,
             "height": 1080
           },
           "normalization": {
             "mode": "full-frame-v1",
-            "sourceSha256": "328ff4f24736e0452a1d90478535dc5fad69e877e15b09fda8ca3e2bddcecd1b"
+            "sourceSha256": "10c9cb3b99d010bb243eee620d597cf2294ab2a09ed5705c1e6e61b22e6e2c55"
           },
           "review": {
             "status": "ai-reviewed",
             "userReview": "pending",
-            "checkedAt": "2026-10-28T00:07:47.939Z",
+            "checkedAt": "2026-10-28T00:20:52.585Z",
             "by": "Codex",
             "views": [
               "original"
@@ -479,7 +480,7 @@
               "path": ".tmp/media/concrete-chief-engineer/shunin-cement-4kagoubutsu/work/raw-apply.78928dea.png",
               "sha256": "78928deab6e5ff37398da74b3dec6da7f94bf41eb43015f2d6b47067dee3a380"
             },
-            "generatedAt": "2026-10-28T00:07:47.939Z"
+            "generatedAt": "2026-10-28T00:20:52.585Z"
           },
           "output": {
             "path": ".tmp/media/concrete-chief-engineer/shunin-cement-4kagoubutsu/work/apply-diagram.4ccc1e3e.png",
@@ -494,7 +495,7 @@
           "review": {
             "status": "ai-reviewed",
             "userReview": "pending",
-            "checkedAt": "2026-10-28T00:07:47.939Z",
+            "checkedAt": "2026-10-28T00:20:52.585Z",
             "by": "Codex",
             "views": [
               "original"
@@ -523,7 +524,7 @@
               "path": ".tmp/media/concrete-chief-engineer/shunin-cement-4kagoubutsu/work/raw-traps.13c2ee80.png",
               "sha256": "13c2ee80251104c89051a7372b93e5ef48a6bc93ea6fb6c658ccf8cea54ee420"
             },
-            "generatedAt": "2026-10-28T00:07:47.939Z"
+            "generatedAt": "2026-10-28T00:20:52.585Z"
           },
           "output": {
             "path": ".tmp/media/concrete-chief-engineer/shunin-cement-4kagoubutsu/work/traps-diagram.48744644.png",
@@ -538,7 +539,7 @@
           "review": {
             "status": "ai-reviewed",
             "userReview": "pending",
-            "checkedAt": "2026-10-28T00:07:47.939Z",
+            "checkedAt": "2026-10-28T00:20:52.585Z",
             "by": "Codex",
             "views": [
               "original"
@@ -567,7 +568,7 @@
               "path": ".tmp/media/concrete-chief-engineer/shunin-cement-4kagoubutsu/work/raw-check.b1e2a7f0.png",
               "sha256": "b1e2a7f0b61a3cdd5a6887e723c26571dade6f0b38271126356fecab20902310"
             },
-            "generatedAt": "2026-10-28T00:07:47.939Z"
+            "generatedAt": "2026-10-28T00:20:52.585Z"
           },
           "output": {
             "path": ".tmp/media/concrete-chief-engineer/shunin-cement-4kagoubutsu/work/check-diagram.0d3e4793.png",
@@ -582,7 +583,7 @@
           "review": {
             "status": "ai-reviewed",
             "userReview": "pending",
-            "checkedAt": "2026-10-28T00:07:47.939Z",
+            "checkedAt": "2026-10-28T00:20:52.585Z",
             "by": "Codex",
             "views": [
               "original"
@@ -600,7 +601,7 @@
           "inputSha256": "9e2f16f558d98c51e4d5c7b32527869011c74a916985b20cf3a75de9cb0dd2ed",
           "generation": {
             "tool": "image_gen",
-            "prompt": "Create a NEW Japanese 16:9 educational diagram using attached image only as visual style reference. Simple white pale grey background, bold navy and green lines, sparse yellow highlights. Clean scientific icons, no human. Large legible labels only, all above lower 18% subtitle safe zone. Keep all chemistry claims qualitative and technically cautious. Heading 「4化合物を整理」. Four simple equal-sized colored tiles with exact labels 「C3S：早期」, 「C2S：長期」, 「C3A：初期・熱大」, 「C4AF：強度寄与小」. Bottom larger caution 「28日は目安」. No straight zero-strength line.",
+            "prompt": "Create a NEW Japanese 16:9 educational diagram, attached image only as simple white pale-grey navy green yellow visual style reference. Heading 「4化合物を整理」. Four equal rectangular TEXT cards, no bar charts, no rising arrows, NO graphs and NO molecular structures. EXACT large text: 「C3S：早期」, 「C2S：長期」, 「C3A：初期・熱大」, 「C4AF：強度寄与小」. Below exactly 「28日は目安」. Use a small simple clock icon by first three and a small understated dot by C4AF. Do not visually imply C4AF strength grows as much as C3S/C2S. Bottom 18% empty for captions.",
             "references": [
               {
                 "path": ".tmp/media/concrete-chief-engineer/shunin-rekka-taio/work/answer-diagram.fed07c04.png",
@@ -608,25 +609,25 @@
               }
             ],
             "output": {
-              "path": ".tmp/media/concrete-chief-engineer/shunin-cement-4kagoubutsu/work/raw-summary.26a0934c.png",
-              "sha256": "26a0934c9654fc285e24662fba10cb0c0a6787392ef062a36be8c0d13613501d"
+              "path": ".tmp/media/concrete-chief-engineer/shunin-cement-4kagoubutsu/work/raw-summary.62851dd1.png",
+              "sha256": "62851dd1bb46c8bffdb7ad703e2117b3fe75735f44e4b8e423c1f8899f839889"
             },
-            "generatedAt": "2026-10-28T00:07:47.939Z"
+            "generatedAt": "2026-10-28T00:20:52.585Z"
           },
           "output": {
-            "path": ".tmp/media/concrete-chief-engineer/shunin-cement-4kagoubutsu/work/summary-diagram.e96ec9bc.png",
-            "sha256": "e96ec9bca77df2694e34b4e99c580b5fd5e4b5867036109ac742fa0365611712",
+            "path": ".tmp/media/concrete-chief-engineer/shunin-cement-4kagoubutsu/work/summary-diagram.47298664.png",
+            "sha256": "47298664b914ad48a20b9671b9ebccb83cff1ffc822676a061ef2f74bb9ba399",
             "width": 1920,
             "height": 1080
           },
           "normalization": {
             "mode": "full-frame-v1",
-            "sourceSha256": "26a0934c9654fc285e24662fba10cb0c0a6787392ef062a36be8c0d13613501d"
+            "sourceSha256": "62851dd1bb46c8bffdb7ad703e2117b3fe75735f44e4b8e423c1f8899f839889"
           },
           "review": {
             "status": "ai-reviewed",
             "userReview": "pending",
-            "checkedAt": "2026-10-28T00:07:47.939Z",
+            "checkedAt": "2026-10-28T00:20:52.585Z",
             "by": "Codex",
             "views": [
               "original"
@@ -655,7 +656,7 @@
               "path": ".tmp/media/concrete-chief-engineer/shunin-cement-4kagoubutsu/work/raw-cta.0f982bda.png",
               "sha256": "0f982bda36975d00281c5a6c6b21305f0847bf307ad7a67d52e4acf3d8b8df37"
             },
-            "generatedAt": "2026-10-28T00:07:47.939Z"
+            "generatedAt": "2026-10-28T00:20:52.585Z"
           },
           "output": {
             "path": ".tmp/media/concrete-chief-engineer/shunin-cement-4kagoubutsu/work/cta-diagram.18ed4047.png",
@@ -670,7 +671,7 @@
           "review": {
             "status": "ai-reviewed",
             "userReview": "pending",
-            "checkedAt": "2026-10-28T00:07:47.939Z",
+            "checkedAt": "2026-10-28T00:20:52.585Z",
             "by": "Codex",
             "views": [
               "original"
@@ -700,13 +701,14 @@
           "path": ".tmp/media/concrete-chief-engineer/shunin-cement-4kagoubutsu/work/raw-cover.f8c2de36.png",
           "sha256": "f8c2de36b2a6a3933320d3f561ea9b24b249c843e8ab9b7b89bf1cdef20c6309"
         },
-        "generatedAt": "2026-10-28T00:07:47.939Z"
+        "generatedAt": "2026-10-28T00:20:52.585Z"
       },
       "copy": {
         "exam": "concrete-chief-engineer",
         "headline": [
           "セメント4化合物",
-          "早期と長期"
+          "早期と長期",
+          "を見分ける"
         ],
         "authority": "総監が制作"
       },
@@ -723,7 +725,7 @@
       "review": {
         "status": "ai-reviewed",
         "userImageReview": "pending",
-        "checkedAt": "2026-10-28T00:07:47.939Z",
+        "checkedAt": "2026-10-28T00:20:52.585Z",
         "by": "Codex",
         "views": [
           "original"

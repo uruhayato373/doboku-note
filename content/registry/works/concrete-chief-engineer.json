@@ -34,7 +34,13 @@
     {
       "id": "shunin-cement-4kagoubutsu",
       "kind": "video-pack",
-      "definition": "content/sns/video-packs/concrete-chief-engineer/shunin-cement-4kagoubutsu"
+      "definition": "content/sns/video-packs/concrete-chief-engineer/shunin-cement-4kagoubutsu",
+      "qa": {
+        "avg": 2.67,
+        "blocks": 0,
+        "at": "2026-10-28",
+        "by": "Claude Code video-content-qa"
+      }
     },
     {
       "id": "shunin-chokuzen-senryaku",
@@ -72,7 +78,13 @@
     {
       "id": "shunin-haigou-zettaiyouseki",
       "kind": "video-pack",
-      "definition": "content/sns/video-packs/concrete-chief-engineer/shunin-haigou-zettaiyouseki"
+      "definition": "content/sns/video-packs/concrete-chief-engineer/shunin-haigou-zettaiyouseki",
+      "qa": {
+        "avg": 2.67,
+        "blocks": 0,
+        "at": "2026-10-28",
+        "by": "Claude Code video-content-qa"
+      }
     },
     {
       "id": "shunin-hinshutsu-yusen",
@@ -165,7 +177,13 @@
     {
       "id": "shunin-rekka-taio",
       "kind": "video-pack",
-      "definition": "content/sns/video-packs/concrete-chief-engineer/shunin-rekka-taio"
+      "definition": "content/sns/video-packs/concrete-chief-engineer/shunin-rekka-taio",
+      "qa": {
+        "avg": 2.67,
+        "blocks": 0,
+        "at": "2026-10-28",
+        "by": "Claude Code video-content-qa"
+      }
     },
     {
       "id": "shunin-shiken-zentaizou",

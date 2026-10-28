@@ -73,7 +73,7 @@
           "inputSha256": "c1da1d218b76af6890df3576576509353807d0708a6ab1a35a926a5a24b8acf4",
           "generation": {
             "tool": "image_gen",
-            "prompt": "Create a NEW clear Japanese 16:9 educational diagram using attached image only as simple style reference, white/pale grey canvas, thick dark navy and blue/green shapes, no person. Heading 「質量でなく絶対容積で足す」. Left: distinct material masses measured in kg each with different densities, RED X over directly adding kg; middle: large arrow 「密度で割る」; right: separate material volumes measured in L that can be summed, GREEN circle. At top or lower middle in a separate yellow caution banner EXACT text 「合計1,000Lだけでは正誤不明」. Small line 「細骨材は残りで出す」. Do not imply that a 1000L sum proves a correct calculation. Large readable labels only, keep bottom 18% blank for subtitles.",
+            "prompt": "Create a NEW Japanese 16:9 educational diagram, white/pale grey background, navy green blue thick clean graphic matching attached style. EXACT heading 「質量でなく絶対容積で足す」. Left three material piles on scales with ONLY labels 「質量 kg」 and red X; middle large arrow label 「密度で割る」; right same three materials as distinct volume blocks with ONLY label 「絶対容積 L」 and green circle. Below prominent caution EXACT 「合計1,000Lだけでは正誤不明」 and small 「細骨材は残りで出す」. ABSOLUTELY NO numerical kg or L amounts for any individual material, no fabricated quantities, no arithmetic examples. Keep bottom 18% clear.",
             "references": [
               {
                 "path": ".tmp/media/concrete-chief-engineer/shunin-chokuzen-senryaku/work/premise-diagram.e425a014.png",
@@ -81,20 +81,20 @@
               }
             ],
             "output": {
-              "path": ".tmp/media/concrete-chief-engineer/shunin-haigou-zettaiyouseki/work/raw-premise.e89d5649.png",
-              "sha256": "e89d564919d8005dd2e382da0bf50bca4d8a29ea6b2b144c906ef5d4ad6ddd33"
+              "path": ".tmp/media/concrete-chief-engineer/shunin-haigou-zettaiyouseki/work/raw-premise.0cb8466f.png",
+              "sha256": "0cb8466f42ba19eee15867e520bc57c939e15f86c874e78e4886b791612f2b4d"
             },
-            "generatedAt": "2026-10-28T00:00:11.887Z"
+            "generatedAt": "2026-10-28T00:21:52.014Z"
           },
           "output": {
-            "path": ".tmp/media/concrete-chief-engineer/shunin-haigou-zettaiyouseki/work/premise-diagram.36c72bf7.png",
-            "sha256": "36c72bf74b83cfa1f0c9826ec465df3fde9da1dd197d8bd009aea92cd481467a",
+            "path": ".tmp/media/concrete-chief-engineer/shunin-haigou-zettaiyouseki/work/premise-diagram.7dec0e52.png",
+            "sha256": "7dec0e5292328b2427f1a046342ada69012d809c29d83480218b69a95687153c",
             "width": 1920,
             "height": 1080
           },
           "normalization": {
             "mode": "full-frame-v1",
-            "sourceSha256": "e89d564919d8005dd2e382da0bf50bca4d8a29ea6b2b144c906ef5d4ad6ddd33"
+            "sourceSha256": "0cb8466f42ba19eee15867e520bc57c939e15f86c874e78e4886b791612f2b4d"
           },
           "review": {
             "status": "ai-reviewed",

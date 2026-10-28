@@ -8,21 +8,62 @@
       "work": "pe1-kiso-gyouretsu-vector",
       "account": "youtube:main",
       "format": "longform",
-      "status": "draft"
+      "media": {
+        "cover": "pe-first-stage/pe1-kiso-gyouretsu-vector/youtube.longform/cover",
+        "scene-001": "pe-first-stage/pe1-kiso-gyouretsu-vector/youtube.longform/scene-001",
+        "scene-002": "pe-first-stage/pe1-kiso-gyouretsu-vector/youtube.longform/scene-002",
+        "scene-003": "pe-first-stage/pe1-kiso-gyouretsu-vector/youtube.longform/scene-003",
+        "scene-004": "pe-first-stage/pe1-kiso-gyouretsu-vector/youtube.longform/scene-004",
+        "scene-005": "pe-first-stage/pe1-kiso-gyouretsu-vector/youtube.longform/scene-005",
+        "scene-006": "pe-first-stage/pe1-kiso-gyouretsu-vector/youtube.longform/scene-006",
+        "scene-007": "pe-first-stage/pe1-kiso-gyouretsu-vector/youtube.longform/scene-007",
+        "scene-008": "pe-first-stage/pe1-kiso-gyouretsu-vector/youtube.longform/scene-008",
+        "scene-009": "pe-first-stage/pe1-kiso-gyouretsu-vector/youtube.longform/scene-009",
+        "scene-010": "pe-first-stage/pe1-kiso-gyouretsu-vector/youtube.longform/scene-010",
+        "scene-011": "pe-first-stage/pe1-kiso-gyouretsu-vector/youtube.longform/scene-011",
+        "scene-012": "pe-first-stage/pe1-kiso-gyouretsu-vector/youtube.longform/scene-012",
+        "scene-013": "pe-first-stage/pe1-kiso-gyouretsu-vector/youtube.longform/scene-013",
+        "scene-014": "pe-first-stage/pe1-kiso-gyouretsu-vector/youtube.longform/scene-014",
+        "video": "pe-first-stage/pe1-kiso-gyouretsu-vector/youtube.longform/video",
+        "subtitles": "pe-first-stage/pe1-kiso-gyouretsu-vector/youtube.longform/subtitles",
+        "preview": "pe-first-stage/pe1-kiso-gyouretsu-vector/youtube.longform/preview",
+        "contact-sheet": "pe-first-stage/pe1-kiso-gyouretsu-vector/youtube.longform/contact-sheet",
+        "scene-sheet": "pe-first-stage/pe1-kiso-gyouretsu-vector/youtube.longform/scene-sheet",
+        "preview-metrics": "pe-first-stage/pe1-kiso-gyouretsu-vector/youtube.longform/preview-metrics"
+      },
+      "status": "rendered",
+      "copy": "content/sns/video-packs/pe-first-stage/pe1-kiso-gyouretsu-vector/youtube.json#longform",
+      "publishAt": "2026-11-08T20:00:00+09:00",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "user",
+          "at": "2026-10-28T00:30:48.086Z",
+          "digest": "486570ada491c7908a006dd25968c195082bb97dc282065804666ffde1493a1b"
+        }
+      },
+      "approval": {
+        "by": "user",
+        "at": "2026-10-28T00:30:48.468Z",
+        "contentSha256": "b5c2b3431f2655d33f47c235febbabac6d17eee7d0d4400dd0a00b2cfdcf1d8e"
+      },
+      "times": {
+        "rendered": "2026-10-28T00:30:57.681Z"
+      }
     },
     {
       "id": "pe-first-stage/pe1-kiso-kairo-setsuten/youtube.longform",
       "work": "pe1-kiso-kairo-setsuten",
       "account": "youtube:main",
       "format": "longform",
-      "status": "draft"
+      "status": "qa_passed"
     },
     {
       "id": "pe-first-stage/pe1-kiso-newton-hou/youtube.longform",
       "work": "pe1-kiso-newton-hou",
       "account": "youtube:main",
       "format": "longform",
-      "status": "draft"
+      "status": "qa_passed"
     },
     {
       "id": "pe-first-stage/pe1-kiso-senmon/youtube.longform",
@@ -113,7 +154,49 @@
       "work": "pe1-senmon-kensetsu-25mon",
       "account": "youtube:main",
       "format": "longform",
-      "status": "draft"
+      "media": {
+        "cover": "pe-first-stage/pe1-senmon-kensetsu-25mon/youtube.longform/cover",
+        "scene-001": "pe-first-stage/pe1-senmon-kensetsu-25mon/youtube.longform/scene-001",
+        "scene-002": "pe-first-stage/pe1-senmon-kensetsu-25mon/youtube.longform/scene-002",
+        "scene-003": "pe-first-stage/pe1-senmon-kensetsu-25mon/youtube.longform/scene-003",
+        "scene-004": "pe-first-stage/pe1-senmon-kensetsu-25mon/youtube.longform/scene-004",
+        "scene-005": "pe-first-stage/pe1-senmon-kensetsu-25mon/youtube.longform/scene-005",
+        "scene-006": "pe-first-stage/pe1-senmon-kensetsu-25mon/youtube.longform/scene-006",
+        "scene-007": "pe-first-stage/pe1-senmon-kensetsu-25mon/youtube.longform/scene-007",
+        "scene-008": "pe-first-stage/pe1-senmon-kensetsu-25mon/youtube.longform/scene-008",
+        "scene-009": "pe-first-stage/pe1-senmon-kensetsu-25mon/youtube.longform/scene-009",
+        "scene-010": "pe-first-stage/pe1-senmon-kensetsu-25mon/youtube.longform/scene-010",
+        "scene-011": "pe-first-stage/pe1-senmon-kensetsu-25mon/youtube.longform/scene-011",
+        "scene-012": "pe-first-stage/pe1-senmon-kensetsu-25mon/youtube.longform/scene-012",
+        "scene-013": "pe-first-stage/pe1-senmon-kensetsu-25mon/youtube.longform/scene-013",
+        "scene-014": "pe-first-stage/pe1-senmon-kensetsu-25mon/youtube.longform/scene-014",
+        "scene-015": "pe-first-stage/pe1-senmon-kensetsu-25mon/youtube.longform/scene-015",
+        "video": "pe-first-stage/pe1-senmon-kensetsu-25mon/youtube.longform/video",
+        "subtitles": "pe-first-stage/pe1-senmon-kensetsu-25mon/youtube.longform/subtitles",
+        "preview": "pe-first-stage/pe1-senmon-kensetsu-25mon/youtube.longform/preview",
+        "contact-sheet": "pe-first-stage/pe1-senmon-kensetsu-25mon/youtube.longform/contact-sheet",
+        "scene-sheet": "pe-first-stage/pe1-senmon-kensetsu-25mon/youtube.longform/scene-sheet",
+        "preview-metrics": "pe-first-stage/pe1-senmon-kensetsu-25mon/youtube.longform/preview-metrics"
+      },
+      "status": "rendered",
+      "copy": "content/sns/video-packs/pe-first-stage/pe1-senmon-kensetsu-25mon/youtube.json#longform",
+      "publishAt": "2026-11-06T20:00:00+09:00",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "user",
+          "at": "2026-10-28T00:30:47.345Z",
+          "digest": "0222323e409d33d9c5e2a53e5ef7139758a694f1513088d0b7b521e1c2f5de03"
+        }
+      },
+      "approval": {
+        "by": "user",
+        "at": "2026-10-28T00:30:47.698Z",
+        "contentSha256": "9a926be07ad6e373da3c7c917ec416690393684b80d5eb3c2f7dc9f1926fe61f"
+      },
+      "times": {
+        "rendered": "2026-10-28T00:30:57.088Z"
+      }
     },
     {
       "id": "pe-first-stage/pe1-tekisei-3shiten/youtube.longform",

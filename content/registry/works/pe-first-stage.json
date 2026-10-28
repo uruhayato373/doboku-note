@@ -17,17 +17,35 @@
     {
       "id": "pe1-kiso-gyouretsu-vector",
       "kind": "video-pack",
-      "definition": "content/sns/video-packs/pe-first-stage/pe1-kiso-gyouretsu-vector"
+      "definition": "content/sns/video-packs/pe-first-stage/pe1-kiso-gyouretsu-vector",
+      "qa": {
+        "avg": 2.83,
+        "blocks": 0,
+        "at": "2026-10-28",
+        "by": "Claude Code video-content-qa"
+      }
     },
     {
       "id": "pe1-kiso-kairo-setsuten",
       "kind": "video-pack",
-      "definition": "content/sns/video-packs/pe-first-stage/pe1-kiso-kairo-setsuten"
+      "definition": "content/sns/video-packs/pe-first-stage/pe1-kiso-kairo-setsuten",
+      "qa": {
+        "avg": 2.83,
+        "blocks": 0,
+        "at": "2026-10-28",
+        "by": "Claude Code video-content-qa"
+      }
     },
     {
       "id": "pe1-kiso-newton-hou",
       "kind": "video-pack",
-      "definition": "content/sns/video-packs/pe-first-stage/pe1-kiso-newton-hou"
+      "definition": "content/sns/video-packs/pe-first-stage/pe1-kiso-newton-hou",
+      "qa": {
+        "avg": 2.67,
+        "blocks": 0,
+        "at": "2026-10-28",
+        "by": "Claude Code video-content-qa"
+      }
     },
     {
       "id": "pe1-kiso-senmon",
@@ -133,7 +151,13 @@
     {
       "id": "pe1-senmon-kensetsu-25mon",
       "kind": "video-pack",
-      "definition": "content/sns/video-packs/pe-first-stage/pe1-senmon-kensetsu-25mon"
+      "definition": "content/sns/video-packs/pe-first-stage/pe1-senmon-kensetsu-25mon",
+      "qa": {
+        "avg": 2.67,
+        "blocks": 0,
+        "at": "2026-10-28",
+        "by": "Claude Code video-content-qa"
+      }
     },
     {
       "id": "pe1-tekisei-3shiten",

@@ -10,7 +10,8 @@
         "exam": "pe-first-stage",
         "headline": [
           "回路の接続点",
-          "形より接続点"
+          "線の形に",
+          "だまされない"
         ],
         "benefit": "",
         "authority": "総監が制作"
@@ -42,7 +43,7 @@
       "review": {
         "status": "agent-reviewed",
         "by": "Codex",
-        "checkedAt": "2026-10-28T00:07:43.937Z",
+        "checkedAt": "2026-10-28T00:21:31.985Z",
         "viewportWidth": 360,
         "checks": [
           "見出しと資格名の可読性",
@@ -72,7 +73,7 @@
           "inputSha256": "bfd4a1d870e1826e4652efae2c87f15e88eeee90c925086802132c2913dc5fe4",
           "generation": {
             "tool": "image_gen",
-            "prompt": "Create a NEW precise Japanese 16:9 educational diagram, attached image only as style reference: white pale grey background, strong navy lines, blue current, green correct emphasis and yellow highlights. No person. Keep all meaning above lower 18% subtitle area. Large labels only. Heading 「接続点が先」. Exact circuit: A to C one 3Ω resistor; C to B TWO separate parallel branches 12Ω and 4Ω. 12V source between A and B. Highlight endpoints C and B. Three steps 「①点に名前」「②同じ二点なら並列」「③分岐なしなら直列」. No other resistors.",
+            "prompt": "Create NEW Japanese 16:9 educational diagram using attached image only as white/pale-grey navy green style reference. Heading 「接続点が先」. Three large numbered steps ONLY, no electrical source icon and NO battery polarity symbol ANYWHERE. Step ① 「点に名前」 beside three separate colored circles A,C,B. Step ② 「同じ二点なら並列」 beside two resistor branches BOTH between node C and node B labeled 12Ω and 4Ω. Step ③ 「分岐なしなら直列」 beside simple one-path A --3Ω-- C --3Ω-- B. Correct topology, no source, no voltage label, no current direction arrow. Large legible labels above lower 18% subtitle area.",
             "references": [
               {
                 "path": ".tmp/media/pe-first-stage/pe1-kiso-gyouretsu-vector/work/answer-diagram.7be541cb.png",
@@ -80,25 +81,25 @@
               }
             ],
             "output": {
-              "path": ".tmp/media/pe-first-stage/pe1-kiso-kairo-setsuten/work/raw-answer.772a8f9e.png",
-              "sha256": "772a8f9e72146fc3ce50d5c8751cda3100a6e5217b722d4c1f2e50ee3db186e0"
+              "path": ".tmp/media/pe-first-stage/pe1-kiso-kairo-setsuten/work/raw-answer.dcf72187.png",
+              "sha256": "dcf721871048c8b0eff821b62902fbc503d84b9e4693018517e2965f5543f9be"
             },
-            "generatedAt": "2026-10-28T00:07:43.937Z"
+            "generatedAt": "2026-10-28T00:21:31.985Z"
           },
           "output": {
-            "path": ".tmp/media/pe-first-stage/pe1-kiso-kairo-setsuten/work/answer-diagram.f759495a.png",
-            "sha256": "f759495a9ff7f9646d1e4f404589809b6b56076333a3f4d40503eab9d0db81a4",
+            "path": ".tmp/media/pe-first-stage/pe1-kiso-kairo-setsuten/work/answer-diagram.19805aff.png",
+            "sha256": "19805aff12b6dde526a68343be9ffa737b9650b3c88ba662a72ee59dcc9692b2",
             "width": 1920,
             "height": 1080
           },
           "normalization": {
             "mode": "full-frame-v1",
-            "sourceSha256": "772a8f9e72146fc3ce50d5c8751cda3100a6e5217b722d4c1f2e50ee3db186e0"
+            "sourceSha256": "dcf721871048c8b0eff821b62902fbc503d84b9e4693018517e2965f5543f9be"
           },
           "review": {
             "status": "ai-reviewed",
             "userReview": "pending",
-            "checkedAt": "2026-10-28T00:07:43.937Z",
+            "checkedAt": "2026-10-28T00:21:31.985Z",
             "by": "Codex",
             "views": [
               "original"
@@ -127,7 +128,7 @@
               "path": ".tmp/media/pe-first-stage/pe1-kiso-kairo-setsuten/work/raw-pain.a1f53fda.png",
               "sha256": "a1f53fdaf6acd7c1c6009186ab6b1dba76551cb622faf22f624f225fabb62574"
             },
-            "generatedAt": "2026-10-28T00:07:43.937Z"
+            "generatedAt": "2026-10-28T00:21:31.985Z"
           },
           "output": {
             "path": ".tmp/media/pe-first-stage/pe1-kiso-kairo-setsuten/work/pain-diagram.9571ea37.png",
@@ -142,7 +143,7 @@
           "review": {
             "status": "ai-reviewed",
             "userReview": "pending",
-            "checkedAt": "2026-10-28T00:07:43.937Z",
+            "checkedAt": "2026-10-28T00:21:31.985Z",
             "by": "Codex",
             "views": [
               "original"
@@ -171,7 +172,7 @@
               "path": ".tmp/media/pe-first-stage/pe1-kiso-kairo-setsuten/work/raw-misread.f4b6e11a.png",
               "sha256": "f4b6e11a8f3af44320bdeb92ad4619d1d6d5c27ac53c7e774fc429562d8941ce"
             },
-            "generatedAt": "2026-10-28T00:07:43.937Z"
+            "generatedAt": "2026-10-28T00:21:31.985Z"
           },
           "output": {
             "path": ".tmp/media/pe-first-stage/pe1-kiso-kairo-setsuten/work/misread-diagram.de58d474.png",
@@ -186,7 +187,7 @@
           "review": {
             "status": "ai-reviewed",
             "userReview": "pending",
-            "checkedAt": "2026-10-28T00:07:43.937Z",
+            "checkedAt": "2026-10-28T00:21:31.985Z",
             "by": "Codex",
             "views": [
               "original"
@@ -215,7 +216,7 @@
               "path": ".tmp/media/pe-first-stage/pe1-kiso-kairo-setsuten/work/raw-setup.3e6002f7.png",
               "sha256": "3e6002f7a39187f00954f6013df98dce92a531c7d703d7914db11ff0ee74161f"
             },
-            "generatedAt": "2026-10-28T00:07:43.937Z"
+            "generatedAt": "2026-10-28T00:21:31.985Z"
           },
           "output": {
             "path": ".tmp/media/pe-first-stage/pe1-kiso-kairo-setsuten/work/setup-diagram.f29fb288.png",
@@ -230,7 +231,7 @@
           "review": {
             "status": "ai-reviewed",
             "userReview": "pending",
-            "checkedAt": "2026-10-28T00:07:43.937Z",
+            "checkedAt": "2026-10-28T00:21:31.985Z",
             "by": "Codex",
             "views": [
               "original"
@@ -259,7 +260,7 @@
               "path": ".tmp/media/pe-first-stage/pe1-kiso-kairo-setsuten/work/raw-name.657074a9.png",
               "sha256": "657074a98ccd00517e4d7a3ea08098bb8c237884d698a350db26f2cf19382600"
             },
-            "generatedAt": "2026-10-28T00:07:43.937Z"
+            "generatedAt": "2026-10-28T00:21:31.985Z"
           },
           "output": {
             "path": ".tmp/media/pe-first-stage/pe1-kiso-kairo-setsuten/work/name-diagram.82765c4e.png",
@@ -274,7 +275,7 @@
           "review": {
             "status": "ai-reviewed",
             "userReview": "pending",
-            "checkedAt": "2026-10-28T00:07:43.937Z",
+            "checkedAt": "2026-10-28T00:21:31.985Z",
             "by": "Codex",
             "views": [
               "original"
@@ -303,7 +304,7 @@
               "path": ".tmp/media/pe-first-stage/pe1-kiso-kairo-setsuten/work/raw-parallel.9d3f914f.png",
               "sha256": "9d3f914f7a201fbce3f1adefd4773e63a44fc5f40fdf2edd4b68c03271c80dee"
             },
-            "generatedAt": "2026-10-28T00:07:43.937Z"
+            "generatedAt": "2026-10-28T00:21:31.985Z"
           },
           "output": {
             "path": ".tmp/media/pe-first-stage/pe1-kiso-kairo-setsuten/work/parallel-diagram.24c12da7.png",
@@ -318,7 +319,7 @@
           "review": {
             "status": "ai-reviewed",
             "userReview": "pending",
-            "checkedAt": "2026-10-28T00:07:43.937Z",
+            "checkedAt": "2026-10-28T00:21:31.985Z",
             "by": "Codex",
             "views": [
               "original"
@@ -347,7 +348,7 @@
               "path": ".tmp/media/pe-first-stage/pe1-kiso-kairo-setsuten/work/raw-combine.64e20b4d.png",
               "sha256": "64e20b4df8fd008ecdd4afa8d7eb02939e23f700d5a8f9233630e5d10fbb5ca0"
             },
-            "generatedAt": "2026-10-28T00:07:43.937Z"
+            "generatedAt": "2026-10-28T00:21:31.985Z"
           },
           "output": {
             "path": ".tmp/media/pe-first-stage/pe1-kiso-kairo-setsuten/work/combine-diagram.1c68584e.png",
@@ -362,7 +363,7 @@
           "review": {
             "status": "ai-reviewed",
             "userReview": "pending",
-            "checkedAt": "2026-10-28T00:07:43.937Z",
+            "checkedAt": "2026-10-28T00:21:31.985Z",
             "by": "Codex",
             "views": [
               "original"
@@ -391,7 +392,7 @@
               "path": ".tmp/media/pe-first-stage/pe1-kiso-kairo-setsuten/work/raw-series.c07873cd.png",
               "sha256": "c07873cdabdd50da04496c4fe5a455dbded631dac8011e365d5ef3cec63b4ac2"
             },
-            "generatedAt": "2026-10-28T00:07:43.937Z"
+            "generatedAt": "2026-10-28T00:21:31.985Z"
           },
           "output": {
             "path": ".tmp/media/pe-first-stage/pe1-kiso-kairo-setsuten/work/series-diagram.b5832a33.png",
@@ -406,7 +407,7 @@
           "review": {
             "status": "ai-reviewed",
             "userReview": "pending",
-            "checkedAt": "2026-10-28T00:07:43.937Z",
+            "checkedAt": "2026-10-28T00:21:31.985Z",
             "by": "Codex",
             "views": [
               "original"
@@ -435,7 +436,7 @@
               "path": ".tmp/media/pe-first-stage/pe1-kiso-kairo-setsuten/work/raw-check.9ef65aaa.png",
               "sha256": "9ef65aaab17dfba436d1744c3989028db9721f9aacee8f5d76d79da4d0ee1a0a"
             },
-            "generatedAt": "2026-10-28T00:07:43.937Z"
+            "generatedAt": "2026-10-28T00:21:31.985Z"
           },
           "output": {
             "path": ".tmp/media/pe-first-stage/pe1-kiso-kairo-setsuten/work/check-diagram.4d595d1d.png",
@@ -450,7 +451,7 @@
           "review": {
             "status": "ai-reviewed",
             "userReview": "pending",
-            "checkedAt": "2026-10-28T00:07:43.937Z",
+            "checkedAt": "2026-10-28T00:21:31.985Z",
             "by": "Codex",
             "views": [
               "original"
@@ -479,7 +480,7 @@
               "path": ".tmp/media/pe-first-stage/pe1-kiso-kairo-setsuten/work/raw-rule.3afc9d15.png",
               "sha256": "3afc9d15439240e59f8939eba370d6847ea144857c1aa618e6d5ffeeaad8a503"
             },
-            "generatedAt": "2026-10-28T00:07:43.937Z"
+            "generatedAt": "2026-10-28T00:21:31.985Z"
           },
           "output": {
             "path": ".tmp/media/pe-first-stage/pe1-kiso-kairo-setsuten/work/rule-diagram.4e07401a.png",
@@ -494,7 +495,7 @@
           "review": {
             "status": "ai-reviewed",
             "userReview": "pending",
-            "checkedAt": "2026-10-28T00:07:43.937Z",
+            "checkedAt": "2026-10-28T00:21:31.985Z",
             "by": "Codex",
             "views": [
               "original"
@@ -523,7 +524,7 @@
               "path": ".tmp/media/pe-first-stage/pe1-kiso-kairo-setsuten/work/raw-trouble.0ed02497.png",
               "sha256": "0ed024975c633d6710cd744a84fd18dab56b14e025b616d62432cff68230c5da"
             },
-            "generatedAt": "2026-10-28T00:07:43.937Z"
+            "generatedAt": "2026-10-28T00:21:31.985Z"
           },
           "output": {
             "path": ".tmp/media/pe-first-stage/pe1-kiso-kairo-setsuten/work/trouble-diagram.5cc43309.png",
@@ -538,7 +539,7 @@
           "review": {
             "status": "ai-reviewed",
             "userReview": "pending",
-            "checkedAt": "2026-10-28T00:07:43.937Z",
+            "checkedAt": "2026-10-28T00:21:31.985Z",
             "by": "Codex",
             "views": [
               "original"
@@ -556,7 +557,7 @@
           "inputSha256": "b173da1b3532aa8bd855c1583c03d662547494283e0dd0eee0c5d4064c617a98",
           "generation": {
             "tool": "image_gen",
-            "prompt": "Create a NEW precise Japanese 16:9 educational diagram, attached image only as style reference: white pale grey background, thick navy wires, blue current, green correct emphasis, yellow highlights. No person. Keep all meaning above lower 18% subtitle area. Large legible Japanese labels only. Heading 「過去問で接続点を見る」. Two simple practice cards: 「令和6年 基礎 I-3-6」 with node-labeled resistor network; 「令和7年 基礎 I-3-5」 with tetrahedron edge resistor silhouette. Big instruction 「同じ点に同じ文字」. No answer claim, no tiny equations.",
+            "prompt": "Create NEW simple Japanese 16:9 educational graphic using attached image only as clean white pale-grey navy green style reference. NO circuit drawings of any kind, NO tetrahedron, NO resistor icon, NO schematic, NO geometric shape that could imply exam topology. Heading 「過去問で接続点を見る」. Two large plain rectangular text cards only: left 「令和6年度 基礎 I-3-6」 with a generic open-book icon; right 「令和7年度 基礎 I-3-5」 with a generic open-book icon. Between or below them one large instruction 「同じ点に同じ文字」 and a simple pencil icon. Keep lower 18% empty for captions. Accurate Japanese characters and numerals, no extra words.",
             "references": [
               {
                 "path": ".tmp/media/pe-first-stage/pe1-kiso-gyouretsu-vector/work/answer-diagram.7be541cb.png",
@@ -564,25 +565,25 @@
               }
             ],
             "output": {
-              "path": ".tmp/media/pe-first-stage/pe1-kiso-kairo-setsuten/work/raw-practice.b42061ad.png",
-              "sha256": "b42061ad1eb6d6fbe686928fb5f3c42c0fe829c88358129be5e8be02c677ac70"
+              "path": ".tmp/media/pe-first-stage/pe1-kiso-kairo-setsuten/work/raw-practice.ce3cfb16.png",
+              "sha256": "ce3cfb1612c90f023944bc77cc8a383397d6cc67774493101df1f2360ebf3227"
             },
-            "generatedAt": "2026-10-28T00:07:43.937Z"
+            "generatedAt": "2026-10-28T00:21:31.985Z"
           },
           "output": {
-            "path": ".tmp/media/pe-first-stage/pe1-kiso-kairo-setsuten/work/practice-diagram.5b14dd39.png",
-            "sha256": "5b14dd39d88ec38f0e7916181bf8120ffcdf225551070cfd6bbdb7e0b2a95177",
+            "path": ".tmp/media/pe-first-stage/pe1-kiso-kairo-setsuten/work/practice-diagram.52f5ce73.png",
+            "sha256": "52f5ce73a9c0c1cb46444927f3166bdb45d85289857931b71f1b02241bfb0c75",
             "width": 1920,
             "height": 1080
           },
           "normalization": {
             "mode": "full-frame-v1",
-            "sourceSha256": "b42061ad1eb6d6fbe686928fb5f3c42c0fe829c88358129be5e8be02c677ac70"
+            "sourceSha256": "ce3cfb1612c90f023944bc77cc8a383397d6cc67774493101df1f2360ebf3227"
           },
           "review": {
             "status": "ai-reviewed",
             "userReview": "pending",
-            "checkedAt": "2026-10-28T00:07:43.937Z",
+            "checkedAt": "2026-10-28T00:21:31.985Z",
             "by": "Codex",
             "views": [
               "original"
@@ -611,7 +612,7 @@
               "path": ".tmp/media/pe-first-stage/pe1-kiso-kairo-setsuten/work/raw-summary.5de5a17f.png",
               "sha256": "5de5a17f7d5c6497480698caf67db89c9faceb8a0058518063f4ff10c05dbc6c"
             },
-            "generatedAt": "2026-10-28T00:07:43.937Z"
+            "generatedAt": "2026-10-28T00:21:31.985Z"
           },
           "output": {
             "path": ".tmp/media/pe-first-stage/pe1-kiso-kairo-setsuten/work/summary-diagram.fd5ebb82.png",
@@ -626,7 +627,7 @@
           "review": {
             "status": "ai-reviewed",
             "userReview": "pending",
-            "checkedAt": "2026-10-28T00:07:43.937Z",
+            "checkedAt": "2026-10-28T00:21:31.985Z",
             "by": "Codex",
             "views": [
               "original"
@@ -655,7 +656,7 @@
               "path": ".tmp/media/pe-first-stage/pe1-kiso-kairo-setsuten/work/raw-cta.33198caa.png",
               "sha256": "33198caa55ed0ad7d422b268cba7a608d13f65df3b5024429f32c2facbcfd710"
             },
-            "generatedAt": "2026-10-28T00:07:43.937Z"
+            "generatedAt": "2026-10-28T00:21:31.985Z"
           },
           "output": {
             "path": ".tmp/media/pe-first-stage/pe1-kiso-kairo-setsuten/work/cta-diagram.3a3278bc.png",
@@ -670,7 +671,7 @@
           "review": {
             "status": "ai-reviewed",
             "userReview": "pending",
-            "checkedAt": "2026-10-28T00:07:43.937Z",
+            "checkedAt": "2026-10-28T00:21:31.985Z",
             "by": "Codex",
             "views": [
               "original"
@@ -700,13 +701,14 @@
           "path": ".tmp/media/pe-first-stage/pe1-kiso-kairo-setsuten/work/raw-cover.3607ed31.png",
           "sha256": "3607ed31a7afcd404ed905f08ada2353d980a5c7d4607a5078ffc67b7add9391"
         },
-        "generatedAt": "2026-10-28T00:07:43.937Z"
+        "generatedAt": "2026-10-28T00:21:31.985Z"
       },
       "copy": {
         "exam": "pe-first-stage",
         "headline": [
           "回路の接続点",
-          "形より接続点"
+          "線の形に",
+          "だまされない"
         ],
         "authority": "総監が制作"
       },
@@ -723,7 +725,7 @@
       "review": {
         "status": "ai-reviewed",
         "userImageReview": "pending",
-        "checkedAt": "2026-10-28T00:07:43.937Z",
+        "checkedAt": "2026-10-28T00:21:31.985Z",
         "by": "Codex",
         "views": [
           "original"

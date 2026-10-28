@@ -3365,6 +3365,96 @@
       "reason": "独立AI画像監査：最終採用PNGを原寸と360pxで実見。指定4文言・ポーズ・顔と手指・安全域に問題なし。ユーザー承認は含まない。",
       "reviewedAt": "2026-10-11T03:36:30.184Z"
     },
+    "media:pe-first-stage/pe1-kiso-gyouretsu-vector/youtube.longform/cover": {
+      "sha": "ec9f3aa7b01725b8",
+      "verdict": "ok",
+      "reason": "画像監査: pe1-kiso-gyouretsu-vector cover の文字・数値・構造と台本の整合を確認",
+      "reviewedAt": "2026-10-28T00:30:20.426Z"
+    },
+    "media:pe-first-stage/pe1-kiso-gyouretsu-vector/youtube.longform/scene-001": {
+      "sha": "ec9f3aa7b01725b8",
+      "verdict": "ok",
+      "reason": "画像監査: pe1-kiso-gyouretsu-vector scene-001 の文字・数値・構造と台本の整合を確認",
+      "reviewedAt": "2026-10-28T00:30:20.426Z"
+    },
+    "media:pe-first-stage/pe1-kiso-gyouretsu-vector/youtube.longform/scene-002": {
+      "sha": "7be541cbeeaa3094",
+      "verdict": "ok",
+      "reason": "画像監査: pe1-kiso-gyouretsu-vector scene-002 の文字・数値・構造と台本の整合を確認",
+      "reviewedAt": "2026-10-28T00:30:20.426Z"
+    },
+    "media:pe-first-stage/pe1-kiso-gyouretsu-vector/youtube.longform/scene-003": {
+      "sha": "d9c14720a3fb6646",
+      "verdict": "ok",
+      "reason": "画像監査: pe1-kiso-gyouretsu-vector scene-003 の文字・数値・構造と台本の整合を確認",
+      "reviewedAt": "2026-10-28T00:30:20.426Z"
+    },
+    "media:pe-first-stage/pe1-kiso-gyouretsu-vector/youtube.longform/scene-004": {
+      "sha": "0caa05ceb7f55df8",
+      "verdict": "ok",
+      "reason": "画像監査: pe1-kiso-gyouretsu-vector scene-004 の文字・数値・構造と台本の整合を確認",
+      "reviewedAt": "2026-10-28T00:30:20.426Z"
+    },
+    "media:pe-first-stage/pe1-kiso-gyouretsu-vector/youtube.longform/scene-005": {
+      "sha": "a43d577f8b07a533",
+      "verdict": "ok",
+      "reason": "画像監査: pe1-kiso-gyouretsu-vector scene-005 の文字・数値・構造と台本の整合を確認",
+      "reviewedAt": "2026-10-28T00:30:20.426Z"
+    },
+    "media:pe-first-stage/pe1-kiso-gyouretsu-vector/youtube.longform/scene-006": {
+      "sha": "e7dc3781a8929dcd",
+      "verdict": "ok",
+      "reason": "画像監査: pe1-kiso-gyouretsu-vector scene-006 の文字・数値・構造と台本の整合を確認",
+      "reviewedAt": "2026-10-28T00:30:20.426Z"
+    },
+    "media:pe-first-stage/pe1-kiso-gyouretsu-vector/youtube.longform/scene-007": {
+      "sha": "44400f5f2d4420a1",
+      "verdict": "ok",
+      "reason": "画像監査: pe1-kiso-gyouretsu-vector scene-007 の文字・数値・構造と台本の整合を確認",
+      "reviewedAt": "2026-10-28T00:30:20.426Z"
+    },
+    "media:pe-first-stage/pe1-kiso-gyouretsu-vector/youtube.longform/scene-008": {
+      "sha": "bdeb88f644e0c06c",
+      "verdict": "ok",
+      "reason": "画像監査: pe1-kiso-gyouretsu-vector scene-008 の文字・数値・構造と台本の整合を確認",
+      "reviewedAt": "2026-10-28T00:30:20.426Z"
+    },
+    "media:pe-first-stage/pe1-kiso-gyouretsu-vector/youtube.longform/scene-009": {
+      "sha": "e7afbd0bf69b3575",
+      "verdict": "ok",
+      "reason": "画像監査: pe1-kiso-gyouretsu-vector scene-009 の文字・数値・構造と台本の整合を確認",
+      "reviewedAt": "2026-10-28T00:30:20.426Z"
+    },
+    "media:pe-first-stage/pe1-kiso-gyouretsu-vector/youtube.longform/scene-010": {
+      "sha": "c35e0aafaf489d7e",
+      "verdict": "ok",
+      "reason": "画像監査: pe1-kiso-gyouretsu-vector scene-010 の文字・数値・構造と台本の整合を確認",
+      "reviewedAt": "2026-10-28T00:30:20.426Z"
+    },
+    "media:pe-first-stage/pe1-kiso-gyouretsu-vector/youtube.longform/scene-011": {
+      "sha": "a610f0b40480dcb9",
+      "verdict": "ok",
+      "reason": "画像監査: pe1-kiso-gyouretsu-vector scene-011 の文字・数値・構造と台本の整合を確認",
+      "reviewedAt": "2026-10-28T00:30:20.426Z"
+    },
+    "media:pe-first-stage/pe1-kiso-gyouretsu-vector/youtube.longform/scene-012": {
+      "sha": "679d3dc167e5fd73",
+      "verdict": "ok",
+      "reason": "画像監査: pe1-kiso-gyouretsu-vector scene-012 の文字・数値・構造と台本の整合を確認",
+      "reviewedAt": "2026-10-28T00:30:20.426Z"
+    },
+    "media:pe-first-stage/pe1-kiso-gyouretsu-vector/youtube.longform/scene-013": {
+      "sha": "1fde968fa606ef79",
+      "verdict": "ok",
+      "reason": "画像監査: pe1-kiso-gyouretsu-vector scene-013 の文字・数値・構造と台本の整合を確認",
+      "reviewedAt": "2026-10-28T00:30:20.426Z"
+    },
+    "media:pe-first-stage/pe1-kiso-gyouretsu-vector/youtube.longform/scene-014": {
+      "sha": "d66f01c4f16bb74d",
+      "verdict": "ok",
+      "reason": "画像監査: pe1-kiso-gyouretsu-vector scene-014 の文字・数値・構造と台本の整合を確認",
+      "reviewedAt": "2026-10-28T00:30:20.426Z"
+    },
     "media:pe-first-stage/pe1-kiso-senmon/youtube.longform/cover": {
       "sha": "145b46501cbe0898",
       "verdict": "ok",
@@ -3460,6 +3550,102 @@
       "verdict": "ok",
       "reason": "全560問、基礎・適性・専門は建設部門と示し商品内容と一致する。",
       "reviewedAt": "2026-10-27T15:15:36.363Z"
+    },
+    "media:pe-first-stage/pe1-senmon-kensetsu-25mon/youtube.longform/cover": {
+      "sha": "be65324798c43050",
+      "verdict": "ok",
+      "reason": "画像監査: pe1-senmon-kensetsu-25mon cover の文字・数値・構造と台本の整合を確認",
+      "reviewedAt": "2026-10-28T00:30:20.354Z"
+    },
+    "media:pe-first-stage/pe1-senmon-kensetsu-25mon/youtube.longform/scene-001": {
+      "sha": "be65324798c43050",
+      "verdict": "ok",
+      "reason": "画像監査: pe1-senmon-kensetsu-25mon scene-001 の文字・数値・構造と台本の整合を確認",
+      "reviewedAt": "2026-10-28T00:30:20.425Z"
+    },
+    "media:pe-first-stage/pe1-senmon-kensetsu-25mon/youtube.longform/scene-002": {
+      "sha": "3cf336aa29686032",
+      "verdict": "ok",
+      "reason": "画像監査: pe1-senmon-kensetsu-25mon scene-002 の文字・数値・構造と台本の整合を確認",
+      "reviewedAt": "2026-10-28T00:30:20.425Z"
+    },
+    "media:pe-first-stage/pe1-senmon-kensetsu-25mon/youtube.longform/scene-003": {
+      "sha": "01e7f3fb1e0c0b45",
+      "verdict": "ok",
+      "reason": "画像監査: pe1-senmon-kensetsu-25mon scene-003 の文字・数値・構造と台本の整合を確認",
+      "reviewedAt": "2026-10-28T00:30:20.425Z"
+    },
+    "media:pe-first-stage/pe1-senmon-kensetsu-25mon/youtube.longform/scene-004": {
+      "sha": "9016c906b499f419",
+      "verdict": "ok",
+      "reason": "画像監査: pe1-senmon-kensetsu-25mon scene-004 の文字・数値・構造と台本の整合を確認",
+      "reviewedAt": "2026-10-28T00:30:20.426Z"
+    },
+    "media:pe-first-stage/pe1-senmon-kensetsu-25mon/youtube.longform/scene-005": {
+      "sha": "127f66621021c00c",
+      "verdict": "ok",
+      "reason": "画像監査: pe1-senmon-kensetsu-25mon scene-005 の文字・数値・構造と台本の整合を確認",
+      "reviewedAt": "2026-10-28T00:30:20.426Z"
+    },
+    "media:pe-first-stage/pe1-senmon-kensetsu-25mon/youtube.longform/scene-006": {
+      "sha": "d5f4fef19f9bbb3a",
+      "verdict": "ok",
+      "reason": "画像監査: pe1-senmon-kensetsu-25mon scene-006 の文字・数値・構造と台本の整合を確認",
+      "reviewedAt": "2026-10-28T00:30:20.426Z"
+    },
+    "media:pe-first-stage/pe1-senmon-kensetsu-25mon/youtube.longform/scene-007": {
+      "sha": "fd8062492de81558",
+      "verdict": "ok",
+      "reason": "画像監査: pe1-senmon-kensetsu-25mon scene-007 の文字・数値・構造と台本の整合を確認",
+      "reviewedAt": "2026-10-28T00:30:20.426Z"
+    },
+    "media:pe-first-stage/pe1-senmon-kensetsu-25mon/youtube.longform/scene-008": {
+      "sha": "a9818aa49eda5eb5",
+      "verdict": "ok",
+      "reason": "画像監査: pe1-senmon-kensetsu-25mon scene-008 の文字・数値・構造と台本の整合を確認",
+      "reviewedAt": "2026-10-28T00:30:20.426Z"
+    },
+    "media:pe-first-stage/pe1-senmon-kensetsu-25mon/youtube.longform/scene-009": {
+      "sha": "b4b03f3e426ef105",
+      "verdict": "ok",
+      "reason": "画像監査: pe1-senmon-kensetsu-25mon scene-009 の文字・数値・構造と台本の整合を確認",
+      "reviewedAt": "2026-10-28T00:30:20.426Z"
+    },
+    "media:pe-first-stage/pe1-senmon-kensetsu-25mon/youtube.longform/scene-010": {
+      "sha": "b17130a904c307bb",
+      "verdict": "ok",
+      "reason": "画像監査: pe1-senmon-kensetsu-25mon scene-010 の文字・数値・構造と台本の整合を確認",
+      "reviewedAt": "2026-10-28T00:30:20.426Z"
+    },
+    "media:pe-first-stage/pe1-senmon-kensetsu-25mon/youtube.longform/scene-011": {
+      "sha": "1d602dff2ade9e81",
+      "verdict": "ok",
+      "reason": "画像監査: pe1-senmon-kensetsu-25mon scene-011 の文字・数値・構造と台本の整合を確認",
+      "reviewedAt": "2026-10-28T00:30:20.426Z"
+    },
+    "media:pe-first-stage/pe1-senmon-kensetsu-25mon/youtube.longform/scene-012": {
+      "sha": "cf0b4b27e18741e7",
+      "verdict": "ok",
+      "reason": "画像監査: pe1-senmon-kensetsu-25mon scene-012 の文字・数値・構造と台本の整合を確認",
+      "reviewedAt": "2026-10-28T00:30:20.426Z"
+    },
+    "media:pe-first-stage/pe1-senmon-kensetsu-25mon/youtube.longform/scene-013": {
+      "sha": "344678239a2aac93",
+      "verdict": "ok",
+      "reason": "画像監査: pe1-senmon-kensetsu-25mon scene-013 の文字・数値・構造と台本の整合を確認",
+      "reviewedAt": "2026-10-28T00:30:20.426Z"
+    },
+    "media:pe-first-stage/pe1-senmon-kensetsu-25mon/youtube.longform/scene-014": {
+      "sha": "3f37ed5ec0ffae8f",
+      "verdict": "ok",
+      "reason": "画像監査: pe1-senmon-kensetsu-25mon scene-014 の文字・数値・構造と台本の整合を確認",
+      "reviewedAt": "2026-10-28T00:30:20.426Z"
+    },
+    "media:pe-first-stage/pe1-senmon-kensetsu-25mon/youtube.longform/scene-015": {
+      "sha": "07c4c34defc3efa6",
+      "verdict": "ok",
+      "reason": "画像監査: pe1-senmon-kensetsu-25mon scene-015 の文字・数値・構造と台本の整合を確認",
+      "reviewedAt": "2026-10-28T00:30:20.426Z"
     },
     "media:pe-first-stage/pe1-tekisei-3shiten/youtube.longform/cover": {
       "sha": "065a283fc49f19de",
