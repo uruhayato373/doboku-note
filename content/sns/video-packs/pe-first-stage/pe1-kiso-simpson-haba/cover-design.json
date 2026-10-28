@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "pe-first-stage",
+      "headline": [
+        "シンプソン則",
+        "hは刻み幅"
+      ],
+      "accentLine": 0,
+      "subtitle": "基礎科目",
+      "character": {
+        "pose": "pop-red-pen",
+        "frame": "waist"
+      },
+      "design": "pop-poster-v3",
+      "pop": {
+        "variant": "question",
+        "authority": "総監が制作"
+      },
+      "approvedImage": {
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-simpson-haba/work/cover-pop.876adc4d.png",
+        "sha256": "876adc4db671f568b3337a867b4123c8b2ce7206310ff8dc3615b76c092f6b51",
+        "specSha256": "3e9e041d8a89e571d4950de9ed81954dd9e6e4a497087beffa28b5a9ff627c34"
+      }
+    }
+  }
+}

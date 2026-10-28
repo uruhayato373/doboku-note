@@ -98,6 +98,17 @@
       }
     },
     {
+      "id": "shunin-kanri-kikaku-genkai",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/concrete-chief-engineer/shunin-kanri-kikaku-genkai",
+      "qa": {
+        "avg": 2.67,
+        "blocks": 0,
+        "at": "2026-10-28",
+        "by": "Claude Code video-content-qa"
+      }
+    },
+    {
       "id": "shunin-materials-ronten",
       "kind": "video-pack",
       "definition": "content/sns/video-packs/concrete-chief-engineer/shunin-materials-ronten",

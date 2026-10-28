@@ -59,6 +59,28 @@
       }
     },
     {
+      "id": "pe1-kiso-simpson-haba",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/pe-first-stage/pe1-kiso-simpson-haba",
+      "qa": {
+        "avg": 2.33,
+        "blocks": 0,
+        "at": "2026-10-28",
+        "by": "Claude Code video-content-qa"
+      }
+    },
+    {
+      "id": "pe1-kiso-xor-shingihyou",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/pe-first-stage/pe1-kiso-xor-shingihyou",
+      "qa": {
+        "avg": 2.5,
+        "blocks": 0,
+        "at": "2026-10-28",
+        "by": "Claude Code video-content-qa"
+      }
+    },
+    {
       "id": "pe1-kw-balanced-bridge",
       "kind": "ig-pack",
       "definition": "content/sns/instagram/pe-first-stage/keyword-packs/balanced-bridge"

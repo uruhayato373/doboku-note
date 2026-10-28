@@ -846,6 +846,50 @@
       "stopReason": "user-decision"
     },
     {
+      "id": "concrete-chief-engineer/shunin-kanri-kikaku-genkai/youtube.longform",
+      "work": "shunin-kanri-kikaku-genkai",
+      "account": "youtube:main",
+      "format": "longform",
+      "media": {
+        "cover": "concrete-chief-engineer/shunin-kanri-kikaku-genkai/youtube.longform/cover",
+        "scene-001": "concrete-chief-engineer/shunin-kanri-kikaku-genkai/youtube.longform/scene-001",
+        "scene-002": "concrete-chief-engineer/shunin-kanri-kikaku-genkai/youtube.longform/scene-002",
+        "scene-003": "concrete-chief-engineer/shunin-kanri-kikaku-genkai/youtube.longform/scene-003",
+        "scene-004": "concrete-chief-engineer/shunin-kanri-kikaku-genkai/youtube.longform/scene-004",
+        "scene-005": "concrete-chief-engineer/shunin-kanri-kikaku-genkai/youtube.longform/scene-005",
+        "scene-006": "concrete-chief-engineer/shunin-kanri-kikaku-genkai/youtube.longform/scene-006",
+        "scene-007": "concrete-chief-engineer/shunin-kanri-kikaku-genkai/youtube.longform/scene-007",
+        "scene-008": "concrete-chief-engineer/shunin-kanri-kikaku-genkai/youtube.longform/scene-008",
+        "scene-009": "concrete-chief-engineer/shunin-kanri-kikaku-genkai/youtube.longform/scene-009",
+        "scene-010": "concrete-chief-engineer/shunin-kanri-kikaku-genkai/youtube.longform/scene-010",
+        "video": "concrete-chief-engineer/shunin-kanri-kikaku-genkai/youtube.longform/video",
+        "subtitles": "concrete-chief-engineer/shunin-kanri-kikaku-genkai/youtube.longform/subtitles",
+        "preview": "concrete-chief-engineer/shunin-kanri-kikaku-genkai/youtube.longform/preview",
+        "contact-sheet": "concrete-chief-engineer/shunin-kanri-kikaku-genkai/youtube.longform/contact-sheet",
+        "scene-sheet": "concrete-chief-engineer/shunin-kanri-kikaku-genkai/youtube.longform/scene-sheet",
+        "preview-metrics": "concrete-chief-engineer/shunin-kanri-kikaku-genkai/youtube.longform/preview-metrics"
+      },
+      "copy": "content/sns/video-packs/concrete-chief-engineer/shunin-kanri-kikaku-genkai/youtube.json#longform",
+      "status": "rendered",
+      "publishAt": "2026-11-03T14:30:00+09:00",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "user",
+          "at": "2026-10-28T12:10:30.412Z",
+          "digest": "9a6d9e5467bd244cac07b4f7f56285857757833fc1e70def0a4df071152a7c7c"
+        }
+      },
+      "approval": {
+        "by": "user",
+        "at": "2026-10-28T12:11:08.206Z",
+        "contentSha256": "cc85882a750bfd7237cce0b71783c3046cda282a7ad36da40266c5c6146c4357"
+      },
+      "times": {
+        "rendered": "2026-10-28T12:11:36.656Z"
+      }
+    },
+    {
       "id": "concrete-chief-engineer/shunin-materials-ronten/youtube.longform",
       "work": "shunin-materials-ronten",
       "account": "youtube:main",

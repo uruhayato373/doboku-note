@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "concrete-chief",
+      "headline": [
+        "管理限界と",
+        "規格限界",
+        "別の線"
+      ],
+      "accentLine": 0,
+      "subtitle": "品質管理",
+      "character": {
+        "pose": "pop-red-pen",
+        "frame": "waist"
+      },
+      "design": "pop-poster-v3",
+      "pop": {
+        "variant": "question",
+        "authority": "総監が制作"
+      },
+      "approvedImage": {
+        "path": ".tmp/media/concrete-chief-engineer/shunin-kanri-kikaku-genkai/work/cover-pop.d97f1c0a.png",
+        "sha256": "d97f1c0a16a20f2ec038cdffa1726f5e5e5db8c9e11d7dce909a1f1d8f60e44b",
+        "specSha256": "69f2dbb5ae0bbc2ccac90b15066a676f8abcd02b8efea6b8f57c1b6bf3940688"
+      }
+    }
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "packId": "pe1-kiso-xor-shingihyou",
+  "exam": "pe-first-stage",
+  "title": "技術士一次 基礎科目 XORとORの違いは真理値表の1行だけ",
+  "audience": "技術士第一次試験の基礎科目で、2群「情報・論理」の論理式やビット演算に不安がある受験者",
+  "pain": "排他的論理和XORの真理値表を書くとき、両方が1の行でORと混同して1にしてしまう",
+  "promise": "ORとXORが食い違うのは「両方1」の1行だけと分かり、四行の表と式で自分で確かめられる",
+  "intent": "exam-point",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/pe-first-stage/guide-basic-subject/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/pe-first-stage/r03-basic/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/pe-first-stage/h30-basic/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/pe-first-stage/r05-basic/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "pe1-chokuzen-pack",
+    "campaign": "pe1-kiso-xor-shingihyou"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 0,
+    "instagramCarousel": false,
+    "instagramReel": false,
+    "xThread": false,
+    "threadsBrief": false
+  }
+}

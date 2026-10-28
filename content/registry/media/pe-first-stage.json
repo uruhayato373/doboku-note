@@ -1712,6 +1712,670 @@
       "durationSec": 172.967
     },
     {
+      "id": "pe-first-stage/pe1-kiso-simpson-haba/youtube.longform/contact-sheet",
+      "role": "contact-sheet",
+      "type": "image/jpeg",
+      "sha256": "6e24dd261bb5a7394f4378b9a3d2b5faab70bbb879217fd55c23a34f0e967497",
+      "bytes": 592169,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-simpson-haba/youtube.longform/contact-sheet.6e24dd26.jpg"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "media-preview",
+        "spec": "content/sns/video-packs/pe-first-stage/pe1-kiso-simpson-haba/storyboard.json"
+      },
+      "width": 1920,
+      "height": 1620
+    },
+    {
+      "id": "pe-first-stage/pe1-kiso-simpson-haba/youtube.longform/cover",
+      "role": "cover",
+      "type": "image/png",
+      "sha256": "876adc4db671f568b3337a867b4123c8b2ce7206310ff8dc3615b76c092f6b51",
+      "bytes": 689549,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-simpson-haba/youtube.longform/cover.876adc4d.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Create NEW 16:9 YouTube POP cover for first-stage engineer exam, matching supplied approved cobalt-blue and yellow POP cover and same teacher identity. Exact large Japanese text 「技術士第一次試験」 「シンプソン則」 「hは刻み幅！」. Hero graphic: simple parabola with three marked x points, a double arrow h ONLY between neighboring points, not across the entire interval. Same bespectacled male engineer in white hardhat and navy jacket at right pointing with red pen. Bold outlined type, electric blue/yellow and a little red, full bleed, safe edges, no extra words, URL, or price.",
+        "promptSha256": "2c3bb82ed5451da5a7dc452ffc7c24661eba66e4ab1ac97b505b0e28d8236dc6",
+        "generatedAt": "2026-10-28T11:39:46.916Z"
+      },
+      "width": 1920,
+      "height": 1080,
+      "legacyPaths": [
+        ".tmp/media/pe-first-stage/pe1-kiso-simpson-haba/work/cover-pop.876adc4d.png"
+      ]
+    },
+    {
+      "id": "pe-first-stage/pe1-kiso-simpson-haba/youtube.longform/preview",
+      "role": "preview",
+      "type": "video/mp4",
+      "sha256": "642076672964cf1d1257792a05c958623163b01ce73af5eb2d350f054368e3c9",
+      "bytes": 4294379,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-simpson-haba/youtube.longform/preview.64207667.mp4"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "media-preview",
+        "spec": "content/sns/video-packs/pe-first-stage/pe1-kiso-simpson-haba/storyboard.json"
+      },
+      "durationSec": 211.189
+    },
+    {
+      "id": "pe-first-stage/pe1-kiso-simpson-haba/youtube.longform/preview-metrics",
+      "role": "preview-metrics",
+      "type": "application/json",
+      "sha256": "1c212cb05c8780d24e5598532233bd986e0deeb6b349d9e787d369f9675837ff",
+      "bytes": 1868,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-simpson-haba/youtube.longform/preview-metrics.1c212cb0.json"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "media-preview",
+        "spec": "content/sns/video-packs/pe-first-stage/pe1-kiso-simpson-haba/storyboard.json"
+      }
+    },
+    {
+      "id": "pe-first-stage/pe1-kiso-simpson-haba/youtube.longform/scene-001",
+      "role": "scene-001",
+      "type": "image/png",
+      "sha256": "876adc4db671f568b3337a867b4123c8b2ce7206310ff8dc3615b76c092f6b51",
+      "bytes": 689549,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-simpson-haba/youtube.longform/scene-001.876adc4d.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Create NEW 16:9 YouTube POP cover for first-stage engineer exam, matching supplied approved cobalt-blue and yellow POP cover and same teacher identity. Exact large Japanese text 「技術士第一次試験」 「シンプソン則」 「hは刻み幅！」. Hero graphic: simple parabola with three marked x points, a double arrow h ONLY between neighboring points, not across the entire interval. Same bespectacled male engineer in white hardhat and navy jacket at right pointing with red pen. Bold outlined type, electric blue/yellow and a little red, full bleed, safe edges, no extra words, URL, or price.",
+        "promptSha256": "2c3bb82ed5451da5a7dc452ffc7c24661eba66e4ab1ac97b505b0e28d8236dc6",
+        "generatedAt": "2026-10-28T11:39:46.916Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-first-stage/pe1-kiso-simpson-haba/youtube.longform/scene-002",
+      "role": "scene-002",
+      "type": "image/png",
+      "sha256": "501d42f05a6587216fd774c18f560db3ee6bb118151d929e4d5d39d301456c64",
+      "bytes": 1352358,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-simpson-haba/youtube.longform/scene-002.501d42f0.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "New 16:9 clean Japanese educational diagram, white background navy text blue arrows yellow highlight, no person. Topic Simpson 1/3 rule. Large heading exactly 「結論：h は隣の点との距離」. Show exactly three points on one horizontal axis labelled x₀, x₁, x₂. Double arrows x₀ to x₁ labelled h and x₁ to x₂ labelled h. One bracket x₀ to x₂ labelled 2h. Bottom in a single large readable line exactly 「S = h/3 × [f(x₀)+4f(x₁)+f(x₂)]」. No other formulas, no graphs, lower 18 percent clear.",
+        "promptSha256": "e2aea6b56dc81cc512a9dba55471fb0aad0859521bb5b9a183bb13208eedb20a",
+        "generatedAt": "2026-10-28T11:39:46.916Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-first-stage/pe1-kiso-simpson-haba/youtube.longform/scene-003",
+      "role": "scene-003",
+      "type": "image/png",
+      "sha256": "0a752dfbf8ebbf5662ce28cee3aad9867316721b536f00553c8cead03508d5fa",
+      "bytes": 1368369,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-simpson-haba/youtube.longform/scene-003.0a752dfb.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Create a new 16:9 full-frame Japanese educational diagram, clean and simple, not a poster. No person. Leave the lower 18 percent clear for subtitles. Exact heading: 独自の例題：f(x)＝2x²＋1. 放物線y=2x^2+1を0〜6で描き、x=0,3,6の3点に値1,19,73。点間にh=3、全体に6の括弧。左上に『独自の例題・非公式』の小さな札。",
+        "promptSha256": "d46c243bb918eaffac5bac452a426e7d828efec33927bb5d7da596010558e062",
+        "generatedAt": "2026-10-28T11:39:46.916Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-first-stage/pe1-kiso-simpson-haba/youtube.longform/scene-004",
+      "role": "scene-004",
+      "type": "image/png",
+      "sha256": "10d359873b4144a58797d08e50e9210ec2fb5505db972110e9840b0fac325028",
+      "bytes": 1318370,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-simpson-haba/youtube.longform/scene-004.10d35987.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Make a fresh clean 16:9 Japanese educational diagram, no person, white background navy letters and blue/yellow highlights. Topic is Simpson's 1/3 rule for f(x)=2x²+1 on [0,6], with sample values f(0)=1, f(3)=19, f(6)=73. Show ONLY two very large calculation boxes, no graph or integral sign: left box label 「シンプソン則」 and exactly 「3÷3 × (1+4×19+73) = 150」. Right box label 「直接積分」 and exactly 「144+6=150」. Center a large yellow 「一致」. All arithmetic exact. No other numbers or formulas, no unrelated functions. Leave lower 18 percent empty for subtitles.",
+        "promptSha256": "9cab90b6d2182af181d0ba0a226e4b00f1ddc34ded11477d508c3b3f68c9ff25",
+        "generatedAt": "2026-10-28T11:39:46.916Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-first-stage/pe1-kiso-simpson-haba/youtube.longform/scene-005",
+      "role": "scene-005",
+      "type": "image/png",
+      "sha256": "4f0e6875bee9455bebc9b4b671f8c82015f923867d541861a51eba71cd2ac50c",
+      "bytes": 1276038,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-simpson-haba/youtube.longform/scene-005.4f0e6875.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Make fresh 16:9 Japanese educational diagram about Simpson's rule step width, white to pale blue background, navy text, blue correct side and red error side. No person, no graphs, no triangle. Show a horizontal x-axis with exactly 3 points labelled 0, 3, 6. Short double arrow from 0 to 3 labelled 「h=3」, another from 3 to 6 labelled 「h=3」. A full-width bracket from 0 to 6 labelled 「全体=6」. Above, large exact comparison text: red 「誤 h=6 → 300」 and blue 「正 h=3 → 150」. No other formulas or numbers. Leave bottom 18 percent clear.",
+        "promptSha256": "598e0d678c8079768c8775aead1eaadb8f626a6b4d1b12300f74544e038401cc",
+        "generatedAt": "2026-10-28T11:39:46.916Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-first-stage/pe1-kiso-simpson-haba/youtube.longform/scene-006",
+      "role": "scene-006",
+      "type": "image/png",
+      "sha256": "986e2994dfcc0ccab4427fa27818ac59ec74c711b1a6f2bd3ec088a2d8360f28",
+      "bytes": 1711902,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-simpson-haba/youtube.longform/scene-006.986e2994.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "New 16:9 clean Japanese educational diagram, white background navy text blue and red highlights, no person, no graphs. Large heading 「分母と重みをセットで覚える」. Exactly THREE horizontal rows and nothing else. Blue correct row: 「正　h/3 と 1・4・1　→ 150」. Red wrong row: 「誤　h/2 と 1・4・1　→ 225」. Red wrong row: 「誤　h/3 と 1・2・1　→ 112」. All numbers exact. No integral signs. Lower 18 percent clear for subtitles.",
+        "promptSha256": "affc636540016fc4d565956c05d897bfdb77c136fdb6f1b08f22879987dbefe9",
+        "generatedAt": "2026-10-28T11:39:46.916Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-first-stage/pe1-kiso-simpson-haba/youtube.longform/scene-007",
+      "role": "scene-007",
+      "type": "image/png",
+      "sha256": "5d184a07c86bb63e859b3cd05a6be0cfa0a8895921a255992ae1bb0feb8e1ed0",
+      "bytes": 1690590,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-simpson-haba/youtube.longform/scene-007.5d184a07.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Create a new 16:9 full-frame Japanese educational diagram, clean and simple, not a poster. No person. Leave the lower 18 percent clear for subtitles. Exact heading: 定数関数で検算する. 高さ5・幅6の長方形を大きく描き面積30。右に重み1,4,1の合計6の棒、下にL/6でL=2hならh/3の変形を3段で示す。",
+        "promptSha256": "8be6415dfe0a23b7eb4aad1d4c18df4d8f96e4ea2d09a971446c338a9017df52",
+        "generatedAt": "2026-10-28T11:39:46.916Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-first-stage/pe1-kiso-simpson-haba/youtube.longform/scene-008",
+      "role": "scene-008",
+      "type": "image/png",
+      "sha256": "5ff379f71601f575ff36265148e82800e42621b8b6ad21ea27d0c9e5e1e9bc6b",
+      "bytes": 1284036,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-simpson-haba/youtube.longform/scene-008.5ff379f7.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "New 16:9 clean Japanese educational diagram, white background navy text blue arrows yellow accents, no person, no geometry, no triangles. Large heading 「過去問で確かめる」. On right only a simple horizontal number line with THREE equally spaced marked points labelled x₀, x₁, x₂ and double arrows between neighbors labelled h. On left exactly three large numbered steps: 「① 3点を置く」 「② hを隣の間に書く」 「③ 1・4・1とh/3」. No other words, equations, or diagrams. Bottom 18 percent clear.",
+        "promptSha256": "c860a2684a2bfcb47c8a3223a5046b4db9a9c0698118a44aa1f15f85ad2787ca",
+        "generatedAt": "2026-10-28T11:39:46.916Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-first-stage/pe1-kiso-simpson-haba/youtube.longform/scene-009",
+      "role": "scene-009",
+      "type": "image/png",
+      "sha256": "43ca34964e59b6fbf89a6b9b5c19b5a2c4ea3efc44e5b7200b8f72a05c855dbb",
+      "bytes": 1369944,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-simpson-haba/youtube.longform/scene-009.43ca3496.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "New 16:9 clean Japanese educational summary diagram, white background navy text blue arrows yellow accents, no person. Large heading 「シンプソン則の3点」. Exactly three big numbered takeaway cards: 「① hは隣の点間」 with tiny three-dot horizontal line; 「② 重みは1・4・1」 with three dots; 「③ 分母は3」 with large h/3. Do not show any other formulas, functions, or calculus. Lower 18 percent clear.",
+        "promptSha256": "336ef0ef649ad6f8a9c13606e3cda9bf33eec504de365a822ea5b23f1339f4e6",
+        "generatedAt": "2026-10-28T11:39:46.916Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-first-stage/pe1-kiso-simpson-haba/youtube.longform/scene-010",
+      "role": "scene-010",
+      "type": "image/png",
+      "sha256": "9dd5d438c1d9028a31f7374211af40864d92cc16a9d69f775e3f36f6002c4552",
+      "bytes": 1476348,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-simpson-haba/youtube.longform/scene-010.9dd5d438.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "New 16:9 simple Japanese educational end card, white and pale-blue background, dark navy bold text, blue down arrow, yellow highlight. No person, no extra marketing claims, no guarantee, no price. Large exact heading 「直前パック」. Below small exact text 「技術士第一次試験」 and 「専門は建設部門」. Center a simple blue book icon labelled 「過去問演習」. At bottom above subtitle-safe area, exact text 「概要欄をチェック」 and a down arrow. No other text or icons. Full frame.",
+        "promptSha256": "67c8a78665fc164fa6c18e1575945d27dfefbfcf9799167968803a76255893a3",
+        "generatedAt": "2026-10-28T11:39:46.916Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-first-stage/pe1-kiso-simpson-haba/youtube.longform/scene-sheet",
+      "role": "scene-sheet",
+      "type": "image/jpeg",
+      "sha256": "674782415c8d6aa71619b94c8a9c10b58fbee0cb40be80536d915e7343e40838",
+      "bytes": 546565,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-simpson-haba/youtube.longform/scene-sheet.67478241.jpg"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "media-preview",
+        "spec": "content/sns/video-packs/pe-first-stage/pe1-kiso-simpson-haba/storyboard.json"
+      },
+      "width": 1920,
+      "height": 1592
+    },
+    {
+      "id": "pe-first-stage/pe1-kiso-simpson-haba/youtube.longform/subtitles",
+      "role": "subtitles",
+      "type": "text/x-ssa",
+      "sha256": "4430dfa6022acaea9ccfd4b852e845472ef98d4631718984a0381d64cce7055b",
+      "bytes": 6488,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-simpson-haba/youtube.longform/subtitles.4430dfa6.ass"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/pe-first-stage/pe1-kiso-simpson-haba/storyboard.json"
+      }
+    },
+    {
+      "id": "pe-first-stage/pe1-kiso-simpson-haba/youtube.longform/video",
+      "role": "video",
+      "type": "video/mp4",
+      "sha256": "668da222c144a92dc0070344be9242b0f1a92d60e94f5e3efeb157c4971fdcbe",
+      "bytes": 19621540,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-simpson-haba/youtube.longform/video.668da222.mp4"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/pe-first-stage/pe1-kiso-simpson-haba/storyboard.json",
+        "specSha256": "145b1115691a2e4c756a89e3bfb6ad0b55746415d074d1bc44033b41cf7a3bb6",
+        "renderInputSha256": "09d81e94a073f23f1a85de57a6ee61d5119f1b425ffda2e0834a3e49b9fa185d",
+        "tts": {
+          "engine": "VOICEVOX",
+          "speaker": 13,
+          "credit": "VOICEVOX:青山龍星"
+        }
+      },
+      "durationSec": 211.189
+    },
+    {
+      "id": "pe-first-stage/pe1-kiso-xor-shingihyou/youtube.longform/contact-sheet",
+      "role": "contact-sheet",
+      "type": "image/jpeg",
+      "sha256": "8a8b4947d7da69ad637d4968f3938910ff72a4575f354bcbb51d4ccb2e793ded",
+      "bytes": 747336,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-xor-shingihyou/youtube.longform/contact-sheet.8a8b4947.jpg"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "media-preview",
+        "spec": "content/sns/video-packs/pe-first-stage/pe1-kiso-xor-shingihyou/storyboard.json"
+      },
+      "width": 1920,
+      "height": 1620
+    },
+    {
+      "id": "pe-first-stage/pe1-kiso-xor-shingihyou/youtube.longform/cover",
+      "role": "cover",
+      "type": "image/png",
+      "sha256": "f7cfde32ddfe013446c8b0a0e7bf3109b92eb304f296489edb213dae134d9fb4",
+      "bytes": 666866,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-xor-shingihyou/youtube.longform/cover.f7cfde32.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Create a NEW 16:9 YouTube thumbnail for a Japanese civil engineering exam tutorial, using the supplied approved cover as the style and character identity reference. Preserve the same white hardhat, glasses, navy suit, approachable adult male teacher on the right. Saturated electric blue background, bold yellow and white comic typography with thick dark outline and small red accent. Main exact Japanese text, large and legible: 「技術士第一次試験」 and 「ORとXORの違いは1行」. Visually show two small clear truth tables labelled OR and XOR, and highlight ONLY their 1,1 row difference (OR=1; XOR=0). Do not add any other words, brand names, URL, price, or exam guarantee. Teacher face and all text within safe edges, full bleed design. This must feel like the approved lively POP poster, not an old flat template.",
+        "promptSha256": "dfe0d1a03b3d895995cecff030752e8a728ea369224989469d453aaa76905f4a",
+        "generatedAt": "2026-10-28T11:39:46.916Z"
+      },
+      "width": 1920,
+      "height": 1080,
+      "legacyPaths": [
+        ".tmp/media/pe-first-stage/pe1-kiso-xor-shingihyou/work/cover-pop.f7cfde32.png"
+      ]
+    },
+    {
+      "id": "pe-first-stage/pe1-kiso-xor-shingihyou/youtube.longform/preview",
+      "role": "preview",
+      "type": "video/mp4",
+      "sha256": "8836d4305f58fb532810dd389491a07e319b04bd477cb51341ad85f04ddd8d18",
+      "bytes": 4781715,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-xor-shingihyou/youtube.longform/preview.8836d430.mp4"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "media-preview",
+        "spec": "content/sns/video-packs/pe-first-stage/pe1-kiso-xor-shingihyou/storyboard.json"
+      },
+      "durationSec": 229.717
+    },
+    {
+      "id": "pe-first-stage/pe1-kiso-xor-shingihyou/youtube.longform/preview-metrics",
+      "role": "preview-metrics",
+      "type": "application/json",
+      "sha256": "470bf96972b1166edca2566cdf54cd048358e97c07a3875bb709df3973b37274",
+      "bytes": 1920,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-xor-shingihyou/youtube.longform/preview-metrics.470bf969.json"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "media-preview",
+        "spec": "content/sns/video-packs/pe-first-stage/pe1-kiso-xor-shingihyou/storyboard.json"
+      }
+    },
+    {
+      "id": "pe-first-stage/pe1-kiso-xor-shingihyou/youtube.longform/scene-001",
+      "role": "scene-001",
+      "type": "image/png",
+      "sha256": "f7cfde32ddfe013446c8b0a0e7bf3109b92eb304f296489edb213dae134d9fb4",
+      "bytes": 666866,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-xor-shingihyou/youtube.longform/scene-001.f7cfde32.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Create a NEW 16:9 YouTube thumbnail for a Japanese civil engineering exam tutorial, using the supplied approved cover as the style and character identity reference. Preserve the same white hardhat, glasses, navy suit, approachable adult male teacher on the right. Saturated electric blue background, bold yellow and white comic typography with thick dark outline and small red accent. Main exact Japanese text, large and legible: 「技術士第一次試験」 and 「ORとXORの違いは1行」. Visually show two small clear truth tables labelled OR and XOR, and highlight ONLY their 1,1 row difference (OR=1; XOR=0). Do not add any other words, brand names, URL, price, or exam guarantee. Teacher face and all text within safe edges, full bleed design. This must feel like the approved lively POP poster, not an old flat template.",
+        "promptSha256": "dfe0d1a03b3d895995cecff030752e8a728ea369224989469d453aaa76905f4a",
+        "generatedAt": "2026-10-28T11:39:46.916Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-first-stage/pe1-kiso-xor-shingihyou/youtube.longform/scene-002",
+      "role": "scene-002",
+      "type": "image/png",
+      "sha256": "cefc8470af91aac1024bfcb44402ed878aa1567907b3620dd371405a8ef3f90f",
+      "bytes": 1780857,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-xor-shingihyou/youtube.longform/scene-002.cefc8470.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Create a new 16:9 full-frame Japanese educational diagram, clean and simple, not a poster. No person. Leave the lower 18 percent clear for subtitles. Exact heading: 結論：入力が異なるときだけ1. 大きな1枚の図。A=0,B=1 とA=1,B=0 が『異なる→1』、A=1,B=1 が『同じ→0』と3つのカードで示された図解。",
+        "promptSha256": "ac6ead7b6c131ccc2dcbfd9bdd2a0ca4bb13e6be5c5ee2ebc295d111ce34fd8d",
+        "generatedAt": "2026-10-28T11:39:46.916Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-first-stage/pe1-kiso-xor-shingihyou/youtube.longform/scene-003",
+      "role": "scene-003",
+      "type": "image/png",
+      "sha256": "a3de7068e813e7231f8a7a86090f7507aa64eeabee7063f0405888bda3658d84",
+      "bytes": 1877987,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-xor-shingihyou/youtube.longform/scene-003.a3de7068.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Create a new 16:9 full-frame Japanese educational diagram, clean and simple, not a poster. No person. Leave the lower 18 percent clear for subtitles. Exact heading: 「少なくとも」と「ちょうど」. 左右比較の1図。左『OR=少なくとも1つ』は1が1個以上の丸、右『XOR=ちょうど1つ』は1が1個だけの丸。両方1のケースに注意の印。",
+        "promptSha256": "01cfadb19ffe3d152352d7d3404d45c9127ac57e281c88b9d0d14277a43ff1c5",
+        "generatedAt": "2026-10-28T11:39:46.916Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-first-stage/pe1-kiso-xor-shingihyou/youtube.longform/scene-004",
+      "role": "scene-004",
+      "type": "image/png",
+      "sha256": "9a38e2546f1092f216d0fd87b6fd498061dcd802999f1e81c491912c446a1f12",
+      "bytes": 1309970,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-xor-shingihyou/youtube.longform/scene-004.9a38e254.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Create a new 16:9 full-frame Japanese educational diagram, clean and simple, not a poster. No person. Leave the lower 18 percent clear for subtitles. Exact heading: ORの真理値表. A・B・A+B の大きな4行の真理値表。0,0の行だけ0で、他の3行は1。大きな文字で。",
+        "promptSha256": "cc5ee92deb8b431a473fd76776f0c248dc1177bd6b2dc74a04663089e937e437",
+        "generatedAt": "2026-10-28T11:39:46.916Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-first-stage/pe1-kiso-xor-shingihyou/youtube.longform/scene-005",
+      "role": "scene-005",
+      "type": "image/png",
+      "sha256": "5dc00160a27295a74b2f4be4541d652943814dad3cdf0d8483e2df596046fb09",
+      "bytes": 1494598,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-xor-shingihyou/youtube.longform/scene-005.5dc00160.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Create a new 16:9 full-frame Japanese educational diagram, clean and simple, not a poster. No person. Leave the lower 18 percent clear for subtitles. Exact heading: ORとXORを並べる. A・B・OR・XOR の4行表を1枚で。1,1の行だけ強調色で囲み、OR=1とXOR=0が食い違うことを大きな矢印で示す。",
+        "promptSha256": "4ec9723c9d9c541d94f9fb614a8f5db960b4b3cc209be2415d468d21e29296c7",
+        "generatedAt": "2026-10-28T11:39:46.916Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-first-stage/pe1-kiso-xor-shingihyou/youtube.longform/scene-006",
+      "role": "scene-006",
+      "type": "image/png",
+      "sha256": "db0baaea993f00260b5202f0b60b301ac4ca93d63521933030a9d011305cdb4c",
+      "bytes": 1626681,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-xor-shingihyou/youtube.longform/scene-006.db0baaea.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Create a new 16:9 full-frame Japanese educational diagram, clean and simple, not a poster. No person. Leave the lower 18 percent clear for subtitles. Exact heading: XOR＝OR かつ ANDでない. 中央に式 (A+B)・¬(A・B)。下に4行の検算表(OR列・AND列・結果列)。1,1の行が『ANDで除外』と示された図。",
+        "promptSha256": "03d7ef8f8039444dd2914b056a8d77c5a911645bfd2387d54451ad53cb7b9791",
+        "generatedAt": "2026-10-28T11:39:46.916Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-first-stage/pe1-kiso-xor-shingihyou/youtube.longform/scene-007",
+      "role": "scene-007",
+      "type": "image/png",
+      "sha256": "0c75142bb8668cf880b7db5cfdc863821d3e42739c43398ff3290f4118f987e7",
+      "bytes": 1524807,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-xor-shingihyou/youtube.longform/scene-007.0c75142b.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Create a new 16:9 full-frame Japanese educational diagram, clean and simple, not a poster. No person. Leave the lower 18 percent clear for subtitles. Exact heading: 2回XORで元に戻る. ビット列1100が1010とのXORで0110になり、もう一度1010とXORして1100に戻る往復矢印の図。各桁を縦に揃えて大きく表示。",
+        "promptSha256": "bb00034c83432059ab9b3548840a350eee705ad3c0fb089fef17274f7fd4d648",
+        "generatedAt": "2026-10-28T11:39:46.916Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-first-stage/pe1-kiso-xor-shingihyou/youtube.longform/scene-008",
+      "role": "scene-008",
+      "type": "image/png",
+      "sha256": "362026999d0e9689d0ba4b0f5d63bf3f4e047ce418c3da3afa5ab0dc9a5a5e58",
+      "bytes": 1926249,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-xor-shingihyou/youtube.longform/scene-008.36202699.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Create a new 16:9 full-frame Japanese educational diagram, clean and simple, not a poster. No person. Leave the lower 18 percent clear for subtitles. Exact heading: 過去問で練習する. 3枚の過去問ラベル(R3 I-2-2、H30 I-2-4、R5 I-2-5)と各論点の一言。下に『先に四行の表を書く』の帯。問題文・問題図は載せない。",
+        "promptSha256": "15242d6d979434e8375c278d355d54831e1f1118bec2f2adb65384fab24c774a",
+        "generatedAt": "2026-10-28T11:39:46.916Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-first-stage/pe1-kiso-xor-shingihyou/youtube.longform/scene-009",
+      "role": "scene-009",
+      "type": "image/png",
+      "sha256": "797821e8b6d71cd2a2c1c61389ec68c93ab16a83d59e9479a980278e9863f617",
+      "bytes": 1937322,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-xor-shingihyou/youtube.longform/scene-009.797821e8.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Create a new 16:9 full-frame Japanese educational diagram, clean and simple, not a poster. No person. Leave the lower 18 percent clear for subtitles. Exact heading: まとめ：XORを読む4つの要点. 4つの大きな丸数字の横フロー。OR、XOR、式、2回で元に戻る。1,1の行だけが食い違う小さな表を中央に添える。",
+        "promptSha256": "295dffeac3312ddce56502a1a8677d5178213b2072716605d848971180089a69",
+        "generatedAt": "2026-10-28T11:39:46.916Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-first-stage/pe1-kiso-xor-shingihyou/youtube.longform/scene-010",
+      "role": "scene-010",
+      "type": "image/png",
+      "sha256": "41fe8400188e7d3ab5fdd9f2517193f03b72c6ad83e140312a37ae47bcc367f1",
+      "bytes": 2077158,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-xor-shingihyou/youtube.longform/scene-010.41fe8400.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Create a new 16:9 full-frame Japanese educational diagram, clean and simple, not a poster. No person. Leave the lower 18 percent clear for subtitles. Exact heading: 直前パック（専門は建設部門）. CTA。直前パックの表紙を中央に、概要欄を示す下向き矢印。専門科目は建設部門の注記。",
+        "promptSha256": "5408377350cd1cce267333dba923bae11da737fd6a2a1e0bc29fc3cc24ac67d5",
+        "generatedAt": "2026-10-28T11:39:46.916Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-first-stage/pe1-kiso-xor-shingihyou/youtube.longform/scene-sheet",
+      "role": "scene-sheet",
+      "type": "image/jpeg",
+      "sha256": "cd0520157bf0975b89615f1b39d75dbd76dbf2e2b93174c293f1f8b5bcae1e3d",
+      "bytes": 612072,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-xor-shingihyou/youtube.longform/scene-sheet.cd052015.jpg"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "media-preview",
+        "spec": "content/sns/video-packs/pe-first-stage/pe1-kiso-xor-shingihyou/storyboard.json"
+      },
+      "width": 1920,
+      "height": 1592
+    },
+    {
+      "id": "pe-first-stage/pe1-kiso-xor-shingihyou/youtube.longform/subtitles",
+      "role": "subtitles",
+      "type": "text/x-ssa",
+      "sha256": "6456e00354238609e9bb33b5690f55c96e17e1e309d896146c7a4f965801e1d5",
+      "bytes": 7165,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-xor-shingihyou/youtube.longform/subtitles.6456e003.ass"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/pe-first-stage/pe1-kiso-xor-shingihyou/storyboard.json"
+      }
+    },
+    {
+      "id": "pe-first-stage/pe1-kiso-xor-shingihyou/youtube.longform/video",
+      "role": "video",
+      "type": "video/mp4",
+      "sha256": "430db62c518cab1846e570627a4a3e64494fc0d8d10385580fe795eb73b365ef",
+      "bytes": 22439269,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-xor-shingihyou/youtube.longform/video.430db62c.mp4"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/pe-first-stage/pe1-kiso-xor-shingihyou/storyboard.json",
+        "specSha256": "3eb4c8e8e71ef85d5177a5fb8a91c33850755ad965b829bdf0923258b5da8866",
+        "renderInputSha256": "0c1989d9eaa0316a505e4a830343b28976a3bc0afe3aaa0f5ee695e1304fc507",
+        "tts": {
+          "engine": "VOICEVOX",
+          "speaker": 13,
+          "credit": "VOICEVOX:青山龍星"
+        }
+      },
+      "durationSec": 229.717
+    },
+    {
       "id": "pe-first-stage/pe1-senmon-kensetsu-25mon/youtube.longform/contact-sheet",
       "role": "contact-sheet",
       "type": "image/jpeg",

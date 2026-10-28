@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "packId": "pe1-kiso-simpson-haba",
+  "exam": "pe-first-stage",
+  "title": "技術士一次 基礎科目 シンプソン則の h は区間全体ではなく刻み幅",
+  "audience": "技術士第一次試験を控え、基礎科目の数値積分で係数の取り違えが不安な受験者",
+  "pain": "シンプソン則の h を積分区間全体の幅と取り違え、答えが2倍になる",
+  "promise": "三点なら区間全体は 2h と分かり、h を隣り合う点の距離として検算できる。係数 h/3 と 1,4,1 の組は補足で確かめる",
+  "intent": "howto",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/pe-first-stage/guide-calculus-numerical-calculation/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/pe-first-stage/r07-basic/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "pe1-chokuzen-pack",
+    "campaign": "pe1-kiso-simpson-haba"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 0,
+    "instagramCarousel": false,
+    "instagramReel": false,
+    "xThread": false,
+    "threadsBrief": false
+  }
+}

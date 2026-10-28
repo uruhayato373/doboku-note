@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "packId": "shunin-kanri-kikaku-genkai",
+  "exam": "concrete-chief-engineer",
+  "title": "管理限界と規格限界を混同しない — 管理図が安定でも製品は合格とは限らない",
+  "audience": "コンクリート主任技士の製造・品質管理で、管理図と規格の関係があいまいな受験者",
+  "pain": "管理図が安定なら製品も合格、と管理限界と規格限界を混同する",
+  "promise": "管理限界は工程の安定、規格限界は製品の基準と区別し、二つの問いを分けて確認できる",
+  "intent": "exam-point",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/concrete-chief-engineer/textbook-production-qc/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "cce-r8-mc-50",
+    "campaign": "shunin-kanri-kikaku-genkai"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 0,
+    "instagramCarousel": false,
+    "instagramReel": false,
+    "xThread": false,
+    "threadsBrief": false
+  }
+}

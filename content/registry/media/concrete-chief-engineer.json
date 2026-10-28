@@ -2056,6 +2056,338 @@
       ]
     },
     {
+      "id": "concrete-chief-engineer/shunin-kanri-kikaku-genkai/youtube.longform/contact-sheet",
+      "role": "contact-sheet",
+      "type": "image/jpeg",
+      "sha256": "db1604d1c5f9716f44c064bcf8d8795db0278655f620dd325b1cc494c6dcd11c",
+      "bytes": 656793,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-kanri-kikaku-genkai/youtube.longform/contact-sheet.db1604d1.jpg"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "media-preview",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-kanri-kikaku-genkai/storyboard.json"
+      },
+      "width": 1920,
+      "height": 1620
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-kanri-kikaku-genkai/youtube.longform/cover",
+      "role": "cover",
+      "type": "image/png",
+      "sha256": "d97f1c0a16a20f2ec038cdffa1726f5e5e5db8c9e11d7dce909a1f1d8f60e44b",
+      "bytes": 707885,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-kanri-kikaku-genkai/youtube.longform/cover.d97f1c0a.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Create NEW 16:9 YouTube POP cover for concrete chief engineer exam, matching supplied approved orange and yellow POP cover and same teacher identity. Exact large Japanese text 「コンクリート主任技士」 「管理限界と規格限界」. Smaller bold hook 「別の線！」. Hero graphic: two clearly different horizontal threshold bands on a simple process chart; control limit in blue and specification limit in red. Same bespectacled male engineer in white helmet at right, energetic teacher pointing with red pen. Full bleed orange/yellow/navy design, exact Japanese spelling, no extra words, no URL, no price.",
+        "promptSha256": "8e824c55157d897be3b7de53db6e4071de8102aff105e396344a2655a58bdf3b",
+        "generatedAt": "2026-10-28T11:49:26.462Z"
+      },
+      "width": 1920,
+      "height": 1080,
+      "legacyPaths": [
+        ".tmp/media/concrete-chief-engineer/shunin-kanri-kikaku-genkai/work/cover-pop.d97f1c0a.png"
+      ]
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-kanri-kikaku-genkai/youtube.longform/preview",
+      "role": "preview",
+      "type": "video/mp4",
+      "sha256": "59e4e8d1158bf651d8f3b02016bf14bff729e4f968a14aa818737cd0f2f85725",
+      "bytes": 4518734,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-kanri-kikaku-genkai/youtube.longform/preview.59e4e8d1.mp4"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "media-preview",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-kanri-kikaku-genkai/storyboard.json"
+      },
+      "durationSec": 207.136
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-kanri-kikaku-genkai/youtube.longform/preview-metrics",
+      "role": "preview-metrics",
+      "type": "application/json",
+      "sha256": "09a778008bb1d84dcfd602c4700a417e1bafe08ea85e1b9d707d1cc34e331546",
+      "bytes": 1616,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-kanri-kikaku-genkai/youtube.longform/preview-metrics.09a77800.json"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "media-preview",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-kanri-kikaku-genkai/storyboard.json"
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-kanri-kikaku-genkai/youtube.longform/scene-001",
+      "role": "scene-001",
+      "type": "image/png",
+      "sha256": "d97f1c0a16a20f2ec038cdffa1726f5e5e5db8c9e11d7dce909a1f1d8f60e44b",
+      "bytes": 707885,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-kanri-kikaku-genkai/youtube.longform/scene-001.d97f1c0a.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Create NEW 16:9 YouTube POP cover for concrete chief engineer exam, matching supplied approved orange and yellow POP cover and same teacher identity. Exact large Japanese text 「コンクリート主任技士」 「管理限界と規格限界」. Smaller bold hook 「別の線！」. Hero graphic: two clearly different horizontal threshold bands on a simple process chart; control limit in blue and specification limit in red. Same bespectacled male engineer in white helmet at right, energetic teacher pointing with red pen. Full bleed orange/yellow/navy design, exact Japanese spelling, no extra words, no URL, no price.",
+        "promptSha256": "8e824c55157d897be3b7de53db6e4071de8102aff105e396344a2655a58bdf3b",
+        "generatedAt": "2026-10-28T11:49:26.462Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-kanri-kikaku-genkai/youtube.longform/scene-002",
+      "role": "scene-002",
+      "type": "image/png",
+      "sha256": "e820df01dad820ca21556db18b7a3e096ee529dcb6479d2c8fa976d689969edd",
+      "bytes": 1852803,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-kanri-kikaku-genkai/youtube.longform/scene-002.e820df01.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Create a new 16:9 full-frame Japanese educational diagram, clean and simple, not a poster. No person. Leave the lower 18 percent clear for subtitles. Exact heading: 誤解：管理図が安定なら製品も合格. 左に「管理図が安定」、右に「製品が合格」を置き、間に大きな「≠」。左の下に「工程の問い」、右の下に「製品の問い」と各1行だけ添える2群の対比図。",
+        "promptSha256": "c7e81de2d1e3cb119de5ce02229ffadb80b43c3295e8c558cb93138aa9cf7437",
+        "generatedAt": "2026-10-28T11:49:26.462Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-kanri-kikaku-genkai/youtube.longform/scene-003",
+      "role": "scene-003",
+      "type": "image/png",
+      "sha256": "7c470483a07ee25513133edd15118780ede98fb1fb6400030a75d6265770e3ca",
+      "bytes": 1472750,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-kanri-kikaku-genkai/youtube.longform/scene-003.7c470483.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Create a new 16:9 full-frame Japanese educational diagram, clean and simple, not a poster. No person. Leave the lower 18 percent clear for subtitles. Exact heading: 管理限界は工程の安定を見る線. 時間を横軸にした管理図の模式図。水平の中心線と上下の管理限界線を引き、点が線の内側で揺れる。線の名前は「管理限界（工程のばらつきから計算）」の1つだけ。数値は書かない。",
+        "promptSha256": "1a2dd8c1fe8df9d9d59bef8a3669a45d9f4aebc0b4da81dad215d91dc8a9ff5c",
+        "generatedAt": "2026-10-28T11:49:26.462Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-kanri-kikaku-genkai/youtube.longform/scene-004",
+      "role": "scene-004",
+      "type": "image/png",
+      "sha256": "68248d4ad631e070b791aae048d5b7d233a99ba00efec956e032a567f56cc8bd",
+      "bytes": 1310856,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-kanri-kikaku-genkai/youtube.longform/scene-004.68248d4a.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Create a new 16:9 full-frame Japanese educational diagram, clean and simple, not a poster. No person. Leave the lower 18 percent clear for subtitles. Exact heading: 規格限界は製品が満たす基準. 横一本の数直線に、左へ向かう「規格の下限」の太い縦線を1本引き、その右側に「製品が満たす側」を淡色で塗る。管理図との対応は描かず、規格だけを示す。数値は書かない。",
+        "promptSha256": "9b4112da074c25cb2b3a6bc1298976eaeed96ba8e2a69925f5003d2df9ec2f28",
+        "generatedAt": "2026-10-28T11:49:26.462Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-kanri-kikaku-genkai/youtube.longform/scene-005",
+      "role": "scene-005",
+      "type": "image/png",
+      "sha256": "2f52563a817c510c68bedf7fed4bdfc7708c773c226f56793991a85468454ed6",
+      "bytes": 1428832,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-kanri-kikaku-genkai/youtube.longform/scene-005.2f52563a.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Create a new 16:9 full-frame Japanese educational diagram, clean and simple, not a poster. No person. Leave the lower 18 percent clear for subtitles. Exact heading: 落とし穴1：安定でも規格を割る（仮例）. 正規分布の山を数直線に描く。山の中心に「平均37」、左に「規格の下限36」の縦線、下限より左の山の面積を赤系で塗り「約16％」と記す。右上に「数値はすべて仮例」の小さな注記。",
+        "promptSha256": "425757051eeca120aa8c91bc077600ead169b6358fce04f3dd2a4f7a103febe8",
+        "generatedAt": "2026-10-28T11:49:26.462Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-kanri-kikaku-genkai/youtube.longform/scene-006",
+      "role": "scene-006",
+      "type": "image/png",
+      "sha256": "31313796960ba7ede1c8248cd45ffefd37f9c89c25069d9cd772171d2bbd5e2e",
+      "bytes": 1453589,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-kanri-kikaku-genkai/youtube.longform/scene-006.31313796.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Create a new 16:9 full-frame Japanese educational diagram, clean and simple, not a poster. No person. Leave the lower 18 percent clear for subtitles. Exact heading: 落とし穴2：規格内でも工程は異常でありうる. 管理図の模式図。右端の1点が上の管理限界線を越えて赤く強調される。その横に小さく「規格内でも要確認」と記す。左側の点列は片側に連続して並ぶ形も薄く示す。数値は書かない。",
+        "promptSha256": "c9d7e71226b2c863041ba1421244a8868d3c4159b93759bc7e9457ecae539155",
+        "generatedAt": "2026-10-28T11:49:26.462Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-kanri-kikaku-genkai/youtube.longform/scene-007",
+      "role": "scene-007",
+      "type": "image/png",
+      "sha256": "bc1c80ec8ee89fa29cdf36b6e4d7f4b7bba638e3a5604303a212a60bd2da79ed",
+      "bytes": 1804624,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-kanri-kikaku-genkai/youtube.longform/scene-007.bc1c80ec.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Create a new 16:9 full-frame Japanese educational diagram, clean and simple, not a poster. No person. Leave the lower 18 percent clear for subtitles. Exact heading: 二つの問いに分けて確認する. 左右2枚の大きなカード。左「問い1　工程は安定か」の下に「管理図」、右「問い2　規格に余裕があるか」の下に「平均の位置」「ばらつき（Cp）」を別々の2行で。カードの間に矢印は置かない。",
+        "promptSha256": "11dabfe423f613608bdf9ae501b4a32b560360e65ccb7384f983909b4d269665",
+        "generatedAt": "2026-10-28T11:49:26.462Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-kanri-kikaku-genkai/youtube.longform/scene-008",
+      "role": "scene-008",
+      "type": "image/png",
+      "sha256": "eddcc84d97e92c671a26ffb8f5e94f3cc822dcc550d6594ff390ce631f26de93",
+      "bytes": 2006396,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-kanri-kikaku-genkai/youtube.longform/scene-008.eddcc84d.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Create a new 16:9 full-frame Japanese educational diagram, clean and simple, not a poster. No person. Leave the lower 18 percent clear for subtitles. Exact heading: 選択肢の見分け方. 2行の比較図。左列に誤りの型2文、右列に正しい見方を1行ずつ。文字は大きく、各セル1行。",
+        "promptSha256": "02f179aa1b0e24cc727eee4d4e4b5858838dd7767696a1dbf924de5a8b83c303",
+        "generatedAt": "2026-10-28T11:49:26.462Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-kanri-kikaku-genkai/youtube.longform/scene-009",
+      "role": "scene-009",
+      "type": "image/png",
+      "sha256": "09a74a57f69b1ce30b3b8037f1d183698ccfb9d5d15a9847450a5a746f2abef9",
+      "bytes": 1664009,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-kanri-kikaku-genkai/youtube.longform/scene-009.09a74a57.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Create a new 16:9 full-frame Japanese educational diagram, clean and simple, not a poster. No person. Leave the lower 18 percent clear for subtitles. Exact heading: まとめ. 二つの線の対比図を縮小して再掲し、右に番号付きの3点を置く。",
+        "promptSha256": "344999986a4b7869e3081a2ea513e18fc6785431559bc4db15143c48391861cc",
+        "generatedAt": "2026-10-28T11:49:26.462Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-kanri-kikaku-genkai/youtube.longform/scene-010",
+      "role": "scene-010",
+      "type": "image/png",
+      "sha256": "dbafaecd55ed57e9edf104b3fb28bddfcd172e0523a039140a79a6d174c51e91",
+      "bytes": 1524736,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-kanri-kikaku-genkai/youtube.longform/scene-010.dbafaecd.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Create a NEW 16:9 simple Japanese educational YouTube end card for concrete chief engineer exam. Warm white background, navy text, restrained orange and blue accents. NO CHART, NO DATA TABLE, NO CONTROL LIMIT DIAGRAM, NO PERSON, NO GUARANTEE, NO PRICE, NO URL. Large exact heading 「択一で仕上げ確認」. Center a single simple book icon with exact large cover text 「R8対応」 「択一演習」. Beneath it exact short text 「概要欄をチェック」 and a blue down arrow. Keep every word large and easy to read on a phone. Leave bottom 18 percent blank for subtitle overlay.",
+        "promptSha256": "edec1ecc10240cef537e3054a3ae97c746d65c8d1dc7762d5e7667c709164054",
+        "generatedAt": "2026-10-28T11:49:26.462Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-kanri-kikaku-genkai/youtube.longform/scene-sheet",
+      "role": "scene-sheet",
+      "type": "image/jpeg",
+      "sha256": "67a8e09b73acec5ba3184de817dcf3e89689c47bf4e4e1ba90197b3438033aa5",
+      "bytes": 613744,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-kanri-kikaku-genkai/youtube.longform/scene-sheet.67a8e09b.jpg"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "media-preview",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-kanri-kikaku-genkai/storyboard.json"
+      },
+      "width": 1920,
+      "height": 1592
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-kanri-kikaku-genkai/youtube.longform/subtitles",
+      "role": "subtitles",
+      "type": "text/x-ssa",
+      "sha256": "b15c59f315a72cdf330d74e77ee275ed33bcaf724c078fcf3e1071a5340899fe",
+      "bytes": 7018,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-kanri-kikaku-genkai/youtube.longform/subtitles.b15c59f3.ass"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-kanri-kikaku-genkai/storyboard.json"
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-kanri-kikaku-genkai/youtube.longform/video",
+      "role": "video",
+      "type": "video/mp4",
+      "sha256": "e7c277bb841e66fc40fe820649f3deac9e9c4e20c90f9e350645aedcfd5a55bf",
+      "bytes": 20473746,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-kanri-kikaku-genkai/youtube.longform/video.e7c277bb.mp4"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-kanri-kikaku-genkai/storyboard.json",
+        "specSha256": "ee356ecbdd14536491f9a9bda7a1a7ad8123bb1e2c41bea13f63d4d4b71c2532",
+        "renderInputSha256": "2662d02cbce3f12a03ca1364fbef1880414c8488af9c5589bcb7f090dedd921a",
+        "tts": {
+          "engine": "VOICEVOX",
+          "speaker": 13,
+          "credit": "VOICEVOX:青山龍星"
+        }
+      },
+      "durationSec": 207.133
+    },
+    {
       "id": "concrete-chief-engineer/shunin-materials-ronten/youtube.longform/cover",
       "role": "cover",
       "type": "image/png",

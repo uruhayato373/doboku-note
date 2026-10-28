@@ -1,0 +1,521 @@
+{
+  "policy": ".claude/knowledge/reference/pop-image-policy.md",
+  "designVersion": "pop-20260927",
+  "channel": "youtube",
+  "source": "content/sns/video-packs/pe-first-stage/pe1-kiso-xor-shingihyou",
+  "outputs": {
+    "longform": {
+      "publicationId": "pe-first-stage/pe1-kiso-xor-shingihyou/youtube.longform",
+      "copy": {
+        "exam": "pe-first-stage",
+        "headline": [
+          "ORとXOR",
+          "違いは1行"
+        ],
+        "benefit": "基礎科目",
+        "authority": "総監が制作"
+      },
+      "evidence": [
+        "content/sns/video-packs/pe-first-stage/pe1-kiso-xor-shingihyou/cover-design.json#covers/longform",
+        "content/sns/video-packs/pe-first-stage/pe1-kiso-xor-shingihyou/storyboard.json"
+      ],
+      "references": [
+        {
+          "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.abe1a7b7.png",
+          "sha256": "abe1a7b7debc540640b2aacb2f333874901e60f25843dca40579ccd42feb7216"
+        }
+      ],
+      "prompt": "Create a NEW 16:9 YouTube thumbnail for a Japanese civil engineering exam tutorial, using the supplied approved cover as the style and character identity reference. Preserve the same white hardhat, glasses, navy suit, approachable adult male teacher on the right. Saturated electric blue background, bold yellow and white comic typography with thick dark outline and small red accent. Main exact Japanese text, large and legible: 「技術士第一次試験」 and 「ORとXORの違いは1行」. Visually show two small clear truth tables labelled OR and XOR, and highlight ONLY their 1,1 row difference (OR=1; XOR=0). Do not add any other words, brand names, URL, price, or exam guarantee. Teacher face and all text within safe edges, full bleed design. This must feel like the approved lively POP poster, not an old flat template.",
+      "format": {
+        "width": 1920,
+        "height": 1080
+      },
+      "render": {
+        "template": "codex-image-gen",
+        "variant": "question",
+        "pose": "pop-red-pen"
+      },
+      "output": {
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-xor-shingihyou/work/cover-pop.f7cfde32.png",
+        "sha256": "f7cfde32ddfe013446c8b0a0e7bf3109b92eb304f296489edb213dae134d9fb4"
+      },
+      "review": {
+        "status": "agent-reviewed",
+        "by": "Codex",
+        "checkedAt": "2026-10-28T11:39:46.916Z",
+        "viewportWidth": 360,
+        "checks": [
+          "見出しと資格名",
+          "文字・人物の切れ",
+          "図と主張の整合"
+        ],
+        "userImageReview": "pending"
+      },
+      "storage": {
+        "group": "content-media",
+        "key": ".tmp/media/pe-first-stage/pe1-kiso-xor-shingihyou/work/cover-pop.f7cfde32.png"
+      },
+      "publication": "ローカル差し替え・外部未反映"
+    }
+  },
+  "activeBodyRevision": "body-diagram-20261028",
+  "activeCoverRevision": "cover-pop-20261028",
+  "revisions": {
+    "body-diagram-20261028": {
+      "layout": {
+        "mode": "diagram-led"
+      },
+      "images": [
+        {
+          "sceneId": "answer",
+          "inputSha256": "594802475871b930fee96cb5cc269793de5da137cc3fe6fbfba5a25c449b964e",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Create a new 16:9 full-frame Japanese educational diagram, clean and simple, not a poster. No person. Leave the lower 18 percent clear for subtitles. Exact heading: 結論：入力が異なるときだけ1. 大きな1枚の図。A=0,B=1 とA=1,B=0 が『異なる→1』、A=1,B=1 が『同じ→0』と3つのカードで示された図解。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-first-stage/pe1-kiso-xor-shingihyou/work/raw-answer-diagram.6540d4df.png",
+              "sha256": "6540d4dfca056e692540333209fb169002206fe470a2a3ee5a3f381ce6f26ea5"
+            },
+            "generatedAt": "2026-10-28T11:39:46.916Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-first-stage/pe1-kiso-xor-shingihyou/work/answer-diagram.cefc8470.png",
+            "sha256": "cefc8470af91aac1024bfcb44402ed878aa1567907b3620dd371405a8ef3f90f",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "6540d4dfca056e692540333209fb169002206fe470a2a3ee5a3f381ce6f26ea5"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-28T11:39:46.916Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字・数値の判読",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "misread",
+          "inputSha256": "65c021d384976a5d9708341723268599a798c5b27457212c0f291ed2a467da9d",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Create a new 16:9 full-frame Japanese educational diagram, clean and simple, not a poster. No person. Leave the lower 18 percent clear for subtitles. Exact heading: 「少なくとも」と「ちょうど」. 左右比較の1図。左『OR=少なくとも1つ』は1が1個以上の丸、右『XOR=ちょうど1つ』は1が1個だけの丸。両方1のケースに注意の印。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-first-stage/pe1-kiso-xor-shingihyou/work/raw-misread-diagram.b10a4667.png",
+              "sha256": "b10a4667d6d753e813b6d728fd7ffdad8f980655f87226aa0015d4e9c9103c8f"
+            },
+            "generatedAt": "2026-10-28T11:39:46.916Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-first-stage/pe1-kiso-xor-shingihyou/work/misread-diagram.a3de7068.png",
+            "sha256": "a3de7068e813e7231f8a7a86090f7507aa64eeabee7063f0405888bda3658d84",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "b10a4667d6d753e813b6d728fd7ffdad8f980655f87226aa0015d4e9c9103c8f"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-28T11:39:46.916Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字・数値の判読",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "or",
+          "inputSha256": "f28c1b2d060caf7742ed838d8ea1012555eab474fcc147e14a59347e2a736436",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Create a new 16:9 full-frame Japanese educational diagram, clean and simple, not a poster. No person. Leave the lower 18 percent clear for subtitles. Exact heading: ORの真理値表. A・B・A+B の大きな4行の真理値表。0,0の行だけ0で、他の3行は1。大きな文字で。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-first-stage/pe1-kiso-xor-shingihyou/work/raw-or-diagram.1ce81ad9.png",
+              "sha256": "1ce81ad93f41d5b1f9cf1bba041a8346b0a7175c2fa2d1069cd995c896ac5813"
+            },
+            "generatedAt": "2026-10-28T11:39:46.916Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-first-stage/pe1-kiso-xor-shingihyou/work/or-diagram.9a38e254.png",
+            "sha256": "9a38e2546f1092f216d0fd87b6fd498061dcd802999f1e81c491912c446a1f12",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "1ce81ad93f41d5b1f9cf1bba041a8346b0a7175c2fa2d1069cd995c896ac5813"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-28T11:39:46.916Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字・数値の判読",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "xor",
+          "inputSha256": "abfe5a2e663c190b9660169ed44ce6383bf93cad90eeee9d60ffd37704175b9a",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Create a new 16:9 full-frame Japanese educational diagram, clean and simple, not a poster. No person. Leave the lower 18 percent clear for subtitles. Exact heading: ORとXORを並べる. A・B・OR・XOR の4行表を1枚で。1,1の行だけ強調色で囲み、OR=1とXOR=0が食い違うことを大きな矢印で示す。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-first-stage/pe1-kiso-xor-shingihyou/work/raw-xor-diagram.9d0ca69b.png",
+              "sha256": "9d0ca69b7918bbb639ee8bb0fc8072551326699be5855828ce43fea02e439516"
+            },
+            "generatedAt": "2026-10-28T11:39:46.916Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-first-stage/pe1-kiso-xor-shingihyou/work/xor-diagram.5dc00160.png",
+            "sha256": "5dc00160a27295a74b2f4be4541d652943814dad3cdf0d8483e2df596046fb09",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "9d0ca69b7918bbb639ee8bb0fc8072551326699be5855828ce43fea02e439516"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-28T11:39:46.916Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字・数値の判読",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "formula",
+          "inputSha256": "97d801551174510bb20bf97f108341f4e7d950ddaa890197b17284982c1d6c99",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Create a new 16:9 full-frame Japanese educational diagram, clean and simple, not a poster. No person. Leave the lower 18 percent clear for subtitles. Exact heading: XOR＝OR かつ ANDでない. 中央に式 (A+B)・¬(A・B)。下に4行の検算表(OR列・AND列・結果列)。1,1の行が『ANDで除外』と示された図。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-first-stage/pe1-kiso-xor-shingihyou/work/raw-formula-diagram.0acd96bf.png",
+              "sha256": "0acd96bfca31ff5267827fdda20fad443f4e4c7e262af797f910dcc06556803b"
+            },
+            "generatedAt": "2026-10-28T11:39:46.916Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-first-stage/pe1-kiso-xor-shingihyou/work/formula-diagram.db0baaea.png",
+            "sha256": "db0baaea993f00260b5202f0b60b301ac4ca93d63521933030a9d011305cdb4c",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "0acd96bfca31ff5267827fdda20fad443f4e4c7e262af797f910dcc06556803b"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-28T11:39:46.916Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字・数値の判読",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "bits",
+          "inputSha256": "eb097236ca6ab7c8ec45ab85a978175795ffa21bb5b729751c06ed859f125724",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Create a new 16:9 full-frame Japanese educational diagram, clean and simple, not a poster. No person. Leave the lower 18 percent clear for subtitles. Exact heading: 2回XORで元に戻る. ビット列1100が1010とのXORで0110になり、もう一度1010とXORして1100に戻る往復矢印の図。各桁を縦に揃えて大きく表示。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-first-stage/pe1-kiso-xor-shingihyou/work/raw-bits-diagram.ad654e04.png",
+              "sha256": "ad654e042f4053d7d641efad66dbfceee18ed158b84ab87f21ee6b479e8dcbee"
+            },
+            "generatedAt": "2026-10-28T11:39:46.916Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-first-stage/pe1-kiso-xor-shingihyou/work/bits-diagram.0c75142b.png",
+            "sha256": "0c75142bb8668cf880b7db5cfdc863821d3e42739c43398ff3290f4118f987e7",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "ad654e042f4053d7d641efad66dbfceee18ed158b84ab87f21ee6b479e8dcbee"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-28T11:39:46.916Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字・数値の判読",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "practice",
+          "inputSha256": "fb43384e6c89abf6e0e3f8358aee7835f85657eb0c13b037895df4d7a33b8ac8",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Create a new 16:9 full-frame Japanese educational diagram, clean and simple, not a poster. No person. Leave the lower 18 percent clear for subtitles. Exact heading: 過去問で練習する. 3枚の過去問ラベル(R3 I-2-2、H30 I-2-4、R5 I-2-5)と各論点の一言。下に『先に四行の表を書く』の帯。問題文・問題図は載せない。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-first-stage/pe1-kiso-xor-shingihyou/work/raw-practice-diagram.1002f672.png",
+              "sha256": "1002f6723377684d37844e9c9b62df461bd0f8cd1fd311c492bf7768570ca3eb"
+            },
+            "generatedAt": "2026-10-28T11:39:46.916Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-first-stage/pe1-kiso-xor-shingihyou/work/practice-diagram.36202699.png",
+            "sha256": "362026999d0e9689d0ba4b0f5d63bf3f4e047ce418c3da3afa5ab0dc9a5a5e58",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "1002f6723377684d37844e9c9b62df461bd0f8cd1fd311c492bf7768570ca3eb"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-28T11:39:46.916Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字・数値の判読",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "summary",
+          "inputSha256": "02a974f17254e04685524512b5d41051bfa4b6dde40155af01363fd973cc91f2",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Create a new 16:9 full-frame Japanese educational diagram, clean and simple, not a poster. No person. Leave the lower 18 percent clear for subtitles. Exact heading: まとめ：XORを読む4つの要点. 4つの大きな丸数字の横フロー。OR、XOR、式、2回で元に戻る。1,1の行だけが食い違う小さな表を中央に添える。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-first-stage/pe1-kiso-xor-shingihyou/work/raw-summary-diagram.9e0bba73.png",
+              "sha256": "9e0bba734f281b74b9eafb79e3fc877b92c7c853e77b35744c15a94cf452dba9"
+            },
+            "generatedAt": "2026-10-28T11:39:46.916Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-first-stage/pe1-kiso-xor-shingihyou/work/summary-diagram.797821e8.png",
+            "sha256": "797821e8b6d71cd2a2c1c61389ec68c93ab16a83d59e9479a980278e9863f617",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "9e0bba734f281b74b9eafb79e3fc877b92c7c853e77b35744c15a94cf452dba9"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-28T11:39:46.916Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字・数値の判読",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "cta",
+          "inputSha256": "2e9431991e4ec3495d04751ff4158371c6cbe5dad5cd19d262b037df994eeb24",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Create a new 16:9 full-frame Japanese educational diagram, clean and simple, not a poster. No person. Leave the lower 18 percent clear for subtitles. Exact heading: 直前パック（専門は建設部門）. CTA。直前パックの表紙を中央に、概要欄を示す下向き矢印。専門科目は建設部門の注記。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-first-stage/pe1-kiso-xor-shingihyou/work/raw-cta-diagram.f51dc5fc.png",
+              "sha256": "f51dc5fc894d92b4bffec6d872249de6aa72ce17f62b383839d89d68559bf7e9"
+            },
+            "generatedAt": "2026-10-28T11:39:46.916Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-first-stage/pe1-kiso-xor-shingihyou/work/cta-diagram.41fe8400.png",
+            "sha256": "41fe8400188e7d3ab5fdd9f2517193f03b72c6ad83e140312a37ae47bcc367f1",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "f51dc5fc894d92b4bffec6d872249de6aa72ce17f62b383839d89d68559bf7e9"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-28T11:39:46.916Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字・数値の判読",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        }
+      ]
+    },
+    "cover-pop-20261028": {
+      "version": "pop-poster-v3",
+      "generation": {
+        "tool": "image_gen",
+        "prompt": "Create a NEW 16:9 YouTube thumbnail for a Japanese civil engineering exam tutorial, using the supplied approved cover as the style and character identity reference. Preserve the same white hardhat, glasses, navy suit, approachable adult male teacher on the right. Saturated electric blue background, bold yellow and white comic typography with thick dark outline and small red accent. Main exact Japanese text, large and legible: 「技術士第一次試験」 and 「ORとXORの違いは1行」. Visually show two small clear truth tables labelled OR and XOR, and highlight ONLY their 1,1 row difference (OR=1; XOR=0). Do not add any other words, brand names, URL, price, or exam guarantee. Teacher face and all text within safe edges, full bleed design. This must feel like the approved lively POP poster, not an old flat template.",
+        "references": [
+          {
+            "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.abe1a7b7.png",
+            "sha256": "abe1a7b7debc540640b2aacb2f333874901e60f25843dca40579ccd42feb7216"
+          }
+        ],
+        "output": {
+          "path": ".tmp/media/pe-first-stage/pe1-kiso-xor-shingihyou/work/raw-cover-pop.eb0248ea.png",
+          "sha256": "eb0248ea6343b76da2174c5571a609ae3f05b0c97ac2e58cdf79151e37fbf0ad"
+        },
+        "generatedAt": "2026-10-28T11:39:46.916Z"
+      },
+      "copy": {
+        "exam": "pe-first-stage",
+        "headline": [
+          "ORとXOR",
+          "違いは1行"
+        ],
+        "authority": "総監が制作"
+      },
+      "output": {
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-xor-shingihyou/work/cover-pop.f7cfde32.png",
+        "sha256": "f7cfde32ddfe013446c8b0a0e7bf3109b92eb304f296489edb213dae134d9fb4",
+        "width": 1920,
+        "height": 1080
+      },
+      "normalization": {
+        "mode": "full-frame-v1",
+        "sourceSha256": "eb0248ea6343b76da2174c5571a609ae3f05b0c97ac2e58cdf79151e37fbf0ad"
+      },
+      "review": {
+        "status": "ai-reviewed",
+        "userImageReview": "pending",
+        "checkedAt": "2026-10-28T11:39:46.916Z",
+        "by": "Codex",
+        "views": [
+          "original"
+        ],
+        "checks": [
+          "文言・資格名",
+          "顔と安全域"
+        ]
+      },
+      "storage": {
+        "group": "content-media",
+        "sync": "local"
+      }
+    }
+  }
+}
