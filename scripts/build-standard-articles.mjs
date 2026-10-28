@@ -198,6 +198,24 @@ function escapeBlockStart(text) {
     .replace(/^([#>+|-])/, '\\$1');
 }
 
+const RE_MD_HEADING = /^#{1,6}[ 　]+(\S.*)$/;
+
+/**
+ * 画像から起こしたページ（review-status: visual-transcribed）は、文字起こしが見出しを `### …` で書いている。
+ * 平文として escape すると `### 第Ⅰ編` が画面にそのまま出ていた（2026-10-28 の描画検査・近畿の必携）。
+ * 段落の全行が見出しの記法のときだけ、太字の行（章記事の見出しの階層を崩さない）で出す。それ以外は null。
+ * 同じページの GFM の表（`| 項目 | 記入欄 |` ＋ `|---|`）も平文に化けているが、表は原本との照合（検査 14・18・19）
+ * と組み直しの手順に載せる必要があるので、ここでは扱わない（別カードで起票）。
+ */
+function renderTranscribedMarkdown(entries) {
+  const lines = entries.map((entry) => entry.text.replace(/^[\s　]+|[\s　]+$/g, '')).filter(Boolean);
+  if (lines.length === 0) return null;
+  if (lines.every((line) => RE_MD_HEADING.test(line))) {
+    return lines.map((line) => `**${escapeInline(line.match(RE_MD_HEADING)[1])}**`);
+  }
+  return null;
+}
+
 /** 組み直した表の部品 1 つを Markdown にする（部品の種類は applyTableOverride のコメント）。 */
 function renderOverridePart(part) {
   if (part.kind === 'caption') return `**${escapeInline(part.text)}**`;
@@ -423,6 +441,11 @@ function renderChapter(chapter, tableOutcomes = [], tableOverrides = new Map(), 
     }
     if (node.type === 'note') {
       push(`> ${escapeInline(joinWrapped(node.lines))}`);
+      continue;
+    }
+    const markdown = renderTranscribedMarkdown(node.lines);
+    if (markdown) {
+      markdown.forEach(push);
       continue;
     }
     push(escapeBlockStart(escapeInline(joinWrapped(node.lines))));
