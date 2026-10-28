@@ -11,12 +11,22 @@
  *   - `## 参考資料` 見出しから次の `## ` 見出し or EOF までをセクションとする
  *   - セクション内の `- ` で始まる行をリストアイテムとして抽出
  *   - リンクが無いアイテム（書籍参照等）は url を空文字で返す
+ *   - 行頭以外にもリンクがある行（`厚生労働省「[題](URL)」`・`[A](u)・[B](u)`）は行全体を 1 つの
+ *     リンクにできないので、url を空にして parts（文とリンクの並び）で返す。
+ *     以前は行全体を平文にしていて `[題](URL)` が画面にそのまま出ていた（2026-10-28・23 記事 53 行）
+ *   - 太字の `**` は描画しないので外す
  */
+
+export interface ReferencePart {
+  text: string;
+  url?: string;
+}
 
 export interface ReferenceItem {
   title: string;
   url: string;
   source?: string;
+  parts?: ReferencePart[];
 }
 
 export interface ExtractResult {
@@ -67,25 +77,43 @@ function parseListItems(sectionBody: string): ReferenceItem[] {
   return items;
 }
 
-function parseLine(body: string): ReferenceItem {
+const LINK_RE = /\[([^\]]+)\]\(([^)\s]+)\)/g;
+
+function parseLine(rawBody: string): ReferenceItem {
+  const body = rawBody.replace(/\*\*(.+?)\*\*/g, '$1');
   // 形式: [title](url) followed by optional （source）
   const linkMatch = body.match(/^\[([^\]]+)\]\(([^)]+)\)(.*)$/);
 
-  if (linkMatch) {
+  if (linkMatch && !(linkMatch[3] ?? '').includes('](')) {
     const title = linkMatch[1] ?? '';
     const url = linkMatch[2] ?? '';
     const rest = linkMatch[3] ?? '';
     return { title, url, ...parseSource(rest) };
   }
 
+  if (body.includes('](')) return parseInlineLinks(body);
+
   // リンクが無いアイテム（書籍参照等）→ 太字を除去してタイトルとして扱う
-  const cleaned = body.replace(/\*\*(.+?)\*\*/g, '$1');
+  const cleaned = body;
   const trailing = parseSource(cleaned);
   if (trailing.source) {
     const titlePart = cleaned.replace(/（[^）]+）.*$/, '').trim();
     return { title: titlePart || cleaned.trim(), url: '', ...trailing };
   }
   return { title: cleaned.trim(), url: '' };
+}
+
+function parseInlineLinks(body: string): ReferenceItem {
+  const parts: ReferencePart[] = [];
+  let last = 0;
+  for (const m of body.matchAll(LINK_RE)) {
+    const at = m.index ?? 0;
+    if (at > last) parts.push({ text: body.slice(last, at) });
+    parts.push({ text: m[1] ?? '', url: m[2] ?? '' });
+    last = at + m[0].length;
+  }
+  if (last < body.length) parts.push({ text: body.slice(last) });
+  return { title: parts.map((p) => p.text).join('').trim(), url: '', parts };
 }
 
 function parseSource(rest: string): { source?: string } {
