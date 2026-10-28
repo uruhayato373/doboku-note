@@ -30,7 +30,8 @@ const targets = plan.moves.map((item) => {
   const meta = key ? copy[key] : copy;
   if (!meta || ![item.from, item.to].includes(meta.publishAt)) throw new Error(`文面の予定が計画と違う: ${item.publicationId}`);
   const approval = approvalState(REPO_ROOT, pub, mediaById);
-  if (!approval.visual.valid || !approval.final.valid) throw new Error(`既存の画面・最終承認が無効: ${item.publicationId}`);
+  const recoveringCopy = pub.publishAt !== meta.publishAt && pub.publishAt === item.from && meta.publishAt === item.to;
+  if (!approval.visual.valid || (!approval.final.valid && !recoveringCopy)) throw new Error(`既存の画面・最終承認が無効: ${item.publicationId}`);
   return { item, pub, copyPath, copy, key };
 });
 console.log(`[youtube-reschedule] 既存 ${summary.moves} 本・新規予定 ${summary.newUploads} 本・${summary.days} 日 / ${commit ? '実行' : '試運転'}`);
@@ -75,7 +76,11 @@ for (const { item, pub, copyPath, copy, key } of targets) {
   else copy.publishAt = item.to;
   writeFileSync(copyPath, `${JSON.stringify(copy, null, 2)}\n`);
   const at = new Date().toISOString();
-  const patched = { ...pub, publishAt: item.to, times: { ...pub.times, scheduled: at }, approval: { ...pub.approval, by: 'user', at } };
+  const patched = {
+    ...pub, publishAt: item.to, times: { ...pub.times, scheduled: at },
+    approval: { ...pub.approval, by: 'user', at },
+    ...(pub.delivery?.scheduleAt ? { delivery: { ...pub.delivery, scheduleRequestedAt: at, scheduleAt: item.to, scheduledVerifiedAt: at } } : {}),
+  };
   patched.approval.contentSha256 = approvalState(REPO_ROOT, patched, mediaById).final.current;
   upsertPublications(REPO_ROOT, 'youtube', pub.exam, [patched]);
   done += 1;
