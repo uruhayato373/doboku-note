@@ -168,7 +168,8 @@ export default function SpecSheetList({
           </div>
           {subtitle && (
             <p className={styles.subtitle}>
-              <span className={styles.subtitleHighlight}>{subtitle}</span>
+              {/* ExamPoint の summary も $…$ を書く（items と同じく JSX プロップは remark-math を通らない） */}
+              <span className={styles.subtitleHighlight}>{parseInlineMarkdown(subtitle)}</span>
             </p>
           )}
         </header>
