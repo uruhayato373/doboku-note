@@ -269,6 +269,7 @@
     "check-membership-drip": "node scripts/check-membership-drip.mjs",
     "check-production-ssr": "node scripts/check-production-ssr.mjs",
     "check-production-sweep": "node scripts/check-production-sweep.mjs",
+    "check-rendered-pages": "node scripts/check-rendered-pages.mjs",
     "check-note-membership:live": "node scripts/check-note-membership.mjs --live",
     "check-note-paid-cta": "node scripts/wire-note-paid-cta.mjs --check",
     "check-note-price-consistency": "node scripts/check-note-price-consistency.mjs",

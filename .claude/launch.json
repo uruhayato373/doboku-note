@@ -19,6 +19,15 @@
       ],
       "port": 3021,
       "url": "http://127.0.0.1:3021"
+    },
+    {
+      "name": "serve",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": [
+        "run",
+        "serve"
+      ],
+      "port": 3025
     }
   ]
 }
