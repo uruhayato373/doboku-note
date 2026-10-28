@@ -1450,10 +1450,10 @@
       "publicationId": "concrete-chief-engineer/shunin-rekka-taio/youtube.longform",
       "action": "finish",
       "start": "2026-10-28",
-      "ready": "2026-11-17",
-      "target": "2026-11-20",
+      "ready": "2026-10-28",
+      "target": "2026-11-09",
       "priority": "P1",
-      "note": "2026-10-28 に Codex のセッションが追加した日次動画（内容・画像の確認済み・qa_passed）。予約日が未定のため試験日の直前へ仮配分した（予約の事実ではない）。予約したら公開台帳を正とし、この行の日付を見直す。"
+      "note": "2026-10-28 に Codex のセッションが描画し、見た目の承認まで済ませた日次動画。公開日案（youtube.json の publishAt）に合わせた目標日で、予約の事実ではない。予約したら公開台帳を正とする。"
     },
     {
       "id": "pe1-kiso-kairo-setsuten-finish",
@@ -1461,10 +1461,10 @@
       "publicationId": "pe-first-stage/pe1-kiso-kairo-setsuten/youtube.longform",
       "action": "finish",
       "start": "2026-10-28",
-      "ready": "2026-11-14",
-      "target": "2026-11-18",
+      "ready": "2026-10-28",
+      "target": "2026-11-10",
       "priority": "P1",
-      "note": "2026-10-28 に Codex のセッションが追加した日次動画（内容・画像の確認済み・qa_passed）。予約日が未定のため試験日の直前へ仮配分した（予約の事実ではない）。予約したら公開台帳を正とし、この行の日付を見直す。"
+      "note": "2026-10-28 に Codex のセッションが描画し、見た目の承認まで済ませた日次動画。公開日案（youtube.json の publishAt）に合わせた目標日で、予約の事実ではない。予約したら公開台帳を正とする。"
     },
     {
       "id": "pe1-kiso-newton-hou-finish",
@@ -1472,10 +1472,10 @@
       "publicationId": "pe-first-stage/pe1-kiso-newton-hou/youtube.longform",
       "action": "finish",
       "start": "2026-10-28",
-      "ready": "2026-11-14",
-      "target": "2026-11-18",
+      "ready": "2026-10-28",
+      "target": "2026-11-12",
       "priority": "P1",
-      "note": "2026-10-28 に Codex のセッションが追加した日次動画（内容・画像の確認済み・qa_passed）。予約日が未定のため試験日の直前へ仮配分した（予約の事実ではない）。予約したら公開台帳を正とし、この行の日付を見直す。"
+      "note": "2026-10-28 に Codex のセッションが描画し、見た目の承認まで済ませた日次動画。公開日案（youtube.json の publishAt）に合わせた目標日で、予約の事実ではない。予約したら公開台帳を正とする。"
     }
   ]
 }

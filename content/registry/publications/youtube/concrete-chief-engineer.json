@@ -1592,7 +1592,31 @@
       "work": "shunin-rekka-taio",
       "account": "youtube:main",
       "format": "longform",
-      "status": "qa_passed"
+      "status": "qa_passed",
+      "media": {
+        "cover": "concrete-chief-engineer/shunin-rekka-taio/youtube.longform/cover",
+        "scene-001": "concrete-chief-engineer/shunin-rekka-taio/youtube.longform/scene-001",
+        "scene-002": "concrete-chief-engineer/shunin-rekka-taio/youtube.longform/scene-002",
+        "scene-003": "concrete-chief-engineer/shunin-rekka-taio/youtube.longform/scene-003",
+        "scene-004": "concrete-chief-engineer/shunin-rekka-taio/youtube.longform/scene-004",
+        "scene-005": "concrete-chief-engineer/shunin-rekka-taio/youtube.longform/scene-005",
+        "scene-006": "concrete-chief-engineer/shunin-rekka-taio/youtube.longform/scene-006",
+        "scene-007": "concrete-chief-engineer/shunin-rekka-taio/youtube.longform/scene-007",
+        "scene-008": "concrete-chief-engineer/shunin-rekka-taio/youtube.longform/scene-008",
+        "scene-009": "concrete-chief-engineer/shunin-rekka-taio/youtube.longform/scene-009",
+        "scene-010": "concrete-chief-engineer/shunin-rekka-taio/youtube.longform/scene-010",
+        "scene-011": "concrete-chief-engineer/shunin-rekka-taio/youtube.longform/scene-011",
+        "scene-012": "concrete-chief-engineer/shunin-rekka-taio/youtube.longform/scene-012",
+        "scene-013": "concrete-chief-engineer/shunin-rekka-taio/youtube.longform/scene-013",
+        "scene-014": "concrete-chief-engineer/shunin-rekka-taio/youtube.longform/scene-014",
+        "video": "concrete-chief-engineer/shunin-rekka-taio/youtube.longform/video",
+        "subtitles": "concrete-chief-engineer/shunin-rekka-taio/youtube.longform/subtitles",
+        "preview": "concrete-chief-engineer/shunin-rekka-taio/youtube.longform/preview",
+        "scene-sheet": "concrete-chief-engineer/shunin-rekka-taio/youtube.longform/scene-sheet",
+        "preview-metrics": "concrete-chief-engineer/shunin-rekka-taio/youtube.longform/preview-metrics",
+        "contact-sheet": "concrete-chief-engineer/shunin-rekka-taio/youtube.longform/contact-sheet",
+        "contact-sheet-2": "concrete-chief-engineer/shunin-rekka-taio/youtube.longform/contact-sheet-2"
+      }
     },
     {
       "id": "concrete-chief-engineer/shunin-shiken-zentaizou/youtube.longform",
