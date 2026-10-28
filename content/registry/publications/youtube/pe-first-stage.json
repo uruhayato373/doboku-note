@@ -178,7 +178,7 @@
         "scene-sheet": "pe-first-stage/pe1-senmon-kensetsu-25mon/youtube.longform/scene-sheet",
         "preview-metrics": "pe-first-stage/pe1-senmon-kensetsu-25mon/youtube.longform/preview-metrics"
       },
-      "status": "rendered",
+      "status": "scheduled",
       "copy": "content/sns/video-packs/pe-first-stage/pe1-senmon-kensetsu-25mon/youtube.json#longform",
       "publishAt": "2026-11-06T20:00:00+09:00",
       "review": {
@@ -195,7 +195,42 @@
         "contentSha256": "9a926be07ad6e373da3c7c917ec416690393684b80d5eb3c2f7dc9f1926fe61f"
       },
       "times": {
-        "rendered": "2026-10-28T00:30:57.088Z"
+        "rendered": "2026-10-28T00:30:57.088Z",
+        "uploaded": "2026-10-28T00:43:52.434Z",
+        "scheduled": "2026-10-28T00:44:06.320Z"
+      },
+      "delivery": {
+        "inputSha256": "dddf5c1732dd0f55d415c78879ddc2296cddb1e459cfb96cdd6969c069b8a92f",
+        "marker": "dn-single-d29769efaa73105b391aeed946189b23bf883960",
+        "uploadRequestedAt": "2026-10-28T00:42:58.569Z",
+        "videoId": "gRUKhWDZJhk",
+        "processedAt": "2026-10-28T00:43:51.666Z",
+        "thumbnailRequestedAt": "2026-10-28T00:43:52.488Z",
+        "thumbnailUrls": [
+          "https://i9.ytimg.com/vi/gRUKhWDZJhk/default.jpg?sqp=COCIhdcG&rs=AOn4CLCScyxCZ6imZjz8zdn4fJVX1Ifn2Q",
+          "https://i9.ytimg.com/vi/gRUKhWDZJhk/mqdefault.jpg?sqp=COCIhdcG&rs=AOn4CLC2Y2Fs1rlK6yJb2rlQEPwanYtB4Q",
+          "https://i9.ytimg.com/vi/gRUKhWDZJhk/hqdefault.jpg?sqp=COCIhdcG&rs=AOn4CLC9_Rs7RY-wsKame0PLPkQ7RY3l_A",
+          "https://i9.ytimg.com/vi/gRUKhWDZJhk/sddefault.jpg?sqp=COCIhdcG&rs=AOn4CLCy7ShSLnDZdBEw7LDA9DhtPtpF-A",
+          "https://i9.ytimg.com/vi/gRUKhWDZJhk/maxresdefault.jpg?sqp=COCIhdcG&rs=AOn4CLAuwqR-UzwWz0j-dTFYx7nJoJpDww",
+          "https://i9.ytimg.com/vi/gRUKhWDZJhk/fhddefault.jpg?sqp=COCIhdcG&rs=AOn4CLBLmpOKjAM81e2PHvCNgl7optTmmw"
+        ],
+        "thumbnailAcceptedAt": "2026-10-28T00:43:59.380Z",
+        "scheduleRequestedAt": "2026-10-28T00:44:01.344Z",
+        "scheduleAt": "2026-11-06T20:00:00+09:00",
+        "scheduledVerifiedAt": "2026-10-28T00:44:06.320Z"
+      },
+      "platform": {
+        "id": "gRUKhWDZJhk",
+        "url": "https://www.youtube.com/watch?v=gRUKhWDZJhk",
+        "privacy": "private",
+        "evidence": {
+          "kind": "publisher-live-check",
+          "ref": "content/sns/video-packs/pe-first-stage/pe1-senmon-kensetsu-25mon/youtube.json#longform"
+        }
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-10-28T00:43:59.380Z"
       }
     },
     {
