@@ -175,7 +175,7 @@
       "work": "pe1-kiso-newton-hou",
       "account": "youtube:main",
       "format": "longform",
-      "status": "rendered",
+      "status": "scheduled",
       "media": {
         "cover": "pe-first-stage/pe1-kiso-newton-hou/youtube.longform/cover",
         "scene-001": "pe-first-stage/pe1-kiso-newton-hou/youtube.longform/scene-001",
@@ -216,7 +216,42 @@
       "copy": "content/sns/video-packs/pe-first-stage/pe1-kiso-newton-hou/youtube.json#longform",
       "publishAt": "2026-11-02T08:30:00+09:00",
       "times": {
-        "rendered": "2026-10-28T10:23:33.797Z"
+        "rendered": "2026-10-28T10:23:33.797Z",
+        "uploaded": "2026-10-28T10:31:12.888Z",
+        "scheduled": "2026-10-28T10:31:20.930Z"
+      },
+      "delivery": {
+        "inputSha256": "f99b4a086ea3929774c6176d810f0006118e2cd61560aa946909270fd11142c5",
+        "marker": "dn-single-8211ab77e29788cb648dcf6a61ae2c3cce06d077",
+        "uploadRequestedAt": "2026-10-28T10:30:27.796Z",
+        "videoId": "xhYEwdON8ps",
+        "processedAt": "2026-10-28T10:31:12.276Z",
+        "thumbnailRequestedAt": "2026-10-28T10:31:12.943Z",
+        "thumbnailUrls": [
+          "https://i9.ytimg.com/vi/xhYEwdON8ps/default.jpg?sqp=CKidh9cG&rs=AOn4CLB5w2PvK79h5j8b4jugoPmGErKHhw",
+          "https://i9.ytimg.com/vi/xhYEwdON8ps/mqdefault.jpg?sqp=CKidh9cG&rs=AOn4CLC9fPBoavDzl2f8hzkIELLtXxV_5Q",
+          "https://i9.ytimg.com/vi/xhYEwdON8ps/hqdefault.jpg?sqp=CKidh9cG&rs=AOn4CLCT-wifZDqqEpNz91IjyyeMJ2Jpxg",
+          "https://i9.ytimg.com/vi/xhYEwdON8ps/sddefault.jpg?sqp=CKidh9cG&rs=AOn4CLC6iBURtQXAj45GzDA4kGQ8XfwXQA",
+          "https://i9.ytimg.com/vi/xhYEwdON8ps/maxresdefault.jpg?sqp=CKidh9cG&rs=AOn4CLCifMfDpu9uCi-13UnWvCbA7XJsnA",
+          "https://i9.ytimg.com/vi/xhYEwdON8ps/fhddefault.jpg?sqp=CKidh9cG&rs=AOn4CLCxRZRezaL7nXDXRuHpi-9ZWpZtlQ"
+        ],
+        "thumbnailAcceptedAt": "2026-10-28T10:31:16.653Z",
+        "scheduleRequestedAt": "2026-10-28T10:31:17.635Z",
+        "scheduleAt": "2026-11-02T08:30:00+09:00",
+        "scheduledVerifiedAt": "2026-10-28T10:31:20.930Z"
+      },
+      "platform": {
+        "id": "xhYEwdON8ps",
+        "url": "https://www.youtube.com/watch?v=xhYEwdON8ps",
+        "privacy": "private",
+        "evidence": {
+          "kind": "publisher-live-check",
+          "ref": "content/sns/video-packs/pe-first-stage/pe1-kiso-newton-hou/youtube.json#longform"
+        }
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-10-28T10:31:16.653Z"
       }
     },
     {
