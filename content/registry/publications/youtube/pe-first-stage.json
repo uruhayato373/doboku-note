@@ -91,7 +91,7 @@
       "work": "pe1-kiso-kairo-setsuten",
       "account": "youtube:main",
       "format": "longform",
-      "status": "rendered",
+      "status": "scheduled",
       "media": {
         "cover": "pe-first-stage/pe1-kiso-kairo-setsuten/youtube.longform/cover",
         "scene-001": "pe-first-stage/pe1-kiso-kairo-setsuten/youtube.longform/scene-001",
@@ -130,10 +130,45 @@
         "contentSha256": "02628ca9761756af1d3dc4b719d817c3bc71aa67c4bdeae0e955445bf55e13b7"
       },
       "times": {
-        "rendered": "2026-10-28T00:57:12.931Z"
+        "rendered": "2026-10-28T00:57:12.931Z",
+        "uploaded": "2026-10-28T10:27:49.338Z",
+        "scheduled": "2026-10-28T10:27:57.629Z"
       },
       "copy": "content/sns/video-packs/pe-first-stage/pe1-kiso-kairo-setsuten/youtube.json#longform",
-      "publishAt": "2026-11-01T20:30:00+09:00"
+      "publishAt": "2026-11-01T20:30:00+09:00",
+      "delivery": {
+        "inputSha256": "9c24a9af34eaf7676b3427c28dce5392bcefc194fa8491ead9177c89f9667886",
+        "marker": "dn-single-b8df5ab4c5e892e096ee0ed792b6eed067dfcb84",
+        "uploadRequestedAt": "2026-10-28T10:26:55.152Z",
+        "videoId": "asNkuQvdIq0",
+        "processedAt": "2026-10-28T10:27:47.967Z",
+        "thumbnailRequestedAt": "2026-10-28T10:27:49.397Z",
+        "thumbnailUrls": [
+          "https://i9.ytimg.com/vi/asNkuQvdIq0/default.jpg?sqp=CPyah9cG&rs=AOn4CLDkge-X0O3dwl7QXCq_68XZo7JUYg",
+          "https://i9.ytimg.com/vi/asNkuQvdIq0/mqdefault.jpg?sqp=CPyah9cG&rs=AOn4CLCjW2MVXZaKbU3Sb-bZRziTo4h0-A",
+          "https://i9.ytimg.com/vi/asNkuQvdIq0/hqdefault.jpg?sqp=CPyah9cG&rs=AOn4CLCIqSSkysJwMYqJnH0tyt0FNt6tLg",
+          "https://i9.ytimg.com/vi/asNkuQvdIq0/sddefault.jpg?sqp=CPyah9cG&rs=AOn4CLBLrJme8zUikYrPNiyir5P8EgCUkw",
+          "https://i9.ytimg.com/vi/asNkuQvdIq0/maxresdefault.jpg?sqp=CPyah9cG&rs=AOn4CLDlbp0BoqTzZINHfuR1aCn4n6MuPQ",
+          "https://i9.ytimg.com/vi/asNkuQvdIq0/fhddefault.jpg?sqp=CPyah9cG&rs=AOn4CLCT8YXBgSfb1ajHwRi2_NqO4yYG0g"
+        ],
+        "thumbnailAcceptedAt": "2026-10-28T10:27:52.804Z",
+        "scheduleRequestedAt": "2026-10-28T10:27:53.935Z",
+        "scheduleAt": "2026-11-01T20:30:00+09:00",
+        "scheduledVerifiedAt": "2026-10-28T10:27:57.629Z"
+      },
+      "platform": {
+        "id": "asNkuQvdIq0",
+        "url": "https://www.youtube.com/watch?v=asNkuQvdIq0",
+        "privacy": "private",
+        "evidence": {
+          "kind": "publisher-live-check",
+          "ref": "content/sns/video-packs/pe-first-stage/pe1-kiso-kairo-setsuten/youtube.json#longform"
+        }
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-10-28T10:27:52.804Z"
+      }
     },
     {
       "id": "pe-first-stage/pe1-kiso-newton-hou/youtube.longform",
