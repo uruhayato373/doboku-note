@@ -179,6 +179,7 @@ git 管理の data/ は 846 → 約 280 ファイル（約 7 割減）、年間�
 - 最初の利用者は書籍の網羅（content-taxonomy.md §7）: 見出しを含まない要約 `state.book-coverage`（書籍ごとの判定件数・判定日・展開した記事とコミット・型 `StateBookCoverage`）は git、見出しを含む候補表と意味判定 `vault.book-coverage-*` は Drive vault の `原資料PDF/書籍/<dir>/coverage/`
 - 段階 2（2026-10-10 済み・DN-0585）: 台帳の id で一覧・取得・絞り込みを返す共通の入口 `npm run data -- list|get|query`（`scripts/lib/dataset-query.mjs`）。管理画面 `/ops/store` の詳細も同じ関数で行を絞る。行は配列の要素か対応表の各項目（キーは `_key`）
 - 段階 3（2026-10-10・DN-0586）: 台帳の行に `refs: [{ at: '場所', to: 'qualification'|'product'|'article' }]` を宣言すると、`check-datasets` が全ファイルで参照先の実在を見る（`scripts/lib/dataset-refs.mjs`。場所は `books.*.expansions[].article` の形）。検査した参照の件数を出し、宣言があるのに 1 件も拾えなければ違反（場所の書き間違い）・全体で 0 件なら検査不成立。最初に宣言したのは `state.book-coverage`（展開した記事）・`config.products`（商品の資格）・`config.business-direction`（重点資格）の 3 つ（537 件）。
+- 段階 3 の拡張（2026-10-27）: 参照先に `experiment`・`affiliate-program`・`metric`・`backlog-card` を足して 7 種にし、宣言に任意の欄 `keys`（キーを参照として数える）・`prefix`・`ignore`（`all`・`account` などの予約語）・`severity`（既定 error・生成索引の過去分などは warn）・`copies`（写しの欄が参照先の欄と同じ値か）を持てるようにした。宣言の書き間違いは `refDeclarationError` が止める。2026-10-27 時点で 19 データセット（配置ルールの案件と実験・実験の商品と KPI・指標の対象資格・note 冒頭標準の商品と URL の写し・コンテンツ台帳の資格・KPI 記録・過去問→キーワードの逆引き・作業予約のカードなど）
   既存の個別の検査で置き換えられるかの洗い出し: `check-qualification-ssot` は資格 id の照合に加えて名前の写しを見るので残す（id の照合だけは refs と重なる）／`check-category-curriculum` の slug の実在（260 件）は、読む `src/config/category-curriculum.json` が台帳の置き場（AREAS）の外なので、`src/config` を置き場に足すまで個別のまま／`check-products` は生成ブロックとの一致を見るもので、参照の実在ではないので置き換えない。新しく参照を持つデータを足すときは、個別の検査を書く前に refs で宣言する
 
 ## 全体の棚卸し（2026-10-10）

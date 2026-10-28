@@ -47,6 +47,7 @@ import { resolvePlacement, resolveArticleMidNoteSlot, resolveEndNoteSlot, render
 import { extractReferencesSection } from '../src/lib/extract-references';
 import { resolveHubCta } from '../src/lib/hub-cta';
 import { sidebarProduct, DISCOVERY_CATEGORIES } from '../src/lib/sidebar-discovery';
+import { isCivilConstructionCategory } from '../src/lib/qualification-names';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
 // このリポジトリは package.json に "type" が無く、tsx は .ts を CJS として扱う。
@@ -109,7 +110,7 @@ const docs = allDocs.filter(d => d.isPublished);
 // 1級・2級土木の secondary も中間 CTA の対象（DocPage.tsx:336-338 の isCivilSecondary）。
 // 全資格の secondary を一律対象にはしない（土木のみ）。
 const isCivilSecondary = (d: Doc): boolean =>
-  (d.category === 'civil-construction-1' || d.category === 'civil-construction-2') &&
+  isCivilConstructionCategory(d.category) &&
   d.group === 'secondary';
 
 // もくじタイル（hub-cta.ts の HUB）に載っている資格 = 資格単位でマガジン導線がある

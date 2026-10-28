@@ -123,7 +123,11 @@ function unzipMissing() {
 export const CHECKS = [
   { id: 'content-expansion', npm: 'check-content-expansion', timeout: 30_000, ci: true, note: '全教材の母数・記事/図/SNS対応表の整合。未確認・原典待ち・成果物変更を別表示し、構造PASSで制作完了とはしない' },
   { id: 'domains', npm: 'check-domains', timeout: 30_000, ci: true, note: '領域の正本（domains.json）と、スキル/エージェントの frontmatter domain・文書の割り当ての整合' },
-  { id: 'affiliate-placements', npm: 'check-affiliate-placements', timeout: 60_000, ci: true, note: '転職アフィリエイトの配置ルール（台帳 config.affiliate-placements）が案件（catalog の active・Red Line でない）・広告リンクの有無・面の語彙・カテゴリ・実験と整合し、同じ面に 2 ルールが重ならないか。MDX の手書き <CareerAffiliate> のカテゴリがルールに覆われているか（2026-10-07）。広告リンクの期限は壁時計依存なので affiliate-placements-upcoming（ops）が見る（2026-10-11）' },
+  { id: 'affiliate-placements', timeout: 90_000, ci: true, note: '転職アフィリエイトの配置ルール・案件と広告リンクの配線・広告リンクの許可リストを 1 検査で回す（配線と許可リストは 2026-10-27 まで pre-commit の staged だけで、CI では誰も見ていなかった）', steps: [
+    { label: 'placements', npm: 'check-affiliate-placements', timeout: 60_000, note: '転職アフィリエイトの配置ルール（台帳 config.affiliate-placements）が案件（catalog の active・Red Line でない）・広告リンクの有無・面の語彙・カテゴリ・実験と整合し、同じ面に 2 ルールが重ならないか。MDX の手書き <CareerAffiliate> のカテゴリがルールに覆われているか（2026-10-07）。広告リンクの期限は壁時計依存なので affiliate-placements-upcoming（ops）が見る（2026-10-11）' },
+    { label: 'wiring', npm: 'check-affiliate-wiring', timeout: 30_000, note: '案件の台帳（affiliate.catalog）・広告リンクの台帳（config.affiliate-mats）・コードのラベルが互いに実在するか（全量）' },
+    { label: 'mats', npm: 'check-affiliate-mats', timeout: 60_000, note: 'src と MDX の a8mat が許可リストにあるか・MDX への生 mat の直書き・他サイトの素材の誤貼り（全量）' },
+  ] },
   { id: 'affiliate-placements-upcoming', cmd: ['node', 'scripts/check-affiliate-placements.mjs', '--upcoming'], timeout: 30_000, ci: false, ops: true, note: '7 日以内に始まる・終わる配置ルールがあるか（SSG は境界を過ぎても再ビルドまで切り替わらない）と、開いているルールの広告リンクが全て期限切れか。読み手＝ops-audit.yml（日次 --ops → automation-failure Issue channel ops・境界を過ぎれば自動クローズ）' },
   { id: 'datasets', npm: 'check-datasets', timeout: 60_000, ci: true, note: '設定（config/）・記録（data/）の全ファイルが台帳 scripts/lib/datasets.mjs のちょうど 1 つのデータセットに当たり、型（zod）のあるものは型に合うか、コードが config/・data/ のパスを直書きせず台帳から引いているか（2026-10-02: パスと決まりが 6 か所に散らばり、管理画面と UTM 生成が旧パスを黙って読んでいた）' },
   { id: 'agent-config', npm: 'check-agent-config', timeout: 30_000, ci: true, note: '.claude/config/ の JSON（認証の許可リスト・CI の書き込み許可・品質ゲートの基準と許可リスト）がすべて型（scripts/lib/dataset-schemas-agent-config.mjs）に合い、型の無い JSON が無いか（DN-0524・案B。壊れるとログインや書き戻しが黙って止まる）' },
@@ -302,7 +306,11 @@ export const CHECKS = [
   { id: 'outbound-links', npm: 'check-outbound-links', timeout: 600_000, ci: false, note: '送客先 note.com URL の生死を public API で実査（取得失敗が2割超なら検査不成立で赤）。外部 API 依存で 1 分半かかり、push 毎に note API を叩くと 403 を招くため週次 report（weekly-review-guard）へ移した（2026-09-30）' },
   // BROKEN_SLUG 166→0（RelatedKeywords 解決を categories.json 由来へ統一・2026-07-13）を受け、
   // site scope の内部リンク切れを ci gate へ昇格（--scope site。build 前 source link 契約）。
-  { id: 'internal-links', cmd: ['npm', 'run', '--silent', 'check-links', '--', '--scope', 'site'], timeout: 180_000, ci: true, note: 'site scope の /docs・/category・anchor リンク切れ（RelatedKeywords 共通 resolver）' },
+  // 共通仕様書の章・節ページ（/standards/…）は check-links の対象外なので、同じ対象（site の MDX の内部リンク）を見る step として束ねる（DN-0879）。
+  { id: 'internal-links', timeout: 240_000, ci: true, note: 'site の MDX の内部リンク切れを 1 検査で回す（手順ごとの理由は各 step の note）', steps: [
+    { label: 'site-links', cmd: ['npm', 'run', '--silent', 'check-links', '--', '--scope', 'site'], timeout: 180_000, note: 'site scope の /docs・/category・anchor リンク切れ（RelatedKeywords 共通 resolver）' },
+    { label: 'standards-links', npm: 'check-standards-links', timeout: 60_000, note: '過去問の解説などから共通仕様書の章・節・条（/standards/…#条の見出し）へのリンク先が catalog・manifest・章記事に実在するか。章・節・条の番号は毎年の改定で変わり、章記事を作り直すとリンクだけが黙って切れる。リンクを 1 本も見つけられなければ検査不成立で赤（DN-0879）' },
+  ] },
   { id: 'topic-wiring', npm: 'check-topic-wiring', timeout: 60_000, ci: true, note: '全国10機関・topic参照・公開実務ガイドのタグ接続を機械検査。実務記事が検索だけに孤立する回帰を止める' },
   { id: 'katex-warnings', npm: 'audit-katex:ci', timeout: 240_000, ci: true, note: 'build の KaTeX strict 警告を数式単位で検出（remark-math パイプライン。0 件を維持）' },
 

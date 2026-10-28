@@ -1,0 +1,279 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 3,
+      "narration": "適性科目、3つの視点です。",
+      "caption": "適性科目 正誤判定の3つの視点",
+      "visual": {
+        "kind": "cover",
+        "heading": "適性科目 3つの視点",
+        "items": [
+          "主語・数値・断定で読む"
+        ]
+      },
+      "graphicPrompt": "POP表紙。大きな虫眼鏡が選択肢の1行を拡大し、3色の付箋(主語/数値/断定)が貼られた構図。資格色の背景。"
+    },
+    {
+      "sceneId": "answer",
+      "start": 3,
+      "end": 15,
+      "narration": "覚えたのに選択肢で迷う方へ。結論です。選択肢は、主語と適用範囲、数値と順序、断定表現の3つの視点で順に確認します。この動画の提案する読み方です。",
+      "caption": "結論：主語、数値、断定の3点で読む",
+      "visual": {
+        "heading": "結論：3つの視点で順に確認",
+        "items": [
+          "1 主語・適用範囲",
+          "2 数値・順序",
+          "3 断定表現"
+        ]
+      },
+      "graphicPrompt": "白背景に3つの大きな丸番号が横に並ぶ図。各丸の下に短い語。左から右への読み順を示す。",
+      "sourceRef": "content/site/pe-first-stage/guide-aptitude-subject/article.mdx"
+    },
+    {
+      "sceneId": "rules",
+      "start": 15,
+      "end": 28,
+      "narration": "日本技術士会の受験申込案内では、適性科目は技術士法第4章の規定の遵守に関する15問に全問解答します。試験時間は1時間で、令和8年度は11月22日の13時30分からです。",
+      "caption": "適性科目は15問を全問解答",
+      "visual": {
+        "heading": "適性科目の形式（公式案内）",
+        "items": [
+          "技術士法第4章の遵守に関する適性",
+          "15問・全問解答（1問1点）",
+          "13:30〜14:30（1時間）"
+        ]
+      },
+      "graphicPrompt": "3つの大きなアイコン(法典・15個のマーク欄・時計)を縦に並べた形式図。時計は13:30〜14:30を示す。",
+      "sourceRef": "content/site/pe-first-stage/guide-aptitude-subject/article.mdx"
+    },
+    {
+      "sceneId": "pain",
+      "start": 28,
+      "end": 39,
+      "narration": "条文を覚えたはずなのに、選択肢を読むと迷う。原因の一つは、覚えた内容と選択肢の細部を、見比べる順序がないことです。",
+      "caption": "覚えたのに迷う原因の一つは見比べ方",
+      "visual": {
+        "kind": "points",
+        "heading": "覚えたのに迷う原因",
+        "items": [
+          "覚えた文と選択肢を見比べる",
+          "細部の入れ替えで迷う",
+          "順序がないと毎回迷う"
+        ]
+      },
+      "graphicPrompt": "左に『覚えた文』、右に『選択肢』の2枚のカード。間に虫眼鏡と『?』。ズレた1語に赤い丸。",
+      "sourceRef": "content/site/pe-first-stage/guide-aptitude-subject/article.mdx"
+    },
+    {
+      "sceneId": "misread",
+      "start": 39,
+      "end": 52,
+      "narration": "よくある誤解は、全体の意味が合っていれば正しいと読むことです。適性科目の誤り選択肢には代表的な型があります。すべてではありませんが、正しい規定に余計な一文を付け足す型と、似た2つの用語の定義を入れ替える型です。",
+      "caption": "全体が自然でも誤りの型がある",
+      "visual": {
+        "heading": "誤解：意味が合えば正しいとは限らない",
+        "items": [
+          "全体の意味は自然に読める",
+          "型1：余計な一文の付け足し",
+          "型2：似た用語の定義の入れ替え"
+        ]
+      },
+      "graphicPrompt": "自然な一文に余計な付箋が1枚貼られた図と、2枚のカードの定義が入れ替わった図の対比。",
+      "sourceRef": "content/site/pe-first-stage/guide-aptitude-subject/article.mdx"
+    },
+    {
+      "sceneId": "view1",
+      "start": 52,
+      "end": 67,
+      "narration": "1つ目は、主語と適用範囲です。誰の義務なのか、どこまでが対象なのか。対象には、いつまで続くのかという時間の範囲も含めて、規定どおりかを確認します。",
+      "caption": "視点1：主語と適用範囲",
+      "visual": {
+        "heading": "視点1：誰の義務か、どこまでか",
+        "items": [
+          "誰の義務か",
+          "対象の範囲：何を、いつまで",
+          "規定どおりか"
+        ]
+      },
+      "graphicPrompt": "人物シルエットの周りに同心円の範囲、下に時間軸の矢印を置いた図。",
+      "sourceRef": "content/site/pe-first-stage/guide-aptitude-subject/article.mdx"
+    },
+    {
+      "sceneId": "view2",
+      "start": 67,
+      "end": 80,
+      "narration": "2つ目は、数値と順序です。数や年数、順番が正確かを見ます。順序は、暗記するだけでなく、なぜその順かを理解すると崩れにくくなります。この動画では、この視点は説明にとどめます。",
+      "caption": "視点2：数値と順序",
+      "visual": {
+        "heading": "視点2：数・年数・順番",
+        "items": [
+          "数や年数は正確か",
+          "順番は入れ替わっていないか",
+          "なぜその順かを理解する"
+        ]
+      },
+      "graphicPrompt": "数字ブロックと矢印で結ばれた3段の階段図。2段目と3段目を入れ替えた×の対比。",
+      "sourceRef": "content/site/pe-first-stage/guide-aptitude-subject/article.mdx"
+    },
+    {
+      "sceneId": "view3",
+      "start": 80,
+      "end": 92,
+      "narration": "3つ目は、断定表現です。限る、除外される、必ず、しなければならない、といった強い言い切りが、本来の規定と一致しているかを確認します。",
+      "caption": "視点3：断定表現",
+      "visual": {
+        "heading": "視点3：強い言い切りに注意",
+        "items": [
+          "限る・除外される",
+          "必ず・しなければならない",
+          "本来の規定と一致するか"
+        ]
+      },
+      "graphicPrompt": "吹き出しに入った強い語『限る』『必ず』を、天秤で本来の規定と量る図。",
+      "sourceRef": "content/site/pe-first-stage/guide-aptitude-subject/article.mdx"
+    },
+    {
+      "sceneId": "example0",
+      "start": 92,
+      "end": 106,
+      "narration": "ここから、説明のための仮の例です。実際の出題ではありません。1つ目の仮の選択肢は、技術士は業務に関して知り得た秘密を、技術士でなくなった後は漏らしてもよい、とします。",
+      "caption": "仮の例1：実際の出題ではありません",
+      "visual": {
+        "heading": "仮の例1（実際の出題ではない）",
+        "items": [
+          "『業務に関して知り得た秘密を、技術士でなくなった後は漏らしてもよい』",
+          "※説明用に作った仮の選択肢"
+        ]
+      },
+      "graphicPrompt": "『仮の例・実際の出題ではありません』スタンプを付けた1枚の選択肢カード。文面が大きく中央に。",
+      "sourceRef": "content/site/pe-first-stage/guide-aptitude-subject/article.mdx"
+    },
+    {
+      "sceneId": "example1",
+      "start": 106,
+      "end": 120,
+      "narration": "これは視点1、適用範囲のうち、いつまでという時間の範囲を確認する例です。技術士法第45条は、技術士でなくなった後においても、秘密を漏らしてはならないと定めています。この選択肢は、義務が続く範囲を狭めており、誤りと判断できます。",
+      "caption": "仮の例1：視点1、時間の範囲で誤り",
+      "visual": {
+        "heading": "仮の例1：視点1で見る",
+        "items": [
+          "視点1：義務はいつまで続くか",
+          "第45条：でなくなった後も同様",
+          "『後は』で範囲が狭まり誤り"
+        ]
+      },
+      "graphicPrompt": "カード上の『後は』に黄色の蛍光ペン、横に『退いた後も続く』の時間軸の矢印。",
+      "sourceRef": "content/site/pe-first-stage/guide-aptitude-subject/article.mdx"
+    },
+    {
+      "sceneId": "example2",
+      "start": 120,
+      "end": 134,
+      "narration": "2つ目の仮の例です。これも実際の出題ではありません。仮の選択肢は、技術士は業務に関して技術士の名称を表示するときは、登録を受けた技術部門に加えて、実務経験年数も必ず併記しなければならない、とします。",
+      "caption": "仮の例2：実際の出題ではありません",
+      "visual": {
+        "heading": "仮の例2（実際の出題ではない）",
+        "items": [
+          "『名称を表示するときは、登録部門に加えて実務経験年数も必ず併記しなければならない』",
+          "※説明用に作った仮の選択肢"
+        ]
+      },
+      "graphicPrompt": "『仮の例・実際の出題ではありません』スタンプを付けた2枚目の選択肢カード。",
+      "sourceRef": "content/site/pe-first-stage/guide-aptitude-subject/article.mdx"
+    },
+    {
+      "sceneId": "example3",
+      "start": 134,
+      "end": 148,
+      "narration": "これは視点3、断定表現を確認する例で、余計な一文を付け足した型です。第46条が求めるのは登録を受けた技術部門の明示で、実務経験年数の併記は条文にありません。必ず、しなければならない、という強い言い切りに印を付けると気づけます。",
+      "caption": "仮の例2：視点3、断定表現で誤り",
+      "visual": {
+        "heading": "仮の例2：視点3で見る",
+        "items": [
+          "第46条：登録を受けた技術部門を明示",
+          "実務経験年数の併記は条文にない",
+          "『必ず〜しなければならない』に印"
+        ]
+      },
+      "graphicPrompt": "カード上の『必ず』『しなければならない』に四角の印、横に条文の『登録を受けた技術部門を明示』の札。",
+      "sourceRef": "content/site/pe-first-stage/guide-aptitude-subject/article.mdx"
+    },
+    {
+      "sceneId": "routine",
+      "start": 148,
+      "end": 161,
+      "narration": "読む手順にします。選択肢を読んだら、主語と範囲、数値と順序、断定表現の順に、ペンで印を付けながら確認します。この印の付け方も提案です。",
+      "caption": "印を付けながら順に確認",
+      "visual": {
+        "heading": "確認は3つの印を順に付ける",
+        "items": [
+          "主語・範囲に下線",
+          "数値・順序に丸",
+          "断定表現に四角"
+        ]
+      },
+      "graphicPrompt": "1つの選択肢に下線、丸、四角の3種の印が付いた図。右に3ステップの小さな手順。"
+    },
+    {
+      "sceneId": "practice",
+      "start": 161,
+      "end": 173,
+      "narration": "練習は、過去問の誤りの選択肢で行います。なぜ誤りかを、3つの視点のどれで説明できるか、自分の言葉で言い直してみてください。",
+      "caption": "過去問で視点に当てはめて練習",
+      "visual": {
+        "heading": "練習：誤りの理由を3視点で言う",
+        "items": [
+          "過去問の誤り選択肢を選ぶ",
+          "3視点のどれか言い当てる",
+          "自分の言葉で言い直す"
+        ]
+      },
+      "graphicPrompt": "過去問の選択肢カードから3本の矢印が主語・数値・断定の箱へ分岐する図。",
+      "sourceRef": "content/site/pe-first-stage/guide-aptitude-subject/article.mdx"
+    },
+    {
+      "sceneId": "summary",
+      "start": 173,
+      "end": 186,
+      "narration": "まとめます。主語と適用範囲、数値と順序、断定表現。この3つの視点で、選択肢を順に読みます。法改正は、公式の案内で最新を確認してください。",
+      "caption": "まとめ：3つの視点で順に読む",
+      "visual": {
+        "heading": "まとめ：主語、数値、断定の順に読む",
+        "items": [
+          "主語・適用範囲",
+          "数値・順序",
+          "断定表現"
+        ]
+      },
+      "graphicPrompt": "3視点の丸が1本の線で結ばれ、最後に『公式案内で最新確認』の注意札が付く図。",
+      "sourceRef": "content/site/pe-first-stage/guide-aptitude-subject/article.mdx"
+    },
+    {
+      "sceneId": "cta",
+      "start": 186,
+      "end": 200,
+      "narration": "3視点を過去問で試したい方は、概要欄のリンクから過去問PDF合本をご覧ください。専門科目は建設部門の収録です。ご視聴ありがとうございました。",
+      "caption": "続きは概要欄のリンクから（専門は建設部門）",
+      "visual": {
+        "kind": "cover",
+        "heading": "過去問PDF合本 全560問（専門は建設部門）",
+        "items": [
+          "基礎・適性・専門を通しで演習",
+          "概要欄リンクから"
+        ]
+      },
+      "graphicPrompt": "CTA。過去問PDF合本の表紙を中央に、概要欄を示す下向き矢印。専門科目は建設部門の注記。"
+    }
+  ],
+  "imageDesign": {
+    "mode": "codex-pop",
+    "scope": "all-body",
+    "revision": "body-diagram-20261028",
+    "coverRevision": "cover-pop-20261028",
+    "layout": "diagram-led"
+  }
+}

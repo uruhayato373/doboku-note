@@ -4,7 +4,10 @@ notePricing: free
 noteSeries: 舗装1級-経験記述
 noteContentType: learning
 noteMagazine: 舗装1級-経験記述
-noteStatus: draft
+notePublishedAt: "2026-10-28"
+noteId: "na287266cf068"
+noteUrl: "https://note.com/dobokunote/n/na287266cf068"
+noteStatus: published
 utmCampaign: pavement-2027
 cover:
   variant: crop-safe-v4
@@ -23,6 +26,12 @@ cover:
 - 応用試験の問1（必須）で、何をどう書けばよいか分からない
 - 課題200字・対策300字・結果100字に収まらない、または薄くなる
 - 落ちる答案の共通点を先に知っておきたい
+
+**この記事でわかること**
+
+- 応用試験 問1（経験記述）で求められていることと、課題→対策→結果を一本の線で書く方法
+- 課題200字・対策300字・結果100字の字数配分の目安と、落ちる答案の例
+- 工事概要欄の書き方と、選ぶ管理項目の考え方
 
 ---
 
@@ -122,4 +131,4 @@ cover:
 
 答案は架空の工事です。書き写すものではなく、自分の工事に置き換えるための型としてお使いください。
 
-{{MAGAZINE_URL}}
+https://note.com/dobokunote/m/mc26a56a3a7c5

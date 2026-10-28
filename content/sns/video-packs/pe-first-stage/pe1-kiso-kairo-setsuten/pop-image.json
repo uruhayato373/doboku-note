@@ -1,0 +1,744 @@
+{
+  "policy": ".claude/knowledge/reference/pop-image-policy.md",
+  "designVersion": "pop-20260927",
+  "channel": "youtube",
+  "source": "content/sns/video-packs/pe-first-stage/pe1-kiso-kairo-setsuten",
+  "outputs": {
+    "longform": {
+      "publicationId": "pe-first-stage/pe1-kiso-kairo-setsuten/youtube.longform",
+      "copy": {
+        "exam": "pe-first-stage",
+        "headline": [
+          "回路の接続点",
+          "線の形に",
+          "だまされない"
+        ],
+        "benefit": "",
+        "authority": "総監が制作"
+      },
+      "evidence": [
+        "content/sns/video-packs/pe-first-stage/pe1-kiso-kairo-setsuten/cover-design.json#covers/longform",
+        "content/sns/video-packs/pe-first-stage/pe1-kiso-kairo-setsuten/storyboard.json"
+      ],
+      "references": [
+        {
+          "path": ".tmp/media/pe-first-stage/pe1-kiso-gyouretsu-vector/work/cover-pop.ec9f3aa7.png",
+          "sha256": "ec9f3aa7b01725b89ac03d37ab48d4764431352a45cde602d04ec1e031f0458f"
+        }
+      ],
+      "prompt": "Create a NEW 16:9 POP Japanese YouTube thumbnail using attached approved cover as visual style and teacher identity reference. Exact BIG title 「技術士第一次試験」「回路の接続点」「線の形にだまされない」 and small yellow strip 「総監が制作」. Energetic teal blue yellow orange background, white helmet navy workwear teacher on right holding red pen. On left ONLY an abstract three-node connection map: three large separate circles marked A, C, B, C glows green; thin lines may join A-C and C-B, but NO resistors, NO complete electric circuit, NO extra lower path, NO battery. Focus on node labels. Full bleed, accurate Japanese, bottom 18% uncluttered.",
+      "format": {
+        "width": 1920,
+        "height": 1080
+      },
+      "render": {
+        "template": "codex-image-gen",
+        "variant": "question",
+        "pose": "pop-red-pen"
+      },
+      "output": {
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-kairo-setsuten/work/cover-pop.6ad23834.png",
+        "sha256": "6ad23834962f8baf0dc953052246d90ec6c11efe855016435f38b91b927228e9"
+      },
+      "review": {
+        "status": "agent-reviewed",
+        "by": "Codex",
+        "checkedAt": "2026-10-28T00:21:31.985Z",
+        "viewportWidth": 360,
+        "checks": [
+          "見出しと資格名の可読性",
+          "文字化け",
+          "文字・人物の切れ",
+          "内容と見出しの整合"
+        ],
+        "userImageReview": "pending"
+      },
+      "storage": {
+        "group": "content-media",
+        "key": ".tmp/media/pe-first-stage/pe1-kiso-kairo-setsuten/work/cover-pop.6ad23834.png"
+      },
+      "publication": "ローカル差し替え・外部未反映"
+    }
+  },
+  "activeBodyRevision": "body-diagram-20261028",
+  "activeCoverRevision": "cover-pop-20261028",
+  "revisions": {
+    "body-diagram-20261028": {
+      "layout": {
+        "mode": "diagram-led"
+      },
+      "images": [
+        {
+          "sceneId": "answer",
+          "inputSha256": "bfd4a1d870e1826e4652efae2c87f15e88eeee90c925086802132c2913dc5fe4",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Create NEW Japanese 16:9 educational diagram using attached image only as white/pale-grey navy green style reference. Heading 「接続点が先」. Three large numbered steps ONLY, no electrical source icon and NO battery polarity symbol ANYWHERE. Step ① 「点に名前」 beside three separate colored circles A,C,B. Step ② 「同じ二点なら並列」 beside two resistor branches BOTH between node C and node B labeled 12Ω and 4Ω. Step ③ 「分岐なしなら直列」 beside simple one-path A --3Ω-- C --3Ω-- B. Correct topology, no source, no voltage label, no current direction arrow. Large legible labels above lower 18% subtitle area.",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-gyouretsu-vector/work/answer-diagram.7be541cb.png",
+                "sha256": "7be541cbeeaa30943c4c047f806786e3ad36dce142439d8094427fc1cd847b39"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-first-stage/pe1-kiso-kairo-setsuten/work/raw-answer.dcf72187.png",
+              "sha256": "dcf721871048c8b0eff821b62902fbc503d84b9e4693018517e2965f5543f9be"
+            },
+            "generatedAt": "2026-10-28T00:21:31.985Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-first-stage/pe1-kiso-kairo-setsuten/work/answer-diagram.19805aff.png",
+            "sha256": "19805aff12b6dde526a68343be9ffa737b9650b3c88ba662a72ee59dcc9692b2",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "dcf721871048c8b0eff821b62902fbc503d84b9e4693018517e2965f5543f9be"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-28T00:21:31.985Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字・数値の判読",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "pain",
+          "inputSha256": "6fed2e0d4bc12e31764a14dbbddab3fdabe953800ca1ee4bfe343bc50df72fa6",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Create a NEW precise Japanese 16:9 educational diagram, attached image only as style reference: white pale grey background, strong navy lines, blue current, green correct emphasis and yellow highlights. No person. Keep all meaning above lower 18% subtitle area. Large labels only. Heading 「見た目で決めない」. Three simplified circuit silhouettes: diagonal wiring, cube-edge resistance, misleading horizontally drawn resistors. Central red question 「横＝並列？」 crossed out. Large labels 「斜め」「立体」「接続点」. Conceptual warning, not solved numeric circuit.",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-gyouretsu-vector/work/answer-diagram.7be541cb.png",
+                "sha256": "7be541cbeeaa30943c4c047f806786e3ad36dce142439d8094427fc1cd847b39"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-first-stage/pe1-kiso-kairo-setsuten/work/raw-pain.a1f53fda.png",
+              "sha256": "a1f53fdaf6acd7c1c6009186ab6b1dba76551cb622faf22f624f225fabb62574"
+            },
+            "generatedAt": "2026-10-28T00:21:31.985Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-first-stage/pe1-kiso-kairo-setsuten/work/pain-diagram.9571ea37.png",
+            "sha256": "9571ea37d3260e62471355008067355c63392a3713acf288181267a994982eac",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "a1f53fdaf6acd7c1c6009186ab6b1dba76551cb622faf22f624f225fabb62574"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-28T00:21:31.985Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字・数値の判読",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "misread",
+          "inputSha256": "f0f3956ce48f0ce08fae5d27225e8db950f9be303f0b7bf62cbecdee2cdaf86b",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Create a NEW precise Japanese 16:9 educational diagram, attached image only as style reference: white pale grey background, strong navy lines, blue current, green correct emphasis and yellow highlights. No person. Keep all meaning above lower 18% subtitle area. Large labels only. Heading 「3Ωと12Ωを足す前に」. Exact circuit A --3Ω-- C, then from C two distinct branches to B, upper 12Ω, lower 4Ω. Highlight three-wire junction at C. Red tempting equation 「3+12？」 crossed out, green note 「Cから4Ωの枝」. No wrong topology.",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-gyouretsu-vector/work/answer-diagram.7be541cb.png",
+                "sha256": "7be541cbeeaa30943c4c047f806786e3ad36dce142439d8094427fc1cd847b39"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-first-stage/pe1-kiso-kairo-setsuten/work/raw-misread.f4b6e11a.png",
+              "sha256": "f4b6e11a8f3af44320bdeb92ad4619d1d6d5c27ac53c7e774fc429562d8941ce"
+            },
+            "generatedAt": "2026-10-28T00:21:31.985Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-first-stage/pe1-kiso-kairo-setsuten/work/misread-diagram.de58d474.png",
+            "sha256": "de58d474ed195739276c713ef51a29b0af7d437cc275e28d72948601ea478f35",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "f4b6e11a8f3af44320bdeb92ad4619d1d6d5c27ac53c7e774fc429562d8941ce"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-28T00:21:31.985Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字・数値の判読",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "setup",
+          "inputSha256": "74c6c3e674eaf814ec9c0bcc2b46ada72e6b7af44ef16bc24297cce4c801085e",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Create a NEW precise Japanese 16:9 educational diagram, attached image only as style reference: white pale grey background, strong navy lines, blue current, green correct emphasis and yellow highlights. No person. Keep all meaning above lower 18% subtitle area. Large labels only. Heading 「A−B間 12V」. Exact network A --3Ω-- C, and C-to-B two branches upper 12Ω and lower 4Ω, ideal 12V source across A-B. Nodes A C B clear. Labels 3Ω,12Ω,4Ω only. Thick wires, no crossing accidental junction.",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-gyouretsu-vector/work/answer-diagram.7be541cb.png",
+                "sha256": "7be541cbeeaa30943c4c047f806786e3ad36dce142439d8094427fc1cd847b39"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-first-stage/pe1-kiso-kairo-setsuten/work/raw-setup.3e6002f7.png",
+              "sha256": "3e6002f7a39187f00954f6013df98dce92a531c7d703d7914db11ff0ee74161f"
+            },
+            "generatedAt": "2026-10-28T00:21:31.985Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-first-stage/pe1-kiso-kairo-setsuten/work/setup-diagram.f29fb288.png",
+            "sha256": "f29fb2885a17e3a5423115ebb5953db9460dff39b190e11ddae50c8da7cf6e7f",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "3e6002f7a39187f00954f6013df98dce92a531c7d703d7914db11ff0ee74161f"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-28T00:21:31.985Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字・数値の判読",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "name",
+          "inputSha256": "47a8a6e73e9cb93240ec15aad5c8fa8342e3123354c34bb5e62383418d3f999e",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Create a NEW precise Japanese 16:9 educational diagram, attached image only as style reference: white pale grey background, strong navy lines, blue current, green correct emphasis and yellow highlights. No person. Keep all meaning above lower 18% subtitle area. Large labels only. Heading 「点を先に書き込む」. Exact network A --3Ω-- C; C-to-B parallel branches 12Ω and 4Ω; 12V source A-B. Enlarge A C B nodes. Arrows label 「A−C：3Ω」「C−B：12Ωと4Ω」. No fourth point.",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-gyouretsu-vector/work/answer-diagram.7be541cb.png",
+                "sha256": "7be541cbeeaa30943c4c047f806786e3ad36dce142439d8094427fc1cd847b39"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-first-stage/pe1-kiso-kairo-setsuten/work/raw-name.657074a9.png",
+              "sha256": "657074a98ccd00517e4d7a3ea08098bb8c237884d698a350db26f2cf19382600"
+            },
+            "generatedAt": "2026-10-28T00:21:31.985Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-first-stage/pe1-kiso-kairo-setsuten/work/name-diagram.82765c4e.png",
+            "sha256": "82765c4e4215ad215ba089bb30e9883c7a6a9c8bf74e5e6c2fb0a3d01f76c9cb",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "657074a98ccd00517e4d7a3ea08098bb8c237884d698a350db26f2cf19382600"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-28T00:21:31.985Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字・数値の判読",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "parallel",
+          "inputSha256": "343a3383b0a265babba174fce7c9609400605d651b6f6618acc0f1452a3ed097",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Create a NEW precise Japanese 16:9 educational diagram, attached image only as style reference: white pale grey background, strong navy lines, blue current, green correct emphasis and yellow highlights. No person. Keep all meaning above lower 18% subtitle area. Large labels only. Heading 「両端が同じ二点」. Isolate resistors 12Ω upper branch and 4Ω lower branch between SAME left C and right B. Color potential at C blue and at B green; both branches share endpoints. Large 「12Ω ∥ 4Ω」「同じ電圧」. No series connection.",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-gyouretsu-vector/work/answer-diagram.7be541cb.png",
+                "sha256": "7be541cbeeaa30943c4c047f806786e3ad36dce142439d8094427fc1cd847b39"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-first-stage/pe1-kiso-kairo-setsuten/work/raw-parallel.9d3f914f.png",
+              "sha256": "9d3f914f7a201fbce3f1adefd4773e63a44fc5f40fdf2edd4b68c03271c80dee"
+            },
+            "generatedAt": "2026-10-28T00:21:31.985Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-first-stage/pe1-kiso-kairo-setsuten/work/parallel-diagram.24c12da7.png",
+            "sha256": "24c12da7a1ef33012f74a912deec36d80a044ef95f984ef56ccbf32061fcaa07",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "9d3f914f7a201fbce3f1adefd4773e63a44fc5f40fdf2edd4b68c03271c80dee"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-28T00:21:31.985Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字・数値の判読",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "combine",
+          "inputSha256": "fdc941af964390377e8fed640b632f870189a05aeeb09750f55df262113dc8dd",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Create a NEW precise Japanese 16:9 educational diagram, attached image only as style reference: white pale grey background, thick navy wires, blue current, green correct emphasis, yellow highlights. No person. Keep all meaning above lower 18% subtitle area. Large legible Japanese labels only. Heading 「並列を先に合成」. Two resistors 12Ω and 4Ω in parallel between same C and B, arrow to one equivalent 3Ω resistor. Show correct large calculation 「12×4÷(12+4)=3Ω」 and note 「4Ωより小さい」. No incorrect arithmetic.",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-gyouretsu-vector/work/answer-diagram.7be541cb.png",
+                "sha256": "7be541cbeeaa30943c4c047f806786e3ad36dce142439d8094427fc1cd847b39"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-first-stage/pe1-kiso-kairo-setsuten/work/raw-combine.64e20b4d.png",
+              "sha256": "64e20b4df8fd008ecdd4afa8d7eb02939e23f700d5a8f9233630e5d10fbb5ca0"
+            },
+            "generatedAt": "2026-10-28T00:21:31.985Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-first-stage/pe1-kiso-kairo-setsuten/work/combine-diagram.1c68584e.png",
+            "sha256": "1c68584e95d2c11c095d66d88e5c56510f52b47c25abc229c21f94e11551efc0",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "64e20b4df8fd008ecdd4afa8d7eb02939e23f700d5a8f9233630e5d10fbb5ca0"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-28T00:21:31.985Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字・数値の判読",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "series",
+          "inputSha256": "c4e63fa48102bfa549595400a0811d00e4cf84f17ca125660bafe23a800089b2",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Create a NEW precise Japanese 16:9 educational diagram, attached image only as style reference: white pale grey background, thick navy wires, blue current, green correct emphasis, yellow highlights. No person. Keep all meaning above lower 18% subtitle area. Large legible Japanese labels only. Heading 「置換したら直列」. A --3Ω-- C --3Ω-- B with no branches at C AFTER equivalent replacement. Big green arrow to 「3+3=6Ω」. Small inset old parallel C-B network 12Ω∥4Ω transformed to 3Ω. No extra branch in final.",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-gyouretsu-vector/work/answer-diagram.7be541cb.png",
+                "sha256": "7be541cbeeaa30943c4c047f806786e3ad36dce142439d8094427fc1cd847b39"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-first-stage/pe1-kiso-kairo-setsuten/work/raw-series.c07873cd.png",
+              "sha256": "c07873cdabdd50da04496c4fe5a455dbded631dac8011e365d5ef3cec63b4ac2"
+            },
+            "generatedAt": "2026-10-28T00:21:31.985Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-first-stage/pe1-kiso-kairo-setsuten/work/series-diagram.b5832a33.png",
+            "sha256": "b5832a33f7333e50b61e65751e7649a1f32648fb81231d417d67c989c407e3bc",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "c07873cdabdd50da04496c4fe5a455dbded631dac8011e365d5ef3cec63b4ac2"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-28T00:21:31.985Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字・数値の判読",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "check",
+          "inputSha256": "9bc5ea0f48bedb1108a42b5712661d6cabc92c80effb011696ba799cb55e41bc",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Create a NEW precise Japanese 16:9 educational diagram, attached image only as style reference: white pale grey background, thick navy wires, blue current, green correct emphasis, yellow highlights. No person. Keep all meaning above lower 18% subtitle area. Large legible Japanese labels only. Heading 「電流で検算」. Source 12V across A-B, A-C 3Ω, C-B 12Ω∥4Ω. Label total current 「2A」, voltage drop each stage 「6V」. In C-B upper 12Ω branch 「0.5A」 and lower 4Ω branch 「1.5A」 merge to 2A. All numbers internally consistent.",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-gyouretsu-vector/work/answer-diagram.7be541cb.png",
+                "sha256": "7be541cbeeaa30943c4c047f806786e3ad36dce142439d8094427fc1cd847b39"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-first-stage/pe1-kiso-kairo-setsuten/work/raw-check.9ef65aaa.png",
+              "sha256": "9ef65aaab17dfba436d1744c3989028db9721f9aacee8f5d76d79da4d0ee1a0a"
+            },
+            "generatedAt": "2026-10-28T00:21:31.985Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-first-stage/pe1-kiso-kairo-setsuten/work/check-diagram.4d595d1d.png",
+            "sha256": "4d595d1d2b0208a2f9c89e84188793350fe5c1ceca59111ca63b51b29c735226",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "9ef65aaab17dfba436d1744c3989028db9721f9aacee8f5d76d79da4d0ee1a0a"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-28T00:21:31.985Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字・数値の判読",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "rule",
+          "inputSha256": "a44eb4a0013a63d9a137e3a920c3bef31e586f034b80045038b04514d224ad23",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Create a NEW precise Japanese 16:9 educational diagram, attached image only as style reference: white pale grey background, thick navy wires, blue current, green correct emphasis, yellow highlights. No person. Keep all meaning above lower 18% subtitle area. Large legible Japanese labels only. Heading 「直列と並列の判定」. Two simple panels. Left single path two resistors with no junction: 「直列：同じ電流」. Right two branches sharing exact same two nodes: 「並列：同じ電圧」. Differentiate thick arrows/current vs node color/potential. No cross wires.",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-gyouretsu-vector/work/answer-diagram.7be541cb.png",
+                "sha256": "7be541cbeeaa30943c4c047f806786e3ad36dce142439d8094427fc1cd847b39"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-first-stage/pe1-kiso-kairo-setsuten/work/raw-rule.3afc9d15.png",
+              "sha256": "3afc9d15439240e59f8939eba370d6847ea144857c1aa618e6d5ffeeaad8a503"
+            },
+            "generatedAt": "2026-10-28T00:21:31.985Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-first-stage/pe1-kiso-kairo-setsuten/work/rule-diagram.4e07401a.png",
+            "sha256": "4e07401af5ac5952110798d869bcf261665fea517f55b7c1a2ea0d3af0a1f31c",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "3afc9d15439240e59f8939eba370d6847ea144857c1aa618e6d5ffeeaad8a503"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-28T00:21:31.985Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字・数値の判読",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "trouble",
+          "inputSha256": "0787987d40c5152a1f32cbf8f11f1f9c26188791b67e6d2a01ee281742f8d2c7",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Create a NEW precise Japanese 16:9 educational diagram, attached image only as style reference: white pale grey background, thick navy wires, blue current, green correct emphasis, yellow highlights. No person. Keep all meaning above lower 18% subtitle area. Large legible Japanese labels only. Heading 「3点で確認」. Large clean checklist with three pictograms: ① two endpoint nodes and label 「両端は同じ点か」, ② branching junction and 「分岐はないか」, ③ Ω symbol and total resistor smaller than smallest branch for parallel, label 「単位と大小」. No false numeric equation.",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-gyouretsu-vector/work/answer-diagram.7be541cb.png",
+                "sha256": "7be541cbeeaa30943c4c047f806786e3ad36dce142439d8094427fc1cd847b39"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-first-stage/pe1-kiso-kairo-setsuten/work/raw-trouble.0ed02497.png",
+              "sha256": "0ed024975c633d6710cd744a84fd18dab56b14e025b616d62432cff68230c5da"
+            },
+            "generatedAt": "2026-10-28T00:21:31.985Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-first-stage/pe1-kiso-kairo-setsuten/work/trouble-diagram.5cc43309.png",
+            "sha256": "5cc43309d9f41a7afbc1f4272f7b41bd37f0846542ce9b63551e18a3c718de74",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "0ed024975c633d6710cd744a84fd18dab56b14e025b616d62432cff68230c5da"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-28T00:21:31.985Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字・数値の判読",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "practice",
+          "inputSha256": "b173da1b3532aa8bd855c1583c03d662547494283e0dd0eee0c5d4064c617a98",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Create NEW simple Japanese 16:9 educational graphic using attached image only as clean white pale-grey navy green style reference. NO circuit drawings of any kind, NO tetrahedron, NO resistor icon, NO schematic, NO geometric shape that could imply exam topology. Heading 「過去問で接続点を見る」. Two large plain rectangular text cards only: left 「令和6年度 基礎 I-3-6」 with a generic open-book icon; right 「令和7年度 基礎 I-3-5」 with a generic open-book icon. Between or below them one large instruction 「同じ点に同じ文字」 and a simple pencil icon. Keep lower 18% empty for captions. Accurate Japanese characters and numerals, no extra words.",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-gyouretsu-vector/work/answer-diagram.7be541cb.png",
+                "sha256": "7be541cbeeaa30943c4c047f806786e3ad36dce142439d8094427fc1cd847b39"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-first-stage/pe1-kiso-kairo-setsuten/work/raw-practice.ce3cfb16.png",
+              "sha256": "ce3cfb1612c90f023944bc77cc8a383397d6cc67774493101df1f2360ebf3227"
+            },
+            "generatedAt": "2026-10-28T00:21:31.985Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-first-stage/pe1-kiso-kairo-setsuten/work/practice-diagram.52f5ce73.png",
+            "sha256": "52f5ce73a9c0c1cb46444927f3166bdb45d85289857931b71f1b02241bfb0c75",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "ce3cfb1612c90f023944bc77cc8a383397d6cc67774493101df1f2360ebf3227"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-28T00:21:31.985Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字・数値の判読",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "summary",
+          "inputSha256": "361dd95b74129ffc45734a5925577ee60636cc753308d8246c754476a9dc5249",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Create NEW precise Japanese 16:9 educational process diagram using attached image only as style reference. White pale grey, navy and green, no person. Heading 「点→並列→直列→検算」. Four large panels with ONLY simple correct symbols, NO detailed circuit or calculated resistor numbers except specified: ① circles A C B 「接続点」; ② two simple parallel branch resistor icons between C and B, labeled 「12Ω ∥ 4Ω = 3Ω」; ③ two series resistor icons A-C 3Ω and C-B 3Ω, labeled 「3Ω + 3Ω = 6Ω」; ④ blue currents split into upper 0.5A and lower 1.5A then recombine 2A, labeled 「0.5A + 1.5A = 2A」. Ensure all numeric equations exactly right and branches never cross. Meaning above lower 18% subtitle area.",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-gyouretsu-vector/work/answer-diagram.7be541cb.png",
+                "sha256": "7be541cbeeaa30943c4c047f806786e3ad36dce142439d8094427fc1cd847b39"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-first-stage/pe1-kiso-kairo-setsuten/work/raw-summary.5de5a17f.png",
+              "sha256": "5de5a17f7d5c6497480698caf67db89c9faceb8a0058518063f4ff10c05dbc6c"
+            },
+            "generatedAt": "2026-10-28T00:21:31.985Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-first-stage/pe1-kiso-kairo-setsuten/work/summary-diagram.fd5ebb82.png",
+            "sha256": "fd5ebb82e7da3a906a3f7639af3d06155fd0f17c1bc254b41293e9fe0e254dc5",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "5de5a17f7d5c6497480698caf67db89c9faceb8a0058518063f4ff10c05dbc6c"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-28T00:21:31.985Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字・数値の判読",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "cta",
+          "inputSha256": "50ae5e429e16294a377cbbc20d0d9022dbd87e44bda408e60be1d4b216cdbb26",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Create a NEW precise Japanese 16:9 educational diagram, attached image only as style reference: white pale grey background, thick navy wires, blue current, green correct emphasis, yellow highlights. No person. Keep all meaning above lower 18% subtitle area. Large legible Japanese labels only. Heading 「通しで演習」. Clean educational closing diagram with 3 large cards labeled 「基礎」「適性」「専門」 and one practice pencil/check mark. Text 「概要欄から」. No link, QR code, sales graphic or dense prose.",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-gyouretsu-vector/work/answer-diagram.7be541cb.png",
+                "sha256": "7be541cbeeaa30943c4c047f806786e3ad36dce142439d8094427fc1cd847b39"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-first-stage/pe1-kiso-kairo-setsuten/work/raw-cta.33198caa.png",
+              "sha256": "33198caa55ed0ad7d422b268cba7a608d13f65df3b5024429f32c2facbcfd710"
+            },
+            "generatedAt": "2026-10-28T00:21:31.985Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-first-stage/pe1-kiso-kairo-setsuten/work/cta-diagram.3a3278bc.png",
+            "sha256": "3a3278bccb978821b05539395093eefc07eaab4666f6dc0fbfbff205348d2213",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "33198caa55ed0ad7d422b268cba7a608d13f65df3b5024429f32c2facbcfd710"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-28T00:21:31.985Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字・数値の判読",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        }
+      ]
+    },
+    "cover-pop-20261028": {
+      "version": "pop-poster-v3",
+      "generation": {
+        "tool": "image_gen",
+        "prompt": "Create a NEW 16:9 POP Japanese YouTube thumbnail using attached approved cover as visual style and teacher identity reference. Exact BIG title 「技術士第一次試験」「回路の接続点」「線の形にだまされない」 and small yellow strip 「総監が制作」. Energetic teal blue yellow orange background, white helmet navy workwear teacher on right holding red pen. On left ONLY an abstract three-node connection map: three large separate circles marked A, C, B, C glows green; thin lines may join A-C and C-B, but NO resistors, NO complete electric circuit, NO extra lower path, NO battery. Focus on node labels. Full bleed, accurate Japanese, bottom 18% uncluttered.",
+        "references": [
+          {
+            "path": ".tmp/media/pe-first-stage/pe1-kiso-gyouretsu-vector/work/cover-pop.ec9f3aa7.png",
+            "sha256": "ec9f3aa7b01725b89ac03d37ab48d4764431352a45cde602d04ec1e031f0458f"
+          }
+        ],
+        "output": {
+          "path": ".tmp/media/pe-first-stage/pe1-kiso-kairo-setsuten/work/raw-cover.3607ed31.png",
+          "sha256": "3607ed31a7afcd404ed905f08ada2353d980a5c7d4607a5078ffc67b7add9391"
+        },
+        "generatedAt": "2026-10-28T00:21:31.985Z"
+      },
+      "copy": {
+        "exam": "pe-first-stage",
+        "headline": [
+          "回路の接続点",
+          "線の形に",
+          "だまされない"
+        ],
+        "authority": "総監が制作"
+      },
+      "output": {
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-kairo-setsuten/work/cover-pop.6ad23834.png",
+        "sha256": "6ad23834962f8baf0dc953052246d90ec6c11efe855016435f38b91b927228e9",
+        "width": 1920,
+        "height": 1080
+      },
+      "normalization": {
+        "mode": "full-frame-v1",
+        "sourceSha256": "3607ed31a7afcd404ed905f08ada2353d980a5c7d4607a5078ffc67b7add9391"
+      },
+      "review": {
+        "status": "ai-reviewed",
+        "userImageReview": "pending",
+        "checkedAt": "2026-10-28T00:21:31.985Z",
+        "by": "Codex",
+        "views": [
+          "original"
+        ],
+        "checks": [
+          "文言・資格名",
+          "顔と安全域"
+        ]
+      },
+      "storage": {
+        "group": "content-media",
+        "sync": "local"
+      }
+    }
+  }
+}

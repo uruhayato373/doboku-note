@@ -501,7 +501,7 @@ const ExperimentHistoryEntry = z
 
 const Experiment = z
   .looseObject({
-    id: z.string().min(1),
+    id: z.string().regex(/^EXP-\d{3}$|^perf-[a-z0-9]+(?:-[a-zA-Z0-9]+)*$/, 'EXP-000 の形（perf-… は 2026-04 の旧い 1 件だけ）').describe('実験の id（配置ルール・コードの定数・記録の experimentIds が参照する）'),
     title: z.string().min(1),
     kind: z.enum(['search-strategy']).optional().describe('search-strategy は search-improvement.mjs が書く検索キーワード戦略の改善（検索の改善はこれだけ）。無ければ手で書いた実験'),
     hypothesis: z.string().min(1).optional().describe('仮説（必須）'),
@@ -538,8 +538,15 @@ const Experiment = z
       .optional()
       .describe('kind が search-strategy の実験の改善の記録（npm run search-improvement -- record が書く）'),
     actions: z.array(z.string()).optional().describe('施策の一覧（文字列の行）'),
+    measurementPlan: z
+      .looseObject({ status: z.enum(['proposed', 'awaiting-deploy', 'running', 'abandoned', 'done']).optional().describe('計測の段階。閉じた実験では実験の status と同じ値にそろえる') })
+      .optional()
+      .describe('計測の設計（欄は実験ごとに違う）'),
   })
   .superRefine((e, ctx) => {
+    const plan = e.measurementPlan?.status;
+    if (plan && ['abandoned', 'done'].includes(e.status) && plan !== e.status) flag(ctx, ['measurementPlan', 'status'], `実験は ${e.status} なのに measurementPlan.status が ${plan}（閉じたら同じ値にそろえる）`);
+    if (plan && e.status === 'running' && !['running', 'awaiting-deploy'].includes(plan)) flag(ctx, ['measurementPlan', 'status'], `実験は running なのに measurementPlan.status が ${plan}`);
     if (e.kind === 'search-strategy') {
       for (const k of ['searchStrategy', 'measure']) if (e[k] === undefined) flag(ctx, [k], `search-strategy の実験には ${k} が要る`);
     }
@@ -1174,7 +1181,7 @@ export const AffiliateCatalog = z
       z.string().regex(/^[a-z0-9][a-z0-9-]*$/),
       z.looseObject({
         label: z.string().min(1),
-        vertical: z.string().nullable().describe('転職の系統（civil-career・pe-career）。転職でない案件は null'),
+        vertical: z.enum(['civil-career', 'pe-career', 'general-career']).nullable().describe('転職の系統（civil-career＝施工管理・pe-career＝技術士・総監のハイクラス・general-career＝総合型）。転職でない案件は null'),
         placement: z.enum(['active', 'none']).describe('サイトに置いているか（active）・置いていないか（none）'),
         decision: z.string().min(1).describe('配置の判断とその日付'),
         redLine: z.boolean().optional().describe('講座・教材など配置してはいけない案件'),

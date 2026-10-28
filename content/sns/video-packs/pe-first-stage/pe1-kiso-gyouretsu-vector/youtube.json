@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "channel": {
+    "id": "UCHRnXPqoc0Hls8nXiK_ZYqA",
+    "title": "doboku-note"
+  },
+  "longform": {
+    "key": "longform",
+    "title": "【技術士 第一次】技術士一次 基礎科目 ベクトルの射影を求める1つの手順",
+    "description": "2026年11月22日の技術士第一次試験を控え、基礎科目の行列・ベクトルの計算に不安がある受験者向けに、「技術士一次 基礎科目 ベクトルの射影を求める1つの手順」を解説します。\n\nこの動画で分かること：内積÷長さの2乗を向きに掛け、直交で検算する射影の1手順が、仮の数字で分かる\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 教材・完成答案で深掘りする\nhttps://note.com/dobokunote/n/n466132e6fd74?utm_source=youtube&utm_medium=video&utm_campaign=pe1-kiso-gyouretsu-vector&utm_content=longform\n\n※制度・日程は変更される場合があります。受検年度の公式情報も確認してください。\n音声：VOICEVOX:青山龍星\n\n#技術士第一次 #技術士 #試験対策",
+    "tags": [
+      "技術士 第一次試験",
+      "技術士 第一次",
+      "勉強法",
+      "答案の書き方",
+      "doboku-note"
+    ],
+    "categoryId": "27",
+    "publishAt": "2026-11-08T20:00:00+09:00",
+    "r2Key": "video/render/pe1-kiso-gyouretsu-vector/video.mp4",
+    "thumbnailR2Key": "video/render/pe1-kiso-gyouretsu-vector/img/00-cover.png",
+    "sha256": "6f1658aeb954df03b2701be30e85613852378fbb6f4d25882547f9779089e265",
+    "thumbnailSha256": "ec9f3aa7b01725b89ac03d37ab48d4764431352a45cde602d04ec1e031f0458f"
+  },
+  "shorts": []
+}

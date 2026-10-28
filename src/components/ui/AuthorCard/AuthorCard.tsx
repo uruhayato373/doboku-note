@@ -2,6 +2,7 @@ import Link from "next/link";
 import { AUTHOR } from "@/config/author";
 import MetaCard from "@/components/ui/MetaCard/MetaCard";
 import { NOTE_LINK_REL } from "@/lib/external-link-rel";
+import { formatJaDate } from "@/lib/display-date";
 
 interface AuthorCardProps {
   publishedAt?: string;
@@ -9,16 +10,7 @@ interface AuthorCardProps {
   lastRewrittenAt?: string;
 }
 
-function formatDate(iso?: string): string | null {
-  if (!iso) return null;
-  try {
-    const d = new Date(iso);
-    if (Number.isNaN(d.getTime())) return null;
-    return `${d.getFullYear()}年${d.getMonth() + 1}月${d.getDate()}日`;
-  } catch {
-    return null;
-  }
-}
+const formatDate = (iso?: string): string | null => formatJaDate(iso);
 
 export default function AuthorCard({
   publishedAt,

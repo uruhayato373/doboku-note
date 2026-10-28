@@ -1,0 +1,266 @@
+{
+  "schemaVersion": 1,
+  "packId": "pe1-kiso-kairo-setsuten",
+  "format": "longform-16x9",
+  "imageDesign": {
+    "mode": "codex-pop",
+    "scope": "all-body",
+    "revision": "body-diagram-20261028",
+    "coverRevision": "cover-pop-20261028",
+    "layout": "diagram-led"
+  },
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 4,
+      "narration": "直列と並列は、まず点に名前を付けます。",
+      "caption": "基礎科目 回路は接続点に名前を付けて読む",
+      "visual": {
+        "kind": "cover",
+        "heading": "直列・並列は点に名前から",
+        "items": [
+          "接続点を決めてから読む"
+        ]
+      },
+      "graphicPrompt": "POP表紙。斜めに描かれた抵抗回路の分岐点に大きな丸い名札C。資格色の背景。"
+    },
+    {
+      "sceneId": "answer",
+      "start": 4,
+      "end": 20,
+      "narration": "結論です。直列か並列かは、図の形ではなく、接続点に名前を付けてから判断します。両端が同じ二点なら並列、間に分岐が無ければ直列です。この読み方を、仮の回路一つで確かめます。",
+      "caption": "結論：接続点に名前を付けて両端で判断",
+      "visual": {
+        "heading": "結論：形でなく接続点で読む",
+        "items": [
+          "点に名前を付ける",
+          "両端が同じ二点なら並列",
+          "間に分岐が無ければ直列"
+        ]
+      },
+      "graphicPrompt": "3つの大きな手順カード。1:点にA・B・Cの名前、2:両端が同じ二点なら並列、3:間に分岐なしなら直列。",
+      "sourceRef": "content/site/pe-first-stage/guide-resistance-circuit-calculation/article.mdx"
+    },
+    {
+      "sceneId": "pain",
+      "start": 20,
+      "end": 38,
+      "narration": "回路が斜めに描かれていたり、抵抗が立体の辺に置かれていたりすると、公式を知っていても手が止まります。横に並んで見えるから並列、縦に見えるから直列。そう決めてしまうのが、よくある迷い方です。",
+      "caption": "斜めの図でも公式の前で手が止まる",
+      "visual": {
+        "heading": "形で決めると手が止まる",
+        "items": [
+          "斜めの回路",
+          "立体の辺の抵抗",
+          "横なら並列？縦なら直列？"
+        ]
+      },
+      "graphicPrompt": "斜めに描かれた回路と立体の辺に置かれた抵抗を並べ、大きな疑問符を添えた比較図。",
+      "sourceRef": "content/site/pe-first-stage/guide-resistance-circuit-calculation/article.mdx"
+    },
+    {
+      "sceneId": "misread",
+      "start": 38,
+      "end": 59,
+      "narration": "形で決めると失敗します。たとえば、三オームと十二オームが一本につながって見えるので、足してしまう。でも、その途中のCから、四オームの枝が出ているかもしれません。見るのは線の形ではなく、どの点とどの点の間につながっているかです。",
+      "caption": "三と十二が一本に見えても分岐を見る",
+      "visual": {
+        "heading": "一本に見えても分岐がある",
+        "items": [
+          "3Ωと12Ωを足したくなる",
+          "Cから4Ωの枝が出ている",
+          "見るのは線の形でなく点の間"
+        ]
+      },
+      "graphicPrompt": "左に誤読(3Ω+12Ωを足す)、右にCから4Ωの枝が分かれる正しい読みを置いた2つの図。誤読側に斜線。",
+      "sourceRef": "content/site/pe-first-stage/guide-resistance-circuit-calculation/article.mdx"
+    },
+    {
+      "sceneId": "setup",
+      "start": 59,
+      "end": 75,
+      "narration": "仮の例を置きます。実際の出題ではありません。AからCへ三オーム。CからBへは、十二オームと四オームの二本の枝があります。AとBの間には、十二ボルトを掛けるものとします。",
+      "caption": "仮の回路：A-C 3Ω、C-B 12Ωと4Ω、12V",
+      "visual": {
+        "heading": "仮の回路（説明用）",
+        "items": [
+          "A-C：3Ω",
+          "C-B：12Ωと4Ωの2本",
+          "A-B間：12V"
+        ]
+      },
+      "graphicPrompt": "AからCへ3Ω、CからBへ12Ωと4Ωの二本の枝がある回路図。A-B間に電源12V。名前は未記入の状態。",
+      "sourceRef": "content/site/pe-first-stage/guide-resistance-circuit-calculation/article.mdx"
+    },
+    {
+      "sceneId": "name",
+      "start": 75,
+      "end": 94,
+      "narration": "手順の一つ目は、接続点に名前を付けることです。AとB、そして分かれ道の点にC。そのうえで、AとCの間に三オーム、CとBの間に十二オームと四オーム、と言葉にします。これで、Cが分かれ道だと分かります。",
+      "caption": "手順1：点にA・B・Cと名前を付ける",
+      "visual": {
+        "heading": "手順1：点に名前を付ける",
+        "items": [
+          "A・B・Cを書き込む",
+          "A-C間に3Ω",
+          "C-B間に12Ωと4Ω"
+        ]
+      },
+      "graphicPrompt": "同じ回路にA・B・Cの名札を大きく書き込み、各抵抗に『A-C間』『C-B間』の言葉ラベルを付けた図。",
+      "sourceRef": "content/site/pe-first-stage/guide-resistance-circuit-calculation/article.mdx"
+    },
+    {
+      "sceneId": "parallel",
+      "start": 94,
+      "end": 112,
+      "narration": "二つ目は、並列の条件を確かめることです。十二オームと四オームは、片方の端がどちらもC、もう片方の端がどちらもB。両端が同じ二点なので並列です。同じ電圧が掛かる、と言い換えても構いません。",
+      "caption": "手順2：両端が同じ二点なら並列",
+      "visual": {
+        "heading": "手順2：並列の条件を確かめる",
+        "items": [
+          "12Ωと4Ω：片端はどちらもC",
+          "もう片端はどちらもB",
+          "同じ電圧が掛かる＝並列"
+        ]
+      },
+      "graphicPrompt": "12Ωと4Ωの枝を拡大し、両端のCとBを同じ色で囲って『同じ二点』と示す図。",
+      "sourceRef": "content/site/pe-first-stage/guide-resistance-circuit-calculation/article.mdx"
+    },
+    {
+      "sceneId": "combine",
+      "start": 112,
+      "end": 129,
+      "narration": "三つ目は、並列から先にまとめることです。十二かける四を、十二足す四で割って、四十八割る十六で三オーム。並列の答えは、四オームより小さくなります。逆数のまま止めない点にも注意します。",
+      "caption": "手順3：並列を先に。48÷16=3Ω",
+      "visual": {
+        "heading": "手順3：並列を先にまとめる",
+        "items": [
+          "12×4÷(12+4)",
+          "＝48÷16",
+          "＝3Ω（4Ωより小さい）"
+        ]
+      },
+      "graphicPrompt": "12Ωと4Ωの二本が1本の3Ωへ置き換わる変換図。分数の式12×4/(12+4)=3と、4Ωより小さい印。",
+      "sourceRef": "content/site/pe-first-stage/guide-resistance-circuit-calculation/article.mdx"
+    },
+    {
+      "sceneId": "series",
+      "start": 129,
+      "end": 148,
+      "narration": "置き換えた後は、AからCの三オームと、CからBの三オームだけです。間に別の枝はないので、直列です。足して六オーム。最初の図で三と十二を足していたら、Cで分かれる四オームの枝を、無視してしまうところでした。",
+      "caption": "手順4：置き換え後に直列。3+3=6Ω",
+      "visual": {
+        "heading": "手順4：残りは直列",
+        "items": [
+          "A-C：3Ω",
+          "C-B：3Ω（置換後）",
+          "間に分岐なし → 3+3＝6Ω"
+        ]
+      },
+      "graphicPrompt": "A-C 3Ω と C-B 3Ωが一直線に並ぶ置換後の図。合計6Ωの括弧。最初の図で3+12としていたら4Ωを無視した、の注記。",
+      "sourceRef": "content/site/pe-first-stage/guide-resistance-circuit-calculation/article.mdx"
+    },
+    {
+      "sceneId": "check",
+      "start": 148,
+      "end": 167,
+      "narration": "検算します。十二ボルトを六オームで割ると、電流は二アンペア。AとCで六ボルト下がるので、CとBにも六ボルトです。十二オームに〇・五アンペア、四オームに一・五アンペア流れ、合計は二アンペアに戻ります。",
+      "caption": "検算：2Aが0.5Aと1.5Aに分かれ和は2A",
+      "visual": {
+        "heading": "検算：電流の和が戻る",
+        "items": [
+          "12V÷6Ω＝2A",
+          "A-Cで6V、C-Bも6V",
+          "12Ωに0.5A＋4Ωに1.5A＝2A"
+        ]
+      },
+      "graphicPrompt": "回路図に電流2Aが入り、Cで0.5Aと1.5Aに分かれ、合流して2Aに戻る矢印図。各区間の電圧6V。",
+      "sourceRef": "content/site/pe-first-stage/guide-resistance-circuit-calculation/article.mdx"
+    },
+    {
+      "sceneId": "rule",
+      "start": 167,
+      "end": 184,
+      "narration": "判断の言葉を二つ覚えておきます。直列は、途中で電流が分かれず、同じ電流が流れる。並列は、両端が同じ二点につながり、同じ電圧が掛かる。迷ったら、図の印象ではなく、この二つに当てはめます。",
+      "caption": "直列は同じ電流、並列は同じ電圧",
+      "visual": {
+        "heading": "二つの言葉で判断する",
+        "items": [
+          "直列：同じ電流が流れる（分岐なし）",
+          "並列：同じ電圧が掛かる（両端が同じ二点）"
+        ]
+      },
+      "graphicPrompt": "左右2分割の比較図。左:直列=一本道で電流が同じ、右:並列=両端が共通の二点で電圧が同じ。",
+      "sourceRef": "content/site/pe-first-stage/guide-resistance-circuit-calculation/article.mdx"
+    },
+    {
+      "sceneId": "trouble",
+      "start": 184,
+      "end": 201,
+      "narration": "計算が合わないときは、公式を探し直す前に接続点を見直します。並列だと思った二本の端が、本当に同じ点か。直列だと思った途中に、三本目の枝がないか。それから、単位と大小を確かめます。",
+      "caption": "合わないときは接続点、単位、大小の順",
+      "visual": {
+        "heading": "合わないときの見直し順",
+        "items": [
+          "1 接続点：両端は本当に同じ点か",
+          "2 分岐：直列の途中に三本目はないか",
+          "3 単位と大小"
+        ]
+      },
+      "graphicPrompt": "3段のチェックリスト縦フロー。1接続点、2途中の分岐、3単位と大小。各段に小さな回路アイコン。",
+      "sourceRef": "content/site/pe-first-stage/guide-resistance-circuit-calculation/article.mdx"
+    },
+    {
+      "sceneId": "practice",
+      "start": 201,
+      "end": 220,
+      "narration": "過去問でも練習できます。令和6年度の基礎科目、Ⅰの3の6は、接続点を区別して合成抵抗を求める問題です。令和7年度のⅠの3の5は、正四面体の回路です。計算の前に、同じ点へ同じ文字を付けてから解いてください。",
+      "caption": "練習：令和6年度 I-3-6、令和7年度 I-3-5",
+      "visual": {
+        "heading": "過去問で練習する",
+        "items": [
+          "R6 基礎 I-3-6：接続点を区別して合成抵抗",
+          "R7 基礎 I-3-5：正四面体の回路",
+          "まず点に同じ文字を付ける"
+        ]
+      },
+      "graphicPrompt": "2つの過去問ラベル(R6 I-3-6、R7 I-3-5)と、下に『計算の前に同じ点へ同じ文字』の一行を置いた図。問題図そのものは載せない。",
+      "sourceRef": "content/site/pe-first-stage/r06-basic/article.mdx"
+    },
+    {
+      "sceneId": "summary",
+      "start": 220,
+      "end": 239,
+      "narration": "まとめます。形ではなく、接続点に名前を付ける。両端が同じ二点なら並列、間に分岐が無ければ直列。並列から先にまとめ、置き換えてから直列を足す。最後に電流の和で検算する。数字を変えて、何度か回してみてください。",
+      "caption": "まとめ：名前、条件、並列から、検算",
+      "visual": {
+        "heading": "まとめ：回路を読む4手",
+        "items": [
+          "点に名前を付ける",
+          "両端が同じ二点なら並列／分岐なしなら直列",
+          "並列を先に、置換して直列",
+          "電流の和で検算"
+        ]
+      },
+      "graphicPrompt": "4つの大きな丸数字の横フロー。名前、条件、並列→直列、検算。",
+      "sourceRef": "content/site/pe-first-stage/guide-resistance-circuit-calculation/article.mdx"
+    },
+    {
+      "sceneId": "cta",
+      "start": 239,
+      "end": 253,
+      "narration": "基礎・適性・専門を通しで演習したい方は、概要欄のリンクから過去問PDF合本をご覧ください。専門科目は建設部門の収録です。ご視聴ありがとうございました。",
+      "caption": "続きは概要欄のリンクから（専門は建設部門）",
+      "visual": {
+        "kind": "cover",
+        "heading": "過去問PDF合本（専門は建設部門）",
+        "items": [
+          "基礎・適性・専門を通しで演習",
+          "概要欄リンクから"
+        ]
+      },
+      "graphicPrompt": "CTA。過去問PDF合本の表紙を中央に、概要欄を示す下向き矢印。専門科目は建設部門の注記。"
+    }
+  ]
+}

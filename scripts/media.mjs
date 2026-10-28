@@ -95,7 +95,10 @@ async function promote() {
     const role = args.candidate ? `candidate-${s.role}` : s.role;
     const owner = args.candidate ? `${pub.exam}/${pub.work}/work` : pub.id;
     const path = mediaPath(args.candidate ? { exam: pub.exam, work: pub.work, role, sha256, ext } : { pubId: pub.id, role, sha256, ext });
-    const row = { id: mediaIdOf(owner, role), role, type: mimeOf(ext), sha256, bytes: readFileSync(abs).length, store: { tier: 'drive', path }, provenance: s.provenance.kind === 'ai-generated' ? s.provenance : reg.media.find(m => m.id === mediaIdOf(owner, role) && m.sha256 === sha256)?.provenance ?? s.provenance };
+    const prior = reg.media.find(m => m.id === mediaIdOf(owner, role) && m.sha256 === sha256);
+    const provenance = s.provenance.kind === 'ai-generated' || s.role === 'video'
+      ? s.provenance : prior?.provenance ?? s.provenance;
+    const row = { id: mediaIdOf(owner, role), role, type: mimeOf(ext), sha256, bytes: readFileSync(abs).length, store: { tier: 'drive', path }, provenance };
     if (ext === 'png') { const meta = await sharp(abs).metadata(); row.width = meta.width; row.height = meta.height; }
     if (s.durationSec) row.durationSec = Math.round(s.durationSec * 1000) / 1000;
     if (s.legacy && s.from !== path) row.legacyPaths = [s.from];

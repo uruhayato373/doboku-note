@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-26T23:48:11.416Z",
+  "generated_at": "2026-10-27T00:44:01.642Z",
   "questionToTextbooks": {
     "primary-h18-a": {
       "問題-1": [
@@ -4808,12 +4808,7 @@
         {
           "slug": "guide-concrete-maintenance",
           "title": "コンクリート構造物の維持管理の要点",
-          "score": 0.75
-        },
-        {
-          "slug": "textbook-special-concrete-inspection",
-          "title": "寒中・暑中・マスコンクリートと品質管理・検査",
-          "score": 0.75
+          "score": 0.6
         },
         {
           "slug": "textbook-concrete-properties",
@@ -4823,6 +4818,11 @@
         {
           "slug": "textbook-rebar-formwork",
           "title": "鉄筋工と型枠・支保工",
+          "score": 0.6
+        },
+        {
+          "slug": "textbook-special-concrete-inspection",
+          "title": "寒中・暑中・マスコンクリートと品質管理・検査",
           "score": 0.6
         }
       ],

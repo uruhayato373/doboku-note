@@ -5985,6 +5985,203 @@
       "commit": "1cb0efcfcbce",
       "verification": "node --test tests/post-exam-cta.test.mjs 10 pass・PR の CI 全通過",
       "note": "PR #1262（1cb0efcfc）。一次の主商品の判定を pe1LeadMagazineId に集約し、冒頭 CTA と /links で共有。/links の一次カードが試験日の前後で直前パック→過去問 PDF に変わり、両商品が shortTitle を持つことをテストで固定。本番反映は試験翌日の deploy（DN-0867）"
+    },
+    {
+      "id": "DN-0185",
+      "at": "2026-10-27",
+      "task": "共通仕様書データ公開の計測を立ち上げ、加工受託の入口として評価する",
+      "tier": "low",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "d7a1dba20553",
+      "verification": "data/ga4/reports/2026-10-23.json の page・cta-clicks（/standards/data）を確認",
+      "note": "運営者の判断（2026-10-27）: ページとデータは公開を続け、加工受託の入口としての追跡はやめる。4 週（9/24〜10/21）で /standards/data 利用者 5・standards_data_download 5 件（desktop）・データ加工の問い合わせ 0。判断を 04_収益化戦略.md の公的基準データ整備の節に 1 行残した"
+    },
+    {
+      "id": "DN-0864",
+      "at": "2026-10-27",
+      "task": "基準類の章記事の改行を直す（ページをまたぐ文の分断・番号つき箇条の連結）",
+      "tier": "high",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "tests/standards-linebreaks.test.mjs"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "c688c1f75bb7",
+      "verification": "check-standard-articles 全 PASS・tests/standards-linebreaks.test.mjs・PR の CI 全通過",
+      "note": "PR #1275（1f2421acc）。ページをまたぐ文の結合（約 180 か所）・番号つき箇条の分割（約 1,400 か所）・式の「ここで、」の分離。check-standard-articles 24 文書 456 検査 PASS。17 の判定を「読点で終わる段落の次が語で始まる」まで広げ、基準値を新しい実数（248→200）にした。同じページ内で文が割れる残りは DN-0880"
+    },
+    {
+      "id": "DN-0865",
+      "at": "2026-10-27",
+      "task": "基準類の章記事に図の画像を入れる（59 章・166 か所・原本ページ画像から切り出し）",
+      "tier": "high",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "scripts/check-standard-articles.mjs"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "5585b43bf8ba",
+      "verification": "check-standard-articles 24 文書 480 検査 PASS・tests/standards-figures.test.mjs・PR の CI 全通過",
+      "note": "PR #1276（5585b43bf）。166/166 か所（59 章）に原本ページから切り出した図（74 枚・webp）を差し込み、台帳 content/sources/standards/*/figures.json を生成器が読む。照合は scanned-figure-crop-auditor 3 体で 74 枚すべて・差し戻し 1 件を切り直し。check-standard-articles の検査 20 が台帳・ArticleImage・実体の 1 対 1 を止める（166 件実検査）。本番は main の r2-sync 後に表示。図の目印が無いキャプション 12 か所は DN-0881"
+    },
+    {
+      "id": "DN-0866",
+      "at": "2026-10-27",
+      "task": "1級 平成25年度・2級 平成21・25年度の択一を、運営者が正答を確定してから公開する（公式正答なし）",
+      "tier": "mid",
+      "kind": "制作",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "04dfa819cdb2",
+      "verification": "本番 4 ページが 200・「公式の正答は非公表」表示、check-answer-marks 整合、check-past-exam-ledger FAIL 0",
+      "note": "3 年度分を本番に公開（main 5cc34af05）。運営者の判断で 1級 H25 問題A の正答を 3 問改めた（No.12 4→1・No.32 3→2・No.33 2→4）。解説は別年度の公式過去問・国交省 土木工事共通仕様書・メーカーと JSCA の工法資料・JR 東日本の技術資料・Drive の解説書の文字起こしで具体にした（04dfa819c ほか）。No.12 肢1 を直接述べる杭基礎施工便覧・道路橋示方書と、No.43 の営業線工事保安関係標準仕様書の原文は Web に無く確かめられない（市販・非公開の資料が手に入ったときに見直す）"
+    },
+    {
+      "id": "DN-0881",
+      "at": "2026-10-27",
+      "task": "基準類の章記事で、表の領域などに出た図のキャプション 12 か所にも原本から切り出した図を入れる",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "scripts/check-standard-articles.mjs"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "c5fc91e5758f",
+      "verification": "check-standard-articles 24 文書 PASS・tests/standards-*.test.mjs・PR の CI 全通過",
+      "note": "PR #1277（6d31e8274）。カードの 12 か所に加え、番号の前に横線のある図（図−1 など）15 か所も同じ不具合として入れ、計 27 か所。検査 20 を太字の図キャプションまで広げ、実検査 193 件・画像あり 193 件。照合は scanned-figure-crop-auditor 3 体で 27 枚 ok（1 体が出所ページを開かなかった分は手で照合）"
+    },
+    {
+      "id": "DN-0880",
+      "at": "2026-10-27",
+      "task": "基準類の章記事で、同じページの中で文が割れる箇所をつなぐ（DN-0864 の残り）",
+      "tier": "low",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "tests/standards-linebreaks.test.mjs"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "c5fc91e5758f",
+      "verification": "check-standard-articles 24 文書 PASS（480）・tests/standards-*.test.mjs 103 件・PR の CI 全通過",
+      "note": "PR #1278（c5fc91e57）。先に「つながない側」の回帰を固定してから、本文の幅を「3 行以上が揃って届く最も広い幅」に変えた。77 か所をつなぎ（全件目視・誤った結合 0）、以前から誤ってつながっていた 35 か所を切った。中部特記 1-1 の交通誘導警備員 ①〜⑤ は 1 項目 1 段落"
+    },
+    {
+      "id": "DN-0885",
+      "at": "2026-10-27",
+      "task": "データ配線の残り: ツール名・演習件数・資格キーの語彙・管理画面の書式・タグの旧い綴りを正本に寄せる",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "e0a163017ae5",
+      "verification": "node --test tests/data-wiring.test.mjs tests/admin-format-ratchet.test.mjs",
+      "note": "PR #1281（e0a163017）で 1〜6 を develop にマージ。SNS 系の資格キーの表は公開記録の ID を動かさないため値を変えずテストで縛った。categories.json の seoTitle の件数は JSON のため残した"
+    },
+    {
+      "id": "DN-0544",
+      "at": "2026-10-27",
+      "task": "2級二次（10/25）の後に、note の冒頭 CTA を見直し、試験後の無料フォロー記事を公開する",
+      "tier": "high",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "a7e4a11660d1",
+      "verification": "note公開API（9本の新冒頭・自己採点記事 published/無料/is_limited=false・もくじに両自己採点記事）／audit-note-funnel --live ドリフトなし",
+      "note": "2級入口9本の冒頭を試験後の低価格先出しへライブ反映（3af76419b）・自己採点記事 n6b1410beec5c を公開・土木もくじを試験後の案内へ（2ebc6f711）。旧DN-0445の残りはDN-0895へ"
+    },
+    {
+      "id": "DN-0896",
+      "at": "2026-10-27",
+      "task": "note-update-body の反映確認が、段落の途中の差し替えを「見える本文は変わらない」と判定して確認を飛ばす",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "tests/note-live-update-verify.test.mjs"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "1fc2c086c540",
+      "verification": "node --test tests/note-live-update-verify.test.mjs（旧実装で落ち修正後 7/7）・npm test fail 0",
+      "note": "pickUpdateProbes を行の中の差分から断片を取る形にした（PR #1288・1fc2c086c）"
+    },
+    {
+      "id": "DN-0893",
+      "at": "2026-10-27",
+      "task": "todo:add が試験日の検査（check-exam-calendar）を通さずに push する抜けをふさぐ",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "tests/todo-add.test.mjs"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "a383933a23b6",
+      "verification": "node --test tests/todo-add.test.mjs tests/search-improvement.test.mjs tests/pre-commit-ci-gates.test.mjs（旧実装で todo-add 2 件が落ち、修正後に通る）・PR #1290 の CI 全 pass",
+      "note": "addCard に findForbidden・auditLinks、withNoneMarker に findForbidden を入れた。pre-commit の unit-tests は gateEnv で hook の git 変数を外す（PR #1290・a383933a2）"
+    },
+    {
+      "id": "DN-0897",
+      "at": "2026-10-28",
+      "task": "テストの一時リポジトリの git init が pre-commit の GIT_DIR を引き継ぎ、親リポジトリの core.bare を書き換える",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "tests/test-git-env-isolation.test.mjs"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "1343713b3ac4",
+      "verification": null,
+      "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-0888",
+      "at": "2026-10-28",
+      "task": "note 無料記事「技術士を受けて得たもの」の表紙を作って公開する",
+      "tier": "mid",
+      "kind": "制作",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "6f4382507066",
+      "verification": null,
+      "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-0899",
+      "at": "2026-10-28",
+      "task": "測量士・舗装・管工事の公開済み note 商品 6 点を商品の正本へ登録し、サイトに商品カードを出す",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "815729e60040",
+      "verification": null,
+      "note": "todo-complete.mjs 経由で完了処理"
     }
   ]
 }

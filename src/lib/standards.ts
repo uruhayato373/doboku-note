@@ -3,6 +3,7 @@ import 'server-only';
 import catalogJson from '@/../content/site/standards-library/catalog.json';
 import structureConfig from '@/../config/standards-structure.json';
 import { editionDuplicateOf } from '@/lib/standards-editions.mjs';
+import { standardsDocumentPath } from '@/lib/route-paths';
 
 type StandardPart = {
   slug: string;
@@ -149,6 +150,6 @@ export function isStandardPartIndexable(document: StandardDocument): boolean {
 }
 
 export function standardDocumentPath(document: Pick<StandardDocument, 'agencyId' | 'documentId'>): string {
-  return `/standards/${document.agencyId}/${document.documentId}`;
+  return standardsDocumentPath(document.agencyId, document.documentId);
 }
 

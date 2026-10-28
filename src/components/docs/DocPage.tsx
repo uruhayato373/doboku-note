@@ -8,7 +8,7 @@ import { getAllComponents } from '@/lib/component-loader';
 import { getCategoryLabel } from '@/lib/categories';
 import { classifyDoc, getGroupLabel, isCareerDoc } from '@/lib/doc-classifier';
 import { Metadata } from 'next';
-import { normalizeMetaDescription } from '@/lib/metadata';
+import { NOT_FOUND_TITLE, normalizeMetaDescription } from '@/lib/metadata';
 import { getOgpImageUrl } from '@/lib/r2-image-loader';
 import StructuredData from '@/components/seo/StructuredData';
 import remarkMath from 'remark-math';
@@ -48,6 +48,7 @@ import { AffiliateExperimentPixel } from '@/components/ui/CareerAffiliate/Career
 import type React from 'react';
 import { getPublicDocPath } from '@/lib/content-routes';
 import { externalLinkRel } from '@/lib/external-link-rel';
+import { isCivilConstructionCategory } from '@/lib/qualification-names';
 
 
 
@@ -160,7 +161,7 @@ export async function buildDocMetadata(slugStr: string): Promise<Metadata> {
 
   if (!doc) {
     return {
-      title: 'ページが見つかりません',
+      title: NOT_FOUND_TITLE,
       description: 'このページは存在しません。',
     };
   }
@@ -314,7 +315,7 @@ export async function renderDocPage(slugStr: string) {
   // 1級・2級土木の二次（secondary）ページも本文中間 CTA の対象に含める（会員「合格ラボ」を
   // 二次高 intent 面へ出すため）。全資格の secondary を一律対象にはしない（土木のみ）。
   const isCivilSecondary =
-    (category === 'civil-construction-1' || category === 'civil-construction-2') &&
+    isCivilConstructionCategory(category) &&
     docGroup === 'secondary';
   const midEligibleGroup =
     docGroup === 'guide' || docGroup === 'pillar' || docGroup === 'textbook' || isCivilSecondary;

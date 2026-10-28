@@ -4,6 +4,7 @@ import { Card } from '@/components/ui/card';
 import { DataTable as AdminDataTable } from '@/components/admin';
 import type { SnapshotFile } from '@/lib/snapshots';
 import { ageInDays } from '@/lib/snapshots';
+import { num } from '@/lib/format';
 
 /** KPI カード。ラベルと値だけのシンプルな表示（アイコン・装飾線は持たない）。 */
 export function Kpi({
@@ -142,7 +143,7 @@ export function DataTable<Row>({
 
 /** 数値整形ヘルパ。 */
 export const fmt = {
-  int: (n: number) => Math.round(n).toLocaleString(),
+  int: (n: number) => num(Math.round(n)),
   pct: (r: number) => (r * 100).toFixed(1) + '%',
   dec: (n: number, d = 1) => n.toFixed(d),
   dur: (sec: number) => {

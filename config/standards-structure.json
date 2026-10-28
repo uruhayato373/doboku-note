@@ -35,14 +35,14 @@
     ]
   },
   "readabilityBaselines": {
-    "_comment": "check-standard-articles 17・18 の基準（増やさない）。2026-10-16 実測。17 の 1 件は各文書の「東北地方──30㎝／その他の地域──40㎝」の一覧（正しく行が分かれている）と北海道版 10-16 の 1 か所。18 は表の上の小見出し・注記（正しい）と、表から外れた行の断片（近畿版で 7〜8 件: 0.15 の行・溶接完了時・M20 167～211 など）を含む。断片を表へ戻したら基準を下げる。 2026-10-19 に地方版 3 文書を加えた（初回の実測値。表はまだ組み直していないので 18 は表の上の小見出しと断片を含む）。 2026-10-19 に工事必携の要綱・要領 4 文書を加えた（初回の実測値。完成図等作成要領は図の中の文字と表が多く、18 の大半は図の注記）。 同日に地方版の大冊子 8 文書を加えた（様式集・記入例が多く、18 の大半は様式の欄の文字）。 国交省の施工管理基準は 2026-10-20 に出来形管理基準の表 191 ページを原本照合の表にした。18 の 177 件のうち 171 件は各表の前の「単位：mm」の注記（原本どおりで断片ではない）。 verbatimTables は版面のまま残った表（コードブロック）の数で、表の扱いの検査が見る。2026-10-25 実測（共通仕様書は図の中の文字の 4 件）。組み直したら下げる（DN-0850）。 2026-10-25 北海道独自の表 47 件を組み直した（DN-0850 の試行）。17 の 1 件は 2-2 の「(リブ部の重量は含まない)」と次の文（原本でも別の文）、18 の増加 11 件は表の隣に並んだ様式の題名・記入例の見出し・注記（原本の文字で断片ではない）。 2026-10-25 残りの 11 文書の表 1,035 件を組み直した（DN-0850）。17 の増加は様式の文面が記入欄で切れている箇所と、版面に残した様式の前後で文がまたがる箇所、18 の増加は表の隣に並んだ様式の題名・記入例の見出し・注記（どれも原本の文字で、表の中身の崩れではない）。記入欄だけの様式 70 件は版面のまま（検査 19 の空の列を避けるため）。 2026-10-25 後始末: 300 行を超える表 10 件を断片に分けて組み直し、既存の組み直し 122 件の見出し（headerImage 42 件）と表の行が段落に化けた箇所を直した。版面のまま残った表は 13 文書で図の中の文字と記入欄だけの様式だけ。18 の増減は巨大な表の部品の題名・小見出しと、段落を表へ取り込んだ分。",
+    "_comment": "check-standard-articles 17・18 の基準（増やさない）。2026-10-16 実測。17 の 1 件は各文書の「東北地方──30㎝／その他の地域──40㎝」の一覧（正しく行が分かれている）と北海道版 10-16 の 1 か所。18 は表の上の小見出し・注記（正しい）と、表から外れた行の断片（近畿版で 7〜8 件: 0.15 の行・溶接完了時・M20 167～211 など）を含む。断片を表へ戻したら基準を下げる。 2026-10-19 に地方版 3 文書を加えた（初回の実測値。表はまだ組み直していないので 18 は表の上の小見出しと断片を含む）。 2026-10-19 に工事必携の要綱・要領 4 文書を加えた（初回の実測値。完成図等作成要領は図の中の文字と表が多く、18 の大半は図の注記）。 同日に地方版の大冊子 8 文書を加えた（様式集・記入例が多く、18 の大半は様式の欄の文字）。 国交省の施工管理基準は 2026-10-20 に出来形管理基準の表 191 ページを原本照合の表にした。18 の 177 件のうち 171 件は各表の前の「単位：mm」の注記（原本どおりで断片ではない）。 verbatimTables は版面のまま残った表（コードブロック）の数で、表の扱いの検査が見る。2026-10-25 実測（共通仕様書は図の中の文字の 4 件）。組み直したら下げる（DN-0850）。 2026-10-25 北海道独自の表 47 件を組み直した（DN-0850 の試行）。17 の 1 件は 2-2 の「(リブ部の重量は含まない)」と次の文（原本でも別の文）、18 の増加 11 件は表の隣に並んだ様式の題名・記入例の見出し・注記（原本の文字で断片ではない）。 2026-10-25 残りの 11 文書の表 1,035 件を組み直した（DN-0850）。17 の増加は様式の文面が記入欄で切れている箇所と、版面に残した様式の前後で文がまたがる箇所、18 の増加は表の隣に並んだ様式の題名・記入例の見出し・注記（どれも原本の文字で、表の中身の崩れではない）。記入欄だけの様式 70 件は版面のまま（検査 19 の空の列を避けるため）。 2026-10-25 後始末: 300 行を超える表 10 件を断片に分けて組み直し、既存の組み直し 122 件の見出し（headerImage 42 件）と表の行が段落に化けた箇所を直した。版面のまま残った表は 13 文書で図の中の文字と記入欄だけの様式だけ。18 の増減は巨大な表の部品の題名・小見出しと、段落を表へ取り込んだ分。 2026-10-27 DN-0864: 生成器がページをまたぐ文をつなぎ、号・丸数字・中黒の箇条を 1 行ずつの段落に分け、式の後の「ここで、」を分けるようにした。17 は読点で終わる段落の次に語で始まる段落が続く箇所も数えるように広げた（ページの変わり目の分断は漢字で始まることが多く、これまで数えていなかった）。広げた検査で旧生成物は 24 文書合計 248 件、新生成物は 200 件（共通仕様書 9 文書は各 4〜15 件→1〜2 件）。残りは版面の字下げ・2 列組・様式の記入欄で行が割れた箇所で、ページの変わり目ではない。18 の +1 件（北陸・四国・近畿の必携）は 1 段落につながっていた中黒の箇条・小見出しが分かれたもの（表の断片ではない）。",
     "chubu/common": {
-      "midSentenceBreaks": 1,
+      "midSentenceBreaks": 2,
       "strayTableFragments": 31,
       "verbatimTables": 4
     },
     "chugoku/common": {
-      "midSentenceBreaks": 1,
+      "midSentenceBreaks": 2,
       "strayTableFragments": 31,
       "verbatimTables": 4
     },
@@ -52,22 +52,22 @@
       "verbatimTables": 4
     },
     "hokuriku/common": {
-      "midSentenceBreaks": 1,
+      "midSentenceBreaks": 2,
       "strayTableFragments": 31,
       "verbatimTables": 4
     },
     "kanto/common": {
-      "midSentenceBreaks": 1,
+      "midSentenceBreaks": 2,
       "strayTableFragments": 31,
       "verbatimTables": 4
     },
     "kinki/common": {
-      "midSentenceBreaks": 1,
+      "midSentenceBreaks": 2,
       "strayTableFragments": 31,
       "verbatimTables": 4
     },
     "kyushu/common": {
-      "midSentenceBreaks": 1,
+      "midSentenceBreaks": 2,
       "strayTableFragments": 31,
       "verbatimTables": 4
     },
@@ -77,13 +77,13 @@
       "verbatimTables": 4
     },
     "tohoku/common": {
-      "midSentenceBreaks": 1,
+      "midSentenceBreaks": 2,
       "strayTableFragments": 31,
       "verbatimTables": 4
     },
     "chubu/special": {
       "midSentenceBreaks": 1,
-      "strayTableFragments": 19,
+      "strayTableFragments": 20,
       "verbatimTables": 6
     },
     "tohoku/special": {
@@ -92,38 +92,38 @@
       "verbatimTables": 4
     },
     "hokkaido/local": {
-      "midSentenceBreaks": 1,
+      "midSentenceBreaks": 3,
       "strayTableFragments": 36,
       "verbatimTables": 2
     },
     "kyushu/hikkei-common-08": {
-      "midSentenceBreaks": 0,
+      "midSentenceBreaks": 3,
       "strayTableFragments": 100,
       "verbatimTables": 24
     },
     "kyushu/hikkei-common-09": {
-      "midSentenceBreaks": 0,
+      "midSentenceBreaks": 12,
       "strayTableFragments": 4,
       "verbatimTables": 0
     },
     "kyushu/hikkei-common-10": {
-      "midSentenceBreaks": 0,
+      "midSentenceBreaks": 29,
       "strayTableFragments": 3,
       "verbatimTables": 0
     },
     "okinawa/hikkei-08": {
-      "midSentenceBreaks": 0,
+      "midSentenceBreaks": 6,
       "strayTableFragments": 0,
       "verbatimTables": 0
     },
     "tohoku/reference": {
-      "midSentenceBreaks": 18,
-      "strayTableFragments": 714,
+      "midSentenceBreaks": 22,
+      "strayTableFragments": 715,
       "verbatimTables": 39
     },
     "kinki/hikkei": {
-      "midSentenceBreaks": 14,
-      "strayTableFragments": 354,
+      "midSentenceBreaks": 61,
+      "strayTableFragments": 355,
       "verbatimTables": 41
     },
     "kyushu/management-manual": {
@@ -132,17 +132,17 @@
       "verbatimTables": 14
     },
     "hokuriku/hikkei": {
-      "midSentenceBreaks": 2,
-      "strayTableFragments": 198,
+      "midSentenceBreaks": 3,
+      "strayTableFragments": 199,
       "verbatimTables": 11
     },
     "shikoku/manual": {
-      "midSentenceBreaks": 2,
-      "strayTableFragments": 250,
+      "midSentenceBreaks": 8,
+      "strayTableFragments": 251,
       "verbatimTables": 16
     },
     "hokkaido/appendix": {
-      "midSentenceBreaks": 0,
+      "midSentenceBreaks": 23,
       "strayTableFragments": 60,
       "verbatimTables": 6
     },
@@ -152,7 +152,7 @@
       "verbatimTables": 1
     },
     "mlit/sekou-kanri-kijun": {
-      "midSentenceBreaks": 0,
+      "midSentenceBreaks": 1,
       "strayTableFragments": 177,
       "verbatimTables": 1
     }

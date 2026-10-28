@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "pe-first-stage",
+      "headline": [
+        "専門科目",
+        "35問から25問"
+      ],
+      "accentLine": 1,
+      "subtitle": "建設部門",
+      "character": {
+        "pose": "pop-red-pen",
+        "frame": "waist"
+      },
+      "design": "pop-poster-v3",
+      "pop": {
+        "variant": "question",
+        "authority": "総監が制作"
+      },
+      "approvedImage": {
+        "path": ".tmp/media/pe-first-stage/pe1-senmon-kensetsu-25mon/work/cover-pop.be653247.png",
+        "sha256": "be65324798c430508180aa70f2f16c891daa315d165216285e2094bfdbbb95b6",
+        "specSha256": "1dd75f06a1ab44d9efd1b1c1926b5e034946822086086d53eb4e1bb63aaed9ba"
+      }
+    }
+  }
+}

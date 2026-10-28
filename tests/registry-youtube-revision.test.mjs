@@ -209,3 +209,37 @@ test('画面確認素材を追加した未承認draftも入力だけ更新でき
   approved.publications.find(p => p.id === row.id).approval = { by: 'user', contentSha256: '0'.repeat(64) };
   assert.throws(() => planYoutubeRevision(root, { ...options, refreshDraft: true }, approved), /既存の改訂公開行/);
 });
+
+test('QA済みでも未承認なら文面修正を履歴保存してdraftへ戻す', t => {
+  const root = fixture(t), options = { pubId: PUB, variant: 'diagram-led' };
+  const initial = prepareYoutubeRevision(root, options);
+  prepareYoutubeRevision(root, { ...options, commit: true, expect: initial.digest });
+  const qa = recordYoutubeRevisionQa(root, { pubId: initial.publicationId, avg: 2.5, blocks: 0, commit: true });
+  assert.equal(qa.status, 'qa_passed');
+  const before = readFileSync(join(root, initial.input), 'utf8');
+  writeJson(root, `${DEF}/youtube.json`, { longform: { title: 'QA後の修正文面', description: '新しい説明' } });
+  assert.throws(() => planYoutubeRevision(root, options), /既存の改訂公開行/);
+  const preview = prepareYoutubeRevision(root, { ...options, refreshDraft: true });
+  const saved = prepareYoutubeRevision(root, { ...options, refreshDraft: true, commit: true, expect: preview.digest });
+  assert.equal(readFileSync(join(root, saved.preservedInput), 'utf8'), before);
+  assert.equal(loadRegistry(root).publications.find(p => p.id === initial.publicationId).status, 'draft');
+  assert.equal(JSON.parse(readFileSync(join(root, saved.input))).title, 'QA後の修正文面');
+  assert.equal(prepareYoutubeRevision(root, { ...options, refreshDraft: true }).written, 0);
+});
+
+test('未承認のQA済み改訂は未来の公開日を前倒しでき、旧入力を保存して再QAへ戻す', t => {
+  const root = fixture(t), options = { pubId: PUB, variant: 'diagram-led', publishAt: '2099-11-06T20:00:00+09:00' };
+  const initial = prepareYoutubeRevision(root, options);
+  prepareYoutubeRevision(root, { ...options, commit: true, expect: initial.digest });
+  recordYoutubeRevisionQa(root, { pubId: initial.publicationId, avg: 2.5, blocks: 0, commit: true });
+  const before = readFileSync(join(root, initial.input), 'utf8');
+  const earlier = { ...options, publishAt: '2099-11-01T20:00:00+09:00', refreshDraft: true };
+  assert.throws(() => planYoutubeRevision(root, { ...earlier, refreshDraft: false }), /既存の改訂公開行/);
+  const preview = prepareYoutubeRevision(root, earlier);
+  const saved = prepareYoutubeRevision(root, { ...earlier, commit: true, expect: preview.digest });
+  assert.equal(readFileSync(join(root, saved.preservedInput), 'utf8'), before);
+  assert.equal(JSON.parse(readFileSync(join(root, saved.input))).publishAt, earlier.publishAt);
+  const pub = loadRegistry(root).publications.find(p => p.id === initial.publicationId);
+  assert.equal(pub.status, 'draft');
+  assert.equal(pub.publishAt, earlier.publishAt);
+});

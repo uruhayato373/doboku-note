@@ -58,7 +58,9 @@
     "コンクリート主任技士-令和形式-発注者監督員": "cce-reiwa-owner-pack",
     "コンクリート主任技士-令和形式-ゼネコン建築施工": "cce-reiwa-building-contractor-pack",
     "コンクリート主任技士-令和形式-設計コンサル": "cce-reiwa-design-consultant-pack",
-    "コンクリート主任技士-令和形式-試験検査機関": "cce-reiwa-testing-pack"
+    "コンクリート主任技士-令和形式-試験検査機関": "cce-reiwa-testing-pack",
+    "測量士午後-分野別": "surveyor-gogo-bunya-magazine",
+    "舗装1級-経験記述": "pavement-1-keiken-magazine"
   },
   "packs": {
     "_doc": "複数ラベルを 1 マガジンへ束ねる商品。期待 = Σ(labels の repo 公開記事数) + extras。",
@@ -279,12 +281,6 @@
     },
     "2級土木-施工経験記述-小規模地域インフラ4工事": {
       "reason": "単発記事の商品（civil-2-small-infra-4・note では /n/ の1記事で公開・マガジンではない）。二次検定まるごとパックへの収録は extras で照合する。2026-09-20"
-    },
-    "測量士午後-分野別": {
-      "reason": "下書き（未公開・DN-0354）。公開してマガジンを作ったら labels へ移す。2026-09-30"
-    },
-    "舗装1級-経験記述": {
-      "reason": "下書き（未公開・DN-0353）。公開してマガジンを作ったら labels へ移す。2026-09-30"
     }
   },
   "extras": {

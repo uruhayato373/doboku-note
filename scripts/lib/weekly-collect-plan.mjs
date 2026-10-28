@@ -126,7 +126,7 @@ export function buildStages({ today = todayJst(), kdpMonths = [], competitorScan
         // snapshot を作り直した直後に三軸（repo・SoT・ライブ）を突き合わせる。exit 2 = 検査不成立
         { argv: ['scripts/check-magazine-membership.mjs', '--ci'], warn: [1] },
         { argv: ['scripts/audit-note-funnel.mjs', '--live', '--ci'], warn: [1], failPattern: '検査不成立' },
-        // 題名・価格は原稿が正。note と食い違う記事を「note へ未反映」に戻す（後段の note-sync が上げ直す）。exit 1 = 検査不成立
+        // 題名・価格は原稿（frontmatter。単品価格は config/products.json の articlePrices の写し）が正で、note のライブはそれに合わせる。note と食い違う記事を「note へ未反映」に戻す（後段の note-sync が上げ直す）。exit 1 = 検査不成立
         { argv: ['scripts/note-reconcile-title-price.mjs', '--commit'] },
       ],
     },

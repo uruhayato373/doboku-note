@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "concrete-chief",
+      "headline": [
+        "耐久性",
+        "対策より先に機構"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pop-red-pen",
+        "frame": "waist"
+      },
+      "design": "pop-poster-v3",
+      "pop": {
+        "variant": "question",
+        "authority": "総監が制作"
+      },
+      "approvedImage": {
+        "path": ".tmp/media/concrete-chief-engineer/shunin-rekka-taio/work/cover-pop.82b2413f.png",
+        "sha256": "82b2413fd4de9bca533831f27e1cd6bc792b0b3c9d2d46d876d8dcc3ee2f97b1",
+        "specSha256": "46038a2ae03133427c929ef658c38e1a464875f60f62c0ffdf2e5eb3667ad1b4"
+      }
+    }
+  }
+}

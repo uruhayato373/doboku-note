@@ -4,6 +4,7 @@
 // origin/develop を新版に向ける。新版のツリーで入れたあと、旧版の worktree から入れ直しても
 // 共有フックが新版のまま残ることと、書き込みが一時ファイル→rename（inode が変わる）であることを確かめる。
 // 実リポジトリの .git/hooks には触れない（cwd を一時リポジトリにして git に hooks の場所を解決させる）。
+import './lib/isolate-git-env.mjs';
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { mkdtempSync, mkdirSync, readFileSync, writeFileSync, copyFileSync, statSync, rmSync } from 'node:fs';

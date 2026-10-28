@@ -122,6 +122,8 @@ kuro
 | `コンクリート技士 択一｜直前パック`（¥1,480・配合計算・JIS判断12問＋直前暗記ノート・2026-09-17 新設） | `ce-chokuzen-pack` |
 | `RCCM問題III｜2026年度 6テーマ 模範論文集`（¥3,480・6本＋序章） | `rccm-mondai3-magazine` |
 | `RCCM まるごとパック（問題I〜IV 全対応）`（¥5,980・問題I〜IV 全16記事） | `rccm-marugoto-pack` |
+| `測量士 午後記述式｜分野別 解き方の型と過去5年`（¥2,980・5本＋序章・2026-10-28） | `surveyor-gogo-bunya-magazine` |
+| `1級舗装 応用試験 経験記述 模範答案集`（¥2,480・3本＋序章・2026-10-28） | `pavement-1-keiken-magazine` |
 
 ### 単品記事（type: article）
 
@@ -155,6 +157,10 @@ productId は `article:<slug>` 形式。slug は商品名から推定:
 | `RCCM 問題I｜鋼構造及びコンクリートの業務経験記入例2本` | `article:rccm-mondai1-steel-concrete` |
 | `RCCM問題II・IV｜論点集と予想50問`（¥1,480） | `article:rccm-takuitsu-yosou-50` |
 | `RCCM 問題II・問題IV｜択一 直前暗記ノート`（¥980・2026-09-17） | `article:rccm-anki-note` |
+| `測量士 午後 記述式の計算問題を「型20本」で解く`（¥1,480・2026-10-28） | `article:surveyor-keisan-20` |
+| `1級舗装 応用試験 選択問題（問2〜5）の頻出論点`（¥1,480・2026-10-28） | `article:pavement-1-sentaku-hinshutsu` |
+| `2級舗装 応用試験 問1（経験記述）の模範答案`（¥980・2026-10-28） | `article:pavement-2-keiken` |
+| `管工事施工管理技士 第二次検定「施工記述」機器別 模範解答バンク`（¥1,980・2026-10-28） | `article:pipe-work-kikibetsu-bank` |
 | `1級土木 二次｜出題分析と直前の重点` | `article:civil-1-r8-bunseki` |
 | `2級土木 二次｜出題分析と直前の重点`（¥580・2026-09-17） | `article:civil-2-r8-bunseki` |
 | `1級土木 令和8年度 第2次検定｜予想模試3回` | `article:civil-1-r8-mock3-pdf` |

@@ -183,5 +183,364 @@
       },
       "publication": "ローカル差し替え・外部未反映"
     }
+  },
+  "activeCoverRevision": "cover-pop-20261027",
+  "activeBodyRevision": "body-diagram-20261027",
+  "revisions": {
+    "cover-pop-20261027": {
+      "version": "pop-poster-v3",
+      "generation": {
+        "tool": "image_gen",
+        "prompt": "Use the attached approved cover as STYLE AND CHARACTER continuity reference, not content to copy. Make a fresh full-bleed 16:9 YouTube POP poster for the コンクリート主任技士 exam. Same teacher identity: black rim glasses, slight beard, blank white hard hat, navy construction jacket, red pen, teacher large on right. Energetic violet/purple background, yellow, navy, white and limited red accents; bold dynamic typography. Text must be exactly: 「総監が制作」「コンクリート主任技士」「小論文」「書けたつもり？」「4つの見直し」. This is a study self-check, NOT an official scoring rubric or pass/fail prediction. Show a handwritten essay page and four simple checkmarks at lower left, no scores. Do not add numbers besides the specified 4, pricing, URLs, guarantees, or other text. Keep all foreground, including the teacher and words, above y=80% and within side/top 5%, with the lowest 20% only uninterrupted purple background for subtitles. Every edge full bleed, no white card frame. Japanese glyphs exact and readable at 360px. 1920x1080 intended.",
+        "references": [
+          {
+            "path": ".tmp/media/concrete-chief-engineer/shunin-shiken-zentaizou/youtube.longform/cover.729a5a5e.png",
+            "sha256": "729a5a5e70c9b6de85da4e5eaf3c10cf72946541c575850185578e44623ec7e8"
+          }
+        ],
+        "output": {
+          "path": ".tmp/media/concrete-chief-engineer/shunin-ochiru-shouronbun/work/raw-cover-pop.8efb420b.png",
+          "sha256": "8efb420b61b2fa851352a4a66a74bdd4dbce3a0213714109925ae66642b8a808"
+        },
+        "generatedAt": "2026-10-27T13:58:30.522Z"
+      },
+      "copy": {
+        "exam": "concrete-chief",
+        "headline": [
+          "小論文",
+          "4つの見直し"
+        ],
+        "authority": "総監が制作"
+      },
+      "output": {
+        "path": ".tmp/media/concrete-chief-engineer/shunin-ochiru-shouronbun/work/cover-pop.60ab1c34.png",
+        "sha256": "60ab1c34582e50a2efac0f08ef9ca3aae2ea5dca920737eb060aa28da1451d64",
+        "width": 1920,
+        "height": 1080
+      },
+      "normalization": {
+        "mode": "full-frame-v1",
+        "sourceSha256": "8efb420b61b2fa851352a4a66a74bdd4dbce3a0213714109925ae66642b8a808"
+      },
+      "review": {
+        "status": "ai-reviewed",
+        "userImageReview": "pending",
+        "checkedAt": "2026-10-27T14:28:16.743Z",
+        "by": "Codex",
+        "views": [
+          "1920x1080"
+        ],
+        "checks": [
+          "文言・資格名",
+          "顔と安全域",
+          "字幕領域"
+        ]
+      },
+      "storage": {
+        "group": "content-media",
+        "sync": "pending"
+      }
+    },
+    "body-diagram-20261027": {
+      "layout": {
+        "mode": "diagram-led"
+      },
+      "images": [
+        {
+          "sceneId": "premise",
+          "inputSha256": "ae350d1d648cea6cfd8bf20a48380efee68417418da6900e894a780c8caccd35",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Create a fresh full-bleed 16:9 Japanese educational diagram slide. Use attached image only as diagram style reference. White-to-pale-lavender background, clean navy/violet outlines, small yellow emphasis, no teacher character, no photo, no decorative card collage. Keep bottom 22% blank for subtitles. Large heading exactly 「4観点は自己点検」. Draw a central essay manuscript with four surrounding simple labelled checks: 「技術的妥当性」「論理構成」「実務経験の具体性」「技術理解」. Add one clear caution strip above subtitle-safe area exactly 「公式の採点項目・配点ではない」. These are study self-check lenses, not official JCI grading criteria. Do not draw grades, scores, pass/fail stamps, percentages or any extra text. Use readable Japanese glyphs at 360px.",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/work/promise-diagram.c7e7cf67.png",
+                "sha256": "c7e7cf6782e5ef4f90e378ac9927e178f7d4acaa2555c547aabe93df9f8cace3"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-chief-engineer/shunin-ochiru-shouronbun/work/raw-premise.7d8984e0.png",
+              "sha256": "7d8984e029a8aa50cad8db1112ca4ff579f8bec6176036c835f9c215b9ec0bd1"
+            },
+            "generatedAt": "2026-10-27T14:03:03.145Z"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-chief-engineer/shunin-ochiru-shouronbun/work/premise-diagram.7c275d79.png",
+            "sha256": "7c275d79a3aff1751ba2aead5d0ed3092498ff3f4cf3dc33669102c5eba9abd8",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "7d8984e029a8aa50cad8db1112ca4ff579f8bec6176036c835f9c215b9ec0bd1"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-10-27T14:28:16.748Z",
+            "by": "Codex",
+            "views": [
+              "1920x1080"
+            ],
+            "checks": [
+              "内容整合",
+              "文言",
+              "字幕領域"
+            ]
+          }
+        },
+        {
+          "sceneId": "ippan",
+          "inputSha256": "3ecc1bdc8141031f11f108fc13d55dc3dedf6558c93bc34290880b7adae031b7",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Create a fresh full-bleed 16:9 Japanese educational diagram slide. Use attached image only as diagram style reference. White-to-pale-lavender background, clean navy/violet outlines, small yellow emphasis, no teacher character, no photo. Keep bottom 22% blank for subtitles. Large heading exactly 「見直し1 一般論だけ？」. Show a simple before/after comparison about a concrete engineering essay: left sheet labelled 「一般論」 with vague textbook lines, right sheet labelled 「自分の業務」 with three large check boxes 「誰が」「何を判断」「根拠を確認」. Simple arrow from left to right. No invented project facts, scores, percentages or extra text. Every element readable at 360px.",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/work/promise-diagram.c7e7cf67.png",
+                "sha256": "c7e7cf6782e5ef4f90e378ac9927e178f7d4acaa2555c547aabe93df9f8cace3"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-chief-engineer/shunin-ochiru-shouronbun/work/raw-ippan.c012ebfd.png",
+              "sha256": "c012ebfdf32cc92f5166fe528fc44c21bf35758fa2504301400e48d622e2ffce"
+            },
+            "generatedAt": "2026-10-27T14:03:03.145Z"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-chief-engineer/shunin-ochiru-shouronbun/work/ippan-diagram.99aa5de3.png",
+            "sha256": "99aa5de31f2d4519aacfd26a742ebfa4f6c36493f27454722a389fa60602f414",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "c012ebfdf32cc92f5166fe528fc44c21bf35758fa2504301400e48d622e2ffce"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-10-27T14:28:16.751Z",
+            "by": "Codex",
+            "views": [
+              "1920x1080"
+            ],
+            "checks": [
+              "内容整合",
+              "文言",
+              "字幕領域"
+            ]
+          }
+        },
+        {
+          "sceneId": "chusho",
+          "inputSha256": "cbbb059312b572096b212f59d9a4f7babfb94b3d76721da606f8a9345c9d510d",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Create a fresh full-bleed 16:9 Japanese educational diagram slide using the attached image for diagram style only. White to pale lavender background; navy/violet lines, restrained yellow highlights; no teacher, no photograph, no decorative card collage. Bottom 22% must be completely empty for subtitles. Large heading exactly 「見直し2 抽象表現だけ？」. Compare an essay excerpt: left a cloud labelled 「適切に管理した」 with a question mark; right a clean three-step sequence 「条件」→「確認」→「対策」. Make clear that a concrete description gives the reader substance. Do not invent any project facts or add grades, scores, statistics, percentages, or extra words. Readable at 360px.",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/work/promise-diagram.c7e7cf67.png",
+                "sha256": "c7e7cf6782e5ef4f90e378ac9927e178f7d4acaa2555c547aabe93df9f8cace3"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-chief-engineer/shunin-ochiru-shouronbun/work/raw-chusho.7eb70b18.png",
+              "sha256": "7eb70b180667da2a7e2fa5e73250181b4038c6c468103515df7e9bfdd69ac603"
+            },
+            "generatedAt": "2026-10-27T14:04:43.388Z"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-chief-engineer/shunin-ochiru-shouronbun/work/chusho-diagram.e8b8715b.png",
+            "sha256": "e8b8715bc13abf034a39560acb98062bfadd09d0c44390621f6f0e7d3bc17b7f",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "7eb70b180667da2a7e2fa5e73250181b4038c6c468103515df7e9bfdd69ac603"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-10-27T14:28:16.756Z",
+            "by": "Codex",
+            "views": [
+              "1920x1080"
+            ],
+            "checks": [
+              "内容整合",
+              "文言",
+              "字幕領域"
+            ]
+          }
+        },
+        {
+          "sceneId": "jisu",
+          "inputSha256": "e1920be59f357c381451d4839bd4fc7d8dcd4cf20c547a45ffa3c993e08cbd36",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Create a NEW simple 16:9 Japanese educational diagram slide, using the attached picture only as style reference. White-to-pale-lavender full-bleed background, navy/violet outlines, small yellow highlights. Diagram content must fit entirely inside the TOP 65% of the frame, including every outline, arrow and label. Keep the bottom 35% completely empty background for subtitles. Large heading at top exactly 「見直し3 字数と構成」. Beneath heading, draw three small compact icons in ONE horizontal row: a generic exam instruction sheet labelled 「設問の字数・行数」; a compact complete answer form labelled 「業務との関係」; a small warning triangle and compact answer form labelled 「後半が尻すぼみ？」. All three forms must be shown WHOLE with their bottom borders visible, no part cropped by the empty zone. Avoid real official form layout, fixed word counts, scores, additional section names or extra text. Japanese glyphs large enough at 360px.",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/work/promise-diagram.c7e7cf67.png",
+                "sha256": "c7e7cf6782e5ef4f90e378ac9927e178f7d4acaa2555c547aabe93df9f8cace3"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-chief-engineer/shunin-ochiru-shouronbun/work/raw-jisu.e7ed8a19.png",
+              "sha256": "e7ed8a197e7a727d3d1d90a289993b225c69da736cee13835b5e130acfbe8c10"
+            },
+            "generatedAt": "2026-10-27T14:27:54.776Z"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-chief-engineer/shunin-ochiru-shouronbun/work/jisu-diagram.9df21279.png",
+            "sha256": "9df21279ad0fb64609186950fafb5bd3c9dc417e8304b997109c7e5be23438eb",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "e7ed8a197e7a727d3d1d90a289993b225c69da736cee13835b5e130acfbe8c10"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-10-27T14:28:16.759Z",
+            "by": "Codex",
+            "views": [
+              "1920x1080"
+            ],
+            "checks": [
+              "内容整合",
+              "文言",
+              "字幕領域"
+            ]
+          }
+        },
+        {
+          "sceneId": "tema",
+          "inputSha256": "9feddbef18205750b63a8c4c495f352d99d5baa90a807b33405a1e1d7e45f7c4",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Create a fresh full-bleed 16:9 Japanese educational diagram slide using attached image for diagram style only. White to pale lavender background; navy/violet lines, restrained yellow highlights; no teacher, no photo. Bottom 22% empty for subtitles. Large heading exactly 「見直し4 設問に答える」. Draw a question sheet on left with three highlighted underlines 「何について」「どの立場で」「何を論じる」, an arrow to an answer sheet on right with those three labels ticked. A side branch labelled 「脱線」 should visibly lead away from the answer sheet but not dominate. This is a learning self-check, not official marking. No scores, pass/fail or extra text. Readable at 360px.",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/work/promise-diagram.c7e7cf67.png",
+                "sha256": "c7e7cf6782e5ef4f90e378ac9927e178f7d4acaa2555c547aabe93df9f8cace3"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-chief-engineer/shunin-ochiru-shouronbun/work/raw-tema.f31e1ee1.png",
+              "sha256": "f31e1ee1006deb1a92677d442c698d70c0b177f2475a6d65da864f8a978b5bb9"
+            },
+            "generatedAt": "2026-10-27T14:04:43.388Z"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-chief-engineer/shunin-ochiru-shouronbun/work/tema-diagram.5f140d43.png",
+            "sha256": "5f140d436d68c7f37d7ada0fed6d048c5b288692dd82e9b194e7989afa2aa285",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "f31e1ee1006deb1a92677d442c698d70c0b177f2475a6d65da864f8a978b5bb9"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-10-27T14:28:16.763Z",
+            "by": "Codex",
+            "views": [
+              "1920x1080"
+            ],
+            "checks": [
+              "内容整合",
+              "文言",
+              "字幕領域"
+            ]
+          }
+        },
+        {
+          "sceneId": "summary",
+          "inputSha256": "3a6c05dbfe5a1cb498513bee32939921ca18655ff1d5a5e75624a27befe526a7",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Create a fresh full-bleed 16:9 Japanese educational diagram slide using attached image as diagram style reference only. White to pale lavender, clean navy/violet lines, small yellow emphasis; no teacher, no photo. Keep bottom 22% completely empty for subtitles. Large heading exactly 「提出前の4つの見直し」. Show four clear numbered checkpoints arranged as a 2x2 grid, with text exactly 「1 一般論だけ？」「2 抽象表現だけ？」「3 字数と構成」「4 設問に答える」. In the center a simple essay page icon. This is a study self-check, not official grading. No scores, pass/fail, percentage, extra statistics or other text. Readable at 360px.",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/work/promise-diagram.c7e7cf67.png",
+                "sha256": "c7e7cf6782e5ef4f90e378ac9927e178f7d4acaa2555c547aabe93df9f8cace3"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-chief-engineer/shunin-ochiru-shouronbun/work/raw-summary.5d08de67.png",
+              "sha256": "5d08de676a44bcda318144492733da53a4d62babc4d579c763ecc00620755343"
+            },
+            "generatedAt": "2026-10-27T14:06:31.908Z"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-chief-engineer/shunin-ochiru-shouronbun/work/summary-diagram.df836191.png",
+            "sha256": "df836191d8575b5f3d668ace2427ad6e8b54460558ea9a613edde14d1a99fcc6",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "5d08de676a44bcda318144492733da53a4d62babc4d579c763ecc00620755343"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-10-27T14:28:16.767Z",
+            "by": "Codex",
+            "views": [
+              "1920x1080"
+            ],
+            "checks": [
+              "内容整合",
+              "文言",
+              "字幕領域"
+            ]
+          }
+        },
+        {
+          "sceneId": "cta",
+          "inputSha256": "7a22292fac17560feb152862785f865c1bd5c909725e47c1297722c65fe84307",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Create a fresh full-bleed 16:9 Japanese educational diagram slide using attached image as diagram style reference only. White to pale lavender, navy/violet outlines, small yellow highlights. No teacher, no photo, no book cover mockup with fictitious branding. Keep bottom 22% completely empty for subtitles. Large heading exactly 「答案例を自分の立場に」. Depict a simple open notebook with several labelled role tabs 「立場を選ぶ」「答案例を読む」「自分の事実で書く」 connected by a clear three-step flow. Small footer above subtitle safe area exactly 「概要欄から」. This is an invitation to a real essay-example magazine; no prices, guarantees, official endorsement or extra text. Readable at 360px.",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/work/promise-diagram.c7e7cf67.png",
+                "sha256": "c7e7cf6782e5ef4f90e378ac9927e178f7d4acaa2555c547aabe93df9f8cace3"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-chief-engineer/shunin-ochiru-shouronbun/work/raw-cta.2040859b.png",
+              "sha256": "2040859ba6530979a010a2cd1fb741d80a5ed0e9294b18b902db55cde69d0dfa"
+            },
+            "generatedAt": "2026-10-27T14:06:50.667Z"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-chief-engineer/shunin-ochiru-shouronbun/work/cta-diagram.cb3020d1.png",
+            "sha256": "cb3020d1bb48e9221f95bf30e4298a2f05b7c5495807bf027757d61399847e60",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "2040859ba6530979a010a2cd1fb741d80a5ed0e9294b18b902db55cde69d0dfa"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-10-27T14:28:16.770Z",
+            "by": "Codex",
+            "views": [
+              "1920x1080"
+            ],
+            "checks": [
+              "内容整合",
+              "文言",
+              "字幕領域"
+            ]
+          }
+        }
+      ]
+    }
   }
 }

@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "pe-first-stage",
+      "headline": [
+        "回路の接続点",
+        "線の形に",
+        "だまされない"
+      ],
+      "accentLine": 1,
+      "subtitle": "基礎科目",
+      "character": {
+        "pose": "pop-red-pen",
+        "frame": "waist"
+      },
+      "design": "pop-poster-v3",
+      "pop": {
+        "variant": "question",
+        "authority": "総監が制作"
+      },
+      "approvedImage": {
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-kairo-setsuten/work/cover-pop.6ad23834.png",
+        "sha256": "6ad23834962f8baf0dc953052246d90ec6c11efe855016435f38b91b927228e9",
+        "specSha256": "13e2196e3582bda09255aee36b60802f60b226e80b47d912d2a1f186830df949"
+      }
+    }
+  }
+}

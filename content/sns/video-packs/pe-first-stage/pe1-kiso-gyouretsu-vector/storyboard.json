@@ -1,0 +1,272 @@
+{
+  "format": "longform-16x9",
+  "imageDesign": {
+    "mode": "codex-pop",
+    "scope": "all-body",
+    "revision": "body-diagram-20261028",
+    "coverRevision": "cover-pop-20261028",
+    "layout": "diagram-led"
+  },
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 4,
+      "narration": "射影の計算、1つの手順です。",
+      "caption": "基礎科目 射影の計算 1つの手順",
+      "visual": {
+        "kind": "cover",
+        "heading": "射影の計算 1手順",
+        "items": [
+          "内積÷長さの2乗で求める"
+        ]
+      },
+      "graphicPrompt": "POP表紙。大きな斜めの矢印が横向きの矢印へ影を落とし、直角マークが付いた構図。資格色の背景。"
+    },
+    {
+      "sceneId": "answer",
+      "start": 4,
+      "end": 23,
+      "narration": "結論です。ベクトルを別の向きへ投影するときは、内積を、向きのベクトルの長さの二乗で割り、その向きのベクトルに掛けます。最後に、残りが直交するかで検算します。この一手順だけを、仮の数字で順に見ていきます。",
+      "caption": "結論：内積÷長さの2乗を向きに掛け、直交で検算",
+      "visual": {
+        "heading": "結論：射影の手順",
+        "items": [
+          "内積 ÷ 向きの長さの2乗",
+          "向きのベクトルに掛ける",
+          "残りが直交するか検算"
+        ]
+      },
+      "graphicPrompt": "3つの大きな丸数字カードが左から右へ並ぶ手順図。1:内積÷b·b、2:bに掛ける、3:直交で検算。",
+      "sourceRef": "content/site/pe-first-stage/guide-matrix-vector-calculation/article.mdx"
+    },
+    {
+      "sceneId": "pain",
+      "start": 23,
+      "end": 45,
+      "narration": "基礎科目の行列・ベクトルでは、式は覚えたのに、途中で何を出しているのか分からなくなることがあります。内積の値を、そのまま答えにしてしまう。向きのベクトルが単位ベクトルかどうかを見ないまま、短い式を使ってしまう。この二つが典型的な迷い方です。",
+      "caption": "内積をそのまま答える、単位ベクトルか見ない",
+      "visual": {
+        "heading": "よくある迷い方",
+        "items": [
+          "内積の値をそのまま答える",
+          "単位ベクトルか確認しない"
+        ]
+      },
+      "graphicPrompt": "左に内積の数字だけ書かれた吹き出し、右に長さ未確認のベクトルb。両方に?マーク。",
+      "sourceRef": "content/site/pe-first-stage/guide-matrix-vector-calculation/article.mdx"
+    },
+    {
+      "sceneId": "misread",
+      "start": 45,
+      "end": 66,
+      "narration": "ここで量の種類を分けておきます。内積は一つの数です。射影は、向きに沿った別のベクトルです。射影の長さは、そのベクトルから、さらに一段計算して出す数です。三つは別物なので、問題の最後で、何を聞かれているかを先に確認します。",
+      "caption": "内積は数、射影はベクトル、長さは別の数",
+      "visual": {
+        "kind": "compare",
+        "heading": "3つの量は別物",
+        "ngLabel": "取り違え",
+        "okLabel": "区別する",
+        "rows": [
+          {
+            "label": "内積",
+            "ng": "射影ベクトルとして答える",
+            "ok": "一つの数"
+          },
+          {
+            "label": "射影",
+            "ng": "数として答える",
+            "ok": "成分を持つベクトル"
+          },
+          {
+            "label": "長さ",
+            "ng": "内積と同じとみなす",
+            "ok": "成分から別に計算"
+          }
+        ]
+      },
+      "graphicPrompt": "3列の比較図。内積=数(温度計風)、射影=矢印、長さ=ものさし。それぞれ別色。",
+      "sourceRef": "content/site/pe-first-stage/guide-matrix-vector-calculation/article.mdx"
+    },
+    {
+      "sceneId": "setup",
+      "start": 66,
+      "end": 86,
+      "narration": "仮の例で手順を追います。実際の出題ではありません。ベクトルaは5、10。投影する向きのベクトルbは2、1とします。bの長さは、ルート5で、1ではありません。だから、内積だけで済ませず、割り算が必要になります。",
+      "caption": "仮の例：a=(5,10)、b=(2,1)。bは長さ1ではない",
+      "visual": {
+        "heading": "仮の例（実際の出題ではない）",
+        "items": [
+          "a = (5, 10)",
+          "b = (2, 1)",
+          "bの長さはルート5（1ではない）"
+        ]
+      },
+      "graphicPrompt": "座標平面にa=(5,10)の斜め矢印とb=(2,1)の短い矢印。bに『長さ√5 ≠ 1』の注記。",
+      "sourceRef": "content/site/pe-first-stage/guide-matrix-vector-calculation/article.mdx"
+    },
+    {
+      "sceneId": "step1",
+      "start": 86,
+      "end": 103,
+      "narration": "手順の一つ目は、分子と分母を別々に出すことです。分子は内積で、5かける2足す10かける1、で20。分母は、bどうしの内積で、2の二乗足す1の二乗、で5です。割ると4になります。",
+      "caption": "分子20、分母5、比は4",
+      "visual": {
+        "heading": "手順1：分子と分母を別々に",
+        "items": [
+          "分子：a·b = 5×2+10×1 = 20",
+          "分母：b·b = 2²+1² = 5",
+          "20 ÷ 5 = 4"
+        ]
+      },
+      "graphicPrompt": "大きな分数20/5=4の図。分子にa·b、分母にb·bのラベル、各成分の掛け算を色分け。",
+      "sourceRef": "content/site/pe-first-stage/guide-matrix-vector-calculation/article.mdx"
+    },
+    {
+      "sceneId": "step2",
+      "start": 103,
+      "end": 119,
+      "narration": "二つ目は、その4を、向きのベクトルbに掛けることです。4かける、2、1、で、射影は8、4になります。内積の20は、まだ答えではなく、この4を作るための材料でした。",
+      "caption": "4をbに掛けて射影(8,4)",
+      "visual": {
+        "heading": "手順2：向きのベクトルに掛ける",
+        "items": [
+          "p = 4 × (2, 1)",
+          "p = (8, 4)",
+          "20は答えではなく材料"
+        ]
+      },
+      "graphicPrompt": "座標平面でbを4倍に伸ばした矢印がp=(8,4)になる図。20は小さな材料カードとして脇に配置。",
+      "sourceRef": "content/site/pe-first-stage/guide-matrix-vector-calculation/article.mdx"
+    },
+    {
+      "sceneId": "step3",
+      "start": 119,
+      "end": 137,
+      "narration": "三つ目は検算です。aから射影pを引いた残りは、5引く8、10引く4で、マイナス3、6。これとbの内積は、マイナス6足す6で、0になります。直交しているので、図の直角が式でも確認できました。",
+      "caption": "残り(-3,6)とbの内積が0で直交",
+      "visual": {
+        "heading": "手順3：残りが直交するか",
+        "items": [
+          "a − p = (−3, 6)",
+          "(−3, 6)·(2, 1) = −6+6 = 0",
+          "内積0 = 直交"
+        ]
+      },
+      "graphicPrompt": "a、p、残りの3本で作る直角三角形。直角マークと『内積0』の注記。",
+      "sourceRef": "content/site/pe-first-stage/guide-matrix-vector-calculation/article.mdx"
+    },
+    {
+      "sceneId": "size",
+      "start": 137,
+      "end": 156,
+      "narration": "射影ベクトルの大きさを聞かれた場合は、成分から、もう一段計算します。8の二乗足す4の二乗は80で、ルート80、つまり4ルート5です。内積の20とは別の数なので、答える前に、聞かれた量を確認してください。",
+      "caption": "大きさは成分から別に計算：4ルート5",
+      "visual": {
+        "heading": "長さを聞かれたら",
+        "items": [
+          "|p| = √(8²+4²) = √80",
+          "= 4√5",
+          "内積の20とは別の数"
+        ]
+      },
+      "graphicPrompt": "射影pの矢印にものさしを当て、成分8,4から斜辺4√5を出す直角三角形。",
+      "sourceRef": "content/site/pe-first-stage/guide-matrix-vector-calculation/article.mdx"
+    },
+    {
+      "sceneId": "unit",
+      "start": 156,
+      "end": 177,
+      "narration": "向きのベクトルの長さが1のときは、分母が1になるので、割り算が消えます。このとき射影は、内積に、向きのベクトルを掛けた形です。過去問でも、長さ1と指定されている問題があります。長さを確認する癖が、式の使い分けにつながります。",
+      "caption": "長さ1なら分母が1になり割り算が消える",
+      "visual": {
+        "kind": "compare",
+        "heading": "bの長さで式が変わる",
+        "ngLabel": "長さ1ではない",
+        "okLabel": "長さ1",
+        "rows": [
+          {
+            "label": "射影",
+            "ng": "内積÷b·b を掛ける",
+            "ok": "内積を掛けるだけ"
+          },
+          {
+            "label": "確認",
+            "ng": "割り算を忘れない",
+            "ok": "分母は1"
+          }
+        ]
+      },
+      "graphicPrompt": "2枚の比較カード。左=一般のb(分母b·bあり)、右=単位ベクトル(分母1で省略)。",
+      "sourceRef": "content/site/pe-first-stage/guide-matrix-vector-calculation/article.mdx"
+    },
+    {
+      "sceneId": "routine",
+      "start": 177,
+      "end": 195,
+      "narration": "解くときの順序を固定します。まず、聞かれているのが、数か、ベクトルか、長さかを余白に書く。次に、bが単位ベクトルかを見る。分子と分母を出して、掛ける。最後に直交で確認する。この四つです。",
+      "caption": "型を書く、長さ確認、分子分母、直交検算",
+      "visual": {
+        "heading": "解く順序（動画の提案）",
+        "items": [
+          "答えの型を書く",
+          "bの長さを見る",
+          "分子・分母→掛ける",
+          "直交で検算"
+        ]
+      },
+      "graphicPrompt": "縦に4段のチェックリスト。1:型を書く 2:bの長さ 3:分子分母→掛ける 4:直交検算。",
+      "sourceRef": "content/site/pe-first-stage/guide-matrix-vector-calculation/article.mdx"
+    },
+    {
+      "sceneId": "practice",
+      "start": 195,
+      "end": 216,
+      "narration": "練習には、過去問が使えます。令和6年度の基礎科目、Ⅰの3の2は、長さ1の向きへの射影を扱います。解答を閉じて、答えの型と検算の条件だけ先に書き、それから解いてください。解説と照らして、検算を言葉で説明できれば、動画の目安としては十分です。",
+      "caption": "令和6年度 基礎Ⅰ-3-2で試す",
+      "visual": {
+        "heading": "過去問で試す",
+        "items": [
+          "令和6年度 基礎Ⅰ-3-2",
+          "解答を閉じて型と検算を書く",
+          "解説と照合して説明できるか"
+        ]
+      },
+      "graphicPrompt": "過去問ページのカードと、ノートに『型』『検算』の2欄を書く手の図。",
+      "sourceRef": "content/site/pe-first-stage/r06-basic/article.mdx"
+    },
+    {
+      "sceneId": "summary",
+      "start": 216,
+      "end": 235,
+      "narration": "まとめます。内積を、向きの長さの二乗で割り、向きのベクトルに掛ける。残りが直交するかで確かめる。聞かれた量が、数か、ベクトルか、長さかを先に決める。この手順を、数字を変えて何度か回してみてください。",
+      "caption": "内積÷長さの2乗、向きに掛ける、直交で確認",
+      "visual": {
+        "heading": "まとめ",
+        "items": [
+          "内積 ÷ b·b を b に掛ける",
+          "残りと b が直交か確認",
+          "数・ベクトル・長さを区別"
+        ]
+      },
+      "graphicPrompt": "3つの要点を縦に並べた大きなまとめ図。矢印と直角マークの小アイコン付き。",
+      "sourceRef": "content/site/pe-first-stage/guide-matrix-vector-calculation/article.mdx"
+    },
+    {
+      "sceneId": "cta",
+      "start": 235,
+      "end": 249,
+      "narration": "基礎・適性・専門を通しで演習したい方は、概要欄のリンクから過去問PDF合本をご覧ください。専門科目は建設部門の収録です。ご視聴ありがとうございました。",
+      "caption": "続きは概要欄のリンクから（専門は建設部門）",
+      "visual": {
+        "kind": "cover",
+        "heading": "過去問PDF合本 全560問（専門は建設部門）",
+        "items": [
+          "基礎・適性・専門を通しで演習",
+          "概要欄リンクから"
+        ]
+      },
+      "graphicPrompt": "CTA。過去問PDF合本の表紙を中央に、概要欄を示す下向き矢印。専門科目は建設部門の注記。"
+    }
+  ]
+}

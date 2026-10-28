@@ -2,15 +2,20 @@
   "schemaVersion": 1,
   "packId": "shunin-r8-juuten",
   "exam": "concrete-chief-engineer",
-  "title": "主任技士 R8の重点分野予想 — 頻出度からこう導く",
+  "title": "主任技士 直前期の過去問の回し方 — 一巡・弱点再演習・設問の聞かれ方確認",
   "audience": "令和8年度コンクリート主任技士の直前対策をする受験者",
-  "pain": "直前期にどの分野へ張るべきか予想の根拠が持てない",
-  "promise": "過去の頻出度データから重点分野を導くプロセスごと分かる",
+  "pain": "試験直前期に、択一の過去問をどの順でどう回せばよいか決められない",
+  "promise": "1年分を通しで解く一巡、出題状況表を索引にした弱点項目の再演習、適当／不適当の聞かれ方の確認という手順で過去問を回せる",
   "intent": "exam-point",
   "sourceRefs": [
     {
       "type": "site",
       "path": "content/site/concrete-chief-engineer/guide-trends/article.mdx"
+    },
+    {
+      "type": "external",
+      "url": "https://www.jci-net.or.jp/j/exam/gishi/pdf/gishi_20260115.pdf",
+      "title": "日本コンクリート工学会 コンクリート技士試験委員会「2025年度コンクリート技士試験およびコンクリート主任技士試験における出題ミスのお詫びとお知らせ」（2026年1月15日）"
     }
   ],
   "primaryCta": {

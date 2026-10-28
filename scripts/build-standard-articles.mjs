@@ -27,6 +27,7 @@ import { writeMdxFile } from '../.claude/scripts/lib/mdx-io.mjs';
 import { applyTableOverride, tableKey, tryGfmTable, tryStandardsList } from './lib/standards-table.mjs';
 import { pathToFileURL } from 'node:url';
 import { datasetPath } from './lib/datasets.mjs';
+import { figureLookup, isFigureCaption, renderFigureImage } from './lib/standards-figures.mjs';
 import { editionDuplicateOf } from '../src/lib/standards-editions.mjs';
 import {
   AMENDMENT_BLOCK_END,
@@ -222,7 +223,11 @@ function renderOverridePart(part) {
 const formatPages = (pages) =>
   pages.length === 0 ? '' : pages.length === 1 ? `${pages[0]}` : `${pages[0]}-${pages[pages.length - 1]}`;
 
-function renderChapter(chapter, tableOutcomes = [], tableOverrides = new Map(), verbatimTables = [], amendmentNote = null, amendmentRows = null) {
+/**
+ * figureOf: (chapterId, sourceRef, caption) → 差し込む <ArticleImage> の文字列 | null。
+ * 切り出した図が台帳に無いキャプションは今までどおりキャプションと SourceRef だけを出す（検査 20 が落とす）。
+ */
+function renderChapter(chapter, tableOutcomes = [], tableOverrides = new Map(), verbatimTables = [], amendmentNote = null, amendmentRows = null, figureOf = null) {
   // 章記事は next-mdx-remote で MDX としてコンパイルする（<SourceRef> を解決するため）。
   // MDX は HTML コメントを受け付けないので、注記は MDX コメント {/* */} で書く。
   const lines = [
@@ -278,16 +283,28 @@ function renderChapter(chapter, tableOutcomes = [], tableOverrides = new Map(), 
     const override = body.length ? tableOverrides.get(tableKey(body)) : undefined;
     const declared = override?.absorbsParagraphs;
     if (!declared || override.review?.status !== 'approved') return;
-    // before・after とも原本の並び順。before は表の直前の段落で終わり、after は表の直後の段落から始まる
-    const neighbors = (texts, start) => texts.map((text, k) => {
-      const neighbor = chapter.nodes[start + k];
-      // 段落（番号付きの項 `（2）…` を含む）だけを取り込む。注記・キャプション・見出しは取り込まない
-      const found = neighbor && neighbor.role !== 'heading' && ['paragraph', 'item'].includes(neighbor.type) ? joinWrapped(neighbor.lines) : null;
-      return found !== null && stripSpacesForMatch(found) === stripSpacesForMatch(text) ? neighbor : null;
-    });
+    // before・after とも原本の並び順。before は表の直前の段落で終わり、after は表の直後の段落から始まる。
+    // 宣言の段落の区切りと生成器の段落の区切りは一致しなくてよい（DN-0864 で箇条を 1 行ずつの段落に分けた）。
+    // 表から離れる向きに段落をたどり、空白を除いてつないだ文字が宣言をつないだ文字とちょうど一致したら取り込む
+    const neighbors = (texts, start, step) => {
+      const want = stripSpacesForMatch(texts.join(''));
+      if (!want) return [];
+      const found = [];
+      let acc = '';
+      for (let k = start; k >= 0 && k < chapter.nodes.length; k += step) {
+        const neighbor = chapter.nodes[k];
+        // 段落（番号付きの項 `（2）…` を含む）だけを取り込む。注記・キャプション・見出しは取り込まない
+        if (neighbor.role === 'heading' || !['paragraph', 'item'].includes(neighbor.type)) return [null];
+        const text = stripSpacesForMatch(joinWrapped(neighbor.lines));
+        acc = step > 0 ? acc + text : text + acc;
+        found.push(neighbor);
+        if (acc.length >= want.length) return acc === want ? found : [null];
+      }
+      return [null];
+    };
     const matched = [
-      ...neighbors(declared.before ?? [], index - (declared.before ?? []).length),
-      ...neighbors(declared.after ?? [], index + 1),
+      ...neighbors(declared.before ?? [], index - 1, -1),
+      ...neighbors(declared.after ?? [], index + 1, 1),
     ];
     if (matched.some((n) => n === null)) {
       paragraphMismatch.add(node);
@@ -331,7 +348,13 @@ function renderChapter(chapter, tableOutcomes = [], tableOverrides = new Map(), 
         push(`<SourceRef pages="${pages}" kind="table" />`);
         continue;
       }
-      if (caption.length) push(`**${escapeInline(caption.map((l) => l.trim()).join(' '))}**`);
+      // 表の領域に吸われた図のキャプション（中部の特記 1-3 の図3-1）にも、台帳の図を差し込む（DN-0881）
+      const pushTableCaption = (text) => {
+        push(`**${escapeInline(text)}**`);
+        const figure = isFigureCaption(text) ? figureOf?.(chapter.chapterId, pages, text) : null;
+        if (figure) push(figure);
+      };
+      if (caption.length) pushTableCaption(caption.map((l) => l.trim()).join(' '));
 
       // 原本と照合して組み直した表（content/sources/standards/tables）。検証済みで文字の過不足が
       // ゼロのものだけ使う。検証済みなのに文字が合わないのは組み直しの誤りなので生成を止める。
@@ -359,7 +382,10 @@ function renderChapter(chapter, tableOutcomes = [], tableOverrides = new Map(), 
           const extra = absorbedParagraphs.get(node) ?? {};
           push(['```text', ...(extra.before ?? []), ...body, ...(extra.after ?? []), '```'].join('\n'));
         } else {
-          for (const part of applied.parts) push(renderOverridePart(part));
+          for (const part of applied.parts) {
+            if (part.kind === 'caption') pushTableCaption(part.text);
+            else push(renderOverridePart(part));
+          }
         }
         push(`<SourceRef pages="${pages}" kind="table" />`);
         continue;
@@ -386,8 +412,12 @@ function renderChapter(chapter, tableOutcomes = [], tableOverrides = new Map(), 
       continue;
     }
     if (node.type === 'caption') {
-      // 原本では図表が画像で、テキスト層にキャプションしか無いケース。原本ページへ返す。
-      push(`**${escapeInline(joinWrapped(node.lines))}**`);
+      // 原本では図表が画像で、テキスト層にキャプションしか無いケース。原本のページ画像から切り出した図を
+      // キャプションの下に置く（台帳 content/sources/standards/{agency}/{document}/figures.json・DN-0865）
+      const caption = joinWrapped(node.lines);
+      push(`**${escapeInline(caption)}**`);
+      const figure = figureOf?.(chapter.chapterId, pages, caption);
+      if (figure) push(figure);
       push(`<SourceRef pages="${pages}" kind="figure" />`);
       continue;
     }
@@ -536,6 +566,14 @@ export function buildDocument(document, overrides, { write = true, verbatimTable
     `${document.agencyId}/${document.documentId}`,
   );
 
+  // 原本のページ画像から切り出した図（台帳 content/sources/standards/{agency}/{document}/figures.json）
+  const documentKey = `${document.agencyId}/${document.documentId}`;
+  const lookupFigure = figureLookup(documentKey);
+  const figureOf = (chapterId, sourceRef, caption) => {
+    const entry = lookupFigure(chapterId, sourceRef, caption);
+    return entry ? renderFigureImage(documentKey, entry) : null;
+  };
+
   const chapters = analysis.chapters.map((chapter) => {
     // 冊子の項目（近畿の必携の 14 項 公衆災害防止対策要綱など）が他の収録の方を索引に載せる側なら、その章は載せない
     const itemEdition = chapter.item ? editionDuplicateOf(overrides, `${document.agencyId}/${document.documentId}`, chapter.item) : null;
@@ -547,6 +585,7 @@ export function buildDocument(document, overrides, { write = true, verbatimTable
       chapter, tableOutcomes, tableOverrides, chapterTables,
       amendmentPages ? renderAmendmentNote(amendment, rows.length > 0) : null,
       rows.length ? { amendment, rows } : null,
+      figureOf,
     );
     verbatimTables.push(...chapterTables.map((table) => ({ ...table, document: `${document.agencyId}/${document.documentId}` })));
     const file = `chapters/${chapter.chapterId}.md`;

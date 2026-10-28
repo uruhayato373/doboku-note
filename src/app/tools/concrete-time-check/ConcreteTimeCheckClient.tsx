@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import Link from "next/link";
+import ToolsIndexCard from "@/components/ui/ToolsIndexCard";
 
 /**
  * コンクリート打込み 時間管理チェッカー（クライアント）。
@@ -297,15 +298,7 @@ export default function ConcreteTimeCheckClient() {
           関連する対策ページ
         </div>
         <div className="grid gap-3 sm:grid-cols-2">
-          <Link
-            href="/tools"
-            className="focus-ring card-surface-content block p-4 shadow-none transition-colors hover:border-(--accent)"
-          >
-            <div className="font-bold text-(--ink)">無料ツール一覧</div>
-            <div className="text-sm text-(--ink-body) mt-1">
-              経験記述の文字数チェック・受験資格判定・過去問演習
-            </div>
-          </Link>
+          <ToolsIndexCard description="経験記述の文字数チェック・受験資格判定・過去問演習" />
           <Link
             href="/exam/civil-construction-1"
             className="focus-ring card-surface-content block p-4 shadow-none transition-colors hover:border-(--accent)"

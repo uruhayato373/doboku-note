@@ -49,9 +49,13 @@ export const UNIT_TEST_RULES = [
   { match: (f) => /^docs\/.+\.md$/.test(f) || f === '.claude/todo/backlog.md', tests: ['tests/project-task-refs.test.mjs'] },
 ];
 
-/** staged のファイルに当たるテスト（重複なし・規則の順） */
+/**
+ * staged のファイルに当たるテスト（重複なし・規則の順）。staged のテストファイル自身も回す
+ * （2026-10-27 に構文エラーのテストがそのまま commit された。規則はテストを選ぶだけで、変えたテスト自身は回していなかった）
+ */
 export function unitTestsFor(files) {
-  return [...new Set(UNIT_TEST_RULES.filter((r) => files.some((f) => r.match(f))).flatMap((r) => r.tests))];
+  const ownTests = files.filter((f) => /^tests\/[^/]+\.test\.mjs$/.test(f));
+  return [...new Set([...UNIT_TEST_RULES.filter((r) => files.some((f) => r.match(f))).flatMap((r) => r.tests), ...ownTests])];
 }
 
 export const GATES = [
@@ -118,6 +122,9 @@ export const GATES = [
     // CI の unit-tests のうち、staged に関係する速いテストだけ（全テストは CI）。何を回すかは UNIT_TEST_RULES
     match: (f) => UNIT_TEST_RULES.some((r) => r.match(f)),
     cmd: (files) => ['node', '--test', ...unitTestsFor(files)],
+    // テストは一時リポジトリで git を走らせる。commit 中の GIT_INDEX_FILE を引き継ぐと、テストの git add が
+    // commit 用の index を書き換える（2026-10-27・todo-add.test.mjs で 17,802 件が 2 件に置き換わった）
+    isolateGit: true,
   },
   {
     id: 'knip-ratchet',
@@ -190,6 +197,17 @@ function stagedFiles() {
   return out.split('\0').filter(Boolean);
 }
 
+/** git が hook に渡す、リポジトリと index を固定する変数。テストの子プロセスからは外す。 */
+const HOOK_GIT_ENV = ['GIT_INDEX_FILE', 'GIT_DIR', 'GIT_WORK_TREE', 'GIT_PREFIX', 'GIT_OBJECT_DIRECTORY', 'GIT_ALTERNATE_OBJECT_DIRECTORIES'];
+
+/** 検査を起動するときの環境変数（isolateGit の検査は hook の git の変数を外す）。 */
+export function gateEnv(gate, env = process.env) {
+  if (!gate.isolateGit) return env;
+  const out = { ...env };
+  for (const k of HOOK_GIT_ENV) delete out[k];
+  return out;
+}
+
 /**
  * staged に応じた検査を回し、落ちた検査の id を返す。
  * pre-commit からは scripts/pre-commit-mdx.mjs が呼ぶ（フック本体を変えると共有フックの入れ直しが
@@ -200,7 +218,7 @@ export function runGates(staged = stagedFiles()) {
   const failed = [];
   for (const g of plan) {
     const [bin, ...args] = g.cmd(g.files);
-    const r = spawnSync(bin, args, { encoding: 'utf8', shell: false });
+    const r = spawnSync(bin, args, { encoding: 'utf8', shell: false, env: gateEnv(g) });
     if (r.status !== 0) {
       failed.push(g.id);
       process.stdout.write(`${r.stdout ?? ''}${r.stderr ?? ''}`.split('\n').slice(-25).join('\n') + '\n');

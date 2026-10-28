@@ -13,6 +13,7 @@ import Link from 'next/link';
 import MetaCard from '@/components/ui/MetaCard/MetaCard';
 import MetaListItem from '@/components/ui/MetaListItem/MetaListItem';
 import type { TopicHubLink } from '@/lib/article-end-wiring';
+import { topicPath } from '@/lib/route-paths';
 
 export default function TopicHubLinks({ links }: { links: readonly TopicHubLink[] }) {
   if (links.length === 0) return null;
@@ -26,7 +27,7 @@ export default function TopicHubLinks({ links }: { links: readonly TopicHubLink[
         {links.map(({ topic, total, picks }) => (
           <li key={topic.slug}>
             <Link
-              href={`/topics/${topic.slug}`}
+              href={topicPath(topic.slug)}
               data-cta-label="topic-hub:hub"
               className="focus-ring inline-block font-medium text-(--accent) hover:underline"
             >

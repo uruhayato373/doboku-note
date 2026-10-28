@@ -5,6 +5,9 @@ import ConcreteMaturityClient from "./ConcreteMaturityClient";
 import { DEFAULT_OG_IMAGE } from "@/lib/metadata";
 import { SITE_ORIGIN } from "@/config/site-identity.mjs";
 import AffiliateSlot from "@/components/ui/AffiliateSlot/AffiliateSlot";
+import { toolByHref } from "@/lib/tools";
+
+const tool = toolByHref("/tools/concrete-maturity");
 
 export const metadata: Metadata = {
   // title template `%s | doboku-note` で自動付与されるため "doboku-note" は重ねない
@@ -14,7 +17,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/tools/concrete-maturity" },
   openGraph: {
     type: "website",
-    title: "コンクリート 積算温度（マチュリティ）計算ツール",
+    title: tool.title,
     description: "養生期間中の温度と日数から積算温度を計算し、標準養生28日相当と比較。",
     url: `${SITE_ORIGIN}/tools/concrete-maturity`,
     siteName: "doboku-note",
@@ -29,7 +32,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "コンクリート 積算温度（マチュリティ）計算ツール",
+    title: tool.title,
     description: "養生期間の温度と日数から積算温度を計算し、標準養生28日相当と比較。",
     images: [DEFAULT_OG_IMAGE],
   },
@@ -43,7 +46,7 @@ export default function ConcreteMaturityPage() {
         width="760"
         breadcrumb={[{ label: "Home", href: "/" }, { label: "Tools", href: "/tools" }]}
         label="無料ツール"
-        title="コンクリート 積算温度（マチュリティ）計算ツール"
+        title={tool.title}
         lead={
           <>
             養生期間中の<strong className="text-(--ink)">平均気温</strong>と<strong className="text-(--ink)">日数</strong>から積算温度（マチュリティ）を計算し、標準養生28日相当（840℃・D）との比較で養生の進み具合の目安を確認します。強度そのものは、配合ごとに事前に把握した関係式・試験による確認と併用してください。

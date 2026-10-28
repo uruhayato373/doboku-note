@@ -179,7 +179,7 @@ export async function publishYoutubePublication(root, { pubId, phase = 'upload',
     if (!videoIdValid(id) || id === plan.source.platform?.id || loadRegistry(root).publications.some(p => p.id !== pub.id && p.platform?.id === id)) throw new Error('旧動画または別公開行の外部IDは採用しない');
     pub.delivery.videoId = id;
   };
-  const verifyIdentity = actual => {
+  const verifyIdentity = (actual, { allowPendingTags = false } = {}) => {
     const fields = {
       id: actual?.id === pub.delivery.videoId,
       channel: actual?.snippet?.channelId === plan.channel.id,
@@ -192,10 +192,20 @@ export async function publishYoutubePublication(root, { pubId, phase = 'upload',
       syntheticMedia: (actual?.status?.containsSyntheticMedia ?? false) === plan.disclosure.containsSyntheticMedia,
     };
     fields.snippet = actual ? sameSnippet(actual.snippet, plan.snippet) : false;
+    if (!['private', 'public'].includes(actual?.status?.privacyStatus)) throw new Error('想定外の公開状態');
+    if (allowPendingTags && fields.id && fields.channel && fields.title && fields.description && fields.category &&
+        fields.language && fields.audioLanguage && fields.syntheticMedia && !fields.tags) return false;
     if (!actual || !fields.id || !fields.channel || !fields.snippet || !fields.syntheticMedia) {
       throw new Error(`新動画のID・チャンネル・文面・制作開示が不一致: ${Object.entries(fields).filter(([, ok]) => !ok).map(([key]) => key).join(',')}`);
     }
-    if (!['private', 'public'].includes(actual.status?.privacyStatus)) throw new Error('想定外の公開状態');
+    return true;
+  };
+  const readIdentity = async () => {
+    for (let attempt = 0; attempt < 12; attempt++) {
+      const actual = await getVideo(youtube, pub.delivery.videoId, true);
+      if (verifyIdentity(actual, { allowPendingTags: attempt < 11 })) return actual;
+      await wait(15_000);
+    }
   };
   try {
     current();
@@ -236,8 +246,7 @@ export async function publishYoutubePublication(root, { pubId, phase = 'upload',
       }
     }
     claimId(pub.delivery.videoId);
-    let actual = await getVideo(youtube, pub.delivery.videoId, true);
-    verifyIdentity(actual);
+    let actual = await readIdentity();
     if (['failed', 'terminated'].includes(actual.processingDetails?.processingStatus) || ['failed', 'rejected', 'deleted'].includes(actual.status?.uploadStatus)) throw new Error('動画処理失敗。旧動画を変更せず新規再投稿もしない');
     const media = { bytes: plan.facts.video.bytes, duration: plan.facts.video.durationSec, width: plan.facts.cover.width, height: plan.facts.cover.height };
     if (!assertProcessed(actual, { oldVideo: { id: plan.source.platform?.id, snippet: { channelId: plan.channel.id } }, media })) return { ...summary, result: 'processing-pending' };
@@ -263,7 +272,7 @@ export async function publishYoutubePublication(root, { pubId, phase = 'upload',
       pub.delivery.thumbnailUrls = (response.data?.items ?? []).flatMap(urls);
       if (!pub.delivery.thumbnailUrls.length) throw new Error('thumbnail応答を確認できない。再送しない');
       pub.delivery.thumbnailAcceptedAt = at(); await journalSave(); save();
-      actual = await getVideo(youtube, pub.delivery.videoId, true); verifyIdentity(actual);
+      actual = await readIdentity();
       scheduled = actual.status.publishAt && Date.parse(actual.status.publishAt) === Date.parse(pub.publishAt);
       if (actual.status.privacyStatus !== 'private' || (actual.status.publishAt && (!scheduled || !pub.delivery.scheduleRequestedAt))) throw new Error('表紙設定中に公開状態・予約が変わったため停止');
     }

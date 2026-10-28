@@ -2,15 +2,12 @@ import Link from 'next/link';
 import { type PopularDoc, popularWindow } from '@/lib/popular';
 import { OgpThumbRow } from '@/components/category/CategorySections';
 import { getPublicDocPath } from '@/lib/content-routes';
+import { formatDotDate } from '@/lib/display-date';
 
 /** 集計窓を「YYYY.MM.DD–MM.DD」で短く表示。窓不明なら null。 */
 function windowLabel(): string | null {
   if (!popularWindow?.start || !popularWindow?.end) return null;
-  const fmt = (iso: string) => {
-    const d = new Date(iso);
-    if (Number.isNaN(d.getTime())) return iso;
-    return `${d.getFullYear()}.${String(d.getMonth() + 1).padStart(2, '0')}.${String(d.getDate()).padStart(2, '0')}`;
-  };
+  const fmt = (iso: string) => formatDotDate(iso) ?? iso;
   return `${fmt(popularWindow.start)}〜${fmt(popularWindow.end)}`;
 }
 

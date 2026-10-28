@@ -1,0 +1,323 @@
+{
+  "schemaVersion": 1,
+  "document": "chugoku/common",
+  "source": "原本のページ画像（Drive vault の 原資料PDF/共通仕様書/{整備局}/{原本名}/pages/pNNNN.jpg・270dpi）",
+  "note": "bbox はページ画像のピクセル。file は bbox で切って幅 1200px を超えるものだけ縮めた webp（品質 80）。形と使い方は scripts/lib/standards-figures.mjs の冒頭",
+  "figures": [
+    {
+      "chapterId": "1-1",
+      "sourceRef": "98",
+      "caption": "図1-1-2 標示板の例",
+      "imagePage": 98,
+      "bbox": [
+        749,
+        307,
+        1491,
+        1253
+      ],
+      "file": "fig-p0098-1.webp",
+      "width": 742,
+      "height": 946,
+      "review": {
+        "status": "approved",
+        "by": "scanned-figure-crop-auditor",
+        "at": "2026-10-27",
+        "method": "切り出しを出所のページ画像と並べて目視で照合（図の切れ・本文やキャプションの写り込み・隣の図）"
+      }
+    },
+    {
+      "chapterId": "1-2",
+      "sourceRef": "121",
+      "caption": "図1-2-1 盛土基礎地盤の段切",
+      "imagePage": 121,
+      "bbox": [
+        449,
+        965,
+        1756,
+        1419
+      ],
+      "file": "fig-p0121-1.webp",
+      "width": 1200,
+      "height": 417,
+      "review": {
+        "status": "approved",
+        "by": "scanned-figure-crop-auditor",
+        "at": "2026-10-27",
+        "method": "切り出しを出所のページ画像と並べて目視で照合（図の切れ・本文やキャプションの写り込み・隣の図）"
+      }
+    },
+    {
+      "chapterId": "1-2",
+      "sourceRef": "131",
+      "caption": "図1-2-3 掘削（切土）部、盛土部接続部のすり付け",
+      "imagePage": 131,
+      "bbox": [
+        305,
+        828,
+        2000,
+        1674
+      ],
+      "file": "fig-p0131-1.webp",
+      "width": 1200,
+      "height": 599,
+      "review": {
+        "status": "approved",
+        "by": "scanned-figure-crop-auditor",
+        "at": "2026-10-27",
+        "method": "切り出しを出所のページ画像と並べて目視で照合（図の切れ・本文やキャプションの写り込み・隣の図）"
+      }
+    },
+    {
+      "chapterId": "1-3",
+      "sourceRef": "146",
+      "caption": "図1-3-1 鉄筋のかぶり",
+      "imagePage": 146,
+      "bbox": [
+        843,
+        2034,
+        1416,
+        2690
+      ],
+      "file": "fig-p0146-1.webp",
+      "width": 573,
+      "height": 656,
+      "review": {
+        "status": "approved",
+        "by": "scanned-figure-crop-auditor",
+        "at": "2026-10-27",
+        "method": "切り出しを出所のページ画像と並べて目視で照合（図の切れ・本文やキャプションの写り込み・隣の図）"
+      }
+    },
+    {
+      "chapterId": "3-2",
+      "sourceRef": "228",
+      "caption": "表3-2-7 常温時以外（0～10℃、30～60℃）の締付けボルト軸力の平均値",
+      "imagePage": 228,
+      "bbox": [
+        494,
+        1094,
+        1747,
+        1675
+      ],
+      "file": "fig-p0228-1.webp",
+      "width": 1200,
+      "height": 556,
+      "review": {
+        "status": "approved",
+        "by": "scanned-figure-crop-auditor",
+        "at": "2026-10-27",
+        "method": "切り出しを出所のページ画像と並べて目視で照合（図の切れ・本文やキャプションの写り込み・隣の図）"
+      }
+    },
+    {
+      "chapterId": "3-2",
+      "sourceRef": "229",
+      "caption": "図3-2-1 ボルト締付け順序",
+      "imagePage": 229,
+      "bbox": [
+        541,
+        682,
+        1675,
+        1045
+      ],
+      "file": "fig-p0229-1.webp",
+      "width": 1134,
+      "height": 363,
+      "review": {
+        "status": "approved",
+        "by": "scanned-figure-crop-auditor",
+        "at": "2026-10-27",
+        "method": "切り出しを出所のページ画像と並べて目視で照合（図の切れ・本文やキャプションの写り込み・隣の図）"
+      }
+    },
+    {
+      "chapterId": "3-2",
+      "sourceRef": "231",
+      "caption": "図3-2-2 銘板の寸法及び記載事項",
+      "imagePage": 231,
+      "bbox": [
+        467,
+        437,
+        1763,
+        2466
+      ],
+      "file": "fig-p0231-1.webp",
+      "width": 1200,
+      "height": 1879,
+      "review": {
+        "status": "approved",
+        "by": "scanned-figure-crop-auditor",
+        "at": "2026-10-27",
+        "method": "切り出しを出所のページ画像と並べて目視で照合（図の切れ・本文やキャプションの写り込み・隣の図）"
+      }
+    },
+    {
+      "chapterId": "3-2",
+      "sourceRef": "239",
+      "caption": "図3-2-3 塗装記録表の仕様",
+      "imagePage": 239,
+      "bbox": [
+        483,
+        309,
+        1766,
+        1505
+      ],
+      "file": "fig-p0239-1.webp",
+      "width": 1200,
+      "height": 1119,
+      "review": {
+        "status": "approved",
+        "by": "scanned-figure-crop-auditor",
+        "at": "2026-10-27",
+        "method": "切り出しを出所のページ画像と並べて目視で照合（図の切れ・本文やキャプションの写り込み・隣の図）"
+      }
+    },
+    {
+      "chapterId": "3-2",
+      "sourceRef": "241",
+      "caption": "表3-2-11 連結コイル線",
+      "imagePage": 241,
+      "bbox": [
+        283,
+        1186,
+        1935,
+        1616
+      ],
+      "file": "fig-p0241-1.webp",
+      "width": 1200,
+      "height": 312,
+      "review": {
+        "status": "approved",
+        "by": "scanned-figure-crop-auditor",
+        "at": "2026-10-27",
+        "method": "切り出しを出所のページ画像と並べて目視で照合（図の切れ・本文やキャプションの写り込み・隣の図）"
+      }
+    },
+    {
+      "chapterId": "3-2",
+      "sourceRef": "245",
+      "caption": "表3-2-13(2) 参考資料",
+      "imagePage": 245,
+      "bbox": [
+        385,
+        375,
+        1957,
+        1894
+      ],
+      "file": "fig-p0245-1.webp",
+      "width": 1200,
+      "height": 1160,
+      "review": {
+        "status": "approved",
+        "by": "scanned-figure-crop-auditor",
+        "at": "2026-10-27",
+        "method": "切り出しを出所のページ画像と並べて目視で照合（図の切れ・本文やキャプションの写り込み・隣の図）"
+      }
+    },
+    {
+      "chapterId": "3-2",
+      "sourceRef": "262",
+      "caption": "図3-2-4 谷 積",
+      "imagePage": 262,
+      "bbox": [
+        722,
+        2078,
+        1504,
+        2468
+      ],
+      "file": "fig-p0262-1.webp",
+      "width": 782,
+      "height": 390,
+      "review": {
+        "status": "approved",
+        "by": "scanned-figure-crop-auditor",
+        "at": "2026-10-27",
+        "method": "切り出しを出所のページ画像と並べて目視で照合（図の切れ・本文やキャプションの写り込み・隣の図）"
+      }
+    },
+    {
+      "chapterId": "3-2",
+      "sourceRef": "330",
+      "caption": "表3-2-43 溶接材料区分",
+      "imagePage": 330,
+      "bbox": [
+        328,
+        633,
+        1912,
+        1521
+      ],
+      "file": "fig-p0330-1.webp",
+      "width": 1200,
+      "height": 673,
+      "review": {
+        "status": "approved",
+        "by": "scanned-figure-crop-auditor",
+        "at": "2026-10-27",
+        "method": "切り出しを出所のページ画像と並べて目視で照合（図の切れ・本文やキャプションの写り込み・隣の図）"
+      }
+    },
+    {
+      "chapterId": "3-2",
+      "sourceRef": "355",
+      "caption": "図3-2-6 耳 芝",
+      "imagePage": 355,
+      "bbox": [
+        801,
+        620,
+        1570,
+        1542
+      ],
+      "file": "fig-p0355-1.webp",
+      "width": 769,
+      "height": 922,
+      "review": {
+        "status": "approved",
+        "by": "scanned-figure-crop-auditor",
+        "at": "2026-10-27",
+        "method": "切り出しを出所のページ画像と並べて目視で照合（図の切れ・本文やキャプションの写り込み・隣の図）"
+      }
+    },
+    {
+      "chapterId": "10-6",
+      "sourceRef": "584",
+      "caption": "図10-6-1 覆工厚変化箇所の刻示標準図",
+      "imagePage": 584,
+      "bbox": [
+        485,
+        1700,
+        1766,
+        2522
+      ],
+      "file": "fig-p0584-1.webp",
+      "width": 1200,
+      "height": 770,
+      "review": {
+        "status": "approved",
+        "by": "scanned-figure-crop-auditor",
+        "at": "2026-10-27",
+        "method": "切り出しを出所のページ画像と並べて目視で照合（図の切れ・本文やキャプションの写り込み・隣の図）"
+      }
+    },
+    {
+      "chapterId": "10-6",
+      "sourceRef": "589",
+      "caption": "図10-6-2 標示板の設置イメージ図",
+      "imagePage": 589,
+      "bbox": [
+        305,
+        1019,
+        1920,
+        1808
+      ],
+      "file": "fig-p0589-1.webp",
+      "width": 1200,
+      "height": 586,
+      "review": {
+        "status": "approved",
+        "by": "scanned-figure-crop-auditor",
+        "at": "2026-10-27",
+        "method": "切り出しを出所のページ画像と並べて目視で照合（図の切れ・本文やキャプションの写り込み・隣の図）"
+      }
+    }
+  ]
+}

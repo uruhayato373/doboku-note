@@ -4,6 +4,8 @@ import type { StandardDocument } from '@/lib/standards';
 import { generateHeadingId } from '@/lib/toc';
 import { SITE_ORIGIN } from '@/config/site-identity.mjs';
 import { standardSectionPath } from '@/lib/standards-section-split.mjs';
+import { standardsChapterPath, standardsDocumentPath } from '@/lib/route-paths';
+import { getAreaLabel } from '@/lib/content-taxonomy';
 
 const SITE_ORGANIZATION_ID = `${SITE_ORIGIN}/#organization`;
 
@@ -81,7 +83,7 @@ export function buildStandardDocumentStructuredData(
   document: StandardDocument,
   chapterCount: number,
 ): JsonLdNode {
-  const documentUrl = absoluteUrl(`/standards/${document.agencyId}/${document.documentId}`);
+  const documentUrl = absoluteUrl(standardsDocumentPath(document.agencyId, document.documentId));
   return {
     '@context': 'https://schema.org',
     '@graph': [
@@ -160,9 +162,9 @@ export function buildStandardChapterStructuredData(
   dataUrls?: ChapterDataUrls,
   articleText?: ReadonlyMap<string, string>,
 ): JsonLdNode {
-  const documentUrl = absoluteUrl(`/standards/${document.agencyId}/${document.documentId}`);
+  const documentUrl = absoluteUrl(standardsDocumentPath(document.agencyId, document.documentId));
   const chapterUrl = absoluteUrl(
-    `/standards/${document.agencyId}/${document.documentId}/chapters/${chapter.chapterId}`,
+    standardsChapterPath(document.agencyId, document.documentId, chapter.chapterId),
   );
   const chapterId = `${chapterUrl}#article`;
   const sourceId = `${document.sourceUrl ?? document.landing}#document`;
@@ -260,7 +262,7 @@ export function buildStandardChapterStructuredData(
 
   const breadcrumb = [
     { name: 'ホーム', item: SITE_ORIGIN },
-    { name: '基準類', item: `${SITE_ORIGIN}/standards` },
+    { name: getAreaLabel('standards'), item: `${SITE_ORIGIN}/standards` },
     { name: document.agencyName, item: `${SITE_ORIGIN}/standards/${document.agencyId}` },
     { name: document.title, item: documentUrl },
     { name: chapter.title, item: chapterUrl },
@@ -330,15 +332,15 @@ export function buildStandardSectionStructuredData(
   section: StandardChapterSection,
   pages: { first: number; last: number },
 ): JsonLdNode {
-  const documentUrl = absoluteUrl(`/standards/${document.agencyId}/${document.documentId}`);
+  const documentUrl = absoluteUrl(standardsDocumentPath(document.agencyId, document.documentId));
   const chapterUrl = absoluteUrl(
-    `/standards/${document.agencyId}/${document.documentId}/chapters/${chapter.chapterId}`,
+    standardsChapterPath(document.agencyId, document.documentId, chapter.chapterId),
   );
   const sectionUrl = absoluteUrl(standardSectionPath(document, chapter, section.number));
   const sectionId = `${chapterUrl}#section-${chapter.bookNumber}-${chapter.chapterNumber}-${section.number}`;
   const breadcrumb = [
     { name: 'ホーム', item: SITE_ORIGIN },
-    { name: '基準類', item: `${SITE_ORIGIN}/standards` },
+    { name: getAreaLabel('standards'), item: `${SITE_ORIGIN}/standards` },
     { name: document.agencyName, item: `${SITE_ORIGIN}/standards/${document.agencyId}` },
     { name: document.title, item: documentUrl },
     { name: chapter.title, item: chapterUrl },

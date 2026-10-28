@@ -1,0 +1,387 @@
+{
+  "schemaVersion": 1,
+  "document": "chubu/special",
+  "source": "原本のページ画像（Drive vault の 原資料PDF/共通仕様書/{整備局}/{原本名}/pages/pNNNN.jpg・270dpi）",
+  "note": "bbox はページ画像のピクセル。file は bbox で切って幅 1200px を超えるものだけ縮めた webp（品質 80）。形と使い方は scripts/lib/standards-figures.mjs の冒頭",
+  "figures": [
+    {
+      "chapterId": "1-1",
+      "sourceRef": "18",
+      "caption": "図1-1 試掘標準図",
+      "imagePage": 18,
+      "bbox": [
+        411,
+        386,
+        1887,
+        1902
+      ],
+      "file": "fig-p0018-1.webp",
+      "width": 1200,
+      "height": 1233,
+      "review": {
+        "status": "approved",
+        "by": "scanned-figure-crop-auditor",
+        "at": "2026-10-27",
+        "method": "切り出しを出所のページ画像と並べて目視で照合（図の切れ・本文やキャプションの写り込み・隣の図）"
+      }
+    },
+    {
+      "chapterId": "1-1",
+      "sourceRef": "19",
+      "caption": "図1-2",
+      "imagePage": 19,
+      "bbox": [
+        407,
+        346,
+        1821,
+        2380
+      ],
+      "file": "fig-p0019-1.webp",
+      "width": 1200,
+      "height": 1726,
+      "review": {
+        "status": "approved",
+        "by": "scanned-figure-crop-auditor",
+        "at": "2026-10-27",
+        "method": "切り出しを出所のページ画像と並べて目視で照合（図の切れ・本文やキャプションの写り込み・隣の図）"
+      }
+    },
+    {
+      "chapterId": "1-1",
+      "sourceRef": "20",
+      "caption": "図1-3",
+      "imagePage": 20,
+      "bbox": [
+        558,
+        401,
+        1726,
+        2176
+      ],
+      "file": "fig-p0020-1.webp",
+      "width": 1168,
+      "height": 1775,
+      "review": {
+        "status": "approved",
+        "by": "scanned-figure-crop-auditor",
+        "at": "2026-10-27",
+        "method": "切り出しを出所のページ画像と並べて目視で照合（図の切れ・本文やキャプションの写り込み・隣の図）"
+      }
+    },
+    {
+      "chapterId": "1-3",
+      "sourceRef": "54",
+      "caption": "図3-3",
+      "imagePage": 54,
+      "bbox": [
+        491,
+        632,
+        1856,
+        1636
+      ],
+      "file": "fig-p0054-1.webp",
+      "width": 1200,
+      "height": 883,
+      "review": {
+        "status": "approved",
+        "by": "scanned-figure-crop-auditor",
+        "at": "2026-10-27",
+        "method": "切り出しを出所のページ画像と並べて目視で照合（図の切れ・本文やキャプションの写り込み・隣の図）"
+      }
+    },
+    {
+      "chapterId": "2-2",
+      "sourceRef": "58",
+      "caption": "表2-2-1 粗骨材粒度の標準",
+      "imagePage": 58,
+      "bbox": [
+        265,
+        1576,
+        1976,
+        2040
+      ],
+      "file": "fig-p0058-1.webp",
+      "width": 1200,
+      "height": 325,
+      "review": {
+        "status": "approved",
+        "by": "scanned-figure-crop-auditor",
+        "at": "2026-10-27",
+        "method": "切り出しを出所のページ画像と並べて目視で照合（図の切れ・本文やキャプションの写り込み・隣の図）"
+      }
+    },
+    {
+      "chapterId": "2-2",
+      "sourceRef": "66",
+      "caption": "表2-2-21 硅砂の規格",
+      "imagePage": 66,
+      "bbox": [
+        433,
+        682,
+        1808,
+        1086
+      ],
+      "file": "fig-p0066-1.webp",
+      "width": 1200,
+      "height": 353,
+      "review": {
+        "status": "approved",
+        "by": "scanned-figure-crop-auditor",
+        "at": "2026-10-27",
+        "method": "切り出しを出所のページ画像と並べて目視で照合（図の切れ・本文やキャプションの写り込み・隣の図）"
+      }
+    },
+    {
+      "chapterId": "3-2",
+      "sourceRef": "85",
+      "caption": "図3-2-1 コンクリートブロックの鉄筋継手",
+      "imagePage": 85,
+      "bbox": [
+        525,
+        2286,
+        1659,
+        2664
+      ],
+      "file": "fig-p0085-1.webp",
+      "width": 1134,
+      "height": 378,
+      "review": {
+        "status": "approved",
+        "by": "scanned-figure-crop-auditor",
+        "at": "2026-10-27",
+        "method": "切り出しを出所のページ画像と並べて目視で照合（図の切れ・本文やキャプションの写り込み・隣の図）"
+      }
+    },
+    {
+      "chapterId": "3-2",
+      "sourceRef": "86",
+      "caption": "図3-2-2マウントアップ歩道の摺付",
+      "imagePage": 86,
+      "bbox": [
+        362,
+        923,
+        1950,
+        1238
+      ],
+      "file": "fig-p0086-1.webp",
+      "width": 1200,
+      "height": 238,
+      "review": {
+        "status": "approved",
+        "by": "scanned-figure-crop-auditor",
+        "at": "2026-10-27",
+        "method": "切り出しを出所のページ画像と並べて目視で照合（図の切れ・本文やキャプションの写り込み・隣の図）"
+      }
+    },
+    {
+      "chapterId": "6-1",
+      "sourceRef": "104",
+      "caption": "図6-1-1 吸出し防止シートの重ね代",
+      "imagePage": 104,
+      "bbox": [
+        723,
+        466,
+        1605,
+        1257
+      ],
+      "file": "fig-p0104-1.webp",
+      "width": 882,
+      "height": 791,
+      "review": {
+        "status": "approved",
+        "by": "scanned-figure-crop-auditor",
+        "at": "2026-10-27",
+        "method": "切り出しを出所のページ画像と並べて目視で照合（図の切れ・本文やキャプションの写り込み・隣の図）"
+      }
+    },
+    {
+      "chapterId": "6-3",
+      "sourceRef": "110",
+      "caption": "図6-3-1 樋門の銘板及び表示板の取付け場所",
+      "imagePage": 110,
+      "bbox": [
+        533,
+        1648,
+        1688,
+        2038
+      ],
+      "file": "fig-p0110-1.webp",
+      "width": 1155,
+      "height": 390,
+      "review": {
+        "status": "approved",
+        "by": "scanned-figure-crop-auditor",
+        "at": "2026-10-27",
+        "method": "切り出しを出所のページ画像と並べて目視で照合（図の切れ・本文やキャプションの写り込み・隣の図）"
+      }
+    },
+    {
+      "chapterId": "6-3",
+      "sourceRef": "111",
+      "caption": "図6-3-2 排水機場の銘板及び表示板の取付け場所",
+      "imagePage": 111,
+      "bbox": [
+        642,
+        625,
+        1620,
+        1048
+      ],
+      "file": "fig-p0111-1.webp",
+      "width": 978,
+      "height": 423,
+      "review": {
+        "status": "approved",
+        "by": "scanned-figure-crop-auditor",
+        "at": "2026-10-27",
+        "method": "切り出しを出所のページ画像と並べて目視で照合（図の切れ・本文やキャプションの写り込み・隣の図）"
+      }
+    },
+    {
+      "chapterId": "6-3",
+      "sourceRef": "111",
+      "caption": "図6-3-3 記載事項",
+      "imagePage": 111,
+      "bbox": [
+        760,
+        1436,
+        1481,
+        1719
+      ],
+      "file": "fig-p0111-2.webp",
+      "width": 721,
+      "height": 283,
+      "review": {
+        "status": "approved",
+        "by": "scanned-figure-crop-auditor",
+        "at": "2026-10-27",
+        "method": "切り出しを出所のページ画像と並べて目視で照合（図の切れ・本文やキャプションの写り込み・隣の図）"
+      }
+    },
+    {
+      "chapterId": "10-2",
+      "sourceRef": "156",
+      "caption": "図10-2-1 表示ステッカー",
+      "imagePage": 156,
+      "bbox": [
+        376,
+        556,
+        1907,
+        1201
+      ],
+      "file": "fig-p0156-1.webp",
+      "width": 1200,
+      "height": 506,
+      "review": {
+        "status": "approved",
+        "by": "scanned-figure-crop-auditor",
+        "at": "2026-10-27",
+        "method": "切り出しを出所のページ画像と並べて目視で照合（図の切れ・本文やキャプションの写り込み・隣の図）",
+        "note": "差し戻し 1 回: 照合で差し戻し: 右上の寸法 3 の矢印の上端が切れていた。上端を広げて切り直し、再度目視で確認"
+      }
+    },
+    {
+      "chapterId": "10-2",
+      "sourceRef": "158",
+      "caption": "図10-2-2 植栽銘板表示例",
+      "imagePage": 158,
+      "bbox": [
+        459,
+        535,
+        1794,
+        1097
+      ],
+      "file": "fig-p0158-1.webp",
+      "width": 1200,
+      "height": 505,
+      "review": {
+        "status": "approved",
+        "by": "scanned-figure-crop-auditor",
+        "at": "2026-10-27",
+        "method": "切り出しを出所のページ画像と並べて目視で照合（図の切れ・本文やキャプションの写り込み・隣の図）"
+      }
+    },
+    {
+      "chapterId": "10-2",
+      "sourceRef": "158",
+      "caption": "図10-2-3 植栽銘板表示例",
+      "imagePage": 158,
+      "bbox": [
+        505,
+        1563,
+        2030,
+        1986
+      ],
+      "file": "fig-p0158-2.webp",
+      "width": 1200,
+      "height": 333,
+      "review": {
+        "status": "approved",
+        "by": "scanned-figure-crop-auditor",
+        "at": "2026-10-27",
+        "method": "切り出しを出所のページ画像と並べて目視で照合（図の切れ・本文やキャプションの写り込み・隣の図）"
+      }
+    },
+    {
+      "chapterId": "10-16",
+      "sourceRef": "205",
+      "caption": "表10-17-5 無収縮モルタルの現場管理試験",
+      "imagePage": 205,
+      "bbox": [
+        587,
+        382,
+        1654,
+        1229
+      ],
+      "file": "fig-p0205-1.webp",
+      "width": 1067,
+      "height": 847,
+      "review": {
+        "status": "approved",
+        "by": "scanned-figure-crop-auditor",
+        "at": "2026-10-27",
+        "method": "切り出しを出所のページ画像と並べて目視で照合（図の切れ・本文やキャプションの写り込み・隣の図）"
+      }
+    },
+    {
+      "chapterId": "1-3",
+      "sourceRef": "53-54",
+      "caption": "図3-1",
+      "imagePage": 53,
+      "bbox": [
+        477,
+        652,
+        1841,
+        1310
+      ],
+      "file": "fig-p0053-1.webp",
+      "width": 1200,
+      "height": 579,
+      "review": {
+        "status": "approved",
+        "by": "scanned-figure-crop-auditor",
+        "at": "2026-10-27",
+        "method": "切り出しを出所のページ画像と並べて目視で照合（図の切れ・本文やキャプションの写り込み・隣の図）"
+      }
+    },
+    {
+      "chapterId": "1-3",
+      "sourceRef": "53-54",
+      "caption": "図3-2",
+      "imagePage": 53,
+      "bbox": [
+        451,
+        1885,
+        1761,
+        2632
+      ],
+      "file": "fig-p0053-2.webp",
+      "width": 1200,
+      "height": 684,
+      "review": {
+        "status": "approved",
+        "by": "scanned-figure-crop-auditor",
+        "at": "2026-10-27",
+        "method": "切り出しを出所のページ画像と並べて目視で照合（図の切れ・本文やキャプションの写り込み・隣の図）"
+      }
+    }
+  ]
+}

@@ -6,6 +6,7 @@ import { DocSection } from '@/components/category/CategorySections';
 import { resolveCurriculum, resolveKeywordSection, resolveTextbookChapters } from '@/lib/category-curriculum';
 import { CurriculumSection, CurriculumList, CareerSection } from '@/components/category/CurriculumSections';
 import { KeywordSection } from '@/components/category/KeywordSections';
+import { quizQuestionCount, quizYearRange } from '@/lib/quiz-summary';
 
 /** civil-construction-1: 受験ガイド＋分野別＋テキスト章目次をリスト化、過去問はテーブル維持 */
 export function CivilConstruction1View({ groups, mobileCareerAds = [] }: { groups: DocGroup[]; mobileCareerAds?: ReactNode[] }) {
@@ -217,7 +218,7 @@ export function PracticeView({ groups, mobileCareerAds = [] }: { groups: DocGrou
  * インデックス率の高いページ群から、一次試験の一覧・直近年度・無料演習へ内部リンクを張る（DN-0499）。
  */
 const PE1_ENTRY_LINKS: readonly { href: string; label: string }[] = [
-  { href: '/exam/pe-first-stage', label: '過去問一覧（平成23〜令和7年度）' },
+  { href: '/exam/pe-first-stage', label: `過去問一覧（${quizYearRange('pe-first-stage')}）` },
   { href: '/exam/pe-first-stage/primary/r07-basic', label: '令和7年度 基礎科目' },
   { href: '/exam/pe-first-stage/primary/r07-aptitude', label: '令和7年度 適性科目' },
   { href: '/exam/pe-first-stage/primary/r07-construction', label: '令和7年度 専門科目（建設部門）' },
@@ -278,7 +279,7 @@ export function PeFirstStageView({ groups, mobileCareerAds = [] }: { groups: Doc
       <section className="card-surface-section mb-10 p-5 sm:p-6" aria-labelledby="pe1-free-quiz">
         <div className="text-[11px] font-bold uppercase tracking-wider text-(--accent)">登録不要・無料</div>
         <h2 id="pe1-free-quiz" className="mt-1 font-serif text-[21px] sm:text-[24px] font-black text-(--ink)">
-          平成23〜令和7年度と令和元年度再試験・全1,830問をその場で演習
+          {quizYearRange('pe-first-stage')}と令和元年度再試験・全{quizQuestionCount('pe-first-stage')}問をその場で演習
         </h2>
         <p className="mt-2 text-[14px] leading-7 text-(--ink-body)">
           基礎・適性・専門（建設部門・上下水道部門）を、年度別・科目別・ランダムで即採点。間違えた問題だけの復習にも対応しています。

@@ -93,6 +93,401 @@
       ]
     },
     {
+      "id": "concrete-chief-engineer/shunin-chokuzen-senryaku/work/candidate-cover",
+      "role": "candidate-cover",
+      "type": "image/png",
+      "sha256": "8612c666d23f8e352f63f3cb5672d94e73f24b392ba86eefd2d89364f6ade767",
+      "bytes": 3608794,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-chokuzen-senryaku/work/candidate-cover.8612c666.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "採用済みのコンクリート主任技士POP表紙の人物と色・構図を参照し、新しい16:9表紙を作る。紫を基調に黄色と白の大きな文字、右半分に同じ先生キャラクター。正確に『コンクリート主任技士』『直前期の優先順位』『どこを固める？』『総監が制作』と描く。下端18%は字幕用に空ける。",
+        "promptSha256": "7976941fab333d6d4a71c36c87bb99c220f40dc9d5b1ea48085d01a704a9ed3d",
+        "generatedAt": "2026-10-27T10:45:36.062Z"
+      },
+      "width": 1920,
+      "height": 1080,
+      "legacyPaths": [
+        ".tmp/media/concrete-chief-engineer/shunin-chokuzen-senryaku/youtube.longform/cover.8612c666.png"
+      ]
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-chokuzen-senryaku/work/candidate-cta",
+      "role": "candidate-cta",
+      "type": "image/png",
+      "sha256": "1fb7c3b5c4a44c339b1a136dcd2d5bdd5df8bffd7125a3dc4b1f76cc1b691751",
+      "bytes": 1739634,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-chokuzen-senryaku/work/candidate-cta.1fb7c3b5.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像はdoboku-noteの教育動画本文に採用されたシンプルな図解の意匠参照です。新規の16:9横長（1920×1080想定）コンクリート主任技士の教育動画本文の最後のCTA場面。白〜淡いグレー背景、深い紫と青の太い線、黄色は強調のみ。広告風POPポスターや人物、白い箇条書きカードは描かず、学習ツールのシンプルな図解を主役にする。見出しは正確に『直前パック』。中央に同じ大きさで三つの大きな学習アイコン：問題用紙『予想問題』、計算機『配合計算』、ノート『暗記ノート』。三つから右向きの一本の矢印を『概要欄』へつなぐ。文字は指定した日本語だけ正確に。商品価格、実績、URL、余計な文言は足さない。意味ある文字と図は左右5%、上5%、下18%の内側に。下端18%は字幕用に背景だけ空ける。全体に余裕を持たせ、前の場面の学習図解と統一する。",
+        "promptSha256": "ea99ae56d5eb0858caa99719ebc6e8b6d61059fafddbc521a8dae225ca1d2a90",
+        "generatedAt": "2026-10-27T10:45:36.062Z"
+      },
+      "width": 1920,
+      "height": 1080,
+      "legacyPaths": [
+        ".tmp/media/concrete-chief-engineer/shunin-chokuzen-senryaku/youtube.longform/cta.1fb7c3b5.png"
+      ]
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-chokuzen-senryaku/work/candidate-scene-001",
+      "role": "candidate-scene-001",
+      "type": "image/png",
+      "sha256": "8612c666d23f8e352f63f3cb5672d94e73f24b392ba86eefd2d89364f6ade767",
+      "bytes": 3608794,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-chokuzen-senryaku/work/candidate-scene-001.8612c666.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "採用済みのコンクリート主任技士POP表紙の人物と色・構図を参照し、新しい16:9表紙を作る。紫を基調に黄色と白の大きな文字、右半分に同じ先生キャラクター。正確に『コンクリート主任技士』『直前期の優先順位』『どこを固める？』『総監が制作』と描く。下端18%は字幕用に空ける。",
+        "promptSha256": "7976941fab333d6d4a71c36c87bb99c220f40dc9d5b1ea48085d01a704a9ed3d",
+        "generatedAt": "2026-10-27T10:45:36.062Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-chokuzen-senryaku/work/candidate-scene-002",
+      "role": "candidate-scene-002",
+      "type": "image/png",
+      "sha256": "e425a014928c1cd08464b6881a1e9a1ba7cd7da6e3ecd41e33a2c699c0cfffaf",
+      "bytes": 2065303,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-chokuzen-senryaku/work/candidate-scene-002.e425a014.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "添付画像は採用済みコンクリート主任技士の教育動画本文図解の意匠参照です。新規の16:9横長1場面を作る。白〜ごく淡い紫の背景、太い濃紺と紫の線、控えめな黄色の下線、読みやすい大きな日本語、シンプルなアイコンと概念図。本文は図解が主役。POP広告、先生人物、白い箇条書きカード、細かい文字、写実写真は禁止。意味のある文字と図は左右5%・上5%・下18%の内側。下18%は字幕用の淡い背景だけ。余計な文言、数字、ロゴ、URLは足さない。文字は指定したものだけを正確に描く。 見出し「分野ごと捨てない」。中央に2つの大きな対比円。左は分野全体をゴミ箱に捨てる図に大きな赤い×と文字「分野ごと捨てる」。右は分野を保ち、その中の小さな低頻度項目だけを後へ移す図に大きな青い○と文字「低頻度項目だけ後回し」。矢印で左から右への考え方の転換。文字はこの3つだけ。",
+        "promptSha256": "4f49cdab2beb5fd135c2780d0664d359e9a09e0c56ef904029d8f53d0c5b5010",
+        "generatedAt": "2026-10-27T10:45:36.062Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-chokuzen-senryaku/work/candidate-scene-003",
+      "role": "candidate-scene-003",
+      "type": "image/png",
+      "sha256": "e115e39f00b8a598d1a42183db65535b96a155ccf41eac50c8e808f28b0a8745",
+      "bytes": 1388244,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-chokuzen-senryaku/work/candidate-scene-003.e115e39f.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "添付画像は採用済みコンクリート主任技士の教育動画本文図解の意匠参照です。新規の16:9横長1場面を作る。白〜ごく淡い紫の背景、太い濃紺と紫の線、控えめな黄色の下線、読みやすい大きな日本語、シンプルなアイコンと概念図。本文は図解が主役。POP広告、先生人物、白い箇条書きカード、細かい文字、写実写真は禁止。意味のある文字と図は左右5%・上5%・下18%の内側。下18%は字幕用の淡い背景だけ。余計な文言、数字、ロゴ、URLは足さない。文字は指定したものだけを正確に描く。 見出し「根拠と分析範囲」。横長の一本の年表で、左から「平成21年度」「令和5年度」までを太い紫色の分析範囲として塗り、右側の「令和6年度以降」は薄い灰色の未分析範囲として明確に分ける。下に小さく「原典の出題状況表から傾向を整理」。実データの棒グラフや出題数は描かない。文字はこの5つだけ。",
+        "promptSha256": "b0ff5ae1daf4d2a76ac7f5835d9458ab95836c2e60d552aa1f395467338f1e0e",
+        "generatedAt": "2026-10-27T10:45:36.062Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-chokuzen-senryaku/work/candidate-scene-004",
+      "role": "candidate-scene-004",
+      "type": "image/png",
+      "sha256": "96ad12ea8e778feb497d9cb39bb26d982bd6bbdab15312e172e7b7006587bb35",
+      "bytes": 2089833,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-chokuzen-senryaku/work/candidate-scene-004.96ad12ea.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "このコンクリート主任技士動画の図解を、短くなった新しい読み上げに合わせて再生成。元画像の7分野の構成、すべての分野名、見出し『先に固める七分野』、下の『分野ごと捨てない』、色と線のスタイルを保つ。七分野は毎年または多くの年に出るので分野ごと捨てず先に固める。用材料内の補強材だけ優先度がやや下がることを小さく示す。人物・広告要素なし、文字化けなし、下端18%は字幕用に空白。16:9。",
+        "promptSha256": "3c4b53271de2625a2293599acf37998dbd21b5b7b5647d7bdd454e9ddafc2e08",
+        "generatedAt": "2026-10-27T11:01:18.992Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-chokuzen-senryaku/work/candidate-scene-005",
+      "role": "candidate-scene-005",
+      "type": "image/png",
+      "sha256": "43404930426dadd95dcc92d82f6dd1b60b69ce7827c5e55e98b9a8a75ea20630",
+      "bytes": 2313989,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-chokuzen-senryaku/work/candidate-scene-005.43404930.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "既存の教育図解を編集。色・構図・他の文字・アイコン・下端字幕余白は維持。左下の一番左の項目名『運搬・打込み』だけを『運搬・打込み・締固め・打継ぎ』に変更してください。2行になってよいので、読みやすく枠内に収める。それ以外の7項目名や頻度区分は変えない。16:9。",
+        "promptSha256": "d5d74f6231829e231ec9bdcbb6e2819f68de23276a153b69ea51c37ae5da1756",
+        "generatedAt": "2026-10-27T11:01:19.091Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-chokuzen-senryaku/work/candidate-scene-006",
+      "role": "candidate-scene-006",
+      "type": "image/png",
+      "sha256": "7f60f283368bc2c82d4af589a503dd7ee8a21a36fa1533b048923ab47bfa4c0d",
+      "bytes": 1976557,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-chokuzen-senryaku/work/candidate-scene-006.7f60f283.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "このコンクリート主任技士の学習図解を、短くなった語りに合わせて再生成。元画像と同じシンプルな図解意匠、左右の整理を維持する。見出し『低頻度と出題なし』。左の大きな枠『施工の低頻度』に4項目『高流動・流動化』『水中』『海洋』『舗装・ダム』。右上の枠『水（用材料）』『表の後半で確認なし』。右下の枠『水密・その他各種』『原典目次で出題なし』。水と水密を混同しない。読める日本語、余計な文言なし。白〜淡いグレー背景、紫青の太線、黄色は強調だけ。広告風ポスターや人物は描かない。下端18%は字幕用に空白。16:9。",
+        "promptSha256": "b49572facdc44be3cdef6e1912802330da035970cfa422b800bc505c8751eccd",
+        "generatedAt": "2026-10-27T11:01:19.174Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-chokuzen-senryaku/work/candidate-scene-007",
+      "role": "candidate-scene-007",
+      "type": "image/png",
+      "sha256": "7aa01065b3d5907e10643704926c108752810779e259058cc96ea40c3c5af5a4",
+      "bytes": 1866839,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-chokuzen-senryaku/work/candidate-scene-007.7aa01065.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "添付画像は採用済みコンクリート主任技士の教育動画本文図解の意匠参照です。新規の16:9横長1場面を作る。白〜ごく淡い紫の背景、太い濃紺と紫の線、控えめな黄色の下線、読みやすい大きな日本語、シンプルなアイコンと概念図。本文は図解が主役。POP広告、先生人物、白い箇条書きカード、細かい文字、写実写真は禁止。意味のある文字と図は左右5%・上5%・下18%の内側。下18%は字幕用の淡い背景だけ。余計な文言、数字、ロゴ、URLは足さない。文字は指定したものだけを正確に描く。 見出し「優先順位の三段階」。画面中央に大きく上へ上がる3段の学習階段図。最上段は濃紫と黄色で「先に固める」、中段は青紫で「余力で」、最下段は薄灰紫で「後回し」。各段の横に小さく順に「毎年〜多くの年」「低頻度」「近年出題なし」。三段の順序が一目で分かる。表や白い箇条書きカードにはしない。文字は指定のみ。",
+        "promptSha256": "c55c179bbe20632d91a3710ea04a8084cae27aec5d6e90c8d1529b33f2edf7bf",
+        "generatedAt": "2026-10-27T10:45:36.062Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-chokuzen-senryaku/work/candidate-scene-008",
+      "role": "candidate-scene-008",
+      "type": "image/png",
+      "sha256": "7aaa8ef35c5190362a809d7998e975944600ee2c3807c8f062cf190a99bb3444",
+      "bytes": 1908895,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-chokuzen-senryaku/work/candidate-scene-008.7aaa8ef3.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "このコンクリート主任技士の教育動画図解を、短くなった新しい読み上げに合わせて再生成。元画像の意味と単純な横向き矢印構図を保持。見出し『時間の振り分け』。左に水中コンクリートの小さなアイコンと時計、ラベル『水中コンクリート』。左から右へ紫の太い矢印、矢印上に『時間を移す』。右に寒中・暑中の雪と太陽のアイコン、復習ノート、ラベル『寒中・暑中を復習』。最下部の字幕用余白の上に短く『定番の弱点を先に直す』。文字は正確に。水中を定番と誤認させず、寒中・暑中を先に直す意味が分かるよう強調。白〜淡いグレー、紫青と黄色、人物や広告風ポスターはなし。下端18%は字幕用の背景のみ。16:9。",
+        "promptSha256": "de4b136b6644de748b34d3ec816d2f88063941ec4e5f3a5f0cbb13682db4a883",
+        "generatedAt": "2026-10-27T11:01:19.261Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-chokuzen-senryaku/work/candidate-scene-009",
+      "role": "candidate-scene-009",
+      "type": "image/png",
+      "sha256": "b29903553ee914deb14c3d04d5ef89df80096270ba1ea6543635b06e2962729a",
+      "bytes": 1749501,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-chokuzen-senryaku/work/candidate-scene-009.b2990355.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "この既存の教育図解を編集。見出し『分野別の縦串』、表の年度と項目ラベル、施工列の黄色い強調枠、右の拡大鏡、下端の字幕用余白は完全に維持する。唯一の変更は黄色い施工列の各年のチェックマークを全部消して空白にすること。チェックマークは実際の出題記録に見えるため不正確。文字・数字を追加しない。表の全てのデータセルを空白にし、縦1列だけ枠でなぞる説明図にする。",
+        "promptSha256": "eed6203ad4ec73250da84f86720669d138170d89344b9d4134458867bf0e8cf4",
+        "generatedAt": "2026-10-27T10:45:36.062Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-chokuzen-senryaku/work/candidate-scene-010",
+      "role": "candidate-scene-010",
+      "type": "image/png",
+      "sha256": "627997d664caa7f2e7e89008715d1116cb661389a369b102db3d3b47e6a8a504",
+      "bytes": 1922389,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-chokuzen-senryaku/work/candidate-scene-010.627997d6.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "このコンクリート主任技士動画の学習図解を短くなった新しい語りに合わせて再生成。元画像の意味を保持し、見出し『択一と小論文を並行』。左に択一の回答用紙と基準点を示す単純なゲージ、右に小論文の原稿用紙と基準点を示す同じゲージ。両方の基準点を超える必要条件だけを描き、これだけで必ず合格と断言しない。小さな注記に『それぞれ基準点』『論旨を明確に』のみ。箇条書き可・整った文章が望ましいという趣旨を、あえて小さな文字では詰め込まない。元画像の紫青太線、白〜淡いグレー背景、黄色の強調、字幕用の下端18%の空白を保つ。人物、広告風ポスターなし。文字化けなし。16:9。",
+        "promptSha256": "3aaf8e110de6d903d8c2535629e537e4c8aa6b5892839d553142c55633bbfdbd",
+        "generatedAt": "2026-10-27T11:01:19.360Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-chokuzen-senryaku/work/candidate-scene-011",
+      "role": "candidate-scene-011",
+      "type": "image/png",
+      "sha256": "b89d4c33898d722e19773b6bd37b66bd2555ea59ef4fd20e7d2128e5ddcfffac",
+      "bytes": 2064298,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-chokuzen-senryaku/work/candidate-scene-011.b89d4c33.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像はdoboku-noteの教育動画本文に採用されたシンプルな図解の意匠参照です。新規の16:9横長（1920×1080想定）コンクリート主任技士の教育動画本文『まとめ』場面。白〜淡いグレー背景、深い紫と青の太い線、黄色は強調のみ。広告風ポスターや人物、白い箇条書きカードは描かない。図解を画面の主役にする。左側に大きく三段の階段図：上『先に固める』、中『余力で』、下『後回し』。各段に小さく上『毎年〜多くの年』、中『低頻度』、下『近年出題なし』。右側には短く正確に『平成21〜令和5年度の表』『小論文も並行』をそれぞれシンプルな年表アイコン、鉛筆アイコンと添える。文字は指定したものだけ正確に。全ての意味ある文字と図を左右5%、上5%、下18%の内側に。下端18%は字幕用に背景のみで空ける。全体に余裕を持たせ、読みやすく、前の場面の学習図解と統一する。",
+        "promptSha256": "41d35384d66fb3b9ef80f2010f994284ea0b1ee1f12ae66de2ca39e6df59c5e2",
+        "generatedAt": "2026-10-27T10:45:36.062Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-chokuzen-senryaku/work/candidate-scene-012",
+      "role": "candidate-scene-012",
+      "type": "image/png",
+      "sha256": "1fb7c3b5c4a44c339b1a136dcd2d5bdd5df8bffd7125a3dc4b1f76cc1b691751",
+      "bytes": 1739634,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-chokuzen-senryaku/work/candidate-scene-012.1fb7c3b5.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像はdoboku-noteの教育動画本文に採用されたシンプルな図解の意匠参照です。新規の16:9横長（1920×1080想定）コンクリート主任技士の教育動画本文の最後のCTA場面。白〜淡いグレー背景、深い紫と青の太い線、黄色は強調のみ。広告風POPポスターや人物、白い箇条書きカードは描かず、学習ツールのシンプルな図解を主役にする。見出しは正確に『直前パック』。中央に同じ大きさで三つの大きな学習アイコン：問題用紙『予想問題』、計算機『配合計算』、ノート『暗記ノート』。三つから右向きの一本の矢印を『概要欄』へつなぐ。文字は指定した日本語だけ正確に。商品価格、実績、URL、余計な文言は足さない。意味ある文字と図は左右5%、上5%、下18%の内側に。下端18%は字幕用に背景だけ空ける。全体に余裕を持たせ、前の場面の学習図解と統一する。",
+        "promptSha256": "ea99ae56d5eb0858caa99719ebc6e8b6d61059fafddbc521a8dae225ca1d2a90",
+        "generatedAt": "2026-10-27T10:45:36.062Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-chokuzen-senryaku/work/candidate-subtitles",
+      "role": "candidate-subtitles",
+      "type": "text/x-ssa",
+      "sha256": "70b4805ae2145f0440a0a1f62ca1eaaccd74bb66bd11decbde62591b1bd1732e",
+      "bytes": 5512,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-chokuzen-senryaku/work/candidate-subtitles.70b4805a.ass"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-chokuzen-senryaku/storyboard.json"
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-chokuzen-senryaku/work/candidate-video",
+      "role": "candidate-video",
+      "type": "video/mp4",
+      "sha256": "035c2bfeec1061da28c1c43926e4e0c18c5f42729fb13abbc810a6123a26021c",
+      "bytes": 20240958,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-chokuzen-senryaku/work/candidate-video.035c2bfe.mp4"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-chokuzen-senryaku/storyboard.json",
+        "specSha256": "27d59464cc85f340df5e7bacd2591deb468752a6ddbcdad697c119acd7c640db",
+        "renderInputSha256": "8f185a61d164cd70f98d3417161c3e4535a71bb55e02288bb801b0ca6b848ca0",
+        "tts": {
+          "engine": "VOICEVOX",
+          "speaker": 13,
+          "credit": "VOICEVOX:青山龍星"
+        }
+      },
+      "durationSec": 170.261
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-chokuzen-senryaku/youtube.longform.pop-diagram/contact-sheet",
+      "role": "contact-sheet",
+      "type": "image/jpeg",
+      "sha256": "8dba0a6c3673b50987d88ba14c42a13306b6539021eb9f543f5ed10c2db06632",
+      "bytes": 592069,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-chokuzen-senryaku/youtube.longform.pop-diagram/contact-sheet.8dba0a6c.jpg"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "media-preview",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-chokuzen-senryaku/storyboard.json"
+      },
+      "width": 1920,
+      "height": 1620
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-chokuzen-senryaku/youtube.longform.pop-diagram/preview",
+      "role": "preview",
+      "type": "video/mp4",
+      "sha256": "6798a33035dd0652ebb07daca8457c103bbaf968e2e319046c46a935fb92a0cd",
+      "bytes": 5053705,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-chokuzen-senryaku/youtube.longform.pop-diagram/preview.6798a330.mp4"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "media-preview",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-chokuzen-senryaku/storyboard.json"
+      },
+      "durationSec": 170.261
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-chokuzen-senryaku/youtube.longform.pop-diagram/preview-metrics",
+      "role": "preview-metrics",
+      "type": "application/json",
+      "sha256": "548e88487c791eeaa2849d2d709a73b69e573d9b9a3a40ecf8432852cd315304",
+      "bytes": 641,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-chokuzen-senryaku/youtube.longform.pop-diagram/preview-metrics.548e8848.json"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "media-preview",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-chokuzen-senryaku/storyboard.json"
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-chokuzen-senryaku/youtube.longform.pop-diagram/scene-sheet",
+      "role": "scene-sheet",
+      "type": "image/jpeg",
+      "sha256": "59a3441d4fc1f73e32a943cdf396ca8171c4d9d83b05798c8127de384c26e359",
+      "bytes": 727737,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-chokuzen-senryaku/youtube.longform.pop-diagram/scene-sheet.59a3441d.jpg"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "media-preview",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-chokuzen-senryaku/storyboard.json"
+      },
+      "width": 1920,
+      "height": 1592
+    },
+    {
       "id": "concrete-chief-engineer/shunin-chokuzen-senryaku/youtube.longform/cover",
       "role": "cover",
       "type": "image/png",
@@ -363,6 +758,782 @@
       ]
     },
     {
+      "id": "concrete-chief-engineer/shunin-haigou-zettaiyouseki/youtube.longform/contact-sheet",
+      "role": "contact-sheet",
+      "type": "image/jpeg",
+      "sha256": "117fb10177845c3ef6c19011acae87c477e451488a8b72de7450d407b614650e",
+      "bytes": 897812,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-haigou-zettaiyouseki/youtube.longform/contact-sheet.117fb101.jpg"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "media-preview",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-haigou-zettaiyouseki/storyboard.json"
+      },
+      "width": 1920,
+      "height": 1620
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-haigou-zettaiyouseki/youtube.longform/cover",
+      "role": "cover",
+      "type": "image/png",
+      "sha256": "578fbc43688f1584cb44963da299c3eab8434d244b79b24f78a483ab8552c626",
+      "bytes": 3696740,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-haigou-zettaiyouseki/youtube.longform/cover.578fbc43.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Create a NEW 16:9 Japanese YouTube thumbnail for doboku-note, using the attached approved orange-red concrete-chief-engineer POP poster as the visual style and teacher identity reference only. Do not reuse its text. Exact large Japanese title: 「コンクリート主任技士」「配合計算」「合計1000Lでは正誤が分からない」. Small yellow authority strip: 「総監が制作」. Vibrant POP design, orange, red, yellow, navy, heavy Japanese typography with outlines, diagonal dynamic background. Friendly Japanese civil engineer teacher with white hard hat and navy workwear on right, pen pointing at a large simple 1000 L concrete mix volume diagram. Show 1000 L as a tempting but insufficient check, not a green correct checkmark. Full bleed, high contrast, no fine-print, no other text, no gibberish, lower 18% kept uncluttered for subtitles.",
+        "promptSha256": "efc3b48f30744030eb65f36d159ed5664f4b9072fc8ff6bd532f90f1f8bb67d2",
+        "generatedAt": "2026-10-27T23:23:35.107Z"
+      },
+      "width": 1920,
+      "height": 1080,
+      "legacyPaths": [
+        ".tmp/media/concrete-chief-engineer/shunin-haigou-zettaiyouseki/work/cover-pop.578fbc43.png"
+      ]
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-haigou-zettaiyouseki/youtube.longform/preview",
+      "role": "preview",
+      "type": "video/mp4",
+      "sha256": "2a1213276ccb86a5bbaf6ecb49fb046ca0c473015b0d2703a93f8ac21912fbfd",
+      "bytes": 6281145,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-haigou-zettaiyouseki/youtube.longform/preview.2a121327.mp4"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "media-preview",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-haigou-zettaiyouseki/storyboard.json"
+      },
+      "durationSec": 239.648
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-haigou-zettaiyouseki/youtube.longform/preview-metrics",
+      "role": "preview-metrics",
+      "type": "application/json",
+      "sha256": "74fd4c2ed1794da3036ce5e38b34274321ae61f685178e5a75e83d8fcd26de14",
+      "bytes": 1560,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-haigou-zettaiyouseki/youtube.longform/preview-metrics.74fd4c2e.json"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "media-preview",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-haigou-zettaiyouseki/storyboard.json"
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-haigou-zettaiyouseki/youtube.longform/scene-001",
+      "role": "scene-001",
+      "type": "image/png",
+      "sha256": "578fbc43688f1584cb44963da299c3eab8434d244b79b24f78a483ab8552c626",
+      "bytes": 3696740,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-haigou-zettaiyouseki/youtube.longform/scene-001.578fbc43.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Create a NEW 16:9 Japanese YouTube thumbnail for doboku-note, using the attached approved orange-red concrete-chief-engineer POP poster as the visual style and teacher identity reference only. Do not reuse its text. Exact large Japanese title: 「コンクリート主任技士」「配合計算」「合計1000Lでは正誤が分からない」. Small yellow authority strip: 「総監が制作」. Vibrant POP design, orange, red, yellow, navy, heavy Japanese typography with outlines, diagonal dynamic background. Friendly Japanese civil engineer teacher with white hard hat and navy workwear on right, pen pointing at a large simple 1000 L concrete mix volume diagram. Show 1000 L as a tempting but insufficient check, not a green correct checkmark. Full bleed, high contrast, no fine-print, no other text, no gibberish, lower 18% kept uncluttered for subtitles.",
+        "promptSha256": "efc3b48f30744030eb65f36d159ed5664f4b9072fc8ff6bd532f90f1f8bb67d2",
+        "generatedAt": "2026-10-27T23:23:35.107Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-haigou-zettaiyouseki/youtube.longform/scene-002",
+      "role": "scene-002",
+      "type": "image/png",
+      "sha256": "7dec0e5292328b2427f1a046342ada69012d809c29d83480218b69a95687153c",
+      "bytes": 2403228,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-haigou-zettaiyouseki/youtube.longform/scene-002.7dec0e52.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Create a NEW Japanese 16:9 educational diagram, white/pale grey background, navy green blue thick clean graphic matching attached style. EXACT heading 「質量でなく絶対容積で足す」. Left three material piles on scales with ONLY labels 「質量 kg」 and red X; middle large arrow label 「密度で割る」; right same three materials as distinct volume blocks with ONLY label 「絶対容積 L」 and green circle. Below prominent caution EXACT 「合計1,000Lだけでは正誤不明」 and small 「細骨材は残りで出す」. ABSOLUTELY NO numerical kg or L amounts for any individual material, no fabricated quantities, no arithmetic examples. Keep bottom 18% clear.",
+        "promptSha256": "b1f0f8884291cfe7265d8269cd8fcb1c531eb99b1fdb6ab9e8024e89d86ddfeb",
+        "generatedAt": "2026-10-28T00:21:52.014Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-haigou-zettaiyouseki/youtube.longform/scene-003",
+      "role": "scene-003",
+      "type": "image/png",
+      "sha256": "52628d205449cda355b5aaf4bf7d9d7b8b3f89629cd9ddf0c13b2502cde7c06e",
+      "bytes": 2080722,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-haigou-zettaiyouseki/youtube.longform/scene-003.52628d20.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "NEW 16:9 full-frame Japanese educational diagram for a concrete-chief-engineer normal YouTube video. Use attached image only as a style reference: plain white-to-pale-blue background, bold navy Japanese headings, a few cyan/blue arrows and small yellow highlights. Create a NEW accurate subject diagram. No human, no advertising poster, no dense table, no white list card. Very large Japanese text, no extra words or numbers beyond those specified. Keep lower 18% blank for subtitles. Show a simple labeled design sheet, large heading 「仮の条件」 and yellow tag 「過去問ではありません」. Four clean condition chips with exact text: 「水結合材比 50%」, 「単位水量 165kg」, 「空気量 4.5%」, 「結合材の内訳 60:25:15」. No other numbers.",
+        "promptSha256": "5d88337a77c13e63706cbcd9fe7584de40ad793f9c9ebe03a00e359355ce3e17",
+        "generatedAt": "2026-10-27T23:23:35.107Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-haigou-zettaiyouseki/youtube.longform/scene-004",
+      "role": "scene-004",
+      "type": "image/png",
+      "sha256": "fe86f9abe28cdb088065a8a223f9117d9ef743bbcbf23a650c67af44b8bffcbe",
+      "bytes": 2304283,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-haigou-zettaiyouseki/youtube.longform/scene-004.fe86f9ab.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "NEW 16:9 full-frame Japanese educational diagram for a concrete-chief-engineer normal YouTube video. Use attached image only as a style reference: plain white-to-pale-blue background, bold navy Japanese headings, a few cyan/blue arrows and small yellow highlights. Create a NEW accurate subject diagram. No human, no advertising poster, no dense table, no white list card. Very large Japanese text, no extra words or numbers beyond those specified. Keep lower 18% blank for subtitles. Show three separate material granule icons with large labels only: 「セメント 3.15」, 「スラグ 2.90」, 「フライアッシュ 2.20」. Large heading 「密度は材料ごとに違う」 and small unit 「kg/L」. Do not merge densities, do not include other material numbers.",
+        "promptSha256": "915c08b1e17593669909fb70ed7b1c25e5d0ef9e4820a718acda31694eaca81b",
+        "generatedAt": "2026-10-27T23:23:35.107Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-haigou-zettaiyouseki/youtube.longform/scene-005",
+      "role": "scene-005",
+      "type": "image/png",
+      "sha256": "0c9c5280bc628155ecf76a3e85956bff269693c47abe5fd08a88c2fb8f03cc87",
+      "bytes": 1786083,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-haigou-zettaiyouseki/youtube.longform/scene-005.0c9c5280.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "NEW 16:9 full-frame Japanese educational diagram for a concrete-chief-engineer normal YouTube video. Use attached image only as a style reference: plain white-to-pale-blue background, bold navy Japanese headings, a few cyan/blue arrows and small yellow highlights. Create a NEW accurate subject diagram. No human, no advertising poster, no dense table, no white list card. Very large Japanese text, no extra words or numbers beyond those specified. Keep lower 18% blank for subtitles. A simple equation and branching flow, heading 「結合材 330kgを分ける」. Top equation 「165÷0.50＝330kg」. Branch into exactly three colored blocks 「セメント 198kg」, 「スラグ 82.5kg」, 「フライアッシュ 49.5kg」. All numbers accurate, no extra text.",
+        "promptSha256": "dcf6def96cb17fac8db1ac0c68bab915292778c882686ff5dc65a6a3bb5d16a7",
+        "generatedAt": "2026-10-27T23:23:35.107Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-haigou-zettaiyouseki/youtube.longform/scene-006",
+      "role": "scene-006",
+      "type": "image/png",
+      "sha256": "0e51e52a4716cbcc5d7de40b72a44b4628c25b8a749dd998191df3fecba19cef",
+      "bytes": 2094571,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-haigou-zettaiyouseki/youtube.longform/scene-006.0e51e52a.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "NEW 16:9 full-frame Japanese educational diagram for a concrete-chief-engineer normal YouTube video. Use attached image only as a style reference: plain white-to-pale-blue background, bold navy Japanese headings, a few cyan/blue arrows and small yellow highlights. Create a NEW accurate subject diagram. No human, no advertising poster, no dense table, no white list card. Very large Japanese text, no extra words or numbers beyond those specified. Keep lower 18% blank for subtitles. Three vertical arrows from mass to volume, heading 「密度で割って容積に」. Exactly these equations in large text: 「198÷3.15＝62.9L」, 「82.5÷2.90＝28.4L」, 「49.5÷2.20＝22.5L」. Identify each row with small labels セメント, スラグ, フライアッシュ. No total yet and no extra numbers.",
+        "promptSha256": "ffa6432906b9046304fe7903d82de9611fd7b9c3f4c7cdce994a6d0bb02016f6",
+        "generatedAt": "2026-10-27T23:23:35.107Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-haigou-zettaiyouseki/youtube.longform/scene-007",
+      "role": "scene-007",
+      "type": "image/png",
+      "sha256": "9309573644f907242e768a4209f41c9d101f36fcc71efdf1c4194531814e3d5f",
+      "bytes": 2196016,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-haigou-zettaiyouseki/youtube.longform/scene-007.93095736.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "NEW 16:9 full-frame Japanese educational diagram for a concrete-chief-engineer normal YouTube video. Use attached image only as a style reference: plain white-to-pale-blue background, bold navy Japanese headings, a few cyan/blue arrows and small yellow highlights. Create a NEW accurate subject diagram. No human, no advertising poster, no dense table, no white list card. Very large Japanese text, no extra words or numbers beyond those specified. Keep lower 18% blank for subtitles. Draw a simple measuring container showing coarse aggregate and gaps, then the actual solid aggregate volume. Large heading 「粗骨材の実容積」. Main flow exactly 「620L × 0.61 ＝ 378.2L」. Label left 「かさ容積」, middle 「実積率」, right 「絶対容積」. Avoid filling the container entirely; voids are essential.",
+        "promptSha256": "7c49edd2d18314ed94564c22a52533f98a1394951e6ffd67538ab28e92b40dd5",
+        "generatedAt": "2026-10-27T23:23:35.107Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-haigou-zettaiyouseki/youtube.longform/scene-008",
+      "role": "scene-008",
+      "type": "image/png",
+      "sha256": "fa109f3c2eca173856395e21947d0701213617a64bb8a65286faa88402944b8d",
+      "bytes": 1762667,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-haigou-zettaiyouseki/youtube.longform/scene-008.fa109f3c.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "NEW 16:9 full-frame Japanese educational diagram for a concrete-chief-engineer normal YouTube video. Use attached image only as a style reference: plain white-to-pale-blue background, bold navy Japanese headings, cyan/blue arrows, small yellow highlights. Create a NEW accurate subject diagram. No person, no advertising poster, no dense table, no white list card. Large readable text only, no extra words or numbers beyond specified. Keep lower 18% blank for subtitles. Heading 「残りが細骨材」. Draw one large 1000L bar separated into blue filled segment labeled 「ここまで 702.0L」 and yellow remaining segment labeled 「細骨材 298.0L」. Main equation exactly 「1000－702.0＝298.0L」. This is a subtraction by construction, so do not show a green correctness checkmark.",
+        "promptSha256": "08e23993e1b40fd488719a2f32066f00b828ca2c78d9c2577144284c7b96db6e",
+        "generatedAt": "2026-10-27T23:23:35.107Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-haigou-zettaiyouseki/youtube.longform/scene-009",
+      "role": "scene-009",
+      "type": "image/png",
+      "sha256": "39b0f4a318e4603b4afba73b14451be32edce773985d63106acbb29972a58aa1",
+      "bytes": 1739961,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-haigou-zettaiyouseki/youtube.longform/scene-009.39b0f4a3.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Create a corrected NEW 16:9 full-frame Japanese educational diagram. The previous image incorrectly used a division sign between the volumes and masses. This new image MUST show multiplication, with only two simple horizontal rows and no fraction or other math notation. Style from reference: white background, navy bold Japanese, blue arrows, yellow highlight, no person, lower 18% blank for subtitles. Main heading exactly 「容積から質量へ」. Top row: a gray aggregate icon, large text exactly 「378.2L × 2.65」, blue right arrow, large text exactly 「約1002kg」. Bottom row: a sand icon, large text exactly 「298.0L × 2.60」, blue right arrow, large text exactly 「約775kg」. Small bottom note above blank subtitle zone exactly 「s/a＝44.1%」. Do not show a division symbol anywhere. No other text or numbers.",
+        "promptSha256": "be44e45f16729cc6b04a92885202998757a310a2a216474427c383255ed72e8e",
+        "generatedAt": "2026-10-27T23:23:35.107Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-haigou-zettaiyouseki/youtube.longform/scene-010",
+      "role": "scene-010",
+      "type": "image/png",
+      "sha256": "6e9f213ff63c6a3983dc6c6e6e71f479fff72b4c1f80eca952ff9ffdb4c570b2",
+      "bytes": 2156666,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-haigou-zettaiyouseki/youtube.longform/scene-010.6e9f213f.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "NEW 16:9 full-frame Japanese educational diagram for a concrete-chief-engineer normal YouTube video. Use attached image only as a style reference: plain white-to-pale-blue background, bold navy Japanese headings, cyan/blue arrows, small yellow highlights. Create a NEW accurate subject diagram. No person, no advertising poster, no dense table, no white list card. Large readable text only, no extra words or numbers beyond specified. Keep lower 18% blank for subtitles. Heading 「合計1000Lは証拠にならない」. Show a 1000L bar with a neutral question mark, not a green checkmark. Below three large separate verification icons and labels: 「割り算」 「材料ごとの密度」 「細骨材率」. Small supporting phrase 「各行を独立に確かめる」. No claim that total proves correctness.",
+        "promptSha256": "63eb4a471c055aef519c22d79e05dd161e9306ccb1a3b1bec371744383645c39",
+        "generatedAt": "2026-10-27T23:23:35.107Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-haigou-zettaiyouseki/youtube.longform/scene-011",
+      "role": "scene-011",
+      "type": "image/png",
+      "sha256": "837e419c452298d2c2adbf7c7be6374db32ca372598d97c172c568eab8535a3a",
+      "bytes": 2303165,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-haigou-zettaiyouseki/youtube.longform/scene-011.837e419c.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "NEW 16:9 full-frame Japanese educational diagram for a concrete-chief-engineer normal YouTube video. Use attached image only as a style reference: plain white-to-pale-blue background, bold navy Japanese headings, cyan/blue arrows, small yellow highlights. Create a NEW accurate subject diagram. No person, no advertising poster, no dense table, no white list card. Large readable text only, no extra words or numbers beyond specified. Keep lower 18% blank for subtitles. Heading 「誤りでも合計は1000L」. A simple two-column branch. Wrong branch with red cross: 「330÷3.15＝104.8L」 then 「細骨材307.0L」 and 「s/a 44.8%」. Correct branch with blue check: 「結合材113.8L」 then 「細骨材298.0L」 and 「s/a 44.1%」. Both branches flow to a neutral 「合計1000L」. Do not suggest the total distinguishes branches. All numbers exact.",
+        "promptSha256": "996eb3ca5d52b948c4a1b45ea39d4967d1dedc4ca00c4ab1b7f079df40c9c14c",
+        "generatedAt": "2026-10-27T23:23:35.107Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-haigou-zettaiyouseki/youtube.longform/scene-012",
+      "role": "scene-012",
+      "type": "image/png",
+      "sha256": "be586c9fac80a037a0e4b8c94b61d2351a77f7279447ab679bf7edc050b28110",
+      "bytes": 2368608,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-haigou-zettaiyouseki/youtube.longform/scene-012.be586c9f.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "NEW 16:9 full-frame Japanese educational diagram for a concrete-chief-engineer normal YouTube video. Use attached image only as a style reference: plain white-to-pale-blue background, bold navy Japanese headings, cyan/blue arrows, small yellow highlights. Create a NEW accurate subject diagram. No person, no advertising poster, no dense table, no white list card. Large readable text only, no extra words or numbers beyond specified. Keep lower 18% blank for subtitles. Heading 「配合計算の3点」. Three large connected circular icons with only these captions: 「絶対容積にそろえる」 「合計だけで判断しない」 「各式とs/aを確かめる」. Show simple mass-to-volume blocks and calculator, no other numerical text.",
+        "promptSha256": "ba0fa10aa61c861611e76bf7e740ea532a350649cc777279ab849635b1fd2560",
+        "generatedAt": "2026-10-27T23:23:35.107Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-haigou-zettaiyouseki/youtube.longform/scene-013",
+      "role": "scene-013",
+      "type": "image/png",
+      "sha256": "f3b829eaf6584411030d78a8d0832e57e39fc00391cd0ba40b38e05167e24617",
+      "bytes": 2083952,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-haigou-zettaiyouseki/youtube.longform/scene-013.f3b829ea.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "NEW 16:9 full-frame Japanese educational diagram for a concrete-chief-engineer normal YouTube video. Use attached image only as a style reference: plain white-to-pale-blue background, bold navy Japanese headings, cyan/blue arrows, small yellow highlights. Create a NEW accurate subject diagram. No person, no advertising poster, no dense table, no white list card. Large readable text only, no extra words or numbers beyond specified. Keep lower 18% blank for subtitles. Heading 「配合計算を練習」. Draw one simple study workbook icon with prominent 「実戦演習12問」 and small badge 「途中式・全選択肢解説」. At bottom above the subtitle-safe zone: 「概要欄へ」 with a simple down arrow. No price, no guarantee, no person, no URL.",
+        "promptSha256": "08165a27d8b76acd53dc57d4e30648f3800703edea640537b92f629c38d14240",
+        "generatedAt": "2026-10-27T23:23:35.107Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-haigou-zettaiyouseki/youtube.longform/scene-sheet",
+      "role": "scene-sheet",
+      "type": "image/jpeg",
+      "sha256": "efde380cd2c3e340de78557de163c8254db09b7c5fc449ae79daa50498b513f8",
+      "bytes": 924620,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-haigou-zettaiyouseki/youtube.longform/scene-sheet.efde380c.jpg"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "media-preview",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-haigou-zettaiyouseki/storyboard.json"
+      },
+      "width": 1920,
+      "height": 1990
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-haigou-zettaiyouseki/youtube.longform/subtitles",
+      "role": "subtitles",
+      "type": "text/x-ssa",
+      "sha256": "6e63215866591faa99736a9ffeb4ecdb77735b3c5c0614a788166aede63301c9",
+      "bytes": 7071,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-haigou-zettaiyouseki/youtube.longform/subtitles.6e632158.ass"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-haigou-zettaiyouseki/storyboard.json"
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-haigou-zettaiyouseki/youtube.longform/video",
+      "role": "video",
+      "type": "video/mp4",
+      "sha256": "0610a622f319e9779f9e14be5bc1b07a08ca7a36072c0b2b73f1b9d9a8f046ec",
+      "bytes": 29724956,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-haigou-zettaiyouseki/youtube.longform/video.0610a622.mp4"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-haigou-zettaiyouseki/storyboard.json",
+        "specSha256": "37e188c35e69a1c6bfe86ad384701f9721169a3a4668863ba31106e5208c7b12",
+        "renderInputSha256": "16f23e91ced526228b5b71f6dc730c83f5b772bcfede382256f879e135e9cf95",
+        "tts": {
+          "engine": "VOICEVOX",
+          "speaker": 13,
+          "credit": "VOICEVOX:青山龍星"
+        }
+      },
+      "durationSec": 239.7
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-hinshutsu-yusen/work/candidate-cover",
+      "role": "candidate-cover",
+      "type": "image/png",
+      "sha256": "45f82789fc2e2ff7abb8b2928ed9a3e90ae1de960037d184664fb56f567e1a25",
+      "bytes": 3573087,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-hinshutsu-yusen/work/candidate-cover.45f82789.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Reconstructed production brief (original tool prompt unavailable in exported metadata): Use the attached successful POP cover as character and style reference. Create a new full-bleed 16:9 YouTube cover for コンクリート主任技士. Keep the same teacher with glasses, white hardhat, navy workwear and red pen on the right; energetic violet, yellow, red comic poster. Exact text: 総監が制作 / コンクリート主任技士 / 択一 / どこから解く？ / 学習の優先順位. No other writing. Keep all foreground above the bottom 20% subtitle-safe band.",
+        "promptSha256": "7b9239d4179c6dd8bd9841c0c67ac8117fb574b1adfbdf9ea1679d61355b9080",
+        "generatedAt": "2026-10-27T12:48:51.624Z"
+      },
+      "width": 1920,
+      "height": 1080,
+      "legacyPaths": [
+        ".tmp/media/concrete-chief-engineer/shunin-hinshutsu-yusen/work/cover-pop.45f82789.png"
+      ]
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-hinshutsu-yusen/work/candidate-cta",
+      "role": "candidate-cta",
+      "type": "image/png",
+      "sha256": "97280eba7ccc587653db321206327fb8b5096769cea576dc35fbfd7174a881a9",
+      "bytes": 1952880,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-hinshutsu-yusen/work/candidate-cta.97280eba.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Reconstructed production brief (original tool prompt unavailable in exported metadata): Create one 16:9 Japanese educational diagram slide, using the reference for diagram style only. White-to-light-lavender background, navy and violet outlines, yellow highlights, simple accurate icons, no character. Leave bottom 22% empty for subtitles. Scene heading: 本番形式で確かめる. Depict this narration and visual faithfully: 固めたあとは、本番形式で確かめます。令和8年度の予想50問と施工14問に、全選択肢の解説と分野別の採点表がついています。概要欄からご覧ください。出題の的中を保証するものではありません。 {\"kind\":\"cover\",\"heading\":\"本番形式で確かめる\",\"items\":[\"令和8年度 予想50問＋施工14問（概要欄リンク）\",\"全選択肢の解説＋分野別の採点表\",\"出題の的中を保証するものではありません\"]}. No extra facts, statistics, or unsupported claims.",
+        "promptSha256": "b036bc7044f84ee75453cc796af012710adeac43bc03be540eda27886dc8cf55",
+        "generatedAt": "2026-10-27T13:01:14.546Z"
+      },
+      "width": 1920,
+      "height": 1080,
+      "legacyPaths": [
+        ".tmp/media/concrete-chief-engineer/shunin-hinshutsu-yusen/work/cta-diagram.97280eba.png"
+      ]
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-hinshutsu-yusen/work/candidate-scene-001",
+      "role": "candidate-scene-001",
+      "type": "image/png",
+      "sha256": "45f82789fc2e2ff7abb8b2928ed9a3e90ae1de960037d184664fb56f567e1a25",
+      "bytes": 3573087,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-hinshutsu-yusen/work/candidate-scene-001.45f82789.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Reconstructed production brief (original tool prompt unavailable in exported metadata): Use the attached successful POP cover as character and style reference. Create a new full-bleed 16:9 YouTube cover for コンクリート主任技士. Keep the same teacher with glasses, white hardhat, navy workwear and red pen on the right; energetic violet, yellow, red comic poster. Exact text: 総監が制作 / コンクリート主任技士 / 択一 / どこから解く？ / 学習の優先順位. No other writing. Keep all foreground above the bottom 20% subtitle-safe band.",
+        "promptSha256": "7b9239d4179c6dd8bd9841c0c67ac8117fb574b1adfbdf9ea1679d61355b9080",
+        "generatedAt": "2026-10-27T12:48:51.624Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-hinshutsu-yusen/work/candidate-scene-002",
+      "role": "candidate-scene-002",
+      "type": "image/png",
+      "sha256": "93f4fd5ac8f0268892fc7c8cb8e8b22b907f08e2e7a452bbe7b621ae1daed6df",
+      "bytes": 1679589,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-hinshutsu-yusen/work/candidate-scene-002.93f4fd5a.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Reconstructed production brief (original tool prompt unavailable in exported metadata): Create one 16:9 Japanese educational diagram slide, using the reference for diagram style only. White-to-light-lavender background, navy and violet outlines, yellow highlights, simple accurate icons, no character. Leave bottom 22% empty for subtitles. Scene heading: 考え方の違い. Depict this narration and visual faithfully: 過去の表で各分野に繰り返し記載があると、項目も同じ頻度だと考えがちです。実際には分野の内側に濃淡があります。しかも見ているのは、平成21年度から令和5年度までの表です。令和6年度以降は分析していません。11月29日の試験の範囲は、2026年のJCI試験案内で別に確認します。 {\"kind\":\"compare\",\"heading\":\"考え方の違い\",\"ngLabel\":\"よくある考え方\",\"okLabel\":\"この動画の見方\",\"rows\":[{\"label\":\"分野\",\"ng\":\"毎年出るから中身も同じ重さ\",\"ok\":\"分野は毎年出ても項目に濃淡\"},{\"label\":\"範囲\",\"ng\":\"最新の傾向だと思う\",\"ok\":\"令和5年度までの表の読み取り\"}]}. No extra facts, statistics, or unsupported claims.",
+        "promptSha256": "45ef0bbf9f85323b92d4b89f8da37043614c5d7b41e86cd06637d77dc8da88ee",
+        "generatedAt": "2026-10-27T12:56:40.175Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-hinshutsu-yusen/work/candidate-scene-003",
+      "role": "candidate-scene-003",
+      "type": "image/png",
+      "sha256": "eb4637e857bf1e749d4ebde80ce9ac10ffe3d546f6dcea2244a46a6069ba3d83",
+      "bytes": 1712963,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-hinshutsu-yusen/work/candidate-scene-003.eb4637e8.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Reconstructed production brief (original tool prompt unavailable in exported metadata): Create one 16:9 Japanese educational diagram slide, using the reference for diagram style only. White-to-light-lavender background, navy and violet outlines, yellow highlights, simple accurate icons, no character. Leave bottom 22% empty for subtitles. Scene heading: 出題状況表の見方. Depict this narration and visual faithfully: 使うのは、項目別の出題状況表です。年度の列に出題番号が記載されているかを目安に、記載の多い少ないを分けました。言えるのはその期間の並びまでで、次の試験の予告ではありません。 {\"kind\":\"sheet\",\"heading\":\"出題状況表の見方\",\"sheetTitle\":\"H21〜R5 項目別の出題状況\",\"rows\":[{\"label\":\"対象期間\",\"value\":\"平成21年度〜令和5年度\",\"state\":\"done\"},{\"label\":\"目安\",\"value\":\"年度の列に出題番号の記載があるか\",\"state\":\"done\"},{\"label\":\"言えること\",\"value\":\"その期間の並び方まで\",\"state\":\"focus\"},{\"label\":\"言えないこと\",\"value\":\"令和6年度以降・今後の出題\",\"state\":\"ng\"}]}. No extra facts, statistics, or unsupported claims.",
+        "promptSha256": "c28a45b4dd0581530d56468000f17d4d4da029b40e3839e3243ca51eb086592f",
+        "generatedAt": "2026-10-27T12:59:25.706Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-hinshutsu-yusen/work/candidate-scene-004",
+      "role": "candidate-scene-004",
+      "type": "image/png",
+      "sha256": "dffe9077cdb2ae3501171a57940441c3be31898d4d706665ce66aa9b51870845",
+      "bytes": 2293993,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-hinshutsu-yusen/work/candidate-scene-004.dffe9077.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Reconstructed production brief (original tool prompt unavailable in exported metadata): Create one 16:9 Japanese educational diagram slide, using the reference for diagram style only. White-to-light-lavender background, navy and violet outlines, yellow highlights, simple accurate icons, no character. Leave bottom 22% empty for subtitles. Scene heading: 過去表の8分野と濃淡の出る場所. Depict this narration and visual faithfully: 四肢択一は、用材料、性質、耐久性、配合設計、製造品質管理、施工、製品、構造の設計の8分野です。これは過去の表の区分で、2026年の公式区分ではありません。どの分野も多くの年に記載があるので、分野ごと切ることはできません。濃淡は分野の内側にあります。 {\"kind\":\"points\",\"heading\":\"過去表の8分野と濃淡の出る場所\",\"items\":[\"8分野はH21〜R5の過去表の区分（2026年の公式区分ではない）\",\"期間中の多くの年に、どの分野も記載があった\",\"濃淡が出るのは分野の内側の項目\"]}. No extra facts, statistics, or unsupported claims.",
+        "promptSha256": "539ad2f9f351bd1a179f2bb02a22de1c34d99562eb6bf986280a2c1b2e9a25a7",
+        "generatedAt": "2026-10-27T12:58:45.993Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-hinshutsu-yusen/work/candidate-scene-005",
+      "role": "candidate-scene-005",
+      "type": "image/png",
+      "sha256": "c96478833f284fa05e0a8ed69b647a5c5309a68a0244a76794e98a079bda8d3b",
+      "bytes": 2013730,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-hinshutsu-yusen/work/candidate-scene-005.c9647883.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Reconstructed production brief (original tool prompt unavailable in exported metadata): Create one 16:9 Japanese educational diagram slide, using the reference for diagram style only. White-to-light-lavender background, navy and violet outlines, yellow highlights, simple accurate icons, no character. Leave bottom 22% empty for subtitles. Scene heading: STEP 1　記載の多い項目から. Depict this narration and visual faithfully: 先に固めるのは、記載の多い年が続く項目です。用材料はセメント・骨材・混和材料。性質はフレッシュと硬化コンクリート。耐久性は劣化機構。配合設計は基本と計算です。性質と耐久性は続けて出ることが多いので、まとめて学ぶと進めやすくなります。 {\"kind\":\"points\",\"heading\":\"STEP 1　記載の多い項目から\",\"items\":[\"用材料：セメント・骨材・混和材料\",\"性質：フレッシュと硬化／耐久性：劣化機構\",\"配合設計：基本事項と計算\",\"性質と耐久性はまとめて学ぶ\"]}. No extra facts, statistics, or unsupported claims.",
+        "promptSha256": "9a2b932317c617c3d47fa64850cc832c6d72d51e3ca705f5309316f7718f7978",
+        "generatedAt": "2026-10-27T12:58:45.993Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-hinshutsu-yusen/work/candidate-scene-006",
+      "role": "candidate-scene-006",
+      "type": "image/png",
+      "sha256": "986af45a41cb7f9559c84fe55a1d62669047b3bf5dbec860ce24b8a5fa83121d",
+      "bytes": 2109407,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-hinshutsu-yusen/work/candidate-scene-006.986af45a.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Reconstructed production brief (original tool prompt unavailable in exported metadata): Create one 16:9 Japanese educational diagram slide, using the reference for diagram style only. White-to-light-lavender background, navy and violet outlines, yellow highlights, simple accurate icons, no character. Leave bottom 22% empty for subtitles. Scene heading: 施工13項目の3段階（H21〜R5の表）. Depict this narration and visual faithfully: 施工は13項目あり、差が最も大きい分野です。記載が多いのは、運搬から打継ぎ、養生・仕上げ、型枠、鉄筋、寒中暑中、マスコン、プレストレストコンクリート。これを先に固めます。高流動、水中、海洋、舗装・ダムは記載が限られ、余力で広げます。水密とその他各種は出題なしとされ、最後です。ただ、記載がないことと出ないことは別なので、見出しと用語だけは見ておきます。 {\"kind\":\"sheet\",\"heading\":\"施工13項目の3段階（H21〜R5の表）\",\"sheetTitle\":\"固める順番\",\"rows\":[{\"label\":\"1段目 先に固める\",\"value\":\"運搬〜打継ぎ／養生・仕上げ／型枠・鉄筋／寒中暑中／マスコン／プレストレスト\",\"state\":\"done\"},{\"label\":\"2段目 余力で広げる\",\"value\":\"高流動／水中／海洋／舗装・ダム（記載は限られる）\",\"state\":\"focus\"},{\"label\":\"3段目 最後に見出しだけ\",\"value\":\"水密／その他各種（出題なしとされた項目）\",\"state\":\"ng\"}]}. No extra facts, statistics, or unsupported claims.",
+        "promptSha256": "067fa8902c7ee76692c4de938bc6b7f73022e73e0bd875fcc416cacf66ca8942",
+        "generatedAt": "2026-10-27T13:01:14.545Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-hinshutsu-yusen/work/candidate-scene-007",
+      "role": "candidate-scene-007",
+      "type": "image/png",
+      "sha256": "7b3382ca3702be596e59039192aaa25f2ac5acb887702867df612990de49b896",
+      "bytes": 1738368,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-hinshutsu-yusen/work/candidate-scene-007.7b3382ca.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Reconstructed production brief (original tool prompt unavailable in exported metadata): Create one 16:9 Japanese educational diagram slide, using the reference for diagram style only. White-to-light-lavender background, navy and violet outlines, yellow highlights, simple accurate icons, no character. Leave bottom 22% empty for subtitles. Scene heading: 過去の表と2026年の範囲. Depict this narration and visual faithfully: 試験は11月29日です。この整理は令和5年度までの過去表です。2026年の範囲は、JCI試験案内の出題範囲を示す表6で確認してください。表6はaからhの区分で、過去表の8分野とは別です。 {\"kind\":\"compare\",\"heading\":\"過去の表と2026年の範囲\",\"ngLabel\":\"過去の出題状況表\",\"okLabel\":\"2026年のJCI試験案内\",\"rows\":[{\"label\":\"期間・試験日\",\"ng\":\"平成21年度〜令和5年度\",\"ok\":\"11月29日の試験を確認\"},{\"label\":\"区分\",\"ng\":\"過去表の8分野（構造の設計など）\",\"ok\":\"案内の表6（a〜h）の範囲を確認\"}]}. No extra facts, statistics, or unsupported claims.",
+        "promptSha256": "cc7597bdd70507212996b2046e9860024623ff8954d4d3146663430fb44d41df",
+        "generatedAt": "2026-10-27T13:01:14.546Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-hinshutsu-yusen/work/candidate-scene-008",
+      "role": "candidate-scene-008",
+      "type": "image/png",
+      "sha256": "97280eba7ccc587653db321206327fb8b5096769cea576dc35fbfd7174a881a9",
+      "bytes": 1952880,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-hinshutsu-yusen/work/candidate-scene-008.97280eba.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Reconstructed production brief (original tool prompt unavailable in exported metadata): Create one 16:9 Japanese educational diagram slide, using the reference for diagram style only. White-to-light-lavender background, navy and violet outlines, yellow highlights, simple accurate icons, no character. Leave bottom 22% empty for subtitles. Scene heading: 本番形式で確かめる. Depict this narration and visual faithfully: 固めたあとは、本番形式で確かめます。令和8年度の予想50問と施工14問に、全選択肢の解説と分野別の採点表がついています。概要欄からご覧ください。出題の的中を保証するものではありません。 {\"kind\":\"cover\",\"heading\":\"本番形式で確かめる\",\"items\":[\"令和8年度 予想50問＋施工14問（概要欄リンク）\",\"全選択肢の解説＋分野別の採点表\",\"出題の的中を保証するものではありません\"]}. No extra facts, statistics, or unsupported claims.",
+        "promptSha256": "b036bc7044f84ee75453cc796af012710adeac43bc03be540eda27886dc8cf55",
+        "generatedAt": "2026-10-27T13:01:14.546Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-hinshutsu-yusen/work/candidate-subtitles",
+      "role": "candidate-subtitles",
+      "type": "text/x-ssa",
+      "sha256": "5b406dce4be07b6390bbfa9f2de19d3a1af4dfbe994db10866c73e735b4773a8",
+      "bytes": 5211,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-hinshutsu-yusen/work/candidate-subtitles.5b406dce.ass"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-hinshutsu-yusen/storyboard.json"
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-hinshutsu-yusen/work/candidate-video",
+      "role": "candidate-video",
+      "type": "video/mp4",
+      "sha256": "a2e897553ec06552b0e929dad6fb798a077580f8d5d33fd1b7ef367e30c1667f",
+      "bytes": 18820118,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-hinshutsu-yusen/work/candidate-video.a2e89755.mp4"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-hinshutsu-yusen/storyboard.json",
+        "specSha256": "0a42f981f5105cba0779a6e6c13a23b7d2e8b94eaec045916210f47ff72198d0",
+        "renderInputSha256": "4879f38dc6c37b2da45f21908452faac012d1055cc15956a943e281dfcbf913d",
+        "tts": {
+          "engine": "VOICEVOX",
+          "speaker": 13,
+          "credit": "VOICEVOX:青山龍星"
+        }
+      },
+      "durationSec": 153.195
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-hinshutsu-yusen/youtube.longform.pop-diagram-v2/contact-sheet",
+      "role": "contact-sheet",
+      "type": "image/jpeg",
+      "sha256": "826e055da5bcbbc09f4142dc4b084bc3cf352e792b72f489c0f583281ab15e68",
+      "bytes": 624885,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-hinshutsu-yusen/youtube.longform.pop-diagram-v2/contact-sheet.826e055d.jpg"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "media-preview",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-hinshutsu-yusen/storyboard.json"
+      },
+      "width": 1920,
+      "height": 1620
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-hinshutsu-yusen/youtube.longform.pop-diagram-v2/preview",
+      "role": "preview",
+      "type": "video/mp4",
+      "sha256": "f4850f18bd6606cc686daae6b136f36265c976927c4f71505cfaf41de5ef84df",
+      "bytes": 4045520,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-hinshutsu-yusen/youtube.longform.pop-diagram-v2/preview.f4850f18.mp4"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "media-preview",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-hinshutsu-yusen/storyboard.json"
+      },
+      "durationSec": 153.195
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-hinshutsu-yusen/youtube.longform.pop-diagram-v2/preview-metrics",
+      "role": "preview-metrics",
+      "type": "application/json",
+      "sha256": "042c46765ec5941b74b59630a716933742c046f520ab136d6288d44d8236b393",
+      "bytes": 1441,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-hinshutsu-yusen/youtube.longform.pop-diagram-v2/preview-metrics.042c4676.json"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "media-preview",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-hinshutsu-yusen/storyboard.json"
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-hinshutsu-yusen/youtube.longform.pop-diagram-v2/scene-sheet",
+      "role": "scene-sheet",
+      "type": "image/jpeg",
+      "sha256": "e2fe374ea1970f96414b82e0ee7d9c7b5fdcadcfc68f14785986d09d5e1d8421",
+      "bytes": 558427,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-hinshutsu-yusen/youtube.longform.pop-diagram-v2/scene-sheet.e2fe374e.jpg"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "media-preview",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-hinshutsu-yusen/storyboard.json"
+      },
+      "width": 1920,
+      "height": 1194
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-hinshutsu-yusen/youtube.longform.pop-diagram/contact-sheet",
+      "role": "contact-sheet",
+      "type": "image/jpeg",
+      "sha256": "826e055da5bcbbc09f4142dc4b084bc3cf352e792b72f489c0f583281ab15e68",
+      "bytes": 624885,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-hinshutsu-yusen/youtube.longform.pop-diagram/contact-sheet.826e055d.jpg"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "media-preview",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-hinshutsu-yusen/storyboard.json"
+      },
+      "width": 1920,
+      "height": 1620
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-hinshutsu-yusen/youtube.longform.pop-diagram/preview",
+      "role": "preview",
+      "type": "video/mp4",
+      "sha256": "f4850f18bd6606cc686daae6b136f36265c976927c4f71505cfaf41de5ef84df",
+      "bytes": 4045520,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-hinshutsu-yusen/youtube.longform.pop-diagram/preview.f4850f18.mp4"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "media-preview",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-hinshutsu-yusen/storyboard.json"
+      },
+      "durationSec": 153.195
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-hinshutsu-yusen/youtube.longform.pop-diagram/preview-metrics",
+      "role": "preview-metrics",
+      "type": "application/json",
+      "sha256": "24168a1565b4b5cd02d2c8ee822f2652a985689e89e0d3c3aea4a3616f75dc34",
+      "bytes": 1438,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-hinshutsu-yusen/youtube.longform.pop-diagram/preview-metrics.24168a15.json"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "media-preview",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-hinshutsu-yusen/storyboard.json"
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-hinshutsu-yusen/youtube.longform.pop-diagram/scene-sheet",
+      "role": "scene-sheet",
+      "type": "image/jpeg",
+      "sha256": "e2fe374ea1970f96414b82e0ee7d9c7b5fdcadcfc68f14785986d09d5e1d8421",
+      "bytes": 558427,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-hinshutsu-yusen/youtube.longform.pop-diagram/scene-sheet.e2fe374e.jpg"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "media-preview",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-hinshutsu-yusen/storyboard.json"
+      },
+      "width": 1920,
+      "height": 1194
+    },
+    {
       "id": "concrete-chief-engineer/shunin-hinshutsu-yusen/youtube.longform/cover",
       "role": "cover",
       "type": "image/png",
@@ -631,6 +1802,321 @@
         ".tmp/video-render/youtube-covers-a-rollout-20260909/272.png",
         ".tmp/media/concrete-chief-engineer/shunin-mix-design-ronten/youtube.short.point-step1-2/cover.08385127.png"
       ]
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-ochiru-shouronbun/work/candidate-cover",
+      "role": "candidate-cover",
+      "type": "image/png",
+      "sha256": "60ab1c34582e50a2efac0f08ef9ca3aae2ea5dca920737eb060aa28da1451d64",
+      "bytes": 3519015,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-ochiru-shouronbun/work/candidate-cover.60ab1c34.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Use the attached approved cover as STYLE AND CHARACTER continuity reference, not content to copy. Make a fresh full-bleed 16:9 YouTube POP poster for the コンクリート主任技士 exam. Same teacher identity: black rim glasses, slight beard, blank white hard hat, navy construction jacket, red pen, teacher large on right. Energetic violet/purple background, yellow, navy, white and limited red accents; bold dynamic typography. Text must be exactly: 「総監が制作」「コンクリート主任技士」「小論文」「書けたつもり？」「4つの見直し」. This is a study self-check, NOT an official scoring rubric or pass/fail prediction. Show a handwritten essay page and four simple checkmarks at lower left, no scores. Do not add numbers besides the specified 4, pricing, URLs, guarantees, or other text. Keep all foreground, including the teacher and words, above y=80% and within side/top 5%, with the lowest 20% only uninterrupted purple background for subtitles. Every edge full bleed, no white card frame. Japanese glyphs exact and readable at 360px. 1920x1080 intended.",
+        "promptSha256": "ddaa444112534e461bd2627a205d78868a215a9760d33f279659641fdc7e3f0f",
+        "generatedAt": "2026-10-27T13:58:30.522Z"
+      },
+      "width": 1920,
+      "height": 1080,
+      "legacyPaths": [
+        ".tmp/media/concrete-chief-engineer/shunin-ochiru-shouronbun/work/cover-pop.60ab1c34.png"
+      ]
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-ochiru-shouronbun/work/candidate-cta",
+      "role": "candidate-cta",
+      "type": "image/png",
+      "sha256": "cb3020d1bb48e9221f95bf30e4298a2f05b7c5495807bf027757d61399847e60",
+      "bytes": 1972028,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-ochiru-shouronbun/work/candidate-cta.cb3020d1.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Create a fresh full-bleed 16:9 Japanese educational diagram slide using attached image as diagram style reference only. White to pale lavender, navy/violet outlines, small yellow highlights. No teacher, no photo, no book cover mockup with fictitious branding. Keep bottom 22% completely empty for subtitles. Large heading exactly 「答案例を自分の立場に」. Depict a simple open notebook with several labelled role tabs 「立場を選ぶ」「答案例を読む」「自分の事実で書く」 connected by a clear three-step flow. Small footer above subtitle safe area exactly 「概要欄から」. This is an invitation to a real essay-example magazine; no prices, guarantees, official endorsement or extra text. Readable at 360px.",
+        "promptSha256": "dedbb674143db9c890738884cada0c435d05fcbeb6bcea05e83b4a5f1e9feba0",
+        "generatedAt": "2026-10-27T14:06:50.667Z"
+      },
+      "width": 1920,
+      "height": 1080,
+      "legacyPaths": [
+        ".tmp/media/concrete-chief-engineer/shunin-ochiru-shouronbun/work/cta-diagram.cb3020d1.png"
+      ]
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-ochiru-shouronbun/work/candidate-scene-001",
+      "role": "candidate-scene-001",
+      "type": "image/png",
+      "sha256": "60ab1c34582e50a2efac0f08ef9ca3aae2ea5dca920737eb060aa28da1451d64",
+      "bytes": 3519015,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-ochiru-shouronbun/work/candidate-scene-001.60ab1c34.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Use the attached approved cover as STYLE AND CHARACTER continuity reference, not content to copy. Make a fresh full-bleed 16:9 YouTube POP poster for the コンクリート主任技士 exam. Same teacher identity: black rim glasses, slight beard, blank white hard hat, navy construction jacket, red pen, teacher large on right. Energetic violet/purple background, yellow, navy, white and limited red accents; bold dynamic typography. Text must be exactly: 「総監が制作」「コンクリート主任技士」「小論文」「書けたつもり？」「4つの見直し」. This is a study self-check, NOT an official scoring rubric or pass/fail prediction. Show a handwritten essay page and four simple checkmarks at lower left, no scores. Do not add numbers besides the specified 4, pricing, URLs, guarantees, or other text. Keep all foreground, including the teacher and words, above y=80% and within side/top 5%, with the lowest 20% only uninterrupted purple background for subtitles. Every edge full bleed, no white card frame. Japanese glyphs exact and readable at 360px. 1920x1080 intended.",
+        "promptSha256": "ddaa444112534e461bd2627a205d78868a215a9760d33f279659641fdc7e3f0f",
+        "generatedAt": "2026-10-27T13:58:30.522Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-ochiru-shouronbun/work/candidate-scene-002",
+      "role": "candidate-scene-002",
+      "type": "image/png",
+      "sha256": "7c275d79a3aff1751ba2aead5d0ed3092498ff3f4cf3dc33669102c5eba9abd8",
+      "bytes": 1963340,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-ochiru-shouronbun/work/candidate-scene-002.7c275d79.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Create a fresh full-bleed 16:9 Japanese educational diagram slide. Use attached image only as diagram style reference. White-to-pale-lavender background, clean navy/violet outlines, small yellow emphasis, no teacher character, no photo, no decorative card collage. Keep bottom 22% blank for subtitles. Large heading exactly 「4観点は自己点検」. Draw a central essay manuscript with four surrounding simple labelled checks: 「技術的妥当性」「論理構成」「実務経験の具体性」「技術理解」. Add one clear caution strip above subtitle-safe area exactly 「公式の採点項目・配点ではない」. These are study self-check lenses, not official JCI grading criteria. Do not draw grades, scores, pass/fail stamps, percentages or any extra text. Use readable Japanese glyphs at 360px.",
+        "promptSha256": "a8b71a3b64422e894178747a098e84aa7b5bf932d67353cf725d2c9906c3abdc",
+        "generatedAt": "2026-10-27T14:03:03.145Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-ochiru-shouronbun/work/candidate-scene-003",
+      "role": "candidate-scene-003",
+      "type": "image/png",
+      "sha256": "99aa5de31f2d4519aacfd26a742ebfa4f6c36493f27454722a389fa60602f414",
+      "bytes": 1595812,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-ochiru-shouronbun/work/candidate-scene-003.99aa5de3.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Create a fresh full-bleed 16:9 Japanese educational diagram slide. Use attached image only as diagram style reference. White-to-pale-lavender background, clean navy/violet outlines, small yellow emphasis, no teacher character, no photo. Keep bottom 22% blank for subtitles. Large heading exactly 「見直し1 一般論だけ？」. Show a simple before/after comparison about a concrete engineering essay: left sheet labelled 「一般論」 with vague textbook lines, right sheet labelled 「自分の業務」 with three large check boxes 「誰が」「何を判断」「根拠を確認」. Simple arrow from left to right. No invented project facts, scores, percentages or extra text. Every element readable at 360px.",
+        "promptSha256": "a1e14d44eae09bcfbf85ce1d8601210c8ba5aa03a604858c2eb51bbd72b6a783",
+        "generatedAt": "2026-10-27T14:03:03.145Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-ochiru-shouronbun/work/candidate-scene-004",
+      "role": "candidate-scene-004",
+      "type": "image/png",
+      "sha256": "e8b8715bc13abf034a39560acb98062bfadd09d0c44390621f6f0e7d3bc17b7f",
+      "bytes": 1850405,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-ochiru-shouronbun/work/candidate-scene-004.e8b8715b.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Create a fresh full-bleed 16:9 Japanese educational diagram slide using the attached image for diagram style only. White to pale lavender background; navy/violet lines, restrained yellow highlights; no teacher, no photograph, no decorative card collage. Bottom 22% must be completely empty for subtitles. Large heading exactly 「見直し2 抽象表現だけ？」. Compare an essay excerpt: left a cloud labelled 「適切に管理した」 with a question mark; right a clean three-step sequence 「条件」→「確認」→「対策」. Make clear that a concrete description gives the reader substance. Do not invent any project facts or add grades, scores, statistics, percentages, or extra words. Readable at 360px.",
+        "promptSha256": "1a38626e20771928b7b710f45eaf389286351fe35b1bad1ede76e723216d2fb8",
+        "generatedAt": "2026-10-27T14:04:43.388Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-ochiru-shouronbun/work/candidate-scene-005",
+      "role": "candidate-scene-005",
+      "type": "image/png",
+      "sha256": "9df21279ad0fb64609186950fafb5bd3c9dc417e8304b997109c7e5be23438eb",
+      "bytes": 1797655,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-ochiru-shouronbun/work/candidate-scene-005.9df21279.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Create a NEW simple 16:9 Japanese educational diagram slide, using the attached picture only as style reference. White-to-pale-lavender full-bleed background, navy/violet outlines, small yellow highlights. Diagram content must fit entirely inside the TOP 65% of the frame, including every outline, arrow and label. Keep the bottom 35% completely empty background for subtitles. Large heading at top exactly 「見直し3 字数と構成」. Beneath heading, draw three small compact icons in ONE horizontal row: a generic exam instruction sheet labelled 「設問の字数・行数」; a compact complete answer form labelled 「業務との関係」; a small warning triangle and compact answer form labelled 「後半が尻すぼみ？」. All three forms must be shown WHOLE with their bottom borders visible, no part cropped by the empty zone. Avoid real official form layout, fixed word counts, scores, additional section names or extra text. Japanese glyphs large enough at 360px.",
+        "promptSha256": "cd3e3dd84c4bf93cd7029b023ccb2e1318e041fd52c83e5914f810715a099521",
+        "generatedAt": "2026-10-27T14:27:54.776Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-ochiru-shouronbun/work/candidate-scene-006",
+      "role": "candidate-scene-006",
+      "type": "image/png",
+      "sha256": "5f140d436d68c7f37d7ada0fed6d048c5b288692dd82e9b194e7989afa2aa285",
+      "bytes": 1849344,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-ochiru-shouronbun/work/candidate-scene-006.5f140d43.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Create a fresh full-bleed 16:9 Japanese educational diagram slide using attached image for diagram style only. White to pale lavender background; navy/violet lines, restrained yellow highlights; no teacher, no photo. Bottom 22% empty for subtitles. Large heading exactly 「見直し4 設問に答える」. Draw a question sheet on left with three highlighted underlines 「何について」「どの立場で」「何を論じる」, an arrow to an answer sheet on right with those three labels ticked. A side branch labelled 「脱線」 should visibly lead away from the answer sheet but not dominate. This is a learning self-check, not official marking. No scores, pass/fail or extra text. Readable at 360px.",
+        "promptSha256": "903f2c2e24d4bc57079f1e737bc619f15c32572bbd345afb0d47e2d258afa9f7",
+        "generatedAt": "2026-10-27T14:04:43.388Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-ochiru-shouronbun/work/candidate-scene-007",
+      "role": "candidate-scene-007",
+      "type": "image/png",
+      "sha256": "df836191d8575b5f3d668ace2427ad6e8b54460558ea9a613edde14d1a99fcc6",
+      "bytes": 1798213,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-ochiru-shouronbun/work/candidate-scene-007.df836191.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Create a fresh full-bleed 16:9 Japanese educational diagram slide using attached image as diagram style reference only. White to pale lavender, clean navy/violet lines, small yellow emphasis; no teacher, no photo. Keep bottom 22% completely empty for subtitles. Large heading exactly 「提出前の4つの見直し」. Show four clear numbered checkpoints arranged as a 2x2 grid, with text exactly 「1 一般論だけ？」「2 抽象表現だけ？」「3 字数と構成」「4 設問に答える」. In the center a simple essay page icon. This is a study self-check, not official grading. No scores, pass/fail, percentage, extra statistics or other text. Readable at 360px.",
+        "promptSha256": "73ee4b2411a44048618256ed1901386bf431773785b8cee809a14031bea67e65",
+        "generatedAt": "2026-10-27T14:06:31.908Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-ochiru-shouronbun/work/candidate-scene-008",
+      "role": "candidate-scene-008",
+      "type": "image/png",
+      "sha256": "cb3020d1bb48e9221f95bf30e4298a2f05b7c5495807bf027757d61399847e60",
+      "bytes": 1972028,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-ochiru-shouronbun/work/candidate-scene-008.cb3020d1.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Create a fresh full-bleed 16:9 Japanese educational diagram slide using attached image as diagram style reference only. White to pale lavender, navy/violet outlines, small yellow highlights. No teacher, no photo, no book cover mockup with fictitious branding. Keep bottom 22% completely empty for subtitles. Large heading exactly 「答案例を自分の立場に」. Depict a simple open notebook with several labelled role tabs 「立場を選ぶ」「答案例を読む」「自分の事実で書く」 connected by a clear three-step flow. Small footer above subtitle safe area exactly 「概要欄から」. This is an invitation to a real essay-example magazine; no prices, guarantees, official endorsement or extra text. Readable at 360px.",
+        "promptSha256": "dedbb674143db9c890738884cada0c435d05fcbeb6bcea05e83b4a5f1e9feba0",
+        "generatedAt": "2026-10-27T14:06:50.667Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-ochiru-shouronbun/work/candidate-subtitles",
+      "role": "candidate-subtitles",
+      "type": "text/x-ssa",
+      "sha256": "0f662a48530029aa07ec9bcb74deaaeac795d16fc4feb251780304c51cf60a4e",
+      "bytes": 4565,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-ochiru-shouronbun/work/candidate-subtitles.0f662a48.ass"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-ochiru-shouronbun/storyboard.json"
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-ochiru-shouronbun/work/candidate-video",
+      "role": "candidate-video",
+      "type": "video/mp4",
+      "sha256": "e9670d24aa0d56155afdc85d31c2fcca011b5d5d4a22fbba1e386c784fabbd9c",
+      "bytes": 14714693,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-ochiru-shouronbun/work/candidate-video.e9670d24.mp4"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-ochiru-shouronbun/storyboard.json",
+        "specSha256": "7f602c453730d8f5024b088d6e09c9b9de2faf592eb290b9ee3bc2f1b19f9ee4",
+        "renderInputSha256": "d77198f6d883bafb6334e7175f57dd54877956d1eac9f52584a135cba439352d",
+        "tts": {
+          "engine": "VOICEVOX",
+          "speaker": 13,
+          "credit": "VOICEVOX:青山龍星"
+        }
+      },
+      "durationSec": 119.861
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-ochiru-shouronbun/youtube.longform.pop-diagram/contact-sheet",
+      "role": "contact-sheet",
+      "type": "image/jpeg",
+      "sha256": "5f01f35d912c1c4488b47df4eddefbfaf36e2c7da0ef4ea7c0195e5e71c51ac9",
+      "bytes": 454901,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-ochiru-shouronbun/youtube.longform.pop-diagram/contact-sheet.5f01f35d.jpg"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "media-preview",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-ochiru-shouronbun/storyboard.json"
+      },
+      "width": 1920,
+      "height": 1620
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-ochiru-shouronbun/youtube.longform.pop-diagram/preview",
+      "role": "preview",
+      "type": "video/mp4",
+      "sha256": "7b106ed0318199854d1ee47faab5485de0b902da017dda394f177841442643e2",
+      "bytes": 3683784,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-ochiru-shouronbun/youtube.longform.pop-diagram/preview.7b106ed0.mp4"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "media-preview",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-ochiru-shouronbun/storyboard.json"
+      },
+      "durationSec": 119.861
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-ochiru-shouronbun/youtube.longform.pop-diagram/preview-metrics",
+      "role": "preview-metrics",
+      "type": "application/json",
+      "sha256": "8fc5010ac2fbe22e36e312c64d0525b1d36a4ceb156db5770b19629bf9af7af4",
+      "bytes": 702,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-ochiru-shouronbun/youtube.longform.pop-diagram/preview-metrics.8fc5010a.json"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "media-preview",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-ochiru-shouronbun/storyboard.json"
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-ochiru-shouronbun/youtube.longform.pop-diagram/scene-sheet",
+      "role": "scene-sheet",
+      "type": "image/jpeg",
+      "sha256": "d4d555c65e47eeb682dbdfbb09d8520994c8de6ae4167de8f1ea274f82d46888",
+      "bytes": 504198,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-ochiru-shouronbun/youtube.longform.pop-diagram/scene-sheet.d4d555c6.jpg"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "media-preview",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-ochiru-shouronbun/storyboard.json"
+      },
+      "width": 1920,
+      "height": 1194
     },
     {
       "id": "concrete-chief-engineer/shunin-ochiru-shouronbun/youtube.longform/cover",
@@ -993,6 +2479,321 @@
       ]
     },
     {
+      "id": "concrete-chief-engineer/shunin-r8-juuten/work/candidate-cover",
+      "role": "candidate-cover",
+      "type": "image/png",
+      "sha256": "44cba497e85faff1ce0a9290b34fb60bd8dd2fa89fdb49eb24cb77223593a693",
+      "bytes": 3533048,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-r8-juuten/work/candidate-cover.44cba497.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Use attached POP cover as teacher/style continuity reference only. Create a NEW full-bleed 16:9 Japanese YouTube POP cover. Same man on right: black-rim glasses, slight beard, blank white hardhat, navy work jacket, red pen. Violet comic background, thick yellow/white/red lettering. Exact copy only: 「総監が制作」「コンクリート主任技士」「直前期」「過去問の回し方」「3ステップ」. Place all copy on LEFT and teacher on RIGHT, with all their visible content completely inside the TOP 72% of the canvas. The entire BOTTOM 28% must be plain continuous purple background with absolutely NO text, icon, paper, arrow, hand, illustration or border; reserved for subtitles. Do not show numbered exam sheets. This is a practice workflow, no prediction or success guarantee. No white border. Exact Japanese glyphs readable at 360px. Intended 1920x1080.",
+        "promptSha256": "7e46452c8de4fc039b752ff4bda825830116cdff90e2e3e405e8508c12facf4e",
+        "generatedAt": "2026-10-27T14:13:15.380Z"
+      },
+      "width": 1920,
+      "height": 1080,
+      "legacyPaths": [
+        ".tmp/media/concrete-chief-engineer/shunin-r8-juuten/work/cover-pop.44cba497.png"
+      ]
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-r8-juuten/work/candidate-cta",
+      "role": "candidate-cta",
+      "type": "image/png",
+      "sha256": "4d4cc05daa688abb41254f5aba468b5bf34b35f40547e48994571423117f2c05",
+      "bytes": 1743717,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-r8-juuten/work/candidate-cta.4d4cc05d.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Make a clean 16:9 Japanese educational infographic slide based on attached style reference only. White-to-pale-lavender background, navy/violet lines, small yellow highlights, no teacher/photo. Bottom 25% completely empty for subtitles. Heading exactly 「初見の問題で確かめる」. In the centre show THREE large, simple steps: an unbranded question booklet labelled exactly 「50問＋施工14問」, a four-choice explanation icon labelled exactly 「4肢の理由」, a simple chart labelled exactly 「分野別に確認」. Small text exactly 「概要欄から」 above the empty band. Carefully write exactly the given Japanese strings, with no stray glyphs, extra numerals, brand claims, price or success guarantee. Do not show any exact exam question. Large glyphs readable at 360px.",
+        "promptSha256": "c04d6ce23c163300f5e729619a1abf77cb9b374ea5838136c354247babcf61f8",
+        "generatedAt": "2026-10-27T14:19:13.353Z"
+      },
+      "width": 1920,
+      "height": 1080,
+      "legacyPaths": [
+        ".tmp/media/concrete-chief-engineer/shunin-r8-juuten/work/cta-diagram.4d4cc05d.png"
+      ]
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-r8-juuten/work/candidate-scene-001",
+      "role": "candidate-scene-001",
+      "type": "image/png",
+      "sha256": "44cba497e85faff1ce0a9290b34fb60bd8dd2fa89fdb49eb24cb77223593a693",
+      "bytes": 3533048,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-r8-juuten/work/candidate-scene-001.44cba497.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Use attached POP cover as teacher/style continuity reference only. Create a NEW full-bleed 16:9 Japanese YouTube POP cover. Same man on right: black-rim glasses, slight beard, blank white hardhat, navy work jacket, red pen. Violet comic background, thick yellow/white/red lettering. Exact copy only: 「総監が制作」「コンクリート主任技士」「直前期」「過去問の回し方」「3ステップ」. Place all copy on LEFT and teacher on RIGHT, with all their visible content completely inside the TOP 72% of the canvas. The entire BOTTOM 28% must be plain continuous purple background with absolutely NO text, icon, paper, arrow, hand, illustration or border; reserved for subtitles. Do not show numbered exam sheets. This is a practice workflow, no prediction or success guarantee. No white border. Exact Japanese glyphs readable at 360px. Intended 1920x1080.",
+        "promptSha256": "7e46452c8de4fc039b752ff4bda825830116cdff90e2e3e405e8508c12facf4e",
+        "generatedAt": "2026-10-27T14:13:15.380Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-r8-juuten/work/candidate-scene-002",
+      "role": "candidate-scene-002",
+      "type": "image/png",
+      "sha256": "b097621691991970f205dbc88a3865c41f9234f27ed5b85eb1e43167af590ad7",
+      "bytes": 1972873,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-r8-juuten/work/candidate-scene-002.b0976216.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Create a fresh full-bleed 16:9 Japanese educational DIAGRAM slide. Attached image is style reference only: white to pale lavender, navy/violet outlines, restrained yellow, no teacher/photo. Bottom 22% completely empty for subtitles. Heading exactly 「出題状況表を索引に」. Draw a simple matrix with YEAR columns and TOPIC rows, one highlighted topic row connecting question numbers across years. Large labels exactly 「平成21〜令和5年度」「項目」「年度」「問題番号」. At side show scattered papers converging into one topic row. Do not present this as current official 2026 categories or prediction. No invented numeric frequencies, scores, or extra text. Readable at 360px.",
+        "promptSha256": "184e141b2735f049465045c4c56e438198f0a3635b6cef9a8a87863a9f8962b9",
+        "generatedAt": "2026-10-27T14:19:13.353Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-r8-juuten/work/candidate-scene-003",
+      "role": "candidate-scene-003",
+      "type": "image/png",
+      "sha256": "a6f4df439c854f56f4cb9cb01c41764999decd8530eda04f171bec14e9de51ba",
+      "bytes": 1997407,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-r8-juuten/work/candidate-scene-003.a6f4df43.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Create a fresh full-bleed 16:9 Japanese educational DIAGRAM slide, style reference attached. White to pale lavender, navy/violet lines, small yellow highlights. No teacher/photo. Bottom 22% empty for subtitles. Heading exactly 「STEP 1 まず1年分」. Draw one exam paper going through a timer-like full run, then two marked piles: 「誤答」 and 「迷った問題」, each with a small tag 「分野・項目」. A clear arrow points to 「弱点を把握」. No score target, no pass/fail mark, no fake statistics or extra words. Readable at 360px.",
+        "promptSha256": "b6eb1c2c51f5feb45b7a8ce50f24eb331cfd3fbbf68f17debb246610940c5b18",
+        "generatedAt": "2026-10-27T14:19:13.353Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-r8-juuten/work/candidate-scene-004",
+      "role": "candidate-scene-004",
+      "type": "image/png",
+      "sha256": "38e555083e52815d59d2ad2e325a77ff16bd404be53d2b1442c4a98f513ee7a0",
+      "bytes": 1764024,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-r8-juuten/work/candidate-scene-004.38e55508.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Create a fresh full-bleed 16:9 Japanese educational DIAGRAM slide. Attached image style reference only. White to pale lavender, navy/violet lines, small yellow emphasis; no teacher/photo. Bottom 22% completely empty. Exact heading 「STEP 2 弱点を縦串で」. Show a simple abstract matrix of one highlighted weak topic across FOUR columns labelled ONLY 「年度A」「年度B」「年度C」「年度D」. Do NOT print any calendar years, especially no 2024/2025/2026, because the underlying source table ends at 令和5年度. Beside it a re-practice loop labelled 「解き直す」. The highlighted row label 「同じ項目」. Top small label 「年度をまたぐ」. No numeric frequency, no scores, no other writing. Large Japanese glyphs at 360px.",
+        "promptSha256": "784a16f442cff3ea56b3d99859c696f420503dbfd5e8a34aaa4c0cf0eff9a789",
+        "generatedAt": "2026-10-27T14:19:13.353Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-r8-juuten/work/candidate-scene-005",
+      "role": "candidate-scene-005",
+      "type": "image/png",
+      "sha256": "716349a596f8b1f8702775f313038474bebe0fca08653009b39184c198a7c3b6",
+      "bytes": 1646633,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-r8-juuten/work/candidate-scene-005.716349a5.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Create a fresh full-bleed 16:9 Japanese educational DIAGRAM slide; attached image style reference only. White to pale lavender, navy/violet lines, small yellow emphasis; no teacher/photo. Bottom 22% completely empty. Heading exactly 「STEP 3 聞かれ方を確認」. Draw a four-choice exam question with the command word highlighted: two adjacent tabs labelled 「適当」 and 「不適当」, with a magnifying glass over the instruction line. Under four abstract answer-choice circles, show a short verification path labelled 「4肢の理由を言える？」. Do not mark any choice as an actual exam answer. No score claims, statistics, or extra text. Readable at 360px.",
+        "promptSha256": "4b9e61e0730c80889c8000f8308f443483b9dbcb1f7bb606e44664906a8f4ad1",
+        "generatedAt": "2026-10-27T14:19:13.355Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-r8-juuten/work/candidate-scene-006",
+      "role": "candidate-scene-006",
+      "type": "image/png",
+      "sha256": "5f28207591d94c9d2180d2288eb5fd31ef193ed224aa6b02bccec2fdd8ddc3f4",
+      "bytes": 1734544,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-r8-juuten/work/candidate-scene-006.5f282075.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Create a fresh full-bleed 16:9 Japanese educational DIAGRAM slide, using attached image only as style reference. White to pale lavender, navy/violet lines, small yellow accents; no teacher/photo. Bottom 22% completely empty for subtitles. Heading exactly 「復習前に出典を確認」. TWO clearly separate panels. Left: a historical question-index table headed exactly 「出題状況表 H21〜R5」. Do not write any text about R6 onward, as this table simply covers historical analysis and DOES NOT make future years ineligible for the exam. Right: a paper icon headed exactly 「2025年度 主任技士 問題13」, with notice label exactly 「採点対象外の公式通知」. No actual question or answer choice. No extra text, dates or statistics. Ensure readable Japanese at 360px and all panel borders visible above the empty band.",
+        "promptSha256": "eeaa058765c879b4e58a1fc88c4b3bafb4929d48173b2d5ba7e8c2a60803ee6b",
+        "generatedAt": "2026-10-27T14:36:35.673Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-r8-juuten/work/candidate-scene-007",
+      "role": "candidate-scene-007",
+      "type": "image/png",
+      "sha256": "46918426d9cb7e75e871202e2bb6c68fb40cd576aa1b86beb515a3823bfd28fd",
+      "bytes": 1769367,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-r8-juuten/work/candidate-scene-007.46918426.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Create a fresh full-bleed 16:9 Japanese educational DIAGRAM slide; attached image style reference only. White to pale lavender, clean navy/violet lines, small yellow highlights; no teacher/photo. Bottom 22% completely empty for subtitles. Heading exactly 「過去問を回す3ステップ」. Draw a large horizontal three-step flow with ONE short label at each stage: 「1年分を一巡」→「弱点を年度横断」→「4肢の理由を確認」. Use simple paper, matrix, magnifier icons. Do not add score targets, predicted topics, statistics, promises, or other text. Readable at 360px.",
+        "promptSha256": "09a4feb7ccb6f078b2d70f0ff9ba29ec89e07b82d4e5bb9f0aa55481829758b4",
+        "generatedAt": "2026-10-27T14:19:13.353Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-r8-juuten/work/candidate-scene-008",
+      "role": "candidate-scene-008",
+      "type": "image/png",
+      "sha256": "4d4cc05daa688abb41254f5aba468b5bf34b35f40547e48994571423117f2c05",
+      "bytes": 1743717,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-r8-juuten/work/candidate-scene-008.4d4cc05d.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Make a clean 16:9 Japanese educational infographic slide based on attached style reference only. White-to-pale-lavender background, navy/violet lines, small yellow highlights, no teacher/photo. Bottom 25% completely empty for subtitles. Heading exactly 「初見の問題で確かめる」. In the centre show THREE large, simple steps: an unbranded question booklet labelled exactly 「50問＋施工14問」, a four-choice explanation icon labelled exactly 「4肢の理由」, a simple chart labelled exactly 「分野別に確認」. Small text exactly 「概要欄から」 above the empty band. Carefully write exactly the given Japanese strings, with no stray glyphs, extra numerals, brand claims, price or success guarantee. Do not show any exact exam question. Large glyphs readable at 360px.",
+        "promptSha256": "c04d6ce23c163300f5e729619a1abf77cb9b374ea5838136c354247babcf61f8",
+        "generatedAt": "2026-10-27T14:19:13.353Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-r8-juuten/work/candidate-subtitles",
+      "role": "candidate-subtitles",
+      "type": "text/x-ssa",
+      "sha256": "59839ff81691993d1ffadc85c2d10b12d75963ff5f52271de0ddf792df50bc5a",
+      "bytes": 4034,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-r8-juuten/work/candidate-subtitles.59839ff8.ass"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-r8-juuten/storyboard.json"
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-r8-juuten/work/candidate-video",
+      "role": "candidate-video",
+      "type": "video/mp4",
+      "sha256": "5097b3622fc497d73470d4d084ab5a7e00ecb17bdcae84709b281847538a27ce",
+      "bytes": 13507046,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-r8-juuten/work/candidate-video.5097b362.mp4"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-r8-juuten/storyboard.json",
+        "specSha256": "ff4e1352813cedd2ceabf973747ae658452511c5b5d35c495c4851cecdc3585c",
+        "renderInputSha256": "eae466d1c373f2f1d0b0d19aeadd67521ad4d332f5a9fcadc6d9931be2be8f74",
+        "tts": {
+          "engine": "VOICEVOX",
+          "speaker": 13,
+          "credit": "VOICEVOX:青山龍星"
+        }
+      },
+      "durationSec": 115.392
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-r8-juuten/youtube.longform.pop-diagram/contact-sheet",
+      "role": "contact-sheet",
+      "type": "image/jpeg",
+      "sha256": "e0432223fed10d25bfe1a8e93f04118283b93a5e412acde49cce73e0e5b3f306",
+      "bytes": 428223,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-r8-juuten/youtube.longform.pop-diagram/contact-sheet.e0432223.jpg"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "media-preview",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-r8-juuten/storyboard.json"
+      },
+      "width": 1920,
+      "height": 1620
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-r8-juuten/youtube.longform.pop-diagram/preview",
+      "role": "preview",
+      "type": "video/mp4",
+      "sha256": "cfb3b963ce398b6480d935d10a662d175b6ce1fcc88dded571f89f056f14b6f5",
+      "bytes": 3447193,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-r8-juuten/youtube.longform.pop-diagram/preview.cfb3b963.mp4"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "media-preview",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-r8-juuten/storyboard.json"
+      },
+      "durationSec": 115.392
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-r8-juuten/youtube.longform.pop-diagram/preview-metrics",
+      "role": "preview-metrics",
+      "type": "application/json",
+      "sha256": "fb0d2551f83625c6e59b0db71800381e6b5b782372c3fa8b8f174de09a6147e1",
+      "bytes": 624,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-r8-juuten/youtube.longform.pop-diagram/preview-metrics.fb0d2551.json"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "media-preview",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-r8-juuten/storyboard.json"
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-r8-juuten/youtube.longform.pop-diagram/scene-sheet",
+      "role": "scene-sheet",
+      "type": "image/jpeg",
+      "sha256": "7be99304833fca39b77061971facd6995a0418d3aa2659e8d758a15e5b2bf854",
+      "bytes": 506839,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-r8-juuten/youtube.longform.pop-diagram/scene-sheet.7be99304.jpg"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "media-preview",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-r8-juuten/storyboard.json"
+      },
+      "width": 1920,
+      "height": 1194
+    },
+    {
       "id": "concrete-chief-engineer/shunin-r8-juuten/youtube.longform/cover",
       "role": "cover",
       "type": "image/png",
@@ -1212,18 +3013,18 @@
       "id": "concrete-chief-engineer/shunin-shiken-zentaizou/work/candidate-scene-005",
       "role": "candidate-scene-005",
       "type": "image/png",
-      "sha256": "b868b693e9255d16500008416e59df0844b8a9a20ebf944388c535fac112e78e",
-      "bytes": 2196218,
+      "sha256": "ebd9048fbdfe13b068d2323a8ca0ab44b78dc2f0ef97f583b38a6dc73bb2fd5b",
+      "bytes": 2146443,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/concrete-chief-engineer/shunin-shiken-zentaizou/work/candidate-scene-005.b868b693.png"
+        "path": ".tmp/media/concrete-chief-engineer/shunin-shiken-zentaizou/work/candidate-scene-005.ebd9048f.png"
       },
       "provenance": {
         "kind": "ai-generated",
         "tool": "codex",
-        "prompt": "Create ONE new full-bleed 16:9 educational diagram slide for a Japanese コンクリート主任技士 video. Use attached image as style reference only. White to very light lavender background, thick dark purple and navy outlines, restrained yellow accent, large simple icons, diagram-led, no human character, no poster typography, no bullet-card layout. All meaningful text and graphics above 78% height; bottom 22% continuous empty pale background reserved for subtitles. Japanese text must be exactly as specified, no extra words or numbers. Do not imply unsupported exam facts. Intended 1920x1080. Heading『選考基準の主な項目』. A simple clustered concept map with eight readable labels:『用材料』『配合設計』『試験』『プラント』『製造・品質管理』『施工』『環境問題』『その他』. Exactly eight clusters, grouped into 2 rows of 4. Small related icons, no invented syllabus numbers, no structural design claim.",
-        "promptSha256": "8984ebeaa3d354010713ff581ad3bb775bdb0fa09c0f022c0bb2c5f122116b6b",
-        "generatedAt": "2026-10-26T22:06:14.300Z"
+        "prompt": "Correct the grouping in this Japanese educational diagram. There must be EXACTLY eight labeled circles. Purple group of SIX technical topics on the LEFT in a 3 columns × 2 rows grid: top row 「用材料」「配合設計」「試験」, bottom row 「プラント」「製造・品質管理」「施工」. Green group of TWO broader-knowledge topics on the RIGHT in one column: top 「環境問題」, bottom 「その他」. Do not put 「プラント」 in the green group. Keep title exactly 「選考基準の主な項目」 and maintain clean white 16:9 background, navy outline icons, yellow underlines, large highly readable Japanese labels. No other text, no statistic. Keep generous lower subtitle-safe whitespace. The grouped concepts must be visually unambiguous.",
+        "promptSha256": "bf930c5197cfaa0d3f18aa8a6121c0b879b9a7c689dca2ea5c0d26f83a5e3b28",
+        "generatedAt": "2026-10-27T11:46:43.181Z"
       },
       "width": 1920,
       "height": 1080
@@ -1252,18 +3053,18 @@
       "id": "concrete-chief-engineer/shunin-shiken-zentaizou/work/candidate-scene-007",
       "role": "candidate-scene-007",
       "type": "image/png",
-      "sha256": "b4e0eba4fdfd14f5c0f13bdb7a253e59efd763fd63a874321e3770b4fdbb8620",
-      "bytes": 1969964,
+      "sha256": "031bfb5852b07e60d150cdb6879f9899fc7f46d6b62c34a889398866daf7ca84",
+      "bytes": 2095587,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/concrete-chief-engineer/shunin-shiken-zentaizou/work/candidate-scene-007.b4e0eba4.png"
+        "path": ".tmp/media/concrete-chief-engineer/shunin-shiken-zentaizou/work/candidate-scene-007.031bfb58.png"
       },
       "provenance": {
         "kind": "ai-generated",
         "tool": "codex",
-        "prompt": "Edit existing step4 diagram to show two study-time branches: 択一が安定・小論文が弱い → 択一演習の一部を小論文へ; 択一が不安定 → 小論文の時間を過去問へ. 毎週見直す. Preserve subtitle safe band.",
-        "promptSha256": "f83854f019e18843580886b1accdff8ffc0d54c35a9c6fac5e6797a8b1cc0cde",
-        "generatedAt": "2026-10-26T22:47:26.220Z"
+        "prompt": "Edit this existing 16:9 Japanese educational diagram to match the revised narration: 「時間配分は公式基準ではなく、当サイトの提案です。基礎と過去問で固め、小論文も早めに1本書きます。小論文が弱ければ平日の択一演習の一部を書く時間へ、択一が不安定なら週末の小論文の時間を過去問へ回し、毎週見直します。」 Preserve the existing exact two-branch diagram and all labels: top conditions 「択一が安定・小論文が弱い」「択一が不安定」, bottom actions 「択一演習の一部を小論文へ」「小論文の時間を過去問へ」, feedback label 「毎週見直す」. Preserve downward action arrows and the two outer feedback arrows pointing UP to the top condition boxes. Add one modest, clearly legible label under the title: 「当サイトの学習案」. This makes clear the study-time allocation is editorial advice, not an official JCI requirement. Do not add other text or change the direction of arrows. Keep clean white 16:9 full-frame background, navy outlines, soft purple arrows, yellow highlights, large Japanese text, and the bottom subtitle-safe whitespace.",
+        "promptSha256": "e6f9123d1e98b8196804de6d5e7b233b7e3a7d84ec4357373d795377a966f1ec",
+        "generatedAt": "2026-10-27T11:56:46.989Z"
       },
       "width": 1920,
       "height": 1080
@@ -1312,11 +3113,11 @@
       "id": "concrete-chief-engineer/shunin-shiken-zentaizou/work/candidate-subtitles",
       "role": "candidate-subtitles",
       "type": "text/x-ssa",
-      "sha256": "0103333bc300436f8e276de747e566e3fd9661c8724a8ffe437dd31218a36f3a",
-      "bytes": 5324,
+      "sha256": "190784797feb7d20f0715c6680f21243312ada27e392e8d1c0e14dd4cb2a52c0",
+      "bytes": 4658,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/concrete-chief-engineer/shunin-shiken-zentaizou/work/candidate-subtitles.0103333b.ass"
+        "path": ".tmp/media/concrete-chief-engineer/shunin-shiken-zentaizou/work/candidate-subtitles.19078479.ass"
       },
       "provenance": {
         "kind": "render",
@@ -1328,35 +3129,35 @@
       "id": "concrete-chief-engineer/shunin-shiken-zentaizou/work/candidate-video",
       "role": "candidate-video",
       "type": "video/mp4",
-      "sha256": "7b3cbb3f7a700eabc6b45e285734925b792e61e2934da3ad05bc07ed3406f8f5",
-      "bytes": 19344597,
+      "sha256": "5dcb273a5d700d6cb0f0bf8158c3dcc9a9a060d0efec81c70dd78e7dc601532e",
+      "bytes": 16032869,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/concrete-chief-engineer/shunin-shiken-zentaizou/work/candidate-video.7b3cbb3f.mp4"
+        "path": ".tmp/media/concrete-chief-engineer/shunin-shiken-zentaizou/work/candidate-video.5dcb273a.mp4"
       },
       "provenance": {
         "kind": "render",
         "by": "render-longform",
         "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-shiken-zentaizou/storyboard.json",
-        "specSha256": "3a77aecafb5838d55bfc5021632a2374135f097a1b9ce890c76c44fab5ceb65d",
-        "renderInputSha256": "c940225e5c2780f277f46d6ebf53c8b11edaefec6a0dd2caa210915e55308814",
+        "specSha256": "5122b82c281452323e33f89c7bf73d2b920a3b873ea884c53612d438a3881f71",
+        "renderInputSha256": "c2aac55e15c5b7262d7c8de0efa106d52228b1a4a51175f4b42d5dc8aa75aafd",
         "tts": {
           "engine": "VOICEVOX",
           "speaker": 13,
           "credit": "VOICEVOX:青山龍星"
         }
       },
-      "durationSec": 160.523
+      "durationSec": 139.933
     },
     {
       "id": "concrete-chief-engineer/shunin-shiken-zentaizou/youtube.longform.pop-diagram/contact-sheet",
       "role": "contact-sheet",
       "type": "image/jpeg",
-      "sha256": "721cbecf637cd1c7da69e04ec8a79756f67aa56c0c728488989947040a70e0ba",
-      "bytes": 583763,
+      "sha256": "c4a19b7b78b188602dff48617dd951f96c284359b220e223fdccaba0333d8296",
+      "bytes": 518768,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/concrete-chief-engineer/shunin-shiken-zentaizou/youtube.longform.pop-diagram/contact-sheet.721cbecf.jpg"
+        "path": ".tmp/media/concrete-chief-engineer/shunin-shiken-zentaizou/youtube.longform.pop-diagram/contact-sheet.c4a19b7b.jpg"
       },
       "provenance": {
         "kind": "render",
@@ -1370,28 +3171,28 @@
       "id": "concrete-chief-engineer/shunin-shiken-zentaizou/youtube.longform.pop-diagram/preview",
       "role": "preview",
       "type": "video/mp4",
-      "sha256": "245ef611284ebece01f5858ad0adc44c28c34bdba84cf80176b40cd289b856c8",
-      "bytes": 4151538,
+      "sha256": "849c7d0211410e576861e0199e98c2f77fc2dc996c51aa0097af66bcdc3834a2",
+      "bytes": 3903153,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/concrete-chief-engineer/shunin-shiken-zentaizou/youtube.longform.pop-diagram/preview.245ef611.mp4"
+        "path": ".tmp/media/concrete-chief-engineer/shunin-shiken-zentaizou/youtube.longform.pop-diagram/preview.849c7d02.mp4"
       },
       "provenance": {
         "kind": "render",
         "by": "media-preview",
         "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-shiken-zentaizou/storyboard.json"
       },
-      "durationSec": 160.523
+      "durationSec": 139.936
     },
     {
       "id": "concrete-chief-engineer/shunin-shiken-zentaizou/youtube.longform.pop-diagram/preview-metrics",
       "role": "preview-metrics",
       "type": "application/json",
-      "sha256": "7ffb1ec8f037e2f0a5737de7592a7f3c629597a70c30c524edfec100f290868d",
-      "bytes": 1054,
+      "sha256": "0adb872cee79ab18db28ec8542732bf0bba80de72ff122ffd36351ed5a8de8f4",
+      "bytes": 702,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/concrete-chief-engineer/shunin-shiken-zentaizou/youtube.longform.pop-diagram/preview-metrics.7ffb1ec8.json"
+        "path": ".tmp/media/concrete-chief-engineer/shunin-shiken-zentaizou/youtube.longform.pop-diagram/preview-metrics.0adb872c.json"
       },
       "provenance": {
         "kind": "render",
@@ -1403,11 +3204,11 @@
       "id": "concrete-chief-engineer/shunin-shiken-zentaizou/youtube.longform.pop-diagram/scene-sheet",
       "role": "scene-sheet",
       "type": "image/jpeg",
-      "sha256": "eeb7d2f1e0035d5dcde1c0e920eb378c3391c1badce087b2195b944e1b839386",
-      "bytes": 553054,
+      "sha256": "5b64f0ab3a479f21a5531a26d95a714a1dfae7b512d1f66e5ba0c0a1cfba4f49",
+      "bytes": 562451,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/concrete-chief-engineer/shunin-shiken-zentaizou/youtube.longform.pop-diagram/scene-sheet.eeb7d2f1.jpg"
+        "path": ".tmp/media/concrete-chief-engineer/shunin-shiken-zentaizou/youtube.longform.pop-diagram/scene-sheet.5b64f0ab.jpg"
       },
       "provenance": {
         "kind": "render",
@@ -1506,6 +3307,410 @@
         ".tmp/video-render/youtube-covers-a-rollout-20260909/290.png",
         ".tmp/media/concrete-chief-engineer/shunin-shiken-zentaizou/youtube.short.point-step1-2/cover.cef517df.png"
       ]
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-shouronbun-kousei/work/candidate-cover",
+      "role": "candidate-cover",
+      "type": "image/png",
+      "sha256": "192d62f7eb14c46a9bd83dddbc5d1f683c14c56c5e2d3a4f686b4133c4f0c0b0",
+      "bytes": 3488579,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-shouronbun-kousei/work/candidate-cover.192d62f7.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Reconstructed production brief (original tool prompt unavailable in exported metadata): Use the attached successful POP cover as character and style reference. Create a new full-bleed 16:9 YouTube cover for コンクリート主任技士. Keep the same teacher with glasses, white hardhat, navy workwear and red pen on the right; energetic violet, yellow, red comic poster. Exact text: 総監が制作 / コンクリート主任技士 / 小論文 / 何から書く？ / 項目×行数で骨子. No other writing. Keep all foreground above the bottom 20% subtitle-safe band.",
+        "promptSha256": "2f74ec5435d437dfa03b3be943060b68bd8ecfabec21762bb4e51b6431671fd5",
+        "generatedAt": "2026-10-27T12:50:02.222Z"
+      },
+      "width": 1920,
+      "height": 1080,
+      "legacyPaths": [
+        ".tmp/media/concrete-chief-engineer/shunin-shouronbun-kousei/work/cover-pop.192d62f7.png"
+      ]
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-shouronbun-kousei/work/candidate-cta",
+      "role": "candidate-cta",
+      "type": "image/png",
+      "sha256": "9a3b4ae66f8c478673e2dba5e505482b67b6a355a7e9ae0da4e3e8d8bce1192a",
+      "bytes": 1930027,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-shouronbun-kousei/work/candidate-cta.9a3b4ae6.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Reconstructed production brief (original tool prompt unavailable in exported metadata): Create one 16:9 Japanese educational diagram slide, using the reference for diagram style only. White-to-light-lavender background, navy and violet outlines, yellow highlights, simple accurate icons, no character. Leave bottom 22% empty for subtitles. Scene heading: 立場から答案を探す. Depict this narration and visual faithfully: 自分の立場に近い答案は、概要欄の無料のもくじから探せます。ご視聴ありがとうございました。 {\"kind\":\"cover\",\"heading\":\"立場から答案を探す\",\"items\":[\"小論文 8つの立場もくじ（無料・概要欄）\"]}. No extra facts, statistics, or unsupported claims.",
+        "promptSha256": "0fa1a9e1027deb0543efdf96703596a482be269ff8035d67394dc2c433687806",
+        "generatedAt": "2026-10-27T13:07:42.449Z"
+      },
+      "width": 1920,
+      "height": 1080,
+      "legacyPaths": [
+        ".tmp/media/concrete-chief-engineer/shunin-shouronbun-kousei/work/cta-diagram.9a3b4ae6.png"
+      ]
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-shouronbun-kousei/work/candidate-scene-001",
+      "role": "candidate-scene-001",
+      "type": "image/png",
+      "sha256": "192d62f7eb14c46a9bd83dddbc5d1f683c14c56c5e2d3a4f686b4133c4f0c0b0",
+      "bytes": 3488579,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-shouronbun-kousei/work/candidate-scene-001.192d62f7.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Reconstructed production brief (original tool prompt unavailable in exported metadata): Use the attached successful POP cover as character and style reference. Create a new full-bleed 16:9 YouTube cover for コンクリート主任技士. Keep the same teacher with glasses, white hardhat, navy workwear and red pen on the right; energetic violet, yellow, red comic poster. Exact text: 総監が制作 / コンクリート主任技士 / 小論文 / 何から書く？ / 項目×行数で骨子. No other writing. Keep all foreground above the bottom 20% subtitle-safe band.",
+        "promptSha256": "2f74ec5435d437dfa03b3be943060b68bd8ecfabec21762bb4e51b6431671fd5",
+        "generatedAt": "2026-10-27T12:50:02.222Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-shouronbun-kousei/work/candidate-scene-002",
+      "role": "candidate-scene-002",
+      "type": "image/png",
+      "sha256": "b0f66a2257edac5889e27a002d4ecf83b7f513bc567c5330b239b0795894945e",
+      "bytes": 1856357,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-shouronbun-kousei/work/candidate-scene-002.b0f66a22.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Reconstructed production brief (original tool prompt unavailable in exported metadata): Create one 16:9 Japanese educational diagram slide, using the reference for diagram style only. White-to-light-lavender background, navy and violet outlines, yellow highlights, simple accurate icons, no character. Leave bottom 22% empty for subtitles. Scene heading: 誤解：知識量を書き並べる試験. Depict this narration and visual faithfully: 小論文は知識の量を競う試験だと思われがちですが、そこが誤解です。用語を説明できることと、自分の現場の判断として書けることは別の力。答案は、知識を自分の業務に結びつけて組み立てます。 {\"heading\":\"誤解：知識量を書き並べる試験\",\"items\":[\"用語の説明\",\"自分の現場の判断として書く\"],\"flow\":[\"知識\",\"自分の業務に結びつける\",\"答案\"]}. No extra facts, statistics, or unsupported claims.",
+        "promptSha256": "a07bc1e80cf2cf3224adee023d23c4de06a3099d5efb18f355dff2599181a499",
+        "generatedAt": "2026-10-27T13:03:52.475Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-shouronbun-kousei/work/candidate-scene-003",
+      "role": "candidate-scene-003",
+      "type": "image/png",
+      "sha256": "ca716c7884f3f16c3f92f29f0f59c3573de1a375d42b846b385d88c8552118d9",
+      "bytes": 1739734,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-shouronbun-kousei/work/candidate-scene-003.ca716c78.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Reconstructed production brief (original tool prompt unavailable in exported metadata): Create one 16:9 Japanese educational diagram slide, using the reference for diagram style only. White-to-light-lavender background, navy and violet outlines, yellow highlights, simple accurate icons, no character. Leave bottom 22% empty for subtitles. Scene heading: 過去問の項目と行数（二次情報の整理）. Depict this narration and visual faithfully: 問題文は日本コンクリート工学会から公開されていません。合格者・受験者が公開した記事を突き合わせた二次情報では、令和7年度は三項目で、取り組みが15〜20行、対策が10〜15行。令和6年度は四項目でした。項目も行数も年度で変わります。今年度の形式は、受験案内と本番の解答用紙で確認してください。 {\"kind\":\"sheet\",\"heading\":\"過去問の項目と行数（二次情報の整理）\",\"sheetTitle\":\"令和7年度（3項目）／令和6年度（4項目）\",\"rows\":[{\"label\":\"令和7年度\",\"value\":\"表題（1行）\",\"state\":\"done\"},{\"label\":\"令和7年度\",\"value\":\"業務での技術的取り組み（15〜20行）\",\"state\":\"done\"},{\"label\":\"令和7年度\",\"value\":\"今後の技術的対策（10〜15行）\",\"state\":\"done\"},{\"label\":\"令和6年度\",\"value\":\"テーマ番号と表題（1〜2行）\",\"state\":\"done\"},{\"label\":\"令和6年度\",\"value\":\"現状とその原因（7〜10行）\",\"state\":\"done\"},{\"label\":\"令和6年度\",\"value\":\"業務の現状と課題（7〜10行）\",\"state\":\"done\"},{\"label\":\"令和6年度\",\"value\":\"講じるべき行動・活動（10〜14行）\",\"state\":\"done\"}]}. No extra facts, statistics, or unsupported claims.",
+        "promptSha256": "fd8930fa3c55c4f884948c63566649b7d1fb1e22b72e1ab62dc1119619d6dd01",
+        "generatedAt": "2026-10-27T13:03:52.476Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-shouronbun-kousei/work/candidate-scene-004",
+      "role": "candidate-scene-004",
+      "type": "image/png",
+      "sha256": "74cdf3b649d76d2b4f231c230cee3e3bbfe655018193d2afe589e16ccc51337f",
+      "bytes": 1796386,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-shouronbun-kousei/work/candidate-scene-004.74cdf3b6.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Reconstructed production brief (original tool prompt unavailable in exported metadata): Create one 16:9 Japanese educational diagram slide, using the reference for diagram style only. White-to-light-lavender background, navy and violet outlines, yellow highlights, simple accurate icons, no character. Leave bottom 22% empty for subtitles. Scene heading: 4つの骨格に置き換える. Depict this narration and visual faithfully: 項目名が変わっても、骨格は四つに置き換えられます。表題、現状と課題、自分の業務での取り組み、今後の対策です。年度によって欠ける項目もあるので、行数の配分は本番の解答用紙に合わせて決めます。 {\"heading\":\"4つの骨格に置き換える\",\"items\":[\"表題\",\"現状と課題\",\"自分の業務での取り組み\",\"今後の対策\"],\"flow\":[\"表題\",\"現状と課題\",\"業務での取り組み\",\"今後の対策\"]}. No extra facts, statistics, or unsupported claims.",
+        "promptSha256": "d9d2b5caa624a8f2d4a880549e1388db939dcbd6de7c959908ad53dac333dec3",
+        "generatedAt": "2026-10-27T13:03:52.476Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-shouronbun-kousei/work/candidate-scene-005",
+      "role": "candidate-scene-005",
+      "type": "image/png",
+      "sha256": "a0fbe89eb566d2bfcfb41ed33487a6dfc7dd837a33c31caeec0b87753da5d3c9",
+      "bytes": 1580448,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-shouronbun-kousei/work/candidate-scene-005.a0fbe89e.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Reconstructed production brief (original tool prompt unavailable in exported metadata): Create one 16:9 Japanese educational diagram slide, using the reference for diagram style only. White-to-light-lavender background, navy and violet outlines, yellow highlights, simple accurate icons, no character. Leave bottom 22% empty for subtitles. Scene heading: 骨子の例（仮）. Depict this narration and visual faithfully: 骨子の例です。仮に環境負荷低減を選び、生コン工場の配合担当という立場で組みます。実在の工事ではない仮の例です。表題は、混合セメントの採用拡大によるCO2の低減。現状は、セメント製造に伴う排出の大きさを一行で置きます。 {\"kind\":\"sheet\",\"heading\":\"骨子の例（仮）\",\"sheetTitle\":\"テーマ：環境負荷低減\",\"rows\":[{\"label\":\"表題\",\"value\":\"混合セメントの採用拡大によるCO2低減\",\"state\":\"done\"},{\"label\":\"現状と課題\",\"value\":\"セメント製造に伴う排出が大きい\",\"state\":\"done\"},{\"label\":\"業務での取り組み\",\"state\":\"todo\"},{\"label\":\"今後の対策\",\"state\":\"todo\"}]}. No extra facts, statistics, or unsupported claims.",
+        "promptSha256": "590ef1f374e70711d86406e33078ec9077a49dc1ec95d34b05821cc7d1f24be7",
+        "generatedAt": "2026-10-27T13:03:52.475Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-shouronbun-kousei/work/candidate-scene-006",
+      "role": "candidate-scene-006",
+      "type": "image/png",
+      "sha256": "a287be97b9deb4d010cea0cfabbd830fa9b5f5e42fa01d969fc2299c0d9184b6",
+      "bytes": 1783495,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-shouronbun-kousei/work/candidate-scene-006.a287be97.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Reconstructed production brief (original tool prompt unavailable in exported metadata): Create one 16:9 Japanese educational diagram slide, using the reference for diagram style only. White-to-light-lavender background, navy and violet outlines, yellow highlights, simple accurate icons, no character. Leave bottom 22% empty for subtitles. Scene heading: 骨子の例（仮）つづき. Depict this narration and visual faithfully: 取り組みは、誰が、何を、どの指標で確かめたかの順に置きます。配合担当として置換率を検討し、強度と中性化への影響を試験で確認した、と書きます。数値は自分の実績に置き換えます。今後の対策は、自分が提案できる範囲に絞ります。 {\"kind\":\"sheet\",\"heading\":\"骨子の例（仮）つづき\",\"sheetTitle\":\"テーマ：環境負荷低減\",\"rows\":[{\"label\":\"誰が\",\"value\":\"配合担当として\",\"state\":\"done\"},{\"label\":\"何を\",\"value\":\"置換率を検討\",\"state\":\"done\"},{\"label\":\"どの指標で\",\"value\":\"強度・中性化への影響を試験で確認\",\"state\":\"focus\"},{\"label\":\"今後の対策\",\"value\":\"提案できる範囲に絞る\",\"state\":\"done\"}]}. No extra facts, statistics, or unsupported claims.",
+        "promptSha256": "fad39dcfd5aafbafe1e24115976e484c3506b26786dfd85d426bd1db8348c696",
+        "generatedAt": "2026-10-27T13:07:41.513Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-shouronbun-kousei/work/candidate-scene-007",
+      "role": "candidate-scene-007",
+      "type": "image/png",
+      "sha256": "e3b386b461302c30ebc45f04d2b73263be0f06addec2fbf20c26baba86463521",
+      "bytes": 1844568,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-shouronbun-kousei/work/candidate-scene-007.e3b386b4.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Reconstructed production brief (original tool prompt unavailable in exported metadata): Create one 16:9 Japanese educational diagram slide, using the reference for diagram style only. White-to-light-lavender background, navy and violet outlines, yellow highlights, simple accurate icons, no character. Leave bottom 22% empty for subtitles. Scene heading: 自己点検の4観点（当サイト）. Depict this narration and visual faithfully: 書き終えたら見直します。技術的妥当性、論理構成、実務経験の具体性、技術の理解の四つは、当サイトの自己点検の観点で、日本コンクリート工学会の採点基準ではありません。まず、設問の項目に答えているかを確かめてください。 {\"heading\":\"自己点検の4観点（当サイト）\",\"items\":[\"技術的妥当性\",\"論理構成\",\"実務経験の具体性\",\"技術の理解\",\"公式の採点項目ではない\"]}. No extra facts, statistics, or unsupported claims.",
+        "promptSha256": "60eab2c32adb44d5d89d0588832e472db38100ec1de46968d9f4017b5db58810",
+        "generatedAt": "2026-10-27T13:07:41.957Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-shouronbun-kousei/work/candidate-scene-008",
+      "role": "candidate-scene-008",
+      "type": "image/png",
+      "sha256": "d1457d9663f2062ade429a418de2eb71fbea90e0b1c3b10511ec98744d1e3dea",
+      "bytes": 1693161,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-shouronbun-kousei/work/candidate-scene-008.d1457d96.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Reconstructed production brief (original tool prompt unavailable in exported metadata): Create one 16:9 Japanese educational diagram slide, using the reference for diagram style only. White-to-light-lavender background, navy and violet outlines, yellow highlights, simple accurate icons, no character. Leave bottom 22% empty for subtitles. Scene heading: まとめ. Depict this narration and visual faithfully: まとめます。項目と行数を確認し、4つの骨格に置き換え、骨子を先に書き、最後に自己点検。時間が足りなくても、骨子が先です。 {\"heading\":\"まとめ\",\"items\":[\"① 用紙の項目と行数を確認\",\"② 4つの骨格に置き換える\",\"③ 骨子を先に書く\",\"④ 自己点検で見直す\"],\"flow\":[\"項目確認\",\"骨格\",\"骨子\",\"自己点検\"]}. No extra facts, statistics, or unsupported claims.",
+        "promptSha256": "0eeafca11606945e4c022163c3906e485404e9c58c9b655a99d4b90ac0bce2ed",
+        "generatedAt": "2026-10-27T13:07:42.184Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-shouronbun-kousei/work/candidate-scene-009",
+      "role": "candidate-scene-009",
+      "type": "image/png",
+      "sha256": "9a3b4ae66f8c478673e2dba5e505482b67b6a355a7e9ae0da4e3e8d8bce1192a",
+      "bytes": 1930027,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-shouronbun-kousei/work/candidate-scene-009.9a3b4ae6.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Reconstructed production brief (original tool prompt unavailable in exported metadata): Create one 16:9 Japanese educational diagram slide, using the reference for diagram style only. White-to-light-lavender background, navy and violet outlines, yellow highlights, simple accurate icons, no character. Leave bottom 22% empty for subtitles. Scene heading: 立場から答案を探す. Depict this narration and visual faithfully: 自分の立場に近い答案は、概要欄の無料のもくじから探せます。ご視聴ありがとうございました。 {\"kind\":\"cover\",\"heading\":\"立場から答案を探す\",\"items\":[\"小論文 8つの立場もくじ（無料・概要欄）\"]}. No extra facts, statistics, or unsupported claims.",
+        "promptSha256": "0fa1a9e1027deb0543efdf96703596a482be269ff8035d67394dc2c433687806",
+        "generatedAt": "2026-10-27T13:07:42.449Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-shouronbun-kousei/work/candidate-subtitles",
+      "role": "candidate-subtitles",
+      "type": "text/x-ssa",
+      "sha256": "4870f34a0d6366b2147ecee5c61c23a79b3e0eed1059d1402dc3611e735a2157",
+      "bytes": 4761,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-shouronbun-kousei/work/candidate-subtitles.4870f34a.ass"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-shouronbun-kousei/storyboard.json"
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-shouronbun-kousei/work/candidate-video",
+      "role": "candidate-video",
+      "type": "video/mp4",
+      "sha256": "cf0c15074c6572afe386313efcdf993452311266dcdae10b8bf77e06a8068b55",
+      "bytes": 17084019,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-shouronbun-kousei/work/candidate-video.cf0c1507.mp4"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-shouronbun-kousei/storyboard.json",
+        "specSha256": "a2d507bd2ea4cf507d24ed20106417d89df328aefabc8f6dcc63e0f2a44674dd",
+        "renderInputSha256": "f0701963ea9d88437e3380c8dfcc91f1deb1579fb1f8153a6f1a4d95a9bc1077",
+        "tts": {
+          "engine": "VOICEVOX",
+          "speaker": 13,
+          "credit": "VOICEVOX:青山龍星"
+        }
+      },
+      "durationSec": 137.8
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-shouronbun-kousei/youtube.longform.pop-diagram-v2/contact-sheet",
+      "role": "contact-sheet",
+      "type": "image/jpeg",
+      "sha256": "ba9605e34a99c127215e5ab5736605b0f89c42b40526dfd5963a3172d393ed6c",
+      "bytes": 474873,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-shouronbun-kousei/youtube.longform.pop-diagram-v2/contact-sheet.ba9605e3.jpg"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "media-preview",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-shouronbun-kousei/storyboard.json"
+      },
+      "width": 1920,
+      "height": 1620
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-shouronbun-kousei/youtube.longform.pop-diagram-v2/preview",
+      "role": "preview",
+      "type": "video/mp4",
+      "sha256": "b4b8db911042cd2f3e9d438c24dba6def524baeb1e050f7a1e356f7fdac99428",
+      "bytes": 3515448,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-shouronbun-kousei/youtube.longform.pop-diagram-v2/preview.b4b8db91.mp4"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "media-preview",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-shouronbun-kousei/storyboard.json"
+      },
+      "durationSec": 137.813
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-shouronbun-kousei/youtube.longform.pop-diagram-v2/preview-metrics",
+      "role": "preview-metrics",
+      "type": "application/json",
+      "sha256": "ca5f4fdb64852468547fc8b88c7f6442f8ee2b2dc55aba1600e962f848f394c8",
+      "bytes": 884,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-shouronbun-kousei/youtube.longform.pop-diagram-v2/preview-metrics.ca5f4fdb.json"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "media-preview",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-shouronbun-kousei/storyboard.json"
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-shouronbun-kousei/youtube.longform.pop-diagram-v2/scene-sheet",
+      "role": "scene-sheet",
+      "type": "image/jpeg",
+      "sha256": "e2eec8d7f9bfe5aaef7f2ec84ff829cb94125478c3c0dc98c47ccae5172f77ab",
+      "bytes": 570959,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-shouronbun-kousei/youtube.longform.pop-diagram-v2/scene-sheet.e2eec8d7.jpg"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "media-preview",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-shouronbun-kousei/storyboard.json"
+      },
+      "width": 1920,
+      "height": 1194
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-shouronbun-kousei/youtube.longform.pop-diagram/contact-sheet",
+      "role": "contact-sheet",
+      "type": "image/jpeg",
+      "sha256": "ba9605e34a99c127215e5ab5736605b0f89c42b40526dfd5963a3172d393ed6c",
+      "bytes": 474873,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-shouronbun-kousei/youtube.longform.pop-diagram/contact-sheet.ba9605e3.jpg"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "media-preview",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-shouronbun-kousei/storyboard.json"
+      },
+      "width": 1920,
+      "height": 1620
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-shouronbun-kousei/youtube.longform.pop-diagram/preview",
+      "role": "preview",
+      "type": "video/mp4",
+      "sha256": "b4b8db911042cd2f3e9d438c24dba6def524baeb1e050f7a1e356f7fdac99428",
+      "bytes": 3515448,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-shouronbun-kousei/youtube.longform.pop-diagram/preview.b4b8db91.mp4"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "media-preview",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-shouronbun-kousei/storyboard.json"
+      },
+      "durationSec": 137.813
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-shouronbun-kousei/youtube.longform.pop-diagram/preview-metrics",
+      "role": "preview-metrics",
+      "type": "application/json",
+      "sha256": "719557e1fada9979243c1dee1d7bc4b03af0a249185f0d7d86c8b671adf25dd9",
+      "bytes": 881,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-shouronbun-kousei/youtube.longform.pop-diagram/preview-metrics.719557e1.json"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "media-preview",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-shouronbun-kousei/storyboard.json"
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-shouronbun-kousei/youtube.longform.pop-diagram/scene-sheet",
+      "role": "scene-sheet",
+      "type": "image/jpeg",
+      "sha256": "e2eec8d7f9bfe5aaef7f2ec84ff829cb94125478c3c0dc98c47ccae5172f77ab",
+      "bytes": 570959,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-shouronbun-kousei/youtube.longform.pop-diagram/scene-sheet.e2eec8d7.jpg"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "media-preview",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-shouronbun-kousei/storyboard.json"
+      },
+      "width": 1920,
+      "height": 1194
     },
     {
       "id": "concrete-chief-engineer/shunin-shouronbun-kousei/youtube.longform/cover",

@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "exams": {
+    "civil-1": {
+      "questions": 1642,
+      "years": 17,
+      "firstYearLabel": "平成18年度",
+      "lastYearLabel": "令和7年度"
+    },
+    "pe-first-stage": {
+      "questions": 1830,
+      "years": 16,
+      "firstYearLabel": "平成23年度",
+      "lastYearLabel": "令和7年度"
+    }
+  }
+}

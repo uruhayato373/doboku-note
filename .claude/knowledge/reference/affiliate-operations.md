@@ -8,7 +8,7 @@ A8 / もしも / afb の 3 ASP を横断する。
 - **mat レジストリ（機械可読）**: `config/affiliate-mats.json`
 - **A8 の成果取込**: [a8-affiliate-pipeline.md](a8-affiliate-pipeline.md)（scout ＋ report。役割が違うので分離）
 
-最終更新: 2026-10-07（§6.5 の公開 EPC・目安クリック・現状を 2026-09-08 検証の条件と 9 月の取込に合わせた）
+最終更新: 2026-10-27（§6 必須ルール 2 を「1 ページ・1 案件・1 ピクセル」に改めた）
 
 ---
 
@@ -184,7 +184,7 @@ A8 だけは**管理画面にサイト切替が存在しない**ため、assert 
 ### バナー実装の必須ルール
 
 1. **計測ピクセル（1×1 img）は必ずセットで貼る** — 外すと成果が計測されない（意匠実験 EXP-043 のビルドジョブの B はテキスト素材 NTRMQ のリンクと、その素材のピクセルの組）
-2. **1 ページ 1 ピクセル**（同一 mat の二重発火を避ける）。複数面に同案件を出す場合、発火源を 1 つに決め他は href のみ。docs 記事は 2026-09-26 から `DocPage.tsx` が決める: 本文に転職広告（手書き inline／中間カード）があれば本文側で 1 発、無ければ記事末バナーで 1 発、どちらも無いページは 0 発（2026-10-21 に記事末を閉じたので、いまは本文側だけ・DN-0779）（広告を出さないページで発火させない）
+2. **1 ページ・1 案件・1 ピクセル**（同じ素材〔mat〕を 1 ページで二重に発火させない）。2026-10-27 に「1 ページ 1 ピクセル」から改めた（運営者決定）。1 つの枠に別案件を 2 枚並べる場合（訴求設計 §12.2 の比較）は、案件ごとに 1 発ずつ、計 2 発を出してよい。同じ案件を複数面に出す場合は従来どおり発火源を 1 つに決め、他は href のみ。docs 記事は 2026-09-26 から `DocPage.tsx` が決める: 本文に転職広告（手書き inline／中間カード）があれば本文側で 1 発、無ければ記事末バナーで 1 発、どちらも無いページは 0 発（2026-10-21 に記事末を閉じたので、いまは本文側だけ・DN-0779）（広告を出さないページで発火させない）
 3. `loading="lazy"` を付ける（LCP 保護）
 4. `width` / `height` を指定する（CLS 防止）
 5. `alt` を埋める
@@ -583,8 +583,8 @@ A8 側の `clicks` は参考値）。A8 から取るのは**成果（発生件�
 
 | コマンド | 検査内容 | 配線 |
 |---|---|---|
-| `npm run check-affiliate-wiring` | カタログ ↔ `affiliate-mats.json` ↔ `a8-report-automation.json` の programIdMap ↔ 消費側の 4 点突合。`placement=active` なのに mat が無い／`redLine:true` なのに配置されている／mats にあってカタログに無い を検知 | pre-commit |
-| `npm run check-affiliate-mats` | 未登録 mat=ERROR / MDX への生 mat 直書き=ERROR / A8 画像 URL の wid が 002（doboku-note）以外=ERROR（stats47 の提携の素材の誤貼り。同じ案件でも mat の第2トークンはサイトごとに違う）/ 失効 creative の配置=WARN | pre-commit |
+| `npm run check-affiliate-wiring` | カタログ ↔ `affiliate-mats.json` ↔ `a8-report-automation.json` の programIdMap ↔ 消費側の 4 点突合。`placement=active` なのに mat が無い／`redLine:true` なのに配置されている／mats にあってカタログに無い を検知 | pre-commit・quality-audit ci（`affiliate-placements` の束・2026-10-27〜） |
+| `npm run check-affiliate-mats` | 未登録 mat=ERROR / MDX への生 mat 直書き=ERROR / A8 画像 URL の wid が 002（doboku-note）以外=ERROR（stats47 の提携の素材の誤貼り。同じ案件でも mat の第2トークンはサイトごとに違う）/ 失効 creative の配置=WARN | pre-commit・quality-audit ci（`affiliate-placements` の束・2026-10-27〜） |
 | `npm run check-affiliate-prose` | 廃止アフィリ（講座・添削ブランド等）の本文 prose 再提案 | pre-commit ＋ `quality:audit:ci` |
 | `node --test tests/affiliate-link-referrer.test.mjs` | 広告リンクの rel とリファラ方針が対になっていること（検査 0 件は失敗）・クリック計測が中クリックを拾うこと | `npm test` |
 | `node --test tests/asp-site-guard.test.mjs` | サイト帰属 assert が不一致で throw すること | `npm test` |

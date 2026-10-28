@@ -2,7 +2,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { existsSync } from 'node:fs';
-import { GATES, UNIT_TEST_RULES, planGates, unitTestsFor } from '../scripts/pre-commit-ci-gates.mjs';
+import { GATES, UNIT_TEST_RULES, gateEnv, planGates, unitTestsFor } from '../scripts/pre-commit-ci-gates.mjs';
 import { STEPS } from '../scripts/lib/pre-commit-steps.mjs';
 import { CHECKS } from '../scripts/quality-audit.mjs';
 
@@ -83,7 +83,7 @@ test('台帳・配線の検査は、その正本か読む側を stage したと�
 
 test('unit-tests は staged に関係する実データのテストだけを回す（DN-0790）', () => {
   assert.deepEqual(unitTestsFor(['scripts/x.mjs']), ['tests/git-exec-maxbuffer.test.mjs', 'tests/env-example.test.mjs', 'tests/script-helpers-ratchet.test.mjs', 'tests/read-json-ratchet.test.mjs']);
-  assert.deepEqual(unitTestsFor(['tests/x.test.mjs']), ['tests/script-helpers-ratchet.test.mjs', 'tests/read-json-ratchet.test.mjs'], 'テストの変更でも写しのラチェットを回す');
+  assert.deepEqual(unitTestsFor(['tests/x.test.mjs']), ['tests/script-helpers-ratchet.test.mjs', 'tests/read-json-ratchet.test.mjs', 'tests/x.test.mjs'], 'テストの変更でも写しのラチェットと、変えたテスト自身を回す（2026-10-27）');
   assert.ok(unitTestsFor(['content/site/standards-articles/kanto/a/chapters/1/article.mdx']).includes('tests/standards-ogp-guards.test.mjs'));
   assert.ok(unitTestsFor(['content/note/x/y/article.md']).includes('tests/content-theme.test.mjs'));
   assert.ok(unitTestsFor(['data/coconala/orders.json']).includes('tests/dataset-schemas.test.mjs'));
@@ -120,4 +120,19 @@ test('planGates: スクリプトとワークフローを変えたら、書き方
   }
   assert.ok(!planGates(['src/lib/coconala-services.ts']).some((g) => g.id === 'unit-tests'), 'サイトの src/ は CI の全量に任せる');
   assert.ok(!planGates(['scripts/kindle-published/catalog.json']).some((g) => g.id === 'unit-tests'), 'コードでない JSON は見ない');
+});
+
+test('unit-tests は hook の GIT_INDEX_FILE などを外して起動する（テストの git が commit 用の index を書き換えない）', () => {
+  // 2026-10-27: todo-add.test.mjs の一時リポジトリの git add が commit 用の index を 17,802 件から 2 件に置き換えた
+  const env = { PATH: '/bin', GIT_INDEX_FILE: '/repo/.git/next-index.lock', GIT_DIR: '/repo/.git', HOME: '/h' };
+  const unit = planGates(['scripts/todo-add.mjs']).find((g) => g.id === 'unit-tests');
+  assert.ok(unit, 'scripts/todo-add.mjs で unit-tests が回らない');
+  const isolated = gateEnv(unit, env);
+  assert.equal(isolated.GIT_INDEX_FILE, undefined);
+  assert.equal(isolated.GIT_DIR, undefined);
+  assert.equal(isolated.PATH, '/bin');
+  assert.equal(env.GIT_INDEX_FILE, '/repo/.git/next-index.lock', '呼び出し元の env を書き換えない');
+  // --staged で index を読む検査には commit 用の index をそのまま渡す
+  const other = GATES.find((g) => !g.isolateGit);
+  assert.equal(gateEnv(other, env).GIT_INDEX_FILE, '/repo/.git/next-index.lock');
 });

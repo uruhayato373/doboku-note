@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "pe-first-stage",
+      "headline": [
+        "ニュートン法",
+        "接線で次の",
+        "近似解へ"
+      ],
+      "accentLine": 1,
+      "subtitle": "基礎科目",
+      "character": {
+        "pose": "pop-red-pen",
+        "frame": "waist"
+      },
+      "design": "pop-poster-v3",
+      "pop": {
+        "variant": "question",
+        "authority": "総監が制作"
+      },
+      "approvedImage": {
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/cover-pop.1180900f.png",
+        "sha256": "1180900fac85acce7826e1fbec943150ef9ecc364f2dbddd4035209138f4b26f",
+        "specSha256": "444be3a9c80dbc1731a4fd32ab132f4602b150501db4498e9a8cfe646395990e"
+      }
+    }
+  }
+}

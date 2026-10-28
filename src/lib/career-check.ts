@@ -15,10 +15,8 @@
  * 方針の真実源: .claude/knowledge/reference/affiliate-operations.md「読者が自分で棚卸しするツール」
  */
 import { qualificationLabel } from "@/lib/qualification-names";
-import { CAREER_HUB_SLUG, CAREER_NEEDS, type CareerNeed } from "@/config/career-pathways";
+import { CAREER_HUB_SLUG, CAREER_NEEDS, careerArticlePath, type CareerNeed } from "@/config/career-pathways";
 
-const careerArticlePath = (slug: string) =>
-  `/exam/civil-construction-1/guide/${slug.replace(/^civil-construction-1-guide-/, '')}`;
 
 /**
  * 読者が選ぶ悩み。`urgent` だけは need ではなく**安全側の分岐**で、

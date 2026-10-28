@@ -1,4 +1,4 @@
-import type { ExamKey } from '@/lib/exam-brand';
+import { QUALIFICATION_TO_EXAM_KEY, type ExamKey } from '@/lib/exam-brand';
 import { listedCoconalaServices, type CoconalaService } from '@/lib/coconala-services';
 
 /**
@@ -9,17 +9,12 @@ import { listedCoconalaServices, type CoconalaService } from '@/lib/coconala-ser
  * ＝categories.json 準拠）と、**同じ資格を別の語彙で呼んでいる**。
  * 変換を各所に散らすとドリフトするのでここに集約する。
  */
-const EXAM_SCOPE_BY_KEY: Partial<Record<ExamKey, string>> = {
-  tankan: 'pe-comprehensive-management',
-  'pe-construction': 'pe-construction',
-  'pe-first-stage': 'pe-first-stage',
-  'civil-1': 'civil-1',
-  'civil-2': 'civil-2',
-  concrete: 'concrete-engineer',
-  'concrete-chief': 'concrete-chief-engineer',
-  'concrete-diagnosis': 'concrete-diagnostician',
-  rccm: 'rccm',
-};
+// 1級・2級土木だけはカタログ側も civil-1 / civil-2（ExamKey と同じ語）。それ以外は registry の資格 id（categories.json 準拠）
+const CIVIL_SCOPE: Partial<Record<ExamKey, string>> = { 'civil-1': 'civil-1', 'civil-2': 'civil-2' };
+/** ExamKey → examScope。資格 id → ExamKey の正本（exam-brand.ts の QUALIFICATION_TO_EXAM_KEY）を逆に引いて作る（表を写さない） */
+const EXAM_SCOPE_BY_KEY: Partial<Record<ExamKey, string>> = Object.fromEntries(
+  Object.entries(QUALIFICATION_TO_EXAM_KEY).map(([qualification, key]) => [key, CIVIL_SCOPE[key] ?? qualification]),
+);
 
 /** ExamKey → 商品カタログ側の examScope 値。対応が無い資格は null。 */
 function toExamScope(key: ExamKey): string | null {

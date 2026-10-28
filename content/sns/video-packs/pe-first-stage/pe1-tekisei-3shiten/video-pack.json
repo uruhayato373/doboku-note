@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "packId": "pe1-tekisei-3shiten",
+  "exam": "pe-first-stage",
+  "title": "技術士一次 適性科目の正誤判定で見る3つの視点",
+  "audience": "2026年11月22日の技術士第一次試験を控え、適性科目の選択肢の正誤判定に迷う受験者",
+  "pain": "適性科目で、覚えたはずの内容でも選択肢の正誤判定に迷う",
+  "promise": "主語・適用範囲、数値・順序、断定表現の3視点の考え方と、そのうち視点1・3を仮の例で試す読み方（動画の提案）が分かる",
+  "intent": "exam-point",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/pe-first-stage/guide-aptitude-subject/article.mdx"
+    },
+    {
+      "type": "external",
+      "url": "https://www.engineer.or.jp/c_topics/011/attached/attach_11780_2.pdf",
+      "title": "令和8年度技術士第一次試験 受験申込案内（日本技術士会・PDF）"
+    },
+    {
+      "type": "external",
+      "url": "https://laws.e-gov.go.jp/law/358AC0000000025",
+      "title": "技術士法（昭和58年法律第25号）第45条・第46条（e-Gov法令検索）"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "pe1-takuitsu-pdf",
+    "campaign": "pe1-tekisei-3shiten"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 0,
+    "instagramCarousel": false,
+    "instagramReel": false,
+    "xThread": false,
+    "threadsBrief": false
+  }
+}

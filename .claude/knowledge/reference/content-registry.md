@@ -5,6 +5,7 @@ title: コンテンツ台帳（content/registry）— 全チャネルの公開�
 # コンテンツ台帳（content/registry）
 
 2026-10-09 に運営者が決めた、YouTube・Shorts・Instagram・X（今後の Threads・TikTok を含む）の**公開の事実の正本**。
+note・ココナラ・Kindle は対象外（note の公開状態の正本は記事の frontmatter の `noteId`・`noteStatus` で、未公開の一覧は `npm run note-unpublished`）。
 公開済みも含めて 1 件の投稿を 1 つの ID で引き、その ID から台本・状態・承認・外部 ID・素材・観測値・確認画面までたどれるようにする。
 段階の進め方はバックログの P1〜P7（DN-0614・DN-0608〜DN-0613）。
 
@@ -171,7 +172,7 @@ npm run media -- pull --work civil-construction-2/matome-2kyu-chokuzen
 
 新版文面を別入力から指定する場合は `--copy <同作品内のJSON#fragment>` を付ける。作品ディレクトリ内の実パスだけを受け付け、参照元を新版入力の `copySource` に記録する。指定文面もdigestに含むため、dry-run後に文面を変えた場合は再検査が必要。旧公開行・旧入力は変更しない。
 
-既定では既存の改訂入力の不一致を拒否する。制作中の未承認draft入力を更新する場合だけ `--refresh-draft` を指定する（初回作成には使用不可）。公開行が予定draft行と完全一致することを条件とし、承認・外部情報・操作記録等の追加情報がある行は拒否する。更新前JSONをSHA付きhistoryファイルへ完全保存し、dry-runのdigestにも更新前入力SHAを含める。元の公開行・元の入力は変更しない。
+既定では既存の改訂入力の不一致を拒否する。未承認の `draft`・`qa_passed`・`qa_blocked` 入力を更新する場合だけ `--refresh-draft` を指定する（初回作成には使用不可）。未来の `--publish-at` 変更もこの経路で行う。QA済み行の入力を変えた場合は `draft` に戻してQAをやり直す。公開行は予定draft行と状態・予定以外が一致することを条件とし、承認・外部情報・操作記録等の追加情報がある行は拒否する。更新前JSONをSHA付きhistoryファイルへ完全保存し、dry-runのdigestにも更新前入力SHAを含める。元の公開行・元の入力は変更しない。
 
 この準備入口はローカルの下書き作成だけで、承認・転送・投稿を行わない。`loadVideoState` は改訂行を旧投稿処理へ流さず、`publish-video-pack.cjs` はこの改訂入力には未対応。旧IDの上書きや、承認をコピーして既存経路へ通す方法は使わない。
 

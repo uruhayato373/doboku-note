@@ -1,0 +1,247 @@
+{
+  "format": "longform-16x9",
+  "imageDesign": {
+    "mode": "codex-pop",
+    "scope": "all-body",
+    "revision": "body-diagram-20261028",
+    "coverRevision": "cover-pop-20261028",
+    "layout": "diagram-led"
+  },
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 4,
+      "narration": "ニュートン法、分母の意味です。",
+      "caption": "基礎科目 ニュートン法 分母の意味",
+      "visual": {
+        "kind": "cover",
+        "heading": "ニュートン法 分母の意味",
+        "items": [
+          "接線で次の近似解へ"
+        ]
+      },
+      "graphicPrompt": "POP表紙。放物線に1本の接線が当たり、横軸との交点へ大きな矢印が降りる構図。資格色の背景。"
+    },
+    {
+      "sceneId": "answer",
+      "start": 4,
+      "end": 25,
+      "narration": "結論です。ニュートン法は、いまの点で接線を引き、その接線が横軸と交わる場所を次の近似値にします。割り算の分母の導関数は、高さを横の移動距離に直す係数です。仮の数字で二回だけ計算し、分母を外すと何が起きるかも見ます。",
+      "caption": "結論：接線と横軸の交点へ移る。分母は傾き",
+      "visual": {
+        "heading": "結論：ニュートン法の一手順",
+        "items": [
+          "接線と横軸の交点が次の値",
+          "高さ ÷ 傾き ＝ 横の移動",
+          "分母を外すと別の計算"
+        ]
+      },
+      "graphicPrompt": "3つの大きなカードが左から右へ並ぶ手順図。1:接線を引く、2:横軸との交点、3:高さ÷傾きで横移動。",
+      "sourceRef": "content/site/pe-first-stage/guide-calculus-numerical-calculation/article.mdx"
+    },
+    {
+      "sceneId": "pain",
+      "start": 25,
+      "end": 45,
+      "narration": "式は覚えたのに、なぜ導関数で割るのか分からない。この状態だと、途中で割り算を忘れても、答えの違和感に気づけません。割り算の目的を、図の横の距離として一度つかんでおくと、式の暗記に頼らず確かめられます。",
+      "caption": "式は覚えたが、割る理由が曖昧",
+      "visual": {
+        "heading": "つまずきやすい点",
+        "items": [
+          "f(x) だけ引いてしまう",
+          "分母の意味が分からない",
+          "途中で割り算を忘れる"
+        ]
+      },
+      "graphicPrompt": "縦長の吹き出しに『なぜ f'(x) で割る？』と大きく書いた図。横に引き算だけの誤った式が並ぶ。",
+      "sourceRef": "content/site/pe-first-stage/guide-calculus-numerical-calculation/article.mdx"
+    },
+    {
+      "sceneId": "setup",
+      "start": 45,
+      "end": 65,
+      "narration": "仮の例で進めます。実際の出題でも、公式の過去問でもありません。方程式はエックスの二乗引く五が零。正の解は、ルート五です。初期値は三。導関数は二エックスなので、エックスが三のとき、関数の値は四、傾きは六です。",
+      "caption": "仮の例（非公式）：f(x)=x²−5、初期値3",
+      "visual": {
+        "heading": "仮の例：f(x)＝x²−5",
+        "items": [
+          "初期値 x₀＝3",
+          "f(3)＝4（高さ）",
+          "f′(x)＝2x より f′(3)＝6（傾き）"
+        ]
+      },
+      "graphicPrompt": "放物線y=x²-5を描き、x=3の点に『高さ4』『傾き6』のラベル。左上に『仮の例・非公式』の小さな札。",
+      "sourceRef": "content/site/pe-first-stage/guide-calculus-numerical-calculation/article.mdx"
+    },
+    {
+      "sceneId": "tangent",
+      "start": 65,
+      "end": 84,
+      "narration": "接線を思い浮かべます。点の高さは四、傾きは六です。傾きは、横に一進むと縦に六上がる割合です。だから、高さ四を下げて横軸に届くには、四割る六、つまり三分の二だけ左へ進めばよいと分かります。",
+      "caption": "高さ4を傾き6で割る＝左へ2/3",
+      "visual": {
+        "heading": "接線で横軸まで下がる",
+        "items": [
+          "高さ 4",
+          "傾き 6（横に1で縦に6）",
+          "横の移動 4÷6＝2/3"
+        ]
+      },
+      "graphicPrompt": "x=3の点から横軸へ下る直角三角形。縦の辺が4、傾きが6、底辺が2/3と大きく書かれた図。",
+      "sourceRef": "content/site/pe-first-stage/guide-calculus-numerical-calculation/article.mdx"
+    },
+    {
+      "sceneId": "step1",
+      "start": 84,
+      "end": 101,
+      "narration": "一回目の更新です。エックス一は、三引く、四割る六。四割る六は三分の二なので、三から引いて、三分の七です。小数にすると、約二・三三です。ここでは、三分の七のまま次へ進みます。",
+      "caption": "x₁＝3−4/6＝7/3",
+      "visual": {
+        "heading": "一回目：x₁",
+        "items": [
+          "x₁＝3−4/6",
+          "＝3−2/3",
+          "＝7/3"
+        ]
+      },
+      "graphicPrompt": "数直線上でx=3から7/3へ曲がった矢印が移動する図。計算式が下に3行で並ぶ。",
+      "sourceRef": "content/site/pe-first-stage/guide-calculus-numerical-calculation/article.mdx"
+    },
+    {
+      "sceneId": "step2",
+      "start": 101,
+      "end": 123,
+      "narration": "二回目は、エックス一の三分の七を、関数にも導関数にも代入します。関数の値は、九分の四。傾きは、二かける三分の七で、三分の十四です。横の移動は、九分の四割る三分の十四で、二十一分の二。三分の七から引くと、二十一分の四十七です。",
+      "caption": "x₂＝7/3−(4/9)/(14/3)＝47/21",
+      "visual": {
+        "heading": "二回目：x₂",
+        "items": [
+          "f(7/3)＝4/9",
+          "f′(7/3)＝14/3",
+          "x₂＝7/3−2/21＝47/21"
+        ]
+      },
+      "graphicPrompt": "x=7/3での接線と、横軸との交点47/21を示す拡大図。高さ4/9、傾き14/3、移動2/21のラベル。",
+      "sourceRef": "content/site/pe-first-stage/guide-calculus-numerical-calculation/article.mdx"
+    },
+    {
+      "sceneId": "check",
+      "start": 123,
+      "end": 145,
+      "narration": "検算は、元の式に戻します。二十一分の四十七を二乗すると、四百四十一分の二千二百九です。五は四百四十一分の二千二百五なので、ずれは四百四十一分の四。約〇・〇〇九です。解のルート五は約二・二三六、二十一分の四十七は約二・二三八です。",
+      "caption": "検算：f(47/21)＝4/441、残差は小さい",
+      "visual": {
+        "heading": "元の式で検算",
+        "items": [
+          "f(47/21)＝4/441",
+          "47/21 ≒ 2.2381",
+          "√5 ≒ 2.2361"
+        ]
+      },
+      "graphicPrompt": "縦に3段の検算カード。f(x)の値が3から4/441へ小さくなる棒グラフ付き。",
+      "sourceRef": "content/site/pe-first-stage/guide-calculus-numerical-calculation/article.mdx"
+    },
+    {
+      "sceneId": "denominator",
+      "start": 145,
+      "end": 164,
+      "narration": "では、分母を外したらどうなるか。三から、関数の値の四をそのまま引くと、答えはマイナス一です。高さは縦の量で、横軸の位置を動かす量ではありません。傾きで割って初めて、縦の高さが横の移動に変わります。",
+      "caption": "分母を外すとx₁＝−1で、解から離れる",
+      "visual": {
+        "heading": "分母を外すと",
+        "items": [
+          "3−f(3)＝3−4＝−1",
+          "高さは縦の量",
+          "傾きで割ると横の量"
+        ]
+      },
+      "graphicPrompt": "左右比較図。左:高さ4をそのまま引いて-1へ大きく跳ぶ矢印、右:4÷6で2/3だけ移動する矢印。矢印は両側とも別々の計算を示し、間に手順矢印は置かない。",
+      "sourceRef": "content/site/pe-first-stage/guide-calculus-numerical-calculation/article.mdx"
+    },
+    {
+      "sceneId": "olddenom",
+      "start": 164,
+      "end": 186,
+      "narration": "もう一つの典型的な誤りは、分母に古い値を残すことです。二回目で、関数だけ三分の七にして、傾きは六のままにします。すると、三分の七引く、九分の四割る六で、二十七分の六十一。残差は七百二十九分の七十六で、正しい更新の約十一・五倍です。",
+      "caption": "分母に古い傾き6を残すと61/27",
+      "visual": {
+        "heading": "分母に古い値を残すと",
+        "items": [
+          "正しい x₂＝47/21",
+          "誤り x₂＝61/27",
+          "残差 76/729 と 4/441"
+        ]
+      },
+      "graphicPrompt": "2列の比較表。左に正しい47/21と残差4/441、右に誤りの61/27と残差76/729。残差の棒の長さが大きく違う。",
+      "sourceRef": "content/site/pe-first-stage/guide-calculus-numerical-calculation/article.mdx"
+    },
+    {
+      "sceneId": "slope",
+      "start": 186,
+      "end": 208,
+      "narration": "傾きが小さいときも注意です。初期値を二分の一にすると、関数の値は負の四分の十九、傾きは一です。高さに対して傾きが小さいので、横へ四分の十九も動き、次の値は四分の二十一になります。傾きが零の点では、割り算そのものができません。",
+      "caption": "傾きが小さいと大きく跳ぶ。傾き0は計算不可",
+      "visual": {
+        "heading": "傾きが小さい・0のとき",
+        "items": [
+          "x₀＝1/2：f＝−19/4、f′＝1",
+          "傾き1は高さ19/4に比べ小さく、x₁＝21/4へ大きく移動",
+          "f′＝0 なら割れない"
+        ]
+      },
+      "graphicPrompt": "x=1/2の緩やかな接線が横軸のはるか右で交わる図。x=0の平らな接線に『割れない』の注意札。",
+      "sourceRef": "content/site/pe-first-stage/guide-calculus-numerical-calculation/article.mdx"
+    },
+    {
+      "sceneId": "practice",
+      "start": 208,
+      "end": 229,
+      "narration": "練習には過去問が使えます。令和6年度の基礎科目、Ⅰの3の3は、ニュートン法のフローチャートです。解答を見る前に、導関数を計算する箱と、更新の箱の順序に印を付けてください。更新の前に古い値を上書きしていないか確認します。",
+      "caption": "練習：令和6年度 基礎 Ⅰ-3-3",
+      "visual": {
+        "heading": "過去問で確かめる",
+        "items": [
+          "令和6年度 基礎 Ⅰ-3-3",
+          "f(x)とf′(x)の箱に印",
+          "更新前に上書きしていないか"
+        ]
+      },
+      "graphicPrompt": "フローチャートの簡略図。f(x)とf'(x)計算、更新、判定の箱が縦に並び、更新の箱に印が付いた図。",
+      "sourceRef": "content/site/pe-first-stage/r06-basic/article.mdx"
+    },
+    {
+      "sceneId": "summary",
+      "start": 229,
+      "end": 248,
+      "narration": "まとめます。ニュートン法は、接線と横軸の交点へ移る計算です。分母の導関数は、高さを横の距離に直します。毎回、関数と導関数に同じ新しい値を代入し、分数のまま計算して、最後に元の式で検算してください。傾きが小さい点では大きく跳ぶので、値の動きにも注意します。",
+      "caption": "要点：高さ÷傾き、同じ値を代入、最後に検算",
+      "visual": {
+        "heading": "まとめ",
+        "items": [
+          "x−f(x)/f′(x)：高さ÷傾きで横へ",
+          "関数にも導関数にも新しい値",
+          "分数のまま計算、最後に検算"
+        ]
+      },
+      "graphicPrompt": "3つの要点を縦に並べた大きなまとめ図。接線の三角形、同じ値の代入、検算のチェックマークの小アイコン付き。",
+      "sourceRef": "content/site/pe-first-stage/guide-calculus-numerical-calculation/article.mdx"
+    },
+    {
+      "sceneId": "cta",
+      "start": 248,
+      "end": 263,
+      "narration": "基礎・適性・専門を通しで演習したい方は、概要欄のリンクから過去問PDF合本をご覧ください。専門科目は建設部門の収録です。ご視聴ありがとうございました。",
+      "caption": "続きは概要欄のリンクから（専門は建設部門）",
+      "visual": {
+        "kind": "cover",
+        "heading": "過去問PDF合本 全560問（専門は建設部門）",
+        "items": [
+          "基礎・適性・専門を通しで演習",
+          "概要欄リンクから"
+        ]
+      },
+      "graphicPrompt": "CTA。過去問PDF合本の表紙を中央に、概要欄を示す下向き矢印。専門科目は建設部門の注記。"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "packId": "shunin-haigou-zettaiyouseki",
+  "exam": "concrete-chief-engineer",
+  "title": "主任技士 配合計算を1問、絶対容積で最後まで解く",
+  "audience": "コンクリート主任技士の択一で配合計算の途中式が追えない受験者",
+  "pain": "配合計算で、細骨材を残りで出すため合計が必ず1,000Lになり、途中の誤りに気づけない",
+  "promise": "仮の条件1問を絶対容積で通しで追い、割り算・密度・単位・細骨材率を個別に確かめられる",
+  "intent": "howto",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/concrete-chief-engineer/textbook-mix-design/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "cce-mix-calculation-practice",
+    "campaign": "shunin-haigou-zettaiyouseki"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 0,
+    "instagramCarousel": false,
+    "instagramReel": false,
+    "xThread": false,
+    "threadsBrief": false
+  }
+}

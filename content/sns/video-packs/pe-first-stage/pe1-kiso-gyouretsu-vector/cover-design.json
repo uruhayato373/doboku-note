@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "pe-first-stage",
+      "headline": [
+        "射影の計算",
+        "内積→ベクトル"
+      ],
+      "accentLine": 1,
+      "subtitle": "基礎科目",
+      "character": {
+        "pose": "pop-red-pen",
+        "frame": "waist"
+      },
+      "design": "pop-poster-v3",
+      "pop": {
+        "variant": "question",
+        "authority": "総監が制作"
+      },
+      "approvedImage": {
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-gyouretsu-vector/work/cover-pop.ec9f3aa7.png",
+        "sha256": "ec9f3aa7b01725b89ac03d37ab48d4764431352a45cde602d04ec1e031f0458f",
+        "specSha256": "5c7c459e64e4642a18e3f1e2f9a569c693ced5b62b3165f559012883366b0eae"
+      }
+    }
+  }
+}

@@ -1,0 +1,742 @@
+{
+  "policy": ".claude/knowledge/reference/pop-image-policy.md",
+  "designVersion": "pop-20260927",
+  "channel": "youtube",
+  "source": "content/sns/video-packs/pe-first-stage/pe1-senmon-kensetsu-25mon",
+  "outputs": {
+    "longform": {
+      "publicationId": "pe-first-stage/pe1-senmon-kensetsu-25mon/youtube.longform",
+      "copy": {
+        "exam": "pe-first-stage",
+        "headline": [
+          "専門科目",
+          "35問から25問"
+        ],
+        "benefit": "",
+        "authority": "総監が制作"
+      },
+      "evidence": [
+        "content/sns/video-packs/pe-first-stage/pe1-senmon-kensetsu-25mon/cover-design.json#covers/longform",
+        "content/sns/video-packs/pe-first-stage/pe1-senmon-kensetsu-25mon/storyboard.json"
+      ],
+      "references": [
+        {
+          "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.abe1a7b7.png",
+          "sha256": "abe1a7b7debc540640b2aacb2f333874901e60f25843dca40579ccd42feb7216"
+        }
+      ],
+      "prompt": "Create a NEW 16:9 Japanese YouTube thumbnail for doboku-note, using the provided approved blue POP poster only as a visual style and character-identity reference. Do not copy its text or three-subject motif. Exact main Japanese text, legible and correctly spelled: 「技術士第一次試験」「専門科目」「35問から25問」「建設部門」. Small yellow authority strip: 「総監が制作」. Make the first three phrases dominant, thick white/yellow glyphs with black outlines, electric cobalt and cyan diagonal energy, a friendly bespectacled Japanese civil engineer teacher in a white hard hat and navy workwear on the right, holding a red pen and considering which exam questions to choose. Include a clear 35→25 visual cue (large 35 and 25, ten faded unused question tiles), but no other small explanatory text. Fill the 16:9 frame edge to edge; important text and face in upper 75%, lower 20% uncluttered for video subtitles. Clean professional high-impact POP design, not a flat corporate card. Avoid inaccurate machinery, extra fingers, gibberish Japanese, duplicate text, watermarks.",
+      "format": {
+        "width": 1920,
+        "height": 1080
+      },
+      "render": {
+        "template": "codex-image-gen",
+        "variant": "question",
+        "pose": "pop-red-pen"
+      },
+      "output": {
+        "path": ".tmp/media/pe-first-stage/pe1-senmon-kensetsu-25mon/work/cover-pop.be653247.png",
+        "sha256": "be65324798c430508180aa70f2f16c891daa315d165216285e2094bfdbbb95b6"
+      },
+      "review": {
+        "status": "agent-reviewed",
+        "by": "Codex",
+        "checkedAt": "2026-10-27T23:16:10.809Z",
+        "viewportWidth": 360,
+        "checks": [
+          "見出しと資格名の可読性",
+          "文字化け",
+          "文字・人物の切れ",
+          "内容と見出しの整合"
+        ],
+        "userImageReview": "pending"
+      },
+      "storage": {
+        "group": "content-media",
+        "key": ".tmp/media/pe-first-stage/pe1-senmon-kensetsu-25mon/work/cover-pop.be653247.png"
+      },
+      "publication": "ローカル差し替え・外部未反映"
+    }
+  },
+  "activeBodyRevision": "body-diagram-20261028",
+  "activeCoverRevision": "cover-pop-20261028",
+  "revisions": {
+    "body-diagram-20261028": {
+      "layout": {
+        "mode": "diagram-led"
+      },
+      "images": [
+        {
+          "sceneId": "answer",
+          "inputSha256": "8bce546fa6af6adb3a43f87e8c4c246206e547fe71e89800821fa5e1b1bea05d",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "NEW 16:9 full-frame Japanese educational diagram for a YouTube normal video. Use provided reference only for restrained white/pale-blue background, bold navy Japanese typography, blue arrows, and small yellow highlights. Create new content, do not copy its heading or icons. Official exam format versus this video's proposed study method. Diagram in two tiers: top navy label 「公式」 with 「35問出題」「25問選択」; lower cyan/yellow label 「この動画の提案」 with 「20問を軸に」「残りから5問」. Clearly separate official fact from advice. Do not imply 20+5 is an official rule. Keep all key graphics and words in upper 78%; bottom 22% clean for subtitles. Diagram-led teaching screen: no POP advertising poster, no large character, no fake machinery, no gibberish, no extra labels, no border or added side padding. Exact text must be legible at mobile size.",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/work/promise-diagram.c7e7cf67.png",
+                "sha256": "c7e7cf6782e5ef4f90e378ac9927e178f7d4acaa2555c547aabe93df9f8cace3"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-first-stage/pe1-senmon-kensetsu-25mon/work/raw-answer.dd347aa6.png",
+              "sha256": "dd347aa6f99213bdfd4ced8442e02d106a42ce0bc9e51f609460e91745fe56be"
+            },
+            "generatedAt": "2026-10-27T23:16:10.809Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-first-stage/pe1-senmon-kensetsu-25mon/work/answer-diagram.3cf336aa.png",
+            "sha256": "3cf336aa296860329e84394fdf111e55fd5d1a294869fe54d5c7c5e00c379486",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "dd347aa6f99213bdfd4ced8442e02d106a42ce0bc9e51f609460e91745fe56be"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-27T23:16:10.809Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字の判読と欠け",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "misread",
+          "inputSha256": "deb4f99642292722863ff6f194e1e59f7f834bcd091536b75c9bbb71b330ddb4",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Create a NEW 16:9 full-frame Japanese educational diagram for a YouTube normal video. Use the attached reference only for restrained white and pale blue background, bold navy Japanese typography, blue arrows, small yellow highlights, and clean simple diagram style. Show a 35-question exam sheet divided into 25 selected blue tiles and 10 unused pale gray tiles. Main heading EXACTLY 「35問すべてを解かない」. Secondary phrase EXACTLY 「25問を選ぶ」. No subjects from school, no books, no English labels, no other text. Technical engineer exam context. Keep meaning-bearing elements above the bottom 18% subtitle-safe area. No person, no poster look, no white bullet card. Crisp readable large Japanese characters. Full-bleed 16:9.",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/work/promise-diagram.c7e7cf67.png",
+                "sha256": "c7e7cf6782e5ef4f90e378ac9927e178f7d4acaa2555c547aabe93df9f8cace3"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-first-stage/pe1-senmon-kensetsu-25mon/work/raw-misread.a04ddb52.png",
+              "sha256": "a04ddb52b8ab90d788bdbff746e774ed358ae06848ef5b7f7eaef4d07c22a27d"
+            },
+            "generatedAt": "2026-10-27T23:16:10.809Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-first-stage/pe1-senmon-kensetsu-25mon/work/misread-diagram.01e7f3fb.png",
+            "sha256": "01e7f3fb1e0c0b455cdd973202a284d0cd4d042edf9fdae170d11ade3aa0c865",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "a04ddb52b8ab90d788bdbff746e774ed358ae06848ef5b7f7eaef4d07c22a27d"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-27T23:16:10.809Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字の判読と欠け",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "map",
+          "inputSha256": "5308f2ddf105de57c43ec5d7e7729840cbc249396fe0458eeff50823ed98a490",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "NEW 16:9 full-frame Japanese educational diagram for a YouTube normal video. Use provided reference only for restrained white/pale-blue background, bold navy Japanese typography, blue arrows, and small yellow highlights. Create new content, do not copy its heading or icons. A clean horizontal stacked bar of 35 exam questions divided into three distinct groups sized approximately 12, 14, and 9. Exact Japanese text: title 「35問の3つのまとまり」; groups 「力学系 12問」「計画・水工系 14問」「その他 9問」; total 「35問」. No unrelated text. Keep all key graphics and words in upper 78%; bottom 22% clean for subtitles. Diagram-led teaching screen: no POP advertising poster, no large character, no fake machinery, no gibberish, no extra labels, no border or added side padding. Exact text must be legible at mobile size.",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/work/promise-diagram.c7e7cf67.png",
+                "sha256": "c7e7cf6782e5ef4f90e378ac9927e178f7d4acaa2555c547aabe93df9f8cace3"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-first-stage/pe1-senmon-kensetsu-25mon/work/raw-map.22254542.png",
+              "sha256": "22254542ea1df80e2c733f9d322e14c45521fd49681b99d27b06d3a36c9d240e"
+            },
+            "generatedAt": "2026-10-27T23:16:10.809Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-first-stage/pe1-senmon-kensetsu-25mon/work/map-diagram.9016c906.png",
+            "sha256": "9016c906b499f41914184bfcab2628df0b0ebe0921d36063e9dda8a86f616d7d",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "22254542ea1df80e2c733f9d322e14c45521fd49681b99d27b06d3a36c9d240e"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-27T23:16:10.809Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字の判読と欠け",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "counts",
+          "inputSha256": "3acc771b24af9668b774c6b87f806f368f19029300538f70f3d384946f8c99b7",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "NEW 16:9 full-frame Japanese educational diagram for a YouTube normal video. Use provided reference only for restrained white/pale-blue background, bold navy Japanese typography, blue arrows, and small yellow highlights. Create new content, do not copy its heading or icons. Large four-step descending stair diagram showing approximate number of questions per field. Exact Japanese: title 「分野別の出題数の目安」; step labels 「4問 × 3分野」「3問 × 2分野」「2問 × 6分野」「1問 × 5分野」. Use big type, no small list of 16 field names; emphasize the decreasing priorities. Keep all key graphics and words in upper 78%; bottom 22% clean for subtitles. Diagram-led teaching screen: no POP advertising poster, no large character, no fake machinery, no gibberish, no extra labels, no border or added side padding. Exact text must be legible at mobile size.",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/work/promise-diagram.c7e7cf67.png",
+                "sha256": "c7e7cf6782e5ef4f90e378ac9927e178f7d4acaa2555c547aabe93df9f8cace3"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-first-stage/pe1-senmon-kensetsu-25mon/work/raw-counts.41a5877d.png",
+              "sha256": "41a5877df7aca618f0220c3724bd08b74405a7f80b7e526651ab10dbdaf28645"
+            },
+            "generatedAt": "2026-10-27T23:16:10.809Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-first-stage/pe1-senmon-kensetsu-25mon/work/counts-diagram.127f6662.png",
+            "sha256": "127f66621021c00c2869258a0dfb66ecb2fc7d1a7f0395d4a5b3801d3c6e69c2",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "41a5877df7aca618f0220c3724bd08b74405a7f80b7e526651ab10dbdaf28645"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-27T23:16:10.809Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字の判読と欠け",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "core",
+          "inputSha256": "d11d305c8c6dd4f806174172957948c3d4e5c062e04b9d24bf8060fc0d444296",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "NEW 16:9 full-frame Japanese educational diagram for a YouTube normal video. Use provided reference only for restrained white/pale-blue background, bold navy Japanese typography, blue arrows, and small yellow highlights. Create new content, do not copy its heading or icons. A two-part addition diagram: left large blue segment 「力学系 12問」, right cyan segment 「都市計画・水理 8問」, join to a bold yellow-rimmed result 「軸の20問」. Small subtitle 「まずここを学ぶ」. Do not imply the 20-question core is official; label at top 「学習の提案」. Keep all key graphics and words in upper 78%; bottom 22% clean for subtitles. Diagram-led teaching screen: no POP advertising poster, no large character, no fake machinery, no gibberish, no extra labels, no border or side padding. Text must be legible at mobile size.",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/work/promise-diagram.c7e7cf67.png",
+                "sha256": "c7e7cf6782e5ef4f90e378ac9927e178f7d4acaa2555c547aabe93df9f8cace3"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-first-stage/pe1-senmon-kensetsu-25mon/work/raw-core.0f4603d4.png",
+              "sha256": "0f4603d4f67fd7384c9861f8400147134d257a0448f7067d8d603b80d8cfc539"
+            },
+            "generatedAt": "2026-10-27T23:16:10.809Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-first-stage/pe1-senmon-kensetsu-25mon/work/core-diagram.d5f4fef1.png",
+            "sha256": "d5f4fef19f9bbb3a9f1784ee4585136714a746f065d0bd2b37055b76be3bb93b",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "0f4603d4f67fd7384c9861f8400147134d257a0448f7067d8d603b80d8cfc539"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-27T23:16:10.809Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字の判読と欠け",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "rest",
+          "inputSha256": "8c9d338bcd758ccda0267237637682249ef29e7bc05c0eb210c9ada49601d60a",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "NEW 16:9 full-frame Japanese educational diagram for a YouTube normal video. Use provided reference only for restrained white/pale-blue background, bold navy Japanese typography, blue arrows, and small yellow highlights. Create new content, do not copy its heading or icons. A selection diagram: a grid of fifteen simple question tiles (do not need tiny text), five selected in yellow and ten unselected in pale blue. Exact large labels 「残り15問」 → 「5問を選ぶ」 → 「合計25問」. Small labels grouping example topics only: 「河川・海岸」「道路・鉄道」「施工計画」. Do not show an incorrect question count. Keep all key graphics and words in upper 78%; bottom 22% clean for subtitles. Diagram-led teaching screen: no POP advertising poster, no large character, no fake machinery, no gibberish, no extra labels, no border or side padding. Text must be legible at mobile size.",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/work/promise-diagram.c7e7cf67.png",
+                "sha256": "c7e7cf6782e5ef4f90e378ac9927e178f7d4acaa2555c547aabe93df9f8cace3"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-first-stage/pe1-senmon-kensetsu-25mon/work/raw-rest.e4a46a8b.png",
+              "sha256": "e4a46a8bcad1930317164e15f0d691532e78151ee15792f17dc3df46344addf5"
+            },
+            "generatedAt": "2026-10-27T23:16:10.809Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-first-stage/pe1-senmon-kensetsu-25mon/work/rest-diagram.fd806249.png",
+            "sha256": "fd8062492de81558c97ca16595fbcee2ea5b7c9ea42b66a194615b97726011a9",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "e4a46a8bcad1930317164e15f0d691532e78151ee15792f17dc3df46344addf5"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-27T23:16:10.809Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字の判読と欠け",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "trap",
+          "inputSha256": "3290f7d80809f37382c56781d99e9902eaf78f0125fc5e4fa3ac56c13cf2a858",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "NEW 16:9 full-frame Japanese educational diagram for a YouTube normal video. Use provided reference only for restrained white/pale-blue background, bold navy Japanese typography, blue arrows, and small yellow highlights. Create new content, do not copy its heading or icons. A visual subtraction and choice margin diagram. Top 「1問分野を5つ外すと」. Show 「35問」 minus 「5問」 equals 「30問」 and below 「30問から25問選択」 with only five spare blank tiles. Large yellow caution label 「余裕は5問」. Accurate arithmetic, simple flow. Keep all key graphics and words in upper 78%; bottom 22% clean for subtitles. Diagram-led teaching screen: no POP advertising poster, no large character, no fake machinery, no gibberish, no extra labels, no border or side padding. Text must be legible at mobile size.",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/work/promise-diagram.c7e7cf67.png",
+                "sha256": "c7e7cf6782e5ef4f90e378ac9927e178f7d4acaa2555c547aabe93df9f8cace3"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-first-stage/pe1-senmon-kensetsu-25mon/work/raw-trap.cdbf6e18.png",
+              "sha256": "cdbf6e1892715025b8bdefdad4fe0b9e2b162950052a3b0b33ee8b608bf88cc5"
+            },
+            "generatedAt": "2026-10-27T23:16:10.809Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-first-stage/pe1-senmon-kensetsu-25mon/work/trap-diagram.a9818aa4.png",
+            "sha256": "a9818aa49eda5eb501b275ea87b1c96c35289fac19fefda09d7cc25dbb800032",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "cdbf6e1892715025b8bdefdad4fe0b9e2b162950052a3b0b33ee8b608bf88cc5"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-27T23:16:10.809Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字の判読と欠け",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "shallow",
+          "inputSha256": "a1f37a48ce456bbfaeb63531f28a764081ad290291eec21cafbd09490124bac3",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "NEW 16:9 full-frame Japanese educational diagram for a YouTube normal video. Use provided reference only for restrained white/pale-blue background, bold navy Japanese typography, blue arrows, and small yellow highlights. Create new content, do not copy its heading or icons. A simple three-step learning flow with icons for an old exam sheet, a magnifying glass over term, and a check mark. Exact Japanese text: 「過去問の用語」 → 「正誤の根拠」 → 「選べる問題を増やす」. Small heading 「1問分野は浅く広く」. Not a poster, no character. Keep all key graphics and words in upper 78%; bottom 22% clean for subtitles. Diagram-led teaching screen: no POP advertising poster, no large character, no fake machinery, no gibberish, no extra labels, no border or side padding. Text must be legible at mobile size.",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/work/promise-diagram.c7e7cf67.png",
+                "sha256": "c7e7cf6782e5ef4f90e378ac9927e178f7d4acaa2555c547aabe93df9f8cace3"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-first-stage/pe1-senmon-kensetsu-25mon/work/raw-shallow.6e6efc18.png",
+              "sha256": "6e6efc1892c87aa8aba75760df14a9894d939e626847ab32585465c79e5aa13b"
+            },
+            "generatedAt": "2026-10-27T23:16:10.809Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-first-stage/pe1-senmon-kensetsu-25mon/work/shallow-diagram.b4b03f3e.png",
+            "sha256": "b4b03f3e426ef10524409b8728b9c8ca1cdebb1d0d3905c6045014690e16b297",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "6e6efc1892c87aa8aba75760df14a9894d939e626847ab32585465c79e5aa13b"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-27T23:16:10.809Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字の判読と欠け",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "example1",
+          "inputSha256": "395ab33ca678a7ace9e17462b24fdf25d296ff57275279930836d6c669bec6f2",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "NEW 16:9 full-frame Japanese educational diagram for a YouTube normal video. Use provided reference only for restrained white/pale-blue background, bold navy Japanese typography, blue arrows, and small yellow highlights. Create new content, do not copy its heading or icons. An explicitly hypothetical number line / tiles diagram. Heading 「仮の例」. Show blue 20 tiles / a bracket 「軸の20問」, 17 checked yellow and 3 unselected gray, then a clear equation 「25問まであと8問」. Small banner 「説明用の仮定」. Avoid suggesting these counts are real past-exam results. Keep all key graphics and words in upper 78%; bottom 22% clean for subtitles. Diagram-led teaching screen: no POP advertising poster, no large character, no fake machinery, no gibberish, no extra labels, no border or side padding. Text must be legible at mobile size.",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/work/promise-diagram.c7e7cf67.png",
+                "sha256": "c7e7cf6782e5ef4f90e378ac9927e178f7d4acaa2555c547aabe93df9f8cace3"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-first-stage/pe1-senmon-kensetsu-25mon/work/raw-example1.608113cb.png",
+              "sha256": "608113cb2852caf5b93e8f5c0d3eb14e784ac710b7dd101e6073a2375a66557a"
+            },
+            "generatedAt": "2026-10-27T23:16:10.809Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-first-stage/pe1-senmon-kensetsu-25mon/work/example1-diagram.b17130a9.png",
+            "sha256": "b17130a904c307bb9c973305c4d8c60bd915c398b784aa3efbce829744de1e6c",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "608113cb2852caf5b93e8f5c0d3eb14e784ac710b7dd101e6073a2375a66557a"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-27T23:16:10.809Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字の判読と欠け",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "example2",
+          "inputSha256": "35f43b73388f40b17ee931c4ed00a1047bca422a1b4f9e616983cb04f1b7e51d",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "NEW 16:9 full-frame Japanese educational diagram for a YouTube normal video. Use provided reference only for restrained white/pale-blue background, bold navy Japanese typography, blue arrows, and small yellow highlights. Create new content, do not copy its heading or icons. Two-column comparison of the same hypothetical need for 8 more questions. Heading 「仮の例：あと8問」. Left column green/blue 「1問分野も候補」 and prominent 「15問から8問」 with broad choice grid. Right column muted orange 「1問分野を除外」 and prominent 「10問から8問」 with narrow choice grid. Small footer 「説明用の仮定」. No false claim of actual exam results. Keep all key graphics and words in upper 78%; bottom 22% clean for subtitles. Diagram-led teaching screen: no POP advertising poster, no large character, no fake machinery, no gibberish, no extra labels, no border or side padding. Text must be legible at mobile size.",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/work/promise-diagram.c7e7cf67.png",
+                "sha256": "c7e7cf6782e5ef4f90e378ac9927e178f7d4acaa2555c547aabe93df9f8cace3"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-first-stage/pe1-senmon-kensetsu-25mon/work/raw-example2.1dd9415b.png",
+              "sha256": "1dd9415b0a1f907bf57cfce0c6c071d0003c1fc9b7b8ac67540006f6e5faa0d4"
+            },
+            "generatedAt": "2026-10-27T23:16:10.809Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-first-stage/pe1-senmon-kensetsu-25mon/work/example2-diagram.1d602dff.png",
+            "sha256": "1d602dff2ade9e8159305d86d494d5cb6d58e7629c955ba91159e0c9fd2f61e2",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "1dd9415b0a1f907bf57cfce0c6c071d0003c1fc9b7b8ac67540006f6e5faa0d4"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-27T23:16:10.809Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字の判読と欠け",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "caution",
+          "inputSha256": "abf48d4e91dee9c32658b971fe210621b4397b42e4d72712ade46feea373107f",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "NEW 16:9 full-frame Japanese educational diagram for a YouTube normal video. Use provided reference only for restrained white/pale-blue background, bold navy Japanese typography, blue arrows, and small yellow highlights. Create new content, do not copy its heading or icons. A big exam-choice fact-check diagram. Heading 「限定表現に注意」. Left show a quiz answer line 「市街地開発事業は2種類だけ」 with a bold red cross and word 「誤り」. Right show a branching diagram with three or more abstract project branches, labelled only 「複数の事業」. Small reference 「令和7年度 Ⅲ-13」. Do not invent legal names or copy full past question text. Keep all key graphics and words in upper 78%; bottom 22% clean for subtitles. Diagram-led teaching screen: no POP advertising poster, no large character, no fake machinery, no gibberish, no extra labels, no border or side padding. Text must be legible at mobile size.",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/work/promise-diagram.c7e7cf67.png",
+                "sha256": "c7e7cf6782e5ef4f90e378ac9927e178f7d4acaa2555c547aabe93df9f8cace3"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-first-stage/pe1-senmon-kensetsu-25mon/work/raw-caution.f6dd4133.png",
+              "sha256": "f6dd41337406330af46c956686e76110c1baaee6ffee33a40a7cb2080efe1014"
+            },
+            "generatedAt": "2026-10-27T23:16:10.809Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-first-stage/pe1-senmon-kensetsu-25mon/work/caution-diagram.cf0b4b27.png",
+            "sha256": "cf0b4b27e18741e786f99d79c85d712e7a2c2569f9148c5141c92c0fee8599ff",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "f6dd41337406330af46c956686e76110c1baaee6ffee33a40a7cb2080efe1014"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-27T23:16:10.809Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字の判読と欠け",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "priority",
+          "inputSha256": "0f696e269158f9147e78025ebd465fa8f7a736e04ecfd13eef14818c6b9193f4",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "NEW 16:9 full-frame Japanese educational diagram for a YouTube normal video. Use provided reference only for restrained white/pale-blue background, bold navy Japanese typography, blue arrows, and small yellow highlights. Create new content, do not copy its heading or icons. Four horizontal bars decreasing in study-time emphasis, not question scores. Heading 「学習時間の厚み」. Bar labels: 「4問の3分野」「3問の2分野」「2問の6分野」「1問の5分野」. Use a visible descending gradient of learning effort; separate field count and study time. Small note 「出題数は年度で変動」. No other labels. Keep all key graphics and words in upper 78%; bottom 22% clean for subtitles. Diagram-led teaching screen: no POP advertising poster, no large character, no fake machinery, no gibberish, no extra labels, no border or side padding. Text must be legible at mobile size.",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/work/promise-diagram.c7e7cf67.png",
+                "sha256": "c7e7cf6782e5ef4f90e378ac9927e178f7d4acaa2555c547aabe93df9f8cace3"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-first-stage/pe1-senmon-kensetsu-25mon/work/raw-priority.004ca497.png",
+              "sha256": "004ca497d2f6ac403658cb050afc24cb3ba8aea6a7a302a75cfaf7f44dd44c4e"
+            },
+            "generatedAt": "2026-10-27T23:16:10.809Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-first-stage/pe1-senmon-kensetsu-25mon/work/priority-diagram.34467823.png",
+            "sha256": "344678239a2aac933ffe0b5e779f5019975c0301049e3f59954a61c280935313",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "004ca497d2f6ac403658cb050afc24cb3ba8aea6a7a302a75cfaf7f44dd44c4e"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-27T23:16:10.809Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字の判読と欠け",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "summary",
+          "inputSha256": "6422ac80e8d45b3e3cfab392275a87a41827befe57f6cff21edecf155d07f5a0",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "NEW 16:9 full-frame Japanese educational diagram for a YouTube normal video. Use provided reference only for restrained white/pale-blue background, bold navy Japanese typography, blue arrows, and small yellow highlights. Create new content, do not copy its heading or icons. A clear three-step checklist or flow for the video's proposed strategy. Heading 「25問を選ぶための提案」. Step 1 「20問を軸にする」, step 2 「残りから5問」, step 3 「1問分野も候補に残す」. Bottom small label 「公式の試験形式とは別の学習提案」. Simple large typography and diagram. Keep all key graphics and words in upper 78%; bottom 22% clean for subtitles. Diagram-led teaching screen: no POP advertising poster, no large character, no fake machinery, no gibberish, no extra labels, no border or side padding. Text must be legible at mobile size.",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/work/promise-diagram.c7e7cf67.png",
+                "sha256": "c7e7cf6782e5ef4f90e378ac9927e178f7d4acaa2555c547aabe93df9f8cace3"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-first-stage/pe1-senmon-kensetsu-25mon/work/raw-summary.f899d547.png",
+              "sha256": "f899d54721c97c7bb424ddedf1d3ad0fd4a61ce8ae26bd86e32b69d244a9286b"
+            },
+            "generatedAt": "2026-10-27T23:16:10.809Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-first-stage/pe1-senmon-kensetsu-25mon/work/summary-diagram.3f37ed5e.png",
+            "sha256": "3f37ed5ec0ffae8f9d4fba904f9a518305b2136798d59d91ff334d59114b83d5",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "f899d54721c97c7bb424ddedf1d3ad0fd4a61ce8ae26bd86e32b69d244a9286b"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-27T23:16:10.809Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字の判読と欠け",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "cta",
+          "inputSha256": "6554adb68e8e48bece384f519b054d0c8d2b2a6d267dbd2555cd91d71798d08e",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "NEW 16:9 full-frame Japanese educational diagram for a YouTube normal video. Use provided reference only for restrained white/pale-blue background, bold navy Japanese typography, blue arrows, and small yellow highlights. Create new content, do not copy its heading or icons. A quiet closing educational diagram with a large illustrated blue PDF notebook and a subtle yellow downward arrow toward description. Exact text: heading 「過去問PDF合本」, subheading 「専門科目は建設部門」, small text 「令和元〜7年度」「概要欄のリンクから」. No fake clickable button, no price, no logo imitation, no person. Keep bottom 22% blank for subtitles. Keep all key graphics and words in upper 78%; bottom 22% clean for subtitles. Diagram-led teaching screen: no POP advertising poster, no large character, no fake machinery, no gibberish, no extra labels, no border or side padding. Text must be legible at mobile size.",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/work/promise-diagram.c7e7cf67.png",
+                "sha256": "c7e7cf6782e5ef4f90e378ac9927e178f7d4acaa2555c547aabe93df9f8cace3"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-first-stage/pe1-senmon-kensetsu-25mon/work/raw-cta.ab720c3b.png",
+              "sha256": "ab720c3b756838b73f583bee6925575298115dc205b80ab68ab37730e7ccf242"
+            },
+            "generatedAt": "2026-10-27T23:16:10.809Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-first-stage/pe1-senmon-kensetsu-25mon/work/cta-diagram.07c4c34d.png",
+            "sha256": "07c4c34defc3efa65a3941cf8f779c133565513a32059b3077232436bb036564",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "ab720c3b756838b73f583bee6925575298115dc205b80ab68ab37730e7ccf242"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-27T23:16:10.809Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字の判読と欠け",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        }
+      ]
+    },
+    "cover-pop-20261028": {
+      "version": "pop-poster-v3",
+      "generation": {
+        "tool": "image_gen",
+        "prompt": "Create a NEW 16:9 Japanese YouTube thumbnail for doboku-note, using the provided approved blue POP poster only as a visual style and character-identity reference. Do not copy its text or three-subject motif. Exact main Japanese text, legible and correctly spelled: 「技術士第一次試験」「専門科目」「35問から25問」「建設部門」. Small yellow authority strip: 「総監が制作」. Make the first three phrases dominant, thick white/yellow glyphs with black outlines, electric cobalt and cyan diagonal energy, a friendly bespectacled Japanese civil engineer teacher in a white hard hat and navy workwear on the right, holding a red pen and considering which exam questions to choose. Include a clear 35→25 visual cue (large 35 and 25, ten faded unused question tiles), but no other small explanatory text. Fill the 16:9 frame edge to edge; important text and face in upper 75%, lower 20% uncluttered for video subtitles. Clean professional high-impact POP design, not a flat corporate card. Avoid inaccurate machinery, extra fingers, gibberish Japanese, duplicate text, watermarks.",
+        "references": [
+          {
+            "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.abe1a7b7.png",
+            "sha256": "abe1a7b7debc540640b2aacb2f333874901e60f25843dca40579ccd42feb7216"
+          }
+        ],
+        "output": {
+          "path": ".tmp/media/pe-first-stage/pe1-senmon-kensetsu-25mon/work/raw-cover.da440c77.png",
+          "sha256": "da440c77562b97bcc722e5f8022f9012fb16df6a2e1695873cee1a0f639de845"
+        },
+        "generatedAt": "2026-10-27T23:16:10.809Z"
+      },
+      "copy": {
+        "exam": "pe-first-stage",
+        "headline": [
+          "専門科目",
+          "35問から25問"
+        ],
+        "authority": "総監が制作"
+      },
+      "output": {
+        "path": ".tmp/media/pe-first-stage/pe1-senmon-kensetsu-25mon/work/cover-pop.be653247.png",
+        "sha256": "be65324798c430508180aa70f2f16c891daa315d165216285e2094bfdbbb95b6",
+        "width": 1920,
+        "height": 1080
+      },
+      "normalization": {
+        "mode": "full-frame-v1",
+        "sourceSha256": "da440c77562b97bcc722e5f8022f9012fb16df6a2e1695873cee1a0f639de845"
+      },
+      "review": {
+        "status": "ai-reviewed",
+        "userImageReview": "pending",
+        "checkedAt": "2026-10-27T23:16:10.809Z",
+        "by": "Codex",
+        "views": [
+          "original"
+        ],
+        "checks": [
+          "文言・資格名",
+          "顔と安全域"
+        ]
+      },
+      "storage": {
+        "group": "content-media",
+        "sync": "local"
+      }
+    }
+  }
+}

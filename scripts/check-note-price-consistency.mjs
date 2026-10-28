@@ -27,7 +27,8 @@
  *   allowlist: config/note-price-consistency.json
  *
  *   L0 正本の欠落（2026-10-01 追加） — 公開済み（noteUrl/noteId あり）の記事に title が無い・見出し 1 が title と違う・
- *                          有料なのに price が無い。題名・価格の正本は frontmatter で、欠けると
+ *                          有料なのに price が無い。note のライブに対しては原稿が正（題名は frontmatter、単品価格は
+ *                          config/products.json の articlePrices が正本で frontmatter はその写し）。欠けると
  *                          台帳は推測（見出し 1・「有料」）しか出せず、live 照合（check-note-structure）も素通りする。
  *
  * 使い方:

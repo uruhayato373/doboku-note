@@ -1,8 +1,12 @@
 ---
 notePricing: free
 noteContentType: learning
-noteStatus: draft
+noteStatus: published
 utmCampaign: civil2-niji-postexam-r8
+title: "2級土木 R8第二次検定を終えたら｜自己採点の目安と、合格発表（2/3）までにやること【無料】"
+notePublishedAt: "2026-10-27"
+noteId: "n6b1410beec5c"
+noteUrl: "https://note.com/dobokunote/n/n6b1410beec5c"
 coverTitle: ["2級土木 R8二次を終えたら", "自己採点の目安と合格発表までにやること"]
 cover:
   variant: crop-safe-v4
@@ -91,11 +95,18 @@ cover:
 
 来年に向けて最初にやることは、**再現答案を読み直して「落ちた理由の仮説」を1つ立てる**ことです。多くの場合、原因は経験記述にあります。自分の答案のどこが採点者に伝わらなかったのかは、一人ではなかなか見えません。
 
-## 答案を人の目で見てもらう選択肢
+## 再現答案を合格水準の答案と比べる
 
-経験記述は「自分の答案が合格水準か」を自分一人では判定しにくい問題です。再現答案を書き起こしたら、それを材料に第三者の目を入れるのがいちばんの近道です。
+経験記述は「自分の答案が合格水準か」を、自分一人では判定しにくい問題です。
+
+手がかりになるのは、合格水準の答案と自分の再現答案を、要素ごとに並べて比べることです。工事概要、課題、検討項目と対応処置のどこが薄かったかが見えてきます。
 
 経験記述の出題傾向と書き方の型は、[施工経験記述 出題傾向と書き方](https://doboku-note.com/exam/civil-construction-2/secondary/experience-writing-guide?utm_source=note&utm_medium=referral&utm_campaign=civil2-niji-postexam-r8&utm_content=experience-writing-guide)に無料でまとめています。
+
+<!-- cta:pack-inline -->
+令和8年度と同じ品質管理・安全管理を含むテーマ別の完成答案と、自分の工事への置き換え方は、次の答案集にまとめています。
+
+https://note.com/dobokunote/m/m1881a9578027
 
 ---
 

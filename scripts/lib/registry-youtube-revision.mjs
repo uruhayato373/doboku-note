@@ -63,14 +63,17 @@ export function planYoutubeRevision(root, { pubId, variant, relatedTo, publishAt
   };
   RegistryPublications.parse({ schemaVersion: 1, exam: source.exam, channel: 'youtube', publications: [row] });
   const existing = reg.publications.find(p => p.id === id);
+  const saved = readJsonIf(root, file);
+  const changed = Boolean(saved && canonicalJson(saved) !== canonicalJson(input));
   if (existing && refreshDraft) {
     const visualExtras = Object.fromEntries(Object.entries(existing.media ?? {}).filter(([role]) => !(role in assets) && isVisualRole(role)));
     row.media = { ...row.media, ...visualExtras };
+    if (!changed && ['qa_passed', 'qa_blocked'].includes(existing.status)) row.status = existing.status;
   }
-  if (existing && canonicalJson(strip(existing)) !== canonicalJson(row)) throw new Error('既存の改訂公開行と異なる。上書きせず別のvariantで準備する');
-  const saved = readJsonIf(root, file);
+  const comparedExisting = refreshDraft && changed && ['draft', 'qa_passed', 'qa_blocked'].includes(existing?.status)
+    ? { ...existing, status: 'draft', ...(publishAt ? { publishAt } : {}) } : existing;
+  if (existing && canonicalJson(strip(comparedExisting)) !== canonicalJson(row)) throw new Error('既存の改訂公開行と異なる。上書きせず別のvariantで準備する');
   if (refreshDraft && (!existing || !saved)) throw new Error('下書き更新には既存の未承認draftと保存済み入力が必要');
-  const changed = Boolean(saved && canonicalJson(saved) !== canonicalJson(input));
   if (changed && !refreshDraft) throw new Error('既存の改訂投稿入力と異なる。上書きしない');
   // 既存の画面確認素材だけを保持し、承認・外部ID・実行intentのある行は更新できない。
   const previous = changed ? readFileSync(join(root, file), 'utf8') : null;

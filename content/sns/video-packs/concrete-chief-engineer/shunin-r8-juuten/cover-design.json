@@ -5,8 +5,8 @@
       "format": "longform",
       "exam": "concrete-chief",
       "headline": [
-        "令和８年度予想",
-        "重点分野を読む"
+        "過去問の回し方",
+        "3ステップ"
       ],
       "accentLine": 1,
       "subtitle": "",
@@ -14,15 +14,23 @@
         "pose": "pop-explaining",
         "frame": "waist"
       },
-      "design": "pop-v2",
+      "design": "pop-poster-v3",
       "pop": {
         "variant": "explain",
         "authority": "総監が制作"
       },
       "approvedImage": {
-        "path": ".tmp/media/concrete-chief-engineer/shunin-r8-juuten/youtube.longform/cover.eab57eb5.png",
-        "sha256": "eab57eb530159e15f0870153c407ecf5a60dd3e029d0b8356a145ff6a66f5cff",
-        "specSha256": "507c43aa17217beac8c6b1d318d645cb560926355f575a947edce08687caf020"
+        "path": ".tmp/media/concrete-chief-engineer/shunin-r8-juuten/work/cover-pop.44cba497.png",
+        "sha256": "44cba497e85faff1ce0a9290b34fb60bd8dd2fa89fdb49eb24cb77223593a693",
+        "specSha256": "e71f2258dfb1350b8bf70c6fefd377978a6dac310586344a8b8ea5b52d30b087",
+        "normalization": {
+          "mode": "full-frame-v1",
+          "sourceSha256": "6547d7fea276d97c607e63912997a91a62bd5502127815b52d90b4bfa79057f5"
+        },
+        "source": {
+          "path": ".tmp/media/concrete-chief-engineer/shunin-r8-juuten/work/raw-cover-pop.6547d7fe.png",
+          "sha256": "6547d7fea276d97c607e63912997a91a62bd5502127815b52d90b4bfa79057f5"
+        }
       }
     },
     "point-overview-1": {

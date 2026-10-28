@@ -117,3 +117,5 @@ feature ブランチを最新 develop へ載せ直すとき、`git reset --keep 
 - **見分け方**: `git cat-file -p <そのコミット>` の parent が手元にあれば、履歴は失われていない（記録だけが誤り）。
 - **直し方**: `git fetch --unshallow origin <ブランチ>` で `.git/shallow` が消える。ファイルを手で消さない。
 - **How to apply:** merge・rebase が「無関係な履歴」で止まったら、まず `--is-shallow-repository` と `.git/shallow` を見る。履歴を作り直す・force push で直そうとしない。
+
+**`not our ref <sha>` で git が止まるとき（2026-10-27）**: 手元に無い blob を遅延取得しに行き、サーバがそのオブジェクトを配らないと `fatal: remote error: upload-pack: not our ref` / `unable to read` になる。(1) ref のどれかが指しているなら、サーバ側で消えたブランチの remote-tracking ref が残っている（`git fetch --prune` で 47 本消えた）。(2) ref も `.git` 内の参照も無いなら、外から index に入れられた entry を疑う（pre-commit の中で走ったテストが一時リポジトリの blob を commit 用の index に書いた例 → [[reference_hook_env_leaks_into_tests]]）。調べるときも `git rev-list --objects --all` は `--missing=allow-any` を付ける（付け忘れて 3 分以上走らせた）。

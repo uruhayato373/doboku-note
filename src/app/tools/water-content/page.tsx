@@ -5,6 +5,9 @@ import WaterContentClient from "./WaterContentClient";
 import { DEFAULT_OG_IMAGE } from "@/lib/metadata";
 import { SITE_ORIGIN } from "@/config/site-identity.mjs";
 import AffiliateSlot from "@/components/ui/AffiliateSlot/AffiliateSlot";
+import { toolByHref } from "@/lib/tools";
+
+const tool = toolByHref("/tools/water-content");
 
 export const metadata: Metadata = {
   // title template `%s | doboku-note` で自動付与されるため "doboku-note" は重ねない
@@ -14,7 +17,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/tools/water-content" },
   openGraph: {
     type: "website",
-    title: "コンクリート 単位水量・水和水 計算ツール",
+    title: tool.title,
     description: "水セメント比と単位セメント量から、単位水量と水和水・余剰水の内訳を計算。",
     url: `${SITE_ORIGIN}/tools/water-content`,
     siteName: "doboku-note",
@@ -29,7 +32,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "コンクリート 単位水量・水和水 計算ツール",
+    title: tool.title,
     description: "単位水量と水和水・余剰水の内訳を、その場で計算。",
     images: [DEFAULT_OG_IMAGE],
   },
@@ -43,7 +46,7 @@ export default function WaterContentPage() {
         width="760"
         breadcrumb={[{ label: "Home", href: "/" }, { label: "Tools", href: "/tools" }]}
         label="無料ツール"
-        title="コンクリート 単位水量・水和水 計算ツール"
+        title={tool.title}
         lead={
           <>
             水セメント比と単位セメント量から<strong className="text-(--ink)">単位水量</strong>を計算し、水和で取り込まれる水（セメント質量の約23%〜約44%）と<strong className="text-(--ink)">余剰水</strong>の内訳を確認します。

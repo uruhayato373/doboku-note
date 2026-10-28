@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { NOT_FOUND_TITLE } from '@/lib/metadata';
 
 export default function NotFound() {
   return (
@@ -6,7 +7,7 @@ export default function NotFound() {
       <div className="font-mono text-[11px] uppercase tracking-widest text-(--ink-muted) mb-2">404 — Not Found</div>
       <h1 className="font-serif font-black text-(--ink) text-6xl sm:text-7xl tracking-tight">404</h1>
       <h2 className="mt-4 font-serif text-xl font-bold text-(--ink-body)">
-        ページが見つかりません
+        {NOT_FOUND_TITLE}
       </h2>
       <p className="text-(--ink-muted) mt-2 text-sm">
         お探しのページは移動または削除された可能性があります。

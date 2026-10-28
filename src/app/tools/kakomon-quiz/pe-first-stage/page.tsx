@@ -12,6 +12,10 @@ import { withNoteUtm } from "@/lib/note-utm";
 import AffiliateSlot from "@/components/ui/AffiliateSlot/AffiliateSlot";
 import SeeAlso from "@/components/ui/SeeAlso/SeeAlso";
 import { isAfterExamDay } from "@/lib/exam-dates";
+import { toolByHref } from "@/lib/tools";
+import { quizQuestionCount, quizYearRange } from '@/lib/quiz-summary';
+
+const tool = toolByHref("/tools/kakomon-quiz/pe-first-stage");
 
 // 演習画面は結果表示後にしか note 導線が出ず、SSR の HTML には導線が無かった
 // （2026-09-27 配線監査 DN-0364）。演習の下に静的な note 商品カードを置く。
@@ -24,22 +28,22 @@ const NOTE_PRODUCTS: readonly { id: MagazineId; lead: string }[] = [
 ];
 
 export const metadata: Metadata = {
-  title: "技術士第一次試験 過去問 無料演習｜基礎・適性・建設・上下水道 全1,830問",
+  title: `技術士第一次試験 過去問 無料演習｜基礎・適性・建設・上下水道 全${quizQuestionCount('pe-first-stage')}問`,
   description:
-    "技術士第一次試験の基礎科目・適性科目・専門科目（建設部門・上下水道部門）を無料で演習。平成23〜令和7年度と令和元年度再試験の全1,830問を、年度別・科目別・ランダム・間違い復習で解けます。図・数式・全選択肢解説つき。",
+    `技術士第一次試験の基礎科目・適性科目・専門科目（建設部門・上下水道部門）を無料で演習。${quizYearRange('pe-first-stage')}と令和元年度再試験の全${quizQuestionCount('pe-first-stage')}問を、年度別・科目別・ランダム・間違い復習で解けます。図・数式・全選択肢解説つき。`,
   alternates: { canonical: "/tools/kakomon-quiz/pe-first-stage" },
   openGraph: {
     type: "website",
-    title: "技術士第一次試験 過去問 無料演習｜全1,830問",
-    description: "平成23〜令和7年度と令和元年度再試験の基礎・適性・専門（建設部門・上下水道部門）全1,830問を、即採点・全選択肢解説つきで無料演習。",
+    title: `技術士第一次試験 過去問 無料演習｜全${quizQuestionCount('pe-first-stage')}問`,
+    description: `${quizYearRange('pe-first-stage')}と令和元年度再試験の基礎・適性・専門（建設部門・上下水道部門）全${quizQuestionCount('pe-first-stage')}問を、即採点・全選択肢解説つきで無料演習。`,
     url: `${SITE_ORIGIN}/tools/kakomon-quiz/pe-first-stage`,
     siteName: "doboku-note",
-    images: [{ url: DEFAULT_OG_IMAGE, width: 1200, height: 630, alt: "技術士第一次試験 過去問 無料演習" }],
+    images: [{ url: DEFAULT_OG_IMAGE, width: 1200, height: 630, alt: tool.title }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "技術士第一次試験 過去問 無料演習｜全1,830問",
-    description: "基礎・適性・専門（建設部門・上下水道部門）の平成23〜令和7年度と令和元年度再試験を、図・数式・全選択肢解説つきで無料演習。",
+    title: `技術士第一次試験 過去問 無料演習｜全${quizQuestionCount('pe-first-stage')}問`,
+    description: `基礎・適性・専門（建設部門・上下水道部門）の${quizYearRange('pe-first-stage')}と令和元年度再試験を、図・数式・全選択肢解説つきで無料演習。`,
     images: [DEFAULT_OG_IMAGE],
   },
 };
@@ -48,7 +52,7 @@ const QUIZ_CONFIG: KakomonQuizConfig = {
   exam: "pe-first-stage",
   dataUrl: "/quiz/pe-first-stage.json",
   intro:
-    "技術士第一次試験の基礎科目・適性科目・専門科目（建設部門・上下水道部門）を、1問ずつ即採点＋全選択肢の解説つきで演習できます。平成23〜令和7年度と令和元年度再試験の全1,830問（1,826問を採点、4問は採点対象外）を無料で収録しています。年度別とランダムは、選んだ部門の専門科目と基礎・適性科目から出題します。",
+    `技術士第一次試験の基礎科目・適性科目・専門科目（建設部門・上下水道部門）を、1問ずつ即採点＋全選択肢の解説つきで演習できます。${quizYearRange('pe-first-stage')}と令和元年度再試験の全${quizQuestionCount('pe-first-stage')}問（1,826問を採点、4問は採点対象外）を無料で収録しています。年度別とランダムは、選んだ部門の専門科目と基礎・適性科目から出題します。`,
   sourceNote:
     "出典: 公益社団法人 日本技術士会「技術士第一次試験 過去問題」。図・数式を含めて原典と照合済みです。平成23年度 適性科目Ⅱ-4は公式に2肢（1又は5）を正答扱い、平成30年度と令和元年度再試験の適性科目Ⅱ-14は公式に全員正解、令和7年度 専門科目（建設部門）Ⅲ-13は公式に正答の選択肢なし（選択者全員に得点）のため、演習では採点対象外としています。",
   yearTitleSuffix: "・全3科目",
@@ -109,7 +113,7 @@ export default function PeFirstStageQuizPage() {
         title="技術士第一次試験 過去問演習"
         lead={
           <>
-            <strong className="text-(--ink)">基礎・適性・専門（建設部門・上下水道部門）</strong>の平成23〜令和7年度と令和元年度再試験・全1,830問を、年度別・科目別・ランダム・間違い復習で解けます。図と数式もそのまま表示します。
+            <strong className="text-(--ink)">基礎・適性・専門（建設部門・上下水道部門）</strong>の{quizYearRange('pe-first-stage')}と令和元年度再試験・全{quizQuestionCount('pe-first-stage')}問を、年度別・科目別・ランダム・間違い復習で解けます。図と数式もそのまま表示します。
           </>
         }
       />

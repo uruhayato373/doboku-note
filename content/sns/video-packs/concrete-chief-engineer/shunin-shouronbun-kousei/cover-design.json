@@ -5,8 +5,8 @@
       "format": "longform",
       "exam": "concrete-chief",
       "headline": [
-        "主任技士小論文",
-        "答案の組立て方"
+        "小論文",
+        "何から書く？"
       ],
       "accentLine": 1,
       "subtitle": "",
@@ -14,15 +14,23 @@
         "pose": "pop-red-pen",
         "frame": "waist"
       },
-      "design": "pop-v2",
+      "design": "pop-poster-v3",
       "pop": {
         "variant": "write",
         "authority": "総監が制作"
       },
       "approvedImage": {
-        "path": ".tmp/media/concrete-chief-engineer/shunin-shouronbun-kousei/youtube.longform/cover.46022baf.png",
-        "sha256": "46022baf67e4dbd874ac3d27c51ff8b0e39b6f0e57434ce569018c5d7d12b1dc",
-        "specSha256": "dc0eba5dbb586f77498c8fe06cc2e5a3990423e16d3fd27d3ad1f034b935e5b9"
+        "path": ".tmp/media/concrete-chief-engineer/shunin-shouronbun-kousei/work/cover-pop.192d62f7.png",
+        "sha256": "192d62f7eb14c46a9bd83dddbc5d1f683c14c56c5e2d3a4f686b4133c4f0c0b0",
+        "specSha256": "119cd674f163e426164f0f317d9f4d4329c7b469546de6bef8718db22554f898",
+        "normalization": {
+          "mode": "full-frame-v1",
+          "sourceSha256": "3bbf4732cb9abb0881eebfa30e1ee5f295e26913ee75ee5676d4fdeb19ede9be"
+        },
+        "source": {
+          "path": ".tmp/media/concrete-chief-engineer/shunin-shouronbun-kousei/work/raw-cover-pop-20261027.png",
+          "sha256": "3bbf4732cb9abb0881eebfa30e1ee5f295e26913ee75ee5676d4fdeb19ede9be"
+        }
       }
     },
     "point-kanten-1": {

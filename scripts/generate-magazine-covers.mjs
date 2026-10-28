@@ -654,7 +654,7 @@ export const MAGAZINES = [
     fileBaseName: 'pe1-chokuzen-pack-cover',
     magazineDir: 'content/note/技術士一次/magazines/技術士一次-直前パック',
     lines: ['技術士 第一次試験', '直前パック', '過去問560問＋暗記156問'],
-    category: '技術士（第一次試験）',
+    category: '技術士 第一次試験',
     fontSize: 42,
     fillBg: '#16365C',
   },

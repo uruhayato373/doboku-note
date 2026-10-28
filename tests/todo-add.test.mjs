@@ -1,10 +1,11 @@
+import './lib/isolate-git-env.mjs';
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { mkdtempSync, mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { execFileSync } from 'node:child_process';
-import { buildCard, filingWarnings, insertCard, resolveTier, validateNewCard } from '../scripts/todo-add.mjs';
+import { addCard, buildCard, filingWarnings, insertCard, resolveTier, validateNewCard } from '../scripts/todo-add.mjs';
 import { commitFileToRemoteBranch } from '../scripts/lib/git-direct-commit.mjs';
 
 const BACKLOG = [
@@ -54,6 +55,23 @@ test('語彙外の領域・🟡 の時期なし・実在しない検証コマン
   assert.match(problems, /domain/);
   assert.match(problems, /when-missing/);
   assert.match(problems, /verify/);
+});
+
+// todo:add は commit-tree で積むので pre-commit が走らない。試験日の誤記パターンと相対リンクの実在は
+// addCard の中で当て、push の前（transform の中）で止める（DN-0893）
+const ADD = { title: '検査の確認', tier: '中', kind: '改善', domain: '管理', when: '2026-10' };
+
+test('試験日の誤記パターンを含む本文は起票しない（DN-0893）', () => {
+  assert.throws(() => addCard(BACKLOG, { ...ADD, body: '起点: 2級の第二次検定は 2026-10-27 に受けた\n完了条件: y' }), /\[exam-calendar\]/);
+});
+
+test('実在しない相対リンクを含む本文は起票しない（DN-0893）', () => {
+  assert.throws(() => addCard(BACKLOG, { ...ADD, body: '起点: [計画](../plans/no-such-plan.md) を見る\n完了条件: y' }), /\[relative-links\]/);
+});
+
+test('どちらにも当たらない本文はそのまま起票できる', () => {
+  const { text } = addCard(BACKLOG, { ...ADD, body: '起点: [台帳](./backlog.md) の確認\n完了条件: y' });
+  assert.match(text, /検査の確認/);
 });
 
 function sh(cwd, args) {

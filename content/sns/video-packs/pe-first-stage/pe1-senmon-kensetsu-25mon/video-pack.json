@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "packId": "pe1-senmon-kensetsu-25mon",
+  "exam": "pe-first-stage",
+  "title": "技術士一次 専門科目（建設）35問から25問の選び方",
+  "audience": "技術士第一次試験の専門科目（建設部門）で、どの分野を厚く学ぶか決めきれない受験者",
+  "pain": "専門科目（建設部門）の35問から25問を選ぶとき、どの分野を軸にして何を外してよいか分からない",
+  "promise": "公式は35問中25問を選択解答。その25問を確保する学習方針として、この動画は出題数の多い20問を軸にし、1問分野を丸ごと外さない選び方を提案する",
+  "intent": "exam-point",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/pe-first-stage/guide-construction-subject/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/pe-first-stage/r07-construction/article.mdx"
+    },
+    {
+      "type": "external",
+      "url": "https://www.engineer.or.jp/c_topics/011/attached/attach_11780_2.pdf",
+      "title": "令和8年度 技術士第一次試験 受験申込み案内（PDF 8ページ目・印字ページ番号7：各部門35問出題・25問選択解答。公式の出題形式の根拠。20問＋5問は本動画の学習方針で公式ではない）"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "pe1-takuitsu-pdf",
+    "campaign": "pe1-senmon-kensetsu-25mon"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 0,
+    "instagramCarousel": false,
+    "instagramReel": false,
+    "xThread": false,
+    "threadsBrief": false
+  }
+}

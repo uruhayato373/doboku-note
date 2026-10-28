@@ -3,8 +3,12 @@ notePricing: paid
 noteContentType: product
 price: 1480
 paidBoundary: "計算の型20"
-noteStatus: draft
+noteStatus: published
 utmCampaign: surveyor-2027
+title: "測量士 午後 記述式の計算問題を「型20本」で解く ｜令和4〜8年の例題つき"
+notePublishedAt: "2026-10-28"
+noteId: "n1ac56686482b"
+noteUrl: "https://note.com/dobokunote/n/n1ac56686482b"
 cover:
   variant: crop-safe-v4
   leadIn: "測量士 午後 記述式"
@@ -18,13 +22,13 @@ cover:
 
 本記事の運営者は測量士の有資格者（2020年取得）・技術士（建設部門ほか）です。
 
-## こんな人のための記事です
+**こんな人のための記事です**
 
 - 午後の記述式で、計算問題だけを取りこぼしたくない人
 - 分野別の解説を読む前に、計算の式と手順を一冊で先に頭へ入れたい人
 - 電卓と関数表の使い方でミスが出やすく、最終値を安定して合わせたい人
 
-## この記事でわかること
+**この記事でわかること**
 
 - 午後の記述式で計算が出る場所と、選ぶ2題の計算の重さの見方
 - 電卓・関数表で桁や丸めを外さないための注意

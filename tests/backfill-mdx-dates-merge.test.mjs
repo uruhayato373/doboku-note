@@ -6,6 +6,7 @@
  * dateModified がマージ日に動いた（sitemap lastmod の偽更新＝クロール枠の無駄。#517 自身が止めよう
  * としていた事象）。MERGE_HEAD がある間は据え置く。
  */
+import './lib/isolate-git-env.mjs';
 import { strict as assert } from 'node:assert';
 import { execFileSync, spawnSync } from 'node:child_process';
 import { mkdtempSync, mkdirSync, writeFileSync, readFileSync, rmSync } from 'node:fs';

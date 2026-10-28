@@ -46,8 +46,8 @@
     },
     "scene-005": {
       "id": "concrete-chief-engineer/shunin-shiken-zentaizou/work/candidate-scene-005",
-      "path": ".tmp/media/concrete-chief-engineer/shunin-shiken-zentaizou/work/candidate-scene-005.b868b693.png",
-      "sha256": "b868b693e9255d16500008416e59df0844b8a9a20ebf944388c535fac112e78e"
+      "path": ".tmp/media/concrete-chief-engineer/shunin-shiken-zentaizou/work/candidate-scene-005.ebd9048f.png",
+      "sha256": "ebd9048fbdfe13b068d2323a8ca0ab44b78dc2f0ef97f583b38a6dc73bb2fd5b"
     },
     "scene-006": {
       "id": "concrete-chief-engineer/shunin-shiken-zentaizou/work/candidate-scene-006",
@@ -56,8 +56,8 @@
     },
     "scene-007": {
       "id": "concrete-chief-engineer/shunin-shiken-zentaizou/work/candidate-scene-007",
-      "path": ".tmp/media/concrete-chief-engineer/shunin-shiken-zentaizou/work/candidate-scene-007.b4e0eba4.png",
-      "sha256": "b4e0eba4fdfd14f5c0f13bdb7a253e59efd763fd63a874321e3770b4fdbb8620"
+      "path": ".tmp/media/concrete-chief-engineer/shunin-shiken-zentaizou/work/candidate-scene-007.031bfb58.png",
+      "sha256": "031bfb5852b07e60d150cdb6879f9899fc7f46d6b62c34a889398866daf7ca84"
     },
     "scene-008": {
       "id": "concrete-chief-engineer/shunin-shiken-zentaizou/work/candidate-scene-008",
@@ -71,19 +71,18 @@
     },
     "subtitles": {
       "id": "concrete-chief-engineer/shunin-shiken-zentaizou/work/candidate-subtitles",
-      "path": ".tmp/media/concrete-chief-engineer/shunin-shiken-zentaizou/work/candidate-subtitles.0103333b.ass",
-      "sha256": "0103333bc300436f8e276de747e566e3fd9661c8724a8ffe437dd31218a36f3a"
+      "path": ".tmp/media/concrete-chief-engineer/shunin-shiken-zentaizou/work/candidate-subtitles.19078479.ass",
+      "sha256": "190784797feb7d20f0715c6680f21243312ada27e392e8d1c0e14dd4cb2a52c0"
     },
     "video": {
       "id": "concrete-chief-engineer/shunin-shiken-zentaizou/work/candidate-video",
-      "path": ".tmp/media/concrete-chief-engineer/shunin-shiken-zentaizou/work/candidate-video.7b3cbb3f.mp4",
-      "sha256": "7b3cbb3f7a700eabc6b45e285734925b792e61e2934da3ad05bc07ed3406f8f5"
+      "path": ".tmp/media/concrete-chief-engineer/shunin-shiken-zentaizou/work/candidate-video.5dcb273a.mp4",
+      "sha256": "5dcb273a5d700d6cb0f0bf8158c3dcc9a9a060d0efec81c70dd78e7dc601532e"
     }
   },
-  "copySource": "content/sns/video-packs/concrete-chief-engineer/shunin-shiken-zentaizou/youtube.json#longform",
-  "localFile": ".tmp/media/concrete-chief-engineer/shunin-shiken-zentaizou/work/candidate-video.7b3cbb3f.mp4",
-  "sha256": "7b3cbb3f7a700eabc6b45e285734925b792e61e2934da3ad05bc07ed3406f8f5",
+  "localFile": ".tmp/media/concrete-chief-engineer/shunin-shiken-zentaizou/work/candidate-video.5dcb273a.mp4",
+  "sha256": "5dcb273a5d700d6cb0f0bf8158c3dcc9a9a060d0efec81c70dd78e7dc601532e",
   "thumbnailLocalFile": ".tmp/media/concrete-chief-engineer/shunin-shiken-zentaizou/work/candidate-cover.729a5a5e.png",
   "thumbnailSha256": "729a5a5e70c9b6de85da4e5eaf3c10cf72946541c575850185578e44623ec7e8",
-  "publishAt": "2026-11-06T20:00:00+09:00"
+  "publishAt": "2026-11-01T20:00:00+09:00"
 }

@@ -5,6 +5,9 @@ import TrenchLegalCheckClient from "./TrenchLegalCheckClient";
 import { DEFAULT_OG_IMAGE } from "@/lib/metadata";
 import { SITE_ORIGIN } from "@/config/site-identity.mjs";
 import AffiliateSlot from "@/components/ui/AffiliateSlot/AffiliateSlot";
+import { toolByHref } from "@/lib/tools";
+
+const tool = toolByHref("/tools/trench-legal-check");
 
 export const metadata: Metadata = {
   // title template `%s | doboku-note` で自動付与されるため "doboku-note" は重ねない
@@ -29,7 +32,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "溝掘削 法令チェッカー",
+    title: tool.title,
     description: "作業主任者の選任義務と法面勾配の基準を、その場で確認。",
     images: [DEFAULT_OG_IMAGE],
   },
@@ -43,7 +46,7 @@ export default function TrenchLegalCheckPage() {
         width="760"
         breadcrumb={[{ label: "Home", href: "/" }, { label: "Tools", href: "/tools" }]}
         label="無料ツール"
-        title="溝掘削 法令チェッカー"
+        title={tool.title}
         lead={
           <>
             掘削面の高さと地山の種類を入れると、<strong className="text-(--ink)">作業主任者の選任義務</strong>・<strong className="text-(--ink)">法面勾配の基準</strong>・<strong className="text-(--ink)">土止め先行工法ガイドラインの適用範囲</strong>を確認できます。「安全な深さ」を判定するツールではありません。

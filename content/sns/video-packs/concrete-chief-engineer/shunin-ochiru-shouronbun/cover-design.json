@@ -5,8 +5,8 @@
       "format": "longform",
       "exam": "concrete-chief",
       "headline": [
-        "その小論文",
-        "評価されない？"
+        "小論文",
+        "4つの見直し"
       ],
       "accentLine": 1,
       "subtitle": "",
@@ -14,15 +14,23 @@
         "pose": "pop-red-pen",
         "frame": "waist"
       },
-      "design": "pop-v2",
+      "design": "pop-poster-v3",
       "pop": {
         "variant": "write",
         "authority": "総監が制作"
       },
       "approvedImage": {
-        "path": ".tmp/media/concrete-chief-engineer/shunin-ochiru-shouronbun/youtube.longform/cover.a3a1060d.png",
-        "sha256": "a3a1060d9772cf8bf88d2376323908486e3faba69895a78c9c50ad3a9e435cb5",
-        "specSha256": "b6e039bff0d0abadf3f6b2248275c9b30aa3d1bca1bbf104043979d58f3d2776"
+        "path": ".tmp/media/concrete-chief-engineer/shunin-ochiru-shouronbun/work/cover-pop.60ab1c34.png",
+        "sha256": "60ab1c34582e50a2efac0f08ef9ca3aae2ea5dca920737eb060aa28da1451d64",
+        "specSha256": "e6532d1753477405936ebef99a9594c0f0fa1d8b1f86358d37fa380f2dadf6ed",
+        "normalization": {
+          "mode": "full-frame-v1",
+          "sourceSha256": "8efb420b61b2fa851352a4a66a74bdd4dbce3a0213714109925ae66642b8a808"
+        },
+        "source": {
+          "path": ".tmp/media/concrete-chief-engineer/shunin-ochiru-shouronbun/work/raw-cover-pop.8efb420b.png",
+          "sha256": "8efb420b61b2fa851352a4a66a74bdd4dbce3a0213714109925ae66642b8a808"
+        }
       }
     },
     "point-ippan-1": {

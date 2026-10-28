@@ -721,36 +721,36 @@
         },
         {
           "sceneId": "step2",
-          "inputSha256": "b027bc1f7b9ce749527b5fce9379618f5078513879daaf839ef2d61abc49750f",
+          "inputSha256": "a137e344ead417cfdb8647382c1b12f9d7b618fdfa2ecd712e162e809dd7e00b",
           "generation": {
             "tool": "image_gen",
-            "prompt": "Create ONE new full-bleed 16:9 educational diagram slide for a Japanese コンクリート主任技士 video. Use attached image as style reference only. White to very light lavender background, thick dark purple and navy outlines, restrained yellow accent, large simple icons, diagram-led, no human character, no poster typography, no bullet-card layout. All meaningful text and graphics above 78% height; bottom 22% continuous empty pale background reserved for subtitles. Japanese text must be exactly as specified, no extra words or numbers. Do not imply unsupported exam facts. Intended 1920x1080. Heading『選考基準の主な項目』. A simple clustered concept map with eight readable labels:『用材料』『配合設計』『試験』『プラント』『製造・品質管理』『施工』『環境問題』『その他』. Exactly eight clusters, grouped into 2 rows of 4. Small related icons, no invented syllabus numbers, no structural design claim.",
+            "prompt": "Correct the grouping in this Japanese educational diagram. There must be EXACTLY eight labeled circles. Purple group of SIX technical topics on the LEFT in a 3 columns × 2 rows grid: top row 「用材料」「配合設計」「試験」, bottom row 「プラント」「製造・品質管理」「施工」. Green group of TWO broader-knowledge topics on the RIGHT in one column: top 「環境問題」, bottom 「その他」. Do not put 「プラント」 in the green group. Keep title exactly 「選考基準の主な項目」 and maintain clean white 16:9 background, navy outline icons, yellow underlines, large highly readable Japanese labels. No other text, no statistic. Keep generous lower subtitle-safe whitespace. The grouped concepts must be visually unambiguous.",
             "references": [
               {
-                "path": ".tmp/media/pe-first-stage/pe1-zentaizou/work/promise-diagram.c7e7cf67.png",
-                "sha256": "c7e7cf6782e5ef4f90e378ac9927e178f7d4acaa2555c547aabe93df9f8cace3"
+                "path": ".tmp/media/concrete-chief-engineer/shunin-shiken-zentaizou/work/raw-step2-nov1-attempt.9a8d3a77.png",
+                "sha256": "9a8d3a77893a3e86c213871e08fac3cd4dd89e15fd52d2a736688851560758a9"
               }
             ],
             "output": {
-              "path": ".tmp/media/concrete-chief-engineer/shunin-shiken-zentaizou/work/raw-step2.f1519fc2.png",
-              "sha256": "f1519fc2cbff8831048f89ca5ef904c81671d3faffb10435057aeb085db96580"
+              "path": ".tmp/media/concrete-chief-engineer/shunin-shiken-zentaizou/work/raw-step2-nov1.ee1ca1fc.png",
+              "sha256": "ee1ca1fcb2330a71908d7b42211ef898afec1beff37059e210b2b7bd94382d3d"
             },
-            "generatedAt": "2026-10-26T22:06:14.300Z"
+            "generatedAt": "2026-10-27T11:46:43.181Z"
           },
           "output": {
-            "path": ".tmp/media/concrete-chief-engineer/shunin-shiken-zentaizou/work/step2-diagram.b868b693.png",
-            "sha256": "b868b693e9255d16500008416e59df0844b8a9a20ebf944388c535fac112e78e",
+            "path": ".tmp/media/concrete-chief-engineer/shunin-shiken-zentaizou/work/step2-diagram-nov1.ebd9048f.png",
+            "sha256": "ebd9048fbdfe13b068d2323a8ca0ab44b78dc2f0ef97f583b38a6dc73bb2fd5b",
             "width": 1920,
             "height": 1080
           },
           "normalization": {
             "mode": "full-frame-v1",
-            "sourceSha256": "f1519fc2cbff8831048f89ca5ef904c81671d3faffb10435057aeb085db96580"
+            "sourceSha256": "ee1ca1fcb2330a71908d7b42211ef898afec1beff37059e210b2b7bd94382d3d"
           },
           "review": {
             "status": "candidate",
             "userReview": "pending",
-            "checkedAt": "2026-10-26T22:06:14.300Z",
+            "checkedAt": "2026-10-27T11:46:43.185Z",
             "by": "Codex",
             "views": [
               "original",
@@ -809,43 +809,43 @@
         },
         {
           "sceneId": "step4",
-          "inputSha256": "ea5d999ccb90521a73f3c988f2b1a646c99bfad28711bf63b591882a93d128bc",
+          "inputSha256": "bfde0a3ac16b1eb43017f695d725f8b6110c2f9a9d88dcc44d198bc7d4e6ba3f",
           "generation": {
             "tool": "image_gen",
-            "prompt": "Edit existing step4 diagram to show two study-time branches: 択一が安定・小論文が弱い → 択一演習の一部を小論文へ; 択一が不安定 → 小論文の時間を過去問へ. 毎週見直す. Preserve subtitle safe band.",
+            "prompt": "Edit this existing 16:9 Japanese educational diagram to match the revised narration: 「時間配分は公式基準ではなく、当サイトの提案です。基礎と過去問で固め、小論文も早めに1本書きます。小論文が弱ければ平日の択一演習の一部を書く時間へ、択一が不安定なら週末の小論文の時間を過去問へ回し、毎週見直します。」 Preserve the existing exact two-branch diagram and all labels: top conditions 「択一が安定・小論文が弱い」「択一が不安定」, bottom actions 「択一演習の一部を小論文へ」「小論文の時間を過去問へ」, feedback label 「毎週見直す」. Preserve downward action arrows and the two outer feedback arrows pointing UP to the top condition boxes. Add one modest, clearly legible label under the title: 「当サイトの学習案」. This makes clear the study-time allocation is editorial advice, not an official JCI requirement. Do not add other text or change the direction of arrows. Keep clean white 16:9 full-frame background, navy outlines, soft purple arrows, yellow highlights, large Japanese text, and the bottom subtitle-safe whitespace.",
             "references": [
               {
-                "path": ".tmp/media/concrete-chief-engineer/shunin-shiken-zentaizou/work/step4-diagram-revised.6d0b1962.png",
-                "sha256": "6d0b196280b175ebaf73840b0a841cf8d98ffc03fd7669f315a2a926a0bde327"
+                "path": ".tmp/media/concrete-chief-engineer/shunin-shiken-zentaizou/work/raw-step4-nov1-final.24c87a64.png",
+                "sha256": "24c87a642bb4a6337c25fe56a81d31dfb3a27274535446c15757631c188da965"
               }
             ],
             "output": {
-              "path": ".tmp/media/concrete-chief-engineer/shunin-shiken-zentaizou/work/raw-step4-qa.0091aa62.png",
-              "sha256": "0091aa6272cbd668e1c843bc109d8e868dce6df2507eabb8bbf77f13a283a848"
+              "path": ".tmp/media/concrete-chief-engineer/shunin-shiken-zentaizou/work/raw-step4-nov1-qa.b586b6ea.png",
+              "sha256": "b586b6eaa8dba43b3bfe493c13bdd47d0f939099e517c03e065a2bd96738f425"
             },
-            "generatedAt": "2026-10-26T22:47:26.220Z"
+            "generatedAt": "2026-10-27T11:56:46.989Z"
           },
           "output": {
-            "path": ".tmp/media/concrete-chief-engineer/shunin-shiken-zentaizou/work/step4-diagram-qa.b4e0eba4.png",
-            "sha256": "b4e0eba4fdfd14f5c0f13bdb7a253e59efd763fd63a874321e3770b4fdbb8620",
+            "path": ".tmp/media/concrete-chief-engineer/shunin-shiken-zentaizou/work/step4-diagram-nov1-qa.031bfb58.png",
+            "sha256": "031bfb5852b07e60d150cdb6879f9899fc7f46d6b62c34a889398866daf7ca84",
             "width": 1920,
             "height": 1080
           },
           "normalization": {
             "mode": "full-frame-v1",
-            "sourceSha256": "0091aa6272cbd668e1c843bc109d8e868dce6df2507eabb8bbf77f13a283a848"
+            "sourceSha256": "b586b6eaa8dba43b3bfe493c13bdd47d0f939099e517c03e065a2bd96738f425"
           },
           "review": {
             "status": "candidate",
             "userReview": "pending",
-            "checkedAt": "2026-10-26T22:47:26.220Z",
+            "checkedAt": "2026-10-27T11:56:46.989Z",
             "by": "Codex",
             "views": [
               "original",
               "1920x1080"
             ],
             "checks": [
-              "限定条件と図の意味",
+              "図解と原稿の意味",
               "日本語の判読",
               "字幕安全域"
             ]

@@ -1,0 +1,365 @@
+{
+  "schemaVersion": 1,
+  "document": "kinki/hikkei",
+  "source": "原本のページ画像（Drive vault の 原資料PDF/共通仕様書/{整備局}/{原本名}/pages/pNNNN.jpg・270dpi）",
+  "note": "bbox はページ画像のピクセル。file は bbox で切って幅 1200px を超えるものだけ縮めた webp（品質 80）。形と使い方は scripts/lib/standards-figures.mjs の冒頭",
+  "figures": [
+    {
+      "chapterId": "29-4",
+      "sourceRef": "640-648",
+      "caption": "図−1 砂置換と散乱型の相関（乾燥密度・全データ）",
+      "imagePage": 641,
+      "bbox": [
+        489,
+        331,
+        1262,
+        1072
+      ],
+      "file": "fig-p0641-1.webp",
+      "width": 773,
+      "height": 741,
+      "review": {
+        "status": "approved",
+        "by": "scanned-figure-crop-auditor",
+        "at": "2026-10-27",
+        "method": "切り出しを出所のページ画像と並べて目視で照合（図の切れ・本文やキャプションの写り込み・隣の図）"
+      }
+    },
+    {
+      "chapterId": "29-4",
+      "sourceRef": "640-648",
+      "caption": "図−2 砂置換と散乱型の相関（乾燥密度・土質別データ）",
+      "imagePage": 641,
+      "bbox": [
+        414,
+        1324,
+        1444,
+        2064
+      ],
+      "file": "fig-p0641-2.webp",
+      "width": 1030,
+      "height": 740,
+      "review": {
+        "status": "approved",
+        "by": "scanned-figure-crop-auditor",
+        "at": "2026-10-27",
+        "method": "切り出しを出所のページ画像と並べて目視で照合（図の切れ・本文やキャプションの写り込み・隣の図）"
+      }
+    },
+    {
+      "chapterId": "29-4",
+      "sourceRef": "640-648",
+      "caption": "図−3 砂置換と散乱型の相関（含水比・全データ）",
+      "imagePage": 642,
+      "bbox": [
+        493,
+        327,
+        1251,
+        1046
+      ],
+      "file": "fig-p0642-1.webp",
+      "width": 758,
+      "height": 719,
+      "review": {
+        "status": "approved",
+        "by": "scanned-figure-crop-auditor",
+        "at": "2026-10-27",
+        "method": "切り出しを出所のページ画像と並べて目視で照合（図の切れ・本文やキャプションの写り込み・隣の図）"
+      }
+    },
+    {
+      "chapterId": "29-4",
+      "sourceRef": "640-648",
+      "caption": "図−5 砂置換と透過型の相関（乾燥密度・全データ）",
+      "imagePage": 643,
+      "bbox": [
+        487,
+        332,
+        1260,
+        1067
+      ],
+      "file": "fig-p0643-1.webp",
+      "width": 773,
+      "height": 735,
+      "review": {
+        "status": "approved",
+        "by": "scanned-figure-crop-auditor",
+        "at": "2026-10-27",
+        "method": "切り出しを出所のページ画像と並べて目視で照合（図の切れ・本文やキャプションの写り込み・隣の図）"
+      }
+    },
+    {
+      "chapterId": "29-4",
+      "sourceRef": "640-648",
+      "caption": "図−6 砂置換と透過型の相関（乾燥密度・土質別データ）",
+      "imagePage": 643,
+      "bbox": [
+        411,
+        1328,
+        1438,
+        2062
+      ],
+      "file": "fig-p0643-2.webp",
+      "width": 1027,
+      "height": 734,
+      "review": {
+        "status": "approved",
+        "by": "scanned-figure-crop-auditor",
+        "at": "2026-10-27",
+        "method": "切り出しを出所のページ画像と並べて目視で照合（図の切れ・本文やキャプションの写り込み・隣の図）"
+      }
+    },
+    {
+      "chapterId": "29-4",
+      "sourceRef": "640-648",
+      "caption": "図−7 砂置換と透過型の相関（含水比・全データ）",
+      "imagePage": 644,
+      "bbox": [
+        498,
+        325,
+        1253,
+        1053
+      ],
+      "file": "fig-p0644-1.webp",
+      "width": 755,
+      "height": 728,
+      "review": {
+        "status": "approved",
+        "by": "scanned-figure-crop-auditor",
+        "at": "2026-10-27",
+        "method": "切り出しを出所のページ画像と並べて目視で照合（図の切れ・本文やキャプションの写り込み・隣の図）"
+      }
+    },
+    {
+      "chapterId": "29-4",
+      "sourceRef": "640-648",
+      "caption": "図−8 砂置換と透過型の相関（含水比・土質別データ）",
+      "imagePage": 644,
+      "bbox": [
+        415,
+        1337,
+        1437,
+        2069
+      ],
+      "file": "fig-p0644-2.webp",
+      "width": 1022,
+      "height": 732,
+      "review": {
+        "status": "approved",
+        "by": "scanned-figure-crop-auditor",
+        "at": "2026-10-27",
+        "method": "切り出しを出所のページ画像と並べて目視で照合（図の切れ・本文やキャプションの写り込み・隣の図）"
+      }
+    },
+    {
+      "chapterId": "29-4",
+      "sourceRef": "640-648",
+      "caption": "図−9 散乱型と透過型の相関（乾燥密度・全データ）",
+      "imagePage": 645,
+      "bbox": [
+        480,
+        326,
+        1260,
+        1064
+      ],
+      "file": "fig-p0645-1.webp",
+      "width": 780,
+      "height": 738,
+      "review": {
+        "status": "approved",
+        "by": "scanned-figure-crop-auditor",
+        "at": "2026-10-27",
+        "method": "切り出しを出所のページ画像と並べて目視で照合（図の切れ・本文やキャプションの写り込み・隣の図）"
+      }
+    },
+    {
+      "chapterId": "29-4",
+      "sourceRef": "640-648",
+      "caption": "図−10 散乱型と透過型の相関（乾燥密度・土質別データ）",
+      "imagePage": 645,
+      "bbox": [
+        411,
+        1325,
+        1439,
+        2058
+      ],
+      "file": "fig-p0645-2.webp",
+      "width": 1028,
+      "height": 733,
+      "review": {
+        "status": "approved",
+        "by": "scanned-figure-crop-auditor",
+        "at": "2026-10-27",
+        "method": "切り出しを出所のページ画像と並べて目視で照合（図の切れ・本文やキャプションの写り込み・隣の図）"
+      }
+    },
+    {
+      "chapterId": "29-4",
+      "sourceRef": "640-648",
+      "caption": "図−11 散乱型と透過型の相関（含水比・全データ）",
+      "imagePage": 646,
+      "bbox": [
+        494,
+        325,
+        1243,
+        1047
+      ],
+      "file": "fig-p0646-1.webp",
+      "width": 749,
+      "height": 722,
+      "review": {
+        "status": "approved",
+        "by": "scanned-figure-crop-auditor",
+        "at": "2026-10-27",
+        "method": "切り出しを出所のページ画像と並べて目視で照合（図の切れ・本文やキャプションの写り込み・隣の図）"
+      }
+    },
+    {
+      "chapterId": "29-4",
+      "sourceRef": "640-648",
+      "caption": "図−12 散乱型と透過型の相関（含水比・土質別データ）",
+      "imagePage": 646,
+      "bbox": [
+        418,
+        1337,
+        1437,
+        2063
+      ],
+      "file": "fig-p0646-2.webp",
+      "width": 1019,
+      "height": 726,
+      "review": {
+        "status": "approved",
+        "by": "scanned-figure-crop-auditor",
+        "at": "2026-10-27",
+        "method": "切り出しを出所のページ画像と並べて目視で照合（図の切れ・本文やキャプションの写り込み・隣の図）"
+      }
+    },
+    {
+      "chapterId": "29-4",
+      "sourceRef": "640-648",
+      "caption": "図−13 レキ率と乾燥密度（標準偏差）の関係 [ 散乱型 ]",
+      "imagePage": 647,
+      "bbox": [
+        471,
+        327,
+        1361,
+        1027
+      ],
+      "file": "fig-p0647-1.webp",
+      "width": 890,
+      "height": 700,
+      "review": {
+        "status": "approved",
+        "by": "scanned-figure-crop-auditor",
+        "at": "2026-10-27",
+        "method": "切り出しを出所のページ画像と並べて目視で照合（図の切れ・本文やキャプションの写り込み・隣の図）"
+      }
+    },
+    {
+      "chapterId": "29-4",
+      "sourceRef": "640-648",
+      "caption": "図−14 レキ率と締固め度（標準偏差）の関係 [ 散乱型 ]",
+      "imagePage": 647,
+      "bbox": [
+        456,
+        1377,
+        1319,
+        2066
+      ],
+      "file": "fig-p0647-2.webp",
+      "width": 863,
+      "height": 689,
+      "review": {
+        "status": "approved",
+        "by": "scanned-figure-crop-auditor",
+        "at": "2026-10-27",
+        "method": "切り出しを出所のページ画像と並べて目視で照合（図の切れ・本文やキャプションの写り込み・隣の図）"
+      }
+    },
+    {
+      "chapterId": "8-1",
+      "sourceRef": "165-167",
+      "caption": "図 3 橋梁上部構造の測定位置（例）",
+      "imagePage": 166,
+      "bbox": [
+        315,
+        326,
+        1922,
+        1181
+      ],
+      "file": "fig-p0166-1.webp",
+      "width": 1200,
+      "height": 638,
+      "review": {
+        "status": "approved",
+        "by": "scanned-figure-crop-auditor",
+        "at": "2026-10-27",
+        "method": "切り出しを出所のページ画像と並べて目視で照合（図の切れ・本文やキャプションの写り込み・隣の図）"
+      }
+    },
+    {
+      "chapterId": "8-1",
+      "sourceRef": "165-167",
+      "caption": "図 4 橋梁下部構造の測定位置（例）",
+      "imagePage": 166,
+      "bbox": [
+        313,
+        1364,
+        1924,
+        2571
+      ],
+      "file": "fig-p0166-2.webp",
+      "width": 1200,
+      "height": 899,
+      "review": {
+        "status": "approved",
+        "by": "scanned-figure-crop-auditor",
+        "at": "2026-10-27",
+        "method": "切り出しを出所のページ画像と並べて目視で照合（図の切れ・本文やキャプションの写り込み・隣の図）"
+      }
+    },
+    {
+      "chapterId": "8-1",
+      "sourceRef": "165-167",
+      "caption": "図 5 微破壊・非破壊試験の測定箇所配置図（例）",
+      "imagePage": 167,
+      "bbox": [
+        347,
+        234,
+        1911,
+        1135
+      ],
+      "file": "fig-p0167-1.webp",
+      "width": 1200,
+      "height": 691,
+      "review": {
+        "status": "approved",
+        "by": "scanned-figure-crop-auditor",
+        "at": "2026-10-27",
+        "method": "切り出しを出所のページ画像と並べて目視で照合（図の切れ・本文やキャプションの写り込み・隣の図）"
+      }
+    },
+    {
+      "chapterId": "30-2",
+      "sourceRef": "660",
+      "caption": "図５−２ 内空変位の測線",
+      "imagePage": 660,
+      "bbox": [
+        481,
+        403,
+        1372,
+        788
+      ],
+      "file": "fig-p0660-1.webp",
+      "width": 891,
+      "height": 385,
+      "review": {
+        "status": "approved",
+        "by": "scanned-figure-crop-auditor",
+        "at": "2026-10-27",
+        "method": "切り出しを出所のページ画像と並べて目視で照合（図の切れ・本文やキャプションの写り込み・隣の図）"
+      }
+    }
+  ]
+}

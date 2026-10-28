@@ -17,6 +17,7 @@ import {
   type StandardChapter,
 } from '@/lib/standards-articles';
 import { generateHeadingId } from '@/lib/toc';
+import { standardsAgencyPath } from '@/lib/route-paths';
 
 type StandardsNavigationProps = {
   agencyId: string;
@@ -59,7 +60,7 @@ function AgencyNav({ currentAgency }: { currentAgency: string }) {
           return (
             <li key={agency.agencyId}>
               <Link
-                href={`/standards/${agency.agencyId}`}
+                href={standardsAgencyPath(agency.agencyId)}
                 className={navLinkClass(active)}
                 aria-current={active ? 'page' : undefined}
               >
@@ -280,7 +281,7 @@ export default function StandardsNavigation({
     : currentChapter && currentDocument
       ? standardDocumentPath(currentDocument)
       : currentDocument
-        ? `/standards/${agencyId}`
+        ? standardsAgencyPath(agencyId)
         : '/standards';
   const parentLabel = sectionTitle
     ? '章の節一覧へ戻る'

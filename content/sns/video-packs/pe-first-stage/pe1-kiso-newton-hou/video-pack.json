@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "packId": "pe1-kiso-newton-hou",
+  "exam": "pe-first-stage",
+  "title": "技術士一次 基礎科目 ニュートン法の分母は高さを横の距離に直す",
+  "audience": "技術士第一次試験を控え、基礎科目の微積分・数値解析に不安がある受験者",
+  "pain": "基礎科目のニュートン法で、なぜ導関数で割るのか分からず、更新式を丸暗記になる",
+  "promise": "接線と横軸の交点へ移る考え方と、分母（導関数）で高さを横の距離に直す意味が、仮の1例で分かる",
+  "intent": "howto",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/pe-first-stage/guide-calculus-numerical-calculation/article.mdx"
+    },
+    {
+      "type": "figure",
+      "path": "content/site/pe-first-stage/guide-calculus-numerical-calculation/img/figure-newton-tangent.svg"
+    },
+    {
+      "type": "site",
+      "path": "content/site/pe-first-stage/r06-basic/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "pe1-takuitsu-pdf",
+    "campaign": "pe1-kiso-newton-hou"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 0,
+    "instagramCarousel": false,
+    "instagramReel": false,
+    "xThread": false,
+    "threadsBrief": false
+  }
+}

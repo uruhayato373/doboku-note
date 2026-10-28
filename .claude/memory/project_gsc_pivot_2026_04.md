@@ -45,7 +45,7 @@ metadata:
 
 ## 統合: SEO 施策の恒久知見（旧 seo_phase1_phase2_2026_05）
 - LCP: AdSense を `lazyOnload` に変更済み（`NEXT_PUBLIC_ADSENSE_EAGER=1` で即時ロールバック可）。`images.unoptimized:false` 化は Static Export 制約で実装不可。lab PSI のばらつき大→実効果は CrUX（28日後）で判断。
-- 独自データ公開: `essay-keyword-frequency.json`・`/docs/pe-comprehensive-management-essay-data-2026`・`...-primary-statistics-2026`（R01-R07×280問 χ²=1.107＝正答番号偏りなし）。`llms.txt`＋`llms-full.txt`（`build-llms-full.mjs` 自動生成）。2026-05-17 ベースライン: Bing 252/Direct 101/Google 77/OpenAI 45（AI 検索合計 61 ≒ Google の79%）。
+- 独自データ公開: `essay-keyword-frequency.json`・`/docs/pe-comprehensive-management-essay-data-2026`・`...-primary-statistics-2026`（R01-R07×280問 χ²=1.107＝正答番号偏りなし）。`llms.txt`＋`llms-full.txt`（`scripts/build-llms-txt.mjs` が生成。旧 build-llms-full.mjs は 2026-10-27 に削除）。2026-05-17 ベースライン: Bing 252/Direct 101/Google 77/OpenAI 45（AI 検索合計 61 ≒ Google の79%）。
 
 ## 統合: GA4 取得の既定フィルタ（旧 ga4_default_filter）
 `fetch-ga4-data.mjs` は 2026-05-17 以降、既定で country=Japan＋参照スパム5件除外。生データが要るときだけ `--include-all`。〜2026-05-16 の記録（フィルタ前で5〜6倍値）と直接比較しない。スパム追加は `SPAM_REFERRAL_SOURCES` 配列へ。経緯は measurement-incidents.md 2026-04-26。

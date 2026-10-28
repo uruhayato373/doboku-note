@@ -4,8 +4,11 @@ notePricing: paid
 noteContentType: product
 price: 1480
 paidBoundary: "頻出論点の解き方"
-noteStatus: draft
+noteStatus: published
 utmCampaign: pavement-2027
+notePublishedAt: "2026-10-28"
+noteId: "n0eafbe26a8d6"
+noteUrl: "https://note.com/dobokunote/n/n0eafbe26a8d6"
 cover:
   variant: crop-safe-v4
   leadIn: "1級舗装｜応用試験 選択問題"

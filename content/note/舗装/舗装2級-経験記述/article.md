@@ -4,8 +4,11 @@ notePricing: paid
 noteContentType: product
 price: 980
 paidBoundary: "模範答案"
-noteStatus: draft
+noteStatus: published
 utmCampaign: pavement-2027
+notePublishedAt: "2026-10-28"
+noteId: "n058f02626a5b"
+noteUrl: "https://note.com/dobokunote/n/n058f02626a5b"
 cover:
   variant: crop-safe-v4
   leadIn: "2級舗装 応用試験 問1"
@@ -23,6 +26,12 @@ cover:
 - 応用試験の問1（必須）で、短い字数に何を書けばよいか分からない
 - 課題78字・対策218字という枠に、内容が入りきらない
 - 工程・品質・安全のどれで書くか決めきれない
+
+**この記事でわかること**
+
+- 2級の問1で問われていることと、1級との違い・字数の表記の変化
+- 課題78字・対策218字の短い字数で、課題→対策を書く順序
+- 工程・品質・安全の模範答案3本と、自分の工事への置き換え手順
 
 ---
 
