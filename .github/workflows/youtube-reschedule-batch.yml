@@ -1,0 +1,44 @@
+name: YouTube Reschedule Batch
+
+on:
+  workflow_dispatch:
+
+concurrency:
+  group: youtube-single-publish
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  reschedule:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      YOUTUBE_CLIENT_ID: ${{ secrets.YOUTUBE_CLIENT_ID }}
+      YOUTUBE_CLIENT_SECRET: ${{ secrets.YOUTUBE_CLIENT_SECRET }}
+      YOUTUBE_REFRESH_TOKEN: ${{ secrets.YOUTUBE_REFRESH_TOKEN }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: develop
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci --legacy-peer-deps --ignore-scripts
+      - name: Validate and update eleven existing YouTube schedules
+        run: |
+          node scripts/youtube-reschedule-batch.mjs --plan content/sns/youtube/schedule-plans/2026-10-28-three-per-day.json --commit
+          npm run check-content-registry
+      - name: Preserve YouTube read-back in develop
+        if: always()
+        run: |
+          git add -u -- content/registry/publications/youtube content/sns/video-packs
+          if ! git diff --cached --quiet; then
+            git config user.name 'doboku-note-bot'
+            git config user.email 'bot@doboku-note.com'
+            git commit -m "Record verified YouTube schedule changes"
+            git pull --rebase origin develop
+            git push origin HEAD:develop
+          fi
