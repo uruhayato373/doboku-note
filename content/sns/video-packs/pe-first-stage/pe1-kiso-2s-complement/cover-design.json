@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "pe-first-stage",
+      "headline": [
+        "1の補数と",
+        "2の補数",
+        "+1で見分ける"
+      ],
+      "accentLine": 0,
+      "subtitle": "基礎科目",
+      "character": {
+        "pose": "pop-red-pen",
+        "frame": "waist"
+      },
+      "design": "pop-poster-v3",
+      "pop": {
+        "variant": "question",
+        "authority": "総監が制作"
+      },
+      "approvedImage": {
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-2s-complement/work/cover-pop.42c1c517.png",
+        "sha256": "42c1c517bd1166deea105873e1477bed611a6ed0aceda5a50f10044e10a1fb83",
+        "specSha256": "3de1fe4f354739b0e67ac0df0c2ced71d8153b7cb6108652c95467cc32f5195c"
+      }
+    }
+  }
+}

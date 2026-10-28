@@ -3,6 +3,358 @@
   "scope": "pe-first-stage",
   "media": [
     {
+      "id": "pe-first-stage/pe1-kiso-2s-complement/youtube.longform/contact-sheet",
+      "role": "contact-sheet",
+      "type": "image/jpeg",
+      "sha256": "6f62bfe920f2ab0e2bfb4d58a90671f9e8d5691c99aef664ddc65b1e3c81bafd",
+      "bytes": 754862,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-2s-complement/youtube.longform/contact-sheet.6f62bfe9.jpg"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "media-preview",
+        "spec": "content/sns/video-packs/pe-first-stage/pe1-kiso-2s-complement/storyboard.json"
+      },
+      "width": 1920,
+      "height": 1620
+    },
+    {
+      "id": "pe-first-stage/pe1-kiso-2s-complement/youtube.longform/cover",
+      "role": "cover",
+      "type": "image/png",
+      "sha256": "42c1c517bd1166deea105873e1477bed611a6ed0aceda5a50f10044e10a1fb83",
+      "bytes": 710286,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-2s-complement/youtube.longform/cover.42c1c517.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "POP表紙。大きな5ビットの並び(00110)から2本の矢印が分かれ、左『1の補数』右『2の補数』の札が付いた図。資格色の背景。 上部に権威表示「総監が制作」。",
+        "promptSha256": "84dfd7968b76c81a8e8c136076490c7cdafc58cce4b5afa004e42c928a6ab731",
+        "generatedAt": "2026-10-28T22:34:13.798Z"
+      },
+      "width": 1920,
+      "height": 1080,
+      "legacyPaths": [
+        ".tmp/media/pe-first-stage/pe1-kiso-2s-complement/work/cover-pop.42c1c517.png"
+      ]
+    },
+    {
+      "id": "pe-first-stage/pe1-kiso-2s-complement/youtube.longform/preview",
+      "role": "preview",
+      "type": "video/mp4",
+      "sha256": "714225e8a0e95fdbed6b044893c0aefe92dbb58eff8151230d3948a39aee0b9c",
+      "bytes": 4784371,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-2s-complement/youtube.longform/preview.714225e8.mp4"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "media-preview",
+        "spec": "content/sns/video-packs/pe-first-stage/pe1-kiso-2s-complement/storyboard.json"
+      },
+      "durationSec": 229.003
+    },
+    {
+      "id": "pe-first-stage/pe1-kiso-2s-complement/youtube.longform/preview-metrics",
+      "role": "preview-metrics",
+      "type": "application/json",
+      "sha256": "bf27cb4b6d1bc5c21d858a74b96a0db74f276ff8798ad8de94b3076aa9d9a43e",
+      "bytes": 1752,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-2s-complement/youtube.longform/preview-metrics.bf27cb4b.json"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "media-preview",
+        "spec": "content/sns/video-packs/pe-first-stage/pe1-kiso-2s-complement/storyboard.json"
+      }
+    },
+    {
+      "id": "pe-first-stage/pe1-kiso-2s-complement/youtube.longform/scene-001",
+      "role": "scene-001",
+      "type": "image/png",
+      "sha256": "42c1c517bd1166deea105873e1477bed611a6ed0aceda5a50f10044e10a1fb83",
+      "bytes": 710286,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-2s-complement/youtube.longform/scene-001.42c1c517.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "POP表紙。大きな5ビットの並び(00110)から2本の矢印が分かれ、左『1の補数』右『2の補数』の札が付いた図。資格色の背景。 上部に権威表示「総監が制作」。",
+        "promptSha256": "84dfd7968b76c81a8e8c136076490c7cdafc58cce4b5afa004e42c928a6ab731",
+        "generatedAt": "2026-10-28T22:34:13.798Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-first-stage/pe1-kiso-2s-complement/youtube.longform/scene-002",
+      "role": "scene-002",
+      "type": "image/png",
+      "sha256": "738daf0d41b590a9e5e622f67e06a1c9711d85450ec3720b24533b6e03a168ed",
+      "bytes": 1811801,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-2s-complement/youtube.longform/scene-002.738daf0d.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "大きな1枚の図。左から右へ、元の値→(全ビット反転)→1の補数→(+1)→2の補数 の3段フロー。+1の矢印だけ強調。",
+        "promptSha256": "c1922a2bcd78c09296d896d61330eda594bb073cd56a6e7bbc9ebba186ad3773",
+        "generatedAt": "2026-10-28T22:34:13.798Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-first-stage/pe1-kiso-2s-complement/youtube.longform/scene-003",
+      "role": "scene-003",
+      "type": "image/png",
+      "sha256": "724cb4ab6330412e14ee5b43faa83e8f3ca0ce15aa3b18e00f542af043cbeb81",
+      "bytes": 1554973,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-2s-complement/youtube.longform/scene-003.724cb4ab.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "3つの大きなカード。(1)反転だけ→2の補数と書いて×、(2)元の値に+1して×、(3)ア・イ入れ替えて×。各カードに小さなバツ印。",
+        "promptSha256": "53a7ad370e1c92deb411abe129c34be0cc844f5f0163f45660a1ed8de1e23fe2",
+        "generatedAt": "2026-10-28T22:34:13.798Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-first-stage/pe1-kiso-2s-complement/youtube.longform/scene-004",
+      "role": "scene-004",
+      "type": "image/png",
+      "sha256": "fb077abd0592de7a1e4f2c19a5407baa1b82c4298b061671d37de7df46f4a275",
+      "bytes": 1313967,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-2s-complement/youtube.longform/scene-004.fb077abd.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "5つのマスが2段。上段00110、下段11001。各マスの間に上下の反転矢印。大きな文字で。",
+        "promptSha256": "81f7e4f866190b5dafc9f19a247cf09e7a5dcfe6e2403bf64d6344778a2dde2f",
+        "generatedAt": "2026-10-28T22:34:13.798Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-first-stage/pe1-kiso-2s-complement/youtube.longform/scene-005",
+      "role": "scene-005",
+      "type": "image/png",
+      "sha256": "f66edfc81dc9062129ef53020d9c8a989d0819c6f33e2ce9e6f7512df731465d",
+      "bytes": 1255623,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-2s-complement/youtube.longform/scene-005.f66edfc8.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "筆算風の縦図。11001の下に+1、横線、結果11010。最下位ビットの繰り上がりを1本の矢印で示す。",
+        "promptSha256": "122c39f82943644e7cb3e880dbf7f83e02b2e85f51d293461b62f825943297c0",
+        "generatedAt": "2026-10-28T22:34:13.798Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-first-stage/pe1-kiso-2s-complement/youtube.longform/scene-006",
+      "role": "scene-006",
+      "type": "image/png",
+      "sha256": "1e5313c84689bc0efeb7c714999b4f44e1b9aa6c735ffa112bc72baf166dab2e",
+      "bytes": 1812299,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-2s-complement/youtube.longform/scene-006.1e5313c8.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "上下2つの筆算。上：00110+11001=11111(全部1を強調)。下：00110+11010=100000(6ビット目の1だけ強調)。",
+        "promptSha256": "3ab6c6c7ad5b6a9a076871a8deefdb13ac39f578e4ed9a77be9a984a44c7cd3f",
+        "generatedAt": "2026-10-28T22:34:13.798Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-first-stage/pe1-kiso-2s-complement/youtube.longform/scene-007",
+      "role": "scene-007",
+      "type": "image/png",
+      "sha256": "4657218bd208c5bd065d8d22c8d05185601ca7b01cec590a9f3e2d34f8d6651f",
+      "bytes": 1608749,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-2s-complement/youtube.longform/scene-007.4657218b.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "筆算風の図。00111に+1で、下3桁に連続する繰り上がり矢印、結果01000。右に『32−24=8』の小さな検算札。",
+        "promptSha256": "550f56a95ab07bd372ba8928903578e3c922742804020f064176fa25d666d3b0",
+        "generatedAt": "2026-10-28T22:34:13.798Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-first-stage/pe1-kiso-2s-complement/youtube.longform/scene-008",
+      "role": "scene-008",
+      "type": "image/png",
+      "sha256": "f8d1d8635dd43b777067255eff8e1470518fd62d55ea18a284da3f195c84a684",
+      "bytes": 1442495,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-2s-complement/youtube.longform/scene-008.f8d1d863.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "数直線の図。32と31が1目盛り離れ、そこからXを引いた2点(2の補数・1の補数)も1目盛り離れる。『差=1』を強調。",
+        "promptSha256": "d5d4391c6e936994b168589556c18aaffd0fef3823dc46fcb506038db88c82e9",
+        "generatedAt": "2026-10-28T22:34:13.798Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-first-stage/pe1-kiso-2s-complement/youtube.longform/scene-009",
+      "role": "scene-009",
+      "type": "image/png",
+      "sha256": "17a0aaabb0900eaedd9e5e03d73c547835dacf05e2c54b8441515c1be1693d3d",
+      "bytes": 1563520,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-2s-complement/youtube.longform/scene-009.17a0aaab.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "2枚の過去問ラベル(H30 I-2-3、R2 I-2-4)と、下に3ステップ帯『反転→+1→ア・イ確認』。問題文・選択肢は載せない。",
+        "promptSha256": "86c8dac6c39f905de2dbe7cc30c8ba8e369bd23a2f83616f1673ed65ee34af87",
+        "generatedAt": "2026-10-28T22:34:13.798Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-first-stage/pe1-kiso-2s-complement/youtube.longform/scene-010",
+      "role": "scene-010",
+      "type": "image/png",
+      "sha256": "d46c099745330c3f49082bd653ba14b9cc2878801def2e2d64fa483e609063ab",
+      "bytes": 1503627,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-2s-complement/youtube.longform/scene-010.d46c0997.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "4枚のカードに補数の要点を示す。下に5桁の例00110→11001→11010と6+26=32(2^5)。4桁の図は使わない。",
+        "promptSha256": "72e4ee3c6ba3ec3171a0e57f63fabdffba0c6f740ad97c095779362ef670946c",
+        "generatedAt": "2026-10-28T22:34:13.798Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-first-stage/pe1-kiso-2s-complement/youtube.longform/scene-011",
+      "role": "scene-011",
+      "type": "image/png",
+      "sha256": "1c94e1a61db608b40a54519c81b6e9dc99e08934d295ea6f0101bb66dde11847",
+      "bytes": 1669181,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-2s-complement/youtube.longform/scene-011.1c94e1a6.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "CTA。過去問PDF合本と直前暗記ノートを左右の抽象的な資料カードで示す。専門は建設部門、概要欄リンクの案内。",
+        "promptSha256": "90a6ac8ac0667f531e6c1a4042fdbaabbe1f34b851406555611bf92390d68816",
+        "generatedAt": "2026-10-28T22:34:13.798Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-first-stage/pe1-kiso-2s-complement/youtube.longform/scene-sheet",
+      "role": "scene-sheet",
+      "type": "image/jpeg",
+      "sha256": "11f919469806e16b1684178f6289140fe0135757421b845f94183093ebf7f916",
+      "bytes": 686182,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-2s-complement/youtube.longform/scene-sheet.11f91946.jpg"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "media-preview",
+        "spec": "content/sns/video-packs/pe-first-stage/pe1-kiso-2s-complement/storyboard.json"
+      },
+      "width": 1920,
+      "height": 1592
+    },
+    {
+      "id": "pe-first-stage/pe1-kiso-2s-complement/youtube.longform/subtitles",
+      "role": "subtitles",
+      "type": "text/x-ssa",
+      "sha256": "c64a4a0900394352c298959fb80d8bb3733ba3209c57fdf4299d20f7795e7a04",
+      "bytes": 7033,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-2s-complement/youtube.longform/subtitles.c64a4a09.ass"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/pe-first-stage/pe1-kiso-2s-complement/storyboard.json"
+      }
+    },
+    {
+      "id": "pe-first-stage/pe1-kiso-2s-complement/youtube.longform/video",
+      "role": "video",
+      "type": "video/mp4",
+      "sha256": "490aa23b3dbed79eb6fecdfb1e98767a4f8f8388b2632ca38a8d16dc78a85bbb",
+      "bytes": 21817094,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-2s-complement/youtube.longform/video.490aa23b.mp4"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/pe-first-stage/pe1-kiso-2s-complement/storyboard.json",
+        "specSha256": "ea931209dc95952303e5233d8eb2c88d11024e29bb2f53612a8d7ce1a6e12d0e",
+        "renderInputSha256": "c55fad120717888688ef04c1eb85202656a24cd0ecc128b0dddc8ff8e88e69e7",
+        "tts": {
+          "engine": "VOICEVOX",
+          "speaker": 13,
+          "credit": "VOICEVOX:青山龍星"
+        }
+      },
+      "durationSec": 229
+    },
+    {
       "id": "pe-first-stage/pe1-kiso-gyouretsu-vector/youtube.longform/contact-sheet",
       "role": "contact-sheet",
       "type": "image/jpeg",

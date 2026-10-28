@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "packId": "pe1-kiso-2of3-reliability",
+  "exam": "pe-first-stage",
+  "title": "技術士一次 基礎科目 2/3多数決系の信頼度は「2個正常」と「3個正常」を足す",
+  "audience": "技術士第一次試験の基礎科目で、信頼性設計の確率計算に不安がある受験者",
+  "pain": "2/3多数決冗長系の信頼度を求めるとき、ちょうど2個正常と3個正常の片方を足し忘れる、または2個正常の3通りを掛け忘れる",
+  "promise": "ちょうど2個と3個の確率を足し、2個正常には3通りを掛けると分かり、引き算と p=0.5 の確認で自分で検算できる",
+  "intent": "exam-point",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/pe-first-stage/r05-basic/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "pe1-chokuzen-pack",
+    "campaign": "pe1-kiso-2of3-reliability"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 0,
+    "instagramCarousel": false,
+    "instagramReel": false,
+    "xThread": false,
+    "threadsBrief": false
+  }
+}

@@ -3794,6 +3794,78 @@
       "reason": "独立AI画像監査：最終採用PNGを原寸と360pxで実見。指定4文言・ポーズ・顔と手指・安全域に問題なし。ユーザー承認は含まない。",
       "reviewedAt": "2026-10-11T03:36:30.184Z"
     },
+    "media:pe-first-stage/pe1-kiso-2s-complement/youtube.longform/cover": {
+      "sha": "42c1c517bd1166de",
+      "verdict": "ok",
+      "reason": "総監が制作の表示、5桁補数の計算、人物の装備と手指を再監査し、すべて正しい",
+      "reviewedAt": "2026-10-28T22:36:58.513Z"
+    },
+    "media:pe-first-stage/pe1-kiso-2s-complement/youtube.longform/scene-001": {
+      "sha": "42c1c517bd1166de",
+      "verdict": "ok",
+      "reason": "coverと同一画像。総監が制作の表示と補数の計算を再監査し、正しい",
+      "reviewedAt": "2026-10-28T22:36:58.513Z"
+    },
+    "media:pe-first-stage/pe1-kiso-2s-complement/youtube.longform/scene-002": {
+      "sha": "738daf0d41b590a9",
+      "verdict": "ok",
+      "reason": "元の値00110→全ビット反転→1の補数11001→+1(強調)→2の補数11010 の3段フローが本文・計算と一致し、文字の崩れも無い",
+      "reviewedAt": "2026-10-28T22:36:58.513Z"
+    },
+    "media:pe-first-stage/pe1-kiso-2s-complement/youtube.longform/scene-003": {
+      "sha": "724cb4ab6330412e",
+      "verdict": "ok",
+      "reason": "誤った3ビット図を除去し、3種類の取り違えを赤い×と正確な文字で表示",
+      "reviewedAt": "2026-10-28T22:36:58.513Z"
+    },
+    "media:pe-first-stage/pe1-kiso-2s-complement/youtube.longform/scene-004": {
+      "sha": "fb077abd0592de7a",
+      "verdict": "ok",
+      "reason": "上段00110→下段11001を各桁の 0→1/1→0 と下向き矢印で示し、5桁すべて正しい。ラベルも本文どおり",
+      "reviewedAt": "2026-10-28T22:36:58.513Z"
+    },
+    "media:pe-first-stage/pe1-kiso-2s-complement/youtube.longform/scene-005": {
+      "sha": "f66edfc81dc90621",
+      "verdict": "ok",
+      "reason": "11001+00001=11010 の筆算が正しく、下位2桁の強調も本文の最下位繰り上がりと矛盾しない。指定の繰り上がり矢印は無いが、数値の誤りは無い",
+      "reviewedAt": "2026-10-28T22:36:58.513Z"
+    },
+    "media:pe-first-stage/pe1-kiso-2s-complement/youtube.longform/scene-006": {
+      "sha": "1e5313c84689bc0e",
+      "verdict": "ok",
+      "reason": "00110+11001=11111 と 00110+11010=100000 が正しく、「5桁の1」「2の5乗」の注記も本文と一致",
+      "reviewedAt": "2026-10-28T22:36:58.513Z"
+    },
+    "media:pe-first-stage/pe1-kiso-2s-complement/youtube.longform/scene-007": {
+      "sha": "4657218bd208c5bd",
+      "verdict": "ok",
+      "reason": "11000→反転00111→+1で下3桁が連続繰り上がり→01000 が正しく、32−24=8 の検算札も合う。緑の矢印は繰り上がりを示している",
+      "reviewedAt": "2026-10-28T22:36:58.513Z"
+    },
+    "media:pe-first-stage/pe1-kiso-2s-complement/youtube.longform/scene-008": {
+      "sha": "f8d1d8635dd43b77",
+      "verdict": "ok",
+      "reason": "5桁の2進数で 2の補数=32−X、1の補数=31−X、差は1 と示され、本文の定義と一致。数直線にはなっていないが数式は正しい",
+      "reviewedAt": "2026-10-28T22:36:58.513Z"
+    },
+    "media:pe-first-stage/pe1-kiso-2s-complement/youtube.longform/scene-009": {
+      "sha": "17a0aaabb0900eae",
+      "verdict": "ok",
+      "reason": "H30:5桁、R2:6桁は記事の問題（5桁 01011、6桁 100110）と一致。反転→+1→ア・イを確認の3手順も本文どおりで、問題文・選択肢は載っていない",
+      "reviewedAt": "2026-10-28T22:36:58.513Z"
+    },
+    "media:pe-first-stage/pe1-kiso-2s-complement/youtube.longform/scene-010": {
+      "sha": "d46c099745330c3f",
+      "verdict": "ok",
+      "reason": "4ビット図を除去し、5桁の00110→11001→11010と6+26=32を正確に表示",
+      "reviewedAt": "2026-10-28T22:36:58.513Z"
+    },
+    "media:pe-first-stage/pe1-kiso-2s-complement/youtube.longform/scene-011": {
+      "sha": "1c94e1a61db608b4",
+      "verdict": "ok",
+      "reason": "過去問PDF合本と直前暗記ノートの2資料カード、建設部門と概要欄案内を正確に表示",
+      "reviewedAt": "2026-10-28T22:36:58.513Z"
+    },
     "media:pe-first-stage/pe1-kiso-gyouretsu-vector/youtube.longform/cover": {
       "sha": "ec9f3aa7b01725b8",
       "verdict": "ok",

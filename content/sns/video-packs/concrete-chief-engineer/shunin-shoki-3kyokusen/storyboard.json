@@ -1,0 +1,164 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 12,
+      "narration": "練混ぜ直後から24時間までの3本の曲線は、どれも右上がりで取り違えやすい問題です。今日は、形で縦軸を見分けます。",
+      "caption": "初期材齢の3曲線を形で見分ける",
+      "visual": {
+        "kind": "cover",
+        "heading": "初期材齢の3曲線",
+        "items": [
+          "コンクリート主任技士・四肢択一"
+        ]
+      }
+    },
+    {
+      "sceneId": "premise",
+      "start": 12,
+      "end": 30,
+      "narration": "3本とも時間とともに増えるので、違いは見分けにくいと思われがちです。違いは、出だしの早さと、その後の増え方にあります。",
+      "caption": "違いは出だしと終わり方",
+      "visual": {
+        "heading": "誤解：どれも右上がりで同じに見える",
+        "items": [
+          "出だしは速いか遅いか",
+          "頭打ちになるか",
+          "急に増える区間があるか"
+        ]
+      },
+      "sourceRef": "content/site/concrete-chief-engineer/primary-properties/article.mdx"
+    },
+    {
+      "sceneId": "steps",
+      "start": 30,
+      "end": 58,
+      "narration": "問題のグラフは、横軸に練混ぜからの時間の目盛りがあり、縦軸には名称も数値もありません。そこで増え方を三点で見ます。出だしが速いか。遅い場合は、緩やかに増え続けるか、平らから急に増えるか。",
+      "caption": "横軸は時間、縦軸は形だけで判断",
+      "visual": {
+        "heading": "見分けの手順（3点）",
+        "items": [
+          "横軸：時間の目盛りあり／縦軸：名称・数値なし",
+          "1. 出だしは速いか",
+          "2. 遅いなら、緩やかに増え続けるか",
+          "3. 遅いなら、平らから急に増えるか"
+        ],
+        "reveal": 4
+      },
+      "sourceRef": "content/site/concrete-chief-engineer/primary-properties/article.mdx"
+    },
+    {
+      "sceneId": "adiabatic",
+      "start": 58,
+      "end": 88,
+      "narration": "断熱温度上昇量は、水和熱が外へ逃げないものとして積み上がる量です。出だしは遅く、その後は緩やかに増え続けます。",
+      "caption": "出だしが遅く、止まらない曲線",
+      "visual": {
+        "heading": "断熱温度上昇量",
+        "items": [
+          "水和熱が蓄積していく",
+          "出だし：なだらか",
+          "右端：上がり続ける"
+        ]
+      },
+      "sourceRef": "content/site/concrete-chief-engineer/primary-properties/img/figure-h24-q12-early-age-curves.svg"
+    },
+    {
+      "sceneId": "penetration",
+      "start": 88,
+      "end": 120,
+      "narration": "凝結試験の貫入抵抗値は、固まり始める前は横ばいです。始発から終結にかけて、平らな状態から急に立ち上がります。",
+      "caption": "長い横ばいのあと急に立ち上がる",
+      "visual": {
+        "heading": "凝結試験の貫入抵抗値",
+        "items": [
+          "固まり始める前：横ばい",
+          "始発から終結：急増",
+          "形：平ら、そして急な立ち上がり"
+        ]
+      },
+      "sourceRef": "content/site/concrete-chief-engineer/primary-properties/img/figure-h24-q12-early-age-curves.svg"
+    },
+    {
+      "sceneId": "bleeding",
+      "start": 120,
+      "end": 152,
+      "narration": "ブリーディング水の累計は、打込み後まもなく水が出て、出だしが速い曲線です。凝結が進むと水が出なくなり、曲線は頭打ちになります。",
+      "caption": "早く出て、途中で頭打ち",
+      "visual": {
+        "heading": "ブリーディング水の累計",
+        "items": [
+          "打込み後まもなく水が浮く",
+          "凝結が進むと水が出なくなる",
+          "形：出だしが速く、後半は平ら"
+        ]
+      },
+      "sourceRef": "content/site/concrete-chief-engineer/primary-properties/img/figure-h24-q12-early-age-curves.svg"
+    },
+    {
+      "sceneId": "compare",
+      "start": 152,
+      "end": 172,
+      "narration": "三つを並べます。出だしが速いのはブリーディング水。遅くて増え続けるのは断熱温度上昇量。平らから急に増えるのは貫入抵抗値です。",
+      "caption": "形と物理的な意味を1対1で結ぶ",
+      "visual": {
+        "heading": "3曲線の対応",
+        "items": [
+          "出だしが速い：ブリーディング水",
+          "遅く、緩やかに増え続ける：断熱温度上昇量",
+          "遅く、平らから急増：貫入抵抗値"
+        ]
+      },
+      "sourceRef": "content/site/concrete-chief-engineer/primary-properties/article.mdx"
+    },
+    {
+      "sceneId": "example",
+      "start": 172,
+      "end": 192,
+      "narration": "問題ではグラフに記号だけが付いています。選択肢を見る前に、三点で各グラフへ名前を付けてから照らし合わせてください。",
+      "caption": "選択肢を見る前に名前を付ける",
+      "visual": {
+        "heading": "解き方の順番",
+        "items": [
+          "1. 出だしの速さを見る",
+          "2. 遅いなら増え方の2型で分ける",
+          "3. 名前を付けてから選択肢へ"
+        ],
+        "reveal": 3
+      },
+      "sourceRef": "content/site/concrete-chief-engineer/primary-properties/article.mdx"
+    },
+    {
+      "sceneId": "summary",
+      "start": 192,
+      "end": 210,
+      "narration": "出だしが速いのがブリーディング水。遅く増え続けるのが断熱温度上昇量。平らから急増するのが貫入抵抗値です。",
+      "caption": "3点で縦軸の取り違えがなくなる",
+      "visual": {
+        "heading": "まとめ",
+        "items": [
+          "ブリーディング水：出だしが速い",
+          "断熱温度上昇量：遅く、増え続ける",
+          "貫入抵抗値：平らから急増"
+        ]
+      },
+      "sourceRef": "content/site/concrete-chief-engineer/primary-properties/article.mdx"
+    },
+    {
+      "sceneId": "cta",
+      "start": 210,
+      "end": 225,
+      "narration": "続きは、令和8年度四肢択一の予想50問と施工14問で仕上げてください。概要欄のリンクからご覧いただけます。",
+      "caption": "続きは概要欄のリンクから",
+      "visual": {
+        "kind": "cover",
+        "heading": "R8 予想50問＋施工14問",
+        "items": [
+          "8分野・全選択肢解説（概要欄リンク）"
+        ]
+      }
+    }
+  ]
+}
