@@ -15,10 +15,6 @@ export function stripBold(text: string): string {
   return text.replace(/\*\*(.+?)\*\*/g, '$1');
 }
 
-export function hasInlineMarkup(text: string): boolean {
-  return text.includes('](') || /\*\*.+?\*\*/.test(text);
-}
-
 export function inlineParts(text: string): InlinePart[] {
   const body = stripBold(text);
   const parts: InlinePart[] = [];

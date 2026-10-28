@@ -19,13 +19,11 @@
 
 import { inlineParts, stripBold, type InlinePart } from './inline-links';
 
-export type ReferencePart = InlinePart;
-
 export interface ReferenceItem {
   title: string;
   url: string;
   source?: string;
-  parts?: ReferencePart[];
+  parts?: InlinePart[];
 }
 
 export interface ExtractResult {
