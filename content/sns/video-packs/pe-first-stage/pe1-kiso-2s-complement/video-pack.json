@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "packId": "pe1-kiso-2s-complement",
+  "exam": "pe-first-stage",
+  "title": "技術士一次 基礎科目 1の補数と2の補数は「+1」の1手で分かれる",
+  "audience": "技術士第一次試験の基礎科目で、2群「情報・論理」の補数表現に不安がある受験者",
+  "pain": "2進数の1の補数と2の補数を取り違え、反転しただけの値や+1の相手を誤って選んでしまう",
+  "promise": "1の補数は全ビット反転、2の補数はそれに1を足すだけと分かり、和の形で自分で検算できる",
+  "intent": "exam-point",
+  "sourceRefs": [
+    { "type": "site", "path": "content/site/pe-first-stage/h30-basic/article.mdx" },
+    { "type": "site", "path": "content/site/pe-first-stage/r02-basic/article.mdx" },
+    { "type": "site", "path": "content/site/pe-first-stage/guide-basic-subject/article.mdx" }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "pe1-chokuzen-pack",
+    "campaign": "pe1-kiso-2s-complement"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 0,
+    "instagramCarousel": false,
+    "instagramReel": false,
+    "xThread": false,
+    "threadsBrief": false
+  }
+}

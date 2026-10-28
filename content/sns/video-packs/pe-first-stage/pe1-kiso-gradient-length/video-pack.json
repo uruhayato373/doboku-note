@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "packId": "pe1-kiso-gradient-length",
+  "exam": "pe-first-stage",
+  "title": "技術士一次 基礎科目 勾配ベクトルと最急勾配の長さを取り違えない",
+  "audience": "技術士第一次試験を控え、基礎科目の多変数関数・ベクトルに不安がある受験者",
+  "pain": "令和7年度 基礎Ⅰ-3-2の論点である、勾配ベクトルそのものと、最急勾配の長さ（ノルム）を取り違えてしまう",
+  "promise": "偏微分、点の代入、ベクトル、ノルムの順で、ベクトルと長さを区別して求められるようになる",
+  "intent": "howto",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/pe-first-stage/r07-basic/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "pe1-takuitsu-pdf",
+    "campaign": "pe1-kiso-gradient-length"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 0,
+    "instagramCarousel": false,
+    "instagramReel": false,
+    "xThread": false,
+    "threadsBrief": false
+  }
+}

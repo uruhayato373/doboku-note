@@ -1,0 +1,567 @@
+{
+  "policy": ".claude/knowledge/reference/pop-image-policy.md",
+  "designVersion": "pop-20260927",
+  "channel": "youtube",
+  "source": "content/sns/video-packs/pe-first-stage/pe1-kiso-2s-complement",
+  "outputs": {
+    "longform": {
+      "publicationId": "pe-first-stage/pe1-kiso-2s-complement/youtube.longform",
+      "copy": {
+        "exam": "pe-first-stage",
+        "headline": [
+          "1の補数と",
+          "2の補数",
+          "+1で見分ける"
+        ],
+        "benefit": "基礎科目",
+        "authority": "総監が制作"
+      },
+      "evidence": [
+        "content/sns/video-packs/pe-first-stage/pe1-kiso-2s-complement/cover-design.json#covers/longform",
+        "content/sns/video-packs/pe-first-stage/pe1-kiso-2s-complement/storyboard.json"
+      ],
+      "references": [
+        {
+          "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.abe1a7b7.png",
+          "sha256": "abe1a7b7debc540640b2aacb2f333874901e60f25843dca40579ccd42feb7216"
+        }
+      ],
+      "prompt": "POP表紙。大きな5ビットの並び(00110)から2本の矢印が分かれ、左『1の補数』右『2の補数』の札が付いた図。資格色の背景。 上部に権威表示「総監が制作」。",
+      "format": {
+        "width": 1920,
+        "height": 1080
+      },
+      "render": {
+        "template": "codex-image-gen",
+        "variant": "question",
+        "pose": "pop-red-pen"
+      },
+      "output": {
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-2s-complement/work/cover-pop.42c1c517.png",
+        "sha256": "42c1c517bd1166deea105873e1477bed611a6ed0aceda5a50f10044e10a1fb83"
+      },
+      "review": {
+        "status": "agent-reviewed",
+        "by": "Codex",
+        "checkedAt": "2026-10-28T22:34:13.798Z",
+        "viewportWidth": 360,
+        "checks": [
+          "見出しと資格名",
+          "文字・人物の切れ",
+          "図と主張の整合"
+        ],
+        "userImageReview": "pending"
+      },
+      "storage": {
+        "group": "content-media",
+        "key": ".tmp/media/pe-first-stage/pe1-kiso-2s-complement/work/cover-pop.42c1c517.png"
+      },
+      "publication": "ローカル差し替え・外部未反映"
+    }
+  },
+  "activeBodyRevision": "body-diagram-20261028",
+  "activeCoverRevision": "cover-pop-20261028",
+  "revisions": {
+    "body-diagram-20261028": {
+      "layout": {
+        "mode": "diagram-led"
+      },
+      "images": [
+        {
+          "sceneId": "answer",
+          "inputSha256": "9c0b85832957d11d7ac7eb1afbabcb16912f8184c2ce3a7d631e47d5eba168cc",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "大きな1枚の図。左から右へ、元の値→(全ビット反転)→1の補数→(+1)→2の補数 の3段フロー。+1の矢印だけ強調。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-first-stage/pe1-kiso-2s-complement/work/raw-answer-diagram.a6de1bb5.png",
+              "sha256": "a6de1bb51b45a29b27f7f018c82796f4415e36c356fd456744a1225f4cd738da"
+            },
+            "generatedAt": "2026-10-28T22:34:13.798Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-first-stage/pe1-kiso-2s-complement/work/answer-diagram.738daf0d.png",
+            "sha256": "738daf0d41b590a9e5e622f67e06a1c9711d85450ec3720b24533b6e03a168ed",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "a6de1bb51b45a29b27f7f018c82796f4415e36c356fd456744a1225f4cd738da"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-28T22:34:13.798Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字・数値の判読",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "misread",
+          "inputSha256": "2bf0407a5722ed36224ce77865342da12778c63d14a9b93f76d24f78633d932b",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "3つの大きなカード。(1)反転だけ→2の補数と書いて×、(2)元の値に+1して×、(3)ア・イ入れ替えて×。各カードに小さなバツ印。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-first-stage/pe1-kiso-2s-complement/work/raw-misread-diagram.db9f1127.png",
+              "sha256": "db9f1127c1133c35b0e2e0c02f2a8dfe05b19cbf6e1e15ae26935b2f31709e9d"
+            },
+            "generatedAt": "2026-10-28T22:34:13.798Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-first-stage/pe1-kiso-2s-complement/work/misread-diagram.724cb4ab.png",
+            "sha256": "724cb4ab6330412e14ee5b43faa83e8f3ca0ce15aa3b18e00f542af043cbeb81",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "db9f1127c1133c35b0e2e0c02f2a8dfe05b19cbf6e1e15ae26935b2f31709e9d"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-28T22:34:13.798Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字・数値の判読",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "ones",
+          "inputSha256": "e6be1f4fb55071796576cc0ca06180eaa405271949f4ff75965f0af859591599",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "5つのマスが2段。上段00110、下段11001。各マスの間に上下の反転矢印。大きな文字で。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-first-stage/pe1-kiso-2s-complement/work/raw-ones-diagram.57c67d13.png",
+              "sha256": "57c67d1349ce6a997665af473cc4f6943283db466a38c937a9334adaee729144"
+            },
+            "generatedAt": "2026-10-28T22:34:13.798Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-first-stage/pe1-kiso-2s-complement/work/ones-diagram.fb077abd.png",
+            "sha256": "fb077abd0592de7a1e4f2c19a5407baa1b82c4298b061671d37de7df46f4a275",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "57c67d1349ce6a997665af473cc4f6943283db466a38c937a9334adaee729144"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-28T22:34:13.798Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字・数値の判読",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "twos",
+          "inputSha256": "43dd6613d539e582844152473db1bc578214bcaebb8ac9fa6cfdf06ac32c5bed",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "筆算風の縦図。11001の下に+1、横線、結果11010。最下位ビットの繰り上がりを1本の矢印で示す。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-first-stage/pe1-kiso-2s-complement/work/raw-twos-diagram.ce459a4d.png",
+              "sha256": "ce459a4d0cf11c69c2dbdf115e57a1f0990d45da176ae81e461e819e2bebb38e"
+            },
+            "generatedAt": "2026-10-28T22:34:13.798Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-first-stage/pe1-kiso-2s-complement/work/twos-diagram.f66edfc8.png",
+            "sha256": "f66edfc81dc9062129ef53020d9c8a989d0819c6f33e2ce9e6f7512df731465d",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "ce459a4d0cf11c69c2dbdf115e57a1f0990d45da176ae81e461e819e2bebb38e"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-28T22:34:13.798Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字・数値の判読",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "check",
+          "inputSha256": "ca06cf7af419577c600faf3dc479b0ecfb354703a8e376cc6f58a68b486ecb1a",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "上下2つの筆算。上：00110+11001=11111(全部1を強調)。下：00110+11010=100000(6ビット目の1だけ強調)。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-first-stage/pe1-kiso-2s-complement/work/raw-check-diagram.0a8f49c9.png",
+              "sha256": "0a8f49c93a01072ab7126af74778a59988f58179a3058d15d3cbdf9b15c26bea"
+            },
+            "generatedAt": "2026-10-28T22:34:13.798Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-first-stage/pe1-kiso-2s-complement/work/check-diagram.1e5313c8.png",
+            "sha256": "1e5313c84689bc0efeb7c714999b4f44e1b9aa6c735ffa112bc72baf166dab2e",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "0a8f49c93a01072ab7126af74778a59988f58179a3058d15d3cbdf9b15c26bea"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-28T22:34:13.798Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字・数値の判読",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "carry",
+          "inputSha256": "404644810487e2ddc4b92d0236045dc89c6b47fb9ee31a38246706826aa3f2a6",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "筆算風の図。00111に+1で、下3桁に連続する繰り上がり矢印、結果01000。右に『32−24=8』の小さな検算札。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-first-stage/pe1-kiso-2s-complement/work/raw-carry-diagram.71c47772.png",
+              "sha256": "71c47772fd0cb1480f3233d3a75cd9bda82f3ea60597d979c6dde7afa19eba13"
+            },
+            "generatedAt": "2026-10-28T22:34:13.798Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-first-stage/pe1-kiso-2s-complement/work/carry-diagram.4657218b.png",
+            "sha256": "4657218bd208c5bd065d8d22c8d05185601ca7b01cec590a9f3e2d34f8d6651f",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "71c47772fd0cb1480f3233d3a75cd9bda82f3ea60597d979c6dde7afa19eba13"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-28T22:34:13.798Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字・数値の判読",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "meaning",
+          "inputSha256": "5cd5bcccc0e70e88a1dea81dae2fc7b91c90579e99dbb3704041c50f33aedf44",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "数直線の図。32と31が1目盛り離れ、そこからXを引いた2点(2の補数・1の補数)も1目盛り離れる。『差=1』を強調。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-first-stage/pe1-kiso-2s-complement/work/raw-meaning-diagram.99c64f25.png",
+              "sha256": "99c64f25f3eec089531f9a7445897dcccb41d9a1da06a449517ad6a24a7f4d98"
+            },
+            "generatedAt": "2026-10-28T22:34:13.798Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-first-stage/pe1-kiso-2s-complement/work/meaning-diagram.f8d1d863.png",
+            "sha256": "f8d1d8635dd43b777067255eff8e1470518fd62d55ea18a284da3f195c84a684",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "99c64f25f3eec089531f9a7445897dcccb41d9a1da06a449517ad6a24a7f4d98"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-28T22:34:13.798Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字・数値の判読",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "practice",
+          "inputSha256": "2f5e1577e3eba9f05c6116d7292d7cce9282ac306e6fa2130471de4f10f93d21",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "2枚の過去問ラベル(H30 I-2-3、R2 I-2-4)と、下に3ステップ帯『反転→+1→ア・イ確認』。問題文・選択肢は載せない。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-first-stage/pe1-kiso-2s-complement/work/raw-practice-diagram.494a5d4b.png",
+              "sha256": "494a5d4bf29b68ac00f7781e70a2327bc17bd1da39156d8798155ed149ae204c"
+            },
+            "generatedAt": "2026-10-28T22:34:13.798Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-first-stage/pe1-kiso-2s-complement/work/practice-diagram.17a0aaab.png",
+            "sha256": "17a0aaabb0900eaedd9e5e03d73c547835dacf05e2c54b8441515c1be1693d3d",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "494a5d4bf29b68ac00f7781e70a2327bc17bd1da39156d8798155ed149ae204c"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-28T22:34:13.798Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字・数値の判読",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "summary",
+          "inputSha256": "8cf0356f1e17b6d1272eae5b3bb5c21440f205127d03202f77a7873b97783f51",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "4枚のカードに補数の要点を示す。下に5桁の例00110→11001→11010と6+26=32(2^5)。4桁の図は使わない。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-first-stage/pe1-kiso-2s-complement/work/raw-summary-diagram.46ad7332.png",
+              "sha256": "46ad733256a7eb7924ef815dad6ec3d87f63bd0eb5ae80e80c2e29bb8a5d3bf6"
+            },
+            "generatedAt": "2026-10-28T22:34:13.798Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-first-stage/pe1-kiso-2s-complement/work/summary-diagram.d46c0997.png",
+            "sha256": "d46c099745330c3f49082bd653ba14b9cc2878801def2e2d64fa483e609063ab",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "46ad733256a7eb7924ef815dad6ec3d87f63bd0eb5ae80e80c2e29bb8a5d3bf6"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-28T22:34:13.798Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字・数値の判読",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "cta",
+          "inputSha256": "2e9431991e4ec3495d04751ff4158371c6cbe5dad5cd19d262b037df994eeb24",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "CTA。過去問PDF合本と直前暗記ノートを左右の抽象的な資料カードで示す。専門は建設部門、概要欄リンクの案内。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-first-stage/pe1-kiso-2s-complement/work/raw-cta-diagram.8f7943da.png",
+              "sha256": "8f7943da6ac958010a5e1a5a33af9cc68921b640525fdf3d6c549a91d8eed82b"
+            },
+            "generatedAt": "2026-10-28T22:34:13.798Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-first-stage/pe1-kiso-2s-complement/work/cta-diagram.1c94e1a6.png",
+            "sha256": "1c94e1a61db608b40a54519c81b6e9dc99e08934d295ea6f0101bb66dde11847",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "8f7943da6ac958010a5e1a5a33af9cc68921b640525fdf3d6c549a91d8eed82b"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-28T22:34:13.798Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字・数値の判読",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        }
+      ]
+    },
+    "cover-pop-20261028": {
+      "version": "pop-poster-v3",
+      "generation": {
+        "tool": "image_gen",
+        "prompt": "POP表紙。大きな5ビットの並び(00110)から2本の矢印が分かれ、左『1の補数』右『2の補数』の札が付いた図。資格色の背景。 上部に権威表示「総監が制作」。",
+        "references": [
+          {
+            "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.abe1a7b7.png",
+            "sha256": "abe1a7b7debc540640b2aacb2f333874901e60f25843dca40579ccd42feb7216"
+          }
+        ],
+        "output": {
+          "path": ".tmp/media/pe-first-stage/pe1-kiso-2s-complement/work/raw-cover-pop.29145d69.png",
+          "sha256": "29145d69e38d6dce68d3c293c84d2e3dc08f30ba6a52fa18efd822ffd99424b0"
+        },
+        "generatedAt": "2026-10-28T22:34:13.798Z"
+      },
+      "copy": {
+        "exam": "pe-first-stage",
+        "headline": [
+          "1の補数と",
+          "2の補数",
+          "+1で見分ける"
+        ],
+        "authority": "総監が制作"
+      },
+      "output": {
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-2s-complement/work/cover-pop.42c1c517.png",
+        "sha256": "42c1c517bd1166deea105873e1477bed611a6ed0aceda5a50f10044e10a1fb83",
+        "width": 1920,
+        "height": 1080
+      },
+      "normalization": {
+        "mode": "full-frame-v1",
+        "sourceSha256": "29145d69e38d6dce68d3c293c84d2e3dc08f30ba6a52fa18efd822ffd99424b0"
+      },
+      "review": {
+        "status": "ai-reviewed",
+        "userImageReview": "pending",
+        "checkedAt": "2026-10-28T22:34:13.798Z",
+        "by": "Codex",
+        "views": [
+          "original"
+        ],
+        "checks": [
+          "文言・資格名",
+          "顔と安全域"
+        ]
+      },
+      "storage": {
+        "group": "content-media",
+        "sync": "local"
+      }
+    }
+  }
+}

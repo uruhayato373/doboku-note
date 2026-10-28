@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "packId": "shunin-kyoudo-hantei-2jouken",
+  "exam": "concrete-chief-engineer",
+  "title": "圧縮強度の合否は平均値だけで決めない — 二つの条件を同時に確かめる",
+  "audience": "コンクリート主任技士のレディーミクストコンクリート検査で、強度の合否判定を平均値だけで済ませがちな受験者",
+  "pain": "圧縮強度の合否を3回の平均値が呼び強度以上かどうかだけで決めてしまう",
+  "promise": "平均値と1回ごとの結果の二つの条件を、仮例の数値で順に確かめて合否を判定できる",
+  "intent": "exam-point",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/concrete-chief-engineer/primary-production-qc/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/concrete-chief-engineer/textbook-production-qc/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "cce-r8-mc-50",
+    "campaign": "shunin-kyoudo-hantei-2jouken"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 0,
+    "instagramCarousel": false,
+    "instagramReel": false,
+    "xThread": false,
+    "threadsBrief": false
+  }
+}

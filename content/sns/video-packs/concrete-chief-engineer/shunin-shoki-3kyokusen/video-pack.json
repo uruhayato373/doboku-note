@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "packId": "shunin-shoki-3kyokusen",
+  "exam": "concrete-chief-engineer",
+  "title": "主任技士 練混ぜ直後〜24時間の3曲線 — 断熱温度上昇・貫入抵抗・ブリーディング水",
+  "audience": "コンクリート主任技士の択一で、初期材齢の曲線問題を落としたくない受験者",
+  "pain": "断熱温度上昇量・凝結試験の貫入抵抗値・ブリーディング水の累計の3曲線を取り違える",
+  "promise": "3曲線の形と、その形になる物理的な理由が分かり、グラフの縦軸を見分けられる",
+  "intent": "exam-point",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/concrete-chief-engineer/primary-properties/article.mdx"
+    },
+    {
+      "type": "figure",
+      "path": "content/site/concrete-chief-engineer/primary-properties/img/figure-h24-q12-early-age-curves.svg"
+    },
+    {
+      "type": "figure",
+      "path": "content/site/concrete-chief-engineer/primary-properties/img/h24-q12.svg"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "cce-r8-mc-50",
+    "campaign": "shunin-shoki-3kyokusen"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 0,
+    "instagramCarousel": false,
+    "instagramReel": 0,
+    "xThread": false,
+    "threadsBrief": false
+  }
+}

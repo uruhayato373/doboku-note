@@ -374,6 +374,25 @@
       ]
     },
     {
+      "id": "youtube-reschedule-batch",
+      "runner": "github-actions",
+      "source": ".github/workflows/youtube-reschedule-batch.yml",
+      "title": "YouTube既存予約の一括日時変更",
+      "group": "manual",
+      "triggers": [
+        "workflow_dispatch"
+      ],
+      "schedule": [],
+      "login": [],
+      "purpose": "確定済みの変更計画に沿って既存動画の公開日時をYouTube APIで再確認し、公開台帳へ結果を記録する",
+      "readers": [
+        "human"
+      ],
+      "writes": [
+        "registry.youtube"
+      ]
+    },
+    {
       "id": "r2-delete",
       "runner": "github-actions",
       "source": ".github/workflows/r2-delete.yml",

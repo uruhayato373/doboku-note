@@ -4,6 +4,65 @@
   "exam": "pe-first-stage",
   "publications": [
     {
+      "id": "pe-first-stage/pe1-kiso-2of3-reliability/youtube.longform",
+      "work": "pe1-kiso-2of3-reliability",
+      "account": "youtube:main",
+      "format": "longform",
+      "status": "draft"
+    },
+    {
+      "id": "pe-first-stage/pe1-kiso-2s-complement/youtube.longform",
+      "work": "pe1-kiso-2s-complement",
+      "account": "youtube:main",
+      "format": "longform",
+      "status": "rendered",
+      "media": {
+        "cover": "pe-first-stage/pe1-kiso-2s-complement/youtube.longform/cover",
+        "scene-001": "pe-first-stage/pe1-kiso-2s-complement/youtube.longform/scene-001",
+        "scene-002": "pe-first-stage/pe1-kiso-2s-complement/youtube.longform/scene-002",
+        "scene-003": "pe-first-stage/pe1-kiso-2s-complement/youtube.longform/scene-003",
+        "scene-004": "pe-first-stage/pe1-kiso-2s-complement/youtube.longform/scene-004",
+        "scene-005": "pe-first-stage/pe1-kiso-2s-complement/youtube.longform/scene-005",
+        "scene-006": "pe-first-stage/pe1-kiso-2s-complement/youtube.longform/scene-006",
+        "scene-007": "pe-first-stage/pe1-kiso-2s-complement/youtube.longform/scene-007",
+        "scene-008": "pe-first-stage/pe1-kiso-2s-complement/youtube.longform/scene-008",
+        "scene-009": "pe-first-stage/pe1-kiso-2s-complement/youtube.longform/scene-009",
+        "scene-010": "pe-first-stage/pe1-kiso-2s-complement/youtube.longform/scene-010",
+        "scene-011": "pe-first-stage/pe1-kiso-2s-complement/youtube.longform/scene-011",
+        "video": "pe-first-stage/pe1-kiso-2s-complement/youtube.longform/video",
+        "subtitles": "pe-first-stage/pe1-kiso-2s-complement/youtube.longform/subtitles",
+        "preview": "pe-first-stage/pe1-kiso-2s-complement/youtube.longform/preview",
+        "scene-sheet": "pe-first-stage/pe1-kiso-2s-complement/youtube.longform/scene-sheet",
+        "preview-metrics": "pe-first-stage/pe1-kiso-2s-complement/youtube.longform/preview-metrics",
+        "contact-sheet": "pe-first-stage/pe1-kiso-2s-complement/youtube.longform/contact-sheet"
+      },
+      "copy": "content/sns/video-packs/pe-first-stage/pe1-kiso-2s-complement/youtube.json#longform",
+      "publishAt": "2026-11-03T23:30:00Z",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "user",
+          "at": "2026-10-28T22:37:51.677Z",
+          "digest": "95f39da794f31ae6ad737246d31b280eae3723ed7d0d8653f265c5f12a70d5f5"
+        }
+      },
+      "approval": {
+        "by": "user",
+        "at": "2026-10-28T22:38:24.736Z",
+        "contentSha256": "c195503a0e649cbc10ffaa213ae9dc388e1355589ea16cee44409b606dbb5135"
+      },
+      "times": {
+        "rendered": "2026-10-28T22:37:52.526Z"
+      }
+    },
+    {
+      "id": "pe-first-stage/pe1-kiso-gradient-length/youtube.longform",
+      "work": "pe1-kiso-gradient-length",
+      "account": "youtube:main",
+      "format": "longform",
+      "status": "draft"
+    },
+    {
       "id": "pe-first-stage/pe1-kiso-gyouretsu-vector/youtube.longform",
       "work": "pe1-kiso-gyouretsu-vector",
       "account": "youtube:main",
