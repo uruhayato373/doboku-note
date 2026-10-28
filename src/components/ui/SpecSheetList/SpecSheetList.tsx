@@ -28,6 +28,7 @@
 import katex from "katex";
 import type { ReactNode } from "react";
 import styles from "./SpecSheetList.module.css";
+import { resolveHref } from "@/components/ui/InlineParts/InlineParts";
 
 type ListItem = { content: ReactNode } | string | ReactNode;
 
@@ -63,18 +64,43 @@ function parseInlineBoldCode(text: string): ReactNode {
 }
 
 /**
- * `$...$` インライン数式を KaTeX でレンダリングし、bold / code も処理する。
+ * `[題](URL)` をリンクにし、残りは bold / code を処理する。項目に書いたリンクが `[題](URL)` のまま
+ * 画面に出ていた（2026-10-28 の描画検査・総監のキーワードなど 10 ページ）。
+ */
+function parseInlineLinks(text: string): ReactNode {
+  const parts = text.split(/(\[[^\]]+\]\([^)\s]+\))/g);
+  if (parts.length === 1) return parseInlineBoldCode(text);
+  return parts.map((part, i) => {
+    const link = part.match(/^\[([^\]]+)\]\(([^)\s]+)\)$/);
+    if (!link) return <span key={`l-${i}`}>{parseInlineBoldCode(part)}</span>;
+    const href = resolveHref(link[2] ?? "");
+    const external = /^https?:/.test(href);
+    return (
+      <a
+        key={`l-${i}`}
+        href={href}
+        {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+        className="text-(--accent) underline underline-offset-2 hover:no-underline"
+      >
+        {parseInlineBoldCode(link[1] ?? "")}
+      </a>
+    );
+  });
+}
+
+/**
+ * `$...$` インライン数式を KaTeX でレンダリングし、link / bold / code も処理する。
  * JSX プロップ文字列は remark-math パイプラインを通らないため、ここで処理する。
  */
 function parseInlineMarkdown(text: string): ReactNode {
   const parts = text.split(/(\$[^$\n]+\$)/g);
-  if (parts.length === 1) return parseInlineBoldCode(text);
+  if (parts.length === 1) return parseInlineLinks(text);
   return parts.map((part, i) => {
     if (part.startsWith("$") && part.endsWith("$") && part.length > 2) {
       const html = katex.renderToString(part.slice(1, -1), { throwOnError: false });
       return <span key={`m-${i}`} dangerouslySetInnerHTML={{ __html: html }} />;
     }
-    return <span key={`t-${i}`}>{parseInlineBoldCode(part)}</span>;
+    return <span key={`t-${i}`}>{parseInlineLinks(part)}</span>;
   });
 }
 
