@@ -1,5 +1,7 @@
 import MetaCard from '@/components/ui/MetaCard/MetaCard';
 import Disclosure from '@/components/ui/Disclosure/Disclosure';
+import InlineParts from '@/components/ui/InlineParts/InlineParts';
+import { inlineParts } from '@/lib/inline-links';
 
 interface FAQEntry {
   q: string;
@@ -26,7 +28,8 @@ export default function FAQCard({ faqs }: FAQCardProps) {
           <li key={idx}>
             <Disclosure chevron="start" summaryClassName="text-sm font-semibold text-(--ink)" summary={entry.q}>
               <p className="pb-3 pl-11 pr-4 text-sm text-(--ink-body) leading-relaxed">
-                {entry.a}
+                {/* 回答は frontmatter の平文で MDX を通らない。[題](URL) と **太字** をここで描画する */}
+                <InlineParts parts={inlineParts(entry.a)} />
               </p>
             </Disclosure>
           </li>

@@ -25,7 +25,38 @@ import { unified } from "unified";
 import remarkParse from "remark-parse";
 import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
+import remarkMdx from "remark-mdx";
 import { runBody, isCliEntry, runAsCli } from './lib/cli-run.mjs';
+
+const processor = unified().use(remarkParse).use(remarkGfm).use(remarkMath);
+// .mdx は remark-mdx で読む。素の Markdown として読むと `<Callout>` から空行までを HTML の塊とみなし、
+// 中の太字を一切見ない（2026-10-28 に描画検査 check-rendered-pages が Callout 内の崩れを 2 記事で見つけた）
+const mdxProcessor = unified().use(remarkParse).use(remarkMdx).use(remarkGfm).use(remarkMath);
+
+/** text ノードだけを走査して `**` の残存を拾う（tests/bold-rendering.test.mjs が直接呼ぶ） */
+export function findUnrendered(body, isMdx) {
+  let tree;
+  try {
+    tree = (isMdx ? mdxProcessor : processor).parse(body);
+  } catch {
+    return null; // パース不能は呼び出し側で skip 集計
+  }
+  const hits = [];
+  const walk = (node) => {
+    if (node.type === "text" && node.value.includes("**")) {
+      hits.push({
+        line: node.position?.start?.line ?? 0,
+        value: node.value,
+      });
+    }
+    // code / inlineCode / math は太字対象外なので降りない
+    if (node.type === "code" || node.type === "inlineCode") return;
+    if (node.type === "math" || node.type === "inlineMath") return;
+    (node.children ?? []).forEach(walk);
+  };
+  walk(tree);
+  return hits;
+}
 
 // in-process でも呼べるよう run() に包んである（DN-0688・pre-commit-dispatch が import して呼ぶ）。
 // process.argv / process.exit / process.exitCode は runBody が渡す __argv / __exit / __status への読み替え。
@@ -46,7 +77,9 @@ const TARGETS = [
   { root: "content/note", isTarget: (name) => /^article(-[^/\\]+)?\.md$/.test(name) },
 ];
 const ROOTS = TARGETS.map((t) => t.root);
-const isTargetPath = (p) => {
+const isTargetPath = (raw) => {
+  // listFiles は Windows で \ 区切りを返す（そのままだと startsWith が外れて手元だけ対象 0 件になる）
+  const p = raw.replace(/\\/g, "/");
   const name = p.split("/").pop();
   return TARGETS.some((t) => p.startsWith(`${t.root}/`) && t.isTarget(name));
 };
@@ -66,33 +99,6 @@ function stripFrontmatter(raw) {
   const nl = head.split("\n").length + 1; // 閉じ --- の行
   const rest = raw.slice(end + 4).replace(/^[^\n]*\n?/, "");
   return { body: rest, offset: nl };
-}
-
-const processor = unified().use(remarkParse).use(remarkGfm).use(remarkMath);
-
-/** text ノードだけを走査して `**` の残存を拾う */
-function findUnrendered(body) {
-  let tree;
-  try {
-    tree = processor.parse(body);
-  } catch {
-    return null; // パース不能は呼び出し側で skip 集計
-  }
-  const hits = [];
-  const walk = (node) => {
-    if (node.type === "text" && node.value.includes("**")) {
-      hits.push({
-        line: node.position?.start?.line ?? 0,
-        value: node.value,
-      });
-    }
-    // code / inlineCode / math は太字対象外なので降りない
-    if (node.type === "code" || node.type === "inlineCode") return;
-    if (node.type === "math" || node.type === "inlineMath") return;
-    (node.children ?? []).forEach(walk);
-  };
-  walk(tree);
-  return hits;
 }
 
 function listFiles() {
@@ -126,7 +132,7 @@ for (const file of files) {
     continue;
   }
   const { body, offset } = stripFrontmatter(raw);
-  const hits = findUnrendered(body);
+  const hits = findUnrendered(body, file.endsWith(".mdx"));
   if (hits === null) {
     parseFailed++;
     continue;

@@ -2,6 +2,7 @@
   "_doc": "check-gate-parity のラチェット baseline。package.json に定義があるが pre-commit / quality-audit / workflow / SKILL のどこからも呼ばれない検査を、理由付きで記録する。ここに無い新規オーファンは CI が落とす。配線したら該当行を削除する（スクリプトが info で知らせる）。",
   "_updatedAt": "2026-10-25",
   "orphans": {
+    "check-rendered-pages": "out/ の全ページを Chrome で描画して画面の崩れを拾う手元の検査（2026-10-28）。ビルド済みの out/ と npm run serve と Chrome が要り、全件で約 55 分かかるので CI・pre-commit には配線しない。部品・生成器・記事の一括変更の後、deploy 前に人が回す（commands.md）",
     "check-afb-outcomes-freshness": "afb の成果の鮮度。doboku-note は afb の広告を置いておらず、2026-10-13 に afb の取得ごと止めた（DN-0643）。afb で広告を置くときに quality-audit の ops へ戻すので、スクリプトは残す",
     "audit-figure-text": "図版内テキストの棚卸し。図を大量に作った直後に手で叩く調査ツールで、常時ゲートにすると既存債務で赤になる",
     "audit-pe-textbook-keyword-coverage": "総監テキストとキーワードの被覆調査。コンテンツ企画時に手で叩く分析ツールで、合否のあるゲートではない",

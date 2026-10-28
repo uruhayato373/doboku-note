@@ -141,3 +141,11 @@ test("回帰(2026-09-23): 太字のリンク **[表題](url)** の (url) を補�
   assert.doesNotMatch(line, /\]\*\*\(/, `リンク先が太字の外に出た: ${line}`);
   assertRenders(line);
 });
+
+test("回帰(2026-10-28): .mdx は JSX の中の崩れた太字も拾う（素の Markdown 読みは <Callout> の中を飛ばしていた）", async () => {
+  const { findUnrendered } = await import("../scripts/check-bold-rendering.mjs");
+  const body = '<Callout type="note" title="訳語">\nCheck は「確認」ではなく**「検討」**、Act は「改善」ではなく**「処置」**が正確な訳語。\n</Callout>\n';
+  assert.equal(findUnrendered(body, false).length, 0, "素の Markdown 読みでは見えない（前提の確認）");
+  assert.ok(findUnrendered(body, true).length > 0);
+  assert.equal(findUnrendered(body.replace(/\*\*「(検討|処置)」\*\*/g, "「**$1**」"), true).length, 0);
+});

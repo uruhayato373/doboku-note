@@ -10,6 +10,7 @@
  */
 
 import type { ReferenceItem } from '@/lib/extract-references';
+import InlineParts, { resolveHref } from '@/components/ui/InlineParts/InlineParts';
 import MetaCard from '@/components/ui/MetaCard/MetaCard';
 import MetaListItem from '@/components/ui/MetaListItem/MetaListItem';
 
@@ -26,12 +27,17 @@ export default function ExternalReferences({ references }: ExternalReferencesPro
       <p className="text-sm text-(--ink-muted) mb-4">
         公的資料・解説記事への外部リンク（{references.length} 件）
       </p>
-      <ul className="space-y-2">
+      {/* 題が URL そのものの行はスマホ幅で折り返さずページを横にはみ出させる */}
+      <ul className="space-y-2 wrap-anywhere">
         {references.map((item, i) => (
           <li key={`${item.url || 'no-url'}-${i}`}>
-            {item.url ? (
+            {item.parts ? (
+              <div>
+                <MetaListItem title={<InlineParts parts={item.parts} />} plain />
+              </div>
+            ) : item.url ? (
               <a
-                href={item.url}
+                href={resolveHref(item.url)}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="block group"

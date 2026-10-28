@@ -27,6 +27,33 @@ const sleep = (ms) => Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 
  * e-Gov 法令 API から 1 法令を取る。取れなければ { error }（ID が無いときは missing: true）。
  * 続けて取ると API が応答を返さなくなるので、間を空け、取れなければ間を延ばして 3 回まで取り直す。
  */
+/**
+ * e-Gov の法令名はルビを `激<Ruby>甚<Rt>じん</Rt></Ruby>…` の形で返す。サイトは法令名を平文で出すので
+ * タグがそのまま画面に出ていた（2026-10-28・関係法令の一覧 3 ページ）。親文字だけを残す。
+ */
+export function plainLawTitle(title) {
+  // 正規表現の置換を重ねると、外した後の文字から別のタグが組み上がる余地が残る（CodeQL）。
+  // 1 文字ずつ読み、タグの中（< から >）と <Rt>…</Rt> の読みを捨て、< > は出力に出さない
+  const out = [];
+  let tag = null;
+  let inRt = false;
+  for (const ch of String(title)) {
+    if (tag !== null) {
+      if (ch === '>') {
+        if (tag === 'Rt') inRt = true;
+        else if (tag === '/Rt') inRt = false;
+        tag = null;
+      } else {
+        tag += ch;
+      }
+      continue;
+    }
+    if (ch === '<') tag = '';
+    else if (ch !== '>' && !inRt) out.push(ch);
+  }
+  return out.join('');
+}
+
 export function fetchEgovLaw(lawId, { tries = 3, gapMs = 400 } = {}) {
   let last = null;
   for (let i = 0; i < tries; i += 1) {
@@ -61,7 +88,7 @@ function fetchOnce(lawId) {
   };
   walk(d.law_full_text);
   return {
-    title: d.revision_info?.law_title ?? d.law_info?.law_title ?? lawId,
+    title: plainLawTitle(d.revision_info?.law_title ?? d.law_info?.law_title ?? lawId),
     lawNum: d.law_info?.law_num ?? '',
     enforced: d.revision_info?.amendment_enforcement_date ?? null,
     articles: [...new Set(articles)],
