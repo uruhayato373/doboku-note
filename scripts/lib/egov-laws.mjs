@@ -32,7 +32,8 @@ const sleep = (ms) => Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 
  * タグがそのまま画面に出ていた（2026-10-28・関係法令の一覧 3 ページ）。親文字だけを残す。
  */
 export function plainLawTitle(title) {
-  return String(title).replace(/<Rt>[^<]*<\/Rt>/g, '').replace(/<\/?[A-Za-z]+>/g, '');
+  // タグを外した後に残る < > も消す（入れ子・崩れたタグから別のタグが組み上がらないように）
+  return String(title).replace(/<Rt>[^<]*<\/Rt>/g, '').replace(/<\/?[A-Za-z]+>/g, '').replace(/[<>]/g, '');
 }
 
 export function fetchEgovLaw(lawId, { tries = 3, gapMs = 400 } = {}) {

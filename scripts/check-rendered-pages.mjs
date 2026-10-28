@@ -36,6 +36,7 @@ import { REPO_ROOT } from './lib/repository-paths.mjs';
 import { listFiles } from './lib/fs-walk.mjs';
 import { guardBrowserLaunch } from './lib/playwright-launch.mjs';
 import { parseCliArgs } from './lib/cli-args.mjs';
+import { R2_PUBLIC_HOST, SITE_ORIGIN } from './lib/site-identity.mjs';
 
 const flags = parseCliArgs({
   base: { type: 'string', default: 'http://127.0.0.1:3025' },
@@ -53,6 +54,17 @@ const SHOT_DIR = join(OUT_DIR, 'shots');
 const SKIP = new Set(['/404', '/_not-found']);
 // 計測・広告は会社 PC のプロキシで落ちることがあり、ページの不具合ではない。
 const IGNORED_REQUEST = /googletagmanager|google-analytics|doubleclick|googlesyndication|a8\.net|moshimo|afi-b|cloudflareinsights/;
+
+// 自サイト（配信元・本番・R2）の URL か。部分一致ではなくホスト名で判定する
+const OWN_HOSTS = new Set([new URL(SITE_ORIGIN).hostname, R2_PUBLIC_HOST]);
+function isOwnUrl(url, origin) {
+  try {
+    const parsed = new URL(url);
+    return parsed.origin === origin || OWN_HOSTS.has(parsed.hostname);
+  } catch {
+    return false;
+  }
+}
 
 export function htmlPathToRoute(file) {
   const rel = file.split(sep).join('/').replace(/\.html$/, '');
@@ -150,14 +162,14 @@ async function checkRoute(context, route) {
     const url = res.url();
     // RSC のセグメント（__next.a.b.txt）は out/ では入れ子のディレクトリにあり、npm run serve だけが 404 を返す
     // （本番の Cloudflare は 200。2026-10-28 に確認）。ページの不具合ではないので数えない。
-    if (res.status() >= 400 && !IGNORED_REQUEST.test(url) && !/\/__next\.[^/]*\.txt/.test(url) && (url.startsWith(origin) || url.includes('doboku-note.com'))) {
+    if (res.status() >= 400 && !IGNORED_REQUEST.test(url) && !/\/__next\.[^/]*\.txt/.test(url) && isOwnUrl(url, origin)) {
       issues.push({ type: 'request', detail: `${res.status()} ${url}` });
     }
   });
   page.on('requestfailed', (req) => {
     const url = req.url();
     // ERR_ABORTED はリンクの先読みが遷移・close で打ち切られたもの
-    if (req.failure()?.errorText !== 'net::ERR_ABORTED' && !IGNORED_REQUEST.test(url) && (url.startsWith(origin) || url.includes('doboku-note.com'))) {
+    if (req.failure()?.errorText !== 'net::ERR_ABORTED' && !IGNORED_REQUEST.test(url) && isOwnUrl(url, origin)) {
       issues.push({ type: 'request', detail: `failed ${req.failure()?.errorText ?? ''} ${url}` });
     }
   });
