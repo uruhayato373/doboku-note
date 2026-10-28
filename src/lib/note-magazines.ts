@@ -2526,6 +2526,83 @@ const MAGAZINES_RAW = {
   },
   // </generated:products pe-first-stage>
 
+  // <generated:products surveyor> config/products.json から生成（npm run product -- gen）。手で直さない
+  // 2026-10-28 公開（マガジン m4e09480baf15・¥2,980）。序章 n23ccc71205a7 と No.1〜5 の 6 本を収録（DN-0899）。
+  'surveyor-gogo-bunya-magazine': {
+    id: 'surveyor-gogo-bunya-magazine',
+    published: true,
+    noteUrl: 'https://note.com/dobokunote/m/m4e09480baf15',
+    qualification: 'surveyor',
+    noteTitle: '測量士 午後記述式｜分野別 解き方の型と過去5年',
+    title: '測量士 午後 記述式｜分野別 解き方の型と過去5年（令和4〜8年）解説',
+    description: '測量士試験の午後（記述式）の必須No.1と選択No.2〜No.5を分野別に5本へ分け、令和4〜8年度の全小問を最終値まで途中式を省かずに解説。最終値はすべて国土地理院の解答例と照合済み。各記事は出題傾向・解き方の型・年度別の解説・本番のチェックリストの順。選ばない分野は買わずに済むよう単品でも読める。序章は無料。',
+    shortTitle: '測量士 午後記述 分野別マガジン',
+    shortDescription: '必須No.1と選択No.2〜5を分野別に、令和4〜8年の全小問を途中式まで解説。序章は無料。',
+    price: '¥2,980（5分野・単品合計¥4,900）',
+    badge: 'note 限定 教材',
+  },
+  // 2026-10-28 公開（n1ac56686482b・¥1,480・境界=計算の型20）（DN-0899）。
+  'surveyor-keisan-20': {
+    id: 'surveyor-keisan-20',
+    published: true,
+    noteUrl: 'https://note.com/dobokunote/n/n1ac56686482b',
+    qualification: 'surveyor',
+    title: '測量士 午後 記述式の計算問題を「型20本」で解く｜令和4〜8年の例題つき',
+    description: '測量士試験の午後（記述式）に出る計算を20の型にまとめ、式と手順、電卓と関数表の使い方の注意、令和4〜8年の例題を載せた。分野別の解説の前に、計算の式と手順を一冊で頭に入れたい人向け。',
+    shortTitle: '測量士 午後 計算の型20',
+    shortDescription: '午後記述の計算を20の型に。式・手順・電卓の注意と令和4〜8年の例題つき。',
+    price: '¥1,480',
+    badge: 'note 限定 教材',
+  },
+  // </generated:products surveyor>
+
+  // <generated:products pavement-1> config/products.json から生成（npm run product -- gen）。手で直さない
+  // 2026-10-28 公開（マガジン mc26a56a3a7c5・¥2,480）。序章 na287266cf068 と 3 本を収録（DN-0899）。
+  'pavement-1-keiken-magazine': {
+    id: 'pavement-1-keiken-magazine',
+    published: true,
+    noteUrl: 'https://note.com/dobokunote/m/mc26a56a3a7c5',
+    qualification: 'pavement-1',
+    noteTitle: '1級舗装 応用試験 経験記述 模範答案集',
+    title: '1級舗装 応用試験 問1（経験記述）模範答案集｜工程・出来形品質・安全',
+    description: '1級舗装施工管理技術者 応用試験の問1（課題200字・対策300字・結果100字の必須問題）について、工程管理・出来形/品質管理・安全管理ごとに架空工事の完成答案を1本ずつ収録。新設アスファルト舗装・切削オーバーレイ・コンクリート舗装・歩道への置換え表と、自分の工事へ書き換える手順付き。数値は国土交通省の施工管理基準などで照合したものだけを使用。序章は無料。',
+    shortTitle: '1級舗装 経験記述 模範答案集',
+    shortDescription: '工程・出来形品質・安全の完成答案3本と工種別の置換え表。序章は無料。',
+    price: '¥2,480（3本・単品合計¥2,940）',
+    badge: 'note 限定 教材',
+  },
+  // 2026-10-28 公開（n0eafbe26a8d6・¥1,480・境界=頻出論点の解き方）（DN-0899）。
+  'pavement-1-sentaku-hinshutsu': {
+    id: 'pavement-1-sentaku-hinshutsu',
+    published: true,
+    noteUrl: 'https://note.com/dobokunote/n/n0eafbe26a8d6',
+    qualification: 'pavement-1',
+    title: '1級舗装 応用試験 選択問題（問2〜5）の頻出論点｜路床CBRm・TA計算・測定機器・維持修繕工法の解き方',
+    description: '1級舗装施工管理技術者 応用試験の選択問題（問2〜5）で繰り返し出る論点（路床の設計CBR、TA計算、測定機器、維持修繕工法など）を、解き方の手順と合わせて整理した。',
+    shortTitle: '1級舗装 選択問題の頻出論点',
+    shortDescription: '路床CBRm・TA計算・測定機器・維持修繕工法など、選択問題の頻出論点の解き方。',
+    price: '¥1,480',
+    badge: 'note 限定 教材',
+  },
+  // </generated:products pavement-1>
+
+  // <generated:products pavement-2> config/products.json から生成（npm run product -- gen）。手で直さない
+  // 2026-10-28 公開（n058f02626a5b・¥980・境界=模範答案）（DN-0899）。
+  'pavement-2-keiken': {
+    id: 'pavement-2-keiken',
+    published: true,
+    noteUrl: 'https://note.com/dobokunote/n/n058f02626a5b',
+    qualification: 'pavement-2',
+    title: '2級舗装 応用試験 問1（経験記述）の模範答案｜課題78字・対策218字の書き方と3本の答案例',
+    description: '2級舗装施工管理技術者 応用試験の問1（経験記述）について、短い字数で課題→対策を書く順序と、工程・品質・安全の模範答案3本、自分の工事への置き換え手順を載せた。',
+    shortTitle: '2級舗装 経験記述の模範答案',
+    shortDescription: '課題78字・対策218字の書き方と、工程・品質・安全の模範答案3本。',
+    price: '¥980',
+    badge: 'note 限定 教材',
+  },
+  // </generated:products pavement-2>
+
+
 } as const satisfies Record<string, NoteMagazine>;
 
 export type MagazineId = keyof typeof MAGAZINES_RAW;

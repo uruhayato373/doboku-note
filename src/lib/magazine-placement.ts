@@ -977,6 +977,28 @@ function resolvePlacementRaw(
     return { top: slot(product, slug, 'top'), inline };
   }
 
+  // 測量士（2026-10-28 に商品を公開・DN-0899）: 午後記述の分野別マガジンを主力にし、
+  //   午後記述ガイドと午前の過去問（計算の基礎が重なる）には計算の型20 を本文中間に添える。
+  if (slug.startsWith('surveyor-')) {
+    const keisan = slug === 'surveyor-guide-gogo-bunya' || slug.startsWith('surveyor-primary-');
+    return {
+      top: slot('surveyor-gogo-bunya-magazine', slug, 'top'),
+      inline: keisan ? [slot('surveyor-keisan-20', slug, 'inline-1')] : [],
+    };
+  }
+
+  // 舗装（2026-10-28 に商品を公開・DN-0899）: 経験記述ガイドは 1級の模範答案集と 2級の模範答案、
+  //   選択問題ガイドは頻出論点、全体像・学習計画は 1級の模範答案集を主力に頻出論点を添える。
+  if (slug.startsWith('pavement-guide-')) {
+    if (slug === 'pavement-guide-keiken-kijutsu') {
+      return { top: slot('pavement-1-keiken-magazine', slug, 'top'), inline: [slot('pavement-2-keiken', slug, 'inline-1')] };
+    }
+    if (slug === 'pavement-guide-sentaku-hinshutsu') {
+      return { top: slot('pavement-1-sentaku-hinshutsu', slug, 'top'), inline: [] };
+    }
+    return { top: slot('pavement-1-keiken-magazine', slug, 'top'), inline: [slot('pavement-1-sentaku-hinshutsu', slug, 'inline-1')] };
+  }
+
   return EMPTY;
 }
 

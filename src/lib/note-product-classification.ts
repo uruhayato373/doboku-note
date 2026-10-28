@@ -8,9 +8,9 @@ const MATERIAL_RULES = [
   ['oral', /oral/],
   ['reading', /reading-guide$/],
   ['pdf', /takuitsu.*pdf$/],
-  ['notes', /anki-note$|ichiji-ronten$|r8-bunseki$/],
+  ['notes', /anki-note$|ichiji-ronten$|r8-bunseki$|^surveyor-keisan-20$|^pavement-1-sentaku-hinshutsu$/],
   ['practice', /mock3-pdf$|mix-.*practice$|r8-mc-50$|takuitsu-yosou-50$|^r8-essay-forecast$/],
-  ['written', /^essay-.*-magazine$|experience-essay$|pastexam-essay$|combo-essay$|keiken-|koji-bank$|small-infra-|gakka-kijutsu$|essay-reiwa-pack$|essay-mokuji$|^cd-(essay-magazine|structure-case-bank|road-bridge-pack|water-underground-pack|building-facility-pack|problem-[ab]-pack)$|^pe-construction-.*-magazine$|^rccm-mondai[13]-|^setsumon3-|^tradeoff-/],
+  ['written', /^essay-.*-magazine$|experience-essay$|pastexam-essay$|combo-essay$|keiken-|koji-bank$|small-infra-|gakka-kijutsu$|essay-reiwa-pack$|essay-mokuji$|^cd-(essay-magazine|structure-case-bank|road-bridge-pack|water-underground-pack|building-facility-pack|problem-[ab]-pack)$|^pe-construction-.*-magazine$|^rccm-mondai[13]-|^setsumon3-|^tradeoff-|^surveyor-gogo-bunya-magazine$|^pavement-2-keiken$/],
   ['pack', /pack$/],
 ] as const;
 
