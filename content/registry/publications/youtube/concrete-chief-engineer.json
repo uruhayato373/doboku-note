@@ -870,7 +870,7 @@
         "preview-metrics": "concrete-chief-engineer/shunin-kanri-kikaku-genkai/youtube.longform/preview-metrics"
       },
       "copy": "content/sns/video-packs/concrete-chief-engineer/shunin-kanri-kikaku-genkai/youtube.json#longform",
-      "status": "rendered",
+      "status": "scheduled",
       "publishAt": "2026-11-03T14:30:00+09:00",
       "review": {
         "visual": {
@@ -886,7 +886,42 @@
         "contentSha256": "cc85882a750bfd7237cce0b71783c3046cda282a7ad36da40266c5c6146c4357"
       },
       "times": {
-        "rendered": "2026-10-28T12:11:36.656Z"
+        "rendered": "2026-10-28T12:11:36.656Z",
+        "uploaded": "2026-10-28T12:26:02.051Z",
+        "scheduled": "2026-10-28T12:26:13.011Z"
+      },
+      "delivery": {
+        "inputSha256": "94719fffae158dd3c3944502b71bbfca8bac985cdde4c8f67457a7e524ea7271",
+        "marker": "dn-single-557a0eaf5a63946c50d155491e567c34228b920e",
+        "uploadRequestedAt": "2026-10-28T12:25:09.394Z",
+        "videoId": "OFGDtn0OQ_Q",
+        "processedAt": "2026-10-28T12:26:01.213Z",
+        "thumbnailRequestedAt": "2026-10-28T12:26:02.101Z",
+        "thumbnailUrls": [
+          "https://i9.ytimg.com/vi/OFGDtn0OQ_Q/default.jpg?sqp=CJzTh9cG&rs=AOn4CLCdlBGrHE7JPeu-N7gprjBPgvAScQ",
+          "https://i9.ytimg.com/vi/OFGDtn0OQ_Q/mqdefault.jpg?sqp=CJzTh9cG&rs=AOn4CLAj-NgT47c8UusKdIP2CDiT_r_y8w",
+          "https://i9.ytimg.com/vi/OFGDtn0OQ_Q/hqdefault.jpg?sqp=CJzTh9cG&rs=AOn4CLBy_e48lxdSG0MgCQqL-Vrz7RO8mg",
+          "https://i9.ytimg.com/vi/OFGDtn0OQ_Q/sddefault.jpg?sqp=CJzTh9cG&rs=AOn4CLCfCmSOlnkYUOEyrDjjHwZXQd3c_A",
+          "https://i9.ytimg.com/vi/OFGDtn0OQ_Q/maxresdefault.jpg?sqp=CJzTh9cG&rs=AOn4CLCedye9NJbJlHbPDFEdyd7CUKmTZw",
+          "https://i9.ytimg.com/vi/OFGDtn0OQ_Q/fhddefault.jpg?sqp=CJzTh9cG&rs=AOn4CLDK8_tB1pHDiq9zV-5viOWYMv_I3Q"
+        ],
+        "thumbnailAcceptedAt": "2026-10-28T12:26:08.106Z",
+        "scheduleRequestedAt": "2026-10-28T12:26:09.237Z",
+        "scheduleAt": "2026-11-03T14:30:00+09:00",
+        "scheduledVerifiedAt": "2026-10-28T12:26:13.011Z"
+      },
+      "platform": {
+        "id": "OFGDtn0OQ_Q",
+        "url": "https://www.youtube.com/watch?v=OFGDtn0OQ_Q",
+        "privacy": "private",
+        "evidence": {
+          "kind": "publisher-live-check",
+          "ref": "content/sns/video-packs/concrete-chief-engineer/shunin-kanri-kikaku-genkai/youtube.json#longform"
+        }
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-10-28T12:26:08.106Z"
       }
     },
     {
