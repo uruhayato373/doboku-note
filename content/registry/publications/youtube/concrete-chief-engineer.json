@@ -102,7 +102,49 @@
       "work": "shunin-cement-4kagoubutsu",
       "account": "youtube:main",
       "format": "longform",
-      "status": "qa_passed"
+      "status": "rendered",
+      "media": {
+        "cover": "concrete-chief-engineer/shunin-cement-4kagoubutsu/youtube.longform/cover",
+        "scene-001": "concrete-chief-engineer/shunin-cement-4kagoubutsu/youtube.longform/scene-001",
+        "scene-002": "concrete-chief-engineer/shunin-cement-4kagoubutsu/youtube.longform/scene-002",
+        "scene-003": "concrete-chief-engineer/shunin-cement-4kagoubutsu/youtube.longform/scene-003",
+        "scene-004": "concrete-chief-engineer/shunin-cement-4kagoubutsu/youtube.longform/scene-004",
+        "scene-005": "concrete-chief-engineer/shunin-cement-4kagoubutsu/youtube.longform/scene-005",
+        "scene-006": "concrete-chief-engineer/shunin-cement-4kagoubutsu/youtube.longform/scene-006",
+        "scene-007": "concrete-chief-engineer/shunin-cement-4kagoubutsu/youtube.longform/scene-007",
+        "scene-008": "concrete-chief-engineer/shunin-cement-4kagoubutsu/youtube.longform/scene-008",
+        "scene-009": "concrete-chief-engineer/shunin-cement-4kagoubutsu/youtube.longform/scene-009",
+        "scene-010": "concrete-chief-engineer/shunin-cement-4kagoubutsu/youtube.longform/scene-010",
+        "scene-011": "concrete-chief-engineer/shunin-cement-4kagoubutsu/youtube.longform/scene-011",
+        "scene-012": "concrete-chief-engineer/shunin-cement-4kagoubutsu/youtube.longform/scene-012",
+        "scene-013": "concrete-chief-engineer/shunin-cement-4kagoubutsu/youtube.longform/scene-013",
+        "scene-014": "concrete-chief-engineer/shunin-cement-4kagoubutsu/youtube.longform/scene-014",
+        "scene-015": "concrete-chief-engineer/shunin-cement-4kagoubutsu/youtube.longform/scene-015",
+        "video": "concrete-chief-engineer/shunin-cement-4kagoubutsu/youtube.longform/video",
+        "subtitles": "concrete-chief-engineer/shunin-cement-4kagoubutsu/youtube.longform/subtitles",
+        "preview": "concrete-chief-engineer/shunin-cement-4kagoubutsu/youtube.longform/preview",
+        "contact-sheet": "concrete-chief-engineer/shunin-cement-4kagoubutsu/youtube.longform/contact-sheet",
+        "scene-sheet": "concrete-chief-engineer/shunin-cement-4kagoubutsu/youtube.longform/scene-sheet",
+        "preview-metrics": "concrete-chief-engineer/shunin-cement-4kagoubutsu/youtube.longform/preview-metrics"
+      },
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "user",
+          "at": "2026-10-28T10:40:39.934Z",
+          "digest": "2bc14d73bf174e526ffb3466fe3c34e6f4bbe50440d7d7f1a54121c310963a05"
+        }
+      },
+      "approval": {
+        "by": "user",
+        "at": "2026-10-28T10:42:46.459Z",
+        "contentSha256": "2bc8a14259cbd0f963005183018dbda5ad58f7add038f09cf51f1d9b844b0973"
+      },
+      "times": {
+        "rendered": "2026-10-28T10:40:58.190Z"
+      },
+      "copy": "content/sns/video-packs/concrete-chief-engineer/shunin-cement-4kagoubutsu/youtube.json#longform",
+      "publishAt": "2026-11-02T20:30:00+09:00"
     },
     {
       "id": "concrete-chief-engineer/shunin-chokuzen-senryaku/youtube.longform",
@@ -1592,7 +1634,7 @@
       "work": "shunin-rekka-taio",
       "account": "youtube:main",
       "format": "longform",
-      "status": "qa_passed",
+      "status": "rendered",
       "media": {
         "cover": "concrete-chief-engineer/shunin-rekka-taio/youtube.longform/cover",
         "scene-001": "concrete-chief-engineer/shunin-rekka-taio/youtube.longform/scene-001",
@@ -1616,6 +1658,24 @@
         "preview-metrics": "concrete-chief-engineer/shunin-rekka-taio/youtube.longform/preview-metrics",
         "contact-sheet": "concrete-chief-engineer/shunin-rekka-taio/youtube.longform/contact-sheet",
         "contact-sheet-2": "concrete-chief-engineer/shunin-rekka-taio/youtube.longform/contact-sheet-2"
+      },
+      "copy": "content/sns/video-packs/concrete-chief-engineer/shunin-rekka-taio/youtube.json#longform",
+      "publishAt": "2026-11-02T14:30:00+09:00",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "user",
+          "at": "2026-10-28T10:40:35.177Z",
+          "digest": "b289901681e8777342c9a447d3890beddd867988d3da3434ca9d5df6c498d1dd"
+        }
+      },
+      "approval": {
+        "by": "user",
+        "at": "2026-10-28T10:40:46.232Z",
+        "contentSha256": "e36ef23fde1cb0413431d247a65b2b19c2877145586ae863d75f60283ae17c6c"
+      },
+      "times": {
+        "rendered": "2026-10-28T10:40:54.086Z"
       }
     },
     {

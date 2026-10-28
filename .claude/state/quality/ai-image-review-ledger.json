@@ -4144,6 +4144,285 @@
       "verdict": "ok",
       "reason": "種別・構造: 橋脚基部を灰色の鋼板が全周で囲み、縦の溶接継目が見える。鋼板の上端に細い充填帯の線があり、下端はベースプレートとボルト・ナットでフーチングに固定されている。鋼板の上は元のコンクリート橋脚が続き、張出し梁の上に支承と橋桁が載る。本文の「周囲を鋼板で囲み、隙間にモルタルを充填し、基礎へ定着する」と矛盾しない。破綻: 文字・ロゴ・人物・溶けた部品・二重の部位は無い。灰色の充填帯がやや目立たない点は、教材として誤解を招くほどではない。",
       "reviewedAt": "2026-10-09T10:54:21.093Z"
+    },
+    "media:concrete-chief-engineer/shunin-rekka-taio/youtube.longform/cover": {
+      "sha": "82b2413fd4de9bca",
+      "promptSha": "19d616121e0e5453",
+      "tool": "Codex",
+      "generatedAt": "2026-10-28T00:21:19.740Z",
+      "verdict": "ok",
+      "reason": "shunin-rekka-taioのcover。採用PNGのSHAと生成記録が一致。全場面シートで「耐久性は対策より機構から」の図と台本の対応、資格名・主要ラベルの判読、表示切れを確認。",
+      "reviewedAt": "2026-10-28T10:40:05.769Z"
+    },
+    "media:concrete-chief-engineer/shunin-rekka-taio/youtube.longform/scene-001": {
+      "sha": "82b2413fd4de9bca",
+      "promptSha": "19d616121e0e5453",
+      "tool": "Codex",
+      "generatedAt": "2026-10-28T00:21:19.740Z",
+      "verdict": "ok",
+      "reason": "shunin-rekka-taioのscene-001。採用PNGのSHAと生成記録が一致。全場面シートで「耐久性は対策より機構から」の図と台本の対応、資格名・主要ラベルの判読、表示切れを確認。",
+      "reviewedAt": "2026-10-28T10:40:05.769Z"
+    },
+    "media:concrete-chief-engineer/shunin-rekka-taio/youtube.longform/scene-002": {
+      "sha": "fed07c044ea642e5",
+      "promptSha": "e0efdfd263f11b94",
+      "tool": "Codex",
+      "generatedAt": "2026-10-28T00:21:19.740Z",
+      "verdict": "ok",
+      "reason": "shunin-rekka-taioのscene-002。採用PNGのSHAと生成記録が一致。全場面シートで「結論：形、機構、対策の順」の図と台本の対応、資格名・主要ラベルの判読、表示切れを確認。",
+      "reviewedAt": "2026-10-28T10:40:05.769Z"
+    },
+    "media:concrete-chief-engineer/shunin-rekka-taio/youtube.longform/scene-003": {
+      "sha": "767a17ef6feb1b17",
+      "promptSha": "9641e71340fd073a",
+      "tool": "Codex",
+      "generatedAt": "2026-10-28T00:21:19.740Z",
+      "verdict": "ok",
+      "reason": "shunin-rekka-taioのscene-003。採用PNGのSHAと生成記録が一致。全場面シートで「似ているから効く、とは限らない」の図と台本の対応、資格名・主要ラベルの判読、表示切れを確認。",
+      "reviewedAt": "2026-10-28T10:40:05.769Z"
+    },
+    "media:concrete-chief-engineer/shunin-rekka-taio/youtube.longform/scene-004": {
+      "sha": "3d5e568a968e38bd",
+      "promptSha": "924d8110f5305fdb",
+      "tool": "Codex",
+      "generatedAt": "2026-10-28T00:21:19.740Z",
+      "verdict": "ok",
+      "reason": "shunin-rekka-taioのscene-004。採用PNGのSHAと生成記録が一致。全場面シートで「仮の事例（過去問・実在の構造物ではありません）」の図と台本の対応、資格名・主要ラベルの判読、表示切れを確認。",
+      "reviewedAt": "2026-10-28T10:40:05.769Z"
+    },
+    "media:concrete-chief-engineer/shunin-rekka-taio/youtube.longform/scene-005": {
+      "sha": "491de3690d3bd3f2",
+      "promptSha": "f959d1d5977a000c",
+      "tool": "Codex",
+      "generatedAt": "2026-10-28T00:21:19.740Z",
+      "verdict": "ok",
+      "reason": "shunin-rekka-taioのscene-005。採用PNGのSHAと生成記録が一致。全場面シートで「手順1：損傷の形を見る」の図と台本の対応、資格名・主要ラベルの判読、表示切れを確認。",
+      "reviewedAt": "2026-10-28T10:40:05.769Z"
+    },
+    "media:concrete-chief-engineer/shunin-rekka-taio/youtube.longform/scene-006": {
+      "sha": "a60d7745cf52400d",
+      "promptSha": "e223c2e1f64da248",
+      "tool": "Codex",
+      "generatedAt": "2026-10-28T00:21:19.740Z",
+      "verdict": "ok",
+      "reason": "shunin-rekka-taioのscene-006。採用PNGのSHAと生成記録が一致。全場面シートで「手順2：機構が壊す場所を押さえる」の図と台本の対応、資格名・主要ラベルの判読、表示切れを確認。",
+      "reviewedAt": "2026-10-28T10:40:05.769Z"
+    },
+    "media:concrete-chief-engineer/shunin-rekka-taio/youtube.longform/scene-007": {
+      "sha": "9049d43b08116c49",
+      "promptSha": "426ca9ced438ae2e",
+      "tool": "Codex",
+      "generatedAt": "2026-10-28T00:21:19.740Z",
+      "verdict": "ok",
+      "reason": "shunin-rekka-taioのscene-007。採用PNGのSHAと生成記録が一致。全場面シートで「塩分が入ると、壊れる場所が二つに分かれる」の図と台本の対応、資格名・主要ラベルの判読、表示切れを確認。",
+      "reviewedAt": "2026-10-28T10:40:05.769Z"
+    },
+    "media:concrete-chief-engineer/shunin-rekka-taio/youtube.longform/scene-008": {
+      "sha": "5d129e6596fff939",
+      "promptSha": "bdb415f9ce74d14f",
+      "tool": "Codex",
+      "generatedAt": "2026-10-28T00:21:19.740Z",
+      "verdict": "ok",
+      "reason": "shunin-rekka-taioのscene-008。採用PNGのSHAと生成記録が一致。全場面シートで「手順3：エポキシ塗装鉄筋が効く先」の図と台本の対応、資格名・主要ラベルの判読、表示切れを確認。",
+      "reviewedAt": "2026-10-28T10:40:05.769Z"
+    },
+    "media:concrete-chief-engineer/shunin-rekka-taio/youtube.longform/scene-009": {
+      "sha": "dab13fb943a2c4e0",
+      "promptSha": "d298949c3ebe6695",
+      "tool": "Codex",
+      "generatedAt": "2026-10-28T00:21:19.740Z",
+      "verdict": "ok",
+      "reason": "shunin-rekka-taioのscene-009。採用PNGのSHAと生成記録が一致。全場面シートで「凍害への基本対策」の図と台本の対応、資格名・主要ラベルの判読、表示切れを確認。",
+      "reviewedAt": "2026-10-28T10:40:05.769Z"
+    },
+    "media:concrete-chief-engineer/shunin-rekka-taio/youtube.longform/scene-010": {
+      "sha": "4b04c8cd1170be6a",
+      "promptSha": "b011354226fe15f6",
+      "tool": "Codex",
+      "generatedAt": "2026-10-28T00:21:19.740Z",
+      "verdict": "ok",
+      "reason": "shunin-rekka-taioのscene-010。採用PNGのSHAと生成記録が一致。全場面シートで「AE剤は気泡の間隔で効き方が変わる」の図と台本の対応、資格名・主要ラベルの判読、表示切れを確認。",
+      "reviewedAt": "2026-10-28T10:40:05.769Z"
+    },
+    "media:concrete-chief-engineer/shunin-rekka-taio/youtube.longform/scene-011": {
+      "sha": "23dadc2e0feee3f1",
+      "promptSha": "493c34c8ce8b773e",
+      "tool": "Codex",
+      "generatedAt": "2026-10-28T00:21:19.740Z",
+      "verdict": "ok",
+      "reason": "shunin-rekka-taioのscene-011。採用PNGのSHAと生成記録が一致。全場面シートで「塩害は鉄筋側の対策で受け持つ」の図と台本の対応、資格名・主要ラベルの判読、表示切れを確認。",
+      "reviewedAt": "2026-10-28T10:40:05.769Z"
+    },
+    "media:concrete-chief-engineer/shunin-rekka-taio/youtube.longform/scene-012": {
+      "sha": "6c37558a610f90e6",
+      "promptSha": "860ed478b0a3f647",
+      "tool": "Codex",
+      "generatedAt": "2026-10-28T00:21:19.740Z",
+      "verdict": "ok",
+      "reason": "shunin-rekka-taioのscene-012。採用PNGのSHAと生成記録が一致。全場面シートで「対策と、効く機構の対応」の図と台本の対応、資格名・主要ラベルの判読、表示切れを確認。",
+      "reviewedAt": "2026-10-28T10:40:05.769Z"
+    },
+    "media:concrete-chief-engineer/shunin-rekka-taio/youtube.longform/scene-013": {
+      "sha": "7114005d262b1a55",
+      "promptSha": "e941700d41dc68d8",
+      "tool": "Codex",
+      "generatedAt": "2026-10-28T00:21:19.740Z",
+      "verdict": "ok",
+      "reason": "shunin-rekka-taioのscene-013。採用PNGのSHAと生成記録が一致。全場面シートで「今日の3点」の図と台本の対応、資格名・主要ラベルの判読、表示切れを確認。",
+      "reviewedAt": "2026-10-28T10:40:05.769Z"
+    },
+    "media:concrete-chief-engineer/shunin-rekka-taio/youtube.longform/scene-014": {
+      "sha": "444a944d020187e6",
+      "promptSha": "e0bedecc767ea4cb",
+      "tool": "Codex",
+      "generatedAt": "2026-10-28T00:21:19.740Z",
+      "verdict": "ok",
+      "reason": "shunin-rekka-taioのscene-014。採用PNGのSHAと生成記録が一致。全場面シートで「手順を予想問題で試す」の図と台本の対応、資格名・主要ラベルの判読、表示切れを確認。",
+      "reviewedAt": "2026-10-28T10:40:05.769Z"
+    },
+    "media:concrete-chief-engineer/shunin-cement-4kagoubutsu/youtube.longform/cover": {
+      "sha": "ada34b68e9b59b0b",
+      "promptSha": "d5fa18bae73240a6",
+      "tool": "Codex",
+      "generatedAt": "2026-10-28T00:20:52.585Z",
+      "verdict": "ok",
+      "reason": "shunin-cement-4kagoubutsuのcover。採用PNGのSHAと生成記録が一致。全場面シートで「セメント4化合物は時期で並べる」の図と台本の対応、資格名・主要ラベルの判読、表示切れを確認。",
+      "reviewedAt": "2026-10-28T10:40:05.769Z"
+    },
+    "media:concrete-chief-engineer/shunin-cement-4kagoubutsu/youtube.longform/scene-001": {
+      "sha": "ada34b68e9b59b0b",
+      "promptSha": "d5fa18bae73240a6",
+      "tool": "Codex",
+      "generatedAt": "2026-10-28T00:20:52.585Z",
+      "verdict": "ok",
+      "reason": "shunin-cement-4kagoubutsuのscene-001。採用PNGのSHAと生成記録が一致。全場面シートで「セメント4化合物は時期で並べる」の図と台本の対応、資格名・主要ラベルの判読、表示切れを確認。",
+      "reviewedAt": "2026-10-28T10:40:05.769Z"
+    },
+    "media:concrete-chief-engineer/shunin-cement-4kagoubutsu/youtube.longform/scene-002": {
+      "sha": "42eff8b44e178549",
+      "promptSha": "988415eea5e4b0e9",
+      "tool": "Codex",
+      "generatedAt": "2026-10-28T00:20:52.585Z",
+      "verdict": "ok",
+      "reason": "shunin-cement-4kagoubutsuのscene-002。採用PNGのSHAと生成記録が一致。全場面シートで「結論：主に効く時期で4つを並べる」の図と台本の対応、資格名・主要ラベルの判読、表示切れを確認。",
+      "reviewedAt": "2026-10-28T10:40:05.769Z"
+    },
+    "media:concrete-chief-engineer/shunin-cement-4kagoubutsu/youtube.longform/scene-003": {
+      "sha": "0978915829242ad4",
+      "promptSha": "e61efcb8656543d4",
+      "tool": "Codex",
+      "generatedAt": "2026-10-28T00:20:52.585Z",
+      "verdict": "ok",
+      "reason": "shunin-cement-4kagoubutsuのscene-003。採用PNGのSHAと生成記録が一致。全場面シートで「この動画で扱う迷いは二つ」の図と台本の対応、資格名・主要ラベルの判読、表示切れを確認。",
+      "reviewedAt": "2026-10-28T10:40:05.769Z"
+    },
+    "media:concrete-chief-engineer/shunin-cement-4kagoubutsu/youtube.longform/scene-004": {
+      "sha": "0d7eeb0536e527c9",
+      "promptSha": "dec8e37a007ba9a8",
+      "tool": "Codex",
+      "generatedAt": "2026-10-28T00:20:52.585Z",
+      "verdict": "ok",
+      "reason": "shunin-cement-4kagoubutsuのscene-004。採用PNGのSHAと生成記録が一致。全場面シートで「見る軸は二つ」の図と台本の対応、資格名・主要ラベルの判読、表示切れを確認。",
+      "reviewedAt": "2026-10-28T10:40:05.769Z"
+    },
+    "media:concrete-chief-engineer/shunin-cement-4kagoubutsu/youtube.longform/scene-005": {
+      "sha": "079d3c83060f052f",
+      "promptSha": "700984d50e16ee26",
+      "tool": "Codex",
+      "generatedAt": "2026-10-28T00:20:52.585Z",
+      "verdict": "ok",
+      "reason": "shunin-cement-4kagoubutsuのscene-005。採用PNGのSHAと生成記録が一致。全場面シートで「C3S：早期強度を支える」の図と台本の対応、資格名・主要ラベルの判読、表示切れを確認。",
+      "reviewedAt": "2026-10-28T10:40:05.769Z"
+    },
+    "media:concrete-chief-engineer/shunin-cement-4kagoubutsu/youtube.longform/scene-006": {
+      "sha": "c68fccdc2b75c63d",
+      "promptSha": "84ba596d9a6c8920",
+      "tool": "Codex",
+      "generatedAt": "2026-10-28T00:20:52.585Z",
+      "verdict": "ok",
+      "reason": "shunin-cement-4kagoubutsuのscene-006。採用PNGのSHAと生成記録が一致。全場面シートで「C2S：後から効く」の図と台本の対応、資格名・主要ラベルの判読、表示切れを確認。",
+      "reviewedAt": "2026-10-28T10:40:05.769Z"
+    },
+    "media:concrete-chief-engineer/shunin-cement-4kagoubutsu/youtube.longform/scene-007": {
+      "sha": "9a2124dc3cd32dd2",
+      "promptSha": "f8c84453d4a284be",
+      "tool": "Codex",
+      "generatedAt": "2026-10-28T00:20:52.585Z",
+      "verdict": "ok",
+      "reason": "shunin-cement-4kagoubutsuのscene-007。採用PNGのSHAと生成記録が一致。全場面シートで「C3SとC2S：時期が逆なら誤り」の図と台本の対応、資格名・主要ラベルの判読、表示切れを確認。",
+      "reviewedAt": "2026-10-28T10:40:05.769Z"
+    },
+    "media:concrete-chief-engineer/shunin-cement-4kagoubutsu/youtube.longform/scene-008": {
+      "sha": "b33d9c8a4d778d25",
+      "promptSha": "d3884709e64bb132",
+      "tool": "Codex",
+      "generatedAt": "2026-10-28T00:20:52.585Z",
+      "verdict": "ok",
+      "reason": "shunin-cement-4kagoubutsuのscene-008。採用PNGのSHAと生成記録が一致。全場面シートで「C3A：非常に速いが、代償がある」の図と台本の対応、資格名・主要ラベルの判読、表示切れを確認。",
+      "reviewedAt": "2026-10-28T10:40:05.769Z"
+    },
+    "media:concrete-chief-engineer/shunin-cement-4kagoubutsu/youtube.longform/scene-009": {
+      "sha": "212765d96cca3515",
+      "promptSha": "8316b0b883441cb3",
+      "tool": "Codex",
+      "generatedAt": "2026-10-28T00:20:52.585Z",
+      "verdict": "ok",
+      "reason": "shunin-cement-4kagoubutsuのscene-009。採用PNGのSHAと生成記録が一致。全場面シートで「C4AF：強度への寄与はほとんどない」の図と台本の対応、資格名・主要ラベルの判読、表示切れを確認。",
+      "reviewedAt": "2026-10-28T10:40:05.769Z"
+    },
+    "media:concrete-chief-engineer/shunin-cement-4kagoubutsu/youtube.longform/scene-010": {
+      "sha": "562399282d21e31f",
+      "promptSha": "4cd89275c3e9815d",
+      "tool": "Codex",
+      "generatedAt": "2026-10-28T00:20:52.585Z",
+      "verdict": "ok",
+      "reason": "shunin-cement-4kagoubutsuのscene-010。採用PNGのSHAと生成記録が一致。全場面シートで「時間軸で並べ直す」の図と台本の対応、資格名・主要ラベルの判読、表示切れを確認。",
+      "reviewedAt": "2026-10-28T10:40:05.769Z"
+    },
+    "media:concrete-chief-engineer/shunin-cement-4kagoubutsu/youtube.longform/scene-011": {
+      "sha": "4ccc1e3e5fd7cb26",
+      "promptSha": "bef421ba0ec3a7d7",
+      "tool": "Codex",
+      "generatedAt": "2026-10-28T00:20:52.585Z",
+      "verdict": "ok",
+      "reason": "shunin-cement-4kagoubutsuのscene-011。採用PNGのSHAと生成記録が一致。全場面シートで「化合物の特性はセメントの種類につながる」の図と台本の対応、資格名・主要ラベルの判読、表示切れを確認。",
+      "reviewedAt": "2026-10-28T10:40:05.769Z"
+    },
+    "media:concrete-chief-engineer/shunin-cement-4kagoubutsu/youtube.longform/scene-012": {
+      "sha": "48744644c14cbe6b",
+      "promptSha": "1c3e14371481c7a5",
+      "tool": "Codex",
+      "generatedAt": "2026-10-28T00:20:52.585Z",
+      "verdict": "ok",
+      "reason": "shunin-cement-4kagoubutsuのscene-012。採用PNGのSHAと生成記録が一致。全場面シートで「この動画で扱う引っかけの型は三つ」の図と台本の対応、資格名・主要ラベルの判読、表示切れを確認。",
+      "reviewedAt": "2026-10-28T10:40:05.769Z"
+    },
+    "media:concrete-chief-engineer/shunin-cement-4kagoubutsu/youtube.longform/scene-013": {
+      "sha": "0d3e479314211237",
+      "promptSha": "b216b0da540c7a50",
+      "tool": "Codex",
+      "generatedAt": "2026-10-28T00:20:52.585Z",
+      "verdict": "ok",
+      "reason": "shunin-cement-4kagoubutsuのscene-013。採用PNGのSHAと生成記録が一致。全場面シートで「確かめる手順」の図と台本の対応、資格名・主要ラベルの判読、表示切れを確認。",
+      "reviewedAt": "2026-10-28T10:40:05.769Z"
+    },
+    "media:concrete-chief-engineer/shunin-cement-4kagoubutsu/youtube.longform/scene-014": {
+      "sha": "47298664b914ad48",
+      "promptSha": "75167e321c2fc565",
+      "tool": "Codex",
+      "generatedAt": "2026-10-28T00:20:52.585Z",
+      "verdict": "ok",
+      "reason": "shunin-cement-4kagoubutsuのscene-014。採用PNGのSHAと生成記録が一致。全場面シートで「まとめ」の図と台本の対応、資格名・主要ラベルの判読、表示切れを確認。",
+      "reviewedAt": "2026-10-28T10:40:05.769Z"
+    },
+    "media:concrete-chief-engineer/shunin-cement-4kagoubutsu/youtube.longform/scene-015": {
+      "sha": "18ed4047495dc576",
+      "promptSha": "2848130f1adbd288",
+      "tool": "Codex",
+      "generatedAt": "2026-10-28T00:20:52.585Z",
+      "verdict": "ok",
+      "reason": "shunin-cement-4kagoubutsuのscene-015。採用PNGのSHAと生成記録が一致。全場面シートで「次の一歩」の図と台本の対応、資格名・主要ラベルの判読、表示切れを確認。",
+      "reviewedAt": "2026-10-28T10:40:05.769Z"
     }
   }
 }
