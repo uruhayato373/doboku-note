@@ -102,7 +102,7 @@
       "work": "shunin-cement-4kagoubutsu",
       "account": "youtube:main",
       "format": "longform",
-      "status": "rendered",
+      "status": "scheduled",
       "media": {
         "cover": "concrete-chief-engineer/shunin-cement-4kagoubutsu/youtube.longform/cover",
         "scene-001": "concrete-chief-engineer/shunin-cement-4kagoubutsu/youtube.longform/scene-001",
@@ -141,10 +141,45 @@
         "contentSha256": "2bc8a14259cbd0f963005183018dbda5ad58f7add038f09cf51f1d9b844b0973"
       },
       "times": {
-        "rendered": "2026-10-28T10:40:58.190Z"
+        "rendered": "2026-10-28T10:40:58.190Z",
+        "uploaded": "2026-10-28T10:47:36.979Z",
+        "scheduled": "2026-10-28T10:47:49.790Z"
       },
       "copy": "content/sns/video-packs/concrete-chief-engineer/shunin-cement-4kagoubutsu/youtube.json#longform",
-      "publishAt": "2026-11-02T20:30:00+09:00"
+      "publishAt": "2026-11-02T20:30:00+09:00",
+      "delivery": {
+        "inputSha256": "a8f84610a24f48785fe9afe424f7b92f8598091a43641deaafdf59aaa3dc8404",
+        "marker": "dn-single-c1598189ee7898913c8c510f33146116f475acc1",
+        "uploadRequestedAt": "2026-10-28T10:46:46.079Z",
+        "videoId": "678g4juk1NA",
+        "processedAt": "2026-10-28T10:47:35.331Z",
+        "thumbnailRequestedAt": "2026-10-28T10:47:37.063Z",
+        "thumbnailUrls": [
+          "https://i9.ytimg.com/vi/678g4juk1NA/default.jpg?sqp=CKykh9cG&rs=AOn4CLD15HUo5taGxy001qeT82CyQQQs7Q",
+          "https://i9.ytimg.com/vi/678g4juk1NA/mqdefault.jpg?sqp=CKykh9cG&rs=AOn4CLB6b4jbm8-Vub_BUMi208fJg2IfTw",
+          "https://i9.ytimg.com/vi/678g4juk1NA/hqdefault.jpg?sqp=CKykh9cG&rs=AOn4CLCOL7E4sJh79Tmwkf-y3bnUHbzV-w",
+          "https://i9.ytimg.com/vi/678g4juk1NA/sddefault.jpg?sqp=CKykh9cG&rs=AOn4CLBhDRwnNfjt00aBeM-Y50Zf2phl-A",
+          "https://i9.ytimg.com/vi/678g4juk1NA/maxresdefault.jpg?sqp=CKykh9cG&rs=AOn4CLBKLA94kb0fMLUWg2pmNYcj2a3uUg",
+          "https://i9.ytimg.com/vi/678g4juk1NA/fhddefault.jpg?sqp=CKykh9cG&rs=AOn4CLCLc4ziy4olVBjHrGT88neoUPDysw"
+        ],
+        "thumbnailAcceptedAt": "2026-10-28T10:47:40.799Z",
+        "scheduleRequestedAt": "2026-10-28T10:47:46.232Z",
+        "scheduleAt": "2026-11-02T20:30:00+09:00",
+        "scheduledVerifiedAt": "2026-10-28T10:47:49.790Z"
+      },
+      "platform": {
+        "id": "678g4juk1NA",
+        "url": "https://www.youtube.com/watch?v=678g4juk1NA",
+        "privacy": "private",
+        "evidence": {
+          "kind": "publisher-live-check",
+          "ref": "content/sns/video-packs/concrete-chief-engineer/shunin-cement-4kagoubutsu/youtube.json#longform"
+        }
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-10-28T10:47:40.799Z"
+      }
     },
     {
       "id": "concrete-chief-engineer/shunin-chokuzen-senryaku/youtube.longform",
