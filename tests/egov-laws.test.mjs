@@ -3,7 +3,7 @@ import test from 'node:test';
 import { mkdtempSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
-import { egovLinksOf, linkIssues, registryIssues, amendedSince, isLawSource, referencedLawIds } from '../scripts/lib/egov-laws.mjs';
+import { egovLinksOf, linkIssues, registryIssues, amendedSince, isLawSource, referencedLawIds, plainLawTitle } from '../scripts/lib/egov-laws.mjs';
 import { readDataset } from '../scripts/lib/dataset-io.mjs';
 import { REPO_ROOT } from '../scripts/lib/repository-paths.mjs';
 
@@ -81,4 +81,10 @@ test('referencedLawIds: 実データで、法令ページと計画・施策の�
   assert.ok(pages.length > 0, '法令ページが 0 本（検査していない）');
   for (const d of pages) for (const id of [d.data.lawId, ...(d.data.lawFamily ?? [])]) assert.ok(ids.has(id), `法令ページの ${id} が --sync で消える`);
   for (const p of policies) for (const id of p.basisLaws ?? []) assert.ok(ids.has(id), `計画・施策 ${p.id} の ${id} が --sync で消える`);
+});
+
+test('法令名のルビのタグを外して親文字だけを残す（写しの法令名にタグを残さない）', () => {
+  assert.equal(plainLawTitle('激<Ruby>甚<Rt>じん</Rt></Ruby>災害に対処するための特別の財政援助等に関する法律'), '激甚災害に対処するための特別の財政援助等に関する法律');
+  const laws = readDataset(REPO_ROOT, 'config.egov-laws').laws;
+  assert.deepEqual(Object.values(laws).filter((l) => /</.test(l.title)).map((l) => l.title), []);
 });
