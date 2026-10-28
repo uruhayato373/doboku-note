@@ -5,7 +5,7 @@ import { join, resolve } from 'node:path';
 import { test } from 'node:test';
 import { fileURLToPath } from 'node:url';
 import { approvalHash, approvalParts } from '../scripts/lib/content-registry.mjs';
-import { finalApprovalGate, partitionByFinalApproval, previewMetrics, runPackPreview, runPreview } from '../scripts/lib/media-preview.mjs';
+import { finalApprovalGate, partitionByFinalApproval, previewMetrics, runPackPreview, runPreview, writePreviewPublication } from '../scripts/lib/media-preview.mjs';
 
 const ROOT = resolve(fileURLToPath(new URL('..', import.meta.url)));
 const VC = { maxOpeningCoverSec: 3, maxRepeatFrameRatio: 0.3, longStaticSec: 20 };
@@ -58,6 +58,23 @@ test('runPreview: render-manifest が無ければ先に描画するよう案内�
     assert.match(r.message, /render-longform/);
     assert.equal(process.exitCode, 1);
   } finally { console.error = orig; process.exitCode = saved; }
+});
+
+test('writePreviewPublication: 描画中に確定した公開文面と日時を保持する', async () => {
+  const root = mkdtempSync(join(tmpdir(), 'media-preview-race-'));
+  const file = join(root, 'content/registry/publications/youtube/e.json');
+  mkdirSync(join(root, 'content/registry/publications/youtube'), { recursive: true });
+  const pub = { id: 'e/w/youtube.longform', work: 'w', account: 'youtube:main', format: 'longform', status: 'qa_passed',
+    copy: 'content/sns/video-packs/e/w/youtube.json#longform', publishAt: '2026-11-02T20:30:00+09:00',
+    media: { cover: 'e/w/youtube.longform/cover', 'contact-sheet-2': 'e/w/youtube.longform/contact-sheet-2' } };
+  writeFileSync(file, JSON.stringify({ schemaVersion: 1, channel: 'youtube', exam: 'e', publications: [pub] }));
+  await writePreviewPublication(root, pub.id, [{ role: 'preview', id: 'e/w/youtube.longform/preview' }]);
+  const saved = JSON.parse(readFileSync(file, 'utf8')).publications[0];
+  assert.equal(saved.copy, pub.copy);
+  assert.equal(saved.publishAt, pub.publishAt);
+  assert.equal(saved.media.cover, pub.media.cover);
+  assert.equal(saved.media.preview, 'e/w/youtube.longform/preview');
+  assert.equal(saved.media['contact-sheet-2'], undefined);
 });
 
 test('runPreview: Shorts・YouTube 以外・形の違う ID は未対応で止まる', async () => {
