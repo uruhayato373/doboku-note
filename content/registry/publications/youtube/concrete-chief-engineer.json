@@ -474,7 +474,7 @@
       "work": "shunin-haigou-zettaiyouseki",
       "account": "youtube:main",
       "format": "longform",
-      "status": "rendered",
+      "status": "scheduled",
       "media": {
         "cover": "concrete-chief-engineer/shunin-haigou-zettaiyouseki/youtube.longform/cover",
         "scene-001": "concrete-chief-engineer/shunin-haigou-zettaiyouseki/youtube.longform/scene-001",
@@ -513,7 +513,42 @@
         "contentSha256": "a9160d821d5d9183d1e5b3a7316173fb2a38046c4f4e1c9dc2cb12890bc30099"
       },
       "times": {
-        "rendered": "2026-10-28T00:40:36.485Z"
+        "rendered": "2026-10-28T00:40:36.485Z",
+        "uploaded": "2026-10-28T00:46:21.484Z",
+        "scheduled": "2026-10-28T00:46:33.658Z"
+      },
+      "delivery": {
+        "inputSha256": "f6923661b4f56785f0b8c34d89586c8e6f415ea9204df50accefb73292834699",
+        "marker": "dn-single-0d6219bd20f0dffc8c2ce8ec5a400bcd8072ff49",
+        "uploadRequestedAt": "2026-10-28T00:45:30.843Z",
+        "videoId": "_4a6-sZrucQ",
+        "processedAt": "2026-10-28T00:46:20.828Z",
+        "thumbnailRequestedAt": "2026-10-28T00:46:21.561Z",
+        "thumbnailUrls": [
+          "https://i9.ytimg.com/vi/_4a6-sZrucQ/default.jpg?sqp=CIyLhdcG&rs=AOn4CLAs-emMbK_BJyr1VW8ky_xy59EUgA",
+          "https://i9.ytimg.com/vi/_4a6-sZrucQ/mqdefault.jpg?sqp=CIyLhdcG&rs=AOn4CLCk54Uv3s9m72fT3r7JCEc6-_Uovg",
+          "https://i9.ytimg.com/vi/_4a6-sZrucQ/hqdefault.jpg?sqp=CIyLhdcG&rs=AOn4CLDRnAjwZLhUAxmL5XiGPczTg1jHvA",
+          "https://i9.ytimg.com/vi/_4a6-sZrucQ/sddefault.jpg?sqp=CIyLhdcG&rs=AOn4CLDp0xT05wx0oq6JNWVFFh8PY3liaQ",
+          "https://i9.ytimg.com/vi/_4a6-sZrucQ/maxresdefault.jpg?sqp=CIyLhdcG&rs=AOn4CLBPttxn6eavOrIp_z2TUzRn_hUrGA",
+          "https://i9.ytimg.com/vi/_4a6-sZrucQ/fhddefault.jpg?sqp=CIyLhdcG&rs=AOn4CLAimDIm-wp0BtDzqZYdKo-RKXqDxw"
+        ],
+        "thumbnailAcceptedAt": "2026-10-28T00:46:24.793Z",
+        "scheduleRequestedAt": "2026-10-28T00:46:30.258Z",
+        "scheduleAt": "2026-11-07T20:00:00+09:00",
+        "scheduledVerifiedAt": "2026-10-28T00:46:33.658Z"
+      },
+      "platform": {
+        "id": "_4a6-sZrucQ",
+        "url": "https://www.youtube.com/watch?v=_4a6-sZrucQ",
+        "privacy": "private",
+        "evidence": {
+          "kind": "publisher-live-check",
+          "ref": "content/sns/video-packs/concrete-chief-engineer/shunin-haigou-zettaiyouseki/youtube.json#longform"
+        }
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-10-28T00:46:24.793Z"
       }
     },
     {
