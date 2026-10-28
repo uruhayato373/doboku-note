@@ -126,19 +126,21 @@
       },
       "approval": {
         "by": "user",
-        "at": "2026-10-28T00:56:51.824Z",
-        "contentSha256": "3cf78fe3881ae53d65d65f2941a37c2b0c8083db7fe144af0fe54739f5dccc04"
+        "at": "2026-10-28T10:22:56.819Z",
+        "contentSha256": "02628ca9761756af1d3dc4b719d817c3bc71aa67c4bdeae0e955445bf55e13b7"
       },
       "times": {
         "rendered": "2026-10-28T00:57:12.931Z"
-      }
+      },
+      "copy": "content/sns/video-packs/pe-first-stage/pe1-kiso-kairo-setsuten/youtube.json#longform",
+      "publishAt": "2026-11-01T20:30:00+09:00"
     },
     {
       "id": "pe-first-stage/pe1-kiso-newton-hou/youtube.longform",
       "work": "pe1-kiso-newton-hou",
       "account": "youtube:main",
       "format": "longform",
-      "status": "approved",
+      "status": "rendered",
       "media": {
         "cover": "pe-first-stage/pe1-kiso-newton-hou/youtube.longform/cover",
         "scene-001": "pe-first-stage/pe1-kiso-newton-hou/youtube.longform/scene-001",
@@ -173,8 +175,13 @@
       },
       "approval": {
         "by": "user",
-        "at": "2026-10-28T00:57:26.600Z",
-        "contentSha256": "13ade6c7df5e71434af10f971839adf1881c737031c256c910c01e9526a46d0c"
+        "at": "2026-10-28T10:23:09.227Z",
+        "contentSha256": "f2fd5572f3537fd67e0f835117a6f6ee2307841094e2c6964722d1c43a52b5bd"
+      },
+      "copy": "content/sns/video-packs/pe-first-stage/pe1-kiso-newton-hou/youtube.json#longform",
+      "publishAt": "2026-11-02T08:30:00+09:00",
+      "times": {
+        "rendered": "2026-10-28T10:23:33.797Z"
       }
     },
     {
