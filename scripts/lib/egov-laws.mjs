@@ -32,8 +32,26 @@ const sleep = (ms) => Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 
  * タグがそのまま画面に出ていた（2026-10-28・関係法令の一覧 3 ページ）。親文字だけを残す。
  */
 export function plainLawTitle(title) {
-  // タグを外した後に残る < > も消す（入れ子・崩れたタグから別のタグが組み上がらないように）
-  return String(title).replace(/<Rt>[^<]*<\/Rt>/g, '').replace(/<\/?[A-Za-z]+>/g, '').replace(/[<>]/g, '');
+  // 正規表現の置換を重ねると、外した後の文字から別のタグが組み上がる余地が残る（CodeQL）。
+  // 1 文字ずつ読み、タグの中（< から >）と <Rt>…</Rt> の読みを捨て、< > は出力に出さない
+  const out = [];
+  let tag = null;
+  let inRt = false;
+  for (const ch of String(title)) {
+    if (tag !== null) {
+      if (ch === '>') {
+        if (tag === 'Rt') inRt = true;
+        else if (tag === '/Rt') inRt = false;
+        tag = null;
+      } else {
+        tag += ch;
+      }
+      continue;
+    }
+    if (ch === '<') tag = '';
+    else if (ch !== '>' && !inRt) out.push(ch);
+  }
+  return out.join('');
 }
 
 export function fetchEgovLaw(lawId, { tries = 3, gapMs = 400 } = {}) {
