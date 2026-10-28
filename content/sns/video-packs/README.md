@@ -118,8 +118,8 @@
 | `pe1-kiso-kairo-setsuten` | 技術士一次 基礎科目 直列と並列は接続点の名前から読む | 基礎科目の回路で、図の形から直列か並列かを決めてしまい、合成抵抗の途中で手が止まる | howto | 予約 | 台本/構成 | `pe1-takuitsu-pdf` |
 | `pe1-kiso-newton-hou` | 技術士一次 基礎科目 ニュートン法の分母は高さを横の距離に直す | 基礎科目のニュートン法で、なぜ導関数で割るのか分からず、更新式を丸暗記になる | howto | 予約 | 台本/構成 | `pe1-takuitsu-pdf` |
 | `pe1-kiso-senmon` | 技術士一次 基礎科目の6問から3問の選び方 | 基礎科目の5群それぞれで、6問からどの3問を選べばよいか分からない | exam-point | 予約 | 台本/構成 | `pe1-takuitsu-pdf` |
-| `pe1-kiso-simpson-haba` | 技術士一次 基礎科目 シンプソン則の h は区間全体ではなく刻み幅 | シンプソン則の h を積分区間全体の幅と取り違え、h/3 と h/2 の係数を混同する | howto | 未登録 | 台本/構成 | `pe1-takuitsu-pdf` |
-| `pe1-kiso-xor-shingihyou` | 技術士一次 基礎科目 XORとORの違いは真理値表の1行だけ | 排他的論理和XORの真理値表を書くとき、両方が1の行でORと混同して1にしてしまう | exam-point | 未登録 | 台本/構成 | `pe1-takuitsu-pdf` |
+| `pe1-kiso-simpson-haba` | 技術士一次 基礎科目 シンプソン則の h は区間全体ではなく刻み幅 | シンプソン則の h を積分区間全体の幅と取り違え、h/3 と h/2 の係数を混同する | howto | 予約 | 台本/構成 | `pe1-takuitsu-pdf` |
+| `pe1-kiso-xor-shingihyou` | 技術士一次 基礎科目 XORとORの違いは真理値表の1行だけ | 排他的論理和XORの真理値表を書くとき、両方が1の行でORと混同して1にしてしまう | exam-point | 予約 | 台本/構成 | `pe1-takuitsu-pdf` |
 | `pe1-senmon-kensetsu-25mon` | 技術士一次 専門科目（建設）35問から25問の選び方 | 専門科目（建設部門）の35問から25問を選ぶとき、どの分野を軸にして何を外してよいか分からない | exam-point | 予約 | 台本/構成 | `pe1-takuitsu-pdf` |
 | `pe1-tekisei-3shiten` | 技術士一次 適性科目の正誤判定で見る3つの視点 | 適性科目で、覚えたはずの内容でも選択肢の正誤判定に迷う | exam-point | 予約 | 台本/構成 | `pe1-takuitsu-pdf` |
 | `pe1-zentaizou` | 技術士一次の全体像 — 3科目の構成と学習設計 | 基礎・適性・専門の3科目で何をどの配分から仕込めばよいか掴めない | roadmap | 予約 | 台本/構成 | `pe1-takuitsu-pdf` |
@@ -205,7 +205,7 @@
 | `shunin-durability-ronten` | 主任技士「コンクリートの耐久性」の頻出論点 | 中性化・塩害・凍害・ASRの劣化機構がごちゃつき対策の対応づけを間違える | exam-point | 停止 | 台本/構成 | `cce-r8-mc-50` |
 | `shunin-haigou-zettaiyouseki` | 主任技士 配合計算を1問、絶対容積で最後まで解く | 配合計算で、細骨材を残りで出すため合計が必ず1,000Lになり、途中の誤りに気づけない | howto | 予約 | 台本/構成 | `cce-mix-calculation-practice` |
 | `shunin-hinshutsu-yusen` | 主任技士 四肢択一の頻出分野 — 学習の優先順位 | 全分野を均等に回すには時間が足りず、どこから手を付けるか決められない | exam-point | 停止 | 台本/構成 | `cce-r8-mc-50` |
-| `shunin-kanri-kikaku-genkai` | 管理限界と規格限界を混同しない — 管理図が安定でも製品は合格とは限らない | 管理図が安定なら製品も合格、と管理限界と規格限界を混同する | exam-point | 未登録 | 台本/構成 | `cce-r8-mc-50` |
+| `shunin-kanri-kikaku-genkai` | 管理限界と規格限界を混同しない — 管理図が安定でも製品は合格とは限らない | 管理図が安定なら製品も合格、と管理限界と規格限界を混同する | exam-point | 予約 | 台本/構成 | `cce-r8-mc-50` |
 | `shunin-materials-ronten` | 主任技士「コンクリート用材料」の頻出論点 | ポルトランドセメントの種類も混和材料の使い分けも似た記述が多く覚え分けられない | exam-point | 停止 | 台本/構成 | `cce-r8-mc-50` |
 | `shunin-mix-design-ronten` | 主任技士「配(調)合設計」の頻出論点 | 水セメント比や単位量の計算手順が安定せず本番で時間を溶かす | exam-point | 停止 | 台本/構成 | `cce-mix-calculation-practice` |
 | `shunin-ochiru-shouronbun` | 主任技士 小論文でやりがちな4つの見直し — 設問に答える答案へ | 書き終えた小論文が設問に答えられているか、自分で確かめる方法が分からない | diagnosis | 停止 | 台本/構成 | `cce-essay-reiwa-pack` |

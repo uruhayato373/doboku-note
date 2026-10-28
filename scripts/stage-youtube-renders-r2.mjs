@@ -27,6 +27,7 @@ const val = (name, fallback = '') => {
   return i >= 0 && argv[i + 1] ? argv[i + 1] : fallback;
 };
 const exams = new Set(val('--exam', 'concrete-engineer,concrete-chief-engineer').split(',').filter(Boolean));
+const packIds = new Set(val('--pack-id').split(',').filter(Boolean));
 const commit = flag('--commit');
 const deleting = flag('--delete');
 const DRIVE_MANIFEST = existsSync(DRIVE_MANIFEST_PATH)
@@ -85,6 +86,7 @@ async function targets() {
     const examRoot = join(PACKS_ROOT, exam);
     if (!existsSync(examRoot)) throw new Error(`試験ディレクトリがありません: ${exam}`);
     for (const packId of Object.keys(state.packs ?? {}).sort()) {
+      if (packIds.size && !packIds.has(packId)) continue;
       const packDir = join(examRoot, packId);
       const youtubePath = join(packDir, 'youtube.json');
       if (!existsSync(youtubePath)) continue;
