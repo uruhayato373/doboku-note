@@ -6169,6 +6169,19 @@
       "commit": "6f4382507066",
       "verification": null,
       "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-0899",
+      "at": "2026-10-28",
+      "task": "測量士・舗装・管工事の公開済み note 商品 6 点を商品の正本へ登録し、サイトに商品カードを出す",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "815729e60040",
+      "verification": null,
+      "note": "todo-complete.mjs 経由で完了処理"
     }
   ]
 }
