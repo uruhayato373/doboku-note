@@ -1,11 +1,10 @@
-import NoteImageCta from "@/components/ui/NoteImageCta/NoteImageCta";
-import { noteCtaImage } from "@/lib/note-cta-images";
 import PageShell from "@/components/layout/PageShell";
 import PageHeader from "@/components/layout/PageHeader";
 import type { Metadata } from "next";
 import KakomonQuizClient, { type KakomonQuizConfig } from "../KakomonQuizClient";
+import QuizNoteProducts from "../QuizNoteProducts";
 import "katex/dist/katex.min.css";
-import { buildMagazineUrl, getMagazine, type MagazineId } from "@/lib/note-magazines";
+import type { MagazineId } from "@/lib/note-magazines";
 import { DEFAULT_OG_IMAGE } from "@/lib/metadata";
 import { SITE_ORIGIN } from "@/config/site-identity.mjs";
 import { withNoteUtm } from "@/lib/note-utm";
@@ -17,8 +16,7 @@ import { quizQuestionCount, quizYearRange } from '@/lib/quiz-summary';
 
 const tool = toolByHref("/tools/kakomon-quiz/pe-first-stage");
 
-// 演習画面は結果表示後にしか note 導線が出ず、SSR の HTML には導線が無かった
-// （2026-09-27 配線監査 DN-0364）。演習の下に静的な note 商品カードを置く。
+// 演習の下に出す note 商品カード（QuizNoteProducts）。
 // 直前パックは試験日（config/exam-calendar.json）の翌日から外す。ビルド時の日付で決まる。
 const NOTE_PRODUCTS: readonly { id: MagazineId; lead: string }[] = [
   { id: "pe1-takuitsu-pdf", lead: "紙に書き込んで間違いを反復する 3 科目 7 年分" },
@@ -126,36 +124,7 @@ export default function PeFirstStageQuizPage() {
           ctaLabel="quiz-pe-first-stage-r08-answers"
         />
       </div>
-      <div className="max-w-[760px] mx-auto px-4 sm:px-6 pb-10">
-        <div className="text-[11px] font-bold uppercase tracking-wider text-(--ink-muted) mb-3">
-          紙でも反復する（note）
-        </div>
-        <div className="grid gap-3 sm:grid-cols-2">
-          {NOTE_PRODUCTS.map(({ id, lead }) => {
-            const mag = getMagazine(id);
-            if (!mag) return null;
-            const label = `${id}:tools-kakomon-quiz-pe-first-stage`;
-            const image = noteCtaImage(id);
-            if (image) return <NoteImageCta key={id} href={buildMagazineUrl(mag, label)} image={image}
-              trackLabel={label} placement="tools-kakomon-quiz-pe-first-stage" />;
-            return (
-              <a
-                key={id}
-                href={buildMagazineUrl(mag, label)}
-                target="_blank"
-                rel="noopener"
-                data-cta="note"
-                data-cta-label={label}
-                data-cta-placement="tools-kakomon-quiz-pe-first-stage"
-                className="focus-ring card-surface-content block p-4 shadow-none transition-colors hover:border-(--accent)"
-              >
-                <div className="font-bold text-(--ink)">{mag.shortTitle ?? mag.title}</div>
-                <div className="text-sm text-(--ink-body) mt-1">{lead}</div>
-              </a>
-            );
-          })}
-        </div>
-      </div>
+      <QuizNoteProducts products={NOTE_PRODUCTS} placement="tools-kakomon-quiz-pe-first-stage" />
       {/* 転職の案内（ページ末に 1 枠。案件は配置ルール） */}
       <AffiliateSlot page={{ pageKind: "tool" }} slot="tool-end" className="max-w-[760px] mx-auto px-4 sm:px-6 pb-10" />
     </PageShell>
