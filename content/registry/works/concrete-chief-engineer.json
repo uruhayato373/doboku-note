@@ -43,6 +43,11 @@
       }
     },
     {
+      "id": "shunin-chinka-hibiware-genin",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/concrete-chief-engineer/shunin-chinka-hibiware-genin"
+    },
+    {
       "id": "shunin-chokuzen-senryaku",
       "kind": "video-pack",
       "definition": "content/sns/video-packs/concrete-chief-engineer/shunin-chokuzen-senryaku",
@@ -96,6 +101,22 @@
         "at": "2026-10-27",
         "by": "Claude Code video-content-qa"
       }
+    },
+    {
+      "id": "shunin-kanri-kikaku-genkai",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/concrete-chief-engineer/shunin-kanri-kikaku-genkai",
+      "qa": {
+        "avg": 2.67,
+        "blocks": 0,
+        "at": "2026-10-28",
+        "by": "Claude Code video-content-qa"
+      }
+    },
+    {
+      "id": "shunin-kyoudo-hantei-2jouken",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/concrete-chief-engineer/shunin-kyoudo-hantei-2jouken"
     },
     {
       "id": "shunin-materials-ronten",
@@ -195,6 +216,11 @@
         "at": "2026-10-27",
         "by": "Claude Code video-content-qa"
       }
+    },
+    {
+      "id": "shunin-shoki-3kyokusen",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/concrete-chief-engineer/shunin-shoki-3kyokusen"
     },
     {
       "id": "shunin-shouronbun-kousei",

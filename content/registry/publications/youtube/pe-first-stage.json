@@ -4,6 +4,100 @@
   "exam": "pe-first-stage",
   "publications": [
     {
+      "id": "pe-first-stage/pe1-kiso-2of3-reliability/youtube.longform",
+      "work": "pe1-kiso-2of3-reliability",
+      "account": "youtube:main",
+      "format": "longform",
+      "status": "draft"
+    },
+    {
+      "id": "pe-first-stage/pe1-kiso-2s-complement/youtube.longform",
+      "work": "pe1-kiso-2s-complement",
+      "account": "youtube:main",
+      "format": "longform",
+      "status": "scheduled",
+      "media": {
+        "cover": "pe-first-stage/pe1-kiso-2s-complement/youtube.longform/cover",
+        "scene-001": "pe-first-stage/pe1-kiso-2s-complement/youtube.longform/scene-001",
+        "scene-002": "pe-first-stage/pe1-kiso-2s-complement/youtube.longform/scene-002",
+        "scene-003": "pe-first-stage/pe1-kiso-2s-complement/youtube.longform/scene-003",
+        "scene-004": "pe-first-stage/pe1-kiso-2s-complement/youtube.longform/scene-004",
+        "scene-005": "pe-first-stage/pe1-kiso-2s-complement/youtube.longform/scene-005",
+        "scene-006": "pe-first-stage/pe1-kiso-2s-complement/youtube.longform/scene-006",
+        "scene-007": "pe-first-stage/pe1-kiso-2s-complement/youtube.longform/scene-007",
+        "scene-008": "pe-first-stage/pe1-kiso-2s-complement/youtube.longform/scene-008",
+        "scene-009": "pe-first-stage/pe1-kiso-2s-complement/youtube.longform/scene-009",
+        "scene-010": "pe-first-stage/pe1-kiso-2s-complement/youtube.longform/scene-010",
+        "scene-011": "pe-first-stage/pe1-kiso-2s-complement/youtube.longform/scene-011",
+        "video": "pe-first-stage/pe1-kiso-2s-complement/youtube.longform/video",
+        "subtitles": "pe-first-stage/pe1-kiso-2s-complement/youtube.longform/subtitles",
+        "preview": "pe-first-stage/pe1-kiso-2s-complement/youtube.longform/preview",
+        "scene-sheet": "pe-first-stage/pe1-kiso-2s-complement/youtube.longform/scene-sheet",
+        "preview-metrics": "pe-first-stage/pe1-kiso-2s-complement/youtube.longform/preview-metrics",
+        "contact-sheet": "pe-first-stage/pe1-kiso-2s-complement/youtube.longform/contact-sheet"
+      },
+      "copy": "content/sns/video-packs/pe-first-stage/pe1-kiso-2s-complement/youtube.json#longform",
+      "publishAt": "2026-11-03T23:30:00Z",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "user",
+          "at": "2026-10-28T22:37:51.677Z",
+          "digest": "95f39da794f31ae6ad737246d31b280eae3723ed7d0d8653f265c5f12a70d5f5"
+        }
+      },
+      "approval": {
+        "by": "user",
+        "at": "2026-10-28T22:38:24.736Z",
+        "contentSha256": "c195503a0e649cbc10ffaa213ae9dc388e1355589ea16cee44409b606dbb5135"
+      },
+      "times": {
+        "rendered": "2026-10-28T22:37:52.526Z",
+        "uploaded": "2026-10-28T22:51:26.789Z",
+        "scheduled": "2026-10-28T22:51:35.448Z"
+      },
+      "delivery": {
+        "inputSha256": "ae77f5a106642bc1baa095c7e77988740447db04c45c8e3da1b25d3eb916b061",
+        "marker": "dn-single-509c27b2341d1916ccc78a049a0051b03e746272",
+        "uploadRequestedAt": "2026-10-28T22:50:34.704Z",
+        "videoId": "LfGrUP0DahI",
+        "processedAt": "2026-10-28T22:51:25.974Z",
+        "thumbnailRequestedAt": "2026-10-28T22:51:26.832Z",
+        "thumbnailUrls": [
+          "https://i9.ytimg.com/vi/LfGrUP0DahI/default.jpg?sqp=CJj4idcG&rs=AOn4CLBMcYiu_ql3cr4MBEOeowsV3mFlnw",
+          "https://i9.ytimg.com/vi/LfGrUP0DahI/mqdefault.jpg?sqp=CJj4idcG&rs=AOn4CLAQzB0_nKEq5WrPms14xVmemyQKCA",
+          "https://i9.ytimg.com/vi/LfGrUP0DahI/hqdefault.jpg?sqp=CJj4idcG&rs=AOn4CLCd8QJ6r9XMLjbkcR8dCdkv-glYpA",
+          "https://i9.ytimg.com/vi/LfGrUP0DahI/sddefault.jpg?sqp=CJj4idcG&rs=AOn4CLBeAJU0YOAOaEg2IWo69CgnSSHU4A",
+          "https://i9.ytimg.com/vi/LfGrUP0DahI/maxresdefault.jpg?sqp=CJj4idcG&rs=AOn4CLBrriVVTeXpvlsaRTKSGtG4WWZpvA",
+          "https://i9.ytimg.com/vi/LfGrUP0DahI/fhddefault.jpg?sqp=CJj4idcG&rs=AOn4CLDTt-BfD1VmLKo8lkelWPRzLMZr3g"
+        ],
+        "thumbnailAcceptedAt": "2026-10-28T22:51:30.771Z",
+        "scheduleRequestedAt": "2026-10-28T22:51:31.847Z",
+        "scheduleAt": "2026-11-03T23:30:00Z",
+        "scheduledVerifiedAt": "2026-10-28T22:51:35.448Z"
+      },
+      "platform": {
+        "id": "LfGrUP0DahI",
+        "url": "https://www.youtube.com/watch?v=LfGrUP0DahI",
+        "privacy": "private",
+        "evidence": {
+          "kind": "publisher-live-check",
+          "ref": "content/sns/video-packs/pe-first-stage/pe1-kiso-2s-complement/youtube.json#longform"
+        }
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-10-28T22:51:30.771Z"
+      }
+    },
+    {
+      "id": "pe-first-stage/pe1-kiso-gradient-length/youtube.longform",
+      "work": "pe1-kiso-gradient-length",
+      "account": "youtube:main",
+      "format": "longform",
+      "status": "draft"
+    },
+    {
       "id": "pe-first-stage/pe1-kiso-gyouretsu-vector/youtube.longform",
       "work": "pe1-kiso-gyouretsu-vector",
       "account": "youtube:main",
@@ -33,7 +127,7 @@
       },
       "status": "scheduled",
       "copy": "content/sns/video-packs/pe-first-stage/pe1-kiso-gyouretsu-vector/youtube.json#longform",
-      "publishAt": "2026-11-08T20:00:00+09:00",
+      "publishAt": "2026-11-01T08:30:00+09:00",
       "review": {
         "visual": {
           "status": "approved",
@@ -44,13 +138,13 @@
       },
       "approval": {
         "by": "user",
-        "at": "2026-10-28T00:30:48.468Z",
-        "contentSha256": "b5c2b3431f2655d33f47c235febbabac6d17eee7d0d4400dd0a00b2cfdcf1d8e"
+        "at": "2026-10-28T10:19:44.582Z",
+        "contentSha256": "d6cbc11d008f9f26f3dfbf4e7963bca436e5a73761d18e3db659cabfda1cf909"
       },
       "times": {
         "rendered": "2026-10-28T00:30:57.681Z",
         "uploaded": "2026-10-28T00:48:27.527Z",
-        "scheduled": "2026-10-28T00:48:36.365Z"
+        "scheduled": "2026-10-28T10:19:44.582Z"
       },
       "delivery": {
         "inputSha256": "713e5dfde06bce086d43168b6edab8f76bec24f7a7000278c936add0b74dda89",
@@ -68,9 +162,9 @@
           "https://i9.ytimg.com/vi/DnFUe-knWns/fhddefault.jpg?sqp=CIyLhdcG&rs=AOn4CLDv50EOlWtrHi-qdorrLtLlEFsI3g"
         ],
         "thumbnailAcceptedAt": "2026-10-28T00:48:31.809Z",
-        "scheduleRequestedAt": "2026-10-28T00:48:32.958Z",
-        "scheduleAt": "2026-11-08T20:00:00+09:00",
-        "scheduledVerifiedAt": "2026-10-28T00:48:36.365Z"
+        "scheduleRequestedAt": "2026-10-28T10:19:44.582Z",
+        "scheduleAt": "2026-11-01T08:30:00+09:00",
+        "scheduledVerifiedAt": "2026-10-28T10:19:44.582Z"
       },
       "platform": {
         "id": "DnFUe-knWns",
@@ -91,7 +185,7 @@
       "work": "pe1-kiso-kairo-setsuten",
       "account": "youtube:main",
       "format": "longform",
-      "status": "rendered",
+      "status": "scheduled",
       "media": {
         "cover": "pe-first-stage/pe1-kiso-kairo-setsuten/youtube.longform/cover",
         "scene-001": "pe-first-stage/pe1-kiso-kairo-setsuten/youtube.longform/scene-001",
@@ -126,11 +220,48 @@
       },
       "approval": {
         "by": "user",
-        "at": "2026-10-28T00:56:51.824Z",
-        "contentSha256": "3cf78fe3881ae53d65d65f2941a37c2b0c8083db7fe144af0fe54739f5dccc04"
+        "at": "2026-10-28T10:22:56.819Z",
+        "contentSha256": "02628ca9761756af1d3dc4b719d817c3bc71aa67c4bdeae0e955445bf55e13b7"
       },
       "times": {
-        "rendered": "2026-10-28T00:57:12.931Z"
+        "rendered": "2026-10-28T00:57:12.931Z",
+        "uploaded": "2026-10-28T10:27:49.338Z",
+        "scheduled": "2026-10-28T10:27:57.629Z"
+      },
+      "copy": "content/sns/video-packs/pe-first-stage/pe1-kiso-kairo-setsuten/youtube.json#longform",
+      "publishAt": "2026-11-01T20:30:00+09:00",
+      "delivery": {
+        "inputSha256": "9c24a9af34eaf7676b3427c28dce5392bcefc194fa8491ead9177c89f9667886",
+        "marker": "dn-single-b8df5ab4c5e892e096ee0ed792b6eed067dfcb84",
+        "uploadRequestedAt": "2026-10-28T10:26:55.152Z",
+        "videoId": "asNkuQvdIq0",
+        "processedAt": "2026-10-28T10:27:47.967Z",
+        "thumbnailRequestedAt": "2026-10-28T10:27:49.397Z",
+        "thumbnailUrls": [
+          "https://i9.ytimg.com/vi/asNkuQvdIq0/default.jpg?sqp=CPyah9cG&rs=AOn4CLDkge-X0O3dwl7QXCq_68XZo7JUYg",
+          "https://i9.ytimg.com/vi/asNkuQvdIq0/mqdefault.jpg?sqp=CPyah9cG&rs=AOn4CLCjW2MVXZaKbU3Sb-bZRziTo4h0-A",
+          "https://i9.ytimg.com/vi/asNkuQvdIq0/hqdefault.jpg?sqp=CPyah9cG&rs=AOn4CLCIqSSkysJwMYqJnH0tyt0FNt6tLg",
+          "https://i9.ytimg.com/vi/asNkuQvdIq0/sddefault.jpg?sqp=CPyah9cG&rs=AOn4CLBLrJme8zUikYrPNiyir5P8EgCUkw",
+          "https://i9.ytimg.com/vi/asNkuQvdIq0/maxresdefault.jpg?sqp=CPyah9cG&rs=AOn4CLDlbp0BoqTzZINHfuR1aCn4n6MuPQ",
+          "https://i9.ytimg.com/vi/asNkuQvdIq0/fhddefault.jpg?sqp=CPyah9cG&rs=AOn4CLCT8YXBgSfb1ajHwRi2_NqO4yYG0g"
+        ],
+        "thumbnailAcceptedAt": "2026-10-28T10:27:52.804Z",
+        "scheduleRequestedAt": "2026-10-28T10:27:53.935Z",
+        "scheduleAt": "2026-11-01T20:30:00+09:00",
+        "scheduledVerifiedAt": "2026-10-28T10:27:57.629Z"
+      },
+      "platform": {
+        "id": "asNkuQvdIq0",
+        "url": "https://www.youtube.com/watch?v=asNkuQvdIq0",
+        "privacy": "private",
+        "evidence": {
+          "kind": "publisher-live-check",
+          "ref": "content/sns/video-packs/pe-first-stage/pe1-kiso-kairo-setsuten/youtube.json#longform"
+        }
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-10-28T10:27:52.804Z"
       }
     },
     {
@@ -138,7 +269,7 @@
       "work": "pe1-kiso-newton-hou",
       "account": "youtube:main",
       "format": "longform",
-      "status": "approved",
+      "status": "scheduled",
       "media": {
         "cover": "pe-first-stage/pe1-kiso-newton-hou/youtube.longform/cover",
         "scene-001": "pe-first-stage/pe1-kiso-newton-hou/youtube.longform/scene-001",
@@ -173,8 +304,48 @@
       },
       "approval": {
         "by": "user",
-        "at": "2026-10-28T00:57:26.600Z",
-        "contentSha256": "13ade6c7df5e71434af10f971839adf1881c737031c256c910c01e9526a46d0c"
+        "at": "2026-10-28T10:23:09.227Z",
+        "contentSha256": "f2fd5572f3537fd67e0f835117a6f6ee2307841094e2c6964722d1c43a52b5bd"
+      },
+      "copy": "content/sns/video-packs/pe-first-stage/pe1-kiso-newton-hou/youtube.json#longform",
+      "publishAt": "2026-11-02T08:30:00+09:00",
+      "times": {
+        "rendered": "2026-10-28T10:23:33.797Z",
+        "uploaded": "2026-10-28T10:31:12.888Z",
+        "scheduled": "2026-10-28T10:31:20.930Z"
+      },
+      "delivery": {
+        "inputSha256": "f99b4a086ea3929774c6176d810f0006118e2cd61560aa946909270fd11142c5",
+        "marker": "dn-single-8211ab77e29788cb648dcf6a61ae2c3cce06d077",
+        "uploadRequestedAt": "2026-10-28T10:30:27.796Z",
+        "videoId": "xhYEwdON8ps",
+        "processedAt": "2026-10-28T10:31:12.276Z",
+        "thumbnailRequestedAt": "2026-10-28T10:31:12.943Z",
+        "thumbnailUrls": [
+          "https://i9.ytimg.com/vi/xhYEwdON8ps/default.jpg?sqp=CKidh9cG&rs=AOn4CLB5w2PvK79h5j8b4jugoPmGErKHhw",
+          "https://i9.ytimg.com/vi/xhYEwdON8ps/mqdefault.jpg?sqp=CKidh9cG&rs=AOn4CLC9fPBoavDzl2f8hzkIELLtXxV_5Q",
+          "https://i9.ytimg.com/vi/xhYEwdON8ps/hqdefault.jpg?sqp=CKidh9cG&rs=AOn4CLCT-wifZDqqEpNz91IjyyeMJ2Jpxg",
+          "https://i9.ytimg.com/vi/xhYEwdON8ps/sddefault.jpg?sqp=CKidh9cG&rs=AOn4CLC6iBURtQXAj45GzDA4kGQ8XfwXQA",
+          "https://i9.ytimg.com/vi/xhYEwdON8ps/maxresdefault.jpg?sqp=CKidh9cG&rs=AOn4CLCifMfDpu9uCi-13UnWvCbA7XJsnA",
+          "https://i9.ytimg.com/vi/xhYEwdON8ps/fhddefault.jpg?sqp=CKidh9cG&rs=AOn4CLCxRZRezaL7nXDXRuHpi-9ZWpZtlQ"
+        ],
+        "thumbnailAcceptedAt": "2026-10-28T10:31:16.653Z",
+        "scheduleRequestedAt": "2026-10-28T10:31:17.635Z",
+        "scheduleAt": "2026-11-02T08:30:00+09:00",
+        "scheduledVerifiedAt": "2026-10-28T10:31:20.930Z"
+      },
+      "platform": {
+        "id": "xhYEwdON8ps",
+        "url": "https://www.youtube.com/watch?v=xhYEwdON8ps",
+        "privacy": "private",
+        "evidence": {
+          "kind": "publisher-live-check",
+          "ref": "content/sns/video-packs/pe-first-stage/pe1-kiso-newton-hou/youtube.json#longform"
+        }
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-10-28T10:31:16.653Z"
       }
     },
     {
@@ -208,7 +379,7 @@
         "scene-sheet": "pe-first-stage/pe1-kiso-senmon/youtube.longform/scene-sheet",
         "preview-metrics": "pe-first-stage/pe1-kiso-senmon/youtube.longform/preview-metrics"
       },
-      "publishAt": "2026-11-04T20:00:00+09:00",
+      "publishAt": "2026-10-30T08:30:00+09:00",
       "review": {
         "visual": {
           "status": "approved",
@@ -219,13 +390,13 @@
       },
       "approval": {
         "by": "user",
-        "at": "2026-10-27T15:21:10.126Z",
-        "contentSha256": "7ff43e117e94af44e2ce67875eb61601a38faada914f92de571605bae376c164"
+        "at": "2026-10-28T10:19:31.425Z",
+        "contentSha256": "556ac902b52b175989ccfe0017ce7be3c1e31cd1dad66fbc4c80c85e2f8b5d95"
       },
       "times": {
         "rendered": "2026-10-27T15:21:10.797Z",
         "uploaded": "2026-10-27T15:27:01.739Z",
-        "scheduled": "2026-10-27T15:27:18.095Z"
+        "scheduled": "2026-10-28T10:19:31.425Z"
       },
       "delivery": {
         "inputSha256": "7b3f01284fe4c2d355bdee32cc4d07eb6e82668013f76766a553c87ea1f806a9",
@@ -243,9 +414,9 @@
           "https://i9.ytimg.com/vi/p8fZi3a2Un8/fhddefault.jpg?sqp=CMyEg9cG&rs=AOn4CLDklPPDmVL7LhOJOzuhd0jh4iTczA"
         ],
         "thumbnailAcceptedAt": "2026-10-27T15:27:08.254Z",
-        "scheduleRequestedAt": "2026-10-27T15:27:14.532Z",
-        "scheduleAt": "2026-11-04T20:00:00+09:00",
-        "scheduledVerifiedAt": "2026-10-27T15:27:18.095Z"
+        "scheduleRequestedAt": "2026-10-28T10:19:31.425Z",
+        "scheduleAt": "2026-10-30T08:30:00+09:00",
+        "scheduledVerifiedAt": "2026-10-28T10:19:31.425Z"
       },
       "platform": {
         "id": "p8fZi3a2Un8",
@@ -259,6 +430,164 @@
       "thumbnail": {
         "status": "set",
         "setAt": "2026-10-27T15:27:08.254Z"
+      }
+    },
+    {
+      "id": "pe-first-stage/pe1-kiso-simpson-haba/youtube.longform",
+      "work": "pe1-kiso-simpson-haba",
+      "account": "youtube:main",
+      "format": "longform",
+      "media": {
+        "cover": "pe-first-stage/pe1-kiso-simpson-haba/youtube.longform/cover",
+        "scene-001": "pe-first-stage/pe1-kiso-simpson-haba/youtube.longform/scene-001",
+        "scene-002": "pe-first-stage/pe1-kiso-simpson-haba/youtube.longform/scene-002",
+        "scene-003": "pe-first-stage/pe1-kiso-simpson-haba/youtube.longform/scene-003",
+        "scene-004": "pe-first-stage/pe1-kiso-simpson-haba/youtube.longform/scene-004",
+        "scene-005": "pe-first-stage/pe1-kiso-simpson-haba/youtube.longform/scene-005",
+        "scene-006": "pe-first-stage/pe1-kiso-simpson-haba/youtube.longform/scene-006",
+        "scene-007": "pe-first-stage/pe1-kiso-simpson-haba/youtube.longform/scene-007",
+        "scene-008": "pe-first-stage/pe1-kiso-simpson-haba/youtube.longform/scene-008",
+        "scene-009": "pe-first-stage/pe1-kiso-simpson-haba/youtube.longform/scene-009",
+        "scene-010": "pe-first-stage/pe1-kiso-simpson-haba/youtube.longform/scene-010",
+        "video": "pe-first-stage/pe1-kiso-simpson-haba/youtube.longform/video",
+        "subtitles": "pe-first-stage/pe1-kiso-simpson-haba/youtube.longform/subtitles",
+        "preview": "pe-first-stage/pe1-kiso-simpson-haba/youtube.longform/preview",
+        "contact-sheet": "pe-first-stage/pe1-kiso-simpson-haba/youtube.longform/contact-sheet",
+        "scene-sheet": "pe-first-stage/pe1-kiso-simpson-haba/youtube.longform/scene-sheet",
+        "preview-metrics": "pe-first-stage/pe1-kiso-simpson-haba/youtube.longform/preview-metrics"
+      },
+      "copy": "content/sns/video-packs/pe-first-stage/pe1-kiso-simpson-haba/youtube.json#longform",
+      "status": "scheduled",
+      "publishAt": "2026-11-03T20:30:00+09:00",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "user",
+          "at": "2026-10-28T12:10:30.730Z",
+          "digest": "ab17f016015e648e2ef4ecf10e97c7cd9fda1d5950be6fe1edcd4745fe45392c"
+        }
+      },
+      "approval": {
+        "by": "user",
+        "at": "2026-10-28T12:11:08.597Z",
+        "contentSha256": "340d897c36bbe3590bc3574f59dee938b5463e11ff4d666fdcd1ec6f98158467"
+      },
+      "times": {
+        "rendered": "2026-10-28T12:11:37.206Z",
+        "uploaded": "2026-10-28T12:28:26.948Z",
+        "scheduled": "2026-10-28T12:28:38.999Z"
+      },
+      "delivery": {
+        "inputSha256": "9f0ab21b5d1583c858028ed0e8946778ab441dc3e778c63168185f84ac7f44fe",
+        "marker": "dn-single-74f63eb57eea128a3778cfefa4e493424a73e95c",
+        "uploadRequestedAt": "2026-10-28T12:27:38.031Z",
+        "videoId": "hGr1DpHXKZ8",
+        "processedAt": "2026-10-28T12:28:26.365Z",
+        "thumbnailRequestedAt": "2026-10-28T12:28:27.013Z",
+        "thumbnailUrls": [
+          "https://i9.ytimg.com/vi/hGr1DpHXKZ8/default.jpg?sqp=CJzTh9cG&rs=AOn4CLCsANhII_uj4RDcRA4Aldi56OxVCA",
+          "https://i9.ytimg.com/vi/hGr1DpHXKZ8/mqdefault.jpg?sqp=CJzTh9cG&rs=AOn4CLBOoF83VW9z9J0sD-BEMt7NWpYBIw",
+          "https://i9.ytimg.com/vi/hGr1DpHXKZ8/hqdefault.jpg?sqp=CJzTh9cG&rs=AOn4CLDsQUsvce0YcaBq7YmWgUDYcVO7Eg",
+          "https://i9.ytimg.com/vi/hGr1DpHXKZ8/sddefault.jpg?sqp=CJzTh9cG&rs=AOn4CLAOolFUoVbCqQ7GuaZlOnc_eA39fw",
+          "https://i9.ytimg.com/vi/hGr1DpHXKZ8/maxresdefault.jpg?sqp=CJzTh9cG&rs=AOn4CLC-qVwVFa7djCm7MwkTLyPHlNz1Kg",
+          "https://i9.ytimg.com/vi/hGr1DpHXKZ8/fhddefault.jpg?sqp=CJzTh9cG&rs=AOn4CLDJMR85SlXe8gULJb4Tm_en0nvRXw"
+        ],
+        "thumbnailAcceptedAt": "2026-10-28T12:28:31.543Z",
+        "scheduleRequestedAt": "2026-10-28T12:28:35.670Z",
+        "scheduleAt": "2026-11-03T20:30:00+09:00",
+        "scheduledVerifiedAt": "2026-10-28T12:28:38.999Z"
+      },
+      "platform": {
+        "id": "hGr1DpHXKZ8",
+        "url": "https://www.youtube.com/watch?v=hGr1DpHXKZ8",
+        "privacy": "private",
+        "evidence": {
+          "kind": "publisher-live-check",
+          "ref": "content/sns/video-packs/pe-first-stage/pe1-kiso-simpson-haba/youtube.json#longform"
+        }
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-10-28T12:28:31.543Z"
+      }
+    },
+    {
+      "id": "pe-first-stage/pe1-kiso-xor-shingihyou/youtube.longform",
+      "work": "pe1-kiso-xor-shingihyou",
+      "account": "youtube:main",
+      "format": "longform",
+      "media": {
+        "cover": "pe-first-stage/pe1-kiso-xor-shingihyou/youtube.longform/cover",
+        "scene-001": "pe-first-stage/pe1-kiso-xor-shingihyou/youtube.longform/scene-001",
+        "scene-002": "pe-first-stage/pe1-kiso-xor-shingihyou/youtube.longform/scene-002",
+        "scene-003": "pe-first-stage/pe1-kiso-xor-shingihyou/youtube.longform/scene-003",
+        "scene-004": "pe-first-stage/pe1-kiso-xor-shingihyou/youtube.longform/scene-004",
+        "scene-005": "pe-first-stage/pe1-kiso-xor-shingihyou/youtube.longform/scene-005",
+        "scene-006": "pe-first-stage/pe1-kiso-xor-shingihyou/youtube.longform/scene-006",
+        "scene-007": "pe-first-stage/pe1-kiso-xor-shingihyou/youtube.longform/scene-007",
+        "scene-008": "pe-first-stage/pe1-kiso-xor-shingihyou/youtube.longform/scene-008",
+        "scene-009": "pe-first-stage/pe1-kiso-xor-shingihyou/youtube.longform/scene-009",
+        "scene-010": "pe-first-stage/pe1-kiso-xor-shingihyou/youtube.longform/scene-010",
+        "video": "pe-first-stage/pe1-kiso-xor-shingihyou/youtube.longform/video",
+        "subtitles": "pe-first-stage/pe1-kiso-xor-shingihyou/youtube.longform/subtitles",
+        "preview": "pe-first-stage/pe1-kiso-xor-shingihyou/youtube.longform/preview",
+        "contact-sheet": "pe-first-stage/pe1-kiso-xor-shingihyou/youtube.longform/contact-sheet",
+        "scene-sheet": "pe-first-stage/pe1-kiso-xor-shingihyou/youtube.longform/scene-sheet",
+        "preview-metrics": "pe-first-stage/pe1-kiso-xor-shingihyou/youtube.longform/preview-metrics"
+      },
+      "copy": "content/sns/video-packs/pe-first-stage/pe1-kiso-xor-shingihyou/youtube.json#longform",
+      "status": "scheduled",
+      "publishAt": "2026-11-03T08:30:00+09:00",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "user",
+          "at": "2026-10-28T12:10:30.099Z",
+          "digest": "e8ca77f8c45e1c415f8ea2a8a7a56ca6d87e841326d6c26db5ae46bedaed53a4"
+        }
+      },
+      "approval": {
+        "by": "user",
+        "at": "2026-10-28T12:11:07.888Z",
+        "contentSha256": "bfaa3510c469c6c290a191f92b415e3f81b2433174e819ce8f3d8a2fe79ba0a8"
+      },
+      "times": {
+        "rendered": "2026-10-28T12:11:36.111Z",
+        "uploaded": "2026-10-28T12:21:04.759Z",
+        "scheduled": "2026-10-28T12:21:12.728Z"
+      },
+      "delivery": {
+        "inputSha256": "82ce3aa95ffed773174a9a0f6922c5805d43bb69a9f332c5980cee5f8cee3593",
+        "marker": "dn-single-c6627cfccb6eb3b2b07a3cc3dcd544917000ce16",
+        "uploadRequestedAt": "2026-10-28T12:19:37.301Z",
+        "videoId": "-Oeh3Gi8-yU",
+        "processedAt": "2026-10-28T12:21:03.371Z",
+        "thumbnailRequestedAt": "2026-10-28T12:21:04.794Z",
+        "thumbnailUrls": [
+          "https://i9.ytimg.com/vi/-Oeh3Gi8-yU/default.jpg?sqp=CPDQh9cG&rs=AOn4CLCslEm9xTw9UgGitW7YkAUsffFrIg",
+          "https://i9.ytimg.com/vi/-Oeh3Gi8-yU/mqdefault.jpg?sqp=CPDQh9cG&rs=AOn4CLBnXXx5vlXuFMBFmP7KOs94WYWNxQ",
+          "https://i9.ytimg.com/vi/-Oeh3Gi8-yU/hqdefault.jpg?sqp=CPDQh9cG&rs=AOn4CLDSgKNaBe76tVFACgnVVCtQWwq9SQ",
+          "https://i9.ytimg.com/vi/-Oeh3Gi8-yU/sddefault.jpg?sqp=CPDQh9cG&rs=AOn4CLCCVjyFlM2s1NCr7sYNWsPON-nnAw",
+          "https://i9.ytimg.com/vi/-Oeh3Gi8-yU/maxresdefault.jpg?sqp=CPDQh9cG&rs=AOn4CLAunrhRhI5KvQg9h1AjbDyyTvWLSg",
+          "https://i9.ytimg.com/vi/-Oeh3Gi8-yU/fhddefault.jpg?sqp=CPDQh9cG&rs=AOn4CLAK7SkwdcPmLFQehiNMiUuH196ujA"
+        ],
+        "thumbnailAcceptedAt": "2026-10-28T12:21:08.092Z",
+        "scheduleRequestedAt": "2026-10-28T12:21:09.162Z",
+        "scheduleAt": "2026-11-03T08:30:00+09:00",
+        "scheduledVerifiedAt": "2026-10-28T12:21:12.728Z"
+      },
+      "platform": {
+        "id": "-Oeh3Gi8-yU",
+        "url": "https://www.youtube.com/watch?v=-Oeh3Gi8-yU",
+        "privacy": "private",
+        "evidence": {
+          "kind": "publisher-live-check",
+          "ref": "content/sns/video-packs/pe-first-stage/pe1-kiso-xor-shingihyou/youtube.json#longform"
+        }
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-10-28T12:21:08.092Z"
       }
     },
     {
@@ -292,7 +621,7 @@
       },
       "status": "scheduled",
       "copy": "content/sns/video-packs/pe-first-stage/pe1-senmon-kensetsu-25mon/youtube.json#longform",
-      "publishAt": "2026-11-06T20:00:00+09:00",
+      "publishAt": "2026-10-31T20:30:00+09:00",
       "review": {
         "visual": {
           "status": "approved",
@@ -303,13 +632,13 @@
       },
       "approval": {
         "by": "user",
-        "at": "2026-10-28T00:30:47.698Z",
-        "contentSha256": "9a926be07ad6e373da3c7c917ec416690393684b80d5eb3c2f7dc9f1926fe61f"
+        "at": "2026-10-28T10:19:42.567Z",
+        "contentSha256": "3d7c6ec012397dbf86702ab37eca04eb818d65a9ec3a7b8a7fad193ff200ac26"
       },
       "times": {
         "rendered": "2026-10-28T00:30:57.088Z",
         "uploaded": "2026-10-28T00:43:52.434Z",
-        "scheduled": "2026-10-28T00:44:06.320Z"
+        "scheduled": "2026-10-28T10:19:42.567Z"
       },
       "delivery": {
         "inputSha256": "dddf5c1732dd0f55d415c78879ddc2296cddb1e459cfb96cdd6969c069b8a92f",
@@ -327,9 +656,9 @@
           "https://i9.ytimg.com/vi/gRUKhWDZJhk/fhddefault.jpg?sqp=COCIhdcG&rs=AOn4CLBLmpOKjAM81e2PHvCNgl7optTmmw"
         ],
         "thumbnailAcceptedAt": "2026-10-28T00:43:59.380Z",
-        "scheduleRequestedAt": "2026-10-28T00:44:01.344Z",
-        "scheduleAt": "2026-11-06T20:00:00+09:00",
-        "scheduledVerifiedAt": "2026-10-28T00:44:06.320Z"
+        "scheduleRequestedAt": "2026-10-28T10:19:42.567Z",
+        "scheduleAt": "2026-10-31T20:30:00+09:00",
+        "scheduledVerifiedAt": "2026-10-28T10:19:42.567Z"
       },
       "platform": {
         "id": "gRUKhWDZJhk",
@@ -378,7 +707,7 @@
         "scene-sheet": "pe-first-stage/pe1-tekisei-3shiten/youtube.longform/scene-sheet",
         "preview-metrics": "pe-first-stage/pe1-tekisei-3shiten/youtube.longform/preview-metrics"
       },
-      "publishAt": "2026-11-05T20:00:00+09:00",
+      "publishAt": "2026-10-31T14:30:00+09:00",
       "review": {
         "visual": {
           "status": "approved",
@@ -389,13 +718,13 @@
       },
       "approval": {
         "by": "user",
-        "at": "2026-10-27T22:25:17.915Z",
-        "contentSha256": "a7652a20132f5c3adb30c05db86cb47001ad14e40caa94598ca683860f429058"
+        "at": "2026-10-28T10:19:40.201Z",
+        "contentSha256": "b6d9ccfc3422e6b0277c024e4816f901185847a22d87866b716a8a2ddfc8137a"
       },
       "times": {
         "rendered": "2026-10-27T22:25:26.286Z",
         "uploaded": "2026-10-27T22:29:26.547Z",
-        "scheduled": "2026-10-27T22:29:34.928Z"
+        "scheduled": "2026-10-28T10:19:40.201Z"
       },
       "delivery": {
         "inputSha256": "5eeca13f8e4c580364f22023d1be24104ff92a1a4340c862267af04f11f23c4d",
@@ -413,9 +742,9 @@
           "https://i9.ytimg.com/vi/hevqxT9zH7A/fhddefault.jpg?sqp=CLzJhNcG&rs=AOn4CLDv6QZt6WKujpqaz6ZcHkT5Rsv4HQ"
         ],
         "thumbnailAcceptedAt": "2026-10-27T22:29:30.177Z",
-        "scheduleRequestedAt": "2026-10-27T22:29:31.235Z",
-        "scheduleAt": "2026-11-05T20:00:00+09:00",
-        "scheduledVerifiedAt": "2026-10-27T22:29:34.928Z"
+        "scheduleRequestedAt": "2026-10-28T10:19:40.201Z",
+        "scheduleAt": "2026-10-31T14:30:00+09:00",
+        "scheduledVerifiedAt": "2026-10-28T10:19:40.201Z"
       },
       "platform": {
         "id": "hevqxT9zH7A",
@@ -460,7 +789,7 @@
         "contact-sheet": "pe-first-stage/pe1-zentaizou/youtube.longform/contact-sheet"
       },
       "copy": "content/sns/video-packs/pe-first-stage/pe1-zentaizou/youtube.json#longform",
-      "publishAt": "2026-10-30T20:00:00+09:00",
+      "publishAt": "2026-10-29T14:30:00+09:00",
       "review": {
         "visual": {
           "status": "approved",
@@ -471,13 +800,13 @@
       },
       "approval": {
         "by": "user",
-        "at": "2026-10-26T12:43:27.419Z",
-        "contentSha256": "fe04187854d9c05e7b33980b82645082a5c8ef39d3354b6abd2570da6e7ea4e9"
+        "at": "2026-10-28T10:19:27.108Z",
+        "contentSha256": "9731eca2d04ceed409521e10db4e1eda611abe08ecbadd511fe4b0505aab17c8"
       },
       "times": {
         "rendered": "2026-10-26T13:18:57.200Z",
         "uploaded": "2026-10-26T13:41:43.382Z",
-        "scheduled": "2026-10-26T13:43:42.047Z"
+        "scheduled": "2026-10-28T10:19:27.108Z"
       },
       "delivery": {
         "inputSha256": "3f61529af7619d442a2feff63b802c08ce3a63489c8c228e969f91da5c51f4e8",
@@ -495,9 +824,9 @@
           "https://i9.ytimg.com/vi/xLQ5bqfUEOE/fhddefault.jpg?sqp=CLCw_dYG&rs=AOn4CLAPUE-oyMdhNynVmslxwZMOHlo6tA"
         ],
         "thumbnailAcceptedAt": "2026-10-26T13:41:47.189Z",
-        "scheduleRequestedAt": "2026-10-26T13:41:52.201Z",
-        "scheduleAt": "2026-10-30T20:00:00+09:00",
-        "scheduledVerifiedAt": "2026-10-26T13:43:46.213Z"
+        "scheduleRequestedAt": "2026-10-28T10:19:27.108Z",
+        "scheduleAt": "2026-10-29T14:30:00+09:00",
+        "scheduledVerifiedAt": "2026-10-28T10:19:27.108Z"
       },
       "platform": {
         "id": "xLQ5bqfUEOE",

@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "channel": {
+    "id": "UCHRnXPqoc0Hls8nXiK_ZYqA",
+    "title": "doboku-note"
+  },
+  "longform": {
+    "key": "longform",
+    "title": "【技術士 第一次】技術士一次 基礎科目 XORとORの違いは真理値表の1行だけ",
+    "description": "技術士第一次試験の基礎科目で、2群「情報・論理」の論理式やビット演算に不安がある受験者向けに、「技術士一次 基礎科目 XORとORの違いは真理値表の1行だけ」を解説します。\n\nこの動画で分かること：ORとXORが食い違うのは「両方1」の1行だけと分かり、四行の表と式で自分で確かめられる\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 教材・完成答案で深掘りする\nhttps://note.com/dobokunote/m/mfa3fcffdd85d?utm_source=youtube&utm_medium=video&utm_campaign=pe1-kiso-xor-shingihyou&utm_content=longform\n\n※制度・日程は変更される場合があります。受検年度の公式情報も確認してください。\n音声：VOICEVOX:青山龍星\n\n#技術士第一次 #技術士 #試験対策",
+    "tags": [
+      "技術士 第一次試験",
+      "技術士 第一次",
+      "試験対策",
+      "頻出論点",
+      "doboku-note"
+    ],
+    "categoryId": "27",
+    "publishAt": "2026-11-03T08:30:00+09:00",
+    "r2Key": "video/render/pe1-kiso-xor-shingihyou/video.mp4",
+    "thumbnailR2Key": "video/render/pe1-kiso-xor-shingihyou/img/00-cover.png",
+    "sha256": "430db62c518cab1846e570627a4a3e64494fc0d8d10385580fe795eb73b365ef",
+    "thumbnailSha256": "f7cfde32ddfe013446c8b0a0e7bf3109b92eb304f296489edb213dae134d9fb4"
+  },
+  "shorts": []
+}

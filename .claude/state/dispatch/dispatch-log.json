@@ -6182,6 +6182,19 @@
       "commit": "815729e60040",
       "verification": null,
       "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-0834",
+      "at": "2026-10-29",
+      "task": "EXP-043 の案別の計測が、公開後の GA4 の週次取得に B・C とも届いているかを 10/30 に確かめる",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "8e06a19cac8a",
+      "verification": "fetch-metrics validation_only run 40791429080: EXP-043 B/C rows present (7430)",
+      "note": "todo-complete.mjs 経由で完了処理"
     }
   ]
 }

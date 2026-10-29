@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "pe-first-stage",
+      "headline": [
+        "ORとXOR",
+        "違いは1行"
+      ],
+      "accentLine": 0,
+      "subtitle": "基礎科目",
+      "character": {
+        "pose": "pop-red-pen",
+        "frame": "waist"
+      },
+      "design": "pop-poster-v3",
+      "pop": {
+        "variant": "question",
+        "authority": "総監が制作"
+      },
+      "approvedImage": {
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-xor-shingihyou/work/cover-pop.f7cfde32.png",
+        "sha256": "f7cfde32ddfe013446c8b0a0e7bf3109b92eb304f296489edb213dae134d9fb4",
+        "specSha256": "3283a478cf104490b41dbd094239863a0c7abe5c933597f38bbf41a3c9677529"
+      }
+    }
+  }
+}

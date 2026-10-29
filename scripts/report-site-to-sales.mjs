@@ -25,6 +25,7 @@ import { listReports } from './lib/metric-reports.mjs';
 import {
   buildResolver,
   buildSiteToSales,
+  parseHubAfterResultProducts,
   parseHubSeasonalProducts,
   parseNoteCatalog,
   pickGa4Snapshot,
@@ -67,7 +68,9 @@ function main() {
 
   const catalog = parseNoteCatalog(readFileSync(join(ROOT, 'src/lib/note-magazines.ts'), 'utf8'));
   if (catalog.length === 0) return fail('note-magazines.ts から商品を 1 件も解析できない（定義の形が変わった）');
-  const hubSeasonal = parseHubSeasonalProducts(readFileSync(join(ROOT, 'src/lib/hub-cta.ts'), 'utf8'));
+  const hubSource = readFileSync(join(ROOT, 'src/lib/hub-cta.ts'), 'utf8');
+  const hubSeasonal = parseHubSeasonalProducts(hubSource);
+  const hubAfterResult = parseHubAfterResultProducts(hubSource);
   if (Object.keys(hubSeasonal).length === 0) return fail('hub-cta.ts の HUB seasonal 商品を解析できない');
   const salesPath = datasetPath('note.sales');
   let salesLog;
@@ -80,7 +83,7 @@ function main() {
   const snapshotPath = datasetPath('note.magazines');
   const magazineSnapshot = readJsonIf(ROOT, snapshotPath);
 
-  const resolver = buildResolver({ catalog, hubSeasonal, magazineSnapshot, salesLog });
+  const resolver = buildResolver({ catalog, hubSeasonal, hubAfterResult, magazineSnapshot, salesLog });
   const labelSnapshots = listReports(ROOT, 'ga4.cta-clicks-by-label').reverse().map((r) => ({ file: r.ref, data: r.data }));
   const pick = pickGa4Snapshot(labelSnapshots.map((s) => ({ file: s.file, meta: s.data.meta })), month);
   const picked = labelSnapshots.find((s) => s.file === pick.file);

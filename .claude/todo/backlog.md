@@ -22,11 +22,15 @@
 ## 🔴 高 — 重要度が高い
 
 ### [DN-0902] 技術士（建設部門）の筆記合格発表（11/4）までに、口頭試験の教材への導線を資格トップと必須I・選択科目の記事に出す（EXP-047）
-タグ: [領域:サイト] [時期:2026-10] [種類:改善] [起票:2026-10-28]
+タグ: [領域:サイト] [時期:2026-10..2026-11] [種類:改善] [起票:2026-10-28] [期日:2026-11-04] [進行中]
 
 **起点**: 2026-10-28 の悩みの軸・類似／差別・配線の調査（docs/strategy/21「悩みの軸」・config/demand-map.json の PC-001・EXP-047）。建設部門の口頭試験の教材（note pe-construction-oral-guide ¥1,980）は 1 件しか売れておらず、需要の山は筆記合格発表（2026-11-04）から口頭試験（12〜1 月）。
 
-**やること**: 建設部門の資格トップ・必須I・選択科目の記事で、口頭試験の教材への導線が本番に出ているかを確かめ、出ていなければ 11/4 の前に配置を足す（技術士一次で試験日まで直前パックを出した fac356aa2 と同じ仕組みで、発表日から切り替える）。EXP-047 を running にし、反映の日を history に書く。
+**残り**: 発表日から切り替える実装は PR #1309（`isPeConstructionOralSeason`・hub-cta の `afterResult`）。切り替えはビルド時の日付なので、本番に出すには発表日以降の deploy が要る。
+1. PR #1309 を develop へマージする
+2. 筆記合格発表の日（11/4 予定・DN-0248 と同じ日）以降に develop → main を deploy する（`/deploy`・運営者の判断）
+3. 本番の `/exam/pe-construction`・`/exam/pe-construction/past-exams/r07-required`・`r07-road` を curl し、`n5bc0bcde96ac` と utm `hub-after-result`・`-top` があることを確かめる
+4. EXP-047 を running にし、反映の日（deploy の日）を history に書く
 
 **完了条件**: 本番の 3 種類のページで口頭試験への導線が出ていることを curl で確かめ、EXP-047 の status が running で反映日が記録されている。
 
@@ -273,6 +277,16 @@
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-0916] 基準書の画像から起こしたページの GFM の表が、記法の文字のまま画面に出る（近畿の必携 約 10 章）
+タグ: [領域:サイト] [時期:2026-10] [種類:不具合] [検証:check-standard-articles] [起票:2026-10-28]
+
+近畿の必携の画像から起こしたページ（review-status: visual-transcribed）は、文字起こしが表を GFM（`| 項目 | 記入欄 |` ＋ `|---|`）で書いている。生成器 `scripts/build-standard-articles.mjs` は行を平文の段落としてつなぎ、`|` を escape するので、`| 項目 | 記入欄 ||---|---|| 工事名 |` が 1 行の文字として画面に出る（2026-10-28 の描画検査 `scripts/check-rendered-pages.mjs`。19-2・20-2・27-3・3-2・31-1・34-3・34-4・36-1・38-3・7-1 など約 10 章）。
+
+試したこと: 段落の全行が GFM の表なら escape せずに表で出すと、`npm run check-standard-articles` の検査 14（GFM のセルが原典に見つからない・12 件）・18（表の前後の短い段落が基準 355 → 381）・19（全行が空の列・記入欄の様式 2 件）が FAIL した。見出し（`###`）だけは同じ方法で直した（fb45d9b2e）。
+
+やること: GFM で書かれた文字起こしの表を、検査 14 の照合（原典の行との突き合わせ）と検査 19 の「記入欄の空の列」を認める形で表にする。完了条件は対象の章で `|---|` が画面に出ず、`npm run check-standard-articles` が全 PASS。
+
+
 ### [DN-0915] 運営者が決めた立場のテーマを育成中で作り、EXP-046 を始める
 タグ: [領域:サイト] [時期:2026-12..2027-01] [種類:制作] [起票:2026-10-28]
 
@@ -435,28 +449,13 @@
 
 
 ### [DN-0890] 商品カードの導線ゼロをサイト全ページで直し、もくじだけで通る検査の抜け穴をふさぐ
-タグ: [収益化] [領域:サイト] [時期:2026-10] [種類:改善] [検証:check-magazine-cta] [起票:2026-10-27]
+タグ: [収益化] [領域:サイト] [時期:2026-10..2026-11] [種類:改善] [検証:check-magazine-cta] [起票:2026-10-27] [進行中]
 
-**起点**: GSC（9/22〜10/19）で流入が最も多い 2級の見直しページ `guide-r08-secondary-answers`（515 クリック）に、商品への導線が無いことが分かった（2026-10-27 の調査）。本番の HTML にあった note 導線はもくじタイルだけだった。カードは develop の 560e8cb12 で置いた（本番は未反映）。
+**起点**: GSC（9/22〜10/19）で流入が最も多い 2級の見直しページ `guide-r08-secondary-answers`（515 クリック）に商品への導線が無く、`check-magazine-cta` はもくじタイルが出る資格をページ判定から外していたので通っていた（2026-10-27 の調査）。
 
-**検査の抜け穴**: `scripts/check-magazine-cta-reachability.ts:256` のページ判定は `!resolveHubCta(d.category)` で、もくじタイルが出る資格（1級・2級土木、総監、建設部門）を CTA ゼロの判定から外している。冒頭のコメント（:24）は「もくじタイルは到達手段として数えない」と書いており、ページ判定だけが逆になっている。このため、見直しページはもくじだけで検査を通っていた。
-
-**全ページの判定（2026-10-27、ソースの配線ロジック、もくじは数えない、develop 時点）**: 公開記事 1,461 本（career 45 本は対象外）のうち、実検査 1,416 本で商品導線ゼロが 221 本。
-- 教材のある資格の取りこぼし 20 本（配線するか、置かない理由を baseline に書く）
-  - 総監 13: 第二次試験の過去問 h21〜h30 の 10 本、frequent-topics、general-vs-comprehensive、private-engineer-comprehensive-merit
-  - 建設部門 4: public-servant-merit（4 週で 5 クリック・最多）、infra-system-overseas、seismic-damage-lessons、seismic-isolation-damping
-  - 1級土木 3: guide-engineer-assignment、guide-hydraulics-basics、guide-structural-mechanics-basics
-- 商品がまだ無い資格 16 本（配線の漏れではなく品揃えの空白）: 測量士 9（note は `content/note/測量士/magazines/測量士午後-分野別` が未登録）、舗装 4（`舗装1級-経験記述` が未登録）、建築施工管理 3（経験記述ガイド 3 本で 4 週 50 クリック）
-- 方針で置かない可能性が高い 185 本: civil-practice 161、laws 24。置かない理由を baseline か検査の対象外の定義に明記する
-- 記事以外のページは未検査: `/tools/`（13）、`/topics/`（22）、`/standards/`（約 470）、カテゴリのハブ。本番では `/tools/kakomon-quiz` に商品導線が無かった
-
-**やること**:
-1. 検査を直す: :256 の `!resolveHubCta(d.category)` を外し、検査対象（`PAGE_GATE_CATEGORIES`）と対象外の理由を明文化する。テストを足す（もくじだけのページが CTA ゼロになる回帰）
-2. 20 本を振り分ける: 内容に合う商品があれば `magazine-placement.ts` の許可リストか本文の `<MagazineCard>` で配線、無ければ `.claude/config/magazine-cta-baseline.json` の zeroPage に理由付きで登録
-3. civil-practice・laws の扱いを決めて検査に反映する（対象外のカテゴリとして定義するか baseline にするか）
-4. 記事以外のページ（tools・topics・カテゴリのハブ・standards）の商品導線を本番の HTML で確かめ、必要なものを配線する（例: kakomon-quiz）
-5. 商品の無い資格は配線の作業と分ける: 測量士・舗装の商品は 2026-10-28 に公開し配線した（本番の確認は DN-0901）。建築施工管理は DN-0892（競合分析と商品案）→ DN-0427（有料化の判断）で扱い、決まるまで 3 本は baseline に「商品なし」で登録する
-6. deploy 後に `npm run check-production-ssr` と、見直しページの本番に `utm_content=guide-r08-secondary-answers` のカードが出ることを確かめる
+**残り**: 検査の修正と 20 本・過去問演習・測量士/舗装の資格トップの配線は PR #1310（建築施工管理 3 本は baseline、実務・法令は理由付きの対象外）。見直しページのカードは develop の 560e8cb12。
+1. PR #1310 を develop へマージする
+2. deploy 後に `npm run check-production-ssr` を通し、本番で見直しページに `utm_content=guide-r08-secondary-answers` のカード、`/tools/kakomon-quiz` に `tools-kakomon-quiz` のカード、`/exam/surveyor`・`/exam/pavement` に `category-sidebar` のカード、総監 h25 記述式・建設部門 public-servant-merit に `inline-1` の冒頭カードが出ることを curl で確かめる
 
 **完了条件**: `npm run check-magazine-cta -- --ci` がもくじを数えない判定で baseline 外 0、新しいテストが通り、本番で見直しページと配線した各ページに商品カードが出る。
 
@@ -629,17 +628,6 @@
 **完了条件**: 次の index-coverage の run で inspected = sitemap_urls、閾値ゲートが緑か、赤でも上限超過の error が出ない。Issue #1180 が自動クローズする。
 
 
-### [DN-0834] EXP-043 の案別の計測が、公開後の GA4 の週次取得に B・C とも届いているかを 10/30 に確かめる
-タグ: [領域:アフィリエイト] [時期:2026-10] [種類:改善] [起票:2026-10-24] [期日:2026-10-31]
-
-**起点**: 2026-10-24 14:26 に EXP-043（転職アフィリの B=小型カード / C=支給バナー）を本番に出した（main 0afe33d6b）。10/25 の 2級二次の試験のあと、解答ページ（`/exam/civil-construction-2/guide/r08-secondary-answers`・GSC 28 日 515 クリック）に検索の山が来る。GA4 の認証は CI にしかなく（手元は `GOOGLE_SERVICE_ACCOUNT_KEY_PATH` 未設定）、案別のイベントが届いているかを公開の当日には確かめられなかった。届いていなければ山のデータを丸ごと取りこぼす。
-
-**やること**:
-1. 10/30（金）以降、CI の GA4 取得（`fetch-metrics.yml` の「Fetch GA4 (affiliate design experiment)」・毎週金曜 JST 06:00。10/23 の取得は公開前で、次の取得が 10/30）が書いた `data/ga4/reports/` の affiliate-experiment の最新を見て、`EXP-043:B` と `EXP-043:C` の表示・クリックの行が両方あるかを確かめる（`meta.status` が `available`、行数が 0 でない）
-2. 無ければ、本番のページで `affiliate_experiment_impression` が送られているかを確かめる（GA4 の DebugView か、本番のページのネットワーク）。B の計測ピクセル（NTRMQ）が A8 の表示に出ているかも見る
-3. 届いていれば `data/business/experiments.json` の EXP-043 の measurements に初回の数字を記録する
-
-**完了条件**: EXP-043 の B と C の両方に GA4 の行があることを記録した（無ければ原因を直したか、起票した）。
 
 
 ### [DN-0832] 総監論文対策の文字起こし『総監論文に求められるもの.md』の Drive 実体が台帳と違うのを片づける
@@ -1626,6 +1614,16 @@ Windows の PowerShell で repo 直下から順に:
 **完了条件**: Windows に `auth-session-refresh` のタスクが無く、R2 に `auth-state/` が無く、3 の判断が backlog かこのカードに記録されている。`git grep -l DOBOKU_AUTH .github` は 0 件（確認済み）。
 
 ## 🟢 低 — 重要度が低い（時期未定を含む）
+
+### [DN-0917] 建設部門の資格トップの過去問の表（ExamMatrix）で同じ key「問題」が 2 つあり、React が重複 key の警告を出す
+タグ: [領域:サイト] [時期:2026-11] [種類:不具合] [起票:2026-10-29]
+
+**起点**: 2026-10-29、DN-0902 の確認で建設部門の資格トップ（/exam/pe-construction）を dev で開くと、Next.js の Console Error「Encountered two children with the same key, `問題`」が出た（src/components/category/ExamMatrix.tsx の ExamChipLink）。同じ行に「問題」という表示名のチップが 2 つあり、key が表示名だけになっている。重複 key は表示の取りこぼしや入れ替わりを起こしうる。
+
+**やること**: ExamMatrix の key を href など一意な値にし、資格トップの過去問の表で同じ見出しのチップが両方出ることを確かめる。
+
+**完了条件**: npm run dev で /exam/pe-construction を開いて Console Error が出ず、表のチップの数が直す前と同じ。
+
 
 ### [DN-0913] 総監 H29 一次 1-26 の紐づけ先 risk-communication の記事が無い（exam-keyword-map の参照切れ）を直す
 タグ: [領域:教材] [種類:不具合] [起票:2026-10-28]

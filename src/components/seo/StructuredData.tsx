@@ -1,5 +1,6 @@
 import type { PostData } from "@/types/blog";
 import type { DocMeta } from "@/lib/docs";
+import { inlinePlainText } from "@/lib/inline-links";
 
 import categoriesData from "@/config/categories.json";
 import { AUTHOR } from "@/config/author";
@@ -128,7 +129,8 @@ function generateFAQSchema(faqs: FAQEntry[]) {
       name: entry.q,
       acceptedAnswer: {
         "@type": "Answer",
-        text: entry.a,
+        // 回答の [題](URL)・**太字** は記法を外した文だけを渡す
+        text: inlinePlainText(entry.a),
       },
     })),
     inLanguage: "ja-JP",

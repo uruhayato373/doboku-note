@@ -1476,6 +1476,72 @@
       "target": "2026-11-12",
       "priority": "P1",
       "note": "2026-10-28 に Codex のセッションが描画し、見た目の承認まで済ませた日次動画。公開日案（youtube.json の publishAt）に合わせた目標日で、予約の事実ではない。予約したら公開台帳を正とする。"
+    },
+    {
+      "id": "pe1-kiso-2s-complement-new",
+      "exam": "pe-first-stage",
+      "publicationId": "pe-first-stage/pe1-kiso-2s-complement/youtube.longform",
+      "action": "new",
+      "start": "2026-10-29",
+      "ready": "2026-10-29",
+      "target": "2026-11-04",
+      "priority": "P1",
+      "note": "POP表紙・全場面図解・音声付き完成動画。11月4日08:30 JSTに予約予定。予約結果は公開台帳を正とする。"
+    },
+    {
+      "id": "pe1-kiso-2of3-reliability-new",
+      "exam": "pe-first-stage",
+      "publicationId": "pe-first-stage/pe1-kiso-2of3-reliability/youtube.longform",
+      "action": "new",
+      "start": "2026-10-29",
+      "ready": "2026-11-03",
+      "target": "2026-11-05",
+      "priority": "P1",
+      "note": "Claudeの台本QA済み。画像・音声・完成動画の制作と画面監査を経て予約する。"
+    },
+    {
+      "id": "shunin-shoki-3kyokusen-new",
+      "exam": "concrete-chief-engineer",
+      "publicationId": "concrete-chief-engineer/shunin-shoki-3kyokusen/youtube.longform",
+      "action": "new",
+      "start": "2026-10-29",
+      "ready": "2026-11-03",
+      "target": "2026-11-05",
+      "priority": "P1",
+      "note": "Claudeの台本QA済み。3曲線の図解画像・音声・完成動画の制作と画面監査を経て予約する。"
+    },
+    {
+      "id": "pe1-kiso-gradient-length-new",
+      "exam": "pe-first-stage",
+      "publicationId": "pe-first-stage/pe1-kiso-gradient-length/youtube.longform",
+      "action": "new",
+      "start": "2026-10-29",
+      "ready": "2026-11-04",
+      "target": "2026-11-06",
+      "priority": "P1",
+      "note": "勾配ベクトルと長さの独自例。画像・音声・完成動画の制作と画面監査を経て予約する。"
+    },
+    {
+      "id": "shunin-chinka-hibiware-genin-new",
+      "exam": "concrete-chief-engineer",
+      "publicationId": "concrete-chief-engineer/shunin-chinka-hibiware-genin/youtube.longform",
+      "action": "new",
+      "start": "2026-10-29",
+      "ready": "2026-11-04",
+      "target": "2026-11-06",
+      "priority": "P1",
+      "note": "沈下ひび割れと乾燥収縮の違い。出典確認と画像・音声・完成動画の制作後に予約する。"
+    },
+    {
+      "id": "shunin-kyoudo-hantei-2jouken-new",
+      "exam": "concrete-chief-engineer",
+      "publicationId": "concrete-chief-engineer/shunin-kyoudo-hantei-2jouken/youtube.longform",
+      "action": "new",
+      "start": "2026-10-29",
+      "ready": "2026-11-17",
+      "target": "2026-11-20",
+      "priority": "P2",
+      "note": "JIS A 5308の現行条文を一次資料で確認できるまで保留。確認後に画像・音声・完成動画を制作する。"
     }
   ]
 }

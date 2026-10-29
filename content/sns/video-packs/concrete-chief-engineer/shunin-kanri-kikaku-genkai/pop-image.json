@@ -1,0 +1,523 @@
+{
+  "policy": ".claude/knowledge/reference/pop-image-policy.md",
+  "designVersion": "pop-20260927",
+  "channel": "youtube",
+  "source": "content/sns/video-packs/concrete-chief-engineer/shunin-kanri-kikaku-genkai",
+  "outputs": {
+    "longform": {
+      "publicationId": "concrete-chief-engineer/shunin-kanri-kikaku-genkai/youtube.longform",
+      "copy": {
+        "exam": "concrete-chief-engineer",
+        "headline": [
+          "管理限界と",
+          "規格限界",
+          "別の線"
+        ],
+        "benefit": "品質管理",
+        "authority": "総監が制作"
+      },
+      "evidence": [
+        "content/sns/video-packs/concrete-chief-engineer/shunin-kanri-kikaku-genkai/cover-design.json#covers/longform",
+        "content/sns/video-packs/concrete-chief-engineer/shunin-kanri-kikaku-genkai/storyboard.json"
+      ],
+      "references": [
+        {
+          "path": ".tmp/media/concrete-chief-engineer/shunin-rekka-taio/work/cover-pop.82b2413f.png",
+          "sha256": "82b2413fd4de9bca533831f27e1cd6bc792b0b3c9d2d46d876d8dcc3ee2f97b1"
+        }
+      ],
+      "prompt": "Create NEW 16:9 YouTube POP cover for concrete chief engineer exam, matching supplied approved orange and yellow POP cover and same teacher identity. Exact large Japanese text 「コンクリート主任技士」 「管理限界と規格限界」. Smaller bold hook 「別の線！」. Hero graphic: two clearly different horizontal threshold bands on a simple process chart; control limit in blue and specification limit in red. Same bespectacled male engineer in white helmet at right, energetic teacher pointing with red pen. Full bleed orange/yellow/navy design, exact Japanese spelling, no extra words, no URL, no price.",
+      "format": {
+        "width": 1920,
+        "height": 1080
+      },
+      "render": {
+        "template": "codex-image-gen",
+        "variant": "question",
+        "pose": "pop-red-pen"
+      },
+      "output": {
+        "path": ".tmp/media/concrete-chief-engineer/shunin-kanri-kikaku-genkai/work/cover-pop.d97f1c0a.png",
+        "sha256": "d97f1c0a16a20f2ec038cdffa1726f5e5e5db8c9e11d7dce909a1f1d8f60e44b"
+      },
+      "review": {
+        "status": "agent-reviewed",
+        "by": "Codex",
+        "checkedAt": "2026-10-28T11:49:26.462Z",
+        "viewportWidth": 360,
+        "checks": [
+          "見出しと資格名",
+          "文字・人物の切れ",
+          "図と主張の整合"
+        ],
+        "userImageReview": "pending"
+      },
+      "storage": {
+        "group": "content-media",
+        "key": ".tmp/media/concrete-chief-engineer/shunin-kanri-kikaku-genkai/work/cover-pop.d97f1c0a.png"
+      },
+      "publication": "ローカル差し替え・外部未反映"
+    }
+  },
+  "activeBodyRevision": "body-diagram-20261028",
+  "activeCoverRevision": "cover-pop-20261028",
+  "revisions": {
+    "body-diagram-20261028": {
+      "layout": {
+        "mode": "diagram-led"
+      },
+      "images": [
+        {
+          "sceneId": "premise",
+          "inputSha256": "49daa01df5242ad57fdc3bafa33b8d9a321b97c24652724faa2e07c3903edecb",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Create a new 16:9 full-frame Japanese educational diagram, clean and simple, not a poster. No person. Leave the lower 18 percent clear for subtitles. Exact heading: 誤解：管理図が安定なら製品も合格. 左に「管理図が安定」、右に「製品が合格」を置き、間に大きな「≠」。左の下に「工程の問い」、右の下に「製品の問い」と各1行だけ添える2群の対比図。",
+            "references": [
+              {
+                "path": ".tmp/media/concrete-chief-engineer/shunin-rekka-taio/work/cover-pop.82b2413f.png",
+                "sha256": "82b2413fd4de9bca533831f27e1cd6bc792b0b3c9d2d46d876d8dcc3ee2f97b1"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-chief-engineer/shunin-kanri-kikaku-genkai/work/raw-premise-diagram.2af02232.png",
+              "sha256": "2af022326b2ef303ca3fea7b0c695e69acb37670f6769c4816a96a1ebbc65f3c"
+            },
+            "generatedAt": "2026-10-28T11:49:26.462Z"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-chief-engineer/shunin-kanri-kikaku-genkai/work/premise-diagram.e820df01.png",
+            "sha256": "e820df01dad820ca21556db18b7a3e096ee529dcb6479d2c8fa976d689969edd",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "2af022326b2ef303ca3fea7b0c695e69acb37670f6769c4816a96a1ebbc65f3c"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-28T11:49:26.462Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字・数値の判読",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "control",
+          "inputSha256": "eac26ce1346c3ea09f5bb6dae24dd96926734fa9b14841621ce63b28bfa51b11",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Create a new 16:9 full-frame Japanese educational diagram, clean and simple, not a poster. No person. Leave the lower 18 percent clear for subtitles. Exact heading: 管理限界は工程の安定を見る線. 時間を横軸にした管理図の模式図。水平の中心線と上下の管理限界線を引き、点が線の内側で揺れる。線の名前は「管理限界（工程のばらつきから計算）」の1つだけ。数値は書かない。",
+            "references": [
+              {
+                "path": ".tmp/media/concrete-chief-engineer/shunin-rekka-taio/work/cover-pop.82b2413f.png",
+                "sha256": "82b2413fd4de9bca533831f27e1cd6bc792b0b3c9d2d46d876d8dcc3ee2f97b1"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-chief-engineer/shunin-kanri-kikaku-genkai/work/raw-control-diagram.b42ebc68.png",
+              "sha256": "b42ebc68c2d6ad3f5c181f7e424ff924b4eba7b0c8c7f2f199607598507adbf3"
+            },
+            "generatedAt": "2026-10-28T11:49:26.462Z"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-chief-engineer/shunin-kanri-kikaku-genkai/work/control-diagram.7c470483.png",
+            "sha256": "7c470483a07ee25513133edd15118780ede98fb1fb6400030a75d6265770e3ca",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "b42ebc68c2d6ad3f5c181f7e424ff924b4eba7b0c8c7f2f199607598507adbf3"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-28T11:49:26.462Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字・数値の判読",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "spec",
+          "inputSha256": "f755cb33fa46054f734f34e18dae23b603d24bdf8fc593687bd42d212bf8586e",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Create a new 16:9 full-frame Japanese educational diagram, clean and simple, not a poster. No person. Leave the lower 18 percent clear for subtitles. Exact heading: 規格限界は製品が満たす基準. 横一本の数直線に、左へ向かう「規格の下限」の太い縦線を1本引き、その右側に「製品が満たす側」を淡色で塗る。管理図との対応は描かず、規格だけを示す。数値は書かない。",
+            "references": [
+              {
+                "path": ".tmp/media/concrete-chief-engineer/shunin-rekka-taio/work/cover-pop.82b2413f.png",
+                "sha256": "82b2413fd4de9bca533831f27e1cd6bc792b0b3c9d2d46d876d8dcc3ee2f97b1"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-chief-engineer/shunin-kanri-kikaku-genkai/work/raw-spec-diagram.96f987e3.png",
+              "sha256": "96f987e3e4653cd455fd164e410fdfb1cf7bea94dbdf55aeb6acf717e650d32d"
+            },
+            "generatedAt": "2026-10-28T11:49:26.462Z"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-chief-engineer/shunin-kanri-kikaku-genkai/work/spec-diagram.68248d4a.png",
+            "sha256": "68248d4ad631e070b791aae048d5b7d233a99ba00efec956e032a567f56cc8bd",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "96f987e3e4653cd455fd164e410fdfb1cf7bea94dbdf55aeb6acf717e650d32d"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-28T11:49:26.462Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字・数値の判読",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "trap1",
+          "inputSha256": "9b992541e7eb8505b005b57343f48a812e2f7a5ef6b938570c3ce6a3bc10574b",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Create a new 16:9 full-frame Japanese educational diagram, clean and simple, not a poster. No person. Leave the lower 18 percent clear for subtitles. Exact heading: 落とし穴1：安定でも規格を割る（仮例）. 正規分布の山を数直線に描く。山の中心に「平均37」、左に「規格の下限36」の縦線、下限より左の山の面積を赤系で塗り「約16％」と記す。右上に「数値はすべて仮例」の小さな注記。",
+            "references": [
+              {
+                "path": ".tmp/media/concrete-chief-engineer/shunin-rekka-taio/work/cover-pop.82b2413f.png",
+                "sha256": "82b2413fd4de9bca533831f27e1cd6bc792b0b3c9d2d46d876d8dcc3ee2f97b1"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-chief-engineer/shunin-kanri-kikaku-genkai/work/raw-trap1-diagram.f8cc658b.png",
+              "sha256": "f8cc658b2ef4f7aeed4f0390fa3933a289b064485c3be5c912cfd7c21efd6a65"
+            },
+            "generatedAt": "2026-10-28T11:49:26.462Z"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-chief-engineer/shunin-kanri-kikaku-genkai/work/trap1-diagram.2f52563a.png",
+            "sha256": "2f52563a817c510c68bedf7fed4bdfc7708c773c226f56793991a85468454ed6",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "f8cc658b2ef4f7aeed4f0390fa3933a289b064485c3be5c912cfd7c21efd6a65"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-28T11:49:26.462Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字・数値の判読",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "trap2",
+          "inputSha256": "5e7a1919e29757fe038700f1d787aa08eb92b4ac8ccae13b21a28879ca5ef506",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Create a new 16:9 full-frame Japanese educational diagram, clean and simple, not a poster. No person. Leave the lower 18 percent clear for subtitles. Exact heading: 落とし穴2：規格内でも工程は異常でありうる. 管理図の模式図。右端の1点が上の管理限界線を越えて赤く強調される。その横に小さく「規格内でも要確認」と記す。左側の点列は片側に連続して並ぶ形も薄く示す。数値は書かない。",
+            "references": [
+              {
+                "path": ".tmp/media/concrete-chief-engineer/shunin-rekka-taio/work/cover-pop.82b2413f.png",
+                "sha256": "82b2413fd4de9bca533831f27e1cd6bc792b0b3c9d2d46d876d8dcc3ee2f97b1"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-chief-engineer/shunin-kanri-kikaku-genkai/work/raw-trap2-diagram.e39a1981.png",
+              "sha256": "e39a19813279eb6fe90d865279f36d1c1c9e15f41c16f64f1ec59efd3e7b7912"
+            },
+            "generatedAt": "2026-10-28T11:49:26.462Z"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-chief-engineer/shunin-kanri-kikaku-genkai/work/trap2-diagram.31313796.png",
+            "sha256": "31313796960ba7ede1c8248cd45ffefd37f9c89c25069d9cd772171d2bbd5e2e",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "e39a19813279eb6fe90d865279f36d1c1c9e15f41c16f64f1ec59efd3e7b7912"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-28T11:49:26.462Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字・数値の判読",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "twoquestions",
+          "inputSha256": "e7fe33541d28a29fa6d5c3bd4891165a5b769d5ba5b055b11c38de12c640621a",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Create a new 16:9 full-frame Japanese educational diagram, clean and simple, not a poster. No person. Leave the lower 18 percent clear for subtitles. Exact heading: 二つの問いに分けて確認する. 左右2枚の大きなカード。左「問い1　工程は安定か」の下に「管理図」、右「問い2　規格に余裕があるか」の下に「平均の位置」「ばらつき（Cp）」を別々の2行で。カードの間に矢印は置かない。",
+            "references": [
+              {
+                "path": ".tmp/media/concrete-chief-engineer/shunin-rekka-taio/work/cover-pop.82b2413f.png",
+                "sha256": "82b2413fd4de9bca533831f27e1cd6bc792b0b3c9d2d46d876d8dcc3ee2f97b1"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-chief-engineer/shunin-kanri-kikaku-genkai/work/raw-twoquestions-diagram.80565a35.png",
+              "sha256": "80565a353ea2c306596d2a41dc153da27825679ea96eff3d0af81382866b58f3"
+            },
+            "generatedAt": "2026-10-28T11:49:26.462Z"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-chief-engineer/shunin-kanri-kikaku-genkai/work/twoquestions-diagram.bc1c80ec.png",
+            "sha256": "bc1c80ec8ee89fa29cdf36b6e4d7f4b7bba638e3a5604303a212a60bd2da79ed",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "80565a353ea2c306596d2a41dc153da27825679ea96eff3d0af81382866b58f3"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-28T11:49:26.462Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字・数値の判読",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "choices",
+          "inputSha256": "5364a158a2e5af111a52c70d100237045417a39663d029af0846cf2ed0fcf612",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Create a new 16:9 full-frame Japanese educational diagram, clean and simple, not a poster. No person. Leave the lower 18 percent clear for subtitles. Exact heading: 選択肢の見分け方. 2行の比較図。左列に誤りの型2文、右列に正しい見方を1行ずつ。文字は大きく、各セル1行。",
+            "references": [
+              {
+                "path": ".tmp/media/concrete-chief-engineer/shunin-rekka-taio/work/cover-pop.82b2413f.png",
+                "sha256": "82b2413fd4de9bca533831f27e1cd6bc792b0b3c9d2d46d876d8dcc3ee2f97b1"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-chief-engineer/shunin-kanri-kikaku-genkai/work/raw-choices-diagram.028801bb.png",
+              "sha256": "028801bbc1a0a374d62cfe3a195b8adc7529fde37ea6ed96c29b26bbc28108de"
+            },
+            "generatedAt": "2026-10-28T11:49:26.462Z"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-chief-engineer/shunin-kanri-kikaku-genkai/work/choices-diagram.eddcc84d.png",
+            "sha256": "eddcc84d97e92c671a26ffb8f5e94f3cc822dcc550d6594ff390ce631f26de93",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "028801bbc1a0a374d62cfe3a195b8adc7529fde37ea6ed96c29b26bbc28108de"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-28T11:49:26.462Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字・数値の判読",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "summary",
+          "inputSha256": "d0091c37457723172aa580e63e3ef358abdf5bacbaaa7f74f12bcff7e91ad0b5",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Create a new 16:9 full-frame Japanese educational diagram, clean and simple, not a poster. No person. Leave the lower 18 percent clear for subtitles. Exact heading: まとめ. 二つの線の対比図を縮小して再掲し、右に番号付きの3点を置く。",
+            "references": [
+              {
+                "path": ".tmp/media/concrete-chief-engineer/shunin-rekka-taio/work/cover-pop.82b2413f.png",
+                "sha256": "82b2413fd4de9bca533831f27e1cd6bc792b0b3c9d2d46d876d8dcc3ee2f97b1"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-chief-engineer/shunin-kanri-kikaku-genkai/work/raw-summary-diagram.190cde57.png",
+              "sha256": "190cde57b155b655bb9f5e70aeb301a14a2451178deaeb936a0c1216777c3159"
+            },
+            "generatedAt": "2026-10-28T11:49:26.462Z"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-chief-engineer/shunin-kanri-kikaku-genkai/work/summary-diagram.09a74a57.png",
+            "sha256": "09a74a57f69b1ce30b3b8037f1d183698ccfb9d5d15a9847450a5a746f2abef9",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "190cde57b155b655bb9f5e70aeb301a14a2451178deaeb936a0c1216777c3159"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-28T11:49:26.462Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字・数値の判読",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "cta",
+          "inputSha256": "15d3c28d0c19d913016afc3160b3b87b8d3d718efb0d3623cbc26ecdf2855813",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Create a NEW 16:9 simple Japanese educational YouTube end card for concrete chief engineer exam. Warm white background, navy text, restrained orange and blue accents. NO CHART, NO DATA TABLE, NO CONTROL LIMIT DIAGRAM, NO PERSON, NO GUARANTEE, NO PRICE, NO URL. Large exact heading 「択一で仕上げ確認」. Center a single simple book icon with exact large cover text 「R8対応」 「択一演習」. Beneath it exact short text 「概要欄をチェック」 and a blue down arrow. Keep every word large and easy to read on a phone. Leave bottom 18 percent blank for subtitle overlay.",
+            "references": [
+              {
+                "path": ".tmp/media/concrete-chief-engineer/shunin-rekka-taio/work/cover-pop.82b2413f.png",
+                "sha256": "82b2413fd4de9bca533831f27e1cd6bc792b0b3c9d2d46d876d8dcc3ee2f97b1"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-chief-engineer/shunin-kanri-kikaku-genkai/work/raw-cta-diagram.8183f4e3.png",
+              "sha256": "8183f4e3d98f65affa20d9c5e24b9ec480b519b1234e4ae9cee0e2437977379d"
+            },
+            "generatedAt": "2026-10-28T11:49:26.462Z"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-chief-engineer/shunin-kanri-kikaku-genkai/work/cta-diagram.dbafaecd.png",
+            "sha256": "dbafaecd55ed57e9edf104b3fb28bddfcd172e0523a039140a79a6d174c51e91",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "8183f4e3d98f65affa20d9c5e24b9ec480b519b1234e4ae9cee0e2437977379d"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-28T11:49:26.462Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字・数値の判読",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        }
+      ]
+    },
+    "cover-pop-20261028": {
+      "version": "pop-poster-v3",
+      "generation": {
+        "tool": "image_gen",
+        "prompt": "Create NEW 16:9 YouTube POP cover for concrete chief engineer exam, matching supplied approved orange and yellow POP cover and same teacher identity. Exact large Japanese text 「コンクリート主任技士」 「管理限界と規格限界」. Smaller bold hook 「別の線！」. Hero graphic: two clearly different horizontal threshold bands on a simple process chart; control limit in blue and specification limit in red. Same bespectacled male engineer in white helmet at right, energetic teacher pointing with red pen. Full bleed orange/yellow/navy design, exact Japanese spelling, no extra words, no URL, no price.",
+        "references": [
+          {
+            "path": ".tmp/media/concrete-chief-engineer/shunin-rekka-taio/work/cover-pop.82b2413f.png",
+            "sha256": "82b2413fd4de9bca533831f27e1cd6bc792b0b3c9d2d46d876d8dcc3ee2f97b1"
+          }
+        ],
+        "output": {
+          "path": ".tmp/media/concrete-chief-engineer/shunin-kanri-kikaku-genkai/work/raw-cover-pop.20cb9ec9.png",
+          "sha256": "20cb9ec95c0deaf64fa404a05f6b1a25a657eb6881df930245816abb31019a6c"
+        },
+        "generatedAt": "2026-10-28T11:49:26.462Z"
+      },
+      "copy": {
+        "exam": "concrete-chief-engineer",
+        "headline": [
+          "管理限界と",
+          "規格限界",
+          "別の線"
+        ],
+        "authority": "総監が制作"
+      },
+      "output": {
+        "path": ".tmp/media/concrete-chief-engineer/shunin-kanri-kikaku-genkai/work/cover-pop.d97f1c0a.png",
+        "sha256": "d97f1c0a16a20f2ec038cdffa1726f5e5e5db8c9e11d7dce909a1f1d8f60e44b",
+        "width": 1920,
+        "height": 1080
+      },
+      "normalization": {
+        "mode": "full-frame-v1",
+        "sourceSha256": "20cb9ec95c0deaf64fa404a05f6b1a25a657eb6881df930245816abb31019a6c"
+      },
+      "review": {
+        "status": "ai-reviewed",
+        "userImageReview": "pending",
+        "checkedAt": "2026-10-28T11:49:26.462Z",
+        "by": "Codex",
+        "views": [
+          "original"
+        ],
+        "checks": [
+          "文言・資格名",
+          "顔と安全域"
+        ]
+      },
+      "storage": {
+        "group": "content-media",
+        "sync": "local"
+      }
+    }
+  }
+}

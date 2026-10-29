@@ -28,6 +28,7 @@ const calendar = JSON.parse(readFileSync(join(ROOT, 'config/exam-calendar.json')
 const cceExam = calendar.exams['concrete-chief-engineer'].events.exam.date;
 const cceResult = calendar.exams['concrete-chief-engineer'].events.result.date;
 const pe1Exam = calendar.exams['pe-first-stage'].events.exam.date;
+const peConstructionResult = calendar.exams['pe-construction'].events.writtenResult.date;
 
 const jst = (date, clock) => Date.parse(`${date}T${clock}+09:00`);
 const shiftDays = (date, days) => new Date(Date.parse(`${date}T00:00:00Z`) + days * 86_400_000).toISOString().slice(0, 10);
@@ -139,7 +140,7 @@ test('offsite-cta: 主任技士の添削の文言に、締めの日の前だけ�
     Date.now = () => ${nowMs};
     import('./src/lib/offsite-cta.ts').then((m) => {
       const out = ['concrete-chief-engineer', 'concrete-chief-engineer-guide-essay', 'concrete-chief-engineer-guide-trends']
-        .map((slug) => m.resolveOffsiteCta(slug).map((i) => i.catch));
+        .map((slug) => (m.resolveOffsiteCta ? m : m.default).resolveOffsiteCta(slug).map((i) => i.catch));
       process.stdout.write(JSON.stringify(out));
     });
   `], { cwd: ROOT, encoding: 'utf8' });
@@ -163,4 +164,59 @@ test('資格トップの商品: 技術士一次と主任技士は試験日まで
   assert.deepEqual(cceTimes.map((t) => categoryLeadMagazineId('concrete-chief-engineer', t)),
     ['cce-takuitsu-chokuzen-pack', 'cce-takuitsu-chokuzen-pack', undefined, undefined]);
   assert.equal(categoryLeadMagazineId('rccm', cceTimes[0]), undefined);
+});
+
+// 建設部門の口頭試験の教材（DN-0902・EXP-047）: [発表の前日の終わり, 発表の日の始め, 89 日目の終わり（11/4 なら 1/31）, 90 日目の始め]
+const oralTimes = [
+  jst(shiftDays(peConstructionResult, -1), '23:59:59'),
+  jst(peConstructionResult, '00:00:00'),
+  jst(shiftDays(peConstructionResult, 88), '23:59:59'),
+  jst(shiftDays(peConstructionResult, 89), '00:00:00'),
+];
+
+test('建設部門の口頭試験の時期: 筆記合格発表の日の 0 時から 1 月末まで', async () => {
+  const { isPeConstructionOralSeason } = await loadPlacement();
+  assert.deepEqual(oralTimes.map((t) => isPeConstructionOralSeason(t)), [false, true, true, false]);
+  if (peConstructionResult === '2026-11-04') assert.equal(shiftDays(peConstructionResult, 88), '2027-01-31');
+});
+
+function endIdAt(resolvePlacement, resolveEndNoteSlot, slug, nowMs) {
+  const orig = Date.now;
+  Date.now = () => nowMs;
+  try {
+    return resolveEndNoteSlot(resolvePlacement(slug, 'pastExam'), '')?.magazineId;
+  } finally {
+    Date.now = orig;
+  }
+}
+
+test('建設部門の過去問（必須I・選択科目）: 口頭試験の時期だけ冒頭が口頭試験の教材、前後と末尾は科目の模範解答集', async () => {
+  const { resolvePlacement, resolveEndNoteSlot } = await loadPlacement();
+  for (const [slug, subject] of [['pe-construction-r07-required', 'pe-construction-required-magazine'], ['pe-construction-r07-road', 'pe-construction-road-magazine']]) {
+    assert.deepEqual(oralTimes.map((t) => topIdAt(resolvePlacement, slug, 'pastExam', t)),
+      [subject, 'pe-construction-oral-guide', 'pe-construction-oral-guide', subject], slug);
+    assert.equal(resolvePlacement(slug, 'pastExam').inline[0]?.magazineId, subject, slug);
+    // 末尾の画像カードは時期によらず科目の模範解答集（冒頭だけ口頭試験へ替える）
+    assert.deepEqual(oralTimes.map((t) => endIdAt(resolvePlacement, resolveEndNoteSlot, slug, t)), [subject, subject, subject, subject], `${slug} の末尾`);
+  }
+  // 論文の書き方ガイドは来年の受験者向けなので、口頭試験の時期も必須科目I の模範解答集のまま
+  assert.equal(topIdAt(resolvePlacement, 'pe-construction-guide-required-essay', 'guide', oralTimes[1]), 'pe-construction-required-magazine');
+});
+
+test('建設部門の資格トップ・記事の枠（hub-cta）: 口頭試験の時期は口頭試験の教材、前後はもくじ', () => {
+  const cli = join(ROOT, 'node_modules/tsx/dist/cli.mjs');
+  const tileAt = (nowMs) => JSON.parse(execFileSync(process.execPath, [cli, '-e', `
+    Date.now = () => ${nowMs};
+    import('./src/lib/hub-cta.ts').then((m) => {
+      // Windows の tsx は default の下に名前付き export を入れる
+      const c = (m.resolveHubCta ? m : m.default).resolveHubCta('pe-construction', { utmSuffix: 'sb' });
+      process.stdout.write(JSON.stringify(c && { mode: c.mode, productId: c.productId ?? null, trackLabel: c.trackLabel }));
+    });
+  `], { cwd: ROOT, encoding: 'utf8' }));
+  assert.deepEqual(oralTimes.map(tileAt), [
+    { mode: 'mokuji', productId: null, trackLabel: 'category-pe-construction-hub-mokuji-sb' },
+    { mode: 'product', productId: 'pe-construction-oral-guide', trackLabel: 'category-pe-construction-hub-after-result-sb' },
+    { mode: 'product', productId: 'pe-construction-oral-guide', trackLabel: 'category-pe-construction-hub-after-result-sb' },
+    { mode: 'mokuji', productId: null, trackLabel: 'category-pe-construction-hub-mokuji-sb' },
+  ]);
 });

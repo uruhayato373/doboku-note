@@ -18,8 +18,16 @@ test('コメント・別部品・計測欠落・client-onlyは静的note導線�
   assert.equal(hasStaticToolNoteCta(`'use client';\n${pop}`), false);
 });
 
-test('実際の2ツールにはSSR用の共通note導線がある', () => {
-  for (const file of ['src/app/tools/kakomon-quiz/pe-first-stage/page.tsx', 'src/app/tools/keiken-charcount/page.tsx']) {
+test('過去問演習の商品カード部品（QuizNoteProducts）も、商品と面を渡していれば静的note導線に数える', () => {
+  const quiz = `import QuizNoteProducts from "./QuizNoteProducts";
+export default function Page() { return <QuizNoteProducts products={NOTE_PRODUCTS} placement="tools-kakomon-quiz" />; }`;
+  assert.equal(hasStaticToolNoteCta(quiz), true);
+  assert.equal(hasStaticToolNoteCta(quiz.replace(' placement="tools-kakomon-quiz"', '')), false);
+  assert.equal(hasStaticToolNoteCta(quiz.replace('./QuizNoteProducts', './OtherProducts')), false);
+});
+
+test('実際の3ツールにはSSR用の共通note導線がある', () => {
+  for (const file of ['src/app/tools/kakomon-quiz/page.tsx', 'src/app/tools/kakomon-quiz/pe-first-stage/page.tsx', 'src/app/tools/keiken-charcount/page.tsx']) {
     assert.equal(hasStaticToolNoteCta(readFileSync(file, 'utf8')), true, file);
   }
 });

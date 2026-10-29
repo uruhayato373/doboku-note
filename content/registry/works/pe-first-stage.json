@@ -15,6 +15,27 @@
       "legacyKey": "095-pe-first-stage-2026-10"
     },
     {
+      "id": "pe1-kiso-2of3-reliability",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/pe-first-stage/pe1-kiso-2of3-reliability"
+    },
+    {
+      "id": "pe1-kiso-2s-complement",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/pe-first-stage/pe1-kiso-2s-complement",
+      "qa": {
+        "avg": 2.67,
+        "blocks": 0,
+        "at": "2026-10-29",
+        "by": "Claude Code video-content-qa"
+      }
+    },
+    {
+      "id": "pe1-kiso-gradient-length",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/pe-first-stage/pe1-kiso-gradient-length"
+    },
+    {
       "id": "pe1-kiso-gyouretsu-vector",
       "kind": "video-pack",
       "definition": "content/sns/video-packs/pe-first-stage/pe1-kiso-gyouretsu-vector",
@@ -53,6 +74,28 @@
       "definition": "content/sns/video-packs/pe-first-stage/pe1-kiso-senmon",
       "qa": {
         "avg": 2.67,
+        "blocks": 0,
+        "at": "2026-10-28",
+        "by": "Claude Code video-content-qa"
+      }
+    },
+    {
+      "id": "pe1-kiso-simpson-haba",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/pe-first-stage/pe1-kiso-simpson-haba",
+      "qa": {
+        "avg": 2.33,
+        "blocks": 0,
+        "at": "2026-10-28",
+        "by": "Claude Code video-content-qa"
+      }
+    },
+    {
+      "id": "pe1-kiso-xor-shingihyou",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/pe-first-stage/pe1-kiso-xor-shingihyou",
+      "qa": {
+        "avg": 2.5,
         "blocks": 0,
         "at": "2026-10-28",
         "by": "Claude Code video-content-qa"

@@ -20,7 +20,7 @@ import { getMagazine, type MagazineId } from './note-magazines';
 import examCalendar from '../../config/exam-calendar.json';
 import { matchNoteProductPage } from './note-product-classification';
 import { extractReferencesSection } from './extract-references';
-import { isAfterExamDay } from './exam-dates';
+import { examDayStartUtcMs, isAfterExamDay } from './exam-dates';
 
 export interface PlacementSlot {
   readonly magazineId: MagazineId;
@@ -34,6 +34,9 @@ export interface ResolvedPlacement {
   // 記事冒頭（本文 prose の前）に出す 1 行テキスト CTA。二次系の高 intent ページのみ設定する。
   // 末尾の画像カード（inline）と重複してよい（形が違い・記事が長いため）。未設定＝冒頭 CTA なし。
   readonly top?: PlacementSlot;
+  // 末尾の画像カードを top と別にしたいときだけ設定する（未設定＝top を末尾にも出す）。
+  // 建設部門の過去問は口頭試験の時期に冒頭を口頭試験の教材へ替えるが、末尾は科目の模範解答集を残す（DN-0902）。
+  readonly end?: PlacementSlot;
 }
 
 const EMPTY: ResolvedPlacement = { inline: [] };
@@ -74,6 +77,19 @@ export function resolveCivil1PrimaryLead(nowMs = Date.now()): MagazineId {
  */
 export function pe1LeadMagazineId(nowMs = Date.now()): MagazineId {
   return isAfterExamDay('pe-first-stage', 'exam', nowMs) ? 'pe1-takuitsu-pdf' : 'pe1-chokuzen-pack';
+}
+
+/** 口頭試験の教材を出す日数。11/4 の発表なら 1/31 まで（口頭試験は 12月上旬〜1月中旬・exam-calendar の periods.oral） */
+const PE_CONSTRUCTION_ORAL_SEASON_DAYS = 89;
+
+/**
+ * 技術士（建設部門）の口頭試験の教材を出す時期か（DN-0902・EXP-047）。筆記合格発表の日（JST の 0 時）から 1 月末まで。
+ * 合格を知った人が最初に開く資格トップと、自分が受けた科目の過去問に出す。
+ * ビルド時の日付で決まるので、本番に出るのは発表日以降の deploy から。
+ */
+export function isPeConstructionOralSeason(nowMs = Date.now()): boolean {
+  const start = examDayStartUtcMs('pe-construction', 'writtenResult');
+  return nowMs >= start && nowMs < start + PE_CONSTRUCTION_ORAL_SEASON_DAYS * 86_400_000;
 }
 
 /**
@@ -178,6 +194,11 @@ function matchPeConstructionEssay(slug: string): MagazineId | null {
   if (/^pe-construction-(guide-required-essay|pe-secondary-essay-guide|setsumon-bunkai|aimai-hyougen-sahou|suikou-checklist|shiken-toujitsu-tejun|keyword-note-tsukurikata|secondary-study-method|gyoumu-keireki-hyou)$/.test(slug)) {
     return 'pe-construction-required-magazine';
   }
+  // 必須科目I の論点になるテーマ記事（海外展開・耐震）と、受験の意味を考える記事も入口の必須科目I へ（DN-0890）。
+  // ページ単位の検査がもくじタイルを導線に数えていた間、商品の導線が 0 のまま公開されていた。
+  if (/^pe-construction-(infra-system-overseas|seismic-damage-lessons|seismic-isolation-damping|public-servant-merit)$/.test(slug)) {
+    return 'pe-construction-required-magazine';
+  }
   return null;
 }
 
@@ -244,6 +265,10 @@ const CIVIL_EXAM_PREP_GUIDES: ReadonlySet<string> = new Set([
   'guide-1-vs-2',                       // 1級と2級の違い（受験選択＝guide-difficulty と同枠）
   // 2026-10-02: ページ単位の CTA ゼロ検査を入れた際に見つかった 1級の欠落 2 本。
   'guide-demolition',                   // 1級 解体工事の重要ポイント（重要ポイントシリーズ）
+  // 2026-10-29（DN-0890）: ページ単位の検査がもくじタイルを導線に数えていたため見逃していた 1級の 3 本。
+  'guide-engineer-assignment',          // 1級 技術者の配置（関係法規・建設業法）
+  'guide-hydraulics-basics',            // 1級 土木一般の水理
+  'guide-structural-mechanics-basics',  // 1級 工学基礎の構造力学
   'guide-vs-pe',                        // 施工管理技士と技術士の違い（受験選択＝guide-1-vs-2 と同枠）
 ]);
 
@@ -316,7 +341,8 @@ export function resolveArticleMidNoteSlot(
 /** 手書きの商品カードがない記事には、主教材を末尾にも表示する。 */
 export function resolveEndNoteSlot(placement: ResolvedPlacement, content: string): PlacementSlot | null {
   if (renderedMagazineCardIds(content).length) return null;
-  return placement.top && getMagazine(placement.top.magazineId) ? placement.top : null;
+  const end = placement.end ?? placement.top;
+  return end && getMagazine(end.magazineId) ? end : null;
 }
 
 function resolvePlacementRaw(
@@ -386,10 +412,15 @@ function resolvePlacementRaw(
   }
 
   // 1.7. 技術士 建設部門 2次: 必須科目I・道路 過去問 + 論文ガイド → 該当 BK 模範解答集（公開時に発火）
+  //      筆記合格発表から 1 月末までは、年度別の過去問（必須I・選択科目）の冒頭に口頭試験の教材を出す（DN-0902）。
+  //      論文の書き方ガイドは来年の受験者向けなので出さない。
   const peEssayMag = matchPeConstructionEssay(slug);
   if (peEssayMag) {
+    const subject = slot(peEssayMag, slug, 'inline-1');
+    const oralTop = /^pe-construction-r0[1-9]-/.test(slug) && isPeConstructionOralSeason();
     return {
-      inline: [slot(peEssayMag, slug, 'inline-1')],
+      ...(oralTop ? { top: slot('pe-construction-oral-guide', slug, 'top'), end: subject } : {}),
+      inline: [subject],
     };
   }
 
@@ -416,9 +447,16 @@ function resolvePlacementRaw(
   if (
     slug === 'pe-comprehensive-management-exam-passing-strategy' ||
     slug === 'pe-comprehensive-management-whitepaper-study-map' ||
-    slug === 'pe-comprehensive-management-public-servant-comprehensive-merit'
+    slug === 'pe-comprehensive-management-public-servant-comprehensive-merit' ||
+    // DN-0890: 受験の意味・順序を考える記事も同じ精読ガイドへ（もくじタイルだけで商品の導線が 0 だった）
+    slug === 'pe-comprehensive-management-private-engineer-comprehensive-merit' ||
+    slug === 'pe-comprehensive-management-general-vs-comprehensive'
   ) {
     return { top: slot('tankan-reading-guide', slug, 'top'), inline: [] };
+  }
+  // DN-0890: 択一の頻出論点ランキング（平成21〜令和8 の 720 問）→ 最新年度を含む択一 過去問PDF（令和）
+  if (slug === 'pe-comprehensive-management-frequent-topics') {
+    return { top: slot('tankan-takuitsu-reiwa-pdf', slug, 'top'), inline: [] };
   }
   if (slug === 'pe-comprehensive-management-essay-pattern-cross-year-application') {
     return { top: slot(NEW_MAGAZINES.corePack, slug, 'top'), inline: [] };
@@ -472,9 +510,10 @@ function resolvePlacementRaw(
   //    旧実装は ALL_PERSONA_MAGAZINES を記事下に全列挙していたが、記事内 PersonaSelector（厳選3）と
   //    二重表示（記事下=公開済14ペルソナ）になり過剰だったため 2026-06-16 撤去（ユーザー判断:
   //    「解答ペルソナ導線は記事内のシンプルリンクに統一」）。ペルソナ単品 CTA は記事内 PersonaSelector が担う。
-  const secondaryMatch = slug.match(/^pe-comprehensive-management-r(0[1-9])-secondary$/);
+  //    平成21〜30 の記述式も同じ横断パックへ（DN-0890・令和だけの正規表現で 10 本が導線 0 だった）。
+  const secondaryMatch = slug.match(/^pe-comprehensive-management-(r0[1-9]|h2[1-9]|h30)-secondary$/);
   if (secondaryMatch) {
-    const isR07 = secondaryMatch[1] === '07';
+    const isR07 = secondaryMatch[1] === 'r07';
     const inline: PlacementSlot[] = [
       slot(NEW_MAGAZINES.completePack, slug, 'inline-1'),
       slot(NEW_MAGAZINES.corePack, slug, 'inline-2'),

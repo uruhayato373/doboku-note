@@ -6566,6 +6566,12 @@
           "note": "PR #1212（EXP-043）・#1213（法令ページの配線・本文中間の枠）を develop へマージし、Pre-merge check 合格の b77091473 を main へ昇格して本番に出した。check-production-ssr 合格。本番のページに EXP-043 の印と B の計測ピクセル（NTRMQ）があり、配信コードに割り当てのキーがあることを確かめた。B/C を約 1/2 ずつ配信する。判定は 28 日後（2026-11-21）。",
           "commit": "0afe33d6b",
           "runUrl": "https://github.com/uruhayato373/doboku-note/actions/runs/40065979600"
+        },
+        {
+          "at": "2026-10-29T00:15:00Z",
+          "event": "check",
+          "note": "DN-0834: 公開後の GA4 の案別取得に B・C とも届いていることを確かめた。fetch-metrics を validation_only で回し（develop へは書き戻さない）、affiliate-experiment は status available・10/24〜10/28 の EXP-043 の行 7,430。B は表示 3,962・クリック 5・閲覧 7,697・note 表示 9,730・note クリック 86、C は表示 3,854・クリック 3・閲覧 7,721・note 表示 9,685・note クリック 65（両案 insufficient-data）。本番の r08-secondary-answers でも B・C それぞれ affiliate_experiment_impression が送られ、B の計測ピクセル（a8.net/0.gif）があることを見た。measurements への記録は 10/30 の定期取得で measure-experiments が自動で足すため、手では足さない。",
+          "runUrl": "https://github.com/uruhayato373/doboku-note/actions/runs/40791429080"
         }
       ],
       "started_at": "2026-10-24T05:26:39Z"
@@ -6722,6 +6728,12 @@
           "at": "2026-10-28T04:02:16.000Z",
           "event": "recorded",
           "note": "悩みの軸・類似／差別・配線の調査（docs/strategy/21 §悩みの軸）から起票。判定日と停止条件は始める前に決めた"
+        },
+        {
+          "at": "2026-10-29T03:00:00Z",
+          "event": "implement",
+          "note": "DN-0902: 2026-10-29 の本番は資格トップ・必須I・道路の過去問のどこにも口頭試験への導線が無かった（curl で n5bc0bcde96ac・「口頭試験」とも 0）。筆記合格発表の日（JST 0 時）から 1/31 まで、資格トップ（PC サイドバー・スマホ）と建設部門の全記事のサイドバー・記事末のタイル（utm hub-after-result）、年度別の過去問の冒頭（-top）を口頭試験の教材へ切り替える実装を PR #1309 に出した。末尾の画像カードは科目の模範解答集のまま。ビルド時の日付で切り替わるので、本番に出るのは発表日以降の deploy から。status は deploy して本番で確かめた日に running にする。",
+          "pr": "https://github.com/uruhayato373/doboku-note/pull/1309"
         }
       ],
       "demand": {

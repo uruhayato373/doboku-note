@@ -2,6 +2,8 @@ import PageShell from "@/components/layout/PageShell";
 import PageHeader from "@/components/layout/PageHeader";
 import type { Metadata } from "next";
 import KakomonQuizClient from "./KakomonQuizClient";
+import QuizNoteProducts from "./QuizNoteProducts";
+import type { MagazineId } from "@/lib/note-magazines";
 import { DEFAULT_OG_IMAGE } from "@/lib/metadata";
 import { SITE_ORIGIN } from "@/config/site-identity.mjs";
 import AffiliateSlot from "@/components/ui/AffiliateSlot/AffiliateSlot";
@@ -9,6 +11,12 @@ import { quizQuestionCount, quizYearCount, quizYearRange } from "@/lib/quiz-summ
 import { toolByHref } from "@/lib/tools";
 
 const tool = toolByHref("/tools/kakomon-quiz");
+
+// 演習の下に出す note 商品カード（QuizNoteProducts）。結果画面の CTA と同じ出る順ノートと、紙で反復する択一 過去問PDF。
+const NOTE_PRODUCTS: readonly { id: MagazineId; lead: string }[] = [
+  { id: "civil-1-ichiji-ronten", lead: "出題の多い論点から順に押さえる合格ノート" },
+  { id: "civil-1-takuitsu-pdf", lead: "紙に書き込んで間違いを反復する 12 年分の過去問" },
+];
 
 export const metadata: Metadata = {
   title: `1級土木 過去問 無料演習｜第一次検定 全${quizQuestionCount('civil-1')}問を4択クイズ`,
@@ -48,6 +56,7 @@ export default function KakomonQuizPage() {
       />
 
       <KakomonQuizClient />
+      <QuizNoteProducts products={NOTE_PRODUCTS} placement="tools-kakomon-quiz" />
       {/* 転職の案内（ページ末に 1 枠。案件は配置ルール） */}
       <AffiliateSlot page={{ pageKind: "tool" }} slot="tool-end" className="max-w-[760px] mx-auto px-4 sm:px-6 pb-10" />
     </PageShell>

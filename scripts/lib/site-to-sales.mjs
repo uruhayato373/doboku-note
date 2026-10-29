@@ -59,28 +59,32 @@ export function parseNoteCatalog(source) {
   });
 }
 
-/** hub-cta.ts の HUB 定義 → { 資格カテゴリ: seasonal.product }。 */
-export function parseHubSeasonalProducts(source) {
+/** hub-cta.ts の HUB 定義 → { 資格カテゴリ: <key>.product }。key は seasonal（直前期）か afterResult（試験後の期間）。 */
+function parseHubProducts(source, key) {
   const start = String(source).indexOf('const HUB');
   if (start < 0) return {};
   const block = source.slice(start, source.indexOf('\n};', start));
   const heads = [...block.matchAll(/^\s{2}'([a-z0-9-]+)':\s*\{/gm)];
+  const pattern = new RegExp(`\\b${key}:\\s*\\{[^}]*?product:\\s*'([^']+)'`);
   const out = {};
   heads.forEach((h, i) => {
     const slice = block.slice(h.index, heads[i + 1]?.index ?? block.length);
-    const product = slice.match(/product:\s*'([^']+)'/)?.[1];
+    const product = slice.match(pattern)?.[1];
     if (product) out[h[1]] = product;
   });
   return out;
 }
 
+export const parseHubSeasonalProducts = (source) => parseHubProducts(source, 'seasonal');
+export const parseHubAfterResultProducts = (source) => parseHubProducts(source, 'afterResult');
+
 const noteKeyOf = (url) => String(url ?? '').match(/\/n\/(n[0-9a-z]+)/)?.[1] ?? null;
 
 /**
  * 解決に使う索引を作る。
- * @param {{catalog: Array, hubSeasonal: object, magazineSnapshot: object|null, salesLog: object}} input
+ * @param {{catalog: Array, hubSeasonal: object, hubAfterResult?: object, magazineSnapshot: object|null, salesLog: object}} input
  */
-export function buildResolver({ catalog, hubSeasonal = {}, magazineSnapshot = null, salesLog = { sales: [] } }) {
+export function buildResolver({ catalog, hubSeasonal = {}, hubAfterResult = {}, magazineSnapshot = null, salesLog = { sales: [] } }) {
   const catalogIds = new Set(catalog.map((c) => c.id));
   const catalogByNoteKey = new Map();
   for (const c of catalog) for (const url of [c.noteUrl, c.landingUrl]) {
@@ -103,19 +107,25 @@ export function buildResolver({ catalog, hubSeasonal = {}, magazineSnapshot = nu
   for (const sale of salesLog.sales ?? []) {
     if (String(sale.productId ?? '').startsWith('article:')) productIdByTitle.set(normalizeNoteTitle(sale.title), canonicalizeProductId(sale.productId));
   }
-  return { catalogIds, catalogByNoteKey, containers, titleByNoteKey, productIdByTitle, hubSeasonal, hasSnapshot: Boolean(magazineSnapshot) };
+  return { catalogIds, catalogByNoteKey, containers, titleByNoteKey, productIdByTitle, hubSeasonal, hubAfterResult, hasSnapshot: Boolean(magazineSnapshot) };
 }
 
 /** GA4 event_label → { productId|null, via, placement, reason } */
 export function resolveCtaLabel(label, r) {
   const value = String(label ?? '');
-  const hub = Object.keys(r.hubSeasonal).find((cat) => value.startsWith(`category-${cat}-hub-`));
+  const hub = [...Object.keys(r.hubSeasonal), ...Object.keys(r.hubAfterResult ?? {})].find((cat) => value.startsWith(`category-${cat}-hub-`));
   if (value.startsWith('category-')) {
     if (hub && value.startsWith(`category-${hub}-hub-seasonal`)) {
       const productId = r.hubSeasonal[hub];
       return r.catalogIds.has(productId)
         ? { productId, via: 'hub-seasonal', placement: value }
         : { productId: null, via: 'hub-seasonal', placement: value, reason: 'hub seasonal の商品がカタログに無い' };
+    }
+    const afterResultId = hub && value.startsWith(`category-${hub}-hub-after-result`) ? (r.hubAfterResult ?? {})[hub] : undefined;
+    if (afterResultId) {
+      return r.catalogIds.has(afterResultId)
+        ? { productId: afterResultId, via: 'hub-after-result', placement: value }
+        : { productId: null, via: 'hub-after-result', placement: value, reason: 'hub afterResult の商品がカタログに無い' };
     }
     if (/-hub-mokuji/.test(value)) return { productId: null, via: 'hub-mokuji', placement: value, reason: '無料もくじ記事への送客（商品を特定しない）' };
     return { productId: null, via: 'hub', placement: value, reason: 'hub ラベルの資格が hub-cta.ts に無い' };

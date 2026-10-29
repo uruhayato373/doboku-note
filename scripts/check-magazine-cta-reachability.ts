@@ -34,6 +34,8 @@
  * 成立しないページを数える。マガジン単位の検査は「各商品が 1 面以上」なので、新しい記事を
  * placement の許可リストへ足し忘れても、その商品が他ページに面を持てば素通りする（2級 重要
  * ポイント 5 本と 1級 2 本が CTA ゼロのまま公開されていた）。例外は baseline の zeroPage に理由付きで記録する。
+ * 2026-10-29（DN-0890）: ページ単位でももくじタイルを数えない（もくじが出る資格を判定から外していたので、
+ * 2級の見直しページなど 20 本が商品の導線 0 のまま通っていた）。対象は 12 資格、実務・法令は理由付きで対象外。
  *
  * 使い方:
  *   npx tsx scripts/check-magazine-cta-reachability.ts        # レポート（exit 0）
@@ -49,6 +51,7 @@ import { resolveHubCta } from '../src/lib/hub-cta';
 import { sidebarProduct, DISCOVERY_CATEGORIES } from '../src/lib/sidebar-discovery';
 import { isCivilConstructionCategory } from '../src/lib/qualification-names';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
+import { pageGate } from './lib/magazine-page-gate.mjs';
 
 // このリポジトリは package.json に "type" が無く、tsx は .ts を CJS として扱う。
 // src/lib/*.ts も CJS になるため、ESM(.mts) から named import すると
@@ -119,13 +122,19 @@ const hubCategories = new Set([...hubSrc.matchAll(/^\s{2}'([a-z0-9-]+)':\s*\{/gm
 
 const baselineJson = existsSync(EXEMPT_PATH) ? JSON.parse(readFileSync(EXEMPT_PATH, 'utf8')) : {};
 const baseline: Record<string, string> = baselineJson.zeroSurface ?? {};
-// ページ単位の CTA ゼロ（1級・2級土木）の理由付き例外。key は記事 slug（{category}-{name}）。
+// ページ単位の CTA ゼロの理由付き例外。key は記事 slug（{category}-{name}）。
 const zeroPageBaseline: Record<string, string> = baselineJson.zeroPage ?? {};
 
 // ページ単位の検査対象。土木は記事単位の配線（placement の許可リスト）に頼るため、新しい記事を
 // 許可リストへ足し忘れると CTA ゼロのまま公開される（2026-10-02: 2級 重要ポイント 5 本・1級 2 本）。
 // マガジン単位の検査（各商品が 1 面以上）では、他ページで面を持つ商品ばかりなので素通りする。
-const PAGE_GATE_CATEGORIES = new Set(['civil-construction-1', 'civil-construction-2', 'pe-first-stage', 'pe-construction', 'pe-comprehensive-management', 'concrete-engineer', 'concrete-chief-engineer', 'concrete-diagnostician', 'rccm']);
+// 測量士・舗装（2026-10-28 に商品を公開）と建築施工管理（商品なしは baseline）は 2026-10-29（DN-0890）に足した。
+const PAGE_GATE_CATEGORIES = new Set(['civil-construction-1', 'civil-construction-2', 'pe-first-stage', 'pe-construction', 'pe-comprehensive-management', 'concrete-engineer', 'concrete-chief-engineer', 'concrete-diagnostician', 'rccm', 'surveyor', 'pavement', 'building-construction']);
+// ページ単位の検査から外すカテゴリと理由。記事のあるカテゴリは検査対象かここのどちらかに入れる（入れ忘れは検査不成立で止める）。
+const PAGE_GATE_EXCLUDED: Record<string, string> = {
+  'civil-practice': '土木施工の実務記事。本文と記事末に有料教材を出さず、テーマのページで資格の記事と教材に出会う設計（content-taxonomy.md §6-3）',
+  laws: '法令の解説。どの資格の読者も読むので 1 つの教材へ送らず、実務記事と同じくテーマのページから教材へつなぐ（DN-0890 で決めた）',
+};
 
 type Reach = { id: string; routes: string[]; categories: Set<string> };
 
@@ -236,8 +245,8 @@ if (newZero.length) {
   console.log(`\n✓ 新規の 0 面マガジンなし（0 面 ${zero.length} 件はすべて baseline 記載）`);
 }
 
-// ── ページ単位: 1級・2級土木の公開記事に note CTA が 1 つも出ないページ ──────────────
-// 面の数え方はマガジン単位と同じ（top / 中間 CTA / MagazineCard / 非 HUB のサイドバー）。
+// ── ページ単位: 教材のある資格の公開記事に商品の導線が 1 つも出ないページ ──────────────
+// 面の数え方はマガジン単位と同じ（top / 中間 CTA / MagazineCard / 非 HUB のサイドバー）。もくじタイルは数えない。
 // career 記事は note CTA を出さない設計（resolvePlacement の 0 番ガード）なので対象外。
 const pageSurfacesByProbe = reachByProbe.map((probe) => {
   const surfaces = new Map<string, number>();
@@ -251,12 +260,16 @@ const pageSurfacesByProbe = reachByProbe.map((probe) => {
 });
 // どちらの時点でも 1 面以上ある（＝試験の前後どちらでも CTA が出る）ページだけを「あり」とする
 const hasSurface = (slug: string): boolean => pageSurfacesByProbe.every((m) => (m.get(slug) ?? 0) > 0);
-const gateDocs = docs.filter((d) => PAGE_GATE_CATEGORIES.has(d.category) && d.isPublished);
-const gateTargets = gateDocs.filter((d) => !d.isCareer);
-const zeroPages = gateTargets.filter((d) => !hasSurface(d.slug) && !resolveHubCta(d.category));
+const { uncovered, gateDocs, targets: gateTargets, zeroPages } = pageGate(docs, { gate: PAGE_GATE_CATEGORIES, excluded: PAGE_GATE_EXCLUDED, hasSurface });
 const newZeroPages = zeroPages.filter((d) => !zeroPageBaseline[d.slug]);
 const fixedPages = Object.keys(zeroPageBaseline).filter((slug) => hasSurface(slug));
-console.log(`\n[page-gate] 教材のある9資格の公開記事 ${gateDocs.length} 本（career ${gateDocs.length - gateTargets.length} 本は対象外）/ 実検査 ${gateTargets.length} 本 / CTA ゼロ ${zeroPages.length} 本（baseline 外 ${newZeroPages.length} 本）`);
+const excludedCount = docs.filter((d) => Object.hasOwn(PAGE_GATE_EXCLUDED, d.category)).length;
+console.log(`\n[page-gate] 教材のある${PAGE_GATE_CATEGORIES.size}資格の公開記事 ${gateDocs.length} 本（career ${gateDocs.length - gateTargets.length} 本は対象外）/ 実検査 ${gateTargets.length} 本 / CTA ゼロ ${zeroPages.length} 本（baseline 外 ${newZeroPages.length} 本）/ もくじタイルは数えない`);
+console.log(`  対象外のカテゴリ ${Object.keys(PAGE_GATE_EXCLUDED).length} 件・${excludedCount} 本: ${Object.entries(PAGE_GATE_EXCLUDED).map(([c, why]) => `${c}（${why}）`).join(' / ')}`);
+if (uncovered.length) {
+  console.error(`✗ 検査不成立: 記事のあるカテゴリ ${uncovered.join(', ')} が検査対象（PAGE_GATE_CATEGORIES）にも対象外（PAGE_GATE_EXCLUDED）にも無い。どちらかに理由付きで入れる`);
+  process.exit(1);
+}
 for (const d of zeroPages) {
   console.log(`  ${zeroPageBaseline[d.slug] ? '-' : '✗'} ${d.slug}${zeroPageBaseline[d.slug] ? `（baseline: ${zeroPageBaseline[d.slug]}）` : ''}`);
 }

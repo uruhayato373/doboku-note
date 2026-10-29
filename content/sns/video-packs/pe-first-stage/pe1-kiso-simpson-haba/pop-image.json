@@ -1,0 +1,521 @@
+{
+  "policy": ".claude/knowledge/reference/pop-image-policy.md",
+  "designVersion": "pop-20260927",
+  "channel": "youtube",
+  "source": "content/sns/video-packs/pe-first-stage/pe1-kiso-simpson-haba",
+  "outputs": {
+    "longform": {
+      "publicationId": "pe-first-stage/pe1-kiso-simpson-haba/youtube.longform",
+      "copy": {
+        "exam": "pe-first-stage",
+        "headline": [
+          "シンプソン則",
+          "hは刻み幅"
+        ],
+        "benefit": "基礎科目",
+        "authority": "総監が制作"
+      },
+      "evidence": [
+        "content/sns/video-packs/pe-first-stage/pe1-kiso-simpson-haba/cover-design.json#covers/longform",
+        "content/sns/video-packs/pe-first-stage/pe1-kiso-simpson-haba/storyboard.json"
+      ],
+      "references": [
+        {
+          "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.abe1a7b7.png",
+          "sha256": "abe1a7b7debc540640b2aacb2f333874901e60f25843dca40579ccd42feb7216"
+        }
+      ],
+      "prompt": "Create NEW 16:9 YouTube POP cover for first-stage engineer exam, matching supplied approved cobalt-blue and yellow POP cover and same teacher identity. Exact large Japanese text 「技術士第一次試験」 「シンプソン則」 「hは刻み幅！」. Hero graphic: simple parabola with three marked x points, a double arrow h ONLY between neighboring points, not across the entire interval. Same bespectacled male engineer in white hardhat and navy jacket at right pointing with red pen. Bold outlined type, electric blue/yellow and a little red, full bleed, safe edges, no extra words, URL, or price.",
+      "format": {
+        "width": 1920,
+        "height": 1080
+      },
+      "render": {
+        "template": "codex-image-gen",
+        "variant": "question",
+        "pose": "pop-red-pen"
+      },
+      "output": {
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-simpson-haba/work/cover-pop.876adc4d.png",
+        "sha256": "876adc4db671f568b3337a867b4123c8b2ce7206310ff8dc3615b76c092f6b51"
+      },
+      "review": {
+        "status": "agent-reviewed",
+        "by": "Codex",
+        "checkedAt": "2026-10-28T11:39:46.916Z",
+        "viewportWidth": 360,
+        "checks": [
+          "見出しと資格名",
+          "文字・人物の切れ",
+          "図と主張の整合"
+        ],
+        "userImageReview": "pending"
+      },
+      "storage": {
+        "group": "content-media",
+        "key": ".tmp/media/pe-first-stage/pe1-kiso-simpson-haba/work/cover-pop.876adc4d.png"
+      },
+      "publication": "ローカル差し替え・外部未反映"
+    }
+  },
+  "activeBodyRevision": "body-diagram-20261028",
+  "activeCoverRevision": "cover-pop-20261028",
+  "revisions": {
+    "body-diagram-20261028": {
+      "layout": {
+        "mode": "diagram-led"
+      },
+      "images": [
+        {
+          "sceneId": "answer",
+          "inputSha256": "2ad9aa7fd0ca176fa7bebd41044d97e5bc1375dbd2b3215fdc69cef5a45c9076",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "New 16:9 clean Japanese educational diagram, white background navy text blue arrows yellow highlight, no person. Topic Simpson 1/3 rule. Large heading exactly 「結論：h は隣の点との距離」. Show exactly three points on one horizontal axis labelled x₀, x₁, x₂. Double arrows x₀ to x₁ labelled h and x₁ to x₂ labelled h. One bracket x₀ to x₂ labelled 2h. Bottom in a single large readable line exactly 「S = h/3 × [f(x₀)+4f(x₁)+f(x₂)]」. No other formulas, no graphs, lower 18 percent clear.",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-first-stage/pe1-kiso-simpson-haba/work/raw-answer-diagram.680f9e29.png",
+              "sha256": "680f9e2969aebe1e215afa5802b4cbf0685c92215984f7014993ff4486b8a684"
+            },
+            "generatedAt": "2026-10-28T11:39:46.916Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-first-stage/pe1-kiso-simpson-haba/work/answer-diagram.501d42f0.png",
+            "sha256": "501d42f05a6587216fd774c18f560db3ee6bb118151d929e4d5d39d301456c64",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "680f9e2969aebe1e215afa5802b4cbf0685c92215984f7014993ff4486b8a684"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-28T11:39:46.916Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字・数値の判読",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "setup",
+          "inputSha256": "06ec4ad194b4a88c34b4ebaa3488c1662c02e8abccf6acf7ccf2cac5aa278664",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Create a new 16:9 full-frame Japanese educational diagram, clean and simple, not a poster. No person. Leave the lower 18 percent clear for subtitles. Exact heading: 独自の例題：f(x)＝2x²＋1. 放物線y=2x^2+1を0〜6で描き、x=0,3,6の3点に値1,19,73。点間にh=3、全体に6の括弧。左上に『独自の例題・非公式』の小さな札。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-first-stage/pe1-kiso-simpson-haba/work/raw-setup-diagram.19a83a7f.png",
+              "sha256": "19a83a7fe98587faf12633d3a18adab64aceb21b3a72aea1b2923865723c16fc"
+            },
+            "generatedAt": "2026-10-28T11:39:46.916Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-first-stage/pe1-kiso-simpson-haba/work/setup-diagram.0a752dfb.png",
+            "sha256": "0a752dfbf8ebbf5662ce28cee3aad9867316721b536f00553c8cead03508d5fa",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "19a83a7fe98587faf12633d3a18adab64aceb21b3a72aea1b2923865723c16fc"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-28T11:39:46.916Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字・数値の判読",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "correct",
+          "inputSha256": "789522892b52b95d08751b57819221038265677ee85cb00c2208d6a54bbe4875",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Make a fresh clean 16:9 Japanese educational diagram, no person, white background navy letters and blue/yellow highlights. Topic is Simpson's 1/3 rule for f(x)=2x²+1 on [0,6], with sample values f(0)=1, f(3)=19, f(6)=73. Show ONLY two very large calculation boxes, no graph or integral sign: left box label 「シンプソン則」 and exactly 「3÷3 × (1+4×19+73) = 150」. Right box label 「直接積分」 and exactly 「144+6=150」. Center a large yellow 「一致」. All arithmetic exact. No other numbers or formulas, no unrelated functions. Leave lower 18 percent empty for subtitles.",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-first-stage/pe1-kiso-simpson-haba/work/raw-correct-diagram.4fee8a4b.png",
+              "sha256": "4fee8a4bdad96b09297164ac2617fcca4f2931a6311c56805935a7aa6e1f7fb9"
+            },
+            "generatedAt": "2026-10-28T11:39:46.916Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-first-stage/pe1-kiso-simpson-haba/work/correct-diagram.10d35987.png",
+            "sha256": "10d359873b4144a58797d08e50e9210ec2fb5505db972110e9840b0fac325028",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "4fee8a4bdad96b09297164ac2617fcca4f2931a6311c56805935a7aa6e1f7fb9"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-28T11:39:46.916Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字・数値の判読",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "hwrong",
+          "inputSha256": "edd96345d131ceaf4822aaf3689633d1a55ac84da3f5d230ed105668c43fec82",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Make fresh 16:9 Japanese educational diagram about Simpson's rule step width, white to pale blue background, navy text, blue correct side and red error side. No person, no graphs, no triangle. Show a horizontal x-axis with exactly 3 points labelled 0, 3, 6. Short double arrow from 0 to 3 labelled 「h=3」, another from 3 to 6 labelled 「h=3」. A full-width bracket from 0 to 6 labelled 「全体=6」. Above, large exact comparison text: red 「誤 h=6 → 300」 and blue 「正 h=3 → 150」. No other formulas or numbers. Leave bottom 18 percent clear.",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-first-stage/pe1-kiso-simpson-haba/work/raw-hwrong-diagram.2bc11be5.png",
+              "sha256": "2bc11be5007b790185954fcd71248eb8d85b99c87262f394275609e09adc1747"
+            },
+            "generatedAt": "2026-10-28T11:39:46.916Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-first-stage/pe1-kiso-simpson-haba/work/hwrong-diagram.4f0e6875.png",
+            "sha256": "4f0e6875bee9455bebc9b4b671f8c82015f923867d541861a51eba71cd2ac50c",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "2bc11be5007b790185954fcd71248eb8d85b99c87262f394275609e09adc1747"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-28T11:39:46.916Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字・数値の判読",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "coef",
+          "inputSha256": "bbb701527eadbdb1539b9f8997abce099216b1f3f52b03f7392907f3b156f8ba",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "New 16:9 clean Japanese educational diagram, white background navy text blue and red highlights, no person, no graphs. Large heading 「分母と重みをセットで覚える」. Exactly THREE horizontal rows and nothing else. Blue correct row: 「正　h/3 と 1・4・1　→ 150」. Red wrong row: 「誤　h/2 と 1・4・1　→ 225」. Red wrong row: 「誤　h/3 と 1・2・1　→ 112」. All numbers exact. No integral signs. Lower 18 percent clear for subtitles.",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-first-stage/pe1-kiso-simpson-haba/work/raw-coef-diagram.34aa6bc4.png",
+              "sha256": "34aa6bc436deece899cd003e98f97ebfcfc9cf88e2d02e098076e45f49c30355"
+            },
+            "generatedAt": "2026-10-28T11:39:46.916Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-first-stage/pe1-kiso-simpson-haba/work/coef-diagram.986e2994.png",
+            "sha256": "986e2994dfcc0ccab4427fa27818ac59ec74c711b1a6f2bd3ec088a2d8360f28",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "34aa6bc436deece899cd003e98f97ebfcfc9cf88e2d02e098076e45f49c30355"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-28T11:39:46.916Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字・数値の判読",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "check",
+          "inputSha256": "6fcf375201eb1b170b2f09572e69a51c35f5ca5fef5c0cf8756325b0ec4d46e9",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Create a new 16:9 full-frame Japanese educational diagram, clean and simple, not a poster. No person. Leave the lower 18 percent clear for subtitles. Exact heading: 定数関数で検算する. 高さ5・幅6の長方形を大きく描き面積30。右に重み1,4,1の合計6の棒、下にL/6でL=2hならh/3の変形を3段で示す。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-first-stage/pe1-kiso-simpson-haba/work/raw-check-diagram.a5b39bc1.png",
+              "sha256": "a5b39bc116261accdbddae431775a051c95585a9ac04f5cbcadae076b8a0afdf"
+            },
+            "generatedAt": "2026-10-28T11:39:46.916Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-first-stage/pe1-kiso-simpson-haba/work/check-diagram.5d184a07.png",
+            "sha256": "5d184a07c86bb63e859b3cd05a6be0cfa0a8895921a255992ae1bb0feb8e1ed0",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "a5b39bc116261accdbddae431775a051c95585a9ac04f5cbcadae076b8a0afdf"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-28T11:39:46.916Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字・数値の判読",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "practice",
+          "inputSha256": "5a4df53ab7299ef116891883c143e0d6c2643e48bf4520aacca27f6388eae76a",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "New 16:9 clean Japanese educational diagram, white background navy text blue arrows yellow accents, no person, no geometry, no triangles. Large heading 「過去問で確かめる」. On right only a simple horizontal number line with THREE equally spaced marked points labelled x₀, x₁, x₂ and double arrows between neighbors labelled h. On left exactly three large numbered steps: 「① 3点を置く」 「② hを隣の間に書く」 「③ 1・4・1とh/3」. No other words, equations, or diagrams. Bottom 18 percent clear.",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-first-stage/pe1-kiso-simpson-haba/work/raw-practice-diagram.dbf9d5d2.png",
+              "sha256": "dbf9d5d2ed4c0eab34f69aae8513aa9c8a5c6ab9674ab0c7dcf5410066626000"
+            },
+            "generatedAt": "2026-10-28T11:39:46.916Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-first-stage/pe1-kiso-simpson-haba/work/practice-diagram.5ff379f7.png",
+            "sha256": "5ff379f71601f575ff36265148e82800e42621b8b6ad21ea27d0c9e5e1e9bc6b",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "dbf9d5d2ed4c0eab34f69aae8513aa9c8a5c6ab9674ab0c7dcf5410066626000"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-28T11:39:46.916Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字・数値の判読",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "summary",
+          "inputSha256": "179b63a8a0145a55f2630371b08772098f40c45fc708bd6eaf7853f01d03ce40",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "New 16:9 clean Japanese educational summary diagram, white background navy text blue arrows yellow accents, no person. Large heading 「シンプソン則の3点」. Exactly three big numbered takeaway cards: 「① hは隣の点間」 with tiny three-dot horizontal line; 「② 重みは1・4・1」 with three dots; 「③ 分母は3」 with large h/3. Do not show any other formulas, functions, or calculus. Lower 18 percent clear.",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-first-stage/pe1-kiso-simpson-haba/work/raw-summary-diagram.8719a0a2.png",
+              "sha256": "8719a0a2d308cdb11ef00f34c54486e70f2247379e18fc5819c44ee1192e9a2a"
+            },
+            "generatedAt": "2026-10-28T11:39:46.916Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-first-stage/pe1-kiso-simpson-haba/work/summary-diagram.43ca3496.png",
+            "sha256": "43ca34964e59b6fbf89a6b9b5c19b5a2c4ea3efc44e5b7200b8f72a05c855dbb",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "8719a0a2d308cdb11ef00f34c54486e70f2247379e18fc5819c44ee1192e9a2a"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-28T11:39:46.916Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字・数値の判読",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "cta",
+          "inputSha256": "2e9431991e4ec3495d04751ff4158371c6cbe5dad5cd19d262b037df994eeb24",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "New 16:9 simple Japanese educational end card, white and pale-blue background, dark navy bold text, blue down arrow, yellow highlight. No person, no extra marketing claims, no guarantee, no price. Large exact heading 「直前パック」. Below small exact text 「技術士第一次試験」 and 「専門は建設部門」. Center a simple blue book icon labelled 「過去問演習」. At bottom above subtitle-safe area, exact text 「概要欄をチェック」 and a down arrow. No other text or icons. Full frame.",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-first-stage/pe1-kiso-simpson-haba/work/raw-cta-diagram.29199789.png",
+              "sha256": "29199789da7fd4a070df7357fb787aa4fdf3f2c602272800cfa454a259fb6c4f"
+            },
+            "generatedAt": "2026-10-28T11:39:46.916Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-first-stage/pe1-kiso-simpson-haba/work/cta-diagram.9dd5d438.png",
+            "sha256": "9dd5d438c1d9028a31f7374211af40864d92cc16a9d69f775e3f36f6002c4552",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "29199789da7fd4a070df7357fb787aa4fdf3f2c602272800cfa454a259fb6c4f"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-28T11:39:46.916Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字・数値の判読",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        }
+      ]
+    },
+    "cover-pop-20261028": {
+      "version": "pop-poster-v3",
+      "generation": {
+        "tool": "image_gen",
+        "prompt": "Create NEW 16:9 YouTube POP cover for first-stage engineer exam, matching supplied approved cobalt-blue and yellow POP cover and same teacher identity. Exact large Japanese text 「技術士第一次試験」 「シンプソン則」 「hは刻み幅！」. Hero graphic: simple parabola with three marked x points, a double arrow h ONLY between neighboring points, not across the entire interval. Same bespectacled male engineer in white hardhat and navy jacket at right pointing with red pen. Bold outlined type, electric blue/yellow and a little red, full bleed, safe edges, no extra words, URL, or price.",
+        "references": [
+          {
+            "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.abe1a7b7.png",
+            "sha256": "abe1a7b7debc540640b2aacb2f333874901e60f25843dca40579ccd42feb7216"
+          }
+        ],
+        "output": {
+          "path": ".tmp/media/pe-first-stage/pe1-kiso-simpson-haba/work/raw-cover-pop.29302f1b.png",
+          "sha256": "29302f1b9f205f369c775d0568cf4a96b03ce6f83a827bc212931e04bd08cc8a"
+        },
+        "generatedAt": "2026-10-28T11:39:46.916Z"
+      },
+      "copy": {
+        "exam": "pe-first-stage",
+        "headline": [
+          "シンプソン則",
+          "hは刻み幅"
+        ],
+        "authority": "総監が制作"
+      },
+      "output": {
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-simpson-haba/work/cover-pop.876adc4d.png",
+        "sha256": "876adc4db671f568b3337a867b4123c8b2ce7206310ff8dc3615b76c092f6b51",
+        "width": 1920,
+        "height": 1080
+      },
+      "normalization": {
+        "mode": "full-frame-v1",
+        "sourceSha256": "29302f1b9f205f369c775d0568cf4a96b03ce6f83a827bc212931e04bd08cc8a"
+      },
+      "review": {
+        "status": "ai-reviewed",
+        "userImageReview": "pending",
+        "checkedAt": "2026-10-28T11:39:46.916Z",
+        "by": "Codex",
+        "views": [
+          "original"
+        ],
+        "checks": [
+          "文言・資格名",
+          "顔と安全域"
+        ]
+      },
+      "storage": {
+        "group": "content-media",
+        "sync": "local"
+      }
+    }
+  }
+}

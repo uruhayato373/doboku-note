@@ -240,7 +240,7 @@ export async function runPreview(root, { pub, commit }) {
     return { ok: true, metrics: metricsDoc, files };
   }
 
-  const { upsertMedia, upsertPublications } = await import('./content-registry-write.mjs');
+  const { upsertMedia } = await import('./content-registry-write.mjs');
   const sharp = (await import('sharp')).default;
   const provenance = { kind: 'render', by: 'media-preview', spec: `${work.definition}/storyboard.json` };
   const rows = [];
@@ -259,13 +259,30 @@ export async function runPreview(root, { pub, commit }) {
     rows.push(mrow);
   }
   upsertMedia(root, parsed.exam, rows);
-  // 古い contact-sheet-N が残らないよう、この公開の contact-sheet* の参照は今回の枚数に置き換える
-  const keep = Object.fromEntries(Object.entries(row.media ?? {}).filter(([role]) => !/^contact-sheet(-\d+)?$/.test(role)));
-  const media = { ...keep, ...Object.fromEntries(rows.map((r) => [r.role, r.id])) };
-  upsertPublications(root, row.channel, row.exam, [{ ...row, media }]);
+  await writePreviewPublication(root, pub, rows);
   console.log(`台帳に書いた: 素材 ${rows.length} 件（${pub}）`);
   console.log(`次: npm run media -- sync --work ${parsed.exam}/${parsed.work} --commit`);
   return { ok: true, metrics: metricsDoc, files };
+}
+
+/** FFmpeg の実行中に文面や予定が変わっても、プレビューの素材参照だけを書き込む。 */
+export async function writePreviewPublication(root, pub, rows) {
+  const parsed = parsePubId(pub);
+  if (!parsed) throw new Error(`公開 ID の形が違う: ${pub}`);
+  const { publicationWriteSession } = await import('./content-registry-write.mjs');
+  // FFmpeg can take minutes. Another process may set the publication copy or date meanwhile.
+  // Use the current row so the preview write only changes its media references.
+  const session = publicationWriteSession(root, parsed.channel, parsed.exam);
+  try {
+    const latest = loadRegistry(root).publications.find((p) => p.id === pub);
+    if (!latest) throw new Error(`公開行がプレビュー生成中に無くなりました: ${pub}`);
+    // 古い contact-sheet-N が残らないよう、この公開の contact-sheet* の参照は今回の枚数に置き換える
+    const keep = Object.fromEntries(Object.entries(latest.media ?? {}).filter(([role]) => !/^contact-sheet(-\d+)?$/.test(role)));
+    const media = { ...keep, ...Object.fromEntries(rows.map((r) => [r.role, r.id])) };
+    session.save({ ...latest, media });
+  } finally {
+    session.close();
+  }
 }
 
 /** 数値の注意行を出す（runPreview と runPackPreview で同じ見た目） */

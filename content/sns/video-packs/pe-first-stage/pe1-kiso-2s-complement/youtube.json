@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "channel": {
+    "id": "UCHRnXPqoc0Hls8nXiK_ZYqA",
+    "title": "doboku-note"
+  },
+  "longform": {
+    "key": "longform",
+    "title": "【技術士第一次】1の補数と2の補数の違い｜+1で見分ける【基礎科目】",
+    "description": "技術士第一次試験の基礎科目「情報・論理」で出る、1の補数と2の補数の違いを5ビットの例で解説します。\n\nこの動画で分かること：1の補数は全ビット反転、2の補数はそれに1を足すだけと分かり、和の形で自分で検算できる\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 過去問と直前暗記ノートで復習する\nhttps://note.com/dobokunote/m/mfa3fcffdd85d?utm_source=youtube&utm_medium=video&utm_campaign=pe1-kiso-2s-complement&utm_content=longform\n\n※制度・日程は変更される場合があります。受検年度の公式情報も確認してください。\n音声：VOICEVOX:青山龍星\n\n#技術士第一次 #技術士 #試験対策",
+    "tags": [
+      "技術士 第一次試験",
+      "技術士 第一次",
+      "試験対策",
+      "頻出論点",
+      "doboku-note"
+    ],
+    "categoryId": "27",
+    "publishAt": "2026-11-03T23:30:00Z",
+    "r2Key": "video/render/pe1-kiso-2s-complement/video.mp4",
+    "thumbnailR2Key": "video/render/pe1-kiso-2s-complement/img/00-cover.png",
+    "sha256": "490aa23b3dbed79eb6fecdfb1e98767a4f8f8388b2632ca38a8d16dc78a85bbb",
+    "thumbnailSha256": "42c1c517bd1166deea105873e1477bed611a6ed0aceda5a50f10044e10a1fb83"
+  },
+  "shorts": []
+}

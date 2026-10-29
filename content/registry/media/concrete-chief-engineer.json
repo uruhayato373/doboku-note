@@ -93,6 +93,438 @@
       ]
     },
     {
+      "id": "concrete-chief-engineer/shunin-cement-4kagoubutsu/youtube.longform/contact-sheet",
+      "role": "contact-sheet",
+      "type": "image/jpeg",
+      "sha256": "bb49e5ac55590abc98aeb4d880f4310bd79241b2215a1ccd4407eb27cc05d5da",
+      "bytes": 931823,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-cement-4kagoubutsu/youtube.longform/contact-sheet.bb49e5ac.jpg"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "media-preview",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-cement-4kagoubutsu/storyboard.json"
+      },
+      "width": 1920,
+      "height": 1620
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-cement-4kagoubutsu/youtube.longform/cover",
+      "role": "cover",
+      "type": "image/png",
+      "sha256": "ada34b68e9b59b0b15728760155ed221e50208ceb167e6f0ee826a2e278a74bb",
+      "bytes": 4282825,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-cement-4kagoubutsu/youtube.longform/cover.ada34b68.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "NEW Japanese 16:9 POP YouTube thumbnail using attached approved concrete-chief POP cover as style and teacher identity reference. Exact big typography 「コンクリート主任技士」「セメント4化合物」「早期と長期を見分ける」. Small yellow strip 「総監が制作」. Energetic orange red yellow navy; white helmet navy workwear teacher on right pointing red pen. Left: four large color-coded tiles C3S, C2S, C3A, C4AF. No charts with false values. Full bleed, no flat card, bottom 18% not crowded.",
+        "promptSha256": "d5fa18bae73240a69d96d6503e03fe2eee5e1fd0db24874d32461890a89cb0f1",
+        "generatedAt": "2026-10-28T00:20:52.585Z"
+      },
+      "width": 1920,
+      "height": 1080,
+      "legacyPaths": [
+        ".tmp/media/concrete-chief-engineer/shunin-cement-4kagoubutsu/work/cover-pop.ada34b68.png"
+      ]
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-cement-4kagoubutsu/youtube.longform/preview",
+      "role": "preview",
+      "type": "video/mp4",
+      "sha256": "196d06cde71994ac40e426c4242b70f55b6568b2b6817bc907ff529c488029eb",
+      "bytes": 6815117,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-cement-4kagoubutsu/youtube.longform/preview.196d06cd.mp4"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "media-preview",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-cement-4kagoubutsu/storyboard.json"
+      },
+      "durationSec": 228.885
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-cement-4kagoubutsu/youtube.longform/preview-metrics",
+      "role": "preview-metrics",
+      "type": "application/json",
+      "sha256": "51f04d658b9062716468fd69d8ed06448c1d93aac96e64c83462f723e4107139",
+      "bytes": 1242,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-cement-4kagoubutsu/youtube.longform/preview-metrics.51f04d65.json"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "media-preview",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-cement-4kagoubutsu/storyboard.json"
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-cement-4kagoubutsu/youtube.longform/scene-001",
+      "role": "scene-001",
+      "type": "image/png",
+      "sha256": "ada34b68e9b59b0b15728760155ed221e50208ceb167e6f0ee826a2e278a74bb",
+      "bytes": 4282825,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-cement-4kagoubutsu/youtube.longform/scene-001.ada34b68.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "NEW Japanese 16:9 POP YouTube thumbnail using attached approved concrete-chief POP cover as style and teacher identity reference. Exact big typography 「コンクリート主任技士」「セメント4化合物」「早期と長期を見分ける」. Small yellow strip 「総監が制作」. Energetic orange red yellow navy; white helmet navy workwear teacher on right pointing red pen. Left: four large color-coded tiles C3S, C2S, C3A, C4AF. No charts with false values. Full bleed, no flat card, bottom 18% not crowded.",
+        "promptSha256": "d5fa18bae73240a69d96d6503e03fe2eee5e1fd0db24874d32461890a89cb0f1",
+        "generatedAt": "2026-10-28T00:20:52.585Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-cement-4kagoubutsu/youtube.longform/scene-002",
+      "role": "scene-002",
+      "type": "image/png",
+      "sha256": "42eff8b44e178549290be3bed1e496efc50e68e70ced7c136faac1270085f555",
+      "bytes": 2281408,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-cement-4kagoubutsu/youtube.longform/scene-002.42eff8b4.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Create a NEW Japanese 16:9 educational diagram using attached image only as visual style reference. Simple white pale grey background, bold navy and green lines, sparse yellow highlights. Clean molecular and timeline icons, no human. Large legible labels only, above bottom 18% subtitle safe zone. Never show 28 days as a hard physical boundary. Heading 「4化合物の役割」. Four large separate color-coded molecular tiles only: 「C3A：初期」, 「C3S：早期」, 「C2S：長期」, 「C4AF：強度への寄与は小さい」. Small note 「主に寄与する時期の目安」. No precise hard timeline, no claims of zero contribution.",
+        "promptSha256": "988415eea5e4b0e911aea2545d79b3cf8c8fff6bc29934c7944b78df79e39352",
+        "generatedAt": "2026-10-28T00:20:52.585Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-cement-4kagoubutsu/youtube.longform/scene-003",
+      "role": "scene-003",
+      "type": "image/png",
+      "sha256": "0978915829242ad4f240136bca87a921dec11761fe3684e5e79a644345362e42",
+      "bytes": 2355502,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-cement-4kagoubutsu/youtube.longform/scene-003.09789158.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Create a NEW Japanese 16:9 educational diagram using attached image only as visual style reference. Simple white pale grey background, bold navy and green lines, sparse yellow highlights. Clean molecular and timeline icons, no human. Large legible labels only, above bottom 18% subtitle safe zone. Never show 28 days as a hard physical boundary. Heading 「速さと強度を混同しない」. Two common misconception cards crossed out: 「C3S＝長期？」 and 「C3A＝強度の主役？」. Correct simple arrows 「C3S→早期」「C2S→長期」. Keep C3A labelled 「反応が速い」 but do not draw as dominant strength source.",
+        "promptSha256": "e61efcb8656543d46ff7cef6ef9563f31ebb4d33461474db78e76fecc3a65036",
+        "generatedAt": "2026-10-28T00:20:52.585Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-cement-4kagoubutsu/youtube.longform/scene-004",
+      "role": "scene-004",
+      "type": "image/png",
+      "sha256": "0d7eeb0536e527c999cfb1fd8d734fd896c6f87cf2ad14f33a1966ef8f222ac2",
+      "bytes": 1981499,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-cement-4kagoubutsu/youtube.longform/scene-004.0d7eeb05.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Create a NEW Japanese 16:9 simple educational diagram using attached image only as white/pale grey navy/green/yellow style reference. Heading 「二つの軸で整理」. NO chemical compound names anywhere, NO molecular tiles, NO plotted positions, to avoid any wrong association. Show just two big numbered horizontal rulers: top 「①強度が主に現れる時期」 from 「初期」 to 「早期」 to 「長期」 with gentle gradient; bottom 「②水和熱・乾燥収縮」 from 「小さい」 to 「大きい」 with thermometer and shrinkage cube icons. Small note 「性質は目安として比較」. Large accurate Japanese text only, meaning above lower 18% subtitle area.",
+        "promptSha256": "dec8e37a007ba9a860c77037b2585363b2943b3a36d5071da4030dc308b5dc88",
+        "generatedAt": "2026-10-28T00:20:52.585Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-cement-4kagoubutsu/youtube.longform/scene-005",
+      "role": "scene-005",
+      "type": "image/png",
+      "sha256": "079d3c83060f052fd0d2753f836d6c06ad70000e4ca63ef4d3d042d732df8968",
+      "bytes": 2344635,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-cement-4kagoubutsu/youtube.longform/scene-005.079d3c83.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Create a NEW Japanese 16:9 educational diagram using attached image only as visual style reference. Simple white pale grey background, bold navy and green lines, sparse yellow highlights. Clean molecular and timeline icons, no human. Large legible labels only, above bottom 18% subtitle safe zone. Never show 28 days as a hard physical boundary. Heading 「C3S：早期強度」. One molecular tile C3S with fast but not instantaneous water reaction arrow and growing strength bar. Large labels 「28日以内に主として寄与」「水和熱はC2Sより大きい側」. Small note 「28日は目安」. No precise invented percent.",
+        "promptSha256": "700984d50e16ee265b1ea08aeec770bb7ac908ca08988d4f15d1e166cc4bd7b9",
+        "generatedAt": "2026-10-28T00:20:52.585Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-cement-4kagoubutsu/youtube.longform/scene-006",
+      "role": "scene-006",
+      "type": "image/png",
+      "sha256": "c68fccdc2b75c63d590298d4b0a3bc744e4799fd28d637db85d31353111e2c3b",
+      "bytes": 2343040,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-cement-4kagoubutsu/youtube.longform/scene-006.c68fccdc.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Create a NEW Japanese 16:9 educational diagram using attached image only as visual style reference. Simple white pale grey background, bold navy and green lines, sparse yellow highlights. Clean molecular and timeline icons, no human. Large legible labels only, above bottom 18% subtitle safe zone. Never show 28 days as a hard physical boundary. Heading 「C2S：長期強度」. One molecular tile C2S with gradual hydration over time, strength continues to grow into later age. Large labels 「28日以後に寄与」「水和熱・乾燥収縮が小さい」 and small 「28日は目安」. Do NOT draw reaction starting only after day 28.",
+        "promptSha256": "84ba596d9a6c8920deaa736ed861323a4a33b02466104c378af4b2e728973214",
+        "generatedAt": "2026-10-28T00:20:52.585Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-cement-4kagoubutsu/youtube.longform/scene-007",
+      "role": "scene-007",
+      "type": "image/png",
+      "sha256": "9a2124dc3cd32dd28d863279b92912f00b823ffce2981efd471e09ccc7bc13f1",
+      "bytes": 2514890,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-cement-4kagoubutsu/youtube.longform/scene-007.9a2124dc.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Create a NEW Japanese 16:9 educational diagram using attached image only as visual style reference. Simple white pale grey background, bold navy and green lines, sparse yellow highlights. Clean molecular and timeline icons, no human. Large legible labels only, above bottom 18% subtitle safe zone. Never show 28 days as a hard physical boundary. Heading 「C3SとC2Sを取り違えない」. Two large columns: blue C3S arrow toward 「早期強度」 and green C2S arrow toward 「長期強度」. Cross out only the reversed mapping in a small red corner. Timeline has fuzzy gradient around 28 days, not hard divider. Large text 「28日は目安」.",
+        "promptSha256": "f8c84453d4a284beea8811f5c78b092d599fb09386bdb02ff77304a8f0248a98",
+        "generatedAt": "2026-10-28T00:20:52.585Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-cement-4kagoubutsu/youtube.longform/scene-008",
+      "role": "scene-008",
+      "type": "image/png",
+      "sha256": "b33d9c8a4d778d2525a4220263daae60d56d160f0f0d742b6f6515befee6c27e",
+      "bytes": 2440786,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-cement-4kagoubutsu/youtube.longform/scene-008.b33d9c8a.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Create a NEW Japanese 16:9 educational diagram using attached image only as visual style reference. Simple white pale grey background, bold navy and green lines, sparse yellow highlights. Clean molecular and timeline icons, no human. Large legible labels only, above bottom 18% subtitle safe zone. Never show 28 days as a hard physical boundary. Heading 「C3A：反応が非常に速い」. Molecule C3A with water drop, rapid reaction and heat waves. Labels 「1日以内の初期」「水和熱・収縮が大きい」「化学抵抗性が低い」. Do not show it as overall main strength contributor.",
+        "promptSha256": "d3884709e64bb132c6ba82068cd2207a562351b0a5d2892f3d7a346de3103d5a",
+        "generatedAt": "2026-10-28T00:20:52.585Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-cement-4kagoubutsu/youtube.longform/scene-009",
+      "role": "scene-009",
+      "type": "image/png",
+      "sha256": "212765d96cca3515145dd7f2e90b5e71a923e84298d4954f022e2b7246bffb4e",
+      "bytes": 2232401,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-cement-4kagoubutsu/youtube.longform/scene-009.212765d9.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Create a NEW Japanese 16:9 educational diagram using attached image only as visual style reference. Simple white pale grey background, bold navy and green lines, sparse yellow highlights. Clean scientific icons, no human. Large legible labels only, all above lower 18% subtitle safe zone. Keep all chemistry claims qualitative and technically cautious. Heading 「C4AF：強度への寄与は小さい」. A distinct molecular tile C4AF beside a low but NOT zero strength contribution indicator. Other labels 「水和熱が小さい」「収縮が小さい」. Do not draw a flat zero-strength curve or claim no reaction.",
+        "promptSha256": "8316b0b883441cb3e7cd5480d0207e1620bd305013a1a845837006a50da3b865",
+        "generatedAt": "2026-10-28T00:20:52.585Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-cement-4kagoubutsu/youtube.longform/scene-010",
+      "role": "scene-010",
+      "type": "image/png",
+      "sha256": "562399282d21e31f6b73de15a4e6ea7722494a1f0ae4f6595fe4c8f15a780dbe",
+      "bytes": 1864985,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-cement-4kagoubutsu/youtube.longform/scene-010.56239928.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Create NEW accurate Japanese 16:9 educational diagram using attached white pale grey navy green style reference. Heading 「主な寄与時期の目安」. Draw three HORIZONTAL overlapping translucent BANDS, all of roughly equal height, across time from initial to later: C3A predominantly initial around 1 day, C3S predominantly early around 28 days, C2S predominantly later, with visually GRADUAL overlap. The bands indicate TIMES OF CONTRIBUTION only, NOT accumulated strength and NOT decreasing strength curves. NO VERTICAL strength axis, NO bell curves, NO downward sloping areas, NO plotted amount. Labels 「C3A：初期」「C3S：早期」「C2S：長期」「28日は目安、境界ではない」. Add small separate C4AF badge 「強度寄与は小さい」. Meaning above bottom 18% caption area.",
+        "promptSha256": "4cd89275c3e9815db94e0dc82d8b7e3a75d947f09b8f1ea25abb27bc3c6924e6",
+        "generatedAt": "2026-10-28T00:20:52.585Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-cement-4kagoubutsu/youtube.longform/scene-011",
+      "role": "scene-011",
+      "type": "image/png",
+      "sha256": "4ccc1e3e5fd7cb269795751261d0478093311217ad54f62a18f2a06e2f7e6112",
+      "bytes": 2200165,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-cement-4kagoubutsu/youtube.longform/scene-011.4ccc1e3e.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Create a NEW Japanese 16:9 educational diagram using attached image only as visual style reference. Simple white pale grey background, bold navy and green lines, sparse yellow highlights. Clean scientific icons, no human. Large legible labels only, all above lower 18% subtitle safe zone. Keep all chemistry claims qualitative and technically cautious. Heading 「セメントの種類へつなぐ」. Two large production concept cards with simple cement powder icon: 「早強ポルトランド」 arrow to 「C3Sを増やす」「粉末度を高める」; 「低熱ポルトランド」 arrow to 「C2Sを多くする」「水和熱を抑える」. No exact compositions or fabricated JIS limits.",
+        "promptSha256": "bef421ba0ec3a7d72fb3c985b9ffeb7531ecbc4076ae8da6bb922c2dc2b8a20e",
+        "generatedAt": "2026-10-28T00:20:52.585Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-cement-4kagoubutsu/youtube.longform/scene-012",
+      "role": "scene-012",
+      "type": "image/png",
+      "sha256": "48744644c14cbe6b853f9198dd7bfecb6ee30423862525a872e187cdec79f8ef",
+      "bytes": 2395351,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-cement-4kagoubutsu/youtube.longform/scene-012.48744644.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Create a NEW Japanese 16:9 educational diagram using attached image only as visual style reference. Simple white pale grey background, bold navy and green lines, sparse yellow highlights. Clean scientific icons, no human. Large legible labels only, all above lower 18% subtitle safe zone. Keep all chemistry claims qualitative and technically cautious. Heading 「取り違えを見抜く」. Three clear red-cross misconception cards with EXACT texts: 「C3S＝長期の主役？」, 「C3A＝熱が小さい？」, 「C4AF＝強度の主役？」. Green correction tags respectively 「C3Sは早期」「C3Aは熱が大きい」「C4AFは寄与が小さい」. No absolute zero claim.",
+        "promptSha256": "1c3e14371481c7a54546f738715cfa136aa669dcddda583eaff90c05d19e731b",
+        "generatedAt": "2026-10-28T00:20:52.585Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-cement-4kagoubutsu/youtube.longform/scene-013",
+      "role": "scene-013",
+      "type": "image/png",
+      "sha256": "0d3e479314211237d3efd6202bc97d93adbae286e14a2217382a235a85518950",
+      "bytes": 2356386,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-cement-4kagoubutsu/youtube.longform/scene-013.0d3e4793.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Create a NEW Japanese 16:9 educational diagram using attached image only as visual style reference. Simple white pale grey background, bold navy and green lines, sparse yellow highlights. Clean scientific icons, no human. Large legible labels only, all above lower 18% subtitle safe zone. Keep all chemistry claims qualitative and technically cautious. Heading 「3段階で確認」. Three large circular steps and arrows: ① 「化合物を見る」 showing C3S C2S C3A C4AF tiles, ② 「主な時期を言う」 with fuzzy time gradient, ③ 「熱・収縮を見る」 with thermometer and shrinking cube. No numeric boundary.",
+        "promptSha256": "b216b0da540c7a50d8020859105f9c0f00923ce2154020277ff940cb64156c67",
+        "generatedAt": "2026-10-28T00:20:52.585Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-cement-4kagoubutsu/youtube.longform/scene-014",
+      "role": "scene-014",
+      "type": "image/png",
+      "sha256": "47298664b914ad48a20b9671b9ebccb83cff1ffc822676a061ef2f74bb9ba399",
+      "bytes": 1826167,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-cement-4kagoubutsu/youtube.longform/scene-014.47298664.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Create a NEW Japanese 16:9 educational diagram, attached image only as simple white pale-grey navy green yellow visual style reference. Heading 「4化合物を整理」. Four equal rectangular TEXT cards, no bar charts, no rising arrows, NO graphs and NO molecular structures. EXACT large text: 「C3S：早期」, 「C2S：長期」, 「C3A：初期・熱大」, 「C4AF：強度寄与小」. Below exactly 「28日は目安」. Use a small simple clock icon by first three and a small understated dot by C4AF. Do not visually imply C4AF strength grows as much as C3S/C2S. Bottom 18% empty for captions.",
+        "promptSha256": "75167e321c2fc565805e4a69bdae51c87891fce2792a564145b6fb69776c9a6b",
+        "generatedAt": "2026-10-28T00:20:52.585Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-cement-4kagoubutsu/youtube.longform/scene-015",
+      "role": "scene-015",
+      "type": "image/png",
+      "sha256": "18ed4047495dc5765988202055ad519e6bd2f07b22d3d3e48a871cd9d4d7b4f4",
+      "bytes": 2510255,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-cement-4kagoubutsu/youtube.longform/scene-015.18ed4047.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Create a NEW Japanese 16:9 educational diagram using attached image only as visual style reference. Simple white pale grey background, bold navy and green lines, sparse yellow highlights. Clean scientific icons, no human. Large legible labels only, all above lower 18% subtitle safe zone. Keep all chemistry claims qualitative and technically cautious. Heading 「予想問題で確認」. Clean practice question sheet with four answer circles and pencil, four chemical tiles as small background. Text 「四つの対応を説明」 and 「概要欄から」. No URL, no QR code, no invented score.",
+        "promptSha256": "2848130f1adbd288c7a6779d23e87c3b861c9b571cdb85a643c89b137fdccfec",
+        "generatedAt": "2026-10-28T00:20:52.585Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-cement-4kagoubutsu/youtube.longform/scene-sheet",
+      "role": "scene-sheet",
+      "type": "image/jpeg",
+      "sha256": "9c132eb65c840e8692a19eb2f48a05d20189068186e2e64df3e1e80e46faf5db",
+      "bytes": 1141270,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-cement-4kagoubutsu/youtube.longform/scene-sheet.9c132eb6.jpg"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "media-preview",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-cement-4kagoubutsu/storyboard.json"
+      },
+      "width": 1920,
+      "height": 1990
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-cement-4kagoubutsu/youtube.longform/subtitles",
+      "role": "subtitles",
+      "type": "text/x-ssa",
+      "sha256": "8611d2747dd16128b4b6ac9449bd21b75c42246401a2995c3c1d969c42045d73",
+      "bytes": 7063,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-cement-4kagoubutsu/youtube.longform/subtitles.8611d274.ass"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-cement-4kagoubutsu/storyboard.json"
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-cement-4kagoubutsu/youtube.longform/video",
+      "role": "video",
+      "type": "video/mp4",
+      "sha256": "1321de942dbb957b3ea9afe50af52eace76ba5b008f48c9c2217b9786a375155",
+      "bytes": 31630779,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-cement-4kagoubutsu/youtube.longform/video.1321de94.mp4"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-cement-4kagoubutsu/storyboard.json",
+        "specSha256": "e0e0f232bdce6d459a517676ace9e0e9200dbb141949de86e5cabe3f16bb11b6",
+        "renderInputSha256": "f461a723dfe9a641b5c39af2e08d51e0ccfdaeec1ccd3e6f3167e37a5c6f9032",
+        "tts": {
+          "engine": "VOICEVOX",
+          "speaker": 13,
+          "credit": "VOICEVOX:青山龍星"
+        }
+      },
+      "durationSec": 228.9
+    },
+    {
       "id": "concrete-chief-engineer/shunin-chokuzen-senryaku/work/candidate-cover",
       "role": "candidate-cover",
       "type": "image/png",
@@ -1624,6 +2056,338 @@
       ]
     },
     {
+      "id": "concrete-chief-engineer/shunin-kanri-kikaku-genkai/youtube.longform/contact-sheet",
+      "role": "contact-sheet",
+      "type": "image/jpeg",
+      "sha256": "db1604d1c5f9716f44c064bcf8d8795db0278655f620dd325b1cc494c6dcd11c",
+      "bytes": 656793,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-kanri-kikaku-genkai/youtube.longform/contact-sheet.db1604d1.jpg"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "media-preview",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-kanri-kikaku-genkai/storyboard.json"
+      },
+      "width": 1920,
+      "height": 1620
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-kanri-kikaku-genkai/youtube.longform/cover",
+      "role": "cover",
+      "type": "image/png",
+      "sha256": "d97f1c0a16a20f2ec038cdffa1726f5e5e5db8c9e11d7dce909a1f1d8f60e44b",
+      "bytes": 707885,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-kanri-kikaku-genkai/youtube.longform/cover.d97f1c0a.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Create NEW 16:9 YouTube POP cover for concrete chief engineer exam, matching supplied approved orange and yellow POP cover and same teacher identity. Exact large Japanese text 「コンクリート主任技士」 「管理限界と規格限界」. Smaller bold hook 「別の線！」. Hero graphic: two clearly different horizontal threshold bands on a simple process chart; control limit in blue and specification limit in red. Same bespectacled male engineer in white helmet at right, energetic teacher pointing with red pen. Full bleed orange/yellow/navy design, exact Japanese spelling, no extra words, no URL, no price.",
+        "promptSha256": "8e824c55157d897be3b7de53db6e4071de8102aff105e396344a2655a58bdf3b",
+        "generatedAt": "2026-10-28T11:49:26.462Z"
+      },
+      "width": 1920,
+      "height": 1080,
+      "legacyPaths": [
+        ".tmp/media/concrete-chief-engineer/shunin-kanri-kikaku-genkai/work/cover-pop.d97f1c0a.png"
+      ]
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-kanri-kikaku-genkai/youtube.longform/preview",
+      "role": "preview",
+      "type": "video/mp4",
+      "sha256": "59e4e8d1158bf651d8f3b02016bf14bff729e4f968a14aa818737cd0f2f85725",
+      "bytes": 4518734,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-kanri-kikaku-genkai/youtube.longform/preview.59e4e8d1.mp4"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "media-preview",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-kanri-kikaku-genkai/storyboard.json"
+      },
+      "durationSec": 207.136
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-kanri-kikaku-genkai/youtube.longform/preview-metrics",
+      "role": "preview-metrics",
+      "type": "application/json",
+      "sha256": "09a778008bb1d84dcfd602c4700a417e1bafe08ea85e1b9d707d1cc34e331546",
+      "bytes": 1616,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-kanri-kikaku-genkai/youtube.longform/preview-metrics.09a77800.json"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "media-preview",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-kanri-kikaku-genkai/storyboard.json"
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-kanri-kikaku-genkai/youtube.longform/scene-001",
+      "role": "scene-001",
+      "type": "image/png",
+      "sha256": "d97f1c0a16a20f2ec038cdffa1726f5e5e5db8c9e11d7dce909a1f1d8f60e44b",
+      "bytes": 707885,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-kanri-kikaku-genkai/youtube.longform/scene-001.d97f1c0a.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Create NEW 16:9 YouTube POP cover for concrete chief engineer exam, matching supplied approved orange and yellow POP cover and same teacher identity. Exact large Japanese text 「コンクリート主任技士」 「管理限界と規格限界」. Smaller bold hook 「別の線！」. Hero graphic: two clearly different horizontal threshold bands on a simple process chart; control limit in blue and specification limit in red. Same bespectacled male engineer in white helmet at right, energetic teacher pointing with red pen. Full bleed orange/yellow/navy design, exact Japanese spelling, no extra words, no URL, no price.",
+        "promptSha256": "8e824c55157d897be3b7de53db6e4071de8102aff105e396344a2655a58bdf3b",
+        "generatedAt": "2026-10-28T11:49:26.462Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-kanri-kikaku-genkai/youtube.longform/scene-002",
+      "role": "scene-002",
+      "type": "image/png",
+      "sha256": "e820df01dad820ca21556db18b7a3e096ee529dcb6479d2c8fa976d689969edd",
+      "bytes": 1852803,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-kanri-kikaku-genkai/youtube.longform/scene-002.e820df01.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Create a new 16:9 full-frame Japanese educational diagram, clean and simple, not a poster. No person. Leave the lower 18 percent clear for subtitles. Exact heading: 誤解：管理図が安定なら製品も合格. 左に「管理図が安定」、右に「製品が合格」を置き、間に大きな「≠」。左の下に「工程の問い」、右の下に「製品の問い」と各1行だけ添える2群の対比図。",
+        "promptSha256": "c7e81de2d1e3cb119de5ce02229ffadb80b43c3295e8c558cb93138aa9cf7437",
+        "generatedAt": "2026-10-28T11:49:26.462Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-kanri-kikaku-genkai/youtube.longform/scene-003",
+      "role": "scene-003",
+      "type": "image/png",
+      "sha256": "7c470483a07ee25513133edd15118780ede98fb1fb6400030a75d6265770e3ca",
+      "bytes": 1472750,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-kanri-kikaku-genkai/youtube.longform/scene-003.7c470483.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Create a new 16:9 full-frame Japanese educational diagram, clean and simple, not a poster. No person. Leave the lower 18 percent clear for subtitles. Exact heading: 管理限界は工程の安定を見る線. 時間を横軸にした管理図の模式図。水平の中心線と上下の管理限界線を引き、点が線の内側で揺れる。線の名前は「管理限界（工程のばらつきから計算）」の1つだけ。数値は書かない。",
+        "promptSha256": "1a2dd8c1fe8df9d9d59bef8a3669a45d9f4aebc0b4da81dad215d91dc8a9ff5c",
+        "generatedAt": "2026-10-28T11:49:26.462Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-kanri-kikaku-genkai/youtube.longform/scene-004",
+      "role": "scene-004",
+      "type": "image/png",
+      "sha256": "68248d4ad631e070b791aae048d5b7d233a99ba00efec956e032a567f56cc8bd",
+      "bytes": 1310856,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-kanri-kikaku-genkai/youtube.longform/scene-004.68248d4a.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Create a new 16:9 full-frame Japanese educational diagram, clean and simple, not a poster. No person. Leave the lower 18 percent clear for subtitles. Exact heading: 規格限界は製品が満たす基準. 横一本の数直線に、左へ向かう「規格の下限」の太い縦線を1本引き、その右側に「製品が満たす側」を淡色で塗る。管理図との対応は描かず、規格だけを示す。数値は書かない。",
+        "promptSha256": "9b4112da074c25cb2b3a6bc1298976eaeed96ba8e2a69925f5003d2df9ec2f28",
+        "generatedAt": "2026-10-28T11:49:26.462Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-kanri-kikaku-genkai/youtube.longform/scene-005",
+      "role": "scene-005",
+      "type": "image/png",
+      "sha256": "2f52563a817c510c68bedf7fed4bdfc7708c773c226f56793991a85468454ed6",
+      "bytes": 1428832,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-kanri-kikaku-genkai/youtube.longform/scene-005.2f52563a.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Create a new 16:9 full-frame Japanese educational diagram, clean and simple, not a poster. No person. Leave the lower 18 percent clear for subtitles. Exact heading: 落とし穴1：安定でも規格を割る（仮例）. 正規分布の山を数直線に描く。山の中心に「平均37」、左に「規格の下限36」の縦線、下限より左の山の面積を赤系で塗り「約16％」と記す。右上に「数値はすべて仮例」の小さな注記。",
+        "promptSha256": "425757051eeca120aa8c91bc077600ead169b6358fce04f3dd2a4f7a103febe8",
+        "generatedAt": "2026-10-28T11:49:26.462Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-kanri-kikaku-genkai/youtube.longform/scene-006",
+      "role": "scene-006",
+      "type": "image/png",
+      "sha256": "31313796960ba7ede1c8248cd45ffefd37f9c89c25069d9cd772171d2bbd5e2e",
+      "bytes": 1453589,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-kanri-kikaku-genkai/youtube.longform/scene-006.31313796.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Create a new 16:9 full-frame Japanese educational diagram, clean and simple, not a poster. No person. Leave the lower 18 percent clear for subtitles. Exact heading: 落とし穴2：規格内でも工程は異常でありうる. 管理図の模式図。右端の1点が上の管理限界線を越えて赤く強調される。その横に小さく「規格内でも要確認」と記す。左側の点列は片側に連続して並ぶ形も薄く示す。数値は書かない。",
+        "promptSha256": "c9d7e71226b2c863041ba1421244a8868d3c4159b93759bc7e9457ecae539155",
+        "generatedAt": "2026-10-28T11:49:26.462Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-kanri-kikaku-genkai/youtube.longform/scene-007",
+      "role": "scene-007",
+      "type": "image/png",
+      "sha256": "bc1c80ec8ee89fa29cdf36b6e4d7f4b7bba638e3a5604303a212a60bd2da79ed",
+      "bytes": 1804624,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-kanri-kikaku-genkai/youtube.longform/scene-007.bc1c80ec.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Create a new 16:9 full-frame Japanese educational diagram, clean and simple, not a poster. No person. Leave the lower 18 percent clear for subtitles. Exact heading: 二つの問いに分けて確認する. 左右2枚の大きなカード。左「問い1　工程は安定か」の下に「管理図」、右「問い2　規格に余裕があるか」の下に「平均の位置」「ばらつき（Cp）」を別々の2行で。カードの間に矢印は置かない。",
+        "promptSha256": "11dabfe423f613608bdf9ae501b4a32b560360e65ccb7384f983909b4d269665",
+        "generatedAt": "2026-10-28T11:49:26.462Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-kanri-kikaku-genkai/youtube.longform/scene-008",
+      "role": "scene-008",
+      "type": "image/png",
+      "sha256": "eddcc84d97e92c671a26ffb8f5e94f3cc822dcc550d6594ff390ce631f26de93",
+      "bytes": 2006396,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-kanri-kikaku-genkai/youtube.longform/scene-008.eddcc84d.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Create a new 16:9 full-frame Japanese educational diagram, clean and simple, not a poster. No person. Leave the lower 18 percent clear for subtitles. Exact heading: 選択肢の見分け方. 2行の比較図。左列に誤りの型2文、右列に正しい見方を1行ずつ。文字は大きく、各セル1行。",
+        "promptSha256": "02f179aa1b0e24cc727eee4d4e4b5858838dd7767696a1dbf924de5a8b83c303",
+        "generatedAt": "2026-10-28T11:49:26.462Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-kanri-kikaku-genkai/youtube.longform/scene-009",
+      "role": "scene-009",
+      "type": "image/png",
+      "sha256": "09a74a57f69b1ce30b3b8037f1d183698ccfb9d5d15a9847450a5a746f2abef9",
+      "bytes": 1664009,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-kanri-kikaku-genkai/youtube.longform/scene-009.09a74a57.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Create a new 16:9 full-frame Japanese educational diagram, clean and simple, not a poster. No person. Leave the lower 18 percent clear for subtitles. Exact heading: まとめ. 二つの線の対比図を縮小して再掲し、右に番号付きの3点を置く。",
+        "promptSha256": "344999986a4b7869e3081a2ea513e18fc6785431559bc4db15143c48391861cc",
+        "generatedAt": "2026-10-28T11:49:26.462Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-kanri-kikaku-genkai/youtube.longform/scene-010",
+      "role": "scene-010",
+      "type": "image/png",
+      "sha256": "dbafaecd55ed57e9edf104b3fb28bddfcd172e0523a039140a79a6d174c51e91",
+      "bytes": 1524736,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-kanri-kikaku-genkai/youtube.longform/scene-010.dbafaecd.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Create a NEW 16:9 simple Japanese educational YouTube end card for concrete chief engineer exam. Warm white background, navy text, restrained orange and blue accents. NO CHART, NO DATA TABLE, NO CONTROL LIMIT DIAGRAM, NO PERSON, NO GUARANTEE, NO PRICE, NO URL. Large exact heading 「択一で仕上げ確認」. Center a single simple book icon with exact large cover text 「R8対応」 「択一演習」. Beneath it exact short text 「概要欄をチェック」 and a blue down arrow. Keep every word large and easy to read on a phone. Leave bottom 18 percent blank for subtitle overlay.",
+        "promptSha256": "edec1ecc10240cef537e3054a3ae97c746d65c8d1dc7762d5e7667c709164054",
+        "generatedAt": "2026-10-28T11:49:26.462Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-kanri-kikaku-genkai/youtube.longform/scene-sheet",
+      "role": "scene-sheet",
+      "type": "image/jpeg",
+      "sha256": "67a8e09b73acec5ba3184de817dcf3e89689c47bf4e4e1ba90197b3438033aa5",
+      "bytes": 613744,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-kanri-kikaku-genkai/youtube.longform/scene-sheet.67a8e09b.jpg"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "media-preview",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-kanri-kikaku-genkai/storyboard.json"
+      },
+      "width": 1920,
+      "height": 1592
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-kanri-kikaku-genkai/youtube.longform/subtitles",
+      "role": "subtitles",
+      "type": "text/x-ssa",
+      "sha256": "b15c59f315a72cdf330d74e77ee275ed33bcaf724c078fcf3e1071a5340899fe",
+      "bytes": 7018,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-kanri-kikaku-genkai/youtube.longform/subtitles.b15c59f3.ass"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-kanri-kikaku-genkai/storyboard.json"
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-kanri-kikaku-genkai/youtube.longform/video",
+      "role": "video",
+      "type": "video/mp4",
+      "sha256": "e7c277bb841e66fc40fe820649f3deac9e9c4e20c90f9e350645aedcfd5a55bf",
+      "bytes": 20473746,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-kanri-kikaku-genkai/youtube.longform/video.e7c277bb.mp4"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-kanri-kikaku-genkai/storyboard.json",
+        "specSha256": "ee356ecbdd14536491f9a9bda7a1a7ad8123bb1e2c41bea13f63d4d4b71c2532",
+        "renderInputSha256": "2662d02cbce3f12a03ca1364fbef1880414c8488af9c5589bcb7f090dedd921a",
+        "tts": {
+          "engine": "VOICEVOX",
+          "speaker": 13,
+          "credit": "VOICEVOX:青山龍星"
+        }
+      },
+      "durationSec": 207.133
+    },
+    {
       "id": "concrete-chief-engineer/shunin-materials-ronten/youtube.longform/cover",
       "role": "cover",
       "type": "image/png",
@@ -2963,11 +3727,11 @@
       "id": "concrete-chief-engineer/shunin-rekka-taio/youtube.longform/preview-metrics",
       "role": "preview-metrics",
       "type": "application/json",
-      "sha256": "e8c62766abcb42e4b514cd2c2b6143d924b599a076fdcdcfc8cc8f4ae3e73640",
+      "sha256": "546117c91d17232dfd9e54fafb6a6e776bf0be44c222b0d158e4f6fef9dc91d6",
       "bytes": 2284,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/concrete-chief-engineer/shunin-rekka-taio/youtube.longform/preview-metrics.e8c62766.json"
+        "path": ".tmp/media/concrete-chief-engineer/shunin-rekka-taio/youtube.longform/preview-metrics.546117c9.json"
       },
       "provenance": {
         "kind": "render",
