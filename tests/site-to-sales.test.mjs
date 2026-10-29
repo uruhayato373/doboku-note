@@ -4,6 +4,7 @@ import {
   buildResolver,
   buildSiteToSales,
   monthBounds,
+  parseHubAfterResultProducts,
   parseHubSeasonalProducts,
   parseNoteCatalog,
   pickGa4Snapshot,
@@ -45,6 +46,8 @@ const HUB: Partial<Record<string, HubCtaSpec>> = {
   },
   'pe-construction': {
     mokuji: { url: 'https://note.com/dobokunote/n/nmokuji2', title1: 'a', title2: 'b' },
+    afterResult: { active: isOralSeason, product: 'pe-construction-road-pack', sub: 'x' },
+    seasonal: { switchUtcMs: 0, product: 'civil-1-pack', sub: 'x' },
   },
 };
 `;
@@ -68,7 +71,7 @@ const SALES = {
 };
 
 function resolver() {
-  return buildResolver({ catalog: parseNoteCatalog(CATALOG_TS), hubSeasonal: parseHubSeasonalProducts(HUB_TS), magazineSnapshot: SNAPSHOT, salesLog: SALES });
+  return buildResolver({ catalog: parseNoteCatalog(CATALOG_TS), hubSeasonal: parseHubSeasonalProducts(HUB_TS), hubAfterResult: parseHubAfterResultProducts(HUB_TS), magazineSnapshot: SNAPSHOT, salesLog: SALES });
 }
 
 test('月の境界と直近の完了月', () => {
@@ -83,7 +86,9 @@ test('カタログと hub seasonal 商品を解析する', () => {
   assert.deepEqual(catalog.map((c) => c.id), ['civil-1-pack', 'civil-1-anki-note', 'pe-construction-road-pack', 'civil-membership-lab']);
   assert.equal(catalog[0].landingUrl, 'https://note.com/dobokunote/n/nfront1');
   assert.equal(catalog[1].landingUrl, null);
-  assert.deepEqual(parseHubSeasonalProducts(HUB_TS), { 'civil-construction-1': 'civil-1-anki-note' });
+  // 1 つの資格に afterResult と seasonal が並んでも、それぞれの product を取り違えない
+  assert.deepEqual(parseHubSeasonalProducts(HUB_TS), { 'civil-construction-1': 'civil-1-anki-note', 'pe-construction': 'civil-1-pack' });
+  assert.deepEqual(parseHubAfterResultProducts(HUB_TS), { 'pe-construction': 'pe-construction-road-pack' });
 });
 
 test('CTA label を商品へ解決し、解決できないものは理由を返す', () => {
@@ -91,6 +96,7 @@ test('CTA label を商品へ解決し、解決できないものは理由を返�
   assert.deepEqual(resolveCtaLabel('civil-1-pack:secondary-r07-q1', r), { productId: 'civil-1-pack', via: 'label', placement: 'secondary-r07-q1' });
   assert.equal(resolveCtaLabel('civil-1-pack', r).productId, 'civil-1-pack');
   assert.equal(resolveCtaLabel('category-civil-construction-1-hub-seasonal-docs-sb', r).productId, 'civil-1-anki-note');
+  assert.deepEqual(resolveCtaLabel('category-pe-construction-hub-after-result-sb', r), { productId: 'pe-construction-road-pack', via: 'hub-after-result', placement: 'category-pe-construction-hub-after-result-sb' });
   const mokuji = resolveCtaLabel('category-pe-construction-hub-mokuji-footer', r);
   assert.equal(mokuji.productId, null);
   assert.match(mokuji.reason, /もくじ/);

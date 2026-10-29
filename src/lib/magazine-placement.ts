@@ -20,7 +20,7 @@ import { getMagazine, type MagazineId } from './note-magazines';
 import examCalendar from '../../config/exam-calendar.json';
 import { matchNoteProductPage } from './note-product-classification';
 import { extractReferencesSection } from './extract-references';
-import { isAfterExamDay } from './exam-dates';
+import { examDayStartUtcMs, isAfterExamDay } from './exam-dates';
 
 export interface PlacementSlot {
   readonly magazineId: MagazineId;
@@ -34,6 +34,9 @@ export interface ResolvedPlacement {
   // 記事冒頭（本文 prose の前）に出す 1 行テキスト CTA。二次系の高 intent ページのみ設定する。
   // 末尾の画像カード（inline）と重複してよい（形が違い・記事が長いため）。未設定＝冒頭 CTA なし。
   readonly top?: PlacementSlot;
+  // 末尾の画像カードを top と別にしたいときだけ設定する（未設定＝top を末尾にも出す）。
+  // 建設部門の過去問は口頭試験の時期に冒頭を口頭試験の教材へ替えるが、末尾は科目の模範解答集を残す（DN-0902）。
+  readonly end?: PlacementSlot;
 }
 
 const EMPTY: ResolvedPlacement = { inline: [] };
@@ -74,6 +77,19 @@ export function resolveCivil1PrimaryLead(nowMs = Date.now()): MagazineId {
  */
 export function pe1LeadMagazineId(nowMs = Date.now()): MagazineId {
   return isAfterExamDay('pe-first-stage', 'exam', nowMs) ? 'pe1-takuitsu-pdf' : 'pe1-chokuzen-pack';
+}
+
+/** 口頭試験の教材を出す日数。11/4 の発表なら 1/31 まで（口頭試験は 12月上旬〜1月中旬・exam-calendar の periods.oral） */
+const PE_CONSTRUCTION_ORAL_SEASON_DAYS = 89;
+
+/**
+ * 技術士（建設部門）の口頭試験の教材を出す時期か（DN-0902・EXP-047）。筆記合格発表の日（JST の 0 時）から 1 月末まで。
+ * 合格を知った人が最初に開く資格トップと、自分が受けた科目の過去問に出す。
+ * ビルド時の日付で決まるので、本番に出るのは発表日以降の deploy から。
+ */
+export function isPeConstructionOralSeason(nowMs = Date.now()): boolean {
+  const start = examDayStartUtcMs('pe-construction', 'writtenResult');
+  return nowMs >= start && nowMs < start + PE_CONSTRUCTION_ORAL_SEASON_DAYS * 86_400_000;
 }
 
 /**
@@ -316,7 +332,8 @@ export function resolveArticleMidNoteSlot(
 /** 手書きの商品カードがない記事には、主教材を末尾にも表示する。 */
 export function resolveEndNoteSlot(placement: ResolvedPlacement, content: string): PlacementSlot | null {
   if (renderedMagazineCardIds(content).length) return null;
-  return placement.top && getMagazine(placement.top.magazineId) ? placement.top : null;
+  const end = placement.end ?? placement.top;
+  return end && getMagazine(end.magazineId) ? end : null;
 }
 
 function resolvePlacementRaw(
@@ -386,10 +403,15 @@ function resolvePlacementRaw(
   }
 
   // 1.7. 技術士 建設部門 2次: 必須科目I・道路 過去問 + 論文ガイド → 該当 BK 模範解答集（公開時に発火）
+  //      筆記合格発表から 1 月末までは、年度別の過去問（必須I・選択科目）の冒頭に口頭試験の教材を出す（DN-0902）。
+  //      論文の書き方ガイドは来年の受験者向けなので出さない。
   const peEssayMag = matchPeConstructionEssay(slug);
   if (peEssayMag) {
+    const subject = slot(peEssayMag, slug, 'inline-1');
+    const oralTop = /^pe-construction-r0[1-9]-/.test(slug) && isPeConstructionOralSeason();
     return {
-      inline: [slot(peEssayMag, slug, 'inline-1')],
+      ...(oralTop ? { top: slot('pe-construction-oral-guide', slug, 'top'), end: subject } : {}),
+      inline: [subject],
     };
   }
 

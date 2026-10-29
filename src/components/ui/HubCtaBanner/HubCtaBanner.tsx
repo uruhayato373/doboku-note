@@ -16,11 +16,15 @@ export default function HubCtaBanner({
   cta: ResolvedHubCta;
   placement: string;
 }) {
-  const image = cta.productId ? noteCtaImage(cta.productId, 'tile') : noteCtaQualificationTile(cta.qualification);
+  const qualificationTile = noteCtaQualificationTile(cta.qualification);
+  const image = cta.productId ? noteCtaImage(cta.productId, 'tile') : qualificationTile;
+  // 商品専用のタイルが無く資格共通のタイルになる商品（建設部門の口頭試験対策など）は、もくじのタイルと見分けが付かないので商品名と中身を下に添える
+  const genericProductTile = Boolean(cta.productId && image && image.src === qualificationTile?.src);
   if (image) return <NoteImageCta href={cta.url}
-    image={cta.productId ? image : { ...image, caption: {
+    image={cta.productId ? (genericProductTile ? { ...image, caption: { title: cta.title1, description: cta.sub, price: cta.price } } : image) : { ...image, caption: {
       title: `${cta.qual} 教材一覧`, description: `${cta.title1}・${cta.title2}。${cta.sub}`, price: undefined,
     } }}
+    showDescription={genericProductTile}
     trackLabel={cta.trackLabel} placement={placement} className="w-full max-w-[360px]" />;
   return (
     <a
