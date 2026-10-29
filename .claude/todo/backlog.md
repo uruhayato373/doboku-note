@@ -1605,24 +1605,8 @@ Windows の PowerShell で repo 直下から順に:
 
 ## 🟢 低 — 重要度が低い（時期未定を含む）
 
-### [DN-0917] 建設部門の資格トップの過去問の表（ExamMatrix）で同じ key「問題」が 2 つあり、React が重複 key の警告を出す
-タグ: [領域:サイト] [時期:2026-11] [種類:不具合] [起票:2026-10-29]
-
-**起点**: 2026-10-29、DN-0902 の確認で建設部門の資格トップ（/exam/pe-construction）を dev で開くと、Next.js の Console Error「Encountered two children with the same key, `問題`」が出た（src/components/category/ExamMatrix.tsx の ExamChipLink）。同じ行に「問題」という表示名のチップが 2 つあり、key が表示名だけになっている。重複 key は表示の取りこぼしや入れ替わりを起こしうる。
-
-**やること**: ExamMatrix の key を href など一意な値にし、資格トップの過去問の表で同じ見出しのチップが両方出ることを確かめる。
-
-**完了条件**: npm run dev で /exam/pe-construction を開いて Console Error が出ず、表のチップの数が直す前と同じ。
 
 
-### [DN-0913] 総監 H29 一次 1-26 の紐づけ先 risk-communication の記事が無い（exam-keyword-map の参照切れ）を直す
-タグ: [領域:教材] [種類:不具合] [起票:2026-10-28]
-
-**起点**: 2026-10-28 に npm run check-datasets を回したとき、作業と無関係の参照切れが 1 件出ていた（警告扱い）: .claude/state/exam-keyword-map.json の pe-comprehensive-management.h29-primary.1-26[0] が指す「pe-comprehensive-management/risk-communication」の記事が無い。
-
-**やること**: 記事が改名・統合されたのか、元から無いのかを git 履歴で確かめ、正しい slug に直すか紐づけを外す（exam-keyword-map の生成元で直す）。
-
-**完了条件**: npm run check-datasets の参照切れが 0 件。
 
 
 ### [DN-0904] 技術士（建設部門）の参考書の低評価レビューを分類し、満たされていない悩みの証拠に入れる

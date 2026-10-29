@@ -6208,6 +6208,40 @@
       "commit": "e9dd0e6bc587",
       "verification": "check-magazine-cta --ci exit 0（ページ単位 baseline 外 0）・tests/magazine-page-gate 2/2・deploy run 40809704121 成功・check-production-ssr exit 0・本番 curl で見直しページ/kakomon-quiz/測量士・舗装の資格トップ/総監 h25・頻出論点/建設部門 public-servant-merit/1級 水理に商品カード",
       "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-0913",
+      "at": "2026-10-29",
+      "task": "総監 H29 一次 1-26 の紐づけ先 risk-communication の記事が無い（exam-keyword-map の参照切れ）を直す",
+      "tier": "low",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "check-datasets"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "584adf8e1dd7",
+      "verification": "PR #1311（584adf8e1）: npm run check-datasets の参照切れ 0",
+      "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-0917",
+      "at": "2026-10-29",
+      "task": "建設部門の資格トップの過去問の表（ExamMatrix）で同じ key「問題」が 2 つあり、React が重複 key の警告を出す",
+      "tier": "low",
+      "kind": "不具合",
+      "prevention": {
+        "type": "none",
+        "ref": "表示名を key にしていた 1 か所の取り違え。key の重複は React が dev の Console Error で出すが、ビルドや CI で決定的に止める検査が無い"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "584adf8e1dd7",
+      "verification": "PR #1311（584adf8e1）: dev の /exam/pe-construction（スマホ幅）で same key の警告 0・各行のチップ 8 枚が別の記事",
+      "note": "todo-complete.mjs 経由で完了処理"
     }
   ]
 }
