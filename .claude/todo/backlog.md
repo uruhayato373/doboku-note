@@ -277,6 +277,16 @@
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-0918] 1級土木の教材（civil1-textbook）を出典にする 3 記事で、市販書籍との逐語一致 7 件が check-reference-sources --deep を止めている
+タグ: [領域:教材] [時期:2026-11] [種類:不具合] [起票:2026-10-29]
+
+**起点**: 2026-10-26 に DN-0832 を調べたとき、`check-reference-sources --deep` に、DN-0832 とは別の逐語一致（verbatim）の FAIL が 7 件あった（civil1-textbook を出典にする 3 記事）。DN-0832 を直しても、この 7 件があるので --deep は exit 0 にならない。この端末は Drive のマウントが無く、件数と記事名はまだ確かめていない。
+
+**やること**: Drive をマウントした端末で `node scripts/check-reference-sources.mjs --deep` を回して 7 件の記事と一致した文を出し、記事の文を自分の言葉に書き直す（市販書籍の文を写さない）。書き直したら refresh-indexes を回す。
+
+**完了条件**: Drive をマウントした端末で `node scripts/check-reference-sources.mjs --deep` が exit 0。
+
+
 ### [DN-0916] 基準書の画像から起こしたページの GFM の表が、記法の文字のまま画面に出る（近畿の必携 約 10 章）
 タグ: [領域:サイト] [時期:2026-10] [種類:不具合] [検証:check-standard-articles] [起票:2026-10-28]
 
