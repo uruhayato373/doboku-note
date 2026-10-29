@@ -194,6 +194,11 @@ function matchPeConstructionEssay(slug: string): MagazineId | null {
   if (/^pe-construction-(guide-required-essay|pe-secondary-essay-guide|setsumon-bunkai|aimai-hyougen-sahou|suikou-checklist|shiken-toujitsu-tejun|keyword-note-tsukurikata|secondary-study-method|gyoumu-keireki-hyou)$/.test(slug)) {
     return 'pe-construction-required-magazine';
   }
+  // 必須科目I の論点になるテーマ記事（海外展開・耐震）と、受験の意味を考える記事も入口の必須科目I へ（DN-0890）。
+  // ページ単位の検査がもくじタイルを導線に数えていた間、商品の導線が 0 のまま公開されていた。
+  if (/^pe-construction-(infra-system-overseas|seismic-damage-lessons|seismic-isolation-damping|public-servant-merit)$/.test(slug)) {
+    return 'pe-construction-required-magazine';
+  }
   return null;
 }
 
@@ -260,6 +265,10 @@ const CIVIL_EXAM_PREP_GUIDES: ReadonlySet<string> = new Set([
   'guide-1-vs-2',                       // 1級と2級の違い（受験選択＝guide-difficulty と同枠）
   // 2026-10-02: ページ単位の CTA ゼロ検査を入れた際に見つかった 1級の欠落 2 本。
   'guide-demolition',                   // 1級 解体工事の重要ポイント（重要ポイントシリーズ）
+  // 2026-10-29（DN-0890）: ページ単位の検査がもくじタイルを導線に数えていたため見逃していた 1級の 3 本。
+  'guide-engineer-assignment',          // 1級 技術者の配置（関係法規・建設業法）
+  'guide-hydraulics-basics',            // 1級 土木一般の水理
+  'guide-structural-mechanics-basics',  // 1級 工学基礎の構造力学
   'guide-vs-pe',                        // 施工管理技士と技術士の違い（受験選択＝guide-1-vs-2 と同枠）
 ]);
 
@@ -438,9 +447,16 @@ function resolvePlacementRaw(
   if (
     slug === 'pe-comprehensive-management-exam-passing-strategy' ||
     slug === 'pe-comprehensive-management-whitepaper-study-map' ||
-    slug === 'pe-comprehensive-management-public-servant-comprehensive-merit'
+    slug === 'pe-comprehensive-management-public-servant-comprehensive-merit' ||
+    // DN-0890: 受験の意味・順序を考える記事も同じ精読ガイドへ（もくじタイルだけで商品の導線が 0 だった）
+    slug === 'pe-comprehensive-management-private-engineer-comprehensive-merit' ||
+    slug === 'pe-comprehensive-management-general-vs-comprehensive'
   ) {
     return { top: slot('tankan-reading-guide', slug, 'top'), inline: [] };
+  }
+  // DN-0890: 択一の頻出論点ランキング（平成21〜令和8 の 720 問）→ 最新年度を含む択一 過去問PDF（令和）
+  if (slug === 'pe-comprehensive-management-frequent-topics') {
+    return { top: slot('tankan-takuitsu-reiwa-pdf', slug, 'top'), inline: [] };
   }
   if (slug === 'pe-comprehensive-management-essay-pattern-cross-year-application') {
     return { top: slot(NEW_MAGAZINES.corePack, slug, 'top'), inline: [] };
@@ -494,9 +510,10 @@ function resolvePlacementRaw(
   //    旧実装は ALL_PERSONA_MAGAZINES を記事下に全列挙していたが、記事内 PersonaSelector（厳選3）と
   //    二重表示（記事下=公開済14ペルソナ）になり過剰だったため 2026-06-16 撤去（ユーザー判断:
   //    「解答ペルソナ導線は記事内のシンプルリンクに統一」）。ペルソナ単品 CTA は記事内 PersonaSelector が担う。
-  const secondaryMatch = slug.match(/^pe-comprehensive-management-r(0[1-9])-secondary$/);
+  //    平成21〜30 の記述式も同じ横断パックへ（DN-0890・令和だけの正規表現で 10 本が導線 0 だった）。
+  const secondaryMatch = slug.match(/^pe-comprehensive-management-(r0[1-9]|h2[1-9]|h30)-secondary$/);
   if (secondaryMatch) {
-    const isR07 = secondaryMatch[1] === '07';
+    const isR07 = secondaryMatch[1] === 'r07';
     const inline: PlacementSlot[] = [
       slot(NEW_MAGAZINES.completePack, slug, 'inline-1'),
       slot(NEW_MAGAZINES.corePack, slug, 'inline-2'),
