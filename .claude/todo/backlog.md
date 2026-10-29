@@ -620,13 +620,16 @@
 
 
 
-### [DN-0832] 総監論文対策の文字起こし『総監論文に求められるもの.md』の Drive 実体が台帳と違うのを片づける
-タグ: [領域:教材] [時期:2026-10] [種類:不具合] [検証:drive-vault-sync] [起票:2026-10-24]
+### [DN-0832] 総監論文対策の文字起こし『総監論文に求められるもの.md』の台帳の更新を、Drive をマウントした端末の全件照合で確かめる
+タグ: [領域:教材] [時期:2026-10..2026-11] [種類:不具合] [検証:drive-vault-sync] [起票:2026-10-24]
 
-drive-vault-sync -- --group source-transcript --verify --deep が 240 件中 1 件の不一致で FAIL（2026-10-24 確認）。content/sources/textbook/技術士（総監）/テキスト/総監論文対策/総監論文に求められるもの.md の Drive 実体が 2026-09-30 に更新され（26,556→26,554 bytes）、drive-manifest の sha256 と違う。同じ本の README（content/sources/books/pe-cem-essay-guide__総監論文対策/README.md）が p.24 の指で隠れた箇所を文脈で埋めた誤りを記録しており、その手直しの可能性がある。check-reference-sources --deep も transcript-method（廃止前の視覚 OCR の中身が変わった・PR #1211）で同じファイルを止める。どちらの中身を正とするかを決め、視覚 OCR を手で直すのでなく機械 OCR（book_ocr_machine.py）で作り直すか、Drive を台帳の版へ戻す。完了条件: drive-vault-sync --group source-transcript --verify --deep と check-reference-sources --deep が exit 0。
+**起点**: 2026-10-24、drive-vault-sync の verify --deep と check-reference-sources --deep（transcript-method）がこのファイルで止まった。Drive の実体は 2026-09-30 に直された版（26,554 bytes）で、ページ画像と照らすと Drive 側が原本どおり、台帳側が誤りだった。
 
-止まっている所（2026-10-26）: どちらを正とするかの判断待ち。Drive 実体と台帳の版の差は 2 行だけで、ページ画像 p0015（版面 p.36）・p0016（p.37）と照らすと Drive 側（「(1)(2) で書いていない条件を追加する」「この条件を満たすものである。」）が原本どおり、台帳側（「(1) で…」「⇒ (2) の条件を満たす…」）が誤り。
-Drive を台帳の版へ戻すと誤りを書き戻す。機械 OCR（part-01.md）は指の写り込みで崩れていて代わりにならない。選択肢は legacyVisualOcrTranscripts の sha256 を Drive の版へ更新する例外を認めるか、本の撮り直しを待つか。なお check-reference-sources --deep には別件の verbatim 7 件の FAIL（civil1-textbook の 3 記事）もあり、この 1 件を直しても exit 0 にならない。
+**残り**: 2026-10-29 に原本どおりの Drive の版を正とし（Drive を台帳の版へ戻すと誤りを書き戻すため）、`.claude/config/reference-sources-baseline.json` の legacyVisualOcrTranscripts と `.claude/state/assets/drive-manifest.json` の sha256 を Drive の版（74e2dc62…0437・26,554 bytes）へ更新した。版は Drive API から取り寄せて、git の旧版との差が frontmatter とカードの 2 行だけであることを確かめた。この端末には Drive のマウントが無く、照合はこのファイルだけを置いた一時 vault で行った（verify --deep 1 件一致・check-reference-sources の transcript-method 合格）。
+1. Drive をマウントした端末（Mac）で `npm run drive-vault-sync -- --group source-transcript --verify --deep` を回し、exit 0 を確かめる
+
+**完了条件**: 実マウントで drive-vault-sync --group source-transcript --verify --deep が exit 0。check-reference-sources --deep の別件（civil1-textbook の逐語一致 7 件）は別カードで扱う。
+
 
 
 ### [DN-0859] note の 3 本（総監 トレードオフ思考・技術士 口頭試験対策 全部門共通・総監 口頭試験対策 完全版）に、タスクリスト記法の修正を反映する
