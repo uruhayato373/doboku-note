@@ -639,17 +639,6 @@
 **完了条件**: 次の index-coverage の run で inspected = sitemap_urls、閾値ゲートが緑か、赤でも上限超過の error が出ない。Issue #1180 が自動クローズする。
 
 
-### [DN-0834] EXP-043 の案別の計測が、公開後の GA4 の週次取得に B・C とも届いているかを 10/30 に確かめる
-タグ: [領域:アフィリエイト] [時期:2026-10] [種類:改善] [起票:2026-10-24] [期日:2026-10-31]
-
-**起点**: 2026-10-24 14:26 に EXP-043（転職アフィリの B=小型カード / C=支給バナー）を本番に出した（main 0afe33d6b）。10/25 の 2級二次の試験のあと、解答ページ（`/exam/civil-construction-2/guide/r08-secondary-answers`・GSC 28 日 515 クリック）に検索の山が来る。GA4 の認証は CI にしかなく（手元は `GOOGLE_SERVICE_ACCOUNT_KEY_PATH` 未設定）、案別のイベントが届いているかを公開の当日には確かめられなかった。届いていなければ山のデータを丸ごと取りこぼす。
-
-**やること**:
-1. 10/30（金）以降、CI の GA4 取得（`fetch-metrics.yml` の「Fetch GA4 (affiliate design experiment)」・毎週金曜 JST 06:00。10/23 の取得は公開前で、次の取得が 10/30）が書いた `data/ga4/reports/` の affiliate-experiment の最新を見て、`EXP-043:B` と `EXP-043:C` の表示・クリックの行が両方あるかを確かめる（`meta.status` が `available`、行数が 0 でない）
-2. 無ければ、本番のページで `affiliate_experiment_impression` が送られているかを確かめる（GA4 の DebugView か、本番のページのネットワーク）。B の計測ピクセル（NTRMQ）が A8 の表示に出ているかも見る
-3. 届いていれば `data/business/experiments.json` の EXP-043 の measurements に初回の数字を記録する
-
-**完了条件**: EXP-043 の B と C の両方に GA4 の行があることを記録した（無ければ原因を直したか、起票した）。
 
 
 ### [DN-0832] 総監論文対策の文字起こし『総監論文に求められるもの.md』の Drive 実体が台帳と違うのを片づける
