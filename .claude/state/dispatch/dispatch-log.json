@@ -6195,6 +6195,19 @@
       "commit": "8e06a19cac8a",
       "verification": "fetch-metrics validation_only run 40791429080: EXP-043 B/C rows present (7430)",
       "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-0890",
+      "at": "2026-10-29",
+      "task": "商品カードの導線ゼロをサイト全ページで直し、もくじだけで通る検査の抜け穴をふさぐ",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "e9dd0e6bc587",
+      "verification": "check-magazine-cta --ci exit 0（ページ単位 baseline 外 0）・tests/magazine-page-gate 2/2・deploy run 40809704121 成功・check-production-ssr exit 0・本番 curl で見直しページ/kakomon-quiz/測量士・舗装の資格トップ/総監 h25・頻出論点/建設部門 public-servant-merit/1級 水理に商品カード",
+      "note": "todo-complete.mjs 経由で完了処理"
     }
   ]
 }

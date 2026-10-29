@@ -448,16 +448,6 @@
 **完了条件**: 競合分析と商品案（noteコンテンツ計画.md）ができ、要点を DN-0427 に書いたら、このカードを削除する。
 
 
-### [DN-0890] 商品カードの導線ゼロをサイト全ページで直し、もくじだけで通る検査の抜け穴をふさぐ
-タグ: [収益化] [領域:サイト] [時期:2026-10..2026-11] [種類:改善] [検証:check-magazine-cta] [起票:2026-10-27] [進行中]
-
-**起点**: GSC（9/22〜10/19）で流入が最も多い 2級の見直しページ `guide-r08-secondary-answers`（515 クリック）に商品への導線が無く、`check-magazine-cta` はもくじタイルが出る資格をページ判定から外していたので通っていた（2026-10-27 の調査）。
-
-**残り**: 検査の修正と 20 本・過去問演習・測量士/舗装の資格トップの配線は PR #1310（建築施工管理 3 本は baseline、実務・法令は理由付きの対象外）。見直しページのカードは develop の 560e8cb12。
-1. PR #1310 を develop へマージする
-2. deploy 後に `npm run check-production-ssr` を通し、本番で見直しページに `utm_content=guide-r08-secondary-answers` のカード、`/tools/kakomon-quiz` に `tools-kakomon-quiz` のカード、`/exam/surveyor`・`/exam/pavement` に `category-sidebar` のカード、総監 h25 記述式・建設部門 public-servant-merit に `inline-1` の冒頭カードが出ることを curl で確かめる
-
-**完了条件**: `npm run check-magazine-cta -- --ci` がもくじを数えない判定で baseline 外 0、新しいテストが通り、本番で見直しページと配線した各ページに商品カードが出る。
 
 
 
