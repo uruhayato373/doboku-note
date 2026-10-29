@@ -449,28 +449,13 @@
 
 
 ### [DN-0890] 商品カードの導線ゼロをサイト全ページで直し、もくじだけで通る検査の抜け穴をふさぐ
-タグ: [収益化] [領域:サイト] [時期:2026-10] [種類:改善] [検証:check-magazine-cta] [起票:2026-10-27]
+タグ: [収益化] [領域:サイト] [時期:2026-10..2026-11] [種類:改善] [検証:check-magazine-cta] [起票:2026-10-27] [進行中]
 
-**起点**: GSC（9/22〜10/19）で流入が最も多い 2級の見直しページ `guide-r08-secondary-answers`（515 クリック）に、商品への導線が無いことが分かった（2026-10-27 の調査）。本番の HTML にあった note 導線はもくじタイルだけだった。カードは develop の 560e8cb12 で置いた（本番は未反映）。
+**起点**: GSC（9/22〜10/19）で流入が最も多い 2級の見直しページ `guide-r08-secondary-answers`（515 クリック）に商品への導線が無く、`check-magazine-cta` はもくじタイルが出る資格をページ判定から外していたので通っていた（2026-10-27 の調査）。
 
-**検査の抜け穴**: `scripts/check-magazine-cta-reachability.ts:256` のページ判定は `!resolveHubCta(d.category)` で、もくじタイルが出る資格（1級・2級土木、総監、建設部門）を CTA ゼロの判定から外している。冒頭のコメント（:24）は「もくじタイルは到達手段として数えない」と書いており、ページ判定だけが逆になっている。このため、見直しページはもくじだけで検査を通っていた。
-
-**全ページの判定（2026-10-27、ソースの配線ロジック、もくじは数えない、develop 時点）**: 公開記事 1,461 本（career 45 本は対象外）のうち、実検査 1,416 本で商品導線ゼロが 221 本。
-- 教材のある資格の取りこぼし 20 本（配線するか、置かない理由を baseline に書く）
-  - 総監 13: 第二次試験の過去問 h21〜h30 の 10 本、frequent-topics、general-vs-comprehensive、private-engineer-comprehensive-merit
-  - 建設部門 4: public-servant-merit（4 週で 5 クリック・最多）、infra-system-overseas、seismic-damage-lessons、seismic-isolation-damping
-  - 1級土木 3: guide-engineer-assignment、guide-hydraulics-basics、guide-structural-mechanics-basics
-- 商品がまだ無い資格 16 本（配線の漏れではなく品揃えの空白）: 測量士 9（note は `content/note/測量士/magazines/測量士午後-分野別` が未登録）、舗装 4（`舗装1級-経験記述` が未登録）、建築施工管理 3（経験記述ガイド 3 本で 4 週 50 クリック）
-- 方針で置かない可能性が高い 185 本: civil-practice 161、laws 24。置かない理由を baseline か検査の対象外の定義に明記する
-- 記事以外のページは未検査: `/tools/`（13）、`/topics/`（22）、`/standards/`（約 470）、カテゴリのハブ。本番では `/tools/kakomon-quiz` に商品導線が無かった
-
-**やること**:
-1. 検査を直す: :256 の `!resolveHubCta(d.category)` を外し、検査対象（`PAGE_GATE_CATEGORIES`）と対象外の理由を明文化する。テストを足す（もくじだけのページが CTA ゼロになる回帰）
-2. 20 本を振り分ける: 内容に合う商品があれば `magazine-placement.ts` の許可リストか本文の `<MagazineCard>` で配線、無ければ `.claude/config/magazine-cta-baseline.json` の zeroPage に理由付きで登録
-3. civil-practice・laws の扱いを決めて検査に反映する（対象外のカテゴリとして定義するか baseline にするか）
-4. 記事以外のページ（tools・topics・カテゴリのハブ・standards）の商品導線を本番の HTML で確かめ、必要なものを配線する（例: kakomon-quiz）
-5. 商品の無い資格は配線の作業と分ける: 測量士・舗装の商品は 2026-10-28 に公開し配線した（本番の確認は DN-0901）。建築施工管理は DN-0892（競合分析と商品案）→ DN-0427（有料化の判断）で扱い、決まるまで 3 本は baseline に「商品なし」で登録する
-6. deploy 後に `npm run check-production-ssr` と、見直しページの本番に `utm_content=guide-r08-secondary-answers` のカードが出ることを確かめる
+**残り**: 検査の修正と 20 本・過去問演習・測量士/舗装の資格トップの配線は PR #1310（建築施工管理 3 本は baseline、実務・法令は理由付きの対象外）。見直しページのカードは develop の 560e8cb12。
+1. PR #1310 を develop へマージする
+2. deploy 後に `npm run check-production-ssr` を通し、本番で見直しページに `utm_content=guide-r08-secondary-answers` のカード、`/tools/kakomon-quiz` に `tools-kakomon-quiz` のカード、`/exam/surveyor`・`/exam/pavement` に `category-sidebar` のカード、総監 h25 記述式・建設部門 public-servant-merit に `inline-1` の冒頭カードが出ることを curl で確かめる
 
 **完了条件**: `npm run check-magazine-cta -- --ci` がもくじを数えない判定で baseline 外 0、新しいテストが通り、本番で見直しページと配線した各ページに商品カードが出る。
 
