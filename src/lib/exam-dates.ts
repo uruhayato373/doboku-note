@@ -21,6 +21,11 @@ export function examDayEndUtcMs(examId: string, eventId: string): number {
   return Date.parse(`${eventDate(examId, eventId)}T23:59:59+09:00`);
 }
 
+/** 試験日の始め（JST 00:00:00）の UTC ミリ秒。発表の日など「その日から」切り替えるときに使う */
+export function examDayStartUtcMs(examId: string, eventId: string): number {
+  return Date.parse(`${eventDate(examId, eventId)}T00:00:00+09:00`);
+}
+
 /** 試験日の翌日以降か（試験日の終わり JST 23:59:59 を過ぎたか）。直前向けの商品・文言をやめる境目に使う */
 export function isAfterExamDay(examId: string, eventId: string, now: number = Date.now()): boolean {
   return now > examDayEndUtcMs(examId, eventId);

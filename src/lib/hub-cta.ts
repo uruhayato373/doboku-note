@@ -1,5 +1,6 @@
 import { getMagazine, buildMagazineUrl, type MagazineId } from '@/lib/note-magazines';
 import { examDayEndUtcMs } from '@/lib/exam-dates';
+import { isPeConstructionOralSeason } from '@/lib/magazine-placement';
 import { qualificationShortLabel } from '@/lib/qualification-names';
 import { withNoteUtm } from '@/lib/note-utm';
 import { mokujiFor } from '@/lib/note-mokuji';
@@ -21,6 +22,8 @@ type HubCtaSpec = {
   examKey: ExamKey;
   /** title: 商品の shortTitle が長く資格名と重複するときの短縮表示（qual 行に資格名が出るため）。 */
   seasonal?: { switchUtcMs: number; product: MagazineId; sub: string; title?: string };
+  /** 試験後の一定期間だけ出す商品（建設部門の筆記合格発表から 1 月末までの口頭試験の教材）。active はビルド時の日付で判定する */
+  afterResult?: { active: (nowMs: number) => boolean; product: MagazineId; sub: string; title?: string };
 };
 
 /** もくじタイルの補足行。資格によらず「この先が有料教材の一覧」であることだけを示す。 */
@@ -66,6 +69,8 @@ const HUB: Partial<Record<string, HubCtaSpec>> = {
     examKey: 'pe-construction',
     mokuji: { title1: '必須I・選択科目', title2: '模範解答集' },
     seasonal: { switchUtcMs: examDayEndUtcMs('pe-construction', 'written'), product: 'pe-construction-required-magazine', sub: 'R03-R07＋R8予想' },
+    // DN-0902・EXP-047: 筆記合格発表の日から、合格した人が次に準備する口頭試験の教材へ
+    afterResult: { active: isPeConstructionOralSeason, product: 'pe-construction-oral-guide', title: '口頭試験対策', sub: '想定問答33問＋準備ロードマップ' },
   },
 };
 
@@ -89,7 +94,8 @@ export type ResolvedHubCta = {
 
 /**
  * カテゴリ hub / docs 記事の note CTA を解決する。カテゴリページ・docs 記事末尾・docs サイドバーの
- * 全 HUB 面で共通利用し、平時=L2 もくじ／直前期 6 週間=売れ筋商品直リンク（seasonal）を返す。
+ * 全 HUB 面で共通利用し、平時=L2 もくじ／直前期 6 週間=売れ筋商品直リンク（seasonal）／
+ * 試験後の決まった期間=その時期の商品の直リンク（afterResult）を返す。
  * @param opts.utmSuffix 面識別子（"sb" / "docs-sb" / "footer" 等）。trackLabel/utm_content 末尾に
  *   付与し GA4 で面分離する。
  */
@@ -101,34 +107,45 @@ export function resolveHubCta(
   if (!spec) return null;
   const suffix = opts.utmSuffix ? `-${opts.utmSuffix}` : '';
 
-  // 直前期（試験の 6 週間前〜試験日）だけ売れ筋の特定商品へ直リンク。それ以外はもくじへ集約。
+  // 直前期（試験の 6 週間前〜試験日）と試験後の決まった期間（afterResult）だけ特定商品へ直リンク。それ以外はもくじへ集約。
+  // utm の hub-seasonal・hub-after-result は売上の帰属（scripts/lib/site-to-sales.mjs）が商品へ結ぶ。
   const PRE_EXAM_WINDOW_MS = 42 * 24 * 60 * 60 * 1000; // 6 週間
   const now = Date.now();
+  const productTile = (
+    pick: { product: MagazineId; sub: string; title?: string },
+    utmKey: 'seasonal' | 'after-result',
+  ): ResolvedHubCta | null => {
+    const mag = getMagazine(pick.product);
+    if (!mag) return null;
+    const utm = `category-${category}-hub-${utmKey}${suffix}`;
+    return {
+      mode: 'product',
+      qualification: category,
+      productId: pick.product,
+      bg: spec.bg,
+      themeVar: spec.themeVar,
+      qual: qualificationShortLabel(category),
+      title1: pick.title ?? mag.shortTitle ?? mag.title,
+      title2: '',
+      sub: pick.sub,
+      // price は「¥3,480（6テーマ…）」等の説明入りがあるので先頭の金額だけをピル表示に使う
+      price: mag.price?.match(/[¥￥][\d,]+/)?.[0] ?? mag.price,
+      cta: '詳しく見る',
+      url: buildMagazineUrl(mag, utm),
+      trackLabel: utm,
+    };
+  };
   if (
     spec.seasonal &&
     now >= spec.seasonal.switchUtcMs - PRE_EXAM_WINDOW_MS &&
     now < spec.seasonal.switchUtcMs
   ) {
-    const mag = getMagazine(spec.seasonal.product);
-    if (mag) {
-      const utm = `category-${category}-hub-seasonal${suffix}`;
-      return {
-        mode: 'product',
-        qualification: category,
-        productId: spec.seasonal.product,
-        bg: spec.bg,
-        themeVar: spec.themeVar,
-        qual: qualificationShortLabel(category),
-        title1: spec.seasonal.title ?? mag.shortTitle ?? mag.title,
-        title2: '',
-        sub: spec.seasonal.sub,
-        // price は「¥3,480（6テーマ…）」等の説明入りがあるので先頭の金額だけをピル表示に使う
-        price: mag.price?.match(/[¥￥][\d,]+/)?.[0] ?? mag.price,
-        cta: '詳しく見る',
-        url: buildMagazineUrl(mag, utm),
-        trackLabel: utm,
-      };
-    }
+    const tile = productTile(spec.seasonal, 'seasonal');
+    if (tile) return tile;
+  }
+  if (spec.afterResult?.active(now)) {
+    const tile = productTile(spec.afterResult, 'after-result');
+    if (tile) return tile;
   }
 
   // それ以外は「もくじ」へ集約（マガジンが増えても追加不要でスケール）。funnel にもくじが無い資格は CTA を出さない
