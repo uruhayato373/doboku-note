@@ -103,7 +103,8 @@ export default function ExamMatrix({
             >
               <span className={rowLabelClass} title={row.labelTitle}>{row.label}</span>
               {available.map((c) => (
-                <ExamChipLink key={c.label} href={getPublicDocPath(c.doc!.slug)} dense={dense}>
+                // key は記事の slug。表示名（c.label）は同じ行で重なることがある（建設部門の「問題」が 2 つ・DN-0917）
+                <ExamChipLink key={c.doc!.slug} href={getPublicDocPath(c.doc!.slug)} dense={dense}>
                   {c.chipLabel ?? c.label}
                 </ExamChipLink>
               ))}
