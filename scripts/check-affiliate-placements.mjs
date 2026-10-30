@@ -21,7 +21,7 @@ import { readFileSync, readdirSync, statSync } from 'node:fs';
 import { join, relative, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { datasetPath } from './lib/datasets.mjs';
-import { findOverlaps } from '../src/lib/affiliate-placement-core.mjs';
+import { findOverlaps, findPairOverlaps } from '../src/lib/affiliate-placement-core.mjs';
 
 const ROOT = join(fileURLToPath(import.meta.url), '..', '..');
 const read = (rel) => JSON.parse(readFileSync(join(ROOT, rel), 'utf8'));
@@ -103,6 +103,19 @@ for (const r of rules) {
 // (e)
 for (const [a, b] of findOverlaps(rules)) errors.push(`${a} と ${b}: 同じ面・重なる期間・交わる対象（1 ページ 1 面 1 案件にならない）`);
 
+// (g) 2 枚並べ（pairs）: 2 枚目も (a)(b) と同じく配置できる案件で、カテゴリ・実験が実在し、2 枚目が 1 つに決まる
+const pairs = cfg.pairs ?? [];
+for (const pr of pairs) {
+  const p = catalog.programs?.[pr.secondary];
+  if (!p) errors.push(`${pr.id}: 2 枚目の案件 ${pr.secondary} が catalog に無い`);
+  else if (isOpen(pr) && (p.placement !== 'active' || p.redLine)) errors.push(`${pr.id}: 2 枚目の案件 ${pr.secondary} は catalog で placement=${p.placement}${p.redLine ? '・Red Line' : ''}（配置できない）`);
+  if (isOpen(pr) && !mats.some((m) => m.program === pr.secondary && m.surfaces.length > 0)) errors.push(`${pr.id}: 2 枚目の案件 ${pr.secondary} に広告リンク（config.affiliate-mats・surfaces あり）が無い`);
+  if (isOpen(pr) && !rules.some((r) => isOpen(r) && r.program === pr.primary && pr.slots.includes(r.slot))) errors.push(`${pr.id}: 1 枚目 ${pr.primary} の開いているルールが面 ${pr.slots.join('・')} に無い（並べる相手がいない）`);
+  for (const c of pr.target.categories ?? []) if (!categories.has(c)) errors.push(`${pr.id}: カテゴリ ${c} が src/config/categories.json に無い`);
+  if (pr.experiment && !experiments.has(pr.experiment)) errors.push(`${pr.id}: 実験 ${pr.experiment} が experiments.json に無い`);
+}
+for (const [a, b] of findPairOverlaps(pairs)) errors.push(`${a} と ${b}: 同じ 1 枚目・面・重なる期間・交わる対象（2 枚目が 1 つに決まらない）`);
+
 // (f)
 const inlineCovered = new Set(rules.filter((r) => r.slot === 'article-inline' && isOpen(r)).flatMap((r) => r.target.categories ?? [...categories]));
 const SITE = join(ROOT, 'content', 'site');
@@ -127,7 +140,7 @@ for (const [category, n] of inlineCategories) {
 }
 
 console.log(
-  `[check-affiliate-placements] ルール ${rules.length} 件（開いている ${rules.filter(isOpen).length}）/ MDX ${mdxScanned} 件を走査・手書きカードのカテゴリ ${inlineCategories.size} 種 / 違反 ${errors.length} 件`,
+  `[check-affiliate-placements] ルール ${rules.length} 件（開いている ${rules.filter(isOpen).length}）・2 枚並べ ${pairs.length} 組 / MDX ${mdxScanned} 件を走査・手書きカードのカテゴリ ${inlineCategories.size} 種 / 違反 ${errors.length} 件`,
 );
 if (errors.length) {
   for (const e of errors) console.error(`  ✗ ${e}`);

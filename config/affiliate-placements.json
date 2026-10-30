@@ -983,5 +983,102 @@
       "experiment": "EXP-018",
       "note": "建築施工管理の読者は建築の施工管理・建築士で、建築に特化した建築転職（面談 ¥16,000）が合う。A8 には無く、もしもの素材（moshimo:4183:57940）。案件の勝敗は確定 3 件まで決めない（2026-10-30 運営者指示）"
     }
+  ],
+  "pairs": [
+    {
+      "id": "PP-0001",
+      "primary": "buildjob",
+      "secondary": "constwork",
+      "slots": [
+        "article-inline",
+        "article-mid"
+      ],
+      "target": {
+        "pageKind": "doc",
+        "categories": [
+          "civil-construction-1",
+          "pe-construction",
+          "concrete-engineer",
+          "concrete-chief-engineer",
+          "concrete-diagnostician",
+          "pe-first-stage",
+          "civil-practice",
+          "laws",
+          "surveyor",
+          "pavement"
+        ]
+      },
+      "period": {
+        "from": "2026-10-31T00:00:00+09:00",
+        "until": null
+      },
+      "experiment": "EXP-048",
+      "note": "土木の施工管理の記事。1 枚目は建設業界特化のエージェント（面談）、2 枚目は施工管理の転職サポート（登録→電話面談）。訴求設計 §12.1 の 2 枚目の候補（プレックスジョブ）は審査中なので、承認まではコンストワーク"
+    },
+    {
+      "id": "PP-0002",
+      "primary": "buildjob",
+      "secondary": "constwork",
+      "slots": [
+        "article-inline",
+        "article-mid"
+      ],
+      "target": {
+        "pageKind": "doc",
+        "categories": [
+          "civil-construction-2"
+        ],
+        "careerDoc": "only"
+      },
+      "period": {
+        "from": "2026-10-31T00:00:00+09:00",
+        "until": null
+      },
+      "experiment": "EXP-048",
+      "note": "2 級土木のキャリア記事（1 枚目はビルドジョブ）"
+    },
+    {
+      "id": "PP-0003",
+      "primary": "kensetsu-jobs",
+      "secondary": "buildjob",
+      "slots": [
+        "article-inline",
+        "article-mid"
+      ],
+      "target": {
+        "pageKind": "doc",
+        "categories": [
+          "civil-construction-2"
+        ],
+        "careerDoc": "exclude"
+      },
+      "period": {
+        "from": "2026-10-31T00:00:00+09:00",
+        "until": null
+      },
+      "experiment": "EXP-048",
+      "note": "2 級土木の学習記事。1 枚目は 20〜30 代の経験者向けの転職サイト（登録）、2 枚目は面談型のエージェント"
+    },
+    {
+      "id": "PP-0004",
+      "primary": "kenchiku-tenshoku",
+      "secondary": "buildjob",
+      "slots": [
+        "article-inline",
+        "article-mid"
+      ],
+      "target": {
+        "pageKind": "doc",
+        "categories": [
+          "building-construction"
+        ]
+      },
+      "period": {
+        "from": "2026-10-31T00:00:00+09:00",
+        "until": null
+      },
+      "experiment": "EXP-048",
+      "note": "建築施工管理の記事。1 枚目は建築特化のエージェント、2 枚目は建設業界特化のエージェント（訴求設計 §12.1 の逆順＝建築の読者には建築特化を主にする）"
+    }
   ]
 }

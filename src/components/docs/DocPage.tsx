@@ -358,7 +358,8 @@ export async function renderDocPage(slugStr: string) {
   if (careerMidCard) {
     const card = careerMidCard;
     careerMidIndex = midRenderers.length;
-    midRenderers.push(() => <MidArticleCta mode="career" card={card} />);
+    const secondary = careerPlacements['article-mid']?.secondary ?? null;
+    midRenderers.push(() => <MidArticleCta mode="career" card={card} secondary={secondary} />);
   }
 
   // 転職カードが容量からあふれる記事（note・関連記事が先に枠を使う）は、見出しの境界に空きがあれば転職カードの枠を 1 つ足す（上限 3）。

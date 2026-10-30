@@ -100,3 +100,37 @@ export function findOverlaps(rules) {
   }
   return out;
 }
+
+/** @typedef {{ id: string, primary: string, secondary: string, slots: string[], target: Target, period: { from: string, until: string|null } }} Pair */
+
+/**
+ * 2 枚並べ（PC で 1 枠に 2 社）の 2 枚目を返す。面のルール（slotRule）の案件が primary で、面が slots に入り、
+ * 対象と期間が当たる組を 1 つ返す（無ければ null）。2 つ当たれば投げる（検査と型が止めているはずの状態）。
+ * @param {Pair[]} pairs
+ * @param {Rule} slotRule
+ * @param {Page} page
+ * @param {number} nowMs
+ */
+export function resolvePair(pairs, slotRule, page, nowMs) {
+  let found = null;
+  for (const p of pairs ?? []) {
+    if (p.primary !== slotRule.program || !p.slots.includes(slotRule.slot)) continue;
+    if (!isActive(p, nowMs) || !matchesPage(p, page)) continue;
+    if (found) throw new Error(`2 枚並べ ${found.id} と ${p.id} が同じ面 ${slotRule.slot} の ${slotRule.program} に当たる（${page.pageKind} ${page.category ?? '-'}）`);
+    found = p;
+  }
+  return found;
+}
+
+/** 同じ 1 枚目・同じ面で期間が重なり対象が交わる 2 枚並べの組（2 枚目が 1 つに決まらないもの） */
+export function findPairOverlaps(pairs) {
+  const out = [];
+  for (let i = 0; i < pairs.length; i++) {
+    for (let j = i + 1; j < pairs.length; j++) {
+      const a = pairs[i];
+      const b = pairs[j];
+      if (a.primary === b.primary && a.slots.some((s) => b.slots.includes(s)) && periodsOverlap(a, b) && targetsIntersect(a, b)) out.push([a.id, b.id]);
+    }
+  }
+  return out;
+}
