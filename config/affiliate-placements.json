@@ -265,10 +265,10 @@
       },
       "period": {
         "from": "2026-10-07T17:00:00+09:00",
-        "until": null
+        "until": "2026-10-30T17:00:00+09:00"
       },
       "experiment": "EXP-008",
-      "note": "PL-0003 の続き（2級を除く）。"
+      "note": "PL-0003 の続き（2級を除く）。 2026-10-30 に閉じた（RCCM を技術士・総監と同じハイクラス案件へ替えるため。訴求設計 §12.1・運営者指示。RCCM を除いて PL-0044 で続ける）"
     },
     {
       "id": "PL-0015",
@@ -544,10 +544,10 @@
       },
       "period": {
         "from": "2026-10-07T17:00:00+09:00",
-        "until": null
+        "until": "2026-10-30T17:00:00+09:00"
       },
       "experiment": "EXP-017",
-      "note": "コンクリート技士・RCCM の本文中間（抜けていた枠・EXP-017）。"
+      "note": "コンクリート技士・RCCM の本文中間（抜けていた枠・EXP-017）。 2026-10-30 に閉じた（RCCM を技術士・総監と同じハイクラス案件へ替えるため。訴求設計 §12.1・運営者指示。RCCM を除いて PL-0045 で続ける）"
     },
     {
       "id": "PL-0030",
@@ -561,10 +561,10 @@
       },
       "period": {
         "from": "2026-10-07T17:00:00+09:00",
-        "until": null
+        "until": "2026-10-30T17:00:00+09:00"
       },
       "experiment": "EXP-017",
-      "note": "RCCM の資格トップ（抜けていた枠・EXP-017）。"
+      "note": "RCCM の資格トップ（抜けていた枠・EXP-017）。 2026-10-30 に閉じた（RCCM を技術士・総監と同じハイクラス案件へ替えるため。訴求設計 §12.1・運営者指示）"
     },
     {
       "id": "PL-0031",
@@ -578,10 +578,10 @@
       },
       "period": {
         "from": "2026-10-07T17:00:00+09:00",
-        "until": null
+        "until": "2026-10-30T17:00:00+09:00"
       },
       "experiment": "EXP-017",
-      "note": "RCCM の資格トップ（抜けていた枠・EXP-017）。"
+      "note": "RCCM の資格トップ（抜けていた枠・EXP-017）。 2026-10-30 に閉じた（RCCM を技術士・総監と同じハイクラス案件へ替えるため。訴求設計 §12.1・運営者指示）"
     },
     {
       "id": "PL-0032",
@@ -774,6 +774,109 @@
       },
       "experiment": "EXP-018",
       "note": "法令の一覧（/laws）の末尾。各法令の解説は PL-0042。"
+    },
+    {
+      "id": "PL-0044",
+      "program": "buildjob",
+      "slot": "article-inline",
+      "target": {
+        "pageKind": "doc",
+        "categories": [
+          "civil-construction-1",
+          "pe-construction"
+        ]
+      },
+      "period": {
+        "from": "2026-10-30T17:00:00+09:00",
+        "until": null
+      },
+      "experiment": "EXP-008",
+      "note": "PL-0014 から RCCM を外して続ける（2026-10-30）。本文中の手書き転職枠"
+    },
+    {
+      "id": "PL-0045",
+      "program": "buildjob",
+      "slot": "article-mid",
+      "target": {
+        "pageKind": "doc",
+        "categories": [
+          "concrete-engineer"
+        ]
+      },
+      "period": {
+        "from": "2026-10-30T17:00:00+09:00",
+        "until": null
+      },
+      "experiment": "EXP-017",
+      "note": "PL-0029 から RCCM を外して続ける（2026-10-30）"
+    },
+    {
+      "id": "PL-0046",
+      "program": "dx-consulting",
+      "slot": "article-inline",
+      "target": {
+        "pageKind": "doc",
+        "categories": [
+          "rccm"
+        ]
+      },
+      "period": {
+        "from": "2026-10-30T17:00:00+09:00",
+        "until": null
+      },
+      "experiment": null,
+      "note": "RCCM の読者は建設コンサルの技術者・管理技術者で、施工管理の転職より技術系管理職・コンサルの求人が合う（訴求設計 §12.1・2026-10-30 運営者指示「展開できるものは全て展開」）。案件の勝敗は確定 3 件まで決めない"
+    },
+    {
+      "id": "PL-0047",
+      "program": "dx-consulting",
+      "slot": "article-mid",
+      "target": {
+        "pageKind": "doc",
+        "categories": [
+          "rccm"
+        ]
+      },
+      "period": {
+        "from": "2026-10-30T17:00:00+09:00",
+        "until": null
+      },
+      "experiment": null,
+      "note": "RCCM の読者は建設コンサルの技術者・管理技術者で、施工管理の転職より技術系管理職・コンサルの求人が合う（訴求設計 §12.1・2026-10-30 運営者指示「展開できるものは全て展開」）。案件の勝敗は確定 3 件まで決めない"
+    },
+    {
+      "id": "PL-0048",
+      "program": "dx-consulting",
+      "slot": "category-sidebar",
+      "target": {
+        "pageKind": "category",
+        "categories": [
+          "rccm"
+        ]
+      },
+      "period": {
+        "from": "2026-10-30T17:00:00+09:00",
+        "until": null
+      },
+      "experiment": null,
+      "note": "RCCM の読者は建設コンサルの技術者・管理技術者で、施工管理の転職より技術系管理職・コンサルの求人が合う（訴求設計 §12.1・2026-10-30 運営者指示「展開できるものは全て展開」）。案件の勝敗は確定 3 件まで決めない"
+    },
+    {
+      "id": "PL-0049",
+      "program": "dx-consulting",
+      "slot": "category-mobile",
+      "target": {
+        "pageKind": "category",
+        "categories": [
+          "rccm"
+        ]
+      },
+      "period": {
+        "from": "2026-10-30T17:00:00+09:00",
+        "until": null
+      },
+      "experiment": null,
+      "note": "RCCM の読者は建設コンサルの技術者・管理技術者で、施工管理の転職より技術系管理職・コンサルの求人が合う（訴求設計 §12.1・2026-10-30 運営者指示「展開できるものは全て展開」）。案件の勝敗は確定 3 件まで決めない"
     }
   ]
 }
