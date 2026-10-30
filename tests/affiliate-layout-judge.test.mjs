@@ -55,6 +55,13 @@ test('(e) ルールが無い広告は NG・期間外だけなら注意', () => {
   assert.equal(expired.warnings.length, 1);
 });
 
+test('ルールが面を当てているのに広告が 0 件なら注意（NG にはしない）', () => {
+  const r = judgeShot({ viewport: { width: 375, height: 812 }, scrollWidth: 375, html: '', ads: [] }, { rules: RULES, page: PAGE, nowMs: NOW, expectedCount: 1 });
+  assert.equal(r.ok, true);
+  assert.equal(r.warnings.length, 1);
+  assert.equal(judgeShot({ viewport: { width: 375, height: 812 }, scrollWidth: 375, html: '', ads: [] }, { rules: RULES, page: PAGE, nowMs: NOW, expectedCount: 0 }).warnings.length, 0);
+});
+
 test('固定した案と違う案が出たら NG', () => {
   assert.equal(shot([ad({ variant: 'C' })]).checks.variant.ok, false);
   assert.equal(shot([ad({ variant: null })]).checks.variant.ok, true);

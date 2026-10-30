@@ -184,5 +184,7 @@ export function judgeShot(m, ctx) {
   };
   // 期間外のルールにだけ当たる広告は NG にせず注意（本番の再ビルド待ちの可能性）
   const warnings = ads.filter((a) => a.ruleStatus === 'expired').map((a) => `${a.placement}(${a.program}) は期間外のルール ${a.ruleId} にだけ当たる（再ビルド待ちの可能性）`);
+  // 今のルールが面を当てているのに広告が 1 つも出ていない（記事の長さの下限・診断の後にだけ出る面などで起こる。代表ページの選び方を見直す手掛かり）
+  if (ads.length === 0 && ctx.expectedCount > 0) warnings.push(`配置ルールは ${ctx.expectedCount} 面に当たるが、広告が 1 つも描かれていない`);
   return { ok: Object.values(checks).every((c) => c.ok), checks, ads, pixelCounts, warnings };
 }

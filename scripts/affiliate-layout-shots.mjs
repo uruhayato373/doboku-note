@@ -184,7 +184,7 @@ async function main() {
             const pageInfo = { pageKind: t.pageKind, category: t.category, isCareerDoc: t.isCareerDoc };
             const verdict = judgeShot(
               { viewport: { width: vp.width, height: vp.height }, scrollWidth: measured.scrollWidth, html, ads: measured.ads },
-              { rules, page: pageInfo, nowMs, forcedVariant: variant },
+              { rules, page: pageInfo, nowMs, forcedVariant: variant, expectedCount: Object.keys(expectedSlots(rules, pageInfo, nowMs)).length },
             );
             await page.evaluate(drawOverlay, { ads: verdict.ads, notes: measured.notes });
             const file = `${t.id}__${vp.id}__${variant}.png`;
