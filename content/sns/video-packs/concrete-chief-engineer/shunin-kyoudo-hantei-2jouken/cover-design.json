@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "concrete-chief",
+      "headline": [
+        "圧縮強度の判定",
+        "平均だけではダメ"
+      ],
+      "accentLine": 0,
+      "subtitle": "品質管理",
+      "character": {
+        "pose": "pop-red-pen",
+        "frame": "waist"
+      },
+      "design": "pop-poster-v3",
+      "pop": {
+        "variant": "question",
+        "authority": "総監が制作"
+      },
+      "approvedImage": {
+        "path": ".tmp/media/concrete-chief-engineer/shunin-kyoudo-hantei-2jouken/work/cover-pop.1582b091.png",
+        "sha256": "1582b091d6f44a9987809738057f3893838c26581eefd6bb7b896abc9ac39de9",
+        "specSha256": "b8e9bd1abc181e510433bfc0a7b6b508a5348b4cb0a98fbe0082081d02adfdd1"
+      }
+    }
+  }
+}

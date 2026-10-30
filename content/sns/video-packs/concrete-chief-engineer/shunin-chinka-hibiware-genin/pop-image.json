@@ -1,0 +1,609 @@
+{
+  "policy": ".claude/knowledge/reference/pop-image-policy.md",
+  "designVersion": "pop-20260927",
+  "channel": "youtube",
+  "source": "content/sns/video-packs/concrete-chief-engineer/shunin-chinka-hibiware-genin",
+  "outputs": {
+    "longform": {
+      "publicationId": "concrete-chief-engineer/shunin-chinka-hibiware-genin/youtube.longform",
+      "copy": {
+        "exam": "concrete-chief-engineer",
+        "headline": [
+          "沈下ひび割れ",
+          "乾燥収縮と区別"
+        ],
+        "benefit": "品質管理",
+        "authority": "総監が制作"
+      },
+      "evidence": [
+        "content/sns/video-packs/concrete-chief-engineer/shunin-chinka-hibiware-genin/cover-design.json#covers/longform",
+        "content/sns/video-packs/concrete-chief-engineer/shunin-chinka-hibiware-genin/storyboard.json"
+      ],
+      "references": [
+        {
+          "path": ".tmp/media/concrete-chief-engineer/shunin-rekka-taio/work/cover-pop.82b2413f.png",
+          "sha256": "82b2413fd4de9bca533831f27e1cd6bc792b0b3c9d2d46d876d8dcc3ee2f97b1"
+        }
+      ],
+      "prompt": "Codex ImageGen: POP cover 沈下ひび割れ / 乾燥収縮と区別, approved teacher character and two concrete cross sections",
+      "format": {
+        "width": 1920,
+        "height": 1080
+      },
+      "render": {
+        "template": "codex-image-gen",
+        "variant": "question",
+        "pose": "pop-red-pen"
+      },
+      "output": {
+        "path": ".tmp/media/concrete-chief-engineer/shunin-chinka-hibiware-genin/work/cover-pop.17e65b4d.png",
+        "sha256": "17e65b4d16697c09d1b0328f044a80ae2d2ab64f337958852fc607d9f43c194e"
+      },
+      "review": {
+        "status": "agent-reviewed",
+        "by": "Codex",
+        "checkedAt": "2026-10-30T23:37:59.514Z",
+        "viewportWidth": 360,
+        "checks": [
+          "見出しと資格名",
+          "文字・人物の切れ",
+          "図と主張の整合"
+        ],
+        "userImageReview": "pending"
+      },
+      "storage": {
+        "group": "content-media",
+        "key": ".tmp/media/concrete-chief-engineer/shunin-chinka-hibiware-genin/work/cover-pop.17e65b4d.png"
+      },
+      "publication": "ローカル差し替え・外部未反映"
+    }
+  },
+  "activeBodyRevision": "body-diagram-20261028",
+  "activeCoverRevision": "cover-pop-20261028",
+  "revisions": {
+    "body-diagram-20261028": {
+      "layout": {
+        "mode": "diagram-led"
+      },
+      "images": [
+        {
+          "sceneId": "premise",
+          "inputSha256": "634a2d68fd307131ae3452c207273783569356ace5ea39e391c685f431786da3",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Codex ImageGen: 16:9 clean concrete-chief educational diagram for settlement versus drying shrinkage premise, matching storyboard.",
+            "references": [
+              {
+                "path": ".tmp/media/concrete-chief-engineer/shunin-rekka-taio/work/cover-pop.82b2413f.png",
+                "sha256": "82b2413fd4de9bca533831f27e1cd6bc792b0b3c9d2d46d876d8dcc3ee2f97b1"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-chief-engineer/shunin-chinka-hibiware-genin/work/raw-premise-diagram.69627109.png",
+              "sha256": "69627109fdeea87bbfc5c39ba230a9251f2f9325762e4326a7894b7aa4b14070"
+            },
+            "generatedAt": "2026-10-30T23:37:59.514Z"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-chief-engineer/shunin-chinka-hibiware-genin/work/premise-diagram.2390c62c.png",
+            "sha256": "2390c62cb4b2e328bef0de99acb085a34a2836042994ebf1aa785a955e315c70",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "69627109fdeea87bbfc5c39ba230a9251f2f9325762e4326a7894b7aa4b14070"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-30T23:37:59.514Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字・数値の判読",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "timeline",
+          "inputSha256": "856b7a69931a9015ad370bdb200694f4b0934ab7eca2ac71bb71e68f16f6b2f3",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Codex ImageGen: visually verified distinct timeline diagram matching the current storyboard",
+            "references": [
+              {
+                "path": ".tmp/media/concrete-chief-engineer/shunin-rekka-taio/work/cover-pop.82b2413f.png",
+                "sha256": "82b2413fd4de9bca533831f27e1cd6bc792b0b3c9d2d46d876d8dcc3ee2f97b1"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-chief-engineer/shunin-chinka-hibiware-genin/work/raw-timeline-diagram.c33b4499.png",
+              "sha256": "c33b44997508ce921cef7d95f4078d512c1d38ec3ea3096692e04433ed7244b9"
+            },
+            "generatedAt": "2026-10-30T23:37:59.514Z"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-chief-engineer/shunin-chinka-hibiware-genin/work/timeline-diagram.124dd5fa.png",
+            "sha256": "124dd5fa62411285cab6d471b39b2bafd752a8906d22846c5dfb53666fa2c7df",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "c33b44997508ce921cef7d95f4078d512c1d38ec3ea3096692e04433ed7244b9"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-30T23:37:59.514Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字・数値の判読",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "section",
+          "inputSha256": "682dea5d423ab3739da63ace994258df63809002086b569ce9743db7d4855953",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Codex ImageGen: 16:9 clean concrete-chief educational diagram for settlement versus drying shrinkage section, matching storyboard.",
+            "references": [
+              {
+                "path": ".tmp/media/concrete-chief-engineer/shunin-rekka-taio/work/cover-pop.82b2413f.png",
+                "sha256": "82b2413fd4de9bca533831f27e1cd6bc792b0b3c9d2d46d876d8dcc3ee2f97b1"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-chief-engineer/shunin-chinka-hibiware-genin/work/raw-section-diagram.4d424bba.png",
+              "sha256": "4d424bbaf95119e2de6747e34203288527bc2e8e58fb7c60f73edc8ce6d5857c"
+            },
+            "generatedAt": "2026-10-30T23:37:59.514Z"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-chief-engineer/shunin-chinka-hibiware-genin/work/section-diagram.956d6aab.png",
+            "sha256": "956d6aab882117a50eada7845d7f5e6f6d0aa6a44c98114e9340152c39cd7db6",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "4d424bbaf95119e2de6747e34203288527bc2e8e58fb7c60f73edc8ce6d5857c"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-30T23:37:59.514Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字・数値の判読",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "mechanism",
+          "inputSha256": "a6689df2c5e13620546883cde23bd0a0c1c2646306daae3462e1aa94904457ab",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Codex ImageGen: 16:9 clean concrete-chief educational diagram for settlement versus drying shrinkage mechanism, matching storyboard.",
+            "references": [
+              {
+                "path": ".tmp/media/concrete-chief-engineer/shunin-rekka-taio/work/cover-pop.82b2413f.png",
+                "sha256": "82b2413fd4de9bca533831f27e1cd6bc792b0b3c9d2d46d876d8dcc3ee2f97b1"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-chief-engineer/shunin-chinka-hibiware-genin/work/raw-mechanism-diagram.a8d7ad49.png",
+              "sha256": "a8d7ad4920f352025becb5c9c7483204af808c069a2383f0b8e1b9b9457aa02d"
+            },
+            "generatedAt": "2026-10-30T23:37:59.514Z"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-chief-engineer/shunin-chinka-hibiware-genin/work/mechanism-diagram.dcae017d.png",
+            "sha256": "dcae017da79b31d813232331c2c61bd395a1f9858e4a27d2389d952af7d06c25",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "a8d7ad4920f352025becb5c9c7483204af808c069a2383f0b8e1b9b9457aa02d"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-30T23:37:59.514Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字・数値の判読",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "shrink",
+          "inputSha256": "d46408b5620e0a071bf2bbf5e618947fb130db18035d4329fae6a48ecd4ad6c0",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Codex ImageGen: 16:9 clean concrete-chief educational diagram for settlement versus drying shrinkage shrink, matching storyboard.",
+            "references": [
+              {
+                "path": ".tmp/media/concrete-chief-engineer/shunin-rekka-taio/work/cover-pop.82b2413f.png",
+                "sha256": "82b2413fd4de9bca533831f27e1cd6bc792b0b3c9d2d46d876d8dcc3ee2f97b1"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-chief-engineer/shunin-chinka-hibiware-genin/work/raw-shrink-diagram.561cad46.png",
+              "sha256": "561cad463972d0d604ba641186db17deffd21fad4a3738de5cf720ccb680faad"
+            },
+            "generatedAt": "2026-10-30T23:37:59.514Z"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-chief-engineer/shunin-chinka-hibiware-genin/work/shrink-diagram.cbcf23d0.png",
+            "sha256": "cbcf23d0e9d5992bdc8e8bddf3ff17a4611fdaf991608457912c42b7550afc17",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "561cad463972d0d604ba641186db17deffd21fad4a3738de5cf720ccb680faad"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-30T23:37:59.514Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字・数値の判読",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "compare",
+          "inputSha256": "13908a9b12cf5ab422d955649a255e95fd87e078d51b32de9d528f7be4d8e1a9",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Codex ImageGen: 16:9 clean concrete-chief educational diagram for settlement versus drying shrinkage compare, matching storyboard.",
+            "references": [
+              {
+                "path": ".tmp/media/concrete-chief-engineer/shunin-rekka-taio/work/cover-pop.82b2413f.png",
+                "sha256": "82b2413fd4de9bca533831f27e1cd6bc792b0b3c9d2d46d876d8dcc3ee2f97b1"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-chief-engineer/shunin-chinka-hibiware-genin/work/raw-compare-diagram.69627109.png",
+              "sha256": "69627109fdeea87bbfc5c39ba230a9251f2f9325762e4326a7894b7aa4b14070"
+            },
+            "generatedAt": "2026-10-30T23:37:59.514Z"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-chief-engineer/shunin-chinka-hibiware-genin/work/compare-diagram.2390c62c.png",
+            "sha256": "2390c62cb4b2e328bef0de99acb085a34a2836042994ebf1aa785a955e315c70",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "69627109fdeea87bbfc5c39ba230a9251f2f9325762e4326a7894b7aa4b14070"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-30T23:37:59.514Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字・数値の判読",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "measures",
+          "inputSha256": "1e00c0bc3c45cf71467149aadaf1dcb6bee7c0d78f87b1825e1b78f15e15138b",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Codex ImageGen: 16:9 clean concrete-chief educational diagram for settlement versus drying shrinkage measures, matching storyboard.",
+            "references": [
+              {
+                "path": ".tmp/media/concrete-chief-engineer/shunin-rekka-taio/work/cover-pop.82b2413f.png",
+                "sha256": "82b2413fd4de9bca533831f27e1cd6bc792b0b3c9d2d46d876d8dcc3ee2f97b1"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-chief-engineer/shunin-chinka-hibiware-genin/work/raw-measures-diagram.47360754.png",
+              "sha256": "4736075410f2d2258d7856ea98037911c8eae400b187d5089c9f1cd31314284d"
+            },
+            "generatedAt": "2026-10-30T23:37:59.514Z"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-chief-engineer/shunin-chinka-hibiware-genin/work/measures-diagram.53baff48.png",
+            "sha256": "53baff48d5e1181bbb16ae9258451f863ea1f49fc3c407e09871eb3ecb89701e",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "4736075410f2d2258d7856ea98037911c8eae400b187d5089c9f1cd31314284d"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-30T23:37:59.514Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字・数値の判読",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "trap",
+          "inputSha256": "79008bff05cd39e1eb5fb8de91fb457eefd6e05b70a661104a1a114dc3b90695",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Codex ImageGen: 16:9 clean concrete-chief educational diagram for settlement versus drying shrinkage trap, matching storyboard.",
+            "references": [
+              {
+                "path": ".tmp/media/concrete-chief-engineer/shunin-rekka-taio/work/cover-pop.82b2413f.png",
+                "sha256": "82b2413fd4de9bca533831f27e1cd6bc792b0b3c9d2d46d876d8dcc3ee2f97b1"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-chief-engineer/shunin-chinka-hibiware-genin/work/raw-trap-diagram.d008a340.png",
+              "sha256": "d008a34093f372652064f55d293f6299988b4e8331a63d353dccf4773f8a4601"
+            },
+            "generatedAt": "2026-10-30T23:37:59.514Z"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-chief-engineer/shunin-chinka-hibiware-genin/work/trap-diagram.f422e921.png",
+            "sha256": "f422e92164f34beda5df3f77842a946a029cfdf5fa2857b88de6e4bc6cae1573",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "d008a34093f372652064f55d293f6299988b4e8331a63d353dccf4773f8a4601"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-30T23:37:59.514Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字・数値の判読",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "example",
+          "inputSha256": "7f6a4e32ecfcb3df9c69725fff7509fc1562ac405621291d7223bafc028af6dc",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Codex ImageGen: distinct, visually verified diagram for example; exact storyboard content.",
+            "references": [
+              {
+                "path": ".tmp/media/concrete-chief-engineer/shunin-rekka-taio/work/cover-pop.82b2413f.png",
+                "sha256": "82b2413fd4de9bca533831f27e1cd6bc792b0b3c9d2d46d876d8dcc3ee2f97b1"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-chief-engineer/shunin-chinka-hibiware-genin/work/raw-example-diagram.9b96365f.png",
+              "sha256": "9b96365fa98b58ec10ef8b62025a27ec2e060ba7cc9d9475de63bf31d2178106"
+            },
+            "generatedAt": "2026-10-30T23:37:59.514Z"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-chief-engineer/shunin-chinka-hibiware-genin/work/example-diagram.4938abe6.png",
+            "sha256": "4938abe6e57ec231d1d5366a27d4e4175fcb4363f4bf970c37c2f30d2928e061",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "9b96365fa98b58ec10ef8b62025a27ec2e060ba7cc9d9475de63bf31d2178106"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-30T23:37:59.514Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字・数値の判読",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "summary",
+          "inputSha256": "6811ae2b7eea12bc98f49d67999d9a2aed10f008a5b7f101438390eb51dcc060",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Codex ImageGen: distinct, visually verified diagram for summary; exact storyboard content.",
+            "references": [
+              {
+                "path": ".tmp/media/concrete-chief-engineer/shunin-rekka-taio/work/cover-pop.82b2413f.png",
+                "sha256": "82b2413fd4de9bca533831f27e1cd6bc792b0b3c9d2d46d876d8dcc3ee2f97b1"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-chief-engineer/shunin-chinka-hibiware-genin/work/raw-summary-diagram.2b57802c.png",
+              "sha256": "2b57802c540b75be04263c0a037c9dba578d5aa6e164c99d16dc665c4bfaf36f"
+            },
+            "generatedAt": "2026-10-30T23:37:59.514Z"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-chief-engineer/shunin-chinka-hibiware-genin/work/summary-diagram.145ad3b0.png",
+            "sha256": "145ad3b0c9950176ce65344ea1f63412067cdfffda50acf2b295782d1d9b29ff",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "2b57802c540b75be04263c0a037c9dba578d5aa6e164c99d16dc665c4bfaf36f"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-30T23:37:59.514Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字・数値の判読",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "cta",
+          "inputSha256": "95a2d1a5ab34ed1decfb543ecb3ce4553180b64966e84e81a949c482c0b7a92e",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Codex ImageGen: 16:9 clean concrete-chief educational diagram for settlement versus drying shrinkage cta, matching storyboard.",
+            "references": [
+              {
+                "path": ".tmp/media/concrete-chief-engineer/shunin-rekka-taio/work/cover-pop.82b2413f.png",
+                "sha256": "82b2413fd4de9bca533831f27e1cd6bc792b0b3c9d2d46d876d8dcc3ee2f97b1"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-chief-engineer/shunin-chinka-hibiware-genin/work/raw-cta-diagram.19b78741.png",
+              "sha256": "19b78741dbbd4d814b7769bdbf5de23efa91330e3cd02a27a41089c8c3f2f9e3"
+            },
+            "generatedAt": "2026-10-30T23:37:59.514Z"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-chief-engineer/shunin-chinka-hibiware-genin/work/cta-diagram.8db159aa.png",
+            "sha256": "8db159aa80ac7a534d509ece1ed70ecf6246f4ba7f669fedab036e6f56085dc5",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "19b78741dbbd4d814b7769bdbf5de23efa91330e3cd02a27a41089c8c3f2f9e3"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-30T23:37:59.514Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字・数値の判読",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        }
+      ]
+    },
+    "cover-pop-20261028": {
+      "version": "pop-poster-v3",
+      "generation": {
+        "tool": "image_gen",
+        "prompt": "Codex ImageGen: POP cover 沈下ひび割れ / 乾燥収縮と区別, approved teacher character and two concrete cross sections",
+        "references": [
+          {
+            "path": ".tmp/media/concrete-chief-engineer/shunin-rekka-taio/work/cover-pop.82b2413f.png",
+            "sha256": "82b2413fd4de9bca533831f27e1cd6bc792b0b3c9d2d46d876d8dcc3ee2f97b1"
+          }
+        ],
+        "output": {
+          "path": ".tmp/media/concrete-chief-engineer/shunin-chinka-hibiware-genin/work/raw-cover-pop.b3b382cd.png",
+          "sha256": "b3b382cdd3f982fc0b2d557f3d21739e3475bd687f33bb34753bc9d4fbbec944"
+        },
+        "generatedAt": "2026-10-30T23:37:59.514Z"
+      },
+      "copy": {
+        "exam": "concrete-chief-engineer",
+        "headline": [
+          "沈下ひび割れ",
+          "乾燥収縮と区別"
+        ],
+        "authority": "総監が制作"
+      },
+      "output": {
+        "path": ".tmp/media/concrete-chief-engineer/shunin-chinka-hibiware-genin/work/cover-pop.17e65b4d.png",
+        "sha256": "17e65b4d16697c09d1b0328f044a80ae2d2ab64f337958852fc607d9f43c194e",
+        "width": 1920,
+        "height": 1080
+      },
+      "normalization": {
+        "mode": "full-frame-v1",
+        "sourceSha256": "b3b382cdd3f982fc0b2d557f3d21739e3475bd687f33bb34753bc9d4fbbec944"
+      },
+      "review": {
+        "status": "ai-reviewed",
+        "userImageReview": "pending",
+        "checkedAt": "2026-10-30T23:37:59.514Z",
+        "by": "Codex",
+        "views": [
+          "original"
+        ],
+        "checks": [
+          "文言・資格名",
+          "顔と安全域"
+        ]
+      },
+      "storage": {
+        "group": "content-media",
+        "sync": "local"
+      }
+    }
+  }
+}
