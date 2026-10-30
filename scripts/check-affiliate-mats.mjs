@@ -33,6 +33,7 @@ import { execFileSync } from 'node:child_process';
 import { todayJst } from './lib/jst-date.mjs';
 import { datasetPath } from './lib/datasets.mjs';
 import { listFiles } from './lib/fs-walk.mjs';
+import { linkKeys } from './lib/affiliate-link-keys.mjs';
 import { runBody, isCliEntry, runAsCli } from './lib/cli-run.mjs';
 
 /** A8 口座の中での doboku-note のサイト番号（001 は stats47）。 */
@@ -62,8 +63,7 @@ const registry = JSON.parse(readFileSync(REGISTRY, 'utf8')).mats;
 const known = new Map(registry.map((m) => [m.mat, m]));
 const today = todayJst(); // YYYY-MM-DD
 
-// A8 mat 形式: 英数を + で 4 連結（例 4B3VR8+F0LMU2+4R40+TSBE9）。XXXX 等の単一トークンは除外。
-const MAT_RE = /a8mat=([A-Z0-9]+(?:\+[A-Z0-9]+){3})/g;
+// 素材のキー: A8 は a8mat の 4 トークン、もしもは moshimo:<p_id>:<pl_id>（scripts/lib/affiliate-link-keys.mjs）。
 const SCAN_DIRS = ['src', 'content/site', 'content/note'];
 // note 本文で生 mat を許す唯一の条件（registry の surfaces）。
 const NOTE_SURFACE = 'note-article';
@@ -102,8 +102,7 @@ for (const file of files) {
   const isMdx = file.startsWith('content/site');
   const isNote = file.startsWith('content/note');
   for (const wid of foreignSiteWids(text)) foreignSite.push({ file, wid });
-  for (const m of text.matchAll(MAT_RE)) {
-    const mat = m[1];
+  for (const mat of linkKeys(text)) {
     // MDX 本文に生 mat 直書きは禁止（preset コンポーネント経由のみ）。既知/未知を問わず ERROR。
     if (isMdx) mdxRaw.push({ file, mat });
     if (known.has(mat)) {

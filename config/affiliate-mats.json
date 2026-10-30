@@ -112,6 +112,19 @@
       "definedIn": "未配線（YouTube 概要欄などで単独リンクにする場合の予備。YouTube は A8 掲載サイト未登録）",
       "expiresAt": null,
       "note": "2026-09-24 A8実機で確認。同じプログラム s00000012624009 のテキスト素材。サイトでは商品リンク（1NIX2A）を使う。"
+    },
+    {
+      "mat": "moshimo:4183:57940",
+      "program": "kenchiku-tenshoku",
+      "label": "建築転職（建築系技術者に特化した転職エージェント・もしも）",
+      "surfaces": [
+        "sidebar",
+        "inline",
+        "article-end"
+      ],
+      "definedIn": "src/config/affiliate-creatives.ts (KENCHIKU_TENSHOKU_CAREER_AD・PROGRAM_ASSETS.kenchiku-tenshoku)",
+      "expiresAt": null,
+      "note": "2026-10-30 もしもの原稿取得（shop_site_id=672381＝doboku-note・a_id 5868364。stats47 は a_id 5868368）で 250×250 の pl_id 57940 を写した。成果は面談実施 ¥16,000・審査なし・承認期限 45 日。No.1 表記の素材は使わない。"
     }
   ]
 }

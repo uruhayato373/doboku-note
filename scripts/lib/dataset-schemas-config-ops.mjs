@@ -290,7 +290,10 @@ export const ConfigAffiliateMats = z
       .array(
         z
           .object({
-            mat: z.string().regex(/^[0-9A-Z]+(\+[0-9A-Z]+){3}$/, 'A8 の a8mat（4 つのトークンを + でつなぐ）'),
+            mat: z
+              .string()
+              .regex(/^(?:[0-9A-Z]+(\+[0-9A-Z]+){3}|moshimo:\d+:\d+)$/, 'A8 の a8mat（4 つのトークンを + でつなぐ）か moshimo:<p_id>:<pl_id>')
+              .describe('素材のキー（scripts/lib/affiliate-link-keys.mjs）'),
             program: z.string().regex(/^[a-z][a-z0-9-]*$/).describe('案件の id（affiliate.catalog の programs のキー）'),
             label: text.describe('案件の表示名'),
             surfaces: z.array(text).describe('この mat を置く面（sidebar・inline・article-end・note-article・links）。未配線の予備は空'),
