@@ -8,7 +8,7 @@
       "work": "pe1-kiso-2of3-reliability",
       "account": "youtube:main",
       "format": "longform",
-      "status": "draft",
+      "status": "rendered",
       "media": {
         "cover": "pe-first-stage/pe1-kiso-2of3-reliability/youtube.longform/cover",
         "scene-001": "pe-first-stage/pe1-kiso-2of3-reliability/youtube.longform/scene-001",
@@ -27,6 +27,24 @@
         "scene-sheet": "pe-first-stage/pe1-kiso-2of3-reliability/youtube.longform/scene-sheet",
         "preview-metrics": "pe-first-stage/pe1-kiso-2of3-reliability/youtube.longform/preview-metrics",
         "contact-sheet": "pe-first-stage/pe1-kiso-2of3-reliability/youtube.longform/contact-sheet"
+      },
+      "copy": "content/sns/video-packs/pe-first-stage/pe1-kiso-2of3-reliability/youtube.json#longform",
+      "publishAt": "2026-11-04T05:30:00Z",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "user",
+          "at": "2026-10-30T23:46:40.146Z",
+          "digest": "8f7e0aa97c71d3a6c23cdf7ebe77f9a22d4185deef8a1233f574dfdb16c9f1b3"
+        }
+      },
+      "approval": {
+        "by": "user",
+        "at": "2026-10-30T23:46:40.425Z",
+        "contentSha256": "76624c9ef21bd23a1b32bf491df117987c8f8b15764d96ec9509c34c1efb16fa"
+      },
+      "times": {
+        "rendered": "2026-10-30T23:46:52.936Z"
       }
     },
     {
@@ -114,7 +132,7 @@
       "work": "pe1-kiso-gradient-length",
       "account": "youtube:main",
       "format": "longform",
-      "status": "draft",
+      "status": "rendered",
       "media": {
         "cover": "pe-first-stage/pe1-kiso-gradient-length/youtube.longform/cover",
         "scene-001": "pe-first-stage/pe1-kiso-gradient-length/youtube.longform/scene-001",
@@ -135,6 +153,24 @@
         "scene-sheet": "pe-first-stage/pe1-kiso-gradient-length/youtube.longform/scene-sheet",
         "preview-metrics": "pe-first-stage/pe1-kiso-gradient-length/youtube.longform/preview-metrics",
         "contact-sheet": "pe-first-stage/pe1-kiso-gradient-length/youtube.longform/contact-sheet"
+      },
+      "copy": "content/sns/video-packs/pe-first-stage/pe1-kiso-gradient-length/youtube.json#longform",
+      "publishAt": "2026-11-04T23:30:00Z",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "user",
+          "at": "2026-10-30T23:46:41.278Z",
+          "digest": "efa04debfb00478fffb67d5a32450b34f90f13ceaa18c498e94a128db324ea15"
+        }
+      },
+      "approval": {
+        "by": "user",
+        "at": "2026-10-30T23:46:41.564Z",
+        "contentSha256": "202a7939326c2169f025a00fe1cdc94df7b607c53bcfd37ea453a363eec6ddc5"
+      },
+      "times": {
+        "rendered": "2026-10-30T23:46:54.113Z"
       }
     },
     {

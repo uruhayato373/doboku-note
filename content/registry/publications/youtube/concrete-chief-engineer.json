@@ -186,7 +186,7 @@
       "work": "shunin-chinka-hibiware-genin",
       "account": "youtube:main",
       "format": "longform",
-      "status": "draft",
+      "status": "rendered",
       "media": {
         "cover": "concrete-chief-engineer/shunin-chinka-hibiware-genin/youtube.longform/cover",
         "scene-001": "concrete-chief-engineer/shunin-chinka-hibiware-genin/youtube.longform/scene-001",
@@ -207,6 +207,24 @@
         "scene-sheet": "concrete-chief-engineer/shunin-chinka-hibiware-genin/youtube.longform/scene-sheet",
         "preview-metrics": "concrete-chief-engineer/shunin-chinka-hibiware-genin/youtube.longform/preview-metrics",
         "contact-sheet": "concrete-chief-engineer/shunin-chinka-hibiware-genin/youtube.longform/contact-sheet"
+      },
+      "copy": "content/sns/video-packs/concrete-chief-engineer/shunin-chinka-hibiware-genin/youtube.json#longform",
+      "publishAt": "2026-11-05T05:30:00Z",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "user",
+          "at": "2026-10-30T23:46:41.848Z",
+          "digest": "42c9cd77feee5582e67a1c2e30d125373959ac27908bbdc90731c96a67a2f102"
+        }
+      },
+      "approval": {
+        "by": "user",
+        "at": "2026-10-30T23:46:42.130Z",
+        "contentSha256": "504f6990ec2eedc30cec1e06782085022505cfb269f20e477456c0aa2b9f7088"
+      },
+      "times": {
+        "rendered": "2026-10-30T23:46:54.683Z"
       }
     },
     {
@@ -957,7 +975,7 @@
       "work": "shunin-kyoudo-hantei-2jouken",
       "account": "youtube:main",
       "format": "longform",
-      "status": "draft",
+      "status": "rendered",
       "media": {
         "cover": "concrete-chief-engineer/shunin-kyoudo-hantei-2jouken/youtube.longform/cover",
         "scene-001": "concrete-chief-engineer/shunin-kyoudo-hantei-2jouken/youtube.longform/scene-001",
@@ -977,6 +995,24 @@
         "contact-sheet": "concrete-chief-engineer/shunin-kyoudo-hantei-2jouken/youtube.longform/contact-sheet",
         "scene-sheet": "concrete-chief-engineer/shunin-kyoudo-hantei-2jouken/youtube.longform/scene-sheet",
         "preview-metrics": "concrete-chief-engineer/shunin-kyoudo-hantei-2jouken/youtube.longform/preview-metrics"
+      },
+      "copy": "content/sns/video-packs/concrete-chief-engineer/shunin-kyoudo-hantei-2jouken/youtube.json#longform",
+      "publishAt": "2026-11-05T11:30:00Z",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "user",
+          "at": "2026-10-30T23:46:42.441Z",
+          "digest": "36cb0c58594421625c6187d6ee063347b675810a8b2852fd1d8c3188a2e9f4a0"
+        }
+      },
+      "approval": {
+        "by": "user",
+        "at": "2026-10-30T23:46:42.733Z",
+        "contentSha256": "55be6d89a95eda23b80a8e647c8f76641cfa9a5d2cee61fb38e624ec84adf141"
+      },
+      "times": {
+        "rendered": "2026-10-30T23:46:55.246Z"
       }
     },
     {
@@ -2062,7 +2098,7 @@
       "work": "shunin-shoki-3kyokusen",
       "account": "youtube:main",
       "format": "longform",
-      "status": "draft",
+      "status": "rendered",
       "media": {
         "cover": "concrete-chief-engineer/shunin-shoki-3kyokusen/youtube.longform/cover",
         "scene-001": "concrete-chief-engineer/shunin-shoki-3kyokusen/youtube.longform/scene-001",
@@ -2081,6 +2117,24 @@
         "contact-sheet": "concrete-chief-engineer/shunin-shoki-3kyokusen/youtube.longform/contact-sheet",
         "scene-sheet": "concrete-chief-engineer/shunin-shoki-3kyokusen/youtube.longform/scene-sheet",
         "preview-metrics": "concrete-chief-engineer/shunin-shoki-3kyokusen/youtube.longform/preview-metrics"
+      },
+      "copy": "content/sns/video-packs/concrete-chief-engineer/shunin-shoki-3kyokusen/youtube.json#longform",
+      "publishAt": "2026-11-04T11:30:00Z",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "user",
+          "at": "2026-10-30T23:46:40.708Z",
+          "digest": "f20a82d73e5241cb656a5537582841df4ed0e3aacde488cad2aac0137c72af48"
+        }
+      },
+      "approval": {
+        "by": "user",
+        "at": "2026-10-30T23:46:40.991Z",
+        "contentSha256": "3cd1e147bb3af10293de238fe7a8d440fa421d2f9748b9ce11b93e99ccf80168"
+      },
+      "times": {
+        "rendered": "2026-10-30T23:46:53.478Z"
       }
     },
     {

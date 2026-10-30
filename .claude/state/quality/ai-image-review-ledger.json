@@ -2519,6 +2519,84 @@
       "reason": "shunin-cement-4kagoubutsuのscene-015。採用PNGのSHAと生成記録が一致。全場面シートで「次の一歩」の図と台本の対応、資格名・主要ラベルの判読、表示切れを確認。",
       "reviewedAt": "2026-10-28T10:40:05.769Z"
     },
+    "media:concrete-chief-engineer/shunin-chinka-hibiware-genin/youtube.longform/cover": {
+      "sha": "17e65b4d16697c09",
+      "verdict": "ok",
+      "reason": "Codexが全場面シートを目視。「沈下ひび割れと乾燥収縮」の図形・主要文字・数値を台本および場面指定と照合し、誤記や生成崩れを認めない。",
+      "reviewedAt": "2026-10-30T23:45:47.591Z"
+    },
+    "media:concrete-chief-engineer/shunin-chinka-hibiware-genin/youtube.longform/scene-001": {
+      "sha": "17e65b4d16697c09",
+      "verdict": "ok",
+      "reason": "Codexが全場面シートを目視。「沈下ひび割れと乾燥収縮」の図形・主要文字・数値を台本および場面指定と照合し、誤記や生成崩れを認めない。",
+      "reviewedAt": "2026-10-30T23:45:47.597Z"
+    },
+    "media:concrete-chief-engineer/shunin-chinka-hibiware-genin/youtube.longform/scene-002": {
+      "sha": "2390c62cb4b2e328",
+      "verdict": "ok",
+      "reason": "Codexが全場面シートを目視。「誤解：ひびはどれも乾燥収縮」の図形・主要文字・数値を台本および場面指定と照合し、誤記や生成崩れを認めない。",
+      "reviewedAt": "2026-10-30T23:45:47.597Z"
+    },
+    "media:concrete-chief-engineer/shunin-chinka-hibiware-genin/youtube.longform/scene-003": {
+      "sha": "124dd5fa62411285",
+      "verdict": "ok",
+      "reason": "Codexが全場面シートを目視。「時間の軸で並べる」の図形・主要文字・数値を台本および場面指定と照合し、誤記や生成崩れを認めない。",
+      "reviewedAt": "2026-10-30T23:45:47.597Z"
+    },
+    "media:concrete-chief-engineer/shunin-chinka-hibiware-genin/youtube.longform/scene-004": {
+      "sha": "956d6aab882117a5",
+      "verdict": "ok",
+      "reason": "Codexが全場面シートを目視。「1. 打込み直後の断面」の図形・主要文字・数値を台本および場面指定と照合し、誤記や生成崩れを認めない。",
+      "reviewedAt": "2026-10-30T23:45:47.597Z"
+    },
+    "media:concrete-chief-engineer/shunin-chinka-hibiware-genin/youtube.longform/scene-005": {
+      "sha": "dcae017da79b31d8",
+      "verdict": "ok",
+      "reason": "Codexが全場面シートを目視。「2. 沈下を鉄筋が止める」の図形・主要文字・数値を台本および場面指定と照合し、誤記や生成崩れを認めない。",
+      "reviewedAt": "2026-10-30T23:45:47.597Z"
+    },
+    "media:concrete-chief-engineer/shunin-chinka-hibiware-genin/youtube.longform/scene-006": {
+      "sha": "cbcf23d0e9d5992b",
+      "verdict": "ok",
+      "reason": "Codexが全場面シートを目視。「3. 乾燥収縮は別の仕組みと対策」の図形・主要文字・数値を台本および場面指定と照合し、誤記や生成崩れを認めない。",
+      "reviewedAt": "2026-10-30T23:45:47.597Z"
+    },
+    "media:concrete-chief-engineer/shunin-chinka-hibiware-genin/youtube.longform/scene-007": {
+      "sha": "2390c62cb4b2e328",
+      "verdict": "ok",
+      "reason": "Codexが全場面シートを目視。「2つのひびの原因を比べる」の図形・主要文字・数値を台本および場面指定と照合し、誤記や生成崩れを認めない。",
+      "reviewedAt": "2026-10-30T23:45:47.597Z"
+    },
+    "media:concrete-chief-engineer/shunin-chinka-hibiware-genin/youtube.longform/scene-008": {
+      "sha": "53baff48d5e1181b",
+      "verdict": "ok",
+      "reason": "Codexが全場面シートを目視。「4. 沈下ひび割れの対策」の図形・主要文字・数値を台本および場面指定と照合し、誤記や生成崩れを認めない。",
+      "reviewedAt": "2026-10-30T23:45:47.597Z"
+    },
+    "media:concrete-chief-engineer/shunin-chinka-hibiware-genin/youtube.longform/scene-009": {
+      "sha": "f422e92164f34bed",
+      "verdict": "ok",
+      "reason": "Codexが全場面シートを目視。「落とし穴：膨張材」の図形・主要文字・数値を台本および場面指定と照合し、誤記や生成崩れを認めない。",
+      "reviewedAt": "2026-10-30T23:45:47.597Z"
+    },
+    "media:concrete-chief-engineer/shunin-chinka-hibiware-genin/youtube.longform/scene-010": {
+      "sha": "4938abe6e57ec231",
+      "verdict": "ok",
+      "reason": "Codexが全場面シートを目視。「仮例：スラブの上端筋に沿ったひび」の図形・主要文字・数値を台本および場面指定と照合し、誤記や生成崩れを認めない。",
+      "reviewedAt": "2026-10-30T23:45:47.597Z"
+    },
+    "media:concrete-chief-engineer/shunin-chinka-hibiware-genin/youtube.longform/scene-011": {
+      "sha": "145ad3b0c9950176",
+      "verdict": "ok",
+      "reason": "Codexが全場面シートを目視。「まとめ」の図形・主要文字・数値を台本および場面指定と照合し、誤記や生成崩れを認めない。",
+      "reviewedAt": "2026-10-30T23:45:47.597Z"
+    },
+    "media:concrete-chief-engineer/shunin-chinka-hibiware-genin/youtube.longform/scene-012": {
+      "sha": "8db159aa80ac7a53",
+      "verdict": "ok",
+      "reason": "Codexが全場面シートを目視。「R8予想50問＋施工14問で仕上げる」の図形・主要文字・数値を台本および場面指定と照合し、誤記や生成崩れを認めない。",
+      "reviewedAt": "2026-10-30T23:45:47.597Z"
+    },
     "media:concrete-chief-engineer/shunin-chokuzen-senryaku/work/candidate-cover": {
       "sha": "8612c666d23f8e35",
       "verdict": "ok",
@@ -2812,6 +2890,78 @@
       "verdict": "ok",
       "reason": "完成場面10枚を確認。管理限界と規格限界の区別、仮例の数値、Cpの説明を台本と照合",
       "reviewedAt": "2026-10-28T12:08:19.256Z"
+    },
+    "media:concrete-chief-engineer/shunin-kyoudo-hantei-2jouken/youtube.longform/cover": {
+      "sha": "1582b091d6f44a99",
+      "verdict": "ok",
+      "reason": "Codexが全場面シートを目視。「合否は平均値だけでは決まらない」の図形・主要文字・数値を台本および場面指定と照合し、誤記や生成崩れを認めない。",
+      "reviewedAt": "2026-10-30T23:45:47.597Z"
+    },
+    "media:concrete-chief-engineer/shunin-kyoudo-hantei-2jouken/youtube.longform/scene-001": {
+      "sha": "1582b091d6f44a99",
+      "verdict": "ok",
+      "reason": "Codexが全場面シートを目視。「合否は平均値だけでは決まらない」の図形・主要文字・数値を台本および場面指定と照合し、誤記や生成崩れを認めない。",
+      "reviewedAt": "2026-10-30T23:45:47.597Z"
+    },
+    "media:concrete-chief-engineer/shunin-kyoudo-hantei-2jouken/youtube.longform/scene-002": {
+      "sha": "802f5dbb30ab0114",
+      "verdict": "ok",
+      "reason": "Codexが全場面シートを目視。「合格の条件は二つ」の図形・主要文字・数値を台本および場面指定と照合し、誤記や生成崩れを認めない。",
+      "reviewedAt": "2026-10-30T23:45:47.597Z"
+    },
+    "media:concrete-chief-engineer/shunin-kyoudo-hantei-2jouken/youtube.longform/scene-003": {
+      "sha": "2a8067ef809dc259",
+      "verdict": "ok",
+      "reason": "Codexが全場面シートを目視。「誤解：平均が高ければ合格」の図形・主要文字・数値を台本および場面指定と照合し、誤記や生成崩れを認めない。",
+      "reviewedAt": "2026-10-30T23:45:47.597Z"
+    },
+    "media:concrete-chief-engineer/shunin-kyoudo-hantei-2jouken/youtube.longform/scene-004": {
+      "sha": "b831871d7acd37ce",
+      "verdict": "ok",
+      "reason": "Codexが全場面シートを目視。「条件1：三回の平均を呼び強度と比べる」の図形・主要文字・数値を台本および場面指定と照合し、誤記や生成崩れを認めない。",
+      "reviewedAt": "2026-10-30T23:45:47.597Z"
+    },
+    "media:concrete-chief-engineer/shunin-kyoudo-hantei-2jouken/youtube.longform/scene-005": {
+      "sha": "f1092472fb0e35c1",
+      "verdict": "ok",
+      "reason": "Codexが全場面シートを目視。「条件2：一回ごとに85%の線と比べる」の図形・主要文字・数値を台本および場面指定と照合し、誤記や生成崩れを認めない。",
+      "reviewedAt": "2026-10-30T23:45:47.597Z"
+    },
+    "media:concrete-chief-engineer/shunin-kyoudo-hantei-2jouken/youtube.longform/scene-006": {
+      "sha": "c3db53b0c839a547",
+      "verdict": "ok",
+      "reason": "Codexが全場面シートを目視。「仮例1：平均は足りるが不合格」の図形・主要文字・数値を台本および場面指定と照合し、誤記や生成崩れを認めない。",
+      "reviewedAt": "2026-10-30T23:45:47.597Z"
+    },
+    "media:concrete-chief-engineer/shunin-kyoudo-hantei-2jouken/youtube.longform/scene-007": {
+      "sha": "9e6a9978071ca275",
+      "verdict": "ok",
+      "reason": "Codexが全場面シートを目視。「仮例2：一回ごとは足りるが不合格」の図形・主要文字・数値を台本および場面指定と照合し、誤記や生成崩れを認めない。",
+      "reviewedAt": "2026-10-30T23:45:47.597Z"
+    },
+    "media:concrete-chief-engineer/shunin-kyoudo-hantei-2jouken/youtube.longform/scene-008": {
+      "sha": "b19e0f068a36081e",
+      "verdict": "ok",
+      "reason": "Codexが全場面シートを目視。「判定の三手順」の図形・主要文字・数値を台本および場面指定と照合し、誤記や生成崩れを認めない。",
+      "reviewedAt": "2026-10-30T23:45:47.597Z"
+    },
+    "media:concrete-chief-engineer/shunin-kyoudo-hantei-2jouken/youtube.longform/scene-009": {
+      "sha": "9ef7821e8ac2b5f0",
+      "verdict": "ok",
+      "reason": "Codexが全場面シートを目視。「一回の試験結果と供試体一個はちがう」の図形・主要文字・数値を台本および場面指定と照合し、誤記や生成崩れを認めない。",
+      "reviewedAt": "2026-10-30T23:45:47.597Z"
+    },
+    "media:concrete-chief-engineer/shunin-kyoudo-hantei-2jouken/youtube.longform/scene-010": {
+      "sha": "802f5dbb30ab0114",
+      "verdict": "ok",
+      "reason": "Codexが全場面シートを目視。「まとめ」の図形・主要文字・数値を台本および場面指定と照合し、誤記や生成崩れを認めない。",
+      "reviewedAt": "2026-10-30T23:45:47.597Z"
+    },
+    "media:concrete-chief-engineer/shunin-kyoudo-hantei-2jouken/youtube.longform/scene-011": {
+      "sha": "d4357624ad96670b",
+      "verdict": "ok",
+      "reason": "Codexが全場面シートを目視。「択一演習で確かめる」の図形・主要文字・数値を台本および場面指定と照合し、誤記や生成崩れを認めない。",
+      "reviewedAt": "2026-10-30T23:45:47.597Z"
     },
     "media:concrete-chief-engineer/shunin-ochiru-shouronbun/work/candidate-cover": {
       "sha": "60ab1c34582e50a2",
@@ -3133,6 +3283,72 @@
       "verdict": "ok",
       "reason": "画像は candidate-cta と同一（ハッシュ d960d349）。「次の学習へ」「分野別の要点」「試験の全体像」「小論文の書き方」「概要欄のリンクから」が指示と一字一句一致し、図の崩れも余計な語もない。内容は約846pxまでで、字幕帯は空いている。",
       "reviewedAt": "2026-10-26T22:22:56.347Z"
+    },
+    "media:concrete-chief-engineer/shunin-shoki-3kyokusen/youtube.longform/cover": {
+      "sha": "2ecab82ee210201b",
+      "verdict": "ok",
+      "reason": "Codexが全場面シートを目視。「初期材齢の3曲線」の図形・主要文字・数値を台本および場面指定と照合し、誤記や生成崩れを認めない。",
+      "reviewedAt": "2026-10-30T23:45:47.597Z"
+    },
+    "media:concrete-chief-engineer/shunin-shoki-3kyokusen/youtube.longform/scene-001": {
+      "sha": "2ecab82ee210201b",
+      "verdict": "ok",
+      "reason": "Codexが全場面シートを目視。「初期材齢の3曲線」の図形・主要文字・数値を台本および場面指定と照合し、誤記や生成崩れを認めない。",
+      "reviewedAt": "2026-10-30T23:45:47.597Z"
+    },
+    "media:concrete-chief-engineer/shunin-shoki-3kyokusen/youtube.longform/scene-002": {
+      "sha": "57d34b11c0b11fb8",
+      "verdict": "ok",
+      "reason": "Codexが全場面シートを目視。「誤解：どれも右上がりで同じに見える」の図形・主要文字・数値を台本および場面指定と照合し、誤記や生成崩れを認めない。",
+      "reviewedAt": "2026-10-30T23:45:47.597Z"
+    },
+    "media:concrete-chief-engineer/shunin-shoki-3kyokusen/youtube.longform/scene-003": {
+      "sha": "dd11cfad2d5e0e55",
+      "verdict": "ok",
+      "reason": "Codexが全場面シートを目視。「見分けの手順（3点）」の図形・主要文字・数値を台本および場面指定と照合し、誤記や生成崩れを認めない。",
+      "reviewedAt": "2026-10-30T23:45:47.597Z"
+    },
+    "media:concrete-chief-engineer/shunin-shoki-3kyokusen/youtube.longform/scene-004": {
+      "sha": "9d90ba57193a1163",
+      "verdict": "ok",
+      "reason": "Codexが全場面シートを目視。「断熱温度上昇量」の図形・主要文字・数値を台本および場面指定と照合し、誤記や生成崩れを認めない。",
+      "reviewedAt": "2026-10-30T23:45:47.597Z"
+    },
+    "media:concrete-chief-engineer/shunin-shoki-3kyokusen/youtube.longform/scene-005": {
+      "sha": "062539bd400dc720",
+      "verdict": "ok",
+      "reason": "Codexが全場面シートを目視。「凝結試験の貫入抵抗値」の図形・主要文字・数値を台本および場面指定と照合し、誤記や生成崩れを認めない。",
+      "reviewedAt": "2026-10-30T23:45:47.597Z"
+    },
+    "media:concrete-chief-engineer/shunin-shoki-3kyokusen/youtube.longform/scene-006": {
+      "sha": "0d92a01181803932",
+      "verdict": "ok",
+      "reason": "Codexが全場面シートを目視。「ブリーディング水の累計」の図形・主要文字・数値を台本および場面指定と照合し、誤記や生成崩れを認めない。",
+      "reviewedAt": "2026-10-30T23:45:47.597Z"
+    },
+    "media:concrete-chief-engineer/shunin-shoki-3kyokusen/youtube.longform/scene-007": {
+      "sha": "57d34b11c0b11fb8",
+      "verdict": "ok",
+      "reason": "Codexが全場面シートを目視。「3曲線の対応」の図形・主要文字・数値を台本および場面指定と照合し、誤記や生成崩れを認めない。",
+      "reviewedAt": "2026-10-30T23:45:47.597Z"
+    },
+    "media:concrete-chief-engineer/shunin-shoki-3kyokusen/youtube.longform/scene-008": {
+      "sha": "dd11cfad2d5e0e55",
+      "verdict": "ok",
+      "reason": "Codexが全場面シートを目視。「解き方の順番」の図形・主要文字・数値を台本および場面指定と照合し、誤記や生成崩れを認めない。",
+      "reviewedAt": "2026-10-30T23:45:47.597Z"
+    },
+    "media:concrete-chief-engineer/shunin-shoki-3kyokusen/youtube.longform/scene-009": {
+      "sha": "57d34b11c0b11fb8",
+      "verdict": "ok",
+      "reason": "Codexが全場面シートを目視。「まとめ」の図形・主要文字・数値を台本および場面指定と照合し、誤記や生成崩れを認めない。",
+      "reviewedAt": "2026-10-30T23:45:47.597Z"
+    },
+    "media:concrete-chief-engineer/shunin-shoki-3kyokusen/youtube.longform/scene-010": {
+      "sha": "8db159aa80ac7a53",
+      "verdict": "ok",
+      "reason": "Codexが全場面シートを目視。「R8 予想50問＋施工14問」の図形・主要文字・数値を台本および場面指定と照合し、誤記や生成崩れを認めない。",
+      "reviewedAt": "2026-10-30T23:45:47.597Z"
     },
     "media:concrete-chief-engineer/shunin-shouronbun-kousei/work/candidate-cover": {
       "sha": "192d62f7eb14c46a",
@@ -3794,6 +4010,72 @@
       "reason": "独立AI画像監査：最終採用PNGを原寸と360pxで実見。指定4文言・ポーズ・顔と手指・安全域に問題なし。ユーザー承認は含まない。",
       "reviewedAt": "2026-10-11T03:36:30.184Z"
     },
+    "media:pe-first-stage/pe1-kiso-2of3-reliability/youtube.longform/cover": {
+      "sha": "ee5d6f0e2161e39a",
+      "verdict": "ok",
+      "reason": "Codexが全場面シートを目視。「多数決の信頼度 足し忘れ」の図形・主要文字・数値を台本および場面指定と照合し、誤記や生成崩れを認めない。",
+      "reviewedAt": "2026-10-30T23:45:47.597Z"
+    },
+    "media:pe-first-stage/pe1-kiso-2of3-reliability/youtube.longform/scene-001": {
+      "sha": "ee5d6f0e2161e39a",
+      "verdict": "ok",
+      "reason": "Codexが全場面シートを目視。「多数決の信頼度 足し忘れ」の図形・主要文字・数値を台本および場面指定と照合し、誤記や生成崩れを認めない。",
+      "reviewedAt": "2026-10-30T23:45:47.597Z"
+    },
+    "media:pe-first-stage/pe1-kiso-2of3-reliability/youtube.longform/scene-002": {
+      "sha": "1ea7e872fc4e598f",
+      "verdict": "ok",
+      "reason": "Codexが全場面シートを目視。「結論：2つの場合を足す」の図形・主要文字・数値を台本および場面指定と照合し、誤記や生成崩れを認めない。",
+      "reviewedAt": "2026-10-30T23:45:47.597Z"
+    },
+    "media:pe-first-stage/pe1-kiso-2of3-reliability/youtube.longform/scene-003": {
+      "sha": "038d9747d71c57b8",
+      "verdict": "ok",
+      "reason": "Codexが全場面シートを目視。「つまずきやすい2つの例」の図形・主要文字・数値を台本および場面指定と照合し、誤記や生成崩れを認めない。",
+      "reviewedAt": "2026-10-30T23:45:47.597Z"
+    },
+    "media:pe-first-stage/pe1-kiso-2of3-reliability/youtube.longform/scene-004": {
+      "sha": "ea6fa9d846d61bd0",
+      "verdict": "ok",
+      "reason": "Codexが全場面シートを目視。「故障する1個は3通り」の図形・主要文字・数値を台本および場面指定と照合し、誤記や生成崩れを認めない。",
+      "reviewedAt": "2026-10-30T23:45:47.597Z"
+    },
+    "media:pe-first-stage/pe1-kiso-2of3-reliability/youtube.longform/scene-005": {
+      "sha": "321cd3c373cc984c",
+      "verdict": "ok",
+      "reason": "Codexが全場面シートを目視。「p＝0.8 でちょうど2個正常」の図形・主要文字・数値を台本および場面指定と照合し、誤記や生成崩れを認めない。",
+      "reviewedAt": "2026-10-30T23:45:47.597Z"
+    },
+    "media:pe-first-stage/pe1-kiso-2of3-reliability/youtube.longform/scene-006": {
+      "sha": "bd6c6b1c3e7bd0f4",
+      "verdict": "ok",
+      "reason": "Codexが全場面シートを目視。「3個すべて正常」の図形・主要文字・数値を台本および場面指定と照合し、誤記や生成崩れを認めない。",
+      "reviewedAt": "2026-10-30T23:45:47.597Z"
+    },
+    "media:pe-first-stage/pe1-kiso-2of3-reliability/youtube.longform/scene-007": {
+      "sha": "9e15b275b9f7a75d",
+      "verdict": "ok",
+      "reason": "Codexが全場面シートを目視。「足して系の信頼度」の図形・主要文字・数値を台本および場面指定と照合し、誤記や生成崩れを認めない。",
+      "reviewedAt": "2026-10-30T23:45:47.597Z"
+    },
+    "media:pe-first-stage/pe1-kiso-2of3-reliability/youtube.longform/scene-008": {
+      "sha": "0f194be76f54d535",
+      "verdict": "ok",
+      "reason": "Codexが全場面シートを目視。「検算の2つの方法」の図形・主要文字・数値を台本および場面指定と照合し、誤記や生成崩れを認めない。",
+      "reviewedAt": "2026-10-30T23:45:47.597Z"
+    },
+    "media:pe-first-stage/pe1-kiso-2of3-reliability/youtube.longform/scene-009": {
+      "sha": "9e15b275b9f7a75d",
+      "verdict": "ok",
+      "reason": "Codexが全場面シートを目視。「まとめ：3つの確認」の図形・主要文字・数値を台本および場面指定と照合し、誤記や生成崩れを認めない。",
+      "reviewedAt": "2026-10-30T23:45:47.597Z"
+    },
+    "media:pe-first-stage/pe1-kiso-2of3-reliability/youtube.longform/scene-010": {
+      "sha": "1c94e1a61db608b4",
+      "verdict": "ok",
+      "reason": "Codexが全場面シートを目視。「直前パック（専門は建設部門）」の図形・主要文字・数値を台本および場面指定と照合し、誤記や生成崩れを認めない。",
+      "reviewedAt": "2026-10-30T23:45:47.597Z"
+    },
     "media:pe-first-stage/pe1-kiso-2s-complement/youtube.longform/cover": {
       "sha": "42c1c517bd1166de",
       "verdict": "ok",
@@ -3865,6 +4147,84 @@
       "verdict": "ok",
       "reason": "過去問PDF合本と直前暗記ノートの2資料カード、建設部門と概要欄案内を正確に表示",
       "reviewedAt": "2026-10-28T22:36:58.513Z"
+    },
+    "media:pe-first-stage/pe1-kiso-gradient-length/youtube.longform/cover": {
+      "sha": "c370949e6d191122",
+      "verdict": "ok",
+      "reason": "Codexが全場面シートを目視。「勾配ベクトルと長さは別物」の図形・主要文字・数値を台本および場面指定と照合し、誤記や生成崩れを認めない。",
+      "reviewedAt": "2026-10-30T23:45:47.597Z"
+    },
+    "media:pe-first-stage/pe1-kiso-gradient-length/youtube.longform/scene-001": {
+      "sha": "c370949e6d191122",
+      "verdict": "ok",
+      "reason": "Codexが全場面シートを目視。「勾配ベクトルと長さは別物」の図形・主要文字・数値を台本および場面指定と照合し、誤記や生成崩れを認めない。",
+      "reviewedAt": "2026-10-30T23:45:47.597Z"
+    },
+    "media:pe-first-stage/pe1-kiso-gradient-length/youtube.longform/scene-002": {
+      "sha": "eca4c25c83cdc057",
+      "verdict": "ok",
+      "reason": "Codexが全場面シートを目視。「結論：四手順で分ける」の図形・主要文字・数値を台本および場面指定と照合し、誤記や生成崩れを認めない。",
+      "reviewedAt": "2026-10-30T23:45:47.597Z"
+    },
+    "media:pe-first-stage/pe1-kiso-gradient-length/youtube.longform/scene-003": {
+      "sha": "4cc55da3b0f36119",
+      "verdict": "ok",
+      "reason": "Codexが全場面シートを目視。「つまずきやすい点」の図形・主要文字・数値を台本および場面指定と照合し、誤記や生成崩れを認めない。",
+      "reviewedAt": "2026-10-30T23:45:47.597Z"
+    },
+    "media:pe-first-stage/pe1-kiso-gradient-length/youtube.longform/scene-004": {
+      "sha": "8e1c44301309ccfd",
+      "verdict": "ok",
+      "reason": "Codexが全場面シートを目視。「仮の例」の図形・主要文字・数値を台本および場面指定と照合し、誤記や生成崩れを認めない。",
+      "reviewedAt": "2026-10-30T23:45:47.597Z"
+    },
+    "media:pe-first-stage/pe1-kiso-gradient-length/youtube.longform/scene-005": {
+      "sha": "da2932988632272c",
+      "verdict": "ok",
+      "reason": "Codexが全場面シートを目視。「偏微分」の図形・主要文字・数値を台本および場面指定と照合し、誤記や生成崩れを認めない。",
+      "reviewedAt": "2026-10-30T23:45:47.597Z"
+    },
+    "media:pe-first-stage/pe1-kiso-gradient-length/youtube.longform/scene-006": {
+      "sha": "57c32016b58cb62d",
+      "verdict": "ok",
+      "reason": "Codexが全場面シートを目視。「代入」の図形・主要文字・数値を台本および場面指定と照合し、誤記や生成崩れを認めない。",
+      "reviewedAt": "2026-10-30T23:45:47.597Z"
+    },
+    "media:pe-first-stage/pe1-kiso-gradient-length/youtube.longform/scene-007": {
+      "sha": "39587871ce42848a",
+      "verdict": "ok",
+      "reason": "Codexが全場面シートを目視。「勾配ベクトル」の図形・主要文字・数値を台本および場面指定と照合し、誤記や生成崩れを認めない。",
+      "reviewedAt": "2026-10-30T23:45:47.597Z"
+    },
+    "media:pe-first-stage/pe1-kiso-gradient-length/youtube.longform/scene-008": {
+      "sha": "a2af8128ea905389",
+      "verdict": "ok",
+      "reason": "Codexが全場面シートを目視。「ノルム」の図形・主要文字・数値を台本および場面指定と照合し、誤記や生成崩れを認めない。",
+      "reviewedAt": "2026-10-30T23:45:47.597Z"
+    },
+    "media:pe-first-stage/pe1-kiso-gradient-length/youtube.longform/scene-009": {
+      "sha": "4cc55da3b0f36119",
+      "verdict": "ok",
+      "reason": "Codexが全場面シートを目視。「よくある誤り（独自例）」の図形・主要文字・数値を台本および場面指定と照合し、誤記や生成崩れを認めない。",
+      "reviewedAt": "2026-10-30T23:45:47.597Z"
+    },
+    "media:pe-first-stage/pe1-kiso-gradient-length/youtube.longform/scene-010": {
+      "sha": "39587871ce42848a",
+      "verdict": "ok",
+      "reason": "Codexが全場面シートを目視。「二つの情報」の図形・主要文字・数値を台本および場面指定と照合し、誤記や生成崩れを認めない。",
+      "reviewedAt": "2026-10-30T23:45:47.597Z"
+    },
+    "media:pe-first-stage/pe1-kiso-gradient-length/youtube.longform/scene-011": {
+      "sha": "eca4c25c83cdc057",
+      "verdict": "ok",
+      "reason": "Codexが全場面シートを目視。「まとめ」の図形・主要文字・数値を台本および場面指定と照合し、誤記や生成崩れを認めない。",
+      "reviewedAt": "2026-10-30T23:45:47.597Z"
+    },
+    "media:pe-first-stage/pe1-kiso-gradient-length/youtube.longform/scene-012": {
+      "sha": "aeb8be72a1ac057a",
+      "verdict": "ok",
+      "reason": "Codexが全場面シートを目視。「過去問PDF合本 全560問（専門は建設部門）」の図形・主要文字・数値を台本および場面指定と照合し、誤記や生成崩れを認めない。",
+      "reviewedAt": "2026-10-30T23:45:47.597Z"
     },
     "media:pe-first-stage/pe1-kiso-gyouretsu-vector/youtube.longform/cover": {
       "sha": "ec9f3aa7b01725b8",

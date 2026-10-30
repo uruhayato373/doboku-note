@@ -17,7 +17,13 @@
     {
       "id": "pe1-kiso-2of3-reliability",
       "kind": "video-pack",
-      "definition": "content/sns/video-packs/pe-first-stage/pe1-kiso-2of3-reliability"
+      "definition": "content/sns/video-packs/pe-first-stage/pe1-kiso-2of3-reliability",
+      "qa": {
+        "avg": 2.92,
+        "blocks": 0,
+        "at": "2026-10-31",
+        "by": "Codex independent content QA (Claude CLI unavailable)"
+      }
     },
     {
       "id": "pe1-kiso-2s-complement",
@@ -33,7 +39,13 @@
     {
       "id": "pe1-kiso-gradient-length",
       "kind": "video-pack",
-      "definition": "content/sns/video-packs/pe-first-stage/pe1-kiso-gradient-length"
+      "definition": "content/sns/video-packs/pe-first-stage/pe1-kiso-gradient-length",
+      "qa": {
+        "avg": 2.92,
+        "blocks": 0,
+        "at": "2026-10-31",
+        "by": "Codex independent content QA (Claude CLI unavailable)"
+      }
     },
     {
       "id": "pe1-kiso-gyouretsu-vector",

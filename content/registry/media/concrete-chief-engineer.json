@@ -528,11 +528,11 @@
       "id": "concrete-chief-engineer/shunin-chinka-hibiware-genin/youtube.longform/contact-sheet",
       "role": "contact-sheet",
       "type": "image/jpeg",
-      "sha256": "1552ba250767081ab49bd97896e28434334b12e396e3873426609b5096960e90",
-      "bytes": 758310,
+      "sha256": "cfedf8c064a84c6ec55e7677df63ec6c5c1b69d01aec3bf5bba83d9436d9c551",
+      "bytes": 811198,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/concrete-chief-engineer/shunin-chinka-hibiware-genin/youtube.longform/contact-sheet.1552ba25.jpg"
+        "path": ".tmp/media/concrete-chief-engineer/shunin-chinka-hibiware-genin/youtube.longform/contact-sheet.cfedf8c0.jpg"
       },
       "provenance": {
         "kind": "render",
@@ -557,7 +557,7 @@
         "tool": "codex",
         "prompt": "Codex ImageGen: POP cover 沈下ひび割れ / 乾燥収縮と区別, approved teacher character and two concrete cross sections",
         "promptSha256": "39c53b4c694b1f63f8c4f48ad3e096ad7e5531b81ad878ced007830aac16a646",
-        "generatedAt": "2026-10-30T22:35:58.562Z"
+        "generatedAt": "2026-10-30T23:37:59.514Z"
       },
       "width": 1920,
       "height": 1080,
@@ -569,28 +569,28 @@
       "id": "concrete-chief-engineer/shunin-chinka-hibiware-genin/youtube.longform/preview",
       "role": "preview",
       "type": "video/mp4",
-      "sha256": "bbd09d37f580a1424bf0f5919fd61849a18753d5520b78fdab4313304a9efad3",
-      "bytes": 5937573,
+      "sha256": "e06129f80596a9b1cde44db8029385a48e409b2a8f485ca826ebfb9dab2f48d8",
+      "bytes": 6073988,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/concrete-chief-engineer/shunin-chinka-hibiware-genin/youtube.longform/preview.bbd09d37.mp4"
+        "path": ".tmp/media/concrete-chief-engineer/shunin-chinka-hibiware-genin/youtube.longform/preview.e06129f8.mp4"
       },
       "provenance": {
         "kind": "render",
         "by": "media-preview",
         "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-chinka-hibiware-genin/storyboard.json"
       },
-      "durationSec": 228.565
+      "durationSec": 232.672
     },
     {
       "id": "concrete-chief-engineer/shunin-chinka-hibiware-genin/youtube.longform/preview-metrics",
       "role": "preview-metrics",
       "type": "application/json",
-      "sha256": "e61ae3d406d370ac9d07b98868313f68fc859c28369bb8f4b2237a9d71ebc5d1",
-      "bytes": 1429,
+      "sha256": "d2db0ff7e9e106ae5b6aed259ac20046732ded27efbedd1865c7dd3f42559234",
+      "bytes": 1431,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/concrete-chief-engineer/shunin-chinka-hibiware-genin/youtube.longform/preview-metrics.e61ae3d4.json"
+        "path": ".tmp/media/concrete-chief-engineer/shunin-chinka-hibiware-genin/youtube.longform/preview-metrics.d2db0ff7.json"
       },
       "provenance": {
         "kind": "render",
@@ -613,7 +613,7 @@
         "tool": "codex",
         "prompt": "Codex ImageGen: POP cover 沈下ひび割れ / 乾燥収縮と区別, approved teacher character and two concrete cross sections",
         "promptSha256": "39c53b4c694b1f63f8c4f48ad3e096ad7e5531b81ad878ced007830aac16a646",
-        "generatedAt": "2026-10-30T22:35:58.562Z"
+        "generatedAt": "2026-10-30T23:37:59.514Z"
       },
       "width": 1920,
       "height": 1080
@@ -633,7 +633,7 @@
         "tool": "codex",
         "prompt": "Codex ImageGen: 16:9 clean concrete-chief educational diagram for settlement versus drying shrinkage premise, matching storyboard.",
         "promptSha256": "44b812b4a172cf2090fd9ff0b0cdc5ae1168f4c68679dd5f9ea6a6c2decc0b56",
-        "generatedAt": "2026-10-30T22:35:58.562Z"
+        "generatedAt": "2026-10-30T23:37:59.514Z"
       },
       "width": 1920,
       "height": 1080
@@ -653,7 +653,7 @@
         "tool": "codex",
         "prompt": "Codex ImageGen: visually verified distinct timeline diagram matching the current storyboard",
         "promptSha256": "89d69db9d5b5611284b0177aa1a1ab86439fe01beb80d1f742a281033750f1c8",
-        "generatedAt": "2026-10-30T22:35:58.562Z"
+        "generatedAt": "2026-10-30T23:37:59.514Z"
       },
       "width": 1920,
       "height": 1080
@@ -673,7 +673,7 @@
         "tool": "codex",
         "prompt": "Codex ImageGen: 16:9 clean concrete-chief educational diagram for settlement versus drying shrinkage section, matching storyboard.",
         "promptSha256": "5d6d5c018462fff805df827303468b37dfab0935b8ea0d3423de8ee8eca4a63c",
-        "generatedAt": "2026-10-30T22:35:58.562Z"
+        "generatedAt": "2026-10-30T23:37:59.514Z"
       },
       "width": 1920,
       "height": 1080
@@ -693,7 +693,7 @@
         "tool": "codex",
         "prompt": "Codex ImageGen: 16:9 clean concrete-chief educational diagram for settlement versus drying shrinkage mechanism, matching storyboard.",
         "promptSha256": "b440105696de005b3798e82953b88cdc2a044afd8f2abde20f7892ab029b3d50",
-        "generatedAt": "2026-10-30T22:35:58.562Z"
+        "generatedAt": "2026-10-30T23:37:59.514Z"
       },
       "width": 1920,
       "height": 1080
@@ -713,7 +713,7 @@
         "tool": "codex",
         "prompt": "Codex ImageGen: 16:9 clean concrete-chief educational diagram for settlement versus drying shrinkage shrink, matching storyboard.",
         "promptSha256": "9fc0f98505b07aa0dfd3a396fea3b54bb82814c1003c70464a6dc8bf4f2a254c",
-        "generatedAt": "2026-10-30T22:35:58.562Z"
+        "generatedAt": "2026-10-30T23:37:59.514Z"
       },
       "width": 1920,
       "height": 1080
@@ -733,7 +733,7 @@
         "tool": "codex",
         "prompt": "Codex ImageGen: 16:9 clean concrete-chief educational diagram for settlement versus drying shrinkage compare, matching storyboard.",
         "promptSha256": "ba2b72d03173a64ea702fe3d099ac8a2e484299d0f1436d45c9ed6147f76ee16",
-        "generatedAt": "2026-10-30T22:35:58.562Z"
+        "generatedAt": "2026-10-30T23:37:59.514Z"
       },
       "width": 1920,
       "height": 1080
@@ -753,7 +753,7 @@
         "tool": "codex",
         "prompt": "Codex ImageGen: 16:9 clean concrete-chief educational diagram for settlement versus drying shrinkage measures, matching storyboard.",
         "promptSha256": "932baed877d232667d3a511d1f43fcf0472cd10b60a503e92ca840395cbb5644",
-        "generatedAt": "2026-10-30T22:35:58.562Z"
+        "generatedAt": "2026-10-30T23:37:59.514Z"
       },
       "width": 1920,
       "height": 1080
@@ -773,7 +773,7 @@
         "tool": "codex",
         "prompt": "Codex ImageGen: 16:9 clean concrete-chief educational diagram for settlement versus drying shrinkage trap, matching storyboard.",
         "promptSha256": "be2e1c9e86b08bffdb1bc03e487326bfc1256698d06464ec4c7bed6b9073980a",
-        "generatedAt": "2026-10-30T22:35:58.562Z"
+        "generatedAt": "2026-10-30T23:37:59.514Z"
       },
       "width": 1920,
       "height": 1080
@@ -793,7 +793,7 @@
         "tool": "codex",
         "prompt": "Codex ImageGen: distinct, visually verified diagram for example; exact storyboard content.",
         "promptSha256": "89a42c8d862bf8f9056802fc212a34eb7391ecbba8e2e7a0ee4cd024cba73913",
-        "generatedAt": "2026-10-30T22:35:58.562Z"
+        "generatedAt": "2026-10-30T23:37:59.514Z"
       },
       "width": 1920,
       "height": 1080
@@ -813,7 +813,7 @@
         "tool": "codex",
         "prompt": "Codex ImageGen: distinct, visually verified diagram for summary; exact storyboard content.",
         "promptSha256": "2417d3c0449138c0c37e6218232ec0db4f4d022f7bcd00f5206921ae9b61bfb0",
-        "generatedAt": "2026-10-30T22:35:58.562Z"
+        "generatedAt": "2026-10-30T23:37:59.514Z"
       },
       "width": 1920,
       "height": 1080
@@ -833,7 +833,7 @@
         "tool": "codex",
         "prompt": "Codex ImageGen: 16:9 clean concrete-chief educational diagram for settlement versus drying shrinkage cta, matching storyboard.",
         "promptSha256": "977628d88cac4f59d92462800b3fb7809c8113cbab84c394a01713a7563431d0",
-        "generatedAt": "2026-10-30T22:35:58.562Z"
+        "generatedAt": "2026-10-30T23:37:59.514Z"
       },
       "width": 1920,
       "height": 1080
@@ -860,11 +860,11 @@
       "id": "concrete-chief-engineer/shunin-chinka-hibiware-genin/youtube.longform/subtitles",
       "role": "subtitles",
       "type": "text/x-ssa",
-      "sha256": "c8006cb2d31b33491cb592d41d59bcb62753edb8a6db748c0bdad15d2ea88e7b",
-      "bytes": 7907,
+      "sha256": "c84211ed398e68e40b5e62eb2e71fed0870074bee6f8727f0eed8ba70eac3a77",
+      "bytes": 7917,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/concrete-chief-engineer/shunin-chinka-hibiware-genin/youtube.longform/subtitles.c8006cb2.ass"
+        "path": ".tmp/media/concrete-chief-engineer/shunin-chinka-hibiware-genin/youtube.longform/subtitles.c84211ed.ass"
       },
       "provenance": {
         "kind": "render",
@@ -876,25 +876,25 @@
       "id": "concrete-chief-engineer/shunin-chinka-hibiware-genin/youtube.longform/video",
       "role": "video",
       "type": "video/mp4",
-      "sha256": "ccd078ace3369bf0eb008761a7ae2172e86b479ac32eec492aef5d1fa407f402",
-      "bytes": 27716011,
+      "sha256": "be1b56290117653266a3abb1bfad76ae2802da743cf1803e9d6a188e9a18265c",
+      "bytes": 28402039,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/concrete-chief-engineer/shunin-chinka-hibiware-genin/youtube.longform/video.ccd078ac.mp4"
+        "path": ".tmp/media/concrete-chief-engineer/shunin-chinka-hibiware-genin/youtube.longform/video.be1b5629.mp4"
       },
       "provenance": {
         "kind": "render",
         "by": "render-longform",
         "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-chinka-hibiware-genin/storyboard.json",
-        "specSha256": "46e367746cf24cffb3a7e2764815da7ba68ebf5b6bcf0b0c634a16c7aa53c868",
-        "renderInputSha256": "ab16c3d206c448c13917ba18e1f2702b366bd37bab70f3350c4a841f9eddc954",
+        "specSha256": "8acfcb38df7b9bd8cf1f18a0f786634c13ee69c932c9ac4b6c2f20f7a834aedf",
+        "renderInputSha256": "9f260b7cfdbb5c0d1074b8a8b0765750fe12275a765d3416c50efdde56df86be",
         "tts": {
           "engine": "VOICEVOX",
           "speaker": 13,
           "credit": "VOICEVOX:青山龍星"
         }
       },
-      "durationSec": 228.565
+      "durationSec": 232.667
     },
     {
       "id": "concrete-chief-engineer/shunin-chokuzen-senryaku/work/candidate-cover",

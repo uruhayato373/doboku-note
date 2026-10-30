@@ -42,7 +42,7 @@
       "review": {
         "status": "agent-reviewed",
         "by": "Codex",
-        "checkedAt": "2026-10-30T22:35:58.562Z",
+        "checkedAt": "2026-10-30T23:37:59.514Z",
         "viewportWidth": 360,
         "checks": [
           "見出しと資格名",
@@ -68,7 +68,7 @@
       "images": [
         {
           "sceneId": "premise",
-          "inputSha256": "3906538721cb173db7d3b3b4eaa6deceeb5dbc95c9f0c6beb64b3b944b0d23d6",
+          "inputSha256": "634a2d68fd307131ae3452c207273783569356ace5ea39e391c685f431786da3",
           "generation": {
             "tool": "image_gen",
             "prompt": "Codex ImageGen: 16:9 clean concrete-chief educational diagram for settlement versus drying shrinkage premise, matching storyboard.",
@@ -82,7 +82,7 @@
               "path": ".tmp/media/concrete-chief-engineer/shunin-chinka-hibiware-genin/work/raw-premise-diagram.69627109.png",
               "sha256": "69627109fdeea87bbfc5c39ba230a9251f2f9325762e4326a7894b7aa4b14070"
             },
-            "generatedAt": "2026-10-30T22:35:58.562Z"
+            "generatedAt": "2026-10-30T23:37:59.514Z"
           },
           "output": {
             "path": ".tmp/media/concrete-chief-engineer/shunin-chinka-hibiware-genin/work/premise-diagram.2390c62c.png",
@@ -97,7 +97,7 @@
           "review": {
             "status": "ai-reviewed",
             "userReview": "pending",
-            "checkedAt": "2026-10-30T22:35:58.562Z",
+            "checkedAt": "2026-10-30T23:37:59.514Z",
             "by": "Codex",
             "views": [
               "original"
@@ -112,7 +112,7 @@
         },
         {
           "sceneId": "timeline",
-          "inputSha256": "61d12734952b7af13f5658c06aa58ddd334f43adf51b4e12cb0f7551d3f606f9",
+          "inputSha256": "856b7a69931a9015ad370bdb200694f4b0934ab7eca2ac71bb71e68f16f6b2f3",
           "generation": {
             "tool": "image_gen",
             "prompt": "Codex ImageGen: visually verified distinct timeline diagram matching the current storyboard",
@@ -126,7 +126,7 @@
               "path": ".tmp/media/concrete-chief-engineer/shunin-chinka-hibiware-genin/work/raw-timeline-diagram.c33b4499.png",
               "sha256": "c33b44997508ce921cef7d95f4078d512c1d38ec3ea3096692e04433ed7244b9"
             },
-            "generatedAt": "2026-10-30T22:35:58.562Z"
+            "generatedAt": "2026-10-30T23:37:59.514Z"
           },
           "output": {
             "path": ".tmp/media/concrete-chief-engineer/shunin-chinka-hibiware-genin/work/timeline-diagram.124dd5fa.png",
@@ -141,7 +141,7 @@
           "review": {
             "status": "ai-reviewed",
             "userReview": "pending",
-            "checkedAt": "2026-10-30T22:35:58.562Z",
+            "checkedAt": "2026-10-30T23:37:59.514Z",
             "by": "Codex",
             "views": [
               "original"
@@ -170,7 +170,7 @@
               "path": ".tmp/media/concrete-chief-engineer/shunin-chinka-hibiware-genin/work/raw-section-diagram.4d424bba.png",
               "sha256": "4d424bbaf95119e2de6747e34203288527bc2e8e58fb7c60f73edc8ce6d5857c"
             },
-            "generatedAt": "2026-10-30T22:35:58.562Z"
+            "generatedAt": "2026-10-30T23:37:59.514Z"
           },
           "output": {
             "path": ".tmp/media/concrete-chief-engineer/shunin-chinka-hibiware-genin/work/section-diagram.956d6aab.png",
@@ -185,7 +185,7 @@
           "review": {
             "status": "ai-reviewed",
             "userReview": "pending",
-            "checkedAt": "2026-10-30T22:35:58.562Z",
+            "checkedAt": "2026-10-30T23:37:59.514Z",
             "by": "Codex",
             "views": [
               "original"
@@ -214,7 +214,7 @@
               "path": ".tmp/media/concrete-chief-engineer/shunin-chinka-hibiware-genin/work/raw-mechanism-diagram.a8d7ad49.png",
               "sha256": "a8d7ad4920f352025becb5c9c7483204af808c069a2383f0b8e1b9b9457aa02d"
             },
-            "generatedAt": "2026-10-30T22:35:58.562Z"
+            "generatedAt": "2026-10-30T23:37:59.514Z"
           },
           "output": {
             "path": ".tmp/media/concrete-chief-engineer/shunin-chinka-hibiware-genin/work/mechanism-diagram.dcae017d.png",
@@ -229,7 +229,7 @@
           "review": {
             "status": "ai-reviewed",
             "userReview": "pending",
-            "checkedAt": "2026-10-30T22:35:58.562Z",
+            "checkedAt": "2026-10-30T23:37:59.514Z",
             "by": "Codex",
             "views": [
               "original"
@@ -258,7 +258,7 @@
               "path": ".tmp/media/concrete-chief-engineer/shunin-chinka-hibiware-genin/work/raw-shrink-diagram.561cad46.png",
               "sha256": "561cad463972d0d604ba641186db17deffd21fad4a3738de5cf720ccb680faad"
             },
-            "generatedAt": "2026-10-30T22:35:58.562Z"
+            "generatedAt": "2026-10-30T23:37:59.514Z"
           },
           "output": {
             "path": ".tmp/media/concrete-chief-engineer/shunin-chinka-hibiware-genin/work/shrink-diagram.cbcf23d0.png",
@@ -273,7 +273,7 @@
           "review": {
             "status": "ai-reviewed",
             "userReview": "pending",
-            "checkedAt": "2026-10-30T22:35:58.562Z",
+            "checkedAt": "2026-10-30T23:37:59.514Z",
             "by": "Codex",
             "views": [
               "original"
@@ -302,7 +302,7 @@
               "path": ".tmp/media/concrete-chief-engineer/shunin-chinka-hibiware-genin/work/raw-compare-diagram.69627109.png",
               "sha256": "69627109fdeea87bbfc5c39ba230a9251f2f9325762e4326a7894b7aa4b14070"
             },
-            "generatedAt": "2026-10-30T22:35:58.562Z"
+            "generatedAt": "2026-10-30T23:37:59.514Z"
           },
           "output": {
             "path": ".tmp/media/concrete-chief-engineer/shunin-chinka-hibiware-genin/work/compare-diagram.2390c62c.png",
@@ -317,7 +317,7 @@
           "review": {
             "status": "ai-reviewed",
             "userReview": "pending",
-            "checkedAt": "2026-10-30T22:35:58.562Z",
+            "checkedAt": "2026-10-30T23:37:59.514Z",
             "by": "Codex",
             "views": [
               "original"
@@ -332,7 +332,7 @@
         },
         {
           "sceneId": "measures",
-          "inputSha256": "a5b581750aeff155087c4d47135c689db7f6ee0c651284a8d08b5d9690f911d6",
+          "inputSha256": "1e00c0bc3c45cf71467149aadaf1dcb6bee7c0d78f87b1825e1b78f15e15138b",
           "generation": {
             "tool": "image_gen",
             "prompt": "Codex ImageGen: 16:9 clean concrete-chief educational diagram for settlement versus drying shrinkage measures, matching storyboard.",
@@ -346,7 +346,7 @@
               "path": ".tmp/media/concrete-chief-engineer/shunin-chinka-hibiware-genin/work/raw-measures-diagram.47360754.png",
               "sha256": "4736075410f2d2258d7856ea98037911c8eae400b187d5089c9f1cd31314284d"
             },
-            "generatedAt": "2026-10-30T22:35:58.562Z"
+            "generatedAt": "2026-10-30T23:37:59.514Z"
           },
           "output": {
             "path": ".tmp/media/concrete-chief-engineer/shunin-chinka-hibiware-genin/work/measures-diagram.53baff48.png",
@@ -361,7 +361,7 @@
           "review": {
             "status": "ai-reviewed",
             "userReview": "pending",
-            "checkedAt": "2026-10-30T22:35:58.562Z",
+            "checkedAt": "2026-10-30T23:37:59.514Z",
             "by": "Codex",
             "views": [
               "original"
@@ -390,7 +390,7 @@
               "path": ".tmp/media/concrete-chief-engineer/shunin-chinka-hibiware-genin/work/raw-trap-diagram.d008a340.png",
               "sha256": "d008a34093f372652064f55d293f6299988b4e8331a63d353dccf4773f8a4601"
             },
-            "generatedAt": "2026-10-30T22:35:58.562Z"
+            "generatedAt": "2026-10-30T23:37:59.514Z"
           },
           "output": {
             "path": ".tmp/media/concrete-chief-engineer/shunin-chinka-hibiware-genin/work/trap-diagram.f422e921.png",
@@ -405,7 +405,7 @@
           "review": {
             "status": "ai-reviewed",
             "userReview": "pending",
-            "checkedAt": "2026-10-30T22:35:58.562Z",
+            "checkedAt": "2026-10-30T23:37:59.514Z",
             "by": "Codex",
             "views": [
               "original"
@@ -434,7 +434,7 @@
               "path": ".tmp/media/concrete-chief-engineer/shunin-chinka-hibiware-genin/work/raw-example-diagram.9b96365f.png",
               "sha256": "9b96365fa98b58ec10ef8b62025a27ec2e060ba7cc9d9475de63bf31d2178106"
             },
-            "generatedAt": "2026-10-30T22:35:58.562Z"
+            "generatedAt": "2026-10-30T23:37:59.514Z"
           },
           "output": {
             "path": ".tmp/media/concrete-chief-engineer/shunin-chinka-hibiware-genin/work/example-diagram.4938abe6.png",
@@ -449,7 +449,7 @@
           "review": {
             "status": "ai-reviewed",
             "userReview": "pending",
-            "checkedAt": "2026-10-30T22:35:58.562Z",
+            "checkedAt": "2026-10-30T23:37:59.514Z",
             "by": "Codex",
             "views": [
               "original"
@@ -464,7 +464,7 @@
         },
         {
           "sceneId": "summary",
-          "inputSha256": "3a84a7e3363308fe1b994e69358f3b7faad821ebac79416b612f5fa1e0750e31",
+          "inputSha256": "6811ae2b7eea12bc98f49d67999d9a2aed10f008a5b7f101438390eb51dcc060",
           "generation": {
             "tool": "image_gen",
             "prompt": "Codex ImageGen: distinct, visually verified diagram for summary; exact storyboard content.",
@@ -478,7 +478,7 @@
               "path": ".tmp/media/concrete-chief-engineer/shunin-chinka-hibiware-genin/work/raw-summary-diagram.2b57802c.png",
               "sha256": "2b57802c540b75be04263c0a037c9dba578d5aa6e164c99d16dc665c4bfaf36f"
             },
-            "generatedAt": "2026-10-30T22:35:58.562Z"
+            "generatedAt": "2026-10-30T23:37:59.514Z"
           },
           "output": {
             "path": ".tmp/media/concrete-chief-engineer/shunin-chinka-hibiware-genin/work/summary-diagram.145ad3b0.png",
@@ -493,7 +493,7 @@
           "review": {
             "status": "ai-reviewed",
             "userReview": "pending",
-            "checkedAt": "2026-10-30T22:35:58.562Z",
+            "checkedAt": "2026-10-30T23:37:59.514Z",
             "by": "Codex",
             "views": [
               "original"
@@ -522,7 +522,7 @@
               "path": ".tmp/media/concrete-chief-engineer/shunin-chinka-hibiware-genin/work/raw-cta-diagram.19b78741.png",
               "sha256": "19b78741dbbd4d814b7769bdbf5de23efa91330e3cd02a27a41089c8c3f2f9e3"
             },
-            "generatedAt": "2026-10-30T22:35:58.562Z"
+            "generatedAt": "2026-10-30T23:37:59.514Z"
           },
           "output": {
             "path": ".tmp/media/concrete-chief-engineer/shunin-chinka-hibiware-genin/work/cta-diagram.8db159aa.png",
@@ -537,7 +537,7 @@
           "review": {
             "status": "ai-reviewed",
             "userReview": "pending",
-            "checkedAt": "2026-10-30T22:35:58.562Z",
+            "checkedAt": "2026-10-30T23:37:59.514Z",
             "by": "Codex",
             "views": [
               "original"
@@ -567,7 +567,7 @@
           "path": ".tmp/media/concrete-chief-engineer/shunin-chinka-hibiware-genin/work/raw-cover-pop.b3b382cd.png",
           "sha256": "b3b382cdd3f982fc0b2d557f3d21739e3475bd687f33bb34753bc9d4fbbec944"
         },
-        "generatedAt": "2026-10-30T22:35:58.562Z"
+        "generatedAt": "2026-10-30T23:37:59.514Z"
       },
       "copy": {
         "exam": "concrete-chief-engineer",
@@ -590,7 +590,7 @@
       "review": {
         "status": "ai-reviewed",
         "userImageReview": "pending",
-        "checkedAt": "2026-10-30T22:35:58.562Z",
+        "checkedAt": "2026-10-30T23:37:59.514Z",
         "by": "Codex",
         "views": [
           "original"
