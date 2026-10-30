@@ -218,6 +218,7 @@ export const DATASETS = [
   d('a8.ui-raw', 'data/a8/ui/{ts}/{**}', 'raw', 'affiliate', 'A8 の画面から取った CSV と正規化結果（正規化した結果は data/a8/ の台帳へ書く）', { local: true, regen: 'npm run a8-ui:fetch（画面から取り直す）' }),
   d('a8.inventory', 'data/a8/inventory.json', 'state', 'affiliate', 'A8 の画面から取った案件の在庫', { planned: true }),
   d('afb.outcomes', 'data/afb/outcomes/{date}.json', 'series', 'affiliate', 'afb の成果（公式 API・日付別）', { planned: true, retain: { family: 'affiliate', keepAll: true }, freshness: { failDays: 10 } }),
+  d('affiliate.layout-shots', 'data/affiliate/layout-shots/{ts}/{**}', 'raw', 'affiliate', '転職広告の配置のスクリーンショットと判定（ページの種類 × 画面幅 × 意匠の案。manifest.json が一覧。管理画面 アフィリエイト ＞ 広告配置が読む）', { local: true, regen: 'npm run affiliate:shots（npm run serve の :3025、または -- --base https://doboku-note.com で撮り直す）' }),
   d('affiliate.catalog', 'data/affiliate/catalog.json', 'state', 'affiliate', '3 ASP の提携案件と広告素材の一覧', { schema: 'AffiliateCatalog' }),
   // GA4
   d('ga4.reports', 'data/ga4/reports/{date}.json', 'series', 'site', 'GA4 の週次取得（取得日ごとに1ファイル。意匠実験を含む種類と読み書きはscripts/lib/metric-reports.mjs）', { retain: { family: 'ga4', maxAgeDays: 90, keepNewestPerSection: true, alsoKeepNewestWhere: { path: ['reports', 'cta-clicks-by-label:month', 'meta', 'windowKind'], equals: 'month' } }, freshness: { warnDays: 10 }, schema: 'Ga4Reports' }),
