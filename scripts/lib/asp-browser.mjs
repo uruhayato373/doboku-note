@@ -165,13 +165,14 @@ export async function openAsp(asp, { isReady, label = "ASP" } = {}) {
  * @returns {Promise<{ tried: boolean, reason?: string }>}
  */
 async function loginInPage(page, service) {
-  const { AUTO_LOGIN, submitLoginForm } = await import("./auth-session-refresh.mjs");
-  const { agentSession, readServiceCredential } = await import("./credential-store.mjs");
+  const { AUTO_LOGIN, keychainServiceNames, submitLoginForm } = await import("./auth-session-refresh.mjs");
+  const { agentSession, readFirstCredential } = await import("./credential-store.mjs");
   const spec = AUTO_LOGIN[service];
   if (!spec) return { tried: false, reason: "自動ログイン非対応" };
   if (agentSession()) return { tried: false, reason: "エージェント（Claude Code）からの実行では資格情報でログインしない（オーナー・CI が実行する）" };
-  const cred = readServiceCredential(service);
-  if (!cred) return { tried: false, reason: "資格情報が無い" };
+  // stats47 と同じ口座の ASP は stats47 の項目も読む（auth-session-refresh と同じ優先順。2026-10-30 まで doboku-note の項目だけを見ていた）
+  const cred = readFirstCredential(keychainServiceNames(service));
+  if (!cred) return { tried: false, reason: `資格情報が無い（${keychainServiceNames(service).join(" / ")}）` };
   if (!spec.loggedIn(page.url())) {
     // ログイン画面にいなければログイン URL へ（afb は /pa/ → requiredlogin に転送される）
     if (!(await page.locator(spec.password).first().isVisible().catch(() => false))) {
