@@ -2098,7 +2098,7 @@
       "work": "shunin-shoki-3kyokusen",
       "account": "youtube:main",
       "format": "longform",
-      "status": "rendered",
+      "status": "scheduled",
       "media": {
         "cover": "concrete-chief-engineer/shunin-shoki-3kyokusen/youtube.longform/cover",
         "scene-001": "concrete-chief-engineer/shunin-shoki-3kyokusen/youtube.longform/scene-001",
@@ -2134,7 +2134,42 @@
         "contentSha256": "3cd1e147bb3af10293de238fe7a8d440fa421d2f9748b9ce11b93e99ccf80168"
       },
       "times": {
-        "rendered": "2026-10-30T23:46:53.478Z"
+        "rendered": "2026-10-30T23:46:53.478Z",
+        "uploaded": "2026-10-30T23:59:04.631Z",
+        "scheduled": "2026-10-30T23:59:16.412Z"
+      },
+      "delivery": {
+        "inputSha256": "558b37ac4217cc6a55d89be5dfed1c419e62562f5c83416d0244595d812d9b2b",
+        "marker": "dn-single-8eb77b5f8610dcf069b974767c41e4247bced2ae",
+        "uploadRequestedAt": "2026-10-30T23:58:15.334Z",
+        "videoId": "9ADPE2fYSRs",
+        "processedAt": "2026-10-30T23:59:03.931Z",
+        "thumbnailRequestedAt": "2026-10-30T23:59:04.690Z",
+        "thumbnailUrls": [
+          "https://i9.ytimg.com/vi/9ADPE2fYSRs/default.jpg?sqp=CNTclNcG&rs=AOn4CLBWRs4j0bHD6WAr574m-D86weu4lA",
+          "https://i9.ytimg.com/vi/9ADPE2fYSRs/mqdefault.jpg?sqp=CNTclNcG&rs=AOn4CLBMCFUzJxt1EDAslhJK3uPSyP4WPQ",
+          "https://i9.ytimg.com/vi/9ADPE2fYSRs/hqdefault.jpg?sqp=CNTclNcG&rs=AOn4CLCldmFdVYMjJiYjWNzG4hNm-mob_Q",
+          "https://i9.ytimg.com/vi/9ADPE2fYSRs/sddefault.jpg?sqp=CNTclNcG&rs=AOn4CLCQx2S3qsy3Wij4btSJXCD3vySGOw",
+          "https://i9.ytimg.com/vi/9ADPE2fYSRs/maxresdefault.jpg?sqp=CNTclNcG&rs=AOn4CLAzFr2nUdVwCdGj1ybv0Ip5eIzbuQ",
+          "https://i9.ytimg.com/vi/9ADPE2fYSRs/fhddefault.jpg?sqp=CNTclNcG&rs=AOn4CLDoRVsaHi1MlXgo1nobqt3zd2tENA"
+        ],
+        "thumbnailAcceptedAt": "2026-10-30T23:59:08.694Z",
+        "scheduleRequestedAt": "2026-10-30T23:59:12.671Z",
+        "scheduleAt": "2026-11-04T11:30:00Z",
+        "scheduledVerifiedAt": "2026-10-30T23:59:16.412Z"
+      },
+      "platform": {
+        "id": "9ADPE2fYSRs",
+        "url": "https://www.youtube.com/watch?v=9ADPE2fYSRs",
+        "privacy": "private",
+        "evidence": {
+          "kind": "publisher-live-check",
+          "ref": "content/sns/video-packs/concrete-chief-engineer/shunin-shoki-3kyokusen/youtube.json#longform"
+        }
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-10-30T23:59:08.694Z"
       }
     },
     {
