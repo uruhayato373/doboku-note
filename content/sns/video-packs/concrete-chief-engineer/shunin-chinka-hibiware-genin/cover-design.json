@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "concrete-chief",
+      "headline": [
+        "沈下ひび割れ",
+        "乾燥収縮と区別"
+      ],
+      "accentLine": 0,
+      "subtitle": "品質管理",
+      "character": {
+        "pose": "pop-red-pen",
+        "frame": "waist"
+      },
+      "design": "pop-poster-v3",
+      "pop": {
+        "variant": "question",
+        "authority": "総監が制作"
+      },
+      "approvedImage": {
+        "path": ".tmp/media/concrete-chief-engineer/shunin-chinka-hibiware-genin/work/cover-pop.17e65b4d.png",
+        "sha256": "17e65b4d16697c09d1b0328f044a80ae2d2ab64f337958852fc607d9f43c194e",
+        "specSha256": "7b98d5a7ab039315cfcdfc17f2ef6f82949c8460001c6a83ab178f80e3054c1a"
+      }
+    }
+  }
+}

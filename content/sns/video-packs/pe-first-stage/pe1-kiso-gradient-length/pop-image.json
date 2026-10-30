@@ -1,0 +1,609 @@
+{
+  "policy": ".claude/knowledge/reference/pop-image-policy.md",
+  "designVersion": "pop-20260927",
+  "channel": "youtube",
+  "source": "content/sns/video-packs/pe-first-stage/pe1-kiso-gradient-length",
+  "outputs": {
+    "longform": {
+      "publicationId": "pe-first-stage/pe1-kiso-gradient-length/youtube.longform",
+      "copy": {
+        "exam": "pe-first-stage",
+        "headline": [
+          "勾配ベクトル",
+          "長さは別物"
+        ],
+        "benefit": "基礎科目",
+        "authority": "総監が制作"
+      },
+      "evidence": [
+        "content/sns/video-packs/pe-first-stage/pe1-kiso-gradient-length/cover-design.json#covers/longform",
+        "content/sns/video-packs/pe-first-stage/pe1-kiso-gradient-length/storyboard.json"
+      ],
+      "references": [
+        {
+          "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.abe1a7b7.png",
+          "sha256": "abe1a7b7debc540640b2aacb2f333874901e60f25843dca40579ccd42feb7216"
+        }
+      ],
+      "prompt": "Codex ImageGen: POP cover 勾配ベクトル / 長さは別物, approved teacher character and correct 3-4-5 triangle",
+      "format": {
+        "width": 1920,
+        "height": 1080
+      },
+      "render": {
+        "template": "codex-image-gen",
+        "variant": "question",
+        "pose": "pop-red-pen"
+      },
+      "output": {
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-gradient-length/work/cover-pop.c370949e.png",
+        "sha256": "c370949e6d191122c6597f57105b4740469b631512178a797b654003ba488a81"
+      },
+      "review": {
+        "status": "agent-reviewed",
+        "by": "Codex",
+        "checkedAt": "2026-10-30T21:57:12.806Z",
+        "viewportWidth": 360,
+        "checks": [
+          "見出しと資格名",
+          "文字・人物の切れ",
+          "図と主張の整合"
+        ],
+        "userImageReview": "pending"
+      },
+      "storage": {
+        "group": "content-media",
+        "key": ".tmp/media/pe-first-stage/pe1-kiso-gradient-length/work/cover-pop.c370949e.png"
+      },
+      "publication": "ローカル差し替え・外部未反映"
+    }
+  },
+  "activeBodyRevision": "body-diagram-20261028",
+  "activeCoverRevision": "cover-pop-20261028",
+  "revisions": {
+    "body-diagram-20261028": {
+      "layout": {
+        "mode": "diagram-led"
+      },
+      "images": [
+        {
+          "sceneId": "answer",
+          "inputSha256": "f9f60017bde1bceeb0dde4eee0c22ccb9185a66821c5ef2a92e0381a65514e68",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Codex ImageGen: 16:9 clean white diagram-led scene for gradient vector and length, answer; exact calculation from storyboard.",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-first-stage/pe1-kiso-gradient-length/work/raw-answer-diagram.6fb50533.png",
+              "sha256": "6fb5053301de52f6f81e30e83490cb7169a8d7ed2d894fd5faf3dd8150e25267"
+            },
+            "generatedAt": "2026-10-30T21:57:12.806Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-first-stage/pe1-kiso-gradient-length/work/answer-diagram.eca4c25c.png",
+            "sha256": "eca4c25c83cdc057d75413dd3baedc8a0c6c8cbe2a849afe2ee7510da70ac1d5",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "6fb5053301de52f6f81e30e83490cb7169a8d7ed2d894fd5faf3dd8150e25267"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-30T21:57:12.806Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字・数値の判読",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "pain",
+          "inputSha256": "01c14711c966e8e6de706f6aa6ed9ac6079ee23e86b2b07552126486bd7034f8",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Codex ImageGen: 16:9 clean white diagram-led scene for gradient vector and length, pain; exact calculation from storyboard.",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-first-stage/pe1-kiso-gradient-length/work/raw-pain-diagram.6b26b11e.png",
+              "sha256": "6b26b11e242ad6b8b31762985409c54b448e3cabc6612200bf02342a7271b6a1"
+            },
+            "generatedAt": "2026-10-30T21:57:12.806Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-first-stage/pe1-kiso-gradient-length/work/pain-diagram.4cc55da3.png",
+            "sha256": "4cc55da3b0f36119ddf6582b09039272207c546879eaab8ec53ea03862297bf2",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "6b26b11e242ad6b8b31762985409c54b448e3cabc6612200bf02342a7271b6a1"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-30T21:57:12.806Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字・数値の判読",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "setup",
+          "inputSha256": "aed3222d0e13b9a62830552c7ec5dd40a861e30c8b4b19c3053622d39f649969",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Codex ImageGen: 16:9 clean white diagram-led scene for gradient vector and length, setup; exact calculation from storyboard.",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-first-stage/pe1-kiso-gradient-length/work/raw-setup-diagram.932c2db7.png",
+              "sha256": "932c2db797340d12354676bc64ee54d3a2ea495b977256f3b2d5b09e4365a1db"
+            },
+            "generatedAt": "2026-10-30T21:57:12.806Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-first-stage/pe1-kiso-gradient-length/work/setup-diagram.8e1c4430.png",
+            "sha256": "8e1c44301309ccfdfa26a652ae53cca9d5ad0fd5cf3949eaf69376dd4e355d67",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "932c2db797340d12354676bc64ee54d3a2ea495b977256f3b2d5b09e4365a1db"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-30T21:57:12.806Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字・数値の判読",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "partial",
+          "inputSha256": "468677ef84cf72f3dd47bb57b796ac88cbe70a2ef32e22b55bd5285bd85d20e4",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Codex ImageGen: 16:9 clean white diagram-led scene for gradient vector and length, partial; exact calculation from storyboard.",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-first-stage/pe1-kiso-gradient-length/work/raw-partial-diagram.932c2db7.png",
+              "sha256": "932c2db797340d12354676bc64ee54d3a2ea495b977256f3b2d5b09e4365a1db"
+            },
+            "generatedAt": "2026-10-30T21:57:12.806Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-first-stage/pe1-kiso-gradient-length/work/partial-diagram.8e1c4430.png",
+            "sha256": "8e1c44301309ccfdfa26a652ae53cca9d5ad0fd5cf3949eaf69376dd4e355d67",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "932c2db797340d12354676bc64ee54d3a2ea495b977256f3b2d5b09e4365a1db"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-30T21:57:12.806Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字・数値の判読",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "substitute",
+          "inputSha256": "435e255f9b29fc7859956572fe1e71dae5be959304708ba2f43b6ff9f353e363",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Codex ImageGen: 16:9 clean white diagram-led scene for gradient vector and length, substitute; exact calculation from storyboard.",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-first-stage/pe1-kiso-gradient-length/work/raw-substitute-diagram.2b2123cb.png",
+              "sha256": "2b2123cb598cdd71aa9a1050e0c9e62089cec369097dea3cd6b3cad38e2fa2ae"
+            },
+            "generatedAt": "2026-10-30T21:57:12.806Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-first-stage/pe1-kiso-gradient-length/work/substitute-diagram.57c32016.png",
+            "sha256": "57c32016b58cb62de50385305c112095190f3e2e2ee80b0011a79ed2fe4dfc51",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "2b2123cb598cdd71aa9a1050e0c9e62089cec369097dea3cd6b3cad38e2fa2ae"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-30T21:57:12.806Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字・数値の判読",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "vector",
+          "inputSha256": "b9a7eddc2c7fa411a23e18c560096fc2e1f08a72d04cd8a3c104f4c7dd81e69c",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Codex ImageGen: 16:9 clean white diagram-led scene for gradient vector and length, vector; exact calculation from storyboard.",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-first-stage/pe1-kiso-gradient-length/work/raw-vector-diagram.148a35ab.png",
+              "sha256": "148a35abf29da78fe66b4911c230b4db48df73f8e13f3607e5b616a08fe14326"
+            },
+            "generatedAt": "2026-10-30T21:57:12.806Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-first-stage/pe1-kiso-gradient-length/work/vector-diagram.39587871.png",
+            "sha256": "39587871ce42848a5ccd98fe619ac4ffb4d89dd218120a6a7330ea83037abd63",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "148a35abf29da78fe66b4911c230b4db48df73f8e13f3607e5b616a08fe14326"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-30T21:57:12.806Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字・数値の判読",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "norm",
+          "inputSha256": "ed7443164a397f07c3d09224dcba9061ee53ebd7fd1371e14fb0aa03c2474f4b",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Codex ImageGen: 16:9 clean white diagram-led scene for gradient vector and length, norm; exact calculation from storyboard.",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-first-stage/pe1-kiso-gradient-length/work/raw-norm-diagram.148a35ab.png",
+              "sha256": "148a35abf29da78fe66b4911c230b4db48df73f8e13f3607e5b616a08fe14326"
+            },
+            "generatedAt": "2026-10-30T21:57:12.806Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-first-stage/pe1-kiso-gradient-length/work/norm-diagram.39587871.png",
+            "sha256": "39587871ce42848a5ccd98fe619ac4ffb4d89dd218120a6a7330ea83037abd63",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "148a35abf29da78fe66b4911c230b4db48df73f8e13f3607e5b616a08fe14326"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-30T21:57:12.806Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字・数値の判読",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "trap",
+          "inputSha256": "1c9e15391dd63f0c0e29d03f2744e7a22061bd4130f164ac7df22c0b06e2d705",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Codex ImageGen: 16:9 clean white diagram-led scene for gradient vector and length, trap; exact calculation from storyboard.",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-first-stage/pe1-kiso-gradient-length/work/raw-trap-diagram.6b26b11e.png",
+              "sha256": "6b26b11e242ad6b8b31762985409c54b448e3cabc6612200bf02342a7271b6a1"
+            },
+            "generatedAt": "2026-10-30T21:57:12.806Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-first-stage/pe1-kiso-gradient-length/work/trap-diagram.4cc55da3.png",
+            "sha256": "4cc55da3b0f36119ddf6582b09039272207c546879eaab8ec53ea03862297bf2",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "6b26b11e242ad6b8b31762985409c54b448e3cabc6612200bf02342a7271b6a1"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-30T21:57:12.806Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字・数値の判読",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "meaning",
+          "inputSha256": "0630cd5c9c80ddbc4723594688f5bf320f60682b315b221081edaaa7d14909f0",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Codex ImageGen: 16:9 clean white diagram-led scene for gradient vector and length, meaning; exact calculation from storyboard.",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-first-stage/pe1-kiso-gradient-length/work/raw-meaning-diagram.148a35ab.png",
+              "sha256": "148a35abf29da78fe66b4911c230b4db48df73f8e13f3607e5b616a08fe14326"
+            },
+            "generatedAt": "2026-10-30T21:57:12.806Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-first-stage/pe1-kiso-gradient-length/work/meaning-diagram.39587871.png",
+            "sha256": "39587871ce42848a5ccd98fe619ac4ffb4d89dd218120a6a7330ea83037abd63",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "148a35abf29da78fe66b4911c230b4db48df73f8e13f3607e5b616a08fe14326"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-30T21:57:12.806Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字・数値の判読",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "summary",
+          "inputSha256": "380221516fe81e9b615caab1cf1fb30676f7c8d111caaaca4417de08c6dd15cd",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Codex ImageGen: 16:9 clean white diagram-led scene for gradient vector and length, summary; exact calculation from storyboard.",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-first-stage/pe1-kiso-gradient-length/work/raw-summary-diagram.6fb50533.png",
+              "sha256": "6fb5053301de52f6f81e30e83490cb7169a8d7ed2d894fd5faf3dd8150e25267"
+            },
+            "generatedAt": "2026-10-30T21:57:12.806Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-first-stage/pe1-kiso-gradient-length/work/summary-diagram.eca4c25c.png",
+            "sha256": "eca4c25c83cdc057d75413dd3baedc8a0c6c8cbe2a849afe2ee7510da70ac1d5",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "6fb5053301de52f6f81e30e83490cb7169a8d7ed2d894fd5faf3dd8150e25267"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-30T21:57:12.806Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字・数値の判読",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "cta",
+          "inputSha256": "c627b6fa10b9a64d8b9ffab032836eb2bd213673b83523e8e836152174c43985",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Codex ImageGen: 16:9 clean white diagram-led scene for gradient vector and length, cta; exact calculation from storyboard.",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-first-stage/pe1-kiso-gradient-length/work/raw-cta-diagram.1c263713.png",
+              "sha256": "1c2637133c1e85fa99a1222f0782c41e30e87b85b91e42d6ae889e27c53f98fa"
+            },
+            "generatedAt": "2026-10-30T21:57:12.806Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-first-stage/pe1-kiso-gradient-length/work/cta-diagram.aeb8be72.png",
+            "sha256": "aeb8be72a1ac057ae4552945aa7d85328a3e59fc0fbd7312d2fcbee62c15f405",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "1c2637133c1e85fa99a1222f0782c41e30e87b85b91e42d6ae889e27c53f98fa"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-30T21:57:12.806Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字・数値の判読",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        }
+      ]
+    },
+    "cover-pop-20261028": {
+      "version": "pop-poster-v3",
+      "generation": {
+        "tool": "image_gen",
+        "prompt": "Codex ImageGen: POP cover 勾配ベクトル / 長さは別物, approved teacher character and correct 3-4-5 triangle",
+        "references": [
+          {
+            "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.abe1a7b7.png",
+            "sha256": "abe1a7b7debc540640b2aacb2f333874901e60f25843dca40579ccd42feb7216"
+          }
+        ],
+        "output": {
+          "path": ".tmp/media/pe-first-stage/pe1-kiso-gradient-length/work/raw-cover-pop.d83155fd.png",
+          "sha256": "d83155fddc8a4986f7bd4eb448a6cc3838d98d415a55b7cb289cafdca128e4ac"
+        },
+        "generatedAt": "2026-10-30T21:57:12.806Z"
+      },
+      "copy": {
+        "exam": "pe-first-stage",
+        "headline": [
+          "勾配ベクトル",
+          "長さは別物"
+        ],
+        "authority": "総監が制作"
+      },
+      "output": {
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-gradient-length/work/cover-pop.c370949e.png",
+        "sha256": "c370949e6d191122c6597f57105b4740469b631512178a797b654003ba488a81",
+        "width": 1920,
+        "height": 1080
+      },
+      "normalization": {
+        "mode": "full-frame-v1",
+        "sourceSha256": "d83155fddc8a4986f7bd4eb448a6cc3838d98d415a55b7cb289cafdca128e4ac"
+      },
+      "review": {
+        "status": "ai-reviewed",
+        "userImageReview": "pending",
+        "checkedAt": "2026-10-30T21:57:12.806Z",
+        "by": "Codex",
+        "views": [
+          "original"
+        ],
+        "checks": [
+          "文言・資格名",
+          "顔と安全域"
+        ]
+      },
+      "storage": {
+        "group": "content-media",
+        "sync": "local"
+      }
+    }
+  }
+}

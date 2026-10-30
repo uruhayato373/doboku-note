@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "pe-first-stage",
+      "headline": [
+        "勾配ベクトル",
+        "長さは別物"
+      ],
+      "accentLine": 0,
+      "subtitle": "基礎科目",
+      "character": {
+        "pose": "pop-red-pen",
+        "frame": "waist"
+      },
+      "design": "pop-poster-v3",
+      "pop": {
+        "variant": "question",
+        "authority": "総監が制作"
+      },
+      "approvedImage": {
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-gradient-length/work/cover-pop.c370949e.png",
+        "sha256": "c370949e6d191122c6597f57105b4740469b631512178a797b654003ba488a81",
+        "specSha256": "92ad7b32311999d782f0a8a0ab39a48da5ce3b45c7039166478926dcf98c2253"
+      }
+    }
+  }
+}

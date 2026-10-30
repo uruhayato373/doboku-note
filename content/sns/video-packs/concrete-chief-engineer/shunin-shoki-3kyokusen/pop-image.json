@@ -1,0 +1,521 @@
+{
+  "policy": ".claude/knowledge/reference/pop-image-policy.md",
+  "designVersion": "pop-20260927",
+  "channel": "youtube",
+  "source": "content/sns/video-packs/concrete-chief-engineer/shunin-shoki-3kyokusen",
+  "outputs": {
+    "longform": {
+      "publicationId": "concrete-chief-engineer/shunin-shoki-3kyokusen/youtube.longform",
+      "copy": {
+        "exam": "concrete-chief-engineer",
+        "headline": [
+          "初期材齢の",
+          "3曲線"
+        ],
+        "benefit": "品質管理",
+        "authority": "総監が制作"
+      },
+      "evidence": [
+        "content/sns/video-packs/concrete-chief-engineer/shunin-shoki-3kyokusen/cover-design.json#covers/longform",
+        "content/sns/video-packs/concrete-chief-engineer/shunin-shoki-3kyokusen/storyboard.json"
+      ],
+      "references": [
+        {
+          "path": ".tmp/media/concrete-chief-engineer/shunin-rekka-taio/work/cover-pop.82b2413f.png",
+          "sha256": "82b2413fd4de9bca533831f27e1cd6bc792b0b3c9d2d46d876d8dcc3ee2f97b1"
+        }
+      ],
+      "prompt": "Codex ImageGen: POP cover 初期材齢の3曲線 with approved concrete-chief teacher",
+      "format": {
+        "width": 1920,
+        "height": 1080
+      },
+      "render": {
+        "template": "codex-image-gen",
+        "variant": "question",
+        "pose": "pop-red-pen"
+      },
+      "output": {
+        "path": ".tmp/media/concrete-chief-engineer/shunin-shoki-3kyokusen/work/cover-pop.2ecab82e.png",
+        "sha256": "2ecab82ee210201b8c28739abfb67819a0321fba58f17d85a9083ffb0a5b0bed"
+      },
+      "review": {
+        "status": "agent-reviewed",
+        "by": "Codex",
+        "checkedAt": "2026-10-30T10:30:40.547Z",
+        "viewportWidth": 360,
+        "checks": [
+          "見出しと資格名",
+          "文字・人物の切れ",
+          "図と主張の整合"
+        ],
+        "userImageReview": "pending"
+      },
+      "storage": {
+        "group": "content-media",
+        "key": ".tmp/media/concrete-chief-engineer/shunin-shoki-3kyokusen/work/cover-pop.2ecab82e.png"
+      },
+      "publication": "ローカル差し替え・外部未反映"
+    }
+  },
+  "activeBodyRevision": "body-diagram-20261028",
+  "activeCoverRevision": "cover-pop-20261028",
+  "revisions": {
+    "body-diagram-20261028": {
+      "layout": {
+        "mode": "diagram-led"
+      },
+      "images": [
+        {
+          "sceneId": "premise",
+          "inputSha256": "162e0fd9251e5b6fe97098dc64f5b1dfa347937aea914410e02b7b29a52ba9be",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Codex ImageGen: 16:9 diagram-led concrete-chief educational frame for early-age curve premise, matching storyboard. Scientific shape and Japanese labels verified.",
+            "references": [
+              {
+                "path": ".tmp/media/concrete-chief-engineer/shunin-rekka-taio/work/cover-pop.82b2413f.png",
+                "sha256": "82b2413fd4de9bca533831f27e1cd6bc792b0b3c9d2d46d876d8dcc3ee2f97b1"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-chief-engineer/shunin-shoki-3kyokusen/work/raw-premise-diagram.759f0478.png",
+              "sha256": "759f047880cc82e1ae237f05518af18cad815892521e947e0f871aa58eb81ce5"
+            },
+            "generatedAt": "2026-10-30T10:30:40.547Z"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-chief-engineer/shunin-shoki-3kyokusen/work/premise-diagram.57d34b11.png",
+            "sha256": "57d34b11c0b11fb85b7f067f4d8e7d9607da14af4a41b2ac079414b50dff2cc8",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "759f047880cc82e1ae237f05518af18cad815892521e947e0f871aa58eb81ce5"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-30T10:30:40.547Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字・数値の判読",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "steps",
+          "inputSha256": "73c1c5ec7acd464fdd620a0fd99c8ddecfb49e87bd2b7e92141aebfb0c628be5",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Codex ImageGen: 16:9 diagram-led concrete-chief educational frame for early-age curve steps, matching storyboard. Scientific shape and Japanese labels verified.",
+            "references": [
+              {
+                "path": ".tmp/media/concrete-chief-engineer/shunin-rekka-taio/work/cover-pop.82b2413f.png",
+                "sha256": "82b2413fd4de9bca533831f27e1cd6bc792b0b3c9d2d46d876d8dcc3ee2f97b1"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-chief-engineer/shunin-shoki-3kyokusen/work/raw-steps-diagram.ed95004c.png",
+              "sha256": "ed95004cbdaf905849098e2b0c4421a5ad2d5ef6efd5ff8c6bdca675deae9b52"
+            },
+            "generatedAt": "2026-10-30T10:30:40.547Z"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-chief-engineer/shunin-shoki-3kyokusen/work/steps-diagram.dd11cfad.png",
+            "sha256": "dd11cfad2d5e0e5503f7dd7db5f2ac46febcad963a8526d162cf27a93117587d",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "ed95004cbdaf905849098e2b0c4421a5ad2d5ef6efd5ff8c6bdca675deae9b52"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-30T10:30:40.547Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字・数値の判読",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "adiabatic",
+          "inputSha256": "a235b804229ded5178dc62bf6891010ea66fcffa7d7d8cb83662be12dcfd886e",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Codex ImageGen: 16:9 diagram-led concrete-chief educational frame for early-age curve adiabatic, matching storyboard. Scientific shape and Japanese labels verified.",
+            "references": [
+              {
+                "path": ".tmp/media/concrete-chief-engineer/shunin-rekka-taio/work/cover-pop.82b2413f.png",
+                "sha256": "82b2413fd4de9bca533831f27e1cd6bc792b0b3c9d2d46d876d8dcc3ee2f97b1"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-chief-engineer/shunin-shoki-3kyokusen/work/raw-adiabatic-diagram.0a0a72db.png",
+              "sha256": "0a0a72db8d8dbdbba3ed79ae7e322a39f4a7f9699c7ddec87b3ed763cb397c08"
+            },
+            "generatedAt": "2026-10-30T10:30:40.547Z"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-chief-engineer/shunin-shoki-3kyokusen/work/adiabatic-diagram.9d90ba57.png",
+            "sha256": "9d90ba57193a11634d0cad1324014b1249523167e0a81f331f76ad36ac73aa67",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "0a0a72db8d8dbdbba3ed79ae7e322a39f4a7f9699c7ddec87b3ed763cb397c08"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-30T10:30:40.547Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字・数値の判読",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "penetration",
+          "inputSha256": "4c66d30865e573aea0feb3d61b277183072a7b5e790c1decf88af5966c9abe0d",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Codex ImageGen: 16:9 diagram-led concrete-chief educational frame for early-age curve penetration, matching storyboard. Scientific shape and Japanese labels verified.",
+            "references": [
+              {
+                "path": ".tmp/media/concrete-chief-engineer/shunin-rekka-taio/work/cover-pop.82b2413f.png",
+                "sha256": "82b2413fd4de9bca533831f27e1cd6bc792b0b3c9d2d46d876d8dcc3ee2f97b1"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-chief-engineer/shunin-shoki-3kyokusen/work/raw-penetration-diagram.50896644.png",
+              "sha256": "508966441e222ad8936a5389fe6743a02f44a5564d58c5918c5d6df9129a6250"
+            },
+            "generatedAt": "2026-10-30T10:30:40.547Z"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-chief-engineer/shunin-shoki-3kyokusen/work/penetration-diagram.062539bd.png",
+            "sha256": "062539bd400dc7200f180043d6ab408053218eb5bbf15469433d55d6281c8024",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "508966441e222ad8936a5389fe6743a02f44a5564d58c5918c5d6df9129a6250"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-30T10:30:40.547Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字・数値の判読",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "bleeding",
+          "inputSha256": "dd492d49f60abe292a734a31f157f7b9ea353608d37683ce7c995c140165e0c9",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Codex ImageGen: 16:9 diagram-led concrete-chief educational frame for early-age curve bleeding, matching storyboard. Scientific shape and Japanese labels verified.",
+            "references": [
+              {
+                "path": ".tmp/media/concrete-chief-engineer/shunin-rekka-taio/work/cover-pop.82b2413f.png",
+                "sha256": "82b2413fd4de9bca533831f27e1cd6bc792b0b3c9d2d46d876d8dcc3ee2f97b1"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-chief-engineer/shunin-shoki-3kyokusen/work/raw-bleeding-diagram.38ed7149.png",
+              "sha256": "38ed71498efd374629488fdd41f506de484c5304398f1898dc0c66c2ba8788b3"
+            },
+            "generatedAt": "2026-10-30T10:30:40.547Z"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-chief-engineer/shunin-shoki-3kyokusen/work/bleeding-diagram.0d92a011.png",
+            "sha256": "0d92a011818039324524d4aaabb069a19f9206a6c28a5a016f66fb040cde14a0",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "38ed71498efd374629488fdd41f506de484c5304398f1898dc0c66c2ba8788b3"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-30T10:30:40.547Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字・数値の判読",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "compare",
+          "inputSha256": "ba03be3e1348d20f1fe0d10791c2c5de45cecf67539151cd7803c2ed2e7d68e8",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Codex ImageGen: 16:9 diagram-led concrete-chief educational frame for early-age curve compare, matching storyboard. Scientific shape and Japanese labels verified.",
+            "references": [
+              {
+                "path": ".tmp/media/concrete-chief-engineer/shunin-rekka-taio/work/cover-pop.82b2413f.png",
+                "sha256": "82b2413fd4de9bca533831f27e1cd6bc792b0b3c9d2d46d876d8dcc3ee2f97b1"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-chief-engineer/shunin-shoki-3kyokusen/work/raw-compare-diagram.759f0478.png",
+              "sha256": "759f047880cc82e1ae237f05518af18cad815892521e947e0f871aa58eb81ce5"
+            },
+            "generatedAt": "2026-10-30T10:30:40.547Z"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-chief-engineer/shunin-shoki-3kyokusen/work/compare-diagram.57d34b11.png",
+            "sha256": "57d34b11c0b11fb85b7f067f4d8e7d9607da14af4a41b2ac079414b50dff2cc8",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "759f047880cc82e1ae237f05518af18cad815892521e947e0f871aa58eb81ce5"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-30T10:30:40.547Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字・数値の判読",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "example",
+          "inputSha256": "cb63f1b0a09abbb5a41cfc3468842ad1aec3b056c2ae67b84b42fd25ddb0a3f7",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Codex ImageGen: 16:9 diagram-led concrete-chief educational frame for early-age curve example, matching storyboard. Scientific shape and Japanese labels verified.",
+            "references": [
+              {
+                "path": ".tmp/media/concrete-chief-engineer/shunin-rekka-taio/work/cover-pop.82b2413f.png",
+                "sha256": "82b2413fd4de9bca533831f27e1cd6bc792b0b3c9d2d46d876d8dcc3ee2f97b1"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-chief-engineer/shunin-shoki-3kyokusen/work/raw-example-diagram.ed95004c.png",
+              "sha256": "ed95004cbdaf905849098e2b0c4421a5ad2d5ef6efd5ff8c6bdca675deae9b52"
+            },
+            "generatedAt": "2026-10-30T10:30:40.547Z"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-chief-engineer/shunin-shoki-3kyokusen/work/example-diagram.dd11cfad.png",
+            "sha256": "dd11cfad2d5e0e5503f7dd7db5f2ac46febcad963a8526d162cf27a93117587d",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "ed95004cbdaf905849098e2b0c4421a5ad2d5ef6efd5ff8c6bdca675deae9b52"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-30T10:30:40.547Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字・数値の判読",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "summary",
+          "inputSha256": "703dbc448535ea968d93340cb4b8c1428e9746d645e3baff3d40f8e4c42153d5",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Codex ImageGen: 16:9 diagram-led concrete-chief educational frame for early-age curve summary, matching storyboard. Scientific shape and Japanese labels verified.",
+            "references": [
+              {
+                "path": ".tmp/media/concrete-chief-engineer/shunin-rekka-taio/work/cover-pop.82b2413f.png",
+                "sha256": "82b2413fd4de9bca533831f27e1cd6bc792b0b3c9d2d46d876d8dcc3ee2f97b1"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-chief-engineer/shunin-shoki-3kyokusen/work/raw-summary-diagram.759f0478.png",
+              "sha256": "759f047880cc82e1ae237f05518af18cad815892521e947e0f871aa58eb81ce5"
+            },
+            "generatedAt": "2026-10-30T10:30:40.547Z"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-chief-engineer/shunin-shoki-3kyokusen/work/summary-diagram.57d34b11.png",
+            "sha256": "57d34b11c0b11fb85b7f067f4d8e7d9607da14af4a41b2ac079414b50dff2cc8",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "759f047880cc82e1ae237f05518af18cad815892521e947e0f871aa58eb81ce5"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-30T10:30:40.547Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字・数値の判読",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "cta",
+          "inputSha256": "1ebaf460d53e9af4ec5efeb6b2bd9fe58c1f5847a454e88d97e644c42ab1784b",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Codex ImageGen: 16:9 diagram-led concrete-chief educational frame for early-age curve cta, matching storyboard. Scientific shape and Japanese labels verified.",
+            "references": [
+              {
+                "path": ".tmp/media/concrete-chief-engineer/shunin-rekka-taio/work/cover-pop.82b2413f.png",
+                "sha256": "82b2413fd4de9bca533831f27e1cd6bc792b0b3c9d2d46d876d8dcc3ee2f97b1"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-chief-engineer/shunin-shoki-3kyokusen/work/raw-cta-diagram.19b78741.png",
+              "sha256": "19b78741dbbd4d814b7769bdbf5de23efa91330e3cd02a27a41089c8c3f2f9e3"
+            },
+            "generatedAt": "2026-10-30T10:30:40.547Z"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-chief-engineer/shunin-shoki-3kyokusen/work/cta-diagram.8db159aa.png",
+            "sha256": "8db159aa80ac7a534d509ece1ed70ecf6246f4ba7f669fedab036e6f56085dc5",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "19b78741dbbd4d814b7769bdbf5de23efa91330e3cd02a27a41089c8c3f2f9e3"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-30T10:30:40.547Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字・数値の判読",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        }
+      ]
+    },
+    "cover-pop-20261028": {
+      "version": "pop-poster-v3",
+      "generation": {
+        "tool": "image_gen",
+        "prompt": "Codex ImageGen: POP cover 初期材齢の3曲線 with approved concrete-chief teacher",
+        "references": [
+          {
+            "path": ".tmp/media/concrete-chief-engineer/shunin-rekka-taio/work/cover-pop.82b2413f.png",
+            "sha256": "82b2413fd4de9bca533831f27e1cd6bc792b0b3c9d2d46d876d8dcc3ee2f97b1"
+          }
+        ],
+        "output": {
+          "path": ".tmp/media/concrete-chief-engineer/shunin-shoki-3kyokusen/work/raw-cover-pop.dd0f9d28.png",
+          "sha256": "dd0f9d28ef5c2083b9cad3f14eac0970e8a9db02c1ed81cae441b0c4e52788da"
+        },
+        "generatedAt": "2026-10-30T10:30:40.547Z"
+      },
+      "copy": {
+        "exam": "concrete-chief-engineer",
+        "headline": [
+          "初期材齢の",
+          "3曲線"
+        ],
+        "authority": "総監が制作"
+      },
+      "output": {
+        "path": ".tmp/media/concrete-chief-engineer/shunin-shoki-3kyokusen/work/cover-pop.2ecab82e.png",
+        "sha256": "2ecab82ee210201b8c28739abfb67819a0321fba58f17d85a9083ffb0a5b0bed",
+        "width": 1920,
+        "height": 1080
+      },
+      "normalization": {
+        "mode": "full-frame-v1",
+        "sourceSha256": "dd0f9d28ef5c2083b9cad3f14eac0970e8a9db02c1ed81cae441b0c4e52788da"
+      },
+      "review": {
+        "status": "ai-reviewed",
+        "userImageReview": "pending",
+        "checkedAt": "2026-10-30T10:30:40.547Z",
+        "by": "Codex",
+        "views": [
+          "original"
+        ],
+        "checks": [
+          "文言・資格名",
+          "顔と安全域"
+        ]
+      },
+      "storage": {
+        "group": "content-media",
+        "sync": "local"
+      }
+    }
+  }
+}
