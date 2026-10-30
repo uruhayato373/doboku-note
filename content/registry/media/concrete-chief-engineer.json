@@ -525,6 +525,378 @@
       "durationSec": 228.9
     },
     {
+      "id": "concrete-chief-engineer/shunin-chinka-hibiware-genin/youtube.longform/contact-sheet",
+      "role": "contact-sheet",
+      "type": "image/jpeg",
+      "sha256": "51f860fe6fdcfef8452314d4e77f6d100faed93d4a0148fe0380a3c471fc4048",
+      "bytes": 781141,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-chinka-hibiware-genin/youtube.longform/contact-sheet.51f860fe.jpg"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "media-preview",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-chinka-hibiware-genin/storyboard.json"
+      },
+      "width": 1920,
+      "height": 1620
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-chinka-hibiware-genin/youtube.longform/cover",
+      "role": "cover",
+      "type": "image/png",
+      "sha256": "17e65b4d16697c09d1b0328f044a80ae2d2ab64f337958852fc607d9f43c194e",
+      "bytes": 849713,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-chinka-hibiware-genin/youtube.longform/cover.17e65b4d.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Codex ImageGen: POP cover 沈下ひび割れ / 乾燥収縮と区別, approved teacher character and two concrete cross sections",
+        "promptSha256": "39c53b4c694b1f63f8c4f48ad3e096ad7e5531b81ad878ced007830aac16a646",
+        "generatedAt": "2026-10-30T22:23:50.649Z"
+      },
+      "width": 1920,
+      "height": 1080,
+      "legacyPaths": [
+        ".tmp/media/concrete-chief-engineer/shunin-chinka-hibiware-genin/work/cover-pop.17e65b4d.png"
+      ]
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-chinka-hibiware-genin/youtube.longform/preview",
+      "role": "preview",
+      "type": "video/mp4",
+      "sha256": "982b2c415f65a7e19674f4f234d4204983dba8a7198aa36f9c2ef75dc0e2fb38",
+      "bytes": 6093674,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-chinka-hibiware-genin/youtube.longform/preview.982b2c41.mp4"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "media-preview",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-chinka-hibiware-genin/storyboard.json"
+      },
+      "durationSec": 228.565
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-chinka-hibiware-genin/youtube.longform/preview-metrics",
+      "role": "preview-metrics",
+      "type": "application/json",
+      "sha256": "5e9c14a4ce2677fcd6911463ee8c759dbf986c76800cbd857b7641fb82e2f2ee",
+      "bytes": 1620,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-chinka-hibiware-genin/youtube.longform/preview-metrics.5e9c14a4.json"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "media-preview",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-chinka-hibiware-genin/storyboard.json"
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-chinka-hibiware-genin/youtube.longform/scene-001",
+      "role": "scene-001",
+      "type": "image/png",
+      "sha256": "17e65b4d16697c09d1b0328f044a80ae2d2ab64f337958852fc607d9f43c194e",
+      "bytes": 849713,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-chinka-hibiware-genin/youtube.longform/scene-001.17e65b4d.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Codex ImageGen: POP cover 沈下ひび割れ / 乾燥収縮と区別, approved teacher character and two concrete cross sections",
+        "promptSha256": "39c53b4c694b1f63f8c4f48ad3e096ad7e5531b81ad878ced007830aac16a646",
+        "generatedAt": "2026-10-30T22:23:50.649Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-chinka-hibiware-genin/youtube.longform/scene-002",
+      "role": "scene-002",
+      "type": "image/png",
+      "sha256": "2390c62cb4b2e328bef0de99acb085a34a2836042994ebf1aa785a955e315c70",
+      "bytes": 2440399,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-chinka-hibiware-genin/youtube.longform/scene-002.2390c62c.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Codex ImageGen: 16:9 clean concrete-chief educational diagram for settlement versus drying shrinkage premise, matching storyboard.",
+        "promptSha256": "44b812b4a172cf2090fd9ff0b0cdc5ae1168f4c68679dd5f9ea6a6c2decc0b56",
+        "generatedAt": "2026-10-30T22:23:50.649Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-chinka-hibiware-genin/youtube.longform/scene-003",
+      "role": "scene-003",
+      "type": "image/png",
+      "sha256": "2390c62cb4b2e328bef0de99acb085a34a2836042994ebf1aa785a955e315c70",
+      "bytes": 2440399,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-chinka-hibiware-genin/youtube.longform/scene-003.2390c62c.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Codex ImageGen: 16:9 clean concrete-chief educational diagram for settlement versus drying shrinkage timeline, matching storyboard.",
+        "promptSha256": "89b60cfd325e9d5a340b371afed631214e22201c2b750628128222d72e6d8824",
+        "generatedAt": "2026-10-30T22:23:50.649Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-chinka-hibiware-genin/youtube.longform/scene-004",
+      "role": "scene-004",
+      "type": "image/png",
+      "sha256": "956d6aab882117a50eada7845d7f5e6f6d0aa6a44c98114e9340152c39cd7db6",
+      "bytes": 1793507,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-chinka-hibiware-genin/youtube.longform/scene-004.956d6aab.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Codex ImageGen: 16:9 clean concrete-chief educational diagram for settlement versus drying shrinkage section, matching storyboard.",
+        "promptSha256": "5d6d5c018462fff805df827303468b37dfab0935b8ea0d3423de8ee8eca4a63c",
+        "generatedAt": "2026-10-30T22:23:50.649Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-chinka-hibiware-genin/youtube.longform/scene-005",
+      "role": "scene-005",
+      "type": "image/png",
+      "sha256": "dcae017da79b31d813232331c2c61bd395a1f9858e4a27d2389d952af7d06c25",
+      "bytes": 2103673,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-chinka-hibiware-genin/youtube.longform/scene-005.dcae017d.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Codex ImageGen: 16:9 clean concrete-chief educational diagram for settlement versus drying shrinkage mechanism, matching storyboard.",
+        "promptSha256": "b440105696de005b3798e82953b88cdc2a044afd8f2abde20f7892ab029b3d50",
+        "generatedAt": "2026-10-30T22:23:50.649Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-chinka-hibiware-genin/youtube.longform/scene-006",
+      "role": "scene-006",
+      "type": "image/png",
+      "sha256": "cbcf23d0e9d5992bdc8e8bddf3ff17a4611fdaf991608457912c42b7550afc17",
+      "bytes": 1754389,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-chinka-hibiware-genin/youtube.longform/scene-006.cbcf23d0.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Codex ImageGen: 16:9 clean concrete-chief educational diagram for settlement versus drying shrinkage shrink, matching storyboard.",
+        "promptSha256": "9fc0f98505b07aa0dfd3a396fea3b54bb82814c1003c70464a6dc8bf4f2a254c",
+        "generatedAt": "2026-10-30T22:23:50.649Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-chinka-hibiware-genin/youtube.longform/scene-007",
+      "role": "scene-007",
+      "type": "image/png",
+      "sha256": "2390c62cb4b2e328bef0de99acb085a34a2836042994ebf1aa785a955e315c70",
+      "bytes": 2440399,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-chinka-hibiware-genin/youtube.longform/scene-007.2390c62c.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Codex ImageGen: 16:9 clean concrete-chief educational diagram for settlement versus drying shrinkage compare, matching storyboard.",
+        "promptSha256": "ba2b72d03173a64ea702fe3d099ac8a2e484299d0f1436d45c9ed6147f76ee16",
+        "generatedAt": "2026-10-30T22:23:50.649Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-chinka-hibiware-genin/youtube.longform/scene-008",
+      "role": "scene-008",
+      "type": "image/png",
+      "sha256": "53baff48d5e1181bbb16ae9258451f863ea1f49fc3c407e09871eb3ecb89701e",
+      "bytes": 1663032,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-chinka-hibiware-genin/youtube.longform/scene-008.53baff48.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Codex ImageGen: 16:9 clean concrete-chief educational diagram for settlement versus drying shrinkage measures, matching storyboard.",
+        "promptSha256": "932baed877d232667d3a511d1f43fcf0472cd10b60a503e92ca840395cbb5644",
+        "generatedAt": "2026-10-30T22:23:50.649Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-chinka-hibiware-genin/youtube.longform/scene-009",
+      "role": "scene-009",
+      "type": "image/png",
+      "sha256": "f422e92164f34beda5df3f77842a946a029cfdf5fa2857b88de6e4bc6cae1573",
+      "bytes": 2137721,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-chinka-hibiware-genin/youtube.longform/scene-009.f422e921.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Codex ImageGen: 16:9 clean concrete-chief educational diagram for settlement versus drying shrinkage trap, matching storyboard.",
+        "promptSha256": "be2e1c9e86b08bffdb1bc03e487326bfc1256698d06464ec4c7bed6b9073980a",
+        "generatedAt": "2026-10-30T22:23:50.649Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-chinka-hibiware-genin/youtube.longform/scene-010",
+      "role": "scene-010",
+      "type": "image/png",
+      "sha256": "4938abe6e57ec231d1d5366a27d4e4175fcb4363f4bf970c37c2f30d2928e061",
+      "bytes": 2179496,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-chinka-hibiware-genin/youtube.longform/scene-010.4938abe6.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Codex ImageGen: distinct, visually verified diagram for example; exact storyboard content.",
+        "promptSha256": "89a42c8d862bf8f9056802fc212a34eb7391ecbba8e2e7a0ee4cd024cba73913",
+        "generatedAt": "2026-10-30T22:23:50.649Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-chinka-hibiware-genin/youtube.longform/scene-011",
+      "role": "scene-011",
+      "type": "image/png",
+      "sha256": "145ad3b0c9950176ce65344ea1f63412067cdfffda50acf2b295782d1d9b29ff",
+      "bytes": 1806763,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-chinka-hibiware-genin/youtube.longform/scene-011.145ad3b0.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Codex ImageGen: distinct, visually verified diagram for summary; exact storyboard content.",
+        "promptSha256": "2417d3c0449138c0c37e6218232ec0db4f4d022f7bcd00f5206921ae9b61bfb0",
+        "generatedAt": "2026-10-30T22:23:50.649Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-chinka-hibiware-genin/youtube.longform/scene-012",
+      "role": "scene-012",
+      "type": "image/png",
+      "sha256": "8db159aa80ac7a534d509ece1ed70ecf6246f4ba7f669fedab036e6f56085dc5",
+      "bytes": 2139237,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-chinka-hibiware-genin/youtube.longform/scene-012.8db159aa.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Codex ImageGen: 16:9 clean concrete-chief educational diagram for settlement versus drying shrinkage cta, matching storyboard.",
+        "promptSha256": "977628d88cac4f59d92462800b3fb7809c8113cbab84c394a01713a7563431d0",
+        "generatedAt": "2026-10-30T22:23:50.649Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-chinka-hibiware-genin/youtube.longform/scene-sheet",
+      "role": "scene-sheet",
+      "type": "image/jpeg",
+      "sha256": "1b73af3f809311100e1dcdb27c2970efe9910fc0e541beaccb3a5743121b2b08",
+      "bytes": 877532,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-chinka-hibiware-genin/youtube.longform/scene-sheet.1b73af3f.jpg"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "media-preview",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-chinka-hibiware-genin/storyboard.json"
+      },
+      "width": 1920,
+      "height": 1592
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-chinka-hibiware-genin/youtube.longform/subtitles",
+      "role": "subtitles",
+      "type": "text/x-ssa",
+      "sha256": "c8006cb2d31b33491cb592d41d59bcb62753edb8a6db748c0bdad15d2ea88e7b",
+      "bytes": 7907,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-chinka-hibiware-genin/youtube.longform/subtitles.c8006cb2.ass"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-chinka-hibiware-genin/storyboard.json"
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-chinka-hibiware-genin/youtube.longform/video",
+      "role": "video",
+      "type": "video/mp4",
+      "sha256": "2209ad68d175052608c0eb4626983594059d8e34a67baa9e6a8de2af37f221d1",
+      "bytes": 27803730,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-chinka-hibiware-genin/youtube.longform/video.2209ad68.mp4"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-chinka-hibiware-genin/storyboard.json",
+        "specSha256": "46e367746cf24cffb3a7e2764815da7ba68ebf5b6bcf0b0c634a16c7aa53c868",
+        "renderInputSha256": "85e61375215a3fed83f04e2ad292be81bf6d9f5b84f46a90bfa1735b7998aea0",
+        "tts": {
+          "engine": "VOICEVOX",
+          "speaker": 13,
+          "credit": "VOICEVOX:青山龍星"
+        }
+      },
+      "durationSec": 228.565
+    },
+    {
       "id": "concrete-chief-engineer/shunin-chokuzen-senryaku/work/candidate-cover",
       "role": "candidate-cover",
       "type": "image/png",
@@ -2386,6 +2758,358 @@
         }
       },
       "durationSec": 207.133
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-kyoudo-hantei-2jouken/youtube.longform/contact-sheet",
+      "role": "contact-sheet",
+      "type": "image/jpeg",
+      "sha256": "dfc49d815313eff7e066c91639fb9c425b0b464aa802572269d6f1e7fd5e59e1",
+      "bytes": 610576,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-kyoudo-hantei-2jouken/youtube.longform/contact-sheet.dfc49d81.jpg"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "media-preview",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-kyoudo-hantei-2jouken/storyboard.json"
+      },
+      "width": 1920,
+      "height": 1620
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-kyoudo-hantei-2jouken/youtube.longform/cover",
+      "role": "cover",
+      "type": "image/png",
+      "sha256": "1582b091d6f44a9987809738057f3893838c26581eefd6bb7b896abc9ac39de9",
+      "bytes": 869192,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-kyoudo-hantei-2jouken/youtube.longform/cover.1582b091.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Codex ImageGen: POP cover or diagram-led body scene for concrete strength criteria, cover; exact Japanese and math verified visually.",
+        "promptSha256": "a8d41bd691ebc16f9c1e8f76bcbc4abd7bef6b44c3d44f4cedec468c69c062dd",
+        "generatedAt": "2026-10-30T22:13:14.124Z"
+      },
+      "width": 1920,
+      "height": 1080,
+      "legacyPaths": [
+        ".tmp/media/concrete-chief-engineer/shunin-kyoudo-hantei-2jouken/work/cover-pop.1582b091.png"
+      ]
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-kyoudo-hantei-2jouken/youtube.longform/preview",
+      "role": "preview",
+      "type": "video/mp4",
+      "sha256": "e3d80b8daf119b3da840c4905991c34e51ae83f638c6d30c4b6c8345f50c3db2",
+      "bytes": 3809767,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-kyoudo-hantei-2jouken/youtube.longform/preview.e3d80b8d.mp4"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "media-preview",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-kyoudo-hantei-2jouken/storyboard.json"
+      },
+      "durationSec": 202.987
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-kyoudo-hantei-2jouken/youtube.longform/preview-metrics",
+      "role": "preview-metrics",
+      "type": "application/json",
+      "sha256": "4f9623b11d5a24448326480ba77ced5a12a7c96cba754c87c208ad2f968e0b54",
+      "bytes": 1409,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-kyoudo-hantei-2jouken/youtube.longform/preview-metrics.4f9623b1.json"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "media-preview",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-kyoudo-hantei-2jouken/storyboard.json"
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-kyoudo-hantei-2jouken/youtube.longform/scene-001",
+      "role": "scene-001",
+      "type": "image/png",
+      "sha256": "1582b091d6f44a9987809738057f3893838c26581eefd6bb7b896abc9ac39de9",
+      "bytes": 869192,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-kyoudo-hantei-2jouken/youtube.longform/scene-001.1582b091.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Codex ImageGen: POP cover or diagram-led body scene for concrete strength criteria, cover; exact Japanese and math verified visually.",
+        "promptSha256": "a8d41bd691ebc16f9c1e8f76bcbc4abd7bef6b44c3d44f4cedec468c69c062dd",
+        "generatedAt": "2026-10-30T22:13:14.124Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-kyoudo-hantei-2jouken/youtube.longform/scene-002",
+      "role": "scene-002",
+      "type": "image/png",
+      "sha256": "802f5dbb30ab0114c8522b1ee18fc5d402f2444cf5ce46d222316a2c3d237940",
+      "bytes": 1270813,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-kyoudo-hantei-2jouken/youtube.longform/scene-002.802f5dbb.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Codex ImageGen: POP cover or diagram-led body scene for concrete strength criteria, premise; exact Japanese and math verified visually.",
+        "promptSha256": "f6ef67c4bcfb13bed2370966577449b8166d8d491c6c7a0b369707d825cd0f86",
+        "generatedAt": "2026-10-30T22:13:14.124Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-kyoudo-hantei-2jouken/youtube.longform/scene-003",
+      "role": "scene-003",
+      "type": "image/png",
+      "sha256": "2a8067ef809dc259d2d37c0784cbeaa559d4d6ef4f82ce17e14675c2247871a8",
+      "bytes": 1330475,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-kyoudo-hantei-2jouken/youtube.longform/scene-003.2a8067ef.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Codex ImageGen: POP cover or diagram-led body scene for concrete strength criteria, myth; exact Japanese and math verified visually.",
+        "promptSha256": "61e401b437541cdced32e82792b1d9b3b886e58772deac79deaeba83158ff239",
+        "generatedAt": "2026-10-30T22:13:14.124Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-kyoudo-hantei-2jouken/youtube.longform/scene-004",
+      "role": "scene-004",
+      "type": "image/png",
+      "sha256": "b831871d7acd37ced6e5d0b17ac6cad3839950ec38cd17275acb9363544979cd",
+      "bytes": 1594985,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-kyoudo-hantei-2jouken/youtube.longform/scene-004.b831871d.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Codex ImageGen: POP cover or diagram-led body scene for concrete strength criteria, cond1; exact Japanese and math verified visually.",
+        "promptSha256": "562173f9b63a3dd5560cfbcf0f170ecc4eb6b70365811a9f8b05165793ffef78",
+        "generatedAt": "2026-10-30T22:13:14.124Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-kyoudo-hantei-2jouken/youtube.longform/scene-005",
+      "role": "scene-005",
+      "type": "image/png",
+      "sha256": "f1092472fb0e35c151b9636e436dbad370b972660eec0d485b746648ec6b8551",
+      "bytes": 1140276,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-kyoudo-hantei-2jouken/youtube.longform/scene-005.f1092472.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Codex ImageGen: POP cover or diagram-led body scene for concrete strength criteria, cond2; exact Japanese and math verified visually.",
+        "promptSha256": "65008167e0d32dc5de37dda74ca91838924e0e88f316ff362be50f12ab1b2ac6",
+        "generatedAt": "2026-10-30T22:13:14.124Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-kyoudo-hantei-2jouken/youtube.longform/scene-006",
+      "role": "scene-006",
+      "type": "image/png",
+      "sha256": "c3db53b0c839a5471e462632687a55c8c95199bd0df11198a4cf4ededd0b9593",
+      "bytes": 1527703,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-kyoudo-hantei-2jouken/youtube.longform/scene-006.c3db53b0.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Codex ImageGen: POP cover or diagram-led body scene for concrete strength criteria, caseA; exact Japanese and math verified visually.",
+        "promptSha256": "c4185f211cf74c721ac5cd012d5c452c2adc49931a1eadb388db8bb200ba74f8",
+        "generatedAt": "2026-10-30T22:13:14.124Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-kyoudo-hantei-2jouken/youtube.longform/scene-007",
+      "role": "scene-007",
+      "type": "image/png",
+      "sha256": "9e6a9978071ca275dcf9d2dc0b45f5c073ab2601a2a293e5a5152b016a0070e3",
+      "bytes": 1534804,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-kyoudo-hantei-2jouken/youtube.longform/scene-007.9e6a9978.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Codex ImageGen: POP cover or diagram-led body scene for concrete strength criteria, caseB; exact Japanese and math verified visually.",
+        "promptSha256": "b17f701bea57fd088e4deb0094262023dc6d76467f04c0d5ac997a026fa03a67",
+        "generatedAt": "2026-10-30T22:13:14.124Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-kyoudo-hantei-2jouken/youtube.longform/scene-008",
+      "role": "scene-008",
+      "type": "image/png",
+      "sha256": "b19e0f068a36081e31e7cb62459b1d6744e233dcc792ff0c8cd8f7146415b5c3",
+      "bytes": 1839705,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-kyoudo-hantei-2jouken/youtube.longform/scene-008.b19e0f06.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Codex ImageGen: POP cover or diagram-led body scene for concrete strength criteria, steps; exact Japanese and math verified visually.",
+        "promptSha256": "688f83779e3becadb434d66fe8b54515955d0dd9e8f312b33e02ffb32aa19d49",
+        "generatedAt": "2026-10-30T22:13:14.124Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-kyoudo-hantei-2jouken/youtube.longform/scene-009",
+      "role": "scene-009",
+      "type": "image/png",
+      "sha256": "9ef7821e8ac2b5f0e8255adb828c033b6b4052558792a333b33ef89c569ff238",
+      "bytes": 1597502,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-kyoudo-hantei-2jouken/youtube.longform/scene-009.9ef7821e.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Codex ImageGen: POP cover or diagram-led body scene for concrete strength criteria, caution; exact Japanese and math verified visually.",
+        "promptSha256": "cd21833c2915bf6f3b9dc83779f0be4a51ca686fc57dddb5c3776031a1291270",
+        "generatedAt": "2026-10-30T22:13:14.124Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-kyoudo-hantei-2jouken/youtube.longform/scene-010",
+      "role": "scene-010",
+      "type": "image/png",
+      "sha256": "802f5dbb30ab0114c8522b1ee18fc5d402f2444cf5ce46d222316a2c3d237940",
+      "bytes": 1270813,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-kyoudo-hantei-2jouken/youtube.longform/scene-010.802f5dbb.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Codex ImageGen: POP cover or diagram-led body scene for concrete strength criteria, summary; exact Japanese and math verified visually.",
+        "promptSha256": "9c21b97dfea41f7b600b8597f528f6aac98d78e9536d72c3a25c528b4a2dfb63",
+        "generatedAt": "2026-10-30T22:13:14.124Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-kyoudo-hantei-2jouken/youtube.longform/scene-011",
+      "role": "scene-011",
+      "type": "image/png",
+      "sha256": "d4357624ad96670bdd51ccce50a46e97c597699c9bdc0b675f9c32fb201d606b",
+      "bytes": 1195960,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-kyoudo-hantei-2jouken/youtube.longform/scene-011.d4357624.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Codex ImageGen: POP cover or diagram-led body scene for concrete strength criteria, cta; exact Japanese and math verified visually.",
+        "promptSha256": "6ba594cb25d94d982e444574a3b72425c7f44b968f35d3c08ff735129dbe77e0",
+        "generatedAt": "2026-10-30T22:13:14.124Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-kyoudo-hantei-2jouken/youtube.longform/scene-sheet",
+      "role": "scene-sheet",
+      "type": "image/jpeg",
+      "sha256": "5a36ecec5a6a6600f98a686621840460018e6f77637f28db4226ec934f65c1df",
+      "bytes": 668661,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-kyoudo-hantei-2jouken/youtube.longform/scene-sheet.5a36ecec.jpg"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "media-preview",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-kyoudo-hantei-2jouken/storyboard.json"
+      },
+      "width": 1920,
+      "height": 1592
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-kyoudo-hantei-2jouken/youtube.longform/subtitles",
+      "role": "subtitles",
+      "type": "text/x-ssa",
+      "sha256": "7d216dd7dde4cedf9a500dd3073eac9e6e0ec6e63d2158797f2064888dd62270",
+      "bytes": 6766,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-kyoudo-hantei-2jouken/youtube.longform/subtitles.7d216dd7.ass"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-kyoudo-hantei-2jouken/storyboard.json"
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-kyoudo-hantei-2jouken/youtube.longform/video",
+      "role": "video",
+      "type": "video/mp4",
+      "sha256": "a32e9bcd1b9b03ddf91facb635de2960680f0cf804aa2e0c9c0cb3d632470083",
+      "bytes": 18690163,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-kyoudo-hantei-2jouken/youtube.longform/video.a32e9bcd.mp4"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-kyoudo-hantei-2jouken/storyboard.json",
+        "specSha256": "d9d72744d0a3cdf6696ee6166b10174f52e4a9bddec38b78950c091abb644379",
+        "renderInputSha256": "905d230868cee653dd327abf0deca93e0c685b02f089d10fa5f1377bb9ca01c8",
+        "tts": {
+          "engine": "VOICEVOX",
+          "speaker": 13,
+          "credit": "VOICEVOX:青山龍星"
+        }
+      },
+      "durationSec": 202.987
     },
     {
       "id": "concrete-chief-engineer/shunin-materials-ronten/youtube.longform/cover",
@@ -4501,6 +5225,338 @@
         ".tmp/video-render/youtube-covers-a-rollout-20260909/290.png",
         ".tmp/media/concrete-chief-engineer/shunin-shiken-zentaizou/youtube.short.point-step1-2/cover.cef517df.png"
       ]
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-shoki-3kyokusen/youtube.longform/contact-sheet",
+      "role": "contact-sheet",
+      "type": "image/jpeg",
+      "sha256": "adcf53c73979cd7b746b44a514571447bbbe278251abb014b9e307fd6a8175ea",
+      "bytes": 300355,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-shoki-3kyokusen/youtube.longform/contact-sheet.adcf53c7.jpg"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "media-preview",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-shoki-3kyokusen/storyboard.json"
+      },
+      "width": 1920,
+      "height": 1620
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-shoki-3kyokusen/youtube.longform/cover",
+      "role": "cover",
+      "type": "image/png",
+      "sha256": "2ecab82ee210201b8c28739abfb67819a0321fba58f17d85a9083ffb0a5b0bed",
+      "bytes": 724662,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-shoki-3kyokusen/youtube.longform/cover.2ecab82e.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Codex ImageGen: POP cover 初期材齢の3曲線 with approved concrete-chief teacher",
+        "promptSha256": "bf0ae925fc33d82096d21f823af3c256bd760e381cb1b76f4d385ce42c309047",
+        "generatedAt": "2026-10-30T10:30:40.547Z"
+      },
+      "width": 1920,
+      "height": 1080,
+      "legacyPaths": [
+        ".tmp/media/concrete-chief-engineer/shunin-shoki-3kyokusen/work/cover-pop.2ecab82e.png"
+      ]
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-shoki-3kyokusen/youtube.longform/preview",
+      "role": "preview",
+      "type": "video/mp4",
+      "sha256": "db03ab05fd18aa6ee103d836f3f1b498e4e66890e589bbab6ed1e0f613101111",
+      "bytes": 2587797,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-shoki-3kyokusen/youtube.longform/preview.db03ab05.mp4"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "media-preview",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-shoki-3kyokusen/storyboard.json"
+      },
+      "durationSec": 99.168
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-shoki-3kyokusen/youtube.longform/preview-metrics",
+      "role": "preview-metrics",
+      "type": "application/json",
+      "sha256": "05e12a1ee23bf752080c2e07b0411703bb61a045705c89b3e33d0f620e5387ae",
+      "bytes": 593,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-shoki-3kyokusen/youtube.longform/preview-metrics.05e12a1e.json"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "media-preview",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-shoki-3kyokusen/storyboard.json"
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-shoki-3kyokusen/youtube.longform/scene-001",
+      "role": "scene-001",
+      "type": "image/png",
+      "sha256": "2ecab82ee210201b8c28739abfb67819a0321fba58f17d85a9083ffb0a5b0bed",
+      "bytes": 724662,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-shoki-3kyokusen/youtube.longform/scene-001.2ecab82e.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Codex ImageGen: POP cover 初期材齢の3曲線 with approved concrete-chief teacher",
+        "promptSha256": "bf0ae925fc33d82096d21f823af3c256bd760e381cb1b76f4d385ce42c309047",
+        "generatedAt": "2026-10-30T10:30:40.547Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-shoki-3kyokusen/youtube.longform/scene-002",
+      "role": "scene-002",
+      "type": "image/png",
+      "sha256": "57d34b11c0b11fb85b7f067f4d8e7d9607da14af4a41b2ac079414b50dff2cc8",
+      "bytes": 1170403,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-shoki-3kyokusen/youtube.longform/scene-002.57d34b11.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Codex ImageGen: 16:9 diagram-led concrete-chief educational frame for early-age curve premise, matching storyboard. Scientific shape and Japanese labels verified.",
+        "promptSha256": "968b003f82db1b2a0a9c9aa59b6bad0ab3b0939270ef49a016a17d4d235205ef",
+        "generatedAt": "2026-10-30T10:30:40.547Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-shoki-3kyokusen/youtube.longform/scene-003",
+      "role": "scene-003",
+      "type": "image/png",
+      "sha256": "dd11cfad2d5e0e5503f7dd7db5f2ac46febcad963a8526d162cf27a93117587d",
+      "bytes": 1344413,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-shoki-3kyokusen/youtube.longform/scene-003.dd11cfad.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Codex ImageGen: 16:9 diagram-led concrete-chief educational frame for early-age curve steps, matching storyboard. Scientific shape and Japanese labels verified.",
+        "promptSha256": "93df6f947592208170536c3cf6f0d1890a6f5a1e4fa9bc1a8415727a2caaabcc",
+        "generatedAt": "2026-10-30T10:30:40.547Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-shoki-3kyokusen/youtube.longform/scene-004",
+      "role": "scene-004",
+      "type": "image/png",
+      "sha256": "9d90ba57193a11634d0cad1324014b1249523167e0a81f331f76ad36ac73aa67",
+      "bytes": 1430279,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-shoki-3kyokusen/youtube.longform/scene-004.9d90ba57.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Codex ImageGen: 16:9 diagram-led concrete-chief educational frame for early-age curve adiabatic, matching storyboard. Scientific shape and Japanese labels verified.",
+        "promptSha256": "e98b0d43e662f9c6f73f1fff855477acce3531d39d4b9f882e403a2c29870f73",
+        "generatedAt": "2026-10-30T10:30:40.547Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-shoki-3kyokusen/youtube.longform/scene-005",
+      "role": "scene-005",
+      "type": "image/png",
+      "sha256": "062539bd400dc7200f180043d6ab408053218eb5bbf15469433d55d6281c8024",
+      "bytes": 1106840,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-shoki-3kyokusen/youtube.longform/scene-005.062539bd.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Codex ImageGen: 16:9 diagram-led concrete-chief educational frame for early-age curve penetration, matching storyboard. Scientific shape and Japanese labels verified.",
+        "promptSha256": "27e3e0632b5e041d6e3c29be2e4d52edc66ef795868460f66babae1d17501354",
+        "generatedAt": "2026-10-30T10:30:40.547Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-shoki-3kyokusen/youtube.longform/scene-006",
+      "role": "scene-006",
+      "type": "image/png",
+      "sha256": "0d92a011818039324524d4aaabb069a19f9206a6c28a5a016f66fb040cde14a0",
+      "bytes": 1136364,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-shoki-3kyokusen/youtube.longform/scene-006.0d92a011.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Codex ImageGen: 16:9 diagram-led concrete-chief educational frame for early-age curve bleeding, matching storyboard. Scientific shape and Japanese labels verified.",
+        "promptSha256": "21946d8fda22cff34e8679eacd55a1896ecdef8022440c7ff01fee47a518a905",
+        "generatedAt": "2026-10-30T10:30:40.547Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-shoki-3kyokusen/youtube.longform/scene-007",
+      "role": "scene-007",
+      "type": "image/png",
+      "sha256": "57d34b11c0b11fb85b7f067f4d8e7d9607da14af4a41b2ac079414b50dff2cc8",
+      "bytes": 1170403,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-shoki-3kyokusen/youtube.longform/scene-007.57d34b11.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Codex ImageGen: 16:9 diagram-led concrete-chief educational frame for early-age curve compare, matching storyboard. Scientific shape and Japanese labels verified.",
+        "promptSha256": "94faac4c561a37dc495d6478e9c078536ac212bde165d9a15a59abe5b9e66dda",
+        "generatedAt": "2026-10-30T10:30:40.547Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-shoki-3kyokusen/youtube.longform/scene-008",
+      "role": "scene-008",
+      "type": "image/png",
+      "sha256": "dd11cfad2d5e0e5503f7dd7db5f2ac46febcad963a8526d162cf27a93117587d",
+      "bytes": 1344413,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-shoki-3kyokusen/youtube.longform/scene-008.dd11cfad.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Codex ImageGen: 16:9 diagram-led concrete-chief educational frame for early-age curve example, matching storyboard. Scientific shape and Japanese labels verified.",
+        "promptSha256": "01ccabccb1ca551ba3f5e7f6b82591b08e2f5e1c0b41c8bee79a97577de277fe",
+        "generatedAt": "2026-10-30T10:30:40.547Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-shoki-3kyokusen/youtube.longform/scene-009",
+      "role": "scene-009",
+      "type": "image/png",
+      "sha256": "57d34b11c0b11fb85b7f067f4d8e7d9607da14af4a41b2ac079414b50dff2cc8",
+      "bytes": 1170403,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-shoki-3kyokusen/youtube.longform/scene-009.57d34b11.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Codex ImageGen: 16:9 diagram-led concrete-chief educational frame for early-age curve summary, matching storyboard. Scientific shape and Japanese labels verified.",
+        "promptSha256": "30ad1256d034056f8fe05533aa1c90a8a1c7f325648e64a7b8f63366ee4a21db",
+        "generatedAt": "2026-10-30T10:30:40.547Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-shoki-3kyokusen/youtube.longform/scene-010",
+      "role": "scene-010",
+      "type": "image/png",
+      "sha256": "8db159aa80ac7a534d509ece1ed70ecf6246f4ba7f669fedab036e6f56085dc5",
+      "bytes": 2139237,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-shoki-3kyokusen/youtube.longform/scene-010.8db159aa.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Codex ImageGen: 16:9 diagram-led concrete-chief educational frame for early-age curve cta, matching storyboard. Scientific shape and Japanese labels verified.",
+        "promptSha256": "67a812d43b5498bcd28a0ff79243e840ec8aaf194c4369bd342a5fb0b4ab4287",
+        "generatedAt": "2026-10-30T10:30:40.547Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-shoki-3kyokusen/youtube.longform/scene-sheet",
+      "role": "scene-sheet",
+      "type": "image/jpeg",
+      "sha256": "60bac34aaef35ae4a138d579c45843c2987aaf81bdae6c50aff19951b1cedf43",
+      "bytes": 558308,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-shoki-3kyokusen/youtube.longform/scene-sheet.60bac34a.jpg"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "media-preview",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-shoki-3kyokusen/storyboard.json"
+      },
+      "width": 1920,
+      "height": 1592
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-shoki-3kyokusen/youtube.longform/subtitles",
+      "role": "subtitles",
+      "type": "text/x-ssa",
+      "sha256": "0bf1d35ed943686c89d8b7b8f9b866774ec5cc46c0db6803be0ac38bdd7ae34e",
+      "bytes": 3844,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-shoki-3kyokusen/youtube.longform/subtitles.0bf1d35e.ass"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-shoki-3kyokusen/storyboard.json"
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-shoki-3kyokusen/youtube.longform/video",
+      "role": "video",
+      "type": "video/mp4",
+      "sha256": "d042a5a44c492a7849a331cb47cc58543abe0958209a48ab2c93d8ff9f44ca79",
+      "bytes": 12225709,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-shoki-3kyokusen/youtube.longform/video.d042a5a4.mp4"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-shoki-3kyokusen/storyboard.json",
+        "specSha256": "a2361acc94733de70d8efbef67a64a56a4f60bc3507931f574988480cb7527f7",
+        "renderInputSha256": "4b4bdef81e96c5112600b72f737771a40b62ef5c43ce3df039f106de6e9c7411",
+        "tts": {
+          "engine": "VOICEVOX",
+          "speaker": 13,
+          "credit": "VOICEVOX:青山龍星"
+        }
+      },
+      "durationSec": 99.2
     },
     {
       "id": "concrete-chief-engineer/shunin-shouronbun-kousei/work/candidate-cover",
