@@ -42,7 +42,7 @@
       "review": {
         "status": "agent-reviewed",
         "by": "Codex",
-        "checkedAt": "2026-10-30T22:23:53.711Z",
+        "checkedAt": "2026-10-30T22:35:56.577Z",
         "viewportWidth": 360,
         "checks": [
           "見出しと資格名",
@@ -82,7 +82,7 @@
               "path": ".tmp/media/pe-first-stage/pe1-kiso-gradient-length/work/raw-answer-diagram.6fb50533.png",
               "sha256": "6fb5053301de52f6f81e30e83490cb7169a8d7ed2d894fd5faf3dd8150e25267"
             },
-            "generatedAt": "2026-10-30T22:23:53.711Z"
+            "generatedAt": "2026-10-30T22:35:56.577Z"
           },
           "output": {
             "path": ".tmp/media/pe-first-stage/pe1-kiso-gradient-length/work/answer-diagram.eca4c25c.png",
@@ -97,7 +97,7 @@
           "review": {
             "status": "ai-reviewed",
             "userReview": "pending",
-            "checkedAt": "2026-10-30T22:23:53.711Z",
+            "checkedAt": "2026-10-30T22:35:56.577Z",
             "by": "Codex",
             "views": [
               "original"
@@ -126,7 +126,7 @@
               "path": ".tmp/media/pe-first-stage/pe1-kiso-gradient-length/work/raw-pain-diagram.6b26b11e.png",
               "sha256": "6b26b11e242ad6b8b31762985409c54b448e3cabc6612200bf02342a7271b6a1"
             },
-            "generatedAt": "2026-10-30T22:23:53.711Z"
+            "generatedAt": "2026-10-30T22:35:56.577Z"
           },
           "output": {
             "path": ".tmp/media/pe-first-stage/pe1-kiso-gradient-length/work/pain-diagram.4cc55da3.png",
@@ -141,7 +141,7 @@
           "review": {
             "status": "ai-reviewed",
             "userReview": "pending",
-            "checkedAt": "2026-10-30T22:23:53.711Z",
+            "checkedAt": "2026-10-30T22:35:56.577Z",
             "by": "Codex",
             "views": [
               "original"
@@ -170,7 +170,7 @@
               "path": ".tmp/media/pe-first-stage/pe1-kiso-gradient-length/work/raw-setup-diagram.932c2db7.png",
               "sha256": "932c2db797340d12354676bc64ee54d3a2ea495b977256f3b2d5b09e4365a1db"
             },
-            "generatedAt": "2026-10-30T22:23:53.711Z"
+            "generatedAt": "2026-10-30T22:35:56.577Z"
           },
           "output": {
             "path": ".tmp/media/pe-first-stage/pe1-kiso-gradient-length/work/setup-diagram.8e1c4430.png",
@@ -185,7 +185,7 @@
           "review": {
             "status": "ai-reviewed",
             "userReview": "pending",
-            "checkedAt": "2026-10-30T22:23:53.711Z",
+            "checkedAt": "2026-10-30T22:35:56.577Z",
             "by": "Codex",
             "views": [
               "original"
@@ -203,7 +203,7 @@
           "inputSha256": "468677ef84cf72f3dd47bb57b796ac88cbe70a2ef32e22b55bd5285bd85d20e4",
           "generation": {
             "tool": "image_gen",
-            "prompt": "Codex ImageGen: 16:9 clean white diagram-led scene for gradient vector and length, partial; exact calculation from storyboard.",
+            "prompt": "Codex ImageGen: visually verified distinct partial diagram matching the current storyboard",
             "references": [
               {
                 "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
@@ -211,25 +211,25 @@
               }
             ],
             "output": {
-              "path": ".tmp/media/pe-first-stage/pe1-kiso-gradient-length/work/raw-partial-diagram.932c2db7.png",
-              "sha256": "932c2db797340d12354676bc64ee54d3a2ea495b977256f3b2d5b09e4365a1db"
+              "path": ".tmp/media/pe-first-stage/pe1-kiso-gradient-length/work/raw-partial-diagram.6845c239.png",
+              "sha256": "6845c2396230ceb3b22a592f913f11ec753eeeb0c8762590f1166ce0a5174536"
             },
-            "generatedAt": "2026-10-30T22:23:53.711Z"
+            "generatedAt": "2026-10-30T22:35:56.577Z"
           },
           "output": {
-            "path": ".tmp/media/pe-first-stage/pe1-kiso-gradient-length/work/partial-diagram.8e1c4430.png",
-            "sha256": "8e1c44301309ccfdfa26a652ae53cca9d5ad0fd5cf3949eaf69376dd4e355d67",
+            "path": ".tmp/media/pe-first-stage/pe1-kiso-gradient-length/work/partial-diagram.da293298.png",
+            "sha256": "da2932988632272c93be066d53a10ee63bbccd8f2103de418a521e6d6955b94a",
             "width": 1920,
             "height": 1080
           },
           "normalization": {
             "mode": "full-frame-v1",
-            "sourceSha256": "932c2db797340d12354676bc64ee54d3a2ea495b977256f3b2d5b09e4365a1db"
+            "sourceSha256": "6845c2396230ceb3b22a592f913f11ec753eeeb0c8762590f1166ce0a5174536"
           },
           "review": {
             "status": "ai-reviewed",
             "userReview": "pending",
-            "checkedAt": "2026-10-30T22:23:53.711Z",
+            "checkedAt": "2026-10-30T22:35:56.577Z",
             "by": "Codex",
             "views": [
               "original"
@@ -258,7 +258,7 @@
               "path": ".tmp/media/pe-first-stage/pe1-kiso-gradient-length/work/raw-substitute-diagram.2b2123cb.png",
               "sha256": "2b2123cb598cdd71aa9a1050e0c9e62089cec369097dea3cd6b3cad38e2fa2ae"
             },
-            "generatedAt": "2026-10-30T22:23:53.711Z"
+            "generatedAt": "2026-10-30T22:35:56.577Z"
           },
           "output": {
             "path": ".tmp/media/pe-first-stage/pe1-kiso-gradient-length/work/substitute-diagram.57c32016.png",
@@ -273,7 +273,7 @@
           "review": {
             "status": "ai-reviewed",
             "userReview": "pending",
-            "checkedAt": "2026-10-30T22:23:53.711Z",
+            "checkedAt": "2026-10-30T22:35:56.577Z",
             "by": "Codex",
             "views": [
               "original"
@@ -302,7 +302,7 @@
               "path": ".tmp/media/pe-first-stage/pe1-kiso-gradient-length/work/raw-vector-diagram.148a35ab.png",
               "sha256": "148a35abf29da78fe66b4911c230b4db48df73f8e13f3607e5b616a08fe14326"
             },
-            "generatedAt": "2026-10-30T22:23:53.711Z"
+            "generatedAt": "2026-10-30T22:35:56.577Z"
           },
           "output": {
             "path": ".tmp/media/pe-first-stage/pe1-kiso-gradient-length/work/vector-diagram.39587871.png",
@@ -317,7 +317,7 @@
           "review": {
             "status": "ai-reviewed",
             "userReview": "pending",
-            "checkedAt": "2026-10-30T22:23:53.711Z",
+            "checkedAt": "2026-10-30T22:35:56.577Z",
             "by": "Codex",
             "views": [
               "original"
@@ -346,7 +346,7 @@
               "path": ".tmp/media/pe-first-stage/pe1-kiso-gradient-length/work/raw-norm-diagram.d5157ae2.png",
               "sha256": "d5157ae228d963180d9a0d05bc8cf2fdaf327c392ead80485f0abf01f71a6dc8"
             },
-            "generatedAt": "2026-10-30T22:23:53.711Z"
+            "generatedAt": "2026-10-30T22:35:56.577Z"
           },
           "output": {
             "path": ".tmp/media/pe-first-stage/pe1-kiso-gradient-length/work/norm-diagram.a2af8128.png",
@@ -361,7 +361,7 @@
           "review": {
             "status": "ai-reviewed",
             "userReview": "pending",
-            "checkedAt": "2026-10-30T22:23:53.711Z",
+            "checkedAt": "2026-10-30T22:35:56.577Z",
             "by": "Codex",
             "views": [
               "original"
@@ -390,7 +390,7 @@
               "path": ".tmp/media/pe-first-stage/pe1-kiso-gradient-length/work/raw-trap-diagram.6b26b11e.png",
               "sha256": "6b26b11e242ad6b8b31762985409c54b448e3cabc6612200bf02342a7271b6a1"
             },
-            "generatedAt": "2026-10-30T22:23:53.711Z"
+            "generatedAt": "2026-10-30T22:35:56.577Z"
           },
           "output": {
             "path": ".tmp/media/pe-first-stage/pe1-kiso-gradient-length/work/trap-diagram.4cc55da3.png",
@@ -405,7 +405,7 @@
           "review": {
             "status": "ai-reviewed",
             "userReview": "pending",
-            "checkedAt": "2026-10-30T22:23:53.711Z",
+            "checkedAt": "2026-10-30T22:35:56.577Z",
             "by": "Codex",
             "views": [
               "original"
@@ -434,7 +434,7 @@
               "path": ".tmp/media/pe-first-stage/pe1-kiso-gradient-length/work/raw-meaning-diagram.148a35ab.png",
               "sha256": "148a35abf29da78fe66b4911c230b4db48df73f8e13f3607e5b616a08fe14326"
             },
-            "generatedAt": "2026-10-30T22:23:53.711Z"
+            "generatedAt": "2026-10-30T22:35:56.577Z"
           },
           "output": {
             "path": ".tmp/media/pe-first-stage/pe1-kiso-gradient-length/work/meaning-diagram.39587871.png",
@@ -449,7 +449,7 @@
           "review": {
             "status": "ai-reviewed",
             "userReview": "pending",
-            "checkedAt": "2026-10-30T22:23:53.711Z",
+            "checkedAt": "2026-10-30T22:35:56.577Z",
             "by": "Codex",
             "views": [
               "original"
@@ -478,7 +478,7 @@
               "path": ".tmp/media/pe-first-stage/pe1-kiso-gradient-length/work/raw-summary-diagram.6fb50533.png",
               "sha256": "6fb5053301de52f6f81e30e83490cb7169a8d7ed2d894fd5faf3dd8150e25267"
             },
-            "generatedAt": "2026-10-30T22:23:53.711Z"
+            "generatedAt": "2026-10-30T22:35:56.577Z"
           },
           "output": {
             "path": ".tmp/media/pe-first-stage/pe1-kiso-gradient-length/work/summary-diagram.eca4c25c.png",
@@ -493,7 +493,7 @@
           "review": {
             "status": "ai-reviewed",
             "userReview": "pending",
-            "checkedAt": "2026-10-30T22:23:53.711Z",
+            "checkedAt": "2026-10-30T22:35:56.577Z",
             "by": "Codex",
             "views": [
               "original"
@@ -522,7 +522,7 @@
               "path": ".tmp/media/pe-first-stage/pe1-kiso-gradient-length/work/raw-cta-diagram.1c263713.png",
               "sha256": "1c2637133c1e85fa99a1222f0782c41e30e87b85b91e42d6ae889e27c53f98fa"
             },
-            "generatedAt": "2026-10-30T22:23:53.711Z"
+            "generatedAt": "2026-10-30T22:35:56.577Z"
           },
           "output": {
             "path": ".tmp/media/pe-first-stage/pe1-kiso-gradient-length/work/cta-diagram.aeb8be72.png",
@@ -537,7 +537,7 @@
           "review": {
             "status": "ai-reviewed",
             "userReview": "pending",
-            "checkedAt": "2026-10-30T22:23:53.711Z",
+            "checkedAt": "2026-10-30T22:35:56.577Z",
             "by": "Codex",
             "views": [
               "original"
@@ -567,7 +567,7 @@
           "path": ".tmp/media/pe-first-stage/pe1-kiso-gradient-length/work/raw-cover-pop.d83155fd.png",
           "sha256": "d83155fddc8a4986f7bd4eb448a6cc3838d98d415a55b7cb289cafdca128e4ac"
         },
-        "generatedAt": "2026-10-30T22:23:53.711Z"
+        "generatedAt": "2026-10-30T22:35:56.577Z"
       },
       "copy": {
         "exam": "pe-first-stage",
@@ -590,7 +590,7 @@
       "review": {
         "status": "ai-reviewed",
         "userImageReview": "pending",
-        "checkedAt": "2026-10-30T22:23:53.711Z",
+        "checkedAt": "2026-10-30T22:35:56.577Z",
         "by": "Codex",
         "views": [
           "original"

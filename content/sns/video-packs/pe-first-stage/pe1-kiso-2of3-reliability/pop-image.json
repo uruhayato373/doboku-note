@@ -42,7 +42,7 @@
       "review": {
         "status": "agent-reviewed",
         "by": "Codex",
-        "checkedAt": "2026-10-30T21:54:35.324Z",
+        "checkedAt": "2026-10-30T22:35:54.765Z",
         "viewportWidth": 360,
         "checks": [
           "見出しと資格名",
@@ -82,7 +82,7 @@
               "path": ".tmp/media/pe-first-stage/pe1-kiso-2of3-reliability/work/raw-answer-diagram.5c8f4a06.png",
               "sha256": "5c8f4a0636dba5a22a680446184b4d43f51ba1e11a98c5c15c0b8655a1df6d51"
             },
-            "generatedAt": "2026-10-30T21:54:35.324Z"
+            "generatedAt": "2026-10-30T22:35:54.765Z"
           },
           "output": {
             "path": ".tmp/media/pe-first-stage/pe1-kiso-2of3-reliability/work/answer-diagram.1ea7e872.png",
@@ -97,7 +97,7 @@
           "review": {
             "status": "ai-reviewed",
             "userReview": "pending",
-            "checkedAt": "2026-10-30T21:54:35.324Z",
+            "checkedAt": "2026-10-30T22:35:54.765Z",
             "by": "Codex",
             "views": [
               "original"
@@ -115,7 +115,7 @@
           "inputSha256": "b2847cefc570f52bec69ed63d8c86f44b0a3c70b5c59408181595e8032cb9e81",
           "generation": {
             "tool": "image_gen",
-            "prompt": "Codex ImageGen: 2個正常と3個正常を足す図。つまずき例の訂正を示す。",
+            "prompt": "Codex ImageGen: visually verified distinct misread diagram matching the current storyboard",
             "references": [
               {
                 "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
@@ -123,25 +123,25 @@
               }
             ],
             "output": {
-              "path": ".tmp/media/pe-first-stage/pe1-kiso-2of3-reliability/work/raw-misread-diagram.5c8f4a06.png",
-              "sha256": "5c8f4a0636dba5a22a680446184b4d43f51ba1e11a98c5c15c0b8655a1df6d51"
+              "path": ".tmp/media/pe-first-stage/pe1-kiso-2of3-reliability/work/raw-misread-diagram.6ce4f32d.png",
+              "sha256": "6ce4f32dc628f1760596b2a77392be5db85ecce6e08838246bedf497a700f5b9"
             },
-            "generatedAt": "2026-10-30T21:54:35.324Z"
+            "generatedAt": "2026-10-30T22:35:54.765Z"
           },
           "output": {
-            "path": ".tmp/media/pe-first-stage/pe1-kiso-2of3-reliability/work/misread-diagram.1ea7e872.png",
-            "sha256": "1ea7e872fc4e598fc0a9cc1539977a6b40eff9e3624346ce1bcdaee2212a737d",
+            "path": ".tmp/media/pe-first-stage/pe1-kiso-2of3-reliability/work/misread-diagram.038d9747.png",
+            "sha256": "038d9747d71c57b846e73f16d22343651de9279252f91d7b7eebddf4364bc7f4",
             "width": 1920,
             "height": 1080
           },
           "normalization": {
             "mode": "full-frame-v1",
-            "sourceSha256": "5c8f4a0636dba5a22a680446184b4d43f51ba1e11a98c5c15c0b8655a1df6d51"
+            "sourceSha256": "6ce4f32dc628f1760596b2a77392be5db85ecce6e08838246bedf497a700f5b9"
           },
           "review": {
             "status": "ai-reviewed",
             "userReview": "pending",
-            "checkedAt": "2026-10-30T21:54:35.324Z",
+            "checkedAt": "2026-10-30T22:35:54.765Z",
             "by": "Codex",
             "views": [
               "original"
@@ -170,7 +170,7 @@
               "path": ".tmp/media/pe-first-stage/pe1-kiso-2of3-reliability/work/raw-patterns-diagram.16fd601d.png",
               "sha256": "16fd601d0c0173c95565ae69c88496c4f28e2561f20d163945b0b1e3c0fc1163"
             },
-            "generatedAt": "2026-10-30T21:54:35.324Z"
+            "generatedAt": "2026-10-30T22:35:54.765Z"
           },
           "output": {
             "path": ".tmp/media/pe-first-stage/pe1-kiso-2of3-reliability/work/patterns-diagram.ea6fa9d8.png",
@@ -185,7 +185,7 @@
           "review": {
             "status": "ai-reviewed",
             "userReview": "pending",
-            "checkedAt": "2026-10-30T21:54:35.324Z",
+            "checkedAt": "2026-10-30T22:35:54.765Z",
             "by": "Codex",
             "views": [
               "original"
@@ -214,7 +214,7 @@
               "path": ".tmp/media/pe-first-stage/pe1-kiso-2of3-reliability/work/raw-exactly2-diagram.fd58f4bc.png",
               "sha256": "fd58f4bc2c9666f850fce8733475a5a84a5c56113de4530733408ea88f8ebb1f"
             },
-            "generatedAt": "2026-10-30T21:54:35.324Z"
+            "generatedAt": "2026-10-30T22:35:54.765Z"
           },
           "output": {
             "path": ".tmp/media/pe-first-stage/pe1-kiso-2of3-reliability/work/exactly2-diagram.321cd3c3.png",
@@ -229,7 +229,7 @@
           "review": {
             "status": "ai-reviewed",
             "userReview": "pending",
-            "checkedAt": "2026-10-30T21:54:35.324Z",
+            "checkedAt": "2026-10-30T22:35:54.765Z",
             "by": "Codex",
             "views": [
               "original"
@@ -258,7 +258,7 @@
               "path": ".tmp/media/pe-first-stage/pe1-kiso-2of3-reliability/work/raw-all3-diagram.04316602.png",
               "sha256": "043166023e4ff9905e02e9f22e16ed2e0f091ac1ce21a3431232560f664d5f48"
             },
-            "generatedAt": "2026-10-30T21:54:35.324Z"
+            "generatedAt": "2026-10-30T22:35:54.765Z"
           },
           "output": {
             "path": ".tmp/media/pe-first-stage/pe1-kiso-2of3-reliability/work/all3-diagram.bd6c6b1c.png",
@@ -273,7 +273,7 @@
           "review": {
             "status": "ai-reviewed",
             "userReview": "pending",
-            "checkedAt": "2026-10-30T21:54:35.324Z",
+            "checkedAt": "2026-10-30T22:35:54.765Z",
             "by": "Codex",
             "views": [
               "original"
@@ -302,7 +302,7 @@
               "path": ".tmp/media/pe-first-stage/pe1-kiso-2of3-reliability/work/raw-sum-diagram.9e2c06d2.png",
               "sha256": "9e2c06d23c5d0355419f672794c6732d23d479e96e8db3a4bd093349f9964408"
             },
-            "generatedAt": "2026-10-30T21:54:35.324Z"
+            "generatedAt": "2026-10-30T22:35:54.765Z"
           },
           "output": {
             "path": ".tmp/media/pe-first-stage/pe1-kiso-2of3-reliability/work/sum-diagram.9e15b275.png",
@@ -317,7 +317,7 @@
           "review": {
             "status": "ai-reviewed",
             "userReview": "pending",
-            "checkedAt": "2026-10-30T21:54:35.324Z",
+            "checkedAt": "2026-10-30T22:35:54.765Z",
             "by": "Codex",
             "views": [
               "original"
@@ -346,7 +346,7 @@
               "path": ".tmp/media/pe-first-stage/pe1-kiso-2of3-reliability/work/raw-check-diagram.827edd21.png",
               "sha256": "827edd21e9658d85f6442578c648396443b1827de864e2365f93816339477f47"
             },
-            "generatedAt": "2026-10-30T21:54:35.324Z"
+            "generatedAt": "2026-10-30T22:35:54.765Z"
           },
           "output": {
             "path": ".tmp/media/pe-first-stage/pe1-kiso-2of3-reliability/work/check-diagram.0f194be7.png",
@@ -361,7 +361,7 @@
           "review": {
             "status": "ai-reviewed",
             "userReview": "pending",
-            "checkedAt": "2026-10-30T21:54:35.324Z",
+            "checkedAt": "2026-10-30T22:35:54.765Z",
             "by": "Codex",
             "views": [
               "original"
@@ -390,7 +390,7 @@
               "path": ".tmp/media/pe-first-stage/pe1-kiso-2of3-reliability/work/raw-summary-diagram.9e2c06d2.png",
               "sha256": "9e2c06d23c5d0355419f672794c6732d23d479e96e8db3a4bd093349f9964408"
             },
-            "generatedAt": "2026-10-30T21:54:35.324Z"
+            "generatedAt": "2026-10-30T22:35:54.765Z"
           },
           "output": {
             "path": ".tmp/media/pe-first-stage/pe1-kiso-2of3-reliability/work/summary-diagram.9e15b275.png",
@@ -405,7 +405,7 @@
           "review": {
             "status": "ai-reviewed",
             "userReview": "pending",
-            "checkedAt": "2026-10-30T21:54:35.324Z",
+            "checkedAt": "2026-10-30T22:35:54.765Z",
             "by": "Codex",
             "views": [
               "original"
@@ -434,7 +434,7 @@
               "path": ".tmp/media/pe-first-stage/pe1-kiso-2of3-reliability/work/raw-cta-diagram.8f7943da.png",
               "sha256": "8f7943da6ac958010a5e1a5a33af9cc68921b640525fdf3d6c549a91d8eed82b"
             },
-            "generatedAt": "2026-10-30T21:54:35.324Z"
+            "generatedAt": "2026-10-30T22:35:54.765Z"
           },
           "output": {
             "path": ".tmp/media/pe-first-stage/pe1-kiso-2of3-reliability/work/cta-diagram.1c94e1a6.png",
@@ -449,7 +449,7 @@
           "review": {
             "status": "ai-reviewed",
             "userReview": "pending",
-            "checkedAt": "2026-10-30T21:54:35.324Z",
+            "checkedAt": "2026-10-30T22:35:54.765Z",
             "by": "Codex",
             "views": [
               "original"
@@ -479,7 +479,7 @@
           "path": ".tmp/media/pe-first-stage/pe1-kiso-2of3-reliability/work/raw-cover-pop.9c575724.png",
           "sha256": "9c5757246719239a3ec47c47255e098e94206c1276d8c9fcb64c412a05e580d7"
         },
-        "generatedAt": "2026-10-30T21:54:35.324Z"
+        "generatedAt": "2026-10-30T22:35:54.765Z"
       },
       "copy": {
         "exam": "pe-first-stage",
@@ -502,7 +502,7 @@
       "review": {
         "status": "ai-reviewed",
         "userImageReview": "pending",
-        "checkedAt": "2026-10-30T21:54:35.324Z",
+        "checkedAt": "2026-10-30T22:35:54.765Z",
         "by": "Codex",
         "views": [
           "original"
