@@ -7430,7 +7430,7 @@
         "metricId": "a8ConfirmedYen",
         "reviewRecord": "data/business/records/review-2026-10-01T06-45-46-827Z-32027a75-8673-4253-90b2-a16aadb455a1.json"
       },
-      "status": "proposed",
+      "status": "running",
       "created_at": "2026-10-30T22:56:00.000Z",
       "closed_at": null,
       "result": null,
@@ -7456,7 +7456,7 @@
       ],
       "measurementPlan": {
         "kind": "affiliate-design",
-        "status": "proposed",
+        "status": "running",
         "firstRound": [
           "B",
           "B2"
@@ -7478,15 +7478,22 @@
           "affiliate_experiment_click",
           "note_experiment_impression",
           "note_experiment_click"
-        ]
+        ],
+        "startDate": "2026-10-31"
       },
       "history": [
         {
           "at": "2026-10-30T22:56:00.000Z",
           "event": "implement",
           "note": "運営者の指示（2026-10-31「全部やって」）で、EXP-043 を B 採用で打ち切り、訴求設計 §12.2 の 2 枚並べを実装した（DN-0883）。"
+        },
+        {
+          "at": "2026-10-31T00:00:00.000Z",
+          "event": "start",
+          "note": "配信のコード（src/lib/affiliate-experiment.mjs）を EXP-048 に切り替える PR #1318 と同時に running にした（台帳とコードを同じ PR でそろえる・tests/data-wiring.test.mjs）。本番への反映は deploy の日。"
         }
-      ]
+      ],
+      "started_at": "2026-10-31T00:00:00.000Z"
     }
   ]
 }
