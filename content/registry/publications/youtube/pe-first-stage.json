@@ -8,7 +8,7 @@
       "work": "pe1-kiso-2of3-reliability",
       "account": "youtube:main",
       "format": "longform",
-      "status": "rendered",
+      "status": "scheduled",
       "media": {
         "cover": "pe-first-stage/pe1-kiso-2of3-reliability/youtube.longform/cover",
         "scene-001": "pe-first-stage/pe1-kiso-2of3-reliability/youtube.longform/scene-001",
@@ -44,7 +44,42 @@
         "contentSha256": "76624c9ef21bd23a1b32bf491df117987c8f8b15764d96ec9509c34c1efb16fa"
       },
       "times": {
-        "rendered": "2026-10-30T23:46:52.936Z"
+        "rendered": "2026-10-30T23:46:52.936Z",
+        "uploaded": "2026-10-30T23:57:02.525Z",
+        "scheduled": "2026-10-30T23:57:10.476Z"
+      },
+      "delivery": {
+        "inputSha256": "1f5d8e07a75c4efc186952ab2abe7b0554f66c4012a3b28395a144ba68570bd5",
+        "marker": "dn-single-317398e330283533e43e122078348200dd8ab350",
+        "uploadRequestedAt": "2026-10-30T23:56:18.396Z",
+        "videoId": "-9UuHAQkt4o",
+        "processedAt": "2026-10-30T23:57:01.538Z",
+        "thumbnailRequestedAt": "2026-10-30T23:57:02.562Z",
+        "thumbnailUrls": [
+          "https://i9.ytimg.com/vi/-9UuHAQkt4o/default.jpg?sqp=CNTclNcG&rs=AOn4CLBir04UFGyxfc1JOMo581Q1immeCQ",
+          "https://i9.ytimg.com/vi/-9UuHAQkt4o/mqdefault.jpg?sqp=CNTclNcG&rs=AOn4CLAvSibABkbnzU36ZqNM2wZR9-AafA",
+          "https://i9.ytimg.com/vi/-9UuHAQkt4o/hqdefault.jpg?sqp=CNTclNcG&rs=AOn4CLAbZKNO7-xUTzQU9cRiaq6PLhPugw",
+          "https://i9.ytimg.com/vi/-9UuHAQkt4o/sddefault.jpg?sqp=CNTclNcG&rs=AOn4CLDMZDIPNTGj1dnqpuZX2LstWOb96w",
+          "https://i9.ytimg.com/vi/-9UuHAQkt4o/maxresdefault.jpg?sqp=CNTclNcG&rs=AOn4CLCs7QoptUBQPUkBQssp_hqKlqYAew",
+          "https://i9.ytimg.com/vi/-9UuHAQkt4o/fhddefault.jpg?sqp=CNTclNcG&rs=AOn4CLAOQzgkm3gq6ZnMJfN0JWrKDJl25Q"
+        ],
+        "thumbnailAcceptedAt": "2026-10-30T23:57:05.935Z",
+        "scheduleRequestedAt": "2026-10-30T23:57:07.044Z",
+        "scheduleAt": "2026-11-04T05:30:00Z",
+        "scheduledVerifiedAt": "2026-10-30T23:57:10.476Z"
+      },
+      "platform": {
+        "id": "-9UuHAQkt4o",
+        "url": "https://www.youtube.com/watch?v=-9UuHAQkt4o",
+        "privacy": "private",
+        "evidence": {
+          "kind": "publisher-live-check",
+          "ref": "content/sns/video-packs/pe-first-stage/pe1-kiso-2of3-reliability/youtube.json#longform"
+        }
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-10-30T23:57:05.935Z"
       }
     },
     {
