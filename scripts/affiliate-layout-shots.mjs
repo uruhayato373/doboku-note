@@ -5,7 +5,7 @@
  * 目的: 広告が各ページに適切に置けているかを、人が管理画面（アフィリエイト ＞ 広告配置）で一覧して確かめる。
  * 撮る対象: config/affiliate-placements.json の target から、ページの種類ごとの代表 URL を機械で 1 つずつ選ぶ
  *   （scripts/lib/affiliate-layout-judge.mjs の selectTargets。記事はカテゴリごとに本文が中央の大きさのもの）。
- * 判定: (a) 1 画面目に広告が無い (b) 素材キーごとの計測ピクセルが 1 以下 (c) バナーが素材の大きさ以上に引き伸ばされない
+ * 判定: (b) 素材キーごとの計測ピクセルが 1 以下 (c) バナーが素材の大きさ以上に引き伸ばされない（(a)「1 画面目に広告が無い」は 2026-10-31 に運営者の指示で廃止）
  *       (d) 広告・ページが横にはみ出さない (e) 面と案件からルール（PL-xxxx）を引く（無ければ NG・期間外だけなら注意）
  * 案の固定: 本番ビルドでは ?affiliateVariant= が効かない（開発サーバーだけ）ので、localStorage の割り当てキー
  *   （src/lib/affiliate-experiment.mjs の AFFILIATE_VARIANT_KEY）を読み込み前に入れて固定する。案の一覧は AFFILIATE_VARIANTS（--variants で上書き）。

@@ -81,7 +81,7 @@ export default async function AffiliateLayoutPage({ searchParams }: { searchPara
       <Grid className="mb-4">
         <StatCard label="ページの種類" value={counts.targets} sub={`幅 ${viewports.length} × 案 ${variants.join('・')}`} />
         <StatCard label="撮れた枚数" value={`${counts.captured} / ${counts.planned}`} sub={counts.failed ? `撮影失敗 ${counts.failed}` : '失敗なし'} />
-        <StatCard label="判定 NG" value={counts.ng} sub="1 画面目・ピクセル・引き伸ばし・はみ出し・ルール" />
+        <StatCard label="判定 NG" value={counts.ng} sub="ピクセル・引き伸ばし・はみ出し・ルール" />
         <StatCard label="注意" value={counts.warn} sub="期間外のルールにだけ当たる広告" />
       </Grid>
       <div className="mb-4">

@@ -151,13 +151,11 @@ export function expectedSlots(rules, page, nowMs) {
  */
 export function judgeShot(m, ctx) {
   const vw = m.viewport.width;
-  const vh = m.viewport.height;
   const pixelCounts = impressionKeyCounts(m.html);
 
   const ads = m.ads.map((a) => {
     const rule = ruleFor(ctx.rules, ctx.page, a.placement, a.program, ctx.nowMs);
     const problems = [];
-    if (a.rect.top < vh && a.rect.bottom > 0) problems.push('firstView');
     for (const img of a.imgs) {
       if (img.naturalWidth > 0 && img.w > img.naturalWidth + TOL) problems.push('stretch');
     }
@@ -172,7 +170,6 @@ export function judgeShot(m, ctx) {
   const pageOverflow = m.scrollWidth > vw + TOL;
 
   const checks = {
-    firstView: { ok: !ads.some((a) => a.problems.includes('firstView')), detail: detail('firstView', (a) => `${a.placement}(${a.program}) 上端 ${Math.round(a.rect.top)}px < 1 画面目 ${vh}px`) },
     pixels: { ok: dupPixels.length === 0, detail: dupPixels.map(([k, n]) => `${k} が ${n} 回`) },
     stretch: { ok: !ads.some((a) => a.problems.includes('stretch')), detail: detail('stretch', (a) => `${a.placement}: ${a.imgs.filter((i) => i.naturalWidth > 0 && i.w > i.naturalWidth + TOL).map((i) => `表示 ${Math.round(i.w)}px > 素材 ${i.naturalWidth}px`).join(', ')}`) },
     overflow: {

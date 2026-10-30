@@ -78,7 +78,6 @@ interface CareerAffiliateProps {
  * rel="nofollow sponsored noopener" / target="_blank" は自動付与。
  *
  * 配置原則: 記事末・hub 末の CTA、年収/キャリア文脈の Callout 内。
- * ファーストビュー禁止（「ここだけで合格できる」メイン導線と矛盾するため）。
  */
 export default function CareerAffiliate({
   service,

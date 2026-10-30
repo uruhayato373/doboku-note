@@ -39,7 +39,7 @@ export type LayoutManifest = {
 
 /** 判定の名前（画面の見出し） */
 export const CHECK_LABELS: Record<string, string> = {
-  firstView: '1 画面目に広告が無い',
+  firstView: '1 画面目に広告が無い（2026-10-31 に廃止・古い記録だけ）',
   pixels: '計測ピクセルが素材ごとに 1 以下',
   stretch: 'バナーを引き伸ばしていない',
   overflow: '横にはみ出さない',

@@ -21,10 +21,10 @@ test('問題の無い配置は OK でルールが引ける', () => {
   assert.equal(r.ads[0].ruleId, 'PL-1');
 });
 
-test('(a) 1 画面目に入る広告は NG', () => {
-  const r = shot([ad({ rect: { top: 765, left: 20, right: 340, bottom: 900 } })]);
-  assert.equal(r.checks.firstView.ok, false);
-  assert.equal(r.ok, false);
+test('1 画面目に入る広告も NG にしない（2026-10-31 に「1 画面目に置かない」を廃止）', () => {
+  const r = shot([ad({ rect: { top: 120, left: 20, right: 340, bottom: 400 } })]);
+  assert.equal('firstView' in r.checks, false);
+  assert.equal(r.ok, true);
 });
 
 test('(b) 同じ素材のピクセルが 2 回なら NG（A8 ともしも）', () => {

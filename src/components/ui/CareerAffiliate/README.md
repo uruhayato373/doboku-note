@@ -69,6 +69,5 @@ MDX 本文の転職枠は `program="career"` だけを書く。案件・リン�
 
 - doboku-note のメイン導線は「ここだけで合格できる」体験。アフィは**補完ポジション**で配置
 - どのページのどの面に出すかは配置ルールが決める（2026-10-07 から学習・実務・公的基準・トップ・ツールにも面がある・EXP-017）。方針は `.claude/knowledge/reference/affiliate-operations.md` §6
-- **ファーストビュー（記事冒頭）禁止** — メイン導線と矛盾するため
 
 詳細: `.claude/knowledge/reference/affiliate-operations.md`
