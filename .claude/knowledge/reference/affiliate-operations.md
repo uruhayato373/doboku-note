@@ -5,7 +5,7 @@ A8 / もしも / afb の 3 ASP を横断する。
 
 - **提携カタログ（機械可読）**: `data/affiliate/catalog.json`
 - **ASP 接続設定（機械可読）**: `config/affiliate-asp.json`（A8 の URL・口座・ブラウザの共通部分は `config/a8-report-automation.json` が正本で、`scripts/lib/asp-config.mjs` が読み出し時に合成する。a8 に写しを書くと例外で止まる）
-- **mat レジストリ（機械可読）**: `config/affiliate-mats.json`
+- **mat レジストリ（機械可読）**: `config/affiliate-mats.json`。キーは A8 が a8mat の 4 トークン、もしもが `moshimo:<p_id>:<pl_id>`（2026-10-30 から。建築転職＝`moshimo:4183:57940`）。文章・HTML からキーを取るのは `scripts/lib/affiliate-link-keys.mjs` だけで、`check-affiliate-mats`（未登録）と `check-cta-density`（1 ページ 1 ピクセル）は両方の ASP を見る。A8 成果取込（programIdMap）との照合は A8 の素材だけ
 - **A8 の成果取込**: [a8-affiliate-pipeline.md](a8-affiliate-pipeline.md)（scout ＋ report。役割が違うので分離）
 
 最終更新: 2026-10-27（§6 必須ルール 2 を「1 ページ・1 案件・1 ピクセル」に改めた）

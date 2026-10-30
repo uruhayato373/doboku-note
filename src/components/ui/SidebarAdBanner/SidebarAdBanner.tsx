@@ -71,6 +71,8 @@ export default function SidebarAdBanner({
             width={width}
             height={height}
             loading="lazy"
+            // 300×250 未満の素材（もしもの 250×250）を引き伸ばさない
+            style={{ maxWidth: Math.min(width, 300) }}
             className="mx-auto block h-auto w-full max-w-[300px]"
           />
         </a>

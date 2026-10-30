@@ -121,7 +121,9 @@ export default function CareerAffiliateExperiment({ card, program, trackLabel, p
                 width={banner.width}
                 height={banner.height}
                 loading="lazy"
-                className="block h-auto w-full"
+                // 300×250 未満の素材（もしもの 250×250）を引き伸ばさない
+                style={{ maxWidth: banner.width }}
+                className="mx-auto block h-auto w-full"
               />
             </div>
             <div className="flex min-w-0 flex-1 flex-col gap-2">

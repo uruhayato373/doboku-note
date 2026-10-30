@@ -59,6 +59,21 @@ const KENSETSU_JOBS_CAREER_AD = {
 } as const;
 
 /**
+ * 建築転職（トップリフォーム・建築系技術者に特化した転職エージェント・もしもアフィリエイト）。250×250 + インプレッション。
+ * A8 には無い（2026-10-30 に検索で確認）。成果は面談実施 ¥16,000（電話かオンライン・審査なし・承認期限 45 日）。
+ * 素材はもしもの原稿取得（shop_site_id=672381＝doboku-note・a_id 5868364）の 250×250（pl_id 57940）。
+ * 「No.1」の表記がある素材は 2022 年の調査の表示なので使わない。台帳のキーは moshimo:4183:57940。
+ */
+const KENCHIKU_TENSHOKU_CAREER_AD = {
+  href: "https://af.moshimo.com/af/c/click?a_id=5868364&p_id=4183&pc_id=10609&pl_id=57940",
+  imageSrc: "https://image.moshimo.com/af-img/3713/000000057940.png",
+  pixelSrc: "https://i.moshimo.com/af/i/impression?a_id=5868364&p_id=4183&pc_id=10609&pl_id=57940",
+  alt: "建築転職 建築士・施工管理技士の転職エージェント",
+  width: 250,
+  height: 250,
+} as const;
+
+/**
  * ハイクラス DX・コンサル転職（A8.net）。技術士（総監）= シニア技術者・管理職層向け。300×250 + pixel。
  * 施工管理系の案件が総監層に合わないため、総監のページはこの案件だけにする（2026-06-16）。
  */
@@ -255,6 +270,27 @@ function resolveKensetsuJobsCopy(slug?: string, need?: CareerNeed | null): Caree
 }
 
 /**
+ * 建築転職の本文カードの文言。広告主の公表内容（建築系技術者に特化・アドバイザーは建築関連の国家資格者が中心・
+ * 取引先の施工会社の求人）に限り、調査の順位は載せない。
+ */
+function resolveKenchikuTenshokuCopy(slug?: string, need?: CareerNeed | null): CareerArticleEndCard {
+  return {
+    service: "建築転職",
+    category: "建築施工管理・建築士の転職支援",
+    description:
+      "建築系の技術者に特化した転職エージェントです。施工事業を営む会社が運営し、建築関連の国家資格を持つアドバイザーが中心に相談を受けます。",
+    href: KENCHIKU_TENSHOKU_CAREER_AD.href,
+    points: [
+      "建築施工管理・建築士の求人に特化",
+      "アドバイザーは建築関連の有資格者が中心",
+      "相談は電話かオンラインで無料",
+    ],
+    cta: resolveNeedCta(slug, "consultation", "建築の経験を無料で相談する", need),
+    brief: "建築系の技術者に特化した転職エージェント。相談は無料。",
+  };
+}
+
+/**
  * 総監の本文カード（ハイクラス DX・コンサル）の文言。文言は creative の公称ターゲティング（シニア技術者・管理職・DX/コンサル・
  * 無料相談）に限定し、未確認のブランド名・数値は記載しない（真実源: .claude/knowledge/reference/affiliate-operations.md）。
  */
@@ -305,6 +341,7 @@ export const PROGRAM_ASSETS: Readonly<Record<string, ProgramAsset>> = {
     textPixelSrc: "https://www10.a8.net/0.gif?a8mat=4B5OO5+FHBA2+5B0Y+NTRMQ",
   },
   "dx-consulting": { banner: PE_CONSULTING_CAREER_AD, trackLabel: "DXConsulting-sidebar", card: () => resolvePeConsultingArticleEndCard() },
+  "kenchiku-tenshoku": { banner: KENCHIKU_TENSHOKU_CAREER_AD, trackLabel: "KenchikuTenshoku-sidebar", card: (slug, need) => resolveKenchikuTenshokuCopy(slug, need) },
   "kensetsu-jobs": { banner: KENSETSU_JOBS_CAREER_AD, trackLabel: "KensetsuJobs-sidebar", card: (slug, need) => resolveKensetsuJobsCopy(slug, need) },
 };
 

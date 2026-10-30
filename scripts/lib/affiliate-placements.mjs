@@ -8,6 +8,7 @@
 import { readdirSync, readFileSync, statSync } from 'node:fs';
 import { join, relative } from 'node:path';
 import { datasetPath } from './datasets.mjs';
+import { linkKeys } from './affiliate-link-keys.mjs';
 
 export const SURFACES = [
   { id: 'site', label: 'サイト', roots: ['src', 'content/site'], ext: /\.(tsx?|mdx)$/ },
@@ -15,7 +16,6 @@ export const SURFACES = [
   { id: 'sns', label: 'SNS', roots: ['content/sns'], ext: /\.(md|txt|json)$/ },
 ];
 
-const MAT_RE = /a8mat=([0-9A-Z]+(?:\+[0-9A-Z]+){3})/g;
 
 function walk(dir, test, out) {
   let names;
@@ -45,7 +45,7 @@ export function affiliatePlacements(root) {
     const links = [];
     for (const file of files) {
       const text = readFileSync(file, 'utf8');
-      const found = new Set([...text.matchAll(MAT_RE)].map((m) => m[1]));
+      const found = new Set(linkKeys(text));
       for (const mat of found) {
         const known = byMat.get(mat);
         links.push({
