@@ -17,6 +17,14 @@
       "accountIdPattern": "(a\\d{11})",
       "partneredPath": "/program/list/partnered",
       "applyingPath": "/program/list/applying",
+      "listIdPattern": "s000\\d{11}",
+      "listPaging": {
+        "pageParam": "pageNo",
+        "sizeParam": "pageSize",
+        "pageSize": 100,
+        "maxPages": 10
+      },
+      "_listNote": "一覧は開いたあとで中身を描画する。描画前は「検索条件に一致するプログラムがありません」が出ているので、プログラム ID が出るまで待って読む。既定は 1 ページ 20 件で、参加中は 200 件ある（2026-10-30・DN-0921）。",
       "browser": {
         "sessionPersistsAcrossProcesses": true
       }
@@ -41,6 +49,8 @@
       "_applyNote": "申請ページに **サイト select**（「メディアを選択 / 統計で見る都道府県 / doboku-note」）があり、選択せずに押すと stats47 側で提携する。さらに同一ページに「一括提携申請へ」があり、ボタン候補を部分一致で拾うと**複数案件を一度に申請**してしまう。exact 一致＋「一括」除外が必須。",
       "statusScopeAnchor": "プロモーション詳細",
       "_statusNote": "状態（未申請/申請中/提携中）はナビにも同じ語が出るため、本文（statusScopeAnchor 以降）の**単独行**で判定する。全文検索すると「提携中プロモーション」リンクに誤ヒットして申請を取りこぼす。",
+      "detailPath": "/af/shop/promotion/detail?promotion_id={id}",
+      "_detailNote": "提携一覧の文字には promotion_id が出ないので、ID では照合できない（2026-10-30 まで affiliate:status が常に 0 件だった・DN-0921）。カタログの案件ごとに詳細ページを開き、「成果XXXX円」の次の行のバッジ（提携中・申請中）で判定する。",
       "browser": {
         "authService": "moshimo",
         "legacyProfileDir": ".local/playwright-moshimo-profile",

@@ -30,6 +30,7 @@ import {
 } from "./lib/asp-browser.mjs";
 
 import { detectFalseNegative } from "./lib/asp-falsenegative-guard.mjs";
+import { extractListIds, pagedPath, parseDetailStatus } from "./lib/asp-list-readers.mjs";
 import { datasetPath } from "./lib/datasets.mjs";
 import { parseCliArgs } from "./lib/cli-args.mjs";
 import { REPO_ROOT } from "./lib/repository-paths.mjs";
@@ -44,23 +45,43 @@ function parseArgs() {
   return { asps: f.asp === null ? null : f.asp.split(",").map((s) => s.trim()), write: f.write };
 }
 
-/** 実機の一覧テキストから「この ASP で提携済み/申請中の識別子」を集める。 */
-function collectIds(text, asp) {
-  const ids = new Set();
-  // afb: 【PID:N】
-  if (asp.listItemPattern) {
-    for (const m of text.matchAll(new RegExp(asp.listItemPattern.replace(/^\^|\$$/g, ""), "gm"))) {
-      if (m[1]) ids.add(m[1]);
-    }
-  }
-  // もしも: promotion_id はテキストに出ないので名前で拾う（呼び出し側が名前照合する）
-  return ids;
-}
-
 /** カタログの ASP エントリの識別子（ASP ごとにキー名が違う）。 */
 const idOf = (entry) => entry?.programId ?? entry?.promotionId ?? entry?.pid ?? null;
 
-async function checkAsp(name, root, log) {
+/** 一覧の 1 ページを開き、ID が描画されるまで待って読む（描画前の「該当なし」を読まない） */
+async function readListPage(page, asp, root, path) {
+  const site = await ensureTargetSite(page, asp, root, { navigateTo: path });
+  const pattern = asp.listIdPattern ?? asp.listItemPattern;
+  await page
+    .waitForFunction((p) => document.body && new RegExp(p.replace(/^\^|\$$/g, ""), "m").test(document.body.innerText), pattern, {
+      timeout: asp.browser.timeoutMs ?? 30000,
+      polling: 1000,
+    })
+    .catch(() => {});
+  const text = await visibleText(page, 400000);
+  return { site, text, ids: extractListIds(text, pattern) };
+}
+
+/** 一覧をページ送りで全件読む（paging が無い ASP は 1 ページ） */
+async function readList(page, asp, root, path, log, label) {
+  const ids = new Set();
+  let text = "";
+  let siteId = null;
+  const maxPages = asp.listPaging?.maxPages ?? 1;
+  for (let n = 1; n <= maxPages; n++) {
+    const r = await readListPage(page, asp, root, pagedPath(path, asp.listPaging, n));
+    siteId = r.site.actualSiteId;
+    text += `\n${r.text}`;
+    const before = ids.size;
+    for (const id of r.ids) ids.add(id);
+    const added = ids.size - before;
+    if (asp.listPaging && maxPages > 1) log(`    ${label} p${n}: ${r.ids.size} 件（新規 ${added}）`);
+    if (!asp.listPaging || added === 0 || r.ids.size < asp.listPaging.pageSize) break;
+  }
+  return { ids, text, siteId };
+}
+
+async function checkAsp(name, root, log, catalogIds) {
   const asp = getAsp(root, name);
   const isReady = asp.readyMarker
     ? async (page) =>
@@ -70,24 +91,32 @@ async function checkAsp(name, root, log) {
 
   const { ctx, page } = await openAsp(asp, { isReady, label: name });
   try {
-    const out = { asp: name, siteId: null, partnered: { ids: new Set(), text: "" }, applying: { ids: new Set(), text: "" } };
+    const out = { asp: name, siteId: null, partnered: { ids: new Set(), text: "" }, applying: { ids: new Set(), text: "" }, unreadable: new Set() };
+    if (asp.detailPath) {
+      // もしも: 一覧の文字に promotion_id が出ないので、カタログの案件ごとに詳細ページのバッジを読む
+      for (const id of catalogIds) {
+        const site = await ensureTargetSite(page, asp, root, { navigateTo: asp.detailPath.replace("{id}", id) });
+        out.siteId = site.actualSiteId;
+        await page
+          .waitForFunction((a) => document.body && document.body.innerText.includes(a), asp.statusScopeAnchor, { timeout: asp.browser.timeoutMs ?? 30000, polling: 1000 })
+          .catch(() => {});
+        const status = parseDetailStatus(await visibleText(page, 200000), { anchor: asp.statusScopeAnchor, applyLabel: asp.applyButtonLabel });
+        if (status === "approved") out.partnered.ids.add(id);
+        else if (status === "applying") out.applying.ids.add(id);
+        else if (status === null) out.unreadable.add(id);
+      }
+      log(`  ${name}/detail: ${catalogIds.length} 件を照合・提携中 ${out.partnered.ids.size}・申請中 ${out.applying.ids.size}・読めない ${out.unreadable.size}（SID ${out.siteId ?? "-"}）`);
+      return out;
+    }
     for (const [key, path] of [
       ["partnered", asp.partneredPath],
       ["applying", asp.applyingPath],
     ]) {
       if (!path) continue;
-      const site = await ensureTargetSite(page, asp, root, { navigateTo: path });
-      out.siteId = site.actualSiteId;
-      // 一覧が描画されるまで待つ（固定 sleep だと遅い回線で空を読む）
-      await page
-        .waitForFunction(() => document.body && document.body.innerText.length > 500, null, {
-          timeout: asp.browser.timeoutMs ?? 30000,
-          polling: 1000,
-        })
-        .catch(() => {});
-      const t = await visibleText(page, 200000);
-      out[key] = { ids: collectIds(t, asp), text: t };
-      log(`  ${name}/${key}: ${out[key].ids.size} 件の ID を検出（SID ${site.actualSiteId ?? "-"}）`);
+      const r = await readList(page, asp, root, path, log, `${name}/${key}`);
+      out.siteId = r.siteId;
+      out[key] = { ids: r.ids, text: r.text };
+      log(`  ${name}/${key}: ${r.ids.size} 件の ID を検出（SID ${r.siteId ?? "-"}）`);
     }
     return out;
   } finally {
@@ -118,7 +147,8 @@ async function main() {
   const failed = {};
   for (const name of targets) {
     try {
-      live[name] = await checkAsp(name, root, log);
+      const catalogIds = Object.values(catalog.programs ?? {}).map((p) => idOf(p.asps?.[name])).filter(Boolean);
+      live[name] = await checkAsp(name, root, log, catalogIds);
     } catch (e) {
       // 取得できなかった ASP を「提携なし」と混同しないため、失敗として記録する
       failed[name] = e instanceof SiteAttributionError ? `サイト帰属 NG: ${e.message}` : String(e.message).slice(0, 150);
@@ -133,6 +163,7 @@ async function main() {
       if (!live[aspName]) continue; // 取得できなかった ASP は判定しない
       const id = idOf(entry);
       if (!id) continue;
+      if (live[aspName].unreadable.has(id)) continue; // 詳細ページを読めなかった案件は判定しない（none と混同しない）
       const inPartnered = live[aspName].partnered.ids.has(id) || live[aspName].partnered.text.includes(id);
       const inApplying = live[aspName].applying.ids.has(id) || live[aspName].applying.text.includes(id);
       const actual = inPartnered ? "approved" : inApplying ? "applying" : "none";

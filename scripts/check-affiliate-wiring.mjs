@@ -66,10 +66,13 @@ const readJsonReporting = (p) => {
 
 // ── 1. mats（サイトに置いた広告）
 let matPrograms = new Set();
+// A8 の素材だけの案件（A8 成果取込の programIdMap と照合する）。もしもの素材は moshimo: で始まる（affiliate-link-keys.mjs）
+let a8MatPrograms = new Set();
 if (existsSync(MATS)) {
   const raw = readJsonReporting(MATS);
   const mats = Array.isArray(raw) ? raw : (raw?.mats ?? []);
   matPrograms = new Set(mats.map((m) => m.program).filter(Boolean));
+  a8MatPrograms = new Set(mats.filter((m) => !String(m.mat).startsWith("moshimo:")).map((m) => m.program).filter(Boolean));
 }
 
 // ── 2. カタログ（3 ASP 横断）
@@ -130,13 +133,13 @@ if (existsSync(A8_CONFIG)) {
       .filter(([k, v]) => !k.startsWith("_") && typeof v === "string")
       .map(([, v]) => v),
   );
-  for (const prog of matPrograms) {
+  for (const prog of a8MatPrograms) {
     if (!mapValues.has(prog)) {
       errors.push(`${MATS} に掲載中の "${prog}" が a8.programIdMap に無い＝A8 レポート集計から漏れる`);
     }
   }
   for (const v of mapValues) {
-    if (!matPrograms.has(v)) warns.push(`a8.programIdMap の "${v}" が ${MATS} に無い（掲載終了の取り残し？）`);
+    if (!a8MatPrograms.has(v)) warns.push(`a8.programIdMap の "${v}" が ${MATS} に無い（掲載終了の取り残し？）`);
   }
   // カタログの A8 programId と programIdMap の整合
   for (const [key, p] of catPrograms) {

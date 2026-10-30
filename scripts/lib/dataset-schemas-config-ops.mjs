@@ -74,6 +74,12 @@ const aspA8 = z
     accountIdPattern: regexText.describe('口座 ID を抜き出す正規表現'),
     partneredPath: text,
     applyingPath: text,
+    listIdPattern: regexText.describe('一覧の文字から 1 件の ID を拾う正規表現。これが出るまで描画を待つ'),
+    listPaging: z
+      .object({ pageParam: text, sizeParam: text, pageSize: posInt, maxPages: posInt })
+      .strict()
+      .describe('一覧のページ送り（クエリの名前・1 ページの件数・読む上限）'),
+    _listNote: note,
     browser: browserConfig,
   })
   .strict();
@@ -98,6 +104,8 @@ const aspMoshimo = z
     _applyNote: note,
     statusScopeAnchor: text,
     _statusNote: note,
+    detailPath: text.refine((s) => s.includes('{id}'), '{id} を含む').describe('案件の詳細ページ（{id} に promotion_id）。提携状態はここのバッジで読む'),
+    _detailNote: note,
     browser: browserConfig,
   })
   .strict();
@@ -282,7 +290,10 @@ export const ConfigAffiliateMats = z
       .array(
         z
           .object({
-            mat: z.string().regex(/^[0-9A-Z]+(\+[0-9A-Z]+){3}$/, 'A8 の a8mat（4 つのトークンを + でつなぐ）'),
+            mat: z
+              .string()
+              .regex(/^(?:[0-9A-Z]+(\+[0-9A-Z]+){3}|moshimo:\d+:\d+)$/, 'A8 の a8mat（4 つのトークンを + でつなぐ）か moshimo:<p_id>:<pl_id>')
+              .describe('素材のキー（scripts/lib/affiliate-link-keys.mjs）'),
             program: z.string().regex(/^[a-z][a-z0-9-]*$/).describe('案件の id（affiliate.catalog の programs のキー）'),
             label: text.describe('案件の表示名'),
             surfaces: z.array(text).describe('この mat を置く面（sidebar・inline・article-end・note-article・links）。未配線の予備は空'),

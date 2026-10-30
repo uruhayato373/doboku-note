@@ -5,7 +5,7 @@ A8 / もしも / afb の 3 ASP を横断する。
 
 - **提携カタログ（機械可読）**: `data/affiliate/catalog.json`
 - **ASP 接続設定（機械可読）**: `config/affiliate-asp.json`（A8 の URL・口座・ブラウザの共通部分は `config/a8-report-automation.json` が正本で、`scripts/lib/asp-config.mjs` が読み出し時に合成する。a8 に写しを書くと例外で止まる）
-- **mat レジストリ（機械可読）**: `config/affiliate-mats.json`
+- **mat レジストリ（機械可読）**: `config/affiliate-mats.json`。キーは A8 が a8mat の 4 トークン、もしもが `moshimo:<p_id>:<pl_id>`（2026-10-30 から。建築転職＝`moshimo:4183:57940`）。文章・HTML からキーを取るのは `scripts/lib/affiliate-link-keys.mjs` だけで、`check-affiliate-mats`（未登録）と `check-cta-density`（1 ページ 1 ピクセル）は両方の ASP を見る。A8 成果取込（programIdMap）との照合は A8 の素材だけ
 - **A8 の成果取込**: [a8-affiliate-pipeline.md](a8-affiliate-pipeline.md)（scout ＋ report。役割が違うので分離）
 
 最終更新: 2026-10-27（§6 必須ルール 2 を「1 ページ・1 案件・1 ピクセル」に改めた）
@@ -81,7 +81,7 @@ A8 だけは**管理画面にサイト切替が存在しない**ため、assert 
 - **申請ページにサイト select がある**（`メディアを選択 / 統計で見る都道府県 / doboku-note`）。選択せずに押すと stats47 側で提携する。URL に `shop_site_id` を付けるだけでは足りず、select を read-back してから押す
 - **同一ページに「一括提携申請へ」がある**。候補語を部分一致（"提携申請"）で拾うと**複数案件を一度に申請**する。exact 一致 ＋ 「一括」除外が必須
 - 状態判定をページ全文の `提携中` で見るとナビの「提携中プロモーション」リンクに誤ヒットする。本文の単独行で判定する
-- 成否確認は詳細ページの表記に頼らない。`apply_status=1`（申請中）/`=2`（提携中）の一覧を `shop_site_id` スコープで引く
+- 申請の成否確認（affiliate-apply）は `apply_status=1`（申請中）/`=2`（提携中）の一覧を `shop_site_id` スコープで引く。ただし一覧の文字には promotion_id が出ないので、`affiliate:status` の提携状態の照合は案件ごとの詳細ページのバッジ（「成果XXXX円」の次の行）で読む（2026-10-30・DN-0921）
 
 ### afb
 
@@ -93,6 +93,7 @@ A8 だけは**管理画面にサイト切替が存在しない**ため、assert 
 - ログイン判定を可視テキストの部分一致でやると**読み込み途中のページを通す**。管理画面固有の DOM（`#top_site_select`）の実在で判定する。かつそれは**一覧ページにしか無い**（ホームで判定するとログイン済みでも永久に検知できない）
 - 送信は `<button>` ではなく `input[name=search_x]`
 - 一覧は `【PID:N】` から始まる 4 行ブロック。行単位の grep では取りこぼす
+- Chosen の項目を押してもラベルが変わるだけで送信されない。`switchChosenSite` は元の `select[name=partner_site_id]` を合わせてフォームを送信する（2026-10-30・DN-0921）
 
 > [!warning] 「見つからなかった」と「探せなかった」を混同しない
 > afb 走査は検索 5 語のうち 2 語が回線タイムアウトで取得できていない。

@@ -277,6 +277,60 @@
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-0921] affiliate:status の A8・もしもの一覧が 0 件になり、afb のサイト切替が通らない
+タグ: [領域:アフィリエイト] [時期:2026-11] [種類:不具合] [起票:2026-10-30]
+
+**起点**: 2026-10-30、運営者がターミナルで `npm run affiliate:status` を実行した。もしも・afb は資格情報で自動ログインできた（PR #1314）が、A8（SID a25050375786）ともしも（SID 672381）の partnered・applying がどちらも 0 件、afb はサイト切替が効かず site-guard が止めた（期待 984453 / 実際 959426）。同日に内部ブラウザで A8 の提携中一覧を開くと、描画を待てば 200 件が読め、ビルドジョブ等の提携中案件も載っていた。A8 の一覧は開いたあとで中身を描画する作りで、スクリプトは描画前に読んでいたと考えられる。偽陰性ガードと site-guard が書き込みを止めたのでカタログは無傷。
+
+**やること**:
+1. A8 の提携中一覧（`/program/list/partnered`）は ID が描画されるまで待ってから読む。申請中一覧の URL（`/program/applying` は 404）を確かめて直す
+2. もしもの一覧で ID を拾えない原因を確かめる（limit=100 で空になる罠・詳細ページのバッジ）
+3. afb は Chosen の実クリック後に `select.form.submit()` で送るフォールバックを `switchChosenSite` に足す
+4. 回帰テストを足す
+
+**完了条件**: 3 ASP で affiliate:status が提携中の案件 ID を検出し、--write がガードに止められずにカタログを更新できる
+
+
+### [DN-0920] KDP を第 2 の収入源として増やすかを決める: doboku-note 分の受取を分けて記録し、DN-0262 の提出ごとの 4 週実績で判定する
+タグ: [収益化] [領域:商品] [時期:2026-12] [種類:意思決定] [起票:2026-10-30]
+
+**起点**: 2026-10-30 の vault の会話（複数の収入源を持ちたい）。KDP は書いた原稿を使い回せる収入源で、受取は伸びている（vault `memos/家計/収入_2026.csv` の発生月で 7 月 1,750 円 → 8 月 6,043 円 → 9 月 9,987 円。doboku-note と stats47 の ASIN の内訳は台帳では未分離）。提出そのものは DN-0262（記述 Kindle 26 冊・3 回に分けて提出）で進める。本カードは「KDP を第 2 の収入源として増やすか」の判定の受け皿。
+
+**読者の課題／HARM**: 土木施工管理の第 2 次検定の記述対策（A: Ambition）。Kindle で買う理由は、note より安く、端末で読み返せること（仮説）。
+
+**やること**:
+1. 収入台帳の KDP 入金を doboku-note の ASIN と stats47 の ASIN に分けて記録できるようにする（KDP の月次レポートの ASIN 列で分ける）
+2. DN-0262 の提出回ごとに、提出後 4 週の受取額と KENP を記録する
+3. 1 冊あたりの受取額と制作時間を比べ、提出のペースを上げるか、今のままか、止めるかを決める
+
+**完了条件**: doboku-note 分の KDP 受取が月次で分かれて記録され、提出 1 回分の 4 週実績をもとにした判断がこのカードに書かれている。
+
+
+### [DN-0919] 季節の谷を埋められたかを判定する: 建設業×AI メンバーシップ（DN-0876）の会費が 8〜9 月型の売上の谷をどれだけ下支えしたかを 3 か月で数える
+タグ: [収益化] [領域:商品] [時期:2027-02] [種類:意思決定] [起票:2026-10-30]
+
+**起点**: 2026-10-30 の vault の会話（複数の収入源を持ちたい）。給与以外の収入の 9 割近くが doboku-note の note 売上で、季節の波が大きい（vault `memos/家計/収入_2026.csv` の発生月で 6 月 182,445 円・7 月 230,193 円 → 8 月 60,359 円・9 月 89,132 円）。資格の会員制（合格ラボ）は会員 0 人で撤退済み（DN-0477）なので、谷を埋める実験は建設業×AI のメンバーシップ（DN-0876）が担う。本カードはその判定の受け皿で、打ち手そのものは DN-0876 で進める。
+
+**読者の課題／HARM**: 建設業の実務者が、AI を業務で安全に使う型を知りたい（A: Ambition）。資格の受験者と違い、試験後も払い続ける理由がありうる。需要は未検証。
+
+**やること**:
+1. DN-0876 の公開月から 3 か月間、収入台帳の発生月で doboku-note の月次売上を、資格の買い切り（季節あり）と会費（季節なし）に分けて並べる
+2. 8〜9 月型の谷の月に、会費がどれだけ下支えしたかを数える（会員数 × 会費・解約）
+3. DN-0876 の判定（3 か月で会員 10 人以上・月の解約 2 割未満）と合わせ、会費を季節の谷を埋める柱として続けるか決める
+
+**完了条件**: 3 か月分の内訳（買い切り／会費）が表になり、続けるか・やめるかの判断がこのカードに書かれている。未計測の月を 0 や効果ありにしない。
+
+
+### [DN-0918] 1級土木の教材（civil1-textbook）を出典にする 3 記事で、市販書籍との逐語一致 7 件が check-reference-sources --deep を止めている
+タグ: [領域:教材] [時期:2026-11] [種類:不具合] [起票:2026-10-29]
+
+**起点**: 2026-10-26 に DN-0832 を調べたとき、`check-reference-sources --deep` に、DN-0832 とは別の逐語一致（verbatim）の FAIL が 7 件あった（civil1-textbook を出典にする 3 記事）。DN-0832 を直しても、この 7 件があるので --deep は exit 0 にならない。この端末は Drive のマウントが無く、件数と記事名はまだ確かめていない。
+
+**やること**: Drive をマウントした端末で `node scripts/check-reference-sources.mjs --deep` を回して 7 件の記事と一致した文を出し、記事の文を自分の言葉に書き直す（市販書籍の文を写さない）。書き直したら refresh-indexes を回す。
+
+**完了条件**: Drive をマウントした端末で `node scripts/check-reference-sources.mjs --deep` が exit 0。
+
+
 ### [DN-0916] 基準書の画像から起こしたページの GFM の表が、記法の文字のまま画面に出る（近畿の必携 約 10 章）
 タグ: [領域:サイト] [時期:2026-10] [種類:不具合] [検証:check-standard-articles] [起票:2026-10-28]
 
@@ -448,16 +502,6 @@
 **完了条件**: 競合分析と商品案（noteコンテンツ計画.md）ができ、要点を DN-0427 に書いたら、このカードを削除する。
 
 
-### [DN-0890] 商品カードの導線ゼロをサイト全ページで直し、もくじだけで通る検査の抜け穴をふさぐ
-タグ: [収益化] [領域:サイト] [時期:2026-10..2026-11] [種類:改善] [検証:check-magazine-cta] [起票:2026-10-27] [進行中]
-
-**起点**: GSC（9/22〜10/19）で流入が最も多い 2級の見直しページ `guide-r08-secondary-answers`（515 クリック）に商品への導線が無く、`check-magazine-cta` はもくじタイルが出る資格をページ判定から外していたので通っていた（2026-10-27 の調査）。
-
-**残り**: 検査の修正と 20 本・過去問演習・測量士/舗装の資格トップの配線は PR #1310（建築施工管理 3 本は baseline、実務・法令は理由付きの対象外）。見直しページのカードは develop の 560e8cb12。
-1. PR #1310 を develop へマージする
-2. deploy 後に `npm run check-production-ssr` を通し、本番で見直しページに `utm_content=guide-r08-secondary-answers` のカード、`/tools/kakomon-quiz` に `tools-kakomon-quiz` のカード、`/exam/surveyor`・`/exam/pavement` に `category-sidebar` のカード、総監 h25 記述式・建設部門 public-servant-merit に `inline-1` の冒頭カードが出ることを curl で確かめる
-
-**完了条件**: `npm run check-magazine-cta -- --ci` がもくじを数えない判定で baseline 外 0、新しいテストが通り、本番で見直しページと配線した各ページに商品カードが出る。
 
 
 
@@ -630,13 +674,16 @@
 
 
 
-### [DN-0832] 総監論文対策の文字起こし『総監論文に求められるもの.md』の Drive 実体が台帳と違うのを片づける
-タグ: [領域:教材] [時期:2026-10] [種類:不具合] [検証:drive-vault-sync] [起票:2026-10-24]
+### [DN-0832] 総監論文対策の文字起こし『総監論文に求められるもの.md』の台帳の更新を、Drive をマウントした端末の全件照合で確かめる
+タグ: [領域:教材] [時期:2026-10..2026-11] [種類:不具合] [検証:drive-vault-sync] [起票:2026-10-24]
 
-drive-vault-sync -- --group source-transcript --verify --deep が 240 件中 1 件の不一致で FAIL（2026-10-24 確認）。content/sources/textbook/技術士（総監）/テキスト/総監論文対策/総監論文に求められるもの.md の Drive 実体が 2026-09-30 に更新され（26,556→26,554 bytes）、drive-manifest の sha256 と違う。同じ本の README（content/sources/books/pe-cem-essay-guide__総監論文対策/README.md）が p.24 の指で隠れた箇所を文脈で埋めた誤りを記録しており、その手直しの可能性がある。check-reference-sources --deep も transcript-method（廃止前の視覚 OCR の中身が変わった・PR #1211）で同じファイルを止める。どちらの中身を正とするかを決め、視覚 OCR を手で直すのでなく機械 OCR（book_ocr_machine.py）で作り直すか、Drive を台帳の版へ戻す。完了条件: drive-vault-sync --group source-transcript --verify --deep と check-reference-sources --deep が exit 0。
+**起点**: 2026-10-24、drive-vault-sync の verify --deep と check-reference-sources --deep（transcript-method）がこのファイルで止まった。Drive の実体は 2026-09-30 に直された版（26,554 bytes）で、ページ画像と照らすと Drive 側が原本どおり、台帳側が誤りだった。
 
-止まっている所（2026-10-26）: どちらを正とするかの判断待ち。Drive 実体と台帳の版の差は 2 行だけで、ページ画像 p0015（版面 p.36）・p0016（p.37）と照らすと Drive 側（「(1)(2) で書いていない条件を追加する」「この条件を満たすものである。」）が原本どおり、台帳側（「(1) で…」「⇒ (2) の条件を満たす…」）が誤り。
-Drive を台帳の版へ戻すと誤りを書き戻す。機械 OCR（part-01.md）は指の写り込みで崩れていて代わりにならない。選択肢は legacyVisualOcrTranscripts の sha256 を Drive の版へ更新する例外を認めるか、本の撮り直しを待つか。なお check-reference-sources --deep には別件の verbatim 7 件の FAIL（civil1-textbook の 3 記事）もあり、この 1 件を直しても exit 0 にならない。
+**残り**: 2026-10-29 に原本どおりの Drive の版を正とし（Drive を台帳の版へ戻すと誤りを書き戻すため）、`.claude/config/reference-sources-baseline.json` の legacyVisualOcrTranscripts と `.claude/state/assets/drive-manifest.json` の sha256 を Drive の版（74e2dc62…0437・26,554 bytes）へ更新した。版は Drive API から取り寄せて、git の旧版との差が frontmatter とカードの 2 行だけであることを確かめた。この端末には Drive のマウントが無く、照合はこのファイルだけを置いた一時 vault で行った（verify --deep 1 件一致・check-reference-sources の transcript-method 合格）。
+1. Drive をマウントした端末（Mac）で `npm run drive-vault-sync -- --group source-transcript --verify --deep` を回し、exit 0 を確かめる
+
+**完了条件**: 実マウントで drive-vault-sync --group source-transcript --verify --deep が exit 0。check-reference-sources --deep の別件（civil1-textbook の逐語一致 7 件）は別カードで扱う。
+
 
 
 ### [DN-0859] note の 3 本（総監 トレードオフ思考・技術士 口頭試験対策 全部門共通・総監 口頭試験対策 完全版）に、タスクリスト記法の修正を反映する
@@ -1615,24 +1662,8 @@ Windows の PowerShell で repo 直下から順に:
 
 ## 🟢 低 — 重要度が低い（時期未定を含む）
 
-### [DN-0917] 建設部門の資格トップの過去問の表（ExamMatrix）で同じ key「問題」が 2 つあり、React が重複 key の警告を出す
-タグ: [領域:サイト] [時期:2026-11] [種類:不具合] [起票:2026-10-29]
-
-**起点**: 2026-10-29、DN-0902 の確認で建設部門の資格トップ（/exam/pe-construction）を dev で開くと、Next.js の Console Error「Encountered two children with the same key, `問題`」が出た（src/components/category/ExamMatrix.tsx の ExamChipLink）。同じ行に「問題」という表示名のチップが 2 つあり、key が表示名だけになっている。重複 key は表示の取りこぼしや入れ替わりを起こしうる。
-
-**やること**: ExamMatrix の key を href など一意な値にし、資格トップの過去問の表で同じ見出しのチップが両方出ることを確かめる。
-
-**完了条件**: npm run dev で /exam/pe-construction を開いて Console Error が出ず、表のチップの数が直す前と同じ。
 
 
-### [DN-0913] 総監 H29 一次 1-26 の紐づけ先 risk-communication の記事が無い（exam-keyword-map の参照切れ）を直す
-タグ: [領域:教材] [種類:不具合] [起票:2026-10-28]
-
-**起点**: 2026-10-28 に npm run check-datasets を回したとき、作業と無関係の参照切れが 1 件出ていた（警告扱い）: .claude/state/exam-keyword-map.json の pe-comprehensive-management.h29-primary.1-26[0] が指す「pe-comprehensive-management/risk-communication」の記事が無い。
-
-**やること**: 記事が改名・統合されたのか、元から無いのかを git 履歴で確かめ、正しい slug に直すか紐づけを外す（exam-keyword-map の生成元で直す）。
-
-**完了条件**: npm run check-datasets の参照切れが 0 件。
 
 
 ### [DN-0904] 技術士（建設部門）の参考書の低評価レビューを分類し、満たされていない悩みの証拠に入れる

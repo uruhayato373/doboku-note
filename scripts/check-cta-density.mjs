@@ -37,6 +37,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { REPO_ROOT as root } from './lib/repository-paths.mjs';
 import { listFiles } from './lib/fs-walk.mjs';
+import { impressionKeyCounts } from './lib/affiliate-link-keys.mjs';
 
 const OUT_ROOT = path.join(root, 'out');
 const asJson = process.argv.includes('--json');
@@ -72,12 +73,8 @@ function countNonFooterNote(html) {
  * 返り値: { MAT: 回数 } のマップ。
  */
 function impressionMatCounts(html) {
-  const counts = {};
-  for (const m of html.matchAll(/<(?:img|span)[^>]*(?:src|data-a8-pixel)="[^"]*0\.gif\?a8mat=([^"&]+)[^>]*>/g)) {
-    const mat = m[1];
-    counts[mat] = (counts[mat] || 0) + 1;
-  }
-  return counts;
+  // もしものインプレッション（moshimo:<p_id>:<pl_id>）も同じ規律で数える（scripts/lib/affiliate-link-keys.mjs）
+  return impressionKeyCounts(html);
 }
 
 const files = walkHtml(OUT_ROOT);

@@ -1,0 +1,505 @@
+{
+  "schemaVersion": 1,
+  "week": "2026-W43",
+  "period": {
+    "startDate": "2026-10-19",
+    "endDate": "2026-10-25"
+  },
+  "baseline": {
+    "startDate": "2026-09-21",
+    "endDate": "2026-10-18",
+    "days": 28
+  },
+  "generatedAt": "2026-10-30T00:32:09.921Z",
+  "pack": "data/analysis/growth/pack-2026-W43.json",
+  "inputs": [
+    {
+      "name": "growth-pack",
+      "file": "data/analysis/growth/pack-2026-W43.json",
+      "coverage": "complete",
+      "note": null
+    },
+    {
+      "name": "monetization-coverage",
+      "file": "data/analysis/monetization/coverage-2026-10-30T00-31-24.json",
+      "coverage": "complete",
+      "note": null
+    },
+    {
+      "name": "bing-webmaster",
+      "file": "data/bing/snapshots/2026-10-30.json",
+      "coverage": "complete",
+      "note": null
+    }
+  ],
+  "kpis": {
+    "ga4": {
+      "google": {
+        "sessions": 4100,
+        "baseWeeklySessions": 516.5,
+        "deltaPct": 693.8,
+        "engagementRatePct": 75.9,
+        "keyEvents": 79,
+        "baseWeeklyKeyEvents": 14
+      },
+      "bing": {
+        "sessions": 5440,
+        "baseWeeklySessions": 3341.3,
+        "deltaPct": 62.8,
+        "engagementRatePct": 76.6,
+        "keyEvents": 250,
+        "baseWeeklyKeyEvents": 92
+      },
+      "yahoo": {
+        "sessions": 979,
+        "baseWeeklySessions": 173.8,
+        "deltaPct": 463.5,
+        "engagementRatePct": 79.3,
+        "keyEvents": 19,
+        "baseWeeklyKeyEvents": 7.5
+      },
+      "referral": {
+        "sessions": 225,
+        "baseWeeklySessions": 115.5,
+        "deltaPct": 94.8,
+        "engagementRatePct": 77.8,
+        "keyEvents": 20,
+        "baseWeeklyKeyEvents": 12.8
+      },
+      "direct": {
+        "sessions": 595,
+        "baseWeeklySessions": 252.5,
+        "deltaPct": 135.6,
+        "engagementRatePct": 69.7,
+        "keyEvents": 43,
+        "baseWeeklyKeyEvents": 6.8
+      },
+      "organic-social": {
+        "sessions": 12,
+        "baseWeeklySessions": 26.3,
+        "deltaPct": -54.3,
+        "engagementRatePct": 66.7,
+        "keyEvents": 0,
+        "baseWeeklyKeyEvents": 2.3
+      },
+      "unassigned": {
+        "sessions": 9,
+        "baseWeeklySessions": 10.3,
+        "deltaPct": -12.2,
+        "engagementRatePct": 77.8,
+        "keyEvents": 0,
+        "baseWeeklyKeyEvents": 0
+      },
+      "organic-video": {
+        "sessions": 0,
+        "baseWeeklySessions": 4.8,
+        "deltaPct": -100,
+        "engagementRatePct": null,
+        "keyEvents": 0,
+        "baseWeeklyKeyEvents": 0
+      },
+      "organic-other": {
+        "sessions": 81,
+        "baseWeeklySessions": 17,
+        "deltaPct": 376.5,
+        "engagementRatePct": 70.4,
+        "keyEvents": 0,
+        "baseWeeklyKeyEvents": 0.5
+      },
+      "ai-assistant": {
+        "sessions": 44,
+        "baseWeeklySessions": 19,
+        "deltaPct": 131.6,
+        "engagementRatePct": 72.7,
+        "keyEvents": 0,
+        "baseWeeklyKeyEvents": 0.3
+      }
+    },
+    "gsc": {
+      "basis": "property-total",
+      "clicks": 5648,
+      "baseWeeklyClicks": 449.5,
+      "deltaPct": 1156.5,
+      "impressions": 50150,
+      "baseWeeklyImpressions": 9016.8,
+      "ctrPct": 11.26,
+      "pageRows": {
+        "scope": "all-countries",
+        "count": 1312,
+        "clicks": 5668,
+        "impressions": 139674,
+        "byPageTotalClicks": 5665,
+        "byPageTotalImpressions": 139254
+      }
+    },
+    "cta": {
+      "note_cta_click": {
+        "week": 383,
+        "baseWeekly": 125.5,
+        "deltaPct": 205.2
+      },
+      "affiliate_cta_click": {
+        "week": 10,
+        "baseWeekly": 5.3,
+        "deltaPct": 90.5
+      },
+      "coconala_cta_click": {
+        "week": 2,
+        "baseWeekly": 2.5,
+        "deltaPct": -20
+      },
+      "quiz_cta_click": {
+        "week": 0,
+        "baseWeekly": 0,
+        "deltaPct": null
+      },
+      "note_cta_impression": {
+        "week": 31521,
+        "baseWeekly": 12483.3,
+        "deltaPct": 152.5
+      },
+      "affiliate_cta_impression": {
+        "week": 8719,
+        "baseWeekly": 4857.3,
+        "deltaPct": 79.5
+      },
+      "coconala_cta_impression": {
+        "week": 648,
+        "baseWeekly": 759.3,
+        "deltaPct": -14.7
+      },
+      "quiz_start": {
+        "week": 51,
+        "baseWeekly": 18.8,
+        "deltaPct": 172
+      },
+      "quiz_complete": {
+        "week": 12,
+        "baseWeekly": 1.8,
+        "deltaPct": 585.7
+      },
+      "standards_data_download": {
+        "week": 4,
+        "baseWeekly": 0.8,
+        "deltaPct": 433.3
+      }
+    }
+  },
+  "bingReconciliation": {
+    "ga4Sessions": 5440,
+    "wmtClicks": 6371,
+    "days": 7,
+    "ratio": 0.9,
+    "note": null
+  },
+  "topMovers": {
+    "gainers": [
+      {
+        "page": "/exam/civil-construction-2/guide/r08-secondary-answers",
+        "week": 2768,
+        "baseWeekly": 75,
+        "delta": 2693
+      },
+      {
+        "page": "/exam/civil-construction-2/guide/secondary-grading-and-partial-credit",
+        "week": 152,
+        "baseWeekly": 3.8,
+        "delta": 148.2
+      },
+      {
+        "page": "(not set)",
+        "week": 127,
+        "baseWeekly": 31.3,
+        "delta": 95.7
+      },
+      {
+        "page": "/exam/civil-construction-2/secondary/experience-writing-guide",
+        "week": 58,
+        "baseWeekly": 10,
+        "delta": 48
+      },
+      {
+        "page": "/exam/civil-construction-2/guide/secondary-written-questions-guide",
+        "week": 37,
+        "baseWeekly": 1.8,
+        "delta": 35.2
+      }
+    ],
+    "losers": [
+      {
+        "page": "/exam/pe-comprehensive-management/past-exams/r08-primary",
+        "week": 9,
+        "baseWeekly": 15,
+        "delta": -6
+      },
+      {
+        "page": "/exam/civil-construction-1/secondary/r06",
+        "week": 15,
+        "baseWeekly": 19.8,
+        "delta": -4.8
+      },
+      {
+        "page": "/exam/pe-comprehensive-management/past-exams/r08-secondary",
+        "week": 3,
+        "baseWeekly": 5,
+        "delta": -2
+      },
+      {
+        "page": "/exam/civil-construction-1/textbook/safety-scaffolding",
+        "week": 2,
+        "baseWeekly": 4,
+        "delta": -2
+      },
+      {
+        "page": "/exam/civil-construction-1/secondary/r04",
+        "week": 13,
+        "baseWeekly": 14.3,
+        "delta": -1.3
+      }
+    ]
+  },
+  "candidates": 126,
+  "suppressed": 27,
+  "notSurfaced": {
+    "seo": 3,
+    "revenue": 50
+  },
+  "surfaced": [
+    {
+      "id": "OPP-57c84288a8",
+      "category": "experiment",
+      "type": "experiment-due",
+      "key": {
+        "experiment": "EXP-015",
+        "reasons": "MEASURE_DUE"
+      },
+      "title": "EXP-015（2級土木 二次の経験記述3商品（想定工事バンク ¥5,480→¥6,980・過去問模範答案集 ¥2,480→¥2,980・完成答案集 ¥2,480→¥2,980）を試験直前に値上げし、販売額が落ちないかを見る）: next_check_date 2026-10-26 を超過",
+      "metrics": {
+        "status": "running",
+        "nextCheckDate": "2026-10-26"
+      },
+      "expectedWeeklyGain": null,
+      "suggest": [
+        "verdict",
+        "defer"
+      ],
+      "review": "/nsm-experiment measure EXP-015"
+    },
+    {
+      "id": "OPP-f2ba0b6d6d",
+      "category": "experiment",
+      "type": "experiment-due",
+      "key": {
+        "experiment": "EXP-014",
+        "reasons": "MEASURE_DUE+VERDICT_DUE"
+      },
+      "title": "EXP-014（2級土木 二次ページの冒頭 CTA を、高額のまとめ売りから時期・検索意図に合う商品へ差し替え、冒頭バナーの表示崩れを直して、冒頭 CTA のクリック率を上げる）: next_check_date 2026-10-26 を超過 / 自動計測の事後窓が完了（ga4.event:note_cta_click 186→296・目安 target-met）。裁定して close する",
+      "metrics": {
+        "status": "running",
+        "nextCheckDate": "2026-10-26"
+      },
+      "expectedWeeklyGain": null,
+      "suggest": [
+        "verdict",
+        "defer"
+      ],
+      "review": "/nsm-experiment close EXP-014"
+    },
+    {
+      "id": "OPP-fcfcda5a1a",
+      "category": "seo",
+      "type": "seo-high-impr-low-ctr",
+      "key": {
+        "page": "/exam/civil-construction-2/guide/r08-secondary-answers",
+        "query": "二級土木施工管理技士 二次試験"
+      },
+      "title": "「二級土木施工管理技士 二次試験」は平均 8.4 位なのに CTR 0.98%（期待 3%）",
+      "metrics": {
+        "impressions35d": 3152,
+        "clicks35d": 31,
+        "ctr": 0.98,
+        "position": 8.4
+      },
+      "expectedWeeklyGain": {
+        "value": 12.7,
+        "unit": "searchClicks"
+      },
+      "qualification": null,
+      "contentPath": "content/site/civil-construction-2/guide-r08-secondary-answers/article.mdx",
+      "suggest": [
+        "experiment",
+        "backlog"
+      ]
+    },
+    {
+      "id": "OPP-a202ad33ee",
+      "category": "seo",
+      "type": "seo-traffic-drop",
+      "key": {
+        "page": "/exam/civil-construction-2/secondary/r06",
+        "query": null
+      },
+      "title": "/exam/civil-construction-2/secondary/r06 の検索クリックが週 2（基線の週平均 6.5・-69.2%）",
+      "metrics": {
+        "weekClicks": 2,
+        "baseWeeklyClicks": 6.5,
+        "deltaPct": -69.2
+      },
+      "expectedWeeklyGain": {
+        "value": 4.5,
+        "unit": "searchClicks"
+      },
+      "qualification": null,
+      "contentPath": "content/site/civil-construction-2/secondary-r06/article.mdx",
+      "suggest": [
+        "backlog"
+      ]
+    },
+    {
+      "id": "OPP-5dd26ae975",
+      "category": "seo",
+      "type": "seo-high-impr-low-ctr",
+      "key": {
+        "page": "/exam/civil-construction-2/guide/secondary-grading-and-partial-credit",
+        "query": "2級土木施工管理技士 2次試験 配点"
+      },
+      "title": "「2級土木施工管理技士 2次試験 配点」は平均 1.5 位なのに CTR 5.88%（期待 15%）",
+      "metrics": {
+        "impressions35d": 68,
+        "clicks35d": 4,
+        "ctr": 5.88,
+        "position": 1.5
+      },
+      "expectedWeeklyGain": {
+        "value": 1.2,
+        "unit": "searchClicks"
+      },
+      "qualification": null,
+      "contentPath": "content/site/civil-construction-2/secondary-grading-and-partial-credit/article.mdx",
+      "suggest": [
+        "experiment",
+        "backlog"
+      ]
+    },
+    {
+      "id": "OPP-adc3bac9b1",
+      "category": "seo",
+      "type": "seo-high-impr-low-ctr",
+      "key": {
+        "page": "/exam/civil-construction-1/textbook/scraper",
+        "query": "スクレープドーザー"
+      },
+      "title": "「スクレープドーザー」は平均 6.3 位なのに CTR 1.34%（期待 4%）",
+      "metrics": {
+        "impressions35d": 224,
+        "clicks35d": 3,
+        "ctr": 1.34,
+        "position": 6.3
+      },
+      "expectedWeeklyGain": {
+        "value": 1.2,
+        "unit": "searchClicks"
+      },
+      "qualification": "civil-construction-1",
+      "contentPath": "content/site/civil-construction-1/textbook-scraper/article.mdx",
+      "suggest": [
+        "experiment",
+        "backlog"
+      ]
+    },
+    {
+      "id": "OPP-22c5d85639",
+      "category": "seo",
+      "type": "seo-high-impr-low-ctr",
+      "key": {
+        "page": "/standards/okinawa/hikkei-08/part-01",
+        "query": "建設工事公衆災害防止対策要綱"
+      },
+      "title": "「建設工事公衆災害防止対策要綱」は平均 8.1 位なのに CTR 0.56%（期待 3%）",
+      "metrics": {
+        "impressions35d": 180,
+        "clicks35d": 1,
+        "ctr": 0.56,
+        "position": 8.1
+      },
+      "expectedWeeklyGain": {
+        "value": 0.9,
+        "unit": "searchClicks"
+      },
+      "qualification": null,
+      "contentPath": null,
+      "suggest": [
+        "backlog"
+      ]
+    },
+    {
+      "id": "OPP-9039aef12c",
+      "category": "revenue",
+      "type": "revenue-page-cta-rate",
+      "key": {
+        "page": "/exam/civil-construction-1/secondary/r06"
+      },
+      "title": "/exam/civil-construction-1/secondary/r06 の CTA クリック率 0.33%（サイト平均 0.82%）",
+      "metrics": {
+        "ctaImpressions35d": 1810,
+        "ctaClicks35d": 6,
+        "ctrPct": 0.33,
+        "siteCtrPct": 0.82
+      },
+      "expectedWeeklyGain": {
+        "value": 1.8,
+        "unit": "ctaClicks"
+      },
+      "suggest": [
+        "backlog",
+        "experiment"
+      ]
+    },
+    {
+      "id": "OPP-5b6a44c56a",
+      "category": "revenue",
+      "type": "revenue-page-cta-rate",
+      "key": {
+        "page": "/exam/pe-first-stage/primary/r07-basic"
+      },
+      "title": "/exam/pe-first-stage/primary/r07-basic の CTA クリック率 0.24%（サイト平均 0.82%）",
+      "metrics": {
+        "ctaImpressions35d": 1271,
+        "ctaClicks35d": 3,
+        "ctrPct": 0.24,
+        "siteCtrPct": 0.82
+      },
+      "expectedWeeklyGain": {
+        "value": 1.5,
+        "unit": "ctaClicks"
+      },
+      "suggest": [
+        "backlog",
+        "experiment"
+      ]
+    },
+    {
+      "id": "OPP-9a77f81ae7",
+      "category": "revenue",
+      "type": "revenue-page-cta-rate",
+      "key": {
+        "page": "/exam/pe-first-stage"
+      },
+      "title": "/exam/pe-first-stage の CTA クリック率 0.11%（サイト平均 0.82%）",
+      "metrics": {
+        "ctaImpressions35d": 911,
+        "ctaClicks35d": 1,
+        "ctrPct": 0.11,
+        "siteCtrPct": 0.82
+      },
+      "expectedWeeklyGain": {
+        "value": 1.3,
+        "unit": "ctaClicks"
+      },
+      "suggest": [
+        "backlog",
+        "experiment"
+      ]
+    }
+  ]
+}

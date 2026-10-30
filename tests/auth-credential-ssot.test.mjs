@@ -69,3 +69,10 @@ test('ログイン ID は資格情報ストアから読み、パスワードは�
   assert.deepEqual(mac, { a: { present: true, user: 'me@example.jp' }, b: { present: false, user: null } });
   assert.ok(macCalls.every((a) => !a.includes('-w')), 'Mac でもパスワード（-w）を取り出さない');
 });
+
+test('ASP の取得スクリプトのログインは、stats47 と共用の項目も読む（keychainServiceNames 経由）', () => {
+  // 2026-10-30: asp-browser が doboku-note-auth-<id> だけを読み、キーチェーンにある stats47-measurement-<id> で入れなかった
+  const src = readFileSync('scripts/lib/asp-browser.mjs', 'utf8');
+  assert.match(src, /readFirstCredential\(keychainServiceNames\(service\)\)/);
+  assert.doesNotMatch(src, /readServiceCredential\(/);
+});

@@ -9,8 +9,8 @@
     "unavailable": "その ASP に案件自体が無い",
     "unknown": "未確認（調べていない。none と区別する）"
   },
-  "updatedAt": "2026-10-27T05:30:00.000Z",
-  "verifiedAt": "2026-09-08",
+  "updatedAt": "2026-10-30T11:37:52.305Z",
+  "verifiedAt": "2026-10-30",
   "_verifiedNote": "2026-09-08部分照合: A8は口座a25050375786の案件詳細、BuildJobは広告作成websiteId002/既存mat一致まで確認。もしも4案件はshop_site_id672381とselectedOption=doboku-noteを実機確認。afbは今回未確認、旧値保持。各ASPのverifiedAt/verificationScopeを参照。",
   "programs": {
     "buildjob": {
@@ -65,7 +65,7 @@
       "asps": {
         "a8": {
           "programId": "s00000022176005",
-          "status": "approved",
+          "status": "none",
           "rewardYen": 25000,
           "epcYen": 360.08,
           "confirmRatePct": 25.58,
@@ -212,7 +212,7 @@
       "asps": {
         "a8": {
           "programId": "s00000021947001",
-          "status": "applying",
+          "status": "approved",
           "rewardYen": 2930,
           "epcYen": 0,
           "note": "2026-10-27 申請（運営者指示。読み取り検索で見つけた転職案件をまとめて申請）。afb では提携済み"
@@ -359,11 +359,17 @@
     "kenchiku-tenshoku": {
       "label": "建築転職（建築系技術者に特化した転職エージェント）",
       "vertical": "civil-career",
-      "placement": "none",
-      "decision": "もしもで審査なし・即時提携（doboku-note と stats47）。面談実施で成果。建築寄りなので土木読者への配置可否は別途判断。",
+      "placement": "active",
+      "decision": "もしもで審査なし・即時提携（doboku-note と stats47）。面談実施で成果。建築寄りなので土木読者への配置可否は別途判断。 2026-10-30: A8 には無い（「建築転職」「トップリフォーム」で検索して 0 件。対照の「ビルドジョブ」は 1 件で検索は有効）。サイトの広告まわり（affiliate-mats・ピクセル検査）は A8 専用なので、配置するにはもしもの素材に対応させる改修が要る。 2026-10-30: 建築施工管理（building-construction）の面をビルドジョブから建築転職へ替えた（運営者指示。もしもの素材に対応させる改修とあわせて）。",
+      "ctaLabels": [
+        "KenchikuTenshoku-sidebar",
+        "KenchikuTenshoku-endbanner",
+        "建築転職"
+      ],
       "asps": {
         "a8": {
-          "status": "unknown"
+          "status": "unavailable",
+          "note": "2026-10-30 A8 のキーワード検索で 0 件（建築転職・トップリフォーム）"
         },
         "moshimo": {
           "promotionId": "4183",
@@ -395,7 +401,7 @@
         },
         "afb": {
           "pid": "9385",
-          "status": "applying",
+          "status": "none",
           "rewardYen": 3905,
           "note": "2026-10-27 申請（運営者指示。読み取り検索で見つけた転職案件をまとめて申請）。stats47 も申請中（2026-10-27 に申請中一覧で確認）"
         }
@@ -423,7 +429,7 @@
         },
         "afb": {
           "pid": "6872",
-          "status": "applying",
+          "status": "none",
           "rewardYen": 2200,
           "note": "2026-10-27 申請（運営者指示。読み取り検索で見つけた転職案件をまとめて申請）。stats47 も申請中（2026-10-27 に申請中一覧で確認）"
         }
@@ -447,7 +453,7 @@
         },
         "afb": {
           "pid": "6873",
-          "status": "applying",
+          "status": "none",
           "rewardYen": 1870,
           "note": "2026-10-27 申請（運営者指示。読み取り検索で見つけた転職案件をまとめて申請）。stats47 も申請中（2026-10-27 に申請中一覧で確認）"
         }
