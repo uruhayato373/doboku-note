@@ -274,12 +274,13 @@
       "credential": {
         "label": "afb",
         "storeItem": "doboku-note-auth-afb",
+        "sharedStoreItem": "stats47-measurement-afb",
         "autoLogin": true,
         "machines": [
           "windows",
           "mac"
         ],
-        "policyNote": "ログイン状態を別プロセスへ持ち出せないため、ログイン維持では入らず、取得スクリプト自身が資格情報で 1 回だけログインする。既定サイトは stats47 なので取得前にサイトを切り替える"
+        "policyNote": "stats47 と同じ口座。ログイン状態を別プロセスへ持ち出せないため、ログイン維持では入らず、取得スクリプト自身が資格情報で 1 回だけログインする（自分の項目が無ければ stats47 の項目）。既定サイトは stats47 なので取得前にサイトを切り替える"
       }
     }
   },

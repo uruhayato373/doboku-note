@@ -13,7 +13,9 @@ import { join } from 'node:path';
  * - shared: stats47 と共用する口座。stats47 が毎日保存する state を先に取り込み、doboku-note からの
  *   ログインは state が切れているときだけにする（同じ口座へ両方から毎日ログインしない）。キーチェーンも
  *   stats47 の項目を代わりに使ってよい。
- * - shared でないサービスは doboku-note 専用の項目だけを使う（別口座の資格情報で入らない）。
+ * - sharedCredential: state は共用しないが、口座は stats47 と同じなので、キーチェーンは stats47 の項目を代わりに使ってよい
+ *   （afb。state を別プロセスへ持ち出せないため shared にはできない）。
+ * - どちらでもないサービスは doboku-note 専用の項目だけを使う（別口座の資格情報で入らない）。
  */
 export const AUTO_LOGIN = Object.freeze({
   a8: {
@@ -60,6 +62,7 @@ export const AUTO_LOGIN = Object.freeze({
   // requiredlogin 画面の DOM で確認（login_name / password・同じ action のフォームが 2 つあるので :visible で絞る）。
   afb: {
     shared: false,
+    sharedCredential: true,
     inProcessOnly: true,
     loginUrl: 'https://www.afi-b.com/pa/',
     user: 'input[name=login_name]:visible',
@@ -88,7 +91,7 @@ export const SHARED_KEYCHAIN_PREFIX = 'stats47-measurement-';
 export function keychainServiceNames(service) {
   const spec = AUTO_LOGIN[service];
   if (!spec) return [];
-  return spec.shared ? [`${KEYCHAIN_PREFIX}${service}`, `${SHARED_KEYCHAIN_PREFIX}${service}`] : [`${KEYCHAIN_PREFIX}${service}`];
+  return spec.shared || spec.sharedCredential ? [`${KEYCHAIN_PREFIX}${service}`, `${SHARED_KEYCHAIN_PREFIX}${service}`] : [`${KEYCHAIN_PREFIX}${service}`];
 }
 
 /** stats47 と共用する state の置き場（stats47 側の `.local/playwright-*-state.json` の symlink 先）。 */
