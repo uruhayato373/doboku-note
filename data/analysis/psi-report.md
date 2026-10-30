@@ -1,107 +1,84 @@
-# PSI 計測レポート — 2026-10-30
+# PSI 計測レポート — 2026-10-31
 
 - 計測対象: 22 URL × 2 strategy
 - field(CrUX) 取得: **44/44件**
-- 診断上のしきい値超過: **49件**
+- 診断上のしきい値超過: **26件**
 - CI ゲート違反（field 実害・取得失敗率20%超）: **0件**
 
 ## スコアサマリー
 
 | URL | Strategy | Perf | A11y | BP | SEO | LCP | CLS |
 |---|---|---|---|---|---|---|---|
-| / | desktop | 100 | 100 | 100 | 100 | 621 | 0.004 |
-| /search | desktop | 95 | 100 | 100 | 66⚠ | 541 | 0.004 |
-| /exam | desktop | 100 | 100 | 100 | 100 | 502 | 0.004 |
-| /exam/civil-construction-1/guide/strategy | desktop | 98 | 100 | 100 | 100 | 1163 | 0.004 |
-| /exam/civil-construction-1/guide/four-management | desktop | 90 | 100 | 100 | 100 | 878 | 0.016 |
-| /exam/civil-construction-1/primary/r07-a | desktop | 86 | 100 | 100 | 100 | 869 | 0.25⚠ |
-| /exam/civil-construction-1/primary/h26-a | desktop | 98 | 100 | 100 | 100 | 1178 | 0.004 |
-| /exam/civil-construction-1/secondary/r07 | desktop | 98 | 100 | 100 | 100 | 1122 | 0.004 |
-| /exam/civil-construction-1/secondary/concrete-basics | desktop | 96 | 100 | 100 | 100 | 768 | 0.048 |
-| /exam/civil-construction-1/secondary/experience-writing-guide | desktop | 98 | 100 | 100 | 100 | 995 | 0.016 |
-| /exam/civil-construction-1/textbook/quality-overview | desktop | 97 | 100 | 100 | 100 | 915 | 0.05 |
-| /exam/civil-construction-1/textbook/schedule-overview | desktop | 99 | 100 | 100 | 100 | 933 | 0.004 |
-| /exam/pe-comprehensive-management/guide/exam-index | desktop | 100 | 100 | 100 | 100 | 790 | 0.004 |
-| /exam/pe-comprehensive-management/guide/exam-passing-strategy | desktop | 99 | 100 | 100 | 100 | 846 | 0.004 |
-| /exam/pe-comprehensive-management/past-exams/r07-primary | desktop | 100 | 100 | 100 | 100 | 660 | 0.004 |
-| /exam/pe-comprehensive-management/past-exams/r05-primary | desktop | 99 | 100 | 100 | 100 | 687 | 0.041 |
-| /exam/pe-comprehensive-management/past-exams/r07-secondary | desktop | 99 | 100 | 100 | 100 | 835 | 0.004 |
-| /exam/pe-comprehensive-management/keywords/followership | desktop | 100 | 100 | 100 | 100 | 811 | 0.004 |
-| /exam/pe-comprehensive-management/keywords/agile | desktop | 99 | 100 | 100 | 100 | 839 | 0.004 |
-| /exam/pe-comprehensive-management/keywords/activity-abc | desktop | 99 | 100 | 100 | 100 | 839 | 0.004 |
-| /exam/pe-comprehensive-management/keywords/agenda-21 | desktop | 100 | 100 | 100 | 100 | 762 | 0.004 |
-| /exam/pe-comprehensive-management/keywords/alarp-principle | desktop | 99 | 100 | 100 | 100 | 881 | 0.004 |
-| / | mobile | 71 | 100 | 100 | 100 | 5705⚠ | 0 |
-| /search | mobile | 78 | 100 | 100 | 66⚠ | 4424⚠ | 0.006 |
-| /exam | mobile | 71 | 100 | 100 | 100 | 5457⚠ | 0 |
-| /exam/civil-construction-1/guide/strategy | mobile | 66⚠ | 100 | 100 | 100 | 6526⚠ | 0 |
-| /exam/civil-construction-1/guide/four-management | mobile | 63⚠ | 100 | 100 | 100 | 6526⚠ | 0 |
-| /exam/civil-construction-1/primary/r07-a | mobile | 66⚠ | 100 | 100 | 100 | 6901⚠ | 0 |
-| /exam/civil-construction-1/primary/h26-a | mobile | 95 | 100 | 100 | 100 | 2702⚠ | 0.006 |
-| /exam/civil-construction-1/secondary/r07 | mobile | 73 | 100 | 100 | 100 | 5565⚠ | 0.006 |
-| /exam/civil-construction-1/secondary/concrete-basics | mobile | 70 | 100 | 100 | 100 | 5807⚠ | 0.006 |
-| /exam/civil-construction-1/secondary/experience-writing-guide | mobile | 72 | 100 | 100 | 100 | 4876⚠ | 0.006 |
-| /exam/civil-construction-1/textbook/quality-overview | mobile | 66⚠ | 100 | 100 | 100 | 6976⚠ | 0 |
-| /exam/civil-construction-1/textbook/schedule-overview | mobile | 77 | 100 | 100 | 100 | 5734⚠ | 0.006 |
-| /exam/pe-comprehensive-management/guide/exam-index | mobile | 74 | 100 | 100 | 100 | 5287⚠ | 0.006 |
-| /exam/pe-comprehensive-management/guide/exam-passing-strategy | mobile | 72 | 100 | 100 | 100 | 5324⚠ | 0.006 |
-| /exam/pe-comprehensive-management/past-exams/r07-primary | mobile | 95 | 100 | 100 | 100 | 2476 | 0 |
-| /exam/pe-comprehensive-management/past-exams/r05-primary | mobile | 96 | 100 | 100 | 100 | 2401 | 0.006 |
-| /exam/pe-comprehensive-management/past-exams/r07-secondary | mobile | 68⚠ | 100 | 100 | 100 | 6151⚠ | 0 |
-| /exam/pe-comprehensive-management/keywords/followership | mobile | 70 | 100 | 100 | 100 | 5456⚠ | 0.006 |
-| /exam/pe-comprehensive-management/keywords/agile | mobile | 73 | 100 | 100 | 100 | 5505⚠ | 0.006 |
-| /exam/pe-comprehensive-management/keywords/activity-abc | mobile | 72 | 100 | 100 | 100 | 5809⚠ | 0.006 |
-| /exam/pe-comprehensive-management/keywords/agenda-21 | mobile | 74 | 100 | 100 | 100 | 5554⚠ | 0.006 |
-| /exam/pe-comprehensive-management/keywords/alarp-principle | mobile | 74 | 100 | 100 | 100 | 5290⚠ | 0.006 |
+| / | desktop | 100 | 100 | 100 | 100 | 667 | 0.004 |
+| /search | desktop | 100 | 100 | 100 | 66⚠ | 298 | 0.004 |
+| /exam | desktop | 100 | 100 | 100 | 100 | 259 | 0.004 |
+| /exam/civil-construction-1/guide/strategy | desktop | 100 | 100 | 100 | 100 | 701 | 0.004 |
+| /exam/civil-construction-1/guide/four-management | desktop | 99 | 100 | 100 | 100 | 881 | 0.004 |
+| /exam/civil-construction-1/primary/r07-a | desktop | 87 | 100 | 100 | 100 | 782 | 0.25⚠ |
+| /exam/civil-construction-1/primary/h26-a | desktop | 99 | 100 | 100 | 100 | 342 | 0.004 |
+| /exam/civil-construction-1/secondary/r07 | desktop | 100 | 100 | 100 | 100 | 761 | 0.004 |
+| /exam/civil-construction-1/secondary/concrete-basics | desktop | 99 | 100 | 100 | 100 | 855 | 0.048 |
+| /exam/civil-construction-1/secondary/experience-writing-guide | desktop | 98 | 100 | 100 | 100 | 761 | 0.016 |
+| /exam/civil-construction-1/textbook/quality-overview | desktop | 99 | 100 | 100 | 100 | 864 | 0.004 |
+| /exam/civil-construction-1/textbook/schedule-overview | desktop | 99 | 100 | 100 | 100 | 884 | 0.004 |
+| /exam/pe-comprehensive-management/guide/exam-index | desktop | 100 | 100 | 100 | 100 | 702 | 0.004 |
+| /exam/pe-comprehensive-management/guide/exam-passing-strategy | desktop | 98 | 100 | 100 | 100 | 839 | 0.004 |
+| /exam/pe-comprehensive-management/past-exams/r07-primary | desktop | 100 | 100 | 100 | 100 | 321 | 0.004 |
+| /exam/pe-comprehensive-management/past-exams/r05-primary | desktop | 100 | 100 | 100 | 100 | 322 | 0.041 |
+| /exam/pe-comprehensive-management/past-exams/r07-secondary | desktop | 92 | 100 | 100 | 100 | 330 | 0.004 |
+| /exam/pe-comprehensive-management/keywords/followership | desktop | 100 | 100 | 100 | 100 | 704 | 0.004 |
+| /exam/pe-comprehensive-management/keywords/agile | desktop | 100 | 100 | 100 | 100 | 739 | 0.004 |
+| /exam/pe-comprehensive-management/keywords/activity-abc | desktop | 99 | 100 | 100 | 100 | 960 | 0.004 |
+| /exam/pe-comprehensive-management/keywords/agenda-21 | desktop | 100 | 100 | 100 | 100 | 607 | 0.004 |
+| /exam/pe-comprehensive-management/keywords/alarp-principle | desktop | 100 | 100 | 100 | 100 | 772 | 0.004 |
+| / | mobile | 74 | 100 | 100 | 100 | 5660⚠ | 0 |
+| /search | mobile | 96 | 100 | 100 | 66⚠ | 2016 | 0 |
+| /exam | mobile | 93 | 100 | 100 | 100 | 905 | 0.006 |
+| /exam/civil-construction-1/guide/strategy | mobile | 75 | 100 | 100 | 100 | 5926⚠ | 0 |
+| /exam/civil-construction-1/guide/four-management | mobile | 70 | 100 | 100 | 100 | 6676⚠ | 0 |
+| /exam/civil-construction-1/primary/r07-a | mobile | 95 | 100 | 100 | 100 | 1975 | 0 |
+| /exam/civil-construction-1/primary/h26-a | mobile | 99 | 100 | 100 | 100 | 1201 | 0.006 |
+| /exam/civil-construction-1/secondary/r07 | mobile | 94 | 100 | 100 | 100 | 1813 | 0 |
+| /exam/civil-construction-1/secondary/concrete-basics | mobile | 71 | 100 | 100 | 100 | 7801⚠ | 0 |
+| /exam/civil-construction-1/secondary/experience-writing-guide | mobile | 80 | 100 | 100 | 100 | 5352⚠ | 0.006 |
+| /exam/civil-construction-1/textbook/quality-overview | mobile | 72 | 100 | 100 | 100 | 7201⚠ | 0 |
+| /exam/civil-construction-1/textbook/schedule-overview | mobile | 79 | 100 | 100 | 100 | 5661⚠ | 0.006 |
+| /exam/pe-comprehensive-management/guide/exam-index | mobile | 81 | 100 | 100 | 100 | 5105⚠ | 0.006 |
+| /exam/pe-comprehensive-management/guide/exam-passing-strategy | mobile | 80 | 100 | 100 | 100 | 5252⚠ | 0.006 |
+| /exam/pe-comprehensive-management/past-exams/r07-primary | mobile | 93 | 100 | 100 | 100 | 1979 | 0 |
+| /exam/pe-comprehensive-management/past-exams/r05-primary | mobile | 98 | 100 | 100 | 100 | 1201 | 0.006 |
+| /exam/pe-comprehensive-management/past-exams/r07-secondary | mobile | 100 | 100 | 100 | 100 | 1051 | 0.006 |
+| /exam/pe-comprehensive-management/keywords/followership | mobile | 94 | 100 | 100 | 100 | 3151⚠ | 0.006 |
+| /exam/pe-comprehensive-management/keywords/agile | mobile | 80 | 100 | 100 | 100 | 5198⚠ | 0.006 |
+| /exam/pe-comprehensive-management/keywords/activity-abc | mobile | 81 | 100 | 100 | 100 | 5091⚠ | 0.006 |
+| /exam/pe-comprehensive-management/keywords/agenda-21 | mobile | 81 | 100 | 100 | 100 | 5186⚠ | 0.006 |
+| /exam/pe-comprehensive-management/keywords/alarp-principle | mobile | 94 | 100 | 100 | 100 | 3151⚠ | 0.006 |
 
 ## しきい値違反
 
 - `https://doboku-note.com/search` (desktop): **SEO** = 66 (閾値: ≥90)
 - `https://doboku-note.com/exam/civil-construction-1/primary/r07-a` (desktop): **CLS** = 0.25 (閾値: ≤0.1)
-- `https://doboku-note.com/` (mobile): **LCP** = 5705ms (閾値: ≤2500ms)
-- `https://doboku-note.com/` (mobile): **FCP** = 2922ms (閾値: ≤1800ms)
+- `https://doboku-note.com/` (mobile): **LCP** = 5660ms (閾値: ≤2500ms)
 - `https://doboku-note.com/search` (mobile): **SEO** = 66 (閾値: ≥90)
-- `https://doboku-note.com/search` (mobile): **LCP** = 4424ms (閾値: ≤2500ms)
-- `https://doboku-note.com/search` (mobile): **FCP** = 2982ms (閾値: ≤1800ms)
-- `https://doboku-note.com/exam` (mobile): **LCP** = 5457ms (閾値: ≤2500ms)
-- `https://doboku-note.com/exam` (mobile): **FCP** = 3128ms (閾値: ≤1800ms)
-- `https://doboku-note.com/exam/civil-construction-1/guide/strategy` (mobile): **Performance** = 66 (閾値: ≥70)
-- `https://doboku-note.com/exam/civil-construction-1/guide/strategy` (mobile): **LCP** = 6526ms (閾値: ≤2500ms)
-- `https://doboku-note.com/exam/civil-construction-1/guide/strategy` (mobile): **FCP** = 3277ms (閾値: ≤1800ms)
-- `https://doboku-note.com/exam/civil-construction-1/guide/four-management` (mobile): **Performance** = 63 (閾値: ≥70)
-- `https://doboku-note.com/exam/civil-construction-1/guide/four-management` (mobile): **LCP** = 6526ms (閾値: ≤2500ms)
-- `https://doboku-note.com/exam/civil-construction-1/guide/four-management` (mobile): **FCP** = 3506ms (閾値: ≤1800ms)
-- `https://doboku-note.com/exam/civil-construction-1/primary/r07-a` (mobile): **Performance** = 66 (閾値: ≥70)
-- `https://doboku-note.com/exam/civil-construction-1/primary/r07-a` (mobile): **LCP** = 6901ms (閾値: ≤2500ms)
-- `https://doboku-note.com/exam/civil-construction-1/primary/r07-a` (mobile): **FCP** = 3532ms (閾値: ≤1800ms)
-- `https://doboku-note.com/exam/civil-construction-1/primary/h26-a` (mobile): **LCP** = 2702ms (閾値: ≤2500ms)
-- `https://doboku-note.com/exam/civil-construction-1/primary/h26-a` (mobile): **FCP** = 1825ms (閾値: ≤1800ms)
-- `https://doboku-note.com/exam/civil-construction-1/secondary/r07` (mobile): **LCP** = 5565ms (閾値: ≤2500ms)
-- `https://doboku-note.com/exam/civil-construction-1/secondary/r07` (mobile): **FCP** = 3166ms (閾値: ≤1800ms)
-- `https://doboku-note.com/exam/civil-construction-1/secondary/concrete-basics` (mobile): **LCP** = 5807ms (閾値: ≤2500ms)
-- `https://doboku-note.com/exam/civil-construction-1/secondary/concrete-basics` (mobile): **FCP** = 3589ms (閾値: ≤1800ms)
-- `https://doboku-note.com/exam/civil-construction-1/secondary/experience-writing-guide` (mobile): **LCP** = 4876ms (閾値: ≤2500ms)
-- `https://doboku-note.com/exam/civil-construction-1/secondary/experience-writing-guide` (mobile): **FCP** = 3474ms (閾値: ≤1800ms)
-- `https://doboku-note.com/exam/civil-construction-1/textbook/quality-overview` (mobile): **Performance** = 66 (閾値: ≥70)
-- `https://doboku-note.com/exam/civil-construction-1/textbook/quality-overview` (mobile): **LCP** = 6976ms (閾値: ≤2500ms)
-- `https://doboku-note.com/exam/civil-construction-1/textbook/quality-overview` (mobile): **FCP** = 3321ms (閾値: ≤1800ms)
-- `https://doboku-note.com/exam/civil-construction-1/textbook/schedule-overview` (mobile): **LCP** = 5734ms (閾値: ≤2500ms)
-- `https://doboku-note.com/exam/pe-comprehensive-management/guide/exam-index` (mobile): **LCP** = 5287ms (閾値: ≤2500ms)
-- `https://doboku-note.com/exam/pe-comprehensive-management/guide/exam-index` (mobile): **FCP** = 3259ms (閾値: ≤1800ms)
-- `https://doboku-note.com/exam/pe-comprehensive-management/guide/exam-passing-strategy` (mobile): **LCP** = 5324ms (閾値: ≤2500ms)
-- `https://doboku-note.com/exam/pe-comprehensive-management/guide/exam-passing-strategy` (mobile): **FCP** = 3178ms (閾値: ≤1800ms)
-- `https://doboku-note.com/exam/pe-comprehensive-management/past-exams/r07-primary` (mobile): **FCP** = 1832ms (閾値: ≤1800ms)
-- `https://doboku-note.com/exam/pe-comprehensive-management/past-exams/r05-primary` (mobile): **FCP** = 1836ms (閾値: ≤1800ms)
-- `https://doboku-note.com/exam/pe-comprehensive-management/past-exams/r07-secondary` (mobile): **Performance** = 68 (閾値: ≥70)
-- `https://doboku-note.com/exam/pe-comprehensive-management/past-exams/r07-secondary` (mobile): **LCP** = 6151ms (閾値: ≤2500ms)
-- `https://doboku-note.com/exam/pe-comprehensive-management/past-exams/r07-secondary` (mobile): **FCP** = 3274ms (閾値: ≤1800ms)
-- `https://doboku-note.com/exam/pe-comprehensive-management/keywords/followership` (mobile): **LCP** = 5456ms (閾値: ≤2500ms)
-- `https://doboku-note.com/exam/pe-comprehensive-management/keywords/followership` (mobile): **FCP** = 3193ms (閾値: ≤1800ms)
-- `https://doboku-note.com/exam/pe-comprehensive-management/keywords/agile` (mobile): **LCP** = 5505ms (閾値: ≤2500ms)
-- `https://doboku-note.com/exam/pe-comprehensive-management/keywords/agile` (mobile): **FCP** = 3147ms (閾値: ≤1800ms)
-- `https://doboku-note.com/exam/pe-comprehensive-management/keywords/activity-abc` (mobile): **LCP** = 5809ms (閾値: ≤2500ms)
-- `https://doboku-note.com/exam/pe-comprehensive-management/keywords/activity-abc` (mobile): **FCP** = 3158ms (閾値: ≤1800ms)
-- `https://doboku-note.com/exam/pe-comprehensive-management/keywords/agenda-21` (mobile): **LCP** = 5554ms (閾値: ≤2500ms)
-- `https://doboku-note.com/exam/pe-comprehensive-management/keywords/agenda-21` (mobile): **FCP** = 3080ms (閾値: ≤1800ms)
-- `https://doboku-note.com/exam/pe-comprehensive-management/keywords/alarp-principle` (mobile): **LCP** = 5290ms (閾値: ≤2500ms)
-- `https://doboku-note.com/exam/pe-comprehensive-management/keywords/alarp-principle` (mobile): **FCP** = 3231ms (閾値: ≤1800ms)
+- `https://doboku-note.com/search` (mobile): **FCP** = 2016ms (閾値: ≤1800ms)
+- `https://doboku-note.com/exam` (mobile): **TBT** = 301ms (閾値: ≤300ms)
+- `https://doboku-note.com/exam/civil-construction-1/guide/strategy` (mobile): **LCP** = 5926ms (閾値: ≤2500ms)
+- `https://doboku-note.com/exam/civil-construction-1/guide/strategy` (mobile): **FCP** = 1811ms (閾値: ≤1800ms)
+- `https://doboku-note.com/exam/civil-construction-1/guide/four-management` (mobile): **LCP** = 6676ms (閾値: ≤2500ms)
+- `https://doboku-note.com/exam/civil-construction-1/guide/four-management` (mobile): **FCP** = 1917ms (閾値: ≤1800ms)
+- `https://doboku-note.com/exam/civil-construction-1/primary/r07-a` (mobile): **FCP** = 1975ms (閾値: ≤1800ms)
+- `https://doboku-note.com/exam/civil-construction-1/secondary/r07` (mobile): **FCP** = 1813ms (閾値: ≤1800ms)
+- `https://doboku-note.com/exam/civil-construction-1/secondary/concrete-basics` (mobile): **LCP** = 7801ms (閾値: ≤2500ms)
+- `https://doboku-note.com/exam/civil-construction-1/secondary/concrete-basics` (mobile): **FCP** = 2084ms (閾値: ≤1800ms)
+- `https://doboku-note.com/exam/civil-construction-1/secondary/experience-writing-guide` (mobile): **LCP** = 5352ms (閾値: ≤2500ms)
+- `https://doboku-note.com/exam/civil-construction-1/textbook/quality-overview` (mobile): **LCP** = 7201ms (閾値: ≤2500ms)
+- `https://doboku-note.com/exam/civil-construction-1/textbook/quality-overview` (mobile): **FCP** = 1895ms (閾値: ≤1800ms)
+- `https://doboku-note.com/exam/civil-construction-1/textbook/schedule-overview` (mobile): **LCP** = 5661ms (閾値: ≤2500ms)
+- `https://doboku-note.com/exam/pe-comprehensive-management/guide/exam-index` (mobile): **LCP** = 5105ms (閾値: ≤2500ms)
+- `https://doboku-note.com/exam/pe-comprehensive-management/guide/exam-passing-strategy` (mobile): **LCP** = 5252ms (閾値: ≤2500ms)
+- `https://doboku-note.com/exam/pe-comprehensive-management/past-exams/r07-primary` (mobile): **FCP** = 1979ms (閾値: ≤1800ms)
+- `https://doboku-note.com/exam/pe-comprehensive-management/keywords/followership` (mobile): **LCP** = 3151ms (閾値: ≤2500ms)
+- `https://doboku-note.com/exam/pe-comprehensive-management/keywords/agile` (mobile): **LCP** = 5198ms (閾値: ≤2500ms)
+- `https://doboku-note.com/exam/pe-comprehensive-management/keywords/activity-abc` (mobile): **LCP** = 5091ms (閾値: ≤2500ms)
+- `https://doboku-note.com/exam/pe-comprehensive-management/keywords/agenda-21` (mobile): **LCP** = 5186ms (閾値: ≤2500ms)
+- `https://doboku-note.com/exam/pe-comprehensive-management/keywords/alarp-principle` (mobile): **LCP** = 3151ms (閾値: ≤2500ms)
