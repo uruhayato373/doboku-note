@@ -74,6 +74,21 @@ const KENCHIKU_TENSHOKU_CAREER_AD = {
 } as const;
 
 /**
+ * コンストワーク（施工管理の転職サポート・もしもアフィリエイト）。300×250 + インプレッション。
+ * 成果は無料会員登録 ¥5,384（承認は求人の電話面談の完了・審査なし）。A8 には無い。
+ * 素材はもしもの原稿取得（shop_site_id=672381＝doboku-note・a_id 5716837）の 300×250（pl_id 80122）。台帳のキーは moshimo:6154:80122。
+ * バナーは「未経験募集」を前面に出すので画像は表示に使わず、2 枚並べの小型カード（文章）だけで出す（banner はピクセルの素材）。
+ */
+const CONSTWORK_CAREER_AD = {
+  href: "https://af.moshimo.com/af/c/click?a_id=5716837&p_id=6154&pc_id=17279&pl_id=80122",
+  imageSrc: "https://image.moshimo.com/af-img/5909/000000080122.jpg",
+  pixelSrc: "https://i.moshimo.com/af/i/impression?a_id=5716837&p_id=6154&pc_id=17279&pl_id=80122",
+  alt: "コンストワーク 施工管理の転職サポート",
+  width: 300,
+  height: 250,
+} as const;
+
+/**
  * ハイクラス DX・コンサル転職（A8.net）。技術士（総監）= シニア技術者・管理職層向け。300×250 + pixel。
  * 施工管理系の案件が総監層に合わないため、総監のページはこの案件だけにする（2026-06-16）。
  */
@@ -290,6 +305,20 @@ function resolveKenchikuTenshokuCopy(slug?: string, need?: CareerNeed | null): C
   };
 }
 
+/** コンストワークの本文カードの文言。広告主の公表内容（施工管理の転職サポート・土日休みや残業少なめの求人・アドバイザーの面接対策）に限る。 */
+function resolveConstworkCopy(slug?: string, need?: CareerNeed | null): CareerArticleEndCard {
+  return {
+    service: "コンストワーク",
+    category: "施工管理の転職サポート",
+    description:
+      "施工管理の求人を紹介する転職サポートです。土日休みや残業の少ない求人を中心に、アドバイザーが電話でキャリア相談と面接対策に応じます。",
+    href: CONSTWORK_CAREER_AD.href,
+    points: ["施工管理の求人に特化", "土日休み・残業少なめの求人を紹介", "登録・相談は無料"],
+    cta: resolveNeedCta(slug, "registration", "働き方の条件を無料で相談する", need),
+    brief: "土日休み・残業少なめの施工管理の求人を紹介。登録・相談は無料。",
+  };
+}
+
 /**
  * 総監の本文カード（ハイクラス DX・コンサル）の文言。文言は creative の公称ターゲティング（シニア技術者・管理職・DX/コンサル・
  * 無料相談）に限定し、未確認のブランド名・数値は記載しない（真実源: .claude/knowledge/reference/affiliate-operations.md）。
@@ -341,6 +370,7 @@ export const PROGRAM_ASSETS: Readonly<Record<string, ProgramAsset>> = {
     textPixelSrc: "https://www10.a8.net/0.gif?a8mat=4B5OO5+FHBA2+5B0Y+NTRMQ",
   },
   "dx-consulting": { banner: PE_CONSULTING_CAREER_AD, trackLabel: "DXConsulting-sidebar", card: () => resolvePeConsultingArticleEndCard() },
+  constwork: { banner: CONSTWORK_CAREER_AD, trackLabel: "Constwork-sidebar", card: (slug, need) => resolveConstworkCopy(slug, need) },
   "kenchiku-tenshoku": { banner: KENCHIKU_TENSHOKU_CAREER_AD, trackLabel: "KenchikuTenshoku-sidebar", card: (slug, need) => resolveKenchikuTenshokuCopy(slug, need) },
   "kensetsu-jobs": { banner: KENSETSU_JOBS_CAREER_AD, trackLabel: "KensetsuJobs-sidebar", card: (slug, need) => resolveKensetsuJobsCopy(slug, need) },
 };

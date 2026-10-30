@@ -8,7 +8,7 @@
  */
 import { z } from 'zod';
 import { jstDate, offsetTime, flag, uniqueBy } from './dataset-schema-parts.mjs';
-import { findOverlaps } from '../../src/lib/affiliate-placement-core.mjs';
+import { findOverlaps, findPairOverlaps } from '../../src/lib/affiliate-placement-core.mjs';
 
 // ---- 共通の小さな部品 --------------------------------------------------------------------------
 
@@ -269,15 +269,34 @@ const PlacementRule = z
     if (r.period.until && Date.parse(r.period.until) <= Date.parse(r.period.from)) flag(ctx, ['period', 'until'], 'until が from より前');
     if (r.target.pageKind !== 'doc' && r.target.careerDoc) flag(ctx, ['target', 'careerDoc'], 'careerDoc は記事（doc）だけ');
   });
+/** 2 枚並べ（PC で 1 枠に 2 社）。面のルールの案件が primary のとき、secondary を横に並べる（DN-0883・訴求設計 §12.2） */
+const PlacementPair = z
+  .object({
+    id: z.string().regex(/^PP-\d{4}$/),
+    primary: z.string().regex(/^[a-z][a-z0-9-]*$/).describe('1 枚目の案件（面のルールの program）'),
+    secondary: z.string().regex(/^[a-z][a-z0-9-]*$/).describe('2 枚目の案件（affiliate.catalog）'),
+    slots: z.array(z.enum(['article-inline', 'article-mid'])).min(1).describe('並べる面（本文中の手書き枠・本文中間だけ）'),
+    target: PlacementTarget,
+    period: z.object({ from: offsetTime('開始'), until: offsetTime('終了（この時刻を含まない）').nullable() }).strict(),
+    experiment: z.string().regex(/^EXP-\d{3}$/).nullable().describe('関わる実験の id'),
+    note: z.string().min(1).optional(),
+  })
+  .strict()
+  .superRefine((r, ctx) => {
+    if (r.primary === r.secondary) flag(ctx, ['secondary'], '1 枚目と同じ案件');
+    if (r.period.until && Date.parse(r.period.until) <= Date.parse(r.period.from)) flag(ctx, ['period', 'until'], 'until が from より前');
+  });
 export const ConfigAffiliatePlacements = z
   .object({
     schemaVersion: z.literal(1),
     $comment: note,
     rules: z.array(PlacementRule).min(1).superRefine(uniqueBy('id', 'ルール id')),
+    pairs: z.array(PlacementPair).superRefine(uniqueBy('id', '2 枚並べの id')).optional(),
   })
   .strict()
   .superRefine((c, ctx) => {
     for (const [a, b] of findOverlaps(c.rules)) flag(ctx, ['rules'], `${a} と ${b} が同じ面・重なる期間・交わる対象（1 ページ 1 面 1 案件にならない）`);
+    for (const [a, b] of findPairOverlaps(c.pairs ?? [])) flag(ctx, ['pairs'], `${a} と ${b} が同じ 1 枚目・面・重なる期間・交わる対象（2 枚目が 1 つに決まらない）`);
   })
   .meta({ title: '転職アフィリエイトの配置ルール' });
 

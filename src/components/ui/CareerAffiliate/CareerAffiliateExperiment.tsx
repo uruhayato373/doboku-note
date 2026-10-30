@@ -37,19 +37,19 @@ type PixelSource = {
   readonly textPixelSrc?: string | undefined;
 };
 
-/** その案のリンクと同じ素材のピクセル。textHref のある案件（ビルドジョブ）の B はテキスト素材のピクセル（無ければ出さない）。 */
-function pixelForVariant(assigned: string, { src, textHref, textPixelSrc }: PixelSource): string | undefined {
-  return assigned === "B" && textHref ? textPixelSrc : src;
+/** その案のリンクと同じ素材のピクセル。textHref のある案件（ビルドジョブ）は小型カードがテキスト素材なので、そのピクセル（無ければ出さない）。 */
+function pixelForVariant({ src, textHref, textPixelSrc }: PixelSource): string | undefined {
+  return textHref ? textPixelSrc : src;
 }
 
 /**
- * 実験面の計測ピクセル。案が決まってから、その案のリンクと同じ素材のピクセルを 1 発出す。
+ * 実験面の計測ピクセル。案が決まってから、リンクと同じ素材のピクセルを 1 発出す。
  * 案の確定前（SSR）は発火源の印（data-a8-pixel）だけを残し、静的 HTML の 1 ページ 1 ピクセル検査（check-cta-density）がこれを数える。
  */
 function ExperimentPixel({ assigned, ...source }: PixelSource & { readonly assigned: string | null }) {
   if (!source.src) return null;
   if (assigned === null) return <span hidden data-a8-pixel={source.src} />;
-  return <TrackingPixel src={pixelForVariant(assigned, source)} />;
+  return <TrackingPixel src={pixelForVariant(source)} />;
 }
 
 /** ページ単位の計測ピクセル（DocPage が本文の後に置く 1 発）。 */
@@ -61,104 +61,113 @@ const HEADLINES: Record<string, string> = {
   buildjob: "その資格と経験、いまの待遇に活きている？",
   "kensetsu-jobs": "現場の経験、次の働き方に活かそう。",
   "dx-consulting": "技術とマネジメント、その先のキャリアへ。",
+  "kenchiku-tenshoku": "建築の経験、次の現場選びに活かそう。",
+  constwork: "施工管理の経験、条件で選び直そう。",
 };
 
-/**
- * EXP-043: B＝小型カード（見出し 1 行・要約 1 行・ボタン）、C＝支給の 300×250 バナー＋ボタン。
- * どちらも幅 36rem 以上の枠（本文）で横一列、狭い枠（スマホ・幅 300px の欄）で縦に積む（container query）。
- * バナーは A8 の画像を縮小だけで使い、切り抜き・重ね書きをしない（PR はバナーの外に出す）。
- * 公表実績の行は <p> にしない（記事本文の .prose-blog p + p が余白 1.5em を足す）。
- * 計測は data-cta-exposure="heading"（B は見出し、C はバナー）が 50% 見えた時点。SSR では B を描き、案の確定前は数えない。
- * 計測ピクセルは案が決まってから出す。textHref のある案件（ビルドジョブ）の B はテキスト素材のリンクとピクセル。
- */
-export default function CareerAffiliateExperiment({ card, program, trackLabel, placement, banner, textHref, textPixelSrc, pixelSrc }: {
+/** 2 枚並べを出す幅（PC）。スマホ・タブレットは縦に積むと 1 画面の大半を占めるので 1 枚（訴求設計 §12.2） */
+const TWO_UP_QUERY = "(min-width: 1024px)";
+const subscribeWide = (cb: () => void) => {
+  const mq = window.matchMedia(TWO_UP_QUERY);
+  mq.addEventListener("change", cb);
+  return () => mq.removeEventListener("change", cb);
+};
+const wideSnapshot = () => window.matchMedia(TWO_UP_QUERY).matches;
+const wideServerSnapshot = () => false;
+
+/** 2 枚並べの 2 枚目（配置ルールの pairs で決まった案件） */
+export type SecondaryCard = {
+  readonly card: CareerArticleEndCard;
+  readonly program: string;
+  readonly textHref?: string | undefined;
+  readonly textPixelSrc?: string | undefined;
+  /** 2 枚目の案件の計測ピクセル（バナー素材）。2 枚目が出るときだけ、その案件の 1 発として出す */
+  readonly pixelSrc: string;
+};
+
+function SmallCard({ card, program, trackLabel, placement, textHref, assigned }: {
   readonly card: CareerArticleEndCard;
   readonly program: string;
   readonly trackLabel: string;
   readonly placement: string;
-  readonly banner: SidebarAdCreative;
+  readonly textHref?: string | undefined;
+  readonly assigned: string | null;
+}) {
+  const title = HEADLINES[program];
+  return (
+    <a
+      href={textHref ?? card.href}
+      rel={AFFILIATE_LINK_REL}
+      referrerPolicy={AFFILIATE_LINK_REFERRER_POLICY}
+      target="_blank"
+      data-cta="affiliate"
+      data-cta-label={trackLabel}
+      data-cta-placement={placement}
+      data-cta-experiment={AFFILIATE_EXPERIMENT_ID}
+      data-cta-variant={assigned ?? undefined}
+      data-cta-program={program}
+      style={{ textDecoration: "none" }}
+      className="career-experiment-card @container focus-ring group block h-full rounded-card-content border border-l-4 border-(--rule-soft) border-l-brand bg-(--paper) text-ink-strong shadow-card-content transition-shadow hover:shadow-card-hover dark:border-(--rule-soft) dark:border-l-brand"
+    >
+      <div className="flex h-full flex-col gap-3 px-4 py-3.5 @xl:flex-row @xl:items-center @xl:gap-5 @xl:px-5">
+        <div data-cta-exposure="heading" className="min-w-0 flex-1">
+          <div className="flex items-center gap-2 text-xs leading-5 text-ink-muted">
+            <AffiliatePrBadge className="shrink-0" />
+            <span className="min-w-0">{card.category}・{card.service}</span>
+          </div>
+          {title && <div className="mt-1.5 text-balance text-[17px] font-bold leading-snug text-ink-strong">{title}</div>}
+          <p className="mt-1 text-[13px] leading-6 text-ink-body">{card.brief ?? card.description}</p>
+          {card.proof && <div className="mt-0.5 text-xs leading-5 text-ink-muted">{card.proof}</div>}
+        </div>
+        <span className="flex shrink-0 items-center justify-between gap-2 rounded-card-content bg-(--color-affiliate-panel) px-4 py-2.5 text-sm font-bold leading-6 text-(--color-affiliate-on-panel) @xl:max-w-60">
+          <span>{card.cta}</span><ArrowRight className="h-4 w-4 shrink-0" aria-hidden />
+        </span>
+      </div>
+    </a>
+  );
+}
+
+/**
+ * 転職の小型カード（EXP-043 で B を採用）。EXP-048: B＝1 枚、B2＝PC（幅 1024px 以上）で同じ枠に 2 社を横に並べる。
+ * 2 枚目は組（secondary）がある面だけ。スマホ・タブレット・組の無い面では B2 も 1 枚で、2 枚目のピクセルも出さない。
+ * 幅 36rem 以上の枠は横一列、狭い枠（スマホ・2 枚並べの各カード）は縦に積む（container query）。
+ * 公表実績の行は <p> にしない（記事本文の .prose-blog p + p が余白 1.5em を足す）。
+ * 計測は data-cta-exposure="heading" が 50% 見えた時点。SSR では 1 枚を描き、案の確定前は数えない。
+ * 計測ピクセルは案が決まってから出す。textHref のある案件（ビルドジョブ）はテキスト素材のリンクとピクセル。
+ */
+export default function CareerAffiliateExperiment({ card, program, trackLabel, placement, textHref, textPixelSrc, pixelSrc, secondary }: {
+  readonly card: CareerArticleEndCard;
+  readonly program: string;
+  readonly trackLabel: string;
+  readonly placement: string;
+  /** 互換のため受け取る（バナーの案 C は 2026-10-31 に廃止） */
+  readonly banner?: SidebarAdCreative | undefined;
   readonly textHref?: string | undefined;
   readonly textPixelSrc?: string | undefined;
   /** 1 ページ 1 ピクセルの発火源のときだけ渡す（banner のピクセル） */
   readonly pixelSrc?: string | undefined;
+  /** 2 枚並べの 2 枚目（組があるときだけ） */
+  readonly secondary?: SecondaryCard | undefined;
 }) {
   const assigned = useAffiliateVariant();
-  const variant = assigned ?? AFFILIATE_VARIANTS[0];
-  const title = HEADLINES[program];
-  const href = variant === "B" && textHref ? textHref : card.href;
+  const wide = useSyncExternalStore(subscribeWide, wideSnapshot, wideServerSnapshot);
   const pixel = <ExperimentPixel assigned={assigned} src={pixelSrc} textHref={textHref} textPixelSrc={textPixelSrc} />;
-  const link = {
-    href,
-    rel: AFFILIATE_LINK_REL,
-    referrerPolicy: AFFILIATE_LINK_REFERRER_POLICY,
-    target: "_blank",
-    "data-cta": "affiliate",
-    "data-cta-label": trackLabel,
-    "data-cta-placement": placement,
-    "data-cta-experiment": AFFILIATE_EXPERIMENT_ID,
-    "data-cta-variant": assigned ?? undefined,
-    "data-cta-program": program,
-    style: { textDecoration: "none" },
-  } as const;
-  const button = (extra = "") => (
-    <span className={`flex shrink-0 items-center justify-between gap-2 rounded-card-content bg-(--color-affiliate-panel) px-4 py-2.5 text-sm font-bold leading-6 text-(--color-affiliate-on-panel) ${extra}`}>
-      <span>{card.cta}</span><ArrowRight className="h-4 w-4 shrink-0" aria-hidden />
-    </span>
-  );
-
-  if (variant === "C") {
+  const first = <SmallCard card={card} program={program} trackLabel={trackLabel} placement={placement} textHref={textHref} assigned={assigned} />;
+  if (assigned === "B2" && wide && secondary) {
     return (
       <>
-        <a
-          {...link}
-          className="career-experiment-card @container focus-ring group block rounded-card-content border border-(--rule-soft) bg-(--paper) text-ink-strong shadow-card-content transition-shadow hover:shadow-card-hover dark:border-(--rule-soft)"
-        >
-          <div className="flex flex-col gap-3 p-3 @xl:flex-row @xl:items-center @xl:gap-5 @xl:p-4">
-            <div data-cta-exposure="heading" className="mx-auto w-full max-w-[300px] shrink-0 @xl:mx-0">
-              <img
-                src={banner.imageSrc}
-                alt={banner.alt}
-                width={banner.width}
-                height={banner.height}
-                loading="lazy"
-                // 300×250 未満の素材（もしもの 250×250）を引き伸ばさない
-                style={{ maxWidth: banner.width }}
-                className="mx-auto block h-auto w-full"
-              />
-            </div>
-            <div className="flex min-w-0 flex-1 flex-col gap-2">
-              <div className="flex items-center gap-2 text-xs leading-5 text-ink-muted">
-                <AffiliatePrBadge className="shrink-0" />
-                <span className="min-w-0">{card.category}・{card.service}</span>
-              </div>
-              {button()}
-            </div>
-          </div>
-        </a>
+        <div className="grid grid-cols-2 items-stretch gap-3">
+          {first}
+          <SmallCard card={secondary.card} program={secondary.program} trackLabel={secondary.card.service} placement={placement} textHref={secondary.textHref} assigned={assigned} />
+        </div>
         {pixel}
+        <TrackingPixel src={pixelForVariant({ src: secondary.pixelSrc, textHref: secondary.textHref, textPixelSrc: secondary.textPixelSrc })} />
       </>
     );
   }
-
   return (
     <>
-      <a
-        {...link}
-        className="career-experiment-card @container focus-ring group block rounded-card-content border border-l-4 border-(--rule-soft) border-l-brand bg-(--paper) text-ink-strong shadow-card-content transition-shadow hover:shadow-card-hover dark:border-(--rule-soft) dark:border-l-brand"
-      >
-        <div className="flex flex-col gap-3 px-4 py-3.5 @xl:flex-row @xl:items-center @xl:gap-5 @xl:px-5">
-          <div data-cta-exposure="heading" className="min-w-0 flex-1">
-            <div className="flex items-center gap-2 text-xs leading-5 text-ink-muted">
-              <AffiliatePrBadge className="shrink-0" />
-              <span className="min-w-0">{card.category}・{card.service}</span>
-            </div>
-            <div className="mt-1.5 text-balance text-[17px] font-bold leading-snug text-ink-strong">{title}</div>
-            <p className="mt-1 text-[13px] leading-6 text-ink-body">{card.brief ?? card.description}</p>
-            {card.proof && <div className="mt-0.5 text-xs leading-5 text-ink-muted">{card.proof}</div>}
-          </div>
-          {button("@xl:max-w-60")}
-        </div>
-      </a>
+      {first}
       {pixel}
     </>
   );
