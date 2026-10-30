@@ -1,0 +1,338 @@
+{
+  "week_id": "2026-W43",
+  "year": 2026,
+  "week": 43,
+  "generated_at": "2026-10-30T00:31:22.637Z",
+  "ranges": {
+    "ga4": {
+      "this": {
+        "start": "2026-10-19",
+        "end": "2026-10-25"
+      },
+      "prev": {
+        "start": "2026-10-12",
+        "end": "2026-10-18"
+      }
+    },
+    "gsc": {
+      "this": {
+        "start": "2026-10-19",
+        "end": "2026-10-25"
+      },
+      "prev": {
+        "start": "2026-10-12",
+        "end": "2026-10-18"
+      }
+    }
+  },
+  "ga4": {
+    "channels": [
+      {
+        "channel": "Organic Search",
+        "thisUsers": 7434,
+        "prevUsers": 3514,
+        "userDelta": 3920,
+        "userDeltaPct": 111.55378486055776,
+        "thisSessions": 10682,
+        "prevSessions": 4908,
+        "thisEngagementRate": 0.7610934281969669
+      },
+      {
+        "channel": "Direct",
+        "thisUsers": 479,
+        "prevUsers": 223,
+        "userDelta": 256,
+        "userDeltaPct": 114.79820627802691,
+        "thisSessions": 753,
+        "prevSessions": 370,
+        "thisEngagementRate": 0.5670650730411687
+      },
+      {
+        "channel": "Referral",
+        "thisUsers": 91,
+        "prevUsers": 39,
+        "userDelta": 52,
+        "userDeltaPct": 133.33333333333331,
+        "thisSessions": 240,
+        "prevSessions": 87,
+        "thisEngagementRate": 0.725
+      },
+      {
+        "channel": "AI Assistant",
+        "thisUsers": 35,
+        "prevUsers": 22,
+        "userDelta": 13,
+        "userDeltaPct": 59.09090909090909,
+        "thisSessions": 44,
+        "prevSessions": 28,
+        "thisEngagementRate": 0.7272727272727273
+      },
+      {
+        "channel": "Unassigned",
+        "thisUsers": 20,
+        "prevUsers": 8,
+        "userDelta": 12,
+        "userDeltaPct": 150,
+        "thisSessions": 24,
+        "prevSessions": 13,
+        "thisEngagementRate": 0.2916666666666667
+      },
+      {
+        "channel": "Organic Social",
+        "thisUsers": 11,
+        "prevUsers": 9,
+        "userDelta": 2,
+        "userDeltaPct": 22.22222222222222,
+        "thisSessions": 12,
+        "prevSessions": 13,
+        "thisEngagementRate": 0.6666666666666666
+      }
+    ],
+    "total": {
+      "thisUsers": 8070,
+      "prevUsers": 3815,
+      "thisSessions": 11755,
+      "prevSessions": 5419,
+      "userDelta": 4255,
+      "userDeltaPct": 111.53342070773265
+    },
+    "organic": {
+      "channel": "Organic Search",
+      "thisUsers": 7434,
+      "prevUsers": 3514,
+      "userDelta": 3920,
+      "userDeltaPct": 111.55378486055776,
+      "thisSessions": 10682,
+      "prevSessions": 4908,
+      "thisEngagementRate": 0.7610934281969669
+    }
+  },
+  "ga4_jp": {
+    "channels": [
+      {
+        "channel": "Organic Search",
+        "thisUsers": 7415,
+        "prevUsers": 3502,
+        "userDelta": 3913,
+        "userDeltaPct": 111.73615077098799,
+        "thisSessions": 10649,
+        "prevSessions": 4891,
+        "thisEngagementRate": 0.7613860456380881
+      },
+      {
+        "channel": "Direct",
+        "thisUsers": 320,
+        "prevUsers": 162,
+        "userDelta": 158,
+        "userDeltaPct": 97.53086419753086,
+        "thisSessions": 593,
+        "prevSessions": 308,
+        "thisEngagementRate": 0.6981450252951096
+      },
+      {
+        "channel": "Referral",
+        "thisUsers": 75,
+        "prevUsers": 38,
+        "userDelta": 37,
+        "userDeltaPct": 97.36842105263158,
+        "thisSessions": 224,
+        "prevSessions": 86,
+        "thisEngagementRate": 0.7767857142857143
+      },
+      {
+        "channel": "AI Assistant",
+        "thisUsers": 35,
+        "prevUsers": 22,
+        "userDelta": 13,
+        "userDeltaPct": 59.09090909090909,
+        "thisSessions": 44,
+        "prevSessions": 28,
+        "thisEngagementRate": 0.7272727272727273
+      },
+      {
+        "channel": "Unassigned",
+        "thisUsers": 17,
+        "prevUsers": 7,
+        "userDelta": 10,
+        "userDeltaPct": 142.85714285714286,
+        "thisSessions": 21,
+        "prevSessions": 12,
+        "thisEngagementRate": 0.3333333333333333
+      },
+      {
+        "channel": "Organic Social",
+        "thisUsers": 11,
+        "prevUsers": 8,
+        "userDelta": 3,
+        "userDeltaPct": 37.5,
+        "thisSessions": 12,
+        "prevSessions": 12,
+        "thisEngagementRate": 0.6666666666666666
+      }
+    ],
+    "total": {
+      "thisUsers": 7873,
+      "prevUsers": 3739,
+      "thisSessions": 11543,
+      "prevSessions": 5337,
+      "userDelta": 4134,
+      "userDeltaPct": 110.56432201123295
+    },
+    "organic": {
+      "channel": "Organic Search",
+      "thisUsers": 7415,
+      "prevUsers": 3502,
+      "userDelta": 3913,
+      "userDeltaPct": 111.73615077098799,
+      "thisSessions": 10649,
+      "prevSessions": 4891,
+      "thisEngagementRate": 0.7613860456380881
+    }
+  },
+  "sns": {
+    "sources": [
+      {
+        "source": "note",
+        "thisUsers": 21,
+        "prevUsers": 19,
+        "userDelta": 2,
+        "userDeltaPct": 10.526315789473683,
+        "thisSessions": 43,
+        "prevSessions": 52
+      },
+      {
+        "source": "x",
+        "thisUsers": 10,
+        "prevUsers": 7,
+        "userDelta": 3,
+        "userDeltaPct": 42.857142857142854,
+        "thisSessions": 11,
+        "prevSessions": 10
+      }
+    ],
+    "total": {
+      "thisUsers": 31,
+      "prevUsers": 26,
+      "thisSessions": 54,
+      "userDelta": 5,
+      "userDeltaPct": 19.230769230769234
+    },
+    "snsSources": [
+      "x",
+      "instagram",
+      "youtube",
+      "note"
+    ]
+  },
+  "psi": {
+    "url": "https://doboku-note.com/",
+    "strategy": "mobile",
+    "scores": {
+      "performance": 74,
+      "accessibility": 100,
+      "best_practices": 100,
+      "seo": 100
+    },
+    "lab_data": {
+      "LCP_ms": 5662.616663986153,
+      "TBT_ms": 150.81933983843192,
+      "CLS": 0,
+      "FCP_ms": 1771.0753779529432,
+      "TTI_ms": 5726.488498899957
+    }
+  },
+  "gsc": {
+    "total": {
+      "thisClicks": 5651,
+      "prevClicks": 895,
+      "clickDelta": 4756,
+      "clickDeltaPct": 531.3966480446927,
+      "thisImpressions": 50516,
+      "prevImpressions": 13753,
+      "impressionDelta": 36763,
+      "thisCtr": 0.11186554754929132,
+      "prevCtr": 0.06507671053588308,
+      "thisPosition": 7.129998416343337,
+      "prevPosition": 8.4610630407911
+    },
+    "topQueries": [
+      {
+        "query": "2級土木施工管理技士 2次試験 解答例",
+        "clicks": 434,
+        "impressions": 2156,
+        "ctr": 0.2012987012987013,
+        "position": 4.607142857142858
+      },
+      {
+        "query": "2級土木施工管理技士 解答",
+        "clicks": 146,
+        "impressions": 1030,
+        "ctr": 0.141747572815534,
+        "position": 6.3388349514563105
+      },
+      {
+        "query": "令 和 8 年 2級土木施工管理技士 解答速報",
+        "clicks": 97,
+        "impressions": 515,
+        "ctr": 0.1883495145631068,
+        "position": 4.376699029126214
+      },
+      {
+        "query": "二級土木施工管理技士 解答速報 2026",
+        "clicks": 95,
+        "impressions": 550,
+        "ctr": 0.17272727272727273,
+        "position": 5.810909090909091
+      },
+      {
+        "query": "二級土木施工管理技士 解答速報",
+        "clicks": 80,
+        "impressions": 600,
+        "ctr": 0.13333333333333333,
+        "position": 7.758333333333334
+      },
+      {
+        "query": "2級土木施工管理技士 解答速報",
+        "clicks": 55,
+        "impressions": 529,
+        "ctr": 0.10396975425330812,
+        "position": 7.389413988657845
+      },
+      {
+        "query": "土木施工管理技士 2級 解答速報",
+        "clicks": 53,
+        "impressions": 322,
+        "ctr": 0.16459627329192547,
+        "position": 7.540372670807454
+      },
+      {
+        "query": "二級土木施工管理技士 解答 発表",
+        "clicks": 52,
+        "impressions": 618,
+        "ctr": 0.08414239482200647,
+        "position": 9.071197411003237
+      },
+      {
+        "query": "2級土木施工管理技士 2次試験 解答速報",
+        "clicks": 51,
+        "impressions": 178,
+        "ctr": 0.28651685393258425,
+        "position": 5.432584269662922
+      },
+      {
+        "query": "二級土木施工管理技士 二次試験 解答",
+        "clicks": 35,
+        "impressions": 127,
+        "ctr": 0.2755905511811024,
+        "position": 5.905511811023622
+      }
+    ]
+  },
+  "notes": [
+    "窓は確定した月〜日（今週 2026-10-19 〜 2026-10-25）。GA4 と GSC は同じ窓（事業レビュー・成長パックと同じ）",
+    "NSM = Organic Search の activeUsers (definition.md 準拠)",
+    "ga4_jp は country=Japan フィルタ版（bot 流入の影響を受けにくい母数）。incident 2026-04-26 を参照",
+    "sns は sessionSource を SNS source 集合(utm-templates.json)+Japan に絞った source 別 WoW",
+    "PSI は site root 1 URL をモバイル計測（trafficが増えたら field_data も出現）"
+  ]
+}
