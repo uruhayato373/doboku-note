@@ -219,6 +219,23 @@ async function switchChosenSite(page, asp, targetName, expectedSiteId, attempts 
       if (await opt.count().catch(() => 0)) {
         await opt.click().catch(() => {});
         opened = true;
+        // Chosen の項目を押してもラベルが変わるだけで送信されない（native select に onchange が無い。2026-08-03・
+        // 2026-10-30 実測）。元の select を目的のサイトに合わせ、フォームを送信して初めて本文の SID が変わる。
+        if (asp.siteSelectName) {
+          await page
+            .evaluate(
+              ({ name, label }) => {
+                const s = document.querySelector(`select[name="${name}"]`);
+                const o = s && [...s.options].find((x) => x.textContent.includes(label));
+                if (!o || !s.form) return false;
+                s.value = o.value;
+                s.form.submit();
+                return true;
+              },
+              { name: asp.siteSelectName, label: targetName },
+            )
+            .catch(() => false);
+        }
         break;
       }
       // 別ウィジェットを開いてしまったので閉じて次の候補へ
