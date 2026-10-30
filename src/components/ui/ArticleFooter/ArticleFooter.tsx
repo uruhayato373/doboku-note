@@ -83,7 +83,7 @@ export default function ArticleFooter({
   hasCategoryNavCard,
   authorDates,
 }: ArticleFooterProps) {
-  // EXP-043: 記事末も B（小型カード）/ C（バナー）を比較する。noteの位置・順序・幅は固定する。
+  // 記事末の転職広告は小型カード（EXP-043 で B を採用）。2 枚並べ（EXP-048）は本文の枠だけで、記事末は 1 枚。noteの位置・順序・幅は固定する。
   // どのページに出すか（カテゴリ・キャリア記事を除く）は config/affiliate-placements.json の article-end のルールで、DocPage が解決して渡す。
   // pixelSrc は DocPage が渡すときだけ付ける（本文に転職広告が無いページで唯一の発火源＝1 ページ 1 ピクセル）。
   // キャリア記事の記事末は内部導線（CareerNextStepNav）に置き換える（2026-08-21・記事末 975 表示 0 クリック）。

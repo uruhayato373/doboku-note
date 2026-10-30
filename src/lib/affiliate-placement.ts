@@ -8,7 +8,7 @@
  */
 import placementsConfig from '../../config/affiliate-placements.json';
 import ctaPlacements from '../../config/cta-placements.json';
-import { choosePixelCarrier, resolveSlots } from './affiliate-placement-core.mjs';
+import { choosePixelCarrier, resolvePair, resolveSlots } from './affiliate-placement-core.mjs';
 import { PROGRAM_ASSETS, type CareerArticleEndCard, type SidebarAdCreative } from '@/config/affiliate-creatives';
 import type { CareerNeed } from '@/config/career-pathways';
 
@@ -17,6 +17,15 @@ export type PlacementPage = {
   readonly pageKind: PlacementPageKind;
   readonly category?: string | null;
   readonly isCareerDoc?: boolean;
+};
+/** 2 枚並べの 2 枚目（PC で 1 枚目の横に出す・config/affiliate-placements.json の pairs） */
+export type ResolvedSecondary = {
+  readonly pairId: string;
+  readonly program: string;
+  readonly banner: SidebarAdCreative;
+  readonly card: (slug?: string, need?: CareerNeed | null) => CareerArticleEndCard;
+  readonly textHref?: string | undefined;
+  readonly textPixelSrc?: string | undefined;
 };
 export type ResolvedPlacement = {
   readonly ruleId: string;
@@ -30,11 +39,14 @@ export type ResolvedPlacement = {
   readonly textHref?: string | undefined;
   /** textHref と同じ素材の計測ピクセル（PROGRAM_ASSETS の textPixelSrc） */
   readonly textPixelSrc?: string | undefined;
+  /** 2 枚並べの 2 枚目（本文中・本文中間で、組があるときだけ） */
+  readonly secondary?: ResolvedSecondary | undefined;
 };
 export type ResolvedPlacements = Readonly<Partial<Record<string, ResolvedPlacement>>>;
 
 type Rule = (typeof placementsConfig)['rules'][number];
 const RULES = placementsConfig.rules as readonly Rule[];
+const PAIRS = ((placementsConfig as { pairs?: unknown[] }).pairs ?? []) as never[];
 const VOCAB = ctaPlacements.affiliate as Record<string, { pixelPriority: number | null }>;
 
 /** ページの面ごとに出す案件を返す。now はビルド時刻（テストは固定時刻を渡す） */
@@ -44,7 +56,13 @@ export function resolvePlacements(page: PlacementPage, now: number = Date.now())
   for (const [slot, rule] of Object.entries(slots)) {
     const asset = PROGRAM_ASSETS[rule.program];
     if (!asset) throw new Error(`配置ルール ${rule.id} の案件 ${rule.program} の素材が PROGRAM_ASSETS に無い`);
+    const pair = resolvePair(PAIRS, rule as never, page, now) as { id: string; secondary: string } | null;
+    const second = pair ? PROGRAM_ASSETS[pair.secondary] : undefined;
+    if (pair && !second) throw new Error(`2 枚並べ ${pair.id} の案件 ${pair.secondary} の素材が PROGRAM_ASSETS に無い`);
     out[slot] = {
+      ...(pair && second
+        ? { secondary: { pairId: pair.id, program: pair.secondary, banner: second.banner, card: second.card, textHref: second.textHref, textPixelSrc: second.textPixelSrc } }
+        : {}),
       ruleId: rule.id,
       slot,
       program: rule.program,

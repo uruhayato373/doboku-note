@@ -2,7 +2,7 @@ import { Check } from "lucide-react";
 import { programAssetForHref } from "@/config/affiliate-creatives";
 import CareerAffiliateExperiment from "./CareerAffiliateExperiment";
 import type { CareerNeed } from "@/config/career-pathways";
-import type { ResolvedPlacement } from "@/lib/affiliate-placement";
+import type { ResolvedPlacement, ResolvedSecondary } from "@/lib/affiliate-placement";
 import {
   AFFILIATE_LINK_REFERRER_POLICY,
   AFFILIATE_LINK_REL,
@@ -27,6 +27,8 @@ interface CareerAffiliateProps {
   readonly program?: "career" | "gks";
   /** 配置ルールで解決した、この面に出す案件（DocPage・診断ツールが渡す）。program 指定時だけ使う */
   readonly inlineCard?: ResolvedPlacement | null | undefined;
+  /** 2 枚並べの 2 枚目（本文中間は DocPage が渡す。手書きの本文カードは inlineCard.secondary を使う） */
+  readonly secondary?: ResolvedSecondary | null | undefined;
   /** アフィリエイトリンク URL（`program` 指定時は省略可） */
   readonly href?: string;
   /** バナー画像 URL（任意。無い場合はテキスト主体カードで描画） */
@@ -96,6 +98,7 @@ export default function CareerAffiliate({
   need,
   emphasis = false,
   inlineCard,
+  secondary,
 }: CareerAffiliateProps) {
   // 本文中の転職枠（program 指定）: 案件と文言は配置ルールの解決結果で決める。ルールが無ければ出さない。
   // href のみ＝計測ピクセルなし（1 ページ 1 ピクセルの発火源は DocPage が決める）。
@@ -108,6 +111,7 @@ export default function CareerAffiliate({
   const effCta = ruled?.cta ?? cta;
   const resolvedHref = ruled?.href ?? href;
   const experiment = programAssetForHref(resolvedHref);
+  const second = secondary ?? inlineCard?.secondary ?? null;
   if (experiment && resolvedHref) {
     const effBrief = ruled?.brief ?? brief;
     const effProof = ruled?.proof ?? proof;
@@ -118,7 +122,7 @@ export default function CareerAffiliate({
     };
     return (
       <div className="not-prose my-6">
-        <CareerAffiliateExperiment card={card} program={experiment.program} trackLabel={effService} placement={placement} banner={experiment.asset.banner} textHref={experiment.asset.textHref} textPixelSrc={experiment.asset.textPixelSrc} pixelSrc={trackingPixelUrl} />
+        <CareerAffiliateExperiment card={card} program={experiment.program} trackLabel={effService} placement={placement} textHref={experiment.asset.textHref} textPixelSrc={experiment.asset.textPixelSrc} pixelSrc={trackingPixelUrl} secondary={second ? { card: second.card(slug, need), program: second.program, textHref: second.textHref, textPixelSrc: second.textPixelSrc, pixelSrc: second.banner.pixelSrc } : undefined} />
       </div>
     );
   }

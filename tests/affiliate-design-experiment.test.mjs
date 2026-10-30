@@ -5,9 +5,9 @@ import { buildAffiliateExperimentRequest, parseAffiliateExperimentRows, summariz
 import { Ga4Reports } from '../scripts/lib/dataset-schemas-search.mjs';
 
 test('訪問者の案を保存し、再訪・別の掲載面でも変えない。2案を同率で割り当てる', () => {
-  assert.deepEqual(AFFILIATE_VARIANTS, ['B', 'C']);
+  assert.deepEqual(AFFILIATE_VARIANTS, ['B', 'B2']);
   assert.equal(AFFILIATE_VARIANT_KEY, `doboku-note:${AFFILIATE_EXPERIMENT_ID}:variant`, '前の実験の割り当てを引き継がない');
-  for (const [random, expected] of [[0, 'B'], [0.49, 'B'], [0.5, 'C'], [0.99, 'C']]) {
+  for (const [random, expected] of [[0, 'B'], [0.49, 'B'], [0.5, 'B2'], [0.99, 'B2']]) {
     const memory = new Map();
     const storage = { getItem:k => memory.get(k), setItem:(k,v) => memory.set(k,v) };
     assert.equal(assignAffiliateVariant(storage, () => random), expected);
@@ -15,18 +15,19 @@ test('訪問者の案を保存し、再訪・別の掲載面でも変えない�
     assert.equal(memory.get(AFFILIATE_VARIANT_KEY), expected);
   }
   const blocked = { getItem:() => { throw Error('denied'); }, setItem:() => { throw Error('denied'); } };
-  assert.equal(assignAffiliateVariant(blocked, () => 0.5), 'C');
+  assert.equal(assignAffiliateVariant(blocked, () => 0.5), 'B2');
   assert.equal(parseAffiliateExperimentLabel('EXP-019:A:buildjob:article-mid'), null, '打ち切った実験のラベルを読まない');
   assert.equal(parseAffiliateExperimentLabel('EXP-038:B:buildjob:article-mid'), null, '打ち切った実験のラベルを読まない');
+  assert.equal(parseAffiliateExperimentLabel('EXP-043:C:buildjob:article-mid'), null, '打ち切った実験のラベルを読まない');
   assert.equal(parseAffiliateExperimentLabel(`${AFFILIATE_EXPERIMENT_ID}:A:buildjob:article-mid`), null, '今の実験に無い案を読まない');
 });
 
 test('登録済みのevent_labelと標準次元で案・案件・面・端末・日付を取得する', () => {
   const req = buildAffiliateExperimentRequest({ propertyId:'properties/419382901', startDate:'2026-10-08', endDate:'2026-10-14' });
   assert.deepEqual(req.dimensions.map(d => d.name), ['pagePath', 'customEvent:event_label', 'deviceCategory', 'date', 'eventName']);
-  const raw = event => ({ dimensionValues:['/exam/civil-construction-1/guide/market-value', `${AFFILIATE_EXPERIMENT_ID}:C:buildjob:article-inline`, 'mobile', '20261009', event].map(value => ({value})), metricValues:[{value:'3'}] });
+  const raw = event => ({ dimensionValues:['/exam/civil-construction-1/guide/market-value', `${AFFILIATE_EXPERIMENT_ID}:B2:buildjob:article-inline`, 'mobile', '20261009', event].map(value => ({value})), metricValues:[{value:'3'}] });
   const rows = parseAffiliateExperimentRows([raw('affiliate_experiment_impression'),raw('affiliate_experiment_click')]);
-  assert.equal(rows[0].variant, 'C');
+  assert.equal(rows[0].variant, 'B2');
   assert.equal(rows[0].date, '2026-10-09');
   const summary = summarizeAffiliateExperiment(rows);
   assert.equal(summary[0].ctr, null, '表示0をCTR0にしない');
@@ -38,7 +39,7 @@ test('登録済みのevent_labelと標準次元で案・案件・面・端末・
 
 test('CIの実測だけを台帳へ追記する。再取得・開始前・未取得・打切りは成功に数えない', () => {
   const ledger = {experiments:[{id:AFFILIATE_EXPERIMENT_ID,status:'running',measurementPlan:{kind:'affiliate-design',startDate:'2026-10-08'},measurements:[]}]};
-  const base = {experiment:AFFILIATE_EXPERIMENT_ID,variant:'C',program:'buildjob',placement:'article-mid',page:'/exam/example',device:'desktop',eventName:'affiliate_experiment_impression',eventCount:20};
+  const base = {experiment:AFFILIATE_EXPERIMENT_ID,variant:'B2',program:'buildjob',placement:'article-mid',page:'/exam/example',device:'desktop',eventName:'affiliate_experiment_impression',eventCount:20};
   const report = {ref:'data/ga4/reports/2026-10-15.json#affiliate-experiment',stamp:'2026-10-15T01-00-00',data:{meta:{startDate:'2026-10-07',endDate:'2026-10-14',truncated:false,limited:false},rows:[{...base,date:'2026-10-07'},{...base,date:'2026-10-09'}]}};
   assert.equal(recordAffiliateExperimentMeasurements(ledger, report, '2026-10-15T01:00:00Z').appended,1);
   assert.equal(ledger.experiments[0].measurements[0].variants[1].impressions,20);

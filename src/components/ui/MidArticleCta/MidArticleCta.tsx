@@ -1,6 +1,7 @@
 import type { DocMeta } from '@/lib/docs';
 import type { MagazineId } from '@/lib/note-magazines';
 import type { CareerArticleEndCard } from '@/config/affiliate-creatives';
+import type { ResolvedSecondary } from '@/lib/affiliate-placement';
 import MagazineHeroCta from '@/components/ui/MagazineHeroCta/MagazineHeroCta';
 import RelatedArticleCard from '@/components/ui/RelatedArticles/RelatedArticleCard';
 import CareerAffiliate from '@/components/ui/CareerAffiliate/CareerAffiliate';
@@ -29,6 +30,8 @@ type MidArticleCtaProps =
       readonly mode: 'career';
       /** 配置ルール（article-mid）で解決した案件の本文カード（src/lib/affiliate-placement.ts の card）。 */
       readonly card: CareerArticleEndCard;
+      /** 2 枚並べの 2 枚目（配置ルールの pairs。無ければ 1 枚） */
+      readonly secondary?: ResolvedSecondary | null | undefined;
     }
   | {
       readonly mode: 'related';
@@ -42,7 +45,7 @@ export default function MidArticleCta(props: MidArticleCtaProps) {
   if (props.mode === 'career') {
     // CareerAffiliate 自身が not-prose / my-6 / PR バッジ / rel="nofollow sponsored" を持つ。
     // emphasis: 本文フローでは白背景だと本文カードに溶け込むため地色＋左ラインで視認性を上げる。
-    return <CareerAffiliate {...props.card} placement="article-mid" emphasis />;
+    return <CareerAffiliate {...props.card} placement="article-mid" emphasis secondary={props.secondary} />;
   }
   return (
     <div className="not-prose my-8 max-w-2xl">
