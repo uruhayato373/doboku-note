@@ -266,15 +266,6 @@
 **完了条件**: 無料記事がライブ、有料教材へのリンクが公開URLと一致、`audit-note-funnel` ドリフト0。
 
 
-### [DN-0339] Instagram の公開済み未記録47件と照合異常45件を解消する
-タグ: [SNS・マーケ] [領域:SNS] [時期:2026-11] [種類:不具合] [起票:2026-09-26]
-
-**起点**: 週次レビューの申し送り（data/analysis/growth/digest-2026-W38.json）
-
-**やること**: CI 週次の照合 `.claude/state/ig-reconcile/snapshot.json`（2026-10-17）で published_UNrecorded 47・anomaly 45・reel_built_unposted 42 が出ている。SNS の新規投稿・予約は 2026-10-17 から保留中なので、予約すべきものの確認は保留が解けてから。ローカルで `/ig-reconcile` を実行し、公開済みを posted.json へ backfill、異常の内訳（重複・種別・予約ずれ）を分類して直す。未公開のうち予約すべきものは予約前に一覧を示して確認を取る（外部への予約はユーザー承認後）。
-
-**完了条件**: 次の CI 照合 snapshot で published_UNrecorded と anomaly が 0、または残りの各件に理由（削除済み・対象外など）が台帳に記録されている。
-
 ## 🟡 中 — 重要度が中くらい
 
 ### [DN-0921] affiliate:status の A8・もしもの一覧が 0 件になり、afb のサイト切替が通らない

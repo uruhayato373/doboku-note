@@ -81,6 +81,16 @@ test("localPacks: exam フィルタと igDir 指定でパックを収集する",
   });
 });
 
+test("localPacks: 台帳で削除済みのパックは旧 posted.json が残っても照合対象にしない", () => {
+  withTmpIgDir((igDir) => {
+    makePack(igDir, "cem/old", { posted: { carousel: { url: "https://www.instagram.com/p/DELETED/" } } });
+    makePack(igDir, "cem/new", { caption: "新しい投稿" });
+    const packs = localPacks({ igDir, excludedLegacyKeys: new Set(["cem/old"]) });
+    assert.deepEqual(packs.map((p) => p.rel), ["cem/new"]);
+    assert.equal(driftCount(reconcile(packs, liveData([], { DELETED: { exists: false } }))), 0);
+  });
+});
+
 // ─── reconcile: カテゴリ分類 ────────────────────────────────────
 function liveData(entries, recordedInfo = {}) {
   return { live: entries, recordedInfo };
