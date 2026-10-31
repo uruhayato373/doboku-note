@@ -52,6 +52,7 @@ for (const pub of registry.publications.filter((p) => p.channel === 'youtube' &&
   if (manifest.primaryCta?.kind === 'note-magazine') {
     const product = noteProducts.get(manifest.primaryCta.targetId);
     if (!product?.catalog?.published || product.catalog.retiredAt) { issue(pub, '主CTAの商品が公開中でない'); continue; }
+    if (!product.catalog.price) (newPolicy ? issue : warn)(pub, '主CTAは無料note記事経由で、有料商品への直接導線ではない');
     const target = product.catalog.noteUrl;
     if (noteLinks.length !== 1 || noteLinks[0].split('?')[0] !== target) issue(pub, `note商品リンクが台帳と違う: ${target}`);
     if (newPolicy && (links[0] !== noteLinks[0] || description.includes('▼ 教材・完成答案で深掘りする'))) issue(pub, '新ルールの主CTA配置・商品名が違う');
