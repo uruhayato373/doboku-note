@@ -661,12 +661,29 @@
       "format": "carousel",
       "legacyKey": "profile-pinned/concrete-route",
       "copy": "content/sns/instagram/profile-pinned/concrete-route/carousel/caption.txt",
-      "status": "qa_passed",
+      "status": "scheduled",
       "media": {
         "cover": "concrete-engineer/ig-concrete-route/instagram.carousel/cover",
         "route": "concrete-engineer/ig-concrete-route/instagram.carousel/route"
       },
-      "publishAt": "2026-11-02T18:00:00+09:00"
+      "publishAt": "2026-11-02T18:00:00+09:00",
+      "approval": {
+        "by": "user",
+        "at": "2026-10-31T07:57:31.038Z",
+        "contentSha256": "fddbb652326f293f3f1f2dc9b61f2630ca1b24d2fee82c2829c712418f826aa0"
+      },
+      "times": {
+        "rendered": "2026-10-31T07:57:54.932Z"
+      },
+      "platform": {
+        "privacy": "scheduled",
+        "id": "1829881664701807",
+        "kind": "business-suite",
+        "evidence": {
+          "kind": "planner-receipt",
+          "ref": "business-suite-planner:dobokunotecom:2026-11-02:1829881664701807:verified-2026-10-31"
+        }
+      }
     }
   ]
 }

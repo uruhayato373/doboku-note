@@ -91,12 +91,29 @@
       "format": "carousel",
       "legacyKey": "profile-pinned/start-guide",
       "copy": "content/sns/instagram/profile-pinned/start-guide/carousel/caption.txt",
-      "status": "qa_passed",
+      "status": "scheduled",
       "media": {
         "cover": "account/ig-start-guide/instagram.carousel/cover",
         "route": "account/ig-start-guide/instagram.carousel/route"
       },
-      "publishAt": "2026-11-02T09:00:00+09:00"
+      "publishAt": "2026-11-02T09:00:00+09:00",
+      "approval": {
+        "by": "user",
+        "at": "2026-10-31T07:57:18.862Z",
+        "contentSha256": "2629183c3002b693d05d7e20e985125efd051a304db3a663f6b1e236c4534637"
+      },
+      "times": {
+        "rendered": "2026-10-31T07:57:54.279Z"
+      },
+      "platform": {
+        "privacy": "scheduled",
+        "id": "2030874994288393",
+        "kind": "business-suite",
+        "evidence": {
+          "kind": "planner-receipt",
+          "ref": "business-suite-planner:dobokunotecom:2026-11-02:2030874994288393:verified-2026-10-31"
+        }
+      }
     }
   ]
 }

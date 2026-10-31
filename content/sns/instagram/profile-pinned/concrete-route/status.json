@@ -1,0 +1,20 @@
+{
+  "carousel": {
+    "channel": "business-suite",
+    "status": "scheduled",
+    "scheduled_at": "2026-11-02T18:00:00.000+09:00",
+    "posted_at": null,
+    "image_count": 2,
+    "uploaded_image_order": [
+      {
+        "file": "carousel/img/00-cover.png",
+        "remotePath": "/v/t39.30808-6/870802505_122123164005302388_6514867985629772435_n.jpg"
+      },
+      {
+        "file": "carousel/img/01-route.png",
+        "remotePath": "/v/t39.30808-6/870528149_122123164047302388_6364962527823816415_n.jpg"
+      }
+    ],
+    "updated_at": "2026-10-31T17:14:57.811+09:00"
+  }
+}
