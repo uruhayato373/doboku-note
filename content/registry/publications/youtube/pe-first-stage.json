@@ -167,7 +167,7 @@
       "work": "pe1-kiso-gradient-length",
       "account": "youtube:main",
       "format": "longform",
-      "status": "rendered",
+      "status": "scheduled",
       "media": {
         "cover": "pe-first-stage/pe1-kiso-gradient-length/youtube.longform/cover",
         "scene-001": "pe-first-stage/pe1-kiso-gradient-length/youtube.longform/scene-001",
@@ -205,7 +205,42 @@
         "contentSha256": "202a7939326c2169f025a00fe1cdc94df7b607c53bcfd37ea453a363eec6ddc5"
       },
       "times": {
-        "rendered": "2026-10-30T23:46:54.113Z"
+        "rendered": "2026-10-30T23:46:54.113Z",
+        "uploaded": "2026-10-31T00:02:34.945Z",
+        "scheduled": "2026-10-31T00:02:43.656Z"
+      },
+      "delivery": {
+        "inputSha256": "8996c300faf58481158a3d12629f541f0128fb97e6b997499b8b780573fc6df7",
+        "marker": "dn-single-00e9449d98464e986eb9d5631804f3416912dce4",
+        "uploadRequestedAt": "2026-10-31T00:01:26.920Z",
+        "videoId": "yOODuwkPXGk",
+        "processedAt": "2026-10-31T00:02:34.098Z",
+        "thumbnailRequestedAt": "2026-10-31T00:02:34.975Z",
+        "thumbnailUrls": [
+          "https://i9.ytimg.com/vi/yOODuwkPXGk/default.jpg?sqp=CIDflNcG&rs=AOn4CLCbIF7pXQxblHMiJjM1TrISlXgEUg",
+          "https://i9.ytimg.com/vi/yOODuwkPXGk/mqdefault.jpg?sqp=CIDflNcG&rs=AOn4CLBqUmjl0tGClJ2dwcktj9SPnhQDHQ",
+          "https://i9.ytimg.com/vi/yOODuwkPXGk/hqdefault.jpg?sqp=CIDflNcG&rs=AOn4CLAgy0RMgtwyqP2_elsUWXitD3S74g",
+          "https://i9.ytimg.com/vi/yOODuwkPXGk/sddefault.jpg?sqp=CIDflNcG&rs=AOn4CLAv1fj7F8TTPi6BAU6N3UkMVv63kw",
+          "https://i9.ytimg.com/vi/yOODuwkPXGk/maxresdefault.jpg?sqp=CIDflNcG&rs=AOn4CLCkrH0odgS-VEZizsHmyqfBB4jIJg",
+          "https://i9.ytimg.com/vi/yOODuwkPXGk/fhddefault.jpg?sqp=CIDflNcG&rs=AOn4CLBpj7VoZKVdbai4roflLtnLpp_IYQ"
+        ],
+        "thumbnailAcceptedAt": "2026-10-31T00:02:38.684Z",
+        "scheduleRequestedAt": "2026-10-31T00:02:39.866Z",
+        "scheduleAt": "2026-11-04T23:30:00Z",
+        "scheduledVerifiedAt": "2026-10-31T00:02:43.656Z"
+      },
+      "platform": {
+        "id": "yOODuwkPXGk",
+        "url": "https://www.youtube.com/watch?v=yOODuwkPXGk",
+        "privacy": "private",
+        "evidence": {
+          "kind": "publisher-live-check",
+          "ref": "content/sns/video-packs/pe-first-stage/pe1-kiso-gradient-length/youtube.json#longform"
+        }
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-10-31T00:02:38.684Z"
       }
     },
     {
