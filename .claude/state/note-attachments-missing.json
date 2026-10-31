@@ -1,9 +1,9 @@
 {
-  "measuredAt": "2026-10-24",
-  "inspected": 628,
-  "target": 628,
+  "measuredAt": "2026-10-31",
+  "inspected": 630,
+  "target": 630,
   "fetchFail": 0,
-  "satisfied": 628,
+  "satisfied": 630,
   "missingPromised": [],
   "missingSilent": [],
   "missing": [],
@@ -18,7 +18,7 @@
   "recoveredInConfirm": [],
   "measurement": {
     "method": "public-api-with-author-fallback",
-    "apiSatisfied": 628,
+    "apiSatisfied": 630,
     "browserTargets": 0,
     "browserInspected": 0,
     "apiMeasurements": [
@@ -2924,6 +2924,16 @@
       },
       {
         "noteId": "n157e41a7f9cf",
+        "live": 1,
+        "want": 1
+      },
+      {
+        "noteId": "n30d34b67a8c5",
+        "live": 1,
+        "want": 1
+      },
+      {
+        "noteId": "nf90ba1382475",
         "live": 1,
         "want": 1
       },
