@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-/** Sync approved metadata or one exact legacy credit repair, with before/after hashes. */
+/** Sync approved metadata repairs with exact before/after hashes and live state checks. */
 import { createHash } from 'node:crypto';
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
@@ -29,10 +29,16 @@ const now = Date.now();
 const targets = plan.items.map((item) => {
   const pub = publications.get(item.publicationId);
   const creditRepair = item.repairKind === 'voicevox-credit';
+  const legacyFunnel = item.repairKind === 'legacy-funnel';
+  if (item.repairKind && !creditRepair && !legacyFunnel) throw new Error(`未対応の修復種別: ${item.publicationId}`);
+  const stateMatches = legacyFunnel
+    ? (['published', 'uploaded_private'].includes(item.expectedStatus) && pub?.status === item.expectedStatus &&
+      (item.expectedStatus === 'uploaded_private' ? !pub.publishAt : Date.parse(pub.publishAt) < now - 5 * 60_000))
+    : creditRepair
+      ? pub?.status === 'published' && Date.parse(pub.publishAt) < now - 5 * 60_000
+      : pub?.status === 'scheduled' && Date.parse(pub.publishAt) > now + 5 * 60_000;
   if (!pub || pub.channel !== 'youtube' || pub.format !== 'longform' ||
-      pub.platform?.id !== item.videoId || pub.publishAt !== item.publishAt ||
-      (creditRepair ? (pub.status !== 'published' || Date.parse(pub.publishAt) >= now - 5 * 60_000) :
-        (pub.status !== 'scheduled' || Date.parse(pub.publishAt) <= now + 5 * 60_000))) {
+      pub.platform?.id !== item.videoId || (pub.publishAt ?? null) !== (item.publishAt ?? null) || !stateMatches) {
     throw new Error(`状態・動画ID・公開時刻が計画と違う: ${item.publicationId}`);
   }
   const copy = resolveCopy(REPO_ROOT, pub.copy);
@@ -41,12 +47,18 @@ const targets = plan.items.map((item) => {
   const approval = approvalState(REPO_ROOT, pub, media);
   return { item, pub, copy, approval };
 });
+function finalApprovalReady(item, approval) {
+  return approval.final.by === 'user' && approval.final.valid &&
+    (item.repairKind !== 'legacy-funnel' || (!approval.final.grandfathered && approval.final.contentSha256 === approval.final.current));
+}
 console.log(`[youtube-funnel] 既存動画 ${targets.length} 本 / ${args.includes('--commit') ? 'API更新' : 'dry-run'}`);
-for (const { item, approval } of targets) console.log(`  ${item.publicationId} 承認=${approval.final.valid ? '有効' : '要更新'}`);
+for (const { item, approval } of targets) console.log(`  ${item.publicationId} 承認=${finalApprovalReady(item, approval) ? '有効' : '要更新'}`);
 if (!args.includes('--commit')) process.exit(0);
 for (const { item, approval } of targets) {
   const creditRepair = item.repairKind === 'voicevox-credit' && approval.final.grandfathered;
-  if (!approval.final.valid || (!creditRepair && !approval.visual.valid)) {
+  const pub = publications.get(item.publicationId);
+  const visualRequired = Boolean(pub.media && Object.keys(pub.media).length);
+  if (!finalApprovalReady(item, approval) || (!creditRepair && visualRequired && !approval.visual.valid)) {
     throw new Error(`画面・最終承認が無効: ${item.publicationId}`);
   }
 }
@@ -70,13 +82,21 @@ function checkStatus(video, item) {
     if (video.status?.privacyStatus !== 'public') throw new Error(`公開状態が違う: ${item.publicationId}`);
     return;
   }
+  if (item.repairKind === 'legacy-funnel') {
+    const expectedPrivacy = item.expectedStatus === 'published' ? 'public' : 'private';
+    if (video.status?.privacyStatus !== expectedPrivacy ||
+        (item.expectedStatus === 'uploaded_private' && video.status.publishAt)) {
+      throw new Error(`公開状態が計画と違う: ${item.publicationId}`);
+    }
+    return;
+  }
   if (video.status?.privacyStatus !== 'private' || Date.parse(video.status.publishAt) !== Date.parse(item.publishAt)) {
     throw new Error(`予約状態が計画と違う: ${item.publicationId}`);
   }
 }
 const sleep = (ms) => new Promise((done) => setTimeout(done, ms));
 for (const { item, copy } of targets) {
-  if (item.repairKind !== 'voicevox-credit' && Date.parse(item.publishAt) <= Date.now() + 5 * 60_000) throw new Error(`公開直前になったため停止: ${item.publicationId}`);
+  if (!item.repairKind && Date.parse(item.publishAt) <= Date.now() + 5 * 60_000) throw new Error(`公開直前になったため停止: ${item.publicationId}`);
   const before = await readVideo(item.videoId);
   checkStatus(before, item);
   if (before.snippet.title !== copy.title) throw new Error(`公開題名が台帳と違う: ${item.publicationId}`);

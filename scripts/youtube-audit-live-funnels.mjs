@@ -6,7 +6,6 @@ import { loadRegistry, resolveCopy } from './lib/content-registry.mjs';
 import { REPO_ROOT } from './lib/repository-paths.mjs';
 
 const CHANNEL_ID = 'UCHRnXPqoc0Hls8nXiK_ZYqA';
-const POLICY_START = Date.parse('2026-10-31T12:00:00+09:00');
 const sha = (s) => createHash('sha256').update(s).digest('hex');
 const ownLinks = (s) => s.split('\n').filter((line) => /^https:\/\/(?:note\.com\/dobokunote\/|doboku-note\.com\/)/.test(line.trim())).map((line) => line.trim());
 for (const key of ['YOUTUBE_CLIENT_ID', 'YOUTUBE_CLIENT_SECRET', 'YOUTUBE_REFRESH_TOKEN']) {
@@ -38,7 +37,6 @@ for (const pub of active) {
   if (!description) { errors.push(`${pub.id}: 台帳側の概要欄がない`); continue; }
   const remote = video.snippet.description ?? '';
   const future = pub.status !== 'uploaded_private' && Date.parse(pub.publishAt) > Date.now();
-  const newPolicy = pub.status !== 'uploaded_private' && Date.parse(pub.publishAt) >= POLICY_START;
   if (future) {
     if (video.status?.privacyStatus !== 'private' || Date.parse(video.status.publishAt) !== Date.parse(pub.publishAt)) {
       errors.push(`${pub.id}: 予約状態・公開時刻が台帳と違う`);
@@ -49,12 +47,11 @@ for (const pub of active) {
     errors.push(`${pub.id}: 期日後・公開済みの台帳だが YouTube では ${video.status?.privacyStatus ?? 'unknown'}`);
   }
   if (sha(remote) === sha(description)) exact += 1;
-  else if (newPolicy) errors.push(`${pub.id}: 新ルールの概要欄が台帳と一致しない`);
-  else warnings.push(`${pub.id}: 旧動画の概要欄が台帳と全文一致しない`);
+  else errors.push(`${pub.id}: YouTube 上の概要欄が台帳と全文一致しない`);
   const localLinks = ownLinks(description);
   const liveLinks = ownLinks(remote);
   if (JSON.stringify(localLinks) !== JSON.stringify(liveLinks)) {
-    (newPolicy ? errors : warnings).push(`${pub.id}: YouTube 上のnote・サイトリンクが台帳と違う`);
+    errors.push(`${pub.id}: YouTube 上のnote・サイトリンクが台帳と違う`);
   }
   if (pub.status === 'scheduled' && !future && video.status?.privacyStatus === 'public') {
     warnings.push(`${pub.id}: 公開済みなので台帳の scheduled を published に照合する`);
