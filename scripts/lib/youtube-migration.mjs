@@ -60,8 +60,9 @@ export function assertProcessed(video, item) {
   const preciseDuration = Number(video.fileDetails?.durationMs) / 1000;
   const hasPreciseDuration = video.fileDetails?.durationMs !== undefined;
   // YouTube sometimes omits durationMs even when fileDetailsAvailability=available.
-  // In that case retain the original one-second display tolerance, not zero.
-  if ((hasPreciseDuration && (!Number.isFinite(preciseDuration) || Math.abs(preciseDuration - item.media.duration) > 0.1)) || Math.abs(durationSeconds(video.contentDetails.duration) - item.media.duration) > (hasPreciseDuration ? 1.1 : 1)) throw new Error(`Replacement duration differs: API=${video.contentDetails.duration}, file=${preciseDuration}s, source=${item.media.duration}s`);
+  // The displayed whole-second duration can exceed the MP4 duration by just over
+  // one second (202.987s became PT3M24S). Exact bytes and streams are checked below.
+  if ((hasPreciseDuration && (!Number.isFinite(preciseDuration) || Math.abs(preciseDuration - item.media.duration) > 0.1)) || Math.abs(durationSeconds(video.contentDetails.duration) - item.media.duration) > 1.1) throw new Error(`Replacement duration differs: API=${video.contentDetails.duration}, file=${preciseDuration}s, source=${item.media.duration}s`);
   if (Number(video.fileDetails?.fileSize) !== item.media.bytes) throw new Error('Replacement uploaded file size differs');
   if (!video.fileDetails?.videoStreams || !video.fileDetails?.audioStreams) return false;
   const stream = video.fileDetails?.videoStreams?.[0];
