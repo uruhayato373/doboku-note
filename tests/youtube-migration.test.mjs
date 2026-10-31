@@ -72,12 +72,13 @@ test('receipt from another render cannot be reused', async () => {
   const f = fixture(); await uploadReplacement(f.youtube, item, f.options);
   await assert.rejects(uploadReplacement(f.youtube, { ...item, media: { ...item.media, sha256: 'b'.repeat(64) } }, f.options), /conflict/);
 });
-test('whole-second API rounding is allowed only with precise duration and exact uploaded bytes', () => {
+test('whole-second API rounding is allowed with exact uploaded bytes and streams', () => {
   const e = { ...item, media: { ...item.media, duration: 92.997333 } };
   const v = structuredClone(processed); v.contentDetails.duration = 'PT1M34S'; v.fileDetails.durationMs = '92966';
   assert.equal(assertProcessed(v, e), true);
   v.fileDetails.durationMs = '92000'; assert.throws(() => assertProcessed(v, e), /duration/);
   v.fileDetails.durationMs = '92966'; v.fileDetails.fileSize = '999'; assert.throws(() => assertProcessed(v, e), /size/);
-  v.fileDetails.fileSize = '1000'; delete v.fileDetails.durationMs; assert.throws(() => assertProcessed(v, e), /duration/);
+  v.fileDetails.fileSize = '1000'; delete v.fileDetails.durationMs; assert.equal(assertProcessed(v, e), true);
+  v.contentDetails.duration = 'PT1M35S'; assert.throws(() => assertProcessed(v, e), /duration/);
   v.contentDetails.duration = 'PT41S'; assert.equal(assertProcessed(v, item), true);
 });
