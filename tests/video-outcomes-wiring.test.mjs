@@ -36,6 +36,7 @@ test('fetch-metrics.yml が campaign スナップショットを取得する', (
   // 供給先が develop へ publish される経路に乗っているか（data/ の変更を台帳経由でまとめて add する）
   assert.match(wf, /ci-data\.mjs save [^\n]*--paths data/, '取得結果が退避されない');
   assert.match(wf, /ci-data\.mjs add --paths data/, 'data/ が commit 対象でない');
+  assert.match(wf, /--dimension campaign --event note_cta_click/, 'サイトからnote有料商品への動画別クリック取得が無い');
 });
 
 test('UTM 契約: source は youtube・medium は video・content は longform|shorts（正本は utm-templates.json の youtube.*）', () => {
@@ -54,6 +55,14 @@ test('動画成果ビューが読むスナップショット prefix と fetcher 
   assert.match(fetcher, /reportIdOf\("ga4", `\$\{opts\.dimension\}\$\{suffix\}`\)/);
   const view = read('tools/admin-app/src/lib/video-outcomes.ts');
   assert.match(view, /latestSnapshot\('ga4\.campaign'\)/);
+  assert.match(view, /latestSnapshot\('ga4\.campaign-note-cta'\)/);
+});
+
+test('承認後の概要欄同期は既存の手動YouTubeワークフローから起動できる', () => {
+  const wf = read('.github/workflows/youtube-single-publish.yml');
+  assert.match(wf, /sync-funnel:/);
+  assert.match(wf, /check-content-registry/);
+  assert.match(wf, /youtube-sync-funnel\.mjs --plan content\/sns\/youtube\/metadata-plans\/2026-10-31-funnel\.json --commit/);
 });
 
 test('SNS join: レガシー Shorts 台帳と動画パック派生を混ぜない', () => {

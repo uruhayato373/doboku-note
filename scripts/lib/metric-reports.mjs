@@ -19,7 +19,7 @@ import { writeJson } from './json-io.mjs';
 /** 種類 id → 取得元とファイル内の枠の名前（枠の名前は移す前のファイル名の前半） */
 export const REPORT_KINDS = Object.fromEntries([
   ['ga4.page', 'page'], ['ga4.date', 'date'], ['ga4.channel', 'channel'], ['ga4.channel-organic', 'channel-organic'],
-  ['ga4.source', 'source'], ['ga4.source-medium-sns', 'sourceMedium-sns'], ['ga4.campaign', 'campaign'],
+  ['ga4.source', 'source'], ['ga4.source-medium-sns', 'sourceMedium-sns'], ['ga4.campaign', 'campaign'], ['ga4.campaign-note-cta', 'campaign-note-cta'],
   ['ga4.host-name', 'hostName'], ['ga4.cta-clicks', 'cta-clicks'], ['ga4.cta-clicks-by-device', 'cta-clicks-by-device'],
   ['ga4.cta-clicks-by-label', 'cta-clicks-by-label'], ['ga4.cta-clicks-by-placement', 'cta-clicks-by-placement'],
   ['ga4.affiliate-experiment', 'affiliate-experiment'],

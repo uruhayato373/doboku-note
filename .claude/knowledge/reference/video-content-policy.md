@@ -68,6 +68,8 @@ title: 動画コンテンツ運用ポリシー
 - `primaryCta` は1つ。生URLよりcatalog IDを優先。`campaign` は `packId` と一致（utm_campaign に使う）
   - catalog 系 kind（note-magazine / coconala-service）は `targetId` がカタログ id に解決できること
   - `site-article` は `targetPath` 実在、`links-hub` は `/links` 固定
+  - note 有料教材が主CTAの通常動画は、商品に合う短い名前を使い、概要欄の冒頭に主リンクを置く。「完成答案」を択一教材へ一律に使わない。`sourceRefs` の先頭に公開済みサイト記事があれば、その記事を無料の補助リンクとして案内する。`prepare-youtube-longforms.mts` が公開URLと動画別UTMを生成する。主CTAは増やさない
+  - 予約済み動画の概要欄を直す場合は、文面・承認ハッシュ・YouTube実体の3者を揃える。文面変更後の最終承認は運営者本人が `registry approve` で行い、API更新は旧/新の文面SHAと予約状態を照合し、更新後に読み戻す。動画パック本体を概要欄だけの変更で編集すると完成動画の制作入力ハッシュが変わるため、出典記事から補助リンクを導く
 - `outputs` は希望する派生物であり、公開済み状態を持たない
 - 実績、合格、売上、統計を扱うときは根拠referenceを追加する
 
