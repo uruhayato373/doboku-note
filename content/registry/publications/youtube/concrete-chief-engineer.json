@@ -1010,7 +1010,7 @@
       "work": "shunin-kyoudo-hantei-2jouken",
       "account": "youtube:main",
       "format": "longform",
-      "status": "rendered",
+      "status": "scheduled",
       "media": {
         "cover": "concrete-chief-engineer/shunin-kyoudo-hantei-2jouken/youtube.longform/cover",
         "scene-001": "concrete-chief-engineer/shunin-kyoudo-hantei-2jouken/youtube.longform/scene-001",
@@ -1047,13 +1047,42 @@
         "contentSha256": "55be6d89a95eda23b80a8e647c8f76641cfa9a5d2cee61fb38e624ec84adf141"
       },
       "times": {
-        "rendered": "2026-10-30T23:46:55.246Z"
+        "rendered": "2026-10-30T23:46:55.246Z",
+        "uploaded": "2026-10-31T00:11:02.761Z",
+        "scheduled": "2026-10-31T00:11:16.318Z"
       },
       "delivery": {
         "inputSha256": "be43410b0d8203540fd822fd25d7486fe86e86282b417aef1177c2bfe66f2a35",
         "marker": "dn-single-4425e72ae3a408471bfebc6025ee3c79775d4664",
         "uploadRequestedAt": "2026-10-31T00:00:04.649Z",
-        "videoId": "C2Pyi5TE3UY"
+        "videoId": "C2Pyi5TE3UY",
+        "processedAt": "2026-10-31T00:11:02.023Z",
+        "thumbnailRequestedAt": "2026-10-31T00:11:02.810Z",
+        "thumbnailUrls": [
+          "https://i9.ytimg.com/vi/C2Pyi5TE3UY/default.jpg?sqp=CNjjlNcG&rs=AOn4CLCva_ZSi9yIYKCJr9kc_dODKfoDKw",
+          "https://i9.ytimg.com/vi/C2Pyi5TE3UY/mqdefault.jpg?sqp=CNjjlNcG&rs=AOn4CLCqVdhloDViEap3-sTYZhpl-9893A",
+          "https://i9.ytimg.com/vi/C2Pyi5TE3UY/hqdefault.jpg?sqp=CNjjlNcG&rs=AOn4CLAU7TSh1yG-zXmpFJYXhvviaqyArg",
+          "https://i9.ytimg.com/vi/C2Pyi5TE3UY/sddefault.jpg?sqp=CNjjlNcG&rs=AOn4CLAPQri9DrSRD3Rz8wE6ytEoEjdNsw",
+          "https://i9.ytimg.com/vi/C2Pyi5TE3UY/maxresdefault.jpg?sqp=CNjjlNcG&rs=AOn4CLABBFB-tBtK_qxQjikvZfPhr8OGaA",
+          "https://i9.ytimg.com/vi/C2Pyi5TE3UY/fhddefault.jpg?sqp=CNjjlNcG&rs=AOn4CLCZfYv16GJZabWvdO2GufemMfSv4g"
+        ],
+        "thumbnailAcceptedAt": "2026-10-31T00:11:08.278Z",
+        "scheduleRequestedAt": "2026-10-31T00:11:12.983Z",
+        "scheduleAt": "2026-11-05T11:30:00Z",
+        "scheduledVerifiedAt": "2026-10-31T00:11:16.318Z"
+      },
+      "platform": {
+        "id": "C2Pyi5TE3UY",
+        "url": "https://www.youtube.com/watch?v=C2Pyi5TE3UY",
+        "privacy": "private",
+        "evidence": {
+          "kind": "publisher-live-check",
+          "ref": "content/sns/video-packs/concrete-chief-engineer/shunin-kyoudo-hantei-2jouken/youtube.json#longform"
+        }
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-10-31T00:11:08.278Z"
       }
     },
     {
