@@ -46,6 +46,8 @@ const BASE = flags.base.replace(/\/$/, '');
 const VARIANTS = flags.variants.split(',').map((s) => s.trim()).filter(Boolean);
 const WIDTHS = VIEWPORTS.filter((v) => flags.widths.split(',').includes(v.id));
 const MAX_HEIGHT = flags.maxHeight;
+/** 広告のまわりの切り出しで、広告の上下に足す高さ（px）。前後の本文・note の導線との並びが見える幅 */
+const CROP_MARGIN = 500;
 
 // 計測を汚さない: GA4・広告配信・A8 / もしもの計測ピクセル（バナー画像は止めない）
 const BLOCK = /googletagmanager|google-analytics|analytics\.google|doubleclick|googlesyndication|cloudflareinsights|\/0\.gif\?a8mat=|moshimo\.com\/af\/i\/impression/;
@@ -131,7 +133,9 @@ async function settle(page) {
 
 async function main() {
   const startedAt = new Date();
-  const rules = readDataset(REPO_ROOT, 'config.affiliate-placements').rules;
+  const placements = readDataset(REPO_ROOT, 'config.affiliate-placements');
+  const rules = placements.rules;
+  const pairs = placements.pairs ?? [];
   const categories = JSON.parse(readFileSync(join(REPO_ROOT, 'src/config/categories.json'), 'utf8'));
 
   let sitemapPaths;
@@ -184,13 +188,25 @@ async function main() {
             const pageInfo = { pageKind: t.pageKind, category: t.category, isCareerDoc: t.isCareerDoc };
             const verdict = judgeShot(
               { viewport: { width: vp.width, height: vp.height }, scrollWidth: measured.scrollWidth, html, ads: measured.ads },
-              { rules, page: pageInfo, nowMs, forcedVariant: variant, expectedCount: Object.keys(expectedSlots(rules, pageInfo, nowMs)).length },
+              { rules, pairs, page: pageInfo, nowMs, forcedVariant: variant, expectedCount: Object.keys(expectedSlots(rules, pageInfo, nowMs)).length },
             );
             await page.evaluate(drawOverlay, { ads: verdict.ads, notes: measured.notes });
             const file = `${t.id}__${vp.id}__${variant}.png`;
             const height = Math.min(measured.height, MAX_HEIGHT);
             await page.screenshot({ path: join(outDir, file), fullPage: true, clip: { x: 0, y: 0, width: vp.width, height } });
+            // 広告のまわり（上下 CROP_MARGIN px）を別に撮る。全体の画像は MAX_HEIGHT で下を切るので、長い記事の広告はそこに写らない。
+            // 横に並んだ 2 枚（同じ上端）は 1 枚にまとめる
+            const crops = [];
+            for (const a of verdict.ads) {
+              const y = Math.max(0, Math.round(a.rect.top) - CROP_MARGIN);
+              if (crops.some((c) => Math.abs(c.adTop - Math.round(a.rect.top)) < 40)) continue;
+              const h = Math.max(1, Math.min(Math.round(a.rect.bottom - a.rect.top) + CROP_MARGIN * 2, measured.height - y));
+              const cropFile = `${t.id}__${vp.id}__${variant}__ad${crops.length + 1}.png`;
+              await page.screenshot({ path: join(outDir, cropFile), fullPage: true, clip: { x: 0, y, width: vp.width, height: h } });
+              crops.push({ file: cropFile, adTop: Math.round(a.rect.top), y, height: h, placement: a.placement });
+            }
             shots.push({
+              crops: crops.map(({ adTop, ...c }) => c),
               ...base, status: verdict.ok ? 'ok' : 'ng', file, pageHeight: measured.height, truncated: measured.height > MAX_HEIGHT,
               checks: verdict.checks, warnings: verdict.warnings, pixelCounts: verdict.pixelCounts,
               ads: verdict.ads.map((a) => ({ placement: a.placement, program: a.program, variant: a.variant, label: a.label, ruleId: a.ruleId, ruleStatus: a.ruleStatus, top: Math.round(a.rect.top), left: Math.round(a.rect.left), right: Math.round(a.rect.right), problems: a.problems })),

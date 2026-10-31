@@ -6,7 +6,7 @@
  *   1. selectTargets … 配置ルール・サイトマップ・記事一覧から「ページの種類ごとの代表 URL」を機械で選ぶ（手書きの URL 表を持たない）
  *   2. judgeShot     … 1 回の撮影で測った値から (a)〜(e) の判定を出す
  */
-import { isActive, matchesPage } from '../../src/lib/affiliate-placement-core.mjs';
+import { isActive, matchesPage, resolvePair } from '../../src/lib/affiliate-placement-core.mjs';
 import { impressionKeyCounts } from './affiliate-link-keys.mjs';
 
 /** 画面幅。案（variant）は src/lib/affiliate-experiment.mjs の AFFILIATE_VARIANTS（--variants で上書き） */
@@ -124,10 +124,16 @@ export function selectTargets({ rules, sitemapPaths, categories, docsBySlug }) {
 }
 
 /** このページ・面・案件に当たるルール。期間内なら active、期間外にだけ当たるなら expired、無ければ none */
-export function ruleFor(rules, page, slot, program, nowMs) {
+export function ruleFor(rules, page, slot, program, nowMs, pairs = []) {
   const hits = rules.filter((r) => r.slot === slot && r.program === program && matchesPage(r, page));
   const active = hits.find((r) => isActive(r, nowMs));
   if (active) return { ruleId: active.id, status: 'active' };
+  // 2 枚並べの 2 枚目（config/affiliate-placements.json の pairs）。その面の 1 枚目のルールが今当たっていること
+  for (const r of rules) {
+    if (r.slot !== slot || !isActive(r, nowMs) || !matchesPage(r, page)) continue;
+    const pair = resolvePair(pairs, r, page, nowMs);
+    if (pair && pair.secondary === program) return { ruleId: pair.id, status: 'active' };
+  }
   if (hits.length) return { ruleId: hits[hits.length - 1].id, status: 'expired' };
   return { ruleId: null, status: 'none' };
 }
@@ -154,7 +160,7 @@ export function judgeShot(m, ctx) {
   const pixelCounts = impressionKeyCounts(m.html);
 
   const ads = m.ads.map((a) => {
-    const rule = ruleFor(ctx.rules, ctx.page, a.placement, a.program, ctx.nowMs);
+    const rule = ruleFor(ctx.rules, ctx.page, a.placement, a.program, ctx.nowMs, ctx.pairs ?? []);
     const problems = [];
     for (const img of a.imgs) {
       if (img.naturalWidth > 0 && img.w > img.naturalWidth + TOL) problems.push('stretch');
