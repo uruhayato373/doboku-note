@@ -154,6 +154,12 @@
           "href": "/affiliate/preview",
           "kind": "assets",
           "match": "/affiliate/preview"
+        },
+        {
+          "label": "広告配置",
+          "href": "/affiliate/layout",
+          "kind": "assets",
+          "match": "/affiliate/layout"
         }
       ]
     },

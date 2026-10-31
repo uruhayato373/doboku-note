@@ -185,5 +185,12 @@
       },
       "graphicPrompt": "CTA。直前パックの表紙を中央に、概要欄を示す下向き矢印。専門科目は建設部門の注記。"
     }
-  ]
+  ],
+  "imageDesign": {
+    "mode": "codex-pop",
+    "scope": "all-body",
+    "revision": "body-diagram-20261028",
+    "coverRevision": "cover-pop-20261028",
+    "layout": "diagram-led"
+  }
 }

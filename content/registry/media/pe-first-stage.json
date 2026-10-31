@@ -3,6 +3,338 @@
   "scope": "pe-first-stage",
   "media": [
     {
+      "id": "pe-first-stage/pe1-kiso-2of3-reliability/youtube.longform/contact-sheet",
+      "role": "contact-sheet",
+      "type": "image/jpeg",
+      "sha256": "f3b508a7df3750b3edb0c68443278ae29a3712134331d886236cd651fa800d3a",
+      "bytes": 464080,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-2of3-reliability/youtube.longform/contact-sheet.f3b508a7.jpg"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "media-preview",
+        "spec": "content/sns/video-packs/pe-first-stage/pe1-kiso-2of3-reliability/storyboard.json"
+      },
+      "width": 1920,
+      "height": 1620
+    },
+    {
+      "id": "pe-first-stage/pe1-kiso-2of3-reliability/youtube.longform/cover",
+      "role": "cover",
+      "type": "image/png",
+      "sha256": "ee5d6f0e2161e39a88372be44f2cb345eeb0c95126f4a7a292b03ab88bc8c52d",
+      "bytes": 685533,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-2of3-reliability/youtube.longform/cover.ee5d6f0e.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Codex ImageGen: new 16:9 POP cover, 多数決の信頼度 / 2個＋3個を足す, approved teacher character and three components",
+        "promptSha256": "e375c726a476fcf257df701690611b4df191ca72d632a92083e50669f891c3ca",
+        "generatedAt": "2026-10-30T22:35:54.765Z"
+      },
+      "width": 1920,
+      "height": 1080,
+      "legacyPaths": [
+        ".tmp/media/pe-first-stage/pe1-kiso-2of3-reliability/work/cover-pop.ee5d6f0e.png"
+      ]
+    },
+    {
+      "id": "pe-first-stage/pe1-kiso-2of3-reliability/youtube.longform/preview",
+      "role": "preview",
+      "type": "video/mp4",
+      "sha256": "7253396d0d93c2d68604e690ad38f7c9a2d56683f90297c5019ca63a2feeef0d",
+      "bytes": 3398934,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-2of3-reliability/youtube.longform/preview.7253396d.mp4"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "media-preview",
+        "spec": "content/sns/video-packs/pe-first-stage/pe1-kiso-2of3-reliability/storyboard.json"
+      },
+      "durationSec": 143.691
+    },
+    {
+      "id": "pe-first-stage/pe1-kiso-2of3-reliability/youtube.longform/preview-metrics",
+      "role": "preview-metrics",
+      "type": "application/json",
+      "sha256": "3da01d03589935c46ef35aef7112b34f101b181ca00871bfdf03210e4f120a74",
+      "bytes": 861,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-2of3-reliability/youtube.longform/preview-metrics.3da01d03.json"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "media-preview",
+        "spec": "content/sns/video-packs/pe-first-stage/pe1-kiso-2of3-reliability/storyboard.json"
+      }
+    },
+    {
+      "id": "pe-first-stage/pe1-kiso-2of3-reliability/youtube.longform/scene-001",
+      "role": "scene-001",
+      "type": "image/png",
+      "sha256": "ee5d6f0e2161e39a88372be44f2cb345eeb0c95126f4a7a292b03ab88bc8c52d",
+      "bytes": 685533,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-2of3-reliability/youtube.longform/scene-001.ee5d6f0e.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Codex ImageGen: new 16:9 POP cover, 多数決の信頼度 / 2個＋3個を足す, approved teacher character and three components",
+        "promptSha256": "e375c726a476fcf257df701690611b4df191ca72d632a92083e50669f891c3ca",
+        "generatedAt": "2026-10-30T22:35:54.765Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-first-stage/pe1-kiso-2of3-reliability/youtube.longform/scene-002",
+      "role": "scene-002",
+      "type": "image/png",
+      "sha256": "1ea7e872fc4e598fc0a9cc1539977a6b40eff9e3624346ce1bcdaee2212a737d",
+      "bytes": 1426944,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-2of3-reliability/youtube.longform/scene-002.1ea7e872.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Codex ImageGen: 16:9 clean educational diagram for answer of independent three-component 2-out-of-3 reliability; exact Japanese labels and correct visual count.",
+        "promptSha256": "22131c185b31bd3bb75e6d5a16b2e1c3322eb6cc026d7f5a01281eb4b25c993b",
+        "generatedAt": "2026-10-30T22:35:54.765Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-first-stage/pe1-kiso-2of3-reliability/youtube.longform/scene-003",
+      "role": "scene-003",
+      "type": "image/png",
+      "sha256": "038d9747d71c57b846e73f16d22343651de9279252f91d7b7eebddf4364bc7f4",
+      "bytes": 1481710,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-2of3-reliability/youtube.longform/scene-003.038d9747.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Codex ImageGen: visually verified distinct misread diagram matching the current storyboard",
+        "promptSha256": "c03ae603512323d6a669fa2b643292e5822b514263c4b0b0da88836888cb2178",
+        "generatedAt": "2026-10-30T22:35:54.765Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-first-stage/pe1-kiso-2of3-reliability/youtube.longform/scene-004",
+      "role": "scene-004",
+      "type": "image/png",
+      "sha256": "ea6fa9d846d61bd08e1dcb97d2454fa91405582030b1bd19450d3134d18e020e",
+      "bytes": 1515851,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-2of3-reliability/youtube.longform/scene-004.ea6fa9d8.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Codex ImageGen: 16:9 clean educational diagram for patterns of independent three-component 2-out-of-3 reliability; exact Japanese labels and correct visual count.",
+        "promptSha256": "fe1510b432bd5eab04d7f42ab4bd01b7340a445628412157aae2a72006769b39",
+        "generatedAt": "2026-10-30T22:35:54.765Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-first-stage/pe1-kiso-2of3-reliability/youtube.longform/scene-005",
+      "role": "scene-005",
+      "type": "image/png",
+      "sha256": "321cd3c373cc984c6d6b4bfd40161a4e63ddca808ede9cb0a188fec14399b5f0",
+      "bytes": 1524079,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-2of3-reliability/youtube.longform/scene-005.321cd3c3.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Codex ImageGen: 16:9 clean educational diagram for exactly2 of independent three-component 2-out-of-3 reliability; exact Japanese labels and correct visual count.",
+        "promptSha256": "5b176f1b3b9c7dcd6e4c300b88d4606ef4e396aa429a12bfd0b137a38b86248f",
+        "generatedAt": "2026-10-30T22:35:54.765Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-first-stage/pe1-kiso-2of3-reliability/youtube.longform/scene-006",
+      "role": "scene-006",
+      "type": "image/png",
+      "sha256": "bd6c6b1c3e7bd0f4c7dc7d1ef284920c19430cffe696d55cabf0388a555a47a6",
+      "bytes": 1274191,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-2of3-reliability/youtube.longform/scene-006.bd6c6b1c.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Codex ImageGen: 16:9 clean educational diagram for all3 of independent three-component 2-out-of-3 reliability; exact Japanese labels and correct visual count.",
+        "promptSha256": "4bdb66f8c15d96680ff422a04b8de152e0fab8789332bbdc1c1ecba42e9e9e47",
+        "generatedAt": "2026-10-30T22:35:54.765Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-first-stage/pe1-kiso-2of3-reliability/youtube.longform/scene-007",
+      "role": "scene-007",
+      "type": "image/png",
+      "sha256": "9e15b275b9f7a75d95c197f956eb7efdbe26fe3b607c9e4f7cca5d728f547876",
+      "bytes": 1423622,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-2of3-reliability/youtube.longform/scene-007.9e15b275.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Codex ImageGen: 16:9 clean educational diagram for sum of independent three-component 2-out-of-3 reliability; exact Japanese labels and correct visual count.",
+        "promptSha256": "9c8b227de24c8a80c826120a819353c4e1cd452856d11f91dbd444ad31694539",
+        "generatedAt": "2026-10-30T22:35:54.765Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-first-stage/pe1-kiso-2of3-reliability/youtube.longform/scene-008",
+      "role": "scene-008",
+      "type": "image/png",
+      "sha256": "0f194be76f54d535a5f2ab5a9e75f732b21d6b346cd670494dc25b5d0a378f02",
+      "bytes": 1301860,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-2of3-reliability/youtube.longform/scene-008.0f194be7.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Codex ImageGen: 16:9 clean educational diagram for check of independent three-component 2-out-of-3 reliability; exact Japanese labels and correct visual count.",
+        "promptSha256": "840ccc658c4c2c1891ebc1edb06a947d317cc23c34da1ffc423e454a4e813662",
+        "generatedAt": "2026-10-30T22:35:54.765Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-first-stage/pe1-kiso-2of3-reliability/youtube.longform/scene-009",
+      "role": "scene-009",
+      "type": "image/png",
+      "sha256": "9e15b275b9f7a75d95c197f956eb7efdbe26fe3b607c9e4f7cca5d728f547876",
+      "bytes": 1423622,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-2of3-reliability/youtube.longform/scene-009.9e15b275.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Codex ImageGen: 16:9 clean educational diagram for summary of independent three-component 2-out-of-3 reliability; exact Japanese labels and correct visual count.",
+        "promptSha256": "2a15f128f87c3c274ea8a7966140ccbf3242c4626b052f664f63f5de53f7123a",
+        "generatedAt": "2026-10-30T22:35:54.765Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-first-stage/pe1-kiso-2of3-reliability/youtube.longform/scene-010",
+      "role": "scene-010",
+      "type": "image/png",
+      "sha256": "1c94e1a61db608b40a54519c81b6e9dc99e08934d295ea6f0101bb66dde11847",
+      "bytes": 1669181,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-2of3-reliability/youtube.longform/scene-010.1c94e1a6.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Codex ImageGen: 直前パック，過去問PDF合本＋直前暗記ノート，専門は建設部門，概要欄をチェック",
+        "promptSha256": "de788145f281c8963ea1645e82b1a9fe802a1e923b039cc4dce09f36ae15b846",
+        "generatedAt": "2026-10-30T22:35:54.765Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-first-stage/pe1-kiso-2of3-reliability/youtube.longform/scene-sheet",
+      "role": "scene-sheet",
+      "type": "image/jpeg",
+      "sha256": "3c6a1116a2a40658eb538a4801d4767729ec3f6cf3741eeda0f89b5f8ec3a0e4",
+      "bytes": 598056,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-2of3-reliability/youtube.longform/scene-sheet.3c6a1116.jpg"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "media-preview",
+        "spec": "content/sns/video-packs/pe-first-stage/pe1-kiso-2of3-reliability/storyboard.json"
+      },
+      "width": 1920,
+      "height": 1592
+    },
+    {
+      "id": "pe-first-stage/pe1-kiso-2of3-reliability/youtube.longform/subtitles",
+      "role": "subtitles",
+      "type": "text/x-ssa",
+      "sha256": "7f84bfcb867faf68eb76cabbea1e646cf40db223b6954e42211952254b611739",
+      "bytes": 4859,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-2of3-reliability/youtube.longform/subtitles.7f84bfcb.ass"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/pe-first-stage/pe1-kiso-2of3-reliability/storyboard.json"
+      }
+    },
+    {
+      "id": "pe-first-stage/pe1-kiso-2of3-reliability/youtube.longform/video",
+      "role": "video",
+      "type": "video/mp4",
+      "sha256": "bf5d01c77b8f15550214f2d482694de611822a30b9a5b7485a5546003b7b1f33",
+      "bytes": 13913214,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-2of3-reliability/youtube.longform/video.bf5d01c7.mp4"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/pe-first-stage/pe1-kiso-2of3-reliability/storyboard.json",
+        "specSha256": "7a558adfcb97fe5f9ae014a0b027a4bfe02d9e7fac40fa089f8e9f37ec4b00f2",
+        "renderInputSha256": "f412eff24019b05ceed265dfe0d637703fb500b74f7ce19538545e6ecebf670b",
+        "tts": {
+          "engine": "VOICEVOX",
+          "speaker": 13,
+          "credit": "VOICEVOX:青山龍星"
+        }
+      },
+      "durationSec": 143.691
+    },
+    {
       "id": "pe-first-stage/pe1-kiso-2s-complement/youtube.longform/contact-sheet",
       "role": "contact-sheet",
       "type": "image/jpeg",
@@ -353,6 +685,378 @@
         }
       },
       "durationSec": 229
+    },
+    {
+      "id": "pe-first-stage/pe1-kiso-gradient-length/youtube.longform/contact-sheet",
+      "role": "contact-sheet",
+      "type": "image/jpeg",
+      "sha256": "877674ef81ef5f0f607d658a37be84c60c6e23a1fdfcd3b26e83516ec7e08fc0",
+      "bytes": 526649,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-gradient-length/youtube.longform/contact-sheet.877674ef.jpg"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "media-preview",
+        "spec": "content/sns/video-packs/pe-first-stage/pe1-kiso-gradient-length/storyboard.json"
+      },
+      "width": 1920,
+      "height": 1620
+    },
+    {
+      "id": "pe-first-stage/pe1-kiso-gradient-length/youtube.longform/cover",
+      "role": "cover",
+      "type": "image/png",
+      "sha256": "c370949e6d191122c6597f57105b4740469b631512178a797b654003ba488a81",
+      "bytes": 696724,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-gradient-length/youtube.longform/cover.c370949e.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Codex ImageGen: POP cover 勾配ベクトル / 長さは別物, approved teacher character and correct 3-4-5 triangle",
+        "promptSha256": "cdd06e56ad47cad12b12ff7ca419a38308bb33e71c54a37ceb0e14f2957cca5e",
+        "generatedAt": "2026-10-30T22:35:56.577Z"
+      },
+      "width": 1920,
+      "height": 1080,
+      "legacyPaths": [
+        ".tmp/media/pe-first-stage/pe1-kiso-gradient-length/work/cover-pop.c370949e.png"
+      ]
+    },
+    {
+      "id": "pe-first-stage/pe1-kiso-gradient-length/youtube.longform/preview",
+      "role": "preview",
+      "type": "video/mp4",
+      "sha256": "58cfe1ca53d3b1d61d06193b05e80245ee88416c38e9f6e299de37589f06e923",
+      "bytes": 3838575,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-gradient-length/youtube.longform/preview.58cfe1ca.mp4"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "media-preview",
+        "spec": "content/sns/video-packs/pe-first-stage/pe1-kiso-gradient-length/storyboard.json"
+      },
+      "durationSec": 192.981
+    },
+    {
+      "id": "pe-first-stage/pe1-kiso-gradient-length/youtube.longform/preview-metrics",
+      "role": "preview-metrics",
+      "type": "application/json",
+      "sha256": "ad9326bc3daff2dde931974b250b9d20064df20e7d0fff8c204dfd1ee4470153",
+      "bytes": 1215,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-gradient-length/youtube.longform/preview-metrics.ad9326bc.json"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "media-preview",
+        "spec": "content/sns/video-packs/pe-first-stage/pe1-kiso-gradient-length/storyboard.json"
+      }
+    },
+    {
+      "id": "pe-first-stage/pe1-kiso-gradient-length/youtube.longform/scene-001",
+      "role": "scene-001",
+      "type": "image/png",
+      "sha256": "c370949e6d191122c6597f57105b4740469b631512178a797b654003ba488a81",
+      "bytes": 696724,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-gradient-length/youtube.longform/scene-001.c370949e.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Codex ImageGen: POP cover 勾配ベクトル / 長さは別物, approved teacher character and correct 3-4-5 triangle",
+        "promptSha256": "cdd06e56ad47cad12b12ff7ca419a38308bb33e71c54a37ceb0e14f2957cca5e",
+        "generatedAt": "2026-10-30T22:35:56.577Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-first-stage/pe1-kiso-gradient-length/youtube.longform/scene-002",
+      "role": "scene-002",
+      "type": "image/png",
+      "sha256": "eca4c25c83cdc057d75413dd3baedc8a0c6c8cbe2a849afe2ee7510da70ac1d5",
+      "bytes": 1373845,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-gradient-length/youtube.longform/scene-002.eca4c25c.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Codex ImageGen: 16:9 clean white diagram-led scene for gradient vector and length, answer; exact calculation from storyboard.",
+        "promptSha256": "05b26363afd51da9eb74a1d8c3c6e083c076607c38140451325e0cac219a742f",
+        "generatedAt": "2026-10-30T22:35:56.577Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-first-stage/pe1-kiso-gradient-length/youtube.longform/scene-003",
+      "role": "scene-003",
+      "type": "image/png",
+      "sha256": "4cc55da3b0f36119ddf6582b09039272207c546879eaab8ec53ea03862297bf2",
+      "bytes": 1501322,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-gradient-length/youtube.longform/scene-003.4cc55da3.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Codex ImageGen: 16:9 clean white diagram-led scene for gradient vector and length, pain; exact calculation from storyboard.",
+        "promptSha256": "665358f1a594193468b45e146c84e0f217e9331f950fab89311851ee26e6ad3b",
+        "generatedAt": "2026-10-30T22:35:56.577Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-first-stage/pe1-kiso-gradient-length/youtube.longform/scene-004",
+      "role": "scene-004",
+      "type": "image/png",
+      "sha256": "8e1c44301309ccfdfa26a652ae53cca9d5ad0fd5cf3949eaf69376dd4e355d67",
+      "bytes": 1207135,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-gradient-length/youtube.longform/scene-004.8e1c4430.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Codex ImageGen: 16:9 clean white diagram-led scene for gradient vector and length, setup; exact calculation from storyboard.",
+        "promptSha256": "bb42639deb4a8f004418c6ce9aae3c49b6831e440b6d949454a3bbc908281c70",
+        "generatedAt": "2026-10-30T22:35:56.577Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-first-stage/pe1-kiso-gradient-length/youtube.longform/scene-005",
+      "role": "scene-005",
+      "type": "image/png",
+      "sha256": "da2932988632272c93be066d53a10ee63bbccd8f2103de418a521e6d6955b94a",
+      "bytes": 1398916,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-gradient-length/youtube.longform/scene-005.da293298.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Codex ImageGen: visually verified distinct partial diagram matching the current storyboard",
+        "promptSha256": "b5cf1dd993d1308c2fd3cfde27451bbcb1ed22a5e07a6c4ba2c15fe7c9f7d80d",
+        "generatedAt": "2026-10-30T22:35:56.577Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-first-stage/pe1-kiso-gradient-length/youtube.longform/scene-006",
+      "role": "scene-006",
+      "type": "image/png",
+      "sha256": "57c32016b58cb62de50385305c112095190f3e2e2ee80b0011a79ed2fe4dfc51",
+      "bytes": 1255781,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-gradient-length/youtube.longform/scene-006.57c32016.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Codex ImageGen: 16:9 clean white diagram-led scene for gradient vector and length, substitute; exact calculation from storyboard.",
+        "promptSha256": "cbe71d5573bdd129d8541f8ebbcc49a06fd1a320ee1b68b44297a718159dcd0c",
+        "generatedAt": "2026-10-30T22:35:56.577Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-first-stage/pe1-kiso-gradient-length/youtube.longform/scene-007",
+      "role": "scene-007",
+      "type": "image/png",
+      "sha256": "39587871ce42848a5ccd98fe619ac4ffb4d89dd218120a6a7330ea83037abd63",
+      "bytes": 920200,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-gradient-length/youtube.longform/scene-007.39587871.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Codex ImageGen: 16:9 clean white diagram-led scene for gradient vector and length, vector; exact calculation from storyboard.",
+        "promptSha256": "0ffa2d2ad4e49792b14d76e7c399c1939641b029dbd732134aa495ddda404fde",
+        "generatedAt": "2026-10-30T22:35:56.577Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-first-stage/pe1-kiso-gradient-length/youtube.longform/scene-008",
+      "role": "scene-008",
+      "type": "image/png",
+      "sha256": "a2af8128ea90538909404d7f76cf10f5be4d6e3b0b4cd1a3bd4fcc139fff0237",
+      "bytes": 1233595,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-gradient-length/youtube.longform/scene-008.a2af8128.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Codex ImageGen: distinct, visually verified diagram for norm; exact storyboard content.",
+        "promptSha256": "2f23443506150486efd073bea759f24e6f6bfc2f77a92851747bc257bc922c3b",
+        "generatedAt": "2026-10-30T22:35:56.577Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-first-stage/pe1-kiso-gradient-length/youtube.longform/scene-009",
+      "role": "scene-009",
+      "type": "image/png",
+      "sha256": "4cc55da3b0f36119ddf6582b09039272207c546879eaab8ec53ea03862297bf2",
+      "bytes": 1501322,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-gradient-length/youtube.longform/scene-009.4cc55da3.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Codex ImageGen: 16:9 clean white diagram-led scene for gradient vector and length, trap; exact calculation from storyboard.",
+        "promptSha256": "fed2abf429eff7ca550db90956211021c8eb6a9206f64d54386c903f9d95923a",
+        "generatedAt": "2026-10-30T22:35:56.577Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-first-stage/pe1-kiso-gradient-length/youtube.longform/scene-010",
+      "role": "scene-010",
+      "type": "image/png",
+      "sha256": "39587871ce42848a5ccd98fe619ac4ffb4d89dd218120a6a7330ea83037abd63",
+      "bytes": 920200,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-gradient-length/youtube.longform/scene-010.39587871.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Codex ImageGen: 16:9 clean white diagram-led scene for gradient vector and length, meaning; exact calculation from storyboard.",
+        "promptSha256": "5c85a1ddefdb1c260a6f30646fe27900b0f36e03934d2bb977cb82b508e4e60e",
+        "generatedAt": "2026-10-30T22:35:56.577Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-first-stage/pe1-kiso-gradient-length/youtube.longform/scene-011",
+      "role": "scene-011",
+      "type": "image/png",
+      "sha256": "eca4c25c83cdc057d75413dd3baedc8a0c6c8cbe2a849afe2ee7510da70ac1d5",
+      "bytes": 1373845,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-gradient-length/youtube.longform/scene-011.eca4c25c.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Codex ImageGen: 16:9 clean white diagram-led scene for gradient vector and length, summary; exact calculation from storyboard.",
+        "promptSha256": "d411dd3fd77c0bd199aadda18bb8e74a1f97e031ad58b08c966f2824c5e754b0",
+        "generatedAt": "2026-10-30T22:35:56.577Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-first-stage/pe1-kiso-gradient-length/youtube.longform/scene-012",
+      "role": "scene-012",
+      "type": "image/png",
+      "sha256": "aeb8be72a1ac057ae4552945aa7d85328a3e59fc0fbd7312d2fcbee62c15f405",
+      "bytes": 1792824,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-gradient-length/youtube.longform/scene-012.aeb8be72.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Codex ImageGen: 16:9 clean white diagram-led scene for gradient vector and length, cta; exact calculation from storyboard.",
+        "promptSha256": "7a159b2de71d4e2cd5b5e5b3afc396788fa2f9b93c58215609347a5431ab402c",
+        "generatedAt": "2026-10-30T22:35:56.577Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-first-stage/pe1-kiso-gradient-length/youtube.longform/scene-sheet",
+      "role": "scene-sheet",
+      "type": "image/jpeg",
+      "sha256": "e2b3b089f3cc4cbc269a147daa13ae4641225216e0b5918a4efec20604f31a6a",
+      "bytes": 608563,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-gradient-length/youtube.longform/scene-sheet.e2b3b089.jpg"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "media-preview",
+        "spec": "content/sns/video-packs/pe-first-stage/pe1-kiso-gradient-length/storyboard.json"
+      },
+      "width": 1920,
+      "height": 1592
+    },
+    {
+      "id": "pe-first-stage/pe1-kiso-gradient-length/youtube.longform/subtitles",
+      "role": "subtitles",
+      "type": "text/x-ssa",
+      "sha256": "2bb222229e15d2eefadaa935c9d6a4e2e26863234c78235df686bb09156df472",
+      "bytes": 6200,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-gradient-length/youtube.longform/subtitles.2bb22222.ass"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/pe-first-stage/pe1-kiso-gradient-length/storyboard.json"
+      }
+    },
+    {
+      "id": "pe-first-stage/pe1-kiso-gradient-length/youtube.longform/video",
+      "role": "video",
+      "type": "video/mp4",
+      "sha256": "9effa40dfe6603185c047e2ad9e6189413d466d6227b49bd7b089e51d72c089f",
+      "bytes": 17019468,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-gradient-length/youtube.longform/video.9effa40d.mp4"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/pe-first-stage/pe1-kiso-gradient-length/storyboard.json",
+        "specSha256": "986f2016b50f02611e30711c299040b1017a7c9e934ab66689fd6b2b6c8ac2ac",
+        "renderInputSha256": "03b3cde7db603ca8dd900668b72ba912b36858ecc78f43440598e56fdbf7392b",
+        "tts": {
+          "engine": "VOICEVOX",
+          "speaker": 13,
+          "credit": "VOICEVOX:青山龍星"
+        }
+      },
+      "durationSec": 192.967
     },
     {
       "id": "pe-first-stage/pe1-kiso-gyouretsu-vector/youtube.longform/contact-sheet",

@@ -7093,12 +7093,12 @@
         "metricId": "a8ConfirmedYen",
         "reviewRecord": "data/business/records/review-2026-10-01T06-45-46-827Z-32027a75-8673-4253-90b2-a16aadb455a1.json"
       },
-      "status": "running",
+      "status": "done",
       "created_at": "2026-10-24T02:59:46.600Z",
-      "closed_at": null,
-      "result": null,
-      "learnings": null,
-      "next_check_date": "2026-11-21",
+      "closed_at": "2026-10-30T22:56:00.000Z",
+      "result": "中止（2026-10-31）。運営者の指示で判定日（11/21）を待たずに B（小型カード）を採用して打ち切った。打ち切り時点の実測（GA4 2026-10-30 取得・28 日窓）は広告クリック B 5・C 3、対象ページ閲覧 B 8,572・C 8,344、note のクリック率 B 0.85%（92/10,832）・C 0.65%（69/10,652）。各案 20 クリックの目安に届かず統計的な勝ち負けではないが、C は note の導線を下げる兆しがあり、高さも大きい（PC 本文 284px・スマホ 364px 対 B 150〜236px）。後継は EXP-048（B の 1 枚と、PC で 2 社を並べる B2）",
+      "learnings": "小型カード（B）を既定にする。画像バナー（C）は note の導線を下げる兆しがあり、少数のクリックで画像が勝つ証拠は出なかった。もしもの 250×250 のように素材の大きさが揃わない案件もあるので、意匠は小型カードに寄せる。",
+      "next_check_date": null,
       "actions": [
         "B（小型カード）と C（支給の 300×250 バナー＋ボタン）を、既存の許可済み 3 案件・既存の掲載面へ同率で配信する。面・案件・note の順序は変えない。",
         "ビルドジョブは B をテキスト素材（NTRMQ）、C をバナー素材（NTZCH）のリンクにし、A8 の成果を案別に分ける。計測ピクセルは案が決まってから、その案の素材のピクセルを 1 ページ 1 発（B は NTRMQ・C は NTZCH）。",
@@ -7137,7 +7137,7 @@
       ],
       "measurementPlan": {
         "kind": "affiliate-design",
-        "status": "running",
+        "status": "done",
         "firstRound": [
           "B",
           "C"
@@ -7187,6 +7187,11 @@
           "event": "check",
           "note": "DN-0834: 公開後の GA4 の案別取得に B・C とも届いていることを確かめた。fetch-metrics を validation_only で回し（develop へは書き戻さない）、affiliate-experiment は status available・10/24〜10/28 の EXP-043 の行 7,430。B は表示 3,962・クリック 5・閲覧 7,697・note 表示 9,730・note クリック 86、C は表示 3,854・クリック 3・閲覧 7,721・note 表示 9,685・note クリック 65（両案 insufficient-data）。本番の r08-secondary-answers でも B・C それぞれ affiliate_experiment_impression が送られ、B の計測ピクセル（a8.net/0.gif）があることを見た。measurements への記録は 10/30 の定期取得で measure-experiments が自動で足すため、手では足さない。",
           "runUrl": "https://github.com/uruhayato373/doboku-note/actions/runs/40791429080"
+        },
+        {
+          "at": "2026-10-30T22:56:00.000Z",
+          "event": "close",
+          "note": "運営者の指示（「全部やって」2026-10-31）で、2 枚並べ（EXP-048）を始めるために B を採用して打ち切った。C の素材・コードは外した（CareerAffiliateExperiment）。"
         }
       ],
       "started_at": "2026-10-24T05:26:39Z",
@@ -7403,6 +7408,92 @@
         "nextVerification": "資格トップ（src/lib/magazine-placement.ts の配置条件）に口頭試験の枠が出ているかを本番で確かめる",
         "card": "DN-0902"
       }
+    },
+    {
+      "id": "EXP-048",
+      "title": "PC の本文の転職枠に 2 社の小型カードを横に並べると、閲覧あたりのクリックと成果が増えるかを見る",
+      "hypothesis": "1 枠に 1 社だけを推す形より、読者が 2 社を見比べられる形のほうが相談に進みやすい。表示が増えること自体は目的にせず（成果報酬なので表示は収益にならない）、対象ページの閲覧あたりのクリックと発生・確定額が増えるかを見る（訴求設計 §12.2）。",
+      "target_metric": "対象ページの閲覧あたりの転職広告クリック（affiliate_experiment_click / affiliate_experiment_page_view。表示あたりではない）。成果は ASP の発生・確定額を案ごと・案件ごとに閲覧 1,000 回あたりで比べる。note のクリック率を守る指標にする。",
+      "target_delta": "8 週間で、(1) 閲覧あたりクリックが B2 で B を下回らない (2) 閲覧 1,000 回あたりの発生・確定額が B2 で B を下回らない（両案 0 件なら保留して延長） (3) note のクリック率が B2 で下がらない、の 3 つがそろえば B2 を広げ、どれかが崩れれば B に戻す。両案の合計が 40 クリックに届くまでは途中経過として読むだけ。",
+      "baseline": {
+        "measured_at": "2026-10-30",
+        "source": "GA4 2026-10-30 取得（28 日窓）",
+        "affiliateClicks28d": 26,
+        "affiliateImpressions28d": 25000,
+        "noteCtr": "0.95%（742/78,421）",
+        "note": "EXP-043 の B の打ち切り時点: 閲覧 8,572・クリック 5・note のクリック率 0.85%"
+      },
+      "businessContext": {
+        "qualification": "all",
+        "readerNeed": "資格や工事経験が待遇にどう活きるかを、1 社でなく複数の窓口で比べて相談したい",
+        "verifiedGap": "転職広告のクリック率は表示あたり約 0.10%（28 日・25,000 表示・26 クリック）。確定した報酬は累計 ¥0。",
+        "metricId": "a8ConfirmedYen",
+        "reviewRecord": "data/business/records/review-2026-10-01T06-45-46-827Z-32027a75-8673-4253-90b2-a16aadb455a1.json"
+      },
+      "status": "running",
+      "created_at": "2026-10-30T22:56:00.000Z",
+      "closed_at": null,
+      "result": null,
+      "learnings": null,
+      "next_check_date": "2026-12-26",
+      "actions": [
+        "B＝小型カード 1 枚、B2＝PC（幅 1024px 以上）で同じ本文の枠に 2 社の小型カードを横に並べる。スマホ・タブレットは B2 でも 1 枚。訪問者単位で約 1/2 ずつ、localStorage（doboku-note:EXP-048:variant）で再訪も固定。",
+        "対象の面は本文中（手書き）と本文中間だけ（記事に 1 枠）。2 枚目は config/affiliate-placements.json の pairs で決める（建築＝建築転職＋ビルドジョブ、2 級の学習記事＝建設JOBs＋ビルドジョブ、土木の施工管理＝ビルドジョブ＋コンストワーク）。組の無い面（総監・RCCM・技術士の一次以外のハイクラス）は両案とも 1 枚。",
+        "計測ピクセルは 1 ページ・1 案件・1 発。B2 で 2 枚目が出たときだけ 2 枚目の案件のピクセルを 1 発足す。",
+        "本番に出た日に status を running にし、history に start を記録する。8 週間（2026-12-26）で 3 条件を判定する。"
+      ],
+      "variants": [
+        {
+          "id": "B",
+          "format": "compact",
+          "layout": "1 枠 1 社"
+        },
+        {
+          "id": "B2",
+          "format": "compact-two-up",
+          "layout": "PC は 1 枠に 2 社を横に並べる（grid 2 列）。スマホ・タブレットは 1 社"
+        }
+      ],
+      "measurementPlan": {
+        "kind": "affiliate-design",
+        "status": "running",
+        "firstRound": [
+          "B",
+          "B2"
+        ],
+        "assignment": "訪問者を約 1/2 ずつ。localStorage（doboku-note:EXP-048:variant）で再訪も固定。EXP-043 の割り当ては引き継がない",
+        "dimensions": [
+          "experiment",
+          "variant",
+          "page",
+          "placement",
+          "program",
+          "device",
+          "date"
+        ],
+        "reportId": "ga4.affiliate-experiment",
+        "events": [
+          "affiliate_experiment_page_view",
+          "affiliate_experiment_impression",
+          "affiliate_experiment_click",
+          "note_experiment_impression",
+          "note_experiment_click"
+        ],
+        "startDate": "2026-10-31"
+      },
+      "history": [
+        {
+          "at": "2026-10-30T22:56:00.000Z",
+          "event": "implement",
+          "note": "運営者の指示（2026-10-31「全部やって」）で、EXP-043 を B 採用で打ち切り、訴求設計 §12.2 の 2 枚並べを実装した（DN-0883）。"
+        },
+        {
+          "at": "2026-10-31T00:00:00.000Z",
+          "event": "start",
+          "note": "配信のコード（src/lib/affiliate-experiment.mjs）を EXP-048 に切り替える PR #1318 と同時に running にした（台帳とコードを同じ PR でそろえる・tests/data-wiring.test.mjs）。本番への反映は deploy の日。"
+        }
+      ],
+      "started_at": "2026-10-31T00:00:00.000Z"
     }
   ]
 }

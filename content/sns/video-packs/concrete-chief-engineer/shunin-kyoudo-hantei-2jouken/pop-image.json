@@ -1,0 +1,565 @@
+{
+  "policy": ".claude/knowledge/reference/pop-image-policy.md",
+  "designVersion": "pop-20260927",
+  "channel": "youtube",
+  "source": "content/sns/video-packs/concrete-chief-engineer/shunin-kyoudo-hantei-2jouken",
+  "outputs": {
+    "longform": {
+      "publicationId": "concrete-chief-engineer/shunin-kyoudo-hantei-2jouken/youtube.longform",
+      "copy": {
+        "exam": "concrete-chief-engineer",
+        "headline": [
+          "圧縮強度の判定",
+          "平均だけではダメ"
+        ],
+        "benefit": "品質管理",
+        "authority": "総監が制作"
+      },
+      "evidence": [
+        "content/sns/video-packs/concrete-chief-engineer/shunin-kyoudo-hantei-2jouken/cover-design.json#covers/longform",
+        "content/sns/video-packs/concrete-chief-engineer/shunin-kyoudo-hantei-2jouken/storyboard.json"
+      ],
+      "references": [
+        {
+          "path": ".tmp/media/concrete-chief-engineer/shunin-rekka-taio/work/cover-pop.82b2413f.png",
+          "sha256": "82b2413fd4de9bca533831f27e1cd6bc792b0b3c9d2d46d876d8dcc3ee2f97b1"
+        }
+      ],
+      "prompt": "Codex ImageGen: POP cover or diagram-led body scene for concrete strength criteria, cover; exact Japanese and math verified visually.",
+      "format": {
+        "width": 1920,
+        "height": 1080
+      },
+      "render": {
+        "template": "codex-image-gen",
+        "variant": "question",
+        "pose": "pop-red-pen"
+      },
+      "output": {
+        "path": ".tmp/media/concrete-chief-engineer/shunin-kyoudo-hantei-2jouken/work/cover-pop.1582b091.png",
+        "sha256": "1582b091d6f44a9987809738057f3893838c26581eefd6bb7b896abc9ac39de9"
+      },
+      "review": {
+        "status": "agent-reviewed",
+        "by": "Codex",
+        "checkedAt": "2026-10-30T22:13:14.124Z",
+        "viewportWidth": 360,
+        "checks": [
+          "見出しと資格名",
+          "文字・人物の切れ",
+          "図と主張の整合"
+        ],
+        "userImageReview": "pending"
+      },
+      "storage": {
+        "group": "content-media",
+        "key": ".tmp/media/concrete-chief-engineer/shunin-kyoudo-hantei-2jouken/work/cover-pop.1582b091.png"
+      },
+      "publication": "ローカル差し替え・外部未反映"
+    }
+  },
+  "activeBodyRevision": "body-diagram-20261028",
+  "activeCoverRevision": "cover-pop-20261028",
+  "revisions": {
+    "body-diagram-20261028": {
+      "layout": {
+        "mode": "diagram-led"
+      },
+      "images": [
+        {
+          "sceneId": "premise",
+          "inputSha256": "ecb9e7305b83ffa9774faf5a4ea68852f3a5393c6471c890fececc8d7c4d40e3",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Codex ImageGen: POP cover or diagram-led body scene for concrete strength criteria, premise; exact Japanese and math verified visually.",
+            "references": [
+              {
+                "path": ".tmp/media/concrete-chief-engineer/shunin-rekka-taio/work/cover-pop.82b2413f.png",
+                "sha256": "82b2413fd4de9bca533831f27e1cd6bc792b0b3c9d2d46d876d8dcc3ee2f97b1"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-chief-engineer/shunin-kyoudo-hantei-2jouken/work/raw-premise-diagram.8b8204a3.png",
+              "sha256": "8b8204a30e7b92046869352fda0ff114f1303cfe3baca63f272c6c3d5e4489ea"
+            },
+            "generatedAt": "2026-10-30T22:13:14.124Z"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-chief-engineer/shunin-kyoudo-hantei-2jouken/work/premise-diagram.802f5dbb.png",
+            "sha256": "802f5dbb30ab0114c8522b1ee18fc5d402f2444cf5ce46d222316a2c3d237940",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "8b8204a30e7b92046869352fda0ff114f1303cfe3baca63f272c6c3d5e4489ea"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-30T22:13:14.124Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字・数値の判読",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "myth",
+          "inputSha256": "cffaffcf26c9232f0272799e39570736ba8bd1be1f53095f3e31960c647705e4",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Codex ImageGen: POP cover or diagram-led body scene for concrete strength criteria, myth; exact Japanese and math verified visually.",
+            "references": [
+              {
+                "path": ".tmp/media/concrete-chief-engineer/shunin-rekka-taio/work/cover-pop.82b2413f.png",
+                "sha256": "82b2413fd4de9bca533831f27e1cd6bc792b0b3c9d2d46d876d8dcc3ee2f97b1"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-chief-engineer/shunin-kyoudo-hantei-2jouken/work/raw-myth-diagram.89639cd4.png",
+              "sha256": "89639cd4a2ea3d88e46d61b527d4c8f46586e1b766c0e68dfd19372ce878228b"
+            },
+            "generatedAt": "2026-10-30T22:13:14.124Z"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-chief-engineer/shunin-kyoudo-hantei-2jouken/work/myth-diagram.2a8067ef.png",
+            "sha256": "2a8067ef809dc259d2d37c0784cbeaa559d4d6ef4f82ce17e14675c2247871a8",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "89639cd4a2ea3d88e46d61b527d4c8f46586e1b766c0e68dfd19372ce878228b"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-30T22:13:14.124Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字・数値の判読",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "cond1",
+          "inputSha256": "0b17b361ec9f8df4be78b79e3d302d0093747158a90963ae276b7be66bf4e14b",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Codex ImageGen: POP cover or diagram-led body scene for concrete strength criteria, cond1; exact Japanese and math verified visually.",
+            "references": [
+              {
+                "path": ".tmp/media/concrete-chief-engineer/shunin-rekka-taio/work/cover-pop.82b2413f.png",
+                "sha256": "82b2413fd4de9bca533831f27e1cd6bc792b0b3c9d2d46d876d8dcc3ee2f97b1"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-chief-engineer/shunin-kyoudo-hantei-2jouken/work/raw-cond1-diagram.0169dd45.png",
+              "sha256": "0169dd45c9e1f91769a0b4fa7dffb724720830a2c7934825765303126077f51a"
+            },
+            "generatedAt": "2026-10-30T22:13:14.124Z"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-chief-engineer/shunin-kyoudo-hantei-2jouken/work/cond1-diagram.b831871d.png",
+            "sha256": "b831871d7acd37ced6e5d0b17ac6cad3839950ec38cd17275acb9363544979cd",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "0169dd45c9e1f91769a0b4fa7dffb724720830a2c7934825765303126077f51a"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-30T22:13:14.124Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字・数値の判読",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "cond2",
+          "inputSha256": "c43d56611ab4aa6c0938533f8930ef17cb6c780972efdfe0f38ab04feaaaae04",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Codex ImageGen: POP cover or diagram-led body scene for concrete strength criteria, cond2; exact Japanese and math verified visually.",
+            "references": [
+              {
+                "path": ".tmp/media/concrete-chief-engineer/shunin-rekka-taio/work/cover-pop.82b2413f.png",
+                "sha256": "82b2413fd4de9bca533831f27e1cd6bc792b0b3c9d2d46d876d8dcc3ee2f97b1"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-chief-engineer/shunin-kyoudo-hantei-2jouken/work/raw-cond2-diagram.ebcd5230.png",
+              "sha256": "ebcd5230f4af6d1fb4e21a4719fb8bc49b135793864c6d831881151c85db33d6"
+            },
+            "generatedAt": "2026-10-30T22:13:14.124Z"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-chief-engineer/shunin-kyoudo-hantei-2jouken/work/cond2-diagram.f1092472.png",
+            "sha256": "f1092472fb0e35c151b9636e436dbad370b972660eec0d485b746648ec6b8551",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "ebcd5230f4af6d1fb4e21a4719fb8bc49b135793864c6d831881151c85db33d6"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-30T22:13:14.124Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字・数値の判読",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "caseA",
+          "inputSha256": "0b1833b414df4cd0872750b136e438d685dd19bd0a522a219b46ccc2f74542a8",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Codex ImageGen: POP cover or diagram-led body scene for concrete strength criteria, caseA; exact Japanese and math verified visually.",
+            "references": [
+              {
+                "path": ".tmp/media/concrete-chief-engineer/shunin-rekka-taio/work/cover-pop.82b2413f.png",
+                "sha256": "82b2413fd4de9bca533831f27e1cd6bc792b0b3c9d2d46d876d8dcc3ee2f97b1"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-chief-engineer/shunin-kyoudo-hantei-2jouken/work/raw-caseA-diagram.8dfc8245.png",
+              "sha256": "8dfc82455fb275fc780f74f9cae6ea7cbdea5f2f4044bf4f31e41e8362344c0e"
+            },
+            "generatedAt": "2026-10-30T22:13:14.124Z"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-chief-engineer/shunin-kyoudo-hantei-2jouken/work/caseA-diagram.c3db53b0.png",
+            "sha256": "c3db53b0c839a5471e462632687a55c8c95199bd0df11198a4cf4ededd0b9593",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "8dfc82455fb275fc780f74f9cae6ea7cbdea5f2f4044bf4f31e41e8362344c0e"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-30T22:13:14.124Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字・数値の判読",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "caseB",
+          "inputSha256": "1778dcdf67e3898c505a2a6353509ce7b9d73eb8768b4047db85795debf99911",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Codex ImageGen: POP cover or diagram-led body scene for concrete strength criteria, caseB; exact Japanese and math verified visually.",
+            "references": [
+              {
+                "path": ".tmp/media/concrete-chief-engineer/shunin-rekka-taio/work/cover-pop.82b2413f.png",
+                "sha256": "82b2413fd4de9bca533831f27e1cd6bc792b0b3c9d2d46d876d8dcc3ee2f97b1"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-chief-engineer/shunin-kyoudo-hantei-2jouken/work/raw-caseB-diagram.4d6ed9ab.png",
+              "sha256": "4d6ed9ab82d001dc2557021c1dcccd0bae9cd008912628c38999bfe563d89dad"
+            },
+            "generatedAt": "2026-10-30T22:13:14.124Z"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-chief-engineer/shunin-kyoudo-hantei-2jouken/work/caseB-diagram.9e6a9978.png",
+            "sha256": "9e6a9978071ca275dcf9d2dc0b45f5c073ab2601a2a293e5a5152b016a0070e3",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "4d6ed9ab82d001dc2557021c1dcccd0bae9cd008912628c38999bfe563d89dad"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-30T22:13:14.124Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字・数値の判読",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "steps",
+          "inputSha256": "5c9fb09f98c9051df82a977d74287475ea43ffd540bac83693180f92673c9cac",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Codex ImageGen: POP cover or diagram-led body scene for concrete strength criteria, steps; exact Japanese and math verified visually.",
+            "references": [
+              {
+                "path": ".tmp/media/concrete-chief-engineer/shunin-rekka-taio/work/cover-pop.82b2413f.png",
+                "sha256": "82b2413fd4de9bca533831f27e1cd6bc792b0b3c9d2d46d876d8dcc3ee2f97b1"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-chief-engineer/shunin-kyoudo-hantei-2jouken/work/raw-steps-diagram.c941d4f8.png",
+              "sha256": "c941d4f804b36a03c1255012c93bba4f464a6f8e116319e007cb72b079bc0f24"
+            },
+            "generatedAt": "2026-10-30T22:13:14.124Z"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-chief-engineer/shunin-kyoudo-hantei-2jouken/work/steps-diagram.b19e0f06.png",
+            "sha256": "b19e0f068a36081e31e7cb62459b1d6744e233dcc792ff0c8cd8f7146415b5c3",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "c941d4f804b36a03c1255012c93bba4f464a6f8e116319e007cb72b079bc0f24"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-30T22:13:14.124Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字・数値の判読",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "caution",
+          "inputSha256": "03eff14878900971c6b8dabc1c1fbe913bb4e30719f06892d47d7b26935399b9",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Codex ImageGen: POP cover or diagram-led body scene for concrete strength criteria, caution; exact Japanese and math verified visually.",
+            "references": [
+              {
+                "path": ".tmp/media/concrete-chief-engineer/shunin-rekka-taio/work/cover-pop.82b2413f.png",
+                "sha256": "82b2413fd4de9bca533831f27e1cd6bc792b0b3c9d2d46d876d8dcc3ee2f97b1"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-chief-engineer/shunin-kyoudo-hantei-2jouken/work/raw-caution-diagram.528da15f.png",
+              "sha256": "528da15fc8bc454faa613deb0c1efc75b9eab0a5470939039499db265cedf2a9"
+            },
+            "generatedAt": "2026-10-30T22:13:14.124Z"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-chief-engineer/shunin-kyoudo-hantei-2jouken/work/caution-diagram.9ef7821e.png",
+            "sha256": "9ef7821e8ac2b5f0e8255adb828c033b6b4052558792a333b33ef89c569ff238",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "528da15fc8bc454faa613deb0c1efc75b9eab0a5470939039499db265cedf2a9"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-30T22:13:14.124Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字・数値の判読",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "summary",
+          "inputSha256": "22f6609f41ccb47cd2440c8d916862817d3dd2785cb18b6d2f5732e78c879a12",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Codex ImageGen: POP cover or diagram-led body scene for concrete strength criteria, summary; exact Japanese and math verified visually.",
+            "references": [
+              {
+                "path": ".tmp/media/concrete-chief-engineer/shunin-rekka-taio/work/cover-pop.82b2413f.png",
+                "sha256": "82b2413fd4de9bca533831f27e1cd6bc792b0b3c9d2d46d876d8dcc3ee2f97b1"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-chief-engineer/shunin-kyoudo-hantei-2jouken/work/raw-summary-diagram.8b8204a3.png",
+              "sha256": "8b8204a30e7b92046869352fda0ff114f1303cfe3baca63f272c6c3d5e4489ea"
+            },
+            "generatedAt": "2026-10-30T22:13:14.124Z"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-chief-engineer/shunin-kyoudo-hantei-2jouken/work/summary-diagram.802f5dbb.png",
+            "sha256": "802f5dbb30ab0114c8522b1ee18fc5d402f2444cf5ce46d222316a2c3d237940",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "8b8204a30e7b92046869352fda0ff114f1303cfe3baca63f272c6c3d5e4489ea"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-30T22:13:14.124Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字・数値の判読",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "cta",
+          "inputSha256": "b4602591a59a806667acbdcb03172b12bd485f5d3b1d09680fb9ffab7adeca6b",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Codex ImageGen: POP cover or diagram-led body scene for concrete strength criteria, cta; exact Japanese and math verified visually.",
+            "references": [
+              {
+                "path": ".tmp/media/concrete-chief-engineer/shunin-rekka-taio/work/cover-pop.82b2413f.png",
+                "sha256": "82b2413fd4de9bca533831f27e1cd6bc792b0b3c9d2d46d876d8dcc3ee2f97b1"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/concrete-chief-engineer/shunin-kyoudo-hantei-2jouken/work/raw-cta-diagram.bf6f2d4e.png",
+              "sha256": "bf6f2d4e80edd3dddda86dc49ddb11480e75234f469bfec32a3f15bfba80beb9"
+            },
+            "generatedAt": "2026-10-30T22:13:14.124Z"
+          },
+          "output": {
+            "path": ".tmp/media/concrete-chief-engineer/shunin-kyoudo-hantei-2jouken/work/cta-diagram.d4357624.png",
+            "sha256": "d4357624ad96670bdd51ccce50a46e97c597699c9bdc0b675f9c32fb201d606b",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "bf6f2d4e80edd3dddda86dc49ddb11480e75234f469bfec32a3f15bfba80beb9"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "userReview": "pending",
+            "checkedAt": "2026-10-30T22:13:14.124Z",
+            "by": "Codex",
+            "views": [
+              "original"
+            ],
+            "checks": [
+              "図解と原稿の意味",
+              "文字・数値の判読",
+              "人物なし"
+            ],
+            "continuousListening": "not-performed"
+          }
+        }
+      ]
+    },
+    "cover-pop-20261028": {
+      "version": "pop-poster-v3",
+      "generation": {
+        "tool": "image_gen",
+        "prompt": "Codex ImageGen: POP cover or diagram-led body scene for concrete strength criteria, cover; exact Japanese and math verified visually.",
+        "references": [
+          {
+            "path": ".tmp/media/concrete-chief-engineer/shunin-rekka-taio/work/cover-pop.82b2413f.png",
+            "sha256": "82b2413fd4de9bca533831f27e1cd6bc792b0b3c9d2d46d876d8dcc3ee2f97b1"
+          }
+        ],
+        "output": {
+          "path": ".tmp/media/concrete-chief-engineer/shunin-kyoudo-hantei-2jouken/work/raw-cover-pop.ba311ae4.png",
+          "sha256": "ba311ae44f293253da784e5dd466375a545fd0b31cc92fdbb36cf1bc3cb1acb2"
+        },
+        "generatedAt": "2026-10-30T22:13:14.124Z"
+      },
+      "copy": {
+        "exam": "concrete-chief-engineer",
+        "headline": [
+          "圧縮強度の判定",
+          "平均だけではダメ"
+        ],
+        "authority": "総監が制作"
+      },
+      "output": {
+        "path": ".tmp/media/concrete-chief-engineer/shunin-kyoudo-hantei-2jouken/work/cover-pop.1582b091.png",
+        "sha256": "1582b091d6f44a9987809738057f3893838c26581eefd6bb7b896abc9ac39de9",
+        "width": 1920,
+        "height": 1080
+      },
+      "normalization": {
+        "mode": "full-frame-v1",
+        "sourceSha256": "ba311ae44f293253da784e5dd466375a545fd0b31cc92fdbb36cf1bc3cb1acb2"
+      },
+      "review": {
+        "status": "ai-reviewed",
+        "userImageReview": "pending",
+        "checkedAt": "2026-10-30T22:13:14.124Z",
+        "by": "Codex",
+        "views": [
+          "original"
+        ],
+        "checks": [
+          "文言・資格名",
+          "顔と安全域"
+        ]
+      },
+      "storage": {
+        "group": "content-media",
+        "sync": "local"
+      }
+    }
+  }
+}

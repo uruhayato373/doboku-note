@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "pe-first-stage",
+      "headline": [
+        "多数決の",
+        "信頼度"
+      ],
+      "accentLine": 0,
+      "subtitle": "基礎科目",
+      "character": {
+        "pose": "pop-red-pen",
+        "frame": "waist"
+      },
+      "design": "pop-poster-v3",
+      "pop": {
+        "variant": "question",
+        "authority": "総監が制作"
+      },
+      "approvedImage": {
+        "path": ".tmp/media/pe-first-stage/pe1-kiso-2of3-reliability/work/cover-pop.ee5d6f0e.png",
+        "sha256": "ee5d6f0e2161e39a88372be44f2cb345eeb0c95126f4a7a292b03ab88bc8c52d",
+        "specSha256": "23e235385c470e014c6bec484813d21980636c4e4d768716bea06d723af374aa"
+      }
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "concrete-chief",
+      "headline": [
+        "初期材齢の",
+        "3曲線"
+      ],
+      "accentLine": 0,
+      "subtitle": "品質管理",
+      "character": {
+        "pose": "pop-red-pen",
+        "frame": "waist"
+      },
+      "design": "pop-poster-v3",
+      "pop": {
+        "variant": "question",
+        "authority": "総監が制作"
+      },
+      "approvedImage": {
+        "path": ".tmp/media/concrete-chief-engineer/shunin-shoki-3kyokusen/work/cover-pop.2ecab82e.png",
+        "sha256": "2ecab82ee210201b8c28739abfb67819a0321fba58f17d85a9083ffb0a5b0bed",
+        "specSha256": "ef1e16ecc217e194025455a17bab9c63892f57e436632fdc6c6fcf1a9fa4f6c4"
+      }
+    }
+  }
+}
