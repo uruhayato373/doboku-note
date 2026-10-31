@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "design": "pop-poster-v3",
+  "model": "Codex ImageGen",
+  "method": "edit",
+  "reference": {
+    "path": ".tmp/media/account/ig-start-guide/instagram.carousel/cover.f9ee7736.png",
+    "sha256": "f9ee77366a1197b3e896fbbe16215942fde862999d803aaf7b402644bd19aae9"
+  },
+  "promptFile": "content/sns/instagram/profile-pinned/start-guide/prompt.txt",
+  "exactText": "はじめての方へ / 資格別の学び方",
+  "source": {
+    "file": "exec-1ee8120a-8faa-4340-a9ab-fcf4b916b0d8.png",
+    "sha256": "4b4a3dd91dd840c0f05cbfc310e87f60306fce68bb8a77add15d048e10405bff"
+  },
+  "output": {
+    "path": ".tmp/media/account/ig-start-guide/instagram.carousel/cover.c9ca488c.png",
+    "sha256": "c9ca488c754323ab11cb97a7297c70c2d38f916a161e6cf7b78a9e1bf4a28d90",
+    "width": 1080,
+    "height": 1350
+  },
+  "normalization": "Sharp resize cover 1080x1350; no content edits"
+}

@@ -653,6 +653,20 @@
       "times": {
         "rendered": "2026-09-10T11:06:12.991Z"
       }
+    },
+    {
+      "id": "concrete-engineer/ig-concrete-route/instagram.carousel",
+      "work": "ig-concrete-route",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "profile-pinned/concrete-route",
+      "copy": "content/sns/instagram/profile-pinned/concrete-route/carousel/caption.txt",
+      "status": "qa_passed",
+      "media": {
+        "cover": "concrete-engineer/ig-concrete-route/instagram.carousel/cover",
+        "route": "concrete-engineer/ig-concrete-route/instagram.carousel/route"
+      },
+      "publishAt": "2026-11-02T18:00:00+09:00"
     }
   ]
 }

@@ -12,6 +12,7 @@
  *   npm run media -- preview --pub <公開 ID> [--commit]    # 音声の前の画面確認: 無音プレビュー・10 秒ごとのコンタクトシート・数値（DN-0603）
  *   npm run media -- adopt-video-brand [--commit]          # 2026-09-09 の日付フォルダ・連番名の採用表紙・締め画像を ID の置き場へ（DN-0607）
  *   npm run media -- plate --pub <公開 ID> --role <役割> --prompt-file <指示文> [--model <m>] [--input <生成済み画像>] [--commit]  # Codex で作った画像を素材に結ぶ（来歴＋判定 ok が必須・既定 dry-run）
+ *   npm run media -- adopt-render --pub <公開 ID> --role <役割> --input <生成PNG> --spec <描画元SVG> [--commit]
  *
  * promote・sync・pull は既定で dry-run。置いた素材は書き換えない（描き直したものは別名で置く）。
  */
@@ -31,7 +32,7 @@ import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
 const { values: args, positionals } = parseArgs({
   allowPositionals: true,
-  options: { pub: { type: 'string' }, work: { type: 'string' }, commit: { type: 'boolean' }, candidate: { type: 'boolean' }, role: { type: 'string' }, 'prompt-file': { type: 'string' }, model: { type: 'string' }, input: { type: 'string' } },
+  options: { pub: { type: 'string' }, work: { type: 'string' }, commit: { type: 'boolean' }, candidate: { type: 'boolean' }, role: { type: 'string' }, 'prompt-file': { type: 'string' }, model: { type: 'string' }, input: { type: 'string' }, spec: { type: 'string' } },
 });
 const sha256Of = (abs) => createHash('sha256').update(readFileSync(abs)).digest('hex');
 
@@ -153,6 +154,35 @@ async function plate() {
   if (r.code) process.exitCode = r.code;
 }
 
+/** SVG から描画した完成PNGを、元SVGのSHAとともに公開素材へ結ぶ。 */
+async function adoptRender() {
+  if (!args.pub || !args.role || !args.input || !args.spec) throw new Error('adopt-render は --pub --role --input --spec が要る');
+  if (!/^[a-z][a-z0-9-]*$/.test(args.role)) throw new Error('role は小文字・数字・ハイフンで指定する');
+  const reg = loadRegistry(ROOT);
+  const pub = reg.publications.find((p) => p.id === args.pub);
+  if (!pub || pub.status !== 'draft') throw new Error('draft の公開行が要る');
+  const input = join(ROOT, args.input);
+  const spec = join(ROOT, args.spec);
+  if (!existsSync(input) || !existsSync(spec)) throw new Error('入力PNGまたは元SVGが無い');
+  const meta = await sharp(input).metadata();
+  if (meta.format !== 'png' || meta.width !== 1080 || meta.height !== 1350) throw new Error('Instagram用PNGは1080×1350が必要');
+  const sha256 = sha256Of(input);
+  const path = mediaPath({ pubId: pub.id, role: args.role, sha256, ext: 'png' });
+  const id = mediaIdOf(pub.id, args.role);
+  const row = { id, role: args.role, type: 'image/png', sha256, bytes: readFileSync(input).length,
+    width: meta.width, height: meta.height, store: { tier: 'drive', path },
+    provenance: { kind: 'render', by: 'generate-instagram-pinned', spec: args.spec, specSha256: sha256Of(spec) } };
+  console.log(`${id}: ${args.input} → ${path}`);
+  if (!args.commit) { console.log('dry-run（台帳へは書いていない）'); return; }
+  const dest = join(ROOT, path);
+  mkdirSync(dirname(dest), { recursive: true });
+  if (!existsSync(dest)) copyFileSync(input, dest);
+  else if (sha256Of(dest) !== sha256) throw new Error(`既存の素材とSHAが違う: ${path}`);
+  upsertMedia(ROOT, pub.exam, [row]);
+  upsertPublications(ROOT, pub.channel, pub.exam, [{ ...pub, media: { ...(pub.media ?? {}), [args.role]: id } }]);
+  console.log('採用した。Drive同期後に公開の最終承認へ進む');
+}
+
 const commands = {
   'verify-render': () => {
     if (!/^[a-z0-9-]+\/[a-z0-9-]+$/.test(args.work ?? '')) throw new Error('--work <exam>/<work> が要る');
@@ -165,6 +195,7 @@ const commands = {
   },
   promote,
   plate,
+  'adopt-render': adoptRender,
   preview,
   'adopt-video-brand': adoptVideoBrand,
   sync: () => vault(args.commit ? ['--commit'] : []),
@@ -173,7 +204,7 @@ const commands = {
 };
 const [command] = positionals;
 if (!commands[command]) {
-  console.error('Usage: npm run media -- promote|verify-render|plate|preview|sync|verify|pull|adopt-video-brand …');
+  console.error('Usage: npm run media -- promote|verify-render|plate|adopt-render|preview|sync|verify|pull|adopt-video-brand …');
   process.exit(2);
 }
 await commands[command]();

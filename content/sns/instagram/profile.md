@@ -2,7 +2,7 @@
 title: Instagram プロフィール文案
 purpose: Instagramプロフィールの設計理由・変更履歴。実際の表示名・bio・URLは `config/ig-account.json` がSSOT。
 characterLimit: 150
-lastUpdated: 2026-05-26
+lastUpdated: 2026-10-31
 appliesTo: Instagram のプロフィール欄（自己紹介）
 personaQualifications:
   - 1級土木施工管理技士
@@ -31,7 +31,7 @@ Instagram アカウント `@dobokunotecom` のプロフィール設計理由と�
 | 表示名 (Name) | 30 字 | 検索インデックス対象（最重要） |
 | ユーザー名 | 30 字 | `@dobokunotecom`（X と統一済み・運用中） |
 | 自己紹介 (Bio) | **150 字** | X (160) より 10 字きつい |
-| リンク欄 | 1 個（複数化は Linktree または自前 `/links`） | doboku-note.com/links を採用 |
+| サイトへのリンク | 1 個 | UTM付きの `/links` を採用。実プロフィールには別にFacebookページのリンクもある。実値は `config/ig-account.json` |
 
 ## チャネル役割（戦略 v6）
 
@@ -64,7 +64,7 @@ Instagramの機械可読SSOTは `config/ig-account.json`。Xは別アカウン�
 ### リンク欄
 
 ```
-https://doboku-note.com/links
+https://doboku-note.com/links?utm_source=instagram&utm_medium=social&utm_campaign=bio-link&utm_content=bio
 ```
 
 自前リンクハブ（2026-05-26 リリース）。doboku-note ドメインパワー集約・GA4 完全分析。詳細: `.claude/knowledge/reference/links-hub.md`。
@@ -74,14 +74,17 @@ https://doboku-note.com/links
 ## Bio 採用版
 
 ```
-技術士・1級土木の答案づくりを図解
-元・自治体土木職｜発注者視点
-技術士〈建設・総監〉・1級土木ほか
-過去問／記述式／経験記述
-保存して試験前に見返す教材↓
+技術士一次・コンクリート技士／主任技士を図解
+元・自治体土木職｜技術士（建設・総監）
+過去問・記述・小論文を1テーマずつ
+無料解説と有料教材は下のリンクから↓
 ```
 
 現在値は `config/ig-account.json` の `profile.bio` を参照する。
+
+### 上部の固定投稿（計画）
+
+`config/ig-account.json` の `profile.pinnedPosts` が順番と状態の正本。2026-10-31 の実プロフィールでは固定投稿を確認できなかった。新規来訪者向けの3本（①資格別スタートガイド、②技術士一次、③コンクリート技士・主任技士）は `config/instagram-pinned.json` と `profile-pinned/` の各カルーセルで制作し、11月2日09:00／12:00／18:00 JSTのQA通過状態まで準備した。表紙はPOP、2枚目は簡潔な経路図。投稿・固定の実表示を読み戻した後にのみ `status` を更新する。
 
 ### 旧採用版（案A・138 字・資格列挙型・〜2026-07-19）
 

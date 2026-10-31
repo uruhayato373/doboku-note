@@ -108,6 +108,7 @@ config/content-registry.json          チャネル×形式・アカウント・I
 ## YouTube の切り替え（P2・2026-10-09）
 
 - `config/content-registry.json` の `cutover` に `youtube` が入り、動画パックの YouTube の状態の正本は台帳になった。写しだった `.claude/state/video-content-status.json` は 2026-10-09 に消した（P7）。`derivatives.longform`・`derivatives.shorts` の形は台帳から `loadVideoState` が作る。Instagram（動画パックのリールを含む）は台帳が正本で、`instagramReel` は派生物の形に含めない（P5）。
+- Instagram の新規固定カルーセルは `import-instagram --folder profile-pinned/<key> --commit` で対象1件を台帳へ入れ、`media -- plate`（POP表紙）と `media -- adopt-render`（SVGから描いた図解）で両スライドを素材IDへ結ぶ。Drive同期とAI画像監査の後、`prepare-instagram-pinned --pub <ID> --publish-at <ISO+09:00> --commit` が画像・文面・日時を照合して `qa_passed` にする。運営者本人のハッシュ付き `approve --stage final` を経て `mark-instagram-rendered --pub <ID> --commit` で予約可能にする。`publish-ig-bs` は台帳行・予定日時・現版の承認が揃わなければBusiness Suiteへ進まない。実投稿後のプロフィール固定は実表示を読み戻してから記録する。
 - 変換は `scripts/lib/registry-video-state.mjs` だけが持つ。派生物の欄と台帳の欄は欠けなく往復し（全パックで往復するテストつき）、知らない欄は投げる。書き手が新しい欄を足すときは、型（`dataset-schemas-content.mjs`）と変換の両方に足す。
 - 旧形式の書き手（`publish-video-pack.cjs`・`prepare-youtube-longforms.mts`）は `loadVideoState`（台帳だけから作る・ファイルは読まない）で読み、`saveVideoState` で台帳の行へ書く。初回通常動画の個別投稿は `registry -- publish-youtube` が公開IDの行を排他して保存する。読むだけのスクリプトと管理画面は `loadVideoState` を通す。
 - 派生物の無い公開（Shorts を作る前の動画パック）は行を作らない。Shorts の行は `youtube.json` の `shorts` に鍵を決めたときにできる。台帳にだけある素の下書き（`status: draft` だけの行）は写しに出さない。

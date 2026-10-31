@@ -332,6 +332,7 @@
     "instagram-reels:verify-planner": "node scripts/verify-instagram-planner.mjs",
     "instagram-reels:prune": "node scripts/prune-instagram-video-pack-reels.mjs",
     "check-instagram-reels": "node scripts/check-instagram-video-pack-reels.mjs",
+    "check-instagram-profile-funnel": "node scripts/check-instagram-profile-funnel.mjs",
     "youtube-longform:stage": "node scripts/stage-youtube-renders-r2.mjs",
     "build-video-pack-index": "node scripts/build-video-pack-index.mjs",
     "check-public-bloat": "node scripts/check-public-bloat.mjs",

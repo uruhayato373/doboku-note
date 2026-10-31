@@ -144,6 +144,7 @@ export const DATASETS = [
   d('config.x-account', 'config/x-account.json', 'config', 'sns', 'X のアカウントとプロフィール', { schema: 'ConfigXAccount' }),
   d('config.x-repost', 'config/x-repost.json', 'config', 'sns', 'X の引用リポストの設定', { schema: 'ConfigXRepost' }),
   d('config.ig-account', 'config/ig-account.json', 'config', 'sns', 'Instagram のアカウントとプロフィール', { schema: 'ConfigIgAccount' }),
+  d('config.instagram-pinned', 'config/instagram-pinned.json', 'config', 'sns', 'Instagramプロフィール固定投稿3本の原稿と図解データ', { schema: 'InstagramPinnedManifest' }),
   d('config.character-poses', 'config/character-poses.json', 'config', 'sns', 'キャラクター素材のポーズと命名', { schema: 'ConfigCharacterPoses' }),
   d('config.video-brand', 'config/video-brand.json', 'config', 'sns', '動画のブランド（ロゴ・背景）', { schema: 'ConfigVideoBrand' }),
   d('config.video-content', 'config/video-content.json', 'config', 'sns', '動画パックの契約', { schema: 'ConfigVideoContent' }),
@@ -158,7 +159,7 @@ export const DATASETS = [
   d('registry.x', 'content/registry/publications/x/{name}', 'config', 'sns', 'コンテンツ台帳: X の公開（資格ごと）', { schema: 'RegistryPublications', refs: [{ at: 'exam', to: 'qualification', ignore: ['account'] }] }),
   d('registry.threads', 'content/registry/publications/threads/{name}', 'config', 'sns', 'コンテンツ台帳: Threads の公開（資格ごと）', { schema: 'RegistryPublications', planned: true }),
   d('registry.tiktok', 'content/registry/publications/tiktok/{name}', 'config', 'sns', 'コンテンツ台帳: TikTok の公開（資格ごと）', { schema: 'RegistryPublications', planned: true }),
-  d('registry.media', 'content/registry/media/{name}', 'config', 'sns', 'コンテンツ台帳: 素材（資格ごと・brand）', { schema: 'RegistryMedia', refs: [{ at: 'scope', to: 'qualification', ignore: ['brand'] }] }),
+  d('registry.media', 'content/registry/media/{name}', 'config', 'sns', 'コンテンツ台帳: 素材（資格・account・brand ごと）', { schema: 'RegistryMedia', refs: [{ at: 'scope', to: 'qualification', ignore: ['brand', 'account'] }] }),
   // 教材
   d('config.reference-sources', 'config/reference-sources.json', 'config', 'material', '参考文献（原本・一次資料）の区分と扱い', { schema: 'ConfigReferenceSources' }),
   d('config.policy-registry', 'config/policy-registry.json', 'config', 'material', '国の計画・施策・審議会の台帳（根拠法・所管・決定日・一次資料の URL・関わる横断テーマ）。分野・立場のテーマのページと法令ページの制度の地図に出す（content-taxonomy.md §6-3）', { schema: 'ConfigPolicyRegistry' }),

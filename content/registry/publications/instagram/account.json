@@ -83,6 +83,20 @@
       "status": "stopped",
       "stopReason": "unverified-legacy",
       "reason": "ハイライト・ストーリーは公開の記録が無い（照合の対象外）"
+    },
+    {
+      "id": "account/ig-start-guide/instagram.carousel",
+      "work": "ig-start-guide",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "profile-pinned/start-guide",
+      "copy": "content/sns/instagram/profile-pinned/start-guide/carousel/caption.txt",
+      "status": "qa_passed",
+      "media": {
+        "cover": "account/ig-start-guide/instagram.carousel/cover",
+        "route": "account/ig-start-guide/instagram.carousel/route"
+      },
+      "publishAt": "2026-11-02T09:00:00+09:00"
     }
   ]
 }

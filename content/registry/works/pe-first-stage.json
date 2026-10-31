@@ -3,6 +3,11 @@
   "exam": "pe-first-stage",
   "works": [
     {
+      "id": "ig-pe-first-stage-route",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/profile-pinned/pe-first-stage-route"
+    },
+    {
       "id": "pe-first-stage-calculation-diagrams",
       "kind": "x-thread",
       "definition": "content/sns/x/draft/100-pe-first-stage-calculation-diagrams",
