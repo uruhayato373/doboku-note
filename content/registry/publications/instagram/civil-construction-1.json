@@ -77,7 +77,7 @@
       "format": "carousel",
       "legacyKey": "civil-1/theme-packs/anzen-general_hazard/pack-03",
       "copy": "content/sns/instagram/civil-1/theme-packs/anzen-general_hazard/pack-03/carousel/caption.txt",
-      "status": "published",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -86,13 +86,14 @@
       "platform": {
         "id": "DcihensgaMx",
         "url": "https://www.instagram.com/p/DcihensgaMx/",
-        "privacy": "public",
+        "privacy": "gone",
         "kind": "shortcode",
         "evidence": {
           "kind": "ig-snapshot",
           "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#recorded"
         }
-      }
+      },
+      "stopReason": "gone"
     },
     {
       "id": "civil-construction-1/c1-anzen-health-p01/instagram.carousel",
@@ -128,7 +129,7 @@
       "format": "carousel",
       "legacyKey": "civil-1/theme-packs/anzen-org/pack-01",
       "copy": "content/sns/instagram/civil-1/theme-packs/anzen-org/pack-01/carousel/caption.txt",
-      "status": "published",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -137,13 +138,14 @@
       "platform": {
         "id": "DbX2ZZ0jik5",
         "url": "https://www.instagram.com/p/DbX2ZZ0jik5/",
-        "privacy": "public",
+        "privacy": "gone",
         "kind": "shortcode",
         "evidence": {
           "kind": "ig-snapshot",
           "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#recorded"
         }
-      }
+      },
+      "stopReason": "gone"
     },
     {
       "id": "civil-construction-1/c1-anzen-org-p02/instagram.carousel",
@@ -152,7 +154,7 @@
       "format": "carousel",
       "legacyKey": "civil-1/theme-packs/anzen-org/pack-02",
       "copy": "content/sns/instagram/civil-1/theme-packs/anzen-org/pack-02/carousel/caption.txt",
-      "status": "published",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -161,13 +163,14 @@
       "platform": {
         "id": "DbabNSQCNOn",
         "url": "https://www.instagram.com/p/DbabNSQCNOn/",
-        "privacy": "public",
+        "privacy": "gone",
         "kind": "shortcode",
         "evidence": {
           "kind": "ig-snapshot",
           "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#recorded"
         }
-      }
+      },
+      "stopReason": "gone"
     },
     {
       "id": "civil-construction-1/c1-anzen-org-p03/instagram.carousel",
@@ -176,7 +179,7 @@
       "format": "carousel",
       "legacyKey": "civil-1/theme-packs/anzen-org/pack-03",
       "copy": "content/sns/instagram/civil-1/theme-packs/anzen-org/pack-03/carousel/caption.txt",
-      "status": "published",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -185,13 +188,14 @@
       "platform": {
         "id": "Dbc__mdDJX2",
         "url": "https://www.instagram.com/p/Dbc__mdDJX2/",
-        "privacy": "public",
+        "privacy": "gone",
         "kind": "shortcode",
         "evidence": {
           "kind": "ig-snapshot",
           "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#recorded"
         }
-      }
+      },
+      "stopReason": "gone"
     },
     {
       "id": "civil-construction-1/c1-anzen-org-p04/instagram.carousel",
@@ -200,7 +204,7 @@
       "format": "carousel",
       "legacyKey": "civil-1/theme-packs/anzen-org/pack-04",
       "copy": "content/sns/instagram/civil-1/theme-packs/anzen-org/pack-04/carousel/caption.txt",
-      "status": "published",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -209,13 +213,14 @@
       "platform": {
         "id": "Dbfky3riAsa",
         "url": "https://www.instagram.com/p/Dbfky3riAsa/",
-        "privacy": "public",
+        "privacy": "gone",
         "kind": "shortcode",
         "evidence": {
           "kind": "ig-snapshot",
           "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#recorded"
         }
-      }
+      },
+      "stopReason": "gone"
     },
     {
       "id": "civil-construction-1/c1-anzen-org-p05/instagram.carousel",
@@ -224,7 +229,7 @@
       "format": "carousel",
       "legacyKey": "civil-1/theme-packs/anzen-org/pack-05",
       "copy": "content/sns/instagram/civil-1/theme-packs/anzen-org/pack-05/carousel/caption.txt",
-      "status": "published",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -233,13 +238,14 @@
       "platform": {
         "id": "Dcf8qGWjdvN",
         "url": "https://www.instagram.com/p/Dcf8qGWjdvN/",
-        "privacy": "public",
+        "privacy": "gone",
         "kind": "shortcode",
         "evidence": {
           "kind": "ig-snapshot",
           "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#recorded"
         }
-      }
+      },
+      "stopReason": "gone"
     },
     {
       "id": "civil-construction-1/c1-anzen-org-p06/instagram.carousel",
@@ -248,7 +254,7 @@
       "format": "carousel",
       "legacyKey": "civil-1/theme-packs/anzen-org/pack-06",
       "copy": "content/sns/instagram/civil-1/theme-packs/anzen-org/pack-06/carousel/caption.txt",
-      "status": "published",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -257,13 +263,14 @@
       "platform": {
         "id": "DcihfqtD2wO",
         "url": "https://www.instagram.com/p/DcihfqtD2wO/",
-        "privacy": "public",
+        "privacy": "gone",
         "kind": "shortcode",
         "evidence": {
           "kind": "ig-snapshot",
           "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#recorded"
         }
-      }
+      },
+      "stopReason": "gone"
     },
     {
       "id": "civil-construction-1/c1-anzen-scaffold-p01/instagram.carousel",
@@ -336,7 +343,7 @@
       "format": "carousel",
       "legacyKey": "civil-1/theme-packs/hinshitsu-basic/pack-01",
       "copy": "content/sns/instagram/civil-1/theme-packs/hinshitsu-basic/pack-01/carousel/caption.txt",
-      "status": "published",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -345,13 +352,14 @@
       "platform": {
         "id": "DbQIDU9DK3u",
         "url": "https://www.instagram.com/p/DbQIDU9DK3u/",
-        "privacy": "public",
+        "privacy": "gone",
         "kind": "shortcode",
         "evidence": {
           "kind": "ig-snapshot",
           "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#recorded"
         }
-      }
+      },
+      "stopReason": "gone"
     },
     {
       "id": "civil-construction-1/c1-hinshitsu-basic-p02/instagram.carousel",
@@ -360,7 +368,7 @@
       "format": "carousel",
       "legacyKey": "civil-1/theme-packs/hinshitsu-basic/pack-02",
       "copy": "content/sns/instagram/civil-1/theme-packs/hinshitsu-basic/pack-02/carousel/caption.txt",
-      "status": "published",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -369,13 +377,14 @@
       "platform": {
         "id": "DbSszv1lE9y",
         "url": "https://www.instagram.com/p/DbSszv1lE9y/",
-        "privacy": "public",
+        "privacy": "gone",
         "kind": "shortcode",
         "evidence": {
           "kind": "ig-snapshot",
           "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#recorded"
         }
-      }
+      },
+      "stopReason": "gone"
     },
     {
       "id": "civil-construction-1/c1-hinshitsu-basic-p03/instagram.carousel",
@@ -384,7 +393,7 @@
       "format": "carousel",
       "legacyKey": "civil-1/theme-packs/hinshitsu-basic/pack-03",
       "copy": "content/sns/instagram/civil-1/theme-packs/hinshitsu-basic/pack-03/carousel/caption.txt",
-      "status": "published",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -393,13 +402,14 @@
       "platform": {
         "id": "DbVRpcTjyZW",
         "url": "https://www.instagram.com/p/DbVRpcTjyZW/",
-        "privacy": "public",
+        "privacy": "gone",
         "kind": "shortcode",
         "evidence": {
           "kind": "ig-snapshot",
           "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#recorded"
         }
-      }
+      },
+      "stopReason": "gone"
     },
     {
       "id": "civil-construction-1/c1-hinshitsu-concrete-p01/instagram.carousel",
@@ -408,7 +418,7 @@
       "format": "carousel",
       "legacyKey": "civil-1/theme-packs/hinshitsu-concrete/pack-01",
       "copy": "content/sns/instagram/civil-1/theme-packs/hinshitsu-concrete/pack-01/carousel/caption.txt",
-      "status": "published",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -417,13 +427,14 @@
       "platform": {
         "id": "Da7hr9ciTck",
         "url": "https://www.instagram.com/p/Da7hr9ciTck/",
-        "privacy": "public",
+        "privacy": "gone",
         "kind": "shortcode",
         "evidence": {
           "kind": "ig-snapshot",
           "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#recorded"
         }
-      }
+      },
+      "stopReason": "gone"
     },
     {
       "id": "civil-construction-1/c1-hinshitsu-concrete-p02/instagram.carousel",
@@ -432,7 +443,7 @@
       "format": "carousel",
       "legacyKey": "civil-1/theme-packs/hinshitsu-concrete/pack-02",
       "copy": "content/sns/instagram/civil-1/theme-packs/hinshitsu-concrete/pack-02/carousel/caption.txt",
-      "status": "published",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -441,13 +452,14 @@
       "platform": {
         "id": "Da-GdkhiPNo",
         "url": "https://www.instagram.com/p/Da-GdkhiPNo/",
-        "privacy": "public",
+        "privacy": "gone",
         "kind": "shortcode",
         "evidence": {
           "kind": "ig-snapshot",
           "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#recorded"
         }
-      }
+      },
+      "stopReason": "gone"
     },
     {
       "id": "civil-construction-1/c1-hinshitsu-concrete-p03/instagram.carousel",
@@ -456,7 +468,7 @@
       "format": "carousel",
       "legacyKey": "civil-1/theme-packs/hinshitsu-concrete/pack-03",
       "copy": "content/sns/instagram/civil-1/theme-packs/hinshitsu-concrete/pack-03/carousel/caption.txt",
-      "status": "published",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -465,13 +477,14 @@
       "platform": {
         "id": "DbArQH4iFsa",
         "url": "https://www.instagram.com/p/DbArQH4iFsa/",
-        "privacy": "public",
+        "privacy": "gone",
         "kind": "shortcode",
         "evidence": {
           "kind": "ig-snapshot",
           "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#recorded"
         }
-      }
+      },
+      "stopReason": "gone"
     },
     {
       "id": "civil-construction-1/c1-hinshitsu-ndt-p01/instagram.carousel",
@@ -648,7 +661,7 @@
       "format": "carousel",
       "legacyKey": "civil-1/theme-packs/hoki-labor/pack-01",
       "copy": "content/sns/instagram/civil-1/theme-packs/hoki-labor/pack-01/carousel/caption.txt",
-      "status": "published",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -657,13 +670,14 @@
       "platform": {
         "id": "DbDQEYtm1XE",
         "url": "https://www.instagram.com/p/DbDQEYtm1XE/",
-        "privacy": "public",
+        "privacy": "gone",
         "kind": "shortcode",
         "evidence": {
           "kind": "ig-snapshot",
           "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#recorded"
         }
-      }
+      },
+      "stopReason": "gone"
     },
     {
       "id": "civil-construction-1/c1-hoki-labor-p02/instagram.carousel",
@@ -672,7 +686,7 @@
       "format": "carousel",
       "legacyKey": "civil-1/theme-packs/hoki-labor/pack-02",
       "copy": "content/sns/instagram/civil-1/theme-packs/hoki-labor/pack-02/carousel/caption.txt",
-      "status": "published",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -681,13 +695,14 @@
       "platform": {
         "id": "DbF01H8FJlG",
         "url": "https://www.instagram.com/p/DbF01H8FJlG/",
-        "privacy": "public",
+        "privacy": "gone",
         "kind": "shortcode",
         "evidence": {
           "kind": "ig-snapshot",
           "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#recorded"
         }
-      }
+      },
+      "stopReason": "gone"
     },
     {
       "id": "civil-construction-1/c1-hoki-labor-p03/instagram.carousel",
@@ -696,7 +711,7 @@
       "format": "carousel",
       "legacyKey": "civil-1/theme-packs/hoki-labor/pack-03",
       "copy": "content/sns/instagram/civil-1/theme-packs/hoki-labor/pack-03/carousel/caption.txt",
-      "status": "published",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -705,13 +720,14 @@
       "platform": {
         "id": "DbIZo2KjaAA",
         "url": "https://www.instagram.com/p/DbIZo2KjaAA/",
-        "privacy": "public",
+        "privacy": "gone",
         "kind": "shortcode",
         "evidence": {
           "kind": "ig-snapshot",
           "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#recorded"
         }
-      }
+      },
+      "stopReason": "gone"
     },
     {
       "id": "civil-construction-1/c1-hoki-labor-p04/instagram.carousel",
@@ -720,7 +736,7 @@
       "format": "carousel",
       "legacyKey": "civil-1/theme-packs/hoki-labor/pack-04",
       "copy": "content/sns/instagram/civil-1/theme-packs/hoki-labor/pack-04/carousel/caption.txt",
-      "status": "published",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -729,13 +745,14 @@
       "platform": {
         "id": "DbK-c5JnV0L",
         "url": "https://www.instagram.com/p/DbK-c5JnV0L/",
-        "privacy": "public",
+        "privacy": "gone",
         "kind": "shortcode",
         "evidence": {
           "kind": "ig-snapshot",
           "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#recorded"
         }
-      }
+      },
+      "stopReason": "gone"
     },
     {
       "id": "civil-construction-1/c1-hoki-labor-p05/instagram.carousel",
@@ -744,7 +761,7 @@
       "format": "carousel",
       "legacyKey": "civil-1/theme-packs/hoki-labor/pack-05",
       "copy": "content/sns/instagram/civil-1/theme-packs/hoki-labor/pack-05/carousel/caption.txt",
-      "status": "published",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -753,13 +770,14 @@
       "platform": {
         "id": "DbNjPXzDHJ9",
         "url": "https://www.instagram.com/p/DbNjPXzDHJ9/",
-        "privacy": "public",
+        "privacy": "gone",
         "kind": "shortcode",
         "evidence": {
           "kind": "ig-snapshot",
           "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#recorded"
         }
-      }
+      },
+      "stopReason": "gone"
     },
     {
       "id": "civil-construction-1/c1-hoki-noise-p01/instagram.carousel",
@@ -1224,7 +1242,7 @@
       "legacyKey": "video-packs/civil-construction-1/career-agent-katsuyo",
       "definition": "content/sns/instagram/video-packs/civil-construction-1/career-agent-katsuyo",
       "copy": "content/sns/instagram/video-packs/civil-construction-1/career-agent-katsuyo/carousel/caption.txt",
-      "status": "published",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -1233,13 +1251,14 @@
       "platform": {
         "id": "DdNmVQCCKi1",
         "url": "https://www.instagram.com/p/DdNmVQCCKi1/",
-        "privacy": "public",
+        "privacy": "gone",
         "kind": "shortcode",
         "evidence": {
           "kind": "ig-snapshot",
           "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#unrecorded"
         }
-      }
+      },
+      "stopReason": "gone"
     },
     {
       "id": "civil-construction-1/career-agent-katsuyo/instagram.reel.point-step1-1",
@@ -1251,7 +1270,7 @@
       "idException": "imported-before-cutover",
       "definition": "content/sns/instagram/video-packs/civil-construction-1/career-agent-katsuyo-point-step1-1",
       "copy": "content/sns/instagram/video-packs/civil-construction-1/career-agent-katsuyo-point-step1-1/reels/caption.txt",
-      "status": "published",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -1260,13 +1279,14 @@
       "platform": {
         "id": "DdLBneTAGcK",
         "url": "https://www.instagram.com/reel/DdLBneTAGcK/",
-        "privacy": "public",
+        "privacy": "gone",
         "kind": "shortcode",
         "evidence": {
           "kind": "ig-snapshot",
           "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#live-reel-head"
         }
-      }
+      },
+      "stopReason": "gone"
     },
     {
       "id": "civil-construction-1/career-agent-katsuyo/instagram.reel.point-step2-2",
@@ -1278,7 +1298,7 @@
       "idException": "imported-before-cutover",
       "definition": "content/sns/instagram/video-packs/civil-construction-1/career-agent-katsuyo-point-step2-2",
       "copy": "content/sns/instagram/video-packs/civil-construction-1/career-agent-katsuyo-point-step2-2/reels/caption.txt",
-      "status": "published",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -1287,13 +1307,14 @@
       "platform": {
         "id": "DdOTGaTEb0K",
         "url": "https://www.instagram.com/reel/DdOTGaTEb0K/",
-        "privacy": "public",
+        "privacy": "gone",
         "kind": "shortcode",
         "evidence": {
           "kind": "ig-snapshot",
           "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#live-reel-head"
         }
-      }
+      },
+      "stopReason": "gone"
     },
     {
       "id": "civil-construction-1/career-komuin-minkan/instagram.carousel",
@@ -1315,7 +1336,7 @@
       "idException": "imported-before-cutover",
       "definition": "content/sns/instagram/video-packs/civil-construction-1/career-komuin-minkan-point-step1-1",
       "copy": "content/sns/instagram/video-packs/civil-construction-1/career-komuin-minkan-point-step1-1/reels/caption.txt",
-      "status": "published",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -1324,13 +1345,14 @@
       "platform": {
         "id": "Ddfn7GyFCbl",
         "url": "https://www.instagram.com/reel/Ddfn7GyFCbl/",
-        "privacy": "public",
+        "privacy": "gone",
         "kind": "shortcode",
         "evidence": {
           "kind": "ig-snapshot",
           "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#live-reel-head"
         }
-      }
+      },
+      "stopReason": "gone"
     },
     {
       "id": "civil-construction-1/career-komuin-minkan/instagram.reel.point-step2-2",
@@ -3609,7 +3631,7 @@
       "idException": "imported-before-cutover",
       "definition": "content/sns/instagram/video-packs/civil-construction-1/keiken-r6-shinkeishiki-point-change-1",
       "copy": "content/sns/instagram/video-packs/civil-construction-1/keiken-r6-shinkeishiki-point-change-1/reels/caption.txt",
-      "status": "published",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -3618,13 +3640,14 @@
       "platform": {
         "id": "DdAuZe-FYqi",
         "url": "https://www.instagram.com/reel/DdAuZe-FYqi/",
-        "privacy": "public",
+        "privacy": "gone",
         "kind": "shortcode",
         "evidence": {
           "kind": "ig-snapshot",
           "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#live-reel-head"
         }
-      }
+      },
+      "stopReason": "gone"
     },
     {
       "id": "civil-construction-1/keiken-r6-shinkeishiki/instagram.reel.point-structure-2",
@@ -3636,7 +3659,7 @@
       "idException": "imported-before-cutover",
       "definition": "content/sns/instagram/video-packs/civil-construction-1/keiken-r6-shinkeishiki-point-structure-2",
       "copy": "content/sns/instagram/video-packs/civil-construction-1/keiken-r6-shinkeishiki-point-structure-2/reels/caption.txt",
-      "status": "published",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -3645,13 +3668,14 @@
       "platform": {
         "id": "DdBlTBwiD-Q",
         "url": "https://www.instagram.com/reel/DdBlTBwiD-Q/",
-        "privacy": "public",
+        "privacy": "gone",
         "kind": "shortcode",
         "evidence": {
           "kind": "ig-snapshot",
           "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#live-reel-head"
         }
-      }
+      },
+      "stopReason": "gone"
     },
     {
       "id": "civil-construction-1/keiken-sekokeikaku-1kyu/instagram.carousel",

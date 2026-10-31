@@ -238,8 +238,12 @@ function stop() {
   if (!args.pub || !cfg.status.stopReasons.includes(args.reason)) throw new Error(`stop には --pub <公開 ID> --reason ${cfg.status.stopReasons.join('|')} が要る`);
   const pub = loadRegistry(ROOT).publications.find((p) => p.id === args.pub);
   if (!pub) throw new Error(`台帳に無い: ${args.pub}`);
-  if (!canTransition(cfg, pub.status, 'stopped', pub.channel)) throw new Error(`${pub.status} → stopped は遷移に無い`);
-  writePublication(pub, { status: 'stopped', stopReason: args.reason });
+  const sameGone = pub.status === 'stopped' && pub.stopReason === 'gone' && args.reason === 'gone';
+  if (!sameGone && !canTransition(cfg, pub.status, 'stopped', pub.channel)) throw new Error(`${pub.status} → stopped は遷移に無い`);
+  writePublication(pub, {
+    status: 'stopped', stopReason: args.reason,
+    ...(args.reason === 'gone' && pub.platform ? { platform: { ...pub.platform, privacy: 'gone' } } : {}),
+  });
   console.log(`止めた: ${pub.id}（${pub.status} → stopped・${args.reason}）`);
 }
 
@@ -284,8 +288,9 @@ async function importInstagram() {
   for (const p of rows.publications) {
     const exam = p.id.split('/')[0];
     const cur = reg.publications.find((x) => x.id === p.id);
-    const merged = cur?.media ? { ...p, media: cur.media } : p;
-    if (!cur || !same(cur, merged)) pubsByExam.set(exam, [...(pubsByExam.get(exam) ?? []), merged]);
+    // import は未登録の公開だけを追加する。既存行の状態は台帳が正本なので、古い
+    // posted.json・照合 snapshot で stopped(gone) や scheduled を巻き戻さない。
+    if (!cur) pubsByExam.set(exam, [...(pubsByExam.get(exam) ?? []), p]);
   }
   const n = (m) => [...m.values()].flat().length;
   console.log(`IG の作品フォルダ ${args.folder ?? rows.report.folders}（対象外 ${rows.report.skipped.length}）/ 照合の記録 ${snapshot?.at}（公開中 ${snapshot?.live?.posts} 件）`);

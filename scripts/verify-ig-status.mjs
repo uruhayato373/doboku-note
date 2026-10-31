@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// verify-ig-status.mjs — IG ローカル SoT(posted.json/status.json) ↔ ライブ公開状態 の照合 reconciler。
+// verify-ig-status.mjs — IG 旧記録(posted.json/status.json) ↔ ライブ公開状態 の照合 reconciler。
 //
 // 背景（再発防止の対象）: 手動投稿のあと posted.json を残し忘れる/draft のまま放置するドリフトが
 //   頻発する（2026-06-25、keyword-packs 18件中 6件が未記録・1件 draft 誤記録・削除済み黒背景の
@@ -7,6 +7,7 @@
 //   ライブの IG グリッド＋プランナーと突合し、何がドリフトしているかを分類して出す（read-only）。
 //
 // 設計: verify-note-status.mjs（note 版 reconciler）の IG 版。投稿も削除もしない＝検知と報告のみ。
+// 台帳で stopped(gone) の旧パックは除外し、残った旧 URL をドリフトとして再計上しない。
 //   実際の是正/予約は operator が確認のうえ行う（`/ig-reconcile` スキルは 2026-10-25 に外した）。
 //
 // 照合は運営者の Mac で回す（CI はログインしない・DN-0817）。
@@ -65,7 +66,9 @@ function loadAccount() {
 
 // normHead / captionHead / shortcodeOf / localPacks / reconcile / driftCount / buildSnapshot は
 // scripts/lib/ig-reconcile-core.mjs へ切り出し済み（CI の Graph API 版と共有するため）。
-function localPacks() { return localPacksCore({ exam: EXAM, igDir: IG_DIR }); }
+const igPublications = loadRegistry(ROOT).publications.filter((p) => p.channel === 'instagram');
+const goneLegacyKeys = new Set(igPublications.filter((p) => p.status === 'stopped' && p.stopReason === 'gone').map((p) => p.legacyKey));
+function localPacks() { return localPacksCore({ exam: EXAM, igDir: IG_DIR, excludedLegacyKeys: goneLegacyKeys }); }
 
 // 投稿の現存＋型を直接チェック。記録済み shortcode はグリッド走査の取りこぼし（遅延ロードで全件は
 // 載らない）に左右されないよう URL を直接叩く。型は reel / carousel を区別する（rio 事故＝リールを
@@ -165,8 +168,8 @@ const account = loadAccount();
 const packs = localPacks();
 log(`[verify-ig-status] アカウント @${account.handle} / ローカル ${packs.length} パックを照合…`);
 // 台帳が published の行の shortcode（kind が shortcode のもの）。後戻り（投稿が削除済み）の確認と、同じ投稿を 2 行に付けない判定に使う
-const ledgerPublishedRows = loadRegistry(ROOT).publications
-  .filter((p) => p.channel === "instagram" && p.status === "published" && p.platform?.id && p.platform.kind === "shortcode")
+const ledgerPublishedRows = igPublications
+  .filter((p) => p.status === "published" && p.platform?.id && p.platform.kind === "shortcode")
   .map((p) => ({ id: p.id, shortcode: p.platform.id }));
 const recordedShortcodes = [...new Set([...packs.map((p) => p.recordedShortcode).filter(Boolean), ...ledgerPublishedRows.map((r) => r.shortcode)])];
 let liveData;

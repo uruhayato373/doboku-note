@@ -1,4 +1,4 @@
-// ig-reconcile-core.mjs — IG ローカル SoT ↔ ライブ公開状態の照合ロジック（純関数）。
+// ig-reconcile-core.mjs — IG 旧記録 ↔ ライブ公開状態の照合ロジック（純関数）。
 //
 // 背景: scripts/verify-ig-status.mjs（Playwright でライブ取得する CLI）と、CI 週次で
 //   Graph API 経由の照合を書く scripts/fetch-ig-insights.mjs --reconcile（別ユニット）が、
@@ -6,7 +6,7 @@
 //   トップレベルで playwright を import して main を走らせるため、テストや別スクリプトから
 //   ロジックだけを直接呼べない（check-outbound-links → lib/note-refs.mjs と同型の切り出し）。
 //
-// 方針: 実装は verify-ig-status.mjs から**そのまま**移設する（挙動を変えない）。
+// 方針: 実装は verify-ig-status.mjs から移設。削除済みの旧記録は台帳の stopped(gone) で除外する。
 //   normHead / captionHead / shortcodeOf / localPacks / reconcile / driftCount / buildSnapshot。
 //   localPacks は元コードのモジュールグローバル EXAM を options.exam に置き換え、
 //   options.igDir でテストから一時ディレクトリを渡せるようにした点のみ変更。
@@ -63,11 +63,11 @@ export function shortcodeOf(url) {
 
 /**
  * ローカルの IG パック一覧を収集する。
- * @param {{exam?: string|null, igDir?: string}} [options] exam: 試験で絞り込み（省略時は全件）。
+ * @param {{exam?: string|null, igDir?: string, excludedLegacyKeys?: Set<string>}} [options] exam: 試験で絞り込み（省略時は全件）。
  *   igDir: 走査ルート（省略時は content/sns/instagram）。テストで一時ディレクトリを渡す。
  */
 export function localPacks(options = {}) {
-  const { exam = null, igDir = IG_DIR } = options;
+  const { exam = null, igDir = IG_DIR, excludedLegacyKeys = new Set() } = options;
   return findPackDirs(igDir)
     .map((dir) => {
       // rel/exam は ig-status.mjs の packInfo() 相当だが、packInfo は自身のモジュール定数
@@ -76,7 +76,7 @@ export function localPacks(options = {}) {
       // 基準に同じ計算をする（year/packNum/management など localPacks が使わない meta は省く）。
       const rel = relative(igDir, dir).replace(/\\/g, "/");
       const exam2 = rel.split("/")[0] || "?";
-      if (exam && exam2 !== exam) return null;
+      if ((exam && exam2 !== exam) || excludedLegacyKeys.has(rel)) return null;
       const postedRaw = readPostedRaw(dir);
       const carouselUrl = postedRaw?.carousel?.url || (postedRaw?.url ?? null);
       // status.json（schema A: {carousel:{status,scheduled_at}} / schema B: {carousel:"draft",posted}）

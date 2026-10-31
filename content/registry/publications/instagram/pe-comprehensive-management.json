@@ -10,7 +10,7 @@
       "format": "reel",
       "legacyKey": "cem/angle-reels/civil-servant-blindspots-experience",
       "copy": "content/sns/instagram/cem/angle-reels/civil-servant-blindspots-experience/reels/caption.txt",
-      "status": "published",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -19,13 +19,14 @@
       "platform": {
         "id": "DaFjzyPAaNV",
         "url": "https://www.instagram.com/reel/DaFjzyPAaNV/",
-        "privacy": "public",
+        "privacy": "gone",
         "kind": "shortcode",
         "evidence": {
           "kind": "ig-snapshot",
           "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#live-reel-head"
         }
-      }
+      },
+      "stopReason": "gone"
     },
     {
       "id": "pe-comprehensive-management/cem-kw-accident-statistics/instagram.carousel",
@@ -34,7 +35,7 @@
       "format": "carousel",
       "legacyKey": "cem/keyword-packs/accident-statistics",
       "copy": "content/sns/instagram/cem/keyword-packs/accident-statistics/carousel/caption.txt",
-      "status": "published",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -43,13 +44,14 @@
       "platform": {
         "id": "DaJ_Bxnk4AF",
         "url": "https://www.instagram.com/p/DaJ_Bxnk4AF/",
-        "privacy": "public",
+        "privacy": "gone",
         "kind": "shortcode",
         "evidence": {
           "kind": "ig-snapshot",
           "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#recorded"
         }
-      }
+      },
+      "stopReason": "gone"
     },
     {
       "id": "pe-comprehensive-management/cem-kw-cash-flow-statement/instagram.carousel",
@@ -58,7 +60,7 @@
       "format": "carousel",
       "legacyKey": "cem/keyword-packs/cash-flow-statement",
       "copy": "content/sns/instagram/cem/keyword-packs/cash-flow-statement/carousel/caption.txt",
-      "status": "published",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -67,13 +69,14 @@
       "platform": {
         "id": "DZ8xtZzk0JY",
         "url": "https://www.instagram.com/p/DZ8xtZzk0JY/",
-        "privacy": "public",
+        "privacy": "gone",
         "kind": "shortcode",
         "evidence": {
           "kind": "ig-snapshot",
           "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#recorded"
         }
-      }
+      },
+      "stopReason": "gone"
     },
     {
       "id": "pe-comprehensive-management/cem-kw-cash-flow-statement/instagram.reel",
@@ -82,7 +85,7 @@
       "format": "reel",
       "legacyKey": "cem/keyword-packs/cash-flow-statement",
       "copy": "content/sns/instagram/cem/keyword-packs/cash-flow-statement/reels/caption.txt",
-      "status": "published",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -91,13 +94,14 @@
       "platform": {
         "id": "DaCIMNxjZMH",
         "url": "https://www.instagram.com/reel/DaCIMNxjZMH/",
-        "privacy": "public",
+        "privacy": "gone",
         "kind": "shortcode",
         "evidence": {
           "kind": "ig-snapshot",
           "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#live-reel-head"
         }
-      }
+      },
+      "stopReason": "gone"
     },
     {
       "id": "pe-comprehensive-management/cem-kw-data-analysis-method-selection/instagram.carousel",
@@ -106,7 +110,7 @@
       "format": "carousel",
       "legacyKey": "cem/keyword-packs/data-analysis-method-selection",
       "copy": "content/sns/instagram/cem/keyword-packs/data-analysis-method-selection/carousel/caption.txt",
-      "status": "published",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -115,13 +119,14 @@
       "platform": {
         "id": "DaXeg3EjVeH",
         "url": "https://www.instagram.com/p/DaXeg3EjVeH/",
-        "privacy": "public",
+        "privacy": "gone",
         "kind": "shortcode",
         "evidence": {
           "kind": "ig-snapshot",
           "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#recorded"
         }
-      }
+      },
+      "stopReason": "gone"
     },
     {
       "id": "pe-comprehensive-management/cem-kw-development-process-models/instagram.carousel",
@@ -130,7 +135,7 @@
       "format": "carousel",
       "legacyKey": "cem/keyword-packs/development-process-models",
       "copy": "content/sns/instagram/cem/keyword-packs/development-process-models/carousel/caption.txt",
-      "status": "published",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -139,13 +144,14 @@
       "platform": {
         "id": "DaJvDcVE39n",
         "url": "https://www.instagram.com/p/DaJvDcVE39n/",
-        "privacy": "public",
+        "privacy": "gone",
         "kind": "shortcode",
         "evidence": {
           "kind": "ig-snapshot",
           "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#recorded"
         }
-      }
+      },
+      "stopReason": "gone"
     },
     {
       "id": "pe-comprehensive-management/cem-kw-disaster-weather-info/instagram.carousel",
@@ -154,7 +160,7 @@
       "format": "carousel",
       "legacyKey": "cem/keyword-packs/disaster-weather-info",
       "copy": "content/sns/instagram/cem/keyword-packs/disaster-weather-info/carousel/caption.txt",
-      "status": "published",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -163,13 +169,14 @@
       "platform": {
         "id": "DaaDWFPjccI",
         "url": "https://www.instagram.com/p/DaaDWFPjccI/",
-        "privacy": "public",
+        "privacy": "gone",
         "kind": "shortcode",
         "evidence": {
           "kind": "ig-snapshot",
           "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#recorded"
         }
-      }
+      },
+      "stopReason": "gone"
     },
     {
       "id": "pe-comprehensive-management/cem-kw-ecrs-principle/instagram.carousel",
@@ -187,7 +194,7 @@
       "format": "carousel",
       "legacyKey": "cem/keyword-packs/eia-three-classes",
       "copy": "content/sns/instagram/cem/keyword-packs/eia-three-classes/carousel/caption.txt",
-      "status": "published",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -196,13 +203,14 @@
       "platform": {
         "id": "DaOu6Pfk22X",
         "url": "https://www.instagram.com/p/DaOu6Pfk22X/",
-        "privacy": "public",
+        "privacy": "gone",
         "kind": "shortcode",
         "evidence": {
           "kind": "ig-snapshot",
           "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#recorded"
         }
-      }
+      },
+      "stopReason": "gone"
     },
     {
       "id": "pe-comprehensive-management/cem-kw-energy-key-figures/instagram.carousel",
@@ -211,7 +219,7 @@
       "format": "carousel",
       "legacyKey": "cem/keyword-packs/energy-key-figures",
       "copy": "content/sns/instagram/cem/keyword-packs/energy-key-figures/carousel/caption.txt",
-      "status": "published",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -220,13 +228,14 @@
       "platform": {
         "id": "DaO_QWJkzjY",
         "url": "https://www.instagram.com/p/DaO_QWJkzjY/",
-        "privacy": "public",
+        "privacy": "gone",
         "kind": "shortcode",
         "evidence": {
           "kind": "ig-snapshot",
           "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#recorded"
         }
-      }
+      },
+      "stopReason": "gone"
     },
     {
       "id": "pe-comprehensive-management/cem-kw-environmental-basic-plan/instagram.carousel",
@@ -235,7 +244,7 @@
       "format": "carousel",
       "legacyKey": "cem/keyword-packs/environmental-basic-plan",
       "copy": "content/sns/instagram/cem/keyword-packs/environmental-basic-plan/carousel/caption.txt",
-      "status": "published",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -244,13 +253,14 @@
       "platform": {
         "id": "DZ_X8OLkzr5",
         "url": "https://www.instagram.com/p/DZ_X8OLkzr5/",
-        "privacy": "public",
+        "privacy": "gone",
         "kind": "shortcode",
         "evidence": {
           "kind": "ig-snapshot",
           "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#recorded"
         }
-      }
+      },
+      "stopReason": "gone"
     },
     {
       "id": "pe-comprehensive-management/cem-kw-fail-safe/instagram.carousel",
@@ -259,7 +269,7 @@
       "format": "carousel",
       "legacyKey": "cem/keyword-packs/fail-safe",
       "copy": "content/sns/instagram/cem/keyword-packs/fail-safe/carousel/caption.txt",
-      "status": "published",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -268,13 +278,14 @@
       "platform": {
         "id": "DZ_cXGTkwPM",
         "url": "https://www.instagram.com/p/DZ_cXGTkwPM/",
-        "privacy": "public",
+        "privacy": "gone",
         "kind": "shortcode",
         "evidence": {
           "kind": "ig-snapshot",
           "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#recorded"
         }
-      }
+      },
+      "stopReason": "gone"
     },
     {
       "id": "pe-comprehensive-management/cem-kw-four-p-analysis/instagram.carousel",
@@ -283,7 +294,7 @@
       "format": "carousel",
       "legacyKey": "cem/keyword-packs/four-p-analysis",
       "copy": "content/sns/instagram/cem/keyword-packs/four-p-analysis/carousel/caption.txt",
-      "status": "published",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -292,13 +303,14 @@
       "platform": {
         "id": "DacoIVyjbgb",
         "url": "https://www.instagram.com/p/DacoIVyjbgb/",
-        "privacy": "public",
+        "privacy": "gone",
         "kind": "shortcode",
         "evidence": {
           "kind": "ig-snapshot",
           "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#recorded"
         }
-      }
+      },
+      "stopReason": "gone"
     },
     {
       "id": "pe-comprehensive-management/cem-kw-frailty-locomo/instagram.carousel",
@@ -325,7 +337,7 @@
       "format": "carousel",
       "legacyKey": "cem/keyword-packs/herzberg-two-factor-theory",
       "copy": "content/sns/instagram/cem/keyword-packs/herzberg-two-factor-theory/carousel/caption.txt",
-      "status": "published",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -334,13 +346,14 @@
       "platform": {
         "id": "DaC4KcbGB76",
         "url": "https://www.instagram.com/p/DaC4KcbGB76/",
-        "privacy": "public",
+        "privacy": "gone",
         "kind": "shortcode",
         "evidence": {
           "kind": "ig-snapshot",
           "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#unrecorded"
         }
-      }
+      },
+      "stopReason": "gone"
     },
     {
       "id": "pe-comprehensive-management/cem-kw-herzberg-two-factor-theory/instagram.reel",
@@ -349,7 +362,7 @@
       "format": "reel",
       "legacyKey": "cem/keyword-packs/herzberg-two-factor-theory",
       "copy": "content/sns/instagram/cem/keyword-packs/herzberg-two-factor-theory/reels/caption.txt",
-      "status": "published",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -358,13 +371,14 @@
       "platform": {
         "id": "DaEs8NKAXuf",
         "url": "https://www.instagram.com/reel/DaEs8NKAXuf/",
-        "privacy": "public",
+        "privacy": "gone",
         "kind": "shortcode",
         "evidence": {
           "kind": "ig-snapshot",
           "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#live-reel-head"
         }
-      }
+      },
+      "stopReason": "gone"
     },
     {
       "id": "pe-comprehensive-management/cem-kw-infosec-certifications/instagram.carousel",
@@ -382,7 +396,7 @@
       "format": "carousel",
       "legacyKey": "cem/keyword-packs/iso-14000",
       "copy": "content/sns/instagram/cem/keyword-packs/iso-14000/carousel/caption.txt",
-      "status": "published",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -391,13 +405,14 @@
       "platform": {
         "id": "DaNLWTtDI4u",
         "url": "https://www.instagram.com/p/DaNLWTtDI4u/",
-        "privacy": "public",
+        "privacy": "gone",
         "kind": "shortcode",
         "evidence": {
           "kind": "ig-snapshot",
           "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#recorded"
         }
-      }
+      },
+      "stopReason": "gone"
     },
     {
       "id": "pe-comprehensive-management/cem-kw-job-vs-membership/instagram.carousel",
@@ -406,7 +421,7 @@
       "format": "carousel",
       "legacyKey": "cem/keyword-packs/job-vs-membership",
       "copy": "content/sns/instagram/cem/keyword-packs/job-vs-membership/carousel/caption.txt",
-      "status": "published",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -415,13 +430,14 @@
       "platform": {
         "id": "DaJwfusk_q5",
         "url": "https://www.instagram.com/p/DaJwfusk_q5/",
-        "privacy": "public",
+        "privacy": "gone",
         "kind": "shortcode",
         "evidence": {
           "kind": "ig-snapshot",
           "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#recorded"
         }
-      }
+      },
+      "stopReason": "gone"
     },
     {
       "id": "pe-comprehensive-management/cem-kw-labor-relations-adjustment-act/instagram.carousel",
@@ -430,7 +446,7 @@
       "format": "carousel",
       "legacyKey": "cem/keyword-packs/labor-relations-adjustment-act",
       "copy": "content/sns/instagram/cem/keyword-packs/labor-relations-adjustment-act/carousel/caption.txt",
-      "status": "published",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -439,13 +455,14 @@
       "platform": {
         "id": "DaAHWq_k0gl",
         "url": "https://www.instagram.com/p/DaAHWq_k0gl/",
-        "privacy": "public",
+        "privacy": "gone",
         "kind": "shortcode",
         "evidence": {
           "kind": "ig-snapshot",
           "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#recorded"
         }
-      }
+      },
+      "stopReason": "gone"
     },
     {
       "id": "pe-comprehensive-management/cem-kw-labor-share-ratio/instagram.carousel",
@@ -454,7 +471,7 @@
       "format": "carousel",
       "legacyKey": "cem/keyword-packs/labor-share-ratio",
       "copy": "content/sns/instagram/cem/keyword-packs/labor-share-ratio/carousel/caption.txt",
-      "status": "published",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -463,13 +480,14 @@
       "platform": {
         "id": "DaMKiUMk0Sy",
         "url": "https://www.instagram.com/p/DaMKiUMk0Sy/",
-        "privacy": "public",
+        "privacy": "gone",
         "kind": "shortcode",
         "evidence": {
           "kind": "ig-snapshot",
           "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#unrecorded"
         }
-      }
+      },
+      "stopReason": "gone"
     },
     {
       "id": "pe-comprehensive-management/cem-kw-maintenance-types/instagram.carousel",
@@ -478,7 +496,7 @@
       "format": "carousel",
       "legacyKey": "cem/keyword-packs/maintenance-types",
       "copy": "content/sns/instagram/cem/keyword-packs/maintenance-types/carousel/caption.txt",
-      "status": "published",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -487,13 +505,14 @@
       "platform": {
         "id": "DaMiSyCE-n6",
         "url": "https://www.instagram.com/p/DaMiSyCE-n6/",
-        "privacy": "public",
+        "privacy": "gone",
         "kind": "shortcode",
         "evidence": {
           "kind": "ig-snapshot",
           "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#recorded"
         }
-      }
+      },
+      "stopReason": "gone"
     },
     {
       "id": "pe-comprehensive-management/cem-kw-marketing-frameworks/instagram.carousel",
@@ -502,7 +521,7 @@
       "format": "carousel",
       "legacyKey": "cem/keyword-packs/marketing-frameworks",
       "copy": "content/sns/instagram/cem/keyword-packs/marketing-frameworks/carousel/caption.txt",
-      "status": "published",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -511,13 +530,14 @@
       "platform": {
         "id": "DafM8mWiFuP",
         "url": "https://www.instagram.com/p/DafM8mWiFuP/",
-        "privacy": "public",
+        "privacy": "gone",
         "kind": "shortcode",
         "evidence": {
           "kind": "ig-snapshot",
           "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#recorded"
         }
-      }
+      },
+      "stopReason": "gone"
     },
     {
       "id": "pe-comprehensive-management/cem-kw-maslow-hierarchy-of-needs/instagram.carousel",
@@ -526,7 +546,7 @@
       "format": "carousel",
       "legacyKey": "cem/keyword-packs/maslow-hierarchy-of-needs",
       "copy": "content/sns/instagram/cem/keyword-packs/maslow-hierarchy-of-needs/carousel/caption.txt",
-      "status": "published",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -535,13 +555,14 @@
       "platform": {
         "id": "DaACtxTE2NS",
         "url": "https://www.instagram.com/p/DaACtxTE2NS/",
-        "privacy": "public",
+        "privacy": "gone",
         "kind": "shortcode",
         "evidence": {
           "kind": "ig-snapshot",
           "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#recorded"
         }
-      }
+      },
+      "stopReason": "gone"
     },
     {
       "id": "pe-comprehensive-management/cem-kw-maslow-hierarchy-of-needs/instagram.reel",
@@ -562,7 +583,7 @@
       "format": "carousel",
       "legacyKey": "cem/keyword-packs/mcgregor-xy-theory",
       "copy": "content/sns/instagram/cem/keyword-packs/mcgregor-xy-theory/carousel/caption.txt",
-      "status": "published",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -571,13 +592,14 @@
       "platform": {
         "id": "DZ6s6sEE94E",
         "url": "https://www.instagram.com/p/DZ6s6sEE94E/",
-        "privacy": "public",
+        "privacy": "gone",
         "kind": "shortcode",
         "evidence": {
           "kind": "ig-snapshot",
           "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#recorded"
         }
-      }
+      },
+      "stopReason": "gone"
     },
     {
       "id": "pe-comprehensive-management/cem-kw-mcgregor-xy-theory/instagram.reel",
@@ -597,7 +619,7 @@
       "format": "carousel",
       "legacyKey": "cem/keyword-packs/mtbf-mttr-availability",
       "copy": "content/sns/instagram/cem/keyword-packs/mtbf-mttr-availability/carousel/caption.txt",
-      "status": "published",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -606,13 +628,14 @@
       "platform": {
         "id": "DaKBy0Tk27W",
         "url": "https://www.instagram.com/p/DaKBy0Tk27W/",
-        "privacy": "public",
+        "privacy": "gone",
         "kind": "shortcode",
         "evidence": {
           "kind": "ig-snapshot",
           "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#recorded"
         }
-      }
+      },
+      "stopReason": "gone"
     },
     {
       "id": "pe-comprehensive-management/cem-kw-multi-factor-authentication/instagram.carousel",
@@ -621,7 +644,7 @@
       "format": "carousel",
       "legacyKey": "cem/keyword-packs/multi-factor-authentication",
       "copy": "content/sns/instagram/cem/keyword-packs/multi-factor-authentication/carousel/caption.txt",
-      "status": "published",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -630,13 +653,14 @@
       "platform": {
         "id": "DaPMmvLEyQ8",
         "url": "https://www.instagram.com/p/DaPMmvLEyQ8/",
-        "privacy": "public",
+        "privacy": "gone",
         "kind": "shortcode",
         "evidence": {
           "kind": "ig-snapshot",
           "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#recorded"
         }
-      }
+      },
+      "stopReason": "gone"
     },
     {
       "id": "pe-comprehensive-management/cem-kw-new-qc-seven-tools/instagram.carousel",
@@ -645,7 +669,7 @@
       "format": "carousel",
       "legacyKey": "cem/keyword-packs/new-qc-seven-tools",
       "copy": "content/sns/instagram/cem/keyword-packs/new-qc-seven-tools/carousel/caption.txt",
-      "status": "published",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -654,13 +678,14 @@
       "platform": {
         "id": "DaIBw4Cgv1h",
         "url": "https://www.instagram.com/p/DaIBw4Cgv1h/",
-        "privacy": "public",
+        "privacy": "gone",
         "kind": "shortcode",
         "evidence": {
           "kind": "ig-snapshot",
           "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#unrecorded"
         }
-      }
+      },
+      "stopReason": "gone"
     },
     {
       "id": "pe-comprehensive-management/cem-kw-new-qc-seven-tools/instagram.reel",
@@ -680,7 +705,7 @@
       "format": "carousel",
       "legacyKey": "cem/keyword-packs/npv-net-present-value",
       "copy": "content/sns/instagram/cem/keyword-packs/npv-net-present-value/carousel/caption.txt",
-      "status": "published",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -689,13 +714,14 @@
       "platform": {
         "id": "DaFc-k2gHNH",
         "url": "https://www.instagram.com/p/DaFc-k2gHNH/",
-        "privacy": "public",
+        "privacy": "gone",
         "kind": "shortcode",
         "evidence": {
           "kind": "ig-snapshot",
           "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#unrecorded"
         }
-      }
+      },
+      "stopReason": "gone"
     },
     {
       "id": "pe-comprehensive-management/cem-kw-npv-net-present-value/instagram.reel",
@@ -704,7 +730,7 @@
       "format": "reel",
       "legacyKey": "cem/keyword-packs/npv-net-present-value",
       "copy": "content/sns/instagram/cem/keyword-packs/npv-net-present-value/reels/caption.txt",
-      "status": "published",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -713,13 +739,14 @@
       "platform": {
         "id": "DaJ2jGWDAE4",
         "url": "https://www.instagram.com/reel/DaJ2jGWDAE4/",
-        "privacy": "public",
+        "privacy": "gone",
         "kind": "shortcode",
         "evidence": {
           "kind": "ig-snapshot",
           "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#live-reel-head"
         }
-      }
+      },
+      "stopReason": "gone"
     },
     {
       "id": "pe-comprehensive-management/cem-kw-organization-forms/instagram.carousel",
@@ -728,7 +755,7 @@
       "format": "carousel",
       "legacyKey": "cem/keyword-packs/organization-forms",
       "copy": "content/sns/instagram/cem/keyword-packs/organization-forms/carousel/caption.txt",
-      "status": "published",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -737,13 +764,14 @@
       "platform": {
         "id": "DaMbJfyk2T1",
         "url": "https://www.instagram.com/p/DaMbJfyk2T1/",
-        "privacy": "public",
+        "privacy": "gone",
         "kind": "shortcode",
         "evidence": {
           "kind": "ig-snapshot",
           "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#recorded"
         }
-      }
+      },
+      "stopReason": "gone"
     },
     {
       "id": "pe-comprehensive-management/cem-kw-organization-types/instagram.carousel",
@@ -752,7 +780,7 @@
       "format": "carousel",
       "legacyKey": "cem/keyword-packs/organization-types",
       "copy": "content/sns/instagram/cem/keyword-packs/organization-types/carousel/caption.txt",
-      "status": "published",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -761,13 +789,14 @@
       "platform": {
         "id": "DaJ0M7bk4cs",
         "url": "https://www.instagram.com/p/DaJ0M7bk4cs/",
-        "privacy": "public",
+        "privacy": "gone",
         "kind": "shortcode",
         "evidence": {
           "kind": "ig-snapshot",
           "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#recorded"
         }
-      }
+      },
+      "stopReason": "gone"
     },
     {
       "id": "pe-comprehensive-management/cem-kw-organizational-commitment/instagram.carousel",
@@ -776,7 +805,7 @@
       "format": "carousel",
       "legacyKey": "cem/keyword-packs/organizational-commitment",
       "copy": "content/sns/instagram/cem/keyword-packs/organizational-commitment/carousel/caption.txt",
-      "status": "published",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -785,13 +814,14 @@
       "platform": {
         "id": "DaJ2ltME67K",
         "url": "https://www.instagram.com/p/DaJ2ltME67K/",
-        "privacy": "public",
+        "privacy": "gone",
         "kind": "shortcode",
         "evidence": {
           "kind": "ig-snapshot",
           "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#recorded"
         }
-      }
+      },
+      "stopReason": "gone"
     },
     {
       "id": "pe-comprehensive-management/cem-kw-osh-management-system/instagram.carousel",
@@ -800,7 +830,7 @@
       "format": "carousel",
       "legacyKey": "cem/keyword-packs/osh-management-system",
       "copy": "content/sns/instagram/cem/keyword-packs/osh-management-system/carousel/caption.txt",
-      "status": "published",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -809,13 +839,14 @@
       "platform": {
         "id": "DZ_5TDSEy8X",
         "url": "https://www.instagram.com/p/DZ_5TDSEy8X/",
-        "privacy": "public",
+        "privacy": "gone",
         "kind": "shortcode",
         "evidence": {
           "kind": "ig-snapshot",
           "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#recorded"
         }
-      }
+      },
+      "stopReason": "gone"
     },
     {
       "id": "pe-comprehensive-management/cem-kw-patent-vs-utility-model/instagram.carousel",
@@ -824,7 +855,7 @@
       "format": "carousel",
       "legacyKey": "cem/keyword-packs/patent-vs-utility-model",
       "copy": "content/sns/instagram/cem/keyword-packs/patent-vs-utility-model/carousel/caption.txt",
-      "status": "published",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -833,13 +864,14 @@
       "platform": {
         "id": "DZ9looEE436",
         "url": "https://www.instagram.com/p/DZ9looEE436/",
-        "privacy": "public",
+        "privacy": "gone",
         "kind": "shortcode",
         "evidence": {
           "kind": "ig-snapshot",
           "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#recorded"
         }
-      }
+      },
+      "stopReason": "gone"
     },
     {
       "id": "pe-comprehensive-management/cem-kw-patent-vs-utility-model/instagram.reel",
@@ -848,7 +880,7 @@
       "format": "reel",
       "legacyKey": "cem/keyword-packs/patent-vs-utility-model",
       "copy": "content/sns/instagram/cem/keyword-packs/patent-vs-utility-model/reels/caption.txt",
-      "status": "published",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -857,13 +889,14 @@
       "platform": {
         "id": "DaHRzulEyUR",
         "url": "https://www.instagram.com/reel/DaHRzulEyUR/",
-        "privacy": "public",
+        "privacy": "gone",
         "kind": "shortcode",
         "evidence": {
           "kind": "ig-snapshot",
           "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#live-reel-head"
         }
-      }
+      },
+      "stopReason": "gone"
     },
     {
       "id": "pe-comprehensive-management/cem-kw-pfi/instagram.carousel",
@@ -872,7 +905,7 @@
       "format": "carousel",
       "legacyKey": "cem/keyword-packs/pfi",
       "copy": "content/sns/instagram/cem/keyword-packs/pfi/carousel/caption.txt",
-      "status": "published",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -881,13 +914,14 @@
       "platform": {
         "id": "DZ_9zDzE-To",
         "url": "https://www.instagram.com/p/DZ_9zDzE-To/",
-        "privacy": "public",
+        "privacy": "gone",
         "kind": "shortcode",
         "evidence": {
           "kind": "ig-snapshot",
           "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#recorded"
         }
-      }
+      },
+      "stopReason": "gone"
     },
     {
       "id": "pe-comprehensive-management/cem-kw-ppm-analysis/instagram.carousel",
@@ -896,7 +930,7 @@
       "format": "carousel",
       "legacyKey": "cem/keyword-packs/ppm-analysis",
       "copy": "content/sns/instagram/cem/keyword-packs/ppm-analysis/carousel/caption.txt",
-      "status": "published",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -905,13 +939,14 @@
       "platform": {
         "id": "DahxtXmCDHJ",
         "url": "https://www.instagram.com/p/DahxtXmCDHJ/",
-        "privacy": "public",
+        "privacy": "gone",
         "kind": "shortcode",
         "evidence": {
           "kind": "ig-snapshot",
           "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#recorded"
         }
-      }
+      },
+      "stopReason": "gone"
     },
     {
       "id": "pe-comprehensive-management/cem-kw-pull-push-production/instagram.carousel",
@@ -920,7 +955,7 @@
       "format": "carousel",
       "legacyKey": "cem/keyword-packs/pull-push-production",
       "copy": "content/sns/instagram/cem/keyword-packs/pull-push-production/carousel/caption.txt",
-      "status": "published",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -929,13 +964,14 @@
       "platform": {
         "id": "DaKmjSriJuJ",
         "url": "https://www.instagram.com/p/DaKmjSriJuJ/",
-        "privacy": "public",
+        "privacy": "gone",
         "kind": "shortcode",
         "evidence": {
           "kind": "ig-snapshot",
           "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#recorded"
         }
-      }
+      },
+      "stopReason": "gone"
     },
     {
       "id": "pe-comprehensive-management/cem-kw-pull-push-production/instagram.reel",
@@ -955,7 +991,7 @@
       "format": "carousel",
       "legacyKey": "cem/keyword-packs/renewable-energy-act",
       "copy": "content/sns/instagram/cem/keyword-packs/renewable-energy-act/carousel/caption.txt",
-      "status": "published",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -964,13 +1000,14 @@
       "platform": {
         "id": "DaPwJXlDcE7",
         "url": "https://www.instagram.com/p/DaPwJXlDcE7/",
-        "privacy": "public",
+        "privacy": "gone",
         "kind": "shortcode",
         "evidence": {
           "kind": "ig-snapshot",
           "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#recorded"
         }
-      }
+      },
+      "stopReason": "gone"
     },
     {
       "id": "pe-comprehensive-management/cem-kw-rio-declaration/instagram.carousel",
@@ -979,7 +1016,7 @@
       "format": "carousel",
       "legacyKey": "cem/keyword-packs/rio-declaration",
       "copy": "content/sns/instagram/cem/keyword-packs/rio-declaration/carousel/caption.txt",
-      "status": "published",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -988,13 +1025,14 @@
       "platform": {
         "id": "DaU5yULDHhr",
         "url": "https://www.instagram.com/p/DaU5yULDHhr/",
-        "privacy": "public",
+        "privacy": "gone",
         "kind": "shortcode",
         "evidence": {
           "kind": "ig-snapshot",
           "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#recorded"
         }
-      }
+      },
+      "stopReason": "gone"
     },
     {
       "id": "pe-comprehensive-management/cem-kw-rio-declaration/instagram.reel",
@@ -1003,7 +1041,7 @@
       "format": "reel",
       "legacyKey": "cem/keyword-packs/rio-declaration",
       "copy": "content/sns/instagram/cem/keyword-packs/rio-declaration/reels/caption.txt",
-      "status": "published",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -1012,13 +1050,14 @@
       "platform": {
         "id": "DaAFq59EuIO",
         "url": "https://www.instagram.com/p/DaAFq59EuIO/",
-        "privacy": "public",
+        "privacy": "gone",
         "kind": "shortcode",
         "evidence": {
           "kind": "posted-json",
           "ref": "content/sns/instagram/cem/keyword-packs/rio-declaration/posted.json"
         }
-      }
+      },
+      "stopReason": "gone"
     },
     {
       "id": "pe-comprehensive-management/cem-kw-risk-perception/instagram.carousel",
@@ -1027,7 +1066,7 @@
       "format": "carousel",
       "legacyKey": "cem/keyword-packs/risk-perception",
       "copy": "content/sns/instagram/cem/keyword-packs/risk-perception/carousel/caption.txt",
-      "status": "published",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -1036,13 +1075,14 @@
       "platform": {
         "id": "DZ_fvFtky5Y",
         "url": "https://www.instagram.com/p/DZ_fvFtky5Y/",
-        "privacy": "public",
+        "privacy": "gone",
         "kind": "shortcode",
         "evidence": {
           "kind": "ig-snapshot",
           "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#recorded"
         }
-      }
+      },
+      "stopReason": "gone"
     },
     {
       "id": "pe-comprehensive-management/cem-kw-safety-health-org-structure/instagram.carousel",
@@ -1069,7 +1109,7 @@
       "format": "carousel",
       "legacyKey": "cem/keyword-packs/sexual-harassment",
       "copy": "content/sns/instagram/cem/keyword-packs/sexual-harassment/carousel/caption.txt",
-      "status": "published",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -1078,13 +1118,14 @@
       "platform": {
         "id": "DaSU7cliVbm",
         "url": "https://www.instagram.com/p/DaSU7cliVbm/",
-        "privacy": "public",
+        "privacy": "gone",
         "kind": "shortcode",
         "evidence": {
           "kind": "ig-snapshot",
           "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#recorded"
         }
-      }
+      },
+      "stopReason": "gone"
     },
     {
       "id": "pe-comprehensive-management/cem-kw-swot-analysis/instagram.carousel",
@@ -1093,7 +1134,7 @@
       "format": "carousel",
       "legacyKey": "cem/keyword-packs/swot-analysis",
       "copy": "content/sns/instagram/cem/keyword-packs/swot-analysis/carousel/caption.txt",
-      "status": "published",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -1102,13 +1143,14 @@
       "platform": {
         "id": "DakWff8DF30",
         "url": "https://www.instagram.com/p/DakWff8DF30/",
-        "privacy": "public",
+        "privacy": "gone",
         "kind": "shortcode",
         "evidence": {
           "kind": "ig-snapshot",
           "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#recorded"
         }
-      }
+      },
+      "stopReason": "gone"
     },
     {
       "id": "pe-comprehensive-management/cem-kw-system-safety-methods/instagram.carousel",
@@ -1117,7 +1159,7 @@
       "format": "carousel",
       "legacyKey": "cem/keyword-packs/system-safety-methods",
       "copy": "content/sns/instagram/cem/keyword-packs/system-safety-methods/carousel/caption.txt",
-      "status": "published",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -1126,13 +1168,14 @@
       "platform": {
         "id": "Dam7X-tiMcO",
         "url": "https://www.instagram.com/p/Dam7X-tiMcO/",
-        "privacy": "public",
+        "privacy": "gone",
         "kind": "shortcode",
         "evidence": {
           "kind": "ig-snapshot",
           "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#recorded"
         }
-      }
+      },
+      "stopReason": "gone"
     },
     {
       "id": "pe-comprehensive-management/cem-kw-three-c-analysis/instagram.carousel",
@@ -1141,7 +1184,7 @@
       "format": "carousel",
       "legacyKey": "cem/keyword-packs/three-c-analysis",
       "copy": "content/sns/instagram/cem/keyword-packs/three-c-analysis/carousel/caption.txt",
-      "status": "published",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -1150,13 +1193,14 @@
       "platform": {
         "id": "DapgFjtj8rG",
         "url": "https://www.instagram.com/p/DapgFjtj8rG/",
-        "privacy": "public",
+        "privacy": "gone",
         "kind": "shortcode",
         "evidence": {
           "kind": "ig-snapshot",
           "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#recorded"
         }
-      }
+      },
+      "stopReason": "gone"
     },
     {
       "id": "pe-comprehensive-management/cem-kw-unfair-competition/instagram.carousel",
@@ -1174,7 +1218,7 @@
       "format": "carousel",
       "legacyKey": "cem/keyword-packs/working-hours-systems",
       "copy": "content/sns/instagram/cem/keyword-packs/working-hours-systems/carousel/caption.txt",
-      "status": "published",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -1183,13 +1227,14 @@
       "platform": {
         "id": "DaMVmzGE17C",
         "url": "https://www.instagram.com/p/DaMVmzGE17C/",
-        "privacy": "public",
+        "privacy": "gone",
         "kind": "shortcode",
         "evidence": {
           "kind": "ig-snapshot",
           "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#recorded"
         }
-      }
+      },
+      "stopReason": "gone"
     },
     {
       "id": "pe-comprehensive-management/cem-r03-p01/instagram.carousel",
@@ -1198,7 +1243,7 @@
       "format": "carousel",
       "legacyKey": "cem/exam-packs/r03/pack-01",
       "copy": "content/sns/instagram/cem/exam-packs/r03/pack-01/carousel/caption.txt",
-      "status": "published",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -1207,13 +1252,14 @@
       "platform": {
         "id": "DaDF5_GD5TW",
         "url": "https://www.instagram.com/p/DaDF5_GD5TW/",
-        "privacy": "public",
+        "privacy": "gone",
         "kind": "shortcode",
         "evidence": {
           "kind": "ig-snapshot",
           "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#unrecorded"
         }
-      }
+      },
+      "stopReason": "gone"
     },
     {
       "id": "pe-comprehensive-management/cem-r03-p01/instagram.reel",
@@ -1274,7 +1320,7 @@
       "format": "carousel",
       "legacyKey": "cem/exam-packs/r03/pack-03",
       "copy": "content/sns/instagram/cem/exam-packs/r03/pack-03/carousel/caption.txt",
-      "status": "published",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -1283,13 +1329,14 @@
       "platform": {
         "id": "DaFqycYjYtR",
         "url": "https://www.instagram.com/p/DaFqycYjYtR/",
-        "privacy": "public",
+        "privacy": "gone",
         "kind": "shortcode",
         "evidence": {
           "kind": "ig-snapshot",
           "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#unrecorded"
         }
-      }
+      },
+      "stopReason": "gone"
     },
     {
       "id": "pe-comprehensive-management/cem-r03-p03/instagram.reel",
@@ -1318,7 +1365,7 @@
       "format": "carousel",
       "legacyKey": "cem/exam-packs/r03/pack-04",
       "copy": "content/sns/instagram/cem/exam-packs/r03/pack-04/carousel/caption.txt",
-      "status": "published",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -1327,13 +1374,14 @@
       "platform": {
         "id": "DaGyyJgE21K",
         "url": "https://www.instagram.com/p/DaGyyJgE21K/",
-        "privacy": "public",
+        "privacy": "gone",
         "kind": "shortcode",
         "evidence": {
           "kind": "ig-snapshot",
           "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#unrecorded"
         }
-      }
+      },
+      "stopReason": "gone"
     },
     {
       "id": "pe-comprehensive-management/cem-r03-p04/instagram.reel",
@@ -1362,7 +1410,7 @@
       "format": "carousel",
       "legacyKey": "cem/exam-packs/r03/pack-05",
       "copy": "content/sns/instagram/cem/exam-packs/r03/pack-05/carousel/caption.txt",
-      "status": "published",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -1371,13 +1419,14 @@
       "platform": {
         "id": "DaIPfztl6Vm",
         "url": "https://www.instagram.com/p/DaIPfztl6Vm/",
-        "privacy": "public",
+        "privacy": "gone",
         "kind": "shortcode",
         "evidence": {
           "kind": "ig-snapshot",
           "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#unrecorded"
         }
-      }
+      },
+      "stopReason": "gone"
     },
     {
       "id": "pe-comprehensive-management/cem-r03-p05/instagram.reel",
@@ -1406,7 +1455,7 @@
       "format": "carousel",
       "legacyKey": "cem/exam-packs/r03/pack-06",
       "copy": "content/sns/instagram/cem/exam-packs/r03/pack-06/carousel/caption.txt",
-      "status": "published",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -1415,13 +1464,14 @@
       "platform": {
         "id": "DaJXlOsDVBw",
         "url": "https://www.instagram.com/p/DaJXlOsDVBw/",
-        "privacy": "public",
+        "privacy": "gone",
         "kind": "shortcode",
         "evidence": {
           "kind": "ig-snapshot",
           "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#unrecorded"
         }
-      }
+      },
+      "stopReason": "gone"
     },
     {
       "id": "pe-comprehensive-management/cem-r03-p06/instagram.reel",
@@ -1450,7 +1500,7 @@
       "format": "carousel",
       "legacyKey": "cem/exam-packs/r03/pack-07",
       "copy": "content/sns/instagram/cem/exam-packs/r03/pack-07/carousel/caption.txt",
-      "status": "published",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -1459,13 +1509,14 @@
       "platform": {
         "id": "DaK0SXdCBER",
         "url": "https://www.instagram.com/p/DaK0SXdCBER/",
-        "privacy": "public",
+        "privacy": "gone",
         "kind": "shortcode",
         "evidence": {
           "kind": "ig-snapshot",
           "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#unrecorded"
         }
-      }
+      },
+      "stopReason": "gone"
     },
     {
       "id": "pe-comprehensive-management/cem-r03-p07/instagram.reel",
@@ -1494,7 +1545,7 @@
       "format": "carousel",
       "legacyKey": "cem/exam-packs/r03/pack-08",
       "copy": "content/sns/instagram/cem/exam-packs/r03/pack-08/carousel/caption.txt",
-      "status": "published",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -1503,13 +1554,14 @@
       "platform": {
         "id": "DaL8YKgE2Jq",
         "url": "https://www.instagram.com/p/DaL8YKgE2Jq/",
-        "privacy": "public",
+        "privacy": "gone",
         "kind": "shortcode",
         "evidence": {
           "kind": "ig-snapshot",
           "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#unrecorded"
         }
-      }
+      },
+      "stopReason": "gone"
     },
     {
       "id": "pe-comprehensive-management/cem-r03-p08/instagram.reel",
@@ -1538,7 +1590,7 @@
       "format": "carousel",
       "legacyKey": "cem/exam-packs/r03/pack-09",
       "copy": "content/sns/instagram/cem/exam-packs/r03/pack-09/carousel/caption.txt",
-      "status": "published",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -1547,13 +1599,14 @@
       "platform": {
         "id": "DaNZE2jHP7r",
         "url": "https://www.instagram.com/p/DaNZE2jHP7r/",
-        "privacy": "public",
+        "privacy": "gone",
         "kind": "shortcode",
         "evidence": {
           "kind": "ig-snapshot",
           "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#recorded"
         }
-      }
+      },
+      "stopReason": "gone"
     },
     {
       "id": "pe-comprehensive-management/cem-r03-p09/instagram.reel",
@@ -1798,7 +1851,7 @@
       "format": "carousel",
       "legacyKey": "cem/exam-packs/r04/pack-07",
       "copy": "content/sns/instagram/cem/exam-packs/r04/pack-07/carousel/caption.txt",
-      "status": "published",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -1807,13 +1860,14 @@
       "platform": {
         "id": "DaAhJiDD-AZ",
         "url": "https://www.instagram.com/p/DaAhJiDD-AZ/",
-        "privacy": "public",
+        "privacy": "gone",
         "kind": "shortcode",
         "evidence": {
           "kind": "ig-snapshot",
           "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#unrecorded"
         }
-      }
+      },
+      "stopReason": "gone"
     },
     {
       "id": "pe-comprehensive-management/cem-r04-p07/instagram.reel",
@@ -1842,7 +1896,7 @@
       "format": "carousel",
       "legacyKey": "cem/exam-packs/r04/pack-08",
       "copy": "content/sns/instagram/cem/exam-packs/r04/pack-08/carousel/caption.txt",
-      "status": "published",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -1851,13 +1905,14 @@
       "platform": {
         "id": "DaBpMNYDUTP",
         "url": "https://www.instagram.com/p/DaBpMNYDUTP/",
-        "privacy": "public",
+        "privacy": "gone",
         "kind": "shortcode",
         "evidence": {
           "kind": "ig-snapshot",
           "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#unrecorded"
         }
-      }
+      },
+      "stopReason": "gone"
     },
     {
       "id": "pe-comprehensive-management/cem-r04-p08/instagram.reel",
@@ -2022,7 +2077,7 @@
       "format": "carousel",
       "legacyKey": "cem/exam-packs/r05/pack-04",
       "copy": "content/sns/instagram/cem/exam-packs/r05/pack-04/carousel/caption.txt",
-      "status": "published",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -2031,13 +2086,14 @@
       "platform": {
         "id": "DZzpIM3Aeyb",
         "url": "https://www.instagram.com/p/DZzpIM3Aeyb/",
-        "privacy": "public",
+        "privacy": "gone",
         "kind": "shortcode",
         "evidence": {
           "kind": "ig-snapshot",
           "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#unrecorded"
         }
-      }
+      },
+      "stopReason": "gone"
     },
     {
       "id": "pe-comprehensive-management/cem-r05-p04/instagram.reel",
@@ -2066,7 +2122,7 @@
       "format": "carousel",
       "legacyKey": "cem/exam-packs/r05/pack-05",
       "copy": "content/sns/instagram/cem/exam-packs/r05/pack-05/carousel/caption.txt",
-      "status": "published",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -2075,13 +2131,14 @@
       "platform": {
         "id": "DZ0xNwGD0Jx",
         "url": "https://www.instagram.com/p/DZ0xNwGD0Jx/",
-        "privacy": "public",
+        "privacy": "gone",
         "kind": "shortcode",
         "evidence": {
           "kind": "ig-snapshot",
           "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#unrecorded"
         }
-      }
+      },
+      "stopReason": "gone"
     },
     {
       "id": "pe-comprehensive-management/cem-r05-p05/instagram.reel",
@@ -2110,7 +2167,7 @@
       "format": "carousel",
       "legacyKey": "cem/exam-packs/r05/pack-06",
       "copy": "content/sns/instagram/cem/exam-packs/r05/pack-06/carousel/caption.txt",
-      "status": "published",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -2119,13 +2176,14 @@
       "platform": {
         "id": "DZ2OC4uD1Fi",
         "url": "https://www.instagram.com/p/DZ2OC4uD1Fi/",
-        "privacy": "public",
+        "privacy": "gone",
         "kind": "shortcode",
         "evidence": {
           "kind": "ig-snapshot",
           "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#unrecorded"
         }
-      }
+      },
+      "stopReason": "gone"
     },
     {
       "id": "pe-comprehensive-management/cem-r05-p06/instagram.reel",
@@ -2154,7 +2212,7 @@
       "format": "carousel",
       "legacyKey": "cem/exam-packs/r05/pack-07",
       "copy": "content/sns/instagram/cem/exam-packs/r05/pack-07/carousel/caption.txt",
-      "status": "published",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -2163,13 +2221,14 @@
       "platform": {
         "id": "DZ3WA-gDZ3t",
         "url": "https://www.instagram.com/p/DZ3WA-gDZ3t/",
-        "privacy": "public",
+        "privacy": "gone",
         "kind": "shortcode",
         "evidence": {
           "kind": "ig-snapshot",
           "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#unrecorded"
         }
-      }
+      },
+      "stopReason": "gone"
     },
     {
       "id": "pe-comprehensive-management/cem-r05-p07/instagram.reel",
@@ -2658,7 +2717,7 @@
       "format": "carousel",
       "legacyKey": "cem/exam-packs/r07/pack-03",
       "copy": "content/sns/instagram/cem/exam-packs/r07/pack-03/carousel/caption.txt",
-      "status": "published",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -2667,13 +2726,14 @@
       "platform": {
         "id": "DZbBRNwDQMI",
         "url": "https://www.instagram.com/p/DZbBRNwDQMI/",
-        "privacy": "public",
+        "privacy": "gone",
         "kind": "shortcode",
         "evidence": {
           "kind": "ig-snapshot",
           "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#unrecorded"
         }
-      }
+      },
+      "stopReason": "gone"
     },
     {
       "id": "pe-comprehensive-management/cem-r07-p03/instagram.reel",
@@ -2702,7 +2762,7 @@
       "format": "carousel",
       "legacyKey": "cem/exam-packs/r07/pack-04",
       "copy": "content/sns/instagram/cem/exam-packs/r07/pack-04/carousel/caption.txt",
-      "status": "published",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -2711,13 +2771,14 @@
       "platform": {
         "id": "DZceCk2iFdL",
         "url": "https://www.instagram.com/p/DZceCk2iFdL/",
-        "privacy": "public",
+        "privacy": "gone",
         "kind": "shortcode",
         "evidence": {
           "kind": "ig-snapshot",
           "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#unrecorded"
         }
-      }
+      },
+      "stopReason": "gone"
     },
     {
       "id": "pe-comprehensive-management/cem-r07-p04/instagram.reel",
@@ -2838,7 +2899,7 @@
       "format": "carousel",
       "legacyKey": "cem/exam-packs/r07/pack-07",
       "copy": "content/sns/instagram/cem/exam-packs/r07/pack-07/carousel/caption.txt",
-      "status": "published",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -2847,13 +2908,14 @@
       "platform": {
         "id": "DZgK3A5DFLg",
         "url": "https://www.instagram.com/p/DZgK3A5DFLg/",
-        "privacy": "public",
+        "privacy": "gone",
         "kind": "shortcode",
         "evidence": {
           "kind": "ig-snapshot",
           "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#unrecorded"
         }
-      }
+      },
+      "stopReason": "gone"
     },
     {
       "id": "pe-comprehensive-management/cem-r07-p07/instagram.reel",
@@ -3054,7 +3116,7 @@
       "format": "carousel",
       "legacyKey": "cem/r08-sokuhou",
       "copy": "content/sns/instagram/cem/r08-sokuhou/carousel/caption.txt",
-      "status": "published",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -3063,13 +3125,14 @@
       "platform": {
         "id": "Da-gaGpEgKO",
         "url": "https://www.instagram.com/p/Da-gaGpEgKO/",
-        "privacy": "public",
+        "privacy": "gone",
         "kind": "shortcode",
         "evidence": {
           "kind": "ig-snapshot",
           "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#recorded"
         }
-      }
+      },
+      "stopReason": "gone"
     }
   ]
 }

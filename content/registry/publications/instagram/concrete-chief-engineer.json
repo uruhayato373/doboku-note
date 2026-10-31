@@ -11,7 +11,7 @@
       "legacyKey": "video-packs/concrete-chief-engineer/kikinagashi-shunin-suchi",
       "definition": "content/sns/instagram/video-packs/concrete-chief-engineer/kikinagashi-shunin-suchi",
       "copy": "content/sns/instagram/video-packs/concrete-chief-engineer/kikinagashi-shunin-suchi/carousel/caption.txt",
-      "status": "published",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -20,13 +20,14 @@
       "platform": {
         "id": "DdX5hVLCVvL",
         "url": "https://www.instagram.com/p/DdX5hVLCVvL/",
-        "privacy": "public",
+        "privacy": "gone",
         "kind": "shortcode",
         "evidence": {
           "kind": "ig-snapshot",
           "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#unrecorded"
         }
-      }
+      },
+      "stopReason": "gone"
     },
     {
       "id": "concrete-chief-engineer/kikinagashi-shunin-suchi/instagram.reel.point-tanni-saikotsu-kuuki-2",
@@ -38,7 +39,7 @@
       "idException": "imported-before-cutover",
       "definition": "content/sns/instagram/video-packs/concrete-chief-engineer/kikinagashi-shunin-suchi-point-tanni-saikotsu-kuuki-2",
       "copy": "content/sns/instagram/video-packs/concrete-chief-engineer/kikinagashi-shunin-suchi-point-tanni-saikotsu-kuuki-2/reels/caption.txt",
-      "status": "published",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -47,13 +48,14 @@
       "platform": {
         "id": "DdVUvVZCbAT",
         "url": "https://www.instagram.com/reel/DdVUvVZCbAT/",
-        "privacy": "public",
+        "privacy": "gone",
         "kind": "shortcode",
         "evidence": {
           "kind": "ig-snapshot",
           "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#live-reel-head"
         }
-      }
+      },
+      "stopReason": "gone"
     },
     {
       "id": "concrete-chief-engineer/kikinagashi-shunin-suchi/instagram.reel.point-wc-ratio-1",
@@ -65,7 +67,7 @@
       "idException": "imported-before-cutover",
       "definition": "content/sns/instagram/video-packs/concrete-chief-engineer/kikinagashi-shunin-suchi-point-wc-ratio-1",
       "copy": "content/sns/instagram/video-packs/concrete-chief-engineer/kikinagashi-shunin-suchi-point-wc-ratio-1/reels/caption.txt",
-      "status": "published",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -74,13 +76,14 @@
       "platform": {
         "id": "DdYmLMQlTCa",
         "url": "https://www.instagram.com/reel/DdYmLMQlTCa/",
-        "privacy": "public",
+        "privacy": "gone",
         "kind": "shortcode",
         "evidence": {
           "kind": "ig-snapshot",
           "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#live-reel-head"
         }
-      }
+      },
+      "stopReason": "gone"
     },
     {
       "id": "concrete-chief-engineer/shunin-chokuzen-senryaku/instagram.carousel",

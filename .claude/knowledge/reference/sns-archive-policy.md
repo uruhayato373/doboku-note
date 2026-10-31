@@ -12,14 +12,15 @@
 
 | ファイル | 種別 | 置き場 |
 |---|---|---|
-| `slide-data.json` / `*caption.txt` / `reels/script.txt` / `status.json` | **SoT（消えたら困る）** | git 追跡 |
+| `slide-data.json` / `*caption.txt` / `reels/script.txt` | **制作内容の SoT（消えたら困る）** | git 追跡 |
+| `status.json` / `posted.json` | 公開状態の移行中の写し（正本は `content/registry/`） | git 追跡・撤去予定（DN-0629） |
 | `carousel/img/*.png` / `stories/img/*.png`（成果物スライド） | 投稿そのもの | git 非追跡 → Drive `制作物/IGレンダー/`（`ig-rendered-image`） |
 | `reels/wav/*.wav` | TTS で再生成可能・重い | git 非追跡 → Drive `制作物/SNS音声動画/`（`sns-archived-media`） |
 | `reels/video.mp4` / `youtube/**/video.mp4` | wav+png から再生成可能 | git 非追跡 → Drive `制作物/SNS音声動画/`（`sns-archived-media`） |
 | `reels/img/` / `slide-*.mp4` / `concat.txt` / `_empty.ass` 等 | 中間物 | どこにも置かない（毎回再生成） |
 
 > [!important] 真実源は slide-data.json
-> 1 パックの「消えたら困る本体」は約 20KB のテキスト（slide-data.json + script/caption + status.json）だけ。wav/mp4/png は全て再生成できる。退避で wav/mp4 を消しても、SoT が無傷なら復元できる。
+> 1 パックの「消えたら困る本体」は slide-data.json + script/caption のテキストと、公開状態の正本 `content/registry/`。wav/mp4/png は再生成できる。退避で wav/mp4 を消しても、制作内容の SoT が無傷なら復元できる。
 
 > [!warning] wav は JIT 動画の入力でもある
 > `reels/wav` は `publish-reel-jit.mjs` / `per-problem-shorts.mjs` の**入力素材**（解答/CTA ナレ）。ローカルから消した pack で動画を JIT 生成するには、先に `drive-vault-sync --pull --path <pack> --commit` で取り戻すか script.txt から VOICEVOX で再合成する。
