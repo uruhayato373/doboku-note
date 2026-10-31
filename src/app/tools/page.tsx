@@ -74,8 +74,10 @@ export default function ToolsIndexPage() {
         </div>
         </section>)}
       </SectionBlock>
-      {/* 転職の案内（ページ末に 1 枠。案件は配置ルール） */}
-      <AffiliateSlot page={{ pageKind: "tool" }} slot="tool-end" className="max-w-[760px] mx-auto px-4 sm:px-6 pb-10" />
+      {/* 転職の案内（ページ末に 1 枠。案件は配置ルール）。上のツールの並び（幅 860）と同じ左端にそろえる（2026-10-31 まで幅 760 で中央に寄っていた） */}
+      <SectionBlock width="860" space="sm">
+        <AffiliateSlot page={{ pageKind: "tool" }} slot="tool-end" className="pb-10" />
+      </SectionBlock>
     </PageShell>
   );
 }
