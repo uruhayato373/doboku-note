@@ -16,6 +16,7 @@ const PACK_COLUMNS: DataTableColumn[] = [
   { key: 'derivatives', label: '派生物の公開状態', sortable: false },
   { key: 'sessions', label: 'セッション', num: true },
   { key: 'users', label: 'ユーザー', num: true },
+  { key: 'siteNoteClicks', label: 'サイト→noteクリック', num: true },
   { key: 'cta', label: '主CTA' },
 ];
 
@@ -44,7 +45,7 @@ const count = (n: number | null) => (n === null ? <span className="text-muted-fo
  * **未取得と 0 件を区別**して表示し、未取得のときに全件 0 の緑を出さない。
  */
 export default async function VideoOutcomesPage() {
-  const { rows, metrics, otherCampaigns, youtubeAnalytics, verification } = videoOutcomes();
+  const { rows, metrics, noteClickMetrics, otherCampaigns, youtubeAnalytics, verification } = videoOutcomes();
   const published = rows.filter((r) => r.anyPublished);
   const measurable = metrics.ok ? published.filter((r) => (r.sessions ?? 0) > 0).length : null;
 
@@ -56,6 +57,7 @@ export default async function VideoOutcomesPage() {
       derivatives: r.derivatives.length === 0 ? '未登録' : r.derivatives.map((d) => `${derivativeLabel(d.key)}:${d.status}`).join(' '),
       sessions: r.sessions,
       users: r.activeUsers,
+      siteNoteClicks: r.siteNoteClicks,
       cta: r.cta ?? null,
     },
     cells: {
@@ -94,6 +96,7 @@ export default async function VideoOutcomesPage() {
       ),
       sessions: count(r.sessions),
       users: count(r.activeUsers),
+      siteNoteClicks: count(r.siteNoteClicks),
       cta: <span className="font-mono text-xs">{r.cta ?? '—'}</span>,
     },
   }));
@@ -162,6 +165,10 @@ export default async function VideoOutcomesPage() {
             </p>
           </>
         )}
+        <p className="text-xs text-muted-foreground">
+          サイト→noteクリック: {noteClickMetrics.ok ? `取得済み（${noteClickMetrics.startDate}〜${noteClickMetrics.endDate}）` : '未取得'}。
+          YouTubeからnoteへ直接進んだクリックと購入はこの数値に含まれません。
+        </p>
       </PanelCard>
 
       <PanelCard title="公開実体の照合" description="verify-video-publication の直近記録 · .claude/state/video-publication-verify.json">

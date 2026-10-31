@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "channelId": "UCHRnXPqoc0Hls8nXiK_ZYqA",
+  "items": [
+    {
+      "publicationId": "pe-first-stage/pe1-kiso-2of3-reliability/youtube.longform",
+      "videoId": "-9UuHAQkt4o",
+      "publishAt": "2026-11-04T05:30:00Z",
+      "fromSha256": "b353cf29c79326f859ce9af6691bd78e64d37d784f25ae23ba6860f899aeb0c0",
+      "toSha256": "69d245b24abacfc7ab22ba022287f430f7b5cbc92fb63b5bb22008492229c0b5"
+    },
+    {
+      "publicationId": "pe-first-stage/pe1-kiso-gradient-length/youtube.longform",
+      "videoId": "yOODuwkPXGk",
+      "publishAt": "2026-11-04T23:30:00Z",
+      "fromSha256": "9c85c38202dea660af29a31beae44eeb71a0329f5618f5c24e3949bbe4e3baaf",
+      "toSha256": "e7ebc9182cc33fef67f1e8379c0d3f7ddff358c234050dea12635179b08e44f3"
+    },
+    {
+      "publicationId": "concrete-chief-engineer/shunin-shoki-3kyokusen/youtube.longform",
+      "videoId": "9ADPE2fYSRs",
+      "publishAt": "2026-11-04T11:30:00Z",
+      "fromSha256": "08abea76d52ba986f39eddebc529a257cb5f507ac38cc8c9a2d5b1c0fbc3724d",
+      "toSha256": "7d3b8f8983cf53ef3bedc8be3425d8e9c43d85aa6f5c29f09ab1da62ab5e461e"
+    },
+    {
+      "publicationId": "concrete-chief-engineer/shunin-chinka-hibiware-genin/youtube.longform",
+      "videoId": "XxATevSq-KE",
+      "publishAt": "2026-11-05T05:30:00Z",
+      "fromSha256": "4a3e395036c2976f58469f3e11df5becd2aca611915a086dfd8f26469f765096",
+      "toSha256": "b4143c23311ffe7a7bf401b4830e39c0646d3b3323282e4f1eb43e77ad035dfa"
+    },
+    {
+      "publicationId": "concrete-chief-engineer/shunin-kyoudo-hantei-2jouken/youtube.longform",
+      "videoId": "C2Pyi5TE3UY",
+      "publishAt": "2026-11-05T11:30:00Z",
+      "fromSha256": "1e008642b788dfeab4b835325457abba4a8ad04a30d8ed628a9a6d0b1ef8bccd",
+      "toSha256": "d747ef169287307535aaf4cea0541a450252f29e0482c22da9bb63647007d886"
+    }
+  ]
+}
