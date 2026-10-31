@@ -68,8 +68,9 @@ title: 動画コンテンツ運用ポリシー
 - `primaryCta` は1つ。生URLよりcatalog IDを優先。`campaign` は `packId` と一致（utm_campaign に使う）
   - catalog 系 kind（note-magazine / coconala-service）は `targetId` がカタログ id に解決できること
   - `site-article` は `targetPath` 実在、`links-hub` は `/links` 固定
-  - note 有料教材が主CTAの通常動画は、商品に合う短い名前を使い、概要欄の冒頭に主リンクを置く。「完成答案」を択一教材へ一律に使わない。`sourceRefs` の先頭に公開済みサイト記事があれば、その記事を無料の補助リンクとして案内する。`prepare-youtube-longforms.mts` が公開URLと動画別UTMを生成する。主CTAは増やさない
-  - 予約済み動画の概要欄を直す場合は、文面・承認ハッシュ・YouTube実体の3者を揃える。文面変更後の最終承認は運営者本人が `registry approve` で行い、API更新は旧/新の文面SHAと予約状態を照合し、更新後に読み戻す。動画パック本体を概要欄だけの変更で編集すると完成動画の制作入力ハッシュが変わるため、出典記事から補助リンクを導く
+  - note 有料教材が主CTAの通常動画は、商品に合う短い名前を使い、概要欄の冒頭に主リンクを置く。「完成答案」を択一教材へ一律に使わない。同資格の公開済みサイト記事が `sourceRefs` にあれば、先頭の該当記事を無料の補助リンクとして案内する。`prepare-youtube-longforms.mts` が公開URLと動画別UTMを生成する。主CTAは増やさない
+  - 旧パックの `primaryCta` が無料もくじ・`/links` の場合は動画内の案内先として残し、現行概要欄では同資格の公開中note有料商品への直接リンクを先頭に置く。既存動画の画像・台本を概要欄だけの修正で変えない
+  - 予約済み・公開済み・非公開アップロード済み動画の概要欄を直す場合は、文面・承認ハッシュ・YouTube実体の3者を揃える。文面変更後の最終承認は運営者本人が `registry approve` で行う。旧動画の `legacy-funnel` 計画は新しいハッシュ付き承認を必須とし、API更新は旧/新の文面SHA・public/private状態を照合してから読み戻す。動画パック本体を概要欄だけの変更で編集すると完成動画の制作入力ハッシュが変わるため、出典記事から補助リンクを導く
 - `outputs` は希望する派生物であり、公開済み状態を持たない
 - 実績、合格、売上、統計を扱うときは根拠referenceを追加する
 
@@ -343,7 +344,9 @@ APIへ非公開アップロード済みで関連動画設定待ちのShortsは `
 
 撤去完了の検査は `node scripts/check-youtube-delivery.mjs --require-deleted`。private R2の固定planと最新delivery-stateを照合し、全対象の削除済み記録がそろえばexit 0、残件はexit 1、ゼロ件・plan不一致・dry-run・削除数欠測・36時間超の古い記録・認証不可はexit 2とする。オフラインでは `--state <private-state.json> --plan <private-plan.json>` を渡せる。Gitの集計スナップショットだけから全件撤去とは判定しない。
 
-**公開実体の照合**は 2 本立てで（2026-10-25 に SNS の保留に合わせて CI から外した（再開するときに作り直す。以下は外す前の仕組み）。）、台帳の予約→公開は別の照合 `registry-reconcile`（毎日・証拠つきで published へ進める・[content-registry.md](content-registry.md)「照合」）が書く。実査 `verify-video-publication`（CI 日次＝`registry-reconcile.yml` が回す・creds 必須。ずれは Issue channel `registry-reconcile`）が videos.list で削除/非公開・概要欄の `utm_campaign={packId}`/`utm_source=youtube` 欠落・公開済み Short の `relatedVideoId` 未設定を検出し `.claude/state/video-publication-verify.json` へ記録する。**creds 不足・API 失敗は 記録を書かずに exit 2（検査不成立）**——「creds が無い」を「異常なし」と記録すると以後ずっと緑が出て事故が埋もれるため。ゲート `check-video-publication`（オフライン・quality:audit ci:true）はその記録の有無・網羅・孤児・報告済みドリフトを見る。記録の古さ（台帳の failDays・既定 14 日）は壁時計依存なので `--freshness` に分け、quality-audit の ops（日次）が見る（2026-10-11）。**published なのに一度も照合していない**状態が最も危険なので V01 で赤にする。対象 0 件（公開前）は件数を明示して PASS（異常 0 件と混同しない）。同じ `videoId` で台帳を明示停止した旧版の過去記録は孤児にせず、現役の照合数と分けて表示する。外部ID不一致・台帳からの削除・停止以外への後退は引き続きV04で止め、現役動画のドリフトも除外しない。是正は人が判断し、`verify-video-publication` は台帳を書き戻さない。
+**現行の読取監査**は `.github/workflows/youtube-funnel-audit.yml` が毎日08:20 JSTに `develop` の現行通常動画を対象として実行する。`npm run check-youtube-funnels` が公開中のnote商品・動画別UTM・同資格の関連無料記事を検査し、`youtube-audit-live-funnels.mjs` がYouTube APIで概要欄全文・自社リンク・公開範囲と予定を読み戻す。旧動画も差分はFAILとし、失敗は `automation-failure` Issue（channel `youtube-funnel`）へ通知、復旧時に閉じる。手動再実行は `youtube-single-publish.yml` の `mode=audit-funnel`。予約から公開済みへの台帳更新は別の手動 `mode=reconcile` で行う。
+
+**旧設計（2026-10-25に停止）**: `registry-reconcile.yml` の日次実査 `verify-video-publication` は、削除/非公開・UTM欠落・Shorts関連動画を `.claude/state/video-publication-verify.json` に記録し、`check-video-publication` が網羅とドリフトを見ていた。現行の日次読取監査はこの旧記録を書かず、Shortsの関連動画も検査対象に含めない。
 
 - ソース未取得と0件を区別
 - 企画・派生・公開・計測を同じ行で追える

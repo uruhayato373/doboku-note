@@ -254,6 +254,9 @@ npm run media                  # 素材の CLI: promote --pub <公開ID>（作�
 npm run media -- plate --pub <公開ID> --role <役割> --prompt-file <生成指示> --input <生成済み画像> --commit # 選択画像を再生成せず採用、AI来歴と未判定の監査行を登録。欠けた入力は停止。判定記録は content-registry.md 参照
 npm run media -- verify-render --work <資格>/<作品> # 現行台本・採用指定・全場面PNG/音声入力/WAV・字幕・MP4を照合。旧レンダーは音声付き再生成が必要。promoteも通常動画には同じ検査を実行する。Shortsの改訂候補はpop-image.jsonのcandidateShortsRevisionを選び、再現レシピの素材SHA・寸法・場面・尺を照合する
 npm run check-content-registry # コンテンツ台帳の検査 R01〜R13（0 件・ID・予約以上の削除〔--base <ref>〕・参照・件数・Drive の sha・状態と承認ハッシュ・外部 ID・AI 素材の判定・別作品IDの通常動画の台本重複・完成動画/改訂入力の結線・YouTube の概要欄の VOICEVOX クレジット〔対象・照合・文面なしの行数を出す〕）。FAIL で exit 1
+npm run check-youtube-funnels # 現行通常動画の公開中note商品・動画別UTM・関連無料サイト記事を全件検査。FAIL で CI を止める。毎日08:20 JSTの youtube-funnel-audit.yml でも実行
+node scripts/youtube-sync-funnel.mjs --plan <content/sns/youtube/metadata-plans/計画.json> # 既存動画の概要欄同期のdry-run。--commit は運営者が変更版の最終承認を記録した後、youtube-single-publish.yml の mode=sync-funnel から実行。旧/新SHA・公開範囲・動画IDを照合し、API更新後に読み戻す
+node scripts/youtube-audit-live-funnels.mjs # YouTube API で現行通常動画の概要欄全文・自社リンク・公開範囲を読取照合。認証はCI供給。毎日 youtube-funnel-audit.yml と手動 mode=audit-funnel から実行
 npm run youtube-unschedule        # 台帳で scheduled の YouTube の公開予約を外す（private のまま・動画は消さない。既定は試運転・--apply で実行・認証は CI だけなので .github/workflows/youtube-unschedule.yml から動かしていたが、SNS の保留に合わせて 2026-10-25 に CI から外した。再開するときに作り直す）。台帳は registry -- unschedule で uploaded_private に戻す（2026-10-13・YouTube を一旦止めた）
 npm run check-registry-due     # 予約のまま公開の予定を猶予（config の reconcileGraceDays）より過ぎた公開を出す（ops・壁時計依存なので CI ゲートにしない）
 npm run check-video-publication # 公開済み派生物の実体照合が回っているか（未照合・記録の孤児・実査ドリフト。記録の古さ（V03）と実査のドリフト（V05）は `--freshness`）。実査本体は verify-video-publication で creds 必須・**対象0件は明示してPASS**。quality-audit・registry-reconcile.yml からはSNS の保留に合わせて 2026-10-25 に CI から外した。再開するときに作り直す
