@@ -3,6 +3,90 @@
   "channelId": "UCHRnXPqoc0Hls8nXiK_ZYqA",
   "items": [
     {
+      "publicationId": "pe-first-stage/pe1-tekisei-3shiten/youtube.longform",
+      "videoId": "hevqxT9zH7A",
+      "publishAt": "2026-10-31T14:30:00+09:00",
+      "fromSha256": "88f0045484fc0383d2dfc62e3307d0b2212a31b31c3906ec7e7c4460322569a7",
+      "toSha256": "a11cefb87190032c2c39405e77ca52148d1ef5292008ec7935051f20be8da2ac"
+    },
+    {
+      "publicationId": "pe-first-stage/pe1-senmon-kensetsu-25mon/youtube.longform",
+      "videoId": "gRUKhWDZJhk",
+      "publishAt": "2026-10-31T20:30:00+09:00",
+      "fromSha256": "b037e287b70d939e5be4b11e887fae5fdfd15e4d055d77df49c264e6f025e6a8",
+      "toSha256": "76777f1d765dcd49ee99b41a1c8ad111f7dcdd870b80f6cf3a6518c1da512753"
+    },
+    {
+      "publicationId": "pe-first-stage/pe1-kiso-gyouretsu-vector/youtube.longform",
+      "videoId": "DnFUe-knWns",
+      "publishAt": "2026-11-01T08:30:00+09:00",
+      "fromSha256": "47c161c35a0abec1b7d2bcfb765aa8511eaa3d2f957b57cf725ab0174c62bf8a",
+      "toSha256": "710301ea8ea57bf47799774d4fdea3783cb639cdfcfffd4b9243ab28e7581881"
+    },
+    {
+      "publicationId": "concrete-chief-engineer/shunin-haigou-zettaiyouseki/youtube.longform",
+      "videoId": "_4a6-sZrucQ",
+      "publishAt": "2026-11-01T14:30:00+09:00",
+      "fromSha256": "ab8265117c6be930fd9a2945d51b2cd857559ea5b93992ebdc89a3650752727f",
+      "toSha256": "9d2088a3dd9a49b9ce45bf88c4504cd4e1e81fbc7c70b2f23535a37408808e7d"
+    },
+    {
+      "publicationId": "pe-first-stage/pe1-kiso-kairo-setsuten/youtube.longform",
+      "videoId": "asNkuQvdIq0",
+      "publishAt": "2026-11-01T20:30:00+09:00",
+      "fromSha256": "c149a6d2c529e1cf1b23358f9b9520ac6df7f6a7c9ea7cc553acc079ba029193",
+      "toSha256": "bdff359f301b787cf7464608824769fcb85bb523912a42572e796911ad9a2ee5"
+    },
+    {
+      "publicationId": "pe-first-stage/pe1-kiso-newton-hou/youtube.longform",
+      "videoId": "xhYEwdON8ps",
+      "publishAt": "2026-11-02T08:30:00+09:00",
+      "fromSha256": "6ad9c2fae3642d8ed3ddb0ab0f495f0afce21d3f3a8bb7b1b3f92d6f439a56f6",
+      "toSha256": "678cf5b58fc5caccfc125010676f38731d62b157e5ed5e27b604d5b1a183ff3d"
+    },
+    {
+      "publicationId": "concrete-chief-engineer/shunin-rekka-taio/youtube.longform",
+      "videoId": "T9t0ykZoKLk",
+      "publishAt": "2026-11-02T14:30:00+09:00",
+      "fromSha256": "c9b23478dc66aaaa3364b783453ca7761fc2d28976ac5342ee4d05d57090da06",
+      "toSha256": "5be75003fbeda6d0192a726265fc00dbf8217e4325944473d9ce1f26a7d352fc"
+    },
+    {
+      "publicationId": "concrete-chief-engineer/shunin-cement-4kagoubutsu/youtube.longform",
+      "videoId": "678g4juk1NA",
+      "publishAt": "2026-11-02T20:30:00+09:00",
+      "fromSha256": "bbb0c13c807e3c6f335a85d5ef4f6c00e7db5e65ad326e8a1af083ff09c41ca0",
+      "toSha256": "d1ab69cb88a6efd38fb0d62c1ea1ded8703a8f83749dc5d3acac7104b507acb5"
+    },
+    {
+      "publicationId": "pe-first-stage/pe1-kiso-xor-shingihyou/youtube.longform",
+      "videoId": "-Oeh3Gi8-yU",
+      "publishAt": "2026-11-03T08:30:00+09:00",
+      "fromSha256": "884726e0f5f1e4ce4fd7248c2a348096f174fafcda943956de54b3ef00a808fa",
+      "toSha256": "16b8b7dc974ab14e0c16b04026f39e87c364fd0b8e870fa01d6fee7f9e50806c"
+    },
+    {
+      "publicationId": "concrete-chief-engineer/shunin-kanri-kikaku-genkai/youtube.longform",
+      "videoId": "OFGDtn0OQ_Q",
+      "publishAt": "2026-11-03T14:30:00+09:00",
+      "fromSha256": "4e58b4eabad13ebce344e97c94e8536eb2b17b7230a536facb55c424a5e6e1f8",
+      "toSha256": "1244719731751993e253e9752b20fe43150425b67169ad660a0da05125a2450a"
+    },
+    {
+      "publicationId": "pe-first-stage/pe1-kiso-simpson-haba/youtube.longform",
+      "videoId": "hGr1DpHXKZ8",
+      "publishAt": "2026-11-03T20:30:00+09:00",
+      "fromSha256": "a581f4150f7eb9247fc2590e22c4b3742f1a72ba6171efe4b8551e7dd6af746e",
+      "toSha256": "5d7be05a98e6226c3c2cdaef172b6e634070cc5a21836acd5915bb3ba4a80e79"
+    },
+    {
+      "publicationId": "pe-first-stage/pe1-kiso-2s-complement/youtube.longform",
+      "videoId": "LfGrUP0DahI",
+      "publishAt": "2026-11-03T23:30:00Z",
+      "fromSha256": "db384627098e41b652408f34fb0ccb7ade542431b592ba4d7bd5e013982a8bb1",
+      "toSha256": "e379ad1524a53b6f995b825803fd73a4ab1f24a0b10ed523e7f8e25f17f93823"
+    },
+    {
       "publicationId": "pe-first-stage/pe1-kiso-2of3-reliability/youtube.longform",
       "videoId": "-9UuHAQkt4o",
       "publishAt": "2026-11-04T05:30:00Z",
@@ -10,18 +94,18 @@
       "toSha256": "69d245b24abacfc7ab22ba022287f430f7b5cbc92fb63b5bb22008492229c0b5"
     },
     {
-      "publicationId": "pe-first-stage/pe1-kiso-gradient-length/youtube.longform",
-      "videoId": "yOODuwkPXGk",
-      "publishAt": "2026-11-04T23:30:00Z",
-      "fromSha256": "9c85c38202dea660af29a31beae44eeb71a0329f5618f5c24e3949bbe4e3baaf",
-      "toSha256": "e7ebc9182cc33fef67f1e8379c0d3f7ddff358c234050dea12635179b08e44f3"
-    },
-    {
       "publicationId": "concrete-chief-engineer/shunin-shoki-3kyokusen/youtube.longform",
       "videoId": "9ADPE2fYSRs",
       "publishAt": "2026-11-04T11:30:00Z",
       "fromSha256": "08abea76d52ba986f39eddebc529a257cb5f507ac38cc8c9a2d5b1c0fbc3724d",
       "toSha256": "7d3b8f8983cf53ef3bedc8be3425d8e9c43d85aa6f5c29f09ab1da62ab5e461e"
+    },
+    {
+      "publicationId": "pe-first-stage/pe1-kiso-gradient-length/youtube.longform",
+      "videoId": "yOODuwkPXGk",
+      "publishAt": "2026-11-04T23:30:00Z",
+      "fromSha256": "9c85c38202dea660af29a31beae44eeb71a0329f5618f5c24e3949bbe4e3baaf",
+      "toSha256": "e7ebc9182cc33fef67f1e8379c0d3f7ddff358c234050dea12635179b08e44f3"
     },
     {
       "publicationId": "concrete-chief-engineer/shunin-chinka-hibiware-genin/youtube.longform",
