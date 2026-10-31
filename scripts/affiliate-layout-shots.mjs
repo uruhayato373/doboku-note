@@ -159,14 +159,14 @@ async function main() {
 
   const ts = startedAt.toISOString().replace(/\.\d+Z$/, 'Z').replace(/:/g, '-');
   const outDir = join(REPO_ROOT, datasetDir('affiliate.layout-shots'), ts);
-  mkdirSync(outDir, { recursive: true });
-
   try {
     guardBrowserLaunch();
   } catch (e) {
     if (e instanceof LaunchGuardError) { console.error(`${e.message}\n  空きが足りなければ DOBOKU_PW_MIN_FREE_MB=NNNN で閾値を下げる`); return 1; }
     throw e;
   }
+  // 起動を見送ったときに空の出力先を残さない（管理画面が最新の撮影として空を読む）
+  mkdirSync(outDir, { recursive: true });
   const browser = await chromium.launch(mergeLeanOptions({ headless: true }));
   const nowMs = Date.now();
   const shots = [];
