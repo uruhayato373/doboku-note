@@ -1,30 +1,13 @@
 {
   "schemaVersion": 1,
   "month": "2026-09",
-  "fetchedAt": "2026-10-24T08:59:27.803Z",
+  "fetchedAt": "2026-10-31T00:39:29.313Z",
   "source": "note ダッシュボード「アクセス状況」（Playwright read-only・自己閲覧を含む）。流入元は閲覧の経路であり購入経路ではない",
   "period": {
     "from": "2026-09-01",
     "to": "2026-09-30"
   },
   "monthly": [
-    {
-      "month": "2025-10",
-      "sources": {
-        "no referrer": 0,
-        "note.com": 0,
-        "Google": 0,
-        "www.bing.com": 0,
-        "search.yahoo.co.jp": 0,
-        "doboku-note.com": 0,
-        "X": 0,
-        "notification": 0,
-        "copilot.microsoft.com": 0,
-        "service.smt.docomo.ne.jp": 0,
-        "other": 0
-      },
-      "total": 0
-    },
     {
       "month": "2025-11",
       "sources": {
@@ -215,19 +198,19 @@
     {
       "month": "2026-10",
       "sources": {
-        "no referrer": 9987,
-        "note.com": 1175,
-        "Google": 505,
-        "www.bing.com": 597,
-        "search.yahoo.co.jp": 174,
-        "doboku-note.com": 204,
-        "X": 12,
+        "no referrer": 10249,
+        "note.com": 1542,
+        "Google": 699,
+        "www.bing.com": 658,
+        "search.yahoo.co.jp": 225,
+        "doboku-note.com": 286,
+        "X": 16,
         "notification": 1,
         "copilot.microsoft.com": 1,
-        "service.smt.docomo.ne.jp": 5,
-        "other": 16
+        "service.smt.docomo.ne.jp": 6,
+        "other": 17
       },
-      "total": 12677
+      "total": 13700
     }
   ],
   "targetMonth": {
