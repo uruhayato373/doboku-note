@@ -2,7 +2,7 @@
 
 `src/app/links/page.tsx` に実装した SNS bio 用リンクハブ兼ファネル LP（ブリッジページ）の設計意図・運用方針・メンテ手順をまとめた内部ドキュメント。
 
-最終更新: 2026-09-24（スマホの 1 画面目に資格カードが入るよう、冒頭の導入文・末尾の運営者と凡例を廃止し、3 本柱をカードの後ろへ移した。4 グループ 9 資格）
+最終更新: 2026-10-31（技術士一次・コンクリートを先頭にし、コンクリートの主力教材へ直接送客）
 
 ## 1. 目的とポジショニング
 
@@ -27,8 +27,9 @@
 ## 2. SNS 各チャネルでの貼り方
 
 ### Instagram
-- bio リンク欄に **唯一のリンク** として `https://doboku-note.com/links` を貼る
-- bio 本文中に「詳細はリンクから↓」と誘導する一文を入れる
+- bio リンク欄のサイトリンクは `config/ig-account.json` の `profile.websiteUrl` を使う（HTTPS の `/links` と `utm_source=instagram&utm_medium=social&utm_campaign=bio-link&utm_content=bio`）
+- bio 本文中に教材はリンクから進める旨を入れる
+- Reels・固定投稿では「プロフィール→技術士／コンクリート→無料解説またはnote教材」と資格名まで案内する。プロフィール内リンクの編集はInstagramアプリで行う
 
 ### X (Twitter)
 - プロフィール URL 欄: `https://doboku-note.com`（サイトトップ）を維持
@@ -40,14 +41,14 @@
 
 ## 3. セクション構成（上から下）
 
-**資格カード化（2026-07-28再設計、2026-08-21拡張）**: 資格ごとにカードを立て、土木施工管理2資格／技術士3資格／コンクリート3資格／RCCM の 4 グループ 9 資格に編成している。グループとカードの並びは主力商品の順で、2026-10-04 に 2級土木を主力へ切り替えたため土木を先頭・2級を 1級より前にした（スマホの 1 画面目に入るのは先頭グループの最初のカードだけ）。カード内はサイトを必須、noteもくじと個別サービスを実体がある場合だけ加える最大3行とする。
+**資格カード化（2026-07-28再設計、2026-08-21拡張）**: 資格ごとにカードを立て、技術士3資格／コンクリート3資格／土木施工管理2資格／RCCM の 4 グループ 9 資格に編成している。2026-10-31 時点の発信優先順は技術士一次→コンクリート技士・主任技士→1級・2級土木（スマホの 1 画面目は技術士一次）。カード内はサイトを必須、note教材またはもくじ、個別サービスを実体がある場合だけ加える最大3行とする。
 
 1. **ヒーローバンド**: アバター + アカウント名 + キャッチコピー1行 + 名乗り（資格数は `EXAM_CARDS.length` から。保有資格は `sm` 以上だけ）+ **グループチップ**（`#group-{id}` へジャンプ。`EXAM_GROUPS` から導出）+ **運営者の導線 1 行**（X・note もくじ〔L1〕・`/about`）。スマホも横並びの小型版
 2. **資格カード**（`ExamCardView`）: `EXAM_GROUPS` 配下に置き、モバイル1列／`sm` 2列／3枚のグループは`lg` 3列。1枚は資格ブランド帯 + 見出し + tagline + **最大3行**。スマホでは帯をテーマ色の線だけにし（イラストは `sm` 以上）、グループの説明文も省く
    - ①**サイトで無料学習** → `/exam/{...}`（内部リンク）
-   - ②**note もくじ（L2）** → `config/note-funnel.json` の `exams.{key}.L2` を参照（**存在時のみ**。URLをページに直書きしない）。L2 未作成の技術士第一次は、`magazine-placement.ts` の `pe1LeadMagazineId()`（本試験当日までは直前パック `pe1-chokuzen-pack`、翌日から過去問 PDF `pe1-takuitsu-pdf`・ビルド時の日付で決まる）を実商品の教材行として表示する
+   - ②**note 教材またはもくじ** → 技術士一次は `pe1LeadMagazineId()`、コンクリート技士は `ce-chokuzen-pack`、主任技士は `cce-takuitsu-chokuzen-pack` を `getMagazine()` から取得して直接表示する。その他は `config/note-funnel.json` の資格別 L2 もくじを参照する。コンクリート全教材のもくじはグループ末尾にも残す
    - ③**個別サービス** → 資格に紐づく listed のココナラから**代表 1 件**。`pickCoconalaFor`（`src/lib/exam-key-bridge.ts`）が選ぶ。**0 件なら行ごと省略**（主任技士は添削を含む 3 行、技士・診断士は 2 行）
-   - 技術士第一次は①サイト行と②直前パックの教材行を表示する（2026-10-03）
+   - 技術士第一次・コンクリート技士・主任技士は①無料サイト行と②有料教材行を表示する
    - 各行はアイコン（`ServiceIcon`）+ リンク名 + チャネル小ラベル + 特徴 1 行。特徴は `line-clamp: 2`（商品 `description` は 170〜210 字あり、素で出すと 1 行だけ 220px になる）
    - **マガジンの個別列挙は廃止**し L2 もくじへ集約した。商品を追加しても /links の改修は不要
 3. **教材の特徴**（`VALUE_PILLARS`・差別化 3 本柱）: カードの後ろ。行の並び順の意味（無料で読む → note 教材 → 添削・キット）は「資格別コンテンツ」の説明 1 行で示す（旧チャネル凡例・末尾の運営者カードは 2026-09-24 に廃止。カード内の各行にチャネル小ラベルがあり、運営者はヒーローの導線と `/about` に集約）
@@ -66,7 +67,7 @@
 | **資格ブランド（ラベル・テーマ色・背景イラスト）** | `src/lib/exam-brand.ts`（`EXAM_BRAND` / `examKeyOf`） | カード頭の帯 |
 | ココナラ単発サービス（状態・価格・URL） | `src/lib/coconala-services.ts`（`listedCoconalaServices()`） | 各資格カードの③ 行（`pickCoconalaFor` が代表 1 件を選ぶ） |
 | 資格キーの対応（`ExamKey` ⇄ 商品カタログの `examScope`） | `src/lib/exam-key-bridge.ts` | ③ 行の突合（`tankan` ⇄ `pe-comprehensive-management` 等） |
-| 有料マガジン情報（タイトル・description・URL） | `src/lib/note-magazines.ts` | 技術士第一次の L2 未作成時の教材行。その他の資格は L2 に集約。記事内 CTA・サイドバーでも使用 |
+| 有料マガジン情報（タイトル・description・URL） | `src/lib/note-magazines.ts`（正本は `config/products.json`） | 技術士一次・コンクリート技士・主任技士の代表教材行。記事内 CTA・サイドバーでも使用 |
 
 **M2（白書R7 完全対応集）の現在地**: 2026-05-25 に「¥2,480 magazine → 完全無料リード磁石」へ転換され、`NoteMagazine` 型（badge / price 前提）に乗せていない単独無料記事。**資格カード化（2026-07-28）で /links からの直リンクは外し、総監もくじ（L2）経由の導線に一本化した**（カードを 3 行に保つため）。M2 自体は note 上で稼働中。経緯は `docs/handoffs/2026-05-25-whitepaper-r7-free-lead-magnet.md`。
 
@@ -79,28 +80,29 @@ GA4 で SNS bio → /links → 各送客先の流入経路を区別するため�
 | **note もくじ（L2）**（2026-07-28〜） | `links` | `referral` | `link-hub` | `mokuji-{examKey}` |
 | **note もくじ（L1・ヒーローの導線）**（2026-09-24〜） | `links` | `referral` | `link-hub` | `note-top` |
 | M2 完全無料 | `links` | `referral` | `link-hub` | `m2-free-whitepaper` |
-| 個別教材（L2 未作成の技術士第一次） | `doboku-note` | `referral` | `note-magazine` | `link-hub-{magazine-id}` |
+| 個別教材（技術士一次・コンクリート技士・主任技士） | `doboku-note` | `referral` | `note-magazine` | `links-{examKey}` |
+| コンクリート全教材一覧 | `links` | `referral` | `link-hub` | `mokuji-concrete-all` |
 
 **`utm_content` に `link-hub-` 接頭辞を使わない理由**: 下の「有料マガジン全体」クエリが `utm_content LIKE 'link-hub-%'` で集計しているため、もくじを `link-hub-mokuji-*` にすると既存 KPI に混ざる。もくじは別系統として `mokuji-{examKey}` にした。1級・2級は同じ L2 記事を指すので、この `utm_content` だけが流入元を区別する手段になる。
 
-**有料マガジン行の現状**: 資格カード化（2026-07-28）でマガジンの個別列挙を廃止したため、/links からマガジンへの直リンクは無くなった。`buildMagazineUrl` の規約自体はサイト内の他面（記事内 CTA・サイドバー）で生きているので表は残す。
+**有料マガジン行の現状**: 2026-10-31 に重点3資格の代表商品へ直リンクを置いた。価格と公開状態は `getMagazine()` が商品台帳から引く。その他はL2もくじへ集約する。
 
 **utm_source が異なる理由**: 有料マガジンは `note-magazines.ts` の `buildMagazineUrl()` を共通利用しており、サイト内の他箇所（記事内 CTA・サイドバー）からの送客と統一規約で扱う方が分析しやすい。M2 だけが /links 独自の UTM になっている。
 
-**集計時のクエリ例**: /links → noteもくじは `utm_campaign='link-hub' AND utm_content LIKE 'mokuji-%'` で集計する。
+**計測**: Instagram→/links はGA4で `session_source=instagram` と `session_campaign=bio-link` を見る。/links→noteのクリックはサイト側の `note_cta_click`（`data-cta-label`）で数える。note側のUTMはnoteの流入識別用で、サイトのGA4で外部遷移を数える代わりにはならない。
 
 ## 6. メンテ手順
 
 ### 新しい有料マガジンを追加するとき（データ駆動＝原則ページ編集不要）
 
 1. `src/lib/note-magazines.ts` に新エントリを追加し、資格別L2もくじからその商品へ案内する
-2. 既存資格なら `/links` はL2もくじを指し続けるため、ページ編集は不要
+2. 既存資格は原則L2もくじを指す。重点資格の代表商品を切り替える場合だけ `FEATURED_NOTE_PRODUCTS` を更新する
 3. 新資格なら `src/lib/exam-brand.ts` と `/links` の `EXAM_CARDS`／`EXAM_GROUPS` を更新する。L2・商品が未整備ならサイト行だけで公開する
 4. `npm run type-check` で型エラーなしを確認し、devの `/links` をPC・モバイルで目視する
 
 ### マガジンを一時非公開にしたいとき
 
-`/links` は個別マガジンではなくL2もくじを指す。個別商品の非公開は `note-magazines.ts` とL2もくじ側で反映し、L2自体を止める場合だけ `note-funnel.json` の該当L2を見直す。
+重点資格の直リンクは `getMagazine()` が非公開商品を隠す。非公開時はL2もくじに戻る。その他の資格はL2もくじを指す。
 
 ### 無料入口（白書・サイトガイド）を切り替えるとき
 
@@ -125,8 +127,8 @@ GA4 で SNS bio → /links → 各送客先の流入経路を区別するため�
 |---|---|---|
 | /links のページビュー (PV) | GA4 ページレポート | Instagram フォロワー数 × 月 5-10% |
 | /links 滞在時間 | GA4 エンゲージメント | 30 秒以上（リンクハブとしては短くてよい） |
-| /links → noteもくじクリック率 | `utm_campaign=link-hub` かつ `utm_content=mokuji-*` の流入数 ÷ /links PV | 基線取得後に設定 |
-| Instagram bio リンク経由 PV | GA4 acquisition / referrer = "l.instagram.com" | 月 50-300 |
+| /links → note教材・もくじクリック率 | GA4の `note_cta_click`（placement=`links-hub`）÷ /links PV | 基線取得後に設定 |
+| Instagram bio リンク経由 PV | GA4の `session_source=instagram`・`session_campaign=bio-link` | 月 50-300 |
 
 ## 9. 関連ドキュメント
 

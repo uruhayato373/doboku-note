@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "scope": "account",
+  "media": [
+    {
+      "id": "account/ig-start-guide/instagram.carousel/cover",
+      "role": "cover",
+      "type": "image/png",
+      "sha256": "c9ca488c754323ab11cb97a7297c70c2d38f916a161e6cf7b78a9e1bf4a28d90",
+      "bytes": 2617014,
+      "width": 1080,
+      "height": 1350,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/account/ig-start-guide/instagram.carousel/cover.c9ca488c.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Edit the supplied Instagram portrait cover. Preserve the entire approved-looking composition, palette, teacher character, pointing pose, arrows, and Japanese text exactly. The text must remain exactly 「はじめての方へ」「資格別の学び方」 with no other words. Make only a subtle production polish: crisp edges and clear legibility in a 4:5 Instagram post and centered square profile-grid crop. Keep all meaningful text and face inside the central square crop. Do not add logos, URLs, prices, or extra text.",
+        "promptSha256": "add5fccfc36b36f0e43a5198b1bb96b1ff699ab2c312e7f72661819628bcba47",
+        "generatedAt": "2026-10-31T06:09:29.183Z"
+      }
+    },
+    {
+      "id": "account/ig-start-guide/instagram.carousel/route",
+      "role": "route",
+      "type": "image/png",
+      "sha256": "9941c0fd8c44d78e7bb92d4add565d41ddfa1b53a6fc6e1c6eea4832f237d494",
+      "bytes": 117894,
+      "width": 1080,
+      "height": 1350,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/account/ig-start-guide/instagram.carousel/route.9941c0fd.png"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "generate-instagram-pinned",
+        "spec": "content/sns/instagram/profile-pinned/start-guide/carousel/01-route.svg",
+        "specSha256": "68030f2bf7ac7cd16a89fc302ccd06afe9276890d0813d284c03f757488ee64a"
+      }
+    }
+  ]
+}

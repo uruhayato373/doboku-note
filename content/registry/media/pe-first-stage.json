@@ -3,6 +3,45 @@
   "scope": "pe-first-stage",
   "media": [
     {
+      "id": "pe-first-stage/ig-pe-first-stage-route/instagram.carousel/cover",
+      "role": "cover",
+      "type": "image/png",
+      "sha256": "bdd4e6820eb5ac5b6d8ce6ac9f8dbad9762528593d6cfc5a6ea9bf38263b9947",
+      "bytes": 2566704,
+      "width": 1080,
+      "height": 1350,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/ig-pe-first-stage-route/instagram.carousel/cover.bdd4e682.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Edit the supplied Instagram portrait cover. Preserve the entire approved-looking composition, blue palette, teacher character, red pen, three book icons, and Japanese text exactly. The text must remain exactly 「技術士第一次」「無料解説と教材」 with no other words. Make only a subtle production polish: crisp edges and clear legibility in a 4:5 Instagram post and centered square profile-grid crop. Keep all meaningful text and face inside the central square crop. Do not add logos, URLs, prices, or extra text.",
+        "promptSha256": "660afad3a77be71c47b76d2cbb9e5e6444c906cee693d47dad409fd80e33d3d5",
+        "generatedAt": "2026-10-31T06:09:29.501Z"
+      }
+    },
+    {
+      "id": "pe-first-stage/ig-pe-first-stage-route/instagram.carousel/route",
+      "role": "route",
+      "type": "image/png",
+      "sha256": "5ef5f45e63f6b6afa3c91768e52e50476ef31413635a0f947f79ad5d6f87c405",
+      "bytes": 116455,
+      "width": 1080,
+      "height": 1350,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/ig-pe-first-stage-route/instagram.carousel/route.5ef5f45e.png"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "generate-instagram-pinned",
+        "spec": "content/sns/instagram/profile-pinned/pe-first-stage-route/carousel/01-route.svg",
+        "specSha256": "509d0580ccf2de29d2e1e1c855f35ddb4518e75d58b4f44398b10fc3e26dead5"
+      }
+    },
+    {
       "id": "pe-first-stage/pe1-kiso-2of3-reliability/youtube.longform/contact-sheet",
       "role": "contact-sheet",
       "type": "image/jpeg",

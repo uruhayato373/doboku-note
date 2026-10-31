@@ -370,14 +370,13 @@ async function updateStatus(pack: Pack, scheduledDate: Date | null): Promise<voi
 
 // ─── コンテンツ台帳への記録（DN-0611・正本は台帳。status.json は P7 で消す旧い写し）──
 // 予約は 'scheduled'。即時公開は URL が分からないので台帳へ書けない（ig-status mark か照合で published にする）。
-// 台帳に行が無いフォルダは警告だけで今の動きのまま。書き込みが失敗したら投げて止める。
+// 台帳に行が無いフォルダは投稿前に止める。書き込みが失敗したら投げて止める。
 async function recordLedger(pack: Pack, scheduledDate: Date | null): Promise<void> {
   if (IS_DRY_RUN) return;
   const store = await import("../../../../scripts/lib/registry-ig-store.mjs");
   const row = await store.readIgPublication(PROJECT_ROOT, pack.dir, pack.kind);
   if (!row) {
-    console.warn(`⚠️  台帳に行が無い（status.json のみ更新）: ${path.relative(PROJECT_ROOT, pack.dir)} [${pack.kind}]`);
-    return;
+    throw new Error(`台帳に行が無い: ${path.relative(PROJECT_ROOT, pack.dir)} [${pack.kind}]`);
   }
   if (!scheduledDate) {
     console.warn(`⚠️  即時公開は URL が不明のため台帳を更新しません。公開 URL が分かったら ig-status mark <pack> ${pack.kind === "reel" ? "reels" : "carousel"} --url=… で published にしてください`);
@@ -390,7 +389,7 @@ async function recordLedger(pack: Pack, scheduledDate: Date | null): Promise<voi
 
 // ─── 台帳の事前確認（取り消せない予約・投稿の前。DN-0611）──────────────
 // scheduled・published・stopped、または遷移表で行き先（予約は scheduled・即時は published）へ行けない行は止める（exit 2）。
-// 台帳に行が無いものは警告だけで今のまま進める。
+// 台帳に行が無いものは止める。
 async function preflightLedger(items: { pack: Pack; when: Date | null }[]): Promise<void> {
   const store = await import("../../../../scripts/lib/registry-ig-store.mjs");
   const reg = await import("../../../../scripts/lib/content-registry.mjs");
@@ -400,7 +399,7 @@ async function preflightLedger(items: { pack: Pack; when: Date | null }[]): Prom
     const rel = path.relative(PROJECT_ROOT, pack.dir);
     const row = await store.readIgPublication(PROJECT_ROOT, pack.dir, pack.kind);
     if (!row) {
-      console.warn(`⚠️  台帳に行が無い（事前確認なしで進めます）: ${rel} [${pack.kind}]`);
+      problems.push(`${rel}: 台帳に行が無い [${pack.kind}]`);
       continue;
     }
     const to = when ? "scheduled" : "published";
@@ -408,6 +407,10 @@ async function preflightLedger(items: { pack: Pack; when: Date | null }[]): Prom
       problems.push(`${row.id}: 台帳の状態が ${row.status}（予約・投稿済みか停止中）`);
     } else if (!reg.canTransition(cfg, row.status, to, "instagram")) {
       problems.push(`${row.id}: 台帳の状態 ${row.status} から ${to} へ遷移できない`);
+    }
+    if (when) {
+      try { store.assertIgScheduleApproval(PROJECT_ROOT, row, when.toISOString()); }
+      catch (error) { problems.push(String(error instanceof Error ? error.message : error)); }
     }
   }
   if (problems.length > 0) {

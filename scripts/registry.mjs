@@ -9,7 +9,9 @@
  *   npm run registry -- import-video-packs [--commit]   # 全動画パック。2 回目は書く行 0。公開中の一覧（own-videos）と件数を突き合わせる
  *   npm run registry -- prepare-youtube --pub <公開 ID> --publish-at <日時> [--commit] # 通常動画の文面・予定を登録（承認はしない）
  *   npm run registry -- mark-rendered --pub <公開 ID> [--commit] # 承認済み通常動画の完成レンダーを実検査して状態を進める
- *   npm run registry -- import-instagram [--commit]      # IG の作品フォルダ全部（照合の記録 snapshot.json の live.list が要る・手元で verify-ig-status）
+ *   npm run registry -- import-instagram [--folder <相対フォルダ>] [--commit] # IG の作品（folder なしは全件）。照合 snapshot が要る
+ *   npm run registry -- prepare-instagram-pinned --pub <公開ID> --publish-at <ISO+09:00> [--commit]
+ *   npm run registry -- mark-instagram-rendered --pub <公開ID> [--commit]
  *   npm run registry -- import-x [--commit]              # X の下書きフォルダ全部（自分の投稿の一覧 data/x/own-posts と本文で照合）
  *   npm run registry -- prepare-youtube-revision --pub <元の公開ID> --variant <新版名> [--copy <同作品内のJSON#fragment>] [--refresh-draft] [--related-to <新版通常動画ID>] [--publish-at <日時>] [--commit --expect <digest>]
  *   npm run registry -- record-youtube-revision-qa --pub <改訂公開ID> --avg <0〜3> --blocks <件数> [--commit]
@@ -43,7 +45,7 @@ const { values: args, positionals } = parseArgs({
   allowPositionals: true,
   options: {
     channel: { type: 'string' }, exam: { type: 'string' }, status: { type: 'string' },
-    'pack-dir': { type: 'string' }, commit: { type: 'boolean' },
+    'pack-dir': { type: 'string' }, folder: { type: 'string' }, commit: { type: 'boolean' },
     pub: { type: 'string' }, stage: { type: 'string' }, expect: { type: 'string' }, reason: { type: 'string' },
     variant: { type: 'string' }, 'related-to': { type: 'string' }, 'publish-at': { type: 'string' },
     phase: { type: 'string' }, copy: { type: 'string' }, 'refresh-draft': { type: 'boolean' },
@@ -264,6 +266,13 @@ async function importInstagram() {
   const reg = loadRegistry(ROOT);
   const snapshot = readJsonIf(ROOT, datasetPath('state.ig-reconcile', { name: 'snapshot' }));
   const rows = instagramRows(ROOT, { snapshot, videoPackIds: new Set(discoverVideoPacks(ROOT).keys()), rules: cfg.idRules, regWorks: reg.works });
+  if (args.folder) {
+    const folder = args.folder.replace(/^content\/sns\/instagram\//, '').replace(/\/$/, '');
+    rows.publications = rows.publications.filter((p) => p.legacyKey === folder);
+    if (rows.publications.length === 0) throw new Error(`Instagram の対象フォルダが無い: ${folder}`);
+    const selected = new Set(rows.publications.map((p) => `${p.id.split('/')[0]}/${p.work}`));
+    rows.works = rows.works.filter(({ exam, row }) => selected.has(`${exam}/${row.id}`));
+  }
   const strip = (r) => Object.fromEntries(Object.entries(r).filter(([k, v]) => !['file', 'exam', 'channel'].includes(k) && v !== undefined));
   const same = (a, b) => JSON.stringify(strip(a)) === JSON.stringify(strip(b));
   const worksByExam = new Map();
@@ -279,13 +288,64 @@ async function importInstagram() {
     if (!cur || !same(cur, merged)) pubsByExam.set(exam, [...(pubsByExam.get(exam) ?? []), merged]);
   }
   const n = (m) => [...m.values()].flat().length;
-  console.log(`IG の作品フォルダ ${rows.report.folders} 個（対象外 ${rows.report.skipped.length}）/ 照合の記録 ${snapshot?.at}（公開中 ${snapshot?.live?.posts} 件）`);
+  console.log(`IG の作品フォルダ ${args.folder ?? rows.report.folders}（対象外 ${rows.report.skipped.length}）/ 照合の記録 ${snapshot?.at}（公開中 ${snapshot?.live?.posts} 件）`);
   console.log(`  状態: ${Object.entries(rows.report.byStatus).sort().map(([k, v]) => `${k} ${v}`).join(' / ')}`);
   console.log(`  書く行: 作品 ${n(worksByExam)}・公開 ${n(pubsByExam)}`);
   if (!args.commit) { console.log('dry-run（台帳へは書いていない）。書くときは --commit'); return; }
   for (const [exam, ws] of worksByExam) upsertWorks(ROOT, exam, ws);
   for (const [exam, ps] of pubsByExam) upsertPublications(ROOT, 'instagram', exam, ps);
   console.log('書いた。stopped(unverified-legacy) は管理画面 /content/items の「要確認」で見られる');
+}
+
+/** 固定カルーセルの本文・素材・日時を照合してQA通過へ進める。承認は運営者が別に行う。 */
+async function prepareInstagramPinned() {
+  if (!args.pub || !args['publish-at']) throw new Error('prepare-instagram-pinned は --pub と --publish-at が要る');
+  const reg = loadRegistry(ROOT);
+  const pub = reg.publications.find((p) => p.id === args.pub);
+  if (!pub || pub.channel !== 'instagram' || pub.format !== 'carousel' || !pub.legacyKey?.startsWith('profile-pinned/') || pub.status !== 'draft') {
+    throw new Error('固定カルーセルの draft 公開行が要る');
+  }
+  const when = args['publish-at'];
+  if (!/\+09:00$/.test(when) || !Number.isFinite(Date.parse(when)) || Date.parse(when) < Date.now() + 3 * 60 * 60_000) {
+    throw new Error('投稿日時は3時間以上先のISO +09:00で指定する');
+  }
+  const { execFileSync } = await import('node:child_process');
+  execFileSync(process.execPath, [join(ROOT, 'scripts/check-instagram-profile-funnel.mjs')], { cwd: ROOT, stdio: 'inherit' });
+  const { readFileSync, existsSync } = await import('node:fs');
+  const { createHash } = await import('node:crypto');
+  const { readDataset } = await import('./lib/dataset-io.mjs');
+  const drive = readDataset(ROOT, 'state.drive-manifest');
+  const ledger = readDataset(ROOT, 'state.ai-image-review-ledger');
+  const mediaById = new Map(reg.media.map((m) => [m.id, m]));
+  for (const role of ['cover', 'route']) {
+    const media = mediaById.get(pub.media?.[role]);
+    if (!media) throw new Error(`${pub.id}: ${role} の素材台帳が無い`);
+    const abs = join(ROOT, media.store.path);
+    const sha = existsSync(abs) ? createHash('sha256').update(readFileSync(abs)).digest('hex') : null;
+    if (sha !== media.sha256 || drive.entries?.[media.store.path]?.sha256 !== media.sha256) throw new Error(`${pub.id}: ${role} の手元・Drive・素材台帳が一致しない`);
+    if (role === 'cover' && (ledger.figures?.[`media:${media.id}`]?.verdict !== 'ok' || !media.sha256.startsWith(ledger.figures?.[`media:${media.id}`]?.sha ?? '-'))) {
+      throw new Error(`${pub.id}: 表紙のAI画像監査が現版でokではない`);
+    }
+  }
+  console.log(`${pub.id}: 画像2点・文面・日時 ${when} を照合`);
+  if (!args.commit) { console.log('dry-run（台帳へは書いていない）'); return; }
+  writePublication(pub, { status: 'qa_passed', publishAt: when });
+  console.log('QA通過に進めた。運営者が確認シートを見て final 承認する');
+}
+
+/** 運営者の最終承認後、同じ素材があることを確かめて予約可能な rendered に進める。 */
+async function markInstagramRendered() {
+  if (!args.pub) throw new Error('mark-instagram-rendered は --pub が要る');
+  const reg = loadRegistry(ROOT);
+  const pub = reg.publications.find((p) => p.id === args.pub);
+  if (!pub || pub.channel !== 'instagram' || !pub.legacyKey?.startsWith('profile-pinned/') || pub.status !== 'approved') throw new Error('承認済みの固定投稿が要る');
+  const mediaById = new Map(reg.media.map((m) => [m.id, m]));
+  const state = approvalState(ROOT, pub, mediaById);
+  if (!state.final.valid || pub.approval?.by !== 'user' || pub.approval?.grandfathered) throw new Error('現版のハッシュ付き最終承認が必要');
+  console.log(`${pub.id}: 最終承認と素材SHAを照合`);
+  if (!args.commit) { console.log('dry-run（台帳へは書いていない）'); return; }
+  writePublication(pub, { status: 'rendered', times: { ...(pub.times ?? {}), rendered: new Date().toISOString() } });
+  console.log('rendered に進めた');
 }
 
 async function importX() {
@@ -385,7 +445,7 @@ async function publishYoutube() {
   console.log(JSON.stringify(await publishYoutubePublication(ROOT, { ...options, commit: true }, { youtube, journal: singlePublishJournal(args.pub) }), null, 2));
 }
 
-const commands = { list, show, index, 'import-video-pack': importVideoPack, 'import-video-packs': importVideoPacks, 'prepare-youtube': prepareYoutube, 'mark-rendered': markRendered, 'import-instagram': importInstagram, 'import-x': importX, 'prepare-youtube-revision': prepareYoutubeRevision, 'record-youtube-revision-qa': recordYoutubeRevisionQa, 'stage-youtube-revision': stageYoutubeRevision, 'publish-youtube-revision': publishYoutubeRevision, 'publish-youtube': publishYoutube, approve, stop, unschedule };
+const commands = { list, show, index, 'import-video-pack': importVideoPack, 'import-video-packs': importVideoPacks, 'prepare-youtube': prepareYoutube, 'mark-rendered': markRendered, 'import-instagram': importInstagram, 'prepare-instagram-pinned': prepareInstagramPinned, 'mark-instagram-rendered': markInstagramRendered, 'import-x': importX, 'prepare-youtube-revision': prepareYoutubeRevision, 'record-youtube-revision-qa': recordYoutubeRevisionQa, 'stage-youtube-revision': stageYoutubeRevision, 'publish-youtube-revision': publishYoutubeRevision, 'publish-youtube': publishYoutube, approve, stop, unschedule };
 if (!commands[command]) {
   console.error('Usage: npm run registry -- list|show|index|import-video-pack|import-video-packs|prepare-youtube|mark-rendered|import-instagram|import-x|prepare-youtube-revision|record-youtube-revision-qa|stage-youtube-revision|publish-youtube-revision|publish-youtube|approve|stop|unschedule …');
   process.exit(2);

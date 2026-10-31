@@ -41,6 +41,15 @@ const isDir = (p) => existsSync(p) && statSync(p).isDirectory();
  */
 export function classifyIgFolder(rel, videoPackIds) {
   const parts = rel.split('/');
+  if (parts[0] === 'profile-pinned' && parts.length === 2) {
+    const routes = {
+      'start-guide': { exam: 'account', work: 'ig-start-guide' },
+      'pe-first-stage-route': { exam: 'pe-first-stage', work: 'ig-pe-first-stage-route' },
+      'concrete-route': { exam: 'concrete-engineer', work: 'ig-concrete-route' },
+    };
+    const route = routes[parts[1]];
+    return route ? { ...route, kind: 'ig-pack', format: 'carousel' } : null;
+  }
   if (parts[0] === 'video-packs' && parts.length === 3) {
     const [, exam, slug] = parts;
     if (videoPackIds.has(slug)) return { exam, work: slug, kind: 'video-pack', format: 'carousel' };

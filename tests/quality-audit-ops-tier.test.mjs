@@ -140,10 +140,10 @@ test('generated-indexes waits for audit writers before comparing worktree change
   assert.equal(CHECKS.find((c) => c.id === 'generated-indexes').serial, true);
 });
 
-test('SNS 保留中も YouTube 商品導線の実事故を防ぐゲートだけを CI で実行する', () => {
-  // 2026-10-31 に予約済み動画の関連リンク漏れが判明したため、この1件だけ復帰。
+test('SNS 保留中も公開導線の実事故を防ぐゲートを CI で実行する', () => {
+  // YouTubeの商品導線とInstagram固定投稿のプロフィール導線を検査する。
   const SNS = /^(x-|instagram-|youtube-|video-|sns-landing|registry-due|content-registry)/;
-  assert.deepEqual(CHECKS.filter((c) => SNS.test(c.id)).map((c) => c.id), ['youtube-funnels']);
+  assert.deepEqual(CHECKS.filter((c) => SNS.test(c.id)).map((c) => c.id), ['youtube-funnels', 'instagram-profile-funnel']);
   const snsUrls = CHECKS.find((c) => c.id === 'sns-urls');
   assert.deepEqual(snsUrls.steps.map((s) => s.label), ['sns-urls-mdx', 'sns-urls-note'], 'sns-urls はサイトの MDX と note のリンクだけを見る');
 });

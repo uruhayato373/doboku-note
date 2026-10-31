@@ -38,6 +38,31 @@ export const ConfigYoutubeLongformPlan = z.object({
 const STOP_REASONS = ['user-decision', 'superseded', 'gone', 'unverified-legacy'];
 const idException = z.literal('imported-before-cutover').describe('規則に合わない既存の ID を残す印（件数は config の idExceptionMax でラチェット）');
 
+/** Instagramプロフィール固定投稿の制作原稿。実際の状態は台帳と config.ig-account が持つ。 */
+export const InstagramPinnedManifest = z.object({
+  schemaVersion: z.literal(1),
+  size: z.object({ width: z.literal(1080), height: z.literal(1350) }).strict(),
+  posts: z.array(z.object({
+    key: z.string().regex(/^[a-z][a-z0-9-]+$/),
+    exam: z.string().min(1), work: z.string().regex(/^[a-z][a-z0-9-]+$/),
+    accent: z.string().regex(/^#[0-9A-Fa-f]{6}$/),
+    title: z.string().min(1), subtitle: z.string().min(1),
+    choices: z.array(z.string().min(1)).min(2).max(3),
+    steps: z.array(z.string().min(1)).length(3),
+    caption: z.string().min(1).max(2200),
+  }).strict()).length(3).superRefine(uniqueBy('key', '固定投稿ID')),
+}).strict().meta({ title: 'Instagramプロフィール固定投稿の原稿' });
+
+/** Codex ImageGen編集画像の参照SHA・指示文・正規化後SHA。 */
+export const InstagramPinnedPopImage = z.object({
+  schemaVersion: z.literal(1), design: z.literal('pop-poster-v3'), model: z.literal('Codex ImageGen'), method: z.literal('edit'),
+  reference: z.object({ path: repoPath('編集元画像'), sha256 }).strict(),
+  promptFile: repoPath('最終編集指示'), exactText: z.string().min(1),
+  source: z.object({ file: z.string().min(1), sha256 }).strict(),
+  output: z.object({ path: repoPath('採用PNG'), sha256, width: z.literal(1080), height: z.literal(1350) }).strict(),
+  normalization: z.string().min(1),
+}).strict().meta({ title: 'Instagram固定投稿POP画像の来歴' });
+
 // ---- 設定（config/content-registry.json） -----------------------------------------------------------
 
 export const ConfigContentRegistry = z

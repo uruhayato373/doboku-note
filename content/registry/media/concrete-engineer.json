@@ -1081,6 +1081,45 @@
         ".tmp/video-render/youtube-covers-a-rollout-20260909/335.png",
         ".tmp/media/concrete-engineer/gishi-shunin-dochira/youtube.short.point-step2-2/cover.4467f5ff.png"
       ]
+    },
+    {
+      "id": "concrete-engineer/ig-concrete-route/instagram.carousel/cover",
+      "role": "cover",
+      "type": "image/png",
+      "sha256": "4f2eaf5ab0d0debae0f28f3cb62add4659c8b15b9b8539d99e0464caefc971c8",
+      "bytes": 3020926,
+      "width": 1080,
+      "height": 1350,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-engineer/ig-concrete-route/instagram.carousel/cover.4f2eaf5a.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Edit the supplied Instagram portrait cover. Preserve the entire approved-looking composition, purple and blue palette, teacher character, red pen, concrete materials, and Japanese text exactly. The text must remain exactly 「コンクリート」「技士・主任技士」 with no other words. Make only a subtle production polish: crisp edges and clear legibility in a 4:5 Instagram post and centered square profile-grid crop. Keep all meaningful text and face inside the central square crop. Do not add logos, URLs, prices, or extra text.",
+        "promptSha256": "c6991dbf4752280557db7ea0eaac36fa4d10fd2e39ab19e0d94d8fd7e7cf70cc",
+        "generatedAt": "2026-10-31T06:09:29.854Z"
+      }
+    },
+    {
+      "id": "concrete-engineer/ig-concrete-route/instagram.carousel/route",
+      "role": "route",
+      "type": "image/png",
+      "sha256": "56dcb3be7567113d5aa45b17c4fcbb3c0e14d9f1267aa0a7f84c7134ddced220",
+      "bytes": 110064,
+      "width": 1080,
+      "height": 1350,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-engineer/ig-concrete-route/instagram.carousel/route.56dcb3be.png"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "generate-instagram-pinned",
+        "spec": "content/sns/instagram/profile-pinned/concrete-route/carousel/01-route.svg",
+        "specSha256": "4ab9831be20485af2f5a662fc10958f903c2b37f3a965aba3606e5ed0b193d44"
+      }
     }
   ]
 }
