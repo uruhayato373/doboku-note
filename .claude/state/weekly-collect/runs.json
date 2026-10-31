@@ -152,6 +152,166 @@
       ],
       "commit": {},
       "leftover": []
+    },
+    {
+      "phase": "pre",
+      "only": null,
+      "host": "minamidaisukenonotobukkukonpyuta.local",
+      "startedAt": "2026-10-31T00:30:15.312Z",
+      "finishedAt": "2026-10-31T02:18:25.349Z",
+      "stages": [
+        {
+          "id": "auth",
+          "title": "ログインの確認と入り直し",
+          "status": "failed",
+          "reason": "[auth-session-refresh] 対象 4 件を実検査 / ok 3 / 対象外 0",
+          "exits": [
+            1
+          ],
+          "verify": [],
+          "durationSec": 42
+        },
+        {
+          "id": "a8",
+          "title": "A8 の成果（前月と当月）",
+          "status": "ok",
+          "reason": "",
+          "exits": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "verify": [
+            {
+              "id": "a8-report-due",
+              "exit": 0
+            }
+          ],
+          "durationSec": 319
+        },
+        {
+          "id": "kdp",
+          "title": "KDP のロイヤリティ",
+          "status": "failed",
+          "reason": "ABORT: KDP レポートに到達できず（ログイン未完 or チャレンジ）",
+          "exits": [
+            2
+          ],
+          "verify": [
+            {
+              "id": "kdp-report-freshness",
+              "exit": 0
+            }
+          ],
+          "durationSec": 126
+        },
+        {
+          "id": "note-traffic",
+          "title": "note のアクセス（月と 2026-10-19〜2026-10-25）",
+          "status": "ok",
+          "reason": "",
+          "exits": [
+            0,
+            0
+          ],
+          "verify": [],
+          "durationSec": 129
+        },
+        {
+          "id": "note-sales",
+          "title": "note の売上",
+          "status": "failed",
+          "reason": "検算 sales-freshness: [check-sales-freshness] ✗ FAIL: 2026-09 の販売明細 ¥106,800 がnote月次売上 ¥103,560 と不一致",
+          "exits": [
+            0
+          ],
+          "verify": [
+            {
+              "id": "sales-freshness",
+              "exit": 1
+            }
+          ],
+          "durationSec": 18
+        },
+        {
+          "id": "coconala",
+          "title": "ココナラの取引・出品分析・売上履歴",
+          "status": "ok",
+          "reason": "",
+          "exits": [
+            0
+          ],
+          "verify": [
+            {
+              "id": "coconala-analytics",
+              "exit": 0
+            }
+          ],
+          "durationSec": 281
+        },
+        {
+          "id": "gsc",
+          "title": "GSC の登録リクエスト 10 件と月次の理由別 CSV",
+          "status": "ok",
+          "reason": "",
+          "exits": [
+            0
+          ],
+          "verify": [
+            {
+              "id": "gsc-ui-due",
+              "exit": 0
+            },
+            {
+              "id": "gsc-indexing-due",
+              "exit": 0
+            }
+          ],
+          "durationSec": 710
+        },
+        {
+          "id": "note-audit",
+          "title": "note の公開状態の照合（公開 API・構造・タグ・本文・カード・状態・マガジン・導線・題名と価格）",
+          "status": "ok",
+          "reason": "",
+          "exits": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "verify": [],
+          "durationSec": 3332
+        },
+        {
+          "id": "note-public-view",
+          "title": "note の公開画面の撮影と見え方の照合",
+          "status": "warn",
+          "reason": "[check-note-public-view] ✗ 読者から見て不整合 3 本（WARN 0）。スクリーンショット: /Users/minamidaisuke/Library/Caches/doboku-note/note-public-view",
+          "exits": [
+            1
+          ],
+          "verify": [],
+          "durationSec": 1484
+        },
+        {
+          "id": "competitors",
+          "title": "競合の公開データ（四半期）",
+          "status": "skipped",
+          "reason": "今の四半期の取得が済んでいる（note 2026-10-25・ココナラ 2026-10-01）",
+          "exits": [],
+          "verify": [],
+          "durationSec": 0
+        }
+      ],
+      "commit": {},
+      "leftover": []
     }
   ]
 }
