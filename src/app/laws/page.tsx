@@ -66,8 +66,10 @@ export default function LawsPage() {
       <SectionBlock divider={groups.length ? 'top' : 'none'} ariaLabel="法令と分野の対応">
         <LawDirectory rows={directory} />
       </SectionBlock>
-      {/* 転職の案内（ページ末に 1 枠。案件は配置ルール） */}
-      <AffiliateSlot page={{ pageKind: 'laws-list' }} slot="laws-list-end" className="max-w-[760px] mx-auto px-4 sm:px-6 pb-10" />
+      {/* 転職の案内（ページ末に 1 枠。案件は配置ルール）。ほかの区画と同じ左端にそろえる（2026-10-31 まで中央に細く出ていた） */}
+      <SectionBlock divider="top" ariaLabel="転職の相談先">
+        <AffiliateSlot page={{ pageKind: 'laws-list' }} slot="laws-list-end" className="max-w-[760px]" />
+      </SectionBlock>
     </PageShell>
   );
 }
