@@ -98,6 +98,7 @@ function parseArgs() {
     dimension: { type: "string", default: DEFAULT_DIMENSION },
     limit: { type: "integer", default: DEFAULT_LIMIT },
     metrics: { type: "string", alias: "--metric" },
+    event: { type: "string" },
     "organic-only": { type: "boolean" },
     // SNS 流入のみ（sessionSource を utm-templates.json の SNS source 集合に絞る）
     "sns-only": { type: "boolean" },
@@ -110,7 +111,8 @@ function parseArgs() {
     days: a.days,
     dimension: a.dimension,
     limit: a.limit,
-    metrics: a.metrics === null ? DEFAULT_METRICS : a.metrics.split(",").map((m) => m.trim()),
+    metrics: a.event === 'note_cta_click' ? ['eventCount'] : a.metrics === null ? DEFAULT_METRICS : a.metrics.split(",").map((m) => m.trim()),
+    eventName: a.event,
     organicOnly: a.organicOnly,
     snsOnly: a.snsOnly,
     // 既定で日本・bot 除外を ON（measurement-incidents.md 2026-04-26 参照）
@@ -175,6 +177,9 @@ function getDateRange(days) {
 // ── Fetch ──
 
 async function fetchGa4(client, propertyId, opts) {
+  if (opts.eventName && (opts.eventName !== 'note_cta_click' || opts.dimension !== 'campaign')) {
+    throw new Error('--event は --dimension campaign --event note_cta_click のみ対応');
+  }
   const dimensionName = DIMENSION_MAP[opts.dimension] || opts.dimension;
   const { startDate, endDate } = getDateRange(opts.days);
 
@@ -191,6 +196,7 @@ async function fetchGa4(client, propertyId, opts) {
 
   // dimensionFilter を AND で組み立て
   const andFilters = [];
+  if (opts.eventName) andFilters.push({ filter: { fieldName: 'eventName', stringFilter: { matchType: 'EXACT', value: opts.eventName } } });
 
   if (opts.organicOnly) {
     andFilters.push({
@@ -259,6 +265,7 @@ async function fetchGa4(client, propertyId, opts) {
       dimension: opts.dimension,
       dimensionApiName: dimensionName,
       metrics: opts.metrics,
+      eventName: opts.eventName ?? null,
       limit: opts.limit,
       organicOnly: opts.organicOnly,
       snsOnly: opts.snsOnly,
@@ -342,7 +349,7 @@ function printSummary(data) {
 }
 
 function saveJson(data, opts) {
-  const suffix = `${opts.organicOnly ? "-organic" : ""}${opts.snsOnly ? "-sns" : ""}`;
+  const suffix = `${opts.organicOnly ? "-organic" : ""}${opts.snsOnly ? "-sns" : ""}${opts.eventName ? '-note-cta' : ''}`;
   const { ref } = writeReport(".", reportIdOf("ga4", `${opts.dimension}${suffix}`), data);
   console.log(`\n出力: ${ref}`);
 }

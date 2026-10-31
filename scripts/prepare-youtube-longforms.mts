@@ -19,10 +19,12 @@ import { COCONALA_SERVICES } from '../src/lib/coconala-services.ts';
 import { NOTE_MAGAZINES } from '../src/lib/note-magazines.ts';
 import { loadRegistry, qualificationLabel, qualificationShortLabel } from './lib/qualification-registry.mjs';
 import { SITE_ORIGIN } from './lib/site-identity.mjs';
+import { loadSiteRoutes, siteUrlForSlug } from './lib/site-links.mjs';
 import { setUtmParams } from './lib/utm-contract.mjs';
 import { readDataset } from './lib/dataset-io.mjs';
 import { parseJson } from './lib/json-io.mjs';
 import { voicevoxCredit } from './lib/voicevox-credit.mjs';
+import { buildYoutubeFunnelDescription, reviseYoutubeFunnelDescription } from './lib/youtube-funnel-description.mjs';
 import { loadVideoState, saveVideoState } from './lib/registry-video-state.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
@@ -43,6 +45,7 @@ type Manifest = {
   promise: string;
   intent: string;
   primaryCta: { kind: string; targetId?: string; targetPath?: string; campaign: string };
+  sourceRefs?: Array<{ type: string; path?: string; allowUnpublished?: boolean }>;
 };
 
 const argv = process.argv.slice(2);
@@ -231,7 +234,7 @@ function cta(manifest: Manifest) {
   if (kind === 'note-magazine' && targetId) {
     const item = (NOTE_MAGAZINES as Record<string, any>)[targetId];
     if (!item?.published) throw new Error(`${manifest.packId}: 未公開の note CTA ${targetId}`);
-    label = '教材・完成答案で深掘りする';
+    label = `${item.shortTitle || item.title}を見る（note有料教材）`;
     target = item.landingUrl || item.noteUrl;
   } else if (kind === 'coconala-service' && targetId) {
     const item = (COCONALA_SERVICES as Record<string, any>)[targetId];
@@ -249,6 +252,20 @@ function cta(manifest: Manifest) {
   }
   const url = setUtmParams(new URL(target), 'youtube.longform', { campaign: manifest.packId });
   return { label, url: url.toString() };
+}
+
+function supportingSite(manifest: Manifest) {
+  if (manifest.primaryCta.kind !== 'note-magazine') return null;
+  const ref = manifest.sourceRefs?.find((r) => r.type === 'site' && !r.allowUnpublished && r.path?.startsWith(`content/site/${manifest.exam}/`));
+  if (!ref?.path) return null;
+  const match = /^content\/site\/([a-z0-9-]+)\/([a-z0-9-]+)\/article\.mdx$/.exec(ref.path);
+  if (!match) throw new Error(`${manifest.packId}: サイト記事の参照形式が不正: ${ref.path}`);
+  const target = siteUrlForSlug(`${match[1]}-${match[2]}`, loadSiteRoutes(join(ROOT, 'public/_redirects')));
+  if (target.includes('/docs/')) throw new Error(`${manifest.packId}: サイト記事の公開URLが解決できない: ${ref.path}`);
+  const url = setUtmParams(new URL(target), 'youtube.longform', {
+    campaign: manifest.packId,
+  });
+  return url.toString();
 }
 
 function sha256(path: string) {
@@ -332,18 +349,16 @@ function makeYoutube(dir: string, manifest: Manifest, publishAt: string, existin
   const link = cta(manifest);
   const title = `【${exam.label}】${manifest.title}`;
   if (title.length > 100) throw new Error(`${manifest.packId}: YouTube title が100字超`);
-  const description = [
-    `${manifest.audience}向けに、「${manifest.title}」を解説します。`,
-    '',
-    `この動画で分かること：${manifest.promise}`, '',
-    // 総まとめはチャプターが長く、リンクが折りたたみの下に隠れるので先に置く
-    ...(compilation ? [`▼ ${link.label}`, link.url, '', '▼ チャプター', ...compilationChapters(dir, artifact.rendered), ''] : []),
-    PRODUCTION_DISCLOSURE.authorityNotice, '',
-    ...(compilation ? [] : [`▼ ${link.label}`, link.url, '']),
-    '※制度・日程は変更される場合があります。受検年度の公式情報も確認してください。',
-    `音声：${credit}`, '',
-    exam.hashtags,
-  ].join('\n');
+  const description = buildYoutubeFunnelDescription({
+    intro: `${manifest.audience}向けに、「${manifest.title}」を解説します。`,
+    promise: manifest.promise,
+    primary: link,
+    site: supportingSite(manifest),
+    chapters: compilation ? compilationChapters(dir, artifact.rendered) : [],
+    disclosure: PRODUCTION_DISCLOSURE.authorityNotice,
+    credit: `音声：${credit}`,
+    hashtags: exam.hashtags,
+  });
   const intentTags: Record<string, string[]> = {
     'exam-point': ['試験対策', '頻出論点'], howto: ['勉強法', '答案の書き方'],
     diagnosis: ['施工経験記述', '答案診断'], roadmap: ['勉強計画', '受検対策'], career: ['施工管理', 'キャリア'],
@@ -364,8 +379,30 @@ function makeYoutube(dir: string, manifest: Manifest, publishAt: string, existin
 }
 
 async function main() {
-  const modes = [flag('--schedule'), flag('--metadata'), flag('--report')].filter(Boolean).length;
-  if (modes !== 1) throw new Error('Usage: npx tsx scripts/prepare-youtube-longforms.mts --schedule|--metadata|--report [--scope civil|concrete|compilation|single] [--pack-id ID] [--publish-at ISO] [--render-root PATH]');
+  const modes = [flag('--schedule'), flag('--metadata'), flag('--report'), flag('--funnel-refresh')].filter(Boolean).length;
+  if (modes !== 1) throw new Error('Usage: npx tsx scripts/prepare-youtube-longforms.mts --schedule|--metadata|--report|--funnel-refresh [--pack-id ID] [--apply]');
+  if (flag('--funnel-refresh')) {
+    if (!onlyPackId) throw new Error('--funnel-refresh には --pack-id が必要');
+    const matches = TARGET_EXAMS.flatMap((exam) => loadPacks(exam)).filter(({ manifest }) => manifest.packId === onlyPackId);
+    if (matches.length !== 1) throw new Error(`対象 packId が一意に見つかりません: ${onlyPackId}`);
+    const { dir, manifest } = matches[0];
+    const youtubePath = join(dir, 'youtube.json');
+    const existing = readJsonAt(youtubePath);
+    const description = reviseYoutubeFunnelDescription(existing.longform.description, {
+      primary: cta(manifest), site: supportingSite(manifest),
+    });
+    if (description === existing.longform.description) {
+      console.log(`${onlyPackId}: 概要欄は最新です`);
+    } else if (flag('--apply')) {
+      existing.longform.description = description;
+      writeJson(youtubePath, existing);
+      console.log(`${onlyPackId}: 概要欄を更新しました。台帳の最終承認とYouTube実体への同期が必要です`);
+    } else {
+      console.log(description);
+      console.log('\n[dry-run] --apply で youtube.json の概要欄だけを更新します');
+    }
+    return;
+  }
   if (scope === 'single' && flag('--schedule')) throw new Error('--scope single の承認は運営者の registry approve だけで行う');
   // 状態の正本はコンテンツ台帳。読み書きは台帳の入口（registry-video-state.mjs）だけを通す
   const state = loadVideoState(ROOT);

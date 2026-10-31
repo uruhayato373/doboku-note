@@ -134,6 +134,23 @@ const Ga4Sections = z.strictObject({
   source: ga4DimensionReport('source').optional(),
   'sourceMedium-sns': ga4DimensionReport('sourceMedium').optional(),
   campaign: ga4DimensionReport('campaign').optional(),
+  'campaign-note-cta': z.strictObject({
+    stamp: reportStamp,
+    meta: z.looseObject({
+      ...dateRange,
+      dimension: z.literal('campaign'),
+      dimensionApiName: z.literal('sessionCampaignName'),
+      eventName: z.literal('note_cta_click'),
+      metrics: z.tuple([z.literal('eventCount')]),
+      limit: z.number().int().min(1),
+      organicOnly: z.boolean(),
+      japanOnly: z.boolean(),
+      excludeSpam: z.boolean(),
+      propertyId: GA4_PROPERTY,
+    }).superRefine(rangeOrdered),
+    rows: z.array(z.looseObject({ campaign: z.string(), eventCount: count('サイトからnote有料商品へのクリック') }))
+      .superRefine(uniqueBy('campaign', 'campaign')),
+  }).optional(),
   hostName: ga4DimensionReport('hostName').optional(),
   device: ga4DimensionReport('device').optional(),
   'cta-clicks': ga4EventCountReport('page').optional(),

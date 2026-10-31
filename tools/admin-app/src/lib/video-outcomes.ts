@@ -55,6 +55,8 @@ export interface VideoOutcomeRow {
   /** GA4 campaign スナップショット由来。snapshot 未取得なら null */
   sessions: number | null;
   activeUsers: number | null;
+  /** サイトからnote有料商品を開いた回数。YouTube→note直行は含まない。 */
+  siteNoteClicks: number | null;
 }
 
 export interface VideoOutcomes {
@@ -70,6 +72,7 @@ export interface VideoOutcomes {
     /** スナップショットに現れた campaign 数（パック外を含む） */
     campaignRows: number;
   };
+  noteClickMetrics: { ok: boolean; ageDays: number | null; startDate: string | null; endDate: string | null };
   /** パックに紐づかない campaign（note/X 等の既存 UTM。参考表示用） */
   otherCampaigns: { campaign: string; sessions: number; activeUsers: number }[];
   /** 台帳の公開IDで結んだYouTube Analytics。APIの空行は0ではなくno-data。 */
@@ -249,6 +252,15 @@ export function videoOutcomes(): VideoOutcomes {
       activeUsers: Number(r.activeUsers ?? 0),
     });
   }
+  const noteClickSnap = latestSnapshot('ga4.campaign-note-cta');
+  const noteClickReport = loadSnapshot<Record<string, unknown>>(noteClickSnap);
+  const noteClickMetrics = {
+    ok: Boolean(noteClickReport),
+    ageDays: noteClickSnap && noteClickReport ? ageInDays(noteClickSnap) : null,
+    startDate: noteClickReport ? String(noteClickReport.meta.startDate) : null,
+    endDate: noteClickReport ? String(noteClickReport.meta.endDate) : null,
+  };
+  const noteClicks = new Map((noteClickReport?.rows ?? []).map((r) => [String(r.campaign), Number(r.eventCount ?? 0)]));
 
   for (const p of packs) {
     const derivatives: DerivativeState[] = [];
@@ -294,6 +306,7 @@ export function videoOutcomes(): VideoOutcomes {
       ),
       sessions: metrics.ok ? (hit?.sessions ?? 0) : null,
       activeUsers: metrics.ok ? (hit?.activeUsers ?? 0) : null,
+      siteNoteClicks: noteClickMetrics.ok ? (noteClicks.get(p.packId) ?? 0) : null,
     });
   }
 
@@ -311,7 +324,7 @@ export function videoOutcomes(): VideoOutcomes {
       a.packId.localeCompare(b.packId),
   );
 
-  return { rows, metrics, otherCampaigns, youtubeAnalytics, verification: readVerification() };
+  return { rows, metrics, noteClickMetrics, otherCampaigns, youtubeAnalytics, verification: readVerification() };
 }
 
 export { STAGE_LABELS };
