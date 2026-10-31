@@ -10,7 +10,7 @@
     "endDate": "2026-10-18",
     "days": 28
   },
-  "generatedAt": "2026-10-30T00:32:09.921Z",
+  "generatedAt": "2026-10-31T02:45:47.605Z",
   "pack": "data/analysis/growth/pack-2026-W43.json",
   "inputs": [
     {
@@ -21,13 +21,13 @@
     },
     {
       "name": "monetization-coverage",
-      "file": "data/analysis/monetization/coverage-2026-10-30T00-31-24.json",
+      "file": "data/analysis/monetization/coverage-2026-10-31T02-45-25.json",
       "coverage": "complete",
       "note": null
     },
     {
       "name": "bing-webmaster",
-      "file": "data/bing/snapshots/2026-10-30.json",
+      "file": "data/bing/snapshots/2026-10-31.json",
       "coverage": "complete",
       "note": null
     }
@@ -258,11 +258,11 @@
       }
     ]
   },
-  "candidates": 126,
+  "candidates": 136,
   "suppressed": 27,
   "notSurfaced": {
     "seo": 3,
-    "revenue": 50
+    "revenue": 51
   },
   "surfaced": [
     {
@@ -286,6 +286,126 @@
       "review": "/nsm-experiment measure EXP-015"
     },
     {
+      "id": "OPP-8cf8dd82e2",
+      "category": "experiment",
+      "type": "experiment-due",
+      "key": {
+        "experiment": "EXP-027",
+        "reasons": "VERDICT_DUE"
+      },
+      "title": "EXP-027（資格名: /exam/pe-comprehensive-management/keywords/cpd の11〜30位の検索語を10位以内へ）: 自動計測の事後窓が完了（gsc.position 20.1→9.8・目安 improved）。裁定して close する",
+      "metrics": {
+        "status": "running",
+        "nextCheckDate": "2026-10-31"
+      },
+      "expectedWeeklyGain": null,
+      "suggest": [
+        "verdict",
+        "defer"
+      ],
+      "review": "npm run search-improvement -- close --id EXP-027 --result <success|partial|no-effect|negative> --learning \"…\" --commit"
+    },
+    {
+      "id": "OPP-9fb321f255",
+      "category": "experiment",
+      "type": "experiment-due",
+      "key": {
+        "experiment": "EXP-034",
+        "reasons": "VERDICT_DUE"
+      },
+      "title": "EXP-034（技術図書（共通仕様書など）: /standards/tohoku の11〜30位の検索語を10位以内へ）: 自動計測の事後窓が完了（gsc.position 13.5→20.5・目安 insufficient-data）。裁定して close する",
+      "metrics": {
+        "status": "running",
+        "nextCheckDate": "2026-10-31"
+      },
+      "expectedWeeklyGain": null,
+      "suggest": [
+        "verdict",
+        "defer"
+      ],
+      "review": "npm run search-improvement -- close --id EXP-034 --result <success|partial|no-effect|negative> --learning \"…\" --commit"
+    },
+    {
+      "id": "OPP-c04120b67c",
+      "category": "experiment",
+      "type": "experiment-due",
+      "key": {
+        "experiment": "EXP-024",
+        "reasons": "VERDICT_DUE"
+      },
+      "title": "EXP-024（技術図書（共通仕様書など）: /standards/hokuriku の11〜30位の検索語を10位以内へ）: 自動計測の事後窓が完了（gsc.position 13.4→6.9・目安 insufficient-data）。裁定して close する",
+      "metrics": {
+        "status": "running",
+        "nextCheckDate": "2026-10-31"
+      },
+      "expectedWeeklyGain": null,
+      "suggest": [
+        "verdict",
+        "defer"
+      ],
+      "review": "npm run search-improvement -- close --id EXP-024 --result <success|partial|no-effect|negative> --learning \"…\" --commit"
+    },
+    {
+      "id": "OPP-c49d25f32d",
+      "category": "experiment",
+      "type": "experiment-due",
+      "key": {
+        "experiment": "EXP-025",
+        "reasons": "VERDICT_DUE"
+      },
+      "title": "EXP-025（技術図書（共通仕様書など）: /standards/hokkaido の11〜30位の検索語を10位以内へ）: 自動計測の事後窓が完了（gsc.position 18.7→—・目安 insufficient-data）。裁定して close する",
+      "metrics": {
+        "status": "running",
+        "nextCheckDate": "2026-10-31"
+      },
+      "expectedWeeklyGain": null,
+      "suggest": [
+        "verdict",
+        "defer"
+      ],
+      "review": "npm run search-improvement -- close --id EXP-025 --result <success|partial|no-effect|negative> --learning \"…\" --commit"
+    },
+    {
+      "id": "OPP-e0e8a74145",
+      "category": "experiment",
+      "type": "experiment-due",
+      "key": {
+        "experiment": "EXP-026",
+        "reasons": "VERDICT_DUE"
+      },
+      "title": "EXP-026（技術図書（共通仕様書など）: /standards/kinki の11〜30位の検索語を10位以内へ）: 自動計測の事後窓が完了（gsc.position 10.5→9.2・目安 insufficient-data）。裁定して close する",
+      "metrics": {
+        "status": "running",
+        "nextCheckDate": "2026-10-31"
+      },
+      "expectedWeeklyGain": null,
+      "suggest": [
+        "verdict",
+        "defer"
+      ],
+      "review": "npm run search-improvement -- close --id EXP-026 --result <success|partial|no-effect|negative> --learning \"…\" --commit"
+    },
+    {
+      "id": "OPP-e65f3f93f4",
+      "category": "experiment",
+      "type": "experiment-due",
+      "key": {
+        "experiment": "EXP-023",
+        "reasons": "VERDICT_DUE"
+      },
+      "title": "EXP-023（技術図書（共通仕様書など）: /standards/chugoku/local の11〜30位の検索語を10位以内へ）: 自動計測の事後窓が完了（gsc.position 11.7→6.9・目安 insufficient-data）。裁定して close する",
+      "metrics": {
+        "status": "running",
+        "nextCheckDate": "2026-10-31"
+      },
+      "expectedWeeklyGain": null,
+      "suggest": [
+        "verdict",
+        "defer"
+      ],
+      "review": "npm run search-improvement -- close --id EXP-023 --result <success|partial|no-effect|negative> --learning \"…\" --commit"
+    },
+    {
       "id": "OPP-f2ba0b6d6d",
       "category": "experiment",
       "type": "experiment-due",
@@ -304,6 +424,66 @@
         "defer"
       ],
       "review": "/nsm-experiment close EXP-014"
+    },
+    {
+      "id": "OPP-f834cfe4ab",
+      "category": "experiment",
+      "type": "experiment-due",
+      "key": {
+        "experiment": "EXP-028",
+        "reasons": "VERDICT_DUE"
+      },
+      "title": "EXP-028（資格名: /exam/civil-construction-1/secondary/r06 の11〜30位の検索語を10位以内へ）: 自動計測の事後窓が完了（gsc.position 15.5→7.3・目安 improved）。裁定して close する",
+      "metrics": {
+        "status": "running",
+        "nextCheckDate": "2026-10-31"
+      },
+      "expectedWeeklyGain": null,
+      "suggest": [
+        "verdict",
+        "defer"
+      ],
+      "review": "npm run search-improvement -- close --id EXP-028 --result <success|partial|no-effect|negative> --learning \"…\" --commit"
+    },
+    {
+      "id": "OPP-f9ced5b0c3",
+      "category": "experiment",
+      "type": "experiment-due",
+      "key": {
+        "experiment": "EXP-029",
+        "reasons": "VERDICT_DUE"
+      },
+      "title": "EXP-029（土木公務員: /exam/pe-comprehensive-management/guide/public-engineer-qualification-map の11〜30位の検索語を10位以内へ）: 自動計測の事後窓が完了（gsc.position 11.4→7.7・目安 improved）。裁定して close する",
+      "metrics": {
+        "status": "running",
+        "nextCheckDate": "2026-10-31"
+      },
+      "expectedWeeklyGain": null,
+      "suggest": [
+        "verdict",
+        "defer"
+      ],
+      "review": "npm run search-improvement -- close --id EXP-029 --result <success|partial|no-effect|negative> --learning \"…\" --commit"
+    },
+    {
+      "id": "OPP-fa225d9335",
+      "category": "experiment",
+      "type": "experiment-due",
+      "key": {
+        "experiment": "EXP-022",
+        "reasons": "VERDICT_DUE"
+      },
+      "title": "EXP-022（技術図書（共通仕様書など）: /standards/okinawa の11〜30位の検索語を10位以内へ）: 自動計測の事後窓が完了（gsc.position 10.7→—・目安 insufficient-data）。裁定して close する",
+      "metrics": {
+        "status": "running",
+        "nextCheckDate": "2026-10-31"
+      },
+      "expectedWeeklyGain": null,
+      "suggest": [
+        "verdict",
+        "defer"
+      ],
+      "review": "npm run search-improvement -- close --id EXP-022 --result <success|partial|no-effect|negative> --learning \"…\" --commit"
     },
     {
       "id": "OPP-fcfcda5a1a",

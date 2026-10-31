@@ -1,10 +1,19 @@
 {
   "schemaVersion": 1,
-  "checkedAt": "2026-10-24T18:21:06.747Z",
+  "checkedAt": "2026-10-31T03:11:06.063Z",
   "channel": "youtube",
-  "targets": 360,
-  "checked": 10,
-  "observed": 10,
-  "advanced": [],
+  "targets": 35,
+  "checked": 35,
+  "observed": 35,
+  "advanced": [
+    "concrete-chief-engineer/shunin-chokuzen-senryaku/youtube.longform.pop-diagram",
+    "concrete-chief-engineer/shunin-hinshutsu-yusen/youtube.longform.pop-diagram-v2",
+    "concrete-chief-engineer/shunin-ochiru-shouronbun/youtube.longform.pop-diagram",
+    "concrete-chief-engineer/shunin-r8-juuten/youtube.longform.pop-diagram",
+    "concrete-chief-engineer/shunin-shiken-zentaizou/youtube.longform.pop-diagram",
+    "concrete-chief-engineer/shunin-shouronbun-kousei/youtube.longform.pop-diagram-v2",
+    "pe-first-stage/pe1-kiso-senmon/youtube.longform",
+    "pe-first-stage/pe1-zentaizou/youtube.longform"
+  ],
   "findings": []
 }

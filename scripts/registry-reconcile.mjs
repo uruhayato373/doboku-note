@@ -69,8 +69,8 @@ async function main() {
   const cfg = loadRegistryConfig(ROOT);
   const reg = loadRegistry(ROOT);
   const youtubePubs = reg.publications.filter((p) => p.channel === 'youtube');
-  const pubs = youtubePubs.filter((p) => p.platform?.id);
-  log(`台帳の YouTube の公開 ${youtubePubs.length} 件のうち外部 ID のあるもの ${pubs.length} 件を照合する`);
+  const pubs = youtubePubs.filter((p) => p.platform?.id && (p.status !== 'stopped' || p.stopReason === 'unverified-legacy'));
+  log(`台帳の YouTube の公開 ${youtubePubs.length} 件のうち有効な外部 ID のあるもの ${pubs.length} 件を照合する`);
   if (!pubs.length) {
     log('外部 ID のある公開が 0 件（照合する対象が無い。異常なしではない）');
     return 0;

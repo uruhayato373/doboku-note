@@ -499,7 +499,7 @@
       "work": "pe1-kiso-senmon",
       "account": "youtube:main",
       "format": "longform",
-      "status": "scheduled",
+      "status": "published",
       "copy": "content/sns/video-packs/pe-first-stage/pe1-kiso-senmon/youtube.json#longform",
       "media": {
         "cover": "pe-first-stage/pe1-kiso-senmon/youtube.longform/cover",
@@ -567,11 +567,12 @@
       "platform": {
         "id": "p8fZi3a2Un8",
         "url": "https://www.youtube.com/watch?v=p8fZi3a2Un8",
-        "privacy": "private",
+        "privacy": "public",
         "evidence": {
-          "kind": "publisher-live-check",
-          "ref": "content/sns/video-packs/pe-first-stage/pe1-kiso-senmon/youtube.json#longform"
-        }
+          "kind": "youtube-api",
+          "ref": "videos.list@2026-10-31T03:11:06.063Z"
+        },
+        "publishedAt": "2026-10-29T23:30:37.000Z"
       },
       "thumbnail": {
         "status": "set",
@@ -911,7 +912,7 @@
       "work": "pe1-zentaizou",
       "account": "youtube:main",
       "format": "longform",
-      "status": "scheduled",
+      "status": "published",
       "media": {
         "cover": "pe-first-stage/pe1-zentaizou/youtube.longform/cover",
         "scene-001": "pe-first-stage/pe1-zentaizou/youtube.longform/scene-001",
@@ -977,11 +978,12 @@
       "platform": {
         "id": "xLQ5bqfUEOE",
         "url": "https://www.youtube.com/watch?v=xLQ5bqfUEOE",
-        "privacy": "private",
+        "privacy": "public",
         "evidence": {
-          "kind": "publisher-live-check",
-          "ref": "content/sns/video-packs/pe-first-stage/pe1-zentaizou/youtube.json#longform"
-        }
+          "kind": "youtube-api",
+          "ref": "videos.list@2026-10-31T03:11:06.063Z"
+        },
+        "publishedAt": "2026-10-29T05:30:23.000Z"
       },
       "thumbnail": {
         "status": "set",

@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-/** Sync approved description revisions to already scheduled videos, with exact before/after hashes. */
+/** Sync approved metadata or one exact legacy credit repair, with before/after hashes. */
 import { createHash } from 'node:crypto';
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
@@ -28,9 +28,12 @@ const media = new Map(reg.media.map((m) => [m.id, m]));
 const now = Date.now();
 const targets = plan.items.map((item) => {
   const pub = publications.get(item.publicationId);
-  if (!pub || pub.channel !== 'youtube' || pub.format !== 'longform' || pub.status !== 'scheduled' ||
-      pub.platform?.id !== item.videoId || pub.publishAt !== item.publishAt || Date.parse(pub.publishAt) <= now + 5 * 60_000) {
-    throw new Error(`予約・動画ID・公開時刻が計画と違う: ${item.publicationId}`);
+  const creditRepair = item.repairKind === 'voicevox-credit';
+  if (!pub || pub.channel !== 'youtube' || pub.format !== 'longform' ||
+      pub.platform?.id !== item.videoId || pub.publishAt !== item.publishAt ||
+      (creditRepair ? (pub.status !== 'published' || Date.parse(pub.publishAt) >= now - 5 * 60_000) :
+        (pub.status !== 'scheduled' || Date.parse(pub.publishAt) <= now + 5 * 60_000))) {
+    throw new Error(`状態・動画ID・公開時刻が計画と違う: ${item.publicationId}`);
   }
   const copy = resolveCopy(REPO_ROOT, pub.copy);
   if (!copy?.title || !copy?.description || sha(copy.description) !== item.toSha256 ||
@@ -38,11 +41,14 @@ const targets = plan.items.map((item) => {
   const approval = approvalState(REPO_ROOT, pub, media);
   return { item, pub, copy, approval };
 });
-console.log(`[youtube-funnel] 既存予約 ${targets.length} 本 / ${args.includes('--commit') ? 'API更新' : 'dry-run'}`);
+console.log(`[youtube-funnel] 既存動画 ${targets.length} 本 / ${args.includes('--commit') ? 'API更新' : 'dry-run'}`);
 for (const { item, approval } of targets) console.log(`  ${item.publicationId} 承認=${approval.final.valid ? '有効' : '要更新'}`);
 if (!args.includes('--commit')) process.exit(0);
-for (const { item, approval } of targets) if (!approval.final.valid || !approval.visual.valid) {
-  throw new Error(`画面・最終承認が無効: ${item.publicationId}`);
+for (const { item, approval } of targets) {
+  const creditRepair = item.repairKind === 'voicevox-credit' && approval.final.grandfathered;
+  if (!approval.final.valid || (!creditRepair && !approval.visual.valid)) {
+    throw new Error(`画面・最終承認が無効: ${item.publicationId}`);
+  }
 }
 for (const key of ['YOUTUBE_CLIENT_ID', 'YOUTUBE_CLIENT_SECRET', 'YOUTUBE_REFRESH_TOKEN']) {
   if (!process.env[key]) throw new Error(`認証情報が無い: ${key}`);
@@ -59,19 +65,28 @@ async function readVideo(id) {
   if (!video || video.id !== id || video.snippet?.channelId !== plan.channelId) throw new Error(`動画の読み戻しに失敗: ${id}`);
   return video;
 }
-function checkSchedule(video, item) {
+function checkStatus(video, item) {
+  if (item.repairKind === 'voicevox-credit') {
+    if (video.status?.privacyStatus !== 'public') throw new Error(`公開状態が違う: ${item.publicationId}`);
+    return;
+  }
   if (video.status?.privacyStatus !== 'private' || Date.parse(video.status.publishAt) !== Date.parse(item.publishAt)) {
     throw new Error(`予約状態が計画と違う: ${item.publicationId}`);
   }
 }
 const sleep = (ms) => new Promise((done) => setTimeout(done, ms));
 for (const { item, copy } of targets) {
-  if (Date.parse(item.publishAt) <= Date.now() + 5 * 60_000) throw new Error(`公開直前になったため停止: ${item.publicationId}`);
+  if (item.repairKind !== 'voicevox-credit' && Date.parse(item.publishAt) <= Date.now() + 5 * 60_000) throw new Error(`公開直前になったため停止: ${item.publicationId}`);
   const before = await readVideo(item.videoId);
-  checkSchedule(before, item);
+  checkStatus(before, item);
   if (before.snippet.title !== copy.title) throw new Error(`公開題名が台帳と違う: ${item.publicationId}`);
   const beforeSha = sha(before.snippet.description ?? '');
   if (![item.fromSha256, item.toSha256].includes(beforeSha)) throw new Error(`YouTube概要欄が計画外に変化: ${item.publicationId}`);
+  if (item.repairKind === 'voicevox-credit' && beforeSha === item.fromSha256 &&
+      (!copy.description.includes('音声：VOICEVOX:青山龍星\n') ||
+        before.snippet.description !== copy.description.replace('音声：VOICEVOX:青山龍星\n', ''))) {
+    throw new Error(`変更がVOICEVOXクレジット1行だけではない: ${item.publicationId}`);
+  }
   if (beforeSha === item.fromSha256) {
     const snippet = { ...writableSnippet(before), description: copy.description };
     await youtube.videos.update({ part: 'snippet', requestBody: { id: item.videoId, snippet } }, { retry: false });
@@ -79,7 +94,7 @@ for (const { item, copy } of targets) {
   let matched = false;
   for (let attempt = 0; attempt < 8 && !matched; attempt += 1) {
     const after = await readVideo(item.videoId);
-    checkSchedule(after, item);
+    checkStatus(after, item);
     matched = after.snippet.title === copy.title && sha(after.snippet.description ?? '') === item.toSha256;
     if (!matched) await sleep(1500);
   }

@@ -312,6 +312,56 @@
       ],
       "commit": {},
       "leftover": []
+    },
+    {
+      "phase": "post",
+      "only": null,
+      "host": "minamidaisukenonotobukkukonpyuta.local",
+      "startedAt": "2026-10-31T02:20:08.581Z",
+      "finishedAt": "2026-10-31T03:06:00.440Z",
+      "stages": [
+        {
+          "id": "note-live",
+          "title": "note の添付と会員限定のライブ照合",
+          "status": "ok",
+          "reason": "",
+          "exits": [
+            0,
+            0
+          ],
+          "verify": [],
+          "durationSec": 133
+        },
+        {
+          "id": "note-sync",
+          "title": "note の記事の同期（本文・カバー・タグ）",
+          "status": "failed",
+          "reason": "[note-sync] ✗ Drive から配布 PDF を読めない（再起動しても 3 件続けて失敗）。PDF の要る記事は翌週へ回した（コピー失敗: Unknown system error -11: Unknown system error -11, read — content/note/RCCM/magazines/RCCM問題I-部門別業務経験例/05-河川砂防及び海岸海洋/RCCM問題I-河川砂防及び海岸海洋-業務経験記入例2本.pdf）",
+          "exits": [
+            1
+          ],
+          "verify": [
+            {
+              "id": "note-sync-freshness",
+              "exit": 0
+            }
+          ],
+          "durationSec": 2151
+        },
+        {
+          "id": "note-sync-check",
+          "title": "note の反映の照合（公開 API）",
+          "status": "warn",
+          "reason": "[check-note-sync] ✗ 未反映 記事 360（止まっている 3）・マガジン 0。土曜の Mac の収集（weekly-collect の note-sync 段）が反映し、止まっている分は管理画面 /content/note-sync",
+          "exits": [
+            1
+          ],
+          "verify": [],
+          "durationSec": 452
+        }
+      ],
+      "commit": {},
+      "leftover": []
     }
   ]
 }

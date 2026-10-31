@@ -4,11 +4,11 @@ on:
   workflow_dispatch:
     inputs:
       mode:
-        description: 'publish または承認済み概要欄の同期'
+        description: 'publish・概要欄同期・読取監査・公開状態の照合'
         required: false
         default: publish
         type: choice
-        options: [publish, sync-funnel]
+        options: [publish, sync-funnel, audit-funnel, reconcile]
       publication:
         description: '承認済みの通常動画の公開ID（初回または個別改訂版）'
         required: false
@@ -16,6 +16,11 @@ on:
       expect:
         description: 'registry publish-youtube dry-run の入力digest（64桁）'
         required: false
+        type: string
+      metadata_plan:
+        description: '概要欄同期計画（省略時は予約済み17本）'
+        required: false
+        default: 'content/sns/youtube/metadata-plans/2026-10-31-funnel.json'
         type: string
 
 concurrency:
@@ -27,7 +32,7 @@ permissions:
 
 jobs:
   publish:
-    if: inputs.mode != 'sync-funnel'
+    if: inputs.mode == 'publish'
     runs-on: ubuntu-latest
     timeout-minutes: 30
     env:
@@ -88,6 +93,7 @@ jobs:
       YOUTUBE_CLIENT_ID: ${{ secrets.YOUTUBE_CLIENT_ID }}
       YOUTUBE_CLIENT_SECRET: ${{ secrets.YOUTUBE_CLIENT_SECRET }}
       YOUTUBE_REFRESH_TOKEN: ${{ secrets.YOUTUBE_REFRESH_TOKEN }}
+      METADATA_PLAN: ${{ inputs.metadata_plan }}
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
@@ -98,4 +104,52 @@ jobs:
           cache: npm
       - run: npm ci --legacy-peer-deps --ignore-scripts
       - run: npm run check-content-registry
-      - run: node scripts/youtube-sync-funnel.mjs --plan content/sns/youtube/metadata-plans/2026-10-31-funnel.json --commit
+      - run: '[[ "$METADATA_PLAN" =~ ^content/sns/youtube/metadata-plans/[a-z0-9-]+\.json$ ]]'
+      - run: node scripts/youtube-sync-funnel.mjs --plan "$METADATA_PLAN" --commit
+  audit-funnel:
+    if: inputs.mode == 'audit-funnel'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      YOUTUBE_CLIENT_ID: ${{ secrets.YOUTUBE_CLIENT_ID }}
+      YOUTUBE_CLIENT_SECRET: ${{ secrets.YOUTUBE_CLIENT_SECRET }}
+      YOUTUBE_REFRESH_TOKEN: ${{ secrets.YOUTUBE_REFRESH_TOKEN }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: develop
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci --legacy-peer-deps --ignore-scripts
+      - run: npm run check-youtube-funnels
+      - run: node scripts/youtube-audit-live-funnels.mjs
+  reconcile:
+    if: inputs.mode == 'reconcile'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      YOUTUBE_CLIENT_ID: ${{ secrets.YOUTUBE_CLIENT_ID }}
+      YOUTUBE_CLIENT_SECRET: ${{ secrets.YOUTUBE_CLIENT_SECRET }}
+      YOUTUBE_REFRESH_TOKEN: ${{ secrets.YOUTUBE_REFRESH_TOKEN }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: develop
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci --legacy-peer-deps --ignore-scripts
+      - run: node scripts/registry-reconcile.mjs
+      - name: Preserve observed publication states
+        run: |
+          git add content/registry/publications/youtube .claude/state/registry-reconcile/youtube.json
+          if ! git diff --cached --quiet; then
+            git config user.name 'doboku-note-bot'
+            git config user.email 'bot@doboku-note.com'
+            git commit -m 'Reconcile published YouTube videos with API'
+            git pull --rebase origin develop
+            git push origin HEAD:develop
+          fi
