@@ -34,7 +34,7 @@ export async function readIgPublication(root, folder, format) {
 /** 予約前に、見た版のハッシュ付き承認と予定時刻が今の本文・素材に一致するかを調べる。 */
 export function assertIgScheduleApproval(root, row, publishAt) {
   if (!row.legacyKey?.startsWith('profile-pinned/')) return;
-  if (!['approved', 'rendered'].includes(row.status)) throw new Error(`${row.id}: 投稿前の状態が ${row.status}（approved/rendered が必要）`);
+  if (!['approved', 'rendered', 'scheduled'].includes(row.status)) throw new Error(`${row.id}: 投稿前の状態が ${row.status}（approved/rendered/scheduled が必要）`);
   if (!row.publishAt || Date.parse(row.publishAt) !== Date.parse(publishAt)) throw new Error(`${row.id}: 承認した予約日時と投稿日時が違う`);
   const reg = loadRegistry(root);
   const media = new Map(reg.media.map((m) => [m.id, m]));
@@ -66,6 +66,10 @@ export async function recordIg(root, folder, format, event, data = {}) {
     if (!data.publishAt) throw new Error('scheduled には publishAt が要る');
     if (!can('scheduled')) throw new Error(`${row.status} → scheduled は遷移に無い（${id}）`);
     assertIgScheduleApproval(root, cur, data.publishAt);
+    if (row.status === 'scheduled') {
+      if (!data.postId || !data.receipt) throw new Error('予約済み行の再記録にはプランナーで読み戻した postId と receipt が要る');
+      if (row.platform?.id && row.platform.id !== String(data.postId)) throw new Error(`${id}: 既存の Business Suite 投稿 ID と違う`);
+    }
     Object.assign(row, { status: 'scheduled', publishAt: data.publishAt, approval: cur.approval ?? grand });
     row.platform = { ...(row.platform ?? {}), privacy: 'scheduled', ...(data.postId ? { id: String(data.postId), kind: 'business-suite' } : {}), ...(data.receipt ? { evidence: { kind: 'planner-receipt', ref: data.receipt } } : {}) };
     delete row.stopReason; delete row.reason;
