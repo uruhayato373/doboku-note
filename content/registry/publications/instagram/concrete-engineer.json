@@ -11,7 +11,7 @@
       "legacyKey": "video-packs/concrete-engineer/gishi-12week-plan",
       "definition": "content/sns/instagram/video-packs/concrete-engineer/gishi-12week-plan",
       "copy": "content/sns/instagram/video-packs/concrete-engineer/gishi-12week-plan/carousel/caption.txt",
-      "status": "published",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -20,13 +20,14 @@
       "platform": {
         "id": "DddDGIHDM61",
         "url": "https://www.instagram.com/p/DddDGIHDM61/",
-        "privacy": "public",
+        "privacy": "gone",
         "kind": "shortcode",
         "evidence": {
           "kind": "ig-snapshot",
           "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#unrecorded"
         }
-      }
+      },
+      "stopReason": "gone"
     },
     {
       "id": "concrete-engineer/gishi-12week-plan/instagram.reel.point-step1-1",
@@ -38,7 +39,7 @@
       "idException": "imported-before-cutover",
       "definition": "content/sns/instagram/video-packs/concrete-engineer/gishi-12week-plan-point-step1-1",
       "copy": "content/sns/instagram/video-packs/concrete-engineer/gishi-12week-plan-point-step1-1/reels/caption.txt",
-      "status": "published",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -47,13 +48,14 @@
       "platform": {
         "id": "DdaeWofjNGr",
         "url": "https://www.instagram.com/reel/DdaeWofjNGr/",
-        "privacy": "public",
+        "privacy": "gone",
         "kind": "shortcode",
         "evidence": {
           "kind": "ig-snapshot",
           "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#live-reel-head"
         }
-      }
+      },
+      "stopReason": "gone"
     },
     {
       "id": "concrete-engineer/gishi-12week-plan/instagram.reel.point-step2-2",
@@ -65,7 +67,7 @@
       "idException": "imported-before-cutover",
       "definition": "content/sns/instagram/video-packs/concrete-engineer/gishi-12week-plan-point-step2-2",
       "copy": "content/sns/instagram/video-packs/concrete-engineer/gishi-12week-plan-point-step2-2/reels/caption.txt",
-      "status": "published",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -74,13 +76,14 @@
       "platform": {
         "id": "Dddv162iF9N",
         "url": "https://www.instagram.com/reel/Dddv162iF9N/",
-        "privacy": "public",
+        "privacy": "gone",
         "kind": "shortcode",
         "evidence": {
           "kind": "ig-snapshot",
           "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#live-reel-head"
         }
-      }
+      },
+      "stopReason": "gone"
     },
     {
       "id": "concrete-engineer/gishi-construction-ronten/instagram.carousel",

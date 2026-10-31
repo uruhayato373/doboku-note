@@ -16,7 +16,7 @@
 // 使い方:
 //   node scripts/fetch-ig-insights.mjs                          # 既定（30日窓・過去90日以内のメディアに insights）
 //   node scripts/fetch-ig-insights.mjs --days=14 --max-media=100
-//   node scripts/fetch-ig-insights.mjs --reconcile              # ローカル SoT との突合 snapshot も書く
+//   node scripts/fetch-ig-insights.mjs --reconcile              # 旧記録と台帳を考慮した突合 snapshot も書く
 //   node scripts/fetch-ig-insights.mjs --dry-run                # 取得はするが書かない（件数だけ表示）
 //   node scripts/fetch-ig-insights.mjs --json                   # 取得物を JSON で stdout 出力
 //
@@ -30,6 +30,7 @@ import { addDays } from './lib/business-direction.mjs';
 import { datasetPath } from './lib/datasets.mjs';
 import { createIgGraphClient, mediaToLive } from './lib/ig-graph.mjs';
 import { normHead, localPacks, reconcile, driftCount, buildSnapshot } from './lib/ig-reconcile-core.mjs';
+import { loadRegistry } from './lib/content-registry.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 import { parseCliArgs } from './lib/cli-args.mjs';
 
@@ -207,7 +208,10 @@ export async function run({ client, root, now = new Date(), argv = [] }) {
       ...mediaToLive(rows),
       scheduled: { unavailable: 'Graph API はプランナー予約を返さない。status.json の scheduled_at を使う' },
     };
-    const packs = localPacks();
+    const goneLegacyKeys = new Set(loadRegistry(root).publications
+      .filter((p) => p.channel === 'instagram' && p.status === 'stopped' && p.stopReason === 'gone')
+      .map((p) => p.legacyKey));
+    const packs = localPacks({ igDir: join(root, 'content/sns/instagram'), excludedLegacyKeys: goneLegacyKeys });
     const cats = reconcile(packs, liveData);
     const drift = driftCount(cats);
     driftInfo = { drift, packs: packs.length };

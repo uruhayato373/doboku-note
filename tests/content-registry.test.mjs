@@ -13,6 +13,7 @@ import { immutableConflict } from '../scripts/lib/drive-vault.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const cfg = loadRegistryConfig(ROOT);
+const youtubeOnlyCfg = { ...cfg, cutover: ['youtube'] };
 const SHA = 'a'.repeat(64);
 const DEF = 'content/sns/video-packs/civil-construction-2/matome-2kyu-chokuzen';
 const PUB = 'civil-construction-2/matome-2kyu-chokuzen/youtube.longform';
@@ -23,7 +24,7 @@ const media = (over = {}) => ({
   id: `${PUB}/cover`, role: 'cover', type: 'image/png', sha256: SHA, scope: 'civil-construction-2', file: 'm.json',
   store: { tier: 'drive', path: `.tmp/media/${PUB}/cover.${SHA.slice(0, 8)}.png` }, provenance: { kind: 'template', by: 'brand-video-pack' }, ...over,
 });
-const run = ({ works = [work()], publications = [pub()], mediaRows = [], drive = { entries: {} }, ai = { figures: {} }, c = cfg } = {}) =>
+const run = ({ works = [work()], publications = [pub()], mediaRows = [], drive = { entries: {} }, ai = { figures: {} }, c = youtubeOnlyCfg } = {}) =>
   checkRegistry(ROOT, { cfg: c, reg: { works, publications, media: mediaRows }, driveManifest: drive, aiLedger: ai, packs: new Map() });
 const codes = (r, sev = 'FAIL') => r.issues.filter((i) => i.severity === sev).map((i) => i.code);
 
@@ -50,6 +51,7 @@ test('承認ハッシュは鍵の順序に依らず、予定・文面・素材�
 });
 
 test('R01: 台帳が 0 件なら検査不成立（FAIL）', () => {
+  assert.deepEqual(cfg.cutover, ['youtube', 'instagram', 'x']);
   assert.ok(codes(run({ works: [], publications: [], mediaRows: [] })).includes('R01'));
   assert.deepEqual(codes(run()), []);
 });

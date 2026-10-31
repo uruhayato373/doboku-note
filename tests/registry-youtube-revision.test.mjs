@@ -21,6 +21,10 @@ function fixture(t) {
   t.after(() => rmSync(root, { recursive: true, force: true }));
   mkdirSync(join(root, 'config'), { recursive: true });
   copyFileSync(join(REPO_ROOT, 'config/content-registry.json'), join(root, 'config/content-registry.json'));
+  // この fixture は YouTube の公開だけを作る。R01 の切り替え済み件数検査を他チャネルへ広げない。
+  const cfgPath = join(root, 'config/content-registry.json');
+  const cfg = JSON.parse(readFileSync(cfgPath, 'utf8'));
+  writeFileSync(cfgPath, `${JSON.stringify({ ...cfg, cutover: ['youtube'] }, null, 2)}\n`);
   // R13（概要欄の VOICEVOX クレジット）は既定の声を character-poses から引く
   copyFileSync(join(REPO_ROOT, 'config/character-poses.json'), join(root, 'config/character-poses.json'));
   writeJson(root, `${DEF}/youtube.json`, { longform: { title: '元の題名', description: '元の説明\n音声：VOICEVOX:青山龍星', r2Key: 'old.mp4', sha256: 'a'.repeat(64), publishAt: '2020-01-01T00:00:00Z' } });
