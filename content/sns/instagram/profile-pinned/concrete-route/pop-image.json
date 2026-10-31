@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "design": "pop-poster-v3",
+  "model": "Codex ImageGen",
+  "method": "edit",
+  "reference": {
+    "path": ".tmp/media/concrete-engineer/ig-concrete-route/instagram.carousel/cover.c8b7486c.png",
+    "sha256": "c8b7486cb65a538bd4749242c13f046f9a920e15be88ccaaf3fb073c32849291"
+  },
+  "promptFile": "content/sns/instagram/profile-pinned/concrete-route/prompt.txt",
+  "exactText": "コンクリート / 技士・主任技士",
+  "source": {
+    "file": "exec-15550f40-8d95-4da3-9bb3-960d8d5d95d9.png",
+    "sha256": "4a875dcaa84b2aa06fe838ea5160ae41c2f751bd23af8e3941a6e489d2db5df7"
+  },
+  "output": {
+    "path": ".tmp/media/concrete-engineer/ig-concrete-route/instagram.carousel/cover.4f2eaf5a.png",
+    "sha256": "4f2eaf5ab0d0debae0f28f3cb62add4659c8b15b9b8539d99e0464caefc971c8",
+    "width": 1080,
+    "height": 1350
+  },
+  "normalization": "Sharp resize cover 1080x1350; no content edits"
+}

@@ -7,10 +7,16 @@
  */
 import { canTransition, loadRegistry, loadRegistryConfig, pubIdOf } from './content-registry.mjs';
 import { classifyIgFolder, IG_ROOT } from './registry-ig-state.mjs';
+import { isAbsolute, relative, resolve } from 'node:path';
+import { approvalState } from './media-review.mjs';
 
 /** 作品フォルダ（content/sns/instagram の下の相対パス、または content/sns/instagram/… から始まるパス）と形式 → 公開 ID。対象外は null */
 export async function igPubId(root, folder, format) {
-  const rel = String(folder).replace(/\\/g, '/').replace(new RegExp(`^(?:\\./)?${IG_ROOT}/`), '').replace(/\/$/, '');
+  const input = String(folder);
+  const rel = (isAbsolute(input) ? relative(resolve(root, IG_ROOT), resolve(input))
+    : input.replace(/\\/g, '/').replace(new RegExp(`^(?:\\./)?${IG_ROOT}/`), ''))
+    .replace(/\\/g, '/').replace(/\/$/, '');
+  if (rel.startsWith('../') || rel === '..' || isAbsolute(rel)) return null;
   const { discoverVideoPacks } = await import('./content-registry-check.mjs');
   const c = classifyIgFolder(rel, new Set(discoverVideoPacks(root).keys()));
   if (!c) return null;
@@ -23,6 +29,19 @@ export async function readIgPublication(root, folder, format) {
   const id = await igPubId(root, folder, format);
   if (!id) return null;
   return loadRegistry(root).publications.find((p) => p.id === id) ?? null;
+}
+
+/** 予約前に、見た版のハッシュ付き承認と予定時刻が今の本文・素材に一致するかを調べる。 */
+export function assertIgScheduleApproval(root, row, publishAt) {
+  if (!row.legacyKey?.startsWith('profile-pinned/')) return;
+  if (!['approved', 'rendered'].includes(row.status)) throw new Error(`${row.id}: 投稿前の状態が ${row.status}（approved/rendered が必要）`);
+  if (!row.publishAt || Date.parse(row.publishAt) !== Date.parse(publishAt)) throw new Error(`${row.id}: 承認した予約日時と投稿日時が違う`);
+  const reg = loadRegistry(root);
+  const media = new Map(reg.media.map((m) => [m.id, m]));
+  const state = approvalState(root, row, media);
+  if (!state.final.valid || row.approval?.by !== 'user' || row.approval?.grandfathered) {
+    throw new Error(`${row.id}: 現版のハッシュ付き運営者承認がない`);
+  }
 }
 
 /**
@@ -46,7 +65,8 @@ export async function recordIg(root, folder, format, event, data = {}) {
   if (event === 'scheduled') {
     if (!data.publishAt) throw new Error('scheduled には publishAt が要る');
     if (!can('scheduled')) throw new Error(`${row.status} → scheduled は遷移に無い（${id}）`);
-    Object.assign(row, { status: 'scheduled', publishAt: data.publishAt, approval: grand });
+    assertIgScheduleApproval(root, cur, data.publishAt);
+    Object.assign(row, { status: 'scheduled', publishAt: data.publishAt, approval: cur.approval ?? grand });
     row.platform = { ...(row.platform ?? {}), privacy: 'scheduled', ...(data.postId ? { id: String(data.postId), kind: 'business-suite' } : {}), ...(data.receipt ? { evidence: { kind: 'planner-receipt', ref: data.receipt } } : {}) };
     delete row.stopReason; delete row.reason;
   } else if (event === 'published') {

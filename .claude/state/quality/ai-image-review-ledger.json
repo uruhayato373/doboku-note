@@ -1265,6 +1265,12 @@
       "reason": "先端にプランジャを持つ円筒形のリバウンドハンマーを橋脚の壁面に垂直に当て、壁面に3列3行の9点の測定格子が描かれている。alt と本文の反発度法と一致し、手や部位の崩れも無い（本体の窓や尾部のキャップは省略されているが誤解は招かない）",
       "reviewedAt": "2026-10-07T23:10:40.546Z"
     },
+    "media:account/ig-start-guide/instagram.carousel/cover": {
+      "sha": "c9ca488c754323ab",
+      "verdict": "ok",
+      "reason": "指定文字『はじめての方へ』『資格別の学び方』を原寸で照合。先生の顔・メガネ・ひげ・服装、指差しの手指、3方向の矢印に破綻がない。",
+      "reviewedAt": "2026-10-31T06:10:52.982Z"
+    },
     "media:brand/character-pop-v2/teacher-explaining": {
       "sha": "e88700289679362e",
       "verdict": "ok",
@@ -3416,6 +3422,12 @@
       "reason": "全場面シートと原寸画像で「立場から答案を探す」の日本語、図解内容、資格名と字幕余白を照合し、台本と整合することを確認。",
       "reviewedAt": "2026-10-27T13:33:05.168Z"
     },
+    "media:concrete-engineer/ig-concrete-route/instagram.carousel/cover": {
+      "sha": "4f2eaf5ab0d0deba",
+      "verdict": "ok",
+      "reason": "指定文字『コンクリート』『技士・主任技士』を原寸で照合。先生の顔・服装と赤ペン/ノートの手指が自然で、骨材・砂・水・供試体の装飾図像に誤認を招く破綻がない。",
+      "reviewedAt": "2026-10-31T06:10:52.983Z"
+    },
     "media:pe-comprehensive-management/gokanri-tradeoff/work/candidate-cover": {
       "sha": "3c018394ecb044db",
       "verdict": "ok",
@@ -4009,6 +4021,12 @@
       "verdict": "ok",
       "reason": "独立AI画像監査：最終採用PNGを原寸と360pxで実見。指定4文言・ポーズ・顔と手指・安全域に問題なし。ユーザー承認は含まない。",
       "reviewedAt": "2026-10-11T03:36:30.184Z"
+    },
+    "media:pe-first-stage/ig-pe-first-stage-route/instagram.carousel/cover": {
+      "sha": "bdd4e6820eb5ac5b",
+      "verdict": "ok",
+      "reason": "指定文字『技術士第一次』『無料解説と教材』を原寸で照合。承認見本と先生の顔・服装が一致し、赤ペンを持つ手指と3冊の図像に破綻がない。",
+      "reviewedAt": "2026-10-31T06:10:52.983Z"
     },
     "media:pe-first-stage/pe1-kiso-2of3-reliability/youtube.longform/cover": {
       "sha": "ee5d6f0e2161e39a",

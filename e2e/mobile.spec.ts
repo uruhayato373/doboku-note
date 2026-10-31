@@ -28,6 +28,7 @@ test('/links は最初の資格リンクがスマホの 1 画面目に収まる'
   await page.goto('/links');
   const firstLink = page.locator('[id^="exam-"] a').first();
   await expect(firstLink).toBeVisible();
+  await expect(firstLink).toHaveAttribute('href', '/exam/pe-first-stage');
 
   const box = await firstLink.boundingBox();
   const viewportHeight = page.viewportSize()?.height ?? 0;
@@ -36,6 +37,16 @@ test('/links は最初の資格リンクがスマホの 1 画面目に収まる'
     box!.y + box!.height,
     `最初の資格リンクの下端=${Math.round(box!.y + box!.height)}px, 画面の高さ=${viewportHeight}px`,
   ).toBeLessThanOrEqual(viewportHeight);
+});
+
+test('/links のコンクリート資格は有料教材へ直接進め、全教材一覧も残す', async ({ page }) => {
+  await page.goto('/links');
+  for (const id of ['concrete', 'concrete-chief']) {
+    const href = await page.locator(`#exam-${id} a[data-cta="note"]`).getAttribute('href');
+    expect(href).not.toBeNull();
+    expect(new URL(href!).pathname).toMatch(/^\/dobokunote\/m\//);
+  }
+  await expect(page.getByRole('link', { name: /コンクリートの全教材一覧/ })).toHaveAttribute('href', /\/dobokunote\/n\//);
 });
 
 test('モバイルメニューを開閉できる', async ({ page }) => {

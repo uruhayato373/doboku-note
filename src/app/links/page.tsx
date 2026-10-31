@@ -32,7 +32,8 @@ import { qualificationLabel } from "@/lib/qualification-names";
  * ②③は実体がある資格だけ表示し、未整備の導線を作らない。
  * 関与度の順に並ぶので、資格をまたいでも同じ位置に同じ性質のリンクが来る。
  *
- * マガジンは note の L2 もくじへ集約。L2 未作成の第一次はカタログから代表教材を選ぶ。
+ * 原則は note の L2 もくじへ集約。今の重点資格は代表教材へ直接つなぎ、
+ * コンクリートの全教材一覧はグループ末尾に残す。
  */
 type ExamCard = {
   /** exam-brand.ts の ExamKey（ラベル・テーマ色・背景イラストの解決に使う）。 */
@@ -164,7 +165,7 @@ export const metadata: Metadata = {
   },
 };
 
-// 並びは主力商品の順（2026-10-04 に 2級土木を主力へ切り替え、土木を先頭・2級を 1級より前にした）。
+// 並びは現在の発信優先順（2026-10-31: 技術士一次、コンクリート、土木施工管理）。
 // スマホの 1 画面目に入るのは先頭グループの最初のカードだけなので、ここが SNS から来た人の第一候補になる。
 const EXAM_GROUPS: {
   id: string;
@@ -172,12 +173,6 @@ const EXAM_GROUPS: {
   description: string;
   keys: ExamKey[];
 }[] = [
-  {
-    id: "civil-construction",
-    title: "土木施工管理技士",
-    description: "2級・1級の第一次検定と第二次検定を、過去問と経験記述で対策",
-    keys: ["civil-2", "civil-1"],
-  },
   {
     id: "professional-engineer",
     title: "技術士",
@@ -191,12 +186,23 @@ const EXAM_GROUPS: {
     keys: ["concrete", "concrete-chief", "concrete-diagnosis"],
   },
   {
+    id: "civil-construction",
+    title: "土木施工管理技士",
+    description: "1級・2級の第一次検定と第二次検定を、過去問と経験記述で対策",
+    keys: ["civil-1", "civil-2"],
+  },
+  {
     id: "rccm",
     title: "RCCM（建設コンサルタント）",
     description: "試験A（業務経験論文・択一）と試験B（管理技術力・択一）を CBT 期間に合わせて対策",
     keys: ["rccm"],
   },
 ];
+
+const FEATURED_NOTE_PRODUCTS = {
+  concrete: "ce-chokuzen-pack",
+  "concrete-chief": "cce-takuitsu-chokuzen-pack",
+} as const;
 
 // 教材の「中身」を語る3本柱（差別化軸）。既存有料商品の共通価値を言語化。
 const VALUE_PILLARS: {
@@ -303,13 +309,15 @@ function CardRow({
 /**
  * 資格カード 1 枚。頭に資格ブランドの帯（cta-bg イラスト or テーマ色）を敷き、
  * 中身は役割固定の 3 行。③ 個別サービスは資格に紐づく listed が無ければ行ごと省略する
- * （主任技士は添削を含む 3 行。技術士第一次は L2 未作成のため実商品の教材行を出す）。
+ * （主任技士は添削を含む 3 行。重点資格は実商品の教材行を出す）。
  */
 function ExamCardView({ card }: { card: ExamCard }) {
   const brand = EXAM_BRAND[card.key];
   const mokuji = mokujiFor(card.key);
   const coconala = pickCoconalaFor(card.key);
-  const noteProduct = !mokuji && card.key === "pe-first-stage" ? getMagazine(pe1LeadMagazineId()) : null;
+  const featuredId = FEATURED_NOTE_PRODUCTS[card.key as keyof typeof FEATURED_NOTE_PRODUCTS];
+  const noteProduct = card.key === "pe-first-stage" ? getMagazine(pe1LeadMagazineId())
+    : featuredId ? getMagazine(featuredId) : null;
 
   return (
     <div className="card-surface-content overflow-hidden p-0">
@@ -347,7 +355,7 @@ function ExamCardView({ card }: { card: ExamCard }) {
           cta="nav"
           ctaLabel={`site-${card.key}`}
         />
-        {mokuji && (
+        {mokuji && !noteProduct && (
           <CardRow
             channel="note"
             channelLabel="note"
@@ -362,7 +370,7 @@ function ExamCardView({ card }: { card: ExamCard }) {
         {noteProduct && (
           <CardRow channel="note" channelLabel="note" label={noteProduct.shortTitle ?? noteProduct.title}
             sub={noteProduct.shortDescription ?? noteProduct.description}
-            href={buildMagazineUrl(noteProduct, "links-pe-first-stage")} external cta="note" ctaLabel={noteProduct.id} />
+            href={buildMagazineUrl(noteProduct, `links-${card.key}`)} external cta="note" ctaLabel={noteProduct.id} />
         )}
         {coconala && (
           <CardRow
@@ -390,6 +398,7 @@ function ExamSections() {
         const cards = group.keys
           .map((key) => EXAM_CARDS.find((card) => card.key === key))
           .filter((card): card is ExamCard => Boolean(card));
+        const concreteMokuji = group.id === "concrete" ? mokujiFor("concrete") : null;
 
         return (
           <section key={group.id} id={`group-${group.id}`} className="scroll-mt-24">
@@ -409,6 +418,14 @@ function ExamSections() {
                 </div>
               ))}
             </div>
+            {concreteMokuji && (
+              <a href={withNoteUtm(concreteMokuji.noteUrl, "links", { content: "mokuji-concrete-all" })}
+                target="_blank" rel={externalLinkRel(concreteMokuji.noteUrl)}
+                data-cta="note" data-cta-label="mokuji-concrete-all" data-cta-placement={PLACEMENT}
+                className="focus-ring mt-3 inline-block text-sm text-brand hover:underline">
+                コンクリートの全教材一覧を見る（note もくじ）
+              </a>
+            )}
           </section>
         );
       })}

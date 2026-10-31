@@ -44,13 +44,14 @@ CI からの予約投稿（`ops-write.yml`）は廃止した。投稿は運営�
 ## 前提条件
 
 1. **システム Chrome がインストール済み**（Playwright 同梱 Chromium は Meta に bot 判定されやすい）
-2. **初回ログイン**（一度だけ。2FA はブラウザ上で手動）:
+2. 新規投稿は `content/registry/publications/instagram/` に台帳行があり、予約日時と現版のハッシュ付き最終承認が一致すること。行が無い・未承認ならBusiness Suiteへ進まず停止する。固定投稿の準備手順は `content-registry.md` を参照する。
+3. **初回ログイン**（一度だけ。2FA はブラウザ上で手動）:
    ```bash
    npx tsx .claude/skills/social/publish-ig-bs/publish-ig-bs.ts login
    ```
    → `business.facebook.com/latest` に入るとセッションが `<auth root>/profiles/playwright-ig-bs-profile/` に保存され自動終了。
-3. **セッション切れ時**: 同じ `login` で再ログイン。
-4. **SingletonLock エラー時**:
+4. **セッション切れ時**: 同じ `login` で再ログイン。
+5. **SingletonLock エラー時**:
    ```bash
    pkill -f "playwright-ig-bs-profile" 2>/dev/null; rm -f <auth root>/profiles/playwright-ig-bs-profile/SingletonLock
    ```

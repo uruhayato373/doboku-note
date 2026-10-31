@@ -134,6 +134,11 @@
         "at": "2026-09-01",
         "by": "general-purpose (video-content-qa 代行・6軸)"
       }
+    },
+    {
+      "id": "ig-concrete-route",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/profile-pinned/concrete-route"
     }
   ]
 }

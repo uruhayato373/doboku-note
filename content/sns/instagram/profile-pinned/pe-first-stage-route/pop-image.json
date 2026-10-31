@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "design": "pop-poster-v3",
+  "model": "Codex ImageGen",
+  "method": "edit",
+  "reference": {
+    "path": ".tmp/media/pe-first-stage/ig-pe-first-stage-route/instagram.carousel/cover.77a54f7d.png",
+    "sha256": "77a54f7dcffc6b0306bfb36f19969fc67fc753ad87b23b09a3292d6476cc31be"
+  },
+  "promptFile": "content/sns/instagram/profile-pinned/pe-first-stage-route/prompt.txt",
+  "exactText": "技術士第一次 / 無料解説と教材",
+  "source": {
+    "file": "exec-a6798dc0-2506-4b77-92e0-b61fb723d344.png",
+    "sha256": "ebafa1f250745001a85855c72133c8510ef486507d86d2851a14a7c22a0a8947"
+  },
+  "output": {
+    "path": ".tmp/media/pe-first-stage/ig-pe-first-stage-route/instagram.carousel/cover.bdd4e682.png",
+    "sha256": "bdd4e6820eb5ac5b6d8ce6ac9f8dbad9762528593d6cfc5a6ea9bf38263b9947",
+    "width": 1080,
+    "height": 1350
+  },
+  "normalization": "Sharp resize cover 1080x1350; no content edits"
+}

@@ -615,7 +615,8 @@ export const ConfigIgAccount = z
                 order: z.number().int().positive().describe('固定の順番（1 から）'),
                 key: z.string().min(1),
                 title: z.string().min(1),
-                status: z.string().min(1).describe('固定投稿の状態（planned など）'),
+                status: z.enum(['planned', 'scheduled', 'published', 'pinned']).describe('固定投稿の状態。実表示を確かめてから pinned にする'),
+                url: z.url().optional().describe('公開・固定した投稿の実表示URL'),
               })
               .strict(),
           )

@@ -55,6 +55,11 @@
       "definition": "content/sns/instagram/highlights/03_reels-roundup"
     },
     {
+      "id": "ig-start-guide",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/profile-pinned/start-guide"
+    },
+    {
       "id": "magazine-flow-7days",
       "kind": "x-thread",
       "definition": "content/sns/x/draft/_archive-old-account/030-magazine-flow-7days",
