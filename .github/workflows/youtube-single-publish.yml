@@ -4,11 +4,11 @@ on:
   workflow_dispatch:
     inputs:
       mode:
-        description: 'publish または承認済み概要欄の同期'
+        description: 'publish・承認済み概要欄の同期・全動画の読取監査'
         required: false
         default: publish
         type: choice
-        options: [publish, sync-funnel]
+        options: [publish, sync-funnel, audit-funnel]
       publication:
         description: '承認済みの通常動画の公開ID（初回または個別改訂版）'
         required: false
@@ -27,7 +27,7 @@ permissions:
 
 jobs:
   publish:
-    if: inputs.mode != 'sync-funnel'
+    if: inputs.mode == 'publish'
     runs-on: ubuntu-latest
     timeout-minutes: 30
     env:
@@ -99,3 +99,22 @@ jobs:
       - run: npm ci --legacy-peer-deps --ignore-scripts
       - run: npm run check-content-registry
       - run: node scripts/youtube-sync-funnel.mjs --plan content/sns/youtube/metadata-plans/2026-10-31-funnel.json --commit
+  audit-funnel:
+    if: inputs.mode == 'audit-funnel'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      YOUTUBE_CLIENT_ID: ${{ secrets.YOUTUBE_CLIENT_ID }}
+      YOUTUBE_CLIENT_SECRET: ${{ secrets.YOUTUBE_CLIENT_SECRET }}
+      YOUTUBE_REFRESH_TOKEN: ${{ secrets.YOUTUBE_REFRESH_TOKEN }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: develop
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci --legacy-peer-deps --ignore-scripts
+      - run: npm run check-youtube-funnels
+      - run: node scripts/youtube-audit-live-funnels.mjs
