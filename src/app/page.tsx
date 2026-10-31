@@ -105,14 +105,14 @@ export default async function HomePage() {
         </div>
       </SectionBlock>
       <LatestArticles articles={latest} />
-      {/* 転職の案内（ファーストビューより下に 1 枠。案件は配置ルール） */}
-      <SectionBlock space="sm" ariaLabel="転職の相談先">
-        <AffiliateSlot page={{ pageKind: 'home' }} slot="home-section" />
-      </SectionBlock>
       <AboutSection />
       {/* note 有料教材ハブへの導線（複数資格横断のトップは単一商品でなく /links 集約へ）。
           ブランド背景＋HTML文字のヒーロー（PremiumNoteHero）。data-cta="note" で計測。 */}
       <PremiumNoteHero />
+      {/* 転職の案内（1 枠。案件は配置ルール）。2026-10-31 に note のヒーローの後ろへ移した（撮影で全幅とも転職広告が先だった） */}
+      <SectionBlock space="sm" ariaLabel="転職の相談先">
+        <AffiliateSlot page={{ pageKind: 'home' }} slot="home-section" />
+      </SectionBlock>
     </PageShell>
   );
 }
