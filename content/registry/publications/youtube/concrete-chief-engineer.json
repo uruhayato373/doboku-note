@@ -186,7 +186,7 @@
       "work": "shunin-chinka-hibiware-genin",
       "account": "youtube:main",
       "format": "longform",
-      "status": "rendered",
+      "status": "scheduled",
       "media": {
         "cover": "concrete-chief-engineer/shunin-chinka-hibiware-genin/youtube.longform/cover",
         "scene-001": "concrete-chief-engineer/shunin-chinka-hibiware-genin/youtube.longform/scene-001",
@@ -224,7 +224,42 @@
         "contentSha256": "504f6990ec2eedc30cec1e06782085022505cfb269f20e477456c0aa2b9f7088"
       },
       "times": {
-        "rendered": "2026-10-30T23:46:54.683Z"
+        "rendered": "2026-10-30T23:46:54.683Z",
+        "uploaded": "2026-10-31T00:04:48.648Z",
+        "scheduled": "2026-10-31T00:04:56.660Z"
+      },
+      "delivery": {
+        "inputSha256": "c51a965fcc3e4b0b8321dcbffceebc35e35ba3c9b5240b460b29fff6e7300093",
+        "marker": "dn-single-2ca6693f5ed12d43a57951bb1b6ba904291f22cb",
+        "uploadRequestedAt": "2026-10-31T00:04:04.337Z",
+        "videoId": "XxATevSq-KE",
+        "processedAt": "2026-10-31T00:04:47.870Z",
+        "thumbnailRequestedAt": "2026-10-31T00:04:48.703Z",
+        "thumbnailUrls": [
+          "https://i9.ytimg.com/vi/XxATevSq-KE/default.jpg?sqp=CIDflNcG&rs=AOn4CLAQ8mZRI8kV4WB0bVr3oknmfo-XSw",
+          "https://i9.ytimg.com/vi/XxATevSq-KE/mqdefault.jpg?sqp=CIDflNcG&rs=AOn4CLC7s3ktlGDKky6iWqp4VDZPkiATDA",
+          "https://i9.ytimg.com/vi/XxATevSq-KE/hqdefault.jpg?sqp=CIDflNcG&rs=AOn4CLBs7jHCZ-P8lGXsSXbMq81vy7rdHw",
+          "https://i9.ytimg.com/vi/XxATevSq-KE/sddefault.jpg?sqp=CIDflNcG&rs=AOn4CLCnUMvMTFp1VMSuuPBX7LMgfTLskQ",
+          "https://i9.ytimg.com/vi/XxATevSq-KE/maxresdefault.jpg?sqp=CIDflNcG&rs=AOn4CLBf-ltZY70qRaR6VJc4PsPxxjIbdQ",
+          "https://i9.ytimg.com/vi/XxATevSq-KE/fhddefault.jpg?sqp=CIDflNcG&rs=AOn4CLCqRECdDJe58CcQrbw1OyVPcDVkJQ"
+        ],
+        "thumbnailAcceptedAt": "2026-10-31T00:04:51.829Z",
+        "scheduleRequestedAt": "2026-10-31T00:04:52.984Z",
+        "scheduleAt": "2026-11-05T05:30:00Z",
+        "scheduledVerifiedAt": "2026-10-31T00:04:56.660Z"
+      },
+      "platform": {
+        "id": "XxATevSq-KE",
+        "url": "https://www.youtube.com/watch?v=XxATevSq-KE",
+        "privacy": "private",
+        "evidence": {
+          "kind": "publisher-live-check",
+          "ref": "content/sns/video-packs/concrete-chief-engineer/shunin-chinka-hibiware-genin/youtube.json#longform"
+        }
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-10-31T00:04:51.829Z"
       }
     },
     {
