@@ -23,6 +23,21 @@ const median = (sorted) => sorted[Math.floor((sorted.length - 1) / 2)];
 
 /** 本文が短い記事は中間カードが出ない（DocPage の下限 2,500 字 ≒ 7,500 バイト）ので代表に選ばない */
 export const MIN_DOC_BYTES = 7500;
+/** 本文中間カードの下限（src/components/docs/DocPage.tsx の MID_MIN_H2 と 2,500 字） */
+export const MID_MIN_H2 = 3;
+export const MID_MIN_CHARS = 2500;
+
+/**
+ * その記事に転職広告が出るか（DocPage と同じ条件の近似）: 本文に手書きの転職カードがあるか、
+ * h2 が MID_MIN_H2 本以上かつ本文が MID_MIN_CHARS 字以上（本文中間カード）。
+ * 2026-10-31 まではファイルの大きさだけで選び、総監の代表（h2 が足りない用語の記事）に広告が出なかった。
+ */
+export function docShowsCareerAd(body) {
+  const text = String(body ?? '');
+  if (/<CareerAffiliate\b[^>]*\bprogram=/.test(text)) return true;
+  const h2 = (text.match(/^## /gm) ?? []).length;
+  return h2 >= MID_MIN_H2 && text.length >= MID_MIN_CHARS;
+}
 
 /**
  * サイトマップのパスから、記事の (category, localSlug) と MDX 側の slug 候補を作る。
@@ -40,13 +55,14 @@ export function docSlugCandidates(path, practiceCategory) {
 }
 
 /**
- * 代表の記事を選ぶ: 本文が下限以上のうち中央の大きさ（最大だと全文が長すぎ、最小だと広告が出ない）。無ければ最大。
- * @param {{ path: string, bytes: number }[]} items
+ * 代表の記事を選ぶ: 転職広告が出る記事（adEligible。無い項目は本文が下限以上）のうち中央の大きさ
+ * （最大だと全文が長すぎ、最小だと広告が出ない）。無ければ最大。
+ * @param {{ path: string, bytes: number, adEligible?: boolean }[]} items
  */
 export function pickMedianDoc(items) {
   if (!items.length) return null;
   const sorted = [...items].sort((a, b) => a.bytes - b.bytes || a.path.localeCompare(b.path));
-  const eligible = sorted.filter((x) => x.bytes >= MIN_DOC_BYTES);
+  const eligible = sorted.filter((x) => (x.adEligible ?? true) && x.bytes >= MIN_DOC_BYTES);
   return eligible.length ? median(eligible) : sorted[sorted.length - 1];
 }
 
@@ -58,7 +74,7 @@ const slugify = (s) => s.replace(/[^a-z0-9]+/gi, '-').replace(/^-|-$/g, '').toLo
  * @param {object[]} p.rules config/affiliate-placements.json の rules
  * @param {string[]} p.sitemapPaths サイトマップのパス（origin なし）
  * @param {{ slug: string, area: string }[]} p.categories src/config/categories.json（area: exam | practice | laws | standards）
- * @param {Map<string, { bytes: number, career: boolean }>} p.docsBySlug 公開記事（MDX）の slug → 大きさ・キャリア記事か
+ * @param {Map<string, { bytes: number, career: boolean, adEligible?: boolean }>} p.docsBySlug 公開記事（MDX）の slug → 大きさ・キャリア記事か・転職広告が出るか
  * @returns {{ id: string, kind: string, label: string, path: string, pageKind: string, category: string|null, isCareerDoc: boolean }[]}
  */
 export function selectTargets({ rules, sitemapPaths, categories, docsBySlug }) {
@@ -87,7 +103,7 @@ export function selectTargets({ rules, sitemapPaths, categories, docsBySlug }) {
       if (!slug) continue;
       const d = docsBySlug.get(slug);
       const list = byCategory.get(cand.category) ?? [];
-      list.push({ path, bytes: d.bytes, career: d.career });
+      list.push({ path, bytes: d.bytes, career: d.career, adEligible: d.adEligible });
       byCategory.set(cand.category, list);
     }
     for (const c of categories) {
@@ -104,7 +120,8 @@ export function selectTargets({ rules, sitemapPaths, categories, docsBySlug }) {
 
   const first = (re) => paths.find((p) => re.test(p));
   if (kinds.has('tool')) {
-    const p = first(/^\/tools\/[^/]+$/);
+    // 診断ツール（/tools/career-check）は広告が診断結果の後にだけ出るので代表にしない。ツールの一覧は tool-end を常に出す
+    const p = has('/tools') ? '/tools' : paths.find((x) => /^\/tools\/[^/]+$/.test(x) && x !== '/tools/career-check');
     if (p) add({ id: 'tool', kind: 'tool', label: 'ツール', path: p, pageKind: 'tool' });
   }
   if (kinds.has('standards')) {

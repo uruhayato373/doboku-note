@@ -31,7 +31,7 @@ import { readDataset } from './lib/dataset-io.mjs';
 import { LaunchGuardError, guardBrowserLaunch, mergeLeanOptions } from './lib/playwright-launch.mjs';
 import { fetchFailDominant } from './lib/inconclusive-gate.mjs';
 import { collectPublishedDocs } from './lib/published-docs.mjs';
-import { VIEWPORTS, expectedSlots, judgeShot, selectTargets } from './lib/affiliate-layout-judge.mjs';
+import { VIEWPORTS, docShowsCareerAd, expectedSlots, judgeShot, selectTargets } from './lib/affiliate-layout-judge.mjs';
 import { AFFILIATE_VARIANTS, AFFILIATE_VARIANT_KEY, AFFILIATE_EXPERIMENT_ID } from '../src/lib/affiliate-experiment.mjs';
 
 const flags = parseCliArgs({
@@ -67,7 +67,10 @@ function loadSitemapPaths() {
 function loadDocs() {
   const { docs } = collectPublishedDocs(REPO_ROOT);
   const map = new Map();
-  for (const d of docs) map.set(d.slug, { bytes: statSync(d.filePath).size, career: Array.isArray(d.data.tags) && d.data.tags.includes('career') });
+  for (const d of docs) {
+    const body = readFileSync(d.filePath, 'utf8').replace(/^---[\s\S]*?\n---\n/, '');
+    map.set(d.slug, { bytes: statSync(d.filePath).size, career: Array.isArray(d.data.tags) && d.data.tags.includes('career'), adEligible: docShowsCareerAd(body) });
+  }
   return map;
 }
 
