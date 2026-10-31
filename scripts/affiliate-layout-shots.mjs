@@ -116,6 +116,9 @@ function drawOverlay({ ads, notes }) {
 }
 
 async function settle(page) {
+  // 長い記事は画面外の段落を content-visibility: auto で描画から外している（src/styles/globals.css）。そのまま撮ると
+  // 画面から遠い広告のまわりが白く写る（2026-10-31 の本番撮影で技術士一次・建設部門・コンクリート系の PC が白かった）。撮影の間だけ外す
+  await page.addStyleTag({ content: '*{content-visibility:visible!important}' });
   // 遅延読み込みの画像と、画面に入って描かれる部品を出すため、上から下まで一度送る
   await page.evaluate(async () => {
     document.querySelectorAll('img[loading="lazy"]').forEach((i) => { i.loading = 'eager'; });
