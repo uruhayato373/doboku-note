@@ -301,7 +301,7 @@
       "format": "longform",
       "variant": "pop-diagram",
       "revisionOf": "concrete-chief-engineer/shunin-chokuzen-senryaku/youtube.longform",
-      "status": "scheduled",
+      "status": "published",
       "copy": "content/sns/video-packs/concrete-chief-engineer/shunin-chokuzen-senryaku/youtube.revision-pop-diagram.json",
       "media": {
         "cover": "concrete-chief-engineer/shunin-chokuzen-senryaku/work/candidate-cover",
@@ -362,11 +362,12 @@
       "platform": {
         "id": "z2KPTSlIP1I",
         "url": "https://www.youtube.com/watch?v=z2KPTSlIP1I",
-        "privacy": "private",
+        "privacy": "public",
         "evidence": {
-          "kind": "publisher-live-check",
-          "ref": "content/sns/video-packs/concrete-chief-engineer/shunin-chokuzen-senryaku/youtube.revision-pop-diagram.json"
-        }
+          "kind": "youtube-api",
+          "ref": "videos.list@2026-10-31T03:11:06.063Z"
+        },
+        "publishedAt": "2026-10-30T05:30:04.000Z"
       },
       "times": {
         "uploaded": "2026-10-27T11:32:12.701Z",
@@ -792,7 +793,7 @@
       "format": "longform",
       "variant": "pop-diagram-v2",
       "revisionOf": "concrete-chief-engineer/shunin-hinshutsu-yusen/youtube.longform",
-      "status": "scheduled",
+      "status": "published",
       "copy": "content/sns/video-packs/concrete-chief-engineer/shunin-hinshutsu-yusen/youtube.revision-pop-diagram-v2.json",
       "media": {
         "cover": "concrete-chief-engineer/shunin-hinshutsu-yusen/work/candidate-cover",
@@ -849,11 +850,12 @@
       "platform": {
         "id": "W-oc8NWXTR0",
         "url": "https://www.youtube.com/watch?v=W-oc8NWXTR0",
-        "privacy": "private",
+        "privacy": "public",
         "evidence": {
-          "kind": "publisher-live-check",
-          "ref": "content/sns/video-packs/concrete-chief-engineer/shunin-hinshutsu-yusen/youtube.revision-pop-diagram-v2.json"
-        }
+          "kind": "youtube-api",
+          "ref": "videos.list@2026-10-31T03:11:06.063Z"
+        },
+        "publishedAt": "2026-10-28T11:00:32.000Z"
       },
       "times": {
         "uploaded": "2026-10-27T13:45:11.713Z",
@@ -1314,7 +1316,7 @@
       "format": "longform",
       "variant": "pop-diagram",
       "revisionOf": "concrete-chief-engineer/shunin-ochiru-shouronbun/youtube.longform",
-      "status": "scheduled",
+      "status": "published",
       "copy": "content/sns/video-packs/concrete-chief-engineer/shunin-ochiru-shouronbun/youtube.revision-pop-diagram.json",
       "media": {
         "cover": "concrete-chief-engineer/shunin-ochiru-shouronbun/work/candidate-cover",
@@ -1371,11 +1373,12 @@
       "platform": {
         "id": "aMWOpun3m-0",
         "url": "https://www.youtube.com/watch?v=aMWOpun3m-0",
-        "privacy": "private",
+        "privacy": "public",
         "evidence": {
-          "kind": "publisher-live-check",
-          "ref": "content/sns/video-packs/concrete-chief-engineer/shunin-ochiru-shouronbun/youtube.revision-pop-diagram.json"
-        }
+          "kind": "youtube-api",
+          "ref": "videos.list@2026-10-31T03:11:06.063Z"
+        },
+        "publishedAt": "2026-10-30T11:30:38.000Z"
       },
       "times": {
         "uploaded": "2026-10-27T14:47:23.212Z",
@@ -1770,7 +1773,7 @@
       "format": "longform",
       "variant": "pop-diagram",
       "revisionOf": "concrete-chief-engineer/shunin-r8-juuten/youtube.longform",
-      "status": "scheduled",
+      "status": "published",
       "copy": "content/sns/video-packs/concrete-chief-engineer/shunin-r8-juuten/youtube.revision-pop-diagram.json",
       "media": {
         "cover": "concrete-chief-engineer/shunin-r8-juuten/work/candidate-cover",
@@ -1827,11 +1830,12 @@
       "platform": {
         "id": "RcIxuN7-uI0",
         "url": "https://www.youtube.com/watch?v=RcIxuN7-uI0",
-        "privacy": "private",
+        "privacy": "public",
         "evidence": {
-          "kind": "publisher-live-check",
-          "ref": "content/sns/video-packs/concrete-chief-engineer/shunin-r8-juuten/youtube.revision-pop-diagram.json"
-        }
+          "kind": "youtube-api",
+          "ref": "videos.list@2026-10-31T03:11:06.063Z"
+        },
+        "publishedAt": "2026-10-30T23:30:36.000Z"
       },
       "times": {
         "uploaded": "2026-10-27T14:49:08.283Z",
@@ -2028,7 +2032,7 @@
       "format": "longform",
       "variant": "pop-diagram",
       "revisionOf": "concrete-chief-engineer/shunin-shiken-zentaizou/youtube.longform",
-      "status": "scheduled",
+      "status": "published",
       "copy": "content/sns/video-packs/concrete-chief-engineer/shunin-shiken-zentaizou/youtube.revision-pop-diagram.json",
       "media": {
         "cover": "concrete-chief-engineer/shunin-shiken-zentaizou/work/candidate-cover",
@@ -2086,11 +2090,12 @@
       "platform": {
         "id": "n7mNQ2VCflE",
         "url": "https://www.youtube.com/watch?v=n7mNQ2VCflE",
-        "privacy": "private",
+        "privacy": "public",
         "evidence": {
-          "kind": "publisher-live-check",
-          "ref": "content/sns/video-packs/concrete-chief-engineer/shunin-shiken-zentaizou/youtube.revision-pop-diagram.json"
-        }
+          "kind": "youtube-api",
+          "ref": "videos.list@2026-10-31T03:11:06.063Z"
+        },
+        "publishedAt": "2026-10-28T23:30:11.000Z"
       },
       "times": {
         "uploaded": "2026-10-27T12:16:04.782Z",
@@ -2325,7 +2330,7 @@
       "format": "longform",
       "variant": "pop-diagram-v2",
       "revisionOf": "concrete-chief-engineer/shunin-shouronbun-kousei/youtube.longform",
-      "status": "scheduled",
+      "status": "published",
       "copy": "content/sns/video-packs/concrete-chief-engineer/shunin-shouronbun-kousei/youtube.revision-pop-diagram-v2.json",
       "media": {
         "cover": "concrete-chief-engineer/shunin-shouronbun-kousei/work/candidate-cover",
@@ -2383,11 +2388,12 @@
       "platform": {
         "id": "mViqz6hWEeo",
         "url": "https://www.youtube.com/watch?v=mViqz6hWEeo",
-        "privacy": "private",
+        "privacy": "public",
         "evidence": {
-          "kind": "publisher-live-check",
-          "ref": "content/sns/video-packs/concrete-chief-engineer/shunin-shouronbun-kousei/youtube.revision-pop-diagram-v2.json"
-        }
+          "kind": "youtube-api",
+          "ref": "videos.list@2026-10-31T03:11:06.063Z"
+        },
+        "publishedAt": "2026-10-29T11:30:14.000Z"
       },
       "times": {
         "uploaded": "2026-10-27T13:46:57.401Z",
