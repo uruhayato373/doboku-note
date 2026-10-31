@@ -10,7 +10,7 @@
       "format": "carousel",
       "legacyKey": "profile-pinned/pe-first-stage-route",
       "copy": "content/sns/instagram/profile-pinned/pe-first-stage-route/carousel/caption.txt",
-      "status": "rendered",
+      "status": "scheduled",
       "media": {
         "cover": "pe-first-stage/ig-pe-first-stage-route/instagram.carousel/cover",
         "route": "pe-first-stage/ig-pe-first-stage-route/instagram.carousel/route"
@@ -23,6 +23,9 @@
       },
       "times": {
         "rendered": "2026-10-31T07:57:54.610Z"
+      },
+      "platform": {
+        "privacy": "scheduled"
       }
     },
     {

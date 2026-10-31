@@ -91,7 +91,7 @@
       "format": "carousel",
       "legacyKey": "profile-pinned/start-guide",
       "copy": "content/sns/instagram/profile-pinned/start-guide/carousel/caption.txt",
-      "status": "rendered",
+      "status": "scheduled",
       "media": {
         "cover": "account/ig-start-guide/instagram.carousel/cover",
         "route": "account/ig-start-guide/instagram.carousel/route"
@@ -104,6 +104,9 @@
       },
       "times": {
         "rendered": "2026-10-31T07:57:54.279Z"
+      },
+      "platform": {
+        "privacy": "scheduled"
       }
     }
   ]
