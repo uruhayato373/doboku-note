@@ -186,7 +186,7 @@
       "work": "shunin-chinka-hibiware-genin",
       "account": "youtube:main",
       "format": "longform",
-      "status": "rendered",
+      "status": "scheduled",
       "media": {
         "cover": "concrete-chief-engineer/shunin-chinka-hibiware-genin/youtube.longform/cover",
         "scene-001": "concrete-chief-engineer/shunin-chinka-hibiware-genin/youtube.longform/scene-001",
@@ -224,7 +224,42 @@
         "contentSha256": "504f6990ec2eedc30cec1e06782085022505cfb269f20e477456c0aa2b9f7088"
       },
       "times": {
-        "rendered": "2026-10-30T23:46:54.683Z"
+        "rendered": "2026-10-30T23:46:54.683Z",
+        "uploaded": "2026-10-31T00:04:48.648Z",
+        "scheduled": "2026-10-31T00:04:56.660Z"
+      },
+      "delivery": {
+        "inputSha256": "c51a965fcc3e4b0b8321dcbffceebc35e35ba3c9b5240b460b29fff6e7300093",
+        "marker": "dn-single-2ca6693f5ed12d43a57951bb1b6ba904291f22cb",
+        "uploadRequestedAt": "2026-10-31T00:04:04.337Z",
+        "videoId": "XxATevSq-KE",
+        "processedAt": "2026-10-31T00:04:47.870Z",
+        "thumbnailRequestedAt": "2026-10-31T00:04:48.703Z",
+        "thumbnailUrls": [
+          "https://i9.ytimg.com/vi/XxATevSq-KE/default.jpg?sqp=CIDflNcG&rs=AOn4CLAQ8mZRI8kV4WB0bVr3oknmfo-XSw",
+          "https://i9.ytimg.com/vi/XxATevSq-KE/mqdefault.jpg?sqp=CIDflNcG&rs=AOn4CLC7s3ktlGDKky6iWqp4VDZPkiATDA",
+          "https://i9.ytimg.com/vi/XxATevSq-KE/hqdefault.jpg?sqp=CIDflNcG&rs=AOn4CLBs7jHCZ-P8lGXsSXbMq81vy7rdHw",
+          "https://i9.ytimg.com/vi/XxATevSq-KE/sddefault.jpg?sqp=CIDflNcG&rs=AOn4CLCnUMvMTFp1VMSuuPBX7LMgfTLskQ",
+          "https://i9.ytimg.com/vi/XxATevSq-KE/maxresdefault.jpg?sqp=CIDflNcG&rs=AOn4CLBf-ltZY70qRaR6VJc4PsPxxjIbdQ",
+          "https://i9.ytimg.com/vi/XxATevSq-KE/fhddefault.jpg?sqp=CIDflNcG&rs=AOn4CLCqRECdDJe58CcQrbw1OyVPcDVkJQ"
+        ],
+        "thumbnailAcceptedAt": "2026-10-31T00:04:51.829Z",
+        "scheduleRequestedAt": "2026-10-31T00:04:52.984Z",
+        "scheduleAt": "2026-11-05T05:30:00Z",
+        "scheduledVerifiedAt": "2026-10-31T00:04:56.660Z"
+      },
+      "platform": {
+        "id": "XxATevSq-KE",
+        "url": "https://www.youtube.com/watch?v=XxATevSq-KE",
+        "privacy": "private",
+        "evidence": {
+          "kind": "publisher-live-check",
+          "ref": "content/sns/video-packs/concrete-chief-engineer/shunin-chinka-hibiware-genin/youtube.json#longform"
+        }
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-10-31T00:04:51.829Z"
       }
     },
     {
@@ -975,7 +1010,7 @@
       "work": "shunin-kyoudo-hantei-2jouken",
       "account": "youtube:main",
       "format": "longform",
-      "status": "rendered",
+      "status": "scheduled",
       "media": {
         "cover": "concrete-chief-engineer/shunin-kyoudo-hantei-2jouken/youtube.longform/cover",
         "scene-001": "concrete-chief-engineer/shunin-kyoudo-hantei-2jouken/youtube.longform/scene-001",
@@ -1012,7 +1047,42 @@
         "contentSha256": "55be6d89a95eda23b80a8e647c8f76641cfa9a5d2cee61fb38e624ec84adf141"
       },
       "times": {
-        "rendered": "2026-10-30T23:46:55.246Z"
+        "rendered": "2026-10-30T23:46:55.246Z",
+        "uploaded": "2026-10-31T00:11:02.761Z",
+        "scheduled": "2026-10-31T00:11:16.318Z"
+      },
+      "delivery": {
+        "inputSha256": "be43410b0d8203540fd822fd25d7486fe86e86282b417aef1177c2bfe66f2a35",
+        "marker": "dn-single-4425e72ae3a408471bfebc6025ee3c79775d4664",
+        "uploadRequestedAt": "2026-10-31T00:00:04.649Z",
+        "videoId": "C2Pyi5TE3UY",
+        "processedAt": "2026-10-31T00:11:02.023Z",
+        "thumbnailRequestedAt": "2026-10-31T00:11:02.810Z",
+        "thumbnailUrls": [
+          "https://i9.ytimg.com/vi/C2Pyi5TE3UY/default.jpg?sqp=CNjjlNcG&rs=AOn4CLCva_ZSi9yIYKCJr9kc_dODKfoDKw",
+          "https://i9.ytimg.com/vi/C2Pyi5TE3UY/mqdefault.jpg?sqp=CNjjlNcG&rs=AOn4CLCqVdhloDViEap3-sTYZhpl-9893A",
+          "https://i9.ytimg.com/vi/C2Pyi5TE3UY/hqdefault.jpg?sqp=CNjjlNcG&rs=AOn4CLAU7TSh1yG-zXmpFJYXhvviaqyArg",
+          "https://i9.ytimg.com/vi/C2Pyi5TE3UY/sddefault.jpg?sqp=CNjjlNcG&rs=AOn4CLAPQri9DrSRD3Rz8wE6ytEoEjdNsw",
+          "https://i9.ytimg.com/vi/C2Pyi5TE3UY/maxresdefault.jpg?sqp=CNjjlNcG&rs=AOn4CLABBFB-tBtK_qxQjikvZfPhr8OGaA",
+          "https://i9.ytimg.com/vi/C2Pyi5TE3UY/fhddefault.jpg?sqp=CNjjlNcG&rs=AOn4CLCZfYv16GJZabWvdO2GufemMfSv4g"
+        ],
+        "thumbnailAcceptedAt": "2026-10-31T00:11:08.278Z",
+        "scheduleRequestedAt": "2026-10-31T00:11:12.983Z",
+        "scheduleAt": "2026-11-05T11:30:00Z",
+        "scheduledVerifiedAt": "2026-10-31T00:11:16.318Z"
+      },
+      "platform": {
+        "id": "C2Pyi5TE3UY",
+        "url": "https://www.youtube.com/watch?v=C2Pyi5TE3UY",
+        "privacy": "private",
+        "evidence": {
+          "kind": "publisher-live-check",
+          "ref": "content/sns/video-packs/concrete-chief-engineer/shunin-kyoudo-hantei-2jouken/youtube.json#longform"
+        }
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-10-31T00:11:08.278Z"
       }
     },
     {
@@ -2098,7 +2168,7 @@
       "work": "shunin-shoki-3kyokusen",
       "account": "youtube:main",
       "format": "longform",
-      "status": "rendered",
+      "status": "scheduled",
       "media": {
         "cover": "concrete-chief-engineer/shunin-shoki-3kyokusen/youtube.longform/cover",
         "scene-001": "concrete-chief-engineer/shunin-shoki-3kyokusen/youtube.longform/scene-001",
@@ -2134,7 +2204,42 @@
         "contentSha256": "3cd1e147bb3af10293de238fe7a8d440fa421d2f9748b9ce11b93e99ccf80168"
       },
       "times": {
-        "rendered": "2026-10-30T23:46:53.478Z"
+        "rendered": "2026-10-30T23:46:53.478Z",
+        "uploaded": "2026-10-30T23:59:04.631Z",
+        "scheduled": "2026-10-30T23:59:16.412Z"
+      },
+      "delivery": {
+        "inputSha256": "558b37ac4217cc6a55d89be5dfed1c419e62562f5c83416d0244595d812d9b2b",
+        "marker": "dn-single-8eb77b5f8610dcf069b974767c41e4247bced2ae",
+        "uploadRequestedAt": "2026-10-30T23:58:15.334Z",
+        "videoId": "9ADPE2fYSRs",
+        "processedAt": "2026-10-30T23:59:03.931Z",
+        "thumbnailRequestedAt": "2026-10-30T23:59:04.690Z",
+        "thumbnailUrls": [
+          "https://i9.ytimg.com/vi/9ADPE2fYSRs/default.jpg?sqp=CNTclNcG&rs=AOn4CLBWRs4j0bHD6WAr574m-D86weu4lA",
+          "https://i9.ytimg.com/vi/9ADPE2fYSRs/mqdefault.jpg?sqp=CNTclNcG&rs=AOn4CLBMCFUzJxt1EDAslhJK3uPSyP4WPQ",
+          "https://i9.ytimg.com/vi/9ADPE2fYSRs/hqdefault.jpg?sqp=CNTclNcG&rs=AOn4CLCldmFdVYMjJiYjWNzG4hNm-mob_Q",
+          "https://i9.ytimg.com/vi/9ADPE2fYSRs/sddefault.jpg?sqp=CNTclNcG&rs=AOn4CLCQx2S3qsy3Wij4btSJXCD3vySGOw",
+          "https://i9.ytimg.com/vi/9ADPE2fYSRs/maxresdefault.jpg?sqp=CNTclNcG&rs=AOn4CLAzFr2nUdVwCdGj1ybv0Ip5eIzbuQ",
+          "https://i9.ytimg.com/vi/9ADPE2fYSRs/fhddefault.jpg?sqp=CNTclNcG&rs=AOn4CLDoRVsaHi1MlXgo1nobqt3zd2tENA"
+        ],
+        "thumbnailAcceptedAt": "2026-10-30T23:59:08.694Z",
+        "scheduleRequestedAt": "2026-10-30T23:59:12.671Z",
+        "scheduleAt": "2026-11-04T11:30:00Z",
+        "scheduledVerifiedAt": "2026-10-30T23:59:16.412Z"
+      },
+      "platform": {
+        "id": "9ADPE2fYSRs",
+        "url": "https://www.youtube.com/watch?v=9ADPE2fYSRs",
+        "privacy": "private",
+        "evidence": {
+          "kind": "publisher-live-check",
+          "ref": "content/sns/video-packs/concrete-chief-engineer/shunin-shoki-3kyokusen/youtube.json#longform"
+        }
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-10-30T23:59:08.694Z"
       }
     },
     {

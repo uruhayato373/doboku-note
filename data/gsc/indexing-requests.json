@@ -1,23 +1,176 @@
 {
   "schemaVersion": 1,
-  "runId": "2026-10-26T10-26-12Z",
-  "collectedAt": "2026-10-26T10:26:12.438Z",
+  "runId": "2026-10-31T00-45-47Z",
+  "collectedAt": "2026-10-31T00:45:47.222Z",
   "property": "sc-domain:doboku-note.com",
   "mode": "commit",
-  "scriptVersion": "5a619cf04",
+  "scriptVersion": "8ecaf49b8",
   "filter": {
     "category": null,
     "group": null
   },
   "limit": 10,
-  "targetCount": 1,
+  "targetCount": 196,
   "items": [
     {
-      "slug": "/exam/pe-first-stage/guide/r08-answers",
-      "url": "https://doboku-note.com/exam/pe-first-stage/guide/r08-answers",
+      "slug": "/practice/ppp-pfi-selection",
+      "url": "https://doboku-note.com/practice/ppp-pfi-selection",
       "inspected": {
         "state": "not-indexed",
-        "reason": "URL が Google に認識されていません",
+        "reason": "検出 - インデックス未登録",
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": true,
+        "status": "accepted"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/practice/project-request-to-budget",
+      "url": "https://doboku-note.com/practice/project-request-to-budget",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "検出 - インデックス未登録",
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": true,
+        "status": "accepted"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/practice/public-meeting-consensus",
+      "url": "https://doboku-note.com/practice/public-meeting-consensus",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "検出 - インデックス未登録",
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": true,
+        "status": "accepted"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/practice/river-act-framework",
+      "url": "https://doboku-note.com/practice/river-act-framework",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "検出 - インデックス未登録",
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": true,
+        "status": "accepted"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/practice/river-crossing-structure-review",
+      "url": "https://doboku-note.com/practice/river-crossing-structure-review",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "検出 - インデックス未登録",
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": true,
+        "status": "accepted"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/practice/river-facility-inspection-operation",
+      "url": "https://doboku-note.com/practice/river-facility-inspection-operation",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "検出 - インデックス未登録",
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": true,
+        "status": "accepted"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/practice/road-boundary-and-road-ledger",
+      "url": "https://doboku-note.com/practice/road-boundary-and-road-ledger",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "検出 - インデックス未登録",
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": true,
+        "status": "accepted"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/practice/road-inspection-longevity-plan",
+      "url": "https://doboku-note.com/practice/road-inspection-longevity-plan",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "検出 - インデックス未登録",
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": true,
+        "status": "accepted"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/practice/road-work-approval-vs-road-use-permit",
+      "url": "https://doboku-note.com/practice/road-work-approval-vs-road-use-permit",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "検出 - インデックス未登録",
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": true,
+        "status": "accepted"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/practice/sediment-disaster-erosion-control",
+      "url": "https://doboku-note.com/practice/sediment-disaster-erosion-control",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "検出 - インデックス未登録",
         "lastCrawl": null,
         "discoveredVia": "sitemap",
         "crawlAllowed": null,
@@ -32,8 +185,8 @@
   ],
   "status": "ok",
   "summary": {
-    "inspected": 1,
-    "accepted": 1,
+    "inspected": 10,
+    "accepted": 10,
     "alreadyIndexed": 0,
     "unreadable": 0
   }

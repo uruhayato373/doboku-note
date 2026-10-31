@@ -113,6 +113,16 @@ export default async function AffiliateLayoutPage({ searchParams }: { searchPara
                         ) : (
                           <p className="text-xs text-muted-foreground">{s?.error ?? '撮影なし'}</p>
                         )}
+                        {s?.crops && s.crops.length > 0 && (
+                          <div className="flex flex-col gap-2">
+                            {s.crops.map((c) => (
+                              <a key={c.file} href={`/affiliate/layout-shot/${manifest.ts}/${c.file}`} target="_blank" rel="noreferrer" title="広告のまわりを開く">
+                                <div className="text-xs text-muted-foreground">広告のまわり・{c.placement}（上から {c.y}px〜）</div>
+                                <img src={`/affiliate/layout-shot/${manifest.ts}/${c.file}`} alt={`${current.label} ${v.label} 案${variant} ${c.placement} のまわり`} className="block w-full rounded-md border" loading="lazy" />
+                              </a>
+                            ))}
+                          </div>
+                        )}
                         {s?.checks && (
                           <ul className="text-xs leading-5">
                             {Object.entries(s.checks).filter(([, c]) => !c.ok).map(([k, c]) => (

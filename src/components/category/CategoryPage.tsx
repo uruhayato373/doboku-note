@@ -76,6 +76,10 @@ export default async function CategoryPage({
   // もくじタイルを持たない資格のうち、スマホで note 商品を見出し直後へ出す資格（それ以外は一覧の最下部）。
   // 主任技士は資格トップが直前期の入口で、最下部だと本試験までに読まれない（DN-0703）。
   const productFirstOnMobile = slug === 'concrete-chief-engineer' && !hubCtaMobile;
+  // スマホで note が一覧の最下部に出る資格（もくじタイルが無く、見出し直後にも出さない）は、転職広告を一覧の途中に挟むと
+  // note より先になる（2026-10-31 の撮影: コンクリート系・舗装・測量・RCCM・技術士一次で広告 約 1,000px／note 1,700〜4,500px）。
+  // その資格は転職広告を note の後ろ（最下部）へ回す。
+  const mobileAdsAfterNote = !hubCtaMobile && !productFirstOnMobile;
   // モバイル本文中の visible バナー（pixelSrc を渡さない＝PC サイドバー側が唯一の発火源）。
   // 各案件を 1 枚ずつの node にしてビューのグループ境界に分散配置する（カードの隙間に「両方」）。
   const mobileCareerAds = mobileAd
@@ -96,8 +100,12 @@ export default async function CategoryPage({
 
   // 右サイドバー（PC ≥993px・TwoColumnShell の aside prop へ渡す）。上から
   // 技士は学習→教材→関連リンクを先頭にまとめる。他資格は演習・復習ナビ。
-  // 転職アフィリ（当ページ唯一のピクセル発火源・各プログラム 1 回ずつ）→
-  // 運営者プロフィール（E-E-A-T）→ note もくじ CTA（PC 唯一の note 面・utm -sb）→ 人気記事ランキング。
+  // note（もくじ CTA か商品・PC 唯一の note 面・utm -sb）→ 運営者プロフィール（E-E-A-T）→
+  // 転職アフィリ（当ページ唯一のピクセル発火源）→ 人気記事ランキング。
+  // 2026-10-31: 本番の配置の撮影で、総監・建設部門・1 級・2 級は転職広告（385〜640px）が note もくじ（1,300〜1,600px）より上、
+  // 他の資格は note のバナーと転職広告が 10px ほどで接していた。学習のページは note を主導線にする方針（affiliate-operations.md §6）
+  // に合わせて note を先に出し、運営者プロフィールを挟んで転職広告を置く。
+  const viewCareerAds = mobileAdsAfterNote ? [] : mobileCareerAds;
   const categorySidebar = (
     <div className="space-y-3">
       {slug === 'concrete-engineer' ? <>
@@ -106,6 +114,8 @@ export default async function CategoryPage({
         <ConcreteEngineerRelated />
       </> : <CategoryStudyNav category={slug} />}
       {slug !== 'concrete-engineer' && !hubCtaSidebar && <SidebarProduct category={slug} placement="category-sidebar" />}
+      {hubCtaSidebar && <HubCtaBanner cta={hubCtaSidebar} placement="category-sidebar" />}
+      <AuthorSidebarCard />
       {sidebarAd && (
         <SidebarAdBanner
           href={sidebarAd.banner.href}
@@ -118,8 +128,6 @@ export default async function CategoryPage({
           placement="category-sidebar"
         />
       )}
-      <AuthorSidebarCard />
-      {hubCtaSidebar && <HubCtaBanner cta={hubCtaSidebar} placement="category-sidebar" />}
       <PopularRanking items={popularDocs} />
     </div>
   );
@@ -168,26 +176,26 @@ export default async function CategoryPage({
           ) : groups ? (
             <div className="space-y-16">
               {view === 'civil-1' ? (
-                <CivilConstruction1View groups={groups} mobileCareerAds={mobileCareerAds} />
+                <CivilConstruction1View groups={groups} mobileCareerAds={viewCareerAds} />
               ) : view === 'civil-2' ? (
-                <CivilConstruction2View groups={groups} mobileCareerAds={mobileCareerAds} />
+                <CivilConstruction2View groups={groups} mobileCareerAds={viewCareerAds} />
               ) : view === 'pe-first-stage' ? (
-                <PeFirstStageView groups={groups} mobileCareerAds={mobileCareerAds} />
+                <PeFirstStageView groups={groups} mobileCareerAds={viewCareerAds} />
               ) : view === 'pe-comprehensive' ? (
-                <PeComprehensiveView groups={groups} mobileCareerAds={mobileCareerAds} />
+                <PeComprehensiveView groups={groups} mobileCareerAds={viewCareerAds} />
               ) : view === 'pe-construction' ? (
-                <PeConstructionView groups={groups} mobileCareerAds={mobileCareerAds} />
+                <PeConstructionView groups={groups} mobileCareerAds={viewCareerAds} />
               ) : view === 'concrete' ? (
-                <ConcreteView groups={groups} mobileCareerAds={mobileCareerAds} />
+                <ConcreteView groups={groups} mobileCareerAds={viewCareerAds} />
               ) : view === 'practice' ? (
-                <PracticeView groups={groups} mobileCareerAds={mobileCareerAds} />
+                <PracticeView groups={groups} mobileCareerAds={viewCareerAds} />
               ) : (
                 <>
                   {groups.map(group => (
                     <DocSection key={group.title} group={group} />
                   ))}
                   {/* 専用ビューの無い資格（建築など）もモバイルの転職枠を出す（2026-10-07・EXP-018） */}
-                  {mobileCareerAds}
+                  {viewCareerAds}
                 </>
               )}
             </div>
@@ -199,7 +207,7 @@ export default async function CategoryPage({
                   <DocCard key={doc.slug} doc={doc} />
                 ))}
               </div>
-              {mobileCareerAds}
+              {viewCareerAds}
             </>
           )}
             {popularDocs.length > 0 && (
@@ -215,6 +223,7 @@ export default async function CategoryPage({
               <ConcreteEngineerRelated />
             </div>}
             {slug !== 'concrete-engineer' && !hubCtaMobile && !productFirstOnMobile && <div className="zenn-desktop:hidden mt-8"><SidebarProduct category={slug} placement="category-mobile" /></div>}
+            {mobileAdsAfterNote && mobileCareerAds}
         </TwoColumnShell>
     </PageShell>
   );

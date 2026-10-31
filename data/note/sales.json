@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-10-24",
+  "updatedAt": "2026-10-31",
   "currency": "JPY",
   "source": "note クリエイターダッシュボード「販売履歴」（2026-07 以降は Playwright で read-only 取得し、月次総額をダッシュボード表示と突合）",
   "privacyNote": "購入者名・ハンドルはプライバシー保護のため記録しない（売上分析には date / product / price で十分）。",
@@ -2282,6 +2282,41 @@
       "price": 1480
     },
     {
+      "date": "2026-10-30",
+      "productId": "cce-marugoto-pack",
+      "title": "コンクリート主任技士 まるごとパック",
+      "type": "magazine",
+      "price": 7980
+    },
+    {
+      "date": "2026-10-27",
+      "productId": "pe1-chokuzen-pack",
+      "title": "技術士 第一次試験｜直前パック",
+      "type": "magazine",
+      "price": 1980
+    },
+    {
+      "date": "2026-10-25",
+      "productId": "cce-goukaku-design-consultant-pack",
+      "title": "主任技士 合格パック｜設計コンサルタントの択一＋小論文",
+      "type": "magazine",
+      "price": 3980
+    },
+    {
+      "date": "2026-10-24",
+      "productId": "civil-2-keiken-water-drainage-pack",
+      "title": "2級土木 施工経験記述｜上下水道・管工事 8工事",
+      "type": "magazine",
+      "price": 2480
+    },
+    {
+      "date": "2026-10-24",
+      "productId": "civil-2-experience-essay",
+      "title": "2級土木 施工経験記述｜工種×テーマ別 完成答案集",
+      "type": "magazine",
+      "price": 2980
+    },
+    {
       "date": "2026-10-24",
       "productId": "pe1-chokuzen-pack",
       "title": "技術士 第一次試験｜直前パック",
@@ -2411,9 +2446,9 @@
       "fee": 11011
     },
     "2026-10": {
-      "fetchedAt": "2026-10-24T05:18:52.215Z",
-      "count": 17,
-      "total": 48280,
+      "fetchedAt": "2026-10-31T00:40:31.551Z",
+      "count": 22,
+      "total": 67680,
       "finalized": false
     },
     "2026-09": {

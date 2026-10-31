@@ -1423,6 +1423,44 @@
       "acceptedSlugs": [
         "/exam/pe-first-stage/guide/r08-answers"
       ]
+    },
+    {
+      "runId": "2026-10-31T00-45-47Z",
+      "collectedAt": "2026-10-31T00:45:47.222Z",
+      "mode": "commit",
+      "status": "ok",
+      "filter": {
+        "category": null,
+        "group": null
+      },
+      "inspected": 10,
+      "accepted": 10,
+      "alreadyIndexed": 0,
+      "unreadable": 0,
+      "slugs": [
+        "/practice/ppp-pfi-selection",
+        "/practice/project-request-to-budget",
+        "/practice/public-meeting-consensus",
+        "/practice/river-act-framework",
+        "/practice/river-crossing-structure-review",
+        "/practice/river-facility-inspection-operation",
+        "/practice/road-boundary-and-road-ledger",
+        "/practice/road-inspection-longevity-plan",
+        "/practice/road-work-approval-vs-road-use-permit",
+        "/practice/sediment-disaster-erosion-control"
+      ],
+      "acceptedSlugs": [
+        "/practice/ppp-pfi-selection",
+        "/practice/project-request-to-budget",
+        "/practice/public-meeting-consensus",
+        "/practice/river-act-framework",
+        "/practice/river-crossing-structure-review",
+        "/practice/river-facility-inspection-operation",
+        "/practice/road-boundary-and-road-ledger",
+        "/practice/road-inspection-longevity-plan",
+        "/practice/road-work-approval-vs-road-use-permit",
+        "/practice/sediment-disaster-erosion-control"
+      ]
     }
   ]
 }

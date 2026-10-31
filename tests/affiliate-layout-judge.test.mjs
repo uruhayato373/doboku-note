@@ -107,3 +107,11 @@ test('selectTargets は種類ごとに代表を 1 つ選び、ルールに無い
   assert.equal(t.find((x) => x.id === 'doc-career-civil-construction-2').isCareerDoc, true);
   assert.equal(t.some((x) => x.kind === 'tool' || x.kind === 'laws-list'), false);
 });
+
+test('2 枚並べの 2 枚目は pairs で当たるルールとして扱い、1 枚目のルールが無い面では NG のまま', () => {
+  const pairs = [{ id: 'PP-1', primary: 'buildjob', secondary: 'constwork', slots: ['article-mid'], target: { pageKind: 'doc', categories: ['civil-construction-1'] }, period: { from: '2026-10-31T00:00:00+09:00', until: null } }];
+  const doc = { pageKind: 'doc', category: 'civil-construction-1', isCareerDoc: false };
+  assert.deepEqual(ruleFor(RULES, doc, 'article-mid', 'constwork', NOW + 1, pairs), { ruleId: 'PP-1', status: 'active' });
+  assert.equal(ruleFor(RULES, doc, 'article-mid', 'constwork', NOW + 1, []).status, 'none', 'pairs を渡さなければ従来どおり');
+  assert.equal(ruleFor(RULES, { ...doc, category: 'rccm' }, 'article-mid', 'constwork', NOW + 1, pairs).status, 'none');
+});

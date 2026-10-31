@@ -24,6 +24,8 @@ export type LayoutShot = {
   warnings?: string[];
   ads?: LayoutAd[];
   notes?: { label: string; top: number }[];
+  /** 広告のまわりの切り出し（上下 500px・2026-10-31 から） */
+  crops?: { file: string; y: number; height: number; placement: string }[];
 };
 export type LayoutTarget = { id: string; kind: string; label: string; path: string; pageKind: string; category: string | null; isCareerDoc: boolean; expected: Record<string, { ruleId: string; program: string }> };
 export type LayoutManifest = {
