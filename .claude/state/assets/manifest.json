@@ -69752,6 +69752,30 @@
       "width": 1200,
       "height": 630,
       "srcHash": "b7a8b4b0397cf292"
+    },
+    "content/note/技術士一次/直前3週間の過ごし方-無料/img/cover.png": {
+      "bucket": "private",
+      "r2Key": "note/covers/技術士一次/直前3週間の過ごし方-無料/img/cover.png",
+      "sha256": "c7fc544c22454110a1dce7a4160ab53138fe9317d42688dabc01f41d507d6d2e",
+      "bytes": 418916,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "note-cover-png",
+      "verifiedAt": "2026-10-31T02:58:05.352Z",
+      "width": 1280,
+      "height": 670
+    },
+    "content/note/技術士上下水道部門/業務経歴票の書き方/img/cover.png": {
+      "bucket": "private",
+      "r2Key": "note/covers/技術士上下水道部門/業務経歴票の書き方/img/cover.png",
+      "sha256": "edfd99d0bbaf4a9c86ead95fe1ddd3153ff89f06866a50556004cfb32bb5d89f",
+      "bytes": 458120,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "note-cover-png",
+      "verifiedAt": "2026-10-31T02:58:05.372Z",
+      "width": 1280,
+      "height": 670
     }
   },
   "note": "DN-0111 Phase 3。秘密値・署名 URL・絶対パスを書かないこと。",

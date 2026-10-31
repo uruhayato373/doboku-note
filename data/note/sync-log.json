@@ -1,6 +1,591 @@
 {
   "runs": [
     {
+      "startedAt": "2026-10-31T02:22:37.452Z",
+      "finishedAt": "2026-10-31T02:58:07.893Z",
+      "plan": {
+        "synced": 582,
+        "ready": 373,
+        "blocked": 3,
+        "blockers": {
+          "aborted": 3
+        }
+      },
+      "articles": {
+        "selected": 80,
+        "attempted": 17,
+        "updated": [
+          {
+            "path": "content/note/技術士一次/直前3週間の過ごし方-無料/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/技術士上下水道部門/業務経歴票の書き方/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/測量士/magazines/測量士午後-分野別/00-序章/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/測量士/magazines/測量士午後-分野別/01-必須No1-法規・公共測量/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/測量士/magazines/測量士午後-分野別/02-基準点・水準測量/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/測量士/magazines/測量士午後-分野別/03-写真・レーザ測量/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/測量士/magazines/測量士午後-分野別/04-地図編集・GIS/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/測量士/magazines/測量士午後-分野別/05-応用測量/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/測量士/測量士午後-計算の型20/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/舗装/magazines/舗装1級-経験記述/00-序章/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/舗装/magazines/舗装1級-経験記述/01-工程管理/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/舗装/magazines/舗装1級-経験記述/02-出来形・品質管理/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/舗装/magazines/舗装1級-経験記述/03-安全管理/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/舗装/舗装1級-選択問題-頻出論点/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/舗装/舗装2級-経験記述/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/1級・2級土木/1級土木/1級経験記述テーマ選び5管理/article.md",
+            "parts": [
+              "body"
+            ]
+          }
+        ],
+        "failed": [
+          {
+            "path": "content/note/RCCM/magazines/RCCM問題I-部門別業務経験例/01-上水道/article.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "配布 PDF を取り寄せられない: コピー失敗: Unknown system error -11: Unknown system error -11, read — content/note/RCCM/magazines/RCCM問題I-部門別業務経験例/01-上水道/RCCM問題I-上水道-業務経験記入例2本.pdf"
+          },
+          {
+            "path": "content/note/RCCM/magazines/RCCM問題I-部門別業務経験例/02-下水道/article.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "配布 PDF を取り寄せられない: コピー失敗: Unknown system error -11: Unknown system error -11, read — content/note/RCCM/magazines/RCCM問題I-部門別業務経験例/02-下水道/RCCM問題I-下水道-業務経験記入例2本.pdf"
+          },
+          {
+            "path": "content/note/RCCM/magazines/RCCM問題I-部門別業務経験例/03-土質及び基礎/article.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "配布 PDF を取り寄せられない: コピー失敗: Unknown system error -11: Unknown system error -11, read — content/note/RCCM/magazines/RCCM問題I-部門別業務経験例/03-土質及び基礎/RCCM問題I-土質及び基礎-業務経験記入例2本.pdf"
+          },
+          {
+            "path": "content/note/RCCM/magazines/RCCM問題I-部門別業務経験例/04-道路/article.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "配布 PDF を取り寄せられない: コピー失敗: Unknown system error -11: Unknown system error -11, read — content/note/RCCM/magazines/RCCM問題I-部門別業務経験例/04-道路/RCCM問題I-道路-業務経験記入例2本.pdf"
+          },
+          {
+            "path": "content/note/1級・2級土木/1級土木/1級経験記述R6新形式と設問書き分け/article.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "結果なし（連続失敗で中断された可能性）"
+          }
+        ],
+        "deferred": [
+          {
+            "path": "content/note/RCCM/magazines/RCCM問題I-部門別業務経験例/05-河川砂防及び海岸海洋/article.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/RCCM/magazines/RCCM問題I-部門別業務経験例/06-鋼構造及びコンクリート/article.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-09_電力土木/R08-yosou/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-10_鉄道/R03/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-10_鉄道/R03/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-10_鉄道/R04/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-10_鉄道/R05/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-10_鉄道/R06/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-10_鉄道/R06/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-10_鉄道/R07/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-10_鉄道/R07/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-10_鉄道/R08-yosou/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-10_鉄道/R08-yosou/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-11_トンネル/R03/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-11_トンネル/R03/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-11_トンネル/R04/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-11_トンネル/R05/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-11_トンネル/R06/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-11_トンネル/R07/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-11_トンネル/R07/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-11_トンネル/R08-yosou/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-11_トンネル/R08-yosou/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/建設部門-口頭試験対策/article.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/口頭試験対策-全部門共通/article.md",
+            "parts": [
+              "body",
+              "cover"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/技術士総監/口頭試験対策-完全版/article.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/1級・2級土木/1級土木/magazines/1級土木-R8二次-予想模試3回/施工経験記述/article.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/1級・2級土木/1級土木/magazines/1級土木-経験記述-完全攻略パック/工事01-道路改良高盛土/article.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/1級・2級土木/1級土木/magazines/1級土木-経験記述-完全攻略パック/工事02-築堤盛土/article.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/1級・2級土木/1級土木/magazines/1級土木-経験記述-完全攻略パック/工事03-宅地造成切盛土/article.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/1級・2級土木/1級土木/magazines/1級土木-経験記述-完全攻略パック/工事04-高速道路路体盛土/article.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/1級・2級土木/1級土木/magazines/1級土木-経験記述-完全攻略パック/工事05-サンドドレーン盛土/article.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/1級・2級土木/1級土木/magazines/1級土木-経験記述-完全攻略パック/工事06-セメント改良土盛土/article.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/1級・2級土木/1級土木/magazines/1級土木-経験記述-完全攻略パック/工事07-切土法面地すべり/article.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/1級・2級土木/1級土木/magazines/1級土木-経験記述-完全攻略パック/工事08-補強土壁テールアルメ/article.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/1級・2級土木/1級土木/magazines/1級土木-経験記述-完全攻略パック/工事09-擁壁裏込め盛土/article.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/1級・2級土木/1級土木/magazines/1級土木-経験記述-完全攻略パック/工事10-空港用地造成/article.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/1級・2級土木/1級土木/magazines/1級土木-経験記述-完全攻略パック/工事100-軟弱地盤地盤改良薬液注入/article.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/1級・2級土木/1級土木/magazines/1級土木-経験記述-完全攻略パック/工事101-橋梁伸縮装置取替/article.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/1級・2級土木/1級土木/magazines/1級土木-経験記述-完全攻略パック/工事102-橋梁支承取替/article.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/1級・2級土木/1級土木/magazines/1級土木-経験記述-完全攻略パック/工事103-道路橋桁端部断面修復/article.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/1級・2級土木/1級土木/magazines/1級土木-経験記述-完全攻略パック/工事104-都市高架橋剥落防止/article.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/1級・2級土木/1級土木/magazines/1級土木-経験記述-完全攻略パック/工事105-鋼道路橋塗替塗装/article.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/1級・2級土木/1級土木/magazines/1級土木-経験記述-完全攻略パック/工事106-橋面排水装置更新/article.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/1級・2級土木/1級土木/magazines/1級土木-経験記述-完全攻略パック/工事107-高速道路中央分離帯防護柵更新/article.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/1級・2級土木/1級土木/magazines/1級土木-経験記述-完全攻略パック/工事108-橋梁床版下面炭素繊維補強/article.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/1級・2級土木/1級土木/magazines/1級土木-経験記述-完全攻略パック/工事109-道路法面落石防護網更新/article.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/1級・2級土木/1級土木/magazines/1級土木-経験記述-完全攻略パック/工事11-傾斜地段切り盛土/article.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/1級・2級土木/1級土木/magazines/1級土木-経験記述-完全攻略パック/工事110-大型道路標識基礎更新/article.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/1級・2級土木/1級土木/magazines/1級土木-経験記述-完全攻略パック/工事111-道路トンネル覆工構造補強/article.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/1級・2級土木/1級土木/magazines/1級土木-経験記述-完全攻略パック/工事112-道路トンネル換気設備基礎更新/article.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/1級・2級土木/1級土木/magazines/1級土木-経験記述-完全攻略パック/工事113-トンネル覆工背面空洞充填/article.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/1級・2級土木/1級土木/magazines/1級土木-経験記述-完全攻略パック/工事114-共同溝設備架台更新/article.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/1級・2級土木/1級土木/magazines/1級土木-経験記述-完全攻略パック/工事115-供用下函渠インバート更新/article.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/1級・2級土木/1級土木/magazines/1級土木-経験記述-完全攻略パック/工事116-洪水被災護岸復旧/article.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/1級・2級土木/1級土木/magazines/1級土木-経験記述-完全攻略パック/工事117-堤防決壊部緊急復旧/article.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/1級・2級土木/1級土木/magazines/1級土木-経験記述-完全攻略パック/工事118-砂防流木捕捉工設置/article.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/1級・2級土木/1級土木/magazines/1級土木-経験記述-完全攻略パック/工事119-河川水門開閉設備更新/article.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/1級・2級土木/1級土木/magazines/1級土木-経験記述-完全攻略パック/工事12-深層混合処理盛土/article.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          },
+          {
+            "path": "content/note/1級・2級土木/1級土木/magazines/1級土木-経験記述-完全攻略パック/工事120-海岸侵食対策養浜/article.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "drive-unavailable"
+          }
+        ]
+      },
+      "magazines": {
+        "attempted": 3,
+        "updated": [
+          {
+            "key": "magazine:pe1-chokuzen-pack"
+          },
+          {
+            "key": "magazine:surveyor-gogo-magazine"
+          },
+          {
+            "key": "magazine:pavement-1-keiken-magazine"
+          }
+        ],
+        "failed": []
+      },
+      "problems": [
+        "Drive から配布 PDF を読めない（再起動しても 3 件続けて失敗）。PDF の要る記事は翌週へ回した（コピー失敗: Unknown system error -11: Unknown system error -11, read — content/note/RCCM/magazines/RCCM問題I-部門別業務経験例/05-河川砂防及び海岸海洋/RCCM問題I-河川砂防及び海岸海洋-業務経験記入例2本.pdf）"
+      ]
+    },
+    {
       "startedAt": "2026-10-17T18:00:11.801Z",
       "finishedAt": "2026-10-17T19:44:34.526Z",
       "plan": {
@@ -2449,29 +3034,6 @@
     {
       "startedAt": "2026-10-01T17:25:05.714Z",
       "finishedAt": "2026-10-01T17:31:45.560Z",
-      "plan": {
-        "synced": 611,
-        "ready": 283,
-        "blocked": 4,
-        "blockers": {
-          "aborted": 4
-        }
-      },
-      "articles": {
-        "attempted": 0,
-        "updated": [],
-        "failed": []
-      },
-      "magazines": {
-        "attempted": 0,
-        "updated": [],
-        "failed": []
-      },
-      "problems": []
-    },
-    {
-      "startedAt": "2026-10-01T17:18:12.557Z",
-      "finishedAt": "2026-10-01T17:24:52.953Z",
       "plan": {
         "synced": 611,
         "ready": 283,
