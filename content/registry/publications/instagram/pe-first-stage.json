@@ -25,7 +25,13 @@
         "rendered": "2026-10-31T07:57:54.610Z"
       },
       "platform": {
-        "privacy": "scheduled"
+        "privacy": "scheduled",
+        "id": "1169842672396291",
+        "kind": "business-suite",
+        "evidence": {
+          "kind": "planner-receipt",
+          "ref": "business-suite-planner:dobokunotecom:2026-11-02:1169842672396291:verified-2026-10-31"
+        }
       }
     },
     {

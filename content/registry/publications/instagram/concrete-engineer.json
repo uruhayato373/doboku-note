@@ -676,7 +676,13 @@
         "rendered": "2026-10-31T07:57:54.932Z"
       },
       "platform": {
-        "privacy": "scheduled"
+        "privacy": "scheduled",
+        "id": "1829881664701807",
+        "kind": "business-suite",
+        "evidence": {
+          "kind": "planner-receipt",
+          "ref": "business-suite-planner:dobokunotecom:2026-11-02:1829881664701807:verified-2026-10-31"
+        }
       }
     }
   ]
