@@ -62,7 +62,8 @@ test('承認後の概要欄同期は既存の手動YouTubeワークフローか�
   const wf = read('.github/workflows/youtube-single-publish.yml');
   assert.match(wf, /sync-funnel:/);
   assert.match(wf, /check-content-registry/);
-  assert.match(wf, /youtube-sync-funnel\.mjs --plan content\/sns\/youtube\/metadata-plans\/2026-10-31-funnel\.json --commit/);
+  assert.match(wf, /default: 'content\/sns\/youtube\/metadata-plans\/2026-10-31-funnel\.json'/);
+  assert.match(wf, /youtube-sync-funnel\.mjs --plan "\$METADATA_PLAN" --commit/);
 });
 
 test('SNS join: レガシー Shorts 台帳と動画パック派生を混ぜない', () => {
