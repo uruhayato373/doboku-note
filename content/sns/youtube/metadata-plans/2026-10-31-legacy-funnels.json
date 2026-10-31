@@ -1,0 +1,132 @@
+{
+  "schemaVersion": 1,
+  "channelId": "UCHRnXPqoc0Hls8nXiK_ZYqA",
+  "items": [
+    {
+      "publicationId": "civil-construction-2/gakka-2kyu-doko/youtube.longform",
+      "videoId": "lNI2f_SjCTk",
+      "publishAt": "2026-10-12T02:31:00Z",
+      "expectedStatus": "published",
+      "repairKind": "legacy-funnel",
+      "fromSha256": "8700f8264b272b0c4cc203c527f7d69fc63c501649262034d8b5b96df933010b",
+      "toSha256": "4f97002bd8c49403c5770d7f62f964646033330ac0ea7934946eaa9779db82bf"
+    },
+    {
+      "publicationId": "civil-construction-2/hinshitsu-touan-gutaika/youtube.longform",
+      "videoId": "7fEJR-WD8Ng",
+      "publishAt": "2026-10-19T20:00:00+09:00",
+      "expectedStatus": "published",
+      "repairKind": "legacy-funnel",
+      "fromSha256": "ca1f0013cc4def9b8667e2d8c7c16591e83d1ed7a3fd01d522ff404e780b6f21",
+      "toSha256": "3f9b02a70aca0f68701f153374dea257d2e21b8b3ad2893fead19312753ea07b"
+    },
+    {
+      "publicationId": "civil-construction-2/keiken-daizai-erabi/youtube.longform",
+      "videoId": "oC4x6TOAoa8",
+      "publishAt": null,
+      "expectedStatus": "uploaded_private",
+      "repairKind": "legacy-funnel",
+      "fromSha256": "efbcd929e3968cc9603347cac3c9fc5592ba4a49a7519b16ed0ef0fccd25b43a",
+      "toSha256": "be75d6f5c8aea0d70ceee3f914408236d1af4cfbbdedab9a8c4949c39760937a"
+    },
+    {
+      "publicationId": "civil-construction-2/kento-taio-kakiwake/youtube.longform",
+      "videoId": "2SpZC1at1FU",
+      "publishAt": null,
+      "expectedStatus": "uploaded_private",
+      "repairKind": "legacy-funnel",
+      "fromSha256": "3fd4e284918070f0a95738683790241685843c392f652f01308aa02d071dd674",
+      "toSha256": "486a1cc58a3c458688fa89dca626e31b965e61e32fa67abbdeda659b373630f0"
+    },
+    {
+      "publicationId": "civil-construction-2/koji-gaiyo-seigou/youtube.longform",
+      "videoId": "QQAX-iLCwiE",
+      "publishAt": null,
+      "expectedStatus": "uploaded_private",
+      "repairKind": "legacy-funnel",
+      "fromSha256": "aa62c3d24adfa1a7461939cf2c89206d204dc069ca96a00f04624fe0e89a3254",
+      "toSha256": "3b79c1c418834655315c35baa2f9b5250480358a7858db66a546b6572609768f"
+    },
+    {
+      "publicationId": "civil-construction-2/kotei-touan-gutaika/youtube.longform",
+      "videoId": "JgZ4X25vF1E",
+      "publishAt": null,
+      "expectedStatus": "uploaded_private",
+      "repairKind": "legacy-funnel",
+      "fromSha256": "8e9f099dd72e7200e872b1d92111da6fcc80a954ee19fb355d6a3a6c7aa416fe",
+      "toSha256": "eee0025effbf51ff74d1a003dafb6ae5d6c3ad460c5edf72c1c16ce7ca09dfcf"
+    },
+    {
+      "publicationId": "civil-construction-2/touan-teishutsu-check/youtube.longform",
+      "videoId": "ewMFfzVHdwc",
+      "publishAt": null,
+      "expectedStatus": "uploaded_private",
+      "repairKind": "legacy-funnel",
+      "fromSha256": "3db840daa3c434c392fa04eb0e9d4c41daa48f05980b21d6876823c716bbabeb",
+      "toSha256": "e062f8d1dab63ebe702a09c9418d04eec3f1d78c3a2c6d0ce5b4879b07688b46"
+    },
+    {
+      "publicationId": "concrete-chief-engineer/shunin-chokuzen-senryaku/youtube.longform.pop-diagram",
+      "videoId": "z2KPTSlIP1I",
+      "publishAt": "2026-10-30T14:30:00+09:00",
+      "expectedStatus": "published",
+      "repairKind": "legacy-funnel",
+      "fromSha256": "c7b4b0220191e2d7306b8982d5872fc4bee7720ae5ab8b4d2135e4ca13491e4d",
+      "toSha256": "e56848d1f7ec939dfc8b43441a18ba26dd6fb38dcbc9b641df632ce9ae2a015b"
+    },
+    {
+      "publicationId": "concrete-chief-engineer/shunin-hinshutsu-yusen/youtube.longform.pop-diagram-v2",
+      "videoId": "W-oc8NWXTR0",
+      "publishAt": "2026-10-28T20:00:00+09:00",
+      "expectedStatus": "published",
+      "repairKind": "legacy-funnel",
+      "fromSha256": "81ddfe6469fee59ef1a539dc35ebefff1696b4c40c0bbb0493737b5b6b0022d3",
+      "toSha256": "4496868ad616420119f6fe681c2305834762fa664214a7520d48d8862aa64fd8"
+    },
+    {
+      "publicationId": "concrete-chief-engineer/shunin-ochiru-shouronbun/youtube.longform.pop-diagram",
+      "videoId": "aMWOpun3m-0",
+      "publishAt": "2026-10-30T20:30:00+09:00",
+      "expectedStatus": "published",
+      "repairKind": "legacy-funnel",
+      "fromSha256": "058b53bbedca521481938025a88081d96899393649045898d7a5634154f69b09",
+      "toSha256": "738185a12a3cc9efb67f25edf023a57698561eb18cc4f3538fd3711621769f1b"
+    },
+    {
+      "publicationId": "concrete-chief-engineer/shunin-shiken-zentaizou/youtube.longform.pop-diagram",
+      "videoId": "n7mNQ2VCflE",
+      "publishAt": "2026-10-29T08:30:00+09:00",
+      "expectedStatus": "published",
+      "repairKind": "legacy-funnel",
+      "fromSha256": "a695bd53e76ec4fa76ad45a8df96f7b68c8765abebcc82364263b09ec0416576",
+      "toSha256": "31622937808b1b2713749cc28b3633ed105ee3530a873a92b43f3d1b20f5acb4"
+    },
+    {
+      "publicationId": "concrete-chief-engineer/shunin-shouronbun-kousei/youtube.longform.pop-diagram-v2",
+      "videoId": "mViqz6hWEeo",
+      "publishAt": "2026-10-29T20:30:00+09:00",
+      "expectedStatus": "published",
+      "repairKind": "legacy-funnel",
+      "fromSha256": "e861dd50071e77e9d3d80e4663229f1faa5ce847be5689722224717dd334aa73",
+      "toSha256": "430d9aea4cbfe8fda606179455206ac7e1ec9b407f5e0012836c426010473e34"
+    },
+    {
+      "publicationId": "pe-first-stage/pe1-kiso-senmon/youtube.longform",
+      "videoId": "p8fZi3a2Un8",
+      "publishAt": "2026-10-30T08:30:00+09:00",
+      "expectedStatus": "published",
+      "repairKind": "legacy-funnel",
+      "fromSha256": "5869fc0582482686acef119a9d636da1f4e7821323c23adef1c56d4b7888ce2a",
+      "toSha256": "83fb9f3945e6aa8304a90eff747d6e1cbf689163e520098a34fec738e1101aea"
+    },
+    {
+      "publicationId": "pe-first-stage/pe1-zentaizou/youtube.longform",
+      "videoId": "xLQ5bqfUEOE",
+      "publishAt": "2026-10-29T14:30:00+09:00",
+      "expectedStatus": "published",
+      "repairKind": "legacy-funnel",
+      "fromSha256": "e7e0c22400ebf2d95a0c9b1122bb275ed8a1a9a83c4730d0c403d27dfd1628c4",
+      "toSha256": "522fa7e1374461c829f3b7c3d2f960d4a06549d05b1dadb9c12da82745e82983"
+    }
+  ]
+}

@@ -11,15 +11,14 @@ const POLICY_START = Date.parse('2026-10-31T12:00:00+09:00');
 const ACTIVE = new Set(['uploaded_private', 'scheduled', 'published']);
 const products = readDataset(REPO_ROOT, 'config.products').products;
 const noteProducts = new Map(products.filter((p) => p.channel === 'note').map((p) => [p.id, p]));
+const paidNoteProducts = new Map(products.filter((p) => p.channel === 'note' && p.catalog?.published && !p.catalog.retiredAt && p.catalog.price).map((p) => [p.catalog.noteUrl, p]));
 const routes = loadSiteRoutes(join(REPO_ROOT, 'public/_redirects'));
 const registry = loadRegistry(REPO_ROOT);
 const problems = [];
-const warnings = [];
 let checked = 0;
 let upcoming = 0;
 
 function issue(pub, message) { problems.push(`${pub.id}: ${message}`); }
-function warn(pub, message) { warnings.push(`${pub.id}: ${message}`); }
 function ownLinks(description) {
   return description.split('\n').filter((line) => /^https:\/\/(?:note\.com\/dobokunote\/|doboku-note\.com\/)/.test(line.trim())).map((line) => line.trim());
 }
@@ -29,6 +28,9 @@ function utmMatches(link, packId) {
     url.searchParams.get('utm_medium') === 'video' &&
     url.searchParams.get('utm_campaign') === packId &&
     url.searchParams.get('utm_content') === 'longform';
+}
+function isRelevantPaidLink(link, exam) {
+  return paidNoteProducts.get(link.split('?')[0])?.qualification === exam;
 }
 
 for (const pub of registry.publications.filter((p) => p.channel === 'youtube' && p.format === 'longform' && ACTIVE.has(p.status))) {
@@ -45,21 +47,24 @@ for (const pub of registry.publications.filter((p) => p.channel === 'youtube' &&
   const newPolicy = pub.status !== 'uploaded_private' && Date.parse(pub.publishAt) >= POLICY_START;
   if (newPolicy) upcoming += 1;
   for (const url of links) {
-    try { if (!utmMatches(url, packId)) (newPolicy ? issue : warn)(pub, `UTMが動画IDと違う: ${url}`); }
+    try { if (!utmMatches(url, packId)) issue(pub, `UTMが動画IDと違う: ${url}`); }
     catch { issue(pub, `URLが不正: ${url}`); }
   }
 
   if (manifest.primaryCta?.kind === 'note-magazine') {
     const product = noteProducts.get(manifest.primaryCta.targetId);
     if (!product?.catalog?.published || product.catalog.retiredAt) { issue(pub, '主CTAの商品が公開中でない'); continue; }
-    if (!product.catalog.price) (newPolicy ? issue : warn)(pub, '主CTAは無料note記事経由で、有料商品への直接導線ではない');
     const target = product.catalog.noteUrl;
-    if (noteLinks.length !== 1 || noteLinks[0].split('?')[0] !== target) issue(pub, `note商品リンクが台帳と違う: ${target}`);
+    if (product.catalog.price) {
+      if (noteLinks.length !== 1 || noteLinks[0].split('?')[0] !== target) issue(pub, `note商品リンクが台帳と違う: ${target}`);
+    } else if (newPolicy || noteLinks.length !== 2 || noteLinks[1].split('?')[0] !== target || !isRelevantPaidLink(noteLinks[0], exam)) {
+      issue(pub, '無料noteもくじに加えて公開中の有料商品への直接導線が必要');
+    }
     if (newPolicy && (links[0] !== noteLinks[0] || description.includes('▼ 教材・完成答案で深掘りする'))) issue(pub, '新ルールの主CTA配置・商品名が違う');
   } else if (manifest.primaryCta?.kind === 'links-hub') {
-    if (siteLinks.length !== 1 || new URL(siteLinks[0]).pathname !== '/links') issue(pub, '教材一覧リンクが違う');
+    if (!siteLinks.some((u) => new URL(u).pathname === '/links')) issue(pub, '教材一覧リンクが違う');
     if (newPolicy) issue(pub, '新規公開は商品か関連ページへの直接CTAが必要');
-    else warn(pub, '教材一覧経由の間接導線');
+    else if (noteLinks.length !== 1 || !isRelevantPaidLink(noteLinks[0], exam) || links[0] !== noteLinks[0]) issue(pub, '教材一覧に加えて同資格の有料商品への直接導線が必要');
   } else {
     issue(pub, `未対応の主CTA: ${manifest.primaryCta?.kind ?? 'none'}`);
   }
@@ -69,20 +74,17 @@ for (const pub of registry.publications.filter((p) => p.channel === 'youtube' &&
     if (path !== '/links' && classifySitePath(path, routes).kind !== 'ok') issue(pub, `サイト記事の公開URLが未登録: ${path}`);
   }
   const source = manifest.sourceRefs?.find((r) => r.type === 'site' && !r.allowUnpublished && r.path?.startsWith(`content/site/${exam}/`));
-  if (newPolicy && source && manifest.primaryCta.kind === 'note-magazine') {
+  if (source) {
     const match = /^content\/site\/([a-z0-9-]+)\/([a-z0-9-]+)\/article\.mdx$/.exec(source.path);
     if (!match) { issue(pub, '関連サイト記事の参照形式が不正'); continue; }
     const target = siteUrlForSlug(`${match[1]}-${match[2]}`, routes);
     if (target.includes('/docs/') || !siteLinks.some((u) => u.split('?')[0] === target)) issue(pub, `関連サイト記事への補助導線がない: ${target}`);
-    if (links.indexOf(siteLinks[0]) <= links.indexOf(noteLinks[0])) issue(pub, '無料記事が商品より前にある');
-  } else if (source && siteLinks.length === 0) {
-    warn(pub, '旧動画の関連サイト記事リンクなし');
+    if (newPolicy && links.indexOf(siteLinks[0]) <= links.indexOf(noteLinks[0])) issue(pub, '無料記事が商品より前にある');
   }
 }
 
 if (checked < 20 || !routes.loaded) { console.error(`検査不成立: 動画 ${checked} 本 / サイト経路 ${routes.loaded}`); process.exit(2); }
 console.log(`check-youtube-funnels: 公開・予約・private ${checked} 本、2026-10-31以降の新ルール ${upcoming} 本`);
-for (const line of warnings) console.log(`  [WARN] ${line}`);
 for (const line of problems) console.error(`  [FAIL] ${line}`);
-console.log(`結果: ${problems.length ? 'FAIL' : 'PASS'}（FAIL ${problems.length} / WARN ${warnings.length}）`);
+console.log(`結果: ${problems.length ? 'FAIL' : 'PASS'}（FAIL ${problems.length}）`);
 if (problems.length) process.exit(1);

@@ -92,6 +92,7 @@ config/content-registry.json          チャネル×形式・アカウント・I
 - 承認は運営者が自分の端末で、画面に出るコマンドをコピーして打つ: `npm run registry -- approve --pub <id> --stage visual|final --expect <digest>`。`--expect` が今の中身の digest と違えば書かない。final は visual の承認が先（YouTube）。AI 生成の素材に判定 ok が無ければ書かない。Claude Code の Bash（`CLAUDECODE=1`）からは実行できない。止めるのは `npm run registry -- stop --pub <id> --reason …`（stopped は戻れない終端）。後で予約し直す前提で予約だけを外すのは `npm run registry -- unschedule --pub <id> --reason …`（scheduled → uploaded_private・元の予約日時を reason に残す。YouTube 側は先に `.github/workflows/youtube-unschedule.yml` で外す。2026-10-13 に YouTube を一旦止めたときに足した）。
 - 予約解除後の `uploaded_private`・予約日時なしでは、旧承認を履歴として保持する。予定が変わったため旧ハッシュの不一致は R07 の INFO にし、非公開化の記録保存を妨げない。再予約時は不一致を FAIL とし、公開・stage の最終承認ゲートも引き続き止める。
 - 初回通常動画のハッシュつき承認は `registry -- publish-youtube` が今の画面・文面・素材と照らし、違えば停止する。転送用の `stage-youtube-renders-r2.mjs` も `finalApprovalGate` を通す。
+- 公開済み・非公開アップロード済み動画の概要欄を改める `legacy-funnel` 同期は、新しい文面のハッシュ付き最終承認を運営者本人が記録してから実行する。古い `grandfathered` 承認は使えない。`youtube-sync-funnel.mjs` が旧/新の本文SHA、公開範囲、動画ID、承認を照合し、API更新後に読み戻す。AIは `approval.by=user` を代行記録しない。
 - 検査 R07 は比較元（`--base`・CI は PR の base か直前のコミット＝`REGISTRY_BASE`）から状態が変わった行の遷移を見る。`stopped(unverified-legacy)→published` は証拠つきだけ。
 
 ## 素材の置き場
@@ -122,8 +123,9 @@ Actions の checkout には `.tmp/media` がない。`publish-youtube --commit` 
 
 ## 照合（registry-reconcile）
 
-- 2026-10-25 に SNS の保留に合わせて、毎日の照合のワークフロー（`registry-reconcile.yml`）を CI から外した。いまは定期的には照合しない。
+- 2026-10-25 に SNS の保留に合わせて、毎日の**状態更新**ワークフロー（`registry-reconcile.yml`）を CI から外した。予約→公開済みへの台帳更新は手動 `youtube-single-publish.yml` の `mode=reconcile` で行う。
 - 中身は `npm run registry-reconcile`（台帳の外部 ID を `videos.list` で観測し、予約が public なら `published` へ進める。所見は `.claude/state/registry-reconcile/youtube.json`。exit 0＝照合した・1＝fail の所見・2＝検査不成立）。再開するときは新しいワークフローを作り、自動化の台帳 `config/automations.json` に読み手つきで載せる。
+- 状態を書き換えない商品導線・概要欄の読取監査は、別の `youtube-funnel-audit.yml` が毎日08:20 JSTに実行する。旧動画を含む現行通常動画の本文・自社リンクのAPI差分はFAILとし、`automation-failure` Issue（channel `youtube-funnel`）に通知する。
 
 ## 検査
 

@@ -1,0 +1,54 @@
+name: YouTube funnel audit
+
+on:
+  schedule:
+    - cron: '20 23 * * *' # 毎日 08:20 JST
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write # 動線の不一致を automation-failure Issue で通知する
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      YOUTUBE_CLIENT_ID: ${{ secrets.YOUTUBE_CLIENT_ID }}
+      YOUTUBE_CLIENT_SECRET: ${{ secrets.YOUTUBE_CLIENT_SECRET }}
+      YOUTUBE_REFRESH_TOKEN: ${{ secrets.YOUTUBE_REFRESH_TOKEN }}
+    steps:
+      - name: Checkout current registry
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: develop
+      - name: Setup Node.js
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci --legacy-peer-deps --ignore-scripts
+      - name: Check registry links and live YouTube descriptions
+        run: |
+          npm run check-youtube-funnels
+          node scripts/youtube-audit-live-funnels.mjs
+      - name: Report drift
+        if: failure()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          cat > "$RUNNER_TEMP/youtube-funnel-body.md" <<EOF
+          YouTube の商品導線、概要欄、公開状態の監査に失敗しました。
+
+          - run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          - 対象: develop の現行通常動画。YouTube Data API から実体を読み戻します。
+          - 再現: npm run check-youtube-funnels && node scripts/youtube-audit-live-funnels.mjs
+          EOF
+          node scripts/report-automation-failure.mjs --channel youtube-funnel \
+            --title 'YouTube の商品導線に不一致があります' \
+            --body-file "$RUNNER_TEMP/youtube-funnel-body.md"
+      - name: Resolve drift alert after recovery
+        if: success()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node scripts/report-automation-failure.mjs --resolve --channel youtube-funnel
