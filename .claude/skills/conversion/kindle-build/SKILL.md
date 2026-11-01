@@ -82,7 +82,7 @@ Kindle 出版戦略（[strategy.md](../../../../content/kindle/strategy.md) = �
 ## 検証
 
 - epubcheck エラー0/警告0（EPUB 3.3 ルール）
-- **`npm run check-kindle-format <epub>`**（書式インバリアント検査 R1-R4: 可読性/章改ページ/解答改ページ/選択肢連番。epubcheck が見ない書式ハウスルールを検査）
+- **`npm run check-kindle-format <epub>`**（書式インバリアント検査 R1-R4: 可読性/章改ページ/択一の解答改ページ/選択肢連番。記述式の章単位模範答案は R3 の対象外。epubcheck が見ない書式ハウスルールを検査）
 - 収録問題数 = `strategy.md` 期待値との突合（統計行）
 - essay系の漏れ検査: 展開 xhtml に `note.com`・`](` 生リンク・`をご覧ください`誘導・`R8予想`/`令和8`予想問題文脈 の残存 = 0
 - `U+FFFD` grep = 0（展開した xhtml に対して）
