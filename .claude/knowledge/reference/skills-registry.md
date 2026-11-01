@@ -6,6 +6,8 @@ title: スキル ガバナンス記録
 
 # スキル ガバナンス記録
 
+- 2026-11-01: `gsc-review` の古い記録の診断に、URL 検査 run の publish 失敗を追加。件数は不変。
+
 - 2026-10-27: `video-content` と `create-pop-image` の担当を、Claude Code の台本 Writer/QA → Codex ImageGen の画像生成へ明記。既存の機械ゲート・承認CLI・予約経路は維持。件数は不変。
 
 - 2026-10-26: `create-pop-image` と `video-content` の引き継ぎを、技術士第一次試験「全体像」で採用したPOP表紙＋全場面図解の通常動画標準へ更新。投稿入口にも旧カード版を拒否する検査を追加。スキル・エージェントの件数は不変。

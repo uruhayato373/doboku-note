@@ -9,7 +9,7 @@ name: Index coverage audit (URL Inspection)
 # URL Inspection は 2,000 URL/日/property が上限。sitemap ~1,420 URL で 1 回 ~35 分（2026-09-07 実測）。
 # 1 回の検査は安全側に 1,900 件まで。sitemap がそれを超えると（2026-10-21 に 2,017 件）水曜の回は未完了で終わり、
 # 木曜・金曜の回が続きから検査して、全件がそろった回だけを履歴に積む（周回・scripts/lib/inspection-cycle.mjs・DN-0825）。
-# 続ける周回が無い日（前の回で完了した）の木曜・金曜は何もしない。
+# 木曜・金曜は今週の周回が完了済みなら何もしない。水曜の結果が保存されていなければ新しい周回を始める。
 # 2026-09-17 に月次→週次へ（8/22 URL 移行の再クロール待ち 723 件の収束を週単位で追い、
 # 土曜の週次レビューの前段の GSC の記録層（weekly-review.sh の run_gsc_record・旧 gsc-auto-review.yml・DN-0849）が毎週 coverage エントリを観測ログへ追記できるようにする）。
 

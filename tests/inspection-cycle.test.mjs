@@ -42,6 +42,22 @@ test('続ける周回が無いとき: continue は何もしない・auto は新�
   assert.equal(planInspection({ sitemap: urls(3), prior: partial, mode: 'new', now: NOW }).action, 'new');
 });
 
+test('水曜の保存失敗で直前が先週の完了 batch のままなら、木曜に新しい周回を始める', () => {
+  const lastWeek = { ...wed(urls(3).map(ok), 3), generated_at: '2026-10-21T03:00:00Z' };
+  const p = planInspection({ sitemap: urls(5), prior: lastWeek, mode: 'continue', now: NOW, cap: 3 });
+  assert.equal(p.action, 'new');
+  assert.deepEqual(p.toInspect, urls(3));
+  assert.deepEqual(p.cycle, { startedAt: new Date(NOW).toISOString(), runs: 1 });
+  assert.equal(planInspection({ sitemap: urls(5), prior: null, mode: 'continue', now: NOW }).action, 'new');
+});
+
+test('今週の完了 batch がある木曜・金曜は再検査しない', () => {
+  const done = wed(urls(3).map(ok), 3);
+  for (const now of [NOW, Date.parse('2026-10-30T02:10:00Z')]) {
+    assert.equal(planInspection({ sitemap: urls(3), prior: done, mode: 'continue', now }).action, 'skip');
+  }
+});
+
 test('続けられるのは cycle のある未完了の batch で、開始から 3 日以内だけ（旧来の時間切れの partial は続けない）', () => {
   const partial = wed([ok(urls(3)[0])], 3);
   assert.equal(continuable(partial, NOW), true);

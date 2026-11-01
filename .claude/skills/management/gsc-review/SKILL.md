@@ -35,7 +35,7 @@ domain: site
 1. **データ確認**
    - `data/gsc/url-inspection/` の最新ファイルの日付を確認
    - `data/gsc/index-coverage.json` の最新エントリ日付を確認
-   - 最新の完了した batch が 8 日より古ければ、CI 未実行か周回の未完了と判断し `gh workflow run index-coverage.yml`（mode=auto で続きを検査）を案内（実行はユーザー判断）
+   - 最新の完了した batch が 8 日より古ければ、直近 run の検査件数と publish 成否を確認し、CI 未実行・周回未完了・保存失敗を区別する。必要なら `gh workflow run index-coverage.yml`（mode=auto で続きを検査）を案内（実行はユーザー判断）
 
 2. **診断（gsc-index-auditor を起動）**
    - サブエージェント `gsc-index-auditor` を呼ぶ（最新 batch と history を読ませる）
