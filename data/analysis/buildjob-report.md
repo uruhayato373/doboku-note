@@ -1,6 +1,6 @@
 # BuildJob アフィリ クリック/EPC レポート
 
-生成時のスナップショット期間: 面別=2026-09-01〜2026-09-30 / ページ別=2026-09-12〜2026-10-09
+生成時のスナップショット期間: 面別=2026-09-01〜2026-09-30 / ページ別=2026-10-03〜2026-10-30
 
 > 生成: `npm run report-buildjob-affiliate`（オフライン集計）。GA4 クリックが真実源（分子）、
 > A8 成果（`data/a8/report-log.json` の単月の期間から導く月×案件）は `/a8-report` が自動取込（`a8-ui:fetch` → `a8-ui:normalize`）。計測は本番のみ発火＝デプロイ後に蓄積。
@@ -44,16 +44,21 @@ _表示イベントを持つ面 10 件・表示合計 26,554 を実集計。表�
 
 | ページ | クリック |
 |---|--:|
-| /exam/civil-construction-1/secondary/r07 | 4 |
-| /exam/civil-construction-2/secondary/r07 | 2 |
-| /exam/pe-comprehensive-management/past-exams/r08-primary | 2 |
-| /exam/civil-construction-1/secondary/r03 | 1 |
-| /exam/civil-construction-1/secondary/r05 | 1 |
-| /exam/civil-construction-2/secondary/r04 | 1 |
-| /exam/pe-comprehensive-management/guide/course-selection-guide | 1 |
-| /exam/pe-comprehensive-management/guide/frequent-topics | 1 |
-| /exam/pe-comprehensive-management/keywords/personal-info-protection | 1 |
-| /exam/pe-construction/guide/career | 1 |
+| /exam/civil-construction-2/guide/r08-secondary-answers | 5 |
+| / | 3 |
+| /exam/civil-construction-2/secondary/r08 | 2 |
+| /exam/pe-first-stage/guide/overview | 2 |
+| /tools/kakomon-quiz/pe-first-stage | 2 |
+| /exam/civil-construction-2/guide/secondary-grading-and-partial-credit | 1 |
+| /exam/civil-construction-2/secondary/r05 | 1 |
+| /exam/civil-construction-2/secondary/r07 | 1 |
+| /exam/concrete-diagnostician/textbook/deterioration | 1 |
+| /exam/pe-comprehensive-management | 1 |
+| /exam/pe-comprehensive-management/past-exams/r06-secondary | 1 |
+| /exam/pe-comprehensive-management/past-exams/r08-primary | 1 |
+| /exam/pe-first-stage/primary/r07-construction | 1 |
+| /practice/road-work-approval-vs-road-use-permit | 1 |
+| /practice/subbase-subgrade-control | 1 |
 
 ## 注記
 

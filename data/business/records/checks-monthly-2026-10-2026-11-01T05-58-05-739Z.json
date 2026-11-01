@@ -1,0 +1,130 @@
+{
+  "cadence": "monthly",
+  "runKey": "2026-10",
+  "ranAt": "2026-11-01T05:58:05.739Z",
+  "checks": [
+    {
+      "command": "check-workflow-health",
+      "label": "重要 workflow の健全性",
+      "exitCode": 1,
+      "state": "fail",
+      "summary": "[check-workflow-health] ✗ 1 本が不健全",
+      "seconds": 12
+    },
+    {
+      "command": "check-business-direction",
+      "label": "事業方針の設定と履歴",
+      "exitCode": 0,
+      "state": "ok",
+      "summary": "[business-direction] PASS: 4資格 / 24指標 / 182履歴。計測 51/82（対象外 38）",
+      "seconds": 1
+    },
+    {
+      "command": "check-backlog-health",
+      "label": "バックログの健全性",
+      "exitCode": 0,
+      "state": "ok",
+      "summary": "[check-backlog-health] カード 168 件を実検査（判定はしない・候補の列挙のみ）",
+      "seconds": 6
+    },
+    {
+      "command": "check-exam-calendar",
+      "label": "試験日程の整合",
+      "exitCode": 0,
+      "state": "ok",
+      "summary": "[check-exam-calendar] OK: 2026-09-26確認済み — 資格 14 件 / 日付 70 件を実照合・未発表の期間 16 件を検査、1010 ファイルを走査（禁止パターン 8 種）",
+      "seconds": 1
+    },
+    {
+      "command": "check-past-exam-inventory",
+      "label": "過去問の年度在庫",
+      "exitCode": 0,
+      "state": "ok",
+      "summary": "[check-past-exam-inventory] OK（WARN 0 件）",
+      "seconds": 1
+    },
+    {
+      "command": "check-r2-orphans",
+      "label": "R2 公開バケットの孤児",
+      "exitCode": 0,
+      "state": "ok",
+      "summary": "[check-r2-orphans] doboku-note: 12104 件を実検査（List 13 回）/ 残す理由あり 12104 / 削除リストに載り未削除 0 / 孤児 0 / 孤児だが参照あり 0",
+      "seconds": 9
+    }
+  ],
+  "issues": [
+    {
+      "number": 1006,
+      "title": "[auto] note-live-audit: note のライブ監査で異常があります",
+      "createdAt": "2026-10-12T02:32:25Z",
+      "labels": [
+        "automation-failure"
+      ]
+    },
+    {
+      "number": 1180,
+      "title": "[auto] index-coverage: 閾値ゲートが赤（無条件異常）",
+      "createdAt": "2026-10-21T07:25:37Z",
+      "labels": [
+        "automation-failure"
+      ]
+    },
+    {
+      "number": 1217,
+      "title": "[auto] weekly-collect: 土曜の収集（ログインが要る取得と書き込み）が完了しませんでした",
+      "createdAt": "2026-10-24T08:55:15Z",
+      "labels": [
+        "automation-failure"
+      ]
+    },
+    {
+      "number": 1256,
+      "title": "[auto] workflow-health: 重要 workflow が赤いまま/動いていません",
+      "createdAt": "2026-10-26T07:46:13Z",
+      "labels": [
+        "automation-failure"
+      ]
+    },
+    {
+      "number": 1257,
+      "title": "[auto] report-checks: quality-audit の report 区分に FAIL があります",
+      "createdAt": "2026-10-26T07:51:39Z",
+      "labels": [
+        "automation-failure"
+      ]
+    },
+    {
+      "number": 1312,
+      "title": "[auto] workflow-health-guard: weekly-review-guard が止まっています",
+      "createdAt": "2026-10-30T02:08:13Z",
+      "labels": [
+        "automation-failure"
+      ]
+    },
+    {
+      "number": 1330,
+      "title": "[auto] weekly-review-local: 自動の週次レビューが完了しませんでした",
+      "createdAt": "2026-10-31T03:06:57Z",
+      "labels": [
+        "automation-failure"
+      ]
+    },
+    {
+      "number": 1331,
+      "title": "[auto] gsc-auto-review: 土曜の GSC の記録層（週次観測・coverage）が完了しませんでした",
+      "createdAt": "2026-10-31T03:06:59Z",
+      "labels": [
+        "automation-failure"
+      ]
+    }
+  ],
+  "alerts": [
+    {
+      "number": 118,
+      "severity": "medium",
+      "package": "minimatch",
+      "summary": "minimatch has potential denial of service via globparts amplification",
+      "createdAt": "2026-10-31T10:10:16Z"
+    }
+  ]
+}
