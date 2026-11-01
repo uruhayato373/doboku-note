@@ -1,0 +1,158 @@
+{
+  "schemaVersion": 1,
+  "_doc": "ページの種類ごとの品質の見方（採点プロファイル）の正本。種類は領域（src/config/categories.json の area）× 記事型（frontmatter の group）で決め、資格の違いは evaluators の categories で表す。基準書は MDX ではないので置き場（paths）で決める。各プロファイルは、何を大事に見るか（focus）・機械の検査（machineChecks＝quality-audit の id）・数える指標（metrics）・評価役（evaluators＝.claude/agents の名前と、対象の資格）・適用しない規則（notApplicable）を持つ。棚卸しは npm run page-quality-inventory（全ページを 1 つの種類に分け、評価役の無い資格と指標を出す）。採点の軸と重みの文章は各評価役の定義が持ち、ここには写さない（DN-0936）。",
+  "metricsVocabulary": {
+    "chars": "本文の字数（frontmatter・コードブロック・タグ・記号を除く）",
+    "h2": "H2 見出しの数",
+    "images": "画像の数（ArticleImage・img・Markdown の画像）",
+    "tables": "Markdown の表の数",
+    "internalLinks": "サイト内リンクの数",
+    "tableCaptions": "表のキャプション行（「表1-2」など）の数",
+    "figureCaptions": "図のキャプション行（「図1-2」など）の数",
+    "rawTextBlocks": "PDF から抜いたままのテキストのコードブロックの数"
+  },
+  "profiles": [
+    {
+      "id": "exam-keyword",
+      "label": "キーワード解説",
+      "match": { "area": "exam", "groups": ["keyword"] },
+      "focus": "標準テキスト・白書と合っているか、1 語の定義と試験での問われ方が揃っているか",
+      "machineChecks": ["validate-mdx", "content-quality-ratchet", "internal-links"],
+      "metrics": ["chars", "h2", "images", "internalLinks"],
+      "evaluators": [
+        { "agent": "cem-qa", "role": "rubric", "categories": ["pe-comprehensive-management"] },
+        { "agent": "svg-figure-auditor", "role": "figures" }
+      ],
+      "notApplicable": []
+    },
+    {
+      "id": "exam-past-exam",
+      "label": "過去問（択一・記述）",
+      "match": { "area": "exam", "groups": ["primary", "past-exam"] },
+      "focus": "正答と解説が原典どおり正しいか、全選択肢の正誤理由と ExamPoint が揃っているか",
+      "machineChecks": ["validate-mdx", "past-exam-inventory", "past-exam-ledger"],
+      "metrics": ["chars", "images", "internalLinks"],
+      "evaluators": [
+        {
+          "agent": "past-exam-qa",
+          "role": "rubric",
+          "categories": ["pe-comprehensive-management", "pe-first-stage", "civil-construction-1", "civil-construction-2", "concrete-chief-engineer", "concrete-diagnostician"]
+        },
+        { "agent": "civil-exam-figure-auditor", "role": "figures", "categories": ["civil-construction-1"] },
+        { "agent": "pe-exam-figure-auditor", "role": "figures", "categories": ["pe-comprehensive-management"] }
+      ],
+      "notApplicable": []
+    },
+    {
+      "id": "exam-secondary",
+      "label": "記述式の書き方・経験記述",
+      "match": { "area": "exam", "groups": ["secondary"] },
+      "focus": "問われ方と答案の型が具体的か、模範の例が試験の形式に合っているか",
+      "machineChecks": ["validate-mdx", "content-quality-ratchet"],
+      "metrics": ["chars", "h2", "images", "internalLinks"],
+      "evaluators": [
+        { "agent": "past-exam-qa", "role": "rubric", "categories": ["civil-construction-1", "civil-construction-2"] }
+      ],
+      "notApplicable": []
+    },
+    {
+      "id": "exam-guide",
+      "label": "試験ガイド",
+      "match": { "area": "exam", "groups": ["guide"] },
+      "focus": "試験制度の事実（年度・日程・制度改正）が新しいか、読者の次の行動へ導けているか",
+      "machineChecks": ["validate-mdx", "guide-length", "year-staleness", "content-quality-ratchet"],
+      "metrics": ["chars", "h2", "images", "internalLinks"],
+      "evaluators": [
+        { "agent": "guide-qa", "role": "rubric" },
+        { "agent": "guide-fact-checker", "role": "facts" },
+        { "agent": "svg-figure-auditor", "role": "figures" }
+      ],
+      "notApplicable": []
+    },
+    {
+      "id": "exam-textbook",
+      "label": "分野別の体系解説（教科書）",
+      "match": { "area": "exam", "groups": ["textbook"] },
+      "focus": "分野の論点を漏れなく体系立てて説明しているか、図表で理解できるか",
+      "machineChecks": ["validate-mdx", "content-quality-ratchet", "figure-references"],
+      "metrics": ["chars", "h2", "images", "tables", "internalLinks"],
+      "evaluators": [
+        { "agent": "civil-construction-qa", "role": "rubric", "categories": ["civil-construction-1", "civil-construction-2"] },
+        { "agent": "svg-figure-auditor", "role": "figures" }
+      ],
+      "notApplicable": []
+    },
+    {
+      "id": "exam-pillar",
+      "label": "分野ハブ（ピラー）",
+      "match": { "area": "exam", "groups": ["pillar"] },
+      "focus": "分野の論点地図として、配下のキーワード解説・過去問へ漏れなくつながっているか",
+      "machineChecks": ["validate-mdx", "internal-links"],
+      "metrics": ["chars", "h2", "internalLinks"],
+      "evaluators": [],
+      "notApplicable": []
+    },
+    {
+      "id": "practice-guide",
+      "label": "土木施工の実務解説",
+      "match": { "area": "practice", "groups": ["guide"] },
+      "focus": "現場の判断に使えるか、数値・規格値が一次資料（基準書・法令）で裏付けられ出典が示されているか",
+      "machineChecks": ["validate-mdx", "guide-length", "egov-links", "external-links"],
+      "metrics": ["chars", "h2", "images", "tables", "internalLinks"],
+      "evaluators": [
+        { "agent": "guide-qa", "role": "rubric" },
+        { "agent": "guide-fact-checker", "role": "facts" },
+        { "agent": "svg-figure-auditor", "role": "figures" }
+      ],
+      "notApplicable": [
+        "note・試験向けの CTA を求めない（実務の読者に試験の導線は合わない）",
+        "ExamPoint・Callout「試験のポイント」を求めない",
+        "「## 参考資料」を禁じない（一次資料の明示を求める側）"
+      ]
+    },
+    {
+      "id": "laws-guide",
+      "label": "法令の解説",
+      "match": { "area": "laws", "groups": ["guide"] },
+      "focus": "条文の要点が正確か、e-Gov の条へリンクし、その法令を扱う試験・実務の記事へつながっているか",
+      "machineChecks": ["validate-mdx", "egov-links"],
+      "metrics": ["chars", "h2", "internalLinks"],
+      "evaluators": [
+        { "agent": "guide-qa", "role": "rubric" },
+        { "agent": "guide-fact-checker", "role": "facts" }
+      ],
+      "notApplicable": [
+        "note・試験向けの CTA を求めない（実務の読者に試験の導線は合わない）",
+        "ExamPoint・Callout「試験のポイント」を求めない",
+        "「## 参考資料」を禁じない（一次資料の明示を求める側）"
+      ]
+    },
+    {
+      "id": "standards-chapter",
+      "label": "基準書の章記事",
+      "match": { "paths": ["content/site/standards-articles"], "file": "^\\d+(-\\d+)*\\.md$" },
+      "focus": "原本と同じか（文字の過不足 0）、表が Markdown の表に組み直され、図が原本から切り出されているか",
+      "machineChecks": ["standard-articles", "standards-page-images", "standards-amendments"],
+      "metrics": ["chars", "tables", "images", "tableCaptions", "figureCaptions"],
+      "evaluators": [
+        { "agent": "standards-table-qa", "role": "tables" },
+        { "agent": "scanned-figure-crop-auditor", "role": "figures" }
+      ],
+      "notApplicable": [
+        "字数・見出しの数・導線を求めない（原本の逐語）"
+      ]
+    },
+    {
+      "id": "standards-library",
+      "label": "基準書の全文ライブラリ",
+      "match": { "paths": ["content/site/standards-library"], "file": "^part-\\d+\\.md$" },
+      "focus": "原本と同じか（文字化け 0）に加えて、表と図がどこまで展開されているか（PDF から抜いたままのテキストを減らす）",
+      "machineChecks": ["standards-library"],
+      "metrics": ["chars", "tables", "images", "tableCaptions", "figureCaptions", "rawTextBlocks"],
+      "evaluators": [],
+      "notApplicable": [
+        "字数・見出しの数・導線を求めない（原本の逐語）"
+      ]
+    }
+  ]
+}
