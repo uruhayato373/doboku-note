@@ -199,7 +199,7 @@ export const CHECKS = [
     skip: () => process.env.CI || existsSync(join(ROOT, 'public', 'standards-data', 'catalog.json')) ? null : '生成物 public/standards-data が無い（npm run build-standards-data 後に実行）',
     note: '公開用 standards-data（Markdown / JSON-LD / 索引）の形式・条数・出典分離・noindex/CORS ヘッダー。CIのaudit前に生成し必ず検査する。ローカルは生成物がある環境で横断監査に再掲する（gate-parity のオーファン解消・DN-0205）',
   },
-  { id: 'content-series', npm: 'check-content-series', timeout: 30_000, ci: true, note: 'サイト記事のシリーズ企画の台帳（content-series.json）を検査（根拠の参考文献 id・既存と補強の記事の実在・関連記事・対象外の理由・入口）。状態は記事の実体から出し、件数だけ表示する' },
+  { id: 'content-series', npm: 'check-content-series', timeout: 120_000, ci: true, note: 'サイト記事のシリーズ企画の台帳（content-series.json）を検査（根拠の参考文献 id・既存と補強の記事の実在・関連記事・対象外の理由・入口）。状態は記事の実体から出し、件数だけ表示する。Drive がある端末は候補表の取り寄せで 30 秒を超える回がある（2026-11-01 実測 0.3〜34 秒）ので上限は 120 秒' },
   { id: 'egov-links', npm: 'egov-laws', timeout: 60_000, ci: true, note: '記事の e-Gov 法令検索へのリンク（法令 ID・条）と参考文献の台帳の法令の e-Gov の法令 ID を、e-Gov の写し（台帳 config.egov-laws）と照合（通信しない）。e-Gov の画面は無い ID でも 200 を返すのでリンク切れの検査では見つからない（2026-10-13 に 13 法令 26 か所）' },
   { id: 'egov-drift', cmd: ['node', 'scripts/egov-laws.mjs', '--drift'], timeout: 900_000, ci: false, ops: true, cadence: 'weekly', note: '写しより後に改正が施行された法令と、それにリンクする記事（e-Gov 法令 API と通信する・壁時計依存なので ops）。読み手＝週次レビュー（土曜に npm run quality:audit:weekly を review-checks が回し、レビューの「点検と Issue」で全件に行き先を書く・DN-0847）。記事を改正に合わせて確かめたら npm run egov-laws -- --sync で写しを進める' },
   { id: 'reference-book-pages', npm: 'check-reference-book-pages', args: ['--metadata-only'], timeout: 120_000, ci: true, note: '参考文献 ID 単位の書籍 bundle を検査（1冊1ディレクトリ・原本 sha256・分冊順・通しページ被覆・Drive 台帳結線）。CI は manifest のみ検査する。Drive の bytes/sha256 は通常の check-reference-book-pages で別途照合する' },
