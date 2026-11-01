@@ -21,6 +21,19 @@
 
 ## 🔴 高 — 重要度が高い
 
+### [DN-0929] 無料の序章 3 本が note で全文会員限定になり、未ログインの読者に本文が 0 字で出る
+タグ: [収益化] [領域:商品] [時期:2026-11] [種類:不具合] [起票:2026-11-01] [期日:2026-11-07]
+
+**起点**: 週次レビュー（2026-10-19〜2026-10-25）の追加確認。10/31 の土曜の収集の note-public-view 段（check-note-public-view・公開 958 本を API で検査）が BAD 3 本を出した: 原稿は無料なのに note 側が全文会員限定で、未ログインの本文が 0 字。
+- content/note/技術士総監/magazines/総監記述式-完全パック/00-はじめに/article.md（https://note.com/dobokunote/n/n93ee41c64411）
+- content/note/測量士/magazines/測量士午後-分野別/00-序章/article.md（https://note.com/dobokunote/n/n23ccc71205a7）
+- content/note/舗装/magazines/舗装1級-経験記述/00-序章/article.md（https://note.com/dobokunote/n/na287266cf068）
+
+**やること**: ログイン済みの Mac で 3 本の公開範囲を「全員に公開」へ戻す（note-operator / note-membership の既存スクリプト）。なぜ会員限定になったか（会員特典の一括配信・同期の既定値など）を run ログと sync-log で確かめ、同じ型が他に無いかを check-note-public-view の API 層で全件確認する。
+
+**完了条件**: node scripts/check-note-public-view.mjs の BAD が 0（未ログインで 3 本の本文が読める）。原因が仕組みにあれば検査か同期側で再発を止める。
+
+
 ### [DN-0902] 技術士（建設部門）の筆記合格発表（11/4）までに、口頭試験の教材への導線を資格トップと必須I・選択科目の記事に出す（EXP-047）
 タグ: [領域:サイト] [時期:2026-10..2026-11] [種類:改善] [起票:2026-10-28] [期日:2026-11-04] [進行中]
 
