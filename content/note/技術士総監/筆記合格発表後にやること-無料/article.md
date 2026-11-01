@@ -3,7 +3,11 @@ notePricing: free
 noteSeries: 総監無料記事
 noteContentType: learning
 utmCampaign: tankan-after-result
-noteStatus: draft
+title: "技術士 総監｜筆記合格発表の後にやること — 口頭試験へ進む人、来年度へ向かう人それぞれの次の一手"
+notePublishedAt: "2026-11-04"
+noteId: "n256388fcf1c6"
+noteUrl: "https://note.com/dobokunote/n/n256388fcf1c6"
+noteStatus: reserved
 coverTitle: ["技術士 総監", "筆記合格発表後にやること"]
 cover:
   variant: crop-safe-v4

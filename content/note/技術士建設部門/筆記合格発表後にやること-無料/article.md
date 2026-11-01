@@ -3,7 +3,11 @@ notePricing: free
 noteSeries: 技術士建設部門-無料入口
 noteContentType: learning
 utmCampaign: pe-construction-after-result
-noteStatus: draft
+title: "技術士 建設部門｜筆記合格発表の後にやること — 口頭試験へ進む人、来年度へ向かう人それぞれの次の一手"
+notePublishedAt: "2026-11-04"
+noteId: "ne13d3e917c06"
+noteUrl: "https://note.com/dobokunote/n/ne13d3e917c06"
+noteStatus: reserved
 coverTitle: ["技術士 建設部門", "筆記合格発表後にやること"]
 cover:
   variant: crop-safe-v4
