@@ -62,7 +62,7 @@ SNSの人物・見出しを改修するときは [SNS画像ポリシー §0・§
 | `/review-mobile` | モバイル視認性・可読性レビュー | `モバイルチェック`, `スマホで見て`, `/review-mobile` |
 | `/consolidate-duplicate-keyword` | 総監キーワード集の重複スラグ統合 | `重複スラグ統合`, `/consolidate-duplicate-keyword` |
 | `/note-prepublish-review` | note 公開前の統合品質ゲート | `note公開前チェック`, `公開準備`, `/note-prepublish-review` |
-| `/check-seo-meta` | out/ の正規 URL（sitemap + 公開記事 + 静的ルート）の title/description/self canonical/self og:url/robots/JSON-LD/SSR を検査（seo-checks 共有・母集合ガード） | `SEOメタ検査`, `OGP確認`, `/check-seo-meta` |
+| `/check-seo-meta` | out/ の正規 URL（sitemap + 公開記事 + 静的ルート）の title/description/self canonical/self og:url/robots/JSON-LD/SSR を検査。旧 `/docs/` は転送対応表から正規 URL へ解決（seo-checks 共有・母集合ガード） | `SEOメタ検査`, `OGP確認`, `/check-seo-meta` |
 | `/pe-essay-cycle` | 総監記述式の統括（draft/review/revise/plan/publish/page へルーティング）。`forecast` モードで年度ごとの予想（テーマ予測 3 軸スコア → 予想問題 → 固定 3 ペルソナ模範解答）を回す。手順は `references/forecast-flow.md` | `総監記述式の作業`, `記述式の予想問題`, `R9 予想`, `/pe-essay-cycle forecast --year R9` |
 | `/cce-essay-cycle` | コンクリート主任技士 小論文の統括（history＝新年度の出題を SSOT へ追記して出題履歴ブロックを再生成／draft＝cce-essay-writer→qa でテーマ別・立場別の模範答案／product＝PDF・ココナラ・配線） | `主任技士 小論文`, `小論文テーマ別答案`, `/cce-essay-cycle --mode history` |
 | `/pe-essay-review` | 総監記述式模範論文を 3 視点で採点（**サイト** r0X-essay ページ。note 有料マガジンは `cem-essay-qa`） | `記述式採点`, `模範論文レビュー`, `/pe-essay-review` |
