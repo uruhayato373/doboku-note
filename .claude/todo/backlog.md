@@ -253,6 +253,16 @@
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-0930] note の販売明細の productId を商品の分類に結び、資格別・型別の売上を名前の推測なしで出す
+タグ: [収益化] [領域:戦略] [時期:2026-11] [種類:不具合] [起票:2026-11-01]
+
+**起点**: docs/reviews/critical/2026-11-01-revenue-focus-and-ops-slimming.md（2026-11-01）。data/note/sales.json の productId が config/product-lineup.json の分類（lineupQualifier・classifySale）に結びつかず、資格別・型別の売上を商品名の正規表現でしか出せなかった（販売された 153 種のうち突合できない ID が多い）。販売 0 の公開商品の数も確定できない。
+
+**やること**: sales.json の productId と config/products.json・product-lineup.json の ID の系統の違いを調べ、対応表か正規化で結ぶ。月次レビューと管理画面の資格別売上が同じ判定を使うようにする。
+
+**完了条件**: 5〜10 月の販売の全件が資格と型に帰属（未帰属は件数を出す）し、公開中で販売 0 の商品を資格別に一覧できる。
+
+
 ### [DN-0928] 依存の脆弱性 minimatch（globparts の DoS・moderate）を 11.0.1 以上へ上げる
 タグ: [インフラ・計測] [領域:管理] [時期:2026-11] [種類:不具合] [起票:2026-11-01]
 
