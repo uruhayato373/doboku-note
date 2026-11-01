@@ -1724,11 +1724,11 @@ Windows の PowerShell で repo 直下から順に:
 **完了条件**: fileable に # 付き URL が出ず、r08-secondary-answers の改善が EXP として記録され、回帰テストがある
 
 ### [DN-0924] 2級二次の配点・部分点ページの title と冒頭を「2次試験 配点」の検索に合わせる（1.5 位で CTR 5.9%）
-タグ: [コンテンツ品質] [領域:サイト] [時期:2026-11] [種類:改善] [起票:2026-11-01]
+タグ: [コンテンツ品質] [領域:サイト] [時期:2026-11..2026-12] [種類:改善] [起票:2026-11-01]
 
 **起点**: 週次トリアージ（data/analysis/growth/digest-2026-W43.json）の OPP-5dd26ae975: 「2級土木施工管理技士 2次試験 配点」は平均 1.5 位なのに CTR 5.88%（期待 15%）（期待効果 1.2 searchClicks/週）。原稿: `content/site/civil-construction-2/secondary-grading-and-partial-credit/article.mdx`
 
-**やること**: 週次レビュー（2026-10-19〜2026-10-25）の OPP-5dd26ae975。/exam/civil-construction-2/guide/secondary-grading-and-partial-credit は「2級土木施工管理技士 2次試験 配点」で平均 1.5 位なのに CTR 5.88%（期待 15%）。配点は公表されない事実と、合格基準（60%）・部分点の考え方を title・description・冒頭で先に答える
+**やること**: 2026-11-29 以降に「2級土木施工管理技士 2次試験 配点」の CTR を GSC で見て、修正前（平均 1.5 位・CTR 5.88%）と比べ、結果をこのカードに記録する。title・seoTitle・description・冒頭は修正済み（develop 021323cbb2）。
 
 **完了条件**: title・description・冒頭が直って develop に入り、28 日後に同じ検索語の CTR を比べた記録がカードに残る
 
@@ -2406,11 +2406,11 @@ Phase 3の評価を戦略SSOTへ反映し、資格拡張の可否を確定した
 **完了条件**: 管理画面のカラートークンが stats47 と一致し、`check-shadcn-parity` と `check-admin-ui-debt` が通る。
 
 ### [DN-0925] 「スクレープドーザー」の検索で 6.3 位・CTR 1.3% のスクレーパーの教科書ページの title・説明を直す
-タグ: [コンテンツ品質] [領域:サイト] [時期:2026-11] [種類:改善] [起票:2026-11-01]
+タグ: [コンテンツ品質] [領域:サイト] [時期:2026-11..2026-12] [種類:改善] [起票:2026-11-01]
 
 **起点**: 週次トリアージ（data/analysis/growth/digest-2026-W43.json）の OPP-adc3bac9b1: 「スクレープドーザー」は平均 6.3 位なのに CTR 1.34%（期待 4%）（期待効果 1.2 searchClicks/週）。原稿: `content/site/civil-construction-1/textbook-scraper/article.mdx`
 
-**やること**: 週次レビュー（2026-10-19〜2026-10-25）の OPP-adc3bac9b1。/exam/civil-construction-1/textbook/scraper の title と description に「スクレープドーザー」を入れ、スクレーパーとの違いを冒頭で答える
+**やること**: 2026-11-29 以降に「スクレープドーザー」の CTR と順位を GSC で見て、修正前（平均 6.3 位・CTR 1.34%）と比べ、結果をこのカードに記録する。title・seoTitle・description・冒頭は修正済み（develop cf80c30d70）。
 
 **完了条件**: title・description が直って develop に入り、28 日後に CTR を比べた記録がカードに残る
 
