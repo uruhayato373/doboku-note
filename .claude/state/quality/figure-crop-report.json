@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-10-22T09:25:33.823Z",
-  "scanned": 700,
-  "skipped_photo": 167,
+  "generated_at": "2026-11-01T04:56:24.769Z",
+  "scanned": 913,
+  "skipped_photo": 175,
   "framed": 0,
   "errors": 0,
   "counts": {
-    "HIGH": 135,
+    "HIGH": 137,
     "MEDIUM": 0,
-    "LOW": 159
+    "LOW": 201
   },
   "violations": [
     {
@@ -40,6 +40,21 @@
       "side": "right",
       "edgeFrac": 0.2,
       "detail": "right縁でストローク中割りの疑い（縁2行/内側4行の密度比 92%≥50%・縁幅 20%）"
+    },
+    {
+      "path": "content/site/civil-construction-1/primary-h25-b/img/q03-fig.webp",
+      "rule": "EDGE_TIGHT",
+      "severity": "LOW",
+      "side": "top",
+      "detail": "top縁で先細り接触＝端点タイトトリム（密度比 20%<50%）"
+    },
+    {
+      "path": "content/site/civil-construction-1/primary-h25-b/img/q03-fig.webp",
+      "rule": "EDGE_CUT",
+      "severity": "HIGH",
+      "side": "right",
+      "edgeFrac": 0.014,
+      "detail": "right縁でストローク中割りの疑い（縁2行/内側4行の密度比 200%≥50%・縁幅 1%）"
     },
     {
       "path": "content/site/civil-construction-1/primary-h26-a/img/h26-a-fig-08.webp",
@@ -716,6 +731,21 @@
       "severity": "LOW",
       "side": "bottom",
       "detail": "bottom縁の分離島（高さ31px・全インクの2.5%・白ギャップ40px）＝小見出し/軸/写り込みのいずれか（要目視）"
+    },
+    {
+      "path": "content/site/civil-construction-2/primary-h21/img/q45-fig.webp",
+      "rule": "EDGE_CUT",
+      "severity": "HIGH",
+      "side": "right",
+      "edgeFrac": 0.006,
+      "detail": "right縁でストローク中割りの疑い（縁2行/内側4行の密度比 58%≥50%・縁幅 1%）"
+    },
+    {
+      "path": "content/site/civil-construction-2/primary-h25/img/q45-fig.webp",
+      "rule": "STRAY_LABEL",
+      "severity": "LOW",
+      "side": "top",
+      "detail": "top縁の分離島（高さ37px・全インクの1.8%・白ギャップ47px）＝小見出し/軸/写り込みのいずれか（要目視）"
     },
     {
       "path": "content/site/civil-construction-2/primary-r03-kouki/img/q57-fig.webp",
@@ -2063,6 +2093,69 @@
       "detail": "right縁でストローク中割りの疑い（縁2行/内側4行の密度比 85%≥50%・縁幅 9%）"
     },
     {
+      "path": "content/site/standards-articles/chubu/common/img/fig-p0228-1.webp",
+      "rule": "EDGE_LINE",
+      "severity": "LOW",
+      "side": "top",
+      "detail": "top縁の直線が内容スパンの100%＝罫線/軸/枠の bbox 一致（内容は完全）"
+    },
+    {
+      "path": "content/site/standards-articles/chubu/common/img/fig-p0241-1.webp",
+      "rule": "EDGE_LINE",
+      "severity": "LOW",
+      "side": "top",
+      "detail": "top縁の直線が内容スパンの100%＝罫線/軸/枠の bbox 一致（内容は完全）"
+    },
+    {
+      "path": "content/site/standards-articles/chubu/common/img/fig-p0245-1.webp",
+      "rule": "EDGE_LINE",
+      "severity": "LOW",
+      "side": "top",
+      "detail": "top縁の直線が内容スパンの100%＝罫線/軸/枠の bbox 一致（内容は完全）"
+    },
+    {
+      "path": "content/site/standards-articles/chubu/common/img/fig-p0330-1.webp",
+      "rule": "EDGE_LINE",
+      "severity": "LOW",
+      "side": "top",
+      "detail": "top縁の直線が内容スパンの100%＝罫線/軸/枠の bbox 一致（内容は完全）"
+    },
+    {
+      "path": "content/site/standards-articles/chubu/special/img/fig-p0019-1.webp",
+      "rule": "STRAY_LABEL",
+      "severity": "LOW",
+      "side": "top",
+      "detail": "top縁の分離島（高さ30px・全インクの2.8%・白ギャップ46px）＝小見出し/軸/写り込みのいずれか（要目視）"
+    },
+    {
+      "path": "content/site/standards-articles/chubu/special/img/fig-p0058-1.webp",
+      "rule": "EDGE_LINE",
+      "severity": "LOW",
+      "side": "top",
+      "detail": "top縁の直線が内容スパンの100%＝罫線/軸/枠の bbox 一致（内容は完全）"
+    },
+    {
+      "path": "content/site/standards-articles/chubu/special/img/fig-p0066-1.webp",
+      "rule": "EDGE_LINE",
+      "severity": "LOW",
+      "side": "top",
+      "detail": "top縁の直線が内容スパンの100%＝罫線/軸/枠の bbox 一致（内容は完全）"
+    },
+    {
+      "path": "content/site/standards-articles/chubu/special/img/fig-p0156-1.webp",
+      "rule": "THIN_MARGIN",
+      "severity": "LOW",
+      "side": "top",
+      "detail": "白マージン 1px < 4px"
+    },
+    {
+      "path": "content/site/standards-articles/chubu/special/img/fig-p0205-1.webp",
+      "rule": "EDGE_LINE",
+      "severity": "LOW",
+      "side": "top",
+      "detail": "top縁の直線が内容スパンの100%＝罫線/軸/枠の bbox 一致（内容は完全）"
+    },
+    {
       "path": "content/site/standards-articles/chugoku/common/img/amendments-p0011-signboard.webp",
       "rule": "THIN_MARGIN",
       "severity": "LOW",
@@ -2082,6 +2175,223 @@
       "severity": "LOW",
       "side": "bottom",
       "detail": "bottom縁で先細り接触＝端点タイトトリム（密度比 42%<50%）"
+    },
+    {
+      "path": "content/site/standards-articles/chugoku/common/img/fig-p0228-1.webp",
+      "rule": "EDGE_LINE",
+      "severity": "LOW",
+      "side": "top",
+      "detail": "top縁の直線が内容スパンの100%＝罫線/軸/枠の bbox 一致（内容は完全）"
+    },
+    {
+      "path": "content/site/standards-articles/chugoku/common/img/fig-p0241-1.webp",
+      "rule": "EDGE_LINE",
+      "severity": "LOW",
+      "side": "top",
+      "detail": "top縁の直線が内容スパンの100%＝罫線/軸/枠の bbox 一致（内容は完全）"
+    },
+    {
+      "path": "content/site/standards-articles/chugoku/common/img/fig-p0245-1.webp",
+      "rule": "EDGE_LINE",
+      "severity": "LOW",
+      "side": "top",
+      "detail": "top縁の直線が内容スパンの100%＝罫線/軸/枠の bbox 一致（内容は完全）"
+    },
+    {
+      "path": "content/site/standards-articles/chugoku/common/img/fig-p0330-1.webp",
+      "rule": "EDGE_LINE",
+      "severity": "LOW",
+      "side": "top",
+      "detail": "top縁の直線が内容スパンの100%＝罫線/軸/枠の bbox 一致（内容は完全）"
+    },
+    {
+      "path": "content/site/standards-articles/hokkaido/common/img/fig-p0233-1.webp",
+      "rule": "EDGE_LINE",
+      "severity": "LOW",
+      "side": "top",
+      "detail": "top縁の直線が内容スパンの100%＝罫線/軸/枠の bbox 一致（内容は完全）"
+    },
+    {
+      "path": "content/site/standards-articles/hokkaido/common/img/fig-p0337-1.webp",
+      "rule": "EDGE_LINE",
+      "severity": "LOW",
+      "side": "top",
+      "detail": "top縁の直線が内容スパンの100%＝罫線/軸/枠の bbox 一致（内容は完全）"
+    },
+    {
+      "path": "content/site/standards-articles/hokuriku/common/img/fig-p0228-1.webp",
+      "rule": "EDGE_LINE",
+      "severity": "LOW",
+      "side": "top",
+      "detail": "top縁の直線が内容スパンの100%＝罫線/軸/枠の bbox 一致（内容は完全）"
+    },
+    {
+      "path": "content/site/standards-articles/hokuriku/common/img/fig-p0241-1.webp",
+      "rule": "EDGE_LINE",
+      "severity": "LOW",
+      "side": "top",
+      "detail": "top縁の直線が内容スパンの100%＝罫線/軸/枠の bbox 一致（内容は完全）"
+    },
+    {
+      "path": "content/site/standards-articles/hokuriku/common/img/fig-p0245-1.webp",
+      "rule": "EDGE_LINE",
+      "severity": "LOW",
+      "side": "top",
+      "detail": "top縁の直線が内容スパンの100%＝罫線/軸/枠の bbox 一致（内容は完全）"
+    },
+    {
+      "path": "content/site/standards-articles/hokuriku/common/img/fig-p0330-1.webp",
+      "rule": "EDGE_LINE",
+      "severity": "LOW",
+      "side": "top",
+      "detail": "top縁の直線が内容スパンの100%＝罫線/軸/枠の bbox 一致（内容は完全）"
+    },
+    {
+      "path": "content/site/standards-articles/kanto/common/img/fig-p0228-1.webp",
+      "rule": "EDGE_LINE",
+      "severity": "LOW",
+      "side": "top",
+      "detail": "top縁の直線が内容スパンの100%＝罫線/軸/枠の bbox 一致（内容は完全）"
+    },
+    {
+      "path": "content/site/standards-articles/kanto/common/img/fig-p0241-1.webp",
+      "rule": "EDGE_LINE",
+      "severity": "LOW",
+      "side": "top",
+      "detail": "top縁の直線が内容スパンの100%＝罫線/軸/枠の bbox 一致（内容は完全）"
+    },
+    {
+      "path": "content/site/standards-articles/kanto/common/img/fig-p0245-1.webp",
+      "rule": "EDGE_LINE",
+      "severity": "LOW",
+      "side": "top",
+      "detail": "top縁の直線が内容スパンの100%＝罫線/軸/枠の bbox 一致（内容は完全）"
+    },
+    {
+      "path": "content/site/standards-articles/kanto/common/img/fig-p0330-1.webp",
+      "rule": "EDGE_LINE",
+      "severity": "LOW",
+      "side": "top",
+      "detail": "top縁の直線が内容スパンの100%＝罫線/軸/枠の bbox 一致（内容は完全）"
+    },
+    {
+      "path": "content/site/standards-articles/kinki/common/img/fig-p0228-1.webp",
+      "rule": "EDGE_LINE",
+      "severity": "LOW",
+      "side": "top",
+      "detail": "top縁の直線が内容スパンの100%＝罫線/軸/枠の bbox 一致（内容は完全）"
+    },
+    {
+      "path": "content/site/standards-articles/kinki/common/img/fig-p0241-1.webp",
+      "rule": "EDGE_LINE",
+      "severity": "LOW",
+      "side": "top",
+      "detail": "top縁の直線が内容スパンの100%＝罫線/軸/枠の bbox 一致（内容は完全）"
+    },
+    {
+      "path": "content/site/standards-articles/kinki/common/img/fig-p0245-1.webp",
+      "rule": "EDGE_LINE",
+      "severity": "LOW",
+      "side": "top",
+      "detail": "top縁の直線が内容スパンの100%＝罫線/軸/枠の bbox 一致（内容は完全）"
+    },
+    {
+      "path": "content/site/standards-articles/kinki/common/img/fig-p0330-1.webp",
+      "rule": "EDGE_LINE",
+      "severity": "LOW",
+      "side": "top",
+      "detail": "top縁の直線が内容スパンの100%＝罫線/軸/枠の bbox 一致（内容は完全）"
+    },
+    {
+      "path": "content/site/standards-articles/kyushu/common/img/fig-p0228-1.webp",
+      "rule": "EDGE_LINE",
+      "severity": "LOW",
+      "side": "top",
+      "detail": "top縁の直線が内容スパンの100%＝罫線/軸/枠の bbox 一致（内容は完全）"
+    },
+    {
+      "path": "content/site/standards-articles/kyushu/common/img/fig-p0241-1.webp",
+      "rule": "EDGE_LINE",
+      "severity": "LOW",
+      "side": "top",
+      "detail": "top縁の直線が内容スパンの100%＝罫線/軸/枠の bbox 一致（内容は完全）"
+    },
+    {
+      "path": "content/site/standards-articles/kyushu/common/img/fig-p0245-1.webp",
+      "rule": "EDGE_LINE",
+      "severity": "LOW",
+      "side": "top",
+      "detail": "top縁の直線が内容スパンの100%＝罫線/軸/枠の bbox 一致（内容は完全）"
+    },
+    {
+      "path": "content/site/standards-articles/kyushu/common/img/fig-p0330-1.webp",
+      "rule": "EDGE_LINE",
+      "severity": "LOW",
+      "side": "top",
+      "detail": "top縁の直線が内容スパンの100%＝罫線/軸/枠の bbox 一致（内容は完全）"
+    },
+    {
+      "path": "content/site/standards-articles/shikoku/common/img/fig-p0228-1.webp",
+      "rule": "EDGE_LINE",
+      "severity": "LOW",
+      "side": "top",
+      "detail": "top縁の直線が内容スパンの100%＝罫線/軸/枠の bbox 一致（内容は完全）"
+    },
+    {
+      "path": "content/site/standards-articles/shikoku/common/img/fig-p0241-1.webp",
+      "rule": "EDGE_LINE",
+      "severity": "LOW",
+      "side": "top",
+      "detail": "top縁の直線が内容スパンの100%＝罫線/軸/枠の bbox 一致（内容は完全）"
+    },
+    {
+      "path": "content/site/standards-articles/shikoku/common/img/fig-p0245-1.webp",
+      "rule": "EDGE_LINE",
+      "severity": "LOW",
+      "side": "top",
+      "detail": "top縁の直線が内容スパンの100%＝罫線/軸/枠の bbox 一致（内容は完全）"
+    },
+    {
+      "path": "content/site/standards-articles/shikoku/common/img/fig-p0330-1.webp",
+      "rule": "EDGE_LINE",
+      "severity": "LOW",
+      "side": "top",
+      "detail": "top縁の直線が内容スパンの100%＝罫線/軸/枠の bbox 一致（内容は完全）"
+    },
+    {
+      "path": "content/site/standards-articles/tohoku/common/img/fig-p0228-1.webp",
+      "rule": "EDGE_LINE",
+      "severity": "LOW",
+      "side": "top",
+      "detail": "top縁の直線が内容スパンの100%＝罫線/軸/枠の bbox 一致（内容は完全）"
+    },
+    {
+      "path": "content/site/standards-articles/tohoku/common/img/fig-p0241-1.webp",
+      "rule": "EDGE_LINE",
+      "severity": "LOW",
+      "side": "top",
+      "detail": "top縁の直線が内容スパンの100%＝罫線/軸/枠の bbox 一致（内容は完全）"
+    },
+    {
+      "path": "content/site/standards-articles/tohoku/common/img/fig-p0245-1.webp",
+      "rule": "EDGE_LINE",
+      "severity": "LOW",
+      "side": "top",
+      "detail": "top縁の直線が内容スパンの100%＝罫線/軸/枠の bbox 一致（内容は完全）"
+    },
+    {
+      "path": "content/site/standards-articles/tohoku/common/img/fig-p0330-1.webp",
+      "rule": "EDGE_LINE",
+      "severity": "LOW",
+      "side": "top",
+      "detail": "top縁の直線が内容スパンの100%＝罫線/軸/枠の bbox 一致（内容は完全）"
+    },
+    {
+      "path": "content/site/standards-articles/tohoku/reference/img/fig-p0778-1.webp",
+      "rule": "STRAY_LABEL",
+      "severity": "LOW",
+      "side": "bottom",
+      "detail": "bottom縁の分離島（高さ17px・全インクの2.0%・白ギャップ28px）＝小見出し/軸/写り込みのいずれか（要目視）"
     },
     {
       "path": "content/site/surveyor/primary-r04/img/q21-fig.webp",

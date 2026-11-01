@@ -1,0 +1,114 @@
+{
+  "cadence": "weekly",
+  "runKey": "2026-W44",
+  "ranAt": "2026-11-01T05:03:12.982Z",
+  "checks": [
+    {
+      "command": "check-workflow-health",
+      "label": "重要 workflow の健全性",
+      "exitCode": 1,
+      "state": "fail",
+      "summary": "[check-workflow-health] ✗ 1 本が不健全",
+      "seconds": 13
+    },
+    {
+      "command": "node:check-backlog-health",
+      "label": "バックログの健全性",
+      "exitCode": 0,
+      "state": "ok",
+      "summary": "[check-backlog-health] カード 163 件を実検査（判定はしない・候補の列挙のみ）",
+      "seconds": 6
+    },
+    {
+      "command": "check-taxonomy-wiring",
+      "label": "分類と回遊の配線",
+      "exitCode": 0,
+      "state": "ok",
+      "summary": "- GSC 2026-09-30〜2026-10-27: テーマページ 15 件・クリック 0・表示 60（上位: /topics 11、/topics/municipal-civil-engineers 10、/topics/bridges-steel 7、/topics/safety-laws 7、/topics/quality-management 6）",
+      "seconds": 2
+    },
+    {
+      "command": "quality:audit:weekly",
+      "label": "土曜の週次の点検（quality-audit の cadence weekly）",
+      "exitCode": 1,
+      "state": "fail",
+      "summary": "[quality-audit] weekly 区分の失敗: egov-drift, search-triage",
+      "seconds": 131
+    }
+  ],
+  "issues": [
+    {
+      "number": 1006,
+      "title": "[auto] note-live-audit: note のライブ監査で異常があります",
+      "createdAt": "2026-10-12T02:32:25Z",
+      "labels": [
+        "automation-failure"
+      ]
+    },
+    {
+      "number": 1180,
+      "title": "[auto] index-coverage: 閾値ゲートが赤（無条件異常）",
+      "createdAt": "2026-10-21T07:25:37Z",
+      "labels": [
+        "automation-failure"
+      ]
+    },
+    {
+      "number": 1217,
+      "title": "[auto] weekly-collect: 土曜の収集（ログインが要る取得と書き込み）が完了しませんでした",
+      "createdAt": "2026-10-24T08:55:15Z",
+      "labels": [
+        "automation-failure"
+      ]
+    },
+    {
+      "number": 1256,
+      "title": "[auto] workflow-health: 重要 workflow が赤いまま/動いていません",
+      "createdAt": "2026-10-26T07:46:13Z",
+      "labels": [
+        "automation-failure"
+      ]
+    },
+    {
+      "number": 1257,
+      "title": "[auto] report-checks: quality-audit の report 区分に FAIL があります",
+      "createdAt": "2026-10-26T07:51:39Z",
+      "labels": [
+        "automation-failure"
+      ]
+    },
+    {
+      "number": 1312,
+      "title": "[auto] workflow-health-guard: weekly-review-guard が止まっています",
+      "createdAt": "2026-10-30T02:08:13Z",
+      "labels": [
+        "automation-failure"
+      ]
+    },
+    {
+      "number": 1330,
+      "title": "[auto] weekly-review-local: 自動の週次レビューが完了しませんでした",
+      "createdAt": "2026-10-31T03:06:57Z",
+      "labels": [
+        "automation-failure"
+      ]
+    },
+    {
+      "number": 1331,
+      "title": "[auto] gsc-auto-review: 土曜の GSC の記録層（週次観測・coverage）が完了しませんでした",
+      "createdAt": "2026-10-31T03:06:59Z",
+      "labels": [
+        "automation-failure"
+      ]
+    }
+  ],
+  "alerts": [
+    {
+      "number": 118,
+      "severity": "medium",
+      "package": "minimatch",
+      "summary": "minimatch has potential denial of service via globparts amplification",
+      "createdAt": "2026-10-31T10:10:16Z"
+    }
+  ]
+}
