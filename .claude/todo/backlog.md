@@ -253,6 +253,16 @@
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-0933] スキル・エージェントの description を短くし、weekly-review の SKILL.md を骨子と references に分けてトークンを減らす
+タグ: [エージェント・SSOT] [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-11-01]
+
+**起点**: docs/reviews/critical/2026-11-01-revenue-focus-and-ops-slimming.md（2026-11-01）。description の合計がスキル 約 6,500 字・エージェント 約 15,000 字で、毎セッションの一覧に常駐する。weekly-review の SKILL.md は 768 行（約 75KB）で、毎週のヘッドレス実行が全部読み、backlog（約 330KB）も読む。
+
+**やること**: (1) description を 1 文＋Use when（目安 120 字）に短くする（check-agent-descriptions の上限を下げる）。(2) weekly-review を骨子 150 行前後と references に分け、機械で出せる節は build-weekly-review-draft.mjs へ移し、backlog の全読みをやめて下書きに要る分だけ出す。skills-guide・agents-registry を同じ commit で直す。
+
+**完了条件**: description の合計が半分以下、weekly-review の SKILL.md が 200 行以下で、次の土曜の自動実行が完了判定を通る。
+
+
 ### [DN-0932] 技術士 R9 の筆記対策（予想問題・必須 I・選択科目のパック）の制作計画を立て、4 月末までに揃える段取りを決める
 タグ: [収益化] [領域:商品] [時期:2026-12..2027-01] [種類:制作] [起票:2026-11-01]
 
