@@ -914,6 +914,7 @@ export const ConfigPageQualityProfiles = z
                   .strict(),
               )
               .describe('評価役。空は評価役の無い種類'),
+            evaluatorGap: text.optional().describe('評価役を置けない理由と、埋めるカード'),
             notApplicable: strList.describe('この種類に当てはめない規則'),
           })
           .strict(),

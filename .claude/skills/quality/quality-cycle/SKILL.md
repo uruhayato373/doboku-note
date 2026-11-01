@@ -107,7 +107,7 @@ SKILL.md では `--profile` フラグを受け取って適切な scripts ディ�
 エージェント:
 
 - `cem`: Evaluator `cem-qa` / Generator `keyword-rewriter`
-- `civil-textbook`: Evaluator `civil-construction-review` / Generator `civil-textbook-rewriter`
+- `civil-textbook`: Evaluator `civil-construction-qa`（校正モード） / Generator `civil-textbook-rewriter`
 
 **共通の合否ライン**: 加重合計 ≥ 2.0 で合格、< 2.5 でリライト候補、0 軸があれば即不合格（weighted を 1.0 にクランプ）
 
@@ -201,7 +201,7 @@ unscored → scored → rewriting → needs-review → verified → approved
 |---|---|
 | `cem-qa` エージェント | CEM プロファイルの Evaluator |
 | `keyword-rewriter` エージェント | CEM プロファイルの Generator |
-| `civil-construction-review` エージェント | civil-textbook プロファイルの Evaluator |
+| `civil-construction-qa`（校正モード） エージェント | civil-textbook プロファイルの Evaluator |
 | `civil-textbook-rewriter` エージェント | civil-textbook プロファイルの Generator |
 | `/improve-article` | 単一記事版の品質改善（本スキルはバルク版） |
 | `/audit-exam-mapping` | 過去問⇔キーワード紐づけ精度の semantic 監査（旧 `/exam-keyword-cycle` Phase 2 を継承） |
@@ -222,6 +222,6 @@ unscored → scored → rewriting → needs-review → verified → approved
 - `templates/civil-textbook.md` — civil-textbook プロファイル運用スペック
 - `.claude/agents/cem-qa.md` — CEM Evaluator
 - `.claude/agents/keyword-rewriter.md` — CEM Generator
-- `.claude/agents/civil-construction-review.md` — 1級土木 Evaluator
+- `.claude/agents/civil-construction-qa.md`（Mode R） — 1級土木 Evaluator
 - `.claude/knowledge/reference/content-principles.md` — §1-18 コンテンツ原則
 - `.claude/scripts/lib/mdx-io.mjs` — CRLF 保持 I/O（リライト時に必須）

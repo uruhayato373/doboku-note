@@ -81,7 +81,7 @@ domain: site
 
 > Generator と Evaluator を分離する
 
-本エージェントは解答補完を担う。スコア判定は `civil-construction-review`（Evaluator）の責務（ただし civil-construction-review は textbook/guide 限定なので、secondary 用の評価は `content-qa` または将来追加の `civil-secondary-qa` で）。
+本エージェントは解答補完を担う。スコア判定は Evaluator の責務で、設問-解答構造の二次過去問（`secondary-r0X` 等）は `past-exam-qa`、PDF 照合直後の網羅性は `content-qa` が見る（`civil-construction-qa` は textbook/guide 限定で secondary は対象外）。
 
 ## スコープ
 
@@ -234,7 +234,7 @@ transformMdxFile(path, (raw) => modified);
 ## 担当外
 
 - 本文編集・新規セクション追加（出典以外） → 既存 `civil-textbook-rewriter`
-- スコア判定 → `civil-construction-review`（textbook/guide 限定なので secondary は将来拡張）
+- スコア判定 → `past-exam-qa`（設問-解答構造の二次過去問）
 - primary 過去問 → `civil-exampoint-restorer`
 - commit → 親エージェントが wave 単位明示パス commit
 
