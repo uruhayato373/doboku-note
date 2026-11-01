@@ -503,6 +503,7 @@
     "report-note-funnel-efficiency": "node scripts/report-note-funnel-efficiency.mjs",
     "report-site-to-sales": "node scripts/report-site-to-sales.mjs",
     "sales-summary": "node scripts/sales-summary.mjs",
+    "sales-attribution": "node scripts/sales-attribution.mjs",
     "schedule-view": "node scripts/schedule-view.mjs",
     "scout-coconala-blogs": "node scripts/scout-coconala-blogs.mjs",
     "scout-coconala-competitors": "node scripts/scout-coconala-competitors.mjs",
