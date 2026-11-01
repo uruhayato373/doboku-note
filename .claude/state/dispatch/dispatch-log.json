@@ -6272,6 +6272,23 @@
       "commit": "6ddf3864f355",
       "verification": "旧10出品のアーカイブを出品一覧で確認。公開ブログ15/15とnote対象7/7が4418735のみ。check-coconala-wiring・check-coconala-blog・check-coconala-liveが全PASS。",
       "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-0929",
+      "at": "2026-11-01",
+      "task": "無料の序章 3 本が note で全文会員限定になり、未ログインの読者に本文が 0 字で出る",
+      "tier": "high",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "check-note-public-view"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "5d3a9b37c5e1",
+      "verification": "node scripts/check-note-public-view.mjs --api-only → 958 本で不整合なし",
+      "note": "11/1 に note-update-body --trial-line-bottom で 3 本を反映（ok=3）。公開 API で未ログインの本文 1,438・3,865・2,225 字（修正前 0 字）。原稿に memberTrial: bottom を付けた（b8ffe7702）。原因は会員特典マガジン内の無料記事が試し読みラインなしで更新されると note が全文を会員限定にする挙動"
     }
   ]
 }
