@@ -7,7 +7,7 @@
 
 import { readFileSync, writeFileSync, existsSync } from 'node:fs'
 import { resolve } from 'node:path'
-import { getDefaults } from './lib/kdp-common.mjs'
+import { getDefaults, resolveBook, ROYALTY70_BAND } from './lib/kdp-common.mjs'
 import { datasetPath } from './lib/datasets.mjs'
 import { readDataset } from './lib/dataset-io.mjs';
 import { REPO_ROOT as REPO } from './lib/repository-paths.mjs';
@@ -19,8 +19,13 @@ const { label: LABEL, labelKana: LABEL_KANA, labelRomaji: LABEL_ROMAJI, category
 
 function memo(id, spec, d) {
   const price = spec.price
+  const book = resolveBook(id)
   const issuer = spec.creditIssuer || DEF.issuer
   const vol = d.volume === '' ? '（合本のため空欄、または 0）' : d.volume
+  const royalty70 = book.kdpSelect && price >= ROYALTY70_BAND.min && price <= ROYALTY70_BAND.max
+  const royaltyNote = royalty70
+    ? '70% を選択し、日本の実効率 70% を確認'
+    : '日本の実効率 35% を確認（画面のプラン表示だけで判定しない）'
   return `════════════════════════════════════════════════════════
  KDP 入稿メモ  ${id}  ${spec.title}
  （KDP の入力順どおり・上から順にコピペ）
@@ -120,11 +125,11 @@ ${d.previewNote}
 ─────────────────────────────
 
 ■ KDP セレクトへの登録
-任意（独占配信＋Kindle Unlimited 対象）→ ユーザー判断
+${book.kdpSelect ? '登録する（独占配信）' : '登録しない（他チャネルと併売）'}
 ■ 出版地域
 すべての地域
 ■ ロイヤリティと価格
-・ロイヤリティプラン：70%（を選択）
+・ロイヤリティ：${royaltyNote}
 ・Amazon.co.jp の希望小売価格欄に入力する数字 → ${price}   （JPY・¥${price}）
 ・他マーケットプレイスは Amazon.co.jp 基準で自動換算（触らない）
 ■ 出版
