@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-11-01T04:58:49.094Z",
+  "updated_at": "2026-11-01T04:59:04.561Z",
   "experiments": [
     {
       "id": "EXP-002",
@@ -8229,6 +8229,89 @@
         "commit": "f3feb1b52419",
         "at": "2026-11-01",
         "change": "seoTitle を「解答」表記にし、冒頭に公式の解答が公表されない点と参考解答例である旨を追記した"
+      }
+    },
+    {
+      "id": "EXP-050",
+      "kind": "search-strategy",
+      "title": "資格名: /exam/civil-construction-1/secondary/r04 の11〜30位の検索語を10位以内へ",
+      "hypothesis": "/exam/civil-construction-1/secondary/r04 は 3 語が11〜30位（最良 12.1 位・表示 18）。検索意図に合わせて title・description・冒頭の答え・見出し・内部リンクを直せば、同じ検索語の順位が上がる",
+      "target_metric": "対象ページ × 直す前の検索語 3 語の GSC 平均順位（本番反映の前 28 日・後 28 日）",
+      "target_delta": "平均順位が 10% 以上良くなる。前後どちらかの表示が 10 未満なら判定不能",
+      "status": "proposed",
+      "created_at": "2026-11-01",
+      "searchStrategy": {
+        "cluster": "qualification",
+        "page": "/exam/civil-construction-1/secondary/r04",
+        "contentPath": "content/site/civil-construction-1/secondary-r04/article.mdx"
+      },
+      "baseline": {
+        "measured_at": "2026-11-01",
+        "source": "data/gsc/reports/2026-10-31.json#page-query",
+        "period": {
+          "startDate": "2026-09-30",
+          "endDate": "2026-10-27"
+        },
+        "impressions": 18,
+        "clicks": 3,
+        "bestPosition": 12.1,
+        "queries": [
+          {
+            "query": "一級 建築施工管理技士 二次試験 解答例 令和4年",
+            "position": 16.9,
+            "impressions": 9,
+            "clicks": 2
+          },
+          {
+            "query": "2級土木施工管理技士 実地試験 解答例 令和4年",
+            "position": 12.1,
+            "impressions": 8,
+            "clicks": 1
+          },
+          {
+            "query": "一級 建築施工管理技士 二次 試験 解答例 令和4年",
+            "position": 16,
+            "impressions": 1,
+            "clicks": 0
+          }
+        ]
+      },
+      "measure": {
+        "specVersion": 1,
+        "metric": "gsc.position",
+        "scope": {
+          "pages": [
+            "/exam/civil-construction-1/secondary/r04"
+          ],
+          "queries": [
+            "一級 建築施工管理技士 二次試験 解答例 令和4年",
+            "2級土木施工管理技士 実地試験 解答例 令和4年",
+            "一級 建築施工管理技士 二次 試験 解答例 令和4年"
+          ]
+        },
+        "preDays": 28,
+        "postDays": 28,
+        "lagDays": 3,
+        "direction": "decrease",
+        "minEffect": 0.1,
+        "minVolume": 10
+      },
+      "history": [
+        {
+          "at": "2026-11-01T04:59:04.560Z",
+          "event": "recorded"
+        },
+        {
+          "at": "2026-11-01T04:59:04.560Z",
+          "event": "implemented",
+          "commit": "f569ea6115f6",
+          "change": "冒頭に1級R4の概要を追加し、2級R4への案内リンクを置いた"
+        }
+      ],
+      "implementation": {
+        "commit": "f569ea6115f6",
+        "at": "2026-11-01",
+        "change": "冒頭に1級R4の概要を追加し、2級R4への案内リンクを置いた"
       }
     }
   ]
