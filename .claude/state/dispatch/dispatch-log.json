@@ -6323,6 +6323,23 @@
       "commit": "1f22101ea88b",
       "verification": "npm run report-search-opportunities -- --json → fileable の # 付き 0 件・node --test tests/search-opportunities.test.mjs 合格",
       "note": "PR #1350（b9f5ea478f）で改善候補の URL から # 以降を落としページ単位に束ねた。R8 見直しページは計測中の EXP-040 の対象で、# 付きの節の URL が除外をすり抜けていたと判明したため、11/1 の seoTitle の変更（38e5aec8c）は新しい EXP にせず EXP-040 の交絡として actions に記録した（9b3753048）"
+    },
+    {
+      "id": "DN-0927",
+      "at": "2026-11-01",
+      "task": "external-links の report FAIL（jeed・meti のリンク切れ）を直し、止まっている weekly-review-guard を緑に戻す",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "check-external-links"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "ce5f8a588aad",
+      "verification": "npm run check-external-links → リンク切れ 0 件（OK 5,253）",
+      "note": "weekly-review-guard の 10/26 の赤は external-links ではなく W43 レビューの未完が原因。W44 完了後に手動起動した run 41293371039 が success。external-links は 404 の 15 か所を移転先か Wayback の保存版へ差し替え（1c4c69106・a58ffdd8f・b2aef33d6・c0e778a80・f96d75d55・d6a6347d9）、HEAD だけ 404 の NIST を誤判定する検査を PR #1353 で修正。jeed・meti の 403 は bot 拒否でリンクは生きている。Issue #1257・#1312 は次の guard・ops の成功で自動クローズ"
     }
   ]
 }

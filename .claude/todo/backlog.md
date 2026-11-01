@@ -265,14 +265,6 @@
 **完了条件**: Dependabot alert #118 が fixed か、理由つきで dismiss されている。
 
 
-### [DN-0927] external-links の report FAIL（jeed・meti のリンク切れ）を直し、止まっている weekly-review-guard を緑に戻す
-タグ: [インフラ・計測] [領域:管理] [時期:2026-11] [種類:不具合] [起票:2026-11-01] [進行中]
-
-**起点**: 週次レビュー（2026-10-19〜2026-10-25）の点検。Issue #1257（10/26〜）: quality-audit の report 区分で external-links が FAIL（総監キーワードの trademark-rights・training-techniques の jeed の URL が fetch failed、unfair-competition-prevention-act の meti の営業秘密ページが 403）。Issue #1312（10/30〜）: 月曜の weekly-review-guard.yml は 10/26 の run が rc=1 で、最後の success が 12 日前。10/26 の失敗は report 区分の FAIL を Issue にした段の終了コードで、external-links と同じ原因に見える（未確認）。
-
-**やること**: (1) 3 URL の移転先を一次情報で確かめて記事のリンクを直す（403 は bot 拒否か移転かを分ける）。(2) weekly-review-guard の 10/26 の失敗が report FAIL だけかを run ログで確かめ、別の原因があれば直す。
-
-**完了条件**: 次の月曜の weekly-review-guard が success、Issue #1257・#1312 が自動クローズする。
 
 
 
