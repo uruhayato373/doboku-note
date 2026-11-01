@@ -6259,6 +6259,19 @@
       "commit": "6b3fa349bd68",
       "verification": "check-note-funnel exit 0; audit-note-funnel --live 121/121 drift 0; note-funnel-auditor 11/12 L2 pass; note update API verified both articles",
       "note": "土木・建設部門の級別導線、無料入口、商品分類とR8教材の時期表現を更新。一次PDFに二次添削の冒頭表示は現状なく、建設部門の無料6論点も既に掲載済み。"
+    },
+    {
+      "id": "DN-0538",
+      "at": "2026-11-01",
+      "task": "2級本試験後のココナラの棚の切り替え（経験記述添削を 1 商品 services/4418735 へ集約し、旧 8 商品と予想模試 PDF 2 本を片付ける）",
+      "tier": "high",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "6ddf3864f355",
+      "verification": "旧10出品のアーカイブを出品一覧で確認。公開ブログ15/15とnote対象7/7が4418735のみ。check-coconala-wiring・check-coconala-blog・check-coconala-liveが全PASS。",
+      "note": "todo-complete.mjs 経由で完了処理"
     }
   ]
 }

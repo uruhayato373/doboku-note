@@ -234,20 +234,6 @@
 
 **完了条件**: 公開 API で22記事が `is_limited=false`、`mbe07bd5cecda` と「はじめに-合格ラボ」が取得できない。有料6誌は公開 API で販売中のまま。加入画面に旧2プランが出ない。
 
-### [DN-0538] 2級本試験後のココナラの棚の切り替え（経験記述添削を 1 商品 services/4418735 へ集約し、旧 8 商品と予想模試 PDF 2 本を片付ける）
-タグ: [収益化] [領域:商品] [時期:2026-10..2026-11] [種類:改善] [起票:2026-10-05] [期日:2026-11-15] [進行中]
-
-**起点**: 2026-10-05 のユーザー決定（ココナラ展開キット.md §2 決定ログ「10/26 以降の年間の棚」）。添削・指導を級・テーマ数・形式で 8 商品に分けたため閲覧とレビューが散り、人の作業の受注は 1 件だけ。旧 DN-0264（本試験後の棚を据え置くか休止するか）はこの設計で答えたので統合した。あわせて 2026-09-29 の決定で、模試は note の予想模試 3 回（`civil-1-r8-mock3-pdf`・`civil-2-r8-mock3-pdf`）へ一本化し、ココナラの予想模試 PDF 2 本（`coconala-1kyu-moshi-pdf`・`coconala-2kyu-moshi-pdf`）は本試験の翌日以降にアーカイブする。2026-10-26 の backlog 監査で、同じ日の同じ操作を書いていた模試 PDF のカード（旧 DN-0442）と、全3テーマ版 2 件の休止の判断（DN-0445 の項目 3）をここへまとめた。
-
-**やること**（2級本試験 10/25 の翌日以降）:
-1. 10/26 に 2級の値下げ実験（全3テーマ ¥5,000・骨子 ¥6,500）の受注件数と、10月の閲覧・注文（`npm run coconala-analytics`）を記録し、カタログに入れた価格（基本 ¥6,000＋オプション・`coconala-listings.json` の options）を据え置くか直すか決める。オプションの数量・上限はライブの編集画面で確かめる。
-2. note・サイト（`src/lib/offsite-cta.ts` ほか）・ココナラブログの送り先を 4350199・4418778・4418785・4317375・4317796 から 4418735 へ付け替える。note はライブ反映の一括更新に載せ、ブログは `coconala-blog-publish --update --commit`。
-3. 運営者の判断で、統合商品をライブへ反映（`coconala-edit --service coconala-tensaku-4theme --commit`）し、旧 7 商品（受付中の全3テーマ版 添削 `4418778`・骨子 `4418785` を含む。10/18 の締切後の受付は終わっている）と `1kyu-premium` を `coconala-pause` で休止→アーカイブする。
-4. 予想模試 PDF 2 本（`coconala-1kyu-moshi-pdf`・`coconala-2kyu-moshi-pdf`）は、カタログを `status:'paused'`・`pauseReason:'retired'`・`archivedAt` にし、`coconala-pause --service <id> --commit` → `--archive --service <id> --commit` で休止してからアーカイブする。送り先にしていたココナラブログ `2kyu-moshi-tsukaikata`・`yosou-mondai-kaku-renshu` は note の予想模試へ付け替え、主題が模試 PDF の見本の `2kyu-moshi-mihon` は取り下げか書き換えかを決める。
-
-**完了条件**: ココナラの経験記述添削の公開が 4418735 の 1 件だけになり、予想模試 PDF 2 本が出品一覧から消え（coconala-pause が実測で確認）、`npm run check-coconala-wiring`・`npm run check-coconala-blog`・`npm run check-coconala-live` が通り、リポジトリに旧 5 商品と模試 PDF の URL への送客が残っていない。
-
-**準備（2026-10-21・マージ済み）**: ブランチ `prep/civil2-after-exam-1026` は運営者の指示で 2026-10-22 に前倒しして develop へマージし本番へ反映した（PR #1185・6b56dd6d8）。サイトの送り先の集約先と 2級の添削・模試は反映時点で一時休止のため、サイトの表示は変わっておらず、note・ココナラのライブ反映は未実施。4d19e4a3f でサイトの CTA の送り先を coconala-tensaku-4theme の 1 本へ、60a2dedb9 でココナラブログ 15 本の funnel・カード・案内文を集約先に書き直した（check-coconala-blog 15/15 OK・集約先が今は一時休止なので警告あり）。カタログ（coconala-listings.json）の集約先の本文とオプションは既にある。サイトの CTA から模試 PDF 2 本は 4d19e4a3f で外した。**10/26 の残り**: 受注と閲覧の記録 → `coconala-edit --service coconala-tensaku-4theme --commit` でライブ反映・listed 化 → 旧 7 商品と 1kyu-premium、模試 PDF 2 本を休止→アーカイブ → ブログを `coconala-blog-publish --update --commit`。
 
 ### [DN-0262] 1級・2級土木 第2次検定 記述 Kindle（I・J系）26冊を KDP へ3回に分けて提出する
 タグ: [収益化] [領域:商品] [時期:2026-10..2026-12] [種類:制作] [起票:2026-09-23]
