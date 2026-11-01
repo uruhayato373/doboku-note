@@ -18,7 +18,7 @@ note・ココナラ・Kindle は対象外（note の公開状態の正本は記�
 | 分け方 | チャネル×資格ごとの JSON。CI の照合と手元の承認が書くので全件 1 ファイルにはせず、作品ごと（約 1,000 ファイル）は管理画面が遅くなるので避ける |
 | 承認 | 管理画面で目視し、CLI で承認する（見た版の digest 入りのコマンドをコピーして実行）。管理画面は読むだけ |
 | 公開前の動画 ID | 公開リポジトリの台帳に置いてよい（運営者の判断）。移行中の旧→新の対応表は今どおり非公開 R2 の delivery-state だけ |
-| 古い投稿 | 2026-11-01 に運営者指定で Instagram の旧公開193件（投稿160・リール33）を削除。既存の台帳118行は `stopped(gone)` と `platform.privacy=gone` にし、旧素材フォルダは制作記録として残す。再投稿は新しい公開行の QA・承認から進める |
+| 古い投稿 | 2026-11-01 に Instagram の旧公開193件（投稿160・リール33）を実体から削除し、旧台帳80公開行・旧作品262行・旧素材2行・旧パックのソース2279ファイルも撤去した。Instagram のアクティブ台帳は予約済み固定投稿3件だけ。再投稿は新しい公開行の QA・承認から進める |
 | 素材 | Drive の `制作物/コンテンツ/{exam}/{work}/{channel}.{format}[.{variant}]/{role}.{sha8}.{ext}`（手元は `.tmp/media/` の同じ相対パス）。一度置いたら書き換えない。描き直すと名前が変わる |
 | Codex 画像 | 動画ごとに使うかを決める。どの役割の素材にも使えるが、使ったら来歴（モデル・指示文・ハッシュ）と `ai-image-fidelity-auditor` の判定 ok を必須にする。文字入りなら文字の誤りも監査する。Gemini は使わない |
 
@@ -107,11 +107,11 @@ config/content-registry.json          チャネル×形式・アカウント・I
 
 ## YouTube の切り替え（P2・2026-10-09）
 
-- `config/content-registry.json` の `cutover` に YouTube・Instagram・X が入り、公開状態の正本は台帳になった。YouTube の写し `.claude/state/video-content-status.json` は 2026-10-09 に削除済み（P7）。`derivatives.longform`・`derivatives.shorts` は `loadVideoState` が台帳から作る。Instagram（動画パックのリールを含む）は台帳が正本で、`instagramReel` は派生物に含めない（P5）。IG・X の旧 `status.json`・`posted.json` は DN-0629 で撤去する。
+- `config/content-registry.json` の `cutover` に YouTube・Instagram・X が入り、公開状態の正本は台帳になった。YouTube の写し `.claude/state/video-content-status.json` は 2026-10-09 に削除済み（P7）。`derivatives.longform`・`derivatives.shorts` は `loadVideoState` が台帳から作る。Instagram（動画パックのリールを含む）は台帳が正本で、`instagramReel` は派生物に含めない（P5）。IG の旧パックと旧 `status.json`・`posted.json` は 2026-11-01 に撤去済み。X の旧状態ファイルは DN-0629 で撤去する。
 - Instagram の新規固定カルーセルは `import-instagram --folder profile-pinned/<key> --commit` で対象1件を台帳へ入れ、`media -- plate`（POP表紙）と `media -- adopt-render`（SVGから描いた図解）で両スライドを素材IDへ結ぶ。Drive同期とAI画像監査の後、`prepare-instagram-pinned --pub <ID> --publish-at <ISO+09:00> --commit` が画像・文面・日時を照合して `qa_passed` にする。運営者本人のハッシュ付き `approve --stage final` を経て `mark-instagram-rendered --pub <ID> --commit` で予約可能にする。`publish-ig-bs` は台帳行・予定日時・現版の承認が揃わなければBusiness Suiteへ進まない。実投稿後のプロフィール固定は実表示を読み戻してから記録する。
-- `import-instagram` は未登録の公開行だけを追加し、既存行を作品フォルダの `posted.json` や過去の照合 snapshot で上書きしない。公開停止・削除後の `stopped(gone)` と予約済みの `scheduled` は台帳の状態を保持する。既存行の変更は該当する台帳の書き手で行う。
-- 実体の削除を確認して `registry -- stop --reason gone` を記録すると、公開状態を `stopped(gone)`、外部側の公開範囲を `platform.privacy=gone` にする。同じ削除確認を再記録しても状態は戻さない。
-- `verify-ig-status` と `fetch-ig-insights --reconcile` は台帳で `stopped(gone)` の旧パックを照合対象から外す。旧 `posted.json` に削除前の URL が残っていても、削除済み投稿を公開中や未投稿候補として再計上しない。新しい投稿は新規公開行と素材で準備する。
+- `import-instagram` は `--folder` を必須とし、投稿する新規作品だけを個別に追加する。一括取り込みは旧パックの再登録につながるため使わない。既存行の変更は該当する台帳の書き手で行い、旧キャンペーン計画から投稿を再開しない。
+- 実体の削除を確認して `registry -- stop --reason gone` を記録すると、公開状態を `stopped(gone)`、外部側の公開範囲を `platform.privacy=gone` にする。削除済みの Instagram 行はアクティブ台帳から撤去できる。予約中の行は削除ガードを維持する。
+- `verify-ig-status` と `fetch-ig-insights --reconcile` は台帳で `stopped(gone)` のパックを照合対象から外す。新しい投稿は新規公開行と素材で準備する。
 - 変換は `scripts/lib/registry-video-state.mjs` だけが持つ。派生物の欄と台帳の欄は欠けなく往復し（全パックで往復するテストつき）、知らない欄は投げる。書き手が新しい欄を足すときは、型（`dataset-schemas-content.mjs`）と変換の両方に足す。
 - 旧形式の書き手（`publish-video-pack.cjs`・`prepare-youtube-longforms.mts`）は `loadVideoState`（台帳だけから作る・ファイルは読まない）で読み、`saveVideoState` で台帳の行へ書く。初回通常動画の個別投稿は `registry -- publish-youtube` が公開IDの行を排他して保存する。読むだけのスクリプトと管理画面は `loadVideoState` を通す。
 - 派生物の無い公開（Shorts を作る前の動画パック）は行を作らない。Shorts の行は `youtube.json` の `shorts` に鍵を決めたときにできる。台帳にだけある素の下書き（`status: draft` だけの行）は写しに出さない。
@@ -139,8 +139,8 @@ Actions の checkout には `.tmp/media` がない。`publish-youtube --commit` 
 |---|---|
 | R01 | 件数（台帳全体が 0 件、または切り替え済みのチャネルが 0 件なら FAIL。型は check-datasets） |
 | R02 | ID の一意と形・禁止の語・`idException` の上限 |
-| R03 | 予約以上の行の削除・改名（`--base <ref>` と比べる） |
-| R04 | 参照（公開→作品・作品の定義フォルダ・素材→公開・文面の鍵）と孤児 |
+| R03 | 予約以上の行の削除・改名（`--base <ref>` と比べる）。Instagram の `stopped` は実体削除後のアクティブ台帳撤去を許す。予約中は保護 |
+| R04 | 参照（公開→作品・作品の定義フォルダ・素材→公開・文面の鍵）と孤児。全公開が `stopped` の退役済み `legacy-short` だけ、旧定義フォルダの削除を許す |
 | R05 | `video-pack.json` の `outputs` と元の公開の数の一致（`revisionOf` の改訂行は別枠。Shorts が 1 本も無いのは未作成の INFO） |
 | R06 | 素材の sha と Drive 台帳（`drive-manifest.json`）の一致・置き場の名前の sha8 |
 | R07 | 状態の必須欄（状態表の太字）・承認ハッシュ。遷移は比較元から変わった行だけ見る（P3） |

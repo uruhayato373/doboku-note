@@ -1,7 +1,8 @@
 ---
 name: ig-reel-create
-description: 過去問パックのカルーセル PNG をベースに 1080×1920 縦型 IG Reels mp4 を生成。Satori で reels サイズの PNG 10 枚再生成 → VOICEVOX TTS → ffmpeg 連結まで自動化。
+description: 退役したInstagram旧過去問パックからReelsを作る手順。現行の新規投稿には使わない。
 allowed-tools: Bash, Read, Write
+disable-model-invocation: true
 domain: sns
 ---
 

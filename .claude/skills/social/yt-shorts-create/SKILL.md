@@ -1,11 +1,14 @@
 ---
 name: yt-shorts-create
-description: IG Reels パック (slide-NN.mp4) から 30-60 秒の YouTube Shorts mp4 + meta.json を派生生成する。戦略 v7 (Instagram 一次・YouTube 二次展開) に整合。
+description: 退役したIG ReelsパックからYouTube Shortsを派生させる旧v7手順。現行のShortsは動画パックのVIDEO-RENDER.mdを使う。
 allowed-tools: Bash, Read, Write
+disable-model-invocation: true
 domain: sns
 ---
 
 # YouTube Shorts 派生スキル（v7）
+
+> **退役（2026-11-01）**: 以下の `--from-reels` 経路が読む旧Instagram `exam-packs` は削除済み。再生成・再投稿しない。現行Shortsは [VIDEO-RENDER.md](../../../../content/sns/youtube/VIDEO-RENDER.md) の動画パック経路で作り、台帳の公開行と承認ゲートを通す。
 
 `content/sns/instagram/{exam}/exam-packs/<year>/pack-NN/reels/` の **IG Reels mp4 から、1080×1920 縦型 30-60 秒の YouTube Shorts を派生生成**する。本スキルは mp4 + thumbnail.png + meta.json の生成まで担当。YouTube への投稿は `post-from-schedule.cjs`（台帳 CI 運用）が担う。
 

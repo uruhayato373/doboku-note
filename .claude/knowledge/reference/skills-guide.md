@@ -9,7 +9,7 @@ title: スキル ナビゲーションガイド
 
 参考書籍の原本・画像・OCRを扱うときは `/asset-route` と [保存方針](./asset-storage-policy.md) §1-1を参照する。正本PDFは1箇所、文字起こしは各原資料内 `ocr/`。`/pdf-to-mdx --scanned` は既存book bundleの `pages/` を再利用し、新規OCR/cropは `record-reference-book-artifacts` で来歴を登録する。
 
-SNSの人物・見出しを改修するときは [SNS画像ポリシー §0・§0.1](./sns-image-policy.md) を起点に、ig-post-create／ig-carousel-restyle／ig-reel-create／yt-shorts-create で制作する。既存予約・公開状態は publish-ig-bs／publish-x と、運営者が回す `verify-ig-status` で実体と照合する。 Xの継続監視は publish-x の `check-x-queue-health` 手順を使う。通常動画の共有合成器はPNGの色形式を揃えて冒頭欠落を防ぎ、画像と字幕をWAV実尺へ同期し、全場面画像は `media promote` で登録する。ポーズ選びは管理画面 `/gallery/characters` と [キャラクター素材ポリシー](./character-asset-policy.md) を参照する。
+SNSの人物・見出しを改修するときは [SNS画像ポリシー §0・§0.1](./sns-image-policy.md) を起点にする。Instagram の旧過去問パック生成スキルは退役済みで、新規投稿は [投稿素材 README](../../../content/sns/instagram/README.md) に従って個別に制作・台帳登録する。YouTube Shorts の制作は現行の動画パック経路で進める。既存予約・公開状態は publish-ig-bs／publish-x と、運営者が回す `verify-ig-status` で実体と照合する。 Xの継続監視は publish-x の `check-x-queue-health` 手順を使う。通常動画の共有合成器はPNGの色形式を揃えて冒頭欠落を防ぎ、画像と字幕をWAV実尺へ同期し、全場面画像は `media promote` で登録する。ポーズ選びは管理画面 `/gallery/characters` と [キャラクター素材ポリシー](./character-asset-policy.md) を参照する。
 
 ---
 
@@ -86,10 +86,7 @@ SNSの人物・見出しを改修するときは [SNS画像ポリシー §0・§
 | `/pe-note-plan` | 技術士総監 記述式 note 有料記事・magazine の**編集ロードマップ**を提案する企画スキル（本文は書かない）。段階投下方針・magazine 在庫・価格・過去問カバレッジを突合し「次に何を・どの順で・いくらで出すか」を優先度付きで提示 | `noteの次の一手`, `magazine企画`, `記述式コンテンツの投下計画`, `/pe-note-plan [--horizon {next\|quarter}]` |
 | `/note-hashtags` | note 公開用ハッシュタグ 99 個を生成（選択科目は `--article II1-1` 等でファイル別出力） | `ハッシュタグ生成`, `/note-hashtags {slug} [--article {suffix}]` |
 | `/ig-figure-pack` | サイトSVGを総監・1級土木・技術士建設部門・技術士一次の4枚図解カルーセル下書きへ展開。元図・資格ラベルを照合し、公開状態は既存SNS台帳で管理 | `図をInstagramへ`, `/ig-figure-pack` |
-| `/ig-post-create` | Instagram カルーセル PNG の**新規生成**（過去問パック・KW 解説の単発）。※既存パック再生成は restyle、figure 変換は figure-pack | `Instagram投稿作成`, `IG スライド`, `/ig-post-create --slug {kw}` |
 | `/ig-figure-pack` | 総監・1級土木・建設部門のサイトSVGを4枚カルーセル下書きへ展開。資格別ラベル・白背景・元図参照・各枚の目視確認と既存公開台帳への引継ぎ | `IG figure 投稿`, `キーワード図解カルーセル`, `/ig-figure-pack {keyword}` |
-| `/ig-carousel-restyle` | tokens.json 更新後に**既存**過去問パック PNG を 3 フォーマット（Carousel/Reels/Stories）一括再生成（新規生成は post-create） | `IGデザイン再適用`, `カルーセル再生成`, `/ig-carousel-restyle --year r07` |
-| `/ig-reel-create` | 過去問パックのカルーセル PNG から 1080×1920 Reels mp4 を生成（VOICEVOX TTS + ffmpeg）。`--exam-dir` で多資格対応（技術士総監 / 1級土木 / 2級土木、2級は年度に z=前期 / k=後期 接尾辞） | `IG リール作成`, `動画化`, `/ig-reel-create --exam-dir 1級土木 --exam r07-pack-01 --skip-png` |
 | `/publish-x` | Playwright で X 投稿を自動化（即時・予約）。**予約運用は再開（2026-07-07・@doboku373）**。凍結実因＝連続/重複予約を潰すため **ガード付きフロー必須**: writer→`x-schedule-guard`緑→`--dry-run`→`--queue`緑→本番→`x-sync-status`（policy §11.5）。ガード赤なら予約しない・1 週間分ずつ・1 日 3 本上限・自動エンゲージ禁止。**スレッド（`[thread]`）は予約非対応のためヘッドのみ予約→配信後 `npm run x-thread-replies -- --run` でリプライをぶら下げる（policy §5.2.1）** | `X投稿`, `自動投稿`, `/publish-x` |
 | `/publish-note` | browser-use CLI で note.com/dobokunote に投稿。(1) 模範論文マガジン記事（有料・`<persona> <RXX>`）または (2) 建設部門 無料ファネル記事（入口/キーワード・`--free <dir>`）を下書き/予約/即時公開（stats47 由来を適応）。本文paste・カバー・タグ自動／有料境界・PDF添付・リンクカードは半手動。**実行は Mac 推奨**（会社PCプロキシ制約）。既存記事のカード削除・リンク更新は `note-update-partial`（添付・公開範囲保持） | `note投稿`, `note公開`, `note下書き作成`, `/publish-note <persona> <RXX>`, `/publish-note --free <dir>` |
 | `/audit-note-funnel` | note 導線（資格別 3 層モデル＝L1 全資格サイトマップ / L2 資格別もくじ / L3 記事内 CTA）のドリフトを監査・修復。**ソース D1-D4**（CTA 欠落・L2 未収録・L1 未リンク／`npm run audit-note-funnel`・CI=`check-note-funnel`）＋ **`--live` で D5 ライブ反映**（配線後に再投稿せず live が死ぬドリフトを note API で検出）。修復は `wire-note-funnel-cta`（ソース配線）／**`note-append-cta`（公開済み記事へ live 反映・Windows 可・通知いいえ）**。意味監査は `note-funnel-auditor`。真実源 `.claude/knowledge/reference/note-funnel-architecture.md` | `note導線の見直し`, `もくじ整備`, `CTA配線`, `ファネル監査`, `/audit-note-funnel [--exam {key}] [--apply\|--semantic\|--live]` |

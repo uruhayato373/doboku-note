@@ -6,11 +6,11 @@
  * - output: content/sns/instagram/video-packs/{exam}/{packId}-{key}/reels/{meta.json,caption.txt}
  * - binary は render-instagram-video-pack-reels.mjs が JIT 生成する（Git 追跡外）。
  *
- * 既定 dry-run。--write で reels/{meta.json,caption.txt} と video-pack.json outputs.instagramReel=2 を書く。
+ * 旧224本の準備経路。現在は read-only dry-run のみで、--write は拒否する。
  * 公開の状態の正本はコンテンツ台帳（content/registry/publications/instagram）。予約済み・公開済みの時刻は台帳から読み、
- * 新しいリールは書いたあと `npm run registry -- import-instagram --commit` で台帳へ取り込む（今の動画の台帳には書かない）。
+ * 新しいリールは書いたあと `npm run registry -- import-instagram --folder <相対フォルダ> --commit` で個別に台帳へ取り込む。
  */
-import { existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from 'node:fs';
+import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import { join, relative } from 'node:path';
 import { parseArgs } from 'node:util';
 
@@ -55,6 +55,7 @@ const { values: args } = parseArgs({
   },
 });
 if (!/^\d{4}-\d{2}-\d{2}$/.test(args.start)) throw new Error(`--start は YYYY-MM-DD: ${args.start}`);
+if (args.write) throw new Error('旧224本の Instagram Reels 一括生成は終了した。新規作品を個別に制作・登録する');
 const selected = new Set(args.exam.split(',').filter(Boolean));
 for (const exam of selected) if (!EXAMS[exam]) throw new Error(`未対応の試験: ${exam}`);
 
@@ -107,14 +108,13 @@ function loadRows() {
       const storyboardPath = join(sourceDir, 'storyboard.json');
       const youtubePath = join(sourceDir, 'youtube.json');
       if (![manifestPath, storyboardPath, youtubePath].every(existsSync)) continue;
-      const manifest = JSON.parse(readFileSync(manifestPath, 'utf8'));
       const storyboard = JSON.parse(readFileSync(storyboardPath, 'utf8'));
       const youtube = JSON.parse(readFileSync(youtubePath, 'utf8'));
       if (!Array.isArray(youtube.shorts) || youtube.shorts.length !== 2) continue;
       for (const short of youtube.shorts) {
         const scene = storyboard.scenes?.find((candidate) => candidate.sceneId === short.sceneId);
         if (!scene) throw new Error(`${packId}/${short.key}: sceneId=${short.sceneId} がありません`);
-        rows.push({ exam, packId, sourceDir, manifestPath, manifest, short, scene });
+        rows.push({ exam, packId, short, scene });
       }
     }
   }
@@ -160,39 +160,6 @@ for (const row of rows) {
   }
 }
 
-if (args.write) {
-  const manifests = new Map();
-  for (const row of rows) {
-    mkdirSync(join(row.destDir, 'reels'), { recursive: true });
-    const metaPath = join(row.destDir, 'reels', 'meta.json');
-    const existingMeta = existsSync(metaPath) ? JSON.parse(readFileSync(metaPath, 'utf8')) : {};
-    const meta = {
-      ...existingMeta,
-      schemaVersion: 1,
-      channel: 'instagram',
-      account: ACCOUNT,
-      sourcePackId: row.packId,
-      exam: row.exam,
-      key: row.short.key,
-      sceneId: row.short.sceneId,
-      title: fit(cleanTitle(row.short.title), 42),
-      publishAt: row.publishAt,
-      approvedBy: 'user',
-      approvedAt: existingMeta.approvedAt ?? new Date().toISOString(),
-      productionDisclosure: 'author-led-ai-assisted',
-      sourceShort: relative(ROOT, join(ROOT, '.tmp/video-render', row.packId, 'shorts', row.short.key, 'shorts.mp4')).replace(/\\/g, '/'),
-    };
-    writeFileSync(metaPath, `${JSON.stringify(meta, null, 2)}\n`);
-    if (!existsSync(join(row.destDir, 'reels', 'script.json'))) writeFileSync(join(row.destDir, 'reels', 'caption.txt'), `${row.caption}\n`);
-    manifests.set(row.manifestPath, row.manifest);
-  }
-  for (const [manifestPath, manifest] of manifests) {
-    manifest.outputs ||= {};
-    manifest.outputs.instagramReel = 2;
-    writeFileSync(manifestPath, `${JSON.stringify(manifest, null, 2)}\n`);
-  }
-}
-
 const counts = Object.fromEntries(Object.keys(EXAMS).map((exam) => [exam, rows.filter((row) => row.exam === exam).length]));
 const publishTimes = rows.map((row) => row.publishAt).sort();
 console.log(JSON.stringify({
@@ -206,4 +173,3 @@ console.log(JSON.stringify({
   lastPublishAt: publishTimes.at(-1) ?? null,
   firstTarget: rows[0] ? relative(ROOT, rows[0].destDir).replace(/\\/g, '/') : null,
 }, null, 2));
-if (args.write) console.log('台帳に無い新しいリールは `npm run registry -- import-instagram --commit` で取り込む（公開の状態の正本は台帳）。');

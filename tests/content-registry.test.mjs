@@ -67,11 +67,18 @@ test('R03: 予約以上の公開を消す・改名するのを止める（改名
   const old = pub({ id: 'civil-construction-2/matome-2kyu-chokuzen/youtube.short.point-old', format: 'short', variant: 'point-old', status: 'scheduled' });
   assert.ok(codes(r([pub()], [old])).includes('R03'));
   assert.ok(!codes(r([pub()], [{ ...old, status: 'draft' }])).includes('R03'));
+  const oldIg = { ...old, id: 'civil-construction-2/matome-2kyu-chokuzen/instagram.carousel', channel: 'instagram', format: 'carousel', account: 'instagram:main' };
+  assert.ok(!codes(r([pub()], [{ ...oldIg, status: 'stopped', stopReason: 'gone' }])).includes('R03'));
+  assert.ok(codes(r([pub()], [oldIg])).includes('R03'));
 });
 
 test('R04: 公開の作品・素材の参照が無ければ止める', () => {
   assert.ok(codes(run({ works: [] })).includes('R04'));
   assert.ok(codes(run({ publications: [pub({ media: { cover: `${PUB}/cover` } })] })).includes('R04'));
+  const retiredWork = work({ id: 'retired-short', kind: 'legacy-short', definition: 'content/sns/instagram/removed-legacy-pack' });
+  const retiredPub = pub({ id: 'civil-construction-2/retired-short/youtube.short', work: 'retired-short', format: 'short', status: 'stopped', stopReason: 'gone' });
+  assert.ok(!codes(run({ works: [retiredWork], publications: [retiredPub] })).includes('R04'));
+  assert.ok(codes(run({ works: [retiredWork], publications: [{ ...retiredPub, status: 'scheduled' }] })).includes('R04'));
 });
 
 test('R06: 置き場の名前の sha8 が違えば止め、Drive 台帳に無ければ WARN', () => {

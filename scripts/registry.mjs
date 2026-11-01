@@ -9,7 +9,7 @@
  *   npm run registry -- import-video-packs [--commit]   # 全動画パック。2 回目は書く行 0。公開中の一覧（own-videos）と件数を突き合わせる
  *   npm run registry -- prepare-youtube --pub <公開 ID> --publish-at <日時> [--commit] # 通常動画の文面・予定を登録（承認はしない）
  *   npm run registry -- mark-rendered --pub <公開 ID> [--commit] # 承認済み通常動画の完成レンダーを実検査して状態を進める
- *   npm run registry -- import-instagram [--folder <相対フォルダ>] [--commit] # IG の作品（folder なしは全件）。照合 snapshot が要る
+ *   npm run registry -- import-instagram --folder <相対フォルダ> [--commit] # 新しく投稿する IG 作品を個別に登録。照合 snapshot が要る
  *   npm run registry -- prepare-instagram-pinned --pub <公開ID> --publish-at <ISO+09:00> [--commit]
  *   npm run registry -- mark-instagram-rendered --pub <公開ID> [--commit]
  *   npm run registry -- import-x [--commit]              # X の下書きフォルダ全部（自分の投稿の一覧 data/x/own-posts と本文で照合）
@@ -265,6 +265,7 @@ function unschedule() {
 }
 
 async function importInstagram() {
+  if (!args.folder) throw new Error('Instagram は今後投稿する作品を --folder で個別指定する。一括取り込みは旧投稿を再登録するため使えない');
   const { instagramRows } = await import('./lib/registry-ig-state.mjs');
   const cfg = loadRegistryConfig(ROOT);
   const reg = loadRegistry(ROOT);

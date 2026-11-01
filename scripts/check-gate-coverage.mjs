@@ -102,7 +102,7 @@ const GATES = [
   },
   // ── SNS・画像系（2026-08-18 追加）──
   // それまで GATES は note/図版だけで、SNS 系は 1 本も見張られていなかった。
-  // check-x-utm / check-ig-cta / check-sns-urls 等が走査崩れで `✓ 0` を返しても誰も気づけない。
+  // check-x-utm / check-sns-urls 等が走査崩れで `✓ 0` を返しても誰も気づけない。
   {
     name: 'check-sns-urls',
     cmd: ['node', 'scripts/check-sns-urls.mjs'],
@@ -128,21 +128,14 @@ const GATES = [
     min: 20,
     note: 'X 下書きのファイル数。パス判定が \ 区切りで壊れると 0 になる（note 側で実際に起きた型）',
   },
+  // 旧 figure-pack は撤去済み。現行 Instagram は予約済み固定投稿3本を
+  // プロフィール・原稿・画像SHA・Drive台帳と一緒に検査する。
   {
-    name: 'check-ig-cta',
-    cmd: ['node', 'scripts/check-ig-cta.mjs'],
-    re: /✓\s*(\d+)\s*パック/,
-    aliveRe: /件のテンプレ逸脱/,
-    min: 20,
-    note: 'IG パック数。パック探索が壊れると 0 になり CTA 逸脱を全て見逃す',
-  },
-  {
-    name: 'check-ig-cover',
-    cmd: ['node', 'scripts/check-ig-cover.mjs'],
-    re: /✓\s*(\d+)\s*パック/,
-    aliveRe: /件のテンプレ逸脱/,
-    min: 20,
-    note: 'IG パック数（表紙・白背景）。上と同じ探索を通るので同時に 0 化しうる',
+    name: 'check-instagram-profile-funnel',
+    cmd: ['node', 'scripts/check-instagram-profile-funnel.mjs'],
+    re: /固定投稿(\d+)本を検査/,
+    min: 3,
+    note: '予約済み固定投稿3本。対象の探索が壊れると表紙・図解・動線を見逃す',
   },
   {
     name: 'check-figure-embed-dims',

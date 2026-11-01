@@ -850,12 +850,12 @@
 **完了条件**: 登録ページが本番にあり、テスト用アドレスで登録→確認メール→配信停止まで通り、iOS アプリから張るリンク先 URL が決まっている。
 
 
-### [DN-0629] コンテンツ台帳の残り: IG・X の status.json・posted.json の写しと、Drive の旧日付フォルダの表紙を消す
+### [DN-0629] コンテンツ台帳の残り: 固定投稿3件とXの状態ファイルの写し、Drive旧日付表紙を整理する
 タグ: [領域:SNS] [時期:2026-11] [種類:改善] [起票:2026-10-10]
 
-**起点**: 2026-10-10、コンテンツ台帳 P5〜P7（DN-0611・DN-0612・DN-0607）を締めたときに残ったもの。IG・X の公開状態はもう `content/registry` が正本で、書き手・読み手は台帳の入口（registry-ig-store・registry-x-store）へ切り替わった。ただし旧ファイルが写しとして残っている：`content/sns/**/status.json` 268 件、`posted.json` 79 件。Drive にも、どの台帳からも参照されない旧日付フォルダの表紙が残っている：`制作物/動画レンダー/採用カバー/youtube-covers-20260909` の 346 枚と `youtube-covers-logo-a-20260909`。
+**起点**: 2026-10-10、コンテンツ台帳 P5〜P7 を締めたときに残ったもの。IG・X の公開状態は `content/registry` が正本。Instagram の旧パックとその状態ファイルは 2026-11-01 に撤去し、現行固定投稿3件の `status.json` だけが写しとして残る。X の旧状態ファイルと、Drive の旧日付フォルダの採用表紙は別途整理する。
 **やること**:
-1. status.json・posted.json を読む残りのコード（`rg "status\.json|posted\.json" scripts tools`）を台帳の入口へ差し替え、写しを削除する。`information-architecture.json` の denyPatterns と RESTRUCTURED_PATHS で復活を止める
+1. 固定投稿3件とXの `status.json`・`posted.json` を読む残りのコード（`rg "status\.json|posted\.json" scripts tools`）を台帳の入口へ差し替え、写しを削除する。`information-architecture.json` の denyPatterns と RESTRUCTURED_PATHS で復活を止める
 2. Drive の旧日付フォルダは参照 0 を `rg` で確かめ、運営者の了承を得てからマウント上でゴミ箱へ移す
 **完了条件**: `find content/sns -name status.json -o -name posted.json` が 0 件。check-information-architecture・check-content-registry・test が緑。Drive に日付フォルダの採用カバーが残らない。
 
@@ -2014,9 +2014,7 @@ Windows の PowerShell で repo 直下から順に:
 タグ: [インフラ・計測] [領域:管理] [時期:2026-11] [種類:改善] [Codex候補] [起票:2026-09-06]
 
 2026-09-06 のSNS容量監査で、重い動画・音声はDrive退避とローリング削除まで完了した。現時点で
-削除せず保持した小容量資産は、IG CEM PNG 48件（4.09MiB・投稿状態とSoT内訳が未確定）、legacy
-YouTube thumbnail 32件（2.20MiB・private動画と投稿スクリプトが参照）、Xの旧アカウント／投稿済み
-カード104件（約11MiB・Git追跡かつpublisher/checkerがローカル実体を要求）の3群。
+削除せず保持した小容量資産は、legacy YouTube thumbnail 32件（2.20MiB・private動画と投稿スクリプトが参照）と、Xの旧アカウント／投稿済みカード104件（約11MiB・Git追跡かつpublisher/checkerがローカル実体を要求）。旧 IG パックのGitソースは 2026-11-01 に撤去済み。
 
 **再開条件**: DN-0110 の通常動画112本＋Shorts224本の外部実体照合が完了するか、
 `npm run audit-repo-assets`で`content/sns`が500MiBを再び超えたとき。条件前は容量効果に対して
@@ -2024,10 +2022,8 @@ YouTube thumbnail 32件（2.20MiB・private動画と投稿スクリプトが参�
 
 再開時は次の順で実査する。
 
-1. IG CEMは`slide-data.json`・caption・statusをパック単位で監査し、完成PNGは既存
-   `ig-rendered-image`へ同期、中間PNGは再生成可能性を確認してから削除する
-2. legacy YouTube thumbnailは公開／retiredの実体と参照スクリプトを照合し、参照が残る間は保持する
-3. Xカードは対象が100MiB以上になった場合だけ、Drive group・使用直前hydrate・検査の台帳対応を
+1. legacy YouTube thumbnailは公開／retiredの実体と参照スクリプトを照合し、参照が残る間は保持する
+2. Xカードは対象が100MiB以上になった場合だけ、Drive group・使用直前hydrate・検査の台帳対応を
    1セットで実装する。100MiB未満ならKEEP_LOCALを確定してカードを削除する
 
 **禁止**: `content/sns/_assets/`のブランド原本と`content/sns/figures/`の共通図版を退避対象へ含めない。
@@ -2256,18 +2252,14 @@ Phase 3の評価を戦略SSOTへ反映し、資格拡張の可否を確定した
 **後回し**（2026-10-13 運営者）: 骨子 39 章は Web・e-Gov の一次資料だけで作り終え、第 1 波も確認済みになったので、文字起こし（3 部・約 350 頁・スキャン）の費用に見合う使い道が「論点の抜けの見比べ」に限られる。制作・公開は10/15に承認済み。記事を読んで、許可の章（A-08・A-14 など）や法令の読み方（A-03）で抜けが気になったら着手する。
 **完了条件**: 行政法の文字起こしと候補表が Drive にあり、`check-reference-sources`・`check-reference-book-pages` が緑。`check-content-series --suggest` が行政法の項目を挙げる。
 
-### [DN-0835] SNS の保留が解けたらやること（Instagram の予約補充・X Article の再計画・X の posted_url の確認・X カード画像の追跡方針・ストーリーズの自動化可否）
+### [DN-0835] SNS の保留が解けたらやること（X Article の再計画・X の posted_url の確認・X カード画像の追跡方針・ストーリーズの自動化可否）
 タグ: [収益化] [領域:SNS] [種類:改善] [起票:2026-10-24]
 
 **保留の範囲**: 2026-10-31 のユーザー指示で技術士一次・コンクリートのInstagram Reels／YouTube Shorts試行を再開。Xの追加展開は引き続き保留。
 
-**起点**: 2026-10-05 の点検で、Instagram 新シリーズ（`content/sns/instagram/campaign.json`・112 テーマ／336 投稿）の予約が 9/20 12:30 を最後に途切れていると分かった。`.claude/knowledge/reference/instagram-campaign.md`（予約と継続配信）は Codex の定期処理 `instagram` が毎日 10:00 に補充すると書くが、`~/.codex/automations/` にも launchd にも無い。2級のテーマ 18 のうち配信済みは `anzen-ippanron-3riyu` だけで、プロフィール（`config/ig-account.json` の displayName・bio）も「技術士・1級土木」のまま。公開済み未記録・照合異常の解消は DN-0339 が持つ。
+**Instagram の旧計画**: 112 テーマ／336 投稿の旧一括キャンペーンと旧パックは 2026-11-01 に撤去した。旧計画の予約補充・旧ハイライトへの追加は再開しない。現行台帳は新しい固定投稿3件だけで、将来の投稿は新規素材を個別に登録する。
 
-**やること**（保留が解けてから）:
-1. 補充の定期処理を作り直すか、手動補充の手順を書く（手順書 `instagram-campaign.md` は 2026-10-25 に外した・git の履歴にある）。
-2. プロフィールの 2級表記と、試験が終わった 1級直前ハイライト（07_civil-1）の扱いを DN-0363 と合わせて決める。
-
-**完了条件**: 補充の仕組みと、その手順の記述が一致している。
+**現行のInstagram**: [投稿素材 README](../../content/sns/instagram/README.md) の個別制作・台帳登録・Business Suite実体照合を使う。
 
 **統合（2026-10-26 棚卸し）: 旧 DN-0257「SNS再開後にX Article 1・3・4の公開計画を見直す」**
 
@@ -2300,7 +2292,7 @@ Phase 3の評価を戦略SSOTへ反映し、資格拡張の可否を確定した
 
 **起点**: 2026-09-27 に 1級・2級の直前ハイライト（各 5 枚）の自動化を頼まれた。ハイライトへの登録は Instagram のスマホアプリにしか無く（ブラウザ版・Graph API とも不可）、手元の iOS シミュレーターには App Store が無いので自動化できない。一方、ストーリーズの投稿自体は Meta Business Suite（ブラウザ）で作れる可能性があるが、`publish-ig-bs` はカルーセルとリールだけに対応している。今回は画像を生成して運営者の端末へ送り、投稿とハイライト登録は運営者が行った。
 
-**やること**: Business Suite のストーリーズ作成でリンクスタンプ（URL）を付けられるかを確かめ、付けられるなら `publish-ig-bs` にストーリーズの投稿（`content/sns/instagram/highlights/<dir>/img` と note.md の URL）を足す。付けられないなら、その結論を ig-highlight-design-policy.md に書いてカードを閉じる。
+**やること**: 新しいストーリーズを制作する判断が出た場合に、Business Suite でリンクスタンプ（URL）を付けられるかを確かめる。旧 `highlights/` 素材は撤去済みのため再利用しない。可能なら新規素材と台帳公開行を作って投稿経路を設計し、不可能なら理由を記録する。
 
 **完了条件**: ストーリーズの投稿が `publish-ig-bs` の dry-run で通るか、できない根拠が方針文書に書かれている。
 

@@ -1,11 +1,14 @@
 ---
 name: ig-post-create
-description: Instagram カルーセル PNG の**新規生成**。2 系統運用 (A: 択一クイズパック / B: 過去問パック)。Satori vDOM → Resvg PNG。1080×1350 (Carousel) と 1080×1920 (Reels) 対応。使い分け＝既存パックの意匠一括再生成は ig-carousel-restyle、site figure SVG からの変換は ig-figure-pack。
+description: 退役したInstagram旧A/B過去問パックの生成仕様。現行の新規投稿には使わず、content/sns/instagram/README.md の個別登録を使う。
 allowed-tools: Bash, Read, Write
+disable-model-invocation: true
 domain: sns
 ---
 
 # Instagram カルーセル投稿 生成スキル
+
+> **退役（2026-11-01）**: 旧A/B/Cパックの素材は削除済み。以下の一括生成・旧パックへの出力コマンドを実行しない。新規投稿は [Instagram 投稿素材 README](../../../../content/sns/instagram/README.md) に従い、新しいフォルダを `import-instagram --folder` で個別登録する。
 
 doboku-note の Instagram カルーセル投稿用 PNG を生成する。**2 シリーズ運用**：
 
@@ -15,7 +18,7 @@ doboku-note の Instagram カルーセル投稿用 PNG を生成する。**2 シ
 | **B. 過去問パック** | 公式試験問題 H21-R8 全 720 問 | AIDesigner 新意匠（単一 brand + semantic、Manrope+NotoSansJP） | `ig-post-create.mjs --exam` |
 | C. 単独 KW 解説（旧） | キーワード 1 件の Study Notebook | notebook デザイン | `ig-post-create.mjs --slug` |
 
-新規投稿の主軸は **A** または **B**。C は旧運用で残置（量産は基本しない）。
+上表は旧運用の記録。現行の投稿候補ではない。
 
 ## 人物・見出しと既存投稿の改修
 

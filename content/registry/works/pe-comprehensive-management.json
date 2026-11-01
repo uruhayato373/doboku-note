@@ -3,11 +3,6 @@
   "exam": "pe-comprehensive-management",
   "works": [
     {
-      "id": "cem-angle-civil-servant-blindspots-experience",
-      "kind": "ig-pack",
-      "definition": "content/sns/instagram/cem/angle-reels/civil-servant-blindspots-experience"
-    },
-    {
       "id": "cem-existing-figure-diagrams",
       "kind": "x-thread",
       "definition": "content/sns/x/draft/103-cem-existing-figure-diagrams",
@@ -19,244 +14,9 @@
       "definition": "content/site/pe-comprehensive-management/access-control"
     },
     {
-      "id": "cem-kw-accident-statistics",
-      "kind": "ig-pack",
-      "definition": "content/sns/instagram/cem/keyword-packs/accident-statistics"
-    },
-    {
-      "id": "cem-kw-cash-flow-statement",
-      "kind": "ig-pack",
-      "definition": "content/sns/instagram/cem/keyword-packs/cash-flow-statement"
-    },
-    {
-      "id": "cem-kw-data-analysis-method-selection",
-      "kind": "ig-pack",
-      "definition": "content/sns/instagram/cem/keyword-packs/data-analysis-method-selection"
-    },
-    {
-      "id": "cem-kw-development-process-models",
-      "kind": "ig-pack",
-      "definition": "content/sns/instagram/cem/keyword-packs/development-process-models"
-    },
-    {
-      "id": "cem-kw-disaster-weather-info",
-      "kind": "ig-pack",
-      "definition": "content/sns/instagram/cem/keyword-packs/disaster-weather-info"
-    },
-    {
-      "id": "cem-kw-ecrs-principle",
-      "kind": "ig-pack",
-      "definition": "content/sns/instagram/cem/keyword-packs/ecrs-principle"
-    },
-    {
-      "id": "cem-kw-eia-three-classes",
-      "kind": "ig-pack",
-      "definition": "content/sns/instagram/cem/keyword-packs/eia-three-classes"
-    },
-    {
-      "id": "cem-kw-energy-key-figures",
-      "kind": "ig-pack",
-      "definition": "content/sns/instagram/cem/keyword-packs/energy-key-figures"
-    },
-    {
-      "id": "cem-kw-environmental-basic-plan",
-      "kind": "ig-pack",
-      "definition": "content/sns/instagram/cem/keyword-packs/environmental-basic-plan"
-    },
-    {
-      "id": "cem-kw-fail-safe",
-      "kind": "ig-pack",
-      "definition": "content/sns/instagram/cem/keyword-packs/fail-safe"
-    },
-    {
-      "id": "cem-kw-four-p-analysis",
-      "kind": "ig-pack",
-      "definition": "content/sns/instagram/cem/keyword-packs/four-p-analysis"
-    },
-    {
-      "id": "cem-kw-frailty-locomo",
-      "kind": "ig-pack",
-      "definition": "content/sns/instagram/cem/keyword-packs/frailty-locomo"
-    },
-    {
-      "id": "cem-kw-ghg-key-figures",
-      "kind": "ig-pack",
-      "definition": "content/sns/instagram/cem/keyword-packs/ghg-key-figures"
-    },
-    {
-      "id": "cem-kw-herzberg-two-factor-theory",
-      "kind": "ig-pack",
-      "definition": "content/sns/instagram/cem/keyword-packs/herzberg-two-factor-theory"
-    },
-    {
-      "id": "cem-kw-infosec-certifications",
-      "kind": "ig-pack",
-      "definition": "content/sns/instagram/cem/keyword-packs/infosec-certifications"
-    },
-    {
-      "id": "cem-kw-iso14000",
-      "kind": "ig-pack",
-      "definition": "content/sns/instagram/cem/keyword-packs/iso-14000"
-    },
-    {
-      "id": "cem-kw-job-vs-membership",
-      "kind": "ig-pack",
-      "definition": "content/sns/instagram/cem/keyword-packs/job-vs-membership"
-    },
-    {
-      "id": "cem-kw-labor-relations-adjustment-act",
-      "kind": "ig-pack",
-      "definition": "content/sns/instagram/cem/keyword-packs/labor-relations-adjustment-act"
-    },
-    {
-      "id": "cem-kw-labor-share-ratio",
-      "kind": "ig-pack",
-      "definition": "content/sns/instagram/cem/keyword-packs/labor-share-ratio"
-    },
-    {
-      "id": "cem-kw-maintenance-types",
-      "kind": "ig-pack",
-      "definition": "content/sns/instagram/cem/keyword-packs/maintenance-types"
-    },
-    {
-      "id": "cem-kw-marketing-frameworks",
-      "kind": "ig-pack",
-      "definition": "content/sns/instagram/cem/keyword-packs/marketing-frameworks"
-    },
-    {
-      "id": "cem-kw-maslow-hierarchy-of-needs",
-      "kind": "ig-pack",
-      "definition": "content/sns/instagram/cem/keyword-packs/maslow-hierarchy-of-needs"
-    },
-    {
-      "id": "cem-kw-mcgregor-xy-theory",
-      "kind": "ig-pack",
-      "definition": "content/sns/instagram/cem/keyword-packs/mcgregor-xy-theory"
-    },
-    {
-      "id": "cem-kw-mtbf-mttr-availability",
-      "kind": "ig-pack",
-      "definition": "content/sns/instagram/cem/keyword-packs/mtbf-mttr-availability"
-    },
-    {
-      "id": "cem-kw-multi-factor-authentication",
-      "kind": "ig-pack",
-      "definition": "content/sns/instagram/cem/keyword-packs/multi-factor-authentication"
-    },
-    {
       "id": "cem-kw-multisource-evaluation",
       "kind": "legacy-short",
       "definition": "content/site/pe-comprehensive-management/360-degree-evaluation"
-    },
-    {
-      "id": "cem-kw-new-qc-seven-tools",
-      "kind": "ig-pack",
-      "definition": "content/sns/instagram/cem/keyword-packs/new-qc-seven-tools"
-    },
-    {
-      "id": "cem-kw-npv-net-present-value",
-      "kind": "ig-pack",
-      "definition": "content/sns/instagram/cem/keyword-packs/npv-net-present-value"
-    },
-    {
-      "id": "cem-kw-organization-forms",
-      "kind": "ig-pack",
-      "definition": "content/sns/instagram/cem/keyword-packs/organization-forms"
-    },
-    {
-      "id": "cem-kw-organization-types",
-      "kind": "ig-pack",
-      "definition": "content/sns/instagram/cem/keyword-packs/organization-types"
-    },
-    {
-      "id": "cem-kw-organizational-commitment",
-      "kind": "ig-pack",
-      "definition": "content/sns/instagram/cem/keyword-packs/organizational-commitment"
-    },
-    {
-      "id": "cem-kw-osh-management-system",
-      "kind": "ig-pack",
-      "definition": "content/sns/instagram/cem/keyword-packs/osh-management-system"
-    },
-    {
-      "id": "cem-kw-patent-vs-utility-model",
-      "kind": "ig-pack",
-      "definition": "content/sns/instagram/cem/keyword-packs/patent-vs-utility-model"
-    },
-    {
-      "id": "cem-kw-pfi",
-      "kind": "ig-pack",
-      "definition": "content/sns/instagram/cem/keyword-packs/pfi"
-    },
-    {
-      "id": "cem-kw-ppm-analysis",
-      "kind": "ig-pack",
-      "definition": "content/sns/instagram/cem/keyword-packs/ppm-analysis"
-    },
-    {
-      "id": "cem-kw-pull-push-production",
-      "kind": "ig-pack",
-      "definition": "content/sns/instagram/cem/keyword-packs/pull-push-production"
-    },
-    {
-      "id": "cem-kw-renewable-energy-act",
-      "kind": "ig-pack",
-      "definition": "content/sns/instagram/cem/keyword-packs/renewable-energy-act"
-    },
-    {
-      "id": "cem-kw-rio-declaration",
-      "kind": "ig-pack",
-      "definition": "content/sns/instagram/cem/keyword-packs/rio-declaration"
-    },
-    {
-      "id": "cem-kw-risk-perception",
-      "kind": "ig-pack",
-      "definition": "content/sns/instagram/cem/keyword-packs/risk-perception"
-    },
-    {
-      "id": "cem-kw-safety-health-org-structure",
-      "kind": "ig-pack",
-      "definition": "content/sns/instagram/cem/keyword-packs/safety-health-org-structure"
-    },
-    {
-      "id": "cem-kw-series-parallel-reliability",
-      "kind": "ig-pack",
-      "definition": "content/sns/instagram/cem/keyword-packs/series-parallel-reliability"
-    },
-    {
-      "id": "cem-kw-sexual-harassment",
-      "kind": "ig-pack",
-      "definition": "content/sns/instagram/cem/keyword-packs/sexual-harassment"
-    },
-    {
-      "id": "cem-kw-swot-analysis",
-      "kind": "ig-pack",
-      "definition": "content/sns/instagram/cem/keyword-packs/swot-analysis"
-    },
-    {
-      "id": "cem-kw-system-safety-methods",
-      "kind": "ig-pack",
-      "definition": "content/sns/instagram/cem/keyword-packs/system-safety-methods"
-    },
-    {
-      "id": "cem-kw-three-c-analysis",
-      "kind": "ig-pack",
-      "definition": "content/sns/instagram/cem/keyword-packs/three-c-analysis"
-    },
-    {
-      "id": "cem-kw-unfair-competition",
-      "kind": "ig-pack",
-      "definition": "content/sns/instagram/cem/keyword-packs/unfair-competition"
-    },
-    {
-      "id": "cem-kw-working-hours-systems",
-      "kind": "ig-pack",
-      "definition": "content/sns/instagram/cem/keyword-packs/working-hours-systems"
-    },
-    {
-      "id": "cem-r03-p01",
-      "kind": "ig-pack",
-      "definition": "content/sns/instagram/cem/exam-packs/r03/pack-01"
     },
     {
       "id": "cem-r03-p01-q1",
@@ -279,11 +39,6 @@
       "definition": "content/sns/instagram/cem/exam-packs/r03/pack-01"
     },
     {
-      "id": "cem-r03-p02",
-      "kind": "ig-pack",
-      "definition": "content/sns/instagram/cem/exam-packs/r03/pack-02"
-    },
-    {
       "id": "cem-r03-p02-q1",
       "kind": "legacy-short",
       "definition": "content/sns/instagram/cem/exam-packs/r03/pack-02"
@@ -302,11 +57,6 @@
       "id": "cem-r03-p02-q4",
       "kind": "legacy-short",
       "definition": "content/sns/instagram/cem/exam-packs/r03/pack-02"
-    },
-    {
-      "id": "cem-r03-p03",
-      "kind": "ig-pack",
-      "definition": "content/sns/instagram/cem/exam-packs/r03/pack-03"
     },
     {
       "id": "cem-r03-p03-q1",
@@ -329,11 +79,6 @@
       "definition": "content/sns/instagram/cem/exam-packs/r03/pack-03"
     },
     {
-      "id": "cem-r03-p04",
-      "kind": "ig-pack",
-      "definition": "content/sns/instagram/cem/exam-packs/r03/pack-04"
-    },
-    {
       "id": "cem-r03-p04-q1",
       "kind": "legacy-short",
       "definition": "content/sns/instagram/cem/exam-packs/r03/pack-04"
@@ -352,11 +97,6 @@
       "id": "cem-r03-p04-q4",
       "kind": "legacy-short",
       "definition": "content/sns/instagram/cem/exam-packs/r03/pack-04"
-    },
-    {
-      "id": "cem-r03-p05",
-      "kind": "ig-pack",
-      "definition": "content/sns/instagram/cem/exam-packs/r03/pack-05"
     },
     {
       "id": "cem-r03-p05-q1",
@@ -379,11 +119,6 @@
       "definition": "content/sns/instagram/cem/exam-packs/r03/pack-05"
     },
     {
-      "id": "cem-r03-p06",
-      "kind": "ig-pack",
-      "definition": "content/sns/instagram/cem/exam-packs/r03/pack-06"
-    },
-    {
       "id": "cem-r03-p06-q1",
       "kind": "legacy-short",
       "definition": "content/sns/instagram/cem/exam-packs/r03/pack-06"
@@ -402,11 +137,6 @@
       "id": "cem-r03-p06-q4",
       "kind": "legacy-short",
       "definition": "content/sns/instagram/cem/exam-packs/r03/pack-06"
-    },
-    {
-      "id": "cem-r03-p07",
-      "kind": "ig-pack",
-      "definition": "content/sns/instagram/cem/exam-packs/r03/pack-07"
     },
     {
       "id": "cem-r03-p07-q1",
@@ -429,11 +159,6 @@
       "definition": "content/sns/instagram/cem/exam-packs/r03/pack-07"
     },
     {
-      "id": "cem-r03-p08",
-      "kind": "ig-pack",
-      "definition": "content/sns/instagram/cem/exam-packs/r03/pack-08"
-    },
-    {
       "id": "cem-r03-p08-q1",
       "kind": "legacy-short",
       "definition": "content/sns/instagram/cem/exam-packs/r03/pack-08"
@@ -452,11 +177,6 @@
       "id": "cem-r03-p08-q4",
       "kind": "legacy-short",
       "definition": "content/sns/instagram/cem/exam-packs/r03/pack-08"
-    },
-    {
-      "id": "cem-r03-p09",
-      "kind": "ig-pack",
-      "definition": "content/sns/instagram/cem/exam-packs/r03/pack-09"
     },
     {
       "id": "cem-r03-p09-q1",
@@ -479,11 +199,6 @@
       "definition": "content/sns/instagram/cem/exam-packs/r03/pack-09"
     },
     {
-      "id": "cem-r03-p10",
-      "kind": "ig-pack",
-      "definition": "content/sns/instagram/cem/exam-packs/r03/pack-10"
-    },
-    {
       "id": "cem-r03-p10-q1",
       "kind": "legacy-short",
       "definition": "content/sns/instagram/cem/exam-packs/r03/pack-10"
@@ -502,16 +217,6 @@
       "id": "cem-r03-p10-q4",
       "kind": "legacy-short",
       "definition": "content/sns/instagram/cem/exam-packs/r03/pack-10"
-    },
-    {
-      "id": "cem-r03-summary",
-      "kind": "ig-pack",
-      "definition": "content/sns/instagram/cem/exam-packs/r03/_summary"
-    },
-    {
-      "id": "cem-r04-p01",
-      "kind": "ig-pack",
-      "definition": "content/sns/instagram/cem/exam-packs/r04/pack-01"
     },
     {
       "id": "cem-r04-p01-q1",
@@ -534,11 +239,6 @@
       "definition": "content/sns/instagram/cem/exam-packs/r04/pack-01"
     },
     {
-      "id": "cem-r04-p02",
-      "kind": "ig-pack",
-      "definition": "content/sns/instagram/cem/exam-packs/r04/pack-02"
-    },
-    {
       "id": "cem-r04-p02-q1",
       "kind": "legacy-short",
       "definition": "content/sns/instagram/cem/exam-packs/r04/pack-02"
@@ -557,11 +257,6 @@
       "id": "cem-r04-p02-q4",
       "kind": "legacy-short",
       "definition": "content/sns/instagram/cem/exam-packs/r04/pack-02"
-    },
-    {
-      "id": "cem-r04-p03",
-      "kind": "ig-pack",
-      "definition": "content/sns/instagram/cem/exam-packs/r04/pack-03"
     },
     {
       "id": "cem-r04-p03-q1",
@@ -584,11 +279,6 @@
       "definition": "content/sns/instagram/cem/exam-packs/r04/pack-03"
     },
     {
-      "id": "cem-r04-p04",
-      "kind": "ig-pack",
-      "definition": "content/sns/instagram/cem/exam-packs/r04/pack-04"
-    },
-    {
       "id": "cem-r04-p04-q1",
       "kind": "legacy-short",
       "definition": "content/sns/instagram/cem/exam-packs/r04/pack-04"
@@ -607,11 +297,6 @@
       "id": "cem-r04-p04-q4",
       "kind": "legacy-short",
       "definition": "content/sns/instagram/cem/exam-packs/r04/pack-04"
-    },
-    {
-      "id": "cem-r04-p05",
-      "kind": "ig-pack",
-      "definition": "content/sns/instagram/cem/exam-packs/r04/pack-05"
     },
     {
       "id": "cem-r04-p05-q1",
@@ -634,11 +319,6 @@
       "definition": "content/sns/instagram/cem/exam-packs/r04/pack-05"
     },
     {
-      "id": "cem-r04-p06",
-      "kind": "ig-pack",
-      "definition": "content/sns/instagram/cem/exam-packs/r04/pack-06"
-    },
-    {
       "id": "cem-r04-p06-q1",
       "kind": "legacy-short",
       "definition": "content/sns/instagram/cem/exam-packs/r04/pack-06"
@@ -657,11 +337,6 @@
       "id": "cem-r04-p06-q4",
       "kind": "legacy-short",
       "definition": "content/sns/instagram/cem/exam-packs/r04/pack-06"
-    },
-    {
-      "id": "cem-r04-p07",
-      "kind": "ig-pack",
-      "definition": "content/sns/instagram/cem/exam-packs/r04/pack-07"
     },
     {
       "id": "cem-r04-p07-q1",
@@ -684,11 +359,6 @@
       "definition": "content/sns/instagram/cem/exam-packs/r04/pack-07"
     },
     {
-      "id": "cem-r04-p08",
-      "kind": "ig-pack",
-      "definition": "content/sns/instagram/cem/exam-packs/r04/pack-08"
-    },
-    {
       "id": "cem-r04-p08-q1",
       "kind": "legacy-short",
       "definition": "content/sns/instagram/cem/exam-packs/r04/pack-08"
@@ -707,11 +377,6 @@
       "id": "cem-r04-p08-q4",
       "kind": "legacy-short",
       "definition": "content/sns/instagram/cem/exam-packs/r04/pack-08"
-    },
-    {
-      "id": "cem-r04-p09",
-      "kind": "ig-pack",
-      "definition": "content/sns/instagram/cem/exam-packs/r04/pack-09"
     },
     {
       "id": "cem-r04-p09-q1",
@@ -734,11 +399,6 @@
       "definition": "content/sns/instagram/cem/exam-packs/r04/pack-09"
     },
     {
-      "id": "cem-r04-p10",
-      "kind": "ig-pack",
-      "definition": "content/sns/instagram/cem/exam-packs/r04/pack-10"
-    },
-    {
       "id": "cem-r04-p10-q1",
       "kind": "legacy-short",
       "definition": "content/sns/instagram/cem/exam-packs/r04/pack-10"
@@ -757,16 +417,6 @@
       "id": "cem-r04-p10-q4",
       "kind": "legacy-short",
       "definition": "content/sns/instagram/cem/exam-packs/r04/pack-10"
-    },
-    {
-      "id": "cem-r04-summary",
-      "kind": "ig-pack",
-      "definition": "content/sns/instagram/cem/exam-packs/r04/_summary"
-    },
-    {
-      "id": "cem-r05-p01",
-      "kind": "ig-pack",
-      "definition": "content/sns/instagram/cem/exam-packs/r05/pack-01"
     },
     {
       "id": "cem-r05-p01-q1",
@@ -789,11 +439,6 @@
       "definition": "content/sns/instagram/cem/exam-packs/r05/pack-01"
     },
     {
-      "id": "cem-r05-p02",
-      "kind": "ig-pack",
-      "definition": "content/sns/instagram/cem/exam-packs/r05/pack-02"
-    },
-    {
       "id": "cem-r05-p02-q1",
       "kind": "legacy-short",
       "definition": "content/sns/instagram/cem/exam-packs/r05/pack-02"
@@ -812,11 +457,6 @@
       "id": "cem-r05-p02-q4",
       "kind": "legacy-short",
       "definition": "content/sns/instagram/cem/exam-packs/r05/pack-02"
-    },
-    {
-      "id": "cem-r05-p03",
-      "kind": "ig-pack",
-      "definition": "content/sns/instagram/cem/exam-packs/r05/pack-03"
     },
     {
       "id": "cem-r05-p03-q1",
@@ -839,11 +479,6 @@
       "definition": "content/sns/instagram/cem/exam-packs/r05/pack-03"
     },
     {
-      "id": "cem-r05-p04",
-      "kind": "ig-pack",
-      "definition": "content/sns/instagram/cem/exam-packs/r05/pack-04"
-    },
-    {
       "id": "cem-r05-p04-q1",
       "kind": "legacy-short",
       "definition": "content/sns/instagram/cem/exam-packs/r05/pack-04"
@@ -862,11 +497,6 @@
       "id": "cem-r05-p04-q4",
       "kind": "legacy-short",
       "definition": "content/sns/instagram/cem/exam-packs/r05/pack-04"
-    },
-    {
-      "id": "cem-r05-p05",
-      "kind": "ig-pack",
-      "definition": "content/sns/instagram/cem/exam-packs/r05/pack-05"
     },
     {
       "id": "cem-r05-p05-q1",
@@ -889,11 +519,6 @@
       "definition": "content/sns/instagram/cem/exam-packs/r05/pack-05"
     },
     {
-      "id": "cem-r05-p06",
-      "kind": "ig-pack",
-      "definition": "content/sns/instagram/cem/exam-packs/r05/pack-06"
-    },
-    {
       "id": "cem-r05-p06-q1",
       "kind": "legacy-short",
       "definition": "content/sns/instagram/cem/exam-packs/r05/pack-06"
@@ -912,11 +537,6 @@
       "id": "cem-r05-p06-q4",
       "kind": "legacy-short",
       "definition": "content/sns/instagram/cem/exam-packs/r05/pack-06"
-    },
-    {
-      "id": "cem-r05-p07",
-      "kind": "ig-pack",
-      "definition": "content/sns/instagram/cem/exam-packs/r05/pack-07"
     },
     {
       "id": "cem-r05-p07-q1",
@@ -939,11 +559,6 @@
       "definition": "content/sns/instagram/cem/exam-packs/r05/pack-07"
     },
     {
-      "id": "cem-r05-p08",
-      "kind": "ig-pack",
-      "definition": "content/sns/instagram/cem/exam-packs/r05/pack-08"
-    },
-    {
       "id": "cem-r05-p08-q1",
       "kind": "legacy-short",
       "definition": "content/sns/instagram/cem/exam-packs/r05/pack-08"
@@ -962,11 +577,6 @@
       "id": "cem-r05-p08-q4",
       "kind": "legacy-short",
       "definition": "content/sns/instagram/cem/exam-packs/r05/pack-08"
-    },
-    {
-      "id": "cem-r05-p09",
-      "kind": "ig-pack",
-      "definition": "content/sns/instagram/cem/exam-packs/r05/pack-09"
     },
     {
       "id": "cem-r05-p09-q1",
@@ -989,11 +599,6 @@
       "definition": "content/sns/instagram/cem/exam-packs/r05/pack-09"
     },
     {
-      "id": "cem-r05-p10",
-      "kind": "ig-pack",
-      "definition": "content/sns/instagram/cem/exam-packs/r05/pack-10"
-    },
-    {
       "id": "cem-r05-p10-q1",
       "kind": "legacy-short",
       "definition": "content/sns/instagram/cem/exam-packs/r05/pack-10"
@@ -1012,16 +617,6 @@
       "id": "cem-r05-p10-q4",
       "kind": "legacy-short",
       "definition": "content/sns/instagram/cem/exam-packs/r05/pack-10"
-    },
-    {
-      "id": "cem-r05-summary",
-      "kind": "ig-pack",
-      "definition": "content/sns/instagram/cem/exam-packs/r05/_summary"
-    },
-    {
-      "id": "cem-r06-p01",
-      "kind": "ig-pack",
-      "definition": "content/sns/instagram/cem/exam-packs/r06/pack-01"
     },
     {
       "id": "cem-r06-p01-q1",
@@ -1044,11 +639,6 @@
       "definition": "content/sns/instagram/cem/exam-packs/r06/pack-01"
     },
     {
-      "id": "cem-r06-p02",
-      "kind": "ig-pack",
-      "definition": "content/sns/instagram/cem/exam-packs/r06/pack-02"
-    },
-    {
       "id": "cem-r06-p02-q1",
       "kind": "legacy-short",
       "definition": "content/sns/instagram/cem/exam-packs/r06/pack-02"
@@ -1067,11 +657,6 @@
       "id": "cem-r06-p02-q4",
       "kind": "legacy-short",
       "definition": "content/sns/instagram/cem/exam-packs/r06/pack-02"
-    },
-    {
-      "id": "cem-r06-p03",
-      "kind": "ig-pack",
-      "definition": "content/sns/instagram/cem/exam-packs/r06/pack-03"
     },
     {
       "id": "cem-r06-p03-q1",
@@ -1094,11 +679,6 @@
       "definition": "content/sns/instagram/cem/exam-packs/r06/pack-03"
     },
     {
-      "id": "cem-r06-p04",
-      "kind": "ig-pack",
-      "definition": "content/sns/instagram/cem/exam-packs/r06/pack-04"
-    },
-    {
       "id": "cem-r06-p04-q1",
       "kind": "legacy-short",
       "definition": "content/sns/instagram/cem/exam-packs/r06/pack-04"
@@ -1117,11 +697,6 @@
       "id": "cem-r06-p04-q4",
       "kind": "legacy-short",
       "definition": "content/sns/instagram/cem/exam-packs/r06/pack-04"
-    },
-    {
-      "id": "cem-r06-p05",
-      "kind": "ig-pack",
-      "definition": "content/sns/instagram/cem/exam-packs/r06/pack-05"
     },
     {
       "id": "cem-r06-p05-q1",
@@ -1144,11 +719,6 @@
       "definition": "content/sns/instagram/cem/exam-packs/r06/pack-05"
     },
     {
-      "id": "cem-r06-p06",
-      "kind": "ig-pack",
-      "definition": "content/sns/instagram/cem/exam-packs/r06/pack-06"
-    },
-    {
       "id": "cem-r06-p06-q1",
       "kind": "legacy-short",
       "definition": "content/sns/instagram/cem/exam-packs/r06/pack-06"
@@ -1167,11 +737,6 @@
       "id": "cem-r06-p06-q4",
       "kind": "legacy-short",
       "definition": "content/sns/instagram/cem/exam-packs/r06/pack-06"
-    },
-    {
-      "id": "cem-r06-p07",
-      "kind": "ig-pack",
-      "definition": "content/sns/instagram/cem/exam-packs/r06/pack-07"
     },
     {
       "id": "cem-r06-p07-q1",
@@ -1194,11 +759,6 @@
       "definition": "content/sns/instagram/cem/exam-packs/r06/pack-07"
     },
     {
-      "id": "cem-r06-p08",
-      "kind": "ig-pack",
-      "definition": "content/sns/instagram/cem/exam-packs/r06/pack-08"
-    },
-    {
       "id": "cem-r06-p08-q1",
       "kind": "legacy-short",
       "definition": "content/sns/instagram/cem/exam-packs/r06/pack-08"
@@ -1217,11 +777,6 @@
       "id": "cem-r06-p08-q4",
       "kind": "legacy-short",
       "definition": "content/sns/instagram/cem/exam-packs/r06/pack-08"
-    },
-    {
-      "id": "cem-r06-p09",
-      "kind": "ig-pack",
-      "definition": "content/sns/instagram/cem/exam-packs/r06/pack-09"
     },
     {
       "id": "cem-r06-p09-q1",
@@ -1244,11 +799,6 @@
       "definition": "content/sns/instagram/cem/exam-packs/r06/pack-09"
     },
     {
-      "id": "cem-r06-p10",
-      "kind": "ig-pack",
-      "definition": "content/sns/instagram/cem/exam-packs/r06/pack-10"
-    },
-    {
       "id": "cem-r06-p10-q1",
       "kind": "legacy-short",
       "definition": "content/sns/instagram/cem/exam-packs/r06/pack-10"
@@ -1267,16 +817,6 @@
       "id": "cem-r06-p10-q4",
       "kind": "legacy-short",
       "definition": "content/sns/instagram/cem/exam-packs/r06/pack-10"
-    },
-    {
-      "id": "cem-r06-summary",
-      "kind": "ig-pack",
-      "definition": "content/sns/instagram/cem/exam-packs/r06/_summary"
-    },
-    {
-      "id": "cem-r07-p01",
-      "kind": "ig-pack",
-      "definition": "content/sns/instagram/cem/exam-packs/r07/pack-01"
     },
     {
       "id": "cem-r07-p01-q1",
@@ -1299,11 +839,6 @@
       "definition": "content/sns/instagram/cem/exam-packs/r07/pack-01"
     },
     {
-      "id": "cem-r07-p02",
-      "kind": "ig-pack",
-      "definition": "content/sns/instagram/cem/exam-packs/r07/pack-02"
-    },
-    {
       "id": "cem-r07-p02-q1",
       "kind": "legacy-short",
       "definition": "content/sns/instagram/cem/exam-packs/r07/pack-02"
@@ -1322,11 +857,6 @@
       "id": "cem-r07-p02-q4",
       "kind": "legacy-short",
       "definition": "content/sns/instagram/cem/exam-packs/r07/pack-02"
-    },
-    {
-      "id": "cem-r07-p03",
-      "kind": "ig-pack",
-      "definition": "content/sns/instagram/cem/exam-packs/r07/pack-03"
     },
     {
       "id": "cem-r07-p03-q1",
@@ -1349,11 +879,6 @@
       "definition": "content/sns/instagram/cem/exam-packs/r07/pack-03"
     },
     {
-      "id": "cem-r07-p04",
-      "kind": "ig-pack",
-      "definition": "content/sns/instagram/cem/exam-packs/r07/pack-04"
-    },
-    {
       "id": "cem-r07-p04-q1",
       "kind": "legacy-short",
       "definition": "content/sns/instagram/cem/exam-packs/r07/pack-04"
@@ -1372,11 +897,6 @@
       "id": "cem-r07-p04-q4",
       "kind": "legacy-short",
       "definition": "content/sns/instagram/cem/exam-packs/r07/pack-04"
-    },
-    {
-      "id": "cem-r07-p05",
-      "kind": "ig-pack",
-      "definition": "content/sns/instagram/cem/exam-packs/r07/pack-05"
     },
     {
       "id": "cem-r07-p05-q1",
@@ -1399,11 +919,6 @@
       "definition": "content/sns/instagram/cem/exam-packs/r07/pack-05"
     },
     {
-      "id": "cem-r07-p06",
-      "kind": "ig-pack",
-      "definition": "content/sns/instagram/cem/exam-packs/r07/pack-06"
-    },
-    {
       "id": "cem-r07-p06-q1",
       "kind": "legacy-short",
       "definition": "content/sns/instagram/cem/exam-packs/r07/pack-06"
@@ -1422,11 +937,6 @@
       "id": "cem-r07-p06-q4",
       "kind": "legacy-short",
       "definition": "content/sns/instagram/cem/exam-packs/r07/pack-06"
-    },
-    {
-      "id": "cem-r07-p07",
-      "kind": "ig-pack",
-      "definition": "content/sns/instagram/cem/exam-packs/r07/pack-07"
     },
     {
       "id": "cem-r07-p07-q1",
@@ -1449,11 +959,6 @@
       "definition": "content/sns/instagram/cem/exam-packs/r07/pack-07"
     },
     {
-      "id": "cem-r07-p08",
-      "kind": "ig-pack",
-      "definition": "content/sns/instagram/cem/exam-packs/r07/pack-08"
-    },
-    {
       "id": "cem-r07-p08-q1",
       "kind": "legacy-short",
       "definition": "content/sns/instagram/cem/exam-packs/r07/pack-08"
@@ -1472,11 +977,6 @@
       "id": "cem-r07-p08-q4",
       "kind": "legacy-short",
       "definition": "content/sns/instagram/cem/exam-packs/r07/pack-08"
-    },
-    {
-      "id": "cem-r07-p09",
-      "kind": "ig-pack",
-      "definition": "content/sns/instagram/cem/exam-packs/r07/pack-09"
     },
     {
       "id": "cem-r07-p09-q1",
@@ -1499,11 +999,6 @@
       "definition": "content/sns/instagram/cem/exam-packs/r07/pack-09"
     },
     {
-      "id": "cem-r07-p10",
-      "kind": "ig-pack",
-      "definition": "content/sns/instagram/cem/exam-packs/r07/pack-10"
-    },
-    {
       "id": "cem-r07-p10-q1",
       "kind": "legacy-short",
       "definition": "content/sns/instagram/cem/exam-packs/r07/pack-10"
@@ -1522,16 +1017,6 @@
       "id": "cem-r07-p10-q4",
       "kind": "legacy-short",
       "definition": "content/sns/instagram/cem/exam-packs/r07/pack-10"
-    },
-    {
-      "id": "cem-r07-summary",
-      "kind": "ig-pack",
-      "definition": "content/sns/instagram/cem/exam-packs/r07/_summary"
-    },
-    {
-      "id": "cem-r08-sokuhou",
-      "kind": "ig-pack",
-      "definition": "content/sns/instagram/cem/r08-sokuhou"
     },
     {
       "id": "cem-textbook-diagrams",

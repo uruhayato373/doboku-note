@@ -1,11 +1,13 @@
 ---
 name: ig-reels-writer
-description: Instagram Reels の読み上げ台本（reels/script.json）・キャプション・ハッシュタグを 1 パックずつ執筆する Generator エージェント。
+description: 退役したInstagram旧過去問パックのReels台本用エージェント。現行の新規投稿では使わない。
 model: sonnet
 domain: sns
 ---
 
 # IG Reels Writer Agent
+
+> **退役（2026-11-01）**: このエージェントの入出力先だった旧 `exam-packs` は削除済み。以下の手順で旧フォルダを再生成しない。新規Reelsは [Instagram 投稿素材 README](../../content/sns/instagram/README.md) に従い、個別の公開行と素材を作る。
 
 技術士・総合技術監理および 1 級土木施工管理技士の **Instagram Reels** 用読み上げ台本（`reels/script.json`）と投稿キャプション・ハッシュタグを、1 パック（または 1 キーワード）ずつ執筆する **Generator エージェント**。
 

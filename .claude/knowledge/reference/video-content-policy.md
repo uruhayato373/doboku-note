@@ -234,7 +234,7 @@ published → measured → refresh_due | stopped
 
 - `yt-shorts-title-writer`: Short固有タイトルだけ
 - `yt-shorts-publisher-qa`: Shortのmp4/meta/UTM/配信適合だけ
-- `ig-reels-writer` / `ig-reels-qa`: 派生後のReels固有物だけ
+- `ig-reels-writer` / `ig-reels-qa`: 旧Instagram過去問パック専用で退役。新規ReelsのGenerator/Evaluatorは現行素材スキーマが決まってから定義する
 - `x-post-writer` / `x-post-qa`: 派生後のX固有物だけ
 
 ## 7. オーケストレータ責務
