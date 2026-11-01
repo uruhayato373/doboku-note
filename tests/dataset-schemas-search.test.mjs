@@ -154,7 +154,11 @@ test('GscUrlInspection: 実データが通り、旧名の version・件数・判
   assertFails(S, broken(b, (x) => { x.version = 1; delete x.schemaVersion; }), /schemaVersion/);
   assertFails(S, broken(b, (x) => { x.generated_at = '2026-09-30T17:16:07+09:00'; }), /generated_at/);
   assertFails(S, broken(b, (x) => { x.completed += 1; }), /completed/);
-  assertFails(S, broken(b, (x) => { x.partial = true; }), /partial/);
+  // 最新 batch が partial でも complete でも、矛盾する値に変えて検査する。
+  assertFails(S, broken(b, (x) => { x.partial = !x.partial; }), /partial/);
+  const partialBatch = { ...b, total: b.completed + 1, partial: true };
+  assert.deepEqual(issues(S, partialBatch), [], '未完了の周回も有効');
+  assertFails(S, broken(partialBatch, (x) => { x.partial = !x.partial; }), /partial/);
   assertFails(S, broken(b, (x) => { x.total = x.completed - 1; }), /total/);
   assertFails(S, broken(b, (x) => { delete x.results[0].index; }), /index/);
   assertFails(S, broken(b, (x) => { x.results[0].index.verdict = 'OK'; }), /verdict/);
