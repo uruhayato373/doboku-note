@@ -1,7 +1,7 @@
 ---
 name: coconala-operator
 description: >
-  ココナラの受注照合・出品編集・価格/受付状態・購入者評価・KPI を既存スクリプトで運用する。返信・納品文面は下書きまで、トークルーム送信は運営者。顧客事実の捏造と外部誘導は禁止。Use when user asks to [ココナラ受注, /coconala-order, /coconala-publish, /coconala-status, /coconala-analytics].
+  ココナラの受注照合・出品編集・価格/状態・KPI を既存スクリプトで運用する。送信は運営者。Use when [ココナラ受注, /coconala-order].
 model: sonnet
 domain: product
 ---

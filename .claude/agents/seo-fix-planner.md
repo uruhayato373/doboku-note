@@ -1,7 +1,7 @@
 ---
 name: seo-fix-planner
 description: >
-  結合済み検索計測 JSON の URL 分類を意味評価し、根拠と優先順位を付けた修正計画を返す Evaluator。データ取得・品質検査・コード/記事修正はしない。Use when user asks to [SEO 修正計画, URL 分類評価, /google-search-growth の evaluate].
+  結合済み検索計測 JSON の URL 分類を評価し、優先順位つきの修正計画を返す Evaluator。取得・修正はしない。
 model: sonnet
 tools: Read, Glob, Grep, Bash
 domain: site

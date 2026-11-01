@@ -7,6 +7,8 @@ title: スキル ナビゲーションガイド
 アクティブなスキルを **用途別** に素早く探すための早引き。  
 設計原則・退役ログ → `skills-registry.md` / 作成手順 → `skills-design-guide.md`
 
+SKILL.md の frontmatter description は毎セッションの一覧に常駐するため、1 文＋Use when（目安 120 字）に絞る（DN-0933）。担当外・安全弁の詳細は本文に置く。
+
 参考書籍の原本・画像・OCRを扱うときは `/asset-route` と [保存方針](./asset-storage-policy.md) §1-1を参照する。正本PDFは1箇所、文字起こしは各原資料内 `ocr/`。`/pdf-to-mdx --scanned` は既存book bundleの `pages/` を再利用し、新規OCR/cropは `record-reference-book-artifacts` で来歴を登録する。
 
 SNSの人物・見出しを改修するときは [SNS画像ポリシー §0・§0.1](./sns-image-policy.md) を起点にする。Instagram の旧過去問パック生成スキルは退役済みで、新規投稿は [投稿素材 README](../../../content/sns/instagram/README.md) に従って個別に制作・台帳登録する。YouTube Shorts の制作は現行の動画パック経路で進める。既存予約・公開状態は publish-ig-bs／publish-x と、運営者が回す `verify-ig-status` で実体と照合する。 Xの継続監視は publish-x の `check-x-queue-health` 手順を使う。通常動画の共有合成器はPNGの色形式を揃えて冒頭欠落を防ぎ、画像と字幕をWAV実尺へ同期し、全場面画像は `media promote` で登録する。ポーズ選びは管理画面 `/gallery/characters` と [キャラクター素材ポリシー](./character-asset-policy.md) を参照する。

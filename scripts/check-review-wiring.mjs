@@ -8,7 +8,7 @@
  */
 import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { CONFIG, diffWiring, validateWiring } from './lib/review-wiring.mjs';
+import { CONFIG, diffWiring, readSkillWithReferences, validateWiring } from './lib/review-wiring.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
 let config;
@@ -26,7 +26,7 @@ for (const [cadence, c] of Object.entries(config.cadences)) {
     console.error(`[check-review-wiring] ${cadence}: スキル ${c.skill} が無い — 検査不成立`);
     process.exit(2);
   }
-  const { missing, extra } = diffWiring(c.inputs, readFileSync(p, 'utf8'));
+  const { missing, extra } = diffWiring(c.inputs, readSkillWithReferences(ROOT, c.skill));
   checked += c.inputs.length;
   for (const m of missing) errors.push(`${cadence}: スキルが実行する ${m} が正本に無い（review-wiring.json の inputs に stage・role 付きで足す）`);
   for (const x of extra) errors.push(`${cadence}: 正本の ${x} をスキルが実行していない（スキルから外したなら正本からも外す）`);

@@ -1,10 +1,7 @@
 ---
 name: publish-x
 description: >
-  Playwright で X (Twitter) の投稿を自動実行する。content/sns/x/draft/ 配下の tweets.md を読み取り、
-  ## Tweet XX ブロックを1件ずつ投稿（即時 or 予約）。
-  Use when user says "X投稿", "X予約投稿", "ツイート投稿".
-  **初回実行時 or セレクタ更新後は必ず --dry-run で事前検証すること**.
+  Playwright で content/sns/x/draft の tweets.md を1件ずつ X に投稿する（即時/予約・初回は --dry-run）。Use when user says "X投稿", "X予約投稿", "ツイート投稿".
 disable-model-invocation: true
 argument-hint: "<draft> [<YYYY-MM-DDTHH:MM>...] [--tweet N] [--immediate] [--dry-run]"
 domain: sns

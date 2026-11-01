@@ -1,12 +1,7 @@
 ---
 name: pe-secondary-yosou
 description: >
-  技術士第二次試験 建設部門 選択科目の「令和8年度 予想問題＋フル模範解答」を 1 科目分まるごと
-  公開可能品質まで仕上げる統括オーケストレーション・スキル。予想は「テーマ別の独立記事（テーマ網羅型・
-  1記事1ディレクトリ）」で作る。forecast モードの生成（pe-secondary-exam-writer）→ 外部事実照合
-  （pe-secondary-exam-factcheck）→ 構造採点（pe-secondary-exam-qa）→ 梱包（カバー/ハッシュタグ/PDF）
-  → SoT 登録 → commit を 1 入口に集約する。クラウド（claude.ai/code）から 1 科目 1 指示で回せるよう設計。
-  Use when user asks to [建設部門の予想問題を仕上げて, BK-0X の予想, {科目}の予想問題集, R8予想を展開, /pe-secondary-yosou].
+  技術士第二次試験 建設部門 選択科目の予想問題＋フル模範解答を1科目分、生成→事実照合→構造採点→梱包→登録→commit まで仕上げる統括。Use when user asks to [建設部門の予想問題を仕上げて, {科目}の予想問題集, /pe-secondary-yosou].
 user-invocable: true
 domain: product
 ---

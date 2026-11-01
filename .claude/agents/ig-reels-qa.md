@@ -1,6 +1,7 @@
 ---
 name: ig-reels-qa
-description: 退役したInstagram旧過去問パックReelsのQAエージェント。現行の新規投稿では使わない。
+description: >
+  退役した Instagram 旧過去問パック Reels の QA。現行の新規投稿では使わない。
 model: sonnet
 tools: Read, Glob, Grep, Bash, WebSearch, WebFetch
 domain: sns

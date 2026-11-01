@@ -1,13 +1,7 @@
 ---
 name: affiliate-status
 description: >
-  A8 / もしも / afb の 3 ASP の提携状態を、カタログ（data/affiliate/catalog.json）と ASP ごとの最終照合日
-  （verifiedAt）から報告する（read-only）。実機との突合は運営者が端末で行い、セッションはログインしない。
-  申請も設定変更もしない（申請は /affiliate-apply）。
-  **3 ASP すべてで doboku-note と stats47 が同一口座に同居し既定は stats47 側**のため、
-  実機照合の取得側はサイト帰属 assert（不一致は例外で停止）を通してから読む。
-  Use when user says "アフィリ提携状況", "提携状態を確認", "ASP 横断で確認", "affiliate-status".
-  **取得できなかった ASP を「提携なし」と報告しないこと**（unknown として区別する）。
+  A8 / もしも / afb の提携状態をカタログと最終照合日から読み取り専用で報告する（取得できなかった ASP は「提携なし」でなく unknown）。Use when user says "アフィリ提携状況", "提携状態を確認", "affiliate-status".
 disable-model-invocation: true
 argument-hint: "[--asp a8|moshimo|afb]"
 domain: affiliate

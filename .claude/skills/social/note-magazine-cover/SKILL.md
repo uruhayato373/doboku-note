@@ -1,11 +1,7 @@
 ---
 name: note-magazine-cover
 description: >
-  note 有料マガジンの「見出し画像（マガジン画像/cover）」を `_cover.png` から設定するブラウザ CLI。
-  `note-magazine-create`（新規作成）が作成時にカバーを設定しない systematic 欠落を補う。Playwright +
-  システム Chrome（channel:'chrome'）で `/m/{key}/edit` にアップロード→「この画像を使う」→更新。
-  Use when user says "noteマガジンのカバーを設定", "マガジン見出し画像", "マガジン画像が未登録", "/note-magazine-cover".
-  **既定 probe・実保存は --commit。収益アカウントのため保存後 API 検証まで必須。Windows(会社PC)可。**
+  note 有料マガジンの見出し画像を _cover.png から設定するブラウザ CLI（既定 probe・保存は --commit）。Use when user says "noteマガジンのカバーを設定", "マガジン画像が未登録", "/note-magazine-cover".
 disable-model-invocation: true
 user-invocable: true
 argument-hint: "--key <magazineKey> (--dir <magazineDir> | --image <path.png>) [--commit]"

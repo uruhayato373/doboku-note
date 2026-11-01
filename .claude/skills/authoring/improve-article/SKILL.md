@@ -1,10 +1,7 @@
 ---
 name: improve-article
 description: >
-  単一記事の品質を対話的に継続改善するオーケストレータ。QA エージェントの 5 軸評価を走らせ、
-  指摘項目ごとに修正方針を提示し、承認を得てから Edit / create-svg / 本文補強を実行して
-  合格ライン到達まで評価→修正→再評価のループを回す。`--mode verify` で PDF 照合 QA（旧 verify-pdf-mdx / qa-pdf-mdx）も実行可能。
-  Use when user asks to [品質を高めて, 記事を改善, QA通して直して, PDF検証, MDX整合性, /improve-article, /verify-pdf-mdx, /qa-pdf-mdx].
+  単一記事を QA の5軸評価→修正方針の提示と承認→修正→再評価で合格ラインまで回すオーケストレータ（--mode verify で PDF 照合 QA）。Use when user asks to [品質を高めて, 記事を改善, QA通して直して, PDF検証, /improve-article].
 domain: site
 ---
 

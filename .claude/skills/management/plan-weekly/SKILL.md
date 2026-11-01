@@ -1,7 +1,7 @@
 ---
 name: plan-weekly
 description: >
-  .claude/todo/{annual,monthly,weekly}.md と git log を読んで今週のタスクを優先順位付きで決定し、.claude/todo/weekly.md を直接更新する（月曜の作業開始前・todo-planner を1回起動する軽量版）。週次レビューの後の翌週計画もこのスキルが担う。Use when user asks to [今週のタスクを決めて, 今週何をすべきか, weekly.md を更新して, /plan-weekly].
+  todo の annual/monthly/weekly と git log から今週のタスクを優先順位付きで決め、weekly.md を更新する（todo-planner を1回起動）。Use when user asks to [今週のタスクを決めて, 今週何をすべきか, /plan-weekly].
 domain: plan
 ---
 

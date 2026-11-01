@@ -2,10 +2,7 @@
 name: ogp-design-explore
 user-invocable: true
 description: >
-  OGP 画像（1200×630）の新しいデザイン方向を aidesigner / Canva の MCP で素案として試作し、
-  採用案を satori テンプレート（ogp-create）に落として量産につなげる「意匠の試作専用」スキル。
-  量産・本番生成・per-article 生成はしない（それは /ogp-create）。MCP は外部 API 費用（クレジット）が発生するため都度ユーザー判断で起動する。
-  Use when user asks to [OGPデザイン検討, OGP意匠の素案, OGPデザイン案を作って, OGPリデザインの試作, サムネのデザイン方向を探りたい, /ogp-design-explore].
+  OGP 画像の新しいデザイン方向を aidesigner / Canva MCP で試作する意匠の試作専用スキル（量産は /ogp-create・クレジット消費のため都度判断）。Use when user asks to [OGPデザイン検討, OGP意匠の素案, /ogp-design-explore].
 domain: site
 ---
 

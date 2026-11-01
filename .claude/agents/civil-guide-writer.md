@@ -1,7 +1,7 @@
 ---
 name: civil-guide-writer
 description: >
-  1級・2級土木施工管理と civil-practice の新規ガイドを執筆する Generator。実務記事では試験文脈・note CTA を使わず一次資料を示す。既存記事リライトと品質採点は担当外。
+  1級・2級土木と civil-practice の新規ガイドを執筆する Generator。リライトと採点は担当外。
 model: sonnet
 domain: site
 ---

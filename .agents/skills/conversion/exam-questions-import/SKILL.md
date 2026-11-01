@@ -1,9 +1,7 @@
 ---
 name: exam-questions-import
 description: >
-  過去問集 PDF を MDX 形式に変換する統合スキル。`--exam` フラグで試験・検定別テンプレートを切替え、
-  問題番号・選択肢・解説・正解の構造を自動化する。旧 /exam-questions-import / /exam-questions-2-import を統合。
-  Use when user asks to [過去問インポート, 問題集変換, 過去問取込, /exam-questions-import].
+  過去問集 PDF を MDX に変換する（--exam で試験別テンプレ。問題番号・選択肢・解説・正解の構造化）。Use when user asks to [過去問インポート, 問題集変換, 過去問取込, /exam-questions-import].
 domain: site
 ---
 

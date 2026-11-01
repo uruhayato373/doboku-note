@@ -1,10 +1,7 @@
 ---
 name: psi-audit
 description: >
-  PageSpeed Insights API で代表ページを計測し、Core Web Vitals・Lighthouse スコアの
-  しきい値違反と改善候補を出力する。`config/psi-urls.txt` の URL に対し mobile+desktop で計測、
-  performance-auditor エージェントが違反を surface する。
-  Use when user asks to [PSI 計測, PageSpeed 計測, Core Web Vitals 確認, 速度監査, /psi-audit].
+  PageSpeed Insights で代表ページを計測し、Core Web Vitals のしきい値違反を performance-auditor に出させる。Use when user asks to [PSI 計測, 速度監査, /psi-audit].
 domain: site
 ---
 

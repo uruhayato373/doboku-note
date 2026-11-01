@@ -1,6 +1,7 @@
 ---
 name: civil-exam-figure-extractor
-description: 1級土木施工管理技士 primary（過去問1次）ページの図クロップ仕様を、事前レンダリング済み PDF ページ画像から目視判定して JSON spec を返す Generator エージェント。
+description: >
+  1級土木 過去問1次ページの図クロップ仕様を、PDF ページ画像の目視で JSON spec にして返す Generator。
 model: sonnet
 domain: site
 ---
