@@ -330,6 +330,38 @@ export const ConfigAnnualRoadmap = z
   })
   .meta({ title: '年間ロードマップの設定' });
 
+/** 収益カレンダーの設定（試験日からの週数・日数）。資格 id の実在と examEvent の実在は mapRevenueCalendar（revenue-calendar.mjs）が見る */
+export const ConfigRevenueCalendar = z
+  .object({
+    schemaVersion: z.literal(1),
+    _doc: text,
+    description: text,
+    targets: z
+      .array(
+        z
+          .object({
+            qualification: QID.describe('資格 id（qualification-registry）'),
+            examEvent: text.describe('exam-calendar.json の events の id（起点にする試験日）'),
+            productionStartWeeks: positiveInt.describe('制作の開始（試験の何週前）'),
+            ctaSwitchWeeks: positiveInt.describe('サイトの CTA と note 導線の切り替え（試験の何週前）'),
+            peakFromWeeks: positiveInt.describe('販売の山の始まり（試験の何週前）'),
+            peakToWeeks: z.number().int().min(0).describe('販売の山の終わり（試験の何週前。0 は試験日まで）'),
+            judgmentDaysAfter: positiveInt.describe('判定（試験の何日後）'),
+            note: text.describe('値の根拠（実績の山）'),
+          })
+          .strict()
+          .superRefine((t, ctx) => {
+            if (!(t.productionStartWeeks > t.ctaSwitchWeeks)) flag(ctx, ['ctaSwitchWeeks'], '制作の開始は切り替えより前（週数が大きい）');
+            if (!(t.ctaSwitchWeeks >= t.peakFromWeeks)) flag(ctx, ['peakFromWeeks'], '切り替えは販売の山の始まり以前');
+            if (!(t.peakFromWeeks > t.peakToWeeks)) flag(ctx, ['peakToWeeks'], '山の始まりは終わりより前');
+          }),
+      )
+      .min(1)
+      .superRefine(uniqueBy((t) => `${t.qualification}/${t.examEvent}`, '資格×起点')),
+  })
+  .strict()
+  .meta({ title: '収益カレンダーの設定' });
+
 // ---- 制作物のテーマ（config/content-themes.json） ---------------------------------------------
 
 const themeRule = z
