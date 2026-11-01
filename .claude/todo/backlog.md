@@ -268,6 +268,16 @@
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-0928] 依存の脆弱性 minimatch（globparts の DoS・moderate）を 11.0.1 以上へ上げる
+タグ: [インフラ・計測] [領域:管理] [時期:2026-11] [種類:不具合] [起票:2026-11-01]
+
+**起点**: 週次レビュー（2026-10-19〜2026-10-25）の点検。Dependabot alert #118（package-lock.json の minimatch・moderate・修正版 11.0.1）。Dependabot の PR は開いていない。
+
+**やること**: どの依存が minimatch を引いているかを npm ls minimatch で確かめ、上げられるものは上げる（上げられない推移的依存は overrides を検討）。feature ブランチ + PR（base develop）。
+
+**完了条件**: Dependabot alert #118 が fixed になり、npm run test と quality:audit:ci が通る。
+
+
 ### [DN-0927] external-links の report FAIL（jeed・meti のリンク切れ）を直し、止まっている weekly-review-guard を緑に戻す
 タグ: [インフラ・計測] [領域:管理] [時期:2026-11] [種類:不具合] [起票:2026-11-01]
 
