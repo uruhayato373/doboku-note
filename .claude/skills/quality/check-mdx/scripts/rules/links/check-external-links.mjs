@@ -79,8 +79,8 @@ async function checkUrl(url) {
       headers: { 'User-Agent': 'doboku-note-link-checker/1.0' },
     });
 
-    // Some servers reject HEAD, retry with GET
-    if (res.status === 405 || res.status === 403) {
+    // Some servers reject HEAD, retry with GET（HEAD だけ 404 を返すサーバーもある＝NIST の PDF・2026-11-01）
+    if (res.status === 405 || res.status === 403 || res.status === 404) {
       const controller2 = new AbortController();
       const timer2 = setTimeout(() => controller2.abort(), TIMEOUT_MS);
       try {
