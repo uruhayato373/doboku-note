@@ -1707,7 +1707,7 @@ Windows の PowerShell で repo 直下から順に:
 **完了条件**: Windows に `auth-session-refresh` のタスクが無く、R2 に `auth-state/` が無く、3 の判断が backlog かこのカードに記録されている。`git grep -l DOBOKU_AUTH .github` は 0 件（確認済み）。
 
 ### [DN-0923] 検索改善の候補が # 付きアンカーの URL で出て record できない（2級 R8 見直しページの改善が未記録）
-タグ: [インフラ・計測] [領域:サイト] [時期:2026-11] [種類:不具合] [起票:2026-11-01]
+タグ: [インフラ・計測] [領域:サイト] [時期:2026-11] [種類:不具合] [起票:2026-11-01] [進行中]
 
 **起点**: 週次トリアージ（data/analysis/growth/digest-2026-W43.json）の OPP-fcfcda5a1a: 「二級土木施工管理技士 二次試験」は平均 8.4 位なのに CTR 0.98%（期待 3%）（期待効果 12.7 searchClicks/週）。原稿: `content/site/civil-construction-2/guide-r08-secondary-answers/article.mdx`
 
