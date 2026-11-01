@@ -25,7 +25,7 @@ CI からの公開・更新（`ops-write.yml`）は廃止した。note への書
 1. **account=dobokunote を assert**（不一致は即中断・1記事も触らない。誤公開事故の再発防止）
 2. **既定は draft**（下書き保存のみ）。実公開は `--commit` 必須
 3. `--commit` でも **有料境界が「試験問題/予想問題」H2 の直前にあるか検証**してからのみ投稿（`boundaryBeforeExam=false` は公開中断）
-4. 公開後は note 公開ページを実取得し **無料プレビュー/カード/価格** を実体検証（[[feedback_publish_x_false_success]] 偽成功ガード）
+4. 即時公開後は note 公開ページを実取得し **無料プレビュー/カード/価格** を実体検証。予約投稿では公開前の public API が 404 になるため、公開設定画面の表示日時が指定日時と一致した場合だけ確定する（[[feedback_publish_x_false_success]] 偽成功ガード）
 
 ## 使い方
 
@@ -39,7 +39,7 @@ node scripts/note-publish.mjs --article <path> --commit --schedule 2026-06-20T07
 
 - カバー/タグは記事と同じ年度dir の `img/cover-<type>.png` / `hashtags-<type>.txt` を自動解決（`article-II1.md` → `cover-II1.png`/`hashtags-II1.txt`。無ければ `cover.png`/`hashtags.txt`）。
 - 価格・有料/無料は frontmatter `notePricing`/`price`。`notePricing: paid` かつ `price>0` で有料設定。
-- **予約投稿（時間ずらし可）**: `--schedule "YYYY-MM-DDTHH:MM"`（JST）で即時公開でなく予約公開（note は現在 無料で予約可）。即時「投稿する」の代わりに 日時設定→日付→時刻→「予約投稿」を操作。**日時を UI で確定できないときは即時公開せず下書きに退避**する安全弁つき。予約 UI selector は `publish-note/references/scheduling.md` 由来で、初回実走の `.tmp/np-sched-*.png` で要確認。
+- **予約投稿（時間ずらし可）**: `--schedule "YYYY-MM-DDTHH:MM"`（JST）で即時公開でなく予約公開（note は現在 無料で予約可）。無料記事でも公開設定画面で日時設定→日付→時刻→「予約投稿」を操作。**画面の表示日時が指定日時と一致しなければ下書きに退避して exit 3**。note の時刻選択肢にない分は指定しない。予約 UI selector は `publish-note/references/scheduling.md` 由来。
 
 ### マガジン一括（バッチ）
 
