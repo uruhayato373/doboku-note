@@ -17,7 +17,7 @@
 // 検査する不変条件:
 //   R1 可読性     : style.css の body に font-family と line-height >= 1.5
 //   R2 章の分離   : 各章が改ページ境界で始まる（章が別 spine ファイル or 見出しに break-before:page）
-//   R3 解答の分離 : 解答が改ページ境界で始まる（別 *a.xhtml spine or 解答コンテナに break-before:page）
+//   R3 解答の分離 : 択一問題集では解答が改ページ境界で始まる。記述式の章は対象外。
 //
 // 使い方:
 //   node scripts/check-kindle-format.mjs                       # scripts/kindle-published/*.epub を全検査
@@ -96,7 +96,12 @@ function checkEpub(epub) {
   // --- R3 解答の分離（ネタバレ防止）-------------------------------------
   let answerSeparated = false
   let mode = ''
-  if (answerFiles.length > 0) {
+  const essayChapters = questionFiles.length === 0 && chapterFiles.length > 0 && chapterFiles.every((e) =>
+    /class="essay"/.test(readEntry(epub, e)))
+  if (essayChapters) {
+    answerSeparated = true
+    mode = '記述式（章単位の模範答案。R3 対象外）'
+  } else if (answerFiles.length > 0) {
     // A 方式: 問題数と解答ファイル数が概ね一致していれば構造的に分離
     answerSeparated = true
     mode = `別ファイル方式（解答 ${answerFiles.length} / 問題 ${questionFiles.length}）`
