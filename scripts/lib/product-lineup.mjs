@@ -14,6 +14,7 @@ import { loadRegistry, orderedQualifications } from './qualification-registry.mj
 import { datasetPath } from './datasets.mjs';
 import { readDataset } from './dataset-io.mjs';
 import { classifyProduct } from '../../src/lib/product-classification.mjs';
+import { toLedgerProductId } from './sales-normalize.mjs';
 import { REPO_ROOT as ROOT } from './repository-paths.mjs';
 export { classifyProduct } from '../../src/lib/product-classification.mjs';
 
@@ -25,7 +26,29 @@ export const LINEUP_CONFIG_PATH = join(ROOT, datasetPath('config.product-lineup'
  */
 export function loadLineupConfig(root = ROOT) {
   const config = readDataset(root, 'config.product-lineup');
-  return withStages(withQualifications(config, loadRegistry(root)), loadExamStages(root));
+  const withCells = withStages(withQualifications(config, loadRegistry(root)), loadExamStages(root));
+  return withSaleProducts(withCells, readDataset(root, 'config.products').products);
+}
+
+/**
+ * 商品の正本（config/products.json）の note 商品を、売上台帳の productId（bk-* 系統へ寄せた id）から引く索引にして付ける。
+ * 台帳の id は商品の id と系統が違う（建設部門 pe-construction-* は bk-*、sales-normalize.mjs の toLedgerProductId）。
+ * 資格・区分が確定しているマス（config.qualifications にある `資格:区分`）の商品だけを入れる。
+ */
+export function withSaleProducts(config, products) {
+  const known = config.qualifications ? new Set(cellKeys(config)) : null;
+  const saleProducts = new Map();
+  for (const p of products ?? []) {
+    const cell = `${p.qualification}:${p.stage}`;
+    if (p.channel !== 'note' || (known && !known.has(cell))) continue;
+    saleProducts.set(toLedgerProductId(p.id), { id: p.id, cell, published: p.catalog?.published === true });
+  }
+  return { ...config, saleProducts };
+}
+
+/** 売上の productId に結びつく商品（products.json の note 商品）。結びつかない（単品記事など）は null */
+export function joinSaleProduct(config, productId) {
+  return config.saleProducts?.get(String(productId).replace(/^(article|membership):/, '')) ?? null;
 }
 
 /** マスの資格を registry の展開中（portfolio: active）から付ける。product-lineup.json には資格を書かない */
@@ -84,11 +107,15 @@ export function validateLineupConfig(config) {
 
 /**
  * 売上記録（data/note/sales.json）の productId をマスへ写す。売上の id は sales-recorder 独自の系統
- * （bk-*・article:<slug>・membership:<plan>）なので、接頭辞を外して salesRules → rules.note の順に当てる。
+ * （bk-*・article:<slug>・membership:<plan>）なので、接頭辞を外して次の順に当てる。
+ * 1. 商品の正本（products.json）に結びつく id は、その商品の資格・区分（config.saleProducts がある場合）
+ * 2. salesRules → rules.note の正規表現（商品にならない単品記事・会員など）
  * @returns {string[] | null}
  */
 export function classifySale(config, productId) {
   const id = String(productId).replace(/^(article|membership):/, '');
+  const product = joinSaleProduct(config, productId);
+  if (product) return [product.cell];
   return classifyProduct(config.salesRules, id) ?? classifyProduct(config.rules?.note, id);
 }
 
