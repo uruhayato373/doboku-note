@@ -52,7 +52,7 @@ SNSの表紙・冒頭は [SNS画像ポリシー §0](./sns-image-policy.md) を�
 | `/kdp-publish`                            | `kdp-operator`                                                   | ビルド済み EPUB を KDP へ入稿・出版（重複突合→メタ生成→下書き提出→承認後 --commit-publish→提出後 catalog/戦略doc/README 記録）。出版/削除は安全弁 gate |
 | `/civil-keiken-magazine`                  | `civil-keiken-essay-writer`, `civil-keiken-essay-qa`            | 施工経験記述マガジン模範答案の生成 → 5軸採点ループ |
 | `/keiken-tensaku`                         | `civil-keiken-tensaku-drafter`, `civil-keiken-tensaku-qa`      | ①添削（提出原稿→赤入れ）②骨子（`--mode kosshi`・ヒアリング→骨子シート・答案の文章なし・S3 指導。本人が書いた答案は①で添削）③診断（`--mode shindan`・A/B/C＋ワースト3・S1）→ 返信文を tensaku-qa で PASS まで検証 |
-| `/coconala-publish`                       | `coconala-operator`                                             | ココナラ出品サービスを Playwright で新規出品・修正・価格反映・棚の出し入れ（受付休止/再開/アーカイブ・account assert＋draft-first＋--commit gate） |
+| `/coconala-publish`                       | `coconala-operator`                                             | ココナラ出品サービスを Playwright で新規出品・修正・価格反映・棚の出し入れ（受付休止/再開/アーカイブ・account assert＋draft-first＋--commit gate）。既存出品の編集は FAQ・有料オプションも反映 |
 | `/coconala-order`                         | `coconala-operator`（→ `civil-keiken-tensaku-drafter` → `civil-keiken-tensaku-qa`） | ココナラ受注1件のE2E（検証→添削下書き→返信文→**返信文QA**→orders.json→**購入者評価**） |
 | `/coconala-status`                        | `coconala-operator`                                             | ココナラ 受注実体の収集＋orders.json 突合＋KPI 記録＋カタログ↔state 照合＋撤退ライン判定（read-only） |
 | `/coconala-analytics`                     | `coconala-operator`                                             | ココナラ分析画面の read-only 収集→`data/coconala/analytics.json`→`kpi.json` 週次 upsert（機械スクリプト主体・`check-coconala-analytics` で検査） |

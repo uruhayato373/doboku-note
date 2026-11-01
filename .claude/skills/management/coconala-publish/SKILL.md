@@ -5,7 +5,7 @@ description: >
   （config/products.json の channel coconala＝価格/状態/URL・生成物 src/lib/coconala-services.ts）と listings（config/coconala-listings.json
   ＝本文/カテゴリ/納期/ジャンル）を真実源に、ログイン済みプロファイルで出品フォームへ流し込む。
   安全弁＝account assert（sellerName=dobokunote）／既定は「下書きで保存」で実公開は --commit 必須／
-  価格・カテゴリの充填 warning があれば公開せず下書き退避。公開成功時はカタログへ status:'listed'＋
+  既存出品の編集は入力 warning があれば更新中止。公開成功時はカタログへ status:'listed'＋
   serviceUrl＋listedAt を書き戻す。棚の出し入れは coconala-pause（休止/再開/アーカイブ・対象選択は
   coconala-guards でテスト固定・長期不在は全件休止が既定）。KPI 照合は /coconala-status、受注処理は /coconala-order と別。
   Use when user asks to [ココナラに出品, ココナラ出品を修正, ココナラの価格を反映, サービスを公開, ココナラを休止, 出品を再開, 商品を取り下げ, /coconala-publish].
@@ -109,9 +109,9 @@ npm run coconala-profile -- --commit   # account.json の profile(job/appeal/bio
 
 profile の真実源は `coconala-account.json` の `profile`。**自己紹介に外部URL/SNS を書かない**（規約）。アバターはサイトの `public/img/author-avatar.png`。
 
-## 制約（v1 未対応・手動）
+## 制約
 
-- **QA（よくある質問）・有料オプション**は v1 では自動投入しない（listings に `faq`/`options` は保持済み）。必要なら公開後にココナラ UI で追加。
+- **既存出品の編集**は現行フォームで FAQ と有料オプションを listings から投入する。**新規出品**は未対応なので、公開後にココナラ UI で追加する。
 - **アバター/カバーの実アップロード**は本スキルの範囲外（アバター=クロッパ無し・カバー=クロッパ「決定」→保存。手順は operations.md §8 未収載＝手動 or 個別スクリプト）。
 
 ## 完了条件

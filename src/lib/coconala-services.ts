@@ -178,8 +178,7 @@ const SERVICES_RAW = {
     priceNote: '1級・2テーマセット・24時間以内・書き直し1回込み',
     examScope: ['civil-1'],
     weeklyCapacity: 2,
-    pauseReason: 'absence',
-    resumeOn: '2027-07-01',
+    pauseReason: 'retired',
     listedAt: '2026-07-18',
   },
   // S2上位: 5管理（品質・安全・工程・施工計画・環境対策）分の添削。2026-09-24 ユーザー決定で新設（4テーマ→
@@ -196,9 +195,9 @@ const SERVICES_RAW = {
   //   ライブはまだ旧内容で休止中。反映は 10/26 以降に運営者の判断で coconala-edit から行う。
   'coconala-tensaku-4theme': {
     id: 'coconala-tensaku-4theme',
-    status: 'paused',
+    status: 'listed',
     serviceUrl: 'https://coconala.com/services/4418735',
-    title: '1級・2級土木の経験記述を元発注者の技術士が添削します',
+    title: '1級・2級土木の経験記述を元発注者が添削します',
     shortTitle: '土木 経験記述 添削（1級・2級）',
     description: '1級・2級土木施工管理技士 第2次検定の施工経験記述（問題1）を添削します。基本は2テーマ分の赤入れ（NG→OK 書き換え案）＋6観点のチェックリスト判定表＋読み手視点のコメント＋書き直し1回で、受け取りから3日以内にお返しします。全テーマ（2級は3テーマ・1級は5テーマ）への拡張、下書きが無い方向けの骨子からの相談（ヒアリング→骨子シート）、24時間以内の返却はオプションで選べます。答案はご本人が書きます（代筆はしません）。経験していない工事や数値の創作はお受けしません。',
     priceYen: 6000,
@@ -210,8 +209,6 @@ const SERVICES_RAW = {
     examScope: ['civil-1', 'civil-2'],
     weeklyCapacity: 2,
     listedAt: '2026-09-25',
-    pauseReason: 'absence',
-    resumeOn: '2026-10-26',
   },
   // S3: 答案作成（ヒアリング→文章化）。競合実測（2026-07-18）: daiko 実売中央値¥10,000・トップ4社が質問起点
   //   （ちゃんさと¥32,000×132／梅村¥12,000×129／フリーランスK¥10,000×58）。Red Line #2 再定義（捏造禁止）で出品可。
@@ -234,8 +231,7 @@ const SERVICES_RAW = {
     priceNote: '1級・骨子2テーマ＋添削・再添削1回込み',
     examScope: ['civil-1'],
     weeklyCapacity: 2,
-    pauseReason: 'absence',
-    resumeOn: '2027-07-01',
+    pauseReason: 'retired',
     listedAt: '2026-07-18',
   },
   // S3+: 答案作成の上位版（4テーマ・2026-08-12 出品決定）。ちゃんさとは設問数に線形な2段構え
@@ -275,8 +271,7 @@ const SERVICES_RAW = {
     examScope: ['civil-1'],
     weeklyCapacity: 1,
     listedAt: '2026-08-17',
-    pauseReason: 'absence',
-    resumeOn: '2027-07-01',
+    pauseReason: 'retired',
   },
   // ---- 2級（2026-09-25 新設・級別化）----
   // 2級は出題実績が「品質・安全・工程」の3管理に収まる（R3=安全/品質選択・R4=品質/工程選択・
@@ -293,8 +288,7 @@ const SERVICES_RAW = {
     priceNote: '2級・2テーマセット・24時間以内・書き直し1回込み',
     examScope: ['civil-2'],
     weeklyCapacity: 2,
-    pauseReason: 'absence',
-    resumeOn: '2026-10-26',
+    pauseReason: 'retired',
     listedAt: '2026-09-25',
   },
   // 2026-09-29 ユーザー決定（DN-0445）: 2級は3テーマのうち2つが当日指定されるので、2テーマだけの準備は外れうる。
@@ -317,8 +311,7 @@ const SERVICES_RAW = {
     examScope: ['civil-2'],
     weeklyCapacity: 1,
     listedAt: '2026-09-25',
-    pauseReason: 'absence',
-    resumeOn: '2027-07-01',
+    pauseReason: 'retired',
   },
   // 【2026-09-25 17:30 運営が取り下げ】理由は 2026-08-12 と同じ「学校の課題（宿題、レポート、論文、作文等）を
   //   代行すると判断されるサービス」。「学校の課題の代行ではなく…」の断り書きがあっても通らなかった。
@@ -335,8 +328,7 @@ const SERVICES_RAW = {
     priceNote: '2級・骨子2テーマ＋添削・再添削1回込み',
     examScope: ['civil-2'],
     weeklyCapacity: 2,
-    pauseReason: 'absence',
-    resumeOn: '2026-10-26',
+    pauseReason: 'retired',
     listedAt: '2026-09-25',
   },
   'coconala-2kyu-sakusei-3theme': {
@@ -355,8 +347,7 @@ const SERVICES_RAW = {
     examScope: ['civil-2'],
     weeklyCapacity: 1,
     listedAt: '2026-09-25',
-    pauseReason: 'absence',
-    resumeOn: '2027-07-01',
+    pauseReason: 'retired',
   },
   // C1: 出題分析 PDF。2026-08-05 統廃合で出品停止（paused）＝フルパック（C10）専用コンテンツ化。
   //   C8 予想模試が C1+C6 から生成された派生物のため単品同士の論点重複が大きく、初受注の購入者が
@@ -516,8 +507,7 @@ const SERVICES_RAW = {
     examScope: ['civil-1'],
     weeklyCapacity: 20,
     listedAt: '2026-07-18',
-    pauseReason: 'absence',
-    resumeOn: '2027-07-01',
+    pauseReason: 'retired',
   },
   // C9: 2級 二次 予想模擬試験3回（問題冊子＋解答解説）。C8 の2級版。
   // 2026-09-29 ユーザー決定（DN-0445）: 2級二次（10/25）まで PDF は休止し、添削・骨子（2テーマ24時間・全3テーマ）に集中する。
@@ -538,8 +528,7 @@ const SERVICES_RAW = {
     notePriceBasis: 'civil-2-chokuzen-pack | civil-2-r8-mock3-pdf + civil-2-anki-note',
     examScope: ['civil-2'],
     weeklyCapacity: 20,
-    pauseReason: 'absence',
-    resumeOn: '2026-10-26',
+    pauseReason: 'retired',
     listedAt: '2026-07-18',
   },
   // C10: 1級 二次 教材フルパック（C1+C2+C4+C6+C8 全部入り・PDF 22冊）。2026-08-05 新設。
@@ -596,7 +585,7 @@ const SERVICES_RAW = {
     examScope: ['civil-2'],
     weeklyCapacity: 20,
     pauseReason: 'absence',
-    resumeOn: '2026-10-26',
+    resumeOn: '2027-07-01',
     listedAt: '2026-08-05',
   },
   // C12: 1級 二次 プレミアム（教材フルパック22冊 ＋ 経験記述 添削2テーマ）。2026-08-05 新設。
@@ -626,8 +615,7 @@ const SERVICES_RAW = {
     examScope: ['civil-1'],
     weeklyCapacity: 1,
     listedAt: '2026-08-05',
-    pauseReason: 'absence',
-    resumeOn: '2027-07-01',
+    pauseReason: 'retired',
   },
   // 制作物（DLキット）テスト出品。Claude Code + Node.js を要する自作ツール版＝客層が限定される
   // ため status:'draft'（防御的非表示）で配線のみ用意。公開前ゲート: (1) 納品ZIPは外部URL(note/

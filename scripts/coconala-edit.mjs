@@ -70,6 +70,9 @@ const allFields = {
   purchaseNote: lst.purchaseNote,
   priceYen: svc.priceYen,
   deliveryDays: lst.deliveryDays,
+  orderLimit: svc.weeklyCapacity,
+  faq: lst.faq,
+  options: lst.options,
 };
 const keyMap = { title: 'title', catchphrase: 'catchphrase', category: 'category', body: 'body', purchaseNote: 'purchaseNote', price: 'priceYen', delivery: 'deliveryDays' };
 let fields = allFields;
@@ -78,7 +81,7 @@ if (ONLY.length) {
   for (const k of ONLY) { const fk = keyMap[k] || k; if (fk in allFields) fields[fk] = allFields[fk]; }
   // category を触るなら provisionFormat も保持不要（部分更新）
 }
-console.log(`[prep] edit service=${SERVICE} id=${numericId} fields=${ONLY.length ? ONLY.join(',') : 'ALL'} mode=${COMMIT ? 'COMMIT(反映)' : svc.status === 'listed' ? 'DRY-RUN(公開中・送信しない)' : 'DRAFT(下書き)'}`);
+console.log(`[prep] edit service=${SERVICE} id=${numericId} fields=${ONLY.length ? ONLY.join(',') : 'ALL'} mode=${COMMIT ? 'COMMIT(反映)' : svc.status === 'draft' ? 'DRAFT(下書き)' : 'DRY-RUN(公開済み・送信しない)'}`);
 
 mkdirSync(join(ROOT, '.tmp/coconala'), { recursive: true });
 const shot = (n) => join(ROOT, '.tmp/coconala', n);
@@ -118,6 +121,10 @@ try {
     const { log, warnings } = await fillServiceForm(page, fields, { tag: '[edit]' });
     log.forEach((l) => console.log('   ', l));
     if (warnings.length) { console.log('[edit] ⚠ warnings:'); warnings.forEach((w) => console.log('    -', w)); }
+    if (COMMIT && warnings.length) {
+      console.error('[edit] 入力警告があるため更新を中止');
+      throw new Error('入力警告があるため更新を中止');
+    }
   }
   await page.screenshot({ path: shot(`edit-filled-${SERVICE}.png`) }).catch(() => {});
 
