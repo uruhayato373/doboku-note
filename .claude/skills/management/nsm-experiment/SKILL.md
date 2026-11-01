@@ -115,7 +115,7 @@ abandoned  abandoned  running (re-measure)
 0. 期限超過の一覧だけが欲しいときは `npm run check-experiment-due -- --json` が最短（決定的 surfacer。
    weekly-review もこれを転記する。measure 期限超過 / next_check_date 未設定の滞留 / proposed の滞留 /
    未処理の `pending_user_actions` を返す。判定のみで状態は書き換えない＝裁定は人）
-1. `data/business/experiments.json` を読み、`experiments[]` から `status` が `running` と `measuring` の実験を全件抽出（兄弟スキル weekly-review/weekly-plan/weekly-improve と同じく JSON 直読み。ヘルパーモジュールは介さない）
+1. `data/business/experiments.json` を読み、`experiments[]` から `status` が `running` と `measuring` の実験を全件抽出（兄弟スキル weekly-review/weekly-improve と同じく JSON 直読み。ヘルパーモジュールは介さない）
 2. 各 experiment について以下をチェック:
    - `pending_user_actions` フィールドが存在して配列が空でないか
    - `next_check_date` が今日以前か（期限超過）or 3 日以内（近接）or 未来
@@ -246,7 +246,7 @@ propose / start のときに、前後比較できる実験には `measure` を�
 
 ## 担当外
 
-- **NSM 定義の変更**: `/north-star-metric` スキルの担当
+- **NSM 定義の変更**: `config/business-direction.json`（`/monthly-review` の手順で target 記録）
 - **コンテンツそのものの編集**: `/keyword-page`, `/check-mdx --rules frontmatter` など専任スキルの担当
 - **週次レポート生成**: `/weekly-review` の担当（本スキルは `experiments.json` の読み書きを担う）
 - **月次の事業判断**: `/monthly-review` の担当
@@ -258,7 +258,6 @@ propose / start のときに、前後比較できる実験には `measure` を�
 | **`data/business/experiments.json`** | 実験 state 本体（JSON 直読み書き。専用ヘルパーモジュールは無い） |
 | **`.claude/scripts/lib/metrics-reader.mjs`** | baseline と current の計測 |
 | **`.claude/scripts/snapshot-weekly-metrics.mjs`** | 週次スナップショット（propose 時の背景データ）|
-| **`.claude/skills/management/weekly-plan/SKILL.md`** | Phase 1 Agent C で実験提案を自動化 |
 | **`.claude/skills/management/weekly-review/SKILL.md`** | 実験進捗セクションで running を自動表示 |
 | **`.claude/skills/management/nsm-experiment/references/playbook.md`** | 実験パターンカタログ |
 | **`.claude/skills/management/nsm-experiment/references/rubric.md`** | 優先順位評価軸 |
@@ -285,7 +284,7 @@ propose / start のときに、前後比較できる実験には `measure` を�
 /nsm-experiment close EXP-001
 # ← 効果判定と learnings を対話入力 → done へ遷移
 
-# 次週の /weekly-plan で自動的に次の候補提案へループ
+# 次週の /weekly-review で次の候補提案へループ
 ```
 
 ## 参照

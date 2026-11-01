@@ -148,7 +148,7 @@ backlog が持つのは**単発で完了がある未着手タスク**だけ = �
 | `backlog.md` の**行削除** | `backlog-loop` (CI)。gate 証拠が ledger に要る → stats47 側 rules `backlog-loop` |
 | `improvements.md` | `improvement-triage` (排他) |
 | `monthly.md` | `/monthly-plan` skill (Write 上書き) |
-| `weekly.md` | `/weekly-plan` skill (Write 上書き) |
+| `weekly.md` | `/plan-weekly` skill（todo-planner・Write 上書き） |
 
 閲覧は管理画面 `npm run admin` → http://127.0.0.1:3021/todo (読み取り専用・層タブ + 優先度/種類の
 ファセット)。検査は `npm run check-backlog-schema`（機械読取契約）と `npm run check-backlog-health`（台帳の健全性）。
