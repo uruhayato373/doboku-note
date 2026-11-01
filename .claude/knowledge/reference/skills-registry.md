@@ -6,6 +6,8 @@ title: スキル ガバナンス記録
 
 # スキル ガバナンス記録
 
+- 2026-11-01: `check-seo-meta` が動的転送の `# route` 対応表も読むよう修正。旧 `/docs/` の HTML 欠落という誤検知を解消。件数は不変。
+
 - 2026-11-01: `gsc-review` の古い記録の診断に、URL 検査 run の publish 失敗を追加。件数は不変。
 
 - 2026-10-27: `video-content` と `create-pop-image` の担当を、Claude Code の台本 Writer/QA → Codex ImageGen の画像生成へ明記。既存の機械ゲート・承認CLI・予約経路は維持。件数は不変。
