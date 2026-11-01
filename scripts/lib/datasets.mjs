@@ -90,6 +90,7 @@ export const DATASETS = [
   d('config.business-direction', 'config/business-direction.json', 'config', 'strategy', '重点資格・KPI の定義・レビュー周期', { schema: 'ConfigBusinessDirection', refs: [{ at: 'qualifications[].id', to: 'qualification' }, { at: 'metrics[].appliesTo', to: 'qualification', ignore: ['all'] }] }),
   d('config.qualification-registry', 'config/qualification-registry.json', 'config', 'strategy', '資格の一覧・名前・並び順・展開状態', { schema: 'QualificationRegistry' }),
   d('config.exam-calendar', 'config/exam-calendar.json', 'config', 'strategy', '試験日程', { schema: 'ExamCalendar' }),
+  d('config.revenue-calendar', 'config/revenue-calendar.json', 'config', 'plan', '収益カレンダー（資格ごとに、試験の何週前に制作を始め・CTA を切り替え・販売の山を迎え、何日後に判定するか）', { schema: 'ConfigRevenueCalendar', refs: [{ at: 'targets[].qualification', to: 'qualification' }] }),
   d('config.exam-formats', 'config/exam-formats.json', 'config', 'strategy', '試験区分・出題形式・過去問の公開範囲', { schema: 'ConfigExamFormats' }),
   d('config.exam-stats', 'config/exam-stats.json', 'config', 'strategy', '受験者数・合格率', { schema: 'ConfigExamStats' }),
   d('config.market-scan', 'config/market-scan.json', 'config', 'strategy', '資格ごとの市場（競合の混み具合）を取る検索語と閾値', { schema: 'ConfigMarketScan' }),
