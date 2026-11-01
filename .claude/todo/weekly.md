@@ -20,7 +20,6 @@
 | DN-0819 | 11/7 の土曜の回を全段 rc=0 で通す（前に運営者が Claude・KDP のログインをやり直す） | 運営者＋当方（ローカル） |
 | DN-0927 | external-links の 3 URL を直し、月曜の weekly-review-guard を緑に戻す | 当方（クラウド可） |
 
-余力があれば DN-0923（検索改善の候補の # 付き URL）→ DN-0924（2級の配点ページ）→ DN-0928（minimatch）。DN-0343 は 10 月の実績がそろう月次レビューの後に着手する。
 
 ## 定常運用（surfacer から pull・backlog ID なし）
 

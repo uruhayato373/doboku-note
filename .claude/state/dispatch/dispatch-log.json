@@ -6306,6 +6306,23 @@
       "commit": "7bc67966d845",
       "verification": "node scripts/egov-laws.mjs --drift → 改正 0 本",
       "note": "施行令第80条の3・措置法第33条の4第3・4・6項を改正後の条文で照合し、4記事とも記述に変更なし。e-Gov の写しを進めた"
+    },
+    {
+      "id": "DN-0923",
+      "at": "2026-11-01",
+      "task": "検索改善の候補が # 付きアンカーの URL で出て record できない（2級 R8 見直しページの改善が未記録）",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "test"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "1f22101ea88b",
+      "verification": "npm run report-search-opportunities -- --json → fileable の # 付き 0 件・node --test tests/search-opportunities.test.mjs 合格",
+      "note": "PR #1350（b9f5ea478f）で改善候補の URL から # 以降を落としページ単位に束ねた。R8 見直しページは計測中の EXP-040 の対象で、# 付きの節の URL が除外をすり抜けていたと判明したため、11/1 の seoTitle の変更（38e5aec8c）は新しい EXP にせず EXP-040 の交絡として actions に記録した（9b3753048）"
     }
   ]
 }

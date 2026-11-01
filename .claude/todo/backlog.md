@@ -1706,14 +1706,6 @@ Windows の PowerShell で repo 直下から順に:
 
 **完了条件**: Windows に `auth-session-refresh` のタスクが無く、R2 に `auth-state/` が無く、3 の判断が backlog かこのカードに記録されている。`git grep -l DOBOKU_AUTH .github` は 0 件（確認済み）。
 
-### [DN-0923] 検索改善の候補が # 付きアンカーの URL で出て record できない（2級 R8 見直しページの改善が未記録）
-タグ: [インフラ・計測] [領域:サイト] [時期:2026-11] [種類:不具合] [起票:2026-11-01] [進行中]
-
-**起点**: 週次トリアージ（data/analysis/growth/digest-2026-W43.json）の OPP-fcfcda5a1a: 「二級土木施工管理技士 二次試験」は平均 8.4 位なのに CTR 0.98%（期待 3%）（期待効果 12.7 searchClicks/週）。原稿: `content/site/civil-construction-2/guide-r08-secondary-answers/article.mdx`
-
-**やること**: 週次レビュー（2026-10-19〜2026-10-25）で、report-search-opportunities の fileable が /exam/civil-construction-2/guide/r08-secondary-answers を # 付きの節ごとに出し、search-improvement record は normalizeTargetPath で # 以降を落とすため候補と一致せず拒否した。候補側でアンカーを落としてページ単位にまとめ、2026-11-01 の改善 commit 38e5aec8c（seoTitle を「二次試験」表記・解答の公表有無に合わせた）を record する
-
-**完了条件**: fileable に # 付き URL が出ず、r08-secondary-answers の改善が EXP として記録され、回帰テストがある
 
 ### [DN-0924] 2級二次の配点・部分点ページの title と冒頭を「2次試験 配点」の検索に合わせる（1.5 位で CTR 5.9%）
 タグ: [コンテンツ品質] [領域:サイト] [時期:2026-11..2026-12] [種類:改善] [起票:2026-11-01]
