@@ -6,6 +6,9 @@
  *   npm run page-quality-inventory            # 種類ごとの表
  *   npm run page-quality-inventory -- --json  # 機械向け（ページごとの指標を含む）
  *
+ * 採点の済み・不合格は quality-census の索引（.claude/state/quality/census.json）から読む。採点は資格ごとの採点ファイル
+ * （.claude/state/quality/{name}-scores.json ほか）に書き、census が束ねる＝採点の記録はこの 1 本の索引で見る。
+ *
  * 失敗（exit 1）にするのは、結果が設定と記事の中身だけで決まる食い違い:
  *   どの種類にも当たらないページ・2 つ以上に当たるページ・1 件も当たらない種類・
  *   実在しない評価役（.claude/agents/<名前>.md）・quality-audit に無い検査 id。
@@ -18,11 +21,12 @@ import matter from 'gray-matter';
 import { REPO_ROOT, SITE_CONTENT_ROOT, CLAUDE_ROOT } from './lib/repository-paths.mjs';
 import { listSiteMdx } from './lib/mdx-files.mjs';
 import { listFiles } from './lib/fs-walk.mjs';
-import { readDataset } from './lib/dataset-io.mjs';
+import { readDataset, readDatasetIf } from './lib/dataset-io.mjs';
 import { readJson } from './lib/json-io.mjs';
 import { parseCliArgs } from './lib/cli-args.mjs';
 import { classifyPage, countMetrics, stripFrontmatter, median, evaluatorCoverage } from './lib/page-quality-profiles.mjs';
 import { CHECKS } from './quality-audit.mjs';
+import { siteSlugFromRel } from '../src/lib/site-slug.mjs';
 
 /** 主の評価役（これが無い資格を「評価役なし」と数える） */
 const PRIMARY_ROLES = ['rubric', 'tables'];
@@ -33,6 +37,9 @@ const { profiles } = config;
 const categories = readJson(REPO_ROOT, 'src/config/categories.json');
 const areaOf = new Map((Array.isArray(categories) ? categories : categories.categories).map((c) => [c.slug ?? c.id, c.area]));
 const toRel = (abs) => relative(REPO_ROOT, abs).split(sep).join('/');
+// 採点の記録は資格ごとの採点ファイルにあり、quality-census が記事（slug）ごとに束ねる。ここではその索引を読むだけ（集計を二重に持たない）
+const census = readDatasetIf(REPO_ROOT, 'state.quality-census');
+const scoreOf = new Map((census?.articles ?? []).map((a) => [a.slug, a]));
 
 // ---- 対象の列挙 ---------------------------------------------------------------------------------
 const pages = [];
@@ -42,7 +49,8 @@ for (const abs of listSiteMdx({ articleOnly: true })) {
   try { data = matter(raw).data; } catch { /* frontmatter を読めないページは group 無しで未分類に落ちる */ }
   const rel = toRel(abs);
   const category = data.category ?? rel.split('/')[2];
-  pages.push({ rel, category, area: areaOf.get(category) ?? null, group: data.group ?? null, raw });
+  const slug = siteSlugFromRel(relative(SITE_CONTENT_ROOT, abs));
+  pages.push({ rel, category, area: areaOf.get(category) ?? null, group: data.group ?? null, raw, score: scoreOf.get(slug) ?? null });
 }
 const pathRoots = [...new Set(profiles.flatMap((p) => p.match.paths ?? []))];
 for (const root of pathRoots) {
@@ -67,7 +75,7 @@ for (const page of pages) {
     problems.push(`${page.rel}: ${hits.length === 0 ? 'どの種類にも当たらない' : `2 つ以上の種類に当たる（${hits.join('・')}）`}（area=${page.area} group=${page.group}）`);
     continue;
   }
-  byProfile.get(hits[0]).push({ rel: page.rel, category: page.category, metrics: countMetrics(stripFrontmatter(page.raw)) });
+  byProfile.get(hits[0]).push({ rel: page.rel, category: page.category, metrics: countMetrics(stripFrontmatter(page.raw)), score: page.score?.scored ? { weighted: page.score.weighted, scoredAt: page.score.scored_at, failed: page.score.failed } : null });
 }
 
 const auditIds = new Set(CHECKS.map((c) => c.id));
@@ -91,7 +99,10 @@ const summary = profiles.map((p) => {
       return [m, { median: median(values), total: values.reduce((a, b) => a + b, 0) }];
     }),
   );
-  return { id: p.id, label: p.label, pages: list.length, metrics, coverage, uncoveredPages: uncovered.reduce((a, c) => a + c.pages, 0), uncovered };
+  const scored = list.filter((x) => x.score);
+  const dates = scored.map((x) => x.score.scoredAt).filter(Boolean).sort();
+  const scores = { scored: scored.length, failed: scored.filter((x) => x.score.failed).length, oldest: dates[0]?.slice(0, 10) ?? null, newest: dates.at(-1)?.slice(0, 10) ?? null };
+  return { id: p.id, label: p.label, evaluatorGap: p.evaluatorGap ?? null, pages: list.length, scores, metrics, coverage, uncoveredPages: uncovered.reduce((a, c) => a + c.pages, 0), uncovered };
 });
 
 // ---- 出力 ---------------------------------------------------------------------------------------
@@ -101,17 +112,20 @@ if (flags.json) {
 } else {
   const classified = summary.reduce((a, s) => a + s.pages, 0);
   console.log(`[page-quality-inventory] ${pages.length} ページを実検査 / 種類に分けた ${classified} ページ / 種類 ${profiles.length}`);
+  console.log(census ? `  採点の索引: quality-census（${census.generated_at?.slice(0, 10)} 生成・作り直しは npm run quality-census）` : '  採点の索引: quality-census が無い（npm run quality-census で作る）。採点は数えない');
   for (const s of summary) {
     const m = Object.entries(s.metrics).map(([k, v]) => `${k} 中央値 ${v.median ?? '-'}・計 ${v.total}`).join(' / ');
     console.log(`\n■ ${s.label}（${s.id}）${s.pages} ページ`);
     console.log(`  指標: ${m}`);
     console.log(`  評価役の無い資格: ${s.uncovered.length ? s.uncovered.map((c) => `${c.category} ${c.pages}`).join('・') : 'なし'}`);
+    if (s.evaluatorGap) console.log(`  評価役を置けない理由: ${s.evaluatorGap}`);
+    console.log(`  採点: ${s.scores.scored}/${s.pages} 済み・不合格 ${s.scores.failed}${s.scores.oldest ? `・採点日 ${s.scores.oldest}〜${s.scores.newest}` : ''}`);
     if (s.metrics.tableCaptions && s.metrics.tables) {
       console.log(`  展開: 表のキャプション ${s.metrics.tableCaptions.total} に対し表 ${s.metrics.tables.total} / 図のキャプション ${s.metrics.figureCaptions?.total ?? 0} に対し画像 ${s.metrics.images?.total ?? 0}`);
     }
   }
   const gapPages = summary.reduce((a, s) => a + s.uncoveredPages, 0);
-  console.log(`\n評価役の無いページ: 計 ${gapPages}（DN-0937 で埋める）`);
+  console.log(`\n評価役の無いページ: 計 ${gapPages}（理由は各種類の evaluatorGap）`);
   if (problems.length) {
     console.error(`\n✗ 食い違い ${problems.length} 件`);
     for (const p of problems.slice(0, 30)) console.error(`  - ${p}`);

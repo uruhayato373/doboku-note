@@ -25,7 +25,7 @@ doboku-note は複数の資格試験を扱うが、試験ごとに「**何を / 
 | **図の標準量** | 多数（断面・配筋・施工写真） | 少数（重要箇所のみ） | 少数（基礎の図のみ） | 原本準拠（あれば） | ほぼゼロ（テキスト中心） | 原本準拠（あれば） |
 | **数式** | 頻出（W/C 比・配合・力学） | 限定的 | 基礎数式のみ | 問題文に応じて | 少ない | 問題文に応じて |
 | **Generator スキル** | `/pdf-to-mdx --exam civil-construction-1` | 手動編集 | 手動編集 + `guide-rewriter`／`guide-qa` サイクル | `/exam-questions-import --exam {civil-primary-2\|civil-secondary-2}` | `/keyword-page` | `/pdf-to-mdx` `/pdf-to-mdx --exam cem` |
-| **Evaluator エージェント** | `civil-construction-qa` (textbook mode) | `civil-construction-qa` (guide mode) | `civil-construction-qa` (guide mode、category フィルタ拡張済み) | `content-qa` | `cem-qa` | `content-qa` |
+| **Evaluator エージェント** | `civil-construction-qa` (Mode A・既存記事は Mode R) | `civil-construction-qa` (Mode B・既存記事は Mode R) | `civil-construction-qa` (Mode B・Mode R、category フィルタ拡張済み) | `content-qa` | `cem-qa` | `content-qa` |
 
 **2級土木の補足**:
 - **前期/後期の区分**: 2級は第1次が前期（6月）/後期（10月）の2回開催。過去問 MDX は `primary-{year}-{zenki\|kouki}` 命名（1級の `primary-{year}-{a\|b}` と命名規則が異なる）

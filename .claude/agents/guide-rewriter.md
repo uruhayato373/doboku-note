@@ -20,7 +20,7 @@ domain: site
 
 本エージェントは**作成・改訂のみ**。品質判定は `guide-qa`、事実検証は `guide-fact-checker` が行う。
 
-**`civil-textbook-rewriter` との棲み分け**: civil ガイドは両者が触れるが、`civil-textbook-rewriter` は civil **textbook**（PDF 由来の概念ページ）が主担当で `civil-construction-review` と対。本エージェントは **`group: guide` のガイド軸リライト**（全資格）が主担当で `guide-qa` と対。pe/総監/コンクリートのガイドは本エージェントのみ。
+**`civil-textbook-rewriter` との棲み分け**: civil ガイドは両者が触れるが、`civil-textbook-rewriter` は civil **textbook**（PDF 由来の概念ページ）が主担当で `civil-construction-qa`（校正モード） と対。本エージェントは **`group: guide` のガイド軸リライト**（全資格）が主担当で `guide-qa` と対。pe/総監/コンクリートのガイドは本エージェントのみ。
 
 ## スコープ
 
