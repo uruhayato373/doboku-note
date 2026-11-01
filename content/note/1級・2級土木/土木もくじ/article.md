@@ -39,6 +39,13 @@ cover:
 
 過去問の解説・テキストは、サイト [doboku-note](https://doboku-note.com/?utm_source=note&utm_medium=referral&utm_campaign=civil-mokuji&utm_content=intro) で無料公開しています。
 
+**受ける級から選ぶ**
+
+- **2級の方** → [二次検定の全体像（無料）](https://note.com/dobokunote/n/n27455b88bcd5)、[一次の過去問PDF](https://note.com/dobokunote/n/n4963f45bd6f8)
+- **1級の方** → [経験記述のテーマ選び（無料）](https://note.com/dobokunote/n/nd4c5c13ee445)、[一次の過去問PDF](https://note.com/dobokunote/n/n155093f42183)
+
+二次検定を受け終えた方は、次の無料記事から結果発表までの過ごし方を確認できます。
+
 ---
 
 ## 令和8年度の第二次検定を終えた方へ
@@ -52,14 +59,14 @@ cover:
 
 ## 無料で現在地を確認してから選ぶ
 
-最初に無料の答案診断で現在地を確認し、その後に買い切り教材か伴走支援を選びます。
+最初に無料の答案診断で現在地を確認し、必要な買い切り教材を選びます。
 
 - **まだ買わずに答案の弱点を知りたい** → [落ちる施工経験記述 診断（無料）](https://note.com/dobokunote/n/nd1c0e564ef10)から
-- **2級で、まず頻出3管理の型を固めたい** → 施工経験記述 完成答案集
-- **1級で、まず経験記述の型を固めたい** → 施工経験記述 完成答案集
-- **自分の工事に近い想定工事を広く探したい** → 想定工事バンク（2級）／完全攻略パック（1級）
-- **過去問の年度別模範答案で演習したい** → 施工経験記述 過去問 模範答案集（2級／1級）
-- **まず一次を過去問で突破したい** → 第1次検定 過去問PDF（2級／1級）
+- **2級で、まず頻出3管理の型を固めたい** → [施工経験記述 完成答案集](https://note.com/dobokunote/m/m1881a9578027)
+- **1級で、まず経験記述の型を固めたい** → [施工経験記述 完成答案集](https://note.com/dobokunote/m/m150c9db08902)
+- **自分の工事に近い想定工事を広く探したい** → [想定工事バンク（2級）](https://note.com/dobokunote/m/m8554e87ca6ec)／[完全攻略パック（1級）](https://note.com/dobokunote/m/m8290970a7f05)
+- **過去問の年度別模範答案で演習したい** → [2級](https://note.com/dobokunote/m/md3aa0f9a37d7)／[1級](https://note.com/dobokunote/m/m3a578194a0a9)の施工経験記述 過去問 模範答案集
+- **まず一次を過去問で突破したい** → [2級](https://note.com/dobokunote/n/n4963f45bd6f8)／[1級](https://note.com/dobokunote/n/n155093f42183)の第1次検定 過去問PDF
 
 各教材の中身は、このあとのセクションで順に説明します。
 
@@ -214,21 +221,6 @@ https://note.com/dobokunote/m/m7a9b3ad964f6
 - [施工管理の転職エージェントの使い方｜登録・電話・面談・応募前の準備](https://note.com/dobokunote/n/n5a823955985c)
 - [土木施工管理の転職エージェントの選び方｜工種・勤務地・支援内容で比較する](https://note.com/dobokunote/n/ne49853deac96)
 - [ビルドジョブは土木施工管理に向く？評判を見る前に確認したい経験・勤務地・相談の流れ](https://note.com/dobokunote/n/na0f42fd52a51)
-
----
-
-## 目的から逆引き
-
-- **1級をこれから始める** → [1級土木をAIで勉強する](https://note.com/dobokunote/n/n8b0e42784742)
-- **2級をこれから始める** → [二次検定の全体像](https://note.com/dobokunote/n/n27455b88bcd5)＋[独学の学習設計](https://note.com/dobokunote/n/n0d6a78c48cef)
-- **落ちる答案のパターンを知りたい** → [2級版](https://note.com/dobokunote/n/na5e045a1c6f8)／[1級版](https://note.com/dobokunote/n/nfea4a39cf108)
-- **一次を過去問で突破したい** → [2級](https://note.com/dobokunote/n/n4963f45bd6f8)／[1級](https://note.com/dobokunote/n/n155093f42183) 第1次検定 過去問PDF
-- **経験記述の完成答案がほしい** → [2級](https://note.com/dobokunote/m/m1881a9578027)／[1級](https://note.com/dobokunote/m/m150c9db08902) 完成答案集
-- **過去問の年度別模範答案がほしい** → [2級](https://note.com/dobokunote/m/md3aa0f9a37d7)／[1級](https://note.com/dobokunote/m/m3a578194a0a9) 過去問模範答案集
-- **複数テーマに備えたい**（1級） → [2テーマ組合せ大全](https://note.com/dobokunote/m/m74cfd7c695d6)
-- **試験直前2週間を回し切りたい** → [2級](https://note.com/dobokunote/m/md3518107aa97)／[1級](https://note.com/dobokunote/m/m7a9b3ad964f6) 直前総仕上げパック（模試3回＋暗記＋出題分析）
-- **二次の教材をまとめてそろえたい** → [2級](https://note.com/dobokunote/m/m2d9a069b6f87)／[1級](https://note.com/dobokunote/m/md29a34906314) 二次検定まるごとパック
-- **一次のテキストをどこから読むか決めたい** → [2級 精読ガイド](https://note.com/dobokunote/n/na8e28f954797)／[1級 精読ガイド](https://note.com/dobokunote/n/n653cd1b3ee71)（無料）
 
 ---
 
