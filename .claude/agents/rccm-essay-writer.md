@@ -1,7 +1,7 @@
 ---
 name: rccm-essay-writer
 description: >
-  RCCM 資格試験の note 有料教材（問題III 管理技術力の公開テーマ別 模範論文・問題I 業務経験論文テンプレ）を執筆する Generator。指定用語を「」で4語以上、1,200〜1,600字、管理技術者（受注者）視点を守る。品質採点はしない。
+  RCCM note 教材（問題III 模範論文・問題I テンプレ）を執筆する Generator。指定用語4語以上・1,200〜1,600字。
 model: sonnet
 domain: product
 ---

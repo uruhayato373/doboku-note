@@ -1,12 +1,7 @@
 ---
 name: seo-growth-review
 description: >
-  SEO を「技術健全性 × index coverage × performance × 検索意図」の4面で束ねて回すオーケストレータ。
-  機械スクリプト（check-seo-build / check-seo-meta / fetch 済み GSC）を先に実行し、その結果を
-  audit-only Evaluator（technical-seo-auditor / gsc-index-auditor / metrics-analyzer /
-  search-intent-auditor / performance-auditor）へ配って統合レポートにまとめる。決定的判定は機械、
-  意味判断は Evaluator、修正はしない（自動修正エージェントは持たない・旧 catch-all seo-auditor は復活させない）。
-  Use when user asks to [SEO総合レビュー, SEOグロース, 技術SEO監査, /seo-growth-review].
+  SEO を技術・index coverage・performance・検索意図の4面で束ね、機械結果を audit-only Evaluator へ配って統合レポートにする（修正はしない）。Use when user asks to [SEO総合レビュー, /seo-growth-review].
 user-invocable: true
 domain: site
 ---

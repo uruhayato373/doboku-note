@@ -1,12 +1,7 @@
 ---
 name: notebooklm-research
 description: >
-  NotebookLM CLI（notebooklm、旧 nlm から 2026-05-11 移行）を使って総監キーワードページを
-  深掘り調査し、総監標準テキスト・記述式模範解答・各種白書を横断クエリした引用根拠をもとに
-  リライトする Orchestrator スキル。cem-qa 採点は不要。notebooklm-cross-query.mjs ラッパーで
-  根拠収集 → 記事に反映のシンプルなフローで内容の深みを追加する。
-  Use when user asks to [NotebookLMで調べて, 深掘り調査, 引用根拠でリライト,
-  テキストで補強, NotebookLMで品質向上, /notebooklm-research].
+  NotebookLM CLI の横断クエリで総監キーワードページを引用根拠つきに深掘りしてリライトする。Use when user asks to [NotebookLMで調べて, 深掘り調査, 引用根拠でリライト, /notebooklm-research].
 domain: material
 ---
 

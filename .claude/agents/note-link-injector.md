@@ -1,6 +1,7 @@
 ---
 name: note-link-injector
-description: note 公開用ドラフト（content/note/**/article.md）に doboku-note キーワードページへのインラインリンクを全 occurrence 注入する Generator エージェント。
+description: >
+  note 公開用ドラフトに doboku-note キーワードページへのインラインリンクを注入する Generator。
 model: sonnet
 domain: product
 ---

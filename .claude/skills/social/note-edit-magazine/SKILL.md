@@ -1,10 +1,7 @@
 ---
 name: note-edit-magazine
 description: >
-  note の有料マガジン設定（タイトル/説明/アピール/価格）と収録記事の単品価格を、対応する
-  note掲載文.txt（単一SoT）の値へ自動反映する。Playwright + システム Chrome（channel:'chrome'）で編集→保存。
-  Use when user says "note マガジン編集", "note 価格変更", "note タイトル変更", "マガジン設定更新".
-  **初回 or 様子見は必ず --dry-run。書き込みは収益アカウントのため保存後 API 検証まで必須**。
+  note 有料マガジンの設定と収録記事の単品価格を、note掲載文.txt（単一SoT）の値へ反映するブラウザ CLI（初回は --dry-run・保存後に API 検証）。Use when user says "note マガジン編集", "note 価格変更", "マガジン設定更新".
 disable-model-invocation: true
 argument-hint: "--key <magazineKey> --dir <magazineDir>（or --txt note掲載文.txt）[--articles] [--dry-run]"
 domain: product

@@ -5,764 +5,82 @@ description: >
 domain: strategy
 ---
 
-## 事業の週次判断（最初と最後に実行）
+# 週次レビュー（骨子）
 
-`docs/strategy/01_プロダクト戦略.md` と `config/business-direction.json` を基準にする。**読む順は KPI ツリー（`docs/strategy/15_KPIツリー.md`・管理画面トップ）に従う**: 頂点の月の受取額（`netReceipts`）と目標（`target` 記録）の差を先に確認し、週次では直近の完了月の値を参照するだけにして、原因の候補は前週から落ちた段・目標を割っている段（チャネル → 入口）に絞る。`npm run business-review -- report --json` で前の完了した月曜〜日曜の資格別KPI、欠測、既存レビュー期日を確認する。以下の収集項目はこの判断を支える資料であり、集客だけを成功としない。
+対象週の実績を調べ、成果・課題・学びを `docs/reviews/weekly/YYYY-Www-review.md` に保存する。この骨子は毎回読む。各段の詳細・コマンド・雛形は `references/` にあり、**その節を書くときだけ**読む。
 
-収集後、`.claude/knowledge/reference/business-review.md` の手順でsnapshotとweeklyのreviewを追記する。資格別に「実測／未確認／判断／次の一手」を分け、実験IDと次回日を残す。note/ココナラ内アクセス・販売、運営時間も確認する。欠測はprovisional、同じ期間のレビューはsupersedesによる訂正。MDレポートを整理しても機械履歴は削除しない。JSONを明示してコミットする。月次の方針・目標変更は `/monthly-review` へ渡す。
+```
+/weekly-review [YYYY-Www]    # 省略時は前の完了した週（ISO 8601 週番号）
+```
 
-対象週の実績を調査し、成果・課題・学びを記録する週次レビューを生成する。
+## 読む量の規律
 
-**配線の正本**: このスキルが実行するコマンドは `.claude/config/review-wiring.json` の weekly に段（KPI ツリー）と役割（判断／点検）付きで載せる（CI の check-review-wiring が食い違いを止める。管理画面 戦略 ＞ レビュー が配線図と実行状況を出す）。**このレビューから起票したカードは本文の起点を「週次レビュー（開始日〜終了日）」で始める**（例: 週次レビュー（2026-09-21〜2026-09-27））。管理画面はこの文字列でレビュー由来のカードを数える。
+- 最初に読むのは**下書き `.claude/state/weekly-review/draft.json` の `markdown`**（`week` が今週・`generatedAt` が今日）と、`npm run backlog-gate -- --weekly` の出力。**`backlog.md` を全部読まない**（約 330KB。カードは ID で引くか `backlog-gate` の対象だけ読む）。
+- 下書きが無い・古いときは `node scripts/build-weekly-review-draft.mjs --print` で作り直す。数字は写し、転記し直さない。
+- 下書きに無い節と、下書きで欠け・失敗になった材料だけ、references のコマンドを回す。機械で決まる点検（CI の quality-audit・週次の点検）は先に回っているので、その結果を読み、二重に叩かない。
+
+## 事業の週次判断（最初と最後）
+
+`docs/strategy/01_プロダクト戦略.md` と `config/business-direction.json` が基準。**読む順は KPI ツリー（`docs/strategy/15_KPIツリー.md`）に従う**: 頂点の月の受取額（`netReceipts`）と目標の差を先に確認し、週次では直近の完了月を参照するだけにして、原因の候補は前週から落ちた段・目標を割っている段（チャネル → 入口）に絞る。`npm run business-review -- report --json` で資格別 KPI・欠測・レビュー期日を確認する。収集後は `.claude/knowledge/reference/business-review.md` の手順で snapshot と weekly の review を追記する（資格別に「実測／未確認／判断／次の一手」・実験 ID と次回日。欠測は provisional、同じ期間の書き直しは supersedes。機械履歴は削除しない。JSON を明示して commit）。月次の方針・目標の変更は `/monthly-review` へ渡す。
+
+**配線の正本**: このスキル（本ファイルと `references/`）が実行するコマンドは `.claude/config/review-wiring.json` の weekly に段（KPI ツリー）と役割（判断／点検）付きで載せる（check-review-wiring が食い違いを止める）。**起票したカードの本文の起点は「週次レビュー（開始日〜終了日）」で始める**（管理画面がレビュー由来のカードを数える）。
 
 ## 実行主体（2026-10-10〜）
 
-3 段で回す（2026-W40 が抜けた反省・[workflows.md](../../../knowledge/reference/workflows.md)「実行主体」）:
+1. **土曜 9:30・Mac の launchd**（`scripts/scheduled/weekly-review.sh`）が、ログインが要る取得を土曜の収集（`scripts/weekly-collect.mjs --phase pre`）で回し、GSC の記録層を回し、収集の後に機械の節を `draft.json` に書く（`npm run weekly-review:draft`）。
+2. 続けて**ヘッドレスの Claude Code**が本スキルと `/plan-weekly` を回して develop へ push し、最後に `--phase post` を回す（`npm run weekly-review:install`）。レビュー本文・翌週計画・事業レビューと snapshot・点検と振り分け・backlog 検証の 5 種の証跡が揃う場合だけ省略。揃わなければ Issue（channel: weekly-review-local）。
+3. **対話セッション**がヘッドレスの残した諮問待ち（`<!-- weekly-review:pending-questions -->`）を諮る。
 
-1. **土曜 9:30・Mac の launchd**（下の 2 と同じ実行）が、収集の後に機械で決まる節を `.claude/state/weekly-review/draft.json` に書く（`npm run weekly-review:draft`）。金曜の CI の下書き（`weekly-review-draft.yml`）は使われていなかったので 2026-10-25 に外した（DN-0849）
-2. **土曜 9:30・Mac の launchd** `scripts/scheduled/weekly-review.sh` が、先にログインが要る取得を土曜の収集（`scripts/weekly-collect.mjs --phase pre`。A8・KDP・note のアクセスと売上・ココナラ・GSC・note の公開状態の照合〔note-audit・公開 API〕。各段は取った記録の検算つき）で回し、続けて GSC の記録層（`run_gsc_record`・失敗は Issue channel gsc-auto-review・DN-0849）を回し、ヘッドレスの Claude Code で本スキルと `/plan-weekly` を回して develop へ push し、最後に時間がかかる照合と note の同期（`--phase post`）を回す（`npm run weekly-review:install`・DN-0817）。レビュー本文・翌週計画・事業レビューとsnapshot・点検と振り分け・backlog検証の5種証跡が揃う場合だけ省略する。不足時は再実行し、揃わなければ Issue（channel: weekly-review-local）
-3. **対話セッション** はヘッドレスが残した諮問待ち（`<!-- weekly-review:pending-questions -->`）を諮る。SessionStart の `check-weekly-review-due` が印と未作成を 1 行で知らせ、月曜の `weekly-review-guard.yml` が先週分の実在を見る
+**ヘッドレスの守り**（詳細 → [operations.md](references/operations.md)）: AskUserQuestion は使えない（判断待ち 🟣 は「## バックログの関門」に背景・選択肢・おすすめを 1 件ずつ書き、上の印を行頭に置く）。Claude の中ではログインしない（直前の収集の記録と `runs.json`・`npm run check-weekly-collect` を読み、失敗・skipped の段は理由とともに未取得と書く）。`.claude/` の下は書けないので翌週の `weekly.md` などは `.tmp/claude-out/` に `.claude/` を外した相対パスで書く。外部への公開・投稿・送信・購入はしない。
 
-**最初に下書きを読む**: `.claude/state/weekly-review/draft.json` の `markdown`（`week` が今週・`generatedAt` が今日のもの）を読み、機械の節はそこから写す。無い・古いときは `node scripts/build-weekly-review-draft.mjs --print` で作り直す。下の Phase 1 の各コマンドは、下書きに無い節と、下書きで欠け・失敗になった材料だけを回す。
+## 手順と読む reference
 
-**ヘッドレスで回すとき**（launchd の起動プロンプトがそう伝える）: AskUserQuestion は使えないので、Phase 3.5 の判断待ちは「## バックログの関門」に背景・選択肢・おすすめを 1 件ずつ書き、行頭に `<!-- weekly-review:pending-questions -->` を置く（台帳の 🟣 は残す）。次の対話セッションで諮り、答えで台帳を直してから印を消す。外部への公開・投稿・送信・購入はしない。**Claude の中ではログインしない**（`CLAUDECODE=1` で資格情報が読めない）。ログインが要る取得・照合は直前の土曜の収集が回しているので、その記録と、段ごとの結果 `.claude/state/weekly-collect/runs.json`（`npm run check-weekly-collect` で段ごとの最新の合否。運営者の取り直しも数える）を読み、失敗・skipped の段は理由とともに未取得として書く。段の理由の「検算 <点検 id>」は、取った記録の検算（quality-audit の cadence collect）が落ちたもので、取り直すか記録を直す（DN-0847）。`.claude/` の下のファイルは Claude Code の保護で書けないので、翌週の `.claude/todo/weekly.md` などは `.tmp/claude-out/` の下に `.claude/` を外した相対パスで書く（例 `.tmp/claude-out/todo/weekly.md`。途中に `.claude` を含めるとその書き込みも拒否される。終了後に `scripts/apply-claude-out.mjs` が写して commit する・DN-0829）。機械で決まる surfacer は CI 側（quality-audit の ops（毎日）/report 区分・weekly-review-guard の job summary）と、下書きの review-checks（週次の点検 `npm run quality:audit:weekly`）が先に回しているので、本スキルは**その結果を読む**ことを優先し、同じ検査を二重に叩かない。
+出力は **md ファイル保存**（GitHub Issue は使わない）。サブエージェントは Bash 不可のため、データ収集は親が Bash で実行する。保持方針: `docs/reviews/weekly/` は最新レビュー＋次週計画だけを保持し、新しい週を確定したら旧週の未完タスクを backlog、恒久知見を `.claude/knowledge/` へ抽出済みか確かめて旧週ファイルを削除する。
 
-## 引数
-
-```
-/weekly-review [YYYY-Www]
-```
-
-- 週番号（任意）: ISO 8601 週番号（例: `2026-W10`）。省略時は前の完了した週。
-
-## 概要
-
-サブエージェントで並列に実績データを収集し、計画との差分を分析し、成果・課題・学びを構造化して記録する。
-
-> **出力方式: md ファイル保存（GitHub Issue は使わない）**
-> CLAUDE.md §8 準拠で、レビューは `docs/reviews/weekly/YYYY-Www-review.md` に保存する（旧「Issue 一本化」方式は廃止）。
-> なお、サブエージェントは Bash 不可（記憶 `feedback_agent_bash.md`）なため、データ収集は親が Bash で実行し、抽出済みテキストを分析に使う。
->
-> **保持方針**: `docs/reviews/weekly/` は最新レビュー＋次週計画だけを保持する。新しい週次レビューを確定したら、旧週ファイルの未完タスクを `.claude/todo/backlog.md`、恒久知見を `.claude/knowledge/` へ抽出済みか確認して旧週ファイルを削除する。履歴目的では残さない（git履歴が記録を持つ）。
-
-## 手順
-
-### Phase 1: 実績収集（並列サブエージェント）
-
-#### Agent A: 開発活動
-
-```
-調査項目:
-- git log --since="7 days ago" --oneline
-- git log --since="7 days ago" --stat --format="" | tail -1
-- git diff --stat
-
-出力形式:
-- 「開発した機能・修正」を箇条書き
-- 「変更規模」（コミット数、ファイル数）
-```
-
-#### Agent B: コンテンツ実績
-
-```
-調査項目:
-- docs/ 配下で今週新規作成・更新されたファイル
-- カテゴリ別のページ数変動
-- **note の同期間PV・表示・流入元**: 土曜の収集の note-traffic 段が対象週（レビューの期間）を直接取得している。`note.traffic-period`（`data/note/traffic-period/`）を読む（無ければ未取得として書き、作らない）。business-reviewは全体をcomplete、資格別をpartialとして集計する。月次は `referrers` / `articles-pv` を別期間として読む。月次を週次へ按分しない。記事別販売にはマガジン販売が含まれないため、売上の正本はsales.json。流入元だけで販売理由を断定しない。
-- note 公開状態ドリフト: `npm run verify-note-status` を実行（noteId 保有 article.md の
-  frontmatter noteStatus ↔ ライブ公開状態を note 公開 API で突合・creds 不要）。
-  ドリフト（ライブ=published / frontmatter=draft）があれば `-- --fix` で是正してコミット。
-  ※予約投稿は go-live がサーバ側後刻で writeback できず draft 取り残しが起きるため週次で自己修復する
-- IG 公開状態ドリフト: SNS 保留中は照合を回していない（土曜の収集に IG の段は無い）。`.claude/state/ig-reconcile/snapshot.json` は保留前の記録なので、日付を添えて読むだけにする（Graph API は使わない＝2026-09-23 ユーザー決定）。★ドリフトが出たら SNS の再開を待つ（`/ig-reconcile` スキルと照合の手順書は 2026-10-25 に外した）。
-  SNS を再開するときは土曜の収集に IG の段を足す（weekly-collect-plan.mjs）。
-- 競合再スキャンの期限: 週次の点検（`npm run quality:audit:weekly`・review-checks が下書きで回す・DN-0847）の `competitor-scan-due` が 90 日超を知らせる。FAIL の週だけ「点検と Issue」に行き先を書き、チャネルは `/competitor-review`、market（資格キーワードの市場スキャン）は次の月次レビューでの再取得を申し送る。
-- 競合の変化と追跡候補（ココナラ）: `npm run report-competitor-watch -- --json` を実行（オフライン・committed state 参照・creds不要）。
-  `changes[]`（値下げ・出品増減・撤収・累計販売 +20 件以上）、`candidates[]`（追跡外で関連サービスの販売実績 20 件以上の売り手）、
-  `partial[]`（売上推定が一部だけの売り手）を読む。候補は次セッションで handle を解決して `config/competitors.json` の coconala に足すかを判断。一覧は管理画面 戦略 ＞ 資格と市場 ＞ 競合
-- GSC/GA4 UI 取得・登録リクエスト・sitemap・GA4 カスタムディメンション: 経路は 3 つ（DN-0847）。`gsc-ui-due`・`gsc-indexing-due` は土曜の収集の gsc 段の検算（runs.json の理由「検算 gsc-ui-due: …」・落ちると Issue channel weekly-collect）、`ga4-dimensions` は週次の点検（`npm run quality:audit:weekly`）、`gsc-sitemaps-due` だけが日次の ops（automation-failure Issue channel ops）。どれかが赤の週だけ理由をそのまま列挙し、直し方（土曜の収集の gsc 段の結果・Google の再ログイン・`fetch-metrics.yml` の再実行と Search Console の権限・GA4 設定の反映）を申し送る。GA4 の不足が続くあいだはプログラム別 EPC／配置別 CTR が CI で欠測している点を必ず書く。
-- **note の商品が購入者に届いているか（最重要）**: 日次の ops 点検（quality-audit の `ops:true`・赤は automation-failure Issue channel ops・復旧で自動クローズ）の `note-delivery-due` が、本文で約束した PDF がライブに無い（購入者が受け取れない）・実査が 14 日超・添付を捨てたまま、を知らせる（週次では実行しない）。Issue が開いていれば**レポート最上段**に置き、次セッションで添付の live 実査と再添付を行う（2026-08-11 の事故の再発防止）。
-- **ココナラブログの健全性**: 送客先が販売中でない・下書き放置は CI ゲート（quality-audit `coconala-blog`・ci:true）が止めるので週次では実行しない。
-- **ココナラの取引・評価**: `npm run check-coconala-orders -- --json`（オフライン・committed snapshot 参照・creds不要）。
-  `actions[]` をそのまま列挙する。特に **`評価未送信`** は放置すると期限（取引完了から概ね2週間）を過ぎて
-  **こちらの評価が永久に公開されない**。ココナラの取引通知・評価依頼は出品アカウントの登録アドレス
-  `dobokunotecom@gmail.com` にしか届かず、Gmail コネクタが繋がっている `uruhayato373` 側には**1通も来ない**ので、
-  メールでは気づけない（2026-08-11 実査）。`scanned.ratings` が 0 なら「静か」ではなく**検査対象ゼロ**を疑う。
-  `snapshotAgeDays` が大きければ実体が古い＝土曜の収集の coconala 段が落ちている（runs.json の理由を書く）。
-  その場合 `inconclusive:true` と理由が返るので、`actions` が空でも**「実体が検査不成立」として必ず surface する**（静かなのは
-  「問題が無い」ではなく「見ていない」）。
-- **教材からの展開**: `npm run check-content-expansion -- --json` で全教材の未確認・必要制作・原典待ち・確認後の変更を確認する。判定手順は `.claude/knowledge/reference/content-expansion.md`、対応表は管理画面 `/materials`（教材ページの「要確認のみ」）。対象0件や概念名の対応だけを完了にしない。残務は既存backlog IDへ接続し、公開・予約・効果は各チャネルと事業レビューのSSOTで別に確認する。
-- **検索キーワード戦略（直す・記録・本番反映・判定・処置。その週のうちに回し、カードに積まない）**: 実験台帳（`experiments.json` の kind `search-strategy`）で回す（`docs/strategy/16_検索キーワード戦略.md`「改善サイクル」）。
-  1. `npm run search-improvement -- sync --commit`（記録した commit を含む本番デプロイの日から計測を始める。CI も毎週回すので差分が無ければ何もしない）
-  2. **直す**: `npm run report-search-opportunities -- --json` の `fileable[]`（直してよい候補。`lastResult` は前回の判定）を表示の多い順に `config.cycle.improvePerWeek` 件、develop で直して commit・push する（title・seoTitle・description・冒頭の答え・見出し・内部リンク。MDX の規約と refresh-indexes に従う。前回が効果なしのページは同じ直し方を繰り返さない。新規ページは作らない。冒頭に答えの段落を足すと「〜ます。」の 3 文連続〔content-quality 15-1〕に掛かりやすいので、常体へ逃げず、です・ます の中で文末を変える。サブエージェントに任せるときもこれを指示に入れる）。
-  3. **記録する**: 直したページごとに `npm run search-improvement -- record --page <path> --change "何を直したか" --commit`（commit は develop に入ったもの。`--commit` の後は `git pull --ff-only` で取り込む）
-  4. **週次の処置（全件）**: `npm run search-improvement -- triage --weekly` の要処置をすべて片付ける。判定待ちは `close --id EXP-### --result <success|partial|no-effect|negative> --learning "…" --commit`。本番に入らない改善は commit の所在を確かめる。受け皿外は `decide --cluster <id> --page <接頭辞> --accept --reason "…" --commit`（受け皿に加える）か `--route-to <狙いのページ>`（受け皿外のページから狙いのページへ内部リンクを足して commit してから記録）。旧 URL は表示どおりに処置する（転送・転送先の公開・サイト内リンクの張り替え。期限切れは `npm run gsc-indexing:request -- --urls <正規 URL> --commit`＝Google への送信なので運営者の承認を得てから。送信は indexing-history に残り、次の週から観察に戻る）。誘導の期限切れは判断をやり直す
-  5. **完了条件**: `npm run search-improvement -- triage --check --weekly` が exit 0（要処置 0 件・今週の改善が `improvePerWeek` 件以上か候補が尽きた）。観察中のものは期限まで待つ
-- **実験サイクルの期限**: `npm run check-experiment-due -- --json`（オフライン・`experiments.json` 参照）。
-  これが「計測→記録→改善→**再計測**」の最後の輪。`due[]` の MEASURE_DUE / CLOSE_DUE / PENDING /
-  NO_BASELINE をそのまま列挙する。改善を打って再計測されていない実験は学びが台帳に入らず
-  サイクルが閉じない（EXP-004 は 27 日、EXP-005 は 4 日以上放置された実績がある）。
-- **内部リンク健全性**: 公開ページの壊れた内部リンクは CI ゲート（quality-audit `internal-links`・ci:true）が止める。GSC の理由別 CSV との突合は `/google-search-growth` で行う（週次では実行しない）。
-- A8 成果取込期限（月次）: 土曜の収集の a8 段の検算 `a8-report-due`（runs.json の理由「検算 a8-report-due: …」・DN-0847）が 30 日超・取得後に台帳が進んでいないことを知らせる。落ちている週だけ `/a8-report` を申し送る。掲載中の広告の未集計・混入疑い（`issues[]`）は `/a8-report` の中で扱う。
-- **note の記事単位の同期（2026-09-29〜）**: 反映は土曜の収集の note-sync 段（レビューの後・1記事1回の更新）が行う。週次では**結果を読むだけ**: `data/note/sync-log.json` の最新run（更新した記事と部品・失敗・問題。deferredは日次添付上限による翌日再開待ち）と `npm run note-sync-plan`（反映待ち・止まっている記事と直し方）。管理画面 `/content/note-sync` でも同じものが見える。止まっている記事（中断・会員特典の公開範囲未指定・画像欠け・有料境界の見出しが無い・価格変更）はカードの直し方どおりに次セッションで直す。止まっていないかは note-sync 段の検算 `note-sync-freshness` と `npm run check-weekly-collect`（段ごとの最新）が見る。日次の ops は収集の死活（`check-weekly-collect:alive`）だけ（DN-0847）。落ちていれば `~/Library/Logs/doboku-note/weekly-review.log` と runs.json を確認する。旧 `/docs` → 新 URL の張り替えだけの「301 等価」は同期の対象にしない（`check-note-republish` が別に数える）。
-- **土曜の収集とログインの健康診断**: `npm run check-weekly-collect` で土曜の収集の段ごとの最新の合否（運営者の取り直しを含む）を読み、runs.json の auth 段（ログインの確認と入り直し）の結果から期限切れのサービスを書く。期限切れは運営者の再ログイン（playwright-auth-profiles.md の「標準操作」のログイン。パスワードと 2 段階認証は人）として申し送る。Claude の中から `auth:status` やログインは回さない。
-- **Drive vault の実体照合（Mac だけで成立）**: `npm run check-drive-vault` を回す（CI の quality:audit は `--metadata-only` で実体を見ないので、ローカルにしか無い正本はここでしか見つからない）。FAIL が 1 件でもあれば「## バックログの関門」に件数と group を書き、正本は `drive-vault-sync --group <g> --commit`、作り直したものは `--force` で反映する。WARN の `local-newer` は作り直しの反映待ちなので件数だけ記録する
-- note 構成監査: 有料境界の破損（FULL_LOCK/PAYWALL_LEAK/BOUNDARY_SHIFT 等）は土曜の収集の note-audit 段（weekly-collect・公開 API）が検査し、指摘は runs.json の同じ段の理由、検査不成立は Issue（channel weekly-collect）で届く（レビューでは実行しない・DN-0847）。
-
-  **出力の「実検査 N本（対象M・取得失敗K）」を必ず読む**。live 系の検査は取得できていなければ「異常なし」ではなく「検査できていない」＝ N が対象数から大きく欠けていたら結果を信用しない（取得失敗率 >20% ならスクリプト側が exit 1 で落とす）。2026-07-28 まで 675/675 が取得失敗でも緑を返していた実績がある。同種の live 検査 `check-note-live-headings` も同じ観点で見る。
-
-- **公開ページの目視確認（note・YouTube／エージェント・2026-09-23〜）**: 土曜の Mac の収集（weekly-collect の `note-public-view` 段・レビューの前）は数値で判定し（note 全件＝公開 API で添付 PDF・価格・全文会員限定・本文の画像の欠け、代表ページ＝ブラウザでカード・はみ出し）、加えて**代表ページ**（資格×記事の種類ごと 1 本＝約 30 本）を**note のブレイクポイントで区切った帯ごとの画面幅**（`config/public-view-breakpoints.json`・5 幅）で撮って手元の置き場に残す（YouTube は SNS 保留中で撮っていない・DN-0852）。数値で決められない見た目の崩れはここで見る。
-  1. `node scripts/fetch-note-public-view-shots.mjs --json` でその日の撮影を `.tmp/note-public-view-review/<撮影日>/` へ写す。exit 2（撮影なし・8 日より古い・欠け）は「未確認」と書く（画像 0 枚を「異常なし」と呼ばない）。`coverage` の撮影成立数/予定数を確認する。`breakpointDrift` はCSSが全部読めた場合だけ見直しの根拠にし、`unreadable` があれば判定保留とする。
-  2. sonnet のサブエージェント（`general-purpose`・1 体。note と YouTube で分けてもよい）に各 `review/index.json` と画像の場所を渡し、ページごとに**画面幅を並べて**見て次を報告させる（判定の根拠は画像に写っているものだけ・推測で埋めない）: 特定の画面幅でだけ崩れる（重なり・はみ出し・切れ・空の枠・カードや図の欠け）／記号がそのまま出ている（`**`・バッククォート・`\*`）／カバー・サムネイルの文字が切れる／本文の図が題材と合わない／画面の価格表示と `index.json` の原稿価格の食い違い／**有料エリアの直前までで何が手に入るか分からない**（購入判断に要る情報が無い）。返り値はページごとに `ID・URL・画面幅・何が・どの画像か・重さ（直す/様子見）` の表。
-  3. 「直す」は親が画像を見て確かめてから backlog へ DN を起票する（原因が原稿なら原稿を直して再公開、共通の型なら検査側で機械化できないかも書く）。
-
-出力形式:
-- 「今週追加したページ」
-- 「更新したページ」
-- 「note 公開状態ドリフト是正（N 本）」（あれば）
-- 「note 同期（週次で更新 N 本・反映待ち M 本・止まっている K 本）」（止まっている記事があれば理由ごとの件数も）
-- 「公開ページの目視確認（run・note N ページ／YouTube M 本・画像 K 枚・指摘 L 件）」（画像を取れなかった週は「未確認」と理由）
-- 「競合再スキャン DUE」（週次の点検 `quality:audit:weekly` の `competitor-scan-due` が FAIL のときのみ・チャネル名つき。market は市場スキャン）
-- 「ココナラ競合の変化 N 件 / 追跡候補 M 社」（`report-competitor-watch` の `changes[]`・`candidates[]` が空でないときのみ・1 行ずつ。新規追跡のみの変化は件数だけ）
-- 「検索の改善を記録 N 件（EXP-###…）/ 計測開始 M 件 / 判定 K 件 / 週次の処置 要処置 0」（`search-improvement` の record・sync・close・triage を行ったとき）
-- 「GSC・GA4 自動化の異常」（gsc 段の検算 `gsc-ui-due`・`gsc-indexing-due`、週次の点検の `ga4-dimensions`、ops Issue の `gsc-sitemaps-due` のどれかが赤のときのみ・理由と直し方つき）
-- 「**note 未着（購入者が受け取れない）**」（ops Issue `note-delivery-due` が開いているときのみ・**レポート最上段に置く**）
-- 「ココナラ 評価未送信 / 要対応」（`check-coconala-orders` の `actions[]` が空でないときのみ・→ 評価は `npm run coconala-rate-buyer`、実体の採り直しは運営者が端末で `scripts/weekly-collect.mjs --only coconala`）
-- 「ココナラ 実体が検査不成立」（`check-coconala-orders` が `inconclusive:true` のときのみ・理由つき・→ 運営者が端末で `scripts/weekly-collect.mjs --only coconala`。Claude の中からは取りに行かない）
-- 「実験の再計測 DUE」（`check-experiment-due` の dueCount > 0 のときのみ・id と理由つき・→ 各要素の `review` コマンドを転記）
-- 「A8 成果取込 DUE（月次）」（a8 段の検算 `a8-report-due` が落ちているときのみ・→ 次セッションで `/a8-report`）
-- 「実験の再測定 DUE」（`check-experiment-due` の `dueCount > 0` のときのみ・→ 次セッションで各要素の `review` コマンドを実行）
-- 「実験の未処理の申し送り」（`check-experiment-due` の `issues[]` が空でないとき・due でなくても出す）
-```
-
-#### Agent C: NSM / パフォーマンス指標 + 実験進捗
-
-```
-調査方法 (2 段階):
-
-> **大原則（誤読防止）**: 計測は CI/CD 供給が正。`fetch-metrics.yml`（毎週金 06:00 JST）が
-> GA4/GSC を取得し `data/{ga4,gsc}/reports/` に commit、`psi-audit.yml` が PSI を
-> 日次 commit する。**コミット済みスナップショットを読むのが既定の取得元**であり、ローカル
-> creds は設計上不要。「creds 未設定＝計測基盤未整備」と扱わない。会社 PC は社内プロキシで
-> 外部 API（Google/Meta）が遮断されるため、ライブ fetch は基本通らない。
-> 詳細・恒久ルール: `.claude/knowledge/reference/measurement-incidents.md`（2026-06-05 エントリ）
-
-A. NSM 指標取得（既定 = スナップショット読み）:
-- まず後述「スナップショット読み」でコミット済み JSON から WoW を算出するのが既定。
-- creds + 外部到達性が両方ある環境（例: creds 入り macOS）に限り、任意で
-  `node .claude/scripts/lib/metrics-reader.mjs`（markdown 出力）でライブ取得してもよい
-  → GA4 と GSC から今週 vs 前週の NSM 関連メトリクス（Organic Search users（NSM）、
-     全体 sessions、CTR、検索順位、トップクエリ）
-- いずれの出力も「## NSM（オーガニック検索流入）」セクションとしてレビューに埋め込む
-
-B. 実験進捗レポート:
-- **期限判定はまず `npm run check-experiment-due -- --json` を実行し、その結果を転記する**（2026-09-19 に check-experiments-due を統合・削除。判定の唯一の実装は `scripts/lib/experiment-due.mjs`）
-  （LLM が経過日数を数え直さない。期限計算は決定的に決まる＝CLAUDE.md §5）。
-  - `dueExperiments[]` … 再測定・裁定の期限が来ている実験。各要素の `reason` をそのまま出す
-    （measure 期限超過 / next_check_date 未設定のまま滞留 / proposed のまま滞留）
-  - `issues[]` … `pending_user_actions` が残っている実験。**due でなくても必ず出す**
-    （例: 「deploy 後に LCP を再計測」＝deploy 待ちで宙吊りになっている申し送り）
-  - なぜ機械化したか: 再測定の放置が EXP-002（70日→計測不能で cancelled）・EXP-003（42日）・
-    EXP-005（proposed 4週）と 3 回実績化したため
-- 続けて `data/business/experiments.json` を読み、status 別にグループ化:
-  - running: 経過日数、baseline との gap（metrics-reader で再取得）
-  - measuring: baseline vs current の前後比較
-  - 今週 close したもの: result + learnings
-- `kind: search-strategy` は上記の汎用metrics-reader比較から除外し、`npm run search-improvement -- status` と `check-experiment-due` の `review`（`search-improvement close`）に従う。
-- その他の各 running 実験について baseline の metric が現状でどう動いたかを数値表示
-- 出力を「## 実験の進捗」セクションとして埋め込む
-
-補助コマンド:
-- `node .claude/scripts/lib/metrics-reader.mjs --json` で生データ
-- 追加のディメンション別データ:
-  - `npm run fetch-ga4-data -- --dimension page --days 7 --limit 20`
-  - `npm run fetch-gsc-data -- --dimension page --days 7`
-
-ライブ fetch（任意経路）の前提条件:
-- .env.local に GOOGLE_SERVICE_ACCOUNT_KEY_PATH と GA4_PROPERTY_ID が設定されている
-- サービスアカウントが GSC と GA4 の両方で閲覧者権限を持つ
-- かつ外部 API に到達できる（会社 PC のプロキシ配下では不可）
-- これらが揃わない環境（＝既定）では下記スナップショット読みを使う。creds 未設定を
-  「計測基盤未整備」とは記録しない（基盤は CI 側で稼働している）
-
-スナップショット読み（既定の取得元）:
-- CI（`fetch-metrics.yml` が毎週金曜 06:00 JST に commit）が残した
-  コミット済みスナップショットを読んで WoW を自前算出する:
-  - GA4 NSM（推奨）: `ga4.channel-organic`（7日窓・JP・Organic Search のみ）の
-    最新2ファイルをファイル名日付で sort → 各 rows の activeUsers を NSM として前週比を算出。
-    **これがクリーンな7日 WoW**。`ga4.channel-organic` が無い場合のみ `ga4.channel`（28日窓）に
-    フォールバックし、その場合は「28日ローリング比較」と明記する（クリーンな WoW ではない）。
-  - GSC: 対象週と比較週の成長パック `gsc.totals` の無次元 `byProperty` 全体値を使う。期間・国・Web・確定データを揃え、取得失敗は欠測とする。page/query明細はAPIで行が省略される部分集計であり、全体値への代用や前週比の基準にしない。
-  - PSI: `data/psi/batch/*.json`（Agent C2 と同じ）を使う（ライブ PSI 呼び出し不要）
-- スナップショットが2週分揃わない場合のみ「NSM セクション: スキップ」と記録
-
-出力形式:
-- A の markdown 出力をそのまま「## NSM（オーガニック検索流入）」に
-- B を新規セクション「## 実験の進捗」として以下構造で:
-
-## 実験の進捗
-
-### Running ({n} 件)
-| ID | title | 経過日数 | baseline → current | 次アクション |
-|---|---|---|---|---|
-| EXP-001 | title改善 | 12 日 | pos 7.4 → 4.2 | measure 推奨 |
-
-### Measuring ({n} 件)
-| ID | title | baseline | current | 効果判定 |
-
-### 今週 close ({n} 件)
-- EXP-XXX: {result} — {learnings}
-
-コメント: 次サイクルで試すべき仮説を 1-2 個提示
-```
-
-#### Agent C2: PSI パフォーマンス推移
-
-```
-調査項目:
-- `npm run psi-audit:check` を実行し、**stderr の `field(CrUX) coverage: X/Y` と `field 判定不能の内訳` の行をそのまま転記する**（機械が `field_availability.url_level`/`origin_level` を数えた値。生 JSON を目視で読み直さない）
-- data/psi/batch/*.json の直近 7 日分（GitHub Actions psi-audit.yml が develop に毎日 [skip ci] で commit）
-- config/psi-config.json のしきい値
-- （廃止: `gh issue list --label performance,weekly-pdca` は GitHub Issue 廃止〔CLAUDE.md §8〕で無効。違反の追跡は上記 psi-batch JSON の時系列＋しきい値比較のみで行う）
-
-> **大原則（誤報防止）**: **実害は field_data(CrUX 実ユーザー p75) で判定し、lab は診断に使う**。
-> lab は合成スロットリング値で日次の振れが大きく（同一ページが同一週内に 2,026〜7,201ms を往復）、
-> **単発値・単発差分で CRITICAL を立てない**。field が FAST なら lab がどれだけ悪くても
-> 「改善余地（Medium 以下）」であって障害ではない。lab の回帰は**直近 5 バッチの中央値**で見る。
-> 真実源: `.claude/knowledge/reference/measurement-incidents.md`「2026-07-27: lab と field の判定原則」。
-> 機械可読は `config/psi-config.json` の `judgment`。
-> ※ 2026-07-27（W30）に lab の単発スパイクを CRITICAL と報告し、実際は field p75 822ms=FAST で
-> 実害ゼロだった。1 週間分の優先順位が歪んだ。
-
-> **field の読み方（DN-0158・2026-09-14 の教訓）**: `field_data` はキーが常に存在し、CrUX が
-> 無いときは値だけ null になる。「キーがある＝データがある」と読まない。**非 null の件数**（上の
-> `npm run psi-audit:check` 転記）で読み、0 件なら「field なし・実害判定不能」と書く。
-> **field が無い期間は「復旧」「FAST」を書かない**。復旧を報告するときは、非 null になった
-> バッチ名と URL 数を併記する（「直近 3 バッチ」のような件数だけの記述で終えない）。
-> 真実源: `.claude/knowledge/reference/measurement-incidents.md`「2026-09-14: PSI field_data の
-> キー存在を『field あり』と読んだ（W36 週次レビューの偽復旧）」。
-
-> **実ユーザー計測（RUM・2026-09-27〜）**: CrUX が訪問不足で 0 件のあいだ、実害は自前の実ユーザー計測で判定する。
-> `npm run report-web-vitals` を実行し、出力をそのまま転記する（ページの型×端末×指標ごとに良好率。良好 75% 以上＝良好・
-> 不良 25% 超＝不良・件数 30 未満は判定しない）。**「不良」の組が出たら、その週に改善カードを起票する**（起点は
-> 「週次レビュー（開始日〜終了日）」・対象はページの型・lab の `lcp_element` を原因の手がかりに添える）。既に同じ型の
-> カードがあれば起票せず、そのカードに今週の良好率を 1 行足す。exit 2（記録なし・10 日超・カスタムディメンション未登録）は
-> 「実害判定不能」と書き、原因（GA4 設定の反映 ga4-admin:apply の未実行など）を課題に 1 行残す。lab だけで起票しない原則は変えない。
-
-分析項目:
-- **実ユーザー計測の不良・要改善の組**（上の `report-web-vitals`）を先に見る＝実害の有無。CrUX の field が出ている URL はそれも併記する
-- **field_data.LCP/INP/CLS の category**（FAST/AVERAGE/SLOW）
-- lab の Performance / LCP は**直近 5 バッチ中央値**で前週比（単発バッチの外れ値は「スパイクあり・中央値横ばい」と 1 行添えるに留める）
-- 違反 URL の **`lcp_element`**（何が LCP か）を必ず併記する。`<img loading="lazy">` なら
-  `check-lcp-image-hints`（pre-commit・CI ゲート済み）が機械検出する
-- 今週新規発生した違反 / 今週しきい値内に戻った違反
-
-出力形式: 以下の「## PSI パフォーマンス推移」セクションに埋め込む。
-**表には field と lab を並記し、どちらで判定したかを明示する**。
-```
-
-#### Agent C3: 収益カバレッジ ダッシュボード
-
-```
-目的: 高流入ページに note 有料マガジン / アフィリエイトの収益導線が張れているかを
-機械突合し、「高流入なのに無導線」のギャップを surface する（手作業監査の自動化）。
-
-**最初に売上の実数を出す**（2026-08-17 追加）。従来この週次は**実売上を一度も読んでいなかった**ため、
-sales.json が 34 日止まっていたことに誰も気づかず、下流のガードレールが「売上は停止中」という
-前提を1か月抱えたままだった。
-- 売上転記の停滞・月次表示との食い違い（note-sales-fetch）と KDP ロイヤリティの取得停止は、土曜の収集の note-sales 段・kdp 段の検算 `sales-freshness`・`kdp-report-freshness`（runs.json の理由「検算 …」・DN-0847）が知らせる。落ちていれば**カバレッジの議論より先に**対象月・不足を報告する。カバレッジは流入 × 配線であって実売ではないので、転記が止まっていると収益の実態が欠けたまま議論が進む。KDP は note の sales.json と粒度が異なるため混ぜない。
-- 月の受取額（手数料控除後）は下書きの「月の受取額」節（管理画面トップと同じ集計・今月の途中経過と前月・チャネルごとに確定／途中／推計／未取得）をそのまま載せる。未取得のチャネルがあれば、その取得（login-collectors の note・coconala・kdp）が今週動いたかを先に確かめる。
-- Issue が無ければ `npm run sales-summary` の当月行（件数・金額）を 1 行で載せる。
-  「異常なし」ではなく**実検査件数と最終転記日**を書くこと。
-
-調査方法（オフライン・コミット済みスナップショット読み）:
-- `npm run report-monetization-coverage` を実行（tsx, 外部 API 不要）。
-  - 入力: 最新 `ga4.page`（流入）+ `ga4.cta-clicks`（クリック, あれば）
-  - 現行の正規URLと旧URLは別行で照合する。`coverage` のGA4入力数・照合数・対象外数を確認し、入力0または照合0は集計不成立とする。
-  - note配置は描画と共通の判定を使う。参照: `src/lib/magazine-placement.ts` / `src/components/docs/DocPage.tsx` / `src/components/ui/ArticleFooter/ArticleFooter.tsx`。
-  - 出力: `data/analysis/monetization/coverage-latest.md`（+ coverage-*.json）
-- 併せて最新 `ga4.key-events-by-page`（`npm run ci-data -- latest ga4.key-events-by-page` が「ファイル#枠」を返す。pagePath × sessions / keyEvents / sessionKeyEventRate・28 日）でキーイベント率の上位・高流入なのに 0 のページを、`ga4.cta-clicks` の `coconala_cta_impression` / `coconala_cta_click` でココナラ CTA の表示→クリック率を、`qualification_bridge_impression` / `qualification_bridge_click` で実務記事・共通仕様書の「業務経験 → 資格」カード（EXP-012）の表示→クリック率を 1 行ずつ載せる（立場別は `ga4.cta-clicks-by-label`。ファイルが無い・0 件は「未取得」と書き、0 と混ぜない）。
-- いずれも CI（`fetch-metrics.yml`）が page 次元と CTA クリックを毎週 commit するため、
-  ライブ fetch は不要。creds 未設定でも成立する。
-
-分析項目:
-- 「要対応ギャップ（高流入 × 無導線）」の件数と顔ぶれ（≥15 users で収益導線ゼロ）
-- 上位ページの note CTA / アフィリ カバレッジと CTR（クリック未蓄積時は n.d.）
-- CTR が著しく低い高流入ページ（クリックデータが揃ってから）
-
-出力形式: `coverage-latest.md` の内容をそのまま「## 収益カバレッジ ダッシュボード」
-セクションとして埋め込む。ギャップがあれば「## 課題・ブロッカー」にも 1 行で起票する。
-```
-
-#### Agent F: SNS 流入・投稿実績
-
-```
-目的: SNS（X / Instagram / YouTube）から doboku-note への流入と公開状態を週次で
-可視化し、「投稿 → 計測 → 改善」ループの計測フェーズを閉じる。オフライン読みのみ
-（ライブ fetch なし・creds 不要）。IG/X の公開ドリフトは Agent B / Agent I が既に
-扱うため、ここでは重複させず「流入」と「YT 公開照合」に絞る。
-
-調査方法（コミット済みスナップショット読み・全て CI 供給）:
-- SNS 流入: `ga4.source-medium-sns` の最新 2 ファイルで
-  source（x/instagram/youtube/note）別 WoW を出す。1 ファイルしか無い初週は絶対値のみ
-  （delta は「前週データなし」と明記）。ファイル自体が無ければ「SNS 流入スナップショット
-  未生成（fetch-metrics 次回金曜で生成）」と 1 行。
-- 週次スナップショット: `data/business/weekly/` の最新 YYYY-Www.json の `sns` セクション
-  （source 別 WoW・合計）も併記できる（上と同じ CI 由来）。
-- YT 公開照合: SNS の保留に合わせて 2026-10-25 に CI（registry-reconcile.yml・verify-video-publication）から外した。
-  照合の記録は更新されないので、保留の間は書かない（再開するときに作り直す）。
-
-分析項目:
-- source 別の週次増減（急落 source・新規に伸びた source を 1 行ずつ）
-- SNS 合計流入の水準（organic との桁比較で「まだ小さいが単価/導線は効く」等の解釈は
-  revenue-diagnosis メモに委ね、ここでは数字と増減のみ）
-- YT 公開ドリフトの有無（★があれば「## 課題・ブロッカー」に 1 行起票）
-
-出力形式: 「## SNS 流入と投稿実績」セクションに source 別 WoW 表＋YT 照合サマリを埋め込む。
-異常（source 急落・YT ドリフト）は「## 来週への申し送り」にも 1 行で起票する。
-```
-
-#### Agent D: 計画との差分
-
-```
-調査項目:
-- .claude/state/weekly-reports/ の当週計画ファイルを読み込み
-- 計画タスクの完了/未達を判定
-
-出力形式:
-- 「計画タスク vs 実績」の対照表
-```
-
-#### Agent E: 校正学習の蒸留
-
-```
-目的: 今週の校正作業から新ルール・原則精緻化・ユーザー嗜好・ワークフロー改善を抽出
-      次週以降の校正品質を底上げする継続改善ループを週次で回す
-
-実行方法:
-- /distill-proofread-learnings --since "7d" を呼び出す
-  （スキル実体: .claude/skills/management/distill-proofread-learnings/SKILL.md）
-- 分析対象: git log で直近 7 日の `content/site/` 配下の MDX/SVG コミット
-- 出力: .claude/state/proofread-learnings/YYYY-MM-DD.md
-
-出力形式: 「## 校正学習の蒸留」セクションに以下を埋め込む:
-
-## 校正学習の蒸留
-
-### 今週の抽出結果
-- 既存原則の適用: N 件（学習対象外）
-- 新規ルール候補: N 件
-- 既存原則の精緻化: N 件
-- ユーザー嗜好: N 件
-- ワークフロー改善: N 件
-
-### 採択候補（ユーザー承認待ち）
-| # | カテゴリ | 概要 | 反映先 |
-|---|---|---|---|
-| 1 | 新規ルール | ... | content-principles.md §X |
-
-### 学習ログ
-- `.claude/state/proofread-learnings/YYYY-MM-DD.md` に詳細記録
-
-注意:
-- 2 回以上適用されたパターンのみ新規ルール候補に昇格（偶然排除）
-- 本エージェントは候補を surface するのみ。適用はユーザー承認後に別途実行
-- 候補がなければ「今週の学習候補: なし」と記録して次週へ
-```
-
-#### Agent H: handoff/doc ライフサイクル棚卸し（surface）
-
-```
-目的: docs/handoffs/ に active handoff が溜まるのを週次で検出する。
-      機械 surfacer の候補を列挙し、タスク抽出・退避を促す。判定も適用もしない。
-
-調査項目:
-- weekly-review-guard の report digest（quality-audit `doc-lifecycle`・`--report-only`）が候補を Issue にしている週だけ、その候補を読む（週次では実行しない）
-- 各候補が .claude/todo/ から参照されているか
-  （tracked=あり → 生きたタスクは backlog 済みで DELETE 候補（抽出済みの見込み） /
-   tracked=なし → backlog へのタスク抽出漏れの疑い）
-
-出力形式: 「## ドキュメント棚卸し（handoff 抽出→削除候補）」セクションに以下を埋め込む
-
-## ドキュメント棚卸し（handoff 抽出→削除候補）
-
-### active handoff 候補（{m} 件）
-| handoff | 経過 | tracked(todo) | 完了シグナル(PR/SHA) | 推奨 |
-|---|---|---|---|---|
-| 2026-MM-DD-xxx.md | 21d | あり | #123 | /doc-declutter で削除判定 |
-
-- 既定方針: handoff は「extract→削除」（残作業があっても KEEP しない・handoffs/ は溜めない・記録は git 履歴・`_archive/` は 2026-07-11 廃止。真実源=information-architecture.md「handoff のライフサイクル」）
-- tracked=あり: 生きたタスクは backlog 済み → そのまま削除候補
-- tracked=なし: backlog へタスク抽出してから削除（抽出漏れ注意）
-
-### デッドコード在庫（knip）
-
-デッドコードの増加は週次の点検（`npm run quality:audit:weekly` の `knip-ratchet`・pre-commit でも見る）が知らせる。CI ゲートではない（DN-0805 で ops へ・DN-0847 で週次へ）。在庫の返済（baseline の締め直し）は四半期の棚卸しで行う。knip は false positive を出す（npm scripts 経由・動的 import・スキルから叩かれる .mjs）ため、消すには grep 裏取りが要る（真実源: memory `knip-dead-code-audit`）。
-
-> なぜ週次で出すか: ラチェット（CI ゲート）は**増加を止めるだけ**で、既存の在庫は永久に残る。
-> 返済は人間の判断が要るので、既に読まれる場（本レビュー）に載せて棚卸しの機会を作る。
-> report のまま放置すると誰も読まない——`knip` は `batch-approve.mjs` の壊れ import を
-> 報告し続けたまま 4 か月放置され、`note-meta-lint` は 3 週間ゼロ件検査のまま FAIL を
-> 出し続けていた（2026-08-16 発覚）。
-
-### アクション提案
-- 候補が 1 件以上 → 次のローカルセッションで `/doc-declutter` を実行（外部実体を検証して抽出→削除）
-
-注意:
-- 本エージェントは surface のみ。削除/抽出/commit はしない（判定・適用は doc-curator + /doc-declutter）
-- 候補 0 件なら「棚卸し不要」と記録し次節をスキップ
-- _archive 内は対象外（check-doc-lifecycle が既に除外済み）
-```
-
-#### Agent I: SNS 予約キュー投入 surfacer（X カウントダウン）
-
-```
-目的: content/sns/x/draft/ のコミット済み下書きで「X 予約キューへ未投入のまま go-live が近い」
-      ものを週次で検出し、次バッチの投入を促す。直前カウントダウンのように週次小分けで投入する
-      運用（§11 凍結回避＝一括投入しない）で、投入忘れ＝予約キューの穴を防ぐ。
-
-調査項目:
-- npm run x-queue-surfacer   （オフライン・status.json + tweets.md 読みのみ。
-  ルーチンのリモート checkout でもローカル creds 無しで動く）
-  - 投入済み台帳の最終予約日時（last_queued_at、ISO形式。途中の空白を含み、連続した充足を保証しない）と、lookahead（既定 8 日）内に go-live を迎える
-    未投入下書きを DUE / OVERDUE で列挙する
-
-出力形式: スクリプト出力（📮 ヘッダ + 表 + 投入手順）をそのまま「## SNS 予約キュー投入（X）」
-セクションに埋め込む。DUE/OVERDUE が 1 件以上あれば「## 来週への申し送り」にも 1 行起票する。
-
-注意:
-- 本エージェントは surface のみ。実際の投入は次のローカルセッションで
-  x-schedule-guard --queue 緑 → publish-x → x-sync-status の手順で人手（クラウドルーチンは
-  ローカル Playwright プロファイルを持たないため投入できない）。
-- 「✅ 投入待ちなし」なら本節は 1 行で記録して次へ。
-```
-
-#### Agent G: 計測ダイジェスト（GA4 × GSC × 収益導線・親が直接実行）
-
-CI（金曜の `fetch-metrics.yml`）が前の完了週（月〜日・JST）と直前 28 日の基線で取った成長パックから、改善機会を
-安定 ID（`OPP-…`）付きで抽出した**機会ダイジェスト**を読む。**土曜 W のレビューは digest W−1**（事業レビューと同じ窓）。
-
-```bash
-git pull --ff-only                        # CI が金曜に push した digest / pack / 自動計測を取り込む
-npm run growth-digest -- --print          # レビュー本文へそのまま貼る（先頭の <!-- growth-digest:YYYY-Www --> を消さない）
-npm run growth-triage -- list             # この週の未処分（Phase 2.5 で全件処分する）
-```
-
-- 出力をそのまま「## 計測ダイジェスト」節へ貼る。**要約・転記し直さない**（マーカーが月曜の guard の証跡）
-- 入力が「欠測」と出た項目は 0 と読まない。計測の機会（measurement）として Phase 2.5 で処分する
-- ダイジェストが無い・古い（CI 停止）なら「## 課題・ブロッカー」に書き、fetch-metrics の Issue を確認する
-- 区分・閾値・表示上限の真実源: [growth-cycle.md](../../../knowledge/reference/growth-cycle.md)
-
-### Phase 2: 分析・統合
-
-1. **達成率**: 計画タスクの完了率
-2. **成果ハイライト**: 今週のトップ成果
-3. **課題・ブロッカー**: 未達タスクの原因分析
-4. **学び**: 発見・改善点
-5. **backlog 消化サマリ**（下記）
-
-#### backlog 消化サマリ（親が直接集計）
-
-`/backlog-sweep` の実績を読む。**この節が dispatch-log の唯一の読み手**なので、省略すると記録が誰にも読まれないログになる（§9「読む人がいない検査は無いのと同じ」）。
-
-```bash
-node scripts/backlog-sweep-pick.mjs --json   # 現在の残量と分類率
-node scripts/check-backlog-health.mjs         # 台帳の健全性（沈んだ不具合・定期の混入・重複候補）
-node scripts/check-backlog-verify.mjs        # [検証:cmd] を実走し、赤→緑になったカード（完了の疑い）を出す
-node scripts/report-defect-learning.mjs --since <今週月曜>  # 起票・完了した不具合と再発防止（検査 / memory / 正典 / 残すもの無し）の内訳
-node -e "const d=require('./.claude/state/dispatch/dispatch-log.json');const w=d.entries.filter(e=>e.at>='<今週月曜>');const by=k=>w.filter(e=>e.outcome===k).length;console.log(JSON.stringify({total:w.length,done:by('done'),swept:by('swept'),blocked:by('blocked'),fail:by('fail'),byExecutor:w.reduce((a,e)=>((a[e.executor]=(a[e.executor]||0)+1),a),{})}))"
-```
-
-レビューには次の各行で書く:
-
-- **消化**: done N 件 / 掃除（swept＝実査したら既に完了）M 件
-- **残量**: カード総数 X 件（🔴/🟡/🟢）・前週比 ±Y
-- **分類率**: `[種類:]` 付与済み A / 全体 B（旧 `[実行:]` 軸は 2026-08-26 廃止。未分類は選定順序〔不具合優先〕に乗らない）
-- **モデル別**: executor 別の件数と失敗/手戻り（Phase C のモデル分業を見直す材料）
-- **再発防止**: `report-defect-learning` の起票した不具合 N 件 / 閉じた不具合 M 件（検査・memory・正典・残すもの無し の内訳）。「残すもの無し」が続く種類の不具合は、検査にできないかを次週のカードにする
-- **期日と時期**: `check-backlog-health` の S14（期日超過）と S15（`[時期:]` の月を過ぎたまま）。S14 はそのレビューで片付けるか期日を直す。S15 は終わっていれば削除、残りは月初の `npm run roll-backlog-when -- --write` で翌月へ回す。S16（マージ済み・閉じた PR を「PR #N（未マージ）」と書いたまま、または origin に無いブランチを同じ行にマージ・削除の記述なしで書いたまま。ブランチ名の無い「10/26 にマージ予定」は拾えない）は、そのレビューでカードの表記を「マージ済み・本番反映日」に直し、完了条件を満たしていれば完了にする。月次レビューの未実施は週次の点検（`npm run quality:audit:weekly`）の `monthly-review-due` と SessionStart が知らせる
-- **台帳の健全性**: `check-backlog-health` の S2（🟢/🟣 に沈んだ不具合）・S4（`種類:定期`＝backlog の役割違反）・S9（`.claude/todo` の 4 層以外）。**この 3 つが 0 でない週は放置しない**（S2 は選定順で先頭に出るのに tier が嘘をついている状態、S4/S9 は置き場違い）。しきい値を超えたら次セッションで `/backlog-sweep --audit`
-
-- **完了の疑い**: `check-backlog-verify` が `赤→緑` を出した週は、そのカードを次の `/backlog-sweep` で**実査**する（緑は完了の証明ではない——2026-08-18 に check-note-attachments の正規表現が案内済み 77 本を誤検出した実例がある）。`常時緑` が出たら、そのカードの `[検証:]` が surfacer を指していて**完了判定に使えない**ということなので、検証コマンドを差し替えるか外す。
-- **外部書き込みの孤児**: weekly-review-guard の report digest（quality-audit `external-write-orphans`）が `orphan` を Issue にした週は**最優先**。「外部には出たのに台帳に記録が無い」状態で、台帳を信じて再開すると同じものを二重に外部へ出す。run ログから外部側の実体（videoId 等）を回収して台帳へ反映してから再開する。`silent-stop` は「未処理が残っているのに誰も回していない」通知（手動投入ジョブでは異常ではない）。**exit 2（検査不成立 N/M 取得失敗）は「痕跡なし」ではない**＝社内プロキシ配下などで run ログが取れていない。取れる環境で再実行してから結論する（DN-0225）。2026-06-17 の YouTube run が実例＝6 本アップ済みなのに台帳 pending のまま 2 か月放置された。
-- **品質censusのdelta**: weekly-review-guard の report digest（quality-audit `quality-census`）が悪化（薄層への逆戻り・スコア低下）を Issue にした週だけ、該当記事を backlog へ（週次では実行しない）。
-- **収益カバレッジ**: `npm run report-monetization-coverage` の配置別 CTA CTR・note label × 同期間の商品売上（ID付き比率）を1行確認する。売上は全流入経路の商品合計で、CTA別購入の帰属ではない。同じ商品の複数ラベルに表示する売上を合算しない。
-
-blocked / fail があれば「課題・ブロッカー」へ、繰り返し blocked になるタスクは前提条件を backlog 本文へ書き足す。
-
-#### 点検と Issue（全件に行き先・親が直接確認）
-
-開いている Issue（`automation-failure` ほか全ラベル）と週次の点検を毎週読む。**Issue は起票されても閉じられなければ意味が無い**——
-#457 は 2026-08-07 から 17 日 open のまま誰も見ておらず、しかも dedup 仕様で以後の同 channel の
-失敗はすべてこの Issue へのコメント追記に埋没していた（2026-08-24 実査）。2026-10-01 にも #478 workflow-health（8/31〜）・
-#455 security bump（8/6〜）が 1 か月開いたままだった。**通知チャネル自体が消化されていなければ、CI の赤を Issue にしても同じことが起きる**。
-
-```bash
-npm run review-checks -- --cadence weekly --run YYYY-Www --write
-```
-
-（点検は `review-wiring.json` の `checks`＝`npm run check-workflow-health` と `node scripts/check-backlog-health.mjs` と `npm run quality:audit:weekly`（quality-audit の cadence weekly＝期日が週・月の単位の点検と、結果がリポジトリの中身だけで決まる点検。毎日は回さない・DN-0847）と `npm run check-taxonomy-wiring`（分類と回遊の配線の要対応。赤なら `npm run report-taxonomy-wiring` で中身を読み、テーマ所属なしは分野・管理のタグか `topics:` を付け、昇格できる育成中のテーマは status を hub にするか判断し、一次資料で確かめてから 180 日を超えた計画・施策は一次資料で確かめ直して `config/policy-registry.json` の `checkedAt` を更新する。法令の節が出ない公開ハブは、そのテーマの記事 2 本以上の本文で関係する法令の条を e-Gov へリンクして引く（条文は一次資料で照合する）。規則は `.claude/knowledge/reference/content-taxonomy.md` §6）。結果は回ごとに `data/business/records/checks-weekly-<週>-<実行時刻>.json` に追記で残る。）
-レポートの「## 点検と Issue」に、失敗・検査不成立の点検と開いている Issue・Dependabot の脆弱性の**全件**を
-`- <コマンド名 or #番号 or dependabot:パッケージ名> 状況 → 振り分け: DN-xxxx / 定常 / 理由` で書く。行き先の無い項目が残る週は「実施できた」にならない（管理画面のレビュー手順が数える）。
-
-- **自動化の失敗**: channel 別に「未復旧なら原因を 1 行」。
-  **7 日以上 open のものは DN カードへ起票する**（放置＝チャネルが死ぬ）。復旧した Issue は起票元 workflow の次の
-  成功で `report-automation-failure.mjs --resolve` が自動クローズする（2026-09-18 から。それ以前は人手クローズで
-  open 8 件・最古 43 日が溜まり、この節自体が「消化停止」と書く状態だった）。したがって **open のまま残っている
-  ＝まだ復旧していない**と読む。`--resolve` の配線が無い channel（人手ルーティン起票）だけ復旧確認後に人が閉じる。
-  起票元は `ci.yml`（Pre-merge が赤）・`uptime-ping.yml`・`weekly-review-guard.yml`（記録層の沈黙／workflow health／
-  report 区分 FAIL）・`index-coverage.yml`・`ops-audit.yml`（quality-audit の ops 区分のうち毎日の分＝会員配信・添付・広告の期限・Cloudflare・sitemap・
-  収集の死活）・Mac の weekly-collect（channel weekly-collect＝土曜の収集の段の失敗と検算・note の公開状態の照合の検査不成立・DN-0847）・Mac の GSC の記録層（channel gsc-auto-review＝記録が書けなかった・Claude の【要確認】・DN-0849）
-
-
-### Phase 2.5: 全件トリアージ（必須・計測→改善の起票）
-
-ダイジェストの表示対象を**1 件残らず**処分して台帳へ起票する。散文のまま翌週へ持ち越さない
-（月曜の `weekly-review-guard` が `check-growth-triage` で未処分・未反映を Issue にする）。
-
-1. `npm run growth-triage -- list --json` で未処分を得る
-2. 各 `OPP-…` の処分を決め、判断ファイル `.tmp/growth-triage-YYYY-Www.json` を書く（`{ "digestWeek": "YYYY-Www", "decisions": [...] }`）
-
-   | action | いつ | 必須項目 | 行き先と実行者 |
-   |---|---|---|---|
-   | `backlog` | 単発の実装（CTA 配置・文言、title/description、計測の修理、導線ゼロの解消） | title / tier（high・mid・low・hold）/ category / domain（領域ラベル）/ kind / doing / done（high・mid は period＝YYYY-MM[..YYYY-MM]、任意 verify） | `.claude/todo/backlog.md` の DN → `/backlog-sweep` |
-   | `experiment` | 効果を前後で測るべき変更（配置・文言の試行など） | title / hypothesis / targetMetric / targetDelta（任意 measure） | `experiments.json`（proposed）→ `/nsm-experiment start`。measure を付ければ CI が自動計測 |
-   | `verdict` | 期限の来た実験（VERDICT_DUE 等。kind `search-strategy` は `verdict` で閉じず `search-improvement close`） | result（success・partial・no-effect・negative）/ learnings | 実験を close |
-   | `bundle` | 既存カード・実験や同じバッチの起票で足りる | into（DN / EXP / OPP） | 起票しない |
-   | `reject` | 対応しない | reason（10 字以上） | 12 週は再表示しない |
-   | `defer` | 今は判断できない | until / reason | until まで再表示しない |
-
-   申し送りのうち backlog へ送る単発作業は `"id": null` の `backlog` で起票できる。起票後の DN を Phase 4 の書式
-   （`→ 振り分け: DN-####`）で末尾に書く（振り分けの検査は `check-handoff-extraction` が持つ）
-3. `npm run growth-triage -- apply --decisions .tmp/growth-triage-YYYY-Www.json` で検証（dry-run）→ 問題なければ `--commit`
-   （全件を先に検証し 1 件でも不正なら何も書かない。DN の採番に git の全履歴が要るのでローカルで実行する）
-4. 出力された変更ファイルを**明示指定で** `git add` してコミット・push（`git add -A` 禁止）
-5. 「## 計測→改善トリアージ」節に `OPP → 処分 → DN/EXP/理由` の表を書く
-
-処分の目安: 期待効果/週が大きいものから。計測（measurement）は他の判断の前提なので先に直す。1 件の判断に
-迷ったら `defer` ではなく、確かめる作業自体を `backlog` にする（保留の山を作らない）。
-
-### Phase 3: 出力（md ファイル保存）
-
-下の「出力フォーマット」に従い、すべてのセクションを 1 本の markdown としてまとめ、**`docs/reviews/weekly/YYYY-Www-review.md`** に保存する（`writeMdxFile` 経由は不要、通常の md なので Write でよい）。
-
-ファイル先頭は H1 + 作成日 + 対象期間（既存 `2026-W21-review.md` と同形式）:
-
-```markdown
-# 週次レビュー YYYY-Www
-
-作成日: YYYY-MM-DD
-対象期間: YYYY-MM-DD 〜 YYYY-MM-DD
-
----
-
-（以降、下記「出力フォーマット」のセクション 1〜N を順に埋め込む）
-```
-
-**重要**:
-- 保存先は `docs/reviews/weekly/`（zone A = docs/。`.claude/state/*.md` は新規作成禁止）
-- 既存の同名ファイルがあれば上書きせず内容を統合してから Write する
-- 前週レビューへの相対リンク `[YYYY-W(N-1)-review.md](./YYYY-W(N-1)-review.md)` を冒頭に入れると追跡しやすい
-- GitHub Issue は作成しない（CLAUDE.md §8 準拠）
-
-### Phase 3.5: バックログの関門（必須・運営者に諮る）
-
-`npm run backlog-gate -- --weekly` で対象を出し、次の 3 つを片付ける。結果は「## バックログの関門」節に書く（管理画面 戦略 ＞ レビューの手順チェックリストがこの節で実施を確かめる）。
-
-1. **今決められる判断待ち（🟣）を全件**（`[時期:]` が来月以降のカードは判断材料がそろう時期が決まっているので、その月まで諮らない）、1 件ずつ「背景 1〜2 行・選択肢・おすすめと理由」にまとめて運営者に諮る（AskUserQuestion は 1 回 4 問までなので、4 件ずつ区切って全件を回す）。答えで台帳を直す: やる → `[時期:]` を付けて 🟡（期日があれば 🔴）へ移す／やらない → `node scripts/backlog-edit.mjs --delete <ID>`／保留 → そのまま（次の週次で再び諮る）。
-2. **期日切れ**は、終わっていれば削除、続けるなら期日を直す。
-3. **直近 7 日の起票**の重要度と `[時期:]` が妥当かを確かめ、ずれていれば直す。
-4. **開いてから 7 日を超えた automation-failure Issue**（`gh issue list --label automation-failure --state open --json number,title,createdAt`）は、その場で原因を直すか、`[種類:不具合]` のカードにして Issue 本文にカード番号を書く。Issue は復旧で自動クローズするが、原因が直らない限り開いたままで、backlog の選定（不具合優先）に乗らない（2026-09-27 時点で #478 workflow-health ほか 4 件が滞留）。
-
-### Phase 4: 申し送りの振り分け → 週次計画の自動生成
-
-**1. 申し送りの振り分け（必須）**: `.claude/todo/weekly.md` を書く `/plan-weekly` はレビューを読まないので、申し送りはレビューに書いただけでは台帳へ届かない（W37 で 5 件が行き場を失った・DN-0230）。「来週への申し送り」の**各項目の末尾に振り分け先を書く**。先は次の 4 つのどれか。
-
-| 振り分け先 | 書式 | 使うとき |
+| 段 | やること | 書くときに読む |
 |---|---|---|
-| backlog 起票 | `→ 振り分け: DN-0301` | 単発で完了がある作業。**先に backlog へ起票してから ID を書く**（既存カードならその ID） |
-| weekly 定常運用 | `→ 振り分け: 定常` | 反復する運用（drift 消化・転記など）。backlog には置かない（todo-standards §1-2） |
-| Issue | `→ 振り分け: #485` | open の `automation-failure` Issue で追う障害 |
-| 実験 | `→ 振り分け: EXP-007` | experiments.json の実験の裁定・再計測 |
+| Phase 1 Agent A・B | 開発活動／コンテンツ実績・note 同期・競合・GSC/GA4 自動化・ココナラ・検索改善・実験期限・目視確認 | [collect-activity-content.md](references/collect-activity-content.md) |
+| Phase 1 Agent D・E・H・I | 計画との差分／校正学習の蒸留／handoff 棚卸し・デッドコード／X 予約キュー | 同上 |
+| Phase 1 Agent C・C2・C3・F・G | NSM と実験進捗／PSI／収益カバレッジ／SNS 流入／計測ダイジェスト | [collect-metrics.md](references/collect-metrics.md) |
+| Phase 2 | 達成率・成果・課題・学び・backlog 消化サマリ・「点検と Issue」（全件に行き先） | [analysis-triage.md](references/analysis-triage.md) |
+| Phase 2.5 | 計測ダイジェストの `OPP-…` を 1 件残らず処分して起票（`growth-triage`） | 同上 |
+| Phase 3 | 下の節一覧で `docs/reviews/weekly/YYYY-Www-review.md` に保存 | [output-and-handoff.md](references/output-and-handoff.md) |
+| Phase 3.5 | バックログの関門（🟣 判断待ち・期日切れ・直近 7 日の起票・7 日超の Issue） | 同上 |
+| Phase 4 | 申し送りの各項目末尾に振り分け先 → `/plan-weekly` で翌週計画 | 同上 |
 
-pre-commit の `scripts/check-handoff-extraction.mjs` が 2026-W39 以降のレビューで次を検査する。各項目に振り分け先があるか。DN-ID が backlog（または dispatch-log の完了記録）にあるか。EXP-ID が experiments.json にあるか。旧週のレビューと計画を削除するときも、削除される申し送りの各項目に上記の居場所があるか、新しい週次ファイルへ同じ文面で転記されているかを見る。無ければ commit を止める。
+運用ルールと関連スクリプトの一覧 → [operations.md](references/operations.md)。
 
-**2. 週間計画**: 振り分け後、**続けて `/plan-weekly` を実行**して翌週の `.claude/todo/weekly.md` を書き直す（週間計画の正本はこの 1 ファイル。候補は `[時期:]` が今月を含むカードで、申し送りで起票・振り分けた DN もここへ入る）。（重い戦略版の `/weekly-plan` は 2026-11-01 に退役した。）
+### Phase 3.5・4 の要点（毎回の完了条件）
 
-## 出力フォーマット（md 本文）
+- **関門**: `npm run backlog-gate -- --weekly` の対象を片付け、結果を「## バックログの関門」に書く。管理画面の手順チェックリストがこの節で実施を確かめる。
+- **申し送りの振り分け**: 「来週への申し送り」の各項目末尾に `→ 振り分け: DN-#### ／ 定常 ／ #Issue ／ EXP-###` を書く（先に backlog へ起票してから ID を書く）。`check-handoff-extraction` が pre-commit で止める。
+- **点検と Issue**: `npm run review-checks -- --cadence weekly --run YYYY-Www --write` の結果、失敗・検査不成立の点検と開いている Issue・Dependabot の全件に行き先を書く。
+- **計測トリアージ**: `npm run growth-triage -- list` の未処分を 0 件にしてから終える（月曜の `check-growth-triage` が検査）。
+- 最後に `check-weekly-review`（`--week YYYY-Www`）を回し、欠けを補う。
 
-ファイル名は `docs/reviews/weekly/YYYY-Www-review.md`。先頭に H1 `# 週次レビュー YYYY-Www` と作成日・対象期間を置き、以降に下記セクションを順に並べる。
+## 出力フォーマット（節の一覧）
 
-> **分量バジェット**（真実源: [docs-markdown-style.md](../../../knowledge/reference/docs-markdown-style.md)「長さの既定」）:
-> **サマリーは成果・要注意・数値の要点だけ**を数行で。**各セクションは判断に使う点だけ**を載せる。
-> **表は判断に要る行＋「他 N 件」**。エージェントの出力をそのまま貼らず、要点に落として書く。
-> 該当ゼロのセクションは「なし」の 1 行で閉じる（空の見出しを並べない）。
-> **検出と表示は別**: 違反・ドリフト・候補は全件把握したうえで、載せきれない分は件数と参照先（JSON パス等）を必ず書く。黙って落とさない。
+ファイル名は `docs/reviews/weekly/YYYY-Www-review.md`。先頭は H1 `# 週次レビュー YYYY-Www`・作成日・対象期間。以降の節を順に置く（各節の中身・雛形は [output-and-handoff.md](references/output-and-handoff.md)）。サマリーは数行、表は判断に要る行＋「他 N 件」、該当ゼロは「なし」の 1 行。載せきれない分は件数と参照先を書き、黙って落とさない。
 
 ```markdown
 ## サマリー
-- 計画タスク達成率: N/M（N%）
-- 主な成果: ...
-
 ## 計画 vs 実績
-
-| タスク | 分類 | 状態 | メモ |
-|---|---|---|---|
-
 ## 成果ハイライト
-1. ...
-
 ## 開発活動
-- コミット数: N
-- 主な変更: ...
-
 ## コンテンツ実績
-
-| カテゴリ | 今週 | 先週 | 増減 |
-|---|---|---|---|
-
 ## NSM（オーガニック検索流入）
-
-<!-- Agent C の metrics-reader.mjs 出力をここに埋め込む。
-     GA4 週次（Organic Search users ★NSM、全体 users/sessions、チャネル別）と
-     GSC 週次（clicks/impressions/CTR/平均順位、トップクエリ）の前週比較表。 -->
-
-### NSM トレンドの洞察
-- Organic Search users の増減: ...（コンテンツ追加・SEO 改善・試験シーズン影響などの要因）
-- 注目クエリ: 順位上位だが CTR が低い → title/description 改善候補
-
 ## 計測ダイジェスト
-
-<!-- Agent G の `npm run growth-digest -- --print` の出力をそのまま貼る（先頭のマーカーを残す）。 -->
-
 ## 計測→改善トリアージ
-
-<!-- Phase 2.5 の結果。| OPP | 区分 | 処分 | 行き先（DN/EXP）・理由 | の表。未処分 0 件で終える。 -->
-
 ## 実験の進捗
-
-<!-- Agent C が data/business/experiments.json から running/measuring/今週 close を自動生成。
-     running 実験の baseline → current 比較、measure 推奨の警告、
-     close 実験の learnings を出力。 -->
-
-### Running
-| ID | title | 経過日数 | baseline → current | 次アクション |
-|---|---|---|---|---|
-
-### Measuring
-| ID | title | baseline | current | 効果判定 |
-|---|---|---|---|---|
-
-### 今週 close
-
-- なし
-
-### 次サイクルへの仮説
-- （Agent C が running/closed の学びから提示）
-
 ## PSI パフォーマンス推移
-
-<!-- Agent C2 が data/psi/batch/ と npm run psi-audit:check の出力から自動生成
-     （GitHub Issue は廃止済み・追跡は psi-batch JSON の時系列＋しきい値比較のみ）。
-     今週の違反件数、スコア前週比、新規/解消した違反、field(CrUX) coverage を記録。 -->
-
-### Core Web Vitals 前週比
-
-| URL | Perf | LCP | CLS | 違反状態 |
-|---|---|---|---|---|
-
-### 今週の変動
-
-- **新規発生**: （件数）件 — 例: `/docs/xxx` で LCP 4.2s (Issue #N)
-- **解消**: （件数）件 — 例: `/docs/yyy` Perf 62→78 (Issue #N closed)
-- **継続放置**: （件数）件 — 7 日以上 open の Issue 一覧
-
-### 洞察
-- 改善が見える領域・退行した領域・次週の焦点
-
 ## 収益カバレッジ ダッシュボード
-
-<!-- Agent C3 が `npm run report-monetization-coverage` の出力（coverage-latest.md）を
-     そのまま埋め込む。高流入 × 無導線のギャップ、上位ページの note/アフィリ カバレッジと
-     CTR（クリック未蓄積時は n.d.）。ギャップは「## 課題・ブロッカー」にも 1 行起票。 -->
-
 ## SNS 流入と投稿実績
-
-<!-- Agent F が `ga4.source-medium-sns`（最新2件）で source 別 WoW、
-     `data/business/weekly/` 最新の sns セクション、`.claude/state/yt-verify/latest.json` の
-     ドリフト counts を埋め込む。初週/未生成時はその旨を明記。source 急落・YT ドリフトは
-     「## 来週への申し送り」にも 1 行起票。IG/X の公開ドリフトは Agent B / Agent I 側で扱い重複させない。 -->
-
 ## 校正学習の蒸留
-
-<!-- Agent E が /distill-proofread-learnings --since "7d" を呼び出して生成。
-     今週の校正作業（content/site/ 配下の MDX/SVG 差分＋ユーザー指示）から、
-     content-principles.md や関連スキルに反映すべき新ルール・精緻化・嗜好・
-     ワークフロー改善を抽出する。 -->
-
-### 今週の抽出結果
-- 既存原則の適用: N 件（学習対象外）
-- 新規ルール候補: N 件
-- 既存原則の精緻化: N 件
-- ユーザー嗜好: N 件
-- ワークフロー改善: N 件
-
-### 採択候補（ユーザー承認待ち）
-| # | カテゴリ | 概要 | 反映先 |
-|---|---|---|---|
-
-### 学習ログ
-- `.claude/state/proofread-learnings/YYYY-MM-DD.md` に詳細記録
-
 ## SNS 予約キュー投入（X）
-
-<!-- Agent I が `npm run x-queue-surfacer` の出力をそのまま埋め込む。
-     未投入のまま go-live が近い X 下書き（直前カウントダウン等）を DUE/OVERDUE で列挙。
-     1 件以上あれば「## 来週への申し送り」にも投入タスクを 1 行起票する。 -->
-
 ## その他パフォーマンス（必要に応じて）
-
-ページ別 PV・内部リンク導線・リファラーなど、NSM 以外で注目すべき指標があれば記録。
-
 ## 点検と Issue
-- check-workflow-health: … → 振り分け: DN-xxxx
-- #NNN … → 振り分け: 定常（理由）
-
 ## 課題・ブロッカー
-1. ...
-
 ## 学び
-- ...
-
 ## バックログの関門
-
-判断待ち N 件 → やる A（ID）／やらない B（ID）／保留 C（ID）。期日切れ N 件の処置。直近 7 日の起票で直したもの。7 日超の Issue → 直した／カード（ID）。
-
 ## 来週への申し送り
-- ... → 振り分け: DN-#### ／ 定常 ／ #Issue ／ EXP-###（Phase 4。1 項目 1 行）
 ```
-
-## 運用ルール
-
-- **毎週土曜にローカルで実行**（金曜 06:00 JST の fetch-metrics が成長パック・機会ダイジェスト・実験の自動計測を push し、この回の直前に Mac の GSC の記録層が意味の判断を観測ログへ足した後）
-- レビューは `docs/reviews/weekly/YYYY-Www-review.md` に保存（GitHub Issue は使わない）
-- レビュー完了後に `/plan-weekly` を実行し、翌週の計画を `.claude/todo/weekly.md` に書く
-- 未完了アクションは「来週への申し送り」に振り分け先付きで書き（Phase 4）、次週計画へ引き継ぐ
-- 計測ダイジェストの表示対象（`OPP-…`）は Phase 2.5 で全件処分する。未処分とレビューへの未反映は月曜の `check-growth-triage` が Issue にする
-- 最新レビュー＋次週計画だけを `docs/reviews/weekly/` に保持する。旧週は未完タスク・恒久知見を抽出後に削除し、履歴はgitで参照する（抽出もれは `check-handoff-extraction` が pre-commit で止める）
-
-## 参照
-
-- `.claude/skills/management/plan-weekly/SKILL.md` — 週次計画
-- `.claude/skills/management/nsm-experiment/SKILL.md` — 実験ライフサイクル管理
-- `.claude/scripts/lib/metrics-reader.mjs` — NSM 週次メトリクス取得（本スキル Agent C の中核）
-- `scripts/x-queue-surfacer.mjs` — X 予約キューの未投入下書き surfacer（本スキル Agent I の中核。`npm run x-queue-surfacer`）
-- `.claude/skills/analytics/fetch-gsc-data/scripts/fetch-gsc-data.mjs` — GSC 個別取得（ページ別・フィルタ付き）
-- `.claude/scripts/fetch-ga4-data.mjs` — GA4 個別取得（ディメンション・メトリクス指定）
-- `scripts/check-experiment-due.mjs` — 実験の再計測/close 期限 surfacer（`npm run check-experiment-due`）
-- `scripts/build-growth-digest.mjs` / `scripts/growth-triage.mjs` / `scripts/check-growth-triage.mjs` — 計測ダイジェスト・全件トリアージ・月曜の反映ゲート（本スキル Agent G と Phase 2.5 の中核。真実源 [growth-cycle.md](../../../knowledge/reference/growth-cycle.md)）
-- `scripts/check-note-delivery-due.mjs` — **note の商品が購入者に届いているか**の surfacer（日次 ops `note-delivery-due`）
-- `scripts/check-coconala-orders.mjs` — ココナラ取引の突合＋**評価未送信/期限切迫** surfacer（`npm run check-coconala-orders -- --json`）
-- `scripts/check-coconala-blog.mjs` — ココナラブログのハードゲート＋**送客先ドリフト** surfacer（CI ゲート `coconala-blog`）
-- `scripts/check-internal-links-vs-gsc.mjs` — 公開ページ→404/リダイレクト URL の内部リンク検査（`/google-search-growth` で使う）
-- `scripts/check-disk-hygiene.mjs` — ローカル容量の surfacer（quality-audit report `disk-hygiene`）。**Mac のローカルでのみ成立**（CI は exit 2＝検査不成立）。掃除は日次 launchd が回すので、レビューで見るのは「止まっていないか」と履歴の棚卸し要否だけ
-- `.claude/skills/management/nsm-experiment/references/definition.md` — NSM 定義の真実源

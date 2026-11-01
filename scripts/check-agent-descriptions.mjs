@@ -3,7 +3,7 @@
 //
 // description は**毎セッションの system prompt に全文載る**。担当範囲・安全弁・関連スクリプトの
 // 詳細を書き込むと固定コストが増えるため、呼出判断に必要な概要だけに絞る。
-// 詳細は本文と agents-registry.md にあるので二重。上限 300 code points（`Use when` の有無は数えるだけ＝skill から呼ばれる
+// 詳細は本文と agents-registry.md にあるので二重。上限 120 code points（DN-0933 で 300 から下げた）（`Use when` の有無は数えるだけ＝skill から呼ばれる
 // Generator/Evaluator は trigger 句を持たないのが正常）。
 // 既存の超過は .claude/state/quality/agent-descriptions-baseline.json に載せ、**新規の超過と既存の悪化**だけ赤にする
 // （超過を解消したら --update-baseline で締める。現在の件数は実行結果を参照）。
@@ -21,7 +21,7 @@ import { join, relative } from 'node:path';
 import { REPO_ROOT, CLAUDE_ROOT, STATE_ROOT } from './lib/repository-paths.mjs';
 import { isCliEntry, runAsCli } from './lib/cli-run.mjs';
 
-export const MAX_CHARS = 300;
+export const MAX_CHARS = 120;
 const AGENTS_DIR = join(CLAUDE_ROOT, 'agents');
 const BASELINE = join(STATE_ROOT, 'quality/agent-descriptions-baseline.json');
 // git の pathspec・出力（リポジトリルートからの相対パス）との照合と表示に使う形

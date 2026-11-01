@@ -1,11 +1,7 @@
 ---
 name: check-seo-meta
 description: >
-  build 済み out/ の全正規 URL（sitemap + 公開記事 + 静的ルート）を検査して title・description・self canonical・
-  self og:url・robots・JSON-LD・SSR の欠落/不一致を検出する。canonical は self URL 完全一致で判定。
-  検査ロジックは build 後 SEO スキャナ（scripts/lib/seo-checks.mjs）を再利用。母集合は
-  doc-meta-index.json（published のみ）で、収集不足時は監査失敗にする。dev server は不要（out/ 直接検査が主経路・HTTP は --base-url）。
-  Use when user asks to [SEO meta 監査, OGP 検証, title 重複チェック, 構造化データ検証, /check-seo-meta].
+  build 済み out/ の全正規 URL の title・description・canonical・og:url・robots・JSON-LD・SSR の欠落/不一致を検査する。Use when user asks to [SEO meta 監査, OGP 検証, /check-seo-meta].
 domain: site
 ---
 

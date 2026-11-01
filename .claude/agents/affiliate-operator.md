@@ -1,7 +1,7 @@
 ---
 name: affiliate-operator
 description: >
-  A8・もしも・afb の提携照合、申請、ASP 間比較を行う。共用口座のサイト帰属を検査する。A8 成果 CSV 取込・案件開拓・広告配置判断は担当外。Use when user asks to [ASP 横断比較, 提携申請, /affiliate-status, /affiliate-apply].
+  A8・もしも・afb の提携照合、申請、ASP 間比較を行う。成果 CSV 取込・案件開拓は担当外。Use when [ASP 横断比較, 提携申請].
 model: sonnet
 domain: affiliate
 ---

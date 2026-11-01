@@ -1,10 +1,7 @@
 ---
 name: figure-quality-loop
 description: >
-  記事図クロップ（content/site/**/img の png/webp）の品質を「機械で検出→目視で判定→切り直し／元PDFから切り出し直し→再検査→判定台帳に記録」で1周回すループスキル。
-  判定は画像のハッシュつきで台帳に残るので、回すほど判定待ちが減り 0 で止まる。/loop で自走させる前提。
-  単発の写り込み除去は /figure-recrop、1級土木 過去問1次のページ単位の再抽出は /civil-figure-rework。
-  Use when user asks to [図クロップの品質ループ, 図の品質チェックと改善, 切れた図を直す, /figure-quality-loop].
+  記事図クロップの品質を、機械検出→目視判定→再クロップ→再検査→台帳記録で1周回すループ（/loop 向け）。単発は /figure-recrop。Use when user asks to [図クロップの品質ループ, 切れた図を直す, /figure-quality-loop].
 user-invocable: true
 domain: site
 ---

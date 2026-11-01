@@ -1,10 +1,7 @@
 ---
 name: x-repost
 description: >
-  X(Twitter) の高エンゲージな技術士総監/1級・2級土木施工管理ツイートを検索し、
-  サブエージェント x-repost-curator で選別＋引用コメント生成 → Playwright で引用リポストする。
-  discover(検索収集) → curate(選別/コメント生成) → exec(引用RP) の 3 段。
-  Use when user says "Xリポスト", "引用リポスト", "x-repost".
+  X の高エンゲージな技術士・土木ツイートを検索し、x-repost-curator で選別・コメント生成して引用リポストする（discover→curate→exec）。Use when user says "Xリポスト", "引用リポスト", "x-repost".
 disable-model-invocation: true
 argument-hint: "[discover | curate | exec | run] [--dry-run]"
 domain: sns

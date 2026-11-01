@@ -1,7 +1,7 @@
 ---
 name: note-publish
 description: >
-  note.com/dobokunote の有料記事を Playwright × システム Chrome で「下書き作成→公開」する Windows 決定的パブリッシャ。カバー/タイトル/本文(markdown変換)/価格/タグ/有料境界を自動設定し、境界検証ゲート通過後に公開する。Use when user says [note記事公開, note有料記事を投稿, note自動公開, /note-publish].
+  note.com の有料記事を Playwright で下書き作成→境界検証→公開する Windows 決定的パブリッシャ。Use when user says "note記事公開", "note有料記事を投稿", "note自動公開".
 disable-model-invocation: true
 user-invocable: true
 argument-hint: "--article <article.md path> [--commit] [--schedule YYYY-MM-DDTHH:MM]"

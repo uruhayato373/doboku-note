@@ -1,11 +1,7 @@
 ---
 name: note-magazine-add
 description: >
-  既存の note 記事を別の有料マガジンへ「収録（追加）」するブラウザ CLI。追加対象は note 公開 API の
-  差分で自動算出（手動列挙なし・冪等）。Playwright + システム Chrome（channel:'chrome'）で操作。
-  Use when user says "マガジンに記事を追加", "完全パックに収録", "パックへ記事を入れる", "マガジン収録".
-  **既定は dry-run。実追加は --commit。収益アカウントのため追加後 API 検証まで必須。Windows(会社PC)で
-  動作確認済（2026-06-15・channel:'chrome'＋ignoreHTTPSErrorsでプロキシ越え）・Macも可。** note-edit-magazine（設定/価格）とは別操作。
+  既存の note 記事を有料マガジンへ収録するブラウザ CLI（差分は API から自動算出・既定 dry-run・実追加は --commit）。Use when user says "マガジンに記事を追加", "完全パックに収録", "マガジン収録".
 disable-model-invocation: true
 argument-hint: "--target <magazineKey> (--from <k1,k2> | --notes <n1,n2>) [--plan-only] [--probe] [--commit] [--limit N]"
 domain: product

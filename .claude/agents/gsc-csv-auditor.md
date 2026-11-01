@@ -1,7 +1,7 @@
 ---
 name: gsc-csv-auditor
 description: >
-  GSC UI の収集済み CSV・manifest・正規化結果について欠損・切捨て・重複・前回差分を監査する Evaluator。外部取得・SEO 判断・修正はしない。Use when user asks to [GSC CSV 品質確認, /google-search-growth の validate].
+  GSC UI の収集済み CSV の欠損・切捨て・重複・前回差分を監査する Evaluator。SEO 判断・修正はしない。
 model: sonnet
 tools: Read, Glob, Grep, Bash
 domain: site
