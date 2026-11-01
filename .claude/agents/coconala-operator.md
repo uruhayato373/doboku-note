@@ -55,7 +55,7 @@ domain: product
 
 - 添削下書きの生成そのもの → `civil-keiken-tensaku-drafter`（`/keiken-tensaku` 経由で呼ぶ）
 - 最終赤入れ・トークルーム返信送信 → 運営者（人間）
-- QA/有料オプション/画像の自動投入（`/coconala-publish` v1 未対応）→ 公開後にココナラ UI で手動
+- 新規出品時の QA/有料オプションと画像の自動投入（既存出品の編集では QA/有料オプションを自動反映）→ 新規出品後はココナラ UI で手動
 - note 側の操作（価格変更・マガジン収録） → `note-operator` / `note-membership-operator`
 - 売上の月次集計 → `sales-recorder`（`/record-sales`）
 - **ココナラブログ**（記事の執筆・採点・公開） → `/coconala-blog`（`coconala-blog-writer` / `coconala-blog-qa`・

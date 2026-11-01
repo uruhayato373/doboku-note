@@ -5,7 +5,7 @@ description: >
   （config/products.json の channel coconala＝価格/状態/URL・生成物 src/lib/coconala-services.ts）と listings（config/coconala-listings.json
   ＝本文/カテゴリ/納期/ジャンル）を真実源に、ログイン済みプロファイルで出品フォームへ流し込む。
   安全弁＝account assert（sellerName=dobokunote）／既定は「下書きで保存」で実公開は --commit 必須／
-  価格・カテゴリの充填 warning があれば公開せず下書き退避。公開成功時はカタログへ status:'listed'＋
+  既存出品の編集は入力 warning があれば更新中止。公開成功時はカタログへ status:'listed'＋
   serviceUrl＋listedAt を書き戻す。棚の出し入れは coconala-pause（休止/再開/アーカイブ・対象選択は
   coconala-guards でテスト固定・長期不在は全件休止が既定）。KPI 照合は /coconala-status、受注処理は /coconala-order と別。
   Use when user asks to [ココナラに出品, ココナラ出品を修正, ココナラの価格を反映, サービスを公開, ココナラを休止, 出品を再開, 商品を取り下げ, /coconala-publish].
