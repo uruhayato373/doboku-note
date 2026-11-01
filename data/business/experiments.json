@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-11-01T05:49:13.212Z",
+  "updated_at": "2026-11-01T05:49:20.574Z",
   "experiments": [
     {
       "id": "EXP-002",
@@ -4270,7 +4270,7 @@
       "hypothesis": "/standards/hokuriku は 2 語が11〜30位（最良 12 位・表示 5）。検索意図に合わせて title・description・冒頭の答え・見出し・内部リンクを直せば、同じ検索語の順位が上がる",
       "target_metric": "対象ページ × 起票時の検索語 2 語の GSC 平均順位（本番反映の前 28 日・後 28 日）",
       "target_delta": "平均順位が 10% 以上良くなる。前後どちらかの表示が 10 未満なら判定不能",
-      "status": "running",
+      "status": "done",
       "created_at": "2026-10-13",
       "searchStrategy": {
         "cluster": "standards",
@@ -4343,6 +4343,16 @@
             "sha": "69e8a7add932060f430a51ebd11e97f5bfeafe8e",
             "at": "2026-09-27T11:18:10Z",
             "url": "https://github.com/uruhayato373/doboku-note/actions/runs/36315053964"
+          }
+        },
+        {
+          "at": "2026-11-01T05:49:20.573Z",
+          "event": "closed",
+          "result": "partial",
+          "verdictHint": "insufficient-data",
+          "measurement": {
+            "pre": 13.4,
+            "post": 6.9
           }
         }
       ],
@@ -4459,7 +4469,10 @@
           "deltaPct": -48.5,
           "verdictHint": "insufficient-data"
         }
-      ]
+      ],
+      "result": "partial",
+      "learnings": "北陸の共通仕様書は 13.4→6.9 位だが表示 9 件。地方ページは表示が週数件のため、同じ直し方を横展開するより表示の多いページを優先する",
+      "closed_at": "2026-11-01T05:49:20.573Z"
     },
     {
       "id": "EXP-025",
