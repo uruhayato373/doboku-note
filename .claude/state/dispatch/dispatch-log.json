@@ -6340,6 +6340,40 @@
       "commit": "ce5f8a588aad",
       "verification": "npm run check-external-links → リンク切れ 0 件（OK 5,253）",
       "note": "weekly-review-guard の 10/26 の赤は external-links ではなく W43 レビューの未完が原因。W44 完了後に手動起動した run 41293371039 が success。external-links は 404 の 15 か所を移転先か Wayback の保存版へ差し替え（1c4c69106・a58ffdd8f・b2aef33d6・c0e778a80・f96d75d55・d6a6347d9）、HEAD だけ 404 の NIST を誤判定する検査を PR #1353 で修正。jeed・meti の 403 は bot 拒否でリンクは生きている。Issue #1257・#1312 は次の guard・ops の成功で自動クローズ"
+    },
+    {
+      "id": "DN-0930",
+      "at": "2026-11-01",
+      "task": "note の販売明細の productId を商品の分類に結び、資格別・型別の売上を名前の推測なしで出す",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "test"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "60105dba6321",
+      "verification": "npm run sales-attribution → 未帰属 0",
+      "note": "PR #1356（ab126619d）。販売 347 件を資格へ全件帰属（商品に結合 154・規則 193・未帰属 0）。公開中で単独の販売 0 の有料商品は 86（npm run sales-attribution）"
+    },
+    {
+      "id": "DN-0934",
+      "at": "2026-11-01",
+      "task": "pre-commit の出力を、成功時は 1 行の要約にし、失敗した検査だけ詳細を出す",
+      "tier": "mid",
+      "kind": "改善",
+      "prevention": {
+        "type": "none",
+        "ref": "出力量の改善で、再発する不具合ではない"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "60105dba6321",
+      "verification": "小変更 3 ファイルの pre-commit 出力 163 行→12 行",
+      "note": "PR #1354（d6b05c20f）。成功時は要約 1 行（横展開リマインダのある回は 12 行）、失敗時は落ちた検査の出力だけ。PRECOMMIT_VERBOSE=1 で従来どおり"
     }
   ]
 }

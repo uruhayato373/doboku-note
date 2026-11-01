@@ -258,30 +258,22 @@
 
 **起点**: docs/reviews/critical/2026-11-01-revenue-focus-and-ops-slimming.md（2026-11-01）。OGP Supply は直近 11 回すべて失敗、youtube-funnel-audit などの youtube 系 cron は SNS 保留中で読み手がいない。workflow-health・workflow-health-guard・weekly-review-guard・report-checks が同じ原因で別々の Issue を立てる（11/1 時点で 3〜4 件）。
 
-**やること**: (1) SNS 保留中の workflow は on.schedule だけ外す（再開時に戻せるよう本体は残す）。(2) OGP Supply の失敗の原因を run ログで調べ、直すか cron を止める。(3) 見張りを 1 本の日次ヘルスに寄せ、同じ原因は 1 Issue にまとめる。
+**残り**: youtube-funnel-audit の schedule 停止・OGP Supply の上限超過の解消（max=120 で手動実行し成功）・weekly-review-guard の二重の見張りの解消は PR #1357 で入った（見張りの変更は main への deploy 後に効く）。
 
-**完了条件**: 失敗し続ける定期実行が 0、同じ原因の Issue が 1 件にまとまる。
+**やること**: report-checks・gsc-auto-review・weekly-collect・weekly-review-local など channel ごとに立つ Issue を、根本原因のキーで 1 Issue にまとめる（同じキーの open Issue にはコメントを追記・PR #1357 本文の案）。OGP Supply は生成対象が 50 件を超えたら再発するので、上限の扱い（定期で分割して生成するか）を決める。
 
-
-### [DN-0934] pre-commit の出力を、成功時は 1 行の要約にし、失敗した検査だけ詳細を出す
-タグ: [インフラ・計測] [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-11-01] [進行中]
-
-**起点**: docs/reviews/critical/2026-11-01-revenue-focus-and-ops-slimming.md（2026-11-01）。pre-commit は約 74 本の検査を走らせ、成功した検査も 1 本ずつ出力する。1 コミットで数百行になり、エージェントのトークンを食う。
-
-**やること**: scripts/lib/pre-commit-steps.mjs のディスパッチャで各検査の出力を受け取り、成功時は「N 本 OK（X 秒）」の 1 行、失敗時はその検査の出力だけを出す。WARN は件数だけ出す。
-
-**完了条件**: 全部成功するコミットの出力が 10 行以下、失敗時は落ちた検査の理由が読める。
-
+**完了条件**: 同じ原因（例: Claude の認証切れ）で立つ Issue が 1 件になり、OGP Supply が 4 週続けて成功している。
 
 ### [DN-0933] スキル・エージェントの description を短くし、weekly-review の SKILL.md を骨子と references に分けてトークンを減らす
 タグ: [エージェント・SSOT] [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-11-01]
 
 **起点**: docs/reviews/critical/2026-11-01-revenue-focus-and-ops-slimming.md（2026-11-01）。description の合計がスキル 約 6,500 字・エージェント 約 15,000 字で、毎セッションの一覧に常駐する。weekly-review の SKILL.md は 768 行（約 75KB）で、毎週のヘッドレス実行が全部読み、backlog（約 330KB）も読む。
 
-**やること**: (1) description を 1 文＋Use when（目安 120 字）に短くする（check-agent-descriptions の上限を下げる）。(2) weekly-review を骨子 150 行前後と references に分け、機械で出せる節は build-weekly-review-draft.mjs へ移し、backlog の全読みをやめて下書きに要る分だけ出す。skills-guide・agents-registry を同じ commit で直す。
+**残り**: description の短縮（スキル 26,138→12,826 字・エージェント 11,911→5,488 字・上限 120 字）と weekly-review の分割（768→約 90 行＋references 5 本）は PR #1360 で入った。
 
-**完了条件**: description の合計が半分以下、weekly-review の SKILL.md が 200 行以下で、次の土曜の自動実行が完了判定を通る。
+**やること**: (1) 11/7（土）の自動の週次レビューが分割後のスキルで完了判定を通るかを確かめる。(2) 機械で出せる節（数値の転記・欠測の列挙）を build-weekly-review-draft.mjs へ移し、references から外す。
 
+**完了条件**: 11/7 の自動実行が check-weekly-review で未完 0、references から機械の節が減っている。
 
 ### [DN-0932] 技術士 R9 の筆記対策（予想問題・必須 I・選択科目のパック）の制作計画を立て、4 月末までに揃える段取りを決める
 タグ: [収益化] [領域:商品] [時期:2026-12..2027-01] [種類:制作] [起票:2026-11-01]
@@ -298,20 +290,11 @@
 
 **起点**: docs/reviews/critical/2026-11-01-revenue-focus-and-ops-slimming.md（2026-11-01）。売上は試験の 0〜8 週前に集中する（技術士の筆記前の 6〜7 月に 64%、土木二次は 1〜4 週前）。毎年同じ順で回すのに、日付の出し方が人の記憶に頼っている。
 
-**やること**: config/exam-calendar.json の試験日と、資格ごとの「何週前に制作を始め、いつ CTA を切り替え、いつ判定するか」の設定から、月ごとの予定を出すスクリプトを作る（既存の schedule-view・schedule-events に足す形を先に検討）。2027 年の試験日を公式の発表に沿って登録する（未発表は pending）。
+**残り**: 設定（config/revenue-calendar.json）と schedule-view への統合は PR #1358 で入った（`npm run schedule-view -- --channel revenue`）。2027 年の試験日は 11/1 時点でどの実施機関も未発表で、exam-calendar の verification.pending に置いただけ。
 
-**完了条件**: 2027 年の各資格の制作開始・切り替え・判定の日付が一覧で出て、週次の計画がそれを読む。
+**やること**: (1) 実施機関が令和9年度の日程を発表したら exam-calendar.json に登録する（月次レビューの exam-ssot-status が pending を知らせる）。(2) `/plan-weekly`（todo-planner）が revenue の予定を読み、今週の出口に制作開始・切り替えを載せるようにする。
 
-
-### [DN-0930] note の販売明細の productId を商品の分類に結び、資格別・型別の売上を名前の推測なしで出す
-タグ: [収益化] [領域:戦略] [時期:2026-11] [種類:不具合] [起票:2026-11-01] [進行中]
-
-**起点**: docs/reviews/critical/2026-11-01-revenue-focus-and-ops-slimming.md（2026-11-01）。data/note/sales.json の productId が config/product-lineup.json の分類（lineupQualifier・classifySale）に結びつかず、資格別・型別の売上を商品名の正規表現でしか出せなかった（販売された 153 種のうち突合できない ID が多い）。販売 0 の公開商品の数も確定できない。
-
-**やること**: sales.json の productId と config/products.json・product-lineup.json の ID の系統の違いを調べ、対応表か正規化で結ぶ。月次レビューと管理画面の資格別売上が同じ判定を使うようにする。
-
-**完了条件**: 5〜10 月の販売の全件が資格と型に帰属（未帰属は件数を出す）し、公開中で販売 0 の商品を資格別に一覧できる。
-
+**完了条件**: 2027 年の主要 5 資格の制作開始・切り替え・判定の日付が schedule-view に出て、週間計画がそれを読んでいる。
 
 ### [DN-0928] 依存の脆弱性 minimatch（globparts の DoS・moderate）を 11.0.1 以上へ上げる
 タグ: [インフラ・計測] [領域:管理] [時期:2026-11] [種類:不具合] [起票:2026-11-01]
