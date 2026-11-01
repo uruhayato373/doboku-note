@@ -253,6 +253,17 @@
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-0938] 基準書の全文ライブラリの表と図を、章記事と同じ仕組みで展開する
+タグ: [領域:サイト] [時期:2026-12] [種類:改善] [起票:2026-11-02]
+
+**起点**: DN-0937（2026-11-02）。採点プロファイルで評価役の無い最後の種類。`npm run page-quality-inventory` の時点で、全文ライブラリ 280 分冊（11,378 ページ）は表のキャプション 1,424 に対して Markdown の表 30、図のキャプション 333 に対して画像 0。本文は pdftotext を ```text に入れたままで、近畿版と付属の要領類は索引される（`src/lib/standards.ts` の isStandardPartIndexable）。content-taxonomy §7 は part-XX を noindex と書いており、食い違いもある。
+**やること**:
+1. 索引される分冊と流入から、展開する分冊の順番を決める（content-taxonomy §7 と isStandardPartIndexable の食い違いを先に解く）
+2. 章記事の表の組み直し（standards-table-writer・standards-table-qa・`npm run standards-tables`）と図の切り出し（figures.json・scanned-figure-crop-auditor）を分冊にも使えるようにする
+3. 採点プロファイルの standards-library に評価役を入れ、evaluatorGap を外す
+**完了条件**: 採点プロファイルの standards-library に評価役が入り、最初の分冊で表と図の展開率が上がったことを `npm run page-quality-inventory` で確かめる。
+
+
 ### [DN-0937] 採点プロファイルの空いた種類に評価役を入れ、重なる評価役を統合し、Gemini の一次採点を試す
 タグ: [領域:サイト] [時期:2026-12] [種類:改善] [起票:2026-11-02]
 
