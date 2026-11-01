@@ -47,13 +47,23 @@ export function countMetrics(body) {
   }
   const images = (body.match(/<ArticleImage\b|<img\b|!\[[^\]]*\]\(/g) ?? []).length;
   const internalLinks = (body.match(/\]\(\/(?!\/)|href=["']\/(?!\/)/g) ?? []).length;
-  const prose = body
-    .replace(/^```.*$/gm, '')
-    .replace(/<!--[\s\S]*?-->/g, '')
-    .replace(/<[^>]+>/g, '')
-    .replace(/\]\([^)]*\)/g, ']')
-    .replace(/[#*|<>`_\-[\]\s]/g, ''); // 残った < > も消す（字数を数えるだけで HTML は出さない）
-  return { chars: [...prose].length, h2, images, tables, internalLinks, tableCaptions, figureCaptions, rawTextBlocks };
+  return { chars: countProseChars(body), h2, images, tables, internalLinks, tableCaptions, figureCaptions, rawTextBlocks };
+}
+
+/**
+ * 本文の字数。コードブロックの区切り行・タグ（< から > まで）・リンクの URL・記号・空白を数えない。
+ * 字数を数えるだけで HTML を出さないので、タグは 1 文字ずつ読んで飛ばす（正規表現で外す書き方は CodeQL が消毒の不足と見る）。
+ */
+function countProseChars(body) {
+  const text = body.replace(/^```.*$/gm, '').replace(/\]\([^)]*\)/g, ']');
+  let count = 0;
+  let inTag = false;
+  for (const ch of text) {
+    if (inTag) { if (ch === '>') inTag = false; continue; }
+    if (ch === '<') { inTag = true; continue; }
+    if (!/[#*|>`_\-[\]\s]/.test(ch)) count += 1;
+  }
+  return count;
 }
 
 /** 中央値（空は null） */
