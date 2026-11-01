@@ -52,7 +52,7 @@ export function countMetrics(body) {
     .replace(/<!--[\s\S]*?-->/g, '')
     .replace(/<[^>]+>/g, '')
     .replace(/\]\([^)]*\)/g, ']')
-    .replace(/[#*|>`_\-[\]\s]/g, '');
+    .replace(/[#*|<>`_\-[\]\s]/g, ''); // 残った < > も消す（字数を数えるだけで HTML は出さない）
   return { chars: [...prose].length, h2, images, tables, internalLinks, tableCaptions, figureCaptions, rawTextBlocks };
 }
 
