@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-11-01T05:48:50.305Z",
+  "updated_at": "2026-11-01T05:48:58.365Z",
   "experiments": [
     {
       "id": "EXP-002",
@@ -5091,7 +5091,7 @@
       "hypothesis": "/exam/civil-construction-1/secondary/r06 は 1 語が11〜30位（最良 16.2 位・表示 12）。検索意図に合わせて title・description・冒頭の答え・見出し・内部リンクを直せば、同じ検索語の順位が上がる",
       "target_metric": "対象ページ × 起票時の検索語 1 語の GSC 平均順位（本番反映の前 28 日・後 28 日）",
       "target_delta": "平均順位が 10% 以上良くなる。前後どちらかの表示が 10 未満なら判定不能",
-      "status": "running",
+      "status": "done",
       "created_at": "2026-10-13",
       "searchStrategy": {
         "cluster": "qualification",
@@ -5158,6 +5158,16 @@
             "sha": "69e8a7add932060f430a51ebd11e97f5bfeafe8e",
             "at": "2026-09-27T11:18:10Z",
             "url": "https://github.com/uruhayato373/doboku-note/actions/runs/36315053964"
+          }
+        },
+        {
+          "at": "2026-11-01T05:48:58.362Z",
+          "event": "closed",
+          "result": "success",
+          "verdictHint": "improved",
+          "measurement": {
+            "pre": 15.5,
+            "post": 7.3
           }
         }
       ],
@@ -5274,7 +5284,10 @@
           "deltaPct": -52.9,
           "verdictHint": "improved"
         }
-      ]
+      ],
+      "result": "success",
+      "learnings": "1級二次 R6 は事後 28 日で 15.5→7.3 位・表示 13→253。試験直後の需要期と重なるので上昇幅は季節を含むが、10 位以内への移動は確認できた",
+      "closed_at": "2026-11-01T05:48:58.362Z"
     },
     {
       "id": "EXP-029",
