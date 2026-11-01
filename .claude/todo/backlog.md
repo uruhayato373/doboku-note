@@ -253,6 +253,16 @@
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-0935] SNS 保留中の定期実行（youtube 系の cron）を止め、全敗している OGP Supply を直すか止め、見張りの 4 層を 1 つの日次ヘルスにまとめる
+タグ: [インフラ・計測] [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-11-01]
+
+**起点**: docs/reviews/critical/2026-11-01-revenue-focus-and-ops-slimming.md（2026-11-01）。OGP Supply は直近 11 回すべて失敗、youtube-funnel-audit などの youtube 系 cron は SNS 保留中で読み手がいない。workflow-health・workflow-health-guard・weekly-review-guard・report-checks が同じ原因で別々の Issue を立てる（11/1 時点で 3〜4 件）。
+
+**やること**: (1) SNS 保留中の workflow は on.schedule だけ外す（再開時に戻せるよう本体は残す）。(2) OGP Supply の失敗の原因を run ログで調べ、直すか cron を止める。(3) 見張りを 1 本の日次ヘルスに寄せ、同じ原因は 1 Issue にまとめる。
+
+**完了条件**: 失敗し続ける定期実行が 0、同じ原因の Issue が 1 件にまとまる。
+
+
 ### [DN-0934] pre-commit の出力を、成功時は 1 行の要約にし、失敗した検査だけ詳細を出す
 タグ: [インフラ・計測] [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-11-01]
 
