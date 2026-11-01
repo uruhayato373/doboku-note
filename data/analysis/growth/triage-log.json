@@ -461,6 +461,160 @@
       "action": "bundle",
       "at": "2026-10-24T02:06:20.600Z",
       "ref": "DN-0417"
+    },
+    {
+      "id": "OPP-57c84288a8",
+      "week": "2026-W43",
+      "weekStart": "2026-10-19",
+      "action": "defer",
+      "at": "2026-11-01T05:50:32.148Z",
+      "reason": "売上台帳が10/24まで・事後窓は10/25まで。note 10月確定（11/2）後の取得で判定する",
+      "until": "2026-11-03"
+    },
+    {
+      "id": "OPP-f2ba0b6d6d",
+      "week": "2026-W43",
+      "weekStart": "2026-10-19",
+      "action": "verdict",
+      "at": "2026-11-01T05:50:32.148Z",
+      "ref": "EXP-014",
+      "result": "partial"
+    },
+    {
+      "id": "OPP-8cf8dd82e2",
+      "week": "2026-W43",
+      "weekStart": "2026-10-19",
+      "action": "bundle",
+      "at": "2026-11-01T05:50:32.148Z",
+      "ref": "EXP-027"
+    },
+    {
+      "id": "OPP-9fb321f255",
+      "week": "2026-W43",
+      "weekStart": "2026-10-19",
+      "action": "bundle",
+      "at": "2026-11-01T05:50:32.148Z",
+      "ref": "EXP-034"
+    },
+    {
+      "id": "OPP-c04120b67c",
+      "week": "2026-W43",
+      "weekStart": "2026-10-19",
+      "action": "bundle",
+      "at": "2026-11-01T05:50:32.148Z",
+      "ref": "EXP-024"
+    },
+    {
+      "id": "OPP-c49d25f32d",
+      "week": "2026-W43",
+      "weekStart": "2026-10-19",
+      "action": "bundle",
+      "at": "2026-11-01T05:50:32.148Z",
+      "ref": "EXP-025"
+    },
+    {
+      "id": "OPP-e0e8a74145",
+      "week": "2026-W43",
+      "weekStart": "2026-10-19",
+      "action": "bundle",
+      "at": "2026-11-01T05:50:32.148Z",
+      "ref": "EXP-026"
+    },
+    {
+      "id": "OPP-e65f3f93f4",
+      "week": "2026-W43",
+      "weekStart": "2026-10-19",
+      "action": "bundle",
+      "at": "2026-11-01T05:50:32.148Z",
+      "ref": "EXP-023"
+    },
+    {
+      "id": "OPP-f834cfe4ab",
+      "week": "2026-W43",
+      "weekStart": "2026-10-19",
+      "action": "bundle",
+      "at": "2026-11-01T05:50:32.148Z",
+      "ref": "EXP-028"
+    },
+    {
+      "id": "OPP-f9ced5b0c3",
+      "week": "2026-W43",
+      "weekStart": "2026-10-19",
+      "action": "bundle",
+      "at": "2026-11-01T05:50:32.148Z",
+      "ref": "EXP-029"
+    },
+    {
+      "id": "OPP-fa225d9335",
+      "week": "2026-W43",
+      "weekStart": "2026-10-19",
+      "action": "bundle",
+      "at": "2026-11-01T05:50:32.148Z",
+      "ref": "EXP-022"
+    },
+    {
+      "id": "OPP-fcfcda5a1a",
+      "week": "2026-W43",
+      "weekStart": "2026-10-19",
+      "action": "backlog",
+      "at": "2026-11-01T05:50:32.148Z",
+      "ref": "DN-0923"
+    },
+    {
+      "id": "OPP-a202ad33ee",
+      "week": "2026-W43",
+      "weekStart": "2026-10-19",
+      "action": "reject",
+      "at": "2026-11-01T05:50:32.148Z",
+      "reason": "試験直後の検索が R8 解答例ページへ移った季節要因で、r06 単体を直しても戻らない"
+    },
+    {
+      "id": "OPP-5dd26ae975",
+      "week": "2026-W43",
+      "weekStart": "2026-10-19",
+      "action": "backlog",
+      "at": "2026-11-01T05:50:32.148Z",
+      "ref": "DN-0924"
+    },
+    {
+      "id": "OPP-adc3bac9b1",
+      "week": "2026-W43",
+      "weekStart": "2026-10-19",
+      "action": "backlog",
+      "at": "2026-11-01T05:50:32.148Z",
+      "ref": "DN-0925"
+    },
+    {
+      "id": "OPP-22c5d85639",
+      "week": "2026-W43",
+      "weekStart": "2026-10-19",
+      "action": "reject",
+      "at": "2026-11-01T05:50:32.148Z",
+      "reason": "沖縄の必携の逐語ページで要綱の解説ページではなく、表示は週数件で効果が小さい"
+    },
+    {
+      "id": "OPP-9039aef12c",
+      "week": "2026-W43",
+      "weekStart": "2026-10-19",
+      "action": "reject",
+      "at": "2026-11-01T05:50:32.148Z",
+      "reason": "1級二次は10/4に終わり、合格発表（1月）まで商品需要が落ちる時期。試験後の主CTAの切替は季節の運用で扱う"
+    },
+    {
+      "id": "OPP-5b6a44c56a",
+      "week": "2026-W43",
+      "weekStart": "2026-10-19",
+      "action": "bundle",
+      "at": "2026-11-01T05:50:32.148Z",
+      "ref": "DN-0706"
+    },
+    {
+      "id": "OPP-9a77f81ae7",
+      "week": "2026-W43",
+      "weekStart": "2026-10-19",
+      "action": "bundle",
+      "at": "2026-11-01T05:50:32.148Z",
+      "ref": "DN-0706"
     }
   ]
 }

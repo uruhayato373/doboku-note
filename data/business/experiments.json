@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-11-01T05:49:50.110Z",
+  "updated_at": "2026-11-01T05:50:51.812Z",
   "experiments": [
     {
       "id": "EXP-002",
@@ -1447,9 +1447,10 @@
       "learnings": null,
       "closed_at": null,
       "actions": [
-        "2026-09-15: PR #511 feat/note-link-referrer（src/lib/external-link-rel.ts に判定集約・note.com は noopener のみ）。deploy 待ち"
+        "2026-09-15: PR #511 feat/note-link-referrer（src/lib/external-link-rel.ts に判定集約・note.com は noopener のみ）。deploy 待ち",
+        "2026-11-01: 週次レビュー（2026-10-19〜2026-10-25）で延長。10/1〜10/10 の途中取得（data/note/referrers/2026-10.json・10/10 取得）で流入元に doboku-note.com 52 PV が出た（基線 0）。月全体の値は note の確定（11/2）後、11/7 の土曜の収集で取り、GA4 の note_cta_click（10月）と桁を比べて閉じる"
       ],
-      "next_check_date": "2026-11-01",
+      "next_check_date": "2026-11-07",
       "resume_criteria": null,
       "measurements": [],
       "history": [
@@ -2075,14 +2076,14 @@
         "minVolume": 1,
         "note": "自動計測は同ページ群の note_cta_click 合計（事前 28 日 約190）。主判定の冒頭クリック率は fetch-ga4-cta-clicks --by-label のラベル末尾 -top で週次レビューが読む。anchor は本番反映翌日。反映が遅れたら直す。事後窓は試験日 10/25 まで"
       },
-      "status": "running",
+      "status": "done",
       "created_at": "2026-10-02T13:02:16.547Z",
       "started_at": "2026-10-02T13:02:16.547Z",
       "paused_at": null,
       "paused_reason": null,
-      "result": null,
-      "learnings": null,
-      "closed_at": null,
+      "result": "partial",
+      "learnings": "2級二次ページの冒頭CTAのクリック率は0.16%→0.37%（GA4 10/3〜10/30・-top ラベル計 約9,600表示・35クリック）に上がり、同ページ群のnote_cta_clickは186→296（+59%）。ただし判定基準の0.5%に届かず、冒頭は本文カード（約6.7%）の代わりにならない。商品を検索意図に合わせる方向は維持し、冒頭の役割は短い案内に絞って本文カードへ寄せる。試験直前の流入増と10/17改訂が交絡する",
+      "closed_at": "2026-11-01T05:50:32.148Z",
       "actions": [
         "2026-10-02: PR #841（feat/civil2-funnel）で magazine-placement の 2級二次冒頭を差し替え（resolveCivil2SecondaryLead で試験翌日に二次まるごとへ自動復帰）、MagazineTopBanner の価格を先頭金額のみに、CTA ゼロだった記事 7 本を配線、ページ単位の CTA ゼロ検査を追加",
         "2026-10-02: PR #841 を develop へマージ（11428fe）し main へ昇格、cloudflare-deploy run 37012387601 成功・check-production-ssr exit 0。本番で 2級 R7 の冒頭＝直前パック・中間＝二次まるごと、書き方の冒頭＝完成答案集、直前2週間ページの冒頭バナーが高さ 92px・タイトル幅 293px・価格「¥2,480」に是正されたことを確認。反映は 10/02 22:20 JST なので anchor は 2026-10-03 のまま",
@@ -2235,6 +2236,11 @@
           "at": "2026-10-17T03:48:38.573Z",
           "event": "cta-explanation-published",
           "note": "本番main 391e01d3c369cd84081adec333f750649b34c27a、Cloudflare run 38998367925成功。2級主要3入口で教材内容・用途と「教材の内容を見る」を実表示確認。POP・リンク先・位置・ラベルは維持。2ドメインSSR exit0、対象6ページの本文検査6/6。10/17の教材改訂・導線変更・10/6価格改定との交絡がありPOP単独の因果効果は測れない。旧baseline・計測窓・10/26判定は維持。 詳細: docs/reviews/critical/2026-10-17-civil2-cce-content-quality.md"
+        },
+        {
+          "date": "2026-11-01T05:50:32.148Z",
+          "action": "closed",
+          "summary": "週次トリアージで裁定（partial）"
         }
       ]
     },
@@ -2673,13 +2679,14 @@
       "closed_at": null,
       "result": null,
       "learnings": null,
-      "next_check_date": "2026-10-31",
+      "next_check_date": "2026-12-03",
       "pending_user_actions": [],
       "actions": [
         "2026-10-06: 原稿（40記事の frontmatter・18誌の content/products と note掲載文.txt・note-magazines.ts）の価格を変更。DN-0545",
         "2026-10-06: 値上げは週次・月次レビューの外で運営者の指示により決めた（対象資格 concrete-chief-engineer は重点資格外のため businessContext は all）。reviewRecord は直近の月次レビューを指す。次の週次レビュー（/weekly-review）で追認する",
         "2026-10-06: note へ反映（エージェントが note-article-price-sweep で40記事を ¥980→¥1,480・API で 40/40 一致、note-reanchor-boundary で40記事の有料境界を「模範答案」へ再設定、note-edit-magazine で18誌の掲載文）。DN-0546",
-        "2026-10-17: 学習段階・実務立場別の導線を改善（funnelIntervention）。価格実験との交絡をhistoryに記録。"
+        "2026-10-17: 学習段階・実務立場別の導線を改善（funnelIntervention）。価格実験との交絡をhistoryに記録。",
+        "2026-11-01: 週次レビュー（2026-10-19〜2026-10-25）で延長。10/31 は途中確認の日で、判定は事後窓（〜11/29・本試験日）の後と決めている。途中経過は 10/6〜10/27 で 2 件 ¥7,960（目安 ¥20,000）。10/17 の内容改訂が交絡する"
       ],
       "measurements": [
         {
