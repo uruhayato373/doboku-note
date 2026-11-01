@@ -268,6 +268,16 @@
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-0926] 11/1 施行の改正（建築基準法施行令・租税特別措置法）に合わせ、リンクする 4 記事を確かめて e-Gov の写しを進める
+タグ: [コンテンツ品質] [領域:サイト] [時期:2026-11] [種類:改善] [起票:2026-11-01]
+
+**起点**: 週次レビュー（2026-10-19〜2026-10-25）の点検。quality:audit:weekly の egov-drift が FAIL。写しより後に施行された改正が 2 本ある。建築基準法施行令（2026-11-01 施行）にリンクする content/site/civil-construction-1/textbook-building-standards・civil-practice/sediment-disaster-erosion-control・laws/sediment-disaster-act の 3 記事と、租税特別措置法（2026-11-01 施行）にリンクする civil-practice/land-acquisition-compensation の 1 記事。
+
+**やること**: 各記事が引く条・数値が改正で変わったかを e-Gov の改正後の条文で照合し、変わっていれば本文を直す（条の範囲だけを読む）。確かめたら npm run egov-laws -- --sync で写しを進める。
+
+**完了条件**: node scripts/egov-laws.mjs --drift が改正 0 本で終わる。
+
+
 ### [DN-0706] 技術士一次試験のサイト CTA 画像を作る（基礎・適性、専門）
 タグ: [UI・UX] [種類:制作] [領域:サイト] [時期:2026-11] [起票:2026-10-12]
 
