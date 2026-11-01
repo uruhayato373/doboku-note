@@ -138,9 +138,19 @@ function targetsFromSsot({ category, group }) {
 async function inspectViaSearchBar(page, cfg, target) {
   const box = page.locator('input[aria-label*="検査"], input[aria-label*="Inspect"]').first();
   if (!(await box.count().catch(() => 0))) return false;
-  await box.click().catch(() => {});
-  await box.fill(target).catch(() => {});
-  await page.keyboard.press("Enter").catch(() => {});
+  // 狭い viewport では入力欄が非表示になり、ヘッダーの検索ボタンで開く。
+  if (!(await box.isVisible().catch(() => false))) {
+    const opener = page.getByRole("button", { name: /^(検索|Search)$/i }).first();
+    if (!(await opener.count().catch(() => 0))) return false;
+    await opener.click().catch(() => {});
+  }
+  if (!(await box.isVisible().catch(() => false))) return false;
+  try {
+    await box.fill(target);
+    await box.press("Enter");
+  } catch {
+    return false;
+  }
   // 検査は 5〜25 秒かかる。判定文言が出るまでポーリングする。
   for (let i = 0; i < 10; i++) {
     await page.waitForTimeout(4000);
@@ -312,7 +322,9 @@ async function main() {
       );
 
       if (opts.commit) {
-        if (st === "indexed") {
+        if (!reached || st === "unknown") {
+          item.request = { requested: false, status: "inspection-unreadable" };
+        } else if (st === "indexed") {
           item.request = { requested: false, status: "already-indexed" };
         } else if (sent >= opts.limit) {
           item.request = { requested: false, status: "limit-reached" };
