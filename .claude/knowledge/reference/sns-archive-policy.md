@@ -2,6 +2,8 @@
 
 `content/sns/` 配下の SNS 制作物のうち「再生成可能だが手元に置くと容量を圧迫する」バイナリ（reels の wav・video.mp4・YouTube Shorts の mp4）を、git に溜め込まず **Google Drive vault** へ退避する運用。置き場の判断軸は「誰が使うか」（[asset-storage-policy.md](asset-storage-policy.md) §1・決定木 `/asset-route`）。SNS バイナリは人の手元の JIT 投稿しか読まないので **human tier＝Drive** に置く。
 
+2026-11-01 に旧 Instagram パックのソースを撤去した。以下のパック構造・再生成の説明は今後新しく制作する作品向けで、旧 `cem/exam-packs` や旧 `video-packs` の投稿再開には使わない。Instagram の現行素材は固定投稿3件の `profile-pinned/` にある。
+
 > 2026-09-05（DN-0170）まで reels の wav/mp4 は public R2 `sns/` へ `upload-sns-r2` で退避していた。サイトは配信せず CI も読まない（YouTube Shorts の台帳は 2026-08-18 に手動投入へ切替済み・pending 0・参照キー `sns/youtube-shorts/` は R2 に 0 件。投稿 workflow `post-youtube-scheduled.yml` は 2026-10-24 に廃止）ので、281 件を Drive へ移し R2 側を削除、スクリプトと npm script を廃止した。
 
 ## なぜ必要か
@@ -13,14 +15,14 @@
 | ファイル | 種別 | 置き場 |
 |---|---|---|
 | `slide-data.json` / `*caption.txt` / `reels/script.txt` | **制作内容の SoT（消えたら困る）** | git 追跡 |
-| `status.json` / `posted.json` | 公開状態の移行中の写し（正本は `content/registry/`） | git 追跡・撤去予定（DN-0629） |
+| `status.json` / `posted.json` | 公開状態の移行中の写し（正本は `content/registry/`）。旧 IG パック分は撤去済み | 現行 IG 固定投稿3件と X に残る写しは DN-0629 で整理 |
 | `carousel/img/*.png` / `stories/img/*.png`（成果物スライド） | 投稿そのもの | git 非追跡 → Drive `制作物/IGレンダー/`（`ig-rendered-image`） |
 | `reels/wav/*.wav` | TTS で再生成可能・重い | git 非追跡 → Drive `制作物/SNS音声動画/`（`sns-archived-media`） |
 | `reels/video.mp4` / `youtube/**/video.mp4` | wav+png から再生成可能 | git 非追跡 → Drive `制作物/SNS音声動画/`（`sns-archived-media`） |
 | `reels/img/` / `slide-*.mp4` / `concat.txt` / `_empty.ass` 等 | 中間物 | どこにも置かない（毎回再生成） |
 
-> [!important] 真実源は slide-data.json
-> 1 パックの「消えたら困る本体」は slide-data.json + script/caption のテキストと、公開状態の正本 `content/registry/`。wav/mp4/png は再生成できる。退避で wav/mp4 を消しても、制作内容の SoT が無傷なら復元できる。
+> [!important] 新規パックの制作入力を先に確定する
+> 新しく作るパックでは slide-data.json + script/caption のテキストと公開状態の正本 `content/registry/` を保存する。旧 IG パックはソースを撤去したため、この再生成手順の対象外。
 
 > [!warning] wav は JIT 動画の入力でもある
 > `reels/wav` は `publish-reel-jit.mjs` / `per-problem-shorts.mjs` の**入力素材**（解答/CTA ナレ）。ローカルから消した pack で動画を JIT 生成するには、先に `drive-vault-sync --pull --path <pack> --commit` で取り戻すか script.txt から VOICEVOX で再合成する。
@@ -33,19 +35,14 @@
 
 ### ローリング作業セットと再発防止
 
-動画パック由来の Instagram Reels は、全件をローカルへ常備しない。Drive 台帳と Drive API の
-MD5/bytes が一致する 224 本を母集団とし、予約済み・投稿済み、または Meta の 29 日予約窓より先の
-`video.mp4` を削除する。公開スクリプトは対象動画だけを `drive-vault-sync --pull --path … --commit` で自動復元するため、
-ローカル欠落を理由に全 224 本を再レンダーしない。
+旧 Instagram 224 本のローリング作業セットは 2026-11-01 に終了した。今後の Instagram 投稿は新規作品を個別に登録・制作する。YouTube の完成レンダーは従来のクラウド照合後に作業セットを縮小する。
 
 ```bash
-npm run instagram-reels:prune -- --cloud                         # dry-run
-npm run instagram-reels:prune -- --cloud --commit --intermediates # クラウド一致分だけ削除
 npm run youtube-renders:prune -- --cloud                         # dry-run
 npm run youtube-renders:prune -- --cloud --commit                # 公開済み派生物だけ削除
 ```
 
-`prune-instagram-video-pack-reels.mjs` は 224 本すべての台帳・クラウド照合が揃わなければ fail-closed、
+`prune-instagram-video-pack-reels.mjs` は旧224本専用のため現行運用では実行しない。
 `prune-video-renders.mjs` は QA 待ち・`rendered` の通常動画とサムネイルを保持する。安全ゲートの回帰は
 `tests/video-cache-prune.test.mjs` で固定する。
 
@@ -68,10 +65,10 @@ group は `config/drive-vault.json` の `sns-archived-media`（`^content/sns/(in
 
 ```bash
 npm run drive-vault-sync -- --group sns-archived-media                                  # dry-run（対象と容量）
-npm run drive-vault-sync -- --group sns-archived-media --path content/sns/instagram/cem/exam-packs/r07/ --commit   # pack を絞って退避
+npm run drive-vault-sync -- --group sns-archived-media --path <現行の制作パック> --commit # 対象を絞って退避
 npm run drive-vault-sync -- --group sns-archived-media --commit                         # 全対象を退避（読み直し sha256 一致で台帳へ）
 npm run drive-vault-sync -- --group sns-archived-media --verify --deep --cloud          # 台帳・vault・Drive API md5 の 3 者一致
-npm run drive-vault-sync -- --pull --path content/sns/instagram/cem/exam-packs/r07/reels/ --commit   # 取り戻し
+npm run drive-vault-sync -- --pull --path <現行の制作パック> --commit  # 取り戻し
 ```
 
 > [!important] ローカル削除は別操作
@@ -83,7 +80,7 @@ npm run drive-vault-sync -- --pull --path content/sns/instagram/cem/exam-packs/r
 
 「どのパックをローカルから消して安全か」という**機械では測れない判断**は `sns-archive-auditor`（Evaluator・audit-only）に委ね、実行は親＋スクリプトが担う。
 
-- **親（実行）**: `drive-vault-sync --group sns-archived-media` の dry-run で候補一覧を取得し、各パックの `status.json`・git 追跡状態・更新日時をエージェントへ渡す。判定後に `--commit` → `--verify --cloud` → ローカル削除。
+- **親（実行）**: `drive-vault-sync --group sns-archived-media` の dry-run で候補一覧を取得し、各パックの台帳状態・git 追跡状態・更新日時をエージェントへ渡す。判定後に `--commit` → `--verify --cloud` → ローカル削除。
 - **エージェント（判定）**: 渡されたパックの `slide-data.json`/`script.txt`/`caption.txt` を Read し、**SoT が無傷で再生成可能か**を検証。`OFFLOAD` / `ARCHIVE_KEEP` / `KEEP_LOCAL` / `BLOCK` を根拠つきで返す。
 
 二重の安全網: スクリプトが「vault 側の読み直しで sha256 一致するまで台帳に載せない」を守り、エージェントが「そもそも再生成できるか」を守る。

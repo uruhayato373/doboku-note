@@ -1,11 +1,11 @@
 ---
 name: project_sns_v7_pivot
-description: "SNS戦略v7/v7.1(IG一次・YT派生)とInstagram運用の統合記録。投稿はBusiness Suite Playwrightのみ(Graph API不使用)、論点パック122本の予約手順、動画JIT方針"
+description: "2026年前半のSNS戦略v7/v7.1の履歴。旧Instagramパック・一括予約は2026-11-01に終了。"
 metadata:
   type: project
 ---
 
-SNS 戦略 v7/v7.1（2026-05-28 ピボット）と Instagram 運用の統合記録。真実源 `docs/strategy/` の SNS 集客戦略 v7.1、ポリシー（ig-highlight-design / ig-reels / ig-stories / yt-shorts-publisher）、`docs/reference/ig-carousel-skill.md`（運用）、`docs/design-system/instagram-carousel-tokens.json`（デザイン）。再開時は `docs/handoffs/2026-05-28-sns-v7-instagram-pivot.md`（archive 済み・git 履歴から復元）を先に読む。
+SNS 戦略 v7/v7.1（2026-05-28 ピボット）の履歴。2026-11-01 に旧 Instagram パック・計画・予約補充を終了したため、以下の生成・予約コマンドを再開手順として実行しない。現行の制作・台帳登録は [Instagram 投稿素材 README](../../content/sns/instagram/README.md) を参照する。
 
 ## 戦略（v7/v7.1）
 - **Instagram＝一次制作**（slide-data.json→カルーセル PNG→Reels mp4）、**YouTube Shorts＝Reels 派生**（`yt-shorts-create --from-reels <pack-id>` 一本化・MDX 直結の `--slug` は廃止）。収益実測ではサイト・X・SNS の売上寄与は小さく収益の本体は note 内回遊（[[project_revenue_diagnosis_2026_06]]）。

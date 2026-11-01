@@ -1,5 +1,7 @@
 # Instagram カルーセル デザインシステム
 
+> **旧過去問パックの設計記録（2026-11-01退役）**: 元の制作ファイルは削除済み。新規投稿の現行手順は [Instagram 投稿素材 README](../../../content/sns/instagram/README.md) を参照する。
+
 > exam-packs（H21〜R7 過去問パック）の真実源。トークンの実体は [`instagram-carousel-tokens.json`](./instagram-carousel-tokens.json)。
 
 ## 表紙改修の目標（2026-09-08）

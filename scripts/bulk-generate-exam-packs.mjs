@@ -47,6 +47,7 @@ const args = parseCliArgs({
   only: { type: "string" },
   "skip-lint": { type: "boolean" },
 });
+throw new Error('旧 Instagram 過去問パックの一括再生成は終了した。新規投稿は個別の素材フォルダと台帳行から作る');
 const yearArg = args.year;
 const allFlag = args.all;
 const size = args.size || "carousel";

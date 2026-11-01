@@ -100,7 +100,7 @@ export function inspectCampaign(root, { media = false, archived = {} } = {}) {
 }
 
 export function assertInstagramPublicationReady(root) {
-  if (!existsSync(join(root, CAMPAIGN_PATH))) return;
+  if (!existsSync(join(root, CAMPAIGN_PATH))) throw new Error('旧 Instagram 一括キャンペーンは終了した。新規投稿は個別の台帳行から進める');
   const plan = validateCampaign(json(join(root, CAMPAIGN_PATH)));
   if (!plan.publicationEnabled) throw new Error('全件制作を先に完了する運用です。instagram-campaign --check --media と既存予約の照合後に配信を有効化してください。');
   const schedule = buildInstagramSchedule(plan, { requireStart: true });

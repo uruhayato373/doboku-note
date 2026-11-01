@@ -1,5 +1,7 @@
 # SNS集客戦略 v8
 
+> **Instagram・Shorts の運用変更（2026-11-01）**: 旧 Instagram 過去問・論点パックと IG Reels からの YouTube Shorts 派生は終了した。以下の v5〜v8 の一括制作・予約数値は履歴であり、再実行しない。現行の Instagram 台帳は予約済み固定投稿3件のみ。新規投稿は [Instagram 投稿素材 README](../../content/sns/instagram/README.md)、YouTube Shorts は [VIDEO-RENDER.md](../../content/sns/youtube/VIDEO-RENDER.md) の経路で扱う。
+
 doboku-note（土木・建設系試験対策ハブ。Phase 1 で 1級土木施工管理技士 / 技術士総合技術監理部門 を整備中）への流入を SNS から獲得するための方針。X / YouTube / Instagram の 3 チャネルを統合管理する。
 
 **最終更新**: 2026-07-04（v8: X 凍結対応（v7.3）を本文へ正式統合し再開判定を `x-post-policy §11.6` へ参照化。SNS 競合の実地調査（[07_競合調査](../strategy/07_競合調査.md) SNS節）を反映し、IG／1級2級土木 Shorts の先行者優位・X/note の過密を確認して現行チャネル配分を追認。型カタログの索引は [00_SNS整理マップ §型カタログ](./00_SNS整理マップ.md) に集約）

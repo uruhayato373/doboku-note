@@ -14,6 +14,8 @@ domain: sns
 
 Playwright で Business Suite（business.facebook.com）のコンポーザを自動操作し、Instagram カルーセルを予約投稿する。設計は [[publish-x]] に倣う（永続プロファイル・システム Chrome で bot 回避・偽成功を出さない fail-safe・dry-run 必須）。
 
+> **対象確認（2026-11-01）**: 旧 Instagram パックと旧一括キャンペーンは撤去済み。予約済み固定投稿3件を再投入しない。新しい投稿は新規素材フォルダを作り、`registry -- import-instagram --folder <相対フォルダ>` で個別登録・QA・最終承認を済ませてからこの経路を使う。
+
 ## 実行する場所（2026-10-24〜）
 
 CI からの予約投稿（`ops-write.yml`）は廃止した。投稿は運営者の依頼を受けたセッションが運営者の Mac の永続 profile で行う（SNS 保留中は `DOBOKU_SNS_PAUSED=1` に従う）。公式 API の `scripts/ig-graph-publish.mjs` は使わない方針（Meta の利用制限）。ログインが切れていたら、運営者が `npm run auth:login -- --service instagram` で入り直す（セッションから資格情報でログインしない）。予約スロットの実体確認（プランナー月ビュー）もローカル。
@@ -59,20 +61,20 @@ CI からの予約投稿（`ops-write.yml`）は廃止した。投稿は運営�
 ## 使い方
 
 ```bash
-# 1) 利用可能なパックを探す（carousel/img + carousel/caption.txt を持つもの）
-ls content/sns/instagram/civil-1/theme-packs/
+# 1) 新規作品のフォルダと対応する台帳公開 ID を確認する
+npm run registry -- import-instagram --folder <新規パックの相対パス>
 
 # 2) dry-run（初回必須。予約確定の手前まで実行しスクショ）
 npx tsx .claude/skills/social/publish-ig-bs/publish-ig-bs.ts post \
-  "civil-1/theme-packs/hoki-labor/pack-01" --schedule 2026-06-10T07:00 --dry-run
+  "<新規パックの相対パス>" --schedule <未来のJST日時> --dry-run
 
 # 3) 予約ウィジェットのセレクタを対話採取（Inspector を schedule 手前で起動）
 npx tsx .claude/skills/social/publish-ig-bs/publish-ig-bs.ts post \
-  "civil-1/theme-packs/hoki-labor/pack-01" --schedule 2026-06-10T07:00 --pause
+  "<新規パックの相対パス>" --schedule <未来のJST日時> --pause
 
 # 4) 本番予約投稿（dry-run 成功後に --dry-run を外す）
 npx tsx .claude/skills/social/publish-ig-bs/publish-ig-bs.ts post \
-  "civil-1/theme-packs/hoki-labor/pack-01" --schedule 2026-06-10T07:00
+  "<新規パックの相対パス>" --schedule <未来のJST日時>
 ```
 
 ## 引数
@@ -100,7 +102,7 @@ npx tsx .claude/skills/social/publish-ig-bs/publish-ig-bs.ts post \
       ...
 ```
 
-`<pack>/img` + `<pack>/caption.txt`（carousel/ なし）でも可。投稿後 `<pack>/status.json` に `carousel.{status,scheduled_at,...}` を記録（旧い写し・P7 で消す。公開の状態の正本は台帳で、予約したら `recordIg` で台帳にも書く）。
+`<pack>/img` + `<pack>/caption.txt`（carousel/ なし）でも可。公開状態の正本は台帳の公開ID。現行の固定投稿3件には `status.json` の写しもあるが、投稿・予約の判定は台帳とBusiness Suiteの実体で行う。
 
 ## 実測セレクタ表（2026-06-09 dry-run 検証済み）
 
@@ -133,15 +135,15 @@ npx tsx .claude/skills/social/publish-ig-bs/publish-ig-bs.ts post \
 ```bash
 # 予約（初回・更新後は --dry-run 必須）
 npx tsx .claude/skills/social/publish-ig-bs/publish-ig-bs.ts post \
-  "cem/exam-packs/r04/pack-07" --reel --schedule 2026-06-20T09:00 [--dry-run]
+  "<新規リールパックの相対パス>" --reel --schedule <未来のJST日時> --dry-run
 ```
 
-- 2 種のリールを扱える（どちらも `<dir>/video.mp4` + `<dir>/caption.txt` フォールバックで読む）:
+- 2 種の旧リール構造も読み取れるが、旧 `exam-packs` の素材は撤去済み。新規パックで実体と台帳公開IDがある場合だけ使う（どちらも `<dir>/video.mp4` + `<dir>/caption.txt` フォールバックで読む）:
   - **フルリール**: `<pack>/reels/video.mp4`（4問・長尺）。生成は `ig-reel-create`。
   - **1問1リール（推奨）**: `<pack>/reels-pp/q<N>/video.mp4`（36-45秒）。生成は `per-problem-shorts.mjs --ig-mode`。post の引数に q ディレクトリを渡す。
 - **カバー（サムネ）を明示設定**: パックに `cover.png`（reels-pp）または `reels/img/00-cover.png`（旧構造）があれば、**編集ステップでファイルアップロードしてサムネを確定**する（Meta 自動抽出任せにしない）。`per-problem-shorts.mjs --ig-mode` は `cover.png`（論点カバー＝先頭スライド）を出力する。カバーを指定したパックは、編集 UI やアップロードを確認できなければ停止する。未指定パックだけ Meta 自動サムネを使う。`reels/cover.png` にも対応。
 - **動画・音声・カバーは git に持たない（JIT）**: mp4・wav・cover.png は再生成可能な派生物で gitignore（コミットは slide-data + script.txt + caption.txt。wav は Drive vault 退避＝`drive-vault-sync --group sns-archived-media`／script.txt から再生成可）。**`video.mp4`・`wav` が無いのは正常** — 投稿時に生成し、予約後に削除する。`scripts/publish-reel-jit.mjs`（生成→予約→mp4/cover削除）が1コマンド化。
-- 投稿後 `status.json` に `reel.{...}` を記録（caption.txt / status.json は追跡。status.json は P7 で消す旧い写しで、正本は台帳）。
+- 投稿後はBusiness Suiteの実体と台帳公開IDを照合する。`status.json` は写しであり、正本として旧パックを再登録しない。
 
 ### リールフローの実測（カルーセルとの差分）
 
@@ -167,4 +169,4 @@ npx tsx .claude/skills/social/publish-ig-bs/publish-ig-bs.ts post \
 
 ## 混在バッチ
 
-`batch <json>` は `items: [{packArg, schedule, kind}]` を順番に処理する。`kind` は `carousel` または `reel`（省略は既存互換で `reel`）。日時は JST の `YYYY-MM-DDTHH:MM`。初回は両形式を `post ... --dry-run` で検証する。途中失敗時は停止し、再投入前に実予約と各 `status.json` を照合する。
+`batch <json>` は `items: [{packArg, schedule, kind}]` を順番に処理する。`kind` は `carousel` または `reel`（省略は既存互換で `reel`）。日時は JST の `YYYY-MM-DDTHH:MM`。初回は両形式を `post ... --dry-run` で検証する。途中失敗時は停止し、再投入前に実予約と各公開IDの台帳行を照合する。

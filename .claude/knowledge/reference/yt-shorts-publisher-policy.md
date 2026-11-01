@@ -2,6 +2,8 @@
 
 旧Instagram/per-problem派生と、通常動画を核にする動画パック派生の双方における **YouTube Shorts配信物の品質基準**。`yt-shorts-publisher-qa` Evaluator がこの文書を真実源とする。
 
+2026-11-01 に旧 Instagram パックを撤去したため、以下の legacy 入力経路は現行の制作・予約対象ではない。動画パックの入力と完成レンダーを使う。
+
 関連:
 - SNS 戦略 v7 → [`docs/marketing/01_SNS集客戦略.md`](../../../docs/marketing/01_SNS集客戦略.md)
 - 派生スキル → [`.claude/skills/social/yt-shorts-create/SKILL.md`](../../skills/social/yt-shorts-create/SKILL.md)
