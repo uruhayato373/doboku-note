@@ -274,7 +274,7 @@
 
 
 ### [DN-0926] 11/1 施行の改正（建築基準法施行令・租税特別措置法）に合わせ、リンクする 4 記事を確かめて e-Gov の写しを進める
-タグ: [コンテンツ品質] [領域:サイト] [時期:2026-11] [種類:改善] [起票:2026-11-01]
+タグ: [コンテンツ品質] [領域:サイト] [時期:2026-11] [種類:改善] [起票:2026-11-01] [進行中]
 
 **起点**: 週次レビュー（2026-10-19〜2026-10-25）の点検。quality:audit:weekly の egov-drift が FAIL。写しより後に施行された改正が 2 本ある。建築基準法施行令（2026-11-01 施行）にリンクする content/site/civil-construction-1/textbook-building-standards・civil-practice/sediment-disaster-erosion-control・laws/sediment-disaster-act の 3 記事と、租税特別措置法（2026-11-01 施行）にリンクする civil-practice/land-acquisition-compensation の 1 記事。
 
