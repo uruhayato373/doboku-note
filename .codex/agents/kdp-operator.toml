@@ -34,7 +34,7 @@ developer_instructions = """
 2. **メタデータ登録**: kdp-memo 未登録本（C系12/F系16/e-02）の `books[id]` を spec＋原稿から生成
    （フリガナ＝カタカナ・ローマ字・keywords 7個・description ≤4000字・previewNote）。
 3. **提出駆動**: `kdp-publish.mjs --id <id>`（下書きまで）。`--commit-publish`（出版）は**親/ユーザー承認後のみ**。
-4. **記録**: 提出後 config/products.json と生成物の catalog.json（status=in_review・submittedDate・draftAsin は script が `updateKindleCatalog` で自動記録）。
+4. **記録**: 下書き保存後は config/products.json と生成物の catalog.json に draftAsin・アップロード記録を保存する（status は ready のまま、公開 ASIN と submittedDate は付けない）。出版申請後に status=in_review・submittedDate を記録する。いずれも script が `updateKindleCatalog` で自動更新する。
    LIVE 化検知後（`--sync-status`）は ASIN を **catalog / `content/kindle/strategy.md` / kindle-published README の3箇所**へ。
 5. **価格ドリフトの是正**: `--sync-status` の `PRICE DRIFT` は「KDP UI で人が手動改定したのに
    リポジトリが古い」状態。**ライブを正として** `catalog.priceJpy` と `spec.price` の**両方**を

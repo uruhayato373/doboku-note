@@ -2098,8 +2098,20 @@
           "change": "制作完了（note の1級土木 第2次検定 記述マガジン 5 本を再編集＋書き下ろし前付け）。KDP Select OFF＝note 併売のため日本 35%"
         }
       ],
-      "draftAsin": null,
-      "publishedDate": null
+      "draftAsin": "AHA4QGG6EYJEF",
+      "publishedDate": null,
+      "uploaded": {
+        "epub": {
+          "sha256": "2280d0acbdb46aefc2be92ce4101936aa1733dd2bca3e1a31bc1286df92809d5",
+          "at": "2026-11-01T18:52:51+09:00",
+          "via": "new-draft"
+        },
+        "cover": {
+          "sha256": "074a6619a73e7e5d07928d8d59f1ab49e9a67f7cb384e454c35cfe25b43cb59d",
+          "at": "2026-11-01T18:52:51+09:00",
+          "via": "new-draft"
+        }
+      }
     },
     {
       "id": "i-02",
