@@ -344,7 +344,7 @@ APIへ非公開アップロード済みで関連動画設定待ちのShortsは `
 
 撤去完了の検査は `node scripts/check-youtube-delivery.mjs --require-deleted`。private R2の固定planと最新delivery-stateを照合し、全対象の削除済み記録がそろえばexit 0、残件はexit 1、ゼロ件・plan不一致・dry-run・削除数欠測・36時間超の古い記録・認証不可はexit 2とする。オフラインでは `--state <private-state.json> --plan <private-plan.json>` を渡せる。Gitの集計スナップショットだけから全件撤去とは判定しない。
 
-**現行の読取監査**は `.github/workflows/youtube-funnel-audit.yml` が毎日08:20 JSTに `develop` の現行通常動画を対象として実行する。`npm run check-youtube-funnels` が公開中のnote商品・動画別UTM・同資格の関連無料記事を検査し、`youtube-audit-live-funnels.mjs` がYouTube APIで概要欄全文・自社リンク・公開範囲と予定を読み戻す。旧動画も差分はFAILとし、失敗は `automation-failure` Issue（channel `youtube-funnel`）へ通知、復旧時に閉じる。手動再実行は `youtube-single-publish.yml` の `mode=audit-funnel`。予約から公開済みへの台帳更新は別の手動 `mode=reconcile` で行う。
+**現行の読取監査**は `.github/workflows/youtube-funnel-audit.yml` が（SNS 保留中の 2026-11-01 から定期実行を止め手動のみ。再開時は schedule `20 23 * * *`＝毎日08:20 JST を戻す）`develop` の現行通常動画を対象として実行する。`npm run check-youtube-funnels` が公開中のnote商品・動画別UTM・同資格の関連無料記事を検査し、`youtube-audit-live-funnels.mjs` がYouTube APIで概要欄全文・自社リンク・公開範囲と予定を読み戻す。旧動画も差分はFAILとし、失敗は `automation-failure` Issue（channel `youtube-funnel`）へ通知、復旧時に閉じる。手動再実行は `youtube-single-publish.yml` の `mode=audit-funnel`。予約から公開済みへの台帳更新は別の手動 `mode=reconcile` で行う。
 
 **旧設計（2026-10-25に停止）**: `registry-reconcile.yml` の日次実査 `verify-video-publication` は、削除/非公開・UTM欠落・Shorts関連動画を `.claude/state/video-publication-verify.json` に記録し、`check-video-publication` が網羅とドリフトを見ていた。現行の日次読取監査はこの旧記録を書かず、Shortsの関連動画も検査対象に含めない。
 

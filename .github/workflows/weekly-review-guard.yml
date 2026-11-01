@@ -158,7 +158,8 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          if node scripts/check-workflow-health.mjs > /tmp/wf-health.txt 2>&1; then
+          # guard 自身は日次の ops-audit（channel workflow-health-guard）が見る。ここで二重に見ると同じ原因で 2 Issue になる（DN-0935）
+          if node scripts/check-workflow-health.mjs --exclude weekly-review-guard.yml > /tmp/wf-health.txt 2>&1; then
             echo 'workflow health: 全て健全'
             cat /tmp/wf-health.txt
             node scripts/report-automation-failure.mjs --resolve --channel workflow-health --body "復旧 run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" || true

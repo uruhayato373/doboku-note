@@ -1,8 +1,10 @@
 name: YouTube funnel audit
 
+# SNS 保留中（運営者指示 2026-10-17〜・DN-0935）のため定期実行を停止している。
+# 再開するときは下の schedule を戻す（本体は残してある）。
+#   schedule:
+#     - cron: '20 23 * * *' # 毎日 08:20 JST
 on:
-  schedule:
-    - cron: '20 23 * * *' # 毎日 08:20 JST
   workflow_dispatch:
 
 permissions:
