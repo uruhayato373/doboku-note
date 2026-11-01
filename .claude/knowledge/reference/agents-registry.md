@@ -46,7 +46,7 @@ SNSの表紙・冒頭は [SNS画像ポリシー §0](./sns-image-policy.md) を�
 | `/a8-report`                              | `a8-csv-auditor`                                                  | A8 成果レポートの記録（土曜の Mac 収集が口座 assert＋レポート別サイト分離で取得）を読む → データ品質監査 → 正規化/SSOT upsert（EPC 判断は親） |
 | `/affiliate-status`, `/affiliate-apply`   | `affiliate-operator`                                             | 3 ASP（A8/もしも/afb）の提携状態照合・ドリフト是正・ASP 間比較・申請の実行計画（配置判断は人・成果取込は a8-report と直交） |
 | `/plan-weekly`                            | `todo-planner`                                                          | .claude/todo/ 週次計画の軽量更新（Sonnet 1回） |
-| `/weekly-review`, `/weekly-plan`          | `strategy-advisor`（オーケストレータ）                                     | 戦略的な PDCA 統括       |
+| `/weekly-review`, `/plan-weekly`          | `strategy-advisor`（オーケストレータ）                                     | 戦略的な PDCA 統括       |
 | `/magazine-to-pdf`                        | `magazine-pdf-builder`                                           | 新規マガジンの PDF 抽出 spec 作成・変換実行 |
 | `/kindle-build`                           | `kindle-book-composer`, `kindle-book-qa`                         | Kindle 書籍の構成設計（A系 THEMES / B〜F系 spec+`content/kindle` 書き下ろし前付け）→ 決定的ビルド → 5軸監査（原稿完全性/構成整合/EPUB技術/KDP規約適合/商品性） |
 | `/kdp-publish`                            | `kdp-operator`                                                   | ビルド済み EPUB を KDP へ入稿・出版（重複突合→メタ生成→下書き提出→承認後 --commit-publish→提出後 catalog/戦略doc/README 記録）。出版/削除は安全弁 gate |
@@ -247,7 +247,7 @@ Shortsの全場面POP差し替えは `yt-shorts-publisher-qa` が原画像と字
 | シナリオ | エージェント連携 |
 |---|---|
 | **Phase 1 開発フロー** | 1. PDF→MDX 変換 → 2. **content-qa**（品質評価） → 3. `/deploy`（本番反映） |
-| 週次 PDCA（簡略版） | strategy-advisor（weekly-review → weekly-plan） |
+| 週次 PDCA（簡略版） | strategy-advisor（weekly-review → plan-weekly） |
 | キーワードページ作成 | `/keyword-page`（Generator） → `cem-qa`（Evaluator）→ 不合格なら再修正 |
 | キーワードページ品質サイクル | `/quality-cycle`（オーケストレータ） → `cem-qa`（評価） → `keyword-rewriter`（改訂） → 再評価 → 人間レビュー |
 | 1級・2級土木 textbook 変換 | `/pdf-to-mdx --exam {civil-construction-1\|civil-construction-2}`（Generator） → `civil-construction-qa`（Evaluator） → `/improve-article --mode verify` |

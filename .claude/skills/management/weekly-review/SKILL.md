@@ -586,7 +586,7 @@ npm run review-checks -- --cadence weekly --run YYYY-Www --write
 
 pre-commit の `scripts/check-handoff-extraction.mjs` が 2026-W39 以降のレビューで次を検査する。各項目に振り分け先があるか。DN-ID が backlog（または dispatch-log の完了記録）にあるか。EXP-ID が experiments.json にあるか。旧週のレビューと計画を削除するときも、削除される申し送りの各項目に上記の居場所があるか、新しい週次ファイルへ同じ文面で転記されているかを見る。無ければ commit を止める。
 
-**2. 週間計画**: 振り分け後、**続けて `/plan-weekly` を実行**して翌週の `.claude/todo/weekly.md` を書き直す（週間計画の正本はこの 1 ファイル。候補は `[時期:]` が今月を含むカードで、申し送りで起票・振り分けた DN もここへ入る）。`/weekly-plan`（`docs/reviews/weekly/YYYY-Www.md` へ戦略計画を書く重い版）は自動では回さず、戦略を練り直したい週だけ手動で使う（2026-09-26 に週間計画が 2 系統になり正本側が更新されていなかったため）。
+**2. 週間計画**: 振り分け後、**続けて `/plan-weekly` を実行**して翌週の `.claude/todo/weekly.md` を書き直す（週間計画の正本はこの 1 ファイル。候補は `[時期:]` が今月を含むカードで、申し送りで起票・振り分けた DN もここへ入る）。（重い戦略版の `/weekly-plan` は 2026-11-01 に退役した。）
 
 ## 出力フォーマット（md 本文）
 
@@ -745,14 +745,14 @@ pre-commit の `scripts/check-handoff-extraction.mjs` が 2026-W39 以降のレ�
 
 - **毎週土曜にローカルで実行**（金曜 06:00 JST の fetch-metrics が成長パック・機会ダイジェスト・実験の自動計測を push し、この回の直前に Mac の GSC の記録層が意味の判断を観測ログへ足した後）
 - レビューは `docs/reviews/weekly/YYYY-Www-review.md` に保存（GitHub Issue は使わない）
-- レビュー完了後に `/plan-weekly` を実行し、翌週の計画を `.claude/todo/weekly.md` に書く（`/weekly-plan` は手動のみ）
+- レビュー完了後に `/plan-weekly` を実行し、翌週の計画を `.claude/todo/weekly.md` に書く
 - 未完了アクションは「来週への申し送り」に振り分け先付きで書き（Phase 4）、次週計画へ引き継ぐ
 - 計測ダイジェストの表示対象（`OPP-…`）は Phase 2.5 で全件処分する。未処分とレビューへの未反映は月曜の `check-growth-triage` が Issue にする
 - 最新レビュー＋次週計画だけを `docs/reviews/weekly/` に保持する。旧週は未完タスク・恒久知見を抽出後に削除し、履歴はgitで参照する（抽出もれは `check-handoff-extraction` が pre-commit で止める）
 
 ## 参照
 
-- `.claude/skills/management/weekly-plan/SKILL.md` — 週次計画
+- `.claude/skills/management/plan-weekly/SKILL.md` — 週次計画
 - `.claude/skills/management/nsm-experiment/SKILL.md` — 実験ライフサイクル管理
 - `.claude/scripts/lib/metrics-reader.mjs` — NSM 週次メトリクス取得（本スキル Agent C の中核）
 - `scripts/x-queue-surfacer.mjs` — X 予約キューの未投入下書き surfacer（本スキル Agent I の中核。`npm run x-queue-surfacer`）
