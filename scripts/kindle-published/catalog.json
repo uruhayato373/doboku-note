@@ -2084,7 +2084,7 @@
       "priceJpy": 1980,
       "royalty": 0.35,
       "chapterCount": 5,
-      "status": "ready",
+      "status": "in_review",
       "builder": "scripts/build-essay-kindle.mjs",
       "buildSpec": "scripts/kindle-specs/i-01.json",
       "epub": "kindle-dist/i-01.epub",
@@ -2111,7 +2111,8 @@
           "at": "2026-11-01T18:52:51+09:00",
           "via": "new-draft"
         }
-      }
+      },
+      "submittedDate": "2026-11-01"
     },
     {
       "id": "i-02",
