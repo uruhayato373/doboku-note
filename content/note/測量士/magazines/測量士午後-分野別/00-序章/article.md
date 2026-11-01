@@ -1,5 +1,6 @@
 ---
 notePricing: free
+memberTrial: bottom
 noteContentType: learning
 noteMagazine: 測量士午後-分野別
 title: "測量士 午後 記述式の全体像と選択2題の選び方 ｜過去5年（令和4〜8年）の出題傾向"

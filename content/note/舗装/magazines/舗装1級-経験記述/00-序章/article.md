@@ -1,6 +1,7 @@
 ---
 title: "1級舗装 応用試験 問1（経験記述）の書き方｜課題→対策→結果の組み方と字数配分"
 notePricing: free
+memberTrial: bottom
 noteSeries: 舗装1級-経験記述
 noteContentType: learning
 noteMagazine: 舗装1級-経験記述

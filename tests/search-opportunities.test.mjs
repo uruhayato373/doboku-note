@@ -32,6 +32,16 @@ test('改善候補の帯の検索語をページ単位に束ね、表示の少�
   assert.equal(c.candidates[1].fileable, false);
 });
 
+test('# 付きの節の URL はページ単位に束ね、record と同じページ名で候補に出す（DN-0923）', () => {
+  const rows = [
+    row('/standards/okinawa#%E7%AC%AC1%E7%AB%A0', '沖縄県 共通仕様書', 11, 4),
+    row('/standards/okinawa#%E7%AC%AC2%E7%AB%A0', '沖縄県 共通仕様書', 11, 4),
+  ];
+  const c = summarizeCluster(cluster, rows, striking);
+  assert.deepEqual(c.candidates.map((p) => p.page), ['/standards/okinawa']);
+  assert.equal(c.candidates[0].impressions, 8);
+});
+
 test('帯の境目は設定の minPosition だけが決める（10.3 位は上位・境目の上下で取りこぼさない）', () => {
   assert.equal(inTop(10.3, striking), true);
   assert.equal(inStriking(10.3, striking), false);

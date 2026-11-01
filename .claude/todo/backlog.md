@@ -21,17 +21,6 @@
 
 ## 🔴 高 — 重要度が高い
 
-### [DN-0929] 無料の序章 3 本が note で全文会員限定になり、未ログインの読者に本文が 0 字で出る
-タグ: [収益化] [領域:商品] [時期:2026-11] [種類:不具合] [起票:2026-11-01] [期日:2026-11-07]
-
-**起点**: 週次レビュー（2026-10-19〜2026-10-25）の追加確認。10/31 の土曜の収集の note-public-view 段（check-note-public-view・公開 958 本を API で検査）が BAD 3 本を出した: 原稿は無料なのに note 側が全文会員限定で、未ログインの本文が 0 字。
-- content/note/技術士総監/magazines/総監記述式-完全パック/00-はじめに/article.md（https://note.com/dobokunote/n/n93ee41c64411）
-- content/note/測量士/magazines/測量士午後-分野別/00-序章/article.md（https://note.com/dobokunote/n/n23ccc71205a7）
-- content/note/舗装/magazines/舗装1級-経験記述/00-序章/article.md（https://note.com/dobokunote/n/na287266cf068）
-
-**やること**: ログイン済みの Mac で 3 本の公開範囲を「全員に公開」へ戻す（note-operator / note-membership の既存スクリプト）。なぜ会員限定になったか（会員特典の一括配信・同期の既定値など）を run ログと sync-log で確かめ、同じ型が他に無いかを check-note-public-view の API 層で全件確認する。
-
-**完了条件**: node scripts/check-note-public-view.mjs の BAD が 0（未ログインで 3 本の本文が読める）。原因が仕組みにあれば検査か同期側で再発を止める。
 
 
 ### [DN-0902] 技術士（建設部門）の筆記合格発表（11/4）までに、口頭試験の教材への導線を資格トップと必須I・選択科目の記事に出す（EXP-047）
@@ -269,29 +258,15 @@
 
 **起点**: 週次レビュー（2026-10-19〜2026-10-25）の点検。Dependabot alert #118（package-lock.json の minimatch・moderate・修正版 11.0.1）。Dependabot の PR は開いていない。
 
-**やること**: どの依存が minimatch を引いているかを npm ls minimatch で確かめ、上げられるものは上げる（上げられない推移的依存は overrides を検討）。feature ブランチ + PR（base develop）。
+**残り**: 10.x を使う 4 依存（eslint・@eslint/config-array・@typescript-eslint/typescript-estree・glob 13）は PR #1351 で 11.0.3 にした。残るのはルートの minimatch 3.1.5 で、eslint-plugin-react と rimraf 内の glob 7 が `require('minimatch')(…)` と関数として呼ぶため 11 へ上げると lint が壊れる。開発時の lint だけで使い、公開サイトには入らない。
 
-**完了条件**: Dependabot alert #118 が fixed になり、npm run test と quality:audit:ci が通る。
+**やること**: eslint-plugin-react が minimatch 11 対応の版を出したら上げる（`npm view eslint-plugin-react dependencies.minimatch`）。出るまでの間、alert を「開発依存・入力は自前の設定だけ」として dismiss するかを運営者が決める。
 
-
-### [DN-0927] external-links の report FAIL（jeed・meti のリンク切れ）を直し、止まっている weekly-review-guard を緑に戻す
-タグ: [インフラ・計測] [領域:管理] [時期:2026-11] [種類:不具合] [起票:2026-11-01]
-
-**起点**: 週次レビュー（2026-10-19〜2026-10-25）の点検。Issue #1257（10/26〜）: quality-audit の report 区分で external-links が FAIL（総監キーワードの trademark-rights・training-techniques の jeed の URL が fetch failed、unfair-competition-prevention-act の meti の営業秘密ページが 403）。Issue #1312（10/30〜）: 月曜の weekly-review-guard.yml は 10/26 の run が rc=1 で、最後の success が 12 日前。10/26 の失敗は report 区分の FAIL を Issue にした段の終了コードで、external-links と同じ原因に見える（未確認）。
-
-**やること**: (1) 3 URL の移転先を一次情報で確かめて記事のリンクを直す（403 は bot 拒否か移転かを分ける）。(2) weekly-review-guard の 10/26 の失敗が report FAIL だけかを run ログで確かめ、別の原因があれば直す。
-
-**完了条件**: 次の月曜の weekly-review-guard が success、Issue #1257・#1312 が自動クローズする。
+**完了条件**: Dependabot alert #118 が fixed か、理由つきで dismiss されている。
 
 
-### [DN-0926] 11/1 施行の改正（建築基準法施行令・租税特別措置法）に合わせ、リンクする 4 記事を確かめて e-Gov の写しを進める
-タグ: [コンテンツ品質] [領域:サイト] [時期:2026-11] [種類:改善] [起票:2026-11-01]
 
-**起点**: 週次レビュー（2026-10-19〜2026-10-25）の点検。quality:audit:weekly の egov-drift が FAIL。写しより後に施行された改正が 2 本ある。建築基準法施行令（2026-11-01 施行）にリンクする content/site/civil-construction-1/textbook-building-standards・civil-practice/sediment-disaster-erosion-control・laws/sediment-disaster-act の 3 記事と、租税特別措置法（2026-11-01 施行）にリンクする civil-practice/land-acquisition-compensation の 1 記事。
 
-**やること**: 各記事が引く条・数値が改正で変わったかを e-Gov の改正後の条文で照合し、変わっていれば本文を直す（条の範囲だけを読む）。確かめたら npm run egov-laws -- --sync で写しを進める。
-
-**完了条件**: node scripts/egov-laws.mjs --drift が改正 0 本で終わる。
 
 
 ### [DN-0706] 技術士一次試験のサイト CTA 画像を作る（基礎・適性、専門）
@@ -1725,21 +1700,13 @@ Windows の PowerShell で repo 直下から順に:
 
 **完了条件**: Windows に `auth-session-refresh` のタスクが無く、R2 に `auth-state/` が無く、3 の判断が backlog かこのカードに記録されている。`git grep -l DOBOKU_AUTH .github` は 0 件（確認済み）。
 
-### [DN-0923] 検索改善の候補が # 付きアンカーの URL で出て record できない（2級 R8 見直しページの改善が未記録）
-タグ: [インフラ・計測] [領域:サイト] [時期:2026-11] [種類:不具合] [起票:2026-11-01]
-
-**起点**: 週次トリアージ（data/analysis/growth/digest-2026-W43.json）の OPP-fcfcda5a1a: 「二級土木施工管理技士 二次試験」は平均 8.4 位なのに CTR 0.98%（期待 3%）（期待効果 12.7 searchClicks/週）。原稿: `content/site/civil-construction-2/guide-r08-secondary-answers/article.mdx`
-
-**やること**: 週次レビュー（2026-10-19〜2026-10-25）で、report-search-opportunities の fileable が /exam/civil-construction-2/guide/r08-secondary-answers を # 付きの節ごとに出し、search-improvement record は normalizeTargetPath で # 以降を落とすため候補と一致せず拒否した。候補側でアンカーを落としてページ単位にまとめ、2026-11-01 の改善 commit 38e5aec8c（seoTitle を「二次試験」表記・解答の公表有無に合わせた）を record する
-
-**完了条件**: fileable に # 付き URL が出ず、r08-secondary-answers の改善が EXP として記録され、回帰テストがある
 
 ### [DN-0924] 2級二次の配点・部分点ページの title と冒頭を「2次試験 配点」の検索に合わせる（1.5 位で CTR 5.9%）
-タグ: [コンテンツ品質] [領域:サイト] [時期:2026-11] [種類:改善] [起票:2026-11-01]
+タグ: [コンテンツ品質] [領域:サイト] [時期:2026-11..2026-12] [種類:改善] [起票:2026-11-01]
 
 **起点**: 週次トリアージ（data/analysis/growth/digest-2026-W43.json）の OPP-5dd26ae975: 「2級土木施工管理技士 2次試験 配点」は平均 1.5 位なのに CTR 5.88%（期待 15%）（期待効果 1.2 searchClicks/週）。原稿: `content/site/civil-construction-2/secondary-grading-and-partial-credit/article.mdx`
 
-**やること**: 週次レビュー（2026-10-19〜2026-10-25）の OPP-5dd26ae975。/exam/civil-construction-2/guide/secondary-grading-and-partial-credit は「2級土木施工管理技士 2次試験 配点」で平均 1.5 位なのに CTR 5.88%（期待 15%）。配点は公表されない事実と、合格基準（60%）・部分点の考え方を title・description・冒頭で先に答える
+**やること**: 2026-11-29 以降に「2級土木施工管理技士 2次試験 配点」の CTR を GSC で見て、修正前（平均 1.5 位・CTR 5.88%）と比べ、結果をこのカードに記録する。title・seoTitle・description・冒頭は修正済み（develop 021323cbb2）。
 
 **完了条件**: title・description・冒頭が直って develop に入り、28 日後に同じ検索語の CTR を比べた記録がカードに残る
 
@@ -2417,11 +2384,11 @@ Phase 3の評価を戦略SSOTへ反映し、資格拡張の可否を確定した
 **完了条件**: 管理画面のカラートークンが stats47 と一致し、`check-shadcn-parity` と `check-admin-ui-debt` が通る。
 
 ### [DN-0925] 「スクレープドーザー」の検索で 6.3 位・CTR 1.3% のスクレーパーの教科書ページの title・説明を直す
-タグ: [コンテンツ品質] [領域:サイト] [時期:2026-11] [種類:改善] [起票:2026-11-01]
+タグ: [コンテンツ品質] [領域:サイト] [時期:2026-11..2026-12] [種類:改善] [起票:2026-11-01]
 
 **起点**: 週次トリアージ（data/analysis/growth/digest-2026-W43.json）の OPP-adc3bac9b1: 「スクレープドーザー」は平均 6.3 位なのに CTR 1.34%（期待 4%）（期待効果 1.2 searchClicks/週）。原稿: `content/site/civil-construction-1/textbook-scraper/article.mdx`
 
-**やること**: 週次レビュー（2026-10-19〜2026-10-25）の OPP-adc3bac9b1。/exam/civil-construction-1/textbook/scraper の title と description に「スクレープドーザー」を入れ、スクレーパーとの違いを冒頭で答える
+**やること**: 2026-11-29 以降に「スクレープドーザー」の CTR と順位を GSC で見て、修正前（平均 6.3 位・CTR 1.34%）と比べ、結果をこのカードに記録する。title・seoTitle・description・冒頭は修正済み（develop cf80c30d70）。
 
 **完了条件**: title・description が直って develop に入り、28 日後に CTR を比べた記録がカードに残る
 

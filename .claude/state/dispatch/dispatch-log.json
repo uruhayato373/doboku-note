@@ -6272,6 +6272,74 @@
       "commit": "6ddf3864f355",
       "verification": "旧10出品のアーカイブを出品一覧で確認。公開ブログ15/15とnote対象7/7が4418735のみ。check-coconala-wiring・check-coconala-blog・check-coconala-liveが全PASS。",
       "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-0929",
+      "at": "2026-11-01",
+      "task": "無料の序章 3 本が note で全文会員限定になり、未ログインの読者に本文が 0 字で出る",
+      "tier": "high",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "check-note-public-view"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "5d3a9b37c5e1",
+      "verification": "node scripts/check-note-public-view.mjs --api-only → 958 本で不整合なし",
+      "note": "11/1 に note-update-body --trial-line-bottom で 3 本を反映（ok=3）。公開 API で未ログインの本文 1,438・3,865・2,225 字（修正前 0 字）。原稿に memberTrial: bottom を付けた（b8ffe7702）。原因は会員特典マガジン内の無料記事が試し読みラインなしで更新されると note が全文を会員限定にする挙動"
+    },
+    {
+      "id": "DN-0926",
+      "at": "2026-11-01",
+      "task": "11/1 施行の改正（建築基準法施行令・租税特別措置法）に合わせ、リンクする 4 記事を確かめて e-Gov の写しを進める",
+      "tier": "mid",
+      "kind": "改善",
+      "prevention": {
+        "type": "none",
+        "ref": "法改正の追随は egov-drift の週次検査が既に担う"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "7bc67966d845",
+      "verification": "node scripts/egov-laws.mjs --drift → 改正 0 本",
+      "note": "施行令第80条の3・措置法第33条の4第3・4・6項を改正後の条文で照合し、4記事とも記述に変更なし。e-Gov の写しを進めた"
+    },
+    {
+      "id": "DN-0923",
+      "at": "2026-11-01",
+      "task": "検索改善の候補が # 付きアンカーの URL で出て record できない（2級 R8 見直しページの改善が未記録）",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "test"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "1f22101ea88b",
+      "verification": "npm run report-search-opportunities -- --json → fileable の # 付き 0 件・node --test tests/search-opportunities.test.mjs 合格",
+      "note": "PR #1350（b9f5ea478f）で改善候補の URL から # 以降を落としページ単位に束ねた。R8 見直しページは計測中の EXP-040 の対象で、# 付きの節の URL が除外をすり抜けていたと判明したため、11/1 の seoTitle の変更（38e5aec8c）は新しい EXP にせず EXP-040 の交絡として actions に記録した（9b3753048）"
+    },
+    {
+      "id": "DN-0927",
+      "at": "2026-11-01",
+      "task": "external-links の report FAIL（jeed・meti のリンク切れ）を直し、止まっている weekly-review-guard を緑に戻す",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "check-external-links"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "ce5f8a588aad",
+      "verification": "npm run check-external-links → リンク切れ 0 件（OK 5,253）",
+      "note": "weekly-review-guard の 10/26 の赤は external-links ではなく W43 レビューの未完が原因。W44 完了後に手動起動した run 41293371039 が success。external-links は 404 の 15 か所を移転先か Wayback の保存版へ差し替え（1c4c69106・a58ffdd8f・b2aef33d6・c0e778a80・f96d75d55・d6a6347d9）、HEAD だけ 404 の NIST を誤判定する検査を PR #1353 で修正。jeed・meti の 403 は bot 拒否でリンクは生きている。Issue #1257・#1312 は次の guard・ops の成功で自動クローズ"
     }
   ]
 }

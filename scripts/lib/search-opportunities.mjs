@@ -26,7 +26,8 @@ import { PHASES, RESULTS, dispatchIndex, experimentsByPage, implementationOf, is
 
 export const CONFIG = datasetPath('config.search-strategy');
 
-const pathOf = (url) => String(url).replace(SITE_ORIGIN, '') || '/';
+// GSC はページ内の節へのジャンプ（#…）を別の URL で返す。ページ単位に束ねないと record（# を落とす）と一致しない（DN-0923）
+const pathOf = (url) => String(url).replace(SITE_ORIGIN, '').replace(/#.*$/, '') || '/';
 const DAY = 86_400_000;
 const windowDays = (p) => Math.round((Date.parse(p.endDate) - Date.parse(p.startDate)) / DAY) + 1;
 const daysBetween = (from, to) => Math.round((Date.parse(to) - Date.parse(from)) / DAY);
