@@ -258,9 +258,11 @@
 
 **起点**: 週次レビュー（2026-10-19〜2026-10-25）の点検。Dependabot alert #118（package-lock.json の minimatch・moderate・修正版 11.0.1）。Dependabot の PR は開いていない。
 
-**やること**: どの依存が minimatch を引いているかを npm ls minimatch で確かめ、上げられるものは上げる（上げられない推移的依存は overrides を検討）。feature ブランチ + PR（base develop）。
+**残り**: 10.x を使う 4 依存（eslint・@eslint/config-array・@typescript-eslint/typescript-estree・glob 13）は PR #1351 で 11.0.3 にした。残るのはルートの minimatch 3.1.5 で、eslint-plugin-react と rimraf 内の glob 7 が `require('minimatch')(…)` と関数として呼ぶため 11 へ上げると lint が壊れる。開発時の lint だけで使い、公開サイトには入らない。
 
-**完了条件**: Dependabot alert #118 が fixed になり、npm run test と quality:audit:ci が通る。
+**やること**: eslint-plugin-react が minimatch 11 対応の版を出したら上げる（`npm view eslint-plugin-react dependencies.minimatch`）。出るまでの間、alert を「開発依存・入力は自前の設定だけ」として dismiss するかを運営者が決める。
+
+**完了条件**: Dependabot alert #118 が fixed か、理由つきで dismiss されている。
 
 
 ### [DN-0927] external-links の report FAIL（jeed・meti のリンク切れ）を直し、止まっている weekly-review-guard を緑に戻す
