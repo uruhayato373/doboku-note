@@ -36,6 +36,7 @@ import { homedir } from 'node:os';
 import { fileSha256, recordUploaded } from './lib/kindle-uploaded.mjs';
 import { datasetPath } from './lib/datasets.mjs';
 import { fetchFailDominant } from './lib/inconclusive-gate.mjs';
+import { selectShelfRow } from './lib/kdp-shelf-match.mjs';
 import { resolveBook, validateBook, getDefaults, hasSpec, partitionDraftDeletion } from './lib/kdp-common.mjs';
 import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
 import { leanContextOptions } from './lib/playwright-launch.mjs';
@@ -655,9 +656,8 @@ try {
       if (!b.title) continue;
       const rows = await searchOne(b.title);
       if (rows.err) { items.push({ id: b.id, found: false, err: rows.err, catalogAsin: b.asin ?? null, catalogStatus: b.status }); continue; }
-      // 検索は部分一致なので複数返りうる。タイトル前方一致で自分の行を選ぶ。
-      const head = b.title.slice(0, 12);
-      const mine = rows.find((r) => r.shelfTitle.startsWith(head)) || (rows.length === 1 ? rows[0] : null);
+      // 検索は部分一致なので別の本を1行だけ返すこともある。ID または表示タイトルで確定する。
+      const mine = selectShelfRow(b, rows);
       items.push({
         id: b.id, title: b.title.slice(0, 50), found: !!mine,
         asin: mine?.asin ?? null, status: mine?.status ?? null, submittedAt: mine?.submittedAt ?? null,

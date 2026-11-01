@@ -129,7 +129,7 @@ node scripts/kdp-publish.mjs --sync-status   # .tmp/kdp-sync-status.json
 検索なら本棚の総数にもページ送りにも左右されない。
 
 自己検証つき: catalog に ASIN がある本を1件も再現できなければ **exit 1（検査不成立）**。
-`found:false` を「本棚に無い」の証拠として使ってよいのは exit 0 のときだけ。
+`found:false` は ID・表示タイトルの一致を確認できなかった意味で、exit 0 でも本棚に無い証拠にはならない。新規作成前に本棚の検索結果を目視確認する。
 
 **ライブ価格も突合する**（2026-08-03 追加）。本棚行の `¥価格` を `livePriceJpy` として持ち帰り、
 `catalog.priceJpy` と比べて `PRICE DRIFT <id>: live ¥X ≠ catalog ¥Y` を出す。**KDP UI で手動改定
