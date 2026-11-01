@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-11-01T05:48:58.365Z",
+  "updated_at": "2026-11-01T05:49:05.765Z",
   "experiments": [
     {
       "id": "EXP-002",
@@ -5296,7 +5296,7 @@
       "hypothesis": "/exam/pe-comprehensive-management/guide/public-engineer-qualification-map は 5 語が11〜30位（最良 11 位・表示 11）。検索意図に合わせて title・description・冒頭の答え・見出し・内部リンクを直せば、同じ検索語の順位が上がる",
       "target_metric": "対象ページ × 起票時の検索語 5 語の GSC 平均順位（本番反映の前 28 日・後 28 日）",
       "target_delta": "平均順位が 10% 以上良くなる。前後どちらかの表示が 10 未満なら判定不能",
-      "status": "running",
+      "status": "done",
       "created_at": "2026-10-13",
       "searchStrategy": {
         "cluster": "public-servant",
@@ -5391,6 +5391,16 @@
             "sha": "69e8a7add932060f430a51ebd11e97f5bfeafe8e",
             "at": "2026-09-27T11:18:10Z",
             "url": "https://github.com/uruhayato373/doboku-note/actions/runs/36315053964"
+          }
+        },
+        {
+          "at": "2026-11-01T05:49:05.764Z",
+          "event": "closed",
+          "result": "success",
+          "verdictHint": "improved",
+          "measurement": {
+            "pre": 11.4,
+            "post": 7.7
           }
         }
       ],
@@ -5507,7 +5517,10 @@
           "deltaPct": -32.5,
           "verdictHint": "improved"
         }
-      ]
+      ],
+      "result": "success",
+      "learnings": "土木公務員の資格マップは 11.4→7.7 位・表示 16→72。公務員向けの資格名検索は冒頭の要約で上がる",
+      "closed_at": "2026-11-01T05:49:05.764Z"
     },
     {
       "id": "EXP-030",
