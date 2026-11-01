@@ -1,10 +1,7 @@
 ---
 name: distill-proofread-learnings
 description: >
-  直近の校正作業（MDX/SVG の git 差分 + ユーザー指示）を分析し、
-  content-principles.md・関連スキル・memory に反映すべき新ルール / 精緻化 / 嗜好を抽出する。
-  校正スキルを継続的に底上げするメタスキル。
-  Use when user asks to [校正スキル改善, 校正ルール更新, /distill-proofread-learnings, レビュー振り返り, 原則精緻化, 校正の学習].
+  直近の校正作業の差分と指示から、content-principles・スキル・memory に反映すべき新ルールを抽出するメタスキル。Use when user asks to [校正スキル改善, 校正ルール更新, 校正の学習, /distill-proofread-learnings].
 domain: ops
 ---
 

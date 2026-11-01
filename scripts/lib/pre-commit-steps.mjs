@@ -18,6 +18,8 @@
 //   requireFile           旧フックの `if [ -f scripts/… ]`（ファイルが無い古いツリーでは飛ばす）
 //   failOnlyCode          指定した終了コードのときだけ止める（旧フックの `[ $? -eq 1 ]`。他の非 0 は通す）
 //   failMessage           止めるときに追加で出す 1 行（旧フックの echo）
+//   keepOutput            true なら成功時も出力を残す（人に読ませる意図のもの。既定は成功した検査の出力を捨てる＝DN-0934。
+//                         PRECOMMIT_VERBOSE=1 で全検査の出力を従来どおり出す）
 //   tail / failHint       出力を捕まえて、失敗時だけ末尾 tail 行と failHint を出す（旧フックの `> log; tail -N log`）
 
 import { AREAS } from './datasets.mjs';
@@ -211,7 +213,7 @@ export const STEPS = [
   s('check-affiliate-wiring', ['--staged'], { requireFile: true, failMessage: '[pre-commit] アフィリ配線（3 ASP）に不整合。commit を中止しました。' }),
   // ポリシークラスタ（決定が複数文書に散在）の横展開もれリマインダ＋台帳 rot 検出（意味的ドリフトの再発防止）
   // クラスタ提示は advisory（exit 0）。台帳の files/anchor が実在しない場合のみ exit 1 でブロック。
-  s('check-policy-anchors'),
+  s('check-policy-anchors', undefined, { keepOutput: true }),
   // ガイド記事（group: guide）の本文 3,000 字下限（薄い記事の再発防止、content-principles §25）
   s('check-guide-length'),
   // 本文フォールド内1枚目の図版は eager+fetchpriority=high（LCP 遅延の再発防止・EXP-005）

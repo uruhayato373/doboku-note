@@ -1,12 +1,7 @@
 ---
 name: figure-recrop
 description: >
-  既存の記事図クロップ（content/site/**/img/*.webp）を「タイト再クロップ」して、
-  図に写り込んだ答え/本文/問題文テキストを除き公開レベルへ上げるオーケストレータスキル。
-  元PDFからの再抽出ではなく、既に埋め込まれている画像を切り直す（civil-figure-rework とは別物
-  ＝あちらは問題PDFから抽出だが過去問PDFは図なしテキスト版で不成立）。provenance の
-  needs=recrop/recrop-urgent を対象に、視覚で切り位置を決め figure-recrop.mjs で機械適用する。
-  Use when user asks to [図の写り込みを除く, 図を再クロップ, 答え漏らし図の是正, /figure-recrop].
+  記事に埋め込み済みの図画像を目視でタイト再クロップし、写り込んだ答え・本文テキストを除く（provenance の needs=recrop が対象）。Use when user asks to [図の写り込みを除く, 図を再クロップ, 答え漏らし図の是正, /figure-recrop].
 user-invocable: true
 domain: site
 ---

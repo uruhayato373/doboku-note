@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "_doc": "docs/reviews/critical/2026-11-01-revenue-focus-and-ops-slimming.md §3 / docs/strategy/04_収益化戦略.md 冒頭「現在の方針」。試験日は exam-calendar.json が正本で、ここは「試験日から何週前・何日後に何をするか」だけを持つ。日付は scripts/lib/revenue-calendar.mjs が試験日から出し、npm run schedule-view に出る。",
+  "description": "資格ごとの収益カレンダーの設定。試験日（exam-calendar.json の events[examEvent]）を起点に、制作の開始・サイトの CTA と note 導線の切り替え・販売の山・判定の日付を出す。試験日が未発表の年は日付を推測せず、予定にも出さない（未発表として一覧する）。",
+  "targets": [
+    {
+      "qualification": "pe-comprehensive-management",
+      "examEvent": "written",
+      "productionStartWeeks": 16,
+      "ctaSwitchWeeks": 8,
+      "peakFromWeeks": 8,
+      "peakToWeeks": 1,
+      "judgmentDaysAfter": 30,
+      "note": "筆記前の 6〜7 月に売上の 64%。制作は試験の約 16 週前から始め、8 週前に CTA と導線を切り替える。判定は筆記の約 1 か月後（合格発表の前）に売上の山と原因を見る。"
+    },
+    {
+      "qualification": "pe-construction",
+      "examEvent": "written",
+      "productionStartWeeks": 16,
+      "ctaSwitchWeeks": 8,
+      "peakFromWeeks": 8,
+      "peakToWeeks": 1,
+      "judgmentDaysAfter": 30,
+      "note": "総合技術監理と同じ筆記前の山。筆記日は必須科目の日を使う。"
+    },
+    {
+      "qualification": "civil-construction-1",
+      "examEvent": "second",
+      "productionStartWeeks": 10,
+      "ctaSwitchWeeks": 6,
+      "peakFromWeeks": 4,
+      "peakToWeeks": 1,
+      "judgmentDaysAfter": 14,
+      "note": "二次（経験記述）の売上は試験の 1〜4 週前に集中。制作は 10 週前、切り替えは山の 2 週手前の 6 週前。"
+    },
+    {
+      "qualification": "civil-construction-2",
+      "examEvent": "second",
+      "productionStartWeeks": 8,
+      "ctaSwitchWeeks": 4,
+      "peakFromWeeks": 3,
+      "peakToWeeks": 0,
+      "judgmentDaysAfter": 14,
+      "note": "二次の売上は試験の 0〜3 週前（直前まで売れる）。制作は 8 週前、切り替えは 4 週前。"
+    },
+    {
+      "qualification": "concrete-chief-engineer",
+      "examEvent": "exam",
+      "productionStartWeeks": 10,
+      "ctaSwitchWeeks": 7,
+      "peakFromWeeks": 6,
+      "peakToWeeks": 4,
+      "judgmentDaysAfter": 14,
+      "note": "売上は試験の 4〜6 週前。制作は 10 週前、切り替えは山の 1 週手前の 7 週前。"
+    }
+  ]
+}

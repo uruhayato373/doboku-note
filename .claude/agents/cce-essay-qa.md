@@ -1,7 +1,7 @@
 ---
 name: cce-essay-qa
 description: >
-  コンクリート主任技士 小論文の note 有料教材（令和形式のテーマ別・8立場と、1立場×1テーマの立場別記事）を形式・立場の書き分け・技術精度・出題実績の整合・販売構成の5軸で採点する Evaluator。cce-essay-writer の成果物が対象。生成・修正はしない。
+  コンクリート主任技士 小論文の note 教材（テーマ別・立場別）を5軸で採点する Evaluator。cce-essay-writer の成果物が対象。
 model: sonnet
 tools: Read, Glob, Grep, Bash, WebSearch, WebFetch
 domain: product

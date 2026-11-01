@@ -1,10 +1,7 @@
 ---
 name: routines
 description: >
-  クラウドルーティン（/schedule で作成する RemoteTrigger 定期エージェント）を一覧・監査する。
-  重複（同一成果物を生成する routine）・残骸 one-shot（self-disable 漏れ）・平文シークレット・
-  cron 衝突・無効ルーティンを検出してレポートする。新規 routine を作る前の重複チェックにも使う。
-  Use when user asks to [ルーティン一覧, ルーティン監査, クラウドルーティン確認, routine 重複チェック, スケジュール一覧, /routines].
+  クラウドルーティンを一覧・監査する（重複・残骸 one-shot・平文シークレット・cron 衝突・無効）。新規作成前の重複確認にも使う。Use when user asks to [ルーティン一覧, ルーティン監査, routine 重複チェック, /routines].
 domain: ops
 ---
 

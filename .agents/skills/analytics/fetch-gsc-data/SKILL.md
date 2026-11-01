@@ -1,8 +1,7 @@
 ---
 name: fetch-gsc-data
 description: >
-  Google Search Console の検索パフォーマンスデータを取得する（単一/複数ディメンション・25,000 件単位のページング対応）。
-  Use when user asks to [GSCデータ取得, サーチコンソール, 検索クエリ分析, page×query, cannibalization, /fetch-gsc-data].
+  Google Search Console の検索パフォーマンスデータを取得する（複数ディメンション・ページング対応）。Use when user asks to [GSCデータ取得, 検索クエリ分析, page×query, /fetch-gsc-data].
 domain: site
 ---
 

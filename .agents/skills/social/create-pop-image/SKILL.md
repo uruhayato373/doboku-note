@@ -1,9 +1,7 @@
 ---
 name: create-pop-image
 description: >
-  承認済みのキャラクターPOP意匠で、ココナラ商品画像・note表紙・SNSサムネイルを制作する。
-  大きな資格名、資格別カラー、先生キャラクター、総監の専門性を媒体別に配置し、原稿と生成履歴を保存する。
-  Use when user asks to [この感じで画像を作る, POP画像, キャッチーなサムネイル, noteやSNSへ画像を展開, /create-pop-image].
+  承認済みのキャラクターPOP意匠で、ココナラ商品画像・note表紙・SNSサムネイルを制作する。Use when user asks to [POP画像, キャッチーなサムネイル, 画像を展開, /create-pop-image].
 argument-hint: "対象の商品・記事・投稿、媒体（複数可）、変更する文言"
 domain: product
 ---

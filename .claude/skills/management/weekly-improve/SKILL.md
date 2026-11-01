@@ -1,8 +1,7 @@
 ---
 name: weekly-improve
 description: >
-  週次の計測→改善サイクルを束ねる軽量オーケストレータ。GSC/GA4 取得 → metrics-analyzer が改善候補を抽出 → `/nsm-experiment` で rubric 採点・登録 → pending 実験の再計測までを 1 コマンドで回す。
-  Use when user asks to [検索順位を改善（→ /weekly-review の search-improvement）, 週次改善, 改善ループ, /weekly-improve, 計測改善サイクル, 今週の改善候補].
+  週次の計測→改善サイクル（GSC/GA4 取得→metrics-analyzer→/nsm-experiment→pending 再計測）を1コマンドで回す軽量オーケストレータ。Use when user asks to [週次改善, 改善ループ, 今週の改善候補, /weekly-improve].
 user-invocable: true
 domain: strategy
 ---
@@ -151,7 +150,7 @@ coverage 側は同ログで判断が積み上がっている（`/gsc-review`）�
 
 - **振り返り（計画達成率・成果・学び）**: `/weekly-review` の責務
 - **施策実行（meta 書き換え・記事追加）**: ユーザー or `keyword-rewriter` / 既存 MDX 編集系スキル
-- **NSM 定義変更**: `/north-star-metric` スキル
+- **NSM 定義変更**: `config/business-direction.json`（`/monthly-review` の手順）
 - **月次集計**: Phase 2 以降
 
 ## 失敗モード

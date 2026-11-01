@@ -1,13 +1,7 @@
 ---
 name: affiliate-apply
 description: >
-  もしも / afb で提携申請を実行する（dry-run 既定・--commit gate）。
-  **提携申請は規約同意を伴う不可逆操作**なので、--commit を付けるかどうかは毎回ユーザーの
-  明示許可を取る（前回の許可を次回に流用しない）。
-  サイト帰属 assert（既定は stats47 側・不一致は例外で停止）、申請フォームのサイト select 検証、
-  「一括提携申請へ」の除外、Red Line 案件の拒否を機械で強制する。
-  A8 の申請は /scout-asp が担当（こちらは扱わない）。
-  Use when user says "提携申請", "アフィリを申請", "もしもで申請", "affiliate-apply".
+  もしも / afb で提携申請を実行する（dry-run 既定・--commit は毎回ユーザーの明示許可）。A8 は /scout-asp の担当。Use when user says "提携申請", "アフィリを申請", "もしもで申請", "affiliate-apply".
 disable-model-invocation: true
 argument-hint: "--asp <moshimo|afb> --id <id[,id]> [--commit]"
 domain: affiliate

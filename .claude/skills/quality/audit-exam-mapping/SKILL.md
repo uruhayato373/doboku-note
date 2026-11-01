@@ -1,9 +1,7 @@
 ---
 name: audit-exam-mapping
 description: >
-  技術士総合技術監理部門の過去問⇄キーワード紐づけマップの精度を semantic 監査するスキル。
-  `exam-keyword-mapping-auditor` エージェントを各設問に分配し、結果を集約・段階反映・NotebookLM 監査シート化する。
-  Use when user asks to [過去問紐づけ監査, exam-keyword 精度向上, /audit-exam-mapping, mapping audit].
+  総監の過去問⇄キーワード紐づけを exam-keyword-mapping-auditor で設問ごとに semantic 監査し、集約・段階反映する。Use when user asks to [過去問紐づけ監査, exam-keyword 精度向上, /audit-exam-mapping].
 domain: site
 ---
 

@@ -1,7 +1,7 @@
 ---
 name: page-design-builder
 description: >
-  サイト UI・レイアウトを共通コンポーネントとデザイントークンで実装する Generator。lint-ui で自己点検し、合否は /design-review に委ねる。SVG 図版・SNS/note カバーは担当外。Use when user asks to [ページUI設計, レイアウト改修, PageShell 化, page-design].
+  サイト UI・レイアウトを共通コンポーネントとトークンで実装する Generator。合否は /design-review。SVG・カバーは担当外。Use when [ページUI設計].
 model: sonnet
 domain: site
 ---

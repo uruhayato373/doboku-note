@@ -1,10 +1,7 @@
 ---
 name: magazine-to-pdf
 description: >
-  note マガジン（content/note/magazines/**）の article.md を「問題文＋解答」中心の A4 PDF に変換し、
-  任意でデスクトップへ納品する。複数解答（A/B案）や予想問題の構造差を spec(JSON) の include/exclude
-  DSL で吸収する。note 掲載専用 CTA・採点者視点・出題予想根拠は除外。
-  Use when user asks to [マガジンをPDF, 記事を紙で読みたい, note記事をPDF, 模範論文PDF, 解答をPDF, /magazine-to-pdf].
+  note マガジンの article.md を「問題文＋解答」中心の A4 PDF に変換する（note 専用 CTA 等は除外）。Use when user asks to [マガジンをPDF, 模範論文PDF, 解答をPDF, /magazine-to-pdf].
 user-invocable: true
 domain: product
 ---

@@ -11,7 +11,7 @@ tags:
   - 品質管理
 published: true
 created: 2026-09-13
-dateModified: 2026-10-16
+dateModified: 2026-11-01
 sources:
   - civil-informatics
   - nasa-model-verification-validation
@@ -168,7 +168,7 @@ $$
 
 波動を扱う動的な解析では、この条件が、波が要素一つを通り抜ける時間より刻みを短くする形で現れます（[CFL条件の解説](https://en.wikipedia.org/wiki/Courant%E2%80%93Friedrichs%E2%80%93Lewy_condition)）。要素を細かくするほど、許される刻みも短くなります。
 
-陰解法は、次の時刻の未知量が式の両辺に現れるため、ステップごとに連立方程式を解きます。台形法はこの型の方法です（[台形則の解説](https://en.wikipedia.org/wiki/Trapezoidal_rule_(differential_equations))）。一ステップは重くなる代わりに、安定のために刻みを細かくする必要は小さく、刻みは追いたい現象の速さと必要な精度から決めます。
+陰解法は、次の時刻の未知量が式の両辺に現れるため、ステップごとに連立方程式を解きます。台形法はこの型の方法です（[台形則の解説](https://en.wikipedia.org/wiki/Trapezoidal_rule_%28differential_equations%29)）。一ステップは重くなる代わりに、安定のために刻みを細かくする必要は小さく、刻みは追いたい現象の速さと必要な精度から決めます。
 
 独自の数値例は、$\dot{y}=-10y$、初期値1の場合です。厳密解 $e^{-10t}$ は、符号を変えずに減衰します。陽解法の一ステップは $y_{n+1}=(1-10h)\,y_n$ です。係数は、刻み $h$ が0.05 sなら0.5、0.15 sなら−0.5、0.25 sなら−1.5になります。
 

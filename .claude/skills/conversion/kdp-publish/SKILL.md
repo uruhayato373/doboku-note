@@ -1,12 +1,7 @@
 ---
 name: kdp-publish
 description: >
-  ビルド済み Kindle 本（EPUB＋表紙）を Amazon KDP へ入稿し下書き保存→（承認後）出版する。
-  詳細記入・カテゴリー選択・原稿/表紙アップロード・原稿処理完了待ち・AI申告・アクセシビリティ・
-  価格・出版までを scripts/kdp-publish.mjs（Playwright・永続プロファイルでログイン保存）で駆動し、
-  提出前の本棚突合（重複防止）・提出後の catalog.json 更新・LIVE 化後の ASIN 記録は kdp-operator が担う。
-  真実源は config/kdp-memo.json（defaults＝共通申告/カテゴリー経路）。EPUB を作る /kindle-build の後工程。
-  Use when user asks to [KDP出版, KDP提出, KDP公開, kindleを出版, KDP状態同期, KDPドラフト削除, /kdp-publish].
+  ビルド済み Kindle 本（EPUB＋表紙）を Amazon KDP へ入稿して下書き保存し、承認後に出版する（kdp-operator が本棚突合と catalog 更新）。Use when user asks to [KDP出版, KDP提出, KDP公開, KDP状態同期, /kdp-publish].
 user-invocable: true
 domain: product
 ---
@@ -129,7 +124,7 @@ node scripts/kdp-publish.mjs --sync-status   # .tmp/kdp-sync-status.json
 検索なら本棚の総数にもページ送りにも左右されない。
 
 自己検証つき: catalog に ASIN がある本を1件も再現できなければ **exit 1（検査不成立）**。
-`found:false` を「本棚に無い」の証拠として使ってよいのは exit 0 のときだけ。
+`found:false` は ID・表示タイトルの一致を確認できなかった意味で、exit 0 でも本棚に無い証拠にはならない。新規作成前に本棚の検索結果を目視確認する。
 
 **ライブ価格も突合する**（2026-08-03 追加）。本棚行の `¥価格` を `livePriceJpy` として持ち帰り、
 `catalog.priceJpy` と比べて `PRICE DRIFT <id>: live ¥X ≠ catalog ¥Y` を出す。**KDP UI で手動改定

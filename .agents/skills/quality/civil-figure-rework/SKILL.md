@@ -1,10 +1,7 @@
 ---
 name: civil-figure-rework
 description: >
-  1級土木施工管理技士 primary（過去問1次）ページの図クロップを再生成し、
-  サブエージェント (extractor → auditor) のループで最高品質まで仕上げる
-  オーケストレータスキル。1ページ単位で commit。
-  Use when user asks to [過去問図再抽出, 1級土木 図クロップ改善, テキスト写り込み修正, /civil-figure-rework].
+  1級土木 過去問1次ページの図クロップを extractor→auditor のループで再生成する（1ページ単位で commit）。Use when user asks to [過去問図再抽出, 図クロップ改善, テキスト写り込み修正, /civil-figure-rework].
 user-invocable: true
 domain: site
 ---

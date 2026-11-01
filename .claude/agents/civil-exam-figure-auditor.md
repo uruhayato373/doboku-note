@@ -1,6 +1,7 @@
 ---
 name: civil-exam-figure-auditor
-description: 1級土木施工管理技士 primary（過去問1次）ページの図クロップ品質を、生成済み PNG と MDX 本文を読んで 4軸ルーブリックで採点する Evaluator エージェント。
+description: >
+  1級土木 過去問1次ページの図クロップを PNG と MDX 本文から4軸で採点する Evaluator。
 model: sonnet
 tools: Read, Glob, Grep, Bash, WebSearch, WebFetch
 domain: site

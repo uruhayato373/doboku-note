@@ -503,6 +503,7 @@
     "report-note-funnel-efficiency": "node scripts/report-note-funnel-efficiency.mjs",
     "report-site-to-sales": "node scripts/report-site-to-sales.mjs",
     "sales-summary": "node scripts/sales-summary.mjs",
+    "sales-attribution": "node scripts/sales-attribution.mjs",
     "schedule-view": "node scripts/schedule-view.mjs",
     "scout-coconala-blogs": "node scripts/scout-coconala-blogs.mjs",
     "scout-coconala-competitors": "node scripts/scout-coconala-competitors.mjs",
@@ -679,7 +680,24 @@
     "chromium-bidi": {
       "zod": "$zod"
     },
-    "argparse": "^2.0.1"
+    "argparse": "^2.0.1",
+    "eslint": {
+      "minimatch": "^11.0.1"
+    },
+    "@eslint/config-array": {
+      "minimatch": "^11.0.1"
+    },
+    "@typescript-eslint/typescript-estree": {
+      "minimatch": "^11.0.1"
+    },
+    "glob": {
+      "minimatch": "^11.0.1"
+    },
+    "rimraf": {
+      "glob": {
+        "minimatch": "^3.1.5"
+      }
+    }
   },
   "engines": {
     "node": ">=20.9"

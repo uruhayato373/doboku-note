@@ -22,8 +22,8 @@ domain: strategy
 
 | 依頼 | 手順 |
 |---|---|
-| 指標・目標の定義 | `/north-star-metric` |
-| 前週の振り返り | `/weekly-review` → `/weekly-plan` |
+| 指標・目標の定義 | `config/business-direction.json`（変更は `/monthly-review` の手順で target 記録） |
+| 前週の振り返り | `/weekly-review` → `/plan-weekly` |
 | 前月の振り返り・重点配分 | `/monthly-review` → `/plan-weekly` |
 | 改善の実行・効果判定 | `/nsm-experiment`。SEO は検索キーワード戦略のサイクル（`/weekly-review` の `search-improvement`） |
 | 販売先の計測 | `/coconala-analytics`、既存note売上取得。アクセスの欠測は手入力記録へ |

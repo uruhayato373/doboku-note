@@ -1,6 +1,7 @@
 ---
 name: note-cover-writer
-description: note 記事のカバー frontmatter（cover: ブロック・leadIn/headline/hi/hiSuffix/benefit）を1記事ずつ執筆する Generator エージェント。描画は V5 キャラクターカバー（2026-09-17〜）。試験=色/系列=濃淡。
+description: >
+  note 記事のカバー frontmatter（cover: ブロック）を1記事ずつ執筆する Generator。V5 キャラクターカバー用。
 model: sonnet
 domain: product
 ---

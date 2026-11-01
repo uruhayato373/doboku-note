@@ -1,7 +1,7 @@
 ---
 name: kdp-operator
 description: >
-  Amazon KDP へビルド済み EPUB と表紙を入稿し、下書き・承認後出版・本棚照合・公開状態と ASIN の記録を運用する。EPUB 制作と品質採点は担当外。Use when user asks to [KDP 提出, KDP 公開状態同期, /kdp-publish].
+  ビルド済み EPUB と表紙を KDP へ入稿し、出版・本棚照合・ASIN 記録を運用する。Use when [KDP 提出, KDP 公開状態同期].
 model: sonnet
 domain: product
 ---
@@ -38,7 +38,7 @@ domain: product
 2. **メタデータ登録**: kdp-memo 未登録本（C系12/F系16/e-02）の `books[id]` を spec＋原稿から生成
    （フリガナ＝カタカナ・ローマ字・keywords 7個・description ≤4000字・previewNote）。
 3. **提出駆動**: `kdp-publish.mjs --id <id>`（下書きまで）。`--commit-publish`（出版）は**親/ユーザー承認後のみ**。
-4. **記録**: 提出後 config/products.json と生成物の catalog.json（status=in_review・submittedDate・draftAsin は script が `updateKindleCatalog` で自動記録）。
+4. **記録**: 下書き保存後は script が config/products.json と生成物の catalog.json に draftAsin・アップロード記録を保存する（status は ready のまま、公開 ASIN と submittedDate は付けない）。出版申請後は `npm run product -- set` で status=in_review・submittedDate を記録する。
    LIVE 化検知後（`--sync-status`）は ASIN を **catalog / `content/kindle/strategy.md` / kindle-published README の3箇所**へ。
 5. **価格ドリフトの是正**: `--sync-status` の `PRICE DRIFT` は「KDP UI で人が手動改定したのに
    リポジトリが古い」状態。**ライブを正として** `catalog.priceJpy` と `spec.price` の**両方**を
@@ -55,7 +55,7 @@ domain: product
 
 | フラグ | 用途 |
 |---|---|
-| `--sync-status` | catalog 各冊を本棚でタイトル検索し {asin,status,提出日,asinMatch,**livePriceJpy,catalogPriceJpy,priceMatch,pendingChanges,titleId**} を `.tmp/kdp-sync-status.json` に出力（突合・LIVE検知・重複防止・**価格ドリフト検知（不一致は exit 1）**・**未出版の変更あり一覧**・欠けた `draftAsin` を本棚の内部IDで補完）。**本棚の列挙ではない**——本棚はページネーションで先頭10冊しか DOM に無く、`title-setup/kindle/` の ID は 13〜14 桁の内部IDで ASIN ではないため、列挙方式は live 33 冊の口座で 10 件しか拾えず半分がゴミだった（2026-07-30 に置換）。ASIN 既知の本を1件も再現できなければ **exit 1（検査不成立）**＝ `found:false` を「本棚に無い」の証拠にしない。**出版直後の「レビュー中」は ASIN 未発番なので、状態語も行の根拠に含める**（含めないとレビュー中の本が消えて found:false になり、重複作成に繋がる。2026-08-03 に f-09 で実測） |
+| `--sync-status` | catalog 各冊を本棚でタイトル検索し {asin,status,提出日,asinMatch,**livePriceJpy,catalogPriceJpy,priceMatch,pendingChanges,titleId**} を `.tmp/kdp-sync-status.json` に出力（突合・LIVE検知・重複防止・**価格ドリフト検知（不一致は exit 1）**・**未出版の変更あり一覧**・欠けた `draftAsin` を本棚の内部IDで補完）。**本棚の列挙ではない**——本棚はページネーションで先頭10冊しか DOM に無く、`title-setup/kindle/` の ID は 13〜14 桁の内部IDで ASIN ではないため、列挙方式は live 33 冊の口座で 10 件しか拾えず半分がゴミだった（2026-07-30 に置換）。ASIN 既知の本を1件も再現できなければ **exit 1（検査不成立）**。`found:false` は ID・表示タイトルが一致しなかった意味であり、exit 0 でも新規作成前に本棚の検索結果を目視確認する。**出版直後の「レビュー中」は ASIN 未発番なので、状態語も行の根拠に含める**（含めないとレビュー中の本が消えて found:false になり、重複作成に繋がる。2026-08-03 に f-09 で実測） |
 | `--id <id>` | 新規提出（詳細→カテゴリー→原稿/表紙→処理完了待ち→AI申告→アクセシビリティ→価格→下書き保存）＋チェックリスト |
 | `--id <id> --commit-publish` | 上記＋出版（不可逆）＋出版後検証。**承認後のみ** |
 | `--list-drafts` | 本棚を `.tmp` へダンプ（読み取り） |

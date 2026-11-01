@@ -21,17 +21,6 @@
 
 ## 🔴 高 — 重要度が高い
 
-### [DN-0929] 無料の序章 3 本が note で全文会員限定になり、未ログインの読者に本文が 0 字で出る
-タグ: [収益化] [領域:商品] [時期:2026-11] [種類:不具合] [起票:2026-11-01] [期日:2026-11-07]
-
-**起点**: 週次レビュー（2026-10-19〜2026-10-25）の追加確認。10/31 の土曜の収集の note-public-view 段（check-note-public-view・公開 958 本を API で検査）が BAD 3 本を出した: 原稿は無料なのに note 側が全文会員限定で、未ログインの本文が 0 字。
-- content/note/技術士総監/magazines/総監記述式-完全パック/00-はじめに/article.md（https://note.com/dobokunote/n/n93ee41c64411）
-- content/note/測量士/magazines/測量士午後-分野別/00-序章/article.md（https://note.com/dobokunote/n/n23ccc71205a7）
-- content/note/舗装/magazines/舗装1級-経験記述/00-序章/article.md（https://note.com/dobokunote/n/na287266cf068）
-
-**やること**: ログイン済みの Mac で 3 本の公開範囲を「全員に公開」へ戻す（note-operator / note-membership の既存スクリプト）。なぜ会員限定になったか（会員特典の一括配信・同期の既定値など）を run ログと sync-log で確かめ、同じ型が他に無いかを check-note-public-view の API 層で全件確認する。
-
-**完了条件**: node scripts/check-note-public-view.mjs の BAD が 0（未ログインで 3 本の本文が読める）。原因が仕組みにあれば検査か同期側で再発を止める。
 
 
 ### [DN-0902] 技術士（建設部門）の筆記合格発表（11/4）までに、口頭試験の教材への導線を資格トップと必須I・選択科目の記事に出す（EXP-047）
@@ -235,16 +224,16 @@
 **完了条件**: 公開 API で22記事が `is_limited=false`、`mbe07bd5cecda` と「はじめに-合格ラボ」が取得できない。有料6誌は公開 API で販売中のまま。加入画面に旧2プランが出ない。
 
 
-### [DN-0262] 1級・2級土木 第2次検定 記述 Kindle（I・J系）の残り24冊を KDP へ提出する
+### [DN-0262] 1級・2級土木 第2次検定 記述 Kindle（I・J系）の残り23冊を KDP へ提出する
 タグ: [収益化] [領域:商品] [時期:2026-10..2026-12] [種類:制作] [起票:2026-09-23] [進行中]
 
-**起点**: 2026-09-23 にユーザーが「二次記述系も全部Kindle化」と指示し、26冊を制作した。2026-11-01 の KDP 本棚照合で j-01・j-03 は販売中、残り24冊は未提出。新規作成数制限があるため分割提出する。
+**起点**: 2026-09-23 にユーザーが「二次記述系も全部Kindle化」と指示し、26冊を制作した。2026-11-01 の KDP 本棚照合で j-01・j-03 は販売中、i-01 はレビュー中、残り23冊は未提出。新規作成数制限があるため分割提出する。
 
-**やること**: I・J系の配布用 EPUB を現行原稿から再生成し、`epubcheck` と `check-kindle-format` を通す。記述式の章単位模範答案は R3（択一の問題・解答分離）の対象外と判定を修正済み。品質監査後に1冊の下書き提出を試し、Kindle Previewer の目視確認と出版承認を経て、残りを分割提出する。各提出前に `node scripts/kdp-publish.mjs --sync-status` で重複を確かめ、LIVE 化後は ASIN と確認できた公開日を記録する。
+**やること**: i-01 の LIVE 化を確認し、公開 ASIN と確認できた公開日を記録する。結果を確認して残り23冊を分割提出する。各提出前に `node scripts/kdp-publish.mjs --sync-status` で重複を確かめ、Kindle Previewer の目視承認後に出版申請する。
 
 **完了条件**: catalog の i・j 系26冊がすべて ASIN 付き `live` になること。
 
-**再確認（2026-11-01）**: KDP 本棚72冊を照合し、j-01・j-03 は販売中（ASIN `B0GX2NDGDK` / `B0H943XQF6`）。公開日は本棚で確認できず未記録。未提出24冊の EPUB・表紙を再生成し R2 に同期、epubcheck 24/24冊エラー・警告0、書式検査24/24冊 PASS。i-01 の5軸QAも PASS。KDP の再認証が3分以内に完了せず下書き入稿は停止（exit 3）。本は作成されず `draftAsin` は空。運営者の手動ログイン後に同じコマンドで再試行する。
+**再確認（2026-11-01）**: KDP 本棚72冊を照合し、j-01・j-03 は販売中（ASIN `B0GX2NDGDK` / `B0H943XQF6`）。公開日は本棚で確認できず未記録。未提出24冊の EPUB・表紙を再生成し R2 に同期、epubcheck 24/24冊エラー・警告0、書式検査24/24冊 PASS。i-01 の5軸QAも PASS。本人ログイン後、i-01 を内部ドラフトID `AHA4QGG6EYJEF` で下書き保存。原稿・表紙の処理と保存成功、日本価格 ¥1,980・実効印税率35%・表示ロイヤリティ ¥630 を KDP 画面で確認。最終出版は未実行。
 
 
 ### [DN-0248] 技術士筆記合格発表日に無料導入2本を確認し、口頭試験導線を切り替える
@@ -264,34 +253,63 @@
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-0935] SNS 保留中の定期実行（youtube 系の cron）を止め、全敗している OGP Supply を直すか止め、見張りの 4 層を 1 つの日次ヘルスにまとめる
+タグ: [インフラ・計測] [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-11-01]
+
+**起点**: docs/reviews/critical/2026-11-01-revenue-focus-and-ops-slimming.md（2026-11-01）。OGP Supply は直近 11 回すべて失敗、youtube-funnel-audit などの youtube 系 cron は SNS 保留中で読み手がいない。workflow-health・workflow-health-guard・weekly-review-guard・report-checks が同じ原因で別々の Issue を立てる（11/1 時点で 3〜4 件）。
+
+**残り**: youtube-funnel-audit の schedule 停止・OGP Supply の上限超過の解消（max=120 で手動実行し成功）・weekly-review-guard の二重の見張りの解消は PR #1357 で入った（見張りの変更は main への deploy 後に効く）。
+
+**やること**: report-checks・gsc-auto-review・weekly-collect・weekly-review-local など channel ごとに立つ Issue を、根本原因のキーで 1 Issue にまとめる（同じキーの open Issue にはコメントを追記・PR #1357 本文の案）。OGP Supply は生成対象が 50 件を超えたら再発するので、上限の扱い（定期で分割して生成するか）を決める。
+
+**完了条件**: 同じ原因（例: Claude の認証切れ）で立つ Issue が 1 件になり、OGP Supply が 4 週続けて成功している。
+
+### [DN-0933] スキル・エージェントの description を短くし、weekly-review の SKILL.md を骨子と references に分けてトークンを減らす
+タグ: [エージェント・SSOT] [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-11-01]
+
+**起点**: docs/reviews/critical/2026-11-01-revenue-focus-and-ops-slimming.md（2026-11-01）。description の合計がスキル 約 6,500 字・エージェント 約 15,000 字で、毎セッションの一覧に常駐する。weekly-review の SKILL.md は 768 行（約 75KB）で、毎週のヘッドレス実行が全部読み、backlog（約 330KB）も読む。
+
+**残り**: description の短縮（スキル 26,138→12,826 字・エージェント 11,911→5,488 字・上限 120 字）と weekly-review の分割（768→約 90 行＋references 5 本）は PR #1360 で入った。
+
+**やること**: (1) 11/7（土）の自動の週次レビューが分割後のスキルで完了判定を通るかを確かめる。(2) 機械で出せる節（数値の転記・欠測の列挙）を build-weekly-review-draft.mjs へ移し、references から外す。
+
+**完了条件**: 11/7 の自動実行が check-weekly-review で未完 0、references から機械の節が減っている。
+
+### [DN-0932] 技術士 R9 の筆記対策（予想問題・必須 I・選択科目のパック）の制作計画を立て、4 月末までに揃える段取りを決める
+タグ: [収益化] [領域:商品] [時期:2026-12..2027-01] [種類:制作] [起票:2026-11-01]
+
+**起点**: docs/reviews/critical/2026-11-01-revenue-focus-and-ops-slimming.md（2026-11-01）。受取の約 79% が技術士（総監・建設部門）で、筆記前の 6〜7 月に集中する。売れ筋上位はパック（総監記述式 完全パック ¥77,280・R8 予想問題集 ¥58,120・建設部門の道路まるごと ¥34,860）。
+
+**やること**: R8 の売れ筋（商品・価格・発売時期）を土台に、R9 で作る商品の一覧・価格・発売日と、2〜4 月の制作の順番を決める。新しい型は作らず、パック＋比較の基準としての単品の型に揃える。
+
+**完了条件**: R9 の商品一覧と制作の日程が決まり、制作カードに分かれている。
+
+
+### [DN-0931] 試験日を起点に、制作の開始・CTA の切り替え・販売・判定の日付を出す収益カレンダーを作り、2027 年の試験日を登録する
+タグ: [収益化] [領域:計画] [時期:2026-11..2026-12] [種類:改善] [起票:2026-11-01]
+
+**起点**: docs/reviews/critical/2026-11-01-revenue-focus-and-ops-slimming.md（2026-11-01）。売上は試験の 0〜8 週前に集中する（技術士の筆記前の 6〜7 月に 64%、土木二次は 1〜4 週前）。毎年同じ順で回すのに、日付の出し方が人の記憶に頼っている。
+
+**残り**: 設定（config/revenue-calendar.json）と schedule-view への統合は PR #1358 で入った（`npm run schedule-view -- --channel revenue`）。2027 年の試験日は 11/1 時点でどの実施機関も未発表で、exam-calendar の verification.pending に置いただけ。
+
+**やること**: (1) 実施機関が令和9年度の日程を発表したら exam-calendar.json に登録する（月次レビューの exam-ssot-status が pending を知らせる）。(2) `/plan-weekly`（todo-planner）が revenue の予定を読み、今週の出口に制作開始・切り替えを載せるようにする。
+
+**完了条件**: 2027 年の主要 5 資格の制作開始・切り替え・判定の日付が schedule-view に出て、週間計画がそれを読んでいる。
+
 ### [DN-0928] 依存の脆弱性 minimatch（globparts の DoS・moderate）を 11.0.1 以上へ上げる
 タグ: [インフラ・計測] [領域:管理] [時期:2026-11] [種類:不具合] [起票:2026-11-01]
 
 **起点**: 週次レビュー（2026-10-19〜2026-10-25）の点検。Dependabot alert #118（package-lock.json の minimatch・moderate・修正版 11.0.1）。Dependabot の PR は開いていない。
 
-**やること**: どの依存が minimatch を引いているかを npm ls minimatch で確かめ、上げられるものは上げる（上げられない推移的依存は overrides を検討）。feature ブランチ + PR（base develop）。
+**残り**: 10.x を使う 4 依存（eslint・@eslint/config-array・@typescript-eslint/typescript-estree・glob 13）は PR #1351 で 11.0.3 にした。残るのはルートの minimatch 3.1.5 で、eslint-plugin-react と rimraf 内の glob 7 が `require('minimatch')(…)` と関数として呼ぶため 11 へ上げると lint が壊れる。開発時の lint だけで使い、公開サイトには入らない。
 
-**完了条件**: Dependabot alert #118 が fixed になり、npm run test と quality:audit:ci が通る。
+**やること**: eslint-plugin-react が minimatch 11 対応の版を出したら上げる（`npm view eslint-plugin-react dependencies.minimatch`）。出るまでの間、alert を「開発依存・入力は自前の設定だけ」として dismiss するかを運営者が決める。
 
-
-### [DN-0927] external-links の report FAIL（jeed・meti のリンク切れ）を直し、止まっている weekly-review-guard を緑に戻す
-タグ: [インフラ・計測] [領域:管理] [時期:2026-11] [種類:不具合] [起票:2026-11-01]
-
-**起点**: 週次レビュー（2026-10-19〜2026-10-25）の点検。Issue #1257（10/26〜）: quality-audit の report 区分で external-links が FAIL（総監キーワードの trademark-rights・training-techniques の jeed の URL が fetch failed、unfair-competition-prevention-act の meti の営業秘密ページが 403）。Issue #1312（10/30〜）: 月曜の weekly-review-guard.yml は 10/26 の run が rc=1 で、最後の success が 12 日前。10/26 の失敗は report 区分の FAIL を Issue にした段の終了コードで、external-links と同じ原因に見える（未確認）。
-
-**やること**: (1) 3 URL の移転先を一次情報で確かめて記事のリンクを直す（403 は bot 拒否か移転かを分ける）。(2) weekly-review-guard の 10/26 の失敗が report FAIL だけかを run ログで確かめ、別の原因があれば直す。
-
-**完了条件**: 次の月曜の weekly-review-guard が success、Issue #1257・#1312 が自動クローズする。
+**完了条件**: Dependabot alert #118 が fixed か、理由つきで dismiss されている。
 
 
-### [DN-0926] 11/1 施行の改正（建築基準法施行令・租税特別措置法）に合わせ、リンクする 4 記事を確かめて e-Gov の写しを進める
-タグ: [コンテンツ品質] [領域:サイト] [時期:2026-11] [種類:改善] [起票:2026-11-01]
 
-**起点**: 週次レビュー（2026-10-19〜2026-10-25）の点検。quality:audit:weekly の egov-drift が FAIL。写しより後に施行された改正が 2 本ある。建築基準法施行令（2026-11-01 施行）にリンクする content/site/civil-construction-1/textbook-building-standards・civil-practice/sediment-disaster-erosion-control・laws/sediment-disaster-act の 3 記事と、租税特別措置法（2026-11-01 施行）にリンクする civil-practice/land-acquisition-compensation の 1 記事。
 
-**やること**: 各記事が引く条・数値が改正で変わったかを e-Gov の改正後の条文で照合し、変わっていれば本文を直す（条の範囲だけを読む）。確かめたら npm run egov-laws -- --sync で写しを進める。
-
-**完了条件**: node scripts/egov-laws.mjs --drift が改正 0 本で終わる。
 
 
 ### [DN-0706] 技術士一次試験のサイト CTA 画像を作る（基礎・適性、専門）
@@ -1725,21 +1743,13 @@ Windows の PowerShell で repo 直下から順に:
 
 **完了条件**: Windows に `auth-session-refresh` のタスクが無く、R2 に `auth-state/` が無く、3 の判断が backlog かこのカードに記録されている。`git grep -l DOBOKU_AUTH .github` は 0 件（確認済み）。
 
-### [DN-0923] 検索改善の候補が # 付きアンカーの URL で出て record できない（2級 R8 見直しページの改善が未記録）
-タグ: [インフラ・計測] [領域:サイト] [時期:2026-11] [種類:不具合] [起票:2026-11-01]
-
-**起点**: 週次トリアージ（data/analysis/growth/digest-2026-W43.json）の OPP-fcfcda5a1a: 「二級土木施工管理技士 二次試験」は平均 8.4 位なのに CTR 0.98%（期待 3%）（期待効果 12.7 searchClicks/週）。原稿: `content/site/civil-construction-2/guide-r08-secondary-answers/article.mdx`
-
-**やること**: 週次レビュー（2026-10-19〜2026-10-25）で、report-search-opportunities の fileable が /exam/civil-construction-2/guide/r08-secondary-answers を # 付きの節ごとに出し、search-improvement record は normalizeTargetPath で # 以降を落とすため候補と一致せず拒否した。候補側でアンカーを落としてページ単位にまとめ、2026-11-01 の改善 commit 38e5aec8c（seoTitle を「二次試験」表記・解答の公表有無に合わせた）を record する
-
-**完了条件**: fileable に # 付き URL が出ず、r08-secondary-answers の改善が EXP として記録され、回帰テストがある
 
 ### [DN-0924] 2級二次の配点・部分点ページの title と冒頭を「2次試験 配点」の検索に合わせる（1.5 位で CTR 5.9%）
-タグ: [コンテンツ品質] [領域:サイト] [時期:2026-11] [種類:改善] [起票:2026-11-01]
+タグ: [コンテンツ品質] [領域:サイト] [時期:2026-11..2026-12] [種類:改善] [起票:2026-11-01]
 
 **起点**: 週次トリアージ（data/analysis/growth/digest-2026-W43.json）の OPP-5dd26ae975: 「2級土木施工管理技士 2次試験 配点」は平均 1.5 位なのに CTR 5.88%（期待 15%）（期待効果 1.2 searchClicks/週）。原稿: `content/site/civil-construction-2/secondary-grading-and-partial-credit/article.mdx`
 
-**やること**: 週次レビュー（2026-10-19〜2026-10-25）の OPP-5dd26ae975。/exam/civil-construction-2/guide/secondary-grading-and-partial-credit は「2級土木施工管理技士 2次試験 配点」で平均 1.5 位なのに CTR 5.88%（期待 15%）。配点は公表されない事実と、合格基準（60%）・部分点の考え方を title・description・冒頭で先に答える
+**やること**: 2026-11-29 以降に「2級土木施工管理技士 2次試験 配点」の CTR を GSC で見て、修正前（平均 1.5 位・CTR 5.88%）と比べ、結果をこのカードに記録する。title・seoTitle・description・冒頭は修正済み（develop 021323cbb2）。
 
 **完了条件**: title・description・冒頭が直って develop に入り、28 日後に同じ検索語の CTR を比べた記録がカードに残る
 
@@ -2417,11 +2427,11 @@ Phase 3の評価を戦略SSOTへ反映し、資格拡張の可否を確定した
 **完了条件**: 管理画面のカラートークンが stats47 と一致し、`check-shadcn-parity` と `check-admin-ui-debt` が通る。
 
 ### [DN-0925] 「スクレープドーザー」の検索で 6.3 位・CTR 1.3% のスクレーパーの教科書ページの title・説明を直す
-タグ: [コンテンツ品質] [領域:サイト] [時期:2026-11] [種類:改善] [起票:2026-11-01]
+タグ: [コンテンツ品質] [領域:サイト] [時期:2026-11..2026-12] [種類:改善] [起票:2026-11-01]
 
 **起点**: 週次トリアージ（data/analysis/growth/digest-2026-W43.json）の OPP-adc3bac9b1: 「スクレープドーザー」は平均 6.3 位なのに CTR 1.34%（期待 4%）（期待効果 1.2 searchClicks/週）。原稿: `content/site/civil-construction-1/textbook-scraper/article.mdx`
 
-**やること**: 週次レビュー（2026-10-19〜2026-10-25）の OPP-adc3bac9b1。/exam/civil-construction-1/textbook/scraper の title と description に「スクレープドーザー」を入れ、スクレーパーとの違いを冒頭で答える
+**やること**: 2026-11-29 以降に「スクレープドーザー」の CTR と順位を GSC で見て、修正前（平均 6.3 位・CTR 1.34%）と比べ、結果をこのカードに記録する。title・seoTitle・description・冒頭は修正済み（develop cf80c30d70）。
 
 **完了条件**: title・description が直って develop に入り、28 日後に CTR を比べた記録がカードに残る
 

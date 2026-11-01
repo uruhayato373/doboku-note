@@ -1,7 +1,7 @@
 ---
 name: svg-figure-rewriter
 description: >
-  site・note の SVG に監査指摘を適用し、色・フォント・属性・重なりを校正する Generator。データ・ラベル・概念を保持し、note は PNG も再生成する。再レイアウトと品質採点は別担当。
+  SVG への監査指摘を適用し、色・フォント・属性・重なりを校正する Generator。再レイアウトは svg-canvas-fitter。
 model: sonnet
 domain: site
 ---

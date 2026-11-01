@@ -7,6 +7,8 @@ title: スキル ナビゲーションガイド
 アクティブなスキルを **用途別** に素早く探すための早引き。  
 設計原則・退役ログ → `skills-registry.md` / 作成手順 → `skills-design-guide.md`
 
+SKILL.md の frontmatter description は毎セッションの一覧に常駐するため、1 文＋Use when（目安 120 字）に絞る（DN-0933）。担当外・安全弁の詳細は本文に置く。
+
 参考書籍の原本・画像・OCRを扱うときは `/asset-route` と [保存方針](./asset-storage-policy.md) §1-1を参照する。正本PDFは1箇所、文字起こしは各原資料内 `ocr/`。`/pdf-to-mdx --scanned` は既存book bundleの `pages/` を再利用し、新規OCR/cropは `record-reference-book-artifacts` で来歴を登録する。
 
 SNSの人物・見出しを改修するときは [SNS画像ポリシー §0・§0.1](./sns-image-policy.md) を起点にする。Instagram の旧過去問パック生成スキルは退役済みで、新規投稿は [投稿素材 README](../../../content/sns/instagram/README.md) に従って個別に制作・台帳登録する。YouTube Shorts の制作は現行の動画パック経路で進める。既存予約・公開状態は publish-ig-bs／publish-x と、運営者が回す `verify-ig-status` で実体と照合する。 Xの継続監視は publish-x の `check-x-queue-health` 手順を使う。通常動画の共有合成器はPNGの色形式を揃えて冒頭欠落を防ぎ、画像と字幕をWAV実尺へ同期し、全場面画像は `media promote` で登録する。ポーズ選びは管理画面 `/gallery/characters` と [キャラクター素材ポリシー](./character-asset-policy.md) を参照する。
@@ -131,7 +133,7 @@ SNSの人物・見出しを改修するときは [SNS画像ポリシー §0・§
 
 | スキル | 一言説明 | 呼ぶとき |
 |---|---|---|
-| `/plan-weekly` | `[時期:]` が今月を含むカードから今週の優先タスクを決め weekly.md を直接更新（Sonnet 1回・軽量。※戦略計画は /weekly-plan） | `今週のタスクを決めて`, `今週何をすべきか`, `weekly.md更新`, `/plan-weekly` |
+| `/plan-weekly` | `[時期:]` が今月を含むカードから今週の優先タスクを決め weekly.md を直接更新（Sonnet 1回・軽量） | `今週のタスクを決めて`, `今週何をすべきか`, `weekly.md更新`, `/plan-weekly` |
 | `/backlog-sweep` | backlog から1〜2件を選定→実査→実行→検証→**セクション削除**で台帳を減らす1サイクル（実査で既に完了なら掃除として削除）。`/loop` で自走。**`--audit` は台帳そのものの棚卸し**（`backlog-curator` を同時3体で起動し、1枚単位の sweep では見えない台帳全体を KEEP/RETAG/TRIM/MERGE/DELETE/RESEED/SPLIT に分類）。※計画を書く /plan-weekly とは別物 | `バックログを消化して`, `backlog を減らして`, `sweep を回して`, `バックログを棚卸しして`, `/backlog-sweep`, `/backlog-sweep --audit` |
 | `/weekly-improve` | 計測→改善候補→実験登録（検索順位の改善は `/weekly-review` の search-improvement が唯一の経路） | `今週の改善`, `PDCA`, `/weekly-improve` |
 | `/gsc-review` | 月次 GSC index coverage レビュー（古い記録は run の保存成否を確認→診断→判断ログ追記） | `GSC月次レビュー`, `インデックス率`, `index coverage`, `/gsc-review` |
@@ -139,9 +141,7 @@ SNSの人物・見出しを改修するときは [SNS画像ポリシー §0・§
 | `/google-search-growth` | GSC/GA4 の UI CSV の記録（土曜の Mac 収集が取得）→既存 API と URL 突合→修正候補分類（approval gate で停止・セッションはログインせず記録と最終取得日を読む） | `検索流入改善`, `GSC CSV の記録確認`, `GSC/GA4 統合診断`, `/google-search-growth` |
 | `/monthly-review` | 前月の資格別KPI・販売・運営負担から重点と目標、次の改善を記録 | `月次レビュー`, `前月の振り返り`, `/monthly-review` |
 | `/weekly-review` | 同期間note計測とGSC全体値を使い、5種証跡で完了を判定。資格別KPI・判断を週次履歴へ記録し、次の改善へ接続。収益導線はURL照合数と同期間の商品売上を確認する。Xは投入済みの最終予約記録と未投入計画を区別する。申し送りは各項目を backlog 起票／定常／Issue／実験へ振り分ける（旧週削除時の抽出もれは pre-commit が止める） | `週次レビュー`, `今週の振り返り`, `/weekly-review` |
-| `/weekly-plan` | 戦略的な週次計画を生成（NSM・メトリクス連動・重め。手動のみ。週間計画の正本 weekly.md は `/plan-weekly`） | `戦略的週次計画`, `NSM込みの計画`, `/weekly-plan` |
 | `/nsm-experiment` | NSM 改善の実験ライフサイクル管理 | `実験登録`, `NSM実験`, `/nsm-experiment` |
-| `/north-star-metric` | 学習価値・集客・販売・運営負担のKPI定義と実測に基づく目標を共通SSOTへ記録 | `NSM定義`, `北極星指標`, `/north-star-metric` |
 | `/monetization-strategy` | 収益化戦略のブレインストーム | `収益化`, `月X万円達成するには`, `/monetization-strategy` |
 | `/competitor-review` | 競合の価格・品揃えを**全チャネル横断**（note/X/IG/ココナラ/YouTube・`--platform`）で四半期再取得（scout＋時系列drift＋資格キーワードの市場スキャン `scan-qualification-market`）→ competitor-analyst で差別化再評価＋反映パッチ（09/07）。有料本文は取得不可 | `競合を再調査`, `競合レビュー`, `競合の価格を再取得`, `/competitor-review` |
 | `/knowledge` | 過去の失敗・教訓を参照・追記 | `ナレッジ参照`, `失敗から学ぶ`, `/knowledge` |

@@ -1,12 +1,7 @@
 ---
 name: google-search-growth
 description: >
-  GSC/GA4 の UI CSV（ページのインデックス登録・理由別。取得は土曜の Mac 収集）と既存 API データ
-  （URL Inspection / GSC page×query / GA4 page）・sitemap・_redirects・生成 HTML を URL 単位で
-  突合し、index coverage・検索 performance・技術 SEO を統合診断するオーケストレータ。修正候補は
-  impact × confidence × effort で優先順位付けし、redirect 追加・noindex・統合・deploy は approval
-  gate で停止する（内部リンクの旧 URL 修正のみ承認後に自動可）。セッションはログインせず、記録と
-  最終取得日を読む。Use when user asks to [検索流入改善, GSC/GA4 統合診断, /google-search-growth].
+  GSC/GA4 の収集済み CSV・API データ・sitemap・生成 HTML を URL 単位で突合し、index coverage・検索 performance・技術 SEO を統合診断する。Use when user asks to [検索流入改善, /google-search-growth].
 user-invocable: true
 disable-model-invocation: true
 allowed-tools: Read, Glob, Grep, Bash, Task

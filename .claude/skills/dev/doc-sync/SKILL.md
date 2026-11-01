@@ -1,11 +1,7 @@
 ---
 name: doc-sync
 description: >
-  コード/スクリプト/スキル/設定の変更 diff を起点に、関連ドキュメント（docs/** ・CLAUDE.md ・.claude/**）が
-  旧仕様化していないかを監査する。親が diff から「ドキュメント化された面」の変更を抽出し、参照している候補 doc を
-  grep で特定し、doc-sync-auditor（Evaluator）に突合させて findings を提示、承認後に適用する。
-  機械検知（check-doc-refs / check-doc-coupling）が拾えない意味的な陳腐化を埋める半自動ガード。
-  Use when user asks to [ドキュメント同期, doc同期, 仕様ズレ確認, ドキュメント更新もれ, /doc-sync].
+  コード・スキル・設定の変更 diff を起点に、関連ドキュメントの旧仕様化を doc-sync-auditor で監査し、承認後に直す。Use when user asks to [ドキュメント同期, 仕様ズレ確認, ドキュメント更新もれ, /doc-sync].
 user-invocable: true
 argument-hint: "[<git-range>] (既定: 作業ツリー+staged vs HEAD)"
 domain: ops

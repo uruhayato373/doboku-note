@@ -13,7 +13,7 @@ import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { STEPS, planSteps, isFailure } from '../scripts/lib/pre-commit-steps.mjs';
-import { dispatch, tailLines } from '../scripts/pre-commit-dispatch.mjs';
+import { countWarns, dispatch, isVerbose, summarize, tailLines } from '../scripts/pre-commit-dispatch.mjs';
 import { ExitSignal, exitWith, isCliEntry, runBody, runMain } from '../scripts/lib/cli-run.mjs';
 import { REPO_ROOT as ROOT } from '../scripts/lib/repository-paths.mjs';
 
@@ -347,4 +347,45 @@ test('cli-run: isCliEntry はシンボリックリンク越しの起動でも CL
   } finally {
     rmSync(dir, { recursive: true, force: true });
   }
+});
+
+// --- DN-0934: 成功は要約だけ、失敗した検査だけ全出力 ---------------------------------------
+test('出力の静音化: 成功した検査の出力は捨て、要約に本数と WARN 件数だけ載る', async () => {
+  const logs = [];
+  const outputs = { 'lint-ui': 'ok 1\nok 2\nok 3\n', 'note-lint': '[WARN] a\n警告: b\nfine\n' };
+  const ctx = makeCtx();
+  const r = await dispatch(ctx, { exec: (step) => ({ code: 0, captured: step.keepOutput ? '' : (outputs[step.id] ?? 'noise\n') }), log: (l) => logs.push(l) });
+  assert.equal(r.code, 0);
+  assert.deepEqual(logs, [], '成功した検査の出力は 1 行も出さない');
+  assert.deepEqual(r.warns, [{ id: 'note-lint', count: 2 }]);
+  const line = summarize(r, '1.2');
+  assert.match(line, new RegExp(`^\\[pre-commit\\] ${r.ran.length} 本を実行・OK（1.2 秒）・WARN 2 件（note-lint 2）$`));
+  assert.equal(summarize({ ...r, warns: [] }, '1.2').includes('WARN'), false);
+});
+
+test('出力の静音化: 失敗した検査は出力を全部出し、そこで止まる', async () => {
+  const logs = [];
+  const big = Array.from({ length: 40 }, (_, i) => `err${i + 1}`).join('\n') + '\n';
+  const r = await dispatch(makeCtx(), { exec: (step) => (step.id === 'lint-ui' ? { code: 1, captured: big } : { code: 0, captured: 'noise\n' }), log: (l) => logs.push(l) });
+  assert.equal(r.code, 1);
+  assert.equal(r.failed, 'lint-ui');
+  assert.equal(logs[0].split('\n').length, 40, 'tail 指定の無い検査は全行');
+  assert.match(summarize(r, '0.5'), /^\[pre-commit\] lint-ui で失敗/);
+});
+
+test('出力の静音化: keepOutput の検査（横展開リマインダ）は成功でも出力を残す', async () => {
+  const logs = [];
+  const only = STEPS.filter((s) => s.id === 'check-policy-anchors');
+  assert.equal(only.length, 1);
+  assert.equal(only[0].keepOutput, true);
+  await dispatch(makeCtx(), { steps: only, exec: () => ({ code: 0, captured: '\n━━━ ポリシークラスタ 横展開リマインダ ━━━\n◆ x\n' }), log: (l) => logs.push(l) });
+  assert.deepEqual(logs, ['━━━ ポリシークラスタ 横展開リマインダ ━━━\n◆ x']);
+  assert.deepEqual(STEPS.filter((s) => s.keepOutput).map((s) => s.id), ['check-policy-anchors']);
+});
+
+test('PRECOMMIT_VERBOSE=1 で従来どおり（出力を捕まえない）。countWarns は WARN 行だけ数える', () => {
+  assert.equal(isVerbose({ PRECOMMIT_VERBOSE: '1' }), true);
+  assert.equal(isVerbose({}), false);
+  assert.equal(countWarns('a\nWARN x\nno warning here\n警告 y\n'), 2);
+  assert.equal(countWarns(''), 0);
 });
