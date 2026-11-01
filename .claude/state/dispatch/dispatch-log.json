@@ -6374,6 +6374,23 @@
       "commit": "60105dba6321",
       "verification": "小変更 3 ファイルの pre-commit 出力 163 行→12 行",
       "note": "PR #1354（d6b05c20f）。成功時は要約 1 行（横展開リマインダのある回は 12 行）、失敗時は落ちた検査の出力だけ。PRECOMMIT_VERBOSE=1 で従来どおり"
+    },
+    {
+      "id": "DN-0936",
+      "at": "2026-11-02",
+      "task": "ページの種類ごとに採点プロファイルを定め、機械の棚卸しと実務・法令ガイドの採点基準を直す",
+      "tier": "mid",
+      "kind": "改善",
+      "prevention": {
+        "type": "gate",
+        "ref": "page-quality-inventory"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "ce01d8c7e11e",
+      "verification": "npm run page-quality-inventory exit 0（未分類 0・評価役の無いページ 447 を一覧）",
+      "note": "PR #1365 で採点プロファイル（10 種類）・page-quality-inventory（全 2,618 ページを分類・未分類 0）・guide-qa/guide-rewriter の実務・法令モードを入れた"
     }
   ]
 }
