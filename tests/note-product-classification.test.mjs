@@ -149,8 +149,8 @@ test('主任技士は受付中の同資格ココナラへ接続し、追加3ペ�
       overview:resolveOffsiteCta('concrete-chief-engineer-guide-overview'),trends:resolveOffsiteCta('concrete-chief-engineer-guide-trends')}));
   `);
   assert.equal(result.chief.id, 'coconala-cce-essay-tensaku'); assert.equal(result.chief.status, 'listed'); assert.equal(result.empty, null);
-  // 2級の添削は 2026-10-20 から不在で受付休止（absence）＝受付していない出品へは案内しない
-  assert.deepEqual(result.grading.map(i=>i.trackLabel), []);
+  // 経験記述の添削を統合出品へ集約した後は、2級の採点解説からも受付中の出品へ案内する。
+  assert.deepEqual(result.grading.map(i=>i.trackLabel), ['offsite-coconala-tensaku-4theme']);
   assert.deepEqual(result.overview.map(i=>i.trackLabel), ['offsite-coconala-cce-essay-tensaku']);
   assert.deepEqual(result.trends.map(i=>i.trackLabel), ['offsite-coconala-cce-essay-tensaku']);
 });

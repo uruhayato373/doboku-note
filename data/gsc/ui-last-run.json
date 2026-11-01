@@ -3,8 +3,8 @@
   "channel": "gsc-ui",
   "property": "sc-domain:doboku-note.com",
   "lastAttempt": {
-    "runId": "2026-10-11T03-29-41Z",
-    "collectedAt": "2026-10-11T03:29:41.003Z",
+    "runId": "2026-11-01T04-40-26Z",
+    "collectedAt": "2026-11-01T04:40:26.559Z",
     "status": "ok",
     "complete": true,
     "totalUnits": 16,
@@ -29,8 +29,8 @@
     }
   },
   "lastComplete": {
-    "runId": "2026-10-11T03-29-41Z",
-    "collectedAt": "2026-10-11T03:29:41.003Z",
+    "runId": "2026-11-01T04-40-26Z",
+    "collectedAt": "2026-11-01T04:40:26.559Z",
     "totalUnits": 16,
     "downloadedUnits": 11,
     "zeroUnits": 5
@@ -45,8 +45,8 @@
     "totalUnits": 10,
     "note": "旧スキーマで記録された取得。zero と failed が分離されていないため完全性は確定できない（allSubmittedPages の notFound/redirect/forbidden は正常なゼロの可能性が高い）。"
   },
-  "lastRun": "2026-10-11T03-29-41Z",
-  "collectedAt": "2026-10-11T03:29:41.003Z",
+  "lastRun": "2026-11-01T04-40-26Z",
+  "collectedAt": "2026-11-01T04:40:26.559Z",
   "status": "ok",
   "complete": true,
   "totalUnits": 16,

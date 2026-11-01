@@ -21,7 +21,7 @@ Google Search Console の継続管理（インデックス被覆・検索パフ�
 
 | 担当 | 種別 | 責務 | 入力 → 出力 |
 |---|---|---|---|
-| `index-coverage.yml` | CI（**週次**・水 JST 11:00 に周回を始め、未完了なら木・金の同じ時刻に続ける。2026-09-17 に月次から変更） | 全 sitemap URL の URL Inspection（5 並列・checkpoint・~35 分。1 回 1,900 件までで、超えた分は翌日の回が続きから検査し、全件がそろった回だけを履歴に積む＝周回・`scripts/lib/inspection-cycle.mjs`・DN-0825）+ 履歴追記 + **登録リクエスト順位表**（`data/gsc/indexing-priority.{json,txt}`＝表示実績のある未登録を先頭に、表示 0 は**型ごとの期待値**〔同じ型の登録済み 1 本あたり 28 日表示（最大の 1 本を除く平均）× 型の未登録率。登録済み 3 本未満の型は上位のまとまりの平均で代用・根拠は json の `types`〕の降順、直近 14 日にリクエスト済みは除外）。未完了の回は batch に `partial:true` が立ち、history には積まず翌日の回が続ける。金曜の回でも未完了なら完全性ゲートで赤にする（2026-09-01 の 120 分 cancelled の再発防止） | API/sitemap → `url-inspection/*.json` + `data/gsc/index-coverage.json`（develop） |
+| `index-coverage.yml` | CI（**週次**・水 JST 11:00 に周回を始め、保存済みの未完了 batch は木・金に続ける。水曜の保存失敗で batch が古ければ木・金に新しい周回を始める。2026-09-17 に月次から変更） | 全 sitemap URL の URL Inspection（5 並列・checkpoint・~35 分。1 回 1,900 件までで、超えた分は翌日の回が続きから検査し、全件がそろった回だけを履歴に積む＝周回・`scripts/lib/inspection-cycle.mjs`・DN-0825）+ 履歴追記 + **登録リクエスト順位表**（`data/gsc/indexing-priority.{json,txt}`＝表示実績のある未登録を先頭に、表示 0 は**型ごとの期待値**〔同じ型の登録済み 1 本あたり 28 日表示（最大の 1 本を除く平均）× 型の未登録率。登録済み 3 本未満の型は上位のまとまりの平均で代用・根拠は json の `types`〕の降順、直近 14 日にリクエスト済みは除外）。未完了の回は batch に `partial:true` が立ち、history には積まず翌日の回が続ける。金曜の回でも未完了なら完全性ゲートで赤にする（2026-09-01 の 120 分 cancelled の再発防止） | API/sitemap → `url-inspection/*.json` + `data/gsc/index-coverage.json`（develop） |
 | `fetch-metrics.yml` | CI（週次・金 JST 6:00） | GSC query/date/page/page×query + GA4。あわせて本番 robots.txt の sitemap を Search Console API で送信し読み込み状況を記録（`gsc-sitemaps`・ログイン不要）。成長パック（前の完了週×28 日基線の GA4/GSC 全件）・Bing・GA4 Admin API の観測・実験の自動計測・機会ダイジェストも同じ run で作る（[growth-cycle.md](growth-cycle.md)） | API → `data/{gsc,ga4}/・data/analysis/growth/・data/bing/` |
 | `gsc-index-auditor` | Evaluator（sonnet） | coverage 分類・indexed_ratio・履歴差分・原因バケット・hygiene URL surface | url-inspection + history → 診断テキスト（audit-only） |
 | `metrics-analyzer` | Evaluator（sonnet） | index 済みページの performance 8 パターン（SNS-Source-Shift＋page×query の Cannibalization/Content-Decay 含む） | gsc/ga4（`gsc.page-query` 含む）→ `improvements/*.md` |
@@ -748,3 +748,10 @@ EXP-006 の本判定は予定どおり next_check 2026-08-27 に、カバレッ�
 - 判断（ユーザー指示）: `/standards/{agency}/{document}/part-NN` の逐語分冊 280 URL の公開をやめた。利用者には章・節・文書ページだけを見せ、原本との照合はエージェントが `content/site/standards-library` の文字起こしで行う
 - 打ち手: 旧 URL は `public/_redirects` で 301（章のある 24 文書は分冊の先頭ページを含む章・節へ 214 本、章の無い 49 文書は文書ページへ 66 本。すべて静的ルール）。章の無い文書の文書ページは本文が無いので noindex
 - 読み方: 次回以降の URL 検査・sitemap の分母は part-N の分だけ減る（索引率の変化を part-N の除外と取り違えない）。転送先の章ページの索引化を数週間観測する
+
+### 2026-11-01（クロール済み・未登録の理由別再取得）
+
+- GSC UI を16ユニット中11取得・対象なし5・失敗0で再取得した。既知ページの「クロール済み・未登録」は10/11の381→791件、送信済みは322→330件。ただし既知791件の内訳は旧 `/docs/` 326件、機械可読な `/standards-data/` 446件、その他19件。増加分の大半はデータファイルで、現行HTMLの未登録が410件増えたわけではない。
+- 旧 `/docs/` 326件はすべて301転送に対応。`/standards-data/` は本番応答でも `X-Robots-Tag: noindex, follow` を確認。その他19件は転送10・非HTML4・現行HTML5。送信済み330件は旧 `/docs/` 325件と現行HTML5件に分かれる。生成物を更新して再診断した `FIX_TECHNICAL`・`REDIRECT_LEGACY` はともに0件。
+- 現行HTML5件をGSC URL検査画面で確認すると、建設部門コンピテンシー改訂、近畿共通仕様書7-2、総監メンタルヘルスの3件は登録済み。RCCM問題IIIとコンクリート診断士の予測・評価・判定は未登録のまま。両ページは200・自己canonical・index許可で、内部リンクもそれぞれ5件・8件ある。登録リクエストはRCCMが10/14、診断士が10/22に受理済み。
+- 判断: 再リクエストや逐語基準の統合は行わず、11/4以降の全URL検査の保存完了と2ページの状態遷移を確認する。Googleの登録は保証できない。根拠: `data/gsc/ui-urls.json`（11/1 run）、`data/gsc/indexing-requests.json`、`data/gsc/indexing-history.json`、`.claude/state/improvements/search-growth-latest.md`、本番ヘッダー、DN-0922。

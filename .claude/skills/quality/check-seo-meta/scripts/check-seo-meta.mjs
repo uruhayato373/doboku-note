@@ -30,6 +30,7 @@ import { readFileSync, writeFileSync, mkdirSync, existsSync } from "fs";
 import { dirname, join, resolve } from "path";
 import { datasetPath } from "../../../../../scripts/lib/datasets.mjs";
 import { parseCliArgs } from "../../../../../scripts/lib/cli-args.mjs";
+import { parseLegacyRedirects } from "../../../../../scripts/lib/legacy-routes.mjs";
 import {
   extractSeo,
   runIndexablePageChecks,
@@ -66,19 +67,8 @@ function parseArgs() {
 // ── URL 収集（現行 doc-meta-index 形式に対応） ──
 
 function loadCanonicalDocPaths() {
-  const map = new Map();
   const path = "public/_redirects";
-  if (!existsSync(path)) return map;
-  let managed = false;
-  for (const raw of readFileSync(path, "utf8").split("\n")) {
-    const line = raw.trim();
-    if (line === "# BEGIN GENERATED PUBLIC ROUTES") { managed = true; continue; }
-    if (line === "# END GENERATED PUBLIC ROUTES") break;
-    if (!managed || !line || line.startsWith("#")) continue;
-    const match = line.match(/^\/docs\/([^/*\s]+)\s+(\/\S+)\s+301$/);
-    if (match) map.set(match[1], match[2]);
-  }
-  return map;
+  return existsSync(path) ? parseLegacyRedirects(readFileSync(path, "utf8")) : new Map();
 }
 
 function loadSitemapPaths(outDir = "out") {
@@ -105,7 +95,7 @@ function collectUrls(config, outDir) {
     for (const [slug, meta] of Object.entries(docs)) {
       if (meta?.published === false) continue;
       if (meta?.noindex === true) continue;
-      docUrls.push(canonicalDocPaths.get(slug) || `/docs/${slug}`);
+      docUrls.push(canonicalDocPaths.get(`/docs/${slug}`) || `/docs/${slug}`);
     }
   }
   // include_routes は静的ルート。doc URL とは分けて母集合ガードの対象は doc URL 数にする。

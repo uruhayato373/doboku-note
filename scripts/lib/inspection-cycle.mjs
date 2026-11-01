@@ -8,7 +8,8 @@
  *   - 新しい周回: sitemap の先頭から上限まで検査する
  *   - 続き: 直前の batch が未完了（partial）で、周回の開始から maxCycleDays 日以内なら、
  *     前回までの結果（今の sitemap にある URL で、失敗していないもの）を引き継ぎ、残りを上限まで検査する
- *   - 何もしない: 続きだけを頼まれたが、続ける周回が無い（前回で完了した）
+ *   - 何もしない: 続きだけを頼まれ、今週の水曜以降に前回の周回が完了している
+ *   - 再開: 水曜の結果を保存できず、直前の batch が先週以前なら木曜・金曜に新しい周回を始める
  *
  * batch の cycle 欄（startedAt・runs）が周回を表す。完了・未完了は今の sitemap の件数に対して数える。
  */
@@ -25,10 +26,19 @@ export function continuable(prior, now, maxCycleDays = MAX_CYCLE_DAYS) {
   return Number.isFinite(age) && age >= 0 && age <= maxCycleDays * 86_400_000;
 }
 
+/** 直近の水曜 02:00 UTC（index-coverage.yml の新規周回開始時刻） */
+function scheduledCycleStart(now) {
+  const start = new Date(now);
+  start.setUTCDate(start.getUTCDate() - ((start.getUTCDay() + 4) % 7));
+  start.setUTCHours(2, 0, 0, 0);
+  if (start.getTime() > now) start.setUTCDate(start.getUTCDate() - 7);
+  return start.getTime();
+}
+
 /**
  * 今回検査する URL を決める。
  * @param {{ sitemap: string[], prior: object | null, mode: 'new' | 'continue' | 'auto', now: number, cap?: number, maxCycleDays?: number }} o
- *   mode: new＝必ず新しい周回 / continue＝続きがあれば続け、無ければ何もしない / auto＝続きがあれば続け、無ければ新しい周回
+ *   mode: new＝必ず新しい周回 / continue＝続きがあれば続け、今週の完了済み周回があれば何もしない、どちらも無ければ新しい周回 / auto＝続きがあれば続け、無ければ新しい周回
  * @returns {{ action: 'new' | 'continue' | 'skip', toInspect: string[], carried: object[], cycle: { startedAt: string, runs: number } | null, remaining: number }}
  */
 export function planInspection({ sitemap, prior, mode, now, cap = INSPECT_CAP, maxCycleDays = MAX_CYCLE_DAYS }) {
@@ -47,7 +57,10 @@ export function planInspection({ sitemap, prior, mode, now, cap = INSPECT_CAP, m
       remaining: rest.length,
     };
   }
-  if (mode === 'continue') return { action: 'skip', toInspect: [], carried: [], cycle: null, remaining: 0 };
+  const priorGeneratedAt = Date.parse(prior?.generated_at ?? '');
+  if (mode === 'continue' && prior?.partial === false && Number.isFinite(priorGeneratedAt) && priorGeneratedAt >= scheduledCycleStart(now)) {
+    return { action: 'skip', toInspect: [], carried: [], cycle: null, remaining: 0 };
+  }
   return {
     action: 'new',
     toInspect: urls.slice(0, cap),

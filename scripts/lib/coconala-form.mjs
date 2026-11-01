@@ -1,11 +1,11 @@
 /**
  * coconala-form.mjs — サービス内容編集フォーム（/mypage/services/{id}）の充填ロジック
  * ---------------------------------------------------------------------------
- * publish（新規）/ edit（既存）の両方が使う。フォームは server-rendered（CakePHP 型
- * name=data[Service][...]・id=#Service*）で selector が安定。2026-07-18 実機確定。
+ * publish（新規）/ edit（既存）の両方が使う。2026-07-18 の旧フォームは CakePHP 型
+ * name=data[Service][...]・id=#Service*。2026-11-01 の既存出品編集は Vue フォーム。
  *
  * フィールド対応（実機ディスカバリ）:
- *   #ServiceOverview          サービスタイトル（text・max255）        ← catalog.title
+ *   #ServiceOverview          サービスタイトル（旧フォーム）          ← catalog.title
  *   #ServiceCatchphrase       キャッチコピー（text・max255）          ← listings.catchphrase
  *   #ServiceCategory          大カテゴリ（select・value）             ← listings.category.master
  *   #ServiceSubCategory       サブカテゴリ（select・value・cascading） ← listings.category.sub
@@ -15,7 +15,8 @@
  *   #ServiceBody              購入にあたってのお願い（textarea・max500）← listings.purchaseNote
  *   #ServicePrice             価格（select・option text "N,NNN円"）    ← catalog.priceYen
  *   #ServiceDeliveryTime      お届け日数（text・max2）                ← listings.deliveryDays
- * 送信ボタン: 「下書きで保存」/「公開する」（ともに button.submitButton[type=submit]）
+ * 現行の既存出品は textarea/combobox をラベルと placeholder で指定し、FAQ・オプションも投入。
+ * 送信ボタン: 「下書きで保存」/「公開する」/「更新する」
  * ---------------------------------------------------------------------------
  */
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
@@ -54,6 +55,101 @@ async function fillIfPresent(page, sel, value, { tag, label }) {
   return `${label}: set (${String(value).length}字)`;
 }
 
+async function fillVueServiceForm(page, fields) {
+  const log = [], warnings = [];
+  const fill = async (selector, value, label) => {
+    if (value === undefined) return;
+    const el = page.locator(selector);
+    if (await el.count() !== 1) { warnings.push(`${label} の入力欄が一意に見つからない`); return; }
+    await el.fill(String(value));
+    if (await el.inputValue() !== String(value)) warnings.push(`${label} の入力値が一致しない`);
+    else log.push(`${label}: set`);
+  };
+  if (fields.title !== undefined) {
+    const title = String(fields.title).replace(/ます$/, '');
+    if ([...title].length > 23) warnings.push(`title が現行フォームの23字上限を超える（${[...title].length}字）`);
+    await fill('textarea[placeholder^="例）小さいお子さん向け"]', title, 'title');
+  }
+  if (fields.catchphrase !== undefined) await fill('textarea[placeholder="キャッチコピーを入力してください"]', fields.catchphrase, 'catchphrase');
+  if (fields.category) {
+    const labels = String(fields.category._labels || '').split(' > ').map((s) => s.replace(/（.*$/, ''));
+    for (const [name, expected] of [['カテゴリ', labels[0]], ['小カテゴリ', labels[1]], ['カテゴリタイプ', labels[2]]]) {
+      const actual = (await page.getByRole('combobox', { name, exact: true }).textContent().catch(() => '')).trim();
+      if (!expected || actual !== expected) warnings.push(`${name} がカタログと不一致（${actual} / ${expected}）`);
+      else log.push(`${name}: ${actual}`);
+    }
+  }
+  if (fields.genreFacets?.length) {
+    for (const value of fields.genreFacets) {
+      const box = page.locator(`input[type="checkbox"][id$="-${value}"]`);
+      if (await box.count() !== 1 || !await box.isChecked()) warnings.push(`genreFacets ${value} が未選択`);
+    }
+  }
+  if (fields.provisionFormat) {
+    const radio = page.locator(`input[type="radio"][name$="-provision-format"][value="${fields.provisionFormat}"]`);
+    if (await radio.count() !== 1) warnings.push('provisionFormat が見つからない');
+    else if (!await radio.isChecked()) await radio.check({ force: true });
+  }
+  if (fields.body !== undefined) await fill('textarea[placeholder^="サービスの内容、ユーザーのメリット"]', fields.body, 'body');
+  if (fields.purchaseNote !== undefined) await fill('textarea[placeholder^="ユーザーに必ず書いて欲しい情報"]', fields.purchaseNote, 'purchaseNote');
+  if (fields.priceYen !== undefined) {
+    const price = `${Number(fields.priceYen).toLocaleString('en-US')}円`;
+    const combo = page.getByRole('combobox', { name: 'サービス価格' });
+    if (await combo.count() !== 1) warnings.push('サービス価格の選択欄が見つからない');
+    else {
+      await combo.click();
+      const option = page.getByRole('option', { name: price, exact: true });
+      if (await option.count() !== 1) warnings.push(`価格 ${price} が選択肢にない`);
+      else { await option.click(); log.push(`price: ${price}`); }
+      if ((await combo.textContent()).trim() !== price) warnings.push(`価格の表示が ${price} と一致しない`);
+    }
+  }
+  if (fields.deliveryDays !== undefined) await fill('input[type="text"][id$="-days"]', fields.deliveryDays, 'deliveryDays');
+  if (fields.orderLimit !== undefined) await fill('input[type="text"][id$="-order-limit"]', fields.orderLimit, 'orderLimit');
+  if (fields.faq?.length) {
+    const questions = page.locator('textarea[placeholder="よくある質問を入力する"]');
+    const answers = page.locator('textarea[placeholder="質問の回答を入力する"]');
+    if (await questions.count() !== fields.faq.length || await answers.count() !== fields.faq.length) warnings.push('FAQ の画面件数がカタログと一致しない');
+    else for (let i = 0; i < fields.faq.length; i++) {
+      await questions.nth(i).fill(fields.faq[i].q);
+      await answers.nth(i).fill(fields.faq[i].a);
+    }
+    if (!warnings.some((x) => x.startsWith('FAQ'))) log.push(`faq: ${fields.faq.length} 件`);
+  }
+  if (fields.options?.length) {
+    const add = page.getByRole('button', { name: '有料オプションを追加' });
+    if (await add.count() !== 1 || fields.options.length > 10) warnings.push('有料オプションの入力欄または件数が不正');
+    else {
+      const section = add.locator('xpath=../..');
+      const names = section.locator('textarea[placeholder="オプションを入力する"]');
+      if (await names.count() > fields.options.length) warnings.push('画面の有料オプションがカタログより多い');
+      else {
+        while (await names.count() < fields.options.length) {
+          const before = await names.count();
+          await add.click();
+          await page.waitForFunction((n) => document.querySelectorAll('textarea[placeholder="オプションを入力する"]').length > n, before, { timeout: 5000 });
+        }
+        const combos = section.getByRole('combobox');
+        if (await combos.count() !== fields.options.length * 2) warnings.push('有料オプションの価格・公開状態欄が揃っていない');
+        else for (let i = 0; i < fields.options.length; i++) {
+          const option = fields.options[i];
+          await names.nth(i).fill(option.title);
+          const price = `${Number(option.priceYen).toLocaleString('en-US')}円`;
+          const combo = combos.nth(i * 2);
+          await combo.click();
+          const choice = page.getByRole('option', { name: price, exact: true });
+          if (await choice.count() !== 1) warnings.push(`有料オプション ${i + 1} の価格 ${price} が選択肢にない`);
+          else await choice.click();
+          if ((await combo.textContent()).trim() !== price) warnings.push(`有料オプション ${i + 1} の価格が一致しない`);
+          if ((await combos.nth(i * 2 + 1).textContent()).trim() !== '公開') warnings.push(`有料オプション ${i + 1} が公開設定でない`);
+        }
+        if (!warnings.some((x) => x.startsWith('有料オプション'))) log.push(`options: ${fields.options.length} 件`);
+      }
+    }
+  }
+  return { log, warnings };
+}
+
 /**
  * フォームを充填する。fields のうち渡されたものだけ埋める（edit の部分更新に対応）。
  * @returns {Promise<{log:string[], warnings:string[]}>}
@@ -62,6 +158,7 @@ export async function fillServiceForm(page, fields, { tag = '[form]' } = {}) {
   const log = [];
   const warn = [];
   await dismissModal(page);
+  if (await page.locator('textarea[placeholder^="例）小さいお子さん向け"]').count()) return fillVueServiceForm(page, fields);
 
   // タイトル: ココナラのサービスタイトル欄は末尾「ます」が固定サフィックスで自動付与される
   // （「※『ます』は必須のため削除できません」）。カタログの「〜します」をそのまま入れると

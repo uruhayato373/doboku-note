@@ -1461,6 +1461,48 @@
         "/practice/road-work-approval-vs-road-use-permit",
         "/practice/sediment-disaster-erosion-control"
       ]
+    },
+    {
+      "runId": "2026-11-01T04-43-54Z",
+      "collectedAt": "2026-11-01T04:43:54.164Z",
+      "mode": "dry-run",
+      "status": "inspection-unreadable",
+      "filter": {
+        "category": null,
+        "group": null
+      },
+      "inspected": 4,
+      "accepted": 0,
+      "alreadyIndexed": 0,
+      "unreadable": 4,
+      "slugs": [
+        "/exam/pe-construction/guide/competency-revision-r8",
+        "/exam/rccm/guide/mondai3-themes-2026",
+        "/standards/kinki/common/chapters/7-2",
+        "/exam/pe-comprehensive-management/keywords/mental-health"
+      ],
+      "acceptedSlugs": []
+    },
+    {
+      "runId": "2026-11-01T04-54-38Z",
+      "collectedAt": "2026-11-01T04:54:38.256Z",
+      "mode": "dry-run",
+      "status": "dry-ok",
+      "filter": {
+        "category": null,
+        "group": null
+      },
+      "inspected": 4,
+      "accepted": 0,
+      "alreadyIndexed": 3,
+      "unreadable": 0,
+      "slugs": [
+        "/exam/pe-construction/guide/competency-revision-r8",
+        "/exam/rccm/guide/mondai3-themes-2026",
+        "/standards/kinki/common/chapters/7-2",
+        "/exam/pe-comprehensive-management/keywords/mental-health"
+      ],
+      "acceptedSlugs": []
     }
   ]
 }

@@ -155,8 +155,8 @@
         ],
         "weeklyCapacity": 20,
         "listedAt": "2026-07-18",
-        "pauseReason": "absence",
-        "resumeOn": "2027-07-01"
+        "pauseReason": "retired",
+        "archivedAt": "2026-11-01"
       },
       "members": [],
       "includes": [],
@@ -201,8 +201,8 @@
         ],
         "weeklyCapacity": 1,
         "listedAt": "2026-08-05",
-        "pauseReason": "absence",
-        "resumeOn": "2027-07-01"
+        "pauseReason": "retired",
+        "archivedAt": "2026-11-01"
       },
       "members": [],
       "includes": [],
@@ -250,7 +250,7 @@
         ],
         "weeklyCapacity": 20,
         "pauseReason": "absence",
-        "resumeOn": "2026-10-26",
+        "resumeOn": "2027-07-01",
         "listedAt": "2026-08-05"
       },
       "members": [],
@@ -396,9 +396,9 @@
           "civil-2"
         ],
         "weeklyCapacity": 20,
-        "pauseReason": "absence",
-        "resumeOn": "2026-10-26",
-        "listedAt": "2026-07-18"
+        "pauseReason": "retired",
+        "listedAt": "2026-07-18",
+        "archivedAt": "2026-11-01"
       },
       "members": [],
       "includes": [],
@@ -430,9 +430,9 @@
           "civil-2"
         ],
         "weeklyCapacity": 2,
-        "pauseReason": "absence",
-        "resumeOn": "2026-10-26",
-        "listedAt": "2026-09-25"
+        "pauseReason": "retired",
+        "listedAt": "2026-09-25",
+        "archivedAt": "2026-11-01"
       },
       "members": [],
       "includes": [],
@@ -472,8 +472,8 @@
         ],
         "weeklyCapacity": 1,
         "listedAt": "2026-09-25",
-        "pauseReason": "absence",
-        "resumeOn": "2027-07-01"
+        "pauseReason": "retired",
+        "archivedAt": "2026-11-01"
       },
       "members": [],
       "includes": [],
@@ -501,9 +501,9 @@
           "civil-2"
         ],
         "weeklyCapacity": 2,
-        "pauseReason": "absence",
-        "resumeOn": "2026-10-26",
-        "listedAt": "2026-09-25"
+        "pauseReason": "retired",
+        "listedAt": "2026-09-25",
+        "archivedAt": "2026-11-01"
       },
       "members": [],
       "includes": [],
@@ -543,8 +543,8 @@
         ],
         "weeklyCapacity": 1,
         "listedAt": "2026-09-25",
-        "pauseReason": "absence",
-        "resumeOn": "2027-07-01"
+        "pauseReason": "retired",
+        "archivedAt": "2026-11-01"
       },
       "members": [],
       "includes": [],
@@ -1095,9 +1095,9 @@
           "civil-1"
         ],
         "weeklyCapacity": 2,
-        "pauseReason": "absence",
-        "resumeOn": "2027-07-01",
-        "listedAt": "2026-07-18"
+        "pauseReason": "retired",
+        "listedAt": "2026-07-18",
+        "archivedAt": "2026-11-01"
       },
       "members": [],
       "includes": [],
@@ -1143,8 +1143,8 @@
         ],
         "weeklyCapacity": 1,
         "listedAt": "2026-08-17",
-        "pauseReason": "absence",
-        "resumeOn": "2027-07-01"
+        "pauseReason": "retired",
+        "archivedAt": "2026-11-01"
       },
       "members": [],
       "includes": [],
@@ -1272,9 +1272,9 @@
       "order": 2,
       "catalog": {
         "id": "coconala-tensaku-4theme",
-        "status": "paused",
+        "status": "listed",
         "serviceUrl": "https://coconala.com/services/4418735",
-        "title": "1級・2級土木の経験記述を元発注者の技術士が添削します",
+        "title": "1級・2級土木の経験記述を元発注者が添削します",
         "shortTitle": "土木 経験記述 添削（1級・2級）",
         "description": "1級・2級土木施工管理技士 第2次検定の施工経験記述（問題1）を添削します。基本は2テーマ分の赤入れ（NG→OK 書き換え案）＋6観点のチェックリスト判定表＋読み手視点のコメント＋書き直し1回で、受け取りから3日以内にお返しします。全テーマ（2級は3テーマ・1級は5テーマ）への拡張、下書きが無い方向けの骨子からの相談（ヒアリング→骨子シート）、24時間以内の返却はオプションで選べます。答案はご本人が書きます（代筆はしません）。経験していない工事や数値の創作はお受けしません。",
         "priceYen": 6000,
@@ -1290,9 +1290,7 @@
           "civil-2"
         ],
         "weeklyCapacity": 2,
-        "listedAt": "2026-09-25",
-        "pauseReason": "absence",
-        "resumeOn": "2026-10-26"
+        "listedAt": "2026-09-25"
       },
       "members": [],
       "includes": [],
@@ -1333,9 +1331,9 @@
           "civil-1"
         ],
         "weeklyCapacity": 2,
-        "pauseReason": "absence",
-        "resumeOn": "2027-07-01",
-        "listedAt": "2026-07-18"
+        "pauseReason": "retired",
+        "listedAt": "2026-07-18",
+        "archivedAt": "2026-11-01"
       },
       "members": [],
       "includes": [],
@@ -4753,7 +4751,7 @@
       "order": 64,
       "catalog": {
         "id": "j-01",
-        "asin": null,
+        "asin": "B0GX2NDGDK",
         "title": "2級土木施工管理技士 第2次検定 施工経験記述 過去問模範答案集",
         "subtitle": "令和3〜7年度 年度別5回分の模範答案と書き方",
         "series": "J 2級土木 第2次検定 記述",
@@ -4761,7 +4759,7 @@
         "priceJpy": 1980,
         "royalty": 0.35,
         "chapterCount": 5,
-        "status": "in_review",
+        "status": "live",
         "builder": "scripts/build-essay-kindle.mjs",
         "buildSpec": "scripts/kindle-specs/j-01.json",
         "epub": "kindle-dist/j-01.epub",
@@ -4850,7 +4848,7 @@
       "order": 66,
       "catalog": {
         "id": "j-03",
-        "asin": null,
+        "asin": "B0H943XQF6",
         "title": "2級土木施工管理技士 第2次検定 学科記述 テーマ別出る順＋直前暗記ノート",
         "subtitle": "令和3〜7年度の頻出論点と解答の型・穴埋め頻出語句",
         "series": "J 2級土木 第2次検定 記述",
@@ -4858,7 +4856,7 @@
         "priceJpy": 1980,
         "royalty": 0.35,
         "chapterCount": 6,
-        "status": "in_review",
+        "status": "live",
         "builder": "scripts/build-essay-kindle.mjs",
         "buildSpec": "scripts/kindle-specs/j-03.json",
         "epub": "kindle-dist/j-03.epub",

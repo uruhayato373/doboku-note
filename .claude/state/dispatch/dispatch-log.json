@@ -6242,6 +6242,36 @@
       "commit": "584adf8e1dd7",
       "verification": "PR #1311（584adf8e1）: dev の /exam/pe-construction（スマホ幅）で same key の警告 0・各行のチップ 8 枚が別の記事",
       "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-0845",
+      "at": "2026-11-01",
+      "task": "note の土木もくじ・建設部門もくじの残り（級の分岐と重複・カード羅列・もくじ未掲載の論点 6 本・「約8割お得」の根拠）を直す",
+      "tier": "mid",
+      "kind": "改善",
+      "prevention": {
+        "type": "none",
+        "ref": "既存の監査とライブ照合で検出可能"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "6b3fa349bd68",
+      "verification": "check-note-funnel exit 0; audit-note-funnel --live 121/121 drift 0; note-funnel-auditor 11/12 L2 pass; note update API verified both articles",
+      "note": "土木・建設部門の級別導線、無料入口、商品分類とR8教材の時期表現を更新。一次PDFに二次添削の冒頭表示は現状なく、建設部門の無料6論点も既に掲載済み。"
+    },
+    {
+      "id": "DN-0538",
+      "at": "2026-11-01",
+      "task": "2級本試験後のココナラの棚の切り替え（経験記述添削を 1 商品 services/4418735 へ集約し、旧 8 商品と予想模試 PDF 2 本を片付ける）",
+      "tier": "high",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "6ddf3864f355",
+      "verification": "旧10出品のアーカイブを出品一覧で確認。公開ブログ15/15とnote対象7/7が4418735のみ。check-coconala-wiring・check-coconala-blog・check-coconala-liveが全PASS。",
+      "note": "todo-complete.mjs 経由で完了処理"
     }
   ]
 }
