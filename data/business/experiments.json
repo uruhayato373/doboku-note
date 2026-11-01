@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-11-01T05:49:20.574Z",
+  "updated_at": "2026-11-01T05:49:27.823Z",
   "experiments": [
     {
       "id": "EXP-002",
@@ -4707,7 +4707,7 @@
       "hypothesis": "/standards/kinki は 2 語が11〜30位（最良 10.5 位・表示 3）。検索意図に合わせて title・description・冒頭の答え・見出し・内部リンクを直せば、同じ検索語の順位が上がる",
       "target_metric": "対象ページ × 起票時の検索語 2 語の GSC 平均順位（本番反映の前 28 日・後 28 日）",
       "target_delta": "平均順位が 10% 以上良くなる。前後どちらかの表示が 10 未満なら判定不能",
-      "status": "running",
+      "status": "done",
       "created_at": "2026-10-13",
       "searchStrategy": {
         "cluster": "standards",
@@ -4780,6 +4780,16 @@
             "sha": "69e8a7add932060f430a51ebd11e97f5bfeafe8e",
             "at": "2026-09-27T11:18:10Z",
             "url": "https://github.com/uruhayato373/doboku-note/actions/runs/36315053964"
+          }
+        },
+        {
+          "at": "2026-11-01T05:49:27.822Z",
+          "event": "closed",
+          "result": "no-effect",
+          "verdictHint": "insufficient-data",
+          "measurement": {
+            "pre": 10.5,
+            "post": 9.2
           }
         }
       ],
@@ -4896,7 +4906,10 @@
           "deltaPct": -12.4,
           "verdictHint": "insufficient-data"
         }
-      ]
+      ],
+      "result": "no-effect",
+      "learnings": "近畿の共通仕様書は表示 2→6・10.5→9.2 位で差がない。表示の少ない地方ページの title 改善は効果を測れない",
+      "closed_at": "2026-11-01T05:49:27.822Z"
     },
     {
       "id": "EXP-027",
