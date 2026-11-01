@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
-  "runId": "2026-11-01T04-43-54Z",
-  "collectedAt": "2026-11-01T04:43:54.164Z",
+  "runId": "2026-11-01T04-54-38Z",
+  "collectedAt": "2026-11-01T04:54:38.256Z",
   "property": "sc-domain:doboku-note.com",
   "mode": "dry-run",
-  "scriptVersion": "32581b848",
+  "scriptVersion": "f9759f15c",
   "filter": {
     "category": null,
     "group": null
@@ -16,60 +16,64 @@
       "slug": "/exam/pe-construction/guide/competency-revision-r8",
       "url": "https://doboku-note.com/exam/pe-construction/guide/competency-revision-r8",
       "inspected": {
-        "state": null,
+        "state": "indexed",
         "reason": null,
         "lastCrawl": null,
+        "discoveredVia": null,
         "crawlAllowed": null,
         "indexingAllowed": null
       },
       "request": null,
-      "reachedVerdict": false
+      "reachedVerdict": true
     },
     {
       "slug": "/exam/rccm/guide/mondai3-themes-2026",
       "url": "https://doboku-note.com/exam/rccm/guide/mondai3-themes-2026",
       "inspected": {
-        "state": null,
-        "reason": null,
-        "lastCrawl": null,
-        "crawlAllowed": null,
+        "state": "not-indexed",
+        "reason": "クロール済み - インデックス未登録",
+        "lastCrawl": "2026/10/14 10:31:16",
+        "discoveredVia": "sitemap",
+        "crawlAllowed": true,
         "indexingAllowed": null
       },
       "request": null,
-      "reachedVerdict": false
+      "reachedVerdict": true
     },
     {
       "slug": "/standards/kinki/common/chapters/7-2",
       "url": "https://doboku-note.com/standards/kinki/common/chapters/7-2",
       "inspected": {
-        "state": null,
+        "state": "indexed",
         "reason": null,
         "lastCrawl": null,
+        "discoveredVia": null,
         "crawlAllowed": null,
         "indexingAllowed": null
       },
       "request": null,
-      "reachedVerdict": false
+      "reachedVerdict": true
     },
     {
       "slug": "/exam/pe-comprehensive-management/keywords/mental-health",
       "url": "https://doboku-note.com/exam/pe-comprehensive-management/keywords/mental-health",
       "inspected": {
-        "state": null,
+        "state": "indexed",
         "reason": null,
         "lastCrawl": null,
+        "discoveredVia": null,
         "crawlAllowed": null,
         "indexingAllowed": null
       },
       "request": null,
-      "reachedVerdict": false
+      "reachedVerdict": true
     }
   ],
-  "status": "inspection-unreadable",
+  "status": "dry-ok",
   "summary": {
     "inspected": 4,
     "accepted": 0,
-    "alreadyIndexed": 0,
-    "unreadable": 4
+    "alreadyIndexed": 3,
+    "unreadable": 0
   }
 }
