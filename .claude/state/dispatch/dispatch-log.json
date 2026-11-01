@@ -6391,6 +6391,23 @@
       "commit": "ce01d8c7e11e",
       "verification": "npm run page-quality-inventory exit 0（未分類 0・評価役の無いページ 447 を一覧）",
       "note": "PR #1365 で採点プロファイル（10 種類）・page-quality-inventory（全 2,618 ページを分類・未分類 0）・guide-qa/guide-rewriter の実務・法令モードを入れた"
+    },
+    {
+      "id": "DN-0937",
+      "at": "2026-11-02",
+      "task": "採点プロファイルの空いた種類に評価役を入れ、土木の重なる評価役を統合する",
+      "tier": "mid",
+      "kind": "改善",
+      "prevention": {
+        "type": "gate",
+        "ref": "page-quality-inventory"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "c5b531fd28a3",
+      "verification": "npm run page-quality-inventory exit 0（評価役の無い資格は全文ライブラリの evaluatorGap だけ）",
+      "note": "PR #1366: 建設部門 keyword・pillar→guide-qa、建設部門 past-exam→content-qa、コンクリ技士・測量士→past-exam-qa、コンクリ教科書→civil-construction-qa Mode R。civil-construction-review を統合して退役。採点状況は quality-census から棚卸しに表示。Gemini は DN-0939、全文ライブラリは DN-0938 へ分割"
     }
   ]
 }
