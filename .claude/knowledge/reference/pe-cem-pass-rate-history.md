@@ -109,5 +109,5 @@ IPEJ 公表 PDF「[技術士第二次試験結果一覧表（S33-R7）](https://
 ## 7. 関連ファイル
 
 - `content/note/_magazines/` — 総監記述式マガジンで合格率を引用する場合の挿入位置確認
-- `content/sns/instagram/{exam}/exam-packs/**` — IG カルーセルで「難関 X%」訴求するときの数値根拠
+- Instagram の新規原稿 — 「難関 X%」を扱う場合は、この合格率記録と公式資料を数値根拠にする（旧 `exam-packs` は撤去済み）
 - `content/site/pe-comprehensive-management/whitepaper-study-map/article.mdx` — 総監対策トップで合格率を提示する候補

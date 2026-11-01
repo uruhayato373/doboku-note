@@ -79,7 +79,7 @@ Google Drive 側が `config/drive-vault.json`（台帳 `.claude/state/assets/dri
 | `note-magazine-cover-png` | human | Drive `制作物/マガジンカバー/` | |
 | `note-cover-pop-preview` | human | Drive `制作物/noteカバー/POP版/` | 新テンプレートの全件確認用。記事・マガジン画像、生成manifest、QA結果を個別復元できる形で保存 |
 | `repo-archive` | human | Drive `アーカイブ/repo/` | |
-| ~~`legacy-r2-orphan`~~ | human | 記事画像 2,573 件は削除済み（参照 0 を確認）・SNS 素材 1,146 件は Drive `アーカイブ/旧R2/sns/` | 2026-09-05 に R2 から消し group を削除 |
+| `legacy-r2-orphan` | human | Drive `アーカイブ/旧R2/sns/` | 2026-11-01 に旧Instagram 746件を削除。YouTube Shorts 200件・サムネイル200件が残る。記事画像2,573件は参照0を確認して削除済み |
 
 **公開バケットへ置かないもの**: 教材、購入者限定 PDF、未公開商品、draft 画像、そして **人しか読まないもの全部**。
 `doboku-note-archive` にはカスタムドメインを付けない（S3 API だけで扱う）。

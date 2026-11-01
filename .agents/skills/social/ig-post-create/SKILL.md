@@ -1,7 +1,8 @@
 ---
 name: ig-post-create
-description: Instagram カルーセル PNG の**新規生成**。2 系統運用 (A: 択一クイズパック / B: 過去問パック)。Satori vDOM → Resvg PNG。1080×1350 (Carousel) と 1080×1920 (Reels) 対応。使い分け＝既存パックの意匠一括再生成は ig-carousel-restyle、site figure SVG からの変換は ig-figure-pack。
+description: 退役したInstagram旧A/B過去問パックの生成仕様。現行の新規投稿には使わず、content/sns/instagram/README.md の個別登録を使う。
 allowed-tools: Bash, Read, Write
+disable-model-invocation: true
 domain: sns
 ---
 

@@ -1,5 +1,7 @@
 # Instagram Reels 品質ポリシー
 
+> **旧パックの適用終了（2026-11-01）**: `reels/script.json` を持つ旧 `exam-packs` とそのエージェント経路は撤去済み。以下の仕様は旧制作物の記録。新規Reelsには新しい素材フォルダと台帳公開行を個別に用意し、実際の入力スキーマでQAする。
+
 技術士・総合技術監理および 1 級土木施工管理技士の **Instagram Reels**（`reels/script.json` + `reels/caption.txt` + `reels/video.mp4`）を、agent が 1 パックずつ執筆・採点するための品質基準。`ig-reels-writer`（Generator）と `ig-reels-qa`（Evaluator）の両方がこの文書を真実源とする。
 
 関連:

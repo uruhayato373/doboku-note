@@ -212,6 +212,7 @@ function processYear(yearData, force) {
 }
 
 function main() {
+  throw new Error('旧 Instagram 過去問パックの一括生成は終了した。新規投稿は個別の素材フォルダと台帳行から作る');
   const args = process.argv.slice(2);
   const force = args.includes("--force");
   const yearArg = args.includes("--year") ? args[args.indexOf("--year") + 1] : null;

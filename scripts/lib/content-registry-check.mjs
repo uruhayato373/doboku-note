@@ -113,6 +113,8 @@ export function checkRegistry(root, opts = {}) {
     if (before === null) issues.push(issue('INFO', 'R03', null, `base ${opts.base} を読めない（削除と遷移を比較していない）`));
     else {
       for (const old of before) {
+        // Instagram は削除済みの旧公開をアクティブ台帳から撤去する。予約中は引き続き保護する。
+        if (old.channel === 'instagram' && old.status === 'stopped') continue;
         const rank = cfg.status.values.indexOf(old.status);
         if (rank < cfg.status.values.indexOf('scheduled') || old.status === 'failed') continue;
         if (!pubById.has(old.id) && !reg.publications.some((p) => p.renamedTo === old.id)) {
@@ -135,7 +137,11 @@ export function checkRegistry(root, opts = {}) {
   }
 
   // R04: 参照の整合と孤児
-  for (const w of reg.works) if (!existsSync(join(root, w.definition))) issues.push(issue('FAIL', 'R04', w.id, `作品の定義フォルダが無い: ${w.definition}`));
+  for (const w of reg.works) {
+    const linked = reg.publications.filter((p) => p.exam === w.exam && p.work === w.id);
+    const retiredShort = w.kind === 'legacy-short' && linked.length > 0 && linked.every((p) => p.status === 'stopped');
+    if (!retiredShort && !existsSync(join(root, w.definition))) issues.push(issue('FAIL', 'R04', w.id, `作品の定義フォルダが無い: ${w.definition}`));
+  }
   for (const p of reg.publications) {
     const w = workById.get(p.work);
     if (!w) issues.push(issue('FAIL', 'R04', p.id, `作品が台帳に無い: ${p.work}`));

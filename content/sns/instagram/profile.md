@@ -132,7 +132,7 @@ bio 直下に固定表示できる丸アイコン。プロフィール訪問者�
 
 ### 推奨 5 ハイライト構成（v2 / 2026-05-27 更新）
 
-**詳細スペック（Story 単位のコピー + 視覚仕様）は [stories/highlights/script-v1.md](./stories/highlights/script-v1.md) を参照**。
+**この節は旧構想の記録です。Story 単位の旧素材は 2026-11-01 に削除しました。**
 
 | 順 | Highlights | brand-color | 主CTA先 | 素材ソース |
 |---|---|---|---|---|
@@ -208,7 +208,7 @@ node .claude/scripts/instagram/build-stories.mjs --pack r07-pack-01
 4. **① 1級土木** — `keyword-2026` `guide-last-minute-2026` のスクショ流用
 5. **⑤ YouTube** — チャンネル開設後に保留解除（`src/config/author.ts` に `youtubeUrl` 追加が前提）
 
-詳細な各 Story のコピー・レイアウト・Link Sticker URL は [stories/highlights/script-v1.md](./stories/highlights/script-v1.md)。
+各 Story の旧コピー・レイアウト・Link Sticker URL は 2026-11-01 に削除済み。新しいハイライトを作る場合は個別に企画する。
 
 ---
 

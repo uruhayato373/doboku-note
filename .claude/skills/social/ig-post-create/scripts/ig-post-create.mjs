@@ -189,6 +189,7 @@ const { svgToPng } = await import(
 );
 
 const args = parseArgs(process.argv.slice(2));
+throw new Error('旧 Instagram パック生成スクリプトは終了した。新規投稿は個別の素材フォルダと台帳行から作る');
 const slug = args.slug;
 const examId = args.exam; // 例: r07-pack-01
 const examDir = typeof args['exam-dir'] === 'string' ? args['exam-dir'] : null; // 試験軸（例: 1級土木）。省略時は総監（従来パス）

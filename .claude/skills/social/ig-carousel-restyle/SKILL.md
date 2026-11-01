@@ -1,11 +1,14 @@
 ---
 name: ig-carousel-restyle
-description: 新意匠/tokens 更新後に Instagram 過去問パック PNG を 3 フォーマット (Carousel/Reels/Stories) へ**既存パックの一括再生成**をするスキル。--pack/--year/--all で範囲指定。内部で bulk-generate-exam-packs.mjs + build-stories.mjs を呼び出し、生成後にトークン整合性を簡易検証する。使い分け＝新規パック生成は ig-post-create、site figure SVG 変換は ig-figure-pack。
+description: 退役した Instagram 旧過去問パックの一括再生成手順。現行の新規投稿には使わない。
 allowed-tools: Bash, Read
+disable-model-invocation: true
 domain: sns
 ---
 
 # IG Carousel Restyle スキル（3 フォーマット対応）
+
+> **退役（2026-11-01）**: 旧過去問パックの素材は削除済み。一括再生成は行わず、新規作品は [Instagram 投稿素材 README](../../../../content/sns/instagram/README.md) に従って個別に登録する。
 
 `.claude/knowledge/design-system/instagram-carousel-tokens.json` または `quiz-slides.mjs` を変更した後に、既存 `cem/exam-packs/**` の PNG を **3 フォーマット（Carousel + Reels + Stories）すべてで統一再生成**するためのラッパー。
 

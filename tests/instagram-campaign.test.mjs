@@ -60,6 +60,11 @@ test('production-first hold is enforced even when every media file is complete',
   const { root } = fixture(t);
   assert.throws(() => assertInstagramPublicationReady(root), /全件制作/);
 });
+test('retired campaign cannot publish when its plan has been removed', t => {
+  const { root } = fixture(t);
+  unlinkSync(join(root, CAMPAIGN_PATH));
+  assert.throws(() => assertInstagramPublicationReady(root), /旧 Instagram 一括キャンペーンは終了/);
+});
 test('an undated plan cannot reuse an old video upload date', t => {
   const { root, plan } = fixture(t);
   const rows = buildInstagramSchedule(plan);

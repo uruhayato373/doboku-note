@@ -1,6 +1,8 @@
-# Instagram カルーセル 運用ガイド
+# Instagram カルーセル 旧パック設計記録
 
-doboku-note の Instagram カルーセル投稿は次の系統で運用する：
+> **現行運用ではない（2026-11-01）**: 以下の A/B/C パック素材・予約計画は撤去済み。本文の一括生成・一括予約コマンドは実行しない。新規投稿は [Instagram 投稿素材 README](../../../content/sns/instagram/README.md) に従い、新しいフォルダを作って `import-instagram --folder` で個別登録する。現在の台帳は予約済み固定投稿3件のみ。
+
+当時の doboku-note の Instagram カルーセルには次の系統があった：
 
 - **A. 択一クイズパック**: 運営者作問のシンプル知識クイズ
 - **B. 過去問パック（年度括り）**: 公式試験問題 H21-R7。**総監（cem）専用**
