@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-31T02:45:47.099Z",
+  "updated_at": "2026-11-01T04:58:49.094Z",
   "experiments": [
     {
       "id": "EXP-002",
@@ -8091,6 +8091,145 @@
         }
       ],
       "started_at": "2026-10-31T00:00:00.000Z"
+    },
+    {
+      "id": "EXP-049",
+      "kind": "search-strategy",
+      "title": "資格名: /exam/civil-construction-2/secondary/r07 の11〜30位の検索語を10位以内へ",
+      "hypothesis": "/exam/civil-construction-2/secondary/r07 は 11 語が11〜30位（最良 10.5 位・表示 30）。検索意図に合わせて title・description・冒頭の答え・見出し・内部リンクを直せば、同じ検索語の順位が上がる",
+      "target_metric": "対象ページ × 直す前の検索語 11 語の GSC 平均順位（本番反映の前 28 日・後 28 日）",
+      "target_delta": "平均順位が 10% 以上良くなる。前後どちらかの表示が 10 未満なら判定不能",
+      "status": "proposed",
+      "created_at": "2026-11-01",
+      "searchStrategy": {
+        "cluster": "qualification",
+        "page": "/exam/civil-construction-2/secondary/r07",
+        "contentPath": "content/site/civil-construction-2/secondary-r07/article.mdx"
+      },
+      "baseline": {
+        "measured_at": "2026-11-01",
+        "source": "data/gsc/reports/2026-10-31.json#page-query",
+        "period": {
+          "startDate": "2026-09-30",
+          "endDate": "2026-10-27"
+        },
+        "impressions": 30,
+        "clicks": 1,
+        "bestPosition": 10.5,
+        "queries": [
+          {
+            "query": "2級土木施工管理技士 2次試験 解答",
+            "position": 10.5,
+            "impressions": 10,
+            "clicks": 0
+          },
+          {
+            "query": "土木施工管理技士2級 二次試験 解答",
+            "position": 11,
+            "impressions": 7,
+            "clicks": 0
+          },
+          {
+            "query": "2級土木施工管理技士2次試験解答",
+            "position": 13.8,
+            "impressions": 5,
+            "clicks": 0
+          },
+          {
+            "query": "二級土木施工管理技士 解答速報",
+            "position": 13,
+            "impressions": 1,
+            "clicks": 1
+          },
+          {
+            "query": "2級土木施工管理技士 2 次試験 解答例",
+            "position": 11,
+            "impressions": 1,
+            "clicks": 0
+          },
+          {
+            "query": "2級土木施工管理技士 2次試験",
+            "position": 15,
+            "impressions": 1,
+            "clicks": 0
+          },
+          {
+            "query": "2級土木施工管理技士 2次試験 令和8年",
+            "position": 12,
+            "impressions": 1,
+            "clicks": 0
+          },
+          {
+            "query": "2級土木施工管理技士 2次試験 解答速報",
+            "position": 15,
+            "impressions": 1,
+            "clicks": 0
+          },
+          {
+            "query": "二級土木施工管理技士 二次試験 配点",
+            "position": 16,
+            "impressions": 1,
+            "clicks": 0
+          },
+          {
+            "query": "二級土木施工管理技士 二次試験解答",
+            "position": 13,
+            "impressions": 1,
+            "clicks": 0
+          },
+          {
+            "query": "令 和 8 年 2級土木施工管理技士 解答速報",
+            "position": 13,
+            "impressions": 1,
+            "clicks": 0
+          }
+        ]
+      },
+      "measure": {
+        "specVersion": 1,
+        "metric": "gsc.position",
+        "scope": {
+          "pages": [
+            "/exam/civil-construction-2/secondary/r07"
+          ],
+          "queries": [
+            "2級土木施工管理技士 2次試験 解答",
+            "土木施工管理技士2級 二次試験 解答",
+            "2級土木施工管理技士2次試験解答",
+            "二級土木施工管理技士 解答速報",
+            "2級土木施工管理技士 2 次試験 解答例",
+            "2級土木施工管理技士 2次試験",
+            "2級土木施工管理技士 2次試験 令和8年",
+            "2級土木施工管理技士 2次試験 解答速報",
+            "二級土木施工管理技士 二次試験 配点",
+            "二級土木施工管理技士 二次試験解答",
+            "令 和 8 年 2級土木施工管理技士 解答速報"
+          ]
+        },
+        "preDays": 28,
+        "postDays": 28,
+        "lagDays": 3,
+        "direction": "decrease",
+        "minEffect": 0.1,
+        "minVolume": 10
+      },
+      "history": [
+        {
+          "at": "2026-11-01T04:58:49.094Z",
+          "event": "recorded"
+        },
+        {
+          "at": "2026-11-01T04:58:49.094Z",
+          "event": "implemented",
+          "commit": "f3feb1b52419",
+          "change": "seoTitle を「解答」表記にし、冒頭に公式の解答が公表されない点と参考解答例である旨を追記した"
+        }
+      ],
+      "implementation": {
+        "commit": "f3feb1b52419",
+        "at": "2026-11-01",
+        "change": "seoTitle を「解答」表記にし、冒頭に公式の解答が公表されない点と参考解答例である旨を追記した"
+      }
     }
   ]
 }
