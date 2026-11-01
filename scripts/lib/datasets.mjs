@@ -125,6 +125,7 @@ export const DATASETS = [
   d('config.cta-placements', 'config/cta-placements.json', 'config', 'affiliate', 'サイトの広告・送客の配置（GA4 の cta_placement）の語彙と状態', { schema: 'ConfigCtaPlacements' }),
   // サイト
   d('config.content-rules', 'config/content-rules.json', 'config', 'site', 'サイト記事の機械品質ルールの重大度と適用範囲', { schema: 'ConfigContentRules' }),
+  d('config.page-quality-profiles', 'config/page-quality-profiles.json', 'config', 'site', 'ページの種類ごとの採点プロファイル（見る観点・機械の検査・指標・評価役・適用しない規則）', { schema: 'ConfigPageQualityProfiles' }),
   d('config.search-strategy', 'config/search-strategy.json', 'config', 'site', '検索キーワード戦略のクラスタ', { schema: 'ConfigSearchStrategy' }),
   d('config.seo-meta-config', 'config/seo-meta-config.json', 'config', 'site', 'SEO meta 監査の対象と巡回の設定', { schema: 'ConfigSeoMeta' }),
   d('config.growth-cycle', 'config/growth-cycle.json', 'config', 'site', '成長サイクル（計測ダイジェスト）の設定', { schema: 'ConfigGrowthCycle' }),
