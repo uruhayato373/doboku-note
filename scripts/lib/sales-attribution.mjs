@@ -8,6 +8,7 @@
  */
 import { classifySale, joinSaleProduct } from './product-lineup.mjs';
 import { qualificationKey } from './sales-by-qualification.mjs';
+import { priceNum } from './note-single-price.mjs';
 
 /**
  * @param {any} config loadLineupConfig() の結果（saleProducts 付き）
@@ -39,13 +40,13 @@ export function salesAttribution(config, sales, period, products) {
     const month = String(s.date).slice(0, 7);
     (yenByMonth[month] ??= {})[key] = (yenByMonth[month][key] ?? 0) + yen;
   }
-  // 公開中で、期間内に 1 件も売れていない note 商品（資格別）。無料の商品（price に「無料」「¥0」）も数に含め、別に数える
+  // 公開中で、期間内に 1 件も売れていない note 商品（資格別）。無料の商品（price が無い・先頭の金額が ¥0・会員）と売り場から外した商品（catalog.shelvedAt）も数に含め、別に数える
   const unsold = {};
   for (const p of products ?? []) {
     if (p.channel !== 'note' || p.catalog?.published !== true) continue;
     if (soldProductIds.has(p.id)) continue;
     const price = String(p.catalog?.price ?? '');
-    (unsold[p.qualification] ??= []).push({ id: p.id, tier: p.tier, free: /無料|¥0\b|会員/.test(price) });
+    (unsold[p.qualification] ??= []).push({ id: p.id, tier: p.tier, free: price === '' || priceNum(price) === 0 || /会員/.test(price), shelved: Boolean(p.catalog?.shelvedAt) });
   }
   return { total: rows.length, via, byQualification, yenByQualification, yenByMonth, unattributedIds: [...unattributedIds], unsold };
 }

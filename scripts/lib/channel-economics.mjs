@@ -121,7 +121,7 @@ export function buildChannelView(root, { today = todayJst() } = {}) {
   const lastFull = monthly.at(-2) ?? monthly.at(-1);
   const packYen = (noteTier.pack?.yen ?? 0) + (noteTier.magazine?.yen ?? 0);
   const allNoteYen = Object.values(noteTier).reduce((a, v) => a + v.yen, 0);
-  const unsoldPaid = Object.values(attribution.unsold).flat().filter((i) => !i.free).length;
+  const unsoldPaid = Object.values(attribution.unsold).flat().filter((i) => !i.free && !i.shelved).length;
   const actual = {
     'note-gross': { value: lastFull?.noteGross ?? null, at: lastFull?.month },
     'note-pack-share': { value: allNoteYen ? Math.round((packYen / allNoteYen) * 100) : null, at: `${firstMonth}〜` },

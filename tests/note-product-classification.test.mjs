@@ -33,7 +33,7 @@ test('公開商品を資格・試験区分・形式で分類し、全商品に�
     import {NOTE_MAGAZINES} from './src/lib/note-magazines.ts';
     import {classifyNoteProduct} from './src/lib/note-product-classification.ts';
     import {noteCtaImage} from './src/lib/note-cta-images.ts';
-    const products=Object.values(NOTE_MAGAZINES).filter(p=>p.published&&p.noteUrl);
+    const products=Object.values(NOTE_MAGAZINES).filter(p=>p.published&&p.noteUrl&&!p.shelvedAt);
     process.stdout.write(JSON.stringify(products.map(p=>({id:p.id,title:p.title,
       classification:classifyNoteProduct(p.id),body:noteCtaImage(p.id),tile:noteCtaImage(p.id,'tile')}))));
   `);
@@ -93,12 +93,15 @@ test('一次過去問21記事の中間・末尾カードは解説折りたたみ
 test('土木一次34ページは収録年度に合うPDFを優先し、範囲外にPDFを売らない', t => {
   const result = inspect(`
     import {resolvePlacement} from './src/lib/magazine-placement.ts';
+    import {getMagazine} from './src/lib/note-magazines.ts';
     const one=['h26','h27','h28','h29','h30','r01','r02','r03','r04','r05','r06','r07'].flatMap(y=>['a','b'].map(p=>'civil-construction-1-primary-'+y+'-'+p));
     const two=['r03','r04','r05','r06','r07'].flatMap(y=>['zenki','kouki'].map(p=>'civil-construction-2-primary-'+y+'-'+p));
-    process.stdout.write(JSON.stringify({one:one.map(s=>resolvePlacement(s,'primary').top?.magazineId),two:two.map(s=>resolvePlacement(s,'primary').top?.magazineId),outside:resolvePlacement('civil-construction-1-primary-h25-a','primary').top?.magazineId}));
+    process.stdout.write(JSON.stringify({one:one.map(s=>resolvePlacement(s,'primary').top?.magazineId),two:two.map(s=>resolvePlacement(s,'primary').top?.magazineId),outside:resolvePlacement('civil-construction-1-primary-h25-a','primary').top?.magazineId,civil1OnShelf:getMagazine('civil-1-takuitsu-pdf')!==null}));
   `);
   assert.equal(result.one.length, 24); assert.equal(result.two.length, 10);
-  assert.ok(result.one.every(id => id === 'civil-1-takuitsu-pdf'));
+  // 売り場から外した（catalog.shelvedAt）あいだは出さない。戻したら収録年度のページに出る
+  if (result.civil1OnShelf) assert.ok(result.one.every(id => id === 'civil-1-takuitsu-pdf'));
+  else assert.ok(result.one.every(id => id !== 'civil-1-takuitsu-pdf'));
   assert.ok(result.two.every(id => id === 'civil-2-takuitsu-pdf'));
   assert.notEqual(result.outside, 'civil-1-takuitsu-pdf');
   t.diagnostic('収録34ページと範囲外1ページを検査');

@@ -185,7 +185,7 @@ npm run kindle-preview -- --id <id[,id]>   # EPUB を 600×800 のページ画�
 npm run check-kdp-report-freshness # KDPロイヤリティ台帳の期限とdoboku-note LIVE全冊（対象月末までに出版した本）のcatalog紐付けを検査（共有口座の他サイト書籍は除外。23日以降=前月確定（週次の取得が16〜22日に入る）、28日以降=当月推計。土曜の収集の kdp 段の検算＝quality-audit の cadence collect・DN-0847）
 npm run note-traffic-fetch # note ダッシュボード「アクセス状況」を read-only 取得→data/note/{referrers,articles-pv}/YYYY-MM.json（--month は今月/先月、--from YYYY-MM-DD --to YYYY-MM-DD は任意期間を note.traffic-period に直接取得・全記事の展開を確認・--commit で保存・--check は fixture で正規化の完走確認＝quality:audit ci・ログイン要・DN-0249）。流入元は自己閲覧を含み、サイト経由は PR #511 deploy 前は no referrer に含まれる
 npm run note-sales-fetch  # note 売上履歴を read-only 取得→検算OKでdata/note/sales.jsonの当月を差し替え（--month YYYY-MM --commit・ログイン要・DN-0018）。パスワード再確認は資格情報 `doboku-note-auth-note`（CI は Secrets）で 1 回だけ自動で通す。`--no-auto-reauth` で人が通す。失敗印 `metadata/note.reauth-failed` は確認後に人が消す。前月の売上は note が翌月 2 日に確定するまで集計中で、その間は exit 8（PENDING・書き込みなし）
-npm run sales-attribution # note 販売の資格・型への帰属（商品の正本に結合／規則で帰属／未帰属）と、公開中で単独の販売 0 の商品を資格別に出す（DN-0930・パック内の単品は含有側に数えない）
+npm run sales-attribution # note 販売の資格・型への帰属（商品の正本に結合／規則で帰属／未帰属）と、公開中で単独の販売 0 の商品を資格別に出す（DN-0930・パック内の単品は含有側に数えない。無料＝価格の欄が無い・¥0・会員、売り場から外した＝catalog.shelvedAt は KPI に数えない）
 npm run channel-economics # note・KDP・ココナラの月別の手取り・1 件あたりの手取り・資格別・KPI の実績（正本 config/channel-strategy.json・管理画面 チャネル設計と同じ実装）。note の手取りは公表料率による推計で、実受取の記録ではない
 npm run coconala-seller-profile # ココナラの公開プロフィールの「評価: N件」を日付つきで data/coconala/seller-profile.json に残す（ログイン不要・土曜のココナラの段が回す・チャネル設計の KPI「評価の数」）。--dry-run で表示だけ
 npm run page-quality-inventory # 全ページを採点プロファイル（config/page-quality-profiles.json）の種類に分け、種類ごとの件数・指標（字数・図・表・展開度）・評価役の無い資格・採点の済み/不合格（quality-census の索引から）を出す（DN-0936・LLM 不要。--json でページごとの指標）

@@ -149,11 +149,11 @@
     {
       "id": "note-unsold-paid",
       "channel": "note",
-      "label": "単独の販売 0 の有料商品",
+      "label": "売り場に出ていて販売 0 の有料商品",
       "unit": "本",
       "target": 40,
       "status": "approved",
-      "why": "86 本をパックにまとめるか売り場から外して半分以下にする（npm run sales-attribution）"
+      "why": "86 本をパックにまとめるか売り場から外して半分以下にする（npm run sales-attribution）。売り場から外した商品（products の catalog.shelvedAt）は数えない"
     },
     {
       "id": "kdp-royalty",
