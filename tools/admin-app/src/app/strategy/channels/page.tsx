@@ -141,8 +141,8 @@ export default function ChannelsPage() {
           </Grid>
         </Section>
 
-        <Section title="チャネルの役割と 4C">
-          <Grid min="md">
+        <Section title="チャネルの役割・4P・4C" note="4P は売る側の決めごと（商品・価格・売り場・販促）、4C は同じ 4 つを買う側から見直したもの（顧客価値・コスト・利便性・伝え方）">
+          <Stack>
             {v.channels.map((c) => (
               <PanelCard key={c.id} title={CHANNEL_LABEL[c.id]} description={c.role}>
                 <dl className="grid grid-cols-[6.5em_1fr] gap-x-2 gap-y-1 text-sm">
@@ -150,18 +150,29 @@ export default function ChannelsPage() {
                   <dd>{c.sells.join('・')}</dd>
                   <dt className="text-muted-foreground">売らない</dt>
                   <dd>{c.notSell.join('・')}</dd>
-                  <dt className="text-muted-foreground">顧客価値</dt>
-                  <dd>{c.fourC.customerValue}</dd>
-                  <dt className="text-muted-foreground">コスト</dt>
-                  <dd>{c.fourC.cost}</dd>
-                  <dt className="text-muted-foreground">利便性</dt>
-                  <dd>{c.fourC.convenience}</dd>
-                  <dt className="text-muted-foreground">伝え方</dt>
-                  <dd>{c.fourC.communication}</dd>
                 </dl>
+                <div className="mt-3 grid grid-cols-[4em_1fr_1fr] gap-x-3 gap-y-1 text-sm">
+                  <span />
+                  <span className="text-xs text-muted-foreground">4P（売る側）</span>
+                  <span className="text-xs text-muted-foreground">4C（買う側）</span>
+                  {(
+                    [
+                      ['商品', c.fourP.product, c.fourC.customerValue],
+                      ['価格', c.fourP.price, c.fourC.cost],
+                      ['売り場', c.fourP.place, c.fourC.convenience],
+                      ['販促', c.fourP.promotion, c.fourC.communication],
+                    ] as const
+                  ).map(([label, p, cc]) => (
+                    <div key={label} className="contents">
+                      <span className="border-t border-border pt-1 text-xs text-muted-foreground">{label}</span>
+                      <span className="border-t border-border pt-1">{p}</span>
+                      <span className="border-t border-border pt-1">{cc}</span>
+                    </div>
+                  ))}
+                </div>
               </PanelCard>
             ))}
-          </Grid>
+          </Stack>
         </Section>
 
         <Section title="SWOT">
