@@ -6,6 +6,7 @@ import LineChart from '@/components/charts/LineChart';
 import { qualitySummary, qualityCensus, type Severity } from '@/lib/quality';
 import type { Tone } from '@/components/admin';
 import PastExamLedgerPanel from './PastExamLedgerPanel';
+import PageProfilesPanel from './PageProfilesPanel';
 
 export const dynamic = 'force-dynamic';
 
@@ -24,6 +25,7 @@ export default async function QualityPage({ searchParams }: { searchParams: Prom
     { id: 'violations', label: '違反' },
     { id: 'scoring', label: '採点' },
     { id: 'ledger', label: '過去問の照合' },
+    { id: 'profiles', label: 'ページの種類' },
   ];
   const current = TABS.some((x) => x.id === tab) ? (tab as string) : 'violations';
   const data = qualitySummary();
@@ -57,6 +59,7 @@ export default async function QualityPage({ searchParams }: { searchParams: Prom
       </nav>
 
       <Stack>
+        {current === 'profiles' && <PageProfilesPanel />}
         {current === 'violations' && (
           <>
             <div className="filterbar">
