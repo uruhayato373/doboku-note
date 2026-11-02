@@ -883,6 +883,8 @@ export const ConfigContentRules = z
 // ---- 販売チャネルの設計（config/channel-strategy.json・2026-11-02） ------------------------------
 
 const CHANNEL_ID = z.enum(['note', 'kindle', 'coconala']);
+/** 4P＝売る側の決めごと（商品・価格・売り場・販促）。4C は同じ 4 つを買う側から見直したもの */
+const fourP = z.object({ product: text, price: text, place: text, promotion: text }).strict();
 const fourC = z.object({ customerValue: text, cost: text, convenience: text, communication: text }).strict();
 
 export const ConfigChannelStrategy = z
@@ -890,7 +892,7 @@ export const ConfigChannelStrategy = z
     schemaVersion: z.literal(1),
     _doc: text,
     fees: z.record(CHANNEL_ID, z.object({ label: text, keepRate: z.number().gt(0).lt(1).describe('販売額に対する手取りの割合（公表料率）'), basis: text, source: url, checkedAt: jstDate('料率を公式で確かめた日') }).strict()),
-    channels: z.array(z.object({ id: CHANNEL_ID, role: text, sells: strList, notSell: strList, fourC }).strict()).min(1).superRefine(uniqueBy((c) => c.id, 'チャネル')),
+    channels: z.array(z.object({ id: CHANNEL_ID, role: text, sells: strList, notSell: strList, fourP, fourC }).strict()).min(1).superRefine(uniqueBy((c) => c.id, 'チャネル')),
     swot: z.object({ strengths: strList, weaknesses: strList, opportunities: strList, threats: strList }).strict(),
     kgi: z.object({ metric: text, label: text, targetYen: yen('月の目標'), source: text }).strict(),
     kpis: z
