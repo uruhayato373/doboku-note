@@ -63,27 +63,10 @@ cover:
 
 https://note.com/dobokunote/m/m0f3bc3933454
 
-### 必須Iと選択科目をまとめる（全11科目）
-
-**道路・河川・都市計画**
+### 必須Iと選択科目をまとめる
 
 - [道路 まるごと合格パック](https://note.com/dobokunote/m/mebca45bcc745) — 必須I＋道路、全35記事
-- [河川砂防 まるごと合格パック](https://note.com/dobokunote/m/m99468c7c717f) — 必須I＋河川、砂防及び海岸・海洋、全29記事
-- [都市計画 まるごと合格パック](https://note.com/dobokunote/m/m5f63da67c0f3) — 必須I＋都市及び地方計画、全29記事
-
-**地盤・構造・トンネル**
-
 - [土質基礎 まるごと合格パック](https://note.com/dobokunote/m/m621daa62a087) — 必須I＋土質及び基礎、全29記事
-- [鋼コン まるごと合格パック](https://note.com/dobokunote/m/m56b2dcc4cca2) — 必須I＋鋼構造及びコンクリート、全29記事
-- [トンネル まるごと合格パック](https://note.com/dobokunote/m/m2029e394e260) — 必須I＋トンネル、全29記事
-
-**施工・交通・環境ほか**
-
-- [施工計画 まるごと合格パック](https://note.com/dobokunote/m/m8bc3c8660afb) — 必須I＋施工計画、施工設備及び積算、全29記事
-- [鉄道 まるごと合格パック](https://note.com/dobokunote/m/m98f92c18412e) — 必須I＋鉄道、全29記事
-- [港湾空港 まるごと合格パック](https://note.com/dobokunote/m/m64bd0cbd7111) — 必須I＋港湾及び空港、全29記事
-- [建設環境 まるごと合格パック](https://note.com/dobokunote/m/me506e9bdde6a) — 必須I＋建設環境、全29記事
-- [電力土木 まるごと合格パック](https://note.com/dobokunote/m/m476ad50d2942) — 必須I＋電力土木、全29記事
 
 ### 選択科目の模範解答（自分の科目を1つ）
 
@@ -154,7 +137,7 @@ https://note.com/dobokunote/m/m0f3bc3933454
 
 - **必須科目Iの型と模範解答がほしい** → [必須科目I 模範解答集](https://note.com/dobokunote/m/m0f3bc3933454)
 - **選択科目が道路** → 必須Iとセットの [道路 まるごと合格パック](https://note.com/dobokunote/m/mebca45bcc745) が割安
-- **選択科目が道路以外** → 必須Iとセットの [トンネル](https://note.com/dobokunote/m/m2029e394e260)・[都市計画](https://note.com/dobokunote/m/m5f63da67c0f3)・[河川砂防](https://note.com/dobokunote/m/m99468c7c717f)・[鋼コン](https://note.com/dobokunote/m/m56b2dcc4cca2)・[土質基礎](https://note.com/dobokunote/m/m621daa62a087)・[鉄道](https://note.com/dobokunote/m/m98f92c18412e)・[建設環境](https://note.com/dobokunote/m/me506e9bdde6a)・[港湾空港](https://note.com/dobokunote/m/m64bd0cbd7111)・[施工計画](https://note.com/dobokunote/m/m8bc3c8660afb)・[電力土木](https://note.com/dobokunote/m/m476ad50d2942) まるごと合格パックが割安（全11科目）
+- **選択科目が土質及び基礎** → 必須Iとセットの [土質基礎 まるごと合格パック](https://note.com/dobokunote/m/m621daa62a087) が割安
 - **自分の選択科目の模範解答がほしい** → 上の「選択科目の模範解答」から該当科目を
 - **発注者・合格者視点の解答を読みたい** → 道路・河川・都市計画は合格者解答、他科目は発注者監修
 - **まだ第一次試験の前** → 上の「これから第一次試験を受ける人へ」から過去問PDFと無料の演習を

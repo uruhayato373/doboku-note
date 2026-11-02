@@ -63,28 +63,17 @@ https://note.com/dobokunote/m/m6854c7437d4d
 
 ---
 
-## あなたの立場の模範論文（20ペルソナ）
+## あなたの立場の模範論文
 
 総監の記述式は「自分の立場でどう書くか」で説得力が変わります。あなたの職種・部署に最も近い1本を選んでください。
 
 どれを選べばいいか迷う場合は、[総監マガジンの歩き方](https://note.com/dobokunote/n/nc874692256bb)の3分診断からどうぞ。
 
-受注者系 — [ゼネコン](https://note.com/dobokunote/m/m32aaa137f22e)／[建設コンサル 河川・砂防](https://note.com/dobokunote/m/m32132ecb3033)／[道路・橋梁設計コンサル](https://note.com/dobokunote/m/m09440aa379cf)／[都市計画コンサル](https://note.com/dobokunote/m/mf0f98993407f)
+受注者系 — [ゼネコン](https://note.com/dobokunote/m/m32aaa137f22e)／[建設コンサル 河川・砂防](https://note.com/dobokunote/m/m32132ecb3033)／[道路・橋梁設計コンサル](https://note.com/dobokunote/m/m09440aa379cf)
 
-自治体（発注者）系 — [道路](https://note.com/dobokunote/m/m52186ffd12ca)／[河川](https://note.com/dobokunote/m/m32a8a5b3b473)／[砂防](https://note.com/dobokunote/m/m7cd44bf57187)／[都市計画](https://note.com/dobokunote/m/mf8c77e995511)／[契約・調達](https://note.com/dobokunote/m/m55b930cbfcf9)／[技術基準](https://note.com/dobokunote/m/mf9f281e2cb32)／[上水道](https://note.com/dobokunote/m/mf4c6792b4f9c)／[下水道](https://note.com/dobokunote/m/mf1cbc32d53aa)／[港湾](https://note.com/dobokunote/m/mf762f616c065)／[公園緑地](https://note.com/dobokunote/m/m6d1810e50b0a)
+自治体（発注者）系 — [道路](https://note.com/dobokunote/m/m52186ffd12ca)／[河川](https://note.com/dobokunote/m/m32a8a5b3b473)／[上水道](https://note.com/dobokunote/m/mf4c6792b4f9c)
 
 ---
-
-### 受注者の立場をさらに選ぶ
-
-土質基礎コンサル・上下水道コンサル・維持更新施工・鋼コンコンサル・トンネルコンサル・道路舗装施工は、令和3〜7年度の各年A・B案を収録しています。これら6セットは完全パックにも含まれます。完全パックを購入済みの方は追加購入不要です。
-
-- [土質基礎コンサル](https://note.com/dobokunote/m/mcfcab1d96ed4)
-- [上下水道コンサル](https://note.com/dobokunote/m/me0255472f9ed)
-- [維持更新施工](https://note.com/dobokunote/m/mabf26d2c72fb)
-- [鋼コンコンサル](https://note.com/dobokunote/m/m4748140fa8aa)
-- [トンネルコンサル](https://note.com/dobokunote/m/m0e0e97176181)
-- [道路舗装施工](https://note.com/dobokunote/m/mb671a0340871)
 
 ## 共通装備（テーマを問わず効く土台）
 
@@ -92,7 +81,6 @@ https://note.com/dobokunote/m/m6854c7437d4d
 
 - [5管理 テキスト精読ガイド（doboku-note 連動）](https://note.com/dobokunote/m/m607bf095b02a)
 - [5管理クロス・トレードオフ全網羅（20セル）](https://note.com/dobokunote/m/m921fbe060575)
-- [設問(3)国家施策バンク（将来課題11テーマ）](https://note.com/dobokunote/m/m91516dfc27ac)
 - [総監択一 頻出計算問題 6パターン完全攻略](https://note.com/dobokunote/n/ne190c3ef2fca)
 
 いきなりセットを買わず、弱点テーマを1本試したい場合は、上記の有料マガジンは各テーマを1本から購入できます。手応えがあればセットの方が割安です。
