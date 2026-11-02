@@ -1,17 +1,41 @@
 {
   "schemaVersion": 1,
-  "_doc": "販売チャネル（note・KDP・ココナラ）ごとの役割・売る商品・手数料・SWOT・4C・KGI/KPI の正本（2026-11-02・判断の文章は docs/strategy/22_チャネル別商品設計2026-11.md）。管理画面 戦略＞資格と市場＞チャネル設計 と npm run channel-economics がここと売上の台帳（note.sales・kdp.royalties・coconala.revenue・coconala.analytics）を読む。手数料は公表料率（checkedAt に確かめた日）。月の受取は net-receipts.mjs（確定月の実績）を使い、note の 1 件あたりの手取りは確定月の実績の控除後の割合（2026-05〜09 は 83.9%）で出す。公表料率は KDP の推計と参照用。目標の status が proposed のものは運営者の承認前。",
+  "_doc": "販売チャネル（note・KDP・ココナラ）ごとの役割・売る商品・手数料・SWOT・4C・KGI/KPI の正本（2026-11-02・判断の文章は docs/strategy/22_チャネル別商品設計2026-11.md）。管理画面 戦略＞資格と市場＞チャネル設計 と npm run channel-economics がここと売上の台帳（note.sales・kdp.royalties・coconala.revenue・coconala.analytics）を読む。手数料は公表料率（checkedAt に確かめた日）。月の受取は net-receipts.mjs（確定月の実績）を使い、note の 1 件あたりの手取りは確定月の実績の控除後の割合（2026-05〜09 は 83.9%）で出す。公表料率は KDP の推計と参照用。KPI の目標は 2026-11-02 に運営者が承認した（status: approved）。",
   "fees": {
-    "note": { "label": "note", "keepRate": 0.855, "basis": "クレジットカード決済: 事務手数料 5%、残りからプラットフォーム利用料 10%（携帯キャリア決済は事務手数料 15%）。振込 1 回 ¥270 は除く", "source": "https://www.help-note.com/hc/ja/articles/360011358873", "checkedAt": "2026-11-02" },
-    "kindle": { "label": "KDP", "keepRate": 0.636, "basis": "70% ロイヤリティ（Amazon.co.jp・税込 ¥250〜¥1,650・KDP Select 必須）。税込価格から消費税 10% を除いた額の 70%（配信費用は除く）＝税込の約 63.6%", "source": "https://kdp.amazon.com/help?topicId=G200634560", "checkedAt": "2026-11-02" },
-    "coconala": { "label": "ココナラ", "keepRate": 0.78, "basis": "販売手数料 22%（税込）。data/coconala/revenue.json の受取（¥2,500→¥1,950）と一致", "source": "https://coconala.com/news/532", "checkedAt": "2026-11-02" }
+    "note": {
+      "label": "note",
+      "keepRate": 0.855,
+      "basis": "クレジットカード決済: 事務手数料 5%、残りからプラットフォーム利用料 10%（携帯キャリア決済は事務手数料 15%）。振込 1 回 ¥270 は除く",
+      "source": "https://www.help-note.com/hc/ja/articles/360011358873",
+      "checkedAt": "2026-11-02"
+    },
+    "kindle": {
+      "label": "KDP",
+      "keepRate": 0.636,
+      "basis": "70% ロイヤリティ（Amazon.co.jp・税込 ¥250〜¥1,650・KDP Select 必須）。税込価格から消費税 10% を除いた額の 70%（配信費用は除く）＝税込の約 63.6%",
+      "source": "https://kdp.amazon.com/help?topicId=G200634560",
+      "checkedAt": "2026-11-02"
+    },
+    "coconala": {
+      "label": "ココナラ",
+      "keepRate": 0.78,
+      "basis": "販売手数料 22%（税込）。data/coconala/revenue.json の受取（¥2,500→¥1,950）と一致",
+      "source": "https://coconala.com/news/532",
+      "checkedAt": "2026-11-02"
+    }
   },
   "channels": [
     {
       "id": "note",
       "role": "本店。デジタル教材（模範解答・予想問題・パック）の新商品はまず note に出し、単価はパックで上げる",
-      "sells": ["最新年度の模範解答と予想問題", "資格ごとのまるごとパック", "比較の基準としての単品"],
-      "notSell": ["人手の添削・指導"],
+      "sells": [
+        "最新年度の模範解答と予想問題",
+        "資格ごとのまるごとパック",
+        "比較の基準としての単品"
+      ],
+      "notSell": [
+        "人手の添削・指導"
+      ],
       "fourC": {
         "customerValue": "試験の 0〜8 週前に、答案の型とそのまま使える模範解答を短時間で手に入れる",
         "cost": "単品 ¥580〜2,980・マガジン ¥1,480〜5,980・パック ¥3,980〜11,800。手取りは販売額の約 84%（確定月の実績。公表料率はカード決済で 85.5%）",
@@ -22,8 +46,13 @@
     {
       "id": "kindle",
       "role": "発見の場。Amazon の検索で note に来ない読者に届ける。既刊を保ち、新刊は note で売れた商品の旧年度・択一の網羅に限る",
-      "sells": ["択一の過去問の網羅（読み放題で読まれる）", "旧年度の模範解答集（R03〜R07 など）"],
-      "notSell": ["note の最新年度・予想問題・パックと同じ中身を note より安く"],
+      "sells": [
+        "択一の過去問の網羅（読み放題で読まれる）",
+        "旧年度の模範解答集（R03〜R07 など）"
+      ],
+      "notSell": [
+        "note の最新年度・予想問題・パックと同じ中身を note より安く"
+      ],
       "fourC": {
         "customerValue": "過去問をまとめて手元で読める・読み放題で試せる",
         "cost": "¥490〜2,980。70% 帯は税込 ¥1,650 まで。¥1,650 の本の手取りは 1 冊 約 ¥1,050",
@@ -34,8 +63,14 @@
     {
       "id": "coconala",
       "role": "人手のサービスだけを売る（添削・指導）。PDF の販売はしない。試験の 4〜8 週前に開き、不在の期間は全件休止する",
-      "sells": ["経験記述・小論文・論文の添削", "骨子からの指導"],
-      "notSell": ["note と同じ PDF 教材", "作成代行（捏造の禁止）"],
+      "sells": [
+        "経験記述・小論文・論文の添削",
+        "骨子からの指導"
+      ],
+      "notSell": [
+        "note と同じ PDF 教材",
+        "作成代行（捏造の禁止）"
+      ],
       "fourC": {
         "customerValue": "自分の答案を合格者（元発注者・技術士）が直してくれる。note にはできない唯一の価値",
         "cost": "添削 ¥5,000〜6,000（競合の中央値 ¥4,000〜5,000）。手取りは 78%",
@@ -68,13 +103,66 @@
       "KDP の安い模範解答集が note の同じ商品を食う可能性（未検証）"
     ]
   },
-  "kgi": { "metric": "netReceipts", "label": "月の受取額（全チャネル・手数料控除後）", "targetYen": 100000, "source": "data/business/records の target 記録（2026-09-27 運営者決定）" },
+  "kgi": {
+    "metric": "netReceipts",
+    "label": "月の受取額（全チャネル・手数料控除後）",
+    "targetYen": 100000,
+    "source": "data/business/records の target 記録（2026-09-27 運営者決定）"
+  },
   "kpis": [
-    { "id": "note-gross", "channel": "note", "label": "note の販売額（月）", "unit": "円", "target": 110000, "status": "proposed", "why": "KGI の約 9 割を note で取る想定（控除後の割合は実績 83.9%・¥110,000 で受取 約 ¥92,000）。季節で上下するので年の月平均で見る" },
-    { "id": "note-pack-share", "channel": "note", "label": "パックとマガジンの金額の比率", "unit": "%", "target": 75, "status": "proposed", "why": "単価を上げる方針の進み具合（2026-05〜10 は 77%）。下がれば単品に寄っている" },
-    { "id": "note-unsold-paid", "channel": "note", "label": "公開中で単独の販売 0 の有料商品", "unit": "本", "target": 40, "status": "proposed", "why": "86 本をパックにまとめるか売り場から外して半分以下にする（npm run sales-attribution）" },
-    { "id": "kdp-royalty", "channel": "kindle", "label": "KDP のロイヤリティ（月）", "unit": "円", "target": 8000, "status": "proposed", "why": "新刊を作らず既刊を保つ前提の維持の水準（7〜10 月の平均 約 ¥6,400）" },
-    { "id": "coconala-reviews", "channel": "coconala", "label": "ココナラの評価の数（累計）", "unit": "件", "target": 5, "status": "proposed", "why": "評価数が購入の決め手。まず 5 件を 2027-03 までに" },
-    { "id": "coconala-order-rate", "channel": "coconala", "label": "閲覧あたりの受注（過去 30 日）", "unit": "%", "target": 1, "status": "proposed", "why": "直近は 781 閲覧で 0 件。出品の見せ方と入口の価格の効き目を測る" }
+    {
+      "id": "note-gross",
+      "channel": "note",
+      "label": "note の販売額（月）",
+      "unit": "円",
+      "target": 110000,
+      "status": "approved",
+      "why": "KGI の約 9 割を note で取る想定（控除後の割合は実績 83.9%・¥110,000 で受取 約 ¥92,000）。季節で上下するので年の月平均で見る"
+    },
+    {
+      "id": "note-pack-share",
+      "channel": "note",
+      "label": "パックとマガジンの金額の比率",
+      "unit": "%",
+      "target": 75,
+      "status": "approved",
+      "why": "単価を上げる方針の進み具合（2026-05〜10 は 77%）。下がれば単品に寄っている"
+    },
+    {
+      "id": "note-unsold-paid",
+      "channel": "note",
+      "label": "公開中で単独の販売 0 の有料商品",
+      "unit": "本",
+      "target": 40,
+      "status": "approved",
+      "why": "86 本をパックにまとめるか売り場から外して半分以下にする（npm run sales-attribution）"
+    },
+    {
+      "id": "kdp-royalty",
+      "channel": "kindle",
+      "label": "KDP のロイヤリティ（月）",
+      "unit": "円",
+      "target": 8000,
+      "status": "approved",
+      "why": "新刊を作らず既刊を保つ前提の維持の水準（7〜10 月の平均 約 ¥6,400）"
+    },
+    {
+      "id": "coconala-reviews",
+      "channel": "coconala",
+      "label": "ココナラの評価の数（累計）",
+      "unit": "件",
+      "target": 5,
+      "status": "approved",
+      "why": "評価数が購入の決め手。まず 5 件を 2027-03 までに"
+    },
+    {
+      "id": "coconala-order-rate",
+      "channel": "coconala",
+      "label": "閲覧あたりの受注（過去 30 日）",
+      "unit": "%",
+      "target": 1,
+      "status": "approved",
+      "why": "直近は 781 閲覧で 0 件。出品の見せ方と入口の価格の効き目を測る"
+    }
   ]
 }
