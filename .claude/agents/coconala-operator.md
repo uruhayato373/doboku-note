@@ -55,7 +55,7 @@ domain: product
 
 - 添削下書きの生成そのもの → `civil-keiken-tensaku-drafter`（`/keiken-tensaku` 経由で呼ぶ）
 - 最終赤入れ・トークルーム返信送信 → 運営者（人間）
-- 新規出品時の QA/有料オプションと画像の自動投入（既存出品の編集では QA/有料オプションを自動反映）→ 新規出品後はココナラ UI で手動
+- 新規出品時の有料オプションと画像の自動投入（FAQ は新規出品でも入る・既存出品の編集では FAQ/有料オプションを自動反映）→ 新規出品後はココナラ UI で手動
 - note 側の操作（価格変更・マガジン収録） → `note-operator` / `note-membership-operator`
 - 売上の月次集計 → `sales-recorder`（`/record-sales`）
 - **ココナラブログ**（記事の執筆・採点・公開） → `/coconala-blog`（`coconala-blog-writer` / `coconala-blog-qa`・
@@ -69,7 +69,7 @@ domain: product
 2. **下書きで検証**: `node scripts/coconala-publish.mjs --service <id>`（新規）or `coconala-edit.mjs --service <id>`（修正）を `--commit` なしで実行 → `ok:true`（下書き保存成功）と `.tmp/coconala/*.png` を確認。公開中サービスの `coconala-edit` は下書きが無いので送信しない dry-run になり（画像は触らず枚数だけ読む）、`RESULT` の `mode:"dry-run"`・exit 0 を確認する。`ok:false`（記入エラー）なら公開しない。
 3. **公開**: 問題なければ `--commit` を付けて実行。publish は成功時カタログを `listed`＋`serviceUrl`＋`listedAt` に自動書き戻し。`--image` はサムネのファイル名（bare 名で可＝assets へ解決）。
 4. 出品後 `coconala-account.json` の `profileUrl` を埋め、`npm run check-coconala-wiring` グリーンを確認。
-5. **orphan draft の掃除**: 出品失敗（記入エラー・クラッシュ）で「サービスタイトル未設定・¥0・下書き中」が残ったら `npm run coconala-delete-draft -- --id <n>`（dry-run 検査）→ `--commit` で削除。カタログ在籍 id はガードで拒否＝公開商品は誤爆しない。
+5. **orphan draft の掃除**: 出品失敗（記入エラー・クラッシュ）で「サービスタイトル未設定・¥0・下書き中」が残ったら `npm run coconala-delete-draft -- --id <n>`（dry-run 検査）→ `--commit` で削除（現行フォームでは SKIP になる・DN-0946。それまでは画面の「下書きを削除」）。カタログ在籍 id はガードで拒否＝公開商品は誤爆しない。
 
 ### ケース0.5: 受注（C系 単発コンテンツ PDF）
 
@@ -163,7 +163,7 @@ C1/C2（`provision_format=3`・PDF 納品）は**ヒアリング不要**。購�
 ## 参照
 
 - スキル: `.claude/skills/management/coconala-publish/SKILL.md`（出品・修正）/ `coconala-order/SKILL.md`（受注）/ `coconala-status/SKILL.md`（KPI）
-- 出品スクリプト: `scripts/coconala-publish.mjs`（`--image` で公開時に画像も。**bare 名は `content/coconala/assets/` に解決**＝フルパス不要・存在は fail-fast 検査）/ `coconala-edit.mjs` / `coconala-delete-draft.mjs`（空の下書き掃除・4重ガード）/ `coconala-discover.mjs` / 共有 `scripts/lib/coconala-{session,form}.mjs`
+- 出品スクリプト: `scripts/coconala-publish.mjs`（`--image` で公開時に画像も。**bare 名は `content/coconala/assets/` に解決**＝フルパス不要・存在は fail-fast 検査）/ `coconala-edit.mjs` / `coconala-delete-draft.mjs`（空の下書き掃除・4重ガード・現行フォーム未対応＝DN-0946）/ `coconala-discover.mjs` / 共有 `scripts/lib/coconala-{session,form}.mjs`
 - 商品画像/コンテンツ: `scripts/coconala-thumb.mjs`・`build-coconala-content-pdf.mjs`（＋`lib/strip-note-funnel.mjs`）
 - プロフィール: `scripts/coconala-profile.mjs`（自己紹介）・`coconala-cover.mjs`（カバー）／SoT=`coconala-account.json` の `profile`・資格は `src/config/author.ts`
 - 購入者評価: `scripts/coconala-rate-buyer.mjs`（`/ratings/provider_add/{talkroomId}`・星は `img[alt]` クリック・確認画面の二段構え）。**公開・取消不可なので既定は入力までで停止**、送信は `--submit`。星は5固定なので5をつけたくない取引では使わない。未送信と期限切迫は `check-coconala-orders` が surface する

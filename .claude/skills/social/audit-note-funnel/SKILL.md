@@ -31,12 +31,12 @@ npm run audit-note-funnel            # ソース監査（D1-D4・高速）
 npm run audit-note-funnel -- --live  # ＋ライブ反映検証（D5）
 ```
 
-検出: D1 公開記事の CTA マーカー欠落（ソース）/ D2 公開マガジンの L2 未収録 / D3 L2 の L1 未リンク / D4 L2 URL 不一致 / **D5 公開記事の CTA が live note に未反映（`--live` のみ・note API body+embedded で機械検証＝「ソースは正でも配線後に再投稿せず live が死ぬ」ドリフトを検出。2026-06-18 に総監19本で実害化）**。CI は `quality:audit:ci` でソース D1-D4/D6 を、土曜の Mac の収集の note-audit 段（weekly-collect・DN-0847）が D5 と取得成立性を週次検査する。手動実行は修復直後の再確認用。
+検出: D1 公開記事の CTA マーカー欠落（ソース）/ D2 公開マガジンの L2 未収録（`catalog.shelvedAt` の売り場から外した商品は除く）/ D3 L2 の L1 未リンク / D4 L2 URL 不一致 / **D5 公開記事の CTA が live note に未反映（`--live` のみ・note API body+embedded で機械検証＝「ソースは正でも配線後に再投稿せず live が死ぬ」ドリフトを検出。2026-06-18 に総監19本で実害化）**。CI は `quality:audit:ci` でソース D1-D4/D6 を、土曜の Mac の収集の note-audit 段（weekly-collect・DN-0847）が D5 と取得成立性を週次検査する。手動実行は修復直後の再確認用。
 
 ### 2. 修復
 
 - **L3 CTA 欠落（D1）** → `npm run wire-note-funnel-cta -- --exam <key> --apply`（冪等・既存非破壊。まず `--apply` なしで dry-run）。既存の管理マーカー付き CTA を config 現在値へ差し替える場合だけ `--sync-managed` を追加する。除外へ移った記事では管理ブロックだけを削除し、手書き CTA は触らない。**先頭 UTF-8 BOM 付き記事も 2026-07-05 以降は自動除去して配線する**。
-- **マガジン未収録（D2）** → **(a) ソース**: 該当 L2 もくじ `article.md` の有料マガジン節に当該マガジンの markdown リンクを追記（もくじは `noteSeries: 総合案内` ＝ index 例外で markdown リンク可・価格は書かない）。**(b) ライブ反映**: `npm run note-append-list-links -- --spec <json> [--commit]`（`sections[].anchorMagId` で追加先 `<ul>` を特定し末尾へインラインリンク `<li>` を挿入。type ではインラインリンクが作れないための専用ツール＝update-mode.md 手段2b）。まず dry-run で DOM 検証→`--commit`→API 実査
+- **マガジン未収録（D2）** → shelvedAt の商品は意図してもくじから外しているので足し戻さない。**(a) ソース**: 該当 L2 もくじ `article.md` の有料マガジン節に当該マガジンの markdown リンクを追記（もくじは `noteSeries: 総合案内` ＝ index 例外で markdown リンク可・価格は書かない）。**(b) ライブ反映**: `npm run note-append-list-links -- --spec <json> [--commit]`（`sections[].anchorMagId` で追加先 `<ul>` を特定し末尾へインラインリンク `<li>` を挿入。type ではインラインリンクが作れないための専用ツール＝update-mode.md 手段2b）。まず dry-run で DOM 検証→`--commit`→API 実査
 - **L1 未リンク（D3）** → L1 `共通/コンテンツ総合案内/article.md` の該当資格セクションに L2 リンクを追記
 - **ライブ未反映（D5）** → 追記は `npm run note-append-cta`、既存 CTA の商品差し替え・語句修正は **`npm run note-update-partial -- --spec <json> [--commit]`** を使う。部分更新は PDF 添付の不変条件、有料境界保持、更新通知「いいえ」までを一体で検証する。D5 判定は `audit-note-funnel.mjs` が config の現行 top CTA URL を live body で確認する。詳細 → [publish-note/references/update-mode.md](../publish-note/references/update-mode.md)
 - 修復後は **公開済み記事/もくじはソース編集だけでは live に反映されない**＝必ず `note-append-cta`（記事 CTA）／`note-append-list-links`（もくじのマガジン項目）／`publish-note --update` を回し、`audit-note-funnel --live` で D5 が消えるところまでがクローズ条件

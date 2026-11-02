@@ -41,7 +41,7 @@ CI からの出品・修正（`ops-write.yml`）は廃止した。出品・内�
 
 - **`paused` は多義**（`retired`=恒久廃止 / `absence`=長期不在の一時休止）。`pauseReason` 必須で `check-coconala-wiring` が強制する。区別が無いと一括復帰で廃止商品が復活する。
 - **長期不在は全件休止が既定**。購入から48時間以内に連絡しないと自動キャンセルされ、PDF商品も手作業送付なので例外を作れない。`resumeOn` 超過は `check-coconala-wiring` が警告する。
-- **公開済みサービスは削除できない**（削除導線があるのは空の下書きのみ＝`coconala-delete-draft.mjs`）。棚から消すのはアーカイブ。
+- **公開済みサービスは削除できない**（削除導線があるのは空の下書きのみ＝`coconala-delete-draft.mjs`。現行フォームでは使えず、DN-0946 までは画面の「下書きを削除」）。棚から消すのはアーカイブ。
 - 判定ロジックは `scripts/lib/coconala-guards.mjs`（`tests/coconala-guards.test.mjs` で固定）。詳細 → [coconala-operations.md §8](../../../../.claude/knowledge/reference/coconala-operations.md)
 
 ## 前提（最重要）
@@ -78,7 +78,7 @@ node scripts/coconala-edit.mjs --service <id> --service-id <n> --image thumb-<ke
 ```
 
 - `--image` は **bare 名でよい**（`content/coconala/assets/` に自動解決）。存在は**ブラウザ操作前に検査**（fail-fast）＝不正パスで orphan draft を残さない。
-- **orphan draft（出品失敗の残骸）が出たら**: `npm run coconala-delete-draft -- --id <n>`（dry-run）→ `--commit`。カタログ在籍 id はガードで拒否＝公開商品は誤爆しない。編集ページ正URL＝`/mypage/services/{id}`。
+- **orphan draft（出品失敗の残骸）が出たら**: `npm run coconala-delete-draft -- --id <n>`（dry-run）→ `--commit`（現行フォームでは SKIP になる・DN-0946。それまでは画面の「下書きを削除」）。カタログ在籍 id はガードで拒否＝公開商品は誤爆しない。編集ページ正URL＝`/mypage/services/{id}`。
 
 素材は `content/coconala/assets/`（`bg-civil.png`/`bg-docs.png`／`thumb-<key>.png`）。詳細は [coconala-operations.md §8](../../../knowledge/reference/coconala-operations.md)。
 
@@ -104,7 +104,7 @@ profile の真実源は `coconala-account.json` の `profile`。**自己紹介�
 
 ## 制約
 
-- **既存出品の編集**は現行フォームで FAQ と有料オプションを listings から投入する。**新規出品**は未対応なので、公開後にココナラ UI で追加する。
+- **既存出品の編集**は現行フォームで FAQ と有料オプションを listings から投入する。**新規出品**は FAQ を投入し、有料オプションは未対応なので公開後にココナラ UI で追加する。
 - **アバター/カバーの実アップロード**は本スキルの範囲外（アバター=クロッパ無し・カバー=クロッパ「決定」→保存。手順は operations.md §8 未収載＝手動 or 個別スクリプト）。
 
 ## 完了条件
