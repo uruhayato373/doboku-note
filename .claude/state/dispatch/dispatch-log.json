@@ -6425,6 +6425,23 @@
       "commit": "ecc11082b0a2",
       "verification": "npm run gemini-scoring-trial -- compare --model gemini-3.5-flash-lite（採用 0 軸）",
       "note": "PR #1367: 24 記事で Claude の評価役と比較。合否一致 87〜88%・直すべき軸の検出率 31%（lite）/46%（3.8-flash）。採用条件を満たす軸 0 で、採点の一次振り分けには不採用。記録は .claude/state/quality/gemini-trial.json"
+    },
+    {
+      "id": "DN-0940",
+      "at": "2026-11-02",
+      "task": "チャネル別の商品設計（役割・手数料・SWOT・4C・KGI/KPI）を正本にし、管理画面で見えるようにする",
+      "tier": "mid",
+      "kind": "改善",
+      "prevention": {
+        "type": "gate",
+        "ref": "test"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "13c192188c06",
+      "verification": "node --test tests/channel-economics.test.mjs（月別の受取が net-receipts と一致）",
+      "note": "PR #1368: config/channel-strategy.json・npm run channel-economics・管理画面 /strategy/channels・docs/strategy/22。KPI の目標は案（承認前）"
     }
   ]
 }
