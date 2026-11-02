@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import type { ReactNode } from 'react';
 import {
-  DataTable, type DataTableColumn, type DataTableRow,
+  DataTable, DetailSheet, DetailText, type DataTableColumn, type DataTableRow,
   PanelCard, StatusBadge, TableBody, TableCell, TableFrame, TableHead, TableRow, type Tone,
 } from '@/components/admin';
 import { PageHead } from '@/components/ui';
@@ -43,13 +43,6 @@ const SUBTITLE_COLUMNS: DataTableColumn[] = [
   { key: 'end', label: '終了' },
   { key: 'text', label: '本文', wrap: true },
 ];
-const PROVENANCE_COLUMNS: DataTableColumn[] = [
-  { key: 'material', label: '素材' },
-  { key: 'kind', label: 'kind' },
-  { key: 'by', label: 'by' },
-  { key: 'spec', label: 'spec', wrap: true },
-];
-
 const short = (d: string | null) => (d ? d.slice(0, 12) : '—');
 const bytesLabel = (n: number | null) => (n == null ? '' : `${n.toLocaleString('en-US')} B`);
 
@@ -143,7 +136,6 @@ function Publication({ p, detail, examId, workId }: { p: ItemPublication; detail
         <h3 className="m-0 font-semibold">{p.format}{p.variant ? `・${p.variant}` : ''}</h3>
         <StatusBadge tone={STATUS_TONE[p.status] ?? 'neutral'}>{p.status}</StatusBadge>
         {p.flags.map((x) => <StatusBadge key={x} tone={flagTone(x)}>{x}</StatusBadge>)}
-        <code className="text-xs text-muted-foreground">{p.id}</code>
       </div>
 
       <TableFrame>
@@ -176,7 +168,6 @@ function Publication({ p, detail, examId, workId }: { p: ItemPublication; detail
         {p.media.some((m) => /^scene-\d+$/.test(m.role)) ? (
           <div>
             <h4 id={`${p.id}-scenes`} className="mb-2 scroll-mt-4 text-sm font-semibold">コンテンツ画像（再生順・クリックで原寸）</h4>
-            <p className="mb-3 text-sm text-muted-foreground">制作画像は動画と別に更新されます。画像の変更が動画にも反映されているかは、動画で確認してください。</p>
             <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
               {p.media.filter((m) => /^scene-\d+$/.test(m.role)).map((m) => <MediaBlock key={m.role} m={m} detail={detail} examId={examId} workId={workId} />)}
             </div>
@@ -250,18 +241,9 @@ function Publication({ p, detail, examId, workId }: { p: ItemPublication; detail
       ) : null}
 
       {prov.length ? (
-        <div className="flex flex-col gap-1">
-          <h3 className="m-0 font-semibold">来歴</h3>
-          <DataTable
-            columns={PROVENANCE_COLUMNS}
-            rows={prov.map((m): DataTableRow => ({
-              id: m.role,
-              values: { material: roleLabel(m.role), kind: m.provenance?.kind ?? null, by: m.provenance?.by ?? null, spec: m.provenance?.spec ?? null },
-              cells: { spec: <span className="break-all text-xs">{m.provenance?.spec ?? '—'}</span> },
-            }))}
-            pageSize={100}
-          />
-        </div>
+        <DetailSheet trigger="来歴" title="来歴">
+          <DetailText title="素材" items={prov.map((m) => `${roleLabel(m.role)}: ${[m.provenance?.kind, m.provenance?.by, m.provenance?.spec].filter(Boolean).join(' / ')}`)} />
+        </DetailSheet>
       ) : null}
     </section>
   );
@@ -287,16 +269,14 @@ export default async function ItemDetailPage({ params }: { params: Promise<{ exa
       <PanelCard title="作品" className="mb-4">
         <TableFrame>
           <TableBody>
-            <Row k="ID" v={<code>{exam}/{w.work.id}</code>} />
             <Row k="kind" v={w.work.kind + (w.work.format ? `・${w.work.format}` : '')} />
-            <Row k="definition" v={<code className="break-all text-xs">{w.work.definition}</code>} />
             <Row k="QA" v={qa ? `平均 ${qa.avg ?? '—'} · ブロック ${qa.blocks ?? '—'} · ${fmtJstAt(qa.at)} ${qa.by ?? ''}` : '—'} />
           </TableBody>
         </TableFrame>
       </PanelCard>
 
       {w.candidateMedia.length ? (
-        <PanelCard title="改訂版（YouTube未反映）" description="修正・再生成した制作物です。現在の公開・予約動画は下に表示します。" className="mb-4">
+        <PanelCard title="改訂版（YouTube未反映）" className="mb-4">
           <div className="flex flex-col gap-4">
             {w.candidateMedia.filter(m => m.role === 'cover').map(m => <MediaBlock key={m.id} m={m} detail={details.candidate ?? {}} examId={exam} workId={w.work.id} />)}
             <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
@@ -309,7 +289,7 @@ export default async function ItemDetailPage({ params }: { params: Promise<{ exa
 
       <div className="flex flex-col gap-4">
         {w.channels.map((ch) => (
-          <PanelCard key={ch.channel} title={ch.channel} description={`公開 ${ch.publications.length} 件`}>
+          <PanelCard key={ch.channel} title={`${ch.channel}（${ch.publications.length} 件）`}>
             <div className="flex flex-col gap-4">
               {ch.publications.map((p) => (
                 <Publication key={p.id} p={p} detail={details[p.id] ?? {}} examId={exam} workId={w.work.id} />

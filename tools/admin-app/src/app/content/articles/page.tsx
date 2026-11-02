@@ -1,4 +1,4 @@
-import { DataTable, type DataTableColumn, type DataTableRow, StatusBadge } from '@/components/admin';
+import { DataTable, DetailList, DetailSheet, type DataTableColumn, type DataTableRow, StatusBadge } from '@/components/admin';
 import { PageHead } from '@/components/ui';
 import { articlesIndex } from '@/lib/content';
 import { GROUP_LABEL } from '@/lib/gallery';
@@ -9,14 +9,13 @@ export const dynamic = 'force-dynamic';
 const COLUMNS: DataTableColumn[] = [
   { key: 'group', label: '分類' },
   { key: 'title', label: 'タイトル' },
-  { key: 'slug', label: 'slug' },
   { key: 'quality', label: '品質' },
   { key: 'state', label: '状態' },
   { key: 'publishedAt', label: '公開日' },
 ];
 
 export default function ContentArticlesPage() {
-  const { summary, docs } = articlesIndex();
+  const { docs } = articlesIndex();
   const quality = qualitySummary();
   const census = qualityCensus();
   const lintBySlug = new Map(quality.articles.map((article) => [article.slug, article]));
@@ -50,13 +49,16 @@ export default function ContentArticlesPage() {
 
     return {
       id: d.slug,
-      values: { group, title: d.title, slug: d.slug, quality: detail, state: d.published ? '公開' : '非公開', publishedAt: d.publishedAt ?? null },
+      values: { group, title: d.title, quality: detail, state: d.published ? '公開' : '非公開', publishedAt: d.publishedAt ?? null },
       cells: {
         group: <StatusBadge tone="neutral">{group}</StatusBadge>,
-        title: <span className="block max-w-[28rem] truncate" title={d.title}>{d.title}</span>,
-        slug: <span className="block max-w-[16rem] truncate font-mono text-xs" title={d.slug}>{d.slug}</span>,
+        title: (
+          <DetailSheet trigger={<span className="block max-w-[28rem] truncate">{d.title}</span>} title={d.title} description={d.slug}>
+            <DetailList items={[{ label: '分類', value: group }, { label: '品質', value: detail }]} />
+          </DetailSheet>
+        ),
         quality: (
-          <span className="flex flex-wrap gap-1" title={detail}>
+          <span className="flex flex-wrap gap-1">
             {!d.published ? (
               <StatusBadge tone="neutral">対象外</StatusBadge>
             ) : !score ? (
@@ -88,11 +90,8 @@ export default function ContentArticlesPage() {
 
   return (
     <>
-      <PageHead
-        title="サイト記事"
-        sub={`全 ${summary.total ?? docs.length} 記事（公開 ${summary.published ?? '—'} / 非公開 ${summary.unpublished ?? '—'}）· 品質 = 採点 census + lint baseline`}
-      />
-      <DataTable columns={COLUMNS} rows={rows} filter="タイトル・slug などで絞り込む" />
+      <PageHead title="サイト記事" />
+      <DataTable columns={COLUMNS} rows={rows} filter="タイトル・slug で絞り込む" />
     </>
   );
 }

@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { redirect } from 'next/navigation';
-import { DataTable, Facet, FacetHead, FacetShell, PanelCard, StatusBadge, TableBody, TableCell, TableFrame, TableHead, TableHeader, TableRow, type DataTableColumn, type DataTableRow, type FacetItem, type Tone } from '@/components/admin';
+import { DataTable, DetailList, DetailSheet, Facet, FacetHead, FacetShell, PanelCard, StatusBadge, TableBody, TableCell, TableFrame, TableHead, TableHeader, TableRow, type DataTableColumn, type DataTableRow, type FacetItem, type Tone } from '@/components/admin';
 import { PageHead } from '@/components/ui';
 import { MonthlyReviewPlan } from '@/components/MonthlyReviewPlan';
 import { renderMarkdown } from '@/lib/markdown';
@@ -79,23 +79,31 @@ function facetItems(
   ];
 }
 
-function TaskLink({ card }: { card: TodoCard }) {
+function TaskLink({ card, docRefs }: { card: TodoCard; docRefs?: { slug: string; title: string }[] }) {
+  const prompt = buildPrompt(card);
   return (
-    <>
-      <a
-        className="todo-title"
-        href={vscodeLink(card.abs, card.line)}
-        title={`${card.path}:${card.line} を VS Code で開く`}
-      >
-        {card.title}
-      </a>
+    <DetailSheet trigger={card.title} title={card.title} description={card.id ?? undefined}>
+      <DetailList
+        items={[
+          { label: '実行中', value: card.wip && card.claim ? <ClaimInfo claim={card.claim} /> : null },
+          { label: 'Codex', value: card.codex ? 'バルク処理向き' : null },
+          { label: '実装計画', value: card.planPath ? <Link href={planHref(card.planPath)}>開く</Link> : null },
+          { label: '関連文書', value: docRefs?.length ? <DocRefs refs={docRefs} /> : null },
+          { label: '場所', value: <a href={vscodeLink(card.abs, card.line)}>{card.path}:{card.line}</a> },
+        ]}
+      />
       {card.body ? (
-        <details className="todo-task-detail">
-          <summary>詳細</summary>
+        <section>
+          <h3 className="mb-1 text-sm font-semibold">詳細</h3>
           <div className="md-prose" dangerouslySetInnerHTML={{ __html: renderMarkdown(card.body) }} />
-        </details>
+        </section>
       ) : null}
-    </>
+      <section>
+        <h3 className="mb-1 text-sm font-semibold">prompt</h3>
+        <pre className="mono todo-prompt-pre">{prompt}</pre>
+        <CopyButton text={prompt} />
+      </section>
+    </DetailSheet>
   );
 }
 
@@ -177,17 +185,6 @@ function buildPrompt(card: TodoCard): string {
   ].join('\n');
 }
 
-function PromptDetails({ card }: { card: TodoCard }) {
-  const prompt = buildPrompt(card);
-  return (
-    <details className="todo-task-detail todo-prompt-detail">
-      <summary>prompt</summary>
-      <pre className="mono todo-prompt-pre">{prompt}</pre>
-      <CopyButton text={prompt} />
-    </details>
-  );
-}
-
 /**
  * このタスクを参照している恒久文書（`docs/**` の `DN-####`）。
  *
@@ -217,7 +214,7 @@ function BacklogTable({
   focusId?: string;
   docRefs: Map<string, { slug: string; title: string }[]>;
 }) {
-  if (!cards.length) return <p className="text-sm text-muted-foreground">該当するタスクはありません</p>;
+  if (!cards.length) return <p className="text-sm">該当するタスクはありません</p>;
   return (
     <TableFrame tableClassName="min-w-[680px]">
       <TableHeader>
@@ -246,20 +243,11 @@ function BacklogTable({
               </span>
             </TableCell>
             <TableCell className="whitespace-normal min-w-0 [overflow-wrap:anywhere]">
-              <TaskLink card={card} />
-              {card.wip ? <ClaimInfo claim={card.claim} /> : null}
+              <TaskLink card={card} docRefs={card.id ? docRefs.get(card.id) : undefined} />
               <div className="todo-task-meta">
                 {card.id ? <span className="todo-id">{card.id}</span> : null}
-                {card.codex ? (
-                  <StatusBadge tone="info" title="バルク処理向き（自動dispatchではない）">
-                    Codex
-                  </StatusBadge>
-                ) : null}
                 {card.wip ? <StatusBadge tone="warn">進行中</StatusBadge> : null}
-                {card.planPath ? <Link className="todo-doc-ref" href={planHref(card.planPath)}>実装計画</Link> : null}
-                {card.id ? <DocRefs refs={docRefs.get(card.id)} /> : null}
               </div>
-              <PromptDetails card={card} />
             </TableCell>
             <TableCell className="max-[900px]:hidden">{card.kind ? <StatusBadge tone="info">{card.kind}</StatusBadge> : <span className="text-muted-foreground">—</span>}</TableCell>
             <TableCell className="max-[900px]:hidden"><DueBadge due={card.due} /></TableCell>
@@ -299,7 +287,7 @@ function PlanTable({
   /** weekly/monthly のみ: backlogIndex() の join 結果（台帳の title/tier/due・drift 検出）。 */
   backlogRefs?: Map<string, BacklogRef>;
 }) {
-  if (!cards.length) return <p className="text-sm text-muted-foreground">計画項目がありません</p>;
+  if (!cards.length) return <p className="text-sm">計画項目がありません</p>;
   const ordered = annual ? cards : [...cards].sort((a, b) => Number(a.complete) - Number(b.complete));
   const hasOwner = !annual && cards.some((card) => card.owner);
   const columns: DataTableColumn[] = [
@@ -372,8 +360,8 @@ export default async function TodoPage({ searchParams }: { searchParams: Promise
   const sub = isBacklog
     ? `${visible.length} / ${layerCards.length}件を表示`
     : layer === 'monthly'
-      ? `${board.month.slice(0, 4)}年${Number(board.month.slice(5))}月 · [時期:] が今月を含むカード ${layerCards.length}件`
-    : `${meta?.title ?? meta?.label ?? layer} · 未完了 ${activeCount}件${completeCount && !completedAreHidden ? ` / 完了 ${completeCount}件` : ''}`;
+      ? `${board.month.slice(0, 4)}年${Number(board.month.slice(5))}月 · ${layerCards.length}件`
+    : `未完了 ${activeCount}件${completeCount && !completedAreHidden ? ` / 完了 ${completeCount}件` : ''}`;
 
   const main = isCardList ? (
     <BacklogTable cards={isBacklog ? visible : displayedLayerCards} focusId={query.id} docRefs={docRefs} />
@@ -409,9 +397,6 @@ export default async function TodoPage({ searchParams }: { searchParams: Promise
     <>
       <PageHead title={meta?.label ?? 'TODO'} sub={sub} />
 
-      {!isBacklog && meta?.summary ? (
-        <p className="todo-plan-focus"><strong>焦点</strong>{meta.summary}</p>
-      ) : null}
       {layer === 'monthly' && meta?.notes ? (
         <PanelCard title="今月の成果目標" className="mb-3">
           <div className="md-prose" dangerouslySetInnerHTML={{ __html: renderMarkdown(meta.notes) }} />

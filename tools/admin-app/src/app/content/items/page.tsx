@@ -40,7 +40,7 @@ export default async function ItemsPage({ searchParams }: { searchParams: Promis
   const m = one(sp.m);
   const now: Query = { e: e ?? undefined, c: c ?? undefined, s: s ?? undefined, f: f ?? undefined, m: m ?? undefined };
 
-  const { rows: all, counts } = loadItemList();
+  const { rows: all } = loadItemList();
   const publications = (r: ItemRow, skip?: keyof Query): ItemRow['publications'] => matchingItemPublications(r, {
     channel: skip === 'c' ? undefined : c,
     status: skip === 's' ? undefined : s,
@@ -133,15 +133,14 @@ export default async function ItemsPage({ searchParams }: { searchParams: Promis
       ]}
       rows={dataRows}
       filter="題名・資格・予約状態で絞り込み"
-      emptyText="この条件に該当する作品はありません。"
+      emptyText="該当なし"
     />
   );
 
   return (
     <>
-      <PageHead title="作品と公開" sub={`作品 ${counts.works} 件 · 公開 ${counts.publications} 件（表示中の作品 ${rows.length}）`} />
+      <PageHead title="作品と公開" />
       <nav className="project-crumbs"><Link href={longformPlanHref({ e: e ?? undefined, m: m && m !== 'undated' ? m : undefined })}>通常動画の制作・公開管理</Link></nav>
-      <p className="text-xs text-muted-foreground">台帳の予約・公開状態と公開予定日時（JST）です。未予約は希望日時で、予約完了ではありません。絞り込みに一致する公開行だけを表示します。</p>
       <FacetShell main={main} rail={rail} />
     </>
   );

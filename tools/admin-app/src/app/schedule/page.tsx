@@ -1,8 +1,7 @@
 import Link from 'next/link';
 import { join } from 'node:path';
-import { DataTable, PanelCard, StatusBadge, type DataTableColumn, type DataTableRow, type Tone, TableBody, TableCell, TableFrame, TableHead, TableHeader, TableRow } from '@/components/admin';
+import { DataTable, DetailList, DetailSheet, PanelCard, StatusBadge, type DataTableColumn, type DataTableRow, type Tone, TableBody, TableCell, TableFrame, TableHead, TableHeader, TableRow } from '@/components/admin';
 import { PageHead } from '@/components/ui';
-import { roadmapHref, longformPlanHref } from '@/lib/content-plan-links';
 import { findRepoRoot } from '@/lib/repo-root';
 import {
   scheduleBoard,
@@ -77,7 +76,6 @@ const DAY_COLUMNS: DataTableColumn[] = [
   { key: 'channel', label: 'チャネル' },
   { key: 'status', label: '状態' },
   { key: 'label', label: '内容', wrap: true },
-  { key: 'source', label: 'ソース' },
 ];
 
 function isValidMonth(v: string | undefined): v is string {
@@ -118,7 +116,8 @@ function ChannelHealth({ board }: { board: Awaited<ReturnType<typeof scheduleBoa
   for (const ch of CHANNEL_ORDER) byChannel.set(ch, { count: 0, ok: true, errors: [] });
   for (const s of board.sources) {
     const ch = SOURCE_CHANNEL[s.id];
-    const acc = byChannel.get(ch)!;
+    const acc = ch ? byChannel.get(ch) : undefined;
+    if (!acc) continue;
     acc.count += s.count;
     if (!s.ok) { acc.ok = false; acc.errors.push(...s.errors.map((e) => `${s.id}: ${e.message}`)); }
   }
@@ -222,7 +221,7 @@ function MonthGrid({ month, events, query, today }: { month: string; events: Sch
 function DayDrilldown({ day, events }: { day: string; events: ScheduleEventView[] }) {
   const sorted = [...events].sort((a, b) => (a.time ?? '99:99').localeCompare(b.time ?? '99:99'));
   return (
-    <PanelCard title={`${day}（${weekdayLabel(day)}）の内訳`} description={`${sorted.length}件`} className="schedule-day-card mt-4">
+    <PanelCard title={`${day}（${weekdayLabel(day)}）の内訳`} className="schedule-day-card mt-4">
       {sorted.length ? (
         <DataTable
           columns={DAY_COLUMNS}
@@ -233,23 +232,21 @@ function DayDrilldown({ day, events }: { day: string; events: ScheduleEventView[
                 time: e.time ?? '終日',
                 channel: CHANNEL_LABEL[e.channel],
                 status: STATUS_LABEL[e.status],
-                label: e.detail ? `${e.label} ${e.detail}` : e.label,
-                source: e.sourcePath,
+                label: e.label,
               },
               cells: {
                 time: <span className="font-mono">{e.time ?? '終日'}</span>,
                 channel: <><span className={`ch-dot ${e.channel}`} /> {CHANNEL_LABEL[e.channel]}</>,
                 status: <StatusBadge tone={STATUS_TONE[e.status]}>{STATUS_LABEL[e.status]}</StatusBadge>,
                 label: (
-                  <>
-                    {e.label}
-                    {e.detail ? <div className="text-muted-foreground text-xs">{e.detail}</div> : null}
-                  </>
-                ),
-                source: (
-                  <a href={vscodeLink(e.sourcePath)} className="font-mono text-xs" title={`${e.sourcePath} を VS Code で開く`}>
-                    {e.sourcePath}
-                  </a>
+                  <DetailSheet trigger={e.label} title={e.label} description={`${e.date}${e.time ? ` ${e.time}` : ''}`}>
+                    <DetailList
+                      items={[
+                        { label: '内容', value: e.detail },
+                        { label: 'ソース', value: <a href={vscodeLink(e.sourcePath)} className="font-mono text-xs">{e.sourcePath}</a> },
+                      ]}
+                    />
+                  </DetailSheet>
                 ),
               },
             }),
@@ -257,7 +254,7 @@ function DayDrilldown({ day, events }: { day: string; events: ScheduleEventView[
           pageSize={100}
         />
       ) : (
-        <p className="text-sm text-muted-foreground">この日のイベントはありません</p>
+        <p className="text-sm">この日のイベントはありません</p>
       )}
     </PanelCard>
   );
@@ -283,19 +280,18 @@ function OverdueCard({
   if (!overdue.length && !ytOverdue.length) {
     return (
       <PanelCard title={`${month} の超過一覧`} className="schedule-overdue-card mt-4">
-        <p className="text-sm text-muted-foreground">超過はありません</p>
+        <p className="text-sm">超過はありません</p>
       </PanelCard>
     );
   }
   return (
-    <PanelCard title={`${month} の超過一覧`} description="YouTube は月をまたぐ集約（全期間）" className="schedule-overdue-card mt-4">
+    <PanelCard title={`${month} の超過一覧`} className="schedule-overdue-card mt-4">
       <TableFrame>
         <TableHeader>
           <TableRow>
             <TableHead>日付</TableHead>
             <TableHead>チャネル</TableHead>
             <TableHead>内容</TableHead>
-            <TableHead>ソース</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
@@ -306,18 +302,16 @@ function OverdueCard({
               <TableCell className="schedule-yt-aggregate">
                 公開予約時刻を経過・公開実体は未検証の動画が <strong>{ytOverdue.length}件</strong>（DN-0131）
               </TableCell>
-              <TableCell className="font-mono text-xs">content/registry（旧 Shorts）</TableCell>
             </TableRow>
           ) : null}
           {overdue.map((e) => (
             <TableRow key={e.id}>
               <TableCell className="font-mono">{e.date}{e.time ? ` ${e.time}` : ''}</TableCell>
               <TableCell><span className={`ch-dot ${e.channel}`} /> {CHANNEL_LABEL[e.channel]}</TableCell>
-              <TableCell className="whitespace-normal">{e.label}</TableCell>
-              <TableCell>
-                <a href={vscodeLink(e.sourcePath)} className="font-mono text-xs" title={`${e.sourcePath} を VS Code で開く`}>
-                  {e.sourcePath}
-                </a>
+              <TableCell className="whitespace-normal">
+                <DetailSheet trigger={e.label} title={e.label} description={e.date}>
+                  <DetailList items={[{ label: 'ソース', value: <a href={vscodeLink(e.sourcePath)} className="font-mono text-xs">{e.sourcePath}</a> }]} />
+                </DetailSheet>
               </TableCell>
             </TableRow>
           ))}
@@ -345,9 +339,6 @@ export default async function SchedulePage({ searchParams }: { searchParams: Pro
   return (
     <>
       <PageHead title="スケジュール" />
-      <nav className="project-crumbs" aria-label="関連する計画と台帳">
-        <Link href={roadmapHref(month)}>年間ロードマップ</Link> · <Link href="/sns">SNS投稿状況</Link> · <Link href={longformPlanHref({ m: month })}>通常動画の制作・公開管理</Link>
-      </nav>
       <div className="filterbar">
         <Link href={href(query, { dom: undefined, ch: undefined })} className={'chip' + (!domain ? ' active' : '')}>すべて</Link>
         {DOMAINS.map((d) => (

@@ -12,7 +12,7 @@ import { todayJst } from '../../../../../../scripts/lib/jst-date.mjs';
 import { reviewWeekLabel } from '../../../../../../scripts/lib/review-week.mjs';
 import { readWeeklyDraft, reviewChecks, weeklyLaunchd } from '../../../../../../scripts/lib/review-automation.mjs';
 import { jstDateTime } from '@/lib/format';
-import { StatusBadge, type Tone, DataTable, PanelCard, StatCard, type DataTableColumn, type DataTableRow } from '@/components/admin';
+import { StatusBadge, type Tone, DataTable, DetailSheet, DetailText, PanelCard, StatCard, type DataTableColumn, type DataTableRow } from '@/components/admin';
 
 /**
  * 戦略 ＞ レビュー（週次・月次）の共通部品。画面には人が目で確かめる・決めることだけを出す
@@ -74,13 +74,12 @@ export function Current({ sel, cadenceId }: { sel: Selected; cadenceId: 'weekly'
   return (
     <Stack gap="sm">
       <Grid min="sm">
-        <StatCard label={cadenceId === 'weekly' ? 'レビューの週' : '対象月'} value={runLabel(cadenceId, sel.key)} />
         <StatCard label="振り返り期間" value={sel.period ? `${md(sel.period.startDate)}〜${md(sel.period.endDate)}` : '—'} />
         <StatCard label="記録" value={sel.review ? (sel.review.status === 'provisional' ? '暫定' : '確定') : 'なし'} />
         <StatCard label="判定" value={<StatusBadge tone={v.tone}>{v.label}</StatusBadge>} />
       </Grid>
       {sel.reasons.length > 0 && (
-        <ul className="m-0 pl-5 text-sm text-muted-foreground">
+        <ul className="m-0 pl-5 text-sm">
           {sel.reasons.map((r) => (
             <li key={r}>{r}</li>
           ))}
@@ -106,12 +105,11 @@ const LAUNCHD: Record<string, { label: string; tone: Tone }> = {
 export function AutomationStatus({ a, cadenceId }: { a: Automation; cadenceId: 'weekly' | 'monthly' }) {
   if (!a) return null;
   return (
-    <Section title="自動化と点検">
-      <Grid min="lg">
+    <Grid min="lg">
         {cadenceId === 'weekly' && (
           <PanelCard title="下書き（土曜の Mac）"><div className="flex flex-col gap-2 text-sm">
               {!a.draft ? (
-                <p className="m-0 text-muted-foreground">まだ無い（土曜の Mac が収集の後に作る・手で作るなら npm run weekly-review:draft）</p>
+                <p className="m-0">まだ無い</p>
               ) : 'broken' in a.draft ? (
                 <p className="m-0">下書きのファイルが壊れている</p>
               ) : (
@@ -129,7 +127,7 @@ export function AutomationStatus({ a, cadenceId }: { a: Automation; cadenceId: '
                   ) : (
                     <StatusBadge tone="good">必須の材料はそろっている</StatusBadge>
                   )}
-                  {a.draft.failedInputs.length > 0 && <p className="m-0 text-muted-foreground">取得に失敗した材料: {a.draft.failedInputs.join('・')}</p>}
+                  {a.draft.failedInputs.length > 0 && <p className="m-0">取得に失敗した材料: {a.draft.failedInputs.join('・')}</p>}
                 </>
               )}
             </div>
@@ -138,7 +136,7 @@ export function AutomationStatus({ a, cadenceId }: { a: Automation; cadenceId: '
         {cadenceId === 'weekly' && (
           <PanelCard title="土曜の自動実行（Mac）"><div className="flex flex-col gap-2 text-sm">
               {!a.launchd ? (
-                <p className="m-0 text-muted-foreground">この端末では確かめられない（macOS のみ）</p>
+                <p className="m-0">確かめられない</p>
               ) : a.launchd.last ? (
                 <div>
                   最後の実行 {jstDateTime(a.launchd.last.at, { short: true })} <StatusBadge tone={LAUNCHD[a.launchd.last.result].tone}>{LAUNCHD[a.launchd.last.result].label}</StatusBadge>
@@ -146,16 +144,15 @@ export function AutomationStatus({ a, cadenceId }: { a: Automation; cadenceId: '
                   {a.launchd.last.gscFailed ? <StatusBadge tone="bad">GSC の記録が失敗</StatusBadge> : null}
                 </div>
               ) : (
-                <p className="m-0 text-muted-foreground">{a.launchd.installed ? 'まだ一度も動いていない' : '未登録（npm run weekly-review:install で登録する）'}</p>
+                <p className="m-0">{a.launchd.installed ? 'まだ一度も動いていない' : '未登録'}</p>
               )}
-              {/* 段ごとの結果（収集・GSC の記録・レビュー）は Mac の自動実行の画面が正本。ここはレビューの回の目印だけ（DN-0851） */}
-              <Link href="/ops/mac">段ごとの結果は「Mac の自動実行」で見る</Link>
+              <Link href="/ops/mac">Mac の自動実行</Link>
             </div>
           </PanelCard>
         )}
         <PanelCard title="点検と Issue"><div className="flex flex-col gap-2 text-sm">
             {!a.checks ? (
-              <p className="m-0 text-muted-foreground">この回の点検の記録が無い（npm run review-checks）</p>
+              <p className="m-0">この回の点検の記録が無い</p>
             ) : (
               <>
                 <div className="text-xs text-muted-foreground">実行 {jstDateTime(a.checks.ranAt, { short: true })}</div>
@@ -177,8 +174,7 @@ export function AutomationStatus({ a, cadenceId }: { a: Automation; cadenceId: '
             )}
           </div>
         </PanelCard>
-      </Grid>
-    </Section>
+    </Grid>
   );
 }
 
@@ -191,19 +187,15 @@ const STEP_COLUMNS: DataTableColumn[] = [
 function stepRows(procedure: Procedure): DataTableRow[] {
   return procedure.steps.map((s, i) => ({
     id: s.label,
-    values: { order: i + 1, step: `${s.label} ${s.does}`, state: STEP[s.state].label },
+    values: { order: i + 1, step: s.label, state: STEP[s.state].label },
     cells: {
       step: (
-        <>
-          <div className="font-semibold">{s.label}</div>
-          <div className="text-xs text-muted-foreground">{s.does}</div>
-        </>
+        <DetailSheet trigger={s.label} title={s.label}>
+          <DetailText title="やること" items={[s.does]} />
+          <DetailText title="実施の根拠" items={[s.note]} />
+        </DetailSheet>
       ),
-      state: (
-        <span title={s.note}>
-          <StatusBadge tone={STEP[s.state].tone}>{STEP[s.state].label}</StatusBadge>
-        </span>
-      ),
+      state: <StatusBadge tone={STEP[s.state].tone}>{STEP[s.state].label}</StatusBadge>,
     },
   }));
 }
@@ -211,9 +203,7 @@ function stepRows(procedure: Procedure): DataTableRow[] {
 /** 手順（何をやるか）と、それぞれ実施できたか。根拠はマウスで出す。 */
 export function Checklist({ procedure }: { procedure: Procedure }) {
   return (
-    <Section title="手順">
-      <DataTable columns={STEP_COLUMNS} rows={stepRows(procedure)} pageSize={20} />
-    </Section>
+    <DataTable columns={STEP_COLUMNS} rows={stepRows(procedure)} pageSize={20} />
   );
 }
 
@@ -229,7 +219,7 @@ function Count({ label, value }: { label: string; value: React.ReactNode }) {
 /** 選んだ回の判断（人が読む）と、今の回だけ人が決めるバックログのカード。 */
 export function Outcome({ c, review, gate }: { c: Cadence; review: Review | null; gate: Gate | null }) {
   return (
-    <Section title="判断">
+    <Stack>
       <Grid min="lg">
         <PanelCard title="判断の記録">
           <div className="flex flex-col gap-3 text-sm leading-relaxed">
@@ -245,7 +235,7 @@ export function Outcome({ c, review, gate }: { c: Cadence; review: Review | null
                 </div>
               </>
             ) : (
-              <p className="m-0 text-muted-foreground">まだ記録がない</p>
+              <p className="m-0">まだ記録がない</p>
             )}
           </div>
         </PanelCard>
@@ -268,7 +258,7 @@ export function Outcome({ c, review, gate }: { c: Cadence; review: Review | null
           </PanelCard>
         )}
       </Grid>
-    </Section>
+    </Stack>
   );
 }
 
@@ -395,6 +385,42 @@ export function ReviewUnavailable({ title }: { title: string }) {
     <Stack>
       <PageHead title={title} />
       <p className="project-warning-text text-sm">設定・計測期間を読み取れない。</p>
+    </Stack>
+  );
+}
+
+const REVIEW_TABS = [
+  { id: 'status', label: '実施と判断' },
+  { id: 'steps', label: '手順' },
+  { id: 'auto', label: '自動化' },
+] as const;
+
+/** 週次・月次ページの本体。タブ（実施と判断・手順・自動化）で切り替える */
+export function ReviewBody({ d, cadenceId, tab, base }: { d: ReviewData; cadenceId: 'weekly' | 'monthly'; tab?: string; base: string }) {
+  const current = REVIEW_TABS.some((x) => x.id === tab) ? (tab as string) : 'status';
+  const runQ = d.selected.current ? '' : `run=${d.selected.key}`;
+  const href = (id: string) => {
+    const q = [id === 'status' ? '' : `tab=${id}`, runQ].filter(Boolean).join('&');
+    return q ? `${base}?${q}` : base;
+  };
+  return (
+    <Stack gap="lg">
+      <RunPicker base={base} options={d.options} selected={d.selected.key} />
+      <nav className="filterbar mb-3!">
+        {REVIEW_TABS.map((x) => (
+          <Link key={x.id} className={'chip' + (x.id === current ? ' active' : '')} href={href(x.id)}>
+            {x.label}
+          </Link>
+        ))}
+      </nav>
+      {current === 'status' && (
+        <>
+          <Current sel={d.selected} cadenceId={cadenceId} />
+          {d.cadence && <Outcome c={d.cadence} review={d.selected.review} gate={d.selected.current ? d.gate : null} />}
+        </>
+      )}
+      {current === 'steps' && d.procedure && <Checklist procedure={d.procedure} />}
+      {current === 'auto' && <AutomationStatus a={d.automation} cadenceId={cadenceId} />}
     </Stack>
   );
 }

@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { DataTable, PanelCard, StatusBadge, type DataTableColumn, type DataTableRow } from '@/components/admin';
+import { DataTable, DetailList, DetailSheet, DetailText, PanelCard, StatusBadge, type DataTableColumn, type DataTableRow } from '@/components/admin';
 import { PageHead } from '@/components/ui';
 import { findRepoRoot } from '@/lib/repo-root';
 import { expansionReport, sourceSummary, linkedProductsByUnit, siteWiring, DECISION_LABELS } from '../../../../../scripts/lib/content-expansion.mjs';
@@ -84,7 +84,6 @@ const UNIT_COLUMNS: DataTableColumn[] = [
   { key: 'derivative', label: 'SNS' },
   { key: 'articles', label: '記事', num: true },
   { key: 'snsFiles', label: 'SNS原稿', num: true },
-  { key: 'products', label: '関連商品', wrap: true },
   { key: 'backlog', label: '展開予定' },
 ];
 const PAGE_COLUMNS: DataTableColumn[] = [
@@ -93,7 +92,6 @@ const PAGE_COLUMNS: DataTableColumn[] = [
   { key: 'units', label: '論点', num: true },
   { key: 'impressions', label: '表示', num: true },
   { key: 'clicks', label: 'クリック', num: true },
-  { key: 'others', label: 'ほかの教材', wrap: true },
 ];
 
 /** 本文の割合（対象外を除いた論点に対する内容対応ありの割合）と、100% に届かない理由の内訳。 */
@@ -209,10 +207,6 @@ function List({ sources, issues, products, wiring }: { sources: Source[]; issues
         </PanelCard>
       )}
       <DataTable columns={SOURCE_COLUMNS} rows={rows} pageSize={100} filter="教材で絞り込む" />
-      <p className="small muted mt-2">
-        本文＝内容対応ありの論点 ÷（論点 − 対象外）。対象外は意図して展開しない論点（旧年度の手続き・見出しだけの構造・対象外の部門など）。
-        原典待ちは原本のページが無く展開できない論点、一部対応は原本の一部しか照合できていない論点。行を開くと論点ごとの理由が見られる。
-      </p>
     </>
   );
 }
@@ -236,46 +230,32 @@ function Detail({ source, products, onlyAttention, sitePages, book }: { source: 
         derivative: label(u.derivative.decision),
         articles: siteCount(u) || null,
         snsFiles: snsCount(u) || null,
-        products: prods.map((p) => p.split('/').pop()!).join(' ') || null,
         backlog: (u.backlogIds ?? []).join(' ') || null,
       },
       cells: {
         need: (
-          <div className="max-w-[420px]">
-            <details>
-              <summary>{u.need}</summary>
-              <div className="text-xs mt-1">
-                <p>{u.reason}</p>
-                <p>図解：{u.visual.reason}</p>
-                <p>SNS：{u.derivative.reason}</p>
-                {u.artifacts.map((a) => (
-                  <div key={a.path} className="font-mono">
-                    {a.path}
-                    {a.state !== 'current' && <strong className="project-warning-text">（{a.state === 'missing' ? '実体なし' : '確認後に変更'}）</strong>}
-                  </div>
-                ))}
-                <p className="text-muted-foreground">確認の深さ：{evidenceLabels[u.evidenceLevel] ?? u.evidenceLevel} · 根拠：{u.locators.join(' / ')}</p>
-              </div>
-            </details>
-          </div>
+          <DetailSheet trigger={u.need} title={u.need} description={u.id}>
+            <DetailList
+              items={[
+                { label: '本文', value: contentText },
+                { label: '図解', value: label(u.visual.decision) },
+                { label: 'SNS', value: label(u.derivative.decision) },
+                { label: '確認の深さ', value: evidenceLabels[u.evidenceLevel] ?? u.evidenceLevel },
+              ]}
+            />
+            <DetailText title="理由" items={[u.reason]} />
+            <DetailText title="図解の理由" items={[u.visual.reason]} />
+            <DetailText title="SNSの理由" items={[u.derivative.reason]} />
+            <DetailText title="根拠の箇所" items={u.locators} />
+            <DetailText title="成果物" items={u.artifacts.map((a) => a.path + (a.state !== 'current' ? `（${a.state === 'missing' ? '実体なし' : '確認後に変更'}）` : ''))} />
+            <DetailText title="関連商品" items={prods.map((p) => p.split('/').pop()!)} />
+          </DetailSheet>
         ),
         content: <State text={contentText} warn={needsAttention(u)} />,
         visual: <State text={label(u.visual.decision)} warn={warnDecision(u.visual.decision)} />,
         derivative: <State text={label(u.derivative.decision)} warn={warnDecision(u.derivative.decision)} />,
         articles: siteCount(u) || <span className="text-muted-foreground">—</span>,
         snsFiles: snsCount(u) || <span className="text-muted-foreground">—</span>,
-        products: (
-          <div className="text-xs max-w-[260px]">
-            {prods.length ? (
-              <>
-                {prods.slice(0, 2).map((p) => <div key={p}>{p.split('/').pop()}</div>)}
-                {prods.length > 2 && <div className="text-muted-foreground">ほか {prods.length - 2} 件</div>}
-              </>
-            ) : (
-              <span className="text-muted-foreground">—</span>
-            )}
-          </div>
-        ),
         backlog: (
           <>
             {(u.backlogIds ?? []).map((b) => (
@@ -306,7 +286,6 @@ function Detail({ source, products, onlyAttention, sitePages, book }: { source: 
         <Link href={`${base}&view=site`}>サイトの配線先（{sitePages}）</Link>
       </nav>
       {book && <BookCoverageLine book={book} />}
-      {source.scopeNote && <p className="small muted">{source.scopeNote}</p>}
       <DataTable columns={UNIT_COLUMNS} rows={unitRows} filter="論点で絞り込む" />
     </>
   );
@@ -342,8 +321,8 @@ function SiteView({ source, wiring, sources }: { source: Source; wiring: Wiring;
         <Link href={`${base}&only=attention`}>要確認のみ（{source.units.filter(needsAttention).length}）</Link>
         <strong>サイトの配線先（{pages.length}）</strong>
       </nav>
-      {!wiring.gsc.file && <p className="project-warning-text text-xs">GSC のページ集計が無いため、表示・クリックは未取得です（0 ではありません）。</p>}
-      {pages.length === 0 && <p className="text-sm text-muted-foreground">この教材の論点はサイト記事へ配線されていません。</p>}
+      {!wiring.gsc.file && <p className="project-warning-text text-xs">表示・クリックは未取得（0 ではありません）</p>}
+      {pages.length === 0 && <p className="text-sm">配線先のページはありません。</p>}
       {[...sections].map(([key, list]) => (
         <div key={key} className="mb-4">
           <PanelCard title={<>{key} <span className="text-xs font-normal text-muted-foreground">{list.length} ページ</span></>}>
@@ -359,26 +338,25 @@ function SiteView({ source, wiring, sources }: { source: Source; wiring: Wiring;
                   units: p.units,
                   impressions: p.impressions,
                   clicks: p.clicks,
-                  others: others.map((o) => titleOf(o.sourceId)).join('・') || null,
                 },
                 cells: {
                   title: (
-                    <div className="max-w-[420px]">
-                      {p.url ? <a href={`${SITE_ORIGIN}${p.url}`} target="_blank" rel="noreferrer">{p.title}</a> : p.title}
-                    </div>
+                    <DetailSheet trigger={p.title} title={p.title} description={p.slug}>
+                      <DetailList
+                        items={[
+                          { label: '公開', value: p.published ? '公開' : '非公開' },
+                          { label: '論点', value: p.units },
+                          { label: '表示', value: num(p.impressions) },
+                          { label: 'クリック', value: num(p.clicks) },
+                          { label: 'ページ', value: p.url ? <a href={`${SITE_ORIGIN}${p.url}`} target="_blank" rel="noreferrer">{p.url}</a> : null },
+                          { label: 'ほかの教材', value: others.length ? others.map((o) => <div key={o.sourceId}><Link href={`/materials?id=${encodeURIComponent(o.sourceId)}&view=site`}>{titleOf(o.sourceId)}</Link></div>) : null },
+                        ]}
+                      />
+                    </DetailSheet>
                   ),
                   state: p.published ? <span className="text-xs">公開</span> : <StatusBadge tone="warn">非公開</StatusBadge>,
                   impressions: p.impressions ? num(p.impressions) : <span className="text-muted-foreground">0</span>,
                   clicks: p.clicks ? num(p.clicks) : <span className="text-muted-foreground">0</span>,
-                  others: (
-                    <div className="text-xs max-w-[240px]">
-                      {others.length ? others.map((o) => (
-                        <div key={o.sourceId}>
-                          <Link href={`/materials?id=${encodeURIComponent(o.sourceId)}&view=site`}>{titleOf(o.sourceId)}</Link>
-                        </div>
-                      )) : <span className="text-muted-foreground">—</span>}
-                    </div>
-                  ),
                 },
               };
             })}
@@ -398,16 +376,18 @@ function BookCoverageLine({ book }: { book: BookCoverage }) {
   const ocrTotal = book.imagedPages ?? 0;
   const ok = book.manifestMatchesPlan && book.ocr && ocrDone === ocrTotal;
   return (
-    <div className="small mb-2">
+    <div className="small mb-2 flex flex-wrap items-center">
       <span className={ok ? 'text-muted-foreground' : 'project-warning-text'}>
         原本 {book.pdfPages} 頁 · 除外 {book.excludedPdfPages} 頁 · ページ画像 {book.imagedPages ?? '—'}
         {book.manifestMatchesPlan === false && `（計画 ${book.plannedPages} と不一致）`} · 文字起こし {ocrDone}/{ocrTotal}
         {ocrDone < ocrTotal && (book.ocrUntracked ? '（残りを誰も追っていない）' : `（残りは ${book.ocrTracking}）`)}
       </span>
       {book.exclusions.length > 0 && (
-        <ul className="text-xs text-muted-foreground">
-          {book.exclusions.map((e) => <li key={e.reason}>除外 {e.pages} 頁（分冊 {e.files.join(',')}）: {e.reason}</li>)}
-        </ul>
+        <span className="ml-3">
+          <DetailSheet trigger="除外の内訳" title="除外の内訳">
+            <DetailText title="除外" items={book.exclusions.map((e) => `${e.pages} 頁（分冊 ${e.files.join(',')}）: ${e.reason}`)} />
+          </DetailSheet>
+        </span>
       )}
     </div>
   );

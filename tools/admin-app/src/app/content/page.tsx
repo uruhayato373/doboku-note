@@ -16,18 +16,13 @@ export const dynamic = 'force-dynamic';
 export default function ContentPage() {
   const d = rootById('content')!;
   const channels = summarizeChannels(d);
-  const totalFiles = channels.reduce((n, c) => n + c.files, 0);
-  const totalMb = channels.reduce((n, c) => n + c.bytes, 0) / 1048576;
   const hasKindle = channels.some((c) => c.segment === 'kindle');
   // /content ではカード表示に必要な件数だけ（loadKindleView の git log 実行はここでは呼ばない）。
   const kindleSummary = hasKindle ? loadKindleSummary() : null;
 
   return (
     <>
-      <PageHead
-        title="コンテンツ"
-        sub={`チャネル別の制作物を横断する入口（本文は開かず件数のみ表示）· ${channels.length} チャネル · ${totalFiles} ファイル · ${totalMb.toFixed(0)}MB`}
-      />
+      <PageHead title="コンテンツ" />
 
       <div className="knowledge-grid">
         {channels.map((c) => {
@@ -42,10 +37,10 @@ export default function ContentPage() {
                   <span>live {kindleSummary.live}</span>
                   {kindleSummary.inReview > 0 && <span>審査中 {kindleSummary.inReview}</span>}
                 </div>
-                <p>
-                  {c.files} ファイル・{(c.bytes / 1048576).toFixed(1)}MB（EPUB・表紙・前付け・戦略ドキュメント）
-                </p>
-                <code>{c.filePrefix}{c.relDir ? `/${c.relDir}` : ''}</code>
+                <div className="knowledge-card-meta">
+                  <span>{c.files} ファイル</span>
+                  <span>{(c.bytes / 1048576).toFixed(1)}MB</span>
+                </div>
               </Link>
             );
           }
@@ -57,8 +52,6 @@ export default function ContentPage() {
                 <span>{c.files} ファイル</span>
                 <span>{(c.bytes / 1048576).toFixed(1)}MB</span>
               </div>
-              <p>{c.files} ファイルのチャネル。</p>
-              <code>{c.filePrefix}{c.relDir ? `/${c.relDir}` : ''}</code>
             </Link>
           );
         })}

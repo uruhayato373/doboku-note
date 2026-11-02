@@ -1,10 +1,10 @@
 import { PageHead } from '@/components/ui';
-import { Grid, Stack } from '@/components/layout';
+import { Stack } from '@/components/layout';
 import { TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { noteSyncPlan, noteSyncRuns, type SyncItem, type SyncPart } from '@/lib/note-sync';
 import { NOTE_BASE } from '../../../../../../scripts/lib/site-identity.mjs';
 import { jstDateTime } from '@/lib/format';
-import { DataTable, StatCard, StatusBadge, type DataTableColumn, type DataTableRow } from '@/components/admin';
+import { DataTable, DetailList, DetailSheet, DetailText, StatusBadge, type DataTableColumn, type DataTableRow } from '@/components/admin';
 
 export const dynamic = 'force-dynamic';
 
@@ -41,8 +41,7 @@ const partsText = (i: SyncItem) => [...i.parts.map((p) => PART_LABEL[p]), ...(i.
 
 const BLOCKED_COLUMNS: DataTableColumn[] = [
   { key: 'title', label: '記事', wrap: true },
-  { key: 'reason', label: '理由', wrap: true },
-  { key: 'action', label: '直し方', wrap: true, sortable: false },
+  { key: 'reason', label: '理由' },
   { key: 'parts', label: '未反映' },
 ];
 
@@ -50,16 +49,22 @@ type Plan = ReturnType<typeof noteSyncPlan>;
 function blockedRows(items: SyncItem[], blockers: Plan['blockers']): DataTableRow[] {
   return items.map((i) => ({
     id: i.path,
-    values: { title: i.title, reason: blockers[i.blocker ?? '']?.label ?? i.blocker ?? null, action: blockers[i.blocker ?? '']?.action ?? null, parts: partsText(i) },
+    values: { title: i.title, reason: blockers[i.blocker ?? '']?.label ?? i.blocker ?? null, parts: partsText(i) },
     cells: {
-      title: <Title item={i} />,
-      reason: (
-        <>
-          {blockers[i.blocker ?? '']?.label ?? i.blocker}
-          {i.abort && <span className="block text-xs text-muted-foreground">{jstDateTime(i.abort.at, { short: true })} {i.abort.reason}</span>}
-        </>
+      title: (
+        <DetailSheet trigger={i.title} title={i.title} description={i.path}>
+          <DetailList
+            items={[
+              { label: '理由', value: blockers[i.blocker ?? '']?.label ?? i.blocker },
+              { label: '未反映', value: partsText(i) },
+              { label: 'note', value: <a href={noteUrl(i.noteId)} target="_blank" rel="noreferrer">開く</a> },
+              { label: '中断', value: i.abort ? `${jstDateTime(i.abort.at, { short: true })} ${i.abort.reason}` : null },
+            ]}
+          />
+          <DetailText title="直し方" items={[blockers[i.blocker ?? '']?.action]} />
+        </DetailSheet>
       ),
-      action: <span className="text-xs">{blockers[i.blocker ?? '']?.action}</span>,
+      reason: blockers[i.blocker ?? '']?.label ?? i.blocker,
       parts: <Parts item={i} />,
     },
   }));
@@ -84,26 +89,25 @@ const RUN_COLUMNS: DataTableColumn[] = [
   { key: 'articlesUpdated', label: '記事 更新', num: true },
   { key: 'articlesFailed', label: '記事 失敗', num: true },
   { key: 'magazinesUpdated', label: 'マガジン 更新', num: true },
-  { key: 'problems', label: '失敗・問題', wrap: true, sortable: false },
 ];
 
 function runRows(runs: ReturnType<typeof noteSyncRuns>): DataTableRow[] {
-  return runs.map((r) => ({
-    id: r.startedAt,
-    values: {
-      finishedAt: r.finishedAt,
-      articlesUpdated: r.articles.updated.length,
-      articlesFailed: r.articles.failed.length,
-      magazinesUpdated: r.magazines.updated.length,
-      problems: [...r.articles.failed.map((f) => `${f.path.split('/').slice(-2, -1)[0]}: ${f.reason}`), ...r.magazines.failed.map((f) => `${f.key}: ${f.reason}`), ...r.problems].slice(0, 8).join(' / ') || null,
-    },
-    cells: {
-      finishedAt: jstDateTime(r.finishedAt, { short: true }),
-      articlesUpdated: `${r.articles.updated.length}/${r.articles.attempted}`,
-      magazinesUpdated: `${r.magazines.updated.length}/${r.magazines.attempted}`,
-      problems: <span className="text-xs">{[...r.articles.failed.map((f) => `${f.path.split('/').slice(-2, -1)[0]}: ${f.reason}`), ...r.magazines.failed.map((f) => `${f.key}: ${f.reason}`), ...r.problems].slice(0, 8).join(' / ')}</span>,
-    },
-  }));
+  return runs.map((r) => {
+    const problems = [...r.articles.failed.map((f) => `${f.path.split('/').slice(-2, -1)[0]}: ${f.reason}`), ...r.magazines.failed.map((f) => `${f.key}: ${f.reason}`), ...r.problems];
+    return {
+      id: r.startedAt,
+      values: { finishedAt: r.finishedAt, articlesUpdated: r.articles.updated.length, articlesFailed: r.articles.failed.length, magazinesUpdated: r.magazines.updated.length },
+      cells: {
+        finishedAt: problems.length ? (
+          <DetailSheet trigger={jstDateTime(r.finishedAt, { short: true })} title={jstDateTime(r.finishedAt, { short: true })} description="失敗・問題">
+            <DetailText title="失敗・問題" items={problems} />
+          </DetailSheet>
+        ) : jstDateTime(r.finishedAt, { short: true }),
+        articlesUpdated: `${r.articles.updated.length}/${r.articles.attempted}`,
+        magazinesUpdated: `${r.magazines.updated.length}/${r.magazines.attempted}`,
+      },
+    };
+  });
 }
 
 export default async function NoteSyncPage({ searchParams }: { searchParams: Promise<{ tab?: string }> }) {
@@ -114,7 +118,6 @@ export default async function NoteSyncPage({ searchParams }: { searchParams: Pro
   const ready = plan.items.filter((i) => i.status === 'ready');
   const tab: TabId = (TABS.find((t) => t.id === tabParam)?.id) ?? (blocked.length ? 'blocked' : 'ready');
   const count: Record<TabId, number> = { blocked: blocked.length, ready: ready.length, runs: runs.length };
-  const last = runs[0];
 
   return (
     <Stack>
@@ -125,13 +128,6 @@ export default async function NoteSyncPage({ searchParams }: { searchParams: Pro
         </p>
       ) : (
         <>
-          <Grid min="sm">
-            <StatCard label="止まっている" value={plan.counts.blocked} />
-            <StatCard label="反映待ち" value={plan.counts.ready} />
-            <StatCard label="反映済み" value={plan.counts.synced} />
-            <StatCard label="前回の週次" value={last ? `${jstDateTime(last.finishedAt, { short: true })}・${last.articles.updated.length} 件` : 'なし'} />
-          </Grid>
-
           <TabsList aria-label="反映の状態">
             {TABS.map((t) => (
               <TabsTrigger key={t.id} href={`/content/note-sync?tab=${t.id}`} active={t.id === tab}>
@@ -145,13 +141,6 @@ export default async function NoteSyncPage({ searchParams }: { searchParams: Pro
 
           {tab === 'ready' && (
             <>
-              <Grid min="sm">
-                <StatCard label="本文" value={plan.counts.parts.body} />
-                <StatCard label="カバー" value={plan.counts.parts.cover} />
-                <StatCard label="タグ" value={plan.counts.parts.tags} />
-                <StatCard label="題名" value={plan.counts.parts.title ?? 0} />
-                <StatCard label="PDF 取り寄せ" value={plan.counts.pdfPull} />
-              </Grid>
               <DataTable columns={READY_COLUMNS} rows={readyRows(ready)} filter="記事・資格で絞り込む" />
             </>
           )}

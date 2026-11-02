@@ -33,7 +33,7 @@ export default async function ContentDetailPage({ params }: { params: Promise<{ 
       : null;
     return (
       <>
-        <PageHead title={rel || prefix} sub={`${prefix}/${rel}（read-only・メタデータ表示）`} />
+        <PageHead title={rel || prefix} />
         <nav className="project-crumbs" aria-label="パンくず">
           <Link href="/content">コンテンツ</Link>
         </nav>
@@ -53,7 +53,7 @@ export default async function ContentDetailPage({ params }: { params: Promise<{ 
               </li>
             ))}
           </ul>
-          {listing.dirs.length === 0 && listing.files.length === 0 && <p className="text-sm text-muted-foreground">空のディレクトリです。</p>}
+          {listing.dirs.length === 0 && listing.files.length === 0 && <p className="text-sm text-muted-foreground">空</p>}
         </div>
         {readme && (
           <article className="knowledge-document">

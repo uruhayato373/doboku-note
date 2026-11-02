@@ -67,7 +67,7 @@ export default async function DomainPage({ params }: { params: Promise<{ id: str
 
   return (
     <>
-      <PageHead title={domain.label} sub={domain.manages} />
+      <PageHead title={domain.label} />
       <UpcomingEvents domain={domain.id as ScheduleDomain} />
 
       <PanelCard title={<>タスク <span className="sub">{cards.length} 件</span></>}>

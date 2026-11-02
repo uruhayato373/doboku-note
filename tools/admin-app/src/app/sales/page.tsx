@@ -1,11 +1,9 @@
-import Link from 'next/link';
 import { DataTable, PanelCard, type DataTableColumn, type DataTableRow } from '@/components/admin';
 import { Stack } from '@/components/layout';
 import { PageHead } from '@/components/ui';
 import { BarChart, type Bar } from '@/components/charts/BarChart';
 import { yen } from '@/lib/format';
 import { salesSummary } from '@/lib/sales';
-import { datasetPath } from '../../../../../scripts/lib/datasets.mjs';
 
 export const dynamic = 'force-dynamic';
 
@@ -16,7 +14,7 @@ const COLUMNS: DataTableColumn[] = [
 ];
 
 export default function SalesPage() {
-  const { months, total, source, updatedAt } = salesSummary();
+  const { months, total } = salesSummary();
 
   const bars: Bar[] = months.map((m) => ({
     label: m.month.slice(2),
@@ -27,15 +25,12 @@ export default function SalesPage() {
     <>
       <PageHead
         title="note売上の登録実績"
-        sub={`累計 ${yen(total.revenue)} / ${total.count} 件 / ${total.months} ヶ月 · ${datasetPath('note.sales')}`}
+        sub={`累計 ${yen(total.revenue)} / ${total.count} 件 / ${total.months} ヶ月`}
       />
 
       <Stack>
-      <PanelCard title="月次売上推移" description={`真実源 ${source ?? '—'} · 最終更新 ${updatedAt ?? '—'}`}>
-        <Stack gap="sm">
-        <p className="m-0 text-sm">台帳に登録された販売額です。手数料控除後の受取や利益ではありません。目標と資格別の判断は <Link href="/metrics/business/monthly">月次レビュー</Link> で管理します。</p>
+      <PanelCard title="月次売上推移">
         <BarChart bars={bars} />
-        </Stack>
       </PanelCard>
 
       {months

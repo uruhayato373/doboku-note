@@ -25,7 +25,7 @@ export default async function SnsGallery({
     <>
       <PageHead
         title="SNS パックギャラリー"
-        sub={`${packs.length} パック · content/sns/instagram, x/draft（表示中 ${filtered.length} パック / ${totalImages} 点）`}
+        sub={`${packs.length} パック（表示中 ${filtered.length} パック / ${totalImages} 点）`}
       />
 
       <div className="filterbar">
@@ -47,7 +47,7 @@ export default async function SnsGallery({
             description={
               <>
                 <StatusBadge tone={p.channel === 'instagram' ? 'info' : 'neutral'}>{p.channel}</StatusBadge>{' '}
-                {p.images.length} 点 · {p.rel}
+                {p.images.length} 点
               </>
             }
           >

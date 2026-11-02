@@ -4,7 +4,6 @@ import { Stack } from '@/components/layout';
 import { PageHead } from '@/components/ui';
 import UpcomingEvents from '@/components/UpcomingEvents';
 import { loadLineupView, type LineupItem, type LineupRow } from '@/lib/lineup';
-import { datasetPath } from '../../../../../../scripts/lib/datasets.mjs';
 
 export const dynamic = 'force-dynamic';
 
@@ -57,7 +56,7 @@ export default async function LineupPage({ searchParams }: { searchParams: Promi
           <ul className="text-sm">
             {sourceErrors.map((e) => (
               <li key={e.channel} className="project-warning-text">
-                {e.channel}: {e.message}（このチャネルの空きマスは「未展開」ではなく「未検査」）
+                {e.channel}: {e.message}（未検査）
               </li>
             ))}
             {configErrors.map((e) => (
@@ -94,9 +93,6 @@ export default async function LineupPage({ searchParams }: { searchParams: Promi
 
       {unclassified.length > 0 && (
         <PanelCard title={`未分類 ${unclassified.length} 件`}>
-          <p className="text-sm text-muted-foreground">
-            どの分類ルールにも当たらなかった商品。<code>{datasetPath('config.product-lineup')}</code> の rules に追加する。
-          </p>
           <ul className="text-sm">
             {unclassified.map((i) => (
               <li key={`${i.channel}:${i.id}`}>
@@ -195,7 +191,6 @@ function ItemTile({ item: i }: { item: LineupItem }) {
             </>
           )}
         </div>
-        {i.note && <div className="text-[11px] text-muted-foreground">{i.note}</div>}
       </div>
     </div>
   );
