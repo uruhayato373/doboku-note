@@ -5,6 +5,7 @@ import {
 } from '@/components/admin';
 import { Stack } from '@/components/layout';
 import { PageHead } from '@/components/ui';
+import FunnelPanel from './FunnelPanel';
 import {
   magazineLabelIndex,
   noteArticles,
@@ -133,6 +134,21 @@ export default async function ContentNotePage({
   searchParams: Promise<Record<string, string | string[] | undefined>>;
 }) {
   const sp = await searchParams;
+  const viewTabs = (active: 'articles' | 'funnel') => (
+    <nav className="filterbar mb-3!">
+      <Link className={'chip' + (active === 'articles' ? ' active' : '')} href="/content/note">記事</Link>
+      <Link className={'chip' + (active === 'funnel' ? ' active' : '')} href="/content/note?view=funnel">導線</Link>
+    </nav>
+  );
+  if (sp.view === 'funnel') {
+    return (
+      <>
+        <PageHead title="note 記事" />
+        {viewTabs('funnel')}
+        <FunnelPanel />
+      </>
+    );
+  }
   const one = (v: string | string[] | undefined) => (Array.isArray(v) ? v[0] : v) || null;
   const exam = one(sp.e);
   const contentType = one(sp.t);
@@ -325,6 +341,7 @@ export default async function ContentNotePage({
   return (
     <>
       <PageHead title="note 記事" />
+      {viewTabs('articles')}
       <FacetShell main={main} rail={rail} />
     </>
   );

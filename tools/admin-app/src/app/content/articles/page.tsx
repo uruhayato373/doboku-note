@@ -1,8 +1,10 @@
+import Link from 'next/link';
 import { DataTable, DetailList, DetailSheet, type DataTableColumn, type DataTableRow, StatusBadge } from '@/components/admin';
 import { PageHead } from '@/components/ui';
 import { articlesIndex } from '@/lib/content';
 import { GROUP_LABEL } from '@/lib/gallery';
 import { qualityCensus, qualitySummary } from '@/lib/quality';
+import PoliciesPanel from './PoliciesPanel';
 
 export const dynamic = 'force-dynamic';
 
@@ -14,7 +16,32 @@ const COLUMNS: DataTableColumn[] = [
   { key: 'publishedAt', label: '公開日' },
 ];
 
-export default function ContentArticlesPage() {
+const TABS = [
+  { id: 'articles', label: '記事' },
+  { id: 'policies', label: '国の計画・施策' },
+] as const;
+
+export default async function ContentArticlesPage({ searchParams }: { searchParams: Promise<{ tab?: string }> }) {
+  const { tab } = await searchParams;
+  const current = tab === 'policies' ? 'policies' : 'articles';
+  const nav = (
+    <nav className="filterbar mb-3!">
+      {TABS.map((t) => (
+        <Link key={t.id} className={'chip' + (t.id === current ? ' active' : '')} href={t.id === 'articles' ? '/content/articles' : `/content/articles?tab=${t.id}`}>
+          {t.label}
+        </Link>
+      ))}
+    </nav>
+  );
+  if (current === 'policies') {
+    return (
+      <>
+        <PageHead title="サイト記事" />
+        {nav}
+        <PoliciesPanel />
+      </>
+    );
+  }
   const { docs } = articlesIndex();
   const quality = qualitySummary();
   const census = qualityCensus();
@@ -91,6 +118,7 @@ export default function ContentArticlesPage() {
   return (
     <>
       <PageHead title="サイト記事" />
+      {nav}
       <DataTable columns={COLUMNS} rows={rows} filter="タイトル・slug で絞り込む" />
     </>
   );
