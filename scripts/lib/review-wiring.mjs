@@ -9,7 +9,7 @@
 import { isoWeekKey, reviewWeekOfWindow } from './review-week.mjs';
 import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
-import { join } from 'node:path';
+import { dirname, join } from 'node:path';
 import { pendingItems } from './growth-triage.mjs';
 import { extractWeeklyHandoffItems, parseRouting } from './handoff-extraction.mjs';
 import { records } from './business-direction.mjs';
@@ -54,6 +54,19 @@ export function checksRouting(result, reportText) {
   const mentions = (key, text) => (key.startsWith('#') ? new RegExp(`${key}(?!\\d)`).test(text) : text.includes(key));
   const unrouted = pending.filter((p) => !items.some((it) => mentions(p.key, it.text) && parseRouting(it.text)));
   return { hasSection, pending, unrouted };
+}
+
+/**
+ * スキルの SKILL.md と、同じ階層の references/*.md を連結した本文（DN-0933）。
+ * 骨子（SKILL.md）と詳細（references/）に分けても、実行するコマンドの照合は両方を対象にする。
+ * 出力の節（formatSections）は SKILL.md だけで決めるので、この連結は使わない。
+ */
+export function readSkillWithReferences(root, skillRel) {
+  const p = join(root, skillRel);
+  if (!existsSync(p)) return '';
+  const refDir = join(dirname(p), 'references');
+  const refs = existsSync(refDir) ? readdirSync(refDir).filter((f) => f.endsWith('.md')).sort() : [];
+  return [readFileSync(p, 'utf8'), ...refs.map((f) => readFileSync(join(refDir, f), 'utf8'))].join('\n');
 }
 
 /** スキル本文が実行するコマンド（npm run の名前はそのまま、node scripts/ 直の実行は「node:」＋スクリプト名）。重複なし・並びは出現順。 */
@@ -120,7 +133,7 @@ export function buildReviewView(root, { reviews = [], due = [] } = {}) {
 
   return Object.entries(config.cadences).map(([id, c]) => {
     const skillPath = join(root, c.skill);
-    const drift = existsSync(skillPath) ? diffWiring(c.inputs, readFileSync(skillPath, 'utf8')) : { missing: [], extra: [] };
+    const drift = existsSync(skillPath) ? diffWiring(c.inputs, readSkillWithReferences(root, c.skill)) : { missing: [], extra: [] };
     const mine = reviews.filter((r) => r.cadence === id).sort((a, b) => String(b.period.endDate).localeCompare(a.period.endDate));
     const latest = mine[0] ?? null;
     const byStage = config.stages.map((stage) => ({

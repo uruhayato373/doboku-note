@@ -1,9 +1,7 @@
 ---
 name: exam-keyword-mapping-auditor
 description: >
-  技術士総合技術監理部門の過去問1問について、現紐づけキーワード slug 群が論点をカバーしているか
-  semantic に評価し、追加候補・削除候補を confidence 付きで surface する Evaluator エージェント。
-  Use when user asks to [過去問紐づけ監査, exam-keyword 監査, 紐づけ精度評価, /audit-exam-mapping, auditor].
+  総監の過去問1問の紐づけキーワード群が論点を覆うかを評価し、追加・削除候補を返す Evaluator。Use when [過去問紐づけ監査].
 model: sonnet
 domain: site
 ---

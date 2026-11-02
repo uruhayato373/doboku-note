@@ -1,10 +1,11 @@
 import Link from 'next/link';
 import {
-  DataTable, Facet, FacetHead, FacetShell, StatusBadge,
+  DataTable, DetailList, DetailSheet, Facet, FacetHead, FacetShell, StatusBadge,
   type DataTableColumn, type DataTableRow, type FacetItem,
 } from '@/components/admin';
 import { Stack } from '@/components/layout';
 import { PageHead } from '@/components/ui';
+import FunnelPanel from './FunnelPanel';
 import {
   magazineLabelIndex,
   noteArticles,
@@ -85,12 +86,10 @@ const CONTENT_TYPES: { key: string; label: string }[] = [
 
 const COLUMNS: DataTableColumn[] = [
   { key: 'title', label: 'タイトル' },
-  { key: 'type', label: '記事区分' },
   { key: 'theme', label: 'テーマ' },
   { key: 'pricing', label: '価格' },
   { key: 'published', label: '公開' },
   { key: 'sync', label: '同期' },
-  { key: 'cta', label: '導線' },
 ];
 
 function href(q: Query, patch: Partial<Query>): string {
@@ -135,6 +134,21 @@ export default async function ContentNotePage({
   searchParams: Promise<Record<string, string | string[] | undefined>>;
 }) {
   const sp = await searchParams;
+  const viewTabs = (active: 'articles' | 'funnel') => (
+    <nav className="filterbar mb-3!">
+      <Link className={'chip' + (active === 'articles' ? ' active' : '')} href="/content/note">記事</Link>
+      <Link className={'chip' + (active === 'funnel' ? ' active' : '')} href="/content/note?view=funnel">導線</Link>
+    </nav>
+  );
+  if (sp.view === 'funnel') {
+    return (
+      <>
+        <PageHead title="note 記事" />
+        {viewTabs('funnel')}
+        <FunnelPanel />
+      </>
+    );
+  }
   const one = (v: string | string[] | undefined) => (Array.isArray(v) ? v[0] : v) || null;
   const exam = one(sp.e);
   const contentType = one(sp.t);
@@ -223,24 +237,24 @@ export default async function ContentNotePage({
       id: i.rel,
       values: {
         title: i.title,
-        type: typeLabel,
         theme: i.theme ? i.themeLabel : '未分類',
         pricing: pricingLabel,
         published: i.published ? '公開' : '未',
         sync: syncLabel,
-        cta: ctaLabels.length ? ctaLabels.join('・') : null,
       },
       cells: {
         title: (
-          <div className="max-w-[28rem] truncate" title={i.rel}>
-            {i.noteUrl ? (
-              <a href={i.noteUrl} target="_blank" rel="noopener noreferrer">
-                {i.title}
-              </a>
-            ) : (
-              i.title
-            )}
-          </div>
+          <DetailSheet trigger={<span className="block max-w-[28rem] truncate">{i.title}</span>} title={i.title} description={i.rel}>
+            <DetailList
+              items={[
+                { label: '記事区分', value: typeLabel },
+                { label: 'マガジン', value: i.magazine },
+                { label: '導線', value: ctaLabels.join('・') },
+                { label: '同期', value: blockerLabel },
+                { label: 'note', value: i.noteUrl ? <a href={i.noteUrl} target="_blank" rel="noopener noreferrer">公開記事を開く</a> : null },
+              ]}
+            />
+          </DetailSheet>
         ),
         theme: i.theme ? (
           <span className="text-muted-foreground">{i.themeLabel}</span>
@@ -272,52 +286,28 @@ export default async function ContentNotePage({
         ) : (
           <span className="text-muted-foreground">—</span>
         ),
-        cta: (
-          <>
-            <span className="inline-flex flex-wrap gap-1">
-              {i.ctas.filter((c) => CTA_LABEL[c]).map((c) => (
-                <StatusBadge key={c} tone="neutral" title={`<!-- cta:${c} -->`}>{CTA_LABEL[c]}</StatusBadge>
-              ))}
-            </span>
-            {i.ctas.length === 0 ? <span className="text-muted-foreground">—</span> : null}
-          </>
-        ),
       },
     };
   });
 
   const main = (
     <Stack>
-            <p className="text-sm text-muted-foreground">
+            <p className="text-sm">
               {plan.ok ? (
                 <>
-                  公開記事の同期: 反映済み {plan.counts.synced} 本 / 反映待ち <strong>{plan.counts.ready}</strong> 本 /
-                  止まっている <strong>{plan.counts.blocked}</strong> 本（理由と直し方は{' '}
-                  <Link href="/content/note-sync">反映</Link>）
+                  反映済み {plan.counts.synced} 本 / 反映待ち <strong>{plan.counts.ready}</strong> 本 / 止まっている <strong>{plan.counts.blocked}</strong> 本（<Link href="/content/note-sync">反映</Link>）
                 </>
               ) : (
-                <>
-                  <StatusBadge tone="bad">同期計画の取得失敗</StatusBadge> note-sync-plan が実行できないため、
-                  下の「同期」列は判定していません（空欄＝問題なし ではありません）。{plan.error}
-                </>
+                <StatusBadge tone="bad">同期計画の取得失敗</StatusBadge>
               )}
-            </p>
-            <p className="text-sm text-muted-foreground">
-              {filtered ? (
-                <>
-                  <strong>{items.length}</strong> 本を表示中（全 {all.length} 本）
-                </>
-              ) : (
-                <>全 {all.length} 本を表示中。右の絞り込みでテーマ・価格・状態・マガジンを選べる。</>
-              )}
-              {' '}タイトルをクリックすると note の公開記事を別タブで開く。
+              {filtered && <span className="ml-3">表示 <strong>{items.length}</strong> / {all.length} 本</span>}
             </p>
 
             <DataTable
               columns={COLUMNS}
               rows={rows}
               filter="タイトル・テーマなどで絞り込む"
-              emptyText="この条件に該当する記事はありません。"
+              emptyText="該当なし"
             />
     </Stack>
   );
@@ -343,19 +333,15 @@ export default async function ContentNotePage({
       />
       <Facet title="マガジン" items={facetItems(now, 'm', magazine, magazineScope.length, magazineItems)} />
       {!plan.ok ? (
-        <p className="text-sm text-muted-foreground">
-          <StatusBadge tone="bad">同期は判定不可</StatusBadge> 「反映待ち」「止まっている」の絞り込みは 0 件になります。
-        </p>
+        <StatusBadge tone="bad">同期は判定不可</StatusBadge>
       ) : null}
     </>
   );
 
   return (
     <>
-      <PageHead
-        title="note 記事"
-        sub={`${all.length} 本（noteUrl あり = 公開済み ${all.filter((i) => i.published).length}）· content/note/**`}
-      />
+      <PageHead title="note 記事" />
+      {viewTabs('articles')}
       <FacetShell main={main} rail={rail} />
     </>
   );

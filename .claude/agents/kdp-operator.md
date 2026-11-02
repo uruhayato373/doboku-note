@@ -1,7 +1,7 @@
 ---
 name: kdp-operator
 description: >
-  Amazon KDP へビルド済み EPUB と表紙を入稿し、下書き・承認後出版・本棚照合・公開状態と ASIN の記録を運用する。EPUB 制作と品質採点は担当外。Use when user asks to [KDP 提出, KDP 公開状態同期, /kdp-publish].
+  ビルド済み EPUB と表紙を KDP へ入稿し、出版・本棚照合・ASIN 記録を運用する。Use when [KDP 提出, KDP 公開状態同期].
 model: sonnet
 domain: product
 ---

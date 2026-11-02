@@ -1,7 +1,7 @@
 ---
 name: rccm-essay-qa
 description: >
-  RCCM note 有料教材（問題III 模範論文・問題I テンプレ）を字数・指定用語・視点/構成・専門度・事実根拠/真正性の5軸で採点する Evaluator。rccm-essay-writer の成果物が対象。生成・修正はしない。
+  RCCM note 教材（問題III 模範論文・問題I テンプレ）を5軸で採点する Evaluator。生成・修正はしない。
 model: sonnet
 tools: Read, Glob, Grep, Bash, WebSearch, WebFetch
 domain: product

@@ -1,11 +1,7 @@
 ---
 name: a8-report
 description: >
-  A8.net の成果レポート（土曜の Mac 収集が Playwright で取得・正規化して SSOT a8-report-log.json へ upsert）を読み、
-  doboku-note 分のサイト別・プログラム別（詳細）・期間別（月別/日別）・成果別の記録から EPC 判定の分母を分析する。
-  この A8 口座は stats47（統計で見る都道府県）と共用。**サイト切替は存在せず**、分離できるのはサイト別レポートのみ。
-  セッションはログインして取りに行かず、記録と最終取得日を読む。
-  Use when user says "A8レポート", "アフィリ成果を確認", "A8の成果を読む", "EPCを更新", "a8-report".
+  A8.net 成果レポートの収集済み記録を読み、doboku-note 分のサイト別・プログラム別・期間別から EPC 判定の分母を分析する。Use when user says "A8レポート", "EPCを更新", "a8-report".
 disable-model-invocation: true
 argument-hint: "[--month YYYY-MM]"
 domain: affiliate

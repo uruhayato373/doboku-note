@@ -1,12 +1,7 @@
 ---
 name: kdp-publish
 description: >
-  ビルド済み Kindle 本（EPUB＋表紙）を Amazon KDP へ入稿し下書き保存→（承認後）出版する。
-  詳細記入・カテゴリー選択・原稿/表紙アップロード・原稿処理完了待ち・AI申告・アクセシビリティ・
-  価格・出版までを scripts/kdp-publish.mjs（Playwright・永続プロファイルでログイン保存）で駆動し、
-  提出前の本棚突合（重複防止）・提出後の catalog.json 更新・LIVE 化後の ASIN 記録は kdp-operator が担う。
-  真実源は config/kdp-memo.json（defaults＝共通申告/カテゴリー経路）。EPUB を作る /kindle-build の後工程。
-  Use when user asks to [KDP出版, KDP提出, KDP公開, kindleを出版, KDP状態同期, KDPドラフト削除, /kdp-publish].
+  ビルド済み Kindle 本（EPUB＋表紙）を Amazon KDP へ入稿して下書き保存し、承認後に出版する（kdp-operator が本棚突合と catalog 更新）。Use when user asks to [KDP出版, KDP提出, KDP公開, KDP状態同期, /kdp-publish].
 user-invocable: true
 domain: product
 ---

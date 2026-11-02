@@ -104,18 +104,11 @@ export default async function PsiPage({
 
   return (
     <>
-      <PageHead
-        title="表示速度（PSI）"
-        sub="PageSpeed Insights スコア（URL 別 mobile / desktop・モバイル性能の低い順）"
-      />
+      <PageHead title="表示速度（PSI）" />
 
       <PanelCard
         title="スコア一覧"
-        description={
-          <>
-            <Freshness snapshot={snap} /> {byUrl.size} URL
-          </>
-        }
+        description={<Freshness snapshot={snap} />}
       >
         <Stack gap="sm">
           <SnapshotPicker basePath="/metrics/psi" files={history} current={snap?.file ?? ''} />

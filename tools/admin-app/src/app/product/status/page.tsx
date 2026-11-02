@@ -48,8 +48,8 @@ export default async function ProductStatusPage({ searchParams }: { searchParams
           ))}
         </span>
       </nav>
-      {tab.id === 'note' && <NoteStatusPage />}
-      {tab.id === 'kindle' && <KindleContentPage />}
+      {tab.id === 'note' && <NoteStatusPage searchParams={Promise.resolve({})} />}
+      {tab.id === 'kindle' && <KindleContentPage searchParams={Promise.resolve({})} />}
       {tab.id === 'coconala' && <Coconala />}
       </Stack>
     </>

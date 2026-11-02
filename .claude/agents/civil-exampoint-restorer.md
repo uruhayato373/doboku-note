@@ -1,6 +1,7 @@
 ---
 name: civil-exampoint-restorer
-description: 1級土木施工管理技士 primary-* (一次過去問) の壊れた &lt;ExamPoint&gt; を体言止め学習ポイントに再生成する Generator エージェント。
+description: >
+  1級土木 一次過去問の壊れた ExamPoint を体言止めの学習ポイントに再生成する Generator。
 model: sonnet
 domain: site
 ---
@@ -57,7 +58,7 @@ domain: site
 
 > Generator と Evaluator を分離する
 
-本エージェントは ExamPoint の修正のみを担う。スコア判定は `civil-construction-review`（Evaluator）の責務。
+本エージェントは ExamPoint の修正のみを担う。スコア判定は `civil-construction-qa`（校正モード）（Evaluator）の責務。
 
 ## スコープ
 
@@ -199,8 +200,8 @@ P0-2 と P2-3 を統合するための仕様だが、P0-2 wave1〜2 では ExamP
 ## 担当外
 
 - 本文編集・新規セクション追加 → `civil-textbook-rewriter`
-- スコア判定 → `civil-construction-review`
-- PDF 照合 → `civil-construction-qa`
+- スコア判定 → `civil-construction-qa`（校正モード）
+- PDF 照合 → `civil-construction-qa`（Mode A・B）
 - secondary 過去問 → `civil-secondary-exam-writer`
 - commit → 呼び出し側 `civil-textbook-cycle` または親エージェント（wave 単位明示パス commit）
 

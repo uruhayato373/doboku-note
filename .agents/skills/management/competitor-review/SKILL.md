@@ -1,12 +1,7 @@
 ---
 name: competitor-review
 description: >
-  土木・建設系試験対策の競合を全チャネル横断（note / X / Instagram / ココナラ）で
-  四半期に再取得し、前回比ドリフト（値上げ/新商品/休眠/新規参入）を機械検出したうえで差別化を
-  再評価し、SSOT（09_販売チャネル競合分析.md）への反映パッチまで出すレビュー。scout-*（機械取得＋
-  時系列＋drift）→ competitor-analyst（意味評価＋反映パッチ）→ ユーザー承認で doc へ適用、の3段。
-  有料本文は全チャネルで取得不可（メタデータのみ）。価格変更・記事執筆はしない。
-  Use when user asks to [競合を再調査, 競合レビュー, 競合の価格を再取得, 競合分析を更新, /competitor-review].
+  note / X / Instagram / ココナラの競合を四半期に再取得し、ドリフト検出→competitor-analyst の評価→承認後に SSOT へ反映する。Use when user asks to [競合を再調査, 競合レビュー, 競合分析を更新, /competitor-review].
 user-invocable: true
 domain: strategy
 ---

@@ -1,6 +1,7 @@
 ---
 name: coconala-analytics
-description: ココナラ「サービス・ブログ分析」の記録（土曜の Mac 収集が Playwright で read-only 取得し data/coconala/kpi.json へ週次 upsert）を読んで報告するスキル。全体累計（閲覧/販売/販売額/お気に入り）・サービス別（listed 全件を URL 直打ちで走査）・ブログ別閲覧数を data/coconala/analytics.json に落とし、check-coconala-analytics で鮮度・欠測・マスク値・kpi.json 整合を検査する。数値は対象期間の累計（既定30日ローリング）であって週次増分ではない。セラーサクセス未加入の表示数は 0000 とマスクされるため null 記録。セッションはログインして取りに行かず、記録と最終取得日を読む。書き込み（メモ追加・設定変更・出品操作）はしない。撤退ライン判定と受注突合は /coconala-status、出品操作は /coconala-publish が担当で守備範囲が異なる。Use when user asks to [ココナラの数字を見る, ココナラ分析の記録を確認, 閲覧数を確認, /coconala-analytics].
+description: >
+  ココナラ「サービス・ブログ分析」の収集済み記録（kpi.json・analytics.json）を読んで報告し、鮮度・欠測を検査する（読み取り専用・数値は累計）。Use when user asks to [ココナラの数字を見る, 閲覧数を確認, /coconala-analytics].
 user-invocable: true
 domain: product
 ---

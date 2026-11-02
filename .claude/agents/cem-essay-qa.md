@@ -1,7 +1,7 @@
 ---
 name: cem-essay-qa
 description: >
-  総監記述式 note 有料マガジンの模範論文を、字数・散文性・監理可能性・専門度・白書根拠で採点する Evaluator。cem-essay-writer の成果物が対象。生成・修正はしない。
+  総監記述式 note マガジンの模範論文を字数・散文性・専門度・白書根拠で採点する Evaluator。生成・修正はしない。
 model: sonnet
 tools: Read, Glob, Grep, Bash, WebSearch, WebFetch
 domain: product

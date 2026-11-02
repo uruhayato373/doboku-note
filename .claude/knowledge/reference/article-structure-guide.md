@@ -12,7 +12,7 @@ title: 記事構成ガイド（civil ガイド記事）
 
 ## 対象
 
-`category: civil-construction-1` または `civil-construction-2`、`group: guide` の MDX。textbook（`group: textbook`）・キーワードページ（`group` 未設定）・過去問（`primary`/`secondary`）は対象外（構成が別 — textbook/guide 共用の校正観点は `civil-construction-review` を参照）。
+`category: civil-construction-1` または `civil-construction-2`、`group: guide` の MDX。textbook（`group: textbook`）・キーワードページ（`group` 未設定）・過去問（`primary`/`secondary`）は対象外（構成が別 — textbook/guide 共用の校正観点は `civil-construction-qa`（校正モード） を参照）。
 
 ## 1. 基本構成（frontmatter）
 
@@ -114,7 +114,7 @@ civil ガイドは記事の性質で末尾 CTA を使い分ける。**転職系�
 | フェーズ | 担当 |
 |---|---|
 | 新規執筆（本ガイド準拠） | `civil-guide-writer`（Generator） |
-| 既存記事の弱点軸リライト | `civil-textbook-rewriter`（Generator・`civil-construction-review` の評価待ち） |
+| 既存記事の弱点軸リライト | `civil-textbook-rewriter`（Generator・`civil-construction-qa`（校正モード） の評価待ち） |
 | 全資格横断ガイドのリライト | `guide-rewriter`（Generator） |
 | ガイド軸5軸評価 | `guide-qa`（Evaluator・audit-only） |
 | 事実検証（合格率・制度・年収等） | `guide-fact-checker`（Evaluator・WebSearch） |

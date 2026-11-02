@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import UpcomingEvents from '@/components/UpcomingEvents';
-import { DataTable, PanelCard, StatusBadge, type DataTableColumn, type DataTableRow } from '@/components/admin';
+import { DataTable, DetailList, DetailSheet, DetailText, PanelCard, StatusBadge, type DataTableColumn, type DataTableRow } from '@/components/admin';
 import { PageHead } from '@/components/ui';
 import { snsBoard, figureBoard } from '@/lib/sns-board';
 import { videoSnsJoin } from '@/lib/video-sns-join';
@@ -16,11 +16,18 @@ function bar(done: number, total: number): string {
 }
 
 const FIGURE_COLUMNS: DataTableColumn[] = [
-  { key: 'needs', label: '学習テーマ・元図', wrap: true },
-  { key: 'post', label: '投稿文・画像', sortable: false },
-  { key: 'saved', label: '保存', sortable: false },
-  { key: 'state', label: '制作・投稿状態', sortable: false },
+  { key: 'needs', label: '学習テーマ', wrap: true },
+  { key: 'state', label: '素材' },
+  { key: 'ig', label: 'Instagram' },
+  { key: 'x', label: 'X' },
 ];
+
+const TABS = [
+  { id: 'figures', label: '図解素材' },
+  { id: 'instagram', label: 'Instagram' },
+  { id: 'x', label: 'X' },
+  { id: 'video', label: 'YouTube・動画' },
+] as const;
 
 const IG_COLUMNS: DataTableColumn[] = [
   { key: 'exam', label: '資格' },
@@ -45,7 +52,10 @@ const DERIVATIVE_COLUMNS: DataTableColumn[] = [
 
 const readinessLabel = (r: string) => (r === 'ready' ? '素材準備済' : r === 'restore' ? 'Driveから要復元' : '要確認');
 
-export default async function SnsBoardPage() {
+type TabId = (typeof TABS)[number]['id'];
+
+export default async function SnsBoardPage({ searchParams }: { searchParams: Promise<{ tab?: string }> }) {
+  const { tab } = await searchParams;
   const { ig, x } = await snsBoard();
   const join = videoSnsJoin();
   const figures = await figureBoard();
@@ -54,41 +64,44 @@ export default async function SnsBoardPage() {
     const xStatus = row.x.map((item) => item.status).join(', ') || '未作成';
     return {
       id: row.pack,
-      values: {
-        needs: row.needs,
-        post: row.dir,
-        saved: `Drive ${row.archivedCount} / ${row.assets.length} 手元 ${row.localCount} / ${row.assets.length}`,
-        state: `${readinessLabel(row.readiness)} IG ${row.igStatus} / X ${xStatus}`,
-      },
+      values: { needs: row.needs, state: readinessLabel(row.readiness), ig: row.igStatus, x: xStatus },
       cells: {
         needs: (
-          <div className="max-w-sm">
-            <a href={row.nextStep}>{row.needs}</a>
-            {row.figure && <div className="text-xs"><a href={`/media/posts/${row.figure.slice('content/site/'.length)}`}>元図を開く</a></div>}
-          </div>
+          <DetailSheet trigger={row.needs} title={row.needs} description={row.pack}>
+            <DetailList
+              items={[
+                { label: '素材', value: readinessLabel(row.readiness) },
+                { label: 'Drive', value: `${row.archivedCount} / ${row.assets.length}` },
+                { label: '手元', value: `${row.localCount} / ${row.assets.length}` },
+                { label: '元図', value: row.figure ? <a href={`/media/posts/${row.figure.slice('content/site/'.length)}`}>元図を開く</a> : null },
+                { label: 'Instagram', value: <Link href={`/content/content~sns/${row.dir.slice('content/sns/'.length)}`}>原稿を開く</Link> },
+                {
+                  label: '画像',
+                  value: (
+                    <span className="flex flex-wrap gap-2">
+                      {row.assets.filter(asset => asset.rel.startsWith(row.dir)).map((asset, i) => asset.local
+                        ? <a key={asset.rel} href={`/media/sns/${asset.rel.slice('content/sns/'.length)}`}>{i + 1}枚目</a>
+                        : <span key={asset.rel}>{i + 1}枚目 要復元</span>)}
+                    </span>
+                  ),
+                },
+                {
+                  label: 'X',
+                  value: row.x.length ? (
+                    <span className="flex flex-col">
+                      {row.x.map(item => <span key={`${item.draft}-${item.tweet}`}>
+                        <Link href={`/content/content~sns/x/draft/${item.draft}/tweets.md`}>原稿 #{item.tweet}</Link>
+                        {row.assets.find(asset => asset.rel === `content/sns/x/draft/${item.draft}/${item.file}`)?.local && <a className="ml-2" href={`/media/sns/x/draft/${item.draft}/${item.file}`}>画像</a>}
+                      </span>)}
+                    </span>
+                  ) : null,
+                },
+              ]}
+            />
+            <DetailText title="確認事項" items={row.issues} />
+          </DetailSheet>
         ),
-        post: (
-          <>
-            <Link href={`/content/content~sns/${row.dir.slice('content/sns/'.length)}`}>Instagram原稿</Link>
-            <div className="flex flex-wrap gap-2 text-xs">
-              {row.assets.filter(asset => asset.rel.startsWith(row.dir)).map((asset, i) => asset.local
-                ? <a key={asset.rel} href={`/media/sns/${asset.rel.slice('content/sns/'.length)}`}>{i + 1}枚目</a>
-                : <span key={asset.rel}>{i + 1}枚目 要復元</span>)}
-            </div>
-            {row.x.map(item => <div key={`${item.draft}-${item.tweet}`} className="text-xs">
-              <Link href={`/content/content~sns/x/draft/${item.draft}/tweets.md`}>X原稿 #{item.tweet}</Link>
-              {row.assets.find(asset => asset.rel === `content/sns/x/draft/${item.draft}/${item.file}`)?.local && <a className="ml-2" href={`/media/sns/x/draft/${item.draft}/${item.file}`}>画像</a>}
-            </div>)}
-          </>
-        ),
-        saved: <span className="text-xs">Drive {row.archivedCount} / {row.assets.length}<br/>手元 {row.localCount} / {row.assets.length}</span>,
-        state: (
-          <>
-            <StatusBadge tone={row.readiness === 'ready' ? 'good' : 'warn'}>{readinessLabel(row.readiness)}</StatusBadge>
-            <div className="mt-1 text-xs">IG {row.igStatus} / X {xStatus}</div>
-            {row.issues.length > 0 && <details className="mt-1 text-xs"><summary>確認事項 {row.issues.length} 件</summary><ul className="list-disc pl-4">{row.issues.map(issue => <li key={issue}>{issue}</li>)}</ul></details>}
-          </>
-        ),
+        state: <StatusBadge tone={row.readiness === 'ready' ? 'good' : 'warn'}>{readinessLabel(row.readiness)}</StatusBadge>,
       },
     };
   });
@@ -150,73 +163,58 @@ export default async function SnsBoardPage() {
     })),
   );
 
+  const current: TabId = TABS.some((t) => t.id === tab) ? (tab as TabId) : 'figures';
   return (
     <>
       <PageHead title="投稿状況" />
-      <nav className="project-crumbs" aria-label="関連する計画と台帳">
-        <Link href={roadmapHref()}>年間ロードマップ</Link> · <Link href={longformPlanHref()}>通常動画の制作・公開管理</Link> · <Link href="/schedule?dom=sns">SNS全体の予定</Link>
-      </nav>
-      {/* SNS はサイドバーの枝にせずこのページの節にする（domains.json navRules）。素材の作業場はここから開く */}
       <nav className="filterbar mb-3!">
-        <a className="chip" href="#figures">図解素材</a>
-        <a className="chip" href="#instagram">Instagram</a>
-        <a className="chip" href="#x">X</a>
-        <a className="chip" href="#video">YouTube・動画</a>
+        {TABS.map((t) => (
+          <Link key={t.id} className={'chip' + (t.id === current ? ' active' : '')} href={t.id === 'figures' ? '/sns' : `/sns?tab=${t.id}`}>
+            {t.label}
+          </Link>
+        ))}
         <span className="small muted ml-auto">
           <Link href="/gallery/sns?ch=instagram">Instagram 画像・動画</Link>
           <Link href="/gallery/sns?ch=x" className="ml-3">X 画像</Link>
           <Link href="/content/video" className="ml-3">動画パック</Link>
+          <Link href={roadmapHref()} className="ml-3">年間ロードマップ</Link>
+          <Link href={longformPlanHref()} className="ml-3">通常動画</Link>
+          <Link href="/schedule?dom=sns" className="ml-3">SNS予定</Link>
         </span>
       </nav>
       <UpcomingEvents domain="sns" />
 
-      <div id="figures" className="mb-4">
-        <PanelCard title="図解素材" description={`元図・記事とSNS原稿を照合 ${figures.checkedCount} / ${figures.sourceCount} 件。保存はDrive台帳との照合結果。`}>
+      {current === 'figures' && (
+        <PanelCard title="図解素材">
           {figures.errors.map(error => <p key={error} className="text-sm text-destructive">{error}</p>)}
           <DataTable columns={FIGURE_COLUMNS} rows={figureRows} filter="学習テーマで絞り込む" />
-          <p className="text-xs text-muted-foreground">素材準備済は投稿文・元データ・保存画像の照合結果です。公開・予約は各チャネルの既存投稿手順で行います。元の記事や図が変わると「要確認」になります。</p>
         </PanelCard>
-      </div>
+      )}
 
-      <div id="instagram" className="mb-4">
-      <PanelCard title="Instagram 進捗" description={`いずれか投稿済み ${ig.totalDone} / ${ig.total}`}>
-        <DataTable columns={IG_COLUMNS} rows={igRows} pageSize={100} />
-      </PanelCard>
-      </div>
+      {current === 'instagram' && (
+        <PanelCard title="Instagram 進捗" description={`投稿済み ${ig.totalDone} / ${ig.total}`}>
+          <DataTable columns={IG_COLUMNS} rows={igRows} pageSize={100} />
+        </PanelCard>
+      )}
 
-      <div id="x" className="mb-4">
-      <PanelCard
-        title="X ドラフト"
-        description={`合計 tweet ${x.totals.tweets ?? 0} · 投稿 ${x.totals.posted ?? 0} / 予約投入済 ${x.totals.queued ?? 0} / 未投入計画 ${x.totals.scheduled ?? 0} / 下書 ${x.totals.draft ?? 0}`}
-      >
-        <DataTable columns={X_COLUMNS} rows={xRows} filter="ドラフト名で絞り込む" />
-      </PanelCard>
-      </div>
+      {current === 'x' && (
+        <PanelCard title="X ドラフト" description={`投稿 ${x.totals.posted ?? 0} / 予約投入済 ${x.totals.queued ?? 0} / 未投入計画 ${x.totals.scheduled ?? 0} / 下書 ${x.totals.draft ?? 0}`}>
+          <DataTable columns={X_COLUMNS} rows={xRows} filter="ドラフト名で絞り込む" />
+        </PanelCard>
+      )}
 
-      {/* 動画パック（DN-0110）× SNS。レガシー Shorts 台帳と混ぜないため節を分ける。 */}
-      <div id="video" className="mb-4">
-      <PanelCard
-        title="動画パック 派生物"
-        description={`content/registry · 企画 ${join.packTotal} 件中 制作が動いたもの ${join.packDerivatives.length} 件`}
-      >
-        {join.packDerivatives.length === 0 ? (
-          <p className="text-sm text-muted-foreground">
-            まだ公開・予約された派生物はない（企画と台本のみ）。企画一覧は{' '}
-            <Link href="/content/video">動画パック</Link>、成果は <Link href="/metrics/video">動画成果</Link>。
-          </p>
-        ) : (
-          <DataTable columns={DERIVATIVE_COLUMNS} rows={derivativeRows} filter="packId で絞り込む" />
-        )}
-        <p className="text-xs text-muted-foreground">
-          旧 Shorts（台帳 <code>content/registry</code> の kind <code>legacy-short</code>）は IG 過去問パック由来の
-          <strong>レガシー{join.legacyShorts.ok ? ` ${join.legacyShorts.total} 本` : ''}</strong>
-          で、動画パックとは別系統。
-          {join.legacyShorts.ok
-            ? ` 内訳: 公開 ${join.legacyShorts.byStage.published ?? 0} / 予約 ${join.legacyShorts.byStage.scheduled ?? 0} / 停止 ${join.legacyShorts.byStage.retired ?? 0}。`
-            : ` 台帳を読めていない: ${join.legacyShorts.reason}。`}
-        </p>
-      </PanelCard>
-      </div>
+      {current === 'video' && (
+        <PanelCard title="動画パック 派生物" description={`企画 ${join.packTotal} 件中 制作が動いたもの ${join.packDerivatives.length} 件`}>
+          {join.packDerivatives.length === 0 ? (
+            <p className="text-sm">公開・予約された派生物はありません。</p>
+          ) : (
+            <DataTable columns={DERIVATIVE_COLUMNS} rows={derivativeRows} filter="packId で絞り込む" />
+          )}
+          {join.legacyShorts.ok && (
+            <p className="text-sm">旧 Shorts {join.legacyShorts.total} 本（公開 {join.legacyShorts.byStage.published ?? 0} / 予約 {join.legacyShorts.byStage.scheduled ?? 0} / 停止 {join.legacyShorts.byStage.retired ?? 0}）</p>
+          )}
+        </PanelCard>
+      )}
     </>
   );
 }

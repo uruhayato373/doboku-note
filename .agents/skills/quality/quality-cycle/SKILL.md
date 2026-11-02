@@ -1,10 +1,7 @@
 ---
 name: quality-cycle
 description: >
-  キーワードページ・教科書 MDX の品質サイクル（スコアリング → リライト → 検証 → 人間レビュー）統合スキル。
-  `--profile {cem|civil-textbook}` で試験を切替。state ファイル名は profile 別に分離（既存データと互換）。
-  旧 /quality-cycle（CEM）/ /civil-textbook-cycle（1級土木）を統合。
-  Use when user asks to [品質サイクル, スコアリング, リライト, 品質向上ループ, /quality-cycle].
+  キーワードページ・教科書 MDX の品質サイクル（スコアリング→リライト→検証→人間レビュー）。--profile {cem|civil-textbook} で切替。Use when user asks to [品質サイクル, スコアリング, リライト, /quality-cycle].
 domain: site
 ---
 

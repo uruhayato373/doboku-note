@@ -11,7 +11,7 @@ metadata:
 2026-07-27 に Anthropic 公式「Prompting Claude Opus 5」を実読し、CLAUDE.md・skills 98・agents 77 を全量棚卸しして反映済み。
 2026-09-25 に `/claude-api prompt-audit` で Opus 5.5 向けに再棚卸し。残っていたのは古いモデル名固定・スキル内の版履歴・「〜に廃止/移設」の日付入り経緯・件数上限だけで、強調語の大半は事故・金銭・公開リスクに紐づく正当なもの（維持）。
 
-**適用範囲の原則（最重要）**: agents 77 体のうち **74 体は `model: sonnet` 固定**なので、Opus 5 固有の調整（検証指示の削除など）を機械適用してはいけない。対象は CLAUDE.md・skills（親が読む）と `model: inherit` の3体（`civil-construction-review` / `guide-qa` / `strategy-advisor`）のみ。sonnet 定義にはモデル非依存の改善（出力長の校正・検出抑制の解除）だけを入れた。
+**適用範囲の原則（最重要）**: agents 77 体のうち **74 体は `model: sonnet` 固定**なので、Opus 5 固有の調整（検証指示の削除など）を機械適用してはいけない。対象は CLAUDE.md・skills（親が読む）と `model: inherit` の3体（`civil-construction-qa`（校正モード） / `guide-qa` / `strategy-advisor`）のみ。sonnet 定義にはモデル非依存の改善（出力長の校正・検出抑制の解除）だけを入れた。
 
 **反映済みの要点**:
 - 汎用の検証指示・自己再チェック指示は書かない（Opus 5 は自律検証するので二重になる）。書いてよいのは決定的ゲート（`npm run check-*`・curl 200・lint）だけ

@@ -2,7 +2,7 @@
 //
 // scripts/merge-scores.mjs
 //
-// civil-construction-review サブエージェントが返す評価結果 JSON を
+// civil-construction-qa（校正モード） サブエージェントが返す評価結果 JSON を
 // .claude/state/civil-quality-scores.json にマージする。
 //
 // 使い方:
@@ -21,7 +21,7 @@
 //   ]
 //
 // 動作:
-//   - 各 result について weighted を civil-construction-review の重みで再計算
+//   - 各 result について weighted を civil-construction-qa（校正モード） の重みで再計算
 //   - civil-quality-scores.json の pages[slug] に上書き
 //   - group も一緒に保存
 

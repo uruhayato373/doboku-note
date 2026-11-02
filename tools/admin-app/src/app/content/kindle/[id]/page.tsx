@@ -15,11 +15,10 @@ export default async function KindlePreviewPage({ params }: { params: Promise<{ 
   const { id } = await params;
   const v = loadKindlePreview(decodeURIComponent(id));
   if (!v) notFound();
-  const command = `node scripts/render-kindle-preview.mjs --id ${v.id}`;
 
   return (
     <>
-      <PageHead title={v.title} sub={v.id} />
+      <PageHead title={v.title} />
       <p className="mb-4 flex items-center gap-2">
         <Link href="/content/kindle">← Kindle</Link>
         <StatusBadge tone="neutral">{v.status}</StatusBadge>
@@ -27,10 +26,10 @@ export default async function KindlePreviewPage({ params }: { params: Promise<{ 
       </p>
 
       {v.matchesEpub === false && (
-        <p className="project-warning-text mb-4 text-sm">EPUB が更新されています。再生成: <code>{command}</code></p>
+        <p className="project-warning-text mb-4 text-sm">EPUB が更新されています（プレビューは古い）</p>
       )}
       {!v.pages && (
-        <p className="mb-4 text-sm text-muted-foreground">プレビュー未生成: <code>{command}</code></p>
+        <p className="mb-4 text-sm text-muted-foreground">プレビュー未生成</p>
       )}
 
       <div className="grid grid-cols-[repeat(auto-fill,minmax(240px,1fr))] gap-3">

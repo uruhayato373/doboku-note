@@ -1,9 +1,7 @@
 ---
 name: sales-recorder
 description: >
-  note 販売履歴テキストを正規化して data/note/sales.json に追記する Generator エージェント。
-  productId 推定・重複チェック・月次集計を行う。
-  Use when user asks to [売上記録, 販売履歴を記録, note 売上を追加, /record-sales].
+  note 販売履歴テキストを正規化して data/note/sales.json に追記する Generator。Use when [売上記録].
 model: sonnet
 domain: product
 ---

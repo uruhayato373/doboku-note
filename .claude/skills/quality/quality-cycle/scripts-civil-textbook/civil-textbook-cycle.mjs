@@ -27,9 +27,9 @@
  *            （GitHub Issue・task-queue.json は廃止。リライト候補は .claude/todo/ で追跡）
  *
  * ──subagent モード（Claude Code 経由で動かす）──
- *   score  : civil-construction-review subagent で全 40 件評価 → civil-quality-scores.json
+ *   score  : civil-construction-qa（校正モード） subagent で全 40 件評価 → civil-quality-scores.json
  *   rewrite: 弱いページを civil-textbook-rewriter subagent で改訂 → state 更新
- *   verify : リライト後を civil-construction-review で再評価 → state 更新
+ *   verify : リライト後を civil-construction-qa（校正モード） で再評価 → state 更新
  */
 import { readdirSync, readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs';
 import { join, dirname } from 'node:path';
@@ -95,11 +95,11 @@ Modes (機械的・subagent 不要):
                          → .tmp/civil-textbook-cycle-report.md（Issue は廃止）
 
 Modes (subagent 必要):
-  --mode score           全 textbook/guide を civil-construction-review で評価
+  --mode score           全 textbook/guide を civil-construction-qa（校正モード） で評価
                          (subagent 起動用プロンプトを出力)
   --mode rewrite         弱いページを civil-textbook-rewriter で改訂
                          (subagent 起動用プロンプトを出力)
-  --mode verify          リライト後を civil-construction-review で再評価
+  --mode verify          リライト後を civil-construction-qa（校正モード） で再評価
                          (subagent 起動用プロンプトを出力)
 
 Options:
@@ -142,10 +142,10 @@ function listTargetPages() {
   return pages;
 }
 
-// ── mode: score (全件を civil-construction-review で評価) ───────
+// ── mode: score (全件を civil-construction-qa（校正モード） で評価) ───────
 
 function runScore(args) {
-  console.log('[score] civil-construction-review で全 textbook/guide を評価');
+  console.log('[score] civil-construction-qa（校正モード） で全 textbook/guide を評価');
 
   let pages = listTargetPages();
   console.log(`[score] 対象ページ: ${pages.length} 件 (textbook + guide)`);
@@ -188,7 +188,7 @@ function runScore(args) {
   console.log(`[score] このスクリプトは subagent を直接起動しません。`);
   console.log(`[score] 使い方:`);
   console.log(`  1. Claude Code 側から /civil-textbook-cycle --mode score を呼び出し`);
-  console.log(`     各タスクの prompt で civil-construction-review subagent を並列起動`);
+  console.log(`     各タスクの prompt で civil-construction-qa（校正モード） subagent を並列起動`);
   console.log(`  2. 各 subagent の返す JSON 配列を /tmp/civil-score-results.json に保存`);
   console.log(`  3. node .claude/skills/quality/quality-cycle/scripts/merge-scores.mjs /tmp/civil-score-results.json`);
   console.log(`     で ${displayPath(PATHS.SCORES)} にマージ`);
@@ -554,7 +554,7 @@ function runIssue(args) {
   body += `## 詳細データ\n\n`;
   body += `- スコア真実源: \`.claude/state/civil-quality-scores.json\`\n`;
   body += `- レビュー待ち一覧: \`.claude/state/civil-review-queue.md\`\n`;
-  body += `- 評価ルーブリック: \`.claude/agents/civil-construction-review.md\`\n`;
+  body += `- 評価ルーブリック: \`.claude/agents/civil-construction-qa.md\`（Mode R）\n`;
   body += `- Generator: \`.claude/agents/civil-textbook-rewriter.md\`\n`;
   body += `- Orchestrator: \`/civil-textbook-cycle\`\n\n`;
   body += `生成: \`/civil-textbook-cycle --mode issue\` at ${new Date().toISOString()}\n`;

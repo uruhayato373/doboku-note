@@ -1,6 +1,7 @@
 ---
 name: civil-keiken-essay-writer
-description: 1級・2級土木施工管理技士 第2次検定「施工経験記述」note 有料マガジンのフル模範答案（article.md）を生成する Generator エージェント。過去問年度別・テーマ別完成答案集・予想問題集・想定工事バンク（工事軸・工種別）の4種に対応。
+description: >
+  施工経験記述 note マガジンのフル模範答案（年度別・テーマ別・予想・想定工事バンク）を生成する Generator。
 model: sonnet
 domain: product
 ---

@@ -1,6 +1,7 @@
 ---
 name: video-content
-description: 動画パック（悩み・出典付き台本・storyboard・CTA）を、重複確認→video-script-writer で生成→機械ゲート→video-content-qa で独立採点→承認待ちで止める薄いオーケストレーター。Use when user asks to [動画パックを作る, 動画台本を作る, 通常動画の企画, パックの台本をQA, /video-content].
+description: >
+  動画パック（悩み・出典付き台本・storyboard・CTA）を video-script-writer で作り、機械ゲートと video-content-qa の採点後、承認待ちで止める。Use when user asks to [動画パックを作る, 動画台本を作る, /video-content].
 allowed-tools: Bash, Read, Task
 domain: sns
 ---

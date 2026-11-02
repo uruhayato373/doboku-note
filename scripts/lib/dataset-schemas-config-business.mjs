@@ -330,6 +330,39 @@ export const ConfigAnnualRoadmap = z
   })
   .meta({ title: '年間ロードマップの設定' });
 
+/** 収益カレンダーの設定（試験日からの週数・日数）。資格 id の実在と examEvent の実在は mapRevenueCalendar（revenue-calendar.mjs）が見る */
+export const ConfigRevenueCalendar = z
+  .object({
+    schemaVersion: z.literal(1),
+    _doc: text,
+    description: text,
+    targets: z
+      .array(
+        z
+          .object({
+            qualification: QID.describe('資格 id（qualification-registry）'),
+            examEvent: text.describe('exam-calendar.json の events の id（起点にする試験日）'),
+            productionStartWeeks: positiveInt.describe('制作の開始（試験の何週前）'),
+            ctaSwitchWeeks: positiveInt.describe('サイトの CTA と note 導線の切り替え（試験の何週前）'),
+            peakFromWeeks: positiveInt.describe('販売の山の始まり（試験の何週前）'),
+            peakToWeeks: z.number().int().min(0).describe('販売の山の終わり（試験の何週前。0 は試験日まで）'),
+            judgmentDaysAfter: positiveInt.describe('判定（試験の何日後）'),
+            coconalaServices: z.array(QID).min(1).optional().describe('この試験に合わせて開閉するココナラの添削の出品 id（CTA の切り替えの日に再開・試験の翌日に休止）'),
+            note: text.describe('値の根拠（実績の山）'),
+          })
+          .strict()
+          .superRefine((t, ctx) => {
+            if (!(t.productionStartWeeks > t.ctaSwitchWeeks)) flag(ctx, ['ctaSwitchWeeks'], '制作の開始は切り替えより前（週数が大きい）');
+            if (!(t.ctaSwitchWeeks >= t.peakFromWeeks)) flag(ctx, ['peakFromWeeks'], '切り替えは販売の山の始まり以前');
+            if (!(t.peakFromWeeks > t.peakToWeeks)) flag(ctx, ['peakToWeeks'], '山の始まりは終わりより前');
+          }),
+      )
+      .min(1)
+      .superRefine(uniqueBy((t) => `${t.qualification}/${t.examEvent}`, '資格×起点')),
+  })
+  .strict()
+  .meta({ title: '収益カレンダーの設定' });
+
 // ---- 制作物のテーマ（config/content-themes.json） ---------------------------------------------
 
 const themeRule = z
@@ -848,6 +881,95 @@ export const ConfigContentRules = z
   })
   .meta({ title: '記事の機械品質ルール' });
 
+// ---- 販売チャネルの設計（config/channel-strategy.json・2026-11-02） ------------------------------
+
+const CHANNEL_ID = z.enum(['note', 'kindle', 'coconala']);
+/** 4P＝売る側の決めごと（商品・価格・売り場・販促）。4C は同じ 4 つを買う側から見直したもの */
+const fourP = z.object({ product: text, price: text, place: text, promotion: text }).strict();
+const fourC = z.object({ customerValue: text, cost: text, convenience: text, communication: text }).strict();
+
+export const ConfigChannelStrategy = z
+  .object({
+    schemaVersion: z.literal(1),
+    _doc: text,
+    fees: z.record(CHANNEL_ID, z.object({ label: text, keepRate: z.number().gt(0).lt(1).describe('販売額に対する手取りの割合（公表料率）'), basis: text, source: url, checkedAt: jstDate('料率を公式で確かめた日') }).strict()),
+    channels: z.array(z.object({ id: CHANNEL_ID, role: text, sells: strList, notSell: strList, fourP, fourC }).strict()).min(1).superRefine(uniqueBy((c) => c.id, 'チャネル')),
+    swot: z.object({ strengths: strList, weaknesses: strList, opportunities: strList, threats: strList }).strict(),
+    kgi: z.object({ metric: text, label: text, targetYen: yen('月の目標'), source: text }).strict(),
+    kpis: z
+      .array(
+        z
+          .object({
+            id: QID,
+            channel: CHANNEL_ID,
+            label: text,
+            unit: text,
+            target: z.number().nonnegative(),
+            status: z.enum(['proposed', 'approved']).describe('proposed は運営者の承認前'),
+            why: text,
+          })
+          .strict(),
+      )
+      .superRefine(uniqueBy((k) => k.id, 'KPI')),
+  })
+  .strict()
+  .superRefine((c, ctx) => {
+    for (const ch of c.channels) if (!c.fees[ch.id]) flag(ctx, ['fees'], `チャネル「${ch.id}」の手数料が無い`);
+  })
+  .meta({ title: '販売チャネルの設計' });
+
+// ---- ページの種類ごとの採点プロファイル（config/page-quality-profiles.json・DN-0936） ----------------
+
+const PAGE_METRIC = z.enum(['chars', 'h2', 'images', 'tables', 'internalLinks', 'tableCaptions', 'figureCaptions', 'rawTextBlocks']);
+const regexText = text.refine((s) => { try { new RegExp(s); return true; } catch { return false; } }, '正規表現として読めない');
+
+export const ConfigPageQualityProfiles = z
+  .object({
+    schemaVersion: z.literal(1),
+    _doc: text,
+    metricsVocabulary: z.record(PAGE_METRIC, text).describe('指標の id と意味'),
+    profiles: z
+      .array(
+        z
+          .object({
+            id: QID,
+            label: text,
+            match: z.union([
+              z.object({ area: z.enum(['exam', 'practice', 'standards', 'laws']), groups: z.array(text).min(1) }).strict().describe('MDX 記事: 領域 × 記事型'),
+              z.object({ paths: z.array(text).min(1), file: regexText.describe('ファイル名の正規表現') }).strict().describe('置き場で決める（基準書）'),
+            ]),
+            focus: text.describe('この種類で何を大事に見るか'),
+            machineChecks: strList.describe('quality-audit の検査 id'),
+            metrics: z.array(PAGE_METRIC).min(1),
+            evaluators: z
+              .array(
+                z
+                  .object({
+                    agent: QID.describe('.claude/agents の名前'),
+                    role: z.enum(['rubric', 'facts', 'figures', 'tables']),
+                    categories: z.array(QID).min(1).optional().describe('対象の資格（省略は全資格）'),
+                  })
+                  .strict(),
+              )
+              .describe('評価役。空は評価役の無い種類'),
+            evaluatorGap: text.optional().describe('評価役を置けない理由と、埋めるカード'),
+            notApplicable: strList.describe('この種類に当てはめない規則'),
+          })
+          .strict(),
+      )
+      .min(1)
+      .superRefine(uniqueBy((p) => p.id, 'プロファイル')),
+  })
+  .strict()
+  .superRefine((c, ctx) => {
+    c.profiles.forEach((p, i) => {
+      p.metrics.forEach((m, j) => {
+        if (!(m in c.metricsVocabulary)) flag(ctx, ['profiles', i, 'metrics', j], `metricsVocabulary に無い指標「${m}」`);
+      });
+    });
+  })
+  .meta({ title: 'ページの種類ごとの採点プロファイル' });
+
 // ---- 商品の正本（config/products.json・DN-0492） ----------------------------------------------
 
 /** note-magazines.ts の 1 エントリ（キーの並びは保持する。id / published / noteUrl の順は読み手との契約） */
@@ -1085,7 +1207,7 @@ export const ConfigDemandMap = z
             judgeDate: jstDate('判定日'),
             stopCondition: text.describe('停止条件'),
             nextCheck: text.describe('次の検証'),
-            status: z.enum(['idea', 'decided', 'building', 'live', 'stopped']).describe('idea=候補 / decided=運営者が作ると決めた / building=制作中 / live=販売中 / stopped=停止'),
+            status: z.enum(['idea', 'decided', 'building', 'live', 'hold', 'stopped']).describe('idea=候補 / decided=運営者が作ると決めた / building=制作中 / live=販売中 / hold=保留（方針が変わるまで見送る・判定日の知らせから外す） / stopped=停止（作らない）'),
             productIds: z.array(text).optional().describe('販売を始めた商品 id（商品の正本の id）。実売の比較はこの id で売上を引く'),
             salesIds: z.array(text).optional().describe('売上記録（note の販売履歴）の productId が商品の id と違うときの id（bk-* など sales-recorder の旧系統）。productIds と合わせて実売を引く'),
             experimentId: z.string().regex(/^EXP-\d{3}$/).optional().describe('計測する実験（experiments.json）'),

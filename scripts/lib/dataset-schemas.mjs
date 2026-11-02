@@ -184,6 +184,27 @@ export const KdpRoyalties = z
 
 
 /** ココナラの売上履歴（data/coconala/revenue.json）。手数料控除後・トークルームのクローズ日で計上。購入者・サービス名は記録しない */
+/** ココナラの公開プロフィールの評価の数の推移（台帳 coconala.seller-profile・scripts/coconala-seller-profile.mjs・土曜のココナラの段）。 */
+export const CoconalaSellerProfile = z
+  .object({
+    schemaVersion: z.literal(1),
+    profileUrl: z.url().describe('取得した公開プロフィール（台帳 config.coconala-account の profileUrl）'),
+    rows: z
+      .array(
+        z
+          .object({
+            date: jstDate('取得した日'),
+            ratingCount: z.number().int().min(0).describe('公開プロフィールの「評価: N件」'),
+            fetchedAt: utcTime('取得した時刻'),
+          })
+          .strict(),
+      )
+      .min(1)
+      .superRefine(uniqueBy((r) => r.date, '日付')),
+  })
+  .strict()
+  .meta({ title: 'ココナラの評価の数' });
+
 export const CoconalaRevenue = z
   .object({
     schemaVersion: z.literal(1),
@@ -1268,6 +1289,7 @@ export const DomainsConfig = z
       .min(1)
       .superRefine(uniqueBy('id', '領域の id')),
     documents: z.record(z.string().min(1), z.string().min(1)).describe('文書のパス（末尾 / は接頭辞）→ 領域 id'),
+    pageDocuments: z.record(z.string().regex(/^\//, '画面のパスは / で始める'), z.array(z.string().min(1)).min(1)).describe('画面のパス（長い一致が優先）→ その画面の根拠の文書'),
     navKinds: z.record(z.string(), z.string()).describe('サイドバーの画面の種類'),
     navRules: z.array(z.string()),
   })

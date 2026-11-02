@@ -1,10 +1,7 @@
 ---
 name: note-membership
 description: >
-  note メンバーシップ「土木セコカン合格ラボ」の会員限定記事配信、特典マガジン収録、
-  プラン設定と公開状態の実体検証を note-membership-operator で安全に実行する。
-  Use when user asks to [メンバーシップ運用, 会員特典記事を配信, 予想問題ドリップ,
-  特典マガジン収録, 会員プラン設定編集, membership 投稿編集, /note-membership].
+  note メンバーシップ「土木セコカン合格ラボ」の会員限定配信・特典マガジン収録・プラン設定を note-membership-operator で実行する。Use when user asks to [メンバーシップ運用, 会員特典記事を配信, 会員プラン設定編集, /note-membership].
 disable-model-invocation: true
 user-invocable: true
 argument-hint: "[publish <article.md> | status | plan <planId>] [--commit]"

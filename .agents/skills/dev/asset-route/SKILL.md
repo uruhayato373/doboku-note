@@ -1,10 +1,7 @@
 ---
 name: asset-route
 description: >
-  Git の外に置くアセット（画像・PDF・レンダー・原本）の置き場を「誰が使うか」で決め、正確なコマンドへ導く。
-  サイトが配信する→public R2 / GitHub Actions が読み書きする→private R2 / 人か手元のスクリプトだけ→Google Drive vault。
-  新しいアセット群を追加するとき、既存 group を別 tier へ移すとき、R2 か Drive か迷ったときに使う。
-  Use when user asks to [アセットの置き場, R2 か Drive か, 退避先を決める, asset-route, 新しい画像群をどこに置く, group を Drive へ移す].
+  Git 外アセットの置き場を「誰が使うか」で決める（サイト配信→public R2・CI→private R2・人/手元→Drive vault）。Use when user asks to [アセットの置き場, R2 か Drive か, 退避先を決める, asset-route].
 domain: ops
 ---
 

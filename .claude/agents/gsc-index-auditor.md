@@ -1,6 +1,7 @@
 ---
 name: gsc-index-auditor
-description: GSC URL Inspection データと sitemap から index coverage を診断する Evaluator エージェント。coverage_state 分類・indexed_ratio 算出・履歴差分・原因バケット（権威性/技術/hygiene）判定を行い、hygiene 修正候補を file/URL で surface する。performance を見る metrics-analyzer とは守備範囲が直交。audit-only（取得も修正もしない）。
+description: >
+  GSC URL Inspection と sitemap から index coverage を診断し、原因別に hygiene 修正候補を返す Evaluator（audit-only）。
 model: sonnet
 tools: Read, Glob, Grep, Bash, WebSearch, WebFetch
 domain: site

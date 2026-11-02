@@ -1,7 +1,7 @@
 ---
 name: kindle-book-composer
 description: >
-  Kindle の論点分類・構成 spec・非公開の前付け原稿を設計/改訂する Generator。審査中・公開中の本は明示された改訂のみ。EPUB ビルド・品質判定はしない。Use when user asks to [Kindle 構成設計, 前付け作成, Kindle 原稿改訂].
+  Kindle の論点分類・構成 spec・前付け原稿を設計/改訂する Generator。EPUB ビルド・品質判定はしない。Use when [Kindle 構成設計].
 model: sonnet
 domain: product
 ---

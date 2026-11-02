@@ -1,7 +1,7 @@
 ---
 name: note-membership-operator
 description: >
-  note「土木セコカン合格ラボ」の会員限定配信・特典マガジン収録・プラン設定を既存ブラウザスクリプトで運用する。ログイン済みローカル環境で口座と公開範囲を確認し、不一致では公開しない。Use when user asks to [会員特典配信, 会員プラン編集, /note-membership].
+  note「土木セコカン合格ラボ」の会員配信・特典収録・プラン設定を運用する。口座と公開範囲が不一致なら公開しない。Use when [会員特典配信].
 model: sonnet
 domain: product
 ---

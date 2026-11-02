@@ -1,8 +1,7 @@
 ---
 name: verify-exam-coverage
 description: >
-  キーワードページに対し、そのキーワードが登場する全過去問を横断的に洗い出し、記事が「解説として十分か」（誤り選択肢・正答肢・ExamPoint items の論点がカバーされているか）を検証する。未カバー論点と補強方針を表形式で提示し、承認後に補強を適用する。
-  Use when user asks to [過去問カバー確認, 解説として十分か, 校正して過去問対応させたい, /verify-exam-coverage, 練られているか].
+  キーワードページに対し、登場する全過去問の論点が解説で足りているかを検証し、未カバー論点を提示して承認後に補強する。Use when user asks to [過去問カバー確認, 解説として十分か, /verify-exam-coverage].
 user-invocable: true
 domain: site
 ---

@@ -1,6 +1,7 @@
 ---
 name: performance-auditor
-description: PageSpeed Insights の計測履歴から Core Web Vitals・Lighthouse スコアのしきい値違反と回帰を検出し、改善提案を出力する Evaluator エージェント。`data/psi/batch/` の時系列 JSON を読み、違反パターン別（LCP 肥大・CLS 発生・JS ブロック等）に優先度付きで surface する。
+description: >
+  PSI 計測履歴から Core Web Vitals のしきい値違反と回帰を検出し、改善提案を優先度つきで出す Evaluator。
 model: sonnet
 tools: Read, Glob, Grep, Bash, WebSearch, WebFetch
 domain: site

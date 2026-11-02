@@ -1,6 +1,7 @@
 ---
 name: x-repost-curator
-description: X 引用リポスト候補（candidates.json）を関連性・安全性で選別し、引用コメントを生成して approved.json を書き出す Evaluator+Generator エージェント。技術士総監/1級・2級土木施工管理の受験者向けに、ブランド整合・炎上回避を最優先で判定する。
+description: >
+  X 引用リポスト候補を関連性・安全性で選別し、引用コメントを生成して approved.json を書く Evaluator+Generator。
 model: sonnet
 domain: sns
 ---

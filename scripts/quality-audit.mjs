@@ -220,6 +220,7 @@ export const CHECKS = [
   { id: 'figure-crop-integrity', npm: 'check-figure-crop:ci', timeout: 180_000, ci: true, note: '図クロップの写り込み（STRAY_SLIVER）を baseline 比の新規のみ gate。figure-crop-report.json を上書き' },
   { id: 'image-origin', npm: 'check-image-origin', timeout: 180_000, ci: true, note: '公開記事のラスター画像すべてに出所（provenance の kind）があり、写真（AI 生成画像のみ）は 4:3・仕様の指示から生成・実物どおりの判定まで済んでいるか（2026-10-07・DN-0574/0578: 出所なし 56 枚・CC 実写の AI 描き直しで実在しない器械）' },
   { id: 'guide-length', npm: 'check-guide-length', timeout: 90_000, ci: true },
+  { id: 'page-quality-profiles', npm: 'page-quality-inventory', timeout: 120_000, ci: true, note: '全ページが採点プロファイル（台帳 config.page-quality-profiles）のちょうど 1 つの種類に当たり、プロファイルの評価役（.claude/agents）と機械の検査 id が実在するか。評価役の無い資格は失敗にせず一覧で出す（DN-0936・埋めるのは DN-0937）' },
   { id: 'lcp-image-hints', npm: 'check-lcp-image-hints', timeout: 60_000, ci: true, note: '本文フォールド内1枚目の図版は eager+fetchpriority=high（lazy だと低速回線で LCP が数秒伸びる・EXP-005）' },
   { id: 'scheduled-exec-branch', npm: 'check-scheduled-exec-branch', timeout: 60_000, ci: false, note: '定期ジョブの実行ブランチ対応表（棚卸し）。WARN 判定は現ブランチ依存のため CI では意味が薄く report-only。読み手＝weekly-review-guard の report digest（--report-only を週次実行し FAIL は automation-failure Issue へ集約）' },
   { id: 'home-exam-coverage', npm: 'check-home-exam-coverage', timeout: 60_000, ci: true },

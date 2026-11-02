@@ -1,8 +1,7 @@
 ---
 name: simplify
 description: >
-  変更中のコード（git diff）を読んで、再利用可能な既存コードの見落とし・過剰設計・無関係な編集・非効率な実装を列挙し、ユーザ承認の上で最小差分で修正する。
-  Use when user asks to [シンプル化, 簡素化, リファクタ, 冗長を削って, /simplify, simplify].
+  変更中のコード（git diff）の再利用漏れ・過剰設計・無関係な編集・非効率を列挙し、承認の上で最小差分で直す。Use when user asks to [シンプル化, リファクタ, 冗長を削って, /simplify].
 user-invocable: true
 domain: ops
 ---

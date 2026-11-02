@@ -1,14 +1,7 @@
 ---
 name: scout-asp
 description: >
-  A8.net の提携アフィリエイトを Playwright で操作する（doboku-note 版・転職一本スコープ）。
-  list=申込中/参加中の承認状態を確認（主用途・口座横断）、search=doboku ニッチ語で未提携案件を狙い撃ち検索、
-  import-partnered=提携中を catalog 取込、scout/apply=A8 カテゴリ09(仕事)自動開拓・週次上限で申請（doboku-note で）、
-  check-approval=承認昇格、harvest=承認済みの広告コード取得（doboku-note）→affiliate-creatives.ts への手配置候補を出力。
-  Use when user says "A8確認", "アフィリエイト承認確認", "申請済みアフィリを見る", "A8案件を探す", "A8提携状況", "scout-asp".
-  **初回 or セレクタ更新後は必ず `list --dry-run --headed` で実機ダンプ→セレクタ確定すること**.
-  **search/scout の出力は candidate 以外（blocked / dup / vertical未解決 / 閾値未満）も必ず表示する**
-  ＝「candidate 0 件」を「該当なし」と誤読しないこと.
+  A8.net の提携状況確認・未提携案件の検索・申請・承認昇格・広告コード取得を Playwright で行う（転職スコープ）。Use when user says "A8確認", "申請済みアフィリを見る", "A8案件を探す", "A8提携状況", "scout-asp".
 disable-model-invocation: true
 argument-hint: "<list|search|import-partnered|scout|apply|check-approval|harvest> [--keyword <語>] [--program <pid>] [--dry-run] [--headed] [--limit N] [--max N]"
 domain: affiliate

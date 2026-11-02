@@ -14,6 +14,7 @@ export const TAB_SETS = {
     { href: '/strategy/qualifications', label: '資格一覧' },
     { href: '/strategy/market', label: '展開の判断' },
     { href: '/strategy/demand', label: '悩みと商品候補' },
+    { href: '/strategy/channels', label: 'チャネル設計' },
     { href: '/strategy/competitors', label: '競合' },
   ],
   policy: [

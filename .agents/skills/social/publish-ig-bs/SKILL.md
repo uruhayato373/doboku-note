@@ -1,12 +1,7 @@
 ---
 name: publish-ig-bs
 description: >
-  Playwright（永続プロファイル）で Meta Business Suite を自動操作し、Instagram
-  カルーセル（画像 2-10 枚）または **リール（reels/video.mp4）** を予約投稿する。
-  content/sns/instagram 配下の carousel/ または reels/ を読み取り 1 パックずつ投稿。
-  予約（--schedule）と即時（--now）の両方に対応し、IG 投稿の唯一の経路（旧 Graph API scripts/publish-ig.mjs は 2026-06-17 全廃）。
-  Use when user says "IG予約投稿", "インスタ予約", "リール予約", "Business Suite 投稿".
-  **初回 / セレクタ更新後は必ず --dry-run で事前検証すること**。
+  Meta Business Suite を Playwright で操作し、Instagram カルーセル/リールを1パックずつ予約・即時投稿する（IG の唯一の経路・初回は --dry-run）。Use when user says "IG予約投稿", "リール予約".
 disable-model-invocation: true
 argument-hint: "post <pack> --schedule <YYYY-MM-DDTHH:MM> [--reel] [--dry-run] [--pause] [--keep-fb] | login"
 domain: sns

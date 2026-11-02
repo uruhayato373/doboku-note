@@ -44,7 +44,7 @@ domain: product
 
 ### description フィールド（Critical）
 
-- **スキルは最大 1024 文字、エージェントは 300 code points 以下**（`node scripts/check-agent-descriptions.mjs`）。詳細な手順・制約は本文へ置く。
+- **スキルは 1 文＋Use when で目安 120 字（長くても 160 字・上限 1024）、エージェントは 120 code points 以下**（`node scripts/check-agent-descriptions.mjs`）。詳細な手順・制約は本文へ置く。
 - **必須の 2 要素**: 「何をするか（WHAT）」と「いつ使うか（WHEN）」
 - **トリガーフレーズを具体的に含める**（スキルから呼ばれる Generator/Evaluator は、呼出条件が概要で明確なら `Use when` の定型句は省略可）: ユーザーが実際に口にしそうな言葉を複数記載
   - ✓ `Use when user asks to [MDX 検査, lint MDX, 構文チェック, /check-mdx]`

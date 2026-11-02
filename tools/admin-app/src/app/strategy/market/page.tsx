@@ -56,10 +56,10 @@ export default function MarketPage() {
 
       {view.errors.length > 0 && (
         <PanelCard title={`正本の不整合 ${view.errors.length} 件`}>
-          <p className="text-sm text-muted-foreground">npm run check-qualification-market で詳細を確認して正本を直す。</p>
+          <p className="text-sm">正本を直す必要があります。</p>
         </PanelCard>
       )}
-      {actionCount > 0 && <p className="text-sm text-muted-foreground">要対応 {actionCount} 件（npm run qualification-market）。ココナラの * は下限。</p>}
+      {actionCount > 0 && <p className="text-sm">要対応 {actionCount} 件</p>}
 
       <DataTable columns={COLUMNS} rows={rows.map((r) => toRow(r, view.formatTypes))} pageSize={100} />
     </>

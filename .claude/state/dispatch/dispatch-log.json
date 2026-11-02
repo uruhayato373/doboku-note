@@ -6340,6 +6340,134 @@
       "commit": "ce5f8a588aad",
       "verification": "npm run check-external-links → リンク切れ 0 件（OK 5,253）",
       "note": "weekly-review-guard の 10/26 の赤は external-links ではなく W43 レビューの未完が原因。W44 完了後に手動起動した run 41293371039 が success。external-links は 404 の 15 か所を移転先か Wayback の保存版へ差し替え（1c4c69106・a58ffdd8f・b2aef33d6・c0e778a80・f96d75d55・d6a6347d9）、HEAD だけ 404 の NIST を誤判定する検査を PR #1353 で修正。jeed・meti の 403 は bot 拒否でリンクは生きている。Issue #1257・#1312 は次の guard・ops の成功で自動クローズ"
+    },
+    {
+      "id": "DN-0930",
+      "at": "2026-11-01",
+      "task": "note の販売明細の productId を商品の分類に結び、資格別・型別の売上を名前の推測なしで出す",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "test"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "60105dba6321",
+      "verification": "npm run sales-attribution → 未帰属 0",
+      "note": "PR #1356（ab126619d）。販売 347 件を資格へ全件帰属（商品に結合 154・規則 193・未帰属 0）。公開中で単独の販売 0 の有料商品は 86（npm run sales-attribution）"
+    },
+    {
+      "id": "DN-0934",
+      "at": "2026-11-01",
+      "task": "pre-commit の出力を、成功時は 1 行の要約にし、失敗した検査だけ詳細を出す",
+      "tier": "mid",
+      "kind": "改善",
+      "prevention": {
+        "type": "none",
+        "ref": "出力量の改善で、再発する不具合ではない"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "60105dba6321",
+      "verification": "小変更 3 ファイルの pre-commit 出力 163 行→12 行",
+      "note": "PR #1354（d6b05c20f）。成功時は要約 1 行（横展開リマインダのある回は 12 行）、失敗時は落ちた検査の出力だけ。PRECOMMIT_VERBOSE=1 で従来どおり"
+    },
+    {
+      "id": "DN-0936",
+      "at": "2026-11-02",
+      "task": "ページの種類ごとに採点プロファイルを定め、機械の棚卸しと実務・法令ガイドの採点基準を直す",
+      "tier": "mid",
+      "kind": "改善",
+      "prevention": {
+        "type": "gate",
+        "ref": "page-quality-inventory"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "ce01d8c7e11e",
+      "verification": "npm run page-quality-inventory exit 0（未分類 0・評価役の無いページ 447 を一覧）",
+      "note": "PR #1365 で採点プロファイル（10 種類）・page-quality-inventory（全 2,618 ページを分類・未分類 0）・guide-qa/guide-rewriter の実務・法令モードを入れた"
+    },
+    {
+      "id": "DN-0937",
+      "at": "2026-11-02",
+      "task": "採点プロファイルの空いた種類に評価役を入れ、土木の重なる評価役を統合する",
+      "tier": "mid",
+      "kind": "改善",
+      "prevention": {
+        "type": "gate",
+        "ref": "page-quality-inventory"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "c5b531fd28a3",
+      "verification": "npm run page-quality-inventory exit 0（評価役の無い資格は全文ライブラリの evaluatorGap だけ）",
+      "note": "PR #1366: 建設部門 keyword・pillar→guide-qa、建設部門 past-exam→content-qa、コンクリ技士・測量士→past-exam-qa、コンクリ教科書→civil-construction-qa Mode R。civil-construction-review を統合して退役。採点状況は quality-census から棚卸しに表示。Gemini は DN-0939、全文ライブラリは DN-0938 へ分割"
+    },
+    {
+      "id": "DN-0939",
+      "at": "2026-11-02",
+      "task": "Gemini の API の経路を用意し、流入上位ページで一次採点を試して Claude との一致率を記録する",
+      "tier": "mid",
+      "kind": "改善",
+      "prevention": {
+        "type": "none",
+        "ref": "試行の結論の記録で、再発する不具合ではない"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "ecc11082b0a2",
+      "verification": "npm run gemini-scoring-trial -- compare --model gemini-3.5-flash-lite（採用 0 軸）",
+      "note": "PR #1367: 24 記事で Claude の評価役と比較。合否一致 87〜88%・直すべき軸の検出率 31%（lite）/46%（3.8-flash）。採用条件を満たす軸 0 で、採点の一次振り分けには不採用。記録は .claude/state/quality/gemini-trial.json"
+    },
+    {
+      "id": "DN-0940",
+      "at": "2026-11-02",
+      "task": "チャネル別の商品設計（役割・手数料・SWOT・4C・KGI/KPI）を正本にし、管理画面で見えるようにする",
+      "tier": "mid",
+      "kind": "改善",
+      "prevention": {
+        "type": "gate",
+        "ref": "test"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "13c192188c06",
+      "verification": "node --test tests/channel-economics.test.mjs（月別の受取が net-receipts と一致）",
+      "note": "PR #1368: config/channel-strategy.json・npm run channel-economics・管理画面 /strategy/channels・docs/strategy/22。KPI の目標は案（承認前）"
+    },
+    {
+      "id": "DN-0943",
+      "at": "2026-11-02",
+      "task": "ココナラの評価の数を土曜の収集で取り、チャネル設計の KPI に結ぶ",
+      "tier": "low",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "bf315568a19b",
+      "verification": "npm test（coconala-seller-profile）・check-datasets",
+      "note": "PR #1377 で coconala-seller-profile を土曜のローカル定期に入れ、チャネル設計の KPI に評価の数を出した"
+    },
+    {
+      "id": "DN-0942",
+      "at": "2026-11-02",
+      "task": "ココナラの二次の添削の再開日・休止日を収益カレンダーから出す",
+      "tier": "low",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "bf315568a19b",
+      "verification": "tests/revenue-calendar.test.mjs・schedule-view --channel revenue",
+      "note": "PR #1377 で revenue-calendar に coconala-open・coconala-pause の段を足し、3 資格に出品を結んだ"
     }
   ]
 }

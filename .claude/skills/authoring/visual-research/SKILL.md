@@ -1,12 +1,7 @@
 ---
 name: visual-research
 description: >
-  NotebookLM（総監テキスト）で概念構造を抽出し、参照URL（または自動Web検索）から
-  視覚パターンを取得してSVG概念図を生成・MDXに挿入する。
-  /illustrate-concept との違い: ① --ref URLを直接渡せる、
-  ② notebooklm-cross-query.mjs（旧 nlm cross query）でSVGの「内容」をテキスト根拠から設計する。
-  Use when user asks to [参照URL から SVG, NotebookLM で図を作成,
-  概念図を深掘り生成, /visual-research, 概念図を追加して].
+  NotebookLM と参照URL（--ref）から概念構造と視覚パターンを得て、SVG 概念図を生成し MDX に挿入する。Use when user asks to [参照URL から SVG, NotebookLM で図を作成, 概念図を深掘り生成, /visual-research].
 user-invocable: true
 domain: material
 ---

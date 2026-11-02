@@ -1,6 +1,7 @@
 ---
 name: technical-seo-auditor
-description: build 後 SEO スキャナ（check-seo-build）・check-seo-meta・index-coverage 履歴・sitemap の機械出力を統合して技術 SEO レポートにまとめる audit-only Evaluator エージェント。canonical/og:url 不一致・sitemap hygiene・SSR・内部リンク到達性の状態を、機械が既に判定した結果を読んで束ねるだけで、404 有無などの決定的判定を自分で再判定しない。修正も取得もしない。
+description: >
+  check-seo-build・check-seo-meta・index-coverage・sitemap の機械出力を束ねて技術 SEO レポートにする Evaluator（再判定・修正はしない）。
 model: sonnet
 tools: Read, Glob, Grep, Bash
 domain: site

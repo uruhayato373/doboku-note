@@ -1,7 +1,7 @@
 ---
 name: figure-crop-worker
 description: >
-  記事の PNG/WebP 図画像を1枚ずつ目視分類し、写り込みを除くタイト再クロップか、縁で切れた図の元 PDF からの切り出し直しを行う Generator。/figure-quality-loop・/figure-recrop のワーカー。MDX・台帳編集と git は担当外。
+  記事の図画像を1枚ずつ目視分類し、タイト再クロップか元 PDF からの切り出し直しを行う Generator。MDX・台帳・git は担当外。
 model: sonnet
 tools: Read, Bash, Glob, Grep
 domain: site

@@ -1,6 +1,7 @@
 ---
 name: video-script-writer
-description: 動画パック（悩み・約束・出典付き通常動画台本・storyboard・派生ブリーフ・CTA 案）を 1 パック書く Generator。全資格共通。事実の合否判定・レンダリング・投稿は担当外。
+description: >
+  動画パック（台本・storyboard・派生ブリーフ・CTA 案）を1パック書く Generator。投稿・レンダリングは担当外。
 model: sonnet
 domain: sns
 ---

@@ -1,6 +1,7 @@
 ---
 name: ig-reels-writer
-description: 退役したInstagram旧過去問パックのReels台本用エージェント。現行の新規投稿では使わない。
+description: >
+  退役した Instagram 旧過去問パックの Reels 台本。現行の新規投稿では使わない。
 model: sonnet
 domain: sns
 ---

@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { DataTable, type DataTableColumn, type DataTableRow, PanelCard, StatusBadge, type Tone } from '@/components/admin';
+import { DataTable, DetailList, DetailSheet, type DataTableColumn, type DataTableRow, PanelCard, StatusBadge, type Tone } from '@/components/admin';
 import { Stack } from '@/components/layout';
 import { PageHead, Kpi } from '@/components/ui';
 import { loadKindleView, type KindleBookView } from '@/lib/kindle';
@@ -38,9 +38,7 @@ const BOOK_COLUMNS: DataTableColumn[] = [
   { key: 'book', label: '書籍' },
   { key: 'price', label: '価格', num: true },
   { key: 'status', label: '状態' },
-  { key: 'version', label: '版' },
   { key: 'date', label: '提出日' },
-  { key: 'asin', label: 'ASIN' },
   { key: 'freshness', label: '鮮度' },
 ];
 
@@ -58,9 +56,7 @@ function bookRow(b: KindleBookView): DataTableRow {
       book: `${b.title || b.id} ${b.id}${b.series ? `・${b.series}` : ''}`,
       price: b.priceJpy ?? null,
       status: b.status,
-      version: b.version || null,
       date: b.submittedDate ?? b.publishedDate ?? null,
-      asin: b.asin ?? b.draftAsin ?? null,
       freshness: freshnessLabel(b.freshness),
     },
     cells: {
@@ -71,25 +67,23 @@ function bookRow(b: KindleBookView): DataTableRow {
         <span className="text-muted-foreground">—</span>
       ),
       book: (
-        <>
-          <div><Link href={`/content/kindle/${encodeURIComponent(b.id)}`}>{b.title || b.id}</Link></div>
-          <div className="font-mono text-xs text-muted-foreground">{b.id}{b.series ? `・${b.series}` : ''}</div>
-          {b.epubExists && <div className="text-xs text-muted-foreground">{fmtBytes(b.epubBytes)}</div>}
-        </>
+        <DetailSheet trigger={b.title || b.id} title={b.title || b.id} description={b.id}>
+          <DetailList
+            items={[
+              { label: 'シリーズ', value: b.series },
+              { label: '版', value: b.version },
+              { label: 'ASIN', value: b.amazonUrl ? <a href={b.amazonUrl} target="_blank" rel="noreferrer">{b.asin}</a> : (b.asin ?? b.draftAsin) },
+              { label: 'EPUB', value: b.epubExists ? fmtBytes(b.epubBytes) : null },
+              { label: '提出日', value: b.submittedDate },
+              { label: '公開日', value: b.publishedDate },
+              { label: 'プレビュー', value: <Link href={`/content/kindle/${encodeURIComponent(b.id)}`}>開く</Link> },
+            ]}
+          />
+        </DetailSheet>
       ),
       price: yen(b.priceJpy),
       status: <StatusBadge tone={statusTone(b.status)}>{b.status}</StatusBadge>,
-      version: <span className="text-xs">{b.version || '—'}</span>,
       date: <span className="text-xs">{b.submittedDate ?? b.publishedDate ?? '—'}</span>,
-      asin: (
-        <span className="text-xs">
-          {b.amazonUrl ? (
-            <a href={b.amazonUrl} target="_blank" rel="noreferrer">{b.asin}</a>
-          ) : (
-            <span className="text-muted-foreground">{b.asin ?? b.draftAsin ?? '—'}</span>
-          )}
-        </span>
-      ),
       freshness: <StatusBadge tone={freshnessTone(b.freshness)}>{freshnessLabel(b.freshness)}</StatusBadge>,
     },
   };
@@ -103,128 +97,98 @@ function bookRow(b: KindleBookView): DataTableRow {
  * 再ビルド・提出・状態同期・任意 CLI 実行は一切追加しない（運用規約カードで CLI コマンドを
  * 案内するのみ）。config/kdp-memo.json（秘密混じり）は読まない・表示しない。
  */
-export default async function KindleContentPage() {
+const TABS = [
+  { id: 'books', label: '書籍' },
+  { id: 'royalty', label: 'ロイヤリティ' },
+  { id: 'docs', label: '関連文書' },
+] as const;
+
+export default async function KindleContentPage({ searchParams }: { searchParams: Promise<{ tab?: string }> }) {
+  const { tab } = await searchParams;
+  const current = TABS.some((t) => t.id === tab) ? tab : 'books';
   const view = await loadKindleView();
   const { books, summary, freshnessOk, royalties, relatedDocs } = view;
 
   return (
     <>
-      <PageHead
-        title="Kindle"
-        sub={`KDP で販売する Kindle 本 ${summary.total} 件・read-only（再ビルド/提出/状態同期は npm run sync-kindle-dist ・ node scripts/kdp-publish.mjs --sync-status ・ npm run kdp-batch を使う）`}
-      />
+      <PageHead title="Kindle" />
 
       <Stack>
       <div className="grid cols-4">
-        <Kpi label="冊数" value={summary.total} />
         <Kpi label="live" value={summary.byStatus.live ?? 0} />
         <Kpi label="in_review" value={summary.byStatus.in_review ?? 0} />
         <Kpi label="鮮度 stale" value={freshnessOk ? summary.staleCount : '検査不成立'} />
         <Kpi label="直近月ロイヤリティ" value={royalties?.ok ? `${yen(royalties.total?.royalty)}${royalties.estimated ? '(推計)' : ''}` : '未取得'} />
       </div>
 
-      {!freshnessOk && (
-        <p className="text-sm project-warning-text">
-          鮮度検査が実行できなかった（git log 取得失敗）。stale 0 件を「健全」と読まないこと。
-        </p>
-      )}
+      <nav className="filterbar mb-3!">
+        {TABS.filter((t) => t.id !== 'docs' || relatedDocs.length > 0).map((t) => (
+          <Link key={t.id} className={'chip' + (t.id === current ? ' active' : '')} href={t.id === 'books' ? '/content/kindle' : `/content/kindle?tab=${t.id}`}>{t.label}</Link>
+        ))}
+      </nav>
 
-      {(summary.staleCount > 0 || summary.deadMemoCount > 0 || summary.notRebuildableCount > 0) && (
+      {!freshnessOk && <p className="text-sm project-warning-text">鮮度検査が実行できなかった</p>}
+
+      {current === 'books' && (summary.staleCount > 0 || summary.deadMemoCount > 0 || summary.notRebuildableCount > 0) && (
         <PanelCard title="整合・鮮度">
           <ul className="text-sm">
             {summary.staleCount > 0 && (
               <li className="project-warning-text">
-                EPUB がソースより古い疑い {summary.staleCount} 件:{' '}
-                {books.filter((b) => b.freshness === 'stale').map((b) => b.id).join(', ')}
-                （修正: <code>npm run sync-kindle-dist -- --downloads &lt;id&gt;</code>）
+                EPUB がソースより古い疑い {summary.staleCount} 件: {books.filter((b) => b.freshness === 'stale').map((b) => b.id).join(', ')}
               </li>
             )}
-            {summary.deadMemoCount > 0 && (
-              <li className="text-muted-foreground">
-                KDP入力メモの参照先が不在 {summary.deadMemoCount} 件（<code>npm run gen-kdp-memo &lt;id&gt;</code> で生成可）
-              </li>
-            )}
-            {summary.notRebuildableCount > 0 && (
-              <li className="text-muted-foreground">
-                自動再ビルド経路の外（buildSpec 無し）{summary.notRebuildableCount} 件:{' '}
-                {books.filter((b) => !b.rebuildable).map((b) => b.id).join(', ')}
-              </li>
-            )}
+            {summary.deadMemoCount > 0 && <li>KDP入力メモの参照先が不在 {summary.deadMemoCount} 件</li>}
+            {summary.notRebuildableCount > 0 && <li>自動再ビルドの外 {summary.notRebuildableCount} 件: {books.filter((b) => !b.rebuildable).map((b) => b.id).join(', ')}</li>}
           </ul>
         </PanelCard>
       )}
 
-      <PanelCard title="書籍">
-        <DataTable
-          columns={BOOK_COLUMNS}
-          rows={books.map(bookRow)}
-          pageSize={100}
-          filter="書籍・ASIN などで絞り込む"
-          emptyText="書籍が0件です（catalog.json を確認してください）。"
-        />
-      </PanelCard>
+      {current === 'books' && (
+        <PanelCard title="書籍">
+          <DataTable columns={BOOK_COLUMNS} rows={books.map(bookRow)} pageSize={100} filter="書籍・ASIN などで絞り込む" emptyText="書籍なし" />
+        </PanelCard>
+      )}
 
-      <PanelCard title="ロイヤリティ">
-        {royalties?.ok ? (
-          <>
-            <p className="text-sm">
-              {royalties.month} 月・doboku-note {royalties.total?.bookCount ?? '—'}冊・電子書籍 {royalties.total?.ebook ?? '—'}
-              ・KENP {royalties.total?.kenp ?? '—'}・ロイヤリティ計 {yen(royalties.total?.royalty)}
-              {royalties.estimated && <span className="project-warning-text"> （推計値）</span>}
-            </p>
-            {royalties.accountTotal && (
-              <p className="text-sm text-muted-foreground">
-                共有KDP口座全体: {royalties.accountTotal.bookCount ?? '—'}冊・ロイヤリティ {yen(royalties.accountTotal.royalty)}
-                {royalties.accountKenpPagesRead != null ? `・KENP既読 ${royalties.accountKenpPagesRead}ページ` : ''}。他サイト分を上の集計から除外。
+      {current === 'royalty' && (
+        <PanelCard title="ロイヤリティ">
+          {royalties?.ok ? (
+            <>
+              <p className="text-sm">
+                {royalties.month} 月・{royalties.total?.bookCount ?? '—'}冊・電子書籍 {royalties.total?.ebook ?? '—'}
+                ・KENP {royalties.total?.kenp ?? '—'}・計 {yen(royalties.total?.royalty)}
+                {royalties.estimated && <span className="project-warning-text"> （推計値）</span>}
               </p>
-            )}
-            {royalties.caveat && <p className="text-sm text-muted-foreground">{royalties.caveat}</p>}
-            {royalties.fetchedAt && <p className="text-sm text-muted-foreground">取得日時: {royalties.fetchedAt}</p>}
-            {royalties.perBook && royalties.perBook.length > 0 && (
-              <div className="mt-3">
-                <DataTable
-                  columns={ROYALTY_COLUMNS}
-                  rows={royalties.perBook.map((b): DataTableRow => ({
-                    id: b.bookId,
-                    values: { book: `${b.title} ${b.bookId}`, royalty: b.royalty ?? null, catalog: b.inCatalog ? '—' : '未対応' },
-                    cells: {
-                      book: <>{b.title} <span className="font-mono text-xs text-muted-foreground">{b.bookId}</span></>,
-                      royalty: yen(b.royalty),
-                      catalog: b.inCatalog ? '—' : <span className="project-warning-text">未対応</span>,
-                    },
-                  }))}
-                  pageSize={100}
-                />
-              </div>
-            )}
-          </>
-        ) : (
-          <p className="text-sm text-muted-foreground">未取得（ローカルで <code>npm run kdp-report</code> を実行するとこのカードに反映されます）。</p>
-        )}
-      </PanelCard>
-
-      {relatedDocs.length > 0 && (
-        <PanelCard title="関連設計文書">
-          <p className="text-sm text-muted-foreground">docs frontmatter の <code>channel: kindle</code> を持つ文書（{relatedDocs.length} 件）。</p>
-          <ul>
-            {relatedDocs.map((d) => (
-              <li key={d.file}>
-                <Link href={d.href}>{d.title}</Link> <span className="font-mono text-xs text-muted-foreground">{d.file}</span>
-              </li>
-            ))}
-          </ul>
+              {royalties.perBook && royalties.perBook.length > 0 && (
+                <div className="mt-3">
+                  <DataTable
+                    columns={ROYALTY_COLUMNS}
+                    rows={royalties.perBook.map((b): DataTableRow => ({
+                      id: b.bookId,
+                      values: { book: `${b.title} ${b.bookId}`, royalty: b.royalty ?? null, catalog: b.inCatalog ? '—' : '未対応' },
+                      cells: {
+                        book: <DetailSheet trigger={b.title} title={b.title} description={b.bookId}><DetailList items={[{ label: 'catalog', value: b.inCatalog ? '対応' : '未対応' }]} /></DetailSheet>,
+                        royalty: yen(b.royalty),
+                        catalog: b.inCatalog ? '—' : <span className="project-warning-text">未対応</span>,
+                      },
+                    }))}
+                    pageSize={100}
+                  />
+                </div>
+              )}
+            </>
+          ) : (
+            <p className="text-sm">未取得</p>
+          )}
         </PanelCard>
       )}
 
-      <PanelCard title="運用規約">
-        <p className="text-sm">
-          この画面は読み取り専用。再ビルド= <code>npm run sync-kindle-dist -- --downloads &lt;id&gt;</code> ／
-          提出= <code>/kdp-publish</code>（<code>npm run kdp-batch</code>）／
-          本棚同期= <code>node scripts/kdp-publish.mjs --sync-status</code> ／
-          ロイヤリティ= <code>npm run kdp-report</code>。
-          状態 SoT は <Link href="/content/content~kindle">catalog.json ほか（ファイル一覧）</Link>、手順は kdp-operator エージェントを参照。
-        </p>
-      </PanelCard>
+      {current === 'docs' && relatedDocs.length > 0 && (
+        <PanelCard title="関連文書">
+          <ul>
+            {relatedDocs.map((d) => <li key={d.file}><Link href={d.href}>{d.title}</Link></li>)}
+          </ul>
+        </PanelCard>
+      )}
       </Stack>
     </>
   );

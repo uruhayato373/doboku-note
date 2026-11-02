@@ -1,9 +1,7 @@
 ---
 name: note-prepublish-review
 description: >
-  note 公開用ドラフト（content/note/{slug}/article.md）を公開前に統合チェックする Orchestrator スキル。
-  inline checks（markdown 互換性・404・文字化け・太字レンダリング崩れ・リンク anchor↔slug 整合）+ 3 並列エージェント（link-injector / figure-auditor / fact-checker）で品質ゲートを通す。
-  Use when user asks to [note 公開前レビュー, note ドラフトチェック, note 出版前確認, /note-prepublish-review].
+  note 公開用ドラフトを公開前に、inline 検査と3並列エージェント（link-injector / figure-auditor / fact-checker）で統合チェックする。Use when user asks to [note 公開前レビュー, /note-prepublish-review].
 user-invocable: true
 domain: product
 ---

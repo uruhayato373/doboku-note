@@ -81,5 +81,5 @@ const db = new Database('.local/d1/v3/d1/miniflare-D1DatabaseObject/baffe56c6b01
 | examples/ 同梱 | `/generate-note-charts` | 完成 SVG を保存 |
 | ワークフローチェーン | `/write-note-section` | validate → investigate → design → write → edit |
 | Phase 構成 | `/register-ranking` | 5 Phase（事前確認→登録→投入→検証→後処理）|
-| サブエージェント委譲 | `/weekly-plan` | 並列サブエージェントで収集→分析→レビュー |
+| サブエージェント委譲 | `/weekly-review` | 並列サブエージェントで収集→分析→レビュー |
 | svg-builder 連携 | `/generate-article-charts` | パッケージ API リファレンス付き |

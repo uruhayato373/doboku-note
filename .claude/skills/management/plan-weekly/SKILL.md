@@ -1,7 +1,7 @@
 ---
 name: plan-weekly
 description: >
-  .claude/todo/{annual,monthly,weekly}.md と git log を読んで今週のタスクを優先順位付きで決定し、.claude/todo/weekly.md を直接更新する（月曜の作業開始前・todo-planner を1回起動する軽量版）。NSM/メトリクス連動の戦略的計画・weekly-review 後の翌週計画は /weekly-plan の担当で別物。Use when user asks to [今週のタスクを決めて, 今週何をすべきか, weekly.md を更新して, /plan-weekly].
+  todo の annual/monthly/weekly と git log から今週のタスクを優先順位付きで決め、weekly.md を更新する（todo-planner を1回起動）。Use when user asks to [今週のタスクを決めて, 今週何をすべきか, /plan-weekly].
 domain: plan
 ---
 
@@ -36,12 +36,3 @@ domain: plan
 - 月次ゴールが変わったとき
 - 前週の計画が大幅に未達で見直したいとき
 
-## このスキルと `/weekly-plan` の違い
-
-| | `/plan-weekly`（このスキル） | `/weekly-plan`（既存） |
-|---|---|---|
-| 目的 | `.claude/todo/` の週次計画管理 | NSM・メトリクス連動の戦略的週次計画 |
-| 入力 | annual / monthly / weekly / git log | GSC・GA4・PSI メトリクス + PDCA doc |
-| 出力 | `.claude/todo/weekly.md` 直接更新 | `docs/reviews/weekly/YYYY-Www.md` に追記 |
-| コスト | 軽量（Sonnet 1回） | 重め（複数サブエージェント並列） |
-| 使う場面 | 毎週月曜のタスク整理 | 戦略的な PDCA レビュー時 |

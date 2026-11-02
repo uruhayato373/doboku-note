@@ -157,5 +157,5 @@ doboku-note に適した収益化モデルを 3-5 案生成する。以下のカ
 - `.claude/knowledge/reference/sales-tracking.md` — note 売上 SSOT（data/note/sales.json・productId 命名）
 - `docs/operations/計測基盤強化ロードマップ.md` — 計測基盤Tier 2/3の完了判断と、個別購入attributionを断定しない境界
 - `docs/strategy/04_収益化戦略.md` — 収益化戦略の恒久文書（結論はここへ）
-- `.claude/skills/management/north-star-metric/SKILL.md` — NSM 定義
+- `config/business-direction.json` — 重点資格・KPI の定義
 - 原典: Pawel Huryn の Monetization Strategy フレームワーク

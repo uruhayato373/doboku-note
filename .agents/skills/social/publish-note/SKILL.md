@@ -1,6 +1,7 @@
 ---
 name: publish-note
-description: browser-use CLI で note.com（note.com/dobokunote）エディタを自動操作し、(1) 総監模範論文ペルソナ別マガジン記事（有料）または (2) 建設部門の無料ファネル記事（入口/キーワード, `--free`）を下書き保存・予約・即時公開する。Use when user says "note投稿", "note公開", "note下書き作成". 本文paste・カバー・タグを自動設定。実行は Mac 推奨（会社PCはプロキシ制約）。
+description: >
+  browser-use CLI で note エディタを操作し、総監模範論文（有料）または建設部門の無料ファネル記事（--free）を下書き・予約・公開する。Use when user says "note投稿", "note公開", "note下書き作成".
 disable-model-invocation: true
 user-invocable: true
 argument-hint: "<persona> <RXX>[ <M/D> <HH:MM>][, ...] | --free <content/note配下dir>[ <M/D> <HH:MM>|now][, ...]"

@@ -76,6 +76,12 @@ if (asJson) {
   }
   console.log('');
 
+  if (result.revenuePending?.length) {
+    console.log('# 収益カレンダー: 次回の試験日が未発表（日付は推測しない）');
+    for (const p of result.revenuePending) console.log(`  ${p.label}: ${p.reason}`);
+    console.log('');
+  }
+
   console.log('# チャネル×状態サマリ');
   const summary = summarize(events);
   const channels = Object.keys(summary).sort();

@@ -1,9 +1,7 @@
 ---
 name: pe-essay-review
 description: >
-  技術士総合技術監理部門の記述式試験 模範論文（pattern-essay-* / r0X-essay-*）を 3 つの専門家視点でレビューする品質評価スキル。
-  採点者（A評価合格者）・現役総監技術士OB（業界実務）・受験予備校講師（試験戦略）の3視点で各論文を1〜10点評価し、致命的問題と修正提案を提示する。
-  Use when user asks to [模範論文レビュー, essay review, 論文評価, /pe-essay-review].
+  総監記述式の模範論文を、採点者・技術士OB・予備校講師の3視点で1〜10点評価し、致命的問題と修正提案を出す。Use when user asks to [模範論文レビュー, 論文評価, /pe-essay-review].
 user-invocable: true
 domain: product
 ---

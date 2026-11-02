@@ -1,7 +1,7 @@
 ---
 name: standards-table-writer
 description: >
-  公的基準（共通仕様書）の章記事で版面のまま残った表を、原本のページ画像と照合して表の JSON（content/sources/standards/tables/{key}.json）に組み直す Generator。文字は版面だけから使い（追加・欠落ゼロ）、構造は画像で決める。照合・承認は standards-table-qa。Use when user asks to [表の組み直し, 版面の表を表にする, /standards-table-rebuild の Writer].
+  共通仕様書の版面の表を、原本ページ画像と照合して表の JSON に組み直す Generator。照合・承認は standards-table-qa。
 model: sonnet
 domain: site
 ---

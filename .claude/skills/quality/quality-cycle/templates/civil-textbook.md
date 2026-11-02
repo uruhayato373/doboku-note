@@ -19,10 +19,10 @@
 
 ## Evaluator / Generator
 
-- **Evaluator**: `civil-construction-review` エージェント（PDF 照合なし、5 軸校正）
+- **Evaluator**: `civil-construction-qa` エージェントの校正モード（Mode R・PDF 照合なし、5 軸校正）
 - **Generator**: `civil-textbook-rewriter` エージェント（バルクリライト）
 
-**PDF 照合は別系統**: 初回変換直後の PDF 原本照合は `civil-construction-qa` が担当（`/improve-article --mode verify`）。本プロファイルは「変換済み既存 MDX の継続的な品質向上」に特化。
+**PDF 照合は別モード**: 初回変換直後の PDF 原本照合は同じ `civil-construction-qa` の Mode A・B が担当（`/improve-article --mode verify`）。本プロファイルは「変換済み既存 MDX の継続的な品質向上」に特化。
 
 ## モード
 
@@ -39,7 +39,7 @@
 
 ## 5 軸ルーブリック（詳細）
 
-真実源: `.claude/agents/civil-construction-review.md`
+真実源: `.claude/agents/civil-construction-qa.md`（Mode R）
 
 | 軸 | 重み | 合格基準（2 点） |
 |---|---|---|
@@ -91,7 +91,7 @@ node .claude/skills/quality/quality-cycle/scripts-civil-textbook/merge-scores.mj
 
 ## 参照
 
-- `.claude/agents/civil-construction-review.md` — Evaluator の真実源
+- `.claude/agents/civil-construction-qa.md`（Mode R） — Evaluator の真実源
 - `.claude/agents/civil-textbook-rewriter.md` — Generator の真実源
 - `.claude/agents/civil-construction-qa.md` — PDF 照合 Evaluator（別系統）
 - `.claude/knowledge/reference/content-principles.md` — 品質ルールの真実源

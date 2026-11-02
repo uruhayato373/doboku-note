@@ -1,0 +1,2238 @@
+{
+  "schemaVersion": 1,
+  "_doc": "Gemini の一次採点と Claude の評価役の採点の比較（DN-0939・scripts/gemini-scoring-trial.mjs）",
+  "selectedAt": "2026-11-02T00:11:43.626Z",
+  "gscReport": "data/gsc/reports/2026-10-31.json",
+  "counts": {
+    "gscPages": 1731,
+    "unmatched": 589,
+    "otherTypes": 70,
+    "unpublished": 0
+  },
+  "pages": [
+    {
+      "rel": "content/site/civil-construction-2/guide-r08-secondary-answers/article.mdx",
+      "impressions": 125787,
+      "family": "guide-qa",
+      "claudeSample": true,
+      "claude": {
+        "evaluator": "guide-qa",
+        "scores": {
+          "intro": 3,
+          "readability": 3,
+          "volume": 3,
+          "funnel": 3,
+          "mobile": 3
+        },
+        "weighted": 3,
+        "at": "2026-11-02T00:45:42.324Z"
+      },
+      "gemini": {
+        "gemini-3.8-flash": {
+          "scores": {
+            "intro": 3,
+            "readability": 3,
+            "volume": 3,
+            "funnel": 3,
+            "mobile": 3
+          },
+          "weighted": 3,
+          "issues": [],
+          "at": "2026-11-02T00:14:12.934Z",
+          "tokens": 7762
+        },
+        "gemini-3.5-flash-lite": {
+          "scores": {
+            "intro": 3,
+            "readability": 3,
+            "volume": 3,
+            "funnel": 2,
+            "mobile": 3
+          },
+          "weighted": 2.8,
+          "issues": [
+            {
+              "axis": "funnel",
+              "line": 180,
+              "severity": "LOW",
+              "problem": "RelatedKeywords とSeeAlsoの重複がありやや選択肢過多"
+            }
+          ],
+          "at": "2026-11-02T00:55:24.697Z",
+          "tokens": 7091
+        }
+      }
+    },
+    {
+      "rel": "content/site/civil-construction-1/textbook-scraper/article.mdx",
+      "impressions": 3457,
+      "family": "civil-construction-qa",
+      "claudeSample": true,
+      "claude": {
+        "evaluator": "civil-construction-qa",
+        "scores": {
+          "structure": 3,
+          "principle": 3,
+          "mobile": 3,
+          "figures": 3,
+          "reference": 2
+        },
+        "weighted": 2.85,
+        "at": "2026-11-02T00:45:42.329Z"
+      },
+      "gemini": {
+        "gemini-3.8-flash": {
+          "scores": {
+            "structure": 3,
+            "principle": 2,
+            "mobile": 3,
+            "figures": 3,
+            "reference": 3
+          },
+          "weighted": 2.8,
+          "issues": [
+            {
+              "axis": "principle",
+              "line": 53,
+              "severity": "MEDIUM",
+              "problem": "モータスクレーパの解説がH2とH3で重複して記載されている"
+            },
+            {
+              "axis": "principle",
+              "line": 78,
+              "severity": "LOW",
+              "problem": "1段落に複数文が連続しており1文1段落の原則から外れている"
+            }
+          ],
+          "at": "2026-11-02T00:16:34.199Z",
+          "tokens": 6747
+        },
+        "gemini-3.5-flash-lite": {
+          "scores": {
+            "structure": 3,
+            "principle": 3,
+            "mobile": 3,
+            "figures": 3,
+            "reference": 3
+          },
+          "weighted": 3,
+          "issues": [],
+          "at": "2026-11-02T00:55:33.855Z",
+          "tokens": 5226
+        }
+      }
+    },
+    {
+      "rel": "content/site/civil-construction-2/secondary-grading-and-partial-credit/article.mdx",
+      "impressions": 3141,
+      "family": "guide-qa",
+      "claudeSample": true,
+      "claude": {
+        "evaluator": "guide-qa",
+        "scores": {
+          "intro": 2,
+          "readability": 2,
+          "volume": 2,
+          "funnel": 2,
+          "mobile": 3
+        },
+        "weighted": 2.15,
+        "at": "2026-11-02T00:45:42.329Z"
+      },
+      "gemini": {
+        "gemini-3.8-flash": {
+          "scores": {
+            "intro": 3,
+            "readability": 2,
+            "volume": 3,
+            "funnel": 3,
+            "mobile": 3
+          },
+          "weighted": 2.8,
+          "issues": [
+            {
+              "axis": "readability",
+              "line": 30,
+              "severity": "MEDIUM",
+              "problem": "1文が約130字と長いため分割が望ましい"
+            },
+            {
+              "axis": "readability",
+              "line": 56,
+              "severity": "LOW",
+              "problem": "「よいでしょう」の文末が近接して連続している"
+            }
+          ],
+          "at": "2026-11-02T00:21:32.345Z",
+          "tokens": 7494
+        },
+        "gemini-3.5-flash-lite": {
+          "scores": {
+            "intro": 3,
+            "readability": 3,
+            "volume": 3,
+            "funnel": 2,
+            "mobile": 3
+          },
+          "weighted": 2.8,
+          "issues": [
+            {
+              "axis": "funnel",
+              "line": 99,
+              "severity": "LOW",
+              "problem": "SeeAlsoとRelatedKeywordsが両方使われており選択肢が過多"
+            }
+          ],
+          "at": "2026-11-02T00:55:42.250Z",
+          "tokens": 4864
+        }
+      }
+    },
+    {
+      "rel": "content/site/civil-construction-1/textbook-network-schedule/article.mdx",
+      "impressions": 909,
+      "family": "civil-construction-qa",
+      "claudeSample": true,
+      "claude": {
+        "evaluator": "civil-construction-qa",
+        "scores": {
+          "structure": 3,
+          "principle": 3,
+          "mobile": 3,
+          "figures": 3,
+          "reference": 2
+        },
+        "weighted": 2.85,
+        "at": "2026-11-02T00:45:42.329Z"
+      },
+      "gemini": {
+        "gemini-3.8-flash": {
+          "scores": {
+            "structure": 2,
+            "principle": 1,
+            "mobile": 3,
+            "figures": 3,
+            "reference": 3
+          },
+          "weighted": 2.4,
+          "issues": [
+            {
+              "axis": "structure",
+              "line": 46,
+              "severity": "MEDIUM",
+              "problem": "本文のない空のH2見出しが残っている"
+            },
+            {
+              "axis": "principle",
+              "line": 134,
+              "severity": "MEDIUM",
+              "problem": "1段落に複数文が含まれている（1文1段落違反）"
+            },
+            {
+              "axis": "principle",
+              "line": 214,
+              "severity": "MEDIUM",
+              "problem": "1段落に複数文が含まれている（1文1段落違反）"
+            },
+            {
+              "axis": "principle",
+              "line": 248,
+              "severity": "MEDIUM",
+              "problem": "1段落に複数文が含まれている（1文1段落違反）"
+            },
+            {
+              "axis": "principle",
+              "line": 316,
+              "severity": "MEDIUM",
+              "problem": "1段落に複数文が含まれている（1文1段落違反）"
+            }
+          ],
+          "at": "2026-11-02T00:21:52.495Z",
+          "tokens": 9506
+        },
+        "gemini-3.5-flash-lite": {
+          "scores": {
+            "structure": 3,
+            "principle": 3,
+            "mobile": 3,
+            "figures": 3,
+            "reference": 3
+          },
+          "weighted": 3,
+          "issues": [],
+          "at": "2026-11-02T00:55:49.768Z",
+          "tokens": 8484
+        }
+      }
+    },
+    {
+      "rel": "content/site/civil-construction-1/textbook-safety-scaffolding/article.mdx",
+      "impressions": 667,
+      "family": "civil-construction-qa",
+      "claudeSample": true,
+      "claude": {
+        "evaluator": "civil-construction-qa",
+        "scores": {
+          "structure": 3,
+          "principle": 3,
+          "mobile": 2,
+          "figures": 3,
+          "reference": 3
+        },
+        "weighted": 2.7,
+        "at": "2026-11-02T00:45:42.329Z"
+      },
+      "gemini": {
+        "gemini-3.8-flash": {
+          "scores": {
+            "structure": 3,
+            "principle": 2,
+            "mobile": 2,
+            "figures": 3,
+            "reference": 3
+          },
+          "weighted": 2.5,
+          "issues": [
+            {
+              "axis": "mobile",
+              "line": 36,
+              "severity": "MEDIUM",
+              "problem": "導入部の段落が363字と長く改段の検討が必要"
+            },
+            {
+              "axis": "principle",
+              "line": 36,
+              "severity": "LOW",
+              "problem": "冒頭リード文で複数文が1段落にまとめられている"
+            }
+          ],
+          "at": "2026-11-02T00:24:23.691Z",
+          "tokens": 16131
+        },
+        "gemini-3.5-flash-lite": {
+          "scores": {
+            "structure": 3,
+            "principle": 2,
+            "mobile": 2,
+            "figures": 3,
+            "reference": 3
+          },
+          "weighted": 2.5,
+          "issues": [
+            {
+              "axis": "mobile",
+              "line": 36,
+              "severity": "MEDIUM",
+              "problem": "1段落が363字で長すぎます（目安200字前後）"
+            },
+            {
+              "axis": "principle",
+              "line": 158,
+              "severity": "MEDIUM",
+              "problem": "Callout内部の文長や改段落の調整が必要です"
+            }
+          ],
+          "at": "2026-11-02T00:55:57.399Z",
+          "tokens": 13867
+        }
+      }
+    },
+    {
+      "rel": "content/site/pe-comprehensive-management/cost-driver/article.mdx",
+      "impressions": 594,
+      "family": "cem-qa",
+      "claudeSample": true,
+      "claude": {
+        "evaluator": "cem-qa",
+        "scores": {
+          "structure": 2,
+          "mobile": 2,
+          "principle": 2,
+          "reference": 1,
+          "linking": 3
+        },
+        "weighted": 1.95,
+        "at": "2026-11-02T00:45:42.329Z"
+      },
+      "gemini": {
+        "gemini-3.8-flash": {
+          "scores": {
+            "structure": 2,
+            "mobile": 1,
+            "principle": 2,
+            "reference": 1,
+            "linking": 3
+          },
+          "weighted": 1.7,
+          "issues": [
+            {
+              "axis": "reference",
+              "line": 106,
+              "severity": "HIGH",
+              "problem": "参考資料が民間1件のみ（公的資料の追加が必要）"
+            },
+            {
+              "axis": "structure",
+              "line": 51,
+              "severity": "MEDIUM",
+              "problem": "「総合技術監理における位置づけ」後にサブ節が続く順序不正"
+            },
+            {
+              "axis": "mobile",
+              "line": 57,
+              "severity": "MEDIUM",
+              "problem": "総括ExamPointが記事末尾でなく中間（39%地点）にある"
+            },
+            {
+              "axis": "mobile",
+              "line": 49,
+              "severity": "MEDIUM",
+              "problem": "1段落が307字と長いため2〜3文・200字目安で改段が必要"
+            },
+            {
+              "axis": "mobile",
+              "line": 35,
+              "severity": "MEDIUM",
+              "problem": "事実提示の表直下にインライン出典Calloutがない"
+            }
+          ],
+          "at": "2026-11-02T00:25:41.196Z",
+          "tokens": 6349
+        },
+        "gemini-3.5-flash-lite": {
+          "scores": {
+            "structure": 3,
+            "mobile": 1,
+            "principle": 2,
+            "reference": 1,
+            "linking": 3
+          },
+          "weighted": 2,
+          "issues": [
+            {
+              "axis": "mobile",
+              "line": 104,
+              "severity": "HIGH",
+              "problem": "参考資料の外部リンクが1件のみで、規定（公的・民間各1件）を満たさない"
+            },
+            {
+              "axis": "reference",
+              "line": 104,
+              "severity": "HIGH",
+              "problem": "参考資料が民間サイト1件のみで、公的機関の資料が不足している"
+            },
+            {
+              "axis": "mobile",
+              "line": 35,
+              "severity": "MEDIUM",
+              "problem": "数値・事実を含む表の直下にインライン出典がない"
+            },
+            {
+              "axis": "mobile",
+              "line": 49,
+              "severity": "MEDIUM",
+              "problem": "300字超の長い段落が存在する"
+            },
+            {
+              "axis": "principle",
+              "line": 57,
+              "severity": "MEDIUM",
+              "problem": "総括ExamPointが記事末尾ではなく途中に配置されている"
+            }
+          ],
+          "at": "2026-11-02T00:56:05.849Z",
+          "tokens": 4739
+        }
+      }
+    },
+    {
+      "rel": "content/site/pe-comprehensive-management/blind-drill/article.mdx",
+      "impressions": 591,
+      "family": "cem-qa",
+      "claudeSample": true,
+      "claude": {
+        "evaluator": "cem-qa",
+        "scores": {
+          "structure": 3,
+          "mobile": 3,
+          "principle": 3,
+          "reference": 3,
+          "linking": 3
+        },
+        "weighted": 3,
+        "at": "2026-11-02T00:45:42.329Z"
+      },
+      "gemini": {
+        "gemini-3.8-flash": {
+          "scores": {
+            "structure": 3,
+            "mobile": 3,
+            "principle": 0,
+            "reference": 3,
+            "linking": 3
+          },
+          "weighted": 1,
+          "issues": [
+            {
+              "axis": "principle",
+              "line": 76,
+              "severity": "HIGH",
+              "problem": "「誤りの選択肢」「出題形式」言及は§14違反（0点要件）"
+            },
+            {
+              "axis": "principle",
+              "line": 76,
+              "severity": "LOW",
+              "problem": "「5択」「3段階」など数字前後の半角スペース欠落（§5）"
+            }
+          ],
+          "at": "2026-11-02T00:27:16.646Z",
+          "tokens": 5451
+        },
+        "gemini-3.5-flash-lite": {
+          "scores": {
+            "structure": 3,
+            "mobile": 3,
+            "principle": 2,
+            "reference": 3,
+            "linking": 3
+          },
+          "weighted": 2.8,
+          "issues": [
+            {
+              "axis": "principle",
+              "line": 37,
+              "severity": "MEDIUM",
+              "problem": "キーバリュー型のリスト形式が含まれています"
+            }
+          ],
+          "at": "2026-11-02T00:56:13.240Z",
+          "tokens": 3897
+        }
+      }
+    },
+    {
+      "rel": "content/site/civil-construction-2/secondary-written-questions-guide/article.mdx",
+      "impressions": 580,
+      "family": "guide-qa",
+      "claudeSample": true,
+      "claude": {
+        "evaluator": "guide-qa",
+        "scores": {
+          "intro": 3,
+          "readability": 3,
+          "volume": 3,
+          "funnel": 3,
+          "mobile": 3
+        },
+        "weighted": 3,
+        "at": "2026-11-02T00:45:42.329Z"
+      },
+      "gemini": {
+        "gemini-3.8-flash": {
+          "scores": {
+            "intro": 3,
+            "readability": 3,
+            "volume": 3,
+            "funnel": 3,
+            "mobile": 3
+          },
+          "weighted": 3,
+          "issues": [],
+          "at": "2026-11-02T00:28:48.932Z",
+          "tokens": 6420
+        },
+        "gemini-3.5-flash-lite": {
+          "scores": {
+            "intro": 3,
+            "readability": 3,
+            "volume": 3,
+            "funnel": 3,
+            "mobile": 3
+          },
+          "weighted": 3,
+          "issues": [],
+          "at": "2026-11-02T00:56:21.541Z",
+          "tokens": 5746
+        }
+      }
+    },
+    {
+      "rel": "content/site/rccm/guide-mondai2-4-takuitsu/article.mdx",
+      "impressions": 558,
+      "family": "guide-qa",
+      "claudeSample": true,
+      "claude": {
+        "evaluator": "guide-qa",
+        "scores": {
+          "intro": 2,
+          "readability": 2,
+          "volume": 2,
+          "funnel": 3,
+          "mobile": 3
+        },
+        "weighted": 2.35,
+        "at": "2026-11-02T00:45:42.329Z"
+      },
+      "gemini": {
+        "gemini-3.8-flash": {
+          "scores": {
+            "intro": 3,
+            "readability": 3,
+            "volume": 1,
+            "funnel": 3,
+            "mobile": 3
+          },
+          "weighted": 2.6,
+          "issues": [
+            {
+              "axis": "volume",
+              "line": 22,
+              "severity": "MEDIUM",
+              "problem": "本文が2,925字で3,000字基準に約75字未達"
+            }
+          ],
+          "at": "2026-11-02T00:31:17.689Z",
+          "tokens": 5193
+        },
+        "gemini-3.5-flash-lite": {
+          "scores": {
+            "intro": 2,
+            "readability": 3,
+            "volume": 3,
+            "funnel": 3,
+            "mobile": 3
+          },
+          "weighted": 2.75,
+          "issues": [
+            {
+              "axis": "intro",
+              "line": 22,
+              "severity": "LOW",
+              "problem": "冒頭のリード文が概念説明から入っており、共感・ベネフィットの提示がやや薄い。"
+            }
+          ],
+          "at": "2026-11-02T00:56:29.701Z",
+          "tokens": 3980
+        }
+      }
+    },
+    {
+      "rel": "content/site/pe-comprehensive-management/public-engineer-qualification-map/article.mdx",
+      "impressions": 530,
+      "family": "guide-qa",
+      "claudeSample": true,
+      "claude": {
+        "evaluator": "guide-qa",
+        "scores": {
+          "intro": 2,
+          "readability": 2,
+          "volume": 3,
+          "funnel": 2,
+          "mobile": 3
+        },
+        "weighted": 2.35,
+        "at": "2026-11-02T00:45:42.329Z"
+      },
+      "gemini": {
+        "gemini-3.8-flash": {
+          "scores": {
+            "intro": 3,
+            "readability": 2,
+            "volume": 3,
+            "funnel": 2,
+            "mobile": 3
+          },
+          "weighted": 2.6,
+          "issues": [
+            {
+              "axis": "readability",
+              "line": 41,
+              "severity": "MEDIUM",
+              "problem": "「短くまとめた。」と常体が混在している"
+            },
+            {
+              "axis": "funnel",
+              "line": 159,
+              "severity": "LOW",
+              "problem": "SeeAlsoが3件あり推奨上限（1〜2件）を超えている"
+            }
+          ],
+          "at": "2026-11-02T00:33:44.004Z",
+          "tokens": 7546
+        },
+        "gemini-3.5-flash-lite": {
+          "scores": {
+            "intro": 3,
+            "readability": 3,
+            "volume": 3,
+            "funnel": 3,
+            "mobile": 3
+          },
+          "weighted": 3,
+          "issues": [],
+          "at": "2026-11-02T00:56:37.353Z",
+          "tokens": 6417
+        }
+      }
+    },
+    {
+      "rel": "content/site/building-construction/guide-2kyu-keiken-kijutsu/article.mdx",
+      "impressions": 502,
+      "family": "guide-qa",
+      "claudeSample": true,
+      "claude": {
+        "evaluator": "guide-qa",
+        "scores": {
+          "intro": 3,
+          "readability": 3,
+          "volume": 3,
+          "funnel": 1,
+          "mobile": 3
+        },
+        "weighted": 2.6,
+        "at": "2026-11-02T00:45:42.329Z"
+      },
+      "gemini": {
+        "gemini-3.8-flash": {
+          "scores": {
+            "intro": 3,
+            "readability": 3,
+            "volume": 3,
+            "funnel": 2,
+            "mobile": 3
+          },
+          "weighted": 2.8,
+          "issues": [
+            {
+              "axis": "funnel",
+              "line": 87,
+              "severity": "LOW",
+              "problem": "末尾リンクがSeeAlsoタグではなく散文リンク"
+            }
+          ],
+          "at": "2026-11-02T00:35:49.894Z",
+          "tokens": 5829
+        },
+        "gemini-3.5-flash-lite": {
+          "scores": {
+            "intro": 3,
+            "readability": 3,
+            "volume": 3,
+            "funnel": 3,
+            "mobile": 3
+          },
+          "weighted": 3,
+          "issues": [],
+          "at": "2026-11-02T00:56:44.825Z",
+          "tokens": 4485
+        }
+      }
+    },
+    {
+      "rel": "content/site/civil-construction-2/guide-concrete-key-points/article.mdx",
+      "impressions": 432,
+      "family": "guide-qa",
+      "claudeSample": true,
+      "claude": {
+        "evaluator": "guide-qa",
+        "scores": {
+          "intro": 2,
+          "readability": 2,
+          "volume": 2,
+          "funnel": 1,
+          "mobile": 3
+        },
+        "weighted": 1.95,
+        "at": "2026-11-02T00:45:42.329Z"
+      },
+      "gemini": {
+        "gemini-3.8-flash": {
+          "scores": {
+            "intro": 3,
+            "readability": 3,
+            "volume": 3,
+            "funnel": 1,
+            "mobile": 3
+          },
+          "weighted": 2.6,
+          "issues": [
+            {
+              "axis": "funnel",
+              "line": 130,
+              "severity": "MEDIUM",
+              "problem": "SeeAlsoが計7件と過多（推奨1〜2件に絞る）"
+            }
+          ],
+          "at": "2026-11-02T00:40:01.206Z",
+          "tokens": 6285
+        },
+        "gemini-3.5-flash-lite": {
+          "scores": {
+            "intro": 3,
+            "readability": 3,
+            "volume": 3,
+            "funnel": 3,
+            "mobile": 3
+          },
+          "weighted": 3,
+          "issues": [],
+          "at": "2026-11-02T00:56:52.199Z",
+          "tokens": 5243
+        }
+      }
+    },
+    {
+      "rel": "content/site/pe-comprehensive-management/capacity-management/article.mdx",
+      "impressions": 404,
+      "family": "cem-qa",
+      "claudeSample": true,
+      "claude": {
+        "evaluator": "cem-qa",
+        "scores": {
+          "structure": 3,
+          "mobile": 3,
+          "principle": 3,
+          "reference": 3,
+          "linking": 3
+        },
+        "weighted": 3,
+        "at": "2026-11-02T00:45:42.329Z"
+      },
+      "gemini": {
+        "gemini-3.8-flash": {
+          "scores": {
+            "structure": 3,
+            "mobile": 3,
+            "principle": 2,
+            "reference": 1,
+            "linking": 3
+          },
+          "weighted": 2.5,
+          "issues": [
+            {
+              "axis": "reference",
+              "line": 85,
+              "severity": "HIGH",
+              "problem": "JISCのURLがトップページリンクで個別資料未指定"
+            },
+            {
+              "axis": "principle",
+              "line": 35,
+              "severity": "LOW",
+              "problem": "「100人時」等、数字と漢字の間に半角空白がない"
+            },
+            {
+              "axis": "principle",
+              "line": 39,
+              "severity": "LOW",
+              "problem": "「4ステップ」「4つの機能」の数字前後に空白がない"
+            }
+          ],
+          "at": "2026-11-02T00:42:30.282Z",
+          "tokens": 4601
+        },
+        "gemini-3.5-flash-lite": {
+          "scores": {
+            "structure": 2,
+            "mobile": 3,
+            "principle": 3,
+            "reference": 1,
+            "linking": 3
+          },
+          "weighted": 2.4,
+          "issues": [
+            {
+              "axis": "reference",
+              "line": 84,
+              "severity": "HIGH",
+              "problem": "民間参考資料が非公式のサードパーティサイト（jis.eomec.com等）である"
+            }
+          ],
+          "at": "2026-11-02T00:56:59.599Z",
+          "tokens": 3268
+        }
+      }
+    },
+    {
+      "rel": "content/site/pe-first-stage/guide-basic-subject/article.mdx",
+      "impressions": 395,
+      "family": "guide-qa",
+      "claudeSample": true,
+      "claude": {
+        "evaluator": "guide-qa",
+        "scores": {
+          "intro": 3,
+          "readability": 2,
+          "volume": 3,
+          "funnel": 2,
+          "mobile": 3
+        },
+        "weighted": 2.6,
+        "at": "2026-11-02T00:45:42.329Z"
+      },
+      "gemini": {
+        "gemini-3.8-flash": {
+          "scores": {
+            "intro": 3,
+            "readability": 3,
+            "volume": 3,
+            "funnel": 3,
+            "mobile": 3
+          },
+          "weighted": 3,
+          "issues": [],
+          "at": "2026-11-02T00:49:03.468Z",
+          "tokens": 8155
+        },
+        "gemini-3.5-flash-lite": {
+          "scores": {
+            "intro": 3,
+            "readability": 3,
+            "volume": 3,
+            "funnel": 3,
+            "mobile": 3
+          },
+          "weighted": 3,
+          "issues": [],
+          "at": "2026-11-02T00:57:06.976Z",
+          "tokens": 7454
+        }
+      }
+    },
+    {
+      "rel": "content/site/pe-comprehensive-management/appraisal-three-principles/article.mdx",
+      "impressions": 363,
+      "family": "cem-qa",
+      "claudeSample": true,
+      "claude": {
+        "evaluator": "cem-qa",
+        "scores": {
+          "structure": 3,
+          "mobile": 3,
+          "principle": 3,
+          "reference": 3,
+          "linking": 3
+        },
+        "weighted": 3,
+        "at": "2026-11-02T00:45:42.329Z"
+      },
+      "gemini": {
+        "gemini-3.8-flash": {
+          "scores": {
+            "structure": 3,
+            "mobile": 3,
+            "principle": 3,
+            "reference": 3,
+            "linking": 3
+          },
+          "weighted": 3,
+          "issues": [
+            {
+              "axis": "mobile",
+              "line": 63,
+              "severity": "LOW",
+              "problem": "1文が145字と長いため句点での分割を推奨"
+            }
+          ],
+          "at": "2026-11-02T00:51:35.109Z",
+          "tokens": 4559
+        },
+        "gemini-3.5-flash-lite": {
+          "scores": {
+            "structure": 3,
+            "mobile": 2,
+            "principle": 2,
+            "reference": 3,
+            "linking": 3
+          },
+          "weighted": 2.55,
+          "issues": [
+            {
+              "axis": "mobile",
+              "line": 63,
+              "severity": "MEDIUM",
+              "problem": "1文が145字と長く、モバイル視認性の改善が必要（§24）"
+            },
+            {
+              "axis": "principle",
+              "line": 42,
+              "severity": "MEDIUM",
+              "problem": "箇条書きの項目内にキーバリュー的な対比や構造が含まれている"
+            }
+          ],
+          "at": "2026-11-02T00:57:14.753Z",
+          "tokens": 3937
+        }
+      }
+    },
+    {
+      "rel": "content/site/rccm/guide-mondai1-keiken-ronbun/article.mdx",
+      "impressions": 359,
+      "family": "guide-qa",
+      "claudeSample": false,
+      "claude": null,
+      "gemini": {}
+    },
+    {
+      "rel": "content/site/pe-comprehensive-management/keyword-2026/article.mdx",
+      "impressions": 347,
+      "family": "guide-qa",
+      "claudeSample": false,
+      "claude": null,
+      "gemini": {}
+    },
+    {
+      "rel": "content/site/building-construction/guide-niji-kakomon-keikou/article.mdx",
+      "impressions": 343,
+      "family": "guide-qa",
+      "claudeSample": false,
+      "claude": null,
+      "gemini": {}
+    },
+    {
+      "rel": "content/site/civil-construction-2/guide-safety-management/article.mdx",
+      "impressions": 290,
+      "family": "guide-qa",
+      "claudeSample": false,
+      "claude": null,
+      "gemini": {}
+    },
+    {
+      "rel": "content/site/civil-construction-1/textbook-safety-work-environment/article.mdx",
+      "impressions": 271,
+      "family": "civil-construction-qa",
+      "claudeSample": true,
+      "claude": {
+        "evaluator": "civil-construction-qa",
+        "scores": {
+          "structure": 3,
+          "principle": 3,
+          "mobile": 3,
+          "figures": 3,
+          "reference": 3
+        },
+        "weighted": 3,
+        "at": "2026-11-02T00:45:42.329Z"
+      },
+      "gemini": {
+        "gemini-3.5-flash-lite": {
+          "scores": {
+            "structure": 3,
+            "principle": 3,
+            "mobile": 3,
+            "figures": 3,
+            "reference": 3
+          },
+          "weighted": 3,
+          "issues": [],
+          "at": "2026-11-02T00:57:22.681Z",
+          "tokens": 19483
+        }
+      }
+    },
+    {
+      "rel": "content/site/rccm/guide-study-plan/article.mdx",
+      "impressions": 251,
+      "family": "guide-qa",
+      "claudeSample": false,
+      "claude": null,
+      "gemini": {}
+    },
+    {
+      "rel": "content/site/civil-construction-1/textbook-histogram/article.mdx",
+      "impressions": 241,
+      "family": "civil-construction-qa",
+      "claudeSample": true,
+      "claude": {
+        "evaluator": "civil-construction-qa",
+        "scores": {
+          "structure": 3,
+          "principle": 3,
+          "mobile": 3,
+          "figures": 3,
+          "reference": 2
+        },
+        "weighted": 2.85,
+        "at": "2026-11-02T00:45:42.329Z"
+      },
+      "gemini": {
+        "gemini-3.5-flash-lite": {
+          "scores": {
+            "structure": 3,
+            "principle": 3,
+            "mobile": 3,
+            "figures": 3,
+            "reference": 3
+          },
+          "weighted": 3,
+          "issues": [],
+          "at": "2026-11-02T00:57:30.526Z",
+          "tokens": 9127
+        }
+      }
+    },
+    {
+      "rel": "content/site/pe-comprehensive-management/vta-method/article.mdx",
+      "impressions": 241,
+      "family": "cem-qa",
+      "claudeSample": true,
+      "claude": {
+        "evaluator": "cem-qa",
+        "scores": {
+          "structure": 3,
+          "mobile": 3,
+          "principle": 3,
+          "reference": 3,
+          "linking": 3
+        },
+        "weighted": 3,
+        "at": "2026-11-02T00:45:42.329Z"
+      },
+      "gemini": {
+        "gemini-3.5-flash-lite": {
+          "scores": {
+            "structure": 3,
+            "mobile": 3,
+            "principle": 3,
+            "reference": 3,
+            "linking": 3
+          },
+          "weighted": 3,
+          "issues": [],
+          "at": "2026-11-02T00:57:38.050Z",
+          "tokens": 3549
+        }
+      }
+    },
+    {
+      "rel": "content/site/civil-construction-1/textbook-distance-angle/article.mdx",
+      "impressions": 226,
+      "family": "civil-construction-qa",
+      "claudeSample": true,
+      "claude": {
+        "evaluator": "civil-construction-qa",
+        "scores": {
+          "structure": 2,
+          "principle": 2,
+          "mobile": 1,
+          "figures": 3,
+          "reference": 3
+        },
+        "weighted": 2,
+        "at": "2026-11-02T00:45:42.329Z"
+      },
+      "gemini": {
+        "gemini-3.5-flash-lite": {
+          "scores": {
+            "structure": 3,
+            "principle": 3,
+            "mobile": 2,
+            "figures": 3,
+            "reference": 3
+          },
+          "weighted": 2.7,
+          "issues": [
+            {
+              "axis": "mobile",
+              "line": 70,
+              "severity": "MEDIUM",
+              "problem": "数値・事実データを含む表の直下にインライン出典がない（§22）"
+            },
+            {
+              "axis": "structure",
+              "line": 308,
+              "severity": "MEDIUM",
+              "problem": "見出しアンカーID「距離の測定」が初出L28と重複している"
+            },
+            {
+              "axis": "structure",
+              "line": 319,
+              "severity": "MEDIUM",
+              "problem": "見出しアンカーID「角の測定」が初出L148と重複している"
+            },
+            {
+              "axis": "structure",
+              "line": 401,
+              "severity": "MEDIUM",
+              "problem": "見出しアンカーID「gnssによる測量」が初出L346と重複している"
+            }
+          ],
+          "at": "2026-11-02T00:57:46.168Z",
+          "tokens": 13347
+        }
+      }
+    },
+    {
+      "rel": "content/site/civil-construction-2/guide-schedule-management/article.mdx",
+      "impressions": 218,
+      "family": "guide-qa",
+      "claudeSample": false,
+      "claude": null,
+      "gemini": {}
+    },
+    {
+      "rel": "content/site/concrete-engineer/textbook-mix-design/article.mdx",
+      "impressions": 211,
+      "family": "civil-construction-qa",
+      "claudeSample": true,
+      "claude": {
+        "evaluator": "civil-construction-qa",
+        "scores": {
+          "structure": 3,
+          "principle": 3,
+          "mobile": 3,
+          "figures": 3,
+          "reference": 0
+        },
+        "weighted": 1,
+        "at": "2026-11-02T00:45:42.329Z"
+      },
+      "gemini": {
+        "gemini-3.5-flash-lite": {
+          "scores": {
+            "structure": 3,
+            "principle": 3,
+            "mobile": 3,
+            "figures": 3,
+            "reference": 3
+          },
+          "weighted": 3,
+          "issues": [],
+          "at": "2026-11-02T00:57:53.793Z",
+          "tokens": 14190
+        }
+      }
+    },
+    {
+      "rel": "content/site/civil-construction-1/textbook-safety-excavation-shoring/article.mdx",
+      "impressions": 210,
+      "family": "civil-construction-qa",
+      "claudeSample": true,
+      "claude": {
+        "evaluator": "civil-construction-qa",
+        "scores": {
+          "structure": 3,
+          "principle": 3,
+          "mobile": 3,
+          "figures": 3,
+          "reference": 2
+        },
+        "weighted": 2.85,
+        "at": "2026-11-02T00:45:42.329Z"
+      },
+      "gemini": {
+        "gemini-3.5-flash-lite": {
+          "scores": {
+            "structure": 3,
+            "principle": 3,
+            "mobile": 3,
+            "figures": 3,
+            "reference": 3
+          },
+          "weighted": 3,
+          "issues": [
+            {
+              "axis": "reference",
+              "line": 137,
+              "severity": "LOW",
+              "problem": "労働安全衛生法第88条がe-Govへのインラインリンクになっていない"
+            }
+          ],
+          "at": "2026-11-02T00:58:01.505Z",
+          "tokens": 9555
+        }
+      }
+    },
+    {
+      "rel": "content/site/civil-construction-2/guide-earthwork-key-points/article.mdx",
+      "impressions": 206,
+      "family": "guide-qa",
+      "claudeSample": false,
+      "claude": null,
+      "gemini": {}
+    },
+    {
+      "rel": "content/site/building-construction/guide-1kyu-keiken-kijutsu/article.mdx",
+      "impressions": 206,
+      "family": "guide-qa",
+      "claudeSample": false,
+      "claude": null,
+      "gemini": {}
+    },
+    {
+      "rel": "content/site/rccm/guide-overview/article.mdx",
+      "impressions": 194,
+      "family": "guide-qa",
+      "claudeSample": false,
+      "claude": null,
+      "gemini": {}
+    },
+    {
+      "rel": "content/site/pavement/guide-overview/article.mdx",
+      "impressions": 171,
+      "family": "guide-qa",
+      "claudeSample": false,
+      "claude": null,
+      "gemini": {}
+    },
+    {
+      "rel": "content/site/pe-comprehensive-management/personal-communication/article.mdx",
+      "impressions": 168,
+      "family": "cem-qa",
+      "claudeSample": true,
+      "claude": {
+        "evaluator": "cem-qa",
+        "scores": {
+          "structure": 3,
+          "mobile": 2,
+          "principle": 2,
+          "reference": 3,
+          "linking": 3
+        },
+        "weighted": 2.55,
+        "at": "2026-11-02T00:45:42.329Z"
+      },
+      "gemini": {
+        "gemini-3.5-flash-lite": {
+          "scores": {
+            "structure": 3,
+            "mobile": 2,
+            "principle": 3,
+            "reference": 3,
+            "linking": 3
+          },
+          "weighted": 2.75,
+          "issues": [
+            {
+              "axis": "mobile",
+              "line": 40,
+              "severity": "MEDIUM",
+              "problem": "見出しがページタイトルと重複（類似度59%）"
+            },
+            {
+              "axis": "mobile",
+              "line": 54,
+              "severity": "MEDIUM",
+              "problem": "見出しがページタイトルと重複（類似度62%）"
+            }
+          ],
+          "at": "2026-11-02T00:58:09.451Z",
+          "tokens": 4073
+        }
+      }
+    },
+    {
+      "rel": "content/site/concrete-engineer/guide-overview/article.mdx",
+      "impressions": 165,
+      "family": "guide-qa",
+      "claudeSample": false,
+      "claude": null,
+      "gemini": {}
+    },
+    {
+      "rel": "content/site/civil-construction-1/textbook-shovel-excavator/article.mdx",
+      "impressions": 152,
+      "family": "civil-construction-qa",
+      "claudeSample": false,
+      "claude": null,
+      "gemini": {}
+    },
+    {
+      "rel": "content/site/civil-construction-2/secondary-last-two-weeks-plan/article.mdx",
+      "impressions": 150,
+      "family": "guide-qa",
+      "claudeSample": false,
+      "claude": null,
+      "gemini": {}
+    },
+    {
+      "rel": "content/site/pe-comprehensive-management/exam-index/article.mdx",
+      "impressions": 136,
+      "family": "guide-qa",
+      "claudeSample": false,
+      "claude": null,
+      "gemini": {}
+    },
+    {
+      "rel": "content/site/civil-construction-2/guide-overview/article.mdx",
+      "impressions": 133,
+      "family": "guide-qa",
+      "claudeSample": false,
+      "claude": null,
+      "gemini": {}
+    },
+    {
+      "rel": "content/site/civil-construction-2/guide-textbooks/article.mdx",
+      "impressions": 130,
+      "family": "guide-qa",
+      "claudeSample": false,
+      "claude": null,
+      "gemini": {}
+    },
+    {
+      "rel": "content/site/pe-comprehensive-management/break-even-point/article.mdx",
+      "impressions": 129,
+      "family": "cem-qa",
+      "claudeSample": true,
+      "claude": {
+        "evaluator": "cem-qa",
+        "scores": {
+          "structure": 3,
+          "mobile": 2,
+          "principle": 2,
+          "reference": 3,
+          "linking": 3
+        },
+        "weighted": 2.55,
+        "at": "2026-11-02T00:45:42.329Z"
+      },
+      "gemini": {
+        "gemini-3.5-flash-lite": {
+          "scores": {
+            "structure": 3,
+            "mobile": 1,
+            "principle": 2,
+            "reference": 3,
+            "linking": 3
+          },
+          "weighted": 2.3,
+          "issues": [
+            {
+              "axis": "mobile",
+              "line": 74,
+              "severity": "HIGH",
+              "problem": "factual tableの直下に一次ソースのインライン出典がない"
+            },
+            {
+              "axis": "mobile",
+              "line": 37,
+              "severity": "MEDIUM",
+              "problem": "見出しがページタイトルと類似しているため削除または修正が必要"
+            }
+          ],
+          "at": "2026-11-02T00:58:18.106Z",
+          "tokens": 4074
+        }
+      }
+    },
+    {
+      "rel": "content/site/civil-construction-1/guide-quality-management/article.mdx",
+      "impressions": 128,
+      "family": "guide-qa",
+      "claudeSample": false,
+      "claude": null,
+      "gemini": {}
+    },
+    {
+      "rel": "content/site/civil-construction-1/guide-public-servant-or-private/article.mdx",
+      "impressions": 125,
+      "family": "guide-qa",
+      "claudeSample": false,
+      "claude": null,
+      "gemini": {}
+    },
+    {
+      "rel": "content/site/civil-construction-1/textbook-soft-ground-drainage/article.mdx",
+      "impressions": 125,
+      "family": "civil-construction-qa",
+      "claudeSample": false,
+      "claude": null,
+      "gemini": {}
+    },
+    {
+      "rel": "content/site/concrete-diagnostician/textbook-deterioration/article.mdx",
+      "impressions": 119,
+      "family": "civil-construction-qa",
+      "claudeSample": false,
+      "claude": null,
+      "gemini": {}
+    },
+    {
+      "rel": "content/site/civil-construction-1/textbook-concrete-mix-design/article.mdx",
+      "impressions": 116,
+      "family": "civil-construction-qa",
+      "claudeSample": false,
+      "claude": null,
+      "gemini": {}
+    },
+    {
+      "rel": "content/site/concrete-diagnostician/textbook-variation/article.mdx",
+      "impressions": 115,
+      "family": "civil-construction-qa",
+      "claudeSample": false,
+      "claude": null,
+      "gemini": {}
+    },
+    {
+      "rel": "content/site/civil-construction-1/guide-difficulty/article.mdx",
+      "impressions": 112,
+      "family": "guide-qa",
+      "claudeSample": false,
+      "claude": null,
+      "gemini": {}
+    },
+    {
+      "rel": "content/site/rccm/guide-difference-pe/article.mdx",
+      "impressions": 112,
+      "family": "guide-qa",
+      "claudeSample": false,
+      "claude": null,
+      "gemini": {}
+    },
+    {
+      "rel": "content/site/pe-comprehensive-management/eta/article.mdx",
+      "impressions": 111,
+      "family": "cem-qa",
+      "claudeSample": true,
+      "claude": {
+        "evaluator": "cem-qa",
+        "scores": {
+          "structure": 3,
+          "mobile": 1,
+          "principle": 2,
+          "reference": 3,
+          "linking": 3
+        },
+        "weighted": 2.3,
+        "at": "2026-11-02T00:45:42.329Z"
+      },
+      "gemini": {
+        "gemini-3.5-flash-lite": {
+          "scores": {
+            "structure": 3,
+            "mobile": 1,
+            "principle": 3,
+            "reference": 2,
+            "linking": 3
+          },
+          "weighted": 2.35,
+          "issues": [
+            {
+              "axis": "mobile",
+              "line": 32,
+              "severity": "HIGH",
+              "problem": "入れ子リスト（2階層以上）がモバイル視認性を損ねている"
+            },
+            {
+              "axis": "reference",
+              "line": 114,
+              "severity": "MEDIUM",
+              "problem": "民間参考資料にWikipediaが含まれており公的・民間として不適切"
+            },
+            {
+              "axis": "mobile",
+              "line": 34,
+              "severity": "MEDIUM",
+              "problem": "入れ子リスト（2階層以上）の構造がある"
+            },
+            {
+              "axis": "mobile",
+              "line": 36,
+              "severity": "MEDIUM",
+              "problem": "入れ子リスト（2階層以上）の構造がある"
+            },
+            {
+              "axis": "mobile",
+              "line": 38,
+              "severity": "MEDIUM",
+              "problem": "入れ子リスト（2階層以上）の構造がある"
+            }
+          ],
+          "at": "2026-11-02T00:58:26.115Z",
+          "tokens": 4512
+        }
+      }
+    },
+    {
+      "rel": "content/site/pe-comprehensive-management/risk-map-matrix/article.mdx",
+      "impressions": 111,
+      "family": "cem-qa",
+      "claudeSample": false,
+      "claude": null,
+      "gemini": {}
+    },
+    {
+      "rel": "content/site/concrete-engineer/guide-study-plan/article.mdx",
+      "impressions": 107,
+      "family": "guide-qa",
+      "claudeSample": false,
+      "claude": null,
+      "gemini": {}
+    },
+    {
+      "rel": "content/site/pe-comprehensive-management/equipment-characteristics/article.mdx",
+      "impressions": 107,
+      "family": "cem-qa",
+      "claudeSample": false,
+      "claude": null,
+      "gemini": {}
+    },
+    {
+      "rel": "content/site/pe-comprehensive-management/cpd/article.mdx",
+      "impressions": 107,
+      "family": "cem-qa",
+      "claudeSample": false,
+      "claude": null,
+      "gemini": {}
+    },
+    {
+      "rel": "content/site/civil-construction-1/guide-vs-pe/article.mdx",
+      "impressions": 105,
+      "family": "guide-qa",
+      "claudeSample": false,
+      "claude": null,
+      "gemini": {}
+    },
+    {
+      "rel": "content/site/pe-comprehensive-management/alarp-principle/article.mdx",
+      "impressions": 103,
+      "family": "cem-qa",
+      "claudeSample": false,
+      "claude": null,
+      "gemini": {}
+    },
+    {
+      "rel": "content/site/civil-construction-1/textbook-coast-port/article.mdx",
+      "impressions": 103,
+      "family": "civil-construction-qa",
+      "claudeSample": false,
+      "claude": null,
+      "gemini": {}
+    },
+    {
+      "rel": "content/site/civil-construction-1/textbook-tunnel-natm/article.mdx",
+      "impressions": 103,
+      "family": "civil-construction-qa",
+      "claudeSample": false,
+      "claude": null,
+      "gemini": {}
+    },
+    {
+      "rel": "content/site/rccm/guide-eligibility-application/article.mdx",
+      "impressions": 101,
+      "family": "guide-qa",
+      "claudeSample": false,
+      "claude": null,
+      "gemini": {}
+    },
+    {
+      "rel": "content/site/civil-construction-1/textbook-port-regulations/article.mdx",
+      "impressions": 97,
+      "family": "civil-construction-qa",
+      "claudeSample": false,
+      "claude": null,
+      "gemini": {}
+    },
+    {
+      "rel": "content/site/pe-construction/river-coast-exam-themes/article.mdx",
+      "impressions": 96,
+      "family": "guide-qa",
+      "claudeSample": false,
+      "claude": null,
+      "gemini": {}
+    },
+    {
+      "rel": "content/site/civil-construction-2/guide-road-pavement-key-points/article.mdx",
+      "impressions": 94,
+      "family": "guide-qa",
+      "claudeSample": false,
+      "claude": null,
+      "gemini": {}
+    },
+    {
+      "rel": "content/site/concrete-chief-engineer/guide-essay/article.mdx",
+      "impressions": 93,
+      "family": "guide-qa",
+      "claudeSample": false,
+      "claude": null,
+      "gemini": {}
+    },
+    {
+      "rel": "content/site/pavement/guide-study-plan/article.mdx",
+      "impressions": 93,
+      "family": "guide-qa",
+      "claudeSample": false,
+      "claude": null,
+      "gemini": {}
+    },
+    {
+      "rel": "content/site/civil-construction-1/textbook-schedule-charts/article.mdx",
+      "impressions": 93,
+      "family": "civil-construction-qa",
+      "claudeSample": false,
+      "claude": null,
+      "gemini": {}
+    },
+    {
+      "rel": "content/site/civil-construction-2/guide-river-sabo-key-points/article.mdx",
+      "impressions": 92,
+      "family": "guide-qa",
+      "claudeSample": false,
+      "claude": null,
+      "gemini": {}
+    },
+    {
+      "rel": "content/site/civil-construction-2/guide-law-key-points/article.mdx",
+      "impressions": 91,
+      "family": "guide-qa",
+      "claudeSample": false,
+      "claude": null,
+      "gemini": {}
+    },
+    {
+      "rel": "content/site/civil-construction-2/guide-foundation-key-points/article.mdx",
+      "impressions": 88,
+      "family": "guide-qa",
+      "claudeSample": false,
+      "claude": null,
+      "gemini": {}
+    },
+    {
+      "rel": "content/site/civil-construction-1/guide-public-engineer-exam-study/article.mdx",
+      "impressions": 86,
+      "family": "guide-qa",
+      "claudeSample": false,
+      "claude": null,
+      "gemini": {}
+    },
+    {
+      "rel": "content/site/surveyor/guide-gogo-bunya/article.mdx",
+      "impressions": 85,
+      "family": "guide-qa",
+      "claudeSample": false,
+      "claude": null,
+      "gemini": {}
+    },
+    {
+      "rel": "content/site/pe-comprehensive-management/extended-producer-responsibility/article.mdx",
+      "impressions": 83,
+      "family": "cem-qa",
+      "claudeSample": false,
+      "claude": null,
+      "gemini": {}
+    },
+    {
+      "rel": "content/site/pe-comprehensive-management/overall-equipment-effectiveness/article.mdx",
+      "impressions": 82,
+      "family": "cem-qa",
+      "claudeSample": false,
+      "claude": null,
+      "gemini": {}
+    },
+    {
+      "rel": "content/site/civil-construction-1/textbook-byproduct-guideline/article.mdx",
+      "impressions": 81,
+      "family": "civil-construction-qa",
+      "claudeSample": false,
+      "claude": null,
+      "gemini": {}
+    },
+    {
+      "rel": "content/site/civil-construction-2/guide-construction-plan-key-points/article.mdx",
+      "impressions": 79,
+      "family": "guide-qa",
+      "claudeSample": false,
+      "claude": null,
+      "gemini": {}
+    },
+    {
+      "rel": "content/site/civil-construction-1/textbook-safety-machinery-crane/article.mdx",
+      "impressions": 79,
+      "family": "civil-construction-qa",
+      "claudeSample": false,
+      "claude": null,
+      "gemini": {}
+    },
+    {
+      "rel": "content/site/pe-construction/shiken-toujitsu-tejun/article.mdx",
+      "impressions": 79,
+      "family": "guide-qa",
+      "claudeSample": false,
+      "claude": null,
+      "gemini": {}
+    },
+    {
+      "rel": "content/site/concrete-engineer/textbook-properties-testing/article.mdx",
+      "impressions": 79,
+      "family": "civil-construction-qa",
+      "claudeSample": false,
+      "claude": null,
+      "gemini": {}
+    },
+    {
+      "rel": "content/site/civil-construction-1/guide-machinery/article.mdx",
+      "impressions": 78,
+      "family": "guide-qa",
+      "claudeSample": false,
+      "claude": null,
+      "gemini": {}
+    },
+    {
+      "rel": "content/site/civil-construction-2/guide-dam-tunnel-key-points/article.mdx",
+      "impressions": 73,
+      "family": "guide-qa",
+      "claudeSample": false,
+      "claude": null,
+      "gemini": {}
+    },
+    {
+      "rel": "content/site/concrete-engineer/guide-difference-chief/article.mdx",
+      "impressions": 73,
+      "family": "guide-qa",
+      "claudeSample": false,
+      "claude": null,
+      "gemini": {}
+    },
+    {
+      "rel": "content/site/pe-comprehensive-management/root-cause-analysis/article.mdx",
+      "impressions": 72,
+      "family": "cem-qa",
+      "claudeSample": false,
+      "claude": null,
+      "gemini": {}
+    },
+    {
+      "rel": "content/site/civil-construction-1/textbook-machinery-overview/article.mdx",
+      "impressions": 71,
+      "family": "civil-construction-qa",
+      "claudeSample": false,
+      "claude": null,
+      "gemini": {}
+    },
+    {
+      "rel": "content/site/civil-construction-1/guide-company-types/article.mdx",
+      "impressions": 71,
+      "family": "guide-qa",
+      "claudeSample": false,
+      "claude": null,
+      "gemini": {}
+    },
+    {
+      "rel": "content/site/pe-comprehensive-management/human-error-probability/article.mdx",
+      "impressions": 68,
+      "family": "cem-qa",
+      "claudeSample": false,
+      "claude": null,
+      "gemini": {}
+    },
+    {
+      "rel": "content/site/pe-comprehensive-management/autonomous-maintenance/article.mdx",
+      "impressions": 68,
+      "family": "cem-qa",
+      "claudeSample": false,
+      "claude": null,
+      "gemini": {}
+    },
+    {
+      "rel": "content/site/civil-construction-1/public-servant-merit/article.mdx",
+      "impressions": 66,
+      "family": "guide-qa",
+      "claudeSample": false,
+      "claude": null,
+      "gemini": {}
+    },
+    {
+      "rel": "content/site/civil-construction-1/textbook-construction-mgmt-overview/article.mdx",
+      "impressions": 66,
+      "family": "civil-construction-qa",
+      "claudeSample": false,
+      "claude": null,
+      "gemini": {}
+    },
+    {
+      "rel": "content/site/civil-construction-1/textbook-dam-construction/article.mdx",
+      "impressions": 66,
+      "family": "civil-construction-qa",
+      "claudeSample": false,
+      "claude": null,
+      "gemini": {}
+    },
+    {
+      "rel": "content/site/civil-construction-2/guide-exam-overview/article.mdx",
+      "impressions": 66,
+      "family": "guide-qa",
+      "claudeSample": false,
+      "claude": null,
+      "gemini": {}
+    },
+    {
+      "rel": "content/site/pe-comprehensive-management/fail-safe/article.mdx",
+      "impressions": 65,
+      "family": "cem-qa",
+      "claudeSample": false,
+      "claude": null,
+      "gemini": {}
+    },
+    {
+      "rel": "content/site/civil-construction-1/textbook-quality-overview/article.mdx",
+      "impressions": 63,
+      "family": "civil-construction-qa",
+      "claudeSample": false,
+      "claude": null,
+      "gemini": {}
+    },
+    {
+      "rel": "content/site/civil-construction-1/guide-concrete-maintenance/article.mdx",
+      "impressions": 62,
+      "family": "guide-qa",
+      "claudeSample": false,
+      "claude": null,
+      "gemini": {}
+    },
+    {
+      "rel": "content/site/concrete-engineer/textbook-production-qc/article.mdx",
+      "impressions": 61,
+      "family": "civil-construction-qa",
+      "claudeSample": false,
+      "claude": null,
+      "gemini": {}
+    },
+    {
+      "rel": "content/site/civil-construction-1/textbook-water-sewer/article.mdx",
+      "impressions": 60,
+      "family": "civil-construction-qa",
+      "claudeSample": false,
+      "claude": null,
+      "gemini": {}
+    },
+    {
+      "rel": "content/site/pe-comprehensive-management/herzberg-two-factor-theory/article.mdx",
+      "impressions": 60,
+      "family": "cem-qa",
+      "claudeSample": false,
+      "claude": null,
+      "gemini": {}
+    },
+    {
+      "rel": "content/site/civil-construction-1/textbook-standard-contract/article.mdx",
+      "impressions": 60,
+      "family": "civil-construction-qa",
+      "claudeSample": false,
+      "claude": null,
+      "gemini": {}
+    },
+    {
+      "rel": "content/site/civil-construction-2/guide-career-agent-comparison/article.mdx",
+      "impressions": 60,
+      "family": "guide-qa",
+      "claudeSample": false,
+      "claude": null,
+      "gemini": {}
+    },
+    {
+      "rel": "content/site/civil-construction-1/guide-schedule-management/article.mdx",
+      "impressions": 59,
+      "family": "guide-qa",
+      "claudeSample": false,
+      "claude": null,
+      "gemini": {}
+    },
+    {
+      "rel": "content/site/pe-comprehensive-management/asch-conformity-experiment/article.mdx",
+      "impressions": 58,
+      "family": "cem-qa",
+      "claudeSample": false,
+      "claude": null,
+      "gemini": {}
+    },
+    {
+      "rel": "content/site/pe-comprehensive-management/hazid/article.mdx",
+      "impressions": 57,
+      "family": "cem-qa",
+      "claudeSample": false,
+      "claude": null,
+      "gemini": {}
+    },
+    {
+      "rel": "content/site/pe-comprehensive-management/jisec/article.mdx",
+      "impressions": 57,
+      "family": "cem-qa",
+      "claudeSample": false,
+      "claude": null,
+      "gemini": {}
+    },
+    {
+      "rel": "content/site/pe-comprehensive-management/r8-essay-keyword-forecast/article.mdx",
+      "impressions": 56,
+      "family": "guide-qa",
+      "claudeSample": false,
+      "claude": null,
+      "gemini": {}
+    }
+  ],
+  "comparison": {
+    "gemini-3.8-flash": {
+      "at": "2026-11-02T00:58:58.017Z",
+      "pairs": 15,
+      "passAgree": 0.87,
+      "weightedMae": 0.39,
+      "rule": "8 件以上・完全一致 70% 以上・Claude が 3 未満の 3 件以上のうち検出率 70% 以上の軸を採用",
+      "axes": {
+        "guide-qa": {
+          "intro": {
+            "n": 8,
+            "exact": 0.5,
+            "within1": 1,
+            "meanDiff": 0.5,
+            "flagged": 4,
+            "detect": 0
+          },
+          "readability": {
+            "n": 8,
+            "exact": 0.63,
+            "within1": 1,
+            "meanDiff": 0.38,
+            "flagged": 5,
+            "detect": 0.4
+          },
+          "volume": {
+            "n": 8,
+            "exact": 0.63,
+            "within1": 1,
+            "meanDiff": 0.13,
+            "flagged": 3,
+            "detect": 0.33
+          },
+          "funnel": {
+            "n": 8,
+            "exact": 0.63,
+            "within1": 1,
+            "meanDiff": 0.38,
+            "flagged": 5,
+            "detect": 0.6
+          },
+          "mobile": {
+            "n": 8,
+            "exact": 1,
+            "within1": 1,
+            "meanDiff": 0,
+            "flagged": 0,
+            "detect": null
+          }
+        },
+        "civil-construction-qa": {
+          "structure": {
+            "n": 3,
+            "exact": 0.67,
+            "within1": 1,
+            "meanDiff": -0.33,
+            "flagged": 0,
+            "detect": null
+          },
+          "principle": {
+            "n": 3,
+            "exact": 0,
+            "within1": 0.67,
+            "meanDiff": -1.33,
+            "flagged": 0,
+            "detect": null
+          },
+          "mobile": {
+            "n": 3,
+            "exact": 1,
+            "within1": 1,
+            "meanDiff": 0,
+            "flagged": 1,
+            "detect": 1
+          },
+          "figures": {
+            "n": 3,
+            "exact": 1,
+            "within1": 1,
+            "meanDiff": 0,
+            "flagged": 0,
+            "detect": null
+          },
+          "reference": {
+            "n": 3,
+            "exact": 0.33,
+            "within1": 1,
+            "meanDiff": 0.67,
+            "flagged": 2,
+            "detect": 0
+          }
+        },
+        "cem-qa": {
+          "structure": {
+            "n": 4,
+            "exact": 1,
+            "within1": 1,
+            "meanDiff": 0,
+            "flagged": 1,
+            "detect": 1
+          },
+          "mobile": {
+            "n": 4,
+            "exact": 0.75,
+            "within1": 1,
+            "meanDiff": -0.25,
+            "flagged": 1,
+            "detect": 1
+          },
+          "principle": {
+            "n": 4,
+            "exact": 0.5,
+            "within1": 0.75,
+            "meanDiff": -1,
+            "flagged": 1,
+            "detect": 1
+          },
+          "reference": {
+            "n": 4,
+            "exact": 0.75,
+            "within1": 0.75,
+            "meanDiff": -0.5,
+            "flagged": 1,
+            "detect": 1
+          },
+          "linking": {
+            "n": 4,
+            "exact": 1,
+            "within1": 1,
+            "meanDiff": 0,
+            "flagged": 0,
+            "detect": null
+          }
+        }
+      },
+      "adopted": []
+    },
+    "gemini-3.5-flash-lite": {
+      "at": "2026-11-02T00:58:57.934Z",
+      "pairs": 24,
+      "passAgree": 0.88,
+      "weightedMae": 0.38,
+      "rule": "8 件以上・完全一致 70% 以上・Claude が 3 未満の 3 件以上のうち検出率 70% 以上の軸を採用",
+      "axes": {
+        "guide-qa": {
+          "intro": {
+            "n": 8,
+            "exact": 0.63,
+            "within1": 1,
+            "meanDiff": 0.38,
+            "flagged": 4,
+            "detect": 0.25
+          },
+          "readability": {
+            "n": 8,
+            "exact": 0.38,
+            "within1": 1,
+            "meanDiff": 0.63,
+            "flagged": 5,
+            "detect": 0
+          },
+          "volume": {
+            "n": 8,
+            "exact": 0.63,
+            "within1": 1,
+            "meanDiff": 0.38,
+            "flagged": 3,
+            "detect": 0
+          },
+          "funnel": {
+            "n": 8,
+            "exact": 0.38,
+            "within1": 0.75,
+            "meanDiff": 0.63,
+            "flagged": 5,
+            "detect": 0.2
+          },
+          "mobile": {
+            "n": 8,
+            "exact": 1,
+            "within1": 1,
+            "meanDiff": 0,
+            "flagged": 0,
+            "detect": null
+          }
+        },
+        "civil-construction-qa": {
+          "structure": {
+            "n": 8,
+            "exact": 0.88,
+            "within1": 1,
+            "meanDiff": 0.13,
+            "flagged": 1,
+            "detect": 0
+          },
+          "principle": {
+            "n": 8,
+            "exact": 0.75,
+            "within1": 1,
+            "meanDiff": 0,
+            "flagged": 1,
+            "detect": 0
+          },
+          "mobile": {
+            "n": 8,
+            "exact": 0.88,
+            "within1": 1,
+            "meanDiff": 0.13,
+            "flagged": 2,
+            "detect": 1
+          },
+          "figures": {
+            "n": 8,
+            "exact": 1,
+            "within1": 1,
+            "meanDiff": 0,
+            "flagged": 0,
+            "detect": null
+          },
+          "reference": {
+            "n": 8,
+            "exact": 0.38,
+            "within1": 0.88,
+            "meanDiff": 0.88,
+            "flagged": 5,
+            "detect": 0
+          }
+        },
+        "cem-qa": {
+          "structure": {
+            "n": 8,
+            "exact": 0.75,
+            "within1": 1,
+            "meanDiff": 0,
+            "flagged": 1,
+            "detect": 0
+          },
+          "mobile": {
+            "n": 8,
+            "exact": 0.63,
+            "within1": 1,
+            "meanDiff": -0.37,
+            "flagged": 4,
+            "detect": 1
+          },
+          "principle": {
+            "n": 8,
+            "exact": 0.5,
+            "within1": 1,
+            "meanDiff": 0,
+            "flagged": 4,
+            "detect": 0.5
+          },
+          "reference": {
+            "n": 8,
+            "exact": 0.75,
+            "within1": 0.88,
+            "meanDiff": -0.37,
+            "flagged": 1,
+            "detect": 1
+          },
+          "linking": {
+            "n": 8,
+            "exact": 1,
+            "within1": 1,
+            "meanDiff": 0,
+            "flagged": 0,
+            "detect": null
+          }
+        }
+      },
+      "adopted": []
+    }
+  }
+}

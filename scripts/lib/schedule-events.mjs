@@ -36,6 +36,7 @@
  * ---------------------------------------------------------------------------
  */
 import { activeIds } from './qualification-registry.mjs';
+import { mapRevenueCalendar } from './revenue-calendar.mjs';
 import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { basename, join } from 'node:path';
 import { jstDayTime, todayJst } from './jst-date.mjs';
@@ -50,13 +51,13 @@ import domainsConfig from '../../config/domains.json' with { type: 'json' };
  * @property {string} id            `${sourceId}:${ref}` 一意
  * @property {string} date          'YYYY-MM-DD' JST
  * @property {string|null} time     'HH:MM' JST
- * @property {'exam'|'x'|'instagram'|'youtube'|'todo'|'note'|'kindle'|'coconala'|'video'|'experiment'|'review'} channel
+ * @property {'exam'|'x'|'instagram'|'youtube'|'todo'|'note'|'kindle'|'coconala'|'video'|'experiment'|'review'|'revenue'} channel
  * @property {'exam'|'post'|'plan-slot'|'todo-due'|'publish'|'check'} kind
  * @property {string} domain   予定の領域（exam か domains.json の id。バックログはカードの [領域:]、他は CHANNEL_DOMAIN）
  * @property {'planned'|'reserved'|'posted'|'overdue'} status
  * @property {string} label
  * @property {string|null} detail
- * @property {'exam-calendar'|'x-campaign'|'x-status'|'ig-status'|'youtube-schedule'|'backlog'|'note-articles'|'kindle-catalog'|'coconala-catalog'|'video-status'|'experiments'|'business-review'} sourceId
+ * @property {'exam-calendar'|'x-campaign'|'x-status'|'ig-status'|'youtube-schedule'|'backlog'|'note-articles'|'kindle-catalog'|'coconala-catalog'|'video-status'|'experiments'|'business-review'|'revenue-calendar'} sourceId
  * @property {string} sourcePath    repo 相対パス
  * @property {string} ref
  */
@@ -102,6 +103,7 @@ export const CHANNEL_DOMAIN = {
   todo: 'ops', // カードに [領域:] があればそちらが優先（mapBacklogDue）
   experiment: 'strategy',
   review: 'strategy',
+  revenue: 'strategy',
 };
 
 /** 'YYYY-MM-DD'（または ISO 日時）を JST の暦日に正規化する。解釈できなければ null。 */
@@ -596,6 +598,27 @@ function readExamCalendar(rootDir) {
   }
 }
 
+/** 収益カレンダー（config/revenue-calendar.json × exam-calendar の試験日）。試験日が過ぎた起点は pending（日付を推測しない） */
+function readRevenueCalendar(rootDir, todayKey) {
+  const relPath = datasetPath('config.revenue-calendar');
+  try {
+    const config = readJsonFile(join(rootDir, relPath));
+    const exam = readJsonFile(join(rootDir, datasetPath('config.exam-calendar')));
+    const { events, pending, errors } = mapRevenueCalendar(config, exam, relPath, todayKey, readJsonFile(join(rootDir, datasetPath('config.qualification-registry'))));
+    return {
+      events,
+      pending,
+      report: { id: 'revenue-calendar', label: 'revenue', path: relPath, ok: errors.length === 0, count: events.length, dateless: 0, legacy: 0, errors },
+    };
+  } catch (err) {
+    return {
+      events: [],
+      pending: [],
+      report: { id: 'revenue-calendar', label: 'revenue', path: relPath, ok: false, count: 0, dateless: 0, legacy: 0, errors: [{ path: relPath, message: String(err?.message ?? err) }] },
+    };
+  }
+}
+
 function readXCampaigns(rootDir) {
   const dirRel = 'content/sns/x/campaigns';
   const dirAbs = join(rootDir, dirRel);
@@ -814,7 +837,7 @@ function readBusinessReviews(rootDir, todayKey) {
 }
 
 /**
- * 12 ソースを独立に読み、共通 ScheduleEvent[] へ集約する（読み取り専用）。各予定に domain（領域）を付ける。
+ * 13 ソースを独立に読み、共通 ScheduleEvent[] へ集約する（読み取り専用）。各予定に domain（領域）を付ける。
  * 1 ソースの失敗は他ソースを道連れにしない（各々 try/catch 済みの read*関数を呼ぶだけ）。
  * @param {string} rootDir リポジトリルート（絶対パス）
  * @param {{nowMs?: number}} [opts]
@@ -835,6 +858,7 @@ export async function collectScheduleEvents(rootDir, { nowMs = Date.now() } = {}
   const video = readVideoStatus(rootDir, todayKey);
   const experiments = readExperiments(rootDir, todayKey);
   const reviews = readBusinessReviews(rootDir, todayKey);
+  const revenue = readRevenueCalendar(rootDir, todayKey);
 
   const xActual = xStatus.events;
   const xPlanRemaining = reconcileXPlan(campaign.events, xActual, todayKey);
@@ -852,6 +876,7 @@ export async function collectScheduleEvents(rootDir, { nowMs = Date.now() } = {}
     ...video.events,
     ...experiments.events,
     ...reviews.events,
+    ...revenue.events,
   ]
     .map((e) => ({ ...e, domain: e.domain ?? CHANNEL_DOMAIN[e.channel] ?? 'ops' }))
     .sort((a, b) => keyOf(a.date, a.time).localeCompare(keyOf(b.date, b.time)));
@@ -862,7 +887,8 @@ export async function collectScheduleEvents(rootDir, { nowMs = Date.now() } = {}
 
   return {
     events,
-    sources: [exam.report, campaignReport, xStatus.report, igStatus.report, youtube.report, backlog.report, note.report, kindle.report, coconala.report, video.report, experiments.report, reviews.report],
+    sources: [exam.report, campaignReport, xStatus.report, igStatus.report, youtube.report, backlog.report, note.report, kindle.report, coconala.report, video.report, experiments.report, reviews.report, revenue.report],
+    revenuePending: revenue.pending,
     generatedAt: new Date(nowMs).toISOString(),
   };
 }

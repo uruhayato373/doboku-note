@@ -1,11 +1,7 @@
 ---
 name: civil-keiken-magazine
 description: >
-  1級・2級土木 第2次検定「施工経験記述」の note 有料マガジン用フル模範答案を、Generator
-  (civil-keiken-essay-writer) → Evaluator (civil-keiken-essay-qa) で生成・採点する。
-  過去問年度別 / テーマ別完成答案集 / 予想問題集 の3種に対応。サイト無料記事とは重複させず
-  (Red Line #4)、規格値は捏造せずプレースホルダ運用、改変前提テンプレとして打ち出す。
-  Use when user asks to [施工経験記述マガジン, 模範答案を作成, 経験記述の模範解答, 過去問模範答案集, 予想問題集を作る, /civil-keiken-magazine].
+  1級・2級土木 施工経験記述の note 有料マガジン用フル模範答案を writer→qa で生成・採点する（年度別・テーマ別・予想問題）。Use when user asks to [施工経験記述マガジン, 模範答案を作成, /civil-keiken-magazine].
 user-invocable: true
 domain: product
 ---

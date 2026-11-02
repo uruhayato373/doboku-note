@@ -125,8 +125,14 @@ async function execInProcess(step, argv, { capture = false } = {}) {
   }
 }
 
+/** PRECOMMIT_VERBOSE=1 なら従来どおり全検査の出力をそのまま出す（DN-0934） */
+export function isVerbose(env = process.env) {
+  return env.PRECOMMIT_VERBOSE === '1';
+}
+
 export function defaultExec(step, argv) {
-  const capture = Boolean(step.tail);
+  // 既定は全検査の出力を捕まえる（成功時は捨て、失敗時と keepOutput だけ出す＝DN-0934）。VERBOSE は tail 指定の検査だけ従来どおり捕まえる
+  const capture = Boolean(step.tail) || !isVerbose();
   if (step.inProcess) return execInProcess(step, argv, { capture });
   return execChild(step, argv, { capture });
 }
@@ -137,30 +143,57 @@ export function tailLines(text, n) {
   return body.split('\n').slice(-n).join('\n');
 }
 
+/** 出力の中の WARN 行の数（成功した検査の警告を件数だけ要約に載せる） */
+export function countWarns(text) {
+  return text.split('\n').filter((l) => /\bWARN(ING)?\b|警告/.test(l)).length;
+}
+
+/** 最後に出す要約 1 行（WARN を出した検査は名前と件数だけ） */
+export function summarize(r, seconds) {
+  const warns = r.warns ?? [];
+  const warnTotal = warns.reduce((a, w) => a + w.count, 0);
+  const warnPart = warnTotal ? `・WARN ${warnTotal} 件（${warns.map((w) => `${w.id} ${w.count}`).join(', ')}）` : '';
+  if (r.failed) return `[pre-commit] ${r.failed} で失敗（${r.ran.length} 本目・${seconds} 秒）${warnPart}`;
+  return `[pre-commit] ${r.ran.length} 本を実行・OK（${seconds} 秒）${warnPart}`;
+}
+
+/** 成功した検査の出力は捨てる。人に読ませる意図のもの（keepOutput）と WARN の件数だけ残す */
+function recordSuccess(step, captured, warns, log) {
+  if (step.keepOutput && captured.trim() !== '') {
+    log(captured.replace(/^\n+|\s+$/g, ''));
+    return;
+  }
+  const n = countWarns(captured);
+  if (n > 0) warns.push({ id: step.id, count: n });
+}
+
 /**
  * 計画した検査を順に回し、最初の失敗で止める。
- * @returns {Promise<{ code: number, ran: { id: string, ms: number, code: number }[], failed: string|null }>}
+ * @returns {Promise<{ code: number, ran: { id: string, ms: number, code: number }[], failed: string|null, warns: { id: string, count: number }[] }>}
  */
 export async function dispatch(ctx, { steps = STEPS, exec = defaultExec, log = console.log } = {}) {
   const plan = planSteps(ctx, steps);
   const ran = [];
+  const warns = [];
   for (const { step, argv } of plan) {
     const t0 = Date.now();
     const { code, captured } = await exec(step, argv);
     ran.push({ id: step.id, ms: Date.now() - t0, code });
+    if (!isFailure(step, code)) recordSuccess(step, captured, warns, log);
     if (!isFailure(step, code)) continue;
-    if (step.tail && captured !== '') log(tailLines(captured, step.tail));
+    if (captured !== '') log(step.tail ? tailLines(captured, step.tail) : captured.replace(/\s+$/, ''));
     if (step.failHint) log(step.failHint);
     if (step.failMessage) log(step.failMessage);
     return { code: 1, ran, failed: step.id };
   }
-  return { code: 0, ran, failed: null };
+  return { code: 0, ran, failed: null, warns };
 }
 
 async function main() {
   process.chdir(REPO_ROOT);
   const t0 = Date.now();
   const r = await dispatch(collectContext());
+  console.log(summarize(r, ((Date.now() - t0) / 1000).toFixed(1)));
   if (process.env.PRE_COMMIT_TIMING) {
     const slow = [...r.ran].sort((a, b) => b.ms - a.ms).slice(0, 8).map((x) => `${x.id} ${x.ms}ms`).join(', ');
     console.error(`[pre-commit-dispatch] ${r.ran.length} 検査 / ${Date.now() - t0}ms / 遅い順: ${slow}${r.failed ? ` / 失敗: ${r.failed}` : ''}`);

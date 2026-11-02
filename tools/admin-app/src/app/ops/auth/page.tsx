@@ -71,7 +71,7 @@ export default function AuthCredentialsPage() {
         sub={`${MACHINE_LABEL[v.machine]} · 登録 ${v.rows.length - unregistered.length}/${v.rows.length} · 要対応 ${todo.length} 件 · 土曜の収集のログイン確認 ${v.collectAuth.status ? COLLECT_LABEL[v.collectAuth.status] : '記録なし'}`}
       />
       <Stack>
-        <PanelCard title="土曜の Mac 収集のログイン確認" description="weekly-collect の auth 段（切れていれば資格情報で 1 回だけ入り直す）の直近の結果。CI はログインしない">
+        <PanelCard title="土曜の Mac 収集のログイン確認">
           <div className="flex flex-wrap items-center gap-2 text-sm">
             {v.collectAuth.status
               ? <StatusBadge tone={COLLECT_TONE[v.collectAuth.status]}>{COLLECT_LABEL[v.collectAuth.status]}</StatusBadge>
@@ -82,7 +82,7 @@ export default function AuthCredentialsPage() {
         <DataTable columns={CREDENTIAL_COLUMNS} rows={credentialRows} pageSize={100} />
 
         {unregistered.length > 0 && registerCmd && (
-          <PanelCard title="未登録のサービスを登録する" description="ターミナルで実行し、聞かれたらパスワードを入力する。登録後にこのページを再読み込みする">
+          <PanelCard title="未登録のサービスを登録する">
             <Stack gap="sm">
               {unregistered.map((r) => (
                 <code key={r.id} className="text-sm">{registerCmd.replace('<storeItem>', r.storeItem)}</code>

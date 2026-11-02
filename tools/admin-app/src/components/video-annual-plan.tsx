@@ -1,7 +1,6 @@
 import Link from 'next/link';
-import { DataTable, StatusBadge, type DataTableRow, type Tone } from '@/components/admin';
+import { DataTable, DetailList, DetailSheet, DetailText, StatusBadge, type DataTableRow, type Tone } from '@/components/admin';
 import { Button } from '@/components/ui/button';
-import { Sheet, SheetTrigger, SheetContent, SheetHeader, SheetTitle, SheetDescription } from '@/components/ui/sheet';
 import { examLabel } from '@/lib/video-board';
 import { longformPlanHref } from '@/lib/content-plan-links';
 import { PLAN_ACTIONS, type loadLongformPlan } from '../../../../scripts/lib/youtube-longform-plan.mjs';
@@ -21,42 +20,36 @@ function publicationState(row: PlanRow): { label: string; tone: Tone } {
 
 function VideoDetail({ row }: { row: PlanRow }) {
   const state = publicationState(row);
-  return <Sheet>
-    <SheetTrigger asChild>
-      <button type="button" className="text-left font-medium underline-offset-4 hover:underline focus-visible:outline-2 focus-visible:outline-ring">{row.title}</button>
-    </SheetTrigger>
-    <SheetContent side="right" className="w-full overflow-y-auto sm:max-w-md">
-      <SheetHeader className="pr-10">
-        <SheetTitle>{row.title}</SheetTitle>
-        <SheetDescription>{examLabel(row.exam)} · {labels[row.action]}</SheetDescription>
-      </SheetHeader>
-      <div className="space-y-6 px-4 pb-6">
-        <StatusBadge tone={state.tone}>{state.label}</StatusBadge>
-        {row.warning && <p className="text-sm text-destructive">{row.warning}</p>}
-        <dl className="grid grid-cols-[auto_1fr] gap-x-5 gap-y-3 text-sm">
-          <dt className="text-muted-foreground">実予約・公開日時</dt><dd>{row.actual ?? '未予約'}</dd>
-          <dt className="text-muted-foreground">公開目標</dt><dd>{row.target ?? '未設定'}{row.action === 'reuse' && '（再案内）'}</dd>
-          <dt className="text-muted-foreground">制作着手</dt><dd>{row.start ?? '未設定'}</dd>
-          <dt className="text-muted-foreground">確認期限</dt><dd>{row.ready ?? '未設定'}</dd>
-          <dt className="text-muted-foreground">優先度</dt><dd>{row.priority ?? '未設定'}</dd>
-        </dl>
-        <section aria-label="制作メモ"><h3 className="mb-2 text-sm font-semibold">制作メモ</h3><p className="whitespace-pre-wrap text-sm leading-relaxed">{row.note || 'メモなし'}</p></section>
-        <div className="flex flex-wrap gap-2">
-          {row.href && <Button variant="outline" asChild><Link href={row.href}>画像・動画を確認</Link></Button>}
-          {row.url && <Button variant="outline" asChild><a href={row.url} target="_blank" rel="noreferrer">YouTubeで確認</a></Button>}
-        </div>
-        <details className="text-xs text-muted-foreground"><summary>台帳情報</summary><p className="mt-2 break-all">{row.publicationId ?? row.id}</p><p className="mt-1">状態: {row.status}</p></details>
+  return (
+    <DetailSheet trigger={row.title} title={row.title} description={`${examLabel(row.exam)} · ${labels[row.action]}`}>
+      <StatusBadge tone={state.tone}>{state.label}</StatusBadge>
+      {row.warning && <p className="text-destructive">{row.warning}</p>}
+      <DetailList
+        items={[
+          { label: '実予約・公開日時', value: row.actual ?? '未予約' },
+          { label: '公開目標', value: `${row.target ?? '未設定'}${row.action === 'reuse' ? '（再案内）' : ''}` },
+          { label: '制作着手', value: row.start ?? '未設定' },
+          { label: '確認期限', value: row.ready ?? '未設定' },
+          { label: '優先度', value: row.priority ?? '未設定' },
+          { label: '状態', value: row.status },
+          { label: '台帳', value: <span className="break-all">{row.publicationId ?? row.id}</span> },
+        ]}
+      />
+      <DetailText title="制作メモ" items={[row.note]} />
+      <div className="flex flex-wrap gap-2">
+        {row.href && <Button variant="outline" asChild><Link href={row.href}>画像・動画を確認</Link></Button>}
+        {row.url && <Button variant="outline" asChild><a href={row.url} target="_blank" rel="noreferrer">YouTubeで確認</a></Button>}
       </div>
-    </SheetContent>
-  </Sheet>;
+    </DetailSheet>
+  );
 }
 
 type ExamRow = { id: string; label: string; marks: { date: string; label: string; estimated: boolean }[] };
 const labels: Record<string, string> = PLAN_ACTIONS;
 
 /** 通常動画の制作・公開管理。計画と公開台帳はIDで結合済み。 */
-export function VideoAnnualPlan({ board, months, exams, periods, month, exam, library, view }: {
-  board: Board; months: string[]; exams: ExamRow[]; periods: { exam: string; label: string; window: string }[]; month?: string; exam?: string; library: boolean; view?: string;
+export function VideoAnnualPlan({ board, months, exams, periods, month, exam, library, view, tab }: {
+  board: Board; months: string[]; exams: ExamRow[]; periods: { exam: string; label: string; window: string }[]; month?: string; exam?: string; library: boolean; view?: string; tab?: string;
 }) {
   const link = (m?: string, e = exam, lib = library) => longformPlanHref({ m, e, library: lib ? '1' : undefined });
   const examRows = board.rows.filter((r) => !exam || r.exam === exam);
@@ -89,27 +82,39 @@ export function VideoAnnualPlan({ board, months, exams, periods, month, exam, li
     const creation = examRows.filter((r) => r.start?.startsWith(m));
     const priority = [...new Set(scheduled.filter((r) => r.priority === 'P1').map((r) => r.exam))];
     const events = exams.filter((e) => !exam || e.id === exam).flatMap((e) => e.marks.filter((x) => x.date.startsWith(m)).map((x) => ({ ...x, exam: e.id })));
-    return { id: m, values: { month: m, exam: events.map((e) => `${examLabel(e.exam)} ${e.label}`).join(' '), priority: [priority.length ? `P1: ${priority.map(examLabel).join('・')}` : '', [...new Set(scheduled.filter((r) => r.action === 'scheduled').map((r) => r.exam))].length ? `予約維持: ${[...new Set(scheduled.filter((r) => r.action === 'scheduled').map((r) => r.exam))].map(examLabel).join('・')}` : ''].filter(Boolean).join(' / ') || '試行・再活用を中心に進行', start: creation.length, publish: scheduled.filter((r) => r.action !== 'reuse').length, reuse: scheduled.filter((r) => r.action === 'reuse').length }, cells: {
+    return { id: m, values: { month: m, exam: events.map((e) => `${examLabel(e.exam)} ${e.label}`).join(' '), priority: [priority.length ? `P1: ${priority.map(examLabel).join('・')}` : '', [...new Set(scheduled.filter((r) => r.action === 'scheduled').map((r) => r.exam))].length ? `予約維持: ${[...new Set(scheduled.filter((r) => r.action === 'scheduled').map((r) => r.exam))].map(examLabel).join('・')}` : ''].filter(Boolean).join(' / ') || '—', start: creation.length, publish: scheduled.filter((r) => r.action !== 'reuse').length, reuse: scheduled.filter((r) => r.action === 'reuse').length }, cells: {
       month: <Link href={link(m, undefined, false)}>{m}</Link>,
-      exam: <div className="text-xs">{events.map((e, i) => <div key={i}>{e.estimated ? `${e.date.slice(0, 7)}頃` : e.date} {examLabel(e.exam)} {e.label}{e.estimated ? '（前年から推定）' : ''}</div>)}{!events.length && '日付指定の行事なし（期間行事は試験台帳参照）'}</div>,
+      exam: <div className="text-xs">{events.map((e, i) => <div key={i}>{e.estimated ? `${e.date.slice(0, 7)}頃` : e.date} {examLabel(e.exam)} {e.label}{e.estimated ? '（推定）' : ''}</div>)}{!events.length && '—'}</div>,
     } };
   });
+  const current = tab === 'plan' ? 'plan' : 'videos';
+  const tabHref = (t: string) => `/sns/youtube/longform?${new URLSearchParams({ ...(exam ? { e: exam } : {}), ...(month ? { m: month } : {}), ...(t === 'plan' ? { tab: 'plan' } : {}) }).toString()}`;
   return <>
-    <p className="mb-4 text-sm text-muted-foreground">予約済み {reserved} 本 · 公開済み {published} 本（全期間）</p>
+    <nav className="filterbar mb-3!">
+      <Link className={'chip' + (current === 'videos' ? ' active' : '')} href={tabHref('videos')}>動画</Link>
+      <Link className={'chip' + (current === 'plan' ? ' active' : '')} href={tabHref('plan')}>月別制作配分</Link>
+      <span className="small muted ml-auto">予約済み {reserved} 本 · 公開済み {published} 本</span>
+    </nav>
+    {current === 'videos' && <>
     <form method="get" action="/sns/youtube/longform" className="mb-4 flex flex-wrap items-end gap-3">
       <label className="grid gap-1 text-sm">資格<select name="e" defaultValue={exam ?? ''} className="h-9 rounded-md border border-input bg-background px-3"><option value="">全資格</option>{[...new Set(board.rows.map((r) => r.exam))].map((e) => <option key={e} value={e}>{examLabel(e)}</option>)}</select></label>
       <label className="grid gap-1 text-sm">月<select name="m" defaultValue={month ?? ''} className="h-9 rounded-md border border-input bg-background px-3"><option value="">全期間</option>{months.map((m) => <option key={m} value={m}>{m}</option>)}</select></label>
       <label className="grid gap-1 text-sm">表示<select name="s" defaultValue={activeView} className="h-9 rounded-md border border-input bg-background px-3">{Object.entries(viewOptions).map(([value, label]) => <option key={value} value={value}>{label}</option>)}</select></label>
       <Button type="submit" variant="outline">絞り込む</Button>
     </form>
-    <DataTable columns={[{ key: 'date', label: '公開日' }, { key: 'title', label: '動画', wrap: true }, { key: 'state', label: '状態', sortable: false }]} rows={rows} filter="動画名で検索" emptyText="この条件の動画はありません" pageSize={25} />
-    <p className="mt-2 text-xs text-muted-foreground">動画名から詳細を確認できます。未予約の公開日は目標日です。</p>
-    <details className="mt-4"><summary>通常動画の月別制作配分</summary>
-      <p className="my-2 text-xs text-muted-foreground">{board.plan.cadence} P1＝主軸を優先、P2＝季節集中・再活用、P3＝試行。</p>
+    <DataTable columns={[{ key: 'date', label: '公開日' }, { key: 'title', label: '動画', wrap: true }, { key: 'state', label: '状態', sortable: false }]} rows={rows} filter="動画名で検索" emptyText="該当なし" pageSize={25} />
+    </>}
+    {current === 'plan' && <>
       <div className="min-w-0 max-w-full overflow-x-auto"><DataTable columns={[{ key: 'month', label: '月' }, { key: 'exam', label: '試験・発表・申込', wrap: true }, { key: 'priority', label: '優先する資格', wrap: true }, { key: 'start', label: '制作着手', num: true }, { key: 'publish', label: '公開枠', num: true }, { key: 'reuse', label: '再案内', num: true }]} rows={overview} pageSize={12} /></div>
-      <details className="my-3 text-xs text-muted-foreground"><summary>日付未定の期間行事（試験日程台帳）</summary>{periods.filter((p) => !exam || p.exam === exam).map((p, i) => <p key={i}>{examLabel(p.exam)} {p.label}: {p.window}</p>)}</details>
-    </details>
-    <details className="mt-4 text-sm"><summary>制作・レビューの方針</summary><p className="mt-2 text-muted-foreground">{board.plan.productionRule}</p><p className="mt-2 text-muted-foreground">{board.plan.reviewRule}</p></details>
-    <p className="mt-2 text-xs"><Link href="/strategy/qualifications">試験日程の台帳</Link> · <Link href="/content/items?c=youtube">作品と公開</Link> · <Link href="/metrics/video">動画の送客実績</Link></p>
+      <div className="mt-3 flex flex-wrap gap-4 text-sm">
+        <DetailSheet trigger="日付未定の期間行事" title="日付未定の期間行事">
+          <DetailText title="期間行事" items={periods.filter((p) => !exam || p.exam === exam).map((p) => `${examLabel(p.exam)} ${p.label}: ${p.window}`)} />
+        </DetailSheet>
+        <DetailSheet trigger="制作・レビューの方針" title="制作・レビューの方針">
+          <DetailText title="方針" items={[board.plan.cadence, board.plan.productionRule, board.plan.reviewRule]} />
+        </DetailSheet>
+      </div>
+    </>}
+    <p className="mt-3 text-xs"><Link href="/strategy/qualifications">試験日程の台帳</Link> · <Link href="/content/items?c=youtube">作品と公開</Link> · <Link href="/metrics/video">動画の送客実績</Link></p>
   </>;
 }

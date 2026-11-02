@@ -1,6 +1,7 @@
 ---
 name: video-content-qa
-description: 動画パック（video-pack.json・script.md・storyboard.json）を 6 軸（0〜3）と BLOCK ゲートで採点する Evaluator（audit-only）。生成・修正・投稿・status 変更はしない。
+description: >
+  動画パックを6軸と BLOCK ゲートで採点する Evaluator（audit-only）。
 model: sonnet
 tools: Read, Glob, Grep, Bash, WebSearch, WebFetch
 domain: sns

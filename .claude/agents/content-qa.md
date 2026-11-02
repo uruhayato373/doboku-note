@@ -1,6 +1,7 @@
 ---
 name: content-qa
-description: PDF→MDX変換の品質評価を5軸ルーブリックで担当するEvaluatorエージェント（過去問・基準書中心）。
+description: >
+  PDF→MDX 変換の品質を5軸で評価する Evaluator（過去問・基準書中心）。
 model: sonnet
 tools: Read, Glob, Grep, Bash, WebSearch, WebFetch
 domain: material
@@ -25,6 +26,10 @@ PDF→MDX変換の品質評価を専門に担当するEvaluatorエージェン�
 | `/check-mdx --rules syntax` | 構文チェック（ビルドエラー予防） | 変換直後 |
 | `/improve-article --mode verify` | 体系的QA（PDF照合+修正の2段階） | 変換後 |
 | `/pdf-to-mdx（自動実行）` | PDF変換残骸の検出・除去 | 変換後 |
+
+## 常設の担当（ページの種類・DN-0937）
+
+変換直後の評価に加えて、建設部門（`pe-construction`）の `group: past-exam`（技術士二次の記述式。問題文と論点・関連記事への導線だけを載せ、解答は note の有料教材に置く）の継続監査を受け持つ。解答・選択肢が無いので `past-exam-qa` の折衷案の構造は当てはめず、下のルーブリックで「問題文が原典どおりか（設問番号・字句・年度）」と MDX の健全さを見る。種類の定義は `config/page-quality-profiles.json` の `exam-past-exam`。
 
 ## 品質ルーブリック
 

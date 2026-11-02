@@ -6,30 +6,27 @@
 
 | スキル | 用途 | 頻度 |
 |---|---|---|
-| `/weekly-plan` | 週次計画を生成 | 毎週金曜（review と同時・自動） |
 | `/weekly-review` | 週次レビューを生成 | 毎週土曜 09:00 JST（自動・クラウドルーティン・2026-09-19 に金曜 20:00 から変更） |
 | `/critical-review` | 設計書・計画書に対する批判的レビュー | 随時 |
 | `/knowledge` | 過去の失敗と学びを参照・追記 | バグ解決時 |
 | `/monetization-strategy` | 収益化戦略のブレインストーム | 四半期ごと |
-| `/north-star-metric` | North Star Metric と Input Metrics の定義 | 初回 + 見直し時 |
+| `/plan-weekly` | 週間計画（.claude/todo/weekly.md）を更新 | 週次レビューの後（自動） |
 
 ## 推奨ワークフロー
 
 ### 初回セットアップ（プロジェクト立ち上げ・方針転換時）
 
 ```
-1. /north-star-metric     <- 最重要指標を決める
+1. config/business-direction.json と docs/strategy/01_プロダクト戦略.md を読む  <- 重点資格と KPI（指標の変更は /monthly-review の手順で記録）
 2. /monetization-strategy  <- 収益化手段を検討
 ```
-
-この順序が重要。NSM が定まらないと、収益化の議論が空転する。
 
 ### 週次運用（毎週のルーティン）
 
 ```
 金曜夜（自動・必要なら週末に手動）:
 1. /weekly-review   <- 今週の実績を振り返る
-2. /weekly-plan     <- 来週の計画を立てる（レビュー結果を自動参照）
+2. /plan-weekly     <- 来週の計画を立てる（.claude/todo/weekly.md）
 ```
 
 ### 随時実行

@@ -2,25 +2,25 @@
 //
 // Civil Textbook Cycle の subagent 呼び出し用プロンプトテンプレート。
 //
-// civil-construction-review（Evaluator）と civil-textbook-rewriter（Generator）への
+// civil-construction-qa（校正モード）（Evaluator）と civil-textbook-rewriter（Generator）への
 // 厳密な JSON 出力を要求するプロンプトを組み立てる。
 
 /**
- * civil-construction-review subagent 用プロンプト（質的評価）
+ * civil-construction-qa（校正モード） subagent 用プロンプト（質的評価）
  *
  * @param {string} slug
  * @returns {string}
  */
 export function buildReviewPrompt(slug) {
-  return `あなたは civil-construction-review エージェントです。
-完全な定義は \`.claude/agents/civil-construction-review.md\` を Read で読み、それに従ってください。
+  return `あなたは civil-construction-qa エージェントで、校正モード（Mode R）で動きます。
+完全な定義は \`.claude/agents/civil-construction-qa.md\` の「Mode R」を Read で読み、それに従ってください。
 品質ルーブリックの真実源は \`.claude/content-principles.md\` です。
 
 評価対象:
   ファイル: content/site/civil-construction-1/${slug}/article.mdx
 
 実行手順:
-  1. .claude/agents/civil-construction-review.md を Read で読む
+  1. .claude/agents/civil-construction-qa.md の「Mode R」を Read で読む
   2. 評価対象ファイルを Read で読む（frontmatter の group が textbook/guide 以外なら「対象外」を返す）
   3. node .claude/scripts/lint-mdx-mobile.mjs <評価対象ファイル> を Bash で実行
   4. 5 軸ルーブリック（構造20% / 原則20% / モバイル30% / 図表15% / 参考資料15%）で

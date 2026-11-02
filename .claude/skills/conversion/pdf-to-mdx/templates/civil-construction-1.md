@@ -86,7 +86,7 @@ publishedAt: "YYYY-MM-DD"
 </details>
 ```
 
-## 品質ルーブリック（civil-construction-qa / civil-construction-review）
+## 品質ルーブリック（civil-construction-qa の Mode A・B・R）
 
 変換後に `/improve-article --mode verify` で自動評価。
 
@@ -121,4 +121,4 @@ publishedAt: "YYYY-MM-DD"
 - `.claude/knowledge/reference/exam-content-policy.md` — 試験別コンテンツ整備方針
 - `.claude/knowledge/reference/content-authoring.md` — MDX コンポーネント仕様
 - `.claude/agents/civil-construction-qa.md` — 視覚検証・網羅率評価の真実源
-- `.claude/agents/civil-construction-review.md` — 既存 MDX 校正の真実源
+- `.claude/agents/civil-construction-qa.md`（Mode R） — 既存 MDX 校正の真実源

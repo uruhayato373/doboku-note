@@ -1,10 +1,7 @@
 ---
 name: illustrate-concept
 description: >
-  MDX 記事に挿入する概念図を Discovery First 方式（Web 画像検索を前倒し実行し
-  標準視覚パターンの有無でトリアージ）で調査し、有用素材が見つかった概念のみ
-  ユーザー合意を得て複数 SVG を一括生成する。
-  Use when user asks to [概念図の検討, 図の着想, SVGの素案作成, 図版案の調査, /illustrate-concept].
+  MDX 記事の概念図を、Web 画像検索で素材の有無を先に調べ、合意を得た概念だけ複数 SVG で一括生成する。Use when user asks to [概念図の検討, 図の着想, SVGの素案作成, /illustrate-concept].
 domain: site
 ---
 

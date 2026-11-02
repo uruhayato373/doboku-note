@@ -4,7 +4,7 @@ import { PageHead } from '@/components/ui';
 import { Grid, Section, Stack } from '@/components/layout';
 import { Button } from '@/components/ui/button';
 import { Progress } from '@/components/ui/progress';
-import { PanelCard, StatCard, StatusBadge, type Tone } from '@/components/admin';
+import { DetailSheet, DetailText, PanelCard, StatCard, StatusBadge, type Tone } from '@/components/admin';
 import { monthDay, withUnit, yen } from '@/lib/format';
 import { loadKpiView, type ReceiptChannel } from '@/lib/kpi-tree';
 import { jstMonth } from '../../../../scripts/lib/jst-date.mjs';
@@ -46,10 +46,10 @@ function Bars({ rows }: { rows: { label: string; value: number | null }[] }) {
 }
 
 /** 詳細ページへの入口。カード全体がリンク。 */
-function LinkCard({ href, title, desc }: { href: string; title: string; desc: string }) {
+function LinkCard({ href, title }: { href: string; title: string }) {
   return (
     <Link href={href} className="rounded-lg text-inherit no-underline hover:no-underline focus-visible:ring-2 focus-visible:ring-ring">
-      <PanelCard title={title} description={desc} className="h-full transition-colors hover:bg-muted/40">
+      <PanelCard title={title} className="h-full transition-colors hover:bg-muted/40">
         <div className="flex justify-end text-muted-foreground">
           <ArrowRight className="size-4" />
         </div>
@@ -82,10 +82,7 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ m
           )}
         </nav>
 
-        <PanelCard
-          title="月の受取額（手数料控除後）"
-          description={r.total != null ? (r.complete ? '確定' : v.month === thisMonth ? '今月の途中経過' : '確定前（推計・未取得を含む）') : undefined}
-        >
+        <PanelCard title="月の受取額（手数料控除後）">
           <div className="flex flex-col gap-3">
             <div className="text-4xl leading-tight font-extrabold tabular-nums">
               {yen(r.total)}
@@ -103,18 +100,21 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ m
                 </span>
               </>
             ) : (
-              <span className="text-xs text-muted-foreground">この月の受取額はまだ 1 つも取得していない</span>
+              <span className="text-xs">この月の受取額はまだ 1 つも取得していない</span>
             )}
             <Stack gap="sm">
               {r.channels.map((c) => (
                 <div key={c.id} className="grid grid-cols-[5em_4.5em_7em_1fr] items-center gap-2 text-xs">
-                  <span>{c.label}</span>
+                  {c.note ? (
+                    <DetailSheet trigger={c.label} title={c.label}>
+                      <DetailText title="メモ" items={[c.note]} />
+                    </DetailSheet>
+                  ) : (
+                    <span>{c.label}</span>
+                  )}
                   <StatusBadge tone={RECEIPT_STATUS[c.status].tone}>{RECEIPT_STATUS[c.status].label}</StatusBadge>
                   <span className="text-right tabular-nums">{yen(c.value)}</span>
-                  <span className="text-muted-foreground">
-                    {c.asOf && `${monthDay(c.asOf)} 取得 ・ `}
-                    {c.note}
-                  </span>
+                  <span className="text-muted-foreground">{c.asOf && `${monthDay(c.asOf)} 取得`}</span>
                 </div>
               ))}
             </Stack>
@@ -131,10 +131,7 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ m
         </Grid>
       </Stack>
 
-      <Section
-        title="入口（サイト）"
-        note={<>検索語は Google の直近 28 日（{v.search.period ?? '未取得'}）・<Link href="/metrics/search-strategy">検索の詳細</Link></>}
-      >
+      <Section title="入口（サイト）">
         <Grid min="sm">
           <StatCard label="インデックス率" value={withUnit(v.site.indexRatio, '%')} />
           <StatCard label="Google クリック" value={withUnit(v.site.gscClicks, '')} sub="この月" />
@@ -151,9 +148,9 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ m
 
       <Section title="詳しく見る">
         <Grid min="md">
-          <LinkCard href={`/metrics/kpi?month=${v.month}`} title="KPI ツリー" desc="全指標を資格別の表で" />
-          <LinkCard href="/metrics/traffic" title="集客の推移" desc="PV・流入のグラフとデータの更新状況" />
-          <LinkCard href="/metrics/search-strategy" title="検索キーワード" desc="クラスター別の順位と改善候補" />
+          <LinkCard href={`/metrics/kpi?month=${v.month}`} title="KPI ツリー" />
+          <LinkCard href="/metrics/traffic" title="集客の推移" />
+          <LinkCard href="/metrics/search-strategy" title="検索キーワード" />
         </Grid>
       </Section>
     </Stack>

@@ -1,6 +1,7 @@
 ---
 name: audit-note-funnel
-description: note 導線（ファネル）の資格別 3 層モデル（L1 全資格サイトマップ / L2 資格別もくじ / L3 記事内 CTA）のドリフトを監査・修復する。ソース監査（D1-D4＝CTA 欠落・L2 未収録・L1 未リンク）に加え --live でライブ反映（D5＝配線後に再投稿せず live が死ぬドリフト）を検出し、wire-note-funnel-cta（ソース配線）／note-append-cta（公開済み記事へ live 反映）で修復する。Use when user says "note導線の見直し", "もくじ整備", "CTA配線", "ファネル監査". 真実源は .claude/knowledge/reference/note-funnel-architecture.md。
+description: >
+  note 導線の3層（L1 サイトマップ / L2 もくじ / L3 記事内 CTA）のドリフトをソース・ライブ両面で監査し、配線コマンドで修復する。Use when user says "note導線の見直し", "もくじ整備", "CTA配線", "ファネル監査".
 disable-model-invocation: false
 user-invocable: true
 argument-hint: "[--exam tankan|pe-construction|civil] [--apply] | --semantic"

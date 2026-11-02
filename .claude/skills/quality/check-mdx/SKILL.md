@@ -1,10 +1,7 @@
 ---
 name: check-mdx
 description: >
-  MDX ファイルの構文・frontmatter・リンク・SVG・法令引用・関連キーワード・note リンク・過去問解説等を
-  rule ベースで検査する統合 Evaluator スキル。10 rule を `--rules` フラグで選択可能。
-  pre-commit hook からも利用される。
-  Use when user asks to [MDX検査, lint MDX, 構文チェック, リンクチェック, SVG監査, frontmatter チェック, 法令リンク, note リンク, /check-mdx].
+  MDX の構文・frontmatter・リンク・SVG・法令引用・関連キーワード・過去問解説等を10 rule で検査する（pre-commit でも使用）。Use when user asks to [MDX検査, lint MDX, 構文チェック, リンクチェック, /check-mdx].
 user-invocable: true
 domain: site
 ---

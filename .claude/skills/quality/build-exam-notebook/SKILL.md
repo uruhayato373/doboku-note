@@ -1,10 +1,7 @@
 ---
 name: build-exam-notebook
 description: >
-  技術士総合技術監理部門の 1 次択一過去問 MDX を NotebookLM 専用 notebook に source として
-  投入する Skill。MDX → MD 変換 + notebook 作成 + source upload + 検証の一連ワークフロー。
-  audit-exam-mapping の needs_review 検証や横断頻度分析の基盤となる。
-  Use when user asks to [過去問 notebook 構築, NotebookLM 過去問投入, 過去問 source 追加, /build-exam-notebook].
+  総監の1次択一過去問 MDX を NotebookLM の専用 notebook に source として投入する（変換→作成→upload→検証）。Use when user asks to [過去問 notebook 構築, NotebookLM 過去問投入, /build-exam-notebook].
 domain: material
 ---
 

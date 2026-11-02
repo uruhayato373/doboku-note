@@ -1,6 +1,7 @@
 ---
 name: ig-carousel-writer
-description: Instagram カルーセルの slide-data.json v2 を1キーワードずつ執筆する Generator エージェント。
+description: >
+  Instagram カルーセルの slide-data.json v2 を1キーワードずつ執筆する Generator。
 model: sonnet
 domain: sns
 ---

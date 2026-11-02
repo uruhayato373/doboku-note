@@ -9,9 +9,9 @@ import { readJson } from './json-io.mjs';
 import { datasetDir, datasetFiles, datasetPath } from './datasets.mjs';
 import { latestReport } from './metric-reports.mjs';
 import { isNoteMonthFinalized, noteMonthsPendingFinalization, noteSalesFinalizeDate } from './net-receipts.mjs';
-import { classifyProduct, classifySale } from './product-lineup.mjs';
+import { classifyProduct, classifySale, withSaleProducts } from './product-lineup.mjs';
 import { qualificationKey } from './sales-by-qualification.mjs';
-import { readDataset } from './dataset-io.mjs';
+import { readDataset, readDatasetIf } from './dataset-io.mjs';
 import { writeDataset } from './dataset-write.mjs';
 import { BUSINESS_CHANNELS } from './dataset-schema-parts.mjs';
 import { addDays, isoWeekKey as weekOfDay, reviewWindowOfWeek } from './review-week.mjs';
@@ -366,7 +366,7 @@ export function sourceFacts(root, c, period) {
   const publishedItems = existsSync(join(root, publishedPath)) ? readJson(root, publishedPath).items ?? [] : [];
   const qualificationIds = c.qualifications.map(q => q.id);
   // 売上・KDP の資格への帰属は商品の分類（product-lineup.json）を引く（接頭辞の表を business-direction.json に持たない）
-  const attribute = lineupQualifier(readDataset(root, 'config.product-lineup'), qualificationIds);
+  const attribute = lineupQualifier(withSaleProducts(readDataset(root, 'config.product-lineup'), readDatasetIf(root, 'config.products')?.products), qualificationIds);
   // 月次の取得物は月の期間のまま載せる。期間が一致するレビュー（月次）だけがセルに使い、週次は別期間として表示する。
   for (const month of monthsOf(period)) {
     const trafficPath = datasetPath('note.referrers', { month }), articlesPath = datasetPath('note.articles-pv', { month });

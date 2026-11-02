@@ -1,8 +1,7 @@
 ---
 name: review
 description: >
-  対象ファイルの種類を自動判定し、適切なレビュースキル（review-mobile / check-mdx / check-links / code-review / design-review / critical-review）を実行して結果を集約する統一エントリーポイント。
-  Use when user asks to [レビュー, /review, レビューして, 確認して, チェックして].
+  対象ファイルの種類を判定し、適切なレビュースキルを実行して結果を集約する統一入口。Use when user asks to [レビュー, /review, レビューして, 確認して, チェックして].
 user-invocable: true
 domain: ops
 ---

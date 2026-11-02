@@ -1,7 +1,7 @@
 ---
 name: standards-table-qa
 description: >
-  standards-table-writer が組み直した公的基準の表（content/sources/standards/tables/{key}.json）を、原本のページ画像と 1 セルずつ照合して承認・差し戻しを決める Evaluator。表の中身は直さず、判定は npm run standards-tables -- review で review 欄にだけ書く。Use when user asks to [組み直した表の照合, 表の承認, /standards-table-rebuild の QA].
+  組み直した共通仕様書の表を原本ページ画像と1セルずつ照合し、承認・差し戻しを決める Evaluator。表は直さない。
 model: sonnet
 tools: Read, Glob, Grep, Bash, WebSearch, WebFetch
 domain: site

@@ -1,10 +1,7 @@
 ---
 name: consolidate-duplicate-keyword
 description: >
-  総合技術監理キーワード集で同一概念が複数スラグで登録されているケースを検出し、
-  1 ページに統合する標準手順（7 フェーズ）を提供する。pe-chapters.json スキャン +
-  RelatedKeywords 更新 + _redirects 追加 + 自動生成再ビルドまでの作業書。
-  Use when user asks to [重複キーワード 統合, /consolidate-duplicate-keyword, 統合手順].
+  総監キーワード集で同一概念が複数スラグにあるものを、1ページへ統合する7フェーズの作業書。Use when user asks to [重複キーワード 統合, 統合手順, /consolidate-duplicate-keyword].
 user-invocable: true
 domain: site
 ---

@@ -1,9 +1,7 @@
 ---
 name: past-exam-archive
 description: >
-  公式過去問の原本 PDF を年度在庫台帳に沿って取得し、Google Drive vault（原資料PDF/過去問/）へ退避・全バイト照合・台帳登録する。
-  新年度の掲載確認と新資格の在庫追加も扱う。PDF→MDX 変換は /exam-questions-import、第三者の解答解説・市販教材は対象外。
-  Use when user asks to [過去問の取得, 過去問PDFの保存, 新年度の過去問, 過去問をDriveへ, /past-exam-archive].
+  公式過去問の原本 PDF を年度在庫台帳に沿って取得し、Drive vault へ退避・全バイト照合・登録する。Use when user asks to [過去問の取得, 過去問PDFの保存, 新年度の過去問, /past-exam-archive].
 domain: material
 ---
 

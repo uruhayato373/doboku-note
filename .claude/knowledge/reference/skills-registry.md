@@ -223,6 +223,8 @@ title: スキル ガバナンス記録
 
 | 退役日 | スキル | カテゴリ | 代替 |
 |---|---|---|---|
+| 2026-11-01 | `/weekly-plan` | management | `/plan-weekly`（週間計画の正本 weekly.md・自動の週次レビューが呼ぶ）。重い戦略版は 9/26 から手動のみで使われていなかった（DN-0798・docs/reviews/critical/2026-11-01-revenue-focus-and-ops-slimming.md） |
+| 2026-11-01 | `/north-star-metric` | management | `config/business-direction.json` と `/monthly-review` の target 記録（重点資格・KPI の定義はここだけ・DN-0798） |
 | 2026-09-26 | `/brain-publish` | management | なし（Brain チャネルから完全撤退・出品2点で売上0件。c27b67c0c） |
 | 2026-07-04 | `/exam-guide`（＋`templates/exam-guide/` 全5テンプレ＋`templates/README.md`） | authoring | `group: guide` 品質サイクル（`guide-rewriter` 生成 → `guide-qa` 評価 → `guide-fact-checker` 事実照合）。テンプレは旧 Docusaurus アーキで死亡・実運用は既にオリジナル散文フローへ移行済み |
 | 2026-04-15 | `/pe-exam-guide` | content | `/exam-guide --exam pe`（**その `/exam-guide` も 2026-07-04 退役**） |

@@ -90,6 +90,7 @@ export const DATASETS = [
   d('config.business-direction', 'config/business-direction.json', 'config', 'strategy', '重点資格・KPI の定義・レビュー周期', { schema: 'ConfigBusinessDirection', refs: [{ at: 'qualifications[].id', to: 'qualification' }, { at: 'metrics[].appliesTo', to: 'qualification', ignore: ['all'] }] }),
   d('config.qualification-registry', 'config/qualification-registry.json', 'config', 'strategy', '資格の一覧・名前・並び順・展開状態', { schema: 'QualificationRegistry' }),
   d('config.exam-calendar', 'config/exam-calendar.json', 'config', 'strategy', '試験日程', { schema: 'ExamCalendar' }),
+  d('config.revenue-calendar', 'config/revenue-calendar.json', 'config', 'plan', '収益カレンダー（資格ごとに、試験の何週前に制作を始め・CTA を切り替え・販売の山を迎え、何日後に判定するか）', { schema: 'ConfigRevenueCalendar', refs: [{ at: 'targets[].qualification', to: 'qualification' }] }),
   d('config.exam-formats', 'config/exam-formats.json', 'config', 'strategy', '試験区分・出題形式・過去問の公開範囲', { schema: 'ConfigExamFormats' }),
   d('config.exam-stats', 'config/exam-stats.json', 'config', 'strategy', '受験者数・合格率', { schema: 'ConfigExamStats' }),
   d('config.market-scan', 'config/market-scan.json', 'config', 'strategy', '資格ごとの市場（競合の混み具合）を取る検索語と閾値', { schema: 'ConfigMarketScan' }),
@@ -124,6 +125,8 @@ export const DATASETS = [
   d('config.cta-placements', 'config/cta-placements.json', 'config', 'affiliate', 'サイトの広告・送客の配置（GA4 の cta_placement）の語彙と状態', { schema: 'ConfigCtaPlacements' }),
   // サイト
   d('config.content-rules', 'config/content-rules.json', 'config', 'site', 'サイト記事の機械品質ルールの重大度と適用範囲', { schema: 'ConfigContentRules' }),
+  d('config.channel-strategy', 'config/channel-strategy.json', 'config', 'strategy', '販売チャネルの役割・売る商品・手数料・SWOT・4C・KGI/KPI（管理画面 チャネル設計・npm run channel-economics）', { schema: 'ConfigChannelStrategy' }),
+  d('config.page-quality-profiles', 'config/page-quality-profiles.json', 'config', 'site', 'ページの種類ごとの採点プロファイル（見る観点・機械の検査・指標・評価役・適用しない規則）', { schema: 'ConfigPageQualityProfiles' }),
   d('config.search-strategy', 'config/search-strategy.json', 'config', 'site', '検索キーワード戦略のクラスタ', { schema: 'ConfigSearchStrategy' }),
   d('config.seo-meta-config', 'config/seo-meta-config.json', 'config', 'site', 'SEO meta 監査の対象と巡回の設定', { schema: 'ConfigSeoMeta' }),
   d('config.growth-cycle', 'config/growth-cycle.json', 'config', 'site', '成長サイクル（計測ダイジェスト）の設定', { schema: 'ConfigGrowthCycle' }),
@@ -191,6 +194,7 @@ export const DATASETS = [
   d('kdp.royalties', 'data/kdp/royalties.json', 'ledger', 'product', 'KDP の月ごとのロイヤリティ（当月と確定前の前月は推計。週次で取り直す）', { schema: 'KdpRoyalties' }),
   // ココナラ
   d('coconala.orders', 'data/coconala/orders.json', 'ledger', 'product', 'ココナラの受注の記録', { schema: 'CoconalaOrders' }),
+  d('coconala.seller-profile', 'data/coconala/seller-profile.json', 'ledger', 'product', 'ココナラの公開プロフィールの評価の数の推移（土曜のココナラの段・チャネル設計の KPI）', { schema: 'CoconalaSellerProfile' }),
   d('coconala.revenue', 'data/coconala/revenue.json', 'ledger', 'product', 'ココナラの売上履歴（手数料控除後・クローズ日で計上。週次で取り直す）', { schema: 'CoconalaRevenue', freshness: { warnDays: 10, failDays: 21 } }),
   d('coconala.orders-snapshot', 'data/coconala/orders-snapshot.json', 'state', 'product', 'ココナラの取引一覧の最新（受注の照合元）', { schema: 'CoconalaOrdersSnapshot', freshness: { warnDays: 8, failDays: 15 } }),
   d('coconala.kpi', 'data/coconala/kpi.json', 'ledger', 'product', 'ココナラの出品ごとの閲覧・お気に入りの推移', { schema: 'CoconalaKpi' }),
@@ -334,6 +338,7 @@ export const DATASETS = [
   d('state.quality-baselines', '.claude/state/quality/{name}-baseline.json', 'config', 'ops', '品質ゲートの基準線（lint・knip・画像・git バイナリ・図のクロップ・エージェントの説明）'),
   d('state.quality-scores-by-qualification', '.claude/state/quality/{name}-scores.json', 'state', 'site', '資格ごとの採点（1級土木一次・2級土木・コンクリート主任技士・建設部門・第一次試験・総監その他）'),
   d('state.quality-history', '.claude/state/quality/history.jsonl', 'ledger', 'ops', 'quality:audit の結果の推移'),
+  d('state.gemini-trial', '.claude/state/quality/gemini-trial.json', 'state', 'site', 'Gemini の一次採点と Claude の評価役の採点の比較（DN-0939・scripts/gemini-scoring-trial.mjs）'),
   d('state.quality-census', '.claude/state/quality/census.json', 'state', 'ops', '品質の棚卸し（census）の最新'),
   d('state.quality-census-history', '.claude/state/quality/census-history.jsonl', 'ledger', 'ops', '同上の推移'),
   d('state.quality-latest-report', '.claude/state/quality/latest-report.md', 'report', 'ops', 'quality:audit の最新の報告'),

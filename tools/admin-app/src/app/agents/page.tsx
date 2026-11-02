@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { DataTable, PanelCard, type DataTableColumn, type DataTableRow } from '@/components/admin';
+import { DataTable, DetailList, DetailSheet, DetailText, PanelCard, type DataTableColumn, type DataTableRow } from '@/components/admin';
 import { PageHead } from '@/components/ui';
 import { loadAgents, type AgentEntry } from '@/lib/registry';
 import { domainList } from '@/lib/domains';
@@ -10,7 +10,6 @@ const AGENT_COLUMNS: DataTableColumn[] = [
   { key: 'name', label: '名前' },
   { key: 'domain', label: '領域' },
   { key: 'role', label: '役割' },
-  { key: 'description', label: '説明', wrap: true, sortable: false },
 ];
 
 /** tools に Edit/Write/All tools/* を含むかで 制作（Generator）/ 検査（Evaluator）を推定。 */
@@ -35,12 +34,16 @@ export default async function AgentsPage({ searchParams }: { searchParams: Promi
 
   const rows: DataTableRow[] = filtered.map((a) => ({
     id: a.name,
-    values: { name: a.name, domain: label(a.domain), role: role(a), description: a.description },
+    values: { name: a.name, domain: label(a.domain), role: role(a) },
     cells: {
-      name: <span className="font-mono">{a.name}</span>,
+      name: (
+        <DetailSheet trigger={<span className="font-mono">{a.name}</span>} title={<span className="font-mono">{a.name}</span>} description={label(a.domain)}>
+          <DetailText title="説明" items={[a.description]} />
+          <DetailList items={[{ label: '道具', value: a.tools }, { label: 'モデル', value: a.model }]} />
+        </DetailSheet>
+      ),
       domain: <span className="text-xs">{label(a.domain)}</span>,
       role: <span className="text-xs">{role(a)}</span>,
-      description: <span className="desc-clamp text-xs">{a.description}</span>,
     },
   }));
 
@@ -72,7 +75,7 @@ export default async function AgentsPage({ searchParams }: { searchParams: Promi
         })}
       </div>
 
-      <DataTable columns={AGENT_COLUMNS} rows={rows} pageSize={50} filter="名前・領域・説明で絞り込む" />
+      <DataTable columns={AGENT_COLUMNS} rows={rows} pageSize={50} filter="名前・領域で絞り込む" />
     </>
   );
 }
