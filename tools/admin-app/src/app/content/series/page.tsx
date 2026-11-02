@@ -1,7 +1,7 @@
 import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import Link from 'next/link';
-import { DataTable, type DataTableColumn, type DataTableRow, PanelCard, StatusBadge, TableBody, TableCell, TableFrame, TableHead, TableHeader, TableRow, type Tone } from '@/components/admin';
+import { DataTable, DetailList, DetailSheet, DetailText, type DataTableColumn, type DataTableRow, PanelCard, StatusBadge, TableBody, TableCell, TableFrame, TableHead, TableHeader, TableRow, type Tone } from '@/components/admin';
 import { Stack } from '@/components/layout';
 import { PageHead } from '@/components/ui';
 import { findRepoRoot } from '@/lib/repo-root';
@@ -10,7 +10,6 @@ import { siteSlugOf } from '../../../../../../scripts/lib/content-expansion.mjs'
 import { publicPathFromSlug } from '../../../../../../scripts/lib/url-normalization.mjs';
 import { parseBacklog } from '../../../../../../scripts/lib/backlog-lib.mjs';
 import { TODO_ROOT } from '../../../../../../scripts/lib/repository-paths.mjs';
-import { datasetPath } from '../../../../../../scripts/lib/datasets.mjs';
 import { SITE_ORIGIN } from '../../../../../../scripts/lib/site-identity.mjs';
 
 export const dynamic = 'force-dynamic';
@@ -86,8 +85,8 @@ function articleLink(a: Article) {
  * 正本は config/content-series.json（目次・計画・根拠）。状態は台帳に書かず、記事ファイルの有無と published から
  * scripts/lib/content-series.mjs が出す。判断の記録は各シリーズの policy、実行はバックログのカード。
  */
-export default async function SeriesPage({ searchParams }: { searchParams: Promise<{ item?: string }> }) {
-  const { item: focus } = await searchParams;
+export default async function SeriesPage({ searchParams }: { searchParams: Promise<{ item?: string; s?: string }> }) {
+  const { item: focus, s: tab } = await searchParams;
   const root = findRepoRoot();
   const config = loadSeriesConfig(root);
   const ctx = seriesContext(root);
@@ -106,20 +105,18 @@ export default async function SeriesPage({ searchParams }: { searchParams: Promi
   };
   const shortTitle = new Map((ctx.referenceSources as { id: string; shortTitle?: string; title: string }[]).map((r) => [r.id, r.shortTitle ?? r.title]));
   const cards = cardsBySeries(view.map((s) => s.id));
+  const current = tab === 'books' ? 'books' : view.some((x) => x.id === tab) ? (tab as string) : (view[0]?.id ?? 'books');
 
   return (
     <>
       <PageHead title="シリーズ企画" />
+      <nav className="filterbar mb-3!">
+        {view.map((x) => (
+          <Link key={x.id} className={'chip' + (x.id === current ? ' active' : '')} href={`/content/series?s=${encodeURIComponent(x.id)}`}>{x.title}</Link>
+        ))}
+        <Link className={'chip' + (current === 'books' ? ' active' : '')} href="/content/series?s=books">書籍の割り当て</Link>
+      </nav>
       <Stack>
-        <p className="text-sm text-muted-foreground">
-          試験・教科書とは別の軸で書く記事のシリーズ。目次・計画・根拠は <code>{datasetPath('config.content-series')}</code>、
-          状態（公開・下書き・未着手）は記事の実体から出す。カードの本文にシリーズの id を書くと、ここに関連カードとして出る。
-          「教材」は書籍の項目のうちその章に割り当てた数（<code>{datasetPath('config.content-series-basis')}</code>）。
-          「画像」は、章に使う本の頁（切り出し待ち・図なし・済み）→ その頁から切り出した図（どの計画にも結びついていない＝未対応）→ 図・写真の計画の段階（切り出し済み → 作成 → 監査 → 記事に配置）。
-          「骨子」は章ごとの骨子（<code>content/sources/series/&lt;シリーズ&gt;/&lt;項目&gt;.md</code>）の状態（骨子なし・骨子あり・確認済み）と、論点のうち一次資料（法令・要領・白書の id か URL）の根拠がある数。
-          どれも書籍の台帳・画像の実体・AI 画像の台帳・記事の本文から出す。Codex に渡す一覧は <code>npm run check-content-series -- --crop-jobs</code>（切り出し）と <code>-- --visual-jobs</code>（作成から配置まで）。
-        </p>
-
         {focus && outlineSet.outlines.get(focus) && (
           <ItemOutline itemKey={focus} title={pageList(focus).item?.title ?? focus} o={outlineSet.outlines.get(focus)!} />
         )}
@@ -128,7 +125,7 @@ export default async function SeriesPage({ searchParams }: { searchParams: Promi
           <ItemImages itemKey={focus} title={pageList(focus).item?.title ?? focus} p={progress.get(focus)!} bookDir={bookDir} shortTitle={shortTitle} pages={chapterPagesOf(focus)} />
         )}
 
-        <PanelCard title="書籍の全項目の割り当て">
+        {current === 'books' && <PanelCard title="書籍の全項目の割り当て">
           <DataTable
             columns={BOOK_COLUMNS}
             rows={Object.entries(bv.byBook).map(([id, t]): DataTableRow => ({
@@ -139,7 +136,7 @@ export default async function SeriesPage({ searchParams }: { searchParams: Promi
             pageSize={100}
             filter="書籍で絞り込む"
           />
-        </PanelCard>
+        </PanelCard>}
 
         {issues.length > 0 && (
           <PanelCard title={`台帳の問題 ${issues.length} 件`}>
@@ -149,65 +146,64 @@ export default async function SeriesPage({ searchParams }: { searchParams: Promi
           </PanelCard>
         )}
 
-        {view.map((s) => {
+        {view.filter((s) => s.id === current).map((s) => {
           const m = s.summary;
           const related = cards.get(s.id) ?? [];
           return (
             <PanelCard key={s.id} title={`${s.title}（新規 ${m.newTotal} のうち公開 ${m.published}・下書き ${m.draft}／補強待ち ${m.strengthen}／既存 ${m.existing}）`}>
-              <div className="small mb-2 text-muted-foreground">
-                <div>読者: {s.audience} · 置き場: /{s.area}/ · id <code>{s.id}</code> · 判断の記録 <code>{s.policy}</code></div>
-                {s.gate && <div className="project-warning-text">着手の条件: {s.gate}</div>}
-                <div>
-                  関連カード:{' '}
-                  {related.length === 0 ? 'なし' : related.map((c) => (
-                    <Link key={c.id} href={`/todo?f=backlog&id=${encodeURIComponent(c.id)}`} className="mr-1.5" title={c.title}>{c.id}</Link>
-                  ))}
+              {(s.gate || related.length > 0) && (
+                <div className="small mb-2">
+                  {s.gate && <div className="project-warning-text">着手の条件: {s.gate}</div>}
+                  {related.length > 0 && (
+                    <div>
+                      関連カード:{' '}
+                      {related.map((c) => (
+                        <Link key={c.id} href={`/todo?f=backlog&id=${encodeURIComponent(c.id)}`} className="mr-1.5" title={c.title}>{c.id}</Link>
+                      ))}
+                    </div>
+                  )}
                 </div>
-              </div>
+              )}
               <TableFrame>
                 <TableHeader>
                   <TableRow>
                     <TableHead>#</TableHead>
                     <TableHead>項目</TableHead>
-                    <TableHead>計画</TableHead>
                     <TableHead>状態</TableHead>
                     <TableHead>骨子</TableHead>
                     <TableHead>記事</TableHead>
-                    <TableHead>教材</TableHead>
-                    <TableHead>画像</TableHead>
-                    <TableHead>根拠</TableHead>
                   </TableRow>
                 </TableHeader>
                 <TableBody>
                   {s.sections.flatMap((sec) => [
                     <TableRow key={`${s.id}:${sec.title}`}>
-                      <TableHead colSpan={9} scope="rowgroup">{sec.title}</TableHead>
+                      <TableHead colSpan={5} scope="rowgroup">{sec.title}</TableHead>
                     </TableRow>,
                     ...sec.items.map((it) => (
                       <TableRow key={`${s.id}:${it.id}`} className="align-top">
                         <TableCell className="whitespace-nowrap">{it.id}{it.wave ? <span className="text-xs text-muted-foreground"> 第{it.wave}波</span> : null}</TableCell>
                         <TableCell>
-                          <div>{it.title}</div>
-                          {(it.note || it.reason) && <div className="text-xs text-muted-foreground">{it.reason ?? it.note}</div>}
-                          {(it.links ?? []).length > 0 && (
-                            <div className="text-xs text-muted-foreground">詳しくは: {(it.links ?? []).map((l) => siteSlugOf(l) ?? l).join('・')}</div>
-                          )}
+                          <DetailSheet trigger={it.title} title={it.title} description={`${s.title} ${it.id}`}>
+                            <DetailList
+                              items={[
+                                { label: '計画', value: PLAN_LABELS[it.plan] },
+                                { label: '読者', value: s.audience },
+                                { label: '置き場', value: `/${s.area}/` },
+                                { label: '教材', value: Object.entries(bv.byItem.get(`${s.id}/${it.id}`) ?? {}).map(([b, n]) => <div key={b}>{shortTitle.get(b) ?? b} {n}</div>) },
+                                { label: '記事', value: it.articles.map((a) => <div key={a.path}>{articleLink(a)}</div>) },
+                                { label: '画像', value: <ImageCell p={progress.get(`${s.id}/${it.id}`)} href={`/content/series?s=${encodeURIComponent(s.id)}&item=${encodeURIComponent(`${s.id}/${it.id}`)}`} /> },
+                                { label: '根拠', value: (it.sources ?? []).join(' ') },
+                              ]}
+                            />
+                            <DetailText title="理由" items={[it.reason ?? it.note]} />
+                            <DetailText title="詳しくは" items={(it.links ?? []).map((l) => siteSlugOf(l) ?? l)} />
+                          </DetailSheet>
                         </TableCell>
-                        <TableCell className="whitespace-nowrap">{PLAN_LABELS[it.plan]}</TableCell>
                         <TableCell className="whitespace-nowrap"><StatusBadge tone={STATE_TONE[it.state]}>{STATE_LABELS[it.state]}</StatusBadge></TableCell>
                         <TableCell className="text-xs whitespace-nowrap">
-                          <OutlineCell o={it.outline} href={`/content/series?item=${encodeURIComponent(`${s.id}/${it.id}`)}`} />
+                          <OutlineCell o={it.outline} href={`/content/series?s=${encodeURIComponent(s.id)}&item=${encodeURIComponent(`${s.id}/${it.id}`)}`} />
                         </TableCell>
-                        <TableCell className="text-xs">
-                          {it.articles.length === 0 ? <span className="text-muted-foreground">—</span> : it.articles.map((a) => <div key={a.path}>{articleLink(a)}</div>)}
-                        </TableCell>
-                        <TableCell className="text-xs whitespace-nowrap">
-                          {Object.entries(bv.byItem.get(`${s.id}/${it.id}`) ?? {}).map(([b, n]) => <div key={b}>{shortTitle.get(b) ?? b} {n}</div>)}
-                        </TableCell>
-                        <TableCell className="text-xs">
-                          <ImageCell p={progress.get(`${s.id}/${it.id}`)} href={`/content/series?item=${encodeURIComponent(`${s.id}/${it.id}`)}`} />
-                        </TableCell>
-                        <TableCell className="text-xs font-mono">{(it.sources ?? []).join(' ') || '—'}</TableCell>
+                        <TableCell className="text-xs tabular-nums">{it.articles.length || <span className="text-muted-foreground">—</span>}</TableCell>
                       </TableRow>
                     )),
                   ])}
@@ -275,10 +271,10 @@ function ItemImages({ itemKey, title, p, bookDir, shortTitle, pages }: {
           };
         })}
         pageSize={100}
-        emptyText="計画はまだ無い（台帳の visuals に書く）"
+        emptyText="計画なし"
       />
       <div className="small mt-3 mb-1">この章の頁から切り出した図（{p.crops.length}）</div>
-      {p.crops.length === 0 ? <div className="text-xs text-muted-foreground">まだ無い（npm run check-content-series -- --crop-jobs の頁を切り出して登録する）</div> : (
+      {p.crops.length === 0 ? <div className="text-xs text-muted-foreground">なし</div> : (
         <div className="flex flex-wrap gap-2">
           {p.crops.map((c) => {
             const src = mediaUrl(c.book, c.path);
@@ -330,7 +326,7 @@ function ItemOutline({ itemKey, title, o }: { itemKey: string; title: string; o:
     <PanelCard title={`骨子 ${itemKey} ${title}`}>
       <div className="small mb-2 text-muted-foreground">
         <StatusBadge tone={OUTLINE_TONE[status]}>{OUTLINE_LABELS[status]}</StatusBadge>{' '}
-        {o.front.approvedAt ? `確認日 ${o.front.approvedAt} · ` : ''}<code>{o.path}</code>
+        {o.front.approvedAt ? `確認日 ${o.front.approvedAt}` : ''}
       </div>
       <ol className="text-sm">
         {o.points.map((p, i) => (

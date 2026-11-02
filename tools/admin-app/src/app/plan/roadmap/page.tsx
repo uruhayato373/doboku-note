@@ -35,7 +35,7 @@ const COLOR: Record<string, string> = { exam: 'text-[color:var(--accent)]', resu
  * 設定（期間・買い場の週数）は annual-roadmap.json。年間の方針（注力しない・四半期定例）は annual.md を下部に表示する
  * （年間の画面はここだけ。/todo?f=annual はここへ転送）。
  */
-export default async function RoadmapPage({ searchParams }: { searchParams: Promise<{ view?: string; m?: string; e?: string; library?: string }> }) {
+export default async function RoadmapPage({ searchParams }: { searchParams: Promise<{ tab?: string; view?: string; m?: string; e?: string; library?: string }> }) {
   const sp = await searchParams;
   if (sp.view === 'video') redirect(longformPlanHref(sp));
   const root = findRepoRoot();
@@ -81,10 +81,18 @@ export default async function RoadmapPage({ searchParams }: { searchParams: Prom
   return (
     <>
       <PageHead title="年間ロードマップ" sub={`${cfg.period.start.replace('-', '/')}〜${cfg.period.end.replace('-', '/')}`} />
-      <nav className="project-crumbs" aria-label="SNSの制作・投稿管理"><Link href={longformPlanHref()}>通常動画の制作・公開管理</Link> · <Link href="/sns">SNSの投稿状況</Link> · <Link href="/schedule?dom=sns">SNS全体の予定</Link></nav>
-      <p className="mb-2 text-xs text-muted-foreground">
-        ● 試験　◆ 合格発表　■ 申込　緑＝買い場（試験前 {cfg.buyWindowWeeks} 週）　薄い字＝昨年度からの推定　中＝前年同月の売上（資格別）　右＝その月に始めるカード（バックログの [時期:]）
-      </p>
+      {annualNotes && (
+        <nav className="filterbar mb-3!">
+          <Link className={'chip' + (sp.tab !== 'policy' ? ' active' : '')} href="/plan/roadmap">ロードマップ</Link>
+          <Link className={'chip' + (sp.tab === 'policy' ? ' active' : '')} href="/plan/roadmap?tab=policy">年間の方針</Link>
+        </nav>
+      )}
+      {sp.tab === 'policy' && annualNotes ? (
+        <PanelCard title="年間の方針">
+          <div className="md-prose small" dangerouslySetInnerHTML={{ __html: renderMarkdown(annualNotes) }} />
+        </PanelCard>
+      ) : (
+      <>
       {before.length > 0 && (
         <p className="small project-warning-text">時期を過ぎたカード {before.length} 件（時期を見直すか完了を記録）: {before.map((c) => c.id).join(' ')}</p>
       )}
@@ -154,11 +162,8 @@ export default async function RoadmapPage({ searchParams }: { searchParams: Prom
           ))}
         </TableBody>
       </TableFrame>
-      {annualNotes ? (
-        <PanelCard title="年間の方針" className="mt-4">
-          <div className="md-prose small" dangerouslySetInnerHTML={{ __html: renderMarkdown(annualNotes) }} />
-        </PanelCard>
-      ) : null}
+      </>
+      )}
     </>
   );
 }

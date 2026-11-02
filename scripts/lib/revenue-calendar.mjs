@@ -14,7 +14,7 @@ export function addDays(ymd, days) {
   return new Date(Date.parse(`${ymd}T00:00:00Z`) + days * DAY_MS).toISOString().slice(0, 10);
 }
 
-/** 設定 1 件と試験日から 5 つの節目を出す */
+/** 設定 1 件と試験日から 5 つの節目（ココナラの添削の出品があれば再開と休止を足して 7 つ）を出す */
 export function phasesFor(target, examDate) {
   const w = (n) => addDays(examDate, -7 * n);
   return [
@@ -23,6 +23,13 @@ export function phasesFor(target, examDate) {
     { phase: 'peak-start', date: w(target.peakFromWeeks), label: '販売の山 開始', detail: `試験の ${target.peakFromWeeks} 週前〜${target.peakToWeeks} 週前` },
     { phase: 'peak-end', date: w(target.peakToWeeks), label: '販売の山 終了', detail: `試験の ${target.peakToWeeks} 週前` },
     { phase: 'judgment', date: addDays(examDate, target.judgmentDaysAfter), label: '判定（売上の山と原因を見る）', detail: `試験の ${target.judgmentDaysAfter} 日後` },
+    // ココナラの添削は試験の 4〜8 週前だけ開き、試験の翌日に休止する（docs/strategy/22 §5・DN-0942）。再開は CTA の切り替えと同じ日
+    ...(target.coconalaServices?.length
+      ? [
+          { phase: 'coconala-open', date: w(target.ctaSwitchWeeks), label: 'ココナラの添削の再開', detail: `${target.coconalaServices.join('・')}（npm run coconala-pause -- --resume）` },
+          { phase: 'coconala-pause', date: addDays(examDate, 1), label: 'ココナラの添削の休止', detail: `${target.coconalaServices.join('・')}（休止の前に、この出品へリンクしている note の記事を npm run check-coconala-wiring で確かめる）` },
+        ]
+      : []),
   ];
 }
 

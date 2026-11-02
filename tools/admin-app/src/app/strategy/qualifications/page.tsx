@@ -1,4 +1,4 @@
-import { DataTable, PanelCard, StatusBadge, type DataTableColumn, type DataTableRow, type Tone } from '@/components/admin';
+import { DataTable, DetailSheet, DetailText, PanelCard, StatusBadge, type DataTableColumn, type DataTableRow, type Tone } from '@/components/admin';
 import { PageHead } from '@/components/ui';
 import SectionTabs from '@/components/SectionTabs';
 import UpcomingEvents from '@/components/UpcomingEvents';
@@ -38,7 +38,7 @@ export default function QualificationsPage() {
 
       {view.errors.length > 0 && (
         <PanelCard title={`正本の不整合 ${view.errors.length} 件`}>
-          <p className="text-sm text-muted-foreground">npm run check-exam-calendar で詳細を確認して正本を直す。</p>
+          <p className="text-sm">正本を直す必要があります。</p>
         </PanelCard>
       )}
 
@@ -65,12 +65,14 @@ function toRow(r: QualificationView): DataTableRow {
       rate: r.lines.map((l) => l.rate).join(' / '),
     },
     cells: {
-      portfolio: (
-        <>
-          <StatusBadge tone={PORTFOLIO_TONE[r.portfolio] ?? 'info'}>{PORTFOLIO_LABEL[r.portfolio] ?? r.portfolio}</StatusBadge>
-          {r.portfolioNote && <div className="text-[11px] text-muted-foreground">{r.portfolioNote}</div>}
-        </>
+      label: r.portfolioNote ? (
+        <DetailSheet trigger={r.label} title={r.label}>
+          <DetailText title="状態の補足" items={[r.portfolioNote]} />
+        </DetailSheet>
+      ) : (
+        r.label
       ),
+      portfolio: <StatusBadge tone={PORTFOLIO_TONE[r.portfolio] ?? 'info'}>{PORTFOLIO_LABEL[r.portfolio] ?? r.portfolio}</StatusBadge>,
       exam: (
         <div className="text-xs">
           {r.lines.map((l) => (

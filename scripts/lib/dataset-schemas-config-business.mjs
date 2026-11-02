@@ -347,6 +347,7 @@ export const ConfigRevenueCalendar = z
             peakFromWeeks: positiveInt.describe('販売の山の始まり（試験の何週前）'),
             peakToWeeks: z.number().int().min(0).describe('販売の山の終わり（試験の何週前。0 は試験日まで）'),
             judgmentDaysAfter: positiveInt.describe('判定（試験の何日後）'),
+            coconalaServices: z.array(QID).min(1).optional().describe('この試験に合わせて開閉するココナラの添削の出品 id（CTA の切り替えの日に再開・試験の翌日に休止）'),
             note: text.describe('値の根拠（実績の山）'),
           })
           .strict()
@@ -883,6 +884,8 @@ export const ConfigContentRules = z
 // ---- 販売チャネルの設計（config/channel-strategy.json・2026-11-02） ------------------------------
 
 const CHANNEL_ID = z.enum(['note', 'kindle', 'coconala']);
+/** 4P＝売る側の決めごと（商品・価格・売り場・販促）。4C は同じ 4 つを買う側から見直したもの */
+const fourP = z.object({ product: text, price: text, place: text, promotion: text }).strict();
 const fourC = z.object({ customerValue: text, cost: text, convenience: text, communication: text }).strict();
 
 export const ConfigChannelStrategy = z
@@ -890,7 +893,7 @@ export const ConfigChannelStrategy = z
     schemaVersion: z.literal(1),
     _doc: text,
     fees: z.record(CHANNEL_ID, z.object({ label: text, keepRate: z.number().gt(0).lt(1).describe('販売額に対する手取りの割合（公表料率）'), basis: text, source: url, checkedAt: jstDate('料率を公式で確かめた日') }).strict()),
-    channels: z.array(z.object({ id: CHANNEL_ID, role: text, sells: strList, notSell: strList, fourC }).strict()).min(1).superRefine(uniqueBy((c) => c.id, 'チャネル')),
+    channels: z.array(z.object({ id: CHANNEL_ID, role: text, sells: strList, notSell: strList, fourP, fourC }).strict()).min(1).superRefine(uniqueBy((c) => c.id, 'チャネル')),
     swot: z.object({ strengths: strList, weaknesses: strList, opportunities: strList, threats: strList }).strict(),
     kgi: z.object({ metric: text, label: text, targetYen: yen('月の目標'), source: text }).strict(),
     kpis: z
@@ -1204,7 +1207,7 @@ export const ConfigDemandMap = z
             judgeDate: jstDate('判定日'),
             stopCondition: text.describe('停止条件'),
             nextCheck: text.describe('次の検証'),
-            status: z.enum(['idea', 'decided', 'building', 'live', 'stopped']).describe('idea=候補 / decided=運営者が作ると決めた / building=制作中 / live=販売中 / stopped=停止'),
+            status: z.enum(['idea', 'decided', 'building', 'live', 'hold', 'stopped']).describe('idea=候補 / decided=運営者が作ると決めた / building=制作中 / live=販売中 / hold=保留（方針が変わるまで見送る・判定日の知らせから外す） / stopped=停止（作らない）'),
             productIds: z.array(text).optional().describe('販売を始めた商品 id（商品の正本の id）。実売の比較はこの id で売上を引く'),
             salesIds: z.array(text).optional().describe('売上記録（note の販売履歴）の productId が商品の id と違うときの id（bk-* など sales-recorder の旧系統）。productIds と合わせて実売を引く'),
             experimentId: z.string().regex(/^EXP-\d{3}$/).optional().describe('計測する実験（experiments.json）'),

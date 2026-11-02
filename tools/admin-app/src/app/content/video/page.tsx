@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { DataTable, type DataTableColumn, type DataTableRow, PanelCard, StatusBadge, type Tone } from '@/components/admin';
+import { DataTable, DetailList, DetailSheet, type DataTableColumn, type DataTableRow, PanelCard, StatusBadge, type Tone } from '@/components/admin';
 import { PageHead } from '@/components/ui';
 import { longformPlanHref } from '@/lib/content-plan-links';
 import { videoPackBoard, examLabel, stageClass } from '@/lib/video-board';
@@ -9,13 +9,8 @@ export const dynamic = 'force-dynamic';
 
 const COLUMNS: DataTableColumn[] = [
   { key: 'stage', label: '段階' },
-  { key: 'packId', label: 'packId' },
-  { key: 'title', label: 'タイトル / 悩み' },
-  { key: 'intent', label: 'intent' },
-  { key: 'script', label: '台本' },
-  { key: 'storyboard', label: '構成' },
+  { key: 'title', label: 'タイトル' },
   { key: 'qa', label: 'QA', num: true },
-  { key: 'cta', label: '主CTA' },
 ];
 
 /**
@@ -37,10 +32,8 @@ export default async function VideoPackBoard({
   if (!board.ok) {
     return (
       <>
-        <PageHead title="動画パック" sub="content/sns/video-packs（read-only）" />
-        <p className="text-sm text-muted-foreground">
-          <StatusBadge tone="bad">未取得</StatusBadge> パックを読めていません: {board.reason}
-        </p>
+        <PageHead title="動画パック" />
+        <p className="text-sm"><StatusBadge tone="bad">未取得</StatusBadge> {board.reason}</p>
       </>
     );
   }
@@ -69,13 +62,8 @@ export default async function VideoPackBoard({
     id: r.packId,
     values: {
       stage: r.stage ? LABELS[r.stage] : '不明',
-      packId: r.packId,
-      title: `${r.title} ${r.pain}`,
-      intent: r.intent ?? null,
-      script: r.hasScript ? '有' : null,
-      storyboard: r.hasStoryboard ? '有' : null,
+      title: r.title,
       qa: r.qa?.avg ?? null,
-      cta: r.cta ?? null,
     },
     cells: {
       stage: (
@@ -83,25 +71,21 @@ export default async function VideoPackBoard({
           {r.stage ? LABELS[r.stage] : '不明'}
         </StatusBadge>
       ),
-      packId: (
-        <div className="font-mono">
-          <Link href={`/content/content~sns/video-packs/${r.exam}/${r.slug}`}>{r.packId}</Link>
-          <div className="text-xs text-muted-foreground">{examLabel(r.exam)}</div>
-        </div>
-      ),
       title: (
-        <>
-          {r.hasScript ? (
-            <Link href={`/content/content~sns/video-packs/${r.exam}/${r.slug}/script`}>{r.title}</Link>
-          ) : (
-            r.title
-          )}
-          <div className="text-xs text-muted-foreground">{r.pain}</div>
-        </>
+        <DetailSheet trigger={r.title} title={r.title} description={r.packId}>
+          <DetailList
+            items={[
+              { label: '資格', value: examLabel(r.exam) },
+              { label: '悩み', value: r.pain },
+              { label: 'intent', value: r.intent },
+              { label: '主CTA', value: r.cta },
+              { label: '台本', value: r.hasScript ? <Link href={`/content/content~sns/video-packs/${r.exam}/${r.slug}/script`}>開く</Link> : null },
+              { label: '構成', value: r.hasStoryboard ? '有' : null },
+              { label: 'ファイル', value: <Link href={`/content/content~sns/video-packs/${r.exam}/${r.slug}`}>開く</Link> },
+            ]}
+          />
+        </DetailSheet>
       ),
-      intent: <span className="font-mono text-xs">{r.intent}</span>,
-      script: r.hasScript ? <StatusBadge tone="good">有</StatusBadge> : <span className="text-muted-foreground">—</span>,
-      storyboard: r.hasStoryboard ? <StatusBadge tone="good">有</StatusBadge> : <span className="text-muted-foreground">—</span>,
       qa: r.qa ? (
         <StatusBadge tone={r.qa.blocks ? 'bad' : 'good'}>
           {r.qa.avg}
@@ -110,16 +94,12 @@ export default async function VideoPackBoard({
       ) : (
         <span className="text-muted-foreground">—</span>
       ),
-      cta: <span className="font-mono text-xs">{r.cta ?? '—'}</span>,
     },
   }));
 
   return (
     <>
-      <PageHead
-        title="動画パック"
-        sub={`${board.rows.length} 件 · content/sns/video-packs/**/video-pack.json + content/registry（表示中 ${filtered.length}）`}
-      />
+      <PageHead title="動画パック" />
 
       <nav className="project-crumbs" aria-label="パンくず">
         <Link href={longformPlanHref()}>通常動画の制作・公開管理</Link>
@@ -133,9 +113,6 @@ export default async function VideoPackBoard({
 
       {/* 段階（共通ライフサイクル ステージ）*/}
       <div className="filterbar">
-        <span className="mr-1 self-center text-xs text-muted-foreground">
-          段階:
-        </span>
         <Link href={link({ stage: 'all' })} className={'chip' + (activeStage === 'all' ? ' active' : '')}>
           全て {board.rows.length}
         </Link>
@@ -160,8 +137,8 @@ export default async function VideoPackBoard({
         ))}
       </div>
 
-      <PanelCard title="企画一覧" description="企画（manifest のみ）→ 下書き → レビュー → 予約 → 公開">
-        <DataTable columns={COLUMNS} rows={rows} filter="packId・タイトルで絞り込む" emptyText="この条件に一致するパックはありません。" />
+      <PanelCard title="企画一覧">
+        <DataTable columns={COLUMNS} rows={rows} filter="packId・タイトルで絞り込む" emptyText="該当なし" />
       </PanelCard>
     </>
   );

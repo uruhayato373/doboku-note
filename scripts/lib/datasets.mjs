@@ -194,6 +194,7 @@ export const DATASETS = [
   d('kdp.royalties', 'data/kdp/royalties.json', 'ledger', 'product', 'KDP の月ごとのロイヤリティ（当月と確定前の前月は推計。週次で取り直す）', { schema: 'KdpRoyalties' }),
   // ココナラ
   d('coconala.orders', 'data/coconala/orders.json', 'ledger', 'product', 'ココナラの受注の記録', { schema: 'CoconalaOrders' }),
+  d('coconala.seller-profile', 'data/coconala/seller-profile.json', 'ledger', 'product', 'ココナラの公開プロフィールの評価の数の推移（土曜のココナラの段・チャネル設計の KPI）', { schema: 'CoconalaSellerProfile' }),
   d('coconala.revenue', 'data/coconala/revenue.json', 'ledger', 'product', 'ココナラの売上履歴（手数料控除後・クローズ日で計上。週次で取り直す）', { schema: 'CoconalaRevenue', freshness: { warnDays: 10, failDays: 21 } }),
   d('coconala.orders-snapshot', 'data/coconala/orders-snapshot.json', 'state', 'product', 'ココナラの取引一覧の最新（受注の照合元）', { schema: 'CoconalaOrdersSnapshot', freshness: { warnDays: 8, failDays: 15 } }),
   d('coconala.kpi', 'data/coconala/kpi.json', 'ledger', 'product', 'ココナラの出品ごとの閲覧・お気に入りの推移', { schema: 'CoconalaKpi' }),

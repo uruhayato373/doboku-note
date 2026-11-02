@@ -40,17 +40,15 @@ export default function PastExamLedgerPanel() {
     cells: { article: <code>{a.article}</code>, done: `${a.done} / ${a.total}` },
   }));
   return (
-    <PanelCard
-      title="過去問の照合（問題台帳）"
-      description="問題台帳（台帳 id pastexams.question-ledger）。転記を原典 PDF と照合した問題と、公式正答を確かめた問題の数。正答の不一致は npm run check-past-exam-ledger（CI）が止める"
-    >
-      <DataTable columns={LEDGER_COLUMNS} rows={ledgerRows} pageSize={100} />
+    <>
+      <PanelCard title="過去問の照合（問題台帳）">
+        <DataTable columns={LEDGER_COLUMNS} rows={ledgerRows} pageSize={100} />
+      </PanelCard>
       {pending.length ? (
-        <details className="mt-3">
-          <summary className="cursor-pointer text-sm">照合が終わっていない記事 {pending.length} 本</summary>
+        <PanelCard title={`照合が終わっていない記事 ${pending.length} 本`}>
           <DataTable columns={PENDING_COLUMNS} rows={pendingRows} filter={pending.length > 30 ? '資格・記事で絞り込む' : undefined} />
-        </details>
+        </PanelCard>
       ) : null}
-    </PanelCard>
+    </>
   );
 }

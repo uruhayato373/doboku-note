@@ -23,8 +23,9 @@ export interface MonthRow {
 }
 export interface UnitRow { channel: ChannelId; item: string; sales: number | null; avgPrice: number; netPerSale: number; estimated: boolean }
 export interface Kpi { id: string; channel: ChannelId; label: string; unit: string; target: number; status: 'proposed' | 'approved'; why: string; actual: number | null; actualAt: string | null }
+export interface FourP { product: string; price: string; place: string; promotion: string }
 export interface FourC { customerValue: string; cost: string; convenience: string; communication: string }
-export interface Channel { id: ChannelId; role: string; sells: string[]; notSell: string[]; fourC: FourC }
+export interface Channel { id: ChannelId; role: string; sells: string[]; notSell: string[]; fourP: FourP; fourC: FourC }
 export interface ChannelView {
   today: string;
   noteKeepActual: number | null;

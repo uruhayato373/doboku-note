@@ -216,7 +216,8 @@ for (const probe of reachByProbe) {
   }
 }
 
-const published = Object.values(NOTE_MAGAZINES).filter((m) => m.published && m.noteUrl);
+// 売り場から外した商品（catalog.shelvedAt）は getMagazine() が null を返し、サイトに出さない設計なので数えない
+const published = Object.values(NOTE_MAGAZINES).filter((m) => m.published && m.noteUrl && !m.shelvedAt);
 const zero = published.filter((m) => !(reach.get(m.id)?.routes.length));
 const newZero = zero.filter((m) => !baseline[m.id]);
 const fixed = Object.keys(baseline).filter((id) => reach.get(id)?.routes.length);

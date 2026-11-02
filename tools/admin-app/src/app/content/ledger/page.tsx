@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import {
-  DataTable, Facet, FacetHead, FacetShell, StatusBadge,
+  DataTable, DetailList, DetailSheet, Facet, FacetHead, FacetShell, StatusBadge,
   type DataTableColumn, type DataTableRow, type FacetItem,
 } from '@/components/admin';
 import { PageHead } from '@/components/ui';
@@ -108,8 +108,6 @@ export default async function LedgerPage({ searchParams }: { searchParams: Promi
   const columns: DataTableColumn[] = [
     { key: 'title', label: 'タイトル' },
     ...(kindCol ? [{ key: 'kind', label: kindCol }] : []),
-    { key: 'themes', label: 'テーマ' },
-    { key: 'cover', label: <span title="note 記事のカバー画像を用途別に管理する分類">カバー分類</span> },
     { key: 'price', label: '価格' },
     { key: 'sales', label: <span title={`note の販売履歴（${datasetPath('note.sales')}）の累計。マガジンは id、単品記事は題名で照合。マウスで最後に売れた日`}>販売</span> },
     { key: 'stage', label: '状態' },
@@ -129,8 +127,6 @@ export default async function LedgerPage({ searchParams }: { searchParams: Promi
       values: {
         title: r.magazine ? `${r.title} ${r.magazine}` : r.title,
         kind: channel ? r.kind : `${channelLabel.get(r.channel) ?? r.channel}・${r.kind}`,
-        themes,
-        cover: coverLabel,
         price: r.price ?? null,
         sales: !paidNote || !view.salesOk ? null : (r.sales?.revenue ?? 0),
         stage: r.stageLabel,
@@ -140,25 +136,21 @@ export default async function LedgerPage({ searchParams }: { searchParams: Promi
       },
       cells: {
         title: (
-          <div className="max-w-[28rem] truncate" title={r.path ?? r.key}>
-            {r.detailHref ? <Link href={r.detailHref}>{r.title}</Link>
-              : r.url ? <a href={r.url} target="_blank" rel="noopener noreferrer">{r.title}</a> : r.title}
-            {r.magazine ? <div className="truncate text-xs text-muted-foreground" title="この記事を収録しているマガジン（原稿の noteMagazine）">収録: {r.magazine}</div> : null}
-          </div>
+          <DetailSheet trigger={<span className="block max-w-[28rem] truncate">{r.title}</span>} title={r.title} description={r.path ?? r.key}>
+            <DetailList
+              items={[
+                { label: 'チャネル', value: `${channelLabel.get(r.channel) ?? r.channel}・${r.kind}` },
+                { label: 'テーマ', value: themes },
+                { label: 'カバー分類', value: coverLabel === '—' ? null : coverLabel },
+                { label: '収録マガジン', value: r.magazine },
+                { label: '価格のずれ', value: r.live?.price.length ? r.live.price.join(' / ') : null },
+                { label: '詳細', value: r.detailHref ? <Link href={r.detailHref}>開く</Link> : null },
+                { label: '公開ページ', value: r.url ? <a href={r.url} target="_blank" rel="noopener noreferrer">開く</a> : null },
+              ]}
+            />
+          </DetailSheet>
         ),
         kind: <span className="text-muted-foreground">{channel ? r.kind : `${channelLabel.get(r.channel) ?? r.channel}・${r.kind}`}</span>,
-        themes: (
-          <div className="max-w-[12rem] truncate text-muted-foreground">
-            {r.themes.length ? themes : <StatusBadge tone="bad" title="テーマのルールに当たらない">未分類</StatusBadge>}
-          </div>
-        ),
-        cover: (
-          <div className="max-w-[12rem] truncate text-muted-foreground">
-            {r.channel !== 'note' || r.kind !== '記事' ? '—'
-              : r.coverCategory ? coverLabel
-                : <StatusBadge tone="bad" title="カバー分類のルールに当たらない">未分類</StatusBadge>}
-          </div>
-        ),
         price: (
           <span className="text-muted-foreground">
             {r.price ?? '—'}
@@ -180,11 +172,11 @@ export default async function LedgerPage({ searchParams }: { searchParams: Promi
         <span>{filtered ? <><strong className="text-foreground">{rows.length}</strong> / {all.length} 件</> : <>{all.length} 件</>}</span>
         {hiddenEnded > 0 && state !== 'ended' ? <span>（<Link href={href(now, { s: 'ended' })}>終了 {hiddenEnded} 件</Link>は隠している）</span> : null}
         {view.index.ok ? (
-          <span title="note の記事の同期状態は索引を作った時点のもの。この画面を開いたとき、30 分より古いか新しいコミットが入っていれば裏で作り直す（終われば再読み込みで反映）。手で作るなら npm run content-ledger">
-            · 索引 {jst(view.index.generatedAt)} {view.index.refreshing ? <StatusBadge tone="info">作り直し中・数分後に再読み込み</StatusBadge> : indexStale ? <StatusBadge tone="warn">古い</StatusBadge> : null}
+          <span>
+            · 索引 {jst(view.index.generatedAt)} {view.index.refreshing ? <StatusBadge tone="info">作り直し中</StatusBadge> : indexStale ? <StatusBadge tone="warn">古い</StatusBadge> : null}
           </span>
         ) : (
-          <span>· <StatusBadge tone="bad" title={view.index.error ?? undefined}>索引なし</StatusBadge> note の記事は出していない（0 件ではない）。<code>npm run content-ledger</code> で作る</span>
+          <span>· <StatusBadge tone="bad" title={view.index.error ?? undefined}>索引なし</StatusBadge> note の記事は出していない</span>
         )}
         {view.unmatchedSales.length ? (
           <span title={`販売ログの単品記事のうち、売れた時点の題名で原稿を特定できなかったもの（販売列に入っていない）: ${view.unmatchedSales.map((u) => `${u.id} ${u.count} 件`).join(' / ')}`}>
@@ -204,7 +196,7 @@ export default async function LedgerPage({ searchParams }: { searchParams: Promi
         columns={columns}
         rows={tableRows}
         filter="タイトル・テーマなどで絞り込む"
-        emptyText="この条件に該当する制作物はありません。"
+        emptyText="該当なし"
       />
     </div>
   );

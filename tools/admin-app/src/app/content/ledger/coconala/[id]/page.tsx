@@ -7,7 +7,6 @@ import { loadLedgerView, readApprovedThumbs } from '@/lib/ledger';
 import { jstDateTime, yen } from '@/lib/format';
 import { repoPath } from '@/lib/repo-root';
 import { readCatalog, readListings } from '../../../../../../../../scripts/lib/coconala-catalog.mjs';
-import { datasetPath } from '../../../../../../../../scripts/lib/datasets.mjs';
 
 export const dynamic = 'force-dynamic';
 
@@ -27,12 +26,6 @@ type Listing = {
   faq?: { q: string; a: string }[];
   options?: { title: string; priceYen: number; deliveryDays?: number }[];
 };
-
-const SOURCES = [
-  { file: 'src/lib/coconala-services.ts', what: 'タイトル・価格・出品状態・公開 URL（カタログ）' },
-  { file: datasetPath('config.coconala-listings'), what: 'キャッチコピー・カテゴリ・本文・FAQ・オプション（出品本文）' },
-  { file: datasetPath('coconala.thumb-approved'), what: '商品画像（承認済みの POP 画像のパスと SHA-256）' },
-];
 
 function Row({ k, v }: { k: string; v: React.ReactNode }) {
   return (
@@ -68,9 +61,9 @@ export default async function CoconalaDetailPage({ params }: { params: Promise<{
 
       <PanelCard title="公開ページとの照合" className="mb-4">
           {!live ? (
-            <p className="text-sm text-muted-foreground">出品中ではないので照合していない。</p>
+            <p className="text-sm">出品中ではない</p>
           ) : !live.checkedAt ? (
-            <p className="text-sm text-muted-foreground">照合の索引が無い。<code>npm run content-ledger</code> で作る。</p>
+            <p className="text-sm">未照合</p>
           ) : issues.length === 0 ? (
             <p><StatusBadge tone="good">一致</StatusBadge> タイトル・キャッチコピー・本文・価格・販売状態が正本と同じ（照合 {jstDateTime(live.checkedAt, { short: true })}）</p>
           ) : (
@@ -78,7 +71,7 @@ export default async function CoconalaDetailPage({ params }: { params: Promise<{
               {issues.map((i) => <li key={i}>{i}</li>)}
             </ul>
           )}
-          {live?.image ? <p className="mt-2"><StatusBadge tone="warn">画像</StatusBadge> {live.image}（作り方: <code>/create-pop-image</code>）</p> : null}
+          {live?.image ? <p className="mt-2"><StatusBadge tone="warn">画像</StatusBadge> {live.image}</p> : null}
       </PanelCard>
 
       <div className="grid gap-4 md:grid-cols-[1fr_320px]">
@@ -92,11 +85,11 @@ export default async function CoconalaDetailPage({ params }: { params: Promise<{
                 <Row k="お届け日数" v={l.deliveryDays != null ? `${l.deliveryDays} 日` : '—'} />
                 <Row k="カテゴリ" v={l.category?._labels ?? '—'} />
                 <Row k="出品日" v={s.listedAt ?? '—'} />
-                <Row k="ID" v={<code>{s.id}</code>} />
+                <Row k="ID" v={s.id} />
               </TableBody>
             </TableFrame>
             <h3 className="mt-4 mb-1 font-semibold">本文（{bodyChars} 字）</h3>
-            <pre className="max-h-[480px] overflow-auto whitespace-pre-wrap text-sm">{l.body ?? '（listings に本文が無い）'}</pre>
+            <pre className="max-h-[480px] overflow-auto whitespace-pre-wrap text-sm">{l.body ?? '—'}</pre>
             {l.purchaseNote ? (
               <>
                 <h3 className="mt-4 mb-1 font-semibold">購入にあたってのお願い</h3>
@@ -111,15 +104,7 @@ export default async function CoconalaDetailPage({ params }: { params: Promise<{
                 // eslint-disable-next-line @next/next/no-img-element
                 <img src={`/media/coconala/${thumbRel}`} alt="承認済みの商品画像" className="w-full border" />
               ) : null}
-              <p className="text-xs text-muted-foreground">
-                {thumb ? <>承認済み: <code>{thumb.path}</code>{thumbLocal ? '' : '（この端末に無い。Drive vault の coconala-asset から取り戻す）'}</> : '承認済みの POP 画像が無い'}
-              </p>
-          </PanelCard>
-          <PanelCard title="正本（ここを直す）">
-              <ul className="list-disc pl-5 text-sm">
-                {SOURCES.map((x) => <li key={x.file}><code>{x.file}</code> … {x.what}</li>)}
-              </ul>
-              <p className="mt-2 text-xs text-muted-foreground">直したら <code>/coconala-publish</code> で公開ページへ反映し、<code>npm run content-ledger</code> で照合し直す。</p>
+              <p className="text-xs">{thumb ? (thumbLocal ? '承認済み' : '承認済み（この端末に無い）') : '承認済みの画像なし'}</p>
           </PanelCard>
         </div>
       </div>

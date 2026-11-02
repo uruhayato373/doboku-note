@@ -4031,7 +4031,7 @@
       "order": 46,
       "catalog": {
         "id": "i-01",
-        "asin": null,
+        "asin": "B0HPZNQRT1",
         "title": "1級土木施工管理技士 第2次検定 施工経験記述 過去問模範答案集",
         "subtitle": "令和3〜7年度 年度別5回分の模範答案と書き方",
         "series": "I 1級土木 第2次検定 記述",
@@ -4039,7 +4039,7 @@
         "priceJpy": 1980,
         "royalty": 0.35,
         "chapterCount": 5,
-        "status": "in_review",
+        "status": "live",
         "builder": "scripts/build-essay-kindle.mjs",
         "buildSpec": "scripts/kindle-specs/i-01.json",
         "epub": "kindle-dist/i-01.epub",
@@ -4054,7 +4054,7 @@
           }
         ],
         "draftAsin": "AHA4QGG6EYJEF",
-        "publishedDate": null,
+        "publishedDate": "2026-11-01",
         "uploaded": {
           "epub": {
             "sha256": "2280d0acbdb46aefc2be92ce4101936aa1733dd2bca3e1a31bc1286df92809d5",
@@ -6706,7 +6706,8 @@
         "badge": "note 限定",
         "ctaCatch": "2テーマ、どの組合せが出ても書ける",
         "ctaButton": "全10組合せを見てみる",
-        "ctaPose": "pointing"
+        "ctaPose": "pointing",
+        "shelvedAt": "2026-11-02"
       },
       "members": [
         "content/note/1級・2級土木/1級土木/magazines/1級土木-施工経験記述-2テーマ組合せ大全/品質x安全/article.md",
@@ -6856,7 +6857,8 @@
         "shortTitle": "1級土木 橋梁維持更新 8工事",
         "shortDescription": "橋梁補修・更新の8工事×5管理。完全攻略パック収録済み記事の分野別セット。",
         "price": "¥3,980（8工事セット）",
-        "badge": "note 分野別教材"
+        "badge": "note 分野別教材",
+        "shelvedAt": "2026-11-02"
       },
       "members": [
         "content/note/1級・2級土木/1級土木/magazines/1級土木-経験記述-完全攻略パック/工事101-橋梁伸縮装置取替/article.md",
@@ -7064,7 +7066,8 @@
         "shortTitle": "1級土木 河川・災害復旧 10工事",
         "shortDescription": "河川・砂防・海岸・災害復旧の10工事×5管理。完全攻略パック収録済み記事を再編集。",
         "price": "¥3,980（10工事セット）",
-        "badge": "note 分野別教材"
+        "badge": "note 分野別教材",
+        "shelvedAt": "2026-11-02"
       },
       "members": [
         "content/note/1級・2級土木/1級土木/magazines/1級土木-経験記述-完全攻略パック/工事116-洪水被災護岸復旧/article.md",
@@ -7099,7 +7102,8 @@
         "shortTitle": "1級土木 道路・トンネル維持 7工事",
         "shortDescription": "供用下の道路・トンネル・地下構造物7工事×5管理。完全攻略パック収録済み記事を再編集。",
         "price": "¥3,980（7工事セット）",
-        "badge": "note 分野別教材"
+        "badge": "note 分野別教材",
+        "shelvedAt": "2026-11-02"
       },
       "members": [
         "content/note/1級・2級土木/1級土木/magazines/1級土木-経験記述-完全攻略パック/工事109-道路法面落石防護網更新/article.md",
@@ -7131,7 +7135,8 @@
         "shortTitle": "1級土木 上下水道・処理施設 7工事",
         "shortDescription": "供用継続を伴う上下水道・処理施設7工事×5管理。完全攻略パック収録済み記事を再編集。",
         "price": "¥3,980（7工事セット）",
-        "badge": "note 分野別教材"
+        "badge": "note 分野別教材",
+        "shelvedAt": "2026-11-02"
       },
       "members": [
         "content/note/1級・2級土木/1級土木/magazines/1級土木-経験記述-完全攻略パック/工事123-基幹水道耐震管更新/article.md",
@@ -7211,7 +7216,8 @@
         "badge": "note 限定",
         "ctaCatch": "過去5年、実際に出た問題で答案を仕上げる",
         "ctaButton": "過去問の答案を見てみる",
-        "ctaPose": "pointing"
+        "ctaPose": "pointing",
+        "shelvedAt": "2026-11-02"
       },
       "members": [
         "content/note/1級・2級土木/1級土木/magazines/1級土木-施工経験記述-過去問模範答案集/R03/article.md",
@@ -7243,7 +7249,8 @@
         "shortTitle": "1級土木 二次 出題分析・直前重点",
         "shortDescription": "過去5年の出題実績から出る順トップ論点と直前2週間ロードマップを整理。",
         "price": "¥980",
-        "badge": "note 限定"
+        "badge": "note 限定",
+        "shelvedAt": "2026-11-02"
       },
       "members": [],
       "includes": [],
@@ -7271,7 +7278,8 @@
         "badge": "R8 直前 PDF教材",
         "ctaCatch": "2時間45分、選択から見直しまで通して試す",
         "ctaButton": "予想模試3回を見てみる",
-        "ctaPose": "pointing"
+        "ctaPose": "pointing",
+        "shelvedAt": "2026-11-02"
       },
       "members": [],
       "includes": [],
@@ -8445,7 +8453,8 @@
         "shortTitle": "総監記述式 土質基礎コンサル",
         "shortDescription": "令和3〜7年度、各年A・Bの2案。地盤調査・基礎設計の受注者として、技術品質・社内工程・技術者配置を統括する立場の答案モデル。",
         "price": "¥1,980",
-        "badge": "note 実務立場別 教材"
+        "badge": "note 実務立場別 教材",
+        "shelvedAt": "2026-11-02"
       },
       "members": [
         "content/note/技術士総監/magazines/総監模範論文-土質基礎コンサル/R03/article.md",
@@ -8478,7 +8487,8 @@
         "shortTitle": "総監記述式 維持更新施工",
         "shortDescription": "令和3〜7年度、各年A・Bの2案。維持修繕・更新工事の施工者として、供用条件・施工品質・安全・要員配置を統括する立場の答案モデル。",
         "price": "¥1,980",
-        "badge": "note 実務立場別 教材"
+        "badge": "note 実務立場別 教材",
+        "shelvedAt": "2026-11-02"
       },
       "members": [
         "content/note/技術士総監/magazines/総監模範論文-維持更新施工/R03/article.md",
@@ -8507,7 +8517,8 @@
         "shortTitle": "模範論文｜自治体公園緑地担当",
         "description": "R03〜R07 過去問（公園施設維持管理・老朽遊具更新版/防災公園新設・グリーンインフラ整備版の A案/B案 2 バージョン）+ R8予想6記事（気候変動適応・資源循環・老朽化インフラ・災害復旧・AI社会・経済安全保障）の計 11 記事。公園緑地担当（発注者）視点、5 管理間トレードオフが主軸。各記事に印刷用PDF付き。",
         "price": "¥2,480（11本セット、単品比63%OFF）",
-        "badge": "note 限定"
+        "badge": "note 限定",
+        "shelvedAt": "2026-11-02"
       },
       "members": [
         "content/note/技術士総監/magazines/総監模範論文-自治体公園緑地担当/R03/article.md",
@@ -8542,7 +8553,8 @@
         "shortTitle": "模範論文｜自治体港湾担当",
         "description": "R03〜R07 過去問（港湾施設維持管理版/岸壁改良・水深増深版の A案/B案 2 バージョン）+ R8予想6記事（気候変動適応・資源循環・老朽化インフラ・災害復旧・AI社会・経済安全保障）の計 11 記事。港湾担当（発注者）視点、物流機能維持・CNポート・5 管理間トレードオフが主軸。各記事に印刷用PDF付き。",
         "price": "¥2,480（11本セット、単品比63%OFF）",
-        "badge": "note 限定"
+        "badge": "note 限定",
+        "shelvedAt": "2026-11-02"
       },
       "members": [
         "content/note/技術士総監/magazines/総監模範論文-自治体港湾担当/R03/article.md",
@@ -8578,7 +8590,8 @@
         "shortTitle": "模範論文｜自治体 契約・調達担当",
         "shortDescription": "R03〜R07 過去問（全 A/B 2 案）+ R8予想6記事 = 計11記事。調達・契約視点の決定版。",
         "price": "¥2,480（11本セット、単品比63%OFF）",
-        "badge": "note 限定"
+        "badge": "note 限定",
+        "shelvedAt": "2026-11-02"
       },
       "members": [
         "content/note/技術士総監/magazines/総監模範論文-自治体契約調達担当/R03/article.md",
@@ -8764,7 +8777,8 @@
         "shortTitle": "総監記述式 道路舗装施工",
         "shortDescription": "R03〜R07、各年A・Bの2案。施工計画・合材製造・路上施工・交通規制を5管理で論じる答案モデル。",
         "price": "¥1,980（5記事・各年2答案）",
-        "badge": "note 実務立場別 教材"
+        "badge": "note 実務立場別 教材",
+        "shelvedAt": "2026-11-02"
       },
       "members": [
         "content/note/技術士総監/magazines/総監模範論文-道路舗装施工/R03/article.md",
@@ -8793,7 +8807,8 @@
         "shortTitle": "模範論文｜自治体砂防担当",
         "description": "R03〜R07 過去問（砂防施設維持管理版/砂防堰堤新設・急傾斜地対策版の A案/B案 2 バージョン）+ R8予想6記事（気候変動適応・資源循環・老朽化インフラ・災害復旧・AI社会・経済安全保障）の計 11 記事。砂防担当（発注者）視点、土砂災害リスク管理・流域管理・5 管理間トレードオフが主軸。各記事に印刷用PDF付き。",
         "price": "¥2,480（11本セット、単品比63%OFF）",
-        "badge": "note 限定"
+        "badge": "note 限定",
+        "shelvedAt": "2026-11-02"
       },
       "members": [
         "content/note/技術士総監/magazines/総監模範論文-自治体砂防担当/R03/article.md",
@@ -8828,7 +8843,8 @@
         "shortTitle": "模範論文｜自治体下水道担当",
         "description": "R03〜R07 過去問（老朽管路更新版/浸水対策雨水幹線整備版の A案/B案 2 バージョン）+ R8予想6記事（気候変動適応・資源循環・老朽化インフラ・災害復旧・AI社会・経済安全保障）の計 11 記事。下水道担当（発注者）視点、5 管理間トレードオフが主軸。各記事に印刷用PDF付き。",
         "price": "¥2,480（11本セット、単品比63%OFF）",
-        "badge": "note 限定"
+        "badge": "note 限定",
+        "shelvedAt": "2026-11-02"
       },
       "members": [
         "content/note/技術士総監/magazines/総監模範論文-自治体下水道担当/R03/article.md",
@@ -8864,7 +8880,8 @@
         "shortTitle": "模範論文｜自治体 技術基準担当",
         "shortDescription": "R03〜R07 過去問（全 A/B 2 案）+ R8予想6記事 = 計11記事。情報管理・標準化視点の決定版。",
         "price": "¥2,480（11本セット、単品比63%OFF）",
-        "badge": "note 限定"
+        "badge": "note 限定",
+        "shelvedAt": "2026-11-02"
       },
       "members": [
         "content/note/技術士総監/magazines/総監模範論文-自治体技術基準担当/R03/article.md",
@@ -8900,7 +8917,8 @@
         "shortTitle": "総監記述式 鋼コンコンサル",
         "shortDescription": "R03〜R07、各年A・Bの2案。鋼橋設計・照査、診断、耐久性評価を5管理で論じる答案モデル。",
         "price": "¥1,980（5記事・各年2答案）",
-        "badge": "note 実務立場別 教材"
+        "badge": "note 実務立場別 教材",
+        "shelvedAt": "2026-11-02"
       },
       "members": [
         "content/note/技術士総監/magazines/総監模範論文-鋼コンコンサル/R03/article.md",
@@ -8930,7 +8948,8 @@
         "shortTitle": "総監記述式 トンネルコンサル",
         "shortDescription": "R03〜R07、各年A・Bの2案。調査・設計、地質評価、診断・補修設計を5管理で論じる答案モデル。",
         "price": "¥1,980（5記事・各年2答案）",
-        "badge": "note 実務立場別 教材"
+        "badge": "note 実務立場別 教材",
+        "shelvedAt": "2026-11-02"
       },
       "members": [
         "content/note/技術士総監/magazines/総監模範論文-トンネルコンサル/R03/article.md",
@@ -8959,7 +8978,8 @@
         "shortTitle": "模範論文｜都市計画コンサル",
         "description": "R03〜R07 過去問（立地適正化計画策定支援版/市街地整備・再開発計画版の A案/B案 2 バージョン）+ R8予想6記事（気候変動適応・資源循環・老朽化インフラ・災害復旧・AI社会・経済安全保障）の計 11 記事。建設コンサル都市計画部門（受注者・調査設計者）視点、5管理トレードオフが主軸。各記事に印刷用PDF付き。",
         "price": "¥2,480（11本セット、単品比63%OFF）",
-        "badge": "note 限定"
+        "badge": "note 限定",
+        "shelvedAt": "2026-11-02"
       },
       "members": [
         "content/note/技術士総監/magazines/総監模範論文-都市計画コンサル/R03/article.md",
@@ -8995,7 +9015,8 @@
         "shortTitle": "模範論文｜自治体都市計画担当",
         "shortDescription": "R03〜R07 + R8予想6記事 = 計11記事。立地適正化計画版/再開発事業版の A案/B案＋印刷用PDF付き。",
         "price": "¥2,480（11本セット、単品比63%OFF）",
-        "badge": "note 限定"
+        "badge": "note 限定",
+        "shelvedAt": "2026-11-02"
       },
       "members": [
         "content/note/技術士総監/magazines/総監模範論文-自治体都市計画担当/R03/article.md",
@@ -9031,7 +9052,8 @@
         "shortTitle": "総監記述式 上下水道コンサル",
         "shortDescription": "令和3〜7年度、各年A・Bの2案。上下水道の調査・更新計画・設計を担う受注者として、技術品質・社内工程・技術者配置を統括する立場の答案モデル。",
         "price": "¥1,980",
-        "badge": "note 実務立場別 教材"
+        "badge": "note 実務立場別 教材",
+        "shelvedAt": "2026-11-02"
       },
       "members": [
         "content/note/技術士総監/magazines/総監模範論文-上下水道コンサル/R03/article.md",
@@ -9220,7 +9242,8 @@
         "shortTitle": "建設部門2次｜施工計画 合格パック",
         "shortDescription": "必須I＋施工計画 全29記事。単品合計¥6,460が¥4,980（約23%OFF）。",
         "price": "¥4,980（必須I＋施工計画 2マガジン・単品合計¥6,460、約23%OFF）",
-        "badge": "note 限定 合格パック"
+        "badge": "note 限定 合格パック",
+        "shelvedAt": "2026-11-02"
       },
       "members": [],
       "includes": [
@@ -9292,7 +9315,8 @@
         "shortTitle": "建設部門2次｜建設環境 合格パック",
         "shortDescription": "必須I＋建設環境 全29記事。単品合計¥6,460が¥4,980（約23%OFF）。",
         "price": "¥4,980（必須I＋建設環境 2マガジン・単品合計¥6,460、約23%OFF）",
-        "badge": "note 限定 合格パック"
+        "badge": "note 限定 合格パック",
+        "shelvedAt": "2026-11-02"
       },
       "members": [],
       "includes": [
@@ -9460,7 +9484,8 @@
         "shortTitle": "建設部門2次｜港湾空港 合格パック",
         "shortDescription": "必須I＋港湾空港 全29記事。単品合計¥6,460が¥4,980（約23%OFF）。",
         "price": "¥4,980（必須I＋港湾空港 2マガジン・単品合計¥6,460、約23%OFF）",
-        "badge": "note 限定 合格パック"
+        "badge": "note 限定 合格パック",
+        "shelvedAt": "2026-11-02"
       },
       "members": [],
       "includes": [
@@ -9532,7 +9557,8 @@
         "shortTitle": "建設部門2次｜電力土木 合格パック",
         "shortDescription": "必須I＋電力土木 全29記事。単品合計¥6,460が¥4,980（約23%OFF）。",
         "price": "¥4,980（必須I＋電力土木 2マガジン・単品合計¥6,460、約23%OFF）",
-        "badge": "note 限定 合格パック"
+        "badge": "note 限定 合格パック",
+        "shelvedAt": "2026-11-02"
       },
       "members": [],
       "includes": [
@@ -9604,7 +9630,8 @@
         "shortTitle": "建設部門2次｜鉄道 合格パック",
         "shortDescription": "必須I＋鉄道 全29記事。単品合計¥6,460が¥4,980（約23%OFF）。",
         "price": "¥4,980（必須I＋鉄道 2マガジン・単品合計¥6,460、約23%OFF）",
-        "badge": "note 限定 合格パック"
+        "badge": "note 限定 合格パック",
+        "shelvedAt": "2026-11-02"
       },
       "members": [],
       "includes": [
@@ -9715,7 +9742,8 @@
         "shortTitle": "建設部門2次｜河川砂防 合格パック",
         "shortDescription": "必須I＋河川砂防 全29記事。単品合計¥6,460が¥4,980（約23%OFF）。",
         "price": "¥4,980（必須I＋河川砂防 2マガジン・単品合計¥6,460、約23%OFF）",
-        "badge": "note 限定 合格パック"
+        "badge": "note 限定 合格パック",
+        "shelvedAt": "2026-11-02"
       },
       "members": [],
       "includes": [
@@ -9887,7 +9915,8 @@
         "shortTitle": "建設部門2次｜鋼コン 合格パック",
         "shortDescription": "必須I＋鋼コン 全29記事。単品合計¥6,460が¥4,980（約23%OFF）。",
         "price": "¥4,980（必須I＋鋼コン 2マガジン・単品合計¥6,460、約23%OFF）",
-        "badge": "note 限定 合格パック"
+        "badge": "note 限定 合格パック",
+        "shelvedAt": "2026-11-02"
       },
       "members": [],
       "includes": [
@@ -9959,7 +9988,8 @@
         "shortTitle": "建設部門2次｜トンネル 合格パック",
         "shortDescription": "必須I＋トンネル 全29記事。単品合計¥6,460が¥4,980（約23%OFF）。",
         "price": "¥4,980（必須I＋トンネル 2マガジン・単品合計¥6,460、約23%OFF）",
-        "badge": "note 限定 合格パック"
+        "badge": "note 限定 合格パック",
+        "shelvedAt": "2026-11-02"
       },
       "members": [],
       "includes": [
@@ -10031,7 +10061,8 @@
         "shortTitle": "建設部門2次｜都市計画 合格パック",
         "shortDescription": "必須I＋都市計画 全29記事。単品合計¥6,460が¥4,980（約23%OFF）。",
         "price": "¥4,980（必須I＋都市計画 2マガジン・単品合計¥6,460、約23%OFF）",
-        "badge": "note 限定 合格パック"
+        "badge": "note 限定 合格パック",
+        "shelvedAt": "2026-11-02"
       },
       "members": [],
       "includes": [
@@ -10506,7 +10537,8 @@
         "badge": "note 限定",
         "ctaCatch": "R8本試験の設問(3)、このバンクが7週間前に収録していました",
         "ctaButton": "施策バンクを見てみる",
-        "ctaPose": "pointing"
+        "ctaPose": "pointing",
+        "shelvedAt": "2026-11-02"
       },
       "members": [
         "content/note/技術士総監/magazines/総監記述式-設問3国家施策バンク/00-序章/article.md",

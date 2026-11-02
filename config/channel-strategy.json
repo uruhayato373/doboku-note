@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "_doc": "販売チャネル（note・KDP・ココナラ）ごとの役割・売る商品・手数料・SWOT・4C・KGI/KPI の正本（2026-11-02・判断の文章は docs/strategy/22_チャネル別商品設計2026-11.md）。管理画面 戦略＞資格と市場＞チャネル設計 と npm run channel-economics がここと売上の台帳（note.sales・kdp.royalties・coconala.revenue・coconala.analytics）を読む。手数料は公表料率（checkedAt に確かめた日）。月の受取は net-receipts.mjs（確定月の実績）を使い、note の 1 件あたりの手取りは確定月の実績の控除後の割合（2026-05〜09 は 83.9%）で出す。公表料率は KDP の推計と参照用。KPI の目標は 2026-11-02 に運営者が承認した（status: approved）。",
+  "_doc": "販売チャネル（note・KDP・ココナラ）ごとの役割・売る商品・手数料・SWOT・4P（売る側）と 4C（買う側）・KGI/KPI の正本（2026-11-02・判断の文章は docs/strategy/22_チャネル別商品設計2026-11.md）。管理画面 戦略＞資格と市場＞チャネル設計 と npm run channel-economics がここと売上の台帳（note.sales・kdp.royalties・coconala.revenue・coconala.analytics）を読む。手数料は公表料率（checkedAt に確かめた日）。月の受取は net-receipts.mjs（確定月の実績）を使い、note の 1 件あたりの手取りは確定月の実績の控除後の割合（2026-05〜09 は 83.9%）で出す。公表料率は KDP の推計と参照用。KPI の目標は 2026-11-02 に運営者が承認した（status: approved）。",
   "fees": {
     "note": {
       "label": "note",
@@ -36,9 +36,15 @@
       "notSell": [
         "人手の添削・指導"
       ],
+      "fourP": {
+        "product": "最新年度の模範解答と予想問題・資格ごとのまるごとパック・比較の基準としての単品",
+        "price": "単品 ¥580〜2,980・マガジン ¥1,480〜5,980・パック ¥3,980〜11,800",
+        "place": "note（dobokunote）。サイトの記事・もくじ・マガジンから入る",
+        "promotion": "サイトの記事の CTA・試験日から逆算した CTA の切り替え・note 内のマガジンの回遊"
+      },
       "fourC": {
         "customerValue": "試験の 0〜8 週前に、答案の型とそのまま使える模範解答を短時間で手に入れる",
-        "cost": "単品 ¥580〜2,980・マガジン ¥1,480〜5,980・パック ¥3,980〜11,800。手取りは販売額の約 84%（確定月の実績。公表料率はカード決済で 85.5%）",
+        "cost": "単品 ¥580〜2,980・マガジン ¥1,480〜5,980・パック ¥3,980〜11,800。手取りは販売額の約 84%",
         "convenience": "サイトの記事から 1 クリックで購入・スマホで即読める・パックは更新分も読める",
         "communication": "サイトの記事の CTA・note 内の回遊とマガジン。検索流入の記事から送る"
       }
@@ -53,6 +59,12 @@
       "notSell": [
         "note の最新年度・予想問題・パックと同じ中身を note より安く"
       ],
+      "fourP": {
+        "product": "択一の過去問の網羅・旧年度の模範解答集。新刊は作らない",
+        "price": "¥490〜2,980。模範解答集は 70% 帯の上限の税込 ¥1,650 に置く",
+        "place": "Amazon.co.jp・読み放題",
+        "promotion": "Amazon 内の検索とレビューに任せ、追加の販促はしない"
+      },
       "fourC": {
         "customerValue": "過去問をまとめて手元で読める・読み放題で試せる",
         "cost": "¥490〜2,980。70% 帯は税込 ¥1,650 まで。¥1,650 の本の手取りは 1 冊 約 ¥1,050",
@@ -71,11 +83,17 @@
         "note と同じ PDF 教材",
         "作成代行（捏造の禁止）"
       ],
+      "fourP": {
+        "product": "経験記述・小論文・論文の添削と骨子からの指導。評価を集める入口の添削",
+        "price": "添削 ¥5,000〜6,000、入口の添削 ¥2,000〜3,000。手取りは 78%",
+        "place": "ココナラ（dobokunote）。試験の 4〜8 週前だけ開き、季節外と不在の期間は休止する",
+        "promotion": "サイトの資格・小論文のページから試験前だけ送る・納品のときに評価をお願いする"
+      },
       "fourC": {
         "customerValue": "自分の答案を合格者（元発注者・技術士）が直してくれる。note にはできない唯一の価値",
-        "cost": "添削 ¥5,000〜6,000（競合の中央値 ¥4,000〜5,000）。手取りは 78%",
+        "cost": "添削 ¥5,000〜6,000。手取りは 78%",
         "convenience": "トークルームで原稿を送るだけ・24 時間で返す",
-        "communication": "ココナラ内の検索。評価数が購入の決め手で、自社はレビュー 0"
+        "communication": "ココナラ内の検索。評価数が購入の決め手で、自社は評価 4 件（競合は数百件）"
       }
     }
   ],
@@ -88,7 +106,7 @@
     "weaknesses": [
       "受取が技術士の筆記期（6〜7 月で 64%）に集中し、8〜4 月が谷",
       "公開中で単独では 1 件も売れていない有料商品が 86 本",
-      "ココナラはレビュー 0・出品 2 件で、直近 30 日は閲覧 781 に対し受注 0",
+      "ココナラは評価 4 件・出品 2 件で、直近 30 日は閲覧 781 に対し受注 0",
       "受取額・費用・作業時間が未計測で、時間あたりの採算を出せない。運営者 1 人の時間が上限"
     ],
     "opportunities": [
@@ -113,7 +131,7 @@
     {
       "id": "note-gross",
       "channel": "note",
-      "label": "note の販売額（月）",
+      "label": "販売額（月）",
       "unit": "円",
       "target": 110000,
       "status": "approved",
@@ -131,16 +149,16 @@
     {
       "id": "note-unsold-paid",
       "channel": "note",
-      "label": "公開中で単独の販売 0 の有料商品",
+      "label": "売り場に出ていて販売 0 の有料商品",
       "unit": "本",
       "target": 40,
       "status": "approved",
-      "why": "86 本をパックにまとめるか売り場から外して半分以下にする（npm run sales-attribution）"
+      "why": "86 本をパックにまとめるか売り場から外して半分以下にする（npm run sales-attribution）。売り場から外した商品（products の catalog.shelvedAt）は数えない"
     },
     {
       "id": "kdp-royalty",
       "channel": "kindle",
-      "label": "KDP のロイヤリティ（月）",
+      "label": "ロイヤリティ（月）",
       "unit": "円",
       "target": 8000,
       "status": "approved",
@@ -149,7 +167,7 @@
     {
       "id": "coconala-reviews",
       "channel": "coconala",
-      "label": "ココナラの評価の数（累計）",
+      "label": "評価の数（累計）",
       "unit": "件",
       "target": 5,
       "status": "approved",
@@ -158,7 +176,7 @@
     {
       "id": "coconala-order-rate",
       "channel": "coconala",
-      "label": "閲覧あたりの受注（過去 30 日）",
+      "label": "閲覧あたりの受注（30 日）",
       "unit": "%",
       "target": 1,
       "status": "approved",

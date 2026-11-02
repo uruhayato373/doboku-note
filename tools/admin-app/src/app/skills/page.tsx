@@ -1,28 +1,42 @@
-import { PanelCard } from '@/components/admin';
+import Link from 'next/link';
+import { DataTable, DetailSheet, DetailText, PanelCard, type DataTableColumn, type DataTableRow } from '@/components/admin';
 import { PageHead } from '@/components/ui';
-import { loadSkills, type SkillEntry } from '@/lib/registry';
+import { loadSkills } from '@/lib/registry';
 import { domainList } from '@/lib/domains';
 
 export const dynamic = 'force-dynamic';
 
-export default function SkillsPage() {
-  const { items, errors } = loadSkills();
+const COLUMNS: DataTableColumn[] = [
+  { key: 'name', label: '名前' },
+  { key: 'domain', label: '領域' },
+];
 
-  // 事業の領域ごとに束ねる（並びと名前は正本 domains.json・domain が無いものは「未設定」）
+/** /skills — スキル一覧。事業の領域（正本 domains.json）をタブにし、説明は名前を押すシートに置く。 */
+export default async function SkillsPage({ searchParams }: { searchParams: Promise<{ dom?: string }> }) {
+  const { dom } = await searchParams;
+  const { items, errors } = loadSkills();
   const domains = domainList();
-  const label = (id: string) => domains.find((d) => d.id === id)?.label ?? '未設定';
-  const groups = new Map<string, SkillEntry[]>();
-  for (const s of items) {
-    const key = s.domain ?? 'none';
-    const arr = groups.get(key) ?? [];
-    arr.push(s);
-    groups.set(key, arr);
-  }
-  const rank = (id: string) => {
+  const label = (id: string | null) => domains.find((d) => d.id === id)?.label ?? '未設定';
+  const rank = (id: string | null) => {
     const i = domains.findIndex((d) => d.id === id);
     return i < 0 ? 99 : i;
   };
-  const cats = [...groups.keys()].sort((a, b) => rank(a) - rank(b));
+  const filtered = items
+    .filter((s) => !dom || s.domain === dom)
+    .sort((a, b) => rank(a.domain) - rank(b.domain) || a.name.localeCompare(b.name));
+  const ids = [...new Set(items.map((s) => s.domain))].sort((a, b) => rank(a) - rank(b));
+
+  const rows: DataTableRow[] = filtered.map((s) => ({
+    id: s.file,
+    values: { name: s.name, domain: label(s.domain) },
+    cells: {
+      name: (
+        <DetailSheet trigger={<span className="font-mono">{s.name}</span>} title={<span className="font-mono">{s.name}</span>} description={label(s.domain)}>
+          <DetailText title="説明" items={[s.description]} />
+        </DetailSheet>
+      ),
+    },
+  }));
 
   return (
     <>
@@ -38,34 +52,18 @@ export default function SkillsPage() {
         </PanelCard>
       ) : null}
 
-      <div className="filterbar">
-        {cats.map((c) => (
-          <a key={c} href={`#cat-${c}`} className="chip">
-            {label(c)} {groups.get(c)!.length}
-          </a>
+      <nav className="filterbar mb-3!">
+        <Link href="/skills" className={'chip' + (!dom ? ' active' : '')}>
+          すべて
+        </Link>
+        {ids.map((id) => (
+          <Link key={id ?? 'none'} href={`/skills?dom=${id ?? ''}`} className={'chip' + (dom && dom === id ? ' active' : '')}>
+            {label(id)} {items.filter((s) => s.domain === id).length}
+          </Link>
         ))}
-      </div>
+      </nav>
 
-      {cats.map((c) => (
-        <div key={c} id={`cat-${c}`}>
-          <PanelCard title={<>{label(c)} <span className="sub">{groups.get(c)!.length} 件</span></>}>
-          <div className="grid cols-2">
-            {groups
-              .get(c)!
-              .slice()
-              .sort((a, b) => a.name.localeCompare(b.name))
-              .map((s) => (
-                <div className="kpi px-3.5! py-3!" key={s.file}>
-                  <div className="mono mb-1 text-[color:var(--ink)]">
-                    {s.name}
-                  </div>
-                  <div className="small muted desc-clamp">{s.description}</div>
-                </div>
-              ))}
-          </div>
-          </PanelCard>
-        </div>
-      ))}
+      <DataTable columns={COLUMNS} rows={rows} pageSize={50} filter="名前・領域で絞り込む" />
     </>
   );
 }

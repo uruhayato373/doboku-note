@@ -9,7 +9,7 @@ export default function CharactersPage() {
   try {
     const catalog = readCharacterCatalog(findRepoRoot());
     return <>
-      <PageHead title="キャラクター素材" sub={`${catalog.name} · 用途に合うポーズを探して、並べて比較できます。`} />
+      <PageHead title="キャラクター素材" sub={catalog.name} />
       <CharacterCatalog catalog={catalog} />
     </>;
   } catch {

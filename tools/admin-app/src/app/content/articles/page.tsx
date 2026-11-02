@@ -1,22 +1,48 @@
-import { DataTable, type DataTableColumn, type DataTableRow, StatusBadge } from '@/components/admin';
+import Link from 'next/link';
+import { DataTable, DetailList, DetailSheet, type DataTableColumn, type DataTableRow, StatusBadge } from '@/components/admin';
 import { PageHead } from '@/components/ui';
 import { articlesIndex } from '@/lib/content';
 import { GROUP_LABEL } from '@/lib/gallery';
 import { qualityCensus, qualitySummary } from '@/lib/quality';
+import PoliciesPanel from './PoliciesPanel';
 
 export const dynamic = 'force-dynamic';
 
 const COLUMNS: DataTableColumn[] = [
   { key: 'group', label: '分類' },
   { key: 'title', label: 'タイトル' },
-  { key: 'slug', label: 'slug' },
   { key: 'quality', label: '品質' },
   { key: 'state', label: '状態' },
   { key: 'publishedAt', label: '公開日' },
 ];
 
-export default function ContentArticlesPage() {
-  const { summary, docs } = articlesIndex();
+const TABS = [
+  { id: 'articles', label: '記事' },
+  { id: 'policies', label: '国の計画・施策' },
+] as const;
+
+export default async function ContentArticlesPage({ searchParams }: { searchParams: Promise<{ tab?: string }> }) {
+  const { tab } = await searchParams;
+  const current = tab === 'policies' ? 'policies' : 'articles';
+  const nav = (
+    <nav className="filterbar mb-3!">
+      {TABS.map((t) => (
+        <Link key={t.id} className={'chip' + (t.id === current ? ' active' : '')} href={t.id === 'articles' ? '/content/articles' : `/content/articles?tab=${t.id}`}>
+          {t.label}
+        </Link>
+      ))}
+    </nav>
+  );
+  if (current === 'policies') {
+    return (
+      <>
+        <PageHead title="サイト記事" />
+        {nav}
+        <PoliciesPanel />
+      </>
+    );
+  }
+  const { docs } = articlesIndex();
   const quality = qualitySummary();
   const census = qualityCensus();
   const lintBySlug = new Map(quality.articles.map((article) => [article.slug, article]));
@@ -50,13 +76,16 @@ export default function ContentArticlesPage() {
 
     return {
       id: d.slug,
-      values: { group, title: d.title, slug: d.slug, quality: detail, state: d.published ? '公開' : '非公開', publishedAt: d.publishedAt ?? null },
+      values: { group, title: d.title, quality: detail, state: d.published ? '公開' : '非公開', publishedAt: d.publishedAt ?? null },
       cells: {
         group: <StatusBadge tone="neutral">{group}</StatusBadge>,
-        title: <span className="block max-w-[28rem] truncate" title={d.title}>{d.title}</span>,
-        slug: <span className="block max-w-[16rem] truncate font-mono text-xs" title={d.slug}>{d.slug}</span>,
+        title: (
+          <DetailSheet trigger={<span className="block max-w-[28rem] truncate">{d.title}</span>} title={d.title} description={d.slug}>
+            <DetailList items={[{ label: '分類', value: group }, { label: '品質', value: detail }]} />
+          </DetailSheet>
+        ),
         quality: (
-          <span className="flex flex-wrap gap-1" title={detail}>
+          <span className="flex flex-wrap gap-1">
             {!d.published ? (
               <StatusBadge tone="neutral">対象外</StatusBadge>
             ) : !score ? (
@@ -88,11 +117,9 @@ export default function ContentArticlesPage() {
 
   return (
     <>
-      <PageHead
-        title="サイト記事"
-        sub={`全 ${summary.total ?? docs.length} 記事（公開 ${summary.published ?? '—'} / 非公開 ${summary.unpublished ?? '—'}）· 品質 = 採点 census + lint baseline`}
-      />
-      <DataTable columns={COLUMNS} rows={rows} filter="タイトル・slug などで絞り込む" />
+      <PageHead title="サイト記事" />
+      {nav}
+      <DataTable columns={COLUMNS} rows={rows} filter="タイトル・slug で絞り込む" />
     </>
   );
 }

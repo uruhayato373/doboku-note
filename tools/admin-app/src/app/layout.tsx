@@ -6,7 +6,8 @@ import { todoBoard } from '@/lib/todo';
 import { ledgerNav } from '@/lib/ledger';
 import { designQualifications } from '@/lib/product-design';
 import { materialsNav } from '@/lib/materials';
-import { domainList } from '@/lib/domains';
+import { domainList, pageDocumentMap } from '@/lib/domains';
+import PageDocLinks from '@/components/PageDocLinks';
 import { storeNav } from '@/lib/stores';
 import './globals.css';
 
@@ -43,7 +44,11 @@ export default function RootLayout({
                 doboku admin
               </Link>
             </header>
-            <div className="container w-full">{children}</div>
+            <div className="container relative w-full">
+              {/* 今の画面の根拠の文書（領域の正本の pageDocuments）。見出しの右上に重ねる */}
+              <PageDocLinks map={pageDocumentMap()} />
+              {children}
+            </div>
           </SidebarInset>
         </SidebarProvider>
       </body>

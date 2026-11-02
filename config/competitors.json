@@ -458,7 +458,7 @@
     ]
   },
   "x": {
-    "_note": "X(旧Twitter) 競合アカウント一覧。scripts/scout-x-competitors.mjs が読む。handle = x.com/{handle} の {handle}（@なし）。exams は qualification-registry.json の資格 id（npm run check-qualification-market が検査）。シードは docs/strategy/07_競合調査.md の「SNS競合」節（2026-07-04・多くは要確認）由来＝scout 実行時にライブ検証する。取得は read-only・四半期・安全弁必須（x-post-policy.md §11）。分析真実源は 09_販売チャネル競合分析.md（価格/品揃え軸）、コンテンツ型/エンゲージ軸は 07 の SNS競合節。",
+    "_note": "X(旧Twitter) 競合アカウント一覧。scripts/scout-x-competitors.mjs が読む。handle = x.com/{handle} の {handle}（@なし）。exams は qualification-registry.json の資格 id（npm run check-qualification-market が検査）。シードは docs/reviews/competitors/README.md の「SNS競合」節（2026-07-04・多くは要確認）由来＝scout 実行時にライブ検証する。取得は read-only・四半期・安全弁必須（x-post-policy.md §11）。分析真実源は 09_販売チャネル競合分析.md（価格/品揃え軸）、コンテンツ型/エンゲージ軸は 07 の SNS競合節。",
     "competitors": [
       {
         "handle": "sosou_nino",

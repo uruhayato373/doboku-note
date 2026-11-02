@@ -20,3 +20,6 @@ zsh の `path` は PATH と連動する配列なので、`for f in ...; do path=
 
 ## 外向きの操作は commit の成否に && でつなぐ（2026-10-28）
 note の無料記事の下書きを commit してから公開する手順を `git commit … ; git push … ; node scripts/note-publish.mjs --commit` と `;` でつなぎ、pre-commit が止めた（記事カタログの stage 漏れ）のに公開まで進んだ。中身は検査済みで実害は無かったが、検査の止めを素通りして取り消しの効かない操作をした。note の公開・push・デプロイのような外向きの操作は、直前の commit と検査に `&&` でつなぎ、`git log -1` で commit ができたことを確かめてから実行する。
+
+## zsh で `$var:…` と書かない（2026-11-02）
+`git push origin $c:refs/heads/main` を zsh が `$c:r`（拡張子を外す修飾子）と読み、`d4894…efs/heads/main does not match any` で main への push が失敗した。直後の「デプロイが起動したか」の確認も前回の run に一致して、成功に見えた。変数の後ろに `:` が続くときは `"${c}:refs/heads/main"` と波括弧で囲む。起動の確認は、run の headSha と今 push した SHA の一致で見る。

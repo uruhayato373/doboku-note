@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { PanelCard } from '@/components/admin';
 import { Grid, Stack } from '@/components/layout';
 import SearchTabs from '@/components/SearchTabs';
@@ -37,9 +38,10 @@ function sortByClicks(rows: GscRow[]): GscRow[] {
 export default async function GscPage({
   searchParams,
 }: {
-  searchParams: Promise<{ snapshot?: string }>;
+  searchParams: Promise<{ snapshot?: string; tab?: string }>;
 }) {
   const sp = await searchParams;
+  const tab = sp.tab === 'page' ? 'page' : 'query';
   const queryHistory = listSnapshots('gsc.query');
   const querySnap: SnapshotFile | null = sp.snapshot
     ? snapshotByFile('gsc.query', sp.snapshot)
@@ -55,12 +57,7 @@ export default async function GscPage({
 
   return (
     <>
-      <PageHead
-        title="検索（GSC）"
-        sub={`検索クエリ / ページ（クリック降順・上位100）${
-          qMeta?.startDate ? ` · 期間 ${qMeta.startDate} 〜 ${qMeta.endDate}` : ''
-        }`}
-      />
+      <PageHead title="検索（GSC）" sub={qMeta?.startDate ? `期間 ${qMeta.startDate} 〜 ${qMeta.endDate}` : undefined} />
       <SearchTabs current="/metrics/gsc" />
 
       <Stack>
@@ -70,23 +67,23 @@ export default async function GscPage({
         <Kpi label="平均CTR" value={totImpr ? fmt.pct(totClicks / totImpr) : '—'} />
       </Grid>
 
-      <PanelCard title="検索クエリ別" description={<Freshness snapshot={querySnap} />}>
-        <Stack gap="sm">
-          <SnapshotPicker basePath="/metrics/gsc" files={queryHistory} current={querySnap?.file ?? ''} />
-          <DataTable cols={gscCols('クエリ')} rows={queryRows} filter="クエリで絞り込み" />
-        </Stack>
-      </PanelCard>
+      <nav className="filterbar mb-3!">
+        <Link className={'chip' + (tab === 'query' ? ' active' : '')} href="/metrics/gsc">検索クエリ別</Link>
+        <Link className={'chip' + (tab === 'page' ? ' active' : '')} href="/metrics/gsc?tab=page">ページ別</Link>
+      </nav>
 
-      <PanelCard
-        title="ページ別"
-        description={
-          <>
-            <Freshness snapshot={pageSnap} /> {pageRows.length}行
-          </>
-        }
-      >
-        <DataTable cols={gscCols('ページ')} rows={pageRows} filter="ページで絞り込み" />
-      </PanelCard>
+      {tab === 'query' ? (
+        <PanelCard title="検索クエリ別" description={<Freshness snapshot={querySnap} />}>
+          <Stack gap="sm">
+            <SnapshotPicker basePath="/metrics/gsc" files={queryHistory} current={querySnap?.file ?? ''} />
+            <DataTable cols={gscCols('クエリ')} rows={queryRows} filter="クエリで絞り込み" />
+          </Stack>
+        </PanelCard>
+      ) : (
+        <PanelCard title="ページ別" description={<Freshness snapshot={pageSnap} />}>
+          <DataTable cols={gscCols('ページ')} rows={pageRows} filter="ページで絞り込み" />
+        </PanelCard>
+      )}
       </Stack>
     </>
   );

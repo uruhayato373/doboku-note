@@ -26,14 +26,12 @@ export function DatasetQuery({ id, area, domain, q }: { id: string; area: string
     return { id: String(i), values: { row: text }, cells: { row: <code className="break-all text-xs">{text}</code> } };
   });
   return (
-    <PanelCard
-      title={<>行を絞る {result && <StatusBadge tone="neutral">{result.total} 行</StatusBadge>}</>}
-      description={`最新のファイルの${result?.rowsPath ? ` ${result.rowsPath} の` : ''}各行を「欄=値」「欄!=値」「欄~値」（含む）で絞る。欄は「.」で入れ子（例 verdict.gap=0）。同じことは npm run data -- query ${id} --where …`}
-    >
+    <PanelCard title={<>行を絞る {result && <StatusBadge tone="neutral">{result.total} 行</StatusBadge>}</>}>
       <form className="knowledge-toolbar">
         <input type="hidden" name="k" value={area} />
         <input type="hidden" name="d" value={domain} />
         <input type="hidden" name="f" value={id} />
+        <input type="hidden" name="t" value="rows" />
         <input name="q" type="search" defaultValue={q ?? ''} placeholder="欄=値" aria-label="絞り込みの条件" />
         <button type="submit">絞る</button>
       </form>

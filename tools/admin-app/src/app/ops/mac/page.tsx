@@ -1,4 +1,4 @@
-import { DataTable, PanelCard, StatusBadge, type DataTableColumn, type DataTableRow, type Tone } from '@/components/admin';
+import { DataTable, DetailList, DetailSheet, PanelCard, StatusBadge, type DataTableColumn, type DataTableRow, type Tone } from '@/components/admin';
 import { Stack } from '@/components/layout';
 import { PageHead } from '@/components/ui';
 import { loadAutomationIssues, loadAutomations, loadSaturday, type Automation, type CollectVerdict, type SaturdayView } from '@/lib/automations';
@@ -101,7 +101,6 @@ const PHASE_LABEL: Record<string, string> = { pre: '前', post: '後' };
 const STAGE_COLUMNS: DataTableColumn[] = [
   { key: 'title', label: '段', wrap: true, sortable: false },
   { key: 'status', label: '結果', sortable: false },
-  { key: 'reason', label: '理由', wrap: true, sortable: false },
 ];
 
 /** 収集の段ごとの最新の結果。落ちた段を上に並べ、理由は 1 行に切る */
@@ -114,10 +113,18 @@ function CollectTable({ v }: { v: CollectVerdict | null }) {
     .map(({ s }) => {
       // 検査の出力の頭（[check-…] ✗）と 2 文目以降は人には要らない
       const reason = s.status === 'ok' ? '' : (s.reason ?? '').split(/[\n。]/)[0].replace(/^\[[^\]]+\]\s*[✗✓]?\s*/, '');
+      const name = `${PHASE_LABEL[s.phase] ?? s.phase}・${s.title.replace(/（[^）]*）$/, '')}`;
       return {
         id: s.id,
-        values: { title: `${PHASE_LABEL[s.phase] ?? s.phase}・${s.title.replace(/（[^）]*）$/, '')}`, status: STAGE_LABEL[s.status] ?? s.status, reason: reason || null },
-        cells: { status: <StatusBadge tone={STAGE_TONE[s.status] ?? 'neutral'}>{STAGE_LABEL[s.status] ?? s.status}</StatusBadge>, reason: <span className="text-muted-foreground">{reason}</span> },
+        values: { title: name, status: STAGE_LABEL[s.status] ?? s.status },
+        cells: {
+          title: reason ? (
+            <DetailSheet trigger={name} title={name}>
+              <DetailList items={[{ label: '理由', value: reason }]} />
+            </DetailSheet>
+          ) : name,
+          status: <StatusBadge tone={STAGE_TONE[s.status] ?? 'neutral'}>{STAGE_LABEL[s.status] ?? s.status}</StatusBadge>,
+        },
       };
     });
   return <DataTable columns={STAGE_COLUMNS} rows={stageRows} pageSize={20} />;

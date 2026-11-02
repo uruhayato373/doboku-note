@@ -67,7 +67,7 @@ cover:
 - **2級で、まず頻出3管理の型を固めたい** → [施工経験記述 完成答案集](https://note.com/dobokunote/m/m1881a9578027)
 - **1級で、まず経験記述の型を固めたい** → [施工経験記述 完成答案集](https://note.com/dobokunote/m/m150c9db08902)
 - **自分の工事に近い想定工事を広く探したい** → [想定工事バンク（2級）](https://note.com/dobokunote/m/m8554e87ca6ec)／[完全攻略パック（1級）](https://note.com/dobokunote/m/m8290970a7f05)
-- **過去問の年度別模範答案で演習したい** → [2級](https://note.com/dobokunote/m/md3aa0f9a37d7)／[1級](https://note.com/dobokunote/m/m3a578194a0a9)の施工経験記述 過去問 模範答案集
+- **過去問の年度別模範答案で演習したい** → [2級](https://note.com/dobokunote/m/md3aa0f9a37d7)の施工経験記述 過去問 模範答案集
 - **まず一次を過去問で突破したい** → [2級](https://note.com/dobokunote/n/n4963f45bd6f8)／[1級](https://note.com/dobokunote/n/n155093f42183)の第1次検定 過去問PDF
 
 各教材の中身は、このあとのセクションで順に説明します。
@@ -137,21 +137,13 @@ https://note.com/dobokunote/m/md29a34906314
 
 そのほかの1級教材（目的に合わせて追加）:
 
-- [施工経験記述 過去問 模範答案集（R03-R07）](https://note.com/dobokunote/m/m3a578194a0a9) — 出題された年度の設問でそのまま演習したい人向け
-- [2テーマ組合せ大全（5管理 全10組合せ）](https://note.com/dobokunote/m/m74cfd7c695d6) — R6以降の「2テーマ必答」に何が出ても対応したい人向け
 - [二次学科記述 テーマ別 出る順（問題2〜11）](https://note.com/dobokunote/m/mcfe1059b3335) — 経験記述以外の学科記述も出る順で固めたい人向け
-- [出題分析と直前の重点（過去5年の実績）](https://note.com/dobokunote/n/nd68f3f6b5f9e) — まず何から手を付けるか、直前2週間の優先順位を決めたい人向け
 - [第1次検定 出る順 合格ノート（12年頻度分析）](https://note.com/dobokunote/n/nec34238ca6d6) — 一次の施工管理法を出る順で優先度づけしたい人向け
 - [第1次検定 過去問PDF（H26-R7 全1162問・全選択肢解説）](https://note.com/dobokunote/n/n155093f42183) — まず一次を過去問演習で突破したい人向け
 - [二次検定 直前暗記ノート](https://note.com/dobokunote/n/na84b001e827e) — 試験直前に重要語句を絞って確認したい人向け
-- [橋梁維持更新 8工事](https://note.com/dobokunote/m/mbcc9f67baf80) — 橋梁補修・更新に近い現場から5管理を選びたい人向け
-- [道路・トンネル維持 7工事](https://note.com/dobokunote/m/ma782ece5c04e) — 供用下の道路・トンネル工事に絞って準備したい人向け
-- [河川・災害復旧 10工事](https://note.com/dobokunote/m/m713ed083f60a) — 河川・砂防・海岸・災害復旧から工事を選びたい人向け
-- [上下水道・処理施設 7工事](https://note.com/dobokunote/m/mf5b91216ae1f) — 供用を続けながら行う施設更新に近い人向け
 
 **令和8年度の試験形式で演習する教材**
 
-- [令和8年度 二次検定 予想模試3回](https://note.com/dobokunote/n/nc2a33b52a2f7) — 終了した令和8年度の予想問題を、次回に向けた時間配分の演習に使う場合
 - [二次 直前総仕上げパック](https://note.com/dobokunote/m/m7a9b3ad964f6) — 令和8年度向けの模試・暗記ノート・出題分析をまとめて復習する場合
 
 ---

@@ -88,7 +88,8 @@ export function researchDue(map, today) {
   return { last, next, dueDate, intervalDays, due: dueDate <= today };
 }
 
-const CLOSED = new Set(['stopped', 'done', 'abandoned']);
+// hold（保留）は方針が変わるまで見送る候補なので、判定日の知らせに出さない
+const CLOSED = new Set(['stopped', 'hold', 'done', 'abandoned']);
 
 /** 判定日が until 以前で、まだ閉じていない商品候補と打ち手（月次レビューで判定か延長の理由を書く対象） */
 export function dueJudgements(view, until) {

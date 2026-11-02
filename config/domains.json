@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "_doc": "docs/strategy/14_領域モデル.md",
+  "_doc": "docs/strategy/14_領域モデル.md pageDocuments＝画面（パス。長い一致が優先）→ その画面の根拠の文書。管理画面は見出しの右に「文書」のリンクとして出し、docs/ の恒久文書（reviews・handoffs を除く）はどれか 1 つ以上の画面に結ぶ（check-domains が止める）。",
   "description": "事業の領域（ドメイン）の正本。サイドバーの並び・バックログの [領域:] ・スケジュール・スキル/エージェントの frontmatter domain・文書の割り当ては全てここを参照する。スキル/エージェントは各 frontmatter の domain が正本、文書は documents（パス接頭辞。長い一致が優先）が正本。設定（config/）・データ（data/）の領域は scripts/lib/datasets.mjs の台帳が持つ。",
   "domains": [
     {
@@ -462,6 +462,139 @@
     "docs/strategy/05_情報アーキテクチャ.md": "site",
     "docs/strategy/09_販売チャネル競合分析.md": "product",
     "docs/strategy/13_土木公務員SEO戦略2026-08.md": "site"
+  },
+  "pageDocuments": {
+    "/": [
+      "docs/strategy/15_KPIツリー.md",
+      "docs/strategy/01_プロダクト戦略.md"
+    ],
+    "/metrics/business": [
+      "docs/strategy/01_プロダクト戦略.md",
+      "docs/strategy/15_KPIツリー.md"
+    ],
+    "/strategy/qualifications": [
+      "docs/strategy/06_多資格展開戦略.md",
+      "docs/reviews/2026-07-stp-analysis.md"
+    ],
+    "/strategy/market": [
+      "docs/strategy/06_多資格展開戦略.md"
+    ],
+    "/strategy/demand": [
+      "docs/strategy/21_分類の軸と回遊の配線2026-10.md",
+      "docs/strategy/09_販売チャネル競合分析.md"
+    ],
+    "/strategy/channels": [
+      "docs/strategy/22_チャネル別商品設計2026-11.md",
+      "docs/strategy/04_収益化戦略.md",
+      "docs/strategy/09_販売チャネル競合分析.md"
+    ],
+    "/strategy/competitors": [
+      "docs/strategy/09_販売チャネル競合分析.md",
+      "docs/reviews/competitors/README.md",
+      "docs/reviews/competitors/2026-04_技術士総監.md",
+      "docs/reviews/competitors/2026-05_1級土木.md",
+      "docs/reviews/competitors/2026-05_技術士建設.md",
+      "docs/reviews/competitors/2026-07_SNS.md",
+      "docs/reviews/competitors/2026-09_2級土木.md",
+      "docs/reviews/competitors/2026-09_キャリア記事.md",
+      "docs/reviews/competitors/2026-10_コンクリート技士・主任技士.md",
+      "docs/marketing/07b_販売動線分析_ちゃんさと_2026-09.md"
+    ],
+    "/strategy/policy": [
+      "docs/strategy/01_プロダクト戦略.md",
+      "docs/strategy/02_設計思想.md",
+      "docs/strategy/README.md",
+      "docs/README.md"
+    ],
+    "/strategy/taxonomy": [
+      "docs/strategy/14_領域モデル.md",
+      "docs/strategy/05_情報アーキテクチャ.md",
+      "docs/strategy/21_分類の軸と回遊の配線2026-10.md"
+    ],
+    "/plan/roadmap": [
+      "docs/strategy/04_収益化戦略.md"
+    ],
+    "/product/design": [
+      "docs/strategy/04_収益化戦略.md",
+      "docs/editorial/01_記述式コンテンツ戦略.md",
+      "docs/editorial/pe-essay-quality-matrix.md",
+      "docs/products/06_PWA過去問アプリ設計方針.md",
+      "docs/products/07_iOS択一アプリ試作方針.md"
+    ],
+    "/content/ledger": [
+      "docs/editorial/記述式分析/README.md",
+      "docs/editorial/記述式分析/r04.md",
+      "docs/editorial/記述式分析/r05.md",
+      "docs/editorial/記述式分析/r06.md",
+      "docs/editorial/記述式分析/r07.md",
+      "docs/editorial/コンクリート過去問の収集・掲載判断.md"
+    ],
+    "/sales": [
+      "docs/strategy/22_チャネル別商品設計2026-11.md",
+      "docs/strategy/15_KPIツリー.md"
+    ],
+    "/content/series": [
+      "docs/strategy/18_シリーズ方針.md"
+    ],
+    "/content/articles": [
+      "docs/editorial/02_採点ルーブリック方針.md",
+      "docs/editorial/03_リライト方法論方針.md",
+      "docs/editorial/07_2級土木サイト現状分析.md",
+      "docs/design/callout-gallery.md",
+      "docs/design/related-articles.md",
+      "docs/design/speclist-gallery.md"
+    ],
+    "/metrics/search-strategy": [
+      "docs/strategy/16_検索キーワード戦略.md",
+      "docs/strategy/13_土木公務員SEO戦略2026-08.md",
+      "docs/operations/06_seo-note-synergy-strategy.md",
+      "docs/marketing/04_被リンク獲得アウトリーチ.md",
+      "docs/operations/robots-ai-crawler-decision.md"
+    ],
+    "/metrics/ga4": [
+      "docs/operations/計測基盤強化ロードマップ.md",
+      "docs/operations/gsc-ga4-playwright-automation-spec.md"
+    ],
+    "/metrics/psi": [
+      "docs/operations/01_パフォーマンス監視.md"
+    ],
+    "/quality": [
+      "docs/editorial/02_採点ルーブリック方針.md",
+      "docs/editorial/03_リライト方法論方針.md"
+    ],
+    "/affiliate": [
+      "docs/marketing/転職アフィリエイト訴求設計.md",
+      "docs/operations/09_BuildJob収益最大化スプリント.md"
+    ],
+    "/sns": [
+      "docs/marketing/00_SNS整理マップ.md",
+      "docs/marketing/01_SNS集客戦略.md",
+      "docs/marketing/02_チャネル動線設計.md",
+      "docs/marketing/03_多資格SNS展開設計.md",
+      "docs/strategy/10_リスト化・自社オーディエンス戦略.md"
+    ],
+    "/sns/youtube/longform": [
+      "docs/marketing/06_動画コンテンツ運用設計.md",
+      "docs/marketing/05_YouTube戦略_技術士総監.md",
+      "docs/marketing/05a_YouTube競合分析_技術士総監_2026-06.md",
+      "docs/marketing/07_YouTube戦略_土木施工管理技士.md",
+      "docs/marketing/07a_YouTube競合分析_土木施工管理技士_2026-09.md",
+      "docs/marketing/07c_YouTube競合動画の画面分析_2026-10.md",
+      "docs/marketing/08_YouTube戦略_技術士建設部門.md",
+      "docs/marketing/08a_YouTube競合分析_技術士建設部門_2026-09.md",
+      "docs/marketing/09_YouTube戦略_コンクリート技士・主任技士.md",
+      "docs/marketing/09a_YouTube競合分析_コンクリート技士・主任技士_2026-10.md"
+    ],
+    "/metrics/video": [
+      "docs/marketing/06_動画コンテンツ運用設計.md"
+    ],
+    "/ops/mac": [
+      "docs/operations/04_自動化マップ.md"
+    ],
+    "/ops/ci": [
+      "docs/operations/12_Playwright_E2E導入設計.md",
+      "docs/operations/04_自動化マップ.md"
+    ]
   },
   "navKinds": {
     "inventory": "品揃え・一覧（何があり何が足りないか）",
