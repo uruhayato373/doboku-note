@@ -944,7 +944,7 @@ M3 マガジン（`総監記述式-R8予想問題集`）は6テーマ（資源�
 
 - 親戦略: [04_収益化戦略.md](../../../docs/strategy/04_収益化戦略.md)
 - SEO 継続改善: `.claude/todo/`（旧 task-queue.json は 2026-06-10 廃止）
-- v3 事業戦略: [03_事業戦略.md](../../../docs/strategy/03_事業戦略.md)
+- v3 事業戦略: [01_プロダクト戦略.md](../../../docs/strategy/01_プロダクト戦略.md)
 - SNS 集客戦略: [03_SNS/01_SNS集客戦略.md](../../../docs/marketing/01_SNS集客戦略.md)
 - チャネル動線設計: [03_SNS/02_チャネル動線設計.md](../../../docs/marketing/02_チャネル動線設計.md)
 

@@ -4,7 +4,7 @@ title: 建設業の経営と法務シリーズで確かめた一次資料（執�
 
 # 建設業の経営と法務シリーズで確かめた一次資料（執筆担当が引く）
 
-シリーズ `construction-business`（`config/content-series.json`）の章を書くとき、執筆担当と QA はまずここを読む。ここに無い値だけを WebSearch / WebFetch で確かめる。手順は [book-coverage-expansion.md](./book-coverage-expansion.md) §4、方針は [20_建設業の経営と法務シリーズと教材の判定し直し](../../../docs/strategy/20_建設業の経営と法務シリーズと教材の判定し直し2026-10.md)。
+シリーズ `construction-business`（`config/content-series.json`）の章を書くとき、執筆担当と QA はまずここを読む。ここに無い値だけを WebSearch / WebFetch で確かめる。手順は [book-coverage-expansion.md](./book-coverage-expansion.md) §4、方針は [18_シリーズ方針](../../../docs/strategy/18_シリーズ方針.md)。
 
 - 担当が新しく確かめた値は、返答の `factsVerified` に「値 — 出典 URL（版・条・頁）」で書く。親がここへ足す（担当はこのファイルを編集しない）。
 - 改正を見つけたら、古い行を消さずに「（令和◯年◯月に改正）」と書き足し、新しい行を足す。

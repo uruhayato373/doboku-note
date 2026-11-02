@@ -4,7 +4,7 @@ import { matchPageDocuments, documentLink } from '../scripts/lib/page-documents.
 
 const map = {
   '/': ['docs/strategy/15_KPIツリー.md'],
-  '/metrics/business': ['docs/strategy/03_事業戦略.md'],
+  '/metrics/business': ['docs/strategy/01_プロダクト戦略.md'],
   '/strategy/channels': ['docs/strategy/22_チャネル別商品設計2026-11.md'],
 };
 

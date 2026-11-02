@@ -34,7 +34,7 @@ npm run dev
 
 - [`docs/README.md`](./docs/README.md) — 恒久文書の領域構成と入口
 - [`docs/strategy/02_設計思想.md`](./docs/strategy/02_設計思想.md) — プロジェクトの設計思想
-- [`docs/strategy/03_事業戦略.md`](./docs/strategy/03_事業戦略.md) — 事業戦略
+- [`docs/strategy/01_プロダクト戦略.md`](./docs/strategy/01_プロダクト戦略.md) — 事業戦略
 - [`docs/strategy/04_収益化戦略.md`](./docs/strategy/04_収益化戦略.md) — 収益化戦略
 
 ## ライセンス
