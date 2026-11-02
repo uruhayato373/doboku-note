@@ -6442,6 +6442,32 @@
       "commit": "13c192188c06",
       "verification": "node --test tests/channel-economics.test.mjs（月別の受取が net-receipts と一致）",
       "note": "PR #1368: config/channel-strategy.json・npm run channel-economics・管理画面 /strategy/channels・docs/strategy/22。KPI の目標は案（承認前）"
+    },
+    {
+      "id": "DN-0943",
+      "at": "2026-11-02",
+      "task": "ココナラの評価の数を土曜の収集で取り、チャネル設計の KPI に結ぶ",
+      "tier": "low",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "bf315568a19b",
+      "verification": "npm test（coconala-seller-profile）・check-datasets",
+      "note": "PR #1377 で coconala-seller-profile を土曜のローカル定期に入れ、チャネル設計の KPI に評価の数を出した"
+    },
+    {
+      "id": "DN-0942",
+      "at": "2026-11-02",
+      "task": "ココナラの二次の添削の再開日・休止日を収益カレンダーから出す",
+      "tier": "low",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "bf315568a19b",
+      "verification": "tests/revenue-calendar.test.mjs・schedule-view --channel revenue",
+      "note": "PR #1377 で revenue-calendar に coconala-open・coconala-pause の段を足し、3 資格に出品を結んだ"
     }
   ]
 }
