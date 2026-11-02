@@ -15,6 +15,8 @@ const COLUMNS: DataTableColumn[] = [
   { key: 'top', label: '冒頭の案内' },
   { key: 'bottom', label: '末尾の案内' },
 ];
+/** 案内の文から、配線の目印の行（<!-- cta:… -->）を行ごと外す。文字列は React がエスケープして出す */
+const ctaText = (cta?: Cta) => cta?.text.split('\n').filter((line) => !line.trim().startsWith('<!--')).join('\n').trim();
 const mark = (on: boolean) => <StatusBadge tone={on ? 'good' : 'neutral'}>{on ? 'あり' : 'なし'}</StatusBadge>;
 
 export default function FunnelPanel() {
@@ -36,8 +38,8 @@ export default function FunnelPanel() {
           qualification: (
             <DetailSheet trigger={label} title={`${label} の導線`} description={e.L2?.title}>
               <DetailList items={[{ label: 'もくじ', value: e.L2 ? <a href={e.L2.noteUrl} target="_blank" rel="noreferrer">{e.L2.title}</a> : null }]} />
-              <DetailText title="冒頭の案内" items={[e.topCta?.text.replace(/<!--[^>]*-->\n?/, '')]} />
-              <DetailText title="末尾の案内" items={[e.bottomCta?.text.replace(/<!--[^>]*-->\n?/, '')]} />
+              <DetailText title="冒頭の案内" items={[ctaText(e.topCta)]} />
+              <DetailText title="末尾の案内" items={[ctaText(e.bottomCta)]} />
             </DetailSheet>
           ),
           index: e.L2 ? <a href={e.L2.noteUrl} target="_blank" rel="noreferrer">{e.L2.title}</a> : '—',
