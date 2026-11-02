@@ -6,9 +6,9 @@ KDP で**公開済み（LIVE）**の Kindle 実物アーカイブ。実際に出
 - 再生成可能なビルド中間物ではないので gitignore しない（追跡する）。
 - SoT（再生成元）はあくまで各ビルド spec（`scripts/kindle-specs/` ほか）と原稿。ここは「実際に世に出したもの」の記録。
 
-## 収録（2026-07-09 時点）
+## 収録
 
-1級土木施工管理技士 論点別過去問 A シリーズ（A-01〜A-06、個別本）。合本 A-00 は未公開のため対象外。
+公開済みの各シリーズを下表に記録する。
 
 **機械可読 SSOT = [`catalog.json`](./catalog.json)**（ASIN・価格・状態・版 version の真実源）。下表と `content/kindle/strategy.md` の「出版済み一覧」はここから派生させる。ASIN は Amazon 恒久 ID（アフィリリンク・公開状態照合・外部導線に使用）。
 
@@ -67,6 +67,7 @@ A（問題/解答を別 XHTML に分割＝構造的改ページ）と D（`.ans`
 | F-16 設問3国家施策バンク | B0HCMNDNX8 | 1.0 | `kindle-dist/f-16.epub` | `kindle-dist/f-16.jpg` | kdp-memo.json |
 | G-01 コンクリート診断士 | B0HGXCGGS2 | 1.0 | `kindle-dist/g-01.epub` | `kindle-dist/g-01.jpg` | kdp-memo.json |
 | G-02 コンクリート主任技士 | B0HGXLGJ5Y | 1.0 | `kindle-dist/g-02.epub` | `kindle-dist/g-02.jpg` | kdp-memo.json |
+| i-01 1級 施工経験記述 過去問模範答案集 | B0HPZNQRT1 | 1.0 | `kindle-dist/i-01.epub` | `kindle-dist/i-01.jpg` | `KDP入力メモ_i-01.txt` |
 
 > ASIN の真実源は `scripts/kindle-published/catalog.json`（`asin` フィールド）。この表と
 > `content/kindle/strategy.md` は人が読む索引で、**3 箇所とも同時に更新する**
