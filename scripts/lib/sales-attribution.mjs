@@ -20,6 +20,8 @@ export function salesAttribution(config, sales, period, products) {
   const rows = sales.filter(inPeriod);
   const via = { product: 0, rule: 0, none: 0 };
   const byQualification = {};
+  const yenByQualification = {};
+  const yenByMonth = {};
   const unattributedIds = new Set();
   const soldProductIds = new Set();
   for (const s of rows) {
@@ -31,6 +33,11 @@ export function salesAttribution(config, sales, period, products) {
     if (kind === 'none') unattributedIds.add(s.productId);
     const key = qualificationKey(cells);
     byQualification[key] = (byQualification[key] ?? 0) + 1;
+    // 販売額（手数料控除前）。資格別と、月×資格別（チャネル設計の画面が読む）
+    const yen = Number(s.price) || 0;
+    yenByQualification[key] = (yenByQualification[key] ?? 0) + yen;
+    const month = String(s.date).slice(0, 7);
+    (yenByMonth[month] ??= {})[key] = (yenByMonth[month][key] ?? 0) + yen;
   }
   // 公開中で、期間内に 1 件も売れていない note 商品（資格別）。無料の商品（price に「無料」「¥0」）も数に含め、別に数える
   const unsold = {};
@@ -40,5 +47,5 @@ export function salesAttribution(config, sales, period, products) {
     const price = String(p.catalog?.price ?? '');
     (unsold[p.qualification] ??= []).push({ id: p.id, tier: p.tier, free: /無料|¥0\b|会員/.test(price) });
   }
-  return { total: rows.length, via, byQualification, unattributedIds: [...unattributedIds], unsold };
+  return { total: rows.length, via, byQualification, yenByQualification, yenByMonth, unattributedIds: [...unattributedIds], unsold };
 }

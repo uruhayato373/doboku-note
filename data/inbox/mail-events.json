@@ -1,8 +1,24 @@
 {
   "schemaVersion": 1,
   "description": "obsidian の mail-triage（毎日 cron）がメールから拾ったイベント。売上の正本ではない——正本は各リポのスクレイパーが取るログ。辞書は obsidian .claude/mail-rules.json",
-  "updatedAt": "2026-10-24T01:01:29.213Z",
+  "updatedAt": "2026-11-02T01:47:38.845Z",
   "events": [
+    {
+      "id": "1a1967a056073337",
+      "receivedAt": "2026-11-01T09:39:00.000Z",
+      "account": "doboku",
+      "kind": "coconala-monthly",
+      "label": "ココナラ 月次の出品レポート",
+      "month": "2026年10月",
+      "views": 790
+    },
+    {
+      "id": "1a195d0a0e32bee3",
+      "receivedAt": "2026-11-01T06:34:00.000Z",
+      "account": "kazu",
+      "kind": "search-console-milestone",
+      "label": "Search Console クリック数の到達"
+    },
     {
       "id": "1a168f2cc7f4851c",
       "receivedAt": "2026-10-23T13:28:25.000Z",

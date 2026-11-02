@@ -880,6 +880,93 @@ export const ConfigContentRules = z
   })
   .meta({ title: '記事の機械品質ルール' });
 
+// ---- 販売チャネルの設計（config/channel-strategy.json・2026-11-02） ------------------------------
+
+const CHANNEL_ID = z.enum(['note', 'kindle', 'coconala']);
+const fourC = z.object({ customerValue: text, cost: text, convenience: text, communication: text }).strict();
+
+export const ConfigChannelStrategy = z
+  .object({
+    schemaVersion: z.literal(1),
+    _doc: text,
+    fees: z.record(CHANNEL_ID, z.object({ label: text, keepRate: z.number().gt(0).lt(1).describe('販売額に対する手取りの割合（公表料率）'), basis: text, source: url, checkedAt: jstDate('料率を公式で確かめた日') }).strict()),
+    channels: z.array(z.object({ id: CHANNEL_ID, role: text, sells: strList, notSell: strList, fourC }).strict()).min(1).superRefine(uniqueBy((c) => c.id, 'チャネル')),
+    swot: z.object({ strengths: strList, weaknesses: strList, opportunities: strList, threats: strList }).strict(),
+    kgi: z.object({ metric: text, label: text, targetYen: yen('月の目標'), source: text }).strict(),
+    kpis: z
+      .array(
+        z
+          .object({
+            id: QID,
+            channel: CHANNEL_ID,
+            label: text,
+            unit: text,
+            target: z.number().nonnegative(),
+            status: z.enum(['proposed', 'approved']).describe('proposed は運営者の承認前'),
+            why: text,
+          })
+          .strict(),
+      )
+      .superRefine(uniqueBy((k) => k.id, 'KPI')),
+  })
+  .strict()
+  .superRefine((c, ctx) => {
+    for (const ch of c.channels) if (!c.fees[ch.id]) flag(ctx, ['fees'], `チャネル「${ch.id}」の手数料が無い`);
+  })
+  .meta({ title: '販売チャネルの設計' });
+
+// ---- ページの種類ごとの採点プロファイル（config/page-quality-profiles.json・DN-0936） ----------------
+
+const PAGE_METRIC = z.enum(['chars', 'h2', 'images', 'tables', 'internalLinks', 'tableCaptions', 'figureCaptions', 'rawTextBlocks']);
+const regexText = text.refine((s) => { try { new RegExp(s); return true; } catch { return false; } }, '正規表現として読めない');
+
+export const ConfigPageQualityProfiles = z
+  .object({
+    schemaVersion: z.literal(1),
+    _doc: text,
+    metricsVocabulary: z.record(PAGE_METRIC, text).describe('指標の id と意味'),
+    profiles: z
+      .array(
+        z
+          .object({
+            id: QID,
+            label: text,
+            match: z.union([
+              z.object({ area: z.enum(['exam', 'practice', 'standards', 'laws']), groups: z.array(text).min(1) }).strict().describe('MDX 記事: 領域 × 記事型'),
+              z.object({ paths: z.array(text).min(1), file: regexText.describe('ファイル名の正規表現') }).strict().describe('置き場で決める（基準書）'),
+            ]),
+            focus: text.describe('この種類で何を大事に見るか'),
+            machineChecks: strList.describe('quality-audit の検査 id'),
+            metrics: z.array(PAGE_METRIC).min(1),
+            evaluators: z
+              .array(
+                z
+                  .object({
+                    agent: QID.describe('.claude/agents の名前'),
+                    role: z.enum(['rubric', 'facts', 'figures', 'tables']),
+                    categories: z.array(QID).min(1).optional().describe('対象の資格（省略は全資格）'),
+                  })
+                  .strict(),
+              )
+              .describe('評価役。空は評価役の無い種類'),
+            evaluatorGap: text.optional().describe('評価役を置けない理由と、埋めるカード'),
+            notApplicable: strList.describe('この種類に当てはめない規則'),
+          })
+          .strict(),
+      )
+      .min(1)
+      .superRefine(uniqueBy((p) => p.id, 'プロファイル')),
+  })
+  .strict()
+  .superRefine((c, ctx) => {
+    c.profiles.forEach((p, i) => {
+      p.metrics.forEach((m, j) => {
+        if (!(m in c.metricsVocabulary)) flag(ctx, ['profiles', i, 'metrics', j], `metricsVocabulary に無い指標「${m}」`);
+      });
+    });
+  })
+  .meta({ title: 'ページの種類ごとの採点プロファイル' });
+
 // ---- 商品の正本（config/products.json・DN-0492） ----------------------------------------------
 
 /** note-magazines.ts の 1 エントリ（キーの並びは保持する。id / published / noteUrl の順は読み手との契約） */

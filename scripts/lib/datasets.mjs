@@ -125,6 +125,8 @@ export const DATASETS = [
   d('config.cta-placements', 'config/cta-placements.json', 'config', 'affiliate', 'サイトの広告・送客の配置（GA4 の cta_placement）の語彙と状態', { schema: 'ConfigCtaPlacements' }),
   // サイト
   d('config.content-rules', 'config/content-rules.json', 'config', 'site', 'サイト記事の機械品質ルールの重大度と適用範囲', { schema: 'ConfigContentRules' }),
+  d('config.channel-strategy', 'config/channel-strategy.json', 'config', 'strategy', '販売チャネルの役割・売る商品・手数料・SWOT・4C・KGI/KPI（管理画面 チャネル設計・npm run channel-economics）', { schema: 'ConfigChannelStrategy' }),
+  d('config.page-quality-profiles', 'config/page-quality-profiles.json', 'config', 'site', 'ページの種類ごとの採点プロファイル（見る観点・機械の検査・指標・評価役・適用しない規則）', { schema: 'ConfigPageQualityProfiles' }),
   d('config.search-strategy', 'config/search-strategy.json', 'config', 'site', '検索キーワード戦略のクラスタ', { schema: 'ConfigSearchStrategy' }),
   d('config.seo-meta-config', 'config/seo-meta-config.json', 'config', 'site', 'SEO meta 監査の対象と巡回の設定', { schema: 'ConfigSeoMeta' }),
   d('config.growth-cycle', 'config/growth-cycle.json', 'config', 'site', '成長サイクル（計測ダイジェスト）の設定', { schema: 'ConfigGrowthCycle' }),
@@ -335,6 +337,7 @@ export const DATASETS = [
   d('state.quality-baselines', '.claude/state/quality/{name}-baseline.json', 'config', 'ops', '品質ゲートの基準線（lint・knip・画像・git バイナリ・図のクロップ・エージェントの説明）'),
   d('state.quality-scores-by-qualification', '.claude/state/quality/{name}-scores.json', 'state', 'site', '資格ごとの採点（1級土木一次・2級土木・コンクリート主任技士・建設部門・第一次試験・総監その他）'),
   d('state.quality-history', '.claude/state/quality/history.jsonl', 'ledger', 'ops', 'quality:audit の結果の推移'),
+  d('state.gemini-trial', '.claude/state/quality/gemini-trial.json', 'state', 'site', 'Gemini の一次採点と Claude の評価役の採点の比較（DN-0939・scripts/gemini-scoring-trial.mjs）'),
   d('state.quality-census', '.claude/state/quality/census.json', 'state', 'ops', '品質の棚卸し（census）の最新'),
   d('state.quality-census-history', '.claude/state/quality/census-history.jsonl', 'ledger', 'ops', '同上の推移'),
   d('state.quality-latest-report', '.claude/state/quality/latest-report.md', 'report', 'ops', 'quality:audit の最新の報告'),

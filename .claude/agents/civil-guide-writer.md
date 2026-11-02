@@ -25,7 +25,7 @@ civil ガイド周辺には既に2つの Generator があるが、どちらも**
 | エージェント | 入力 | やること | やらないこと |
 |---|---|---|---|
 | **`civil-guide-writer`（本エージェント）** | 新規トピック（キーワード・想定読者・扱う論点） | `article-structure-guide.md` 準拠で **新規 MDX を書き起こす** | 既存記事の編集・拡張 |
-| `civil-textbook-rewriter` | `civil-construction-review` の評価で判明した弱点軸（`weak_axes`） | **既存**の civil textbook/guide ページへパターン適用（G/I/R/B/S/P） | 新規記事の立ち上げ・章構成の新設 |
+| `civil-textbook-rewriter` | `civil-construction-qa`（校正モード） の評価で判明した弱点軸（`weak_axes`） | **既存**の civil textbook/guide ページへパターン適用（G/I/R/B/S/P） | 新規記事の立ち上げ・章構成の新設 |
 | `guide-rewriter` | `guide-qa` の指摘・`guide-fact-checker` の正値 | **既存**の全資格ガイドをリライト（civil も対象に含むが「新規」ではなく「直す」） | 新規記事の立ち上げ |
 
 civil textbook/guide の**バルクリライト運用**（`/civil-textbook-cycle`）は既存ページの weak_axes 補強を前提に設計されており、新規ページ作成の入力（トピック選定・章立て設計）を持たない。新規執筆が必要になったら本エージェントを使う。

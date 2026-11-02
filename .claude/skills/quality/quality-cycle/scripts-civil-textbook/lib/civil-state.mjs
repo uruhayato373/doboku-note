@@ -3,7 +3,7 @@
 // Civil Textbook Cycle の state JSON を読み書きするユーティリティ。
 //
 // 対象ファイル:
-//   - .claude/state/civil-quality-scores.json     : civil-construction-review 評価結果
+//   - .claude/state/civil-quality-scores.json     : civil-construction-qa（校正モード） 評価結果
 //   - .claude/state/civil-quality-cycle-state.json: 各ページの状態遷移履歴
 //   - .claude/state/civil-review-queue.md         : 人間レビュー待ちリスト
 //
@@ -100,7 +100,7 @@ export function writeReviewQueue(markdown) {
   writeFileSync(REVIEW_QUEUE_PATH, markdown, 'utf-8');
 }
 
-// ── 加重スコア計算（civil-construction-review の重みに準拠）─────
+// ── 加重スコア計算（civil-construction-qa（校正モード） の重みに準拠）─────
 
 export const WEIGHTS = {
   structure: 0.20,
