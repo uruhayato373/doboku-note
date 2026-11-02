@@ -1268,6 +1268,7 @@ export const DomainsConfig = z
       .min(1)
       .superRefine(uniqueBy('id', '領域の id')),
     documents: z.record(z.string().min(1), z.string().min(1)).describe('文書のパス（末尾 / は接頭辞）→ 領域 id'),
+    pageDocuments: z.record(z.string().regex(/^\//, '画面のパスは / で始める'), z.array(z.string().min(1)).min(1)).describe('画面のパス（長い一致が優先）→ その画面の根拠の文書'),
     navKinds: z.record(z.string(), z.string()).describe('サイドバーの画面の種類'),
     navRules: z.array(z.string()),
   })

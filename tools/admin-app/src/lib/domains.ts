@@ -4,6 +4,15 @@ import { loadDomains } from '../../../../scripts/lib/domains.mjs';
 export type NavView = { label: string; href: string; kind: string; match: string; matchAlso?: string[]; query?: Record<string, string> };
 export type Domain = { id: string; label: string; role: string; manages: string; nav: NavView[] };
 
+/** 画面のパス → 根拠の文書（正本 config/domains.json の pageDocuments）。外枠が読んで見出しの右のリンクに渡す。読めなければ空。 */
+export function pageDocumentMap(): Record<string, string[]> {
+  try {
+    return (loadDomains(findRepoRoot()) as { pageDocuments?: Record<string, string[]> }).pageDocuments ?? {};
+  } catch {
+    return {};
+  }
+}
+
 /** 領域の一覧（正本 config/domains.json の並び）。読めなければ空。 */
 export function domainList(): Domain[] {
   try {

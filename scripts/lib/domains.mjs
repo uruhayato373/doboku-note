@@ -3,10 +3,12 @@
  *
  * サイドバーの並び・バックログの [領域:]・スケジュール・スキル/エージェントの frontmatter `domain:`・
  * 文書の割り当て（documents＝パス接頭辞、長い一致が優先）は全てここを経由して領域 id に解決する。
+ * 画面の根拠の文書（pageDocuments＝画面のパス→文書、長い一致が優先）も ここで引く（管理画面の見出しの右の「文書」）。
  */
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { datasetPath } from './datasets.mjs';
+import { matchPageDocuments } from './page-documents.mjs';
 
 export const DOMAINS_PATH = datasetPath('config.domains');
 
@@ -33,6 +35,11 @@ export function documentDomain(cfg, path) {
     if (hit && (!best || key.length > best.key.length)) best = { key, id };
   }
   return best?.id ?? null;
+}
+
+/** 画面のパス（クエリを除く）→ その画面の根拠の文書（判定は page-documents.mjs の 1 か所）。一致しなければ空の配列。 */
+export function pageDocuments(cfg, pathname) {
+  return matchPageDocuments(cfg.pageDocuments, pathname);
 }
 
 /** frontmatter の `domain:` を読む（無ければ null）。 */

@@ -312,6 +312,18 @@ a:hover {
 .page-head-copy {
   min-width: 0;
 }
+/* 見出しの右上の「文書 N」ボタン（components/PageDocLinks.tsx）。外枠の余白の内側に重ね、狭い画面では見出しの上に置く */
+.page-doc-links {
+  position: absolute;
+  top: 30px;
+  right: clamp(22px, 3vw, 46px);
+}
+@media (max-width: 760px) {
+  .page-doc-links {
+    position: static;
+    margin-bottom: 8px;
+  }
+}
 .page-head h1 {
   font-size: clamp(24px, 2vw, 30px);
   color: var(--ink);
