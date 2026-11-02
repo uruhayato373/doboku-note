@@ -61,7 +61,9 @@ function publishedMagazines() {
   }
   return out;
 }
-const MAGS = publishedMagazines();
+// 売り場から外した商品（catalog.shelvedAt・DN-0944）は note で販売を続けるが、もくじには載せない
+const SHELVED = new Set(readDataset(ROOT, 'config.products').products.filter((p) => p.catalog?.shelvedAt).map((p) => p.id));
+const MAGS = publishedMagazines().filter((mg) => !SHELVED.has(mg.id));
 
 // 値キャプチャは水平空白のみ（[ \t]）で囲む。\s だと改行を食い、空フィールド（例 `noteUrl:` 空）が
 // 次行の値を拾って bleed する（未公開記事が D1/D5 をすり抜ける既存バグの修正）。

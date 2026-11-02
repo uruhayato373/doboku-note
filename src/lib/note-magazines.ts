@@ -32,6 +32,8 @@ export interface NoteMagazine {
   readonly landingUrl?: string;
   /** note からマガジンを削除して販売を終えた日（YYYY-MM-DD）。管理画面の台帳では「終了」として既定で隠す */
   readonly retiredAt?: string;
+  /** サイトの CTA・note のもくじから外した日（YYYY-MM-DD）。note では販売を続け、購入者は読める。getMagazine() は null を返す */
+  readonly shelvedAt?: string;
   /**
    * note 上のマガジン名（公開ページの題名そのもの）。title はサイト CTA 用の説明的な題名で、note とは一致させない。
    * noteUrl が記事（/n/）の単品 SKU には書かない（題名の正本は記事原稿の frontmatter title。二重に持たない）。
@@ -157,6 +159,7 @@ const MAGAZINES_RAW = {
     shortDescription: '令和3〜7年度、各年A・Bの2案。地盤調査・基礎設計の受注者として、技術品質・社内工程・技術者配置を統括する立場の答案モデル。',
     price: '¥1,980',
     badge: 'note 実務立場別 教材',
+    shelvedAt: '2026-11-02',
   },
   'essay-maintenance-contractor-magazine': {
     id: 'essay-maintenance-contractor-magazine',
@@ -170,6 +173,7 @@ const MAGAZINES_RAW = {
     shortDescription: '令和3〜7年度、各年A・Bの2案。維持修繕・更新工事の施工者として、供用条件・施工品質・安全・要員配置を統括する立場の答案モデル。',
     price: '¥1,980',
     badge: 'note 実務立場別 教材',
+    shelvedAt: '2026-11-02',
   },
   'essay-park-municipality-magazine': {
     id: 'essay-park-municipality-magazine',
@@ -182,6 +186,7 @@ const MAGAZINES_RAW = {
     description: 'R03〜R07 過去問（公園施設維持管理・老朽遊具更新版/防災公園新設・グリーンインフラ整備版の A案/B案 2 バージョン）+ R8予想6記事（気候変動適応・資源循環・老朽化インフラ・災害復旧・AI社会・経済安全保障）の計 11 記事。公園緑地担当（発注者）視点、5 管理間トレードオフが主軸。各記事に印刷用PDF付き。',
     price: '¥2,480（11本セット、単品比63%OFF）',
     badge: 'note 限定',
+    shelvedAt: '2026-11-02',
   },
   'essay-port-municipality-magazine': {
     id: 'essay-port-municipality-magazine',
@@ -194,6 +199,7 @@ const MAGAZINES_RAW = {
     description: 'R03〜R07 過去問（港湾施設維持管理版/岸壁改良・水深増深版の A案/B案 2 バージョン）+ R8予想6記事（気候変動適応・資源循環・老朽化インフラ・災害復旧・AI社会・経済安全保障）の計 11 記事。港湾担当（発注者）視点、物流機能維持・CNポート・5 管理間トレードオフが主軸。各記事に印刷用PDF付き。',
     price: '¥2,480（11本セット、単品比63%OFF）',
     badge: 'note 限定',
+    shelvedAt: '2026-11-02',
   },
   'essay-procurement-municipality-magazine': {
     id: 'essay-procurement-municipality-magazine',
@@ -207,6 +213,7 @@ const MAGAZINES_RAW = {
     shortDescription: 'R03〜R07 過去問（全 A/B 2 案）+ R8予想6記事 = 計11記事。調達・契約視点の決定版。',
     price: '¥2,480（11本セット、単品比63%OFF）',
     badge: 'note 限定',
+    shelvedAt: '2026-11-02',
   },
   'essay-river-consultant-magazine': {
     id: 'essay-river-consultant-magazine',
@@ -277,6 +284,7 @@ const MAGAZINES_RAW = {
     shortDescription: 'R03〜R07、各年A・Bの2案。施工計画・合材製造・路上施工・交通規制を5管理で論じる答案モデル。',
     price: '¥1,980（5記事・各年2答案）',
     badge: 'note 実務立場別 教材',
+    shelvedAt: '2026-11-02',
   },
   'essay-sabo-municipality-magazine': {
     id: 'essay-sabo-municipality-magazine',
@@ -289,6 +297,7 @@ const MAGAZINES_RAW = {
     description: 'R03〜R07 過去問（砂防施設維持管理版/砂防堰堤新設・急傾斜地対策版の A案/B案 2 バージョン）+ R8予想6記事（気候変動適応・資源循環・老朽化インフラ・災害復旧・AI社会・経済安全保障）の計 11 記事。砂防担当（発注者）視点、土砂災害リスク管理・流域管理・5 管理間トレードオフが主軸。各記事に印刷用PDF付き。',
     price: '¥2,480（11本セット、単品比63%OFF）',
     badge: 'note 限定',
+    shelvedAt: '2026-11-02',
   },
   'essay-sewage-municipality-magazine': {
     id: 'essay-sewage-municipality-magazine',
@@ -301,6 +310,7 @@ const MAGAZINES_RAW = {
     description: 'R03〜R07 過去問（老朽管路更新版/浸水対策雨水幹線整備版の A案/B案 2 バージョン）+ R8予想6記事（気候変動適応・資源循環・老朽化インフラ・災害復旧・AI社会・経済安全保障）の計 11 記事。下水道担当（発注者）視点、5 管理間トレードオフが主軸。各記事に印刷用PDF付き。',
     price: '¥2,480（11本セット、単品比63%OFF）',
     badge: 'note 限定',
+    shelvedAt: '2026-11-02',
   },
   'essay-standards-municipality-magazine': {
     id: 'essay-standards-municipality-magazine',
@@ -314,6 +324,7 @@ const MAGAZINES_RAW = {
     shortDescription: 'R03〜R07 過去問（全 A/B 2 案）+ R8予想6記事 = 計11記事。情報管理・標準化視点の決定版。',
     price: '¥2,480（11本セット、単品比63%OFF）',
     badge: 'note 限定',
+    shelvedAt: '2026-11-02',
   },
   'essay-steel-concrete-consultant-magazine': {
     id: 'essay-steel-concrete-consultant-magazine',
@@ -327,6 +338,7 @@ const MAGAZINES_RAW = {
     shortDescription: 'R03〜R07、各年A・Bの2案。鋼橋設計・照査、診断、耐久性評価を5管理で論じる答案モデル。',
     price: '¥1,980（5記事・各年2答案）',
     badge: 'note 実務立場別 教材',
+    shelvedAt: '2026-11-02',
   },
   'essay-tunnel-consultant-magazine': {
     id: 'essay-tunnel-consultant-magazine',
@@ -340,6 +352,7 @@ const MAGAZINES_RAW = {
     shortDescription: 'R03〜R07、各年A・Bの2案。調査・設計、地質評価、診断・補修設計を5管理で論じる答案モデル。',
     price: '¥1,980（5記事・各年2答案）',
     badge: 'note 実務立場別 教材',
+    shelvedAt: '2026-11-02',
   },
   'essay-urban-consultant-magazine': {
     id: 'essay-urban-consultant-magazine',
@@ -352,6 +365,7 @@ const MAGAZINES_RAW = {
     description: 'R03〜R07 過去問（立地適正化計画策定支援版/市街地整備・再開発計画版の A案/B案 2 バージョン）+ R8予想6記事（気候変動適応・資源循環・老朽化インフラ・災害復旧・AI社会・経済安全保障）の計 11 記事。建設コンサル都市計画部門（受注者・調査設計者）視点、5管理トレードオフが主軸。各記事に印刷用PDF付き。',
     price: '¥2,480（11本セット、単品比63%OFF）',
     badge: 'note 限定',
+    shelvedAt: '2026-11-02',
   },
   'essay-urban-municipality-magazine': {
     id: 'essay-urban-municipality-magazine',
@@ -365,6 +379,7 @@ const MAGAZINES_RAW = {
     shortDescription: 'R03〜R07 + R8予想6記事 = 計11記事。立地適正化計画版/再開発事業版の A案/B案＋印刷用PDF付き。',
     price: '¥2,480（11本セット、単品比63%OFF）',
     badge: 'note 限定',
+    shelvedAt: '2026-11-02',
   },
   'essay-water-consultant-magazine': {
     id: 'essay-water-consultant-magazine',
@@ -378,6 +393,7 @@ const MAGAZINES_RAW = {
     shortDescription: '令和3〜7年度、各年A・Bの2案。上下水道の調査・更新計画・設計を担う受注者として、技術品質・社内工程・技術者配置を統括する立場の答案モデル。',
     price: '¥1,980',
     badge: 'note 実務立場別 教材',
+    shelvedAt: '2026-11-02',
   },
   'essay-water-municipality-magazine': {
     id: 'essay-water-municipality-magazine',
@@ -429,6 +445,7 @@ const MAGAZINES_RAW = {
     ctaCatch: 'R8本試験の設問(3)、このバンクが7週間前に収録していました',
     ctaButton: '施策バンクを見てみる',
     ctaPose: 'pointing',
+    shelvedAt: '2026-11-02',
   },
   // 2026-09-19: 総監・建設部門の口頭教材と RCCM 問題I の追加3部門を公開し、PDF添付を実体確認。
   'tankan-oral-complete': {
@@ -921,6 +938,7 @@ const MAGAZINES_RAW = {
     ctaCatch: '2テーマ、どの組合せが出ても書ける',
     ctaButton: '全10組合せを見てみる',
     ctaPose: 'pointing',
+    shelvedAt: '2026-11-02',
   },
   // ----- 1級土木 施工経験記述ライン (2026-05-29) -----
   // 原稿配置: content/note/1級・2級土木/1級土木/magazines/1級土木-施工経験記述-完成答案集/
@@ -999,6 +1017,7 @@ const MAGAZINES_RAW = {
     shortDescription: '橋梁補修・更新の8工事×5管理。完全攻略パック収録済み記事の分野別セット。',
     price: '¥3,980（8工事セット）',
     badge: 'note 分野別教材',
+    shelvedAt: '2026-11-02',
   },
   // ----- 1級土木 経験記述 完全攻略パック（旗艦・買い切り）(2026-06-30 scaffold) -----
   // 既存3買い切り（完成答案集・過去問模範答案集・2テーマ組合せ大全）を「想定工事 索引」で束ね、
@@ -1040,6 +1059,7 @@ const MAGAZINES_RAW = {
     shortDescription: '河川・砂防・海岸・災害復旧の10工事×5管理。完全攻略パック収録済み記事を再編集。',
     price: '¥3,980（10工事セット）',
     badge: 'note 分野別教材',
+    shelvedAt: '2026-11-02',
   },
   'civil-1-keiken-road-tunnel-pack': {
     id: 'civil-1-keiken-road-tunnel-pack',
@@ -1053,6 +1073,7 @@ const MAGAZINES_RAW = {
     shortDescription: '供用下の道路・トンネル・地下構造物7工事×5管理。完全攻略パック収録済み記事を再編集。',
     price: '¥3,980（7工事セット）',
     badge: 'note 分野別教材',
+    shelvedAt: '2026-11-02',
   },
   'civil-1-keiken-water-treatment-pack': {
     id: 'civil-1-keiken-water-treatment-pack',
@@ -1066,6 +1087,7 @@ const MAGAZINES_RAW = {
     shortDescription: '供用継続を伴う上下水道・処理施設7工事×5管理。完全攻略パック収録済み記事を再編集。',
     price: '¥3,980（7工事セット）',
     badge: 'note 分野別教材',
+    shelvedAt: '2026-11-02',
   },
   // P5: 1級 二次まるごとパック（新最上位アンカー・経験記述完全攻略¥9,800＋P1＋P3aを束ね）
   // 単品合計 ¥13,260（¥9,800＋¥2,480＋¥980）→ ¥11,800。既存¥9,800は残置（Red Line #8）。
@@ -1108,6 +1130,7 @@ const MAGAZINES_RAW = {
     ctaCatch: '過去5年、実際に出た問題で答案を仕上げる',
     ctaButton: '過去問の答案を見てみる',
     ctaPose: 'pointing',
+    shelvedAt: '2026-11-02',
   },
   // R8 二次 出題分析・直前重点（ココナラ実測に基づく入口商品。§10.2）。単発記事・後ろ向き実績分析。
   'civil-1-r8-bunseki': {
@@ -1121,6 +1144,7 @@ const MAGAZINES_RAW = {
     shortDescription: '過去5年の出題実績から出る順トップ論点と直前2週間ロードマップを整理。',
     price: '¥980',
     badge: 'note 限定',
+    shelvedAt: '2026-11-02',
   },
   // 旧 civil-{1,2}-yosou-essay（未出形式を断定する予想問題集）は 2026-06-02 に退役。
   // 2026-09-01、直前期の「静的な本番演習」だけを買い切り例外として再設計した。
@@ -1140,6 +1164,7 @@ const MAGAZINES_RAW = {
     ctaCatch: '2時間45分、選択から見直しまで通して試す',
     ctaButton: '予想模試3回を見てみる',
     ctaPose: 'pointing',
+    shelvedAt: '2026-11-02',
   },
   // 1級土木 テキスト精読ガイド（総監 tankan-reading-guide の横展開・既存ガイド再包装）
   // 全2巻完成（2026-08-26）。①施工管理・法規編（施工計画・工程管理・品質管理・安全管理・環境保全・法規）
@@ -2160,6 +2185,7 @@ const MAGAZINES_RAW = {
     shortDescription: '必須I＋施工計画 全29記事。単品合計¥6,460が¥4,980（約23%OFF）。',
     price: '¥4,980（必須I＋施工計画 2マガジン・単品合計¥6,460、約23%OFF）',
     badge: 'note 限定 合格パック',
+    shelvedAt: '2026-11-02',
   },
   'pe-construction-environment-magazine': {
     id: 'pe-construction-environment-magazine',
@@ -2187,6 +2213,7 @@ const MAGAZINES_RAW = {
     shortDescription: '必須I＋建設環境 全29記事。単品合計¥6,460が¥4,980（約23%OFF）。',
     price: '¥4,980（必須I＋建設環境 2マガジン・単品合計¥6,460、約23%OFF）',
     badge: 'note 限定 合格パック',
+    shelvedAt: '2026-11-02',
   },
   'pe-construction-geotechnical-magazine': {
     id: 'pe-construction-geotechnical-magazine',
@@ -2254,6 +2281,7 @@ const MAGAZINES_RAW = {
     shortDescription: '必須I＋港湾空港 全29記事。単品合計¥6,460が¥4,980（約23%OFF）。',
     price: '¥4,980（必須I＋港湾空港 2マガジン・単品合計¥6,460、約23%OFF）',
     badge: 'note 限定 合格パック',
+    shelvedAt: '2026-11-02',
   },
   'pe-construction-power-civil-magazine': {
     id: 'pe-construction-power-civil-magazine',
@@ -2281,6 +2309,7 @@ const MAGAZINES_RAW = {
     shortDescription: '必須I＋電力土木 全29記事。単品合計¥6,460が¥4,980（約23%OFF）。',
     price: '¥4,980（必須I＋電力土木 2マガジン・単品合計¥6,460、約23%OFF）',
     badge: 'note 限定 合格パック',
+    shelvedAt: '2026-11-02',
   },
   'pe-construction-railway-magazine': {
     id: 'pe-construction-railway-magazine',
@@ -2308,6 +2337,7 @@ const MAGAZINES_RAW = {
     shortDescription: '必須I＋鉄道 全29記事。単品合計¥6,460が¥4,980（約23%OFF）。',
     price: '¥4,980（必須I＋鉄道 2マガジン・単品合計¥6,460、約23%OFF）',
     badge: 'note 限定 合格パック',
+    shelvedAt: '2026-11-02',
   },
   // 技術士 建設部門 2次（BK シリーズ）。公開済み（published:true・noteUrl 埋め済み）。
   // CTA は pe-construction-r0X-required ページ等で発火。価格ラダーは各エントリ price 参照。
@@ -2351,6 +2381,7 @@ const MAGAZINES_RAW = {
     shortDescription: '必須I＋河川砂防 全29記事。単品合計¥6,460が¥4,980（約23%OFF）。',
     price: '¥4,980（必須I＋河川砂防 2マガジン・単品合計¥6,460、約23%OFF）',
     badge: 'note 限定 合格パック',
+    shelvedAt: '2026-11-02',
   },
   'pe-construction-road-magazine': {
     id: 'pe-construction-road-magazine',
@@ -2409,6 +2440,7 @@ const MAGAZINES_RAW = {
     shortDescription: '必須I＋鋼コン 全29記事。単品合計¥6,460が¥4,980（約23%OFF）。',
     price: '¥4,980（必須I＋鋼コン 2マガジン・単品合計¥6,460、約23%OFF）',
     badge: 'note 限定 合格パック',
+    shelvedAt: '2026-11-02',
   },
   'pe-construction-tunnel-magazine': {
     id: 'pe-construction-tunnel-magazine',
@@ -2436,6 +2468,7 @@ const MAGAZINES_RAW = {
     shortDescription: '必須I＋トンネル 全29記事。単品合計¥6,460が¥4,980（約23%OFF）。',
     price: '¥4,980（必須I＋トンネル 2マガジン・単品合計¥6,460、約23%OFF）',
     badge: 'note 限定 合格パック',
+    shelvedAt: '2026-11-02',
   },
   'pe-construction-urban-planning-magazine': {
     id: 'pe-construction-urban-planning-magazine',
@@ -2463,6 +2496,7 @@ const MAGAZINES_RAW = {
     shortDescription: '必須I＋都市計画 全29記事。単品合計¥6,460が¥4,980（約23%OFF）。',
     price: '¥4,980（必須I＋都市計画 2マガジン・単品合計¥6,460、約23%OFF）',
     badge: 'note 限定 合格パック',
+    shelvedAt: '2026-11-02',
   },
   // 技術士 口頭試験対策（全部門共通・総監を除く）。原稿は content/note/技術士建設部門/magazines/口頭試験対策-全部門共通/。
   // 2026-10-10公開。価格1,980円、想定24問と5部門の当てはめ例。印刷用PDF11ページを有料エリア末尾へ添付し、ライブのダウンロードリンクと有料維持を確認。
@@ -2611,12 +2645,12 @@ export const NOTE_MAGAZINES: Readonly<Record<MagazineId, NoteMagazine>> = MAGAZI
 
 /**
  * 公開済みかつ noteUrl が設定されているマガジンのみ取得。
- * 未登録 ID（MDX 側の dangling 参照）・未公開 (published: false)・noteUrl 空の
+ * 未登録 ID（MDX 側の dangling 参照）・未公開 (published: false)・noteUrl 空・売り場から外した (shelvedAt) の
  * いずれも防御的に null を返す（未登録 ID で prerender がクラッシュしないように）。
  */
 export function getMagazine(id: MagazineId): NoteMagazine | null {
   const mag = NOTE_MAGAZINES[id];
-  if (!mag || !mag.published || !mag.noteUrl) return null;
+  if (!mag || !mag.published || !mag.noteUrl || mag.shelvedAt) return null;
   return mag;
 }
 

@@ -74,7 +74,16 @@ async function fillVueServiceForm(page, fields) {
   if (fields.category) {
     const labels = String(fields.category._labels || '').split(' > ').map((s) => s.replace(/（.*$/, ''));
     for (const [name, expected] of [['カテゴリ', labels[0]], ['小カテゴリ', labels[1]], ['カテゴリタイプ', labels[2]]]) {
-      const actual = (await page.getByRole('combobox', { name, exact: true }).textContent().catch(() => '')).trim();
+      let actual = (await page.getByRole('combobox', { name, exact: true }).textContent().catch(() => '')).trim();
+      // 新規の下書きはカテゴリが未選択（「選択してください」）で価格欄も無効のまま。期待値の選択肢を選ぶ（2026-11-02）
+      if (expected && actual !== expected) {
+        try {
+          await page.getByRole('combobox', { name, exact: true }).click({ timeout: 8000 });
+          await page.getByRole('option', { name: expected, exact: true }).click({ timeout: 8000 });
+          await sleep(1500);
+          actual = (await page.getByRole('combobox', { name, exact: true }).textContent().catch(() => '')).trim();
+        } catch { /* 不一致のまま下の warnings に出す */ }
+      }
       if (!expected || actual !== expected) warnings.push(`${name} がカタログと不一致（${actual} / ${expected}）`);
       else log.push(`${name}: ${actual}`);
     }
@@ -82,6 +91,7 @@ async function fillVueServiceForm(page, fields) {
   if (fields.genreFacets?.length) {
     for (const value of fields.genreFacets) {
       const box = page.locator(`input[type="checkbox"][id$="-${value}"]`);
+      if (await box.count() === 1 && !await box.isChecked()) await box.check({ force: true }).catch(() => {});
       if (await box.count() !== 1 || !await box.isChecked()) warnings.push(`genreFacets ${value} が未選択`);
     }
   }
@@ -109,6 +119,11 @@ async function fillVueServiceForm(page, fields) {
   if (fields.faq?.length) {
     const questions = page.locator('textarea[placeholder="よくある質問を入力する"]');
     const answers = page.locator('textarea[placeholder="質問の回答を入力する"]');
+    // 新規の下書きは FAQ 欄が 0 件。件数が揃うまで「よくある質問を追加」を押す（2026-11-02）
+    const addFaq = page.getByRole('button', { name: 'よくある質問を追加' });
+    for (let n = 0; n < 12 && await questions.count() < fields.faq.length && await addFaq.count() === 1; n++) {
+      await addFaq.click(); await sleep(500);
+    }
     if (await questions.count() !== fields.faq.length || await answers.count() !== fields.faq.length) warnings.push('FAQ の画面件数がカタログと一致しない');
     else for (let i = 0; i < fields.faq.length; i++) {
       await questions.nth(i).fill(fields.faq[i].q);
