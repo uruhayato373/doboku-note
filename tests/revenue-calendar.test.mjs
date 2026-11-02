@@ -47,3 +47,14 @@ test('ConfigRevenueCalendar: 週数の前後関係が逆なら落ちる', () => 
   const bad = { ...config, targets: [{ ...config.targets[0], ctaSwitchWeeks: 20 }] };
   assert.equal(ConfigRevenueCalendar.safeParse(bad).success, false);
 });
+
+test('phasesFor: ココナラの添削の出品があれば、CTA の切り替えの日に再開・試験の翌日に休止を足す', () => {
+  const t = { productionStartWeeks: 12, ctaSwitchWeeks: 6, peakFromWeeks: 4, peakToWeeks: 0, judgmentDaysAfter: 14, coconalaServices: ['coconala-tensaku-4theme'] };
+  const phases = phasesFor(t, '2027-10-03');
+  const open = phases.find((p) => p.phase === 'coconala-open');
+  const pause = phases.find((p) => p.phase === 'coconala-pause');
+  assert.equal(open.date, '2027-08-22');
+  assert.equal(pause.date, '2027-10-04');
+  assert.match(pause.detail, /check-coconala-wiring/);
+  assert.equal(phasesFor({ ...t, coconalaServices: undefined }, '2027-10-03').length, 5);
+});

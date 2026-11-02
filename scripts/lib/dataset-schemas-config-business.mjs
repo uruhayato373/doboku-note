@@ -347,6 +347,7 @@ export const ConfigRevenueCalendar = z
             peakFromWeeks: positiveInt.describe('販売の山の始まり（試験の何週前）'),
             peakToWeeks: z.number().int().min(0).describe('販売の山の終わり（試験の何週前。0 は試験日まで）'),
             judgmentDaysAfter: positiveInt.describe('判定（試験の何日後）'),
+            coconalaServices: z.array(QID).min(1).optional().describe('この試験に合わせて開閉するココナラの添削の出品 id（CTA の切り替えの日に再開・試験の翌日に休止）'),
             note: text.describe('値の根拠（実績の山）'),
           })
           .strict()
