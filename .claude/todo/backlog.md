@@ -253,6 +253,16 @@
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-0940] チャネル別の商品設計（役割・手数料・SWOT・4C・KGI/KPI）を正本にし、管理画面で見えるようにする
+タグ: [領域:戦略] [時期:2026-11] [種類:改善] [起票:2026-11-02]
+
+**起点**: 2026-11-02 の運営者との相談（note・KDP・ココナラの売上を踏まえ、どのチャネルで何を売るかを設計し、SWOT・4C・KGI/KPI を管理画面で見えるようにする）。
+**やること**:
+1. チャネルの役割・手数料・SWOT・4C・KGI/KPI の正本（config/channel-strategy.json）と判断の文章（docs/strategy/22）を作る
+2. 月別の受取・1 件あたりの手取り・資格別・ココナラの入口・KPI の実績を出す CLI（npm run channel-economics）と管理画面 チャネル設計を作る
+**完了条件**: 管理画面 /strategy/channels と npm run channel-economics が同じ値を出し、月別の受取が net-receipts と一致する（tests/channel-economics.test.mjs）。
+
+
 
 
 ### [DN-0938] 基準書の全文ライブラリの表と図を、章記事と同じ仕組みで展開する
