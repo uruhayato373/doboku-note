@@ -269,8 +269,8 @@
 
 **起点**: 2026-11-02 に運営者が「主任技士に ¥2,000 の診断を出す」を選んだ（ココナラの評価が 4 件で購入の壁。試験 11/29 で、今の季節に出せるのはこれだけ）。下書き 4482903（`coconala-cce-essay-shindan`・¥2,000・48 時間・週 3 名・FAQ 5 件）を保存済み。カタログの行（config/products.json・config/coconala-listings.json・src/lib/coconala-services.ts）は画像が無いと `check-coconala-wiring` が止めるため、手元に未コミットで置いてある（控えは `.tmp/dn-0941-catalog.patch`。作業ツリーから消えていたら `git apply --3way` で戻す）。
 **やること**:
-1. 診断用の紫の POP 画像を Codex で作る（依頼文は `content/coconala/products/coconala-cce-essay-shindan/pop-prompt-codex.md`・添削の画像は内容が違うので流用しない）。運営者が目視で承認してから `data/coconala/thumb-approved.json` に登録する
-2. カタログの行をコミットし、運営者が下書きを確認してから `node scripts/coconala-publish.mjs --service coconala-cce-essay-shindan --image … --commit` で公開する。本文の「11/25 までに受領した分は試験前に返却」を守れる日までに出す
+1. ~~診断用の紫の POP 画像を Codex で作り、承認台帳に登録する~~（2026-11-03 済み。`pop-20260927/thumb-cce-essay-shindan.png`・Drive と generation-manifest にも記録。カタログの行も 430725211 でコミット済み）
+2. 運営者が下書き 4482903 を確認してから `node scripts/coconala-publish.mjs --service coconala-cce-essay-shindan --image … --commit` で公開する。本文の「11/25 までに受領した分は試験前に返却」を守れる日までに出す
 3. 診断用の納品文のテンプレを作り、受注後に評価をお願いする一文を入れる
 **完了条件**: 診断が listed になり、管理画面 チャネル設計の KPI「ココナラの評価の数」で累計を追える。
 
