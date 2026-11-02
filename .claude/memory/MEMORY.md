@@ -41,7 +41,7 @@
 - [note日本語パス素通り](feedback_note_lint_quotepath_bypass.md) — quotepath=false必須
 - [noteマガジン運営](feedback_note_magazine_cover_display.md) — カバー表示・snapshot・配線
 - [Opus/Sonnet分業](feedback_opus_sonnet_split.md) — 親Opus・子Sonnet・Fable条件
-- [Gemini は公開記事の採点のみ](feedback_gemini_text_public_only.md) — 画像生成不可・経路は DN-0939
+- [Gemini は公開記事の採点のみ](feedback_gemini_text_public_only.md) — 画像生成不可・無料枠キー＋Interactions API
 - [PDFオンデマンド](feedback_pdf_on_demand_only.md) — 必要時のみ・Mac完走
 - [総監過去問折衷案](feedback_pe_pastexam_answer_compromise.md) — 解説圧縮・問題図に答え禁止
 - [ライブ一括操作の罠](feedback_platform_only_artifacts_destroyed_by_bulk_ops.md) — SoT外の添付破壊

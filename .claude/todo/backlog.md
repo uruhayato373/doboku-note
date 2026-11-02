@@ -256,12 +256,10 @@
 ### [DN-0939] Gemini の API の経路を用意し、流入上位ページで一次採点を試して Claude との一致率を記録する
 タグ: [領域:サイト] [時期:2026-11] [種類:改善] [起票:2026-11-02]
 
-**起点**: DN-0937（2026-11-02）。運営者は「公開済みのサイト記事だけを送るなら、文章の一次採点に Gemini を使ってよい」と決めた。ただし手元の経路はどちらも使えなかった。
-- `gemini` CLI の個人向け無料ログインは、Google 側の打ち切り（UNSUPPORTED_CLIENT）で使えない
-- `.env.local` の GEMINI_API_KEY は前払いのプロジェクトで、残高が 0（402 RESOURCE_EXHAUSTED）。gemini-2.5 系は新規には提供終了
+**起点**: DN-0937（2026-11-02）。運営者は「公開済みのサイト記事だけを送るなら、文章の一次採点に Gemini を使ってよい」と決めた。経路は 2026-11-02 に用意済み: 課金の無いプロジェクト `doboku-note-gemini-free` の無料枠キーを `.env.local` の GEMINI_API_KEY に入れ、Interactions API（`POST https://generativelanguage.googleapis.com/v1beta/interactions`・`{"model","input"}`）で `gemini-3.5-flash-lite`・`gemini-3.8-flash` が 200 を返すことを確かめた。`models/…:generateContent` は新しいモデルで空の 404 を返し、`gemini` CLI の無料ログインは打ち切られている。
 **やること**:
-1. 運営者が AI Studio で無料枠のプロジェクトの API キーを作るか、前払いの残高を足すかを決める（課金になるので運営者の判断）
-2. 流入上位 100 ページを採点プロファイル（config/page-quality-profiles.json）の観点で一次採点し、うち 20 ページを Claude の評価役でも採点して、軸ごとの一致率を記録する
+1. 流入上位 100 ページを採点プロファイル（config/page-quality-profiles.json）の観点で一次採点する（公開記事だけを送る・1 日の回数上限を実測して日を分ける）
+2. うち 20 ページを Claude の評価役でも採点して、軸ごとの一致率を記録する
 3. 一致した軸だけを一次採点に採用する
 **完了条件**: 軸ごとの一致率が記録され、採用する軸が決まっている。
 
