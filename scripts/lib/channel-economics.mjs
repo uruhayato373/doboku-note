@@ -42,6 +42,7 @@ export function buildChannelView(root, { today = todayJst() } = {}) {
   const cocoRevenue = readDatasetIf(root, 'coconala.revenue')?.rows ?? [];
   const cocoOrders = readDatasetIf(root, 'coconala.orders')?.orders ?? [];
   const analytics = readDatasetIf(root, 'coconala.analytics');
+  const sellerProfile = readDatasetIf(root, 'coconala.seller-profile');
   const keep = Object.fromEntries(Object.entries(strategy.fees).map(([id, f]) => [id, f.keepRate]));
   if (noteKeepActual != null) keep.note = noteKeepActual;
 
@@ -126,7 +127,7 @@ export function buildChannelView(root, { today = todayJst() } = {}) {
     'note-pack-share': { value: allNoteYen ? Math.round((packYen / allNoteYen) * 100) : null, at: `${firstMonth}〜` },
     'note-unsold-paid': { value: unsoldPaid, at: `${firstMonth}〜` },
     'kdp-royalty': { value: lastFull?.kdp ?? null, at: lastFull?.month },
-    'coconala-reviews': { value: null, at: null },
+    'coconala-reviews': { value: sellerProfile?.rows?.at(-1)?.ratingCount ?? null, at: sellerProfile?.rows?.at(-1)?.date ?? null },
     'coconala-order-rate': { value: coconala.views ? Math.round((coconala.orders / coconala.views) * 1000) / 10 : null, at: coconala.period },
   };
   const kpis = strategy.kpis.map((k) => ({ ...k, actual: actual[k.id]?.value ?? null, actualAt: actual[k.id]?.at ?? null }));
