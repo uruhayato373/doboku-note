@@ -880,6 +880,41 @@ export const ConfigContentRules = z
   })
   .meta({ title: '記事の機械品質ルール' });
 
+// ---- 販売チャネルの設計（config/channel-strategy.json・2026-11-02） ------------------------------
+
+const CHANNEL_ID = z.enum(['note', 'kindle', 'coconala']);
+const fourC = z.object({ customerValue: text, cost: text, convenience: text, communication: text }).strict();
+
+export const ConfigChannelStrategy = z
+  .object({
+    schemaVersion: z.literal(1),
+    _doc: text,
+    fees: z.record(CHANNEL_ID, z.object({ label: text, keepRate: z.number().gt(0).lt(1).describe('販売額に対する手取りの割合（公表料率）'), basis: text, source: url, checkedAt: jstDate('料率を公式で確かめた日') }).strict()),
+    channels: z.array(z.object({ id: CHANNEL_ID, role: text, sells: strList, notSell: strList, fourC }).strict()).min(1).superRefine(uniqueBy((c) => c.id, 'チャネル')),
+    swot: z.object({ strengths: strList, weaknesses: strList, opportunities: strList, threats: strList }).strict(),
+    kgi: z.object({ metric: text, label: text, targetYen: yen('月の目標'), source: text }).strict(),
+    kpis: z
+      .array(
+        z
+          .object({
+            id: QID,
+            channel: CHANNEL_ID,
+            label: text,
+            unit: text,
+            target: z.number().nonnegative(),
+            status: z.enum(['proposed', 'approved']).describe('proposed は運営者の承認前'),
+            why: text,
+          })
+          .strict(),
+      )
+      .superRefine(uniqueBy((k) => k.id, 'KPI')),
+  })
+  .strict()
+  .superRefine((c, ctx) => {
+    for (const ch of c.channels) if (!c.fees[ch.id]) flag(ctx, ['fees'], `チャネル「${ch.id}」の手数料が無い`);
+  })
+  .meta({ title: '販売チャネルの設計' });
+
 // ---- ページの種類ごとの採点プロファイル（config/page-quality-profiles.json・DN-0936） ----------------
 
 const PAGE_METRIC = z.enum(['chars', 'h2', 'images', 'tables', 'internalLinks', 'tableCaptions', 'figureCaptions', 'rawTextBlocks']);

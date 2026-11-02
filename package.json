@@ -506,6 +506,7 @@
     "report-site-to-sales": "node scripts/report-site-to-sales.mjs",
     "sales-summary": "node scripts/sales-summary.mjs",
     "sales-attribution": "node scripts/sales-attribution.mjs",
+    "channel-economics": "node scripts/channel-economics.mjs",
     "schedule-view": "node scripts/schedule-view.mjs",
     "scout-coconala-blogs": "node scripts/scout-coconala-blogs.mjs",
     "scout-coconala-competitors": "node scripts/scout-coconala-competitors.mjs",
