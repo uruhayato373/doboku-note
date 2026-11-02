@@ -887,6 +887,23 @@ const SERVICES_RAW = {
     weeklyCapacity: 2,
     listedAt: '2026-09-29',
   },
+  // ---- コンクリート主任技士 小論文診断（2026-11-02 新設・DN-0941）----
+  // 評価が4件しかなく閲覧はあるのに注文が来ない。安い入口で評価を集める（運営者が 2026-11-02 に ¥2,000 の診断を選択）。
+  // 診断のみ（A/B/C＋減点の大きい箇所）。書き換え案・代筆なし＝¥5,000 の添削（coconala-cce-essay-tensaku）との差。診断→添削へ進める。
+  // 枠は週3（診断は添削より作業が短い）。納期は添削に合わせ48時間。本試験 2026-11-29。
+  // 商品画像は未作成（承認済み POP に診断用が無い）。
+  'coconala-cce-essay-shindan': {
+    id: 'coconala-cce-essay-shindan',
+    status: 'draft',
+    serviceUrl: '',
+    title: 'コンクリート主任技士の小論文1本を診断します',
+    shortTitle: 'コンクリート主任技士 小論文 診断（1本・48時間）',
+    description: 'コンクリート主任技士試験の記述式問題（小論文）を、ご自身で書いた1本分、受け取りから48時間以内に診断してお返しします。A/B/C の判定と、減点の大きい箇所の指摘までが範囲です。書き換え例文の提供や答案の作成代行はしません。書き直しの確認まで希望の方は、書き直し1回込みの添削サービスをご利用ください。経験していない業務や数値の創作はお受けしません。合格を保証するものではありません。',
+    priceYen: 2000,
+    priceNote: '小論文1本・48時間以内・診断のみ（書き換え案なし）',
+    examScope: ['concrete-chief-engineer'],
+    weeklyCapacity: 3,
+  },
   // </generated:products coconala>
 } as const satisfies Record<string, Omit<CoconalaService, 'price'>>;
 
