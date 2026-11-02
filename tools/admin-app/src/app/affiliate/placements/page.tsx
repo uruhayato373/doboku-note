@@ -1,4 +1,4 @@
-import { DataTable, type DataTableColumn, type DataTableRow } from '@/components/admin';
+import { DataTable, DetailList, DetailSheet, type DataTableColumn, type DataTableRow } from '@/components/admin';
 import { PageHead } from '@/components/ui';
 import { findRepoRoot } from '@/lib/repo-root';
 import { affiliateSurfaces } from '@/lib/affiliate';
@@ -12,7 +12,6 @@ const SURFACE_COLUMNS: DataTableColumn[] = [
   { key: 'label', label: '掲載先' },
   { key: 'docs', label: 'リンクのある原稿', num: true },
   { key: 'programs', label: '案件' },
-  { key: 'tracking', label: '成果の計測', sortable: false },
 ];
 
 const NOTE_COLUMNS: DataTableColumn[] = [
@@ -37,11 +36,15 @@ export default function AffiliatePlacementsPage() {
           : '将来（X・Threads）';
     return {
       id: s.id,
-      values: { label: s.label, docs, programs: programs || null, tracking },
+      values: { label: s.label, docs, programs: programs || null },
       cells: {
+        label: (
+          <DetailSheet trigger={s.label} title={s.label}>
+            <DetailList items={[{ label: '成果の計測', value: tracking }]} />
+          </DetailSheet>
+        ),
         docs: docs || <span className="text-muted-foreground">0</span>,
         programs: programs || <span className="text-muted-foreground">—</span>,
-        tracking: <span className="text-xs">{tracking}</span>,
       },
     };
   });

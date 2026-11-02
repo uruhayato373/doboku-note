@@ -78,7 +78,6 @@ export function QualificationSsot() {
     <>
       <PanelCard
         title="名前の写しの検査"
-        description={`資格の名前・まとまり・並び順はこのファイルだけが持ち、ほかは id で引く。設定 ${v.config.files}・書き込み先 ${v.derived.files}・コード ${v.code.files} ファイルを実検査（npm run check-qualification-ssot と同じ。pre-commit と CI でも止める）`}
       >
         <div className="flex flex-wrap items-center gap-3 text-sm">
           {fail ? <StatusBadge tone="bad">違反 {fail} 件</StatusBadge> : <StatusBadge tone="good">合格</StatusBadge>}
@@ -102,7 +101,7 @@ export function QualificationSsot() {
         )}
       </PanelCard>
 
-      <PanelCard title="資格" description="並び順＝この表の順で、商品設計・コンテンツ台帳のメニューも同じ順・同じ短い名前で並ぶ。ごく短い名前はバッジ・カバー・狭い列用。試験区分は exam-formats.json">
+      <PanelCard title="資格">
         <DataTable
           columns={QUALIFICATION_COLUMNS}
           rows={reg.qualifications.map((q, i) => {
@@ -132,7 +131,7 @@ export function QualificationSsot() {
         />
       </PanelCard>
 
-      <PanelCard title="まとまり（groups）" description={`複数資格をまとめて扱う単位。カバーのトークン・note 導線・サイトのカテゴリは名前を書かず qualification: でこの id を指す。設定の別名キー（${v.aliases.join('・') || 'なし'}）も検査の対象`}>
+      <PanelCard title="まとまり（groups）">
         <DataTable
           columns={GROUP_COLUMNS}
           rows={Object.entries(reg.groups ?? {}).map(([id, g]) => ({
@@ -149,7 +148,7 @@ export function QualificationSsot() {
         />
       </PanelCard>
 
-      <PanelCard title="許可した例外" description={`資格名とは別の属性なので残してよい箇所（${ALLOW_PATH}）。コードの誤検出は行に「qualification-ssot: allow 理由」を書く。名前を書き込んで使うファイル（${derivedFiles.join('・')}）は npm run sync-qualification-names が registry から書く`}>
+      <PanelCard title="許可した例外">
         <DataTable
           columns={ALLOW_COLUMNS}
           rows={v.allowRules.map((a) => ({

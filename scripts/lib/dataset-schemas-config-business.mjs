@@ -1206,7 +1206,7 @@ export const ConfigDemandMap = z
             judgeDate: jstDate('判定日'),
             stopCondition: text.describe('停止条件'),
             nextCheck: text.describe('次の検証'),
-            status: z.enum(['idea', 'decided', 'building', 'live', 'stopped']).describe('idea=候補 / decided=運営者が作ると決めた / building=制作中 / live=販売中 / stopped=停止'),
+            status: z.enum(['idea', 'decided', 'building', 'live', 'hold', 'stopped']).describe('idea=候補 / decided=運営者が作ると決めた / building=制作中 / live=販売中 / hold=保留（方針が変わるまで見送る・判定日の知らせから外す） / stopped=停止（作らない）'),
             productIds: z.array(text).optional().describe('販売を始めた商品 id（商品の正本の id）。実売の比較はこの id で売上を引く'),
             salesIds: z.array(text).optional().describe('売上記録（note の販売履歴）の productId が商品の id と違うときの id（bk-* など sales-recorder の旧系統）。productIds と合わせて実売を引く'),
             experimentId: z.string().regex(/^EXP-\d{3}$/).optional().describe('計測する実験（experiments.json）'),

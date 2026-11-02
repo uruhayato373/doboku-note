@@ -32,7 +32,7 @@ export default async function OgpGallery({
 
   return (
     <>
-      <PageHead title="OGP ギャラリー" sub={`${items.length} 枚 · content/site/**/ogp.png（表示中 ${filtered.length}）`} />
+      <PageHead title="OGP ギャラリー" sub={`${items.length} 枚（表示中 ${filtered.length}）`} />
 
       <div className="filterbar">
         <Link href={link('all', activeGroup)} className={'chip' + (activeCat === 'all' ? ' active' : '')}>

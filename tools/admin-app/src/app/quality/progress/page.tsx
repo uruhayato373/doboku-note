@@ -34,7 +34,7 @@ export default async function QualityProgressPage({ searchParams }: { searchPara
     return (
       <>
         <PageHead title="品質サイクル進捗" />
-        <p className="text-sm text-muted-foreground">採点データ（quality-scores.json）が無い</p>
+        <p className="text-sm">採点データ（quality-scores.json）が無い</p>
       </>
     );
   }

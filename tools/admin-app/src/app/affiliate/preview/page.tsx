@@ -47,7 +47,7 @@ export default async function AffiliatePreviewPage({ searchParams }: { searchPar
   const current = surfaces.find((s) => s.slot === slot) ?? surfaces.find((s) => s.path) ?? null;
   return (
     <>
-      <PageHead title="広告の見本" sub="npm run dev（:3020）の実ページを表示" />
+      <PageHead title="広告の見本" />
       <nav className="filterbar mb-3">
         {surfaces.map((s) => (
           <Link key={s.slot} href={`/affiliate/preview?slot=${s.slot}`} className={'chip' + (s.slot === current?.slot ? ' active' : '')}>
@@ -60,7 +60,7 @@ export default async function AffiliatePreviewPage({ searchParams }: { searchPar
       {current?.path && (
         <Stack gap="lg">
           {(current.variants.length ? current.variants : [null]).map((v) => (
-            <PanelCard key={v ?? 'none'} title={v ? `${v} 案` : '実験の外（案なし）'} description={current.path}>
+            <PanelCard key={v ?? 'none'} title={v ? `${v} 案` : '実験の外（案なし）'}>
               <div className="flex flex-wrap items-start gap-6">
                 {current.widths.map((w) => (
                   <Frame key={w} src={previewUrl(current, v)} width={w} />

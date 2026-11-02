@@ -1,4 +1,4 @@
-import { DataTable, type DataTableColumn, type DataTableRow } from '@/components/admin';
+import { DataTable, DetailList, DetailSheet, type DataTableColumn, type DataTableRow } from '@/components/admin';
 import { PageHead } from '@/components/ui';
 import { affiliateCatalog } from '@/lib/affiliate';
 
@@ -11,7 +11,7 @@ const yen = (v: number | null) => (v == null ? '' : ` ¥${v.toLocaleString('en-U
 const COLUMNS: DataTableColumn[] = [
   { key: 'label', label: '案件' },
   { key: 'placement', label: '配置' },
-  { key: 'asps', label: 'ASP（提携・報酬）', wrap: true, sortable: false },
+  { key: 'approved', label: '提携中' },
   { key: 'expiresAt', label: 'リンク期限' },
 ];
 
@@ -24,12 +24,18 @@ export default function AffiliateProgramsPage() {
       .filter((a) => a.status !== 'unknown')
       .map((a) => `${ASP[a.asp] ?? a.asp} ${STATUS[a.status] ?? a.status}${a.status === 'approved' ? yen(a.rewardYen) : ''}`)
       .join(' ／ ');
+    const approved = r.asps.filter((a) => a.status === 'approved').map((a) => ASP[a.asp] ?? a.asp).join('・');
     return {
       id: r.id,
-      values: { label: r.label, placement: active ? '掲載中' : 'なし', asps: asps || null, expiresAt: r.expiresAt ?? null },
+      values: { label: r.label, placement: active ? '掲載中' : 'なし', approved: approved || null, expiresAt: r.expiresAt ?? null },
       cells: {
+        label: (
+          <DetailSheet trigger={r.label} title={r.label}>
+            <DetailList items={[{ label: 'ASP（提携・報酬）', value: asps }]} />
+          </DetailSheet>
+        ),
         placement: active ? <strong>掲載中</strong> : <span className="text-muted-foreground">なし</span>,
-        asps: <span className="text-xs">{asps || <span className="text-muted-foreground">未確認</span>}</span>,
+        approved: approved || <span className="text-muted-foreground">—</span>,
         expiresAt: r.expiresAt ? r.expiresAt.slice(5).replace('-', '/') : <span className="text-muted-foreground">—</span>,
       },
     };

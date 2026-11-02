@@ -1,9 +1,8 @@
 import Link from 'next/link';
-import { DataTable, PanelCard, StatCard, StatusBadge, type DataTableColumn, type DataTableRow } from '@/components/admin';
-import { Grid } from '@/components/layout';
+import { DataTable, DetailList, DetailSheet, PanelCard, StatusBadge, type DataTableColumn, type DataTableRow } from '@/components/admin';
 import { PageHead } from '@/components/ui';
 import { jstDateTime } from '@/lib/format';
-import { CHECK_LABELS, SHOTS_COMMAND, SHOTS_COMMAND_PROD, latestLayoutManifest, type LayoutShot } from '@/lib/affiliate-layout';
+import { CHECK_LABELS, SHOTS_COMMAND, latestLayoutManifest, type LayoutShot } from '@/lib/affiliate-layout';
 
 export const dynamic = 'force-dynamic';
 
@@ -30,41 +29,36 @@ export default async function AffiliateLayoutPage({ searchParams }: { searchPara
   const manifest = latestLayoutManifest();
   const { target: targetParam } = await searchParams;
 
-  const command = (
-    <div className="mb-3 text-sm text-muted-foreground">
-      撮り直し: <code>{SHOTS_COMMAND}</code>（npm run serve の :3025 を撮る・要 build）／本番を読むだけで撮る: <code>{SHOTS_COMMAND_PROD}</code>。空きメモリが少ないときは <code>DOBOKU_PW_MIN_FREE_MB=800</code> を前に付ける。
-    </div>
-  );
-
   if (!manifest) {
     return (
       <>
         <PageHead title="広告配置" />
-        {command}
-        <p className="text-sm text-muted-foreground">まだ撮影した記録が無い。上のコマンドで撮る。</p>
+        <p className="text-sm text-muted-foreground">まだ撮影した記録が無い。<code>{SHOTS_COMMAND}</code></p>
       </>
     );
   }
 
-  const { counts, viewports, variants, shots, targets } = manifest;
+  const { viewports, variants, shots, targets } = manifest;
   const current = targets.find((t) => t.id === targetParam) ?? targets.find((t) => shots.some((s) => s.targetId === t.id && s.status !== 'ok')) ?? targets[0];
 
   const columns: DataTableColumn[] = [
     { key: 'label', label: 'ページの種類' },
-    { key: 'path', label: '撮ったページ' },
     ...viewports.map((v) => ({ key: v.id, label: `${v.label} ${v.width}px`, wrap: true })),
-    { key: 'expected', label: '今の配置ルール', wrap: true },
   ];
   const rows: DataTableRow[] = targets.map((t) => {
     const values: DataTableRow['values'] = {
       label: t.label,
-      path: t.path,
       expected: Object.entries(t.expected).map(([slot, r]) => `${r.ruleId} ${slot}`).join(' / ') || '広告なし',
     };
     const cells: NonNullable<DataTableRow['cells']> = {
-      label: <Link href={`/affiliate/layout?target=${t.id}`} className={t.id === current?.id ? 'font-bold underline' : 'underline'}>{t.label}</Link>,
-      path: <span className="text-xs">{t.path}</span>,
-      expected: <span className="text-xs">{values.expected}</span>,
+      label: (
+        <span className="inline-flex items-center gap-3">
+          <Link href={`/affiliate/layout?target=${t.id}`} className={t.id === current?.id ? 'font-bold underline' : 'underline'}>{t.label}</Link>
+          <DetailSheet trigger={<span className="text-muted-foreground">詳細</span>} title={t.label}>
+            <DetailList items={[{ label: '撮ったページ', value: t.path }, { label: '今の配置ルール', value: String(values.expected) }]} />
+          </DetailSheet>
+        </span>
+      ),
     };
     for (const v of viewports) {
       const s = summarize(shotsOf(shots, t.id, v.id));
@@ -76,19 +70,12 @@ export default async function AffiliateLayoutPage({ searchParams }: { searchPara
 
   return (
     <>
-      <PageHead title="広告配置" sub={`${jstDateTime(manifest.generatedAt, { short: true })} 撮影・${manifest.base}`} />
-      {command}
-      <Grid className="mb-4">
-        <StatCard label="ページの種類" value={counts.targets} sub={`幅 ${viewports.length} × 案 ${variants.join('・')}`} />
-        <StatCard label="撮れた枚数" value={`${counts.captured} / ${counts.planned}`} sub={counts.failed ? `撮影失敗 ${counts.failed}` : '失敗なし'} />
-        <StatCard label="判定 NG" value={counts.ng} sub="ピクセル・引き伸ばし・はみ出し・ルール" />
-        <StatCard label="注意" value={counts.warn} sub="期間外のルールにだけ当たる広告" />
-      </Grid>
+      <PageHead title="広告配置" sub={`${jstDateTime(manifest.generatedAt, { short: true })} 撮影`} />
       <div className="mb-4">
         <DataTable columns={columns} rows={rows} pageSize={50} />
       </div>
       {current && (
-        <PanelCard title={`${current.label}（${current.path}）`} description={current.isCareerDoc ? 'キャリア記事' : undefined}>
+        <PanelCard title={`${current.label}（${current.path}）`}>
           <div className="flex flex-col gap-6">
             {viewports.map((v) => (
               <div key={v.id}>

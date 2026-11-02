@@ -1,24 +1,17 @@
 import { PageHead } from '@/components/ui';
-import { Section, Stack } from '@/components/layout';
-import { AutomationStatus, Checklist, Current, Outcome, ReviewUnavailable, RunPicker, loadReview } from '../review-parts';
+import { Stack } from '@/components/layout';
+import { ReviewBody, ReviewUnavailable, loadReview } from '../review-parts';
 
 export const dynamic = 'force-dynamic';
 
-/** 戦略 ＞ レビュー ＞ 週次。回を選ぶと、その回の手順・実施・判断が出る（判定は scripts/lib/review-wiring.mjs）。 */
-export default async function Page({ searchParams }: { searchParams: Promise<{ run?: string }> }) {
-  const { run } = await searchParams;
+export default async function Page({ searchParams }: { searchParams: Promise<{ run?: string; tab?: string }> }) {
+  const { run, tab } = await searchParams;
   const d = loadReview('weekly', run);
   if (!d) return <ReviewUnavailable title="週次レビュー" />;
   return (
     <Stack gap="lg">
       <PageHead title="週次レビュー" />
-      <RunPicker base="/metrics/business/weekly" options={d.options} selected={d.selected.key} />
-      <Section title="実施状況">
-        <Current sel={d.selected} cadenceId="weekly" />
-      </Section>
-      {d.procedure && <Checklist procedure={d.procedure} />}
-      <AutomationStatus a={d.automation} cadenceId="weekly" />
-      {d.cadence && <Outcome c={d.cadence} review={d.selected.review} gate={d.selected.current ? d.gate : null} />}
+      <ReviewBody d={d} cadenceId="weekly" tab={tab} base="/metrics/business/weekly" />
     </Stack>
   );
 }

@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { PanelCard } from '@/components/admin';
 import { Stack } from '@/components/layout';
 import { DataTable, Freshness, PageHead, SnapshotPicker, fmt, type Col } from '@/components/ui';
@@ -55,11 +56,7 @@ function Section({
   return (
     <PanelCard
       title={title}
-      description={
-        <>
-          <Freshness snapshot={snap} /> {rows.length}行
-        </>
-      }
+      description={<Freshness snapshot={snap} />}
     >
       <DataTable cols={cols} rows={rows} />
     </PanelCard>
@@ -69,9 +66,16 @@ function Section({
 export default async function Ga4Page({
   searchParams,
 }: {
-  searchParams: Promise<{ snapshot?: string }>;
+  searchParams: Promise<{ snapshot?: string; tab?: string }>;
 }) {
   const sp = await searchParams;
+  const TABS = [
+    { id: 'channel', label: 'チャネル' },
+    { id: 'page', label: 'ページ' },
+    { id: 'source', label: '参照元' },
+    { id: 'sns', label: 'SNS 流入' },
+  ];
+  const tab = TABS.some((x) => x.id === sp.tab) ? (sp.tab as string) : 'channel';
 
   // page テーブルのみ ?snapshot= で履歴切替可能にする。
   const pageHistory = listSnapshots('ga4.page');
@@ -79,12 +83,19 @@ export default async function Ga4Page({
 
   return (
     <>
-      <PageHead title="アクセス（GA4）" sub="チャネル / ページ / 参照元 / SNS 別（各最新スナップショット・ユーザー降順）" />
+      <PageHead title="アクセス（GA4）" />
 
       <Stack>
-      <Section title="チャネル別" snap={latestSnapshot('ga4.channel')} dimKey="channel" dimLabel="チャネル" />
+      <nav className="filterbar mb-3!">
+        {TABS.map((x) => (
+          <Link key={x.id} className={'chip' + (x.id === tab ? ' active' : '')} href={x.id === 'channel' ? '/metrics/ga4' : `/metrics/ga4?tab=${x.id}`}>
+            {x.label}
+          </Link>
+        ))}
+      </nav>
+      {tab === 'channel' && <Section title="チャネル別" snap={latestSnapshot('ga4.channel')} dimKey="channel" dimLabel="チャネル" />}
 
-      <PanelCard title="ページ別（上位20）" description={<Freshness snapshot={pageSnap} />}>
+      {tab === 'page' && <PanelCard title="ページ別（上位20）" description={<Freshness snapshot={pageSnap} />}>
         <Stack gap="sm">
         <SnapshotPicker basePath="/metrics/ga4" files={pageHistory} current={pageSnap?.file ?? ''} />
         <DataTable
@@ -98,16 +109,18 @@ export default async function Ga4Page({
             .slice(0, 20)}
         />
         </Stack>
-      </PanelCard>
+      </PanelCard>}
 
-      <Section title="参照元別" snap={latestSnapshot('ga4.source')} dimKey="source" dimLabel="参照元" limit={20} />
-      <Section
-        title="SNS 流入（source / medium）"
-        snap={latestSnapshot('ga4.source-medium-sns')}
-        dimKey="sourceMedium"
-        dimLabel="source / medium"
-        wrapDim
-      />
+      {tab === 'source' && <Section title="参照元別" snap={latestSnapshot('ga4.source')} dimKey="source" dimLabel="参照元" limit={20} />}
+      {tab === 'sns' && (
+        <Section
+          title="SNS 流入（source / medium）"
+          snap={latestSnapshot('ga4.source-medium-sns')}
+          dimKey="sourceMedium"
+          dimLabel="source / medium"
+          wrapDim
+        />
+      )}
       </Stack>
     </>
   );

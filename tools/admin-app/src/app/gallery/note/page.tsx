@@ -33,7 +33,7 @@ export default async function NoteGallery({
     <>
       <PageHead
         title="note 画像ギャラリー"
-        sub={`${items.length} 枚 · content/note/**/img/{cover*,figure-*}（表示中 ${filtered.length}）`}
+        sub={`${items.length} 枚（表示中 ${filtered.length}）`}
       />
 
       <div className="filterbar">

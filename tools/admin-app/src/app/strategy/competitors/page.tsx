@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { DataTable, type DataTableColumn, type DataTableRow } from '@/components/admin';
+import { DataTable, DetailSheet, DetailText, type DataTableColumn, type DataTableRow } from '@/components/admin';
 import { PageHead } from '@/components/ui';
 import SectionTabs from '@/components/SectionTabs';
 import { loadCompetitorView, type CompetitorRow } from '@/lib/competitors';
@@ -31,7 +31,6 @@ const COLUMNS: DataTableColumn[] = [
   { key: 'revenue', label: '売上', num: true },
   { key: 'revenueDelta', label: '売上の増分', num: true },
   { key: 'rating', label: '評価', num: true },
-  { key: 'changes', label: '変化', sortable: false },
 ];
 
 export default async function CompetitorsPage({ searchParams }: { searchParams: Promise<{ exam?: string }> }) {
@@ -86,7 +85,6 @@ export default async function CompetitorsPage({ searchParams }: { searchParams: 
 function toRow(r: CompetitorRow, examLabels: Record<string, string>, self?: boolean): DataTableRow {
   const bold = (node: React.ReactNode) => (self ? <span className="font-semibold">{node}</span> : node);
   const exams = r.exams.map((e) => examLabels[e] ?? e).join('・');
-  const changes = r.changes.join(' / ');
   return {
     id: self ? '__self' : r.handle,
     values: {
@@ -101,16 +99,16 @@ function toRow(r: CompetitorRow, examLabels: Record<string, string>, self?: bool
       revenue: r.revenueYen,
       revenueDelta: r.revenueDeltaYen,
       rating: r.rating,
-      changes: changes || null,
     },
     cells: {
       label: bold(
         self ? (
           r.label
         ) : (
-          <a href={`https://coconala.com/users/${r.handle}`} target="_blank" rel="noreferrer">
-            {r.label}
-          </a>
+          <DetailSheet trigger={r.label} title={r.label}>
+            <DetailText title="変化" items={r.changes} />
+            <a href={`https://coconala.com/users/${r.handle}`} target="_blank" rel="noreferrer">ココナラのページ</a>
+          </DetailSheet>
         ),
       ),
       exams: bold(<span className="text-xs">{exams}</span>),
@@ -128,7 +126,6 @@ function toRow(r: CompetitorRow, examLabels: Record<string, string>, self?: bool
       ),
       revenueDelta: bold(r.revenueDeltaYen === null ? '—' : `+${money(r.revenueDeltaYen, r.revenueEstimated)}`),
       rating: bold(r.rating ?? '—'),
-      changes: bold(<span className="text-xs">{changes || '—'}</span>),
     },
   };
 }

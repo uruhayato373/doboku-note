@@ -1,4 +1,4 @@
-import { DataTable, type DataTableColumn, type DataTableRow, StatusBadge } from '@/components/admin';
+import { DataTable, DetailList, DetailSheet, type DataTableColumn, type DataTableRow, StatusBadge } from '@/components/admin';
 import { PageHead } from '@/components/ui';
 import { Stack } from '@/components/layout';
 import { magazines } from '@/lib/content';
@@ -8,11 +8,9 @@ export const dynamic = 'force-dynamic';
 
 const COLUMNS: DataTableColumn[] = [
   { key: 'title', label: 'タイトル' },
-  { key: 'id', label: 'id' },
   { key: 'price', label: '価格' },
   { key: 'repoCount', label: 'repo 記事' },
   { key: 'published', label: '公開' },
-  { key: 'badge', label: 'バッジ' },
 ];
 
 /**
@@ -29,7 +27,6 @@ const COLUMNS: DataTableColumn[] = [
  */
 export default function ContentMagazinesPage() {
   const mags = magazines();
-  const pub = mags.filter((m) => m.published).length;
   const membership = membershipState();
   const repoCount = new Map(membership.rows.map((r) => [r.id, r.repoCount]));
   const unreferenced = new Set(membership.unreferenced);
@@ -37,15 +34,16 @@ export default function ContentMagazinesPage() {
     id: m.id,
     values: {
       title: m.title ?? m.id,
-      id: m.id,
       price: m.priceStr ?? null,
       repoCount: !membership.ok ? '?' : unreferenced.has(m.id) ? 'ラベル無' : (repoCount.get(m.id) ?? 0),
       published: m.published && m.noteUrl ? '公開' : '未公開',
-      badge: m.badge ?? null,
     },
     cells: {
-      title: <span className="block max-w-[28rem] truncate" title={m.title ?? m.id}>{m.title ?? m.id}</span>,
-      id: <span className="block max-w-[16rem] truncate font-mono text-xs" title={m.id}>{m.id}</span>,
+      title: (
+        <DetailSheet trigger={<span className="block max-w-[28rem] truncate">{m.title ?? m.id}</span>} title={m.title ?? m.id} description={m.id}>
+          <DetailList items={[{ label: 'バッジ', value: m.badge }, { label: 'note', value: m.noteUrl ? <a href={m.noteUrl} target="_blank" rel="noopener noreferrer">開く</a> : null }]} />
+        </DetailSheet>
+      ),
       price: m.priceStr ?? '',
       repoCount: !membership.ok ? (
         <StatusBadge tone="neutral" title={membership.error ?? ''}>?</StatusBadge>
@@ -65,30 +63,14 @@ export default function ContentMagazinesPage() {
       ) : (
         <StatusBadge tone="warn">未公開</StatusBadge>
       ),
-      badge: <span className="text-xs text-muted-foreground">{m.badge ?? ''}</span>,
     },
   }));
   return (
     <>
-      <PageHead
-        title="note マガジン"
-        sub={`${mags.length} 件（公開 ${pub} / 未公開 ${mags.length - pub}）· SoT: src/lib/note-magazines.ts`}
-      />
+      <PageHead title="note マガジン" />
       <Stack>
-        {membership.ok ? (
-          <p className="text-sm text-muted-foreground">
-            「repo 記事」= 記事 frontmatter <code>noteMagazine</code> の実数（check-magazine-membership 軸 A）。
-            <strong>{unreferenced.size}</strong> 件はラベルから辿れない（束ね商品・単体商品・PDF）ため、
-            記事一覧のマガジン絞り込みには現れない。
-          </p>
-        ) : (
-          <p className="text-sm text-muted-foreground">
-            <StatusBadge tone="bad">repo 記事は判定不可</StatusBadge>{' '}
-            check-magazine-membership が実行できないため「?」を出しています（空欄＝0本 ではありません）。
-            {membership.error}
-          </p>
-        )}
-        <DataTable columns={COLUMNS} rows={rows} filter="タイトル・id で絞り込む" />
+        {!membership.ok && <p className="text-sm"><StatusBadge tone="bad">repo 記事は判定不可</StatusBadge></p>}
+        <DataTable columns={COLUMNS} rows={rows} filter="タイトルで絞り込む" />
       </Stack>
     </>
   );

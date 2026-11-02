@@ -1,6 +1,7 @@
+import Link from 'next/link';
 import { Minus, TrendingDown, TrendingUp } from 'lucide-react';
-import { DataTable, StatusBadge, type DataTableColumn, type DataTableRow, type Tone } from '@/components/admin';
-import { Grid, Section, Stack } from '@/components/layout';
+import { DataTable, DetailList, DetailSheet, DetailText, StatusBadge, type DataTableColumn, type DataTableRow, type Tone } from '@/components/admin';
+import { Grid, Stack } from '@/components/layout';
 import SearchTabs from '@/components/SearchTabs';
 import { PageHead } from '@/components/ui';
 import { Card, CardAction, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
@@ -28,7 +29,6 @@ type Triage = { cluster: string; clusterLabel: string; page: string; impressions
 type Result = { period: { startDate: string; endDate: string } | null; previous: { startDate: string; endDate: string } | null; bands: Bands; clusters: Cluster[]; experiments: Experiment[]; triage: Triage[]; quota: { recorded: number; required: number; since: string } | null };
 
 const BASE = '/metrics/search-strategy';
-const QUERY_SHOWN = 3;
 /** 印（candidateMarks の key）と段階（phaseOf）の色。意味は lib が決め、ここは見た目だけ */
 const MARK_TONE: Record<string, Tone> = { experiment: 'info', 'legacy-action': 'warn', 'legacy-wait': 'neutral', 'off-target': 'warn', routed: 'info', 'routed-action': 'warn', last: 'neutral', todo: 'neutral' };
 const PHASE_TONE: Record<string, Tone> = { filed: 'info', implemented: 'warn', measuring: 'info', 'verdict-due': 'warn', closed: 'good', abandoned: 'neutral' };
@@ -102,37 +102,15 @@ function PageCell({ path }: { path: string }) {
   );
 }
 
-function QueryLine({ q }: { q: Query }) {
-  return (
-    <li>
-      {q.query}
-      <span className="ml-1.5 text-xs text-muted-foreground tabular-nums">
-        {q.position}位・{q.impressions}
-      </span>
-    </li>
-  );
-}
+const queryLines = (queries: Query[]) => queries.map((q) => `${q.query}（${q.position}位・表示 ${q.impressions}）`);
 
-function QueriesCell({ queries }: { queries: Query[] }) {
-  const rest = queries.slice(QUERY_SHOWN);
+function PageName({ path }: { path: string }) {
+  const i = path.lastIndexOf('/');
   return (
-    <ul className="m-0 flex list-none flex-col gap-0.5 p-0">
-      {queries.slice(0, QUERY_SHOWN).map((q) => (
-        <QueryLine key={q.query} q={q} />
-      ))}
-      {rest.length > 0 && (
-        <li>
-          <details>
-            <summary className="cursor-pointer text-xs text-muted-foreground">ほか {rest.length} 語</summary>
-            <ul className="m-0 mt-0.5 flex list-none flex-col gap-0.5 p-0">
-              {rest.map((q) => (
-                <QueryLine key={q.query} q={q} />
-              ))}
-            </ul>
-          </details>
-        </li>
-      )}
-    </ul>
+    <span className="flex flex-col">
+      <span className="font-medium">{path.slice(i + 1) || path}</span>
+      <span className="text-xs text-muted-foreground">{path.slice(0, i + 1)}</span>
+    </span>
   );
 }
 
@@ -141,11 +119,16 @@ function candidateRows(pool: (Candidate & { cluster: string })[]): DataTableRow[
     const marks = candidateMarks(p) as { key: string; label: string; hint: string }[];
     return {
       id: `${p.cluster}:${p.page}`,
-      values: { page: p.page, cluster: p.cluster, impressions: p.impressions, best: p.bestPosition, queries: p.queries.map((q) => q.query).join(' '), status: marks.map((m) => m.label).join(' ') },
+      values: { page: p.page, cluster: p.cluster, impressions: p.impressions, best: p.bestPosition, queries: p.queries.length, status: marks.map((m) => m.label).join(' ') },
       cells: {
-        page: <PageCell path={p.page} />,
+        page: (
+          <DetailSheet trigger={<PageName path={p.page} />} title={p.page} description={p.cluster}>
+            <DetailText title="検索語（順位・表示）" items={queryLines(p.queries)} />
+            <DetailList items={[{ label: 'ページ', value: <a href={`${SITE_ORIGIN}${p.page}`} target="_blank" rel="noreferrer">開く</a> }]} />
+          </DetailSheet>
+        ),
         best: `${p.bestPosition}位`,
-        queries: <QueriesCell queries={p.queries} />,
+        queries: p.queries.length,
         status: (
           <div className="flex flex-wrap gap-1">
             {marks.map((m) => (
@@ -165,16 +148,21 @@ const TRIAGE_COLUMNS: DataTableColumn[] = [
   { key: 'page', label: 'ページ', wrap: true },
   { key: 'cluster', label: 'クラスター' },
   { key: 'impressions', label: '表示', num: true },
-  { key: 'what', label: '内容', wrap: true, sortable: false },
 ];
 
 function triageRows(items: Triage[]): DataTableRow[] {
   return [...items].sort((a, b) => (a.status === b.status ? (b.impressions ?? 0) - (a.impressions ?? 0) : a.status === 'action' ? -1 : 1)).map((t) => ({
     id: `${t.cluster}:${t.page}`,
-    values: { status: t.status === 'action' ? '要処置' : '観察中', page: t.page, cluster: t.clusterLabel, impressions: t.impressions, what: t.action ?? t.note ?? '' },
+    values: { status: t.status === 'action' ? '要処置' : '観察中', page: t.page, cluster: t.clusterLabel, impressions: t.impressions },
     cells: {
       status: <StatusBadge tone={t.status === 'action' ? 'warn' : 'neutral'}>{t.status === 'action' ? '要処置' : '観察中'}</StatusBadge>,
-      page: <PageCell path={t.page} />,
+      page: (
+        <DetailSheet trigger={<PageName path={t.page} />} title={t.page} description={t.clusterLabel}>
+          <DetailText title="処置" items={[t.action]} />
+          <DetailText title="メモ" items={[t.note]} />
+          <DetailList items={[{ label: 'ページ', value: <a href={`${SITE_ORIGIN}${t.page}`} target="_blank" rel="noreferrer">開く</a> }]} />
+        </DetailSheet>
+      ),
     },
   }));
 }
@@ -184,8 +172,6 @@ const EXPERIMENT_COLUMNS: DataTableColumn[] = [
   { key: 'phase', label: '段階' },
   { key: 'page', label: 'ページ', wrap: true },
   { key: 'cluster', label: 'クラスター' },
-  { key: 'change', label: '改善（日付・内容）', wrap: true, sortable: false },
-  { key: 'measure', label: '計測（前→後）', sortable: false },
   { key: 'nextCheck', label: '判定できる日' },
   { key: 'result', label: '判定' },
 ];
@@ -195,17 +181,28 @@ function experimentRows(experiments: Experiment[]): DataTableRow[] {
     const m = e.measurement;
     return {
       id: e.id,
-      values: { id: e.id, phase: PHASES[e.phase], page: e.page, cluster: e.clusterLabel, change: e.implementedAt ? `${e.implementedAt} ${e.change ?? e.card ?? ''}` : null, measure: null, nextCheck: e.nextCheck, result: e.result ? RESULTS[e.result] : null },
+      values: { id: e.id, phase: PHASES[e.phase], page: e.page, cluster: e.clusterLabel, nextCheck: e.nextCheck, result: e.result ? RESULTS[e.result] : null },
       cells: {
         phase: <StatusBadge tone={PHASE_TONE[e.phase]}>{PHASES[e.phase]}</StatusBadge>,
+        id: (
+          <DetailSheet trigger={e.id} title={e.id} description={e.clusterLabel}>
+            <DetailList
+              items={[
+                { label: '改善の日', value: e.implementedAt },
+                { label: '計測（前→後）', value: m ? `${m.pre ?? '—'} → ${m.post ?? '—'}（${m.complete ? '確定' : '途中'}・${m.verdictHint}）` : null },
+                { label: 'カード', value: e.card },
+              ]}
+            />
+            <DetailText title="改善の内容" items={[e.change]} />
+          </DetailSheet>
+        ),
         page: <PageCell path={e.page} />,
-        measure: m ? `${m.pre ?? '—'} → ${m.post ?? '—'}（${m.complete ? '確定' : '途中'}・${m.verdictHint}）` : '—',
       },
     };
   });
 }
 
-export default async function SearchStrategyPage({ searchParams }: { searchParams: Promise<{ cluster?: string }> }) {
+export default async function SearchStrategyPage({ searchParams }: { searchParams: Promise<{ cluster?: string; tab?: string }> }) {
   const sp = await searchParams;
   const r = buildSearchOpportunities(findRepoRoot(), { maxCandidates: Infinity }) as Result;
   const head = (
@@ -218,7 +215,7 @@ export default async function SearchStrategyPage({ searchParams }: { searchParam
     return (
       <>
         {head}
-        <p className="text-sm text-muted-foreground">GSC の検索語×ページ集計が未取得</p>
+        <p className="text-sm">GSC の検索語×ページ集計が未取得</p>
       </>
     );
   }
@@ -232,43 +229,65 @@ export default async function SearchStrategyPage({ searchParams }: { searchParam
     ...(selected ? [] : [{ key: 'cluster', label: 'クラスター' }]),
     { key: 'impressions', label: '表示', num: true },
     { key: 'best', label: '最良順位', num: true },
-    { key: 'queries', label: '検索語（順位・表示）', wrap: true, sortable: false },
+    { key: 'queries', label: '検索語', num: true },
     { key: 'status', label: '状態' },
   ];
+
+  const TABS = [
+    { id: 'clusters', label: 'クラスター' },
+    { id: 'triage', label: `週次の処置 ${r.triage.filter((x) => x.status === 'action').length}` },
+    { id: 'candidates', label: `改善候補 ${total}` },
+    { id: 'experiments', label: `改善の実験 ${r.experiments.length}` },
+  ];
+  const tab = TABS.some((x) => x.id === sp.tab) ? (sp.tab as string) : 'clusters';
 
   return (
     <>
       {head}
+      <nav className="filterbar mb-3!">
+        {TABS.map((x) => (
+          <Link key={x.id} className={'chip' + (x.id === tab ? ' active' : '')} href={x.id === 'clusters' ? BASE : `${BASE}?tab=${x.id}`}>
+            {x.label}
+          </Link>
+        ))}
+      </nav>
       <Stack gap="lg">
-        <Grid min="md">
-          {r.clusters.map((c) => (
-            <ClusterCard key={c.id} c={c} bands={r.bands} experiments={r.experiments.filter((e) => e.cluster === c.id)} />
-          ))}
-        </Grid>
-
-        <Section title={`週次の処置（要処置 ${r.triage.filter((t) => t.status === 'action').length}・観察中 ${r.triage.filter((t) => t.status === 'observe').length}${r.quota ? `・今週の改善 ${r.quota.recorded}/${r.quota.required}` : ''}）`}>
-          <DataTable columns={TRIAGE_COLUMNS} rows={triageRows(r.triage)} pageSize={50} emptyText="処置の要る候補なし" />
-        </Section>
-
-        <Section title={`改善候補（${r.bands.striking}）`}>
-          <TabsList aria-label="クラスター" className="max-w-full overflow-x-auto">
-            <TabsTrigger href={BASE} active={!selected}>
-              すべて
-              <StatusBadge tone="info">{total}</StatusBadge>
-            </TabsTrigger>
+        {tab === 'clusters' && (
+          <Grid min="md">
             {r.clusters.map((c) => (
-              <TabsTrigger key={c.id} href={`${BASE}?cluster=${c.id}`} active={c.id === selected?.id}>
-                {c.label}
-                <StatusBadge tone="info">{c.candidateTotal}</StatusBadge>
-              </TabsTrigger>
+              <ClusterCard key={c.id} c={c} bands={r.bands} experiments={r.experiments.filter((e) => e.cluster === c.id)} />
             ))}
-          </TabsList>
-          <DataTable key={selected?.id ?? 'all'} columns={columns} rows={candidateRows(pool)} filter="ページ・検索語・状態で絞り込み" pageSize={50} emptyText="候補なし" />
-        </Section>
+          </Grid>
+        )}
 
-        <Section title="改善の実験（直す→本番反映→計測→判定）">
+        {tab === 'triage' && (
+          <>
+            {r.quota && <p className="text-sm">今週の改善 {r.quota.recorded}/{r.quota.required}</p>}
+            <DataTable columns={TRIAGE_COLUMNS} rows={triageRows(r.triage)} pageSize={50} emptyText="処置の要る候補なし" />
+          </>
+        )}
+
+        {tab === 'candidates' && (
+          <>
+            <TabsList aria-label="クラスター" className="max-w-full overflow-x-auto">
+              <TabsTrigger href={`${BASE}?tab=candidates`} active={!selected}>
+                すべて
+                <StatusBadge tone="info">{total}</StatusBadge>
+              </TabsTrigger>
+              {r.clusters.map((c) => (
+                <TabsTrigger key={c.id} href={`${BASE}?tab=candidates&cluster=${c.id}`} active={c.id === selected?.id}>
+                  {c.label}
+                  <StatusBadge tone="info">{c.candidateTotal}</StatusBadge>
+                </TabsTrigger>
+              ))}
+            </TabsList>
+            <DataTable key={selected?.id ?? 'all'} columns={columns} rows={candidateRows(pool)} filter="ページ・検索語・状態で絞り込み" pageSize={50} emptyText="候補なし" />
+          </>
+        )}
+
+        {tab === 'experiments' && (
           <DataTable columns={EXPERIMENT_COLUMNS} rows={experimentRows(r.experiments)} filter="実験・ページ・カード・段階で絞り込み" pageSize={50} emptyText="記録した改善なし" />
-        </Section>
+        )}
       </Stack>
     </>
   );
