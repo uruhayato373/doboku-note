@@ -185,6 +185,7 @@
     "check-gsc-ui-due": "node scripts/check-gsc-ui-due.mjs",
     "check-guide-length": "node scripts/check-guide-length.mjs",
     "page-quality-inventory": "node scripts/page-quality-inventory.mjs",
+    "gemini-scoring-trial": "node scripts/gemini-scoring-trial.mjs",
     "check-handoff-extraction": "node scripts/check-handoff-extraction.mjs --staged",
     "check-home-exam-coverage": "node scripts/check-home-exam-coverage.mjs",
     "check-ig-cover": "node scripts/check-ig-cover.mjs",
