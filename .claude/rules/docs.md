@@ -9,6 +9,7 @@ paths:
 - Obsidian callout（`> [!note]` 等）の運用は [docs-markdown-style.md](../knowledge/reference/docs-markdown-style.md) 準拠（推奨 4 タイプ限定。MDX `<Callout>` とは別系統で混同しない）
 - `.claude/knowledge/reference/*.md` は YAML frontmatter `title:` 必須（[README.md](../knowledge/reference/README.md)「frontmatter スキーマ」）。ファイルを足したら同 README の「ファイル一覧」に行を足す（CLAUDE.md の索引には足さない）
 - `docs/` は人が読む恒久的な戦略・設計・判断だけ（担当・進捗・実装順序は書かない）。領域の入口は [docs/README.md](../../docs/README.md)、置き場の判断フローと `docs/`↔`content/`↔`.claude/` の境界は [information-architecture.md](../knowledge/reference/information-architecture.md)（`npm run check-information-architecture` が廃止した置き場への逆戻りを止める）
+- **docs/ の文書は管理画面のどれかの画面に結ぶ**: 文書を足したら `config/domains.json` の `pageDocuments`（画面のパス → 根拠の文書）に 1 行足す。管理画面は見出しの右上の「文書 N」から開ける。結ばれていない文書は `npm run check-domains` が止める（設計・戦略の文書は管理画面から辿れないと意味がない・2026-11-02）
 - 1 トピック = 1 SSOT。重複が必要なら片方を正典にし、もう片方は 1 行の参照にする。doc を移動・改名・統廃合したら参照を同一 commit で全更新する（`npm run check-doc-refs`・`npm run check-relative-links`。例示パスはプレースホルダで書く、廃止台帳行は `<!-- doc-ref:ignore -->`）
 - 決定が複数文書に散在するクラスタは `.claude/config/policy-anchors.json`（`npm run check-policy-anchors`）で横展開もれを surface する
 - 完了済み・重複・肥大した doc は定期棚卸し（`npm run check-doc-lifecycle` → `/doc-declutter`）。書く時点で埋め草・同内容の反復・定型の前置きで太らせない

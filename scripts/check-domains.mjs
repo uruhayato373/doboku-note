@@ -8,7 +8,9 @@
  *   3. docs/**（reviews・handoffs を除く）と .claude/knowledge/reference/*.md が documents で
  *      ちょうど1つの領域に解決できる
  *   4. 各領域のサイドバー画面（nav）の種類が navKinds にあり、URL の画面（tools/admin-app/src/app 配下の page.tsx）が実在する
- *   5. 年間ロードマップの設定（annual-roadmap.json）が期間と買い場の週数だけを持つ（重点はバックログの [時期:]）
+ *   5. pageDocuments（画面→根拠の文書）の画面が実在し、文書が実在し、docs/**（reviews・handoffs を除く）の文書がどれか 1 つ以上の画面に結ばれている
+ *      （設計・戦略の文書は管理画面から辿れないと意味がない・2026-11-02 運営者）
+ *   6. 年間ロードマップの設定（annual-roadmap.json）が期間と買い場の週数だけを持つ（重点はバックログの [時期:]）
  * バックログの [領域:] は check-backlog-schema が見る。検査した件数を出し、0 件は検査不成立（exit 2）。
  */
 import { readdirSync, readFileSync, existsSync } from 'node:fs';
@@ -61,7 +63,21 @@ const docs = [
 ];
 for (const p of docs) if (!documentDomain(cfg, rel(p))) errors.push(`${rel(p)}: domains.json の documents で領域が決まらない`);
 
-console.log(`[check-domains] 領域 ${ids.size} / サイドバー画面 ${navViews} / ロードマップ設定 1 件 / スキル・エージェント ${defs.length} 件 / 文書 ${docs.length} 件を実検査 / 違反 ${errors.length} 件`);
+const linked = new Set();
+let pageLinks = 0;
+for (const [page, list] of Object.entries(cfg.pageDocuments ?? {})) {
+  const path = page.replace(/^\//, '');
+  if (!existsSync(join(appDir, path, 'page.tsx'))) errors.push(`pageDocuments["${page}"]: 画面（app/${path || '.'}/page.tsx）が無い`);
+  for (const doc of list) {
+    pageLinks++;
+    if (!existsSync(join(ROOT, doc))) errors.push(`pageDocuments["${page}"]: 文書 ${doc} が無い`);
+    linked.add(doc);
+  }
+}
+const permanentDocs = docs.map(rel).filter((d) => d.startsWith('docs/'));
+for (const d of permanentDocs) if (!linked.has(d)) errors.push(`${d}: pageDocuments のどの画面にも結ばれていない（管理画面から辿れない）`);
+
+console.log(`[check-domains] 領域 ${ids.size} / サイドバー画面 ${navViews} / ロードマップ設定 1 件 / スキル・エージェント ${defs.length} 件 / 文書 ${docs.length} 件（画面に結んだ恒久文書 ${permanentDocs.filter((d) => linked.has(d)).length}/${permanentDocs.length}・結び ${pageLinks} 本）を実検査 / 違反 ${errors.length} 件`);
 if (defs.length === 0 || docs.length === 0 || navViews === 0) {
   console.error('✗ 検査不成立: 対象を 1 件も読めなかった');
   process.exit(2);

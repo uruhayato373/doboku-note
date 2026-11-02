@@ -98,6 +98,7 @@ symlink・バイナリを本文として読まないこと・`MIGRATION_MAP` と
 - **配置**: `tools/admin-app/`。ルートの `package.json` 依存（next / react）を再利用し、新規 `node_modules` を作らない（`next dev tools/admin-app` のディレクトリ引数）。`turbopack.root` = リポジトリルート。
 - **アーキテクチャ**: RSC ファースト（全ページ Server Component が fs を直接読む）。HTTP セマンティクスが要る画像配信のみ Route handler（`src/app/media/[root]/[...path]/route.ts`）。投稿・予約などの書き込み操作は管理画面に持たせず、エージェント／スキル／CLIから実行する。
 - **文書ビューの共通化**: ナレッジ／プロジェクトは `src/lib/document-store.ts` の 1 実装（列挙・検索テキスト・安全な詳細読込）を通す。パストラバーサル検査（prefix ＋ **realpath** で symlink 経由の root 外を弾く）と、catch-all セグメントの復号もここだけが持つ。Markdown → HTML と見出し目次は `lib/markdown.ts` の `renderDocument` が**同一 AST から**返すので、目次と本文の id がずれない。
+- **根拠の文書**: 外枠（`app/layout.tsx`）が `config/domains.json` の `pageDocuments` を読み、`components/PageDocLinks.tsx` が今の URL で引いて見出しの右上に「文書 N」のボタンを出す（押すとシートで一覧）。判定は `scripts/lib/page-documents.mjs` の 1 か所。
 - **パス解決**: `src/lib/repo-root.ts` の `findRepoRoot()`（`process.cwd()` から `package.json` name=doboku-note を上方探索）。バンドル下で不安定な `import.meta.url` は使わない。
 - **チャート**: 依存追加なしのサーバーレンダー inline SVG（`src/components/charts/` の LineChart / BarChart）。
 - **スタイル**: Tailwind CSS v4 + shadcn/ui 互換トークン/プリミティブ。テーマは `globals.css` の `@theme` に CSS で定義し、サイト本体の Tailwind 設定（`tailwind.config.js`）とは分離する。既存の集計ビュー固有スタイルは同 CSS の `@layer utilities` に置く（v3 と同じくユーティリティと詳細度＋記述順で競わせるため）。
