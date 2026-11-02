@@ -253,15 +253,6 @@
 
 ## 🟡 中 — 重要度が中くらい
 
-### [DN-0939] Gemini の API の経路を用意し、流入上位ページで一次採点を試して Claude との一致率を記録する
-タグ: [領域:サイト] [時期:2026-11] [種類:改善] [起票:2026-11-02] [進行中]
-
-**起点**: DN-0937（2026-11-02）。運営者は「公開済みのサイト記事だけを送るなら、文章の一次採点に Gemini を使ってよい」と決めた。経路は 2026-11-02 に用意済み: 課金の無いプロジェクト `doboku-note-gemini-free` の無料枠キーを `.env.local` の GEMINI_API_KEY に入れ、Interactions API（`POST https://generativelanguage.googleapis.com/v1beta/interactions`・`{"model","input"}`）で `gemini-3.5-flash-lite`・`gemini-3.8-flash` が 200 を返すことを確かめた。`models/…:generateContent` は新しいモデルで空の 404 を返し、`gemini` CLI の無料ログインは打ち切られている。
-**やること**:
-1. 流入上位の公開記事から、評価役ごとに 8 件（計 24 件）を Claude の評価役と Gemini（3.5-flash-lite・3.8-flash）の両方で採点する。100 件の選定のうち標本以外は、標本で採用する軸が 0 なら回さない
-2. 軸ごとの完全一致と、Claude が 3 未満を付けた軸の検出率を記録する（`npm run gemini-scoring-trial`・`.claude/state/quality/gemini-trial.json`）
-3. 採用する軸を決める
-**完了条件**: 軸ごとの一致率と検出率が記録され、採用する軸が決まっている。
 
 
 ### [DN-0938] 基準書の全文ライブラリの表と図を、章記事と同じ仕組みで展開する

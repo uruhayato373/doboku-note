@@ -6408,6 +6408,23 @@
       "commit": "c5b531fd28a3",
       "verification": "npm run page-quality-inventory exit 0（評価役の無い資格は全文ライブラリの evaluatorGap だけ）",
       "note": "PR #1366: 建設部門 keyword・pillar→guide-qa、建設部門 past-exam→content-qa、コンクリ技士・測量士→past-exam-qa、コンクリ教科書→civil-construction-qa Mode R。civil-construction-review を統合して退役。採点状況は quality-census から棚卸しに表示。Gemini は DN-0939、全文ライブラリは DN-0938 へ分割"
+    },
+    {
+      "id": "DN-0939",
+      "at": "2026-11-02",
+      "task": "Gemini の API の経路を用意し、流入上位ページで一次採点を試して Claude との一致率を記録する",
+      "tier": "mid",
+      "kind": "改善",
+      "prevention": {
+        "type": "none",
+        "ref": "試行の結論の記録で、再発する不具合ではない"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "ecc11082b0a2",
+      "verification": "npm run gemini-scoring-trial -- compare --model gemini-3.5-flash-lite（採用 0 軸）",
+      "note": "PR #1367: 24 記事で Claude の評価役と比較。合否一致 87〜88%・直すべき軸の検出率 31%（lite）/46%（3.8-flash）。採用条件を満たす軸 0 で、採点の一次振り分けには不採用。記録は .claude/state/quality/gemini-trial.json"
     }
   ]
 }
