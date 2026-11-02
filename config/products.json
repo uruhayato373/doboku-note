@@ -4031,7 +4031,7 @@
       "order": 46,
       "catalog": {
         "id": "i-01",
-        "asin": null,
+        "asin": "B0HPZNQRT1",
         "title": "1級土木施工管理技士 第2次検定 施工経験記述 過去問模範答案集",
         "subtitle": "令和3〜7年度 年度別5回分の模範答案と書き方",
         "series": "I 1級土木 第2次検定 記述",
@@ -4039,7 +4039,7 @@
         "priceJpy": 1980,
         "royalty": 0.35,
         "chapterCount": 5,
-        "status": "in_review",
+        "status": "live",
         "builder": "scripts/build-essay-kindle.mjs",
         "buildSpec": "scripts/kindle-specs/i-01.json",
         "epub": "kindle-dist/i-01.epub",
@@ -4054,7 +4054,7 @@
           }
         ],
         "draftAsin": "AHA4QGG6EYJEF",
-        "publishedDate": null,
+        "publishedDate": "2026-11-01",
         "uploaded": {
           "epub": {
             "sha256": "2280d0acbdb46aefc2be92ce4101936aa1733dd2bca3e1a31bc1286df92809d5",
