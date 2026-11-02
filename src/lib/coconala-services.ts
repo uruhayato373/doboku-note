@@ -894,8 +894,8 @@ const SERVICES_RAW = {
   // 商品画像は未作成（承認済み POP に診断用が無い）。
   'coconala-cce-essay-shindan': {
     id: 'coconala-cce-essay-shindan',
-    status: 'draft',
-    serviceUrl: '',
+    status: 'listed',
+    serviceUrl: 'https://coconala.com/services/4484121',
     title: 'コンクリート主任技士の小論文1本を診断します',
     shortTitle: 'コンクリート主任技士 小論文 診断（1本・48時間）',
     description: 'コンクリート主任技士試験の記述式問題（小論文）を、ご自身で書いた1本分、受け取りから48時間以内に診断してお返しします。A/B/C の判定と、減点の大きい箇所の指摘までが範囲です。書き換え例文の提供や答案の作成代行はしません。書き直しの確認まで希望の方は、書き直し1回込みの添削サービスをご利用ください。経験していない業務や数値の創作はお受けしません。合格を保証するものではありません。',
@@ -903,6 +903,7 @@ const SERVICES_RAW = {
     priceNote: '小論文1本・48時間以内・診断のみ（書き換え案なし）',
     examScope: ['concrete-chief-engineer'],
     weeklyCapacity: 3,
+    listedAt: '2026-11-03',
   },
   // </generated:products coconala>
 } as const satisfies Record<string, Omit<CoconalaService, 'price'>>;
