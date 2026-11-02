@@ -14,7 +14,7 @@
  */
 import { listedCoconalaServices } from './coconala-services';
 import { coconalaAffiliateHref } from '@/config/affiliate-creatives';
-import { beforeExamCatch, withTensakuDeadline } from '@/lib/exam-dates';
+import { beforeExamCatch, isAfterExamDay, withTensakuDeadline } from '@/lib/exam-dates';
 
 export type OffsiteChannel = 'coconala';
 
@@ -35,6 +35,8 @@ interface OffsiteRule {
   readonly test: RegExp;
   readonly coconala?: readonly string[];
   readonly coconalaCatch?: string;
+  /** この試験の当日までだけ出す（翌日からのビルドでは出さない）。試験前だけ意味のある導線に使う */
+  readonly until?: { readonly examId: string; readonly eventId: string };
 }
 
 // slug は category prefix 付きの完全形（例: civil-construction-1-secondary-experience-writing-guide）。
@@ -121,14 +123,22 @@ const OFFSITE_RULES: readonly OffsiteRule[] = [
     coconala: ['coconala-cce-essay-tensaku'],
     coconalaCatch: withTensakuDeadline('concrete-chief-engineer', 'exam', '小論文を人の目で確かめたい方・骨子から一緒に組み立てたい方へ。'),
   },
+  {
+    // コンクリート主任技士: 択一の過去問・教科書（流入は資格トップに次いで多い）。択一と小論文は同じ日に受けるので、
+    // 本試験の当日までだけ小論文の添削へ送る（2026-11-02 運営者承認・docs/strategy/22 §5 の打ち手 1）。
+    test: /^concrete-chief-engineer-(primary|textbook)-/,
+    coconala: ['coconala-cce-essay-tensaku'],
+    coconalaCatch: withTensakuDeadline('concrete-chief-engineer', 'exam', '小論文も同じ日の本試験です。択一の仕上げと並行して、小論文を人の目で確かめたい方へ。'),
+    until: { examId: 'concrete-chief-engineer', eventId: 'exam' },
+  },
 ];
 
 /**
  * 記事 slug に対して出す外部チャネル CTA を解決する。
  * 非対象ページ・未 listed の商品は空配列（＝非表示）。
  */
-export function resolveOffsiteCta(slug: string): OffsiteCtaItem[] {
-  const rule = OFFSITE_RULES.find((r) => r.test.test(slug));
+export function resolveOffsiteCta(slug: string, now: number = Date.now()): OffsiteCtaItem[] {
+  const rule = OFFSITE_RULES.find((r) => r.test.test(slug) && !(r.until && isAfterExamDay(r.until.examId, r.until.eventId, now)));
   if (!rule) return [];
   const items: OffsiteCtaItem[] = [];
 

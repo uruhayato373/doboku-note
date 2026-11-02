@@ -39,3 +39,17 @@ test('各ルールに出品が 1 件以上ある', () => {
   assert.ok(rules.length > 0);
   assert.deepEqual(rules.filter((r) => r.ids.length === 0).map((r) => r.test), []);
 });
+
+test('主任技士の択一・教科書のページは、本試験の当日までだけ小論文の添削へ送る（until）', () => {
+  const out = JSON.parse(tsx(`
+    import { resolveOffsiteCta } from './src/lib/offsite-cta.ts';
+    const slug = 'concrete-chief-engineer-primary-mix-design';
+    const before = resolveOffsiteCta(slug, Date.parse('2026-11-02T12:00:00+09:00'));
+    const after = resolveOffsiteCta(slug, Date.parse('2026-12-01T12:00:00+09:00'));
+    const top = resolveOffsiteCta('concrete-chief-engineer', Date.parse('2026-12-01T12:00:00+09:00'));
+    process.stdout.write(JSON.stringify({ before: before.map((i) => i.trackLabel), after: after.length, top: top.length }));
+  `));
+  assert.deepEqual(out.before, ['offsite-coconala-cce-essay-tensaku']);
+  assert.equal(out.after, 0);
+  assert.equal(out.top, 1, '資格トップの導線は試験後も残る（until を付けていない）');
+});
