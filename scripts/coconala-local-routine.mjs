@@ -8,7 +8,7 @@
  *
  * 1 回の実行でやること（scripts/weekly-collect.mjs が収集用 worktree＝最新の develop で呼ぶ）:
  *   1. coconala-orders（取引一覧）・coconala-analytics --append-kpi（出品分析）・coconala-revenue（売上履歴＝月の受取額）
- *   2. 台帳（coconala.orders-snapshot・analytics・kpi・revenue）を commit して develop へ push
+ *   2. 台帳（coconala.orders-snapshot・analytics・kpi・revenue・seller-profile）を commit して develop へ push
  *   未ログインなら macOS の通知で知らせる。止まった週は土曜の収集の検算（check-sales-freshness・check-coconala-analytics・DN-0847）が拾う。
  *
  * CLI（専用 worktree のルートで実行する。ブランチに乗った HEAD では --dry-run 以外を拒否する）:
@@ -25,7 +25,7 @@ import { commitAndPush, onBranch } from './lib/routine-commit.mjs';
 const DRY = process.argv.includes('--dry-run');
 const NO_PUSH = process.argv.includes('--no-push');
 const TAG = '[coconala-local]';
-const LEDGER_PATHS = ['coconala.orders-snapshot', 'coconala.analytics', 'coconala.kpi', 'coconala.revenue'].map((id) => datasetPath(id));
+const LEDGER_PATHS = ['coconala.orders-snapshot', 'coconala.analytics', 'coconala.kpi', 'coconala.revenue', 'coconala.seller-profile'].map((id) => datasetPath(id));
 
 const run = (args) => spawnSync('node', args, { stdio: 'inherit', env: process.env }).status ?? 1;
 function notify(message) {
@@ -44,12 +44,14 @@ for (const [label, args] of [
   ['取引一覧', ['scripts/coconala-orders.mjs', '--headless']],
   ['出品分析', ['scripts/coconala-analytics.mjs', '--headless', ...(DRY ? [] : ['--append-kpi'])]],
   ['売上履歴', ['scripts/coconala-revenue.mjs', '--headless', ...(DRY ? ['--dry-run'] : [])]],
+  // 公開プロフィールの評価の数（ログイン不要・チャネル設計の KPI。DN-0943）
+  ['評価の数', ['scripts/coconala-seller-profile.mjs', ...(DRY ? ['--dry-run'] : [])]],
 ]) {
   const code = run(args);
   if (code === 0) done.push(label);
   else problems.push(`${label}: exit ${code}（ログインが切れていれば npm run auth:login -- --service coconala）`);
 }
-if (problems.length === 3) notify('ココナラの取得がすべて失敗。ログインを確認: npm run auth:login -- --service coconala');
+if (problems.length >= 3) notify('ココナラの取得がすべて失敗。ログインを確認: npm run auth:login -- --service coconala');
 
 if (DRY) {
   console.log(`${TAG} --dry-run のため commit しない`);

@@ -31,6 +31,9 @@
       "peakFromWeeks": 4,
       "peakToWeeks": 1,
       "judgmentDaysAfter": 14,
+      "coconalaServices": [
+        "coconala-tensaku-4theme"
+      ],
       "note": "二次（経験記述）の売上は試験の 1〜4 週前に集中。制作は 10 週前、切り替えは山の 2 週手前の 6 週前。"
     },
     {
@@ -41,6 +44,9 @@
       "peakFromWeeks": 3,
       "peakToWeeks": 0,
       "judgmentDaysAfter": 14,
+      "coconalaServices": [
+        "coconala-tensaku-4theme"
+      ],
       "note": "二次の売上は試験の 0〜3 週前（直前まで売れる）。制作は 8 週前、切り替えは 4 週前。"
     },
     {
@@ -51,6 +57,9 @@
       "peakFromWeeks": 6,
       "peakToWeeks": 4,
       "judgmentDaysAfter": 14,
+      "coconalaServices": [
+        "coconala-cce-essay-tensaku"
+      ],
       "note": "売上は試験の 4〜6 週前。制作は 10 週前、切り替えは山の 1 週手前の 7 週前。"
     }
   ]
