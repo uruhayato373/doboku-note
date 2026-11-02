@@ -71,7 +71,7 @@ SVG 制作は `create-svg` スキルに従う。モバイル 400px viewBox、デ
 3. **出所を記録する**: `npm run gen-article-photo -- --fig <図キー> --based-on <vault の切り出し図>` で生成し、`provenance` の `basedOn`（`vault:<相対パス>`）に元を残す。vault の外の画像は元にできない
 4. **元と見比べて監査する**: `ai-image-fidelity-auditor` が元の切り出し図と見比べる「描き直し」の軸（`axes.redraw`）を判定する。`record-ai` は `basedOn` のある写真を `axes.redraw` が ok でないかぎり ok にしない
 
-本の**図**は流用しない（自作 SVG の題材・下敷きにだけ使う。[18 シリーズ方針](../../../docs/strategy/18_自治体土木担当・コンクリートシリーズ方針2026-10.md)「図と写真」）。
+本の**図**は流用しない（自作 SVG の題材・下敷きにだけ使う。[18 シリーズ方針](../../../docs/strategy/18_シリーズ方針.md)「図と写真」）。
 
 シリーズ企画の台帳（`config/content-series.json`）の項目に `visuals` で図・写真を計画したときは、`npm run check-content-series -- --visual-jobs` が未完了の一覧（写真は上の 2 のコマンドつき）を出す。Codex にはこの一覧を渡し、1〜4 を通させる（2026-10-13）。
 

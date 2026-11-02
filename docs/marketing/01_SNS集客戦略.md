@@ -4,12 +4,12 @@
 
 doboku-note（土木・建設系試験対策ハブ。Phase 1 で 1級土木施工管理技士 / 技術士総合技術監理部門 を整備中）への流入を SNS から獲得するための方針。X / YouTube / Instagram の 3 チャネルを統合管理する。
 
-**最終更新**: 2026-07-04（v8: X 凍結対応（v7.3）を本文へ正式統合し再開判定を `x-post-policy §11.6` へ参照化。SNS 競合の実地調査（[07_競合調査](../strategy/07_競合調査.md) SNS節）を反映し、IG／1級2級土木 Shorts の先行者優位・X/note の過密を確認して現行チャネル配分を追認。型カタログの索引は [00_SNS整理マップ §型カタログ](./00_SNS整理マップ.md) に集約）
+**最終更新**: 2026-07-04（v8: X 凍結対応（v7.3）を本文へ正式統合し再開判定を `x-post-policy §11.6` へ参照化。SNS 競合の実地調査（[競合調査（資格別）](../reviews/competitors/README.md) SNS節）を反映し、IG／1級2級土木 Shorts の先行者優位・X/note の過密を確認して現行チャネル配分を追認。型カタログの索引は [00_SNS整理マップ §型カタログ](./00_SNS整理マップ.md) に集約）
 **旧最終更新**: 2026-05-28（v7: 実装と整合のため Instagram を一次制作チャネルに格上げ。YouTube Shorts は IG Reels mp4 の二次展開（短縮＋字幕焼き込み＋概要欄差替）に再定義。「YT Shorts mp4 を IG Reels に流用」という v5/v6 の仮定を逆転）
 **運営者**: 技術士（総合技術監理部門）合格済み。土木系公務員（発注者）の退職者
 **旧最終更新**: 2026-05-22（v6: 運営者の総監合格判明を受け、X を「キーワード送客器」から「note 誘導・受験生コミュニティ動線」へ転換。IG/YT＝SEO・カタログ動線／X＝信頼・マネタイズ動線の二系統に再定義）
 **さらに旧**: 2026-04-28（v5: Instagram を Carousel + Reels の両軸へ転換、YT Shorts mp4 を IG Reels に流用）
-**関連**: [../strategy/03_事業戦略.md](../strategy/03_事業戦略.md) / [../strategy/04_収益化戦略.md](../strategy/04_収益化戦略.md)
+**関連**: [../strategy/01_プロダクト戦略.md](../strategy/01_プロダクト戦略.md) / [../strategy/04_収益化戦略.md](../strategy/04_収益化戦略.md)
 **実行タスク**: `.claude/todo/backlog.md` — 進捗の真実源。本書の各アクションは `DN-####` で結線する
 
 ## 1. 基本方針（v7）
@@ -486,8 +486,8 @@ X は手動運用前提。資格試験は年サイクル（1次6月・2次10月�
 
 ## 関連ドキュメント
 
-- `docs/strategy/03_事業戦略.md` — 全体戦略
-- `docs/strategy/11_STP分析2026-07.md` — 実売・流入による S/T/P（SNS 流入寄与の実測含む）
+- `docs/strategy/01_プロダクト戦略.md` — 全体戦略
+- `docs/reviews/2026-07-stp-analysis.md` — 実売・流入による S/T/P（SNS 流入寄与の実測含む）
 - `docs/strategy/04_収益化戦略.md` — note 商品ラインナップとの連携
 - `.claude/skills/management/nsm-experiment/references/definition.md` — NSM 定義
 - `.claude/skills/social/social-post/SKILL.md` — note / X 投稿下書き生成スキル
@@ -517,7 +517,7 @@ X は手動運用前提。資格試験は年サイクル（1次6月・2次10月�
 
 ## 改訂履歴
 
-- **v8（2026-07-04）**: X 凍結対応（v7.3）を本文へ正式統合し、縮退→予約補助→通常運用の**再開判定は `x-post-policy §11.6`（新設）を真実源**に一本化（01 は参照化・数値の二重掲載を排除）。SNS 競合の実地調査（YouTube=yt-dlp 登録者実測・X/IG=WebSearch＋note直フェッチ、[07_競合調査](../strategy/07_競合調査.md) の「SNS競合」節）を反映。**結論は現行方針の追認**＝①IG と 1級2級土木 Shorts は受験特化の競合が薄く先行者優位（IG 一次制作＋Shorts 派生を継続強化。ただし IG 認証壁ゆえ「競合不在」は定点観測で検証）②X／note は sosou_nino・技術士-Index 等で過密→正面衝突を避け「合格体験者ポジション＋note 不得手なインタラクティブ資産（クイズ/1問1答/カルーセル）」で差別化。有効型の取り込み候補（聞き流し一問一答＝YT空白／合格後キャリア・現場リアル リール＝IG差別化／お悩み相談回答）は型カタログのバックログとして surface（policy への正式追加は次段）。アカウント実態（X `@doboku373`／IG `@dobokunotecom`）と YT 2経路の優先度を明記。投稿型・雛形の索引は [00_SNS整理マップ §型カタログ](./00_SNS整理マップ.md) へ集約。
+- **v8（2026-07-04）**: X 凍結対応（v7.3）を本文へ正式統合し、縮退→予約補助→通常運用の**再開判定は `x-post-policy §11.6`（新設）を真実源**に一本化（01 は参照化・数値の二重掲載を排除）。SNS 競合の実地調査（YouTube=yt-dlp 登録者実測・X/IG=WebSearch＋note直フェッチ、[競合調査（資格別）](../reviews/competitors/README.md) の「SNS競合」節）を反映。**結論は現行方針の追認**＝①IG と 1級2級土木 Shorts は受験特化の競合が薄く先行者優位（IG 一次制作＋Shorts 派生を継続強化。ただし IG 認証壁ゆえ「競合不在」は定点観測で検証）②X／note は sosou_nino・技術士-Index 等で過密→正面衝突を避け「合格体験者ポジション＋note 不得手なインタラクティブ資産（クイズ/1問1答/カルーセル）」で差別化。有効型の取り込み候補（聞き流し一問一答＝YT空白／合格後キャリア・現場リアル リール＝IG差別化／お悩み相談回答）は型カタログのバックログとして surface（policy への正式追加は次段）。アカウント実態（X `@doboku373`／IG `@dobokunotecom`）と YT 2経路の優先度を明記。投稿型・雛形の索引は [00_SNS整理マップ §型カタログ](./00_SNS整理マップ.md) へ集約。
 - **v7.3（2026-06-12）**: 運用 X アカウント（@dobokunotecom）が「偽装行為（platform manipulation and spam）」で凍結・異議却下。**X を「主力」から外し一次集客の重みを Instagram・note へ縮退**。X は下書き生成のみ・自動投稿（publish-x）停止・投稿/リプライは人手。2026-07-03 に別アカ @doboku373 で手動・低頻度再開（旧アカは `_archive-dobokunotecom/` 隔離）。詳細・復帰ゲートは `x-post-policy §11`（v8 で §11.6 に体系化）。
 - **v7.2（2026-06-09）**: 過去問偏重からの脱却として **コンテンツ角度フレームワーク（6 切り口: 結論／理由／体験／反論／数字／ハウツー）** を新設。既存の note 記事・サイト記事資産を `angle` パラメータ（`conclusion`/`reason`/`experience`/`counter`/`number`/`howto`）で多媒体展開し、TOFU・公務員層の取りこぼしを埋める。資格別にも角度別にもエージェントを増やさず、媒体 × Generator/Evaluator 分業に `angle` を直交パラメータとして足す設計。真実源は新規 [`.claude/knowledge/reference/content-angle-policy.md`](../../.claude/knowledge/reference/content-angle-policy.md)。パイロットは `counter`→IG Carousel・`experience`→X の 2 本。
 - **v7.1（2026-05-28）**: ハイライトを 5 種 → **6 種**に拡張。6 種目「教材」を追加し note プロフィール → 無料記事 → 有料マガジン（M5/M6/M8/精読ガイド/論文骨子テンプレート）の **二段ロケット動線**を確立。直接 note 有料リンクは置かず、まず note 無料記事に着地させて自然遷移する設計で売り込み感を回避。「合格者の本棚」中立フレーミングで設計。教材ハイライト用 Stories シリーズ（6 枚構成）の雛形を `content/sns/instagram/highlights/06_materials/` に新設、Stories の手順書（ig-stories-policy.md・2026-10-25 に外した）§5 を 2 系統 → 3 系統に拡張。後続改修で残り 5 種（01_intro / 02_carousel-index / 03_reels-roundup / 04_faq / 05_announcement）も同 `content/sns/instagram/highlights/` 配下に集約・数値プレフィックスで投稿順を表現・slide-data + PNG を整備
