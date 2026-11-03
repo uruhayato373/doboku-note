@@ -1,6 +1,38 @@
 {
   "runs": [
     {
+      "startedAt": "2026-11-03T09:23:12.025Z",
+      "finishedAt": "2026-11-03T09:23:19.579Z",
+      "plan": {
+        "synced": 0,
+        "ready": 1,
+        "blocked": 0,
+        "blockers": {},
+        "only": "content/note/1級・2級土木/2級土木の次の職場選び-無料/"
+      },
+      "articles": {
+        "selected": 1,
+        "attempted": 0,
+        "updated": [],
+        "failed": [
+          {
+            "path": "content/note/1級・2級土木/2級土木の次の職場選び-無料/article.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "結果なし（連続失敗で中断された可能性）"
+          }
+        ],
+        "deferred": []
+      },
+      "magazines": {
+        "attempted": 0,
+        "updated": [],
+        "failed": []
+      },
+      "problems": []
+    },
+    {
       "startedAt": "2026-11-03T09:22:49.053Z",
       "finishedAt": "2026-11-03T09:22:56.969Z",
       "plan": {
@@ -330,37 +362,6 @@
         "updated": [
           {
             "path": "content/note/1級・2級土木/公務員土木を辞める前の棚卸し-無料/article.md",
-            "parts": [
-              "body"
-            ]
-          }
-        ],
-        "failed": [],
-        "deferred": []
-      },
-      "magazines": {
-        "attempted": 0,
-        "updated": [],
-        "failed": []
-      },
-      "problems": []
-    },
-    {
-      "startedAt": "2026-11-03T09:09:28.359Z",
-      "finishedAt": "2026-11-03T09:10:23.436Z",
-      "plan": {
-        "synced": 0,
-        "ready": 1,
-        "blocked": 0,
-        "blockers": {},
-        "only": "content/note/1級・2級土木/公務員技術職の試験を受けるか決める-無料/"
-      },
-      "articles": {
-        "selected": 1,
-        "attempted": 1,
-        "updated": [
-          {
-            "path": "content/note/1級・2級土木/公務員技術職の試験を受けるか決める-無料/article.md",
             "parts": [
               "body"
             ]
