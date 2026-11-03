@@ -35,7 +35,7 @@
 4. 逆向きの UTM: Kindle は utm_campaign＝書籍 ID の小文字・utm_content＝置き場所（next / author。build-takuitsu-reconstruct）。note の本文リンクは utm_term＝記事の note キー（add-note-utm。utm_content はリンクの種類に使っているので触らない）。規約は config/utm-templates.json の _ebook_note・_inbound_note
 
 **人の作業（手順）**:
-1. GA4 のカスタム定義とキーイベント: CI か資格情報のある端末で `npm run ga4-admin:apply`（product_destination・product_id のイベントスコープのディメンション）と `npm run ga4-admin-api:apply -- --commit`（product_click のキーイベント）。要: プロパティの編集者。管理画面で作るなら 管理 → データの表示 → カスタム定義（範囲 イベント・パラメータ名は同じ）／イベント → product_click をキーイベントに
+1. GA4: カスタムディメンション product_destination・product_id は 2026-11-03 に管理画面で作成済み（最初の product_destination はパラメータ名の入力を誤り、アーカイブして作り直した）。**残りは product_click のキーイベント**。管理画面は一度も受信していないイベントに星を付けられないので、本番デプロイの後、管理 → データの表示 → イベント の一覧に product_click が出たら星を付ける。先に作るなら資格情報のある端末か CI で `npm run ga4-admin-api:apply -- --commit`（Admin API・要プロパティの編集者）
 2. 本番デプロイ: `/deploy`（develop → main）。反映後 `npm run check-production-ssr`
 3. note の本文の utm_term: 記事を直して再公開するときに `node scripts/add-note-utm.mjs <slug>` を回す（全記事の一括書き換えはしない。note の編集は運営者の作業）。EXP-052 の対象記事は次の再公開で入れる
 4. Kindle の UTM: A 系を次に再出版するとき `build-takuitsu-reconstruct` で作り直す（出版済みの EPUB は旧い campaign takuitsu-<論点> のまま）

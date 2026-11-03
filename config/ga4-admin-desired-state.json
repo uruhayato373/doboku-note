@@ -62,7 +62,7 @@
         ".github/workflows/fetch-metrics.yml"
       ],
       "blocking": false,
-      "$observed": "未作成（2026-11-03 追加・npm run ga4-admin:apply で作成する）"
+      "$observed": "2026-11-03 実機: 管理画面で作成（スコープ イベント・パラメータ名は parameterName と同じ）"
     },
     {
       "displayName": "product_id",
@@ -74,7 +74,7 @@
         ".github/workflows/fetch-metrics.yml"
       ],
       "blocking": false,
-      "$observed": "未作成（2026-11-03 追加・npm run ga4-admin:apply で作成する）"
+      "$observed": "2026-11-03 実機: 管理画面で作成（スコープ イベント・パラメータ名は parameterName と同じ）"
     }
   ],
   "keyEvents": [
