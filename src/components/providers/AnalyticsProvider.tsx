@@ -4,6 +4,22 @@ import { usePathname, useSearchParams } from "next/navigation";
 import { useEffect, useRef } from "react";
 import * as gtag from "@/lib/gtag";
 import { AFFILIATE_EXPERIMENT_ID, affiliateExperimentLabel } from "@/lib/affiliate-experiment.mjs";
+import {
+  PRODUCT_CLICK_EVENT,
+  PRODUCT_IMPRESSION_DWELL_MS,
+  PRODUCT_IMPRESSION_EVENT,
+  PRODUCT_IMPRESSION_RATIO,
+  productReferralOf,
+  productReferralParams,
+} from "@/lib/product-referral.mjs";
+
+// 販売先へ出ていくリンク（productReferralOf が読めるホストだけ）。querySelectorAll の候補を絞るための粗い条件。
+const PRODUCT_LINK_SELECTOR = ["note.com/", "coconala.com/", "amazon.co.jp/", "px.a8.net/", "af.moshimo.com/"]
+  .map((host) => `a[href*="${host}"]`)
+  .join(", ");
+
+const placementOf = (el: Element) =>
+  el.closest<HTMLElement>("[data-cta-placement]")?.dataset.ctaPlacement || "(unknown)";
 
 function experimentContext(el: HTMLElement): { variant: string; program: string } | null {
   const owner = el.dataset.cta === "affiliate" ? el : document.querySelector<HTMLElement>(`[data-cta-experiment="${AFFILIATE_EXPERIMENT_ID}"][data-cta-variant]`);
@@ -215,6 +231,81 @@ export default function AnalyticsProvider() {
     return () => {
       mutationObserver.disconnect();
       observer.disconnect();
+    };
+  }, [pathname]);
+
+  // 商品への送客（DN-0947）。販売先（note / ココナラ / Amazon / A8 / もしも）へ出ていくリンクを、data-cta の有無に
+  // かかわらず href から拾い、販売先・販売先での商品 ID・置き場所（cta_placement）で送る。上の note_cta_click などは
+  // 時系列を切らないため並行して送る（同じクリックが 2 イベントに出るので足し合わせない）。
+  // 表示はリンクの 50% 以上が 1 秒続けて見えたとき、同じリンクはページ滞在中 1 回だけ。product_click はキーイベント
+  // （config/ga4-admin-desired-state.json）。注文は GA4 では取らず、販売台帳（npm run product-sales）が同じ ID で突き合わせる。
+  useEffect(() => {
+    const onClick = (e: MouseEvent) => {
+      if (e.type === "auxclick" && e.button !== 1) return;
+      const anchor = (e.target as Element | null)?.closest?.("a") as HTMLAnchorElement | null;
+      const referral = anchor ? productReferralOf(anchor.href) : null;
+      if (!anchor || !referral) return;
+      gtag.event({
+        action: PRODUCT_CLICK_EVENT,
+        category: "product-referral",
+        label: `${referral.destination}:${referral.productId}`,
+        params: productReferralParams(referral, placementOf(anchor)),
+      });
+    };
+    document.addEventListener("click", onClick, { capture: true });
+    document.addEventListener("auxclick", onClick, { capture: true });
+    if (typeof IntersectionObserver === "undefined") {
+      return () => {
+        document.removeEventListener("click", onClick, { capture: true });
+        document.removeEventListener("auxclick", onClick, { capture: true });
+      };
+    }
+
+    const observed = new WeakSet<Element>();
+    const timers = new Map<Element, number>();
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          const anchor = entry.target as HTMLAnchorElement;
+          if (!entry.isIntersecting || entry.intersectionRatio < PRODUCT_IMPRESSION_RATIO) {
+            window.clearTimeout(timers.get(anchor));
+            timers.delete(anchor);
+            continue;
+          }
+          if (timers.has(anchor)) continue;
+          timers.set(anchor, window.setTimeout(() => {
+            timers.delete(anchor);
+            observer.unobserve(anchor);
+            const referral = productReferralOf(anchor.href);
+            if (!referral) return;
+            gtag.event({
+              action: PRODUCT_IMPRESSION_EVENT,
+              category: "product-referral",
+              label: `${referral.destination}:${referral.productId}`,
+              params: productReferralParams(referral, placementOf(anchor)),
+            });
+          }, PRODUCT_IMPRESSION_DWELL_MS));
+        }
+      },
+      { threshold: PRODUCT_IMPRESSION_RATIO },
+    );
+    const observeProductLinks = () => {
+      document.querySelectorAll<HTMLAnchorElement>(PRODUCT_LINK_SELECTOR).forEach((anchor) => {
+        if (observed.has(anchor) || !productReferralOf(anchor.href)) return;
+        observed.add(anchor);
+        observer.observe(anchor);
+      });
+    };
+    observeProductLinks();
+    const mutationObserver = new MutationObserver(observeProductLinks);
+    mutationObserver.observe(document.body, { childList: true, subtree: true });
+
+    return () => {
+      document.removeEventListener("click", onClick, { capture: true });
+      document.removeEventListener("auxclick", onClick, { capture: true });
+      mutationObserver.disconnect();
+      observer.disconnect();
+      timers.forEach((id) => window.clearTimeout(id));
     };
   }, [pathname]);
 

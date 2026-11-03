@@ -9,7 +9,7 @@ import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 
 import { channelFamily, channelOf } from '../scripts/lib/utm-channels.mjs';
-import { setUtmParams, utmChannel, utmChannelFamily, utmEbook } from '../scripts/lib/utm-contract.mjs';
+import { kindleInboundUtm, setUtmParams, utmChannel, utmChannelFamily, utmEbook, withNoteInboundUtm } from '../scripts/lib/utm-contract.mjs';
 import { loadConfig } from '../scripts/lib/video-content-check.mjs';
 import { loadTsModule } from './lib/load-ts.mjs';
 import { REPO_ROOT as ROOT } from '../scripts/lib/repository-paths.mjs';
@@ -68,4 +68,24 @@ test('サイト → note の UTM は withNoteUtm 1 つで、契約の siteToNote
   assert.equal(withNoteUtm(note, 'quiz', { campaign: 'civil-1-kakomon' }), `${note}?utm_source=doboku-note&utm_medium=quiz&utm_campaign=civil-1-kakomon`);
   // content を渡したときは空文字でも付ける（従来の buildMagazineUrl と同じ）
   assert.equal(withNoteUtm(note, 'magazine', { content: '' }), `${note}?utm_source=doboku-note&utm_medium=referral&utm_campaign=note-magazine&utm_content=`);
+});
+
+// DN-0947: 商品からサイトへ戻るリンクの UTM（逆向き）
+
+test('Kindle の戻りリンクは campaign＝書籍 ID の小文字・content＝契約の置き場所', () => {
+  assert.deepEqual(kindleInboundUtm('A-01', 'next'), { source: 'kindle', medium: 'ebook', campaign: 'a-01', content: 'next' });
+  assert.throws(() => kindleInboundUtm('A-01', 'footer'), /未知の置き場所/);
+  assert.throws(() => kindleInboundUtm('B0H8HW139T', 'next'), /書籍 ID/);
+});
+
+test('note の本文リンクは utm_term に記事の note キーを足し、utm_content（リンクの種類）には触らない', () => {
+  const base = 'https://doboku-note.com/exam/a?utm_source=note&utm_medium=referral&utm_campaign=c&utm_content=guide#x';
+  assert.equal(withNoteInboundUtm(base, 'c', 'nd81412e89bf3'), 'https://doboku-note.com/exam/a?utm_source=note&utm_medium=referral&utm_campaign=c&utm_content=guide&utm_term=nd81412e89bf3#x');
+  assert.equal(withNoteInboundUtm('https://doboku-note.com/exam/a', 'c', 'n1a'), 'https://doboku-note.com/exam/a?utm_source=note&utm_medium=referral&utm_campaign=c&utm_term=n1a');
+  assert.equal(withNoteInboundUtm('https://doboku-note.com/exam/a', 'c'), 'https://doboku-note.com/exam/a?utm_source=note&utm_medium=referral&utm_campaign=c');
+  const done = 'https://doboku-note.com/exam/a?utm_source=note&utm_term=n1a';
+  assert.equal(withNoteInboundUtm(done, 'c', 'n2b'), done);
+  const other = 'https://doboku-note.com/exam/a?utm_source=x&utm_medium=social';
+  assert.equal(withNoteInboundUtm(other, 'c', 'n2b'), other);
+  assert.throws(() => withNoteInboundUtm('https://doboku-note.com/', 'c', 'mabc'), /記事キー/);
 });

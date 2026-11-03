@@ -103,6 +103,11 @@ export function buildStages({ today = todayJst(), kdpMonths = [], competitorScan
       verify: ['coconala-analytics'],
     },
     {
+      // 売上の段（a8・kdp・note-sales・coconala）のあとで、暦月 × 商品の販売台帳を作り直す（DN-0947。入力はコミット済みの記録だけ）
+      id: 'product-sales', phase: 'pre', title: '商品別の月次販売の台帳（前月と当月）', timeoutMin: 5, browser: false,
+      commands: [{ argv: ['npm', 'run', '-s', 'product-sales'] }],
+    },
+    {
       id: 'gsc', phase: 'pre', title: 'GSC の登録リクエスト 10 件と月次の理由別 CSV', timeoutMin: 40, browser: true, selfCommits: true,
       // 前回の送信から 20 時間以内なら送らない・月次 CSV は期日のときだけ（判定は gsc-local-routine 自身）
       commands: [{ argv: ['scripts/gsc-local-routine.mjs'] }],

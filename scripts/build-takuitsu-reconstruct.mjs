@@ -24,12 +24,25 @@ import { join, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { writeEpub, xhtmlDoc, xesc, xinline } from './lib/epub-writer.mjs'
 import { NOTE_BASE, NOTE_CREATOR, SITE_ORIGIN } from './lib/site-identity.mjs'
-import { utmEbook } from './lib/utm-contract.mjs'
+import { kindleInboundUtm } from './lib/utm-contract.mjs'
+import { datasetPath } from './lib/datasets.mjs'
+import { readJson } from './lib/json-io.mjs'
 import { REPO_ROOT as REPO } from './lib/repository-paths.mjs'
 import { parseCliArgs } from './lib/cli-args.mjs'
 
-// 電子書籍（Kindle）→ サイトの UTM は契約（config/utm-templates.json の ebook.kindle）。campaign は本ごと
-const KINDLE_UTM = utmEbook('kindle')
+// 電子書籍（Kindle）→ サイトの UTM は契約（config/utm-templates.json の ebook.kindle）。campaign は書籍 ID の小文字、
+// content は置き場所（next＝学習をさらに進めたい方へ・author＝著者プロフィール）。DN-0947
+const bookIdOfTheme = (themeKey) => {
+  const hit = readJson(REPO, datasetPath('config.products')).products
+    .find((p) => p.channel === 'kindle' && p.catalog?.builder === 'scripts/build-takuitsu-reconstruct.mjs' && p.catalog?.buildTheme === themeKey)
+  if (!hit?.catalog?.id) throw new Error(`商品の正本（config.products）に buildTheme=${themeKey} の Kindle が無い（書籍 ID を UTM に入れられない）`)
+  return hit.catalog.id
+}
+// XHTML 属性内なので & は &amp; にエスケープする（生 & は epubcheck FATAL）
+const siteLink = (themeKey, content) => {
+  const u = kindleInboundUtm(bookIdOfTheme(themeKey), content)
+  return `${SITE_ORIGIN}/?utm_source=${u.source}&amp;utm_medium=${u.medium}&amp;utm_campaign=${u.campaign}&amp;utm_content=${u.content}`
+}
 
 // ---- 著者・出版者・出典クレジット（src/config/author.ts と整合）-----------
 const AUTHOR = 'doboku-note'
@@ -715,14 +728,12 @@ function renderEpub(model, outDir) {
   }
 
   // 巻末: 学習導線（サイト・note）と著者プロフィール
-  // XHTML 属性内なので & は &amp; にエスケープする（生 & は epubcheck FATAL）
-  const utm = `?utm_source=${KINDLE_UTM.source}&amp;utm_medium=${KINDLE_UTM.medium}&amp;utm_campaign=takuitsu-${t.key}`
   const nextPage = xhtmlDoc('学習をさらに進めたい方へ',
     `<div class="front back"><h1>学習をさらに進めたい方へ</h1>
 <p>本書で「${xesc(t.label)}」の論点を固めたら、次の一手にお使いください。</p>
 <div class="linkbox"><p><strong>年度別の全問解説（無料）</strong></p>
 <p>試験対策サイト「doboku-note」で、第1次検定の年度別過去問解説と学習ガイドを無料公開しています。</p>
-<p class="url"><a href="${SITE_ORIGIN}/${utm}">${SITE_ORIGIN}</a></p></div>
+<p class="url"><a href="${siteLink(t.key, 'next')}">${SITE_ORIGIN}</a></p></div>
 <div class="linkbox"><p><strong>第2次検定対策（note）</strong></p>
 <p>施工経験記述の完成答案集・学科記述のテーマ別対策など、第2次検定の教材を note で公開しています。</p>
 <p class="url"><a href="https://note.com/dobokunote/m/md29a34906314">1級土木 二次検定まるごとパック（経験記述＋学科記述＋直前暗記）</a></p>
@@ -732,7 +743,7 @@ function renderEpub(model, outDir) {
     `<div class="front back"><h1>doboku-note について</h1>
 <p><strong>doboku-note</strong> は、土木・建設系資格の試験対策サイトです。1級土木施工管理技士・技術士などの過去問解説と学習コンテンツを公開しています。</p>
 <p>運営者は元・地方自治体の土木職（発注者の立場で公共土木工事に携わる）。技術士第二次試験（総合技術監理部門）合格。実務と受験の両面から教材を制作しています。</p>
-<p class="url"><a href="${SITE_ORIGIN}/${utm}">${SITE_ORIGIN}</a></p></div>`)
+<p class="url"><a href="${siteLink(t.key, 'author')}">${SITE_ORIGIN}</a></p></div>`)
   pages.push({ id: 'p-next', href: 'p-next.xhtml', label: '学習をさらに進めたい方へ', content: nextPage })
   pages.push({ id: 'p-author', href: 'p-author.xhtml', label: '著者プロフィール', content: authorPage })
 
@@ -816,13 +827,12 @@ function renderGoubonEpub(models, outDir) {
     }
   })
 
-  const utm = `?utm_source=${KINDLE_UTM.source}&amp;utm_medium=${KINDLE_UTM.medium}&amp;utm_campaign=takuitsu-goubon`
   const nextPage = xhtmlDoc('学習をさらに進めたい方へ',
     `<div class="front back"><h1>学習をさらに進めたい方へ</h1>
 <p>本書で第1次検定の論点を固めたら、次の一手にお使いください。</p>
 <div class="linkbox"><p><strong>年度別の全問解説（無料）</strong></p>
 <p>試験対策サイト「doboku-note」で、第1次検定の年度別過去問解説と学習ガイドを無料公開しています。</p>
-<p class="url"><a href="${SITE_ORIGIN}/${utm}">${SITE_ORIGIN}</a></p></div>
+<p class="url"><a href="${siteLink('goubon', 'next')}">${SITE_ORIGIN}</a></p></div>
 <div class="linkbox"><p><strong>第2次検定対策（note）</strong></p>
 <p>施工経験記述の完成答案集・学科記述のテーマ別対策など、第2次検定の教材を note で公開しています。</p>
 <p class="url"><a href="https://note.com/dobokunote/m/md29a34906314">1級土木 二次検定まるごとパック（経験記述＋学科記述＋直前暗記）</a></p>
@@ -832,7 +842,7 @@ function renderGoubonEpub(models, outDir) {
     `<div class="front back"><h1>doboku-note について</h1>
 <p><strong>doboku-note</strong> は、土木・建設系資格の試験対策サイトです。1級土木施工管理技士・技術士などの過去問解説と学習コンテンツを公開しています。</p>
 <p>運営者は元・地方自治体の土木職（発注者の立場で公共土木工事に携わる）。技術士第二次試験（総合技術監理部門）合格。実務と受験の両面から教材を制作しています。</p>
-<p class="url"><a href="${SITE_ORIGIN}/${utm}">${SITE_ORIGIN}</a></p></div>`)
+<p class="url"><a href="${siteLink('goubon', 'author')}">${SITE_ORIGIN}</a></p></div>`)
   pages.push({ id: 'p-next', href: 'p-next.xhtml', label: '学習をさらに進めたい方へ', content: nextPage })
   pages.push({ id: 'p-author', href: 'p-author.xhtml', label: '著者プロフィール', content: authorPage })
 

@@ -50,3 +50,50 @@ export function setUtmParams(url, key, { campaign, content } = {}) {
   if (utmContent) url.searchParams.set('utm_content', utmContent);
   return url;
 }
+
+const KINDLE_BOOK_ID = /^[A-Za-z]+-[A-Za-z0-9]+$/;
+const NOTE_KEY = /^n[0-9a-f]+$/;
+
+/**
+ * Kindle の本からサイトへのリンクの UTM（DN-0947）。campaign＝書籍 ID の小文字（config/products.json の kindle の catalog.id）、
+ * content＝置き場所（契約の ebook.kindle.contents）。形の違う ID・未知の置き場所は throw（推測した値で出版しない）。
+ * @returns {{ source: string, medium: string, campaign: string, content: string }}
+ */
+export function kindleInboundUtm(bookId, content) {
+  const template = utmEbook('kindle');
+  if (!KINDLE_BOOK_ID.test(String(bookId ?? ''))) throw new Error(`utm-contract: 書籍 ID の形が違う: ${bookId}`);
+  if (!(template.contents ?? []).includes(content)) throw new Error(`utm-contract: 未知の置き場所: ${content}（ebook.kindle.contents）`);
+  return { source: template.source, medium: template.medium, campaign: String(bookId).toLowerCase(), content };
+}
+
+/**
+ * note の記事の本文リンクの utm_term（その記事の note キー n…）。utm_content は note ではリンクの種類（guide・examples 等）に
+ * 使っているので、記事の識別は utm_term に置く（config/utm-templates.json の _inbound_note）。キーの形が違えば throw
+ */
+export function noteInboundTerm(noteKey) {
+  if (!NOTE_KEY.test(String(noteKey ?? ''))) throw new Error(`utm-contract: note の記事キーの形が違う: ${noteKey}`);
+  return noteKey;
+}
+
+/**
+ * note の記事の本文のサイトへのリンク（文字列）に UTM を付ける。scripts/add-note-utm.mjs の実体。
+ * - utm_* が無いリンク: source・medium（channels の note.site）・campaign・term（noteKey があれば）を付ける
+ * - 既に note の UTM があり utm_term だけ無いリンク: noteKey があれば utm_term だけ足す（公開後の後付け）
+ * - それ以外（他の UTM・term あり）: そのまま。utm_content（リンクの種類）には触らない
+ * noteKey は公開後にしか無い（frontmatter noteId）。無ければ term を付けない。
+ */
+export function withNoteInboundUtm(url, campaign, noteKey = null) {
+  const template = utmChannel('note.site');
+  const term = noteKey ? noteInboundTerm(noteKey) : null;
+  const hashIdx = url.indexOf('#');
+  const base = hashIdx === -1 ? url : url.slice(0, hashIdx);
+  const hash = hashIdx === -1 ? '' : url.slice(hashIdx);
+  const sep = base.includes('?') ? '&' : '?';
+  if (/[?&]utm_/.test(base)) {
+    const isNote = new RegExp(`[?&]utm_source=${template.source}(?:&|$)`).test(base);
+    if (!term || !isNote || /[?&]utm_term=/.test(base)) return url;
+    return `${base}&utm_term=${term}${hash}`;
+  }
+  const params = `utm_source=${template.source}&utm_medium=${template.medium}&utm_campaign=${encodeURIComponent(campaign)}${term ? `&utm_term=${term}` : ''}`;
+  return `${base}${sep}${params}${hash}`;
+}

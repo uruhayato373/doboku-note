@@ -119,6 +119,10 @@ npm run sales-summary -- 2026-06   # 指定月（位置引数。--month フラ�
 
 毎月5日以降、`check-sales-freshness` は前月の `note-traffic-fetch` 結果を要求し、月次売上表示と同月の sales.json 合計を照合する。月初4日までは前々月を対象にする。`updatedAt` が新しくても未取得・金額不一致ならFAILとし、販売明細の取りこぼしを緑にしない。販売履歴のパスワード再確認は資格情報で自動で通る（土曜の Mac 収集の note-sales 段が毎週取得する）。通らなかったときは人がブラウザで通し、その後 `note-sales-fetch --commit` を再実行する。
 
+### 商品別の月次販売台帳（DN-0947）
+
+`npm run product-sales` が sales.json・KDP・ココナラ・A8 の記録から `data/business/product-sales/YYYY-MM.json` を作り直す（土曜の収集の product-sales 段）。行は販売記録の商品 ID と販売先の ID（note キー・ASIN・サービス番号＝GA4 `product_click` の `product_id`）。販売先ごとの `coverage` が measured の月だけ、行の無い商品を「計測済み・0 件」と読む。partial（締まっていない月・月末前の取得）・account-only（A8）・unmeasured は 0 件ではない。KDP は stats47 と同じ口座なので、doboku-note の ASIN（config/products.json）に当たる本だけを数え、書籍 ID の付かない行は excluded に残す。
+
 ### 4. 商品別CTAとの期間効率
 
 ```bash

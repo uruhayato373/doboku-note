@@ -1,0 +1,106 @@
+{
+  "schemaVersion": 1,
+  "month": "2026-05",
+  "generatedBy": "npm run product-sales",
+  "coverage": {
+    "note": {
+      "status": "measured",
+      "provisional": false,
+      "amountBasis": "price",
+      "fetchedAt": "2026-10-11T02:43:57.615Z",
+      "dashboardCount": 16,
+      "recordedCount": 16
+    },
+    "amazon": {
+      "status": "unmeasured",
+      "reason": "KDP のロイヤリティ（kdp.royalties）に月の取得が無い"
+    },
+    "coconala": {
+      "status": "measured",
+      "provisional": false,
+      "amountBasis": "net",
+      "fetchedAt": "2026-10-31T00:45:29.275Z",
+      "note": "クローズ日で計上・手数料控除後。おひねり（tip）は金額に入れ、件数に数えない"
+    },
+    "a8": {
+      "status": "account-only",
+      "fetchedAt": "2026-07-27T02:05:55.410Z",
+      "reason": "A8 の月次は口座全体だけ（案件別は期間合計しか取っていない）。商品別は未計測",
+      "account": {
+        "clicks": 17,
+        "conversions": 0,
+        "approved": 0,
+        "revenueYen": 0,
+        "pendingRevenueYen": 0
+      }
+    }
+  },
+  "rows": [
+    {
+      "destination": "note",
+      "productId": "r8-essay-forecast",
+      "type": "magazine",
+      "destinationIds": [
+        "m6854c7437d4d"
+      ],
+      "count": 5,
+      "amountYen": 12400
+    },
+    {
+      "destination": "note",
+      "productId": "tankan-reading-guide",
+      "type": "magazine",
+      "destinationIds": [
+        "m607bf095b02a"
+      ],
+      "count": 5,
+      "amountYen": 9900
+    },
+    {
+      "destination": "note",
+      "productId": "essay-road-municipality-magazine",
+      "type": "magazine",
+      "destinationIds": [
+        "m52186ffd12ca"
+      ],
+      "count": 2,
+      "amountYen": 4960
+    },
+    {
+      "destination": "note",
+      "productId": "essay-general-contractor-magazine",
+      "type": "magazine",
+      "destinationIds": [
+        "m32aaa137f22e"
+      ],
+      "count": 1,
+      "amountYen": 2480
+    },
+    {
+      "destination": "note",
+      "productId": "essay-river-consultant-magazine",
+      "type": "magazine",
+      "destinationIds": [
+        "m32132ecb3033"
+      ],
+      "count": 1,
+      "amountYen": 2480
+    },
+    {
+      "destination": "note",
+      "productId": "article:r8-disaster-recovery-compound",
+      "type": "article",
+      "destinationIds": [],
+      "count": 1,
+      "amountYen": 500
+    },
+    {
+      "destination": "note",
+      "productId": "article:r8-economic-security-supply-chain",
+      "type": "article",
+      "destinationIds": [],
+      "count": 1,
+      "amountYen": 500
+    }
+  ]
+}

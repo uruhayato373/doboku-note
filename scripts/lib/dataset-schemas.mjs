@@ -796,6 +796,50 @@ export const RankWatch = z
   .superRefine(uniqueBy('recordId', 'recordId'))
   .meta({ title: '順位の見張り' });
 
+/** 暦月 × 商品の販売台帳（data/business/product-sales/<月>.json・DN-0947）。書き手は scripts/product-sales.mjs、読み方は scripts/lib/product-sales.mjs */
+const productSalesCoverage = z
+  .object({
+    status: z.enum(['measured', 'partial', 'account-only', 'unmeasured']).describe('measured=行の無い商品は計測済み・0 件／partial・account-only・unmeasured=行の無い商品は未計測（0 にしない）'),
+    provisional: z.boolean().optional().describe('月が締まっていない・金額が推計'),
+    amountBasis: z.enum(['price', 'net', 'royalty']).optional().describe('amountYen の中身（note=定価・ココナラ=手数料控除後・KDP=推計ロイヤリティ）'),
+    fetchedAt: utcTime('入力の取得時刻').optional(),
+    reason: z.string().optional(),
+    note: z.string().optional(),
+    dashboardCount: count('ダッシュボードの月の件数').optional(),
+    recordedCount: count('明細の件数').optional(),
+    missingBookIds: z.array(z.string()).optional(),
+    unresolvedBookIds: z.array(z.string()).optional(),
+    unresolvedTalkroomIds: z.array(z.string()).optional(),
+    account: z.looseObject({}).optional().describe('口座全体の月次（A8）'),
+  })
+  .strict();
+export const BusinessProductSales = z
+  .object({
+    schemaVersion: z.literal(1),
+    month,
+    generatedBy: z.literal('npm run product-sales'),
+    coverage: z.object({ note: productSalesCoverage, amazon: productSalesCoverage, coconala: productSalesCoverage, a8: productSalesCoverage }).strict(),
+    rows: z
+      .array(
+        z
+          .object({
+            destination: z.enum(['note', 'amazon', 'coconala']),
+            productId: z.string().min(1).describe('販売記録の商品 ID（note は販売履歴の productId・ほかは商品の正本の id）'),
+            type: z.string().optional(),
+            bookId: z.string().optional(),
+            destinationIds: z.array(z.string()).describe('販売先での ID（GA4 の product_id に当たる。note のキー・ASIN・サービス番号）。分からなければ空'),
+            count: orNull(count('販売件数'), 'KDP は件数を出さないので null'),
+            amountYen: z.number().int().describe('金額（coverage の amountBasis）'),
+            kenpYen: z.number().int().optional(),
+          })
+          .strict(),
+      )
+      .superRefine(uniqueBy((r) => `${r.destination}\u0000${r.productId}`, '販売先×商品')),
+    excluded: z.object({ amazon: z.object({ rows: count('除いた行'), royaltyYen: z.number(), reason: z.string() }).strict() }).strict().optional(),
+  })
+  .strict()
+  .meta({ title: '商品別の月次販売' });
+
 // ---- 不変の証拠（data/business/records/ の突合と点検の結果）------------------------------------
 // 書き手のスクリプトが出力を決める。書き手が欄を足したら型を先に直す（.strict()）。追記だけなので、過去の記録が通る形にする
 

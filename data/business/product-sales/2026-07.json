@@ -1,0 +1,1132 @@
+{
+  "schemaVersion": 1,
+  "month": "2026-07",
+  "generatedBy": "npm run product-sales",
+  "coverage": {
+    "note": {
+      "status": "measured",
+      "provisional": false,
+      "amountBasis": "price",
+      "fetchedAt": "2026-10-11T04:57:35.301Z",
+      "dashboardCount": 145,
+      "recordedCount": 145
+    },
+    "amazon": {
+      "status": "partial",
+      "provisional": true,
+      "amountBasis": "royalty",
+      "fetchedAt": "2026-07-30T21:52:51.663Z",
+      "note": "件数は KDP レポートに無い（推計ロイヤリティの円だけ）。行の無い doboku-note の本は計測済み・0 円",
+      "reason": "月末より前の取得（残りの日の販売が入っていない）"
+    },
+    "coconala": {
+      "status": "measured",
+      "provisional": false,
+      "amountBasis": "net",
+      "fetchedAt": "2026-10-31T00:45:29.275Z",
+      "note": "クローズ日で計上・手数料控除後。おひねり（tip）は金額に入れ、件数に数えない"
+    },
+    "a8": {
+      "status": "account-only",
+      "fetchedAt": "2026-07-27T02:05:55.410Z",
+      "reason": "A8 の月次は口座全体だけ（案件別は期間合計しか取っていない）。商品別は未計測",
+      "account": {
+        "clicks": 109,
+        "conversions": 0,
+        "approved": 0,
+        "revenueYen": 0,
+        "pendingRevenueYen": 0
+      }
+    }
+  },
+  "rows": [
+    {
+      "destination": "amazon",
+      "productId": "kindle-c-04",
+      "bookId": "c-04",
+      "destinationIds": [
+        "B0HB3KWZBD"
+      ],
+      "count": null,
+      "amountYen": 450,
+      "kenpYen": 12
+    },
+    {
+      "destination": "amazon",
+      "productId": "kindle-b-reiwa",
+      "bookId": "b-reiwa",
+      "destinationIds": [
+        "B0H94Y52ZL"
+      ],
+      "count": null,
+      "amountYen": 387,
+      "kenpYen": 76
+    },
+    {
+      "destination": "amazon",
+      "productId": "kindle-d-02",
+      "bookId": "d-02",
+      "destinationIds": [
+        "B0H8L2WXBY"
+      ],
+      "count": null,
+      "amountYen": 280,
+      "kenpYen": 32
+    },
+    {
+      "destination": "amazon",
+      "productId": "kindle-a-02",
+      "bookId": "A-02",
+      "destinationIds": [
+        "B0H8CY453L"
+      ],
+      "count": null,
+      "amountYen": 248,
+      "kenpYen": 0
+    },
+    {
+      "destination": "amazon",
+      "productId": "kindle-d-01",
+      "bookId": "d-01",
+      "destinationIds": [
+        "B0H8JHYGH9"
+      ],
+      "count": null,
+      "amountYen": 124,
+      "kenpYen": 124
+    },
+    {
+      "destination": "amazon",
+      "productId": "kindle-c-05",
+      "bookId": "c-05",
+      "destinationIds": [
+        "B0HB3CL6C7"
+      ],
+      "count": null,
+      "amountYen": 93,
+      "kenpYen": 93
+    },
+    {
+      "destination": "amazon",
+      "productId": "kindle-e-01",
+      "bookId": "e-01",
+      "destinationIds": [
+        "B0H8ZZMM7R"
+      ],
+      "count": null,
+      "amountYen": 67,
+      "kenpYen": 67
+    },
+    {
+      "destination": "amazon",
+      "productId": "kindle-d-03",
+      "bookId": "d-03",
+      "destinationIds": [
+        "B0H955Y4FJ"
+      ],
+      "count": null,
+      "amountYen": 30,
+      "kenpYen": 30
+    },
+    {
+      "destination": "amazon",
+      "productId": "kindle-d-00",
+      "bookId": "d-00",
+      "destinationIds": [
+        "B0H96JKYCX"
+      ],
+      "count": null,
+      "amountYen": 24,
+      "kenpYen": 24
+    },
+    {
+      "destination": "amazon",
+      "productId": "kindle-a-00",
+      "bookId": "A-00",
+      "destinationIds": [
+        "B0H8HW139T"
+      ],
+      "count": null,
+      "amountYen": 10,
+      "kenpYen": 10
+    },
+    {
+      "destination": "amazon",
+      "productId": "kindle-a-01",
+      "bookId": "A-01",
+      "destinationIds": [
+        "B0H8B1HYRY"
+      ],
+      "count": null,
+      "amountYen": 0,
+      "kenpYen": 0
+    },
+    {
+      "destination": "amazon",
+      "productId": "kindle-a-03",
+      "bookId": "A-03",
+      "destinationIds": [
+        "B0H8D25H93"
+      ],
+      "count": null,
+      "amountYen": 0,
+      "kenpYen": 0
+    },
+    {
+      "destination": "amazon",
+      "productId": "kindle-a-04",
+      "bookId": "A-04",
+      "destinationIds": [
+        "B0H8CXKX6Q"
+      ],
+      "count": null,
+      "amountYen": 0,
+      "kenpYen": 0
+    },
+    {
+      "destination": "amazon",
+      "productId": "kindle-a-05",
+      "bookId": "A-05",
+      "destinationIds": [
+        "B0H8FQ4L2T"
+      ],
+      "count": null,
+      "amountYen": 0,
+      "kenpYen": 0
+    },
+    {
+      "destination": "amazon",
+      "productId": "kindle-a-06",
+      "bookId": "A-06",
+      "destinationIds": [
+        "B0H8FQ7QQL"
+      ],
+      "count": null,
+      "amountYen": 0,
+      "kenpYen": 0
+    },
+    {
+      "destination": "amazon",
+      "productId": "kindle-b-heisei",
+      "bookId": "b-heisei",
+      "destinationIds": [
+        "B0H9KZQZQZ"
+      ],
+      "count": null,
+      "amountYen": 0,
+      "kenpYen": 0
+    },
+    {
+      "destination": "amazon",
+      "productId": "kindle-c-01",
+      "bookId": "c-01",
+      "destinationIds": [
+        "B0HB3374VL"
+      ],
+      "count": null,
+      "amountYen": 0,
+      "kenpYen": 0
+    },
+    {
+      "destination": "amazon",
+      "productId": "kindle-c-02",
+      "bookId": "c-02",
+      "destinationIds": [
+        "B0HB3JF9QZ"
+      ],
+      "count": null,
+      "amountYen": 0,
+      "kenpYen": 0
+    },
+    {
+      "destination": "amazon",
+      "productId": "kindle-c-03",
+      "bookId": "c-03",
+      "destinationIds": [
+        "B0HB3BLV94"
+      ],
+      "count": null,
+      "amountYen": 0,
+      "kenpYen": 0
+    },
+    {
+      "destination": "amazon",
+      "productId": "kindle-c-06",
+      "bookId": "c-06",
+      "destinationIds": [
+        "B0HB37CTYN"
+      ],
+      "count": null,
+      "amountYen": 0,
+      "kenpYen": 0
+    },
+    {
+      "destination": "amazon",
+      "productId": "kindle-c-07",
+      "bookId": "c-07",
+      "destinationIds": [
+        "B0HB3585PD"
+      ],
+      "count": null,
+      "amountYen": 0,
+      "kenpYen": 0
+    },
+    {
+      "destination": "amazon",
+      "productId": "kindle-c-08",
+      "bookId": "c-08",
+      "destinationIds": [
+        "B0HB3H3N7Y"
+      ],
+      "count": null,
+      "amountYen": 0,
+      "kenpYen": 0
+    },
+    {
+      "destination": "amazon",
+      "productId": "kindle-c-09",
+      "bookId": "c-09",
+      "destinationIds": [
+        "B0HB34VG8C"
+      ],
+      "count": null,
+      "amountYen": 0,
+      "kenpYen": 0
+    },
+    {
+      "destination": "amazon",
+      "productId": "kindle-c-10",
+      "bookId": "c-10",
+      "destinationIds": [
+        "B0HBQSYKZ6"
+      ],
+      "count": null,
+      "amountYen": 0,
+      "kenpYen": 0
+    },
+    {
+      "destination": "amazon",
+      "productId": "kindle-c-11",
+      "bookId": "c-11",
+      "destinationIds": [
+        "B0HBR397N3"
+      ],
+      "count": null,
+      "amountYen": 0,
+      "kenpYen": 0
+    },
+    {
+      "destination": "amazon",
+      "productId": "kindle-c-i",
+      "bookId": "c-I",
+      "destinationIds": [
+        "B0HBR2F6KZ"
+      ],
+      "count": null,
+      "amountYen": 0,
+      "kenpYen": 0
+    },
+    {
+      "destination": "amazon",
+      "productId": "kindle-f-01",
+      "bookId": "f-01",
+      "destinationIds": [
+        "B0HBQTCDXR"
+      ],
+      "count": null,
+      "amountYen": 0,
+      "kenpYen": 0
+    },
+    {
+      "destination": "amazon",
+      "productId": "kindle-f-02",
+      "bookId": "f-02",
+      "destinationIds": [
+        "B0HBQVW3G9"
+      ],
+      "count": null,
+      "amountYen": 0,
+      "kenpYen": 0
+    },
+    {
+      "destination": "amazon",
+      "productId": "kindle-f-03",
+      "bookId": "f-03",
+      "destinationIds": [
+        "B0H9X5WMX7"
+      ],
+      "count": null,
+      "amountYen": 0,
+      "kenpYen": 0
+    },
+    {
+      "destination": "amazon",
+      "productId": "kindle-f-04",
+      "bookId": "f-04",
+      "destinationIds": [
+        "B0H1DTYCNG"
+      ],
+      "count": null,
+      "amountYen": 0,
+      "kenpYen": 0
+    },
+    {
+      "destination": "amazon",
+      "productId": "kindle-f-05",
+      "bookId": "f-05",
+      "destinationIds": [
+        "B0GYJ94CWB"
+      ],
+      "count": null,
+      "amountYen": 0,
+      "kenpYen": 0
+    },
+    {
+      "destination": "amazon",
+      "productId": "kindle-f-06",
+      "bookId": "f-06",
+      "destinationIds": [
+        "B0GZKYXZP7"
+      ],
+      "count": null,
+      "amountYen": 0,
+      "kenpYen": 0
+    },
+    {
+      "destination": "amazon",
+      "productId": "kindle-f-07",
+      "bookId": "f-07",
+      "destinationIds": [
+        "B0HBR87S59"
+      ],
+      "count": null,
+      "amountYen": 0,
+      "kenpYen": 0
+    },
+    {
+      "destination": "note",
+      "productId": "bk-i-required-essay-magazine",
+      "type": "magazine",
+      "destinationIds": [],
+      "count": 10,
+      "amountYen": 34800
+    },
+    {
+      "destination": "note",
+      "productId": "bk-road-pack",
+      "type": "magazine",
+      "destinationIds": [],
+      "count": 5,
+      "amountYen": 24900
+    },
+    {
+      "destination": "note",
+      "productId": "essay-core-pack",
+      "type": "magazine",
+      "destinationIds": [
+        "m6e7de5e4ea3d"
+      ],
+      "count": 3,
+      "amountYen": 16440
+    },
+    {
+      "destination": "note",
+      "productId": "bk-steel-concrete-secondary-magazine",
+      "type": "magazine",
+      "destinationIds": [],
+      "count": 4,
+      "amountYen": 11920
+    },
+    {
+      "destination": "note",
+      "productId": "bk-tunnel-secondary-magazine",
+      "type": "magazine",
+      "destinationIds": [],
+      "count": 4,
+      "amountYen": 11920
+    },
+    {
+      "destination": "note",
+      "productId": "civil-1-niji-marugoto-pack",
+      "type": "magazine",
+      "destinationIds": [
+        "md29a34906314",
+        "n824a4ea20acf"
+      ],
+      "count": 1,
+      "amountYen": 11800
+    },
+    {
+      "destination": "note",
+      "productId": "bk-railway-secondary-magazine",
+      "type": "magazine",
+      "destinationIds": [],
+      "count": 4,
+      "amountYen": 10920
+    },
+    {
+      "destination": "note",
+      "productId": "bk-road-secondary-magazine",
+      "type": "magazine",
+      "destinationIds": [],
+      "count": 3,
+      "amountYen": 10440
+    },
+    {
+      "destination": "note",
+      "productId": "r8-essay-forecast",
+      "type": "magazine",
+      "destinationIds": [
+        "m6854c7437d4d"
+      ],
+      "count": 3,
+      "amountYen": 10440
+    },
+    {
+      "destination": "note",
+      "productId": "essay-complete-pack",
+      "type": "magazine",
+      "destinationIds": [
+        "m171222175fac"
+      ],
+      "count": 1,
+      "amountYen": 9800
+    },
+    {
+      "destination": "note",
+      "productId": "bk-geotechnical-secondary-magazine",
+      "type": "magazine",
+      "destinationIds": [],
+      "count": 3,
+      "amountYen": 8940
+    },
+    {
+      "destination": "note",
+      "productId": "bk-environment-secondary-magazine",
+      "type": "magazine",
+      "destinationIds": [],
+      "count": 2,
+      "amountYen": 5960
+    },
+    {
+      "destination": "note",
+      "productId": "bk-urban-planning-secondary-magazine",
+      "type": "magazine",
+      "destinationIds": [],
+      "count": 2,
+      "amountYen": 5960
+    },
+    {
+      "destination": "note",
+      "productId": "essay-general-contractor-magazine",
+      "type": "magazine",
+      "destinationIds": [
+        "m32aaa137f22e"
+      ],
+      "count": 2,
+      "amountYen": 4960
+    },
+    {
+      "destination": "note",
+      "productId": "article:bk-urban-planning-r8-yosou-ii1",
+      "type": "article",
+      "destinationIds": [],
+      "count": 5,
+      "amountYen": 3900
+    },
+    {
+      "destination": "note",
+      "productId": "bk-construction-planning-secondary-magazine",
+      "type": "magazine",
+      "destinationIds": [],
+      "count": 1,
+      "amountYen": 2980
+    },
+    {
+      "destination": "note",
+      "productId": "bk-port-airport-secondary-magazine",
+      "type": "magazine",
+      "destinationIds": [],
+      "count": 1,
+      "amountYen": 2980
+    },
+    {
+      "destination": "note",
+      "productId": "civil-1-experience-essay",
+      "type": "magazine",
+      "destinationIds": [
+        "m150c9db08902"
+      ],
+      "count": 1,
+      "amountYen": 2480
+    },
+    {
+      "destination": "note",
+      "productId": "essay-river-consultant-magazine",
+      "type": "magazine",
+      "destinationIds": [
+        "m32132ecb3033"
+      ],
+      "count": 1,
+      "amountYen": 2480
+    },
+    {
+      "destination": "note",
+      "productId": "essay-road-consultant-magazine",
+      "type": "magazine",
+      "destinationIds": [
+        "m09440aa379cf"
+      ],
+      "count": 1,
+      "amountYen": 2480
+    },
+    {
+      "destination": "note",
+      "productId": "essay-road-municipality-magazine",
+      "type": "magazine",
+      "destinationIds": [
+        "m52186ffd12ca"
+      ],
+      "count": 1,
+      "amountYen": 2480
+    },
+    {
+      "destination": "note",
+      "productId": "essay-water-municipality-magazine",
+      "type": "magazine",
+      "destinationIds": [
+        "mf4c6792b4f9c"
+      ],
+      "count": 1,
+      "amountYen": 2480
+    },
+    {
+      "destination": "note",
+      "productId": "article:bk-01-road-r8-yosou-ii1",
+      "type": "article",
+      "destinationIds": [],
+      "count": 3,
+      "amountYen": 2340
+    },
+    {
+      "destination": "note",
+      "productId": "article:bk-i-r8-yosou-06-infra-dx",
+      "type": "article",
+      "destinationIds": [],
+      "count": 3,
+      "amountYen": 2340
+    },
+    {
+      "destination": "note",
+      "productId": "article:bk-steel-concrete-r8-yosou-iii",
+      "type": "article",
+      "destinationIds": [],
+      "count": 3,
+      "amountYen": 2340
+    },
+    {
+      "destination": "note",
+      "productId": "article:bk-urban-planning-r8-yosou-iii",
+      "type": "article",
+      "destinationIds": [],
+      "count": 3,
+      "amountYen": 2340
+    },
+    {
+      "destination": "note",
+      "productId": "article:r8-economic-security-supply-chain",
+      "type": "article",
+      "destinationIds": [],
+      "count": 3,
+      "amountYen": 2340
+    },
+    {
+      "destination": "note",
+      "productId": "article:r8-resource-circulation-supply-chain",
+      "type": "article",
+      "destinationIds": [],
+      "count": 3,
+      "amountYen": 2340
+    },
+    {
+      "destination": "note",
+      "productId": "article:civil-1-keiken-pack-15",
+      "type": "article",
+      "destinationIds": [],
+      "count": 1,
+      "amountYen": 1980
+    },
+    {
+      "destination": "note",
+      "productId": "article:civil-1-keiken-pack-72",
+      "type": "article",
+      "destinationIds": [],
+      "count": 1,
+      "amountYen": 1980
+    },
+    {
+      "destination": "note",
+      "productId": "bk-power-civil-secondary-magazine",
+      "type": "magazine",
+      "destinationIds": [],
+      "count": 1,
+      "amountYen": 1980
+    },
+    {
+      "destination": "note",
+      "productId": "civil-2-experience-essay",
+      "type": "magazine",
+      "destinationIds": [
+        "m1881a9578027"
+      ],
+      "count": 1,
+      "amountYen": 1980
+    },
+    {
+      "destination": "note",
+      "productId": "tankan-reading-guide",
+      "type": "magazine",
+      "destinationIds": [
+        "m607bf095b02a"
+      ],
+      "count": 1,
+      "amountYen": 1980
+    },
+    {
+      "destination": "note",
+      "productId": "tradeoff-5kanri",
+      "type": "magazine",
+      "destinationIds": [
+        "m921fbe060575"
+      ],
+      "count": 1,
+      "amountYen": 1980
+    },
+    {
+      "destination": "note",
+      "productId": "article:bk-environment-r07-ii2",
+      "type": "article",
+      "destinationIds": [],
+      "count": 2,
+      "amountYen": 1560
+    },
+    {
+      "destination": "note",
+      "productId": "article:bk-environment-r8-yosou-ii1",
+      "type": "article",
+      "destinationIds": [],
+      "count": 2,
+      "amountYen": 1560
+    },
+    {
+      "destination": "note",
+      "productId": "article:bk-environment-r8-yosou-iii",
+      "type": "article",
+      "destinationIds": [],
+      "count": 2,
+      "amountYen": 1560
+    },
+    {
+      "destination": "note",
+      "productId": "article:bk-i-r8-yosou-01-ninai",
+      "type": "article",
+      "destinationIds": [],
+      "count": 2,
+      "amountYen": 1560
+    },
+    {
+      "destination": "note",
+      "productId": "article:bk-i-r8-yosou-05",
+      "type": "article",
+      "destinationIds": [],
+      "count": 2,
+      "amountYen": 1560
+    },
+    {
+      "destination": "note",
+      "productId": "article:bk-port-airport-r8-yosou-iii",
+      "type": "article",
+      "destinationIds": [],
+      "count": 2,
+      "amountYen": 1560
+    },
+    {
+      "destination": "note",
+      "productId": "article:bk-steel-concrete-r8-yosou-ii2",
+      "type": "article",
+      "destinationIds": [],
+      "count": 2,
+      "amountYen": 1560
+    },
+    {
+      "destination": "note",
+      "productId": "article:r8-ai-society-info-governance",
+      "type": "article",
+      "destinationIds": [],
+      "count": 2,
+      "amountYen": 1560
+    },
+    {
+      "destination": "note",
+      "productId": "article:tankan-retake-analysis",
+      "type": "article",
+      "destinationIds": [],
+      "count": 2,
+      "amountYen": 1000
+    },
+    {
+      "destination": "note",
+      "productId": "article:civil-1-combo-essay-quality-environment",
+      "type": "article",
+      "destinationIds": [],
+      "count": 1,
+      "amountYen": 980
+    },
+    {
+      "destination": "note",
+      "productId": "article:civil-2-koji-bank-51",
+      "type": "article",
+      "destinationIds": [],
+      "count": 1,
+      "amountYen": 980
+    },
+    {
+      "destination": "note",
+      "productId": "article:civil-2-koji-bank-68",
+      "type": "article",
+      "destinationIds": [],
+      "count": 1,
+      "amountYen": 980
+    },
+    {
+      "destination": "note",
+      "productId": "article:tankan-takuitsu-reiwa-pdf",
+      "type": "article",
+      "destinationIds": [
+        "nb5ebacb3e6c0"
+      ],
+      "count": 1,
+      "amountYen": 980
+    },
+    {
+      "destination": "note",
+      "productId": "article:bk-04-dositu-r8-yosou-iii",
+      "type": "article",
+      "destinationIds": [],
+      "count": 1,
+      "amountYen": 780
+    },
+    {
+      "destination": "note",
+      "productId": "article:bk-environment-r05-ii1",
+      "type": "article",
+      "destinationIds": [],
+      "count": 1,
+      "amountYen": 780
+    },
+    {
+      "destination": "note",
+      "productId": "article:bk-environment-r05-ii2",
+      "type": "article",
+      "destinationIds": [],
+      "count": 1,
+      "amountYen": 780
+    },
+    {
+      "destination": "note",
+      "productId": "article:bk-environment-r05-iii",
+      "type": "article",
+      "destinationIds": [],
+      "count": 1,
+      "amountYen": 780
+    },
+    {
+      "destination": "note",
+      "productId": "article:bk-environment-r06-ii1",
+      "type": "article",
+      "destinationIds": [],
+      "count": 1,
+      "amountYen": 780
+    },
+    {
+      "destination": "note",
+      "productId": "article:bk-environment-r06-ii2",
+      "type": "article",
+      "destinationIds": [],
+      "count": 1,
+      "amountYen": 780
+    },
+    {
+      "destination": "note",
+      "productId": "article:bk-environment-r06-iii",
+      "type": "article",
+      "destinationIds": [],
+      "count": 1,
+      "amountYen": 780
+    },
+    {
+      "destination": "note",
+      "productId": "article:bk-environment-r07-ii1",
+      "type": "article",
+      "destinationIds": [],
+      "count": 1,
+      "amountYen": 780
+    },
+    {
+      "destination": "note",
+      "productId": "article:bk-environment-r07-iii",
+      "type": "article",
+      "destinationIds": [],
+      "count": 1,
+      "amountYen": 780
+    },
+    {
+      "destination": "note",
+      "productId": "article:bk-environment-r8-yosou-ii2",
+      "type": "article",
+      "destinationIds": [],
+      "count": 1,
+      "amountYen": 780
+    },
+    {
+      "destination": "note",
+      "productId": "article:bk-geotechnical-r8-yosou-ii2",
+      "type": "article",
+      "destinationIds": [],
+      "count": 1,
+      "amountYen": 780
+    },
+    {
+      "destination": "note",
+      "productId": "article:bk-i-r03-required",
+      "type": "article",
+      "destinationIds": [],
+      "count": 1,
+      "amountYen": 780
+    },
+    {
+      "destination": "note",
+      "productId": "article:bk-i-r04-required",
+      "type": "article",
+      "destinationIds": [],
+      "count": 1,
+      "amountYen": 780
+    },
+    {
+      "destination": "note",
+      "productId": "article:bk-i-r05-required",
+      "type": "article",
+      "destinationIds": [],
+      "count": 1,
+      "amountYen": 780
+    },
+    {
+      "destination": "note",
+      "productId": "article:bk-i-r06-required",
+      "type": "article",
+      "destinationIds": [],
+      "count": 1,
+      "amountYen": 780
+    },
+    {
+      "destination": "note",
+      "productId": "article:bk-i-r07-required",
+      "type": "article",
+      "destinationIds": [],
+      "count": 1,
+      "amountYen": 780
+    },
+    {
+      "destination": "note",
+      "productId": "article:bk-i-r8-yosou-02",
+      "type": "article",
+      "destinationIds": [],
+      "count": 1,
+      "amountYen": 780
+    },
+    {
+      "destination": "note",
+      "productId": "article:bk-i-r8-yosou-03-asset",
+      "type": "article",
+      "destinationIds": [],
+      "count": 1,
+      "amountYen": 780
+    },
+    {
+      "destination": "note",
+      "productId": "article:bk-i-r8-yosou-04-cn-gx",
+      "type": "article",
+      "destinationIds": [],
+      "count": 1,
+      "amountYen": 780
+    },
+    {
+      "destination": "note",
+      "productId": "article:bk-port-airport-r8-yosou-ii1",
+      "type": "article",
+      "destinationIds": [],
+      "count": 1,
+      "amountYen": 780
+    },
+    {
+      "destination": "note",
+      "productId": "article:bk-port-airport-r8-yosou-ii2",
+      "type": "article",
+      "destinationIds": [],
+      "count": 1,
+      "amountYen": 780
+    },
+    {
+      "destination": "note",
+      "productId": "article:bk-railway-r8-yosou-ii1",
+      "type": "article",
+      "destinationIds": [],
+      "count": 1,
+      "amountYen": 780
+    },
+    {
+      "destination": "note",
+      "productId": "article:bk-railway-r8-yosou-ii2",
+      "type": "article",
+      "destinationIds": [],
+      "count": 1,
+      "amountYen": 780
+    },
+    {
+      "destination": "note",
+      "productId": "article:bk-railway-r8-yosou-iii",
+      "type": "article",
+      "destinationIds": [],
+      "count": 1,
+      "amountYen": 780
+    },
+    {
+      "destination": "note",
+      "productId": "article:bk-river-coast-r8-yosou-ii1",
+      "type": "article",
+      "destinationIds": [],
+      "count": 1,
+      "amountYen": 780
+    },
+    {
+      "destination": "note",
+      "productId": "article:bk-steel-concrete-r07-ii2",
+      "type": "article",
+      "destinationIds": [],
+      "count": 1,
+      "amountYen": 780
+    },
+    {
+      "destination": "note",
+      "productId": "article:bk-steel-concrete-r8-yosou-ii1",
+      "type": "article",
+      "destinationIds": [],
+      "count": 1,
+      "amountYen": 780
+    },
+    {
+      "destination": "note",
+      "productId": "article:bk-tunnel-r07-ii1",
+      "type": "article",
+      "destinationIds": [],
+      "count": 1,
+      "amountYen": 780
+    },
+    {
+      "destination": "note",
+      "productId": "article:bk-tunnel-r8-yosou-ii2",
+      "type": "article",
+      "destinationIds": [],
+      "count": 1,
+      "amountYen": 780
+    },
+    {
+      "destination": "note",
+      "productId": "article:bk-tunnel-r8-yosou-iii",
+      "type": "article",
+      "destinationIds": [],
+      "count": 1,
+      "amountYen": 780
+    },
+    {
+      "destination": "note",
+      "productId": "article:bk-urban-planning-r8-yosou-ii2",
+      "type": "article",
+      "destinationIds": [],
+      "count": 1,
+      "amountYen": 780
+    },
+    {
+      "destination": "note",
+      "productId": "article:essay-port-municipality-r08-5",
+      "type": "article",
+      "destinationIds": [],
+      "count": 1,
+      "amountYen": 780
+    },
+    {
+      "destination": "note",
+      "productId": "article:essay-port-municipality-r08-6",
+      "type": "article",
+      "destinationIds": [],
+      "count": 1,
+      "amountYen": 780
+    },
+    {
+      "destination": "note",
+      "productId": "article:r8-aging-infra-preventive",
+      "type": "article",
+      "destinationIds": [],
+      "count": 1,
+      "amountYen": 780
+    },
+    {
+      "destination": "note",
+      "productId": "article:r8-climate-adaptation-green-infra",
+      "type": "article",
+      "destinationIds": [],
+      "count": 1,
+      "amountYen": 780
+    },
+    {
+      "destination": "note",
+      "productId": "article:setsumon3-regional-revitalization",
+      "type": "article",
+      "destinationIds": [],
+      "count": 1,
+      "amountYen": 780
+    },
+    {
+      "destination": "note",
+      "productId": "article:tankan-calc-6patterns",
+      "type": "article",
+      "destinationIds": [],
+      "count": 1,
+      "amountYen": 780
+    },
+    {
+      "destination": "note",
+      "productId": "article:essay-port-municipality-r08-1",
+      "type": "article",
+      "destinationIds": [],
+      "count": 1,
+      "amountYen": 500
+    },
+    {
+      "destination": "note",
+      "productId": "article:essay-sewage-municipality-r07",
+      "type": "article",
+      "destinationIds": [],
+      "count": 1,
+      "amountYen": 500
+    },
+    {
+      "destination": "note",
+      "productId": "article:tankan-oral-exam",
+      "type": "article",
+      "destinationIds": [],
+      "count": 1,
+      "amountYen": 500
+    }
+  ]
+}

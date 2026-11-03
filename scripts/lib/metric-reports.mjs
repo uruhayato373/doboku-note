@@ -22,7 +22,7 @@ export const REPORT_KINDS = Object.fromEntries([
   ['ga4.source', 'source'], ['ga4.source-medium-sns', 'sourceMedium-sns'], ['ga4.campaign', 'campaign'], ['ga4.campaign-note-cta', 'campaign-note-cta'],
   ['ga4.host-name', 'hostName'], ['ga4.cta-clicks', 'cta-clicks'], ['ga4.cta-clicks-by-device', 'cta-clicks-by-device'],
   ['ga4.cta-clicks-by-label', 'cta-clicks-by-label'], ['ga4.cta-clicks-by-placement', 'cta-clicks-by-placement'],
-  ['ga4.affiliate-experiment', 'affiliate-experiment'],
+  ['ga4.affiliate-experiment', 'affiliate-experiment'], ['ga4.product-referrals', 'product-referrals'],
   ['ga4.key-events-by-page', 'key-events-by-page'], ['ga4.affiliate-by-page', 'affiliate-by-page'], ['ga4.quiz-funnel', 'quiz-funnel'], ['ga4.bot-audit', 'bot-audit'],
   ['gsc.page', 'page'], ['gsc.query', 'query'], ['gsc.page-query', 'page-query'], ['gsc.date', 'date'],
 ].map(([id, section]) => [id, { id, source: id.split('.')[0], section }]));
