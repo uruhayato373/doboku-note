@@ -21,6 +21,30 @@
 
 ## 🔴 高 — 重要度が高い
 
+### [DN-0947] 商品への送客から販売までを GA4 と販売台帳で同じ商品 ID でつないで測る
+タグ: [インフラ・計測] [領域:管理] [時期:2026-11..2026-12] [種類:改善] [起票:2026-11-03]
+
+**起点**: 2026-11-03 の棚卸し。サイト→商品の計測は面ごとのイベント（note_cta_click・affiliate_cta_click・coconala_cta_click とその表示）で取れているが、商品 ID は event_label の書き方（`<商品ID>:<面>`・`note-n<key>`・面だけ）に埋もれていて、販売先と商品を 1 本で読めない。販売は note（data/note/sales.json）・KDP（data/kdp/royalties.json・stats47 と同じ口座）・ココナラ（data/coconala/revenue.json）・A8（口座全体の月次だけ）に分かれ、「その月を取ったか」の範囲が無いので、行が無いことと 0 件の区別がつかない。商品→サイトの戻りは note の本文に utm_campaign（テーマ）しか無く、記事を識別できない。stats47 は同じ計測を PRODUCT-REFERRAL-MEASURE-01（EXP-013）で先に入れた。
+
+**判断理由（共通事業方針）**: 読者の課題＝合格に必要な教材をどれで買うか決めたい受験者（A: 資格）。提供価値＝無料の過去問・解説から、足りない練習を有料教材で補う。需要の証拠＝note の販売 347 件（2026-05〜10）はあるが、どの案内が見られ・押され・売れたかを同じ商品 ID でつないだ記録は無い（未検証）。次の検証＝EXP-052 で、売れている 1 商品について表示→クリック→販売を 6 週記録する。KGI は月の確定収益。PV は目標にしない。アトリビューション分析はしない（広告費を使っていない。クリックした人が買ったかは分からない）。
+
+**やったこと（2026-11-03・develop）**:
+1. GA4 `product_impression`（リンクの 50% 以上が 1 秒）／`product_click`（販売先へのクリック。キーイベントの定義に追加）。パラメータは `product_destination`（note / coconala / amazon / a8 / moshimo）・`product_id`（販売先の ID: note キー・サービス番号・ASIN・a8mat・p_id）・登録済みの `cta_placement`。href から読むので data-cta の無いリンクも拾う。既存の note_cta_click などは時系列を切らないため並行して送る（足し合わせない）。src/lib/product-referral.mjs・AnalyticsProvider
+2. 週次の取得 `npm run fetch-ga4-cta-clicks -- --by-product`（ga4 レポートの product-referrals。逆向きのセッションも inbound に入る）を fetch-metrics.yml に追加
+3. 販売台帳 `npm run product-sales` → data/business/product-sales/{月}.json。販売先ごとの coverage（measured＝行が無ければ計測済み・0 件／partial・account-only・unmeasured＝未計測）。KDP は doboku-note の ASIN（config/products.json）に当たる本だけを数え、書籍 ID の付かない行（stats47 の本）は excluded に件数と金額だけ残す。土曜の収集（weekly-collect の product-sales 段）で前月と当月を作り直す
+4. 逆向きの UTM: Kindle は utm_campaign＝書籍 ID の小文字・utm_content＝置き場所（next / author。build-takuitsu-reconstruct）。note の本文リンクは utm_term＝記事の note キー（add-note-utm。utm_content はリンクの種類に使っているので触らない）。規約は config/utm-templates.json の _ebook_note・_inbound_note
+
+**人の作業（手順）**:
+1. GA4 のカスタム定義とキーイベント: CI か資格情報のある端末で `npm run ga4-admin:apply`（product_destination・product_id のイベントスコープのディメンション）と `npm run ga4-admin-api:apply -- --commit`（product_click のキーイベント）。要: プロパティの編集者。管理画面で作るなら 管理 → データの表示 → カスタム定義（範囲 イベント・パラメータ名は同じ）／イベント → product_click をキーイベントに
+2. 本番デプロイ: `/deploy`（develop → main）。反映後 `npm run check-production-ssr`
+3. note の本文の utm_term: 記事を直して再公開するときに `node scripts/add-note-utm.mjs <slug>` を回す（全記事の一括書き換えはしない。note の編集は運営者の作業）。EXP-052 の対象記事は次の再公開で入れる
+4. Kindle の UTM: A 系を次に再出版するとき `build-takuitsu-reconstruct` で作り直す（出版済みの EPUB は旧い campaign takuitsu-<論点> のまま）
+
+**関係**: DN-0912（ハブ経由の購入を何で測るか）は、商品 ID つきのクリックをこのカードのイベントで読める。note の販売に流入元が無い点は DN-0912 が決める。DN-0410（チャネル別の送客ダッシュボード）は product-referrals の inbound を使える。KDP の展開判断は stats47 の KDP-EXPANSION-01・月次レビュー 2026-10 の振り分け DN-0920 と同じ口座の数字を使うので、ASIN で分けた excluded を見る。
+
+**完了条件**: 人の作業 1・2 が済み、本番の GA4 に product_impression / product_click が届き、product-referrals のレポートが available で書かれている。EXP-052 の 6 週の記録が終わったらこのカードを削除する。
+
+
 
 
 ### [DN-0902] 技術士（建設部門）の筆記合格発表（11/4）までに、口頭試験の教材への導線を資格トップと必須I・選択科目の記事に出す（EXP-047）
