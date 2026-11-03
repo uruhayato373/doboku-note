@@ -804,7 +804,6 @@ const SERVICES_RAW = {
     priceNote: '想定質問20問＋回答骨子',
     examScope: ['pe-comprehensive-management', 'pe-construction'],
     weeklyCapacity: 2,
-    pauseReason: null,
     listedAt: '2026-11-04',
   },
   // ---- コンクリート主任技士（2026-09-23・試験出品）----
