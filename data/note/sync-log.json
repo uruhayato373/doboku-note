@@ -1,6 +1,37 @@
 {
   "runs": [
     {
+      "startedAt": "2026-11-03T09:11:53.848Z",
+      "finishedAt": "2026-11-03T09:12:55.180Z",
+      "plan": {
+        "synced": 0,
+        "ready": 1,
+        "blocked": 0,
+        "blockers": {},
+        "only": "content/note/1級・2級土木/公務員土木か民間か-無料/"
+      },
+      "articles": {
+        "selected": 1,
+        "attempted": 1,
+        "updated": [
+          {
+            "path": "content/note/1級・2級土木/公務員土木か民間か-無料/article.md",
+            "parts": [
+              "body"
+            ]
+          }
+        ],
+        "failed": [],
+        "deferred": []
+      },
+      "magazines": {
+        "attempted": 0,
+        "updated": [],
+        "failed": []
+      },
+      "problems": []
+    },
+    {
       "startedAt": "2026-11-03T09:10:39.286Z",
       "finishedAt": "2026-11-03T09:11:36.876Z",
       "plan": {
@@ -326,37 +357,6 @@
         "updated": [
           {
             "path": "content/note/1級・2級土木/転職エージェントの使い方-無料/article.md",
-            "parts": [
-              "body"
-            ]
-          }
-        ],
-        "failed": [],
-        "deferred": []
-      },
-      "magazines": {
-        "attempted": 0,
-        "updated": [],
-        "failed": []
-      },
-      "problems": []
-    },
-    {
-      "startedAt": "2026-11-03T08:57:38.598Z",
-      "finishedAt": "2026-11-03T08:58:36.020Z",
-      "plan": {
-        "synced": 0,
-        "ready": 1,
-        "blocked": 0,
-        "blockers": {},
-        "only": "content/note/1級・2級土木/転職エージェント比較-無料/"
-      },
-      "articles": {
-        "selected": 1,
-        "attempted": 1,
-        "updated": [
-          {
-            "path": "content/note/1級・2級土木/転職エージェント比較-無料/article.md",
             "parts": [
               "body"
             ]
