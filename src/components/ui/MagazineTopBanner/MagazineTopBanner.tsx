@@ -38,7 +38,7 @@ export default function MagazineTopBanner({
   trackLabel,
   compact = false,
 }: MagazineTopBannerProps) {
-  const image = noteCtaImage(magazineId, 'body');
+  const image = noteCtaImage(magazineId, 'body', 'lead');
   const showDescription = magazineId.startsWith('civil-2-') && [
     'secondary-r07-top',
     'secondary-experience-writing-guide-top',

@@ -155,5 +155,99 @@
       "sha256": "57b2cef42ea01725704b6151ef0d59b0029121d5f6da4079958c6b975035a80a",
       "kind": "採用する生成済み完成画像"
     }
-  ]
+  ],
+  "leads": {
+    "_doc": "試験日で切り替わる主商品（magazine-placement の pe1LeadMagazineId）の直前期用。記事冒頭 CTA（MagazineTopBanner）・資格トップ（HubCtaBanner）・サイドバー（NoteProductCard）だけが使う。本文中の案内（MagazineHeroCta・MagazineInlineCard）は EXP-053 の対象なので、教材パック共通の画像（_shared/pop-image.json の families）のまま変えない。DN-0706",
+    "pe1-chokuzen-pack": {
+      "evidence": [
+        "src/lib/note-magazines.ts#pe1-chokuzen-pack",
+        "config/products.json#pe1-chokuzen-pack"
+      ],
+      "body": {
+        "format": {
+          "width": 1774,
+          "height": 887
+        },
+        "copy": {
+          "qualification": "技術士 第一次",
+          "title": "直前パック",
+          "subtitle": "過去問PDF＋暗記ノート",
+          "button": "教材の内容を見る"
+        },
+        "prompt": "Use the image generation tool to create ONE finished raster image (do not write code or SVG/HTML to make it). Use case: ui-mockup. A very wide HORIZONTAL website in-article CTA banner, aspect ratio EXACTLY 2:1 (1600x800 visual layout), Japanese text.\n\nAttached reference 1 (cta-pdf-body.png) and reference 2 (cta-pack-body-v1.png) are the approved designs for this series. Keep exactly the same teacher character identity (face, hair, black glasses, light beard, plain white helmet, navy work clothes, yellow-and-white safety vest), the same layout (dark navy #16365c panel on the left ~65% with a yellow diagonal stripe, white background on the right with the teacher, small yellow accent bursts), the same flat style, and the same dark evergreen button (#065F46, white bold text and arrow) at the bottom left. The teacher holds a stack of papers and a red pen (pointing / checking pose).\n\nReplace ALL wording. Exact text ONLY, nothing else:\n- small top label: 「技術士 第一次」 (white, with 「第一次」 in yellow)\n- very large bold headline, white, two lines: 「直前パック」 on the first line; the second line is smaller: 「過去問PDF＋暗記ノート」 (with 「＋」 in yellow)\n- button: 「教材の内容を見る」 with a white arrow\nNo price, no URL, no brand name, no dates, no numbers, no pass guarantee, no results claims, no other words. Text must be large, sharp, correctly spelled Japanese, fully inside the image with margins; nothing clipped. Output to the generated_images folder.",
+        "references": [
+          {
+            "path": "content/site/pe-first-stage/_shared/img/cta-pdf-body.webp",
+            "sha256": "d17bf0108e2f7c17c570c0d12c91d0595318467a4df52d9e36db28c7472e94cc"
+          },
+          {
+            "path": "content/site/pe-first-stage/_shared/img/cta-pack-body-v1.webp",
+            "sha256": "79ec61e00247869ae5e39c1e613970615ebb261e778c12ac6ad7a3337dccb00f"
+          }
+        ],
+        "original": {
+          "filename": "exec-5183bc51-4661-4261-ad33-988607f8fa63.png",
+          "sha256": "f64e0d79d5f992fc74aebbad701a0c58b68d2a0576d331f28b4f39ed537c0eb9"
+        },
+        "output": {
+          "path": "content/site/pe-first-stage/_shared/img/cta-lead-chokuzen-body-v1.webp",
+          "url": "https://storage.doboku-note.com/posts/pe-first-stage/_shared/img/cta-lead-chokuzen-body-v1.webp?v=f59e5b3844c5",
+          "sha256": "f59e5b3844c527be3fd9ff9740e963aa2282b05a661dcda9265b99896c7808f0",
+          "bytes": 126986,
+          "quality": 85
+        },
+        "review": {
+          "date": "2026-11-04",
+          "result": "原寸で文言（技術士 第一次／直前パック／過去問PDF＋暗記ノート／教材の内容を見る）が指定どおり・誤字と文字切れなし・先生の同一性を確認。幅360px縮小でも主題と補足行が判読できる。価格・日付・数字・合格や結果の表現なし"
+        }
+      },
+      "tile": {
+        "format": {
+          "width": 1374,
+          "height": 1145
+        },
+        "copy": {
+          "qualification": "技術士 第一次",
+          "title": "直前パック",
+          "subtitle": "過去問PDF＋暗記ノート",
+          "button": "教材の内容を見る"
+        },
+        "prompt": "Use the image generation tool to create ONE finished raster image (do not write code or SVG/HTML). Use case: ui-mockup. A website sidebar CTA banner in LANDSCAPE 6:5 ratio (1200x1000 layout), Japanese text.\n\nReference 1 (cta-pdf-sidebar-v2.png) is the approved sidebar banner: keep its composition, panel proportions, flat colors, teacher character identity (face, hair, black glasses, light beard, plain white helmet, navy work clothes, yellow-and-white safety vest) and its dark evergreen #065F46 flat button with white text and arrow. Reference 2 (body-orig.png) is the approved wide banner of the same product; keep its wording, typography style and colors (dark navy panel, white and yellow text).\n\nReplace ALL wording of reference 1. Exact text ONLY, nothing else:\n- small top label: 「技術士 第一次」 (white, 「第一次」 in yellow)\n- very large bold white headline: 「直前パック」\n- smaller white line under it: 「過去問PDF＋暗記ノート」 (the 「＋」 in yellow)\n- button: 「教材の内容を見る」 with white arrow\nNo price, URL, brand name, dates, numbers, pass guarantee or result claims. Text large, sharp, correctly spelled, fully inside with margins, nothing clipped. Keep the teacher holding papers and a red pen. Output to the generated_images folder.",
+        "references": [
+          {
+            "path": "content/site/pe-first-stage/_shared/img/cta-pdf-sidebar-v2.webp",
+            "sha256": "717b16beacf6bf6e90f3d8ee619f638e38779b1f36fed9cbead4067b77d4e354"
+          },
+          {
+            "path": "content/site/pe-first-stage/_shared/img/cta-lead-chokuzen-body-v1.webp",
+            "sha256": "f59e5b3844c527be3fd9ff9740e963aa2282b05a661dcda9265b99896c7808f0"
+          }
+        ],
+        "original": {
+          "filename": "exec-4ae7ee5e-6e70-4ee3-8d4a-9d467f4a228f.png",
+          "sha256": "c8d9377a151e2671322d35f42c69ed30953ca05d0537c9f362f021f1d3acb79c"
+        },
+        "output": {
+          "path": "content/site/pe-first-stage/_shared/img/cta-lead-chokuzen-tile-v1.webp",
+          "url": "https://storage.doboku-note.com/posts/pe-first-stage/_shared/img/cta-lead-chokuzen-tile-v1.webp?v=b7ad8abce550",
+          "sha256": "b7ad8abce55076cb89acbac42bd76e45b9e32df3cc4f8e0dd67ffd05b41e55fa",
+          "bytes": 143978,
+          "quality": 85
+        },
+        "review": {
+          "date": "2026-11-04",
+          "result": "原寸で文言（技術士 第一次／直前パック／過去問PDF＋暗記ノート／教材の内容を見る）が指定どおり・誤字と文字切れなし・先生の同一性を確認。幅360px縮小でも主題と補足行が判読できる。価格・日付・数字・合格や結果の表現なし"
+        }
+      },
+      "storage": {
+        "delivery": "public R2 / doboku-note / posts/pe-first-stage/_shared/img/（main push で r2-sync.yml が同期）",
+        "conversion": "PNGの寸法・構図を保ってWebPへ変換（品質85・各150KiB以下）",
+        "originals": "Codex generated_images（各 variant の original.filename のPNG。実寸のまま変換）"
+      },
+      "publication": {
+        "status": "未公開",
+        "note": "本番反映・R2読み戻しは main への昇格後に確認する"
+      }
+    }
+  }
 }

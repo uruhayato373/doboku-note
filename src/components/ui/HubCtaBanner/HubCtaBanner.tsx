@@ -17,7 +17,7 @@ export default function HubCtaBanner({
   placement: string;
 }) {
   const qualificationTile = noteCtaQualificationTile(cta.qualification);
-  const image = cta.productId ? noteCtaImage(cta.productId, 'tile') : qualificationTile;
+  const image = cta.productId ? noteCtaImage(cta.productId, 'tile', 'lead') : qualificationTile;
   // 商品専用のタイルが無く資格共通のタイルになる商品（建設部門の口頭試験対策など）は、もくじのタイルと見分けが付かないので商品名と中身を下に添える
   const genericProductTile = Boolean(cta.productId && image && image.src === qualificationTile?.src);
   if (image) return <NoteImageCta href={cta.url}
