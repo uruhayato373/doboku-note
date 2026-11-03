@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-11-03T06:50:08.000Z",
+  "updated_at": "2026-11-03T07:46:30.000Z",
   "experiments": [
     {
       "id": "EXP-002",
@@ -8613,9 +8613,9 @@
       "hypothesis": "10/2〜03 に本文中の note 案内を POP 画像へ替えた後、同じ案内の本文カードのクリック率が約 4 分の 1 に下がった（冒頭・資格トップは横ばい）。同じ画像が商品ごとに並び商品名と中身が読めないため、読者が自分に合う教材か判断できず、広告として読み飛ばしている。文字のカードに戻せば表示あたりのクリックが戻る",
       "target_metric": "案ごとの表示あたりのクリック（note_body_experiment_click ÷ note_body_experiment_impression。npm run report-note-body-experiment）。守る指標は note の売上（data/business/product-sales/）で、案ごとの売上は note が流入元を出さないので比べない",
       "target_delta": "各案 1,000 表示以上で、text のクリック率が image の 1.5 倍以上なら本文中の既定を text にする。0.67 倍以下なら image を残す。その間は延長して 6 週（2026-12-15）で判定する。案ごとのクリック合計が 30 に届かないうちは途中経過として読むだけ",
-      "status": "proposed",
+      "status": "running",
       "created_at": "2026-11-03",
-      "next_check_date": null,
+      "next_check_date": "2026-11-10",
       "baseline": {
         "measured_at": "2026-11-03",
         "source": "data/ga4/reports/2026-10-02.json と 2026-10-31.json の cta-clicks-by-label（note_cta_impression / note_cta_click）",
@@ -8645,7 +8645,7 @@
       ],
       "measurementPlan": {
         "kind": "note-body-design",
-        "status": "awaiting-deploy",
+        "status": "running",
         "variants": [
           "image",
           "text"
@@ -8658,7 +8658,15 @@
         "reportId": "ga4.cta-clicks-by-label",
         "card": "DN-0949",
         "endDate": "2026-12-15"
-      }
+      },
+      "started_at": "2026-11-03",
+      "history": [
+        {
+          "at": "2026-11-03T07:46:30.000Z",
+          "event": "start",
+          "note": "本番デプロイ cf37bd33a（cloudflare-deploy run 41597714956・check-production-ssr exit 0）。本番の 2級 経験記述の例文ページで、image の側は画像 16 枚だけ・text の側は商品名つきの文字のカード 16 枚だけが見えることを確かめた"
+        }
+      ]
     },
     {
       "id": "EXP-054",
@@ -8666,9 +8674,9 @@
       "hypothesis": "読者の大半は今すぐ辞める気が無く、相談＝転職の決断と受け取って申し込まない。登録の目的を「相場を知る」に置き換え、登録後に起きること（電話・面談・スカウト・連絡の止め方）まで説明し、案件を 2〜3 社並べれば、動いた読者が申し込み、1 人あたりの発生も増える",
       "target_metric": "新規記事の閲覧・案件カードのクリック（GA4 の affiliate_cta_click・product_click、置き場所 career-multi-register）と、A8 の案件別の発生・確定額（data/business/product-sales/）。キャリア記事 45 本からの内部リンクのクリック（internal_nav_click）",
       "target_delta": "公開後 8 週で、(1) 新規記事のクリックが閲覧の 3% 以上 (2) 転職アフィリの発生が月 2 件以上（今は半年で 2 件）。確定は承認の遅れがあるので 3 か月後に読む。届かなければ記事の位置と導線を見直す",
-      "status": "proposed",
+      "status": "running",
       "created_at": "2026-11-03",
-      "next_check_date": null,
+      "next_check_date": "2026-11-10",
       "baseline": {
         "measured_at": "2026-11-03",
         "source": "data/business/product-sales/2026-05〜10・data/analysis/career-funnel.md（2026-10-31）",
@@ -8689,7 +8697,7 @@
       ],
       "measurementPlan": {
         "kind": "affiliate-content",
-        "status": "awaiting-deploy",
+        "status": "running",
         "card": "DN-0951",
         "placement": "career-multi-register",
         "design": "docs/marketing/転職アフィリエイト訴求設計.md §13",
@@ -8703,7 +8711,15 @@
           "/exam/civil-construction-2/guide/salary",
           "/exam/civil-construction-1/guide/career-agent-comparison"
         ]
-      }
+      },
+      "started_at": "2026-11-03",
+      "history": [
+        {
+          "at": "2026-11-03T07:46:30.000Z",
+          "event": "start",
+          "note": "本番デプロイ cf37bd33a。/exam/civil-construction-1/guide/market-value-check が HTTP 200 で、career-multi-register のカード 2 枚（ビルドジョブ・建設JOBs）が出ることを確かめた"
+        }
+      ]
     },
     {
       "id": "EXP-055",
@@ -8711,9 +8727,9 @@
       "hypothesis": "技術士（建設部門）の読者は 30〜50 代の技術者・管理技術者が多く、施工管理の転職より、技術系管理職・コンサルの求人のほうが合う。単価もハイクラス（A8 ¥18,000）がビルドジョブ（¥13,534）より高い。閲覧あたりの発生・確定額はハイクラスのほうが大きい",
       "target_metric": "案ごとの閲覧あたりの転職広告クリック（GA4）と、案件別の発生・確定額（data/business/product-sales/ の A8）。守る指標は note の案内のクリック率",
       "target_delta": "8 週で、閲覧 1,000 回あたりの発生・確定額がハイクラスでビルドジョブを下回らず、閲覧あたりクリックが 0.67 倍を下回らなければ技術士（建設部門）をハイクラスにする。両案の合計が 40 クリックに届くまでは途中経過",
-      "status": "proposed",
+      "status": "running",
       "created_at": "2026-11-03",
-      "next_check_date": null,
+      "next_check_date": "2026-11-10",
       "businessContext": {
         "qualification": "pe-construction",
         "readerNeed": "技術士の資格と経験を、施工管理の現場以外（発注者支援・コンサル・管理職）でも評価されるかを知りたい",
@@ -8727,7 +8743,7 @@
       ],
       "measurementPlan": {
         "kind": "affiliate-program",
-        "status": "awaiting-deploy",
+        "status": "running",
         "variants": [
           "buildjob",
           "dx-consulting"
@@ -8735,7 +8751,15 @@
         "card": "DN-0952",
         "design": "docs/marketing/転職アフィリエイト訴求設計.md §13.4",
         "split": "PS-0001"
-      }
+      },
+      "started_at": "2026-11-03",
+      "history": [
+        {
+          "at": "2026-11-03T07:46:30.000Z",
+          "event": "start",
+          "note": "本番デプロイ cf37bd33a。/exam/pe-construction の資格トップで、alternate の側はハイクラス DX・コンサル転職だけ（サイドバー・スマホの 2 枠）が見えることを確かめた"
+        }
+      ]
     }
   ]
 }

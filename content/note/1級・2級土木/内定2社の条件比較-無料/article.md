@@ -86,11 +86,11 @@ cover:
 
 どこへ通い、誰と働き、どの仕事を担当し、いつ休める予定なのか。それぞれの会社での一週間を言葉にしてみてください。まだ説明できない部分が、次に確認することです。
 
-[相談・求人比較メモ](https://doboku-note.com/downloads/career-preparation.txt?utm_source=note&utm_medium=referral&utm_campaign=civil-career-offer-comparison&utm_content=preparation)を使えば、希望と確認事項を一つのメモにまとめられます。[会社選びの詳しい確認項目](https://doboku-note.com/exam/civil-construction-1/guide/white-company?utm_source=note&utm_medium=referral&utm_campaign=civil-career-offer-comparison&utm_content=company-guide)も参照してください。
+[相談・求人比較メモ](https://doboku-note.com/downloads/career-preparation.txt?utm_source=note&utm_medium=referral&utm_campaign=civil-career-offer-comparison&utm_content=preparation&utm_term=nf17ae9b9f3f7)を使えば、希望と確認事項を一つのメモにまとめられます。[会社選びの詳しい確認項目](https://doboku-note.com/exam/civil-construction-1/guide/white-company?utm_source=note&utm_medium=referral&utm_campaign=civil-career-offer-comparison&utm_content=company-guide&utm_term=nf17ae9b9f3f7)も参照してください。
 
 同じ年収でも、自分に合う条件は同じとは限りません。**金額の内訳と、実際に引き受ける仕事を並べる**ところから、納得できる比較を進めましょう。
 
-土木の学習とキャリアの情報を[doboku-note](https://doboku-note.com/?utm_source=note&utm_medium=referral&utm_campaign=civil-career-offer-comparison&utm_content=site-footer)で発信しています。
+土木の学習とキャリアの情報を[doboku-note](https://doboku-note.com/?utm_source=note&utm_medium=referral&utm_campaign=civil-career-offer-comparison&utm_content=site-footer&utm_term=nf17ae9b9f3f7)で発信しています。
 
 
 <!-- career-expansion-links -->
@@ -99,6 +99,8 @@ cover:
 勤務地と出張の条件をもう一段確かめたい場合は、[「転勤なし」の次に確認する勤務地と出張](https://note.com/dobokunote/n/n01a775d6c669)を先に読んでください。
 
 提示された年収の内訳が気になる場合は、[資格手当・担当業務・給与内訳で確認すること](https://note.com/dobokunote/n/nfbff7b1469b6)で分解できます。
+
+転職するかを決める前に、自分の経験がいくらに見積もられるのかを知りたい方は、[転職サイトに2〜3社だけ登録して市場価値を確かめる手順](https://doboku-note.com/exam/civil-construction-1/guide/market-value-check?utm_source=note&utm_medium=referral&utm_campaign=civil-career-offer-comparison&utm_content=market-value-check&utm_term=nf17ae9b9f3f7)をサイトにまとめています。登録した後に起きることや、連絡の止め方も書いています。
 
 <!-- cta:civil-mokuji -->
 資格学習の記事は、土木もくじから探せます。

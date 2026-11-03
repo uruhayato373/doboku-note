@@ -259,7 +259,7 @@ function resolveBuildJobCopy(slug?: string, need?: CareerNeed | null): CareerArt
     ],
     cta: resolveNeedCta(slug, "consultation", "資格・経験で狙える求人を無料で聞く", need),
     brief: "書類作成から条件交渉まで支援。登録・相談は無料。",
-    proof: "累計5万名以上の支援実績（公式発表・2026年10月）",
+    proof: "累計5万名以上の支援実績（公式発表・2026年3月16日時点）",
   };
 }
 

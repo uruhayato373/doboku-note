@@ -41,6 +41,9 @@ export const careerArticlePath = (slug: string) => {
 /** キャリア hub。全 need の戻り先。 */
 export const CAREER_HUB_SLUG = "civil-construction-1-guide-career";
 
+/** 市場価値を確かめる手順（2〜3 社への登録・EXP-054）。全キャリア記事の記事末から案内する。 */
+export const MARKET_VALUE_CHECK_SLUG = "civil-construction-1-guide-market-value-check";
+
 /**
  * 既存案件のCTAを区別するキー。ASPの成果条件を読者のサービス体験と混同しない。
  * - consultation: 面談・相談が成果点（ビルドジョブ / GKSキャリア）
@@ -210,6 +213,15 @@ export function resolveCareerNextSteps(slug: string | undefined): readonly Caree
     if (def.pillarSlug !== slug) {
       steps.push({ href: careerArticlePath(def.pillarSlug), title: def.nextStepTitle, reason: def.nextStepReason });
     }
+  }
+  // 2026-11-03（DN-0951・EXP-054）: 転職を決める前に 2〜3 社へ登録して相場を確かめる手順を、全キャリア記事の記事末から案内する
+  // （相談のハードルを下げる常設の入口。訴求設計 §13）。柱と同じ記事・手順の記事自身には出さない。
+  if (slug !== MARKET_VALUE_CHECK_SLUG && !steps.some((s) => s.href === careerArticlePath(MARKET_VALUE_CHECK_SLUG))) {
+    steps.push({
+      href: careerArticlePath(MARKET_VALUE_CHECK_SLUG),
+      title: "市場価値を確かめる手順",
+      reason: "転職を決める前に、2〜3 社へ登録して相場を比べる。登録した後に起きることと連絡の止め方も。",
+    });
   }
   if (slug !== CAREER_HUB_SLUG) {
     steps.push({

@@ -53,7 +53,7 @@ title: 施工管理の転職はいつ動く？情報収集・応募・入社を�
 
 実際に担当した工事、役割、これから担当したい仕事を一緒に整理しましょう。資格の取得を待つかどうかも、募集条件と自分の状況によって異なります。
 
-書類の準備は[土木施工管理の職務経歴書ガイド](https://doboku-note.com/exam/civil-construction-1/guide/resume?utm_source=note&utm_medium=referral&utm_campaign=civil-career-timing&utm_content=resume)を参考に、一工事分から始められます。
+書類の準備は[土木施工管理の職務経歴書ガイド](https://doboku-note.com/exam/civil-construction-1/guide/resume?utm_source=note&utm_medium=referral&utm_campaign=civil-career-timing&utm_content=resume&utm_term=n401905648243)を参考に、一工事分から始められます。
 
 ## 在職中に使える時間を先に決める
 
@@ -73,16 +73,18 @@ title: 施工管理の転職はいつ動く？情報収集・応募・入社を�
 
 今すぐ応募するか決めなくても、経験を一件整理する、希望条件を三つ書く、求人の疑問点を確認する、といった準備はできます。
 
-[面接前の確認事項](https://doboku-note.com/exam/civil-construction-1/guide/interview?utm_source=note&utm_medium=referral&utm_campaign=civil-career-timing&utm_content=interview)も、質問を整理する材料にしてください。相談の流れは[転職エージェントの使い方](https://note.com/dobokunote/n/n5a823955985c)で説明しています。
+[面接前の確認事項](https://doboku-note.com/exam/civil-construction-1/guide/interview?utm_source=note&utm_medium=referral&utm_campaign=civil-career-timing&utm_content=interview&utm_term=n401905648243)も、質問を整理する材料にしてください。相談の流れは[転職エージェントの使い方](https://note.com/dobokunote/n/n5a823955985c)で説明しています。
 
 最適な月を一つ決めるより、情報収集・応募・入社の予定を分け、自分が確認できた条件から進めていきましょう。
 
-土木・建設系資格の学習と仕事選びを[doboku-note](https://doboku-note.com/?utm_source=note&utm_medium=referral&utm_campaign=civil-career-timing&utm_content=site-footer)で発信しています。
+土木・建設系資格の学習と仕事選びを[doboku-note](https://doboku-note.com/?utm_source=note&utm_medium=referral&utm_campaign=civil-career-timing&utm_content=site-footer&utm_term=n401905648243)で発信しています。
 
 <!-- career-expansion-links -->
 ## 次に整理したいこと
 
 応募後に複数の内定を受けた場合は、[内定2社の条件を同じ項目で比較する方法](https://note.com/dobokunote/n/nf17ae9b9f3f7)で、回答期限までに確認することを絞れます。
+
+転職するかを決める前に、自分の経験がいくらに見積もられるのかを知りたい方は、[転職サイトに2〜3社だけ登録して市場価値を確かめる手順](https://doboku-note.com/exam/civil-construction-1/guide/market-value-check?utm_source=note&utm_medium=referral&utm_campaign=civil-career-timing&utm_content=market-value-check&utm_term=n401905648243)をサイトにまとめています。登録した後に起きることや、連絡の止め方も書いています。
 
 <!-- cta:civil-mokuji -->
 資格学習の記事は、土木もくじから探せます。

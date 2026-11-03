@@ -36,6 +36,10 @@
 
 **進捗（2026-11-03）**: 新規記事 content/site/civil-construction-1/guide-market-value-check/article.mdx（/exam/civil-construction-1/guide/market-value-check）を書いた。比較カードは A8 で数えられる 2 社（ビルドジョブ・建設JOBs＝20〜30代の建設経験者向けと明記）。スカウト型は提携先が無いのでリンクなしの説明だけ。カードは `noExperiment`（EXP-048 に入れない）・placement career-multi-register（config/cta-placements.json に追加）。「市場価値」（1級）・「年収」（2級）・「エージェント比較」から 1 段落ずつ導線を足した。残り＝本番デプロイ、キャリア記事の記事末とキャリア系 note 記事からの導線（note は再公開を伴うので記事を直すときに）。
 
+**開始（2026-11-03）**: 本番デプロイ cf37bd33a で記事を公開し、EXP-054 を running にした。
+
+**残りの実施（2026-11-03）**: ① キャリア記事の記事末の内部案内（resolveCareerNextSteps）に「市場価値を確かめる手順」を全記事で 1 回出す（テストつき）② キャリア系の note 記事 23 本の「次に整理したいこと」に新規記事への一文（UTM・utm_content=market-value-check・utm_term=記事キー）を足し、24 本の既存のサイトへのリンク 59 か所に utm_term を入れた（改行コードを保つため add-note-utm ではなく同じ判定関数で置換。note への反映は土曜の note-sync。総監の 1 本は節が無く対象外）③ guide-fact-checker の指摘（手数料の書き方・連絡の時期・ブロック設定の反映確認）を直し、ビルドジョブの実績の日付を公式の 2026-03-16 時点に合わせて reviewStatus を approved に。建設JOBs の対象条件は A8 の広告主ページ（2026-09-08 確認）が根拠。
+
 **完了条件**: 新規記事と改稿が本番に出て、EXP-054 が running になっている。8 週後の判定は EXP-054 で行い、このカードは公開で削除する。
 
 
@@ -47,6 +51,8 @@
 **判断理由（共通事業方針）**: 読者の課題＝経験記述・学科記述の答案を仕上げたい受験者が、自分に合う教材を選びたい（A: 資格）。提供価値・支払う理由＝本文の流れで「この答案のフル版」「この工種のパック」と中身が分かる案内。需要の証拠＝画像化の前は本文カードが 8〜19% 押されていた（ただし季節を含む）。次の検証＝EXP-053（同時の A/B）。
 
 **やったこと**: MagazineHeroCta・MagazineInlineCard（本文中の案内）が画像のある商品で両方の案を描き、<head> のスクリプトが訪問者ごとに image / text を決め、globals.css が選ばれなかった案を隠す（src/lib/note-body-experiment.mjs）。GA4 は note_body_experiment_impression / _click（event_label＝EXP-053|案|面|<商品ID>:<面>。登録済みの event_label を使うので管理画面の作業は無い）。集計は `npm run report-note-body-experiment`。記事冒頭（MagazineTopBanner）・商品カード（NoteProductCard）・資格トップのタイルは対象外（横ばいだったので変えない）。
+
+**開始（2026-11-03）**: 本番デプロイ cf37bd33a で EXP-053 を running にした（本番で両方の側の見え方を確かめた）。
 
 **完了条件**: EXP-053 を判定し、本文中の案内の既定を決めて片方の案のコードを消す。このカードを削除する。
 
@@ -311,6 +317,8 @@
 
 **進捗（2026-11-03）**: 配置ルールに出し分け（splits）を足し（型・判定・検査・テスト）、PS-0001＝技術士（建設部門）の資格トップのサイドバーとスマホの枠でビルドジョブ／ハイクラス DX・コンサル転職を半々にした。記事末の転職広告は 10/21 に全資格で閉じているので対象外。割り当ては <head> のスクリプト（src/lib/program-split-experiment.mjs）、描画は ProgramSplitBanner。開発サーバーで pe-construction だけに両方の側が出ることを確かめた。残り＝本番デプロイと EXP-055 の開始、12/26 の後に本文中へ広げるか決める。
 
+**開始（2026-11-03）**: 本番デプロイ cf37bd33a で EXP-055 を running にした（本番で出し分けの見え方を確かめた）。
+
 **完了条件**: EXP-055 が本番で running になり、8 週後に判定して技術士（建設部門）の案件を決める。
 
 
@@ -340,14 +348,6 @@
 **完了条件**: 上の 1〜9 が済み、関係する検査が合格のまま、10 は販売台帳にもしもの行が入るか、入れない理由が書かれている。
 
 
-### [DN-0948] ココナラ『主任技士の小論文の診断』の商品画像が CI に無く、develop の事前検査が 11/2 から落ち続けている
-タグ: [インフラ・計測] [領域:商品] [時期:2026-11] [種類:不具合] [起票:2026-11-03]
-
-**起点**: 2026-11-03 の本番デプロイの前に確認したところ、develop の事前検査（Pre-merge check の quality audit）が 2026-11-02 22:49 の 430725211（DN-0941）から毎回落ちている。原因は check-coconala-wiring の `[coconala-cce-essay-shindan] 商品画像がありません`。content/coconala/assets/** は .gitignore 対象で、手元の Mac では検査が通るが、CI には承認済み画像も描画定義も届かない。サイトのビルドとデプロイは通る（cloudflare-deploy はこの検査を見ない）ので、本番の表示は壊れていない。
-
-**やること**: 主任技士の小論文の診断（coconala-cce-essay-shindan）の商品画像を、ほかの 34 件と同じ経路（承認済み画像の台帳 data/coconala/thumb-approved.json か coconala-thumb の描画定義）で CI から見えるようにする。置き場の判断は asset-storage-policy.md。
-
-**完了条件**: develop の Pre-merge check が緑に戻っている。
 
 
 ### [DN-0945] 売れているパック 1 本で値上げを試し、パックの価格の方針を決める

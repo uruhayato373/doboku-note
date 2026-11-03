@@ -74,7 +74,7 @@ cover:
 
 なお、受検資格や技術者としての配置要件は、会社の支援制度とは別の話です。「この会社で働けば必ず受検できる」と考えず、受検予定年度の公式案内と実際の従事内容を確認します。
 
-キャリアの整理には[2級土木・若手の仕事選びガイド](https://doboku-note.com/exam/civil-construction-2/guide/young-career?utm_source=note&utm_medium=referral&utm_campaign=civil-career-young-next-role&utm_content=young-guide)も使えます。
+キャリアの整理には[2級土木・若手の仕事選びガイド](https://doboku-note.com/exam/civil-construction-2/guide/young-career?utm_source=note&utm_medium=referral&utm_campaign=civil-career-young-next-role&utm_content=young-guide&utm_term=ncb066fce826b)も使えます。
 
 ## 給与の差と、担当する責任を並べる
 
@@ -88,9 +88,9 @@ cover:
 
 まず「いま担当できる仕事」「次に経験したい仕事」「教わる必要がある仕事」を一行ずつ書いてみましょう。それを使って求人を読むと、待遇欄以外にも質問が見つかります。
 
-経験が浅い段階で書類を整理する方は[未経験・経験が浅い方向けの職務経歴書ガイド](https://doboku-note.com/exam/civil-construction-2/guide/resume?utm_source=note&utm_medium=referral&utm_campaign=civil-career-young-next-role&utm_content=resume-guide)へ。資格取得後の役割も考えたい方は[1級土木の市場価値を考える記事](https://note.com/dobokunote/n/n6c68d022a56a)へ進んでください。
+経験が浅い段階で書類を整理する方は[未経験・経験が浅い方向けの職務経歴書ガイド](https://doboku-note.com/exam/civil-construction-2/guide/resume?utm_source=note&utm_medium=referral&utm_campaign=civil-career-young-next-role&utm_content=resume-guide&utm_term=ncb066fce826b)へ。資格取得後の役割も考えたい方は[1級土木の市場価値を考える記事](https://note.com/dobokunote/n/n6c68d022a56a)へ進んでください。
 
-次の職場を選ぶときは、資格名の先にある毎日の仕事まで確認していきましょう。土木の学習とキャリアの情報を[doboku-note](https://doboku-note.com/?utm_source=note&utm_medium=referral&utm_campaign=civil-career-young-next-role&utm_content=site-footer)にまとめています。
+次の職場を選ぶときは、資格名の先にある毎日の仕事まで確認していきましょう。土木の学習とキャリアの情報を[doboku-note](https://doboku-note.com/?utm_source=note&utm_medium=referral&utm_campaign=civil-career-young-next-role&utm_content=site-footer&utm_term=ncb066fce826b)にまとめています。
 
 
 <!-- career-expansion-links -->
@@ -99,6 +99,8 @@ cover:
 次の職場で任される工事を面接で確かめたい場合は、[同じ年収の2社を給与・休日・担当現場で比べる方法](https://note.com/dobokunote/n/nf17ae9b9f3f7)が使えます。
 
 応募書類で工事経験をどう書くかは、[「施工管理を担当しました」で終わらない工事経験の伝え方](https://note.com/dobokunote/n/ne990d6bf4ce1)にまとめています。
+
+転職するかを決める前に、自分の経験がいくらに見積もられるのかを知りたい方は、[転職サイトに2〜3社だけ登録して市場価値を確かめる手順](https://doboku-note.com/exam/civil-construction-1/guide/market-value-check?utm_source=note&utm_medium=referral&utm_campaign=civil-career-young-next-role&utm_content=market-value-check&utm_term=ncb066fce826b)をサイトにまとめています。登録した後に起きることや、連絡の止め方も書いています。
 
 <!-- cta:civil-mokuji -->
 資格学習の記事は、土木もくじから探せます。

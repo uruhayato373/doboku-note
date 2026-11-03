@@ -67,7 +67,7 @@ title: 公務員土木か民間か｜仕事内容・働き方・採用ルート�
 
 施工管理経験を活かせると説明されても、責任範囲がそのまま同じになるとは限りません。現場で判断する事項と、責任者へ確認する事項を分けて聞くと、仕事の違いを考えやすくなります。
 
-詳しい確認項目は[発注者支援業務への転職](https://doboku-note.com/exam/civil-construction-1/guide/hatchu-shien?utm_source=note&utm_medium=referral&utm_campaign=civil-career-public-vs-private&utm_content=job-scope)で整理しています。
+詳しい確認項目は[発注者支援業務への転職](https://doboku-note.com/exam/civil-construction-1/guide/hatchu-shien?utm_source=note&utm_medium=referral&utm_campaign=civil-career-public-vs-private&utm_content=job-scope&utm_term=n8b03a7de0c6b)で整理しています。
 
 自治体職員を志望する方は、希望自治体の公式採用情報から募集と選考条件を確認してください。
 
@@ -75,13 +75,13 @@ title: 公務員土木か民間か｜仕事内容・働き方・採用ルート�
 
 私が伝えたいのは、**公務員と民間を同じ天秤に乗せて比べてほしい**ということです。公務員だけを見て「安定が一番」と決めるのも、民間だけを見て「年収が大事」と決めるのも、どちらも判断材料が足りません。
 
-公務員土木への転職を具体的に知りたい方は、[施工管理から公務員（土木職）への転職](https://doboku-note.com/exam/civil-construction-1/guide/public-servant?utm_source=note&utm_medium=referral&utm_campaign=civil-career-public-vs-private&utm_content=public-servant)で、仕事内容・働き方・ルートを整理しています。
+公務員土木への転職を具体的に知りたい方は、[施工管理から公務員（土木職）への転職](https://doboku-note.com/exam/civil-construction-1/guide/public-servant?utm_source=note&utm_medium=referral&utm_campaign=civil-career-public-vs-private&utm_content=public-servant&utm_term=n8b03a7de0c6b)で、仕事内容・働き方・ルートを整理しています。
 
 給与を比べる際は、基本給・手当・残業代・賞与を分けて確認します。[給与の内訳と評価条件を整理する記事](https://note.com/dobokunote/n/nfbff7b1469b6)も参考にしてください。
 
 両方を読んで、自分にとっての優先順位を見極めてください。どちらに進むか決める前に、いまの経験が民間の転職市場でどう評価されるかを確認しておくと選びやすくなります。
 
-その手順は[施工管理を辞める前に相談すべきこと](https://doboku-note.com/exam/civil-construction-1/guide/career-consultation-before-quit?utm_source=note&utm_medium=referral&utm_campaign=civil-career-public-vs-private&utm_content=before-quit)で整理しています。
+その手順は[施工管理を辞める前に相談すべきこと](https://doboku-note.com/exam/civil-construction-1/guide/career-consultation-before-quit?utm_source=note&utm_medium=referral&utm_campaign=civil-career-public-vs-private&utm_content=before-quit&utm_term=n8b03a7de0c6b)で整理しています。
 
 **PR：民間への転職を検討している方向けに、ビルドジョブを紹介します。**
 
@@ -101,6 +101,8 @@ https://px.a8.net/svt/ejp?a8mat=4B5OO5+FHED6+5B0Y+NTJWY
 ## 次に整理したいこと
 
 民間の発注者支援を検討する方には[仕事内容・常駐先・配属変更の確認](https://note.com/dobokunote/n/n266f0cdd99ef)を、自治体での経験を応募書類へまとめる方には[土木公務員の「調整業務」を職務経歴書で説明する方法](https://note.com/dobokunote/n/n433cce5f118f)を用意しています。
+
+転職するかを決める前に、自分の経験がいくらに見積もられるのかを知りたい方は、[転職サイトに2〜3社だけ登録して市場価値を確かめる手順](https://doboku-note.com/exam/civil-construction-1/guide/market-value-check?utm_source=note&utm_medium=referral&utm_campaign=civil-career-public-vs-private&utm_content=market-value-check&utm_term=n8b03a7de0c6b)をサイトにまとめています。登録した後に起きることや、連絡の止め方も書いています。
 
 ---
 

@@ -47,7 +47,7 @@ title: 施工管理を辞める前に確認すること｜経験・生活費・�
 
 施工計画、工程、品質、出来形、安全、写真、書類、調整など、実際に行った業務を具体的にします。自分で判断した部分と、上司の確認を受けた部分を分けると説明しやすくなります。
 
-まだ転職を決めていなくても、経験の整理は現職での担当相談に使えます。[職務経歴書のガイド](https://doboku-note.com/exam/civil-construction-1/guide/resume?utm_source=note&utm_medium=referral&utm_campaign=civil-career-before-quit&utm_content=resume)を参考に、一工事分だけ書いてみましょう。
+まだ転職を決めていなくても、経験の整理は現職での担当相談に使えます。[職務経歴書のガイド](https://doboku-note.com/exam/civil-construction-1/guide/resume?utm_source=note&utm_medium=referral&utm_campaign=civil-career-before-quit&utm_content=resume&utm_term=n7a81ebf1cdc5)を参考に、一工事分だけ書いてみましょう。
 
 ## 確認3：生活に必要な収入と予定
 
@@ -63,7 +63,7 @@ title: 施工管理を辞める前に確認すること｜経験・生活費・�
 
 仕事内容が近く見えても、雇用先、担当範囲、必要な経験は別に確認します。設計を発注・確認した経験と、自ら設計した経験のように、立場の違いも正確に整理してください。
 
-民間の発注者支援は公務員採用ではありません。常駐先だけでなく、雇用先の勤務条件や業務終了後の配属を確認します。詳しくは[発注者支援の仕事内容](https://doboku-note.com/exam/civil-construction-1/guide/hatchu-shien?utm_source=note&utm_medium=referral&utm_campaign=civil-career-before-quit&utm_content=hatchu-shien)へ。
+民間の発注者支援は公務員採用ではありません。常駐先だけでなく、雇用先の勤務条件や業務終了後の配属を確認します。詳しくは[発注者支援の仕事内容](https://doboku-note.com/exam/civil-construction-1/guide/hatchu-shien?utm_source=note&utm_medium=referral&utm_campaign=civil-career-before-quit&utm_content=hatchu-shien&utm_term=n7a81ebf1cdc5)へ。
 
 ## 相談を使う場合も、自分の条件を先に用意する
 
@@ -75,16 +75,18 @@ title: 施工管理を辞める前に確認すること｜経験・生活費・�
 
 ## まず、未確認のことを一つ選ぶ
 
-[無料の相談・求人比較メモ](https://doboku-note.com/downloads/career-preparation.txt?utm_source=note&utm_medium=referral&utm_campaign=civil-career-before-quit&utm_content=preparation)に、経験、変えたい条件、守りたい条件を書いてみてください。
+[無料の相談・求人比較メモ](https://doboku-note.com/downloads/career-preparation.txt?utm_source=note&utm_medium=referral&utm_campaign=civil-career-before-quit&utm_content=preparation&utm_term=n7a81ebf1cdc5)に、経験、変えたい条件、守りたい条件を書いてみてください。
 
 いま確認できることと、まだ情報が足りないことを分ける。それから、自分の体調や生活も含めて、次に取る行動を選びましょう。
 
-土木・建設系資格の学習と仕事選びを[doboku-note](https://doboku-note.com/?utm_source=note&utm_medium=referral&utm_campaign=civil-career-before-quit&utm_content=site-footer)で発信しています。
+土木・建設系資格の学習と仕事選びを[doboku-note](https://doboku-note.com/?utm_source=note&utm_medium=referral&utm_campaign=civil-career-before-quit&utm_content=site-footer&utm_term=n7a81ebf1cdc5)で発信しています。
 
 <!-- career-expansion-links -->
 ## 次に整理したいこと
 
 家族との時間を増やしたい場合は、[休日・帰宅・出張の希望を求人選びの条件にする方法](https://note.com/dobokunote/n/n45e5ec2f687e)から、次の相談で伝える内容を整理できます。
+
+転職するかを決める前に、自分の経験がいくらに見積もられるのかを知りたい方は、[転職サイトに2〜3社だけ登録して市場価値を確かめる手順](https://doboku-note.com/exam/civil-construction-1/guide/market-value-check?utm_source=note&utm_medium=referral&utm_campaign=civil-career-before-quit&utm_content=market-value-check&utm_term=n7a81ebf1cdc5)をサイトにまとめています。登録した後に起きることや、連絡の止め方も書いています。
 
 <!-- cta:civil-mokuji -->
 資格学習の記事は、土木もくじから探せます。

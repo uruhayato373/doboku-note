@@ -66,7 +66,7 @@ title: ビルドジョブは土木施工管理に向く？評判を見る前に�
 
 さらに、「休むときは誰に引き継げるか」「配属後に出張や転勤があるか」を聞くと、給与だけでは見えない働き方を比較できます。
 
-[相談準備の記事と記入用メモ](https://doboku-note.com/exam/civil-construction-1/guide/career-consultation-before-quit?utm_source=note&utm_medium=referral&utm_campaign=civil-career-buildjob-review&utm_content=condition-sheet)に、現職と候補求人を並べる項目をまとめています。
+[相談準備の記事と記入用メモ](https://doboku-note.com/exam/civil-construction-1/guide/career-consultation-before-quit?utm_source=note&utm_medium=referral&utm_campaign=civil-career-buildjob-review&utm_content=condition-sheet&utm_term=na0f42fd52a51)に、現職と候補求人を並べる項目をまとめています。
 
 自分の端末に保存して使えます。
 
@@ -88,7 +88,7 @@ title: ビルドジョブは土木施工管理に向く？評判を見る前に�
 
 https://px.a8.net/svt/ejp?a8mat=4B5OO5+FHED6+5B0Y+NTJWY
 
-相談先を比較してから考えたい方は、[施工管理の転職サービス比較](https://doboku-note.com/exam/civil-construction-1/guide/career-agent-comparison?utm_source=note&utm_medium=referral&utm_campaign=civil-career-buildjob-review&utm_content=agent-comparison)も参考にしてください。
+相談先を比較してから考えたい方は、[施工管理の転職サービス比較](https://doboku-note.com/exam/civil-construction-1/guide/career-agent-comparison?utm_source=note&utm_medium=referral&utm_campaign=civil-career-buildjob-review&utm_content=agent-comparison&utm_term=na0f42fd52a51)も参考にしてください。
 
 経験・希望条件・連絡方法の3点が整理できれば、相談で聞きたいことが具体的になります。
 
@@ -96,6 +96,8 @@ https://px.a8.net/svt/ejp?a8mat=4B5OO5+FHED6+5B0Y+NTJWY
 ## 次に整理したいこと
 
 相談用の3行を応募書類へ広げたい方は、[土木施工管理の職務経歴書に書く工事経験の整理](https://note.com/dobokunote/n/ne990d6bf4ce1)へ進んでください。
+
+転職するかを決める前に、自分の経験がいくらに見積もられるのかを知りたい方は、[転職サイトに2〜3社だけ登録して市場価値を確かめる手順](https://doboku-note.com/exam/civil-construction-1/guide/market-value-check?utm_source=note&utm_medium=referral&utm_campaign=civil-career-buildjob-review&utm_content=market-value-check&utm_term=na0f42fd52a51)をサイトにまとめています。登録した後に起きることや、連絡の止め方も書いています。
 
 ---
 

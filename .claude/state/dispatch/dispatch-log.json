@@ -6494,6 +6494,23 @@
       "commit": "a90f81a9bca2",
       "verification": "config/affiliate-placements.json の pairs と EXP-048 running",
       "note": "2 枚並べ（§12.2）は 2026-10-31 に EXP-048 として実装・開始済み（配置ルールの pairs・src/lib/affiliate-experiment.mjs）。判定は EXP-048（2026-12-26）と DN-0843 が持つ。DN-0950 の整理で閉じる"
+    },
+    {
+      "id": "DN-0948",
+      "at": "2026-11-03",
+      "task": "ココナラ『主任技士の小論文の診断』の商品画像が CI に無く、develop の事前検査が 11/2 から落ち続けている",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "check-coconala-wiring"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "6ed6a2750ad6",
+      "verification": "check-coconala-wiring（手元の画像をよけて実行）",
+      "note": "承認済み画像は Drive vault に既にあり（sha256 一致）、退避台帳 .claude/state/assets/drive-manifest.json にだけ載っていなかった。drive-vault-sync --group coconala-asset --path で台帳へ登録し、手元の画像をよけた CI と同じ条件で check-coconala-wiring が通ることを確認。再発防止: 承認済み画像が手元にだけあり台帳に無いと手元でも止める（approvedThumbOnlyLocal・tests/coconala-guards.test.mjs）"
     }
   ]
 }

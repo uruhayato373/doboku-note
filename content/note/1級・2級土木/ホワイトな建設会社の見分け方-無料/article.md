@@ -73,7 +73,7 @@ title: 土木施工管理の会社選び｜休日・残業を求人票と面接�
 
 例えば、候補求人の年収が現職と同じでも、長い残業を前提とする提示額なら、休日の希望と両立できるかは別に検討が必要です。「何を減らし、何を維持したいか」を先に伝えると、相談の論点がはっきりします。
 
-[勤務条件の比較と記入用メモ](https://doboku-note.com/exam/civil-construction-1/guide/white-company?utm_source=note&utm_medium=referral&utm_campaign=civil-career-white-company&utm_content=condition-sheet)には、現職と候補求人を同じ項目で記録できるメモを用意しています。
+[勤務条件の比較と記入用メモ](https://doboku-note.com/exam/civil-construction-1/guide/white-company?utm_source=note&utm_medium=referral&utm_campaign=civil-career-white-company&utm_content=condition-sheet&utm_term=ne7284dacf78b)には、現職と候補求人を同じ項目で記録できるメモを用意しています。
 
 分からない欄は、次の面談で聞く質問にできます。
 
@@ -95,18 +95,20 @@ https://px.a8.net/svt/ejp?a8mat=4B5OO5+FHED6+5B0Y+NTJWY
 
 完璧な会社を探すより、自分が譲れない条件を満たし、明らかな地雷を避けるのが現実的なゴールです。一人での見極めが難しければ、担当者に求人企業への確認を依頼するのも有効です。
 
-会社の業態による違いは[ゼネコン・サブコンなどの違い](https://doboku-note.com/exam/civil-construction-1/guide/company-types?utm_source=note&utm_medium=referral&utm_campaign=civil-career-white-company&utm_content=company-types)も参考になります。
+会社の業態による違いは[ゼネコン・サブコンなどの違い](https://doboku-note.com/exam/civil-construction-1/guide/company-types?utm_source=note&utm_medium=referral&utm_campaign=civil-career-white-company&utm_content=company-types&utm_term=ne7284dacf78b)も参考になります。
 
 基準を持って丁寧に見極め、納得のいく転職につなげましょう。辞めるかどうかを決める前に、残業・休日条件のよい求人が実際にあるかだけ確認しておくと判断しやすくなります。
 
-その手順は[施工管理を辞める前に相談すべきこと](https://doboku-note.com/exam/civil-construction-1/guide/career-consultation-before-quit?utm_source=note&utm_medium=referral&utm_campaign=civil-career-white-company&utm_content=before-quit)にまとめました。
+その手順は[施工管理を辞める前に相談すべきこと](https://doboku-note.com/exam/civil-construction-1/guide/career-consultation-before-quit?utm_source=note&utm_medium=referral&utm_campaign=civil-career-white-company&utm_content=before-quit&utm_term=ne7284dacf78b)にまとめました。
 
-そもそも何がきついのかを分解した[「きつい・やめとけ」は本当か](https://doboku-note.com/exam/civil-construction-1/guide/quit-honne?utm_source=note&utm_medium=referral&utm_campaign=civil-career-white-company&utm_content=quit-honne)も、条件の優先順位を決める材料になります。
+そもそも何がきついのかを分解した[「きつい・やめとけ」は本当か](https://doboku-note.com/exam/civil-construction-1/guide/quit-honne?utm_source=note&utm_medium=referral&utm_campaign=civil-career-white-company&utm_content=quit-honne&utm_term=ne7284dacf78b)も、条件の優先順位を決める材料になります。
 
 <!-- career-expansion-links -->
 ## 次に整理したいこと
 
 働く地域を優先するなら[「転勤なし」の次に確認する勤務地と出張](https://note.com/dobokunote/n/n01a775d6c669)を、生活時間を見直すなら[帰宅・休日・宿泊出張の希望の伝え方](https://note.com/dobokunote/n/n45e5ec2f687e)を参考に、譲れない条件を具体化できます。
+
+転職するかを決める前に、自分の経験がいくらに見積もられるのかを知りたい方は、[転職サイトに2〜3社だけ登録して市場価値を確かめる手順](https://doboku-note.com/exam/civil-construction-1/guide/market-value-check?utm_source=note&utm_medium=referral&utm_campaign=civil-career-white-company&utm_content=market-value-check&utm_term=ne7284dacf78b)をサイトにまとめています。登録した後に起きることや、連絡の止め方も書いています。
 
 ---
 

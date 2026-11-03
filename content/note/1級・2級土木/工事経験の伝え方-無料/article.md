@@ -72,7 +72,7 @@ cover:
 
 相手に合わせて役職や実績を変えるのではありません。実際に行った仕事の中から、応募先に関係する部分を選ぶ作業です。
 
-書類全体の構成は[土木施工管理の職務経歴書ガイド](https://doboku-note.com/exam/civil-construction-1/guide/resume?utm_source=note&utm_medium=referral&utm_campaign=civil-career-work-history&utm_content=resume-guide)で確認できます。
+書類全体の構成は[土木施工管理の職務経歴書ガイド](https://doboku-note.com/exam/civil-construction-1/guide/resume?utm_source=note&utm_medium=referral&utm_campaign=civil-career-work-history&utm_content=resume-guide&utm_term=ne990d6bf4ce1)で確認できます。
 
 ## 面接で聞き返されたときまで考えておく
 
@@ -80,13 +80,13 @@ cover:
 
 答えに詰まるところがあれば、説明を大きくしすぎていないか、記録が曖昧でないかを見直します。すべてを詳しく書くより、聞かれたら補足できる内容に絞ることが大切です。
 
-面接前の整理には[施工管理の面接対策](https://doboku-note.com/exam/civil-construction-1/guide/interview?utm_source=note&utm_medium=referral&utm_campaign=civil-career-work-history&utm_content=interview-guide)も使えます。
+面接前の整理には[施工管理の面接対策](https://doboku-note.com/exam/civil-construction-1/guide/interview?utm_source=note&utm_medium=referral&utm_campaign=civil-career-work-history&utm_content=interview-guide&utm_term=ne990d6bf4ce1)も使えます。
 
 今日は職歴を完成させなくても構いません。一つの工事について、**自分が担当したことを三つ、説明できる言葉で書く**。そこから始めてみてください。
 
 転職相談に持っていく情報をまとめたい方は、[転職エージェントの使い方](https://note.com/dobokunote/n/n5a823955985c)へ。経験と希望条件を整理してから、応募するかを考える流れを説明しています。
 
-土木・建設系資格の学習と、資格を生かす準備を[doboku-note](https://doboku-note.com/?utm_source=note&utm_medium=referral&utm_campaign=civil-career-work-history&utm_content=site-footer)で発信しています。
+土木・建設系資格の学習と、資格を生かす準備を[doboku-note](https://doboku-note.com/?utm_source=note&utm_medium=referral&utm_campaign=civil-career-work-history&utm_content=site-footer&utm_term=ne990d6bf4ce1)で発信しています。
 
 
 <!-- career-expansion-links -->
@@ -95,6 +95,8 @@ cover:
 発注者側の経験を書き出す場合は、[「調整業務」を民間にも伝わる担当経験へ](https://note.com/dobokunote/n/n433cce5f118f)が対になります。
 
 書類が整ったあとの相談の進め方は、[登録・電話・面談・応募前の準備](https://note.com/dobokunote/n/n5a823955985c)にあります。
+
+転職するかを決める前に、自分の経験がいくらに見積もられるのかを知りたい方は、[転職サイトに2〜3社だけ登録して市場価値を確かめる手順](https://doboku-note.com/exam/civil-construction-1/guide/market-value-check?utm_source=note&utm_medium=referral&utm_campaign=civil-career-work-history&utm_content=market-value-check&utm_term=ne990d6bf4ce1)をサイトにまとめています。登録した後に起きることや、連絡の止め方も書いています。
 
 <!-- cta:civil-mokuji -->
 資格学習の記事は、土木もくじから探せます。

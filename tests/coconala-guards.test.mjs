@@ -22,8 +22,7 @@ import {
   classifyInquiries,
   resolveThumb,
   parseInquiryDate,
-  inquiryClockMs,
-} from '../scripts/lib/coconala-guards.mjs';
+  inquiryClockMs, approvedThumbOnlyLocal } from '../scripts/lib/coconala-guards.mjs';
 import { findPausedServiceLinks } from '../scripts/lib/coconala-guards.mjs';
 
 /** 本日のカタログを模したフィクスチャ */
@@ -378,3 +377,11 @@ test('findPausedServiceLinks: 受付中でない出品・カタログに無い�
   assert.deepEqual(findPausedServiceLinks([{ path: 'y.md', text: 'https://coconala.com/services/111' }], services), []);
 });
 
+
+test('承認済み画像が手元にだけあり退避台帳に無いときだけ止める（CI では画像なしになる・DN-0948）', () => {
+  const local = { source: 'approved', where: 'local' };
+  assert.equal(approvedThumbOnlyLocal({ thumb: local, approvedPath: 'content/coconala/assets/pop/x.png', inLedger: false }), true);
+  assert.equal(approvedThumbOnlyLocal({ thumb: local, approvedPath: 'content/coconala/assets/pop/x.png', inLedger: true }), false);
+  assert.equal(approvedThumbOnlyLocal({ thumb: { source: 'approved', where: 'ledger' }, approvedPath: 'content/coconala/assets/pop/x.png', inLedger: true }), false);
+  assert.equal(approvedThumbOnlyLocal({ thumb: { source: 'flat', where: 'local' }, approvedPath: null, inLedger: false }), false);
+});

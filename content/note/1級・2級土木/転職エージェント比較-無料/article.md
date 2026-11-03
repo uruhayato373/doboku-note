@@ -73,7 +73,7 @@ title: 土木施工管理の転職エージェントの選び方｜工種・勤�
 
 担当した工事と自分の役割、希望する地域、変えたい勤務条件を一行ずつ書いてみてください。それを使って、必要な支援を確かめます。
 
-比較の詳しい項目は[土木施工管理の転職サービス選び](https://doboku-note.com/exam/civil-construction-1/guide/career-agents?utm_source=note&utm_medium=referral&utm_campaign=civil-career-agent-comparison&utm_content=career-agents)へ。ビルドジョブを検討中の方は[公式情報と確認事項を整理した記事](https://note.com/dobokunote/n/na0f42fd52a51)も参照してください。
+比較の詳しい項目は[土木施工管理の転職サービス選び](https://doboku-note.com/exam/civil-construction-1/guide/career-agents?utm_source=note&utm_medium=referral&utm_campaign=civil-career-agent-comparison&utm_content=career-agents&utm_term=ne49853deac96)へ。ビルドジョブを検討中の方は[公式情報と確認事項を整理した記事](https://note.com/dobokunote/n/na0f42fd52a51)も参照してください。
 
 **PR：ビルドジョブの案内にはアフィリエイト広告を含みます。**
 
@@ -83,12 +83,14 @@ https://px.a8.net/svt/ejp?a8mat=4B5OO5+FHED6+5B0Y+NTJWY
 
 順位を一つ覚えるより、自分の条件を説明し、回答を比べられる状態にする。それがサービス選びの出発点です。
 
-土木・建設系資格の学習と仕事選びを[doboku-note](https://doboku-note.com/?utm_source=note&utm_medium=referral&utm_campaign=civil-career-agent-comparison&utm_content=site-footer)で発信しています。
+土木・建設系資格の学習と仕事選びを[doboku-note](https://doboku-note.com/?utm_source=note&utm_medium=referral&utm_campaign=civil-career-agent-comparison&utm_content=site-footer&utm_term=ne49853deac96)で発信しています。
 
 <!-- career-expansion-links -->
 ## 次に整理したいこと
 
 希望する地域で相談先を選ぶときは、[勤務地・出張・現場範囲を具体的に伝える方法](https://note.com/dobokunote/n/n01a775d6c669)も参考にしてください。会社の所在地と毎日の勤務先を分けて確認します。
+
+転職するかを決める前に、自分の経験がいくらに見積もられるのかを知りたい方は、[転職サイトに2〜3社だけ登録して市場価値を確かめる手順](https://doboku-note.com/exam/civil-construction-1/guide/market-value-check?utm_source=note&utm_medium=referral&utm_campaign=civil-career-agent-comparison&utm_content=market-value-check&utm_term=ne49853deac96)をサイトにまとめています。登録した後に起きることや、連絡の止め方も書いています。
 
 <!-- cta:civil-mokuji -->
 資格学習の記事は、土木もくじから探せます。

@@ -85,11 +85,11 @@ cover:
 
 まず、仕事内容、勤務地、勤務体制の三つについて、分かったことと未確認のことを一行ずつ書いてみてください。
 
-詳しい質問項目は[発注者支援への転職ガイド](https://doboku-note.com/exam/civil-construction-1/guide/hatchu-shien?utm_source=note&utm_medium=referral&utm_campaign=civil-career-support-role&utm_content=role-guide)にまとめています。[相談・求人比較メモ](https://doboku-note.com/downloads/career-preparation.txt?utm_source=note&utm_medium=referral&utm_campaign=civil-career-support-role&utm_content=preparation)も無料で使えます。
+詳しい質問項目は[発注者支援への転職ガイド](https://doboku-note.com/exam/civil-construction-1/guide/hatchu-shien?utm_source=note&utm_medium=referral&utm_campaign=civil-career-support-role&utm_content=role-guide&utm_term=n266f0cdd99ef)にまとめています。[相談・求人比較メモ](https://doboku-note.com/downloads/career-preparation.txt?utm_source=note&utm_medium=referral&utm_campaign=civil-career-support-role&utm_content=preparation&utm_term=n266f0cdd99ef)も無料で使えます。
 
 「発注者側だから合いそう」から、「この業務の、この条件なら検討したい」へ。仕事内容を具体化してから、次の一歩を選んでください。
 
-土木の学習と仕事選びの情報は[doboku-note](https://doboku-note.com/?utm_source=note&utm_medium=referral&utm_campaign=civil-career-support-role&utm_content=site-footer)にまとめています。
+土木の学習と仕事選びの情報は[doboku-note](https://doboku-note.com/?utm_source=note&utm_medium=referral&utm_campaign=civil-career-support-role&utm_content=site-footer&utm_term=n266f0cdd99ef)にまとめています。
 
 
 <!-- career-expansion-links -->
@@ -98,6 +98,8 @@ cover:
 発注者としての経験を応募書類へ落とすなら、[「調整業務」を民間にも伝わる担当経験へ](https://note.com/dobokunote/n/n433cce5f118f)が具体的です。
 
 そもそも辞めるかどうかから整理したい場合は、[経験・生活費・次の働き方を整理する](https://note.com/dobokunote/n/n7a81ebf1cdc5)へ。
+
+転職するかを決める前に、自分の経験がいくらに見積もられるのかを知りたい方は、[転職サイトに2〜3社だけ登録して市場価値を確かめる手順](https://doboku-note.com/exam/civil-construction-1/guide/market-value-check?utm_source=note&utm_medium=referral&utm_campaign=civil-career-support-role&utm_content=market-value-check&utm_term=n266f0cdd99ef)をサイトにまとめています。登録した後に起きることや、連絡の止め方も書いています。
 
 <!-- cta:civil-mokuji -->
 資格学習の記事は、土木もくじから探せます。

@@ -52,7 +52,7 @@ title: 土木施工管理の年収を見直す｜資格手当・担当業務・�
 
 「忙しくなった」だけでなく、いつから、どの仕事を、どのような体制で担当しているかを書きます。給与の話と、人員・担当範囲の相談を分けると、会社へ確認する論点が明確になります。
 
-仕事の説明には[職務経歴書の整理方法](https://doboku-note.com/exam/civil-construction-1/guide/resume?utm_source=note&utm_medium=referral&utm_campaign=civil-career-salary-difference&utm_content=resume)も使えます。転職を決めていなくても、自分の担当を振り返る材料になります。
+仕事の説明には[職務経歴書の整理方法](https://doboku-note.com/exam/civil-construction-1/guide/resume?utm_source=note&utm_medium=referral&utm_campaign=civil-career-salary-difference&utm_content=resume&utm_term=nfbff7b1469b6)も使えます。転職を決めていなくても、自分の担当を振り返る材料になります。
 
 ## 求人と比較するときは条件をそろえる
 
@@ -66,14 +66,16 @@ title: 土木施工管理の年収を見直す｜資格手当・担当業務・�
 
 まず給与明細を見て、固定的な支給と変動する支給を分けてみてください。次に、資格の評価条件か、担当業務の見直しについて、確認したいことを一つ書きます。
 
-[相談・求人比較メモ](https://doboku-note.com/downloads/career-preparation.txt?utm_source=note&utm_medium=referral&utm_campaign=civil-career-salary-difference&utm_content=preparation)は無料で使えます。年収を上げることを急ぐ前に、どの条件を変えたいのかを具体的にしていきましょう。
+[相談・求人比較メモ](https://doboku-note.com/downloads/career-preparation.txt?utm_source=note&utm_medium=referral&utm_campaign=civil-career-salary-difference&utm_content=preparation&utm_term=nfbff7b1469b6)は無料で使えます。年収を上げることを急ぐ前に、どの条件を変えたいのかを具体的にしていきましょう。
 
-土木・建設系資格の学習と仕事選びを[doboku-note](https://doboku-note.com/?utm_source=note&utm_medium=referral&utm_campaign=civil-career-salary-difference&utm_content=site-footer)で発信しています。
+土木・建設系資格の学習と仕事選びを[doboku-note](https://doboku-note.com/?utm_source=note&utm_medium=referral&utm_campaign=civil-career-salary-difference&utm_content=site-footer&utm_term=nfbff7b1469b6)で発信しています。
 
 <!-- career-expansion-links -->
 ## 次に整理したいこと
 
 候補が2社に絞れたら、[同じ年収の内定2社を給与・休日・担当現場で比較する方法](https://note.com/dobokunote/n/nf17ae9b9f3f7)で、内訳と未確認の条件を並べてみてください。
+
+転職するかを決める前に、自分の経験がいくらに見積もられるのかを知りたい方は、[転職サイトに2〜3社だけ登録して市場価値を確かめる手順](https://doboku-note.com/exam/civil-construction-1/guide/market-value-check?utm_source=note&utm_medium=referral&utm_campaign=civil-career-salary-difference&utm_content=market-value-check&utm_term=nfbff7b1469b6)をサイトにまとめています。登録した後に起きることや、連絡の止め方も書いています。
 
 <!-- cta:civil-mokuji -->
 資格学習の記事は、土木もくじから探せます。

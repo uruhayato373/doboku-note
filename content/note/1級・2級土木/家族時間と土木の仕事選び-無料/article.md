@@ -87,11 +87,11 @@ cover:
 
 例えば、変えたいことは帰宅時刻、宿泊出張、休日対応。守りたいことは生活に必要な収入と、担当したい仕事。こうして分けると、転職で何を実現したいのかを説明しやすくなります。
 
-[相談・求人比較メモ](https://doboku-note.com/downloads/career-preparation.txt?utm_source=note&utm_medium=referral&utm_campaign=civil-career-family-time&utm_content=preparation)に書き、質問を二つか三つに絞ってみてください。勤務体制の確認は[会社選びのガイド](https://doboku-note.com/exam/civil-construction-1/guide/white-company?utm_source=note&utm_medium=referral&utm_campaign=civil-career-family-time&utm_content=company-guide)で詳しく説明しています。
+[相談・求人比較メモ](https://doboku-note.com/downloads/career-preparation.txt?utm_source=note&utm_medium=referral&utm_campaign=civil-career-family-time&utm_content=preparation&utm_term=n45e5ec2f687e)に書き、質問を二つか三つに絞ってみてください。勤務体制の確認は[会社選びのガイド](https://doboku-note.com/exam/civil-construction-1/guide/white-company?utm_source=note&utm_medium=referral&utm_campaign=civil-career-family-time&utm_content=company-guide&utm_term=n45e5ec2f687e)で詳しく説明しています。
 
 まだ動く時期が決まっていない方は、[転職の進め方とタイミング](https://note.com/dobokunote/n/n401905648243)へ。家族との時間という希望を、会社選びで使える言葉にしていきましょう。
 
-土木の学習と働き方の情報を[doboku-note](https://doboku-note.com/?utm_source=note&utm_medium=referral&utm_campaign=civil-career-family-time&utm_content=site-footer)で発信しています。
+土木の学習と働き方の情報を[doboku-note](https://doboku-note.com/?utm_source=note&utm_medium=referral&utm_campaign=civil-career-family-time&utm_content=site-footer&utm_term=n45e5ec2f687e)で発信しています。
 
 
 <!-- career-expansion-links -->
@@ -100,6 +100,8 @@ cover:
 勤務地そのものを動かす選択肢は、[「転勤なし」の次に確認する勤務地と出張](https://note.com/dobokunote/n/n01a775d6c669)にまとめています。
 
 いつ動くかを決めかねている場合は、[情報収集・応募・入社を分ける在職中の進め方](https://note.com/dobokunote/n/n401905648243)へ。
+
+転職するかを決める前に、自分の経験がいくらに見積もられるのかを知りたい方は、[転職サイトに2〜3社だけ登録して市場価値を確かめる手順](https://doboku-note.com/exam/civil-construction-1/guide/market-value-check?utm_source=note&utm_medium=referral&utm_campaign=civil-career-family-time&utm_content=market-value-check&utm_term=n45e5ec2f687e)をサイトにまとめています。登録した後に起きることや、連絡の止め方も書いています。
 
 <!-- cta:civil-mokuji -->
 資格学習の記事は、土木もくじから探せます。

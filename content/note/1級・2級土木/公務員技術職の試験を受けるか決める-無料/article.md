@@ -113,7 +113,7 @@ cover:
 
 この記事で示した数字は、判断の入口にすぎません。次にやることは、志望先の受験案内を自分でダウンロードして、科目名と題数を自分の手で確認することです。
 
-公務員技術職の受験全体の流れや、働き方との比較は[公務員土木の採用と仕事をまとめたガイド](https://doboku-note.com/exam/civil-construction-1/guide/public-servant?utm_source=note&utm_medium=referral&utm_campaign=civil-career-public-exam&utm_content=public-servant)にまとめています。
+公務員技術職の受験全体の流れや、働き方との比較は[公務員土木の採用と仕事をまとめたガイド](https://doboku-note.com/exam/civil-construction-1/guide/public-servant?utm_source=note&utm_medium=referral&utm_campaign=civil-career-public-exam&utm_content=public-servant&utm_term=n74574220cc9d)にまとめています。
 
 受けるか決めるのは、勉強を始めてからではありません。**何が出るかを見て、足りない分を数えたときです。**
 
@@ -121,6 +121,8 @@ cover:
 ## 次に整理したいこと
 
 試験の中身を見て受験が現実的だと分かったら、次は働き方の側を確認します。仕事内容・待遇・採用ルートの違いは[公務員土木か民間か](https://note.com/dobokunote/n/n8b03a7de0c6b)で整理しています。
+
+転職するかを決める前に、自分の経験がいくらに見積もられるのかを知りたい方は、[転職サイトに2〜3社だけ登録して市場価値を確かめる手順](https://doboku-note.com/exam/civil-construction-1/guide/market-value-check?utm_source=note&utm_medium=referral&utm_campaign=civil-career-public-exam&utm_content=market-value-check&utm_term=n74574220cc9d)をサイトにまとめています。登録した後に起きることや、連絡の止め方も書いています。
 
 <!-- cta:civil-mokuji -->
 資格学習の記事は、土木もくじから探せます。

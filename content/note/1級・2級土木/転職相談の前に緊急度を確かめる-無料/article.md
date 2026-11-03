@@ -109,7 +109,7 @@ https://www.mhlw.go.jp/general/seido/chihou/kaiketu/soudan.html
 
 どれか一つでも欠けているなら、その項目を先に片付けてください。転職の情報収集そのものは止める必要はありませんが、応募と意思決定は条件が揃ってからのほうが安全です。
 
-自分がいまどの段階にいるかを整理したい場合は、[緊急度と準備状況のチェック](https://doboku-note.com/tools/career-check?utm_source=note&utm_medium=referral&utm_campaign=civil-career-urgency&utm_content=career-check)を使ってみてください。答えた内容から、公的窓口が先か、準備に進んでよいかを切り分けられます。
+自分がいまどの段階にいるかを整理したい場合は、[緊急度と準備状況のチェック](https://doboku-note.com/tools/career-check?utm_source=note&utm_medium=referral&utm_campaign=civil-career-urgency&utm_content=career-check&utm_term=n394a24392863)を使ってみてください。答えた内容から、公的窓口が先か、準備に進んでよいかを切り分けられます。
 
 この記事に転職サービスの紹介は載せていません。健康被害や法令違反の疑いがある段階の人を、求人の紹介へ送ることが読者の不利益になるからです。必要なのは求人ではなく、相談先です。
 
@@ -117,6 +117,8 @@ https://www.mhlw.go.jp/general/seido/chihou/kaiketu/soudan.html
 ## 次に整理したいこと
 
 緊急の状態が片付き、準備へ進める段階になったら、経験と生活条件の棚卸しから始めます。[辞める前に確認すること](https://note.com/dobokunote/n/n7a81ebf1cdc5)で、担当した工事の経験と、変えたい勤務条件を分けて整理してください。
+
+転職するかを決める前に、自分の経験がいくらに見積もられるのかを知りたい方は、[転職サイトに2〜3社だけ登録して市場価値を確かめる手順](https://doboku-note.com/exam/civil-construction-1/guide/market-value-check?utm_source=note&utm_medium=referral&utm_campaign=civil-career-urgency&utm_content=market-value-check&utm_term=n394a24392863)をサイトにまとめています。登録した後に起きることや、連絡の止め方も書いています。
 
 <!-- cta:civil-mokuji -->
 資格学習の記事は、土木もくじから探せます。
