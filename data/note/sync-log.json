@@ -1,6 +1,38 @@
 {
   "runs": [
     {
+      "startedAt": "2026-11-03T09:21:07.358Z",
+      "finishedAt": "2026-11-03T09:21:25.354Z",
+      "plan": {
+        "synced": 0,
+        "ready": 1,
+        "blocked": 0,
+        "blockers": {},
+        "only": "content/note/1級・2級土木/転職相談の前に緊急度を確かめる-無料/"
+      },
+      "articles": {
+        "selected": 1,
+        "attempted": 0,
+        "updated": [],
+        "failed": [
+          {
+            "path": "content/note/1級・2級土木/転職相談の前に緊急度を確かめる-無料/article.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "結果なし（連続失敗で中断された可能性）"
+          }
+        ],
+        "deferred": []
+      },
+      "magazines": {
+        "attempted": 0,
+        "updated": [],
+        "failed": []
+      },
+      "problems": []
+    },
+    {
       "startedAt": "2026-11-03T09:19:21.865Z",
       "finishedAt": "2026-11-03T09:20:28.277Z",
       "plan": {
@@ -327,37 +359,6 @@
         "updated": [
           {
             "path": "content/note/1級・2級土木/内定2社の条件比較-無料/article.md",
-            "parts": [
-              "body"
-            ]
-          }
-        ],
-        "failed": [],
-        "deferred": []
-      },
-      "magazines": {
-        "attempted": 0,
-        "updated": [],
-        "failed": []
-      },
-      "problems": []
-    },
-    {
-      "startedAt": "2026-11-03T09:05:54.040Z",
-      "finishedAt": "2026-11-03T09:06:50.160Z",
-      "plan": {
-        "synced": 0,
-        "ready": 1,
-        "blocked": 0,
-        "blockers": {},
-        "only": "content/note/1級・2級土木/地元で働く土木転職-無料/"
-      },
-      "articles": {
-        "selected": 1,
-        "attempted": 1,
-        "updated": [
-          {
-            "path": "content/note/1級・2級土木/地元で働く土木転職-無料/article.md",
             "parts": [
               "body"
             ]
