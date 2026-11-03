@@ -6537,6 +6537,19 @@
       "commit": "ce46251303bd",
       "verification": "check-affiliate-wiring・check-affiliate-placements 合格",
       "note": "整理の 1〜9 を実施（9 の後半＝afb の講座の提携の解除は DN-0878、10＝もしもの成果の取得は判断待ちの DN-0953 へ切り出した）。提携状態の取り直しで AXIS Agent が未提携に。関係する検査（check-affiliate-wiring・-placements・-mats・-prose・check-career-separation）は合格のまま"
+    },
+    {
+      "id": "DN-0878",
+      "at": "2026-11-03",
+      "task": "afb に残る講座の提携（Red Line）を解除するか決める",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "9a3f4143c68d",
+      "verification": "catalog の decision を更新・check-affiliate-wiring 合格",
+      "note": "2026-11-03 運営者判断で解除しないことにした（11/1 の「解除する」を取り消し）。未配置で実害が無く、afb は 10/13 から休眠で、解除のためだけにログインの要る afb を操作する手間に見合わない。data/affiliate/catalog.json の sekokan-juken-taisaku の decision を「残す理由つき」に更新（完了条件のうち「残す理由つき」）"
     }
   ]
 }
