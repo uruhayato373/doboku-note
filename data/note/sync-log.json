@@ -1,6 +1,38 @@
 {
   "runs": [
     {
+      "startedAt": "2026-11-03T09:24:41.543Z",
+      "finishedAt": "2026-11-03T09:24:49.787Z",
+      "plan": {
+        "synced": 0,
+        "ready": 1,
+        "blocked": 0,
+        "blockers": {},
+        "only": "content/note/1級・2級土木/発注者支援の仕事選び-無料/"
+      },
+      "articles": {
+        "selected": 1,
+        "attempted": 0,
+        "updated": [],
+        "failed": [
+          {
+            "path": "content/note/1級・2級土木/発注者支援の仕事選び-無料/article.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "結果なし（連続失敗で中断された可能性）"
+          }
+        ],
+        "deferred": []
+      },
+      "magazines": {
+        "attempted": 0,
+        "updated": [],
+        "failed": []
+      },
+      "problems": []
+    },
+    {
       "startedAt": "2026-11-03T09:23:12.025Z",
       "finishedAt": "2026-11-03T09:23:19.579Z",
       "plan": {
@@ -331,37 +363,6 @@
         "updated": [
           {
             "path": "content/note/1級・2級土木/公務員土木か民間か-無料/article.md",
-            "parts": [
-              "body"
-            ]
-          }
-        ],
-        "failed": [],
-        "deferred": []
-      },
-      "magazines": {
-        "attempted": 0,
-        "updated": [],
-        "failed": []
-      },
-      "problems": []
-    },
-    {
-      "startedAt": "2026-11-03T09:10:39.286Z",
-      "finishedAt": "2026-11-03T09:11:36.876Z",
-      "plan": {
-        "synced": 0,
-        "ready": 1,
-        "blocked": 0,
-        "blockers": {},
-        "only": "content/note/1級・2級土木/公務員土木を辞める前の棚卸し-無料/"
-      },
-      "articles": {
-        "selected": 1,
-        "attempted": 1,
-        "updated": [
-          {
-            "path": "content/note/1級・2級土木/公務員土木を辞める前の棚卸し-無料/article.md",
             "parts": [
               "body"
             ]
