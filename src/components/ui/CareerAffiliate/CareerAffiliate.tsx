@@ -21,10 +21,9 @@ interface CareerAffiliateProps {
   /**
    * 本文中の転職枠の印（任意）。指定すると案件・リンク・文言は配置ルール（config/affiliate-placements.json）の解決結果
    * `inlineCard` で決め、MDX の service/description/points/cta は使わない（表示コピーと遷移先を常に一致させる＝景表法）。
-   * `"gks"` は歴史的な名前で GKS 案件を指さない（MDX 202 か所を書き換えずに残すための別名）。新しく書くときは `"career"`。
    * ルールの無いカテゴリでは描画しない（黙って別の案件に倒さない）。
    */
-  readonly program?: "career" | "gks";
+  readonly program?: "career";
   /** 配置ルールで解決した、この面に出す案件（DocPage・診断ツールが渡す）。program 指定時だけ使う */
   readonly inlineCard?: ResolvedPlacement | null | undefined;
   /** 2 枚並べの 2 枚目（本文中間は DocPage が渡す。手書きの本文カードは inlineCard.secondary を使う） */

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "_doc": "A8 パイプラインの案件カタログ + 状態機械 SSOT (doboku-note 版)。a8-browser.ts が upsert/遷移する機械 state。正典 = .claude/knowledge/reference/a8-affiliate-pipeline.md。手編集しない (状態機械は a8-scout-core.mjs が検証)。状態: candidate→applied→approved→harvested→registered→published、分岐: rejected/blocked/pending-vertical/error。初期は空 (list / import-partnered / scout で投入)。",
+  "_doc": "A8 パイプラインの案件カタログ + 状態機械 SSOT (doboku-note 版)。a8-browser.ts が upsert/遷移する機械 state。正典 = .claude/knowledge/reference/a8-affiliate-pipeline.md。手編集しない (状態機械は a8-scout-core.mjs が検証)。状態: candidate→applied→approved→harvested→registered→published、分岐: rejected/blocked/pending-vertical/error。list / import-partnered / scout で投入（A8 の口座は stats47 と共用なので、stats47 向けの案件も入る）。rewardYen・epcYen・confirmRatePct は取り込んだ時点の A8 の表示（buildjob の 50000 は 2026-08-31 までの増額時）で更新しない。転職案件の報酬・条件・提携状態の正本は data/affiliate/catalog.json（DN-0950）。",
   "entries": {
     "s00000021488002": {
       "programId": "s00000021488002",

@@ -9,7 +9,7 @@ interface SidebarAdBannerProps {
   readonly width: number;
   readonly height: number;
   readonly pixelSrc?: string | undefined;
-  /** GA4 クリック計測ラベル（例: "GKS" / "SAT"）。AnalyticsProvider のデリゲートリスナーが拾う。 */
+  /** GA4 クリック計測ラベル（例: "BuildJob-sidebar"）。AnalyticsProvider のデリゲートリスナーが拾う。 */
   readonly trackLabel?: string;
   /** GA4 の表示位置。category-mobile など呼び出し側で面を分離する。 */
   readonly placement?: string;

@@ -55,7 +55,7 @@ domain: affiliate
 
 ### 4. 時系列の整合（upsert の副作用チェック）
 
-- `a8-report-log.json` の `siteSummary` / `monthly` / `daily` / `programPeriod` に**重複キーが無い**こと
+- `data/a8/report-log.json` の `siteSummary` / `monthly` / `daily` / `programPeriod` に**重複キーが無い**こと
 - 前回 run と比べて既存月の値が変わった場合、それが「確定処理による遡及」で説明できるか
   （確定件数・確定報酬が**増える**のは正常。**減る**のは要確認）
 - 月次の成果（`programPeriod` の単月の期間から導く月×案件）は **単月 run のときだけ**増える（累計期間の run では増えないのが正常）

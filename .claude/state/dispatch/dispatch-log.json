@@ -6481,6 +6481,19 @@
       "commit": "faa10349986a",
       "verification": "公開ページで題名・価格・画像を目視、check-coconala-wiring exit 0（listed 3）",
       "note": "診断（¥2,000）を 2026-11-03 に公開（4484121）。商品画像は承認台帳に登録、納品文のテンプレは content/coconala/products/coconala-cce-essay-shindan/運用テンプレ.md。確認用の下書き 4482903 の削除は運営者が画面で行う（DN-0946）"
+    },
+    {
+      "id": "DN-0883",
+      "at": "2026-11-03",
+      "task": "資格別の商品分けを配置ルールに落とし、PC で 2 社を並べる比較を実装する（EXP-043 の判定後）",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "a90f81a9bca2",
+      "verification": "config/affiliate-placements.json の pairs と EXP-048 running",
+      "note": "2 枚並べ（§12.2）は 2026-10-31 に EXP-048 として実装・開始済み（配置ルールの pairs・src/lib/affiliate-experiment.mjs）。判定は EXP-048（2026-12-26）と DN-0843 が持つ。DN-0950 の整理で閉じる"
     }
   ]
 }

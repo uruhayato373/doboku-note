@@ -38,7 +38,7 @@ const STATE_DIR = datasetDir("a8.ui-raw");
 const REPORT_LOG = datasetPath("a8.report-log");
 const CONFIG_PATH = datasetPath("config.a8-report-automation");
 
-/** reportKey → a8-report-log.json 内の配列名とキー関数。 */
+/** reportKey → data/a8/report-log.json 内の配列名とキー関数。 */
 const BUCKET = {
   "site-summary": { field: "siteSummary", key: KEY.siteSummary },
   "period-monthly": { field: "monthly", key: KEY.monthly },
