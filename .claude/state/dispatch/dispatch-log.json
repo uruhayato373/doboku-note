@@ -6511,6 +6511,19 @@
       "commit": "6ed6a2750ad6",
       "verification": "check-coconala-wiring（手元の画像をよけて実行）",
       "note": "承認済み画像は Drive vault に既にあり（sha256 一致）、退避台帳 .claude/state/assets/drive-manifest.json にだけ載っていなかった。drive-vault-sync --group coconala-asset --path で台帳へ登録し、手元の画像をよけた CI と同じ条件で check-coconala-wiring が通ることを確認。再発防止: 承認済み画像が手元にだけあり台帳に無いと手元でも止める（approvedThumbOnlyLocal・tests/coconala-guards.test.mjs）"
+    },
+    {
+      "id": "DN-0951",
+      "at": "2026-11-03",
+      "task": "転職サイトに 2〜3 社登録して市場価値を確かめる記事と動線を作る（EXP-054）",
+      "tier": "high",
+      "kind": "制作",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "a6e69687e064",
+      "verification": "本番の /exam/civil-construction-1/guide/quit-or-stay に market-value-check への案内・check-production-ssr exit 0",
+      "note": "新規記事 /exam/civil-construction-1/guide/market-value-check を公開（main d2d582e39・check-production-ssr exit 0）。導線＝キャリア記事の記事末（resolveCareerNextSteps）・1級の市場価値・2級の年収・エージェント比較・note のキャリア記事 23 本（utm_term 付き。note への反映は土曜の note-sync）。guide-fact-checker の指摘を反映して reviewStatus approved。8 週後の判定は EXP-054（running・2026-11-10 初回確認）が持つ"
     }
   ]
 }
