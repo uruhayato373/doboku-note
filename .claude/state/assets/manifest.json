@@ -69824,6 +69824,19 @@
       "verifiedAt": "2026-11-01T07:33:29.791Z",
       "width": 1280,
       "height": 670
+    },
+    "content/site/civil-construction-1/guide-market-value-check/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/civil-construction-1/guide-market-value-check/ogp.png",
+      "sha256": "5f27572fc6d8b15218d7d34c26bd20b5a270e415c7e213571672272890b06251",
+      "bytes": 574894,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-11-03T07:19:31.696Z",
+      "width": 1200,
+      "height": 630,
+      "srcHash": "ddd5e18e3d8dfdb8"
     }
   },
   "note": "DN-0111 Phase 3。秘密値・署名 URL・絶対パスを書かないこと。",
