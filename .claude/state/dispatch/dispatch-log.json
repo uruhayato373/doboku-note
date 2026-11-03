@@ -6524,6 +6524,19 @@
       "commit": "a6e69687e064",
       "verification": "本番の /exam/civil-construction-1/guide/quit-or-stay に market-value-check への案内・check-production-ssr exit 0",
       "note": "新規記事 /exam/civil-construction-1/guide/market-value-check を公開（main d2d582e39・check-production-ssr exit 0）。導線＝キャリア記事の記事末（resolveCareerNextSteps）・1級の市場価値・2級の年収・エージェント比較・note のキャリア記事 23 本（utm_term 付き。note への反映は土曜の note-sync）。guide-fact-checker の指摘を反映して reviewStatus approved。8 週後の判定は EXP-054（running・2026-11-10 初回確認）が持つ"
+    },
+    {
+      "id": "DN-0950",
+      "at": "2026-11-03",
+      "task": "転職アフィリの仕組み（台帳・配線・カタログ・スキル・文書）の重なりと古い記述を整理する",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "ce46251303bd",
+      "verification": "check-affiliate-wiring・check-affiliate-placements 合格",
+      "note": "整理の 1〜9 を実施（9 の後半＝afb の講座の提携の解除は DN-0878、10＝もしもの成果の取得は判断待ちの DN-0953 へ切り出した）。提携状態の取り直しで AXIS Agent が未提携に。関係する検査（check-affiliate-wiring・-placements・-mats・-prose・check-career-separation）は合格のまま"
     }
   ]
 }

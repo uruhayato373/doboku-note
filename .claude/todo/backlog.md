@@ -302,30 +302,6 @@
 **完了条件**: EXP-055 が本番で running になり、8 週後に判定して技術士（建設部門）の案件を決める。
 
 
-### [DN-0950] 転職アフィリの仕組み（台帳・配線・カタログ・スキル・文書）の重なりと古い記述を整理する
-タグ: [収益化] [領域:アフィリエイト] [時期:2026-11..2026-12] [種類:改善] [起票:2026-11-03] [進行中]
-
-**起点**: 2026-11-03、転職アフィリを「維持」から「育てる」に変える前に、積み上がった仕組み（台帳・配線・カタログ・スキル・エージェント・文書）を棚卸しした。関係する検査（check-affiliate-wiring・-placements・-mats・-prose・check-career-separation・check-a8-report-due）はすべて合格で、壊れたものは無い。問題は同じ事実の二重持ちと、終わった実験・案件の記述が現役のように残っていること。
-
-**正本を 1 つにする**: 案件一覧・状態・報酬・条件＝data/affiliate/catalog.json（data/a8/catalog.json は scout の状態だけ）／どのページにどの案件＝config/affiliate-placements.json（affiliate-operations.md §6 の表は削ってリンクだけ）／素材・文言＝src/config/affiliate-creatives.ts と career-pathways.ts／実験の割り当て＝data/business/experiments.json（実行時は src/lib/affiliate-experiment.mjs）／成果＝クリックは GA4、発生・確定は data/a8/report-log.json（販売台帳 data/business/product-sales/ が案件別に引く）／裁定の記録＝affiliate-operations.md §6.5 に集約し、catalog の decision・訴求設計・カードからはリンクだけ。
-
-**やること**（重い順）:
-1. 高: data/a8/catalog.json の buildjob の報酬 50000（8/31 までの増額時）を削るか更新を止め、報酬は data/affiliate/catalog.json だけにする。10/27 に申請した 9 件の状態と、現役案件の verifiedAt（2026-09-08 のまま）を `/affiliate-status` で取り直す
-2. 高: 前提が消えたカード。DN-0883（2 枚並べの実装は EXP-048 で済み）は削除、DN-0843 と DN-0749 は EXP-043 の判定待ちから EXP-048 の判定（2026-12-26）待ちに書き換え
-3. 中: EXP-043 を現役のように書いている CareerAffiliate/README.md・SidebarAdBanner/README.md・affiliate-creatives.ts のコメント、SidebarAdBanner.tsx の「GKS / SAT」の例、affiliate-operations.md の POST_CAMPAIGN_AB_ENABLED（10/07 に削除済み）を直す
-4. 中: experiments.json の中止した実験の status を abandoned にそろえる（EXP-043 は done・result が中止）
-5. 中: MDX の `program="gks"`（156 ファイル・207 か所。GKS ではない歴史的な別名）を `"career"` に一括で置換し、affiliate-mats.json の素材を出さない許可（gks・期限切れの buildjob など）を整理する
-6. 中: affiliate-operations.md §6 の配置の表と catalog の decision の配置の散文を削り、正本へのリンクにする
-7. 低: 旧パスの参照（data/ads/a8-catalog.json・a8-catalog.json・a8-report-log.json・data/a8/inventory.json・repository-paths.mjs:198-200）を直す
-8. 低: afb の取得（afb-scan・fetch-afb-outcomes・check-afb-outcomes-freshness）は 10/13 から休眠（DN-0643）。休眠の印を付けるか、affiliate-status から afb を外すか決める
-9. 低: DN-0330 と DN-0331 を 1 枚にまとめ、DN-0878（解除の決定）を catalog の sekokan-juken-taisaku の decision に反映する
-10. もしもの案件（コンストワーク・建築転職）の成果を販売台帳と送客の計測で同じ商品 ID で読めるようにする（今は A8 だけ。EXP-054 の前提）
-
-**進捗（2026-11-03）**: 済み＝2（DN-0883 を todo:complete で閉じ、DN-0843・DN-0749 を EXP-048 待ちに）・3（README・コメント・運用文書）・5（MDX 156 ファイル 207 か所を program="career" に・別名を廃止。affiliate-mats.json の期限切れで未使用のビルドジョブ 2 行を削除。gks の 1 行は過去の A8 レポートの読み替え表 programIdMap が使うので残す）・6 の前半（運用文書 §6 の配置の表を削ってリンクに）・7（現役の文書・エージェント・コメントの旧パス。repository-paths.mjs は旧→新の対応表なので残す）・8（運用文書の afb に休眠の印）・9 の前半（DN-0330 を DN-0331 に統合）・1 の前半（data/a8/catalog.json の注記で、報酬の正本は data/affiliate/catalog.json と明記。機械の状態は手で書き換えない）。
-判断で変えないもの＝4（EXP-043 は B を採用して終えたので done のまま）・6 の後半（catalog の decision は提携可否の理由の履歴として残し、配置の正本は配置ルールと明記）。
-残り＝1 の後半（10/27 に申請した 9 件の状態と verifiedAt の取り直し。`/affiliate-status` は ASP へのログインが要るので運営者の端末か土曜の収集で回す）・9 の後半（DN-0878 は運営者の afb の操作待ちで、そのカードが持つ）・10（もしもの成果は取得の仕組みが無く記録が 0 件。もしもの案件を本番で数えるには成果の取得から作る＝EXP-054 で もしもの案件を並べる前に判断）。
-
-**完了条件**: 上の 1〜9 が済み、関係する検査が合格のまま、10 は販売台帳にもしもの行が入るか、入れない理由が書かれている。
 
 
 
