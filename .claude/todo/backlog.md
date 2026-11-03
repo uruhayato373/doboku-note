@@ -281,6 +281,28 @@
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-0950] 転職アフィリの仕組み（台帳・配線・カタログ・スキル・文書）の重なりと古い記述を整理する
+タグ: [収益化] [領域:アフィリエイト] [時期:2026-11..2026-12] [種類:改善] [起票:2026-11-03]
+
+**起点**: 2026-11-03、転職アフィリを「維持」から「育てる」に変える前に、積み上がった仕組み（台帳・配線・カタログ・スキル・エージェント・文書）を棚卸しした。関係する検査（check-affiliate-wiring・-placements・-mats・-prose・check-career-separation・check-a8-report-due）はすべて合格で、壊れたものは無い。問題は同じ事実の二重持ちと、終わった実験・案件の記述が現役のように残っていること。
+
+**正本を 1 つにする**: 案件一覧・状態・報酬・条件＝data/affiliate/catalog.json（data/a8/catalog.json は scout の状態だけ）／どのページにどの案件＝config/affiliate-placements.json（affiliate-operations.md §6 の表は削ってリンクだけ）／素材・文言＝src/config/affiliate-creatives.ts と career-pathways.ts／実験の割り当て＝data/business/experiments.json（実行時は src/lib/affiliate-experiment.mjs）／成果＝クリックは GA4、発生・確定は data/a8/report-log.json（販売台帳 data/business/product-sales/ が案件別に引く）／裁定の記録＝affiliate-operations.md §6.5 に集約し、catalog の decision・訴求設計・カードからはリンクだけ。
+
+**やること**（重い順）:
+1. 高: data/a8/catalog.json の buildjob の報酬 50000（8/31 までの増額時）を削るか更新を止め、報酬は data/affiliate/catalog.json だけにする。10/27 に申請した 9 件の状態と、現役案件の verifiedAt（2026-09-08 のまま）を `/affiliate-status` で取り直す
+2. 高: 前提が消えたカード。DN-0883（2 枚並べの実装は EXP-048 で済み）は削除、DN-0843 と DN-0749 は EXP-043 の判定待ちから EXP-048 の判定（2026-12-26）待ちに書き換え
+3. 中: EXP-043 を現役のように書いている CareerAffiliate/README.md・SidebarAdBanner/README.md・affiliate-creatives.ts のコメント、SidebarAdBanner.tsx の「GKS / SAT」の例、affiliate-operations.md の POST_CAMPAIGN_AB_ENABLED（10/07 に削除済み）を直す
+4. 中: experiments.json の中止した実験の status を abandoned にそろえる（EXP-043 は done・result が中止）
+5. 中: MDX の `program="gks"`（156 ファイル・207 か所。GKS ではない歴史的な別名）を `"career"` に一括で置換し、affiliate-mats.json の素材を出さない許可（gks・期限切れの buildjob など）を整理する
+6. 中: affiliate-operations.md §6 の配置の表と catalog の decision の配置の散文を削り、正本へのリンクにする
+7. 低: 旧パスの参照（data/ads/a8-catalog.json・a8-catalog.json・a8-report-log.json・data/a8/inventory.json・repository-paths.mjs:198-200）を直す
+8. 低: afb の取得（afb-scan・fetch-afb-outcomes・check-afb-outcomes-freshness）は 10/13 から休眠（DN-0643）。休眠の印を付けるか、affiliate-status から afb を外すか決める
+9. 低: DN-0330 と DN-0331 を 1 枚にまとめ、DN-0878（解除の決定）を catalog の sekokan-juken-taisaku の decision に反映する
+10. もしもの案件（コンストワーク・建築転職）の成果を販売台帳と送客の計測で同じ商品 ID で読めるようにする（今は A8 だけ。EXP-054 の前提）
+
+**完了条件**: 上の 1〜9 が済み、関係する検査が合格のまま、10 は販売台帳にもしもの行が入るか、入れない理由が書かれている。
+
+
 ### [DN-0948] ココナラ『主任技士の小論文の診断』の商品画像が CI に無く、develop の事前検査が 11/2 から落ち続けている
 タグ: [インフラ・計測] [領域:商品] [時期:2026-11] [種類:不具合] [起票:2026-11-03]
 
