@@ -9,7 +9,7 @@ import { NOTE_LINK_REL } from '@/lib/external-link-rel';
 export default function NoteProductCard({ product, category, placement, scopeNotice }: {
   product: NoteMagazine; category: string; placement: string; scopeNotice?: string | undefined;
 }) {
-  const generatedImage = noteCtaImage(product.id, placement.includes('sidebar') ? 'tile' : 'body');
+  const generatedImage = noteCtaImage(product.id, placement.includes('sidebar') ? 'tile' : 'body', placement.includes('sidebar') ? 'lead' : undefined);
   if (generatedImage) return <NoteImageCta href={buildMagazineUrl(product, `${category}-${placement}`)} image={generatedImage} scopeNotice={scopeNotice}
     trackLabel={product.id} placement={placement} className={placement.includes('sidebar') ? 'mx-auto w-full max-w-[300px]' : 'w-full'} />;
   const brand = brandOf(product.id);
