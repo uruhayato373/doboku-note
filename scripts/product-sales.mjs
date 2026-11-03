@@ -3,7 +3,7 @@
  * product-sales.mjs — 暦月 × 商品の販売台帳を作る（DN-0947）。
  *
  * 入力（すべてコミット済み・creds 不要）: config/products.json・data/note/sales.json・data/kdp/royalties.json・
- *   data/coconala/revenue.json・data/coconala/orders.json・data/a8/report-log.json
+ *   data/coconala/revenue.json・data/coconala/orders.json・data/a8/report-log.json（案件別の単月）・config/affiliate-mats.json（a8mat → 案件）
  * 出力: data/business/product-sales/{month}.json（同じ月は作り直して上書きする。入力が正本で、これは引き当ての結果）
  * 中身・計測の範囲（coverage）の読み方は scripts/lib/product-sales.mjs。GA4 の product_click と同じ商品 ID でつなぐ。
  *
@@ -27,6 +27,7 @@ let input;
 try {
   input = {
     products: readJson(ROOT, datasetPath('config.products')).products,
+    mats: readJsonIf(ROOT, datasetPath('config.affiliate-mats'))?.mats ?? [],
     salesLog: readJson(ROOT, datasetPath('note.sales')),
     royalties: readJsonIf(ROOT, datasetPath('kdp.royalties')),
     revenue: readJsonIf(ROOT, datasetPath('coconala.revenue')),

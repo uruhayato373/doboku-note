@@ -801,7 +801,7 @@ const productSalesCoverage = z
   .object({
     status: z.enum(['measured', 'partial', 'account-only', 'unmeasured']).describe('measured=行の無い商品は計測済み・0 件／partial・account-only・unmeasured=行の無い商品は未計測（0 にしない）'),
     provisional: z.boolean().optional().describe('月が締まっていない・金額が推計'),
-    amountBasis: z.enum(['price', 'net', 'royalty']).optional().describe('amountYen の中身（note=定価・ココナラ=手数料控除後・KDP=推計ロイヤリティ）'),
+    amountBasis: z.enum(['price', 'net', 'royalty', 'approved']).optional().describe('amountYen の中身（note=定価・ココナラ=手数料控除後・KDP=推計ロイヤリティ・A8=確定報酬）'),
     fetchedAt: utcTime('入力の取得時刻').optional(),
     reason: z.string().optional(),
     note: z.string().optional(),
@@ -811,6 +811,7 @@ const productSalesCoverage = z
     unresolvedBookIds: z.array(z.string()).optional(),
     unresolvedTalkroomIds: z.array(z.string()).optional(),
     account: z.looseObject({}).optional().describe('口座全体の月次（A8）'),
+    otherPrograms: count('doboku-note の案件に当たらない A8 の行（stats47 など同じ口座のほかのサイト）').optional(),
   })
   .strict();
 export const BusinessProductSales = z
@@ -823,7 +824,7 @@ export const BusinessProductSales = z
       .array(
         z
           .object({
-            destination: z.enum(['note', 'amazon', 'coconala']),
+            destination: z.enum(['note', 'amazon', 'coconala', 'a8']),
             productId: z.string().min(1).describe('販売記録の商品 ID（note は販売履歴の productId・ほかは商品の正本の id）'),
             type: z.string().optional(),
             bookId: z.string().optional(),
@@ -831,6 +832,10 @@ export const BusinessProductSales = z
             count: orNull(count('販売件数'), 'KDP は件数を出さないので null'),
             amountYen: z.number().int().describe('金額（coverage の amountBasis）'),
             kenpYen: z.number().int().optional(),
+            grossYen: z.number().int().optional().describe('A8 の発生額（キャンセル・未承認を含む）'),
+            approvedCount: count('A8 の承認件数').optional(),
+            pendingYen: z.number().int().optional().describe('A8 の承認待ちの報酬'),
+            clicks: count('A8 側で数えたクリック（GA4 の product_click と突き合わせる）').optional(),
           })
           .strict(),
       )

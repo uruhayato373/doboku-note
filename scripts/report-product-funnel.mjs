@@ -33,7 +33,7 @@ for (let m = startDate.slice(0, 7); m <= endDate.slice(0, 7); ) {
   m = new Date(Date.UTC(y, mo, 1)).toISOString().slice(0, 7);
 }
 const ledgers = months.map((month) => readJsonIf(ROOT, datasetPath('business.product-sales', { month })) ?? { month, coverage: {}, rows: [] });
-const index = buildProductIndex(readJson(ROOT, datasetPath('config.products')).products);
+const index = buildProductIndex(readJson(ROOT, datasetPath('config.products')).products, readJsonIf(ROOT, datasetPath('config.affiliate-mats'))?.mats ?? []);
 const funnel = buildProductFunnel({ report: latest.data, ledgers, index });
 if (args.product) funnel.rows = funnel.rows.filter((r) => r.destinationId === args.product || r.productId === args.product);
 

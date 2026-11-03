@@ -26,16 +26,11 @@
       "note": "クローズ日で計上・手数料控除後。おひねり（tip）は金額に入れ、件数に数えない"
     },
     "a8": {
-      "status": "account-only",
+      "status": "measured",
+      "provisional": false,
+      "amountBasis": "approved",
       "fetchedAt": "2026-10-31T00:30:58.832Z",
-      "reason": "A8 の月次は口座全体だけ（案件別は期間合計しか取っていない）。商品別は未計測",
-      "account": {
-        "clicks": 271,
-        "conversions": 0,
-        "approved": 0,
-        "revenueYen": 0,
-        "pendingRevenueYen": 0
-      }
+      "note": "案件別の単月レポート。count は発生件数（キャンセルを含む）、amountYen は確定報酬。発生 0 の案件は行が無い＝計測済み・0 件"
     }
   },
   "rows": [

@@ -121,7 +121,7 @@ npm run sales-summary -- 2026-06   # 指定月（位置引数。--month フラ�
 
 ### 商品別の月次販売台帳（DN-0947）
 
-`npm run product-sales` が sales.json・KDP・ココナラ・A8 の記録から `data/business/product-sales/YYYY-MM.json` を作り直す（土曜の収集の product-sales 段）。行は販売記録の商品 ID と販売先の ID（note キー・ASIN・サービス番号＝GA4 `product_click` の `product_id`）。販売先ごとの `coverage` が measured の月だけ、行の無い商品を「計測済み・0 件」と読む。partial（締まっていない月・月末前の取得）・account-only（A8）・unmeasured は 0 件ではない。KDP は stats47 と同じ口座なので、doboku-note の ASIN（config/products.json）に当たる本だけを数え、書籍 ID の付かない行は excluded に残す。
+`npm run product-sales` が sales.json・KDP・ココナラ・A8 の記録から `data/business/product-sales/YYYY-MM.json` を作り直す（土曜の収集の product-sales 段）。行は販売記録の商品 ID と販売先の ID（note キー・ASIN・サービス番号＝GA4 `product_click` の `product_id`）。販売先ごとの `coverage` が measured の月だけ、行の無い商品を「計測済み・0 件」と読む。partial（締まっていない月・月末前の取得）・account-only（A8 の案件別を単月で取っていない月）・unmeasured は 0 件ではない。A8 は案件（buildjob 等）を商品として数え、金額は確定報酬（発生額・承認待ち・A8 側のクリックは別欄）。同じ口座の stats47 の案件は数えない。KDP は stats47 と同じ口座なので、doboku-note の ASIN（config/products.json）に当たる本だけを数え、書籍 ID の付かない行は excluded に残す。
 
 ### 4. 商品別CTAとの期間効率
 
