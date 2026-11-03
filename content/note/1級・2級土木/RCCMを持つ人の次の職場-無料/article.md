@@ -102,7 +102,7 @@ RCCMの受験資格そのものも、この「実務の棚卸し」と相性が�
 
 そのうえで、資格があることで変わる部分もあります。それは、体制を組むときの選択肢に入るということです。自分が入ることで会社が受けられる業務が増えるなら、それは転職時に説明できる価値です。
 
-RCCMという資格そのものの位置づけや試験の全体像を先に知っておきたい場合は、[RCCMの概要ガイド](https://doboku-note.com/exam/rccm/guide/overview?utm_source=note&utm_medium=referral&utm_campaign=civil-career-rccm-next&utm_content=rccm-overview)にまとめています。
+RCCMという資格そのものの位置づけや試験の全体像を先に知っておきたい場合は、[RCCMの概要ガイド](https://doboku-note.com/exam/rccm/guide/overview?utm_source=note&utm_medium=referral&utm_campaign=civil-career-rccm-next&utm_content=rccm-overview&utm_term=n619606e67f94)にまとめています。
 
 「RCCMがあるから管理技術者になれる」ではなく、「この分野のこの実務があるから、この業務の要件に当てはまる」。次の職場を選ぶときは、後者の言い方ができる状態にしておくと話が早く進みます。
 
@@ -110,6 +110,8 @@ RCCMという資格そのものの位置づけや試験の全体像を先に知�
 ## 次に整理したいこと
 
 資格と実務の対応が見えてきたら、その先の働き方の選択肢も並べておくと判断しやすくなります。[資格活用キャリアマップ](https://note.com/dobokunote/n/nd2f697ffbc4a)では、取得した資格をどの職場でどう使うかを整理しています。
+
+転職するかを決める前に、自分の経験がいくらに見積もられるのかを知りたい方は、[転職サイトに2〜3社だけ登録して市場価値を確かめる手順](https://doboku-note.com/exam/civil-construction-1/guide/market-value-check?utm_source=note&utm_medium=referral&utm_campaign=civil-career-rccm-next&utm_content=market-value-check&utm_term=n619606e67f94)をサイトにまとめています。登録した後に起きることや、連絡の止め方も書いています。
 
 <!-- cta:civil-mokuji -->
 資格学習の記事は、土木もくじから探せます。

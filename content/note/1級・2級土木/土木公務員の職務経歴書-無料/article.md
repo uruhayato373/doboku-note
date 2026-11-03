@@ -80,7 +80,7 @@ cover:
 
 例えば関係機関との調整を含む求人なら、扱う対象、相手方、自分に求められる役割を質問します。自治体での経験があるという理由だけで、すぐ同じように進められるとは限りません。
 
-民間の発注者支援を候補にする場合は、[仕事内容と担当範囲のガイド](https://doboku-note.com/exam/civil-construction-1/guide/hatchu-shien?utm_source=note&utm_medium=referral&utm_campaign=civil-career-public-work-history&utm_content=role-guide)も確認してください。
+民間の発注者支援を候補にする場合は、[仕事内容と担当範囲のガイド](https://doboku-note.com/exam/civil-construction-1/guide/hatchu-shien?utm_source=note&utm_medium=referral&utm_campaign=civil-career-public-work-history&utm_content=role-guide&utm_term=n433cce5f118f)も確認してください。
 
 **PR：ビルドジョブの案内にはアフィリエイト広告を含みます。**
 
@@ -92,11 +92,11 @@ https://px.a8.net/svt/ejp?a8mat=4B5OO5+FHED6+5B0Y+NTJWY
 
 完成した文章を読み、「自治体名や部署名を知らない人にも、自分の担当が分かるか」を確かめます。略称や内輪の呼び方は、必要な範囲で説明を添えます。
 
-まだ転職先を決めていない方は、[公務員土木か、民間か](https://note.com/dobokunote/n/n8b03a7de0c6b)から選択肢を整理できます。希望条件は[相談・求人比較メモ](https://doboku-note.com/downloads/career-preparation.txt?utm_source=note&utm_medium=referral&utm_campaign=civil-career-public-work-history&utm_content=preparation)に分けて記入してください。
+まだ転職先を決めていない方は、[公務員土木か、民間か](https://note.com/dobokunote/n/n8b03a7de0c6b)から選択肢を整理できます。希望条件は[相談・求人比較メモ](https://doboku-note.com/downloads/career-preparation.txt?utm_source=note&utm_medium=referral&utm_campaign=civil-career-public-work-history&utm_content=preparation&utm_term=n433cce5f118f)に分けて記入してください。
 
 まずは、よく覚えている業務を一つ。部署名の次に、**自分が何を整理し、誰へ確認し、どう進めたか**を書いてみましょう。
 
-土木の学習と資格活用を[doboku-note](https://doboku-note.com/?utm_source=note&utm_medium=referral&utm_campaign=civil-career-public-work-history&utm_content=site-footer)で発信しています。
+土木の学習と資格活用を[doboku-note](https://doboku-note.com/?utm_source=note&utm_medium=referral&utm_campaign=civil-career-public-work-history&utm_content=site-footer&utm_term=n433cce5f118f)で発信しています。
 
 
 <!-- career-expansion-links -->
@@ -105,6 +105,8 @@ https://px.a8.net/svt/ejp?a8mat=4B5OO5+FHED6+5B0Y+NTJWY
 発注者の経験を活かす進路そのものを比べたい場合は、[発注者支援への転職｜仕事内容・常駐先・配属変更で確認したいこと](https://note.com/dobokunote/n/n266f0cdd99ef)があります。
 
 公務員と民間のどちらに身を置くかから考え直すなら、[公務員土木か民間か｜仕事内容・働き方・採用ルートで比べる選び方](https://note.com/dobokunote/n/n8b03a7de0c6b)へ。
+
+転職するかを決める前に、自分の経験がいくらに見積もられるのかを知りたい方は、[転職サイトに2〜3社だけ登録して市場価値を確かめる手順](https://doboku-note.com/exam/civil-construction-1/guide/market-value-check?utm_source=note&utm_medium=referral&utm_campaign=civil-career-public-work-history&utm_content=market-value-check&utm_term=n433cce5f118f)をサイトにまとめています。登録した後に起きることや、連絡の止め方も書いています。
 
 <!-- cta:civil-mokuji -->
 資格学習の記事は、土木もくじから探せます。

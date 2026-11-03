@@ -38,7 +38,7 @@
 
 **開始（2026-11-03）**: 本番デプロイ cf37bd33a で記事を公開し、EXP-054 を running にした。
 
-**残り（2026-11-03 時点・未着手）**: ① キャリア記事 45 本の記事末の内部案内（src/config/career-pathways.ts・CareerNextStepNav）に新規記事を入れる ② キャリア系の note 記事から新規記事への導線と utm_term（add-note-utm）。土曜の note-sync がその本数だけ再公開するので本数を決めてから ③ 新規記事の事実確認（guide-fact-checker）を回し、reviewStatus を needs-review から上げる。
+**残りの実施（2026-11-03）**: ① キャリア記事の記事末の内部案内（resolveCareerNextSteps）に「市場価値を確かめる手順」を全記事で 1 回出す（テストつき）② キャリア系の note 記事 23 本の「次に整理したいこと」に新規記事への一文（UTM・utm_content=market-value-check・utm_term=記事キー）を足し、24 本の既存のサイトへのリンク 59 か所に utm_term を入れた（改行コードを保つため add-note-utm ではなく同じ判定関数で置換。note への反映は土曜の note-sync。総監の 1 本は節が無く対象外）③ guide-fact-checker の指摘（手数料の書き方・連絡の時期・ブロック設定の反映確認）を直し、ビルドジョブの実績の日付を公式の 2026-03-16 時点に合わせて reviewStatus を approved に。建設JOBs の対象条件は A8 の広告主ページ（2026-09-08 確認）が根拠。
 
 **完了条件**: 新規記事と改稿が本番に出て、EXP-054 が running になっている。8 週後の判定は EXP-054 で行い、このカードは公開で削除する。
 

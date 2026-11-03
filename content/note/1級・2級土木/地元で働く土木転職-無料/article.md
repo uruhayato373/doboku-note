@@ -87,11 +87,11 @@ cover:
 
 気になる求人を一つ選び、勤務地欄だけでは分からないことを書いてみてください。会社の住所、最初の現場、次の配属範囲。この三つが分かれていれば、確認が進めやすくなります。
 
-[無料の相談・求人比較メモ](https://doboku-note.com/downloads/career-preparation.txt?utm_source=note&utm_medium=referral&utm_campaign=civil-career-local-work&utm_content=preparation)に希望地域と出張条件を書き、必要なら[退職前の相談ガイド](https://doboku-note.com/exam/civil-construction-1/guide/career-consultation-before-quit?utm_source=note&utm_medium=referral&utm_campaign=civil-career-local-work&utm_content=consultation-guide)も確認してください。
+[無料の相談・求人比較メモ](https://doboku-note.com/downloads/career-preparation.txt?utm_source=note&utm_medium=referral&utm_campaign=civil-career-local-work&utm_content=preparation&utm_term=n01a775d6c669)に希望地域と出張条件を書き、必要なら[退職前の相談ガイド](https://doboku-note.com/exam/civil-construction-1/guide/career-consultation-before-quit?utm_source=note&utm_medium=referral&utm_campaign=civil-career-local-work&utm_content=consultation-guide&utm_term=n01a775d6c669)も確認してください。
 
 地元へ戻ることだけでなく、**戻ったあと、どのような毎日を続けたいか**。そこまで言葉にして、仕事を選んでいきましょう。
 
-土木の学習とキャリアの情報を[doboku-note](https://doboku-note.com/?utm_source=note&utm_medium=referral&utm_campaign=civil-career-local-work&utm_content=site-footer)で発信しています。
+土木の学習とキャリアの情報を[doboku-note](https://doboku-note.com/?utm_source=note&utm_medium=referral&utm_campaign=civil-career-local-work&utm_content=site-footer&utm_term=n01a775d6c669)で発信しています。
 
 
 <!-- career-expansion-links -->
@@ -100,6 +100,8 @@ cover:
 家族との時間を条件に入れたい場合は、[休日・帰宅・出張の希望を伝える方法](https://note.com/dobokunote/n/n45e5ec2f687e)で伝え方を整理できます。
 
 候補が 2 社に絞れたら、[同じ年収の2社を給与・休日・担当現場で比べる方法](https://note.com/dobokunote/n/nf17ae9b9f3f7)が次の一歩です。
+
+転職するかを決める前に、自分の経験がいくらに見積もられるのかを知りたい方は、[転職サイトに2〜3社だけ登録して市場価値を確かめる手順](https://doboku-note.com/exam/civil-construction-1/guide/market-value-check?utm_source=note&utm_medium=referral&utm_campaign=civil-career-local-work&utm_content=market-value-check&utm_term=n01a775d6c669)をサイトにまとめています。登録した後に起きることや、連絡の止め方も書いています。
 
 <!-- cta:civil-mokuji -->
 資格学習の記事は、土木もくじから探せます。

@@ -55,7 +55,7 @@ title: 施工管理の転職エージェントの使い方｜登録・電話・�
 
 休日も、求人票に書かれた日数と、配属予定の現場で実際に休めるかを分けて質問します。休日出勤の頻度、出勤した場合の扱い、休んだ人の代わりを担う体制まで聞ければ、希望との違いを判断しやすくなります。
 
-工種・担当範囲と、相談で聞きたい条件を一緒に整理する場合は、[辞める前の相談に使える希望条件シート](https://doboku-note.com/exam/civil-construction-1/guide/career-consultation-before-quit?utm_source=note&utm_medium=referral&utm_campaign=civil-career-agent-howto&utm_content=condition-sheet)に記入項目をまとめています。
+工種・担当範囲と、相談で聞きたい条件を一緒に整理する場合は、[辞める前の相談に使える希望条件シート](https://doboku-note.com/exam/civil-construction-1/guide/career-consultation-before-quit?utm_source=note&utm_medium=referral&utm_campaign=civil-career-agent-howto&utm_content=condition-sheet&utm_term=n5a823955985c)に記入項目をまとめています。
 
 ## 電話に出にくいことは、最初に伝える
 
@@ -93,6 +93,8 @@ https://px.a8.net/svt/ejp?a8mat=4B5OO5+FHED6+5B0Y+NTJWY
 ## 次に整理したいこと
 
 面談で話す工事経験をそのまま職務経歴書へ広げたい方には、[「施工管理を担当しました」で終わらない経験の伝え方](https://note.com/dobokunote/n/ne990d6bf4ce1)も用意しています。
+
+転職するかを決める前に、自分の経験がいくらに見積もられるのかを知りたい方は、[転職サイトに2〜3社だけ登録して市場価値を確かめる手順](https://doboku-note.com/exam/civil-construction-1/guide/market-value-check?utm_source=note&utm_medium=referral&utm_campaign=civil-career-agent-howto&utm_content=market-value-check&utm_term=n5a823955985c)をサイトにまとめています。登録した後に起きることや、連絡の止め方も書いています。
 
 ---
 

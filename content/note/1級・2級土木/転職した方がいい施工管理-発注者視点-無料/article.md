@@ -62,7 +62,7 @@ title: 施工管理を続けるか転職するか｜元自治体土木職が考�
 
 求人を見るときは、担当予定の仕事と勤務条件が、その希望に合うかを確かめます。会社の規模や評判だけで、自分の配属後の環境が決まるわけではありません。
 
-[会社選びのガイド](https://doboku-note.com/exam/civil-construction-1/guide/white-company?utm_source=note&utm_medium=referral&utm_campaign=civil-career-hatchusha-view&utm_content=company-guide)にある質問を、自分が困っていることに合わせて選んでください。
+[会社選びのガイド](https://doboku-note.com/exam/civil-construction-1/guide/white-company?utm_source=note&utm_medium=referral&utm_campaign=civil-career-hatchusha-view&utm_content=company-guide&utm_term=n85d4b322898b)にある質問を、自分が困っていることに合わせて選んでください。
 
 ## 業界に残って、仕事の立場を変える選択肢もある
 
@@ -70,20 +70,22 @@ title: 施工管理を続けるか転職するか｜元自治体土木職が考�
 
 ただし、公務員として採用されるわけではありません。雇用先、常駐先、担当範囲、勤務条件、契約終了時の配属変更を求人ごとに確認します。職種名だけで働きやすさを判断しないでください。
 
-仕事内容は[発注者支援業務のガイド](https://doboku-note.com/exam/civil-construction-1/guide/hatchu-shien?utm_source=note&utm_medium=referral&utm_campaign=civil-career-hatchusha-view&utm_content=hatchu-shien)で整理しています。
+仕事内容は[発注者支援業務のガイド](https://doboku-note.com/exam/civil-construction-1/guide/hatchu-shien?utm_source=note&utm_medium=referral&utm_campaign=civil-career-hatchusha-view&utm_content=hatchu-shien&utm_term=n85d4b322898b)で整理しています。
 
 ## 今の職場と候補を、同じ項目で見る
 
-今の会社に残る場合も転職を考える場合も、必要な条件がどこまで確認できたかを見ます。[無料の相談・求人比較メモ](https://doboku-note.com/downloads/career-preparation.txt?utm_source=note&utm_medium=referral&utm_campaign=civil-career-hatchusha-view&utm_content=preparation)に、変えたいことと守りたいことを書いてみましょう。
+今の会社に残る場合も転職を考える場合も、必要な条件がどこまで確認できたかを見ます。[無料の相談・求人比較メモ](https://doboku-note.com/downloads/career-preparation.txt?utm_source=note&utm_medium=referral&utm_campaign=civil-career-hatchusha-view&utm_content=preparation&utm_term=n85d4b322898b)に、変えたいことと守りたいことを書いてみましょう。
 
 次に読む記事は[辞める前に確認すること](https://note.com/dobokunote/n/n7a81ebf1cdc5)です。気持ちを急いで結論にせず、具体的な情報を増やしながら、自分が選べる道を整理してください。
 
-土木・建設系資格の学習と仕事選びを[doboku-note](https://doboku-note.com/?utm_source=note&utm_medium=referral&utm_campaign=civil-career-hatchusha-view&utm_content=site-footer)で発信しています。
+土木・建設系資格の学習と仕事選びを[doboku-note](https://doboku-note.com/?utm_source=note&utm_medium=referral&utm_campaign=civil-career-hatchusha-view&utm_content=site-footer&utm_term=n85d4b322898b)で発信しています。
 
 <!-- career-expansion-links -->
 ## 次に整理したいこと
 
 次の仕事として発注者支援を考えている方は、[雇用先・常駐先・担当業務を分ける確認メモ](https://note.com/dobokunote/n/n266f0cdd99ef)で、職種名だけでは分からない条件を整理できます。
+
+転職するかを決める前に、自分の経験がいくらに見積もられるのかを知りたい方は、[転職サイトに2〜3社だけ登録して市場価値を確かめる手順](https://doboku-note.com/exam/civil-construction-1/guide/market-value-check?utm_source=note&utm_medium=referral&utm_campaign=civil-career-hatchusha-view&utm_content=market-value-check&utm_term=n85d4b322898b)をサイトにまとめています。登録した後に起きることや、連絡の止め方も書いています。
 
 <!-- cta:civil-mokuji -->
 資格学習の記事は、土木もくじから探せます。

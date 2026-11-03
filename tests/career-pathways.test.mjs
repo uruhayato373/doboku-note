@@ -9,7 +9,7 @@
  *   - career_need_select の配線が片方だけ入る（送っているのに取得していない／その逆）
  */
 import { strict as assert } from 'node:assert';
-import { readFileSync } from 'node:fs';
+import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import test from 'node:test';
 import { loadTsModule } from './lib/load-ts.mjs';
@@ -183,4 +183,14 @@ test('キャリア記事の記事末 affiliate が内部次行動へ置き換わ
   assert.ok(endRules.length > 0, '記事末のルールが無い（検査対象 0 件）');
   for (const r of endRules) assert.equal(r.target.careerDoc, 'exclude', `${r.id}: 記事末バナーが career 記事を除外していない`);
   assert.ok(footer.includes('<CareerNextStepNav'), 'career 記事の記事末に内部次行動が無い');
+});
+
+test('全キャリア記事の記事末に「市場価値を確かめる手順」を 1 回だけ出し、手順の記事自身には出さない（DN-0951・EXP-054）', () => {
+  const href = '/exam/civil-construction-1/guide/market-value-check';
+  for (const slug of ['civil-construction-1-guide-quit-or-stay', 'civil-construction-1-guide-market-value', 'civil-construction-1-guide-career', 'civil-construction-2-guide-salary']) {
+    const steps = pathways.resolveCareerNextSteps(slug);
+    assert.equal(steps.filter((s) => s.href === href).length, 1, slug);
+  }
+  assert.equal(pathways.resolveCareerNextSteps(pathways.MARKET_VALUE_CHECK_SLUG).some((s) => s.href === href), false);
+  assert.ok(existsSync(join(ROOT, 'content/site/civil-construction-1/guide-market-value-check/article.mdx')));
 });

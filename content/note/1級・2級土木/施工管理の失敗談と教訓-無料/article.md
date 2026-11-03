@@ -68,7 +68,7 @@ title: 施工管理でミスを抱え込まない｜報告・分担・次の職�
 
 例えば「書類を誰が確認しますか」「担当者が不在のときは誰へ相談しますか」「現場が重なった場合に応援する仕組みはありますか」といった質問です。
 
-求人票や面接だけで職場のすべては分かりません。分かった条件と未確認の点を記録し、希望に合うかを考えます。[会社選びの確認項目](https://doboku-note.com/exam/civil-construction-1/guide/white-company?utm_source=note&utm_medium=referral&utm_campaign=civil-career-failure-lessons&utm_content=white-company)も参考にしてください。
+求人票や面接だけで職場のすべては分かりません。分かった条件と未確認の点を記録し、希望に合うかを考えます。[会社選びの確認項目](https://doboku-note.com/exam/civil-construction-1/guide/white-company?utm_source=note&utm_medium=referral&utm_campaign=civil-career-failure-lessons&utm_content=white-company&utm_term=n96f94252c128)も参考にしてください。
 
 ## 今日のメモは「次に確認すること」一つでよい
 
@@ -76,12 +76,14 @@ title: 施工管理でミスを抱え込まない｜報告・分担・次の職�
 
 働き方を見直す選択肢は[辞める前に確認すること](https://note.com/dobokunote/n/n7a81ebf1cdc5)で整理しています。経験を振り返ることと、転職するかを決めることは分けて、自分の状況に合う進め方を考えてください。
 
-土木・建設系資格の学習と仕事選びを[doboku-note](https://doboku-note.com/?utm_source=note&utm_medium=referral&utm_campaign=civil-career-failure-lessons&utm_content=site-footer)で発信しています。
+土木・建設系資格の学習と仕事選びを[doboku-note](https://doboku-note.com/?utm_source=note&utm_medium=referral&utm_campaign=civil-career-failure-lessons&utm_content=site-footer&utm_term=n96f94252c128)で発信しています。
 
 <!-- career-expansion-links -->
 ## 次に整理したいこと
 
 改善した経験を応募書類で説明するときは、[担当・判断・確認方法に分けて工事経験を伝える方法](https://note.com/dobokunote/n/ne990d6bf4ce1)が使えます。本人が実際に行ったことだけで整理してください。
+
+転職するかを決める前に、自分の経験がいくらに見積もられるのかを知りたい方は、[転職サイトに2〜3社だけ登録して市場価値を確かめる手順](https://doboku-note.com/exam/civil-construction-1/guide/market-value-check?utm_source=note&utm_medium=referral&utm_campaign=civil-career-failure-lessons&utm_content=market-value-check&utm_term=n96f94252c128)をサイトにまとめています。登録した後に起きることや、連絡の止め方も書いています。
 
 <!-- cta:civil-mokuji -->
 資格学習の記事は、土木もくじから探せます。

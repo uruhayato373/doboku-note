@@ -65,7 +65,7 @@ cover:
 
 さらに河川許認可審査支援業務、ダム管理支援業務、堰・排水機場等管理支援業務、道路許認可審査・適正化指導業務が続きます（国土交通省「発注者支援業務等」）。**発注者側で担当してきた業務が、そのまま業務の区分名になっている**ということです。
 
-仕事内容の重なりを先に見ておきたい方は、[発注者支援の仕事内容を整理したガイド](https://doboku-note.com/exam/civil-construction-1/guide/hatchu-shien?utm_source=note&utm_medium=referral&utm_campaign=civil-career-public-quit-inventory&utm_content=hatchu-shien)を読んでから棚卸しに戻ってください。ただし、常駐先が官庁でも雇用されるのは民間企業です。公務員のまま働き方だけ変わるものではない、という点は先に押さえておきます。
+仕事内容の重なりを先に見ておきたい方は、[発注者支援の仕事内容を整理したガイド](https://doboku-note.com/exam/civil-construction-1/guide/hatchu-shien?utm_source=note&utm_medium=referral&utm_campaign=civil-career-public-quit-inventory&utm_content=hatchu-shien&utm_term=n844dc3ac8383)を読んでから棚卸しに戻ってください。ただし、常駐先が官庁でも雇用されるのは民間企業です。公務員のまま働き方だけ変わるものではない、という点は先に押さえておきます。
 
 持ち出せるものは業務名だけではありません。保有資格（1級土木施工管理技士、技術士、その他の免許）、使ってきた基準類と積算体系の知識、そして**組織の決定と自分の担当を区別して説明できること**。最後のひとつは書類仕事で鍛えられた能力で、外に出ると意外に希少です。
 
@@ -149,6 +149,8 @@ https://px.a8.net/svt/ejp?a8mat=4B5OO5+FHED6+5B0Y+NTJWY
 ## 次に整理したいこと
 
 棚卸しを終えて、民間側も含めて比べ直したくなったら、[公務員土木か民間か](https://note.com/dobokunote/n/n8b03a7de0c6b)で、両方を同じ天秤に乗せる視点をまとめています。
+
+転職するかを決める前に、自分の経験がいくらに見積もられるのかを知りたい方は、[転職サイトに2〜3社だけ登録して市場価値を確かめる手順](https://doboku-note.com/exam/civil-construction-1/guide/market-value-check?utm_source=note&utm_medium=referral&utm_campaign=civil-career-public-quit-inventory&utm_content=market-value-check&utm_term=n844dc3ac8383)をサイトにまとめています。登録した後に起きることや、連絡の止め方も書いています。
 
 <!-- cta:civil-mokuji -->
 資格学習の記事は、土木もくじから探せます。

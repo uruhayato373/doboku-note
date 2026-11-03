@@ -62,7 +62,7 @@ cover:
 
 試験で理解した考え方と、実際の職務で行ったことは区別してください。受験勉強で知った手法を、仕事で使った実績として書く必要はありません。
 
-総監と一般部門の違いは[両部門の比較ガイド](https://doboku-note.com/exam/pe-comprehensive-management/guide/general-vs-comprehensive?utm_source=note&utm_medium=referral&utm_campaign=civil-career-pe-experience&utm_content=qualification-guide)でも説明しています。資格の取得順だけで、担当できる仕事や役職が自動的に決まるわけではありません。
+総監と一般部門の違いは[両部門の比較ガイド](https://doboku-note.com/exam/pe-comprehensive-management/guide/general-vs-comprehensive?utm_source=note&utm_medium=referral&utm_campaign=civil-career-pe-experience&utm_content=qualification-guide&utm_term=ne747e39c0ba4)でも説明しています。資格の取得順だけで、担当できる仕事や役職が自動的に決まるわけではありません。
 
 ## 募集業務との接点を、一項目ずつ探す
 
@@ -74,7 +74,7 @@ cover:
 
 この三つに分けると、書類に載せる実績と、面談で確認することが混ざりにくくなります。経験が近いという理由だけで即戦力を自称するより、具体的な担当範囲を説明しましょう。
 
-建設分野での選択肢は[技術士建設部門のキャリアガイド](https://doboku-note.com/exam/pe-construction/guide/career?utm_source=note&utm_medium=referral&utm_campaign=civil-career-pe-experience&utm_content=career-guide)を入口にできます。求人ごとに条件を確かめてください。
+建設分野での選択肢は[技術士建設部門のキャリアガイド](https://doboku-note.com/exam/pe-construction/guide/career?utm_source=note&utm_medium=referral&utm_campaign=civil-career-pe-experience&utm_content=career-guide&utm_term=ne747e39c0ba4)を入口にできます。求人ごとに条件を確かめてください。
 
 ## 資格手当より先に、期待される役割を聞く
 
@@ -90,7 +90,7 @@ cover:
 
 資格を横断して考えたい方は、[資格活用キャリアマップ](https://note.com/dobokunote/n/nd2f697ffbc4a)へ。取得済みの資格と、これから担当したい仕事の関係を整理できます。
 
-資格を取得した事実に、自分の仕事の説明を添える。その準備から始めてください。[doboku-note](https://doboku-note.com/?utm_source=note&utm_medium=referral&utm_campaign=civil-career-pe-experience&utm_content=site-footer)では、技術士・土木施工管理の学習と資格活用を発信しています。
+資格を取得した事実に、自分の仕事の説明を添える。その準備から始めてください。[doboku-note](https://doboku-note.com/?utm_source=note&utm_medium=referral&utm_campaign=civil-career-pe-experience&utm_content=site-footer&utm_term=ne747e39c0ba4)では、技術士・土木施工管理の学習と資格活用を発信しています。
 
 
 <!-- cta:tankan-mokuji -->

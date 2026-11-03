@@ -99,7 +99,7 @@ title: 給料表で読む土木公務員の年収｜級・号給から給料月�
 
 左側が埋まってはじめて、右側の求人票と同じ土俵に乗ります。
 
-なお、民間側の内訳をどう分解するかは[土木施工管理の年収の見直し方](https://doboku-note.com/exam/civil-construction-1/guide/career-salary?utm_source=note&utm_medium=referral&utm_campaign=civil-career-salary-table&utm_content=career-salary)で整理しています。公務員側を給料表で固めたら、民間側は同じ粒度まで分解してから並べてください。
+なお、民間側の内訳をどう分解するかは[土木施工管理の年収の見直し方](https://doboku-note.com/exam/civil-construction-1/guide/career-salary?utm_source=note&utm_medium=referral&utm_campaign=civil-career-salary-table&utm_content=career-salary&utm_term=n523e6403a937)で整理しています。公務員側を給料表で固めたら、民間側は同じ粒度まで分解してから並べてください。
 
 **PR：ビルドジョブの案内にはアフィリエイト広告を含みます。**
 
@@ -123,6 +123,8 @@ https://px.a8.net/svt/ejp?a8mat=4B5OO5+FHED6+5B0Y+NTJWY
 ## 次に整理したいこと
 
 級が上がる条件と、民間で年収が動く条件は別のものです。民間側で何が差になっているかは[年収を上げる人の違い](https://note.com/dobokunote/n/nfbff7b1469b6)で整理しています。
+
+転職するかを決める前に、自分の経験がいくらに見積もられるのかを知りたい方は、[転職サイトに2〜3社だけ登録して市場価値を確かめる手順](https://doboku-note.com/exam/civil-construction-1/guide/market-value-check?utm_source=note&utm_medium=referral&utm_campaign=civil-career-salary-table&utm_content=market-value-check&utm_term=n523e6403a937)をサイトにまとめています。登録した後に起きることや、連絡の止め方も書いています。
 
 <!-- cta:civil-mokuji -->
 資格学習の記事は、土木もくじから探せます。

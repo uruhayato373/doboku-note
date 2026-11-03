@@ -64,16 +64,18 @@ title: 1級土木施工管理技士で市場価値はどう変わる？資格取
 
 ## まず、資格欄の隣に工事を一つ書く
 
-資格名だけで市場価値を決めようとせず、一つの工事について担当と行動を整理しましょう。[職務経歴書のガイド](https://doboku-note.com/exam/civil-construction-1/guide/resume?utm_source=note&utm_medium=referral&utm_campaign=civil-career-1kyu-value&utm_content=resume)から書く項目を確認できます。
+資格名だけで市場価値を決めようとせず、一つの工事について担当と行動を整理しましょう。[職務経歴書のガイド](https://doboku-note.com/exam/civil-construction-1/guide/resume?utm_source=note&utm_medium=referral&utm_campaign=civil-career-1kyu-value&utm_content=resume&utm_term=n6c68d022a56a)から書く項目を確認できます。
 
 給与を見直したい方は[年収の内訳と評価条件の記事](https://note.com/dobokunote/n/nfbff7b1469b6)へ。資格取得という節目を、自分の担当と希望を整理する機会にしてください。
 
-土木・建設系資格の学習と仕事選びを[doboku-note](https://doboku-note.com/?utm_source=note&utm_medium=referral&utm_campaign=civil-career-1kyu-value&utm_content=site-footer)で発信しています。
+土木・建設系資格の学習と仕事選びを[doboku-note](https://doboku-note.com/?utm_source=note&utm_medium=referral&utm_campaign=civil-career-1kyu-value&utm_content=site-footer&utm_term=n6c68d022a56a)で発信しています。
 
 <!-- career-expansion-links -->
 ## 次に整理したいこと
 
 資格取得後の応募準備では、[工事全体と自分の担当を分けて伝える方法](https://note.com/dobokunote/n/ne990d6bf4ce1)も役立ちます。2級取得後の職場選びを考えている方には、[次の職場で任される仕事と指導体制の確認](https://note.com/dobokunote/n/ncb066fce826b)をまとめました。
+
+転職するかを決める前に、自分の経験がいくらに見積もられるのかを知りたい方は、[転職サイトに2〜3社だけ登録して市場価値を確かめる手順](https://doboku-note.com/exam/civil-construction-1/guide/market-value-check?utm_source=note&utm_medium=referral&utm_campaign=civil-career-1kyu-value&utm_content=market-value-check&utm_term=n6c68d022a56a)をサイトにまとめています。登録した後に起きることや、連絡の止め方も書いています。
 
 <!-- cta:civil-mokuji -->
 資格学習の記事は、土木もくじから探せます。
