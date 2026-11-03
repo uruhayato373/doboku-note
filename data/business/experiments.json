@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-11-03T06:29:28.000Z",
+  "updated_at": "2026-11-03T06:50:08.000Z",
   "experiments": [
     {
       "id": "EXP-002",
@@ -8658,6 +8658,72 @@
         "reportId": "ga4.cta-clicks-by-label",
         "card": "DN-0949",
         "endDate": "2026-12-15"
+      }
+    },
+    {
+      "id": "EXP-054",
+      "title": "「まず市場価値を確かめる——転職サイトに 2〜3 社登録して比べる」記事と動線で、転職アフィリの発生を増やす",
+      "hypothesis": "読者の大半は今すぐ辞める気が無く、相談＝転職の決断と受け取って申し込まない。登録の目的を「相場を知る」に置き換え、登録後に起きること（電話・面談・スカウト・連絡の止め方）まで説明し、案件を 2〜3 社並べれば、動いた読者が申し込み、1 人あたりの発生も増える",
+      "target_metric": "新規記事の閲覧・案件カードのクリック（GA4 の affiliate_cta_click・product_click、置き場所 career-multi-register）と、A8 の案件別の発生・確定額（data/business/product-sales/）。キャリア記事 45 本からの内部リンクのクリック（internal_nav_click）",
+      "target_delta": "公開後 8 週で、(1) 新規記事のクリックが閲覧の 3% 以上 (2) 転職アフィリの発生が月 2 件以上（今は半年で 2 件）。確定は承認の遅れがあるので 3 か月後に読む。届かなければ記事の位置と導線を見直す",
+      "status": "proposed",
+      "created_at": "2026-11-03",
+      "next_check_date": null,
+      "baseline": {
+        "measured_at": "2026-11-03",
+        "source": "data/business/product-sales/2026-05〜10・data/analysis/career-funnel.md（2026-10-31）",
+        "a8": "2026-05〜10 で発生 2 件（ビルドジョブ・6 月と 10 月）・確定 0 円。10 月の 1 件はキャンセル",
+        "ga4": "転職広告は 28 日で表示 約 2.5 万・クリック 約 0.10%",
+        "search": "「施工管理 転職エージェント」50〜70 位、「土木施工管理技士 年収」5.7 位"
+      },
+      "businessContext": {
+        "qualification": "all",
+        "readerNeed": "今すぐ辞める気は無いが、資格と経験が外でどう評価されるか・施工管理の求人がどれだけあるかを知りたい",
+        "verifiedGap": "相談を勧める記事・広告はあるが、登録を情報収集として説明し、登録後の流れまで見せる入口が無い。半年で発生 2 件・確定 0 円",
+        "metricId": "a8ConfirmedYen",
+        "reviewRecord": "data/business/records/review-2026-11-01T06-07-23-843Z-6abb9200-372f-4c28-9595-84f9ccde8750.json"
+      },
+      "actions": [
+        "新規記事を 1 本（1級土木の guide）書き、既存の比較・市場価値・年収の記事を改稿して導線をつなぐ（訴求設計 §13.2・§13.3・DN-0951）",
+        "公開日を開始日にして running にし、8 週後に判定する"
+      ],
+      "measurementPlan": {
+        "kind": "affiliate-content",
+        "status": "proposed",
+        "card": "DN-0951",
+        "placement": "career-multi-register",
+        "design": "docs/marketing/転職アフィリエイト訴求設計.md §13"
+      }
+    },
+    {
+      "id": "EXP-055",
+      "title": "技術士（建設部門）の読者に、施工管理の転職（ビルドジョブ）とハイクラス転職（ハイクラス DX・コンサル転職）を訪問者ごとに出し分ける",
+      "hypothesis": "技術士（建設部門）の読者は 30〜50 代の技術者・管理技術者が多く、施工管理の転職より、技術系管理職・コンサルの求人のほうが合う。単価もハイクラス（A8 ¥18,000）がビルドジョブ（¥13,534）より高い。閲覧あたりの発生・確定額はハイクラスのほうが大きい",
+      "target_metric": "案ごとの閲覧あたりの転職広告クリック（GA4）と、案件別の発生・確定額（data/business/product-sales/ の A8）。守る指標は note の案内のクリック率",
+      "target_delta": "8 週で、閲覧 1,000 回あたりの発生・確定額がハイクラスでビルドジョブを下回らず、閲覧あたりクリックが 0.67 倍を下回らなければ技術士（建設部門）をハイクラスにする。両案の合計が 40 クリックに届くまでは途中経過",
+      "status": "proposed",
+      "created_at": "2026-11-03",
+      "next_check_date": null,
+      "businessContext": {
+        "qualification": "pe-construction",
+        "readerNeed": "技術士の資格と経験を、施工管理の現場以外（発注者支援・コンサル・管理職）でも評価されるかを知りたい",
+        "verifiedGap": "技術士（建設部門）のページは施工管理向けのビルドジョブだけを出している（訴求設計 §12.1 で保留）",
+        "metricId": "a8ConfirmedYen",
+        "reviewRecord": "data/business/records/review-2026-11-01T06-07-23-843Z-6abb9200-372f-4c28-9595-84f9ccde8750.json"
+      },
+      "actions": [
+        "対象は技術士（建設部門）の資格トップのサイドバー・スマホの枠と記事末から始め、EXP-048 の判定（2026-12-26）の後に本文中へ広げる（訴求設計 §13.4・DN-0952）",
+        "割り当ては訪問者ごとに約 1/2（EXP-048 と同じ方式・別の保存キー）"
+      ],
+      "measurementPlan": {
+        "kind": "affiliate-program",
+        "status": "proposed",
+        "variants": [
+          "buildjob",
+          "dx-consulting"
+        ],
+        "card": "DN-0952",
+        "design": "docs/marketing/転職アフィリエイト訴求設計.md §13.4"
       }
     }
   ]
