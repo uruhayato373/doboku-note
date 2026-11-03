@@ -2,10 +2,10 @@
 notePricing: paid
 noteContentType: product
 price: 500
-noteStatus: draft
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
+noteStatus: published
+noteUrl: "https://note.com/dobokunote/n/n2853d617272e"
+noteId: "n2853d617272e"
+notePublishedAt: "2026-11-04"
 title: "【技術士 建設部門】筆記不合格のあとに来年度の直す点を絞る｜成績通知の読み方と不合格の型"
 utmCampaign: pe-construction-retake
 paidBoundary: "不合格の型"
@@ -176,9 +176,9 @@ https://note.com/dobokunote/n/n7279ca0d926f
 
 来年度の答案では、課題を抽出する段でデータに基づいて問題を定義し、解決策の段で関係者の意見を取り入れる形にします。
 
-詳しい整理は、[コンピテンシー改訂の解説](https://doboku-note.com/exam/pe-construction/guide/competency-revision-r8?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-retake&utm_content=competency-revision-r8)にまとめています。
+詳しい整理は、[コンピテンシー改訂の解説](https://doboku-note.com/exam/pe-construction/guide/competency-revision-r8?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-retake&utm_content=competency-revision-r8&utm_term=n2853d617272e)にまとめています。
 
-答案の組み立て方そのものを見直したい人には、[記述式答案の書き方ガイド](https://doboku-note.com/exam/pe-construction/guide/pe-secondary-essay-guide?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-retake&utm_content=pe-secondary-essay-guide)が役立ちます。設問を問いに分解する手順や、論点の絞り込み方を扱っています。
+答案の組み立て方そのものを見直したい人には、[記述式答案の書き方ガイド](https://doboku-note.com/exam/pe-construction/guide/pe-secondary-essay-guide?utm_source=note&utm_medium=referral&utm_campaign=pe-construction-retake&utm_content=pe-secondary-essay-guide&utm_term=n2853d617272e)が役立ちます。設問を問いに分解する手順や、論点の絞り込み方を扱っています。
 
 ---
 
