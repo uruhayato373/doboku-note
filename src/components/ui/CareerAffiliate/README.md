@@ -46,6 +46,8 @@ MDX 本文の転職枠は `program="career"` だけを書く。案件・リン�
 | `service` | 必須 | サービス名（例: "RSG建設転職"） |
 | `category` | 必須 | カテゴリ・職種ラベル（例: "施工管理 転職エージェント"） |
 | `program` | 任意 | `"career"`（旧い別名 `"gks"` は 2026-11-03 に MDX から置き換えて廃止・DN-0950）。指定すると案件・リンク・文言は `inlineCard` で決まる |
+| `noExperiment` | 任意 | 意匠実験（EXP-048）に入れず従来のカードで出す。複数の案件を並べる記事（市場価値を確かめる複数登録・EXP-054・`placement="career-multi-register"`）で使う |
+| `preset` | 任意 | 案件名（`PROGRAM_ASSETS` のキー。例 `"buildjob"`）。文言・リンクは素材カタログの card で決まり、MDX に a8mat を書かない。配置ルールに依らず特定の案件を並べる記事で使う |
 | `inlineCard` | 任意 | 配置ルールで解決した、この面に出す案件（DocPage・AffiliateSlot・診断ツールが渡す） |
 | `placement` | 任意 | GA4 の `cta_placement`（MDX 直書きは article-inline） |
 | `href` | `program` なしで必須 | アフィリエイトリンク URL |

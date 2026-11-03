@@ -34,6 +34,8 @@
 
 書かないこと: 「とりあえず全部登録」・特典での誘導・年収が上がる保証・体験の創作。
 
+**進捗（2026-11-03）**: 新規記事 content/site/civil-construction-1/guide-market-value-check/article.mdx（/exam/civil-construction-1/guide/market-value-check）を書いた。比較カードは A8 で数えられる 2 社（ビルドジョブ・建設JOBs＝20〜30代の建設経験者向けと明記）。スカウト型は提携先が無いのでリンクなしの説明だけ。カードは `noExperiment`（EXP-048 に入れない）・placement career-multi-register（config/cta-placements.json に追加）。「市場価値」（1級）・「年収」（2級）・「エージェント比較」から 1 段落ずつ導線を足した。残り＝本番デプロイ、キャリア記事の記事末とキャリア系 note 記事からの導線（note は再公開を伴うので記事を直すときに）。
+
 **完了条件**: 新規記事と改稿が本番に出て、EXP-054 が running になっている。8 週後の判定は EXP-054 で行い、このカードは公開で削除する。
 
 

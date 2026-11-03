@@ -8689,10 +8689,20 @@
       ],
       "measurementPlan": {
         "kind": "affiliate-content",
-        "status": "proposed",
+        "status": "awaiting-deploy",
         "card": "DN-0951",
         "placement": "career-multi-register",
-        "design": "docs/marketing/転職アフィリエイト訴求設計.md §13"
+        "design": "docs/marketing/転職アフィリエイト訴求設計.md §13",
+        "article": "content/site/civil-construction-1/guide-market-value-check/article.mdx（/exam/civil-construction-1/guide/market-value-check）",
+        "programs": [
+          "buildjob（A8）",
+          "kensetsu-jobs（A8・20〜30代の建設経験者が対象）"
+        ],
+        "inboundLinks": [
+          "/exam/civil-construction-1/guide/market-value",
+          "/exam/civil-construction-2/guide/salary",
+          "/exam/civil-construction-1/guide/career-agent-comparison"
+        ]
       }
     },
     {

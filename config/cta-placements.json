@@ -113,6 +113,12 @@
       "pageKind": "links",
       "pixelPriority": null,
       "program": "coconala"
+    },
+    "career-multi-register": {
+      "label": "複数登録の記事の比較カード",
+      "status": "active",
+      "pageKind": "doc",
+      "pixelPriority": null
     }
   }
 }
