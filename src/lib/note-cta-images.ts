@@ -26,15 +26,22 @@ export function noteCtaQualificationTile(qualification: string) {
     alt: `${qualificationShortLabel(qualification)}の学習教材` };
 }
 
-/** 完成画像のある公開商品だけ、配置に合うR2画像を返す。 */
-export function noteCtaImage(id: string, format: 'body' | 'tile' = 'body') {
+/**
+ * 完成画像のある公開商品だけ、配置に合うR2画像を返す。
+ * surface='lead' は記事冒頭・資格トップ・サイドバーの主商品の枠。試験日で切り替わる主商品の専用画像（pop-image.json の leads）があればそれを使う。
+ * 本文中の案内（EXP-053 の対象）は surface を渡さず、教材パック共通の画像のまま。
+ */
+export function noteCtaImage(id: string, format: 'body' | 'tile' = 'body', surface?: 'lead') {
   const product = getMagazine(id as MagazineId);
   if (!product) return undefined;
   const classification = classifyNoteProduct(id);
   if (!classification) return undefined;
   const families = sharedImages.families as Record<string, { body: ImageVariant; tile?: ImageVariant }>;
   const tiles = sharedImages.tiles as Record<string, ImageVariant>;
-  const variant = id === images.source ? images.variants[format]
+  const leadVariant = surface === 'lead'
+    ? (images.leads as unknown as Record<string, { body: ImageVariant; tile: ImageVariant }>)[id]?.[format] : undefined;
+  const variant = leadVariant ? leadVariant
+    : id === images.source ? images.variants[format]
     : format === 'tile' ? families[classification.family]?.tile ?? tiles[classification.qualification]
     : families[classification.family]?.body;
   if (!variant) return undefined;
