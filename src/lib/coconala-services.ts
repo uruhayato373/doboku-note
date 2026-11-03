@@ -795,8 +795,8 @@ const SERVICES_RAW = {
   },
   'coconala-pe-oral-qa': {
     id: 'coconala-pe-oral-qa',
-    status: 'paused',
-    serviceUrl: 'https://coconala.com/services/4415190',
+    status: 'listed',
+    serviceUrl: 'https://coconala.com/services/4486050',
     title: '技術士口頭試験の想定質問を経歴から作ります',
     shortTitle: '技術士 口頭試験 想定質問作成',
     description: '受験申込書の「業務内容の詳細」（720字以内）と業務経歴をもとに、口頭試験で聞かれやすい想定質問20問と、ご本人の事実から組み立てた回答の骨子を返すテキスト完結のサービス。ビデオ面接ではない。経験していない業務の創作はせず、事実が足りない箇所は確認事項として返す。建設部門・総合技術監理部門に対応。合格を保証するものではない。',
@@ -804,8 +804,7 @@ const SERVICES_RAW = {
     priceNote: '想定質問20問＋回答骨子',
     examScope: ['pe-comprehensive-management', 'pe-construction'],
     weeklyCapacity: 2,
-    pauseReason: 'retired',
-    listedAt: '2026-09-23',
+    listedAt: '2026-11-04',
   },
   // ---- コンクリート主任技士（2026-09-23・試験出品）----
   // 本試験 2026-11-29。ココナラの出品は1件・レビュー0で、空白か需要不在かを判別できない（09 §D7）。
