@@ -30,7 +30,7 @@
 import { readFileSync, existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { execFileSync } from 'node:child_process';
-import { checkPauseReasons, findOverdueResume, findPausedServiceLinks, resolveThumb } from './lib/coconala-guards.mjs';
+import { checkPauseReasons, findOverdueResume, findPausedServiceLinks, resolveThumb, approvedThumbOnlyLocal } from './lib/coconala-guards.mjs';
 import { listFiles } from './lib/fs-walk.mjs';
 import { NOTE_CONTENT_ROOT, SITE_CONTENT_ROOT } from './lib/repository-paths.mjs';
 import { todayJst } from './lib/jst-date.mjs';
@@ -235,6 +235,12 @@ for (const s of catalog) {
   if (!thumb.ok) {
     violations.push(`[${s.id}] 商品画像がありません（承認済み画像・${thumbRel}・coconala-thumb の描画定義のどれも無い）`);
     continue;
+  }
+  // 2026-11-03（DN-0948）: 承認済み画像が手元にだけあり退避台帳に無いと、手元では合格・CI のクリーンチェックアウトでは
+  // 「商品画像がありません」になる（430725211 から develop の事前検査が赤いままだった）。手元でも同じ所で止める。
+  const approvedRel = approvedThumbs[s.id]?.path;
+  if (approvedThumbOnlyLocal({ thumb, approvedPath: approvedRel ?? null, inLedger: Boolean(approvedRel && assetLedger[approvedRel]) })) {
+    violations.push(`[${s.id}] 承認済み画像 ${approvedRel} が手元にだけあり、退避台帳に無い（CI では画像なしになる）。node scripts/drive-vault-sync.mjs --group coconala-asset --path ${approvedRel} --commit で台帳へ載せる`);
   }
   if (thumb.warn && s.status === 'listed') warnings.push(thumb.warn); // 休止・下書きは出品画面に出ないので警告しない
   if (thumb.source === 'approved') thumbApproved += 1;

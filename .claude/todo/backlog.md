@@ -346,14 +346,6 @@
 **完了条件**: 上の 1〜9 が済み、関係する検査が合格のまま、10 は販売台帳にもしもの行が入るか、入れない理由が書かれている。
 
 
-### [DN-0948] ココナラ『主任技士の小論文の診断』の商品画像が CI に無く、develop の事前検査が 11/2 から落ち続けている
-タグ: [インフラ・計測] [領域:商品] [時期:2026-11] [種類:不具合] [起票:2026-11-03]
-
-**起点**: 2026-11-03 の本番デプロイの前に確認したところ、develop の事前検査（Pre-merge check の quality audit）が 2026-11-02 22:49 の 430725211（DN-0941）から毎回落ちている。原因は check-coconala-wiring の `[coconala-cce-essay-shindan] 商品画像がありません`。content/coconala/assets/** は .gitignore 対象で、手元の Mac では検査が通るが、CI には承認済み画像も描画定義も届かない。サイトのビルドとデプロイは通る（cloudflare-deploy はこの検査を見ない）ので、本番の表示は壊れていない。
-
-**やること**: 主任技士の小論文の診断（coconala-cce-essay-shindan）の商品画像を、ほかの 34 件と同じ経路（承認済み画像の台帳 data/coconala/thumb-approved.json か coconala-thumb の描画定義）で CI から見えるようにする。置き場の判断は asset-storage-policy.md。
-
-**完了条件**: develop の Pre-merge check が緑に戻っている。
 
 
 ### [DN-0945] 売れているパック 1 本で値上げを試し、パックの価格の方針を決める

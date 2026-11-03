@@ -343,6 +343,15 @@ export function resolveThumb({ id, approvedPath = null, flatPath, has, renderabl
 }
 
 /**
+ * 承認済み画像が手元にだけあり、退避台帳に無いか（2026-11-03・DN-0948）。手元では resolveThumb が合格にするが、
+ * CI のクリーンチェックアウトでは実体も台帳も無く「商品画像がありません」になる。手元でも同じ所で止めるための判定。
+ * @param {{ thumb: { source: string|null, where: string|null }, approvedPath: string|null, inLedger: boolean }} input
+ */
+export function approvedThumbOnlyLocal({ thumb, approvedPath, inLedger }) {
+  return Boolean(approvedPath) && thumb.source === 'approved' && thumb.where === 'local' && !inLedger;
+}
+
+/**
  * 記事が受付していない（paused）ココナラ出品へ送っていないかを見る（2026-10-15）。
  * 1級の添削を休止したあと、note の 1級記事 194 本が休止中の出品（4418735・4350199）へ読者を送り続けていた。
  * @param {{ path: string, text: string }[]} files 記事の本文
