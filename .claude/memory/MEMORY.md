@@ -69,6 +69,7 @@
 - [モデル前提](project_model_assumptions.md) — Opus5.5前提・棚卸し済
 - [分類SSOT](project_content_taxonomy.md) — 領域×資格×型×タグ
 - [GSC/SEO方針](project_gsc_pivot_2026_04.md) — CTA最適化・AdSense・ピラー
+- [集客・誘導への重点移行](project_access_funnel_phase_2026_11.md) — 技術士はnote側・土木は持ち越し・棚の不足はDN台帳
 - [収益診断](project_revenue_diagnosis_2026_06.md) — 受取額・note流入元実測
 - [note収益戦略](project_note_revenue_strategy_2026.md) — 価格ラダー・競合・精読スコープ
 - [売れ筋パック](project_pack_lineup_2026_09.md) — 3軸19SKU・EXP-011
