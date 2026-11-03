@@ -14,6 +14,7 @@ const products: Partial<Record<string, MagazineId>> = {
   // 2026-10-28 に商品を公開した 2 資格。資格トップに商品の導線が無かった（DN-0890）。記事の主力と同じ商品
   surveyor: 'surveyor-gogo-bunya-magazine',
   pavement: 'pavement-1-keiken-magazine',
+  'pipe-work': 'pipe-work-sekou-kijutsu-bank',
 };
 /** 資格トップ（doc なし）の商品。試験日で切り替える資格は magazine-placement の categoryLeadMagazineId が決める。 */
 function categoryProductId(category: string): MagazineId | undefined {
