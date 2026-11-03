@@ -1327,3 +1327,10 @@ html:not([data-note-body-variant="text"]) [data-note-body-arm="text"],
 html[data-note-body-variant="text"] [data-note-body-arm="image"] {
   display: none;
 }
+
+/* EXP-055: 配置ルールの出し分け（src/lib/program-split-experiment.mjs）。選ばれなかった方の枠を隠す。
+   割り当てのスクリプトが動かないときは primary（今の既定）だけを見せる。 */
+html:not([data-program-split="alternate"]) [data-program-split-arm="alternate"],
+html[data-program-split="alternate"] [data-program-split-arm="primary"] {
+  display: none;
+}

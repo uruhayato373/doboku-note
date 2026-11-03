@@ -286,17 +286,35 @@ const PlacementPair = z
     if (r.primary === r.secondary) flag(ctx, ['secondary'], '1 枚目と同じ案件');
     if (r.period.until && Date.parse(r.period.until) <= Date.parse(r.period.from)) flag(ctx, ['period', 'until'], 'until が from より前');
   });
+const PlacementSplit = z
+  .object({
+    id: z.string().regex(/^PS-\d{4}$/),
+    primary: z.string().regex(/^[a-z][a-z0-9-]*$/).describe('面のルールの案件（今の既定）'),
+    alternate: z.string().regex(/^[a-z][a-z0-9-]*$/).describe('訪問者の約半分に代わりに出す案件（affiliate.catalog）'),
+    slots: z.array(z.string().min(1)).min(1).describe('出し分ける面（config.cta-placements のキー）'),
+    target: PlacementTarget,
+    period: z.object({ from: offsetTime('開始'), until: offsetTime('終了（この時刻を含まない）').nullable() }).strict(),
+    experiment: z.string().regex(/^EXP-\d{3}$/).describe('関わる実験の id（割り当ては src/lib/program-split-experiment.mjs）'),
+    note: z.string().min(1).optional(),
+  })
+  .strict()
+  .superRefine((r, ctx) => {
+    if (r.primary === r.alternate) flag(ctx, ['alternate'], 'primary と同じ案件');
+    if (r.period.until && Date.parse(r.period.until) <= Date.parse(r.period.from)) flag(ctx, ['period', 'until'], 'until が from より前');
+  });
 export const ConfigAffiliatePlacements = z
   .object({
     schemaVersion: z.literal(1),
     $comment: note,
     rules: z.array(PlacementRule).min(1).superRefine(uniqueBy('id', 'ルール id')),
     pairs: z.array(PlacementPair).superRefine(uniqueBy('id', '2 枚並べの id')).optional(),
+    splits: z.array(PlacementSplit).superRefine(uniqueBy('id', '出し分けの id')).optional(),
   })
   .strict()
   .superRefine((c, ctx) => {
     for (const [a, b] of findOverlaps(c.rules)) flag(ctx, ['rules'], `${a} と ${b} が同じ面・重なる期間・交わる対象（1 ページ 1 面 1 案件にならない）`);
     for (const [a, b] of findPairOverlaps(c.pairs ?? [])) flag(ctx, ['pairs'], `${a} と ${b} が同じ 1 枚目・面・重なる期間・交わる対象（2 枚目が 1 つに決まらない）`);
+    for (const [a, b] of findPairOverlaps(c.splits ?? [])) flag(ctx, ['splits'], `${a} と ${b} が同じ primary・面・重なる期間・交わる対象（出し分けが 1 つに決まらない）`);
   })
   .meta({ title: '転職アフィリエイトの配置ルール' });
 

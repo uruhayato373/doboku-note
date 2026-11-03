@@ -206,7 +206,7 @@ A8 だけは**管理画面にサイト切替が存在しない**ため、assert 
 
 **配置を変えたら `npm run affiliate:shots` で確かめる**（ページの種類 × 画面幅 × 意匠の案を撮り、ピクセル・引き伸ばし・はみ出し・ルールを判定する。結果は管理画面「広告配置」で見る。`-- --base https://doboku-note.com` で本番も撮れる）。
 
-どの案件がどの面に出ているかの一覧はここに写さない（写すと配置ルールと食い違う。2026-11-03 の整理で、案件 4 行の表が RCCM・建築・コンストワークの変更を反映していなかった・DN-0950）。いま開いているルール（`until` が空か未来のもの）を `config/affiliate-placements.json` で読む。案件の提携状態・報酬・条件は `data/affiliate/catalog.json`。
+どの案件がどの面に出ているかの一覧はここに写さない（写すと配置ルールと食い違う。2026-11-03 の整理で、案件 4 行の表が RCCM・建築・コンストワークの変更を反映していなかった・DN-0950）。いま開いているルール（`until` が空か未来のもの）を `config/affiliate-placements.json` で読む。同じファイルの `pairs` は 2 枚並べ（EXP-048）、`splits` は面の案件を訪問者ごとに別の案件と半々で出す出し分け（EXP-055。割り当ては `src/lib/program-split-experiment.mjs`・描画は `ProgramSplitBanner`・代わりの案件にはピクセルを付けない）。案件の提携状態・報酬・条件は `data/affiliate/catalog.json`。
 
 公的基準のページ（章・章以外とも）は右のナビ欄（`StandardsNavigation`）には広告を置かず、本文末に 1 枠だけ置く。トップ・ツール・公的基準・トピック・法令の一覧は面が 1 つなので、`AffiliateSlot` がその面でピクセルを 1 発出す。2026-10-07 の本番実測で広告の無かったページは運営ページ（about・contact・privacy・terms・links・search・sitemap-keywords）と `/exam` だけ。
 

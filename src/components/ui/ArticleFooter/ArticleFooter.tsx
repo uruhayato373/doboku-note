@@ -18,6 +18,7 @@ import TextbookNav from '@/components/ui/TextbookNav/TextbookNav';
 import CategoryNavCard from '@/components/ui/CategoryNavCard/CategoryNavCard';
 import FAQCard from '@/components/ui/FAQCard/FAQCard';
 import SidebarAdBanner from '@/components/ui/SidebarAdBanner/SidebarAdBanner';
+import ProgramSplitBanner from '@/components/ui/SidebarAdBanner/ProgramSplitBanner';
 import RelatedArticles from '@/components/ui/RelatedArticles';
 import TopicHubLinks from '@/components/ui/TopicHubLinks/TopicHubLinks';
 import { resolveArticleEnd } from '@/lib/law-wiring';
@@ -91,15 +92,21 @@ export default function ArticleFooter({
   // 記事末の回遊（content-taxonomy.md §6-3）。法令 → テーマ → 関連記事の順に出し、先に出した記事は後ろから外す
   const { lawSiblings, lawTopics, lawPageLinks, lawPage, topicLinks, shownSlugs } = resolveArticleEnd(meta, laws.map((law) => law.lawId), relatedArticles);
   const endBanner = endBannerAd ? (
-    <SidebarAdBanner
-      href={endBannerAd.banner.href}
-      imageSrc={endBannerAd.banner.imageSrc}
-      alt={endBannerAd.banner.alt}
-      width={endBannerAd.banner.width}
-      height={endBannerAd.banner.height}
-      pixelSrc={careerPixelSrc}
-      trackLabel={endBannerAd.trackLabel}
+    <ProgramSplitBanner
+      alternate={endBannerAd.alternate}
       placement="article-end"
+      primary={
+        <SidebarAdBanner
+          href={endBannerAd.banner.href}
+          imageSrc={endBannerAd.banner.imageSrc}
+          alt={endBannerAd.banner.alt}
+          width={endBannerAd.banner.width}
+          height={endBannerAd.banner.height}
+          pixelSrc={careerPixelSrc}
+          trackLabel={endBannerAd.trackLabel}
+          placement="article-end"
+        />
+      }
     />
   ) : null;
 

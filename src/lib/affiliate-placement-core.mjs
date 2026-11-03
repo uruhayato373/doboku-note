@@ -134,3 +134,23 @@ export function findPairOverlaps(pairs) {
   }
   return out;
 }
+
+/**
+ * 出し分け（splits・EXP-055 など）: 面のルールの案件（primary）を、訪問者ごとに別の案件（alternate）と半々で出す組。
+ * 当たった組を 1 つ返す（無ければ null）。同じ面に 2 組当たったら例外（どちらに倒すか決まらない）。
+ */
+export function resolveSplit(splits, slotRule, page, nowMs) {
+  let found = null;
+  for (const s of splits ?? []) {
+    if (s.primary !== slotRule.program || !s.slots.includes(slotRule.slot)) continue;
+    if (!isActive(s, nowMs) || !matchesPage(s, page)) continue;
+    if (found) throw new Error(`出し分け ${found.id} と ${s.id} が同じ面 ${slotRule.slot} の ${slotRule.program} に当たる（${page.pageKind} ${page.category ?? '-'}）`);
+    found = s;
+  }
+  return found;
+}
+
+/** 同じ primary・同じ面で期間が重なり対象が交わる出し分け（どちらの組か決まらないもの） */
+export function findSplitOverlaps(splits) {
+  return findPairOverlaps(splits);
+}

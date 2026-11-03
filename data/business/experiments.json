@@ -8722,18 +8722,19 @@
         "reviewRecord": "data/business/records/review-2026-11-01T06-07-23-843Z-6abb9200-372f-4c28-9595-84f9ccde8750.json"
       },
       "actions": [
-        "対象は技術士（建設部門）の資格トップのサイドバー・スマホの枠と記事末から始め、EXP-048 の判定（2026-12-26）の後に本文中へ広げる（訴求設計 §13.4・DN-0952）",
-        "割り当ては訪問者ごとに約 1/2（EXP-048 と同じ方式・別の保存キー）"
+        "対象は技術士（建設部門）の資格トップのサイドバーとスマホの枠（config/affiliate-placements.json の splits PS-0001）。記事末の転職広告は 2026-10-21 に全資格で閉じているので使わない。本文中の枠は EXP-048 の判定（2026-12-26）の後に広げるか決める（訴求設計 §13.4・DN-0952）",
+        "割り当ては訪問者ごとに約 1/2（<head> の PROGRAM_SPLIT_SCRIPT・src/lib/program-split-experiment.mjs・保存キー doboku-note:EXP-055:arm）。読むのは affiliate_cta_impression / _click のラベル（BuildJob-sidebar／DXConsulting-sidebar）× 置き場所 × /exam/pe-construction 配下のページ（ga4 の affiliate-by-page）と、A8 の案件別の発生（成果の明細のリファラでページまで分かる）"
       ],
       "measurementPlan": {
         "kind": "affiliate-program",
-        "status": "proposed",
+        "status": "awaiting-deploy",
         "variants": [
           "buildjob",
           "dx-consulting"
         ],
         "card": "DN-0952",
-        "design": "docs/marketing/転職アフィリエイト訴求設計.md §13.4"
+        "design": "docs/marketing/転職アフィリエイト訴求設計.md §13.4",
+        "split": "PS-0001"
       }
     }
   ]
