@@ -1,6 +1,38 @@
 {
   "runs": [
     {
+      "startedAt": "2026-11-03T09:18:21.760Z",
+      "finishedAt": "2026-11-03T09:18:33.128Z",
+      "plan": {
+        "synced": 0,
+        "ready": 1,
+        "blocked": 0,
+        "blockers": {},
+        "only": "content/note/1級・2級土木/発注者支援の仕事選び-無料/"
+      },
+      "articles": {
+        "selected": 1,
+        "attempted": 0,
+        "updated": [],
+        "failed": [
+          {
+            "path": "content/note/1級・2級土木/発注者支援の仕事選び-無料/article.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "結果なし（連続失敗で中断された可能性）"
+          }
+        ],
+        "deferred": []
+      },
+      "magazines": {
+        "attempted": 0,
+        "updated": [],
+        "failed": []
+      },
+      "problems": []
+    },
+    {
       "startedAt": "2026-11-03T09:16:37.232Z",
       "finishedAt": "2026-11-03T09:17:42.098Z",
       "plan": {
@@ -326,37 +358,6 @@
         "updated": [
           {
             "path": "content/note/1級・2級土木/転職した方がいい施工管理-発注者視点-無料/article.md",
-            "parts": [
-              "body"
-            ]
-          }
-        ],
-        "failed": [],
-        "deferred": []
-      },
-      "magazines": {
-        "attempted": 0,
-        "updated": [],
-        "failed": []
-      },
-      "problems": []
-    },
-    {
-      "startedAt": "2026-11-03T09:03:37.511Z",
-      "finishedAt": "2026-11-03T09:04:31.021Z",
-      "plan": {
-        "synced": 0,
-        "ready": 1,
-        "blocked": 0,
-        "blockers": {},
-        "only": "content/note/1級・2級土木/家族時間と土木の仕事選び-無料/"
-      },
-      "articles": {
-        "selected": 1,
-        "attempted": 1,
-        "updated": [
-          {
-            "path": "content/note/1級・2級土木/家族時間と土木の仕事選び-無料/article.md",
             "parts": [
               "body"
             ]
