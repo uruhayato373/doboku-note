@@ -1,6 +1,37 @@
 {
   "runs": [
     {
+      "startedAt": "2026-11-03T09:27:32.760Z",
+      "finishedAt": "2026-11-03T09:28:27.507Z",
+      "plan": {
+        "synced": 0,
+        "ready": 1,
+        "blocked": 0,
+        "blockers": {},
+        "only": "content/note/1級・2級土木/工事経験の伝え方-無料/"
+      },
+      "articles": {
+        "selected": 1,
+        "attempted": 1,
+        "updated": [
+          {
+            "path": "content/note/1級・2級土木/工事経験の伝え方-無料/article.md",
+            "parts": [
+              "body"
+            ]
+          }
+        ],
+        "failed": [],
+        "deferred": []
+      },
+      "magazines": {
+        "attempted": 0,
+        "updated": [],
+        "failed": []
+      },
+      "problems": []
+    },
+    {
       "startedAt": "2026-11-03T09:26:20.169Z",
       "finishedAt": "2026-11-03T09:27:17.734Z",
       "plan": {
@@ -332,37 +363,6 @@
         "updated": [
           {
             "path": "content/note/1級・2級土木/年収を上げる人の違い-無料/article.md",
-            "parts": [
-              "body"
-            ]
-          }
-        ],
-        "failed": [],
-        "deferred": []
-      },
-      "magazines": {
-        "attempted": 0,
-        "updated": [],
-        "failed": []
-      },
-      "problems": []
-    },
-    {
-      "startedAt": "2026-11-03T09:14:20.213Z",
-      "finishedAt": "2026-11-03T09:15:13.369Z",
-      "plan": {
-        "synced": 0,
-        "ready": 1,
-        "blocked": 0,
-        "blockers": {},
-        "only": "content/note/1級・2級土木/RCCMを持つ人の次の職場-無料/"
-      },
-      "articles": {
-        "selected": 1,
-        "attempted": 1,
-        "updated": [
-          {
-            "path": "content/note/1級・2級土木/RCCMを持つ人の次の職場-無料/article.md",
             "parts": [
               "body"
             ]
