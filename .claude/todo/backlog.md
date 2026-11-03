@@ -38,6 +38,8 @@
 
 **開始（2026-11-03）**: 本番デプロイ cf37bd33a で記事を公開し、EXP-054 を running にした。
 
+**残り（2026-11-03 時点・未着手）**: ① キャリア記事 45 本の記事末の内部案内（src/config/career-pathways.ts・CareerNextStepNav）に新規記事を入れる ② キャリア系の note 記事から新規記事への導線と utm_term（add-note-utm）。土曜の note-sync がその本数だけ再公開するので本数を決めてから ③ 新規記事の事実確認（guide-fact-checker）を回し、reviewStatus を needs-review から上げる。
+
 **完了条件**: 新規記事と改稿が本番に出て、EXP-054 が running になっている。8 週後の判定は EXP-054 で行い、このカードは公開で削除する。
 
 
