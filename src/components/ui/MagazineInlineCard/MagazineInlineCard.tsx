@@ -39,10 +39,8 @@ export default function MagazineInlineCard({
   placement = "article-body",
 }: MagazineInlineCardProps) {
   const image = noteCtaImage(magazineId, 'body');
-  if (image) return <NoteImageCta href={url} image={image}
-    trackLabel={`${magazineId}:${trackLabel ?? "unknown"}`} placement={placement} compact className="my-6 w-full max-w-2xl" />;
   const brand = brandOf(magazineId);
-  return (
+  const textCard = (
     <a
       href={url}
       target="_blank"
@@ -78,4 +76,11 @@ export default function MagazineInlineCard({
       </div>
     </a>
   );
+  if (!image) return textCard;
+  // EXP-053: POP 画像と文字のカードを両方描き、<html data-note-body-variant> で片方だけ見せる（src/lib/note-body-experiment.mjs）
+  return <>
+    <div data-note-body-arm="image"><NoteImageCta href={url} image={image}
+      trackLabel={`${magazineId}:${trackLabel ?? "unknown"}`} placement={placement} compact className="my-6 w-full max-w-2xl" /></div>
+    <div data-note-body-arm="text">{textCard}</div>
+  </>;
 }

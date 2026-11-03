@@ -507,6 +507,7 @@
     "report-site-to-sales": "node scripts/report-site-to-sales.mjs",
     "product-sales": "node scripts/product-sales.mjs",
     "report-product-funnel": "node scripts/report-product-funnel.mjs",
+    "report-note-body-experiment": "node scripts/report-note-body-experiment.mjs",
     "sales-summary": "node scripts/sales-summary.mjs",
     "sales-attribution": "node scripts/sales-attribution.mjs",
     "channel-economics": "node scripts/channel-economics.mjs",

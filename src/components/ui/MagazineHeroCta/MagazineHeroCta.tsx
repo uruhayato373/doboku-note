@@ -45,15 +45,13 @@ export default function MagazineHeroCta({
   if (!magazine) return null;
 
   const image = noteCtaImage(id, 'body');
-  if (image) return <NoteImageCta href={buildMagazineUrl(magazine, utmContent)} image={image} scopeNotice={scopeNotice}
-    trackLabel={`${id}:${utmContent}`} placement={placement} className="my-6 w-full max-w-2xl" />;
   const brand = brandOf(id);
   const catchCopy = magazine.ctaCatch ?? magazine.shortTitle ?? magazine.title;
   const sub = magazine.shortDescription ?? magazine.description;
   const button = magazine.ctaButton ?? "note で詳しく見る";
   const pose = magazine.ctaPose ?? "pointing";
 
-  return (
+  const textCard = (
     <a
       href={buildMagazineUrl(magazine, utmContent)}
       target="_blank"
@@ -109,4 +107,11 @@ export default function MagazineHeroCta({
       </div>
     </a>
   );
+  if (!image) return textCard;
+  // EXP-053: POP 画像と文字のカードを両方描き、<html data-note-body-variant> で片方だけ見せる（src/lib/note-body-experiment.mjs）
+  return <>
+    <div data-note-body-arm="image"><NoteImageCta href={buildMagazineUrl(magazine, utmContent)} image={image} scopeNotice={scopeNotice}
+      trackLabel={`${id}:${utmContent}`} placement={placement} className="my-6 w-full max-w-2xl" /></div>
+    <div data-note-body-arm="text">{scopeNotice && <p className="not-prose mb-2 text-sm leading-relaxed text-(--ink-body)">{scopeNotice}</p>}{textCard}</div>
+  </>;
 }

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-11-03T06:14:47.000Z",
+  "updated_at": "2026-11-03T06:29:28.000Z",
   "experiments": [
     {
       "id": "EXP-002",
@@ -8606,6 +8606,59 @@
           "note": "本番デプロイ e5e10a6f1（cloudflare-deploy run 41587875655・check-production-ssr exit 0）。本番の /exam/pe-first-stage/guide/overview で product_click（mfa3fcffdd85d・note・article-top）と product_impression（n466132e6fd74・note・article-end・1 秒後）が出ることを gtag の差し替えで確認（GA4 へは送っていない）"
         }
       ]
+    },
+    {
+      "id": "EXP-053",
+      "title": "本文中の note 案内を POP 画像（image）と商品名・説明の文字のカード（text）で同時に出し分け、表示あたりのクリックを比べる",
+      "hypothesis": "10/2〜03 に本文中の note 案内を POP 画像へ替えた後、同じ案内の本文カードのクリック率が約 4 分の 1 に下がった（冒頭・資格トップは横ばい）。同じ画像が商品ごとに並び商品名と中身が読めないため、読者が自分に合う教材か判断できず、広告として読み飛ばしている。文字のカードに戻せば表示あたりのクリックが戻る",
+      "target_metric": "案ごとの表示あたりのクリック（note_body_experiment_click ÷ note_body_experiment_impression。npm run report-note-body-experiment）。守る指標は note の売上（data/business/product-sales/）で、案ごとの売上は note が流入元を出さないので比べない",
+      "target_delta": "各案 1,000 表示以上で、text のクリック率が image の 1.5 倍以上なら本文中の既定を text にする。0.67 倍以下なら image を残す。その間は延長して 6 週（2026-12-15）で判定する。案ごとのクリック合計が 30 に届かないうちは途中経過として読むだけ",
+      "status": "proposed",
+      "created_at": "2026-11-03",
+      "next_check_date": null,
+      "baseline": {
+        "measured_at": "2026-11-03",
+        "source": "data/ga4/reports/2026-10-02.json と 2026-10-31.json の cta-clicks-by-label（note_cta_impression / note_cta_click）",
+        "sameLabels91": {
+          "before": "362/29,679=1.22%（2026-09-04〜10-01）",
+          "after": "168/35,555=0.47%（2026-10-03〜10-30）"
+        },
+        "byPlacementKind": {
+          "hubSidebarFooter": "0.17%→0.17%",
+          "articleTop": "0.34%→0.39%",
+          "bodyCards": "例 civil-2-pastexam-essay:secondary-r07-q1 19.1%→4.8%、civil-2-experience-essay:secondary-experience-examples 8.2%→1.4%"
+        },
+        "note": "前後比較は季節（1級二次 10/4・2級二次 10/25）を含むので判断の根拠にしない。この実験は同じ期間の A/B で比べる"
+      },
+      "businessContext": {
+        "qualification": "all",
+        "readerNeed": "答案や暗記を仕上げたい受験者が、本文を読みながら自分に合う教材をその場で選びたい",
+        "verifiedGap": "本文中の案内が同じ POP 画像の繰り返しになり、商品名・収録内容が読めない。画像化の後に本文カードのクリック率が約 4 分の 1 に下がった",
+        "metricId": "noteRevenue",
+        "reviewRecord": "data/business/records/review-2026-11-01T06-07-23-843Z-6abb9200-372f-4c28-9595-84f9ccde8750.json"
+      },
+      "actions": [
+        "本番デプロイの日を開始日にし、status を running・next_check_date を開始日＋7 日にする",
+        "対象: MagazineHeroCta・MagazineInlineCard（本文中・本文中間の note 案内）で画像のある商品。記事冒頭（MagazineTopBanner）・商品カード（NoteProductCard）・資格トップのタイルは対象外",
+        "割り当て: 訪問者ごとに約 1/2。localStorage（doboku-note:EXP-053:variant）で再訪も固定。JS が無いときは image",
+        "毎週 `npm run report-note-body-experiment` の案ごとの表示・クリックを measurements に記録する。EXP-048（転職アフィリの 2 枚並べ）と同じページで動くが、割り当ては独立なので両案に均等に混ざる"
+      ],
+      "measurementPlan": {
+        "kind": "note-body-design",
+        "status": "awaiting-deploy",
+        "variants": [
+          "image",
+          "text"
+        ],
+        "assignment": "<head> の NOTE_BODY_VARIANT_SCRIPT（src/lib/note-body-experiment.mjs）",
+        "events": [
+          "note_body_experiment_impression",
+          "note_body_experiment_click"
+        ],
+        "reportId": "ga4.cta-clicks-by-label",
+        "card": "DN-0949",
+        "endDate": "2026-12-15"
+      }
     }
   ]
 }

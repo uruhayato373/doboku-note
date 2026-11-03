@@ -1320,3 +1320,10 @@
 [data-standards-chapter] .table-scroll :is(td, th):not(.standards-cell-short) {
   min-width: 10em;
 }
+
+/* EXP-053: 本文中の note 案内の A/B（src/lib/note-body-experiment.mjs）。選ばれなかった案を隠す。
+   割り当てのスクリプトが動かない（JS 無効・失敗）ときは画像の案（今の既定）だけを見せる。 */
+html:not([data-note-body-variant="text"]) [data-note-body-arm="text"],
+html[data-note-body-variant="text"] [data-note-body-arm="image"] {
+  display: none;
+}
