@@ -37,6 +37,8 @@ node -e "const d=require('./.claude/state/dispatch/dispatch-log.json');const w=d
 - **品質censusのdelta**: weekly-review-guard の report digest（quality-audit `quality-census`）が悪化（薄層への逆戻り・スコア低下）を Issue にした週だけ、該当記事を backlog へ（週次では実行しない）。
 - **収益カバレッジ**: `npm run report-monetization-coverage` の配置別 CTA CTR・note label × 同期間の商品売上（ID付き比率）を1行確認する。売上は全流入経路の商品合計で、CTA別購入の帰属ではない。同じ商品の複数ラベルに表示する売上を合算しない。
 - **商品への送客（DN-0947）**: `npm run report-product-funnel` で、販売先の ID（note キー・a8mat 等）ごとの表示 → 販売先クリック → 販売（台帳 data/business/product-sales/。measured の月だけ 0 件と読む）を読み、running の EXP-052（技術士一次 直前パック・`-- --product mfa3fcffdd85d`）の 1 行を measurements に記録する。exit 2（取得前）は「未取得」と書く。
+- **市場価値を確かめる記事（EXP-054）**: `npm run report-product-funnel` の a8 の行のうち置き場所 `career-multi-register`（新しい記事の比較カード）の表示・クリックと、A8 の案件別の発生を EXP-054 の measurements に記録する。note のキャリア記事からの戻りは product-referrals の inbound（`utm_content=market-value-check`・`utm_term`＝記事キー）で読む。
+- **技術士（建設部門）のハイクラスの出し分け（EXP-055）**: 週次の GA4 レポート `affiliate-by-page`（`npm run ci-data -- latest ga4.affiliate-by-page`）を `/exam/pe-construction` で絞り、ラベル `BuildJob-sidebar` と `DXConsulting-sidebar` の表示・クリックを並べて EXP-055 の measurements に記録する。発生は A8 の成果の明細のリファラで技術士（建設部門）のページまで分かる。両案の合計が 40 クリックに届くまでは途中経過。
 - **本文中の note 案内の A/B（DN-0949）**: `npm run report-note-body-experiment` の案ごとの表示・クリック率を 1 行載せ、EXP-053 の measurements に記録する。各案 1,000 表示に届くまでは途中経過。exit 2 は「未取得」。
 
 blocked / fail があれば「課題・ブロッカー」へ、繰り返し blocked になるタスクは前提条件を backlog 本文へ書き足す。

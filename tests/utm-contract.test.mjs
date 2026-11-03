@@ -9,7 +9,7 @@ import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 
 import { channelFamily, channelOf } from '../scripts/lib/utm-channels.mjs';
-import { kindleInboundUtm, setUtmParams, utmChannel, utmChannelFamily, utmEbook, withNoteInboundUtm } from '../scripts/lib/utm-contract.mjs';
+import { applyNoteInboundUtm, kindleInboundUtm, setUtmParams, utmChannel, utmChannelFamily, utmEbook } from '../scripts/lib/utm-contract.mjs';
 import { loadConfig } from '../scripts/lib/video-content-check.mjs';
 import { loadTsModule } from './lib/load-ts.mjs';
 import { REPO_ROOT as ROOT } from '../scripts/lib/repository-paths.mjs';
@@ -79,13 +79,25 @@ test('Kindle の戻りリンクは campaign＝書籍 ID の小文字・content�
 });
 
 test('note の本文リンクは utm_term に記事の note キーを足し、utm_content（リンクの種類）には触らない', () => {
+  const one = (url, key) => applyNoteInboundUtm(`本文 ${url}\n`, 'c', key).text.slice(3, -1);
   const base = 'https://doboku-note.com/exam/a?utm_source=note&utm_medium=referral&utm_campaign=c&utm_content=guide#x';
-  assert.equal(withNoteInboundUtm(base, 'c', 'nd81412e89bf3'), 'https://doboku-note.com/exam/a?utm_source=note&utm_medium=referral&utm_campaign=c&utm_content=guide&utm_term=nd81412e89bf3#x');
-  assert.equal(withNoteInboundUtm('https://doboku-note.com/exam/a', 'c', 'n1a'), 'https://doboku-note.com/exam/a?utm_source=note&utm_medium=referral&utm_campaign=c&utm_term=n1a');
-  assert.equal(withNoteInboundUtm('https://doboku-note.com/exam/a', 'c'), 'https://doboku-note.com/exam/a?utm_source=note&utm_medium=referral&utm_campaign=c');
+  assert.equal(one(base, 'nd81412e89bf3'), 'https://doboku-note.com/exam/a?utm_source=note&utm_medium=referral&utm_campaign=c&utm_content=guide&utm_term=nd81412e89bf3#x');
+  assert.equal(one('https://doboku-note.com/exam/a', 'n1a'), 'https://doboku-note.com/exam/a?utm_source=note&utm_medium=referral&utm_campaign=c&utm_term=n1a');
+  assert.equal(one('https://doboku-note.com/exam/a', null), 'https://doboku-note.com/exam/a?utm_source=note&utm_medium=referral&utm_campaign=c');
   const done = 'https://doboku-note.com/exam/a?utm_source=note&utm_term=n1a';
-  assert.equal(withNoteInboundUtm(done, 'c', 'n2b'), done);
+  assert.equal(one(done, 'n2b'), done);
   const other = 'https://doboku-note.com/exam/a?utm_source=x&utm_medium=social';
-  assert.equal(withNoteInboundUtm(other, 'c', 'n2b'), other);
-  assert.throws(() => withNoteInboundUtm('https://doboku-note.com/', 'c', 'mabc'), /記事キー/);
+  assert.equal(one(other, 'n2b'), other);
+  assert.throws(() => applyNoteInboundUtm('https://doboku-note.com/exam/a\n', 'c', 'mabc'), /記事キー/);
+});
+
+test('note の原文の UTM 付けは本文のリンクだけを置き換え、CRLF も frontmatter も変えない', () => {
+  const raw = '---\r\nutmCampaign: c\r\nnoteId: "n1a"\r\nnote: https://doboku-note.com/exam/fm\r\n---\r\n\r\n本文 [a](https://doboku-note.com/exam/a?utm_source=note&utm_medium=referral&utm_campaign=c)\r\n\r\nhttps://doboku-note.com/exam/b\r\n';
+  const r = applyNoteInboundUtm(raw, 'c', 'n1a');
+  assert.equal(r.added, 2);
+  assert.ok(r.text.startsWith('---\r\nutmCampaign: c\r\nnoteId: "n1a"\r\nnote: https://doboku-note.com/exam/fm\r\n---\r\n'), 'frontmatter は触らない');
+  assert.equal((r.text.match(/\r\n/g) ?? []).length, (raw.match(/\r\n/g) ?? []).length);
+  assert.equal(/[^\r]\n/.test(r.text), false, 'LF を混ぜない');
+  assert.match(r.text, /utm_campaign=c&utm_term=n1a\)/);
+  assert.match(r.text, /exam\/b\?utm_source=note&utm_medium=referral&utm_campaign=c&utm_term=n1a\r\n$/);
 });

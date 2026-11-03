@@ -14,16 +14,16 @@
 // - それ以外で既に utm_* が含まれているリンクはスキップ（重複付与防止）
 // - フラグメント (#anchor) が末尾にあればその前に挿入
 
-import { readFileSync, writeFileSync, readdirSync } from 'node:fs';
-import { join } from 'node:path';
+import { readFileSync, writeFileSync } from 'node:fs';
+import { dirname, join, relative } from 'node:path';
+import { listFiles } from './lib/fs-walk.mjs';
 import matter from 'gray-matter';
-import { withNoteInboundUtm } from './lib/utm-contract.mjs';
+import { applyNoteInboundUtm } from './lib/utm-contract.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 import { parseCliArgs } from './lib/cli-args.mjs';
 
 const NOTE_DIR = join(ROOT, 'content/note');
 
-const URL_RE = /\bhttps:\/\/doboku-note\.com\/[^\s)\]」]+/g;
 // source / medium は契約（config/utm-templates.json の note.site）。campaign は記事ごと（frontmatter utmCampaign）、
 // utm_term は記事の note キー（frontmatter noteId・公開後だけ。DN-0947 の _inbound_note。utm_content はリンクの種類に使っているので触らない）。
 
@@ -35,29 +35,17 @@ function parseArgs(argv) {
   return { target: flags._.find(Boolean) ?? null, campaign: flags.campaign, dryRun: flags.dryRun };
 }
 
-// 2026-05-29 再編: content/note は試験別ディレクトリ配下に記事を持つ。
-// 2026-07-31: 建設部門・一次・コンクリート系が漏れており該当記事を解決できなかったため追加
-// （check-note-site-utm の違反 85 件のうち 81 件がこの取りこぼし配下だった）。
-const EXAM_DIRS = [
-  '技術士総監', '技術士建設部門', '技術士一次',
-  '1級・2級土木', '1級・2級土木/1級土木', '1級・2級土木/2級土木',
-  'コンクリート主任技師', 'コンクリート診断士', '共通',
-];
-
+// content/note 配下の article.md を全部探す（2026-11-03: 資格フォルダを決め打ちの一覧で持っていたため、コンクリート技士・
+// 測量士・舗装などの記事を解決できず、check-note-site-utm の [utm-term] が案内する直し方が動かなかった）。
+// slug はフォルダ名、rel は content/note からの相対。マガジンの中の記事も含める（magazines/<誌>/<記事>）。
 function resolveDirectory(target) {
-  // 全 exam dir 配下の記事 slug を {exam}/{slug}（magazines 除く）で収集
-  const all = [];
-  for (const exam of EXAM_DIRS) {
-    let subs;
-    try {
-      subs = readdirSync(join(NOTE_DIR, exam), { withFileTypes: true })
-        .filter((e) => e.isDirectory() && e.name !== 'magazines')
-        .map((e) => e.name);
-    } catch {
-      continue;
-    }
-    for (const s of subs) all.push({ slug: s, rel: `${exam}/${s}` });
-  }
+  const all = listFiles(NOTE_DIR, { match: (_p, name) => name === 'article.md', allowMissing: true })
+    .map((p) => relative(NOTE_DIR, dirname(p)).split('\\').join('/'))
+    .filter((rel) => rel && rel !== '.')
+    .map((rel) => ({ slug: rel.split('/').pop(), rel }));
+  // パスの末尾が一致（"1級・2級土木/xxx" のように親フォルダつきで渡してもよい）
+  const byPath = all.filter((a) => a.rel === target || a.rel.endsWith(`/${target}`));
+  if (byPath.length === 1) return byPath[0].rel;
   // slug 完全一致
   const exact = all.filter((a) => a.slug === target);
   if (exact.length === 1) return exact[0].rel;
@@ -78,27 +66,19 @@ async function main() {
   const dirName = resolveDirectory(args.target);
   const articlePath = join(NOTE_DIR, dirName, 'article.md');
   const raw = readFileSync(articlePath, 'utf-8');
-  const { data, content } = matter(raw);
+  const { data } = matter(raw);
   const campaign = args.campaign || data.utmCampaign;
   if (!campaign) {
     console.error(`[error] utmCampaign が frontmatter に未定義かつ --campaign 引数も無い: ${dirName}`);
     process.exit(1);
   }
 
-  let added = 0;
-  let skipped = 0;
-  const updatedContent = content.replace(URL_RE, (url) => {
-    const newUrl = withNoteInboundUtm(url, campaign, data.noteId || null);
-    if (newUrl === url) {
-      skipped++;
-      return url;
-    }
-    added++;
-    if (args.dryRun) {
-      console.log(`  ${url}\n→ ${newUrl}\n`);
-    }
-    return newUrl;
-  });
+  const { text: updatedRaw, added, skipped } = applyNoteInboundUtm(raw, campaign, data.noteId || null);
+  if (args.dryRun) {
+    const before = raw.match(/\bhttps:\/\/doboku-note\.com\/[^\s)\]」]+/g) ?? [];
+    const after = updatedRaw.match(/\bhttps:\/\/doboku-note\.com\/[^\s)\]」]+/g) ?? [];
+    before.forEach((u, k) => { if (after[k] && after[k] !== u) console.log(`  ${u}\n→ ${after[k]}\n`); });
+  }
 
   console.log(`[add-note-utm] ${dirName}`);
   console.log(`  campaign: ${campaign}`);
@@ -115,17 +95,8 @@ async function main() {
     return;
   }
 
-  // gray-matter は frontmatter を再構築するが行末スタイルが変わる場合があるので
-  // frontmatter ブロック自体は元のまま保持し、本文だけ差し替える
-  const fmEndIdx = raw.indexOf('---', 4); // 2 番目の ---
-  if (raw.startsWith('---') && fmEndIdx !== -1) {
-    const fmBlock = raw.slice(0, fmEndIdx + 3);
-    const newRaw = `${fmBlock}\n${updatedContent.replace(/^\n+/, '')}`;
-    writeFileSync(articlePath, newRaw);
-  } else {
-    // frontmatter なしの場合は content そのまま
-    writeFileSync(articlePath, updatedContent);
-  }
+  // 本文のリンクだけを置き換えた原文をそのまま書く（改行コード・frontmatter を変えない・applyNoteInboundUtm）
+  writeFileSync(articlePath, updatedRaw);
   console.log('  ✓ 書き込み完了');
 }
 

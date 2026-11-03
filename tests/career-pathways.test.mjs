@@ -191,6 +191,6 @@ test('全キャリア記事の記事末に「市場価値を確かめる手順�
     const steps = pathways.resolveCareerNextSteps(slug);
     assert.equal(steps.filter((s) => s.href === href).length, 1, slug);
   }
-  assert.equal(pathways.resolveCareerNextSteps(pathways.MARKET_VALUE_CHECK_SLUG).some((s) => s.href === href), false);
+  assert.equal(pathways.resolveCareerNextSteps('civil-construction-1-guide-market-value-check').some((s) => s.href === href), false);
   assert.ok(existsSync(join(ROOT, 'content/site/civil-construction-1/guide-market-value-check/article.mdx')));
 });
