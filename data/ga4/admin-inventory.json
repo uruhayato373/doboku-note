@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
-  "runId": "2026-10-31T02-45-36Z",
-  "collectedAt": "2026-10-31T02:45:36.441Z",
+  "runId": "2026-11-03T05-00-59Z",
+  "collectedAt": "2026-11-03T05:00:59.191Z",
   "propertyId": "419382901",
   "mode": "api-check",
   "source": "admin-api",
   "status": "ok",
-  "desiredCount": 4,
+  "desiredCount": 6,
   "inventory": {
     "dimensions": [
       {
@@ -38,6 +38,16 @@
         "displayName": "metric_name",
         "parameterName": "metric_name",
         "scopeLabel": "EVENT"
+      },
+      {
+        "displayName": "product_destination",
+        "parameterName": "product_destination",
+        "scopeLabel": "EVENT"
+      },
+      {
+        "displayName": "product_id",
+        "parameterName": "product_id",
+        "scopeLabel": "EVENT"
       }
     ]
   },
@@ -46,7 +56,9 @@
     "event_label",
     "cta_placement",
     "metric_name",
-    "metric_rating"
+    "metric_rating",
+    "product_destination",
+    "product_id"
   ],
   "created": [],
   "createFailures": [],
@@ -86,6 +98,11 @@
         "eventName": "coconala_cta_click",
         "countingMethod": "ONCE_PER_EVENT",
         "createTime": "2026-09-24T21:14:34.036529Z"
+      },
+      {
+        "eventName": "product_click",
+        "countingMethod": "ONCE_PER_EVENT",
+        "createTime": "2026-11-03T05:00:54.889529Z"
       }
     ],
     "present": [
@@ -93,7 +110,8 @@
       "affiliate_cta_click",
       "coconala_cta_click",
       "quiz_complete",
-      "standards_data_download"
+      "standards_data_download",
+      "product_click"
     ],
     "missing": [],
     "created": [],

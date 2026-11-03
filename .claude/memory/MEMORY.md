@@ -60,6 +60,7 @@
 - [Xタグ個数](feedback_x_hashtag_count.md) — #技術士 #総監+種別
 - [X凍結ガードレール](feedback_x_suspension_guardrail.md) — 重複・連投・同時刻回避
 - [knip裏取りとworktree npm](feedback_knip_grep_scope_and_worktree_npm.md) — repo全体grep・symlink実体化
+- [売り場から外す線引き](feedback_shelving_unsold_products.md) — 試験日で判定・唯一のCTAは残す・無料は数値
 
 ## Project
 - [3層・合格者戦略](project_v3_strategy.md) — 運営者は総監合格済・言及ルール

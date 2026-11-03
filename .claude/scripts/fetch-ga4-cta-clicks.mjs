@@ -23,6 +23,8 @@
  *                                                #     未登録なら API がエラー→登録手順を表示して exit 0（CI 非破壊）。
  *   npm run fetch-ga4-cta-clicks -- --by-page    # アフィリエイトだけ。クリックは pagePath × event_label × cta_placement × date、
  *                                                #   表示は日付なしの窓の合計（どのページのどの広告が押されたか。A8 の発生日と突き合わせる）
+ *   npm run fetch-ga4-cta-clicks -- --by-product # 商品への送客（product_impression / product_click）を販売先 × 商品 ID × 置き場所で（DN-0947）
+ *                                                #   → ga4 レポートの product-referrals。要カスタムディメンション product_destination・product_id・cta_placement。
  *   npm run fetch-ga4-cta-clicks -- --key-events # pagePath × sessions / keyEvents / sessionKeyEventRate（標準指標）
  *                                                #   → ga4-key-events-by-page-*.json。イベント名では絞らない（キーイベント定義は
  *                                                #     GA4 側＝ga4-admin-desired-state.json）。0 行はサイト全体 0 セッションで異常のため exit 1。
@@ -53,6 +55,7 @@ import { parseCliArgs } from "../../scripts/lib/cli-args.mjs";
 dotenv.config({ path: ".env.local" });
 
 const DEFAULT_DAYS = 28;
+const PRODUCT_REFERRAL_EVENTS = ["product_impression", "product_click"];
 const EVENT_NAMES = [
   "note_cta_click",
   "note_cta_impression",
@@ -103,6 +106,7 @@ function parseArgs() {
     "by-placement": { type: "boolean" },
     "by-page": { type: "boolean" },
     "by-experiment": { type: "boolean" },
+    "by-product": { type: "boolean" },
     "key-events": { type: "boolean" },
   });
   return {
@@ -114,6 +118,7 @@ function parseArgs() {
     keyEvents: v.keyEvents,
     byPage: v.byPage,
     byExperiment: v.byExperiment,
+    byProduct: v.byProduct,
     month: v.month,
     startDate: v.startDate,
     endDate: v.endDate,
@@ -271,6 +276,48 @@ async function mainAffiliateByPage(client, propertyId, opts, stamp) {
   console.log(`出力: ${outPath}`);
 }
 
+/** 商品への送客。行は 販売先 × 商品 ID × 置き場所 × イベント（表示・クリック）。0 行は未デプロイ・未登録なら正常（awaiting-data）。 */
+async function mainProductReferrals(client, propertyId, opts, stamp) {
+  const { startDate, endDate, windowKind } = resolveWindow(opts);
+  const andFilters = [{ filter: { fieldName: "eventName", inListFilter: { values: PRODUCT_REFERRAL_EVENTS } } }];
+  if (opts.japanOnly) andFilters.push(japanFilter());
+  const report = await runReportAll(client, {
+    property: propertyId,
+    dateRanges: [{ startDate, endDate }],
+    dimensions: ["customEvent:product_destination", "customEvent:product_id", "customEvent:cta_placement", "eventName"].map((name) => ({ name })),
+    metrics: [{ name: "eventCount" }],
+    dimensionFilter: { andGroup: { expressions: andFilters } },
+    orderBys: [{ metric: { metricName: "eventCount" }, desc: true }],
+  });
+  const rows = report.rows.map((row) => {
+    const [destination, productId, placement, eventName] = row.dimensionValues.map((d) => d?.value || "");
+    return { destination, productId, placement, eventName, eventCount: parseInt(row.metricValues?.[0]?.value || "0", 10) };
+  });
+  // 逆向き: 商品（note の記事・Kindle の本）からサイトへ戻ったセッション（config/utm-templates.json の _inbound_note・ebook.kindle）。
+  // note は utm_term＝記事の note キー、Kindle は utm_campaign＝書籍 ID・utm_content＝置き場所。標準ディメンションなので登録は要らない
+  const inboundReport = await runReportAll(client, {
+    property: propertyId,
+    dateRanges: [{ startDate, endDate }],
+    dimensions: ["sessionSource", "sessionMedium", "sessionCampaignName", "sessionManualTerm", "sessionManualAdContent"].map((name) => ({ name })),
+    metrics: [{ name: "sessions" }],
+    dimensionFilter: { filter: { fieldName: "sessionSource", inListFilter: { values: ["note", "kindle"] } } },
+  });
+  const inbound = inboundReport.rows.map((row) => {
+    const [source, medium, campaign, term, content] = row.dimensionValues.map((d) => d?.value || "");
+    return { source, medium, campaign, term, content, sessions: parseInt(row.metricValues?.[0]?.value || "0", 10) };
+  });
+  const data = {
+    meta: { startDate, endDate, windowKind, mode: "product-referrals", eventNames: PRODUCT_REFERRAL_EVENTS, japanOnly: opts.japanOnly, propertyId, rowCount: report.rowCount, truncated: report.truncated, status: rows.length ? "available" : "awaiting-data" },
+    rows,
+    inbound,
+  };
+  const out = writeReport(".", "ga4.product-referrals", data, { stamp });
+  const sum = (name) => rows.filter((r) => r.eventName === name).reduce((s, r) => s + r.eventCount, 0);
+  console.log(`[product-referrals] ${startDate} 〜 ${endDate} / ${rows.length} 行 / 表示 ${sum("product_impression")}・クリック ${sum("product_click")} / ${data.meta.status} / ${out.ref}`);
+  console.log(`[product-referrals] 商品からの戻り: note ${inbound.filter((r) => r.source === "note").reduce((s, r) => s + r.sessions, 0)}・kindle ${inbound.filter((r) => r.source === "kindle").reduce((s, r) => s + r.sessions, 0)} セッション`);
+  if (data.meta.truncated || inboundReport.truncated) process.exitCode = 1;
+}
+
 async function main() {
   const opts = parseArgs();
   const { client, property: propertyId } = ga4FromEnv();
@@ -284,6 +331,10 @@ async function main() {
     console.log(`[affiliate-experiment] API ${response.rowCount} 行 / 実集計 ${rows.length} 行 / ${data.meta.status} / ${out.ref}`);
     console.log(JSON.stringify(data.summary));
     if (data.meta.truncated || data.meta.limited) process.exitCode = 1;
+    return;
+  }
+  if (opts.byProduct) {
+    await mainProductReferrals(client, propertyId, opts, stamp);
     return;
   }
   if (opts.keyEvents) {
@@ -338,8 +389,8 @@ main().catch((e) => {
   // その場合は登録手順を示して exit 0（CI の他 step を止めない・continue-on-error 前提だが明示）。
   const msg = String(e?.message || e);
   // カスタムディメンション未登録の救済は by-label / by-placement だけ。標準指標の --key-events の失敗は exit 1。
-  if (!process.argv.includes("--key-events") && !process.argv.includes("--by-experiment") && /customEvent:(event_label|cta_placement)|not.*valid.*dimension|did not match/i.test(msg)) {
-    const parameter = process.argv.includes("--by-placement") ? "cta_placement" : process.argv.includes("--by-page") ? "event_label・cta_placement" : "event_label";
+  if (!process.argv.includes("--key-events") && !process.argv.includes("--by-experiment") && /customEvent:(event_label|cta_placement|product_destination|product_id)|not.*valid.*dimension|did not match/i.test(msg)) {
+    const parameter = process.argv.includes("--by-product") ? "product_destination・product_id・cta_placement" : process.argv.includes("--by-placement") ? "cta_placement" : process.argv.includes("--by-page") ? "event_label・cta_placement" : "event_label";
     console.warn(
       `[fetch-ga4-cta-clicks] ${parameter} は GA4 カスタムディメンション未登録のためスキップ。\n` +
         "  GA4 管理画面 → 管理 → データ表示 → カスタム定義 → カスタムディメンション作成:\n" +

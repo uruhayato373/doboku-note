@@ -1,0 +1,828 @@
+{
+  "schemaVersion": 1,
+  "month": "2026-09",
+  "generatedBy": "npm run product-sales",
+  "coverage": {
+    "note": {
+      "status": "measured",
+      "provisional": false,
+      "amountBasis": "price",
+      "fetchedAt": "2026-10-14T08:49:01.281Z",
+      "dashboardCount": 35,
+      "recordedCount": 35
+    },
+    "amazon": {
+      "status": "measured",
+      "provisional": false,
+      "amountBasis": "royalty",
+      "fetchedAt": "2026-10-17T00:50:32.872Z",
+      "note": "件数は KDP レポートに無い（推計ロイヤリティの円だけ）。行の無い doboku-note の本は計測済み・0 円"
+    },
+    "coconala": {
+      "status": "measured",
+      "provisional": false,
+      "amountBasis": "net",
+      "fetchedAt": "2026-10-31T00:45:29.275Z",
+      "note": "クローズ日で計上・手数料控除後。おひねり（tip）は金額に入れ、件数に数えない"
+    },
+    "a8": {
+      "status": "account-only",
+      "fetchedAt": "2026-10-31T00:30:58.832Z",
+      "reason": "A8 の月次は口座全体だけ（案件別は期間合計しか取っていない）。商品別は未計測",
+      "account": {
+        "clicks": 271,
+        "conversions": 0,
+        "approved": 0,
+        "revenueYen": 0,
+        "pendingRevenueYen": 0
+      }
+    }
+  },
+  "rows": [
+    {
+      "destination": "amazon",
+      "productId": "kindle-c-05",
+      "bookId": "c-05",
+      "destinationIds": [
+        "B0HB3CL6C7"
+      ],
+      "count": null,
+      "amountYen": 2122,
+      "kenpYen": 24
+    },
+    {
+      "destination": "amazon",
+      "productId": "kindle-e-01",
+      "bookId": "e-01",
+      "destinationIds": [
+        "B0H8ZZMM7R"
+      ],
+      "count": null,
+      "amountYen": 1053,
+      "kenpYen": 426
+    },
+    {
+      "destination": "amazon",
+      "productId": "kindle-c-11",
+      "bookId": "c-11",
+      "destinationIds": [
+        "B0HBR397N3"
+      ],
+      "count": null,
+      "amountYen": 1049,
+      "kenpYen": 0
+    },
+    {
+      "destination": "amazon",
+      "productId": "kindle-f-16",
+      "bookId": "f-16",
+      "destinationIds": [
+        "B0HCMNDNX8"
+      ],
+      "count": null,
+      "amountYen": 851,
+      "kenpYen": 56
+    },
+    {
+      "destination": "amazon",
+      "productId": "kindle-c-04",
+      "bookId": "c-04",
+      "destinationIds": [
+        "B0HB3KWZBD"
+      ],
+      "count": null,
+      "amountYen": 817,
+      "kenpYen": 22
+    },
+    {
+      "destination": "amazon",
+      "productId": "kindle-c-02",
+      "bookId": "c-02",
+      "destinationIds": [
+        "B0HB3JF9QZ"
+      ],
+      "count": null,
+      "amountYen": 803,
+      "kenpYen": 8
+    },
+    {
+      "destination": "amazon",
+      "productId": "kindle-c-09",
+      "bookId": "c-09",
+      "destinationIds": [
+        "B0HB34VG8C"
+      ],
+      "count": null,
+      "amountYen": 795,
+      "kenpYen": 0
+    },
+    {
+      "destination": "amazon",
+      "productId": "kindle-g-01",
+      "bookId": "g-01",
+      "destinationIds": [
+        "B0HGXCGGS2"
+      ],
+      "count": null,
+      "amountYen": 645,
+      "kenpYen": 16
+    },
+    {
+      "destination": "amazon",
+      "productId": "kindle-d-01",
+      "bookId": "d-01",
+      "destinationIds": [
+        "B0H8JHYGH9"
+      ],
+      "count": null,
+      "amountYen": 507,
+      "kenpYen": 507
+    },
+    {
+      "destination": "amazon",
+      "productId": "kindle-b-reiwa",
+      "bookId": "b-reiwa",
+      "destinationIds": [
+        "B0H94Y52ZL"
+      ],
+      "count": null,
+      "amountYen": 268,
+      "kenpYen": 268
+    },
+    {
+      "destination": "amazon",
+      "productId": "kindle-d-02",
+      "bookId": "d-02",
+      "destinationIds": [
+        "B0H8L2WXBY"
+      ],
+      "count": null,
+      "amountYen": 188,
+      "kenpYen": 188
+    },
+    {
+      "destination": "amazon",
+      "productId": "kindle-g-02",
+      "bookId": "g-02",
+      "destinationIds": [
+        "B0HGXLGJ5Y"
+      ],
+      "count": null,
+      "amountYen": 183,
+      "kenpYen": 183
+    },
+    {
+      "destination": "amazon",
+      "productId": "kindle-d-03",
+      "bookId": "d-03",
+      "destinationIds": [
+        "B0H955Y4FJ"
+      ],
+      "count": null,
+      "amountYen": 151,
+      "kenpYen": 151
+    },
+    {
+      "destination": "amazon",
+      "productId": "kindle-c-08",
+      "bookId": "c-08",
+      "destinationIds": [
+        "B0HB3H3N7Y"
+      ],
+      "count": null,
+      "amountYen": 81,
+      "kenpYen": 81
+    },
+    {
+      "destination": "amazon",
+      "productId": "kindle-f-07",
+      "bookId": "f-07",
+      "destinationIds": [
+        "B0HBR87S59"
+      ],
+      "count": null,
+      "amountYen": 48,
+      "kenpYen": 48
+    },
+    {
+      "destination": "amazon",
+      "productId": "kindle-a-00",
+      "bookId": "A-00",
+      "destinationIds": [
+        "B0H8HW139T"
+      ],
+      "count": null,
+      "amountYen": 47,
+      "kenpYen": 47
+    },
+    {
+      "destination": "amazon",
+      "productId": "kindle-f-11",
+      "bookId": "f-11",
+      "destinationIds": [
+        "B0HCMLKJZT"
+      ],
+      "count": null,
+      "amountYen": 42,
+      "kenpYen": 42
+    },
+    {
+      "destination": "amazon",
+      "productId": "kindle-c-i",
+      "bookId": "c-I",
+      "destinationIds": [
+        "B0HBR2F6KZ"
+      ],
+      "count": null,
+      "amountYen": 37,
+      "kenpYen": 37
+    },
+    {
+      "destination": "amazon",
+      "productId": "kindle-f-15",
+      "bookId": "f-15",
+      "destinationIds": [
+        "B0HCMR444R"
+      ],
+      "count": null,
+      "amountYen": 37,
+      "kenpYen": 37
+    },
+    {
+      "destination": "amazon",
+      "productId": "kindle-e-02",
+      "bookId": "e-02",
+      "destinationIds": [
+        "B0H3GX3HNW"
+      ],
+      "count": null,
+      "amountYen": 34,
+      "kenpYen": 34
+    },
+    {
+      "destination": "amazon",
+      "productId": "kindle-c-06",
+      "bookId": "c-06",
+      "destinationIds": [
+        "B0HB37CTYN"
+      ],
+      "count": null,
+      "amountYen": 26,
+      "kenpYen": 26
+    },
+    {
+      "destination": "amazon",
+      "productId": "kindle-a-01",
+      "bookId": "A-01",
+      "destinationIds": [
+        "B0H8B1HYRY"
+      ],
+      "count": null,
+      "amountYen": 15,
+      "kenpYen": 15
+    },
+    {
+      "destination": "amazon",
+      "productId": "kindle-c-07",
+      "bookId": "c-07",
+      "destinationIds": [
+        "B0HB3585PD"
+      ],
+      "count": null,
+      "amountYen": 9,
+      "kenpYen": 9
+    },
+    {
+      "destination": "amazon",
+      "productId": "kindle-d-00",
+      "bookId": "d-00",
+      "destinationIds": [
+        "B0H96JKYCX"
+      ],
+      "count": null,
+      "amountYen": 8,
+      "kenpYen": 8
+    },
+    {
+      "destination": "amazon",
+      "productId": "kindle-c-01",
+      "bookId": "c-01",
+      "destinationIds": [
+        "B0HB3374VL"
+      ],
+      "count": null,
+      "amountYen": 7,
+      "kenpYen": 7
+    },
+    {
+      "destination": "amazon",
+      "productId": "kindle-f-08",
+      "bookId": "f-08",
+      "destinationIds": [
+        "B0HCMGB517"
+      ],
+      "count": null,
+      "amountYen": 3,
+      "kenpYen": 3
+    },
+    {
+      "destination": "amazon",
+      "productId": "kindle-f-02",
+      "bookId": "f-02",
+      "destinationIds": [
+        "B0HBQVW3G9"
+      ],
+      "count": null,
+      "amountYen": 2,
+      "kenpYen": 2
+    },
+    {
+      "destination": "amazon",
+      "productId": "kindle-a-02",
+      "bookId": "A-02",
+      "destinationIds": [
+        "B0H8CY453L"
+      ],
+      "count": null,
+      "amountYen": 0,
+      "kenpYen": 0
+    },
+    {
+      "destination": "amazon",
+      "productId": "kindle-a-03",
+      "bookId": "A-03",
+      "destinationIds": [
+        "B0H8D25H93"
+      ],
+      "count": null,
+      "amountYen": 0,
+      "kenpYen": 0
+    },
+    {
+      "destination": "amazon",
+      "productId": "kindle-a-04",
+      "bookId": "A-04",
+      "destinationIds": [
+        "B0H8CXKX6Q"
+      ],
+      "count": null,
+      "amountYen": 0,
+      "kenpYen": 0
+    },
+    {
+      "destination": "amazon",
+      "productId": "kindle-a-05",
+      "bookId": "A-05",
+      "destinationIds": [
+        "B0H8FQ4L2T"
+      ],
+      "count": null,
+      "amountYen": 0,
+      "kenpYen": 0
+    },
+    {
+      "destination": "amazon",
+      "productId": "kindle-a-06",
+      "bookId": "A-06",
+      "destinationIds": [
+        "B0H8FQ7QQL"
+      ],
+      "count": null,
+      "amountYen": 0,
+      "kenpYen": 0
+    },
+    {
+      "destination": "amazon",
+      "productId": "kindle-b-heisei",
+      "bookId": "b-heisei",
+      "destinationIds": [
+        "B0H9KZQZQZ"
+      ],
+      "count": null,
+      "amountYen": 0,
+      "kenpYen": 0
+    },
+    {
+      "destination": "amazon",
+      "productId": "kindle-c-03",
+      "bookId": "c-03",
+      "destinationIds": [
+        "B0HB3BLV94"
+      ],
+      "count": null,
+      "amountYen": 0,
+      "kenpYen": 0
+    },
+    {
+      "destination": "amazon",
+      "productId": "kindle-c-10",
+      "bookId": "c-10",
+      "destinationIds": [
+        "B0HBQSYKZ6"
+      ],
+      "count": null,
+      "amountYen": 0,
+      "kenpYen": 0
+    },
+    {
+      "destination": "amazon",
+      "productId": "kindle-f-01",
+      "bookId": "f-01",
+      "destinationIds": [
+        "B0HBQTCDXR"
+      ],
+      "count": null,
+      "amountYen": 0,
+      "kenpYen": 0
+    },
+    {
+      "destination": "amazon",
+      "productId": "kindle-f-03",
+      "bookId": "f-03",
+      "destinationIds": [
+        "B0H9X5WMX7"
+      ],
+      "count": null,
+      "amountYen": 0,
+      "kenpYen": 0
+    },
+    {
+      "destination": "amazon",
+      "productId": "kindle-f-04",
+      "bookId": "f-04",
+      "destinationIds": [
+        "B0H1DTYCNG"
+      ],
+      "count": null,
+      "amountYen": 0,
+      "kenpYen": 0
+    },
+    {
+      "destination": "amazon",
+      "productId": "kindle-f-05",
+      "bookId": "f-05",
+      "destinationIds": [
+        "B0GYJ94CWB"
+      ],
+      "count": null,
+      "amountYen": 0,
+      "kenpYen": 0
+    },
+    {
+      "destination": "amazon",
+      "productId": "kindle-f-06",
+      "bookId": "f-06",
+      "destinationIds": [
+        "B0GZKYXZP7"
+      ],
+      "count": null,
+      "amountYen": 0,
+      "kenpYen": 0
+    },
+    {
+      "destination": "amazon",
+      "productId": "kindle-f-09",
+      "bookId": "f-09",
+      "destinationIds": [
+        "B0HCMC5JHG"
+      ],
+      "count": null,
+      "amountYen": 0,
+      "kenpYen": 0
+    },
+    {
+      "destination": "amazon",
+      "productId": "kindle-f-10",
+      "bookId": "f-10",
+      "destinationIds": [
+        "B0HCMY82PX"
+      ],
+      "count": null,
+      "amountYen": 0,
+      "kenpYen": 0
+    },
+    {
+      "destination": "amazon",
+      "productId": "kindle-f-12",
+      "bookId": "f-12",
+      "destinationIds": [
+        "B0HCMVSZSW"
+      ],
+      "count": null,
+      "amountYen": 0,
+      "kenpYen": 0
+    },
+    {
+      "destination": "amazon",
+      "productId": "kindle-f-13",
+      "bookId": "f-13",
+      "destinationIds": [
+        "B0HCMLZSCN"
+      ],
+      "count": null,
+      "amountYen": 0,
+      "kenpYen": 0
+    },
+    {
+      "destination": "amazon",
+      "productId": "kindle-f-14",
+      "bookId": "f-14",
+      "destinationIds": [
+        "B0HCMRYPC8"
+      ],
+      "count": null,
+      "amountYen": 0,
+      "kenpYen": 0
+    },
+    {
+      "destination": "amazon",
+      "productId": "kindle-h-01",
+      "bookId": "h-01",
+      "destinationIds": [
+        "B0HKR9711J"
+      ],
+      "count": null,
+      "amountYen": 0,
+      "kenpYen": 0
+    },
+    {
+      "destination": "amazon",
+      "productId": "kindle-j-01",
+      "bookId": "j-01",
+      "destinationIds": [
+        "B0GX2NDGDK"
+      ],
+      "count": null,
+      "amountYen": 0,
+      "kenpYen": 0
+    },
+    {
+      "destination": "amazon",
+      "productId": "kindle-j-03",
+      "bookId": "j-03",
+      "destinationIds": [
+        "B0H943XQF6"
+      ],
+      "count": null,
+      "amountYen": 0,
+      "kenpYen": 0
+    },
+    {
+      "destination": "coconala",
+      "productId": "coconala-tensaku-4theme",
+      "destinationIds": [],
+      "count": 1,
+      "amountYen": 11700
+    },
+    {
+      "destination": "coconala",
+      "productId": "coconala-1kyu-moshi-pdf",
+      "destinationIds": [],
+      "count": 1,
+      "amountYen": 1950
+    },
+    {
+      "destination": "note",
+      "productId": "civil-1-keiken-complete-pack",
+      "type": "magazine",
+      "destinationIds": [
+        "m8290970a7f05",
+        "n9cf7e60661fa"
+      ],
+      "count": 3,
+      "amountYen": 29400
+    },
+    {
+      "destination": "note",
+      "productId": "civil-1-niji-marugoto-pack",
+      "type": "magazine",
+      "destinationIds": [
+        "md29a34906314",
+        "n824a4ea20acf"
+      ],
+      "count": 1,
+      "amountYen": 11800
+    },
+    {
+      "destination": "note",
+      "productId": "essay-complete-pack",
+      "type": "magazine",
+      "destinationIds": [
+        "m171222175fac"
+      ],
+      "count": 1,
+      "amountYen": 9800
+    },
+    {
+      "destination": "note",
+      "productId": "article:civil-1-keiken-pack-105",
+      "type": "article",
+      "destinationIds": [],
+      "count": 4,
+      "amountYen": 7920
+    },
+    {
+      "destination": "note",
+      "productId": "article:civil-1-keiken-pack-68",
+      "type": "article",
+      "destinationIds": [],
+      "count": 3,
+      "amountYen": 5940
+    },
+    {
+      "destination": "note",
+      "productId": "civil-2-koji-bank",
+      "type": "magazine",
+      "destinationIds": [
+        "m8554e87ca6ec"
+      ],
+      "count": 1,
+      "amountYen": 5480
+    },
+    {
+      "destination": "note",
+      "productId": "membership:civil-lab-annual",
+      "type": "membership",
+      "destinationIds": [
+        "membership"
+      ],
+      "count": 3,
+      "amountYen": 4440
+    },
+    {
+      "destination": "note",
+      "productId": "civil-1-experience-essay",
+      "type": "magazine",
+      "destinationIds": [
+        "m150c9db08902"
+      ],
+      "count": 1,
+      "amountYen": 2480
+    },
+    {
+      "destination": "note",
+      "productId": "civil-1-gakka-kijutsu",
+      "type": "magazine",
+      "destinationIds": [
+        "mcfe1059b3335"
+      ],
+      "count": 1,
+      "amountYen": 2480
+    },
+    {
+      "destination": "note",
+      "productId": "civil-2-chokuzen-pack",
+      "type": "magazine",
+      "destinationIds": [
+        "md3518107aa97"
+      ],
+      "count": 1,
+      "amountYen": 2480
+    },
+    {
+      "destination": "note",
+      "productId": "civil-2-pastexam-essay",
+      "type": "magazine",
+      "destinationIds": [
+        "md3aa0f9a37d7"
+      ],
+      "count": 1,
+      "amountYen": 2480
+    },
+    {
+      "destination": "note",
+      "productId": "article:civil-1-keiken-pack-33",
+      "type": "article",
+      "destinationIds": [],
+      "count": 1,
+      "amountYen": 1980
+    },
+    {
+      "destination": "note",
+      "productId": "article:civil-1-keiken-pack-55",
+      "type": "article",
+      "destinationIds": [],
+      "count": 1,
+      "amountYen": 1980
+    },
+    {
+      "destination": "note",
+      "productId": "article:civil-1-keiken-pack-73",
+      "type": "article",
+      "destinationIds": [],
+      "count": 1,
+      "amountYen": 1980
+    },
+    {
+      "destination": "note",
+      "productId": "article:civil-1-keiken-pack-87",
+      "type": "article",
+      "destinationIds": [],
+      "count": 1,
+      "amountYen": 1980
+    },
+    {
+      "destination": "note",
+      "productId": "article:civil-2-koji-bank-08",
+      "type": "article",
+      "destinationIds": [],
+      "count": 1,
+      "amountYen": 1680
+    },
+    {
+      "destination": "note",
+      "productId": "article:civil-2-koji-bank-107",
+      "type": "article",
+      "destinationIds": [],
+      "count": 1,
+      "amountYen": 1680
+    },
+    {
+      "destination": "note",
+      "productId": "article:civil-2-koji-bank-63",
+      "type": "article",
+      "destinationIds": [],
+      "count": 1,
+      "amountYen": 1680
+    },
+    {
+      "destination": "note",
+      "productId": "article:cce-mix-calculation-practice",
+      "type": "article",
+      "destinationIds": [
+        "n5a55ae6dc16b"
+      ],
+      "count": 1,
+      "amountYen": 1480
+    },
+    {
+      "destination": "note",
+      "productId": "article:civil-1-essay-schedule-complete",
+      "type": "article",
+      "destinationIds": [],
+      "count": 1,
+      "amountYen": 1480
+    },
+    {
+      "destination": "note",
+      "productId": "article:civil-1-keiken-pack-03",
+      "type": "article",
+      "destinationIds": [],
+      "count": 1,
+      "amountYen": 1280
+    },
+    {
+      "destination": "note",
+      "productId": "article:cce-persona-namacon-durability",
+      "type": "article",
+      "destinationIds": [],
+      "count": 1,
+      "amountYen": 980
+    },
+    {
+      "destination": "note",
+      "productId": "article:cce-persona-namacon-environment",
+      "type": "article",
+      "destinationIds": [],
+      "count": 1,
+      "amountYen": 980
+    },
+    {
+      "destination": "note",
+      "productId": "article:civil-1-anki-note",
+      "type": "article",
+      "destinationIds": [
+        "na84b001e827e"
+      ],
+      "count": 1,
+      "amountYen": 980
+    },
+    {
+      "destination": "note",
+      "productId": "article:pe1-anki-note",
+      "type": "article",
+      "destinationIds": [
+        "n7b4f17a09d3f"
+      ],
+      "count": 1,
+      "amountYen": 980
+    },
+    {
+      "destination": "note",
+      "productId": "article:tankan-takuitsu-reiwa-pdf",
+      "type": "article",
+      "destinationIds": [
+        "nb5ebacb3e6c0"
+      ],
+      "count": 1,
+      "amountYen": 980
+    }
+  ],
+  "excluded": {
+    "amazon": {
+      "rows": 31,
+      "royaltyYen": 159,
+      "reason": "書籍 ID が付かない行（stats47 など同じ KDP 口座のほかの本。doboku-note の ASIN に当たらない）"
+    }
+  }
+}

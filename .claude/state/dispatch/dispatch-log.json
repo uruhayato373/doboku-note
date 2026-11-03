@@ -6468,6 +6468,19 @@
       "commit": "bf315568a19b",
       "verification": "tests/revenue-calendar.test.mjs・schedule-view --channel revenue",
       "note": "PR #1377 で revenue-calendar に coconala-open・coconala-pause の段を足し、3 資格に出品を結んだ"
+    },
+    {
+      "id": "DN-0941",
+      "at": "2026-11-03",
+      "task": "ココナラの主任技士の小論文の診断（¥2,000）に商品画像を付けて公開し、評価を集める",
+      "tier": "mid",
+      "kind": "制作",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "faa10349986a",
+      "verification": "公開ページで題名・価格・画像を目視、check-coconala-wiring exit 0（listed 3）",
+      "note": "診断（¥2,000）を 2026-11-03 に公開（4484121）。商品画像は承認台帳に登録、納品文のテンプレは content/coconala/products/coconala-cce-essay-shindan/運用テンプレ.md。確認用の下書き 4482903 の削除は運営者が画面で行う（DN-0946）"
     }
   ]
 }

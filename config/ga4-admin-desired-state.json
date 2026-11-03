@@ -51,6 +51,30 @@
       ],
       "blocking": false,
       "$observed": "未作成（2026-09-27 追加・npm run ga4-admin:apply で作成する）"
+    },
+    {
+      "displayName": "product_destination",
+      "parameterName": "product_destination",
+      "scope": "EVENT",
+      "description": "商品への送客（product_impression / product_click）の販売先（note / coconala / amazon / a8 / moshimo）。DN-0947。",
+      "requiredBy": [
+        "npm run fetch-ga4-cta-clicks -- --by-product",
+        ".github/workflows/fetch-metrics.yml"
+      ],
+      "blocking": false,
+      "$observed": "2026-11-03 実機: 管理画面で作成（スコープ イベント・パラメータ名は parameterName と同じ）"
+    },
+    {
+      "displayName": "product_id",
+      "parameterName": "product_id",
+      "scope": "EVENT",
+      "description": "販売先での商品 ID（note のキー・ココナラのサービス番号・ASIN・a8mat・もしもの p_id）。販売台帳 data/business/product-sales/ が config/products.json で自社の商品 ID に引き当てる。DN-0947。",
+      "requiredBy": [
+        "npm run fetch-ga4-cta-clicks -- --by-product",
+        ".github/workflows/fetch-metrics.yml"
+      ],
+      "blocking": false,
+      "$observed": "2026-11-03 実機: 管理画面で作成（スコープ イベント・パラメータ名は parameterName と同じ）"
     }
   ],
   "keyEvents": [
@@ -73,6 +97,10 @@
     {
       "eventName": "standards_data_download",
       "why": "共通仕様書データのダウンロード＝加工受託の入口"
+    },
+    {
+      "eventName": "product_click",
+      "why": "販売先（note / ココナラ / Amazon / A8 / もしも）への送客を販売先と商品 ID つきで 1 本に数える（DN-0947）。note_cta_click などと同じクリックが重なるので足し合わせない"
     }
   ],
   "dataRetention": {

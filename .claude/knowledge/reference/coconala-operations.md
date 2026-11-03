@@ -84,6 +84,7 @@ title: ココナラ運用 SSOT（受注・KPI・カタログ整合）
 | `coconala-cce-essay-pdf` / `coconala-cce-takuitsu-pdf` | K1 コンクリート主任技士 小論文 PDF5冊（¥3,000）／K2 択一直前パック PDF3冊（¥3,500）。`--product K1`/`K2`。需要未検証の試験出品（本試験 11/29 後に販売実績で継続判断＝backlog DN-0265）。**2026-09-30 に `status:'paused'`・`pauseReason:'retired'`**（販売0のまま、主任技士は「添削＋完全パック」の2件に絞った） |
 | `coconala-cce-full-pdf` | **retired（2026-10-05 ユーザー決定で主任技士の PDF から撤退・ライブの休止とアーカイブは DN-0540）**。K3 コンクリート主任技士 **完全パック** PDF9冊（令和形式の小論文6冊＝note の `00-出題傾向分析`＋テーマ別5冊〔1冊に8立場・原稿は `content/sources/cce-persona-essays/令和形式テーマ別-8立場/`〕、択一直前パック3冊・¥8,000）。¥8,000 は note 旧価格（reiwa ¥3,980＋直前 ¥2,980）の ×1.1 で決めた。2026-10-03 に note をテーマ別から 1立場1本の40本へ組み替え、同じ中身の note 商品が無くなったため価格ルールの対象外（`notePriceExempt`）。旧形式の小論文5冊は入れない。`--product K3`。2026-09-30 出品（services/4426935）。同日 K1/K2 を `coconala-pause` で受付休止済み。出題履歴の SSOT は `config/cce-essay-history.json`、運用は `/cce-essay-cycle` |
 | `coconala-cce-essay-tensaku` | コンクリート主任技士 小論文**添削**（1課題・48時間・書き直し1回込み・¥5,000・週2枠）。2026-09-29 出品。骨子からの相談は別出品にせず有料オプション（+¥3,000・20枠節約）。競合は2件のみ（¥5,000 販売0／¥3,000 ★1.0・09-29 実測）。FAQ・オプションは公開後に一回限りのスクリプトで反映済み。**添削の下書き・QA エージェントは土木の経験記述専用**で主任技士の小論文には未対応（受注時は手作業）。受注時の手順は `content/note/コンクリート主任技士/小論文-添削テンプレ.md`（5観点の判定表・NG→OK・書き直し1回） |
+| `coconala-cce-essay-shindan` | コンクリート主任技士 小論文**診断**（1本・48時間・A/B/C 判定と減点箇所の指摘まで・書き換え例文なし・週3名）。2026-11-03 出品（DN-0941・評価の数を増やす入口）。添削へ進むときは購入済み額を調整した見積もり。購入直後の文・納品文・評価のお願い → `content/coconala/products/coconala-cce-essay-shindan/運用テンプレ.md` |
 | （特典）A1/A2 | 1級・2級 二次の直前暗記ノート。単独出品せず、1級の模試・フルパック・プレミアムに A1、2級の模試・フルパックに A2 を同梱（出品本文に明記・2026-09-23〜）。模試は同日に note の直前総仕上げパックより高い価格へ改定したうえで同梱した |
 | `coconala-pe-oral-pdf` | O1 技術士 口頭試験 想定問答 PDF（総監版／建設部門版から購入者の部門に合う1冊・¥3,500）。`--product O1`。購入時メッセージで部門を確認してから送る |
 | `coconala-pe-oral-qa` | 技術士 口頭試験 想定質問作成（業務内容の詳細720字＋経歴 → 想定質問20問＋回答の骨子・テキスト完結・¥5,000・週2枠）。捏造禁止＝事実が足りない箇所は確認事項で返す。ヒアリングシートと納品の型→ `content/coconala/products/coconala-pe-oral-qa/運用テンプレ.md` |
@@ -115,7 +116,7 @@ title: ココナラ運用 SSOT（受注・KPI・カタログ整合）
 | `catchphrase` | キャッチコピー（15〜30字目安） |
 | `deliveryDays` | お届け日数 |
 | `body` / `purchaseNote` | サービス内容 / 購入にあたってのお願い（現行の既存出品編集フォームでは各1500字 / 1000字まで・ともに※必須） |
-| `faq` / `options` | 既存出品の `coconala-edit` は現行フォームに FAQ と有料オプションを投入する。新規出品の `coconala-publish` は未対応。2026-09-25 の一回限りの FAQ 反映は旧フォームで実施。`check-coconala-live` は FAQ を照合しないため、更新後は公開ページで確認する |
+| `faq` / `options` | 既存出品の `coconala-edit` は現行フォームに FAQ と有料オプションを投入する。新規出品の `coconala-publish` は FAQ だけ投入し（2026-11-02〜）、有料オプションは未対応。2026-09-25 の一回限りの FAQ 反映は旧フォームで実施。`check-coconala-live` は FAQ を照合しないため、更新後は公開ページで確認する |
 
 > カテゴリ/価格/facet の value が coconala 側でリニューアルされたら `node scripts/coconala-discover.mjs --advance --cat 12 --sub 254 --type 764` で現行 options を再取得して是正する。
 
@@ -488,7 +489,8 @@ note-publish 流儀の決定的 Playwright。ログイン済みプロファイ�
 |---|---|
 | `scripts/coconala-publish.mjs --service <id> [--commit]` | 新規出品。`/services/add`→種別=テキストチャット→「内容の入力に進む」で下書き生成→フォーム充填→下書き保存（既定）/公開（`--commit`）→公開時カタログへ `listed`＋`serviceUrl`＋`listedAt` 書き戻し |
 | `scripts/coconala-edit.mjs --service <id> [--fields …] [--commit]` | 既存修正。カタログ＋listings の現値でフォーム再充填。`--fields price,delivery` 等で部分更新。公開中サービスで `--commit` なしは送信しない dry-run（画像のアップロード・削除は送信前でも即反映されるので、dry-run では画像に触らず枚数だけ読む） |
-| `scripts/coconala-delete-draft.mjs --id <n[,n]> [--allow-duplicate] [--commit]` | **空の下書き（orphan draft）を安全に削除**。4重ガード（G0 カタログ在籍拒否・G1 URL一致・G2 タイトル空・G3「下書きを削除」導線＝公開商品には出ない）。既定 dry-run・実削除は `--commit`。公開中商品は構造的に誤爆しない。**G2b（2026-08-12）**: publish は毎回 `/services/add` を叩くため「draft 実行→commit 実行」で**サービスが2件でき draft 側が孤児になる**。この孤児だけは「タイトルが listed 商品と一致（末尾ます剥がしで正規化）かつ別 id」で一意に判定でき、`--allow-duplicate` で削除できる。作りかけの題名付き下書きは従来どおり触らない |
+| `scripts/coconala-delete-draft.mjs --id <n[,n]> [--allow-duplicate] [--commit]` | **空の下書き（orphan draft）を安全に削除**（現行の出品フォームでは「SKIP: タイトルフィールド無し」で使えない。DN-0946 で対応するまでは画面の「下書きを削除」で消す）。4重ガード（G0 カタログ在籍拒否・G1 URL一致・G2 タイトル空・G3「下書きを削除」導線＝公開商品には出ない）。既定 dry-run・実削除は `--commit`。公開中商品は構造的に誤爆しない。**G2b（2026-08-12）**: publish は毎回 `/services/add` を叩くため「draft 実行→commit 実行」で**サービスが2件でき draft 側が孤児になる**。この孤児だけは「タイトルが listed 商品と一致（末尾ます剥がしで正規化）かつ別 id」で一意に判定でき、`--allow-duplicate` で削除できる。作りかけの題名付き下書きは従来どおり触らない |
+| `scripts/coconala-seller-profile.mjs`（`npm run coconala-seller-profile`） | 公開プロフィールの「評価: N 件」をログインなしで取り、`coconala.seller-profile`（行は `{date, ratingCount, fetchedAt}`）に追記する。土曜のローカル定期（`coconala-local-routine`）の段「評価の数」で回り、管理画面 チャネル設計の KPI「ココナラの評価の数」の実績になる。exit 1＝解析失敗・2＝取得失敗。2026-11-02 時点で評価は 4 件 |
 | `scripts/coconala-orders.mjs [--no-deadline] [--headless]` | **受注実績＋購入前問い合わせ(DM) の read-only 収集**（§2.2b）。取引管理（出品）の全タブ＋未返信タブ＋DM 一覧を走査し、未返信 room の返信期限をトークルームから拾って `orders-snapshot.json` を生成（DM スレッドは開かない＝既読にしない）。**書き込み一切なし・個人情報を保存しない**。1タブでも取得失敗なら `status:'partial'` ＋ exit 2 |
 | `scripts/coconala-pause.mjs [--resume --absence \| --archive --all-retired \| --all-paused] [--commit]` | **受付休止 / 再開 / アーカイブ**の決定的操作。対象選択とガードは `scripts/lib/coconala-guards.mjs`（`tests/coconala-guards.test.mjs` で固定）＝休止は `paused` のみ・再開は `listed` のみ・アーカイブは `pauseReason:'retired'` のみを受け付ける。既定 dry-run。実行後は一覧を再読して `stop_fg`（アーカイブは一覧からの消失）を**実測で検証**。**一覧は1ページ10件でページ送り**するので対象の載るページを探してから操作する（1ページ目しか見ないと11件目以降が「見つからない」に化ける）。`--resume --absence` はカタログの `listed` 戻しとマーカー除去まで行う |
 | `scripts/coconala-discover.mjs [--advance] [--cat --sub --type]` | フォーム構造・selector・カテゴリ/価格/facet options の偵察（読み取り専用）。仕様ドリフト時の再校正用 |
@@ -571,7 +573,7 @@ note-publish 流儀の決定的 Playwright。ログイン済みプロファイ�
 **アップロード（自動化済み・2026-07-18）**: `node scripts/coconala-edit.mjs --service <id> --service-id <n> --image <png> --commit`。「画像を追加」（`a.js_upload-…`・javascript:;）クリックで隠し file input（`data[UploadedFile][n1][image_files]`）が出現→setInputFiles→**トリミングモーダルなし**でスロットに直接入る（populated 判定＝`a.js_delete-button` の数）。既に画像があれば skip（`--force-image` で追加）。`--image` かつ `--fields` 無しなら**画像だけ更新**（本文フィールドは触らない）。
 
 > [!warning] `--image` のパス解決と orphan draft（2026-07-18 事故→恒久対策）
-> `--image` の **bare 名**（例 `thumb-x.png`）は `content/coconala/assets/` に解決される（`resolveImagePath`・session lib）。以前は cwd 相対で解決したため不正パスが ENOENT を起こし、**下書き作成後にクラッシュ→空の orphan draft が残る**事故があった。恒久対策として publish/edit は**ブラウザ操作より前に画像存在を検査（fail-fast）**する。万一 orphan（サービスタイトル未設定・¥0・下書き中）が出たら `npm run coconala-delete-draft -- --id <n> --commit` で掃除（公開中商品はガードで誤爆しない）。編集ページの正URLは `/mypage/services/{id}`（`/edit` は 404）。
+> `--image` の **bare 名**（例 `thumb-x.png`）は `content/coconala/assets/` に解決される（`resolveImagePath`・session lib）。以前は cwd 相対で解決したため不正パスが ENOENT を起こし、**下書き作成後にクラッシュ→空の orphan draft が残る**事故があった。恒久対策として publish/edit は**ブラウザ操作より前に画像存在を検査（fail-fast）**する。万一 orphan（サービスタイトル未設定・¥0・下書き中）が出たら `npm run coconala-delete-draft -- --id <n> --commit` で掃除（現行フォームでは使えない・DN-0946。それまでは画面の「下書きを削除」）（公開中商品はガードで誤爆しない）。編集ページの正URLは `/mypage/services/{id}`（`/edit` は 404）。
 
 **単発コンテンツ商品（C系）の納品 PDF**: note 記事を coconala 用 PDF にする再現可能ビルド。**外部誘導禁止（規約）＝アカウント防衛**のため note 導線を機械除去してから PDF 化する。
 
@@ -612,7 +614,7 @@ note-publish 流儀の決定的 Playwright。ログイン済みプロファイ�
 - **価格**: 現行は「サービス価格」の combobox から「N,NNN円」を選択（カタログ priceYen 由来）。旧フォームは `#ServicePrice` の select。
 - **カテゴリ**: 既存出品の編集では現行の3段 combobox の表示を listings と照合する。旧フォームは master→sub→type の cascading select＋ジャンル facet。
 - **公開ボタン**: 新規＝「公開する」／公開中サービスの更新＝「更新する」（form lib が両対応）。公開成功で `/services/new_open/{id}` へ遷移。
-- 既存出品の編集では FAQ と有料オプションを listings から投入する。画像は別のアップロード処理。新規出品での FAQ・有料オプション投入は未対応。
+- 既存出品の編集では FAQ と有料オプションを listings から投入する。画像は別のアップロード処理。新規出品は FAQ を投入し、有料オプションは未対応（公開後に UI で足す）。
 
 **規約**: 2026-07-18 時点で利用規約・ルールに「出品者が自分の出品をブラウザ自動化することを禁じる明示条項」は確認できず（第13条2項22号は購入者側の自動応答が対象）。禁止行為一覧(zendesk)の1面は 403 で未確認・bot 検知の運用リスクは残るため、出品/価格改定時の**低頻度**利用に限る。CI からの出品・修正（`ops-write.yml`）は 2026-10-24 に廃止した。出品・修正は運営者の依頼を受けたセッションが運営者の Mac で、同じ低頻度前提で行う（cron 等の無人定期実行はしない）。
 

@@ -271,6 +271,16 @@ jobs:
           GA4_PROPERTY_ID: ${{ secrets.GA4_PROPERTY_ID }}
         run: npm run fetch-ga4-cta-clicks -- --by-placement
 
+      # 商品への送客（DN-0947）: product_impression / product_click を販売先 × 商品 ID × 置き場所で。販売台帳
+      # （npm run product-sales）と同じ商品 ID で突き合わせる。カスタムディメンション未登録・未デプロイの間は
+      # script が手順を出して exit 0 か、0 行を awaiting-data として書く。
+      - name: Fetch GA4 (product referrals by destination x product x placement)
+        continue-on-error: true
+        env:
+          GOOGLE_SERVICE_ACCOUNT_KEY_PATH: ./credentials/gsc-service-account.json
+          GA4_PROPERTY_ID: ${{ secrets.GA4_PROPERTY_ID }}
+        run: npm run fetch-ga4-cta-clicks -- --by-product
+
       # アフィリエイトの表示・クリックをページ × ラベル × 面で（クリックは日付も）。どのページのどの広告が押されたかを
       # A8 の発生日と突き合わせ、配置ルール単位の数字（report-career-funnel の byRule）にする。表示 0 は異常として exit 1。
       - name: Fetch GA4 (affiliate impressions/clicks by page x label x placement)

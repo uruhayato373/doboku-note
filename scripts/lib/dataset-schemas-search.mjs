@@ -254,6 +254,16 @@ const Ga4Sections = z.strictObject({
     summary: z.array(z.strictObject({ variant: z.enum(['A', 'B', 'C', 'B2']), impressions: count('見出し表示'), clicks: count('広告クリック'), pageViews: count('対象ページ閲覧'),
       noteImpressions: count('note表示'), noteClicks: count('noteクリック'), ctr: z.number().nonnegative().nullable(), clicksPerPageView: z.number().nonnegative().nullable(), noteCtr: z.number().nonnegative().nullable(), evidence: z.enum(['review-required', 'insufficient-data']) })).superRefine(uniqueBy('variant', '案')),
   }).optional(),
+  'product-referrals': z.strictObject({
+    stamp: reportStamp,
+    meta: z.looseObject({ ...dateRange, windowKind: z.enum(['days', 'month', 'explicit']), mode: z.literal('product-referrals'), eventNames: z.array(z.string()).min(1), japanOnly: z.boolean(), propertyId: GA4_PROPERTY,
+      rowCount: count('API 行数'), truncated: z.boolean(), status: z.enum(['available', 'awaiting-data']) }).superRefine(rangeOrdered),
+    rows: z.array(z.strictObject({ destination: z.string().describe('販売先（product_destination）'), productId: z.string().describe('販売先での商品 ID（product_id）'), placement: z.string().describe('置き場所（cta_placement）'),
+      eventName: z.enum(['product_impression', 'product_click']), eventCount: count('イベント回数') }))
+      .superRefine(uniqueBy((r) => [r.destination, r.productId, r.placement, r.eventName].join('\u0000'), '販売先×商品×置き場所×イベント')),
+    inbound: z.array(z.strictObject({ source: z.string(), medium: z.string(), campaign: z.string(), term: z.string().describe('note は記事の note キー'), content: z.string().describe('Kindle は置き場所'), sessions: count('セッション') }))
+      .describe('商品（note・Kindle）からサイトへ戻ったセッション（逆向き）'),
+  }).optional().describe('商品への送客（DN-0947）。fetch-ga4-cta-clicks --by-product'),
   'bot-audit': z
     .strictObject({
       stamp: reportStamp,

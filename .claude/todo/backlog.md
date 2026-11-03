@@ -21,6 +21,32 @@
 
 ## 🔴 高 — 重要度が高い
 
+### [DN-0947] 商品への送客から販売までを GA4 と販売台帳で同じ商品 ID でつないで測る
+タグ: [インフラ・計測] [領域:管理] [時期:2026-11..2026-12] [種類:改善] [起票:2026-11-03]
+
+**起点**: 2026-11-03 の棚卸し。サイト→商品の計測は面ごとのイベント（note_cta_click・affiliate_cta_click・coconala_cta_click とその表示）で取れているが、商品 ID は event_label の書き方（`<商品ID>:<面>`・`note-n<key>`・面だけ）に埋もれていて、販売先と商品を 1 本で読めない。販売は note（data/note/sales.json）・KDP（data/kdp/royalties.json・stats47 と同じ口座）・ココナラ（data/coconala/revenue.json）・A8（口座全体の月次だけ）に分かれ、「その月を取ったか」の範囲が無いので、行が無いことと 0 件の区別がつかない。商品→サイトの戻りは note の本文に utm_campaign（テーマ）しか無く、記事を識別できない。stats47 は同じ計測を PRODUCT-REFERRAL-MEASURE-01（EXP-013）で先に入れた。
+
+**判断理由（共通事業方針）**: 読者の課題＝合格に必要な教材をどれで買うか決めたい受験者（A: 資格）。提供価値＝無料の過去問・解説から、足りない練習を有料教材で補う。需要の証拠＝note の販売 347 件（2026-05〜10）はあるが、どの案内が見られ・押され・売れたかを同じ商品 ID でつないだ記録は無い（未検証）。次の検証＝EXP-052 で、売れている 1 商品について表示→クリック→販売を 6 週記録する。KGI は月の確定収益。PV は目標にしない。アトリビューション分析はしない（広告費を使っていない。クリックした人が買ったかは分からない）。
+
+**やったこと（2026-11-03・develop）**:
+1. GA4 `product_impression`（リンクの 50% 以上が 1 秒）／`product_click`（販売先へのクリック。キーイベントの定義に追加）。パラメータは `product_destination`（note / coconala / amazon / a8 / moshimo）・`product_id`（販売先の ID: note キー・サービス番号・ASIN・a8mat・p_id）・登録済みの `cta_placement`。href から読むので data-cta の無いリンクも拾う。既存の note_cta_click などは時系列を切らないため並行して送る（足し合わせない）。src/lib/product-referral.mjs・AnalyticsProvider
+2. 週次の取得 `npm run fetch-ga4-cta-clicks -- --by-product`（ga4 レポートの product-referrals。逆向きのセッションも inbound に入る）を fetch-metrics.yml に追加
+3. 販売台帳 `npm run product-sales` → data/business/product-sales/{月}.json。販売先ごとの coverage（measured＝行が無ければ計測済み・0 件／partial・account-only・unmeasured＝未計測）。KDP は doboku-note の ASIN（config/products.json）に当たる本だけを数え、書籍 ID の付かない行（stats47 の本）は excluded に件数と金額だけ残す。土曜の収集（weekly-collect の product-sales 段）で前月と当月を作り直す
+4. 逆向きの UTM: Kindle は utm_campaign＝書籍 ID の小文字・utm_content＝置き場所（next / author。build-takuitsu-reconstruct）。note の本文リンクは utm_term＝記事の note キー（add-note-utm。utm_content はリンクの種類に使っているので触らない）。規約は config/utm-templates.json の _ebook_note・_inbound_note
+
+**人の作業（手順）**:
+1. ~~GA4 の定義~~ 済み（2026-11-03）: カスタムディメンション product_destination・product_id を管理画面で作成（最初の product_destination はパラメータ名の入力を誤り、アーカイブして作り直した）。product_click のキーイベントは Admin API（`node scripts/ga4-admin-api.mjs apply --commit`・サービスアカウントは編集者）で作成し、check で不足 0 を確認。取得の問い合わせ（--by-product）も本番の GA4 で通ることを確認（未デプロイなので 0 行・awaiting-data）
+2. 本番デプロイ: `/deploy`（develop → main）。反映後 `npm run check-production-ssr`
+3. note の本文の utm_term: 記事を直すときに `node scripts/add-note-utm.mjs <slug>` を回す（全記事の一括書き換えはしない）。EXP-052 の対象記事（直前3週間の過ごし方）は 2026-11-03 に入れた。note への反映は土曜の note-sync 段
+4. Kindle の UTM: A 系を次に再出版するとき `build-takuitsu-reconstruct` で作り直す（出版済みの EPUB は旧い campaign takuitsu-<論点> のまま）
+
+**関係**: DN-0912（ハブ経由の購入を何で測るか）は、商品 ID つきのクリックをこのカードのイベントで読める。note の販売に流入元が無い点は DN-0912 が決める。DN-0410（チャネル別の送客ダッシュボード）は product-referrals の inbound を使える。KDP の展開判断は stats47 の KDP-EXPANSION-01・月次レビュー 2026-10 の振り分け DN-0920 と同じ口座の数字を使うので、ASIN で分けた excluded を見る。
+
+**読み方**: `npm run report-product-funnel`（最新の product-referrals × 窓の月の販売台帳を販売先の ID で 1 行に並べる。`--product <販売先 ID か商品 ID>`）。
+
+**完了条件**: 人の作業 1・2 が済み、本番の GA4 に product_impression / product_click が届き、product-referrals のレポートが available で書かれている。EXP-052 の 6 週の記録が終わったらこのカードを削除する。
+
+
 
 
 ### [DN-0902] 技術士（建設部門）の筆記合格発表（11/4）までに、口頭試験の教材への導線を資格トップと必須I・選択科目の記事に出す（EXP-047）
@@ -264,15 +290,6 @@
 3. 2級土木の 13 本は DN-0514、診断士の 10 本は 2027 年の試験の後に判定する
 **完了条件**: 主任技士と RCCM の判定が済み、外したものが shelvedAt と note のもくじに反映されている。
 
-### [DN-0941] ココナラの主任技士の小論文の診断（¥2,000）に商品画像を付けて公開し、評価を集める
-タグ: [領域:商品] [時期:2026-11] [種類:制作] [起票:2026-11-02] [期日:2026-11-25]
-
-**起点**: 2026-11-02 に運営者が「主任技士に ¥2,000 の診断を出す」を選んだ（ココナラの評価が 4 件で購入の壁。試験 11/29 で、今の季節に出せるのはこれだけ）。下書き 4482903（`coconala-cce-essay-shindan`・¥2,000・48 時間・週 3 名・FAQ 5 件）を保存済み。カタログの行（config/products.json・config/coconala-listings.json・src/lib/coconala-services.ts）は画像が無いと `check-coconala-wiring` が止めるため、手元に未コミットで置いてある。
-**やること**:
-1. 診断用の紫の POP 画像を `/create-pop-image` で作り（Codex の画像生成）、運営者が目視で承認して `data/coconala/thumb-approved.json` に登録する（添削の画像は内容が違うので流用しない）
-2. カタログの行をコミットし、運営者が下書きを確認してから `node scripts/coconala-publish.mjs --service coconala-cce-essay-shindan --image … --commit` で公開する。本文の「11/25 までに受領した分は試験前に返却」を守れる日までに出す
-3. 診断用の納品文のテンプレを作り、受注後に評価をお願いする一文を入れる
-**完了条件**: 診断が listed になり、管理画面 チャネル設計の KPI「ココナラの評価の数」で累計を追える。
 
 ### [DN-0938] 基準書の全文ライブラリの表と図を、章記事と同じ仕組みで展開する
 タグ: [領域:サイト] [時期:2026-12] [種類:改善] [起票:2026-11-02]
@@ -484,6 +501,8 @@
 **やること**: note の販売データ（ダッシュボード・CSV）で UTM 別・参照元別の購入が取れるかを確かめる。取れなければ、ハブ経由の指標を「教材の枠の note CTA クリック」までにすると決め、docs/strategy/21 の運用に書く。
 
 **完了条件**: ハブ経由の購入を何で測るかが doc 21 に書かれ、EXP-044〜046 の target_metric と食い違わない。
+
+**関連（2026-11-03）**: 商品 ID つきのクリック（販売先・note キー・面）は DN-0947 の GA4 `product_click` と販売台帳 data/business/product-sales/ で読める。このカードはハブ経由の購入の指標を決めることだけを扱う。
 
 
 ### [DN-0911] 技術士（建設部門）業務内容の詳細の型と添削を、令和9年度の申込案内を見てから作る（PC-003）

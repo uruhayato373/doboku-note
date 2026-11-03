@@ -716,7 +716,8 @@ export const ConfigUtmTemplates = z
     _siteToNote_note: note,
     siteToNote: z.record(z.string(), utmSurface).describe('サイトから note へ送る面ごとの UTM'),
     _ebook_note: note,
-    ebook: z.record(z.string(), z.object({ source: text, medium: text }).strict()).describe('電子書籍からサイトへ送る UTM'),
+    ebook: z.record(z.string(), z.object({ source: text, medium: text, contents: z.array(text).min(1).optional().describe('utm_content に入る置き場所') }).strict()).describe('電子書籍からサイトへ送る UTM'),
+    _inbound_note: note.optional(),
   })
   .strict()
   .meta({ title: 'UTM の付け方' });

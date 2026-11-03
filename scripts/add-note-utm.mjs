@@ -10,21 +10,22 @@
 // 仕様:
 // - frontmatter.utmCampaign を campaign 名のソースとする（無ければ --campaign 引数必須）
 // - utm_source=note, utm_medium=referral, utm_campaign={上記} を全 doboku-note.com リンクに付与
-// - 既に utm_* が含まれているリンクはスキップ（重複付与防止）
+// - utm_term＝frontmatter.noteId（公開済みの記事の note キー）。既に note の UTM があり term だけ無いリンクには term だけ足す
+// - それ以外で既に utm_* が含まれているリンクはスキップ（重複付与防止）
 // - フラグメント (#anchor) が末尾にあればその前に挿入
 
 import { readFileSync, writeFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 import matter from 'gray-matter';
-import { utmChannel } from './lib/utm-contract.mjs';
+import { withNoteInboundUtm } from './lib/utm-contract.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 import { parseCliArgs } from './lib/cli-args.mjs';
 
 const NOTE_DIR = join(ROOT, 'content/note');
 
 const URL_RE = /\bhttps:\/\/doboku-note\.com\/[^\s)\]」]+/g;
-// source / medium は契約（config/utm-templates.json の note.site）。campaign は記事ごとに渡す。
-const NOTE_UTM = utmChannel('note.site');
+// source / medium は契約（config/utm-templates.json の note.site）。campaign は記事ごと（frontmatter utmCampaign）、
+// utm_term は記事の note キー（frontmatter noteId・公開後だけ。DN-0947 の _inbound_note。utm_content はリンクの種類に使っているので触らない）。
 
 function parseArgs(argv) {
   const flags = parseCliArgs({
@@ -68,18 +69,6 @@ function resolveDirectory(target) {
   return matches[0].rel;
 }
 
-function injectUtm(url, campaign) {
-  // 既に utm_ が含まれていればスキップ
-  if (/[?&]utm_/.test(url)) return url;
-  // anchor 分離
-  const hashIdx = url.indexOf('#');
-  const base = hashIdx === -1 ? url : url.slice(0, hashIdx);
-  const hash = hashIdx === -1 ? '' : url.slice(hashIdx);
-  const sep = base.includes('?') ? '&' : '?';
-  const params = `utm_source=${NOTE_UTM.source}&utm_medium=${NOTE_UTM.medium}&utm_campaign=${encodeURIComponent(campaign)}`;
-  return `${base}${sep}${params}${hash}`;
-}
-
 async function main() {
   const args = parseArgs(process.argv.slice(2));
   if (!args.target) {
@@ -99,7 +88,7 @@ async function main() {
   let added = 0;
   let skipped = 0;
   const updatedContent = content.replace(URL_RE, (url) => {
-    const newUrl = injectUtm(url, campaign);
+    const newUrl = withNoteInboundUtm(url, campaign, data.noteId || null);
     if (newUrl === url) {
       skipped++;
       return url;
@@ -113,6 +102,7 @@ async function main() {
 
   console.log(`[add-note-utm] ${dirName}`);
   console.log(`  campaign: ${campaign}`);
+  console.log(`  term: ${data.noteId || '（noteId 未設定＝未公開。公開後にもう一度回す）'}`);
   console.log(`  追加: ${added}件 / スキップ済み(既に UTM あり): ${skipped}件`);
 
   if (args.dryRun) {
