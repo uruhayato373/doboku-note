@@ -152,6 +152,13 @@
         ]
       },
       {
+        "match": "^pipe-work-",
+        "cells": [
+          "pipe-work-1:second",
+          "pipe-work-2:second"
+        ]
+      },
+      {
         "match": "^assistant-surveyor-",
         "cells": [
           "assistant-surveyor:written"
