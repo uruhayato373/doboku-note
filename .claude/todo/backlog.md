@@ -285,6 +285,22 @@
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-0954] note の同期で空きメモリ不足のブラウザ起動の見送りが「結果なし」と誤表示され、待たずに失敗する
+タグ: [インフラ・計測] [領域:管理] [時期:2026-11] [種類:不具合] [起票:2026-11-03]
+
+**起点**: 2026-11-03、note のキャリア記事 24 本を前倒しで同期（`note-sync-routine --only <記事> --max 1` を運営者のターミナルで 1 本ずつ）したところ、5 本が `結果なし（連続失敗で中断された可能性）` で失敗した。実際の原因は、子プロセス `note-update-body` のブラウザ起動を `scripts/lib/playwright-launch.mjs` の空きメモリの関所が見送ったこと（`LaunchGuardError: 空きメモリ 1055MB < 閾値 1200MB`）。理由は `.tmp/note-sync-routine/list-*.log` にしか残らず、作業用の worktree を片付けると消える。同じ日の `affiliate:status` も同じ関所で 2 回見送られた（1147MB・1172MB）。
+
+**困ること**: (1) 失敗の理由が「連続失敗で中断された可能性」と誤って表示され、メモリ不足だと分からない (2) 土曜の収集（weekly-collect）の note-sync 段でも同じことが起きうる。weekly-collect の段の前の待ち（guardBrowserLaunch・最大 5 分）は段の頭だけで、note-sync-routine の中で記事ごとに起動する子プロセスは待たずに落ちる (3) 1,200MB の閾値は Claude Desktop・Chrome を開いた Mac では日常的に割る。
+
+**やること**:
+1. `scripts/lib/note-sync-results.mjs` で、子プロセスの出力に `LaunchGuardError`（code LOW_MEMORY）があれば理由を「空きメモリ不足でブラウザを起動しなかった（<MB>）」にする。`結果なし` は本当に結果が無いときだけにする
+2. note-sync-routine の記事ごとの起動の前にも guardBrowserLaunch の待ち（数回・間隔つき）を入れるか、LOW_MEMORY の記事を「翌週へ（deferred）」に回して失敗に数えない
+3. 閾値 1,200MB が実測に合うかを決める（2026-11-03 の実行では 1,055〜1,172MB でも、閾値を 1,000MB に下げた affiliate:status は正常に完走した）。変えるなら `DOBOKU_PW_MIN_FREE_MB` の既定と理由を playwright-launch.mjs に書く
+4. 回帰テスト（note-sync-results の理由の判定）
+
+**完了条件**: LOW_MEMORY の失敗がその理由で記録され、失敗ではなく延期として扱われる（または待ってから起動する）ことをテストで確かめている。
+
+
 ### [DN-0952] 技術士（建設部門）でビルドジョブとハイクラス転職を A/B する（EXP-055）
 タグ: [収益化] [領域:アフィリエイト] [時期:2026-11..2026-12] [種類:改善] [起票:2026-11-03] [進行中]
 
