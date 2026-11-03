@@ -35,12 +35,14 @@
 4. 逆向きの UTM: Kindle は utm_campaign＝書籍 ID の小文字・utm_content＝置き場所（next / author。build-takuitsu-reconstruct）。note の本文リンクは utm_term＝記事の note キー（add-note-utm。utm_content はリンクの種類に使っているので触らない）。規約は config/utm-templates.json の _ebook_note・_inbound_note
 
 **人の作業（手順）**:
-1. GA4: カスタムディメンション product_destination・product_id は 2026-11-03 に管理画面で作成済み（最初の product_destination はパラメータ名の入力を誤り、アーカイブして作り直した）。**残りは product_click のキーイベント**。管理画面は一度も受信していないイベントに星を付けられないので、本番デプロイの後、管理 → データの表示 → イベント の一覧に product_click が出たら星を付ける。先に作るなら資格情報のある端末か CI で `npm run ga4-admin-api:apply -- --commit`（Admin API・要プロパティの編集者）
+1. ~~GA4 の定義~~ 済み（2026-11-03）: カスタムディメンション product_destination・product_id を管理画面で作成（最初の product_destination はパラメータ名の入力を誤り、アーカイブして作り直した）。product_click のキーイベントは Admin API（`node scripts/ga4-admin-api.mjs apply --commit`・サービスアカウントは編集者）で作成し、check で不足 0 を確認。取得の問い合わせ（--by-product）も本番の GA4 で通ることを確認（未デプロイなので 0 行・awaiting-data）
 2. 本番デプロイ: `/deploy`（develop → main）。反映後 `npm run check-production-ssr`
-3. note の本文の utm_term: 記事を直して再公開するときに `node scripts/add-note-utm.mjs <slug>` を回す（全記事の一括書き換えはしない。note の編集は運営者の作業）。EXP-052 の対象記事は次の再公開で入れる
+3. note の本文の utm_term: 記事を直すときに `node scripts/add-note-utm.mjs <slug>` を回す（全記事の一括書き換えはしない）。EXP-052 の対象記事（直前3週間の過ごし方）は 2026-11-03 に入れた。note への反映は土曜の note-sync 段
 4. Kindle の UTM: A 系を次に再出版するとき `build-takuitsu-reconstruct` で作り直す（出版済みの EPUB は旧い campaign takuitsu-<論点> のまま）
 
 **関係**: DN-0912（ハブ経由の購入を何で測るか）は、商品 ID つきのクリックをこのカードのイベントで読める。note の販売に流入元が無い点は DN-0912 が決める。DN-0410（チャネル別の送客ダッシュボード）は product-referrals の inbound を使える。KDP の展開判断は stats47 の KDP-EXPANSION-01・月次レビュー 2026-10 の振り分け DN-0920 と同じ口座の数字を使うので、ASIN で分けた excluded を見る。
+
+**読み方**: `npm run report-product-funnel`（最新の product-referrals × 窓の月の販売台帳を販売先の ID で 1 行に並べる。`--product <販売先 ID か商品 ID>`）。
 
 **完了条件**: 人の作業 1・2 が済み、本番の GA4 に product_impression / product_click が届き、product-referrals のレポートが available で書かれている。EXP-052 の 6 週の記録が終わったらこのカードを削除する。
 

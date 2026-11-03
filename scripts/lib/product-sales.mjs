@@ -210,3 +210,45 @@ export function salesOf(ledger, destination, productId) {
   if (coverage?.status === 'measured') return { status: 'measured-zero', count: 0, amountYen: 0, provisional: Boolean(coverage.provisional) };
   return { status: 'unmeasured' };
 }
+
+/**
+ * 販売先の ID（GA4 の product_id）で台帳 1 か月分の販売を読む。destinationIds に当たる行を合計する
+ * （メンバーシップの複数プラン・単品記事のように、販売記録の商品 ID と販売先の ID が 1 対 1 でないものもまとめて引ける）。
+ */
+export function salesByDestinationId(ledger, destination, destinationId) {
+  const coverage = ledger?.coverage?.[destination];
+  const rows = (ledger?.rows ?? []).filter((r) => r.destination === destination && r.destinationIds.includes(destinationId));
+  if (rows.length) {
+    const counts = rows.map((r) => r.count);
+    return { status: 'sold', count: counts.includes(null) ? null : counts.reduce((s, c) => s + c, 0), amountYen: rows.reduce((s, r) => s + r.amountYen, 0), provisional: Boolean(coverage?.provisional) };
+  }
+  if (coverage?.status === 'measured') return { status: 'measured-zero', count: 0, amountYen: 0, provisional: Boolean(coverage.provisional) };
+  return { status: 'unmeasured' };
+}
+
+/**
+ * 表示 → 販売先クリック → 販売を、販売先の ID で 1 行に並べる（DN-0947・EXP-052）。
+ * report は GA4 の product-referrals（窓は日単位）、ledgers は窓の月の販売台帳。販売は暦月なので窓とずれる
+ * （同じ人が押して買ったかは分からない＝アトリビューションではない）。
+ * @returns {{ window: object, months: string[], rows: Array }}
+ */
+export function buildProductFunnel({ report, ledgers, index }) {
+  const byKey = new Map();
+  for (const r of report?.rows ?? []) {
+    const key = `${r.destination}\u0000${r.productId}`;
+    const row = byKey.get(key) ?? { destination: r.destination, destinationId: r.productId, productId: productIdOfDestination(index, r.destination, r.productId), impressions: 0, clicks: 0, placements: {} };
+    const p = row.placements[r.placement] ?? { impressions: 0, clicks: 0 };
+    if (r.eventName === 'product_impression') { row.impressions += r.eventCount; p.impressions += r.eventCount; }
+    if (r.eventName === 'product_click') { row.clicks += r.eventCount; p.clicks += r.eventCount; }
+    row.placements[r.placement] = p;
+    byKey.set(key, row);
+  }
+  const months = (ledgers ?? []).map((l) => l.month);
+  const rows = [...byKey.values()].map((row) => ({
+    ...row,
+    ctr: row.impressions >= 100 ? row.clicks / row.impressions : null,
+    sales: Object.fromEntries((ledgers ?? []).map((l) => [l.month, ['note', 'amazon', 'coconala'].includes(row.destination) ? salesByDestinationId(l, row.destination, row.destinationId) : { status: 'unmeasured' }])),
+  }));
+  rows.sort((a, b) => b.clicks - a.clicks || b.impressions - a.impressions || a.destinationId.localeCompare(b.destinationId));
+  return { window: { startDate: report?.meta?.startDate ?? null, endDate: report?.meta?.endDate ?? null }, months, rows };
+}

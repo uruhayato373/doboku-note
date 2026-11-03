@@ -7,7 +7,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 
-import { buildProductIndex, buildProductSales, productIdOfDestination, salesOf } from '../scripts/lib/product-sales.mjs';
+import { buildProductFunnel, buildProductIndex, buildProductSales, productIdOfDestination, salesByDestinationId, salesOf } from '../scripts/lib/product-sales.mjs';
 
 const products = [
   { id: 'pe1-chokuzen-pack', channel: 'note', catalog: { noteUrl: 'https://note.com/dobokunote/m/mfa3fcffdd85d' } },
@@ -84,4 +84,36 @@ test('GA4 の販売先 ID から自社の商品 ID を引ける', () => {
   assert.equal(productIdOfDestination(index, 'coconala', '111'), 'coconala-1kyu-moshi-pdf');
   assert.equal(productIdOfDestination(index, 'note', 'membership'), 'membership');
   assert.equal(productIdOfDestination(index, 'note', 'n0000'), null);
+});
+
+test('表示 → クリック → 販売を販売先の ID で並べ、販売は月の範囲どおりに読む', () => {
+  const report = {
+    meta: { startDate: '2026-09-20', endDate: '2026-10-17' },
+    rows: [
+      { destination: 'note', productId: 'mfa3fcffdd85d', placement: 'article-top', eventName: 'product_impression', eventCount: 150 },
+      { destination: 'note', productId: 'mfa3fcffdd85d', placement: 'article-top', eventName: 'product_click', eventCount: 3 },
+      { destination: 'note', productId: 'mfa3fcffdd85d', placement: 'article-sidebar', eventName: 'product_impression', eventCount: 50 },
+      { destination: 'a8', productId: '4B5OO5+FHBA2+5B0Y+NTZCH', placement: 'article-mid', eventName: 'product_impression', eventCount: 40 },
+    ],
+  };
+  const f = buildProductFunnel({ report, ledgers: [build('2026-09'), build('2026-10')], index: buildProductIndex(products) });
+  const note = f.rows.find((r) => r.destination === 'note');
+  assert.equal(note.productId, 'pe1-chokuzen-pack');
+  assert.equal(note.impressions, 200);
+  assert.equal(note.clicks, 3);
+  assert.equal(note.ctr, 3 / 200);
+  assert.deepEqual(note.placements['article-sidebar'], { impressions: 50, clicks: 0 });
+  assert.equal(note.sales['2026-09'].status, 'sold');
+  assert.equal(note.sales['2026-10'].status, 'sold');
+  const a8 = f.rows.find((r) => r.destination === 'a8');
+  assert.equal(a8.productId, null);
+  assert.equal(a8.ctr, null, '表示 100 件未満はクリック率を出さない');
+  assert.deepEqual(a8.sales['2026-09'], { status: 'unmeasured' });
+});
+
+test('販売先の ID で引く: メンバーシップは複数プランを合わせ、measured の月の未販売は 0 件', () => {
+  const sep = build('2026-09');
+  assert.equal(salesByDestinationId(sep, 'note', 'membership').amountYen, 1480);
+  assert.deepEqual(salesByDestinationId(sep, 'note', 'n0000'), { status: 'measured-zero', count: 0, amountYen: 0, provisional: false });
+  assert.deepEqual(salesByDestinationId(build('2026-10'), 'note', 'n0000'), { status: 'unmeasured' });
 });

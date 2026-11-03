@@ -8564,10 +8564,10 @@
         "reviewRecord": "data/business/records/review-2026-11-01T06-07-23-843Z-6abb9200-372f-4c28-9595-84f9ccde8750.json"
       },
       "actions": [
-        "本番デプロイ（DN-0947 の人の作業 2）と GA4 のカスタム定義・キーイベント（同 1）が済んだ日を開始日にし、status を running・next_check_date を開始日＋7 日にする",
+        "本番デプロイ（DN-0947）の日を開始日にし、status を running・next_check_date を開始日＋7 日にする。GA4 のカスタムディメンション 2 つと product_click のキーイベントは 2026-11-03 に作成済み",
         "対象ページ: /exam/pe-first-stage/guide/overview・/tools/kakomon-quiz/pe-first-stage・/exam/pe-first-stage/guide/study-plan。対象商品: pe1-chokuzen-pack（note キー mfa3fcffdd85d）",
-        "note の記事『直前3週間の過ごし方』（content/note/技術士一次/直前3週間の過ごし方-無料）を `node scripts/add-note-utm.mjs 直前3週間の過ごし方-無料` で utm_term を入れて再公開する（運営者の作業）",
-        "毎週（土曜の収集の後）product-referrals と product-sales を 1 行ずつ measurements に記録する。6 週で閉じ、learnings に「どこで落ちているか」と計測の欠け（未計測の週）を書く"
+        "note の記事『直前3週間の過ごし方』（content/note/技術士一次/直前3週間の過ごし方-無料）の本文リンク 2 本に utm_term=nd81412e89bf3 を 2026-11-03 に入れた。note への反映は土曜の収集の note-sync 段（反映されたかは check-note-sync で見る）",
+        "毎週（土曜の収集の後）`npm run report-product-funnel -- --product mfa3fcffdd85d` の 1 行と、product-referrals の inbound の term=nd81412e89bf3 のセッションを measurements に記録する。6 週で閉じ、learnings に「どこで落ちているか」と計測の欠け（未計測の週）を書く"
       ],
       "measurementPlan": {
         "kind": "product-referral",

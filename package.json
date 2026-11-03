@@ -506,6 +506,7 @@
     "report-note-funnel-efficiency": "node scripts/report-note-funnel-efficiency.mjs",
     "report-site-to-sales": "node scripts/report-site-to-sales.mjs",
     "product-sales": "node scripts/product-sales.mjs",
+    "report-product-funnel": "node scripts/report-product-funnel.mjs",
     "sales-summary": "node scripts/sales-summary.mjs",
     "sales-attribution": "node scripts/sales-attribution.mjs",
     "channel-economics": "node scripts/channel-economics.mjs",

@@ -102,9 +102,9 @@ https://note.com/dobokunote/m/mfa3fcffdd85d
 
 ## 無料で使える過去問と演習
 
-サイトでは、平成23年度から令和7年度までの基礎・適性・専門（建設部門）の過去問を、全選択肢の解説つきで無料公開しています。1か月を切ってからの組み方は、サイトの[技術士第一次試験の勉強法と学習計画](https://doboku-note.com/exam/pe-first-stage/guide/study-plan?utm_source=note&utm_medium=referral&utm_campaign=pe1-last-3weeks&utm_content=study-plan)にもまとめています。
+サイトでは、平成23年度から令和7年度までの基礎・適性・専門（建設部門）の過去問を、全選択肢の解説つきで無料公開しています。1か月を切ってからの組み方は、サイトの[技術士第一次試験の勉強法と学習計画](https://doboku-note.com/exam/pe-first-stage/guide/study-plan?utm_source=note&utm_medium=referral&utm_campaign=pe1-last-3weeks&utm_content=study-plan&utm_term=nd81412e89bf3)にもまとめています。
 
-年度と科目を選んで、その場で採点できる[過去問の無料演習](https://doboku-note.com/tools/kakomon-quiz/pe-first-stage?utm_source=note&utm_medium=referral&utm_campaign=pe1-last-3weeks&utm_content=kakomon-quiz)もあります。紙を用意しなくても、短い時間で1日に何度か回せます。
+年度と科目を選んで、その場で採点できる[過去問の無料演習](https://doboku-note.com/tools/kakomon-quiz/pe-first-stage?utm_source=note&utm_medium=referral&utm_campaign=pe1-last-3weeks&utm_content=kakomon-quiz&utm_term=nd81412e89bf3)もあります。紙を用意しなくても、短い時間で1日に何度か回せます。
 
 ## 紙で通し演習をしたい方へ
 
