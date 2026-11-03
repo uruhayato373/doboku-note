@@ -1,6 +1,37 @@
 {
   "runs": [
     {
+      "startedAt": "2026-11-03T09:05:54.040Z",
+      "finishedAt": "2026-11-03T09:06:50.160Z",
+      "plan": {
+        "synced": 0,
+        "ready": 1,
+        "blocked": 0,
+        "blockers": {},
+        "only": "content/note/1級・2級土木/地元で働く土木転職-無料/"
+      },
+      "articles": {
+        "selected": 1,
+        "attempted": 1,
+        "updated": [
+          {
+            "path": "content/note/1級・2級土木/地元で働く土木転職-無料/article.md",
+            "parts": [
+              "body"
+            ]
+          }
+        ],
+        "failed": [],
+        "deferred": []
+      },
+      "magazines": {
+        "attempted": 0,
+        "updated": [],
+        "failed": []
+      },
+      "problems": []
+    },
+    {
       "startedAt": "2026-11-03T09:04:45.625Z",
       "finishedAt": "2026-11-03T09:05:39.221Z",
       "plan": {
@@ -2400,82 +2431,6 @@
         "PDF を Drive から取り寄せられない: content/note/技術士建設部門/magazines/BK-02_河川砂防/R08-yosou/article-II1.md（コピー失敗: Unknown system error -11: Unknown system error -11, read — content/note/技術士建設部門/magazines/BK-02_河川砂防/R08-yosou/建設部門-河川-R08予想-II-1-予想問題と模範解答.pdf /     コピー失敗: Unknown system error -11: Unknown system error -11, read — content/note/技術士建設部門/magazines/BK-02_河川砂防/R08-yosou/建設部門-河川-R08予想-II-2-予想問題と模）",
         "PDF を Drive から取り寄せられない: content/note/技術士建設部門/magazines/BK-02_河川砂防/R08-yosou/article-II2.md（コピー失敗: Unknown system error -11: Unknown system error -11, read — content/note/技術士建設部門/magazines/BK-02_河川砂防/R08-yosou/建設部門-河川-R08予想-II-1-予想問題と模範解答.pdf /     コピー失敗: Unknown system error -11: Unknown system error -11, read — content/note/技術士建設部門/magazines/BK-02_河川砂防/R08-yosou/建設部門-河川-R08予想-II-2-予想問題と模）",
         "記事の更新が連続で失敗したので残りを止めた（note 側の変更・レート制限を疑う）"
-      ]
-    },
-    {
-      "startedAt": "2026-10-07T07:56:08.059Z",
-      "finishedAt": "2026-10-07T08:19:00.131Z",
-      "plan": {
-        "synced": 0,
-        "ready": 0,
-        "blocked": 0,
-        "blockers": {},
-        "magazinesOnly": true
-      },
-      "articles": {
-        "attempted": 0,
-        "updated": [],
-        "failed": []
-      },
-      "magazines": {
-        "attempted": 17,
-        "updated": [
-          {
-            "key": "magazine:cce-essay-reiwa-pack"
-          },
-          {
-            "key": "magazine:cce-reiwa-namacon-pack"
-          },
-          {
-            "key": "magazine:cce-reiwa-precast-pack"
-          },
-          {
-            "key": "magazine:cce-reiwa-civil-contractor-pack"
-          },
-          {
-            "key": "magazine:cce-reiwa-maintenance-pack"
-          },
-          {
-            "key": "magazine:cce-reiwa-owner-pack"
-          },
-          {
-            "key": "magazine:cce-reiwa-building-contractor-pack"
-          },
-          {
-            "key": "magazine:cce-reiwa-design-consultant-pack"
-          },
-          {
-            "key": "magazine:cce-reiwa-testing-pack"
-          },
-          {
-            "key": "magazine:cce-goukaku-namacon-pack"
-          },
-          {
-            "key": "magazine:cce-goukaku-precast-pack"
-          },
-          {
-            "key": "magazine:cce-goukaku-civil-contractor-pack"
-          },
-          {
-            "key": "magazine:cce-goukaku-maintenance-pack"
-          },
-          {
-            "key": "magazine:cce-goukaku-owner-pack"
-          },
-          {
-            "key": "magazine:cce-goukaku-building-contractor-pack"
-          },
-          {
-            "key": "magazine:cce-goukaku-design-consultant-pack"
-          },
-          {
-            "key": "magazine:cce-goukaku-testing-pack"
-          }
-        ],
-        "failed": []
-      },
-      "problems": [
-        "マガジンカバーを Drive へ保存できなかった（drive-vault-sync）"
       ]
     }
   ]
