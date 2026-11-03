@@ -36,6 +36,8 @@ node -e "const d=require('./.claude/state/dispatch/dispatch-log.json');const w=d
 - **外部書き込みの孤児**: weekly-review-guard の report digest（quality-audit `external-write-orphans`）が `orphan` を Issue にした週は**最優先**。「外部には出たのに台帳に記録が無い」状態で、台帳を信じて再開すると同じものを二重に外部へ出す。run ログから外部側の実体（videoId 等）を回収して台帳へ反映してから再開する。`silent-stop` は「未処理が残っているのに誰も回していない」通知（手動投入ジョブでは異常ではない）。**exit 2（検査不成立 N/M 取得失敗）は「痕跡なし」ではない**＝社内プロキシ配下などで run ログが取れていない。取れる環境で再実行してから結論する（DN-0225）。2026-06-17 の YouTube run が実例＝6 本アップ済みなのに台帳 pending のまま 2 か月放置された。
 - **品質censusのdelta**: weekly-review-guard の report digest（quality-audit `quality-census`）が悪化（薄層への逆戻り・スコア低下）を Issue にした週だけ、該当記事を backlog へ（週次では実行しない）。
 - **収益カバレッジ**: `npm run report-monetization-coverage` の配置別 CTA CTR・note label × 同期間の商品売上（ID付き比率）を1行確認する。売上は全流入経路の商品合計で、CTA別購入の帰属ではない。同じ商品の複数ラベルに表示する売上を合算しない。
+- **商品への送客（DN-0947）**: `npm run report-product-funnel` で、販売先の ID（note キー・a8mat 等）ごとの表示 → 販売先クリック → 販売（台帳 data/business/product-sales/。measured の月だけ 0 件と読む）を読み、running の EXP-052（技術士一次 直前パック・`-- --product mfa3fcffdd85d`）の 1 行を measurements に記録する。exit 2（取得前）は「未取得」と書く。
+- **本文中の note 案内の A/B（DN-0949）**: `npm run report-note-body-experiment` の案ごとの表示・クリック率を 1 行載せ、EXP-053 の measurements に記録する。各案 1,000 表示に届くまでは途中経過。exit 2 は「未取得」。
 
 blocked / fail があれば「課題・ブロッカー」へ、繰り返し blocked になるタスクは前提条件を backlog 本文へ書き足す。
 

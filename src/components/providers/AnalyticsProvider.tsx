@@ -4,6 +4,7 @@ import { usePathname, useSearchParams } from "next/navigation";
 import { useEffect, useRef } from "react";
 import * as gtag from "@/lib/gtag";
 import { AFFILIATE_EXPERIMENT_ID, affiliateExperimentLabel } from "@/lib/affiliate-experiment.mjs";
+import { noteBodyExperimentLabel } from "@/lib/note-body-experiment.mjs";
 import {
   PRODUCT_CLICK_EVENT,
   PRODUCT_IMPRESSION_DWELL_MS,
@@ -17,6 +18,9 @@ import {
 const PRODUCT_LINK_SELECTOR = ["note.com/", "coconala.com/", "amazon.co.jp/", "px.a8.net/", "af.moshimo.com/"]
   .map((host) => `a[href*="${host}"]`)
   .join(", ");
+
+/** EXP-053: 本文中の note 案内の案（image / text）。案の枠（data-note-body-arm）の中の note CTA だけ。見えている案が割り当て */
+const noteBodyArmOf = (el: Element) => el.closest<HTMLElement>("[data-note-body-arm]")?.dataset.noteBodyArm;
 
 const placementOf = (el: Element) =>
   el.closest<HTMLElement>("[data-cta-placement]")?.dataset.ctaPlacement || "(unknown)";
@@ -108,6 +112,13 @@ export default function AnalyticsProvider() {
           cta_placement: el.dataset.ctaPlacement || "(unknown)",
         },
       });
+      const arm = kind === "note" ? noteBodyArmOf(el) : undefined;
+      if (arm) gtag.event({
+        action: "note_body_experiment_click",
+        category: "note-body-experiment",
+        label: noteBodyExperimentLabel(arm, el.dataset.ctaPlacement || "(unknown)", anchor.dataset.ctaLabel || el.dataset.ctaLabel || "(unknown)"),
+        params: { cta_placement: el.dataset.ctaPlacement || "(unknown)" },
+      });
       const experiment = ["affiliate", "note"].includes(kind) ? experimentContext(el) : null;
       if (experiment) gtag.event({
         action: kind === "note" ? "note_experiment_click" : "affiliate_experiment_click",
@@ -193,6 +204,13 @@ export default function AnalyticsProvider() {
             params: {
               cta_placement: el.dataset.ctaPlacement || "(unknown)",
             },
+          });
+          const arm = kind === "note" ? noteBodyArmOf(el) : undefined;
+          if (arm) gtag.event({
+            action: "note_body_experiment_impression",
+            category: "note-body-experiment",
+            label: noteBodyExperimentLabel(arm, el.dataset.ctaPlacement || "(unknown)", el.dataset.ctaLabel || "(unknown)"),
+            params: { cta_placement: el.dataset.ctaPlacement || "(unknown)" },
           });
           const experiment = ["affiliate", "note"].includes(kind || "") ? experimentContext(el) : null;
           if (experiment) gtag.event({

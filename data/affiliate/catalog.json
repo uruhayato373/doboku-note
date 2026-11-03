@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "_comment": "3 ASP（A8 / もしも / afb）横断の提携カタログ。**自社が配置する / 配置を検討する案件だけ**を持つ。同一案件が複数 ASP に存在するため、ASP 間の単価・確定率・EPC を比較できることがこのファイルの存在理由。`npm run affiliate:status` が実機と突合し、`check-affiliate-wiring` が config/affiliate-mats.json との整合を検査する。手編集は可（実機値は status が上書きする）。運用 SSOT → .claude/knowledge/reference/affiliate-operations.md",
-  "_notMergedWith": "`data/ads/a8-catalog.json` は A8 scout の状態機械（143 件・大半が stats47 の口座横断 approved）で役割が違うためマージしない。あちらは「A8 で何を見つけ何を申請したか」、こちらは「自社がどの案件をどの ASP で運用するか」。",
+  "_notMergedWith": "`data/a8/catalog.json` は A8 scout の状態機械（143 件・大半が stats47 の口座横断 approved）で役割が違うためマージしない。あちらは「A8 で何を見つけ何を申請したか」、こちらは「自社がどの案件をどの ASP で運用するか」。",
   "_statusVocab": {
     "approved": "提携済み（広告リンクを発行できる）",
     "applying": "申請中（審査待ち）",

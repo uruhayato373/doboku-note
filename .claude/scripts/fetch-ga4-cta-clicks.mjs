@@ -83,6 +83,9 @@ const EVENT_NAMES = [
   // --by-label で立場別（orderer / contractor / qualification-map）、--by-placement で面別に分かれる。
   "qualification_bridge_impression",
   "qualification_bridge_click",
+  // EXP-053: 本文中の note 案内の画像／文字の A/B。--by-label で案 × 置き場所 × CTA ラベル（label は EXP-053|案|面|<商品ID>:<面>）
+  "note_body_experiment_impression",
+  "note_body_experiment_click",
   // 過去問ページの「解答・解説」を開いた回数（2026-10-02 新設）。--by-label でページ別、--by-placement で問題番号別。
   "answer_reveal",
 ];

@@ -1,5 +1,5 @@
 import { Check } from "lucide-react";
-import { programAssetForHref } from "@/config/affiliate-creatives";
+import { PROGRAM_ASSETS, programAssetForHref } from "@/config/affiliate-creatives";
 import CareerAffiliateExperiment from "./CareerAffiliateExperiment";
 import type { CareerNeed } from "@/config/career-pathways";
 import type { ResolvedPlacement, ResolvedSecondary } from "@/lib/affiliate-placement";
@@ -21,10 +21,9 @@ interface CareerAffiliateProps {
   /**
    * 本文中の転職枠の印（任意）。指定すると案件・リンク・文言は配置ルール（config/affiliate-placements.json）の解決結果
    * `inlineCard` で決め、MDX の service/description/points/cta は使わない（表示コピーと遷移先を常に一致させる＝景表法）。
-   * `"gks"` は歴史的な名前で GKS 案件を指さない（MDX 202 か所を書き換えずに残すための別名）。新しく書くときは `"career"`。
    * ルールの無いカテゴリでは描画しない（黙って別の案件に倒さない）。
    */
-  readonly program?: "career" | "gks";
+  readonly program?: "career";
   /** 配置ルールで解決した、この面に出す案件（DocPage・診断ツールが渡す）。program 指定時だけ使う */
   readonly inlineCard?: ResolvedPlacement | null | undefined;
   /** 2 枚並べの 2 枚目（本文中間は DocPage が渡す。手書きの本文カードは inlineCard.secondary を使う） */
@@ -65,6 +64,17 @@ interface CareerAffiliateProps {
    * MDX 直書き（168 箇所）は既定 false のまま＝見た目を変えない。
    */
   readonly emphasis?: boolean;
+  /**
+   * 意匠実験（EXP-048 の B/B2）に入れず、従来のカードで出す（任意）。複数の案件を並べて比べる記事
+   * （市場価値を確かめる複数登録・EXP-054・placement career-multi-register）で、1 枚ずつの比較表示を保つために使う。
+   */
+  readonly noExperiment?: boolean;
+  /**
+   * 案件を名前で指定する（任意・`src/config/affiliate-creatives.ts` の PROGRAM_ASSETS のキー。例 "buildjob"）。
+   * 指定すると文言・リンクは素材カタログの card（対象条件つき）で決め、MDX の service 等は使わない（MDX に a8mat を書かない）。
+   * 配置ルールに依らず特定の案件を並べる記事（市場価値を確かめる複数登録・EXP-054）で使う。未登録の名前なら描画しない。
+   */
+  readonly preset?: string;
 }
 
 /**
@@ -99,18 +109,22 @@ export default function CareerAffiliate({
   emphasis = false,
   inlineCard,
   secondary,
+  noExperiment = false,
+  preset,
 }: CareerAffiliateProps) {
   // 本文中の転職枠（program 指定）: 案件と文言は配置ルールの解決結果で決める。ルールが無ければ出さない。
   // href のみ＝計測ピクセルなし（1 ページ 1 ピクセルの発火源は DocPage が決める）。
   if (program && !inlineCard) return null;
-  const ruled = program && inlineCard ? inlineCard.card(slug, need) : null;
+  const presetAsset = preset ? PROGRAM_ASSETS[preset] : undefined;
+  if (preset && !presetAsset) return null;
+  const ruled = presetAsset ? presetAsset.card(slug, need) : program && inlineCard ? inlineCard.card(slug, need) : null;
   const effService = ruled?.service ?? service;
   const effCategory = ruled?.category ?? category;
   const effDescription = ruled?.description ?? description;
   const effPoints = ruled?.points ?? points;
   const effCta = ruled?.cta ?? cta;
   const resolvedHref = ruled?.href ?? href;
-  const experiment = programAssetForHref(resolvedHref);
+  const experiment = noExperiment ? null : programAssetForHref(resolvedHref);
   const second = secondary ?? inlineCard?.secondary ?? null;
   if (experiment && resolvedHref) {
     const effBrief = ruled?.brief ?? brief;

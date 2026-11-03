@@ -44,7 +44,7 @@ doboku=転職一本へ移植・スリム化）。
 > 検証済み: GKS を harvest → `a8mat` が affiliate-mats.json の配置済み GKS mat と完全一致（doboku-note のコードが取れる）。
 > **`list` は口座横断**（`?webSiteId=` フィルタは A8 側で無視＝doboku-note 単独に絞れない・全サイト混在で表示）。
 
-## 状態機械（a8-catalog.json）
+## 状態機械（data/a8/catalog.json）
 
 ```
 candidate → applied → approved → harvested → registered → published

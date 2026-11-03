@@ -68,6 +68,18 @@
           "role": "判断"
         },
         {
+          "command": "report-product-funnel",
+          "label": "商品への送客（表示 → 販売先クリック → 販売を販売先の ID で並べる・EXP-052）",
+          "stage": "受取・販売",
+          "role": "判断"
+        },
+        {
+          "command": "report-note-body-experiment",
+          "label": "本文中の note 案内の画像／文字の A/B（EXP-053）",
+          "stage": "受取・販売",
+          "role": "判断"
+        },
+        {
           "command": "note-sync-plan",
           "label": "note 記事単位の同期（反映待ち・止まっている記事）",
           "stage": "受取・販売",
@@ -381,6 +393,18 @@
           "label": "土曜の収集（ログインが要る取得と書き込み）の段ごとの最新の合否（取った記録の検算を含む）",
           "stage": "基盤の点検",
           "role": "点検"
+        },
+        {
+          "command": "product-sales",
+          "label": "暦月 × 商品の販売台帳（note・KDP・ココナラ・A8。計測の範囲つき）",
+          "stage": "受取・販売",
+          "role": "点検"
+        },
+        {
+          "command": "report-product-funnel",
+          "label": "商品への送客から販売まで（販売先の ID でつなぐ）",
+          "stage": "受取・販売",
+          "role": "判断"
         },
         {
           "command": "report-site-to-sales",

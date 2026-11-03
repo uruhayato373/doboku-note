@@ -116,6 +116,22 @@ for (const pr of pairs) {
 }
 for (const [a, b] of findPairOverlaps(pairs)) errors.push(`${a} と ${b}: 同じ 1 枚目・面・重なる期間・交わる対象（2 枚目が 1 つに決まらない）`);
 
+// (h) 出し分け（splits・EXP-055）: 代わりの案件も配置できる案件で、面・カテゴリ・実験が実在し、面の primary のルールが開いている
+const splits = cfg.splits ?? [];
+for (const sp of splits) {
+  const p = catalog.programs?.[sp.alternate];
+  if (!p) errors.push(`${sp.id}: 代わりの案件 ${sp.alternate} が catalog に無い`);
+  else if (isOpen(sp) && (p.placement !== 'active' || p.redLine)) errors.push(`${sp.id}: 代わりの案件 ${sp.alternate} は catalog で placement=${p.placement}${p.redLine ? '・Red Line' : ''}（配置できない）`);
+  if (isOpen(sp) && !mats.some((m) => m.program === sp.alternate && m.surfaces.length > 0)) errors.push(`${sp.id}: 代わりの案件 ${sp.alternate} に広告リンク（config.affiliate-mats・surfaces あり）が無い`);
+  for (const slot of sp.slots) {
+    if (!vocab[slot]) errors.push(`${sp.id}: 面 ${slot} が config.cta-placements に無い`);
+    if (isOpen(sp) && !rules.some((r) => isOpen(r) && r.program === sp.primary && r.slot === slot && (sp.target.categories ?? []).every((c) => (r.target.categories ?? []).includes(c)))) errors.push(`${sp.id}: 面 ${slot} に primary ${sp.primary} の開いているルールが無い（出し分ける相手がいない）`);
+  }
+  for (const c of sp.target.categories ?? []) if (!categories.has(c)) errors.push(`${sp.id}: カテゴリ ${c} が src/config/categories.json に無い`);
+  if (!experiments.has(sp.experiment)) errors.push(`${sp.id}: 実験 ${sp.experiment} が experiments.json に無い`);
+}
+for (const [a, b] of findPairOverlaps(splits)) errors.push(`${a} と ${b}: 同じ primary・面・重なる期間・交わる対象（出し分けが 1 つに決まらない）`);
+
 // (f)
 const inlineCovered = new Set(rules.filter((r) => r.slot === 'article-inline' && isOpen(r)).flatMap((r) => r.target.categories ?? [...categories]));
 const SITE = join(ROOT, 'content', 'site');
@@ -140,7 +156,7 @@ for (const [category, n] of inlineCategories) {
 }
 
 console.log(
-  `[check-affiliate-placements] ルール ${rules.length} 件（開いている ${rules.filter(isOpen).length}）・2 枚並べ ${pairs.length} 組 / MDX ${mdxScanned} 件を走査・手書きカードのカテゴリ ${inlineCategories.size} 種 / 違反 ${errors.length} 件`,
+  `[check-affiliate-placements] ルール ${rules.length} 件（開いている ${rules.filter(isOpen).length}）・2 枚並べ ${pairs.length} 組・出し分け ${splits.length} 組 / MDX ${mdxScanned} 件を走査・手書きカードのカテゴリ ${inlineCategories.size} 種 / 違反 ${errors.length} 件`,
 );
 if (errors.length) {
   for (const e of errors) console.error(`  ✗ ${e}`);

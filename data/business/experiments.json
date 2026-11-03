@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-11-03T04:46:49.000Z",
+  "updated_at": "2026-11-03T06:50:08.000Z",
   "experiments": [
     {
       "id": "EXP-002",
@@ -8531,9 +8531,9 @@
       "hypothesis": "サイトで一番売れている商品（2026-10 に 3 件・¥5,940。10/8 以降で最多）について、よく読まれている 3 ページの案内の表示・クリックと note の販売を販売先の ID（note キー mfa3fcffdd85d）でつなげば、どこで読者が落ちているか（表示されない／押されない／押しても買われない）を数字で切り分けられる。増減の因果は見ない（DN-0947 の計測が本番で使えるかの検証）",
       "target_metric": "週ごとの (1) product_impression と product_click（product_destination=note・product_id=mfa3fcffdd85d、cta_placement 別。ga4 レポート product-referrals）(2) 同じ商品の販売（data/business/product-sales/ の note・pe1-chokuzen-pack。coverage が measured の月だけ 0 件と読む）(3) note の記事『直前3週間の過ごし方』（nd81412e89bf3）からサイトへ戻ったセッション（utm_term=nd81412e89bf3。inbound）",
       "target_delta": "判断の目安ではなく記録の完走を見る。6 週の各週で (1)〜(3) が取れ、(1) のクリックと (2) の販売が同じ商品 ID で並べば計測は使える。クリック率は表示 100 件未満の週は読まない。販売がクリックより多い週は note 内の購入（サイト外）と読み、送客の効果とは言わない。11/22（試験日）の後はサイトの案内が過去問 PDF 合本（pe1-takuitsu-pdf）へ切り替わる設計（src/lib/magazine-placement.ts）なので、試験前と試験後を分けて読み、試験後に表示が 0 になることも計測が正しい確認に使う",
-      "status": "proposed",
+      "status": "running",
       "created_at": "2026-11-03",
-      "next_check_date": null,
+      "next_check_date": "2026-11-10",
       "baseline": {
         "measured_at": "2026-11-03",
         "source": "data/ga4/reports/2026-10-31.json（cta-clicks-by-label・page、窓 2026-10-03〜10-30）と data/business/product-sales/2026-10.json",
@@ -8571,7 +8571,7 @@
       ],
       "measurementPlan": {
         "kind": "product-referral",
-        "status": "awaiting-deploy",
+        "status": "running",
         "durationWeeks": 6,
         "product": {
           "productId": "pe1-chokuzen-pack",
@@ -8595,7 +8595,146 @@
           "product_click"
         ],
         "card": "DN-0947",
-        "stats47": "EXP-013（stats47 の同じ計測の検証）"
+        "stats47": "EXP-013（stats47 の同じ計測の検証）",
+        "endDate": "2026-12-15"
+      },
+      "started_at": "2026-11-03",
+      "history": [
+        {
+          "at": "2026-11-03T06:14:47.000Z",
+          "event": "start",
+          "note": "本番デプロイ e5e10a6f1（cloudflare-deploy run 41587875655・check-production-ssr exit 0）。本番の /exam/pe-first-stage/guide/overview で product_click（mfa3fcffdd85d・note・article-top）と product_impression（n466132e6fd74・note・article-end・1 秒後）が出ることを gtag の差し替えで確認（GA4 へは送っていない）"
+        }
+      ]
+    },
+    {
+      "id": "EXP-053",
+      "title": "本文中の note 案内を POP 画像（image）と商品名・説明の文字のカード（text）で同時に出し分け、表示あたりのクリックを比べる",
+      "hypothesis": "10/2〜03 に本文中の note 案内を POP 画像へ替えた後、同じ案内の本文カードのクリック率が約 4 分の 1 に下がった（冒頭・資格トップは横ばい）。同じ画像が商品ごとに並び商品名と中身が読めないため、読者が自分に合う教材か判断できず、広告として読み飛ばしている。文字のカードに戻せば表示あたりのクリックが戻る",
+      "target_metric": "案ごとの表示あたりのクリック（note_body_experiment_click ÷ note_body_experiment_impression。npm run report-note-body-experiment）。守る指標は note の売上（data/business/product-sales/）で、案ごとの売上は note が流入元を出さないので比べない",
+      "target_delta": "各案 1,000 表示以上で、text のクリック率が image の 1.5 倍以上なら本文中の既定を text にする。0.67 倍以下なら image を残す。その間は延長して 6 週（2026-12-15）で判定する。案ごとのクリック合計が 30 に届かないうちは途中経過として読むだけ",
+      "status": "proposed",
+      "created_at": "2026-11-03",
+      "next_check_date": null,
+      "baseline": {
+        "measured_at": "2026-11-03",
+        "source": "data/ga4/reports/2026-10-02.json と 2026-10-31.json の cta-clicks-by-label（note_cta_impression / note_cta_click）",
+        "sameLabels91": {
+          "before": "362/29,679=1.22%（2026-09-04〜10-01）",
+          "after": "168/35,555=0.47%（2026-10-03〜10-30）"
+        },
+        "byPlacementKind": {
+          "hubSidebarFooter": "0.17%→0.17%",
+          "articleTop": "0.34%→0.39%",
+          "bodyCards": "例 civil-2-pastexam-essay:secondary-r07-q1 19.1%→4.8%、civil-2-experience-essay:secondary-experience-examples 8.2%→1.4%"
+        },
+        "note": "前後比較は季節（1級二次 10/4・2級二次 10/25）を含むので判断の根拠にしない。この実験は同じ期間の A/B で比べる"
+      },
+      "businessContext": {
+        "qualification": "all",
+        "readerNeed": "答案や暗記を仕上げたい受験者が、本文を読みながら自分に合う教材をその場で選びたい",
+        "verifiedGap": "本文中の案内が同じ POP 画像の繰り返しになり、商品名・収録内容が読めない。画像化の後に本文カードのクリック率が約 4 分の 1 に下がった",
+        "metricId": "noteRevenue",
+        "reviewRecord": "data/business/records/review-2026-11-01T06-07-23-843Z-6abb9200-372f-4c28-9595-84f9ccde8750.json"
+      },
+      "actions": [
+        "本番デプロイの日を開始日にし、status を running・next_check_date を開始日＋7 日にする",
+        "対象: MagazineHeroCta・MagazineInlineCard（本文中・本文中間の note 案内）で画像のある商品。記事冒頭（MagazineTopBanner）・商品カード（NoteProductCard）・資格トップのタイルは対象外",
+        "割り当て: 訪問者ごとに約 1/2。localStorage（doboku-note:EXP-053:variant）で再訪も固定。JS が無いときは image",
+        "毎週 `npm run report-note-body-experiment` の案ごとの表示・クリックを measurements に記録する。EXP-048（転職アフィリの 2 枚並べ）と同じページで動くが、割り当ては独立なので両案に均等に混ざる"
+      ],
+      "measurementPlan": {
+        "kind": "note-body-design",
+        "status": "awaiting-deploy",
+        "variants": [
+          "image",
+          "text"
+        ],
+        "assignment": "<head> の NOTE_BODY_VARIANT_SCRIPT（src/lib/note-body-experiment.mjs）",
+        "events": [
+          "note_body_experiment_impression",
+          "note_body_experiment_click"
+        ],
+        "reportId": "ga4.cta-clicks-by-label",
+        "card": "DN-0949",
+        "endDate": "2026-12-15"
+      }
+    },
+    {
+      "id": "EXP-054",
+      "title": "「まず市場価値を確かめる——転職サイトに 2〜3 社登録して比べる」記事と動線で、転職アフィリの発生を増やす",
+      "hypothesis": "読者の大半は今すぐ辞める気が無く、相談＝転職の決断と受け取って申し込まない。登録の目的を「相場を知る」に置き換え、登録後に起きること（電話・面談・スカウト・連絡の止め方）まで説明し、案件を 2〜3 社並べれば、動いた読者が申し込み、1 人あたりの発生も増える",
+      "target_metric": "新規記事の閲覧・案件カードのクリック（GA4 の affiliate_cta_click・product_click、置き場所 career-multi-register）と、A8 の案件別の発生・確定額（data/business/product-sales/）。キャリア記事 45 本からの内部リンクのクリック（internal_nav_click）",
+      "target_delta": "公開後 8 週で、(1) 新規記事のクリックが閲覧の 3% 以上 (2) 転職アフィリの発生が月 2 件以上（今は半年で 2 件）。確定は承認の遅れがあるので 3 か月後に読む。届かなければ記事の位置と導線を見直す",
+      "status": "proposed",
+      "created_at": "2026-11-03",
+      "next_check_date": null,
+      "baseline": {
+        "measured_at": "2026-11-03",
+        "source": "data/business/product-sales/2026-05〜10・data/analysis/career-funnel.md（2026-10-31）",
+        "a8": "2026-05〜10 で発生 2 件（ビルドジョブ・6 月と 10 月）・確定 0 円。10 月の 1 件はキャンセル",
+        "ga4": "転職広告は 28 日で表示 約 2.5 万・クリック 約 0.10%",
+        "search": "「施工管理 転職エージェント」50〜70 位、「土木施工管理技士 年収」5.7 位"
+      },
+      "businessContext": {
+        "qualification": "all",
+        "readerNeed": "今すぐ辞める気は無いが、資格と経験が外でどう評価されるか・施工管理の求人がどれだけあるかを知りたい",
+        "verifiedGap": "相談を勧める記事・広告はあるが、登録を情報収集として説明し、登録後の流れまで見せる入口が無い。半年で発生 2 件・確定 0 円",
+        "metricId": "a8ConfirmedYen",
+        "reviewRecord": "data/business/records/review-2026-11-01T06-07-23-843Z-6abb9200-372f-4c28-9595-84f9ccde8750.json"
+      },
+      "actions": [
+        "新規記事を 1 本（1級土木の guide）書き、既存の比較・市場価値・年収の記事を改稿して導線をつなぐ（訴求設計 §13.2・§13.3・DN-0951）",
+        "公開日を開始日にして running にし、8 週後に判定する"
+      ],
+      "measurementPlan": {
+        "kind": "affiliate-content",
+        "status": "awaiting-deploy",
+        "card": "DN-0951",
+        "placement": "career-multi-register",
+        "design": "docs/marketing/転職アフィリエイト訴求設計.md §13",
+        "article": "content/site/civil-construction-1/guide-market-value-check/article.mdx（/exam/civil-construction-1/guide/market-value-check）",
+        "programs": [
+          "buildjob（A8）",
+          "kensetsu-jobs（A8・20〜30代の建設経験者が対象）"
+        ],
+        "inboundLinks": [
+          "/exam/civil-construction-1/guide/market-value",
+          "/exam/civil-construction-2/guide/salary",
+          "/exam/civil-construction-1/guide/career-agent-comparison"
+        ]
+      }
+    },
+    {
+      "id": "EXP-055",
+      "title": "技術士（建設部門）の読者に、施工管理の転職（ビルドジョブ）とハイクラス転職（ハイクラス DX・コンサル転職）を訪問者ごとに出し分ける",
+      "hypothesis": "技術士（建設部門）の読者は 30〜50 代の技術者・管理技術者が多く、施工管理の転職より、技術系管理職・コンサルの求人のほうが合う。単価もハイクラス（A8 ¥18,000）がビルドジョブ（¥13,534）より高い。閲覧あたりの発生・確定額はハイクラスのほうが大きい",
+      "target_metric": "案ごとの閲覧あたりの転職広告クリック（GA4）と、案件別の発生・確定額（data/business/product-sales/ の A8）。守る指標は note の案内のクリック率",
+      "target_delta": "8 週で、閲覧 1,000 回あたりの発生・確定額がハイクラスでビルドジョブを下回らず、閲覧あたりクリックが 0.67 倍を下回らなければ技術士（建設部門）をハイクラスにする。両案の合計が 40 クリックに届くまでは途中経過",
+      "status": "proposed",
+      "created_at": "2026-11-03",
+      "next_check_date": null,
+      "businessContext": {
+        "qualification": "pe-construction",
+        "readerNeed": "技術士の資格と経験を、施工管理の現場以外（発注者支援・コンサル・管理職）でも評価されるかを知りたい",
+        "verifiedGap": "技術士（建設部門）のページは施工管理向けのビルドジョブだけを出している（訴求設計 §12.1 で保留）",
+        "metricId": "a8ConfirmedYen",
+        "reviewRecord": "data/business/records/review-2026-11-01T06-07-23-843Z-6abb9200-372f-4c28-9595-84f9ccde8750.json"
+      },
+      "actions": [
+        "対象は技術士（建設部門）の資格トップのサイドバーとスマホの枠（config/affiliate-placements.json の splits PS-0001）。記事末の転職広告は 2026-10-21 に全資格で閉じているので使わない。本文中の枠は EXP-048 の判定（2026-12-26）の後に広げるか決める（訴求設計 §13.4・DN-0952）",
+        "割り当ては訪問者ごとに約 1/2（<head> の PROGRAM_SPLIT_SCRIPT・src/lib/program-split-experiment.mjs・保存キー doboku-note:EXP-055:arm）。読むのは affiliate_cta_impression / _click のラベル（BuildJob-sidebar／DXConsulting-sidebar）× 置き場所 × /exam/pe-construction 配下のページ（ga4 の affiliate-by-page）と、A8 の案件別の発生（成果の明細のリファラでページまで分かる）"
+      ],
+      "measurementPlan": {
+        "kind": "affiliate-program",
+        "status": "awaiting-deploy",
+        "variants": [
+          "buildjob",
+          "dx-consulting"
+        ],
+        "card": "DN-0952",
+        "design": "docs/marketing/転職アフィリエイト訴求設計.md §13.4",
+        "split": "PS-0001"
       }
     }
   ]

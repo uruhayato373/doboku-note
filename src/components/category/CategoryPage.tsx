@@ -24,6 +24,7 @@ import { resolveHubCta } from '@/lib/hub-cta';
 import { resolveOffsiteCta } from '@/lib/offsite-cta';
 import OffsiteCta from '@/components/ui/OffsiteCta/OffsiteCta';
 import SidebarAdBanner from '@/components/ui/SidebarAdBanner';
+import ProgramSplitBanner from '@/components/ui/SidebarAdBanner/ProgramSplitBanner';
 import { pixelFor, resolvePlacements } from '@/lib/affiliate-placement';
 import CategoryJumpNav from '@/components/category/CategoryJumpNav';
 import CategoryStudyNav from '@/components/category/CategoryStudyNav';
@@ -85,14 +86,20 @@ export default async function CategoryPage({
   const mobileCareerAds = mobileAd
     ? [
         <div key={mobileAd.ruleId} className="zenn-desktop:hidden my-10">
-          <SidebarAdBanner
-            href={mobileAd.banner.href}
-            imageSrc={mobileAd.banner.imageSrc}
-            alt={mobileAd.banner.alt}
-            width={mobileAd.banner.width}
-            height={mobileAd.banner.height}
-            trackLabel={mobileAd.trackLabel}
+          <ProgramSplitBanner
+            alternate={mobileAd.alternate}
             placement="category-mobile"
+            primary={
+              <SidebarAdBanner
+                href={mobileAd.banner.href}
+                imageSrc={mobileAd.banner.imageSrc}
+                alt={mobileAd.banner.alt}
+                width={mobileAd.banner.width}
+                height={mobileAd.banner.height}
+                trackLabel={mobileAd.trackLabel}
+                placement="category-mobile"
+              />
+            }
           />
         </div>,
       ]
@@ -117,15 +124,21 @@ export default async function CategoryPage({
       {hubCtaSidebar && <HubCtaBanner cta={hubCtaSidebar} placement="category-sidebar" />}
       <AuthorSidebarCard />
       {sidebarAd && (
-        <SidebarAdBanner
-          href={sidebarAd.banner.href}
-          imageSrc={sidebarAd.banner.imageSrc}
-          alt={sidebarAd.banner.alt}
-          width={sidebarAd.banner.width}
-          height={sidebarAd.banner.height}
-          pixelSrc={sidebarPixel?.slot === 'category-sidebar' ? sidebarPixel.pixelSrc : undefined}
-          trackLabel={sidebarAd.trackLabel}
+        <ProgramSplitBanner
+          alternate={sidebarAd.alternate}
           placement="category-sidebar"
+          primary={
+            <SidebarAdBanner
+              href={sidebarAd.banner.href}
+              imageSrc={sidebarAd.banner.imageSrc}
+              alt={sidebarAd.banner.alt}
+              width={sidebarAd.banner.width}
+              height={sidebarAd.banner.height}
+              pixelSrc={sidebarPixel?.slot === 'category-sidebar' ? sidebarPixel.pixelSrc : undefined}
+              trackLabel={sidebarAd.trackLabel}
+              placement="category-sidebar"
+            />
+          }
         />
       )}
       <PopularRanking items={popularDocs} />

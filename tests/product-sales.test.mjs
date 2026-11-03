@@ -117,3 +117,26 @@ test('販売先の ID で引く: メンバーシップは複数プランを合�
   assert.deepEqual(salesByDestinationId(sep, 'note', 'n0000'), { status: 'measured-zero', count: 0, amountYen: 0, provisional: false });
   assert.deepEqual(salesByDestinationId(build('2026-10'), 'note', 'n0000'), { status: 'unmeasured' });
 });
+
+test('A8 は単月の案件別の行を数え、a8mat から案件へ引き当てる。stats47 の案件（program 無し）は数えない', () => {
+  const mats = [{ mat: '4B5OO5+FHBA2+5B0Y+NTZCH', program: 'buildjob' }];
+  const log = {
+    monthly: [{ month: '2026-10', clicks: 900, conversions: 1, approved: 0, revenueYen: 0, pendingRevenueYen: 0, fetchedAt: '2026-11-01T00:00:00.000Z' }],
+    programPeriod: [
+      { period: '202610-202610', programId: 's1', program: 'buildjob', clicks: 70, conversions: 1, grossRevenueYen: 13534, approved: 0, revenueYen: 0, pendingCount: 0, pendingRevenueYen: 0, fetchedAt: '2026-10-20T00:00:00.000Z' },
+      { period: '202610-202610', programId: 's1', program: 'buildjob', clicks: 72, conversions: 1, grossRevenueYen: 13534, approved: 0, revenueYen: 0, pendingCount: 0, pendingRevenueYen: 0, fetchedAt: '2026-11-01T00:00:00.000Z' },
+      { period: '202610-202610', programId: 's2', program: 'kensetsu-jobs', clicks: 27, conversions: 0, grossRevenueYen: 0, approved: 0, revenueYen: 0, pendingCount: 0, fetchedAt: '2026-11-01T00:00:00.000Z' },
+      { period: '202610-202610', programId: 's9', program: null, clicks: 40, conversions: 2, grossRevenueYen: 900, approved: 1, revenueYen: 300, fetchedAt: '2026-11-01T00:00:00.000Z' },
+      { period: '202601-202610', programId: 's1', program: 'buildjob', clicks: 500, conversions: 3, fetchedAt: '2026-11-01T00:00:00.000Z' },
+    ],
+  };
+  const l = buildProductSales({ month: '2026-10', products, mats, salesLog, royalties, revenue, orders, reportLog: log });
+  assert.equal(l.coverage.a8.status, 'measured');
+  assert.equal(l.coverage.a8.otherPrograms, 1);
+  const rows = l.rows.filter((r) => r.destination === 'a8');
+  assert.deepEqual(rows, [{ destination: 'a8', productId: 'buildjob', destinationIds: ['4B5OO5+FHBA2+5B0Y+NTZCH'], count: 1, amountYen: 0, grossYen: 13534, approvedCount: 0, pendingYen: 0, clicks: 72 }]);
+  assert.deepEqual(salesByDestinationId(l, 'a8', '4B5OO5+FHBA2+5B0Y+NTZCH'), { status: 'sold', count: 1, amountYen: 0, provisional: false });
+  assert.equal(productIdOfDestination(buildProductIndex(products, mats), 'a8', '4B5OO5+FHBA2+5B0Y+NTZCH'), 'buildjob');
+  // 案件別を単月で取っていない月は口座全体だけ
+  assert.equal(buildProductSales({ month: '2026-09', products, mats, salesLog, royalties, revenue, orders, reportLog: log }).coverage.a8.status, 'unmeasured');
+});

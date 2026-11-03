@@ -16,6 +16,8 @@ import { getCommonSeoData } from "@/lib/metadata";
 import StructuredData from "@/components/seo/StructuredData";
 
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
+import { NOTE_BODY_VARIANT_SCRIPT } from "@/lib/note-body-experiment.mjs";
+import { PROGRAM_SPLIT_SCRIPT } from "@/lib/program-split-experiment.mjs";
 
 export const metadata: Metadata = getCommonSeoData();
 
@@ -33,6 +35,10 @@ export default function RootLayout({
             __html: `(function(){var s=localStorage.getItem('doboku-note-theme');if(s==='dark'||(s!=='light'&&window.matchMedia('(prefers-color-scheme: dark)').matches)){document.documentElement.classList.add('dark')}})()`,
           }}
         />
+        {/* EXP-053: 本文中の note 案内の案（画像／文字）を描画前に決める。選ばれなかった案は globals.css が隠す */}
+        <script dangerouslySetInnerHTML={{ __html: NOTE_BODY_VARIANT_SCRIPT }} />
+        {/* EXP-055: 配置ルールの出し分け（転職広告の案件）の側を描画前に決める。選ばれなかった方の枠は globals.css が隠す */}
+        <script dangerouslySetInnerHTML={{ __html: PROGRAM_SPLIT_SCRIPT }} />
         <StructuredData type="website" />
         <StructuredData type="organization" />
       </head>

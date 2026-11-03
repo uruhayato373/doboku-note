@@ -10,7 +10,7 @@
  * 欠測を 0 にしない: 販売先ごとに計測の範囲 coverage を持つ。
  *   measured     その月の販売記録を取り切った。行が無い商品は「計測済み・0 件」
  *   partial      取れた分だけ（note の締まっていない月・KDP の書籍の一部が欠けた月・月末より前の取得）。行が無い商品は判定しない
- *   account-only 口座全体の月次だけ（A8）。商品別は未計測
+ *   account-only 口座全体の月次だけ（A8 の案件別を単月で取っていない月）。商品別は未計測
  *   unmeasured   その月の記録が無い。0 件ではない
  * provisional は「月が締まっていない・金額が推計」（note の未確定月・KDP の当月推計）。
  *
@@ -31,7 +31,7 @@ const lastDayOf = (month) => {
 };
 
 /** config/products.json → 販売先 ID の索引（自社 ID → 販売先 ID、販売先 ID → 自社 ID） */
-export function buildProductIndex(products) {
+export function buildProductIndex(products, mats = []) {
   const toDestination = new Map();
   const fromDestination = new Map();
   const add = (id, destination, destinationId) => {
@@ -52,6 +52,8 @@ export function buildProductIndex(products) {
       if (c.id) kindleByBookId.set(c.id, { id: p.id, asin: c.asin ?? null });
     }
   }
+  // A8 は案件（program）が商品にあたる。GA4 の product_id は a8mat なので config/affiliate-mats.json で案件へ引き当てる
+  for (const m of mats ?? []) if (m.program && m.mat) add(m.program, 'a8', m.mat);
   return { toDestination, fromDestination, kindleByBookId };
 }
 
@@ -165,30 +167,58 @@ function coconalaSection(month, revenue, orders) {
   };
 }
 
-function a8Section(month, reportLog) {
-  const m = (reportLog?.monthly ?? []).find((x) => x.month === month);
-  if (!m) return { coverage: { status: 'unmeasured', reason: 'A8 の月次レポート（a8.report-log）に月の行が無い' } };
+/**
+ * A8: 単月の期間で取った案件別の行（report-log の programPeriod・period が YYYYMM-YYYYMM）。同じ口座の stats47 の案件は
+ * program が付かない（doboku-note の案件の対応表に無い）ので数えず、件数だけ excluded に残す。
+ * 金額は確定報酬（revenueYen）。発生額（grossYen）・承認待ち（pendingYen）は別欄。成果の承認は数か月遅れるので、
+ * 承認待ちが残る月は provisional。発生 0 の案件は行を作らない（measured の月は 0 件と読む）。
+ */
+function a8Section(month, reportLog, index) {
+  const ym = month.replace('-', '');
+  const latest = new Map();
+  for (const r of reportLog?.programPeriod ?? []) {
+    if (r.period !== `${ym}-${ym}`) continue;
+    const prev = latest.get(r.programId);
+    if (!prev || String(r.fetchedAt) > String(prev.fetchedAt)) latest.set(r.programId, r);
+  }
+  const monthly = (reportLog?.monthly ?? []).find((x) => x.month === month);
+  if (!latest.size) {
+    return monthly
+      ? { coverage: { status: 'account-only', fetchedAt: monthly.fetchedAt, reason: 'A8 の案件別を単月で取っていない月（口座全体の月次だけ）。商品別は未計測', account: { clicks: monthly.clicks, conversions: monthly.conversions, approved: monthly.approved, revenueYen: monthly.revenueYen, pendingRevenueYen: monthly.pendingRevenueYen } }, rows: [] }
+      : { coverage: { status: 'unmeasured', reason: 'A8 の月次レポート（a8.report-log）に月の行が無い' }, rows: [] };
+  }
+  const programRows = [...latest.values()];
+  const ours = programRows.filter((r) => r.program);
+  const fetchedAt = programRows.map((r) => String(r.fetchedAt)).sort().at(-1);
+  const pending = ours.some((r) => (r.pendingCount ?? 0) > 0);
+  const rows = ours
+    .filter((r) => (r.conversions ?? 0) > 0 || (r.approved ?? 0) > 0)
+    .map((r) => ({ destination: 'a8', productId: r.program, destinationIds: index.toDestination.get(r.program) ?? [], count: r.conversions ?? 0, amountYen: r.revenueYen ?? 0, grossYen: r.grossRevenueYen ?? 0, approvedCount: r.approved ?? 0, pendingYen: r.pendingRevenueYen ?? 0, clicks: r.clicks ?? 0 }));
+  const complete = fetchedAt.slice(0, 10) > lastDayOf(month);
   return {
     coverage: {
-      status: 'account-only',
-      fetchedAt: m.fetchedAt,
-      reason: 'A8 の月次は口座全体だけ（案件別は期間合計しか取っていない）。商品別は未計測',
-      account: { clicks: m.clicks, conversions: m.conversions, approved: m.approved, revenueYen: m.revenueYen, pendingRevenueYen: m.pendingRevenueYen },
+      status: complete ? 'measured' : 'partial',
+      provisional: pending || !complete,
+      amountBasis: 'approved',
+      fetchedAt,
+      note: '案件別の単月レポート。count は発生件数（キャンセルを含む）、amountYen は確定報酬。発生 0 の案件は行が無い＝計測済み・0 件',
+      ...(programRows.length > ours.length ? { otherPrograms: programRows.length - ours.length } : {}),
     },
+    rows,
   };
 }
 
 /**
  * @param {{ month: string, products: Array, salesLog: object, royalties: object, revenue: object, orders: object, reportLog: object }} input
  */
-export function buildProductSales({ month, products, salesLog, royalties, revenue, orders, reportLog }) {
+export function buildProductSales({ month, products, mats = [], salesLog, royalties, revenue, orders, reportLog }) {
   if (!/^\d{4}-\d{2}$/.test(String(month))) throw new Error(`月は YYYY-MM で指定する（受領: ${month}）`);
-  const index = buildProductIndex(products);
+  const index = buildProductIndex(products, mats);
   const note = noteSection(month, salesLog, index);
   const kindle = kindleSection(month, royalties, index);
   const coconala = coconalaSection(month, revenue, orders);
-  const a8 = a8Section(month, reportLog);
-  const rows = [...note.rows, ...kindle.rows, ...coconala.rows].sort((a, b) => a.destination.localeCompare(b.destination) || b.amountYen - a.amountYen || a.productId.localeCompare(b.productId));
+  const a8 = a8Section(month, reportLog, index);
+  const rows = [...note.rows, ...kindle.rows, ...coconala.rows, ...a8.rows].sort((a, b) => a.destination.localeCompare(b.destination) || b.amountYen - a.amountYen || a.productId.localeCompare(b.productId));
   return {
     schemaVersion: 1,
     month,
@@ -247,7 +277,7 @@ export function buildProductFunnel({ report, ledgers, index }) {
   const rows = [...byKey.values()].map((row) => ({
     ...row,
     ctr: row.impressions >= 100 ? row.clicks / row.impressions : null,
-    sales: Object.fromEntries((ledgers ?? []).map((l) => [l.month, ['note', 'amazon', 'coconala'].includes(row.destination) ? salesByDestinationId(l, row.destination, row.destinationId) : { status: 'unmeasured' }])),
+    sales: Object.fromEntries((ledgers ?? []).map((l) => [l.month, ['note', 'amazon', 'coconala', 'a8'].includes(row.destination) ? salesByDestinationId(l, row.destination, row.destinationId) : { status: 'unmeasured' }])),
   }));
   rows.sort((a, b) => b.clicks - a.clicks || b.impressions - a.impressions || a.destinationId.localeCompare(b.destinationId));
   return { window: { startDate: report?.meta?.startDate ?? null, endDate: report?.meta?.endDate ?? null }, months, rows };
