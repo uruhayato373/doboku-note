@@ -1,6 +1,37 @@
 {
   "runs": [
     {
+      "startedAt": "2026-11-03T08:56:22.023Z",
+      "finishedAt": "2026-11-03T08:57:21.475Z",
+      "plan": {
+        "synced": 0,
+        "ready": 1,
+        "blocked": 0,
+        "blockers": {},
+        "only": "content/note/1級・2級土木/1級土木で市場価値が変わる-無料/"
+      },
+      "articles": {
+        "selected": 1,
+        "attempted": 1,
+        "updated": [
+          {
+            "path": "content/note/1級・2級土木/1級土木で市場価値が変わる-無料/article.md",
+            "parts": [
+              "body"
+            ]
+          }
+        ],
+        "failed": [],
+        "deferred": []
+      },
+      "magazines": {
+        "attempted": 0,
+        "updated": [],
+        "failed": []
+      },
+      "problems": []
+    },
+    {
       "startedAt": "2026-10-31T02:22:37.452Z",
       "finishedAt": "2026-10-31T02:58:07.893Z",
       "plan": {
@@ -3011,29 +3042,6 @@
     {
       "startedAt": "2026-10-01T17:31:58.680Z",
       "finishedAt": "2026-10-01T17:38:44.038Z",
-      "plan": {
-        "synced": 611,
-        "ready": 283,
-        "blocked": 4,
-        "blockers": {
-          "aborted": 4
-        }
-      },
-      "articles": {
-        "attempted": 0,
-        "updated": [],
-        "failed": []
-      },
-      "magazines": {
-        "attempted": 0,
-        "updated": [],
-        "failed": []
-      },
-      "problems": []
-    },
-    {
-      "startedAt": "2026-10-01T17:25:05.714Z",
-      "finishedAt": "2026-10-01T17:31:45.560Z",
       "plan": {
         "synced": 611,
         "ready": 283,
