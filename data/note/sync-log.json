@@ -1,6 +1,38 @@
 {
   "runs": [
     {
+      "startedAt": "2026-11-03T09:22:07.357Z",
+      "finishedAt": "2026-11-03T09:22:24.537Z",
+      "plan": {
+        "synced": 0,
+        "ready": 1,
+        "blocked": 0,
+        "blockers": {},
+        "only": "content/note/1級・2級土木/ホワイトな建設会社の見分け方-無料/"
+      },
+      "articles": {
+        "selected": 1,
+        "attempted": 0,
+        "updated": [],
+        "failed": [
+          {
+            "path": "content/note/1級・2級土木/ホワイトな建設会社の見分け方-無料/article.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "結果なし（連続失敗で中断された可能性）"
+          }
+        ],
+        "deferred": []
+      },
+      "magazines": {
+        "attempted": 0,
+        "updated": [],
+        "failed": []
+      },
+      "problems": []
+    },
+    {
       "startedAt": "2026-11-03T09:21:07.358Z",
       "finishedAt": "2026-11-03T09:21:25.354Z",
       "plan": {
@@ -328,37 +360,6 @@
         "updated": [
           {
             "path": "content/note/技術士総監/資格取得後の担当経験の伝え方-無料/article.md",
-            "parts": [
-              "body"
-            ]
-          }
-        ],
-        "failed": [],
-        "deferred": []
-      },
-      "magazines": {
-        "attempted": 0,
-        "updated": [],
-        "failed": []
-      },
-      "problems": []
-    },
-    {
-      "startedAt": "2026-11-03T09:07:07.231Z",
-      "finishedAt": "2026-11-03T09:08:01.641Z",
-      "plan": {
-        "synced": 0,
-        "ready": 1,
-        "blocked": 0,
-        "blockers": {},
-        "only": "content/note/1級・2級土木/内定2社の条件比較-無料/"
-      },
-      "articles": {
-        "selected": 1,
-        "attempted": 1,
-        "updated": [
-          {
-            "path": "content/note/1級・2級土木/内定2社の条件比較-無料/article.md",
             "parts": [
               "body"
             ]
