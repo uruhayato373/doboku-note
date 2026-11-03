@@ -1,6 +1,37 @@
 {
   "runs": [
     {
+      "startedAt": "2026-11-03T09:00:04.541Z",
+      "finishedAt": "2026-11-03T09:00:59.921Z",
+      "plan": {
+        "synced": 0,
+        "ready": 1,
+        "blocked": 0,
+        "blockers": {},
+        "only": "content/note/1級・2級土木/辞める前に確認すること-無料/"
+      },
+      "articles": {
+        "selected": 1,
+        "attempted": 1,
+        "updated": [
+          {
+            "path": "content/note/1級・2級土木/辞める前に確認すること-無料/article.md",
+            "parts": [
+              "body"
+            ]
+          }
+        ],
+        "failed": [],
+        "deferred": []
+      },
+      "magazines": {
+        "attempted": 0,
+        "updated": [],
+        "failed": []
+      },
+      "problems": []
+    },
+    {
       "startedAt": "2026-11-03T08:58:51.200Z",
       "finishedAt": "2026-11-03T08:59:48.472Z",
       "plan": {
@@ -3054,29 +3085,6 @@
         "PDF を Drive から取り寄せられない: content/note/技術士建設部門/magazines/BK-01_道路/R07/article-II1.md",
         "記事の更新が連続で失敗したので残りを止めた（note 側の変更・レート制限を疑う）"
       ]
-    },
-    {
-      "startedAt": "2026-10-01T17:45:55.531Z",
-      "finishedAt": "2026-10-01T17:52:46.277Z",
-      "plan": {
-        "synced": 611,
-        "ready": 283,
-        "blocked": 4,
-        "blockers": {
-          "aborted": 4
-        }
-      },
-      "articles": {
-        "attempted": 0,
-        "updated": [],
-        "failed": []
-      },
-      "magazines": {
-        "attempted": 0,
-        "updated": [],
-        "failed": []
-      },
-      "problems": []
     }
   ]
 }
