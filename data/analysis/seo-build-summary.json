@@ -279,12 +279,14 @@
     },
     {
       "date": "2026-11-04",
-      "generatedAt": "2026-11-03T22:18:56.020Z",
+      "generatedAt": "2026-11-03T23:03:53.343Z",
       "sitemapUrls": 1973,
       "checked": 1973,
-      "errors": 0,
+      "errors": 1,
       "warnings": 407,
-      "errorsByCode": {},
+      "errorsByCode": {
+        "broken_internal_link": 1
+      },
       "warningsByCode": {
         "jsonld_recommended_missing": 407
       }
