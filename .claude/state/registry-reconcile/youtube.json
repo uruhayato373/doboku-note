@@ -1,19 +1,25 @@
 {
   "schemaVersion": 1,
-  "checkedAt": "2026-10-31T03:11:06.063Z",
+  "checkedAt": "2026-11-04T22:08:38.290Z",
   "channel": "youtube",
-  "targets": 35,
-  "checked": 35,
-  "observed": 35,
+  "targets": 37,
+  "checked": 37,
+  "observed": 37,
   "advanced": [
-    "concrete-chief-engineer/shunin-chokuzen-senryaku/youtube.longform.pop-diagram",
-    "concrete-chief-engineer/shunin-hinshutsu-yusen/youtube.longform.pop-diagram-v2",
-    "concrete-chief-engineer/shunin-ochiru-shouronbun/youtube.longform.pop-diagram",
-    "concrete-chief-engineer/shunin-r8-juuten/youtube.longform.pop-diagram",
-    "concrete-chief-engineer/shunin-shiken-zentaizou/youtube.longform.pop-diagram",
-    "concrete-chief-engineer/shunin-shouronbun-kousei/youtube.longform.pop-diagram-v2",
-    "pe-first-stage/pe1-kiso-senmon/youtube.longform",
-    "pe-first-stage/pe1-zentaizou/youtube.longform"
+    "concrete-chief-engineer/shunin-cement-4kagoubutsu/youtube.longform",
+    "concrete-chief-engineer/shunin-haigou-zettaiyouseki/youtube.longform",
+    "concrete-chief-engineer/shunin-kanri-kikaku-genkai/youtube.longform",
+    "concrete-chief-engineer/shunin-rekka-taio/youtube.longform",
+    "concrete-chief-engineer/shunin-shoki-3kyokusen/youtube.longform",
+    "pe-first-stage/pe1-kiso-2of3-reliability/youtube.longform",
+    "pe-first-stage/pe1-kiso-2s-complement/youtube.longform",
+    "pe-first-stage/pe1-kiso-gyouretsu-vector/youtube.longform",
+    "pe-first-stage/pe1-kiso-kairo-setsuten/youtube.longform",
+    "pe-first-stage/pe1-kiso-newton-hou/youtube.longform",
+    "pe-first-stage/pe1-kiso-simpson-haba/youtube.longform",
+    "pe-first-stage/pe1-kiso-xor-shingihyou/youtube.longform",
+    "pe-first-stage/pe1-senmon-kensetsu-25mon/youtube.longform",
+    "pe-first-stage/pe1-tekisei-3shiten/youtube.longform"
   ],
   "findings": []
 }

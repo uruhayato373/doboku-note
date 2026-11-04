@@ -102,7 +102,7 @@
       "work": "shunin-cement-4kagoubutsu",
       "account": "youtube:main",
       "format": "longform",
-      "status": "scheduled",
+      "status": "published",
       "media": {
         "cover": "concrete-chief-engineer/shunin-cement-4kagoubutsu/youtube.longform/cover",
         "scene-001": "concrete-chief-engineer/shunin-cement-4kagoubutsu/youtube.longform/scene-001",
@@ -170,11 +170,12 @@
       "platform": {
         "id": "678g4juk1NA",
         "url": "https://www.youtube.com/watch?v=678g4juk1NA",
-        "privacy": "private",
+        "privacy": "public",
         "evidence": {
-          "kind": "publisher-live-check",
-          "ref": "content/sns/video-packs/concrete-chief-engineer/shunin-cement-4kagoubutsu/youtube.json#longform"
-        }
+          "kind": "youtube-api",
+          "ref": "videos.list@2026-11-04T22:08:38.290Z"
+        },
+        "publishedAt": "2026-11-02T11:30:31.000Z"
       },
       "thumbnail": {
         "status": "set",
@@ -633,7 +634,7 @@
       "work": "shunin-haigou-zettaiyouseki",
       "account": "youtube:main",
       "format": "longform",
-      "status": "scheduled",
+      "status": "published",
       "media": {
         "cover": "concrete-chief-engineer/shunin-haigou-zettaiyouseki/youtube.longform/cover",
         "scene-001": "concrete-chief-engineer/shunin-haigou-zettaiyouseki/youtube.longform/scene-001",
@@ -699,11 +700,12 @@
       "platform": {
         "id": "_4a6-sZrucQ",
         "url": "https://www.youtube.com/watch?v=_4a6-sZrucQ",
-        "privacy": "private",
+        "privacy": "public",
         "evidence": {
-          "kind": "publisher-live-check",
-          "ref": "content/sns/video-packs/concrete-chief-engineer/shunin-haigou-zettaiyouseki/youtube.json#longform"
-        }
+          "kind": "youtube-api",
+          "ref": "videos.list@2026-11-04T22:08:38.290Z"
+        },
+        "publishedAt": "2026-11-01T05:30:34.000Z"
       },
       "thumbnail": {
         "status": "set",
@@ -953,7 +955,7 @@
         "preview-metrics": "concrete-chief-engineer/shunin-kanri-kikaku-genkai/youtube.longform/preview-metrics"
       },
       "copy": "content/sns/video-packs/concrete-chief-engineer/shunin-kanri-kikaku-genkai/youtube.json#longform",
-      "status": "scheduled",
+      "status": "published",
       "publishAt": "2026-11-03T14:30:00+09:00",
       "review": {
         "visual": {
@@ -996,11 +998,12 @@
       "platform": {
         "id": "OFGDtn0OQ_Q",
         "url": "https://www.youtube.com/watch?v=OFGDtn0OQ_Q",
-        "privacy": "private",
+        "privacy": "public",
         "evidence": {
-          "kind": "publisher-live-check",
-          "ref": "content/sns/video-packs/concrete-chief-engineer/shunin-kanri-kikaku-genkai/youtube.json#longform"
-        }
+          "kind": "youtube-api",
+          "ref": "videos.list@2026-11-04T22:08:38.290Z"
+        },
+        "publishedAt": "2026-11-03T05:30:15.000Z"
       },
       "thumbnail": {
         "status": "set",
@@ -1913,7 +1916,7 @@
       "work": "shunin-rekka-taio",
       "account": "youtube:main",
       "format": "longform",
-      "status": "scheduled",
+      "status": "published",
       "media": {
         "cover": "concrete-chief-engineer/shunin-rekka-taio/youtube.longform/cover",
         "scene-001": "concrete-chief-engineer/shunin-rekka-taio/youtube.longform/scene-001",
@@ -1981,11 +1984,12 @@
       "platform": {
         "id": "T9t0ykZoKLk",
         "url": "https://www.youtube.com/watch?v=T9t0ykZoKLk",
-        "privacy": "private",
+        "privacy": "public",
         "evidence": {
-          "kind": "publisher-live-check",
-          "ref": "content/sns/video-packs/concrete-chief-engineer/shunin-rekka-taio/youtube.json#longform"
-        }
+          "kind": "youtube-api",
+          "ref": "videos.list@2026-11-04T22:08:38.290Z"
+        },
+        "publishedAt": "2026-11-02T05:30:05.000Z"
       },
       "thumbnail": {
         "status": "set",
@@ -2173,7 +2177,7 @@
       "work": "shunin-shoki-3kyokusen",
       "account": "youtube:main",
       "format": "longform",
-      "status": "scheduled",
+      "status": "published",
       "media": {
         "cover": "concrete-chief-engineer/shunin-shoki-3kyokusen/youtube.longform/cover",
         "scene-001": "concrete-chief-engineer/shunin-shoki-3kyokusen/youtube.longform/scene-001",
@@ -2236,11 +2240,12 @@
       "platform": {
         "id": "9ADPE2fYSRs",
         "url": "https://www.youtube.com/watch?v=9ADPE2fYSRs",
-        "privacy": "private",
+        "privacy": "public",
         "evidence": {
-          "kind": "publisher-live-check",
-          "ref": "content/sns/video-packs/concrete-chief-engineer/shunin-shoki-3kyokusen/youtube.json#longform"
-        }
+          "kind": "youtube-api",
+          "ref": "videos.list@2026-11-04T22:08:38.290Z"
+        },
+        "publishedAt": "2026-11-04T11:30:08.000Z"
       },
       "thumbnail": {
         "status": "set",
