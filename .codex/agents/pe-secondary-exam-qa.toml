@@ -134,4 +134,13 @@ note 販売は記事単位のため、article.md 単体では公開不可。次�
 - `content/note/技術士建設部門/noteコンテンツ計画.md` — 商品戦略・Red Line
 - `scripts/note-lint.mjs` — note 互換ゲート
 - メモリ: [[feedback_no_price_in_mdx_body]] / [[feedback_essay_char_limit]] / [[feedback_note_link_card]] / [[feedback_essay_q2_prose]]
+
+## 上下水道部門への適用（2026-10-15 決定）
+
+上下水道部門（`content/note/技術士上下水道部門/magazines/`）の模範解答にも、この定義を使う。違いは次のとおり。
+
+- 問題文は日本技術士会の公開 PDF（`data/pastexams/inventory.json` の `pe-water-supply`）。文字層の無いスキャンなので、ページ画像を読んで確かめる。出題テーマの一覧は `content/note/技術士上下水道部門/出題テーマ_R01-R08.md`
+- マガジンは `BK-I_必須科目I`（年度ごとに `R01/article.md`）。`noteMagazine` は `water-BK-I`、商品 id は `pe-water-` で始める
+- 運営者の立場は「技術士（上下水道部門）を持つ、元・地方自治体の土木職（発注者）」。合格の体験談は書かない
+- サイトに問題文の MDX は無いので、問題の要約は記事内に書き、問題文を転載しない
 """

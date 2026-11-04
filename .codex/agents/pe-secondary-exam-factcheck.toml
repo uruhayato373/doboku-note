@@ -105,4 +105,13 @@ BK-04〜11（施工計画・土質及び基礎・鋼構造及びコンクリー�
 - `.claude/agents/pe-secondary-exam-writer.md` / `pe-secondary-exam-qa.md`（対の Generator / 構造 Evaluator）
 - `content/site/pe-construction/{year}-{subject}/article.mdx`（過去問の設問・図表＝事実の補助確認）
 - メモリ: [[feedback_url_verification]] / [[feedback_url_fabrication_avoid]] / [[feedback_tool_output_hallucination]] / [[feedback_metrics_cicd_supplied]]
+
+## 上下水道部門への適用（2026-10-15 決定）
+
+上下水道部門（`content/note/技術士上下水道部門/magazines/`）の模範解答にも、この定義を使う。違いは次のとおり。
+
+- 問題文は日本技術士会の公開 PDF（`data/pastexams/inventory.json` の `pe-water-supply`）。文字層の無いスキャンなので、ページ画像を読んで確かめる。出題テーマの一覧は `content/note/技術士上下水道部門/出題テーマ_R01-R08.md`
+- マガジンは `BK-I_必須科目I`（年度ごとに `R01/article.md`）。`noteMagazine` は `water-BK-I`、商品 id は `pe-water-` で始める
+- 運営者の立場は「技術士（上下水道部門）を持つ、元・地方自治体の土木職（発注者）」。合格の体験談は書かない
+- サイトに問題文の MDX は無いので、問題の要約は記事内に書き、問題文を転載しない
 """
