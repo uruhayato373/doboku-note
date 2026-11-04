@@ -77,6 +77,22 @@ test('計画: 原稿が同じ項目は生成済みを引き継ぎ、変わった
   } finally { f.done(); }
 });
 
+test('計画: 指示を改善しても合格済みは残し、未合格は回数を数え直す', async () => {
+  const f = fixture();
+  try {
+    buildPlan(f.root, PACK, { date: '20261104', refs });
+    await generatePlan(f.root, PACK, { generate: fake(await png(1920, 1080)) });
+    recordAudit(f.root, PACK, [{ figKey: 'a', verdict: 'ok', reason: '原稿どおりで文字の誤りが無い' }, { figKey: 'b', verdict: 'fail', reason: '下の文が欠けている図である' }], { by: 'auditor' });
+    const plan = readPlan(f.root, PACK);
+    for (const item of plan.items) { item.basePrompt = `旧 ${item.basePrompt}`; item.attempts = MAX_ATTEMPTS; }
+    writeFileSync(join(f.root, planPath(PACK)), JSON.stringify(plan));
+    const next = buildPlan(f.root, PACK, { date: '20261104', refs });
+    const byId = Object.fromEntries(next.items.map((i) => [i.id, i]));
+    assert.ok(byId.a.raw && byId.a.audit?.verdict === 'ok');
+    assert.equal(byId.b.attempts, 0);
+  } finally { f.done(); }
+});
+
 test('生成: 画像が出ない項目は上限まで試して残し、勝手に通さない', async () => {
   const f = fixture();
   try {

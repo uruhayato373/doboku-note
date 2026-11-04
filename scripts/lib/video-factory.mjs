@@ -88,7 +88,7 @@ export function buildCoverPrompt(spec, exam) {
     `新規の16:9横長（1920×1080想定）日本語YouTube動画表紙を作る。${palette}、黄色と白の極太文字、明確な黒い輪郭、少量の赤、斜めの面と勢いのある背景、右側に先生キャラクターを大きく。`,
     '先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。',
     `左〜中央に正確に${lines.map((l) => `『${l}』`).join('')}を大きく配置。上部の黄色帯に小さく『${spec.pop?.authority ?? '総監が制作'}』。`,
-    '誤字・余計な文字・合格保証・URL・価格・不明な実績を足さない。文字と顔は左右5%・上下5%内、下端18%は字幕が重なるので重要な文字や顔を置かず背景が全面に続く。',
+    '誤字・余計な文字・合格保証・URL・価格・不明な実績を足さない。文字ブロックの黒い縁取りまで含めて左右8%の内側へ収め（画面の左端から8%は背景だけ）、顔は左右5%・上下5%内、下端18%は字幕が重なるので重要な文字や顔を置かず背景が全面に続く。',
   ].join(' ');
 }
 
@@ -109,7 +109,10 @@ export function buildPlan(root, pack, { scope = 'all', date, refs = fileRef } = 
   const prior = new Map((readPlan(root, pack)?.items ?? []).map((i) => [i.id, i]));
   const keep = (item) => {
     const old = prior.get(item.id);
-    return old && old.inputSha256 === item.inputSha256 && old.basePrompt === item.basePrompt ? { ...item, ...old } : item;
+    if (!old || old.inputSha256 !== item.inputSha256) return item;
+    // 合格済みの画像は、指示を改善しても作り直さない。未合格の項目は新しい指示で回数を数え直す
+    if (old.audit?.verdict === 'ok' || old.basePrompt === item.basePrompt) return { ...item, ...old };
+    return item;
   };
   const items = [keep({
     id: 'cover', kind: 'cover', inputSha256: coverInput(spec), basePrompt: buildCoverPrompt(spec, exam),
