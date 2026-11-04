@@ -12,7 +12,7 @@ import StandardDocumentCard from '@/components/standards/StandardDocumentCard';
 import { buildPageMetadata } from '@/lib/metadata';
 import Link from 'next/link';
 import TopicIcon from '@/components/topics/TopicIcon';
-import { getAllTopics, getRelatedTopics, getTopicBySlug, getTopicDocs, getTopicStandards, isTopicIndexable } from '@/lib/topics';
+import { getAllTopics, getRelatedTopics, getTopicBySlug, getTopicDocs, getTopicRoadmap, getTopicStandards, isTopicIndexable } from '@/lib/topics';
 import AffiliateSlot from '@/components/ui/AffiliateSlot/AffiliateSlot';
 import MagazineCard from '@/components/ui/MagazineCard/MagazineCard';
 import { getMagazine, type MagazineId } from '@/lib/note-magazines';
@@ -47,6 +47,7 @@ export default async function TopicPage({ params }: { params: Promise<Params> })
   const topic = getTopicBySlug((await params).slug);
   if (!topic) notFound();
   const docs = getTopicDocs(topic);
+  const roadmap = getTopicRoadmap(topic);
   const standards = getTopicStandards(topic);
   const relatedTopics = getRelatedTopics(topic);
   // 法令と分野・立場は多対多。このテーマの記事が引く法令と、法令・制度の軸のテーマでは法令と分野の対応の一覧
@@ -74,13 +75,52 @@ export default async function TopicPage({ params }: { params: Promise<Params> })
       />
       {topic.intro && topic.intro.length > 0 && (
         <SectionBlock space="sm" ariaLabel="このテーマの要点">
-          <h2 className="mb-4 font-serif text-2xl font-bold text-(--ink)">{topic.label}で押さえること</h2>
+          <h2 className="mb-4 font-serif text-2xl font-bold text-(--ink)">{topic.introHeading ?? `${topic.label}で押さえること`}</h2>
           <div className="max-w-[780px] space-y-4 text-[15px] leading-[1.9] text-(--ink-body)">
             {topic.intro.map((paragraph) => <p key={paragraph.slice(0, 24)}>{paragraph}</p>)}
           </div>
         </SectionBlock>
       )}
-      <SectionBlock divider={topic.intro?.length ? 'top' : 'none'} ariaLabel="関連記事">
+      {roadmap.length > 0 && (
+        <SectionBlock divider="top" ariaLabel="学ぶ順番の地図">
+          <h2 className="mb-2 font-serif text-2xl font-bold text-(--ink)">学ぶ順番の地図</h2>
+          <p className="mb-6 text-sm text-(--ink-muted)">上から順に進むと、前の段の知識が次の段で使えます。</p>
+          <ol className="max-w-[780px] space-y-0" data-cta="nav" data-cta-label="topic-roadmap">
+            {roadmap.map((step, i) => (
+              <li key={step.label} className="relative flex gap-4 pb-6 last:pb-0">
+                {i < roadmap.length - 1 && <span aria-hidden="true" className="absolute left-[15px] top-9 bottom-0 w-px bg-(--rule-soft)" />}
+                <span aria-hidden="true" className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-(--accent) text-sm font-bold text-white">{i + 1}</span>
+                <div className="min-w-0">
+                  <h3 className="font-serif text-lg font-bold text-(--ink)">{step.label}</h3>
+                  <p className="mt-1 text-[15px] leading-[1.8] text-(--ink-body)">{step.summary}</p>
+                  {step.docs.length > 0 && (
+                    <ul className="mt-2 space-y-1">
+                      {step.docs.map((doc) => (
+                        <li key={doc.slug} className="text-[14px]"><Link href={getPublicDocPath(doc.slug)} className="focus-ring text-(--accent) hover:underline">{doc.title}</Link></li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
+              </li>
+            ))}
+          </ol>
+        </SectionBlock>
+      )}
+      {topic.examDiffs && topic.examDiffs.length > 0 && (
+        <SectionBlock divider="top" ariaLabel="資格ごとの出題の違い">
+          <h2 className="mb-2 font-serif text-2xl font-bold text-(--ink)">資格ごとの出題の違い</h2>
+          <p className="mb-6 text-sm text-(--ink-muted)">同じ分野でも、資格によって問われ方が変わります。</p>
+          <dl className="max-w-[780px] space-y-5">
+            {topic.examDiffs.map((diff) => (
+              <div key={diff.exam} className="border-l-2 border-(--rule-soft) pl-4 dark:border-(--rule-soft)">
+                <dt className="font-serif text-base font-bold text-(--ink)">{diff.exam}</dt>
+                <dd className="mt-1 text-[15px] leading-[1.8] text-(--ink-body)">{diff.text}</dd>
+              </div>
+            ))}
+          </dl>
+        </SectionBlock>
+      )}
+      <SectionBlock divider={topic.intro?.length || roadmap.length ? 'top' : 'none'} ariaLabel="関連記事">
         {areaNav.length > 1 && (
           <nav aria-label="領域へ移動" className="mb-6 flex flex-wrap gap-x-5 gap-y-1">
             {areaNav.map(({ area, count }) => (
