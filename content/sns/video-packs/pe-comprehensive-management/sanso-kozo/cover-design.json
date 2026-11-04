@@ -2,6 +2,10 @@
   "schemaVersion": 1,
   "covers": {
     "longform": {
+      "character": {
+        "pose": "pop-red-pen",
+        "frame": "waist"
+      },
       "format": "longform",
       "exam": "pe-comprehensive",
       "headline": [
@@ -10,19 +14,18 @@
       ],
       "accentLine": 1,
       "subtitle": "",
-      "character": {
-        "pose": "pop-red-pen",
-        "frame": "waist"
-      },
       "design": "pop-poster-v3",
       "pop": {
         "variant": "write",
         "authority": "総監が制作"
       },
+      "layout": "diagram-led",
       "approvedImage": {
-        "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/youtube.longform/cover.b87e20c1.png",
-        "sha256": "b87e20c19fda2123d3bac22950472ee7a7427dd2ab11a7cbf63807a6e83c33ad",
-        "specSha256": "212e864062c4a30f99117038d82a36d5db29a962ea1c0679e62368592b21cc53"
+        "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/cover-pop.19cfc376.png",
+        "sha256": "19cfc376e60c3afccc8b9f30ec6d3bcd9b6a97394cce8c59d65c38fa10241188",
+        "width": 1920,
+        "height": 1080,
+        "specSha256": "403027b4461139f31f1aa947c2079182491690b2dbd83be2fd3f98de175f7c28"
       }
     }
   }

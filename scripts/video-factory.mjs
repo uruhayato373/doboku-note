@@ -193,7 +193,7 @@ function videoFile(pack, mediaById, pub) {
   const video = mediaById.get(pub.media?.video);
   if (!video) throw new Error(`${pub.id}: 完成動画が台帳に無い`);
   const abs = join(ROOT, video.store.path);
-  if (!existsSync(abs)) execFileSync('npm', ['run', '-s', 'media', '--', 'pull', '--work', pack], { cwd: ROOT, stdio: 'inherit' });
+  if (!existsSync(abs)) execFileSync('npm', ['run', '-s', 'media', '--', 'pull', '--work', pack, '--commit'], { cwd: ROOT, stdio: 'inherit' });
   if (!existsSync(abs) || createSha(readFileSync(abs)) !== video.sha256) throw new Error(`${pub.id}: 完成動画の実体が台帳の sha と違う`);
   return { abs, video };
 }
@@ -218,10 +218,12 @@ function audioCheck() {
   const expected = board.scenes.map((s) => s.narration ?? '').join('');
   const volume = spawnSync('ffmpeg', ['-hide_banner', '-i', abs, '-af', 'volumedetect', '-f', 'null', '-'], { encoding: 'utf8' }).stderr;
   const maxVolumeDb = Number(/max_volume: (-?[\d.]+) dB/.exec(volume)?.[1]);
-  const planned = Math.max(...board.scenes.map((s) => s.end ?? 0));
+  // 台本の予定尺は読み上げ前の見積りなので、音声が映像の途中で切れていないかを実体で比べる
+  const streams = JSON.parse(execFileSync('ffprobe', ['-v', 'error', '-show_entries', 'stream=codec_type,duration', '-of', 'json', abs], { encoding: 'utf8' })).streams;
+  const seconds = (type) => Number(streams.find((x) => x.codec_type === type)?.duration);
   const row = {
     videoSha256: video.sha256, at: new Date().toISOString(), similarity: Number(speechSimilarity(expected, heard).toFixed(3)),
-    maxVolumeDb, durationGapSec: Number(Math.abs(video.durationSec - planned).toFixed(1)), chars: { expected: expected.length, heard: heard.length },
+    maxVolumeDb, durationGapSec: Number(Math.abs(seconds('video') - seconds('audio')).toFixed(1)), chars: { expected: expected.length, heard: heard.length },
   };
   const store = readAudio();
   store.checks[pub.id] = row;
@@ -236,7 +238,8 @@ function wire() {
   const policy = readPolicy(ROOT);
   const reg = loadRegistry(ROOT);
   const pub = targetPub(reg, exam, work);
-  if (!pub || pub.revisionOf || pub.status !== 'qa_passed') throw new Error(`${pack}: QA 済みで未承認の初回の公開行だけ結線できる`);
+  if (pub?.revisionOf) throw new Error(`${pub.id}: 改訂版の公開日時は registry prepare-youtube-revision --refresh-draft で決める（下書きへ戻るので QA からやり直す）`);
+  if (!pub || pub.status !== 'qa_passed') throw new Error(`${pack}: QA 済みで未承認の初回の公開行だけ結線できる`);
   const mediaById = new Map(reg.media.map((m) => [m.id, m]));
   const taken = reg.publications.filter((p) => p.channel === 'youtube' && p.publishAt && p.status !== 'stopped' && p.id !== pub.id && Date.parse(p.publishAt) > Date.now()).map((p) => p.publishAt);
   const publishAt = args['publish-at'] ?? pub.publishAt ?? nextSlot(taken, policy);
@@ -251,7 +254,7 @@ function wire() {
       sha256: mediaById.get(pub.media.video).sha256, thumbnailSha256: mediaById.get(pub.media.cover).sha256,
     },
   }, null, 2)}\n`);
-  upsertPublications(ROOT, 'youtube', exam, [{ ...stripRow(pub), publishAt }]);
+  upsertPublications(ROOT, 'youtube', exam, [{ ...stripRow(pub), copy: `${packDirOf(pack)}/youtube.json#longform`, publishAt }]);
   console.log(JSON.stringify({ pub: pub.id, publishAt }));
 }
 
