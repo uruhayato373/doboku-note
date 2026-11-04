@@ -8818,10 +8818,10 @@
     },
     {
       "id": "EXP-058",
-      "title": "検索語に答えていない実務 2 本・教科書 1 本の title と冒頭を直し、クリック率を上げる",
+      "title": "検索語に答えていない実務 3 本・教科書 1 本の title と冒頭を直し、クリック率を上げる",
       "hypothesis": "5〜8 位に居ながらクリックが無いのは、冒頭と title が検索語に一文で答えていないため",
-      "target_metric": "3 ページの GSC のクリック率と順位（前後 28 日）",
-      "target_delta": "3 ページ合計のクリック率が 1.5 倍。順位が 3 位以上下がるページが 2 本以上なら戻す",
+      "target_metric": "4 ページの GSC のクリック率と順位（前後 28 日）",
+      "target_delta": "4 ページ合計のクリック率が 1.5 倍。順位が 3 位以上下がるページが 2 本以上なら戻す",
       "status": "running",
       "created_at": "2026-11-04",
       "next_check_date": "2026-12-30",
@@ -8834,7 +8834,8 @@
         "reviewRecord": "data/business/records/review-2026-11-01T06-07-23-843Z-6abb9200-372f-4c28-9595-84f9ccde8750.json"
       },
       "actions": [
-        "excavation-bottom-failure・service-commencement・textbook-distance-angle の seoTitle と冒頭を変更"
+        "excavation-bottom-failure・service-commencement・textbook-distance-angle の seoTitle と冒頭を変更",
+        "board-of-audit-inspection の seoTitle と冒頭を変更（「会計実地検査」206 表示 2 クリック 9.2 位）"
       ]
     }
   ]
