@@ -61,7 +61,7 @@
 
 - **起点**: 2026-11-04 に `video-review` で承認待ち 43 本を確認し、fail が 15 本あった。判定と理由は `npm run -s video-review -- summary` と台帳 `.claude/state/quality/video-agent-reviews.json` にある
 - **やること**: 誤字、表紙の切れ、令和8年度予想の扱い、本人の合格経験の記述、計画や出題回数の古さ、総監の矛盾と択一の解説、完成動画の素材と文面の不足を直す。経験の事実は運営者が確かめる
-- **進捗（2026-11-04）**: 台本を直せる 8 本は修正した。再確認で 8 本とも pass（道路は再修正のあと）。**残り**: ②hissu1-theme-map は R08 を入れて組み直す（R01〜R08 の 16 問を数えると防災 4・国土形成 3・担い手 2・DX 2・脱炭素 2・老朽化 2、R08 I-2 のグリーンインフラは未分類。「防災と担い手で半分」の主張が成り立たず、題名と表紙の「7年分」も変わるので台本の組み直しになる） ③monbun-yomikata は場面の画像の作り直し ④sanso-kozo は youtube.json の文面の補完 ⑤sentaku-steel-concrete-yomikata は表紙の作り直し ⑥R8 予想の 3 本（kata-oudan-ryuyo・r8-yosou-theme・r8-yosou-dashikata）は取り下げと運営者が決めた（2026-11-04）。stop は運営者だけが実行できる
+- **進捗（2026-11-04）**: 台本を直せる 8 本は修正した。再確認で 8 本とも pass（道路は再修正のあと）。sanso-kozo は youtube.json を補って pass。hissu1-theme-map は台本・storyboard・video-pack.json を R01〜R08 の 16 問の数え方（防災 4・国土形成 3・残り 4 系統は各 2・未分類 1）に組み直したが、表紙が「7年分」のままで fail。**残り**: ②hissu1-theme-map は表紙の作り直し（見出しの 2 行目を「8年分を地図に」に変える。cover-design.json と pop-image.json も同じ文言にする。Drive の cover.aa3fda1a.png は「Ⅰ」が化けて 7 年分のままなので使わない）。youtube.json はまだ無い ③monbun-yomikata は場面の画像の作り直し ⑤sentaku-steel-concrete-yomikata は表紙の作り直し ⑥R8 予想の 3 本（kata-oudan-ryuyo・r8-yosou-theme・r8-yosou-dashikata）は取り下げと運営者が決めた（2026-11-04）。stop は運営者だけが実行できる
 - **運営者の作業（後で行う）**: 次の 3 つをターミナルで実行する（エージェントからは実行できない）。3 本とも未公開の qa_passed
   - `npm run registry -- stop --pub pe-comprehensive-management/kata-oudan-ryuyo/youtube.longform --reason user-decision`
   - `npm run registry -- stop --pub pe-comprehensive-management/r8-yosou-theme/youtube.longform --reason user-decision`
