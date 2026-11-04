@@ -354,7 +354,7 @@
 **進捗（2026-11-04）**: 手順 1 は運営者が在籍会員 0 人を確認した。手順 2 は添削つきプランから 7 誌の紐づけを外した（`--unlink-all-benefit`）。通年プラン 4956c2d4f928 の編集画面は既に 404。手順 4 は「はじめに-合格ラボ」が note の仕様で下書きに戻せない（特典マガジンに入っていた記事のため）ので、非公開にするには削除しかない。22 記事の is_limited は紐づけを外しても true のまま。
 **運営者の作業（取り消せない削除）**: ①会員専用マガジン mbe07bd5cecda を削除 ②添削つきプラン f9567e03949d を削除 ③記事 n6b66793ca20c を削除。コマンドは `npm run note-magazine-delete`、`node scripts/note-membership-plan-status.mjs --plan f9567e03949d --delete --commit`、`node scripts/note-delete-note.mjs --note n6b66793ca20c --commit`。**その後の残り**: 手順 6・7・8。
 
-**進捗（2026-11-04・削除後）**: マガジン mbe07bd5cecda は 404、添削つきプランは編集画面が開けず削除済みと判断。22 記事は `circle_plans` と `belonging_magazine_keys` が空なのに `is_limited=true` のまま。公開設定に「試し読みエリアを設定」が出て、`note-update-body` は trial-guard で止まる（ライブは未変更）。隠れているのは末尾の「以上、〜でした。」だけで読者への実害は無い。記事 n6b66793ca20c は運営者が削除した（2026-11-04・404 を確認）。**残り**: ①is_limited を外す方法を公開設定の画面で調べる。原稿の memberTrial と末尾の文は、外せるまで残す ②手順 7・8。`note-membership-plan-status --delete` の会員ゲートはプラン名を読めず誤判定する（DN-0876 と同じ PR で直す）。
+**進捗（2026-11-04・削除後）**: マガジン mbe07bd5cecda は 404、添削つきプランは編集画面が開けず削除済みと判断。22 記事は `circle_plans` と `belonging_magazine_keys` が空なのに `is_limited=true` のまま。公開設定に「試し読みエリアを設定」が出て、`note-update-body` は trial-guard で止まる（ライブは未変更）。隠れているのは末尾の「以上、〜でした。」だけで読者への実害は無い。記事 n6b66793ca20c は運営者が削除し（2026-11-04・404 を確認）、原稿も外した。`civil-membership-odai-lab` は published:false にした。**残り**: ①is_limited を外す方法を公開設定の画面で調べる。原稿の memberTrial と末尾の文は、外せるまで残す ②手順 7・8 ③`civil-membership-odai-lab` を商品の正本から外す（verify-note-magazines が「非公開化?」を 1 件出し続ける）。`note-membership-plan-status --delete` の会員ゲートはプラン名を読めず誤判定する（DN-0876 と同じ PR で直す）。
 
 **完了条件**: 公開 API で22記事が `is_limited=false`、`mbe07bd5cecda` と「はじめに-合格ラボ」が取得できない。有料6誌は公開 API で販売中のまま。加入画面に旧2プランが出ない。
 
