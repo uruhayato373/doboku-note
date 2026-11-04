@@ -6576,6 +6576,19 @@
       "commit": "83947229d874",
       "verification": "curl で n5bc0bcde96ac と hub-after-result を確認",
       "note": "本番 3 ページで口頭試験の導線を確認し EXP-047 を running にした"
+    },
+    {
+      "id": "DN-0973",
+      "at": "2026-11-04",
+      "task": "建築の教材の事実の担保（外部レビュー）を決める",
+      "tier": "hold",
+      "kind": "意思決定",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "19a35700159a",
+      "verification": "運営者の報告",
+      "note": "運営者が外部レビューは済んだと報告した"
     }
   ]
 }
