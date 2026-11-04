@@ -374,6 +374,8 @@
 2. 建設部門の全 L3（22 本）の冒頭 CTA を evergreen（R9 に向けて・過去問中心）へ `--sync-managed` で切り替える（config/note-funnel.json の topCta）。
 3. 無料記事の URL を建設部門もくじ・L1・口頭試験対策 2 本へ配線する（`npm run check-note-funnel`）。有料 2 本（`magazines/建設部門-口頭試験対策`・`magazines/口頭試験対策-全部門共通`）の追記は note 同期で反映し、`npm run verify-note-magazines` で確認する。手順の詳細は docs/handoffs/2026-10-15-pe-municipal-oral-publish.md。
 
+**結果（2026-11-04）**: 無料 2 本の公開と教材リンクを公開 API で確認した。もくじ・総合案内・口頭試験の記事への配線は原稿に入れ、ドリフト 0。note への反映は土曜の同期。冒頭 CTA は文言がすでに過去問中心で、同期は書式を崩すだけだったので変えていない。
+
 **完了条件**: 無料記事がライブ、有料教材へのリンクが公開URLと一致、`audit-note-funnel` ドリフト0。
 
 

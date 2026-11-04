@@ -99,6 +99,8 @@ https://note.com/dobokunote/n/n3ed4c77ceed6
 
 ### 区切り1: 合格発表直後 --- 経歴票の再読と棚卸し
 
+筆記の結果を受けて次に何をするかは、[筆記合格発表の後にやること（無料）](https://note.com/dobokunote/n/n256388fcf1c6)にまとめています。
+
 まず、出願時に提出した業務経歴票と業務内容の詳細を読み返します。数か月前に書いた内容を、自分でも忘れている場合が多いためです。
 
 - 経歴票に挙げた各業務について、記載した最重点管理項目とトレードオフを再確認する
@@ -394,7 +396,7 @@ https://note.com/dobokunote/n/n3ed4c77ceed6
 
 
 <!-- cta:site-application-guide -->
-経歴票の書き方そのものを見直したい方は、doboku-note の [出願の留意点（業務経歴票の書き方）](https://doboku-note.com/exam/pe-comprehensive-management/guide/exam-application-guide?utm_source=note&utm_medium=referral&utm_campaign=koutou-taisaku-kanzen&utm_content=exam-application-guide) も合わせて参照してください。
+経歴票の書き方そのものを見直したい方は、doboku-note の [出願の留意点（業務経歴票の書き方）](https://doboku-note.com/exam/pe-comprehensive-management/guide/exam-application-guide?utm_source=note&utm_medium=referral&utm_campaign=koutou-taisaku-kanzen&utm_content=exam-application-guide&utm_term=n6992933e3caf) も合わせて参照してください。
 
 
 ## 制度と法令の確認先
