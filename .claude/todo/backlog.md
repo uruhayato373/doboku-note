@@ -1699,7 +1699,7 @@
 
 **やること**:
 1. 令和6・7年度の第二次（1級・2級）の問題原文を集め、設問の型（語句・留意点・工程表・安全）と、自分で書く設問が残っているかを `exam-formats.json` の `pipe-work-*` に記録する
-2. 競合（note・ココナラ・YouTube）を市場スキャンに加える（iOS の択一アプリは docs/products/07_iOS択一アプリ試作方針.md §3.3）
+2. 競合（note・ココナラ・YouTube）を市場スキャンに加える（iOS の択一アプリは docs/products/07_iOS択一アプリ試作方針.md §3.3）→ 2026-11-04 に docs/strategy/09_販売チャネル競合分析.md へ記録した
 3. ~~最初の 1 商品を設計~~ 2026-09-29 済: 手順1 も済（exam-formats.json 更新・出題分析は content/note/管工事/第二次検定-出題分析.md）。商品は機器別の施工記述 模範解答バンク ¥1,980（content/note/管工事/noteコンテンツ計画.md）。残りは執筆・外部照合（空調は資料根拠）と手順2
 4. 売れたかを見て active にするか決める（`qualification-registry.json` と 06 の判断の記録を同じ commit で直す）
 
