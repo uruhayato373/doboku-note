@@ -1490,8 +1490,62 @@
         "group": "content-media",
         "sync": "not-run-user-instruction"
       }
+    },
+    "cover-pop-20261104": {
+      "version": "pop-poster-v3",
+      "layout": {
+        "mode": "diagram-led"
+      },
+      "generation": {
+        "tool": "image_gen",
+        "prompt": "添付の1枚目はdoboku-noteで採用済みの全面POP動画表紙の意匠参照、2枚目は先生キャラクターの同一性参照です。 新規の16:9横長（1920×1080想定）日本語YouTube動画表紙を作る。鮮やかな青・シアン・ネイビー、黄色と白の極太文字、明確な黒い輪郭、少量の赤、斜めの面と勢いのある背景、右側に先生キャラクターを大きく。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。 左〜中央に正確に『口頭試験』『経歴を語る』を大きく配置。上部の黄色帯に小さく『総監が制作』。 誤字・余計な文字・合格保証・URL・価格・不明な実績を足さない。文字ブロックの黒い縁取りまで含めて左右8%の内側へ収め（画面の左端から8%は背景だけ）、顔は左右5%・上下5%内、下端18%は字幕が重なるので重要な文字や顔を置かず背景が全面に続く。 前回の不合格の理由を直す: 見出しの「験」の馬偏の下半分が潰れて字形が崩れている。太い書体で明確な字形にする",
+        "references": [
+          {
+            "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/youtube.longform/cover.b87e20c1.png",
+            "sha256": "b87e20c19fda2123d3bac22950472ee7a7427dd2ab11a7cbf63807a6e83c33ad"
+          },
+          {
+            "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
+            "sha256": "1941cd22fa523fcb233e8ab7b8ad756ad7398be8755037b881d8380fb39398f9"
+          }
+        ],
+        "output": {
+          "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-kangaekata/work/factory/raw-cover.7adab848.png",
+          "sha256": "7adab84881f414f2469c64bfa23f4bbf5e8373e8189f9e26c47e4878e6e62a73"
+        },
+        "generatedAt": "2026-11-04T13:12:42.319Z"
+      },
+      "copy": {
+        "exam": "pe-comprehensive-management",
+        "headline": [
+          "口頭試験",
+          "経歴を語る"
+        ],
+        "authority": "総監が制作"
+      },
+      "output": {
+        "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-kangaekata/work/cover-pop.3a4149b0.png",
+        "sha256": "3a4149b0936acb64868675ea48921cfadcaf119b81ac72f438b19bfafe450d28",
+        "width": 1920,
+        "height": 1080
+      },
+      "normalization": {
+        "mode": "full-frame-v1",
+        "sourceSha256": "7adab84881f414f2469c64bfa23f4bbf5e8373e8189f9e26c47e4878e6e62a73"
+      },
+      "review": {
+        "status": "ai-reviewed",
+        "checkedAt": "2026-11-04T13:12:42.319Z",
+        "by": "ai-image-fidelity-auditor",
+        "reason": "3つの文字列を拡大して照合し、余白は画素で測り、先生の同一性も参照と一致した",
+        "userImageReview": "pending"
+      },
+      "storage": {
+        "group": "content-media",
+        "sync": "local"
+      }
     }
   },
-  "activeCoverRevision": "cover-diagram-20261022",
+  "activeCoverRevision": "cover-pop-20261104",
   "activeBodyRevision": "body-diagram-reviewed-20261022"
 }

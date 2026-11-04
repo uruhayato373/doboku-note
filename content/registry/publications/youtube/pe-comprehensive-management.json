@@ -2666,7 +2666,7 @@
       "work": "sokan-kojutsu-kangaekata",
       "account": "youtube:main",
       "format": "longform",
-      "status": "qa_passed",
+      "status": "stopped",
       "media": {
         "cover": "pe-comprehensive-management/sokan-kojutsu-kangaekata/youtube.longform/cover",
         "scene-001": "pe-comprehensive-management/sokan-kojutsu-kangaekata/youtube.longform/scene-001",
@@ -2685,7 +2685,8 @@
         "scene-012": "pe-comprehensive-management/sokan-kojutsu-kangaekata/youtube.longform/scene-012",
         "scene-013": "pe-comprehensive-management/sokan-kojutsu-kangaekata/youtube.longform/scene-013"
       },
-      "copy": "content/sns/video-packs/pe-comprehensive-management/sokan-kojutsu-kangaekata/youtube.json#longform"
+      "copy": "content/sns/video-packs/pe-comprehensive-management/sokan-kojutsu-kangaekata/youtube.json#longform",
+      "stopReason": "superseded"
     },
     {
       "id": "pe-comprehensive-management/sokan-kojutsu-kangaekata/youtube.longform.diagram-led",
@@ -2694,7 +2695,7 @@
       "format": "longform",
       "variant": "diagram-led",
       "revisionOf": "pe-comprehensive-management/sokan-kojutsu-kangaekata/youtube.longform",
-      "status": "qa_passed",
+      "status": "scheduled",
       "copy": "content/sns/video-packs/pe-comprehensive-management/sokan-kojutsu-kangaekata/youtube.revision-diagram-led.json",
       "media": {
         "cover": "pe-comprehensive-management/sokan-kojutsu-kangaekata/work/candidate-cover",
@@ -2712,7 +2713,62 @@
         "scene-012": "pe-comprehensive-management/sokan-kojutsu-kangaekata/work/candidate-scene-012",
         "scene-013": "pe-comprehensive-management/sokan-kojutsu-kangaekata/work/candidate-scene-013",
         "subtitles": "pe-comprehensive-management/sokan-kojutsu-kangaekata/work/candidate-subtitles",
-        "video": "pe-comprehensive-management/sokan-kojutsu-kangaekata/work/candidate-video"
+        "video": "pe-comprehensive-management/sokan-kojutsu-kangaekata/work/candidate-video",
+        "preview": "pe-comprehensive-management/sokan-kojutsu-kangaekata/youtube.longform.diagram-led/preview",
+        "contact-sheet": "pe-comprehensive-management/sokan-kojutsu-kangaekata/youtube.longform.diagram-led/contact-sheet",
+        "scene-sheet": "pe-comprehensive-management/sokan-kojutsu-kangaekata/youtube.longform.diagram-led/scene-sheet",
+        "preview-metrics": "pe-comprehensive-management/sokan-kojutsu-kangaekata/youtube.longform.diagram-led/preview-metrics"
+      },
+      "publishAt": "2026-11-07T11:30:00Z",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "user",
+          "at": "2026-11-04T22:01:30.705Z",
+          "digest": "9d50ed61c47c7bd58f7b3a5fac16c10c829ece9fca285cf3832ba7574a54e9d1"
+        }
+      },
+      "approval": {
+        "by": "user",
+        "at": "2026-11-04T22:01:31.187Z",
+        "contentSha256": "17300f42d040f8416e675958c8f70bb631872442a481930792ae2cddd02c0d8c"
+      },
+      "delivery": {
+        "inputSha256": "fee69448d77867ade6cab70090e4395116c1e8d3eb752dda216a98874b133eba",
+        "marker": "dn-revision-6476bc4b10a4d04091c016ee57f045de2fda6755",
+        "uploadRequestedAt": "2026-11-04T22:03:32.439Z",
+        "videoId": "p-S-fsV6Kbw",
+        "processedAt": "2026-11-04T22:04:20.328Z",
+        "thumbnailRequestedAt": "2026-11-04T22:04:20.426Z",
+        "thumbnailUrls": [
+          "https://i9.ytimg.com/vi/p-S-fsV6Kbw/default.jpg?sqp=CODVrtcG&rs=AOn4CLD64zhc3kMa9RIf-DJyuLLzVHWR-g",
+          "https://i9.ytimg.com/vi/p-S-fsV6Kbw/mqdefault.jpg?sqp=CODVrtcG&rs=AOn4CLDFk82NGB30zj7Ig2nrARcqY0jcVQ",
+          "https://i9.ytimg.com/vi/p-S-fsV6Kbw/hqdefault.jpg?sqp=CODVrtcG&rs=AOn4CLCzwp62Hz1eXrw13C2enRpYFy-gyw",
+          "https://i9.ytimg.com/vi/p-S-fsV6Kbw/sddefault.jpg?sqp=CODVrtcG&rs=AOn4CLBdrXY5DbgT3uoldwhB6_ISLXQ_2w",
+          "https://i9.ytimg.com/vi/p-S-fsV6Kbw/maxresdefault.jpg?sqp=CODVrtcG&rs=AOn4CLAgmtiMAUS9weLV67OHvGX5Q_RZ5g",
+          "https://i9.ytimg.com/vi/p-S-fsV6Kbw/fhddefault.jpg?sqp=CODVrtcG&rs=AOn4CLBpg-aXyvblSRShzxvtnGuVVuOaIA"
+        ],
+        "thumbnailAcceptedAt": "2026-11-04T22:04:25.428Z",
+        "scheduleRequestedAt": "2026-11-04T22:04:27.460Z",
+        "scheduleAt": "2026-11-07T11:30:00Z",
+        "scheduledVerifiedAt": "2026-11-04T22:04:30.367Z"
+      },
+      "platform": {
+        "id": "p-S-fsV6Kbw",
+        "url": "https://www.youtube.com/watch?v=p-S-fsV6Kbw",
+        "privacy": "private",
+        "evidence": {
+          "kind": "publisher-live-check",
+          "ref": "content/sns/video-packs/pe-comprehensive-management/sokan-kojutsu-kangaekata/youtube.revision-diagram-led.json"
+        }
+      },
+      "times": {
+        "uploaded": "2026-11-04T22:04:20.328Z",
+        "scheduled": "2026-11-04T22:04:30.367Z"
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-11-04T22:04:25.428Z"
       }
     },
     {

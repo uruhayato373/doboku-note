@@ -138,7 +138,7 @@
       "work": "pe-kojutsu-keireki",
       "account": "youtube:main",
       "format": "longform",
-      "status": "draft",
+      "status": "scheduled",
       "media": {
         "cover": "pe-construction/pe-kojutsu-keireki/youtube.longform/cover",
         "scene-001": "pe-construction/pe-kojutsu-keireki/youtube.longform/scene-001",
@@ -154,9 +154,65 @@
         "scene-011": "pe-construction/pe-kojutsu-keireki/youtube.longform/scene-011",
         "scene-012": "pe-construction/pe-kojutsu-keireki/youtube.longform/scene-012",
         "video": "pe-construction/pe-kojutsu-keireki/youtube.longform/video",
-        "subtitles": "pe-construction/pe-kojutsu-keireki/youtube.longform/subtitles"
+        "subtitles": "pe-construction/pe-kojutsu-keireki/youtube.longform/subtitles",
+        "preview": "pe-construction/pe-kojutsu-keireki/youtube.longform/preview",
+        "contact-sheet": "pe-construction/pe-kojutsu-keireki/youtube.longform/contact-sheet",
+        "scene-sheet": "pe-construction/pe-kojutsu-keireki/youtube.longform/scene-sheet",
+        "preview-metrics": "pe-construction/pe-kojutsu-keireki/youtube.longform/preview-metrics"
       },
-      "copy": "content/sns/video-packs/pe-construction/pe-kojutsu-keireki/youtube.json#longform"
+      "copy": "content/sns/video-packs/pe-construction/pe-kojutsu-keireki/youtube.json#longform",
+      "publishAt": "2026-11-08T11:30:00Z",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "user",
+          "at": "2026-11-04T22:01:31.559Z",
+          "digest": "380838c94cdc073a49707aa7809f7904a251ce3a275ddf83ae4b1e2ca83af050"
+        }
+      },
+      "approval": {
+        "by": "user",
+        "at": "2026-11-04T22:01:32.025Z",
+        "contentSha256": "3e9e5c85079f018f46d5e644073d8aa2c0c4af57b239e86275da4caa34b0023b"
+      },
+      "times": {
+        "rendered": "2026-11-04T22:01:47.918Z",
+        "uploaded": "2026-11-04T22:07:01.550Z",
+        "scheduled": "2026-11-04T22:07:16.413Z"
+      },
+      "delivery": {
+        "inputSha256": "d0da4a671501eb1f86626298c97535266ed1ff05efa83b610629ce38dfe0fb0d",
+        "marker": "dn-single-a2d590a54a1875820f28a0d6351addc069b111fc",
+        "uploadRequestedAt": "2026-11-04T22:06:12.092Z",
+        "videoId": "GSoBmYYnmKQ",
+        "processedAt": "2026-11-04T22:07:00.924Z",
+        "thumbnailRequestedAt": "2026-11-04T22:07:01.614Z",
+        "thumbnailUrls": [
+          "https://i9.ytimg.com/vi/GSoBmYYnmKQ/default.jpg?sqp=CIzYrtcG&rs=AOn4CLCXZ4I_ITCtuRB2WUbFGrSg2tIIgw",
+          "https://i9.ytimg.com/vi/GSoBmYYnmKQ/mqdefault.jpg?sqp=CIzYrtcG&rs=AOn4CLAlHtyLozyEPRg3kJLZb3KQ5qGp8w",
+          "https://i9.ytimg.com/vi/GSoBmYYnmKQ/hqdefault.jpg?sqp=CIzYrtcG&rs=AOn4CLAHXzCVXCJ_F2ufLqNWbUGzkwdeAw",
+          "https://i9.ytimg.com/vi/GSoBmYYnmKQ/sddefault.jpg?sqp=CIzYrtcG&rs=AOn4CLBhsPfu6cw5kNDQIG9FW9Bcj_v38w",
+          "https://i9.ytimg.com/vi/GSoBmYYnmKQ/maxresdefault.jpg?sqp=CIzYrtcG&rs=AOn4CLARtLY9pR068me4F_GxPxA5FEAxyQ",
+          "https://i9.ytimg.com/vi/GSoBmYYnmKQ/fhddefault.jpg?sqp=CIzYrtcG&rs=AOn4CLD7ptJIty02EfJk8Uj34DWjo4FeHQ"
+        ],
+        "thumbnailAcceptedAt": "2026-11-04T22:07:07.695Z",
+        "scheduleRequestedAt": "2026-11-04T22:07:12.630Z",
+        "scheduleAt": "2026-11-08T11:30:00Z",
+        "scheduledVerifiedAt": "2026-11-04T22:07:16.413Z"
+      },
+      "platform": {
+        "id": "GSoBmYYnmKQ",
+        "url": "https://www.youtube.com/watch?v=GSoBmYYnmKQ",
+        "privacy": "private",
+        "evidence": {
+          "kind": "publisher-live-check",
+          "ref": "content/sns/video-packs/pe-construction/pe-kojutsu-keireki/youtube.json#longform"
+        }
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-11-04T22:07:07.695Z"
+      }
     },
     {
       "id": "pe-construction/r8-yosou-dashikata/youtube.longform",

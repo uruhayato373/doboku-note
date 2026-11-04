@@ -301,6 +301,20 @@
       "at": "2026-11-04T04:50:07.448Z",
       "visualDigest": "6fe995c34a7ff58aa1a134e232294b38f38bf3271bf2e2226bf9588f817b2472",
       "finalDigest": "3039d52c15d6da4e07c1b96ac613515ddeff580ff257d22f71a1a3699ae507df"
+    },
+    "pe-comprehensive-management/sokan-kojutsu-kangaekata/youtube.longform.diagram-led": {
+      "verdict": "pass",
+      "note": "表紙・全13場面シート・コンタクトシートを目視。場面順は script.md と一致、文字の切れ・重なり・誤字なし。CTA は note 1本（tankan-oral-complete の URL）、出典は文科省の合否決定基準。公開予定 11/7 は口頭試験開始（12月上旬）より前で矛盾なし。60%基準は令和8年度総監必須科目と限定済み。3〜5件・2〜3分は学習上の提案と明記。映像の確認のみで、音声は未確認。",
+      "at": "2026-11-04T21:59:15.722Z",
+      "visualDigest": "9d50ed61c47c7bd58f7b3a5fac16c10c829ece9fca285cf3832ba7574a54e9d1",
+      "finalDigest": "17300f42d040f8416e675958c8f70bb631872442a481930792ae2cddd02c0d8c"
+    },
+    "pe-construction/pe-kojutsu-keireki/youtube.longform": {
+      "verdict": "pass",
+      "note": "表紙・全12場面シート・コンタクトシートを目視。場面順は script.md と一致、文字の切れ・重なり・誤字なし。CTA は note 1本（pe-construction-oral-guide の URL）、出典は文科省の合否決定基準と新旧対照表。公開予定 11/8 は口頭試験開始（12月上旬）より前で矛盾なし。4欄は公式様式でない旨を画面に明記。映像の確認のみで、音声は未確認。",
+      "at": "2026-11-04T21:59:16.423Z",
+      "visualDigest": "380838c94cdc073a49707aa7809f7904a251ce3a275ddf83ae4b1e2ca83af050",
+      "finalDigest": "3e9e5c85079f018f46d5e644073d8aa2c0c4af57b239e86275da4caa34b0023b"
     }
   }
 }

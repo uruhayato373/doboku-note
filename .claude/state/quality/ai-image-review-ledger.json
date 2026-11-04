@@ -3927,16 +3927,16 @@
       "reviewedAt": "2026-10-18T00:24:11.422Z"
     },
     "media:pe-comprehensive-management/sokan-kojutsu-kangaekata/work/candidate-cover": {
-      "sha": "a5414ef0d0623898",
+      "sha": "3a4149b0936acb64",
       "verdict": "ok",
-      "reason": "表題と「経験→対立→判断」の3段階が明瞭で、台本の主題・指定構図と一致している。",
-      "reviewedAt": "2026-10-22T10:14:46.035Z"
+      "reason": "3つの文字列を拡大して照合し、余白は画素で測り、先生の同一性も参照と一致した",
+      "reviewedAt": "2026-11-04T13:13:22.815Z"
     },
     "media:pe-comprehensive-management/sokan-kojutsu-kangaekata/work/candidate-scene-001": {
-      "sha": "a5414ef0d0623898",
+      "sha": "3a4149b0936acb64",
       "verdict": "ok",
-      "reason": "表紙と同一SHAの画像であり、経歴を管理上の対立と判断につなぐ導入を正しく示している。",
-      "reviewedAt": "2026-10-22T10:14:46.036Z"
+      "reason": "3つの文字列を拡大して照合し、余白は画素で測り、先生の同一性も参照と一致した",
+      "reviewedAt": "2026-11-04T13:13:22.816Z"
     },
     "media:pe-comprehensive-management/sokan-kojutsu-kangaekata/work/candidate-scene-002": {
       "sha": "41e43b84863eb8bd",
@@ -4017,10 +4017,82 @@
       "reviewedAt": "2026-10-11T03:36:30.184Z"
     },
     "media:pe-construction/pe-kojutsu-keireki/youtube.longform/cover": {
-      "sha": "ab1d6df2a54d0583",
+      "sha": "1d56f269ff1299bd",
       "verdict": "ok",
-      "reason": "独立AI画像監査：最終採用PNGを原寸と360pxで実見。指定4文言・ポーズ・顔と手指・安全域に問題なし。ユーザー承認は含まない。",
-      "reviewedAt": "2026-10-11T03:36:30.184Z"
+      "reason": "文字が指示と一字ずつ一致し、先生の同一性と安全域も確認した",
+      "reviewedAt": "2026-11-04T13:13:23.720Z"
+    },
+    "media:pe-construction/pe-kojutsu-keireki/youtube.longform/scene-001": {
+      "sha": "1d56f269ff1299bd",
+      "verdict": "ok",
+      "reason": "文字が指示と一字ずつ一致し、先生の同一性と安全域も確認した",
+      "reviewedAt": "2026-11-04T13:13:23.721Z"
+    },
+    "media:pe-construction/pe-kojutsu-keireki/youtube.longform/scene-002": {
+      "sha": "999df8f97706033f",
+      "verdict": "ok",
+      "reason": "見出しと左右2枠の6行が一致し原稿と合う",
+      "reviewedAt": "2026-11-04T13:13:23.721Z"
+    },
+    "media:pe-construction/pe-kojutsu-keireki/youtube.longform/scene-003": {
+      "sha": "9da7135bd04b0d38",
+      "verdict": "ok",
+      "reason": "見出しと4区分と下の全文が一致し安全域内に収まる",
+      "reviewedAt": "2026-11-04T13:13:23.721Z"
+    },
+    "media:pe-construction/pe-kojutsu-keireki/youtube.longform/scene-004": {
+      "sha": "85f035a199ba702e",
+      "verdict": "ok",
+      "reason": "見出しと4欄と下の全文が一致し安全域内に収まる",
+      "reviewedAt": "2026-11-04T13:13:23.721Z"
+    },
+    "media:pe-construction/pe-kojutsu-keireki/youtube.longform/scene-005": {
+      "sha": "13b35c8d73898163",
+      "verdict": "ok",
+      "reason": "見出しと4つの文言と下の全文が一致し図の流れも原稿と合う",
+      "reviewedAt": "2026-11-04T13:13:23.721Z"
+    },
+    "media:pe-construction/pe-kojutsu-keireki/youtube.longform/scene-006": {
+      "sha": "9fe0572befd5d6da",
+      "verdict": "ok",
+      "reason": "見出しと3段階と下の全文が一致し原稿の順と合う",
+      "reviewedAt": "2026-11-04T13:13:23.721Z"
+    },
+    "media:pe-construction/pe-kojutsu-keireki/youtube.longform/scene-007": {
+      "sha": "b976754540bad2ee",
+      "verdict": "ok",
+      "reason": "見出しと3組の対応と下の全文が一致する",
+      "reviewedAt": "2026-11-04T13:13:23.721Z"
+    },
+    "media:pe-construction/pe-kojutsu-keireki/youtube.longform/scene-008": {
+      "sha": "89cb609e5b0dd473",
+      "verdict": "ok",
+      "reason": "見出しと4段階と下の全文が一致し、画素の位置でも安全域内に収まる",
+      "reviewedAt": "2026-11-04T13:13:23.721Z"
+    },
+    "media:pe-construction/pe-kojutsu-keireki/youtube.longform/scene-009": {
+      "sha": "ccc914edc2ed09f2",
+      "verdict": "ok",
+      "reason": "見出しと循環の4項目と中央の語と下の全文が一致する",
+      "reviewedAt": "2026-11-04T13:13:23.721Z"
+    },
+    "media:pe-construction/pe-kojutsu-keireki/youtube.longform/scene-010": {
+      "sha": "e44493b240671748",
+      "verdict": "ok",
+      "reason": "見出しと分岐と合流の図と下の全文が一致する",
+      "reviewedAt": "2026-11-04T13:13:23.721Z"
+    },
+    "media:pe-construction/pe-kojutsu-keireki/youtube.longform/scene-011": {
+      "sha": "42c02d2c17a6016a",
+      "verdict": "ok",
+      "reason": "見出しと3枠の文字が一致し原稿と合う",
+      "reviewedAt": "2026-11-04T13:13:23.721Z"
+    },
+    "media:pe-construction/pe-kojutsu-keireki/youtube.longform/scene-012": {
+      "sha": "a31346276af32e6a",
+      "verdict": "ok",
+      "reason": "見出しと2行が一致し価格とURLが無い",
+      "reviewedAt": "2026-11-04T13:13:23.721Z"
     },
     "media:pe-first-stage/ig-pe-first-stage-route/instagram.carousel/cover": {
       "sha": "bdd4e6820eb5ac5b",
