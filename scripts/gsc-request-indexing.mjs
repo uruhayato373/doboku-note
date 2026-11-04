@@ -331,6 +331,12 @@ async function main() {
         } else {
           item.request = await requestIndexing(page, cfg, runId, target);
           if (item.request.requested) sent += 1;
+          // 受理の確認ダイアログが残ると次の URL を入力できず、以降が全部 unreadable になる（2026-11-04 実測）。
+          await page.goto(`${cfg.gsc.baseUrl}/index?resource_id=${encodeURIComponent(GSC_PROPERTY)}`, {
+            waitUntil: "domcontentloaded",
+            timeout: cfg.browser.timeoutMs,
+          }).catch(() => {});
+          await page.waitForTimeout(3000);
           console.log(`      → リクエスト: ${item.request.status}${item.request.detail ? "（" + item.request.detail + "）" : ""}`);
           if (item.request.status === "quota-exceeded") {
             console.log("      日次クォータ上限に到達。残りは次回へ回します。");
