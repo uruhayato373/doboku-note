@@ -69837,6 +69837,58 @@
       "width": 1200,
       "height": 630,
       "srcHash": "ddd5e18e3d8dfdb8"
+    },
+    "content/site/pipe-work/guide-sekou-kijutsu/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/pipe-work/guide-sekou-kijutsu/ogp.png",
+      "sha256": "5fc14627e8138e4ddac1e4845889a2c17cc5aad25051d6fc97d058300276c635",
+      "bytes": 53738,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-11-04T00:22:39.288Z",
+      "width": 1200,
+      "height": 630,
+      "srcHash": "8a6a265237f72b1c"
+    },
+    "content/site/pipe-work/guide-study-plan/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/pipe-work/guide-study-plan/ogp.png",
+      "sha256": "f4406d1e714f7a341284a0c2d15de22cd43de51aa58180eea1b65451b4c7de50",
+      "bytes": 46562,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-11-04T00:22:39.344Z",
+      "width": 1200,
+      "height": 630,
+      "srcHash": "46b7b62a5ce9262c"
+    },
+    "content/site/pipe-work/guide-kotei-hyo/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/pipe-work/guide-kotei-hyo/ogp.png",
+      "sha256": "5cb595b7ac69ba87422e8cf4b57c39afd36025e1e1914aa8e4931162279d9fe9",
+      "bytes": 52923,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-11-04T00:22:39.427Z",
+      "width": 1200,
+      "height": 630,
+      "srcHash": "f847ec3aebdb38d7"
+    },
+    "content/site/pipe-work/guide-overview/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/pipe-work/guide-overview/ogp.png",
+      "sha256": "07004637477788187eaee938a579ebc25497c5b771026c9b9cc521e4f8034e3f",
+      "bytes": 53726,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-11-04T00:22:39.431Z",
+      "width": 1200,
+      "height": 630,
+      "srcHash": "c57a6f1592c29e71"
     }
   },
   "note": "DN-0111 Phase 3。秘密値・署名 URL・絶対パスを書かないこと。",
