@@ -8,11 +8,7 @@
   "zeroPage": {
     "building-construction-guide-1kyu-keiken-kijutsu": "建築施工管理の note 商品がまだ無い（品揃えの空白）。商品案は DN-0892、有料化の判断は DN-0427。商品を出したら配線してこの行を消す。2026-10-29 登録。",
     "building-construction-guide-2kyu-keiken-kijutsu": "建築施工管理の note 商品がまだ無い（品揃えの空白）。商品案は DN-0892、有料化の判断は DN-0427。商品を出したら配線してこの行を消す。2026-10-29 登録。",
-    "building-construction-guide-niji-kakomon-keikou": "建築施工管理の note 商品がまだ無い（品揃えの空白）。商品案は DN-0892、有料化の判断は DN-0427。商品を出したら配線してこの行を消す。2026-10-29 登録。",
-    "pe-water-supply-guide-hissu-kamoku": "技術士 上下水道部門の note 商品がまだ無い（DN-0349・DN-0350）。公開したら配線して外す",
-    "pe-water-supply-guide-overview": "技術士 上下水道部門の note 商品がまだ無い（DN-0349・DN-0350）。公開したら配線して外す",
-    "pe-water-supply-guide-sentaku-kamoku": "技術士 上下水道部門の note 商品がまだ無い（DN-0349・DN-0350）。公開したら配線して外す",
-    "pe-water-supply-guide-study-plan": "技術士 上下水道部門の note 商品がまだ無い（DN-0349・DN-0350）。公開したら配線して外す"
+    "building-construction-guide-niji-kakomon-keikou": "建築施工管理の note 商品がまだ無い（品揃えの空白）。商品案は DN-0892、有料化の判断は DN-0427。商品を出したら配線してこの行を消す。2026-10-29 登録。"
   },
   "_zeroPageNote": "2026-10-03: 教材のある資格の公開記事を実描画の本文で検査する。careerを除く。例外は学習段階に適合する商品のないページだけを理由付きで登録する。2026-10-29（DN-0890）: 資格別もくじのタイルは商品の導線に数えない（もくじが出る資格を判定から外していたため、2級の見直しページなど 20 本が商品の導線 0 のまま通っていた）。測量士・舗装・建築施工管理を対象に足し、実務（civil-practice）と法令（laws）は理由付きで対象外にした（スクリプトの PAGE_GATE_EXCLUDED）。"
 }
