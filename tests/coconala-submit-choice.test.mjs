@@ -11,7 +11,7 @@
  */
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { chooseSubmitAction, submitForm } from '../scripts/lib/coconala-form.mjs';
+import { chooseSubmitAction, isPublishDone, submitForm } from '../scripts/lib/coconala-form.mjs';
 
 test('公開中の編集画面（更新するだけ）で dry-run なら押さずに終える', () => {
   assert.deepEqual(chooseSubmitAction({ commit: false, dryRun: true, available: ['更新する'] }), { dryRun: '更新する' });
@@ -48,4 +48,10 @@ test('submitForm の dry-run は更新ボタンをクリックしない', async 
   assert.equal(r.ok, true);
   assert.equal(r.dryRun, true);
   assert.deepEqual(clicked, []);
+});
+
+test('「公開する」は完了画面へ進んだときだけ成功にする', () => {
+  assert.equal(isPublishDone('公開する', 'https://coconala.com/services/new_open/4486050'), true);
+  assert.equal(isPublishDone('公開する', 'https://coconala.com/mypage/services/4486050'), false);
+  assert.equal(isPublishDone('下書きで保存', 'https://coconala.com/mypage/services_lists'), true);
 });
