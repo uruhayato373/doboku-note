@@ -405,6 +405,7 @@
     "gsc-indexing:check": "node scripts/gsc-request-indexing.mjs",
     "gsc-indexing:request": "node scripts/gsc-request-indexing.mjs --commit",
     "gsc-indexing:priority": "node scripts/build-gsc-indexing-priority.mjs",
+    "gsc-indexing:install": "node scripts/install-gsc-indexing-launchd.mjs",
     "check-gsc-sitemaps": "node scripts/check-gsc-sitemaps.mjs",
     "gsc-sitemaps": "node scripts/gsc-sitemaps.mjs",
     "check-gsc-indexing-due": "node scripts/check-gsc-indexing-due.mjs",
