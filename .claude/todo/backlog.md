@@ -351,6 +351,11 @@
 7. `note-membership.json`・`check-note-membership.mjs`（退役済みは SKIP する形に済み）・`tests/check-note-membership.test.mjs`・`tests/note-membership-funnel.test.mjs` を撤去後の状態に合わせる（コード変更は PR）。
 8. `/note-membership` スキル・`note-membership-operator` エージェント・quality-audit の `note-membership`／`magazine-membership`（ci）と `membership-drip`（ops）は**退役しない**。建設業×AI のメンバーシップで使うので、合格ラボ固有の前提（資格・添削・試験日）を外す形に直す（DN-0876 と同じ PR でよい）。
 
+**進捗（2026-11-04）**: 手順 1 は運営者が在籍会員 0 人を確認した。手順 2 は添削つきプランから 7 誌の紐づけを外した（`--unlink-all-benefit`）。通年プラン 4956c2d4f928 の編集画面は既に 404。手順 4 は「はじめに-合格ラボ」が note の仕様で下書きに戻せない（特典マガジンに入っていた記事のため）ので、非公開にするには削除しかない。22 記事の is_limited は紐づけを外しても true のまま。
+**運営者の作業（取り消せない削除）**: ①会員専用マガジン mbe07bd5cecda を削除 ②添削つきプラン f9567e03949d を削除 ③記事 n6b66793ca20c を削除。コマンドは `npm run note-magazine-delete`、`node scripts/note-membership-plan-status.mjs --plan f9567e03949d --delete --commit`、`node scripts/note-delete-note.mjs --note n6b66793ca20c --commit`。**その後の残り**: 手順 6・7・8。
+
+**進捗（2026-11-04・削除後）**: マガジン mbe07bd5cecda は 404、添削つきプランは編集画面が開けず削除済みと判断。22 記事は `circle_plans` と `belonging_magazine_keys` が空なのに `is_limited=true` のまま。公開設定に「試し読みエリアを設定」が出て、`note-update-body` は trial-guard で止まる（ライブは未変更）。隠れているのは末尾の「以上、〜でした。」だけで読者への実害は無い。記事 n6b66793ca20c は運営者が削除し（2026-11-04・404 を確認）、原稿も外した。`civil-membership-odai-lab` は published:false にした。**残り**: ①is_limited を外す方法を公開設定の画面で調べる。原稿の memberTrial と末尾の文は、外せるまで残す ②手順 7・8 ③`civil-membership-odai-lab` を商品の正本から外す（verify-note-magazines が「非公開化?」を 1 件出し続ける）。`note-membership-plan-status --delete` の会員ゲートはプラン名を読めず誤判定する（DN-0876 と同じ PR で直す）。
+
 **完了条件**: 公開 API で22記事が `is_limited=false`、`mbe07bd5cecda` と「はじめに-合格ラボ」が取得できない。有料6誌は公開 API で販売中のまま。加入画面に旧2プランが出ない。
 
 
@@ -1709,7 +1714,7 @@
 
 **進捗（2026-11-04）**: 商品を `pipe-work-sekou-kijutsu-bank` として正本へ登録（products・分類・資格ブランド・色・sales-recorder 対応表・サイト用カード画像 2 枚）。カテゴリ `pipe-work` と受験ガイド 4 本を PR で用意した（deploy 後の `check-production-ssr`・guide-qa・外部照合の再確認は未実施）。
 
-**進捗（2026-11-04・2 回目）**: 競合を docs/strategy/09 へ記録。guide-qa で 4 本を採点し、修正中。販売中の商品の「上部100cm は告示」を直した（note への反映は土曜の同期）。**残り**: `exam-formats.json` の問題 3 の書き方と R7 の 2 級の受入検査の反映、R6 の問題の原本確認、DN-0454 の択一の掲載。
+**進捗（2026-11-04・2 回目）**: 競合を docs/strategy/09 へ記録。guide-qa の再採点で 4 本とも 2.15 以上で合格し、見つかった HIGH 2 件と主な MEDIUM を直した。`exam-formats.json` を R7 の原文に合わせた。販売中の商品の「上部100cm は告示」を直した（note への反映は土曜の同期）。**残り**: DN-0454 の択一の掲載。工程表の遅延再計算・ダミーの例題と図（guide-kotei-hyo）。
 
 **完了条件**: note に 1 商品が公開され、`pipe-work-*` の出題形式と競合が正本に記録されている。
 
