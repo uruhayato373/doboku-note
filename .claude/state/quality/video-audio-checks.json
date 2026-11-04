@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "checks": {
+    "pe-construction/pe-kojutsu-keireki/youtube.longform": {
+      "videoSha256": "991859adcd8182d6561489a0bf528da05b5d9f922086d0657fb157682a056b75",
+      "at": "2026-11-04T22:54:00.576Z",
+      "similarity": 0.859,
+      "maxVolumeDb": -1.4,
+      "durationGapSec": 5.4,
+      "chars": {
+        "expected": 1181,
+        "heard": 966
+      }
+    },
+    "pe-comprehensive-management/sokan-kojutsu-kangaekata/youtube.longform.diagram-led": {
+      "videoSha256": "0e4613c70f710dcb3a119bf1397aa4454efe0d759d335a08bb4aa324ca0766e5",
+      "at": "2026-11-04T22:54:43.903Z",
+      "similarity": 0.909,
+      "maxVolumeDb": -1.5,
+      "durationGapSec": 4.4,
+      "chars": {
+        "expected": 892,
+        "heard": 827
+      }
+    }
+  }
+}

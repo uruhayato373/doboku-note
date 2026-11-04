@@ -40,10 +40,13 @@ const compact = (o) => {
 export function derivativeToRow(d, base, opts = {}) {
   const unknown = Object.keys(d).filter((k) => !KNOWN.has(k));
   if (unknown.length) throw new Error(`${base.id}: 今の台帳の知らない欄（registry-video-state.mjs の DERIVATIVE_KEYS に足す）: ${unknown.join(', ')}`);
-  if (d.approvedBy !== undefined && d.approvedBy !== 'user') throw new Error(`${base.id}: approvedBy は user だけ: ${d.approvedBy}`);
+  if (d.approvedBy !== undefined && !['user', 'policy'].includes(d.approvedBy)) throw new Error(`${base.id}: approvedBy は user か policy だけ: ${d.approvedBy}`);
+  // 方針の承認は関門だけが書く。古い形の書き手から新しく作らない
+  if (d.approvedBy === 'policy' && base.approval?.at !== d.approvedAt) throw new Error(`${base.id}: 台帳に無い方針の承認`);
   const row = Object.fromEntries(Object.entries(base).filter(([k]) => !MAPPED_ROW_KEYS.includes(k)));
   row.status = d.status;
   if (d.publishAt !== undefined) row.publishAt = d.publishAt;
+  if (d.approvedBy === 'policy') row.approval = base.approval;
   if (d.approvedBy === 'user') {
     const kept = base.approval && base.approval.at === d.approvedAt ? base.approval : null;
     row.approval = kept ?? compact({ by: 'user', at: d.approvedAt, contentSha256: null, grandfathered: true });

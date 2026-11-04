@@ -37,7 +37,7 @@ test('台帳だけの欄（素材・文面）は残し、派生物の欄だけ�
 test('知らない欄・user 以外の承認は黙って落とさず投げる', () => {
   const base = { id: 'a/b/youtube.longform', work: 'b', account: 'youtube:main', format: 'longform', status: 'draft' };
   assert.throws(() => derivativeToRow({ status: 'scheduled', lastError: 'x' }, base), /知らない欄.*lastError/);
-  assert.throws(() => derivativeToRow({ status: 'approved', approvedBy: 'codex' }, base), /approvedBy は user だけ/);
+  assert.throws(() => derivativeToRow({ status: 'approved', approvedBy: 'codex' }, base), /approvedBy は user か policy だけ/);
 });
 
 test('published は証拠が無ければ書き手の証拠を付け、あれば残す', () => {

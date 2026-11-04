@@ -6,6 +6,7 @@ import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import sharp from 'sharp';
 import { generateWithCodexAsync } from '../scripts/lib/codex-image.mjs';
+import { acceptedApproval, audioProblems, evaluateGate, nextSlot, speechSimilarity } from '../scripts/lib/video-publish-gate.mjs';
 import {
   MAX_ATTEMPTS, adoptPlan, auditQueue, buildBodyPrompt, buildCoverPrompt, buildPlan, generatePlan, hydrateAdopted, inspectImage,
   ledgerVerdicts, nextStage, packDirOf, planPath, readPlan, recordAudit, summarize,
@@ -231,4 +232,40 @@ test('nextStage: 工程を飛ばさない', () => {
     [{ status: 'qa_passed', standard: true, rendered: true, qa: 'passed', review: 'pass' }, 'ready-for-approval'],
   ];
   for (const [facts, stage] of cases) assert.equal(nextStage(facts), stage, JSON.stringify(facts));
+});
+
+test('関門: 1 項目でも欠けたら通さず、検査していない音声を合格にしない', () => {
+  const policy = { enabled: true, scope: { channel: 'youtube', format: 'longform' }, minQaAvg: 2, maxBlocks: 0, minLeadHours: 24, audio: { minSimilarity: 0.6, minMaxVolumeDb: -12, maxMaxVolumeDb: -0.1, maxDurationGapSec: 3 } };
+  const now = Date.parse('2026-11-05T00:00:00Z');
+  const pub = { channel: 'youtube', format: 'longform', publishAt: '2026-11-07T11:30:00Z' };
+  const good = { pub, standard: true, aiBlocked: [], renderVerified: true, qa: { avg: 2.5, blocks: 0 }, review: 'pass', funnelOk: true, audioProblems: [] };
+  assert.equal(evaluateGate(good, policy, now).ok, true);
+  assert.equal(evaluateGate({ ...good, audioProblems: audioProblems(undefined, 'a', policy) }, policy, now).ok, false);
+  assert.equal(evaluateGate({ ...good, review: 'none' }, policy, now).ok, false);
+  assert.equal(evaluateGate({ ...good, funnelOk: false }, policy, now).ok, false);
+  assert.equal(evaluateGate({ ...good, pub: { ...pub, publishAt: '2026-11-05T12:00:00Z' } }, policy, now).ok, false);
+  assert.equal(evaluateGate(good, { ...policy, enabled: false }, now).ok, false);
+});
+
+test('音声の判定は動画の sha に結び、作り直すと無効になる', () => {
+  const policy = { audio: { minSimilarity: 0.6, minMaxVolumeDb: -12, maxMaxVolumeDb: -0.1, maxDurationGapSec: 3 } };
+  const check = { videoSha256: 'a', similarity: 0.9, maxVolumeDb: -3, durationGapSec: 1 };
+  assert.deepEqual(audioProblems(check, 'a', policy), []);
+  assert.equal(audioProblems(check, 'b', policy).length, 1);
+  assert.equal(audioProblems({ ...check, similarity: 0.2 }, 'a', policy).length, 1);
+  assert.ok(speechSimilarity('業務の判断を語る。', '業務の判断を語る') > 0.95);
+  assert.ok(speechSimilarity('業務の判断を語る', '全く別の発話です') < 0.2);
+});
+
+test('方針の承認は YouTube の通常動画だけで受け付ける', () => {
+  assert.equal(acceptedApproval({ channel: 'youtube', format: 'longform', approval: { by: 'policy' } }), true);
+  assert.equal(acceptedApproval({ channel: 'youtube', format: 'short', approval: { by: 'policy' } }), false);
+  assert.equal(acceptedApproval({ channel: 'instagram', format: 'carousel', approval: { by: 'policy' } }), false);
+  assert.equal(acceptedApproval({ channel: 'instagram', format: 'carousel', approval: { by: 'user' } }), true);
+});
+
+test('空き枠は猶予と 1 日の上限を守る', () => {
+  const policy = { minLeadHours: 24, slot: { timeJst: '20:30', maxPerDay: 1 } };
+  const now = Date.parse('2026-11-05T00:00:00Z');
+  assert.equal(nextSlot(['2026-11-06T11:30:00Z'], policy, now), '2026-11-07T11:30:00Z');
 });

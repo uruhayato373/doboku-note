@@ -2723,15 +2723,15 @@
       "review": {
         "visual": {
           "status": "approved",
-          "by": "user",
-          "at": "2026-11-04T22:01:30.705Z",
+          "by": "policy",
+          "at": "2026-11-04T22:56:21.074Z",
           "digest": "9d50ed61c47c7bd58f7b3a5fac16c10c829ece9fca285cf3832ba7574a54e9d1"
         }
       },
       "approval": {
-        "by": "user",
-        "at": "2026-11-04T22:01:31.187Z",
-        "contentSha256": "17300f42d040f8416e675958c8f70bb631872442a481930792ae2cddd02c0d8c"
+        "by": "policy",
+        "at": "2026-11-04T22:56:21.074Z",
+        "contentSha256": "37d9a0a829cc06460e59ba21ef46a817fd4dd706abccf83d44d6d6281ee412e0"
       },
       "delivery": {
         "inputSha256": "fee69448d77867ade6cab70090e4395116c1e8d3eb752dda216a98874b133eba",

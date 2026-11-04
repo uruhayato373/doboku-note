@@ -48,7 +48,8 @@
     "swiftc",
     "tesseract",
     "which",
-    "yt-dlp"
+    "yt-dlp",
+    "whisper-cli"
   ],
   "ignoreDependencies": [
     "@fontsource/noto-sans-jp",
