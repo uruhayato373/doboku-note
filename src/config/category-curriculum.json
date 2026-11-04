@@ -849,5 +849,17 @@
         "guide-study-plan"
       ]
     }
+  },
+  "pe-water-supply": {
+    "examGuide": {
+      "title": "受験ガイド",
+      "description": "試験の概要・必須科目Iの取り組み方・選択科目の選び方・学習計画",
+      "slugs": [
+        "guide-overview",
+        "guide-hissu-kamoku",
+        "guide-sentaku-kamoku",
+        "guide-study-plan"
+      ]
+    }
   }
 }
