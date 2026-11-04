@@ -7,7 +7,7 @@ import { join } from 'node:path';
 import sharp from 'sharp';
 import { generateWithCodexAsync } from '../scripts/lib/codex-image.mjs';
 import {
-  MAX_ATTEMPTS, adoptPlan, auditQueue, buildBodyPrompt, buildCoverPrompt, buildPlan, generatePlan, inspectImage,
+  MAX_ATTEMPTS, adoptPlan, auditQueue, buildBodyPrompt, buildCoverPrompt, buildPlan, generatePlan, hydrateAdopted, inspectImage,
   ledgerVerdicts, nextStage, packDirOf, planPath, readPlan, recordAudit, summarize,
 } from '../scripts/lib/video-factory.mjs';
 
@@ -159,6 +159,7 @@ test('採用: 全場面が揃うと基準を満たし、過去の改訂を消さ
     assert.equal(pop.revisions['body-diagram-20261104'].images[0].review.by, 'auditor');
     const board = JSON.parse(readFileSync(join(f.dir, 'storyboard.json'), 'utf8'));
     assert.equal(board.imageDesign.coverRevision, 'cover-pop-20261104');
+    assert.equal(JSON.parse(readFileSync(join(f.dir, 'cover-design.json'), 'utf8')).covers.longform.character.pose, 'pop-explaining');
     const media = [{ id: 'pe-construction/sample/x/cover', sha256: pop.revisions['cover-pop-20261104'].output.sha256, provenance: { kind: 'ai-generated' } },
       { id: 'pe-construction/sample/x/other', sha256: 'c'.repeat(64), provenance: { kind: 'ai-generated' } }];
     assert.deepEqual(ledgerVerdicts(f.root, PACK, media).map((v) => v.figKey), ['media:pe-construction/sample/x/cover']);
@@ -181,6 +182,19 @@ test('採用: 表紙だけの計画は本文の採用済み改訂を残す', asy
     assert.equal(pop.activeBodyRevision, 'body-diagram-20261101');
     assert.equal(pop.activeCoverRevision, 'cover-pop-20261104');
     assert.equal(JSON.parse(readFileSync(join(f.dir, 'storyboard.json'), 'utf8')).imageDesign.revision, 'body-diagram-20261101');
+  } finally { f.done(); }
+});
+
+test('描画の前に: 本文の採用画像と原本を全部揃える', async () => {
+  const f = fixture();
+  try {
+    buildPlan(f.root, PACK, { date: '20261104', refs });
+    await generatePlan(f.root, PACK, { generate: fake(await png(1920, 1080)) });
+    recordAudit(f.root, PACK, allOk(f.root), { by: 'auditor' });
+    await adoptPlan(f.root, PACK, { now: 'T' });
+    const seen = [];
+    assert.equal(hydrateAdopted(f.root, PACK, { refs: (_r, p) => seen.push(p) }), 4);
+    assert.ok(seen.every((p) => p.startsWith(`.tmp/media/${PACK}/work/`)));
   } finally { f.done(); }
 });
 

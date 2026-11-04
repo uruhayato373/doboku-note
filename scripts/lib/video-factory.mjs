@@ -280,7 +280,8 @@ export async function adoptPlan(root, pack, { now }) {
   }
   if (!pop.activeBodyRevision) throw new Error('本文の採用済み改訂が無い。scope all で作る');
   board.imageDesign = { mode: 'codex-pop', scope: 'all-body', revision: pop.activeBodyRevision, coverRevision: plan.coverRevision, layout: 'diagram-led' };
-  const nextSpec = { ...spec, design: 'pop-poster-v3', layout: 'diagram-led' };
+  // 図解表紙（人物なし）から POP 表紙へ移すときも、描画が読む character を欠かさない
+  const nextSpec = { character: { pose: 'pop-explaining', frame: 'waist' }, ...spec, design: 'pop-poster-v3', layout: 'diagram-led' };
   const { approvedImage: _old, ...input } = nextSpec;
   design.covers.longform = { ...input, approvedImage: { ...coverOutput, specSha256: coverInputDigest(input) } };
 
@@ -298,6 +299,15 @@ export async function adoptPlan(root, pack, { now }) {
     throw error;
   }
   return { pack, cover: coverOutput.path, scenes: plan.scope === 'all' ? plan.items.length - 1 : 0 };
+}
+
+/** 描画に使う採用画像を手元へ揃える。表紙だけ作り直すときの本文は Drive にしか無い */
+export function hydrateAdopted(root, pack, { refs = fileRef } = {}) {
+  const pop = readJson(root, `${packDirOf(pack)}/pop-image.json`);
+  const images = pop.revisions?.[pop.activeBodyRevision]?.images ?? [];
+  const paths = images.flatMap((i) => [i.output?.path, i.generation?.output?.path]).filter(Boolean);
+  paths.forEach((path) => refs(root, path));
+  return paths.length;
 }
 
 /** 素材の台帳の行へ、採用した画像の判定を写す（R10 が見る形）。 */

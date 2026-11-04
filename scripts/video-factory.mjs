@@ -30,7 +30,7 @@ import { approvalState } from './lib/media-review.mjs';
 import { recordYoutubeRevisionQa } from './lib/registry-youtube-revision.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 import { todayJst } from './lib/jst-date.mjs';
-import { adoptPlan, auditQueue, buildPlan, generatePlan, ledgerVerdicts, nextStage, packDirOf, readPlan, recordAudit, summarize } from './lib/video-factory.mjs';
+import { adoptPlan, auditQueue, buildPlan, generatePlan, hydrateAdopted, ledgerVerdicts, nextStage, packDirOf, readPlan, recordAudit, summarize } from './lib/video-factory.mjs';
 
 const { values: args, positionals } = parseArgs({
   allowPositionals: true,
@@ -120,6 +120,7 @@ async function render() {
   const pub = targetPub(reg, exam, work);
   if (!pub) throw new Error(`${pack}: 公開行が無い`);
   requirePopDiagramStandard(ROOT, join(ROOT, packDirOf(pack)));
+  hydrateAdopted(ROOT, pack);
   const engine = await ensureVoicevox();
   try {
     const run = (cmd, argv) => execFileSync(cmd, argv, { cwd: ROOT, stdio: 'inherit' });
