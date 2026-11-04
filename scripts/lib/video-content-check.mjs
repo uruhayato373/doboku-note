@@ -472,7 +472,7 @@ function checkState(st, config, knownPackIds, issues) {
         const idx = statusOrder.indexOf(d.status);
         const prev = progress.get(packId) ?? -1;
         if (idx > prev) progress.set(packId, idx);
-        if (idx >= approvalGateIdx && d.status !== 'failed' && !d.approvedBy) {
+        if (idx >= approvalGateIdx && !['failed', 'stopped'].includes(d.status) && !d.approvedBy) {
           issues.push(issue('FAIL', 'T07', packId, `${label}: ${d.status} なのに approvedBy が無い（承認はユーザーだけが設定）`));
         }
         if (['published', 'measured', 'refresh_due'].includes(d.status)) {

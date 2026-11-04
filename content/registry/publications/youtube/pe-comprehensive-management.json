@@ -2610,7 +2610,7 @@
       "work": "sanso-kozo",
       "account": "youtube:main",
       "format": "longform",
-      "status": "qa_passed",
+      "status": "rendered",
       "media": {
         "cover": "pe-comprehensive-management/sanso-kozo/youtube.longform/cover",
         "scene-001": "pe-comprehensive-management/sanso-kozo/youtube.longform/scene-001",
@@ -2640,7 +2640,24 @@
         "video": "pe-comprehensive-management/sanso-kozo/youtube.longform/video",
         "subtitles": "pe-comprehensive-management/sanso-kozo/youtube.longform/subtitles"
       },
-      "publishAt": "2026-11-06T11:30:00Z"
+      "publishAt": "2026-11-06T11:30:00Z",
+      "copy": "content/sns/video-packs/pe-comprehensive-management/sanso-kozo/youtube.json#longform",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "policy",
+          "at": "2026-11-04T23:46:13.638Z",
+          "digest": "126e7f052d0c79c38a519ef049111302541e5d01f1d42ad1c3ddfb4c725b1743"
+        }
+      },
+      "approval": {
+        "by": "policy",
+        "at": "2026-11-04T23:46:13.638Z",
+        "contentSha256": "62f4af0fda3775ad644ee38cb20aeb561b839b08d836826374ad79b0461d631c"
+      },
+      "times": {
+        "rendered": "2026-11-04T23:46:14.255Z"
+      }
     },
     {
       "id": "pe-comprehensive-management/setsumon3-shisaku/youtube.longform",

@@ -24,10 +24,10 @@
     },
     "pe-comprehensive-management/sanso-kozo/youtube.longform": {
       "verdict": "pass",
-      "note": "24場面が台本の順序・内容と一致し、文字の切れ・重なり・誤字なし。表紙は題名に合う。youtube.json が追加され、主CTAは完全パック1つ（essay-complete-pack の note URL と一致）、もう1つは無料解説（出典枠）で、制作表記と比較用 sokan-kojutsu-kangaekata と同形式。題名・台本に年度や試験日の記述が無く、時期に依存しない内容で exam-calendar と矛盾しない。合格の約束や出典の無い数値なし。音声は未確認。",
-      "at": "2026-11-04T11:58:32.653Z",
-      "visualDigest": "ae975e42d7a52865785b492bbf2949935fa55ffcf75b0527f876a0252cbcfefd",
-      "finalDigest": "fa2299e804a0f2fd3dad58118cdfdd7ffaf16b8b0e60972e21f4e48ab8f10208"
+      "note": "表紙・全24場面シートを目視し、台本の順序(導入→三層整理→Ⅰ3役割→Ⅱ4条件→Ⅲリスク3視点→自己診断3問→要約→CTA)と一致。文字の切れ・重なり・誤字なし。CTAは記述式完全パック1つ(note URLはproducts.jsonのessay-complete-packと一致)、無料サイト記事は出典リンク。試験日・数値の記述なし、合格の約束なし、設問指定優先の注記あり。音声は台本と機械照合のみで人は聞いていない。公開予定2026-11-06 20:30 JST。",
+      "at": "2026-11-04T23:46:00.998Z",
+      "visualDigest": "126e7f052d0c79c38a519ef049111302541e5d01f1d42ad1c3ddfb4c725b1743",
+      "finalDigest": "62f4af0fda3775ad644ee38cb20aeb561b839b08d836826374ad79b0461d631c"
     },
     "pe-comprehensive-management/gokanri-tradeoff/youtube.longform": {
       "verdict": "pass",

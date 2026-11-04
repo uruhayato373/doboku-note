@@ -13,6 +13,6 @@
     "minSimilarity": 0.75,
     "minMaxVolumeDb": -12,
     "maxMaxVolumeDb": -0.1,
-    "maxDurationGapSec": 8
+    "maxDurationGapSec": 2
   }
 }

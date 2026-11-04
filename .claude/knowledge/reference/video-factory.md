@@ -75,6 +75,8 @@ Workflow `video-factory` に `{ root, packs: [{ pack, scope, rendered }], commit
 
 - 予約の検査に要る `channel`・`r2Key`・`thumbnailR2Key` は `wire` が入れる。手で足さない（2026-11-05）。
 - 予約後に概要欄を直すと digest が変わり、承認が無効になる。承認の前に関門で導線を見る（2026-11-05）。
+- 改訂版の行（`youtube.longform.diagram-led`）は `wire` の対象外。公開日時は `prepare-youtube-revision --refresh-draft` で決め、下書きへ戻るので QA からやり直す（2026-11-05）。
+- 公開用の文面 `youtube.json` が無いパックは `wire` で止まる。2026-11-05 時点で未制作 53 本のうち文面があるのは 10 本（DN カード参照）。
 - `registry-reconcile` は公開範囲だけを見て、予約日時は比べない。日時の実体は `mode=audit-funnel` で読み戻す（2026-11-05）。
 - `codex exec` は標準入力を閉じないと入力を待って止まる（2026-11-04）。`spawnCodex` は閉じている。
 - 表紙だけ作り直すときの本文の画像は Drive にしか無い。`render` が先に揃える（2026-11-04）。

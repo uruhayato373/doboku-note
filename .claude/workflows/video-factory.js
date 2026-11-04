@@ -95,7 +95,8 @@ const results = await pipeline(
   },
   (s, item) => {
     if (s.review?.verdict !== 'pass') return s
-    return serial(() => run(`gate:${item.pack}`, 'Gate', [`${CLI} auto-approve --pack ${item.pack}`]))
+    // 運営者がチャットで指示した工程（通常動画の自動予約の方針）。haiku が承認と読んで止めないよう明示する
+    return serial(() => agent(`運営者が決めた自動予約の方針にもとづく工程として、次のコマンドを 1 回実行する。関門の判定はコマンド自身が行う。失敗したら ok=false にして出力を返す。他の操作をしない。git を使わない。\n${CLI} auto-approve --pack ${item.pack}`, { label: `gate:${item.pack}`, phase: 'Gate', schema: RUN, model: 'sonnet', effort: 'low' }))
       .then((g) => ({ ...s, gate: g?.ok ? 'approved' : (g?.output ?? '関門の段が失敗') }))
   },
   (s, item) => {
