@@ -68,3 +68,7 @@ robots.txt は `scripts/lib/robots-txt.mjs` の一覧（AI_SEARCH_AGENTS・AI_TR
 
 > [!note] Lighthouse との関係（2026-10-11）
 > Lighthouse の `robots-txt` 監査は `Content-Signal` を「Unknown directive」と判定して 0 点になり、SEO カテゴリが 0.92 に落ちて CI の `lighthouse.yml` が全 URL で赤になった（実測）。Google など検索エンジンは未知の指令を無視するので実害は無い。`lighthouserc.json` の `settings.skipAudits` で `robots-txt` だけ外し、robots.txt の中身は `tests/robots-txt.test.mjs` が見る。
+
+## 追記（2026-11-04）: 機械可読データの扱い
+
+`/standards-data/` は検索エンジン（`User-agent: *`）のクロールを止めた。全文は noindex なのに、2026-11-01 の GSC で 446 件がクロールされ、未クロールの章ページが残っていたため。一覧の `catalog.json`・`comparison.json` は `/standards/compare` の Dataset が指すので許可のまま。AI 検索のエージェントは別の群で許可しているので変わらない。

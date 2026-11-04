@@ -1731,6 +1731,86 @@
       "acceptedSlugs": [
         "/practice/sewerage-and-stormwater"
       ]
+    },
+    {
+      "runId": "2026-11-04T06-23-29Z",
+      "collectedAt": "2026-11-04T06:23:29.212Z",
+      "mode": "commit",
+      "status": "inspection-unreadable",
+      "filter": {
+        "category": null,
+        "group": null
+      },
+      "inspected": 4,
+      "accepted": 1,
+      "alreadyIndexed": 0,
+      "unreadable": 3,
+      "slugs": [
+        "/exam/pe-construction/past-exams/r08-road",
+        "/exam/civil-construction-2/primary/r08-zenki",
+        "/exam/civil-construction-2/guide/resume",
+        "/exam/civil-construction-1/guide/public-engineer-salary-table"
+      ],
+      "acceptedSlugs": [
+        "/exam/pe-construction/past-exams/r08-road"
+      ]
+    },
+    {
+      "runId": "2026-11-04T06-24-20Z",
+      "collectedAt": "2026-11-04T06:24:20.723Z",
+      "mode": "commit",
+      "status": "ok",
+      "filter": {
+        "category": null,
+        "group": null
+      },
+      "inspected": 4,
+      "accepted": 4,
+      "alreadyIndexed": 0,
+      "unreadable": 0,
+      "slugs": [
+        "/exam/civil-construction-2/primary/r08-zenki",
+        "/exam/civil-construction-2/guide/resume",
+        "/exam/civil-construction-1/guide/public-engineer-salary-table",
+        "/exam/building-construction"
+      ],
+      "acceptedSlugs": [
+        "/exam/civil-construction-2/primary/r08-zenki",
+        "/exam/civil-construction-2/guide/resume",
+        "/exam/civil-construction-1/guide/public-engineer-salary-table",
+        "/exam/building-construction"
+      ]
+    },
+    {
+      "runId": "2026-11-04T06-26-24Z",
+      "collectedAt": "2026-11-04T06:26:24.695Z",
+      "mode": "commit",
+      "status": "ok",
+      "filter": {
+        "category": null,
+        "group": null
+      },
+      "inspected": 7,
+      "accepted": 6,
+      "alreadyIndexed": 0,
+      "unreadable": 0,
+      "slugs": [
+        "/exam/civil-construction-1/textbook/railway-underground",
+        "/exam/civil-construction-1/textbook/sabo-landslide",
+        "/exam/civil-construction-1/textbook/steel-structures",
+        "/exam/pe-comprehensive-management/keywords/diversity-management",
+        "/exam/pe-comprehensive-management/keywords/human-capital-disclosure",
+        "/exam/pe-comprehensive-management/keywords/jit-production",
+        "/exam/pe-comprehensive-management/keywords/job-execution-ability"
+      ],
+      "acceptedSlugs": [
+        "/exam/civil-construction-1/textbook/railway-underground",
+        "/exam/civil-construction-1/textbook/sabo-landslide",
+        "/exam/civil-construction-1/textbook/steel-structures",
+        "/exam/pe-comprehensive-management/keywords/diversity-management",
+        "/exam/pe-comprehensive-management/keywords/human-capital-disclosure",
+        "/exam/pe-comprehensive-management/keywords/job-execution-ability"
+      ]
     }
   ]
 }
