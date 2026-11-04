@@ -21,6 +21,14 @@
 
 ## 🔴 高 — 重要度が高い
 
+### [DN-0987] 口頭試験の動画 2 本の画像を予約の基準に合わせて作り直す
+タグ: [SNS・マーケ] [領域:SNS] [時期:2026-11] [種類:制作] [起票:2026-11-04] [期日:2026-11-14]
+
+- **起点**: 2026-11-04 に口頭試験の 2 本を予約へ進めると、どちらも `requirePopDiagramStandard` で止まった。内容の QA はどちらも平均 2.5・BLOCK 0。口頭試験は 2026 年 12 月上旬に始まる
+- **やること**: ① `sokan-kojutsu-kangaekata` の図解版は、キャラクターの参照画像つきの POP 表紙を Codex ImageGen で 1 枚作り、`adopt-pop-video-images` で採用して再描画する。今の表紙は参照画像なしで検査を通らない。再描画のときに `script.md:45` の「用語の意味を聞き返されても」も直す。旧版 `youtube.longform` の扱いも運営者が決める ② `pe-kojutsu-keireki` は表紙と本文 11 枚を同じ基準で作り、storyboard に `imageDesign` を入れて再描画する。下書きのままなので QA を記録して qa_passed へ進める ③ どちらも再描画のあとに `media verify-render` と `video-review` を通す
+- **完了条件**: 2 本が `publish-youtube` または `publish-youtube-revision` の `--phase upload` の検査を通り、運営者が承認できる状態になっている
+
+
 ### [DN-0984] 未クロールの改善の効果を次の URL 検査で確かめる
 タグ: [領域:サイト] [時期:2026-11..2026-12] [種類:改善] [起票:2026-11-04]
 
