@@ -1236,7 +1236,7 @@ const MAGAZINES_RAW = {
   // note-live-audit.yml の SoT 突合が exit 2 で落ち続けていた（2026-08-17 配線）。
   'civil-membership-odai-lab': {
     id: 'civil-membership-odai-lab',
-    published: true,
+    published: false,
     noteUrl: 'https://note.com/dobokunote/m/mbe07bd5cecda',
     qualification: 'civil-construction-1-2',
     noteTitle: '経験記述 週次お題ラボ｜1級・2級土木（会員専用）',
