@@ -7,7 +7,7 @@ title: "技術士 建設部門｜筆記合格発表の後にやること — 口
 notePublishedAt: "2026-11-04"
 noteId: "ne13d3e917c06"
 noteUrl: "https://note.com/dobokunote/n/ne13d3e917c06"
-noteStatus: reserved
+noteStatus: published
 coverTitle: ["技術士 建設部門", "筆記合格発表後にやること"]
 cover:
   variant: crop-safe-v4

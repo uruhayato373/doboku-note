@@ -6589,6 +6589,32 @@
       "commit": "19a35700159a",
       "verification": "運営者の報告",
       "note": "運営者が外部レビューは済んだと報告した"
+    },
+    {
+      "id": "DN-0248",
+      "at": "2026-11-04",
+      "task": "技術士筆記合格発表日に無料導入2本を確認し、口頭試験導線を切り替える",
+      "tier": "high",
+      "kind": "制作",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": ".claude/plans/DN-0248-pe-oral-launch.md",
+      "commit": "966dfcdd8067",
+      "verification": "公開 API と check-note-funnel",
+      "note": "無料 2 本の公開と配線を確認した。note 反映は土曜の同期"
+    },
+    {
+      "id": "DN-0535",
+      "at": "2026-11-04",
+      "task": "主任技士 小論文の新マガジン17誌に POP カバーを付ける（Codex で画像生成）",
+      "tier": "high",
+      "kind": "制作",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "54900dc0d31b",
+      "verification": "公開 API で 17 誌の新カバーを確認",
+      "note": "17 誌の POP カバーを Codex で作り note へ反映した"
     }
   ]
 }

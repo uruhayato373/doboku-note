@@ -1,0 +1,29 @@
+{
+  "id": "cce-essay-reiwa-pack",
+  "policy": "DN-0535",
+  "designVersion": "pop-20261005",
+  "copy": {
+    "stage": "令和形式・小論文対策",
+    "headline": "全40答案",
+    "evidence": "5テーマ×8立場",
+    "band": "隣の立場と読み比べる"
+  },
+  "references": [
+    {
+      "path": "content/coconala/assets/pop-20260927/thumb-cce-essay-pdf.png",
+      "sha256": "c9a407d15ff965033ae02e910a38c32c10493ae0904ec76396d01360c6728959"
+    }
+  ],
+  "prompt": "Use case: ads-marketing. Create one finished Japanese note.com paid magazine header cover, horizontally wide 1280×670 px (approximately 1.91:1). The provided approved Coconala POP cover is a style and character reference, not an edit target; ignore its old text and PDF counts. Recompose for the wide note format. Preserve the same mature Japanese male civil-engineer teacher: short black hair, rectangular black glasses, light beard, white blank safety helmet, navy workwear and tie, yellow safety vest. Use energetic, professional Japanese bookstore POP styling: extremely bold legible Japanese typography, white and yellow with restrained red, dark colored header, pale illustrated background with subtle concrete-structure motifs (bridge piers, formwork, test cylinders), strong diagonal accents and crisp outlines. Text occupies left 70%, teacher large on right 28%, presenting toward the text. Keep every letter and the face inside the central band y=70..600 and x=45..1235, because note crops magazine headers to a wider strip. This is a print-ready flat graphic, not a photographed poster or 3D mockup. No logo, brand name, URL, price, exam date, guarantee, medals, PDF wording, or additional words. Render all specified Japanese strings exactly once.\nPrimary color: deep vivid purple #6E3A8C. Exact text and hierarchy:\nTop qualification, large: 「コンクリート主任技士」\nSmaller stage label: 「令和形式・小論文対策」\nEnormous central headline: 「全40答案」\nBold evidence line: 「5テーマ×8立場」\nProminent yellow band, wide lower left: 「隣の立場と読み比べる」\nSmall separate author badge near the teacher: 「技術士（総監）が制作」\nKeep the word 主任技士 intact (never shorten to 技士). Never write 施工管理技士.",
+  "output": {
+    "file": "../_cover.png",
+    "sha256": "bb1f0aa6dbd35c66f66f4cf51062ebdc4d51717753ded6db26235966fdf10249",
+    "source": "bb1f0aa6dbd35c66f66f4cf51062ebdc4d51717753ded6db26235966fdf10249"
+  },
+  "review": {
+    "at": "2026-11-04",
+    "method": "原寸と幅 430px で確認",
+    "result": "pass",
+    "note": "指定の文字列がすべて読め、切れと誤字なし"
+  }
+}

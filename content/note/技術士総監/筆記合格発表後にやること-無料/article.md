@@ -7,7 +7,7 @@ title: "技術士 総監｜筆記合格発表の後にやること — 口頭試
 notePublishedAt: "2026-11-04"
 noteId: "n256388fcf1c6"
 noteUrl: "https://note.com/dobokunote/n/n256388fcf1c6"
-noteStatus: reserved
+noteStatus: published
 coverTitle: ["技術士 総監", "筆記合格発表後にやること"]
 cover:
   variant: crop-safe-v4

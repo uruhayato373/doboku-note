@@ -86,6 +86,26 @@
       ]
     },
     {
+      "id": "gsc-indexing",
+      "runner": "mac-launchd",
+      "source": "scripts/scheduled/com.doboku-note.gsc-indexing.plist.tmpl",
+      "title": "GSC の登録リクエスト",
+      "triggers": [
+        "launchd"
+      ],
+      "schedule": [
+        "毎日 07:40"
+      ],
+      "scheduleJst": "毎日 07:40（寝ていた日は起床時）",
+      "login": [
+        "google"
+      ],
+      "purpose": "順位表の未登録 URL を 1 日 10 件、URL 検査から登録リクエストする。台帳の記録を develop へ push する",
+      "readers": [
+        "human"
+      ]
+    },
+    {
       "id": "asset-hydrate",
       "runner": "github-actions",
       "source": ".github/workflows/asset-hydrate.yml",
