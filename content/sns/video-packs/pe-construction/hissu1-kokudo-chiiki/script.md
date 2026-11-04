@@ -45,3 +45,4 @@
 - content/site/pe-construction/kokudo-keisei-chiiki/article.mdx
 - content/site/pe-construction/chiiki-dukuri-ronbun-keyword/article.mdx
 - content/site/pe-construction/shakai-shihon-ronbun-keyword/article.mdx
+- content/site/pe-construction/iji-kanri-ronbun-keyword/article.mdx
