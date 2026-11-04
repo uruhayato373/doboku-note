@@ -923,6 +923,7 @@
     --exam-rccm: #9c3d1e;            /* RCCM＝赤褐色（note-cover-tokens.json exams.rccm.base と同一） */
     --exam-surveyor: #1f5f8b;        /* 測量士＝青 */
     --exam-pavement: #4a4a52;        /* 舗装＝アスファルト灰 */
+    --exam-pe-water-supply: #0e6e8c; /* 上下水道部門＝シアン（note-cover-tokens.json exams.pe-water-supply.base と同一） */
     --exam-pipe-work: #1d6a7a;       /* 管工事＝配管の青緑（note カバーの管工事色と同一） */
 
     /* CTA バナー画像上の文字色。背景イラスト（cta-bg/*.webp）は常に明色でテーマ非追従のため、
@@ -1050,6 +1051,7 @@
     --exam-rccm: #d9805c;
     --exam-surveyor: #6fa8d6;
     --exam-pavement: #a3a3ad;
+    --exam-pe-water-supply: #5bb5d1;
     --exam-pipe-work: #5fb3c4;
 
     /* Editorial palette — Soft Editorial dark (2026-07)。

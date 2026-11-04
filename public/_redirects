@@ -1375,6 +1375,10 @@
 # route /docs/pe-first-stage-r07-basic /exam/pe-first-stage/primary/r07-basic
 # route /docs/pe-first-stage-r07-construction /exam/pe-first-stage/primary/r07-construction
 # route /docs/pe-first-stage-r07-water-supply /exam/pe-first-stage/primary/r07-water-supply
+# route /docs/pe-water-supply-guide-hissu-kamoku /exam/pe-water-supply/guide/hissu-kamoku
+# route /docs/pe-water-supply-guide-overview /exam/pe-water-supply/guide/overview
+# route /docs/pe-water-supply-guide-sentaku-kamoku /exam/pe-water-supply/guide/sentaku-kamoku
+# route /docs/pe-water-supply-guide-study-plan /exam/pe-water-supply/guide/study-plan
 # route /docs/pipe-work-guide-kotei-hyo /exam/pipe-work/guide/kotei-hyo
 # route /docs/pipe-work-guide-overview /exam/pipe-work/guide/overview
 # route /docs/pipe-work-guide-sekou-kijutsu /exam/pipe-work/guide/sekou-kijutsu
@@ -1592,6 +1596,7 @@
 /category/concrete-engineer /exam/concrete-engineer 301
 /category/concrete-chief-engineer /exam/concrete-chief-engineer 301
 /category/concrete-diagnostician /exam/concrete-diagnostician 301
+/category/pe-water-supply /exam/pe-water-supply 301
 /category/pipe-work /exam/pipe-work 301
 /category/pavement /exam/pavement 301
 /category/surveyor /exam/surveyor 301
@@ -1910,6 +1915,7 @@
 /docs/concrete-engineer-textbook-* /exam/concrete-engineer/textbook/:splat 301
 /docs/concrete-engineer-primary-* /exam/concrete-engineer/primary/:splat 301
 /docs/concrete-engineer-guide-* /exam/concrete-engineer/guide/:splat 301
+/docs/pe-water-supply-guide-* /exam/pe-water-supply/guide/:splat 301
 /docs/pe-first-stage-guide-* /exam/pe-first-stage/guide/:splat 301
 /docs/surveyor-primary-* /exam/surveyor/primary/:splat 301
 /docs/pe-construction-* /exam/pe-construction/past-exams/:splat 301

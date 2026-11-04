@@ -610,5 +610,36 @@
         }
       ]
     }
+  },
+  {
+    "slug": "pe-water-supply",
+    "qualification": "pe-water-supply",
+    "label": "技術士（上下水道部門）",
+    "subtitle": "第二次試験 必須科目・選択科目の記述式対策",
+    "description": "技術士第二次試験 上下水道部門（日本技術士会）の対策。試験の形式と受験資格、必須科目Iの取り組み方、選択科目（上水道及び工業用水道・下水道）の選び方と出題の見方、学習計画を、公式の受験申込み案内と公表統計にもとづいて整理したノート。",
+    "variant": "pe",
+    "area": "exam",
+    "groups": [
+      "guide"
+    ],
+    "order": 11,
+    "layout": {
+      "view": "concrete",
+      "sort": "concrete",
+      "ogpExamKey": "pe-water-supply",
+      "groupLabels": {
+        "guide": "受験ガイド"
+      },
+      "groupDescriptions": {
+        "guide": "試験の概要・必須科目Iの取り組み方・選択科目の選び方・学習計画"
+      },
+      "jumps": [
+        {
+          "href": "#sec-guide",
+          "label": "受験ガイド",
+          "goal": "試験を知る"
+        }
+      ]
+    }
   }
 ]
