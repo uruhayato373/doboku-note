@@ -1714,7 +1714,7 @@
 
 **進捗（2026-11-04）**: 商品を `pipe-work-sekou-kijutsu-bank` として正本へ登録（products・分類・資格ブランド・色・sales-recorder 対応表・サイト用カード画像 2 枚）。カテゴリ `pipe-work` と受験ガイド 4 本を PR で用意した（deploy 後の `check-production-ssr`・guide-qa・外部照合の再確認は未実施）。
 
-**進捗（2026-11-04・2 回目）**: 競合を docs/strategy/09 へ記録。guide-qa で 4 本を採点し、修正中。販売中の商品の「上部100cm は告示」を直した（note への反映は土曜の同期）。**残り**: `exam-formats.json` の問題 3 の書き方と R7 の 2 級の受入検査の反映、R6 の問題の原本確認、DN-0454 の択一の掲載。
+**進捗（2026-11-04・2 回目）**: 競合を docs/strategy/09 へ記録。guide-qa の再採点で 4 本とも 2.15 以上で合格し、見つかった HIGH 2 件と主な MEDIUM を直した。`exam-formats.json` を R7 の原文に合わせた。販売中の商品の「上部100cm は告示」を直した（note への反映は土曜の同期）。**残り**: DN-0454 の択一の掲載。工程表の遅延再計算・ダミーの例題と図（guide-kotei-hyo）。
 
 **完了条件**: note に 1 商品が公開され、`pipe-work-*` の出題形式と競合が正本に記録されている。
 
