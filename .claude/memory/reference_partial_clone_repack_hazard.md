@@ -119,3 +119,5 @@ feature ブランチを最新 develop へ載せ直すとき、`git reset --keep 
 - **How to apply:** merge・rebase が「無関係な履歴」で止まったら、まず `--is-shallow-repository` と `.git/shallow` を見る。履歴を作り直す・force push で直そうとしない。
 
 **`not our ref <sha>` で git が止まるとき（2026-10-27）**: 手元に無い blob を遅延取得しに行き、サーバがそのオブジェクトを配らないと `fatal: remote error: upload-pack: not our ref` / `unable to read` になる。(1) ref のどれかが指しているなら、サーバ側で消えたブランチの remote-tracking ref が残っている（`git fetch --prune` で 47 本消えた）。(2) ref も `.git` 内の参照も無いなら、外から index に入れられた entry を疑う（pre-commit の中で走ったテストが一時リポジトリの blob を commit 用の index に書いた例 → [[reference_hook_env_leaks_into_tests]]）。調べるときも `git rev-list --objects --all` は `--missing=allow-any` を付ける（付け忘れて 3 分以上走らせた）。
+
+**SSH の Permission denied が断続的に出るとき**（2026-11-04）: 鍵を疑う前に githubstatus.com を見る。Git Operations の障害では `ssh -T` が成功と失敗を繰り返す。partial clone は履歴の読み取りにも SSH を使うので `todo:add` の採番や `unit-tests` も止まる。push は `git -c 'credential.helper=!gh auth git-credential' push https://github.com/<owner>/<repo>.git develop` で通る。

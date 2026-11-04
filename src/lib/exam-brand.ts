@@ -17,6 +17,7 @@ import { NOTE_MAGAZINES, type NoteMagazine } from '@/lib/note-magazines';
 export type ExamKey =
   | 'tankan'
   | 'pe-construction'
+  | 'pe-water-supply'
   | 'pe-general'
   | 'pe-first-stage'
   | 'civil-1'
@@ -38,6 +39,7 @@ export type ExamKey =
 export const QUALIFICATION_TO_EXAM_KEY: Readonly<Record<string, ExamKey>> = {
   'pe-comprehensive-management': 'tankan',
   'pe-construction': 'pe-construction',
+  'pe-water-supply': 'pe-water-supply',
   'pe-first-stage': 'pe-first-stage',
   'civil-construction-1': 'civil-1',
   // 1級・2級を横断する商品（会員ラボ等）はブランドを 1 級側に寄せる
@@ -150,6 +152,10 @@ export const EXAM_BRAND: Record<ExamKey, ExamBrand> = {
   'pipe-work': {
     label: qualificationShortLabel('pipe-work'),
     themeVar: '--exam-pipe-work',
+  },
+  'pe-water-supply': {
+    label: qualificationShortLabel('pe-water-supply'),
+    themeVar: '--exam-pe-water-supply',
   },
 };
 

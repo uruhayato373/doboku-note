@@ -448,3 +448,12 @@ note の販売は**記事（年度・科目）単位**。article.md だけでは
 - `content/sources/textbook/技術士論文の書き方/技術士論文の書き方.pdf` — 論述メソッドの真実源（非公開・原則抽出のみ）
 - `.claude/agents/pe-secondary-exam-qa.md` — 対の Evaluator（5軸採点）
 - `.claude/agents/civil-keiken-essay-writer.md` — note 記事生成の姉妹 Generator
+
+## 上下水道部門への適用（2026-10-15 決定）
+
+上下水道部門（`content/note/技術士上下水道部門/magazines/`）の模範解答にも、この定義を使う。違いは次のとおり。
+
+- 問題文は日本技術士会の公開 PDF（`data/pastexams/inventory.json` の `pe-water-supply`）。文字層の無いスキャンなので、ページ画像を読んで確かめる。出題テーマの一覧は `content/note/技術士上下水道部門/出題テーマ_R01-R08.md`
+- マガジンは `BK-I_必須科目I`（年度ごとに `R01/article.md`）。`noteMagazine` は `water-BK-I`、商品 id は `pe-water-` で始める
+- 運営者の立場は「技術士（上下水道部門）を持つ、元・地方自治体の土木職（発注者）」。合格の体験談は書かない
+- サイトに問題文の MDX は無いので、問題の要約は記事内に書き、問題文を転載しない

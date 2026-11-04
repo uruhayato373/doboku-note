@@ -4,7 +4,7 @@
 > 真実源: 各 `video-pack.json` ＋ コンテンツ台帳 `content/registry/`（YouTube の状態は台帳が正本）。契約: `.claude/knowledge/reference/video-content-policy.md`
 > 管理画面の企画ボード（資格・段階で絞り込める表）: `/content/video`
 
-パック数: **184**（更新: 2026-10-29）
+パック数: **184**（更新: 2026-11-04）
 
 ## 1級土木施工管理技士（67）
 
@@ -114,18 +114,18 @@
 
 | packId | タイトル | 悩み | intent | 段階 | 台本/構成 | 主CTA |
 |---|---|---|---|---|---|---|
-| `pe1-kiso-2of3-reliability` | 技術士一次 基礎科目 2/3多数決系の信頼度は「2個正常」と「3個正常」を足す | 2/3多数決冗長系の信頼度を求めるとき、ちょうど2個正常と3個正常の片方を足し忘れる、または2個正常の3通りを掛け忘れる | exam-point | 未登録 | 台本/構成 | `pe1-chokuzen-pack` |
-| `pe1-kiso-2s-complement` | 技術士一次 基礎科目 1の補数と2の補数は「+1」の1手で分かれる | 2進数の1の補数と2の補数を取り違え、反転しただけの値や+1の相手を誤って選んでしまう | exam-point | 未登録 | 台本/構成 | `pe1-chokuzen-pack` |
-| `pe1-kiso-gradient-length` | 技術士一次 基礎科目 勾配ベクトルと最急勾配の長さを取り違えない | 基礎科目で勾配ベクトルそのものと、最急勾配の長さ（ノルム）を取り違えてしまう | howto | 未登録 | 台本/構成 | `pe1-takuitsu-pdf` |
+| `pe1-kiso-2of3-reliability` | 技術士一次 基礎科目 2/3多数決系の信頼度は「2個正常」と「3個正常」を足す | 2/3多数決冗長系の信頼度を求めるとき、ちょうど2個正常と3個正常の片方を足し忘れる、または2個正常の3通りを掛け忘れる | exam-point | 予約 | 台本/構成 | `pe1-chokuzen-pack` |
+| `pe1-kiso-2s-complement` | 技術士一次 基礎科目 1の補数と2の補数は「+1」の1手で分かれる | 2進数の1の補数と2の補数を取り違え、反転しただけの値や+1の相手を誤って選んでしまう | exam-point | 予約 | 台本/構成 | `pe1-chokuzen-pack` |
+| `pe1-kiso-gradient-length` | 技術士一次 基礎科目 勾配ベクトルと最急勾配の長さを取り違えない | 令和7年度 基礎Ⅰ-3-2の論点である、勾配ベクトルそのものと、最急勾配の長さ（ノルム）を取り違えてしまう | howto | 予約 | 台本/構成 | `pe1-takuitsu-pdf` |
 | `pe1-kiso-gyouretsu-vector` | 技術士一次 基礎科目 ベクトルの射影を求める1つの手順 | 基礎科目のベクトルの射影で、内積の値をどう使うか分からず、式を丸暗記になる | howto | 予約 | 台本/構成 | `pe1-takuitsu-pdf` |
 | `pe1-kiso-kairo-setsuten` | 技術士一次 基礎科目 直列と並列は接続点の名前から読む | 基礎科目の回路で、図の形から直列か並列かを決めてしまい、合成抵抗の途中で手が止まる | howto | 予約 | 台本/構成 | `pe1-takuitsu-pdf` |
 | `pe1-kiso-newton-hou` | 技術士一次 基礎科目 ニュートン法の分母は高さを横の距離に直す | 基礎科目のニュートン法で、なぜ導関数で割るのか分からず、更新式を丸暗記になる | howto | 予約 | 台本/構成 | `pe1-takuitsu-pdf` |
-| `pe1-kiso-senmon` | 技術士一次 基礎科目の6問から3問の選び方 | 基礎科目の5群それぞれで、6問からどの3問を選べばよいか分からない | exam-point | 予約 | 台本/構成 | `pe1-takuitsu-pdf` |
+| `pe1-kiso-senmon` | 技術士一次 基礎科目の6問から3問の選び方 | 基礎科目の5群それぞれで、6問からどの3問を選べばよいか分からない | exam-point | 公開 | 台本/構成 | `pe1-takuitsu-pdf` |
 | `pe1-kiso-simpson-haba` | 技術士一次 基礎科目 シンプソン則の h は区間全体ではなく刻み幅 | シンプソン則の h を積分区間全体の幅と取り違え、答えが2倍になる | howto | 予約 | 台本/構成 | `pe1-chokuzen-pack` |
 | `pe1-kiso-xor-shingihyou` | 技術士一次 基礎科目 XORとORの違いは真理値表の1行だけ | 排他的論理和XORの真理値表を書くとき、両方が1の行でORと混同して1にしてしまう | exam-point | 予約 | 台本/構成 | `pe1-chokuzen-pack` |
 | `pe1-senmon-kensetsu-25mon` | 技術士一次 専門科目（建設）35問から25問の選び方 | 専門科目（建設部門）の35問から25問を選ぶとき、どの分野を軸にして何を外してよいか分からない | exam-point | 予約 | 台本/構成 | `pe1-takuitsu-pdf` |
 | `pe1-tekisei-3shiten` | 技術士一次 適性科目の正誤判定で見る3つの視点 | 適性科目で、覚えたはずの内容でも選択肢の正誤判定に迷う | exam-point | 予約 | 台本/構成 | `pe1-takuitsu-pdf` |
-| `pe1-zentaizou` | 技術士一次の全体像 — 3科目の構成と学習設計 | 基礎・適性・専門の3科目で何をどの配分から仕込めばよいか掴めない | roadmap | 予約 | 台本/構成 | `pe1-takuitsu-pdf` |
+| `pe1-zentaizou` | 技術士一次の全体像 — 3科目の構成と学習設計 | 基礎・適性・専門の3科目で何をどの配分から仕込めばよいか掴めない | roadmap | 公開 | 台本/構成 | `pe1-takuitsu-pdf` |
 
 ## 技術士（建設部門）（29）
 
@@ -139,7 +139,7 @@
 | `hissu1-kensetsu-dx` | 建設DX・i-Construction — 施策の全体像と論点 | DX施策の名前は知っていても論文で使える形になっていない | exam-point | レビュー | 台本/構成 | `pe-construction-required-magazine` |
 | `hissu1-kokudo-chiiki` | 国土形成と地域づくり — 社会資本整備の論点整理 | 国土計画系のテーマは抽象的で課題設定の切り口が見つからない | exam-point | レビュー | 台本/構成 | `pe-construction-required-magazine` |
 | `hissu1-ninaite-seisansei` | 担い手確保と生産性向上 — 2024年問題の論点整理 | 担い手不足の話が一般論になり論文の論点に落とせない | exam-point | レビュー | 台本/構成 | `pe-construction-required-magazine` |
-| `hissu1-theme-map` | 必須科目Ⅰの出題テーマ地図 — 7年分を6系統で読む | 必須Ⅰの出題範囲が広すぎてどのテーマから仕込むか決められない | exam-point | レビュー | 台本/構成 | `pe-construction-required-magazine` |
+| `hissu1-theme-map` | 必須科目Ⅰの出題テーマ地図 — 8年16問を6系統で読む | 必須Ⅰの出題範囲が広すぎてどのテーマから仕込むか決められない | exam-point | レビュー | 台本/構成 | `pe-construction-required-magazine` |
 | `kaitourei-tsukaikata` | 模範解答の正しい使い方 — 写経では受からない | 解答例を読んでも自分の答案がよくならない | howto | レビュー | 台本/構成 | `pe-construction-required-magazine` |
 | `keirekihyo-kakikata` | 業務経歴票の書き方 — 720字の「業務内容の詳細」 | 業務内容の詳細に何をどこまで書けば口頭試験まで戦えるか分からない | howto | レビュー | 台本/構成 | `site-article` |
 | `kensetsu-pe-career-kachi` | 技術士（建設部門）を取ると何が変わるか — 転職と年収 | 労力に見合うリターンがあるのか取得の価値を判断できない | career | レビュー | 台本/構成 | `links-hub` |
@@ -203,14 +203,14 @@
 |---|---|---|---|---|---|---|
 | `kikinagashi-shunin-suchi` | 聞き流し 主任技士 頻出数値・JIS規定 | 机に向かう時間が取れず数値規定の反復が足りないまま直前期に入る | exam-point | 停止 | 台本/構成 | `cce-r8-mc-50` |
 | `shunin-cement-4kagoubutsu` | 主任技士 セメント4化合物は強度が出る時期で並べる | C3SとC2Sの早期強度・長期強度の役割が入れ替わった選択肢で、どちらが正しいか迷う | exam-point | 予約 | 台本/構成 | `cce-r8-mc-50` |
-| `shunin-chinka-hibiware-genin` | 主任技士 沈下ひび割れと乾燥収縮の見分け方 | 打込み後1〜2時間に鉄筋上で出るひびを乾燥収縮と混同し、対策を間違える | exam-point | 未登録 | 台本/構成 | `cce-r8-mc-50` |
+| `shunin-chinka-hibiware-genin` | 主任技士 沈下ひび割れと乾燥収縮の見分け方 | 打込み後1〜2時間に鉄筋上で出るひびを乾燥収縮と混同し、対策を間違える | exam-point | 予約 | 台本/構成 | `cce-r8-mc-50` |
 | `shunin-chokuzen-senryaku` | 主任技士 直前期の総仕上げ — 頻出度で絞る | 残り時間で全分野は回せず何を捨てて何を固めるか決められない | howto | 停止 | 台本/構成 | `cce-takuitsu-chokuzen-pack` |
 | `shunin-construction-ronten` | 主任技士「施工」の頻出論点 | ポンプ圧送から養生まで工程が広く数値規定の暗記が追いつかない | exam-point | 停止 | 台本/構成 | `cce-r8-mc-50` |
 | `shunin-durability-ronten` | 主任技士「コンクリートの耐久性」の頻出論点 | 中性化・塩害・凍害・ASRの劣化機構がごちゃつき対策の対応づけを間違える | exam-point | 停止 | 台本/構成 | `cce-r8-mc-50` |
 | `shunin-haigou-zettaiyouseki` | 主任技士 配合計算を1問、絶対容積で最後まで解く | 配合計算で、細骨材を残りで出すため合計が必ず1,000Lになり、途中の誤りに気づけない | howto | 予約 | 台本/構成 | `cce-mix-calculation-practice` |
 | `shunin-hinshutsu-yusen` | 主任技士 四肢択一の頻出分野 — 学習の優先順位 | 全分野を均等に回すには時間が足りず、どこから手を付けるか決められない | exam-point | 停止 | 台本/構成 | `cce-r8-mc-50` |
 | `shunin-kanri-kikaku-genkai` | 管理限界と規格限界を混同しない — 管理図が安定でも製品は合格とは限らない | 管理図が安定なら製品も合格、と管理限界と規格限界を混同する | exam-point | 予約 | 台本/構成 | `cce-r8-mc-50` |
-| `shunin-kyoudo-hantei-2jouken` | 圧縮強度の合否は平均値だけで決めない — 二つの条件を同時に確かめる | 圧縮強度の合否を3回の平均値が呼び強度以上かどうかだけで決めてしまう | exam-point | 未登録 | 台本/構成 | `cce-r8-mc-50` |
+| `shunin-kyoudo-hantei-2jouken` | 圧縮強度の合否は平均値だけで決めない — 二つの条件を同時に確かめる | 圧縮強度の合否を3回の平均値が呼び強度以上かどうかだけで決めてしまう | exam-point | 予約 | 台本/構成 | `cce-r8-mc-50` |
 | `shunin-materials-ronten` | 主任技士「コンクリート用材料」の頻出論点 | ポルトランドセメントの種類も混和材料の使い分けも似た記述が多く覚え分けられない | exam-point | 停止 | 台本/構成 | `cce-r8-mc-50` |
 | `shunin-mix-design-ronten` | 主任技士「配(調)合設計」の頻出論点 | 水セメント比や単位量の計算手順が安定せず本番で時間を溶かす | exam-point | 停止 | 台本/構成 | `cce-mix-calculation-practice` |
 | `shunin-ochiru-shouronbun` | 主任技士 小論文でやりがちな4つの見直し — 設問に答える答案へ | 書き終えた小論文が設問に答えられているか、自分で確かめる方法が分からない | diagnosis | 停止 | 台本/構成 | `cce-essay-reiwa-pack` |
@@ -220,7 +220,7 @@
 | `shunin-r8-juuten` | 主任技士 直前期の過去問の回し方 — 一巡・弱点再演習・設問の聞かれ方確認 | 試験直前期に、択一の過去問をどの順でどう回せばよいか決められない | exam-point | 停止 | 台本/構成 | `cce-r8-mc-50` |
 | `shunin-rekka-taio` | 主任技士 耐久性は対策より先に劣化機構を決める | 耐久性の問題で、対策が効く劣化機構を確かめず、効果が似ているという類推で選んでしまう | howto | 予約 | 台本/構成 | `cce-r8-mc-50` |
 | `shunin-shiken-zentaizou` | コンクリート主任技士の全体像 — 四肢択一×小論文の二本立て | 四肢択一と小論文の二本立てで何をどの配分で仕込むべきか掴めない | roadmap | 停止 | 台本/構成 | `links-hub` |
-| `shunin-shoki-3kyokusen` | 主任技士 練混ぜ直後〜24時間の3曲線 — 断熱温度上昇・貫入抵抗・ブリーディング水 | 断熱温度上昇量・凝結試験の貫入抵抗値・ブリーディング水の累計の3曲線を取り違える | exam-point | 未登録 | 台本/構成 | `cce-r8-mc-50` |
+| `shunin-shoki-3kyokusen` | 主任技士 練混ぜ直後〜24時間の3曲線 — 断熱温度上昇・貫入抵抗・ブリーディング水 | 断熱温度上昇量・凝結試験の貫入抵抗値・ブリーディング水の累計の3曲線を取り違える | exam-point | 予約 | 台本/構成 | `cce-r8-mc-50` |
 | `shunin-shouronbun-kousei` | 主任技士 小論文の答案構成 — 項目と行数から骨子を作る | 技術的な文章を書き慣れておらず、1,000字前後の答案構成が組めない | howto | 停止 | 台本/構成 | `cce-essay-mokuji` |
 | `shunin-shouronbun-theme` | 主任技士 小論文のテーマ傾向 — 何が問われてきたか | どんなテーマが出るか分からず経験の棚卸しが的外れになりそうで不安 | exam-point | 停止 | 台本/構成 | `cce-essay-reiwa-pack` |
 | `shunin-structural-design-ronten` | 主任技士「コンクリート構造の設計」の頻出論点 | 曲げやせん断の構造計算は久しぶりで解き方を思い出せない | exam-point | 停止 | 台本/構成 | `cce-r8-mc-50` |

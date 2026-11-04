@@ -35,14 +35,6 @@
         "benefit": "択一・記述につながる5本セット"
       },
       {
-        "id": "civil-membership-odai-lab",
-        "magazineDir": "content/note/1級・2級土木/メンバーシップ/予想問題マガジン",
-        "qualifier": "1級・2級土木｜会員専用",
-        "magazineName": "週次お題ラボ",
-        "proof": "施工経験記述の演習",
-        "benefit": "自分が経験した工事で書く"
-      },
-      {
         "id": "civil-1-keiken-bridge-maintenance-pack",
         "magazineDir": "content/note/1級・2級土木/1級土木/magazines/1級土木-橋梁維持更新8工事",
         "qualifier": "1級土木｜施工経験記述",
@@ -353,6 +345,14 @@
         "magazineName": "試験・検査機関",
         "proof": "択一直前3点＋小論文5テーマ",
         "benefit": "自分の立場で択一も小論文も"
+      },
+      {
+        "id": "pe-water-required-magazine",
+        "magazineDir": "content/note/技術士上下水道部門/magazines/BK-I_必須科目I",
+        "qualifier": "技術士 上下水道部門",
+        "magazineName": "必須科目I 模範解答集",
+        "proof": "令和元〜8年度＋令和9年度予想",
+        "benefit": "全9記事で必須Iを固める"
       }
     ]
   },

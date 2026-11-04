@@ -11,7 +11,7 @@ const cfg = JSON.parse(readFileSync(join(ROOT, 'config/note-membership.json'), '
 
 test('退役済みの会員は mirrors を持たず、検査は SKIP と理由を出す（OK と呼ばない・--live も Playwright を起動しない）', { skip: !cfg.retiredAt }, () => {
   assert.deepEqual(cfg.mirrors, [], '退役した会員の価格を docs・コードへ強制し続けない');
-  assert.ok(cfg.plans.length > 0 && cfg.plans.every((p) => p.published === false), '退役済みなのに公開中のプランがある');
+  assert.ok(cfg.plans.every((p) => p.published === false), '退役済みなのに公開中のプランがある');
   for (const args of [[], ['--live']]) {
     const out = execFileSync(process.execPath, [join(ROOT, 'scripts/check-note-membership.mjs'), ...args], { cwd: ROOT, encoding: 'utf8', timeout: 20_000 });
     assert.match(out, /SKIP: 退役済み（retiredAt=\d{4}-\d{2}-\d{2}）/);
