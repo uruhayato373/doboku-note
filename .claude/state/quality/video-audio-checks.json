@@ -22,6 +22,17 @@
         "expected": 892,
         "heard": 827
       }
+    },
+    "pe-comprehensive-management/sanso-kozo/youtube.longform": {
+      "videoSha256": "798ba6645dc5c6e091c25f8016ebbb8890ecd1bd1b4da103035bde69e25b0c8c",
+      "at": "2026-11-04T23:42:00.447Z",
+      "similarity": 0.865,
+      "maxVolumeDb": -1.4,
+      "durationGapSec": 39,
+      "chars": {
+        "expected": 1211,
+        "heard": 1094
+      }
     }
   }
 }
