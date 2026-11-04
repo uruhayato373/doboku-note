@@ -2666,7 +2666,7 @@
       "work": "sokan-kojutsu-kangaekata",
       "account": "youtube:main",
       "format": "longform",
-      "status": "qa_passed",
+      "status": "stopped",
       "media": {
         "cover": "pe-comprehensive-management/sokan-kojutsu-kangaekata/youtube.longform/cover",
         "scene-001": "pe-comprehensive-management/sokan-kojutsu-kangaekata/youtube.longform/scene-001",
@@ -2685,7 +2685,8 @@
         "scene-012": "pe-comprehensive-management/sokan-kojutsu-kangaekata/youtube.longform/scene-012",
         "scene-013": "pe-comprehensive-management/sokan-kojutsu-kangaekata/youtube.longform/scene-013"
       },
-      "copy": "content/sns/video-packs/pe-comprehensive-management/sokan-kojutsu-kangaekata/youtube.json#longform"
+      "copy": "content/sns/video-packs/pe-comprehensive-management/sokan-kojutsu-kangaekata/youtube.json#longform",
+      "stopReason": "superseded"
     },
     {
       "id": "pe-comprehensive-management/sokan-kojutsu-kangaekata/youtube.longform.diagram-led",
@@ -2694,7 +2695,7 @@
       "format": "longform",
       "variant": "diagram-led",
       "revisionOf": "pe-comprehensive-management/sokan-kojutsu-kangaekata/youtube.longform",
-      "status": "qa_passed",
+      "status": "approved",
       "copy": "content/sns/video-packs/pe-comprehensive-management/sokan-kojutsu-kangaekata/youtube.revision-diagram-led.json",
       "media": {
         "cover": "pe-comprehensive-management/sokan-kojutsu-kangaekata/work/candidate-cover",
@@ -2718,7 +2719,20 @@
         "scene-sheet": "pe-comprehensive-management/sokan-kojutsu-kangaekata/youtube.longform.diagram-led/scene-sheet",
         "preview-metrics": "pe-comprehensive-management/sokan-kojutsu-kangaekata/youtube.longform.diagram-led/preview-metrics"
       },
-      "publishAt": "2026-11-07T11:30:00Z"
+      "publishAt": "2026-11-07T11:30:00Z",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "user",
+          "at": "2026-11-04T22:01:30.705Z",
+          "digest": "9d50ed61c47c7bd58f7b3a5fac16c10c829ece9fca285cf3832ba7574a54e9d1"
+        }
+      },
+      "approval": {
+        "by": "user",
+        "at": "2026-11-04T22:01:31.187Z",
+        "contentSha256": "17300f42d040f8416e675958c8f70bb631872442a481930792ae2cddd02c0d8c"
+      }
     },
     {
       "id": "pe-comprehensive-management/takuitsu-keyword/youtube.longform",
