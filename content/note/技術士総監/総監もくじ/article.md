@@ -75,9 +75,9 @@ https://note.com/dobokunote/m/m6854c7437d4d
 
 どれを選べばいいか迷う場合は、[総監マガジンの歩き方](https://note.com/dobokunote/n/nc874692256bb)の3分診断からどうぞ。
 
-受注者系 — [ゼネコン](https://note.com/dobokunote/m/m32aaa137f22e)／[建設コンサル 河川・砂防](https://note.com/dobokunote/m/m32132ecb3033)／[道路・橋梁設計コンサル](https://note.com/dobokunote/m/m09440aa379cf)
+受注者系 — [ゼネコン](https://note.com/dobokunote/m/m32aaa137f22e)／[河川・砂防コンサル](https://note.com/dobokunote/m/m32132ecb3033)／[道路・橋梁設計コンサル](https://note.com/dobokunote/m/m09440aa379cf)／[都市計画コンサル](https://note.com/dobokunote/m/mf0f98993407f)／[土質基礎コンサル](https://note.com/dobokunote/m/mcfcab1d96ed4)／[上下水道コンサル](https://note.com/dobokunote/m/me0255472f9ed)／[維持更新施工](https://note.com/dobokunote/m/mabf26d2c72fb)／[鋼構造・コンクリートコンサル](https://note.com/dobokunote/m/m4748140fa8aa)／[トンネルコンサル](https://note.com/dobokunote/m/m0e0e97176181)／[道路舗装施工](https://note.com/dobokunote/m/mb671a0340871)
 
-自治体（発注者）系 — [道路](https://note.com/dobokunote/m/m52186ffd12ca)／[河川](https://note.com/dobokunote/m/m32a8a5b3b473)／[上水道](https://note.com/dobokunote/m/mf4c6792b4f9c)
+自治体（発注者）系 — [道路](https://note.com/dobokunote/m/m52186ffd12ca)／[河川](https://note.com/dobokunote/m/m32a8a5b3b473)／[都市計画](https://note.com/dobokunote/m/mf8c77e995511)／[下水道](https://note.com/dobokunote/m/mf1cbc32d53aa)／[上水道](https://note.com/dobokunote/m/mf4c6792b4f9c)／[港湾](https://note.com/dobokunote/m/mf762f616c065)／[砂防](https://note.com/dobokunote/m/m7cd44bf57187)／[公園緑地](https://note.com/dobokunote/m/m6d1810e50b0a)／[技術基準](https://note.com/dobokunote/m/mf9f281e2cb32)／[契約・調達](https://note.com/dobokunote/m/m55b930cbfcf9)
 
 ---
 

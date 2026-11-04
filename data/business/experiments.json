@@ -7967,7 +7967,7 @@
       "hypothesis": "テーマのハブ（/topics/*）は検索のクリックが 0。見出しを検索される言い方（例「道路の技術士・1級土木の勉強の順番」）に合わせ、学ぶ順番の地図・要点・資格ごとの出題の違いを本文に足せば、ハブ自体が検索に出て、ハブから記事と教材へ回遊する",
       "target_metric": "3 ハブ（/topics/roads・/topics/rivers-disaster-prevention・/topics/concrete）の GSC 表示・クリック（本番反映の前 28 日・後 28 日）と、ハブの internal_nav_click（label topic-page）・note CTA クリック（placement topic-page）",
       "target_delta": "3 ハブ合計の表示が 2 倍以上、クリックが 1 以上、ハブからの回遊クリックが増える。表示が前後とも 10 未満なら判定不能",
-      "status": "proposed",
+      "status": "running",
       "created_at": "2026-10-28",
       "next_check_date": "2027-01-31",
       "baseline": {
@@ -7976,7 +7976,9 @@
         "topicsPagesWithImpressions": 8,
         "impressions": 11,
         "clicks": 0,
-        "note": "全 22 テーマのうち表示が出たのは 8 ページ・合計 11 表示。道路・河川は表示 0、コンクリートは 2 表示・平均 5.5 位"
+        "note": "全 22 テーマのうち表示が出たのは 8 ページ・合計 11 表示。道路・河川は表示 0、コンクリートは 2 表示・平均 5.5 位",
+        "queriesBeforeChange": [],
+        "queriesNote": "data/gsc/reports/2026-10-31.json の page-query。3 ハブの検索語はこの件数だけで、道路・河川は 0 件"
       },
       "actions": [
         "1. 3 ハブの検索語と、分野名＋資格名の検索語（例「道路 技術士」）を GSC から集める",
@@ -7989,6 +7991,11 @@
           "at": "2026-10-28T04:02:16.000Z",
           "event": "recorded",
           "note": "悩みの軸・類似／差別・配線の調査（docs/strategy/21 §悩みの軸）から起票。判定日と停止条件は始める前に決めた"
+        },
+        {
+          "at": "2026-11-04T05:30:00.000Z",
+          "event": "start",
+          "note": "DN-0906: 道路・河川・コンクリートの 3 ハブを PR #1389 で書き直して本番へ出した（deploy run 41778070369）。3 ページとも HTTP 200 で新しい本文を curl で確認した。前後 28 日の起点は 2026-11-04。"
         }
       ],
       "demand": {
@@ -8002,7 +8009,8 @@
         "stopCondition": "本番反映から 56 日で 3 ハブ合計の表示が前の 28 日を超えなければ、ほかのテーマへ広げない（中身の薄いハブは検索に出さない doc 21 の基準は維持）",
         "nextVerification": "3 ハブの直す前の検索語（GSC page×query）を取り、見出しの案を運営者が決める",
         "card": "DN-0906"
-      }
+      },
+      "updated_at": "2026-11-04T05:30:00.000Z"
     },
     {
       "id": "EXP-045",
@@ -8094,7 +8102,7 @@
       "hypothesis": "口頭試験の教材（note ¥1,980）は 1 件しか売れていないが、筆記合格発表の前で需要の山はこれから。合格した人が最初に読む資格トップと、自分が受けた科目の記事に口頭試験への導線を置けば、11〜1 月に売れる",
       "target_metric": "pe-construction-oral-guide の note 販売件数（2026-11-04〜2027-01-31）と、建設部門の記事からの口頭試験への note CTA クリック",
       "target_delta": "販売 10 件以上（未計測の初年度なので目安。人が判定する）",
-      "status": "proposed",
+      "status": "running",
       "created_at": "2026-10-28",
       "next_check_date": "2027-02-05",
       "baseline": {
@@ -8119,6 +8127,11 @@
           "event": "implement",
           "note": "DN-0902: 2026-10-29 の本番は資格トップ・必須I・道路の過去問のどこにも口頭試験への導線が無かった（curl で n5bc0bcde96ac・「口頭試験」とも 0）。筆記合格発表の日（JST 0 時）から 1/31 まで、資格トップ（PC サイドバー・スマホ）と建設部門の全記事のサイドバー・記事末のタイル（utm hub-after-result）、年度別の過去問の冒頭（-top）を口頭試験の教材へ切り替える実装を PR #1309 に出した。末尾の画像カードは科目の模範解答集のまま。ビルド時の日付で切り替わるので、本番に出るのは発表日以降の deploy から。status は deploy して本番で確かめた日に running にする。",
           "pr": "https://github.com/uruhayato373/doboku-note/pull/1309"
+        },
+        {
+          "at": "2026-11-04T05:30:00.000Z",
+          "event": "start",
+          "note": "DN-0902: 2026-11-04 の deploy で切り替わった。本番の /exam/pe-construction・r07-required・r07-road の 3 ページで n5bc0bcde96ac と utm hub-after-result を curl で確認した。反映日は 2026-11-04。"
         }
       ],
       "demand": {
@@ -8132,7 +8145,8 @@
         "stopCondition": "12/20 までに商品ページへのクリック 100 件で販売 0 件なら、訴求と価格を見直す（作り足さない）",
         "nextVerification": "資格トップ（src/lib/magazine-placement.ts の配置条件）に口頭試験の枠が出ているかを本番で確かめる",
         "card": "DN-0902"
-      }
+      },
+      "updated_at": "2026-11-04T05:30:00.000Z"
     },
     {
       "id": "EXP-048",
@@ -8800,6 +8814,27 @@
       },
       "actions": [
         "順位 20 位以内で表示の多い 30 ページの seoTitle を変更。走行中の実験の対象ページは除いた"
+      ]
+    },
+    {
+      "id": "EXP-058",
+      "title": "検索語に答えていない実務 2 本・教科書 1 本の title と冒頭を直し、クリック率を上げる",
+      "hypothesis": "5〜8 位に居ながらクリックが無いのは、冒頭と title が検索語に一文で答えていないため",
+      "target_metric": "3 ページの GSC のクリック率と順位（前後 28 日）",
+      "target_delta": "3 ページ合計のクリック率が 1.5 倍。順位が 3 位以上下がるページが 2 本以上なら戻す",
+      "status": "running",
+      "created_at": "2026-11-04",
+      "next_check_date": "2026-12-30",
+      "updated_at": "2026-11-04T07:00:00.000Z",
+      "businessContext": {
+        "qualification": "civil-construction-1",
+        "readerNeed": "用語の違いや定義を短時間で知りたい",
+        "verifiedGap": "9/30〜10/27 の GSC で「ヒービング 盤ぶくれ 違い」87 表示 0 クリック 8.4 位、「供用開始とは」128 表示 0 クリック 5.0 位、「測角とは」80 表示 1 クリック 7.1 位",
+        "metricId": "gscClicks",
+        "reviewRecord": "data/business/records/review-2026-11-01T06-07-23-843Z-6abb9200-372f-4c28-9595-84f9ccde8750.json"
+      },
+      "actions": [
+        "excavation-bottom-failure・service-commencement・textbook-distance-angle の seoTitle と冒頭を変更"
       ]
     }
   ]

@@ -16,7 +16,7 @@
 
 ### 2. 背景にある3つの計画
 
-背景に置くのは三つの計画です。第三次国土形成計画は、シームレスな拠点連結型国土を掲げます。第5次社会資本整備重点計画は、六つの重点目標と十九の政策パッケージで構成されます。インフラ長寿命化と群マネは、維持管理の文脈で地域づくりとつながります。この三つを課題設定の根拠として引きます。
+背景に置くのは三つの計画です。第三次国土形成計画は、シームレスな拠点連結型国土を掲げます。第6次社会資本整備重点計画は、令和8年1月に閣議決定された今の計画で、計画期間は令和12年度までです。インフラ長寿命化と群マネは、維持管理の文脈で地域づくりとつながります。この三つを課題設定の根拠として引きます。
 
 ### 3. 施策への翻訳
 
@@ -45,3 +45,4 @@
 - content/site/pe-construction/kokudo-keisei-chiiki/article.mdx
 - content/site/pe-construction/chiiki-dukuri-ronbun-keyword/article.mdx
 - content/site/pe-construction/shakai-shihon-ronbun-keyword/article.mdx
+- content/site/pe-construction/iji-kanri-ronbun-keyword/article.mdx

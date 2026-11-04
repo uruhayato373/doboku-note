@@ -86,9 +86,9 @@
       "finalDigest": "45360c35bfc2272733b7aea528091df9d35704c6731adecfca234ff3290d47d0"
     },
     "pe-comprehensive-management/sokan-goukaku-senryaku/youtube.longform": {
-      "verdict": "fail",
-      "note": "「総監には学協会や白書がない」と断定するが、同チャンネルの白書マップ動画は総監向けに27白書を勧めており矛盾する。出典記事の表も列の対応が曖昧で、誤解を招く断定のため修正が必要。",
-      "at": "2026-11-04T04:50:04.879Z",
+      "verdict": "pass",
+      "note": "合計60%・1分野捨てると残り4分野で75%・6〜7か月前・4フェーズは exam-passing-strategy 記事と一致。CTA は /links の1つ。表紙OK。描画に進んでよいという意味の pass。音声は未確認。",
+      "at": "2026-11-04T05:28:02.165Z",
       "visualDigest": "6dc9149964efdf4cb266dbbffa4ffb164775339d61489ca4277100559a7f560d",
       "finalDigest": "ce64dd4bd11767f648e11a1d57b1654774d31c6a00bbd677c35af8e873283c06"
     },
@@ -100,9 +100,9 @@
       "finalDigest": "8e97fcca5a180b53be2caa659193f405dc000f967d5310811d8b3d23c0049b28"
     },
     "pe-comprehensive-management/takuitsu-r07-enshu/youtube.longform": {
-      "verdict": "fail",
-      "note": "問2で事業者は個人の検査結果に「触れられません」と言い切るが、本人同意があれば提供を受けられるため断定が強すぎる。問2・問3は「正答は…という記述」と言いつつ実際は不適切な記述（誤り）を指しており、視聴者が誤った内容を正答と受け取る恐れがある。",
-      "at": "2026-11-04T04:50:05.050Z",
+      "verdict": "pass",
+      "note": "Ⅰ-1-3(損益分岐点)・Ⅰ-1-11(ストレスチェック)・Ⅰ-1-20(ISO/IEC15408)の正答と引っかけが r07-primary 記事と一致。全40問も一致。CTA は catalog 1つ。表紙OK。描画に進んでよいという意味の pass。音声は未確認。",
+      "at": "2026-11-04T05:28:02.501Z",
       "visualDigest": "2b775f0bc78331b115488dfb8934274c50ecd1ae3de72cc6efa4f29c87129525",
       "finalDigest": "5e01407277b2892cd5d9fdeff400b887b3e0cc82630522eedc7c8c6e351fdcfc"
     },
@@ -114,9 +114,9 @@
       "finalDigest": "7b16f8053e361365651c6a0622d80d936fab62ed6aa6767f82ef0f87d3f883b2"
     },
     "pe-construction/gakushuu-schedule-gyakusan/youtube.longform": {
-      "verdict": "fail",
-      "note": "冒頭で時間数より日程逆算と述べながら、要約で「フル答案を何本書いたかが合否に直結」と出典なく断定しており、合否に関する断定表現として修正が必要。",
-      "at": "2026-11-04T04:50:05.219Z",
+      "verdict": "pass",
+      "note": "台本と storyboard の日程(4月申込・7月筆記・11月合否通知・12月〜翌1月口頭)は config/exam-calendar.json と矛盾なし。CTA は /links の1つ。表紙・題名は中身と一致。描画に進んでよいという意味の pass で、完成動画の確認ではない。音声は未確認。",
+      "at": "2026-11-04T05:28:01.556Z",
       "visualDigest": "d7a97c24fcdcb03fde50254632c1a223e5f4fb2d7cb0a4203ae81a58430cfd69",
       "finalDigest": "6435d6ec5a67070618afe20893707b8ca195cb52cbd6747efe9ffea9970d4d5e"
     },
@@ -149,9 +149,9 @@
       "finalDigest": "e164a3c5d2592844edecd059c6ea1c167758d9e8f2c1fed27c00e2fc1e5f111a"
     },
     "pe-construction/hissu1-kokudo-chiiki/youtube.longform": {
-      "verdict": "fail",
-      "note": "背景計画に第5次社会資本整備重点計画を置くが、出典記事では第6次が令和8年1月16日に閣議決定済み（計画期間〜令和12年度）で、現行計画に触れておらず古い。第6次を加える修正が必要。",
-      "at": "2026-11-04T04:50:05.652Z",
+      "verdict": "pass",
+      "note": "R06 I-1・R07 I-2・第6次社会資本整備重点計画(令和8年1月16日閣議決定・令和12年度まで)は content/site の iji-kanri 記事等で裏取り済み。CTA は1つ。表紙OK。注意: 出典一覧の kokudo-keisei-chiiki は第5次のみ記載で第6次の根拠記事が一覧に無い。描画に進んでよいという意味の pass。音声は未確認。",
+      "at": "2026-11-04T05:28:01.863Z",
       "visualDigest": "7c80028e7d262db495b51c4db55d218991c1872492fd9033ec48501c5dbc8c81",
       "finalDigest": "6b41493f08eb173295fb5749e271e1c63d547186d21c75f8742a7301ebc6d0cf"
     },
@@ -212,9 +212,9 @@
       "finalDigest": "efd103292302704a50c52361e1dbed42a6d6246b1a7b16ac267b1b7ceed25953"
     },
     "pe-construction/sentaku-construction-planning-yomikata/youtube.longform": {
-      "verdict": "fail",
-      "note": "台本の説明ブロック4に「発注者として発注者として」の重複誤記がある。直してから再確認が必要。",
-      "at": "2026-11-04T04:50:06.421Z",
+      "verdict": "pass",
+      "note": "描画に進んでよい(完成動画の確認ではない・場面画像無し・音声未確認)。表紙・題名一致。II-1-4コンクリート8年連続はR01-R08表と一致、IIIの担い手確保・働き方改革と発注者視点(平準化)はkeyword記事で裏取り済み。8年表記に矛盾なし",
+      "at": "2026-11-04T05:40:00.278Z",
       "visualDigest": "88adabbcd806ea628851833552eb41f3cbfe72153daa70e2cfc7bdec29eab855",
       "finalDigest": "7959edebb4a7ee33d13ae37429276f99487a3fce2968072c0abd9fbd978b5701"
     },
@@ -261,16 +261,16 @@
       "finalDigest": "a9e279e7d66f3f4d9931ae65f1abf623325fb72692e41f3f91aa697bda3507c8"
     },
     "pe-construction/sentaku-river-coast-yomikata/youtube.longform": {
-      "verdict": "fail",
-      "note": "台本に「河川・砂防・海岸に合格した実感として」とあり、出典の無い本人の合格経験の断定。道路・河川砂防海岸・都市計画の3本すべてが同じ主張で、事実と合わない恐れがある。運営者が事実を確認するか文言を直すまで保留。",
-      "at": "2026-11-04T04:50:07.020Z",
+      "verdict": "pass",
+      "note": "描画に進んでよい(完成動画の確認ではない・場面画像無し・音声未確認)。表紙・題名一致。II-1の4分野固定は表R01-R08と一致、事前放流R06・津波防災地域づくり法R06・砂防堰堤R03も一致。IIIの流域治水・総合土砂管理はkeyword記事に頻出と明記",
+      "at": "2026-11-04T05:40:00.476Z",
       "visualDigest": "3a250585b1f2b5e50784e80c4cac137a9071352c18ef886a67e03bfa6269e722",
       "finalDigest": "aeff6caa642a5b7a82ee4c48a32e9e1fb1a746fb9111c0be691c3a01a4ce2e2e"
     },
     "pe-construction/sentaku-road-yomikata/youtube.longform": {
-      "verdict": "fail",
-      "note": "台本に「道路科目に合格した実感として」とあり、出典の無い本人の合格経験の断定。道路・河川砂防海岸・都市計画の3本すべてが同じ主張で、事実と合わない恐れがある。運営者が事実を確認するか文言を直すまで保留。",
-      "at": "2026-11-04T04:50:07.106Z",
+      "verdict": "pass",
+      "note": "再確認。場面画像なし、台本とstoryboardでの確認で、pass は描画に進んでよいの意味。II-1-2 は法令・制度の枠で R01 重要物流道路、R02 歩行者利便増進道路、R03 特定車両停留施設、R04 踏切道改良促進法、R05 災害対策基本法、R06 自動運行補助施設、R07 R7改正、R08 連携協力道路と、表の8年分が全て法令・制度。R2 道路法改正が R02・R03・R06 は表と一致。音声は未確認。表紙画像は未確認。",
+      "at": "2026-11-04T05:41:57.975Z",
       "visualDigest": "8d2389a3e2292d7500a82a5fcdd8a177483c59c2d493a9452b3b0692ca46627f",
       "finalDigest": "424330a5b3cd622367b9340e9b50dbbb2ba6f32a617ddf4cf0a9fa326fecc0ec"
     },
@@ -289,9 +289,9 @@
       "finalDigest": "5cb31d635aa5d6e6b0649ad9832eb96336d34220cda14a10e797c1d23839adc1"
     },
     "pe-construction/sentaku-urban-planning-yomikata/youtube.longform": {
-      "verdict": "fail",
-      "note": "台本に「都市計画に合格した実感として」とあり、出典の無い本人の合格経験の断定。道路・河川砂防海岸・都市計画の3本すべてが同じ主張で、事実と合わない恐れがある。運営者が事実を確認するか文言を直すまで保留。",
-      "at": "2026-11-04T04:50:07.362Z",
+      "verdict": "pass",
+      "note": "描画に進んでよい(完成動画の確認ではない・場面画像無し・音声未確認)。表紙・題名一致。公園緑地II-1-4は8年連続で表と一致、立地適正化計画はII-1(R04,R05)・II-2(R02,R05)・III(R08)に存在し背骨の記述と整合",
+      "at": "2026-11-04T05:40:00.674Z",
       "visualDigest": "7911af53e077f0318b7ef7313d1766fcb0d5491f14faf755b040bffc30286f55",
       "finalDigest": "5297ec7b1531f14e7e05766757378452bf16f3779103eb1b78ddc9d84a884d4a"
     },
