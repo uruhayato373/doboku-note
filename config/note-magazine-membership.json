@@ -35,7 +35,6 @@
     "総監テキスト精読ガイド": "tankan-reading-guide",
     "コンクリート診断士-記述式-模範答案集": "cd-essay-magazine",
     "RCCM問題III-2026模範論文集": "rccm-mondai3-magazine",
-    "経験記述-週次お題ラボ": "civil-membership-odai-lab",
     "2級土木-想定工事バンク": "civil-2-koji-bank",
     "1級土木-施工経験記述-2テーマ組合せ大全": "civil-1-combo-essay",
     "1級土木-施工経験記述-完成答案集": "civil-1-experience-essay",
@@ -282,6 +281,9 @@
     },
     "2級土木-施工経験記述-小規模地域インフラ4工事": {
       "reason": "単発記事の商品（civil-2-small-infra-4・note では /n/ の1記事で公開・マガジンではない）。二次検定まるごとパックへの収録は extras で照合する。2026-09-20"
+    },
+    "経験記述-週次お題ラボ": {
+      "reason": "会員専用マガジン mbe07bd5cecda は 2026-11-04 に削除した。収録していた記事は無料記事として残る"
     }
   },
   "extras": {

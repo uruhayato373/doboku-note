@@ -34,6 +34,7 @@ import { mkdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { leanContextOptions } from './lib/playwright-launch.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
+import { memberGate, planNameFromRow } from './lib/note-membership-gate.mjs';
 
 const PROFILE = resolveProfileDir('note', { cwd: ROOT, repoRoot: ROOT });
 const TMP = join(ROOT, '.tmp');
@@ -91,16 +92,15 @@ try {
 
   if (ACTION === 'delete') {
     // 会員0名ゲート: メンバー一覧に「同名プラン」の在籍者が居れば中断（名前重複時も安全側）。
-    const planName = (row.text.match(/^(.+?)\s*[¥￥]/) || [])[1]?.trim() || '';
+    const planName = planNameFromRow(row.text);
     await page.goto('https://note.com/membership/settings/members', { waitUntil: 'domcontentloaded', timeout: 60000 });
     try { await page.waitForLoadState('networkidle', { timeout: 20000 }); } catch {}
     await sleep(3500);
     const members = await page.evaluate(() => (document.body.innerText || '').replace(/\s+/g, ' '));
-    // note のメンバー一覧はプラン名を省略表示することがあるので、先頭6文字で照合する
-    const key = planName.slice(0, 6);
-    const hit = key && members.includes(key);
-    console.log(`[3] 会員ゲート: プラン名="${planName}" 照合キー="${key}" 在籍ヒット=${hit}`);
-    if (hit) { console.error('ABORT: このプランに在籍者が居る可能性がある → 削除しない'); await ctx.close(); process.exit(4); }
+    const gate = memberGate({ planName, membersText: members });
+    console.log(`[3] 会員ゲート: プラン名="${planName}" 照合キー="${gate.key}" 判定=${gate.status}`);
+    if (gate.status === 'inconclusive') { console.error('ABORT: プラン名を読めず在籍を判定できない（検査不成立）→ 削除しない'); await ctx.close(); process.exit(2); }
+    if (gate.status === 'members') { console.error('ABORT: このプランに在籍者が居る可能性がある → 削除しない'); await ctx.close(); process.exit(4); }
   }
 
   if (!COMMIT) {
@@ -117,7 +117,7 @@ try {
       if (!el) return false; el.scrollIntoView({ block: 'center' }); el.click(); return true;
     });
     console.log('[4] トグル click =', clicked);
-    if (!clicked) { console.error('ABORT: 公開トグルを特定できず'); await ctx.close(); process.exit(5); }
+    if (!clicked) { console.error('ABORT: 公開トグルを特定できず'); await ctx.close(); process.exit(4); }
     await sleep(4000);
     // ダイアログで確認を求められる場合に備える（「公開する」等）
     const dlg = await page.evaluate(() => {
