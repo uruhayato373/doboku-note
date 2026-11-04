@@ -346,6 +346,7 @@ export const DATASETS = [
   d('state.quality-audit-latest', '.claude/state/quality/audit-latest.{name}', 'raw', 'ops', 'quality:audit の最新の生の結果', { local: true, regen: 'npm run quality:audit' }),
   d('state.quality-image-audit', '.claude/state/quality/image-audit.{name}', 'raw', 'ops', '画像アセットの監査の最新', { local: true, regen: 'npm run quality:audit' }),
   d('state.ai-image-review-ledger', '.claude/state/quality/ai-image-review-ledger.json', 'ledger', 'site', 'AI 生成の写真の実物どおり判定の記録（check-image-origin record-ai）'),
+  d('state.video-agent-reviews', '.claude/state/quality/video-agent-reviews.json', 'ledger', 'sns', '承認待ちの動画を video-review エージェントが確認した判定'),
   d('state.figure-review-ledger', '.claude/state/quality/figure-review-ledger.json', 'ledger', 'site', '図の目視判定の記録'),
   d('state.figure-crop-report', '.claude/state/quality/figure-crop-report.json', 'state', 'site', '図のクロップ品質の最新'),
   d('state.quality-campaigns', '.claude/state/quality/content-{name}.json', 'evidence', 'site', '記事の拡充・出典の回復の一回きりの作業記録'),
