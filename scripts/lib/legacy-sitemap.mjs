@@ -17,7 +17,7 @@ import { jstDayOf } from "./jst-date.mjs";
 
 export const LEGACY_SITEMAP_FILE = "sitemap-legacy.xml";
 /** 旧 URL の sitemap を出す最終日（JST の日付）。この日を過ぎたビルドでは出さない。 */
-export const LEGACY_SITEMAP_UNTIL = "2026-11-30";
+export const LEGACY_SITEMAP_UNTIL = "2026-11-03";
 /** 旧 /docs が 301 になった日（lastmod に使う＝旧 URL が最後に変わった日）。 */
 export const LEGACY_REDIRECTED_AT = "2026-08-22";
 
