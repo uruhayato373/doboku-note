@@ -362,21 +362,6 @@
 **完了条件**: 公開 API で22記事が `is_limited=false`、`mbe07bd5cecda` と「はじめに-合格ラボ」が取得できない。有料6誌は公開 API で販売中のまま。加入画面に旧2プランが出ない。
 
 
-### [DN-0248] 技術士筆記合格発表日に無料導入2本を確認し、口頭試験導線を切り替える
-タグ: [収益化] [領域:商品] [時期:2026-10..2026-12] [種類:制作] [起票:2026-09-16] [期日:2026-11-04] [進行中]
-
-**決定（2026-10-22・運営者）**: X の 11 月告知（`content/sns/x/campaigns/2026-11-pe-oral.json` の 27 本）は SNS 保留を優先して出さない。無料 2 本は note とサイトの導線だけで公開し、`config/products.json` には登録しない（X を使わないので check-x-campaign-plan のゲートに当たらない）。
-
-**起点**: 7月の購入者へ、筆記の結果に応じた次の準備を案内する。送客先の有料教材と価格・公開URLは `src/lib/note-magazines.ts` の `tankan-oral-complete` / `pe-construction-oral-guide` を参照する。
-
-**残り（2026-11-04 に行う）**: [日本技術士会の発表](https://www.engineer.or.jp/c_topics/012/012020001e.html)で受験番号の掲載は11月4日、合否・成績通知の発送予定は11月11日と確定。無料2本（`content/note/技術士{総監,建設部門}/筆記合格発表後にやること-無料/`）は11月4日15:00（建設部門）・16:30（総監）の予約投稿を note の設定画面で確認済み。X の11月告知は上記決定どおり保留。
-1. 予約時刻後に無料2本の公開本文と有料教材リンクを実体確認する。noteUrl は各記事の frontmatter に記録済みで、`config/products.json` には登録しない。
-2. 建設部門の全 L3（22 本）の冒頭 CTA を evergreen（R9 に向けて・過去問中心）へ `--sync-managed` で切り替える（config/note-funnel.json の topCta）。
-3. 無料記事の URL を建設部門もくじ・L1・口頭試験対策 2 本へ配線する（`npm run check-note-funnel`）。有料 2 本（`magazines/建設部門-口頭試験対策`・`magazines/口頭試験対策-全部門共通`）の追記は note 同期で反映し、`npm run verify-note-magazines` で確認する。手順の詳細は docs/handoffs/2026-10-15-pe-municipal-oral-publish.md。
-
-**結果（2026-11-04）**: 無料 2 本の公開と教材リンクを公開 API で確認した。もくじ・総合案内・口頭試験の記事への配線は原稿に入れ、ドリフト 0。note への反映は土曜の同期。冒頭 CTA は文言がすでに過去問中心で、同期は書式を崩すだけだったので変えていない。
-
-**完了条件**: 無料記事がライブ、有料教材へのリンクが公開URLと一致、`audit-note-funnel` ドリフト0。
 
 
 ## 🟡 中 — 重要度が中くらい
