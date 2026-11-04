@@ -42,7 +42,7 @@ export const careerArticlePath = (slug: string) => {
 export const CAREER_HUB_SLUG = "civil-construction-1-guide-career";
 
 /** 市場価値を確かめる手順（2〜3 社への登録・EXP-054）。全キャリア記事の記事末から案内する。 */
-export const MARKET_VALUE_CHECK_SLUG = "civil-construction-1-guide-market-value-check";
+const MARKET_VALUE_CHECK_SLUG = "civil-construction-1-guide-market-value-check";
 
 /**
  * 既存案件のCTAを区別するキー。ASPの成果条件を読者のサービス体験と混同しない。

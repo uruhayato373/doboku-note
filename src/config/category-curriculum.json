@@ -837,5 +837,17 @@
         "guide-study-plan"
       ]
     }
+  },
+  "pipe-work": {
+    "examGuide": {
+      "title": "受験ガイド",
+      "description": "試験の概要・第二次検定の施工記述・工程表の解き方・学習計画",
+      "slugs": [
+        "guide-overview",
+        "guide-sekou-kijutsu",
+        "guide-kotei-hyo",
+        "guide-study-plan"
+      ]
+    }
   }
 }

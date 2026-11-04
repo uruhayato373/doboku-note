@@ -1050,6 +1050,11 @@ function resolvePlacementRaw(
     return { top: slot('pavement-1-keiken-magazine', slug, 'top'), inline: [slot('pavement-1-sentaku-hinshutsu', slug, 'inline-1')] };
   }
 
+  // 管工事（2026-11-04 に展開中へ昇格・DN-0452）: 第二次検定の施工記述が唯一の商品なので、全ガイドの top に置く。
+  if (slug.startsWith('pipe-work-guide-')) {
+    return { top: slot('pipe-work-sekou-kijutsu-bank', slug, 'top'), inline: [] };
+  }
+
   return EMPTY;
 }
 

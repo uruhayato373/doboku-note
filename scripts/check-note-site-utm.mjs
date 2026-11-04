@@ -13,6 +13,8 @@
 // 検出する違反:
 //   [bare-url]  </? https://doboku-note.com/exam/...> もしくは裸の URL（](… でない） … カード化で UTM 消失
 //   [utm-missing] [テキスト](https://doboku-note.com/exam/...) だが utm_source=note が無い
+//   [utm-term]  （--staged のときだけ）公開済み（noteId あり）の記事のリンクに utm_term＝その記事の note キーが無い（2026-11-03・DN-0947）。
+//               直し方は node scripts/add-note-utm.mjs '<content/note からの記事のフォルダ>'
 //   [legacy-url] 旧 https://doboku-note.com/docs/... … 2026-08-22 の URL 移行で 301 になった。読者は毎回 301 を
 //                挟み、Google は被リンク先の旧 URL を正規に選び続ける（DN-0288）。張り替えは
 //                `npm run fix-legacy-site-links -- --write`（対応表は public/_redirects）
@@ -86,7 +88,12 @@ let linkCount = 0;   // 実検査したリンク数（「検査ゼロの緑」�
 // 裸URL（サイト送客）は視覚的回遊カードとして許可する（計測粒度は捨てる）。
 // 主要ファネルCTA（本文の地の文）はインライン+UTM必須。真実源: docs/marketing/02_チャネル動線設計.md
 for (const f of files) {
-  const lines = readFileSync(join(REPO_ROOT, f), 'utf8').split('\n');
+  const text = readFileSync(join(REPO_ROOT, f), 'utf8');
+  const lines = text.split('\n');
+  // 2026-11-03（DN-0947）: 公開済み（frontmatter noteId あり）の記事を直したら、サイトへのリンクに utm_term＝その記事の note キーを
+  // 付ける（商品からサイトへの戻りを記事で識別する・config/utm-templates.json の _inbound_note）。触った記事だけを見るラチェット
+  // （--staged のときだけ）。直し方は node scripts/add-note-utm.mjs <記事のディレクトリ名>（改行コードを変えない）。
+  const noteKey = STAGED ? (text.match(/^noteId:\s*["']?(n[0-9a-f]+)["']?\s*$/m)?.[1] ?? null) : null;
   let inCardSection = false;   // 関連リソース系の見出し配下か
   let cardOkArmed = false;     // <!-- card-ok --> 直後か（空行は跨ぐ）
   lines.forEach((line, i) => {
@@ -118,6 +125,8 @@ for (const f of files) {
           // referral は GA4 標準 medium（Referral チャネルへ正しく分類）。
           // inline/banner 等の非標準値は Unassigned 化するため referral に統一する。
           problems.push(`${f}:${i + 1} [utm-medium] ${url}（utm_medium=${NOTE_UTM.medium} が必要）`);
+        } else if (noteKey && !url.includes(`utm_term=${noteKey}`)) {
+          problems.push(`${f}:${i + 1} [utm-term] ${url}（公開済みの記事は utm_term=${noteKey} を付ける。node scripts/add-note-utm.mjs '${f.replace(/^content\/note\//, '').replace(/\/article[^/]*\.md$/, '')}'）`);
         }
       } else if (!inCardSection && !cardOkArmed) {
         // 補助節/マーカー外の裸URLは主要送客の計測を壊すため NG（インライン+UTM にする）

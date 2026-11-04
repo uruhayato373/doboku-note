@@ -190,3 +190,11 @@ function detectAuthExpired(text) {
 | `~/bin/notebooklm.bat` | venv activate ラッパー | 1（proxy / encoding 設定） |
 
 新規 wrapper を書く時は notebook-builder.mjs を雛形にすると最も安全。
+
+---
+
+## Deep Research は報告書を自分で引用する
+
+**症状**: `source add-research --mode deep --import-all` の後に `ask` すると、18 件の引用がすべて Deep Research が作った報告書になり、実在のページを 1 件も指さない（2026-11-04）。
+
+**回避**: `source list --json` で報告書を除いた source id を取り、`ask -s <id> -s <id> …` で実在のページに絞って聞く。`research wait --import-all` は `IMPORT_RESEARCH` の失敗を出しても取り込みが進むことがあるので、結果は `source list` の status で確かめる（1 件 error・1 件 processing が残った）。

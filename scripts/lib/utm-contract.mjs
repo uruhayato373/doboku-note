@@ -82,7 +82,7 @@ export function noteInboundTerm(noteKey) {
  * - それ以外（他の UTM・term あり）: そのまま。utm_content（リンクの種類）には触らない
  * noteKey は公開後にしか無い（frontmatter noteId）。無ければ term を付けない。
  */
-export function withNoteInboundUtm(url, campaign, noteKey = null) {
+function withNoteInboundUtm(url, campaign, noteKey = null) {
   const template = utmChannel('note.site');
   const term = noteKey ? noteInboundTerm(noteKey) : null;
   const hashIdx = url.indexOf('#');
@@ -96,4 +96,26 @@ export function withNoteInboundUtm(url, campaign, noteKey = null) {
   }
   const params = `utm_source=${template.source}&utm_medium=${template.medium}&utm_campaign=${encodeURIComponent(campaign)}${term ? `&utm_term=${term}` : ''}`;
   return `${base}${sep}${params}${hash}`;
+}
+
+const NOTE_SITE_URL_RE = /\bhttps:\/\/doboku-note\.com\/[^\s)\]」]+/g;
+
+/**
+ * note の記事の原文（frontmatter つき）のサイトへのリンクに UTM を付ける（withNoteInboundUtm）。scripts/add-note-utm.mjs の実体。
+ * frontmatter は触らず、本文のリンクだけを置き換える。改行コード（CRLF / LF）や空行は一切変えない
+ * （2026-11-03: 本文を組み立て直すと CRLF の記事に LF が混ざり、ファイル全体が差分になった・DN-0947）。
+ * @returns {{ text: string, added: number, skipped: number }}
+ */
+export function applyNoteInboundUtm(raw, campaign, noteKey = null) {
+  const m = /^---\r?\n[\s\S]*?\r?\n---(?=\r?\n|$)/.exec(raw);
+  const head = m ? m[0] : '';
+  let added = 0;
+  let skipped = 0;
+  const body = raw.slice(head.length).replace(NOTE_SITE_URL_RE, (url) => {
+    const next = withNoteInboundUtm(url, campaign, noteKey);
+    if (next === url) skipped += 1;
+    else added += 1;
+    return next;
+  });
+  return { text: head + body, added, skipped };
 }

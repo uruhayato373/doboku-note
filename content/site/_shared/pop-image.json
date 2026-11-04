@@ -2234,6 +2234,53 @@
           "result": "原寸と幅360pxで、コピー一致・判読・文字切れなし・先生の同一性を確認"
         }
       }
+    },
+    "pipe-work-1-written": {
+      "qualification": "pipe-work-1",
+      "material": "written",
+      "source": [
+        "pipe-work-sekou-kijutsu-bank"
+      ],
+      "evidence": [
+        "src/lib/note-magazines.ts#pipe-work-sekou-kijutsu-bank"
+      ],
+      "body": {
+        "format": {
+          "width": 1774,
+          "height": 887
+        },
+        "copy": {
+          "qualification": "管工事",
+          "title": "施工記述対策",
+          "button": "教材の内容を見る"
+        },
+        "references": [
+          {
+            "path": "content/coconala/assets/pop-20260927/thumb-tensaku-set.png",
+            "sha256": "ad9f644b36ac32b383624b1fbcc21f966f7e79516036d00bbe702b200d21c6e6"
+          },
+          {
+            "path": "content/site/pe-first-stage/_shared/img/cta-pdf-body.webp",
+            "sha256": "d17bf0108e2f7c17c570c0d12c91d0595318467a4df52d9e36db28c7472e94cc"
+          }
+        ],
+        "prompt": "Generate ONE complete finished raster website CTA banner, exactly 2:1 landscape, 1600×800 or equivalent. Reference 1 is the approved Japanese teacher identity: preserve face, hair, black glasses, light beard, white plain helmet, navy work clothes and yellow safety vest. Reference 2 supplies the approved disciplined website composition, flat color panels, no scenery. Replace ALL reference wording. Use solid #1d6a7a dark qualification color on left 65%, white on right 35%, small yellow accent; no decorative textures. Exact text ONLY: qualification label 「管工事」, large bold headline 「施工記述対策」, bottom dark evergreen #065F46 flat button with white bold 「教材の内容を見る」 and white arrow. The qualification label must be readable and proportionate, wrap a long label into two lines if necessary, preserving exact spelling. Headline and qualification hierarchy large and legible at 360px width. SAME mature Japanese male teacher on right, friendly holding plain study sheets with abstract gray lines, red pen pointing at them; no sample writing. At least 5% safe margins, no overlapping/cut letters or face. Do NOT copy reference content, prices, counts, year, author claims, brand, URL, logos or extra text. This is a shared artwork family; actual individual product name, year/subject coverage and price will appear as separate site caption, never invent them in the image. Return the entire actual raster to display as-is, not a browser/mockup, no HTML reconstruction. Preserve aspect ratio; no stretched or cropped poster.",
+        "original": {
+          "filename": "exec-02956502-0825-4f45-8264-4d79be42d75b.png",
+          "sha256": "210d02f00992e731d4fa220e92984bf1e684a6ad5530d95c212e05ca4cb6bb36"
+        },
+        "output": {
+          "path": "content/site/pipe-work/_shared/img/cta-written-body-v1.webp",
+          "url": "https://storage.doboku-note.com/posts/pipe-work/_shared/img/cta-written-body-v1.webp?v=7f5d7b71affa",
+          "sha256": "7f5d7b71affa57b730a6666dfb266c66502987a1c15f16946105dc191307e9e8",
+          "bytes": 96008,
+          "quality": 85
+        },
+        "review": {
+          "date": "2026-11-04",
+          "result": "原寸と幅360pxで、コピー一致・判読・文字切れなし・先生の同一性を確認"
+        }
+      }
     }
   },
   "tiles": {
@@ -2678,6 +2725,43 @@
       },
       "review": {
         "date": "2026-10-28",
+        "result": "原寸と幅360pxで、コピー一致・判読・文字切れなし・先生の同一性を確認"
+      }
+    },
+    "pipe-work-1": {
+      "format": {
+        "width": 1374,
+        "height": 1145
+      },
+      "copy": {
+        "qualification": "管工事",
+        "title": "学習教材",
+        "button": "教材の内容を見る"
+      },
+      "references": [
+        {
+          "path": "content/coconala/assets/pop-20260927/thumb-tensaku-set.png",
+          "sha256": "ad9f644b36ac32b383624b1fbcc21f966f7e79516036d00bbe702b200d21c6e6"
+        },
+        {
+          "path": "content/site/pe-first-stage/_shared/img/cta-pdf-body.webp",
+          "sha256": "d17bf0108e2f7c17c570c0d12c91d0595318467a4df52d9e36db28c7472e94cc"
+        }
+      ],
+      "prompt": "Generate ONE complete finished raster website CTA banner, exactly 6:5 landscape, 1200×1000 or equivalent. Reference 1 is the approved Japanese teacher identity: preserve face, hair, black glasses, light beard, white plain helmet, navy work clothes and yellow safety vest. Reference 2 supplies the approved disciplined website composition, flat color panels, no scenery. Replace ALL reference wording. Use solid #1d6a7a dark qualification color on left 65%, white on right 35%, small yellow accent; no decorative textures. Exact text ONLY: qualification label 「管工事」, large bold headline 「学習教材」, bottom dark evergreen #065F46 flat button with white bold 「教材の内容を見る」 and white arrow. The qualification label must be readable and proportionate, wrap a long label into two lines if necessary, preserving exact spelling. Headline and qualification hierarchy large and legible at 300px width. SAME mature Japanese male teacher on right, friendly holding plain study sheets with abstract gray lines, red pen pointing at them; no sample writing. At least 5% safe margins, no overlapping/cut letters or face. Do NOT copy reference content, prices, counts, year, author claims, brand, URL, logos or extra text. This is a shared artwork family; actual individual product name, year/subject coverage and price will appear as separate site caption, never invent them in the image. Return the entire actual raster to display as-is, not a browser/mockup, no HTML reconstruction. Preserve aspect ratio; no stretched or cropped poster.",
+      "original": {
+        "filename": "exec-93e3bf1d-48c5-4a5a-9c1e-8866990b63b8.png",
+        "sha256": "0b5082b8fac77dc8d35aa2ceb99442f24762eba5bacee42e889c461f37969b20"
+      },
+      "output": {
+        "path": "content/site/pipe-work/_shared/img/cta-tile-tile-v1.webp",
+        "url": "https://storage.doboku-note.com/posts/pipe-work/_shared/img/cta-tile-tile-v1.webp?v=040fa2523488",
+        "sha256": "040fa2523488cf6a5c05b09a3849c736a53357f9e00771e098c1ae605f4382f7",
+        "bytes": 101818,
+        "quality": 85
+      },
+      "review": {
+        "date": "2026-11-04",
         "result": "原寸と幅360pxで、コピー一致・判読・文字切れなし・先生の同一性を確認"
       }
     }

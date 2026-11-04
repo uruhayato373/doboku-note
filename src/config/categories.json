@@ -579,5 +579,36 @@
     "layout": {
       "ogpExamKey": "common"
     }
+  },
+  {
+    "slug": "pipe-work",
+    "qualification": "pipe-work",
+    "label": "管工事施工管理技士",
+    "subtitle": "1級・2級 第二次検定「施工記述」対策",
+    "description": "1級・2級管工事施工管理技術検定 第二次検定の対策。令和6年度から変わった「施工記述」（試験側が指定した機器の留意事項・特徴・試運転調整を書く形式）の書き方と、工程表の解き方、学習計画を、上下水道の技術士が公表問題と公的資料にもとづいて整理したノート。",
+    "variant": "civil",
+    "area": "exam",
+    "groups": [
+      "guide"
+    ],
+    "order": 24,
+    "layout": {
+      "view": "concrete",
+      "sort": "concrete",
+      "ogpExamKey": "pipe-work",
+      "groupLabels": {
+        "guide": "受験ガイド"
+      },
+      "groupDescriptions": {
+        "guide": "試験の概要・第二次検定の施工記述・工程表の解き方・学習計画"
+      },
+      "jumps": [
+        {
+          "href": "#sec-guide",
+          "label": "受験ガイド",
+          "goal": "試験を知る"
+        }
+      ]
+    }
   }
 ]
