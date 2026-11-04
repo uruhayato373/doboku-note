@@ -2610,7 +2610,7 @@
       "work": "sanso-kozo",
       "account": "youtube:main",
       "format": "longform",
-      "status": "qa_passed",
+      "status": "rendered",
       "media": {
         "cover": "pe-comprehensive-management/sanso-kozo/youtube.longform/cover",
         "scene-001": "pe-comprehensive-management/sanso-kozo/youtube.longform/scene-001",
@@ -2639,6 +2639,24 @@
         "scene-024": "pe-comprehensive-management/sanso-kozo/youtube.longform/scene-024",
         "video": "pe-comprehensive-management/sanso-kozo/youtube.longform/video",
         "subtitles": "pe-comprehensive-management/sanso-kozo/youtube.longform/subtitles"
+      },
+      "publishAt": "2026-11-06T11:30:00Z",
+      "copy": "content/sns/video-packs/pe-comprehensive-management/sanso-kozo/youtube.json#longform",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "policy",
+          "at": "2026-11-04T23:46:13.638Z",
+          "digest": "126e7f052d0c79c38a519ef049111302541e5d01f1d42ad1c3ddfb4c725b1743"
+        }
+      },
+      "approval": {
+        "by": "policy",
+        "at": "2026-11-04T23:46:13.638Z",
+        "contentSha256": "62f4af0fda3775ad644ee38cb20aeb561b839b08d836826374ad79b0461d631c"
+      },
+      "times": {
+        "rendered": "2026-11-04T23:46:14.255Z"
       }
     },
     {
@@ -2723,15 +2741,15 @@
       "review": {
         "visual": {
           "status": "approved",
-          "by": "user",
-          "at": "2026-11-04T22:01:30.705Z",
+          "by": "policy",
+          "at": "2026-11-04T22:56:21.074Z",
           "digest": "9d50ed61c47c7bd58f7b3a5fac16c10c829ece9fca285cf3832ba7574a54e9d1"
         }
       },
       "approval": {
-        "by": "user",
-        "at": "2026-11-04T22:01:31.187Z",
-        "contentSha256": "17300f42d040f8416e675958c8f70bb631872442a481930792ae2cddd02c0d8c"
+        "by": "policy",
+        "at": "2026-11-04T22:56:21.074Z",
+        "contentSha256": "37d9a0a829cc06460e59ba21ef46a817fd4dd706abccf83d44d6d6281ee412e0"
       },
       "delivery": {
         "inputSha256": "fee69448d77867ade6cab70090e4395116c1e8d3eb752dda216a98874b133eba",

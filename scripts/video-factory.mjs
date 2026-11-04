@@ -12,10 +12,14 @@
  *   npm run video-factory -- ledger --pack <exam>/<work>                  採用画像の判定を AI 台帳へ
  *   npm run video-factory -- record-qa --pack <exam>/<work> --avg <0-3> --blocks <件数>
  *   npm run video-factory -- commit --pack <exam>/<work>                 制作記録だけをコミット
+ *   npm run video-factory -- audio-check --pack <exam>/<work>            音声を文字起こしして台本と照合する
+ *   npm run video-factory -- wire --pack <exam>/<work> [--publish-at <ISO>]  文面へ転送先と空き枠を入れる
+ *   npm run video-factory -- gate --pack <exam>/<work>                   予約へ進めてよいかを検査だけする
+ *   npm run video-factory -- auto-approve --pack <exam>/<work>           関門を通ったら方針の承認を台帳へ書く
  *
- * 承認・予約・公開はしない。運営者の registry approve と publish の仕事。
+ * 運営者の approve・stop は別の入口。auto-approve は config/video-auto-publish.json の方針で動き、関門の全項目を通ったときだけ書く。
  */
-import { execFileSync, spawn } from 'node:child_process';
+import { execFileSync, spawn, spawnSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
 import { existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from 'node:fs';
 import { homedir } from 'node:os';
@@ -23,6 +27,7 @@ import { join } from 'node:path';
 import { parseArgs } from 'node:util';
 import { loadRegistry } from './lib/content-registry.mjs';
 import { upsertPublications, upsertWorks } from './lib/content-registry-write.mjs';
+import { readDataset } from './lib/dataset-io.mjs';
 import { datasetPath } from './lib/datasets.mjs';
 import { readJsonIf } from './lib/json-io.mjs';
 import { requirePopDiagramStandard } from './lib/longform-pop-images.mjs';
@@ -30,13 +35,14 @@ import { approvalState } from './lib/media-review.mjs';
 import { recordYoutubeRevisionQa } from './lib/registry-youtube-revision.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 import { todayJst } from './lib/jst-date.mjs';
+import { audioProblems, evaluateGate, nextSlot, readPolicy, speechSimilarity } from './lib/video-publish-gate.mjs';
 import { adoptPlan, auditQueue, buildPlan, generatePlan, hydrateAdopted, ledgerVerdicts, nextStage, packDirOf, readPlan, recordAudit, summarize } from './lib/video-factory.mjs';
 
 const { values: args, positionals } = parseArgs({
   allowPositionals: true,
   options: {
     pack: { type: 'string' }, exam: { type: 'string' }, scope: { type: 'string' }, date: { type: 'string' }, json: { type: 'boolean' },
-    concurrency: { type: 'string' }, file: { type: 'string' }, by: { type: 'string' }, avg: { type: 'string' }, blocks: { type: 'string' },
+    concurrency: { type: 'string' }, 'publish-at': { type: 'string' }, file: { type: 'string' }, by: { type: 'string' }, avg: { type: 'string' }, blocks: { type: 'string' },
   },
 });
 const [command] = positionals;
@@ -173,10 +179,137 @@ function commit() {
   execFileSync('npm', ['run', '-s', 'media', '--', 'sync', '--work', pack, '--commit'], { cwd: ROOT, stdio: 'inherit' });
   const paths = [
     packDirOf(pack), ...['registry.works', 'registry.youtube', 'registry.media'].map((id) => datasetPath(id, { name: `${exam}.json` })),
-    datasetPath('state.video-agent-reviews'), datasetPath('state.ai-image-review-ledger'), datasetPath('state.drive-manifest'),
+    datasetPath('state.video-agent-reviews'), datasetPath('state.video-audio-checks'), datasetPath('state.ai-image-review-ledger'), datasetPath('state.drive-manifest'),
   ].filter((p) => existsSync(join(ROOT, p)));
   execFileSync('git', ['add', '--', ...paths], { cwd: ROOT, stdio: 'inherit' });
   execFileSync('git', ['commit', '-m', `content(video): ${pack} を量産工程で制作する`, '--', ...paths], { cwd: ROOT, stdio: 'inherit' });
+}
+
+const AUDIO_PATH = datasetPath('state.video-audio-checks');
+const readAudio = () => readJsonIf(ROOT, AUDIO_PATH) ?? { schemaVersion: 1, checks: {} };
+
+/** 完成動画の実体を手元に揃える。無ければ台帳の sha で Drive から戻す */
+function videoFile(pack, mediaById, pub) {
+  const video = mediaById.get(pub.media?.video);
+  if (!video) throw new Error(`${pub.id}: 完成動画が台帳に無い`);
+  const abs = join(ROOT, video.store.path);
+  if (!existsSync(abs)) execFileSync('npm', ['run', '-s', 'media', '--', 'pull', '--work', pack, '--commit'], { cwd: ROOT, stdio: 'inherit' });
+  if (!existsSync(abs) || createSha(readFileSync(abs)) !== video.sha256) throw new Error(`${pub.id}: 完成動画の実体が台帳の sha と違う`);
+  return { abs, video };
+}
+
+/** 音声の機械検査。読み間違いの 1 語までは分からない。欠落・崩れ・音量・尺を見る */
+function audioCheck() {
+  const pack = requirePack();
+  const [exam, work] = pack.split('/');
+  const policy = readPolicy(ROOT);
+  const model = policy.audio.model.replace(/^~/, homedir());
+  if (!existsSync(model)) { console.error(`検査不成立: 文字起こしのモデルが無い: ${model}`); process.exit(2); }
+  const reg = loadRegistry(ROOT);
+  const pub = targetPub(reg, exam, work);
+  const { abs, video } = videoFile(pack, new Map(reg.media.map((m) => [m.id, m])), pub);
+  const out = join(ROOT, '.tmp/media', pack, 'work/factory');
+  mkdirSync(out, { recursive: true });
+  const wav = join(out, 'audio-check.wav');
+  execFileSync('ffmpeg', ['-y', '-v', 'error', '-i', abs, '-ar', '16000', '-ac', '1', wav]);
+  execFileSync('whisper-cli', ['-m', model, '-l', policy.audio.language, '-nt', '-otxt', '-of', join(out, 'audio-check'), '-f', wav], { stdio: 'ignore' });
+  const heard = readFileSync(join(out, 'audio-check.txt'), 'utf8');
+  const board = JSON.parse(readFileSync(join(ROOT, packDirOf(pack), 'storyboard.json'), 'utf8'));
+  const expected = board.scenes.map((s) => s.narration ?? '').join('');
+  const volume = spawnSync('ffmpeg', ['-hide_banner', '-i', abs, '-af', 'volumedetect', '-f', 'null', '-'], { encoding: 'utf8' }).stderr;
+  const maxVolumeDb = Number(/max_volume: (-?[\d.]+) dB/.exec(volume)?.[1]);
+  // 台本の予定尺は読み上げ前の見積りなので、音声が映像の途中で切れていないかを実体で比べる
+  const streams = JSON.parse(execFileSync('ffprobe', ['-v', 'error', '-show_entries', 'stream=codec_type,duration', '-of', 'json', abs], { encoding: 'utf8' })).streams;
+  const seconds = (type) => Number(streams.find((x) => x.codec_type === type)?.duration);
+  const row = {
+    videoSha256: video.sha256, at: new Date().toISOString(), similarity: Number(speechSimilarity(expected, heard).toFixed(3)),
+    maxVolumeDb, durationGapSec: Number(Math.abs(seconds('video') - seconds('audio')).toFixed(1)), chars: { expected: expected.length, heard: heard.length },
+  };
+  const store = readAudio();
+  store.checks[pub.id] = row;
+  writeFileSync(join(ROOT, AUDIO_PATH), `${JSON.stringify(store, null, 2)}\n`);
+  console.log(JSON.stringify({ pub: pub.id, ...row, problems: audioProblems(row, video.sha256, policy) }));
+}
+
+/** 文面へ転送先を入れ、公開日時を決める。予約の検査が要る欄を人手で足さない */
+function wire() {
+  const pack = requirePack();
+  const [exam, work] = pack.split('/');
+  const policy = readPolicy(ROOT);
+  const reg = loadRegistry(ROOT);
+  const pub = targetPub(reg, exam, work);
+  if (pub?.revisionOf) throw new Error(`${pub.id}: 改訂版の公開日時は registry prepare-youtube-revision --refresh-draft で決める（下書きへ戻るので QA からやり直す）`);
+  if (!pub || pub.status !== 'qa_passed') throw new Error(`${pack}: QA 済みで未承認の初回の公開行だけ結線できる`);
+  const mediaById = new Map(reg.media.map((m) => [m.id, m]));
+  const taken = reg.publications.filter((p) => p.channel === 'youtube' && p.publishAt && p.status !== 'stopped' && p.id !== pub.id && Date.parse(p.publishAt) > Date.now()).map((p) => p.publishAt);
+  const publishAt = args['publish-at'] ?? pub.publishAt ?? nextSlot(taken, policy);
+  const file = join(ROOT, packDirOf(pack), 'youtube.json');
+  const release = JSON.parse(readFileSync(file, 'utf8'));
+  const { channel } = readDataset(ROOT, 'config.youtube-formats');
+  writeFileSync(file, `${JSON.stringify({
+    ...release, channel: { id: channel.id, title: channel.title },
+    longform: {
+      ...release.longform, categoryId: release.longform.categoryId ?? '27', publishAt,
+      r2Key: `video/render/${work}/video.mp4`, thumbnailR2Key: `video/render/${work}/img/00-cover.png`,
+      sha256: mediaById.get(pub.media.video).sha256, thumbnailSha256: mediaById.get(pub.media.cover).sha256,
+    },
+  }, null, 2)}\n`);
+  upsertPublications(ROOT, 'youtube', exam, [{ ...stripRow(pub), copy: `${packDirOf(pack)}/youtube.json#longform`, publishAt }]);
+  console.log(JSON.stringify({ pub: pub.id, publishAt }));
+}
+
+const stripRow = (pub) => Object.fromEntries(Object.entries(pub).filter(([k]) => !['file', 'exam', 'channel'].includes(k)));
+
+/** 関門の事実を集める。実行できなかった検査は不合格として返す */
+function gateFacts(pack) {
+  const [exam, work] = pack.split('/');
+  const policy = readPolicy(ROOT);
+  const reg = loadRegistry(ROOT);
+  const mediaById = new Map(reg.media.map((m) => [m.id, m]));
+  const pub = targetPub(reg, exam, work);
+  if (!pub) throw new Error(`${pack}: 公開行が無い`);
+  const reviews = readJsonIf(ROOT, datasetPath('state.video-agent-reviews'))?.reviews ?? {};
+  const facts = factsOf(reg, pack, reviews, mediaById);
+  const ledger = readJsonIf(ROOT, datasetPath('state.ai-image-review-ledger'));
+  const aiBlocked = Object.values(pub.media ?? {}).map((id) => mediaById.get(id)).filter((m) => m?.provenance?.kind === 'ai-generated')
+    .filter((m) => { const r = ledger?.figures?.[`media:${m.id}`]; return !(r?.verdict === 'ok' && String(m.sha256).startsWith(r.sha ?? '-')); }).map((m) => m.id);
+  const verify = spawnSync(process.execPath, [join(ROOT, 'scripts/media.mjs'), 'verify-render', '--work', pack], { cwd: ROOT, encoding: 'utf8' });
+  const funnel = spawnSync(process.execPath, [join(ROOT, 'scripts/check-youtube-funnels.mjs'), '--pub', pub.id], { cwd: ROOT, encoding: 'utf8' });
+  const video = mediaById.get(pub.media?.video);
+  return {
+    policy, reg, mediaById,
+    facts: {
+      pub, standard: facts.standard, aiBlocked, renderVerified: verify.status === 0, qa: reg.works.find((w) => w.id === work && w.exam === exam)?.qa,
+      review: facts.review, funnelOk: funnel.status === 0, funnelDetail: funnel.status === 0 ? '' : (funnel.stderr || funnel.stdout).trim().split('\n').slice(0, 3).join(' / '),
+      audioProblems: audioProblems(readAudio().checks[pub.id], video?.sha256, policy),
+    },
+  };
+}
+
+function gate() {
+  const pack = requirePack();
+  const { facts, policy } = gateFacts(pack);
+  const result = evaluateGate(facts, policy);
+  console.log(JSON.stringify({ pub: facts.pub.id, ...result }, null, 2));
+  if (!result.ok) process.exit(1);
+}
+
+/** 関門の全項目を通ったときだけ、今の digest に方針の承認を書く */
+function autoApprove() {
+  const pack = requirePack();
+  const { facts, policy, mediaById } = gateFacts(pack);
+  const { pub } = facts;
+  const result = evaluateGate(facts, policy);
+  if (!result.ok) { console.error(JSON.stringify(result.checks.filter((c) => !c.ok), null, 2)); process.exit(1); }
+  if (!['qa_passed', 'approved', 'rendered', 'scheduled'].includes(pub.status)) throw new Error(`${pub.id}: ${pub.status} は承認の対象ではない`);
+  const state = approvalState(ROOT, pub, mediaById);
+  const at = new Date().toISOString();
+  upsertPublications(ROOT, 'youtube', pub.exam, [{
+    ...stripRow(pub), status: pub.status === 'qa_passed' ? 'approved' : pub.status,
+    review: { ...(pub.review ?? {}), visual: { status: 'approved', by: 'policy', at, digest: state.visual.current } },
+    approval: { by: 'policy', at, contentSha256: state.final.current },
+  }]);
+  console.log(`方針の承認を書いた: ${pub.id}（digest ${state.final.current.slice(0, 12)}…）`);
 }
 
 const commands = {
@@ -190,6 +323,10 @@ const commands = {
   ledger,
   'record-qa': recordQa,
   commit,
+  'audio-check': audioCheck,
+  wire,
+  gate,
+  'auto-approve': autoApprove,
 };
-if (!commands[command]) { console.error('Usage: npm run video-factory -- status|plan|generate|audit-queue|record-audit|adopt|render|ledger|record-qa|commit'); process.exit(2); }
+if (!commands[command]) { console.error('Usage: npm run video-factory -- status|plan|generate|audit-queue|record-audit|adopt|render|ledger|record-qa|commit|audio-check|wire|gate|auto-approve'); process.exit(2); }
 await commands[command]();

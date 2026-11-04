@@ -48,7 +48,7 @@ const targets = plan.items.map((item) => {
   return { item, pub, copy, approval };
 });
 function finalApprovalReady(item, approval) {
-  return approval.final.by === 'user' && approval.final.valid &&
+  return ['user', 'policy'].includes(approval.final.by) && approval.final.valid &&
     (item.repairKind !== 'legacy-funnel' || (!approval.final.grandfathered && approval.final.contentSha256 === approval.final.current));
 }
 console.log(`[youtube-funnel] 既存動画 ${targets.length} 本 / ${args.includes('--commit') ? 'API更新' : 'dry-run'}`);

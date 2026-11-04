@@ -64,7 +64,7 @@
       "publication": "ローカル差し替え・外部未反映"
     }
   },
-  "activeBodyRevision": "body-pop-20261018",
+  "activeBodyRevision": "body-diagram-20261105",
   "revisions": {
     "body-pop-20261018": {
       "version": "pop-poster-v3",
@@ -1580,7 +1580,919 @@
         "manifest": ".tmp/video-render/sanso-kozo/render-manifest.json",
         "publicationAction": "none"
       }
+    },
+    "cover-pop-20261105": {
+      "version": "pop-poster-v3",
+      "layout": {
+        "mode": "diagram-led"
+      },
+      "generation": {
+        "tool": "image_gen",
+        "prompt": "添付の1枚目はdoboku-noteで採用済みの全面POP動画表紙の意匠参照、2枚目は先生キャラクターの同一性参照です。 新規の16:9横長（1920×1080想定）日本語YouTube動画表紙を作る。鮮やかな青・シアン・ネイビー、黄色と白の極太文字、明確な黒い輪郭、少量の赤、斜めの面と勢いのある背景、右側に先生キャラクターを大きく。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。 左〜中央に正確に『論文の3層構造』『施策だけでOK？』を大きく配置。上部の黄色帯に小さく『総監が制作』。 誤字・余計な文字・合格保証・URL・価格・不明な実績を足さない。文字ブロックの黒い縁取りまで含めて左右8%の内側へ収め（画面の左端から8%は背景だけ）、顔は左右5%・上下5%内、下端18%は字幕が重なるので重要な文字や顔を置かず背景が全面に続く。",
+        "references": [
+          {
+            "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/youtube.longform/cover.b87e20c1.png",
+            "sha256": "b87e20c19fda2123d3bac22950472ee7a7427dd2ab11a7cbf63807a6e83c33ad"
+          },
+          {
+            "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
+            "sha256": "1941cd22fa523fcb233e8ab7b8ad756ad7398be8755037b881d8380fb39398f9"
+          }
+        ],
+        "output": {
+          "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/factory/raw-cover.39406f73.png",
+          "sha256": "39406f73309d4ace1a7641f75642981162a308a48e198121b32a30d3ee6fa4e8"
+        },
+        "generatedAt": "2026-11-04T23:39:08.073Z"
+      },
+      "copy": {
+        "exam": "pe-comprehensive-management",
+        "headline": [
+          "論文の3層構造",
+          "施策だけでOK？"
+        ],
+        "authority": "総監が制作"
+      },
+      "output": {
+        "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/cover-pop.19cfc376.png",
+        "sha256": "19cfc376e60c3afccc8b9f30ec6d3bcd9b6a97394cce8c59d65c38fa10241188",
+        "width": 1920,
+        "height": 1080
+      },
+      "normalization": {
+        "mode": "full-frame-v1",
+        "sourceSha256": "39406f73309d4ace1a7641f75642981162a308a48e198121b32a30d3ee6fa4e8"
+      },
+      "review": {
+        "status": "ai-reviewed",
+        "checkedAt": "2026-11-04T23:39:08.073Z",
+        "by": "ai-image-fidelity-auditor",
+        "reason": "『総監が制作』『論文の3層構造』『施策だけでOK？』が指示どおり一字違わず描かれ、先生は黒縁眼鏡・ひげ・白ヘルメット・紺の作業服とネクタイ・黄白反射帯で手指も崩れていない",
+        "userImageReview": "pending"
+      },
+      "storage": {
+        "group": "content-media",
+        "sync": "local"
+      }
+    },
+    "body-diagram-20261105": {
+      "layout": {
+        "mode": "diagram-led"
+      },
+      "images": [
+        {
+          "sceneId": "intro",
+          "inputSha256": "f6087e0b7686c0cc2c09e38e549658934d67c277da6fee15168f1746bda7e673",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、鮮やかな青・シアン・ネイビーの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『設問ごとに何を書くか』。 図に入れる文字: 『Ⅰ・Ⅱ・Ⅲの役割とつながり』。 この場面の説明（文字にしない）: 設問ごとに何を書くか迷うときは、三層の役割を整理します。今日は各層の中身と、一貫性の作り方を説明します。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/factory/raw-intro.6a50da0b.png",
+              "sha256": "6a50da0b7e48654ebd05cb9686bccbe80e0d56f1283174600ac4c7288f1a6f2c"
+            },
+            "generatedAt": "2026-11-04T23:39:08.073Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/intro-diagram.6a50da0b.png",
+            "sha256": "6a50da0b7e48654ebd05cb9686bccbe80e0d56f1283174600ac4c7288f1a6f2c",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "6a50da0b7e48654ebd05cb9686bccbe80e0d56f1283174600ac4c7288f1a6f2c"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-04T23:39:08.073Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し『設問ごとに何を書くか』と図中『Ⅰ・Ⅱ・Ⅲの役割とつながり』が指示と一致し、三つの円を線でつなぐ図も説明に合う",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "premise",
+          "inputSha256": "760e27545b89099dae43997fa62d6b7411a2a04d4e00912d41448b04f7d36a62",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、鮮やかな青・シアン・ネイビーの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『三層は整理するための例』。 図に入れる文字: 『条件→施策→実施後の影響』。 この場面の説明（文字にしない）: ここでは条件・施策・実施後の影響を三層に整理します。設問の区分・範囲・項目数は、当年度の問題文を優先します。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/factory/raw-premise.48ff19b2.png",
+              "sha256": "48ff19b2ca5c32606f6f694d1f0595c9672fbad991d3405e07f6a6dc562b755a"
+            },
+            "generatedAt": "2026-11-04T23:39:08.073Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/premise-diagram.1d550666.png",
+            "sha256": "1d5506666c573227103d0a6cee70b082d856811f011364668492aed70b801e5c",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "48ff19b2ca5c32606f6f694d1f0595c9672fbad991d3405e07f6a6dc562b755a"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-04T23:39:08.073Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "『三層は整理するための例』『条件→施策→実施後の影響』が指示どおりで、三段の矢印図が説明と矛盾しない",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "premise-cause",
+          "inputSha256": "5f07aaca47ed3f583c1d448a07a9a8eacff352f58f26cb76a6ec2db31232cab4",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、鮮やかな青・シアン・ネイビーの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『見出しの区分で終わらせない』。 図に入れる文字: 『原因と結果をつなぐ』。 この場面の説明（文字にしない）: 三層は単なる見出しの区分ではありません。原因と結果をつながないと、条件と施策の関係が伝わりにくくなります。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/factory/raw-premise-cause.de33de83.png",
+              "sha256": "de33de8361b7c2076e163d044e0d95a462f76bc69b05ac5f177aff28c94486aa"
+            },
+            "generatedAt": "2026-11-04T23:39:08.073Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/premise-cause-diagram.85bfbfa6.png",
+            "sha256": "85bfbfa6f41d5343e9df61360a3a7ffd0e792a5919cba70db9399941c6266d82",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "de33de8361b7c2076e163d044e0d95a462f76bc69b05ac5f177aff28c94486aa"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-04T23:39:08.073Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "『見出しの区分で終わらせない』『原因と結果をつなぐ』が正確で、三段を縦につなぐ図が原因と結果の接続を示している",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "layer1",
+          "inputSha256": "c44301c4eb72d3950a74e7992716789b1e13ddad6141e823996e27d771b15f7c",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、鮮やかな青・シアン・ネイビーの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『Ⅰ 論文全体の設計図』。 図に入れる文字: 『後段が成立する条件を置く』。 この場面の説明（文字にしない）: 第一層の本質は説明ではなく設計図です。第二層と第三層で書く内容が成立するよう、必要な条件を先に置きます。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 47.5）",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/factory/raw-layer1.992e2e38.png",
+              "sha256": "992e2e383dca4b91555b40fa409e7bcb797de46fd117ea5756a8f3fc0ca87b55"
+            },
+            "generatedAt": "2026-11-04T23:39:08.073Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/layer1-diagram.992e2e38.png",
+            "sha256": "992e2e383dca4b91555b40fa409e7bcb797de46fd117ea5756a8f3fc0ca87b55",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "992e2e383dca4b91555b40fa409e7bcb797de46fd117ea5756a8f3fc0ca87b55"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-04T23:39:08.073Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し『Ⅰ 論文全体の設計図』と『後段が成立する条件を置く』が指示と一字一句一致。三段の階層図に破綻なし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "layer1-target",
+          "inputSha256": "4bfcb1f2c17196b3aee0d32fe36cc96f31e734f86e58bcf10683af0217def3d3",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、鮮やかな青・シアン・ネイビーの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『Ⅰ 管理対象を限定する』。 図に入れる文字: 『自社の特定の事業部など』。 この場面の説明（文字にしない）: まず管理対象を明確にします。建設業界全体のように広げすぎず、自社の特定の事業部などに限定して後段を組みます。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/factory/raw-layer1-target.cac72823.png",
+              "sha256": "cac728231b9dc3bd1186adddf81c6658c4615e75750c09f380c05d8da6c7f776"
+            },
+            "generatedAt": "2026-11-04T23:39:08.073Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/layer1-target-diagram.0438d183.png",
+            "sha256": "0438d183d064dd4d7d6272d8a190aaf8fcc4f581aeb816e2d8ea8ecf6c20e950",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "cac728231b9dc3bd1186adddf81c6658c4615e75750c09f380c05d8da6c7f776"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-04T23:39:08.073Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "『Ⅰ 管理対象を限定する』『自社の特定の事業部など』が正確で、組織図の一部署だけを強調する図が本文と合う",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "layer1-role",
+          "inputSha256": "378eb5929bccfb3c9e948d49ee192312b08ce13e939c184ca5ec148238c1315b",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、鮮やかな青・シアン・ネイビーの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『Ⅰ 自分の立場と前提』。 図に入れる文字: 『立場・役割』 『後段を支える前提条件』。 この場面の説明（文字にしない）: 次に自分の立場・役割を明示します。そして、後段の課題や施策が成立する前提条件を置きます。これが第一層の3つの役割です。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/factory/raw-layer1-role.8ec1c9b3.png",
+              "sha256": "8ec1c9b3843325ede50dcf4a144790060a08f2392e6ed95c520fee590b3beee4"
+            },
+            "generatedAt": "2026-11-04T23:39:08.073Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/layer1-role-diagram.6315ff71.png",
+            "sha256": "6315ff71c1ea5de66dd3b873ea5a66687c1de364459c68f27d21d28dd4928665",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "8ec1c9b3843325ede50dcf4a144790060a08f2392e6ed95c520fee590b3beee4"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-04T23:39:08.073Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "『Ⅰ 自分の立場と前提』『立場・役割』『後段を支える前提条件』が正確で、立場から前提を土台にする図が説明に合う",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "layer2",
+          "inputSha256": "bb9106dd5b2033f365b08ad7ba1375230a47980ab33ce8c25e48f44756ce119a",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、鮮やかな青・シアン・ネイビーの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『Ⅱ 方針から施策へ』。 図に入れる文字: 『方針：DXを推進する』 『施策：特定業務へシステム導入』。 この場面の説明（文字にしない）: 第二層は方針ではなく施策です。「DXを推進する」から、「特定業務にシステムを導入する」まで具体化します。 前回の不合格の理由を直す: 文字: 見出しが『Ⅱ 方針から施策へ』ではなく指示にない鉤括弧つき『『Ⅱ 方針から施策へ』』で描かれ、指定文字列と一致しない。図中の『方針：DXを推進する』『施策：特定業務へシステム導入』は正しい",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/factory/raw-layer2.c5beaef6.png",
+              "sha256": "c5beaef6b5f2a8c169999ab0eb163a93d3f6b50e7f3f03571471b58047bc326a"
+            },
+            "generatedAt": "2026-11-04T23:39:08.073Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/layer2-diagram.7f41e087.png",
+            "sha256": "7f41e087c825ae4fad2316f1f0b71c9b650c5fb63c580266304162ea87775265",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "c5beaef6b5f2a8c169999ab0eb163a93d3f6b50e7f3f03571471b58047bc326a"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-04T23:39:08.073Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "『Ⅱ 方針から施策へ』『方針：DXを推進する』『施策：特定業務へシステム導入』が指示どおり。方針から施策への矢印図で本文と矛盾なし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "layer2-feasible",
+          "inputSha256": "b92602ad0ae577f82dbcce5af89c48a1d27c2077b4380c9e9f7ea66cc76f3dac",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、鮮やかな青・シアン・ネイビーの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『施策の条件①・②』。 図に入れる文字: 『近い将来に実現できる』 『自分の立場で動かせる』。 この場面の説明（文字にしない）: 施策は4条件で確認します。1つ目は近い将来に実現できること。2つ目は自分の立場で動かせることです。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/factory/raw-layer2-feasible.8dcf8dfd.png",
+              "sha256": "8dcf8dfd738b488b9d85dac4ce2ca4afc6f80a95ab8557cfd92621aec7c31b47"
+            },
+            "generatedAt": "2026-11-04T23:39:08.073Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/layer2-feasible-diagram.60caa0dc.png",
+            "sha256": "60caa0dc8b190ccfa66b2090cc122c4141e0b721096ed737b4b58504c28c43c6",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "8dcf8dfd738b488b9d85dac4ce2ca4afc6f80a95ab8557cfd92621aec7c31b47"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-04T23:39:08.073Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "『施策の条件①・②』『近い将来に実現できる』『自分の立場で動かせる』が正確で、カレンダーと手でレバーを動かす絵が本文に合い手指も崩れていない",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "layer2-resources",
+          "inputSha256": "a486549d8eddc0f7782e79e1d4db5ec3e978155f35e9a0a919ebde9d646272c8",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、鮮やかな青・シアン・ネイビーの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『施策の条件③・④』。 図に入れる文字: 『資源制約を意識する』 『Ⅰの前提条件と直結する』。 この場面の説明（文字にしない）: 3つ目は限られた資源を意識していること。4つ目は第一層の前提条件と直結していることです。 前回の不合格の理由を直す: 文字: 見出しが指示にない鉤括弧つき『『施策の条件③・④』』で描かれ、指定の見出し文字列と一致しない。図中の『資源制約を意識する』『Ⅰの前提条件と直結する』は正しい",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/factory/raw-layer2-resources.047d9548.png",
+              "sha256": "047d95483ffb4fbd276e1ce923534ad617029512d65a6771a88f6cdc4d064b4e"
+            },
+            "generatedAt": "2026-11-04T23:39:08.073Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/layer2-resources-diagram.261059f1.png",
+            "sha256": "261059f1e2b0442d923066a2c040ed94c24574213d911a200380eed95d0f022e",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "047d95483ffb4fbd276e1ce923534ad617029512d65a6771a88f6cdc4d064b4e"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-04T23:39:08.073Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "『施策の条件③・④』『資源制約を意識する』『Ⅰの前提条件と直結する』が指示どおりで誤字なし。図も本文と整合",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "layer2-effect",
+          "inputSha256": "d094ad803473ee852d99691835f737b3fc342bd43f50aeccf1b76fdef66e5155",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、鮮やかな青・シアン・ネイビーの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『効果と問題点をセットで』。 図に入れる文字: 『期待できる効果』 『管理すべき問題点』。 この場面の説明（文字にしない）: 施策を書いたら、効果と管理上の問題点をセットで示します。問題点は施策の否定ではなく、管理すべき対象として書きます。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 33.4）",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/factory/raw-layer2-effect.7331b7ea.png",
+              "sha256": "7331b7ea68c2711a942da567b6f66737d47b3b6c734414d33a7ea0f585859be0"
+            },
+            "generatedAt": "2026-11-04T23:39:08.073Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/layer2-effect-diagram.c8aba995.png",
+            "sha256": "c8aba995f82d8b7f871cbece08dff260e328905fb1612c356bd58efc3f77c5a7",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "7331b7ea68c2711a942da567b6f66737d47b3b6c734414d33a7ea0f585859be0"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-04T23:39:08.073Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "『効果と問題点をセットで』『期待できる効果』『管理すべき問題点』が指示どおり。効果と管理対象を並べる図で本文と矛盾なし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "layer3",
+          "inputSha256": "76a3c78bc92094844d7ecdae633bc4a13b8514f1e347ef0eae66dcee1e1bef1f",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、鮮やかな青・シアン・ネイビーの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『Ⅲ 施策を進めた先の課題』。 図に入れる文字: 『Ⅱの結果からリスクを探す』。 この場面の説明（文字にしない）: 第三層は夢のある構想ではなく、施策を進めた結果の課題を見抜くパートです。第二層とのつながりからリスクを探します。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 41.7）",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/factory/raw-layer3.64bc6c26.png",
+              "sha256": "64bc6c26d48f078e431551deb1bc662d54ae2d0fb129b1b5b1691d5c379d9658"
+            },
+            "generatedAt": "2026-11-04T23:39:08.073Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/layer3-diagram.22f7c175.png",
+            "sha256": "22f7c175c2cc33e30cd26126f66a83fa661e85ceb22d8f5c1de9f9df859f87ff",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "64bc6c26d48f078e431551deb1bc662d54ae2d0fb129b1b5b1691d5c379d9658"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-04T23:39:08.073Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "『Ⅲ 施策を進めた先の課題』『Ⅱの結果からリスクを探す』が指示どおり。結果の図から警告の虫眼鏡へ向かう図で本文と整合",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "layer3-scope",
+          "inputSha256": "af59d4007ca604213c067b839ad27b9f235ac3ba2328d4c93a204633a623b42e",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、鮮やかな青・シアン・ネイビーの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『話を飛躍させない』。 図に入れる文字: 『無関係な新技術・条件の後付け』 『対象範囲は問題文を優先』。 この場面の説明（文字にしない）: 無関係な新技術や前段に無い条件を持ち出すと、話が飛躍します。対象範囲は、その年度の問題文の指定を優先します。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/factory/raw-layer3-scope.30921f1d.png",
+              "sha256": "30921f1da096c4082fc97f258c5846ff42994025d44bfdc6d598c4ed533e04a1"
+            },
+            "generatedAt": "2026-11-04T23:39:08.073Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/layer3-scope-diagram.0ee0f9b8.png",
+            "sha256": "0ee0f9b8cd2f1ed3e7131d58ecadd103ef22bf4aa940e2b694b74f96d6df2d2c",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "30921f1da096c4082fc97f258c5846ff42994025d44bfdc6d598c4ed533e04a1"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-04T23:39:08.073Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "『話を飛躍させない』『無関係な新技術・条件の後付け』『対象範囲は問題文を優先』が正確で、壁で遮る図が本文に合う",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "layer3-tradeoff",
+          "inputSha256": "e42fd09df3aa40b4de4044f80507c3db93048c1938d60642ede284b83c758bfb",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、鮮やかな青・シアン・ネイビーの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『リスクの視点①』。 図に入れる文字: 『トレードオフが大きい点』。 この場面の説明（文字にしない）: リスクを探す視点は3つです。まず、トレードオフが大きい点。ある管理を改善した結果、別の管理に負担が移る点です。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/factory/raw-layer3-tradeoff.1c69ff0c.png",
+              "sha256": "1c69ff0ca78b0a39606ac8ffae331b9bcada329c32bff1e87f8161aeb76bc4c2"
+            },
+            "generatedAt": "2026-11-04T23:39:08.073Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/layer3-tradeoff-diagram.1c69ff0c.png",
+            "sha256": "1c69ff0ca78b0a39606ac8ffae331b9bcada329c32bff1e87f8161aeb76bc4c2",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "1c69ff0ca78b0a39606ac8ffae331b9bcada329c32bff1e87f8161aeb76bc4c2"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-04T23:39:08.073Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "『リスクの視点①』『トレードオフが大きい点』が正確で、天秤の重さが入れ替わる図がトレードオフの説明に合う",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "layer3-weakness",
+          "inputSha256": "fd311cf45fa5147949c4bc5c72bb2dc56d9d4d34ebc7da140ec316c2e7a21df8",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、鮮やかな青・シアン・ネイビーの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『リスクの視点②・③』。 図に入れる文字: 『組織の弱点』 『規模拡大で顕在化する点』。 この場面の説明（文字にしない）: 2つ目は組織の弱点が露呈する点。3つ目は規模拡大で顕在化する点です。この3視点から影響の大きいリスクを選びます。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/factory/raw-layer3-weakness.21b97e9f.png",
+              "sha256": "21b97e9fd8bf07cbc76493f09f6a5b0f2a24fafa250efc4cf4fc115ddab5743e"
+            },
+            "generatedAt": "2026-11-04T23:39:08.073Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/layer3-weakness-diagram.21b97e9f.png",
+            "sha256": "21b97e9fd8bf07cbc76493f09f6a5b0f2a24fafa250efc4cf4fc115ddab5743e",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "21b97e9fd8bf07cbc76493f09f6a5b0f2a24fafa250efc4cf4fc115ddab5743e"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-04T23:39:08.073Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "『リスクの視点②・③』『組織の弱点』『規模拡大で顕在化する点』が正確で、網の切れ目と規模拡大の図が本文に合う",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "layer3-management",
+          "inputSha256": "54a7ac090dc416318eb616c7c1a18e038866f8470ca7e85834aaa7221b9b53dd",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、鮮やかな青・シアン・ネイビーの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『克服策は管理行為まで』。 図に入れる文字: 『数は設問の指定に従う』 『管理方法・体制まで示す』。 この場面の説明（文字にしない）: 挙げる数は設問の指定に従います。新技術を用いる場合も、管理方法の見直しや体制再設計など、管理行為まで示します。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/factory/raw-layer3-management.bf38dc7c.png",
+              "sha256": "bf38dc7c3bb2fd8f7fdbb7910a97d3c4deba6f25199fe0e947fb3208c38719d7"
+            },
+            "generatedAt": "2026-11-04T23:39:08.073Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/layer3-management-diagram.30f988ba.png",
+            "sha256": "30f988ba2f7a271adf3a39ec8c38c33e408dc7629e722ec20a3186b77b8e1fd8",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "bf38dc7c3bb2fd8f7fdbb7910a97d3c4deba6f25199fe0e947fb3208c38719d7"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-04T23:39:08.073Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "『克服策は管理行為まで』『数は設問の指定に従う』『管理方法・体制まで示す』が正確で、歯車・手順・体制図が本文に合う",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "consistency-first",
+          "inputSha256": "e2f9640ed85b49beba77f6a17dc6e2cc70db814244f63d9a17b0f3d65de194b3",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、鮮やかな青・シアン・ネイビーの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『自己診断①』。 図に入れる文字: 『ⅠからⅡ・Ⅲを予想できるか』。 この場面の説明（文字にしない）: 書く前に、一貫性を3問で確認します。第一層を読んだだけで、第二層と第三層の方向性が予想できるでしょうか。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 17.0）",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/factory/raw-consistency-first.6b3894d9.png",
+              "sha256": "6b3894d9bb30d64f15a938c317a55a1a11176f0f75bb9263db6f59f308e71a9d"
+            },
+            "generatedAt": "2026-11-04T23:39:08.073Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/consistency-first-diagram.cb9421c6.png",
+            "sha256": "cb9421c615b239f06ec23a83fef9733ca16d4a9b9ce3ef0a692463134a0519f6",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "6b3894d9bb30d64f15a938c317a55a1a11176f0f75bb9263db6f59f308e71a9d"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-04T23:39:08.073Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "『自己診断①』『ⅠからⅡ・Ⅲを予想できるか』が指示どおりで誤字なし。Ⅰから二方向へ分岐する図は本文と整合。ただし見出し『自己診断①』が上端の安全領域にかなり寄っている（内容の誤りではない）",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "consistency-second",
+          "inputSha256": "f6f7c7a7b5e3528fbefc3892726911ae940e7e93b98e79c61f48b7508c1967c4",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、鮮やかな青・シアン・ネイビーの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『自己診断②』。 図に入れる文字: 『ⅡはⅠの条件から成立するか』。 この場面の説明（文字にしない）: 2問目は、第二層の施策が、第一層の条件があるから成立しているか。条件と施策のつながりを確認します。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/factory/raw-consistency-second.1bcdefeb.png",
+              "sha256": "1bcdefebddf79686255d331e3fa28c2d2d4f33ae4c88186d8a8cd1d9f4e4b9ba"
+            },
+            "generatedAt": "2026-11-04T23:39:08.073Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/consistency-second-diagram.951b7999.png",
+            "sha256": "951b7999e323604cc8facf547db70597222e818c1ae65dff5df00397acb50169",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "1bcdefebddf79686255d331e3fa28c2d2d4f33ae4c88186d8a8cd1d9f4e4b9ba"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-04T23:39:08.073Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "『自己診断②』『ⅡはⅠの条件から成立するか』が正確に描かれ、上の層が下の層に支えられる図が説明に合う",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "consistency-third",
+          "inputSha256": "66983446a608686c1c40b3ac3f3da3bc890a8505d1be31c967cca6a9b105294f",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、鮮やかな青・シアン・ネイビーの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『自己診断③』。 図に入れる文字: 『ⅢはⅡの結果として自然か』。 この場面の説明（文字にしない）: 3問目は、第三層の課題が、第二層を進めた結果として自然に出るか。施策とリスクのつながりを確認します。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/factory/raw-consistency-third.9106c035.png",
+              "sha256": "9106c035f88b2b2776768d579f3325f0fac7bc7a02a8cdfba0a0df63e2a70fca"
+            },
+            "generatedAt": "2026-11-04T23:39:08.073Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/consistency-third-diagram.2982ed58.png",
+            "sha256": "2982ed587e3ef4d760bdb23aeb645bcffabf892f2f14ab79bca2e1c752bb98e7",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "9106c035f88b2b2776768d579f3325f0fac7bc7a02a8cdfba0a0df63e2a70fca"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-04T23:39:08.073Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "『自己診断③』『ⅢはⅡの結果として自然か』が正確で、ⅡからⅢへの矢印図が説明と一致する",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "consistency-revise",
+          "inputSha256": "df0f571cdeac56313b7fb2b8f2c2d0d34d0f5da867bfcb5be8547e8120554462",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、鮮やかな青・シアン・ネイビーの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『「いいえ」なら骨子に戻る』。 図に入れる文字: 『執筆前に組み直す』。 この場面の説明（文字にしない）: 1つでも「いいえ」なら、骨組みを作り直してから書き始めます。条件、施策、その結果をもう一度つないでください。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/factory/raw-consistency-revise.939111fd.png",
+              "sha256": "939111fd0b50ae76aed9c363aa863d7e3fd0521701740d1b5994e035c9925f28"
+            },
+            "generatedAt": "2026-11-04T23:39:08.073Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/consistency-revise-diagram.3d6a2d9b.png",
+            "sha256": "3d6a2d9b5ce7b0b24bd6024e0ec776774a3f71658cd8e51a79f8faa7f4cb979a",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "939111fd0b50ae76aed9c363aa863d7e3fd0521701740d1b5994e035c9925f28"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-04T23:39:08.073Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "『「いいえ」なら骨子に戻る』『執筆前に組み直す』が正確で、骨子に戻る矢印の図が本文に合う",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "summary",
+          "inputSha256": "971e8ecb2b57f92f40097a022d0c7b74d2aecf2aab71fc12bb024577772e0f8e",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、鮮やかな青・シアン・ネイビーの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『三層の役割を振り返る』。 図に入れる文字: 『Ⅰ 設計図』 『Ⅱ 効果と問題点』 『Ⅲ リスクと管理行為』。 この場面の説明（文字にしない）: まとめます。第一層は設計図、第二層は効果と問題点のセット、第三層は最大リスクと管理行為での克服です。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 46.6）",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/factory/raw-summary.713b32d2.png",
+              "sha256": "713b32d2bc322c7e9145f7edde975260cd1e4dc5a88948779d8da2dd6340d49e"
+            },
+            "generatedAt": "2026-11-04T23:39:08.073Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/summary-diagram.79ba6424.png",
+            "sha256": "79ba6424bf34c927e0ac142b84697285f5c79f8211e42b5693e58eb00f4f049a",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "713b32d2bc322c7e9145f7edde975260cd1e4dc5a88948779d8da2dd6340d49e"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-04T23:39:08.073Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "『三層の役割を振り返る』『Ⅰ 設計図』『Ⅱ 効果と問題点』『Ⅲ リスクと管理行為』が指示どおり。三段の階層図に破綻なし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "summary-check",
+          "inputSha256": "aed9411a8f9f078320770e05bc0234d0f36057858718b7fa45c7439e53f01fd9",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、鮮やかな青・シアン・ネイビーの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『三層の一貫性を確認』。 図に入れる文字: 『自己診断3問を使う』。 この場面の説明（文字にしない）: それぞれの役割を守り、自己診断3問で一貫性を確認します。前提、施策、その結果をつなぐのが三層構造の書き方です。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/factory/raw-summary-check.b16e78dc.png",
+              "sha256": "b16e78dcffe9a0261ac02b9731496885ef587e26822fa50ca999610dd8f4a952"
+            },
+            "generatedAt": "2026-11-04T23:39:08.073Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/summary-check-diagram.c8399add.png",
+            "sha256": "c8399addcdc6c572911683bddc4283a12e7fb0681c939dfaa998c4589dc5d547",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "b16e78dcffe9a0261ac02b9731496885ef587e26822fa50ca999610dd8f4a952"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-04T23:39:08.073Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "『三層の一貫性を確認』『自己診断3問を使う』が正確で、前提・施策・結果の三段の流れが説明に合い、台座の継ぎ目も読み取りに支障ない",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "cta-pack",
+          "inputSha256": "9d0512b73bd8341f5a15e2d2e1da73e7df3cb337de3ac85cdd61c35b03aa5c1e",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、鮮やかな青・シアン・ネイビーの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『総監記述式 完全パック』。 図に入れる文字: 『三層の型・施策の書き方』 『最大リスクの絞り込み方』。 この場面の説明（文字にしない）: 三層それぞれの型と、施策の書き方、最大リスクの絞り込み方までまとめた、記述式完全パックを用意しています。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/factory/raw-cta-pack.618fb8c5.png",
+              "sha256": "618fb8c5c5015e9f1e9ec79c2a80d8e324e9a22074c02c5795b882d7b6fae514"
+            },
+            "generatedAt": "2026-11-04T23:39:08.073Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/cta-pack-diagram.8e71337e.png",
+            "sha256": "8e71337ef677081e213c651338c59cc69b3f8fdb408ef0fc4b7d496b21c90382",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "618fb8c5c5015e9f1e9ec79c2a80d8e324e9a22074c02c5795b882d7b6fae514"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-04T23:39:08.073Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "『総監記述式 完全パック』『三層の型・施策の書き方』『最大リスクの絞り込み方』が正確で、価格やURLなど余計な文字がない",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "cta",
+          "inputSha256": "4569cfb8314ee9c577aeda34c5d42f48de3f48a350b52a0f789dc68d595b5543",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、鮮やかな青・シアン・ネイビーの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『続きは概要欄から』。 図に入れる文字: 『総監記述式 完全パック』。 この場面の説明（文字にしない）: 記述式完全パックは、概要欄のリンクからご覧ください。ご視聴ありがとうございました。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/factory/raw-cta.59d4bf9a.png",
+              "sha256": "59d4bf9a13d4fb75e94c7f4479b067b2e279e6380059940fe6ef2b4b0d98d455"
+            },
+            "generatedAt": "2026-11-04T23:39:08.073Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/cta-diagram.59d4bf9a.png",
+            "sha256": "59d4bf9a13d4fb75e94c7f4479b067b2e279e6380059940fe6ef2b4b0d98d455",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "59d4bf9a13d4fb75e94c7f4479b067b2e279e6380059940fe6ef2b4b0d98d455"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-04T23:39:08.073Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "『続きは概要欄から』『総監記述式 完全パック』が正確で、箱からリンクのブラウザ窓への矢印図も説明に合う",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        }
+      ]
     }
   },
-  "activeCoverRevision": "cover-pop-20261018"
+  "activeCoverRevision": "cover-pop-20261105"
 }
