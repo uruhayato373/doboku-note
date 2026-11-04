@@ -351,6 +351,9 @@
 7. `note-membership.json`・`check-note-membership.mjs`（退役済みは SKIP する形に済み）・`tests/check-note-membership.test.mjs`・`tests/note-membership-funnel.test.mjs` を撤去後の状態に合わせる（コード変更は PR）。
 8. `/note-membership` スキル・`note-membership-operator` エージェント・quality-audit の `note-membership`／`magazine-membership`（ci）と `membership-drip`（ops）は**退役しない**。建設業×AI のメンバーシップで使うので、合格ラボ固有の前提（資格・添削・試験日）を外す形に直す（DN-0876 と同じ PR でよい）。
 
+**進捗（2026-11-04）**: 手順 1 は運営者が在籍会員 0 人を確認した。手順 2 は添削つきプランから 7 誌の紐づけを外した（`--unlink-all-benefit`）。通年プラン 4956c2d4f928 の編集画面は既に 404。手順 4 は「はじめに-合格ラボ」が note の仕様で下書きに戻せない（特典マガジンに入っていた記事のため）ので、非公開にするには削除しかない。22 記事の is_limited は紐づけを外しても true のまま。
+**運営者の作業（取り消せない削除）**: ①会員専用マガジン mbe07bd5cecda を削除 ②添削つきプラン f9567e03949d を削除 ③記事 n6b66793ca20c を削除。コマンドは `npm run note-magazine-delete`、`node scripts/note-membership-plan-status.mjs --plan f9567e03949d --delete --commit`、`node scripts/note-delete-note.mjs --note n6b66793ca20c --commit`。**その後の残り**: 手順 6・7・8。
+
 **完了条件**: 公開 API で22記事が `is_limited=false`、`mbe07bd5cecda` と「はじめに-合格ラボ」が取得できない。有料6誌は公開 API で販売中のまま。加入画面に旧2プランが出ない。
 
 
