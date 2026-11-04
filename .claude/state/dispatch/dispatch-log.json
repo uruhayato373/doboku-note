@@ -6615,6 +6615,19 @@
       "commit": "54900dc0d31b",
       "verification": "公開 API で 17 誌の新カバーを確認",
       "note": "17 誌の POP カバーを Codex で作り note へ反映した"
+    },
+    {
+      "id": "DN-0452",
+      "at": "2026-11-04",
+      "task": "管工事（1級・2級）の施工記述 note 商品を公開し、サイトの入口と施工記述ガイドを整える",
+      "tier": "mid",
+      "kind": "制作",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "30b67595146a",
+      "verification": "guide-qa 再採点 2.15〜2.60 と check-production-ssr",
+      "note": "商品公開・出題形式と競合の記録・ガイド 4 本の本番反映と guide-qa 合格を確認した。工程表の追加は DN-0982、択一は DN-0454"
     }
   ]
 }
