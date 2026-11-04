@@ -102,6 +102,7 @@ npm run check-disk-hygiene    # ローカル容量の surfacer（macOS / Windows
 npm run check-branch-hygiene  # 溜まったブランチ・止まった worktree の surfacer（報告のみ・削除しない）: 中身が origin/develop に入り済み（squash は tree 一致かマージ済み PR の記録で判定）／未マージで N 日（-- --days・既定 14）動いていない／未コミットのまま N 日動いていない worktree。罠: 作ったばかりで未コミットのブランチも「入り済み」に出る（使用中の worktree 名を見る）。gh が引けなければ tree 比較だけ（-- --no-gh で最初から引かない）。base が無ければ exit 2
 npm run disk-hygiene:fix      # 再生成可能な滞留物をガード付きで削除（日次実行の実体。dry-run は node scripts/disk-hygiene.mjs --dry-run）
 npm run disk-hygiene:install  # macOS: launchd 日次掃除＋Git maintenance登録（-- --status / --run-now / --uninstall）
+npm run gsc-indexing:install  # macOS: launchd で登録リクエストを毎日 07:40 に 10 件送る（-- --status / --run-now / --uninstall）
 npm run disk-hygiene:install:win # Windows: タスクスケジューラ日次掃除＋Git maintenance登録（12:30・逃した回は次回起動時。ログと stamp は ~/.local/state/doboku-note/logs/。AppData 配下にしないのは MSIX アプリからの読み書きが仮想化されるため）
 npm run auth:doctor           # Playwright auth root の診断（Windows は旧 %LOCALAPPDATA% と Codex(MSIX) サンドボックスの取り残しも警告）
 npm run auth:migrate          # 旧置き場のプロファイルを新 root へコピー（既定 dry-run・--commit。Cookie が最新の候補を選び、キャッシュは運ばない）
