@@ -9,6 +9,7 @@ import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { createHash } from 'node:crypto';
 import { longformInputHash } from './longform-render-integrity.mjs';
+import { acceptedApproval } from './video-publish-gate.mjs';
 import {
   CHANNEL_DATASET, approvalHash, approvalParts, canTransition, canonicalJson, idShapeIssues, loadRegistry, loadRegistryConfig, parsePubId, pubIdOf, requiresApproval, resolveCopy,
 } from './content-registry.mjs';
@@ -194,7 +195,7 @@ export function checkRegistry(root, opts = {}) {
   // R07: 状態の必須欄と承認ハッシュ
   for (const p of reg.publications) {
     if (!cfg.status.values.includes(p.status)) { issues.push(issue('FAIL', 'R07', p.id, `状態が語彙に無い: ${p.status}`)); continue; }
-    if (requiresApproval(cfg, p.status) && p.approval?.by !== 'user') issues.push(issue('FAIL', 'R07', p.id, `${p.status} には運営者の承認（approval.by=user）が要る`));
+    if (requiresApproval(cfg, p.status) && !acceptedApproval(p)) issues.push(issue('FAIL', 'R07', p.id, `${p.status} には運営者の承認（approval.by=user）か、通常動画の方針の承認（by=policy）が要る`));
     if (p.status === 'stopped' && !cfg.status.stopReasons.includes(p.stopReason)) issues.push(issue('FAIL', 'R07', p.id, 'stopped には語彙の stopReason が要る'));
     if (p.status === 'published' && !p.platform?.evidence) issues.push(issue('FAIL', 'R07', p.id, 'published には公開を確かめた証拠（platform.evidence）が要る'));
     if (p.approval?.contentSha256) {

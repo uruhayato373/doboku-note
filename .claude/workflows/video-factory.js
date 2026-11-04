@@ -1,6 +1,6 @@
 export const meta = {
   name: 'video-factory',
-  description: '通常動画を、画像の生成・独立監査・採用・描画・内容QA・画面確認まで進め、作成と判定を分けて記録する。承認と公開はしない',
+  description: '通常動画を、画像の生成・独立監査・採用・描画・内容QA・画面確認・音声照合・関門まで進め、作成と判定を分けて記録する。転送と予約は親が行う',
   whenToUse: '通常動画の量産。args は { root: リポジトリの絶対パス, packs: [{ pack: "<資格>/<作品>", scope?: "all"|"cover" }], rounds?: 作り直しの回数（既定2）, commit?: true }。手順は video-factory.md',
   phases: [
     { title: 'Generate', detail: 'Codex で画像を作る（スクリプトが実行）' },
@@ -8,6 +8,7 @@ export const meta = {
     { title: 'Render', detail: '採用・音声・動画・照合（直列）' },
     { title: 'Content QA', detail: 'video-content-qa が 6 軸で採点' },
     { title: 'Screen review', detail: 'video-review が画面と文面を確認' },
+    { title: 'Gate', detail: '音声の照合と、関門を通ったときの方針の承認（スクリプトが実行）' },
     { title: 'Commit', detail: '判定と制作記録をコミット（直列）' },
   ],
 }
@@ -82,8 +83,13 @@ const results = await pipeline(
   (s, item) => {
     if (!s.ok) return s
     if (s.qa.blocks > 0 || s.qa.avg < 2) return { ok: false, reason: `内容QAが不合格（平均 ${s.qa.avg}・BLOCK ${s.qa.blocks}）`, qa: s.qa }
-    return agent(`承認待ちの動画 ${item.pack} の 1 本だけを定義どおり確認し、record まで行う。公開 ID は \`${CLI} status --json\` の該当行の pub。承認・停止・公開はしない。git は使わない。`, { label: `review:${item.pack}`, phase: 'Screen review', schema: REVIEW, agentType: 'video-review', model: 'sonnet' })
+    return agent(`承認待ちの動画 ${item.pack} の 1 本だけを定義どおり確認し、record まで行う。公開 ID は \`${CLI} status --json\` の該当行の pub。stop・公開はしない。git は使わない。`, { label: `review:${item.pack}`, phase: 'Screen review', schema: REVIEW, agentType: 'video-review', model: 'sonnet' })
       .then((review) => ({ ...s, review }))
+  },
+  (s, item) => {
+    if (s.review?.verdict !== 'pass') return s
+    return serial(() => run(`gate:${item.pack}`, 'Gate', [`${CLI} audio-check --pack ${item.pack}`, `${CLI} wire --pack ${item.pack}`, `${CLI} auto-approve --pack ${item.pack}`]))
+      .then((g) => ({ ...s, gate: g?.ok ? 'approved' : (g?.output ?? '関門の段が失敗') }))
   },
   (s, item) => {
     if (!args.commit || !s.review) return s
@@ -93,7 +99,8 @@ const results = await pipeline(
 
 const rows = results.map((r, i) => ({ pack: packs[i].pack, ...(r ?? { ok: false, reason: '段の途中で失敗' }) }))
 return {
-  ready: rows.filter((r) => r.review?.verdict === 'pass').map((r) => r.pack),
+  approved: rows.filter((r) => r.gate === 'approved').map((r) => r.pack),
+  gateFailed: rows.filter((r) => r.gate && r.gate !== 'approved').map((r) => `${r.pack}: ${r.gate}`),
   reviewFailed: rows.filter((r) => r.review?.verdict === 'fail').map((r) => `${r.pack}: ${r.review.note}`),
   stopped: rows.filter((r) => !r.review).map((r) => `${r.pack}: ${r.reason}`),
   qa: rows.filter((r) => r.qa).map((r) => ({ pack: r.pack, avg: r.qa.avg, findings: r.qa.findings })),

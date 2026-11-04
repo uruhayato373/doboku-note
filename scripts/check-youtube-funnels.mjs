@@ -15,6 +15,8 @@ const paidNoteProducts = new Map(products.filter((p) => p.channel === 'note' && 
 const routes = loadSiteRoutes(join(REPO_ROOT, 'public/_redirects'));
 const registry = loadRegistry(REPO_ROOT);
 const problems = [];
+const onlyAt = process.argv.indexOf('--pub');
+const only = onlyAt >= 0 ? process.argv[onlyAt + 1] : null; // 予約前の 1 本を関門から検査する
 let checked = 0;
 let upcoming = 0;
 
@@ -33,7 +35,7 @@ function isRelevantPaidLink(link, exam) {
   return paidNoteProducts.get(link.split('?')[0])?.qualification === exam;
 }
 
-for (const pub of registry.publications.filter((p) => p.channel === 'youtube' && p.format === 'longform' && ACTIVE.has(p.status))) {
+for (const pub of registry.publications.filter((p) => p.channel === 'youtube' && p.format === 'longform' && (only ? p.id === only : ACTIVE.has(p.status)))) {
   checked += 1;
   const [exam, packId] = pub.id.split('/');
   const manifestPath = join(REPO_ROOT, 'content/sns/video-packs', exam, packId, 'video-pack.json');
@@ -83,7 +85,7 @@ for (const pub of registry.publications.filter((p) => p.channel === 'youtube' &&
   }
 }
 
-if (checked < 20 || !routes.loaded) { console.error(`検査不成立: 動画 ${checked} 本 / サイト経路 ${routes.loaded}`); process.exit(2); }
+if (checked < (only ? 1 : 20) || !routes.loaded) { console.error(`検査不成立: 動画 ${checked} 本 / サイト経路 ${routes.loaded}`); process.exit(2); }
 console.log(`check-youtube-funnels: 公開・予約・private ${checked} 本、2026-10-31以降の新ルール ${upcoming} 本`);
 for (const line of problems) console.error(`  [FAIL] ${line}`);
 console.log(`結果: ${problems.length ? 'FAIL' : 'PASS'}（FAIL ${problems.length}）`);

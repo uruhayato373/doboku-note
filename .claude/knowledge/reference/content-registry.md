@@ -62,7 +62,7 @@ config/content-registry.json          チャネル×形式・アカウント・I
 |---|---|---|
 | `draft` | 作り手 | — |
 | `qa_blocked`・`qa_passed` | QA | `qa`（作品側） |
-| `approved` | **運営者だけ**（CLI） | **`approval.by='user'`**（approved 以降すべて）・`approval.contentSha256` |
+| `approved` | **運営者**（CLI）。YouTube の通常動画は関門を通った方針の承認も可（`video-factory.md`） | **`approval.by='user'` または `'policy'`**（approved 以降すべて）・`approval.contentSha256` |
 | `rendered` | 描画スクリプト | 役割の素材がそろっている |
 | `uploaded_private` | 投稿スクリプト | `platform.id` |
 | `scheduled` | 投稿スクリプト | **`publishAt`**・`platform.id` |

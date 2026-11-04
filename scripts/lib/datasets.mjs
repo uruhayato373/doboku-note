@@ -154,6 +154,7 @@ export const DATASETS = [
   d('config.youtube-delivery', 'config/youtube-delivery.json', 'config', 'sns', 'YouTube 配信の設定', { schema: 'ConfigYoutubeDelivery' }),
   d('config.youtube-production-disclosure', 'config/youtube-production-disclosure.json', 'config', 'sns', 'YouTube の制作の開示（合成メディア）', { schema: 'ConfigYoutubeProductionDisclosure' }),
   d('config.youtube-formats', 'config/youtube-formats.json', 'config', 'sns', 'YouTube の動画の型と採否（商品展開）・自社チャンネル', { schema: 'ConfigYoutubeFormats' }),
+  d('config.video-auto-publish', 'config/video-auto-publish.json', 'config', 'sns', '通常動画を人の承認なしで予約へ進める方針と関門の閾値', { schema: 'ConfigVideoAutoPublish' }),
   d('config.content-registry', 'config/content-registry.json', 'config', 'sns', 'コンテンツ台帳の設定（チャネル×形式・ID 規則・状態の語彙と遷移・切り替え済みのチャネル）', { schema: 'ConfigContentRegistry' }),
   // コンテンツ台帳（content/registry）。資格ごとの 1 ファイル。設計は content-registry.md
   d('registry.works', 'content/registry/works/{name}', 'config', 'sns', 'コンテンツ台帳: 作品（資格ごと）', { schema: 'RegistryWorks', refs: [{ at: 'exam', to: 'qualification', ignore: ['account'] }] }),
@@ -347,6 +348,7 @@ export const DATASETS = [
   d('state.quality-image-audit', '.claude/state/quality/image-audit.{name}', 'raw', 'ops', '画像アセットの監査の最新', { local: true, regen: 'npm run quality:audit' }),
   d('state.ai-image-review-ledger', '.claude/state/quality/ai-image-review-ledger.json', 'ledger', 'site', 'AI 生成の写真の実物どおり判定の記録（check-image-origin record-ai）'),
   d('state.video-agent-reviews', '.claude/state/quality/video-agent-reviews.json', 'ledger', 'sns', '承認待ちの動画を video-review エージェントが確認した判定'),
+  d('state.video-audio-checks', '.claude/state/quality/video-audio-checks.json', 'ledger', 'sns', '完成動画の音声を台本と機械で照合した結果（動画の sha に結ぶ）'),
   d('state.figure-review-ledger', '.claude/state/quality/figure-review-ledger.json', 'ledger', 'site', '図の目視判定の記録'),
   d('state.figure-crop-report', '.claude/state/quality/figure-crop-report.json', 'state', 'site', '図のクロップ品質の最新'),
   d('state.quality-campaigns', '.claude/state/quality/content-{name}.json', 'evidence', 'site', '記事の拡充・出典の回復の一回きりの作業記録'),
