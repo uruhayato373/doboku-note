@@ -31,6 +31,8 @@ import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
  *   node scripts/note-membership-plan-edit.mjs --plan <新規作成直後のid> --price 4980 --limit 20 --commit
  *   # 名前・説明も上書き（任意）
  *   node scripts/note-membership-plan-edit.mjs --plan <id> --name "…" --desc "…" --commit
+ *   # 特典マガジンの紐付けをすべて外す（マガジンは消えない）
+ *   node scripts/note-membership-plan-edit.mjs --plan <id> --unlink-all-benefit --commit
  *   # 特典マガジンを紐付ける（タイトル部分一致・カンマ区切りで複数）
  *   node scripts/note-membership-plan-edit.mjs --plan <id> --benefit-magazine "週次お題ラボ" --commit
  *
@@ -67,6 +69,8 @@ const DESC = getArg('--desc');
 const LIMIT = getArg('--limit');           // 定員（人数制限を有効化して数値設定）。省略時は触らない
 // 特典マガジンの紐付け（タイトル部分一致・カンマ区切り）。省略時は触らない。
 const BENEFIT_MAGS = (getArg('--benefit-magazine') || '').split(',').map((s) => s.trim()).filter(Boolean);
+// 特典マガジンの紐付けをすべて外す（プランを畳むとき。マガジン自体は消さない）。
+const UNLINK_ALL_BENEFIT = argv.includes('--unlink-all-benefit');
 const COMMIT = argv.includes('--commit');
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
@@ -228,6 +232,35 @@ if (BENEFIT_MAGS.length) {
     if (!b) return false; b.click(); return true;
   });
   console.log('[4b] ダイアログ「保存」click =', saved);
+  if (!saved) { console.error('ABORT: ダイアログの「保存」未検出'); await ctx.close(); process.exit(13); }
+  await sleep(3500);
+}
+
+if (UNLINK_ALL_BENEFIT) {
+  const opened = await page.evaluate(() => {
+    const b = [...document.querySelectorAll('button')].find((x) => /特典マガジンを選択/.test(x.innerText || ''));
+    if (!b) return false; b.click(); return true;
+  });
+  if (!opened) { console.error('ABORT: 「特典マガジンを選択」ボタン未検出（保存しない）'); await ctx.close(); process.exit(11); }
+  await sleep(4000);
+  const countSelected = () => page.evaluate(() => [...document.querySelectorAll('button')].filter((b) => (b.innerText || '').trim() === '選択済').length);
+  const before = await countSelected();
+  for (let i = 0; i < before + 2; i++) {
+    const clicked = await page.evaluate(() => {
+      const b = [...document.querySelectorAll('button')].find((x) => (x.innerText || '').trim() === '選択済');
+      if (!b) return false; b.click(); return true;
+    });
+    if (!clicked) break;
+    await sleep(1500);
+  }
+  const left = await countSelected();
+  console.log(`[4c] 特典マガジンの選択済: ${before} → ${left}`);
+  await page.screenshot({ path: join(TMP, `mplan-${PLAN}-unlink.png`), fullPage: true });
+  if (left !== 0) { console.error('ABORT: 紐付けを外しきれず（プランは保存しない）'); await ctx.close(); process.exit(12); }
+  const saved = await page.evaluate(() => {
+    const b = [...document.querySelectorAll('button')].find((x) => (x.innerText || '').trim() === '保存');
+    if (!b) return false; b.click(); return true;
+  });
   if (!saved) { console.error('ABORT: ダイアログの「保存」未検出'); await ctx.close(); process.exit(13); }
   await sleep(3500);
 }
