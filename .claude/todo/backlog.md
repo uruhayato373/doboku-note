@@ -26,7 +26,7 @@
 
 - **起点**: 2026-11-04 に `video-review` で承認待ち 43 本を確認し、fail が 15 本あった。判定と理由は `npm run -s video-review -- summary` と台帳 `.claude/state/quality/video-agent-reviews.json` にある
 - **やること**: 誤字、表紙の切れ、令和8年度予想の扱い、本人の合格経験の記述、計画や出題回数の古さ、総監の矛盾と択一の解説、完成動画の素材と文面の不足を直す。経験の事実は運営者が確かめる
-- **進捗（2026-11-04）**: 台本を直せる 9 本は修正した。再確認で 8 本が pass、道路は直後に再修正した。**残り**: ①sentaku-road-yomikata の再確認 ②hissu1-theme-map は R08 を入れて系統の回数を数え直す ③monbun-yomikata は場面の画像の作り直し ④sanso-kozo は youtube.json の文面の補完 ⑤sentaku-steel-concrete-yomikata は表紙の作り直し ⑥R8 予想の 3 本（kata-oudan-ryuyo・r8-yosou-theme・r8-yosou-dashikata）は取り下げの判断。stop は運営者だけが実行できる
+- **進捗（2026-11-04）**: 台本を直せる 8 本は修正した。再確認で 7 本が pass、道路は直後に再修正した。**残り**: ①sentaku-road-yomikata の再確認 ②hissu1-theme-map は R08 を入れて系統の回数を数え直す ③monbun-yomikata は場面の画像の作り直し ④sanso-kozo は youtube.json の文面の補完 ⑤sentaku-steel-concrete-yomikata は表紙の作り直し ⑥R8 予想の 3 本（kata-oudan-ryuyo・r8-yosou-theme・r8-yosou-dashikata）は取り下げの判断。stop は運営者だけが実行できる
 - **完了条件**: 直した動画を再確認して pass か取り下げかが決まっている
 
 
