@@ -8815,6 +8815,27 @@
       "actions": [
         "順位 20 位以内で表示の多い 30 ページの seoTitle を変更。走行中の実験の対象ページは除いた"
       ]
+    },
+    {
+      "id": "EXP-058",
+      "title": "検索語に答えていない実務 2 本・教科書 1 本の title と冒頭を直し、クリック率を上げる",
+      "hypothesis": "5〜8 位に居ながらクリックが無いのは、冒頭と title が検索語に一文で答えていないため",
+      "target_metric": "3 ページの GSC のクリック率と順位（前後 28 日）",
+      "target_delta": "3 ページ合計のクリック率が 1.5 倍。順位が 3 位以上下がるページが 2 本以上なら戻す",
+      "status": "running",
+      "created_at": "2026-11-04",
+      "next_check_date": "2026-12-30",
+      "updated_at": "2026-11-04T07:00:00.000Z",
+      "businessContext": {
+        "qualification": "civil-construction-1",
+        "readerNeed": "用語の違いや定義を短時間で知りたい",
+        "verifiedGap": "9/30〜10/27 の GSC で「ヒービング 盤ぶくれ 違い」87 表示 0 クリック 8.4 位、「供用開始とは」128 表示 0 クリック 5.0 位、「測角とは」80 表示 1 クリック 7.1 位",
+        "metricId": "gscClicks",
+        "reviewRecord": "data/business/records/review-2026-11-01T06-07-23-843Z-6abb9200-372f-4c28-9595-84f9ccde8750.json"
+      },
+      "actions": [
+        "excavation-bottom-failure・service-commencement・textbook-distance-angle の seoTitle と冒頭を変更"
+      ]
     }
   ]
 }

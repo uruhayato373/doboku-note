@@ -1,20 +1,20 @@
 {
   "schemaVersion": 1,
-  "runId": "2026-11-01T04-54-38Z",
-  "collectedAt": "2026-11-01T04:54:38.256Z",
+  "runId": "2026-11-04T05-56-21Z",
+  "collectedAt": "2026-11-04T05:56:22.001Z",
   "property": "sc-domain:doboku-note.com",
-  "mode": "dry-run",
-  "scriptVersion": "f9759f15c",
+  "mode": "commit",
+  "scriptVersion": "f6e380cee",
   "filter": {
     "category": null,
     "group": null
   },
-  "limit": 5,
-  "targetCount": 4,
+  "limit": 10,
+  "targetCount": 190,
   "items": [
     {
-      "slug": "/exam/pe-construction/guide/competency-revision-r8",
-      "url": "https://doboku-note.com/exam/pe-construction/guide/competency-revision-r8",
+      "slug": "/exam/pe-construction/keywords/bousai-genseigai-ronbun-keyword",
+      "url": "https://doboku-note.com/exam/pe-construction/keywords/bousai-genseigai-ronbun-keyword",
       "inspected": {
         "state": "indexed",
         "reason": null,
@@ -23,57 +23,3046 @@
         "crawlAllowed": null,
         "indexingAllowed": null
       },
-      "request": null,
+      "request": {
+        "requested": false,
+        "status": "already-indexed"
+      },
       "reachedVerdict": true
     },
     {
-      "slug": "/exam/rccm/guide/mondai3-themes-2026",
-      "url": "https://doboku-note.com/exam/rccm/guide/mondai3-themes-2026",
+      "slug": "/exam/pe-construction/keywords/chiiki-dukuri-ronbun-keyword",
+      "url": "https://doboku-note.com/exam/pe-construction/keywords/chiiki-dukuri-ronbun-keyword",
+      "inspected": {
+        "state": "indexed",
+        "reason": null,
+        "lastCrawl": null,
+        "discoveredVia": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "already-indexed"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/exam/pe-construction/keywords/datsutanso-kankyo-ronbun-keyword",
+      "url": "https://doboku-note.com/exam/pe-construction/keywords/datsutanso-kankyo-ronbun-keyword",
+      "inspected": {
+        "state": "indexed",
+        "reason": null,
+        "lastCrawl": null,
+        "discoveredVia": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "already-indexed"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/exam/pe-construction/keywords/ninaite-dx-ronbun-keyword",
+      "url": "https://doboku-note.com/exam/pe-construction/keywords/ninaite-dx-ronbun-keyword",
+      "inspected": {
+        "state": "indexed",
+        "reason": null,
+        "lastCrawl": null,
+        "discoveredVia": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "already-indexed"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/practice/sewerage-and-stormwater",
+      "url": "https://doboku-note.com/practice/sewerage-and-stormwater",
       "inspected": {
         "state": "not-indexed",
-        "reason": "クロール済み - インデックス未登録",
-        "lastCrawl": "2026/10/14 10:31:16",
-        "discoveredVia": "sitemap",
-        "crawlAllowed": true,
-        "indexingAllowed": null
-      },
-      "request": null,
-      "reachedVerdict": true
-    },
-    {
-      "slug": "/standards/kinki/common/chapters/7-2",
-      "url": "https://doboku-note.com/standards/kinki/common/chapters/7-2",
-      "inspected": {
-        "state": "indexed",
-        "reason": null,
+        "reason": "検出 - インデックス未登録",
         "lastCrawl": null,
-        "discoveredVia": null,
+        "discoveredVia": "sitemap",
         "crawlAllowed": null,
         "indexingAllowed": null
       },
-      "request": null,
+      "request": {
+        "requested": true,
+        "status": "accepted"
+      },
       "reachedVerdict": true
+    },
+    {
+      "slug": "/practice/social-infrastructure-overview",
+      "url": "https://doboku-note.com/practice/social-infrastructure-overview",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/practice/supervision-compliance-surveys",
+      "url": "https://doboku-note.com/practice/supervision-compliance-surveys",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/practice/survey-informatics-overview",
+      "url": "https://doboku-note.com/practice/survey-informatics-overview",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/practice/urban-greening",
+      "url": "https://doboku-note.com/practice/urban-greening",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/practice/waterworks-business",
+      "url": "https://doboku-note.com/practice/waterworks-business",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/practice/weather-information-reading",
+      "url": "https://doboku-note.com/practice/weather-information-reading",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/practice/wood-and-stone-materials",
+      "url": "https://doboku-note.com/practice/wood-and-stone-materials",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/exam/civil-construction-1/textbook/railway-underground",
+      "url": "https://doboku-note.com/exam/civil-construction-1/textbook/railway-underground",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/exam/civil-construction-1/textbook/sabo-landslide",
+      "url": "https://doboku-note.com/exam/civil-construction-1/textbook/sabo-landslide",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/exam/civil-construction-1/textbook/steel-structures",
+      "url": "https://doboku-note.com/exam/civil-construction-1/textbook/steel-structures",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/exam/civil-construction-2/guide/resume",
+      "url": "https://doboku-note.com/exam/civil-construction-2/guide/resume",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/exam/pe-comprehensive-management/past-exams/h21-secondary",
+      "url": "https://doboku-note.com/exam/pe-comprehensive-management/past-exams/h21-secondary",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/exam/pe-comprehensive-management/keywords/authenticity",
+      "url": "https://doboku-note.com/exam/pe-comprehensive-management/keywords/authenticity",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/exam/pe-comprehensive-management/keywords/competency-hr",
+      "url": "https://doboku-note.com/exam/pe-comprehensive-management/keywords/competency-hr",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/exam/pe-comprehensive-management/keywords/diversity-management",
+      "url": "https://doboku-note.com/exam/pe-comprehensive-management/keywords/diversity-management",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/exam/pe-comprehensive-management/keywords/initial-investment",
+      "url": "https://doboku-note.com/exam/pe-comprehensive-management/keywords/initial-investment",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/exam/pe-comprehensive-management/keywords/jit-production",
+      "url": "https://doboku-note.com/exam/pe-comprehensive-management/keywords/jit-production",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/exam/pe-comprehensive-management/keywords/job-execution-ability",
+      "url": "https://doboku-note.com/exam/pe-comprehensive-management/keywords/job-execution-ability",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/exam/pe-comprehensive-management/keywords/key-performance-indicators",
+      "url": "https://doboku-note.com/exam/pe-comprehensive-management/keywords/key-performance-indicators",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/exam/pe-comprehensive-management/keywords/labor-tribunal-act",
+      "url": "https://doboku-note.com/exam/pe-comprehensive-management/keywords/labor-tribunal-act",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
     },
     {
       "slug": "/exam/pe-comprehensive-management/keywords/mental-health",
       "url": "https://doboku-note.com/exam/pe-comprehensive-management/keywords/mental-health",
       "inspected": {
-        "state": "indexed",
+        "state": null,
         "reason": null,
         "lastCrawl": null,
-        "discoveredVia": null,
         "crawlAllowed": null,
         "indexingAllowed": null
       },
-      "request": null,
-      "reachedVerdict": true
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/exam/pe-comprehensive-management/keywords/pollution-control-manager",
+      "url": "https://doboku-note.com/exam/pe-comprehensive-management/keywords/pollution-control-manager",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/exam/pe-comprehensive-management/keywords/probabilistic-risk-assessment",
+      "url": "https://doboku-note.com/exam/pe-comprehensive-management/keywords/probabilistic-risk-assessment",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/exam/pe-comprehensive-management/keywords/sexual-harassment",
+      "url": "https://doboku-note.com/exam/pe-comprehensive-management/keywords/sexual-harassment",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/chubu/special/chapters/10-13",
+      "url": "https://doboku-note.com/standards/chubu/special/chapters/10-13",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/chubu/special/chapters/6-7",
+      "url": "https://doboku-note.com/standards/chubu/special/chapters/6-7",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/hokkaido/appendix/chapters/10-1",
+      "url": "https://doboku-note.com/standards/hokkaido/appendix/chapters/10-1",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/hokkaido/appendix/chapters/11-1",
+      "url": "https://doboku-note.com/standards/hokkaido/appendix/chapters/11-1",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/hokkaido/appendix/chapters/12-1",
+      "url": "https://doboku-note.com/standards/hokkaido/appendix/chapters/12-1",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/hokkaido/appendix/chapters/13-1",
+      "url": "https://doboku-note.com/standards/hokkaido/appendix/chapters/13-1",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/hokkaido/appendix/chapters/14-1",
+      "url": "https://doboku-note.com/standards/hokkaido/appendix/chapters/14-1",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/hokkaido/appendix/chapters/14-2",
+      "url": "https://doboku-note.com/standards/hokkaido/appendix/chapters/14-2",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/hokkaido/appendix/chapters/15-1",
+      "url": "https://doboku-note.com/standards/hokkaido/appendix/chapters/15-1",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/hokkaido/appendix/chapters/2-1",
+      "url": "https://doboku-note.com/standards/hokkaido/appendix/chapters/2-1",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/hokkaido/appendix/chapters/5-1",
+      "url": "https://doboku-note.com/standards/hokkaido/appendix/chapters/5-1",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/hokkaido/appendix/chapters/6-1",
+      "url": "https://doboku-note.com/standards/hokkaido/appendix/chapters/6-1",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/hokkaido/local/chapters/10-14",
+      "url": "https://doboku-note.com/standards/hokkaido/local/chapters/10-14",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/hokkaido/local/chapters/10-2",
+      "url": "https://doboku-note.com/standards/hokkaido/local/chapters/10-2",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/hokkaido/local/chapters/10-4",
+      "url": "https://doboku-note.com/standards/hokkaido/local/chapters/10-4",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/hokkaido/local/chapters/10-8",
+      "url": "https://doboku-note.com/standards/hokkaido/local/chapters/10-8",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/hokkaido/local/chapters/6-3",
+      "url": "https://doboku-note.com/standards/hokkaido/local/chapters/6-3",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/hokuriku/hikkei/chapters/1-1",
+      "url": "https://doboku-note.com/standards/hokuriku/hikkei/chapters/1-1",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/hokuriku/hikkei/chapters/2-1",
+      "url": "https://doboku-note.com/standards/hokuriku/hikkei/chapters/2-1",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/hokuriku/hikkei/chapters/2-2",
+      "url": "https://doboku-note.com/standards/hokuriku/hikkei/chapters/2-2",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/hokuriku/hikkei/chapters/3-1",
+      "url": "https://doboku-note.com/standards/hokuriku/hikkei/chapters/3-1",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/hokuriku/hikkei/chapters/3-2",
+      "url": "https://doboku-note.com/standards/hokuriku/hikkei/chapters/3-2",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/hokuriku/hikkei/chapters/4-1",
+      "url": "https://doboku-note.com/standards/hokuriku/hikkei/chapters/4-1",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/hokuriku/hikkei/chapters/5-1",
+      "url": "https://doboku-note.com/standards/hokuriku/hikkei/chapters/5-1",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/hokuriku/hikkei/chapters/5-2",
+      "url": "https://doboku-note.com/standards/hokuriku/hikkei/chapters/5-2",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/kanto/manual/chapters/1-1",
+      "url": "https://doboku-note.com/standards/kanto/manual/chapters/1-1",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/kanto/manual/chapters/1-10",
+      "url": "https://doboku-note.com/standards/kanto/manual/chapters/1-10",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/kanto/manual/chapters/1-3",
+      "url": "https://doboku-note.com/standards/kanto/manual/chapters/1-3",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/kanto/manual/chapters/1-4",
+      "url": "https://doboku-note.com/standards/kanto/manual/chapters/1-4",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/kanto/manual/chapters/1-5",
+      "url": "https://doboku-note.com/standards/kanto/manual/chapters/1-5",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/kanto/manual/chapters/1-6",
+      "url": "https://doboku-note.com/standards/kanto/manual/chapters/1-6",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/kanto/manual/chapters/1-7",
+      "url": "https://doboku-note.com/standards/kanto/manual/chapters/1-7",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/kanto/manual/chapters/1-8",
+      "url": "https://doboku-note.com/standards/kanto/manual/chapters/1-8",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/kanto/manual/chapters/1-9",
+      "url": "https://doboku-note.com/standards/kanto/manual/chapters/1-9",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/kanto/manual/chapters/2-2",
+      "url": "https://doboku-note.com/standards/kanto/manual/chapters/2-2",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/kanto/manual/chapters/2-3",
+      "url": "https://doboku-note.com/standards/kanto/manual/chapters/2-3",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/kanto/manual/chapters/2-4",
+      "url": "https://doboku-note.com/standards/kanto/manual/chapters/2-4",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/kanto/manual/chapters/2-5",
+      "url": "https://doboku-note.com/standards/kanto/manual/chapters/2-5",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/kanto/manual/chapters/2-6",
+      "url": "https://doboku-note.com/standards/kanto/manual/chapters/2-6",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/kinki/common/chapters/3-2/sections/1",
+      "url": "https://doboku-note.com/standards/kinki/common/chapters/3-2/sections/1",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/kinki/common/chapters/3-2/sections/10",
+      "url": "https://doboku-note.com/standards/kinki/common/chapters/3-2/sections/10",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/kinki/common/chapters/3-2/sections/11",
+      "url": "https://doboku-note.com/standards/kinki/common/chapters/3-2/sections/11",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/kinki/common/chapters/3-2/sections/12",
+      "url": "https://doboku-note.com/standards/kinki/common/chapters/3-2/sections/12",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/kinki/common/chapters/3-2/sections/13",
+      "url": "https://doboku-note.com/standards/kinki/common/chapters/3-2/sections/13",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/kinki/common/chapters/3-2/sections/14",
+      "url": "https://doboku-note.com/standards/kinki/common/chapters/3-2/sections/14",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/kinki/common/chapters/3-2/sections/15",
+      "url": "https://doboku-note.com/standards/kinki/common/chapters/3-2/sections/15",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/kinki/common/chapters/3-2/sections/16",
+      "url": "https://doboku-note.com/standards/kinki/common/chapters/3-2/sections/16",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/kinki/common/chapters/3-2/sections/17",
+      "url": "https://doboku-note.com/standards/kinki/common/chapters/3-2/sections/17",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/kinki/common/chapters/3-2/sections/2",
+      "url": "https://doboku-note.com/standards/kinki/common/chapters/3-2/sections/2",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/kinki/common/chapters/3-2/sections/3",
+      "url": "https://doboku-note.com/standards/kinki/common/chapters/3-2/sections/3",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/kinki/common/chapters/3-2/sections/4",
+      "url": "https://doboku-note.com/standards/kinki/common/chapters/3-2/sections/4",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/kinki/common/chapters/3-2/sections/5",
+      "url": "https://doboku-note.com/standards/kinki/common/chapters/3-2/sections/5",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/kinki/common/chapters/3-2/sections/6",
+      "url": "https://doboku-note.com/standards/kinki/common/chapters/3-2/sections/6",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/kinki/common/chapters/3-2/sections/8",
+      "url": "https://doboku-note.com/standards/kinki/common/chapters/3-2/sections/8",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/kinki/common/chapters/3-2/sections/9",
+      "url": "https://doboku-note.com/standards/kinki/common/chapters/3-2/sections/9",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/kinki/common/chapters/7-2",
+      "url": "https://doboku-note.com/standards/kinki/common/chapters/7-2",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/kinki/hikkei/chapters/1-1",
+      "url": "https://doboku-note.com/standards/kinki/hikkei/chapters/1-1",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/kinki/hikkei/chapters/10-1",
+      "url": "https://doboku-note.com/standards/kinki/hikkei/chapters/10-1",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/kinki/hikkei/chapters/12-1",
+      "url": "https://doboku-note.com/standards/kinki/hikkei/chapters/12-1",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/kinki/hikkei/chapters/12-10",
+      "url": "https://doboku-note.com/standards/kinki/hikkei/chapters/12-10",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/kinki/hikkei/chapters/12-11",
+      "url": "https://doboku-note.com/standards/kinki/hikkei/chapters/12-11",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/kinki/hikkei/chapters/12-13",
+      "url": "https://doboku-note.com/standards/kinki/hikkei/chapters/12-13",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/kinki/hikkei/chapters/12-16",
+      "url": "https://doboku-note.com/standards/kinki/hikkei/chapters/12-16",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/kinki/hikkei/chapters/12-18",
+      "url": "https://doboku-note.com/standards/kinki/hikkei/chapters/12-18",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/kinki/hikkei/chapters/12-2",
+      "url": "https://doboku-note.com/standards/kinki/hikkei/chapters/12-2",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/kinki/hikkei/chapters/12-3",
+      "url": "https://doboku-note.com/standards/kinki/hikkei/chapters/12-3",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/kinki/hikkei/chapters/12-4",
+      "url": "https://doboku-note.com/standards/kinki/hikkei/chapters/12-4",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/kinki/hikkei/chapters/12-5",
+      "url": "https://doboku-note.com/standards/kinki/hikkei/chapters/12-5",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/kinki/hikkei/chapters/12-6",
+      "url": "https://doboku-note.com/standards/kinki/hikkei/chapters/12-6",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/kinki/hikkei/chapters/12-7",
+      "url": "https://doboku-note.com/standards/kinki/hikkei/chapters/12-7",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/kinki/hikkei/chapters/12-8",
+      "url": "https://doboku-note.com/standards/kinki/hikkei/chapters/12-8",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/kinki/hikkei/chapters/12-9",
+      "url": "https://doboku-note.com/standards/kinki/hikkei/chapters/12-9",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/kinki/hikkei/chapters/2-1",
+      "url": "https://doboku-note.com/standards/kinki/hikkei/chapters/2-1",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/kinki/hikkei/chapters/2-2",
+      "url": "https://doboku-note.com/standards/kinki/hikkei/chapters/2-2",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/kinki/hikkei/chapters/2-3",
+      "url": "https://doboku-note.com/standards/kinki/hikkei/chapters/2-3",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/kinki/hikkei/chapters/3-1",
+      "url": "https://doboku-note.com/standards/kinki/hikkei/chapters/3-1",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/kinki/hikkei/chapters/3-2",
+      "url": "https://doboku-note.com/standards/kinki/hikkei/chapters/3-2",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/kinki/hikkei/chapters/32-1",
+      "url": "https://doboku-note.com/standards/kinki/hikkei/chapters/32-1",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/kinki/hikkei/chapters/34-4",
+      "url": "https://doboku-note.com/standards/kinki/hikkei/chapters/34-4",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/kinki/hikkei/chapters/4-1",
+      "url": "https://doboku-note.com/standards/kinki/hikkei/chapters/4-1",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/kinki/hikkei/chapters/4-2",
+      "url": "https://doboku-note.com/standards/kinki/hikkei/chapters/4-2",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/kinki/hikkei/chapters/4-3",
+      "url": "https://doboku-note.com/standards/kinki/hikkei/chapters/4-3",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/kinki/hikkei/chapters/4-4",
+      "url": "https://doboku-note.com/standards/kinki/hikkei/chapters/4-4",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/kinki/hikkei/chapters/4-5",
+      "url": "https://doboku-note.com/standards/kinki/hikkei/chapters/4-5",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/kinki/hikkei/chapters/4-6",
+      "url": "https://doboku-note.com/standards/kinki/hikkei/chapters/4-6",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/kinki/hikkei/chapters/4-7",
+      "url": "https://doboku-note.com/standards/kinki/hikkei/chapters/4-7",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/kinki/hikkei/chapters/4-8",
+      "url": "https://doboku-note.com/standards/kinki/hikkei/chapters/4-8",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/kinki/hikkei/chapters/5-1",
+      "url": "https://doboku-note.com/standards/kinki/hikkei/chapters/5-1",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/kinki/hikkei/chapters/5-2",
+      "url": "https://doboku-note.com/standards/kinki/hikkei/chapters/5-2",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/kinki/hikkei/chapters/6-1",
+      "url": "https://doboku-note.com/standards/kinki/hikkei/chapters/6-1",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/kinki/hikkei/chapters/7-1",
+      "url": "https://doboku-note.com/standards/kinki/hikkei/chapters/7-1",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/kinki/hikkei/chapters/8-2",
+      "url": "https://doboku-note.com/standards/kinki/hikkei/chapters/8-2",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/kinki/hikkei/chapters/8-3",
+      "url": "https://doboku-note.com/standards/kinki/hikkei/chapters/8-3",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/kyushu/hikkei-common-08/chapters/1-1",
+      "url": "https://doboku-note.com/standards/kyushu/hikkei-common-08/chapters/1-1",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/kyushu/hikkei-common-08/chapters/2-1",
+      "url": "https://doboku-note.com/standards/kyushu/hikkei-common-08/chapters/2-1",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/kyushu/hikkei-common-10/chapters/1-4",
+      "url": "https://doboku-note.com/standards/kyushu/hikkei-common-10/chapters/1-4",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/kyushu/hikkei-common-10/chapters/1-7",
+      "url": "https://doboku-note.com/standards/kyushu/hikkei-common-10/chapters/1-7",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/kyushu/hikkei-common-10/chapters/2-5",
+      "url": "https://doboku-note.com/standards/kyushu/hikkei-common-10/chapters/2-5",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/kyushu/hikkei-common-10/chapters/4-3",
+      "url": "https://doboku-note.com/standards/kyushu/hikkei-common-10/chapters/4-3",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/kyushu/hikkei-common-10/chapters/4-6",
+      "url": "https://doboku-note.com/standards/kyushu/hikkei-common-10/chapters/4-6",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/kyushu/hikkei-common-10/chapters/4-8",
+      "url": "https://doboku-note.com/standards/kyushu/hikkei-common-10/chapters/4-8",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/kyushu/hikkei-common-10/chapters/5-2",
+      "url": "https://doboku-note.com/standards/kyushu/hikkei-common-10/chapters/5-2",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/kyushu/management-manual/chapters/1-1",
+      "url": "https://doboku-note.com/standards/kyushu/management-manual/chapters/1-1",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/kyushu/management-manual/chapters/2-1",
+      "url": "https://doboku-note.com/standards/kyushu/management-manual/chapters/2-1",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/kyushu/management-manual/chapters/2-2",
+      "url": "https://doboku-note.com/standards/kyushu/management-manual/chapters/2-2",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/kyushu/management-manual/chapters/2-3",
+      "url": "https://doboku-note.com/standards/kyushu/management-manual/chapters/2-3",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/kyushu/management-manual/chapters/2-4",
+      "url": "https://doboku-note.com/standards/kyushu/management-manual/chapters/2-4",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/kyushu/management-manual/chapters/2-5",
+      "url": "https://doboku-note.com/standards/kyushu/management-manual/chapters/2-5",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/kyushu/management-manual/chapters/2-6",
+      "url": "https://doboku-note.com/standards/kyushu/management-manual/chapters/2-6",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/kyushu/management-manual/chapters/2-7",
+      "url": "https://doboku-note.com/standards/kyushu/management-manual/chapters/2-7",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/kyushu/management-manual/chapters/2-8",
+      "url": "https://doboku-note.com/standards/kyushu/management-manual/chapters/2-8",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/kyushu/management-manual/chapters/3-1",
+      "url": "https://doboku-note.com/standards/kyushu/management-manual/chapters/3-1",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/kyushu/management-manual/chapters/3-10",
+      "url": "https://doboku-note.com/standards/kyushu/management-manual/chapters/3-10",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/kyushu/management-manual/chapters/3-11",
+      "url": "https://doboku-note.com/standards/kyushu/management-manual/chapters/3-11",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/kyushu/management-manual/chapters/3-2",
+      "url": "https://doboku-note.com/standards/kyushu/management-manual/chapters/3-2",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/kyushu/management-manual/chapters/3-3",
+      "url": "https://doboku-note.com/standards/kyushu/management-manual/chapters/3-3",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/kyushu/management-manual/chapters/3-4",
+      "url": "https://doboku-note.com/standards/kyushu/management-manual/chapters/3-4",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/kyushu/management-manual/chapters/3-5",
+      "url": "https://doboku-note.com/standards/kyushu/management-manual/chapters/3-5",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/kyushu/management-manual/chapters/3-6",
+      "url": "https://doboku-note.com/standards/kyushu/management-manual/chapters/3-6",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/kyushu/management-manual/chapters/3-7",
+      "url": "https://doboku-note.com/standards/kyushu/management-manual/chapters/3-7",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/kyushu/management-manual/chapters/3-8",
+      "url": "https://doboku-note.com/standards/kyushu/management-manual/chapters/3-8",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/kyushu/management-manual/chapters/3-9",
+      "url": "https://doboku-note.com/standards/kyushu/management-manual/chapters/3-9",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/kyushu/management-manual/chapters/4-1",
+      "url": "https://doboku-note.com/standards/kyushu/management-manual/chapters/4-1",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/kyushu/management-manual/chapters/4-2",
+      "url": "https://doboku-note.com/standards/kyushu/management-manual/chapters/4-2",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/kyushu/management-manual/chapters/4-3",
+      "url": "https://doboku-note.com/standards/kyushu/management-manual/chapters/4-3",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/kyushu/management-manual/chapters/5-1",
+      "url": "https://doboku-note.com/standards/kyushu/management-manual/chapters/5-1",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/kyushu/management-manual/chapters/5-2",
+      "url": "https://doboku-note.com/standards/kyushu/management-manual/chapters/5-2",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/kyushu/management-manual/chapters/5-3",
+      "url": "https://doboku-note.com/standards/kyushu/management-manual/chapters/5-3",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/kyushu/management-manual/chapters/5-4",
+      "url": "https://doboku-note.com/standards/kyushu/management-manual/chapters/5-4",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/kyushu/management-manual/chapters/5-5",
+      "url": "https://doboku-note.com/standards/kyushu/management-manual/chapters/5-5",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/kyushu/management-manual/chapters/5-6",
+      "url": "https://doboku-note.com/standards/kyushu/management-manual/chapters/5-6",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/kyushu/management-manual/chapters/5-7",
+      "url": "https://doboku-note.com/standards/kyushu/management-manual/chapters/5-7",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/mlit/sekou-kanri-kijun/chapters/10-1",
+      "url": "https://doboku-note.com/standards/mlit/sekou-kanri-kijun/chapters/10-1",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/mlit/sekou-kanri-kijun/chapters/2-1",
+      "url": "https://doboku-note.com/standards/mlit/sekou-kanri-kijun/chapters/2-1",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/mlit/sekou-kanri-kijun/chapters/3-1",
+      "url": "https://doboku-note.com/standards/mlit/sekou-kanri-kijun/chapters/3-1",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/mlit/sekou-kanri-kijun/chapters/3-3",
+      "url": "https://doboku-note.com/standards/mlit/sekou-kanri-kijun/chapters/3-3",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/mlit/sekou-kanri-kijun/chapters/3-4",
+      "url": "https://doboku-note.com/standards/mlit/sekou-kanri-kijun/chapters/3-4",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/mlit/sekou-kanri-kijun/chapters/3-5",
+      "url": "https://doboku-note.com/standards/mlit/sekou-kanri-kijun/chapters/3-5",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/mlit/sekou-kanri-kijun/chapters/3-6",
+      "url": "https://doboku-note.com/standards/mlit/sekou-kanri-kijun/chapters/3-6",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/mlit/sekou-kanri-kijun/chapters/3-7",
+      "url": "https://doboku-note.com/standards/mlit/sekou-kanri-kijun/chapters/3-7",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/mlit/sekou-kanri-kijun/chapters/3-8",
+      "url": "https://doboku-note.com/standards/mlit/sekou-kanri-kijun/chapters/3-8",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/mlit/sekou-kanri-kijun/chapters/5-1",
+      "url": "https://doboku-note.com/standards/mlit/sekou-kanri-kijun/chapters/5-1",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/mlit/sekou-kanri-kijun/chapters/7-1",
+      "url": "https://doboku-note.com/standards/mlit/sekou-kanri-kijun/chapters/7-1",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/mlit/sekou-kanri-kijun/chapters/8-1",
+      "url": "https://doboku-note.com/standards/mlit/sekou-kanri-kijun/chapters/8-1",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/mlit/sekou-kanri-kijun/chapters/8-2",
+      "url": "https://doboku-note.com/standards/mlit/sekou-kanri-kijun/chapters/8-2",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/mlit/sekou-kanri-kijun/chapters/8-3",
+      "url": "https://doboku-note.com/standards/mlit/sekou-kanri-kijun/chapters/8-3",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/mlit/sekou-kanri-kijun/chapters/8-4",
+      "url": "https://doboku-note.com/standards/mlit/sekou-kanri-kijun/chapters/8-4",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/mlit/sekou-kanri-kijun/chapters/8-5",
+      "url": "https://doboku-note.com/standards/mlit/sekou-kanri-kijun/chapters/8-5",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/mlit/sekou-kanri-kijun/chapters/8-6",
+      "url": "https://doboku-note.com/standards/mlit/sekou-kanri-kijun/chapters/8-6",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/mlit/sekou-kanri-kijun/chapters/9-1",
+      "url": "https://doboku-note.com/standards/mlit/sekou-kanri-kijun/chapters/9-1",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/mlit/sekou-kanri-kijun/chapters/9-2",
+      "url": "https://doboku-note.com/standards/mlit/sekou-kanri-kijun/chapters/9-2",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/mlit/sekou-kanri-kijun/chapters/9-3",
+      "url": "https://doboku-note.com/standards/mlit/sekou-kanri-kijun/chapters/9-3",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/mlit/sekou-kanri-kijun/chapters/9-4",
+      "url": "https://doboku-note.com/standards/mlit/sekou-kanri-kijun/chapters/9-4",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/mlit/sekou-kanri-kijun/chapters/9-6",
+      "url": "https://doboku-note.com/standards/mlit/sekou-kanri-kijun/chapters/9-6",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/mlit/sekou-kanri-kijun/chapters/9-7",
+      "url": "https://doboku-note.com/standards/mlit/sekou-kanri-kijun/chapters/9-7",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/mlit/sekou-kanri-kijun/chapters/9-8",
+      "url": "https://doboku-note.com/standards/mlit/sekou-kanri-kijun/chapters/9-8",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/mlit/sekou-kanri-kijun/chapters/9-9",
+      "url": "https://doboku-note.com/standards/mlit/sekou-kanri-kijun/chapters/9-9",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/shikoku/manual/chapters/1-1",
+      "url": "https://doboku-note.com/standards/shikoku/manual/chapters/1-1",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/shikoku/manual/chapters/1-10",
+      "url": "https://doboku-note.com/standards/shikoku/manual/chapters/1-10",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/shikoku/manual/chapters/1-11",
+      "url": "https://doboku-note.com/standards/shikoku/manual/chapters/1-11",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
+    },
+    {
+      "slug": "/standards/shikoku/manual/chapters/1-12",
+      "url": "https://doboku-note.com/standards/shikoku/manual/chapters/1-12",
+      "inspected": {
+        "state": null,
+        "reason": null,
+        "lastCrawl": null,
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "inspection-unreadable"
+      },
+      "reachedVerdict": false
     }
   ],
-  "status": "dry-ok",
+  "status": "inspection-unreadable",
   "summary": {
-    "inspected": 4,
-    "accepted": 0,
-    "alreadyIndexed": 3,
-    "unreadable": 0
+    "inspected": 190,
+    "accepted": 1,
+    "alreadyIndexed": 4,
+    "unreadable": 185
   }
 }
