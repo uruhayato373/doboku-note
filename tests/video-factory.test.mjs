@@ -12,7 +12,7 @@ import {
 } from '../scripts/lib/video-factory.mjs';
 
 const PACK = 'pe-construction/sample';
-const scene = (id, extra = {}) => ({ sceneId: id, start: 0, end: 5, narration: `${id}の説明`, caption: id, visual: { heading: `${id}の見出し`, items: ['甲\n乙', '丙'], art: { type: 'steps', note: '注記' } }, ...extra });
+const scene = (id, extra = {}) => ({ sceneId: id, start: 0, end: 5, narration: `${id}の説明`, caption: id, visual: { heading: `${id}の見出し`, items: ['甲\n乙', '丙'], art: { type: 'steps', note: '注記', center: '中央の語' } }, ...extra });
 const png = (width, height, background = '#f0f0f0') => sharp({ create: { width, height, channels: 3, background } })
   .composite([{ input: { create: { width: Math.floor(width / 2), height: Math.floor(height / 2), channels: 3, background: '#203080' } }, left: 40, top: 40 }]).png().toBuffer();
 const noisyBottom = async (width, height) => sharp(await png(width, height))
@@ -48,7 +48,7 @@ test('generateWithCodexAsync: 偽の実行で画像の有無を返す', async ()
 test('指示は原稿だけから決まり、指定の文字を含む', () => {
   const s = scene('a');
   assert.equal(buildBodyPrompt(s, 'pe-construction'), buildBodyPrompt(s, 'pe-construction'));
-  for (const word of ['aの見出し', '甲 乙', '丙', '注記', 'インディゴ']) assert.ok(buildBodyPrompt(s, 'pe-construction').includes(word), word);
+  for (const word of ['aの見出し', '甲 乙', '丙', '注記', '中央の語', 'インディゴ']) assert.ok(buildBodyPrompt(s, 'pe-construction').includes(word), word);
   assert.ok(!buildBodyPrompt({ sceneId: 'x', narration: 'n', visual: {} }, 'x').includes('undefined'));
   const cover = buildCoverPrompt({ headline: ['技術士', '口頭対策'] }, 'pe-construction');
   assert.ok(cover.includes('『技術士』『口頭対策』') && cover.includes('総監が制作'));

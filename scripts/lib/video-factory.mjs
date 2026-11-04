@@ -20,7 +20,9 @@ import { coverInputDigest } from './youtube-approved-cover.mjs';
 export const MAX_ATTEMPTS = 3;
 const SUBTITLE_ZONE = 0.18; // 本文の下端は字幕が載る。生成指示と機械検査で同じ値を使う
 const SUBTITLE_STDEV_MAX = 14;
-const COVER_STYLE = '.tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png';
+// 通常動画の基準（pop-image-policy.md）が使った 2 枚。どちらも Drive の content-media にある
+const COVER_STYLE = '.tmp/media/pe-comprehensive-management/sanso-kozo/youtube.longform/cover.b87e20c1.png';
+const CHARACTER = '.tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png';
 const BODY_STYLE = '.tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png';
 const PALETTES = {
   'pe-construction': '深いインディゴ #33356B と明るい青紫', // qualification-ssot: allow 画像の配色の指示で資格名ではない
@@ -71,7 +73,8 @@ export function buildBodyPrompt(scene, exam) {
     `見出し『${scene.visual?.heading ?? scene.sceneId}』。`,
     COMPOSITION[art.type] ? `構図: ${COMPOSITION[art.type]}。` : '',
     words.length ? `図に入れる文字: ${words.map((w) => `『${w}』`).join(' ')}。` : '',
-    art.note ? `図の下に『${oneLine(art.note)}』。` : '',
+    art.center ? `図の中央に『${oneLine(art.center)}』。` : '',
+    art.note ? `図の下に『${oneLine(art.note)}』の全文を省かずに入れる。` : '',
     `この場面の説明（文字にしない）: ${oneLine(scene.narration)}`,
   ].filter(Boolean).join(' ');
 }
@@ -110,7 +113,7 @@ export function buildPlan(root, pack, { scope = 'all', date, refs = fileRef } = 
   };
   const items = [keep({
     id: 'cover', kind: 'cover', inputSha256: coverInput(spec), basePrompt: buildCoverPrompt(spec, exam),
-    references: [refs(root, COVER_STYLE), refs(root, `content/sns/_assets/character/_source/${spec.character?.pose ?? 'pop-explaining'}.png`)],
+    references: [refs(root, COVER_STYLE), refs(root, CHARACTER)],
     attempts: 0, raw: null, audit: null,
   })];
   if (scope === 'all') {
