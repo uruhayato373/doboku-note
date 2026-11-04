@@ -69901,6 +69901,58 @@
       "verifiedAt": "2026-11-04T05:33:57.625Z",
       "width": 1280,
       "height": 670
+    },
+    "content/site/pe-water-supply/guide-hissu-kamoku/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/pe-water-supply/guide-hissu-kamoku/ogp.png",
+      "sha256": "256295bd7532697d224977803966c78441c9ffca1bd2bafc44a9e7c0cf3e3ecc",
+      "bytes": 59358,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-11-04T07:23:23.924Z",
+      "width": 1200,
+      "height": 630,
+      "srcHash": "b0eec4f8016cbc23"
+    },
+    "content/site/pe-water-supply/guide-sentaku-kamoku/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/pe-water-supply/guide-sentaku-kamoku/ogp.png",
+      "sha256": "06b132932e25e17892e336ed5512191aba953240a2f16537cbbeeacaac328dca",
+      "bytes": 55530,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-11-04T07:23:23.989Z",
+      "width": 1200,
+      "height": 630,
+      "srcHash": "58d0995cf455ea30"
+    },
+    "content/site/pe-water-supply/guide-overview/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/pe-water-supply/guide-overview/ogp.png",
+      "sha256": "d0830df7f681782fe204a63f8880ceaab32629417d762339a892b5a965785919",
+      "bytes": 54725,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-11-04T07:23:24.138Z",
+      "width": 1200,
+      "height": 630,
+      "srcHash": "24f9f5cfd62609cb"
+    },
+    "content/site/pe-water-supply/guide-study-plan/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/pe-water-supply/guide-study-plan/ogp.png",
+      "sha256": "75b17593c59843741acd1ec0c2898bb1f81b7a55a75dd2081d321ebcd0651777",
+      "bytes": 47617,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-11-04T07:23:24.151Z",
+      "width": 1200,
+      "height": 630,
+      "srcHash": "dae4a2dd3b77ef9d"
     }
   },
   "note": "DN-0111 Phase 3。秘密値・署名 URL・絶対パスを書かないこと。",
