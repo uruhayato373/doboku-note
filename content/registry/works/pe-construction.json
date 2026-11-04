@@ -196,7 +196,13 @@
     {
       "id": "pe-kojutsu-keireki",
       "kind": "video-pack",
-      "definition": "content/sns/video-packs/pe-construction/pe-kojutsu-keireki"
+      "definition": "content/sns/video-packs/pe-construction/pe-kojutsu-keireki",
+      "qa": {
+        "avg": 2.5,
+        "blocks": 0,
+        "at": "2026-11-04",
+        "by": "Claude Code video-content-qa"
+      }
     },
     {
       "id": "r8-yosou-dashikata",
