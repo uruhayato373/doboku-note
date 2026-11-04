@@ -1,8 +1,18 @@
 {
   "schemaVersion": 1,
   "description": "obsidian の mail-triage（毎日 cron）がメールから拾ったイベント。売上の正本ではない——正本は各リポのスクレイパーが取るログ。辞書は obsidian .claude/mail-rules.json",
-  "updatedAt": "2026-11-03T03:41:31.950Z",
+  "updatedAt": "2026-11-04T02:40:31.804Z",
   "events": [
+    {
+      "id": "1a1a10c5302116eb",
+      "receivedAt": "2026-11-03T10:55:01.000Z",
+      "account": "doboku",
+      "kind": "note-payout",
+      "label": "note 振込依頼（月次の出金）",
+      "amountYen": 57165,
+      "acceptedAt": "2026/11/03",
+      "payDate": "2026年11月末予定"
+    },
     {
       "id": "1a19ecfbcba535e9",
       "receivedAt": "2026-11-03T00:29:36.000Z",

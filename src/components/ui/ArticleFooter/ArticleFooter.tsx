@@ -15,6 +15,7 @@ import { type ResolvedHubCta } from '@/lib/hub-cta';
 import OffsiteCta from '@/components/ui/OffsiteCta';
 import { type OffsiteCtaItem } from '@/lib/offsite-cta';
 import TextbookNav from '@/components/ui/TextbookNav/TextbookNav';
+import ExamYearNav from '@/components/ui/TextbookNav/ExamYearNav';
 import CategoryNavCard from '@/components/ui/CategoryNavCard/CategoryNavCard';
 import FAQCard from '@/components/ui/FAQCard/FAQCard';
 import SidebarAdBanner from '@/components/ui/SidebarAdBanner/SidebarAdBanner';
@@ -112,6 +113,7 @@ export default function ArticleFooter({
 
   return (
     <>
+      {slugStr && <ExamYearNav currentSlug={slugStr} categoryArticles={categoryArticles} />}
       {lawPage && <LawPageSections data={lawPage} />}
       {!isCareer && category && <RelatedTools category={category} slug={slugStr} />}
       {/* 参考資料カード（## 参考資料 セクションを抽出したもの。全カテゴリ共通） */}

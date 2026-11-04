@@ -283,7 +283,7 @@ export async function uploadImage(page, imgPath, { tag = '[img]', force = false 
   await dismissModal(page);
   // アップロード済み画像枚数。プレビューは <img> でなく、populated スロットに
   // 削除× `a.js_delete-button`（.delete-button）が付く（2026-07-18 実機確定）。これを数える。
-  const countImgs = () => page.evaluate(() => document.querySelectorAll('a.js_delete-button, .delete-button').length);
+  const countImgs = () => page.evaluate(() => document.querySelectorAll('a.js_delete-button, .delete-button, img[src^="blob:"]').length);
   const before = await countImgs();
   if (before > 0 && !force) {
     return { ok: true, added: false, before, after: before, reason: `既に画像 ${before} 枚あり（追加は --force-image）` };
@@ -397,6 +397,11 @@ export async function listSubmitButtons(page) {
  * ボタンはともに button.submitButton[type=submit]。テキストで判別する。
  * @returns {Promise<{ok:boolean, action:string, url:string, dryRun?:boolean, reason?:string}>}
  */
+/** 「公開する」は完了画面（/services/new_open/{id}）へ進んだときだけ成功とする。ほかの送信は対象外 */
+export function isPublishDone(action, url) {
+  return action !== '公開する' || /\/services\/new_open\//.test(url);
+}
+
 export async function submitForm(page, { commit = false, dryRun = false, tag = '[form]' } = {}) {
   const available = await listSubmitButtons(page);
   const choice = chooseSubmitAction({ commit, dryRun, available });
@@ -419,5 +424,8 @@ export async function submitForm(page, { commit = false, dryRun = false, tag = '
     const nodes = Array.from(document.querySelectorAll('.error, .errPos, [class*="errorText"], [class*="c-error"]'));
     return nodes.map((n) => (n.textContent || '').replace(/\s+/g, ' ').trim()).filter(Boolean).slice(0, 6);
   });
-  return { ok: err.length === 0, action: name, url: page.url(), errors: err };
+  // Vue フォームの検証は上の class に当たらず、失敗しても公開画面へ進まない。公開の成功は遷移先で判定する（2026-11-04）。
+  const published = isPublishDone(name, page.url());
+  const errors = published ? err : [...err, '公開の完了画面へ進んでいない（必須欄・画像を確認）'];
+  return { ok: errors.length === 0, action: name, url: page.url(), errors };
 }
