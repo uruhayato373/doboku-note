@@ -6550,6 +6550,32 @@
       "commit": "9a3f4143c68d",
       "verification": "catalog の decision を更新・check-affiliate-wiring 合格",
       "note": "2026-11-03 運営者判断で解除しないことにした（11/1 の「解除する」を取り消し）。未配置で実害が無く、afb は 10/13 から休眠で、解除のためだけにログインの要る afb を操作する手間に見合わない。data/affiliate/catalog.json の sekokan-juken-taisaku の decision を「残す理由つき」に更新（完了条件のうち「残す理由つき」）"
+    },
+    {
+      "id": "DN-0906",
+      "at": "2026-11-04",
+      "task": "テーマのハブ 3 つ（道路・河川・コンクリート）を検索される見出しと学ぶ順番の地図で書き直す（EXP-044）",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "83947229d874",
+      "verification": "curl で 3 ハブの 200 と新しい本文を確認",
+      "note": "3 ハブを本番へ出し EXP-044 を running にした"
+    },
+    {
+      "id": "DN-0902",
+      "at": "2026-11-04",
+      "task": "技術士（建設部門）の筆記合格発表（11/4）までに、口頭試験の教材への導線を資格トップと必須I・選択科目の記事に出す（EXP-047）",
+      "tier": "high",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "83947229d874",
+      "verification": "curl で n5bc0bcde96ac と hub-after-result を確認",
+      "note": "本番 3 ページで口頭試験の導線を確認し EXP-047 を running にした"
     }
   ]
 }
