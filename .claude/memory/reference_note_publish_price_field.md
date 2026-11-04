@@ -83,3 +83,5 @@ note の 有料（単体）マガジンは、**既に公開済みで個別有料
 - **暗記ノートの問数はカバー `hi`・H1・SKU title・掲載文の 4 箇所に散る**。writer は目標値（150）を書き、実数（159/157/156/139）とずれる → 公開前に `grep -c "^Q\. "` で合わせる（RCCM は公開後に is正・`note-update-body --commit` ＋ `note-update-cover --commit`）。
 - **`refresh-indexes` は `src/config/*.json` の `generated_at` と `frequent-topics/article.mdx` の dateModified を毎回動かす**。内容差分が無ければ `git checkout` で戻して commit に混ぜない。
 - Claude desktop の `~/Library/Application Support/Claude/vm_bundles/`（12GB・2026-09-16 生成）が空き容量を食う。運営者のアプリデータなので勝手に消さない。
+
+**予約投稿と非公開の制約**（2026-11-04 実測）: 予約の時刻は 30 分刻みで、次の枠より前へは動かせない。公開設定に予約の解除スイッチは無い。特典マガジンや有料マガジンに入れたことがある記事は「下書きに戻す」が拒否され、非公開にする手段は削除だけ。記事が特典マガジンから外れてプランが消えても `is_limited=true` は残り、`note-update-body` は trial-guard で止まる。
