@@ -2610,7 +2610,7 @@
       "work": "sanso-kozo",
       "account": "youtube:main",
       "format": "longform",
-      "status": "rendered",
+      "status": "scheduled",
       "media": {
         "cover": "pe-comprehensive-management/sanso-kozo/youtube.longform/cover",
         "scene-001": "pe-comprehensive-management/sanso-kozo/youtube.longform/scene-001",
@@ -2656,7 +2656,42 @@
         "contentSha256": "62f4af0fda3775ad644ee38cb20aeb561b839b08d836826374ad79b0461d631c"
       },
       "times": {
-        "rendered": "2026-11-04T23:46:14.255Z"
+        "rendered": "2026-11-04T23:46:14.255Z",
+        "uploaded": "2026-11-04T23:57:26.646Z",
+        "scheduled": "2026-11-04T23:57:36.467Z"
+      },
+      "delivery": {
+        "inputSha256": "fb619524fa5a69cb49e14ff406df7b52bc048d271f412174400712c1a99709b0",
+        "marker": "dn-single-4ae4bd9c718964321001c73ca16b54302e77799c",
+        "uploadRequestedAt": "2026-11-04T23:56:42.698Z",
+        "videoId": "MMRMmDWtyWo",
+        "processedAt": "2026-11-04T23:57:25.814Z",
+        "thumbnailRequestedAt": "2026-11-04T23:57:26.686Z",
+        "thumbnailUrls": [
+          "https://i9.ytimg.com/vi/MMRMmDWtyWo/default.jpg?sqp=CNSLr9cG&rs=AOn4CLCaC-4Af7zhmE-NI4oPdI_ZOZ2_rw",
+          "https://i9.ytimg.com/vi/MMRMmDWtyWo/mqdefault.jpg?sqp=CNSLr9cG&rs=AOn4CLDS5McU7Vv17cd2eBQHfS13EOfniQ",
+          "https://i9.ytimg.com/vi/MMRMmDWtyWo/hqdefault.jpg?sqp=CNSLr9cG&rs=AOn4CLC29bqqmYc9ExG84l0vAPNoIkDgQw",
+          "https://i9.ytimg.com/vi/MMRMmDWtyWo/sddefault.jpg?sqp=CNSLr9cG&rs=AOn4CLBQRibiC38v7VlGysArMR3v3zS87w",
+          "https://i9.ytimg.com/vi/MMRMmDWtyWo/maxresdefault.jpg?sqp=CNSLr9cG&rs=AOn4CLCyWnAGNtMpf-iQutvOXf_Ikm6SRQ",
+          "https://i9.ytimg.com/vi/MMRMmDWtyWo/fhddefault.jpg?sqp=CNSLr9cG&rs=AOn4CLCjiOpojjnnFoAQVDYANbpy64UtPw"
+        ],
+        "thumbnailAcceptedAt": "2026-11-04T23:57:31.377Z",
+        "scheduleRequestedAt": "2026-11-04T23:57:32.436Z",
+        "scheduleAt": "2026-11-06T11:30:00Z",
+        "scheduledVerifiedAt": "2026-11-04T23:57:36.467Z"
+      },
+      "platform": {
+        "id": "MMRMmDWtyWo",
+        "url": "https://www.youtube.com/watch?v=MMRMmDWtyWo",
+        "privacy": "private",
+        "evidence": {
+          "kind": "publisher-live-check",
+          "ref": "content/sns/video-packs/pe-comprehensive-management/sanso-kozo/youtube.json#longform"
+        }
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-11-04T23:57:31.377Z"
       }
     },
     {
