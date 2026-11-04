@@ -6645,6 +6645,19 @@
       "commit": "ec5bde714b86",
       "verification": "tests/note-membership-gate.test.mjs",
       "note": "PR #1395 でプラン名の読み取りを直し、読めないときは検査不成立で止める回帰テストを追加した"
+    },
+    {
+      "id": "DN-0349",
+      "at": "2026-11-05",
+      "task": "技術士 上下水道部門 必須科目I の模範解答集を作る（令和元年度〜＋次年度予想）",
+      "tier": "mid",
+      "kind": "制作",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "0284fe01675a",
+      "verification": "m7c61c9447a4c が /exam/pe-water-supply に4箇所",
+      "note": "必須I 全9記事を note で公開し、商品・サイトCTAへ配線して本番で確認した"
     }
   ]
 }
