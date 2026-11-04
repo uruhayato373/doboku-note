@@ -8,7 +8,7 @@ import StandardsAttribution from '@/components/standards/StandardsAttribution';
 import { buildPageMetadata } from '@/lib/metadata';
 import { getStandardsCatalog } from '@/lib/standards';
 import AffiliateSlot from '@/components/ui/AffiliateSlot/AffiliateSlot';
-import { standardsAgencyPath } from '@/lib/route-paths';
+import { standardsAgencyPath, standardsDocumentPath } from '@/lib/route-paths';
 
 const { totals } = getStandardsCatalog();
 
@@ -17,6 +17,14 @@ export const metadata: Metadata = buildPageMetadata({
   description: `国土交通省と地方整備局等${totals.agencies}機関が公開する土木工事共通仕様書、施工管理基準、土木請負工事必携、施工管理・工事書類マニュアル${totals.documents}文書${totals.pages.toLocaleString('ja-JP')}ページを全文文字起こし。発行機関から資料を探し、原典・版を確認できます。`,
   path: '/standards',
 });
+
+// 章が深い階層に並ぶ文書は、一覧から直接たどれるようにする（未クロールの章が多い 4 文書）。
+const MAJOR_DOCUMENTS = [
+  { agencyId: 'kinki', documentId: 'common', label: '土木工事共通仕様書', note: '近畿地方整備局' },
+  { agencyId: 'kinki', documentId: 'hikkei', label: '土木請負工事必携', note: '近畿地方整備局' },
+  { agencyId: 'kyushu', documentId: 'management-manual', label: '土木工事施工管理の手引き', note: '九州地方整備局' },
+  { agencyId: 'mlit', documentId: 'sekou-kanri-kijun', label: '土木工事施工管理基準及び規格値（案）', note: '国土交通省' },
+];
 
 const rowLink = 'focus-ring flex min-h-12 items-center justify-between gap-3 px-4 py-3 text-(--ink) transition-colors hover:bg-(--accent-fill) hover:text-(--accent)';
 
@@ -49,6 +57,23 @@ export default function StandardsPage() {
                     <span className="min-w-0">
                       <span className="block font-bold">{agency.agencyName}</span>
                       <span className="mt-1 block text-sm text-(--ink-body)">{agency.documentCount}文書 · {agency.pages.toLocaleString('ja-JP')}ページ</span>
+                    </span>
+                    <span aria-hidden="true" className="text-(--accent)">→</span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </section>
+
+          <section aria-labelledby="major-documents-heading" className="mt-8">
+            <h2 id="major-documents-heading" className="mb-3 text-xl font-bold text-(--ink)">よく使う文書</h2>
+            <ul className="grid gap-x-4 sm:grid-cols-2">
+              {MAJOR_DOCUMENTS.map((doc) => (
+                <li key={`${doc.agencyId}-${doc.documentId}`} className="border-b border-(--rule-soft)">
+                  <Link href={standardsDocumentPath(doc.agencyId, doc.documentId)} className={rowLink}>
+                    <span className="min-w-0">
+                      <span className="block font-bold">{doc.label}</span>
+                      <span className="mt-1 block text-sm text-(--ink-body)">{doc.note}</span>
                     </span>
                     <span aria-hidden="true" className="text-(--accent)">→</span>
                   </Link>

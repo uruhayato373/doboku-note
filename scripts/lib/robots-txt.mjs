@@ -42,6 +42,13 @@ export const SEO_TOOL_AGENTS = ['DataForSeoBot', 'SemrushBot', 'AhrefsBot', 'MJ1
 /** 学習・回答・検索への利用の可否（Cloudflare Content Signals Policy の書式）。 */
 export const CONTENT_SIGNAL = 'search=yes, ai-input=yes, ai-train=no';
 
+/**
+ * 機械可読データ（全文は noindex）は検索エンジンのクロールを止め、章ページへ回す。
+ * 2026-11-01 の GSC で 446 件がクロールされていた。一覧の 2 ファイルは /standards/compare の Dataset が指すので残す。
+ * AI 検索のエージェントは別の群で許可しているので、ここの規則は効かない。
+ */
+export const MACHINE_DATA_RULES = 'Allow: /standards-data/catalog.json\nAllow: /standards-data/comparison.json\nDisallow: /standards-data/';
+
 const group = (agent, rule) => `User-agent: ${agent}\n${rule}`;
 
 /**
@@ -51,7 +58,7 @@ const group = (agent, rule) => `User-agent: ${agent}\n${rule}`;
 export function buildRobotsTxt({ sitemaps }) {
   return [
     '# 検索エンジンクローラー（Allow）。検索と AI の回答への利用は可・AI の学習は不可',
-    `User-agent: *\nContent-Signal: ${CONTENT_SIGNAL}\nAllow: /`,
+    `User-agent: *\nContent-Signal: ${CONTENT_SIGNAL}\nAllow: /\n${MACHINE_DATA_RULES}`,
     '# AI 検索と、利用者の指示で読みに来るエージェント（Allow・出典として引用されるため）',
     ...AI_SEARCH_AGENTS.map((a) => group(a, 'Allow: /')),
     '# AI 学習データ収集クローラーは全面 disallow',

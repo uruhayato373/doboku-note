@@ -22,7 +22,13 @@ const txt = buildRobotsTxt({ sitemaps: ['https://doboku-note.com/sitemap.xml', '
 const rules = parse(txt);
 
 test('検索エンジン（*）は許可し、学習は不可の Content-Signal を付ける', () => {
-  assert.deepEqual(rules.get('*'), ['Content-Signal: search=yes, ai-input=yes, ai-train=no', 'Allow: /']);
+  assert.deepEqual(rules.get('*'), [
+    'Content-Signal: search=yes, ai-input=yes, ai-train=no',
+    'Allow: /',
+    'Allow: /standards-data/catalog.json',
+    'Allow: /standards-data/comparison.json',
+    'Disallow: /standards-data/',
+  ]);
 });
 
 test('AI 検索と利用者の指示で読みに来るエージェントは許可する（ChatGPT 検索・Perplexity・Claude）', () => {
