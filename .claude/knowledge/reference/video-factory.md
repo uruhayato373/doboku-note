@@ -67,7 +67,7 @@ npm run video-factory -- auto-approve --pack <資格>/<作品>
 
 ## Workflow で回す
 
-Workflow `video-factory` に `{ root, packs: [{ pack, scope }], commit: true }` を渡す。工程は同じで、画像の並行は 2 本まで、描画と台帳の書き込みは直列。止まったパックは理由を返し、他のパックは進む。
+Workflow `video-factory` に `{ root, packs: [{ pack, scope, rendered }], commit: true }` を渡す。`rendered: true` は制作済みの動画で、画像と描画を飛ばす。工程は同じで、画像の並行は 2 本まで、描画と台帳の書き込みは直列。止まったパックは理由を返し、他のパックは進む。
 
 いきなり全件を流さない。3〜5 本で通してから広げる。1 本で 12 枚前後を生成するので、Codex の利用枠も確かめる。
 

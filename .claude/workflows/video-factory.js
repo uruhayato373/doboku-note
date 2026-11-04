@@ -1,7 +1,7 @@
 export const meta = {
   name: 'video-factory',
   description: '通常動画を、画像の生成・独立監査・採用・描画・内容QA・画面確認・音声照合・関門まで進め、作成と判定を分けて記録する。転送と予約は親が行う',
-  whenToUse: '通常動画の量産。args は { root: リポジトリの絶対パス, packs: [{ pack: "<資格>/<作品>", scope?: "all"|"cover" }], rounds?: 作り直しの回数（既定2）, commit?: true }。手順は video-factory.md',
+  whenToUse: '通常動画の量産。args は { root: リポジトリの絶対パス, packs: [{ pack: "<資格>/<作品>", scope?: "all"|"cover", rendered?: true }]（rendered は制作済みで画像と描画を飛ばす）, rounds?: 作り直しの回数（既定2）, commit?: true }。手順は video-factory.md',
   phases: [
     { title: 'Generate', detail: 'Codex で画像を作る（スクリプトが実行）' },
     { title: 'Audit', detail: 'ai-image-fidelity-auditor が 1 枚ずつ判定' },
@@ -46,7 +46,8 @@ const run = (label, phase, commands) => agent(
 
 const auditPrompt = (pack) => `動画 ${pack} の AI 生成画像を判定する。\`${CLI} audit-queue --pack ${pack}\` の項目を 1 枚ずつ Read で見て、定義の軸で判定する（文字の軸を必ず見る）。指示にある文字と 1 字ずつ照合する。作り直し・記録はしない。判定できない画像は unjudged に入れる。`
 
-async function produceImages({ pack, scope = 'all' }) {
+async function produceImages({ pack, scope = 'all', rendered }) {
+  if (rendered) return { ok: true }
   const phase = 'Generate'
   const start = await images(() => run(`plan:${pack}`, phase, [`${CLI} plan --pack ${pack} --scope ${scope}`, `${CLI} generate --pack ${pack}`]))
   if (!start?.ok) return { ok: false, reason: start?.output ?? '生成の段が失敗' }
@@ -71,7 +72,7 @@ const results = await pipeline(
   packs,
   (item) => produceImages(item),
   (s, item) => {
-    if (!s.ok) return s
+    if (!s.ok || item.rendered) return s
     return serial(() => run(`render:${item.pack}`, 'Render', [`${CLI} adopt --pack ${item.pack}`, `${CLI} render --pack ${item.pack}`, `${CLI} ledger --pack ${item.pack}`]))
       .then((r) => (r?.ok ? s : { ok: false, reason: r?.output ?? '描画の段が失敗' }))
   },
