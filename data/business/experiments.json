@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-11-03T07:46:30.000Z",
+  "updated_at": "2026-11-04T03:30:00.000Z",
   "experiments": [
     {
       "id": "EXP-002",
@@ -8759,6 +8759,27 @@
           "event": "start",
           "note": "本番デプロイ cf37bd33a。/exam/pe-construction の資格トップで、alternate の側はハイクラス DX・コンサル転職だけ（サイドバー・スマホの 2 枠）が見えることを確かめた"
         }
+      ]
+    },
+    {
+      "id": "EXP-056",
+      "title": "過去問の年度ナビと流入上位ガイドの次の行き先で、1 セッションあたりのページ数を増やす",
+      "hypothesis": "過去問を読み終えた読者には前後の年度へ移る導線が無く、行き先が折りたたみの一覧だけだった。記事末に年度ナビを置けば、同じ試験の過去問へ続けて移る読者が増える",
+      "target_metric": "internal_nav_click の exam-year-nav と 4 本の次の行き先のクリック、対象ページの screenPageViewsPerSession（GA4）。守る指標は note の案内のクリック率",
+      "target_delta": "4 週で exam-year-nav が過去問ページの 100 セッションあたり 2 クリック以上。ページ数は季節で動くので、前年の同じ試験の時期の比較は 2027 年の山で読む",
+      "status": "running",
+      "created_at": "2026-11-04",
+      "next_check_date": "2026-12-02",
+      "businessContext": {
+        "qualification": "civil-construction-1",
+        "readerNeed": "過去問を年度を続けて解きたい",
+        "verifiedGap": "2026-10 の 1 セッションあたりのページ数は約 1.29。過去問の年度の前後へ移る導線が無かった",
+        "metricId": "organicUsers",
+        "reviewRecord": "data/business/records/review-2026-11-01T06-07-23-843Z-6abb9200-372f-4c28-9595-84f9ccde8750.json"
+      },
+      "actions": [
+        "src/components/ui/TextbookNav/ExamYearNav.tsx を記事末に追加（PR #1388）",
+        "2級の経験記述ガイド、1級・2級の試験概要、RCCM の概要に ctaLabel つきの SeeAlso を追加"
       ]
     }
   ]
