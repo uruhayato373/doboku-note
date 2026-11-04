@@ -6628,6 +6628,23 @@
       "commit": "30b67595146a",
       "verification": "guide-qa 再採点 2.15〜2.60 と check-production-ssr",
       "note": "商品公開・出題形式と競合の記録・ガイド 4 本の本番反映と guide-qa 合格を確認した。工程表の追加は DN-0982、択一は DN-0454"
+    },
+    {
+      "id": "DN-0983",
+      "at": "2026-11-05",
+      "task": "メンバーシップのプラン削除の会員ゲートの誤判定を直す",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "tests/note-membership-gate.test.mjs"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "ec5bde714b86",
+      "verification": "tests/note-membership-gate.test.mjs",
+      "note": "PR #1395 でプラン名の読み取りを直し、読めないときは検査不成立で止める回帰テストを追加した"
     }
   ]
 }
