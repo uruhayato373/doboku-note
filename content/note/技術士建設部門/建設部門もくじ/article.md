@@ -21,6 +21,12 @@ cover:
 ---
 # 【建設部門もくじ】技術士 二次 建設部門の模範解答、どれを買う？必須Iと選択科目の全案内
 
+**この記事でわかること**
+
+- 必須科目Iと自分の選択科目で、どの模範解答集から読むか
+- 科目ごとの教材と無料記事の場所
+- 受験の段階に合わせた読み進め方
+
 技術士 第二次試験（建設部門）の論文対策は、必須科目Iと自分の選択科目で「どんなお題が来ても書ける答案の型」を持てるかで決まります。市販の解答例は数が少なく、自分の科目の全選択肢をカバーした模範解答はなかなか見つかりません。
 
 このもくじは、地方自治体の土木職（発注者側）として勤務し退職、技術士（建設部門・総合技術監理部門）ほかを保有する運営者が、建設部門の対策コンテンツを1ページにまとめたものです。
@@ -118,7 +124,7 @@ https://note.com/dobokunote/m/m0f3bc3933454
 - [国土形成と地域づくりの論点](https://note.com/dobokunote/n/ne217917f3f45)
 - [建設DXとi-Constructionの論点](https://note.com/dobokunote/n/n03ff3e6203ef)
 
-- [本サイト（建設部門の解説・過去問アーカイブ）](https://doboku-note.com/?utm_source=note&utm_medium=referral&utm_campaign=102-pe-construction-index)
+- [本サイト（建設部門の解説・過去問アーカイブ）](https://doboku-note.com/?utm_source=note&utm_medium=referral&utm_campaign=102-pe-construction-index&utm_term=n7279ca0d926f)
 
 ---
 
@@ -129,7 +135,7 @@ https://note.com/dobokunote/m/m0f3bc3933454
 - [技術士 第一次試験 過去問PDF 合本](https://note.com/dobokunote/n/n466132e6fd74) — 令和元〜7年度の全560問を、全選択肢の解説つきで紙でも解ける形にまとめました
 - [技術士 第一次試験 直前暗記ノート](https://note.com/dobokunote/n/n7b4f17a09d3f) — 3科目の数値・定義を一問一答156問で確認できます
 - [技術士 第一次試験 直前パック](https://note.com/dobokunote/m/mfa3fcffdd85d) — 過去問PDFと暗記ノートのセットです
-- [サイトの過去問演習（無料）](https://doboku-note.com/tools/kakomon-quiz/pe-first-stage?utm_source=note&utm_medium=referral&utm_campaign=102-pe-construction-index) — 年度・科目を選んでその場で解けます
+- [サイトの過去問演習（無料）](https://doboku-note.com/tools/kakomon-quiz/pe-first-stage?utm_source=note&utm_medium=referral&utm_campaign=102-pe-construction-index&utm_term=n7279ca0d926f) — 年度・科目を選んでその場で解けます
 
 ---
 

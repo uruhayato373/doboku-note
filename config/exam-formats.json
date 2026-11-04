@@ -231,7 +231,7 @@
           "types": [
             "mcq"
           ],
-          "detail": "四肢択一式および〇✕式のみ(記述式なし)"
+          "detail": "四肢択一式のみ(記述式なし)。2026年度の受験の手引で確認"
         }
       ],
       "pastExams": {
@@ -241,7 +241,7 @@
         "source": "https://www.jci-net.or.jp/j/exam/gishi/qa.html"
       },
       "verification": {
-        "checkedAt": "2026-09-26",
+        "checkedAt": "2026-11-04",
         "checkedBy": "self",
         "unresolved": [],
         "pending": [],
