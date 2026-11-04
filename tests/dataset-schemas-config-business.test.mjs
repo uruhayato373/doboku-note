@@ -126,7 +126,10 @@ test('ConfigContentThemes: ルールの照合キー・テーマ id・区分の�
 });
 
 test('ConfigNoteMembership: プランの欄・id の形・一意と撤退日が落ちる', () => {
-  const { schema, v } = envelope('ConfigNoteMembership', 'config.note-membership', { requiredKey: 'plans' });
+  const { schema, v: base } = envelope('ConfigNoteMembership', 'config.note-membership', { requiredKey: 'plans' });
+  // 実データのプランは撤退で 0 件なので、検査用の 2 件を置く。
+  const plan = { id: 'a'.repeat(12), key: 'one', name: 'プラン', price: 500, limit: null, published: false };
+  const v = { ...base, plans: [plan, { ...plan, id: 'b'.repeat(12), key: 'two' }] };
   assertFails(schema, mutated(v, (x) => (x.plans[0].price = -1)), /plans\.0\.price/);
   assertFails(schema, mutated(v, (x) => (x.plans[0].id = 'xyz')), /plans\.0\.id/);
   assertFails(schema, mutated(v, (x) => (x.plans[0].limit = 0)), /plans\.0\.limit/);
