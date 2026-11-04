@@ -8,7 +8,7 @@ export const meta = {
     { title: 'Render', detail: '採用・音声・動画・照合（直列）' },
     { title: 'Content QA', detail: 'video-content-qa が 6 軸で採点' },
     { title: 'Screen review', detail: 'video-review が画面と文面を確認' },
-    { title: 'Gate', detail: '音声の照合と、関門を通ったときの方針の承認（スクリプトが実行）' },
+    { title: 'Gate', detail: '音声の照合・結線と、関門を通ったときの方針の承認（スクリプトが実行）' },
     { title: 'Commit', detail: '判定と制作記録をコミット（直列）' },
   ],
 }
@@ -83,12 +83,18 @@ const results = await pipeline(
   (s, item) => {
     if (!s.ok) return s
     if (s.qa.blocks > 0 || s.qa.avg < 2) return { ok: false, reason: `内容QAが不合格（平均 ${s.qa.avg}・BLOCK ${s.qa.blocks}）`, qa: s.qa }
+    // 公開日時は digest に入るので画面確認より先に決める。音声は LLM の前に機械で見る
+    return serial(() => run(`wire:${item.pack}`, 'Gate', [`${CLI} audio-check --pack ${item.pack}`, `${CLI} wire --pack ${item.pack}`]))
+      .then((w) => (w?.ok ? s : { ok: false, reason: w?.output ?? '結線の段が失敗', qa: s.qa }))
+  },
+  (s, item) => {
+    if (!s.ok) return s
     return agent(`承認待ちの動画 ${item.pack} の 1 本だけを定義どおり確認し、record まで行う。公開 ID は \`${CLI} status --json\` の該当行の pub。stop・公開はしない。git は使わない。`, { label: `review:${item.pack}`, phase: 'Screen review', schema: REVIEW, agentType: 'video-review', model: 'sonnet' })
       .then((review) => ({ ...s, review }))
   },
   (s, item) => {
     if (s.review?.verdict !== 'pass') return s
-    return serial(() => run(`gate:${item.pack}`, 'Gate', [`${CLI} audio-check --pack ${item.pack}`, `${CLI} wire --pack ${item.pack}`, `${CLI} auto-approve --pack ${item.pack}`]))
+    return serial(() => run(`gate:${item.pack}`, 'Gate', [`${CLI} auto-approve --pack ${item.pack}`]))
       .then((g) => ({ ...s, gate: g?.ok ? 'approved' : (g?.output ?? '関門の段が失敗') }))
   },
   (s, item) => {
