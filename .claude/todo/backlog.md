@@ -2141,6 +2141,16 @@ Windows の PowerShell で repo 直下から順に:
 
 ## 🟢 低 — 重要度が低い（時期未定を含む）
 
+### [DN-0976] note の案内の部品とナビのカードの重なりを整理する
+タグ: [UI・UX] [領域:サイト] [時期:2026-12..2027-01] [種類:改善] [起票:2026-11-04]
+
+**起点**: 2026-11-04 の点検。サイトの色・角丸・影はトークンに揃っている（直書きの色 0・任意値の色 0・素の角丸と影 0）。一方、note の案内の部品は MagazineCard・MagazineInlineCard・MagazineHeroCta・MagazineTopBanner・MidArticleCta・NoteImageCta・NoteProductCard・HubCtaBanner と分かれ、ナビのカードも CategoryNavCard・PillarNavCard・SpokeNavCard・NavLinkCard と分かれている。`npx knip` に未使用の export が 7 件ある。
+
+**やること**: EXP-053 の判定の後に、案内の部品の役割と重なりを表にし、統合するものと残すものを決める。未使用の export を repo 全体で裏取りしてから消す。計測のラベルを変えない。
+
+**完了条件**: 統合の判断が記録され、実施するものは PR が develop に入っている。
+
+
 ### [DN-0961] 技術士一次の過去問 PDF に令和8年度を足す
 タグ: [収益化] [領域:商品] [時期:2027-08] [種類:制作] [起票:2026-11-04]
 
