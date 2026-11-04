@@ -16,17 +16,15 @@ import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
  *   - **account=dobokunote を assert**（不一致は即中断・1フィールドも触らない）。
  *   - 各ステップ .tmp/ にスクショ。
  *
- * プラン ID（2026-08-06 現在）:
- *   - 4956c2d4f928 = 通年プラン（過去問＆月例予想・定員なし）→ ¥1,480
- *   - f9567e03949d = 添削つきプラン（受験シーズン・定員20）→ ¥4,980
+ * プラン ID は `https://note.com/membership/settings/manage` の各プラン「編集」リンクで確認する。
  *     （旧 ceacc4bb4574 ¥2,980 は会費変更不可のため作り直して削除済み）
  *   （最新は `https://note.com/membership/settings/manage` の各プラン「編集」リンクで確認）
  *
  * 使い方:
  *   # 現在値の確認（ブラウザ起動・読取のみ）
- *   node scripts/note-membership-plan-edit.mjs --plan 4956c2d4f928
+ *   node scripts/note-membership-plan-edit.mjs --plan <planId>
  *   # 会費だけ設定して保存（公開中プランでは即時反映の可能性あり）
- *   node scripts/note-membership-plan-edit.mjs --plan 4956c2d4f928 --price 1480 --commit
+ *   node scripts/note-membership-plan-edit.mjs --plan <planId> --price 1480 --commit
  *   # 定員つきプラン（添削・定員確定後）
  *   node scripts/note-membership-plan-edit.mjs --plan <新規作成直後のid> --price 4980 --limit 20 --commit
  *   # 名前・説明も上書き（任意）

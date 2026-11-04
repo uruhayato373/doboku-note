@@ -15,6 +15,7 @@ const products: Partial<Record<string, MagazineId>> = {
   surveyor: 'surveyor-gogo-bunya-magazine',
   pavement: 'pavement-1-keiken-magazine',
   'pipe-work': 'pipe-work-sekou-kijutsu-bank',
+  'pe-water-supply': 'pe-water-required-magazine',
 };
 /** 資格トップ（doc なし）の商品。試験日で切り替える資格は magazine-placement の categoryLeadMagazineId が決める。 */
 function categoryProductId(category: string): MagazineId | undefined {

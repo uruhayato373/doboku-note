@@ -1219,34 +1219,6 @@ const MAGAZINES_RAW = {
     ctaButton: '合格ラボを見てみる',
     ctaPose: 'smile',
   },
-  // ----- 1級・2級土木 メンバーシップ「土木セコカン合格ラボ」(2026-06-23 配線) -----
-  // 原稿配置: content/note/1級・2級土木/メンバーシップ/（予想問題マガジン・学科記述予想・添削事例）
-  // 会員の固有価値＝フロー（予想問題）＋個別（経験記述添削）。完成答案ライブラリ（104本）は
-  // 2026-07-01 転換で会員特典マガジンに内包（入会の引き金）しつつ買い切りでも購入可能なまま残置
-  // ＝二重配置。フロー（予想・添削）だけは買い切りに出さない一線を守る
-  // （noteコンテンツ計画.md §1.4 / §2.3 / Red Line #10）。
-  // note 上は 1 メンバーシップ・2 プラン（通年¥1,480 / 添削つき¥4,980）＝単一 URL。
-  // 添削つきは 2026-08-06 に ¥2,980 から改定（note は会費変更不可のためプランを作り直した）。
-  // 2026-07-30 公開反映: note でメンバーシップ公開済み。noteUrl は加入ページ（/membership/join）、
-  // published: true。加入導線には /membership でなく実遷移先の /membership/join を使う。
-  // CTA は 1級・2級土木の 経験記述系・二次系・guide・カテゴリ入口で発火（magazine-placement.ts）。
-  // 会員特典マガジン（¥0・会員限定記事のみを収める器）。単体で売る商品ではなく、
-  // 「土木セコカン合格ラボ」の両プランに紐づけて週次お題を自動配信するための受け皿。
-  // 2026-08-06 新設。note 側に実在する（mbe07bd5cecda）のにここへ未配線で、
-  // note-live-audit.yml の SoT 突合が exit 2 で落ち続けていた（2026-08-17 配線）。
-  'civil-membership-odai-lab': {
-    id: 'civil-membership-odai-lab',
-    published: false,
-    noteUrl: 'https://note.com/dobokunote/m/mbe07bd5cecda',
-    qualification: 'civil-construction-1-2',
-    noteTitle: '経験記述 週次お題ラボ｜1級・2級土木（会員専用）',
-    title: '経験記述 週次お題ラボ｜1級・2級土木（会員専用）',
-    description: '土木セコカン合格ラボの会員特典マガジン。1級・2級土木施工管理技士の施工経験記述について、毎週1テーマの「お題」を会員限定で配信します。模範答案を読むのではなく、自分が経験した工事でお題に答える演習形式で、5管理（安全・品質・工程・施工計画・環境）を一巡します。各回は設問・出題予想の根拠・採点者の着眼点・やりがちなNG・級別の答案形式差で構成。添削つきプランではこのお題への答案を毎週1本、NG→OK赤入れ＋採点者視点で返します。会員限定のため単体購入はできません。',
-    shortTitle: '経験記述 週次お題ラボ（会員専用）',
-    shortDescription: '毎週1テーマの経験記述お題を会員限定で配信。自分の工事で書く演習形式で5管理を一巡する。',
-    price: '会員特典（単体購入不可）',
-    badge: 'メンバーシップ特典',
-  },
   // </generated:products civil-construction-1-2>
 
   // <generated:products concrete-diagnostician> config/products.json から生成（npm run product -- gen）。手で直さない
@@ -2636,6 +2608,22 @@ const MAGAZINES_RAW = {
   },
   // </generated:products pavement-2>
 
+  // <generated:products pe-water-supply> config/products.json から生成（npm run product -- gen）。手で直さない
+  // 2026-11-04 公開（m7c61c9447a4c）。DN-0349
+  'pe-water-required-magazine': {
+    id: 'pe-water-required-magazine',
+    published: true,
+    noteUrl: 'https://note.com/dobokunote/m/m7c61c9447a4c',
+    qualification: 'pe-water-supply',
+    noteTitle: '技術士 上下水道部門 2次｜必須科目I 模範解答集',
+    title: '技術士 上下水道部門 2次｜必須科目I 模範解答集（R01-R08＋R9予想）',
+    description: '技術士第二次試験 上下水道部門の必須科目I を、令和元〜8年度の過去問8年分と令和9年度の予想問題で固める模範解答集。各年度の I-1・I-2 の両方について、課題の抽出、最重要課題と解決策、新たに生じるリスクと対策、業務遂行に必要な要件までの答案を収録する。予想は過去の出題の繰り返しを根拠に作ったもので、的中を保証しない（全9記事）。',
+    shortTitle: '上下水道2次｜必須I 模範解答集',
+    shortDescription: 'R01〜R08＋R9予想の全9記事。必須科目I の I-1・I-2 をフル解答。',
+    price: '¥3,480（9記事セット・単品¥780）',
+    badge: 'note 限定',
+  },
+  // </generated:products pe-water-supply>
   // <generated:products pipe-work> config/products.json から生成（npm run product -- gen）。手で直さない
   // 2026-10-28 公開（n538762ec7f12・¥1,980・境界=機器別の模範解答）。2026-11-04 に管工事の active 化に合わせて正本へ登録（DN-0452）。
   'pipe-work-sekou-kijutsu-bank': {
