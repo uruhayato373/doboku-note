@@ -2286,10 +2286,12 @@
       "qualification": "pe-water-supply",
       "material": "written",
       "source": [
-        "pe-water-required-magazine"
+        "pe-water-required-magazine",
+        "pe-water-supply-magazine"
       ],
       "evidence": [
-        "src/lib/note-magazines.ts#pe-water-required-magazine"
+        "src/lib/note-magazines.ts#pe-water-required-magazine",
+        "src/lib/note-magazines.ts#pe-water-supply-magazine"
       ],
       "body": {
         "format": {
@@ -2298,7 +2300,7 @@
         },
         "copy": {
           "qualification": "技術士 上下水道部門",
-          "title": "必須科目I 対策",
+          "title": "筆記試験 模範解答集",
           "button": "教材の内容を見る"
         },
         "references": [
@@ -2311,20 +2313,67 @@
             "sha256": "d17bf0108e2f7c17c570c0d12c91d0595318467a4df52d9e36db28c7472e94cc"
           }
         ],
-        "prompt": "Generate ONE complete finished raster website CTA banner, exactly 2:1 landscape, 1600×800 or equivalent. Reference 1 is the approved Japanese teacher identity: preserve face, hair, black glasses, light beard, white plain helmet, navy work clothes and yellow safety vest. Reference 2 supplies the approved disciplined website composition, flat color panels, no scenery. Replace ALL reference wording. Use solid #0e6e8c dark qualification color on left 65%, white on right 35%, small yellow accent; no decorative textures. Exact text ONLY: qualification label 「技術士 上下水道部門」, large bold headline 「必須科目I 対策」, bottom dark evergreen #065F46 flat button with white bold 「教材の内容を見る」 and white arrow. The qualification label must be readable and proportionate, wrap a long label into two lines if necessary, preserving exact spelling. Headline and qualification hierarchy large and legible at 360px width. SAME mature Japanese male teacher on right, friendly holding plain study sheets with abstract gray lines, red pen pointing at them; no sample writing. At least 5% safe margins, no overlapping/cut letters or face. Do NOT copy reference content, prices, counts, year, author claims, brand, URL, logos or extra text. This is a shared artwork family; actual individual product name, year/subject coverage and price will appear as separate site caption, never invent them in the image. Return the entire actual raster to display as-is, not a browser/mockup, no HTML reconstruction. Preserve aspect ratio; no stretched or cropped poster.",
+        "prompt": "Generate ONE complete finished raster website CTA banner, exactly 2:1 landscape, 1600×800 or equivalent. Reference 1 is the approved Japanese teacher identity: preserve face, hair, black glasses, light beard, white plain helmet, navy work clothes and yellow safety vest. Reference 2 supplies the approved disciplined website composition, flat color panels, no scenery. Replace ALL reference wording. Use solid #0e6e8c dark qualification color on left 65%, white on right 35%, small yellow accent; no decorative textures. Exact text ONLY: qualification label 「技術士 上下水道部門」, large bold headline 「筆記試験 模範解答集」, bottom dark evergreen #065F46 flat button with white bold 「教材の内容を見る」 and white arrow. The qualification label must be readable and proportionate, wrap a long label into two lines if necessary, preserving exact spelling. Headline and qualification hierarchy large and legible at 360px width. SAME mature Japanese male teacher on right, friendly holding plain study sheets with abstract gray lines, red pen pointing at them; no sample writing. At least 5% safe margins, no overlapping/cut letters or face. Do NOT copy reference content, prices, counts, year, author claims, brand, URL, logos or extra text. This is a shared artwork family; actual individual product name, year/subject coverage and price will appear as separate site caption, never invent them in the image. Return the entire actual raster to display as-is, not a browser/mockup, no HTML reconstruction. Preserve aspect ratio; no stretched or cropped poster.",
         "original": {
           "filename": "out.png",
-          "sha256": "0d8b6ca3cbecfb93e9b83880e5f86cb3bd2f660b0089462db7df450d7187b967"
+          "sha256": "11f998c2416b2c755b9d9292c81bcdd83ed9f023f01ee8df2f0b389817098b85"
         },
         "output": {
-          "path": "content/site/pe-water-supply/_shared/img/cta-written-body-v1.webp",
-          "url": "https://storage.doboku-note.com/posts/pe-water-supply/_shared/img/cta-written-body-v1.webp?v=a8b9d1e53839",
-          "sha256": "a8b9d1e53839e3dbfb6b3b6dd395bb4e8385eb39b427d0847a30d3c430ee24bc",
-          "bytes": 125032,
+          "path": "content/site/pe-water-supply/_shared/img/cta-written-body-v2.webp",
+          "url": "https://storage.doboku-note.com/posts/pe-water-supply/_shared/img/cta-written-body-v2.webp?v=a7211cf634b3",
+          "sha256": "a7211cf634b36da0af4db0b1907e0c3867cd08a82916c465d4c0e90db59cc511",
+          "bytes": 132942,
           "quality": 85
         },
         "review": {
-          "date": "2026-11-04",
+          "date": "2026-11-05",
+          "result": "原寸と幅360pxで、コピー一致・判読・文字切れなし・先生の同一性を確認"
+        }
+      }
+    },
+    "pe-water-supply-pack": {
+      "qualification": "pe-water-supply",
+      "material": "pack",
+      "source": [
+        "pe-water-supply-pack"
+      ],
+      "evidence": [
+        "src/lib/note-magazines.ts#pe-water-supply-pack"
+      ],
+      "body": {
+        "format": {
+          "width": 1774,
+          "height": 887
+        },
+        "copy": {
+          "qualification": "技術士 上下水道部門",
+          "title": "まるごと合格パック",
+          "button": "教材の内容を見る"
+        },
+        "references": [
+          {
+            "path": "content/coconala/assets/pop-20260927/thumb-tensaku-set.png",
+            "sha256": "ad9f644b36ac32b383624b1fbcc21f966f7e79516036d00bbe702b200d21c6e6"
+          },
+          {
+            "path": "content/site/pe-first-stage/_shared/img/cta-pdf-body.webp",
+            "sha256": "d17bf0108e2f7c17c570c0d12c91d0595318467a4df52d9e36db28c7472e94cc"
+          }
+        ],
+        "prompt": "Generate ONE complete finished raster website CTA banner, exactly 2:1 landscape, 1600×800 or equivalent. Reference 1 is the approved Japanese teacher identity: preserve face, hair, black glasses, light beard, white plain helmet, navy work clothes and yellow safety vest. Reference 2 supplies the approved disciplined website composition, flat color panels, no scenery. Replace ALL reference wording. Use solid #0e6e8c dark qualification color on left 65%, white on right 35%, small yellow accent; no decorative textures. Exact text ONLY: qualification label 「技術士 上下水道部門」, large bold headline 「まるごと合格パック」, bottom dark evergreen #065F46 flat button with white bold 「教材の内容を見る」 and white arrow. The qualification label must be readable and proportionate, wrap a long label into two lines if necessary, preserving exact spelling. Headline and qualification hierarchy large and legible at 360px width. SAME mature Japanese male teacher on right, friendly holding plain study sheets with abstract gray lines, red pen pointing at them; no sample writing. At least 5% safe margins, no overlapping/cut letters or face. Do NOT copy reference content, prices, counts, year, author claims, brand, URL, logos or extra text. This is a shared artwork family; actual individual product name, year/subject coverage and price will appear as separate site caption, never invent them in the image. Return the entire actual raster to display as-is, not a browser/mockup, no HTML reconstruction. Preserve aspect ratio; no stretched or cropped poster.",
+        "original": {
+          "filename": "out.png",
+          "sha256": "8d03f2e2bd7117443fd6c6fbd80cc1726a05ed29ab2656875e05167780dc770c"
+        },
+        "output": {
+          "path": "content/site/pe-water-supply/_shared/img/cta-pack-body-v1.webp",
+          "url": "https://storage.doboku-note.com/posts/pe-water-supply/_shared/img/cta-pack-body-v1.webp?v=7aecf35a414d",
+          "sha256": "7aecf35a414d72beb98683056d53c731c6ed33bc3448d7adad138ef6b1b47441",
+          "bytes": 122790,
+          "quality": 85
+        },
+        "review": {
+          "date": "2026-11-05",
           "result": "原寸と幅360pxで、コピー一致・判読・文字切れなし・先生の同一性を確認"
         }
       }

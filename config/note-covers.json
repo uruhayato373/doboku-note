@@ -353,6 +353,22 @@
         "magazineName": "必須科目I 模範解答集",
         "proof": "令和元〜8年度＋令和9年度予想",
         "benefit": "全9記事で必須Iを固める"
+      },
+      {
+        "id": "pe-water-supply-magazine",
+        "magazineDir": "content/note/技術士上下水道部門/magazines/BK-01_上水道及び工業用水道",
+        "qualifier": "技術士 上下水道部門",
+        "magazineName": "上水道及び工業用水道 模範解答集",
+        "proof": "令和元〜8年度＋令和9年度予想",
+        "benefit": "全27記事で選択科目を固める"
+      },
+      {
+        "id": "pe-water-supply-pack",
+        "magazineDir": "content/note/技術士上下水道部門/magazines/PACK-01_上水道まるごと合格パック",
+        "qualifier": "技術士 上下水道部門",
+        "magazineName": "上水道 まるごと合格パック",
+        "proof": "必須科目I＋選択科目 全36記事",
+        "benefit": "本番の組み合わせで固める"
       }
     ]
   },
