@@ -2636,6 +2636,22 @@ const MAGAZINES_RAW = {
   },
   // </generated:products pavement-2>
 
+  // <generated:products pe-water-supply> config/products.json から生成（npm run product -- gen）。手で直さない
+  // 2026-11-04 公開（m7c61c9447a4c）。DN-0349
+  'pe-water-required-magazine': {
+    id: 'pe-water-required-magazine',
+    published: true,
+    noteUrl: 'https://note.com/dobokunote/m/m7c61c9447a4c',
+    qualification: 'pe-water-supply',
+    noteTitle: '技術士 上下水道部門 2次｜必須科目I 模範解答集',
+    title: '技術士 上下水道部門 2次｜必須科目I 模範解答集（R01-R08＋R9予想）',
+    description: '技術士第二次試験 上下水道部門の必須科目I を、令和元〜8年度の過去問8年分と令和9年度の予想問題で固める模範解答集。各年度の I-1・I-2 の両方について、課題の抽出、最重要課題と解決策、新たに生じるリスクと対策、業務遂行に必要な要件までの答案を収録する。予想は過去の出題の繰り返しを根拠に作ったもので、的中を保証しない（全9記事）。',
+    shortTitle: '上下水道2次｜必須I 模範解答集',
+    shortDescription: 'R01〜R08＋R9予想の全9記事。必須科目I の I-1・I-2 をフル解答。',
+    price: '¥3,480（9記事セット・単品¥780）',
+    badge: 'note 限定',
+  },
+  // </generated:products pe-water-supply>
   // <generated:products pipe-work> config/products.json から生成（npm run product -- gen）。手で直さない
   // 2026-10-28 公開（n538762ec7f12・¥1,980・境界=機器別の模範解答）。2026-11-04 に管工事の active 化に合わせて正本へ登録（DN-0452）。
   'pipe-work-sekou-kijutsu-bank': {

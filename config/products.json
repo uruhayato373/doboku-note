@@ -10134,6 +10134,42 @@
       ]
     },
     {
+      "id": "pe-water-required-magazine",
+      "channel": "note",
+      "qualification": "pe-water-supply",
+      "stage": "written",
+      "series": "other",
+      "tier": "magazine",
+      "persona": null,
+      "catalog": {
+        "id": "pe-water-required-magazine",
+        "published": true,
+        "noteUrl": "https://note.com/dobokunote/m/m7c61c9447a4c",
+        "noteTitle": "技術士 上下水道部門 2次｜必須科目I 模範解答集",
+        "title": "技術士 上下水道部門 2次｜必須科目I 模範解答集（R01-R08＋R9予想）",
+        "description": "技術士第二次試験 上下水道部門の必須科目I を、令和元〜8年度の過去問8年分と令和9年度の予想問題で固める模範解答集。各年度の I-1・I-2 の両方について、課題の抽出、最重要課題と解決策、新たに生じるリスクと対策、業務遂行に必要な要件までの答案を収録する。予想は過去の出題の繰り返しを根拠に作ったもので、的中を保証しない（全9記事）。",
+        "shortTitle": "上下水道2次｜必須I 模範解答集",
+        "shortDescription": "R01〜R08＋R9予想の全9記事。必須科目I の I-1・I-2 をフル解答。",
+        "price": "¥3,480（9記事セット・単品¥780）",
+        "badge": "note 限定"
+      },
+      "members": [
+        "content/note/技術士上下水道部門/magazines/BK-I_必須科目I/R01/article.md",
+        "content/note/技術士上下水道部門/magazines/BK-I_必須科目I/R02/article.md",
+        "content/note/技術士上下水道部門/magazines/BK-I_必須科目I/R03/article.md",
+        "content/note/技術士上下水道部門/magazines/BK-I_必須科目I/R04/article.md",
+        "content/note/技術士上下水道部門/magazines/BK-I_必須科目I/R05/article.md",
+        "content/note/技術士上下水道部門/magazines/BK-I_必須科目I/R06/article.md",
+        "content/note/技術士上下水道部門/magazines/BK-I_必須科目I/R07/article.md",
+        "content/note/技術士上下水道部門/magazines/BK-I_必須科目I/R08/article.md",
+        "content/note/技術士上下水道部門/magazines/BK-I_必須科目I/R09-yosou-1/article.md"
+      ],
+      "includes": [],
+      "memo": [
+        "2026-11-04 公開（m7c61c9447a4c）。DN-0349"
+      ]
+    },
+    {
       "id": "pe1-anki-note",
       "channel": "note",
       "qualification": "pe-first-stage",
@@ -11170,6 +11206,15 @@
     "content/note/コンクリート診断士/magazines/コンクリート診断士-記述式-模範答案集/解法ガイド/article.md": 1480,
     "content/note/技術士一次/magazines/技術士一次-直前暗記ノート/article.md": 980,
     "content/note/技術士一次/一次択一-過去問PDF/article.md": 1480,
+    "content/note/技術士上下水道部門/magazines/BK-I_必須科目I/R01/article.md": 780,
+    "content/note/技術士上下水道部門/magazines/BK-I_必須科目I/R02/article.md": 780,
+    "content/note/技術士上下水道部門/magazines/BK-I_必須科目I/R03/article.md": 780,
+    "content/note/技術士上下水道部門/magazines/BK-I_必須科目I/R04/article.md": 780,
+    "content/note/技術士上下水道部門/magazines/BK-I_必須科目I/R05/article.md": 780,
+    "content/note/技術士上下水道部門/magazines/BK-I_必須科目I/R06/article.md": 780,
+    "content/note/技術士上下水道部門/magazines/BK-I_必須科目I/R07/article.md": 780,
+    "content/note/技術士上下水道部門/magazines/BK-I_必須科目I/R08/article.md": 780,
+    "content/note/技術士上下水道部門/magazines/BK-I_必須科目I/R09-yosou-1/article.md": 780,
     "content/note/技術士建設部門/magazines/BK-01_道路/R03/article-II1.md": 780,
     "content/note/技術士建設部門/magazines/BK-01_道路/R03/article-II2.md": 780,
     "content/note/技術士建設部門/magazines/BK-01_道路/R03/article-III.md": 780,
