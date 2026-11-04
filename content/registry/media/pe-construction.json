@@ -265,6 +265,24 @@
       "legacyPaths": []
     },
     {
+      "id": "pe-construction/pe-kojutsu-keireki/youtube.longform/contact-sheet",
+      "role": "contact-sheet",
+      "type": "image/jpeg",
+      "sha256": "8e2fd312598422873e0175988e315f9976ca48bfe44bef87e82b643fce5b5e57",
+      "bytes": 639441,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/pe-kojutsu-keireki/youtube.longform/contact-sheet.8e2fd312.jpg"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "media-preview",
+        "spec": "content/sns/video-packs/pe-construction/pe-kojutsu-keireki/storyboard.json"
+      },
+      "width": 1920,
+      "height": 1620
+    },
+    {
       "id": "pe-construction/pe-kojutsu-keireki/youtube.longform/cover",
       "role": "cover",
       "type": "image/png",
@@ -286,6 +304,39 @@
       "legacyPaths": [
         ".tmp/media/pe-construction/pe-kojutsu-keireki/work/cover-pop.1d56f269.png"
       ]
+    },
+    {
+      "id": "pe-construction/pe-kojutsu-keireki/youtube.longform/preview",
+      "role": "preview",
+      "type": "video/mp4",
+      "sha256": "74de06b4b72b64e7fb41e0e5c99a661a7a256f8cf7b5188e3b224073ce4637b0",
+      "bytes": 4085902,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/pe-kojutsu-keireki/youtube.longform/preview.74de06b4.mp4"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "media-preview",
+        "spec": "content/sns/video-packs/pe-construction/pe-kojutsu-keireki/storyboard.json"
+      },
+      "durationSec": 200.608
+    },
+    {
+      "id": "pe-construction/pe-kojutsu-keireki/youtube.longform/preview-metrics",
+      "role": "preview-metrics",
+      "type": "application/json",
+      "sha256": "5bf888d6a010017245c3950e5d654401047295b99ea2bce9b119789cc2dc3dea",
+      "bytes": 879,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/pe-kojutsu-keireki/youtube.longform/preview-metrics.5bf888d6.json"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "media-preview",
+        "spec": "content/sns/video-packs/pe-construction/pe-kojutsu-keireki/storyboard.json"
+      }
     },
     {
       "id": "pe-construction/pe-kojutsu-keireki/youtube.longform/scene-001",
@@ -526,6 +577,24 @@
       },
       "width": 1920,
       "height": 1080
+    },
+    {
+      "id": "pe-construction/pe-kojutsu-keireki/youtube.longform/scene-sheet",
+      "role": "scene-sheet",
+      "type": "image/jpeg",
+      "sha256": "9de80b5da3c530dc737c44fd7accc6deb0272103523542c0da666afb7262a329",
+      "bytes": 718734,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/pe-kojutsu-keireki/youtube.longform/scene-sheet.9de80b5d.jpg"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "media-preview",
+        "spec": "content/sns/video-packs/pe-construction/pe-kojutsu-keireki/storyboard.json"
+      },
+      "width": 1920,
+      "height": 1592
     },
     {
       "id": "pe-construction/pe-kojutsu-keireki/youtube.longform/subtitles",

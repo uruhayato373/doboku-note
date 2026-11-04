@@ -2558,6 +2558,75 @@
       "durationSec": 157.6
     },
     {
+      "id": "pe-comprehensive-management/sokan-kojutsu-kangaekata/youtube.longform.diagram-led/contact-sheet",
+      "role": "contact-sheet",
+      "type": "image/jpeg",
+      "sha256": "ad5df8bb365123625ec578d0db95a64646b8eb62d8b9e7fac4c270b64f41d413",
+      "bytes": 420829,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-kangaekata/youtube.longform.diagram-led/contact-sheet.ad5df8bb.jpg"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "media-preview",
+        "spec": "content/sns/video-packs/pe-comprehensive-management/sokan-kojutsu-kangaekata/storyboard.json"
+      },
+      "width": 1920,
+      "height": 1620
+    },
+    {
+      "id": "pe-comprehensive-management/sokan-kojutsu-kangaekata/youtube.longform.diagram-led/preview",
+      "role": "preview",
+      "type": "video/mp4",
+      "sha256": "e7615bb2760757e55d1aa83c70f95312e99dfc438c195031457bc764d99e82b7",
+      "bytes": 3931021,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-kangaekata/youtube.longform.diagram-led/preview.e7615bb2.mp4"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "media-preview",
+        "spec": "content/sns/video-packs/pe-comprehensive-management/sokan-kojutsu-kangaekata/storyboard.json"
+      },
+      "durationSec": 157.579
+    },
+    {
+      "id": "pe-comprehensive-management/sokan-kojutsu-kangaekata/youtube.longform.diagram-led/preview-metrics",
+      "role": "preview-metrics",
+      "type": "application/json",
+      "sha256": "73c1658aa47bfa36611bf16df590fb871a0061deee85ac378614f82e8b02b3a4",
+      "bytes": 736,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-kangaekata/youtube.longform.diagram-led/preview-metrics.73c1658a.json"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "media-preview",
+        "spec": "content/sns/video-packs/pe-comprehensive-management/sokan-kojutsu-kangaekata/storyboard.json"
+      }
+    },
+    {
+      "id": "pe-comprehensive-management/sokan-kojutsu-kangaekata/youtube.longform.diagram-led/scene-sheet",
+      "role": "scene-sheet",
+      "type": "image/jpeg",
+      "sha256": "fa1a6bb599949cf9961c340d4d8a063b4162dbe357024b291bc069111bbbab24",
+      "bytes": 686303,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-kangaekata/youtube.longform.diagram-led/scene-sheet.fa1a6bb5.jpg"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "media-preview",
+        "spec": "content/sns/video-packs/pe-comprehensive-management/sokan-kojutsu-kangaekata/storyboard.json"
+      },
+      "width": 1920,
+      "height": 1990
+    },
+    {
       "id": "pe-comprehensive-management/sokan-kojutsu-kangaekata/youtube.longform/contact-sheet",
       "role": "contact-sheet",
       "type": "image/jpeg",

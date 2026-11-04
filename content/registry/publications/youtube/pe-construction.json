@@ -154,9 +154,14 @@
         "scene-011": "pe-construction/pe-kojutsu-keireki/youtube.longform/scene-011",
         "scene-012": "pe-construction/pe-kojutsu-keireki/youtube.longform/scene-012",
         "video": "pe-construction/pe-kojutsu-keireki/youtube.longform/video",
-        "subtitles": "pe-construction/pe-kojutsu-keireki/youtube.longform/subtitles"
+        "subtitles": "pe-construction/pe-kojutsu-keireki/youtube.longform/subtitles",
+        "preview": "pe-construction/pe-kojutsu-keireki/youtube.longform/preview",
+        "contact-sheet": "pe-construction/pe-kojutsu-keireki/youtube.longform/contact-sheet",
+        "scene-sheet": "pe-construction/pe-kojutsu-keireki/youtube.longform/scene-sheet",
+        "preview-metrics": "pe-construction/pe-kojutsu-keireki/youtube.longform/preview-metrics"
       },
-      "copy": "content/sns/video-packs/pe-construction/pe-kojutsu-keireki/youtube.json#longform"
+      "copy": "content/sns/video-packs/pe-construction/pe-kojutsu-keireki/youtube.json#longform",
+      "publishAt": "2026-11-08T11:30:00Z"
     },
     {
       "id": "pe-construction/r8-yosou-dashikata/youtube.longform",
