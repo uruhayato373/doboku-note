@@ -95,6 +95,16 @@ export function auditTopicWiring(root = REPO_ROOT) {
       else if (!metaIndex[t] || metaIndex[t].published === false) issues.push(`${topic.slug}: featured「${t}」は公開中の記事に無い`);
       else if (!topicsOfDoc({ ...metaIndex[t], tags: (metaIndex[t].tags ?? []).map(canon) }, [topic], canon).length) issues.push(`${topic.slug}: featured「${t}」はこのテーマに属さない（タグか topics: を付ける）`);
     }
+    // 学ぶ順番の地図（roadmap）は公開中の記事だけを指す。壊れた slug は画面から黙って消える
+    for (const [i, st] of (topic.roadmap ?? []).entries()) {
+      if (!st.label || !st.summary || !Array.isArray(st.docs) || st.docs.length === 0) issues.push(`${topic.slug}: roadmap[${i}] に label・summary・docs が要る`);
+      for (const t of st.docs ?? []) {
+        if (!metaIndex[t] || metaIndex[t].published === false) issues.push(`${topic.slug}: roadmap「${t}」は公開中の記事に無い`);
+      }
+    }
+    for (const [i, ed] of (topic.examDiffs ?? []).entries()) {
+      if (!ed.exam || !ed.text) issues.push(`${topic.slug}: examDiffs[${i}] に exam と text が要る`);
+    }
     for (const id of topic.products ?? []) {
       if (!noteProductIds.has(id)) issues.push(`${topic.slug}: products「${id}」は商品の正本（config.products）の note の商品に無い`);
     }

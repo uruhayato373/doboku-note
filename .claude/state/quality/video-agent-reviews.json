@@ -1,0 +1,306 @@
+{
+  "schemaVersion": 1,
+  "reviews": {
+    "pe-comprehensive-management/sokan-kojutsu-kangaekata/youtube.longform": {
+      "verdict": "pass",
+      "note": "13場面を確認。文字の切れと重なりなし。音声は未確認",
+      "at": "2026-11-04T04:34:41.527Z",
+      "visualDigest": "dceab5c1af212bed6c1c0da2a64cf41e05c7569534762d41e23b444639ff35cf",
+      "finalDigest": "8ed260ccbf1f05c17be868c51a765624333fd18d270f66eeebe8dedbce18fc0b"
+    },
+    "civil-construction-2/matome-2kyu-chokuzen/youtube.longform": {
+      "verdict": "pass",
+      "note": "131場面を全7枚で確認し、表紙・題名・章順は台本と一致、文字の切れや重なりなし。CTAは/linksの1つで日程の記述も無し。ただし2級土木の試験(2026-10-25)は既に終わり時期が過ぎている(予約公開日10-23も過去)。表紙下部が空白。音声は未確認。",
+      "at": "2026-11-04T04:50:03.937Z",
+      "visualDigest": "029c417577caae7c54b71dde325467af3ab496998646730e6831c0f473e83bac",
+      "finalDigest": "2bf6db8580c4a6ace0c3f29efefb96a8c70f793ed486f5306f15857d1e91434d"
+    },
+    "pe-comprehensive-management/monbun-yomikata/youtube.longform": {
+      "verdict": "fail",
+      "note": "23場面と表紙の画像が台本(動詞・対象・数・条件を拾う、道路維持管理の仮設問)と合わず、旧版の三層構造・210分配分・600字×5枚などの内容になっている。公開用の youtube.json も無く候補版(youtube.candidate-20261022.json)のみ。総監2026筆記は終了済みで時期も過ぎている。音声は未確認。",
+      "at": "2026-11-04T04:50:04.022Z",
+      "visualDigest": "372513b23dbc838786f77fbb99358e2a25ef99a7c0e55bdef6db3eef26823550",
+      "finalDigest": "ced1a8e92f7fa2a6d05a697eb5128503be8324a3ce8fc9afa657525d68d5bed1"
+    },
+    "pe-comprehensive-management/sanso-kozo/youtube.longform": {
+      "verdict": "fail",
+      "note": "24場面は台本と順序・内容が一致し、表紙も題名に合う。ただし youtube.json 等のタイトル・説明文が無く、CTAのリンク先と制作表記を確認できないため保留。総監2026筆記は終了済みで時期が過ぎている。音声は未確認。",
+      "at": "2026-11-04T04:50:04.107Z",
+      "visualDigest": "ae975e42d7a52865785b492bbf2949935fa55ffcf75b0527f876a0252cbcfefd",
+      "finalDigest": "fa2299e804a0f2fd3dad58118cdfdd7ffaf16b8b0e60972e21f4e48ab8f10208"
+    },
+    "pe-comprehensive-management/gokanri-tradeoff/youtube.longform": {
+      "verdict": "pass",
+      "note": "台本と表紙は題名・中身・出典と整合し、試験日の誤りや合格の約束は無い。描画に進んでよい。動画は未完成（音声は未確認）。",
+      "at": "2026-11-04T04:50:04.193Z",
+      "visualDigest": "162450fffc6e41982f824f3375bed06f3a8ce6539fd7a832847704f534a99178",
+      "finalDigest": "5f70699d1f390646bca4cf33ae2499a63e158a26ed0b00b92046cc55e6453964"
+    },
+    "pe-comprehensive-management/gyoumu-keirekihyo/youtube.longform": {
+      "verdict": "pass",
+      "note": "台本と表紙は題名・中身・出典と整合し、試験日の誤りや合格の約束は無い。描画に進んでよい。動画は未完成（音声は未確認）。",
+      "at": "2026-11-04T04:50:04.278Z",
+      "visualDigest": "566296176359a85f793d3d7902ee2b1727a328e20c57842cecbc3982b139f080",
+      "finalDigest": "7b75be4ce2cc4393cfb86cf1a324768b5816781105e26723de90e40f92b313d2"
+    },
+    "pe-comprehensive-management/hakusho-map/youtube.longform": {
+      "verdict": "pass",
+      "note": "台本と表紙は題名・中身・出典と整合し、試験日の誤りや合格の約束は無い。描画に進んでよい。動画は未完成（音声は未確認）。",
+      "at": "2026-11-04T04:50:04.364Z",
+      "visualDigest": "7a5dcec7795c1f6d9fe404117301ff80e37c1e222065024d51e067b66cdbf777",
+      "finalDigest": "8ac405c8f72722e52c124980727e84e01636b46b3bf9b865b23d1d3e1108ce5b"
+    },
+    "pe-comprehensive-management/kata-oudan-ryuyo/youtube.longform": {
+      "verdict": "fail",
+      "note": "主CTAが「R5からR8予想まで」書き分けた商品を案内するが、令和8年度試験は2026-07-19/20に実施済みで（config/exam-calendar.json）、終わった年度の予想を売りにする表現が古い。CTA文面を直してから再確認。",
+      "at": "2026-11-04T04:50:04.453Z",
+      "visualDigest": "0eaec3c62f7065c2a16cbb1f5a9d0b3cb561c2d8b56faf9d50344eaf30a6e1ec",
+      "finalDigest": "46a711e6b4780590948c7223f80f2daa0d2abb861360eb09b155146dd39e73d5"
+    },
+    "pe-comprehensive-management/kikinagashi-sokan-keyword/youtube.longform": {
+      "verdict": "pass",
+      "note": "台本・表紙とも題名と中身が一致し、用語の記述はサイト記事（パリ協定の1.5/2度、人事考課の三原則等）と整合。描画に進んでよい。動画は未完成（音声は未確認）。",
+      "at": "2026-11-04T04:50:04.541Z",
+      "visualDigest": "6ddfd3e7e66577515651057653941f9dc4513a15450aed3a9149b91f454126fd",
+      "finalDigest": "2cb44b4f2f800c2f396ab383ae55354e7c196a9e3e839ca1c9d8b44ed5fdfd3e"
+    },
+    "pe-comprehensive-management/persona-settei/youtube.longform": {
+      "verdict": "pass",
+      "note": "台本と表紙は題名・中身・出典と整合し、試験日の誤りや合格の約束は無い。描画に進んでよい。動画は未完成（音声は未確認）。",
+      "at": "2026-11-04T04:50:04.625Z",
+      "visualDigest": "ac5e46cdd102f7cf0e8ecfffc182abb73204663e030de9aeec39ae50f7d68594",
+      "finalDigest": "241b1feffdff3d8cc958a7d2c8c360c8e5e77a102e748f09ac62f0db674e0c98"
+    },
+    "pe-comprehensive-management/r8-yosou-theme/youtube.longform": {
+      "verdict": "fail",
+      "note": "題名・表紙が「令和8年度予想」だが、令和8年度の筆記試験は2026-07-19/20に実施済みで（config/exam-calendar.json）、2026-11-04時点で試験後の予想動画になり事実と矛盾する。次年度向けへの差し替えか非公開が必要。",
+      "at": "2026-11-04T04:50:04.711Z",
+      "visualDigest": "add100cdcf30f91db4ee3fe69a706dba97fe4dd6e202af593da8025742e43610",
+      "finalDigest": "b25f4e01ad2b55253479bd6c65624594aa01730b822001996d6325144535faba"
+    },
+    "pe-comprehensive-management/setsumon3-shisaku/youtube.longform": {
+      "verdict": "pass",
+      "note": "台本と表紙は題名・中身・出典と整合し、試験日の誤りや合格の約束は無い。描画に進んでよい。動画は未完成（音声は未確認）。",
+      "at": "2026-11-04T04:50:04.795Z",
+      "visualDigest": "ca5f2f2dc7d3af31f7677e9ef3750b5c6facf5e4edc343704314b8502c7c1ca9",
+      "finalDigest": "45360c35bfc2272733b7aea528091df9d35704c6731adecfca234ff3290d47d0"
+    },
+    "pe-comprehensive-management/sokan-goukaku-senryaku/youtube.longform": {
+      "verdict": "fail",
+      "note": "「総監には学協会や白書がない」と断定するが、同チャンネルの白書マップ動画は総監向けに27白書を勧めており矛盾する。出典記事の表も列の対応が曖昧で、誤解を招く断定のため修正が必要。",
+      "at": "2026-11-04T04:50:04.879Z",
+      "visualDigest": "6dc9149964efdf4cb266dbbffa4ffb164775339d61489ca4277100559a7f560d",
+      "finalDigest": "ce64dd4bd11767f648e11a1d57b1654774d31c6a00bbd677c35af8e873283c06"
+    },
+    "pe-comprehensive-management/takuitsu-keyword/youtube.longform": {
+      "verdict": "pass",
+      "note": "台本と表紙は題名・中身・出典と整合し、試験日の誤りや合格の約束は無い。描画に進んでよい。動画は未完成（音声は未確認）。",
+      "at": "2026-11-04T04:50:04.964Z",
+      "visualDigest": "e5d257c58f65464551e224f782b95c6e6815ac2b4d843326c62ec20a76d7c5e1",
+      "finalDigest": "8e97fcca5a180b53be2caa659193f405dc000f967d5310811d8b3d23c0049b28"
+    },
+    "pe-comprehensive-management/takuitsu-r07-enshu/youtube.longform": {
+      "verdict": "fail",
+      "note": "問2で事業者は個人の検査結果に「触れられません」と言い切るが、本人同意があれば提供を受けられるため断定が強すぎる。問2・問3は「正答は…という記述」と言いつつ実際は不適切な記述（誤り）を指しており、視聴者が誤った内容を正答と受け取る恐れがある。",
+      "at": "2026-11-04T04:50:05.050Z",
+      "visualDigest": "2b775f0bc78331b115488dfb8934274c50ecd1ae3de72cc6efa4f29c87129525",
+      "finalDigest": "5e01407277b2892cd5d9fdeff400b887b3e0cc82630522eedc7c8c6e351fdcfc"
+    },
+    "pe-construction/competency-r8-taiou/youtube.longform": {
+      "verdict": "pass",
+      "note": "題名・表紙・台本が一致し、誤字・矛盾なし。描画に進んでよい。動画は未完成（台本と表紙のみ確認、音声・場面は未確認）。",
+      "at": "2026-11-04T04:50:05.135Z",
+      "visualDigest": "e040305520837c5939208f4949e33bc09f93421ce3f1012e0d4871bfba90d5d9",
+      "finalDigest": "7b16f8053e361365651c6a0622d80d936fab62ed6aa6767f82ef0f87d3f883b2"
+    },
+    "pe-construction/gakushuu-schedule-gyakusan/youtube.longform": {
+      "verdict": "fail",
+      "note": "冒頭で時間数より日程逆算と述べながら、要約で「フル答案を何本書いたかが合否に直結」と出典なく断定しており、合否に関する断定表現として修正が必要。",
+      "at": "2026-11-04T04:50:05.219Z",
+      "visualDigest": "d7a97c24fcdcb03fde50254632c1a223e5f4fb2d7cb0a4203ae81a58430cfd69",
+      "finalDigest": "6435d6ec5a67070618afe20893707b8ca195cb52cbd6747efe9ffea9970d4d5e"
+    },
+    "pe-construction/hissu1-bosai-kyoujinka/youtube.longform": {
+      "verdict": "pass",
+      "note": "表紙と台本が一致。出題年の記述は出典記事に基づく。描画に進んでよい。動画は未完成（台本と表紙のみ確認、音声・場面は未確認）。",
+      "at": "2026-11-04T04:50:05.306Z",
+      "visualDigest": "72678390e349bb7632df54b1f221f9b2ef93141b933a3d8f250808c4246e807a",
+      "finalDigest": "75385a5c6b08dd37dc6dfd7a5104c6c4ad25ca6c9aebca0242a934bf6421df4c"
+    },
+    "pe-construction/hissu1-carbon-neutral/youtube.longform": {
+      "verdict": "pass",
+      "note": "表紙と台本が一致。施策の年次は出典記事と整合。描画に進んでよい。動画は未完成（台本と表紙のみ確認、音声・場面は未確認）。",
+      "at": "2026-11-04T04:50:05.394Z",
+      "visualDigest": "91bbee58380fcb3562b975d2d8019c82973b0b25cdc67be7788862eb2b7c32d6",
+      "finalDigest": "649a69db8c864067e8bc4e84f0209e119932e08a9317d19d6261a5afa60c5abd"
+    },
+    "pe-construction/hissu1-infra-roukyuuka/youtube.longform": {
+      "verdict": "pass",
+      "note": "表紙と台本が一致。第2次行動計画(R3-R7)は出典記事どおり。描画に進んでよい。動画は未完成（台本と表紙のみ確認、音声・場面は未確認）。",
+      "at": "2026-11-04T04:50:05.480Z",
+      "visualDigest": "1afdd12acf97a08aebac9ff2c728aa837ba58e97d2dd6874baf3f6877e399c40",
+      "finalDigest": "551dbb05f955a1d9bb7a947d546d336ac3985ecd95993f227ff62caa59dc695f"
+    },
+    "pe-construction/hissu1-kensetsu-dx/youtube.longform": {
+      "verdict": "pass",
+      "note": "表紙と台本が一致。コンピテンシー改訂の記述が将来形だがR8試験後でも致命的ではない。描画に進んでよい。動画は未完成（台本と表紙のみ確認、音声・場面は未確認）。",
+      "at": "2026-11-04T04:50:05.566Z",
+      "visualDigest": "136a7b38dc3bb90067953006b4e828f382907db57d0d576b2137c59e6ed238fe",
+      "finalDigest": "e164a3c5d2592844edecd059c6ea1c167758d9e8f2c1fed27c00e2fc1e5f111a"
+    },
+    "pe-construction/hissu1-kokudo-chiiki/youtube.longform": {
+      "verdict": "fail",
+      "note": "背景計画に第5次社会資本整備重点計画を置くが、出典記事では第6次が令和8年1月16日に閣議決定済み（計画期間〜令和12年度）で、現行計画に触れておらず古い。第6次を加える修正が必要。",
+      "at": "2026-11-04T04:50:05.652Z",
+      "visualDigest": "7c80028e7d262db495b51c4db55d218991c1872492fd9033ec48501c5dbc8c81",
+      "finalDigest": "6b41493f08eb173295fb5749e271e1c63d547186d21c75f8742a7301ebc6d0cf"
+    },
+    "pe-construction/hissu1-ninaite-seisansei/youtube.longform": {
+      "verdict": "pass",
+      "note": "表紙と台本が一致。数値(685万人/477万人、37%/12%、時間外上限)は妥当。描画に進んでよい。動画は未完成（台本と表紙のみ確認、音声・場面は未確認）。",
+      "at": "2026-11-04T04:50:05.737Z",
+      "visualDigest": "b5ad8eaeddfbf86626a21413dbf6112c713b8a7bb5b6df47eade78b914cd9cd3",
+      "finalDigest": "114ff74fe445b847e6ef8af6b42fa0a948357e36870d137574e3954b01b06b12"
+    },
+    "pe-construction/hissu1-theme-map/youtube.longform": {
+      "verdict": "fail",
+      "note": "「7年分」はR08(2026-07-20実施済み)を含まず古い。また系統別回数の合計が15回で、R04 I-1を担い手系とDX系の両方に数えており14問と合わない。",
+      "at": "2026-11-04T04:50:05.822Z",
+      "visualDigest": "396499b10cda6bc55dbcb3c3d3b100cd643ea8a3b5764ee0ec30f1c628cc67e9",
+      "finalDigest": "75cc15263612987107e8abcc5952460643cce33575050a577fa6569e63987626"
+    },
+    "pe-construction/kaitourei-tsukaikata/youtube.longform": {
+      "verdict": "pass",
+      "note": "表紙と台本が一致、誤字・断定の問題なし。描画に進んでよい。動画は未完成（台本と表紙のみ確認、音声・場面は未確認）。",
+      "at": "2026-11-04T04:50:05.907Z",
+      "visualDigest": "ca6db5823ea45ba6e443b85a2721d483b1a748bddcc0987c4bd2abd7d3b156c2",
+      "finalDigest": "e281bc577129d3a4f3965f793832034343aa664756114229105690090cf911bc"
+    },
+    "pe-construction/keirekihyo-kakikata/youtube.longform": {
+      "verdict": "pass",
+      "note": "表紙と台本が一致。720字・約20分の口頭試験・実務経験年数の記述は出典記事に基づく。描画に進んでよい。動画は未完成（台本と表紙のみ確認、音声・場面は未確認）。",
+      "at": "2026-11-04T04:50:05.994Z",
+      "visualDigest": "4f5c466d39fd8bcb056c81cc5ed4a2d33ea4f17e6444d7680f9820a84a8e543d",
+      "finalDigest": "9d94ed12c601d77750c1608feff766ac445a841f1d92ee8ae43b42b1417c861c"
+    },
+    "pe-construction/kensetsu-pe-career-kachi/youtube.longform": {
+      "verdict": "pass",
+      "note": "表紙と台本が一致。年収は金額を断定せず、企業差の留保あり。描画に進んでよい。動画は未完成（台本と表紙のみ確認、音声・場面は未確認）。",
+      "at": "2026-11-04T04:50:06.080Z",
+      "visualDigest": "994a7a62ee0da16e571095f4378ca695231cf650f898e3fe4a2cda9481aad220",
+      "finalDigest": "e2f28242a33dd7a0e3e32edea1cdb45cadd94ad55189204c351c9087939379b3"
+    },
+    "pe-construction/nanido-goukakuritsu-shindan/youtube.longform": {
+      "verdict": "pass",
+      "note": "表紙と台本が一致。筆記7月・口頭は年末〜翌年の記述は exam-calendar と矛盾しない。描画に進んでよい。動画は未完成（台本と表紙のみ確認、音声・場面は未確認）。",
+      "at": "2026-11-04T04:50:06.164Z",
+      "visualDigest": "4b26f6ea1cf194f6f1f7b309acb4e7d91eb6985403d81e9332ba4a23d794bebe",
+      "finalDigest": "c9adc9e2611ec05be4aac0627beed0196db2e5e3baad04c3b27cfafa349be68d"
+    },
+    "pe-construction/r8-yosou-dashikata/youtube.longform": {
+      "verdict": "fail",
+      "note": "令和8年度予想の動画だが、R8筆記は2026-07-20に実施済みで、結果発表予定は2026-11-04。時期に合わない内容で、題名・台本とも更新か差し替えが必要。",
+      "at": "2026-11-04T04:50:06.250Z",
+      "visualDigest": "b04719033b717306e6a092c3ce10a882a174386a7eb6a763aa4b4fdac8c73924",
+      "finalDigest": "a8b95a2621817c3db7c99fdad47a2e48266592767aea7433847a6f93b67c6435"
+    },
+    "pe-construction/secondary-study-houhou/youtube.longform": {
+      "verdict": "pass",
+      "note": "台本と表紙は題名と一致し、誤字・試験日の矛盾・合格の約束は見当たらない。描画に進んでよい。動画は未完成。",
+      "at": "2026-11-04T04:50:06.335Z",
+      "visualDigest": "5316f7da99ee1a3362a6c9e608e9696844673c95b6cdc1f7612ea343c056c32d",
+      "finalDigest": "efd103292302704a50c52361e1dbed42a6d6246b1a7b16ac267b1b7ceed25953"
+    },
+    "pe-construction/sentaku-construction-planning-yomikata/youtube.longform": {
+      "verdict": "fail",
+      "note": "台本の説明ブロック4に「発注者として発注者として」の重複誤記がある。直してから再確認が必要。",
+      "at": "2026-11-04T04:50:06.421Z",
+      "visualDigest": "88adabbcd806ea628851833552eb41f3cbfe72153daa70e2cfc7bdec29eab855",
+      "finalDigest": "7959edebb4a7ee33d13ae37429276f99487a3fce2968072c0abd9fbd978b5701"
+    },
+    "pe-construction/sentaku-environment-yomikata/youtube.longform": {
+      "verdict": "pass",
+      "note": "台本と表紙は題名と一致し、誤字・試験日の矛盾・合格の約束は見当たらない。描画に進んでよい。動画は未完成。",
+      "at": "2026-11-04T04:50:06.507Z",
+      "visualDigest": "1968544d7017ff4421380984fe6ed2edcd695adaa2068fdd7521385406fea7a7",
+      "finalDigest": "0bf9e01b8c7b2d01e35e5f749aa05d62422eaf09f0f9f480737ccf3fa3fb6033"
+    },
+    "pe-construction/sentaku-geotechnical-yomikata/youtube.longform": {
+      "verdict": "pass",
+      "note": "台本と表紙は題名と一致し、誤字・試験日の矛盾・合格の約束は見当たらない。描画に進んでよい。動画は未完成。",
+      "at": "2026-11-04T04:50:06.593Z",
+      "visualDigest": "e0b0016ec7a238d85a7de4fd47885a13c8e321c140eae88528436ce88c8f464f",
+      "finalDigest": "286dfc6cc5f360cef937dcb2198b17280ee37553e16fcf1171febb2e4065891c"
+    },
+    "pe-construction/sentaku-kakiwake-3type/youtube.longform": {
+      "verdict": "pass",
+      "note": "表紙は「選択II・III」でII-1を省くが、選択IIに含まれるため許容。 台本と表紙は題名と一致し、誤字・試験日の矛盾・合格の約束は見当たらない。描画に進んでよい。動画は未完成。",
+      "at": "2026-11-04T04:50:06.678Z",
+      "visualDigest": "f961e186b46b4eb72b62852e241c4b9897e150e007a07a1294fce91efb2b7d34",
+      "finalDigest": "579f2cc564d6723375faecc400abadebdc3fcc76be34acccbf6d51219d1ae562"
+    },
+    "pe-construction/sentaku-port-airport-yomikata/youtube.longform": {
+      "verdict": "pass",
+      "note": "台本と表紙は題名と一致し、誤字・試験日の矛盾・合格の約束は見当たらない。描画に進んでよい。動画は未完成。",
+      "at": "2026-11-04T04:50:06.763Z",
+      "visualDigest": "081a19d1187acaea149281fb2694dc5569dcf53275b8b3a3294290ad6d641d79",
+      "finalDigest": "606630556adf43477dbb1beeffed9cb9d8c141f27c06e32abdbc7a2a4ef67bae"
+    },
+    "pe-construction/sentaku-power-civil-yomikata/youtube.longform": {
+      "verdict": "pass",
+      "note": "台本と表紙は題名と一致し、誤字・試験日の矛盾・合格の約束は見当たらない。描画に進んでよい。動画は未完成。",
+      "at": "2026-11-04T04:50:06.850Z",
+      "visualDigest": "14e95255b27d8aabdd5bb84c45197d731a989c7b04f26946c3a5c4da377e24d7",
+      "finalDigest": "0fc463b7c5b5120a2feb4124de119452a7fbb8640e6a6051b52c8b302c95d7f0"
+    },
+    "pe-construction/sentaku-railway-yomikata/youtube.longform": {
+      "verdict": "pass",
+      "note": "台本と表紙は題名と一致し、誤字・試験日の矛盾・合格の約束は見当たらない。描画に進んでよい。動画は未完成。",
+      "at": "2026-11-04T04:50:06.935Z",
+      "visualDigest": "0f5c1ae2ca167ac8fb84337c3a8629be25cf954a251e0b54f5521c0ea7310762",
+      "finalDigest": "a9e279e7d66f3f4d9931ae65f1abf623325fb72692e41f3f91aa697bda3507c8"
+    },
+    "pe-construction/sentaku-river-coast-yomikata/youtube.longform": {
+      "verdict": "fail",
+      "note": "台本に「河川・砂防・海岸に合格した実感として」とあり、出典の無い本人の合格経験の断定。道路・河川砂防海岸・都市計画の3本すべてが同じ主張で、事実と合わない恐れがある。運営者が事実を確認するか文言を直すまで保留。",
+      "at": "2026-11-04T04:50:07.020Z",
+      "visualDigest": "3a250585b1f2b5e50784e80c4cac137a9071352c18ef886a67e03bfa6269e722",
+      "finalDigest": "aeff6caa642a5b7a82ee4c48a32e9e1fb1a746fb9111c0be691c3a01a4ce2e2e"
+    },
+    "pe-construction/sentaku-road-yomikata/youtube.longform": {
+      "verdict": "fail",
+      "note": "台本に「道路科目に合格した実感として」とあり、出典の無い本人の合格経験の断定。道路・河川砂防海岸・都市計画の3本すべてが同じ主張で、事実と合わない恐れがある。運営者が事実を確認するか文言を直すまで保留。",
+      "at": "2026-11-04T04:50:07.106Z",
+      "visualDigest": "8d2389a3e2292d7500a82a5fcdd8a177483c59c2d493a9452b3b0692ca46627f",
+      "finalDigest": "424330a5b3cd622367b9340e9b50dbbb2ba6f32a617ddf4cf0a9fa326fecc0ec"
+    },
+    "pe-construction/sentaku-steel-concrete-yomikata/youtube.longform": {
+      "verdict": "fail",
+      "note": "表紙の題名が「鋼構造・コンクリ」で途中で切れている（「コンクリート」が欠ける）。表紙の作り直しが必要。台本は問題なし。",
+      "at": "2026-11-04T04:50:07.192Z",
+      "visualDigest": "ac64f57361b98aff11db3b6b2b310c9d1324e2e1578627d8dc7916e2549052f9",
+      "finalDigest": "4be3092252bd7944444e5609ce7c2871c5eed921ba456b8a119305a342903249"
+    },
+    "pe-construction/sentaku-tunnel-yomikata/youtube.longform": {
+      "verdict": "pass",
+      "note": "台本と表紙は題名と一致し、誤字・試験日の矛盾・合格の約束は見当たらない。描画に進んでよい。動画は未完成。",
+      "at": "2026-11-04T04:50:07.278Z",
+      "visualDigest": "5738785a6c4caee228d238bb1925f314cc4091ed726a19a14d8ad49fbc51d6f3",
+      "finalDigest": "5cb31d635aa5d6e6b0649ad9832eb96336d34220cda14a10e797c1d23839adc1"
+    },
+    "pe-construction/sentaku-urban-planning-yomikata/youtube.longform": {
+      "verdict": "fail",
+      "note": "台本に「都市計画に合格した実感として」とあり、出典の無い本人の合格経験の断定。道路・河川砂防海岸・都市計画の3本すべてが同じ主張で、事実と合わない恐れがある。運営者が事実を確認するか文言を直すまで保留。",
+      "at": "2026-11-04T04:50:07.362Z",
+      "visualDigest": "7911af53e077f0318b7ef7313d1766fcb0d5491f14faf755b040bffc30286f55",
+      "finalDigest": "5297ec7b1531f14e7e05766757378452bf16f3779103eb1b78ddc9d84a884d4a"
+    },
+    "pe-construction/toan-kousei-template/youtube.longform": {
+      "verdict": "pass",
+      "note": "台本と表紙は題名と一致し、誤字・試験日の矛盾・合格の約束は見当たらない。描画に進んでよい。動画は未完成。",
+      "at": "2026-11-04T04:50:07.448Z",
+      "visualDigest": "6fe995c34a7ff58aa1a134e232294b38f38bf3271bf2e2226bf9588f817b2472",
+      "finalDigest": "3039d52c15d6da4e07c1b96ac613515ddeff580ff257d22f71a1a3699ae507df"
+    }
+  }
+}

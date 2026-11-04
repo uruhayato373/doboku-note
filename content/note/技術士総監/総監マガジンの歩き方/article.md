@@ -5,7 +5,7 @@ noteContentType: learning
 utmCampaign: 99-magazine-guide
 notePublishedAt: "2026-07-02"
 noteId: "nc874692256bb"
-title: "総監マガジンの歩き方｜3つの質問で「あなたに必要な1冊」が3分で決まる案内図"
+title: "技術士 総監｜教材の選び方 3つの質問で必要な1冊が決まる案内図"
 noteUrl: "https://note.com/dobokunote/n/nc874692256bb"
 noteStatus: published
 cover:
@@ -16,7 +16,13 @@ cover:
   hiSuffix: "分で決まる"
   benefit: "自分に必要な1冊が決まる"
 ---
-# 総監マガジンの歩き方｜3つの質問で「あなたに必要な1冊」が3分で決まる案内図
+# 技術士 総監｜教材の選び方 3つの質問で必要な1冊が決まる案内図
+
+**この記事でわかること**
+
+- 3 つの質問で、自分に必要な教材を絞る方法
+- 立場ごとの模範論文の探し方
+- 共通教材と立場別の教材の組み合わせ方
 
 総監の記述式教材は、突きつめると4種類しかありません。**書き方の「型」・施策の「弾薬」・本番の「演習」・あなたの立場の「実例」** です。
 
@@ -223,7 +229,7 @@ https://note.com/dobokunote/m/m171222175fac
 
 3分の地図はここまでです。あなたの合格答案が、いちばん早く形になることを願っています。
 
-過去問を年度・5 管理別に引きたい方は、[総監 過去問インデックス](https://doboku-note.com/exam/pe-comprehensive-management/guide/exam-index?utm_source=note&utm_medium=referral&utm_campaign=99-magazine-guide&utm_content=exam-index)もあわせてご利用ください。無料で公開しています。
+過去問を年度・5 管理別に引きたい方は、[総監 過去問インデックス](https://doboku-note.com/exam/pe-comprehensive-management/guide/exam-index?utm_source=note&utm_medium=referral&utm_campaign=99-magazine-guide&utm_content=exam-index&utm_term=nc874692256bb)もあわせてご利用ください。無料で公開しています。
 
 ---
 

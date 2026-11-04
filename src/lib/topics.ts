@@ -11,6 +11,9 @@ export type TopicFacet = 'field' | 'management' | 'law' | 'audience';
 /** hub＝昇格基準を満たす公開ハブ（検索に出す）／incubating＝育成中（noindex・サイトマップ外。リンクは出す） */
 type TopicStatus = 'hub' | 'incubating';
 
+type TopicRoadmapStep = { label: string; summary: string; docs: string[] };
+type TopicExamDiff = { exam: string; text: string };
+
 export type Topic = {
   slug: string;
   label: string;
@@ -23,6 +26,12 @@ export type Topic = {
   demandEvidence?: string;
   /** 一覧の前に置く編集リード（段落ごと）。テーマの要点・資格ごとの出方・実務での使いどころ */
   intro?: string[];
+  /** 編集リードの見出し（無ければ「{label}で押さえること」）。検索される言い方に合わせる（EXP-044） */
+  introHeading?: string;
+  /** 学ぶ順番の地図（段ごとの要点と記事の論理 slug）。公開中の記事だけ出す。check-topic-wiring が実在を検査する */
+  roadmap?: TopicRoadmapStep[];
+  /** 資格ごとの出題の違い（資格名と要点）。数字は config/ と該当記事に合わせる */
+  examDiffs?: TopicExamDiff[];
   tags: string[];
   /** このカテゴリの記事は全件このテーマに属す（例: コンクリート 3 資格 → concrete）。
       タグ語彙が資格ごとに揺れて突合 0% になるカテゴリの受け皿（2026-09 監査で 6/10 カテゴリが 0% だった）。 */
@@ -141,4 +150,17 @@ export function getTopicsForStandardText(document: StandardDocument, text: strin
   return topics.filter((topic) =>
     topic.standardKeywords.some((keyword) => searchable.includes(keyword)),
   );
+}
+
+/** 学ぶ順番の地図。記事の slug を公開中の記事の題名とリンク先に解決する（無い記事は落とす） */
+export function getTopicRoadmap(topic: Topic): { label: string; summary: string; docs: { slug: string; title: string }[] }[] {
+  const meta = new Map(getAllDocsMeta().map((doc) => [doc.slug, doc]));
+  return (topic.roadmap ?? []).map((step) => ({
+    label: step.label,
+    summary: step.summary,
+    docs: step.docs
+      .map((slug) => meta.get(slug))
+      .filter((doc): doc is DocMeta => Boolean(doc) && doc?.published !== false)
+      .map((doc) => ({ slug: doc.slug, title: doc.shortTitle || doc.title })),
+  }));
 }
