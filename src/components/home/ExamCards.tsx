@@ -27,6 +27,7 @@ const EXAM_THEME: Record<string, ExamTheme> = {
   rccm: { bar: "bg-(--exam-rccm)", hoverBorder: "hover:border-(--exam-rccm)" },
   surveyor: { bar: "bg-(--exam-surveyor)", hoverBorder: "hover:border-(--exam-surveyor)" },
   pavement: { bar: "bg-(--exam-pavement)", hoverBorder: "hover:border-(--exam-pavement)" },
+  "pipe-work": { bar: "bg-(--exam-pipe-work)", hoverBorder: "hover:border-(--exam-pipe-work)" },
 };
 const FALLBACK_THEME: ExamTheme = { bar: "bg-(--accent)", hoverBorder: "hover:border-(--accent)" };
 

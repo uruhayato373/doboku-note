@@ -1375,6 +1375,10 @@
 # route /docs/pe-first-stage-r07-basic /exam/pe-first-stage/primary/r07-basic
 # route /docs/pe-first-stage-r07-construction /exam/pe-first-stage/primary/r07-construction
 # route /docs/pe-first-stage-r07-water-supply /exam/pe-first-stage/primary/r07-water-supply
+# route /docs/pipe-work-guide-kotei-hyo /exam/pipe-work/guide/kotei-hyo
+# route /docs/pipe-work-guide-overview /exam/pipe-work/guide/overview
+# route /docs/pipe-work-guide-sekou-kijutsu /exam/pipe-work/guide/sekou-kijutsu
+# route /docs/pipe-work-guide-study-plan /exam/pipe-work/guide/study-plan
 # route /docs/rccm-guide-career-value /exam/rccm/guide/career-value
 # route /docs/rccm-guide-difference-pe /exam/rccm/guide/difference-pe
 # route /docs/rccm-guide-eligibility-application /exam/rccm/guide/eligibility-application
@@ -1588,6 +1592,7 @@
 /category/concrete-engineer /exam/concrete-engineer 301
 /category/concrete-chief-engineer /exam/concrete-chief-engineer 301
 /category/concrete-diagnostician /exam/concrete-diagnostician 301
+/category/pipe-work /exam/pipe-work 301
 /category/pavement /exam/pavement 301
 /category/surveyor /exam/surveyor 301
 /category/building-construction /exam/building-construction 301
@@ -1908,6 +1913,7 @@
 /docs/pe-first-stage-guide-* /exam/pe-first-stage/guide/:splat 301
 /docs/surveyor-primary-* /exam/surveyor/primary/:splat 301
 /docs/pe-construction-* /exam/pe-construction/past-exams/:splat 301
+/docs/pipe-work-guide-* /exam/pipe-work/guide/:splat 301
 /docs/civil-practice-* /practice/:splat 301
 /docs/pavement-guide-* /exam/pavement/guide/:splat 301
 /docs/pe-first-stage-* /exam/pe-first-stage/primary/:splat 301

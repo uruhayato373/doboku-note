@@ -164,7 +164,7 @@ productId は `article:<slug>` 形式。slug は商品名から推定:
 | `測量士 午後 記述式の計算問題を「型20本」で解く`（¥1,480・2026-10-28） | `article:surveyor-keisan-20` |
 | `1級舗装 応用試験 選択問題（問2〜5）の頻出論点`（¥1,480・2026-10-28） | `article:pavement-1-sentaku-hinshutsu` |
 | `2級舗装 応用試験 問1（経験記述）の模範答案`（¥980・2026-10-28） | `article:pavement-2-keiken` |
-| `管工事施工管理技士 第二次検定「施工記述」機器別 模範解答バンク`（¥1,980・2026-10-28） | `article:pipe-work-kikibetsu-bank` |
+| `管工事施工管理技士 第二次検定「施工記述」機器別 模範解答バンク`（¥1,980・2026-10-28） | `article:pipe-work-sekou-kijutsu-bank` |
 | `1級土木 二次｜出題分析と直前の重点` | `article:civil-1-r8-bunseki` |
 | `2級土木 二次｜出題分析と直前の重点`（¥580・2026-09-17） | `article:civil-2-r8-bunseki` |
 | `1級土木 令和8年度 第2次検定｜予想模試3回` | `article:civil-1-r8-mock3-pdf` |

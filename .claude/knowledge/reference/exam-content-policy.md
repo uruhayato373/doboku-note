@@ -159,6 +159,12 @@ doboku-note は複数の資格試験を扱うが、試験ごとに「**何を / 
 9. **OGP 画像を生成**（公開前必須）: `npm run ogp -- --all`（未生成分のみ生成）→ 新規 `ogp.png` を pathspec commit。**新カテゴリは OGP が 0 枚から始まる**ため、これを忘れると `og:image` が R2 で 404 になり、**note / X / Facebook 等の外部リンクカードが生成されない**（2026-06-12 pe-construction で全114本が該当）。`published:false` のドラフトは仕様上スキップされる＝公開化（`published:true`）のタイミングで再実行する。`ogp.png` は `r2-sync.yml` の path フィルタ（`**/ogp.png`）経由で main push 時に R2 同期される。詳細 → [measurement-incidents.md](./measurement-incidents.md)「2026-06-12 OGP 404」
 10. `src/components/ui/ArticleFooter/ArticleFooter.tsx` の資格別分岐を確認する（カテゴリページのビュー・並べ替え・見出しは 0 の `layout` に移した・DN-0793）。
 
+### 新資格メモ: 管工事施工管理技士（`pipe-work`、2026-11-04 展開中へ昇格・ガイドのみ）
+
+- groups = guide のみ（受験ガイド 4 本: 試験概要・施工記述・工程表・学習計画）。variant=civil / テーマ色 `--exam-pipe-work`（`#1d6a7a`・note カバーの管工事色と同一）。ExamKey は `pipe-work`、商品は `pipe-work-sekou-kijutsu-bank`（note 単品）を全ガイドの top CTA に置く。
+- 第二次検定は令和6年度から「施工記述」（試験側が機器を指定）。問題文・図は転載せず、出題分析は `content/note/管工事/第二次検定-出題分析.md`。日程・受験者数は `exam-calendar.json` / `exam-stats.json`（JCTC 照合済み）。
+- 運営者は管工事の有資格者ではない。座は上下水道の技術士として給排水を見てきた立場までで、空調は公的資料（公共建築工事標準仕様書）を根拠にする。合格を保証しない。択一の過去問は DN-0454。
+
 ### 新資格メモ: RCCM（`rccm`、2026-09-16 新設・**ガイドのみ**）
 
 - groups = guide のみ。variant=pe / order=2.7 / `home-exam-cards.json` order 8 / テーマ色 `--exam-rccm`（`#9C3D1E` 赤褐色・note カバー `exams.rccm` と同色）。ExamKey は `rccm`（マガジン id 接頭辞 `rccm-`）。
