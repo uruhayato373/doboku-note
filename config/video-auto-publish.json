@@ -10,9 +10,9 @@
   "audio": {
     "model": "~/.cache/whisper/ggml-small.bin",
     "language": "ja",
-    "minSimilarity": 0.6,
+    "minSimilarity": 0.75,
     "minMaxVolumeDb": -12,
     "maxMaxVolumeDb": -0.1,
-    "maxDurationGapSec": 3
+    "maxDurationGapSec": 8
   }
 }

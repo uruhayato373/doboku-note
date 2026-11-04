@@ -45,11 +45,11 @@ function locate(mediaById, pub, role) {
   return existsSync(inVault) ? inVault : null;
 }
 
-function queue() {
+function queue(statuses = ['qa_passed']) {
   const reg = loadRegistry(ROOT);
   const mediaById = new Map(reg.media.map((m) => [m.id, m]));
   return reg.publications
-    .filter((p) => p.channel === 'youtube' && p.status === 'qa_passed')
+    .filter((p) => p.channel === 'youtube' && statuses.includes(p.status))
     .map((pub) => {
       const state = approvalState(ROOT, pub, mediaById);
       return { pub, state, sheet: locate(mediaById, pub, 'contact-sheet'), cover: locate(mediaById, pub, 'cover') };
@@ -103,8 +103,9 @@ async function sheet() {
 
 function record() {
   if (!args.pub || !['pass', 'fail'].includes(args.verdict) || !args.note) throw new Error('record には --pub --verdict pass|fail --note が要る');
-  const row = queue().find((x) => x.pub.id === args.pub);
-  if (!row) throw new Error(`承認待ちに無い: ${args.pub}`);
+  // 予約後に文面を直した動画も、関門を通し直すために記録できる
+  const row = queue(['qa_passed', 'scheduled']).find((x) => x.pub.id === args.pub);
+  if (!row) throw new Error(`確認の対象に無い: ${args.pub}`);
   if (!row.state.visual.current) throw new Error('画面確認の素材が無い。先に npm run media -- preview で作る');
   const d = load();
   d.reviews[args.pub] = {
