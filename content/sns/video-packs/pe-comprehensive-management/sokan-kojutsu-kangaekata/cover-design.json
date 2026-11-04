@@ -2,6 +2,10 @@
   "schemaVersion": 1,
   "covers": {
     "longform": {
+      "character": {
+        "pose": "pop-explaining",
+        "frame": "waist"
+      },
       "format": "longform",
       "exam": "pe-comprehensive",
       "headline": [
@@ -13,19 +17,11 @@
       "design": "pop-poster-v3",
       "layout": "diagram-led",
       "approvedImage": {
-        "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-kangaekata/work/cover-diagram.a5414ef0.png",
-        "sha256": "a5414ef0d0623898a496c6866e7bc19cdcb0ef9cf7bce6b5222e3606112be3dd",
+        "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-kangaekata/work/cover-pop.3a4149b0.png",
+        "sha256": "3a4149b0936acb64868675ea48921cfadcaf119b81ac72f438b19bfafe450d28",
         "width": 1920,
         "height": 1080,
-        "source": {
-          "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-kangaekata/work/cover-source.57e59f4c.png",
-          "sha256": "57e59f4c875ad2eed19f1deb6e7414bfb2615494a62c04381b90872734cfdb2b"
-        },
-        "normalization": {
-          "mode": "full-frame-v1",
-          "sourceSha256": "57e59f4c875ad2eed19f1deb6e7414bfb2615494a62c04381b90872734cfdb2b"
-        },
-        "specSha256": "37e8a6630189c8ec93e41d3ed66c4f06de023dc5372081616134383229ec99ab"
+        "specSha256": "3e95a11312b299b25833bc37d5643a3253419f2f0390d680e42269f928fce1be"
       }
     }
   }
