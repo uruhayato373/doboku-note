@@ -1,7 +1,7 @@
 {
   "_doc": "docs/marketing/06_動画コンテンツ運用設計.md（横断の方針）・docs/marketing/07c_YouTube競合動画の画面分析_2026-10.md（根拠）",
   "schemaVersion": 1,
-  "updated": "2026-10-08",
+  "updated": "2026-11-06",
   "description": "YouTube の動画の型（何を・何分で・どこへ送るか）と採否の状態の正本。status は active（公開中）・trial（試作・比較中）・proposed（提案・未承認）・paused（止めた）・rejected（やらない）。採否はユーザーが決め、decision の backlog カードで判断し、ここの status を書き換える。根拠は evidence の文書。動画パックの契約は config/video-content.json、パックごとの公開状態はコンテンツ台帳 content/registry（写しの video-content-status.json は 2026-10-09 に消えた。読み手は scripts/lib/registry-video-state.mjs の loadVideoState）。数値の記録は data/youtube/own-videos（自社・月次）と data/youtube/competitors（競合・四半期）で、取得は npm run youtube-own-metrics・npm run scout-youtube-competitors。titleSignals は題名で型を見分ける語（両スクリプトが再生中央値を集計する）。",
   "channel": {
     "id": "UCHRnXPqoc0Hls8nXiK_ZYqA",
@@ -69,8 +69,8 @@
       "ctaKinds": ["coconala-service"],
       "producedBy": "render-longform の sheet・compare と red-pen の先生",
       "evidence": ["docs/marketing/07c_YouTube競合動画の画面分析_2026-10.md", "docs/marketing/07b_販売動線分析_ちゃんさと_2026-09.md"],
-      "decision": null,
-      "note": "伏せ字の架空答案だけを使い、実在の受検者の答案は同意なしに使わない。2026-10-08 の判断では見送り（総まとめを先に進める）。進めるときに判断カードを起票する"
+      "decision": "DN-1004",
+      "note": "伏せ字の架空答案だけを使い、実在の受検者の答案は同意なしに使わない。2026-10-08 の判断では見送り（総まとめを先に進める）。2026-11-04 に添削へ力を入れると決めたので、DN-1004 で採否を決め直す"
     },
     {
       "id": "pack-shorts",
@@ -85,6 +85,31 @@
       "note": "承認済み224本のうち222本が非公開のまま（Studio で関連動画を設定してから予約する工程・2026-10-08）"
     },
     {
+      "id": "yosou-derivation",
+      "label": "出題予想の導き方（根拠と限界を示す）",
+      "status": "proposed",
+      "role": "発見",
+      "lengthMinutes": { "min": 8, "max": 20 },
+      "ctaKinds": ["note-magazine"],
+      "producedBy": "動画パックの通常の工程（新しい描画は要らない）。r8-yosou-dashikata・r8-yosou-theme を出題実績と一次資料で改稿して使う",
+      "packIds": ["r8-yosou-dashikata", "r8-yosou-theme"],
+      "evidence": ["docs/marketing/07b_販売動線分析_ちゃんさと_2026-09.md", "docs/marketing/08_YouTube戦略_技術士建設部門.md"],
+      "decision": "DN-1004",
+      "note": "ちゃんさとの出題予想・傾向は16本で再生中央値13,300。的中の断定と予想の連番はしない（08 §7）。採否は DN-1004"
+    },
+    {
+      "id": "moshi-free",
+      "label": "無料模試（問題数を絞り、同じ形式の有料版へつなぐ）",
+      "status": "proposed",
+      "role": "送客",
+      "lengthMinutes": { "min": 10, "max": 30 },
+      "ctaKinds": ["note-magazine", "coconala-service"],
+      "producedBy": "未実装。既存の模試から問題数を絞る。問題・考える間・答えの表示は quiz-tts と共通にする（DN-0600）",
+      "evidence": ["docs/marketing/07b_販売動線分析_ちゃんさと_2026-09.md"],
+      "decision": "DN-0600",
+      "note": "ちゃんさとの模擬テストは9本で再生中央値12,598。無料の8問から note の有料版3回分へつないでいる。2027 年度版の模試が別途要る"
+    },
+    {
       "id": "exam-sokuho",
       "label": "解答速報（試験当日・直後）",
       "status": "paused",
@@ -93,8 +118,8 @@
       "ctaKinds": ["site-article", "note-magazine"],
       "producedBy": "未実装。2027 年の 1 級一次から、正答公表前は「速報・暫定」と明示し訂正の出し方を決めた形で始める（DN-0604）",
       "evidence": ["docs/marketing/07a_YouTube競合分析_土木施工管理技士_2026-09.md", "docs/marketing/07c_YouTube競合動画の画面分析_2026-10.md"],
-      "decision": "DN-0604",
-      "note": "07a §3 で試験直後の窓として指摘。ひげごろーの1級二次の解答速報（ライブ）は24,205回。2026-10-10 の運営者判断で 2026 年はやらない（10/25 の 2 級二次を含む）"
+      "decision": "DN-1004",
+      "note": "07a §3 で試験直後の窓として指摘。ひげごろーの1級二次の解答速報（ライブ）は24,205回。2026-10-10 の運営者判断で 2026 年はやらない（10/25 の 2 級二次を含む）。2026-10-06〜11-02 の検索では2級の R8 二次の解答ページが5,222クリック（全体8,137の64%）で、試験直後の答え合わせの需要は確か。再開するかは 2027 年の枠で判断する"
     }
   ]
 }

@@ -174,6 +174,7 @@ export const CHECKS = [
   // 2026-11-06: YouTube の再開と全面画像の標準化に合わせて復帰
   { id: 'youtube-shorts', npm: 'check-youtube-shorts', timeout: 60_000, ci: true, note: 'ショートの本数・タイトル・UTM・公開枠、停止以外の表紙が全面生成の標準か、採用画像の描画と画面確認が今の動画に結ばれているか' },
   { id: 'youtube-funnels', npm: 'check-youtube-funnels', timeout: 60_000, ci: true, note: '公開・予約・private 通常動画の有料note商品・UTM・関連サイト経路と公開台帳の一致を全件確認する' },
+  { id: 'youtube-plan', npm: 'check-youtube-plan', timeout: 60_000, ci: true, note: '通常動画の年間の枠と公開台帳を照合する。計画にない動画・枠の超過・週の上限超え・時期の外を止める（壁時計に依らない）' },
   { id: 'instagram-profile-funnel', npm: 'check-instagram-profile-funnel', timeout: 30_000, ci: true, note: 'Instagram bio の着地・UTMと固定投稿3本の原稿・画像SHA・Drive保存を検査する' },
 
   { id: 'codex-compat', npm: 'check-codex-compat', timeout: 60_000, ci: false, ops: true, cadence: 'weekly', note: 'DN-0805（2026-10-21）で ci から ops へ下げた（読み手＝週次レビュー（土曜に npm run quality:audit:weekly を review-checks が回し、レビューの「点検と Issue」で全件に行き先を書く・DN-0847））。止めた不具合が無く、merge を止める必要は薄い。pre-commit では従来どおり見る。AGENTS.md / .agents/skills が CLAUDE.md / .claude/skills（正典）から生成された状態と一致するか（第2SSOTドリフトの再発防止・DN-0098）' },

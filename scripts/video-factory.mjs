@@ -42,7 +42,8 @@ import { recordYoutubeRevisionQa } from './lib/registry-youtube-revision.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 import { todayJst } from './lib/jst-date.mjs';
 import { applyReadingDict } from '../.claude/scripts/lib/sns-common/reading-dict.mjs';
-import { audioProblems, evaluateGate, nextSlot, readPolicy, speechSimilarity, uploadsLeft } from './lib/video-publish-gate.mjs';
+import { audioProblems, evaluateGate, nextSlot, planProblems, readPolicy, speechSimilarity, uploadsLeft } from './lib/video-publish-gate.mjs';
+import { slotProblems, weekLimit } from './lib/youtube-longform-audit.mjs';
 import { adoptPlan, auditQueue, buildPlan, generatePlan, hydrateAdopted, ledgerVerdicts, nextStage, packDirOf, readPlan, recordAudit, summarize } from './lib/video-factory.mjs';
 
 const { values: args, positionals } = parseArgs({
@@ -244,7 +245,11 @@ function wire() {
   const reg = loadRegistry(ROOT);
   const pub = targetPub(reg, exam, work);
   const taken = reg.publications.filter((p) => p.channel === 'youtube' && p.publishAt && p.status !== 'stopped' && p.id !== pub?.id && Date.parse(p.publishAt) > Date.now()).map((p) => p.publishAt);
-  const publishAt = args['publish-at'] ?? (Date.parse(pub?.publishAt) > Date.now() ? pub.publishAt : nextSlot(taken, policy));
+  // 空き枠は年間計画の週の上限を守り、計画の目標日より前に置かない
+  const plan = readDataset(ROOT, 'config.youtube-longform-plan');
+  const publishAt = args['publish-at'] ?? (Date.parse(pub?.publishAt) > Date.now() ? pub.publishAt : nextSlot(taken, policy, Date.now(), {
+    weekLimit: (monday) => weekLimit(plan.cycle, monday), notBefore: pub ? slotProblems(plan, pub).entry?.target ?? null : null,
+  }));
   if (pub?.revisionOf) {
     if (args.stock) throw new Error(`${pub.id}: 改訂版は在庫にしない。予約のときに結線する`);
     wireRevision(reg, pub, publishAt);
@@ -307,7 +312,7 @@ function gateFacts(pack) {
   return {
     policy, reg, mediaById,
     facts: {
-      pub, standard: facts.standard, aiBlocked, renderVerified: verify.status === 0, qa: reg.works.find((w) => w.id === work && w.exam === exam)?.qa,
+      pub, planProblems: planProblems(ROOT, pub), standard: facts.standard, aiBlocked, renderVerified: verify.status === 0, qa: reg.works.find((w) => w.id === work && w.exam === exam)?.qa,
       review: facts.review, funnelOk: funnel.status === 0, funnelDetail: funnel.status === 0 ? '' : (funnel.stderr || funnel.stdout).trim().split('\n').slice(0, 3).join(' / '),
       audioProblems: audioProblems(readAudio().checks[pub.id], video?.sha256, policy),
     },

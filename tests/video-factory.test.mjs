@@ -239,10 +239,12 @@ test('関門: 1 項目でも欠けたら通さず、検査していない音声�
   const policy = { enabled: true, scope: { channel: 'youtube', format: 'longform' }, minQaAvg: 2, maxBlocks: 0, minLeadHours: 24, audio: { minSimilarity: 0.6, minMaxVolumeDb: -12, maxMaxVolumeDb: -0.1, maxDurationGapSec: 3 } };
   const now = Date.parse('2026-11-05T00:00:00Z');
   const pub = { channel: 'youtube', format: 'longform', publishAt: '2026-11-07T11:30:00Z' };
-  const good = { pub, standard: true, aiBlocked: [], renderVerified: true, qa: { avg: 2.5, blocks: 0 }, review: 'pass', funnelOk: true, audioProblems: [] };
+  const good = { pub, planProblems: [], standard: true, aiBlocked: [], renderVerified: true, qa: { avg: 2.5, blocks: 0 }, review: 'pass', funnelOk: true, audioProblems: [] };
   assert.equal(evaluateGate(good, policy, now).ok, true);
   assert.equal(evaluateGate({ ...good, audioProblems: audioProblems(undefined, 'a', policy) }, policy, now).ok, false);
   assert.equal(evaluateGate({ ...good, review: 'none' }, policy, now).ok, false);
+  assert.equal(evaluateGate({ ...good, planProblems: ['計画にない動画: x'] }, policy, now).ok, false);
+  assert.equal(evaluateGate({ ...good, planProblems: undefined }, policy, now).ok, false);
   assert.equal(evaluateGate({ ...good, funnelOk: false }, policy, now).ok, false);
   assert.equal(evaluateGate({ ...good, pub: { ...pub, publishAt: '2026-11-05T12:00:00Z' } }, policy, now).ok, false);
   assert.equal(evaluateGate(good, { ...policy, enabled: false }, now).ok, false);
@@ -265,6 +267,15 @@ test('方針の承認は YouTube の通常動画だけで受け付ける', () =>
   assert.equal(acceptedApproval({ channel: 'instagram', format: 'carousel', approval: { by: 'user' } }), true);
 });
 
+test('空き枠は週の上限と計画の目標日を守る', () => {
+  const policy = { minLeadHours: 24, slot: { timeJst: '20:30', maxPerDay: 1 } };
+  const now = Date.parse('2026-11-16T00:00:00Z'); // JST の月曜
+  const taken = ['2026-11-17T11:30:00Z', '2026-11-18T11:30:00Z'];
+  assert.equal(nextSlot(taken, policy, now), '2026-11-19T11:30:00Z');
+  assert.equal(nextSlot(taken, policy, now, { weekLimit: () => 2 }), '2026-11-23T11:30:00Z');
+  assert.equal(nextSlot([], policy, now, { notBefore: '2026-12-01' }), '2026-12-01T11:30:00Z');
+});
+
 test('空き枠は猶予と 1 日の上限を守る', () => {
   const policy = { minLeadHours: 24, slot: { timeJst: '20:30', maxPerDay: 1 } };
   const now = Date.parse('2026-11-05T00:00:00Z');
@@ -281,7 +292,7 @@ test('投稿の残りは太平洋時間の 0 時からの本数で決まる', ()
 
 test('在庫の関門は公開日時を見ず、他の項目は同じように止める', () => {
   const policy = { enabled: true, scope: { channel: 'youtube', format: 'longform' }, minQaAvg: 2, maxBlocks: 0, minLeadHours: 24 };
-  const good = { pub: { channel: 'youtube', format: 'longform' }, standard: true, aiBlocked: [], renderVerified: true, qa: { avg: 2.5, blocks: 0 }, review: 'pass', funnelOk: true, audioProblems: [] };
+  const good = { pub: { channel: 'youtube', format: 'longform' }, planProblems: [], standard: true, aiBlocked: [], renderVerified: true, qa: { avg: 2.5, blocks: 0 }, review: 'pass', funnelOk: true, audioProblems: [] };
   assert.equal(evaluateGate(good, policy).ok, false);
   assert.equal(evaluateGate(good, policy, Date.now(), { stock: true }).ok, true);
   assert.equal(evaluateGate({ ...good, review: 'none' }, policy, Date.now(), { stock: true }).ok, false);
