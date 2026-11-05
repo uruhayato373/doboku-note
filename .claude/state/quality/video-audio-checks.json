@@ -88,6 +88,17 @@
         "expected": 957,
         "heard": 928
       }
+    },
+    "pe-construction/hissu1-carbon-neutral/youtube.longform": {
+      "videoSha256": "c9aa34a5e1f97572567c2bc9e8db1175cc077a228a5fa6ce23c892769bb1fe1c",
+      "at": "2026-11-05T10:07:31.295Z",
+      "similarity": 0.771,
+      "maxVolumeDb": -1.5,
+      "durationGapSec": 0.1,
+      "chars": {
+        "expected": 993,
+        "heard": 788
+      }
     }
   }
 }

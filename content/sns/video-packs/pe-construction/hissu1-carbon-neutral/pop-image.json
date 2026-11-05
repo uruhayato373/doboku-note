@@ -63,5 +63,366 @@
       },
       "publication": "ローカル差し替え・外部未反映"
     }
-  }
+  },
+  "revisions": {
+    "cover-pop-20261105": {
+      "version": "pop-poster-v3",
+      "layout": {
+        "mode": "diagram-led"
+      },
+      "generation": {
+        "tool": "image_gen",
+        "prompt": "添付の1枚目はdoboku-noteで採用済みの全面POP動画表紙の意匠参照、2枚目は先生キャラクターの同一性参照です。 新規の16:9横長（1920×1080想定）日本語YouTube動画表紙を作る。深いインディゴ #33356B と明るい青紫、黄色と白の極太文字、明確な黒い輪郭、少量の赤、斜めの面と勢いのある背景、右側に先生キャラクターを大きく。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。 左〜中央に正確に『脱炭素とGX』『答案の切り口は？』を大きく配置。上部の黄色帯に小さく『総監が制作』。 誤字・余計な文字・合格保証・URL・価格・不明な実績を足さない。文字ブロックの黒い縁取りまで含めて左右8%の内側へ収め（画面の左端から8%は背景だけ）、顔は左右5%・上下5%内、下端18%は字幕が重なるので重要な文字や顔を置かず背景が全面に続く。",
+        "references": [
+          {
+            "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/youtube.longform/cover.b87e20c1.png",
+            "sha256": "b87e20c19fda2123d3bac22950472ee7a7427dd2ab11a7cbf63807a6e83c33ad"
+          },
+          {
+            "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
+            "sha256": "1941cd22fa523fcb233e8ab7b8ad756ad7398be8755037b881d8380fb39398f9"
+          }
+        ],
+        "output": {
+          "path": ".tmp/media/pe-construction/hissu1-carbon-neutral/work/factory/raw-cover.9459eea5.png",
+          "sha256": "9459eea5462d9b284ae31a6054143bbf3b69fc667ec6ecfc22215068b57d1684"
+        },
+        "generatedAt": "2026-11-05T09:59:57.195Z"
+      },
+      "copy": {
+        "exam": "pe-construction",
+        "headline": [
+          "脱炭素とGX",
+          "答案の切り口は？"
+        ],
+        "authority": "総監が制作"
+      },
+      "output": {
+        "path": ".tmp/media/pe-construction/hissu1-carbon-neutral/work/cover-pop.f7f34b7f.png",
+        "sha256": "f7f34b7f4cb59bebc74edbb8a28df422b33641598ecc3b3029a27ec6b246ad31",
+        "width": 1920,
+        "height": 1080
+      },
+      "normalization": {
+        "mode": "full-frame-v1",
+        "sourceSha256": "9459eea5462d9b284ae31a6054143bbf3b69fc667ec6ecfc22215068b57d1684"
+      },
+      "review": {
+        "status": "ai-reviewed",
+        "checkedAt": "2026-11-05T09:59:57.195Z",
+        "by": "ai-image-fidelity-auditor",
+        "reason": "文字『総監が制作』『脱炭素とGX』『答案の切り口は？』が指示と一字一句一致。ヘルメット・黒縁眼鏡・ひげ・紺作業服・ネクタイ・反射帯のキャラクターで手指の破綻なし",
+        "userImageReview": "pending"
+      },
+      "storage": {
+        "group": "content-media",
+        "sync": "local"
+      }
+    },
+    "body-diagram-20261105": {
+      "layout": {
+        "mode": "diagram-led"
+      },
+      "images": [
+        {
+          "sceneId": "premise",
+          "inputSha256": "c096046faac6ecf3e10a215d16eea2fcf813445c83c08ca1db153dca4aae58b6",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『誤解：取組を数多く書けば多面的』。 図に入れる文字: 『層を分けないと課題が重複する』 『三層のどこかを常に意識する』。 この場面の説明（文字にしない）: 脱炭素の取組をたくさん書けば多面的、という誤解があります。実際は資材・施工供用・吸収源のどの層の課題かを整理しないと、同じ論点が重複してしまいます。層を意識するだけで課題抽出の質が変わります。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/hissu1-carbon-neutral/work/factory/raw-premise.b38b0776.png",
+              "sha256": "b38b07767d84d9269b7b8ab59189fb7070b7287b1f3ebf5c3109636057cbedc6"
+            },
+            "generatedAt": "2026-11-05T09:59:57.195Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/hissu1-carbon-neutral/work/premise-diagram.b38b0776.png",
+            "sha256": "b38b07767d84d9269b7b8ab59189fb7070b7287b1f3ebf5c3109636057cbedc6",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "b38b07767d84d9269b7b8ab59189fb7070b7287b1f3ebf5c3109636057cbedc6"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-05T09:59:57.195Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出しと2つの文言が指示と一字一句一致。三層の図は意味と矛盾せず、余計な文字や崩れなし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "frequency",
+          "inputSha256": "f4097f8e7f103ca0640575ec2299f00f6a926a29758f83715827aae3c3ac0a8f",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『なぜ脱炭素が頻出か』。 図に入れる文字: 『R04-I-2：CO2の削減と吸収』 『R03-I-1：循環型社会（地続き）』 『防災・老朽化と並ぶ主要テーマ』。 この場面の説明（文字にしない）: 脱炭素はR04のI-2で、パリ協定と2050年カーボンニュートラルを背景に、CO2の削減と吸収が正面から問われました。R03のI-1も、循環型社会という形で地続きのテーマを扱っています。防災・老朽化と並ぶ主要テーマとして押さえておく価値があります。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/hissu1-carbon-neutral/work/factory/raw-frequency.1078df64.png",
+              "sha256": "1078df6497e9554971f98eb9a2aafb633976f5cb89a5b29559ddd4df4b3b8ff6"
+            },
+            "generatedAt": "2026-11-05T09:59:57.195Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/hissu1-carbon-neutral/work/frequency-diagram.1078df64.png",
+            "sha256": "1078df6497e9554971f98eb9a2aafb633976f5cb89a5b29559ddd4df4b3b8ff6",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "1078df6497e9554971f98eb9a2aafb633976f5cb89a5b29559ddd4df4b3b8ff6"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-05T09:59:57.195Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し・R04-I-2・R03-I-1・主要テーマの文言が指示と一致。余計な文字なし、図記号も内容に合う",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "layers",
+          "inputSha256": "45bc1996bf657913ea56b3d48abdd0e0a10dbb6f1e6dbe9731f3c66d111fa3ff",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『CO2を三層に分解する』。 図に入れる文字: 『資材由来：コンクリート・鋼材の製造排出』 『施工・供用：建設機械・運用エネルギー』 『吸収源：グリーンインフラ・ブルーカーボン』。 この場面の説明（文字にしない）: 建設分野のCO2は三層で整理します。資材由来は、コンクリートや鋼材の製造段階の排出。施工・供用段階は、建設機械の稼働や構造物の運用エネルギー。吸収源は、グリーンインフラやブルーカーボンによる吸収です。この三層から一つずつ課題を拾うと、評価軸の異なる多面的な抽出になります。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 41.5）",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/hissu1-carbon-neutral/work/factory/raw-layers.ae9830b8.png",
+              "sha256": "ae9830b8201c637f082e793574e4687c37477d2bba3b31fb4d2beb28d394fb1b"
+            },
+            "generatedAt": "2026-11-05T09:59:57.195Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/hissu1-carbon-neutral/work/layers-diagram.f6602393.png",
+            "sha256": "f66023934a616cd3ab2799bd4e73f25472bcfb3460f410f0c348a45ae1985462",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "ae9830b8201c637f082e793574e4687c37477d2bba3b31fb4d2beb28d394fb1b"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-05T09:59:57.195Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出しと三層の3文言が指示と一致。コンクリ・鋼材・ショベル・ビル・樹木・海藻の絵も各層に合い、崩れなし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "policies",
+          "inputSha256": "c1a076d76d3a1e13c3b687be031068f67f4552eccd3cd3e9e12709e39cdf8d11",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『押さえておきたい施策』。 図に入れる文字: 『GX実現に向けた基本方針・GX推進法（2023）』 『グリーンインフラ推進戦略2030（2026年1月改訂）』 『ブルーカーボン・Jブルークレジット（2020年度〜）』。 この場面の説明（文字にしない）: 解決策では施策名を正確に使います。2023年のGX実現に向けた基本方針とGX推進法が、脱炭素と成長を両立させる国の枠組みです。グリーンインフラ推進戦略は2026年1月に最新版の2030へ改訂されました。吸収源側では、藻場や干潟によるブルーカーボンと、2020年度から認証が始まったJブルークレジットが解決策の具体例になります。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/hissu1-carbon-neutral/work/factory/raw-policies.706f1116.png",
+              "sha256": "706f1116dffcf4a023a1710393630ec08a9eabfa5c7556f03776c199444f3e83"
+            },
+            "generatedAt": "2026-11-05T09:59:57.195Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/hissu1-carbon-neutral/work/policies-diagram.317e03cd.png",
+            "sha256": "317e03cd523ed8c9e889fc7ba09cc1a83228e6f8a5d6a3e864b310defd17cd5a",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "706f1116dffcf4a023a1710393630ec08a9eabfa5c7556f03776c199444f3e83"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-05T09:59:57.195Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "3施策名と年度(2023・2026年1月改訂・2020年度〜)が指示と一字一句一致。絵は施策に合い、崩れなし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "tradeoff",
+          "inputSha256": "2417b7b3f5ca7fdc337073a2a0354636ad6abaafb5ea36d2d4ce9d422604768a",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『設問(3)：脱炭素とコストの衝突』。 図に入れる文字: 『低炭素材料・電動化は初期費用が上がる』 『緩和策①総合評価の環境加点』 『緩和策②LCC評価・GX予算制度』。 この場面の説明（文字にしない）: 設問(3)の新たなリスクでは、脱炭素とコストのトレードオフを正面から書きます。低炭素材料や環境配慮型施工は初期費用が上がりやすいという課題です。緩和策として、総合評価落札方式での環境加点、ライフサイクルでの便益評価、GXに対応した予算や制度の設計を挙げると、定石どおりの構成になります。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/hissu1-carbon-neutral/work/factory/raw-tradeoff.cbf93c58.png",
+              "sha256": "cbf93c58c536cb380d88f068ea343fee8a3bf1ca885151c35819800df436e7ff"
+            },
+            "generatedAt": "2026-11-05T09:59:57.195Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/hissu1-carbon-neutral/work/tradeoff-diagram.cbf93c58.png",
+            "sha256": "cbf93c58c536cb380d88f068ea343fee8a3bf1ca885151c35819800df436e7ff",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "cbf93c58c536cb380d88f068ea343fee8a3bf1ca885151c35819800df436e7ff"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-05T09:59:57.195Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出しと低炭素材料・緩和策①②の文言が指示と一致。ショベル・鋼材・コンクリの形も成立し、崩れなし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "stance",
+          "inputSha256": "3196b54d842f4284b2339417b77f91f1d0576107356fac3dbdeee76eba3b898f",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『発注者視点という差別化』。 図に入れる文字: 『発注仕様への脱炭素要件の書き込み』 『総合評価の環境加点の設定』。 この場面の説明（文字にしない）: 脱炭素はどうしても技術の議論に偏りがちですが、それを工事として実際に動かすのは誰かという制度の視点が抜け落ちやすいところです。発注仕様への脱炭素要件の書き込み方や、総合評価での環境加点の設定次第で、現場の脱炭素の進み方は大きく変わります。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/hissu1-carbon-neutral/work/factory/raw-stance.a474e775.png",
+              "sha256": "a474e775cb12a76fb2c536d1342864957942508421c7630062dec06197b95a30"
+            },
+            "generatedAt": "2026-11-05T09:59:57.195Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/hissu1-carbon-neutral/work/stance-diagram.178abb8b.png",
+            "sha256": "178abb8b5cb5ee7fbd4016fc1b0de0d6ba592a362fb72465486cb1a5795e3edb",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "a474e775cb12a76fb2c536d1342864957942508421c7630062dec06197b95a30"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-05T09:59:57.195Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出しと2つの要件文言が指示と一致。書類・メーター・クレーン・ショベルの図は成立し、崩れなし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "summary",
+          "inputSha256": "601d24b43b7f1aad42cf794a2d8feb3f8f32f26726be42f82b240b6593121ba7",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『まとめ』。 図に入れる文字: 『① CO2を三層に分解する』 『② 施策名を年度まで正確に使う』 『③ コストとのトレードオフを正面に書く』 『④ 発注者視点を一つ添える』。 この場面の説明（文字にしない）: まとめます。CO2を資材・施工供用・吸収源の三層に分解して課題を拾う。施策名は年度まで正確に使う。設問(3)ではコストとのトレードオフを正面から書く。最後に発注者側の制度面を添えて締める。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/hissu1-carbon-neutral/work/factory/raw-summary.329d6079.png",
+              "sha256": "329d607970a5913d59f9b1192872fc2cf73ef6ad10f5e3887d45c66faee973c5"
+            },
+            "generatedAt": "2026-11-05T09:59:57.195Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/hissu1-carbon-neutral/work/summary-diagram.1a5ae05b.png",
+            "sha256": "1a5ae05bc925a1cf4991030c5a1bcd97832f2098029723f4cc59a9de05e62a53",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "329d607970a5913d59f9b1192872fc2cf73ef6ad10f5e3887d45c66faee973c5"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-05T09:59:57.195Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し『まとめ』と①〜④の4文言が指示と一字一句一致。アイコンも内容に合い、文字の崩れなし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "cta",
+          "inputSha256": "fa202fcb9fe6ce789f84fbaad8801789c65b04f2281ca4a4b1fcc32e1e8b1b60",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『答案の型で確認する』。 図に入れる文字: 『必須科目I マガジン（概要欄リンク）』。 この場面の説明（文字にしない）: 施策の暗記と答案の型をまとめて確認したい方は、概要欄のリンクから必須科目Iのマガジンをご覧ください。ご視聴ありがとうございました。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/hissu1-carbon-neutral/work/factory/raw-cta.8bcb5d81.png",
+              "sha256": "8bcb5d813a17af4537b0e31bc127b496aef05d2dcb71f610f01e1eb7499769f8"
+            },
+            "generatedAt": "2026-11-05T09:59:57.195Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/hissu1-carbon-neutral/work/cta-diagram.75e704a1.png",
+            "sha256": "75e704a1a1243163246440729e79090bea795e8ddc46e28649bb0b26ec9508e4",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "8bcb5d813a17af4537b0e31bc127b496aef05d2dcb71f610f01e1eb7499769f8"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-05T09:59:57.195Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し『答案の型で確認する』と『必須科目I マガジン（概要欄リンク）』が指示と一致。余計な文字・URLなし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        }
+      ]
+    }
+  },
+  "activeCoverRevision": "cover-pop-20261105",
+  "activeBodyRevision": "body-diagram-20261105"
 }
