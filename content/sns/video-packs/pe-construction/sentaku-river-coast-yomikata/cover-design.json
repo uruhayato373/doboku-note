@@ -2,6 +2,10 @@
   "schemaVersion": 1,
   "covers": {
     "longform": {
+      "character": {
+        "pose": "pop-explaining",
+        "frame": "waist"
+      },
       "format": "longform",
       "exam": "pe-construction",
       "headline": [
@@ -10,19 +14,18 @@
       ],
       "accentLine": 1,
       "subtitle": "",
-      "character": {
-        "pose": "pop-explaining",
-        "frame": "waist"
-      },
-      "design": "pop-v2",
+      "design": "pop-poster-v3",
       "pop": {
         "variant": "explain",
         "authority": "総監が制作"
       },
+      "layout": "diagram-led",
       "approvedImage": {
-        "path": ".tmp/media/pe-construction/sentaku-river-coast-yomikata/youtube.longform/cover.4dd88454.png",
-        "sha256": "4dd88454b119b1d98b08f1d7589f66b5cd6360991f25c69106d31f0398eda442",
-        "specSha256": "f04ef5dc101d7c0fe4fbef59bf653805cd05f32637d897f2173272e8885f67fc"
+        "path": ".tmp/media/pe-construction/sentaku-river-coast-yomikata/work/cover-pop.cb066bae.png",
+        "sha256": "cb066baec8ab5ef880088c61c0886213a6c6b2a41112891c261ff8c891bc7783",
+        "width": 1920,
+        "height": 1080,
+        "specSha256": "1fd7e1067d7cc35fb8efb764aae1dc6308e46f7263d8680fe117a5614a9c292f"
       }
     }
   }

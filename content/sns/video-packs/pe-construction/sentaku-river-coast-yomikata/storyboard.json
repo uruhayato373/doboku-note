@@ -10,7 +10,9 @@
       "visual": {
         "kind": "cover",
         "heading": "河川・砂防・海岸 出題テーマの読み方",
-        "items": ["技術士 建設部門 選択科目「河川、砂防及び海岸・海洋」"]
+        "items": [
+          "技術士 建設部門 選択科目「河川、砂防及び海岸・海洋」"
+        ]
       }
     },
     {
@@ -21,7 +23,10 @@
       "caption": "4分野固定＋流域治水・総合土砂管理が軸",
       "visual": {
         "heading": "誤解：どの分野が出るか年ごとに読む",
-        "items": ["II-1は河川/ダム/砂防/海岸の4分野固定", "IIIは流域治水・総合的な土砂管理が二大テーマ"]
+        "items": [
+          "II-1は河川/ダム/砂防/海岸の4分野固定",
+          "IIIは流域治水・総合的な土砂管理が二大テーマ"
+        ]
       },
       "sourceRef": "content/site/pe-construction/river-coast-exam-themes/article.mdx"
     },
@@ -33,7 +38,10 @@
       "caption": "癖：4分野を均等に仕込む科目",
       "visual": {
         "heading": "河川・砂防・海岸の癖",
-        "items": ["得意分野だけでは足りない", "4分野均等＋得意1分野を得点源に"]
+        "items": [
+          "得意分野だけでは足りない",
+          "4分野均等＋得意1分野を得点源に"
+        ]
       }
     },
     {
@@ -44,7 +52,10 @@
       "caption": "河川・ダム：維持管理と機能強化",
       "visual": {
         "heading": "河川・ダム（II-1-1・II-1-2）",
-        "items": ["河川：堤防の維持管理・浸水想定", "ダム：事前放流・ダム再生"]
+        "items": [
+          "河川：堤防の維持管理・浸水想定",
+          "ダム：事前放流・ダム再生"
+        ]
       },
       "sourceRef": "content/site/pe-construction/river-coast-exam-themes/article.mdx"
     },
@@ -56,7 +67,10 @@
       "caption": "砂防・海岸：施設名と制度名が要",
       "visual": {
         "heading": "砂防・海岸（II-1-3・II-1-4）",
-        "items": ["砂防：砂防堰堤・土砂洪水氾濫", "海岸：高潮・津波浸水想定・海岸保全施設"]
+        "items": [
+          "砂防：砂防堰堤・土砂洪水氾濫",
+          "海岸：高潮・津波浸水想定・海岸保全施設"
+        ]
       },
       "sourceRef": "content/site/pe-construction/river-coast-exam-themes/article.mdx"
     },
@@ -68,7 +82,10 @@
       "caption": "III二大政策：流域治水と総合土砂管理",
       "visual": {
         "heading": "III：流域治水と総合的な土砂管理",
-        "items": ["流域治水：流域全体で協働し被害を減らす", "総合的な土砂管理：山から海まで一貫して見る"]
+        "items": [
+          "流域治水：流域全体で協働し被害を減らす",
+          "総合的な土砂管理：山から海まで一貫して見る"
+        ]
       },
       "sourceRef": "content/site/pe-construction/river-coast-ronbun-keyword/article.mdx"
     },
@@ -80,7 +97,11 @@
       "caption": "4分野均等＋二大政策で準備",
       "visual": {
         "heading": "まとめ",
-        "items": ["4分野を均等に仕込む", "III＝流域治水・総合土砂管理", "合意形成まで含めて準備"]
+        "items": [
+          "4分野を均等に仕込む",
+          "III＝流域治水・総合土砂管理",
+          "合意形成まで含めて準備"
+        ]
       }
     },
     {
@@ -92,8 +113,17 @@
       "visual": {
         "kind": "cover",
         "heading": "河川・砂防・海岸マガジンで確認する",
-        "items": ["年度別の出題テーマと解答の形（概要欄リンク）"]
+        "items": [
+          "年度別の出題テーマと解答の形（概要欄リンク）"
+        ]
       }
     }
-  ]
+  ],
+  "imageDesign": {
+    "mode": "codex-pop",
+    "scope": "all-body",
+    "revision": "body-diagram-20261105",
+    "coverRevision": "cover-pop-20261105",
+    "layout": "diagram-led"
+  }
 }

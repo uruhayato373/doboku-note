@@ -1,7 +1,7 @@
 export const meta = {
   name: 'video-factory',
   description: '通常動画を、画像の生成・独立監査・採用・描画・内容QA・画面確認まで進め、最後に関門を通して承認と記録を書く。転送と予約は親が publish で行う',
-  whenToUse: '通常動画の量産。args は { root: リポジトリの絶対パス, packs: [{ pack: "<資格>/<作品>", scope?: "all"|"cover", rendered?: true }]（rendered は制作済みで画像と描画を飛ばす）, rounds?: 作り直しの回数（既定2）, stock?: true（承認せず在庫で止める） }。手順は video-factory.md',
+  whenToUse: '通常動画の量産。args は { root: リポジトリの絶対パス, packs: [{ pack: "<資格>/<作品>", scope?: "all"|"cover", rendered?: true, from?: "audit"|"review" }]（rendered は制作済みで画像と描画を飛ばす。from はその段から再開する）, rounds?: 作り直しの回数（既定2）, stock?: true（承認せず在庫で止める） }。手順は video-factory.md',
   phases: [
     { title: 'Generate', detail: 'Codex で画像を作る（スクリプトが実行）' },
     { title: 'Audit', detail: 'ai-image-fidelity-auditor が判定して記録する' },
@@ -48,10 +48,12 @@ const run = (label, phase, command) => agent(
 const auditPrompt = (pack, round) => `動画 ${pack} の AI 生成画像を判定する。\`${CLI} audit-queue --pack ${pack}\` の項目を 1 枚ずつ Read で見て、定義の軸で判定する（文字の軸を必ず見る）。指示にある文字と 1 字ずつ照合する。作り直しはしない。判定できない画像は unjudged に入れて記録しない。
 判定は [{"figKey","verdict":"ok|fail","reason"}] の JSON を ${M}/.tmp/media/${pack}/work/factory/verdicts-${round}.json に書き、\`${CLI} record-audit --pack ${pack} --file <そのファイル> --by ai-image-fidelity-auditor\` で記録する（この記録は定義の範囲内の作業）。同じ判定を verdicts で返す。`
 
-async function produceImages({ pack, scope = 'all', rendered }) {
-  if (rendered) return { ok: true }
-  const start = await images(() => run(`plan:${pack}`, 'Generate', `${CLI} plan --pack ${pack} --scope ${scope} && ${CLI} generate --pack ${pack}`))
-  if (!start?.ok) return { ok: false, reason: start?.output ?? '生成の段が失敗' }
+async function produceImages({ pack, scope = 'all', rendered, from }) {
+  if (rendered || from === 'review') return { ok: true }
+  if (from !== 'audit') {
+    const start = await images(() => run(`plan:${pack}`, 'Generate', `${CLI} plan --pack ${pack} --scope ${scope} && ${CLI} generate --pack ${pack}`))
+    if (!start?.ok) return { ok: false, reason: start?.output ?? '生成の段が失敗' }
+  }
   for (let round = 0; round <= ROUNDS; round++) {
     const judged = await agent(auditPrompt(pack, round), { label: `audit:${pack}#${round}`, phase: 'Audit', schema: AUDIT, agentType: 'ai-image-fidelity-auditor', model: 'sonnet' })
     if (!judged) return { ok: false, reason: '監査の段が失敗' }
@@ -71,12 +73,12 @@ const results = await pipeline(
   packs,
   (item) => produceImages(item),
   (s, item) => {
-    if (!s.ok || item.rendered) return s
+    if (!s.ok || item.rendered || item.from === 'review') return s
     return serial(() => run(`render:${item.pack}`, 'Render', `${CLI} produce --pack ${item.pack}`))
       .then((r) => (r?.ok ? s : { ok: false, reason: r?.output ?? '描画の段が失敗' }))
   },
   (s, item) => {
-    if (!s.ok) return s
+    if (!s.ok || item.from === 'review') return s
     const prompt = `動画パック ${M}/content/sns/video-packs/${item.pack} を定義どおり採点する。修正はしない。採点のあと、平均 2 以上かつ BLOCK 0 なら \`${CLI} record-qa --pack ${item.pack} --avg <平均> --blocks <件数> && ${CLI} wire --pack ${item.pack}${STOCK}\` を実行して wired=true を返す。不合格なら \`record-qa\` だけを実行して wired=false を返す。`
     return serial(() => agent(prompt, { label: `qa:${item.pack}`, phase: 'Content QA', schema: QA, agentType: 'video-content-qa', model: 'sonnet' }))
       .then((qa) => (qa?.wired ? { ...s, qa } : { ok: false, reason: qa ? `内容QAが不合格（平均 ${qa.avg}・BLOCK ${qa.blocks}）` : '内容QAの段が失敗', qa }))

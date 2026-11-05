@@ -63,5 +63,329 @@
       },
       "publication": "ローカル差し替え・外部未反映"
     }
-  }
+  },
+  "revisions": {
+    "cover-pop-20261105": {
+      "version": "pop-poster-v3",
+      "layout": {
+        "mode": "diagram-led"
+      },
+      "generation": {
+        "tool": "image_gen",
+        "prompt": "添付の1枚目はdoboku-noteで採用済みの全面POP動画表紙の意匠参照、2枚目は先生キャラクターの同一性参照です。 新規の16:9横長（1920×1080想定）日本語YouTube動画表紙を作る。深いインディゴ #33356B と明るい青紫、黄色と白の極太文字、明確な黒い輪郭、少量の赤、斜めの面と勢いのある背景、右側に先生キャラクターを大きく。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。 左〜中央に正確に『河川・砂防・海岸』『テーマの読み方』を大きく配置。上部の黄色帯に小さく『総監が制作』。 誤字・余計な文字・合格保証・URL・価格・不明な実績を足さない。文字ブロックの黒い縁取りまで含めて左右8%の内側へ収め（画面の左端から8%は背景だけ）、顔は左右5%・上下5%内、下端18%は字幕が重なるので重要な文字や顔を置かず背景が全面に続く。",
+        "references": [
+          {
+            "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/youtube.longform/cover.b87e20c1.png",
+            "sha256": "b87e20c19fda2123d3bac22950472ee7a7427dd2ab11a7cbf63807a6e83c33ad"
+          },
+          {
+            "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
+            "sha256": "1941cd22fa523fcb233e8ab7b8ad756ad7398be8755037b881d8380fb39398f9"
+          }
+        ],
+        "output": {
+          "path": ".tmp/media/pe-construction/sentaku-river-coast-yomikata/work/factory/raw-cover.d4e5a16a.png",
+          "sha256": "d4e5a16ace244ef126986e6231b27a920c20d3f02f6c77998caed28a144521b6"
+        },
+        "generatedAt": "2026-11-05T10:04:17.805Z"
+      },
+      "copy": {
+        "exam": "pe-construction",
+        "headline": [
+          "河川・砂防・海岸",
+          "テーマの読み方"
+        ],
+        "authority": "総監が制作"
+      },
+      "output": {
+        "path": ".tmp/media/pe-construction/sentaku-river-coast-yomikata/work/cover-pop.cb066bae.png",
+        "sha256": "cb066baec8ab5ef880088c61c0886213a6c6b2a41112891c261ff8c891bc7783",
+        "width": 1920,
+        "height": 1080
+      },
+      "normalization": {
+        "mode": "full-frame-v1",
+        "sourceSha256": "d4e5a16ace244ef126986e6231b27a920c20d3f02f6c77998caed28a144521b6"
+      },
+      "review": {
+        "status": "ai-reviewed",
+        "checkedAt": "2026-11-05T10:04:17.805Z",
+        "by": "ai-image-fidelity-auditor",
+        "reason": "文字『河川・砂防・海岸』『テーマの読み方』『総監が制作』が指示と一字一致。先生の黒縁眼鏡・ひげ・白ヘルメット・紺作業服・反射帯も合致し、余計な文字なし",
+        "userImageReview": "pending"
+      },
+      "storage": {
+        "group": "content-media",
+        "sync": "local"
+      }
+    },
+    "body-diagram-20261105": {
+      "layout": {
+        "mode": "diagram-led"
+      },
+      "images": [
+        {
+          "sceneId": "premise",
+          "inputSha256": "e29ef447397f84448c9d2e2aac12a5cc974d52dc8ea7e7d0c848046c116d76c8",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『誤解：どの分野が出るか年ごとに読む』。 図に入れる文字: 『II-1は河川/ダム/砂防/海岸の4分野固定』 『IIIは流域治水・総合的な土砂管理が二大テーマ』。 この場面の説明（文字にしない）: 毎年どの分野が出るか気にする必要はありません。II-1は河川・ダム・砂防・海岸の4分野が8年間ほぼ固定で、IIIでは流域治水と総合的な土砂管理が繰り返し出ています。 前回の不合格の理由を直す: 文字: 見出しに指示にない鉤括弧『』が描かれている（指示の引用符を文字として描画）。他の文字・図は指示どおり",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/sentaku-river-coast-yomikata/work/factory/raw-premise.40e23de6.png",
+              "sha256": "40e23de652e083c0d2baffaccf894d5fdbb881c3a2229d3398fd296c9dbf0457"
+            },
+            "generatedAt": "2026-11-05T10:04:17.805Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/sentaku-river-coast-yomikata/work/premise-diagram.6cb06d5f.png",
+            "sha256": "6cb06d5fb7de7790e3a9c388bdcd584323451e6395dfbfd7e59a60c72bbcf829",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "40e23de652e083c0d2baffaccf894d5fdbb881c3a2229d3398fd296c9dbf0457"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-05T10:04:17.805Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出しと2つの図中文字が指示と1字ずつ一致し、河川・ダム・砂防・海岸の4コマと流域治水・土砂の循環図も内容に合う。文字は安全領域内で崩れなし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "block1",
+          "inputSha256": "07ba48da11df6098bed73b29b11760c3722649e433f8a260781a6f27f596029c",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『河川・砂防・海岸の癖』。 図に入れる文字: 『得意分野だけでは足りない』 『4分野均等＋得意1分野を得点源に』。 この場面の説明（文字にしない）: 過去問の出題を並べてみると、得意分野だけを深めても足りません。4分野すべての基礎を均等に仕込み、得意な1分野を得点源にする二段構えが必要です。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/sentaku-river-coast-yomikata/work/factory/raw-block1.3ad90460.png",
+              "sha256": "3ad904600dd7586cca2f2602986482f6acd74a2d37aa98ec683403d58d2fd377"
+            },
+            "generatedAt": "2026-11-05T10:04:17.805Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/sentaku-river-coast-yomikata/work/block1-diagram.294ebf24.png",
+            "sha256": "294ebf240c18d2b5a1df0559b7a47e0abe5576959ae84e75254c235972c2f050",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "3ad904600dd7586cca2f2602986482f6acd74a2d37aa98ec683403d58d2fd377"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-05T10:04:17.805Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し『河川・砂防・海岸の癖』と図中2文が指示と一字一致。4分野アイコンと本文の二段構えも矛盾なし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "block2",
+          "inputSha256": "cff963fe895b6583bad0142c4217782c49c416aa0f50cc041884fd08233057a6",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『河川・ダム（II-1-1・II-1-2）』。 図に入れる文字: 『河川：堤防の維持管理・浸水想定』 『ダム：事前放流・ダム再生』。 この場面の説明（文字にしない）: 河川は堤防の維持管理と浸水想定、ダムは事前放流やダム再生が軸です。事前放流は既存ダムの能力を運用面で引き出し、ハコモノを増やさず治水機能を高める考え方です。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/sentaku-river-coast-yomikata/work/factory/raw-block2.ffdbf68f.png",
+              "sha256": "ffdbf68f4d8d9ba3cca5e91c70daaa9862305843cfcae47eb13808a6134225e8"
+            },
+            "generatedAt": "2026-11-05T10:04:17.805Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/sentaku-river-coast-yomikata/work/block2-diagram.ffdbf68f.png",
+            "sha256": "ffdbf68f4d8d9ba3cca5e91c70daaa9862305843cfcae47eb13808a6134225e8",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "ffdbf68f4d8d9ba3cca5e91c70daaa9862305843cfcae47eb13808a6134225e8"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-05T10:04:17.805Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し・河川/ダムの2文が指示と一字一致。堤防と浸水想定、ダムの放流と水位低下矢印は本文（事前放流）と整合",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "block3",
+          "inputSha256": "dc337b855b5f3b65b66caa0fc54847c135e4fd5a74f4eaed70f675581834e477",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『砂防・海岸（II-1-3・II-1-4）』。 図に入れる文字: 『砂防：砂防堰堤・土砂洪水氾濫』 『海岸：高潮・津波浸水想定・海岸保全施設』。 この場面の説明（文字にしない）: 砂防は砂防堰堤と土砂・洪水氾濫、海岸は高潮・津波の浸水想定と海岸保全施設が中心です。透過型・不透過型のような構造の違いを正確に言えるかが得点を分けます。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/sentaku-river-coast-yomikata/work/factory/raw-block3.06118d53.png",
+              "sha256": "06118d53af4d76736a29f69ed5ef4a90c0392add04a4cc53e7ab133413b17446"
+            },
+            "generatedAt": "2026-11-05T10:04:17.805Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/sentaku-river-coast-yomikata/work/block3-diagram.06118d53.png",
+            "sha256": "06118d53af4d76736a29f69ed5ef4a90c0392add04a4cc53e7ab133413b17446",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "06118d53af4d76736a29f69ed5ef4a90c0392add04a4cc53e7ab133413b17446"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-05T10:04:17.805Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し・砂防/海岸の2文が指示と一字一致。砂防堰堤と土砂流出、海岸の防潮堤と高潮・津波の図は本文と整合",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "block4",
+          "inputSha256": "9fee1b13570b2c028f9b758e1610e55aeecaf71441a771fe50abb3c16dc78b7a",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『III：流域治水と総合的な土砂管理』。 図に入れる文字: 『流域治水：流域全体で協働し被害を減らす』 『総合的な土砂管理：山から海まで一貫して見る』。 この場面の説明（文字にしない）: IIIの二大政策は流域治水と総合的な土砂管理です。流域治水は流域全体の関係者が協働して被害を減らす考え方、総合的な土砂管理は山から海までの土砂の動きを一貫して見る視点です。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 25.2）",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/sentaku-river-coast-yomikata/work/factory/raw-block4.c64b521b.png",
+              "sha256": "c64b521bf5c9272326fc656584abfe6f6a2f5d9a8c0e02011a40cec5d0e8941a"
+            },
+            "generatedAt": "2026-11-05T10:04:17.805Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/sentaku-river-coast-yomikata/work/block4-diagram.c64b521b.png",
+            "sha256": "c64b521bf5c9272326fc656584abfe6f6a2f5d9a8c0e02011a40cec5d0e8941a",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "c64b521bf5c9272326fc656584abfe6f6a2f5d9a8c0e02011a40cec5d0e8941a"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-05T10:04:17.805Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し・流域治水/総合的な土砂管理の2文が指示と一字一致。流域全体の図と山から海への土砂移動の断面は本文と整合",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "summary",
+          "inputSha256": "a95e5cff36d7899772b7c3e59068f7d15bdc482b6adc6b53200e75cc70a11ee0",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『まとめ』。 図に入れる文字: 『4分野を均等に仕込む』 『III＝流域治水・総合土砂管理』 『合意形成まで含めて準備』。 この場面の説明（文字にしない）: 河川・砂防・海岸は4分野を均等に仕込み、得意分野で稼ぐ科目です。IIIは流域治水と総合的な土砂管理を軸に、合意形成まで含めて準備します。 前回の不合格の理由を直す: 本文: 『4分野を均等に仕込む』の円の4分割アイコンがダム・道路橋・ビル・ショベルで、河川・ダム・砂防・海岸の4分野と合わず誤解を招く。文字3文は一致",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/sentaku-river-coast-yomikata/work/factory/raw-summary.c51de2e7.png",
+              "sha256": "c51de2e723e90b456b39ac5f26bacef1034f1eb38e68c93c793975cf62cb07b0"
+            },
+            "generatedAt": "2026-11-05T10:04:17.805Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/sentaku-river-coast-yomikata/work/summary-diagram.66b715d1.png",
+            "sha256": "66b715d18fdf3d1ae1e4e1c83283ea86972ad77e4fd778c78b17de05d35f7691",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "c51de2e723e90b456b39ac5f26bacef1034f1eb38e68c93c793975cf62cb07b0"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-05T10:04:17.805Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し『まとめ』と3行の文字が指示と1字ずつ一致し誤字・余計な文言なし。4分野の円図も河川・ダム・砂防・海岸として成立し、安全領域内に収まる",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "cta",
+          "inputSha256": "b22719c30cb02f5b795e8a6858950fdcc2e34af50433f2a17b8f86d3cc962d79",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『河川・砂防・海岸マガジンで確認する』。 図に入れる文字: 『年度別の出題テーマと解答の形（概要欄リンク）』。 この場面の説明（文字にしない）: 年度別の出題一覧と全設問の解答の形は、概要欄のリンクから河川・砂防・海岸科目のマガジンでご覧ください。ご視聴ありがとうございました。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/sentaku-river-coast-yomikata/work/factory/raw-cta.a0647627.png",
+              "sha256": "a06476272de24cf5a5765daaaa3e00d4130e575812631048679b23a2ec81f669"
+            },
+            "generatedAt": "2026-11-05T10:04:17.805Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/sentaku-river-coast-yomikata/work/cta-diagram.ca38e5dc.png",
+            "sha256": "ca38e5dc02a53ad630f6a7926c25c811cc45805cf819ecb304cd1a527ec40dd8",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "a06476272de24cf5a5765daaaa3e00d4130e575812631048679b23a2ec81f669"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-05T10:04:17.805Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出しと『年度別の出題テーマと解答の形（概要欄リンク）』が指示と一字一致。河川・砂防・海岸アイコンから本へ向かう図で破綻なし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        }
+      ]
+    }
+  },
+  "activeCoverRevision": "cover-pop-20261105",
+  "activeBodyRevision": "body-diagram-20261105"
 }
