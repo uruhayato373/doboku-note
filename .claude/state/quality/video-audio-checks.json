@@ -297,6 +297,50 @@
         "expected": 1507,
         "heard": 1434
       }
+    },
+    "pe-construction/kaitourei-tsukaikata/youtube.longform.reading-fix": {
+      "videoSha256": "36679e80e86b63d2a59e826edc402b1c2e1862f904da9a25cb8bb7566240d455",
+      "at": "2026-11-05T22:12:01.734Z",
+      "similarity": 0.964,
+      "maxVolumeDb": -1.5,
+      "durationGapSec": 0.1,
+      "chars": {
+        "expected": 638,
+        "heard": 620
+      }
+    },
+    "pe-construction/hissu1-kensetsu-dx/youtube.longform.reading-fix": {
+      "videoSha256": "985548ec6284dfb33fa112f3548e368f779a79741daf7cf6aaa75dea81e47b22",
+      "at": "2026-11-05T22:10:33.874Z",
+      "similarity": 0.968,
+      "maxVolumeDb": -1.4,
+      "durationGapSec": 0.1,
+      "chars": {
+        "expected": 976,
+        "heard": 1096
+      }
+    },
+    "pe-construction/toan-kousei-template/youtube.longform.reading-fix": {
+      "videoSha256": "7abe449a27ebbee6397b2f310ffc8ac3b415b69246e60f976f115a1b217aea29",
+      "at": "2026-11-05T22:10:52.666Z",
+      "similarity": 0.969,
+      "maxVolumeDb": -1.5,
+      "durationGapSec": 0.1,
+      "chars": {
+        "expected": 908,
+        "heard": 880
+      }
+    },
+    "pe-construction/hissu1-infra-roukyuuka/youtube.longform.reading-fix": {
+      "videoSha256": "ef4af725671d8737eb04c52d15b4d82b9fc04898d1a300dcc12a3cb0dd625c94",
+      "at": "2026-11-05T22:11:19.425Z",
+      "similarity": 0.959,
+      "maxVolumeDb": -1.4,
+      "durationGapSec": 0,
+      "chars": {
+        "expected": 1105,
+        "heard": 1141
+      }
     }
   }
 }

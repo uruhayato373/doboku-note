@@ -342,6 +342,38 @@
       "at": "2026-11-05T00:42:50.329Z",
       "visualDigest": "584aa2b1504135adb9ebb2e5b22dabb0035bc8dce9ebbee060e607968b1ef2dd",
       "finalDigest": "b9d310c360f090de17a15849d8d0a92361fc044701cdddaf3ec14e0e1b8ba233"
+    },
+    "pe-construction/toan-kousei-template/youtube.longform.reading-fix": {
+      "verdict": "pass",
+      "note": "表紙・題名と中身が一致。全9場面の順序は台本どおり（誤解→4ブロック→課題抽出→最重要課題→効果とリスク→倫理→まとめ→肉付けCTA）。文字の切れ・重なり・誤字なし。概要欄のCTAは必須I模範解答集のnote1本で、他は無料サイトのリンク。試験日や数値の断定なし。音声は未確認。",
+      "at": "2026-11-05T22:09:48.468Z",
+      "visualDigest": "293a9252936ac0e8c059b81362902cfa9f641ceea132ad76c8862fab79093aa5",
+      "finalDigest": "f79ff0d179bc9a6ac3ab87b8155c7ce092b108e4df16c03bc4364439816d9bee",
+      "contentDigest": "1540a9a7fbd3692041a8f7c8c846af207e8a99d7e4cda6de519d4518facdf1ff"
+    },
+    "pe-construction/hissu1-infra-roukyuuka/youtube.longform.reading-fix": {
+      "verdict": "pass",
+      "note": "表紙・全9場面を目視。題名と中身が一致し、場面順は台本(悩み→誤解→頻出→3分解→予防保全→群マネ→リスク→まとめ→CTA)と一致。文字の切れ・重なり・誤字なし。説明文のCTAは必須Iマガジン1つ(+無料サイト補助リンク)、日付記述なし、断定的な合格約束なし。音声は未確認。字幕(ass)の表示と動画本体の描画は未確認で、画像シートと台本での判定。",
+      "at": "2026-11-05T22:09:50.483Z",
+      "visualDigest": "4b30786a1b11735f4f0a939294c21852fc8a9d2882d1f1d813ccaa72e17165b5",
+      "finalDigest": "0bf3dfd2d2fe2f147896db112792f06eeeb30cfa36f63e6336eb5796c63390f9",
+      "contentDigest": "e1e81bfaa4afe81ebeaf56641f2f80a2688d0064178dd18a8431e27390d9c14d"
+    },
+    "pe-construction/hissu1-kensetsu-dx/youtube.longform.reading-fix": {
+      "verdict": "pass",
+      "note": "表紙と題名は中身に合う。全8場面の画像を確認し、文字の切れ・重なり・誤字なし。場面順は台本どおり。CTAはnoteマガジン1つ（無料のサイト解説は関連リンク）。日付の記述なし。音声と動画本体は未確認。",
+      "at": "2026-11-05T22:09:51.027Z",
+      "visualDigest": "d674e505b12addee293c1980a6194849d277c3f52e67db7d3222b5dc8c209f5f",
+      "finalDigest": "0ab6b9470dd9edae11165c120af968f9e7f0cb2c05880af8a97204dedf1c46fd",
+      "contentDigest": "1dc069ff37a6ba26470c72ee642caa28cae600bc770ace737c1e14e7ced73f31"
+    },
+    "pe-construction/kaitourei-tsukaikata/youtube.longform.reading-fix": {
+      "verdict": "pass",
+      "note": "全9場面シート確認。表紙と題名は中身に合い、場面順は台本(誤解、3層、逆圧縮、評価項目、読む順序、置換、まとめ、CTA)と一致。文字切れ・誤字・重なり無し。説明文のCTAはnote必須Iマガジン1つ、無料サイトは関連リンク。日付・数値の記述無し。軽微: 場面4・5は枠が空で下部余白大きいが読める。音声は未確認。動画本体は未確認で、描画済み画像と台本での判定。",
+      "at": "2026-11-05T22:09:52.506Z",
+      "visualDigest": "a6b27ff7e3c81bed7b44aea80647f8c2c80f221ba5e33c641fad4d2e569d7003",
+      "finalDigest": "42e50abd9ea059d15d08e7258eff094da8b400e1ac8368c75786a0dae50c3900",
+      "contentDigest": "871fa9df4d212f0a6a028367a4a7424cfc6894f645d339592c335182f428bb48"
     }
   }
 }

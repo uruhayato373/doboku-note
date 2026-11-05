@@ -509,6 +509,249 @@
       "durationSec": 167.6
     },
     {
+      "id": "pe-construction/hissu1-infra-roukyuuka/work/candidate-cover",
+      "role": "candidate-cover",
+      "type": "image/png",
+      "sha256": "33feb20745bc2bf30b56f8832e890d1396a2b386a7f5b577cdf799e79a1d1f4c",
+      "bytes": 674128,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/hissu1-infra-roukyuuka/work/candidate-cover.33feb207.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "添付の1枚目はdoboku-noteで採用済みの全面POP動画表紙の意匠参照、2枚目は先生キャラクターの同一性参照です。 新規の16:9横長（1920×1080想定）日本語YouTube動画表紙を作る。深いインディゴ #33356B と明るい青紫、黄色と白の極太文字、明確な黒い輪郭、少量の赤、斜めの面と勢いのある背景、右側に先生キャラクターを大きく。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。 左〜中央に正確に『インフラ老朽化』『予防保全を論じる』を大きく配置。上部の黄色帯に小さく『総監が制作』。 誤字・余計な文字・合格保証・URL・価格・不明な実績を足さない。文字ブロックの黒い縁取りまで含めて左右8%の内側へ収め（画面の左端から8%は背景だけ）、顔は左右5%・上下5%内、下端18%は字幕が重なるので重要な文字や顔を置かず背景が全面に続く。",
+        "promptSha256": "7fc18603cc584a5103428805bbd57629de2e6d4ecc870c151c7298f81e03afe1",
+        "generatedAt": "2026-11-05T01:43:52.653Z"
+      },
+      "width": 1920,
+      "height": 1080,
+      "legacyPaths": [
+        ".tmp/media/pe-construction/hissu1-infra-roukyuuka/work/cover-pop.33feb207.png"
+      ]
+    },
+    {
+      "id": "pe-construction/hissu1-infra-roukyuuka/work/candidate-scene-001",
+      "role": "candidate-scene-001",
+      "type": "image/png",
+      "sha256": "33feb20745bc2bf30b56f8832e890d1396a2b386a7f5b577cdf799e79a1d1f4c",
+      "bytes": 674128,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/hissu1-infra-roukyuuka/work/candidate-scene-001.33feb207.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "添付の1枚目はdoboku-noteで採用済みの全面POP動画表紙の意匠参照、2枚目は先生キャラクターの同一性参照です。 新規の16:9横長（1920×1080想定）日本語YouTube動画表紙を作る。深いインディゴ #33356B と明るい青紫、黄色と白の極太文字、明確な黒い輪郭、少量の赤、斜めの面と勢いのある背景、右側に先生キャラクターを大きく。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。 左〜中央に正確に『インフラ老朽化』『予防保全を論じる』を大きく配置。上部の黄色帯に小さく『総監が制作』。 誤字・余計な文字・合格保証・URL・価格・不明な実績を足さない。文字ブロックの黒い縁取りまで含めて左右8%の内側へ収め（画面の左端から8%は背景だけ）、顔は左右5%・上下5%内、下端18%は字幕が重なるので重要な文字や顔を置かず背景が全面に続く。",
+        "promptSha256": "7fc18603cc584a5103428805bbd57629de2e6d4ecc870c151c7298f81e03afe1",
+        "generatedAt": "2026-11-05T01:43:52.653Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-construction/hissu1-infra-roukyuuka/work/candidate-scene-002",
+      "role": "candidate-scene-002",
+      "type": "image/png",
+      "sha256": "2cb9c6d6974bd414db266da40cc0ba4dbc406b0371a00f58c58a35078c2d6305",
+      "bytes": 1496168,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/hissu1-infra-roukyuuka/work/candidate-scene-002.2cb9c6d6.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『誤解：広く浅く並べれば安全』。 図に入れる文字: 『求められるのは一つに絞る深掘り』 『羅列だけでは応用力が伝わらない』。 この場面の説明（文字にしない）: 点検・財源・データ、思いつく課題を並べて広く浅く書けば安心、という誤解があります。しかし必須科目Iが求めるのは、課題を洗い出したうえで一つに絞り込み深掘りする力です。並べただけでは応用能力は伝わりません。",
+        "promptSha256": "f0ff1ba45b484a03f3b8285b548bd812496b98639ba33e5eefabfefa1a9d3b50",
+        "generatedAt": "2026-11-05T01:43:52.653Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-construction/hissu1-infra-roukyuuka/work/candidate-scene-003",
+      "role": "candidate-scene-003",
+      "type": "image/png",
+      "sha256": "5ea901a7d0028021b3138e9e51dbf82e222ebc67f90bc151eb1295f73089c5ec",
+      "bytes": 1737948,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/hissu1-infra-roukyuuka/work/candidate-scene-003.5ea901a7.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『なぜ老朽化が頻出か』。 図に入れる文字: 『R02-I-2・R05-I-2で正面出題』 『建設後50年問題という不可逆な事実』 『防災・担い手・DXの横串にもなる』。 この場面の説明（文字にしない）: 老朽化はR02のI-2、R05のI-2で正面から出題されてきました。高度経済成長期に集中整備された施設が建設後50年を迎える、という不可逆な事実が課題の根拠になります。防災や担い手不足、インフラDXとも横串で使える論点なので、学習効率の良いテーマです。",
+        "promptSha256": "c86222fa47a6ca77da90cb0ad4aedc3bdfda2b3a27ffd7798f3281bd6c9fc709",
+        "generatedAt": "2026-11-05T01:43:52.653Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-construction/hissu1-infra-roukyuuka/work/candidate-scene-004",
+      "role": "candidate-scene-004",
+      "type": "image/png",
+      "sha256": "d3fdde2a01e678764f9af6fe000a00d6ce5666c7eb0f6a2d6e6787c9306f3dd8",
+      "bytes": 1655608,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/hissu1-infra-roukyuuka/work/candidate-scene-004.d3fdde2a.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『課題を3つに分解する』。 図に入れる文字: 『点検・診断：精度と頻度の確保』 『財源・人員：職員減と財政制約の同時進行』 『データ蓄積・活用：分散して活かせない』。 この場面の説明（文字にしない）: 課題は三つに分けて洗い出します。点検・診断は、対象施設が膨大で精度と頻度の確保が難しいこと。財源・人員は、自治体の技術職員減少と財政制約が同時に進むこと。データ蓄積・活用は、点検結果が分散して予算計画に活かせていないことです。この三つから最重要課題を一つ選びます。",
+        "promptSha256": "a7f47c6e6b8811bc60e21ab4aa84a25f448d5c13576eb4f0d4aa3499811fd222",
+        "generatedAt": "2026-11-05T01:43:52.653Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-construction/hissu1-infra-roukyuuka/work/candidate-scene-005",
+      "role": "candidate-scene-005",
+      "type": "image/png",
+      "sha256": "47ff0530ced12e28c871555fe9c6e46452d16eda06a4c3b97a086b146ecfd315",
+      "bytes": 1641359,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/hissu1-infra-roukyuuka/work/candidate-scene-005.47ff0530.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『最重要課題：予防保全への転換』。 図に入れる文字: 『点検→健全度評価→優先度判断→予算平準化』 『インフラ長寿命化基本計画（平成25年）』 『国交省行動計画・第2次（令和3〜7年度）』。 この場面の説明（文字にしない）: 最重要課題として多くの答案が選ぶのが、事後保全から予防保全への転換です。壊れてから直すのではなく、傷みが軽いうちに手を打つ発想です。定期点検のデータを積み上げて健全度を数値で評価し、優先して直すべき箇所を絞り込み、修繕費用を年度間でならしていく。この流れで語れば、用語の羅列を避けられます。根拠にはインフラ長寿命化基本計画と、国土交通省インフラ長寿命化計画の第2次行動計画を、年度まで正確に添えます。",
+        "promptSha256": "1fb71ef82b2b4e7d502b598b97dc153ed5131e2be1c3d1269b44898b93fd39c3",
+        "generatedAt": "2026-11-05T01:43:52.653Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-construction/hissu1-infra-roukyuuka/work/candidate-scene-006",
+      "role": "candidate-scene-006",
+      "type": "image/png",
+      "sha256": "b0f6a0b4a9df60a6353ca1bc4f66f8334be0c002315b38eb68c9fc769e282ee8",
+      "bytes": 1655278,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/hissu1-infra-roukyuuka/work/candidate-scene-006.b0f6a0b4.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『財源・人員不足への解決策』。 図に入れる文字: 『地域インフラ群再生戦略マネジメント（群マネ）』 『令和4年12月の提言が起点』 『点検DX・ロボティクスで精度と頻度を補う』。 この場面の説明（文字にしない）: 財源と人員の不足には、地域インフラ群再生戦略マネジメントが効きます。行政区域にとらわれず、複数・多分野のインフラを群として捉えるマネジメントで、令和4年12月の提言で示されました。あわせて、ドローンやセンサーによる点検のDXで、人手不足を補いながら精度と頻度を高める方向も解決策になります。",
+        "promptSha256": "45522ad28311ea484139cbbac1440e1df6f69d18f8e3c4d1279ef9474a931210",
+        "generatedAt": "2026-11-05T01:43:52.653Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-construction/hissu1-infra-roukyuuka/work/candidate-scene-007",
+      "role": "candidate-scene-007",
+      "type": "image/png",
+      "sha256": "d362b10a28077422a076644867ea421c672d7b42179f83bd64e4d18536625e0b",
+      "bytes": 1396939,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/hissu1-infra-roukyuuka/work/candidate-scene-007.d362b10a.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『リスクと発注者視点』。 図に入れる文字: 『予防保全移行期の予算膨張』 『発注者側の技術力空洞化』 『点検計画の標準化・予算平準化』。 この場面の説明（文字にしない）: 解決策を実行すると新たなリスクも生まれます。予防保全への移行期に短期の予算が膨らむこと、包括的民間委託で発注者側の技術力が空洞化すること。ここは段階的な移行と職員の技術継承で対策を書きます。発注者側の論点として、点検計画の標準化や修繕優先度の設定、複数年度の予算平準化まで触れると、答案に厚みが出ます。",
+        "promptSha256": "a30fc0b68da66490e4e23cf68e6a5116541cce9fcd6b9834dac12ebbacff7a42",
+        "generatedAt": "2026-11-05T01:43:52.653Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-construction/hissu1-infra-roukyuuka/work/candidate-scene-008",
+      "role": "candidate-scene-008",
+      "type": "image/png",
+      "sha256": "d312e8e5488b17ededf399a1f46fe92e3e2249c94b8f18e532715df20673c8a7",
+      "bytes": 1570174,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/hissu1-infra-roukyuuka/work/candidate-scene-008.d312e8e5.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『まとめ』。 図に入れる文字: 『① 課題を3つに分解する』 『② 予防保全への転換を最重要課題に』 『③ 群マネ・点検DXで財源人員を補う』 『④ リスクと発注者視点で締める』。 この場面の説明（文字にしない）: まとめます。課題を三つに分解し、予防保全への転換を最重要課題に選ぶ。点検から予算平準化までを一連の流れで書き、群マネと点検DXで財源・人員の解決策を補う。最後にリスクと発注者視点で厚みを出す。これが老朽化テーマを一本の軸で解く型です。",
+        "promptSha256": "1d8c7cff5e5f1fd0bddeb20d989771dedc471213eb06cf1ce076499b7a34efba",
+        "generatedAt": "2026-11-05T01:43:52.653Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-construction/hissu1-infra-roukyuuka/work/candidate-scene-009",
+      "role": "candidate-scene-009",
+      "type": "image/png",
+      "sha256": "5386bbc808371e75d93bdf67ea2583045fbac8cef29cc8ab61b71a35e2b62b2d",
+      "bytes": 1709361,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/hissu1-infra-roukyuuka/work/candidate-scene-009.5386bbc8.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『答案の型で確認する』。 図に入れる文字: 『必須科目I マガジン（概要欄リンク）』。 この場面の説明（文字にしない）: 答案の型そのもので確認したい方は、概要欄のリンクから必須科目Iのマガジンをご覧ください。ご視聴ありがとうございました。",
+        "promptSha256": "fb9c7daad6746559feb6d8b9c09e4c63861e180b16659584a4b680c6bbc6df30",
+        "generatedAt": "2026-11-05T01:43:52.653Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-construction/hissu1-infra-roukyuuka/work/candidate-subtitles",
+      "role": "candidate-subtitles",
+      "type": "text/x-ssa",
+      "sha256": "169ac93792b5f8a13df79894c21d48cf763a97560002c9d026db871dbd068d8e",
+      "bytes": 6615,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/hissu1-infra-roukyuuka/work/candidate-subtitles.169ac937.ass"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/pe-construction/hissu1-infra-roukyuuka/storyboard.json"
+      }
+    },
+    {
+      "id": "pe-construction/hissu1-infra-roukyuuka/work/candidate-video",
+      "role": "candidate-video",
+      "type": "video/mp4",
+      "sha256": "ef4af725671d8737eb04c52d15b4d82b9fc04898d1a300dcc12a3cb0dd625c94",
+      "bytes": 20199140,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/hissu1-infra-roukyuuka/work/candidate-video.ef4af725.mp4"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/pe-construction/hissu1-infra-roukyuuka/storyboard.json",
+        "specSha256": "f777afba3530578ae4882bd0c4744f6c20449118ec2214e1e3d5e11d6ecda06f",
+        "renderInputSha256": "8e8da75d8718928c9806c29117968141bd9137f5798bc378f0f214293434c163",
+        "tts": {
+          "engine": "VOICEVOX",
+          "speaker": 13,
+          "credit": "VOICEVOX:青山龍星"
+        }
+      },
+      "durationSec": 188
+    },
+    {
       "id": "pe-construction/hissu1-infra-roukyuuka/youtube.longform/cover",
       "role": "cover",
       "type": "image/png",
@@ -750,6 +993,229 @@
         }
       },
       "durationSec": 189.8
+    },
+    {
+      "id": "pe-construction/hissu1-kensetsu-dx/work/candidate-cover",
+      "role": "candidate-cover",
+      "type": "image/png",
+      "sha256": "bbac2c8c343ac34df6dfd8d3af10129e3aca1992a3f22e4e00d630e890a7e46e",
+      "bytes": 613519,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/hissu1-kensetsu-dx/work/candidate-cover.bbac2c8c.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "添付の1枚目はdoboku-noteで採用済みの全面POP動画表紙の意匠参照、2枚目は先生キャラクターの同一性参照です。 新規の16:9横長（1920×1080想定）日本語YouTube動画表紙を作る。深いインディゴ #33356B と明るい青紫、黄色と白の極太文字、明確な黒い輪郭、少量の赤、斜めの面と勢いのある背景、右側に先生キャラクターを大きく。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。 左〜中央に正確に『建設DX』『施策を答案へ』を大きく配置。上部の黄色帯に小さく『総監が制作』。 誤字・余計な文字・合格保証・URL・価格・不明な実績を足さない。文字ブロックの黒い縁取りまで含めて左右8%の内側へ収め（画面の左端から8%は背景だけ）、顔は左右5%・上下5%内、下端18%は字幕が重なるので重要な文字や顔を置かず背景が全面に続く。",
+        "promptSha256": "f6d91fdf18d7910364202ef5c26ff4f3f8ee9fca4c7f63fd10ff752f351988db",
+        "generatedAt": "2026-11-05T00:49:51.259Z"
+      },
+      "width": 1920,
+      "height": 1080,
+      "legacyPaths": [
+        ".tmp/media/pe-construction/hissu1-kensetsu-dx/work/cover-pop.bbac2c8c.png"
+      ]
+    },
+    {
+      "id": "pe-construction/hissu1-kensetsu-dx/work/candidate-scene-001",
+      "role": "candidate-scene-001",
+      "type": "image/png",
+      "sha256": "bbac2c8c343ac34df6dfd8d3af10129e3aca1992a3f22e4e00d630e890a7e46e",
+      "bytes": 613519,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/hissu1-kensetsu-dx/work/candidate-scene-001.bbac2c8c.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "添付の1枚目はdoboku-noteで採用済みの全面POP動画表紙の意匠参照、2枚目は先生キャラクターの同一性参照です。 新規の16:9横長（1920×1080想定）日本語YouTube動画表紙を作る。深いインディゴ #33356B と明るい青紫、黄色と白の極太文字、明確な黒い輪郭、少量の赤、斜めの面と勢いのある背景、右側に先生キャラクターを大きく。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。 左〜中央に正確に『建設DX』『施策を答案へ』を大きく配置。上部の黄色帯に小さく『総監が制作』。 誤字・余計な文字・合格保証・URL・価格・不明な実績を足さない。文字ブロックの黒い縁取りまで含めて左右8%の内側へ収め（画面の左端から8%は背景だけ）、顔は左右5%・上下5%内、下端18%は字幕が重なるので重要な文字や顔を置かず背景が全面に続く。",
+        "promptSha256": "f6d91fdf18d7910364202ef5c26ff4f3f8ee9fca4c7f63fd10ff752f351988db",
+        "generatedAt": "2026-11-05T00:49:51.259Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-construction/hissu1-kensetsu-dx/work/candidate-scene-002",
+      "role": "candidate-scene-002",
+      "type": "image/png",
+      "sha256": "9b3af1747bf6587191d887ab1d84eeaad3b388890512d917b5bba51150d36b8f",
+      "bytes": 1498409,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/hissu1-kensetsu-dx/work/candidate-scene-002.9b3af174.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『誤解：DX導入と書けば評価される』。 図に入れる文字: 『問われているのは課題遂行能力』 『目的→手段の順で語らないと流行語止まり』。 この場面の説明（文字にしない）: DXを導入すると書けば評価される、という誤解がありますが、記述式で問われているのは課題遂行能力です。何のためにDXを進めるのか、目的を先に据え、手段を階層で整理してから語らないと、流行語をなぞるだけの答案になります。",
+        "promptSha256": "e09149922ce8a3399c8b69acf3605c26db65ecbcdf7668e8664806c2e9eab28a",
+        "generatedAt": "2026-11-05T00:49:51.259Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-construction/hissu1-kensetsu-dx/work/candidate-scene-003",
+      "role": "candidate-scene-003",
+      "type": "image/png",
+      "sha256": "9c1fec565b4cb639dbc601c14c1718345fdc8d8811ca5537102d35c5467fd9f8",
+      "bytes": 1519787,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/hissu1-kensetsu-dx/work/candidate-scene-003.9c1fec56.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『過去の問われ方』。 図に入れる文字: 『R04 I-1：DX推進を正面から問う出題』 『他テーマの解決策としても横断的に登場』。 この場面の説明（文字にしない）: R04のI-1では、社会資本の整備・維持管理・利用におけるDX推進が正面から問われました。それだけでなく、防災や担い手確保など他テーマの解決策としても、インフラDXはほぼ毎回登場する横断的な柱です。単独でも解決策の一部でも書ける準備が要ります。",
+        "promptSha256": "0234491012bc7c7b3a87cfc412ae8512f9386a8af9cecd38202ec29a6b7c7c4a",
+        "generatedAt": "2026-11-05T00:49:51.259Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-construction/hissu1-kensetsu-dx/work/candidate-scene-004",
+      "role": "candidate-scene-004",
+      "type": "image/png",
+      "sha256": "3b5987295f7cd2192cd909bd2199742433b1699e174343183b2106af9351ff8b",
+      "bytes": 1536215,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/hissu1-kensetsu-dx/work/candidate-scene-004.3b598729.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『建設DXの目的4つ』。 図に入れる文字: 『生産性向上・省人化／安全性向上』 『品質の確保・向上／維持管理の高度化』 『i-Construction 2.0：2040年度省人化3割』。 この場面の説明（文字にしない）: 建設DXの目的は、生産性向上・省人化、施工の安全性向上、品質の確保・向上、維持管理の高度化の4つに整理できます。アイコンストラクション2.0は2040年度までに省人化3割、生産性1.5倍を掲げており、目的が担い手不足への対応として明確です。DXの目的は担い手確保・生産性向上というテーマと接続させるのが自然です。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 47.7）",
+        "promptSha256": "ee9915a187212d24a14b4b8973dac17f32424fbb594eb56e86389e14bdb419ee",
+        "generatedAt": "2026-11-05T00:49:51.259Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-construction/hissu1-kensetsu-dx/work/candidate-scene-005",
+      "role": "candidate-scene-005",
+      "type": "image/png",
+      "sha256": "ca673e3280349ef648f536d134c38a33c124cd662f5209bccbffb3ab9eb0059f",
+      "bytes": 1308663,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/hissu1-kensetsu-dx/work/candidate-scene-005.ca673e32.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『手段は3階層』。 図に入れる文字: 『プロセス改革：i-Construction／2.0』 『情報基盤：BIM/CIM（直轄事業で原則適用）』 『個別技術：ICT施工・遠隔臨場・ドローン測量』。 この場面の説明（文字にしない）: 手段は3つの階層でとらえます。ICT施工や遠隔臨場のような個別技術は、ビムシム、BIM/CIMという情報基盤の上で動き、その情報基盤自体がアイコンストラクションというプロセス改革の一部です。階層を混同しないことがポイントで、ビムシムは直轄事業で原則適用が進んでいます。発注者側では、データ納品仕様の制度設計や、遠隔臨場による監督・検査の省力化という角度も加わります。",
+        "promptSha256": "db2e59d8c98f8d8ab440dc76e37ff64fea7cda4c5ff48d07c9cc44f89c004220",
+        "generatedAt": "2026-11-05T00:49:51.259Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-construction/hissu1-kensetsu-dx/work/candidate-scene-006",
+      "role": "candidate-scene-006",
+      "type": "image/png",
+      "sha256": "33009c02b866c199a6a8234cb1b943567a454cbb6ae1fa229722ab3ac4a31aa1",
+      "bytes": 1559358,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/hissu1-kensetsu-dx/work/candidate-scene-006.33009c02.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『新たなリスクと接続先』。 図に入れる文字: 『初期投資・人材不足／中小との格差』 『データ標準化・長期保存・セキュリティ』 『対策を添えて倫理・持続可能性へ橋渡し』。 この場面の説明（文字にしない）: リスクの典型は、3次元データの標準化・長期保存やサイバーセキュリティといったデータ面の課題、中小建設業者や地域間のDX格差、そして初期投資とICT人材の不足です。挙げるだけでなく対策とセットで示し、技術者倫理・社会の持続可能性へつなげます。改訂後のコンピテンシーでは、データ活用とステークホルダー合意も明文化されています。",
+        "promptSha256": "d5b07482fb088cd7a2cf7d406963370a43bfebdf0243a2d60d01928a51d86f0c",
+        "generatedAt": "2026-11-05T00:49:51.259Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-construction/hissu1-kensetsu-dx/work/candidate-scene-007",
+      "role": "candidate-scene-007",
+      "type": "image/png",
+      "sha256": "aad2551a6a1574b6cc1c5d24139de941a21789cedad60d8ed2a55095e6897088",
+      "bytes": 1383097,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/hissu1-kensetsu-dx/work/candidate-scene-007.aad2551a.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『まとめ』。 図に入れる文字: 『① 目的4つを先に据える』 『② 手段を3階層で語り分ける』 『③ リスクは対策とセットで書く』。 この場面の説明（文字にしない）: まとめます。建設DXは、目的を4つに整理し、プロセス改革・情報基盤・個別技術の3階層で手段を語り分け、リスクを対策までセットで書けるかが勝負です。発注者視点の制度設計まで踏み込めると差がつきます。",
+        "promptSha256": "877f7bbe7871f4e370be0f704e87722721ec82bdab91333ed21c21795712608a",
+        "generatedAt": "2026-11-05T00:49:51.259Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-construction/hissu1-kensetsu-dx/work/candidate-scene-008",
+      "role": "candidate-scene-008",
+      "type": "image/png",
+      "sha256": "cbbfc630fdd40f15bbbba7b406312512bf3e3ecd43ff55aee14b36356e12a9aa",
+      "bytes": 1385935,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/hissu1-kensetsu-dx/work/candidate-scene-008.cbbfc630.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『答案の形は概要欄へ』。 図に入れる文字: 『必須科目Ⅰ 模範解答マガジン（概要欄リンク）』。 この場面の説明（文字にしない）: 目的と手段の整理から4部構成への落とし込みまで、答案の形で確認したい方は必須科目Ⅰの模範解答マガジンへ。概要欄のリンクからご覧ください。ご視聴ありがとうございました。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 24.3）",
+        "promptSha256": "92c4db120f22c5ca730915188f2c9f9ca60727615c8ae7351f98ea15d1f77de4",
+        "generatedAt": "2026-11-05T00:49:51.259Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-construction/hissu1-kensetsu-dx/work/candidate-subtitles",
+      "role": "candidate-subtitles",
+      "type": "text/x-ssa",
+      "sha256": "5d07523fd00823483e4cf8bad5d57f78a28bc8b760e5a0986ee2a465e4645931",
+      "bytes": 5716,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/hissu1-kensetsu-dx/work/candidate-subtitles.5d07523f.ass"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/pe-construction/hissu1-kensetsu-dx/storyboard.json"
+      }
+    },
+    {
+      "id": "pe-construction/hissu1-kensetsu-dx/work/candidate-video",
+      "role": "candidate-video",
+      "type": "video/mp4",
+      "sha256": "985548ec6284dfb33fa112f3548e368f779a79741daf7cf6aaa75dea81e47b22",
+      "bytes": 18126278,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/hissu1-kensetsu-dx/work/candidate-video.985548ec.mp4"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/pe-construction/hissu1-kensetsu-dx/storyboard.json",
+        "specSha256": "e889eb94aff40b45cbc6d6959eb2f88a1355231dc8e8421dd15e40248f5b486b",
+        "renderInputSha256": "807802c618a0dfac6b46f0a6f2c86a03c625063dfb2c5bd9cfc42088bb943533",
+        "tts": {
+          "engine": "VOICEVOX",
+          "speaker": 13,
+          "credit": "VOICEVOX:青山龍星"
+        }
+      },
+      "durationSec": 171.7
     },
     {
       "id": "pe-construction/hissu1-kensetsu-dx/youtube.longform/cover",
@@ -1461,6 +1927,249 @@
       "legacyPaths": [
         ".tmp/media/pe-construction/hissu1-theme-map/youtube.longform/cover.aa3fda1a.png"
       ]
+    },
+    {
+      "id": "pe-construction/kaitourei-tsukaikata/work/candidate-cover",
+      "role": "candidate-cover",
+      "type": "image/png",
+      "sha256": "e21827b0834fad3c8e20cca2202d37a8aa93e9e9b502b52037f3981cc51a910c",
+      "bytes": 703004,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/kaitourei-tsukaikata/work/candidate-cover.e21827b0.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "添付の1枚目はdoboku-noteで採用済みの全面POP動画表紙の意匠参照、2枚目は先生キャラクターの同一性参照です。 新規の16:9横長（1920×1080想定）日本語YouTube動画表紙を作る。深いインディゴ #33356B と明るい青紫、黄色と白の極太文字、明確な黒い輪郭、少量の赤、斜めの面と勢いのある背景、右側に先生キャラクターを大きく。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。 左〜中央に正確に『模範解答』『写すだけでOK？』を大きく配置。上部の黄色帯に小さく『総監が制作』。 誤字・余計な文字・合格保証・URL・価格・不明な実績を足さない。文字ブロックの黒い縁取りまで含めて左右8%の内側へ収め（画面の左端から8%は背景だけ）、顔は左右5%・上下5%内、下端18%は字幕が重なるので重要な文字や顔を置かず背景が全面に続く。",
+        "promptSha256": "e9fce0437adfc7eaee3831d95b03a3150967367734b4717f86460b857f829fc8",
+        "generatedAt": "2026-11-05T00:34:30.111Z"
+      },
+      "width": 1920,
+      "height": 1080,
+      "legacyPaths": [
+        ".tmp/media/pe-construction/kaitourei-tsukaikata/work/cover-pop.e21827b0.png"
+      ]
+    },
+    {
+      "id": "pe-construction/kaitourei-tsukaikata/work/candidate-scene-001",
+      "role": "candidate-scene-001",
+      "type": "image/png",
+      "sha256": "e21827b0834fad3c8e20cca2202d37a8aa93e9e9b502b52037f3981cc51a910c",
+      "bytes": 703004,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/kaitourei-tsukaikata/work/candidate-scene-001.e21827b0.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "添付の1枚目はdoboku-noteで採用済みの全面POP動画表紙の意匠参照、2枚目は先生キャラクターの同一性参照です。 新規の16:9横長（1920×1080想定）日本語YouTube動画表紙を作る。深いインディゴ #33356B と明るい青紫、黄色と白の極太文字、明確な黒い輪郭、少量の赤、斜めの面と勢いのある背景、右側に先生キャラクターを大きく。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。 左〜中央に正確に『模範解答』『写すだけでOK？』を大きく配置。上部の黄色帯に小さく『総監が制作』。 誤字・余計な文字・合格保証・URL・価格・不明な実績を足さない。文字ブロックの黒い縁取りまで含めて左右8%の内側へ収め（画面の左端から8%は背景だけ）、顔は左右5%・上下5%内、下端18%は字幕が重なるので重要な文字や顔を置かず背景が全面に続く。",
+        "promptSha256": "e9fce0437adfc7eaee3831d95b03a3150967367734b4717f86460b857f829fc8",
+        "generatedAt": "2026-11-05T00:34:30.111Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-construction/kaitourei-tsukaikata/work/candidate-scene-002",
+      "role": "candidate-scene-002",
+      "type": "image/png",
+      "sha256": "dba292eb1c23a217ced34a74d99134828300c09b3c0426103ce8f8f27ffc2c01",
+      "bytes": 1909735,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/kaitourei-tsukaikata/work/candidate-scene-002.dba292eb.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『誤解：読んで理解すれば書ける』。 図に入れる文字: 『読解と再現は別の能力』 『この距離が本番の白紙で手を止める』。 この場面の説明（文字にしない）: 読んで理解できれば書けるようになる、と思われがちです。しかし読んで理解できることと、白紙の答案用紙に時間内で再現できることは、まったく別の能力です。",
+        "promptSha256": "6be4245abcf416f4ce0da149a2c942b8669b8afd06383fd82006884cf246fae4",
+        "generatedAt": "2026-11-05T00:34:30.111Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-construction/kaitourei-tsukaikata/work/candidate-scene-003",
+      "role": "candidate-scene-003",
+      "type": "image/png",
+      "sha256": "a61d7329c732d9dbdc676ca1fbb1eeecf9b6bf4710f462ebecb4e40eb55f0d87",
+      "bytes": 1686712,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/kaitourei-tsukaikata/work/candidate-scene-003.a61d7329.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『解答例を読む3層』。 図に入れる文字: 『設問層：設問と段落の対応』 『骨子層：論点の圧縮（最重要）』 『展開層：字数内の肉付け』。 この場面の説明（文字にしない）: 完成答案は3層に分けて読みます。設問層は段落の対応、骨子層は論点の圧縮、展開層は字数内の肉付けです。もっとも重要なのは真ん中の骨子層になります。",
+        "promptSha256": "64d66bb4a15a57adebfec72a5941d673c678f44ee5127b26f48cb083537b1719",
+        "generatedAt": "2026-11-05T00:34:30.111Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-construction/kaitourei-tsukaikata/work/candidate-scene-004",
+      "role": "candidate-scene-004",
+      "type": "image/png",
+      "sha256": "cc22c5ebbffe1c056b77702602dffcb8bb888de29962eb9b7abd1a9d361c6600",
+      "bytes": 1410421,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/kaitourei-tsukaikata/work/candidate-scene-004.cc22c5eb.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『骨子層の逆圧縮』。 図に入れる文字: 『観点とキーワードだけに圧縮する』 『例：ハード対策／ソフト対策／統合的視点』 『見ながら自分の言葉で展開し直せるか』。 この場面の説明（文字にしない）: 完成答案を、観点とキーワードだけの箇条書きに逆圧縮します。防災テーマなら、ハード対策・ソフト対策・統合的視点という論点の並びを取り出すイメージです。",
+        "promptSha256": "c9ed5480b469b54d113553d5ca473f32d9f51040aef0d5fe293cd330f9bfb92d",
+        "generatedAt": "2026-11-05T00:34:30.111Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-construction/kaitourei-tsukaikata/work/candidate-scene-005",
+      "role": "candidate-scene-005",
+      "type": "image/png",
+      "sha256": "d3072db95dcbfaae37e436d364c4fa101c0861440b2d1f1db3b27d46097a6028",
+      "bytes": 988378,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/kaitourei-tsukaikata/work/candidate-scene-005.d3072db9.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『骨子と評価項目を突き合わせる』。 図に入れる文字: 『各論点に対応する評価項目を書き添える』 『1項目が複数の設問部にまたがることもある』 『薄い項目＝本番で失点しやすい弱点』。 この場面の説明（文字にしない）: 抜き出した骨子は、課題遂行能力や問題解決、評価、技術者倫理といった評価項目と突き合わせます。各論点の横に対応する項目を書き添えると、弱い部分が見えてきます。",
+        "promptSha256": "bcf7b0c4412bf427a58e5fda419142aca5c024f7063231301876726e1cc9d8c2",
+        "generatedAt": "2026-11-05T00:34:30.111Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-construction/kaitourei-tsukaikata/work/candidate-scene-006",
+      "role": "candidate-scene-006",
+      "type": "image/png",
+      "sha256": "bf82b866a5eb35cca31fcb5fda352524d68c541213b1f1a1d30396ee689c1539",
+      "bytes": 1478628,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/kaitourei-tsukaikata/work/candidate-scene-006.bf82b866.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『読む順序』。 図に入れる文字: 『1. 通読：型の共通性をつかむ』 『2. 逆圧縮：骨子層を抜き出す』 『3. 置換：自分の専門・経験に差し替える』。 この場面の説明（文字にしない）: 解答例は複数年度をまとめて読む価値があります。通読で型の共通性をつかみ、骨子層へ逆圧縮し、最後に自分のネタへ置換する。この置換が本番力に直結します。",
+        "promptSha256": "2434876dbb390a4f62b891c1d4c3236682b01516abec8d610fcbc6d517517443",
+        "generatedAt": "2026-11-05T00:34:30.111Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-construction/kaitourei-tsukaikata/work/candidate-scene-007",
+      "role": "candidate-scene-007",
+      "type": "image/png",
+      "sha256": "626f738a9d78965e4941220ccf3cd2bb49a470d4bd685c54a05884e03ad7e2d4",
+      "bytes": 1480054,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/kaitourei-tsukaikata/work/candidate-scene-007.626f738a.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『置換に詰まったときの発想』。 図に入れる文字: 『表面の言葉でなく論点の構造に着目』 『分類の軸・選定理由・リスクの方向性』 『同じ骨格に自分の素材を載せる』。 この場面の説明（文字にしない）: 自分の経験がテーマに合わないと感じたら、論点の言葉でなく分類・選定理由・リスクの方向性という構造に着目します。同じ骨格に別の素材を載せる発想です。 前回の不合格の理由を直す: 文字: 見出しが『置換に詰まったときの発想』と鉤括弧つきで描かれ、指示にない文字（『』）が入っている。他の文言は一致し図の破綻は無い",
+        "promptSha256": "240ced8edbacf39682b7c01784a69eccc45b38756603ab534c9820b60385d0c0",
+        "generatedAt": "2026-11-05T00:34:30.111Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-construction/kaitourei-tsukaikata/work/candidate-scene-008",
+      "role": "candidate-scene-008",
+      "type": "image/png",
+      "sha256": "77164b91d6d1136a1ec7d222648278a85664a04ed7493c0b2aceaca844a67e09",
+      "bytes": 1593442,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/kaitourei-tsukaikata/work/candidate-scene-008.77164b91.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『まとめ』。 図に入れる文字: 『① 設問層・骨子層・展開層に分解』 『② 骨子層を逆圧縮する』 『③ 評価項目と対応づける』 『④ 通読・逆圧縮・置換の順で読む』。 この場面の説明（文字にしない）: まとめます。3層に分解し、骨子層を逆圧縮し、評価項目と対応づけ、通読・逆圧縮・置換の順で複数年度を読む。これが写経で終わらせない使い方です。",
+        "promptSha256": "f00ccda3c9a61b8a80b34710d4e46cd356a6dba9b71e2634ce6873dd2e45eb13",
+        "generatedAt": "2026-11-05T00:34:30.111Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-construction/kaitourei-tsukaikata/work/candidate-scene-009",
+      "role": "candidate-scene-009",
+      "type": "image/png",
+      "sha256": "1548955827b904f190c89ddc2349d4574874ad5d9eab7c43996f0f6b5d3e061e",
+      "bytes": 1434824,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/kaitourei-tsukaikata/work/candidate-scene-009.15489558.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『骨子で確認する』。 図に入れる文字: 『必須科目I マガジン（概要欄リンク）』。 この場面の説明（文字にしない）: 発注者視点のコメント付きで骨子を確認したい方は、必須科目Iのマガジンを概要欄からご覧ください。ご視聴ありがとうございました。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 15.6）",
+        "promptSha256": "c1b4259162d0408fd18ce3a110c8fb188b2fe136d326a2766df5f3097b1cc4f4",
+        "generatedAt": "2026-11-05T00:34:30.111Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-construction/kaitourei-tsukaikata/work/candidate-subtitles",
+      "role": "candidate-subtitles",
+      "type": "text/x-ssa",
+      "sha256": "59881c7b3c719725731a07866c6d05597cd889427d19bd8fa1a8e5cdd9d67b53",
+      "bytes": 4036,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/kaitourei-tsukaikata/work/candidate-subtitles.59881c7b.ass"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/pe-construction/kaitourei-tsukaikata/storyboard.json"
+      }
+    },
+    {
+      "id": "pe-construction/kaitourei-tsukaikata/work/candidate-video",
+      "role": "candidate-video",
+      "type": "video/mp4",
+      "sha256": "36679e80e86b63d2a59e826edc402b1c2e1862f904da9a25cb8bb7566240d455",
+      "bytes": 13936103,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/kaitourei-tsukaikata/work/candidate-video.36679e80.mp4"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/pe-construction/kaitourei-tsukaikata/storyboard.json",
+        "specSha256": "9a3c3de5077a063552563b8ed85b62cd9d08d81fe8c0dd7f8ee4f9cf745c11f1",
+        "renderInputSha256": "51da8d2b2efbc0010515f593aba6b10ec23b1515534066119ecfc0985e00f51b",
+        "tts": {
+          "engine": "VOICEVOX",
+          "speaker": 13,
+          "credit": "VOICEVOX:青山龍星"
+        }
+      },
+      "durationSec": 107
     },
     {
       "id": "pe-construction/kaitourei-tsukaikata/youtube.longform/cover",
@@ -4042,6 +4751,249 @@
         "specSha256": "b39215f6d8dcdfd881dcf4e984d955e5963ae3c8a8ad0d7fe8c1d57c0e5eb0f7"
       },
       "legacyPaths": []
+    },
+    {
+      "id": "pe-construction/toan-kousei-template/work/candidate-cover",
+      "role": "candidate-cover",
+      "type": "image/png",
+      "sha256": "f8fd72a93a6ccd9b98395f5b182056a1e1b3724cd14174694187cdfabfc46aad",
+      "bytes": 665507,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/toan-kousei-template/work/candidate-cover.f8fd72a9.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "添付の1枚目はdoboku-noteで採用済みの全面POP動画表紙の意匠参照、2枚目は先生キャラクターの同一性参照です。 新規の16:9横長（1920×1080想定）日本語YouTube動画表紙を作る。深いインディゴ #33356B と明るい青紫、黄色と白の極太文字、明確な黒い輪郭、少量の赤、斜めの面と勢いのある背景、右側に先生キャラクターを大きく。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。 左〜中央に正確に『答案の構成』『設問から逆算』を大きく配置。上部の黄色帯に小さく『総監が制作』。 誤字・余計な文字・合格保証・URL・価格・不明な実績を足さない。文字ブロックの黒い縁取りまで含めて左右8%の内側へ収め（画面の左端から8%は背景だけ）、顔は左右5%・上下5%内、下端18%は字幕が重なるので重要な文字や顔を置かず背景が全面に続く。",
+        "promptSha256": "fcdd82151a54750ae07d8a44fb8d23b4f54e1d8596ba751a097d273e3bb037e2",
+        "generatedAt": "2026-11-05T00:51:11.409Z"
+      },
+      "width": 1920,
+      "height": 1080,
+      "legacyPaths": [
+        ".tmp/media/pe-construction/toan-kousei-template/work/cover-pop.f8fd72a9.png"
+      ]
+    },
+    {
+      "id": "pe-construction/toan-kousei-template/work/candidate-scene-001",
+      "role": "candidate-scene-001",
+      "type": "image/png",
+      "sha256": "f8fd72a93a6ccd9b98395f5b182056a1e1b3724cd14174694187cdfabfc46aad",
+      "bytes": 665507,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/toan-kousei-template/work/candidate-scene-001.f8fd72a9.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "添付の1枚目はdoboku-noteで採用済みの全面POP動画表紙の意匠参照、2枚目は先生キャラクターの同一性参照です。 新規の16:9横長（1920×1080想定）日本語YouTube動画表紙を作る。深いインディゴ #33356B と明るい青紫、黄色と白の極太文字、明確な黒い輪郭、少量の赤、斜めの面と勢いのある背景、右側に先生キャラクターを大きく。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。 左〜中央に正確に『答案の構成』『設問から逆算』を大きく配置。上部の黄色帯に小さく『総監が制作』。 誤字・余計な文字・合格保証・URL・価格・不明な実績を足さない。文字ブロックの黒い縁取りまで含めて左右8%の内側へ収め（画面の左端から8%は背景だけ）、顔は左右5%・上下5%内、下端18%は字幕が重なるので重要な文字や顔を置かず背景が全面に続く。",
+        "promptSha256": "fcdd82151a54750ae07d8a44fb8d23b4f54e1d8596ba751a097d273e3bb037e2",
+        "generatedAt": "2026-11-05T00:51:11.409Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-construction/toan-kousei-template/work/candidate-scene-002",
+      "role": "candidate-scene-002",
+      "type": "image/png",
+      "sha256": "b558c9f84084697f5e41821050ea2166987c582d5295f7bda3928b2bcd7ce885",
+      "bytes": 1343118,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/toan-kousei-template/work/candidate-scene-002.b558c9f8.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『誤解：型に当てはめれば合格答案』。 図に入れる文字: 『型は破綻を防ぐ骨格にすぎない』 『評価を決めるのは中身の具体性』。 この場面の説明（文字にしない）: テンプレートに当てはめれば合格答案になる、という誤解があります。型は破綻を防ぐ骨格であって、各ブロックに入れる中身の質が最終的な評価を決めます。",
+        "promptSha256": "f06ac91babb988e7b1a6e51d5a9077726cf62ed8fdce46f63bacb2e0aee1beaf",
+        "generatedAt": "2026-11-05T00:51:11.409Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-construction/toan-kousei-template/work/candidate-scene-003",
+      "role": "candidate-scene-003",
+      "type": "image/png",
+      "sha256": "0bc19737c7ef0cb231f58518069c348c9af9d1f29ea05e89136bbb253876e140",
+      "bytes": 1466012,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/toan-kousei-template/work/candidate-scene-003.0bc19737.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『答案の骨格＝4ブロック』。 図に入れる文字: 『(1)現状→課題　(2)最重要課題→解決策』 『(3)効果・リスク　(4)倫理・持続可能性』 『書く前に骨子メモを作る』。 この場面の説明（文字にしない）: 必須科目Ⅰの設問構成は、(1)多面的な課題抽出、(2)最重要課題の解決策、(3)新たなリスクと対策、(4)技術者倫理・持続可能性の4つ。答案の骨格を「現状→課題→解決策→効果・リスク」と対応させれば、テーマが変わっても同じ流れで書けます。書く前に骨子メモを作ると、途中で崩れても戻る場所が分かります。",
+        "promptSha256": "2f347ac5c3782f9706489aaf3ca751a643adacd06ac0d2308fe1486eca4e92e5",
+        "generatedAt": "2026-11-05T00:51:11.409Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-construction/toan-kousei-template/work/candidate-scene-004",
+      "role": "candidate-scene-004",
+      "type": "image/png",
+      "sha256": "b2ace63dcbceb78e9d624457ea2a16e6257e957d8bec47f0f3d4cbe22d262089",
+      "bytes": 1453380,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/toan-kousei-template/work/candidate-scene-004.b2ace63d.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『多面的な観点で課題を抽出する』。 図に入れる文字: 『技術・経済・社会・環境・安全の5観点』 『同じ観点の言い換えはNG』 『発注者視点（住民対応・総合調整）で幅を作る』。 この場面の説明（文字にしない）: (1)で評価されるのは多面的に課題を抽出する力です。技術・経済・社会・環境・安全という5つの観点を引き出しに持ち、同じ観点の言い換えを並べないことが大切です。発注者視点を1つ混ぜると、受注者側が落としやすい観点の幅が広がります。",
+        "promptSha256": "a70c6d0714a3dcd90ef3855d2d14e7de83cf35e739eaa3d98ec6a4c04c0cf258",
+        "generatedAt": "2026-11-05T00:51:11.409Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-construction/toan-kousei-template/work/candidate-scene-005",
+      "role": "candidate-scene-005",
+      "type": "image/png",
+      "sha256": "12354c0aaed11cd2684558cc03bed16684ee4c10f103a7327c9902d71c9e992e",
+      "bytes": 1433559,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/toan-kousei-template/work/candidate-scene-005.12354c0a.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『最重要課題の選び方』。 図に入れる文字: 『波及効果が大きい／本質に直結／具体的に書ける』 『選定理由を一文で明示する』 『解決策はハード×ソフトで2〜3本立て』。 この場面の説明（文字にしない）: (2)では、抽出した課題から最重要のものを選び、なぜ最重要かを一文で示します。波及効果が大きい、本質に直結する、自分が具体的に書ける。この3条件で選ぶと外しにくいです。解決策はハードとソフトで2〜3本立てにすると評価されやすくなります。",
+        "promptSha256": "243e59273b26c52f44461bd38cfe2271ddd2d65fda18d357e1bfdcac8be8889e",
+        "generatedAt": "2026-11-05T00:51:11.409Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-construction/toan-kousei-template/work/candidate-scene-006",
+      "role": "candidate-scene-006",
+      "type": "image/png",
+      "sha256": "c8419ad975b835c1c0b3e2ea9e6eab7cd11843ca32f79cf4eea7b983781629b7",
+      "bytes": 1634100,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/toan-kousei-template/work/candidate-scene-006.c8419ad9.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『効果とリスクは対で書く』。 図に入れる文字: 『効果は定量＋定性を併記』 『リスク＝一般論ではなく解決策の副作用』 『リスクごとに対策までセットで書く』。 この場面の説明（文字にしない）: 効果は、定量の見込みと定性の効果を併記すると説得力が増します。新たなリスクで多い失敗は、地震や豪雨といった一般論を書いてしまうこと。問われているのは、自分の解決策を実行したからこそ生じる副作用です。挙げたら対策までセットで書きます。",
+        "promptSha256": "835cb32d0ab4fb3ba8c02980ee9ac43c61c46eed5cc21672f28e34002e63d699",
+        "generatedAt": "2026-11-05T00:51:11.409Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-construction/toan-kousei-template/work/candidate-scene-007",
+      "role": "candidate-scene-007",
+      "type": "image/png",
+      "sha256": "633d22a75f121434a48f14f8c501b7593d90d282ea6f802f859493d03b0cae76",
+      "bytes": 2098052,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/toan-kousei-template/work/candidate-scene-007.633d22a7.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『(4)技術者倫理・持続可能性』。 図に入れる文字: 『公益確保・安全最優先・法令遵守が原則』 『データ活用・合意形成・持続可能な成果を明文化』 『自分の解決策に引きつけて書く』。 この場面の説明（文字にしない）: (4)の技術者倫理・持続可能性は、公益確保、安全最優先、法令遵守の原則に、自分の解決策を引きつけて書きます。令和8年度の改訂では、データ活用や合意形成、持続可能な成果、文化的価値の尊重が明文化されています。",
+        "promptSha256": "df096cd7a87cbd4bb116d6f24beda715cea4b9d3acb0be4152cf15afa98de055",
+        "generatedAt": "2026-11-05T00:51:11.409Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-construction/toan-kousei-template/work/candidate-scene-008",
+      "role": "candidate-scene-008",
+      "type": "image/png",
+      "sha256": "2d1e74d0321685e0ce398c1848f222dabde62d9185c73543aafb4b720a8be0da",
+      "bytes": 1265719,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/toan-kousei-template/work/candidate-scene-008.2d1e74d0.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『まとめ』。 図に入れる文字: 『① 設問4つ＝答案4ブロック』 『② 多面的観点で課題抽出』 『③ 理由つきで最重要課題を選ぶ』 『④ 倫理・持続可能性で締める』。 この場面の説明（文字にしない）: まとめます。設問4つに答案4ブロックを対応させ、多面的な観点で課題を抽出し、理由つきで最重要課題を選び、効果とリスクを対で書き、倫理と持続可能性で締める。これが崩れない構成の型です。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 50.4）",
+        "promptSha256": "fa4a71bcc7596237837b8f836e15a1e42a53e375add73b2026f1f5e8d00d02e7",
+        "generatedAt": "2026-11-05T00:51:11.409Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-construction/toan-kousei-template/work/candidate-scene-009",
+      "role": "candidate-scene-009",
+      "type": "image/png",
+      "sha256": "b941ea5ea09c000e2b9fbd5927fc8b53682b1e6855a0b1ee6dd8bd5b7d325266",
+      "bytes": 1160514,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/toan-kousei-template/work/candidate-scene-009.b941ea5e.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『テンプレートに肉付けする』。 図に入れる文字: 『必須科目対策マガジン（概要欄リンク）』。 この場面の説明（文字にしない）: このテンプレートに専門知識を肉付けする演習は、必須科目対策マガジンにまとめています。概要欄のリンクからご覧ください。ご視聴ありがとうございました。",
+        "promptSha256": "b0aa4510eb9f0639195ca840e95bd59a487b22238ca57f597dea28e9bd0b1cdc",
+        "generatedAt": "2026-11-05T00:51:11.409Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-construction/toan-kousei-template/work/candidate-subtitles",
+      "role": "candidate-subtitles",
+      "type": "text/x-ssa",
+      "sha256": "3ebcd02d4cb6291dce771274c7aaf7d416c210655b8044adecd77df3a734ae02",
+      "bytes": 5251,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/toan-kousei-template/work/candidate-subtitles.3ebcd02d.ass"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/pe-construction/toan-kousei-template/storyboard.json"
+      }
+    },
+    {
+      "id": "pe-construction/toan-kousei-template/work/candidate-video",
+      "role": "candidate-video",
+      "type": "video/mp4",
+      "sha256": "7abe449a27ebbee6397b2f310ffc8ac3b415b69246e60f976f115a1b217aea29",
+      "bytes": 17641448,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/toan-kousei-template/work/candidate-video.7abe449a.mp4"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/pe-construction/toan-kousei-template/storyboard.json",
+        "specSha256": "0d2e93af48c19135b8f6b7b3147a8a7dd5995ab62970d35c26c8641633f5bd89",
+        "renderInputSha256": "77c70e1c195376128cf40e77c1b69bef9176dcf11aaee808113f7636f48c26b9",
+        "tts": {
+          "engine": "VOICEVOX",
+          "speaker": 13,
+          "credit": "VOICEVOX:青山龍星"
+        }
+      },
+      "durationSec": 158.2
     },
     {
       "id": "pe-construction/toan-kousei-template/youtube.longform/cover",
