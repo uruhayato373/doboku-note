@@ -10,7 +10,9 @@
       "visual": {
         "kind": "cover",
         "heading": "答案構成のテンプレート",
-        "items": ["技術士 二次試験・必須科目Ⅰ"]
+        "items": [
+          "技術士 二次試験・必須科目Ⅰ"
+        ]
       }
     },
     {
@@ -21,7 +23,10 @@
       "caption": "型は骨格、中身の質が評価を決める",
       "visual": {
         "heading": "誤解：型に当てはめれば合格答案",
-        "items": ["型は破綻を防ぐ骨格にすぎない", "評価を決めるのは中身の具体性"]
+        "items": [
+          "型は破綻を防ぐ骨格にすぎない",
+          "評価を決めるのは中身の具体性"
+        ]
       },
       "sourceRef": "content/site/pe-construction/toan-kousei-template/article.mdx"
     },
@@ -33,7 +38,11 @@
       "caption": "設問4つ＝答案4ブロックで固定",
       "visual": {
         "heading": "答案の骨格＝4ブロック",
-        "items": ["(1)現状→課題　(2)最重要課題→解決策", "(3)効果・リスク　(4)倫理・持続可能性", "書く前に骨子メモを作る"]
+        "items": [
+          "(1)現状→課題　(2)最重要課題→解決策",
+          "(3)効果・リスク　(4)倫理・持続可能性",
+          "書く前に骨子メモを作る"
+        ]
       },
       "sourceRef": "content/site/pe-construction/toan-kousei-template/article.mdx"
     },
@@ -45,7 +54,11 @@
       "caption": "観点は5つ、言い換えは多面的ではない",
       "visual": {
         "heading": "多面的な観点で課題を抽出する",
-        "items": ["技術・経済・社会・環境・安全の5観点", "同じ観点の言い換えはNG", "発注者視点（住民対応・総合調整）で幅を作る"]
+        "items": [
+          "技術・経済・社会・環境・安全の5観点",
+          "同じ観点の言い換えはNG",
+          "発注者視点（住民対応・総合調整）で幅を作る"
+        ]
       },
       "sourceRef": "content/site/pe-construction/toan-kousei-template/article.mdx"
     },
@@ -57,7 +70,11 @@
       "caption": "最重要課題は理由とセットで選ぶ",
       "visual": {
         "heading": "最重要課題の選び方",
-        "items": ["波及効果が大きい／本質に直結／具体的に書ける", "選定理由を一文で明示する", "解決策はハード×ソフトで2〜3本立て"]
+        "items": [
+          "波及効果が大きい／本質に直結／具体的に書ける",
+          "選定理由を一文で明示する",
+          "解決策はハード×ソフトで2〜3本立て"
+        ]
       },
       "sourceRef": "content/site/pe-construction/toan-kousei-template/article.mdx"
     },
@@ -69,7 +86,11 @@
       "caption": "リスクは解決策の副作用を書く",
       "visual": {
         "heading": "効果とリスクは対で書く",
-        "items": ["効果は定量＋定性を併記", "リスク＝一般論ではなく解決策の副作用", "リスクごとに対策までセットで書く"]
+        "items": [
+          "効果は定量＋定性を併記",
+          "リスク＝一般論ではなく解決策の副作用",
+          "リスクごとに対策までセットで書く"
+        ]
       },
       "sourceRef": "content/site/pe-construction/toan-kousei-template/article.mdx"
     },
@@ -81,7 +102,11 @@
       "caption": "倫理・持続可能性は改訂の観点を意識",
       "visual": {
         "heading": "(4)技術者倫理・持続可能性",
-        "items": ["公益確保・安全最優先・法令遵守が原則", "データ活用・合意形成・持続可能な成果を明文化", "自分の解決策に引きつけて書く"]
+        "items": [
+          "公益確保・安全最優先・法令遵守が原則",
+          "データ活用・合意形成・持続可能な成果を明文化",
+          "自分の解決策に引きつけて書く"
+        ]
       },
       "sourceRef": "content/site/pe-construction/toan-kousei-template/article.mdx"
     },
@@ -93,7 +118,12 @@
       "caption": "4ブロック対応が崩れない構成の型",
       "visual": {
         "heading": "まとめ",
-        "items": ["① 設問4つ＝答案4ブロック", "② 多面的観点で課題抽出", "③ 理由つきで最重要課題を選ぶ", "④ 倫理・持続可能性で締める"]
+        "items": [
+          "① 設問4つ＝答案4ブロック",
+          "② 多面的観点で課題抽出",
+          "③ 理由つきで最重要課題を選ぶ",
+          "④ 倫理・持続可能性で締める"
+        ]
       }
     },
     {
@@ -105,8 +135,17 @@
       "visual": {
         "kind": "cover",
         "heading": "テンプレートに肉付けする",
-        "items": ["必須科目対策マガジン（概要欄リンク）"]
+        "items": [
+          "必須科目対策マガジン（概要欄リンク）"
+        ]
       }
     }
-  ]
+  ],
+  "imageDesign": {
+    "mode": "codex-pop",
+    "scope": "all-body",
+    "revision": "body-diagram-20261105",
+    "coverRevision": "cover-pop-20261105",
+    "layout": "diagram-led"
+  }
 }

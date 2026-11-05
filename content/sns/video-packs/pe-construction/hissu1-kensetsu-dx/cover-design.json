@@ -2,6 +2,10 @@
   "schemaVersion": 1,
   "covers": {
     "longform": {
+      "character": {
+        "pose": "pop-red-pen",
+        "frame": "waist"
+      },
       "format": "longform",
       "exam": "pe-construction",
       "headline": [
@@ -10,19 +14,18 @@
       ],
       "accentLine": 1,
       "subtitle": "",
-      "character": {
-        "pose": "pop-red-pen",
-        "frame": "waist"
-      },
-      "design": "pop-v2",
+      "design": "pop-poster-v3",
       "pop": {
         "variant": "write",
         "authority": "総監が制作"
       },
+      "layout": "diagram-led",
       "approvedImage": {
-        "path": ".tmp/media/pe-construction/hissu1-kensetsu-dx/youtube.longform/cover.0f8de512.png",
-        "sha256": "0f8de5126b348a3ddda5e0674b768c6840849d9dede4e8bb7a07886de6017cdf",
-        "specSha256": "90a30259db4daaf0e50bf0bda0dceb02b97a55012208e416b6047e4227edbe21"
+        "path": ".tmp/media/pe-construction/hissu1-kensetsu-dx/work/cover-pop.bbac2c8c.png",
+        "sha256": "bbac2c8c343ac34df6dfd8d3af10129e3aca1992a3f22e4e00d630e890a7e46e",
+        "width": 1920,
+        "height": 1080,
+        "specSha256": "94f85089d3689cf1ee387d8eb155a56c22d13e9832d7e779e7137b0f7eb6fb72"
       }
     }
   }

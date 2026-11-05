@@ -2,6 +2,10 @@
   "schemaVersion": 1,
   "covers": {
     "longform": {
+      "character": {
+        "pose": "pop-red-pen",
+        "frame": "waist"
+      },
       "format": "longform",
       "exam": "pe-construction",
       "headline": [
@@ -10,19 +14,18 @@
       ],
       "accentLine": 1,
       "subtitle": "",
-      "character": {
-        "pose": "pop-red-pen",
-        "frame": "waist"
-      },
-      "design": "pop-v2",
+      "design": "pop-poster-v3",
       "pop": {
         "variant": "write",
         "authority": "総監が制作"
       },
+      "layout": "diagram-led",
       "approvedImage": {
-        "path": ".tmp/media/pe-construction/toan-kousei-template/youtube.longform/cover.82f30dc5.png",
-        "sha256": "82f30dc5208e80e21a9d9eaee68269a027bd83f5684226be8d3c373626e94227",
-        "specSha256": "adc211d3abc1d22dbf40cd9476aefd2b67597a4e4f1d24c06d4af063098b46ed"
+        "path": ".tmp/media/pe-construction/toan-kousei-template/work/cover-pop.f8fd72a9.png",
+        "sha256": "f8fd72a93a6ccd9b98395f5b182056a1e1b3724cd14174694187cdfabfc46aad",
+        "width": 1920,
+        "height": 1080,
+        "specSha256": "47f72c9e878a0d0eba290781a7522b8a34d2f5b486a83cf3b56658c91f23f45a"
       }
     }
   }
