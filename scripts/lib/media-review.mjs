@@ -76,7 +76,8 @@ function visualParts(pub, mediaById) {
 export function approvalState(root, pub, mediaById) {
   const vParts = visualParts(pub, mediaById);
   const visualNow = Object.keys(vParts).length ? visualDigest(vParts) : null;
-  const finalNow = approvalHash(approvalParts(root, pub, mediaById));
+  const parts = approvalParts(root, pub, mediaById);
+  const finalNow = approvalHash(parts);
   const v = pub.review?.visual;
   const a = pub.approval;
   const visual = {
@@ -96,7 +97,14 @@ export function approvalState(root, pub, mediaById) {
     valid: Boolean(a && (a.contentSha256 ? a.contentSha256 === finalNow : a.grandfathered)),
     reason: !a ? '最終承認をしていない' : a.contentSha256 ? (a.contentSha256 !== finalNow ? '承認した後に中身（文面・素材・予定）が変わった' : null) : 'ハッシュの無い承認（grandfathered）。中身の変化は見られない',
   };
-  return { visual, final };
+  // 画面確認の判定は公開日時に左右されない。在庫の動画へ日時を入れても確認をやり直さない
+  return { visual, final, content: approvalHash({ ...parts, publishAt: null }) };
+}
+
+/** video-review の判定が今の中身のものか。旧形式の記録は公開日時込みの digest で比べる */
+export function reviewIsCurrent(review, state) {
+  if (!review || review.visualDigest !== state.visual.current) return false;
+  return review.contentDigest ? review.contentDigest === state.content : review.finalDigest === state.final.current;
 }
 
 /** 公開 1 件で次に打つコマンド（画面はコピーするだけ。管理画面からは実行しない） */

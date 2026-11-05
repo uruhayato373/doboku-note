@@ -69,6 +69,7 @@ title: .claude/knowledge/reference/ 索引
 | [.claude/knowledge/reference/content-principles.md](./content-principles.md) | コンテンツ品質ルールの真実源（ExamPoint 個数・参考資料構成・Callout 12 種使い分け等） | キーワードページ執筆・評価時 |
 | [.claude/knowledge/design-system/design-system.md](../design-system/design-system.md) | サイト UI・記事タイポグラフィのデザイン**単一 SSOT**（トークン体系・レイアウト体系 PageShell/PageHeader/SectionCard・記事 prose・5 原則・禁止パターン・更新手順）。トークン値の真実源は `src/styles/globals.css`（editorial `--accent/--paper/--ink/--rule`＝ページ/prose、`--color-*`＝SVG 図版＋Tailwind semantic の二系統） | コンポーネント作成・ページ改修・SVG 図版作成・色選定時 |
 | [video-content-policy.md](./video-content-policy.md) | 動画パックのSSOT境界・schema・状態・Generator/Evaluator責務・機械ゲート・公開契約 | YouTube通常動画を核にShorts/IG/Xへ派生するとき、動画管理画面・スキル・エージェントを実装するとき |
+| [video-factory.md](./video-factory.md) | 通常動画の量産工程（画像の生成・独立監査・採用・描画・確認）を回すとき |
 
 ### 上の表に無いファイル
 

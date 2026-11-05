@@ -2610,7 +2610,7 @@
       "work": "sanso-kozo",
       "account": "youtube:main",
       "format": "longform",
-      "status": "qa_passed",
+      "status": "scheduled",
       "media": {
         "cover": "pe-comprehensive-management/sanso-kozo/youtube.longform/cover",
         "scene-001": "pe-comprehensive-management/sanso-kozo/youtube.longform/scene-001",
@@ -2639,6 +2639,59 @@
         "scene-024": "pe-comprehensive-management/sanso-kozo/youtube.longform/scene-024",
         "video": "pe-comprehensive-management/sanso-kozo/youtube.longform/video",
         "subtitles": "pe-comprehensive-management/sanso-kozo/youtube.longform/subtitles"
+      },
+      "publishAt": "2026-11-06T11:30:00Z",
+      "copy": "content/sns/video-packs/pe-comprehensive-management/sanso-kozo/youtube.json#longform",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "policy",
+          "at": "2026-11-04T23:46:13.638Z",
+          "digest": "126e7f052d0c79c38a519ef049111302541e5d01f1d42ad1c3ddfb4c725b1743"
+        }
+      },
+      "approval": {
+        "by": "policy",
+        "at": "2026-11-04T23:46:13.638Z",
+        "contentSha256": "62f4af0fda3775ad644ee38cb20aeb561b839b08d836826374ad79b0461d631c"
+      },
+      "times": {
+        "rendered": "2026-11-04T23:46:14.255Z",
+        "uploaded": "2026-11-04T23:57:26.646Z",
+        "scheduled": "2026-11-04T23:57:36.467Z"
+      },
+      "delivery": {
+        "inputSha256": "fb619524fa5a69cb49e14ff406df7b52bc048d271f412174400712c1a99709b0",
+        "marker": "dn-single-4ae4bd9c718964321001c73ca16b54302e77799c",
+        "uploadRequestedAt": "2026-11-04T23:56:42.698Z",
+        "videoId": "MMRMmDWtyWo",
+        "processedAt": "2026-11-04T23:57:25.814Z",
+        "thumbnailRequestedAt": "2026-11-04T23:57:26.686Z",
+        "thumbnailUrls": [
+          "https://i9.ytimg.com/vi/MMRMmDWtyWo/default.jpg?sqp=CNSLr9cG&rs=AOn4CLCaC-4Af7zhmE-NI4oPdI_ZOZ2_rw",
+          "https://i9.ytimg.com/vi/MMRMmDWtyWo/mqdefault.jpg?sqp=CNSLr9cG&rs=AOn4CLDS5McU7Vv17cd2eBQHfS13EOfniQ",
+          "https://i9.ytimg.com/vi/MMRMmDWtyWo/hqdefault.jpg?sqp=CNSLr9cG&rs=AOn4CLC29bqqmYc9ExG84l0vAPNoIkDgQw",
+          "https://i9.ytimg.com/vi/MMRMmDWtyWo/sddefault.jpg?sqp=CNSLr9cG&rs=AOn4CLBQRibiC38v7VlGysArMR3v3zS87w",
+          "https://i9.ytimg.com/vi/MMRMmDWtyWo/maxresdefault.jpg?sqp=CNSLr9cG&rs=AOn4CLCyWnAGNtMpf-iQutvOXf_Ikm6SRQ",
+          "https://i9.ytimg.com/vi/MMRMmDWtyWo/fhddefault.jpg?sqp=CNSLr9cG&rs=AOn4CLCjiOpojjnnFoAQVDYANbpy64UtPw"
+        ],
+        "thumbnailAcceptedAt": "2026-11-04T23:57:31.377Z",
+        "scheduleRequestedAt": "2026-11-04T23:57:32.436Z",
+        "scheduleAt": "2026-11-06T11:30:00Z",
+        "scheduledVerifiedAt": "2026-11-04T23:57:36.467Z"
+      },
+      "platform": {
+        "id": "MMRMmDWtyWo",
+        "url": "https://www.youtube.com/watch?v=MMRMmDWtyWo",
+        "privacy": "private",
+        "evidence": {
+          "kind": "publisher-live-check",
+          "ref": "content/sns/video-packs/pe-comprehensive-management/sanso-kozo/youtube.json#longform"
+        }
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-11-04T23:57:31.377Z"
       }
     },
     {
@@ -2666,7 +2719,7 @@
       "work": "sokan-kojutsu-kangaekata",
       "account": "youtube:main",
       "format": "longform",
-      "status": "qa_passed",
+      "status": "stopped",
       "media": {
         "cover": "pe-comprehensive-management/sokan-kojutsu-kangaekata/youtube.longform/cover",
         "scene-001": "pe-comprehensive-management/sokan-kojutsu-kangaekata/youtube.longform/scene-001",
@@ -2685,7 +2738,8 @@
         "scene-012": "pe-comprehensive-management/sokan-kojutsu-kangaekata/youtube.longform/scene-012",
         "scene-013": "pe-comprehensive-management/sokan-kojutsu-kangaekata/youtube.longform/scene-013"
       },
-      "copy": "content/sns/video-packs/pe-comprehensive-management/sokan-kojutsu-kangaekata/youtube.json#longform"
+      "copy": "content/sns/video-packs/pe-comprehensive-management/sokan-kojutsu-kangaekata/youtube.json#longform",
+      "stopReason": "superseded"
     },
     {
       "id": "pe-comprehensive-management/sokan-kojutsu-kangaekata/youtube.longform.diagram-led",
@@ -2694,7 +2748,7 @@
       "format": "longform",
       "variant": "diagram-led",
       "revisionOf": "pe-comprehensive-management/sokan-kojutsu-kangaekata/youtube.longform",
-      "status": "qa_passed",
+      "status": "scheduled",
       "copy": "content/sns/video-packs/pe-comprehensive-management/sokan-kojutsu-kangaekata/youtube.revision-diagram-led.json",
       "media": {
         "cover": "pe-comprehensive-management/sokan-kojutsu-kangaekata/work/candidate-cover",
@@ -2712,7 +2766,62 @@
         "scene-012": "pe-comprehensive-management/sokan-kojutsu-kangaekata/work/candidate-scene-012",
         "scene-013": "pe-comprehensive-management/sokan-kojutsu-kangaekata/work/candidate-scene-013",
         "subtitles": "pe-comprehensive-management/sokan-kojutsu-kangaekata/work/candidate-subtitles",
-        "video": "pe-comprehensive-management/sokan-kojutsu-kangaekata/work/candidate-video"
+        "video": "pe-comprehensive-management/sokan-kojutsu-kangaekata/work/candidate-video",
+        "preview": "pe-comprehensive-management/sokan-kojutsu-kangaekata/youtube.longform.diagram-led/preview",
+        "contact-sheet": "pe-comprehensive-management/sokan-kojutsu-kangaekata/youtube.longform.diagram-led/contact-sheet",
+        "scene-sheet": "pe-comprehensive-management/sokan-kojutsu-kangaekata/youtube.longform.diagram-led/scene-sheet",
+        "preview-metrics": "pe-comprehensive-management/sokan-kojutsu-kangaekata/youtube.longform.diagram-led/preview-metrics"
+      },
+      "publishAt": "2026-11-07T11:30:00Z",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "policy",
+          "at": "2026-11-04T22:56:21.074Z",
+          "digest": "9d50ed61c47c7bd58f7b3a5fac16c10c829ece9fca285cf3832ba7574a54e9d1"
+        }
+      },
+      "approval": {
+        "by": "policy",
+        "at": "2026-11-04T22:56:21.074Z",
+        "contentSha256": "37d9a0a829cc06460e59ba21ef46a817fd4dd706abccf83d44d6d6281ee412e0"
+      },
+      "delivery": {
+        "inputSha256": "fee69448d77867ade6cab70090e4395116c1e8d3eb752dda216a98874b133eba",
+        "marker": "dn-revision-6476bc4b10a4d04091c016ee57f045de2fda6755",
+        "uploadRequestedAt": "2026-11-04T22:03:32.439Z",
+        "videoId": "p-S-fsV6Kbw",
+        "processedAt": "2026-11-04T22:04:20.328Z",
+        "thumbnailRequestedAt": "2026-11-04T22:04:20.426Z",
+        "thumbnailUrls": [
+          "https://i9.ytimg.com/vi/p-S-fsV6Kbw/default.jpg?sqp=CODVrtcG&rs=AOn4CLD64zhc3kMa9RIf-DJyuLLzVHWR-g",
+          "https://i9.ytimg.com/vi/p-S-fsV6Kbw/mqdefault.jpg?sqp=CODVrtcG&rs=AOn4CLDFk82NGB30zj7Ig2nrARcqY0jcVQ",
+          "https://i9.ytimg.com/vi/p-S-fsV6Kbw/hqdefault.jpg?sqp=CODVrtcG&rs=AOn4CLCzwp62Hz1eXrw13C2enRpYFy-gyw",
+          "https://i9.ytimg.com/vi/p-S-fsV6Kbw/sddefault.jpg?sqp=CODVrtcG&rs=AOn4CLBdrXY5DbgT3uoldwhB6_ISLXQ_2w",
+          "https://i9.ytimg.com/vi/p-S-fsV6Kbw/maxresdefault.jpg?sqp=CODVrtcG&rs=AOn4CLAgmtiMAUS9weLV67OHvGX5Q_RZ5g",
+          "https://i9.ytimg.com/vi/p-S-fsV6Kbw/fhddefault.jpg?sqp=CODVrtcG&rs=AOn4CLBpg-aXyvblSRShzxvtnGuVVuOaIA"
+        ],
+        "thumbnailAcceptedAt": "2026-11-04T22:04:25.428Z",
+        "scheduleRequestedAt": "2026-11-04T22:04:27.460Z",
+        "scheduleAt": "2026-11-07T11:30:00Z",
+        "scheduledVerifiedAt": "2026-11-04T22:04:30.367Z"
+      },
+      "platform": {
+        "id": "p-S-fsV6Kbw",
+        "url": "https://www.youtube.com/watch?v=p-S-fsV6Kbw",
+        "privacy": "private",
+        "evidence": {
+          "kind": "publisher-live-check",
+          "ref": "content/sns/video-packs/pe-comprehensive-management/sokan-kojutsu-kangaekata/youtube.revision-diagram-led.json"
+        }
+      },
+      "times": {
+        "uploaded": "2026-11-04T22:04:20.328Z",
+        "scheduled": "2026-11-04T22:04:30.367Z"
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-11-04T22:04:25.428Z"
       }
     },
     {

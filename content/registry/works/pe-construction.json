@@ -62,10 +62,10 @@
       "kind": "video-pack",
       "definition": "content/sns/video-packs/pe-construction/hissu1-kensetsu-dx",
       "qa": {
-        "avg": 2.67,
+        "avg": 2.5,
         "blocks": 0,
-        "at": "2026-09-01",
-        "by": "general-purpose (video-content-qa 代行・6軸)"
+        "at": "2026-11-05",
+        "by": "Claude Code video-content-qa"
       }
     },
     {
@@ -106,10 +106,10 @@
       "kind": "video-pack",
       "definition": "content/sns/video-packs/pe-construction/kaitourei-tsukaikata",
       "qa": {
-        "avg": 3,
+        "avg": 2.5,
         "blocks": 0,
-        "at": "2026-09-01",
-        "by": "general-purpose (video-content-qa 代行・6軸)"
+        "at": "2026-11-05",
+        "by": "Claude Code video-content-qa"
       }
     },
     {
@@ -196,7 +196,13 @@
     {
       "id": "pe-kojutsu-keireki",
       "kind": "video-pack",
-      "definition": "content/sns/video-packs/pe-construction/pe-kojutsu-keireki"
+      "definition": "content/sns/video-packs/pe-construction/pe-kojutsu-keireki",
+      "qa": {
+        "avg": 2.5,
+        "blocks": 0,
+        "at": "2026-11-04",
+        "by": "Claude Code video-content-qa"
+      }
     },
     {
       "id": "r8-yosou-dashikata",
@@ -357,10 +363,10 @@
       "kind": "video-pack",
       "definition": "content/sns/video-packs/pe-construction/toan-kousei-template",
       "qa": {
-        "avg": 3,
+        "avg": 2.5,
         "blocks": 0,
-        "at": "2026-09-01",
-        "by": "general-purpose (video-content-qa 代行・6軸)"
+        "at": "2026-11-05",
+        "by": "Claude Code video-content-qa"
       }
     }
   ]

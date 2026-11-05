@@ -1171,10 +1171,10 @@
       "kind": "video-pack",
       "definition": "content/sns/video-packs/pe-comprehensive-management/sanso-kozo",
       "qa": {
-        "avg": 2.83,
+        "avg": 2,
         "blocks": 0,
-        "at": "2026-09-01",
-        "by": "general-purpose (video-content-qa 代行・6軸)"
+        "at": "2026-11-05",
+        "by": "Claude Code video-content-qa"
       }
     },
     {
@@ -1206,7 +1206,7 @@
       "qa": {
         "avg": 2.5,
         "blocks": 0,
-        "at": "2026-11-04",
+        "at": "2026-11-05",
         "by": "Claude Code video-content-qa"
       }
     },

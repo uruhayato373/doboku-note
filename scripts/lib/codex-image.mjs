@@ -3,7 +3,7 @@
  * 実行（spawn）は run で差し替えられる。テストは偽の run で「画像ができた」「できなかった」を固定する。
  */
 import { mkdtempSync, readdirSync } from 'node:fs';
-import { execFileSync } from 'node:child_process';
+import { execFileSync, spawn } from 'node:child_process';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 
@@ -32,6 +32,23 @@ export function codexArgs(dir, fullPrompt, model, images = []) {
 export function generateWithCodex(fullPrompt, model, { run = (args) => runCodex(args), tmp = tmpdir(), images = [] } = {}) {
   const dir = mkdtempSync(join(tmp, 'gen-article-photo-'));
   run(codexArgs(dir, fullPrompt, model, images), dir);
+  const out = readdirSync(dir).find((f) => /\.(png|jpe?g|webp)$/i.test(f));
+  return out ? join(dir, out) : null;
+}
+
+/** 既定の非同期実行。標準入力は必ず閉じる（開いたままだと codex exec が入力を待ち続けて止まる・2026-11-04） */
+export function spawnCodex(args) {
+  return new Promise((done) => {
+    const child = spawn('codex', args, { stdio: 'ignore', timeout: CODEX_TIMEOUT_MS });
+    child.on('error', () => done());
+    child.on('close', () => done());
+  });
+}
+
+/** generateWithCodex の並列用。出た最初の画像のパスを返す（出なければ null） */
+export async function generateWithCodexAsync(fullPrompt, model, { run = spawnCodex, tmp = tmpdir(), images = [] } = {}) {
+  const dir = mkdtempSync(join(tmp, 'gen-article-photo-'));
+  await run(codexArgs(dir, fullPrompt, model, images), dir);
   const out = readdirSync(dir).find((f) => /\.(png|jpe?g|webp)$/i.test(f));
   return out ? join(dir, out) : null;
 }

@@ -138,7 +138,7 @@ export const RegistryWorks = z
 
 const Approval = z
   .object({
-    by: z.literal('user').describe('承認できるのは運営者だけ'),
+    by: z.enum(['user', 'policy']).describe('運営者か、関門を通った通常動画の方針'),
     at: utcTime('承認した時刻').optional().describe('承認した時刻（ハッシュの無い承認では記録の無いことがある）'),
     contentSha256: sha256.nullable().describe('承認した中身のハッシュ（approvalHash）。ハッシュの無い承認は null'),
     grandfathered: z.boolean().optional().describe('ハッシュの無い承認（今の動画の台帳の approvedBy を写したもの）'),
@@ -173,7 +173,7 @@ const Publication = z
     publishAt: offsetTime('公開の予定').optional(),
     approval: Approval.optional(),
     review: z
-      .object({ visual: z.object({ status: z.enum(['pending', 'approved']), by: z.literal('user').optional(), at: utcTime('確認した時刻').optional(), digest: sha256.optional() }).strict() })
+      .object({ visual: z.object({ status: z.enum(['pending', 'approved']), by: z.enum(['user', 'policy']).optional(), at: utcTime('確認した時刻').optional(), digest: sha256.optional() }).strict() })
       .strict()
       .optional()
       .describe('画面確認（音声なし）の承認'),

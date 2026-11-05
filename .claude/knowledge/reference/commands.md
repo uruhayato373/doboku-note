@@ -241,6 +241,7 @@ npm run coconala-pause    # ココナラ出品の受付休止/再開/アーカ�
 ## SNS・動画
 
 ```bash
+npm run video-factory -- status  # 全動画パックの次の工程を出す。制作の入口（手順 → video-factory.md。承認・公開はしない）
 npm run check-video-content    # 動画パック（DN-0110）の整合ゲート（manifest/sourceRef 漏洩/CTA・UTM/storyboard/逐語転用/status。契約 SSOT は config/video-content.json と video-content-policy.md。exit 2=検査不成立・quality:audit に同梱）
 npm run render-longform        # 本文POP指定(imageDesign)は全場面の生成記録・採用PNGのSHA/実寸を検査し欠落時停止。動画パックの 16:9 通常動画レンダラー（storyboard→1920×1080 PNG＋ASS 字幕＋VOICEVOX/ffmpeg mp4。出力は .tmp/video-render/・音声環境無しは --skip-tts で PNG/ASS まで。任意の --loudnorm で音量補正。VOICEVOXとffmpegがあればWindows/Macでmp4生成可・生成用Actionsは未設置）
 npm run youtube-shorts:restore -- --pack-dir <動画パック> # 全場面差し替え版の現在の動画SHAに対応するレシピ・全PNG・元動画・ASS・完成MP4を照合（--key で限定）。欠落素材は --restore でDriveから復元。既存SHA不一致・対象0件は停止。制作担当が再利用前に読むローカル検査、Drive依存のためquality-auditには登録しない。旧テンプレート再生成は差し替え版を停止する
@@ -250,6 +251,7 @@ npm run youtube-covers -- --all # 停止済みを除くYouTube表紙を処理（
 npm run brand-video-pack        # 動画パック1本の表紙（cover-design.json）と締め画像を描く。pop-v2 / pop-poster-v3 の表紙は採用画素を保持し、追加のロゴ合成・減色をせず、ID ごとの置き場（.tmp/media/{exam}/{packId}/youtube.{longform|short.{key}}/{cover|cta}.{sha8}.png）へ書く（--pack-dir 必須・既定 dry-run・--commit で design json も更新）。画像は git に入れず npm run media -- sync で Drive へ
 npm run registry               # コンテンツ台帳（content/registry・content-registry.md）の CLI: list / show <ID> / index（.tmp/content-registry/index.json）/ import-video-pack --pack-dir … / import-video-packs（全動画パック・own-videos と件数を突き合わせる）/ approve --pub <id> --stage visual|final --expect <digest>・stop --pub <id> --reason …（運営者だけ。CLAUDECODE=1 では止まる。digest は管理画面 /content/items の詳細に出る）。取り込みは既定 dry-run・--commit
 npm run youtube-longform:prepare -- --metadata --scope single --pack-id <ID> --publish-at <ISO日時> # 単発の通常動画の文面を生成。承認・状態は変更しない（--schedule は不可）。編集済みの公開題名・概要欄は再生成前に保持する
+npm run video-factory -- gate|auto-approve|audio-check|wire --pack <exam>/<work> # 通常動画の関門。全項目を通ったときだけ方針の承認を書く。音声はモデルが無いと exit 2。手順は video-factory.md
 npm run registry -- prepare-youtube --pub <公開ID> --publish-at <ISO日時> # 同じ日時の youtube.json を確認し、未承認の通常動画へ文面と予定を結線する。既定 dry-run、--commit で台帳へ書く。承認・状態は変更しない
 npm run registry -- mark-rendered --pub <公開ID> --commit # 初回通常動画の現行承認と完成レンダーを実検査し、approved→rendered に進める
 npm run registry -- publish-youtube --pub <公開ID> --phase upload # 初回通常動画のAPI予約。既定は外部通信なしで入力digestを出す。GitHub Actionsの youtube-single-publish.yml に公開IDとdigestを渡す。手動workflowはprivate R2のintentとAPI実査で重複投入を止める

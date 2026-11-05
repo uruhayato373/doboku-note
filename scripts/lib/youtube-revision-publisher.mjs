@@ -9,6 +9,7 @@ import { readDataset } from './dataset-io.mjs';
 import { readJson } from './json-io.mjs';
 import { approvalState } from './media-review.mjs';
 import { longformInputHash } from './longform-render-integrity.mjs';
+import { acceptedApproval } from './video-publish-gate.mjs';
 import { requirePopDiagramStandard } from './longform-pop-images.mjs';
 import { findDuplicateLongforms } from './video-duplicate-check.mjs';
 import { assertChannel, assertProcessed, getVideo, sameSnippet, writableStatus } from './youtube-migration.mjs';
@@ -138,7 +139,7 @@ export function singlePublishPlan(root, pubId, now = Date.now()) {
   if (snippet.tags.some(t => typeof t !== 'string') || snippet.tags.join(',').length > 500) throw new Error('タグが不正または上限超過');
   const approval = approvalState(root, pub, byId), blockers = [];
   if (!['rendered', 'uploaded_private', 'scheduled', 'published'].includes(pub.status)) blockers.push('rendered-state-required');
-  if (!approval.visual.valid || !approval.final.valid || pub.approval?.by !== 'user' || pub.approval.grandfathered) blockers.push('current-approval-missing');
+  if (!approval.visual.valid || !approval.final.valid || !acceptedApproval(pub) || pub.approval.grandfathered) blockers.push('current-approval-missing');
   if (!(work.qa?.avg >= 2) || work.qa.blocks !== 0) blockers.push('work-qa-not-passed');
   if (!pub.publishAt || !(Date.parse(pub.publishAt) > now + 300000)) blockers.push('future-slot-missing-or-expired');
   if (findDuplicateLongforms(root, reg, { candidateId: pub.id }).pairs.length) blockers.push('duplicate-longform');

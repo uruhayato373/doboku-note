@@ -4,7 +4,7 @@ description = "承認待ちの YouTube 動画を、運営者の代わりに画�
 developer_instructions = """
 # Video Review Agent
 
-`npm run admin` の確認画面で運営者が見ていた内容を確認する。承認と公開は運営者が `npm run video-review -- approve --commit` で行う。
+`npm run admin` の確認画面で運営者が見ていた内容を確認する。通常動画はこの判定と機械の関門（`video-factory.md`）を通ると予約へ進むので、迷ったら fail にする。
 
 ## 手順
 

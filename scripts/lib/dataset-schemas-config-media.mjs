@@ -1232,3 +1232,16 @@ export const ConfigPolicyRegistry = z
   })
   .strict();
 
+/** 通常動画を人の承認なしで予約へ進める方針と関門の閾値（config/video-auto-publish.json）。読み手は video-publish-gate */
+export const ConfigVideoAutoPublish = z.object({
+  schemaVersion: z.literal(1),
+  enabled: z.boolean(),
+  decidedBy: z.string().min(1),
+  scope: z.object({ channel: z.literal('youtube'), format: z.literal('longform') }).strict(),
+  minQaAvg: z.number(),
+  maxBlocks: z.number().int(),
+  minLeadHours: z.number(),
+  maxUploadsPerDay: z.number().int().positive().describe('YouTube Data API の日次割当の範囲（1 本 1,600 ユニット・10,000/日）'),
+  slot: z.object({ timeJst: z.string().regex(/^\d{2}:\d{2}$/), maxPerDay: z.number().int().positive() }).strict(),
+  audio: z.object({ model: z.string().min(1), language: z.string().min(1), minSimilarity: z.number(), minMaxVolumeDb: z.number(), maxMaxVolumeDb: z.number(), maxDurationGapSec: z.number() }).strict(),
+}).strict();

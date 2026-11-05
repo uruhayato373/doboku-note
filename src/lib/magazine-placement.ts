@@ -1051,7 +1051,13 @@ function resolvePlacementRaw(
   }
 
   // 管工事（2026-11-04 に展開中へ昇格・DN-0452）: 第二次検定の施工記述が唯一の商品なので、全ガイドの top に置く。
-  // 上下水道部門（DN-0349）: 必須科目I が最初の商品なので、全ガイドの上に置く。
+  // 上下水道部門（DN-0349・0350）: 全受験者が解く必須科目I を上に置き、選択科目のガイドだけ選択科目の教材を上にする。
+  if (slug === 'pe-water-supply-guide-sentaku-kamoku') {
+    return { top: slot('pe-water-supply-magazine', slug, 'top'), inline: [slot('pe-water-supply-pack', slug, 'inline-1')] };
+  }
+  if (slug === 'pe-water-supply-guide-study-plan') {
+    return { top: slot('pe-water-supply-pack', slug, 'top'), inline: [] };
+  }
   if (slug.startsWith('pe-water-supply-guide-')) {
     return { top: slot('pe-water-required-magazine', slug, 'top'), inline: [] };
   }

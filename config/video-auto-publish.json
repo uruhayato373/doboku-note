@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "enabled": true,
+  "decidedBy": "運営者（2026-11-05 のチャット）。品質監査を通った通常動画は、人の承認なしで予約まで進める",
+  "scope": { "channel": "youtube", "format": "longform" },
+  "minQaAvg": 2,
+  "maxBlocks": 0,
+  "minLeadHours": 24,
+  "maxUploadsPerDay": 4,
+  "slot": { "timeJst": "20:30", "maxPerDay": 1 },
+  "audio": {
+    "model": "~/.cache/whisper/ggml-small.bin",
+    "language": "ja",
+    "minSimilarity": 0.75,
+    "minMaxVolumeDb": -12,
+    "maxMaxVolumeDb": -0.1,
+    "maxDurationGapSec": 2
+  }
+}

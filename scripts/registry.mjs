@@ -37,6 +37,7 @@ import { discoverVideoPacks } from './lib/content-registry-check.mjs';
 import { readLatest } from './lib/dataset-io.mjs';
 import { readJsonIf } from './lib/json-io.mjs';
 import { datasetPath } from './lib/datasets.mjs';
+import { acceptedApproval } from './lib/video-publish-gate.mjs';
 import { approvalState } from './lib/media-review.mjs';
 import { canTransition, requiresApproval } from './lib/content-registry.mjs';
 
@@ -45,7 +46,7 @@ const { values: args, positionals } = parseArgs({
   allowPositionals: true,
   options: {
     channel: { type: 'string' }, exam: { type: 'string' }, status: { type: 'string' },
-    'pack-dir': { type: 'string' }, folder: { type: 'string' }, commit: { type: 'boolean' },
+    'pack-dir': { type: 'string' }, folder: { type: 'string' }, commit: { type: 'boolean' }, delete: { type: 'boolean' },
     pub: { type: 'string' }, stage: { type: 'string' }, expect: { type: 'string' }, reason: { type: 'string' },
     variant: { type: 'string' }, 'related-to': { type: 'string' }, 'publish-at': { type: 'string' },
     phase: { type: 'string' }, copy: { type: 'string' }, 'refresh-draft': { type: 'boolean' },
@@ -225,7 +226,7 @@ function markRendered() {
   if (pub.status !== 'approved' || !canTransition(cfg, pub.status, 'rendered', pub.channel)) throw new Error(`${pub.id}: approved → rendered の対象ではない`);
   const mediaById = new Map(reg.media.map((m) => [m.id, m]));
   const approval = approvalState(ROOT, pub, mediaById);
-  if (!approval.visual.valid || !approval.final.valid || pub.approval?.by !== 'user' || pub.approval.grandfathered) throw new Error('今の画面・文面・素材の承認が必要');
+  if (!approval.visual.valid || !approval.final.valid || !acceptedApproval(pub) || pub.approval.grandfathered) throw new Error('今の画面・文面・素材の承認が必要');
   execFileSync(process.execPath, [join(ROOT, 'scripts/media.mjs'), 'verify-render', '--work', `${pub.exam}/${pub.work}`], { cwd: ROOT, stdio: 'inherit' });
   if (!args.commit) { console.log('dry-run（台帳へは書いていない）。書くときは --commit'); return; }
   writePublication(pub, { status: 'rendered', times: { ...pub.times, rendered: new Date().toISOString() } });
@@ -421,6 +422,11 @@ async function publishYoutubeRevision() {
 }
 
 async function stageYoutubeRevision() {
+  if (args.delete) {
+    const { unstageRevisionAssets } = await import('./lib/youtube-single-r2.mjs');
+    console.log(JSON.stringify(await unstageRevisionAssets(ROOT, args.pub), null, 2));
+    return;
+  }
   const { revisionPublishPlan } = await import('./lib/youtube-revision-publisher.mjs');
   const { stageRevisionAssets } = await import('./lib/youtube-single-r2.mjs');
   const plan = revisionPublishPlan(ROOT, args.pub);

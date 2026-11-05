@@ -63,5 +63,329 @@
       },
       "publication": "ローカル差し替え・外部未反映"
     }
-  }
+  },
+  "revisions": {
+    "cover-pop-20261105": {
+      "version": "pop-poster-v3",
+      "layout": {
+        "mode": "diagram-led"
+      },
+      "generation": {
+        "tool": "image_gen",
+        "prompt": "添付の1枚目はdoboku-noteで採用済みの全面POP動画表紙の意匠参照、2枚目は先生キャラクターの同一性参照です。 新規の16:9横長（1920×1080想定）日本語YouTube動画表紙を作る。深いインディゴ #33356B と明るい青紫、黄色と白の極太文字、明確な黒い輪郭、少量の赤、斜めの面と勢いのある背景、右側に先生キャラクターを大きく。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。 左〜中央に正確に『建設DX』『施策を答案へ』を大きく配置。上部の黄色帯に小さく『総監が制作』。 誤字・余計な文字・合格保証・URL・価格・不明な実績を足さない。文字ブロックの黒い縁取りまで含めて左右8%の内側へ収め（画面の左端から8%は背景だけ）、顔は左右5%・上下5%内、下端18%は字幕が重なるので重要な文字や顔を置かず背景が全面に続く。",
+        "references": [
+          {
+            "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/youtube.longform/cover.b87e20c1.png",
+            "sha256": "b87e20c19fda2123d3bac22950472ee7a7427dd2ab11a7cbf63807a6e83c33ad"
+          },
+          {
+            "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
+            "sha256": "1941cd22fa523fcb233e8ab7b8ad756ad7398be8755037b881d8380fb39398f9"
+          }
+        ],
+        "output": {
+          "path": ".tmp/media/pe-construction/hissu1-kensetsu-dx/work/factory/raw-cover.244a6331.png",
+          "sha256": "244a6331107ba1c65871913f18a056b6ab26fde6a98c9ef9c26b7b97ac2f26f7"
+        },
+        "generatedAt": "2026-11-05T00:49:51.259Z"
+      },
+      "copy": {
+        "exam": "pe-construction",
+        "headline": [
+          "建設DX",
+          "施策を答案へ"
+        ],
+        "authority": "総監が制作"
+      },
+      "output": {
+        "path": ".tmp/media/pe-construction/hissu1-kensetsu-dx/work/cover-pop.bbac2c8c.png",
+        "sha256": "bbac2c8c343ac34df6dfd8d3af10129e3aca1992a3f22e4e00d630e890a7e46e",
+        "width": 1920,
+        "height": 1080
+      },
+      "normalization": {
+        "mode": "full-frame-v1",
+        "sourceSha256": "244a6331107ba1c65871913f18a056b6ab26fde6a98c9ef9c26b7b97ac2f26f7"
+      },
+      "review": {
+        "status": "ai-reviewed",
+        "checkedAt": "2026-11-05T00:49:51.259Z",
+        "by": "ai-image-fidelity-auditor",
+        "reason": "文字『総監が制作』『建設DX』『施策を答案へ』が指示と一字ずつ一致し、先生キャラの黒縁眼鏡・ひげ・白ヘルメット・紺作業服・反射帯も合っている。",
+        "userImageReview": "pending"
+      },
+      "storage": {
+        "group": "content-media",
+        "sync": "local"
+      }
+    },
+    "body-diagram-20261105": {
+      "layout": {
+        "mode": "diagram-led"
+      },
+      "images": [
+        {
+          "sceneId": "premise",
+          "inputSha256": "fa3c1402a8d51433f43ee726b70ff81b7febe148a6cce5ca7b9f62fa60a12bb9",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『誤解：DX導入と書けば評価される』。 図に入れる文字: 『問われているのは課題遂行能力』 『目的→手段の順で語らないと流行語止まり』。 この場面の説明（文字にしない）: DXを導入すると書けば評価される、という誤解がありますが、記述式で問われているのは課題遂行能力です。何のためにDXを進めるのか、目的を先に据え、手段を階層で整理してから語らないと、流行語をなぞるだけの答案になります。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/hissu1-kensetsu-dx/work/factory/raw-premise.b851fc04.png",
+              "sha256": "b851fc0422990afc18b8d7b05e25000e34d96c1c0e761fd51badea83de304328"
+            },
+            "generatedAt": "2026-11-05T00:49:51.259Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/hissu1-kensetsu-dx/work/premise-diagram.9b3af174.png",
+            "sha256": "9b3af1747bf6587191d887ab1d84eeaad3b388890512d917b5bba51150d36b8f",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "b851fc0422990afc18b8d7b05e25000e34d96c1c0e761fd51badea83de304328"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-05T00:49:51.259Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出しと2行の図中文字が指示と一字ずつ一致し、雲から階層から的への図解も崩れていない。",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "history",
+          "inputSha256": "3547c16d29a7fb94c9357bea77531b90c353dddf075f01793746edc65ea9a07a",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『過去の問われ方』。 図に入れる文字: 『R04 I-1：DX推進を正面から問う出題』 『他テーマの解決策としても横断的に登場』。 この場面の説明（文字にしない）: R04のI-1では、社会資本の整備・維持管理・利用におけるDX推進が正面から問われました。それだけでなく、防災や担い手確保など他テーマの解決策としても、インフラDXはほぼ毎回登場する横断的な柱です。単独でも解決策の一部でも書ける準備が要ります。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/hissu1-kensetsu-dx/work/factory/raw-history.9c1fec56.png",
+              "sha256": "9c1fec565b4cb639dbc601c14c1718345fdc8d8811ca5537102d35c5467fd9f8"
+            },
+            "generatedAt": "2026-11-05T00:49:51.259Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/hissu1-kensetsu-dx/work/history-diagram.9c1fec56.png",
+            "sha256": "9c1fec565b4cb639dbc601c14c1718345fdc8d8811ca5537102d35c5467fd9f8",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "9c1fec565b4cb639dbc601c14c1718345fdc8d8811ca5537102d35c5467fd9f8"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-05T00:49:51.259Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し『過去の問われ方』、R04 I-1 の文言、他テーマの文言が指示どおりで、図も破綻していない。",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "purpose",
+          "inputSha256": "b2e75dcd8575f1af4dd727b687a07390ee055db33298e037d907bef0feedd415",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『建設DXの目的4つ』。 図に入れる文字: 『生産性向上・省人化／安全性向上』 『品質の確保・向上／維持管理の高度化』 『i-Construction 2.0：2040年度省人化3割』。 この場面の説明（文字にしない）: 建設DXの目的は、生産性向上・省人化、施工の安全性向上、品質の確保・向上、維持管理の高度化の4つに整理できます。アイコンストラクション2.0は2040年度までに省人化3割、生産性1.5倍を掲げており、目的が担い手不足への対応として明確です。DXの目的は担い手確保・生産性向上というテーマと接続させるのが自然です。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 47.7）",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/hissu1-kensetsu-dx/work/factory/raw-purpose.4729f1fa.png",
+              "sha256": "4729f1fa0fafd506a119385179141db8f6f654790724b27d96d5c23503396f1d"
+            },
+            "generatedAt": "2026-11-05T00:49:51.259Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/hissu1-kensetsu-dx/work/purpose-diagram.3b598729.png",
+            "sha256": "3b5987295f7cd2192cd909bd2199742433b1699e174343183b2106af9351ff8b",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "4729f1fa0fafd506a119385179141db8f6f654790724b27d96d5c23503396f1d"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-05T00:49:51.259Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し・4円内の語・下部帯の文字が指示と一字ずつ一致し、重機・ヘルメット・チェックリスト・橋と虫眼鏡の絵も各目的に合い崩れなし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "means",
+          "inputSha256": "dba2d35c7e63238514fdde36033e1965d4077386545b65bd76269378470ff771",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『手段は3階層』。 図に入れる文字: 『プロセス改革：i-Construction／2.0』 『情報基盤：BIM/CIM（直轄事業で原則適用）』 『個別技術：ICT施工・遠隔臨場・ドローン測量』。 この場面の説明（文字にしない）: 手段は3つの階層でとらえます。ICT施工や遠隔臨場のような個別技術は、ビムシム、BIM/CIMという情報基盤の上で動き、その情報基盤自体がアイコンストラクションというプロセス改革の一部です。階層を混同しないことがポイントで、ビムシムは直轄事業で原則適用が進んでいます。発注者側では、データ納品仕様の制度設計や、遠隔臨場による監督・検査の省力化という角度も加わります。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/hissu1-kensetsu-dx/work/factory/raw-means.16f016b0.png",
+              "sha256": "16f016b06f927441f039e1fdc8f8d2fd0054e7063600853bb3c0929b1a7f64ec"
+            },
+            "generatedAt": "2026-11-05T00:49:51.259Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/hissu1-kensetsu-dx/work/means-diagram.ca673e32.png",
+            "sha256": "ca673e3280349ef648f536d134c38a33c124cd662f5209bccbffb3ab9eb0059f",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "16f016b06f927441f039e1fdc8f8d2fd0054e7063600853bb3c0929b1a7f64ec"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-05T00:49:51.259Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出しと3階層の文言（i-Construction／2.0、BIM/CIM、ICT施工等）が指示どおりで、入れ子構造も本文の階層関係と矛盾しない。",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "risk",
+          "inputSha256": "e5c56134c0bfbf30eb7a0a37658414adf03be8718dd0b41c4d474bc9a600d95c",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『新たなリスクと接続先』。 図に入れる文字: 『初期投資・人材不足／中小との格差』 『データ標準化・長期保存・セキュリティ』 『対策を添えて倫理・持続可能性へ橋渡し』。 この場面の説明（文字にしない）: リスクの典型は、3次元データの標準化・長期保存やサイバーセキュリティといったデータ面の課題、中小建設業者や地域間のDX格差、そして初期投資とICT人材の不足です。挙げるだけでなく対策とセットで示し、技術者倫理・社会の持続可能性へつなげます。改訂後のコンピテンシーでは、データ活用とステークホルダー合意も明文化されています。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/hissu1-kensetsu-dx/work/factory/raw-risk.33009c02.png",
+              "sha256": "33009c02b866c199a6a8234cb1b943567a454cbb6ae1fa229722ab3ac4a31aa1"
+            },
+            "generatedAt": "2026-11-05T00:49:51.259Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/hissu1-kensetsu-dx/work/risk-diagram.33009c02.png",
+            "sha256": "33009c02b866c199a6a8234cb1b943567a454cbb6ae1fa229722ab3ac4a31aa1",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "33009c02b866c199a6a8234cb1b943567a454cbb6ae1fa229722ab3ac4a31aa1"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-05T00:49:51.259Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出しと3ブロックの文言が指示と一字ずつ一致し、データベース・盾・吊橋の図も崩れていない。",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "summary",
+          "inputSha256": "4796aa1aa44043c7ed8f02e598180215eb41b63b7be1f2ae9f1c60d91793d0d3",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『まとめ』。 図に入れる文字: 『① 目的4つを先に据える』 『② 手段を3階層で語り分ける』 『③ リスクは対策とセットで書く』。 この場面の説明（文字にしない）: まとめます。建設DXは、目的を4つに整理し、プロセス改革・情報基盤・個別技術の3階層で手段を語り分け、リスクを対策までセットで書けるかが勝負です。発注者視点の制度設計まで踏み込めると差がつきます。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/hissu1-kensetsu-dx/work/factory/raw-summary.9e2b94ac.png",
+              "sha256": "9e2b94ac22371c0cd729558b03f22b80e53241ebd67bdc0db98e8b01386ef5f2"
+            },
+            "generatedAt": "2026-11-05T00:49:51.259Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/hissu1-kensetsu-dx/work/summary-diagram.aad2551a.png",
+            "sha256": "aad2551a6a1574b6cc1c5d24139de941a21789cedad60d8ed2a55095e6897088",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "9e2b94ac22371c0cd729558b03f22b80e53241ebd67bdc0db98e8b01386ef5f2"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-05T00:49:51.259Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し『まとめ』と①②③の3文言が指示どおり（丸数字は丸囲み数字の書体）で、図の崩れも無い。",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "cta",
+          "inputSha256": "1ee09475d4253daf769689885e2922641af35d6bca633d09a6da53db9cca335c",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『答案の形は概要欄へ』。 図に入れる文字: 『必須科目Ⅰ 模範解答マガジン（概要欄リンク）』。 この場面の説明（文字にしない）: 目的と手段の整理から4部構成への落とし込みまで、答案の形で確認したい方は必須科目Ⅰの模範解答マガジンへ。概要欄のリンクからご覧ください。ご視聴ありがとうございました。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 24.3）",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/hissu1-kensetsu-dx/work/factory/raw-cta.1697b535.png",
+              "sha256": "1697b5351a274ac928de06c2051c5c86ce4d986f77291d547becf7fa042ad17e"
+            },
+            "generatedAt": "2026-11-05T00:49:51.259Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/hissu1-kensetsu-dx/work/cta-diagram.cbbfc630.png",
+            "sha256": "cbbfc630fdd40f15bbbba7b406312512bf3e3ecd43ff55aee14b36356e12a9aa",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "1697b5351a274ac928de06c2051c5c86ce4d986f77291d547becf7fa042ad17e"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-05T00:49:51.259Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出しと『必須科目Ⅰ 模範解答マガジン（概要欄リンク）』が指示と一致し誤字なし。見開きの本の絵に破綻なし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        }
+      ]
+    }
+  },
+  "activeCoverRevision": "cover-pop-20261105",
+  "activeBodyRevision": "body-diagram-20261105"
 }

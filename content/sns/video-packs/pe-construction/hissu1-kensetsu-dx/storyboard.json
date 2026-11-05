@@ -10,7 +10,9 @@
       "visual": {
         "kind": "cover",
         "heading": "建設DX・i-Construction の論点整理",
-        "items": ["技術士 建設部門 二次・必須科目Ⅰ"]
+        "items": [
+          "技術士 建設部門 二次・必須科目Ⅰ"
+        ]
       }
     },
     {
@@ -21,7 +23,10 @@
       "caption": "目的が先、手段はあとから階層で",
       "visual": {
         "heading": "誤解：DX導入と書けば評価される",
-        "items": ["問われているのは課題遂行能力", "目的→手段の順で語らないと流行語止まり"]
+        "items": [
+          "問われているのは課題遂行能力",
+          "目的→手段の順で語らないと流行語止まり"
+        ]
       },
       "sourceRef": "content/site/pe-construction/kensetsu-dx/article.mdx"
     },
@@ -33,7 +38,10 @@
       "caption": "単独でも解決策の一部でも登場",
       "visual": {
         "heading": "過去の問われ方",
-        "items": ["R04 I-1：DX推進を正面から問う出題", "他テーマの解決策としても横断的に登場"]
+        "items": [
+          "R04 I-1：DX推進を正面から問う出題",
+          "他テーマの解決策としても横断的に登場"
+        ]
       },
       "sourceRef": "content/site/pe-construction/kensetsu-dx/article.mdx"
     },
@@ -45,7 +53,11 @@
       "caption": "目的は4つ、担い手不足への対応が核",
       "visual": {
         "heading": "建設DXの目的4つ",
-        "items": ["生産性向上・省人化／安全性向上", "品質の確保・向上／維持管理の高度化", "i-Construction 2.0：2040年度省人化3割"]
+        "items": [
+          "生産性向上・省人化／安全性向上",
+          "品質の確保・向上／維持管理の高度化",
+          "i-Construction 2.0：2040年度省人化3割"
+        ]
       },
       "sourceRef": "content/site/pe-construction/kensetsu-dx/article.mdx"
     },
@@ -57,7 +69,11 @@
       "caption": "手段は3階層で語り分ける",
       "visual": {
         "heading": "手段は3階層",
-        "items": ["プロセス改革：i-Construction／2.0", "情報基盤：BIM/CIM（直轄事業で原則適用）", "個別技術：ICT施工・遠隔臨場・ドローン測量"]
+        "items": [
+          "プロセス改革：i-Construction／2.0",
+          "情報基盤：BIM/CIM（直轄事業で原則適用）",
+          "個別技術：ICT施工・遠隔臨場・ドローン測量"
+        ]
       },
       "sourceRef": "content/site/pe-construction/kensetsu-dx/article.mdx"
     },
@@ -69,7 +85,11 @@
       "caption": "リスクは対策までセットで書く",
       "visual": {
         "heading": "新たなリスクと接続先",
-        "items": ["初期投資・人材不足／中小との格差", "データ標準化・長期保存・セキュリティ", "対策を添えて倫理・持続可能性へ橋渡し"]
+        "items": [
+          "初期投資・人材不足／中小との格差",
+          "データ標準化・長期保存・セキュリティ",
+          "対策を添えて倫理・持続可能性へ橋渡し"
+        ]
       },
       "sourceRef": "content/site/pe-construction/kensetsu-dx/article.mdx"
     },
@@ -81,7 +101,11 @@
       "caption": "目的→3階層の手段→リスクと対策",
       "visual": {
         "heading": "まとめ",
-        "items": ["① 目的4つを先に据える", "② 手段を3階層で語り分ける", "③ リスクは対策とセットで書く"]
+        "items": [
+          "① 目的4つを先に据える",
+          "② 手段を3階層で語り分ける",
+          "③ リスクは対策とセットで書く"
+        ]
       }
     },
     {
@@ -93,8 +117,17 @@
       "visual": {
         "kind": "cover",
         "heading": "答案の形は概要欄へ",
-        "items": ["必須科目Ⅰ 模範解答マガジン（概要欄リンク）"]
+        "items": [
+          "必須科目Ⅰ 模範解答マガジン（概要欄リンク）"
+        ]
       }
     }
-  ]
+  ],
+  "imageDesign": {
+    "mode": "codex-pop",
+    "scope": "all-body",
+    "revision": "body-diagram-20261105",
+    "coverRevision": "cover-pop-20261105",
+    "layout": "diagram-led"
+  }
 }
