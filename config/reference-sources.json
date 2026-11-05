@@ -8337,6 +8337,265 @@
         "url": "https://zenken.com/kaiinn_sait/gekkann_kensetu/vol70/70.html"
       },
       "notes": "号ごとの全文 PDF（1〜4月号（2026-10-25 時点の公開分））。原本は Obsidian の Google Drive「参考資料/月刊建設/2026年（Vol.70）/」（ファイル名＝2026年M月号（特集名）.pdf・特集名は表紙で確認）。号を指すときは id#M月号。会員限定配布の資料（著作権は各講師・執筆者と全日本建設技術協会）。逐語・図は使わず、施策の要点を独自に再構成し、数値・図・定義は国交省などの公表資料（government-publication・external-primary）で取り直して出典を書く。機械 OCR の全文は原本の隣の <ファイル名>.ocr.md（Obsidian 側の CI が週次で作る。私的利用・公開しない）。"
+    },
+    {
+      "id": "national-expressway-construction-act",
+      "title": "国土開発幹線自動車道建設法",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "国土開発幹線自動車道建設法": "national-expressway-construction-act"
+      },
+      "egov": {
+        "lawId": "332AC1000000068"
+      }
+    },
+    {
+      "id": "expressway-company-act",
+      "title": "高速道路株式会社法",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "高速道路株式会社法": "expressway-company-act"
+      },
+      "egov": {
+        "lawId": "416AC0000000099"
+      }
+    },
+    {
+      "id": "jehdra-act",
+      "title": "独立行政法人日本高速道路保有・債務返済機構法",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "独立行政法人日本高速道路保有・債務返済機構法": "jehdra-act"
+      },
+      "egov": {
+        "lawId": "416AC0000000100"
+      }
+    },
+    {
+      "id": "building-standards-act",
+      "title": "建築基準法",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "建築基準法": "building-standards-act"
+      },
+      "egov": {
+        "lawId": "325AC0000000201"
+      }
+    },
+    {
+      "id": "mlit-road-structure-commentary",
+      "title": "道路構造令の各規定の解説（国土交通省 道路局）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/road/sign/kouzourei_kaisetsu.html"
+      }
+    },
+    {
+      "id": "mlit-road-structure-history",
+      "title": "道路構造令の各規定の解説 改正経緯（国土交通省 道路局）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/road/sign/pdf/kouzourei_2.pdf"
+      }
+    },
+    {
+      "id": "mlit-road-structure-delegation",
+      "title": "地域主権改革一括法による道路構造の基準の条例委任（国土交通省 道路局）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/road/sign/pdf/kouzourei_chiikisyuken.pdf"
+      }
+    },
+    {
+      "id": "mlit-road-structure-flexible-operation",
+      "title": "道路構造令の弾力的な運用の例（国土交通省 道路局）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/road/ir/ir-council/flexi_ordinance/1pdf/5.pdf"
+      }
+    },
+    {
+      "id": "okayama-road-structure-ordinance",
+      "title": "岡山市道路構造等条例の市独自の基準（岡山市）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.city.okayama.jp/shisei/0000003708.html"
+      }
+    },
+    {
+      "id": "takayama-road-structure-ordinance-outline",
+      "title": "高山市市道の構造の技術的基準を定める条例の概要（高山市）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.city.takayama.lg.jp/_res/projects/default_project/_page_/001/002/444/250110-2siryougi9.pdf"
+      }
+    },
+    {
+      "id": "mlit-road-administration-guide",
+      "title": "道路行政の簡単解説（国土交通省 道路局）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/road/sisaku/dorogyousei/0.pdf"
+      }
+    },
+    {
+      "id": "mlit-road-consultation-high-standard",
+      "title": "道の相談室 高規格幹線道路（国土交通省 道路局）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/road/soudan/soudan_01b_03.html"
+      }
+    },
+    {
+      "id": "mlit-high-standard-road-network-2023-12",
+      "title": "高規格道路ネットワークについて（国土幹線道路部会資料・令和5年12月11日）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/policy/shingikai/content/001711911.pdf"
+      }
+    },
+    {
+      "id": "mlit-important-logistics-road-designation",
+      "title": "重要物流道路の指定（国土交通省 道路局）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/road/sisaku/butsuryu/Top03-02-03.htm"
+      }
+    },
+    {
+      "id": "mlit-press-2023-toll-collection-period",
+      "title": "道路整備特別措置法等の一部を改正する法律の施行期日を定める政令等（令和5年・国土交通省 報道発表）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/report/press/road01_hh_001694.html"
+      }
+    },
+    {
+      "id": "mlit-smart-ic-guideline-2019",
+      "title": "スマートインターチェンジ制度実施要綱（令和元年9月30日適用・国土交通省）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/road/sisaku/smart_ic/smart_youkou.pdf"
+      }
+    },
+    {
+      "id": "mlit-location-optimization-status-2026-07",
+      "title": "立地適正化計画の作成状況（令和8年7月31日現在・国土交通省 都市局）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/en/toshi/city_plan/content/002028004.pdf"
+      }
+    },
+    {
+      "id": "mlit-2020-urban-renaissance-act-amendment",
+      "title": "都市再生特別措置法等の一部を改正する法律（令和2年法律第43号）の概要（国土交通省）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/toshi/city_plan/content/001348697.pdf"
+      }
+    },
+    {
+      "id": "mlit-establishment-act",
+      "title": "国土交通省設置法",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "国土交通省設置法": "mlit-establishment-act"
+      },
+      "egov": {
+        "lawId": "411AC0000000100"
+      }
+    },
+    {
+      "id": "mof-finance-2026-05-public-works",
+      "title": "令和8年度 国土交通省・公共事業関係予算について（財務省 ファイナンス 2026年5月号）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mof.go.jp/public_relations/finance/202605/202605f.pdf"
+      }
+    },
+    {
+      "id": "mlit-organization-regional",
+      "title": "国土交通省の組織 地方支分部局（国土交通省）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/about/soshiki_chihou.html"
+      }
+    },
+    {
+      "id": "mlit-organization",
+      "title": "国土交通省の組織（国土交通省）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/about/soshiki.html"
+      }
+    },
+    {
+      "id": "soumu-qualification-survey",
+      "title": "資格制度に関する調査結果（総務省 行政評価局）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.soumu.go.jp/main_content/000131814.pdf"
+      }
+    },
+    {
+      "id": "mlit-iso9001-model-work-2019",
+      "title": "ISO9001 活用モデル工事の試行について（国官技第175号・令和元年8月27日・国土交通省）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/tec/content/001397978.pdf"
+      }
+    },
+    {
+      "id": "mlit-iso9001-model-work-outline",
+      "title": "ISO9001 認証を活用した工事の概要（国土交通省）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/tec/nyuusatu/ISO9001/outline/index.html"
+      }
+    },
+    {
+      "id": "mlit-keishin-amendment-2023-01",
+      "title": "経営事項審査の主な改正事項（令和5年1月1日・国土交通省）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/tochi_fudousan_kensetsugyo/const/content/001585871.pdf"
+      }
     }
   ]
 }

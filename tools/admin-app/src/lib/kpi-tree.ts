@@ -40,7 +40,7 @@ export type KpiView = {
 const TREE: { label: string; rows: { id: string; depth: 0 | 1 | 2 }[] }[] = [
   { label: '受取', rows: [{ id: 'netReceipts', depth: 0 }] },
   { label: 'note', rows: [{ id: 'noteRevenue', depth: 1 }, { id: 'noteSales', depth: 2 }, { id: 'notePv', depth: 2 }, { id: 'noteImpressions', depth: 2 }] },
-  { label: 'ココナラ', rows: [{ id: 'coconalaRevenue', depth: 1 }, { id: 'coconalaOrders', depth: 2 }, { id: 'coconalaInquiries', depth: 2 }, { id: 'coconalaViews', depth: 2 }] },
+  { label: 'ココナラ', rows: [{ id: 'coconalaRevenue', depth: 1 }, { id: 'coconalaOrders', depth: 2 }, { id: 'coconalaInquiries', depth: 2 }, { id: 'coconalaViews', depth: 2 }, { id: 'coconalaReviews', depth: 2 }] },
   { label: 'KDP', rows: [{ id: 'kdpRoyalty', depth: 1 }] },
   { label: 'サイト', rows: [{ id: 'indexRatio', depth: 2 }, { id: 'gscClicks', depth: 2 }, { id: 'organicUsers', depth: 2 }, { id: 'quizStarts', depth: 2 }, { id: 'quizCompletions', depth: 2 }, { id: 'noteCtaClicks', depth: 2 }] },
   { label: '運営', rows: [{ id: 'costYen', depth: 1 }, { id: 'workMinutes', depth: 2 }, { id: 'qualityDefects', depth: 2 }] },

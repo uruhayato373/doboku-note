@@ -6671,6 +6671,45 @@
       "commit": "1f4604b38c06",
       "verification": "youtube-single-publish mode=audit-funnel: API照合 36 本 FAIL 0",
       "note": "2 本を予約し YouTube の実体と一致を確認。関門と方針の承認を作った。量産は DN-0988"
+    },
+    {
+      "id": "DN-0350",
+      "at": "2026-11-05",
+      "task": "技術士 上下水道部門 選択科目（上水道及び工業用水道・下水道）の模範解答集を作る",
+      "tier": "mid",
+      "kind": "制作",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "ee433b721c2c",
+      "verification": "guide/sentaku-kamoku に md2c27bf67e24・m3646734d1da0・mefaf66e580d5",
+      "note": "上水道 27 本・下水道 27 本とパック 2 つを note で公開し、商品・サイトへ配線して本番で確認した。下水道は全 27 本の事実照合を通した"
+    },
+    {
+      "id": "DN-0993",
+      "at": "2026-11-05",
+      "task": "事業イシューマップ（全体・施工管理）を管理画面で管理し、KPI・バックログ・競合（講座の企業を含む）に配線して週次・月次で更新する",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "0c03c0c12543",
+      "verification": "check-issue-map・check-datasets・check-domains・check-doc-refs・type-check:admin 通過。CI unit-tests の失敗は admin-format の 1 件で修正。/strategy/issues を 1280px・375px で目視",
+      "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-0995",
+      "at": "2026-11-05",
+      "task": "事業イシューマップの KPI 追加案（ココナラ評価件数・資格別の時間あたり受取）を決める",
+      "tier": "mid",
+      "kind": "意思決定",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "bc319c9897b9",
+      "verification": "coconalaReviews を business-direction へ追加し /strategy/issues に表示。netReceiptsPerHour は作業時間を記録しない判断で取り下げ、1 商品あたり受取で代替",
+      "note": "todo-complete.mjs 経由で完了処理"
     }
   ]
 }

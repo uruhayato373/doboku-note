@@ -1,0 +1,52 @@
+<!-- authored 2026-11-05 doboku-note 自作。論点は都市計画法第12条の4・第12条の5、都市再生特別措置法第81条。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="都市計画区域の中に重なる計画の概念図。用途地域は市町村全体を大きな網で覆い、地区計画は街区の広さで道路や公園の位置まで定める。都市施設は都市計画施設で、地区施設は含まない。立地適正化計画は市町村が任意で作り、居住誘導区域と都市機能誘導区域の二つの区域を定める。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 12px; fill: #555; }  /* ink-body */
+      .h { font-size: 11px; fill: #8a8a8a; }  /* ink-muted */
+      .n { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .b { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .k { fill: #222; }  /* ink-strong */
+      .tag { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }  /* surface */
+      .src { fill: #fff; stroke: #d7d7d7; stroke-width: 1.5; }
+      .brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }  /* brand-fill / brand */
+      .warn { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }  /* warn-fill / warn */
+      .pos { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }  /* positive-fill / positive */
+      .danger { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }  /* danger-fill / danger */
+      .arr { stroke: #555; stroke-width: 1.5; fill: none; marker-end: url(#a); }
+    </style>
+    <marker id="a" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#555"/></marker>
+  </defs>
+
+  <rect class="src" x="10" y="10" width="380" height="480" rx="8"/>
+  <text class="n" x="22" y="32">都市計画区域</text>
+  <text class="h" x="378" y="32" text-anchor="end">この中に計画が重なる</text>
+
+  <rect class="brand" x="22" y="44" width="356" height="74" rx="6"/>
+  <text class="n" x="34" y="68">用途地域</text>
+  <text class="k" x="34" y="90">土地利用の大枠を面で定める</text>
+  <text class="h" x="34" y="108">用途地域のある土地が、地区計画の基本の区域</text>
+
+  <rect class="warn" x="22" y="128" width="356" height="100" rx="6"/>
+  <text class="n" x="34" y="152">地区計画</text>
+  <text class="k" x="34" y="174">街区の広さで、道路や公園の位置まで書き込める</text>
+  <text class="h" x="34" y="196">地区施設：道路、公園、雨水貯留浸透施設など</text>
+  <text class="h" x="34" y="214">地区整備計画が、建築物等の制限も定める</text>
+
+  <rect class="tag" x="22" y="238" width="356" height="72" rx="6"/>
+  <text class="n" x="34" y="262">都市施設（都市計画施設）</text>
+  <text class="k" x="34" y="284">道路や公園を都市計画に定めたもの</text>
+  <text class="h" x="34" y="301">地区施設は都市計画施設を含まない</text>
+
+  <rect class="pos" x="22" y="320" width="356" height="158" rx="6"/>
+  <text class="n" x="34" y="344">立地適正化計画</text>
+  <text class="k" x="34" y="364">市町村が任意で作る。二つの区域を定める</text>
+  <rect class="src" x="34" y="378" width="162" height="88" rx="6"/>
+  <text class="b" x="44" y="402">居住誘導区域</text>
+  <text class="k" x="44" y="424">居住を誘導</text>
+  <text class="k" x="44" y="442">すべき区域</text>
+  <rect class="src" x="204" y="378" width="162" height="88" rx="6"/>
+  <text class="b" x="214" y="402">都市機能誘導区域</text>
+  <text class="k" x="214" y="424">医療・福祉・商業</text>
+  <text class="k" x="214" y="442">などの施設を誘導</text>
+</svg>

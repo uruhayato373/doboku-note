@@ -9,7 +9,7 @@ metadata:
 真実源は **CLAUDE.md「ブランチ運用ルール / 性質別運用ガイド」節**（memory は Why の補足）。
 - ドキュメント改訂・MDX の小修正 → `develop` 直 push。バルク content（`/exam-keyword-cycle` 等）も既定で `develop` 直 push（`--pr` 指定時のみ週次 PR）。
 - コード系（`src/`, `scripts/`, `package.json`, 新規スキル, CI 設定）→ PR 必須（base = `develop`）。
-- main マージ（= deploy 発火）は `/deploy` 経由でユーザーがタイミング判断。例外: 本番障害 hotfix のみ `--base main` 直（merge 後 main → develop 逆 merge）。
+- main マージ（= deploy 発火）は `/deploy`（実体は `npm run deploy:main`）経由でユーザーがタイミング判断。例外: 本番障害 hotfix のみ `--base main` 直（merge 後 main → develop 逆 merge）。
 - 判断基準: 「revert 可能性 5% 以上」「他者/他エージェントとの衝突可能性」のいずれか Yes なら PR、両方 No なら直 push。
 - worktree は例外: 2 エージェント以上が物理的に同時実行 AND 継続 30 分以上 AND wall-clock 短縮が必要、のすべてを満たすときのみ。量産バッチは remote agent（`/schedule`）。
 - CSS・ビルド絡みは `.next` 削除 → dev 再起動 → ブラウザ hard-refresh で実機確認してから deploy。main への deploy は「ユーザーが視認確認した」または「明示的に deploy 指示」のとき。

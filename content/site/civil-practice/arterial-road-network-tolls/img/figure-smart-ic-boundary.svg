@@ -1,0 +1,50 @@
+<!-- authored 2026-11-05 doboku-note 自作。論点はスマートインターチェンジ制度実施要綱 第4・第5（令和元年9月30日適用）。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="スマートICで区域の内外の整備者を分けた配置図。高速道路の区域の内側は原則として会社が整備と管理を行い、料金徴収施設も会社が受け持つ。区域から既設の一般道路までは原則として連結道路管理者である市が整備と管理を行う。市は地区協議会の構成員になり、実施計画書を提出し、連結許可を申請する。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 12px; fill: #222; }  /* ink-strong */
+      .h { font-size: 11px; fill: #8a8a8a; }  /* ink-muted */
+      .s { font-size: 11px; fill: #555; }  /* ink-body */
+      .n { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .b { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .c { text-anchor: middle; }
+      .tag { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }  /* surface */
+      .brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }  /* brand-fill / brand */
+      .warn { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }  /* warn-fill / warn */
+      .pos { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }  /* positive-fill / positive */
+      .ln { stroke: #2e6da4; stroke-width: 1.5; fill: none; }
+    </style>
+    <marker id="arrow" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0,0 8,3 0,6" fill="#2e6da4"/>
+    </marker>
+  </defs>
+  <rect class="pos" x="10" y="12" width="380" height="132" rx="8"/>
+  <text class="b" x="22" y="32">高速道路の区域の内側：原則、会社が整備・管理</text>
+  <rect class="tag" x="22" y="42" width="356" height="26" rx="4"/>
+  <text class="s c" x="200" y="59">高速道路の本線</text>
+  <rect class="brand" x="80" y="82" width="240" height="54" rx="6"/>
+  <text class="n c" x="200" y="106">ETC専用の出入口</text>
+  <text class="s c" x="200" y="124">料金徴収施設も会社が受け持つ</text>
+  <line class="ln" x1="200" y1="70" x2="200" y2="80" marker-end="url(#arrow)"/>
+
+  <line x1="10" y1="164" x2="390" y2="164" stroke="#555" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text class="h" x="390" y="160" text-anchor="end">区域の境目</text>
+
+  <line class="ln" x1="200" y1="138" x2="200" y2="176" marker-end="url(#arrow)"/>
+  <rect class="warn" x="10" y="178" width="380" height="102" rx="8"/>
+  <text class="n" x="22" y="200">区域の外の取り付け道路</text>
+  <text x="22" y="220">区域から既設の一般道路までは、</text>
+  <text x="22" y="238">原則、連結道路管理者（市）が整備・管理</text>
+  <text class="b" x="22" y="262">市の工事と予算になる</text>
+
+  <line class="ln" x1="200" y1="282" x2="200" y2="296" marker-end="url(#arrow)"/>
+  <rect class="tag" x="10" y="298" width="380" height="34" rx="6"/>
+  <text class="n c" x="200" y="320">既設の一般道路（市道など）</text>
+
+  <rect class="brand" x="10" y="344" width="380" height="146" rx="8"/>
+  <text class="b" x="22" y="366">連結道路管理者（市）が担う手順</text>
+  <text x="22" y="392">1　地区協議会の構成員になる</text>
+  <text class="s" x="40" y="409">国の地方整備局、関係地方公共団体、会社などで構成</text>
+  <text x="22" y="436">2　実施計画書を策定し、国・機構・会社へ提出する</text>
+  <text x="22" y="462">3　実施計画書を添えて、連結許可を申請する</text>
+</svg>

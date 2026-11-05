@@ -1,18 +1,18 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-21T07:25:15.535Z",
-  "batchFile": "data/gsc/url-inspection/2026-10-21T06-45-10.json",
-  "gscPageFile": "data/gsc/reports/2026-10-21.json#page",
+  "generatedAt": "2026-11-05T08:53:35.351Z",
+  "batchFile": "data/gsc/url-inspection/2026-11-05T08-51-47.json",
+  "gscPageFile": "data/gsc/reports/2026-11-05.json#page",
   "gscPageWindow": {
-    "startDate": "2026-09-20",
-    "endDate": "2026-10-17"
+    "startDate": "2026-10-06",
+    "endDate": "2026-11-02"
   },
   "counts": {
-    "inspected": 1900,
-    "indexed": 1626,
-    "candidates": 226,
+    "inspected": 1982,
+    "indexed": 1779,
+    "candidates": 176,
     "withDemand": 3,
-    "cooledDown": 48
+    "cooledDown": 27
   },
   "priorityQualifications": [
     "civil-construction-1",
@@ -23,18 +23,46 @@
   "minIndexedForOwnMean": 3,
   "types": [
     {
+      "type": "exam/pe-water-supply/guide",
+      "qualification": "pe-water-supply",
+      "priorityQualification": false,
+      "inspected": 4,
+      "indexed": 0,
+      "unindexed": 4,
+      "unindexedRate": 1,
+      "basis": "substitute",
+      "meanSource": "exam/*/guide",
+      "meanSourceIndexed": 179,
+      "meanImpressions": 92.5,
+      "expectedValue": 92.5
+    },
+    {
+      "type": "exam/pipe-work/guide",
+      "qualification": "pipe-work",
+      "priorityQualification": false,
+      "inspected": 4,
+      "indexed": 0,
+      "unindexed": 4,
+      "unindexedRate": 1,
+      "basis": "substitute",
+      "meanSource": "exam/*/guide",
+      "meanSourceIndexed": 179,
+      "meanImpressions": 92.5,
+      "expectedValue": 92.5
+    },
+    {
       "type": "practice",
       "qualification": null,
       "priorityQualification": false,
-      "inspected": 160,
-      "indexed": 91,
-      "unindexed": 69,
-      "unindexedRate": 0.431,
+      "inspected": 162,
+      "indexed": 96,
+      "unindexed": 66,
+      "unindexedRate": 0.407,
       "basis": "own",
       "meanSource": "practice",
-      "meanSourceIndexed": 91,
-      "meanImpressions": 27.28,
-      "expectedValue": 11.76
+      "meanSourceIndexed": 96,
+      "meanImpressions": 57.49,
+      "expectedValue": 23.42
     },
     {
       "type": "exam/concrete-diagnostician/textbook",
@@ -47,36 +75,120 @@
       "basis": "own",
       "meanSource": "exam/concrete-diagnostician/textbook",
       "meanSourceIndexed": 5,
-      "meanImpressions": 18,
-      "expectedValue": 3
+      "meanImpressions": 35.5,
+      "expectedValue": 5.92
+    },
+    {
+      "type": "exam/pe-first-stage/primary",
+      "qualification": "pe-first-stage",
+      "priorityQualification": false,
+      "inspected": 64,
+      "indexed": 58,
+      "unindexed": 6,
+      "unindexedRate": 0.094,
+      "basis": "own",
+      "meanSource": "exam/pe-first-stage/primary",
+      "meanSourceIndexed": 58,
+      "meanImpressions": 32.67,
+      "expectedValue": 3.06
+    },
+    {
+      "type": "standards/org-hub",
+      "qualification": null,
+      "priorityQualification": false,
+      "inspected": 14,
+      "indexed": 13,
+      "unindexed": 1,
+      "unindexedRate": 0.071,
+      "basis": "own",
+      "meanSource": "standards/org-hub",
+      "meanSourceIndexed": 13,
+      "meanImpressions": 30.92,
+      "expectedValue": 2.21
+    },
+    {
+      "type": "exam/concrete-chief-engineer/primary",
+      "qualification": "concrete-chief-engineer",
+      "priorityQualification": false,
+      "inspected": 8,
+      "indexed": 7,
+      "unindexed": 1,
+      "unindexedRate": 0.125,
+      "basis": "own",
+      "meanSource": "exam/concrete-chief-engineer/primary",
+      "meanSourceIndexed": 7,
+      "meanImpressions": 15.67,
+      "expectedValue": 1.96
+    },
+    {
+      "type": "standards/std-hub",
+      "qualification": null,
+      "priorityQualification": false,
+      "inspected": 14,
+      "indexed": 12,
+      "unindexed": 2,
+      "unindexedRate": 0.143,
+      "basis": "own",
+      "meanSource": "standards/std-hub",
+      "meanSourceIndexed": 12,
+      "meanImpressions": 8.82,
+      "expectedValue": 1.26
     },
     {
       "type": "exam/civil-construction-1/textbook",
       "qualification": "civil-construction-1",
       "priorityQualification": true,
       "inspected": 73,
-      "indexed": 70,
-      "unindexed": 3,
-      "unindexedRate": 0.041,
+      "indexed": 72,
+      "unindexed": 1,
+      "unindexedRate": 0.014,
       "basis": "own",
       "meanSource": "exam/civil-construction-1/textbook",
-      "meanSourceIndexed": 70,
-      "meanImpressions": 49.42,
-      "expectedValue": 2.03
+      "meanSourceIndexed": 72,
+      "meanImpressions": 67.32,
+      "expectedValue": 0.92
     },
     {
-      "type": "exam/civil-construction-2/guide",
-      "qualification": "civil-construction-2",
+      "type": "standards/chapters",
+      "qualification": null,
       "priorityQualification": false,
-      "inspected": 32,
-      "indexed": 31,
-      "unindexed": 1,
-      "unindexedRate": 0.031,
+      "inspected": 425,
+      "indexed": 323,
+      "unindexed": 102,
+      "unindexedRate": 0.24,
       "basis": "own",
-      "meanSource": "exam/civil-construction-2/guide",
-      "meanSourceIndexed": 31,
-      "meanImpressions": 39.3,
-      "expectedValue": 1.23
+      "meanSource": "standards/chapters",
+      "meanSourceIndexed": 323,
+      "meanImpressions": 2.97,
+      "expectedValue": 0.71
+    },
+    {
+      "type": "site/top",
+      "qualification": null,
+      "priorityQualification": false,
+      "inspected": 7,
+      "indexed": 6,
+      "unindexed": 1,
+      "unindexedRate": 0.143,
+      "basis": "own",
+      "meanSource": "site/top",
+      "meanSourceIndexed": 6,
+      "meanImpressions": 4.8,
+      "expectedValue": 0.69
+    },
+    {
+      "type": "exam/civil-construction-1/guide",
+      "qualification": "civil-construction-1",
+      "priorityQualification": true,
+      "inspected": 59,
+      "indexed": 58,
+      "unindexed": 1,
+      "unindexedRate": 0.017,
+      "basis": "own",
+      "meanSource": "exam/civil-construction-1/guide",
+      "meanSourceIndexed": 58,
+      "meanImpressions": 30.53,
+      "expectedValue": 0.52
     },
     {
       "type": "exam/pe-comprehensive-management/past-exams",
@@ -89,70 +201,56 @@
       "basis": "own",
       "meanSource": "exam/pe-comprehensive-management/past-exams",
       "meanSourceIndexed": 34,
-      "meanImpressions": 4.09,
-      "expectedValue": 0.23
-    },
-    {
-      "type": "standards/std-hub",
-      "qualification": null,
-      "priorityQualification": false,
-      "inspected": 56,
-      "indexed": 53,
-      "unindexed": 3,
-      "unindexedRate": 0.054,
-      "basis": "own",
-      "meanSource": "standards/std-hub",
-      "meanSourceIndexed": 53,
-      "meanImpressions": 3.19,
-      "expectedValue": 0.17
+      "meanImpressions": 5.79,
+      "expectedValue": 0.32
     },
     {
       "type": "exam/pe-comprehensive-management/keywords",
       "qualification": "pe-comprehensive-management",
       "priorityQualification": true,
       "inspected": 663,
-      "indexed": 649,
-      "unindexed": 14,
-      "unindexedRate": 0.021,
+      "indexed": 653,
+      "unindexed": 10,
+      "unindexedRate": 0.015,
       "basis": "own",
       "meanSource": "exam/pe-comprehensive-management/keywords",
-      "meanSourceIndexed": 649,
-      "meanImpressions": 6.68,
-      "expectedValue": 0.14
+      "meanSourceIndexed": 653,
+      "meanImpressions": 6.65,
+      "expectedValue": 0.1
     },
     {
-      "type": "standards/chapters",
+      "type": "topics",
       "qualification": null,
       "priorityQualification": false,
-      "inspected": 343,
-      "indexed": 182,
-      "unindexed": 161,
-      "unindexedRate": 0.469,
+      "inspected": 22,
+      "indexed": 21,
+      "unindexed": 1,
+      "unindexedRate": 0.045,
       "basis": "own",
-      "meanSource": "standards/chapters",
-      "meanSourceIndexed": 182,
-      "meanImpressions": 0.06,
-      "expectedValue": 0.03
+      "meanSource": "topics",
+      "meanSourceIndexed": 21,
+      "meanImpressions": 0,
+      "expectedValue": 0
     }
   ],
   "items": [
     {
-      "path": "/standards/hokuriku/common",
-      "status": "duplicate",
-      "reason": "重複しています。Google により、ユーザーがマークしたページとは異なるページが正規ページとして選択されました",
-      "impressions": 31,
-      "clicks": 2,
-      "type": "standards/std-hub",
-      "expectedValue": 0.17
+      "path": "/exam/civil-construction-1/textbook/river-act",
+      "status": "crawled-not-indexed",
+      "reason": "クロール済み - インデックス未登録",
+      "impressions": 34,
+      "clicks": 0,
+      "type": "exam/civil-construction-1/textbook",
+      "expectedValue": 0.92
     },
     {
-      "path": "/exam/concrete-diagnostician/textbook/assessment",
+      "path": "/exam/concrete-chief-engineer/primary/production-qc",
       "status": "crawled-not-indexed",
       "reason": "クロール済み - インデックス未登録",
       "impressions": 5,
       "clicks": 0,
-      "type": "exam/concrete-diagnostician/textbook",
-      "expectedValue": 3
+      "type": "exam/concrete-chief-engineer/primary",
+      "expectedValue": 1.96
     },
     {
       "path": "/exam/pe-comprehensive-management/keywords/job-analysis",
@@ -161,7 +259,79 @@
       "impressions": 2,
       "clicks": 0,
       "type": "exam/pe-comprehensive-management/keywords",
-      "expectedValue": 0.14
+      "expectedValue": 0.1
+    },
+    {
+      "path": "/exam/pe-water-supply/guide/hissu-kamoku",
+      "status": "unknown",
+      "reason": "URL が Google に認識されていません",
+      "impressions": 0,
+      "clicks": 0,
+      "type": "exam/pe-water-supply/guide",
+      "expectedValue": 92.5
+    },
+    {
+      "path": "/exam/pe-water-supply/guide/overview",
+      "status": "unknown",
+      "reason": "URL が Google に認識されていません",
+      "impressions": 0,
+      "clicks": 0,
+      "type": "exam/pe-water-supply/guide",
+      "expectedValue": 92.5
+    },
+    {
+      "path": "/exam/pe-water-supply/guide/sentaku-kamoku",
+      "status": "unknown",
+      "reason": "URL が Google に認識されていません",
+      "impressions": 0,
+      "clicks": 0,
+      "type": "exam/pe-water-supply/guide",
+      "expectedValue": 92.5
+    },
+    {
+      "path": "/exam/pe-water-supply/guide/study-plan",
+      "status": "unknown",
+      "reason": "URL が Google に認識されていません",
+      "impressions": 0,
+      "clicks": 0,
+      "type": "exam/pe-water-supply/guide",
+      "expectedValue": 92.5
+    },
+    {
+      "path": "/exam/pipe-work/guide/kotei-hyo",
+      "status": "unknown",
+      "reason": "URL が Google に認識されていません",
+      "impressions": 0,
+      "clicks": 0,
+      "type": "exam/pipe-work/guide",
+      "expectedValue": 92.5
+    },
+    {
+      "path": "/exam/pipe-work/guide/overview",
+      "status": "unknown",
+      "reason": "URL が Google に認識されていません",
+      "impressions": 0,
+      "clicks": 0,
+      "type": "exam/pipe-work/guide",
+      "expectedValue": 92.5
+    },
+    {
+      "path": "/exam/pipe-work/guide/sekou-kijutsu",
+      "status": "unknown",
+      "reason": "URL が Google に認識されていません",
+      "impressions": 0,
+      "clicks": 0,
+      "type": "exam/pipe-work/guide",
+      "expectedValue": 92.5
+    },
+    {
+      "path": "/exam/pipe-work/guide/study-plan",
+      "status": "unknown",
+      "reason": "URL が Google に認識されていません",
+      "impressions": 0,
+      "clicks": 0,
+      "type": "exam/pipe-work/guide",
+      "expectedValue": 92.5
     },
     {
       "path": "/practice/barrier-free-roads-stations",
@@ -170,7 +340,7 @@
       "impressions": 0,
       "clicks": 0,
       "type": "practice",
-      "expectedValue": 11.76
+      "expectedValue": 23.42
     },
     {
       "path": "/practice/buried-cultural-property-survey",
@@ -179,7 +349,16 @@
       "impressions": 0,
       "clicks": 0,
       "type": "practice",
-      "expectedValue": 11.76
+      "expectedValue": 23.42
+    },
+    {
+      "path": "/practice/ccus-kentaikyo-site",
+      "status": "discovered",
+      "reason": "検出 - インデックス未登録",
+      "impressions": 0,
+      "clicks": 0,
+      "type": "practice",
+      "expectedValue": 23.42
     },
     {
       "path": "/practice/civil-engineer-annual-cycle",
@@ -188,7 +367,70 @@
       "impressions": 0,
       "clicks": 0,
       "type": "practice",
-      "expectedValue": 11.76
+      "expectedValue": 23.42
+    },
+    {
+      "path": "/practice/concrete-durability-specification",
+      "status": "discovered",
+      "reason": "検出 - インデックス未登録",
+      "impressions": 0,
+      "clicks": 0,
+      "type": "practice",
+      "expectedValue": 23.42
+    },
+    {
+      "path": "/practice/concrete-hydration-basics",
+      "status": "discovered",
+      "reason": "検出 - インデックス未登録",
+      "impressions": 0,
+      "clicks": 0,
+      "type": "practice",
+      "expectedValue": 23.42
+    },
+    {
+      "path": "/practice/concrete-labor-saving-technology",
+      "status": "unknown",
+      "reason": "URL が Google に認識されていません",
+      "impressions": 0,
+      "clicks": 0,
+      "type": "practice",
+      "expectedValue": 23.42
+    },
+    {
+      "path": "/practice/concrete-quality-and-workforce",
+      "status": "unknown",
+      "reason": "URL が Google に認識されていません",
+      "impressions": 0,
+      "clicks": 0,
+      "type": "practice",
+      "expectedValue": 23.42
+    },
+    {
+      "path": "/practice/concrete-roles-overview",
+      "status": "discovered",
+      "reason": "検出 - インデックス未登録",
+      "impressions": 0,
+      "clicks": 0,
+      "type": "practice",
+      "expectedValue": 23.42
+    },
+    {
+      "path": "/practice/concrete-structure-inspection",
+      "status": "discovered",
+      "reason": "検出 - インデックス未登録",
+      "impressions": 0,
+      "clicks": 0,
+      "type": "practice",
+      "expectedValue": 23.42
+    },
+    {
+      "path": "/practice/concrete-work-preparation",
+      "status": "discovered",
+      "reason": "検出 - インデックス未登録",
+      "impressions": 0,
+      "clicks": 0,
+      "type": "practice",
+      "expectedValue": 23.42
     },
     {
       "path": "/practice/construction-business-overview",
@@ -197,7 +439,7 @@
       "impressions": 0,
       "clicks": 0,
       "type": "practice",
-      "expectedValue": 11.76
+      "expectedValue": 23.42
     },
     {
       "path": "/practice/construction-dispute-resolution",
@@ -206,16 +448,16 @@
       "impressions": 0,
       "clicks": 0,
       "type": "practice",
-      "expectedValue": 11.76
+      "expectedValue": 23.42
     },
     {
       "path": "/practice/construction-materials-overview",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
+      "status": "unknown",
+      "reason": "URL が Google に認識されていません",
       "impressions": 0,
       "clicks": 0,
       "type": "practice",
-      "expectedValue": 11.76
+      "expectedValue": 23.42
     },
     {
       "path": "/practice/coordinate-systems-geodetic-datum",
@@ -224,313 +466,187 @@
       "impressions": 0,
       "clicks": 0,
       "type": "practice",
-      "expectedValue": 11.76
+      "expectedValue": 23.42
     },
     {
-      "path": "/practice/development-permit-public-facilities",
+      "path": "/practice/environmental-impact-assessment-flow",
       "status": "discovered",
       "reason": "検出 - インデックス未登録",
       "impressions": 0,
       "clicks": 0,
       "type": "practice",
-      "expectedValue": 11.76
+      "expectedValue": 23.42
     },
     {
-      "path": "/practice/disaster-recovery-assessment",
+      "path": "/practice/flood-control-facilities",
       "status": "discovered",
       "reason": "検出 - インデックス未登録",
       "impressions": 0,
       "clicks": 0,
       "type": "practice",
-      "expectedValue": 11.76
+      "expectedValue": 23.42
     },
     {
-      "path": "/practice/explaining-to-residents-and-council",
+      "path": "/practice/floodgate-design",
       "status": "discovered",
       "reason": "検出 - インデックス未登録",
       "impressions": 0,
       "clicks": 0,
       "type": "practice",
-      "expectedValue": 11.76
+      "expectedValue": 23.42
     },
     {
-      "path": "/practice/generative-ai-adoption",
+      "path": "/practice/inverted-siphon-design",
       "status": "discovered",
       "reason": "検出 - インデックス未登録",
       "impressions": 0,
       "clicks": 0,
       "type": "practice",
-      "expectedValue": 11.76
+      "expectedValue": 23.42
     },
     {
-      "path": "/practice/how-to-read-laws-and-notices",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "practice",
-      "expectedValue": 11.76
-    },
-    {
-      "path": "/practice/image-photogrammetry-analysis",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "practice",
-      "expectedValue": 11.76
-    },
-    {
-      "path": "/practice/information-system-procurement",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "practice",
-      "expectedValue": 11.76
-    },
-    {
-      "path": "/practice/keishin-review-merger",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "practice",
-      "expectedValue": 11.76
-    },
-    {
-      "path": "/practice/land-acquisition-compensation",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "practice",
-      "expectedValue": 11.76
-    },
-    {
-      "path": "/practice/land-readjustment-project",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "practice",
-      "expectedValue": 11.76
-    },
-    {
-      "path": "/practice/landscape-planning-public-works",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "practice",
-      "expectedValue": 11.76
-    },
-    {
-      "path": "/practice/license-procedures",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "practice",
-      "expectedValue": 11.76
-    },
-    {
-      "path": "/practice/license-requirements",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "practice",
-      "expectedValue": 11.76
-    },
-    {
-      "path": "/practice/municipal-civil-engineer-work",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "practice",
-      "expectedValue": 11.76
-    },
-    {
-      "path": "/practice/municipal-engineer-qualifications",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "practice",
-      "expectedValue": 11.76
-    },
-    {
-      "path": "/practice/municipal-gis",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "practice",
-      "expectedValue": 11.76
-    },
-    {
-      "path": "/practice/national-prefecture-municipal-roles",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "practice",
-      "expectedValue": 11.76
-    },
-    {
-      "path": "/practice/nature-oriented-river-works",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "practice",
-      "expectedValue": 11.76
-    },
-    {
-      "path": "/practice/open-geospatial-data",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "practice",
-      "expectedValue": 11.76
-    },
-    {
-      "path": "/practice/polymer-construction-materials",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "practice",
-      "expectedValue": 11.76
-    },
-    {
-      "path": "/practice/ppp-pfi-selection",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "practice",
-      "expectedValue": 11.76
-    },
-    {
-      "path": "/practice/project-request-to-budget",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "practice",
-      "expectedValue": 11.76
-    },
-    {
-      "path": "/practice/public-meeting-consensus",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "practice",
-      "expectedValue": 11.76
-    },
-    {
-      "path": "/practice/river-act-framework",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "practice",
-      "expectedValue": 11.76
-    },
-    {
-      "path": "/practice/river-crossing-structure-review",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "practice",
-      "expectedValue": 11.76
-    },
-    {
-      "path": "/practice/river-facility-inspection-operation",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "practice",
-      "expectedValue": 11.76
-    },
-    {
-      "path": "/practice/road-boundary-and-road-ledger",
+      "path": "/practice/keishin-bidder-qualification",
       "status": "unknown",
       "reason": "URL が Google に認識されていません",
       "impressions": 0,
       "clicks": 0,
       "type": "practice",
-      "expectedValue": 11.76
+      "expectedValue": 23.42
     },
     {
-      "path": "/practice/road-inspection-longevity-plan",
+      "path": "/practice/levee-failure-reinforcement",
       "status": "discovered",
       "reason": "検出 - インデックス未登録",
       "impressions": 0,
       "clicks": 0,
       "type": "practice",
-      "expectedValue": 11.76
+      "expectedValue": 23.42
     },
     {
-      "path": "/practice/road-work-approval-vs-road-use-permit",
+      "path": "/practice/license-scope-judgment",
       "status": "discovered",
       "reason": "検出 - インデックス未登録",
       "impressions": 0,
       "clicks": 0,
       "type": "practice",
-      "expectedValue": 11.76
+      "expectedValue": 23.42
     },
     {
-      "path": "/practice/sediment-disaster-erosion-control",
+      "path": "/practice/nature-conservation-mitigation",
       "status": "discovered",
       "reason": "検出 - インデックス未登録",
       "impressions": 0,
       "clicks": 0,
       "type": "practice",
-      "expectedValue": 11.76
+      "expectedValue": 23.42
     },
     {
-      "path": "/practice/sewerage-and-stormwater",
+      "path": "/practice/netis-new-technology-use",
+      "status": "unknown",
+      "reason": "URL が Google に認識されていません",
+      "impressions": 0,
+      "clicks": 0,
+      "type": "practice",
+      "expectedValue": 23.42
+    },
+    {
+      "path": "/practice/pre-construction-process",
       "status": "discovered",
       "reason": "検出 - インデックス未登録",
       "impressions": 0,
       "clicks": 0,
       "type": "practice",
-      "expectedValue": 11.76
+      "expectedValue": 23.42
+    },
+    {
+      "path": "/practice/public-works-delivery-methods",
+      "status": "unknown",
+      "reason": "URL が Google に認識されていません",
+      "impressions": 0,
+      "clicks": 0,
+      "type": "practice",
+      "expectedValue": 23.42
+    },
+    {
+      "path": "/practice/reading-civil-drawings",
+      "status": "unknown",
+      "reason": "URL が Google に認識されていません",
+      "impressions": 0,
+      "clicks": 0,
+      "type": "practice",
+      "expectedValue": 23.42
+    },
+    {
+      "path": "/practice/ready-mixed-concrete-ordering",
+      "status": "unknown",
+      "reason": "URL が Google に認識されていません",
+      "impressions": 0,
+      "clicks": 0,
+      "type": "practice",
+      "expectedValue": 23.42
+    },
+    {
+      "path": "/practice/site-wireless-communication",
+      "status": "unknown",
+      "reason": "URL が Google に認識されていません",
+      "impressions": 0,
+      "clicks": 0,
+      "type": "practice",
+      "expectedValue": 23.42
     },
     {
       "path": "/practice/social-infrastructure-overview",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "practice",
-      "expectedValue": 11.76
-    },
-    {
-      "path": "/practice/supervision-compliance-surveys",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "practice",
-      "expectedValue": 11.76
-    },
-    {
-      "path": "/practice/survey-informatics-overview",
       "status": "unknown",
       "reason": "URL が Google に認識されていません",
       "impressions": 0,
       "clicks": 0,
       "type": "practice",
-      "expectedValue": 11.76
+      "expectedValue": 23.42
+    },
+    {
+      "path": "/practice/special-concrete-selection",
+      "status": "discovered",
+      "reason": "検出 - インデックス未登録",
+      "impressions": 0,
+      "clicks": 0,
+      "type": "practice",
+      "expectedValue": 23.42
+    },
+    {
+      "path": "/practice/steel-material-properties",
+      "status": "discovered",
+      "reason": "検出 - インデックス未登録",
+      "impressions": 0,
+      "clicks": 0,
+      "type": "practice",
+      "expectedValue": 23.42
+    },
+    {
+      "path": "/practice/subcontract-instruction-boundary",
+      "status": "unknown",
+      "reason": "URL が Google に認識されていません",
+      "impressions": 0,
+      "clicks": 0,
+      "type": "practice",
+      "expectedValue": 23.42
+    },
+    {
+      "path": "/practice/supervision-compliance-surveys",
+      "status": "unknown",
+      "reason": "URL が Google に認識されていません",
+      "impressions": 0,
+      "clicks": 0,
+      "type": "practice",
+      "expectedValue": 23.42
+    },
+    {
+      "path": "/practice/survey-informatics-overview",
+      "status": "discovered",
+      "reason": "検出 - インデックス未登録",
+      "impressions": 0,
+      "clicks": 0,
+      "type": "practice",
+      "expectedValue": 23.42
     },
     {
       "path": "/practice/urban-greening",
@@ -539,25 +655,25 @@
       "impressions": 0,
       "clicks": 0,
       "type": "practice",
-      "expectedValue": 11.76
+      "expectedValue": 23.42
     },
     {
       "path": "/practice/waterworks-business",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
+      "status": "unknown",
+      "reason": "URL が Google に認識されていません",
       "impressions": 0,
       "clicks": 0,
       "type": "practice",
-      "expectedValue": 11.76
+      "expectedValue": 23.42
     },
     {
       "path": "/practice/weather-information-reading",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
+      "status": "unknown",
+      "reason": "URL が Google に認識されていません",
       "impressions": 0,
       "clicks": 0,
       "type": "practice",
-      "expectedValue": 11.76
+      "expectedValue": 23.42
     },
     {
       "path": "/practice/wood-and-stone-materials",
@@ -566,277 +682,133 @@
       "impressions": 0,
       "clicks": 0,
       "type": "practice",
-      "expectedValue": 11.76
+      "expectedValue": 23.42
     },
     {
-      "path": "/exam/civil-construction-1/textbook/railway-underground",
-      "status": "unknown",
-      "reason": "URL が Google に認識されていません",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "exam/civil-construction-1/textbook",
-      "expectedValue": 2.03
-    },
-    {
-      "path": "/exam/civil-construction-1/textbook/sabo-landslide",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "exam/civil-construction-1/textbook",
-      "expectedValue": 2.03
-    },
-    {
-      "path": "/exam/civil-construction-1/textbook/steel-structures",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "exam/civil-construction-1/textbook",
-      "expectedValue": 2.03
-    },
-    {
-      "path": "/exam/civil-construction-2/guide/resume",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "exam/civil-construction-2/guide",
-      "expectedValue": 1.23
-    },
-    {
-      "path": "/exam/pe-comprehensive-management/past-exams/h21-secondary",
-      "status": "duplicate",
-      "reason": "重複しています。Google により、ユーザーがマークしたページとは異なるページが正規ページとして選択されました",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "exam/pe-comprehensive-management/past-exams",
-      "expectedValue": 0.23
-    },
-    {
-      "path": "/exam/pe-comprehensive-management/keywords/authenticity",
-      "status": "duplicate",
-      "reason": "重複しています。Google により、ユーザーがマークしたページとは異なるページが正規ページとして選択されました",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "exam/pe-comprehensive-management/keywords",
-      "expectedValue": 0.14
-    },
-    {
-      "path": "/exam/pe-comprehensive-management/keywords/competency-hr",
-      "status": "duplicate",
-      "reason": "重複しています。Google により、ユーザーがマークしたページとは異なるページが正規ページとして選択されました",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "exam/pe-comprehensive-management/keywords",
-      "expectedValue": 0.14
-    },
-    {
-      "path": "/exam/pe-comprehensive-management/keywords/diversity-management",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "exam/pe-comprehensive-management/keywords",
-      "expectedValue": 0.14
-    },
-    {
-      "path": "/exam/pe-comprehensive-management/keywords/initial-investment",
-      "status": "duplicate",
-      "reason": "重複しています。Google により、ユーザーがマークしたページとは異なるページが正規ページとして選択されました",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "exam/pe-comprehensive-management/keywords",
-      "expectedValue": 0.14
-    },
-    {
-      "path": "/exam/pe-comprehensive-management/keywords/jit-production",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "exam/pe-comprehensive-management/keywords",
-      "expectedValue": 0.14
-    },
-    {
-      "path": "/exam/pe-comprehensive-management/keywords/job-execution-ability",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "exam/pe-comprehensive-management/keywords",
-      "expectedValue": 0.14
-    },
-    {
-      "path": "/exam/pe-comprehensive-management/keywords/key-performance-indicators",
-      "status": "duplicate",
-      "reason": "重複しています。Google により、ユーザーがマークしたページとは異なるページが正規ページとして選択されました",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "exam/pe-comprehensive-management/keywords",
-      "expectedValue": 0.14
-    },
-    {
-      "path": "/exam/pe-comprehensive-management/keywords/labor-tribunal-act",
-      "status": "duplicate",
-      "reason": "重複しています。Google により、ユーザーがマークしたページとは異なるページが正規ページとして選択されました",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "exam/pe-comprehensive-management/keywords",
-      "expectedValue": 0.14
-    },
-    {
-      "path": "/exam/pe-comprehensive-management/keywords/mental-health",
+      "path": "/exam/concrete-diagnostician/textbook/assessment",
       "status": "crawled-not-indexed",
       "reason": "クロール済み - インデックス未登録",
       "impressions": 0,
       "clicks": 0,
-      "type": "exam/pe-comprehensive-management/keywords",
-      "expectedValue": 0.14
+      "type": "exam/concrete-diagnostician/textbook",
+      "expectedValue": 5.92
     },
     {
-      "path": "/exam/pe-comprehensive-management/keywords/pollution-control-manager",
-      "status": "duplicate",
-      "reason": "重複しています。Google により、ユーザーがマークしたページとは異なるページが正規ページとして選択されました",
+      "path": "/exam/pe-first-stage/primary/h23-aptitude",
+      "status": "discovered",
+      "reason": "検出 - インデックス未登録",
       "impressions": 0,
       "clicks": 0,
-      "type": "exam/pe-comprehensive-management/keywords",
-      "expectedValue": 0.14
+      "type": "exam/pe-first-stage/primary",
+      "expectedValue": 3.06
     },
     {
-      "path": "/exam/pe-comprehensive-management/keywords/probabilistic-risk-assessment",
-      "status": "unknown",
-      "reason": "URL が Google に認識されていません",
+      "path": "/exam/pe-first-stage/primary/h24-basic",
+      "status": "discovered",
+      "reason": "検出 - インデックス未登録",
       "impressions": 0,
       "clicks": 0,
-      "type": "exam/pe-comprehensive-management/keywords",
-      "expectedValue": 0.14
+      "type": "exam/pe-first-stage/primary",
+      "expectedValue": 3.06
     },
     {
-      "path": "/exam/pe-comprehensive-management/keywords/sexual-harassment",
-      "status": "duplicate",
-      "reason": "重複しています。Google により、ユーザーがマークしたページとは異なるページが正規ページとして選択されました",
+      "path": "/exam/pe-first-stage/primary/r04-water-supply",
+      "status": "discovered",
+      "reason": "検出 - インデックス未登録",
       "impressions": 0,
       "clicks": 0,
-      "type": "exam/pe-comprehensive-management/keywords",
-      "expectedValue": 0.14
+      "type": "exam/pe-first-stage/primary",
+      "expectedValue": 3.06
+    },
+    {
+      "path": "/exam/pe-first-stage/primary/r05-water-supply",
+      "status": "discovered",
+      "reason": "検出 - インデックス未登録",
+      "impressions": 0,
+      "clicks": 0,
+      "type": "exam/pe-first-stage/primary",
+      "expectedValue": 3.06
+    },
+    {
+      "path": "/exam/pe-first-stage/primary/r06-water-supply",
+      "status": "discovered",
+      "reason": "検出 - インデックス未登録",
+      "impressions": 0,
+      "clicks": 0,
+      "type": "exam/pe-first-stage/primary",
+      "expectedValue": 3.06
+    },
+    {
+      "path": "/exam/pe-first-stage/primary/r07-water-supply",
+      "status": "discovered",
+      "reason": "検出 - インデックス未登録",
+      "impressions": 0,
+      "clicks": 0,
+      "type": "exam/pe-first-stage/primary",
+      "expectedValue": 3.06
+    },
+    {
+      "path": "/standards/mlit",
+      "status": "discovered",
+      "reason": "検出 - インデックス未登録",
+      "impressions": 0,
+      "clicks": 0,
+      "type": "standards/org-hub",
+      "expectedValue": 2.21
+    },
+    {
+      "path": "/standards/hokkaido/local",
+      "status": "discovered",
+      "reason": "検出 - インデックス未登録",
+      "impressions": 0,
+      "clicks": 0,
+      "type": "standards/std-hub",
+      "expectedValue": 1.26
+    },
+    {
+      "path": "/standards/mlit/sekou-kanri-kijun",
+      "status": "discovered",
+      "reason": "検出 - インデックス未登録",
+      "impressions": 0,
+      "clicks": 0,
+      "type": "standards/std-hub",
+      "expectedValue": 1.26
+    },
+    {
+      "path": "/privacy",
+      "status": "discovered",
+      "reason": "検出 - インデックス未登録",
+      "impressions": 0,
+      "clicks": 0,
+      "type": "site/top",
+      "expectedValue": 0.69
     },
     {
       "path": "/standards/chubu/special/chapters/10-13",
+      "status": "discovered",
+      "reason": "検出 - インデックス未登録",
+      "impressions": 0,
+      "clicks": 0,
+      "type": "standards/chapters",
+      "expectedValue": 0.71
+    },
+    {
+      "path": "/standards/chubu/special/chapters/6-7",
       "status": "unknown",
       "reason": "URL が Google に認識されていません",
       "impressions": 0,
       "clicks": 0,
       "type": "standards/chapters",
-      "expectedValue": 0.03
-    },
-    {
-      "path": "/standards/chubu/special/chapters/6-7",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "standards/chapters",
-      "expectedValue": 0.03
-    },
-    {
-      "path": "/standards/hokkaido/appendix/chapters/10-1",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "standards/chapters",
-      "expectedValue": 0.03
-    },
-    {
-      "path": "/standards/hokkaido/appendix/chapters/11-1",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "standards/chapters",
-      "expectedValue": 0.03
-    },
-    {
-      "path": "/standards/hokkaido/appendix/chapters/12-1",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "standards/chapters",
-      "expectedValue": 0.03
-    },
-    {
-      "path": "/standards/hokkaido/appendix/chapters/13-1",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "standards/chapters",
-      "expectedValue": 0.03
-    },
-    {
-      "path": "/standards/hokkaido/appendix/chapters/14-1",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "standards/chapters",
-      "expectedValue": 0.03
-    },
-    {
-      "path": "/standards/hokkaido/appendix/chapters/14-2",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "standards/chapters",
-      "expectedValue": 0.03
-    },
-    {
-      "path": "/standards/hokkaido/appendix/chapters/15-1",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "standards/chapters",
-      "expectedValue": 0.03
-    },
-    {
-      "path": "/standards/hokkaido/appendix/chapters/2-1",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "standards/chapters",
-      "expectedValue": 0.03
-    },
-    {
-      "path": "/standards/hokkaido/appendix/chapters/5-1",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "standards/chapters",
-      "expectedValue": 0.03
-    },
-    {
-      "path": "/standards/hokkaido/appendix/chapters/6-1",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "standards/chapters",
-      "expectedValue": 0.03
+      "expectedValue": 0.71
     },
     {
       "path": "/standards/hokkaido/local/chapters/10-14",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
+      "status": "unknown",
+      "reason": "URL が Google に認識されていません",
       "impressions": 0,
       "clicks": 0,
       "type": "standards/chapters",
-      "expectedValue": 0.03
+      "expectedValue": 0.71
     },
     {
       "path": "/standards/hokkaido/local/chapters/10-2",
@@ -845,7 +817,7 @@
       "impressions": 0,
       "clicks": 0,
       "type": "standards/chapters",
-      "expectedValue": 0.03
+      "expectedValue": 0.71
     },
     {
       "path": "/standards/hokkaido/local/chapters/10-4",
@@ -854,223 +826,7 @@
       "impressions": 0,
       "clicks": 0,
       "type": "standards/chapters",
-      "expectedValue": 0.03
-    },
-    {
-      "path": "/standards/hokkaido/local/chapters/10-8",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "standards/chapters",
-      "expectedValue": 0.03
-    },
-    {
-      "path": "/standards/hokkaido/local/chapters/6-3",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "standards/chapters",
-      "expectedValue": 0.03
-    },
-    {
-      "path": "/standards/hokuriku/hikkei/chapters/1-1",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "standards/chapters",
-      "expectedValue": 0.03
-    },
-    {
-      "path": "/standards/hokuriku/hikkei/chapters/2-1",
-      "status": "unknown",
-      "reason": "URL が Google に認識されていません",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "standards/chapters",
-      "expectedValue": 0.03
-    },
-    {
-      "path": "/standards/hokuriku/hikkei/chapters/2-2",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "standards/chapters",
-      "expectedValue": 0.03
-    },
-    {
-      "path": "/standards/hokuriku/hikkei/chapters/3-1",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "standards/chapters",
-      "expectedValue": 0.03
-    },
-    {
-      "path": "/standards/hokuriku/hikkei/chapters/3-2",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "standards/chapters",
-      "expectedValue": 0.03
-    },
-    {
-      "path": "/standards/hokuriku/hikkei/chapters/4-1",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "standards/chapters",
-      "expectedValue": 0.03
-    },
-    {
-      "path": "/standards/hokuriku/hikkei/chapters/5-1",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "standards/chapters",
-      "expectedValue": 0.03
-    },
-    {
-      "path": "/standards/hokuriku/hikkei/chapters/5-2",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "standards/chapters",
-      "expectedValue": 0.03
-    },
-    {
-      "path": "/standards/kanto/manual/chapters/1-1",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "standards/chapters",
-      "expectedValue": 0.03
-    },
-    {
-      "path": "/standards/kanto/manual/chapters/1-10",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "standards/chapters",
-      "expectedValue": 0.03
-    },
-    {
-      "path": "/standards/kanto/manual/chapters/1-3",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "standards/chapters",
-      "expectedValue": 0.03
-    },
-    {
-      "path": "/standards/kanto/manual/chapters/1-4",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "standards/chapters",
-      "expectedValue": 0.03
-    },
-    {
-      "path": "/standards/kanto/manual/chapters/1-5",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "standards/chapters",
-      "expectedValue": 0.03
-    },
-    {
-      "path": "/standards/kanto/manual/chapters/1-6",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "standards/chapters",
-      "expectedValue": 0.03
-    },
-    {
-      "path": "/standards/kanto/manual/chapters/1-7",
-      "status": "unknown",
-      "reason": "URL が Google に認識されていません",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "standards/chapters",
-      "expectedValue": 0.03
-    },
-    {
-      "path": "/standards/kanto/manual/chapters/1-8",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "standards/chapters",
-      "expectedValue": 0.03
-    },
-    {
-      "path": "/standards/kanto/manual/chapters/1-9",
-      "status": "unknown",
-      "reason": "URL が Google に認識されていません",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "standards/chapters",
-      "expectedValue": 0.03
-    },
-    {
-      "path": "/standards/kanto/manual/chapters/2-2",
-      "status": "unknown",
-      "reason": "URL が Google に認識されていません",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "standards/chapters",
-      "expectedValue": 0.03
-    },
-    {
-      "path": "/standards/kanto/manual/chapters/2-3",
-      "status": "unknown",
-      "reason": "URL が Google に認識されていません",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "standards/chapters",
-      "expectedValue": 0.03
-    },
-    {
-      "path": "/standards/kanto/manual/chapters/2-4",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "standards/chapters",
-      "expectedValue": 0.03
-    },
-    {
-      "path": "/standards/kanto/manual/chapters/2-5",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "standards/chapters",
-      "expectedValue": 0.03
-    },
-    {
-      "path": "/standards/kanto/manual/chapters/2-6",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "standards/chapters",
-      "expectedValue": 0.03
+      "expectedValue": 0.71
     },
     {
       "path": "/standards/kinki/common/chapters/3-2/sections/1",
@@ -1079,16 +835,16 @@
       "impressions": 0,
       "clicks": 0,
       "type": "standards/chapters",
-      "expectedValue": 0.03
+      "expectedValue": 0.71
     },
     {
       "path": "/standards/kinki/common/chapters/3-2/sections/10",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
+      "status": "unknown",
+      "reason": "URL が Google に認識されていません",
       "impressions": 0,
       "clicks": 0,
       "type": "standards/chapters",
-      "expectedValue": 0.03
+      "expectedValue": 0.71
     },
     {
       "path": "/standards/kinki/common/chapters/3-2/sections/11",
@@ -1097,7 +853,7 @@
       "impressions": 0,
       "clicks": 0,
       "type": "standards/chapters",
-      "expectedValue": 0.03
+      "expectedValue": 0.71
     },
     {
       "path": "/standards/kinki/common/chapters/3-2/sections/12",
@@ -1106,16 +862,16 @@
       "impressions": 0,
       "clicks": 0,
       "type": "standards/chapters",
-      "expectedValue": 0.03
+      "expectedValue": 0.71
     },
     {
       "path": "/standards/kinki/common/chapters/3-2/sections/13",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
+      "status": "unknown",
+      "reason": "URL が Google に認識されていません",
       "impressions": 0,
       "clicks": 0,
       "type": "standards/chapters",
-      "expectedValue": 0.03
+      "expectedValue": 0.71
     },
     {
       "path": "/standards/kinki/common/chapters/3-2/sections/14",
@@ -1124,16 +880,16 @@
       "impressions": 0,
       "clicks": 0,
       "type": "standards/chapters",
-      "expectedValue": 0.03
+      "expectedValue": 0.71
     },
     {
       "path": "/standards/kinki/common/chapters/3-2/sections/15",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
+      "status": "unknown",
+      "reason": "URL が Google に認識されていません",
       "impressions": 0,
       "clicks": 0,
       "type": "standards/chapters",
-      "expectedValue": 0.03
+      "expectedValue": 0.71
     },
     {
       "path": "/standards/kinki/common/chapters/3-2/sections/16",
@@ -1142,25 +898,25 @@
       "impressions": 0,
       "clicks": 0,
       "type": "standards/chapters",
-      "expectedValue": 0.03
+      "expectedValue": 0.71
     },
     {
       "path": "/standards/kinki/common/chapters/3-2/sections/17",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
+      "status": "unknown",
+      "reason": "URL が Google に認識されていません",
       "impressions": 0,
       "clicks": 0,
       "type": "standards/chapters",
-      "expectedValue": 0.03
+      "expectedValue": 0.71
     },
     {
       "path": "/standards/kinki/common/chapters/3-2/sections/2",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
+      "status": "unknown",
+      "reason": "URL が Google に認識されていません",
       "impressions": 0,
       "clicks": 0,
       "type": "standards/chapters",
-      "expectedValue": 0.03
+      "expectedValue": 0.71
     },
     {
       "path": "/standards/kinki/common/chapters/3-2/sections/3",
@@ -1169,7 +925,7 @@
       "impressions": 0,
       "clicks": 0,
       "type": "standards/chapters",
-      "expectedValue": 0.03
+      "expectedValue": 0.71
     },
     {
       "path": "/standards/kinki/common/chapters/3-2/sections/4",
@@ -1178,7 +934,7 @@
       "impressions": 0,
       "clicks": 0,
       "type": "standards/chapters",
-      "expectedValue": 0.03
+      "expectedValue": 0.71
     },
     {
       "path": "/standards/kinki/common/chapters/3-2/sections/5",
@@ -1187,16 +943,16 @@
       "impressions": 0,
       "clicks": 0,
       "type": "standards/chapters",
-      "expectedValue": 0.03
+      "expectedValue": 0.71
     },
     {
       "path": "/standards/kinki/common/chapters/3-2/sections/6",
-      "status": "unknown",
-      "reason": "URL が Google に認識されていません",
+      "status": "discovered",
+      "reason": "検出 - インデックス未登録",
       "impressions": 0,
       "clicks": 0,
       "type": "standards/chapters",
-      "expectedValue": 0.03
+      "expectedValue": 0.71
     },
     {
       "path": "/standards/kinki/common/chapters/3-2/sections/8",
@@ -1205,7 +961,7 @@
       "impressions": 0,
       "clicks": 0,
       "type": "standards/chapters",
-      "expectedValue": 0.03
+      "expectedValue": 0.71
     },
     {
       "path": "/standards/kinki/common/chapters/3-2/sections/9",
@@ -1214,16 +970,7 @@
       "impressions": 0,
       "clicks": 0,
       "type": "standards/chapters",
-      "expectedValue": 0.03
-    },
-    {
-      "path": "/standards/kinki/common/chapters/7-2",
-      "status": "crawled-not-indexed",
-      "reason": "クロール済み - インデックス未登録",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "standards/chapters",
-      "expectedValue": 0.03
+      "expectedValue": 0.71
     },
     {
       "path": "/standards/kinki/hikkei/chapters/1-1",
@@ -1232,7 +979,7 @@
       "impressions": 0,
       "clicks": 0,
       "type": "standards/chapters",
-      "expectedValue": 0.03
+      "expectedValue": 0.71
     },
     {
       "path": "/standards/kinki/hikkei/chapters/10-1",
@@ -1241,7 +988,7 @@
       "impressions": 0,
       "clicks": 0,
       "type": "standards/chapters",
-      "expectedValue": 0.03
+      "expectedValue": 0.71
     },
     {
       "path": "/standards/kinki/hikkei/chapters/12-1",
@@ -1250,7 +997,7 @@
       "impressions": 0,
       "clicks": 0,
       "type": "standards/chapters",
-      "expectedValue": 0.03
+      "expectedValue": 0.71
     },
     {
       "path": "/standards/kinki/hikkei/chapters/12-10",
@@ -1259,43 +1006,16 @@
       "impressions": 0,
       "clicks": 0,
       "type": "standards/chapters",
-      "expectedValue": 0.03
+      "expectedValue": 0.71
     },
     {
       "path": "/standards/kinki/hikkei/chapters/12-11",
-      "status": "unknown",
-      "reason": "URL が Google に認識されていません",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "standards/chapters",
-      "expectedValue": 0.03
-    },
-    {
-      "path": "/standards/kinki/hikkei/chapters/12-13",
       "status": "discovered",
       "reason": "検出 - インデックス未登録",
       "impressions": 0,
       "clicks": 0,
       "type": "standards/chapters",
-      "expectedValue": 0.03
-    },
-    {
-      "path": "/standards/kinki/hikkei/chapters/12-16",
-      "status": "unknown",
-      "reason": "URL が Google に認識されていません",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "standards/chapters",
-      "expectedValue": 0.03
-    },
-    {
-      "path": "/standards/kinki/hikkei/chapters/12-18",
-      "status": "unknown",
-      "reason": "URL が Google に認識されていません",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "standards/chapters",
-      "expectedValue": 0.03
+      "expectedValue": 0.71
     },
     {
       "path": "/standards/kinki/hikkei/chapters/12-2",
@@ -1304,25 +1024,25 @@
       "impressions": 0,
       "clicks": 0,
       "type": "standards/chapters",
-      "expectedValue": 0.03
+      "expectedValue": 0.71
     },
     {
       "path": "/standards/kinki/hikkei/chapters/12-3",
-      "status": "unknown",
-      "reason": "URL が Google に認識されていません",
+      "status": "discovered",
+      "reason": "検出 - インデックス未登録",
       "impressions": 0,
       "clicks": 0,
       "type": "standards/chapters",
-      "expectedValue": 0.03
+      "expectedValue": 0.71
     },
     {
       "path": "/standards/kinki/hikkei/chapters/12-4",
-      "status": "unknown",
-      "reason": "URL が Google に認識されていません",
+      "status": "discovered",
+      "reason": "検出 - インデックス未登録",
       "impressions": 0,
       "clicks": 0,
       "type": "standards/chapters",
-      "expectedValue": 0.03
+      "expectedValue": 0.71
     },
     {
       "path": "/standards/kinki/hikkei/chapters/12-5",
@@ -1331,7 +1051,7 @@
       "impressions": 0,
       "clicks": 0,
       "type": "standards/chapters",
-      "expectedValue": 0.03
+      "expectedValue": 0.71
     },
     {
       "path": "/standards/kinki/hikkei/chapters/12-6",
@@ -1340,7 +1060,7 @@
       "impressions": 0,
       "clicks": 0,
       "type": "standards/chapters",
-      "expectedValue": 0.03
+      "expectedValue": 0.71
     },
     {
       "path": "/standards/kinki/hikkei/chapters/12-7",
@@ -1349,7 +1069,7 @@
       "impressions": 0,
       "clicks": 0,
       "type": "standards/chapters",
-      "expectedValue": 0.03
+      "expectedValue": 0.71
     },
     {
       "path": "/standards/kinki/hikkei/chapters/12-8",
@@ -1358,7 +1078,7 @@
       "impressions": 0,
       "clicks": 0,
       "type": "standards/chapters",
-      "expectedValue": 0.03
+      "expectedValue": 0.71
     },
     {
       "path": "/standards/kinki/hikkei/chapters/12-9",
@@ -1367,7 +1087,7 @@
       "impressions": 0,
       "clicks": 0,
       "type": "standards/chapters",
-      "expectedValue": 0.03
+      "expectedValue": 0.71
     },
     {
       "path": "/standards/kinki/hikkei/chapters/2-1",
@@ -1376,7 +1096,7 @@
       "impressions": 0,
       "clicks": 0,
       "type": "standards/chapters",
-      "expectedValue": 0.03
+      "expectedValue": 0.71
     },
     {
       "path": "/standards/kinki/hikkei/chapters/2-2",
@@ -1385,7 +1105,7 @@
       "impressions": 0,
       "clicks": 0,
       "type": "standards/chapters",
-      "expectedValue": 0.03
+      "expectedValue": 0.71
     },
     {
       "path": "/standards/kinki/hikkei/chapters/2-3",
@@ -1394,7 +1114,7 @@
       "impressions": 0,
       "clicks": 0,
       "type": "standards/chapters",
-      "expectedValue": 0.03
+      "expectedValue": 0.71
     },
     {
       "path": "/standards/kinki/hikkei/chapters/3-1",
@@ -1403,34 +1123,25 @@
       "impressions": 0,
       "clicks": 0,
       "type": "standards/chapters",
-      "expectedValue": 0.03
+      "expectedValue": 0.71
     },
     {
       "path": "/standards/kinki/hikkei/chapters/3-2",
-      "status": "unknown",
-      "reason": "URL が Google に認識されていません",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "standards/chapters",
-      "expectedValue": 0.03
-    },
-    {
-      "path": "/standards/kinki/hikkei/chapters/32-1",
-      "status": "unknown",
-      "reason": "URL が Google に認識されていません",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "standards/chapters",
-      "expectedValue": 0.03
-    },
-    {
-      "path": "/standards/kinki/hikkei/chapters/34-4",
       "status": "discovered",
       "reason": "検出 - インデックス未登録",
       "impressions": 0,
       "clicks": 0,
       "type": "standards/chapters",
-      "expectedValue": 0.03
+      "expectedValue": 0.71
+    },
+    {
+      "path": "/standards/kinki/hikkei/chapters/32-1",
+      "status": "crawled-not-indexed",
+      "reason": "クロール済み - インデックス未登録",
+      "impressions": 0,
+      "clicks": 0,
+      "type": "standards/chapters",
+      "expectedValue": 0.71
     },
     {
       "path": "/standards/kinki/hikkei/chapters/4-1",
@@ -1439,7 +1150,7 @@
       "impressions": 0,
       "clicks": 0,
       "type": "standards/chapters",
-      "expectedValue": 0.03
+      "expectedValue": 0.71
     },
     {
       "path": "/standards/kinki/hikkei/chapters/4-2",
@@ -1448,7 +1159,7 @@
       "impressions": 0,
       "clicks": 0,
       "type": "standards/chapters",
-      "expectedValue": 0.03
+      "expectedValue": 0.71
     },
     {
       "path": "/standards/kinki/hikkei/chapters/4-3",
@@ -1457,7 +1168,7 @@
       "impressions": 0,
       "clicks": 0,
       "type": "standards/chapters",
-      "expectedValue": 0.03
+      "expectedValue": 0.71
     },
     {
       "path": "/standards/kinki/hikkei/chapters/4-4",
@@ -1466,7 +1177,7 @@
       "impressions": 0,
       "clicks": 0,
       "type": "standards/chapters",
-      "expectedValue": 0.03
+      "expectedValue": 0.71
     },
     {
       "path": "/standards/kinki/hikkei/chapters/4-5",
@@ -1475,7 +1186,7 @@
       "impressions": 0,
       "clicks": 0,
       "type": "standards/chapters",
-      "expectedValue": 0.03
+      "expectedValue": 0.71
     },
     {
       "path": "/standards/kinki/hikkei/chapters/4-6",
@@ -1484,7 +1195,7 @@
       "impressions": 0,
       "clicks": 0,
       "type": "standards/chapters",
-      "expectedValue": 0.03
+      "expectedValue": 0.71
     },
     {
       "path": "/standards/kinki/hikkei/chapters/4-7",
@@ -1493,16 +1204,16 @@
       "impressions": 0,
       "clicks": 0,
       "type": "standards/chapters",
-      "expectedValue": 0.03
+      "expectedValue": 0.71
     },
     {
       "path": "/standards/kinki/hikkei/chapters/4-8",
-      "status": "unknown",
-      "reason": "URL が Google に認識されていません",
+      "status": "discovered",
+      "reason": "検出 - インデックス未登録",
       "impressions": 0,
       "clicks": 0,
       "type": "standards/chapters",
-      "expectedValue": 0.03
+      "expectedValue": 0.71
     },
     {
       "path": "/standards/kinki/hikkei/chapters/5-1",
@@ -1511,16 +1222,16 @@
       "impressions": 0,
       "clicks": 0,
       "type": "standards/chapters",
-      "expectedValue": 0.03
+      "expectedValue": 0.71
     },
     {
       "path": "/standards/kinki/hikkei/chapters/5-2",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
+      "status": "unknown",
+      "reason": "URL が Google に認識されていません",
       "impressions": 0,
       "clicks": 0,
       "type": "standards/chapters",
-      "expectedValue": 0.03
+      "expectedValue": 0.71
     },
     {
       "path": "/standards/kinki/hikkei/chapters/6-1",
@@ -1529,7 +1240,7 @@
       "impressions": 0,
       "clicks": 0,
       "type": "standards/chapters",
-      "expectedValue": 0.03
+      "expectedValue": 0.71
     },
     {
       "path": "/standards/kinki/hikkei/chapters/7-1",
@@ -1538,7 +1249,7 @@
       "impressions": 0,
       "clicks": 0,
       "type": "standards/chapters",
-      "expectedValue": 0.03
+      "expectedValue": 0.71
     },
     {
       "path": "/standards/kinki/hikkei/chapters/8-2",
@@ -1547,7 +1258,7 @@
       "impressions": 0,
       "clicks": 0,
       "type": "standards/chapters",
-      "expectedValue": 0.03
+      "expectedValue": 0.71
     },
     {
       "path": "/standards/kinki/hikkei/chapters/8-3",
@@ -1556,7 +1267,7 @@
       "impressions": 0,
       "clicks": 0,
       "type": "standards/chapters",
-      "expectedValue": 0.03
+      "expectedValue": 0.71
     },
     {
       "path": "/standards/kyushu/hikkei-common-08/chapters/1-1",
@@ -1565,7 +1276,7 @@
       "impressions": 0,
       "clicks": 0,
       "type": "standards/chapters",
-      "expectedValue": 0.03
+      "expectedValue": 0.71
     },
     {
       "path": "/standards/kyushu/hikkei-common-08/chapters/2-1",
@@ -1574,16 +1285,16 @@
       "impressions": 0,
       "clicks": 0,
       "type": "standards/chapters",
-      "expectedValue": 0.03
+      "expectedValue": 0.71
     },
     {
       "path": "/standards/kyushu/hikkei-common-10/chapters/1-4",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
+      "status": "unknown",
+      "reason": "URL が Google に認識されていません",
       "impressions": 0,
       "clicks": 0,
       "type": "standards/chapters",
-      "expectedValue": 0.03
+      "expectedValue": 0.71
     },
     {
       "path": "/standards/kyushu/hikkei-common-10/chapters/1-7",
@@ -1592,7 +1303,7 @@
       "impressions": 0,
       "clicks": 0,
       "type": "standards/chapters",
-      "expectedValue": 0.03
+      "expectedValue": 0.71
     },
     {
       "path": "/standards/kyushu/hikkei-common-10/chapters/2-5",
@@ -1601,52 +1312,25 @@
       "impressions": 0,
       "clicks": 0,
       "type": "standards/chapters",
-      "expectedValue": 0.03
+      "expectedValue": 0.71
     },
     {
-      "path": "/standards/kyushu/hikkei-common-10/chapters/4-3",
+      "path": "/standards/kyushu/hikkei-common-10/chapters/4-8",
       "status": "unknown",
       "reason": "URL が Google に認識されていません",
       "impressions": 0,
       "clicks": 0,
       "type": "standards/chapters",
-      "expectedValue": 0.03
-    },
-    {
-      "path": "/standards/kyushu/hikkei-common-10/chapters/4-6",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "standards/chapters",
-      "expectedValue": 0.03
-    },
-    {
-      "path": "/standards/kyushu/hikkei-common-10/chapters/4-8",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "standards/chapters",
-      "expectedValue": 0.03
-    },
-    {
-      "path": "/standards/kyushu/hikkei-common-10/chapters/5-2",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
-      "impressions": 0,
-      "clicks": 0,
-      "type": "standards/chapters",
-      "expectedValue": 0.03
+      "expectedValue": 0.71
     },
     {
       "path": "/standards/kyushu/management-manual/chapters/1-1",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
+      "status": "unknown",
+      "reason": "URL が Google に認識されていません",
       "impressions": 0,
       "clicks": 0,
       "type": "standards/chapters",
-      "expectedValue": 0.03
+      "expectedValue": 0.71
     },
     {
       "path": "/standards/kyushu/management-manual/chapters/2-1",
@@ -1655,16 +1339,16 @@
       "impressions": 0,
       "clicks": 0,
       "type": "standards/chapters",
-      "expectedValue": 0.03
+      "expectedValue": 0.71
     },
     {
       "path": "/standards/kyushu/management-manual/chapters/2-2",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
+      "status": "unknown",
+      "reason": "URL が Google に認識されていません",
       "impressions": 0,
       "clicks": 0,
       "type": "standards/chapters",
-      "expectedValue": 0.03
+      "expectedValue": 0.71
     },
     {
       "path": "/standards/kyushu/management-manual/chapters/2-3",
@@ -1673,7 +1357,7 @@
       "impressions": 0,
       "clicks": 0,
       "type": "standards/chapters",
-      "expectedValue": 0.03
+      "expectedValue": 0.71
     },
     {
       "path": "/standards/kyushu/management-manual/chapters/2-4",
@@ -1682,7 +1366,7 @@
       "impressions": 0,
       "clicks": 0,
       "type": "standards/chapters",
-      "expectedValue": 0.03
+      "expectedValue": 0.71
     },
     {
       "path": "/standards/kyushu/management-manual/chapters/2-5",
@@ -1691,7 +1375,7 @@
       "impressions": 0,
       "clicks": 0,
       "type": "standards/chapters",
-      "expectedValue": 0.03
+      "expectedValue": 0.71
     },
     {
       "path": "/standards/kyushu/management-manual/chapters/2-6",
@@ -1700,16 +1384,16 @@
       "impressions": 0,
       "clicks": 0,
       "type": "standards/chapters",
-      "expectedValue": 0.03
+      "expectedValue": 0.71
     },
     {
       "path": "/standards/kyushu/management-manual/chapters/2-7",
-      "status": "discovered",
-      "reason": "検出 - インデックス未登録",
+      "status": "unknown",
+      "reason": "URL が Google に認識されていません",
       "impressions": 0,
       "clicks": 0,
       "type": "standards/chapters",
-      "expectedValue": 0.03
+      "expectedValue": 0.71
     },
     {
       "path": "/standards/kyushu/management-manual/chapters/2-8",
@@ -1718,34 +1402,34 @@
       "impressions": 0,
       "clicks": 0,
       "type": "standards/chapters",
-      "expectedValue": 0.03
+      "expectedValue": 0.71
     },
     {
       "path": "/standards/kyushu/management-manual/chapters/3-1",
-      "status": "unknown",
-      "reason": "URL が Google に認識されていません",
+      "status": "discovered",
+      "reason": "検出 - インデックス未登録",
       "impressions": 0,
       "clicks": 0,
       "type": "standards/chapters",
-      "expectedValue": 0.03
+      "expectedValue": 0.71
     },
     {
       "path": "/standards/kyushu/management-manual/chapters/3-10",
-      "status": "unknown",
-      "reason": "URL が Google に認識されていません",
+      "status": "discovered",
+      "reason": "検出 - インデックス未登録",
       "impressions": 0,
       "clicks": 0,
       "type": "standards/chapters",
-      "expectedValue": 0.03
+      "expectedValue": 0.71
     },
     {
       "path": "/standards/kyushu/management-manual/chapters/3-11",
-      "status": "unknown",
-      "reason": "URL が Google に認識されていません",
+      "status": "discovered",
+      "reason": "検出 - インデックス未登録",
       "impressions": 0,
       "clicks": 0,
       "type": "standards/chapters",
-      "expectedValue": 0.03
+      "expectedValue": 0.71
     },
     {
       "path": "/standards/kyushu/management-manual/chapters/3-2",
@@ -1754,25 +1438,25 @@
       "impressions": 0,
       "clicks": 0,
       "type": "standards/chapters",
-      "expectedValue": 0.03
+      "expectedValue": 0.71
     },
     {
       "path": "/standards/kyushu/management-manual/chapters/3-3",
-      "status": "unknown",
-      "reason": "URL が Google に認識されていません",
+      "status": "discovered",
+      "reason": "検出 - インデックス未登録",
       "impressions": 0,
       "clicks": 0,
       "type": "standards/chapters",
-      "expectedValue": 0.03
+      "expectedValue": 0.71
     },
     {
       "path": "/standards/kyushu/management-manual/chapters/3-4",
-      "status": "unknown",
-      "reason": "URL が Google に認識されていません",
+      "status": "discovered",
+      "reason": "検出 - インデックス未登録",
       "impressions": 0,
       "clicks": 0,
       "type": "standards/chapters",
-      "expectedValue": 0.03
+      "expectedValue": 0.71
     },
     {
       "path": "/standards/kyushu/management-manual/chapters/3-5",
@@ -1781,7 +1465,7 @@
       "impressions": 0,
       "clicks": 0,
       "type": "standards/chapters",
-      "expectedValue": 0.03
+      "expectedValue": 0.71
     },
     {
       "path": "/standards/kyushu/management-manual/chapters/3-6",
@@ -1790,7 +1474,7 @@
       "impressions": 0,
       "clicks": 0,
       "type": "standards/chapters",
-      "expectedValue": 0.03
+      "expectedValue": 0.71
     },
     {
       "path": "/standards/kyushu/management-manual/chapters/3-7",
@@ -1799,7 +1483,7 @@
       "impressions": 0,
       "clicks": 0,
       "type": "standards/chapters",
-      "expectedValue": 0.03
+      "expectedValue": 0.71
     },
     {
       "path": "/standards/kyushu/management-manual/chapters/3-8",
@@ -1808,7 +1492,7 @@
       "impressions": 0,
       "clicks": 0,
       "type": "standards/chapters",
-      "expectedValue": 0.03
+      "expectedValue": 0.71
     },
     {
       "path": "/standards/kyushu/management-manual/chapters/3-9",
@@ -1817,16 +1501,16 @@
       "impressions": 0,
       "clicks": 0,
       "type": "standards/chapters",
-      "expectedValue": 0.03
+      "expectedValue": 0.71
     },
     {
       "path": "/standards/kyushu/management-manual/chapters/4-1",
-      "status": "unknown",
-      "reason": "URL が Google に認識されていません",
+      "status": "discovered",
+      "reason": "検出 - インデックス未登録",
       "impressions": 0,
       "clicks": 0,
       "type": "standards/chapters",
-      "expectedValue": 0.03
+      "expectedValue": 0.71
     },
     {
       "path": "/standards/kyushu/management-manual/chapters/4-2",
@@ -1835,7 +1519,7 @@
       "impressions": 0,
       "clicks": 0,
       "type": "standards/chapters",
-      "expectedValue": 0.03
+      "expectedValue": 0.71
     },
     {
       "path": "/standards/kyushu/management-manual/chapters/4-3",
@@ -1844,16 +1528,16 @@
       "impressions": 0,
       "clicks": 0,
       "type": "standards/chapters",
-      "expectedValue": 0.03
+      "expectedValue": 0.71
     },
     {
       "path": "/standards/kyushu/management-manual/chapters/5-1",
-      "status": "unknown",
-      "reason": "URL が Google に認識されていません",
+      "status": "discovered",
+      "reason": "検出 - インデックス未登録",
       "impressions": 0,
       "clicks": 0,
       "type": "standards/chapters",
-      "expectedValue": 0.03
+      "expectedValue": 0.71
     },
     {
       "path": "/standards/kyushu/management-manual/chapters/5-2",
@@ -1862,34 +1546,34 @@
       "impressions": 0,
       "clicks": 0,
       "type": "standards/chapters",
-      "expectedValue": 0.03
+      "expectedValue": 0.71
     },
     {
       "path": "/standards/kyushu/management-manual/chapters/5-3",
-      "status": "unknown",
-      "reason": "URL が Google に認識されていません",
+      "status": "discovered",
+      "reason": "検出 - インデックス未登録",
       "impressions": 0,
       "clicks": 0,
       "type": "standards/chapters",
-      "expectedValue": 0.03
+      "expectedValue": 0.71
     },
     {
       "path": "/standards/kyushu/management-manual/chapters/5-4",
-      "status": "unknown",
-      "reason": "URL が Google に認識されていません",
+      "status": "discovered",
+      "reason": "検出 - インデックス未登録",
       "impressions": 0,
       "clicks": 0,
       "type": "standards/chapters",
-      "expectedValue": 0.03
+      "expectedValue": 0.71
     },
     {
       "path": "/standards/kyushu/management-manual/chapters/5-5",
-      "status": "unknown",
-      "reason": "URL が Google に認識されていません",
+      "status": "discovered",
+      "reason": "検出 - インデックス未登録",
       "impressions": 0,
       "clicks": 0,
       "type": "standards/chapters",
-      "expectedValue": 0.03
+      "expectedValue": 0.71
     },
     {
       "path": "/standards/kyushu/management-manual/chapters/5-6",
@@ -1898,7 +1582,7 @@
       "impressions": 0,
       "clicks": 0,
       "type": "standards/chapters",
-      "expectedValue": 0.03
+      "expectedValue": 0.71
     },
     {
       "path": "/standards/kyushu/management-manual/chapters/5-7",
@@ -1907,35 +1591,233 @@
       "impressions": 0,
       "clicks": 0,
       "type": "standards/chapters",
-      "expectedValue": 0.03
+      "expectedValue": 0.71
     },
     {
-      "path": "/standards/mlit/sekou-kanri-kijun/chapters/10-1",
+      "path": "/standards/mlit/sekou-kanri-kijun/chapters/3-4",
       "status": "discovered",
       "reason": "検出 - インデックス未登録",
       "impressions": 0,
       "clicks": 0,
       "type": "standards/chapters",
-      "expectedValue": 0.03
+      "expectedValue": 0.71
     },
     {
-      "path": "/standards/mlit/sekou-kanri-kijun/chapters/2-1",
+      "path": "/standards/mlit/sekou-kanri-kijun/chapters/3-5",
+      "status": "discovered",
+      "reason": "検出 - インデックス未登録",
+      "impressions": 0,
+      "clicks": 0,
+      "type": "standards/chapters",
+      "expectedValue": 0.71
+    },
+    {
+      "path": "/standards/mlit/sekou-kanri-kijun/chapters/9-2",
+      "status": "discovered",
+      "reason": "検出 - インデックス未登録",
+      "impressions": 0,
+      "clicks": 0,
+      "type": "standards/chapters",
+      "expectedValue": 0.71
+    },
+    {
+      "path": "/standards/mlit/sekou-kanri-kijun/chapters/9-7",
+      "status": "discovered",
+      "reason": "検出 - インデックス未登録",
+      "impressions": 0,
+      "clicks": 0,
+      "type": "standards/chapters",
+      "expectedValue": 0.71
+    },
+    {
+      "path": "/standards/shikoku/manual/chapters/1-14",
+      "status": "discovered",
+      "reason": "検出 - インデックス未登録",
+      "impressions": 0,
+      "clicks": 0,
+      "type": "standards/chapters",
+      "expectedValue": 0.71
+    },
+    {
+      "path": "/standards/tohoku/reference/chapters/25-1",
+      "status": "discovered",
+      "reason": "検出 - インデックス未登録",
+      "impressions": 0,
+      "clicks": 0,
+      "type": "standards/chapters",
+      "expectedValue": 0.71
+    },
+    {
+      "path": "/standards/tohoku/reference/chapters/35-1",
+      "status": "discovered",
+      "reason": "検出 - インデックス未登録",
+      "impressions": 0,
+      "clicks": 0,
+      "type": "standards/chapters",
+      "expectedValue": 0.71
+    },
+    {
+      "path": "/standards/tohoku/reference/chapters/39-1",
+      "status": "discovered",
+      "reason": "検出 - インデックス未登録",
+      "impressions": 0,
+      "clicks": 0,
+      "type": "standards/chapters",
+      "expectedValue": 0.71
+    },
+    {
+      "path": "/standards/tohoku/reference/chapters/44-1",
+      "status": "discovered",
+      "reason": "検出 - インデックス未登録",
+      "impressions": 0,
+      "clicks": 0,
+      "type": "standards/chapters",
+      "expectedValue": 0.71
+    },
+    {
+      "path": "/standards/tohoku/reference/chapters/6-1",
+      "status": "discovered",
+      "reason": "検出 - インデックス未登録",
+      "impressions": 0,
+      "clicks": 0,
+      "type": "standards/chapters",
+      "expectedValue": 0.71
+    },
+    {
+      "path": "/standards/tohoku/special/chapters/10-4",
+      "status": "discovered",
+      "reason": "検出 - インデックス未登録",
+      "impressions": 0,
+      "clicks": 0,
+      "type": "standards/chapters",
+      "expectedValue": 0.71
+    },
+    {
+      "path": "/standards/tohoku/special/chapters/7-1",
+      "status": "discovered",
+      "reason": "検出 - インデックス未登録",
+      "impressions": 0,
+      "clicks": 0,
+      "type": "standards/chapters",
+      "expectedValue": 0.71
+    },
+    {
+      "path": "/exam/civil-construction-1/guide/market-value-check",
       "status": "unknown",
       "reason": "URL が Google に認識されていません",
       "impressions": 0,
       "clicks": 0,
-      "type": "standards/chapters",
-      "expectedValue": 0.03
+      "type": "exam/civil-construction-1/guide",
+      "expectedValue": 0.52
     },
     {
-      "path": "/standards/mlit/sekou-kanri-kijun/chapters/3-1",
-      "status": "unknown",
-      "reason": "URL が Google に認識されていません",
+      "path": "/exam/pe-comprehensive-management/past-exams/h21-secondary",
+      "status": "duplicate",
+      "reason": "重複しています。Google により、ユーザーがマークしたページとは異なるページが正規ページとして選択されました",
       "impressions": 0,
       "clicks": 0,
-      "type": "standards/chapters",
-      "expectedValue": 0.03
+      "type": "exam/pe-comprehensive-management/past-exams",
+      "expectedValue": 0.32
+    },
+    {
+      "path": "/exam/pe-comprehensive-management/past-exams/h24-secondary",
+      "status": "duplicate",
+      "reason": "重複しています。Google により、ユーザーがマークしたページとは異なるページが正規ページとして選択されました",
+      "impressions": 0,
+      "clicks": 0,
+      "type": "exam/pe-comprehensive-management/past-exams",
+      "expectedValue": 0.32
+    },
+    {
+      "path": "/exam/pe-comprehensive-management/keywords/authenticity",
+      "status": "duplicate",
+      "reason": "重複しています。Google により、ユーザーがマークしたページとは異なるページが正規ページとして選択されました",
+      "impressions": 0,
+      "clicks": 0,
+      "type": "exam/pe-comprehensive-management/keywords",
+      "expectedValue": 0.1
+    },
+    {
+      "path": "/exam/pe-comprehensive-management/keywords/competency-hr",
+      "status": "duplicate",
+      "reason": "重複しています。Google により、ユーザーがマークしたページとは異なるページが正規ページとして選択されました",
+      "impressions": 0,
+      "clicks": 0,
+      "type": "exam/pe-comprehensive-management/keywords",
+      "expectedValue": 0.1
+    },
+    {
+      "path": "/exam/pe-comprehensive-management/keywords/initial-investment",
+      "status": "duplicate",
+      "reason": "重複しています。Google により、ユーザーがマークしたページとは異なるページが正規ページとして選択されました",
+      "impressions": 0,
+      "clicks": 0,
+      "type": "exam/pe-comprehensive-management/keywords",
+      "expectedValue": 0.1
+    },
+    {
+      "path": "/exam/pe-comprehensive-management/keywords/interim-storage-facility",
+      "status": "crawled-not-indexed",
+      "reason": "クロール済み - インデックス未登録",
+      "impressions": 0,
+      "clicks": 0,
+      "type": "exam/pe-comprehensive-management/keywords",
+      "expectedValue": 0.1
+    },
+    {
+      "path": "/exam/pe-comprehensive-management/keywords/jit-production",
+      "status": "discovered",
+      "reason": "検出 - インデックス未登録",
+      "impressions": 0,
+      "clicks": 0,
+      "type": "exam/pe-comprehensive-management/keywords",
+      "expectedValue": 0.1
+    },
+    {
+      "path": "/exam/pe-comprehensive-management/keywords/key-performance-indicators",
+      "status": "duplicate",
+      "reason": "重複しています。Google により、ユーザーがマークしたページとは異なるページが正規ページとして選択されました",
+      "impressions": 0,
+      "clicks": 0,
+      "type": "exam/pe-comprehensive-management/keywords",
+      "expectedValue": 0.1
+    },
+    {
+      "path": "/exam/pe-comprehensive-management/keywords/labor-tribunal-act",
+      "status": "duplicate",
+      "reason": "重複しています。Google により、ユーザーがマークしたページとは異なるページが正規ページとして選択されました",
+      "impressions": 0,
+      "clicks": 0,
+      "type": "exam/pe-comprehensive-management/keywords",
+      "expectedValue": 0.1
+    },
+    {
+      "path": "/exam/pe-comprehensive-management/keywords/pollution-control-manager",
+      "status": "duplicate",
+      "reason": "重複しています。Google により、ユーザーがマークしたページとは異なるページが正規ページとして選択されました",
+      "impressions": 0,
+      "clicks": 0,
+      "type": "exam/pe-comprehensive-management/keywords",
+      "expectedValue": 0.1
+    },
+    {
+      "path": "/exam/pe-comprehensive-management/keywords/sexual-harassment",
+      "status": "duplicate",
+      "reason": "重複しています。Google により、ユーザーがマークしたページとは異なるページが正規ページとして選択されました",
+      "impressions": 0,
+      "clicks": 0,
+      "type": "exam/pe-comprehensive-management/keywords",
+      "expectedValue": 0.1
+    },
+    {
+      "path": "/topics/dams-power",
+      "status": "discovered",
+      "reason": "検出 - インデックス未登録",
+      "impressions": 0,
+      "clicks": 0,
+      "type": "topics",
+      "expectedValue": 0
     }
   ],
-  "itemsTruncated": true
+  "itemsTruncated": false
 }

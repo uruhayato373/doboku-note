@@ -16,6 +16,12 @@
           "match": "/metrics/business"
         },
         {
+          "label": "イシューマップ",
+          "href": "/strategy/issues",
+          "kind": "policy",
+          "match": "/strategy/issues"
+        },
+        {
           "label": "資格と市場",
           "href": "/strategy/qualifications",
           "kind": "inventory",
@@ -476,6 +482,11 @@
     "/strategy/qualifications": [
       "docs/strategy/06_多資格展開戦略.md",
       "docs/reviews/2026-07-stp-analysis.md"
+    ],
+    "/strategy/issues": [
+      "docs/strategy/15_KPIツリー.md",
+      "docs/strategy/22_チャネル別商品設計2026-11.md",
+      "docs/strategy/04_収益化戦略.md"
     ],
     "/strategy/market": [
       "docs/strategy/06_多資格展開戦略.md"

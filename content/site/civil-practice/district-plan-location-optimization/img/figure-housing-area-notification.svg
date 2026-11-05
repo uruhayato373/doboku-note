@@ -1,0 +1,56 @@
+<!-- authored 2026-11-05 doboku-note 自作。論点は都市再生特別措置法第88条、同法施行令第33条・第35条。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="居住誘導区域の内外を比べた図。届出が要るのは区域の外で、住宅等の新築・改築・用途変更は3戸以上、住宅等の建築目的の開発行為は3戸以上、または3戸未満で0.1ヘクタール以上。着手の30日前までに市町村長へ届け出る。都市計画事業の施行などは届出の外。市町村長は勧告ができ、許可制ではない。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 12px; fill: #555; }  /* ink-body */
+      .h { font-size: 11px; fill: #8a8a8a; }  /* ink-muted */
+      .n { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .b { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .k { fill: #222; }  /* ink-strong */
+      .tag { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }  /* surface */
+      .src { fill: #fff; stroke: #d7d7d7; stroke-width: 1.5; }
+      .brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }  /* brand-fill / brand */
+      .warn { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }  /* warn-fill / warn */
+      .pos { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }  /* positive-fill / positive */
+      .danger { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }  /* danger-fill / danger */
+      .arr { stroke: #555; stroke-width: 1.5; fill: none; marker-end: url(#a); }
+    </style>
+    <marker id="a" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#555"/></marker>
+  </defs>
+
+  <rect class="pos" x="10" y="12" width="150" height="76" rx="6"/>
+  <text class="n" x="20" y="36">区域の内</text>
+  <text class="k" x="20" y="58">居住を誘導</text>
+  <text class="k" x="20" y="76">すべき区域</text>
+  <rect class="warn" x="170" y="12" width="220" height="76" rx="6"/>
+  <text class="n" x="180" y="36">区域の外</text>
+  <text class="k" x="180" y="58">一定の開発や建築は</text>
+  <text class="k" x="180" y="76">着手の30日前までに届出</text>
+
+  <line class="arr" x1="280" y1="88" x2="280" y2="106"/>
+
+  <rect class="src" x="10" y="108" width="380" height="148" rx="6"/>
+  <text class="n" x="22" y="132">届出が要る行為と、規模の線</text>
+  <line x1="22" y1="142" x2="378" y2="142" stroke="#d7d7d7" stroke-width="1"/>
+  <text class="k" x="22" y="168">住宅等の新築・改築・用途変更</text>
+  <text class="b" x="378" y="168" text-anchor="end">3戸以上</text>
+  <line x1="22" y1="182" x2="378" y2="182" stroke="#d7d7d7" stroke-width="1"/>
+  <text class="k" x="22" y="208">住宅等の建築目的の開発行為</text>
+  <text class="b" x="378" y="208" text-anchor="end">3戸以上、または</text>
+  <text class="b" x="378" y="228" text-anchor="end">3戸未満で0.1ha以上</text>
+  <text class="h" x="22" y="246">規模は施行令第33条による</text>
+
+  <rect class="pos" x="10" y="268" width="380" height="74" rx="6"/>
+  <text class="n" x="22" y="292">届出の外にある行為</text>
+  <text class="k" x="22" y="314">都市計画事業の施行、都市計画施設を管理</text>
+  <text class="k" x="22" y="332">する者が都市施設の計画に適合して行う行為</text>
+
+  <rect class="danger" x="10" y="354" width="380" height="74" rx="6"/>
+  <text class="n" x="22" y="378">勧告</text>
+  <text class="k" x="22" y="400">誘導の支障があると認めるとき、市町村長ができる</text>
+  <text class="h" x="22" y="418">災害危険区域などで業者が従わないときは公表できる</text>
+
+  <rect class="brand" x="10" y="440" width="380" height="50" rx="8"/>
+  <text class="n" x="200" y="462" text-anchor="middle">許可制ではなく、届出と勧告の制度</text>
+  <text class="k" x="200" y="480" text-anchor="middle">区域の外の建築が、禁止されるわけではない</text>
+</svg>

@@ -84,7 +84,7 @@ npm run check-claude-md-size   # CLAUDE.md ≤150 行・rules の paths: 必須
 ### 4. ゴール駆動で実行する
 - タスク着手前に「何が通れば完了か」を定義する。通常は担当 AI が調査→実装→検証まで完結する（[共同開発](.claude/knowledge/reference/codex-division-of-labor.md)）。DN-ID は [claim](.claude/knowledge/reference/todo-lifecycle.md) で二重着手を防ぐ
 - **UI/SSR 変更**: `curl` で `<main>` + 主要キーワード（土木/技術士）を確認（なぜ: Lighthouse は SSR 破壊を捕捉できない・measurement-incidents.md 2026-W16）
-- **deploy 後**: `npm run check-production-ssr` を実行し、exit 0 のときだけ「完了」と報告する。exit 1 は本番異常、exit 2 は検査不成立として別経路で切り分ける（手打ち curl で代用しない）
+- **deploy**: `npm run deploy:main` で昇格する。失敗で止まるので、exit 0 のときだけ「完了」と報告する。exit 1 は失敗、exit 2 は検査不成立（手でつながない）
 - **コンテンツ編集完了条件**: MDX 追加・変更後は `npm run refresh-indexes` を実行してからコミット
 - **アセットの置き場は誰が使うかで決める**（サイトが配信→public R2／CI→private R2／人・手元だけ→Google Drive vault。迷ったら `/asset-route`）。画像追加・削除・OGP 供給の手順は `**/img/**` を開くと assets-images ルールが載る
 

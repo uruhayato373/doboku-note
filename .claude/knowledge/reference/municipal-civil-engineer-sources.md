@@ -673,3 +673,32 @@ title: 自治体の土木担当シリーズで確かめた一次資料（骨子�
 - 中小河川の河道計画の技術基準（平成22年8月9日）は国土交通省の多自然川づくりのページに現在も掲載、廃止・取り込みの記載なし
 - 3D都市モデル標準製品仕様書のテクスチャの決まりは第5.1版（令和8年3月19日・9.5.1）でも第5.0版（9.4）と同じ値
 - BIM/CIM取扱要領の附属資料2（整合確認方法）は令和8年10月時点でも「案」
+
+## 道路の構造・幹線道路網・地区計画と立地適正化（A-48〜A-50・2026-11-05 に確認）
+- 道路法第30条は令和8年7月23日施行の条文で確認。第1項が国の道路、第2項が都道府県道・市町村道の政令事項（第1号・第3号・第12号）、第3項が政令を参酌した条例
+- 道路構造令の現行は2020年11月25日施行。改正の履歴に「特定車線」の改正は見当たらない — https://www.mlit.go.jp/road/sign/pdf/kouzourei_2.pdf
+- 待避所は間隔300m以内、長さ20m以上、その区間の車道幅員5m以上 — 道路構造令第30条
+- 例（自治体）: 岡山市道路構造等条例の市独自の基準 https://www.city.okayama.jp/shisei/0000003708.html、高山市の条例の概要 https://www.city.takayama.lg.jp/_res/projects/default_project/_page_/001/002/444/250110-2siryougi9.pdf（古い資料。現行の値は例規集で確かめる）
+- 高規格幹線道路は開通済み 12,307km・整備率 約87%（令和7年4月1日現在）— https://www.mlit.go.jp/road/sisaku/dorogyousei/0.pdf p.10
+- 高規格道路は約24,000km、地域高規格道路の計画は約10,000km — https://www.mlit.go.jp/policy/shingikai/content/001711911.pdf pp.2-5（令和5年12月11日）
+- 重要物流道路は供用区間 約36,000km・事業区間 約2,600km（2026年4月7日の指定）— https://www.mlit.go.jp/road/sisaku/butsuryu/pdf/gaiyou2.pdf
+- 高速道路の料金徴収の期限は最長で令和97年9月30日。令和5年法律第43号、施行は令和5年9月6日 — https://www.mlit.go.jp/report/press/road01_hh_001694.html
+- 高速自動車国道の新設等の費用は国が四分の三以上で政令の割合、残りは都道府県 — 高速自動車国道法第20条第1項
+- スマートICの地区協議会・実施計画書・連結許可の申請・整備の区分 — https://www.mlit.go.jp/road/sisaku/smart_ic/smart_youkou.pdf（令和元年9月30日適用）
+- 立地適正化計画は作成・公表 711 都市、取組 972 都市、防災指針 公表 566 都市（令和8年7月31日現在）— https://www.mlit.go.jp/en/toshi/city_plan/content/002028004.pdf
+- 地区計画は 828 都市・9,023 地区（令和7年3月31日現在）— https://www.mlit.go.jp/toshi/tosiko/toshi_tosiko_tk_000217.html
+- 都市計画運用指針の最新の改正は令和7年3月31日（第13版）— https://www.mlit.go.jp/toshi/city_plan/crd_city_plan_fr_000008.html
+- 令和2年法律第43号で居住誘導区域から災害レッドゾーンを原則除外し、防災指針を位置づけた — https://www.mlit.go.jp/toshi/city_plan/content/001348697.pdf
+- 高速道路会社6社と機構の発足は平成17年10月1日。報道発表は平成17年の同年10月の発足を示す — https://www.mlit.go.jp/kisha/kisha05/00/000526_3_.html
+- 第2次地方分権一括法は平成23年法律第105号。道路構造令の条例委任の関連は平成24年4月1日施行 — https://www.mlit.go.jp/road/sign/pdf/kouzourei_2.pdf p.12
+- 都市計画運用指針 第13版の頁は印刷頁で書く（PDF の通し頁は 9 頁後ろ）。地区施設と位置の指定は印刷 pp.187-188、防災指針と居住誘導区域の注意は印刷 p.41
+- 居住誘導区域に定めない区域は都市再生特別措置法施行令第30条
+
+## 既存 5 章の補強（A-02・A-04・A-23・A-28・A-41・2026-11-05 に確認）
+- 公共事業関係費は令和8年度当初 6兆1,078億円（前年度当初より220億円・0.4%増）、うち国土交通省 5兆2,950億円 — https://www.mof.go.jp/public_relations/finance/202605/202605f.pdf p.26
+- 地方整備局は8局、北海道は北海道開発局 — https://www.mlit.go.jp/about/soshiki_chihou.html
+- 損失補償基準要綱は昭和37年6月29日閣議決定 — https://www.mlit.go.jp/totikensangyo/totikensangyo_tk1_000023.html
+- 業務独占・必置・名称独占等の定義と技術士の例 — https://www.soumu.go.jp/main_content/000131814.pdf p.4
+- ISO9001 活用モデル工事の試行は国官技第175号（令和元年8月27日）— https://www.mlit.go.jp/tec/content/001397978.pdf
+- 経審の W8 に令和5年1月からエコアクション21 を追加、認証の範囲に建設業が無いと加点なし — https://www.mlit.go.jp/tochi_fudousan_kensetsugyo/const/content/001585871.pdf。令和8年7月以降の W 点の改正後の配点は未確認なので記事に書かない
+- 正当な補償の最高裁判決（昭和48年10月18日・昭和28年12月23日）は 2026-11-05 に courts.go.jp がメンテナンスで原文を確認できず、記事に書いていない

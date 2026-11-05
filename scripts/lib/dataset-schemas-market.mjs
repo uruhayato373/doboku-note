@@ -212,6 +212,37 @@ export const CoconalaCompetitors = competitorSnapshot({
   title: 'ココナラの競合セラー',
 });
 
+/** 講座の企業の観測（data/courses/competitors/<日付>.json）。公式ページの目視で入れる。追跡リストは config.competitors の courses */
+export const CoursesCompetitors = z
+  .object({
+    schemaVersion: z.literal(1),
+    observedDate: jstDate('観測日'),
+    method: z.string().min(1).describe('観測の方法'),
+    reading: z.string().min(1).describe('観測からの読み取り'),
+    competitors: z
+      .array(
+        z
+          .object({
+            handle: handleField,
+            label: z.string().min(1).describe('講座の名前'),
+            exams: examsField.min(1),
+            sourceKind: z.enum(['official', 'third-party']).describe('公式ページか、第三者の比較記事か'),
+            sourceUrl: z.url().describe('出典'),
+            offers: z
+              .array(z.object({ name: z.string().min(1), priceYen: yen('税込価格'), orMore: z.boolean().describe('〜つきの最低価格か') }).strict())
+              .min(1),
+            scope: z.string().min(1).describe('講座の範囲・添削の回数'),
+            onPass: z.string().min(1).nullable().describe('合格時の特典。記載が無ければ null'),
+            onFail: z.string().min(1).nullable().describe('不合格時の扱い。記載が無ければ null'),
+          })
+          .strict(),
+      )
+      .min(1)
+      .superRefine(uniqueBy('handle')),
+  })
+  .strict()
+  .meta({ title: '講座の企業の観測' });
+
 // ---- X・Instagram の競合 -----------------------------------------------------------------------
 
 /** 取得に成功した行だけが持つ欄が揃っているか（失敗した行は error を持ち、profile が null か無い） */

@@ -12,6 +12,7 @@ import {
   cdScopeViolation,
   classifyStaged,
   decisionDocsChanged,
+  directMainPush,
   docSyncMessages,
   finalAssistantText,
   hasReplacementChar,
@@ -24,6 +25,7 @@ import {
   shellAssignments,
   strayAtRoot,
   topLevelCdTargets,
+  zshModifierTrap,
 } from '../scripts/lib/agent-hooks.mjs';
 import { REPO_ROOT as REPO } from '../scripts/lib/repository-paths.mjs';
 
@@ -238,4 +240,14 @@ test('check-agent-network hook: figure-crop-worker の curl は exit 2、親の 
   assert.equal(blocked.status, 2);
   assert.match(blocked.stderr, /source-unavailable/);
   assert.equal(runHook('check-agent-network', JSON.stringify({ tool_name: 'Bash', tool_input: { command } })).status, 0);
+});
+
+test('zshModifierTrap: 値を壊す $VAR:x だけを見つけ、守られた書き方は通す', () => {
+  for (const c of ['git push url $C:refs/heads/main', 'echo "$A:foo"', 'curl http://$HOST:port/']) assert.ok(zshModifierTrap(c), c);
+  for (const c of ['git push url "${C}:refs/heads/main"', "echo '$C:refs'", 'echo $A:1', "cat <<'E'\n$C:refs\nE\n", 'echo $A: b']) assert.equal(zshModifierTrap(c), '', c);
+});
+
+test('directMainPush: main への push だけを止める', () => {
+  for (const c of ['git push origin main', 'git -c x=y push url abc:refs/heads/main', 'cd a && git push origin develop:main']) assert.equal(directMainPush(c), true, c);
+  for (const c of ['git push origin develop', 'git push -u origin feat/main-menu', 'git log main; npm run deploy:main', 'git push origin feat/x; echo main']) assert.equal(directMainPush(c), false, c);
 });

@@ -14,6 +14,10 @@
           },
           {
             "type": "command",
+            "command": "node scripts/hooks/agent-hook.mjs check-shell-traps"
+          },
+          {
+            "type": "command",
             "command": "node scripts/hooks/agent-hook.mjs check-agent-network"
           }
         ]

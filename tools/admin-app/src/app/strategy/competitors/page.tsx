@@ -2,14 +2,15 @@ import Link from 'next/link';
 import { DataTable, DetailSheet, DetailText, type DataTableColumn, type DataTableRow } from '@/components/admin';
 import { PageHead } from '@/components/ui';
 import SectionTabs from '@/components/SectionTabs';
-import { loadCompetitorView, type CompetitorRow } from '@/lib/competitors';
+import { loadCompetitorView, loadCourseView, type CompetitorRow, type CourseRow } from '@/lib/competitors';
 import { num, yen } from '@/lib/format';
 
 export const dynamic = 'force-dynamic';
 
 /**
  * /strategy/competitors — 競合（人が見る画面）。チャネルはサイドバーの枝にせず画面内のタブにする（domains.json navRules）。
- * 今はココナラだけ。先頭に自社、続けて競合を売上（推定）の多い順に並べ、資格で絞り込む。組み立ては lib/competitors.ts。
+ * ココナラは先頭に自社、続けて競合を売上（推定）の多い順に並べ、資格で絞り込む。講座の企業は観測（公式ページの目視）を並べる。
+ * ?handle= は 1 社に絞る（イシューマップからのリンク）。組み立ては lib/competitors.ts。
  */
 /** 推定値は ≈ を付ける（競合の売上は公開されておらず、累計販売 × 平均単価の推定）。 */
 const money = (n: number | null, estimated: boolean) => (n === null ? '—' : `${estimated ? '≈' : ''}${yen(n)}`);
@@ -33,23 +34,83 @@ const COLUMNS: DataTableColumn[] = [
   { key: 'rating', label: '評価', num: true },
 ];
 
-export default async function CompetitorsPage({ searchParams }: { searchParams: Promise<{ exam?: string }> }) {
-  const { exam } = await searchParams;
+const COURSE_COLUMNS: DataTableColumn[] = [
+  { key: 'label', label: '講座', wrap: true },
+  { key: 'exams', label: '資格', wrap: true },
+  { key: 'price', label: '最低価格', num: true },
+  { key: 'offers', label: 'コース', wrap: true, sortable: false },
+  { key: 'scope', label: '範囲', wrap: true, sortable: false },
+  { key: 'onPass', label: '合格時', wrap: true, sortable: false },
+  { key: 'onFail', label: '不合格時', wrap: true, sortable: false },
+  { key: 'source', label: '出典', sortable: false },
+];
+
+function ChannelNav({ current }: { current: 'coconala' | 'courses' }) {
+  return (
+    <nav className="filterbar mb-2!">
+      <Link className={'chip' + (current === 'coconala' ? ' active' : '')} href="/strategy/competitors">ココナラ</Link>
+      <Link className={'chip' + (current === 'courses' ? ' active' : '')} href="/strategy/competitors?channel=courses">講座の企業</Link>
+    </nav>
+  );
+}
+
+function CoursesView({ handle, examLabels }: { handle?: string; examLabels: Record<string, string> }) {
+  const view = loadCourseView();
+  const rows = view.rows.filter((r) => !handle || r.handle === handle);
+  return (
+    <>
+      <PageHead title="競合" sub={view.observedDate ? `観測 ${md(view.observedDate)}` : undefined} />
+      <SectionTabs set="market" current="/strategy/competitors" />
+      <ChannelNav current="courses" />
+      {handle && <nav className="filterbar mb-3!"><Link className="chip" href="/strategy/competitors?channel=courses">すべて {view.rows.length}</Link></nav>}
+      {view.reading && <p className="mb-3 text-sm">{view.reading}</p>}
+      <DataTable columns={COURSE_COLUMNS} rows={rows.map((r) => courseRow(r, examLabels))} pageSize={50} />
+    </>
+  );
+}
+
+function courseRow(r: CourseRow, examLabels: Record<string, string>): DataTableRow {
+  const small = (t: string | null) => <span className="text-xs">{t ?? '記載なし'}</span>;
+  const exams = r.exams.map((e) => examLabels[e] ?? e).join('・');
+  return {
+    id: r.handle,
+    values: { label: r.label, exams, price: Math.min(...r.offers.map((o) => o.priceYen)), offers: null, scope: r.scope, onPass: r.onPass, onFail: r.onFail, source: null },
+    cells: {
+      exams: <span className="text-xs">{exams}</span>,
+      price: yen(Math.min(...r.offers.map((o) => o.priceYen))),
+      offers: (
+        <span className="flex flex-col text-xs">
+          {r.offers.map((o) => <span key={o.name} className="whitespace-nowrap">{o.name} {yen(o.priceYen)}{o.orMore ? '〜' : ''}</span>)}
+        </span>
+      ),
+      scope: small(r.scope),
+      onPass: small(r.onPass),
+      onFail: small(r.onFail),
+      source: (
+        <a href={r.sourceUrl} target="_blank" rel="noreferrer" className="text-xs">
+          {r.sourceKind === 'official' ? '公式' : '比較記事'}
+        </a>
+      ),
+    },
+  };
+}
+
+export default async function CompetitorsPage({ searchParams }: { searchParams: Promise<{ exam?: string; channel?: string; handle?: string }> }) {
+  const { exam, channel, handle } = await searchParams;
   const view = loadCompetitorView();
+  if (channel === 'courses') return <CoursesView handle={handle} examLabels={view.examLabels} />;
   const exams = [...new Set(view.rows.flatMap((r) => r.exams))].sort((a, b) =>
     (view.examLabels[a] ?? a).localeCompare(view.examLabels[b] ?? b, 'ja'),
   );
   const rows = view.rows
-    .filter((r) => !exam || r.exams.includes(exam))
+    .filter((r) => (!exam || r.exams.includes(exam)) && (!handle || r.handle === handle))
     .sort((a, b) => (b.revenueYen ?? -1) - (a.revenueYen ?? -1));
 
   return (
     <>
       <PageHead title="競合" sub={view.fetchedDate ? `取得 ${md(view.fetchedDate)}` : undefined} />
       <SectionTabs set="market" current="/strategy/competitors" />
-      <nav className="filterbar mb-2!">
-        <span className="chip active">ココナラ</span>
-      </nav>
+      <ChannelNav current="coconala" />
       <nav className="filterbar mb-3!">
         <Link className={'chip' + (!exam ? ' active' : '')} href="/strategy/competitors">
           すべて {view.rows.length}
@@ -71,7 +132,7 @@ export default async function CompetitorsPage({ searchParams }: { searchParams: 
         <DataTable
           columns={COLUMNS}
           rows={[
-            ...((!exam || view.self.exams.includes(exam)) ? [toRow(view.self, view.examLabels, true)] : []),
+            ...(!handle && (!exam || view.self.exams.includes(exam)) ? [toRow(view.self, view.examLabels, true)] : []),
             ...rows.map((r) => toRow(r, view.examLabels)),
           ]}
           pageSize={100}
