@@ -76,6 +76,13 @@ node --env-file=<.env.local> scripts/video-factory.mjs publish --packs <a,b>
 node --env-file=<.env.local> scripts/video-factory.mjs cleanup --packs <a,b>  # audit-funnel で実体を確かめたあと
 ```
 
+在庫にするときは Workflow へ `stock: true` を渡す。関門を検査してコミットするところで止まり、承認も公開日時も書かない。予約するときに次を実行する。画面確認の判定は公開日時に左右されないので、やり直しは要らない。
+
+```bash
+node scripts/video-factory.mjs schedule --packs <a,b>
+node --env-file=<.env.local> scripts/video-factory.mjs publish --packs <a,b>
+```
+
 トークンの大半は代理エージェントの起動にかかる（2026-11-05 の実測: 13 体で約 100 万・1 体約 8 万）。機械の工程は `produce`・`finish` のようにコマンド 1 本へまとめ、代理を増やさない。判定の記録は監査役・QA 役が自分で行う。1 本で 12 枚前後を生成するので、Codex の利用枠も確かめる。
 
 ## 罠

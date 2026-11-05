@@ -18,6 +18,7 @@
  *   npm run video-factory -- auto-approve --pack <exam>/<work>           関門を通ったら方針の承認を台帳へ書く
  *   npm run video-factory -- produce --pack <exam>/<work>                採用・音声・動画・AI 台帳を続けて回す
  *   npm run video-factory -- finish --packs <a,b>                        音声照合・方針の承認・コミットを 1 本ずつ回す
+ *   npm run video-factory -- schedule --packs <a,b>                      在庫へ空き枠を入れ、関門を通し直す
  *   npm run video-factory -- publish --packs <a,b>                       台帳を develop へ出し、転送して予約を流す（要 R2 の環境変数）
  *   npm run video-factory -- cleanup --packs <a,b>                       予約済みの転送用ファイルを消す（要 R2 の環境変数）
  *
@@ -35,7 +36,7 @@ import { readDataset } from './lib/dataset-io.mjs';
 import { datasetPath } from './lib/datasets.mjs';
 import { readJsonIf } from './lib/json-io.mjs';
 import { requirePopDiagramStandard } from './lib/longform-pop-images.mjs';
-import { approvalState } from './lib/media-review.mjs';
+import { approvalState, reviewIsCurrent } from './lib/media-review.mjs';
 import { recordYoutubeRevisionQa } from './lib/registry-youtube-revision.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 import { todayJst } from './lib/jst-date.mjs';
@@ -45,6 +46,7 @@ import { adoptPlan, auditQueue, buildPlan, generatePlan, hydrateAdopted, ledgerV
 const { values: args, positionals } = parseArgs({
   allowPositionals: true,
   options: {
+    stock: { type: 'boolean' },
     pack: { type: 'string' }, exam: { type: 'string' }, scope: { type: 'string' }, date: { type: 'string' }, json: { type: 'boolean' },
     concurrency: { type: 'string' }, packs: { type: 'string' }, 'publish-at': { type: 'string' }, file: { type: 'string' }, by: { type: 'string' }, avg: { type: 'string' }, blocks: { type: 'string' },
   },
@@ -75,7 +77,7 @@ function factsOf(reg, pack, reviews, mediaById) {
   const q = reg.works.find((w) => w.id === work && w.exam === exam)?.qa;
   const state = approvalState(ROOT, pub, mediaById);
   const r = reviews[pub.id];
-  const fresh = r && r.visualDigest === state.visual.current && r.finalDigest === state.final.current;
+  const fresh = reviewIsCurrent(r, state);
   return {
     pub: pub.id, status: pub.status, standard, plan: readPlan(ROOT, pack) ? summarize(readPlan(ROOT, pack)) : null,
     rendered: video?.provenance?.specSha256 === boardSha,
@@ -248,7 +250,11 @@ function wire() {
   const pub = targetPub(reg, exam, work);
   const taken = reg.publications.filter((p) => p.channel === 'youtube' && p.publishAt && p.status !== 'stopped' && p.id !== pub?.id && Date.parse(p.publishAt) > Date.now()).map((p) => p.publishAt);
   const publishAt = args['publish-at'] ?? (Date.parse(pub?.publishAt) > Date.now() ? pub.publishAt : nextSlot(taken, policy));
-  if (pub?.revisionOf) { wireRevision(reg, pub, publishAt); return; }
+  if (pub?.revisionOf) {
+    if (args.stock) throw new Error(`${pub.id}: 改訂版は在庫にしない。予約のときに結線する`);
+    wireRevision(reg, pub, publishAt);
+    return;
+  }
   if (!pub || pub.status !== 'qa_passed') throw new Error(`${pack}: QA 済みで未承認の初回の公開行だけ結線できる`);
   const mediaById = new Map(reg.media.map((m) => [m.id, m]));
   const file = join(ROOT, packDirOf(pack), 'youtube.json');
@@ -260,13 +266,13 @@ function wire() {
   writeFileSync(file, `${JSON.stringify({
     ...release, channel: { id: channel.id, title: channel.title },
     longform: {
-      ...release.longform, categoryId: release.longform.categoryId ?? '27', publishAt,
+      ...release.longform, categoryId: release.longform.categoryId ?? '27', publishAt: args.stock ? undefined : publishAt,
       r2Key: `video/render/${work}/video.mp4`, thumbnailR2Key: `video/render/${work}/img/00-cover.png`,
       sha256: mediaById.get(pub.media.video).sha256, thumbnailSha256: mediaById.get(pub.media.cover).sha256,
     },
   }, null, 2)}\n`);
-  upsertPublications(ROOT, 'youtube', exam, [{ ...stripRow(pub), copy: `${packDirOf(pack)}/youtube.json#longform`, publishAt }]);
-  console.log(JSON.stringify({ pub: pub.id, publishAt }));
+  upsertPublications(ROOT, 'youtube', exam, [{ ...stripRow(pub), copy: `${packDirOf(pack)}/youtube.json#longform`, publishAt: args.stock ? undefined : publishAt }]);
+  console.log(JSON.stringify({ pub: pub.id, publishAt: args.stock ? null : publishAt }));
 }
 
 /** 改訂版は予定だけを変える。文面と素材は同じなので、下書きへ戻った行に同じ QA を記録し直す */
@@ -316,7 +322,7 @@ function gateFacts(pack) {
 function gate() {
   const pack = requirePack();
   const { facts, policy } = gateFacts(pack);
-  const result = evaluateGate(facts, policy);
+  const result = evaluateGate(facts, policy, Date.now(), { stock: args.stock });
   console.log(JSON.stringify({ pub: facts.pub.id, ...result }, null, 2));
   if (!result.ok) process.exit(1);
 }
@@ -357,7 +363,8 @@ async function produce() {
 function finish() {
   const rows = [];
   for (const pack of requirePacks()) {
-    const steps = [['audio-check', '--pack', pack], ['auto-approve', '--pack', pack], ['commit', '--pack', pack]];
+    // 在庫は関門を検査するだけで承認を書かない。日時を決める予約のときに auto-approve する
+    const steps = [['audio-check', '--pack', pack], args.stock ? ['gate', '--pack', pack, '--stock'] : ['auto-approve', '--pack', pack], ['commit', '--pack', pack]];
     let failed = null;
     for (const step of steps) {
       const r = self(...step);
@@ -410,6 +417,17 @@ function publish() {
   console.log(JSON.stringify(jobs, null, 2));
 }
 
+/** 在庫から予約へ進める。関門を通し直してから publish へ渡す */
+function schedule() {
+  const rows = [];
+  for (const pack of requirePacks()) {
+    const wired = self('wire', '--pack', pack);
+    const approved = wired.status === 0 ? self('auto-approve', '--pack', pack) : wired;
+    rows.push({ pack, ok: approved.status === 0, ...(approved.status === 0 ? {} : { failed: (approved.stderr || approved.stdout).trim().slice(0, 600) }) });
+  }
+  console.log(JSON.stringify(rows, null, 2));
+}
+
 /** 予約を実体で確かめたあと、転送用の一時ファイルを消す */
 function cleanup() {
   for (const pack of requirePacks()) {
@@ -438,8 +456,9 @@ const commands = {
   'auto-approve': autoApprove,
   produce,
   finish,
+  schedule,
   publish,
   cleanup,
 };
-if (!commands[command]) { console.error('Usage: npm run video-factory -- status|plan|generate|audit-queue|record-audit|adopt|render|ledger|record-qa|commit|audio-check|wire|gate|auto-approve|produce|finish|publish|cleanup'); process.exit(2); }
+if (!commands[command]) { console.error('Usage: npm run video-factory -- status|plan|generate|audit-queue|record-audit|adopt|render|ledger|record-qa|commit|audio-check|wire|gate|auto-approve|produce|finish|schedule|publish|cleanup'); process.exit(2); }
 await commands[command]();
