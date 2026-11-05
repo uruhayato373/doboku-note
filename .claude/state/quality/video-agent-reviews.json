@@ -302,11 +302,11 @@
     },
     "pe-construction/sentaku-tunnel-yomikata/youtube.longform": {
       "verdict": "pass",
-      "note": "表紙・題名は内容と一致、文字の切れ/誤字なし。場面8枚は台本順(誤解→NATM→開削/シールド→Ⅲ→維持管理→要約→CTA)で、年度・設問番号はtunnel-exam-themesの表と矛盾なし。説明文の主CTAはトンネルマガジン1つ(無料記事リンクは関連欄)。試験日の記述なし。音声は未確認。動画未描画のため pass は描画へ進んでよいの意味。",
-      "at": "2026-11-05T21:48:10.155Z",
-      "visualDigest": "32cbbe5fb65b318bc0fdd179b404969615eeb95d347c91d513d1dc11aa33deca",
-      "finalDigest": "6c20c773c4d459ba8bb65b49b14037429506edbb4794c6a51e44a4c0387711f0",
-      "contentDigest": "6c20c773c4d459ba8bb65b49b14037429506edbb4794c6a51e44a4c0387711f0"
+      "note": "表紙と全8場面の一覧シートを目視。場面順は台本(誤解→山岳→開削/シールド→Ⅲ→維持管理→まとめ→CTA)と一致、文字の切れ・重なり・誤字なし。CTAは概要欄にnoteマガジン1つ(サイトの無料記事は関連リンク)、日付の記述なし。年度別の出題内容の事実照合は台本の出典記事までで一次確認はしていない。音声は未確認。",
+      "at": "2026-11-05T22:17:21.083Z",
+      "visualDigest": "8a141878817c9851f917608736a2e4cf304dfbc13538dbc751f3e5d6985ceb69",
+      "finalDigest": "8273463ac5f6eff5f726f574788a410b23d5f4ba3b42a4585441e59f4a821598",
+      "contentDigest": "8273463ac5f6eff5f726f574788a410b23d5f4ba3b42a4585441e59f4a821598"
     },
     "pe-construction/sentaku-urban-planning-yomikata/youtube.longform": {
       "verdict": "pass",

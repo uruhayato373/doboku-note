@@ -2,6 +2,10 @@
   "schemaVersion": 1,
   "covers": {
     "longform": {
+      "character": {
+        "pose": "pop-explaining",
+        "frame": "waist"
+      },
       "format": "longform",
       "exam": "pe-construction",
       "headline": [
@@ -10,19 +14,18 @@
       ],
       "accentLine": 1,
       "subtitle": "",
-      "character": {
-        "pose": "pop-explaining",
-        "frame": "waist"
-      },
-      "design": "pop-v2",
+      "design": "pop-poster-v3",
       "pop": {
         "variant": "explain",
         "authority": "総監が制作"
       },
+      "layout": "diagram-led",
       "approvedImage": {
-        "path": ".tmp/media/pe-construction/sentaku-tunnel-yomikata/youtube.longform/cover.232cab59.png",
-        "sha256": "232cab59134a9242c9c1dd31fd4d28c0d1de14116a661c6788ebd09c1f7a25b7",
-        "specSha256": "57cf0eda76471bc4fd3e4381873cbc058f4ee75bb9009326c346d9255c702c0b"
+        "path": ".tmp/media/pe-construction/sentaku-tunnel-yomikata/work/cover-pop.108db951.png",
+        "sha256": "108db951d4677ea18ab2f5c0ad9e97034580ee7156c077bef6f513ddd61a5ded",
+        "width": 1920,
+        "height": 1080,
+        "specSha256": "b6f084a8a8d0d42eca6f609b25dfee7f80e5b5c9917f3c45dc44a6b06fd8b359"
       }
     }
   }

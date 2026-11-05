@@ -63,5 +63,329 @@
       },
       "publication": "ローカル差し替え・外部未反映"
     }
-  }
+  },
+  "revisions": {
+    "cover-pop-20261106": {
+      "version": "pop-poster-v3",
+      "layout": {
+        "mode": "diagram-led"
+      },
+      "generation": {
+        "tool": "image_gen",
+        "prompt": "添付の1枚目はdoboku-noteで採用済みの全面POP動画表紙の意匠参照、2枚目は先生キャラクターの同一性参照です。 新規の16:9横長（1920×1080想定）日本語YouTube動画表紙を作る。深いインディゴ #33356B と明るい青紫、黄色と白の極太文字、明確な黒い輪郭、少量の赤、斜めの面と勢いのある背景、右側に先生キャラクターを大きく。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。 左〜中央に正確に『トンネル』『テーマの読み方』を大きく配置。上部の黄色帯に小さく『総監が制作』。 誤字・余計な文字・合格保証・URL・価格・不明な実績を足さない。文字ブロックの黒い縁取りまで含めて左右8%の内側へ収め（画面の左端から8%は背景だけ）、顔は左右5%・上下5%内、下端18%は字幕が重なるので重要な文字や顔を置かず背景が全面に続く。",
+        "references": [
+          {
+            "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/youtube.longform/cover.b87e20c1.png",
+            "sha256": "b87e20c19fda2123d3bac22950472ee7a7427dd2ab11a7cbf63807a6e83c33ad"
+          },
+          {
+            "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
+            "sha256": "1941cd22fa523fcb233e8ab7b8ad756ad7398be8755037b881d8380fb39398f9"
+          }
+        ],
+        "output": {
+          "path": ".tmp/media/pe-construction/sentaku-tunnel-yomikata/work/factory/raw-cover.c0b8f4cc.png",
+          "sha256": "c0b8f4ccaafc74fe910fcc580c0b8a82de8bbb325766e9e4844523742fd5815c"
+        },
+        "generatedAt": "2026-11-05T22:14:59.903Z"
+      },
+      "copy": {
+        "exam": "pe-construction",
+        "headline": [
+          "トンネル",
+          "テーマの読み方"
+        ],
+        "authority": "総監が制作"
+      },
+      "output": {
+        "path": ".tmp/media/pe-construction/sentaku-tunnel-yomikata/work/cover-pop.108db951.png",
+        "sha256": "108db951d4677ea18ab2f5c0ad9e97034580ee7156c077bef6f513ddd61a5ded",
+        "width": 1920,
+        "height": 1080
+      },
+      "normalization": {
+        "mode": "full-frame-v1",
+        "sourceSha256": "c0b8f4ccaafc74fe910fcc580c0b8a82de8bbb325766e9e4844523742fd5815c"
+      },
+      "review": {
+        "status": "ai-reviewed",
+        "checkedAt": "2026-11-05T22:14:59.903Z",
+        "by": "ai-image-fidelity-auditor",
+        "reason": "文字『総監が制作』『トンネル』『テーマの読み方』が指示と一字一致。先生は黒縁眼鏡・ひげ・無地白ヘルメット・紺作業服とネクタイ・反射帯で手指も破綻なし",
+        "userImageReview": "pending"
+      },
+      "storage": {
+        "group": "content-media",
+        "sync": "local"
+      }
+    },
+    "body-diagram-20261106": {
+      "layout": {
+        "mode": "diagram-led"
+      },
+      "images": [
+        {
+          "sceneId": "premise",
+          "inputSha256": "69ef0b12a81f02acc880d02c2e622a401dd525b3a455bc837a42918dad5b038e",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『誤解：範囲が広くて絞れない』。 図に入れる文字: 『II-1-1/1-2：山岳（8年）』 『II-1-3：開削　II-1-4：シールド』。 この場面の説明（文字にしない）: 範囲が広いから絞れない、と思っていませんか。II-1の4設問は、令和1年度から8年度まで8年間、位置ごとの分野が変わっていません。1問目と2問目は山岳、3問目は開削、4問目はシールドです。位置ごとに出る分野が決まっているので、選ぶ手がかりになります。 前回の不合格の理由を直す: 文字: 見出しに指示にない鉤括弧『』がそのまま描かれている（指示の引用符であり描画文字ではない）。他の文字と図（山岳2坑口・開削・シールド）は一致",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/sentaku-tunnel-yomikata/work/factory/raw-premise.ef32ae0e.png",
+              "sha256": "ef32ae0ee64c1a998d21a9e6312c95a17da78898096faaa342864a4a97ea783b"
+            },
+            "generatedAt": "2026-11-05T22:14:59.903Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/sentaku-tunnel-yomikata/work/premise-diagram.328d745b.png",
+            "sha256": "328d745ba956f2809c097cc0fb42fab49db7aadf407c3e6f41357fe751eb77fc",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "ef32ae0ee64c1a998d21a9e6312c95a17da78898096faaa342864a4a97ea783b"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-05T22:14:59.903Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字: 見出しと図中2ラベルが指示と一字一致し崩れ無し。種別・構造: 山岳トンネル、開削の箱形、シールドの円形断面が各分野と合致し、下端は無地で安全域内",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "natm",
+          "inputSha256": "461563a9b15584cdac43c47e7d0aac625fdb56fcdf0914279a2424b0007e316e",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『II-1-1/1-2：山岳トンネル（NATM）』。 図に入れる文字: 『R01 吹付け／R03 ロックボルト』 『R04 鋼製支保工・切羽観察』 『R06 インバート・掘削工法』。 この場面の説明（文字にしない）: II-1-1とII-1-2は、8年とも山岳トンネルです。令和1年度は吹付けコンクリート、3年度はロックボルトの性能、4年度は鋼製支保工の効果と切羽観察項目、6年度はインバートと掘削工法でした。支保部材と、計測や切羽観察による情報化施工が柱です。II-1の4設問のうち2つを占めるので、まずここを固めます。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/sentaku-tunnel-yomikata/work/factory/raw-natm.d1dc283b.png",
+              "sha256": "d1dc283b2fd2661398cb78b51e6ee395756fd016aa4875c79c7174225120aa84"
+            },
+            "generatedAt": "2026-11-05T22:14:59.903Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/sentaku-tunnel-yomikata/work/natm-diagram.20f0b9d8.png",
+            "sha256": "20f0b9d857b277b89e0430b7f07c088eed7442d6f04fbcd3e9a0703795ef22b8",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "d1dc283b2fd2661398cb78b51e6ee395756fd016aa4875c79c7174225120aa84"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-05T22:14:59.903Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出しと3つの注記が指示と一字一致。吹付け・ロックボルト・鋼製支保工・インバート・切羽観察の図は成り立ち、文字の崩れなし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "openshield",
+          "inputSha256": "ff7c5bb393057e2068fea1b731328c30f40a8d2a32ac6151c52c00291bfff212",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『II-1-3開削／II-1-4シールド』。 図に入れる文字: 『開削：R06 土留壁／R07 部分築造』 『シールド：R06 泥水式／R07 掘進停止』。 この場面の説明（文字にしない）: II-1-3は開削、II-1-4はシールドで、これも8年間固定です。開削は、令和6年度の土留壁の弾塑性法、7年度の部分築造工法が出ています。シールドは、令和6年度の泥水式の切羽安定、7年度の長時間掘進停止対策です。自分の実務に近いほうを選び、得点源にしてください。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/sentaku-tunnel-yomikata/work/factory/raw-openshield.38ecde93.png",
+              "sha256": "38ecde93c2a590a737073154e24efb1bb36679be2ec06da67e4e28a51a761355"
+            },
+            "generatedAt": "2026-11-05T22:14:59.903Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/sentaku-tunnel-yomikata/work/openshield-diagram.38ecde93.png",
+            "sha256": "38ecde93c2a590a737073154e24efb1bb36679be2ec06da67e4e28a51a761355",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "38ecde93c2a590a737073154e24efb1bb36679be2ec06da67e4e28a51a761355"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-05T22:14:59.903Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出しと2つの注記が指示と一致。土留壁と切梁、泥水式シールドのカッタと覆工の図は実物として成り立つ",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "background",
+          "inputSha256": "be7205b71c27537a26fb5b52cc3b391643b156b04a302f40186b94ed94438f20",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『Ⅲで繰り返し出る流れ』。 図に入れる文字: 『地質：R01 III-1／R03 III-1』 『都市部地下空間：R06 III-1／R07 III-2』。 この場面の説明（文字にしない）: Ⅲは、地質の不確定要素が令和1年度のIII-1に、我が国特有の地質が3年度のIII-1に出ています。都市部の地下空間は、令和6年度のIII-1と、7年度のIII-2です。ただし、令和4年度は坑口部、7年度のIII-1は安全衛生で、この二つの軸に収まらない年もあります。二大背景とは言い切れません。繰り返し出ている流れとして、地質と都市の二つを押さえてください。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/sentaku-tunnel-yomikata/work/factory/raw-background.4fb552c2.png",
+              "sha256": "4fb552c28d9924d644e7cecf496b188a168a9a8ec426ff653228b6146df31576"
+            },
+            "generatedAt": "2026-11-05T22:14:59.903Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/sentaku-tunnel-yomikata/work/background-diagram.4fb552c2.png",
+            "sha256": "4fb552c28d9924d644e7cecf496b188a168a9a8ec426ff653228b6146df31576",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "4fb552c28d9924d644e7cecf496b188a168a9a8ec426ff653228b6146df31576"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-05T22:14:59.903Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し『Ⅲで繰り返し出る流れ』と2つの注記が指示と一致。地質層と都市部地下空間の図に破綻なし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "maintenance",
+          "inputSha256": "e41c125d6deb53a6cfa02f193f5a9e1c5a368c740079a36f5fe32ab54379cb79",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『維持管理：覆工の剥落と定期点検』。 図に入れる文字: 『近接目視は5年に1回・健全性4区分』 『Ⅲ：R03 III-2／R06 III-2』。 この場面の説明（文字にしない）: 維持管理は、論文キーワードの記事が最頻出系統としています。覆工コンクリートのひび割れ、うき、剥落は、第三者被害に直結します。点検は近接目視で5年に1回が基本で、健全性はⅠからIVの4区分です。Ⅲでは令和3年度と6年度に、維持管理に関わる設問が出ています。発注者の立場で、点検結果から補修の優先順位をどうつけるかを書けると、解決策に厚みが出ます。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/sentaku-tunnel-yomikata/work/factory/raw-maintenance.635ccbbb.png",
+              "sha256": "635ccbbb5144900d4b7d13b2f4689090bd95064a3866cc132da905d635ba5be0"
+            },
+            "generatedAt": "2026-11-05T22:14:59.903Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/sentaku-tunnel-yomikata/work/maintenance-diagram.4fe2db63.png",
+            "sha256": "4fe2db63bb272f26a92a312420fbdb04a8424ee53e669250e9b3c72cdbe3c005",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "635ccbbb5144900d4b7d13b2f4689090bd95064a3866cc132da905d635ba5be0"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-05T22:14:59.903Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字: 見出し・2つの図中文字が指示と一字ずつ一致し誤字・余計な文言なし。種別/構造: 覆工のひび割れ・剥落と路面の落下片を虫眼鏡で示す図で本文と整合。破綻なし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "summary",
+          "inputSha256": "7beb71f27b74e32157131295e7257b32f5296bb761143335c9aa54913d060ea1",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『まとめ：優先順位』。 図に入れる文字: 『① 山岳（NATM）：II-1の2設問』 『② 開削かシールド：実務に近いほう』 『③ Ⅲ：地質・都市部地下空間』 『④ 維持管理：点検制度と4区分』。 この場面の説明（文字にしない）: 仕込む順番は4段です。1番目は山岳で、II-1の2設問を占めます。2番目は開削かシールドの実務に近いほう。3番目はⅢの地質と都市部の地下空間。4番目は維持管理で、点検制度と4区分を添えます。表から数えた範囲の順番です。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/sentaku-tunnel-yomikata/work/factory/raw-summary.8e0ca44e.png",
+              "sha256": "8e0ca44e71f27317bbaf4055bfe961fdad6b29b3efaa33a0d6f0c7ea2f6e3804"
+            },
+            "generatedAt": "2026-11-05T22:14:59.903Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/sentaku-tunnel-yomikata/work/summary-diagram.6a295d01.png",
+            "sha256": "6a295d0142d373151f5642180d9baf42b701068b08aa4b3b2323210251e0b2b2",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "8e0ca44e71f27317bbaf4055bfe961fdad6b29b3efaa33a0d6f0c7ea2f6e3804"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-05T22:14:59.903Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出しと4項目の文字が指示と一致。山岳・開削とシールド・地質と都市・点検の各図は内容に合い破綻なし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "cta",
+          "inputSha256": "be6b35ad035dcf56e87fbbb438072ae1712e1ba4be31eda6a2cc791f28b646c2",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『続きは概要欄で』。 図に入れる文字: 『トンネルマガジン：R03〜R07の模範解答』 『年度別の出題テーマ：サイトの無料記事』。 この場面の説明（文字にしない）: 令和3年度から7年度の模範解答を収めたトンネルマガジンは、概要欄にあります。年度別の出題テーマの一覧は、サイトの無料記事で確認できます。ご視聴ありがとうございました。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/sentaku-tunnel-yomikata/work/factory/raw-cta.feb7b922.png",
+              "sha256": "feb7b9223fa51ca41fc3e092abcefdc202a0c413d81e31bcfa0ee6daf0fbd7ca"
+            },
+            "generatedAt": "2026-11-05T22:14:59.903Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/sentaku-tunnel-yomikata/work/cta-diagram.5ab616c9.png",
+            "sha256": "5ab616c994c968e056e30c4f41f4d1e6197adfbd5b721594e323b9cc80724043",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "feb7b9223fa51ca41fc3e092abcefdc202a0c413d81e31bcfa0ee6daf0fbd7ca"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-05T22:14:59.903Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出しと2つの文字が指示と一致（〜は波ダッシュ表記）。本とブラウザの図に崩れなし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        }
+      ]
+    }
+  },
+  "activeCoverRevision": "cover-pop-20261106",
+  "activeBodyRevision": "body-diagram-20261106"
 }
