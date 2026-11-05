@@ -55,6 +55,28 @@
         "expected": 720,
         "heard": 632
       }
+    },
+    "pe-construction/hissu1-kensetsu-dx/youtube.longform": {
+      "videoSha256": "e0b1b6e6ac8fcaba5fc05d49a93038610d0dbc8b5bb3c9c66ddcb7c41f3bcb93",
+      "at": "2026-11-05T00:54:00.497Z",
+      "similarity": 0.728,
+      "maxVolumeDb": -1.4,
+      "durationGapSec": 0.1,
+      "chars": {
+        "expected": 969,
+        "heard": 953
+      }
+    },
+    "pe-construction/toan-kousei-template/youtube.longform": {
+      "videoSha256": "7abe449a27ebbee6397b2f310ffc8ac3b415b69246e60f976f115a1b217aea29",
+      "at": "2026-11-05T00:54:13.316Z",
+      "similarity": 0.852,
+      "maxVolumeDb": -1.5,
+      "durationGapSec": 0.1,
+      "chars": {
+        "expected": 900,
+        "heard": 811
+      }
     }
   }
 }

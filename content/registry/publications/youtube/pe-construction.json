@@ -60,8 +60,20 @@
       "format": "longform",
       "status": "qa_passed",
       "media": {
-        "cover": "pe-construction/hissu1-kensetsu-dx/youtube.longform/cover"
-      }
+        "cover": "pe-construction/hissu1-kensetsu-dx/youtube.longform/cover",
+        "scene-001": "pe-construction/hissu1-kensetsu-dx/youtube.longform/scene-001",
+        "scene-002": "pe-construction/hissu1-kensetsu-dx/youtube.longform/scene-002",
+        "scene-003": "pe-construction/hissu1-kensetsu-dx/youtube.longform/scene-003",
+        "scene-004": "pe-construction/hissu1-kensetsu-dx/youtube.longform/scene-004",
+        "scene-005": "pe-construction/hissu1-kensetsu-dx/youtube.longform/scene-005",
+        "scene-006": "pe-construction/hissu1-kensetsu-dx/youtube.longform/scene-006",
+        "scene-007": "pe-construction/hissu1-kensetsu-dx/youtube.longform/scene-007",
+        "scene-008": "pe-construction/hissu1-kensetsu-dx/youtube.longform/scene-008",
+        "video": "pe-construction/hissu1-kensetsu-dx/youtube.longform/video",
+        "subtitles": "pe-construction/hissu1-kensetsu-dx/youtube.longform/subtitles"
+      },
+      "copy": "content/sns/video-packs/pe-construction/hissu1-kensetsu-dx/youtube.json#longform",
+      "publishAt": "2026-11-11T11:30:00Z"
     },
     {
       "id": "pe-construction/hissu1-kokudo-chiiki/youtube.longform",
@@ -385,9 +397,35 @@
       "work": "toan-kousei-template",
       "account": "youtube:main",
       "format": "longform",
-      "status": "qa_passed",
+      "status": "approved",
       "media": {
-        "cover": "pe-construction/toan-kousei-template/youtube.longform/cover"
+        "cover": "pe-construction/toan-kousei-template/youtube.longform/cover",
+        "scene-001": "pe-construction/toan-kousei-template/youtube.longform/scene-001",
+        "scene-002": "pe-construction/toan-kousei-template/youtube.longform/scene-002",
+        "scene-003": "pe-construction/toan-kousei-template/youtube.longform/scene-003",
+        "scene-004": "pe-construction/toan-kousei-template/youtube.longform/scene-004",
+        "scene-005": "pe-construction/toan-kousei-template/youtube.longform/scene-005",
+        "scene-006": "pe-construction/toan-kousei-template/youtube.longform/scene-006",
+        "scene-007": "pe-construction/toan-kousei-template/youtube.longform/scene-007",
+        "scene-008": "pe-construction/toan-kousei-template/youtube.longform/scene-008",
+        "scene-009": "pe-construction/toan-kousei-template/youtube.longform/scene-009",
+        "video": "pe-construction/toan-kousei-template/youtube.longform/video",
+        "subtitles": "pe-construction/toan-kousei-template/youtube.longform/subtitles"
+      },
+      "copy": "content/sns/video-packs/pe-construction/toan-kousei-template/youtube.json#longform",
+      "publishAt": "2026-11-12T11:30:00Z",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "policy",
+          "at": "2026-11-05T00:54:13.900Z",
+          "digest": "293a9252936ac0e8c059b81362902cfa9f641ceea132ad76c8862fab79093aa5"
+        }
+      },
+      "approval": {
+        "by": "policy",
+        "at": "2026-11-05T00:54:13.900Z",
+        "contentSha256": "f79ff0d179bc9a6ac3ab87b8155c7ce092b108e4df16c03bc4364439816d9bee"
       }
     }
   ]
