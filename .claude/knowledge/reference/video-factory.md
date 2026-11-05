@@ -85,6 +85,10 @@ node --env-file=<.env.local> scripts/video-factory.mjs publish --packs <a,b>
 
 トークンの大半は代理エージェントの起動にかかる（2026-11-05 の実測: 13 体で約 100 万・1 体約 8 万）。機械の工程は `produce`・`finish` のようにコマンド 1 本へまとめ、代理を増やさない。判定の記録は監査役・QA 役が自分で行う。1 本で 12 枚前後を生成するので、Codex の利用枠も確かめる。
 
+## 生成ルールの正本
+
+先生の特徴、画風、媒体別の安全域、文字の禁止事項、参照画像、生成経路の一覧は `config/image-generation.json` にあり、通常動画とショートの生成指示はここから組み立てる。資格の色は `note-cover-tokens.json`。工程のコードへ文面を書き足さない（`npm run check-image-rules`）。
+
 ## ショートの工程
 
 ショートは通常動画とは別に、`npm run shorts-factory` で作る。入口は `shorts-design.json`（論点の分割）で、`beats` の語りをつなぐと承認済みの台本の場面に一致しないと止まる。導入の `hook` だけが足せる語り。画面は表紙・論点ごとの図解・締めの全面画像で、尺は 20〜60 秒。

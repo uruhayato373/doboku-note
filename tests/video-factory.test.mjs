@@ -50,8 +50,8 @@ test('generateWithCodexAsync: 偽の実行で画像の有無を返す', async ()
 test('指示は原稿だけから決まり、指定の文字を含む', () => {
   const s = scene('a');
   assert.equal(buildBodyPrompt(s, 'pe-construction'), buildBodyPrompt(s, 'pe-construction'));
-  for (const word of ['aの見出し', '甲 乙', '丙', '注記', '中央の語', 'インディゴ']) assert.ok(buildBodyPrompt(s, 'pe-construction').includes(word), word);
-  assert.ok(!buildBodyPrompt({ sceneId: 'x', narration: 'n', visual: {} }, 'x').includes('undefined'));
+  for (const word of ['aの見出し', '甲 乙', '丙', '注記', '中央の語', '#33356B']) assert.ok(buildBodyPrompt(s, 'pe-construction').includes(word), word);
+  assert.ok(!buildBodyPrompt({ sceneId: 'x', narration: 'n', visual: {} }, 'pe-construction').includes('undefined'));
   const cover = buildCoverPrompt({ headline: ['技術士', '口頭対策'] }, 'pe-construction');
   assert.ok(cover.includes('『技術士』『口頭対策』') && cover.includes('総監が制作'));
 });

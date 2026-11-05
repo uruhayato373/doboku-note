@@ -38,6 +38,8 @@ domain: product
 
 ## 生成プロンプトの骨格
 
+人物・画風・安全域・禁止事項の文面は `npm run image-rules -- --exam <資格> --format <媒体>` の出力を使う。正本は `config/image-generation.json`。以下は商品画像など、動画以外の項目の並びの見本。
+
 ```text
 添付の承認済み画像をデザインの参照に、doboku-noteの資格学習用POP画像を制作。
 媒体: {channel}、出力: {width}×{height}、安全域: {媒体仕様}。

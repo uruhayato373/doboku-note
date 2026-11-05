@@ -243,6 +243,8 @@ npm run coconala-pause    # ココナラ出品の受付休止/再開/アーカ�
 ## SNS・動画
 
 ```bash
+npm run image-rules -- --exam <exam> --format shorts|longform # 手作業の Codex へ渡す生成指示の部品を出す
+npm run check-image-rules # AI 画像の経路の登録と共通ルールの一本化を検査
 npm run shorts-factory -- plan|generate|audit-queue|record-audit|adopt|render|record-review --pack <exam>/<work> --key <key> # ショートの標準工程（全面画像）
 npm run video-factory -- status  # 全動画パックの次の工程を出す。制作の入口（手順 → video-factory.md。承認・公開はしない）
 npm run check-video-content    # 動画パック（DN-0110）の整合ゲート（manifest/sourceRef 漏洩/CTA・UTM/storyboard/逐語転用/status。契約 SSOT は config/video-content.json と video-content-policy.md。exit 2=検査不成立・quality:audit に同梱）

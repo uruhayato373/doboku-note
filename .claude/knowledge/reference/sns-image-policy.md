@@ -7,6 +7,8 @@ title: SNS 投稿画像 ポリシー
 
 # SNS 投稿画像 ポリシー
 
+AI 画像の生成経路の一覧と生成指示の部品の正本は `config/image-generation.json`（[POP画像方針](./pop-image-policy.md)）。
+
 `content/sns/{x,instagram,youtube}/` に出力する SNS 用画像（IG カルーセル / X 投稿 / YT Shorts）の真実源。`.claude/knowledge/reference/note-svg-policy.md` の SNS 版。
 
 ## 0. 人物と見出しの共通方針（2026-09-08 採用）
