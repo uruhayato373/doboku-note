@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import { buildDnIndex, dnTiming, dueJudgments, issueMapProblems, issueMapRouting, judgmentDue } from '../scripts/lib/issue-map.mjs';
 import { monthlyReviewCompletion } from '../scripts/lib/monthly-review-completion.mjs';
 import { weeklyReviewCompletion } from '../scripts/lib/weekly-review-completion.mjs';
+import { buildReport, reviewPeriod } from '../scripts/lib/business-direction.mjs';
 import { datasetPath } from '../scripts/lib/datasets.mjs';
 import { REPO_ROOT as ROOT } from '../scripts/lib/repository-paths.mjs';
 
@@ -93,4 +94,10 @@ test('月次の完了契約: since の月から節を求め、それより前の
   assert.equal(run('2026-10', '# 月次レビュー 2026-10\n'), false);
   assert.equal(run('2026-11', '# 月次レビュー 2026-11\n'), true);
   assert.equal(run('2026-11', '# 月次レビュー 2026-11\n\n## イシューマップ\n'), false);
+});
+
+test('ココナラの評価件数は公開プロフィールの台帳から指標へ入る（ストックなので期間外なら観測日の値）', () => {
+  const facts = buildReport(ROOT, reviewPeriod('monthly')).sources.filter((f) => f.metric === 'coconalaReviews');
+  assert.equal(facts.length, 1);
+  assert.ok(Number.isInteger(facts[0].value));
 });

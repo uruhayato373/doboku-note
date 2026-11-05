@@ -196,6 +196,9 @@ export default async function IssuesPage({ searchParams }: { searchParams: Promi
           <div className="text-sm font-medium">{r.label}</div>
           {r.sub && <div className="text-muted-foreground">{r.sub}</div>}
           {r.receiptsYen != null && <div className="text-muted-foreground tabular-nums">累計の手取り {yen(r.receiptsYen)}</div>}
+          {r.receiptsYen != null && r.productCount ? (
+            <div className="text-muted-foreground tabular-nums">商品 {r.productCount} 本・1 本あたり {yen(Math.round(r.receiptsYen / r.productCount))}</div>
+          ) : null}
         </WideCell>
       ),
       ...Object.fromEntries(

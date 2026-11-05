@@ -93,7 +93,8 @@ export type LeafView = {
 export type JudgmentView = { key: string; issues: string[]; picture: string; timing: DnRef[]; metrics: MetricValue[]; due: string | null };
 export type CalendarView = {
   columns: { id: string; label: string; sub: string }[];
-  rows: { id: string; label: string; sub: string | null; receiptsYen: number | null; cells: (Omit<Cell, 'dns'> & { dns: DnRef[] })[] }[];
+  /** productCount は販売中の商品数（note 公開・KDP live・ココナラ listed）。受取 ÷ 商品数が作業時間の代わりの比較（作業の重さは見えない） */
+  rows: { id: string; label: string; sub: string | null; receiptsYen: number | null; productCount: number | null; cells: (Omit<Cell, 'dns'> & { dns: DnRef[] })[] }[];
   notes: string[];
 };
 export type ComparisonView = { title: string; note: string; columns: string[]; rows: { label: string; cells: string[] }[] };
@@ -207,6 +208,8 @@ export function loadIssueView(mapId?: string): IssueView {
   }));
 
   const netOf = new Map(channels.byQualification.map((q) => [q.id, q.note + q.kindle + q.coconala]));
+  const products = (readDataset(root, 'config.products') as { products: { channel: string; qualification: string; catalog?: { published?: boolean; status?: string } | null }[] }).products;
+  const onSale = (p: (typeof products)[number]) => (p.channel === 'note' ? p.catalog?.published === true : p.catalog?.status === (p.channel === 'kindle' ? 'live' : 'listed'));
   const calendar: CalendarView | null = raw.calendar
     ? {
         columns: raw.calendar.columns,
@@ -218,6 +221,7 @@ export function loadIssueView(mapId?: string): IssueView {
             label: r.label ?? labelOfQualifications(ids),
             sub: r.sub ?? null,
             receiptsYen: ids.length ? ids.reduce((sum, id) => sum + (netOf.get(id) ?? 0), 0) : null,
+            productCount: ids.length ? products.filter((p) => ids.includes(p.qualification) && onSale(p)).length : null,
             cells: r.cells.map((c) => ({ ...c, dns: (c.dns ?? []).map(dnRef) })),
           };
         }),

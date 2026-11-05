@@ -37,6 +37,8 @@ const PLATFORMS = {
   ig: { dataset: 'instagram.competitors', paused: 'SNS 保留中（2026-10-17〜）', review: 'npm run scout-ig-competitors → /competitor-review --platform ig で意味分析' },
   // YouTube は一覧（yt-dlp）を手元で取る。分析の文章は docs/marketing/07c（画面・尺・型）
   youtube: { dataset: 'youtube.competitors', review: 'npm run scout-youtube-competitors → docs/marketing/07c の再取得手順で前回と比べる' },
+  // 講座の企業は取得スクリプトが無く、公式ページの目視で入れる。期限は台帳の freshness.warnDays
+  courses: { dataset: 'courses.competitors', review: '/competitor-review の講座の企業の手順で公式ページを見て観測を足す' },
   // 資格ごとの混み具合（YouTube・note・ココナラの検索）。展開の判断（npm run qualification-market）が読む
   market: { dataset: 'analysis.qualification-market', review: 'npm run scan-qualification-market -- --coconala → /competitor-review で展開の判断を見直す' },
   // 悩み別の外の調査（ディープリサーチ・競合の論点地図・需要の証拠）。前回の日と間隔は config/demand-map.json の research が持つ（1 回 1 資格）
