@@ -442,7 +442,14 @@ function cleanup() {
 const commands = {
   status,
   plan: () => { const p = buildPlan(ROOT, requirePack(), { scope: args.scope, date: args.date ?? today() }); console.log(JSON.stringify(summarize(p))); },
-  generate: async () => console.log(JSON.stringify(await generatePlan(ROOT, requirePack(), { concurrency: Number(args.concurrency ?? 3), log: console.log }))),
+  generate: async () => {
+    // 機械検査で落ちた分は上限まで作り直す。上限に達して残れば失敗で返す
+    let result;
+    do result = await generatePlan(ROOT, requirePack(), { concurrency: Number(args.concurrency ?? 3), log: console.log });
+    while (result.missing > result.exhausted.length);
+    console.log(JSON.stringify(result));
+    if (result.missing) process.exit(1);
+  },
   'audit-queue': () => console.log(JSON.stringify(auditQueue(ROOT, requirePack()), null, 2)),
   'record-audit': () => console.log(JSON.stringify(recordAudit(ROOT, requirePack(), JSON.parse(readFileSync(args.file, 'utf8')), { by: args.by }))),
   adopt: async () => console.log(JSON.stringify(await adoptPlan(ROOT, requirePack(), { now: new Date().toISOString() }))),
