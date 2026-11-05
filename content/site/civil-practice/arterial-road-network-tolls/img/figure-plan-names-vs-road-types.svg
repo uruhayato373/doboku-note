@@ -1,0 +1,63 @@
+<!-- authored 2026-11-05 doboku-note 自作。論点は道路法第3条の4種類と、高規格幹線道路・高規格道路・重要物流道路の呼び名の対応。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="計画や指定制度の呼び名と、道路法の4種類の対応図。高規格幹線道路は高速自動車国道と一般国道の自動車専用道路で構成し、高規格道路は高規格幹線道路と地域高規格道路をあわせた呼び名。重要物流道路は国が区間を定めて指定する。呼び名だけでは管理者も費用の負担者も決まらない。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 12px; fill: #222; }  /* ink-strong */
+      .h { font-size: 11px; fill: #8a8a8a; }  /* ink-muted */
+      .s { font-size: 11px; fill: #555; }  /* ink-body */
+      .n { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .b { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .c { text-anchor: middle; }
+      .tag { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }  /* surface */
+      .brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }  /* brand-fill / brand */
+      .warn { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }  /* warn-fill / warn */
+      .pos { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }  /* positive-fill / positive */
+      .ln { stroke: #2e6da4; stroke-width: 1.5; fill: none; }
+    </style>
+    <marker id="arrow" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0,0 8,3 0,6" fill="#2e6da4"/>
+    </marker>
+  </defs>
+  <text class="h" x="10" y="17">計画・制度の呼び名</text>
+  <text class="h" x="215" y="17">道路法の種類（第3条）</text>
+
+  <rect class="tag" x="10" y="26" width="180" height="218" rx="8"/>
+  <text class="b" x="20" y="45">高規格道路</text>
+  <rect class="brand" x="20" y="56" width="160" height="86" rx="6"/>
+  <text class="n c" x="100" y="88">高規格幹線道路</text>
+  <text class="s c" x="100" y="108">全体構想は約14,000km</text>
+  <rect class="warn" x="20" y="152" width="160" height="82" rx="6"/>
+  <text class="n c" x="100" y="176">地域高規格道路</text>
+  <text class="s c" x="100" y="196">約10,000km</text>
+  <text class="s c" x="100" y="216">法律の種類は別に調べる</text>
+
+  <rect class="pos" x="215" y="56" width="175" height="34" rx="6"/>
+  <text class="n c" x="302" y="78">高速自動車国道</text>
+  <rect class="pos" x="215" y="98" width="175" height="44" rx="6"/>
+  <text class="n c" x="302" y="117">一般国道</text>
+  <text class="s c" x="302" y="134">（自動車専用道路の部分）</text>
+  <rect class="tag" x="215" y="152" width="175" height="38" rx="6"/>
+  <text class="n c" x="302" y="176">都道府県道</text>
+  <rect class="tag" x="215" y="196" width="175" height="38" rx="6"/>
+  <text class="n c" x="302" y="220">市町村道</text>
+  <line class="ln" x1="182" y1="73" x2="213" y2="73" marker-end="url(#arrow)"/>
+  <line class="ln" x1="182" y1="120" x2="213" y2="120" marker-end="url(#arrow)"/>
+
+  <rect class="warn" x="10" y="256" width="180" height="78" rx="8"/>
+  <text class="n c" x="100" y="280">重要物流道路</text>
+  <text class="s c" x="100" y="300">国が区間を定めて指定</text>
+  <text class="s c" x="100" y="318">市道なら市は同意する側</text>
+  <rect class="tag" x="215" y="256" width="175" height="78" rx="8"/>
+  <text class="b" x="227" y="280">指定の効果</text>
+  <text class="s" x="227" y="300">構造の技術的基準が変わる</text>
+  <text class="s" x="227" y="318">災害時の管理の特例がある</text>
+  <line class="ln" x1="192" y1="295" x2="213" y2="295" marker-end="url(#arrow)"/>
+
+  <rect class="brand" x="10" y="346" width="380" height="68" rx="8"/>
+  <text class="n c" x="200" y="372">同じ一本の道が、法律では一般国道、</text>
+  <text class="n c" x="200" y="394">計画では高規格幹線道路でもある</text>
+
+  <rect class="warn" x="10" y="424" width="380" height="66" rx="8"/>
+  <text class="b c" x="200" y="450">呼び名だけでは、管理者も費用の負担者も決まらない</text>
+  <text class="s c" x="200" y="472">法律の種類と事業の方式を、別に確かめる</text>
+</svg>

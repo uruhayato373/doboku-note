@@ -173,6 +173,7 @@ const reviewCadence = z
           does: text,
           evidence: z.enum(['checks', 'reportFile', 'reviewRecord', 'routing', 'sections', 'triage', 'weeklyPlan']),
           sections: strList.optional(),
+          since: text.optional().describe('この手順を求め始める回（週次は YYYY-Www・月次は YYYY-MM）。手順を足す前のレポートを遡って未完にしない'),
         })
         .strict(),
     ),

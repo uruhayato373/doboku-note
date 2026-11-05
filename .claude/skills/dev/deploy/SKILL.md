@@ -59,66 +59,21 @@ npm run build
 git push origin develop
 ```
 
-### Step 5: main にマージ
+### Step 5: main へ昇格して本番を確かめる
 
 ```bash
-git checkout main
-git pull --ff-only origin main
-git merge --no-ff -m "Merge develop into main" develop
+npm run deploy:main              # 昇格先だけ見るときは -- --dry-run
 ```
 
-- コンフリクトが発生した場合 → ユーザーに報告し、解消を支援
-- **`--no-ff` を付ける（2026-10-11・DN-0690）**: main が develop の祖先だと fast-forward になり、develop の先頭が
-  bot の `[skip ci]` commit（ogp-supply 等・構造的に高頻度）のとき main の先頭もそれになってデプロイが起動しない。
-  merge commit を必ず作れば先頭のメッセージは自分のものになる
-- **`--ff-only` は使わない**: main は PR の squash/merge コミットを持つため develop の子孫にならず、
-  fast-forward は構造的に失敗する（`fatal: Not possible to fast-forward`）。マージコミットが正。
-- **`npm run build` は生成インデックス（`src/config/*.json` の `generated_at` / `dateModified`）を
-  書き換える**。これは CI のビルドで再生成されるノイズなので、main へ直接コミットせず破棄してから
-  マージする（`git checkout -- src/config/<該当ファイル>`・中身が timestamp 差分だけであることを確認してから）。
+`scripts/deploy-main.mjs` が次を 1 回で行う。**exit 0 は本番の確認まで通ったときだけ**で、途中の失敗で止まる。手でコマンドをつながない（2026-11-05、push の失敗の後も本番確認が旧版に対して緑を出した）。`main` への直接 push は `check-shell-traps` フックが止める。
 
-### Step 6: main を push（デプロイ開始）
+1. develop の検査を待つ。最新の検査が赤なら古い緑へ逃げず止める。検査の無い bot の `[skip ci]` commit は飛ばす
+2. merge commit を `checkout` なしで作る（作業ツリーと並行セッションに触らない。main が develop の子孫にならないので `--ff-only` は構造的に失敗する）
+3. push し、終了コードではなくリモートの main の実体で成否を決める。先に main が進んでいたら作り直す
+4. その commit のデプロイの起動を確かめて完了を待つ。失敗ならログの末尾を出して止まる
+5. `npm run check-production-ssr` を実行する
 
-```bash
-git push origin main
-```
-
-GitHub Actions の `cloudflare-deploy.yml` ワークフローが自動でトリガーされる。**起動したことを機械で確かめる**（push の 60 秒以内に run の headSha が origin/main と一致すれば起動している。一致しなければ下の手動起動）:
-
-```bash
-sleep 30; test "$(gh run list --workflow=cloudflare-deploy.yml --limit 1 --json headSha -q '.[0].headSha')" = "$(git rev-parse origin/main)" && echo deploy-started || echo deploy-NOT-started
-```
-
-> [!warning] 先頭が `[skip ci]` だとデプロイが起動しない（2026-09-23）
-> GitHub は push の**先頭 commit** のメッセージに `[skip ci]` があると、push 起点の
-> ワークフローを丸ごと飛ばす。`cloudflare-deploy.yml` も例外ではない。
-> fetch-metrics / ogp-supply 等の bot が数分おきに `[skip ci]` 付きで
-> develop へ台帳を積むので、**develop の先頭をそのまま昇格すると高い確率でこれを踏む**。
-> push は成功して見えるので、確認しなければ「デプロイした」と誤報告する。
->
-> push 後に必ず run の起動を確かめ、起動していなければ手動で起動する:
->
-> ```bash
-> gh run list --workflow=cloudflare-deploy.yml --limit 1   # 今 push した SHA の run があるか
-> gh workflow run cloudflare-deploy.yml --ref main          # 無ければ手動起動（verify_only 既定 false＝ビルド＋デプロイ）
-> ```
->
-> 昇格する commit は「最後に CI を通った commit」以降が `[skip ci]` の台帳だけであることを
-> `git diff --stat <CI済み SHA> origin/develop` で確かめてから選ぶ（サイト内容が未検証のまま出ないように）。
-
-### Step 7: 元のブランチに戻る
-
-```bash
-git checkout {作業ブランチ}
-```
-
-### Step 7.5: 本番 SSR 検証
-
-**注意**: 検証は `.pages.dev`（デプロイ直後のビルド成果物）で行う。`doboku-note.com`（Cloudflare 経由の本番ドメイン）でも可だが、Cloudflare のキャッシュ反映ラグや（設定変更時の）Bot 保護の影響を避けるため `.pages.dev` を一次確認に使う。なお 2026-06-12 時点では `doboku-note.com` は `curl` 既定 UA・`facebookexternalhit` 等の bot UA でも 200 を返す（旧記載「bot で必ず 403」は実測と不一致＝Bot Fight Mode は現状緩和。外部 Validator の IP ベース挑戦は別問題で残りうる→ [measurement-incidents.md](../../../../.claude/knowledge/reference/measurement-incidents.md) 2026-04-25）。
-
-```bash
-npm run check-production-ssr
-```
+exit 1 や exit 2 で止まったら、原因を直して同じコマンドをもう一度実行する。
 
 判定はスクリプトが持つ。**手打ちの curl で代用しない**（下の 2 つの誤読を機械で潰してある）:
 
@@ -140,7 +95,7 @@ npm run check-production-ssr
 - `<main` が 0 → SSR 壊れ。ユーザーに即報告し .claude/todo/backlog.md に起票
 - ローカルで exit 2 の場合 → その結果をデプロイの成否の根拠にしない。公開後の `cloudflare-deploy.yml` にある SSR 検査結果を確認する。再検査は `gh workflow run cloudflare-deploy.yml --ref main -f verify_only=true`（再デプロイなし）。外部検査の exit 0 を確認して完了報告する。
 
-### Step 8: 完了報告
+### Step 6: 完了報告
 
 以下を報告する:
 - マージ・push 結果
@@ -158,5 +113,5 @@ npx wrangler pages deploy out --project-name=doboku-note
 
 - ビルド失敗 → ユーザーに確認し、修正 or 中止
 - マージコンフリクト → ユーザーに報告し、解消を支援
-- push 失敗 → ユーザーに報告
+- `deploy:main` の失敗 → 表示された原因を直して再実行し、直せないときだけユーザーに報告
 - `--force` は使用しない

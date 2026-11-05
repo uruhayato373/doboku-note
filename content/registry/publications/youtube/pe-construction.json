@@ -486,7 +486,7 @@
       "work": "toan-kousei-template",
       "account": "youtube:main",
       "format": "longform",
-      "status": "rendered",
+      "status": "scheduled",
       "media": {
         "cover": "pe-construction/toan-kousei-template/youtube.longform/cover",
         "scene-001": "pe-construction/toan-kousei-template/youtube.longform/scene-001",
@@ -517,7 +517,42 @@
         "contentSha256": "f79ff0d179bc9a6ac3ab87b8155c7ce092b108e4df16c03bc4364439816d9bee"
       },
       "times": {
-        "rendered": "2026-11-05T01:07:49.866Z"
+        "rendered": "2026-11-05T01:07:49.866Z",
+        "uploaded": "2026-11-05T08:27:13.172Z",
+        "scheduled": "2026-11-05T08:27:24.966Z"
+      },
+      "delivery": {
+        "inputSha256": "7c1452bf8dab20b9a61363e8378b1c374171b6670118117e454ba2d3e162a3a7",
+        "marker": "dn-single-e0b332144bcaac4439bc98772f5aedcee671f0b2",
+        "uploadRequestedAt": "2026-11-05T08:26:23.612Z",
+        "videoId": "ywemm49EBPA",
+        "processedAt": "2026-11-05T08:27:12.448Z",
+        "thumbnailRequestedAt": "2026-11-05T08:27:13.223Z",
+        "thumbnailUrls": [
+          "https://i9.ytimg.com/vi/ywemm49EBPA/default.jpg?sqp=CNz6sNcG&rs=AOn4CLBVixjwb9ndgrh01PdTDjV3pbNxeg",
+          "https://i9.ytimg.com/vi/ywemm49EBPA/mqdefault.jpg?sqp=CNz6sNcG&rs=AOn4CLChUfTmGMI5z83zTY-AySY60l83mQ",
+          "https://i9.ytimg.com/vi/ywemm49EBPA/hqdefault.jpg?sqp=CNz6sNcG&rs=AOn4CLC-EMDeA29jx5sxEDEfg6dc9ROXBw",
+          "https://i9.ytimg.com/vi/ywemm49EBPA/sddefault.jpg?sqp=CNz6sNcG&rs=AOn4CLCJxo7mqhIQnJCiBG8JfY7pi2h_dQ",
+          "https://i9.ytimg.com/vi/ywemm49EBPA/maxresdefault.jpg?sqp=CNz6sNcG&rs=AOn4CLDnOtia2XvOGOOYv2GvofPbJE9NbQ",
+          "https://i9.ytimg.com/vi/ywemm49EBPA/fhddefault.jpg?sqp=CNz6sNcG&rs=AOn4CLBn2Na0yufmmcieubZxlXr81ebwoA"
+        ],
+        "thumbnailAcceptedAt": "2026-11-05T08:27:17.250Z",
+        "scheduleRequestedAt": "2026-11-05T08:27:21.300Z",
+        "scheduleAt": "2026-11-12T11:30:00Z",
+        "scheduledVerifiedAt": "2026-11-05T08:27:24.966Z"
+      },
+      "platform": {
+        "id": "ywemm49EBPA",
+        "url": "https://www.youtube.com/watch?v=ywemm49EBPA",
+        "privacy": "private",
+        "evidence": {
+          "kind": "publisher-live-check",
+          "ref": "content/sns/video-packs/pe-construction/toan-kousei-template/youtube.json#longform"
+        }
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-11-05T08:27:17.250Z"
       }
     }
   ]

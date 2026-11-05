@@ -2,20 +2,20 @@
   "description": "サイト図版SVGの派生カタログ（SSOT）。build-svg-catalog.mjs が生成。手動編集しない。",
   "source": "content/site/**/img/*.svg",
   "summary": {
-    "total": 1618,
-    "embedded": 1618,
+    "total": 1632,
+    "embedded": 1632,
     "orphan": 0,
     "missingConcept": 4,
     "withHighAudit": 0,
     "figures": {
-      "total": 1503,
-      "conforming": 1503,
+      "total": 1517,
+      "conforming": 1517,
       "needsRework": 0
     },
     "byCategory": {
-      "civil-construction-1": 495,
+      "civil-construction-1": 497,
       "civil-construction-2": 25,
-      "civil-practice": 410,
+      "civil-practice": 422,
       "concrete-chief-engineer": 140,
       "concrete-diagnostician": 142,
       "concrete-engineer": 71,
@@ -3770,6 +3770,24 @@
       }
     },
     {
+      "file": "content/site/civil-construction-1/textbook-concrete-properties/img/figure-crack-timeline.svg",
+      "category": "civil-construction-1",
+      "slug": "textbook-concrete-properties",
+      "name": "figure-crack-timeline.svg",
+      "concept": "コンクリートのひび割れを発生時期、主な原因、典型的な位置、処置の窓で切り分けた図。上は数時間で進行が止まり、下は年単位で進行する。時間の目盛りは対数風",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
       "file": "content/site/civil-construction-1/textbook-construction-business/img/figure-act-five-pillars.svg",
       "category": "civil-construction-1",
       "slug": "textbook-construction-business",
@@ -6187,6 +6205,24 @@
       "slug": "textbook-rebar-formwork",
       "name": "figure-slip-form-rise.svg",
       "concept": "スリップフォームの仕組み。ジャッキがジャッキロッドを伝って、型枠・ヨーク・作業床を一体で押し上げる。型枠の内側は打込み直後のコンクリートで、型枠の下端では自立する硬さが要り、その下は硬化したコンクリートになる",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/textbook-rebar-formwork/img/figure-stagger-layout.svg",
+      "category": "civil-construction-1",
+      "slug": "textbook-rebar-formwork",
+      "name": "figure-stagger-layout.svg",
+      "concept": "鉄筋継手を千鳥配置にするときの隣り合う継手の間隔（継手の長さL＋鉄筋直径の25倍）を、重ね継手の長さLと合わせて示す配置図",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -9584,6 +9620,96 @@
       }
     },
     {
+      "file": "content/site/civil-practice/arterial-road-network-tolls/img/figure-company-agency-flow.svg",
+      "category": "civil-practice",
+      "slug": "arterial-road-network-tolls",
+      "name": "figure-company-agency-flow.svg",
+      "concept": "高速道路会社と日本高速道路保有・債務返済機構の分担図。機構は道路資産を保有して会社に貸し付け、債務を返済する。会社は新設、改築、維持、修繕などの事業を行い、貸付料を支払う。利用者が料金を支払い、両者は協定で貸付料や料金の額、徴収期間を定める。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/arterial-road-network-tolls/img/figure-expressway-decision-flow.svg",
+      "category": "civil-practice",
+      "slug": "arterial-road-network-tolls",
+      "name": "figure-expressway-decision-flow.svg",
+      "concept": "高速自動車国道が決まる順序の流れ図。1 予定路線を国土交通大臣が内閣の議を経て定める、2 予定路線のうちから政令で路線を指定する、3 指定された路線の新設について整備計画を定める、4 整備計画の決定後に区域を決めて公示する。整備計画では関係都道府県の意見を聴く。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/arterial-road-network-tolls/img/figure-plan-names-vs-road-types.svg",
+      "category": "civil-practice",
+      "slug": "arterial-road-network-tolls",
+      "name": "figure-plan-names-vs-road-types.svg",
+      "concept": "計画や指定制度の呼び名と、道路法の4種類の対応図。高規格幹線道路は高速自動車国道と一般国道の自動車専用道路で構成し、高規格道路は高規格幹線道路と地域高規格道路をあわせた呼び名。重要物流道路は国が区間を定めて指定する。呼び名だけでは管理者も費用の負担者も決まらない。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/arterial-road-network-tolls/img/figure-smart-ic-boundary.svg",
+      "category": "civil-practice",
+      "slug": "arterial-road-network-tolls",
+      "name": "figure-smart-ic-boundary.svg",
+      "concept": "スマートICで区域の内外の整備者を分けた配置図。高速道路の区域の内側は原則として会社が整備と管理を行い、料金徴収施設も会社が受け持つ。区域から既設の一般道路までは原則として連結道路管理者である市が整備と管理を行う。市は地区協議会の構成員になり、実施計画書を提出し、連結許可を申請する。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/arterial-road-network-tolls/img/figure-toll-vs-direct-control.svg",
+      "category": "civil-practice",
+      "slug": "arterial-road-network-tolls",
+      "name": "figure-toll-vs-direct-control.svg",
+      "concept": "有料道路方式と新直轄方式の対比図。有料道路方式は高速道路会社が料金で費用を償う。新直轄方式は主に直轄事業で、新設と改築は国が四分の三以上、残りは都道府県が負担する。県や市が料金を取って道路を造るときは、国土交通大臣の許可を受けた地方道路公社が担う。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
       "file": "content/site/civil-practice/asphalt-materials-types/img/figure-binder-classification.svg",
       "category": "civil-practice",
       "slug": "asphalt-materials-types",
@@ -11353,6 +11479,78 @@
       "slug": "disaster-recovery-assessment",
       "name": "figure-three-restoration-types.svg",
       "concept": "災害復旧の三つの考え方を比べた概念図。原形復旧は被災前と同じ形に直す。効用の復旧は、同じ効用を保つ別の形に直す。たとえば流出した木橋の場所にコンクリート橋を架ける。改良復旧は、復旧に合わせて川幅を広げ、河床を掘り、築堤して再度災害を防ぐ。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/district-plan-location-optimization/img/figure-district-road-to-service.svg",
+      "category": "civil-practice",
+      "slug": "district-plan-location-optimization",
+      "name": "figure-district-road-to-service.svg",
+      "concept": "地区施設の道路が市町村道になるまでの流れ。地区整備計画で配置と規模が定まり、これに即して開発許可または道路位置の指定が行われる。次に市町村長が議会の議決を経て路線を認定し、区域決定と供用開始を公示して供用となる。認定の前は、まだ市町村道ではない。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/district-plan-location-optimization/img/figure-housing-area-notification.svg",
+      "category": "civil-practice",
+      "slug": "district-plan-location-optimization",
+      "name": "figure-housing-area-notification.svg",
+      "concept": "居住誘導区域の内外を比べた図。届出が要るのは区域の外で、住宅等の新築・改築・用途変更は3戸以上、住宅等の建築目的の開発行為は3戸以上、または3戸未満で0.1ヘクタール以上。着手の30日前までに市町村長へ届け出る。都市計画事業の施行などは届出の外。市町村長は勧告ができ、許可制ではない。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/district-plan-location-optimization/img/figure-notification-recommendation.svg",
+      "category": "civil-practice",
+      "slug": "district-plan-location-optimization",
+      "name": "figure-notification-recommendation.svg",
+      "concept": "地区計画の計画書と届出の流れ。地区計画の目標、方針、地区整備計画の順に読む。地区整備計画が定められた区域で政令で定める行為を始めるときは、30日前までに市町村長へ届け出る。計画に適合しないと認めるときは、市町村長が勧告できる。国や地方公共団体の行為などは届出の対象外。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/district-plan-location-optimization/img/figure-plan-layers.svg",
+      "category": "civil-practice",
+      "slug": "district-plan-location-optimization",
+      "name": "figure-plan-layers.svg",
+      "concept": "都市計画区域の中に重なる計画の概念図。用途地域は市町村全体を大きな網で覆い、地区計画は街区の広さで道路や公園の位置まで定める。都市施設は都市計画施設で、地区施設は含まない。立地適正化計画は市町村が任意で作り、居住誘導区域と都市機能誘導区域の二つの区域を定める。",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -15115,6 +15313,60 @@
       "slug": "road-occupancy-permit-review",
       "name": "figure-review-flow.svg",
       "concept": "道路占用許可の審査の流れを縦に並べた図。申請書の受付、警察署長・他の占用者・埋設物の管理者との協議、基準への当てはめと許可・条件、工事、復旧の確認、更新または廃止と原状回復の順で、各段の当てはめ先の条文を添えている。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/road-structure-standards/img/figure-cross-section-clearance.svg",
+      "category": "civil-practice",
+      "slug": "road-structure-standards",
+      "name": "figure-cross-section-clearance.svg",
+      "concept": "道路の横断面の模式図。中央に車道、その両側に路肩、さらに外側に歩道が並ぶ。車道の上には建築限界の空間があり、高さは4.5メートル。橋桁、標識、信号機、電線、街路樹の枝はこの空間に入れられない。歩道の幅員は歩行者が多い道路で3.5メートル以上、その他は2メートル以上で、路上施設を置くとその分を加える。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/road-structure-standards/img/figure-order-vs-ordinance.svg",
+      "category": "civil-practice",
+      "slug": "road-structure-standards",
+      "name": "figure-order-vs-ordinance.svg",
+      "concept": "国道と市町村道で、基準を決める主体を並べた図。国道は幅員、線形、勾配、排水、待避所など13の事項をすべて政令が決める。県道と市町村道は、通行する自動車の種類、建築限界、橋などの自動車荷重に対する強度の三つだけを政令が決め、残りは管理者の条例が構造令を参酌して決める。市の道路では最初に自市の道路構造条例を開く。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/road-structure-standards/img/figure-road-class-flow.svg",
+      "category": "civil-practice",
+      "slug": "road-structure-standards",
+      "name": "figure-road-class-flow.svg",
+      "concept": "道路構造令第3条の区分の流れ図。まず自動車専用かを見る。高速自動車国道と自動車専用道路は地方部が第1種、都市部が第2種。その他の道路は地方部が第3種、都市部が第4種。市道の大半はその他の道路で第3種か第4種。次に計画交通量で級を決め、やむを得ないときは一つ下の級にできる。ただし第3種第5級と第4種第4級は対象外。",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",

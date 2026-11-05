@@ -23,3 +23,6 @@ note の無料記事の下書きを commit してから公開する手順を `gi
 
 ## zsh で `$var:…` と書かない（2026-11-02）
 `git push origin $c:refs/heads/main` を zsh が `$c:r`（拡張子を外す修飾子）と読み、`d4894…efs/heads/main does not match any` で main への push が失敗した。直後の「デプロイが起動したか」の確認も前回の run に一致して、成功に見えた。変数の後ろに `:` が続くときは `"${c}:refs/heads/main"` と波括弧で囲む。起動の確認は、run の headSha と今 push した SHA の一致で見る。
+
+## 連結した確認は失敗の後も緑を出す（2026-11-05）
+main への push を `$C:refs/heads/main` と書いたら、zsh が `:r` を修飾子として読んで失敗した。同じコマンドの後段の本番確認が旧版に対して緑を出し、全体は exit 0 で終わった。止まる処理は手でつながず、スクリプトにして「exit 0 は最後の確認まで通ったとき」にする。deploy は `npm run deploy:main`。`$変数:文字` と main への直接 push は `check-shell-traps` フックが止める（tests/agent-hooks.test.mjs・tests/deploy-main.test.mjs）。バックグラウンドの完了通知が exit 0 でも、結果は出力を読んで確かめる。

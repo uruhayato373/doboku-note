@@ -308,9 +308,191 @@ export const ConfigCompetitors = z
     instagram: competitorSlot,
     x: competitorSlot,
     youtube: competitorSlot,
+    courses: competitorSlot.describe('講座の企業。観測は台帳 courses.competitors'),
   })
   .strict()
   .meta({ title: '競合の追跡リスト' });
+
+// ---- 事業イシューマップ（config/issue-map.json） ------------------------------------------------
+
+const dnRef = z.string().regex(/^DN-\d{4}$/, 'DN-####');
+const dnRefs = z.array(dnRef).describe('進み具合と判定日の正本（backlog のカード）');
+const metricRef = z
+  .object({ id: text.describe('business-direction.json の指標 id'), qualification: QID.optional().describe('資格 id。無ければ全体') })
+  .strict();
+/** 見えている・未検証・判定不能・決まっている・試算のみ */
+const issueState = z.enum(['seen', 'open', 'unknown', 'decided', 'estimate']);
+/** 判定の時期（DN の無い判定だけ書く）。[時期:] と同じ形 */
+const issueWindow = z.string().regex(/^\d{4}-(0[1-9]|1[0-2])(\.\.\d{4}-(0[1-9]|1[0-2]))?$/, 'YYYY-MM か YYYY-MM..YYYY-MM');
+
+const issueLeaf = z
+  .object({
+    id: text,
+    question: text.describe('仮説または問いの文'),
+    state: issueState.describe('実測なしに変えない'),
+    evidence: text.describe('根拠の一文。数字は asOf 時点の観測'),
+    next: text.optional().describe('白黒をつける次の手'),
+    focusMonth: month.optional().describe('その月の重点のとき。月が過ぎたら画面に出ない'),
+    dns: dnRefs.optional(),
+    metrics: z.array(metricRef).optional(),
+    proposedMetrics: z.array(text).optional().describe('承認待ちの指標（proposedMetrics の id）'),
+    competitors: z.array(z.string().regex(/^(coconala|courses):\S+$/, 'coconala:<handle> か courses:<handle>')).optional(),
+    map: text.optional().describe('掘り下げたマップの id'),
+  })
+  .strict();
+
+const issueCalendarCell = z
+  .object({
+    mark: z.enum(['hot', 'ok', 'weak', 'open', 'zero', 'prep', 'empty']),
+    head: text.optional(),
+    text: text.optional(),
+    dns: dnRefs.optional(),
+  })
+  .strict();
+
+const issueCheck = z.object({ state: issueState, hypothesis: text, evidence: text, sketch: text.describe('白黒がつく絵の説明'), judge: text }).strict();
+
+const issueStage = z
+  .object({
+    title: text,
+    lead: text.optional(),
+    facts: z
+      .array(z.object({ label: text, value: text.optional(), metric: text.optional().describe('現在値を指標から引くとき') }).strict())
+      .optional(),
+    claim: text.optional(),
+    subs: strList.optional(),
+    checks: z.array(issueCheck).optional(),
+    implications: strList.optional(),
+    forks: strList.optional(),
+  })
+  .strict();
+
+const issueMapOne = z
+  .object({
+    id: QID,
+    label: text,
+    title: text,
+    asOf: jstDate('根拠の数字を観測した日'),
+    parentIssue: text.optional().describe('このマップが掘り下げる全体のサブイシューの id'),
+    question: text,
+    stance: text,
+    criteria: strList,
+    branches: z
+      .array(z.object({ id: text, tag: text, title: text, lead: text.optional(), premise: z.boolean().optional(), leaves: z.array(issueLeaf).min(1) }).strict())
+      .min(1)
+      .superRefine(uniqueBy('id')),
+    calendar: z
+      .object({
+        columns: z.array(z.object({ id: text, label: text, sub: text }).strict()).min(1),
+        rows: z
+          .array(
+            z
+              .object({
+                id: text,
+                qualifications: z.array(QID).optional().describe('行の資格。名前と累計の手取りは正本から引く'),
+                label: text.optional().describe('資格で指せない行だけ'),
+                sub: text.optional(),
+                cells: z.array(issueCalendarCell),
+              })
+              .strict(),
+          )
+          .min(1),
+        notes: strList,
+      })
+      .strict()
+      .optional(),
+    comparison: z
+      .object({
+        title: text,
+        salesFrom: jstDate('売上の集計の開始日'),
+        qualifications: z.array(QID).min(1),
+        rows: z
+          .array(
+            z
+              .object({ label: text, live: z.enum(['examinees', 'passRate', 'sales', 'salesPerExaminee']).optional().describe('正本から計算する行'), cells: strList.optional() })
+              .strict(),
+          )
+          .min(1),
+        note: text,
+      })
+      .strict()
+      .optional(),
+    tables: z.array(z.object({ title: text, columns: strList, rows: z.array(strList), note: text.optional() }).strict()).optional(),
+    judgments: z
+      .array(
+        z
+          .object({
+            issues: strList.min(1),
+            dns: dnRefs.optional(),
+            window: issueWindow.optional().describe('DN の無い判定の時期'),
+            metrics: z.array(metricRef).optional(),
+            picture: text.describe('白黒がつく絵'),
+          })
+          .strict(),
+      )
+      .min(1),
+    storyline: z.array(issueStage).length(4).describe('本の 4 段'),
+    notes: z.array(z.object({ title: text, body: text }).strict()),
+    asks: text.optional(),
+  })
+  .strict()
+  .superRefine((m, ctx) => {
+    const leafIds = m.branches.flatMap((b) => b.leaves.map((l) => l.id));
+    const known = new Set([...leafIds, ...m.branches.map((b) => b.id)]);
+    if (known.size !== leafIds.length + m.branches.length) flag(ctx, ['branches'], 'サブイシューの id が重複している');
+    m.judgments.forEach((j, i) => {
+      for (const id of j.issues) if (!known.has(id)) flag(ctx, ['judgments', i, 'issues'], `サブイシュー ${id} が無い`);
+      if (!j.dns?.length === !j.window) flag(ctx, ['judgments', i], 'dns か window のどちらか一方だけを書く（DN があれば日付は DN から引く）');
+    });
+    m.calendar?.rows.forEach((r, i) => {
+      if (r.cells.length !== m.calendar.columns.length) flag(ctx, ['calendar', 'rows', i, 'cells'], `列の数（${m.calendar.columns.length}）と合わない`);
+      if (!r.qualifications?.length && !r.label) flag(ctx, ['calendar', 'rows', i], 'qualifications か label が要る');
+    });
+    m.comparison?.rows.forEach((r, i) => {
+      if (!r.live === !r.cells) flag(ctx, ['comparison', 'rows', i], 'live か cells のどちらか一方だけを書く');
+      if (r.cells && r.cells.length !== m.comparison.qualifications.length) flag(ctx, ['comparison', 'rows', i, 'cells'], '資格の数と合わない');
+    });
+    m.tables?.forEach((t, i) => t.rows.forEach((r, j) => r.length !== t.columns.length && flag(ctx, ['tables', i, 'rows', j], '列の数と合わない')));
+  });
+
+/** 事業イシューマップの正本。判定日と進み具合は DN、現在値は指標 id で参照する。ファイルをまたぐ整合は npm run check-issue-map */
+export const ConfigIssueMap = z
+  .object({
+    schemaVersion: z.literal(1),
+    _doc: text,
+    proposedMetrics: z
+      .array(
+        z
+          .object({
+            id: text,
+            label: text,
+            stage: z.enum(DIRECTION_STAGES),
+            unit: z.enum(DIRECTION_UNITS),
+            channel: z.enum(DIRECTION_CHANNELS),
+            definition: text,
+            why: text,
+            dn: dnRef.describe('承認を決めるカード'),
+          })
+          .strict(),
+      )
+      .superRefine(uniqueBy('id'))
+      .describe('承認待ちの指標。承認されたら business-direction.json へ移し、ここから消す'),
+    maps: z.array(issueMapOne).min(1).superRefine(uniqueBy('id')),
+  })
+  .strict()
+  .superRefine((c, ctx) => {
+    const ids = new Set(c.maps.map((m) => m.id));
+    const proposed = new Set(c.proposedMetrics.map((m) => m.id));
+    c.maps.forEach((m, i) =>
+      m.branches.forEach((b, j) =>
+        b.leaves.forEach((l, k) => {
+          if (l.map && !ids.has(l.map)) flag(ctx, ['maps', i, 'branches', j, 'leaves', k, 'map'], `マップ ${l.map} が無い`);
+          for (const p of l.proposedMetrics ?? []) if (!proposed.has(p)) flag(ctx, ['maps', i, 'branches', j, 'leaves', k, 'proposedMetrics'], `承認待ちの指標 ${p} が無い`);
+        }),
+      ),
+    );
+  })
+  .meta({ title: '事業イシューマップ' });
 
 // ---- 年間ロードマップ（config/annual-roadmap.json） -------------------------------------------
 

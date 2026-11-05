@@ -347,6 +347,82 @@
                 "road-sign-standard",
                 "guard-fence-standard"
               ]
+            },
+            {
+              "id": "A-48",
+              "title": "道路の構造の基準 — 道路構造令と市町村の条例の読み方",
+              "plan": "new",
+              "paths": [
+                "content/site/civil-practice/road-structure-standards/article.mdx"
+              ],
+              "sources": [
+                "road-act",
+                "road-structure-order"
+              ],
+              "note": "建設行政の体系の穴（DN-0990）。値の暗記でなく、政令と条例の見分けと区分から各値へ進む順を扱う",
+              "visuals": [
+                {
+                  "kind": "figure",
+                  "subject": "国道と市町村道で、政令が決める事項と条例が決める事項を並べた対比図（自作SVG）（差し込む見出し: 市町村道の基準は、まず自市の条例を開く）",
+                  "figKey": "civil-practice/road-structure-standards/img/figure-order-vs-ordinance"
+                },
+                {
+                  "kind": "figure",
+                  "subject": "地域と道路の種類から第1種〜第4種を決める流れ図（自作SVG）（差し込む見出し: 区分を決める — 地域と自動車専用かで四つに分ける）",
+                  "figKey": "civil-practice/road-structure-standards/img/figure-road-class-flow"
+                },
+                {
+                  "kind": "figure",
+                  "subject": "車道・路肩・歩道と建築限界の関係を示す横断図（自作SVG）（差し込む見出し: 歩道、建築限界、設計速度は、区分の後に読む）",
+                  "figKey": "civil-practice/road-structure-standards/img/figure-cross-section-clearance"
+                },
+                {
+                  "kind": "photo",
+                  "subject": "1車線の道路の待避所（見通しのよい山間部の市道）（差し込む見出し: 第3種第5級は、車線のない1車線の道路）",
+                  "figKey": "civil-practice/road-structure-standards/img/photo-single-lane-passing-place"
+                }
+              ]
+            },
+            {
+              "id": "A-49",
+              "title": "幹線道路網と有料道路の仕組み — 高規格道路・重要物流道路・高速道路会社・スマートIC",
+              "plan": "new",
+              "paths": [
+                "content/site/civil-practice/arterial-road-network-tolls/article.mdx"
+              ],
+              "sources": [
+                "road-act",
+                "expressway-act",
+                "road-special-measures-act"
+              ],
+              "note": "建設行政の体系の穴（DN-0990）。計画の呼び名と法律の種類の対応、市が連結と協議で果たす役割を扱う",
+              "visuals": [
+                {
+                  "kind": "figure",
+                  "subject": "高規格幹線道路・地域高規格道路・重要物流道路と、道路法の4種類の対応図（自作SVG）（差し込む見出し: まず、呼び名と法律の種類を切り分ける）",
+                  "figKey": "civil-practice/arterial-road-network-tolls/img/figure-plan-names-vs-road-types"
+                },
+                {
+                  "kind": "figure",
+                  "subject": "予定路線→路線の指定→整備計画→区域の決定の流れ図（自作SVG）（差し込む見出し: 高速自動車国道は、予定路線から順に決まる）",
+                  "figKey": "civil-practice/arterial-road-network-tolls/img/figure-expressway-decision-flow"
+                },
+                {
+                  "kind": "figure",
+                  "subject": "高速道路会社と機構の資産・債務・料金の流れ図（自作SVG）（差し込む見出し: 会社は建設と管理、機構は資産と債務を持つ）",
+                  "figKey": "civil-practice/arterial-road-network-tolls/img/figure-company-agency-flow"
+                },
+                {
+                  "kind": "figure",
+                  "subject": "有料道路方式と新直轄方式を管理者と費用負担で比べた対比図（自作SVG）（差し込む見出し: 新直轄は税で整備し、県や市の有料道路には公社がある）",
+                  "figKey": "civil-practice/arterial-road-network-tolls/img/figure-toll-vs-direct-control"
+                },
+                {
+                  "kind": "figure",
+                  "subject": "スマートICの区域の内外で整備する者を分けた配置図（自作SVG）（差し込む見出し: スマートICでは、市が連結の申請者になりうる）",
+                  "figKey": "civil-practice/arterial-road-network-tolls/img/figure-smart-ic-boundary"
+                }
+              ]
             }
           ]
         },
@@ -873,6 +949,42 @@
                   "kind": "figure",
                   "subject": "都市計画道路の区域内で建築の相談が来たときの判断の順（区域内か → 第54条の許可基準3つのどれかに合うか → 事業認可の告示後か。告示後は第65条で施行の障害になるかを見る）。本文に該当位置のコメントあり",
                   "figKey": "civil-practice/city-planning-act-framework/img/figure-building-check-order"
+                }
+              ]
+            },
+            {
+              "id": "A-50",
+              "title": "地区計画と立地適正化計画 — 街区の決めごとと、まちの誘導を土木の仕事から読む",
+              "plan": "new",
+              "paths": [
+                "content/site/civil-practice/district-plan-location-optimization/article.mdx"
+              ],
+              "sources": [
+                "city-planning-act",
+                "urban-renaissance-act",
+                "mlit-city-planning-operation-guideline-13th"
+              ],
+              "note": "建設行政の体系の穴（DN-0990）。土木の担当が計画書の何を読み、どの場面で協議に入るかを扱う",
+              "visuals": [
+                {
+                  "kind": "figure",
+                  "subject": "都市計画区域の中で、用途地域・地区計画・都市施設と、立地適正化計画の二つの区域を重ねた概念図（自作SVG）（差し込む見出し: 地区計画は、街区の単位で決める都市計画）",
+                  "figKey": "civil-practice/district-plan-location-optimization/img/figure-plan-layers"
+                },
+                {
+                  "kind": "figure",
+                  "subject": "地区施設の道路が、地区整備計画→開発許可または位置の指定→路線認定→供用へ進む流れ図（自作SVG）（差し込む見出し: 地区計画の道路を、認定の前に見分ける）",
+                  "figKey": "civil-practice/district-plan-location-optimization/img/figure-district-road-to-service"
+                },
+                {
+                  "kind": "figure",
+                  "subject": "地区計画の目標→方針→地区整備計画→30日前の届出→勧告の流れ図（自作SVG）（差し込む見出し: 区域内の工事は、30日前の届出が要る）",
+                  "figKey": "civil-practice/district-plan-location-optimization/img/figure-notification-recommendation"
+                },
+                {
+                  "kind": "figure",
+                  "subject": "居住誘導区域の内外で届出が要る行為を比べた対比図（自作SVG）（差し込む見出し: 区域の外の住宅には、届出と勧告がある）",
+                  "figKey": "civil-practice/district-plan-location-optimization/img/figure-housing-area-notification"
                 }
               ]
             },

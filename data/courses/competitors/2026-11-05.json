@@ -1,0 +1,95 @@
+{
+  "schemaVersion": 1,
+  "observedDate": "2026-11-05",
+  "method": "公式ページの目視（DN-0993）。自動取得はしていない。",
+  "reading": "「合格するまで払い切り」の講座は無い。作業の上限は題数 × シーズンで決め、不合格は延長・翌年割引で次の年の客にし、合格時の返金で合格体験記（信用）を買っている。",
+  "competitors": [
+    {
+      "handle": "agaroot-pe",
+      "label": "アガルート 技術士 二次 合格カリキュラム（フル）",
+      "exams": ["pe-construction", "pe-comprehensive-management"],
+      "sourceKind": "official",
+      "sourceUrl": "https://www.agaroot.jp/gijyutsu/tokuten/",
+      "offers": [
+        { "name": "20 部門", "priceYen": 107800, "orMore": false },
+        { "name": "総監", "priceYen": 151800, "orMore": false }
+      ],
+      "scope": "記載の価格は税込",
+      "onPass": "全額返金（税抜額。合格通知・合格体験記・合格者インタビュー出演が条件）かお祝い金 3 万円（通知・体験記）。ライト版は対象外",
+      "onFail": null
+    },
+    {
+      "handle": "agaroot-civil",
+      "label": "アガルート 土木施工管理（提供は SAT 株式会社）",
+      "exams": ["civil-construction-1", "civil-construction-2"],
+      "sourceKind": "official",
+      "sourceUrl": "https://www.agaroot.jp/dobokusekou/",
+      "offers": [
+        { "name": "1 級二次", "priceYen": 38280, "orMore": true },
+        { "name": "2 級一次二次セット", "priceYen": 43780, "orMore": true }
+      ],
+      "scope": "記述の添削 3 回",
+      "onPass": null,
+      "onFail": "視聴期限 6 か月延長と質問回数のリセット"
+    },
+    {
+      "handle": "gachinko-construction",
+      "label": "ガチンコ技術士学園 建設部門 筆記",
+      "exams": ["pe-construction"],
+      "sourceKind": "official",
+      "sourceUrl": "https://gachinko-school.com/gijutusi/method-2nd/paper/paper-construction/",
+      "offers": [
+        { "name": "B", "priceYen": 121000, "orMore": true },
+        { "name": "C", "priceYen": 151800, "orMore": true },
+        { "name": "特別", "priceYen": 224400, "orMore": true }
+      ],
+      "scope": "論文 8 題（特別 16 題）を各題 A 判定（得点率 7 割以上）まで無制限、通常 3〜4 回で到達。前年の受講生に割引価格",
+      "onPass": null,
+      "onFail": null
+    },
+    {
+      "handle": "human-academy",
+      "label": "ヒューマンアカデミー 1 級土木施工管理",
+      "exams": ["civil-construction-1"],
+      "sourceKind": "third-party",
+      "sourceUrl": "https://www.agaroot.jp/dobokusekou/column/school-comparison/",
+      "offers": [{ "name": "1 級", "priceYen": 34100, "orMore": false }],
+      "scope": "アガルートのコラムによる（PR を含む）",
+      "onPass": null,
+      "onFail": "無料延長は原則不可"
+    },
+    {
+      "handle": "nosen",
+      "label": "能セン 経験記述の添削",
+      "exams": ["civil-construction-1"],
+      "sourceKind": "third-party",
+      "sourceUrl": "https://www.agaroot.jp/dobokusekou/column/school-comparison/",
+      "offers": [{ "name": "経験記述の添削のみ", "priceYen": 4180, "orMore": false }],
+      "scope": "アガルートのコラムによる（PR を含む）",
+      "onPass": null,
+      "onFail": null
+    },
+    {
+      "handle": "cic",
+      "label": "CIC 1 級土木施工管理 二次",
+      "exams": ["civil-construction-1"],
+      "sourceKind": "third-party",
+      "sourceUrl": "https://www.agaroot.jp/dobokusekou/column/school-comparison/",
+      "offers": [{ "name": "1 級二次 Web", "priceYen": 36300, "orMore": false }],
+      "scope": "アガルートのコラムによる（PR を含む）",
+      "onPass": null,
+      "onFail": null
+    },
+    {
+      "handle": "tac",
+      "label": "TAC 1 級土木施工管理",
+      "exams": ["civil-construction-1"],
+      "sourceKind": "third-party",
+      "sourceUrl": "https://www.agaroot.jp/dobokusekou/column/school-comparison/",
+      "offers": [{ "name": "1 級トータル", "priceYen": 209000, "orMore": false }],
+      "scope": "アガルートのコラムによる（PR を含む）",
+      "onPass": null,
+      "onFail": null
+    }
+  ]
+}

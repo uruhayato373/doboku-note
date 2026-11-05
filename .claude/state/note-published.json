@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "updatedAt": "2026-11-05T00:41:39.651Z",
+  "updatedAt": "2026-11-05T10:27:39.142Z",
   "items": [
     {
       "slug": "1級・2級土木/1級土木/1級経験記述R6新形式と設問書き分け",
@@ -20161,6 +20161,23 @@
       "magazines": [],
       "utmCampaign": "pavement-2027",
       "title": "2級舗装 応用試験 問1（経験記述）の模範答案｜課題78字・対策218字の書き方と3本の答案例"
+    },
+    {
+      "slug": "舗装/舗装2級-選択問題-頻出論点",
+      "path": "content/note/舗装/舗装2級-選択問題-頻出論点/article.md",
+      "exam": "舗装",
+      "noteUrl": "https://note.com/dobokunote/n/nb4120fbd76da",
+      "noteId": "nb4120fbd76da",
+      "status": "published",
+      "publishedAt": "2026-11-05",
+      "pricing": "paid",
+      "price": 980,
+      "contentType": "product",
+      "series": null,
+      "noteMagazine": null,
+      "magazines": [],
+      "utmCampaign": "pavement-2027",
+      "title": "2級舗装 応用試験 選択問題（問2〜5）の頻出論点｜5空欄の穴埋めを選択肢から解く手順と令和4〜8年度の論点"
     }
   ],
   "unpublished": [
@@ -20982,6 +20999,13 @@
       "published": true
     },
     {
+      "id": "pavement-1-pack",
+      "key": "md78091afefc9",
+      "title": "1級舗装 応用試験｜まるごと合格パック（問1 経験記述＋問2〜5 選択問題）",
+      "price": "¥2,980（経験記述マガジン＋選択問題の頻出論点・単品合計¥3,960、約25%OFF）",
+      "published": true
+    },
+    {
       "id": "pavement-1-sentaku-hinshutsu",
       "key": null,
       "title": "1級舗装 応用試験 選択問題（問2〜5）の頻出論点｜路床CBRm・TA計算・測定機器・維持修繕工法の解き方",
@@ -20992,6 +21016,13 @@
       "id": "pavement-2-keiken",
       "key": null,
       "title": "2級舗装 応用試験 問1（経験記述）の模範答案｜課題78字・対策218字の書き方と3本の答案例",
+      "price": "¥980",
+      "published": true
+    },
+    {
+      "id": "pavement-2-sentaku-hinshutsu",
+      "key": null,
+      "title": "2級舗装 応用試験 選択問題（問2〜5）の頻出論点｜5空欄の穴埋めを選択肢から解く手順",
       "price": "¥980",
       "published": true
     },
@@ -21329,6 +21360,13 @@
       "key": "m4e09480baf15",
       "title": "測量士 午後 記述式｜分野別 解き方の型と過去5年（令和4〜8年）解説",
       "price": "¥2,980（5分野・単品合計¥4,900）",
+      "published": true
+    },
+    {
+      "id": "surveyor-gogo-pack",
+      "key": "m4e12a51c1834",
+      "title": "測量士 午後 記述式｜まるごと合格パック（分野別マガジン＋計算の型20）",
+      "price": "¥3,480（分野別マガジン＋計算の型20・単品合計¥4,460、約22%OFF）",
       "published": true
     },
     {

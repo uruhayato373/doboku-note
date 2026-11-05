@@ -9113,6 +9113,35 @@
       ]
     },
     {
+      "id": "pavement-1-pack",
+      "channel": "note",
+      "qualification": "pavement-1",
+      "stage": "written",
+      "series": "other",
+      "tier": "pack",
+      "persona": null,
+      "catalog": {
+        "id": "pavement-1-pack",
+        "published": true,
+        "noteUrl": "https://note.com/dobokunote/m/md78091afefc9",
+        "noteTitle": "1級舗装 応用試験｜まるごと合格パック",
+        "title": "1級舗装 応用試験｜まるごと合格パック（問1 経験記述＋問2〜5 選択問題）",
+        "description": "問1 経験記述 模範答案集（全4記事）と選択問題の頻出論点を束ねた合格パック。単品合計¥3,960が¥2,980。応用試験の問1から問5までを1つで準備できる。",
+        "shortTitle": "1級舗装 応用試験 合格パック",
+        "shortDescription": "経験記述＋選択問題 全5記事。単品合計¥3,960が¥2,980（約25%OFF）。",
+        "price": "¥2,980（経験記述マガジン＋選択問題の頻出論点・単品合計¥3,960、約25%OFF）",
+        "badge": "note 限定 合格パック"
+      },
+      "members": [],
+      "includes": [
+        "pavement-1-keiken-magazine",
+        "pavement-1-sentaku-hinshutsu"
+      ],
+      "memo": [
+        "2026-11-05 作成（md78091afefc9）。DN-0962"
+      ]
+    },
+    {
       "id": "pavement-1-sentaku-hinshutsu",
       "channel": "note",
       "qualification": "pavement-1",
@@ -9160,6 +9189,31 @@
       "includes": [],
       "memo": [
         "2026-10-28 公開（n058f02626a5b・¥980・境界=模範答案）（DN-0899）。"
+      ]
+    },
+    {
+      "id": "pavement-2-sentaku-hinshutsu",
+      "channel": "note",
+      "qualification": "pavement-2",
+      "stage": "written",
+      "series": "gakka",
+      "tier": "single",
+      "persona": null,
+      "catalog": {
+        "id": "pavement-2-sentaku-hinshutsu",
+        "published": true,
+        "noteUrl": "https://note.com/dobokunote/n/nb4120fbd76da",
+        "title": "2級舗装 応用試験 選択問題（問2〜5）の頻出論点｜5空欄の穴埋めを選択肢から解く手順",
+        "description": "2級舗装施工管理技術者 応用試験の選択問題（問2〜5）について、令和4〜8年度の全100空欄の解答例と、頻出24論点の解き方を整理した。公式の解答は無いため、根拠の資料名を示し、根拠が部分的な空欄は候補と明記している。",
+        "shortTitle": "2級舗装 選択問題の頻出論点",
+        "shortDescription": "令和4〜8年度の全100空欄の解答例と、頻出24論点の解き方。",
+        "price": "¥980",
+        "badge": "note 限定 教材"
+      },
+      "members": [],
+      "includes": [],
+      "memo": [
+        "2026-11-05 公開（nb4120fbd76da・¥980・境界=頻出論点の解き方）（DN-0962）。"
       ]
     },
     {
@@ -10802,6 +10856,35 @@
       ]
     },
     {
+      "id": "surveyor-gogo-pack",
+      "channel": "note",
+      "qualification": "surveyor",
+      "stage": "written",
+      "series": "other",
+      "tier": "pack",
+      "persona": null,
+      "catalog": {
+        "id": "surveyor-gogo-pack",
+        "published": true,
+        "noteUrl": "https://note.com/dobokunote/m/m4e12a51c1834",
+        "noteTitle": "測量士 午後記述式｜まるごと合格パック",
+        "title": "測量士 午後 記述式｜まるごと合格パック（分野別マガジン＋計算の型20）",
+        "description": "分野別 解き方の型と過去5年（全6記事）と計算問題の型20を束ねた合格パック。単品合計¥4,460が¥3,480。計算の式と手順を覚え、令和4〜8年度の問題を分野別に解く順で進められる。",
+        "shortTitle": "測量士 午後 まるごと合格パック",
+        "shortDescription": "分野別マガジン＋計算の型20 全7記事。単品合計¥4,460が¥3,480（約22%OFF）。",
+        "price": "¥3,480（分野別マガジン＋計算の型20・単品合計¥4,460、約22%OFF）",
+        "badge": "note 限定 合格パック"
+      },
+      "members": [],
+      "includes": [
+        "surveyor-gogo-bunya-magazine",
+        "surveyor-keisan-20"
+      ],
+      "memo": [
+        "2026-11-05 作成（m4e12a51c1834）。DN-0963"
+      ]
+    },
+    {
       "id": "surveyor-keisan-20",
       "channel": "note",
       "qualification": "surveyor",
@@ -11831,6 +11914,7 @@
     "content/note/舗装/magazines/舗装1級-経験記述/02-出来形・品質管理/article.md": 980,
     "content/note/舗装/magazines/舗装1級-経験記述/03-安全管理/article.md": 980,
     "content/note/舗装/舗装1級-選択問題-頻出論点/article.md": 1480,
-    "content/note/舗装/舗装2級-経験記述/article.md": 980
+    "content/note/舗装/舗装2級-経験記述/article.md": 980,
+    "content/note/舗装/舗装2級-選択問題-頻出論点/article.md": 980
   }
 }

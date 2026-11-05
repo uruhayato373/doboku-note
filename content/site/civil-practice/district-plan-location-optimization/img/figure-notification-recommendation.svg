@@ -1,0 +1,51 @@
+<!-- authored 2026-11-05 doboku-note 自作。論点は都市計画法第12条の5・第58条の2。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="地区計画の計画書と届出の流れ。地区計画の目標、方針、地区整備計画の順に読む。地区整備計画が定められた区域で政令で定める行為を始めるときは、30日前までに市町村長へ届け出る。計画に適合しないと認めるときは、市町村長が勧告できる。国や地方公共団体の行為などは届出の対象外。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 12px; fill: #555; }  /* ink-body */
+      .h { font-size: 11px; fill: #8a8a8a; }  /* ink-muted */
+      .n { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .b { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .k { fill: #222; }  /* ink-strong */
+      .tag { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }  /* surface */
+      .src { fill: #fff; stroke: #d7d7d7; stroke-width: 1.5; }
+      .brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }  /* brand-fill / brand */
+      .warn { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }  /* warn-fill / warn */
+      .pos { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }  /* positive-fill / positive */
+      .danger { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }  /* danger-fill / danger */
+      .arr { stroke: #555; stroke-width: 1.5; fill: none; marker-end: url(#a); }
+    </style>
+    <marker id="a" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#555"/></marker>
+  </defs>
+
+  <rect class="tag" x="10" y="12" width="380" height="50" rx="6"/>
+  <text class="n" x="22" y="34">目標</text>
+  <text class="k" x="22" y="52">その地区をどんな環境にしたいか</text>
+  <line class="arr" x1="200" y1="62" x2="200" y2="78"/>
+
+  <rect class="tag" x="10" y="80" width="380" height="50" rx="6"/>
+  <text class="n" x="22" y="102">方針</text>
+  <text class="k" x="22" y="120">道路、公園、建築物などをどう整えるか</text>
+  <line class="arr" x1="200" y1="130" x2="200" y2="146"/>
+
+  <rect class="warn" x="10" y="148" width="380" height="50" rx="6"/>
+  <text class="n" x="22" y="170">地区整備計画</text>
+  <text class="k" x="22" y="188">地区施設と、建築物等の制限。ここが届出の前提</text>
+  <line class="arr" x1="200" y1="198" x2="200" y2="214"/>
+
+  <rect class="brand" x="10" y="216" width="380" height="58" rx="6"/>
+  <text class="n" x="22" y="240">着手の30日前までに届出</text>
+  <text class="k" x="22" y="260">政令で定める行為。届出先は市町村長</text>
+  <line class="arr" x1="200" y1="274" x2="200" y2="290"/>
+
+  <rect class="danger" x="10" y="292" width="380" height="58" rx="6"/>
+  <text class="n" x="22" y="316">勧告</text>
+  <text class="k" x="22" y="336">計画に適合しないと認めるとき、設計の変更を求める</text>
+
+  <rect class="pos" x="10" y="364" width="380" height="126" rx="8"/>
+  <text class="n" x="22" y="388">届出の外になる行為</text>
+  <text class="k" x="22" y="410">国または地方公共団体が行う行為</text>
+  <text class="k" x="22" y="428">開発許可が必要な行為、都市計画事業の施行</text>
+  <text class="h" x="22" y="452">届出が要らなくても、地区計画に従わなくて</text>
+  <text class="h" x="22" y="470">よいわけではない</text>
+</svg>

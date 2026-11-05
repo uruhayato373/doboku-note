@@ -2547,6 +2547,20 @@ const MAGAZINES_RAW = {
     price: '¥2,980（5分野・単品合計¥4,900）',
     badge: 'note 限定 教材',
   },
+  // 2026-11-05 作成（m4e12a51c1834）。DN-0963
+  'surveyor-gogo-pack': {
+    id: 'surveyor-gogo-pack',
+    published: true,
+    noteUrl: 'https://note.com/dobokunote/m/m4e12a51c1834',
+    qualification: 'surveyor',
+    noteTitle: '測量士 午後記述式｜まるごと合格パック',
+    title: '測量士 午後 記述式｜まるごと合格パック（分野別マガジン＋計算の型20）',
+    description: '分野別 解き方の型と過去5年（全6記事）と計算問題の型20を束ねた合格パック。単品合計¥4,460が¥3,480。計算の式と手順を覚え、令和4〜8年度の問題を分野別に解く順で進められる。',
+    shortTitle: '測量士 午後 まるごと合格パック',
+    shortDescription: '分野別マガジン＋計算の型20 全7記事。単品合計¥4,460が¥3,480（約22%OFF）。',
+    price: '¥3,480（分野別マガジン＋計算の型20・単品合計¥4,460、約22%OFF）',
+    badge: 'note 限定 合格パック',
+  },
   // 2026-10-28 公開（n1ac56686482b・¥1,480・境界=計算の型20）（DN-0899）。
   'surveyor-keisan-20': {
     id: 'surveyor-keisan-20',
@@ -2577,6 +2591,20 @@ const MAGAZINES_RAW = {
     price: '¥2,480（3本・単品合計¥2,940）',
     badge: 'note 限定 教材',
   },
+  // 2026-11-05 作成（md78091afefc9）。DN-0962
+  'pavement-1-pack': {
+    id: 'pavement-1-pack',
+    published: true,
+    noteUrl: 'https://note.com/dobokunote/m/md78091afefc9',
+    qualification: 'pavement-1',
+    noteTitle: '1級舗装 応用試験｜まるごと合格パック',
+    title: '1級舗装 応用試験｜まるごと合格パック（問1 経験記述＋問2〜5 選択問題）',
+    description: '問1 経験記述 模範答案集（全4記事）と選択問題の頻出論点を束ねた合格パック。単品合計¥3,960が¥2,980。応用試験の問1から問5までを1つで準備できる。',
+    shortTitle: '1級舗装 応用試験 合格パック',
+    shortDescription: '経験記述＋選択問題 全5記事。単品合計¥3,960が¥2,980（約25%OFF）。',
+    price: '¥2,980（経験記述マガジン＋選択問題の頻出論点・単品合計¥3,960、約25%OFF）',
+    badge: 'note 限定 合格パック',
+  },
   // 2026-10-28 公開（n0eafbe26a8d6・¥1,480・境界=頻出論点の解き方）（DN-0899）。
   'pavement-1-sentaku-hinshutsu': {
     id: 'pavement-1-sentaku-hinshutsu',
@@ -2603,6 +2631,19 @@ const MAGAZINES_RAW = {
     description: '2級舗装施工管理技術者 応用試験の問1（経験記述）について、短い字数で課題→対策を書く順序と、工程・品質・安全の模範答案3本、自分の工事への置き換え手順を載せた。',
     shortTitle: '2級舗装 経験記述の模範答案',
     shortDescription: '課題78字・対策218字の書き方と、工程・品質・安全の模範答案3本。',
+    price: '¥980',
+    badge: 'note 限定 教材',
+  },
+  // 2026-11-05 公開（nb4120fbd76da・¥980・境界=頻出論点の解き方）（DN-0962）。
+  'pavement-2-sentaku-hinshutsu': {
+    id: 'pavement-2-sentaku-hinshutsu',
+    published: true,
+    noteUrl: 'https://note.com/dobokunote/n/nb4120fbd76da',
+    qualification: 'pavement-2',
+    title: '2級舗装 応用試験 選択問題（問2〜5）の頻出論点｜5空欄の穴埋めを選択肢から解く手順',
+    description: '2級舗装施工管理技術者 応用試験の選択問題（問2〜5）について、令和4〜8年度の全100空欄の解答例と、頻出24論点の解き方を整理した。公式の解答は無いため、根拠の資料名を示し、根拠が部分的な空欄は候補と明記している。',
+    shortTitle: '2級舗装 選択問題の頻出論点',
+    shortDescription: '令和4〜8年度の全100空欄の解答例と、頻出24論点の解き方。',
     price: '¥980',
     badge: 'note 限定 教材',
   },

@@ -189,6 +189,17 @@
       ]
     },
     {
+      "id": "coconalaReviews",
+      "stage": "販売",
+      "label": "ココナラ評価件数",
+      "unit": "件",
+      "definition": "公開プロフィールの評価の数（ストック）。data 台帳 coconala.seller-profile の期間末時点の値。合算しない。",
+      "channel": "coconala",
+      "appliesTo": [
+        "all"
+      ]
+    },
+    {
       "id": "coconalaRevenue",
       "stage": "販売",
       "label": "ココナラ販売額",

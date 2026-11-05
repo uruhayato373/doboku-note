@@ -1,0 +1,63 @@
+<!-- authored 2026-11-05 doboku-note 自作。論点は高速自動車国道法第20条、道路整備特別措置法第10条、国土交通省 道路行政の簡単解説。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="有料道路方式と新直轄方式の対比図。有料道路方式は高速道路会社が料金で費用を償う。新直轄方式は主に直轄事業で、新設と改築は国が四分の三以上、残りは都道府県が負担する。県や市が料金を取って道路を造るときは、国土交通大臣の許可を受けた地方道路公社が担う。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 12px; fill: #222; }  /* ink-strong */
+      .h { font-size: 11px; fill: #8a8a8a; }  /* ink-muted */
+      .s { font-size: 11px; fill: #555; }  /* ink-body */
+      .n { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .b { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .c { text-anchor: middle; }
+      .tag { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }  /* surface */
+      .brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }  /* brand-fill / brand */
+      .warn { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }  /* warn-fill / warn */
+      .pos { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }  /* positive-fill / positive */
+      .ln { stroke: #2e6da4; stroke-width: 1.5; fill: none; }
+    </style>
+    <marker id="arrow" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0,0 8,3 0,6" fill="#2e6da4"/>
+    </marker>
+  </defs>
+  <rect class="brand" x="10" y="12" width="185" height="34" rx="6"/>
+  <text class="n c" x="102" y="34">有料道路方式</text>
+  <rect class="pos" x="205" y="12" width="185" height="34" rx="6"/>
+  <text class="n c" x="297" y="34">新直轄方式</text>
+
+  <text class="h" x="10" y="60">費用の出どころ</text>
+  <rect class="tag" x="10" y="66" width="185" height="56" rx="6"/>
+  <text class="b c" x="102" y="90">料金</text>
+  <text class="s c" x="102" y="108">会社の借入れと返済</text>
+  <rect class="tag" x="205" y="66" width="185" height="56" rx="6"/>
+  <text class="b c" x="297" y="90">国と都道府県の負担</text>
+  <text class="s c" x="297" y="108">税で整備する</text>
+
+  <text class="h" x="10" y="138">担い手</text>
+  <rect class="tag" x="10" y="144" width="185" height="68" rx="6"/>
+  <text class="b c" x="102" y="170">高速道路会社</text>
+  <text class="s c" x="102" y="190">資産と債務は機構が持つ</text>
+  <rect class="tag" x="205" y="144" width="185" height="68" rx="6"/>
+  <text class="b c" x="297" y="166">主に直轄事業</text>
+  <text class="s c" x="297" y="184">料金だけでは整備</text>
+  <text class="s c" x="297" y="200">しにくい区間</text>
+
+  <text class="h" x="10" y="228">負担の内訳</text>
+  <rect class="tag" x="10" y="234" width="185" height="106" rx="6"/>
+  <text class="b c" x="102" y="258">料金で償う</text>
+  <text class="c" x="102" y="278">貸付料と、会社が行う</text>
+  <text class="c" x="102" y="296">維持・修繕などの費用を</text>
+  <text class="c" x="102" y="314">徴収期間内に償う</text>
+  <rect class="warn" x="205" y="234" width="185" height="106" rx="6"/>
+  <text class="b c" x="297" y="254">新設・改築</text>
+  <text class="c" x="297" y="272">国が四分の三以上</text>
+  <text class="c" x="297" y="290">（政令で定める割合）</text>
+  <text class="c" x="297" y="308">残りは都道府県</text>
+  <text class="s c" x="297" y="326">（指定市の区域内は指定市）</text>
+
+  <rect class="brand" x="10" y="352" width="380" height="82" rx="8"/>
+  <text class="n" x="22" y="374">県や市が料金を取って造るなら、地方道路公社</text>
+  <text x="22" y="394">国土交通大臣の許可で、一般国道・都道府県道・市町村道の</text>
+  <text class="s" x="22" y="412">新設・改築を行う（通行者が著しく利益を受けるなどの要件）</text>
+
+  <rect class="warn" x="10" y="444" width="380" height="46" rx="8"/>
+  <text class="b c" x="200" y="472">市の区域の新直轄は、県の予算と議会の話にもなる</text>
+</svg>

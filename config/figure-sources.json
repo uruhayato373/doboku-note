@@ -2042,6 +2042,11 @@
       "tool": "Codex",
       "prompt": "A roadside warning signboard standing beside a narrow mountain road in a steep forested valley in Japan, a rectangular sign on two steel posts, plain yellow and white panel with a simple red triangular warning pictogram of falling rocks and flowing debris, no readable text or letters, slightly weathered, the sign in sharp focus in the foreground, a rocky mountain stream with boulders and a concrete check dam blurred in the background, shallow depth of field, overcast daylight"
     },
+    "civil-practice/road-structure-standards/img/photo-single-lane-passing-place": {
+      "kind": "ai-generated",
+      "tool": "Codex（gpt-6-astra）",
+      "prompt": "山間部の舗装された1車線の市道。片側は緩い山の斜面と低い法面、もう片側は木々。道路の途中の一区間だけ舗装の幅が広がった待避所があり、全体が見通せる。アスファルト舗装で、路肩に白い外側線がある。車両と人は写さない。標識、文字、ロゴ、ナンバープレートなし。曇りの自然光。"
+    },
     "civil-practice/safety-patrol-corrective-action/img/photo-patrol-instruments-workbench": {
       "kind": "ai-generated",
       "tool": "Codex",

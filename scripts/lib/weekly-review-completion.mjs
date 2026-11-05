@@ -7,6 +7,7 @@ import { addDays, isoWeekKey, reviewWindowOfWeek, weekPeriod } from './review-we
 import { checksRouting } from './review-wiring.mjs';
 import { parseBacklog, TODO_DIR } from './backlog-lib.mjs';
 import { selectBacklogVerification } from './backlog-verification.mjs';
+import { buildDnIndex, ISSUE_MAP_SECTION, issueMapRouting } from './issue-map.mjs';
 
 export function reviewReader(root, ref = null) {
   const git = (args) => execFileSync('git', args, { cwd: root, encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] });
@@ -61,5 +62,19 @@ export function weeklyReviewCompletion(week, reader) {
     if (Object.values(verify.commands).some((c) => c.status === 'error' || ['timeout', 'inconclusive', 'skipped'].includes(c.outcome))) missing.push('backlog 検証の timeout・検査不成立・skip を解消');
     if (!verify.coverage || verify.coverage.candidateCards !== selected.candidates.length || verify.coverage.targetedCards !== selected.targets.length || verify.coverage.notDueCards !== selected.notDue.length || verify.coverage.targeted !== expectedCommands.length || verify.coverage.targeted !== verify.coverage.executed || verify.coverage.executed !== Object.keys(verify.commands).length) missing.push('backlog 検証の対象数と実検査数の一致');
   }
-  return { week, complete: missing.length === 0, checked: checked.length, expected: 5, missing, provisional: record?.status === 'provisional' };
+  // イシューマップの更新（review-wiring の procedure の since の週から。週次レビューの土曜の時点で判定する）
+  const issueStep = config?.cadences?.weekly?.procedure?.find((p) => p.sections?.includes(ISSUE_MAP_SECTION));
+  if (issueStep && (!issueStep.since || week >= issueStep.since)) {
+    checked.push('issueMap');
+    const doc = readJson(datasetPath('config.issue-map'));
+    const backlog = reader.read(`${TODO_DIR}/backlog.md`);
+    if (!doc || backlog == null) missing.push('イシューマップの正本を読めない');
+    else {
+      const log = readJson(datasetPath('state.dispatch-log'))?.entries ?? [];
+      const routing = issueMapRouting(doc, buildDnIndex(backlog, log), addDays(weekPeriod(week).startDate, 5), report ?? '');
+      if (!routing.hasSection) missing.push(`レポートの「## ${ISSUE_MAP_SECTION}」節`);
+      if (routing.unrouted.length) missing.push(`イシューマップの更新か行き先 ${routing.unrouted.map((d) => d.key).join(', ')}`);
+    }
+  }
+  return { week, complete: missing.length === 0, checked: checked.length, expected: issueStep && (!issueStep.since || week >= issueStep.since) ? 6 : 5, missing, provisional: record?.status === 'provisional' };
 }
