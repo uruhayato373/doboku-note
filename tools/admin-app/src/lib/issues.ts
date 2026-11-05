@@ -6,6 +6,7 @@ import { qualificationShortLabel } from '../../../../scripts/lib/qualification-n
 import { loadRegistry } from '../../../../scripts/lib/qualification-registry.mjs';
 import { salesByQualification } from '../../../../scripts/lib/sales-by-qualification.mjs';
 import { loadChannelView } from './channels';
+import { yen } from './format';
 import { findRepoRoot } from './repo-root';
 
 /**
@@ -241,10 +242,10 @@ export function loadIssueView(mapId?: string): IssueView {
     const live = {
       examinees: (id: string) => stat(id)?.examinees?.toLocaleString('ja-JP') ?? '—',
       passRate: (id: string) => (stat(id)?.passRate != null ? `${stat(id)?.passRate}%` : '—'),
-      sales: (id: string) => (salesOf(id) != null ? `¥${(salesOf(id) as number).toLocaleString('ja-JP')}` : '—'),
+      sales: (id: string) => yen(salesOf(id)),
       salesPerExaminee: (id: string) => {
         const v = perExaminee(id);
-        return v == null ? '—' : `¥${v >= 10 ? Math.round(v) : v.toFixed(1)}`;
+        return yen(v == null ? null : v >= 10 ? Math.round(v) : Math.round(v * 10) / 10);
       },
     };
     comparison = {
