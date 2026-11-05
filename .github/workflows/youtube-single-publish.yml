@@ -4,11 +4,11 @@ on:
   workflow_dispatch:
     inputs:
       mode:
-        description: 'publish・概要欄同期・読取監査・公開状態の照合'
+        description: 'publish・概要欄同期・読取監査・公開状態の照合・指定した公開の予約解除'
         required: false
         default: publish
         type: choice
-        options: [publish, sync-funnel, audit-funnel, reconcile]
+        options: [publish, sync-funnel, audit-funnel, reconcile, unschedule]
       publication:
         description: '承認済みの通常動画の公開ID（初回または個別改訂版）'
         required: false
@@ -82,6 +82,38 @@ jobs:
             git config user.name 'doboku-note-bot'
             git config user.email 'bot@doboku-note.com'
             git commit -m "Record verified YouTube publication state"
+            git pull --rebase origin develop
+            git push origin HEAD:develop
+          fi
+  unschedule:
+    if: inputs.mode == 'unschedule'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      YOUTUBE_CLIENT_ID: ${{ secrets.YOUTUBE_CLIENT_ID }}
+      YOUTUBE_CLIENT_SECRET: ${{ secrets.YOUTUBE_CLIENT_SECRET }}
+      YOUTUBE_REFRESH_TOKEN: ${{ secrets.YOUTUBE_REFRESH_TOKEN }}
+      PUB_IDS: ${{ inputs.publication }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: develop
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci --legacy-peer-deps --ignore-scripts
+      - run: node scripts/youtube-unschedule.mjs --apply --pub "$PUB_IDS"
+      - name: Match the ledger to the verified state
+        run: |
+          while read -r id; do
+            npm run -s registry -- unschedule --pub "$id" --reason '読み上げを直した版へ差し替える'
+          done < .tmp/youtube-unscheduled.txt
+          git add content/registry/publications/youtube
+          if ! git diff --cached --quiet; then
+            git config user.name 'doboku-note-bot'
+            git config user.email 'bot@doboku-note.com'
+            git commit -m 'Unschedule YouTube videos to replace them'
             git pull --rebase origin develop
             git push origin HEAD:develop
           fi

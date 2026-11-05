@@ -10,6 +10,7 @@
  *   node scripts/youtube-unschedule.mjs              # 試運転（YouTube を読むだけ・書かない）
  *   node scripts/youtube-unschedule.mjs --apply      # 外す。外せた公開 ID を --out のファイル（1 行 1 件）に書く
  *   node scripts/youtube-unschedule.mjs --apply --out .tmp/unscheduled.txt
+ *   node scripts/youtube-unschedule.mjs --apply --pub <公開ID,公開ID>  # 指定した公開だけ外す
  * exit: 0 全件外した（か既に無い）/ 1 外せないものがあった / 2 検査不成立（対象 0 件・認証なし）
  */
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
@@ -23,10 +24,13 @@ const argv = process.argv.slice(2);
 const APPLY = argv.includes('--apply');
 const outIdx = argv.indexOf('--out');
 const OUT = outIdx >= 0 ? argv[outIdx + 1] : '.tmp/youtube-unscheduled.txt';
+const pubIdx = argv.indexOf('--pub');
+const ONLY = pubIdx >= 0 ? argv[pubIdx + 1].split(',').filter(Boolean) : null;
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 async function main() {
-  const targets = selectScheduled(loadRegistry(REPO_ROOT).publications);
+  const targets = selectScheduled(loadRegistry(REPO_ROOT).publications, Date.now(), ONLY);
+  if (ONLY && targets.length !== ONLY.length) { console.error(`指定 ${ONLY.length} 件のうち予約済みは ${targets.length} 件`); return 2; }
   console.log(`[youtube-unschedule] 台帳の予約済み（未来）${targets.length} 件 / ${APPLY ? '実行' : '試運転'}`);
   if (targets.length === 0) { console.log('対象 0 件（予約済みの未来の公開が台帳に無い）'); return 2; }
   for (const k of ['YOUTUBE_CLIENT_ID', 'YOUTUBE_CLIENT_SECRET', 'YOUTUBE_REFRESH_TOKEN']) {
