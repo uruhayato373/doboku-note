@@ -187,6 +187,17 @@
         "expected": 1033,
         "heard": 1005
       }
+    },
+    "pe-construction/sentaku-construction-planning-yomikata/youtube.longform": {
+      "videoSha256": "5f6d7704f9ae5edb95cdac0834e1e1ba4eedb372f9ecf06b02c02079e1e3992e",
+      "at": "2026-11-05T13:03:02.785Z",
+      "similarity": 0.799,
+      "maxVolumeDb": -1.4,
+      "durationGapSec": 0,
+      "chars": {
+        "expected": 1179,
+        "heard": 1137
+      }
     }
   }
 }
