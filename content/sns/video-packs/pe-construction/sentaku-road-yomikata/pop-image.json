@@ -87,7 +87,7 @@
           "path": ".tmp/media/pe-construction/sentaku-road-yomikata/work/factory/raw-cover.a62ad089.png",
           "sha256": "a62ad089066b5fcd86269bf56603599a1b99911be1ffe140188e7773bbc4b7ff"
         },
-        "generatedAt": "2026-11-05T10:01:30.357Z"
+        "generatedAt": "2026-11-05T12:54:37.314Z"
       },
       "copy": {
         "exam": "pe-construction",
@@ -109,7 +109,7 @@
       },
       "review": {
         "status": "ai-reviewed",
-        "checkedAt": "2026-11-05T10:01:30.357Z",
+        "checkedAt": "2026-11-05T12:54:37.314Z",
         "by": "ai-image-fidelity-auditor",
         "reason": "文字『総監が制作』『道路』『テーマの読み方』が指示と一字一致。先生は黒髪・黒縁眼鏡・ひげ・白ヘルメット・紺作業服とネクタイ・反射帯で、手指も破綻なし",
         "userImageReview": "pending"
@@ -126,10 +126,10 @@
       "images": [
         {
           "sceneId": "premise",
-          "inputSha256": "71219435ff3a053489b52584803ad786d242b67ba97f1ffa5115a18d6740e488",
+          "inputSha256": "7353b4f498bf3ffd6a41b3c2baed0185da07184007487328e2f6d99a34f4ae1b",
           "generation": {
             "tool": "image_gen",
-            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『誤解：毎年ゼロから予想する』。 図に入れる文字: 『II-1は4枠固定：構造/法令制度/舗装/地盤』 『舗装・地盤は8年連続で同じ枠』。 この場面の説明（文字にしない）: 毎年ゼロから予想するのは非効率です。II-1は道路構造・法令制度・舗装・地盤の4枠がほぼ固定で、舗装と地盤は8年連続で同じ枠に出ています。",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『誤解：毎年ゼロから予想する』。 図に入れる文字: 『II-1は4枠：構造/法令制度/舗装/土工』 『舗装(3問目)・法令制度(2問目)は8年連続』。 この場面の説明（文字にしない）: 毎年ゼロから今年のテーマを予想していませんか。II-1は構造、法令・制度、舗装、土工の4枠があって、令和1年度から8年度まで、舗装は3問目、法令・制度は2問目に毎年出ています。年ごとに追うのをやめて、枠ごとに準備するという発想に切り替えましょう。",
             "references": [
               {
                 "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
@@ -137,36 +137,36 @@
               }
             ],
             "output": {
-              "path": ".tmp/media/pe-construction/sentaku-road-yomikata/work/factory/raw-premise.340ee305.png",
-              "sha256": "340ee3052403bd24bed876210bcbfa4a878a32d361bb5a61f5c8e98d56b0a104"
+              "path": ".tmp/media/pe-construction/sentaku-road-yomikata/work/factory/raw-premise.473e497f.png",
+              "sha256": "473e497f38112dcbc37930872373957b9031239ee38345959953551a329f59ea"
             },
-            "generatedAt": "2026-11-05T10:01:30.357Z"
+            "generatedAt": "2026-11-05T12:54:37.314Z"
           },
           "output": {
-            "path": ".tmp/media/pe-construction/sentaku-road-yomikata/work/premise-diagram.340ee305.png",
-            "sha256": "340ee3052403bd24bed876210bcbfa4a878a32d361bb5a61f5c8e98d56b0a104",
+            "path": ".tmp/media/pe-construction/sentaku-road-yomikata/work/premise-diagram.66a1b7a5.png",
+            "sha256": "66a1b7a5c77131b30aaccb13f518ca9508fbd637c956cc76df15768e877cdbc5",
             "width": 1920,
             "height": 1080
           },
           "normalization": {
             "mode": "full-frame-v1",
-            "sourceSha256": "340ee3052403bd24bed876210bcbfa4a878a32d361bb5a61f5c8e98d56b0a104"
+            "sourceSha256": "473e497f38112dcbc37930872373957b9031239ee38345959953551a329f59ea"
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-05T10:01:30.357Z",
+            "checkedAt": "2026-11-05T12:54:37.314Z",
             "by": "ai-image-fidelity-auditor",
-            "reason": "見出しと図中2文が指示と一字一致、4枠アイコンも内容と合い、余計な文字なし",
+            "reason": "文字: 見出しと2文を指示と1字ずつ照合し一致。4枠の図で舗装・法令制度の2枠を矢印で示し、8個の印で8年連続を表し、破綻なし",
             "userReview": "pending",
             "continuousListening": "not-performed"
           }
         },
         {
           "sceneId": "block1",
-          "inputSha256": "5d23aed432ec66463dbba9cb275c266f45ad0f66a108f6636b8f04cd8373afbf",
+          "inputSha256": "bece63d68212fb6f198bb23085c043047b19053522dc75bbc49f22a49c0ebc46",
           "generation": {
             "tool": "image_gen",
-            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『道路科目の癖』。 図に入れる文字: 『新テーマ探しでなく4枠を仕込む』 『II-1-1構造/II-1-2法令制度/II-1-3舗装/II-1-4地盤』。 この場面の説明（文字にしない）: 過去問の出題を並べてみると、この科目は新しいテーマを探す科目ではなく、決まった4枠を均等に仕込む科目です。まず4枠の存在を知ることが出発点です。",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『道路科目の癖』。 図に入れる文字: 『II-1-1 道路構造 / II-1-2 法令・制度』 『II-1-3 舗装 / II-1-4 土工』 『基礎は4枠、厚みはこのあと決める』。 この場面の説明（文字にしない）: 枠の位置を知るだけで、対策が変わります。II-1-1は線形や交通量などの道路構造、II-1-2は法令・制度、II-1-3は舗装、II-1-4は切土や盛土などの土工です。まず4枠すべてに基礎を置く。そのうえで、厚く仕込む枠を決める。この順番で考えます。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 32.1）",
             "references": [
               {
                 "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
@@ -174,36 +174,36 @@
               }
             ],
             "output": {
-              "path": ".tmp/media/pe-construction/sentaku-road-yomikata/work/factory/raw-block1.1568d813.png",
-              "sha256": "1568d813c9699527c2f06c7a545f5ec08c1e535a8f4119a2000fa31264ceada4"
+              "path": ".tmp/media/pe-construction/sentaku-road-yomikata/work/factory/raw-block1.d0076c5d.png",
+              "sha256": "d0076c5dcf339425ddcaef8ba027552adcc1b25b5155518987faf8961b6a3ea9"
             },
-            "generatedAt": "2026-11-05T10:01:30.357Z"
+            "generatedAt": "2026-11-05T12:54:37.314Z"
           },
           "output": {
-            "path": ".tmp/media/pe-construction/sentaku-road-yomikata/work/block1-diagram.0f257503.png",
-            "sha256": "0f2575035f9e41ed7f28a4bd998bbdb06c058f2ea83f9b606c3236dd579358f3",
+            "path": ".tmp/media/pe-construction/sentaku-road-yomikata/work/block1-diagram.3773af0f.png",
+            "sha256": "3773af0f8d2ca3c47df2a83d4830a12bbb15cadd6a9a686eb5bcef6669331a50",
             "width": 1920,
             "height": 1080
           },
           "normalization": {
             "mode": "full-frame-v1",
-            "sourceSha256": "1568d813c9699527c2f06c7a545f5ec08c1e535a8f4119a2000fa31264ceada4"
+            "sourceSha256": "d0076c5dcf339425ddcaef8ba027552adcc1b25b5155518987faf8961b6a3ea9"
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-05T10:01:30.357Z",
+            "checkedAt": "2026-11-05T12:54:37.314Z",
             "by": "ai-image-fidelity-auditor",
-            "reason": "見出しと『新テーマ探しでなく4枠を仕込む』、II-1-1〜4の4枠ラベルが指示と一致、崩れ字なし",
+            "reason": "文字: 見出しと4枠のII-1-1〜4の名称、下の1文が指示と一致。道路・法令書類・舗装断面・切盛土の絵も各枠と合う。見出しに指示の括弧『』が付くが誤りではない",
             "userReview": "pending",
             "continuousListening": "not-performed"
           }
         },
         {
           "sceneId": "block2",
-          "inputSha256": "8c6f48c96e578cde430d59f69abf44d2575fb87cd9a4153156bbebd6932baacb",
+          "inputSha256": "5a7bc4126d38aff1d1bc4922201cc9e8e6ce87f36af49059def149247e04e130",
           "generation": {
             "tool": "image_gen",
-            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『舗装（II-1-3・8年連続）』。 図に入れる文字: 『構造→性能→点検・診断→再生利用』 『軸は舗装アセットマネジメント』。 この場面の説明（文字にしない）: 舗装は8年連続の最頻出枠です。構造比較から性能指標、点検・診断、再生利用へと切り口が回ります。舗装アセットマネジメントという点検・診断・措置・記録のサイクルを軸に整理すると強いです。",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『舗装（II-1-3・8年連続）』。 図に入れる文字: 『R03 点検・使用目標年数』 『R04 再生加熱As / R07 再生利用 / R08 CO2削減』 『軸：舗装アセットマネジメント』。 この場面の説明（文字にしない）: では舗装は何が出ているでしょう。令和3年度は点検要領と使用目標年数、令和4年度は再生加熱アスファルト混合物、令和7年度は既設舗装材の再生利用、令和8年度はCO2削減です。切り口は毎年変わりますが、枠は動きません。点検から措置、記録までを回すアセットマネジメントを軸にすれば、どの切り口にも対応しやすくなります。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 66.8）",
             "references": [
               {
                 "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
@@ -211,36 +211,36 @@
               }
             ],
             "output": {
-              "path": ".tmp/media/pe-construction/sentaku-road-yomikata/work/factory/raw-block2.4e851677.png",
-              "sha256": "4e8516777d4fc15e9a13af3b970aa7a080e3036b8037f4e77651945c36ee1033"
+              "path": ".tmp/media/pe-construction/sentaku-road-yomikata/work/factory/raw-block2.5e8b7f0d.png",
+              "sha256": "5e8b7f0da656a507d6618c35b575a786b1b97ed9353d8117caf1e9e058909752"
             },
-            "generatedAt": "2026-11-05T10:01:30.357Z"
+            "generatedAt": "2026-11-05T12:54:37.314Z"
           },
           "output": {
-            "path": ".tmp/media/pe-construction/sentaku-road-yomikata/work/block2-diagram.300ba05d.png",
-            "sha256": "300ba05ddaddc981cdc4b1aeb50cb16ee917c1bcb197513d38898edf9ebdcd66",
+            "path": ".tmp/media/pe-construction/sentaku-road-yomikata/work/block2-diagram.7ee287f7.png",
+            "sha256": "7ee287f7caadfa384dbf4adb2b17cb2ac68ce1450a4b1fcc6079d0cc35678e97",
             "width": 1920,
             "height": 1080
           },
           "normalization": {
             "mode": "full-frame-v1",
-            "sourceSha256": "4e8516777d4fc15e9a13af3b970aa7a080e3036b8037f4e77651945c36ee1033"
+            "sourceSha256": "5e8b7f0da656a507d6618c35b575a786b1b97ed9353d8117caf1e9e058909752"
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-05T10:01:30.357Z",
+            "checkedAt": "2026-11-05T12:54:37.314Z",
             "by": "ai-image-fidelity-auditor",
-            "reason": "見出し・『構造→性能→点検・診断→再生利用』・『軸は舗装アセットマネジメント』が指示と一致、循環図も内容と合う",
+            "reason": "文字: R03/R04/R07/R08の4項目と中央の軸の文字が指示と一致。点検・再生加熱As・再生・CO2の絵も合い、見出しの括弧『』のみ付加で教材上の誤りなし",
             "userReview": "pending",
             "continuousListening": "not-performed"
           }
         },
         {
           "sceneId": "block3",
-          "inputSha256": "a2e37416b0d253f0d12e3de14a5bbcc9166fdb27bb398c2cdfdd2e6ccca48d70",
+          "inputSha256": "70ce23ac725ec641fe80ea64599b9a5f68596e29f94eec9fe1632da7834236e8",
           "generation": {
             "tool": "image_gen",
-            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『法令・制度（II-1-2・8年連続）』。 図に入れる文字: 『R2道路法改正はR02・R03・R06に出題』 『踏切道改良促進法・災害対策基本法の年も』。 この場面の説明（文字にしない）: II-1-2の法令・制度も8年連続の枠です。令和2年の道路法改正はR02、R03、R06と切り口を変えて出ました。道路法のほか、踏切道改良促進法や災害対策基本法から出た年もあります。",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『法令・制度（II-1-2・8年連続）』。 図に入れる文字: 『R2道路法改正：R02 / R03 / R06』 『R04 踏切道改良促進法』 『R05 災害対策基本法(車両移動措置)』。 この場面の説明（文字にしない）: 法令・制度は、一つの改正が複数年にまたがるのが特徴です。令和2年の道路法改正からは、令和2年に歩行者利便増進道路、令和3年に特定車両停留施設、令和6年に自動運行補助施設と、切り口を変えて3回出ています。道路法以外でも、令和4年は踏切道改良促進法、令和5年は災害対策基本法の車両移動措置が出ました。改正された法律は、複数の切り口で準備したほうが効率的です。 前回の不合格の理由を直す: 16:9 ではない（1717×916）",
             "references": [
               {
                 "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
@@ -248,36 +248,36 @@
               }
             ],
             "output": {
-              "path": ".tmp/media/pe-construction/sentaku-road-yomikata/work/factory/raw-block3.bedcec20.png",
-              "sha256": "bedcec2081275183aef68282a2ec3871c88e273ed92afa26ea737f62cfda73a1"
+              "path": ".tmp/media/pe-construction/sentaku-road-yomikata/work/factory/raw-block3.3a32b9dc.png",
+              "sha256": "3a32b9dcbffbea4cc5f3ed118972e476f7bc22d2bb2d0928850be51e67d469a3"
             },
-            "generatedAt": "2026-11-05T10:01:30.357Z"
+            "generatedAt": "2026-11-05T12:54:37.314Z"
           },
           "output": {
-            "path": ".tmp/media/pe-construction/sentaku-road-yomikata/work/block3-diagram.2f0fa9fe.png",
-            "sha256": "2f0fa9fe620c04f1b3bdea49c2d466ab6d99c9a0e31d39b24f33c45307068780",
+            "path": ".tmp/media/pe-construction/sentaku-road-yomikata/work/block3-diagram.3a32b9dc.png",
+            "sha256": "3a32b9dcbffbea4cc5f3ed118972e476f7bc22d2bb2d0928850be51e67d469a3",
             "width": 1920,
             "height": 1080
           },
           "normalization": {
             "mode": "full-frame-v1",
-            "sourceSha256": "bedcec2081275183aef68282a2ec3871c88e273ed92afa26ea737f62cfda73a1"
+            "sourceSha256": "3a32b9dcbffbea4cc5f3ed118972e476f7bc22d2bb2d0928850be51e67d469a3"
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-05T10:01:30.357Z",
+            "checkedAt": "2026-11-05T12:54:37.314Z",
             "by": "ai-image-fidelity-auditor",
-            "reason": "見出し・R02/R03/R06の文言・踏切道改良促進法と災害対策基本法の文言が指示と一致、踏切や法令アイコンも破綻なし",
+            "reason": "文字: 見出しと3項目（R2道路法改正:R02/R03/R06、R04踏切道改良促進法、R05災害対策基本法(車両移動措置)）が指示と一致。崩れなし。見出しに括弧『』が付く",
             "userReview": "pending",
             "continuousListening": "not-performed"
           }
         },
         {
           "sceneId": "block4",
-          "inputSha256": "06aa3b8358dbdf2bdeb52220081047f4424c1161a040df335be938bd47c093f1",
+          "inputSha256": "9bc9e1838bcbe7c6aecca8de35ba5b0aa81fe51e72ef97cab9fd4a83007feb98",
           "generation": {
             "tool": "image_gen",
-            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『防災・DX・道路空間再配分』。 図に入れる文字: 『能登半島地震を踏まえた防災』 『道路空間再配分＝新モビリティ対応の車道・歩道見直し』。 この場面の説明（文字にしない）: 近年は能登半島地震を踏まえた防災、道路のデジタル化、道路空間再配分が目立ちます。道路空間再配分は新しいモビリティに合わせて車道・歩道の配分を見直す論点です。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 44.9）",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『近年の出題（事実のみ）』。 図に入れる文字: 『R06 III-2 道路啓開(能登半島地震)』 『R07 II-1-4 盛土排水 / III-2 インフラDX』 『R08 II-2-1 駅周辺の道路空間再編』。 この場面の説明（文字にしない）: 次に、近年の出題を事実だけ見てみます。令和6年度のIII-2は能登半島地震を受けた道路啓開、令和7年度のII-1-4は能登半島地震と盛土の排水、III-2はインフラDXです。令和8年度は、II-2-1が駅周辺の道路空間の再編、III-1が自動物流道路、III-2が大規模災害時の道路機能確保でした。これらが次も出るかは分かりません。出題の軸を確認する材料として、施策の流れを追っておきましょう。",
             "references": [
               {
                 "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
@@ -285,36 +285,36 @@
               }
             ],
             "output": {
-              "path": ".tmp/media/pe-construction/sentaku-road-yomikata/work/factory/raw-block4.73af8945.png",
-              "sha256": "73af8945e8fcf7e12bd5530c9569389d202421bf255fca29cd5e1cb8391a3753"
+              "path": ".tmp/media/pe-construction/sentaku-road-yomikata/work/factory/raw-block4.c3bc9c85.png",
+              "sha256": "c3bc9c85acc38e61959b8a93cba99dbc63b2843ecb7f5bfcdeea10e189c4ba57"
             },
-            "generatedAt": "2026-11-05T10:01:30.357Z"
+            "generatedAt": "2026-11-05T12:54:37.314Z"
           },
           "output": {
-            "path": ".tmp/media/pe-construction/sentaku-road-yomikata/work/block4-diagram.bd241e9b.png",
-            "sha256": "bd241e9bab9b2e0282754b45b8965b71e6974869d3f3b4f11c7616eb4dede277",
+            "path": ".tmp/media/pe-construction/sentaku-road-yomikata/work/block4-diagram.a1daec29.png",
+            "sha256": "a1daec290e33980de69071262a815162255bd2b342feb7d699791f9e5c88c30f",
             "width": 1920,
             "height": 1080
           },
           "normalization": {
             "mode": "full-frame-v1",
-            "sourceSha256": "73af8945e8fcf7e12bd5530c9569389d202421bf255fca29cd5e1cb8391a3753"
+            "sourceSha256": "c3bc9c85acc38e61959b8a93cba99dbc63b2843ecb7f5bfcdeea10e189c4ba57"
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-05T10:01:30.357Z",
+            "checkedAt": "2026-11-05T12:54:37.314Z",
             "by": "ai-image-fidelity-auditor",
-            "reason": "見出しと能登半島地震・道路空間再配分の文言が指示と一致、図解は内容と合い誤字なし",
+            "reason": "文字: 見出しと3列の年度・設問番号・テーマ語が指示と一致。落石の道路啓開の重機、排水管付き盛土とDX画面、駅前の道路空間の絵も内容に合い、崩れなし",
             "userReview": "pending",
             "continuousListening": "not-performed"
           }
         },
         {
           "sceneId": "summary",
-          "inputSha256": "0e7919e4b522b08acbcd4724ebcdfeddfc201229b9c99e4283302925892ab60c",
+          "inputSha256": "e983d60a9e470588e407287ff18a46faa76e90f9010ed76351d82f5997871297",
           "generation": {
             "tool": "image_gen",
-            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『まとめ』。 図に入れる文字: 『4枠を均等に仕込む』 『舗装・法令制度＝鉄板優先』 『防災・DX・道路空間再配分は流れで補強』。 この場面の説明（文字にしない）: 道路科目は4枠を均等に仕込む科目です。舗装と法令・制度は8年連続の鉄板として優先し、防災・DX・道路空間再配分は施策の流れを追って仕上げます。",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『まとめ』。 図に入れる文字: 『基礎：4枠すべて』 『厚み：舗装・法令制度』 『補強：災害・DX・空間再編は流れで』。 この場面の説明（文字にしない）: まとめです。4枠すべてに基礎を置き、厚みは舗装と法令・制度に置きます。この2枠は8年連続で出ているからです。災害やDX、道路空間の再編は、出題の事実を確認しながら施策の流れで補強します。あなたはまず、どの枠の基礎から固めますか。",
             "references": [
               {
                 "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
@@ -322,36 +322,36 @@
               }
             ],
             "output": {
-              "path": ".tmp/media/pe-construction/sentaku-road-yomikata/work/factory/raw-summary.761fddb4.png",
-              "sha256": "761fddb4b2a77ef17805086a078a4cd5458a9e963a76cc58465d69f452ccca0b"
+              "path": ".tmp/media/pe-construction/sentaku-road-yomikata/work/factory/raw-summary.b87cc2aa.png",
+              "sha256": "b87cc2aae3e4bf151fce5aaf1d039b519b95dfb08b2c761c22f70418d8c689cb"
             },
-            "generatedAt": "2026-11-05T10:01:30.357Z"
+            "generatedAt": "2026-11-05T12:54:37.314Z"
           },
           "output": {
-            "path": ".tmp/media/pe-construction/sentaku-road-yomikata/work/summary-diagram.761fddb4.png",
-            "sha256": "761fddb4b2a77ef17805086a078a4cd5458a9e963a76cc58465d69f452ccca0b",
+            "path": ".tmp/media/pe-construction/sentaku-road-yomikata/work/summary-diagram.891aed25.png",
+            "sha256": "891aed25e0ddb50a954b7c269e8345863b56370c7691a4d7eb73bdb2af6c408f",
             "width": 1920,
             "height": 1080
           },
           "normalization": {
             "mode": "full-frame-v1",
-            "sourceSha256": "761fddb4b2a77ef17805086a078a4cd5458a9e963a76cc58465d69f452ccca0b"
+            "sourceSha256": "b87cc2aae3e4bf151fce5aaf1d039b519b95dfb08b2c761c22f70418d8c689cb"
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-05T10:01:30.357Z",
+            "checkedAt": "2026-11-05T12:54:37.314Z",
             "by": "ai-image-fidelity-auditor",
-            "reason": "見出し『まとめ』と3つの文言が指示と一字一致、余計な文字なし",
+            "reason": "文字: まとめ、厚み、基礎、補強の3文が指示と一致。4枠のうち中央2枠を強調して基礎の帯が下にあり、説明と矛盾せず崩れなし",
             "userReview": "pending",
             "continuousListening": "not-performed"
           }
         },
         {
           "sceneId": "cta",
-          "inputSha256": "e722faf5e263094259867e347a252837801b1fa4bc90de06eb942d6afaaf61be",
+          "inputSha256": "df9d5269de9e7c106c82464d03151ca16ea8848f3a85fa089366f0f2a3dc5a37",
           "generation": {
             "tool": "image_gen",
-            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『道路科目マガジンで確認する』。 図に入れる文字: 『年度別の出題テーマと解答の形（概要欄リンク）』。 この場面の説明（文字にしない）: 年度別の出題一覧と全設問の解答の形は、概要欄のリンクから道路科目のマガジンでご覧ください。ご視聴ありがとうございました。",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『道路科目マガジンで確認する』。 図に入れる文字: 『R03〜R07の模範解答（概要欄リンク）』。 この場面の説明（文字にしない）: 令和3年度から7年度の模範解答を収めた道路科目のマガジンを用意しています。年度別の出題テーマの一覧は、無料のサイト記事でも見られます。マガジンは概要欄のリンクからご覧ください。ご視聴ありがとうございました。",
             "references": [
               {
                 "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
@@ -359,26 +359,26 @@
               }
             ],
             "output": {
-              "path": ".tmp/media/pe-construction/sentaku-road-yomikata/work/factory/raw-cta.51ff134f.png",
-              "sha256": "51ff134f2aa9d11e6b1a8a1db341a3597263affe46a4bd29550fc6f2d97aa126"
+              "path": ".tmp/media/pe-construction/sentaku-road-yomikata/work/factory/raw-cta.57aa9359.png",
+              "sha256": "57aa9359573069b7618e18572a36eccac9064445d13f6481ea5bfd3386a7c1a8"
             },
-            "generatedAt": "2026-11-05T10:01:30.357Z"
+            "generatedAt": "2026-11-05T12:54:37.314Z"
           },
           "output": {
-            "path": ".tmp/media/pe-construction/sentaku-road-yomikata/work/cta-diagram.51ff134f.png",
-            "sha256": "51ff134f2aa9d11e6b1a8a1db341a3597263affe46a4bd29550fc6f2d97aa126",
+            "path": ".tmp/media/pe-construction/sentaku-road-yomikata/work/cta-diagram.5f0a4b5f.png",
+            "sha256": "5f0a4b5f23f9a46bbef3e811f6983f8659255eb35af69d23d506114e135c9b2b",
             "width": 1920,
             "height": 1080
           },
           "normalization": {
             "mode": "full-frame-v1",
-            "sourceSha256": "51ff134f2aa9d11e6b1a8a1db341a3597263affe46a4bd29550fc6f2d97aa126"
+            "sourceSha256": "57aa9359573069b7618e18572a36eccac9064445d13f6481ea5bfd3386a7c1a8"
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-05T10:01:30.357Z",
+            "checkedAt": "2026-11-05T12:54:37.314Z",
             "by": "ai-image-fidelity-auditor",
-            "reason": "見出しと『年度別の出題テーマと解答の形（概要欄リンク）』が指示と一致、URL・価格などの余計な文字なし",
+            "reason": "見出しと図中文字が指示と一字一句一致し、開いた本に道路と斜張橋の図解で内容に合い、崩れや余計な文字も無い",
             "userReview": "pending",
             "continuousListening": "not-performed"
           }

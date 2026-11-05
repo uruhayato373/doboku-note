@@ -165,6 +165,17 @@
         "expected": 747,
         "heard": 712
       }
+    },
+    "pe-construction/sentaku-road-yomikata/youtube.longform": {
+      "videoSha256": "4f00cb429555dc6588a511a3a02a5c7efd71d324ca20f4fea1f22a9c3bf21fc5",
+      "at": "2026-11-05T13:02:02.330Z",
+      "similarity": 0.797,
+      "maxVolumeDb": -1.4,
+      "durationGapSec": 0,
+      "chars": {
+        "expected": 1076,
+        "heard": 1087
+      }
     }
   }
 }

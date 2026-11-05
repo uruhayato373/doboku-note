@@ -84,8 +84,8 @@
       "kind": "video-pack",
       "definition": "content/sns/video-packs/pe-construction/hissu1-ninaite-seisansei",
       "qa": {
-        "avg": 2.3,
-        "blocks": 1,
+        "avg": 2.5,
+        "blocks": 0,
         "at": "2026-11-05",
         "by": "Claude Code video-content-qa"
       }
@@ -231,8 +231,8 @@
       "kind": "video-pack",
       "definition": "content/sns/video-packs/pe-construction/sentaku-construction-planning-yomikata",
       "qa": {
-        "avg": 1.67,
-        "blocks": 1,
+        "avg": 2.33,
+        "blocks": 0,
         "at": "2026-11-05",
         "by": "Claude Code video-content-qa"
       }
@@ -308,8 +308,8 @@
       "kind": "video-pack",
       "definition": "content/sns/video-packs/pe-construction/sentaku-river-coast-yomikata",
       "qa": {
-        "avg": 1.83,
-        "blocks": 1,
+        "avg": 2.17,
+        "blocks": 0,
         "at": "2026-11-05",
         "by": "Claude Code video-content-qa"
       }
@@ -319,8 +319,8 @@
       "kind": "video-pack",
       "definition": "content/sns/video-packs/pe-construction/sentaku-road-yomikata",
       "qa": {
-        "avg": 2,
-        "blocks": 1,
+        "avg": 2.5,
+        "blocks": 0,
         "at": "2026-11-05",
         "by": "Claude Code video-content-qa"
       }
