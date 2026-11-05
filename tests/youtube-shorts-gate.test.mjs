@@ -33,7 +33,7 @@ const scheduled = { status: 'scheduled', publishAt: slot };
 test('通常動画のみのパックを制作契約どおり検査し、停止済みの旧予定を数えない', () => {
   const r = check([{ id: 'new', row: scheduled, plan: slot }, { id: 'old', row: { status: 'stopped' }, plan: slot }]);
   assert.equal(r.status, 0, r.text);
-  assert.match(r.text, /packs=2, shorts=0, titles=0, slots=1/);
+  assert.match(r.text, /packs=2, shorts=0, stopped=0, titles=0, slots=1/);
 });
 test('実予約日時は旧メタデータの日時より優先する', () => {
   const r = check([{ id: 'a', row: scheduled, plan: slot }, { id: 'b', row: { ...scheduled, publishAt: '2026-10-20T20:00:00+09:00' }, plan: slot }]);

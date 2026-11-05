@@ -18,11 +18,13 @@
 入力は次の2経路を区別する。
 
 - legacy: `yt-shorts-create --from-reels <pack-id>` または `per-problem-shorts.mjs` が出力した `content/sns/youtube/<date>-<pack-id>/`
-- 動画パック: `content/sns/video-packs/{exam}/{packId}/youtube.json.shorts[]` と `storyboard.json`。`render-video-pack-shorts.mjs` が `.tmp/video-render/{packId}/shorts/{key}/` へ出力
+- 動画パック: `content/sns/video-packs/{exam}/{packId}/youtube.json.shorts[]`・`storyboard.json`・`shorts-design.json`。`shorts-factory` が `.tmp/video-render/{packId}/shorts/{key}/` へ出力
+
+現行の標準は `npm run shorts-factory`（[工程](./video-factory.md)）の全面画像。表紙・論点ごとの図解・締めを Codex で生成し、独立監査と字幕入りの画面確認を動画の sha に結ぶ。旧テンプレートの定型カード（`render-video-pack-shorts.mjs`）は preview だけに使い、`pop-poster-v3` でないショートは投稿と `check-youtube-shorts` が止める（2026-11-06）。2級土木は図解主体の `diagram-led` を優先する。
 
 | ファイル | 役割 |
 |---|---|
-| `shorts.mp4` | 30-60 秒の縦動画（legacy派生、または動画パックの本文scene＋関連動画CTA） |
+| `shorts.mp4` | 20-60 秒の縦動画（legacy派生、または動画パックの全面画像＋関連動画への締め） |
 | `thumbnail.png` | 1080×1920 サムネ（`per-problem-shorts.mjs` は `renderExamCoverIg` で YT 専用生成、`yt-shorts-create` は IG cover を直コピー） |
 | `meta.json` / `youtube.json.shorts[]` | YT Data API 投稿用メタ（タイトル・概要欄・タグ・公開日時・UTM付きURL） |
 
@@ -89,20 +91,21 @@ https://note.com/{author}?utm_source=youtube&utm_medium=video&utm_campaign=note&
 
 ---
 
-## 3. 4 軸ルーブリック（yt-shorts-publisher-qa が採点）
+## 3. 5 軸ルーブリック（yt-shorts-publisher-qa が採点）
 
 | 軸 | 観点 | 5 点満点の基準 |
 |---|---|---|
-| **1. 尺・画角適正** | 現行Shorts成立条件は縦/正方形かつ最長3分。doboku-noteの派生型は30-60秒を推奨 | ≤180秒かつ縦/正方形。30-60秒の既定型なら満点 |
+| **1. 尺・画角適正** | 現行Shorts成立条件は縦/正方形かつ最長3分。doboku-noteの派生型は20-60秒を推奨 | ≤180秒かつ縦/正方形。20-60秒の既定型なら満点 |
 | **2. 導線・UTM整合** | 関連通常動画 + 正規UTM + 著者主体/AI制作補助表記 | 関連動画設定が可能で、UTMと`authorityNotice`が正規 |
 | **3. タイトル長・検索性** | legacyは年度＋論点、動画パックは資格名＋固有論点＋一意性 | 経路別の型に適合し40字以内 |
 | **4. 字幕焼き込み** | 動画パックは必須、legacy既存素材のみ字幕無し許容 | 字幕と映像のdurationが一致 |
+| **5. 画面品質** | 全面画像・図解主体・手と身体の自然さ・安全域・字幕の判読 | 全場面の原寸・幅360px・字幕入りフレームで問題なし。定型カード・下端の無地帯・指の崩れは不合格 |
 
 ### 合否ライン
 
 - **合格**: 平均 4.0 以上 **かつ** 全軸 3 以上
 - **重大減点 / 不合格ゲート**:
-  - 軸 1: **180秒超または横長 → 軸1=0点・不合格**。60秒超はShort不成立ではないが、既定の30-60秒型から外れるため明示承認がなければ減点。1分超で著作権claimがあるShortは全世界ブロック対象になり得るため使用音源も確認する（[YouTube Help](https://support.google.com/youtube/answer/15424877)）
+  - 軸 1: **180秒超または横長 → 軸1=0点・不合格**。60秒超はShort不成立ではないが、既定の20-60秒型から外れるため明示承認がなければ減点。1分超で著作権claimがあるShortは全世界ブロック対象になり得るため使用音源も確認する（[YouTube Help](https://support.google.com/youtube/answer/15424877)）
   - 軸 2: IG 用 UTM（`utm_source=instagram`）混入 → **-2 点**
   - 偽成功: 予約アップロード後に `videos.list` 実査をしていない完了報告 → §7 違反として差し戻し
 
@@ -115,7 +118,7 @@ https://note.com/{author}?utm_source=youtube&utm_medium=video&utm_campaign=note&
 | IG Reels mp4 / slide-NN.mp4 の生成 | `ig-reel-create.mjs`（上流・別工程） |
 | IG Reels script.json / caption.txt の執筆 | `ig-reels-writer`（上流） |
 | YT Shorts 派生 mp4 + meta.json 生成 | `yt-shorts-create --from-reels` または `per-problem-shorts.mjs`（機械処理） |
-| 動画パックShortsの計画・生成・R2受け渡し | `npm run youtube-shorts:prepare` → `youtube-shorts:render` → `youtube-shorts:stage -- --commit` |
+| 動画パックShortsの計画・生成・R2受け渡し | `npm run youtube-shorts:prepare`（メタ）→ `shorts-factory`（画像・動画）→ `youtube-shorts:stage -- --commit` |
 | サムネイル（thumbnail.png）の生成・R2 アップ | `upload-shorts-to-r2.mjs`（mp4 と同時アップ） |
 | 4 軸採点 | `yt-shorts-publisher-qa` |
 | 旧 Shorts の台帳 | 旧 Shorts は台帳（`content/registry/`・kind `legacy-short`）。2026-10-09 に旧台帳 `youtube-schedule.json` と旧スクリプト（post-from-schedule 等）を消した |
@@ -146,6 +149,7 @@ https://note.com/{author}?utm_source=youtube&utm_medium=video&utm_campaign=note&
 
 ## 改訂履歴
 
+- v6（2026-11-06）: 全面画像の `shorts-factory` を標準にし、画面品質の第5軸を追加。推奨尺を20-60秒へ変更。定型カードは投稿とゲートで止める。
 - v5（2026-10-09）: 旧台帳 `youtube-schedule.json` と旧スクリプト（build-schedule・post-from-schedule・generate-thumbnails・validate-schedule・sync-descriptions・verify-yt-status）を消した。旧 Shorts は台帳の kind `legacy-short`。
 - v4（2026-09-05）: 動画パック112件からのShorts224本を追加。字幕必須、36字タイトル、著者主体/AI制作補助表記、日次private upload、Studio関連動画設定後のAPI予約を明文化。legacy187本はretiredのまま。
 

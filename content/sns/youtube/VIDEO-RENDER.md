@@ -26,7 +26,7 @@ Windows/MacのどちらでもVOICEVOXエンジンとffmpeg/ffprobeが必要。�
 ```bash
 node scripts/render-longform.mjs --pack-dir content/sns/video-packs/civil-construction-1/koji-gaiyo-7items --skip-tts
 node scripts/render-longform.mjs --pack-dir content/sns/video-packs/civil-construction-1/koji-gaiyo-7items --speaker 13
-node scripts/render-video-pack-shorts.mjs --pack-dir content/sns/video-packs/civil-construction-1/koji-gaiyo-7items
+npm run shorts-factory -- render --pack civil-construction-1/koji-gaiyo-7items --key <key>
 ```
 
 通常動画の音量補正が必要な場合は `render-longform` に `--loudnorm` を付ける。−16 LUFS／True Peak −1.5 dB／LRA 11を目標に補正し、実施の有無を `render-manifest.json` の `loudnorm` に記録する。通常動画の既定は無補正、総まとめ（compilation）の自動補正は従来どおり。`--resume` と併用すれば、入力が一致する音声を再利用して合成できる。完成MP4の実測値は別途確認する。

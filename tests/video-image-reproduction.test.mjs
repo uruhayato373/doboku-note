@@ -106,6 +106,21 @@ test('actual template CLI stops before rendering even with force or preview-only
   }
 });
 
+test('定型カードの描画は preview だけで、本番の出力は作らない', () => {
+  const root = mkdtempSync(join(tmpdir(), 'shorts-template-'));
+  for (const [name, data] of Object.entries({
+    'video-pack.json': { packId: 'test', exam: 'civil-construction-2' },
+    'storyboard.json': { scenes: [] },
+    'youtube.json': { shorts: [{ key: 'k' }] },
+    'pop-image.json': {},
+  })) writeFileSync(join(root, name), JSON.stringify(data));
+  const result = spawnSync(process.execPath, [join(REPO_ROOT, 'scripts/render-video-pack-shorts.mjs'), '--pack-dir', root, '--render-root', join(root, 'render')], { encoding: 'utf8' });
+  assert.notEqual(result.status, 0);
+  assert.match(result.stderr, /標準外/);
+  assert.equal(existsSync(join(root, 'render')), false);
+  rmSync(root, { recursive: true, force: true });
+});
+
 test('Shorts候補は全素材と新字幕を照合し、公開版の選択を維持する', async t => {
   const f=await fixture(t);
   f.recipe.scenes.forEach((s,i)=>{s.role=i?'scene-002':'cover';});

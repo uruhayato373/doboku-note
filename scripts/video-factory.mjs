@@ -24,7 +24,7 @@
  *
  * 運営者の approve・stop は別の入口。auto-approve は config/video-auto-publish.json の方針で動き、関門の全項目を通ったときだけ書く。
  */
-import { execFileSync, spawn, spawnSync } from 'node:child_process';
+import { execFileSync, spawnSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
 import { existsSync, mkdirSync, readFileSync, readdirSync, rmSync, writeFileSync } from 'node:fs';
 import { homedir } from 'node:os';
@@ -36,6 +36,7 @@ import { readDataset } from './lib/dataset-io.mjs';
 import { datasetPath } from './lib/datasets.mjs';
 import { readJsonIf } from './lib/json-io.mjs';
 import { requirePopDiagramStandard } from './lib/longform-pop-images.mjs';
+import { ensureVoicevox } from './lib/voicevox-engine.mjs';
 import { approvalState, reviewIsCurrent } from './lib/media-review.mjs';
 import { recordYoutubeRevisionQa } from './lib/registry-youtube-revision.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
@@ -110,20 +111,6 @@ function status() {
   console.log(`パック ${scanned} 件のうち、公開行のある ${rows.length} 件を判定`);
   for (const [stage, n] of Object.entries(counts).sort()) console.log(`  ${stage}: ${n}`);
   for (const r of rows.filter((x) => !['done', 'stopped'].includes(x.stage))) console.log(`${r.stage}\t${r.pack}`);
-}
-
-async function ensureVoicevox() {
-  const up = () => fetch('http://127.0.0.1:50021/version').then((r) => r.ok, () => false);
-  if (await up()) return null;
-  const engine = join(homedir(), 'voicevox_engine/macos-arm64/run');
-  if (!existsSync(engine)) throw new Error(`VOICEVOX が無い: ${engine}`);
-  const child = spawn(engine, ['--host', '127.0.0.1', '--port', '50021'], { stdio: 'ignore', detached: true });
-  for (let i = 0; i < 60; i += 1) {
-    await new Promise((r) => { setTimeout(r, 1000); });
-    if (await up()) return child;
-  }
-  child.kill();
-  throw new Error('VOICEVOX が起動しない');
 }
 
 async function render() {

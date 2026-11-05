@@ -32,6 +32,7 @@ domain: product
 - 生成された実寸を記録し、媒体仕様の寸法と別に扱う。採用時は媒体寸法・安全域を整えた最終PNGを保存し、採用入力とSHAを更新する。画像だけのレビュー段階では既存動画の音声・字幕を再生成しない。
 - Shortsの安全域は文字・顔の配置制約であり、右側・下側を大きな無地領域にしない。背景は四辺まで続け、主題と人物を中央に大きく配置する。全場面の原寸・幅360pxと字幕入り完成フレームを対応付け、採用画像SHA・動画SHA・確認場面数を残す。実際の操作UIの確認は別に記録し、寸法検査や原画像だけで代用しない。
 - 保存・復元・採用PNGの検査・CI転送は [VIDEO-RENDER.md](../../../../content/sns/youtube/VIDEO-RENDER.md)。意匠承認、操作UI確認、動画への採用、外部反映を `review` / `publication` で区別する。
+- 新しいShortsは `npm run shorts-factory` で表紙・図解・締めを全面生成する（[工程](../../../knowledge/reference/video-factory.md)）。指の形が崩れやすいので、手の形は `shorts-design.json` の `pose` で具体的に指定する。
 - 全場面の差し替えレシピがあるShortsは `youtube-shorts:restore` で現在の採用動画と全素材を照合・復元する。通常のテンプレート再生成は本文・締めを戻すため停止される。同じ画像や動画の再利用に画像生成・TTSを再実行しない。
 - 既存QAへ渡す情報は、用途・コピー・ポーズ・参照PNG・実画像・生成指示。AI素材の文字／人物の忠実性は `ai-image-fidelity-auditor`、Shortsの表紙と操作UIは `yt-shorts-publisher-qa` の画像確認を使う。画像のみなら動画4軸の合格にはしない。
 

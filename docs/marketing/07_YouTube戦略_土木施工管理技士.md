@@ -118,7 +118,7 @@
 06 §5・video-content-policy が真実源。土木固有の差分のみ記す。
 
 - レンダリング: `npm run render-longform`（storyboard→1920×1080 PNG＋ASS 字幕＋VOICEVOX/ffmpeg mp4）。**会社 PC は `--skip-tts` で PNG/ASS まで、mp4 生成・アップロードは Mac または GitHub Actions**（確立済み分担）
-- Shorts 派生: `youtube-shorts:prepare → youtube-shorts:render → youtube-shorts:stage` で各通常動画から2本を直接生成し、private upload後にStudioで関連通常動画を設定してAPI予約する
+- Shorts 派生: `youtube-shorts:prepare → shorts-factory → youtube-shorts:stage` で各通常動画から2本を直接生成し、private upload後にStudioで関連通常動画を設定してAPI予約する
 - 品質: 機械ゲート `npm run check-video-content` ＋ 意味評価 `video-content-qa`（6 軸 avg 2.0 以上・BLOCK なし）。公開は**ユーザー承認後のみ**（06 §10）
 - 既存SVG図版をsceneへ埋め込まないパックは、文字中心の論点整理としてQA済み。2026-10-08 に renderer へ先生の常駐・悪い例と良い例の対比・解答用紙の記入イメージを足した（作業契約は video-content-policy §4）。試作 `koji-gaiyo-sheet-zukai` と競合の画面分析は [07c](./07c_YouTube競合動画の画面分析_2026-10.md)。公開済みパックの作り直しは試作1本の視聴維持を見てから決める
 

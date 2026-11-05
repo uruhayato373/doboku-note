@@ -319,6 +319,7 @@
     "registry": "node scripts/registry.mjs",
     "video-review": "node scripts/video-agent-review.mjs",
     "video-factory": "node scripts/video-factory.mjs",
+    "shorts-factory": "node scripts/shorts-factory.mjs",
     "registry-reconcile": "node scripts/registry-reconcile.mjs",
     "media": "node scripts/media.mjs",
     "check-content-registry": "node scripts/check-content-registry.mjs",
