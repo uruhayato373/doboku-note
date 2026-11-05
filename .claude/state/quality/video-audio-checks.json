@@ -44,6 +44,17 @@
         "expected": 630,
         "heard": 497
       }
+    },
+    "civil-construction-2/keiken-daizai-erabi/youtube.longform.diagram-led": {
+      "videoSha256": "fb387ad6088e2e0c7161937c00257188a60890bdcc345a0f2c56371c72d4baab",
+      "at": "2026-11-05T00:44:17.511Z",
+      "similarity": 0.873,
+      "maxVolumeDb": -5.6,
+      "durationGapSec": 0,
+      "chars": {
+        "expected": 720,
+        "heard": 632
+      }
     }
   }
 }

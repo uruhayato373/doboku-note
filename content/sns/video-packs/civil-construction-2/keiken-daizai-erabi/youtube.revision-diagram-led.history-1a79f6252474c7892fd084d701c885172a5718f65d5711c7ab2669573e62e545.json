@@ -1,0 +1,111 @@
+{
+  "schemaVersion": 1,
+  "publicationId": "civil-construction-2/keiken-daizai-erabi/youtube.longform.diagram-led",
+  "revisionOf": "civil-construction-2/keiken-daizai-erabi/youtube.longform",
+  "account": "youtube:main",
+  "format": "longform",
+  "title": "【2級土木】経験記述の題材選び｜工事規模より自分の担当内容",
+  "description": "施工経験記述の題材を、工事の大きさだけで選んでいませんか。自分が担当した管理と、その理由・処置・確認を思い出す方法を解説します。\n\n解説・教材制作：架（かける）\n技術士（総合技術監理部門）／元・地方自治体の土木職（発注者）／1級・2級土木施工管理技士 合格者\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 2級土木 施工経験記述 完成答案集（安全・品質・工程）\nhttps://note.com/dobokunote/m/m1881a9578027?utm_source=youtube&utm_medium=video&utm_campaign=keiken-daizai-erabi&utm_content=longform\n自分の工事の事実に置き換えて練習するための教材です。\n\n動画内の施工例は、考え方を示す仮の例で、解説者の工事実績ではありません。工事の条件・数字・実施内容は、自分の施工計画や日報などの記録で確認してください。実際の答案は当該設問の指示に沿って記述してください。対象工事・受検資格は受検年度の公式手引で確認してください。\n\nこの動画は、doboku-noteの教材をもとに構成した学習用の解説です。音声・イラストの制作にAIを使用しています。\n音声：VOICEVOX:青山龍星",
+  "tags": [
+    "2級土木施工管理技士",
+    "施工経験記述",
+    "題材選び"
+  ],
+  "media": {
+    "cover": {
+      "id": "civil-construction-2/keiken-daizai-erabi/work/candidate-cover",
+      "path": ".tmp/media/civil-construction-2/keiken-daizai-erabi/work/candidate-cover.96bffe0d.png",
+      "sha256": "96bffe0d60f0deed4d6c425e9cffdc0c7ea4bc86cd22c0fd731cce7386d3feef"
+    },
+    "cta": {
+      "id": "civil-construction-2/keiken-daizai-erabi/work/candidate-cta",
+      "path": ".tmp/media/civil-construction-2/keiken-daizai-erabi/work/candidate-cta.6aaeea47.png",
+      "sha256": "6aaeea472a37c95f15dfe5657a29c7326d318230fcb42f752b54009e056da217"
+    },
+    "scene-001": {
+      "id": "civil-construction-2/keiken-daizai-erabi/work/candidate-scene-001",
+      "path": ".tmp/media/civil-construction-2/keiken-daizai-erabi/work/candidate-scene-001.96bffe0d.png",
+      "sha256": "96bffe0d60f0deed4d6c425e9cffdc0c7ea4bc86cd22c0fd731cce7386d3feef"
+    },
+    "scene-002": {
+      "id": "civil-construction-2/keiken-daizai-erabi/work/candidate-scene-002",
+      "path": ".tmp/media/civil-construction-2/keiken-daizai-erabi/work/candidate-scene-002.c83b483b.png",
+      "sha256": "c83b483bc6adb67d4b78fc82b1e1cbe87c09e02270bbfeae9e1d04c41be1cb4b"
+    },
+    "scene-003": {
+      "id": "civil-construction-2/keiken-daizai-erabi/work/candidate-scene-003",
+      "path": ".tmp/media/civil-construction-2/keiken-daizai-erabi/work/candidate-scene-003.61ac6ea0.png",
+      "sha256": "61ac6ea09f703b834319ae98faf8560d9cfd4c19b844fc472c244acc862a1cf5"
+    },
+    "scene-004": {
+      "id": "civil-construction-2/keiken-daizai-erabi/work/candidate-scene-004",
+      "path": ".tmp/media/civil-construction-2/keiken-daizai-erabi/work/candidate-scene-004.9fdc422d.png",
+      "sha256": "9fdc422d9201e1963d0cfba10cc42e4344c4199fe1ba098a3ca5538230d496a5"
+    },
+    "scene-005": {
+      "id": "civil-construction-2/keiken-daizai-erabi/work/candidate-scene-005",
+      "path": ".tmp/media/civil-construction-2/keiken-daizai-erabi/work/candidate-scene-005.58a5ec52.png",
+      "sha256": "58a5ec526cdab5fd700d70f7158e345a9f71bd05a66115cba3d1d7b27a6908a3"
+    },
+    "scene-006": {
+      "id": "civil-construction-2/keiken-daizai-erabi/work/candidate-scene-006",
+      "path": ".tmp/media/civil-construction-2/keiken-daizai-erabi/work/candidate-scene-006.e0775f9c.png",
+      "sha256": "e0775f9c3675bdc0741a0a8b7a48e3954c4ade30073c49e3937222187939b073"
+    },
+    "scene-007": {
+      "id": "civil-construction-2/keiken-daizai-erabi/work/candidate-scene-007",
+      "path": ".tmp/media/civil-construction-2/keiken-daizai-erabi/work/candidate-scene-007.aea53684.png",
+      "sha256": "aea536847dcbfff032d70f956f54f63ac393f3e652a8ce491b2985853a97807e"
+    },
+    "scene-008": {
+      "id": "civil-construction-2/keiken-daizai-erabi/work/candidate-scene-008",
+      "path": ".tmp/media/civil-construction-2/keiken-daizai-erabi/work/candidate-scene-008.eb0ab88c.png",
+      "sha256": "eb0ab88c30f73b806cb8cd92d493c9e44ef188ebe5d1fb4d17a06fea150927f4"
+    },
+    "scene-009": {
+      "id": "civil-construction-2/keiken-daizai-erabi/work/candidate-scene-009",
+      "path": ".tmp/media/civil-construction-2/keiken-daizai-erabi/work/candidate-scene-009.98b73f9b.png",
+      "sha256": "98b73f9b5e232032abea0fefb895c43cedd44ecc76cdc0d866d9af179eaa8798"
+    },
+    "scene-010": {
+      "id": "civil-construction-2/keiken-daizai-erabi/work/candidate-scene-010",
+      "path": ".tmp/media/civil-construction-2/keiken-daizai-erabi/work/candidate-scene-010.d35718d9.png",
+      "sha256": "d35718d9840bcca41fd4139c5a47fe90a776460462c7d9bab56142b37c21502a"
+    },
+    "scene-011": {
+      "id": "civil-construction-2/keiken-daizai-erabi/work/candidate-scene-011",
+      "path": ".tmp/media/civil-construction-2/keiken-daizai-erabi/work/candidate-scene-011.4bc2e851.png",
+      "sha256": "4bc2e8517148536a966552e90817282499483255c24b8077f299955e3a14e9e5"
+    },
+    "scene-012": {
+      "id": "civil-construction-2/keiken-daizai-erabi/work/candidate-scene-012",
+      "path": ".tmp/media/civil-construction-2/keiken-daizai-erabi/work/candidate-scene-012.c4a8fef9.png",
+      "sha256": "c4a8fef9e24f6344ade9ee169d808fb9eb9e9a6f3cce77e5eed39802dc86e268"
+    },
+    "scene-013": {
+      "id": "civil-construction-2/keiken-daizai-erabi/work/candidate-scene-013",
+      "path": ".tmp/media/civil-construction-2/keiken-daizai-erabi/work/candidate-scene-013.6d6b8658.png",
+      "sha256": "6d6b8658d313ad8dedd01ceda35c7d2dd9d8a6238837066e00c0599f68e6183c"
+    },
+    "scene-014": {
+      "id": "civil-construction-2/keiken-daizai-erabi/work/candidate-scene-014",
+      "path": ".tmp/media/civil-construction-2/keiken-daizai-erabi/work/candidate-scene-014.6aaeea47.png",
+      "sha256": "6aaeea472a37c95f15dfe5657a29c7326d318230fcb42f752b54009e056da217"
+    },
+    "subtitles": {
+      "id": "civil-construction-2/keiken-daizai-erabi/work/candidate-subtitles",
+      "path": ".tmp/media/civil-construction-2/keiken-daizai-erabi/work/candidate-subtitles.4d848042.ass",
+      "sha256": "4d848042cc5c374dfcbcfe724e2049580e9f16858ff9523a658d9efe812a0944"
+    },
+    "video": {
+      "id": "civil-construction-2/keiken-daizai-erabi/work/candidate-video",
+      "path": ".tmp/media/civil-construction-2/keiken-daizai-erabi/work/candidate-video.fb387ad6.mp4",
+      "sha256": "fb387ad6088e2e0c7161937c00257188a60890bdcc345a0f2c56371c72d4baab"
+    }
+  },
+  "localFile": ".tmp/media/civil-construction-2/keiken-daizai-erabi/work/candidate-video.fb387ad6.mp4",
+  "sha256": "fb387ad6088e2e0c7161937c00257188a60890bdcc345a0f2c56371c72d4baab",
+  "thumbnailLocalFile": ".tmp/media/civil-construction-2/keiken-daizai-erabi/work/candidate-cover.96bffe0d.png",
+  "thumbnailSha256": "96bffe0d60f0deed4d6c425e9cffdc0c7ea4bc86cd22c0fd731cce7386d3feef",
+  "publishAt": "2026-10-25T20:00:00+09:00"
+}
