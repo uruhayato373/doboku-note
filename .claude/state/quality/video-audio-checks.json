@@ -220,6 +220,17 @@
         "expected": 763,
         "heard": 754
       }
+    },
+    "pe-comprehensive-management/takuitsu-r07-enshu/youtube.longform": {
+      "videoSha256": "f232a9922f29e2d89736b8ed5eb63823f2fcbab75e538f279c06c5efcc4e0817",
+      "at": "2026-11-05T13:04:30.681Z",
+      "similarity": 0.834,
+      "maxVolumeDb": -1.4,
+      "durationGapSec": 0.1,
+      "chars": {
+        "expected": 1065,
+        "heard": 1024
+      }
     }
   }
 }

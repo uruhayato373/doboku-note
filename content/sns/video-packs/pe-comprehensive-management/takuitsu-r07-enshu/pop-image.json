@@ -63,5 +63,292 @@
       },
       "publication": "ローカル差し替え・外部未反映"
     }
-  }
+  },
+  "revisions": {
+    "cover-pop-20261105": {
+      "version": "pop-poster-v3",
+      "layout": {
+        "mode": "diagram-led"
+      },
+      "generation": {
+        "tool": "image_gen",
+        "prompt": "添付の1枚目はdoboku-noteで採用済みの全面POP動画表紙の意匠参照、2枚目は先生キャラクターの同一性参照です。 新規の16:9横長（1920×1080想定）日本語YouTube動画表紙を作る。鮮やかな青・シアン・ネイビー、黄色と白の極太文字、明確な黒い輪郭、少量の赤、斜めの面と勢いのある背景、右側に先生キャラクターを大きく。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。 左〜中央に正確に『令和7年度択一』『3問で型を確認』を大きく配置。上部の黄色帯に小さく『総監が制作』。 誤字・余計な文字・合格保証・URL・価格・不明な実績を足さない。文字ブロックの黒い縁取りまで含めて左右8%の内側へ収め（画面の左端から8%は背景だけ）、顔は左右5%・上下5%内、下端18%は字幕が重なるので重要な文字や顔を置かず背景が全面に続く。",
+        "references": [
+          {
+            "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/youtube.longform/cover.b87e20c1.png",
+            "sha256": "b87e20c19fda2123d3bac22950472ee7a7427dd2ab11a7cbf63807a6e83c33ad"
+          },
+          {
+            "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
+            "sha256": "1941cd22fa523fcb233e8ab7b8ad756ad7398be8755037b881d8380fb39398f9"
+          }
+        ],
+        "output": {
+          "path": ".tmp/media/pe-comprehensive-management/takuitsu-r07-enshu/work/factory/raw-cover.6bdd8d13.png",
+          "sha256": "6bdd8d1339caadada61cb755f99f4296a1da9cd61d641868c059d586a7785067"
+        },
+        "generatedAt": "2026-11-05T12:59:26.344Z"
+      },
+      "copy": {
+        "exam": "pe-comprehensive-management",
+        "headline": [
+          "令和7年度択一",
+          "3問で型を確認"
+        ],
+        "authority": "総監が制作"
+      },
+      "output": {
+        "path": ".tmp/media/pe-comprehensive-management/takuitsu-r07-enshu/work/cover-pop.5af90389.png",
+        "sha256": "5af90389254d3e4c8e43dd4e92f1c1378a68b92d683a9fe991e1d27a0b02f67e",
+        "width": 1920,
+        "height": 1080
+      },
+      "normalization": {
+        "mode": "full-frame-v1",
+        "sourceSha256": "6bdd8d1339caadada61cb755f99f4296a1da9cd61d641868c059d586a7785067"
+      },
+      "review": {
+        "status": "ai-reviewed",
+        "checkedAt": "2026-11-05T12:59:26.344Z",
+        "by": "ai-image-fidelity-auditor",
+        "reason": "文字『令和7年度択一』『3問で型を確認』『総監が制作』が指示と一字一致。先生の黒髪・黒縁眼鏡・ひげ・白ヘルメット・紺作業服とネクタイ・黄白反射帯が参照と一致し、手指も破綻なし。左右の余白・下端も守られている",
+        "userImageReview": "pending"
+      },
+      "storage": {
+        "group": "content-media",
+        "sync": "local"
+      }
+    },
+    "body-diagram-20261105": {
+      "layout": {
+        "mode": "diagram-led"
+      },
+      "images": [
+        {
+          "sceneId": "premise",
+          "inputSha256": "43a55c34864c0dd74ac2bba47e45dcff16ae032aec733ca9c3300f39bc3f362b",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、鮮やかな青・シアン・ネイビーの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『誤解：正答番号を覚えれば力になる』。 図に入れる文字: 『① 設問の形式（適切か不適切か）』 『② 条件と数値を拾う』 『③ 選択肢を1つずつ照合』 『④ どの混同を狙っているか確認』。 この場面の説明（文字にしない）: 過去問は正答番号を覚えれば力になる、と思っていませんか。番号を覚えても、条件や言い回しが変わった初見の問題では使えません。残るのは型です。一、設問の形式を確認する。最も適切か、最も不適切か。二、条件と数値を拾う。三、選択肢を1つずつ照合する。四、どの混同を狙った選択肢かを確認する。この4つを、3問に当てはめます。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/takuitsu-r07-enshu/work/factory/raw-premise.be1a55ad.png",
+              "sha256": "be1a55adc2aae2aeb36c00a604b7583c18a97af30d3cd02bb079d519c0d8c06f"
+            },
+            "generatedAt": "2026-11-05T12:59:26.344Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/takuitsu-r07-enshu/work/premise-diagram.4690c037.png",
+            "sha256": "4690c037a58200414d1dcf3b63885a5cd66b0cc38aae3e5e1624d6a1661b45c5",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "be1a55adc2aae2aeb36c00a604b7583c18a97af30d3cd02bb079d519c0d8c06f"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-05T12:59:26.344Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出しと①〜④の4つの文字が指示と一字一致し、余計な文言なし。図解（○×の書類・虫眼鏡・チェック欄・重なる円）も内容に合い崩れなし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "q1",
+          "inputSha256": "54bb1232b96f47f3de4613a5b3fdfab26809943079c11dc47ac951c50e36ab55",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、鮮やかな青・シアン・ネイビーの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『問1　損益分岐点（経済性管理）』。 図に入れる文字: 『条件：価格1,000円/個・変動費400円/個・固定費384,000円・予定800個』 『設問：最も適切なものを選ぶ（5択）』 『正答4：384,000÷0.6＝640,000円』 『選択肢3の変動費率60%は誤り（実際は40%・60%は限界利益率）』。 この場面の説明（文字にしない）: 1問目は経済性管理、損益分岐点です。設問は、最も適切なものを選ぶ5択。条件は、販売価格1,000円、変動費400円、固定費384,000円、予定売上は800個。画面の条件で、少しだけ考えてみてください。限界利益は1個600円で、限界利益率は60パーセント。損益分岐点売上高は、固定費を限界利益率で割って640,000円。これが選択肢4です。引っかけは選択肢3。変動費率60パーセントは、限界利益率との取り違えで、実際の変動費率は40パーセントです。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 14.4）",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/takuitsu-r07-enshu/work/factory/raw-q1.d8d68778.png",
+              "sha256": "d8d6877809d44e92985eff4a35e344601f2c1738d365e2176efe028eaf4e752b"
+            },
+            "generatedAt": "2026-11-05T12:59:26.344Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/takuitsu-r07-enshu/work/q1-diagram.d8d68778.png",
+            "sha256": "d8d6877809d44e92985eff4a35e344601f2c1738d365e2176efe028eaf4e752b",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "d8d6877809d44e92985eff4a35e344601f2c1738d365e2176efe028eaf4e752b"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-05T12:59:26.344Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し・条件・設問・正答4の式384,000÷0.6＝640,000円・選択肢3の注記が指示と一字一致。数値の誤字や余計な文字なし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "q2",
+          "inputSha256": "ae548f68dc418fdbb1f25385e755798ff5b8e6aa9cb92b13bf79902b1ac06877",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、鮮やかな青・シアン・ネイビーの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『問2　ストレスチェック制度（人的資源管理）』。 図に入れる文字: 『最も不適切なものを選ぶ5択』 『適切：1 年1回実施／2 目的／3 検査項目／5 集計・分析と職場改善』 『正答4：事業者が個々の検査結果の提供を受ける（誤り）』 『事業者が閲覧できるのは集計結果のみ』。 この場面の説明（文字にしない）: 2問目は人的資源管理、ストレスチェック制度です。設問は、最も不適切なものを選ぶ5択。題材は労働安全衛生法のストレスチェックです。選択肢1の年1回の実施、2の目的、3の検査項目、5の集計・分析を踏まえた職場改善は、いずれも適切。不適切なのは4、事業者が個々の労働者の検査結果の提供を受ける、という記述です。出典の整理では、プライバシー保護のため、事業者が閲覧できるのは集計結果のみ。個別結果を想定した選択肢が、引っかけの定番です。 前回の不合格の理由を直す: 文字: 吹き出しの「正答4：」の4とコロンの間に指示にない読点状の記号「、」が混入している（指示は『正答4：事業者が…』）。他の文字と図は指示どおり",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/takuitsu-r07-enshu/work/factory/raw-q2.b7856536.png",
+              "sha256": "b7856536dac9f1435f048399882a1d9fcab6d23ed2b456fd315eb16c3aabb590"
+            },
+            "generatedAt": "2026-11-05T12:59:26.344Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/takuitsu-r07-enshu/work/q2-diagram.3a73c400.png",
+            "sha256": "3a73c400d4ea2065310c233e94a1471471f1a6c47a9560c6975877aca178e20a",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "b7856536dac9f1435f048399882a1d9fcab6d23ed2b456fd315eb16c3aabb590"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-05T12:59:26.344Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字: 見出し・5択・適切の列挙・正答4・集計結果のみを指示と1字ずつ照合し一致。誤字・擬似文字なし。鍵と棒グラフの図は本文（個別結果は見られず集計のみ）と矛盾せず破綻なし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "q3",
+          "inputSha256": "a316217d38e2b1fee62371a3596512ebee0bc2d22b18e08a47e70c153794e0e9",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、鮮やかな青・シアン・ネイビーの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『問3　情報セキュリティ認証』。 図に入れる文字: 『最も不適切なものを選ぶ5択』 『ISMS：組織の運用・管理を評価』 『CC：製品の技術的機能のみ評価』 『正答4：CCの評価範囲を取り違えた文』。 この場面の説明（文字にしない）: 3問目は情報管理、情報セキュリティの認証制度です。設問は、最も不適切なものを選ぶ5択。ISMS適合性評価制度、ISO/IEC27001、そしてISO/IEC15408、通称CCの説明が並びます。不適切なのは選択肢4。ISO/IEC15408が、技術面と組織面の対策を、運用・管理まで評価するとしている点です。CCが評価するのは製品の技術的機能のみ。組織の運用・管理はISMS、つまりISO/IEC27001の範疇です。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/takuitsu-r07-enshu/work/factory/raw-q3.24923204.png",
+              "sha256": "249232040f0f131195934d692674a240bde748a64ce4ac0796268e212dbee1e8"
+            },
+            "generatedAt": "2026-11-05T12:59:26.344Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/takuitsu-r07-enshu/work/q3-diagram.24923204.png",
+            "sha256": "249232040f0f131195934d692674a240bde748a64ce4ac0796268e212dbee1e8",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "249232040f0f131195934d692674a240bde748a64ce4ac0796268e212dbee1e8"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-05T12:59:26.344Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し・ISMS/CC の説明・正答4の文字が指示と一字ずつ一致し、建物と組織、PCとチップの図も内容に合い、崩れも余計な文字も無い",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "summary",
+          "inputSha256": "9834ea0b5dd0ab6507ac897fb8cc50b82ad96c94c9a8076beb5f2f69a9e60a18",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、鮮やかな青・シアン・ネイビーの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『まとめ』。 図に入れる文字: 『問1：変動費率と限界利益率』 『問2：個別結果と集計結果』 『問3：製品の機能評価と組織の運用評価』。 この場面の説明（文字にしない）: 3問に共通するのは、設問形式を確かめ、条件を拾い、選択肢を1つずつ照合し、どの混同を狙った選択肢かを見抜く型です。問1は変動費率と限界利益率、問2は個別結果と集計結果、問3は製品の機能評価と組織の運用評価。対比の軸で解くと、初見の問題にも応用が利きます。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/takuitsu-r07-enshu/work/factory/raw-summary.f7e1c388.png",
+              "sha256": "f7e1c388741018ecea7b7b144879586096745ab1900ed42fe8ab51af9dde2b16"
+            },
+            "generatedAt": "2026-11-05T12:59:26.344Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/takuitsu-r07-enshu/work/summary-diagram.b9ec0f54.png",
+            "sha256": "b9ec0f54f67fe66d2544901b854b5c3886068381561d7d6ab483a851e3ec4988",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "f7e1c388741018ecea7b7b144879586096745ab1900ed42fe8ab51af9dde2b16"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-05T12:59:26.344Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し『まとめ』と問1〜3の3文言が指示と一字一致。余計な文字なく、対比図も内容に合う",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "cta",
+          "inputSha256": "1f03a679d808e668f3a6d97ffec095f6c0d69edf505e8aaa89fa2bfd3dacb9f8",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、鮮やかな青・シアン・ネイビーの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『全280問の解説PDFを見る』。 図に入れる文字: 『令和元〜7年度 択一式 全280問（概要欄リンク）』。 この場面の説明（文字にしない）: 令和元年度から令和7年度までの全280問を、各選択肢の正誤の理由つきでまとめたPDFは、概要欄のリンクからご覧ください。ご視聴ありがとうございました。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/takuitsu-r07-enshu/work/factory/raw-cta.f497a891.png",
+              "sha256": "f497a891c141815c2e5a99d3b9a412ea3d75a8d613a477f19c38cc95df14786a"
+            },
+            "generatedAt": "2026-11-05T12:59:26.344Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/takuitsu-r07-enshu/work/cta-diagram.480ad11b.png",
+            "sha256": "480ad11b699ec3f226e281609a754d3ee9792298fd5514da7fc71eea0710d191",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "f497a891c141815c2e5a99d3b9a412ea3d75a8d613a477f19c38cc95df14786a"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-05T12:59:26.344Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し『全280問の解説PDFを見る』と『令和元〜7年度 択一式 全280問（概要欄リンク）』が指示と一致（〜が~になる程度）。余計な文字なし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        }
+      ]
+    }
+  },
+  "activeCoverRevision": "cover-pop-20261105",
+  "activeBodyRevision": "body-diagram-20261105"
 }
