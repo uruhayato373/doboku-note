@@ -62,9 +62,9 @@ function readExamNotation(text) {
   return text
     // R1 は回路の抵抗、単独の I は電流にも使うので、年度と区分の形に限る
     .replace(/(?<![A-Za-z0-9])R0([1-9])(?![0-9A-Za-z])/g, (_, year) => `れいわ${DIGITS[year]}`)
-    .replace(/(?<![A-Za-z])(?:III|II|IV|Ⅰ|Ⅱ|Ⅲ|Ⅳ|I(?=-\d)|(?<=科目|区分|問題|健全性)I)(?:-\d)*(?![A-Za-z])/g, (match) => {
+    .replace(/(?<![A-Za-z])(?:III|II|IV|Ⅰ|Ⅱ|Ⅲ|Ⅳ|I(?=-\d)|(?<=科目|区分|問題|健全性)I)(?:-\d+)*(?![A-Za-z])/g, (match) => {
       const [roman, ...rest] = match.split('-');
-      return [ROMAN[roman], ...rest.map((digit) => DIGITS[digit])].join('の');
+      return [ROMAN[roman], ...rest.map((number) => DIGITS[number] ?? number)].join('の');
     });
 }
 
