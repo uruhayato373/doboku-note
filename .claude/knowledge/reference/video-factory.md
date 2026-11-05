@@ -43,7 +43,7 @@ title: 通常動画の量産工程
 - 音声の照合（文字起こしと台本の一致、音量、尺。動画の sha に結ぶ）
 - 公開まで 24 時間以上ある。人が止める猶予として残す
 
-音声の照合で分かるのは発話の欠落・崩れ・音量・尺までで、1 語の読み間違いは分からない。方針の承認は `approval.by: 'policy'` で記録し、受け付けるのは YouTube の通常動画だけ（`acceptedApproval`）。他のチャネルは運営者の承認のまま。トークンを節約するため、機械の検査を先に通し、LLM は内容QAと画面確認だけに使う。白書の数値の照合が要る動画は `notebooklm-cross-query.mjs` で引く。
+音声の照合で分かるのは発話の欠落・崩れ・音量・尺までで、1 語の読み間違いは分からない。機械では足さないと決めた（2026-11-05）。文字起こしは同音語で誤るので判定に使えない。公開までの 24 時間で運営者が抜き打ちで聞く。方針の承認は `approval.by: 'policy'` で記録し、受け付けるのは YouTube の通常動画だけ（`acceptedApproval`）。他のチャネルは運営者の承認のまま。トークンを節約するため、機械の検査を先に通し、LLM は内容QAと画面確認だけに使う。白書の数値の照合が要る動画は `notebooklm-cross-query.mjs` で引く。
 
 ## 手で回す
 
@@ -67,16 +67,23 @@ npm run video-factory -- auto-approve --pack <資格>/<作品>
 
 ## Workflow で回す
 
-Workflow `video-factory` に `{ root, packs: [{ pack, scope, rendered }], commit: true }` を渡す。`rendered: true` は制作済みの動画で、画像と描画を飛ばす。工程は同じで、画像の並行は 2 本まで、描画と台帳の書き込みは直列。止まったパックは理由を返し、他のパックは進む。
+Workflow `video-factory` に `{ root, packs: [{ pack, scope, rendered }] }` を渡す。`rendered: true` は制作済みの動画で、画像と描画を飛ばす。工程は同じで、画像の並行は 2 本まで、描画と台帳の書き込みは直列。止まったパックは理由を返し、他のパックは進む。最後の `finish` が音声照合・関門・コミットを回す。
 
-いきなり全件を流さない。3〜5 本で通してから広げる。1 本で 12 枚前後を生成するので、Codex の利用枠も確かめる。
+通ったパックは親が予約する。Workflow の中では外へ出さない。
+
+```bash
+node --env-file=<.env.local> scripts/video-factory.mjs publish --packs <a,b>
+node --env-file=<.env.local> scripts/video-factory.mjs cleanup --packs <a,b>  # audit-funnel で実体を確かめたあと
+```
+
+トークンの大半は代理エージェントの起動にかかる（2026-11-05 の実測: 13 体で約 100 万・1 体約 8 万）。機械の工程は `produce`・`finish` のようにコマンド 1 本へまとめ、代理を増やさない。判定の記録は監査役・QA 役が自分で行う。1 本で 12 枚前後を生成するので、Codex の利用枠も確かめる。
 
 ## 罠
 
 - 予約の検査に要る `channel`・`r2Key`・`thumbnailR2Key` は `wire` が入れる。手で足さない（2026-11-05）。
 - 予約後に概要欄を直すと digest が変わり、承認が無効になる。承認の前に関門で導線を見る（2026-11-05）。
-- 改訂版の行（`youtube.longform.diagram-led`）は `wire` の対象外。公開日時は `prepare-youtube-revision --refresh-draft` で決め、下書きへ戻るので QA からやり直す（2026-11-05）。
-- 公開用の文面 `youtube.json` が無いパックは `wire` で止まる。2026-11-05 時点で未制作 53 本のうち文面があるのは 10 本（DN カード参照）。
+- 改訂版の `wire` は `--refresh-draft` で日時を変え、文面と素材が同じなので同じ QA を記録し直す（2026-11-05）。
+- `wire` は `youtube.json` が無ければ描画の実体から作る。主 CTA が `links-hub`・`site-article` のパックは導線の検査で止まるので、商品を決めてから流す（2026-11-05）。
 - `registry-reconcile` は公開範囲だけを見て、予約日時は比べない。日時の実体は `mode=audit-funnel` で読み戻す（2026-11-05）。
 - `codex exec` は標準入力を閉じないと入力を待って止まる（2026-11-04）。`spawnCodex` は閉じている。
 - 表紙だけ作り直すときの本文の画像は Drive にしか無い。`render` が先に揃える（2026-11-04）。
