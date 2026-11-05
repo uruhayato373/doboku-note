@@ -87,7 +87,7 @@
           "path": ".tmp/media/pe-construction/hissu1-carbon-neutral/work/factory/raw-cover.9459eea5.png",
           "sha256": "9459eea5462d9b284ae31a6054143bbf3b69fc667ec6ecfc22215068b57d1684"
         },
-        "generatedAt": "2026-11-05T09:59:57.195Z"
+        "generatedAt": "2026-11-05T21:32:17.778Z"
       },
       "copy": {
         "exam": "pe-construction",
@@ -109,7 +109,7 @@
       },
       "review": {
         "status": "ai-reviewed",
-        "checkedAt": "2026-11-05T09:59:57.195Z",
+        "checkedAt": "2026-11-05T21:32:17.778Z",
         "by": "ai-image-fidelity-auditor",
         "reason": "文字『総監が制作』『脱炭素とGX』『答案の切り口は？』が指示と一字一句一致。ヘルメット・黒縁眼鏡・ひげ・紺作業服・ネクタイ・反射帯のキャラクターで手指の破綻なし",
         "userImageReview": "pending"
@@ -140,7 +140,7 @@
               "path": ".tmp/media/pe-construction/hissu1-carbon-neutral/work/factory/raw-premise.b38b0776.png",
               "sha256": "b38b07767d84d9269b7b8ab59189fb7070b7287b1f3ebf5c3109636057cbedc6"
             },
-            "generatedAt": "2026-11-05T09:59:57.195Z"
+            "generatedAt": "2026-11-05T21:32:17.778Z"
           },
           "output": {
             "path": ".tmp/media/pe-construction/hissu1-carbon-neutral/work/premise-diagram.b38b0776.png",
@@ -154,7 +154,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-05T09:59:57.195Z",
+            "checkedAt": "2026-11-05T21:32:17.778Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "見出しと2つの文言が指示と一字一句一致。三層の図は意味と矛盾せず、余計な文字や崩れなし",
             "userReview": "pending",
@@ -177,7 +177,7 @@
               "path": ".tmp/media/pe-construction/hissu1-carbon-neutral/work/factory/raw-frequency.1078df64.png",
               "sha256": "1078df6497e9554971f98eb9a2aafb633976f5cb89a5b29559ddd4df4b3b8ff6"
             },
-            "generatedAt": "2026-11-05T09:59:57.195Z"
+            "generatedAt": "2026-11-05T21:32:17.778Z"
           },
           "output": {
             "path": ".tmp/media/pe-construction/hissu1-carbon-neutral/work/frequency-diagram.1078df64.png",
@@ -191,7 +191,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-05T09:59:57.195Z",
+            "checkedAt": "2026-11-05T21:32:17.778Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "見出し・R04-I-2・R03-I-1・主要テーマの文言が指示と一致。余計な文字なし、図記号も内容に合う",
             "userReview": "pending",
@@ -214,7 +214,7 @@
               "path": ".tmp/media/pe-construction/hissu1-carbon-neutral/work/factory/raw-layers.ae9830b8.png",
               "sha256": "ae9830b8201c637f082e793574e4687c37477d2bba3b31fb4d2beb28d394fb1b"
             },
-            "generatedAt": "2026-11-05T09:59:57.195Z"
+            "generatedAt": "2026-11-05T21:32:17.778Z"
           },
           "output": {
             "path": ".tmp/media/pe-construction/hissu1-carbon-neutral/work/layers-diagram.f6602393.png",
@@ -228,7 +228,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-05T09:59:57.195Z",
+            "checkedAt": "2026-11-05T21:32:17.778Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "見出しと三層の3文言が指示と一致。コンクリ・鋼材・ショベル・ビル・樹木・海藻の絵も各層に合い、崩れなし",
             "userReview": "pending",
@@ -251,7 +251,7 @@
               "path": ".tmp/media/pe-construction/hissu1-carbon-neutral/work/factory/raw-policies.706f1116.png",
               "sha256": "706f1116dffcf4a023a1710393630ec08a9eabfa5c7556f03776c199444f3e83"
             },
-            "generatedAt": "2026-11-05T09:59:57.195Z"
+            "generatedAt": "2026-11-05T21:32:17.778Z"
           },
           "output": {
             "path": ".tmp/media/pe-construction/hissu1-carbon-neutral/work/policies-diagram.317e03cd.png",
@@ -265,7 +265,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-05T09:59:57.195Z",
+            "checkedAt": "2026-11-05T21:32:17.778Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "3施策名と年度(2023・2026年1月改訂・2020年度〜)が指示と一字一句一致。絵は施策に合い、崩れなし",
             "userReview": "pending",
@@ -288,7 +288,7 @@
               "path": ".tmp/media/pe-construction/hissu1-carbon-neutral/work/factory/raw-tradeoff.cbf93c58.png",
               "sha256": "cbf93c58c536cb380d88f068ea343fee8a3bf1ca885151c35819800df436e7ff"
             },
-            "generatedAt": "2026-11-05T09:59:57.195Z"
+            "generatedAt": "2026-11-05T21:32:17.778Z"
           },
           "output": {
             "path": ".tmp/media/pe-construction/hissu1-carbon-neutral/work/tradeoff-diagram.cbf93c58.png",
@@ -302,7 +302,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-05T09:59:57.195Z",
+            "checkedAt": "2026-11-05T21:32:17.778Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "見出しと低炭素材料・緩和策①②の文言が指示と一致。ショベル・鋼材・コンクリの形も成立し、崩れなし",
             "userReview": "pending",
@@ -325,7 +325,7 @@
               "path": ".tmp/media/pe-construction/hissu1-carbon-neutral/work/factory/raw-stance.a474e775.png",
               "sha256": "a474e775cb12a76fb2c536d1342864957942508421c7630062dec06197b95a30"
             },
-            "generatedAt": "2026-11-05T09:59:57.195Z"
+            "generatedAt": "2026-11-05T21:32:17.778Z"
           },
           "output": {
             "path": ".tmp/media/pe-construction/hissu1-carbon-neutral/work/stance-diagram.178abb8b.png",
@@ -339,7 +339,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-05T09:59:57.195Z",
+            "checkedAt": "2026-11-05T21:32:17.778Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "見出しと2つの要件文言が指示と一致。書類・メーター・クレーン・ショベルの図は成立し、崩れなし",
             "userReview": "pending",
@@ -362,7 +362,7 @@
               "path": ".tmp/media/pe-construction/hissu1-carbon-neutral/work/factory/raw-summary.329d6079.png",
               "sha256": "329d607970a5913d59f9b1192872fc2cf73ef6ad10f5e3887d45c66faee973c5"
             },
-            "generatedAt": "2026-11-05T09:59:57.195Z"
+            "generatedAt": "2026-11-05T21:32:17.778Z"
           },
           "output": {
             "path": ".tmp/media/pe-construction/hissu1-carbon-neutral/work/summary-diagram.1a5ae05b.png",
@@ -376,7 +376,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-05T09:59:57.195Z",
+            "checkedAt": "2026-11-05T21:32:17.778Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "見出し『まとめ』と①〜④の4文言が指示と一字一句一致。アイコンも内容に合い、文字の崩れなし",
             "userReview": "pending",
@@ -399,7 +399,7 @@
               "path": ".tmp/media/pe-construction/hissu1-carbon-neutral/work/factory/raw-cta.8bcb5d81.png",
               "sha256": "8bcb5d813a17af4537b0e31bc127b496aef05d2dcb71f610f01e1eb7499769f8"
             },
-            "generatedAt": "2026-11-05T09:59:57.195Z"
+            "generatedAt": "2026-11-05T21:32:17.778Z"
           },
           "output": {
             "path": ".tmp/media/pe-construction/hissu1-carbon-neutral/work/cta-diagram.75e704a1.png",
@@ -413,7 +413,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-05T09:59:57.195Z",
+            "checkedAt": "2026-11-05T21:32:17.778Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "見出し『答案の型で確認する』と『必須科目I マガジン（概要欄リンク）』が指示と一致。余計な文字・URLなし",
             "userReview": "pending",

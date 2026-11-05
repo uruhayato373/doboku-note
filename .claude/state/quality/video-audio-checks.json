@@ -79,25 +79,25 @@
       }
     },
     "pe-construction/hissu1-bosai-kyoujinka/youtube.longform": {
-      "videoSha256": "2f44b3a0e1e3886a1f378fd147dfc2657a6a9e442f8bbd0e4352c9ac8116b388",
-      "at": "2026-11-05T10:07:05.570Z",
-      "similarity": 0.851,
+      "videoSha256": "b3b25468184a9e3a72838d77d6d290fb32cd02e9fe75f66a52cda8c331c31b0a",
+      "at": "2026-11-05T21:57:54.271Z",
+      "similarity": 0.967,
       "maxVolumeDb": -1.4,
-      "durationGapSec": 0.1,
+      "durationGapSec": 0,
       "chars": {
-        "expected": 957,
-        "heard": 928
+        "expected": 964,
+        "heard": 948
       }
     },
     "pe-construction/hissu1-carbon-neutral/youtube.longform": {
-      "videoSha256": "c9aa34a5e1f97572567c2bc9e8db1175cc077a228a5fa6ce23c892769bb1fe1c",
-      "at": "2026-11-05T10:07:31.295Z",
-      "similarity": 0.771,
-      "maxVolumeDb": -1.5,
-      "durationGapSec": 0.1,
+      "videoSha256": "f044c4b2ab164a77c8e8af4dbcbddc9dab2e844f92c25edde4f4ffeba81789d3",
+      "at": "2026-11-05T21:58:30.395Z",
+      "similarity": 0.949,
+      "maxVolumeDb": -1.4,
+      "durationGapSec": 0,
       "chars": {
-        "expected": 993,
-        "heard": 788
+        "expected": 1001,
+        "heard": 1000
       }
     },
     "pe-construction/hissu1-infra-roukyuuka/youtube.longform": {
@@ -123,14 +123,14 @@
       }
     },
     "pe-construction/hissu1-kokudo-chiiki/youtube.longform": {
-      "videoSha256": "be33f9895a1516620456b101819f8d9ba32d2681098aa6ad3a05e44b8b121f22",
-      "at": "2026-11-05T10:55:54.225Z",
-      "similarity": 0.847,
+      "videoSha256": "8f8109364fa049bd2d498cb3f96da56ddea89f97de04ca8a1d917f91a14dad87",
+      "at": "2026-11-05T21:59:01.646Z",
+      "similarity": 0.962,
       "maxVolumeDb": -1.4,
-      "durationGapSec": 0,
+      "durationGapSec": 0.1,
       "chars": {
-        "expected": 970,
-        "heard": 965
+        "expected": 978,
+        "heard": 980
       }
     },
     "pe-comprehensive-management/hakusho-map/youtube.longform": {
@@ -156,69 +156,69 @@
       }
     },
     "pe-comprehensive-management/persona-settei/youtube.longform": {
-      "videoSha256": "a131a0411dbe0619d26f4c3301f3b18379ae2f12d972519003537ea5e0f9ff72",
-      "at": "2026-11-05T12:38:20.283Z",
+      "videoSha256": "85fb7d694fc3fd1c3cb7dc5f0351e94bcfb81317b52ed39218fbe2e69c655e45",
+      "at": "2026-11-05T20:59:31.659Z",
       "similarity": 0.902,
       "maxVolumeDb": -1.4,
-      "durationGapSec": 0,
+      "durationGapSec": 0.1,
       "chars": {
-        "expected": 747,
-        "heard": 712
+        "expected": 745,
+        "heard": 711
       }
     },
     "pe-construction/sentaku-road-yomikata/youtube.longform": {
-      "videoSha256": "4f00cb429555dc6588a511a3a02a5c7efd71d324ca20f4fea1f22a9c3bf21fc5",
-      "at": "2026-11-05T13:02:02.330Z",
-      "similarity": 0.797,
+      "videoSha256": "cb3ad75d7b7823479d8396758cb16a5d0c8e3de88fd2b4e1e09d30fc4ad3d857",
+      "at": "2026-11-05T22:02:35.615Z",
+      "similarity": 0.945,
       "maxVolumeDb": -1.4,
       "durationGapSec": 0,
       "chars": {
-        "expected": 1076,
-        "heard": 1087
+        "expected": 1083,
+        "heard": 1083
       }
     },
     "pe-construction/sentaku-river-coast-yomikata/youtube.longform": {
-      "videoSha256": "5ad5f7505f37add64d0b35ce8fc711b4e1813c1ff57b3d5486980bfdf43a831c",
-      "at": "2026-11-05T13:02:32.853Z",
-      "similarity": 0.779,
+      "videoSha256": "258b5815df0e95ddd7610a106a52d51a329fd06a2c2c8b7d495689f73ef30be7",
+      "at": "2026-11-05T22:02:02.657Z",
+      "similarity": 0.929,
       "maxVolumeDb": -1.4,
       "durationGapSec": 0,
       "chars": {
-        "expected": 1033,
-        "heard": 1005
+        "expected": 1040,
+        "heard": 1010
       }
     },
     "pe-construction/sentaku-construction-planning-yomikata/youtube.longform": {
-      "videoSha256": "5f6d7704f9ae5edb95cdac0834e1e1ba4eedb372f9ecf06b02c02079e1e3992e",
-      "at": "2026-11-05T13:03:02.785Z",
-      "similarity": 0.799,
-      "maxVolumeDb": -1.4,
+      "videoSha256": "fa876cd77f90981b696a67b1d839e8126d4125e119167b2568ff370d2a0f1d8e",
+      "at": "2026-11-05T22:00:07.965Z",
+      "similarity": 0.958,
+      "maxVolumeDb": -1.3,
       "durationGapSec": 0,
       "chars": {
-        "expected": 1179,
-        "heard": 1137
+        "expected": 1186,
+        "heard": 1157
       }
     },
     "pe-construction/hissu1-ninaite-seisansei/youtube.longform": {
-      "videoSha256": "175736eba41d5b301a63f98051a577358de93a3bfd42f948e780a641202cf030",
-      "at": "2026-11-05T13:03:30.751Z",
-      "similarity": 0.828,
-      "maxVolumeDb": -1.5,
-      "durationGapSec": 0.1,
+      "videoSha256": "c75d175246b4e79a3b974c3276abe52249b7006f85f4fc583aeaa7dae0c56410",
+      "at": "2026-11-05T21:59:33.458Z",
+      "similarity": 0.969,
+      "maxVolumeDb": -1.4,
+      "durationGapSec": 0,
       "chars": {
-        "expected": 982,
-        "heard": 968
+        "expected": 989,
+        "heard": 992
       }
     },
     "pe-comprehensive-management/kata-oudan-ryuyo/youtube.longform": {
-      "videoSha256": "039d6b9ed7ccd2b73b1886e11b926cac40a9cf3401a4dc512e69a7a11b0be414",
-      "at": "2026-11-05T13:03:54.453Z",
-      "similarity": 0.837,
+      "videoSha256": "6fb7b99486f22c00d4f0f624cd120080e453b4c67bafdd92c4c9ff6d11452d31",
+      "at": "2026-11-05T21:57:21.529Z",
+      "similarity": 0.942,
       "maxVolumeDb": -1.5,
       "durationGapSec": 0,
       "chars": {
-        "expected": 763,
-        "heard": 754
+        "expected": 768,
+        "heard": 759
       }
     },
     "pe-comprehensive-management/takuitsu-r07-enshu/youtube.longform": {
@@ -241,6 +241,105 @@
       "chars": {
         "expected": 5932,
         "heard": 5675
+      }
+    },
+    "pe-construction/sentaku-environment-yomikata/youtube.longform": {
+      "videoSha256": "cc91096db86dc1f5301b6c14445c925dba29628fe27ebf93d9dec225a8b0f5c8",
+      "at": "2026-11-05T22:00:50.733Z",
+      "similarity": 0.936,
+      "maxVolumeDb": -1.4,
+      "durationGapSec": 0,
+      "chars": {
+        "expected": 1343,
+        "heard": 1283
+      }
+    },
+    "pe-construction/sentaku-geotechnical-yomikata/youtube.longform": {
+      "videoSha256": "f720e4fed431ed1b4acc5d63fe1a5c81db669f7dba86a58bc5c2d556ac2fbf89",
+      "at": "2026-11-05T22:03:24.223Z",
+      "similarity": 0.916,
+      "maxVolumeDb": -1.3,
+      "durationGapSec": 0.1,
+      "chars": {
+        "expected": 1373,
+        "heard": 1347
+      }
+    },
+    "pe-construction/sentaku-railway-yomikata/youtube.longform": {
+      "videoSha256": "a76d742592bd96091d724fe7c73f633537f212866b98e137c9c2c38dabe02df3",
+      "at": "2026-11-05T22:01:29.358Z",
+      "similarity": 0.951,
+      "maxVolumeDb": -1.4,
+      "durationGapSec": 0,
+      "chars": {
+        "expected": 1056,
+        "heard": 1013
+      }
+    },
+    "pe-construction/sentaku-tunnel-yomikata/youtube.longform": {
+      "videoSha256": "e3524af4301a5fb4213d5aa4adb82e63b18d49a6bdbe17c731c75c99f40c75ac",
+      "at": "2026-11-05T22:17:47.161Z",
+      "similarity": 0.93,
+      "maxVolumeDb": -1.4,
+      "durationGapSec": 0,
+      "chars": {
+        "expected": 1058,
+        "heard": 1007
+      }
+    },
+    "pe-construction/sentaku-port-airport-yomikata/youtube.longform": {
+      "videoSha256": "0f9cdb59a6bb4bc2021a23596d6333ecb09cf4357d3a31bdad8e9e25685ad882",
+      "at": "2026-11-05T22:04:35.917Z",
+      "similarity": 0.933,
+      "maxVolumeDb": -1.4,
+      "durationGapSec": 0.1,
+      "chars": {
+        "expected": 1507,
+        "heard": 1434
+      }
+    },
+    "pe-construction/kaitourei-tsukaikata/youtube.longform.reading-fix": {
+      "videoSha256": "36679e80e86b63d2a59e826edc402b1c2e1862f904da9a25cb8bb7566240d455",
+      "at": "2026-11-05T22:12:01.734Z",
+      "similarity": 0.964,
+      "maxVolumeDb": -1.5,
+      "durationGapSec": 0.1,
+      "chars": {
+        "expected": 638,
+        "heard": 620
+      }
+    },
+    "pe-construction/hissu1-kensetsu-dx/youtube.longform.reading-fix": {
+      "videoSha256": "985548ec6284dfb33fa112f3548e368f779a79741daf7cf6aaa75dea81e47b22",
+      "at": "2026-11-05T22:12:45.237Z",
+      "similarity": 0.968,
+      "maxVolumeDb": -1.4,
+      "durationGapSec": 0.1,
+      "chars": {
+        "expected": 976,
+        "heard": 1096
+      }
+    },
+    "pe-construction/toan-kousei-template/youtube.longform.reading-fix": {
+      "videoSha256": "7abe449a27ebbee6397b2f310ffc8ac3b415b69246e60f976f115a1b217aea29",
+      "at": "2026-11-05T22:13:23.669Z",
+      "similarity": 0.969,
+      "maxVolumeDb": -1.5,
+      "durationGapSec": 0.1,
+      "chars": {
+        "expected": 908,
+        "heard": 880
+      }
+    },
+    "pe-construction/hissu1-infra-roukyuuka/youtube.longform.reading-fix": {
+      "videoSha256": "ef4af725671d8737eb04c52d15b4d82b9fc04898d1a300dcc12a3cb0dd625c94",
+      "at": "2026-11-05T22:14:08.784Z",
+      "similarity": 0.959,
+      "maxVolumeDb": -1.4,
+      "durationGapSec": 0,
+      "chars": {
+        "expected": 1105,
+        "heard": 1141
       }
     }
   }

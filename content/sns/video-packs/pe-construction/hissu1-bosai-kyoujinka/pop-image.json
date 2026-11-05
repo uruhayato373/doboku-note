@@ -87,7 +87,7 @@
           "path": ".tmp/media/pe-construction/hissu1-bosai-kyoujinka/work/factory/raw-cover.6c1f1fc1.png",
           "sha256": "6c1f1fc1e7fa9cd2833d55ddeafecf45b9f7c11622dd573a682879a4f9743240"
         },
-        "generatedAt": "2026-11-05T10:02:33.492Z"
+        "generatedAt": "2026-11-05T21:31:18.772Z"
       },
       "copy": {
         "exam": "pe-construction",
@@ -109,7 +109,7 @@
       },
       "review": {
         "status": "ai-reviewed",
-        "checkedAt": "2026-11-05T10:02:33.492Z",
+        "checkedAt": "2026-11-05T21:31:18.772Z",
         "by": "ai-image-fidelity-auditor",
         "reason": "種別・構造: 指定文字『総監が制作』『防災・強靱化』『論文の論点整理』が一字ずつ一致。先生は黒髪・黒縁眼鏡・軽いひげ・無地白ヘルメット・紺作業服とネクタイ・黄白反射帯で、手指の破綻なし。下端18%は背景のみ",
         "userImageReview": "pending"
@@ -140,7 +140,7 @@
               "path": ".tmp/media/pe-construction/hissu1-bosai-kyoujinka/work/factory/raw-premise.a5820aff.png",
               "sha256": "a5820affb3dfa9cae86d8df9c22d74ae8025707185a06d8cb9d38342c0643dc6"
             },
-            "generatedAt": "2026-11-05T10:02:33.492Z"
+            "generatedAt": "2026-11-05T21:31:18.772Z"
           },
           "output": {
             "path": ".tmp/media/pe-construction/hissu1-bosai-kyoujinka/work/premise-diagram.4a138600.png",
@@ -154,7 +154,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-05T10:02:33.492Z",
+            "checkedAt": "2026-11-05T21:31:18.772Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "文字: 見出し『誤解：防災は厚く書けば安心』と図内2文が指示と一字ずつ一致。6個の輪の循環図と風水害・地震の2系統の構造化図が本文と矛盾せず、破綻なし",
             "userReview": "pending",
@@ -177,7 +177,7 @@
               "path": ".tmp/media/pe-construction/hissu1-bosai-kyoujinka/work/factory/raw-history.e89f9ccb.png",
               "sha256": "e89f9ccb6587a59cc090129916a17f50d54a9d667a95d17df5e0424eadb430c7"
             },
-            "generatedAt": "2026-11-05T10:02:33.492Z"
+            "generatedAt": "2026-11-05T21:31:18.772Z"
           },
           "output": {
             "path": ".tmp/media/pe-construction/hissu1-bosai-kyoujinka/work/history-diagram.e89f9ccb.png",
@@ -191,7 +191,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-05T10:02:33.492Z",
+            "checkedAt": "2026-11-05T21:31:18.772Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "文字: 『過去の問われ方』『R01・R03：風水害系』『R05・R06：大規模地震系（直近は能登半島地震）』が指示と一致。風水害と地震の交互を示す双方向矢印で本文と整合、崩れなし",
             "userReview": "pending",
@@ -214,7 +214,7 @@
               "path": ".tmp/media/pe-construction/hissu1-bosai-kyoujinka/work/factory/raw-axes.35d1e376.png",
               "sha256": "35d1e376f345cddf2561bf655f560a69640630fcd59cd9d16b97c80f37603768"
             },
-            "generatedAt": "2026-11-05T10:02:33.492Z"
+            "generatedAt": "2026-11-05T21:31:18.772Z"
           },
           "output": {
             "path": ".tmp/media/pe-construction/hissu1-bosai-kyoujinka/work/axes-diagram.dc36f4c9.png",
@@ -228,7 +228,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-05T10:02:33.492Z",
+            "checkedAt": "2026-11-05T21:31:18.772Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "文字: 見出し『課題を組み立てる3軸』と3つの円内の文言が指示と一字ずつ一致。ハード施設とソフト、降雨激甚化、財源・担い手の天秤の3軸が本文と整合",
             "userReview": "pending",
@@ -251,7 +251,7 @@
               "path": ".tmp/media/pe-construction/hissu1-bosai-kyoujinka/work/factory/raw-policy.35cf0060.png",
               "sha256": "35cf00605ec243b0f8ea6f17a1bc8c9e771e91b7698a6b9e1b98f90660f718f8"
             },
-            "generatedAt": "2026-11-05T10:02:33.492Z"
+            "generatedAt": "2026-11-05T21:31:18.772Z"
           },
           "output": {
             "path": ".tmp/media/pe-construction/hissu1-bosai-kyoujinka/work/policy-diagram.23b6788a.png",
@@ -265,7 +265,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-05T10:02:33.492Z",
+            "checkedAt": "2026-11-05T21:31:18.772Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "文字: 見出し『背景施策を正確に』と3施策の定義文が指示と一字ずつ一致。4分割の盾・流域の図・予防投資の図は本文と矛盾せず、文字の崩れなし",
             "userReview": "pending",
@@ -288,7 +288,7 @@
               "path": ".tmp/media/pe-construction/hissu1-bosai-kyoujinka/work/factory/raw-structure.293af27d.png",
               "sha256": "293af27d28840f4a21e3ef25b2156af4d849639ec1fa147f4a0c62a269da47e1"
             },
-            "generatedAt": "2026-11-05T10:02:33.492Z"
+            "generatedAt": "2026-11-05T21:31:18.772Z"
           },
           "output": {
             "path": ".tmp/media/pe-construction/hissu1-bosai-kyoujinka/work/structure-diagram.cf5f8937.png",
@@ -302,7 +302,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-05T10:02:33.492Z",
+            "checkedAt": "2026-11-05T21:31:18.772Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "文字: 見出し『4部構成と最大の注意点』と3枠の文言（課題→3軸／解決策→優先順位＋流域治水型 等）が指示と一致。リスク・動詞注意の図も本文と整合、破綻なし",
             "userReview": "pending",
@@ -325,7 +325,7 @@
               "path": ".tmp/media/pe-construction/hissu1-bosai-kyoujinka/work/factory/raw-summary.22779e46.png",
               "sha256": "22779e46ecbfadaf13306d3610bdc3a2336b565f5177e815e2422604a093498d"
             },
-            "generatedAt": "2026-11-05T10:02:33.492Z"
+            "generatedAt": "2026-11-05T21:31:18.772Z"
           },
           "output": {
             "path": ".tmp/media/pe-construction/hissu1-bosai-kyoujinka/work/summary-diagram.22779e46.png",
@@ -339,7 +339,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-05T10:02:33.492Z",
+            "checkedAt": "2026-11-05T21:31:18.772Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "文字: 見出し『まとめ』と①②③の文言が指示と一字ずつ一致。交互アイコン・3軸・チェックリストの図は本文と整合、崩れなし",
             "userReview": "pending",
@@ -362,7 +362,7 @@
               "path": ".tmp/media/pe-construction/hissu1-bosai-kyoujinka/work/factory/raw-cta.08351db4.png",
               "sha256": "08351db45d94ca1a43a3bafa668accc916973a2a02e6a43fd38f2280b783e45b"
             },
-            "generatedAt": "2026-11-05T10:02:33.492Z"
+            "generatedAt": "2026-11-05T21:31:18.772Z"
           },
           "output": {
             "path": ".tmp/media/pe-construction/hissu1-bosai-kyoujinka/work/cta-diagram.fb9c8add.png",
@@ -376,7 +376,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-05T10:02:33.492Z",
+            "checkedAt": "2026-11-05T21:31:18.772Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "文字: 見出し『答案の形は概要欄へ』と『必須科目Ⅰ 模範解答マガジン（概要欄リンク）』が一致。拡大するとⅠがやや小さく滲むが、ローマ数字1として読め誤字ではない。破綻なし",
             "userReview": "pending",

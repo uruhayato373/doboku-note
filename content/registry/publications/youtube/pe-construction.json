@@ -138,6 +138,44 @@
       "reason": "読み上げを直した版へ差し替える（元の予約 2026-11-13T11:30:00Z）"
     },
     {
+      "id": "pe-construction/hissu1-infra-roukyuuka/youtube.longform.reading-fix",
+      "work": "hissu1-infra-roukyuuka",
+      "account": "youtube:main",
+      "format": "longform",
+      "variant": "reading-fix",
+      "revisionOf": "pe-construction/hissu1-infra-roukyuuka/youtube.longform",
+      "status": "approved",
+      "copy": "content/sns/video-packs/pe-construction/hissu1-infra-roukyuuka/youtube.revision-reading-fix.json",
+      "media": {
+        "cover": "pe-construction/hissu1-infra-roukyuuka/work/candidate-cover",
+        "scene-001": "pe-construction/hissu1-infra-roukyuuka/work/candidate-scene-001",
+        "scene-002": "pe-construction/hissu1-infra-roukyuuka/work/candidate-scene-002",
+        "scene-003": "pe-construction/hissu1-infra-roukyuuka/work/candidate-scene-003",
+        "scene-004": "pe-construction/hissu1-infra-roukyuuka/work/candidate-scene-004",
+        "scene-005": "pe-construction/hissu1-infra-roukyuuka/work/candidate-scene-005",
+        "scene-006": "pe-construction/hissu1-infra-roukyuuka/work/candidate-scene-006",
+        "scene-007": "pe-construction/hissu1-infra-roukyuuka/work/candidate-scene-007",
+        "scene-008": "pe-construction/hissu1-infra-roukyuuka/work/candidate-scene-008",
+        "scene-009": "pe-construction/hissu1-infra-roukyuuka/work/candidate-scene-009",
+        "subtitles": "pe-construction/hissu1-infra-roukyuuka/work/candidate-subtitles",
+        "video": "pe-construction/hissu1-infra-roukyuuka/work/candidate-video"
+      },
+      "publishAt": "2026-11-13T11:30:00Z",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "policy",
+          "at": "2026-11-05T22:14:09.946Z",
+          "digest": "4b30786a1b11735f4f0a939294c21852fc8a9d2882d1f1d813ccaa72e17165b5"
+        }
+      },
+      "approval": {
+        "by": "policy",
+        "at": "2026-11-05T22:14:09.946Z",
+        "contentSha256": "0bf3dfd2d2fe2f147896db112792f06eeeb30cfa36f63e6336eb5796c63390f9"
+      }
+    },
+    {
       "id": "pe-construction/hissu1-kensetsu-dx/youtube.longform",
       "work": "hissu1-kensetsu-dx",
       "account": "youtube:main",
@@ -206,6 +244,43 @@
         "setAt": "2026-11-05T01:13:09.228Z"
       },
       "reason": "読み上げを直した版へ差し替える（元の予約 2026-11-11T11:30:00Z）"
+    },
+    {
+      "id": "pe-construction/hissu1-kensetsu-dx/youtube.longform.reading-fix",
+      "work": "hissu1-kensetsu-dx",
+      "account": "youtube:main",
+      "format": "longform",
+      "variant": "reading-fix",
+      "revisionOf": "pe-construction/hissu1-kensetsu-dx/youtube.longform",
+      "status": "approved",
+      "copy": "content/sns/video-packs/pe-construction/hissu1-kensetsu-dx/youtube.revision-reading-fix.json",
+      "media": {
+        "cover": "pe-construction/hissu1-kensetsu-dx/work/candidate-cover",
+        "scene-001": "pe-construction/hissu1-kensetsu-dx/work/candidate-scene-001",
+        "scene-002": "pe-construction/hissu1-kensetsu-dx/work/candidate-scene-002",
+        "scene-003": "pe-construction/hissu1-kensetsu-dx/work/candidate-scene-003",
+        "scene-004": "pe-construction/hissu1-kensetsu-dx/work/candidate-scene-004",
+        "scene-005": "pe-construction/hissu1-kensetsu-dx/work/candidate-scene-005",
+        "scene-006": "pe-construction/hissu1-kensetsu-dx/work/candidate-scene-006",
+        "scene-007": "pe-construction/hissu1-kensetsu-dx/work/candidate-scene-007",
+        "scene-008": "pe-construction/hissu1-kensetsu-dx/work/candidate-scene-008",
+        "subtitles": "pe-construction/hissu1-kensetsu-dx/work/candidate-subtitles",
+        "video": "pe-construction/hissu1-kensetsu-dx/work/candidate-video"
+      },
+      "publishAt": "2026-11-11T11:30:00Z",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "policy",
+          "at": "2026-11-05T22:12:46.119Z",
+          "digest": "d674e505b12addee293c1980a6194849d277c3f52e67db7d3222b5dc8c209f5f"
+        }
+      },
+      "approval": {
+        "by": "policy",
+        "at": "2026-11-05T22:12:46.119Z",
+        "contentSha256": "0ab6b9470dd9edae11165c120af968f9e7f0cb2c05880af8a97204dedf1c46fd"
+      }
     },
     {
       "id": "pe-construction/hissu1-kokudo-chiiki/youtube.longform",
@@ -330,6 +405,44 @@
         "setAt": "2026-11-05T01:10:47.054Z"
       },
       "reason": "読み上げを直した版へ差し替える（元の予約 2026-11-09T11:30:00Z）"
+    },
+    {
+      "id": "pe-construction/kaitourei-tsukaikata/youtube.longform.reading-fix",
+      "work": "kaitourei-tsukaikata",
+      "account": "youtube:main",
+      "format": "longform",
+      "variant": "reading-fix",
+      "revisionOf": "pe-construction/kaitourei-tsukaikata/youtube.longform",
+      "status": "approved",
+      "copy": "content/sns/video-packs/pe-construction/kaitourei-tsukaikata/youtube.revision-reading-fix.json",
+      "media": {
+        "cover": "pe-construction/kaitourei-tsukaikata/work/candidate-cover",
+        "scene-001": "pe-construction/kaitourei-tsukaikata/work/candidate-scene-001",
+        "scene-002": "pe-construction/kaitourei-tsukaikata/work/candidate-scene-002",
+        "scene-003": "pe-construction/kaitourei-tsukaikata/work/candidate-scene-003",
+        "scene-004": "pe-construction/kaitourei-tsukaikata/work/candidate-scene-004",
+        "scene-005": "pe-construction/kaitourei-tsukaikata/work/candidate-scene-005",
+        "scene-006": "pe-construction/kaitourei-tsukaikata/work/candidate-scene-006",
+        "scene-007": "pe-construction/kaitourei-tsukaikata/work/candidate-scene-007",
+        "scene-008": "pe-construction/kaitourei-tsukaikata/work/candidate-scene-008",
+        "scene-009": "pe-construction/kaitourei-tsukaikata/work/candidate-scene-009",
+        "subtitles": "pe-construction/kaitourei-tsukaikata/work/candidate-subtitles",
+        "video": "pe-construction/kaitourei-tsukaikata/work/candidate-video"
+      },
+      "publishAt": "2026-11-09T11:30:00Z",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "policy",
+          "at": "2026-11-05T22:12:02.732Z",
+          "digest": "a6b27ff7e3c81bed7b44aea80647f8c2c80f221ba5e33c641fad4d2e569d7003"
+        }
+      },
+      "approval": {
+        "by": "policy",
+        "at": "2026-11-05T22:12:02.732Z",
+        "contentSha256": "42e50abd9ea059d15d08e7258eff094da8b400e1ac8368c75786a0dae50c3900"
+      }
     },
     {
       "id": "pe-construction/keirekihyo-kakikata/youtube.longform",
@@ -490,8 +603,19 @@
       "format": "longform",
       "status": "qa_passed",
       "media": {
-        "cover": "pe-construction/sentaku-environment-yomikata/youtube.longform/cover"
-      }
+        "cover": "pe-construction/sentaku-environment-yomikata/youtube.longform/cover",
+        "scene-001": "pe-construction/sentaku-environment-yomikata/youtube.longform/scene-001",
+        "scene-002": "pe-construction/sentaku-environment-yomikata/youtube.longform/scene-002",
+        "scene-003": "pe-construction/sentaku-environment-yomikata/youtube.longform/scene-003",
+        "scene-004": "pe-construction/sentaku-environment-yomikata/youtube.longform/scene-004",
+        "scene-005": "pe-construction/sentaku-environment-yomikata/youtube.longform/scene-005",
+        "scene-006": "pe-construction/sentaku-environment-yomikata/youtube.longform/scene-006",
+        "scene-007": "pe-construction/sentaku-environment-yomikata/youtube.longform/scene-007",
+        "scene-008": "pe-construction/sentaku-environment-yomikata/youtube.longform/scene-008",
+        "video": "pe-construction/sentaku-environment-yomikata/youtube.longform/video",
+        "subtitles": "pe-construction/sentaku-environment-yomikata/youtube.longform/subtitles"
+      },
+      "copy": "content/sns/video-packs/pe-construction/sentaku-environment-yomikata/youtube.json#longform"
     },
     {
       "id": "pe-construction/sentaku-geotechnical-yomikata/youtube.longform",
@@ -500,8 +624,19 @@
       "format": "longform",
       "status": "qa_passed",
       "media": {
-        "cover": "pe-construction/sentaku-geotechnical-yomikata/youtube.longform/cover"
-      }
+        "cover": "pe-construction/sentaku-geotechnical-yomikata/youtube.longform/cover",
+        "scene-001": "pe-construction/sentaku-geotechnical-yomikata/youtube.longform/scene-001",
+        "scene-002": "pe-construction/sentaku-geotechnical-yomikata/youtube.longform/scene-002",
+        "scene-003": "pe-construction/sentaku-geotechnical-yomikata/youtube.longform/scene-003",
+        "scene-004": "pe-construction/sentaku-geotechnical-yomikata/youtube.longform/scene-004",
+        "scene-005": "pe-construction/sentaku-geotechnical-yomikata/youtube.longform/scene-005",
+        "scene-006": "pe-construction/sentaku-geotechnical-yomikata/youtube.longform/scene-006",
+        "scene-007": "pe-construction/sentaku-geotechnical-yomikata/youtube.longform/scene-007",
+        "scene-008": "pe-construction/sentaku-geotechnical-yomikata/youtube.longform/scene-008",
+        "video": "pe-construction/sentaku-geotechnical-yomikata/youtube.longform/video",
+        "subtitles": "pe-construction/sentaku-geotechnical-yomikata/youtube.longform/subtitles"
+      },
+      "copy": "content/sns/video-packs/pe-construction/sentaku-geotechnical-yomikata/youtube.json#longform"
     },
     {
       "id": "pe-construction/sentaku-kakiwake-3type/youtube.longform",
@@ -520,8 +655,19 @@
       "format": "longform",
       "status": "qa_passed",
       "media": {
-        "cover": "pe-construction/sentaku-port-airport-yomikata/youtube.longform/cover"
-      }
+        "cover": "pe-construction/sentaku-port-airport-yomikata/youtube.longform/cover",
+        "scene-001": "pe-construction/sentaku-port-airport-yomikata/youtube.longform/scene-001",
+        "scene-002": "pe-construction/sentaku-port-airport-yomikata/youtube.longform/scene-002",
+        "scene-003": "pe-construction/sentaku-port-airport-yomikata/youtube.longform/scene-003",
+        "scene-004": "pe-construction/sentaku-port-airport-yomikata/youtube.longform/scene-004",
+        "scene-005": "pe-construction/sentaku-port-airport-yomikata/youtube.longform/scene-005",
+        "scene-006": "pe-construction/sentaku-port-airport-yomikata/youtube.longform/scene-006",
+        "scene-007": "pe-construction/sentaku-port-airport-yomikata/youtube.longform/scene-007",
+        "scene-008": "pe-construction/sentaku-port-airport-yomikata/youtube.longform/scene-008",
+        "video": "pe-construction/sentaku-port-airport-yomikata/youtube.longform/video",
+        "subtitles": "pe-construction/sentaku-port-airport-yomikata/youtube.longform/subtitles"
+      },
+      "copy": "content/sns/video-packs/pe-construction/sentaku-port-airport-yomikata/youtube.json#longform"
     },
     {
       "id": "pe-construction/sentaku-power-civil-yomikata/youtube.longform",
@@ -540,8 +686,19 @@
       "format": "longform",
       "status": "qa_passed",
       "media": {
-        "cover": "pe-construction/sentaku-railway-yomikata/youtube.longform/cover"
-      }
+        "cover": "pe-construction/sentaku-railway-yomikata/youtube.longform/cover",
+        "scene-001": "pe-construction/sentaku-railway-yomikata/youtube.longform/scene-001",
+        "scene-002": "pe-construction/sentaku-railway-yomikata/youtube.longform/scene-002",
+        "scene-003": "pe-construction/sentaku-railway-yomikata/youtube.longform/scene-003",
+        "scene-004": "pe-construction/sentaku-railway-yomikata/youtube.longform/scene-004",
+        "scene-005": "pe-construction/sentaku-railway-yomikata/youtube.longform/scene-005",
+        "scene-006": "pe-construction/sentaku-railway-yomikata/youtube.longform/scene-006",
+        "scene-007": "pe-construction/sentaku-railway-yomikata/youtube.longform/scene-007",
+        "scene-008": "pe-construction/sentaku-railway-yomikata/youtube.longform/scene-008",
+        "video": "pe-construction/sentaku-railway-yomikata/youtube.longform/video",
+        "subtitles": "pe-construction/sentaku-railway-yomikata/youtube.longform/subtitles"
+      },
+      "copy": "content/sns/video-packs/pe-construction/sentaku-railway-yomikata/youtube.json#longform"
     },
     {
       "id": "pe-construction/sentaku-river-coast-yomikata/youtube.longform",
@@ -602,8 +759,19 @@
       "format": "longform",
       "status": "qa_passed",
       "media": {
-        "cover": "pe-construction/sentaku-tunnel-yomikata/youtube.longform/cover"
-      }
+        "cover": "pe-construction/sentaku-tunnel-yomikata/youtube.longform/cover",
+        "scene-001": "pe-construction/sentaku-tunnel-yomikata/youtube.longform/scene-001",
+        "scene-002": "pe-construction/sentaku-tunnel-yomikata/youtube.longform/scene-002",
+        "scene-003": "pe-construction/sentaku-tunnel-yomikata/youtube.longform/scene-003",
+        "scene-004": "pe-construction/sentaku-tunnel-yomikata/youtube.longform/scene-004",
+        "scene-005": "pe-construction/sentaku-tunnel-yomikata/youtube.longform/scene-005",
+        "scene-006": "pe-construction/sentaku-tunnel-yomikata/youtube.longform/scene-006",
+        "scene-007": "pe-construction/sentaku-tunnel-yomikata/youtube.longform/scene-007",
+        "scene-008": "pe-construction/sentaku-tunnel-yomikata/youtube.longform/scene-008",
+        "video": "pe-construction/sentaku-tunnel-yomikata/youtube.longform/video",
+        "subtitles": "pe-construction/sentaku-tunnel-yomikata/youtube.longform/subtitles"
+      },
+      "copy": "content/sns/video-packs/pe-construction/sentaku-tunnel-yomikata/youtube.json#longform"
     },
     {
       "id": "pe-construction/sentaku-urban-planning-yomikata/youtube.longform",
@@ -685,6 +853,44 @@
         "setAt": "2026-11-05T08:27:17.250Z"
       },
       "reason": "読み上げを直した版へ差し替える（元の予約 2026-11-12T11:30:00Z）"
+    },
+    {
+      "id": "pe-construction/toan-kousei-template/youtube.longform.reading-fix",
+      "work": "toan-kousei-template",
+      "account": "youtube:main",
+      "format": "longform",
+      "variant": "reading-fix",
+      "revisionOf": "pe-construction/toan-kousei-template/youtube.longform",
+      "status": "approved",
+      "copy": "content/sns/video-packs/pe-construction/toan-kousei-template/youtube.revision-reading-fix.json",
+      "media": {
+        "cover": "pe-construction/toan-kousei-template/work/candidate-cover",
+        "scene-001": "pe-construction/toan-kousei-template/work/candidate-scene-001",
+        "scene-002": "pe-construction/toan-kousei-template/work/candidate-scene-002",
+        "scene-003": "pe-construction/toan-kousei-template/work/candidate-scene-003",
+        "scene-004": "pe-construction/toan-kousei-template/work/candidate-scene-004",
+        "scene-005": "pe-construction/toan-kousei-template/work/candidate-scene-005",
+        "scene-006": "pe-construction/toan-kousei-template/work/candidate-scene-006",
+        "scene-007": "pe-construction/toan-kousei-template/work/candidate-scene-007",
+        "scene-008": "pe-construction/toan-kousei-template/work/candidate-scene-008",
+        "scene-009": "pe-construction/toan-kousei-template/work/candidate-scene-009",
+        "subtitles": "pe-construction/toan-kousei-template/work/candidate-subtitles",
+        "video": "pe-construction/toan-kousei-template/work/candidate-video"
+      },
+      "publishAt": "2026-11-12T11:30:00Z",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "policy",
+          "at": "2026-11-05T22:13:24.544Z",
+          "digest": "293a9252936ac0e8c059b81362902cfa9f641ceea132ad76c8862fab79093aa5"
+        }
+      },
+      "approval": {
+        "by": "policy",
+        "at": "2026-11-05T22:13:24.544Z",
+        "contentSha256": "f79ff0d179bc9a6ac3ab87b8155c7ce092b108e4df16c03bc4364439816d9bee"
+      }
     }
   ]
 }

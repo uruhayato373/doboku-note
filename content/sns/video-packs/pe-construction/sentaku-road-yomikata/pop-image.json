@@ -87,7 +87,7 @@
           "path": ".tmp/media/pe-construction/sentaku-road-yomikata/work/factory/raw-cover.a62ad089.png",
           "sha256": "a62ad089066b5fcd86269bf56603599a1b99911be1ffe140188e7773bbc4b7ff"
         },
-        "generatedAt": "2026-11-05T12:54:37.314Z"
+        "generatedAt": "2026-11-05T21:40:43.895Z"
       },
       "copy": {
         "exam": "pe-construction",
@@ -109,7 +109,7 @@
       },
       "review": {
         "status": "ai-reviewed",
-        "checkedAt": "2026-11-05T12:54:37.314Z",
+        "checkedAt": "2026-11-05T21:40:43.895Z",
         "by": "ai-image-fidelity-auditor",
         "reason": "文字『総監が制作』『道路』『テーマの読み方』が指示と一字一致。先生は黒髪・黒縁眼鏡・ひげ・白ヘルメット・紺作業服とネクタイ・反射帯で、手指も破綻なし",
         "userImageReview": "pending"
@@ -140,7 +140,7 @@
               "path": ".tmp/media/pe-construction/sentaku-road-yomikata/work/factory/raw-premise.473e497f.png",
               "sha256": "473e497f38112dcbc37930872373957b9031239ee38345959953551a329f59ea"
             },
-            "generatedAt": "2026-11-05T12:54:37.314Z"
+            "generatedAt": "2026-11-05T21:40:43.895Z"
           },
           "output": {
             "path": ".tmp/media/pe-construction/sentaku-road-yomikata/work/premise-diagram.66a1b7a5.png",
@@ -154,7 +154,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-05T12:54:37.314Z",
+            "checkedAt": "2026-11-05T21:40:43.895Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "文字: 見出しと2文を指示と1字ずつ照合し一致。4枠の図で舗装・法令制度の2枠を矢印で示し、8個の印で8年連続を表し、破綻なし",
             "userReview": "pending",
@@ -177,7 +177,7 @@
               "path": ".tmp/media/pe-construction/sentaku-road-yomikata/work/factory/raw-block1.d0076c5d.png",
               "sha256": "d0076c5dcf339425ddcaef8ba027552adcc1b25b5155518987faf8961b6a3ea9"
             },
-            "generatedAt": "2026-11-05T12:54:37.314Z"
+            "generatedAt": "2026-11-05T21:40:43.895Z"
           },
           "output": {
             "path": ".tmp/media/pe-construction/sentaku-road-yomikata/work/block1-diagram.3773af0f.png",
@@ -191,7 +191,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-05T12:54:37.314Z",
+            "checkedAt": "2026-11-05T21:40:43.895Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "文字: 見出しと4枠のII-1-1〜4の名称、下の1文が指示と一致。道路・法令書類・舗装断面・切盛土の絵も各枠と合う。見出しに指示の括弧『』が付くが誤りではない",
             "userReview": "pending",
@@ -214,7 +214,7 @@
               "path": ".tmp/media/pe-construction/sentaku-road-yomikata/work/factory/raw-block2.5e8b7f0d.png",
               "sha256": "5e8b7f0da656a507d6618c35b575a786b1b97ed9353d8117caf1e9e058909752"
             },
-            "generatedAt": "2026-11-05T12:54:37.314Z"
+            "generatedAt": "2026-11-05T21:40:43.895Z"
           },
           "output": {
             "path": ".tmp/media/pe-construction/sentaku-road-yomikata/work/block2-diagram.7ee287f7.png",
@@ -228,7 +228,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-05T12:54:37.314Z",
+            "checkedAt": "2026-11-05T21:40:43.895Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "文字: R03/R04/R07/R08の4項目と中央の軸の文字が指示と一致。点検・再生加熱As・再生・CO2の絵も合い、見出しの括弧『』のみ付加で教材上の誤りなし",
             "userReview": "pending",
@@ -251,7 +251,7 @@
               "path": ".tmp/media/pe-construction/sentaku-road-yomikata/work/factory/raw-block3.3a32b9dc.png",
               "sha256": "3a32b9dcbffbea4cc5f3ed118972e476f7bc22d2bb2d0928850be51e67d469a3"
             },
-            "generatedAt": "2026-11-05T12:54:37.314Z"
+            "generatedAt": "2026-11-05T21:40:43.895Z"
           },
           "output": {
             "path": ".tmp/media/pe-construction/sentaku-road-yomikata/work/block3-diagram.3a32b9dc.png",
@@ -265,7 +265,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-05T12:54:37.314Z",
+            "checkedAt": "2026-11-05T21:40:43.895Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "文字: 見出しと3項目（R2道路法改正:R02/R03/R06、R04踏切道改良促進法、R05災害対策基本法(車両移動措置)）が指示と一致。崩れなし。見出しに括弧『』が付く",
             "userReview": "pending",
@@ -288,7 +288,7 @@
               "path": ".tmp/media/pe-construction/sentaku-road-yomikata/work/factory/raw-block4.c3bc9c85.png",
               "sha256": "c3bc9c85acc38e61959b8a93cba99dbc63b2843ecb7f5bfcdeea10e189c4ba57"
             },
-            "generatedAt": "2026-11-05T12:54:37.314Z"
+            "generatedAt": "2026-11-05T21:40:43.895Z"
           },
           "output": {
             "path": ".tmp/media/pe-construction/sentaku-road-yomikata/work/block4-diagram.a1daec29.png",
@@ -302,7 +302,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-05T12:54:37.314Z",
+            "checkedAt": "2026-11-05T21:40:43.895Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "文字: 見出しと3列の年度・設問番号・テーマ語が指示と一致。落石の道路啓開の重機、排水管付き盛土とDX画面、駅前の道路空間の絵も内容に合い、崩れなし",
             "userReview": "pending",
@@ -325,7 +325,7 @@
               "path": ".tmp/media/pe-construction/sentaku-road-yomikata/work/factory/raw-summary.b87cc2aa.png",
               "sha256": "b87cc2aae3e4bf151fce5aaf1d039b519b95dfb08b2c761c22f70418d8c689cb"
             },
-            "generatedAt": "2026-11-05T12:54:37.314Z"
+            "generatedAt": "2026-11-05T21:40:43.895Z"
           },
           "output": {
             "path": ".tmp/media/pe-construction/sentaku-road-yomikata/work/summary-diagram.891aed25.png",
@@ -339,7 +339,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-05T12:54:37.314Z",
+            "checkedAt": "2026-11-05T21:40:43.895Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "文字: まとめ、厚み、基礎、補強の3文が指示と一致。4枠のうち中央2枠を強調して基礎の帯が下にあり、説明と矛盾せず崩れなし",
             "userReview": "pending",
@@ -362,7 +362,7 @@
               "path": ".tmp/media/pe-construction/sentaku-road-yomikata/work/factory/raw-cta.57aa9359.png",
               "sha256": "57aa9359573069b7618e18572a36eccac9064445d13f6481ea5bfd3386a7c1a8"
             },
-            "generatedAt": "2026-11-05T12:54:37.314Z"
+            "generatedAt": "2026-11-05T21:40:43.895Z"
           },
           "output": {
             "path": ".tmp/media/pe-construction/sentaku-road-yomikata/work/cta-diagram.5f0a4b5f.png",
@@ -376,7 +376,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-05T12:54:37.314Z",
+            "checkedAt": "2026-11-05T21:40:43.895Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "見出しと図中文字が指示と一字一句一致し、開いた本に道路と斜張橋の図解で内容に合い、崩れや余計な文字も無い",
             "userReview": "pending",

@@ -41,6 +41,7 @@ import { approvalState, reviewIsCurrent } from './lib/media-review.mjs';
 import { recordYoutubeRevisionQa } from './lib/registry-youtube-revision.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 import { todayJst } from './lib/jst-date.mjs';
+import { applyReadingDict } from '../.claude/scripts/lib/sns-common/reading-dict.mjs';
 import { audioProblems, evaluateGate, nextSlot, readPolicy, speechSimilarity, uploadsLeft } from './lib/video-publish-gate.mjs';
 import { adoptPlan, auditQueue, buildPlan, generatePlan, hydrateAdopted, ledgerVerdicts, nextStage, packDirOf, readPlan, recordAudit, summarize } from './lib/video-factory.mjs';
 
@@ -191,8 +192,19 @@ function videoFile(pack, mediaById, pub) {
   return { abs, video };
 }
 
-/** 音声の機械検査。読み間違いの 1 語までは分からない。欠落・崩れ・音量・尺を見る */
-function audioCheck() {
+/** 文字起こしは同音の漢字を取り違える（圧密→厚密）ので、表記でなく VOICEVOX の読み仮名で比べる */
+async function readingOf(text) {
+  const kana = [];
+  for (const part of text.split(/(?<=[。？！])/).filter((s) => s.trim())) {
+    const query = await fetch(`http://127.0.0.1:50021/audio_query?speaker=13&text=${encodeURIComponent(part)}`, { method: 'POST' });
+    if (!query.ok) throw new Error(`読み仮名を取れない: ${query.status}`);
+    kana.push((await query.json()).kana.replace(/[/'、_]/g, ''));
+  }
+  return kana.join('');
+}
+
+/** 音声の機械検査。欠落・崩れ・音量・尺に加え、読み仮名の比較で台本と違う読みも見る */
+async function audioCheck() {
   const pack = requirePack();
   const [exam, work] = pack.split('/');
   const policy = readPolicy(ROOT);
@@ -214,16 +226,19 @@ function audioCheck() {
   execFileSync('ffmpeg', ['-y', '-v', 'error', '-i', abs, '-ar', '16000', '-ac', '1', '-f', 'segment', '-segment_times', cuts.join(',') || '30', join(chunks, 'part-%03d.wav')]);
   const wavs = readdirSync(chunks).filter((f) => f.endsWith('.wav')).sort().map((f) => join(chunks, f));
   execFileSync('whisper-cli', ['-m', model, '-l', policy.audio.language, '-nt', '-otxt', ...wavs.flatMap((f) => ['-f', f])], { stdio: 'ignore' });
-  const heard = wavs.map((f) => readFileSync(`${f}.txt`, 'utf8')).join('');
+  const heard = wavs.map((f) => readFileSync(`${f}.txt`, 'utf8')).join('。').replace(/\s+/g, '、');
   const board = JSON.parse(readFileSync(join(ROOT, packDirOf(pack), 'storyboard.json'), 'utf8'));
-  const expected = board.scenes.map((s) => s.narration ?? '').join('');
+  const expected = board.scenes.map((s) => s.narration ?? '').join('。');
   const volume = spawnSync('ffmpeg', ['-hide_banner', '-i', abs, '-af', 'volumedetect', '-f', 'null', '-'], { encoding: 'utf8' }).stderr;
   const maxVolumeDb = Number(/max_volume: (-?[\d.]+) dB/.exec(volume)?.[1]);
   // 台本の予定尺は読み上げ前の見積りなので、音声が映像の途中で切れていないかを実体で比べる
   const streams = JSON.parse(execFileSync('ffprobe', ['-v', 'error', '-show_entries', 'stream=codec_type,duration', '-of', 'json', abs], { encoding: 'utf8' })).streams;
   const seconds = (type) => Number(streams.find((x) => x.codec_type === type)?.duration);
+  const engine = await ensureVoicevox();
+  const similarity = await Promise.all([readingOf(applyReadingDict(expected)), readingOf(heard)])
+    .then(([a, b]) => Number(speechSimilarity(a, b).toFixed(3))).finally(() => engine?.kill());
   const row = {
-    videoSha256: video.sha256, at: new Date().toISOString(), similarity: Number(speechSimilarity(expected, heard).toFixed(3)),
+    videoSha256: video.sha256, at: new Date().toISOString(), similarity,
     maxVolumeDb, durationGapSec: Number(Math.abs(seconds('video') - seconds('audio')).toFixed(1)), chars: { expected: expected.length, heard: heard.length },
   };
   const store = readAudio();

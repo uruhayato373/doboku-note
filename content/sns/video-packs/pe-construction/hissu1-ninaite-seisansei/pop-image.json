@@ -87,7 +87,7 @@
           "path": ".tmp/media/pe-construction/hissu1-ninaite-seisansei/work/factory/raw-cover.c2336867.png",
           "sha256": "c2336867ed0b2498641da25ca605bbaeb39445c3e52cc5d172dd83dafc0e7467"
         },
-        "generatedAt": "2026-11-05T12:56:04.777Z"
+        "generatedAt": "2026-11-05T21:34:01.680Z"
       },
       "copy": {
         "exam": "pe-construction",
@@ -109,7 +109,7 @@
       },
       "review": {
         "status": "ai-reviewed",
-        "checkedAt": "2026-11-05T12:56:04.777Z",
+        "checkedAt": "2026-11-05T21:34:01.680Z",
         "by": "ai-image-fidelity-auditor",
         "reason": "指定の『総監が制作』『担い手不足』『生産性どう上げる』が一字も違わず、先生は黒髪・黒縁眼鏡・ひげ・白ヘルメット・紺作業服とネクタイ・反射帯で手指の破綻もない",
         "userImageReview": "pending"
@@ -140,7 +140,7 @@
               "path": ".tmp/media/pe-construction/hissu1-ninaite-seisansei/work/factory/raw-premise.6984d66d.png",
               "sha256": "6984d66d18d29fdbb27fe1479f86eb46365a7a8f48cf4824459da01d1c855277"
             },
-            "generatedAt": "2026-11-05T12:56:04.777Z"
+            "generatedAt": "2026-11-05T21:34:01.680Z"
           },
           "output": {
             "path": ".tmp/media/pe-construction/hissu1-ninaite-seisansei/work/premise-diagram.c5e92a73.png",
@@ -154,7 +154,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-05T12:56:04.777Z",
+            "checkedAt": "2026-11-05T21:34:01.680Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "見出し『誤解：不足に触れれば十分』と2つの指定文言が一字ずつ一致し、余計な文字や崩れ字がない",
             "userReview": "pending",
@@ -177,7 +177,7 @@
               "path": ".tmp/media/pe-construction/hissu1-ninaite-seisansei/work/factory/raw-history.471b76e7.png",
               "sha256": "471b76e7c97f9e90a9d4c61e0f2969fb7c967aa15af63a85e523b75eb46dad3b"
             },
-            "generatedAt": "2026-11-05T12:56:04.777Z"
+            "generatedAt": "2026-11-05T21:34:01.680Z"
           },
           "output": {
             "path": ".tmp/media/pe-construction/hissu1-ninaite-seisansei/work/history-diagram.81b811aa.png",
@@ -191,7 +191,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-05T12:56:04.777Z",
+            "checkedAt": "2026-11-05T21:34:01.680Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "文字: 見出しと R01・R04・R07 の3文言が指示と一字一句一致し、時系列の矢印図で本文とも矛盾せず、崩れも安全域違反も無い",
             "userReview": "pending",
@@ -214,7 +214,7 @@
               "path": ".tmp/media/pe-construction/hissu1-ninaite-seisansei/work/factory/raw-numbers.6c1c8da2.png",
               "sha256": "6c1c8da23fed9ed29f09ae37a2761476141f88a657c8edde159fa690187cd826"
             },
-            "generatedAt": "2026-11-05T12:56:04.777Z"
+            "generatedAt": "2026-11-05T21:34:01.680Z"
           },
           "output": {
             "path": ".tmp/media/pe-construction/hissu1-ninaite-seisansei/work/numbers-diagram.6c1c8da2.png",
@@ -228,7 +228,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-05T12:56:04.777Z",
+            "checkedAt": "2026-11-05T21:34:01.680Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "文字: 見出しと3つの数値文言(685万人→477万人・37%・12%・月45時間年360時間)が指示と一致し、棒グラフ・円グラフ・時計とカレンダーの図も本文と合う",
             "userReview": "pending",
@@ -251,7 +251,7 @@
               "path": ".tmp/media/pe-construction/hissu1-ninaite-seisansei/work/factory/raw-measures.8c03407d.png",
               "sha256": "8c03407d4d45985ad04ecf1441fcc554cfa2f1f241064333322ca4fb19eb30b4"
             },
-            "generatedAt": "2026-11-05T12:56:04.777Z"
+            "generatedAt": "2026-11-05T21:34:01.680Z"
           },
           "output": {
             "path": ".tmp/media/pe-construction/hissu1-ninaite-seisansei/work/measures-diagram.31098a9a.png",
@@ -265,7 +265,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-05T12:56:04.777Z",
+            "checkedAt": "2026-11-05T21:34:01.680Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "文字は見出し・3つの図中文字・指示と1字ずつ一致し誤字や余計な文言なし。4本柱と時計・人々・上昇矢印の3つのねらいが成り立ち、人物の崩れもない",
             "userReview": "pending",
@@ -288,7 +288,7 @@
               "path": ".tmp/media/pe-construction/hissu1-ninaite-seisansei/work/factory/raw-structure.123f0592.png",
               "sha256": "123f0592932927aa02360569c6dfa0cece3004db4e937ec5f570102bab45f649"
             },
-            "generatedAt": "2026-11-05T12:56:04.777Z"
+            "generatedAt": "2026-11-05T21:34:01.680Z"
           },
           "output": {
             "path": ".tmp/media/pe-construction/hissu1-ninaite-seisansei/work/structure-diagram.123f0592.png",
@@ -302,7 +302,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-05T12:56:04.777Z",
+            "checkedAt": "2026-11-05T21:34:01.680Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "文字: 見出しと3つの図内文字が指示と一致し誤字なし。カレンダー・電卓、天秤、課題→解決策→リスク→倫理の流れ図も内容に合い、安全領域内に収まる",
             "userReview": "pending",
@@ -325,7 +325,7 @@
               "path": ".tmp/media/pe-construction/hissu1-ninaite-seisansei/work/factory/raw-summary.824768af.png",
               "sha256": "824768afa1c94dc2a30e29135e30b877b16c3e18e8a68ce699e5cd0a13ac7595"
             },
-            "generatedAt": "2026-11-05T12:56:04.777Z"
+            "generatedAt": "2026-11-05T21:34:01.680Z"
           },
           "output": {
             "path": ".tmp/media/pe-construction/hissu1-ninaite-seisansei/work/summary-diagram.824768af.png",
@@ -339,7 +339,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-05T12:56:04.777Z",
+            "checkedAt": "2026-11-05T21:34:01.680Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "文字: 見出しと①②③の3文言が指示と一字一句一致し、背景→対応づけ→制度設計の3段の流れが本文と合い、崩れも無い",
             "userReview": "pending",
@@ -362,7 +362,7 @@
               "path": ".tmp/media/pe-construction/hissu1-ninaite-seisansei/work/factory/raw-cta.cb065e49.png",
               "sha256": "cb065e49f9eaeceef8eaa5e2b26df8a0b10926ef176c055a21c02004913a9226"
             },
-            "generatedAt": "2026-11-05T12:56:04.777Z"
+            "generatedAt": "2026-11-05T21:34:01.680Z"
           },
           "output": {
             "path": ".tmp/media/pe-construction/hissu1-ninaite-seisansei/work/cta-diagram.cb065e49.png",
@@ -376,7 +376,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-05T12:56:04.777Z",
+            "checkedAt": "2026-11-05T21:34:01.680Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "見出し『答案の形は概要欄へ』と『必須科目Ⅰ 模範解答マガジン（概要欄リンク）』が指示と一致し、余計な文字や破綻がない",
             "userReview": "pending",

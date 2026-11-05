@@ -87,7 +87,7 @@
           "path": ".tmp/media/pe-construction/sentaku-construction-planning-yomikata/work/factory/raw-cover.5ba43b61.png",
           "sha256": "5ba43b6102ba3fe25fae1e107d3a4d3def6b810ae5c9ea23ebed47a487f3fe40"
         },
-        "generatedAt": "2026-11-05T12:55:21.693Z"
+        "generatedAt": "2026-11-05T21:34:54.927Z"
       },
       "copy": {
         "exam": "pe-construction",
@@ -109,7 +109,7 @@
       },
       "review": {
         "status": "ai-reviewed",
-        "checkedAt": "2026-11-05T12:55:21.693Z",
+        "checkedAt": "2026-11-05T21:34:54.927Z",
         "by": "ai-image-fidelity-auditor",
         "reason": "『総監が制作』『施工計画・積算』『テーマの読み方』が指示どおり1字ずつ一致。先生は黒髪・黒縁眼鏡・ひげ・白ヘルメット・紺作業服とネクタイ・黄白反射帯で、手指・重機・計算機の破綻なし",
         "userImageReview": "pending"
@@ -140,7 +140,7 @@
               "path": ".tmp/media/pe-construction/sentaku-construction-planning-yomikata/work/factory/raw-premise.12230be3.png",
               "sha256": "12230be38c3e78051fd622336810968a8fdbdb09fc65a5ae44c86d3e6806a44e"
             },
-            "generatedAt": "2026-11-05T12:55:21.693Z"
+            "generatedAt": "2026-11-05T21:34:54.927Z"
           },
           "output": {
             "path": ".tmp/media/pe-construction/sentaku-construction-planning-yomikata/work/premise-diagram.fcd92446.png",
@@ -154,7 +154,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-05T12:55:21.693Z",
+            "checkedAt": "2026-11-05T21:34:54.927Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "見出しと2つのラベル（II-1-4 コンクリートは8年連続／II-1-2 契約・制度は毎年テーマが入れ替わる）が指示と一字一致。8個同形と8個異形の図解も本文と整合し崩れなし",
             "userReview": "pending",
@@ -177,7 +177,7 @@
               "path": ".tmp/media/pe-construction/sentaku-construction-planning-yomikata/work/factory/raw-block1.10771a62.png",
               "sha256": "10771a626c00e447a57aae3eb4698cd21f61e506cf143feaa7d5cc6d30ef3470"
             },
-            "generatedAt": "2026-11-05T12:55:21.693Z"
+            "generatedAt": "2026-11-05T21:34:54.927Z"
           },
           "output": {
             "path": ".tmp/media/pe-construction/sentaku-construction-planning-yomikata/work/block1-diagram.10771a62.png",
@@ -191,7 +191,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-05T12:55:21.693Z",
+            "checkedAt": "2026-11-05T21:34:54.927Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "見出し『優先順位の付け方』と3ステップの文言が指示と一字一致。4行×8マス、本、階層図も本文に合い崩れなし",
             "userReview": "pending",
@@ -214,7 +214,7 @@
               "path": ".tmp/media/pe-construction/sentaku-construction-planning-yomikata/work/factory/raw-block2.62d8083b.png",
               "sha256": "62d8083b303a86a55b54e2546d8b70ac7f891856c323a65627d682fd29353aa0"
             },
-            "generatedAt": "2026-11-05T12:55:21.693Z"
+            "generatedAt": "2026-11-05T21:34:54.927Z"
           },
           "output": {
             "path": ".tmp/media/pe-construction/sentaku-construction-planning-yomikata/work/block2-diagram.890c89d4.png",
@@ -228,7 +228,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-05T12:55:21.693Z",
+            "checkedAt": "2026-11-05T21:34:54.927Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "見出しと R01〜R08 の7ラベル（非破壊検査・劣化・中性化・高流動・高強度・プレキャスト・補修・暑中）が指示と一致。ミキサ車・こて等の絵も破綻なし",
             "userReview": "pending",
@@ -251,7 +251,7 @@
               "path": ".tmp/media/pe-construction/sentaku-construction-planning-yomikata/work/factory/raw-block3.eaaf272f.png",
               "sha256": "eaaf272fbcd1b4cc52f3c49dd7f5b10e4f805ceeb33c8d3202f99eef2b96a020"
             },
-            "generatedAt": "2026-11-05T12:55:21.693Z"
+            "generatedAt": "2026-11-05T21:34:54.927Z"
           },
           "output": {
             "path": ".tmp/media/pe-construction/sentaku-construction-planning-yomikata/work/block3-diagram.0ea2ff3f.png",
@@ -265,7 +265,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-05T12:55:21.693Z",
+            "checkedAt": "2026-11-05T21:34:54.927Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "文字: 見出し『契約・積算制度・安全管理（II-1-2・II-1-3）』と図中の全ラベル（R01 入札契約方式、R04 ECI、R07 スライド条項、R08 改正建設業法、R05 BIM/CIM、R07 i-Con2.0）を指示と1字ずつ照合し一致、余計な文字なし。構造・破綻なし。下端は無地。R08ラベルが右端約98%まで及ぶが切れてはいない",
             "userReview": "pending",
@@ -288,7 +288,7 @@
               "path": ".tmp/media/pe-construction/sentaku-construction-planning-yomikata/work/factory/raw-block4.fa56b365.png",
               "sha256": "fa56b365b7a3aae142ab89f62d7f1eaee4fa7531dcaf425c9de74339e9851a07"
             },
-            "generatedAt": "2026-11-05T12:55:21.693Z"
+            "generatedAt": "2026-11-05T21:34:54.927Z"
           },
           "output": {
             "path": ".tmp/media/pe-construction/sentaku-construction-planning-yomikata/work/block4-diagram.6826c62d.png",
@@ -302,7 +302,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-05T12:55:21.693Z",
+            "checkedAt": "2026-11-05T21:34:54.927Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "見出しと『担い手・働き方：R01 / R03 / R05 / R06』『R07 地域インフラ群・入札』『R08 外国人労働者・猛暑』『発注者の工期設定・積算とセットで語る』が指示と一字一致",
             "userReview": "pending",
@@ -325,7 +325,7 @@
               "path": ".tmp/media/pe-construction/sentaku-construction-planning-yomikata/work/factory/raw-summary.2d60beb7.png",
               "sha256": "2d60beb7142e76ec94aebf62657d27c1097d5239732190c938976294822e6b8a"
             },
-            "generatedAt": "2026-11-05T12:55:21.693Z"
+            "generatedAt": "2026-11-05T21:34:54.927Z"
           },
           "output": {
             "path": ".tmp/media/pe-construction/sentaku-construction-planning-yomikata/work/summary-diagram.2d60beb7.png",
@@ -339,7 +339,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-05T12:55:21.693Z",
+            "checkedAt": "2026-11-05T21:34:54.927Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "『まとめ』と3つの文言（8年分を枠ごとに並べる／毎年出る枠の基礎を固める／入れ替わる枠は系統と直近の動きで）が指示と一致。図解も崩れなし",
             "userReview": "pending",
@@ -362,7 +362,7 @@
               "path": ".tmp/media/pe-construction/sentaku-construction-planning-yomikata/work/factory/raw-cta.8b8d416d.png",
               "sha256": "8b8d416d0c80c0548b733ee3720da8fbba34f9f5f80575ae6c59b3f8efb8711d"
             },
-            "generatedAt": "2026-11-05T12:55:21.693Z"
+            "generatedAt": "2026-11-05T21:34:54.927Z"
           },
           "output": {
             "path": ".tmp/media/pe-construction/sentaku-construction-planning-yomikata/work/cta-diagram.43f165c5.png",
@@ -376,7 +376,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-05T12:55:21.693Z",
+            "checkedAt": "2026-11-05T21:34:54.927Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "見出し「施工計画・積算マガジンで確認する」と図中「R03〜R07の模範解答（概要欄リンク）」が指示と一字一句一致。本・クレーン・電卓・リンクの図は破綻なく、下端は無地",
             "userReview": "pending",

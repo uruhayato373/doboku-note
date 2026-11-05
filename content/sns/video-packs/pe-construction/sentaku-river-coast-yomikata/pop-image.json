@@ -87,7 +87,7 @@
           "path": ".tmp/media/pe-construction/sentaku-river-coast-yomikata/work/factory/raw-cover.d4e5a16a.png",
           "sha256": "d4e5a16ace244ef126986e6231b27a920c20d3f02f6c77998caed28a144521b6"
         },
-        "generatedAt": "2026-11-05T12:58:22.215Z"
+        "generatedAt": "2026-11-05T21:39:31.555Z"
       },
       "copy": {
         "exam": "pe-construction",
@@ -109,7 +109,7 @@
       },
       "review": {
         "status": "ai-reviewed",
-        "checkedAt": "2026-11-05T12:58:22.215Z",
+        "checkedAt": "2026-11-05T21:39:31.555Z",
         "by": "ai-image-fidelity-auditor",
         "reason": "文字『河川・砂防・海岸』『テーマの読み方』『総監が制作』が指示と一字一致。先生の黒縁眼鏡・ひげ・白ヘルメット・紺作業服・反射帯も合致し、余計な文字なし",
         "userImageReview": "pending"
@@ -140,7 +140,7 @@
               "path": ".tmp/media/pe-construction/sentaku-river-coast-yomikata/work/factory/raw-premise.42f06856.png",
               "sha256": "42f06856535f121b0520fbb095303f7fe66d5368745321f9f465bb83d5b8b324"
             },
-            "generatedAt": "2026-11-05T12:58:22.215Z"
+            "generatedAt": "2026-11-05T21:39:31.555Z"
           },
           "output": {
             "path": ".tmp/media/pe-construction/sentaku-river-coast-yomikata/work/premise-diagram.42f06856.png",
@@ -154,7 +154,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-05T12:58:22.215Z",
+            "checkedAt": "2026-11-05T21:39:31.555Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "文字: 見出しと3つの図内文言が指示と1字ずつ一致し誤字・余計な文字なし。図は4分野の連結、不規則な点、分岐の対比で本文と矛盾せず、下端は無地で破綻なし",
             "userReview": "pending",
@@ -177,7 +177,7 @@
               "path": ".tmp/media/pe-construction/sentaku-river-coast-yomikata/work/factory/raw-block1.89d6378c.png",
               "sha256": "89d6378ccd765ef781c36a0e1d960fed732863914c089dc2b7c481b9e2c71a74"
             },
-            "generatedAt": "2026-11-05T12:58:22.215Z"
+            "generatedAt": "2026-11-05T21:39:31.555Z"
           },
           "output": {
             "path": ".tmp/media/pe-construction/sentaku-river-coast-yomikata/work/block1-diagram.08143115.png",
@@ -191,7 +191,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-05T12:58:22.215Z",
+            "checkedAt": "2026-11-05T21:39:31.555Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "見出しと2つの文言が指示と一字一句一致し、4分野アイコンから河川1枚へ絞る図で本文と矛盾せず破綻も無い",
             "userReview": "pending",
@@ -214,7 +214,7 @@
               "path": ".tmp/media/pe-construction/sentaku-river-coast-yomikata/work/factory/raw-block2.8fed48a1.png",
               "sha256": "8fed48a13ef4ca2a01b378e6df483817cc461c9f526ac30320a8fb1cba3d256c"
             },
-            "generatedAt": "2026-11-05T12:58:22.215Z"
+            "generatedAt": "2026-11-05T21:39:31.555Z"
           },
           "output": {
             "path": ".tmp/media/pe-construction/sentaku-river-coast-yomikata/work/block2-diagram.0341556c.png",
@@ -228,7 +228,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-05T12:58:22.215Z",
+            "checkedAt": "2026-11-05T21:39:31.555Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "見出し・河川/ダム/R08の3文言が指示と一致し、堤防・ダム・堆砂の図も本文の内容と合い崩れも無い",
             "userReview": "pending",
@@ -251,7 +251,7 @@
               "path": ".tmp/media/pe-construction/sentaku-river-coast-yomikata/work/factory/raw-block3.7b2309ec.png",
               "sha256": "7b2309ecae6a5a92649c18397fadcb5a066255a1875585cef9088df499f71ea3"
             },
-            "generatedAt": "2026-11-05T12:58:22.215Z"
+            "generatedAt": "2026-11-05T21:39:31.555Z"
           },
           "output": {
             "path": ".tmp/media/pe-construction/sentaku-river-coast-yomikata/work/block3-diagram.d370a48b.png",
@@ -265,7 +265,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-05T12:58:22.215Z",
+            "checkedAt": "2026-11-05T21:39:31.555Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "見出し・3つのラベル・設計潮位を指示と1字ずつ照合して一致。砂防堰堤と海岸堤防の図も成立し破綻なし",
             "userReview": "pending",
@@ -288,7 +288,7 @@
               "path": ".tmp/media/pe-construction/sentaku-river-coast-yomikata/work/factory/raw-block4.351542c7.png",
               "sha256": "351542c70c90f7f8c3b9b37de329be5c44567c297f2c6d3f22ea979049dffc55"
             },
-            "generatedAt": "2026-11-05T12:58:22.215Z"
+            "generatedAt": "2026-11-05T21:39:31.555Z"
           },
           "output": {
             "path": ".tmp/media/pe-construction/sentaku-river-coast-yomikata/work/block4-diagram.77da1f65.png",
@@ -302,7 +302,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-05T12:58:22.215Z",
+            "checkedAt": "2026-11-05T21:39:31.555Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "見出しと3つの円内の文言が指示と一致し、図も本文の趣旨（観点の絞り込み）と矛盾せず崩れも無い",
             "userReview": "pending",
@@ -325,7 +325,7 @@
               "path": ".tmp/media/pe-construction/sentaku-river-coast-yomikata/work/factory/raw-summary.7df68dbf.png",
               "sha256": "7df68dbfad9b89536dcab80ffcf3368b4e1bb506696f3cc71bfad6f63a263fe4"
             },
-            "generatedAt": "2026-11-05T12:58:22.215Z"
+            "generatedAt": "2026-11-05T21:39:31.555Z"
           },
           "output": {
             "path": ".tmp/media/pe-construction/sentaku-river-coast-yomikata/work/summary-diagram.5b2037cc.png",
@@ -339,7 +339,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-05T12:58:22.215Z",
+            "checkedAt": "2026-11-05T21:39:31.555Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "見出し・3つの文字列を指示と1字ずつ照合して一致。アイコンの流れも矛盾なく破綻なし",
             "userReview": "pending",
@@ -362,7 +362,7 @@
               "path": ".tmp/media/pe-construction/sentaku-river-coast-yomikata/work/factory/raw-cta.f1f67221.png",
               "sha256": "f1f67221dc852a49d97710d9e57de82299259b863833ef38adf8afa9adde01ff"
             },
-            "generatedAt": "2026-11-05T12:58:22.215Z"
+            "generatedAt": "2026-11-05T21:39:31.555Z"
           },
           "output": {
             "path": ".tmp/media/pe-construction/sentaku-river-coast-yomikata/work/cta-diagram.02a54180.png",
@@ -376,7 +376,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-05T12:58:22.215Z",
+            "checkedAt": "2026-11-05T21:39:31.555Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "見出しと R03〜R07の模範解答（概要欄リンク）を指示と照合して一致。本の中の川・堰堤・海の図も破綻なし",
             "userReview": "pending",
