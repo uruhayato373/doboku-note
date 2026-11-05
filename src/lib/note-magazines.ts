@@ -2634,6 +2634,19 @@ const MAGAZINES_RAW = {
     price: '¥980',
     badge: 'note 限定 教材',
   },
+  // 2026-11-05 公開（nb4120fbd76da・¥980・境界=頻出論点の解き方）（DN-0962）。
+  'pavement-2-sentaku-hinshutsu': {
+    id: 'pavement-2-sentaku-hinshutsu',
+    published: true,
+    noteUrl: 'https://note.com/dobokunote/n/nb4120fbd76da',
+    qualification: 'pavement-2',
+    title: '2級舗装 応用試験 選択問題（問2〜5）の頻出論点｜5空欄の穴埋めを選択肢から解く手順',
+    description: '2級舗装施工管理技術者 応用試験の選択問題（問2〜5）について、令和4〜8年度の全100空欄の解答例と、頻出24論点の解き方を整理した。公式の解答は無いため、根拠の資料名を示し、根拠が部分的な空欄は候補と明記している。',
+    shortTitle: '2級舗装 選択問題の頻出論点',
+    shortDescription: '令和4〜8年度の全100空欄の解答例と、頻出24論点の解き方。',
+    price: '¥980',
+    badge: 'note 限定 教材',
+  },
   // </generated:products pavement-2>
 
   // <generated:products pe-water-supply> config/products.json から生成（npm run product -- gen）。手で直さない
