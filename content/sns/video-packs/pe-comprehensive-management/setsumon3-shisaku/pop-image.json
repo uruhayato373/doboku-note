@@ -87,7 +87,7 @@
           "path": ".tmp/media/pe-comprehensive-management/setsumon3-shisaku/work/factory/raw-cover.0e6f9aa2.png",
           "sha256": "0e6f9aa273824fc301d6633e19033c0a1201a012c8cf8422a91a461a88370613"
         },
-        "generatedAt": "2026-11-05T10:30:49.645Z"
+        "generatedAt": "2026-11-05T11:58:39.128Z"
       },
       "copy": {
         "exam": "pe-comprehensive-management",
@@ -109,7 +109,7 @@
       },
       "review": {
         "status": "ai-reviewed",
-        "checkedAt": "2026-11-05T10:30:49.645Z",
+        "checkedAt": "2026-11-05T11:58:39.128Z",
         "by": "ai-image-fidelity-auditor",
         "reason": "文字『総監が制作』『国家施策』『答案に出てくる？』が指示と一字一致。先生の黒髪・黒縁眼鏡・ひげ・白ヘルメット・紺作業服とネクタイ・反射帯が揃い、手指の崩れ無し",
         "userImageReview": "pending"
@@ -126,10 +126,10 @@
       "images": [
         {
           "sceneId": "premise",
-          "inputSha256": "5f3041384757c83d5ea9a8e328cf4e05d8302d8ee56889c080e8653d71d45d78",
+          "inputSha256": "4ae763a790972af40ff14ec399929bf2bc9a5c7bb2769027649c515681531e2f",
           "generation": {
             "tool": "image_gen",
-            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、鮮やかな青・シアン・ネイビーの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『誤解：設問3は国家政策の知識勝負』。 図に入れる文字: 『問われるのは自分の管理できる範囲での対応』 『政策を決定する立場ではない』。 この場面の説明（文字にしない）: 設問3は国の政策を暗記して書く問題、と思われがちです。実際に問われているのは、社会課題を前提に自分が管理できる範囲でどう対応するかで、国家施策そのものを語る立場ではありません。",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、鮮やかな青・シアン・ネイビーの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『誤解：設問3は国家政策の知識勝負』。 図に入れる文字: 『範囲を決めるのは問題文』 『自分の事業なら担当範囲』 『日本全体の取組が指定されたらその範囲』。 この場面の説明（文字にしない）: 設問3は国の政策を覚えて書く問題、と思われがちです。でも、どこまでの範囲で答えるかを決めるのは問題文です。自分の事業について問われていれば担当範囲、日本全体の取組が指定されていれば、その範囲で考えます。",
             "references": [
               {
                 "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
@@ -137,36 +137,36 @@
               }
             ],
             "output": {
-              "path": ".tmp/media/pe-comprehensive-management/setsumon3-shisaku/work/factory/raw-premise.d87e1335.png",
-              "sha256": "d87e1335466842e9287a3c646f45e93f9b336ab68cff9216deb03c110c29c5bd"
+              "path": ".tmp/media/pe-comprehensive-management/setsumon3-shisaku/work/factory/raw-premise.2c8af7b0.png",
+              "sha256": "2c8af7b0880215a4d05046616cecc9aa711819f3ea25009cb676fba91935612f"
             },
-            "generatedAt": "2026-11-05T10:30:49.645Z"
+            "generatedAt": "2026-11-05T11:58:39.128Z"
           },
           "output": {
-            "path": ".tmp/media/pe-comprehensive-management/setsumon3-shisaku/work/premise-diagram.d87e1335.png",
-            "sha256": "d87e1335466842e9287a3c646f45e93f9b336ab68cff9216deb03c110c29c5bd",
+            "path": ".tmp/media/pe-comprehensive-management/setsumon3-shisaku/work/premise-diagram.ecc0a9a7.png",
+            "sha256": "ecc0a9a7d14dbf5cbc1212aa3333c5323800bd04980077e5350a99baf11ed375",
             "width": 1920,
             "height": 1080
           },
           "normalization": {
             "mode": "full-frame-v1",
-            "sourceSha256": "d87e1335466842e9287a3c646f45e93f9b336ab68cff9216deb03c110c29c5bd"
+            "sourceSha256": "2c8af7b0880215a4d05046616cecc9aa711819f3ea25009cb676fba91935612f"
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-05T10:30:49.645Z",
+            "checkedAt": "2026-11-05T11:58:39.128Z",
             "by": "ai-image-fidelity-auditor",
-            "reason": "見出し『誤解：設問3は国家政策の知識勝負』と図中2文が指示と一字一致。国会議事堂から本人アイコンへの図解で意味も本文と合い、崩れ無し",
+            "reason": "見出しと図中3文言が指示と一字一句一致。文書・重機・日本地図の図解に破綻なし",
             "userReview": "pending",
             "continuousListening": "not-performed"
           }
         },
         {
           "sceneId": "pairing",
-          "inputSha256": "862d8ec09c728ef9942c08b088d1f810f2783840e0b9a5d43f6a33d4c9537302",
+          "inputSha256": "9a409caea1696432ab1ef09a09e62cbdad7ba36434097bd56e8f1133697cac07",
           "generation": {
             "tool": "image_gen",
-            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、鮮やかな青・シアン・ネイビーの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『持ち駒＝社会テーマ×自分の管理行為』。 図に入れる文字: 『社会テーマごとに管理行為を1つ紐づける』 『体制再設計・点検ルール整備・データ管理見直し』。 この場面の説明（文字にしない）: 持ち駒は、社会テーマと自分の管理行為のペアで作ります。老朽化対策や脱炭素といったテーマ1つひとつに、体制再設計や点検ルール整備といった管理行為を紐づけておく。試験当日はペアを引き出すだけです。",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、鮮やかな青・シアン・ネイビーの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『将来展望は前の答案の続き』。 図に入れる文字: 『定着後に増える負担を考える』 『前の設問の施策とつなげる』 『政策名より筋の通り方』。 この場面の説明（文字にしない）: 将来展望は、施策が定着した後の事業を想像するところから始まります。最初は少人数で回せていた確認作業が、対象が増えたら追いつかなくなる。そんな変化を、前の設問の施策とつなげて考えます。",
             "references": [
               {
                 "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
@@ -174,36 +174,36 @@
               }
             ],
             "output": {
-              "path": ".tmp/media/pe-comprehensive-management/setsumon3-shisaku/work/factory/raw-pairing.07d6fffd.png",
-              "sha256": "07d6fffd3191ccd3bb84ec9c8a2dac008206dd56983c4b1b04158f64656a6463"
+              "path": ".tmp/media/pe-comprehensive-management/setsumon3-shisaku/work/factory/raw-pairing.4f3be185.png",
+              "sha256": "4f3be1850f1d8712c0e674548cf36760079b12bdafb56a029d282f7c315d0d0a"
             },
-            "generatedAt": "2026-11-05T10:30:49.645Z"
+            "generatedAt": "2026-11-05T11:58:39.128Z"
           },
           "output": {
-            "path": ".tmp/media/pe-comprehensive-management/setsumon3-shisaku/work/pairing-diagram.a65bfade.png",
-            "sha256": "a65bfade0ac390519c463ecb22ca8dfd716853429d0228822ce8f2ef5fd43da5",
+            "path": ".tmp/media/pe-comprehensive-management/setsumon3-shisaku/work/pairing-diagram.f4afd553.png",
+            "sha256": "f4afd553a4c9a81cf7a12e8cebd6d065e0c66f9b460b32b2824ad398c905724a",
             "width": 1920,
             "height": 1080
           },
           "normalization": {
             "mode": "full-frame-v1",
-            "sourceSha256": "07d6fffd3191ccd3bb84ec9c8a2dac008206dd56983c4b1b04158f64656a6463"
+            "sourceSha256": "4f3be1850f1d8712c0e674548cf36760079b12bdafb56a029d282f7c315d0d0a"
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-05T10:30:49.645Z",
+            "checkedAt": "2026-11-05T11:58:39.128Z",
             "by": "ai-image-fidelity-auditor",
-            "reason": "見出しと図中2文（社会テーマごとに管理行為を1つ紐づける／体制再設計・点検ルール整備・データ管理見直し）が一字一致。テーマ×管理行為の図解で崩れ無し",
+            "reason": "見出しと3パネルの文言が指示と一致。図解に破綻なし",
             "userReview": "pending",
             "continuousListening": "not-performed"
           }
         },
         {
           "sceneId": "scale",
-          "inputSha256": "8b6749e693c82e6ff9c49d092144f67ca41cc260b3056f44dc1358826f26cd87",
+          "inputSha256": "056bf2417e9fa45cb8779bce8159668865c727367c5b7b70541dd44a3b7399cc",
           "generation": {
             "tool": "image_gen",
-            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、鮮やかな青・シアン・ネイビーの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『スケールの塩梅』。 図に入れる文字: 『政策名の羅列だけでは評価されない』 『自分ごとに閉じても社会的背景が抜ける』 『一言触れて、施策は自分の行為に翻訳』。 この場面の説明（文字にしない）: 国家スケールと自分のスケールを混同しないことが要です。社会テーマの名称だけで満足せず、自分ごとだけに閉じず、テーマには一言触れつつ施策は自分の管理行為に翻訳して書きます。",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、鮮やかな青・シアン・ネイビーの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『範囲が無指定のときの塩梅』。 図に入れる文字: 『足場は自分が動かせる範囲』 『背景には一言触れる』 『政策名の羅列だけでは中身が見えない』。 この場面の説明（文字にしない）: 範囲の指定が無いときは、自分が動かせる管理範囲に足場を置き、社会的な背景には一言触れます。政策名を並べるだけでは施策の中身が見えず、自分の職場だけで閉じると設問の前提が抜けます。",
             "references": [
               {
                 "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
@@ -211,36 +211,36 @@
               }
             ],
             "output": {
-              "path": ".tmp/media/pe-comprehensive-management/setsumon3-shisaku/work/factory/raw-scale.91e36b6b.png",
-              "sha256": "91e36b6b5fad2abe54cde7a3353f58b7ec7d44fb42a84af1eea8e62aab54b457"
+              "path": ".tmp/media/pe-comprehensive-management/setsumon3-shisaku/work/factory/raw-scale.af076f81.png",
+              "sha256": "af076f818e921b53c346da7dd9f78d9feea6fd2d74fe9a3bf64159f0c36bc5f4"
             },
-            "generatedAt": "2026-11-05T10:30:49.645Z"
+            "generatedAt": "2026-11-05T11:58:39.128Z"
           },
           "output": {
-            "path": ".tmp/media/pe-comprehensive-management/setsumon3-shisaku/work/scale-diagram.91e36b6b.png",
-            "sha256": "91e36b6b5fad2abe54cde7a3353f58b7ec7d44fb42a84af1eea8e62aab54b457",
+            "path": ".tmp/media/pe-comprehensive-management/setsumon3-shisaku/work/scale-diagram.af076f81.png",
+            "sha256": "af076f818e921b53c346da7dd9f78d9feea6fd2d74fe9a3bf64159f0c36bc5f4",
             "width": 1920,
             "height": 1080
           },
           "normalization": {
             "mode": "full-frame-v1",
-            "sourceSha256": "91e36b6b5fad2abe54cde7a3353f58b7ec7d44fb42a84af1eea8e62aab54b457"
+            "sourceSha256": "af076f818e921b53c346da7dd9f78d9feea6fd2d74fe9a3bf64159f0c36bc5f4"
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-05T10:30:49.645Z",
+            "checkedAt": "2026-11-05T11:58:39.128Z",
             "by": "ai-image-fidelity-auditor",
-            "reason": "見出し『スケールの塩梅』と3つの文が指示と一字一致。議事堂・家・翻訳の矢印の図解が説明と合い、崩れ無し",
+            "reason": "見出しと吹き出し3文言が指示と一致。机・街並み・札の図解に崩れなし",
             "userReview": "pending",
             "continuousListening": "not-performed"
           }
         },
         {
           "sceneId": "themes",
-          "inputSha256": "80ac93ba8fbfbb17e59441c9685c3638d2c1a1672c5ce3c403afd6deaac9fb24",
+          "inputSha256": "9d7d3664224222ded195ed18e87d258687c671243766282cbde58ab1b3594b10",
           "generation": {
             "tool": "image_gen",
-            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、鮮やかな青・シアン・ネイビーの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『頻出テーマは少数に収束』。 図に入れる文字: 『老朽化対策・脱炭素・少子高齢化 等』 『既に定着した政策が背景になりやすい』。 この場面の説明（文字にしない）: 出題テーマは少数の社会課題に収束します。近年ではインフラ長寿命化基本計画や国土強靭化基本計画のように、既に定着した政策が背景になることが多く、全テーマを網羅する必要はありません。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 47.0）",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、鮮やかな青・シアン・ネイビーの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『過去の題材の例（出典の年度別一覧より）』。 図に入れる文字: 『R7 少子高齢化に伴う課題と施策』 『R6 カーボンニュートラル』 『R4 DX　R3 データ利活用』 『H26 人口減少下の施設更新』。 この場面の説明（文字にしない）: 過去の題材は幅広いです。令和7年度は少子高齢化、令和6年度はカーボンニュートラル、令和4年度はDX、令和3年度はデータ利活用、平成26年度は人口減少下の施設更新。年度ごとに問題文に合わせて組み直す前提で備えます。",
             "references": [
               {
                 "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
@@ -248,36 +248,36 @@
               }
             ],
             "output": {
-              "path": ".tmp/media/pe-comprehensive-management/setsumon3-shisaku/work/factory/raw-themes.8a17475b.png",
-              "sha256": "8a17475b9e4e567582bdca37a4faceed80b1413150c4b87b7bd709079aa5f5a5"
+              "path": ".tmp/media/pe-comprehensive-management/setsumon3-shisaku/work/factory/raw-themes.63daac53.png",
+              "sha256": "63daac536fbaef4377aaa849a608635eebebdde8c984c7669c1edbf7ca9f6407"
             },
-            "generatedAt": "2026-11-05T10:30:49.645Z"
+            "generatedAt": "2026-11-05T11:58:39.128Z"
           },
           "output": {
-            "path": ".tmp/media/pe-comprehensive-management/setsumon3-shisaku/work/themes-diagram.0acf71f3.png",
-            "sha256": "0acf71f33f0bca1a283ea4de7309c1bb750f47954ea3220310a41a18771da748",
+            "path": ".tmp/media/pe-comprehensive-management/setsumon3-shisaku/work/themes-diagram.ae42bc9e.png",
+            "sha256": "ae42bc9ee418a91f4568eeb8c6e9073fd1cddd6b440a4820492ba4e6da4f6f31",
             "width": 1920,
             "height": 1080
           },
           "normalization": {
             "mode": "full-frame-v1",
-            "sourceSha256": "8a17475b9e4e567582bdca37a4faceed80b1413150c4b87b7bd709079aa5f5a5"
+            "sourceSha256": "63daac536fbaef4377aaa849a608635eebebdde8c984c7669c1edbf7ca9f6407"
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-05T10:30:49.645Z",
+            "checkedAt": "2026-11-05T11:58:39.128Z",
             "by": "ai-image-fidelity-auditor",
-            "reason": "見出しと『老朽化対策・脱炭素・少子高齢化 等』『既に定着した政策が背景になりやすい』が一字一致。多テーマが少数に収束する図で、余計な文字無し",
+            "reason": "見出しと4題材の年度・語が指示と一致。橋・地球・PC図に破綻なし",
             "userReview": "pending",
             "continuousListening": "not-performed"
           }
         },
         {
           "sceneId": "steps",
-          "inputSha256": "9546c2682702709e4fc9ec926c04f582509e5898dcdd762b31e289e2f6f27dbb",
+          "inputSha256": "3e9294ddd10d7265d997c87d2d5798c8e5a6a61e617ae4214daba499019fc845",
           "generation": {
             "tool": "image_gen",
-            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、鮮やかな青・シアン・ネイビーの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『準備の3段階』。 図に入れる文字: 『① 頻出テーマを3〜4個に絞る』 『② 自分の管理行為に翻訳する』 『③ 対応関係を骨子として仕込む』。 この場面の説明（文字にしない）: 準備の手順は、絞る、翻訳する、仕込むの3段階です。頻出テーマを3つか4つに絞り、それぞれに自分の管理行為を翻訳し、対応関係を骨子として仕込む。初見のテーマでも近い持ち駒を応用できます。",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、鮮やかな青・シアン・ネイビーの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『本チャンネルのおすすめ（出典の方法ではありません）』。 図に入れる文字: 『① 過去の題材から数個を選ぶ』 『② 自分の管理行為を結びつける』 『③ 本番は範囲を確認し、最大リスクは一つに絞って理由を書く』。 この場面の説明（文字にしない）: ここからは、本チャンネルがおすすめする進め方で、出典記事の方法ではありません。過去の題材から数個を選び、自分の立場で取れる管理行為を結びつけておきます。本番は問題文の範囲を確認し、リスクを探します。最大のリスクを一つ求められたら、影響の大きさを比べて一つに絞り、選んだ理由を書きます。",
             "references": [
               {
                 "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
@@ -285,36 +285,36 @@
               }
             ],
             "output": {
-              "path": ".tmp/media/pe-comprehensive-management/setsumon3-shisaku/work/factory/raw-steps.852bf3f5.png",
-              "sha256": "852bf3f5cb4c5f4b931cbcc916764e8ba82bc39173fb8a55a285b73818619aed"
+              "path": ".tmp/media/pe-comprehensive-management/setsumon3-shisaku/work/factory/raw-steps.964fbecb.png",
+              "sha256": "964fbecb435a3e6805740bf686deb8f09ed2d81ee93861aa1617bcb91f70ef0a"
             },
-            "generatedAt": "2026-11-05T10:30:49.645Z"
+            "generatedAt": "2026-11-05T11:58:39.128Z"
           },
           "output": {
-            "path": ".tmp/media/pe-comprehensive-management/setsumon3-shisaku/work/steps-diagram.e78b3f69.png",
-            "sha256": "e78b3f69bd956abbb6a05803ec4f9d4e5393f8e9fbe4c36f50a2ce21bace5161",
+            "path": ".tmp/media/pe-comprehensive-management/setsumon3-shisaku/work/steps-diagram.c7de464e.png",
+            "sha256": "c7de464e9ced91a328bbbaf1bf247f08e2eb030abf61f32985508ec869bfb6b8",
             "width": 1920,
             "height": 1080
           },
           "normalization": {
             "mode": "full-frame-v1",
-            "sourceSha256": "852bf3f5cb4c5f4b931cbcc916764e8ba82bc39173fb8a55a285b73818619aed"
+            "sourceSha256": "964fbecb435a3e6805740bf686deb8f09ed2d81ee93861aa1617bcb91f70ef0a"
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-05T10:30:49.645Z",
+            "checkedAt": "2026-11-05T11:58:39.128Z",
             "by": "ai-image-fidelity-auditor",
-            "reason": "見出し『準備の3段階』と①②③の3文が指示と一字一致。絞る・翻訳・骨子の図解が順序どおりで崩れ無し",
+            "reason": "見出しと3ステップの文言が指示と一致。誤字なし、図に破綻なし",
             "userReview": "pending",
             "continuousListening": "not-performed"
           }
         },
         {
           "sceneId": "summary",
-          "inputSha256": "199cd24f474ab29fe5590e9bedb8877b01a9b500de2570873dfdde71d25917e7",
+          "inputSha256": "2acedd3a12e6c84f25947246d98c43f738c6ce89884c503246c2ab45e4346368",
           "generation": {
             "tool": "image_gen",
-            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、鮮やかな青・シアン・ネイビーの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『まとめ　設問3の備え方』。 図に入れる文字: 『テーマ×管理行為をペアで持ち駒にする』 『頻出テーマに絞って事前に仕込む』。 この場面の説明（文字にしない）: まとめます。社会テーマと自分の管理行為をペアで持ち駒にする。国家スケールと自分のスケールを混同しない。頻出テーマに絞って事前に仕込んでおく。これが設問3の備え方です。",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、鮮やかな青・シアン・ネイビーの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『まとめ　設問3の備え方』。 図に入れる文字: 『問題文の指定範囲を最初に確認』 『題材は幅広い、年度ごとに組み直す』 『ペアで備えるのは本チャンネルのおすすめ』。 この場面の説明（文字にしない）: まとめます。まず問題文が指定する範囲を確認する。指定が無ければ自分の管理範囲に立ち、背景には一言触れる。過去の題材は幅広いので、年度ごとに組み直す前提で、テーマと管理行為のペアで備える。これが本チャンネルのおすすめです。",
             "references": [
               {
                 "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
@@ -322,26 +322,26 @@
               }
             ],
             "output": {
-              "path": ".tmp/media/pe-comprehensive-management/setsumon3-shisaku/work/factory/raw-summary.fbf05b90.png",
-              "sha256": "fbf05b9068bfa89cb77b3ba9858c37c840e53b7f05a8cb49a36807363984156c"
+              "path": ".tmp/media/pe-comprehensive-management/setsumon3-shisaku/work/factory/raw-summary.b6eb61c3.png",
+              "sha256": "b6eb61c396de09fd821cfe883a756c930af8539c9a5e7d585262aa5ac5233323"
             },
-            "generatedAt": "2026-11-05T10:30:49.645Z"
+            "generatedAt": "2026-11-05T11:58:39.128Z"
           },
           "output": {
-            "path": ".tmp/media/pe-comprehensive-management/setsumon3-shisaku/work/summary-diagram.d2464140.png",
-            "sha256": "d2464140ab70c23b5c730263e43a1b3b3a74253ae532f76411d1dc0685aace2f",
+            "path": ".tmp/media/pe-comprehensive-management/setsumon3-shisaku/work/summary-diagram.535bc511.png",
+            "sha256": "535bc511bb964a263c7bd57d2956b461c73e89a4711e61b32548d3752ec2cfbd",
             "width": 1920,
             "height": 1080
           },
           "normalization": {
             "mode": "full-frame-v1",
-            "sourceSha256": "fbf05b9068bfa89cb77b3ba9858c37c840e53b7f05a8cb49a36807363984156c"
+            "sourceSha256": "b6eb61c396de09fd821cfe883a756c930af8539c9a5e7d585262aa5ac5233323"
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-05T10:30:49.645Z",
+            "checkedAt": "2026-11-05T11:58:39.128Z",
             "by": "ai-image-fidelity-auditor",
-            "reason": "見出し『まとめ　設問3の備え方』と2文が指示と一字一致。ペア化と絞り込みの図解で崩れ無し。左枠が左端に近い点は忠実度の軸外",
+            "reason": "見出しと3文言が指示と一致。図形・カレンダー図に破綻なし",
             "userReview": "pending",
             "continuousListening": "not-performed"
           }
@@ -362,7 +362,7 @@
               "path": ".tmp/media/pe-comprehensive-management/setsumon3-shisaku/work/factory/raw-cta.86700dc9.png",
               "sha256": "86700dc99b0c74061623d94e00b3e36fea9d4ad9b4d11a7771a873a949fccd2d"
             },
-            "generatedAt": "2026-11-05T10:30:49.645Z"
+            "generatedAt": "2026-11-05T11:58:39.128Z"
           },
           "output": {
             "path": ".tmp/media/pe-comprehensive-management/setsumon3-shisaku/work/cta-diagram.045eccab.png",
@@ -376,7 +376,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-05T10:30:49.645Z",
+            "checkedAt": "2026-11-05T11:58:39.128Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "見出し『設問3の持ち駒を最短で仕込む』と『設問3 国家施策バンク（概要欄リンク）』が一字一致。施設アイコンがバンクへ集まる図で崩れ無し",
             "userReview": "pending",

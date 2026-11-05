@@ -1062,8 +1062,8 @@
       "kind": "video-pack",
       "definition": "content/sns/video-packs/pe-comprehensive-management/kata-oudan-ryuyo",
       "qa": {
-        "avg": 2,
-        "blocks": 1,
+        "avg": 2.17,
+        "blocks": 0,
         "at": "2026-11-05",
         "by": "Claude Code video-content-qa"
       }
@@ -1073,7 +1073,7 @@
       "kind": "video-pack",
       "definition": "content/sns/video-packs/pe-comprehensive-management/kikinagashi-sokan-keyword",
       "qa": {
-        "avg": 1.83,
+        "avg": 2.33,
         "blocks": 0,
         "at": "2026-11-05",
         "by": "Claude Code video-content-qa"
@@ -1149,8 +1149,8 @@
       "kind": "video-pack",
       "definition": "content/sns/video-packs/pe-comprehensive-management/persona-settei",
       "qa": {
-        "avg": 1.7,
-        "blocks": 2,
+        "avg": 2.17,
+        "blocks": 0,
         "at": "2026-11-05",
         "by": "Claude Code video-content-qa"
       }
@@ -1182,8 +1182,8 @@
       "kind": "video-pack",
       "definition": "content/sns/video-packs/pe-comprehensive-management/setsumon3-shisaku",
       "qa": {
-        "avg": 1.7,
-        "blocks": 2,
+        "avg": 2.33,
+        "blocks": 0,
         "at": "2026-11-05",
         "by": "Claude Code video-content-qa"
       }
@@ -1226,8 +1226,8 @@
       "kind": "video-pack",
       "definition": "content/sns/video-packs/pe-comprehensive-management/takuitsu-r07-enshu",
       "qa": {
-        "avg": 1.83,
-        "blocks": 1,
+        "avg": 2.17,
+        "blocks": 0,
         "at": "2026-11-05",
         "by": "Claude Code video-content-qa"
       }

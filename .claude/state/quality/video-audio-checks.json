@@ -143,6 +143,17 @@
         "expected": 796,
         "heard": 784
       }
+    },
+    "pe-comprehensive-management/setsumon3-shisaku/youtube.longform": {
+      "videoSha256": "7f2dc5aa237621a98b7827d0a59961a9091a842c32e5f5051daf121786840a6d",
+      "at": "2026-11-05T12:37:39.639Z",
+      "similarity": 0.897,
+      "maxVolumeDb": -1.5,
+      "durationGapSec": 0.1,
+      "chars": {
+        "expected": 778,
+        "heard": 775
+      }
     }
   }
 }

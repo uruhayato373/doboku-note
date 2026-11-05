@@ -2509,7 +2509,7 @@
       "work": "kata-oudan-ryuyo",
       "account": "youtube:main",
       "format": "longform",
-      "status": "qa_blocked",
+      "status": "qa_passed",
       "media": {
         "cover": "pe-comprehensive-management/kata-oudan-ryuyo/youtube.longform/cover"
       }
@@ -2519,7 +2519,7 @@
       "work": "kikinagashi-sokan-keyword",
       "account": "youtube:main",
       "format": "longform",
-      "status": "qa_blocked",
+      "status": "qa_passed",
       "media": {
         "cover": "pe-comprehensive-management/kikinagashi-sokan-keyword/youtube.longform/cover"
       }
@@ -2602,7 +2602,7 @@
       "work": "persona-settei",
       "account": "youtube:main",
       "format": "longform",
-      "status": "qa_blocked",
+      "status": "qa_passed",
       "media": {
         "cover": "pe-comprehensive-management/persona-settei/youtube.longform/cover",
         "scene-001": "pe-comprehensive-management/persona-settei/youtube.longform/scene-001",
@@ -2615,7 +2615,8 @@
         "scene-008": "pe-comprehensive-management/persona-settei/youtube.longform/scene-008",
         "video": "pe-comprehensive-management/persona-settei/youtube.longform/video",
         "subtitles": "pe-comprehensive-management/persona-settei/youtube.longform/subtitles"
-      }
+      },
+      "copy": "content/sns/video-packs/pe-comprehensive-management/persona-settei/youtube.json#longform"
     },
     {
       "id": "pe-comprehensive-management/r8-yosou-theme/youtube.longform",
@@ -2721,7 +2722,7 @@
       "work": "setsumon3-shisaku",
       "account": "youtube:main",
       "format": "longform",
-      "status": "qa_blocked",
+      "status": "qa_passed",
       "media": {
         "cover": "pe-comprehensive-management/setsumon3-shisaku/youtube.longform/cover",
         "scene-001": "pe-comprehensive-management/setsumon3-shisaku/youtube.longform/scene-001",
@@ -2734,7 +2735,8 @@
         "scene-008": "pe-comprehensive-management/setsumon3-shisaku/youtube.longform/scene-008",
         "video": "pe-comprehensive-management/setsumon3-shisaku/youtube.longform/video",
         "subtitles": "pe-comprehensive-management/setsumon3-shisaku/youtube.longform/subtitles"
-      }
+      },
+      "copy": "content/sns/video-packs/pe-comprehensive-management/setsumon3-shisaku/youtube.json#longform"
     },
     {
       "id": "pe-comprehensive-management/sokan-goukaku-senryaku/youtube.longform",
@@ -2883,7 +2885,7 @@
       "work": "takuitsu-r07-enshu",
       "account": "youtube:main",
       "format": "longform",
-      "status": "qa_blocked",
+      "status": "qa_passed",
       "media": {
         "cover": "pe-comprehensive-management/takuitsu-r07-enshu/youtube.longform/cover"
       }
