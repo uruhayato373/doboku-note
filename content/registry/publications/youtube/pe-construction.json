@@ -58,7 +58,7 @@
       "work": "hissu1-kensetsu-dx",
       "account": "youtube:main",
       "format": "longform",
-      "status": "qa_passed",
+      "status": "approved",
       "media": {
         "cover": "pe-construction/hissu1-kensetsu-dx/youtube.longform/cover",
         "scene-001": "pe-construction/hissu1-kensetsu-dx/youtube.longform/scene-001",
@@ -73,7 +73,20 @@
         "subtitles": "pe-construction/hissu1-kensetsu-dx/youtube.longform/subtitles"
       },
       "copy": "content/sns/video-packs/pe-construction/hissu1-kensetsu-dx/youtube.json#longform",
-      "publishAt": "2026-11-11T11:30:00Z"
+      "publishAt": "2026-11-11T11:30:00Z",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "policy",
+          "at": "2026-11-05T00:57:58.591Z",
+          "digest": "d674e505b12addee293c1980a6194849d277c3f52e67db7d3222b5dc8c209f5f"
+        }
+      },
+      "approval": {
+        "by": "policy",
+        "at": "2026-11-05T00:57:58.591Z",
+        "contentSha256": "71890b9d44826fb9c611d8b3c48ad6871e3b276b153a15821070452eae90a647"
+      }
     },
     {
       "id": "pe-construction/hissu1-kokudo-chiiki/youtube.longform",

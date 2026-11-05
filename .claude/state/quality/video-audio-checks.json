@@ -3,19 +3,19 @@
   "checks": {
     "pe-construction/pe-kojutsu-keireki/youtube.longform": {
       "videoSha256": "991859adcd8182d6561489a0bf528da05b5d9f922086d0657fb157682a056b75",
-      "at": "2026-11-04T23:45:25.738Z",
-      "similarity": 0.859,
+      "at": "2026-11-05T00:57:02.564Z",
+      "similarity": 0.908,
       "maxVolumeDb": -1.4,
       "durationGapSec": 0,
       "chars": {
         "expected": 1181,
-        "heard": 966
+        "heard": 1105
       }
     },
     "pe-comprehensive-management/sokan-kojutsu-kangaekata/youtube.longform.diagram-led": {
       "videoSha256": "0e4613c70f710dcb3a119bf1397aa4454efe0d759d335a08bb4aa324ca0766e5",
-      "at": "2026-11-04T23:45:37.451Z",
-      "similarity": 0.909,
+      "at": "2026-11-05T00:57:14.309Z",
+      "similarity": 0.886,
       "maxVolumeDb": -1.5,
       "durationGapSec": 0,
       "chars": {
@@ -25,57 +25,57 @@
     },
     "pe-comprehensive-management/sanso-kozo/youtube.longform": {
       "videoSha256": "798ba6645dc5c6e091c25f8016ebbb8890ecd1bd1b4da103035bde69e25b0c8c",
-      "at": "2026-11-04T23:45:11.651Z",
-      "similarity": 0.865,
+      "at": "2026-11-05T00:56:48.242Z",
+      "similarity": 0.823,
       "maxVolumeDb": -1.4,
       "durationGapSec": 0,
       "chars": {
         "expected": 1211,
-        "heard": 1094
+        "heard": 1007
       }
     },
     "pe-construction/kaitourei-tsukaikata/youtube.longform": {
       "videoSha256": "6f9c5e74fc40fdc627e8730be29c00cdb323489a34614383d3f84031c8d10dbe",
-      "at": "2026-11-05T00:43:10.126Z",
-      "similarity": 0.764,
+      "at": "2026-11-05T00:56:21.624Z",
+      "similarity": 0.825,
       "maxVolumeDb": -1.5,
       "durationGapSec": 0,
       "chars": {
         "expected": 630,
-        "heard": 497
+        "heard": 562
       }
     },
     "civil-construction-2/keiken-daizai-erabi/youtube.longform.diagram-led": {
       "videoSha256": "fb387ad6088e2e0c7161937c00257188a60890bdcc345a0f2c56371c72d4baab",
-      "at": "2026-11-05T00:44:17.511Z",
-      "similarity": 0.873,
+      "at": "2026-11-05T00:57:23.098Z",
+      "similarity": 0.805,
       "maxVolumeDb": -5.6,
       "durationGapSec": 0,
       "chars": {
         "expected": 720,
-        "heard": 632
+        "heard": 552
       }
     },
     "pe-construction/hissu1-kensetsu-dx/youtube.longform": {
       "videoSha256": "e0b1b6e6ac8fcaba5fc05d49a93038610d0dbc8b5bb3c9c66ddcb7c41f3bcb93",
-      "at": "2026-11-05T00:54:00.497Z",
-      "similarity": 0.728,
+      "at": "2026-11-05T00:57:57.921Z",
+      "similarity": 0.789,
       "maxVolumeDb": -1.4,
       "durationGapSec": 0.1,
       "chars": {
         "expected": 969,
-        "heard": 953
+        "heard": 1083
       }
     },
     "pe-construction/toan-kousei-template/youtube.longform": {
       "videoSha256": "7abe449a27ebbee6397b2f310ffc8ac3b415b69246e60f976f115a1b217aea29",
-      "at": "2026-11-05T00:54:13.316Z",
-      "similarity": 0.852,
+      "at": "2026-11-05T00:56:33.048Z",
+      "similarity": 0.79,
       "maxVolumeDb": -1.5,
       "durationGapSec": 0.1,
       "chars": {
         "expected": 900,
-        "heard": 811
+        "heard": 728
       }
     }
   }
