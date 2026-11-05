@@ -2255,6 +2255,20 @@ Windows の PowerShell で repo 直下から順に:
 
 ## 🟢 低 — 重要度が低い（時期未定を含む）
 
+### [DN-0996] Windows の手元で落ちる npm run test の 48 件を直すか skip に分ける
+タグ: [インフラ・計測] [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-11-05]
+
+**起点**: DN-0993 の検証で `npm run test` を Windows の手元で 2 回回し、3,818 件中 49 件失敗・4 件中断（中断は `test timed out after 120000ms`）。CI（Linux）の `unit-tests` では出ていない。うち 1 件（admin-format-ratchet）は実際の不具合で修正済み、残り 48 件が環境の差と見ている。1 件ずつの原因は未確認。
+
+**分かっている原因の傾向**: `EPERM: operation not permitted, fsync`（16 件。`youtube-revision-publisher` の 14 件など）、`/bin/bash` ENOENT、一時ディレクトリの ENOENT、120 秒のタイムアウト、改行コードの差と見られる ERR_ASSERTION。多いファイルは `youtube-revision-publisher`・`weekly-review-launchd`・`admin-figure-sns-board`・`check-execution`。
+
+**やること**: 原因ごとに (1) 直す（fsync の EPERM は一時ファイルの扱いを疑う）(2) Windows では skip と明示する（launchd・`/bin/bash` 前提のもの）に分け、手元の `npm run test` の失敗を本物だけにする。
+
+**完了条件**: Windows の手元の `npm run test` が exit 0 になるか、残りの失敗が理由つきで一覧になっている。
+
+**なぜ**: 手元で 48 件が常に赤いと、本物の失敗が埋もれる。テストの結果はログへ出して `# fail` を読む（memory: test_exit_masked_by_pipe）。
+
+
 ### [DN-0976] note の案内の部品とナビのカードの重なりを整理する
 タグ: [UI・UX] [領域:サイト] [時期:2026-12..2027-01] [種類:改善] [起票:2026-11-04]
 
