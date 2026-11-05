@@ -401,6 +401,14 @@
         "magazineName": "まるごと合格パック",
         "proof": "経験記述＋選択問題",
         "benefit": "問1から問5まで準備できる"
+      },
+      {
+        "id": "ce-marugoto-pack",
+        "magazineDir": "content/note/コンクリート技士/magazines/コンクリート技士-まるごとパック",
+        "qualifier": "コンクリート技士 四肢択一",
+        "magazineName": "まるごとパック",
+        "proof": "予想40問＋計算12問＋暗記ノート",
+        "benefit": "全分野を3点で仕上げる"
       }
     ]
   },

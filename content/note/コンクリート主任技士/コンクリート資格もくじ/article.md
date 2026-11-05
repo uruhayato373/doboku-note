@@ -51,14 +51,14 @@ cover:
 次の3つから、現在の仕事と目標に最も近いものを選びます。
 
 - **コンクリート技士**：材料・配合・試験・製造・施工の基礎を体系化し、四肢択一に集中したい
-- **コンクリート主任技士**：特殊条件も含む計画・[品質管理](https://doboku-note.com/exam/pe-comprehensive-management/keywords/quality-control?utm_source=note&utm_medium=referral&utm_campaign=103-concrete-index&utm_content=kw-quality-control)・指導を担い、択一と小論文の両方を仕上げたい
+- **コンクリート主任技士**：特殊条件も含む計画・[品質管理](https://doboku-note.com/exam/pe-comprehensive-management/keywords/quality-control?utm_source=note&utm_medium=referral&utm_campaign=103-concrete-index&utm_content=kw-quality-control&utm_term=nd59f471c9214)・指導を担い、択一と小論文の両方を仕上げたい
 - **コンクリート診断士**：既設構造物の変状から劣化機構を推定し、調査・評価・補修を記述できるようにしたい
 
 技士に合格していなければ主任技士を受験できない、という段階制ではありません。主任技士の受験資格を満たしていれば直接受験できます。
 
 ただし、材料・配合・試験・施工の基礎に抜けがある場合は、技士レベルの学習から戻る方が結果的に速くなります。
 
-[技士と主任技士の違いを、受験資格・試験方式・仕事から比較する](https://doboku-note.com/exam/concrete-engineer/guide/difference-chief?utm_source=note&utm_medium=referral&utm_campaign=103-concrete-index)
+[技士と主任技士の違いを、受験資格・試験方式・仕事から比較する](https://doboku-note.com/exam/concrete-engineer/guide/difference-chief?utm_source=note&utm_medium=referral&utm_campaign=103-concrete-index&utm_term=nd59f471c9214)
 
 ---
 
@@ -68,14 +68,14 @@ cover:
 
 最初は、次の順で進めてください。
 
-1. [2026年度の試験概要・日程・受験料・出題範囲](https://doboku-note.com/exam/concrete-engineer/guide/overview?utm_source=note&utm_medium=referral&utm_campaign=103-concrete-index)
-2. [2026年度から変わった受験資格と必要書類](https://doboku-note.com/exam/concrete-engineer/guide/eligibility-2026?utm_source=note&utm_medium=referral&utm_campaign=103-concrete-index)
-3. [12週間の勉強法・学習スケジュール](https://doboku-note.com/exam/concrete-engineer/guide/study-plan?utm_source=note&utm_medium=referral&utm_campaign=103-concrete-index)
-4. [2026年版テキスト・問題集の選び方](https://doboku-note.com/exam/concrete-engineer/guide/books?utm_source=note&utm_medium=referral&utm_campaign=103-concrete-index)
+1. [2026年度の試験概要・日程・受験料・出題範囲](https://doboku-note.com/exam/concrete-engineer/guide/overview?utm_source=note&utm_medium=referral&utm_campaign=103-concrete-index&utm_term=nd59f471c9214)
+2. [2026年度から変わった受験資格と必要書類](https://doboku-note.com/exam/concrete-engineer/guide/eligibility-2026?utm_source=note&utm_medium=referral&utm_campaign=103-concrete-index&utm_term=nd59f471c9214)
+3. [12週間の勉強法・学習スケジュール](https://doboku-note.com/exam/concrete-engineer/guide/study-plan?utm_source=note&utm_medium=referral&utm_campaign=103-concrete-index&utm_term=nd59f471c9214)
+4. [2026年版テキスト・問題集の選び方](https://doboku-note.com/exam/concrete-engineer/guide/books?utm_source=note&utm_medium=referral&utm_campaign=103-concrete-index&utm_term=nd59f471c9214)
 
-分野別の無料テキストは、セメント・骨材・混和材料、コンクリートの性質と試験、配合設計、製造・[品質管理](https://doboku-note.com/exam/pe-comprehensive-management/keywords/quality-control?utm_source=note&utm_medium=referral&utm_campaign=103-concrete-index&utm_content=kw-quality-control)、施工、環境・資源循環の6章です。
+分野別の無料テキストは、セメント・骨材・混和材料、コンクリートの性質と試験、配合設計、製造・[品質管理](https://doboku-note.com/exam/pe-comprehensive-management/keywords/quality-control?utm_source=note&utm_medium=referral&utm_campaign=103-concrete-index&utm_content=kw-quality-control&utm_term=nd59f471c9214)、施工、環境・資源循環の6章です。
 
-[コンクリート技士の無料テキスト一覧](https://doboku-note.com/exam/concrete-engineer?utm_source=note&utm_medium=referral&utm_campaign=103-concrete-index)
+[コンクリート技士の無料テキスト一覧](https://doboku-note.com/exam/concrete-engineer?utm_source=note&utm_medium=referral&utm_campaign=103-concrete-index&utm_term=nd59f471c9214)
 
 ### 配合計算・JIS判断を実戦12問で仕上げたい
 
@@ -95,6 +95,10 @@ https://note.com/dobokunote/n/n0bbd4a5a8b57
 
 https://note.com/dobokunote/m/m49ac37c76bef
 
+オリジナル予想40問も加えた3点を試験前に一度で回したい方は、まるごとパックが便利です。予想問題で弱点を見つけ、実戦演習と暗記ノートで埋める順に進められます。
+
+https://note.com/dobokunote/m/m348b2a4b8362
+
 ---
 
 ## コンクリート主任技士｜択一と小論文を両輪で仕上げる
@@ -103,9 +107,9 @@ https://note.com/dobokunote/m/m49ac37c76bef
 
 択一で高得点を狙うだけではなく、小論文で自分の実務経験を「課題→原因→対策→効果・留意点」の技術論述へ変換する練習が必要です。
 
-[主任技士の試験概要・出題分野・学習の全体像](https://doboku-note.com/exam/concrete-chief-engineer/guide/overview?utm_source=note&utm_medium=referral&utm_campaign=103-concrete-index)
+[主任技士の試験概要・出題分野・学習の全体像](https://doboku-note.com/exam/concrete-chief-engineer/guide/overview?utm_source=note&utm_medium=referral&utm_campaign=103-concrete-index&utm_term=nd59f471c9214)
 
-[主任技士の小論文の書き方を無料で確認する](https://doboku-note.com/exam/concrete-chief-engineer/guide/essay?utm_source=note&utm_medium=referral&utm_campaign=103-concrete-index)
+[主任技士の小論文の書き方を無料で確認する](https://doboku-note.com/exam/concrete-chief-engineer/guide/essay?utm_source=note&utm_medium=referral&utm_campaign=103-concrete-index&utm_term=nd59f471c9214)
 
 ### 四肢択一50問で8分野を総仕上げしたい
 
@@ -182,7 +186,7 @@ https://coconala.com/services/4425046
 
 https://note.com/dobokunote/m/mf2a132408b6f
 
-[診断士の無料記事・過去問・分野別テキスト一覧](https://doboku-note.com/exam/concrete-diagnostician?utm_source=note&utm_medium=referral&utm_campaign=103-concrete-index)
+[診断士の無料記事・過去問・分野別テキスト一覧](https://doboku-note.com/exam/concrete-diagnostician?utm_source=note&utm_medium=referral&utm_campaign=103-concrete-index&utm_term=nd59f471c9214)
 
 ### 記述式教材を目的別に選ぶ
 

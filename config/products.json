@@ -6629,6 +6629,36 @@
       ]
     },
     {
+      "id": "ce-marugoto-pack",
+      "channel": "note",
+      "qualification": "concrete-engineer",
+      "stage": "written",
+      "series": "other",
+      "tier": "pack",
+      "persona": null,
+      "catalog": {
+        "id": "ce-marugoto-pack",
+        "published": true,
+        "noteUrl": "https://note.com/dobokunote/m/m348b2a4b8362",
+        "noteTitle": "コンクリート技士 択一｜まるごとパック",
+        "title": "コンクリート技士 択一｜まるごとパック（予想40問＋配合計算12問＋直前暗記ノート）",
+        "description": "令和8年度 予想40問、配合計算・JIS判断 実戦演習12問、直前暗記ノートを束ねたパック。単品合計¥3,540が¥2,380。全分野の演習から計算、暗記までを3点で仕上げられる。",
+        "shortTitle": "コンクリート技士 まるごとパック",
+        "shortDescription": "予想40問＋計算12問＋暗記ノート。単品合計¥3,540が¥2,380（約33%OFF）。",
+        "price": "¥2,380（予想40問＋配合計算12問＋暗記ノート・単品合計¥3,540、約33%OFF）",
+        "badge": "note 限定 合格パック"
+      },
+      "members": [],
+      "includes": [
+        "ce-anki-note",
+        "ce-mix-jis-practice",
+        "ce-r8-mc-40"
+      ],
+      "memo": [
+        "2026-11-05 作成（m348b2a4b8362）。DN-0964"
+      ]
+    },
+    {
       "id": "ce-mix-jis-practice",
       "channel": "note",
       "qualification": "concrete-engineer",
@@ -6653,6 +6683,31 @@
         "原稿配置: content/note/コンクリート技士/配合計算-JIS判断-実戦演習/article.md",
         "2026年度に新設した concrete-engineer vertical の入口商品。無料48問と重複しない",
         "複合計算6問＋品質・JIS判断6問を、途中式／全誤答肢解説つきで収録する。"
+      ]
+    },
+    {
+      "id": "ce-r8-mc-40",
+      "channel": "note",
+      "qualification": "concrete-engineer",
+      "stage": "written",
+      "series": "other",
+      "tier": "single",
+      "persona": null,
+      "catalog": {
+        "id": "ce-r8-mc-40",
+        "published": true,
+        "noteUrl": "https://note.com/dobokunote/n/n4563f6588ee0",
+        "title": "コンクリート技士｜令和8年度 四肢択一 予想40問（6分野・全選択肢解説）",
+        "description": "コンクリート技士試験の四肢択一について、6分野のオリジナル予想問題40問と全選択肢の解説をまとめた。計算問題は途中式つき。過去の出題傾向にもとづく演習で、的中を約束するものではない。",
+        "shortTitle": "コンクリート技士 予想40問",
+        "shortDescription": "6分野のオリジナル予想40問。全選択肢の解説と計算の途中式つき。",
+        "price": "¥1,480",
+        "badge": "note 限定 教材"
+      },
+      "members": [],
+      "includes": [],
+      "memo": [
+        "2026-11-05 公開（n4563f6588ee0・¥1,480・境界=最初の問題）（DN-0964）。"
       ]
     },
     {
@@ -11383,6 +11438,7 @@
     "content/note/コンクリート主任技士/四肢択一-R8予想50問/article.md": 1980,
     "content/note/コンクリート主任技士/配合計算-実戦演習/article.md": 1480,
     "content/note/コンクリート技士/magazines/コンクリート技士-直前暗記ノート/article.md": 780,
+    "content/note/コンクリート技士/四肢択一-R8予想40問/article.md": 1480,
     "content/note/コンクリート技士/配合計算-JIS判断-実戦演習/article.md": 1280,
     "content/note/コンクリート診断士/magazines/コンクリート診断士-想定構造物8ケース/01-下水処理施設-化学的侵食/article.md": 1480,
     "content/note/コンクリート診断士/magazines/コンクリート診断士-想定構造物8ケース/02-道路トンネル覆工-漏水凍害/article.md": 1480,
