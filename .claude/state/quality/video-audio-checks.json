@@ -198,6 +198,17 @@
         "expected": 1179,
         "heard": 1137
       }
+    },
+    "pe-construction/hissu1-ninaite-seisansei/youtube.longform": {
+      "videoSha256": "175736eba41d5b301a63f98051a577358de93a3bfd42f948e780a641202cf030",
+      "at": "2026-11-05T13:03:30.751Z",
+      "similarity": 0.828,
+      "maxVolumeDb": -1.5,
+      "durationGapSec": 0.1,
+      "chars": {
+        "expected": 982,
+        "heard": 968
+      }
     }
   }
 }
