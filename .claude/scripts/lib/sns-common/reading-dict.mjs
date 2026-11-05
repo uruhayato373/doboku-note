@@ -54,6 +54,20 @@ const READING_DICT = {
   'ICT': 'あいしーてぃー',
 };
 
+// VOICEVOX は II-1 を「アイアイ、イチ」、R04 を「アールゼロヨン」と読む（2026-11-06 に audio_query で確認）
+const DIGITS = ['ぜろ', 'いち', 'に', 'さん', 'よん', 'ご', 'ろく', 'なな', 'はち', 'きゅう'];
+const ROMAN = { I: 'いち', II: 'に', III: 'さん', IV: 'よん', Ⅰ: 'いち', Ⅱ: 'に', Ⅲ: 'さん', Ⅳ: 'よん' };
+
+function readExamNotation(text) {
+  return text
+    // R1 は回路の抵抗、単独の I は電流にも使うので、年度と区分の形に限る
+    .replace(/(?<![A-Za-z0-9])R0([1-9])(?![0-9A-Za-z])/g, (_, year) => `れいわ${DIGITS[year]}`)
+    .replace(/(?<![A-Za-z])(?:III|II|IV|Ⅰ|Ⅱ|Ⅲ|Ⅳ|I(?=-\d)|(?<=科目|区分|問題|健全性)I)(?:-\d)*(?![A-Za-z])/g, (match) => {
+      const [roman, ...rest] = match.split('-');
+      return [ROMAN[roman], ...rest.map((digit) => DIGITS[digit])].join('の');
+    });
+}
+
 /**
  * テキストに読み辞書を適用してひらがな化する。
  * @param {string} text
@@ -64,5 +78,5 @@ export function applyReadingDict(text) {
   for (const [from, to] of Object.entries(READING_DICT).sort(([a], [b]) => b.length - a.length)) {
     result = result.replaceAll(from, to);
   }
-  return result;
+  return readExamNotation(result);
 }
