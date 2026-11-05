@@ -2287,11 +2287,13 @@
       "material": "written",
       "source": [
         "pe-water-required-magazine",
-        "pe-water-supply-magazine"
+        "pe-water-supply-magazine",
+        "pe-water-sewerage-magazine"
       ],
       "evidence": [
         "src/lib/note-magazines.ts#pe-water-required-magazine",
-        "src/lib/note-magazines.ts#pe-water-supply-magazine"
+        "src/lib/note-magazines.ts#pe-water-supply-magazine",
+        "src/lib/note-magazines.ts#pe-water-sewerage-magazine"
       ],
       "body": {
         "format": {
@@ -2335,10 +2337,12 @@
       "qualification": "pe-water-supply",
       "material": "pack",
       "source": [
-        "pe-water-supply-pack"
+        "pe-water-supply-pack",
+        "pe-water-sewerage-pack"
       ],
       "evidence": [
-        "src/lib/note-magazines.ts#pe-water-supply-pack"
+        "src/lib/note-magazines.ts#pe-water-supply-pack",
+        "src/lib/note-magazines.ts#pe-water-sewerage-pack"
       ],
       "body": {
         "format": {

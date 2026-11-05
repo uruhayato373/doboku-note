@@ -61,7 +61,8 @@
     "測量士午後-分野別": "surveyor-gogo-bunya-magazine",
     "舗装1級-経験記述": "pavement-1-keiken-magazine",
     "water-BK-I": "pe-water-required-magazine",
-    "water-BK-01": "pe-water-supply-magazine"
+    "water-BK-01": "pe-water-supply-magazine",
+    "water-BK-02": "pe-water-sewerage-magazine"
   },
   "packs": {
     "_doc": "複数ラベルを 1 マガジンへ束ねる商品。期待 = Σ(labels の repo 公開記事数) + extras。",
