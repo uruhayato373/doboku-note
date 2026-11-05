@@ -209,6 +209,17 @@
         "expected": 982,
         "heard": 968
       }
+    },
+    "pe-comprehensive-management/kata-oudan-ryuyo/youtube.longform": {
+      "videoSha256": "039d6b9ed7ccd2b73b1886e11b926cac40a9cf3401a4dc512e69a7a11b0be414",
+      "at": "2026-11-05T13:03:54.453Z",
+      "similarity": 0.837,
+      "maxVolumeDb": -1.5,
+      "durationGapSec": 0,
+      "chars": {
+        "expected": 763,
+        "heard": 754
+      }
     }
   }
 }
