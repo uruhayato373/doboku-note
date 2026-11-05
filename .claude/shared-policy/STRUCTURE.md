@@ -1,6 +1,6 @@
 ---
-version: 1.4.1
-updated: 2026-09-26
+version: 1.5.1
+updated: 2026-11-05
 owner: uruhayato373
 title: note 記事の構成（売れる 9 型）
 summary: 5 ステップ骨格・売れる 9 型・タイトル 5 型・短い段落・リンクの使い分け・強化 6 部品・制約。
