@@ -87,7 +87,7 @@
           "path": ".tmp/media/pe-construction/hissu1-kokudo-chiiki/work/factory/raw-cover.d65d70f9.png",
           "sha256": "d65d70f9eefce294f186b6cb5a0615ca8858f175df6a2762a8ae4981a6edce87"
         },
-        "generatedAt": "2026-11-05T10:52:50.829Z"
+        "generatedAt": "2026-11-05T21:33:10.632Z"
       },
       "copy": {
         "exam": "pe-construction",
@@ -109,7 +109,7 @@
       },
       "review": {
         "status": "ai-reviewed",
-        "checkedAt": "2026-11-05T10:52:50.829Z",
+        "checkedAt": "2026-11-05T21:33:10.632Z",
         "by": "ai-image-fidelity-auditor",
         "reason": "指定文字『総監が制作』『国土と地域』『整備の論点を整理』が一字ずつ一致し、先生キャラは黒髪・黒縁眼鏡・ひげ・白ヘルメット・紺作業服・反射帯で手指も正常、余白も守る",
         "userImageReview": "pending"
@@ -140,7 +140,7 @@
               "path": ".tmp/media/pe-construction/hissu1-kokudo-chiiki/work/factory/raw-premise.a6438e59.png",
               "sha256": "a6438e59433f4f9ea278fe27fc466f244e989fc4f95cba04af937cc27fdf689d"
             },
-            "generatedAt": "2026-11-05T10:52:50.829Z"
+            "generatedAt": "2026-11-05T21:33:10.632Z"
           },
           "output": {
             "path": ".tmp/media/pe-construction/hissu1-kokudo-chiiki/work/premise-diagram.6cf14167.png",
@@ -154,7 +154,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-05T10:52:50.829Z",
+            "checkedAt": "2026-11-05T21:33:10.632Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "見出しと図の二文が指示と一字ずつ一致し、書類から羅針盤への翻訳の図解も本文と矛盾しない（見出しに括弧が付くが誤読を生まない）",
             "userReview": "pending",
@@ -177,7 +177,7 @@
               "path": ".tmp/media/pe-construction/hissu1-kokudo-chiiki/work/factory/raw-frequency.11a4b580.png",
               "sha256": "11a4b580a94c54cc3319ea8629e425357ba7028fa628432e71bc6059cca9c304"
             },
-            "generatedAt": "2026-11-05T10:52:50.829Z"
+            "generatedAt": "2026-11-05T21:33:10.632Z"
           },
           "output": {
             "path": ".tmp/media/pe-construction/hissu1-kokudo-chiiki/work/frequency-diagram.86e34b25.png",
@@ -191,7 +191,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-05T10:52:50.829Z",
+            "checkedAt": "2026-11-05T21:33:10.632Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "文字: 見出しと3つの図内文字が指示と一字一句一致し、誤字・余分な文言なし。構造: 二つの枠から結論枠へまとまる図で成立、字幕域も空白で破綻なし",
             "userReview": "pending",
@@ -214,7 +214,7 @@
               "path": ".tmp/media/pe-construction/hissu1-kokudo-chiiki/work/factory/raw-plans.9af39985.png",
               "sha256": "9af39985116f0dbc7ab18166282a69714a0e2c4305d86f3c359c225e77644862"
             },
-            "generatedAt": "2026-11-05T10:52:50.829Z"
+            "generatedAt": "2026-11-05T21:33:10.632Z"
           },
           "output": {
             "path": ".tmp/media/pe-construction/hissu1-kokudo-chiiki/work/plans-diagram.c2b9d95a.png",
@@ -228,7 +228,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-05T10:52:50.829Z",
+            "checkedAt": "2026-11-05T21:33:10.632Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "三つの円の文字（第三次国土形成計画・第6次社会資本整備重点計画・令和8年1月決定・令和12年度まで・インフラ長寿命化・群マネ）が指示と一致し崩れも読み取りに支障なし",
             "userReview": "pending",
@@ -251,7 +251,7 @@
               "path": ".tmp/media/pe-construction/hissu1-kokudo-chiiki/work/factory/raw-translate.4ec281aa.png",
               "sha256": "4ec281aa1d39bd124446b79f0ca3b67708272be8ffe94af8af00efa89d5f41b3"
             },
-            "generatedAt": "2026-11-05T10:52:50.829Z"
+            "generatedAt": "2026-11-05T21:33:10.632Z"
           },
           "output": {
             "path": ".tmp/media/pe-construction/hissu1-kokudo-chiiki/work/translate-diagram.67175b72.png",
@@ -265,7 +265,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-05T10:52:50.829Z",
+            "checkedAt": "2026-11-05T21:33:10.632Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "見出しと三つの施策名が指示と一字ずつ一致し、拠点集約・広域インフラ群・DX生活圏の図も本文どおり",
             "userReview": "pending",
@@ -288,7 +288,7 @@
               "path": ".tmp/media/pe-construction/hissu1-kokudo-chiiki/work/factory/raw-risk.400a905a.png",
               "sha256": "400a905a635e8408127e609e81ab1538be09c45732ba4ffcd21e45e9996cc193"
             },
-            "generatedAt": "2026-11-05T10:52:50.829Z"
+            "generatedAt": "2026-11-05T21:33:10.632Z"
           },
           "output": {
             "path": ".tmp/media/pe-construction/hissu1-kokudo-chiiki/work/risk-diagram.400a905a.png",
@@ -302,7 +302,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-05T10:52:50.829Z",
+            "checkedAt": "2026-11-05T21:33:10.632Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "見出し『設問(3)：施策が生むリスク』と二つの文言が一致し、周辺部の低下と自治体間の合意形成の図も本文と合う",
             "userReview": "pending",
@@ -325,7 +325,7 @@
               "path": ".tmp/media/pe-construction/hissu1-kokudo-chiiki/work/factory/raw-stance.7dda1afe.png",
               "sha256": "7dda1afeabd149036c657360334fe6265fcc4a589e885b7adf2adaec64198c6a"
             },
-            "generatedAt": "2026-11-05T10:52:50.829Z"
+            "generatedAt": "2026-11-05T21:33:10.632Z"
           },
           "output": {
             "path": ".tmp/media/pe-construction/hissu1-kokudo-chiiki/work/stance-diagram.17f97585.png",
@@ -339,7 +339,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-05T10:52:50.829Z",
+            "checkedAt": "2026-11-05T21:33:10.632Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "見出しと『合意形成・費用負担の調整』『調整プロセスまで含めて論じる』が一致し、自治体から握手を経て文書へ至る図が本文と矛盾しない",
             "userReview": "pending",
@@ -362,7 +362,7 @@
               "path": ".tmp/media/pe-construction/hissu1-kokudo-chiiki/work/factory/raw-summary.ef1df82c.png",
               "sha256": "ef1df82cf58ac82c3e3981587e6ab8d77e0875f19ef4cd327ac0f89cf9eacbd8"
             },
-            "generatedAt": "2026-11-05T10:52:50.829Z"
+            "generatedAt": "2026-11-05T21:33:10.632Z"
           },
           "output": {
             "path": ".tmp/media/pe-construction/hissu1-kokudo-chiiki/work/summary-diagram.ef1df82c.png",
@@ -376,7 +376,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-05T10:52:50.829Z",
+            "checkedAt": "2026-11-05T21:33:10.632Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "『まとめ』と①〜④の四文言が指示と一字ずつ一致し、図も各項目の内容に合う",
             "userReview": "pending",
@@ -399,7 +399,7 @@
               "path": ".tmp/media/pe-construction/hissu1-kokudo-chiiki/work/factory/raw-cta.e65b03b1.png",
               "sha256": "e65b03b17dcb669f03b7bb36faeb90cdab2f04a49ead80f04cb1fb0d76e560a4"
             },
-            "generatedAt": "2026-11-05T10:52:50.829Z"
+            "generatedAt": "2026-11-05T21:33:10.632Z"
           },
           "output": {
             "path": ".tmp/media/pe-construction/hissu1-kokudo-chiiki/work/cta-diagram.48ee8f7c.png",
@@ -413,7 +413,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-05T10:52:50.829Z",
+            "checkedAt": "2026-11-05T21:33:10.632Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "見出し『答案の型で確認する』と『必須科目I マガジン（概要欄リンク）』が一致し、余計な文字や価格・URLもない",
             "userReview": "pending",
