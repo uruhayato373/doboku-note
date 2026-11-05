@@ -6710,6 +6710,32 @@
       "commit": "bc319c9897b9",
       "verification": "coconalaReviews を business-direction へ追加し /strategy/issues に表示。netReceiptsPerHour は作業時間を記録しない判断で取り下げ、1 商品あたり受取で代替",
       "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-0963",
+      "at": "2026-11-05",
+      "task": "測量士の note 商品の残り（パック・R8 の反映）を試験前に展開する",
+      "tier": "mid",
+      "kind": "制作",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "a958c4d83b5d",
+      "verification": null,
+      "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-0962",
+      "at": "2026-11-05",
+      "task": "舗装の note 商品の残り（パック・2級の選択・R8 の反映）を試験前に展開する",
+      "tier": "mid",
+      "kind": "制作",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "a958c4d83b5d",
+      "verification": null,
+      "note": "todo-complete.mjs 経由で完了処理"
     }
   ]
 }
