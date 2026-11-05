@@ -6658,6 +6658,19 @@
       "commit": "0284fe01675a",
       "verification": "m7c61c9447a4c が /exam/pe-water-supply に4箇所",
       "note": "必須I 全9記事を note で公開し、商品・サイトCTAへ配線して本番で確認した"
+    },
+    {
+      "id": "DN-0987",
+      "at": "2026-11-05",
+      "task": "口頭試験の動画 2 本の画像を予約の基準に合わせて作り直す",
+      "tier": "high",
+      "kind": "制作",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "1f4604b38c06",
+      "verification": "youtube-single-publish mode=audit-funnel: API照合 36 本 FAIL 0",
+      "note": "2 本を予約し YouTube の実体と一致を確認。関門と方針の承認を作った。量産は DN-0988"
     }
   ]
 }
