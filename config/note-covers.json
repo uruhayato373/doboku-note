@@ -385,6 +385,22 @@
         "magazineName": "下水道 まるごと合格パック",
         "proof": "必須科目I＋選択科目 全36記事",
         "benefit": "本番の組み合わせで固める"
+      },
+      {
+        "id": "surveyor-gogo-pack",
+        "magazineDir": "content/note/測量士/magazines/測量士午後-まるごと合格パック",
+        "qualifier": "測量士 午後 記述式",
+        "magazineName": "まるごと合格パック",
+        "proof": "分野別＋計算の型20",
+        "benefit": "公式の解答例と照合済み"
+      },
+      {
+        "id": "pavement-1-pack",
+        "magazineDir": "content/note/舗装/magazines/舗装1級-まるごと合格パック",
+        "qualifier": "1級舗装 応用試験",
+        "magazineName": "まるごと合格パック",
+        "proof": "経験記述＋選択問題",
+        "benefit": "問1から問5まで準備できる"
       }
     ]
   },

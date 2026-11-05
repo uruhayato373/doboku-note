@@ -1033,7 +1033,7 @@ function resolvePlacementRaw(
   if (slug.startsWith('surveyor-')) {
     const keisan = slug === 'surveyor-guide-gogo-bunya' || slug.startsWith('surveyor-primary-');
     return {
-      top: slot('surveyor-gogo-bunya-magazine', slug, 'top'),
+      top: slot(slug === 'surveyor-guide-study-plan' ? 'surveyor-gogo-pack' : 'surveyor-gogo-bunya-magazine', slug, 'top'),
       inline: keisan ? [slot('surveyor-keisan-20', slug, 'inline-1')] : [],
     };
   }
@@ -1046,6 +1046,9 @@ function resolvePlacementRaw(
     }
     if (slug === 'pavement-guide-sentaku-hinshutsu') {
       return { top: slot('pavement-1-sentaku-hinshutsu', slug, 'top'), inline: [] };
+    }
+    if (slug === 'pavement-guide-study-plan') {
+      return { top: slot('pavement-1-pack', slug, 'top'), inline: [slot('pavement-1-sentaku-hinshutsu', slug, 'inline-1')] };
     }
     return { top: slot('pavement-1-keiken-magazine', slug, 'top'), inline: [slot('pavement-1-sentaku-hinshutsu', slug, 'inline-1')] };
   }
