@@ -417,6 +417,29 @@
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-1001] ショートの画像品質を通常動画と同じ検査に載せ、本文画面を図解中心へ直す
+タグ: [領域:SNS] [時期:2026-11] [種類:改善] [起票:2026-11-06]
+
+**起点**: 2026-11-06 にショートの画像品質を確認した。concrete-engineer/gishi-haigou-keisan の point-step1-1 を preview で目視（1 本・静止画 3 枚のみ。完成動画は未確認）。
+
+**分かったこと**:
+1. `scripts/render-video-pack-shorts.mjs` は 表紙・本文・締めの静止画 3 枚で、本文は全パック `buildExplanationNode` の定型カード。図がなく、通常動画の図解画像を使わない
+2. 見本の締め画像は下約 1/4 が無地の紺帯。`sns-image-policy`・`yt-shorts-publisher-qa` の「下の巨大な無地領域」に当たる疑い
+3. `video-factory` の画像監査・内容QA・画面確認・関門は通常動画だけで、ショートは通らない
+4. `check-youtube-shorts` は 2026-10-25 に quality-audit から外れ、現在 exit 1（主任技士の 5 件: sceneId 不一致 4・タイトル 41 字 1）
+5. `yt-shorts-publisher-qa` の手順は旧 Instagram 派生のままで、現行ポリシー（字幕必須・動画パックのタイトル型）と食い違う。4 軸に画像の軸がない
+6. prepare・render・check は 4 資格（土木 2・コンクリート 2）だけ。pe-first-stage は outputs.shorts=0 で生成できない
+
+**やること**:
+- 本文画面を図解中心へ直し、代表 1 本を完成動画で確認してから展開する（場面を増やす案も比べる）
+- 表紙・本文・締めと字幕入りフレームを `ai-image-fidelity-auditor` と画面確認の対象へ足し、sha に結ぶ
+- `yt-shorts-publisher-qa` を現行の動画パック手順へ書き直し、画像の軸を足す
+- `check-youtube-shorts` の 5 件を直し、ショートを再開する時点で quality-audit へ戻す
+- 技術士一次のショートを作るなら、資格の対応を足す
+
+**完了条件**: 試行対象の全ショートで、原寸と幅 360px の画像・字幕入りフレームの判定が動画の sha に結ばれて記録され、`npm run check-youtube-shorts` が検査件数つきで exit 0。
+
+
 ### [DN-1000] コンクリート技士の試験後に出題を確かめ、2027 年度の予想問題へ改題する
 タグ: [領域:商品] [時期:2027-01..2027-09] [種類:制作] [起票:2026-11-05]
 
