@@ -693,3 +693,12 @@ title: 自治体の土木担当シリーズで確かめた一次資料（骨子�
 - 第2次地方分権一括法は平成23年法律第105号。道路構造令の条例委任の関連は平成24年4月1日施行 — https://www.mlit.go.jp/road/sign/pdf/kouzourei_2.pdf p.12
 - 都市計画運用指針 第13版の頁は印刷頁で書く（PDF の通し頁は 9 頁後ろ）。地区施設と位置の指定は印刷 pp.187-188、防災指針と居住誘導区域の注意は印刷 p.41
 - 居住誘導区域に定めない区域は都市再生特別措置法施行令第30条
+
+## 既存 5 章の補強（A-02・A-04・A-23・A-28・A-41・2026-11-05 に確認）
+- 公共事業関係費は令和8年度当初 6兆1,078億円（前年度当初より220億円・0.4%増）、うち国土交通省 5兆2,950億円 — https://www.mof.go.jp/public_relations/finance/202605/202605f.pdf p.26
+- 地方整備局は8局、北海道は北海道開発局 — https://www.mlit.go.jp/about/soshiki_chihou.html
+- 損失補償基準要綱は昭和37年6月29日閣議決定 — https://www.mlit.go.jp/totikensangyo/totikensangyo_tk1_000023.html
+- 業務独占・必置・名称独占等の定義と技術士の例 — https://www.soumu.go.jp/main_content/000131814.pdf p.4
+- ISO9001 活用モデル工事の試行は国官技第175号（令和元年8月27日）— https://www.mlit.go.jp/tec/content/001397978.pdf
+- 経審の W8 に令和5年1月からエコアクション21 を追加、認証の範囲に建設業が無いと加点なし — https://www.mlit.go.jp/tochi_fudousan_kensetsugyo/const/content/001585871.pdf。令和8年7月以降の W 点の改正後の配点は未確認なので記事に書かない
+- 正当な補償の最高裁判決（昭和48年10月18日・昭和28年12月23日）は 2026-11-05 に courts.go.jp がメンテナンスで原文を確認できず、記事に書いていない

@@ -8519,6 +8519,83 @@
         "kind": "external",
         "url": "https://www.mlit.go.jp/toshi/city_plan/content/001348697.pdf"
       }
+    },
+    {
+      "id": "mlit-establishment-act",
+      "title": "国土交通省設置法",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "国土交通省設置法": "mlit-establishment-act"
+      },
+      "egov": {
+        "lawId": "411AC0000000100"
+      }
+    },
+    {
+      "id": "mof-finance-2026-05-public-works",
+      "title": "令和8年度 国土交通省・公共事業関係予算について（財務省 ファイナンス 2026年5月号）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mof.go.jp/public_relations/finance/202605/202605f.pdf"
+      }
+    },
+    {
+      "id": "mlit-organization-regional",
+      "title": "国土交通省の組織 地方支分部局（国土交通省）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/about/soshiki_chihou.html"
+      }
+    },
+    {
+      "id": "mlit-organization",
+      "title": "国土交通省の組織（国土交通省）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/about/soshiki.html"
+      }
+    },
+    {
+      "id": "soumu-qualification-survey",
+      "title": "資格制度に関する調査結果（総務省 行政評価局）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.soumu.go.jp/main_content/000131814.pdf"
+      }
+    },
+    {
+      "id": "mlit-iso9001-model-work-2019",
+      "title": "ISO9001 活用モデル工事の試行について（国官技第175号・令和元年8月27日・国土交通省）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/tec/content/001397978.pdf"
+      }
+    },
+    {
+      "id": "mlit-iso9001-model-work-outline",
+      "title": "ISO9001 認証を活用した工事の概要（国土交通省）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/tec/nyuusatu/ISO9001/outline/index.html"
+      }
+    },
+    {
+      "id": "mlit-keishin-amendment-2023-01",
+      "title": "経営事項審査の主な改正事項（令和5年1月1日・国土交通省）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/tochi_fudousan_kensetsugyo/const/content/001585871.pdf"
+      }
     }
   ]
 }
