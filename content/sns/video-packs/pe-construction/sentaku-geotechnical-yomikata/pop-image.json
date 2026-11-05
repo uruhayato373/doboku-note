@@ -63,5 +63,329 @@
       },
       "publication": "ローカル差し替え・外部未反映"
     }
-  }
+  },
+  "revisions": {
+    "cover-pop-20261106": {
+      "version": "pop-poster-v3",
+      "layout": {
+        "mode": "diagram-led"
+      },
+      "generation": {
+        "tool": "image_gen",
+        "prompt": "添付の1枚目はdoboku-noteで採用済みの全面POP動画表紙の意匠参照、2枚目は先生キャラクターの同一性参照です。 新規の16:9横長（1920×1080想定）日本語YouTube動画表紙を作る。深いインディゴ #33356B と明るい青紫、黄色と白の極太文字、明確な黒い輪郭、少量の赤、斜めの面と勢いのある背景、右側に先生キャラクターを大きく。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。 左〜中央に正確に『土質・基礎』『テーマの読み方』を大きく配置。上部の黄色帯に小さく『総監が制作』。 誤字・余計な文字・合格保証・URL・価格・不明な実績を足さない。文字ブロックの黒い縁取りまで含めて左右8%の内側へ収め（画面の左端から8%は背景だけ）、顔は左右5%・上下5%内、下端18%は字幕が重なるので重要な文字や顔を置かず背景が全面に続く。",
+        "references": [
+          {
+            "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/youtube.longform/cover.b87e20c1.png",
+            "sha256": "b87e20c19fda2123d3bac22950472ee7a7427dd2ab11a7cbf63807a6e83c33ad"
+          },
+          {
+            "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
+            "sha256": "1941cd22fa523fcb233e8ab7b8ad756ad7398be8755037b881d8380fb39398f9"
+          }
+        ],
+        "output": {
+          "path": ".tmp/media/pe-construction/sentaku-geotechnical-yomikata/work/factory/raw-cover.f8618925.png",
+          "sha256": "f8618925032a46d8754e017941e1e4c95b0e93d8941b45735d448dced1be3421"
+        },
+        "generatedAt": "2026-11-05T21:42:05.649Z"
+      },
+      "copy": {
+        "exam": "pe-construction",
+        "headline": [
+          "土質・基礎",
+          "テーマの読み方"
+        ],
+        "authority": "総監が制作"
+      },
+      "output": {
+        "path": ".tmp/media/pe-construction/sentaku-geotechnical-yomikata/work/cover-pop.abf99f93.png",
+        "sha256": "abf99f93240e48db88a29cec83461b8576f5d4e0079992928e158b040096d82e",
+        "width": 1920,
+        "height": 1080
+      },
+      "normalization": {
+        "mode": "full-frame-v1",
+        "sourceSha256": "f8618925032a46d8754e017941e1e4c95b0e93d8941b45735d448dced1be3421"
+      },
+      "review": {
+        "status": "ai-reviewed",
+        "checkedAt": "2026-11-05T21:42:05.649Z",
+        "by": "ai-image-fidelity-auditor",
+        "reason": "文字『総監が制作』『土質・基礎』『テーマの読み方』が指示と一字一致。キャラクターの顔・眼鏡・ひげ・白ヘルメット・紺作業服・反射帯が揃い、手指の破綻なし、下端は背景のみ",
+        "userImageReview": "pending"
+      },
+      "storage": {
+        "group": "content-media",
+        "sync": "local"
+      }
+    },
+    "body-diagram-20261106": {
+      "layout": {
+        "mode": "diagram-led"
+      },
+      "images": [
+        {
+          "sceneId": "premise",
+          "inputSha256": "27cea3b42e88b6c4ff6d1cae02712be2b375a2192bb5684c9ec435224484d935",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『誤解：設問番号を覚える』。 図に入れる文字: 『液状化：R01 II-1-2／R02 II-1-3』 『R03 II-1-4／R05 II-1-2』 『番号ではなく系統で数える』。 この場面の説明（文字にしない）: II-1の設問番号を覚えようとしていませんか。表を見ると、液状化は令和1年度がII-1-2、2年度がII-1-3、3年度がII-1-4、5年度がII-1-2と、年ごとに違う枠で出ています。番号で守備範囲を決めることはできません。そこでこの動画では、8年分のII-1、32問の内容を系統に分けて、年度ごとに数えます。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/sentaku-geotechnical-yomikata/work/factory/raw-premise.eddd8501.png",
+              "sha256": "eddd85011fb9355c012bf8d3d70a178b85ff1f4be75de1873c510f8ab9da01e2"
+            },
+            "generatedAt": "2026-11-05T21:42:05.649Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/sentaku-geotechnical-yomikata/work/premise-diagram.eddd8501.png",
+            "sha256": "eddd85011fb9355c012bf8d3d70a178b85ff1f4be75de1873c510f8ab9da01e2",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "eddd85011fb9355c012bf8d3d70a178b85ff1f4be75de1873c510f8ab9da01e2"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-05T21:42:05.649Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出しと図中の R01 II-1-2／R02 II-1-3／R03 II-1-4／R05 II-1-2、番号ではなく系統で数える、が指示と一字一致。余計な文字なし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "block1",
+          "inputSha256": "fbbd4bc663b0c9cd8890a725b5a602235d0131618429bce2ef82e9c3862ca52b",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『II-1を系統別に数える』。 図に入れる文字: 『圧密・軟弱粘性土：5年度』 『杭・支持力／のり面・地すべり・斜面補強：各5年度』 『液状化・土質試験：各4年度／土留め：3年度』。 この場面の説明（文字にしない）: II-1の32問を、内容で系統に分けて数えます。圧密や軟弱粘性土は令和2、4、5、6、7年度の5年度、杭や支持力は令和3、4、5、6、8年度の5年度、のり面・地すべり・斜面補強は令和1、2、5、7、8年度の5年度です。液状化は令和1、2、3、5年度の4年度、土質試験は令和1、3、6、7年度の4年度、土留めは令和1、2、7年度の3年度でした。1問が複数の系統に当たることもあるので、あくまで目安の件数です。 前回の不合格の理由を直す: 文字: 『液状化・土質試験：各4年度／土留め：3年度』が改行で「各4年度／」と「／土留め：3年度」に割れ、指示にない「／」が重複して描かれている。他の文字は一致",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/sentaku-geotechnical-yomikata/work/factory/raw-block1.ac6f9360.png",
+              "sha256": "ac6f93608f686b3f645f7d45c25b00af8ee47355b38854c08016fecefa10ade2"
+            },
+            "generatedAt": "2026-11-05T21:42:05.649Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/sentaku-geotechnical-yomikata/work/block1-diagram.e1fc3b6d.png",
+            "sha256": "e1fc3b6dc97f20162d7fde9eb7ca8c953328a81dcdd3846c4020646b3ecdb053",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "ac6f93608f686b3f645f7d45c25b00af8ee47355b38854c08016fecefa10ade2"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-05T21:42:05.649Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字: 見出しと3行の文言が指示と一字ずつ一致し余計な文字なし。5・5・4本の印も件数と合い、安全域内に収まる",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "block2",
+          "inputSha256": "92a3da5a16db9d90332322a2df2ebf30517c16a3486d14e4e43dc17adecbe5f8",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『圧密・軟弱地盤と液状化』。 図に入れる文字: 『圧密・軟弱粘性土：R02・R04・R05・R06・R07』 『液状化：R01・R02・R03・R05』 『II-2：R01・R02 軟弱地盤／R08 液状化』。 この場面の説明（文字にしない）: 件数の多い系統を見ます。圧密は、令和2年度が圧密沈下のメカニズム、4年度と5年度が軟弱粘性土地盤上の盛土、6年度が圧密促進と残留沈下の低減、7年度が厚さ約10メートルの軟弱粘性土地盤でした。II-2でも、令和1年度の道路盛土の拡幅と、2年度の軟弱地盤対策が出ています。液状化は、令和1年度が宅地の対策、2年度が液状化指標FL、3年度がメカニズムと対策、5年度が液状化が懸念される地形区分と、切り口を変えて4回出ました。令和8年度のII-2-2でも、住宅と道路の一体的な液状化対策が出ています。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/sentaku-geotechnical-yomikata/work/factory/raw-block2.e4f4a853.png",
+              "sha256": "e4f4a85339ac18287efda2af1ef9b3dea2a9651c82e10b78bbdcff0408149ab7"
+            },
+            "generatedAt": "2026-11-05T21:42:05.649Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/sentaku-geotechnical-yomikata/work/block2-diagram.e4f4a853.png",
+            "sha256": "e4f4a85339ac18287efda2af1ef9b3dea2a9651c82e10b78bbdcff0408149ab7",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "e4f4a85339ac18287efda2af1ef9b3dea2a9651c82e10b78bbdcff0408149ab7"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-05T21:42:05.649Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し、II-2：R01・R02 軟弱地盤／R08 液状化、圧密・軟弱粘性土：R02・R04・R05・R06・R07、液状化：R01・R02・R03・R05 が指示と一字一致。盛土と圧密・砂粒の図も本文と矛盾しない",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "block3",
+          "inputSha256": "974fe6363ba2e94e899a759dd6478a8aa92f27a50d49af0798e66a3d99786e7c",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『杭基礎・のり面・土留め』。 図に入れる文字: 『杭・支持力：R03・R04・R05・R06・R08』 『のり面・地すべり：R01・R02・R05・R07・R08』 『土留め：II-1はR01・R02・R07』。 この場面の説明（文字にしない）: 杭と支持力は、令和3年度がテルツァギの支持力公式、5年度が杭の工法、6年度が鉛直載荷試験による極限支持力、8年度が押込み支持力と引抜き抵抗力でした。のり面・地すべりは、令和2年度が抑制工と抑止工、5年度が杭工やアンカーの抑止工、8年度が斜面補強工法の原理と適用です。土留めは3年度と少なめですが、令和1年度のヒービング・盤ぶくれ・ボイリング、7年度の山留めの安全が出ており、II-2でも令和3、5、6年度に掘削や山留めの設問があります。 前回の不合格の理由を直す: 文字: 見出しが指示の『杭基礎・のり面・土留め』ではなく、指示の鉤括弧『』まで字として描かれ「『杭基礎・のり面・土留め』」になっている（指示にない文字）。他の年度表記は一致",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/sentaku-geotechnical-yomikata/work/factory/raw-block3.9b9a9291.png",
+              "sha256": "9b9a92917e38632c7eb9165fd8aca1bb8de137d9f6d30e317a8722456384370f"
+            },
+            "generatedAt": "2026-11-05T21:42:05.649Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/sentaku-geotechnical-yomikata/work/block3-diagram.2332ced1.png",
+            "sha256": "2332ced11b79a2ce15fa4f4e12a5c2cd2da70fbe07cc55c89a592fa12cde61ab",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "9b9a92917e38632c7eb9165fd8aca1bb8de137d9f6d30e317a8722456384370f"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-05T21:42:05.649Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字: 見出しと3つのラベル(R03・R04・R05・R06・R08等)が指示と一致。杭基礎・アンカー付きのり面・土留めの模式図は破綻なく本文と矛盾しない",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "block4",
+          "inputSha256": "5250ea0fa79c4c57259cbbbfa99c7d322fe692cc45d3fa6e50448a533bf19925",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『IIIを数える：災害・維持管理・DX』。 図に入れる文字: 『地震・災害系：R02・R04・R06・R07・R08』 『維持管理：R01・R03・R08』 『ICT施工・建設DX：R02・R07』 『R06：熱海土石流（盛土規制）』。 この場面の説明（文字にしない）: IIIも数えます。地震や災害に関わる問題は、令和2、4、6、7、8年度の5年度にあります。令和4年度は南海トラフ等の巨大地震、7年度は大規模地震と過去の教訓、8年度は地震と豪雨の複合災害に備える盛土です。維持管理は令和1、3、8年度、ICT施工や建設DXは令和2年度と7年度です。令和6年度には熱海土石流を題材にした盛土規制も出ています。発注者として工事に関わった立場からは、対策工の技術に加えて、制度の運用まで書き足したい観点です。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/sentaku-geotechnical-yomikata/work/factory/raw-block4.effdedc0.png",
+              "sha256": "effdedc0d4efbf5a922d6afcdb4845cb26b5cfd4c07e01551eef76af457a39a7"
+            },
+            "generatedAt": "2026-11-05T21:42:05.649Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/sentaku-geotechnical-yomikata/work/block4-diagram.aca9d7ad.png",
+            "sha256": "aca9d7ad195effc01aa9bd3d921a75ea34bd22bfbf7a96138314d25c6b39d336",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "effdedc0d4efbf5a922d6afcdb4845cb26b5cfd4c07e01551eef76af457a39a7"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-05T21:42:05.649Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し IIIを数える：災害・維持管理・DX と各 R 番号、R06：熱海土石流（盛土規制）が指示と一字一致。住宅・橋・バックホウの図も内容に合い崩れなし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "summary",
+          "inputSha256": "f72d2d8fd41e177e71a3f2b0c62d3cf528359fb985b6846b3f43535831ce5287",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『優先順位の決め方 3ステップ』。 図に入れる文字: 『① 年度別の表を系統に分けて数える』 『② 圧密・杭・のり面（各5年度）から固める』 『③ 同数なら実務で書ける系統を先に』。 この場面の説明（文字にしない）: 優先順位は3ステップです。1つ目は、年度別の表を自分で系統に分けて数えること。2つ目は、件数の多い圧密、杭・支持力、のり面・斜面から固めること。3つ目は、件数が同じなら、自分の実務で書ける系統を先にすることです。これは過去の件数であり、次の出題の予測ではありません。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/sentaku-geotechnical-yomikata/work/factory/raw-summary.44b41d32.png",
+              "sha256": "44b41d32a93037377987214a323024dbe181b0f03556314a57053fbb3118cdf3"
+            },
+            "generatedAt": "2026-11-05T21:42:05.649Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/sentaku-geotechnical-yomikata/work/summary-diagram.44b41d32.png",
+            "sha256": "44b41d32a93037377987214a323024dbe181b0f03556314a57053fbb3118cdf3",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "44b41d32a93037377987214a323024dbe181b0f03556314a57053fbb3118cdf3"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-05T21:42:05.649Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し『優先順位の決め方 3ステップ』と①②③の文言が指示と一字一致。表・3系統アイコン・天秤と答案の図に破綻なし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "cta",
+          "inputSha256": "454825dfdbe5b223e0835a074b99abd1edeb7148b7dfcbcac89e60af24365e98",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『土質・基礎マガジンで確認する』。 図に入れる文字: 『R03〜R07の模範解答集（概要欄リンク）』 『年度別の出題一覧は無料のサイト記事』。 この場面の説明（文字にしない）: 令和3年度から7年度の模範解答を収めたマガジンが、概要欄にあります。II-1、II-2、IIIの全設問について、答案の構成と書き方を確認できます。年度別の出題一覧は、無料のサイト記事で見られます。ご視聴ありがとうございました。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/sentaku-geotechnical-yomikata/work/factory/raw-cta.5e8567c2.png",
+              "sha256": "5e8567c280bbc57665b3d01c5e95af9ba47dcf38378adc97d1c2cbc6e62f7c15"
+            },
+            "generatedAt": "2026-11-05T21:42:05.649Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/sentaku-geotechnical-yomikata/work/cta-diagram.8990940a.png",
+            "sha256": "8990940a15527b2aebd3cc727df795194eede85341c52d903f6fdf64fb9197b7",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "5e8567c280bbc57665b3d01c5e95af9ba47dcf38378adc97d1c2cbc6e62f7c15"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-05T21:42:05.649Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し『土質・基礎マガジンで確認する』、R03〜R07の模範解答集（概要欄リンク）、年度別の出題一覧は無料のサイト記事、が指示と一字一致。余計な文字なし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        }
+      ]
+    }
+  },
+  "activeCoverRevision": "cover-pop-20261106",
+  "activeBodyRevision": "body-diagram-20261106"
 }

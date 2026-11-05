@@ -2,6 +2,10 @@
   "schemaVersion": 1,
   "covers": {
     "longform": {
+      "character": {
+        "pose": "pop-explaining",
+        "frame": "waist"
+      },
       "format": "longform",
       "exam": "pe-construction",
       "headline": [
@@ -10,19 +14,18 @@
       ],
       "accentLine": 1,
       "subtitle": "",
-      "character": {
-        "pose": "pop-explaining",
-        "frame": "waist"
-      },
-      "design": "pop-v2",
+      "design": "pop-poster-v3",
       "pop": {
         "variant": "explain",
         "authority": "総監が制作"
       },
+      "layout": "diagram-led",
       "approvedImage": {
-        "path": ".tmp/media/pe-construction/sentaku-geotechnical-yomikata/youtube.longform/cover.8908d7ce.png",
-        "sha256": "8908d7ced7700903f9a2db7031c719c492532dec7128f88f9c8af5268cc02480",
-        "specSha256": "aad55e085e509eafb4e2d6c184e6be7dc36d3d5be27c4f066830ac0b75519d9d"
+        "path": ".tmp/media/pe-construction/sentaku-geotechnical-yomikata/work/cover-pop.abf99f93.png",
+        "sha256": "abf99f93240e48db88a29cec83461b8576f5d4e0079992928e158b040096d82e",
+        "width": 1920,
+        "height": 1080,
+        "specSha256": "95fb0b68e994cd0abbc0cae21020804db9061e3a1d65725800188fee034a46ea"
       }
     }
   }
