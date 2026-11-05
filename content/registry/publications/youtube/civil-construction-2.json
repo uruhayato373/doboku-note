@@ -1312,7 +1312,7 @@
       "format": "longform",
       "variant": "diagram-led",
       "revisionOf": "civil-construction-2/keiken-daizai-erabi/youtube.longform",
-      "status": "approved",
+      "status": "scheduled",
       "copy": "content/sns/video-packs/civil-construction-2/keiken-daizai-erabi/youtube.revision-diagram-led.json",
       "media": {
         "cover": "civil-construction-2/keiken-daizai-erabi/work/candidate-cover",
@@ -1347,6 +1347,43 @@
         "by": "policy",
         "at": "2026-11-05T00:44:19.143Z",
         "contentSha256": "b9d310c360f090de17a15849d8d0a92361fc044701cdddaf3ec14e0e1b8ba233"
+      },
+      "delivery": {
+        "inputSha256": "564f92bf1d464ea1f7ded6e15ef1db02fd6f43879e1af2e4f0c05b870182aa87",
+        "marker": "dn-revision-c065713f40cc876882a0bf231e03b307ea3f47d1",
+        "uploadRequestedAt": "2026-11-05T08:28:23.641Z",
+        "videoId": "ftCIz94eEgk",
+        "processedAt": "2026-11-05T08:29:04.538Z",
+        "thumbnailRequestedAt": "2026-11-05T08:29:04.598Z",
+        "thumbnailUrls": [
+          "https://i9.ytimg.com/vi/ftCIz94eEgk/default.jpg?sqp=CNz6sNcG&rs=AOn4CLDAxw7GINNtKvFr_Yz7Cl2FzlGOJg",
+          "https://i9.ytimg.com/vi/ftCIz94eEgk/mqdefault.jpg?sqp=CNz6sNcG&rs=AOn4CLCJCu3ygMy4kLb8ymxE9Eret_oDwg",
+          "https://i9.ytimg.com/vi/ftCIz94eEgk/hqdefault.jpg?sqp=CNz6sNcG&rs=AOn4CLAvXXoiUFeYFwehzvkh7McYQHQ4eg",
+          "https://i9.ytimg.com/vi/ftCIz94eEgk/sddefault.jpg?sqp=CNz6sNcG&rs=AOn4CLApUGbsE9ayU8nWq848IrQLGbngsQ",
+          "https://i9.ytimg.com/vi/ftCIz94eEgk/maxresdefault.jpg?sqp=CNz6sNcG&rs=AOn4CLA3w-O8tA_nt4Tzu9XH9V874nDv8g",
+          "https://i9.ytimg.com/vi/ftCIz94eEgk/fhddefault.jpg?sqp=CNz6sNcG&rs=AOn4CLAX4ZJWxcSk8Wr3rADusz3aXt8dJg"
+        ],
+        "thumbnailAcceptedAt": "2026-11-05T08:29:07.457Z",
+        "scheduleRequestedAt": "2026-11-05T08:29:07.799Z",
+        "scheduleAt": "2026-11-10T11:30:00Z",
+        "scheduledVerifiedAt": "2026-11-05T08:29:10.493Z"
+      },
+      "platform": {
+        "id": "ftCIz94eEgk",
+        "url": "https://www.youtube.com/watch?v=ftCIz94eEgk",
+        "privacy": "private",
+        "evidence": {
+          "kind": "publisher-live-check",
+          "ref": "content/sns/video-packs/civil-construction-2/keiken-daizai-erabi/youtube.revision-diagram-led.json"
+        }
+      },
+      "times": {
+        "uploaded": "2026-11-05T08:29:04.538Z",
+        "scheduled": "2026-11-05T08:29:10.493Z"
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-11-05T08:29:07.457Z"
       }
     },
     {
