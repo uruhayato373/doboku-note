@@ -3935,6 +3935,60 @@
       "reason": "『続きは概要欄から』『総監記述式 完全パック』が正確で、箱からリンクのブラウザ窓への矢印図も説明に合う",
       "reviewedAt": "2026-11-04T23:40:50.988Z"
     },
+    "media:pe-comprehensive-management/setsumon3-shisaku/youtube.longform/cover": {
+      "sha": "97df96e69e403105",
+      "verdict": "ok",
+      "reason": "文字『総監が制作』『国家施策』『答案に出てくる？』が指示と一字一致。先生の黒髪・黒縁眼鏡・ひげ・白ヘルメット・紺作業服とネクタイ・反射帯が揃い、手指の崩れ無し",
+      "reviewedAt": "2026-11-05T10:31:40.969Z"
+    },
+    "media:pe-comprehensive-management/setsumon3-shisaku/youtube.longform/scene-001": {
+      "sha": "97df96e69e403105",
+      "verdict": "ok",
+      "reason": "文字『総監が制作』『国家施策』『答案に出てくる？』が指示と一字一致。先生の黒髪・黒縁眼鏡・ひげ・白ヘルメット・紺作業服とネクタイ・反射帯が揃い、手指の崩れ無し",
+      "reviewedAt": "2026-11-05T10:31:40.970Z"
+    },
+    "media:pe-comprehensive-management/setsumon3-shisaku/youtube.longform/scene-002": {
+      "sha": "d87e1335466842e9",
+      "verdict": "ok",
+      "reason": "見出し『誤解：設問3は国家政策の知識勝負』と図中2文が指示と一字一致。国会議事堂から本人アイコンへの図解で意味も本文と合い、崩れ無し",
+      "reviewedAt": "2026-11-05T10:31:40.970Z"
+    },
+    "media:pe-comprehensive-management/setsumon3-shisaku/youtube.longform/scene-003": {
+      "sha": "a65bfade0ac39051",
+      "verdict": "ok",
+      "reason": "見出しと図中2文（社会テーマごとに管理行為を1つ紐づける／体制再設計・点検ルール整備・データ管理見直し）が一字一致。テーマ×管理行為の図解で崩れ無し",
+      "reviewedAt": "2026-11-05T10:31:40.970Z"
+    },
+    "media:pe-comprehensive-management/setsumon3-shisaku/youtube.longform/scene-004": {
+      "sha": "91e36b6b5fad2abe",
+      "verdict": "ok",
+      "reason": "見出し『スケールの塩梅』と3つの文が指示と一字一致。議事堂・家・翻訳の矢印の図解が説明と合い、崩れ無し",
+      "reviewedAt": "2026-11-05T10:31:40.970Z"
+    },
+    "media:pe-comprehensive-management/setsumon3-shisaku/youtube.longform/scene-005": {
+      "sha": "0acf71f33f0bca1a",
+      "verdict": "ok",
+      "reason": "見出しと『老朽化対策・脱炭素・少子高齢化 等』『既に定着した政策が背景になりやすい』が一字一致。多テーマが少数に収束する図で、余計な文字無し",
+      "reviewedAt": "2026-11-05T10:31:40.970Z"
+    },
+    "media:pe-comprehensive-management/setsumon3-shisaku/youtube.longform/scene-006": {
+      "sha": "e78b3f69bd956abb",
+      "verdict": "ok",
+      "reason": "見出し『準備の3段階』と①②③の3文が指示と一字一致。絞る・翻訳・骨子の図解が順序どおりで崩れ無し",
+      "reviewedAt": "2026-11-05T10:31:40.970Z"
+    },
+    "media:pe-comprehensive-management/setsumon3-shisaku/youtube.longform/scene-007": {
+      "sha": "d2464140ab70c23b",
+      "verdict": "ok",
+      "reason": "見出し『まとめ　設問3の備え方』と2文が指示と一字一致。ペア化と絞り込みの図解で崩れ無し。左枠が左端に近い点は忠実度の軸外",
+      "reviewedAt": "2026-11-05T10:31:40.970Z"
+    },
+    "media:pe-comprehensive-management/setsumon3-shisaku/youtube.longform/scene-008": {
+      "sha": "045eccab126ec8ee",
+      "verdict": "ok",
+      "reason": "見出し『設問3の持ち駒を最短で仕込む』と『設問3 国家施策バンク（概要欄リンク）』が一字一致。施設アイコンがバンクへ集まる図で崩れ無し",
+      "reviewedAt": "2026-11-05T10:31:40.970Z"
+    },
     "media:pe-comprehensive-management/sokan-kojutsu-kangaekata/work/candidate-cover": {
       "sha": "3a4149b0936acb64",
       "verdict": "ok",
@@ -4024,6 +4078,66 @@
       "verdict": "ok",
       "reason": "独立AI画像監査：最終採用PNGを原寸と360pxで実見。指定4文言・ポーズ・顔と手指・安全域に問題なし。ユーザー承認は含まない。",
       "reviewedAt": "2026-10-11T03:36:30.184Z"
+    },
+    "media:pe-comprehensive-management/takuitsu-keyword/youtube.longform/cover": {
+      "sha": "286c9c9a1c654f7c",
+      "verdict": "ok",
+      "reason": "文字『総監が制作』『キーワード集』『択一に活かす』が指示と一字一致し、キャラクターも参照どおりで手指・装備に破綻なし",
+      "reviewedAt": "2026-11-05T10:43:43.075Z"
+    },
+    "media:pe-comprehensive-management/takuitsu-keyword/youtube.longform/scene-001": {
+      "sha": "286c9c9a1c654f7c",
+      "verdict": "ok",
+      "reason": "文字『総監が制作』『キーワード集』『択一に活かす』が指示と一字一致し、キャラクターも参照どおりで手指・装備に破綻なし",
+      "reviewedAt": "2026-11-05T10:43:43.075Z"
+    },
+    "media:pe-comprehensive-management/takuitsu-keyword/youtube.longform/scene-002": {
+      "sha": "4d028a6c1db07128",
+      "verdict": "ok",
+      "reason": "見出しと2つの吹き出し文字が指示と一字一致し、本文の事典の説明と図が矛盾しない",
+      "reviewedAt": "2026-11-05T10:43:43.075Z"
+    },
+    "media:pe-comprehensive-management/takuitsu-keyword/youtube.longform/scene-003": {
+      "sha": "03730ef57e7d00a5",
+      "verdict": "ok",
+      "reason": "見出しと5区分・600語超の文字が指示と一字一致し、本文の5管理構成と合っている",
+      "reviewedAt": "2026-11-05T10:43:43.075Z"
+    },
+    "media:pe-comprehensive-management/takuitsu-keyword/youtube.longform/scene-004": {
+      "sha": "d733d3923e48c3b8",
+      "verdict": "ok",
+      "reason": "見出しと2つの図内文字が指示と一字一句一致し、崩れや余計な文字が無い。5冊の連続と章末カードから深掘りの図解も本文と矛盾しない",
+      "reviewedAt": "2026-11-05T10:43:43.075Z"
+    },
+    "media:pe-comprehensive-management/takuitsu-keyword/youtube.longform/scene-005": {
+      "sha": "c3853a3560e2fa65",
+      "verdict": "ok",
+      "reason": "見出しと2つの図内文字が指示と一字一句一致し、崩れや余計な文字が無い。リンク付き語から個別ページへ進む図解も本文と矛盾しない",
+      "reviewedAt": "2026-11-05T10:43:43.075Z"
+    },
+    "media:pe-comprehensive-management/takuitsu-keyword/youtube.longform/scene-006": {
+      "sha": "9bc7af447ec29637",
+      "verdict": "ok",
+      "reason": "見出しと2つの説明文字が指示と一字一致し、検索から5管理の位置確認へ進む図が本文と整合",
+      "reviewedAt": "2026-11-05T10:43:43.075Z"
+    },
+    "media:pe-comprehensive-management/takuitsu-keyword/youtube.longform/scene-007": {
+      "sha": "ffa896fdce834b1e",
+      "verdict": "ok",
+      "reason": "見出しと頻出論点の文字が指示と一字一致し、過去問から頻度順の棒グラフへの図が本文と整合",
+      "reviewedAt": "2026-11-05T10:43:43.075Z"
+    },
+    "media:pe-comprehensive-management/takuitsu-keyword/youtube.longform/scene-008": {
+      "sha": "01fe41ac3bda1cd2",
+      "verdict": "ok",
+      "reason": "見出しと3項目の文字が指示と一字一致し、本文のまとめと図が矛盾しない",
+      "reviewedAt": "2026-11-05T10:43:43.075Z"
+    },
+    "media:pe-comprehensive-management/takuitsu-keyword/youtube.longform/scene-009": {
+      "sha": "5a0c2d9584c60e53",
+      "verdict": "ok",
+      "reason": "見出しとマガジン名『択一キーワード攻略マガジン（概要欄リンク）』が指示と一字一致し、価格やURLなどの余計な文字なし",
+      "reviewedAt": "2026-11-05T10:43:43.075Z"
     },
     "media:pe-construction/hissu1-bosai-kyoujinka/youtube.longform/cover": {
       "sha": "f35c6347d6f81bc8",
@@ -4252,6 +4366,60 @@
       "verdict": "ok",
       "reason": "見出しと『必須科目Ⅰ 模範解答マガジン（概要欄リンク）』が指示と一致し誤字なし。見開きの本の絵に破綻なし",
       "reviewedAt": "2026-11-05T00:51:04.388Z"
+    },
+    "media:pe-construction/hissu1-ninaite-seisansei/youtube.longform/cover": {
+      "sha": "d5c753041caa6aa5",
+      "verdict": "ok",
+      "reason": "指定の『総監が制作』『担い手不足』『生産性どう上げる』が一字も違わず、先生は黒髪・黒縁眼鏡・ひげ・白ヘルメット・紺作業服とネクタイ・反射帯で手指の破綻もない",
+      "reviewedAt": "2026-11-05T10:39:48.658Z"
+    },
+    "media:pe-construction/hissu1-ninaite-seisansei/youtube.longform/scene-001": {
+      "sha": "d5c753041caa6aa5",
+      "verdict": "ok",
+      "reason": "指定の『総監が制作』『担い手不足』『生産性どう上げる』が一字も違わず、先生は黒髪・黒縁眼鏡・ひげ・白ヘルメット・紺作業服とネクタイ・反射帯で手指の破綻もない",
+      "reviewedAt": "2026-11-05T10:39:48.659Z"
+    },
+    "media:pe-construction/hissu1-ninaite-seisansei/youtube.longform/scene-002": {
+      "sha": "c5e92a73a7dbe650",
+      "verdict": "ok",
+      "reason": "見出し『誤解：不足に触れれば十分』と2つの指定文言が一字ずつ一致し、余計な文字や崩れ字がない",
+      "reviewedAt": "2026-11-05T10:39:48.659Z"
+    },
+    "media:pe-construction/hissu1-ninaite-seisansei/youtube.longform/scene-003": {
+      "sha": "f3317320c127faab",
+      "verdict": "ok",
+      "reason": "見出し『過去の問われ方』とR01・R04・R07の3文言が指示どおりで、誤字や余計な文字がない",
+      "reviewedAt": "2026-11-05T10:39:48.659Z"
+    },
+    "media:pe-construction/hissu1-ninaite-seisansei/youtube.longform/scene-004": {
+      "sha": "4427e32e980116b1",
+      "verdict": "ok",
+      "reason": "文字: 見出しと3つの図内文字（685万人→477万人・1997→2024、55歳以上37%・29歳以下12%、月45時間・年360時間）が指示と一字一句一致し、減少棒・円グラフ・時計も本文と矛盾せず破綻なし",
+      "reviewedAt": "2026-11-05T10:39:48.659Z"
+    },
+    "media:pe-construction/hissu1-ninaite-seisansei/youtube.longform/scene-005": {
+      "sha": "64c981e332e5d674",
+      "verdict": "ok",
+      "reason": "見出し『施策4本柱と3つのねらい』と3つの指定文言が一字ずつ一致し、i-Constructionの綴りも正しく、図の破綻もない",
+      "reviewedAt": "2026-11-05T10:39:48.659Z"
+    },
+    "media:pe-construction/hissu1-ninaite-seisansei/youtube.longform/scene-006": {
+      "sha": "123f0592932927aa",
+      "verdict": "ok",
+      "reason": "文字: 見出しと3つの図内文字が指示と一致し誤字なし。カレンダー・電卓、天秤、課題→解決策→リスク→倫理の流れ図も内容に合い、安全領域内に収まる",
+      "reviewedAt": "2026-11-05T10:39:48.659Z"
+    },
+    "media:pe-construction/hissu1-ninaite-seisansei/youtube.longform/scene-007": {
+      "sha": "3a32cbcacf869128",
+      "verdict": "ok",
+      "reason": "文字: まとめと①②③の3文が指示と一字一句一致。棒グラフ、4本から3本への対応づけ、庁舎と組織図の図が本文に合い破綻なし",
+      "reviewedAt": "2026-11-05T10:39:48.659Z"
+    },
+    "media:pe-construction/hissu1-ninaite-seisansei/youtube.longform/scene-008": {
+      "sha": "cb065e49f9eaecee",
+      "verdict": "ok",
+      "reason": "見出し『答案の形は概要欄へ』と『必須科目Ⅰ 模範解答マガジン（概要欄リンク）』が指示と一致し、余計な文字や破綻がない",
+      "reviewedAt": "2026-11-05T10:39:48.659Z"
     },
     "media:pe-construction/kaitourei-tsukaikata/youtube.longform/cover": {
       "sha": "e21827b0834fad3c",

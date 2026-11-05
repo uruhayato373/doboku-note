@@ -2203,21 +2203,224 @@
       "id": "pe-comprehensive-management/setsumon3-shisaku/youtube.longform/cover",
       "role": "cover",
       "type": "image/png",
-      "sha256": "766b4ca589e00c5c54ffc291aa74e153f2995af7e6a1d714087fa23a581e1a82",
-      "bytes": 915672,
-      "width": 1920,
-      "height": 1080,
+      "sha256": "97df96e69e403105bf58a6f83987f4e133bdb7bb0996a0fe2a4cbe021a95e668",
+      "bytes": 697949,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/pe-comprehensive-management/setsumon3-shisaku/youtube.longform/cover.766b4ca5.png"
+        "path": ".tmp/media/pe-comprehensive-management/setsumon3-shisaku/youtube.longform/cover.97df96e6.png"
       },
       "provenance": {
-        "kind": "template",
-        "by": "youtube-covers",
-        "spec": "content/sns/video-packs/pe-comprehensive-management/setsumon3-shisaku/cover-design.json#covers/longform",
-        "specSha256": "76d5a408b5d2ab543bbdf128794b3a1968c09ec2a323b649bd73116ce0ca12c7"
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "添付の1枚目はdoboku-noteで採用済みの全面POP動画表紙の意匠参照、2枚目は先生キャラクターの同一性参照です。 新規の16:9横長（1920×1080想定）日本語YouTube動画表紙を作る。鮮やかな青・シアン・ネイビー、黄色と白の極太文字、明確な黒い輪郭、少量の赤、斜めの面と勢いのある背景、右側に先生キャラクターを大きく。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。 左〜中央に正確に『国家施策』『答案に出てくる？』を大きく配置。上部の黄色帯に小さく『総監が制作』。 誤字・余計な文字・合格保証・URL・価格・不明な実績を足さない。文字ブロックの黒い縁取りまで含めて左右8%の内側へ収め（画面の左端から8%は背景だけ）、顔は左右5%・上下5%内、下端18%は字幕が重なるので重要な文字や顔を置かず背景が全面に続く。",
+        "promptSha256": "e0686012519abee33f9b955f781eb4730f7b7f16fc5829bd4fd4e1264188dc76",
+        "generatedAt": "2026-11-05T10:30:49.645Z"
       },
-      "legacyPaths": []
+      "width": 1920,
+      "height": 1080,
+      "legacyPaths": [
+        ".tmp/media/pe-comprehensive-management/setsumon3-shisaku/work/cover-pop.97df96e6.png"
+      ]
+    },
+    {
+      "id": "pe-comprehensive-management/setsumon3-shisaku/youtube.longform/scene-001",
+      "role": "scene-001",
+      "type": "image/png",
+      "sha256": "97df96e69e403105bf58a6f83987f4e133bdb7bb0996a0fe2a4cbe021a95e668",
+      "bytes": 697949,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/setsumon3-shisaku/youtube.longform/scene-001.97df96e6.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "添付の1枚目はdoboku-noteで採用済みの全面POP動画表紙の意匠参照、2枚目は先生キャラクターの同一性参照です。 新規の16:9横長（1920×1080想定）日本語YouTube動画表紙を作る。鮮やかな青・シアン・ネイビー、黄色と白の極太文字、明確な黒い輪郭、少量の赤、斜めの面と勢いのある背景、右側に先生キャラクターを大きく。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。 左〜中央に正確に『国家施策』『答案に出てくる？』を大きく配置。上部の黄色帯に小さく『総監が制作』。 誤字・余計な文字・合格保証・URL・価格・不明な実績を足さない。文字ブロックの黒い縁取りまで含めて左右8%の内側へ収め（画面の左端から8%は背景だけ）、顔は左右5%・上下5%内、下端18%は字幕が重なるので重要な文字や顔を置かず背景が全面に続く。",
+        "promptSha256": "e0686012519abee33f9b955f781eb4730f7b7f16fc5829bd4fd4e1264188dc76",
+        "generatedAt": "2026-11-05T10:30:49.645Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-comprehensive-management/setsumon3-shisaku/youtube.longform/scene-002",
+      "role": "scene-002",
+      "type": "image/png",
+      "sha256": "d87e1335466842e9287a3c646f45e93f9b336ab68cff9216deb03c110c29c5bd",
+      "bytes": 1165973,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/setsumon3-shisaku/youtube.longform/scene-002.d87e1335.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、鮮やかな青・シアン・ネイビーの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『誤解：設問3は国家政策の知識勝負』。 図に入れる文字: 『問われるのは自分の管理できる範囲での対応』 『政策を決定する立場ではない』。 この場面の説明（文字にしない）: 設問3は国の政策を暗記して書く問題、と思われがちです。実際に問われているのは、社会課題を前提に自分が管理できる範囲でどう対応するかで、国家施策そのものを語る立場ではありません。",
+        "promptSha256": "180b6f1950c81e85f11ec9fbe680071f5c105a73abdc6ef3eef622fa98e253e7",
+        "generatedAt": "2026-11-05T10:30:49.645Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-comprehensive-management/setsumon3-shisaku/youtube.longform/scene-003",
+      "role": "scene-003",
+      "type": "image/png",
+      "sha256": "a65bfade0ac390519c463ecb22ca8dfd716853429d0228822ce8f2ef5fd43da5",
+      "bytes": 1499112,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/setsumon3-shisaku/youtube.longform/scene-003.a65bfade.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、鮮やかな青・シアン・ネイビーの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『持ち駒＝社会テーマ×自分の管理行為』。 図に入れる文字: 『社会テーマごとに管理行為を1つ紐づける』 『体制再設計・点検ルール整備・データ管理見直し』。 この場面の説明（文字にしない）: 持ち駒は、社会テーマと自分の管理行為のペアで作ります。老朽化対策や脱炭素といったテーマ1つひとつに、体制再設計や点検ルール整備といった管理行為を紐づけておく。試験当日はペアを引き出すだけです。",
+        "promptSha256": "666a371383dd699c6e96ee87977634d98cc70bdcdeab46ed9792c3ad9700cc54",
+        "generatedAt": "2026-11-05T10:30:49.645Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-comprehensive-management/setsumon3-shisaku/youtube.longform/scene-004",
+      "role": "scene-004",
+      "type": "image/png",
+      "sha256": "91e36b6b5fad2abe54cde7a3353f58b7ec7d44fb42a84af1eea8e62aab54b457",
+      "bytes": 1620514,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/setsumon3-shisaku/youtube.longform/scene-004.91e36b6b.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、鮮やかな青・シアン・ネイビーの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『スケールの塩梅』。 図に入れる文字: 『政策名の羅列だけでは評価されない』 『自分ごとに閉じても社会的背景が抜ける』 『一言触れて、施策は自分の行為に翻訳』。 この場面の説明（文字にしない）: 国家スケールと自分のスケールを混同しないことが要です。社会テーマの名称だけで満足せず、自分ごとだけに閉じず、テーマには一言触れつつ施策は自分の管理行為に翻訳して書きます。",
+        "promptSha256": "93b8cffe4271d2497d16ed2a7a870d5256baa9ba9a8f542c47a060c731075162",
+        "generatedAt": "2026-11-05T10:30:49.645Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-comprehensive-management/setsumon3-shisaku/youtube.longform/scene-005",
+      "role": "scene-005",
+      "type": "image/png",
+      "sha256": "0acf71f33f0bca1a283ea4de7309c1bb750f47954ea3220310a41a18771da748",
+      "bytes": 1799141,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/setsumon3-shisaku/youtube.longform/scene-005.0acf71f3.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、鮮やかな青・シアン・ネイビーの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『頻出テーマは少数に収束』。 図に入れる文字: 『老朽化対策・脱炭素・少子高齢化 等』 『既に定着した政策が背景になりやすい』。 この場面の説明（文字にしない）: 出題テーマは少数の社会課題に収束します。近年ではインフラ長寿命化基本計画や国土強靭化基本計画のように、既に定着した政策が背景になることが多く、全テーマを網羅する必要はありません。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 47.0）",
+        "promptSha256": "ab5c82850cb99c041353042cc32135de98ca69ae89f4386a95ea2d02c2030064",
+        "generatedAt": "2026-11-05T10:30:49.645Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-comprehensive-management/setsumon3-shisaku/youtube.longform/scene-006",
+      "role": "scene-006",
+      "type": "image/png",
+      "sha256": "e78b3f69bd956abbb6a05803ec4f9d4e5393f8e9fbe4c36f50a2ce21bace5161",
+      "bytes": 1731316,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/setsumon3-shisaku/youtube.longform/scene-006.e78b3f69.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、鮮やかな青・シアン・ネイビーの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『準備の3段階』。 図に入れる文字: 『① 頻出テーマを3〜4個に絞る』 『② 自分の管理行為に翻訳する』 『③ 対応関係を骨子として仕込む』。 この場面の説明（文字にしない）: 準備の手順は、絞る、翻訳する、仕込むの3段階です。頻出テーマを3つか4つに絞り、それぞれに自分の管理行為を翻訳し、対応関係を骨子として仕込む。初見のテーマでも近い持ち駒を応用できます。",
+        "promptSha256": "8ce5f566e127c844b44158328bca2d4913957ab8766d431e3865b996d9035862",
+        "generatedAt": "2026-11-05T10:30:49.645Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-comprehensive-management/setsumon3-shisaku/youtube.longform/scene-007",
+      "role": "scene-007",
+      "type": "image/png",
+      "sha256": "d2464140ab70c23b5c730263e43a1b3b3a74253ae532f76411d1dc0685aace2f",
+      "bytes": 2017261,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/setsumon3-shisaku/youtube.longform/scene-007.d2464140.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、鮮やかな青・シアン・ネイビーの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『まとめ　設問3の備え方』。 図に入れる文字: 『テーマ×管理行為をペアで持ち駒にする』 『頻出テーマに絞って事前に仕込む』。 この場面の説明（文字にしない）: まとめます。社会テーマと自分の管理行為をペアで持ち駒にする。国家スケールと自分のスケールを混同しない。頻出テーマに絞って事前に仕込んでおく。これが設問3の備え方です。",
+        "promptSha256": "9a50a0517763cc6e992827569235188a734b74da461bd562f17f53ce2c51365a",
+        "generatedAt": "2026-11-05T10:30:49.645Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-comprehensive-management/setsumon3-shisaku/youtube.longform/scene-008",
+      "role": "scene-008",
+      "type": "image/png",
+      "sha256": "045eccab126ec8ee3e7376bee0347947a11f09411b517b3479375ed3a6d86ac4",
+      "bytes": 1655879,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/setsumon3-shisaku/youtube.longform/scene-008.045eccab.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、鮮やかな青・シアン・ネイビーの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『設問3の持ち駒を最短で仕込む』。 図に入れる文字: 『設問3 国家施策バンク（概要欄リンク）』。 この場面の説明（文字にしない）: 頻出テーマごとの施策の持ち駒を体系立ててまとめた、設問3の国家施策バンクを用意しています。概要欄のリンクからご覧ください。ご視聴ありがとうございました。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 37.6）",
+        "promptSha256": "25af7e64899c00d22fb77792b723324fb8023d9c5f880153c6c21c6cd1ad5509",
+        "generatedAt": "2026-11-05T10:30:49.645Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-comprehensive-management/setsumon3-shisaku/youtube.longform/subtitles",
+      "role": "subtitles",
+      "type": "text/x-ssa",
+      "sha256": "9d5490a2b293774a81d79abd5df230d0c92c777d6b3cc8205fde751a755a736c",
+      "bytes": 4346,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/setsumon3-shisaku/youtube.longform/subtitles.9d5490a2.ass"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/pe-comprehensive-management/setsumon3-shisaku/storyboard.json"
+      }
+    },
+    {
+      "id": "pe-comprehensive-management/setsumon3-shisaku/youtube.longform/video",
+      "role": "video",
+      "type": "video/mp4",
+      "sha256": "f16763cc20a731faef8aa0345b77ad4650a4ad3619c5d69715ca48e9c08f17a4",
+      "bytes": 15395340,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/setsumon3-shisaku/youtube.longform/video.f16763cc.mp4"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/pe-comprehensive-management/setsumon3-shisaku/storyboard.json",
+        "specSha256": "1f5a746dffe92df1db56365a76e252930ffc18ddc3707c24bb33791192992fb8",
+        "renderInputSha256": "edcc2e493f1018c626923b4baa8874286bb9b5fbc725b1aa270c555a6091914a",
+        "tts": {
+          "engine": "VOICEVOX",
+          "speaker": 13,
+          "credit": "VOICEVOX:青山龍星"
+        }
+      },
+      "durationSec": 107.6
     },
     {
       "id": "pe-comprehensive-management/sokan-goukaku-senryaku/youtube.longform/cover",
@@ -2996,21 +3199,244 @@
       "id": "pe-comprehensive-management/takuitsu-keyword/youtube.longform/cover",
       "role": "cover",
       "type": "image/png",
-      "sha256": "719df6f10a4ce5ec23b7660f0eb330dab4093fc1853c33af9c8eb87ce6e9f528",
-      "bytes": 683331,
-      "width": 1920,
-      "height": 1080,
+      "sha256": "286c9c9a1c654f7c985d06c95c538189e49396c1848883a1e1bd23be92f8d2de",
+      "bytes": 712787,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/pe-comprehensive-management/takuitsu-keyword/youtube.longform/cover.719df6f1.png"
+        "path": ".tmp/media/pe-comprehensive-management/takuitsu-keyword/youtube.longform/cover.286c9c9a.png"
       },
       "provenance": {
-        "kind": "template",
-        "by": "youtube-covers",
-        "spec": "content/sns/video-packs/pe-comprehensive-management/takuitsu-keyword/cover-design.json#covers/longform",
-        "specSha256": "c1580d52eac1aeb279a5b6abc253dd1869c4a6abe8e0fd81393736e7e6037bc9"
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "添付の1枚目はdoboku-noteで採用済みの全面POP動画表紙の意匠参照、2枚目は先生キャラクターの同一性参照です。 新規の16:9横長（1920×1080想定）日本語YouTube動画表紙を作る。鮮やかな青・シアン・ネイビー、黄色と白の極太文字、明確な黒い輪郭、少量の赤、斜めの面と勢いのある背景、右側に先生キャラクターを大きく。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。 左〜中央に正確に『キーワード集』『択一に活かす』を大きく配置。上部の黄色帯に小さく『総監が制作』。 誤字・余計な文字・合格保証・URL・価格・不明な実績を足さない。文字ブロックの黒い縁取りまで含めて左右8%の内側へ収め（画面の左端から8%は背景だけ）、顔は左右5%・上下5%内、下端18%は字幕が重なるので重要な文字や顔を置かず背景が全面に続く。",
+        "promptSha256": "8e4804e1e462ac54fa027e96b797eed1e2c7aa1fddc07c992a57b00cdeef02c1",
+        "generatedAt": "2026-11-05T10:42:45.298Z"
       },
-      "legacyPaths": []
+      "width": 1920,
+      "height": 1080,
+      "legacyPaths": [
+        ".tmp/media/pe-comprehensive-management/takuitsu-keyword/work/cover-pop.286c9c9a.png"
+      ]
+    },
+    {
+      "id": "pe-comprehensive-management/takuitsu-keyword/youtube.longform/scene-001",
+      "role": "scene-001",
+      "type": "image/png",
+      "sha256": "286c9c9a1c654f7c985d06c95c538189e49396c1848883a1e1bd23be92f8d2de",
+      "bytes": 712787,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/takuitsu-keyword/youtube.longform/scene-001.286c9c9a.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "添付の1枚目はdoboku-noteで採用済みの全面POP動画表紙の意匠参照、2枚目は先生キャラクターの同一性参照です。 新規の16:9横長（1920×1080想定）日本語YouTube動画表紙を作る。鮮やかな青・シアン・ネイビー、黄色と白の極太文字、明確な黒い輪郭、少量の赤、斜めの面と勢いのある背景、右側に先生キャラクターを大きく。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。 左〜中央に正確に『キーワード集』『択一に活かす』を大きく配置。上部の黄色帯に小さく『総監が制作』。 誤字・余計な文字・合格保証・URL・価格・不明な実績を足さない。文字ブロックの黒い縁取りまで含めて左右8%の内側へ収め（画面の左端から8%は背景だけ）、顔は左右5%・上下5%内、下端18%は字幕が重なるので重要な文字や顔を置かず背景が全面に続く。",
+        "promptSha256": "8e4804e1e462ac54fa027e96b797eed1e2c7aa1fddc07c992a57b00cdeef02c1",
+        "generatedAt": "2026-11-05T10:42:45.298Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-comprehensive-management/takuitsu-keyword/youtube.longform/scene-002",
+      "role": "scene-002",
+      "type": "image/png",
+      "sha256": "4d028a6c1db07128af858d12f9fca0e708303ec59236ff1efc17fb1be6bbe0fe",
+      "bytes": 1931548,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/takuitsu-keyword/youtube.longform/scene-002.4d028a6c.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、鮮やかな青・シアン・ネイビーの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『誤解：一語ずつ順に暗記する』。 図に入れる文字: 『キーワード集は暗記帳でなく事典』 『場面ごとに開き方を変える』。 この場面の説明（文字にしない）: 最初から一語ずつ暗記していく取り組み方は非効率です。キーワード集は事典に近く、使う場面ごとに開き方を変えるべき資料です。1つの読み方に固執すると、範囲の広さに時間を食われます。",
+        "promptSha256": "d32215097373b372e3b7bbed882c89c74ca77682eb93807039ea8d9262ce674f",
+        "generatedAt": "2026-11-05T10:42:45.298Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-comprehensive-management/takuitsu-keyword/youtube.longform/scene-003",
+      "role": "scene-003",
+      "type": "image/png",
+      "sha256": "03730ef57e7d00a569f02918d25c8822a7f7e25bffb26c897ef7ab8c48ca1aaa",
+      "bytes": 1157110,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/takuitsu-keyword/youtube.longform/scene-003.03730ef5.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、鮮やかな青・シアン・ネイビーの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『1. まず構造を知る』。 図に入れる文字: 『経済性7区分／人的資源4区分／情報5区分』 『安全6区分／社会環境4区分』 『合わせて600語超』。 この場面の説明（文字にしない）: キーワード集は経済性、人的資源、情報、安全、社会環境の5管理で章立てされます。経済性は7サブカテゴリ約130語、人的資源は4サブカテゴリ約130語、情報は5サブカテゴリ約140語、安全は6サブカテゴリ約150語、社会環境は4サブカテゴリ約130語です。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 31.7）",
+        "promptSha256": "6479232f6e7cc1eb634b6878297cca692e90304a1f53f79655c5c691af99104b",
+        "generatedAt": "2026-11-05T10:42:45.298Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-comprehensive-management/takuitsu-keyword/youtube.longform/scene-004",
+      "role": "scene-004",
+      "type": "image/png",
+      "sha256": "d733d3923e48c3b81729d293c94e0d4691d1caf09f1361db178e1e5880294943",
+      "bytes": 1284833,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/takuitsu-keyword/youtube.longform/scene-004.d733d392.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、鮮やかな青・シアン・ネイビーの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『2. 通読は60〜90分で1周』。 図に入れる文字: 『章番号順に通読し全体像をつかむ』 『章末の学習ガイドカードで深掘り』。 この場面の説明（文字にしない）: 章番号順に一度通読すると、5管理の範囲と相互関係がつかめます。目安は60分から90分。各管理の章末には学習ガイドへの誘導カードがあり、気になった管理はそこから深掘りできます。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 15.9）",
+        "promptSha256": "0f9fd396685de8c42ad6950893007ba11c0b8cb650e75560a9c85ece1d8ae828",
+        "generatedAt": "2026-11-05T10:42:45.298Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-comprehensive-management/takuitsu-keyword/youtube.longform/scene-005",
+      "role": "scene-005",
+      "type": "image/png",
+      "sha256": "c3853a3560e2fa6520f5007f7d69a526321c48f700270dd86b3294e2be6e4982",
+      "bytes": 1711344,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/takuitsu-keyword/youtube.longform/scene-005.c3853a35.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、鮮やかな青・シアン・ネイビーの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『3. 個別キーワードはリンクで深掘り』。 図に入れる文字: 『通読中は立ち止まらない』 『曖昧な語は後でリンクをたどる』。 この場面の説明（文字にしない）: リンクの付いたキーワードは、クリックすると個別の解説ページに飛びます。通読中に意味が曖昧な語で立ち止まらず、先に進んでから後でリンクをたどる、この2段構えが効率的です。 前回の不合格の理由を直す: 文字: 見出しの両端に指示にない括弧『』が描かれている（指示の区切りが文字として混入）。他の文字は一致",
+        "promptSha256": "89f9ddd82a537718eae3f8220e3fb94c4ae7ae683246cf9d8e4142a66f86ba46",
+        "generatedAt": "2026-11-05T10:42:45.298Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-comprehensive-management/takuitsu-keyword/youtube.longform/scene-006",
+      "role": "scene-006",
+      "type": "image/png",
+      "sha256": "9bc7af447ec29637194bffe25207af8320d930b48b6f271f929f2d8a156cab0a",
+      "bytes": 1242314,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/takuitsu-keyword/youtube.longform/scene-006.9bc7af44.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、鮮やかな青・シアン・ネイビーの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『4. 検索は虫食いチェックに使う』。 図に入れる文字: 『ブラウザ内検索（Ctrl／Cmd+F）で照合』 『都度どの管理の語か確認する』。 この場面の説明（文字にしない）: 過去問演習や記述の骨子作りで出てきた語がどこに位置づけられているか確認したいときは、ブラウザ内検索が最速です。5管理のどこに属する語かを都度確認する習慣が理解を育てます。",
+        "promptSha256": "55ae972022fe7e91bb14ed3a139675301afbc08d1d7dbfaeca6a83775425fa80",
+        "generatedAt": "2026-11-05T10:42:45.298Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-comprehensive-management/takuitsu-keyword/youtube.longform/scene-007",
+      "role": "scene-007",
+      "type": "image/png",
+      "sha256": "ffa896fdce834b1ec2f7041ffaedd427bdc61e295b980fcf725e8064ca614896",
+      "bytes": 1604312,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/takuitsu-keyword/youtube.longform/scene-007.ffa896fd.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、鮮やかな青・シアン・ネイビーの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『5. 優先順位は頻出論点ランキング』。 図に入れる文字: 『過去問18年分・720問から頻度順に把握』 『頻出語に深掘りを絞る』。 この場面の説明（文字にしない）: 600語すべてを均等に回す時間はまずありません。過去問18年分、720問の頻出論点ランキングを使い、5管理別に出現頻度の高い論点から優先して深掘りします。頻度の低い語は通読の一巡に留めます。",
+        "promptSha256": "da534104f27c256bc94133dd7db95951d5477d57daee9a61a70413538a33ec95",
+        "generatedAt": "2026-11-05T10:42:45.298Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-comprehensive-management/takuitsu-keyword/youtube.longform/scene-008",
+      "role": "scene-008",
+      "type": "image/png",
+      "sha256": "01fe41ac3bda1cd2c1b05bb97a305c9db2a7c72f90504158d8fc289ff3a228f8",
+      "bytes": 1493842,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/takuitsu-keyword/youtube.longform/scene-008.01fe41ac.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、鮮やかな青・シアン・ネイビーの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『まとめ』。 図に入れる文字: 『① 60〜90分で通読し全体構造をつかむ』 『② リンクで深掘り・検索で虫食い確認』 『③ 頻出論点ランキングで優先順位を決める』。 この場面の説明（文字にしない）: まとめます。キーワード集は事典です。60から90分で通読して全体構造をつかみ、リンクで深掘り、検索で虫食いを確認し、優先順位は頻出論点ランキングで決める。これが回し方です。",
+        "promptSha256": "66bf28ee2ee8f66b10b3b39049a00bc1ca5a83a95f1bc34306821e037d4e0743",
+        "generatedAt": "2026-11-05T10:42:45.298Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-comprehensive-management/takuitsu-keyword/youtube.longform/scene-009",
+      "role": "scene-009",
+      "type": "image/png",
+      "sha256": "5a0c2d9584c60e53035ce644d24669f09a745082265acb2caab489aaeabd07e0",
+      "bytes": 1237766,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/takuitsu-keyword/youtube.longform/scene-009.5a0c2d95.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、鮮やかな青・シアン・ネイビーの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『キーワード集を回し切る』。 図に入れる文字: 『択一キーワード攻略マガジン（概要欄リンク）』。 この場面の説明（文字にしない）: 5管理別の頻出論点ランキングと深掘りの回し方をまとめたマガジンを用意しています。概要欄のリンクからご覧ください。ご視聴ありがとうございました。",
+        "promptSha256": "a179591a8873b640c11974e8d15195866b40e47228f8cf8ab566a63aba7267ff",
+        "generatedAt": "2026-11-05T10:42:45.298Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-comprehensive-management/takuitsu-keyword/youtube.longform/subtitles",
+      "role": "subtitles",
+      "type": "text/x-ssa",
+      "sha256": "4bd5979a33f49889b4b89b5771b5d846fceb2845461aae7f7938d8b577c6d91b",
+      "bytes": 4926,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/takuitsu-keyword/youtube.longform/subtitles.4bd5979a.ass"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/pe-comprehensive-management/takuitsu-keyword/storyboard.json"
+      }
+    },
+    {
+      "id": "pe-comprehensive-management/takuitsu-keyword/youtube.longform/video",
+      "role": "video",
+      "type": "video/mp4",
+      "sha256": "cddc55843717670f1f309d31c2ef4b1d4d86ee2da35626968320131fb888be25",
+      "bytes": 14552876,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/takuitsu-keyword/youtube.longform/video.cddc5584.mp4"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/pe-comprehensive-management/takuitsu-keyword/storyboard.json",
+        "specSha256": "eeca96f4f210d3480ad6ac17ef8af81a9d626da5c4e792dce609c6f06f15d86a",
+        "renderInputSha256": "a9927d2b24234f9ab4a92f1ecabf09ff74c10fb1859100d008db3628ffd09a32",
+        "tts": {
+          "engine": "VOICEVOX",
+          "speaker": 13,
+          "credit": "VOICEVOX:青山龍星"
+        }
+      },
+      "durationSec": 129.233
     },
     {
       "id": "pe-comprehensive-management/takuitsu-r07-enshu/youtube.longform/cover",

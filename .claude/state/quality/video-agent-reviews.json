@@ -94,10 +94,11 @@
     },
     "pe-comprehensive-management/takuitsu-keyword/youtube.longform": {
       "verdict": "pass",
-      "note": "台本と表紙は題名・中身・出典と整合し、試験日の誤りや合格の約束は無い。描画に進んでよい。動画は未完成（音声は未確認）。",
-      "at": "2026-11-04T04:50:04.964Z",
-      "visualDigest": "e5d257c58f65464551e224f782b95c6e6815ac2b4d843326c62ec20a76d7c5e1",
-      "finalDigest": "8e97fcca5a180b53be2caa659193f405dc000f967d5310811d8b3d23c0049b28"
+      "note": "表紙・全9場面シート確認。題名と中身が一致、文字の切れ・誤字なし、場面順は台本どおり。区分数・約130/130/140/150/130語・600語超・60〜90分・過去問18年720問は keyword-2026 記事と一致。試験日の記述なし。説明文の有料CTAは1つ(無料の関連解説リンクを併記)。場面の画像を確認した範囲で、音声は未確認。",
+      "at": "2026-11-05T10:44:29.696Z",
+      "visualDigest": "fb4fed1f871d34870946425da2e786261c298fed0cc89764fa49c29e55fbaff9",
+      "finalDigest": "93afd661488768107ee30ff345248d6ec451b1957ea756f803ef1e86644868e5",
+      "contentDigest": "93afd661488768107ee30ff345248d6ec451b1957ea756f803ef1e86644868e5"
     },
     "pe-comprehensive-management/takuitsu-r07-enshu/youtube.longform": {
       "verdict": "pass",

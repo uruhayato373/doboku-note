@@ -102,13 +102,24 @@
     },
     "pe-construction/hissu1-infra-roukyuuka/youtube.longform": {
       "videoSha256": "ed1e11bfcd54fd09d28b229f02c91c3060126be7b541cfbfc2bf126ab272c8bb",
-      "at": "2026-11-05T10:07:59.443Z",
-      "similarity": 0.847,
+      "at": "2026-11-05T10:46:37.878Z",
+      "similarity": 0.858,
       "maxVolumeDb": -1.4,
       "durationGapSec": 0,
       "chars": {
         "expected": 1097,
-        "heard": 1114
+        "heard": 1130
+      }
+    },
+    "pe-comprehensive-management/takuitsu-keyword/youtube.longform": {
+      "videoSha256": "cddc55843717670f1f309d31c2ef4b1d4d86ee2da35626968320131fb888be25",
+      "at": "2026-11-05T10:46:58.253Z",
+      "similarity": 0.834,
+      "maxVolumeDb": -1.4,
+      "durationGapSec": 0,
+      "chars": {
+        "expected": 786,
+        "heard": 787
       }
     }
   }
