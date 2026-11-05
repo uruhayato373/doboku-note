@@ -271,6 +271,20 @@
         "cd-essay-complete-pack": "all"
       },
       "reason": "記述式完全パックの16記事と四肢択一98問PDFの単体記事1本を収録した全17記事。"
+    },
+    "surveyor-gogo-pack": {
+      "labels": [],
+      "fromMagazines": {
+        "surveyor-gogo-bunya-magazine": "all"
+      },
+      "reason": "分野別マガジン全6記事と計算の型20を束ねる。計算の型20はラベルなし単発商品のためextrasで数える。"
+    },
+    "pavement-1-pack": {
+      "labels": [],
+      "fromMagazines": {
+        "pavement-1-keiken-magazine": "all"
+      },
+      "reason": "経験記述マガジン全4記事と選択問題の頻出論点を束ねる。頻出論点はラベルなし単発商品のためextrasで数える。"
     }
   },
   "excluded": {
@@ -384,6 +398,14 @@
     "rccm-marugoto-pack": {
       "count": 9,
       "reason": "問題Iテンプレ1記事、上水道・下水道・土質及び基礎・道路・河川砂防海岸・鋼構造コンクリートの記入例6記事、問題II・IV-1予想50問1記事、直前暗記ノート1記事。2026-09-20公開APIで全16記事を実体照合。"
+    },
+    "surveyor-gogo-pack": {
+      "count": 1,
+      "reason": "計算の型20（n1ac56686482b）。2026-11-05に公開APIで全7記事を確認。"
+    },
+    "pavement-1-pack": {
+      "count": 1,
+      "reason": "選択問題の頻出論点（n0eafbe26a8d6）。2026-11-05に公開APIで全5記事を確認。"
     }
   }
 }
