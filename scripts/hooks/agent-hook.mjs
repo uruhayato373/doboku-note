@@ -4,6 +4,7 @@
 //   node scripts/hooks/agent-hook.mjs <name>
 //     check-doc-sync           PreToolUse(Bash)   `git commit` のとき台帳/決定文書/新ツールの同期を促す＋check-policy-anchors --staged
 //     check-cd-scope           PreToolUse(Bash)   括弧の外の cd で worktree・プロジェクトの下の階層へ移るなら exit 2（Claude Code だけ）
+//     check-shell-traps        PreToolUse(Bash)   zsh の修飾子の罠（$C:refs）と main への直接 push を止める
 //     check-agent-network      PreToolUse(Bash)   ネット取得禁止のサブエージェント（agent_type）が curl 等で取得するなら exit 2
 //     check-mojibake           PostToolUse(Write|Edit)  .mdx に U+FFFD があれば exit 2（stderr がモデルへ返る）
 //     check-stray-files        Stop               リポジトリ直下の一時ファイルを警告
@@ -34,6 +35,7 @@ import {
   cdScopeViolation,
   classifyStaged,
   decisionDocsChanged,
+  directMainPush,
   docSyncMessages,
   finalAssistantText,
   hasReplacementChar,
@@ -43,10 +45,12 @@ import {
   parseHookInput,
   parseNameStatus,
   shellAssignments,
+  shellTrapMessage,
   strayAtRoot,
   topLevelCdTargets,
   usageLogPath,
   usageRecord,
+  zshModifierTrap,
 } from '../lib/agent-hooks.mjs';
 import { REPO_ROOT as ROOT } from '../lib/repository-paths.mjs';
 
@@ -103,6 +107,14 @@ const HANDLERS = {
       }
     }
     return 0;
+  },
+
+  'check-shell-traps'({ command }) {
+    const trap = zshModifierTrap(command);
+    const mainPush = directMainPush(command);
+    if (!trap && !mainPush) return 0;
+    err(shellTrapMessage({ trap, mainPush }));
+    return 2;
   },
 
   'check-agent-network'({ json, command }) {

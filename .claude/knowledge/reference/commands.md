@@ -25,6 +25,7 @@ npm run check-career-separation:built  # 学習系ナビ（data-nav-list="exam-g
 npm run check-e2e-execution -- --report .tmp/e2e-report.json # E2E CIのJSON結果から対象/実行/未実行/skipを確認。対象0・未実行・skip・失敗・集計不一致でexit 1（E2E後にalwaysで実行）
 npm run check-e2e-targets      # E2E が叩くサイト内 URL が out/ に実在するか（`_redirects` の転送元を叩くと dev で必ず 404 になり、検査が成立しないまま赤が放置される）。**要 `npm run build`** なので quality:audit ではなく ci.yml / e2e.yml の build 後に置く。exit 2=検査不成立
 npm run check-client-chunk-size # build 済み out/_next/static/chunks の JS 1 本が 600KB を超えていないか（client component が doc-meta-index 等の大きい JSON を import すると /search のように 1.66MB になる・DN-0684）。out/ が無ければ exit 2。読み手＝ci.yml の build ジョブ
+npm run deploy:main # develop の検査済み commit を main へ昇格し、デプロイと本番確認まで行う（途中の失敗で止まる。exit 0 は本番確認まで通ったときだけ）
 npm run check-production-ssr # deploy 後の本番 SSR 検証（exit 0=正常 / 1=壊れている / **2=検査不成立＝接続できていない**。会社PCの HTTP 000／プロキシのブロック HTML をサイト障害と誤読しない・手打ち curl で代用しない）。/deploy と cloudflare-deploy.yml の公開後に実行。社内回線から接続できない場合は同workflowの verify_only=true で再デプロイせず外部検査。
 npm run check-production-sweep # 本番 sitemap 全 URL を実際に叩く（200・自己 canonical・<main>・noindex 無し・og:image 200・セキュリティヘッダ）。deploy 後と日曜に CI（uptime-ping.yml の sweep ジョブ）が自動。手元は `-- --sample 50`。exit 1=本番異常 / 2=検査不成立
 npm run check-rendered-pages # out/ の全ページを Chrome でスマホ幅に描画し、横のはみ出し・記法の残り（[題](URL)・**・### ・表・$$・<Tag>）・console エラー・画像切れ・KaTeX エラーを拾う（先に `npm run serve`。全件 約 55 分なので `-- --prefix /exam/…` で絞る。Git Bash では MSYS_NO_PATHCONV=1 を付ける）。部品・生成器・記事の一括変更の後、deploy 前に人が回す。結果は .tmp/rendered-pages/。exit 1=問題あり / 2=検査不成立

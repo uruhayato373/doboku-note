@@ -276,6 +276,33 @@ export function cdScopeViolation(target, { cwd, projectDir, home = '', vars = {}
   return null;
 }
 
+/** 引用符で守られた部分と、引用符付き heredoc の本文を落とした、シェルが解釈する部分だけの文字列。 */
+function shellActiveText(command) {
+  return String(command ?? '')
+    .replace(/<<-?\s*(['"])(\w+)\1[\s\S]*?\n\2(?=\n|$)/g, '')
+    .replace(/'[^'\n]*'/g, "''");
+}
+
+/** zsh は `$C:refs` の `:r` を修飾子として読み、値を黙って壊す（2026-11-05 に main への push が失敗）。 */
+export function zshModifierTrap(command) {
+  const hit = /\$[A-Za-z_]\w*:[A-Za-z]/.exec(shellActiveText(command));
+  return hit ? hit[0] : '';
+}
+
+/** main への直接 push。昇格は npm run deploy:main だけが行う。 */
+export function directMainPush(command) {
+  const text = shellActiveText(command);
+  return text.split(/&&|\|\||;|\n/).some((part) => /\bgit\b.*\bpush\b/.test(part) && /(?:^|[\s:/])(?:refs\/heads\/)?main(?:\s|$)/.test(part));
+}
+
+/** モデルへ返す止めた理由と、代わりの書き方。 */
+export function shellTrapMessage({ trap, mainPush }) {
+  const lines = [];
+  if (trap) lines.push(`BLOCK: ${trap} は zsh の修飾子として読まれ、値が壊れる。\${変数} と波括弧で書く。`);
+  if (mainPush) lines.push('BLOCK: main へは直接 push しない。npm run deploy:main を使う（検査待ち・push の実体確認・デプロイ待ち・本番確認まで、失敗で止まる）。');
+  return lines;
+}
+
 /** 同じコマンドの中で先に代入した変数（`W=/abs/dir; cd $W`）。値の引用符は外す。 */
 export function shellAssignments(command) {
   const vars = {};
