@@ -87,7 +87,7 @@
           "path": ".tmp/media/pe-comprehensive-management/persona-settei/work/factory/raw-cover.3644222e.png",
           "sha256": "3644222ef9a678d50e0c44aee9cdffaa9648c158b1286f232ac07af3c97fdc30"
         },
-        "generatedAt": "2026-11-05T10:51:14.243Z"
+        "generatedAt": "2026-11-05T12:03:42.858Z"
       },
       "copy": {
         "exam": "pe-comprehensive-management",
@@ -109,7 +109,7 @@
       },
       "review": {
         "status": "ai-reviewed",
-        "checkedAt": "2026-11-05T10:51:14.243Z",
+        "checkedAt": "2026-11-05T12:03:42.858Z",
         "by": "ai-image-fidelity-auditor",
         "reason": "指示の『総監が制作』『論文の立場』『どう選ぶ？』が一字ずつ一致し、キャラは黒髪・黒縁眼鏡・ひげ・白ヘルメット・紺作業服とネクタイ・反射帯で手指の崩れも無く、下端は背景のみ",
         "userImageReview": "pending"
@@ -126,10 +126,10 @@
       "images": [
         {
           "sceneId": "premise",
-          "inputSha256": "1cd4e47b0e56884088b7582a10c31ee88d6cf29caf901b8e62f6066c8b8397b5",
+          "inputSha256": "dd05bef4cb7c4af401390c69e8cd299fe7dcb6567ab81194114419f6794afaab",
           "generation": {
             "tool": "image_gen",
-            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、鮮やかな青・シアン・ネイビーの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『誤解：分野が近ければどれでもいい』。 図に入れる文字: 『先に確定するのは発注者か受注者か』 『立場の違いが答案の骨格を左右する』。 この場面の説明（文字にしない）: 立場は分野が近ければどれでもいい、と思われがちです。実際には、まず発注者か受注者かという立場を確定させることが先で、分野選びはその後になります。 前回の不合格の理由を直す: 文字: 見出しに指示にない括弧『』が描かれ、さらに指示にない『発注者』『受注者』のラベルが加わっている（余計な文字を足さない指示に反する）。指定2文は一致",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、鮮やかな青・シアン・ネイビーの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『誤解：分野が近ければどれでもいい』。 図に入れる文字: 『先に確定するのは発注者か受注者か』 『立場で管理対象と前提条件が変わる』。 この場面の説明（文字にしない）: 立場は分野が近ければどれでもいい、と考えていませんか。出典の記事は、分野を選ぶ前にまず発注者か受注者かを決めるよう勧めています。立場が違うと、答案で置く管理対象と前提条件が変わるからです。",
             "references": [
               {
                 "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
@@ -137,36 +137,36 @@
               }
             ],
             "output": {
-              "path": ".tmp/media/pe-comprehensive-management/persona-settei/work/factory/raw-premise.2a7d0de8.png",
-              "sha256": "2a7d0de87ec491722b91a2aa7a59a7415798ddae93c832f966f79cdcd04ebc97"
+              "path": ".tmp/media/pe-comprehensive-management/persona-settei/work/factory/raw-premise.faf9a7b7.png",
+              "sha256": "faf9a7b74abb0eeb6b326c5551e51e9e14337ec1f8f0f25e94f6f9009a90b805"
             },
-            "generatedAt": "2026-11-05T10:51:14.243Z"
+            "generatedAt": "2026-11-05T12:03:42.858Z"
           },
           "output": {
-            "path": ".tmp/media/pe-comprehensive-management/persona-settei/work/premise-diagram.1d068e6f.png",
-            "sha256": "1d068e6fc825f03633a21fa2c183fc19857a28c578b148064bb949c2f908a4e5",
+            "path": ".tmp/media/pe-comprehensive-management/persona-settei/work/premise-diagram.95433445.png",
+            "sha256": "95433445cdb76f1c4a374f8835fe6d3b7e9a8d3e206da9d89dfb96abae0d39c7",
             "width": 1920,
             "height": 1080
           },
           "normalization": {
             "mode": "full-frame-v1",
-            "sourceSha256": "2a7d0de87ec491722b91a2aa7a59a7415798ddae93c832f966f79cdcd04ebc97"
+            "sourceSha256": "faf9a7b74abb0eeb6b326c5551e51e9e14337ec1f8f0f25e94f6f9009a90b805"
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-05T10:51:14.243Z",
+            "checkedAt": "2026-11-05T12:03:42.858Z",
             "by": "ai-image-fidelity-auditor",
-            "reason": "文字: 見出し・先に確定するのは発注者か受注者か・立場の違いが答案の骨格を左右する、の3文が指示と一字一致。官庁と安全帽の分岐図で意味に矛盾なく、下端は無地で破綻なし",
+            "reason": "見出しと2枠の文言が指示と一字一句一致し、官庁と工場の図解も立場の対比として矛盾せず、崩れも無い",
             "userReview": "pending",
             "continuousListening": "not-performed"
           }
         },
         {
           "sceneId": "position",
-          "inputSha256": "b164726e34b2e7043e89fd2b01be1d958dba7aff75d2502bb87841a255a96c6d",
+          "inputSha256": "1d0ae14fac7edf334169dd4b4f6ff49e3fe2489481deaad542cbf9bc202082f1",
           "generation": {
             "tool": "image_gen",
-            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、鮮やかな青・シアン・ネイビーの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『まず立場を決める』。 図に入れる文字: 『発注者＝事業監理・予算執行・関係機関調整』 『受注者＝技術判断・成果品質・元請下請調整』。 この場面の説明（文字にしない）: 発注者、たとえば自治体は事業監理・予算執行・住民や関係機関との調整が中心です。受注者、コンサルやゼネコンは技術的判断・成果品質・元請けと下請けの調整が主戦場です。この違いが答案の骨格を決めます。",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、鮮やかな青・シアン・ネイビーの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『まず立場を決める』。 図に入れる文字: 『発注者＝事業の進行・予算執行・関係機関調整』 『受注者＝技術判断・成果物の品質・元請下請調整』 『例：県庁の道路担当と道路設計コンサル』。 この場面の説明（文字にしない）: 発注者の自治体は、事業の進行、予算の執行、住民や関係機関との調整が中心です。受注者のコンサルやゼネコンは、技術的判断、成果物の品質、元請けと下請けの調整が中心です。県庁の道路担当と道路設計コンサルでは、同じ道路でも答案の舞台が違います。",
             "references": [
               {
                 "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
@@ -174,36 +174,36 @@
               }
             ],
             "output": {
-              "path": ".tmp/media/pe-comprehensive-management/persona-settei/work/factory/raw-position.7049abd6.png",
-              "sha256": "7049abd6e80d263c3ae40a2a46e183c3f1a60669f2a62d97b74cef2efc49d1a4"
+              "path": ".tmp/media/pe-comprehensive-management/persona-settei/work/factory/raw-position.fe5e2014.png",
+              "sha256": "fe5e2014434a0eec0d9d5445d9925c8bb5dc1705a95238134776baaf36279638"
             },
-            "generatedAt": "2026-11-05T10:51:14.243Z"
+            "generatedAt": "2026-11-05T12:03:42.858Z"
           },
           "output": {
-            "path": ".tmp/media/pe-comprehensive-management/persona-settei/work/position-diagram.7049abd6.png",
-            "sha256": "7049abd6e80d263c3ae40a2a46e183c3f1a60669f2a62d97b74cef2efc49d1a4",
+            "path": ".tmp/media/pe-comprehensive-management/persona-settei/work/position-diagram.fe5e2014.png",
+            "sha256": "fe5e2014434a0eec0d9d5445d9925c8bb5dc1705a95238134776baaf36279638",
             "width": 1920,
             "height": 1080
           },
           "normalization": {
             "mode": "full-frame-v1",
-            "sourceSha256": "7049abd6e80d263c3ae40a2a46e183c3f1a60669f2a62d97b74cef2efc49d1a4"
+            "sourceSha256": "fe5e2014434a0eec0d9d5445d9925c8bb5dc1705a95238134776baaf36279638"
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-05T10:51:14.243Z",
+            "checkedAt": "2026-11-05T12:03:42.858Z",
             "by": "ai-image-fidelity-auditor",
-            "reason": "見出し『まず立場を決める』と2文『発注者＝事業監理・予算執行・関係機関調整』『受注者＝技術判断・成果品質・元請下請調整』が一字一致、余計な文字なし、図も発注者/受注者の内容と合う",
+            "reason": "見出し・発注者／受注者の定義・例の文言が指示と一致し、庁舎と設計事務所と道路の図も内容に合い、崩れも無い",
             "userReview": "pending",
             "continuousListening": "not-performed"
           }
         },
         {
           "sceneId": "keiken-za",
-          "inputSha256": "db628cc116ee25446f3a25f1378de4e4e3108771dce470054a123f93ff8cc62f",
+          "inputSha256": "db32443d98b44467a4c82d6cf20f44a8d8e27739bef2378537ff8ac83da41701",
           "generation": {
             "tool": "image_gen",
-            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、鮮やかな青・シアン・ネイビーの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『経験座から選ぶ』。 図に入れる文字: 『誰から受け、誰に指示するかで判断』 『経験にない立場は前提条件から不自然に』。 この場面の説明（文字にしない）: 立場を選ぶ軸は、日常業務で誰から仕事を受け、誰に指示を出しているかです。経験にない立場を無理に選ぶと、Ⅰで置いた前提条件が不自然になり、そこから先の施策も経験から離れていきます。これが越権のリスクです。",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、鮮やかな青・シアン・ネイビーの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『仕事の流れで立場を見つける』。 図に入れる文字: 『① 誰から依頼されているか』 『② 誰に指示を出しているか』 『受けて図面をつくる側＝受注者／指示する側＝発注者』。 この場面の説明（文字にしない）: 立場は肩書きでなく仕事の流れで見つけます。自分は誰から依頼され、誰に指示を出しているか。この二つを書き出してください。発注を受けて図面をつくり、下請けに調査を出しているなら受注者側。業者に指示を出す側なら発注者側です。",
             "references": [
               {
                 "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
@@ -211,36 +211,36 @@
               }
             ],
             "output": {
-              "path": ".tmp/media/pe-comprehensive-management/persona-settei/work/factory/raw-keiken-za.4c9d20c5.png",
-              "sha256": "4c9d20c525667222f00c335850e7a64482246b5da84067e17c3ddce29486993e"
+              "path": ".tmp/media/pe-comprehensive-management/persona-settei/work/factory/raw-keiken-za.1aeb4504.png",
+              "sha256": "1aeb4504f4396d9c33ff1d0bca512af9f3a7b575aa851ff37499f1946a180f91"
             },
-            "generatedAt": "2026-11-05T10:51:14.243Z"
+            "generatedAt": "2026-11-05T12:03:42.858Z"
           },
           "output": {
-            "path": ".tmp/media/pe-comprehensive-management/persona-settei/work/keiken-za-diagram.4c9d20c5.png",
-            "sha256": "4c9d20c525667222f00c335850e7a64482246b5da84067e17c3ddce29486993e",
+            "path": ".tmp/media/pe-comprehensive-management/persona-settei/work/keiken-za-diagram.db3ff46d.png",
+            "sha256": "db3ff46db54f5e82a27e4041ebe71ee6bcaf01bfddc29594cc19b5b6722dca4d",
             "width": 1920,
             "height": 1080
           },
           "normalization": {
             "mode": "full-frame-v1",
-            "sourceSha256": "4c9d20c525667222f00c335850e7a64482246b5da84067e17c3ddce29486993e"
+            "sourceSha256": "1aeb4504f4396d9c33ff1d0bca512af9f3a7b575aa851ff37499f1946a180f91"
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-05T10:51:14.243Z",
+            "checkedAt": "2026-11-05T12:03:42.858Z",
             "by": "ai-image-fidelity-auditor",
-            "reason": "見出し『経験座から選ぶ』と2文『誰から受け、誰に指示するかで判断』『経験にない立場は前提条件から不自然に』が一字一致し、余計な文字や崩れた字は無い",
+            "reason": "見出し・①②・結論の帯の文字が指示と一致し、図面アイコンの流れも説明と矛盾せず、崩れも無い",
             "userReview": "pending",
             "continuousListening": "not-performed"
           }
         },
         {
           "sceneId": "adjacent",
-          "inputSha256": "4fe905311356ebb068929fd6043d10bff8e6b953ea9fffcf3a1644941f4826b2",
+          "inputSha256": "98d8a73e9ba136ce83af35c4cbb4b5f7be333fba29d920953f6757bfc20e0b0f",
           "generation": {
             "tool": "image_gen",
-            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、鮮やかな青・シアン・ネイビーの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『分野が一致しなくても』。 図に入れる文字: 『立場優先→次に近い分野を選ぶ』 『管理対象と前提条件を入れ替えて応用』。 この場面の説明（文字にしない）: 総監は分野横断の試験です。自分の分野にぴったりの立場がなくても、まず発注者か受注者かを優先し、次に最も近い分野を選べば、管理対象と前提条件を入れ替えるだけで対応できます。",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、鮮やかな青・シアン・ネイビーの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『分野がぴったり合わなくても』。 図に入れる文字: 『立場を優先し、次に近い分野を選ぶ』 『管理対象と前提条件を自分の専門に入れ替える』。 この場面の説明（文字にしない）: 総監は分野をまたぐ試験です。ちょうど合う立場が見当たらなくても、まず発注者か受注者かを合わせ、日常業務に一番近い分野を選びます。管理対象と前提条件を自分の専門に入れ替えれば、隣の分野の型も使えます。",
             "references": [
               {
                 "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
@@ -248,36 +248,36 @@
               }
             ],
             "output": {
-              "path": ".tmp/media/pe-comprehensive-management/persona-settei/work/factory/raw-adjacent.431e9b60.png",
-              "sha256": "431e9b6068a6b17e4e0c16fc08b72e13ca5d6b1c1b5db97a4a38cff3bbad5343"
+              "path": ".tmp/media/pe-comprehensive-management/persona-settei/work/factory/raw-adjacent.acf23bbc.png",
+              "sha256": "acf23bbc48e853777bbe48c41c532c563c66f3f5a0c10d6f5b9c4fec5b559635"
             },
-            "generatedAt": "2026-11-05T10:51:14.243Z"
+            "generatedAt": "2026-11-05T12:03:42.858Z"
           },
           "output": {
-            "path": ".tmp/media/pe-comprehensive-management/persona-settei/work/adjacent-diagram.46bf3da5.png",
-            "sha256": "46bf3da58e46d89833c05ecf5044040e936d8f631b05f081144262b0ea90c759",
+            "path": ".tmp/media/pe-comprehensive-management/persona-settei/work/adjacent-diagram.c0180878.png",
+            "sha256": "c018087846fd48796a4848ef1ba13aad5a07dcded26d8a9311a0c7f29511df67",
             "width": 1920,
             "height": 1080
           },
           "normalization": {
             "mode": "full-frame-v1",
-            "sourceSha256": "431e9b6068a6b17e4e0c16fc08b72e13ca5d6b1c1b5db97a4a38cff3bbad5343"
+            "sourceSha256": "acf23bbc48e853777bbe48c41c532c563c66f3f5a0c10d6f5b9c4fec5b559635"
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-05T10:51:14.243Z",
+            "checkedAt": "2026-11-05T12:03:42.858Z",
             "by": "ai-image-fidelity-auditor",
-            "reason": "見出し『分野が一致しなくても』と『立場優先→次に近い分野を選ぶ』『管理対象と前提条件を入れ替えて応用』が一字一致、余計な文字なし",
+            "reason": "見出しと2枠の文言が指示と一致し、図解も立場優先から近い分野を選ぶ説明に合い、文字の崩れも無い",
             "userReview": "pending",
             "continuousListening": "not-performed"
           }
         },
         {
           "sceneId": "layer1-link",
-          "inputSha256": "fa6b6311dee9c8c52d8b9ac071c0eaa6645ed683999f798e3518a660e5e68c56",
+          "inputSha256": "804cf6c09e83712a0cfdc9185d20886e06b3c84fe8d86a9ee9b60acc95925666",
           "generation": {
             "tool": "image_gen",
-            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、鮮やかな青・シアン・ネイビーの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『立場の選択＝Ⅰの前提条件を決める』。 図に入れる文字: 『評価の大半は管理対象と前提条件の設定』 『立場が合うほど経験を反映しやすい』。 この場面の説明（文字にしない）: 総監記述式は、管理対象と前提条件の設定で評価の大半が決まり、それは発注者か受注者かで大きく変わります。立場に合った選び方をすれば、自分の経験を答案に反映しやすくなります。",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、鮮やかな青・シアン・ネイビーの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『立場の選択＝答案の前提条件』。 図に入れる文字: 『評価の大半は管理対象と前提条件の置き方』 『立場が合うほど経験を反映しやすい』。 この場面の説明（文字にしない）: 総監記述式では、管理対象と前提条件の置き方で評価の大半が決まる、と出典の記事は説明しています。その置き方は立場で大きく変わります。自分に合った立場を選べば、自分の経験を答案に反映しやすくなります。",
             "references": [
               {
                 "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
@@ -285,36 +285,36 @@
               }
             ],
             "output": {
-              "path": ".tmp/media/pe-comprehensive-management/persona-settei/work/factory/raw-layer1-link.63ba738c.png",
-              "sha256": "63ba738cdd0053ffda01fa31ef820fcef714caab5858c142438baafef1e06ac8"
+              "path": ".tmp/media/pe-comprehensive-management/persona-settei/work/factory/raw-layer1-link.61982cd0.png",
+              "sha256": "61982cd024a4379887f8f51097f65290ecc69d2ead5d9aac51337a9b5c637d10"
             },
-            "generatedAt": "2026-11-05T10:51:14.243Z"
+            "generatedAt": "2026-11-05T12:03:42.858Z"
           },
           "output": {
-            "path": ".tmp/media/pe-comprehensive-management/persona-settei/work/layer1-link-diagram.9b050c68.png",
-            "sha256": "9b050c68991a48c0554455ab09a3f5b6a2ab78b2549d05d662beac4dfa5f416b",
+            "path": ".tmp/media/pe-comprehensive-management/persona-settei/work/layer1-link-diagram.2c53cba4.png",
+            "sha256": "2c53cba41a7b3c7b91aad4e35ba2f0f7c8185d75411af55a9d93b9ad90ee8275",
             "width": 1920,
             "height": 1080
           },
           "normalization": {
             "mode": "full-frame-v1",
-            "sourceSha256": "63ba738cdd0053ffda01fa31ef820fcef714caab5858c142438baafef1e06ac8"
+            "sourceSha256": "61982cd024a4379887f8f51097f65290ecc69d2ead5d9aac51337a9b5c637d10"
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-05T10:51:14.243Z",
+            "checkedAt": "2026-11-05T12:03:42.858Z",
             "by": "ai-image-fidelity-auditor",
-            "reason": "見出し『立場の選択＝Ⅰの前提条件を決める』と『評価の大半は管理対象と前提条件の設定』『立場が合うほど経験を反映しやすい』が一字一致、余計な文字なし",
+            "reason": "見出しと吹き出し2つの文言が指示と一致し、組織図から答案への図解も内容に合い、崩れも無い",
             "userReview": "pending",
             "continuousListening": "not-performed"
           }
         },
         {
           "sceneId": "summary",
-          "inputSha256": "bbc3ddc64e203103894ac956d3320b6c3f9a30db771e250d4702a7f340028aad",
+          "inputSha256": "2d038aa677d33d8a113df32b8a8d992bed613b6afa2de160f32083041f563215",
           "generation": {
             "tool": "image_gen",
-            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、鮮やかな青・シアン・ネイビーの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『まとめ　立場の選び方』。 図に入れる文字: 『① 発注者か受注者かを先に決める』 『② 経験座で選び越権を避ける』 『③ 分野は立場が合えば応用できる』。 この場面の説明（文字にしない）: まとめます。まず発注者か受注者かを決める。経験座から立場を選び、越権を避ける。分野が完全一致しなくても立場が合えば応用できます。",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、鮮やかな青・シアン・ネイビーの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『まとめ　立場の選び方』。 図に入れる文字: 『① 発注者か受注者かを先に決める』 『② 誰から受け誰に指示するかで判断』 『③ 分野は立場が合えば応用できる』。 この場面の説明（文字にしない）: まとめます。最初に発注者か受注者かを決める。決め手は、誰から仕事を受け、誰に指示を出しているか。分野がぴったりでなくても、立場が合えば応用できます。",
             "references": [
               {
                 "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
@@ -322,36 +322,36 @@
               }
             ],
             "output": {
-              "path": ".tmp/media/pe-comprehensive-management/persona-settei/work/factory/raw-summary.11aac939.png",
-              "sha256": "11aac939371f2e9ac0bfeca38ae94ecac56c1abe542aa375d124b6299a329088"
+              "path": ".tmp/media/pe-comprehensive-management/persona-settei/work/factory/raw-summary.4aab69d2.png",
+              "sha256": "4aab69d21daf8f5dfa4a4d35c7b80247f34eec22af5643890df350bea4b8c0ca"
             },
-            "generatedAt": "2026-11-05T10:51:14.243Z"
+            "generatedAt": "2026-11-05T12:03:42.858Z"
           },
           "output": {
-            "path": ".tmp/media/pe-comprehensive-management/persona-settei/work/summary-diagram.5a93174d.png",
-            "sha256": "5a93174dd63f0a230183d5b96c1dd6953a5d8235490d1b3c44284d771562cf84",
+            "path": ".tmp/media/pe-comprehensive-management/persona-settei/work/summary-diagram.4aab69d2.png",
+            "sha256": "4aab69d21daf8f5dfa4a4d35c7b80247f34eec22af5643890df350bea4b8c0ca",
             "width": 1920,
             "height": 1080
           },
           "normalization": {
             "mode": "full-frame-v1",
-            "sourceSha256": "11aac939371f2e9ac0bfeca38ae94ecac56c1abe542aa375d124b6299a329088"
+            "sourceSha256": "4aab69d21daf8f5dfa4a4d35c7b80247f34eec22af5643890df350bea4b8c0ca"
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-05T10:51:14.243Z",
+            "checkedAt": "2026-11-05T12:03:42.858Z",
             "by": "ai-image-fidelity-auditor",
-            "reason": "見出し『まとめ　立場の選び方』と①②③の3文が指示どおり一字一致、余計な文字や崩れは無い",
+            "reason": "見出しと①②③の文言が指示と一致し、図形の流れも内容に合って、擬似文字や崩れも無い",
             "userReview": "pending",
             "continuousListening": "not-performed"
           }
         },
         {
           "sceneId": "cta",
-          "inputSha256": "2132f547966d10df548f989ad473445d38711c76b6ddb36805a90878dd712d5c",
+          "inputSha256": "0965eebc6bd111be1bc3651cb6b3b625249e0ce2eb4fc1bbd758957e5698177f",
           "generation": {
             "tool": "image_gen",
-            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、鮮やかな青・シアン・ネイビーの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『自分の立場の型を最短で』。 図に入れる文字: 『総監記述式 完全パック（概要欄リンク）』。 この場面の説明（文字にしない）: 立場ごとの管理対象パターンの型と、記述式の骨組みまでをまとめた記述式完全パックを用意しています。概要欄のリンクからご覧ください。ご視聴ありがとうございました。 前回の不合格の理由を直す: 文字: 見出しに指示にない括弧『』が描かれている（余計な文字）。ほかの『自分の立場の型を最短で』『総監記述式 完全パック（概要欄リンク）』は一致",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、鮮やかな青・シアン・ネイビーの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『自分の立場の模範論文まで揃える』。 図に入れる文字: 『総監記述式 完全パック（概要欄リンク）』。 この場面の説明（文字にしない）: 自分の立場に合った模範論文まで含めて、型や設問3の国家施策、R8予想問題とあわせて揃えられる記述式完全パックを用意しています。概要欄のリンクからご覧ください。ご視聴ありがとうございました。",
             "references": [
               {
                 "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
@@ -359,26 +359,26 @@
               }
             ],
             "output": {
-              "path": ".tmp/media/pe-comprehensive-management/persona-settei/work/factory/raw-cta.c32f9b65.png",
-              "sha256": "c32f9b659ceed5cd89f3d6255d0f00f61c4b3befbe0c90a3ea47849e11cd4978"
+              "path": ".tmp/media/pe-comprehensive-management/persona-settei/work/factory/raw-cta.1f1c550c.png",
+              "sha256": "1f1c550c37f2cadad28d864c7b4717e008c305834f095857f9e6d74807ac9895"
             },
-            "generatedAt": "2026-11-05T10:51:14.243Z"
+            "generatedAt": "2026-11-05T12:03:42.858Z"
           },
           "output": {
-            "path": ".tmp/media/pe-comprehensive-management/persona-settei/work/cta-diagram.c32f9b65.png",
-            "sha256": "c32f9b659ceed5cd89f3d6255d0f00f61c4b3befbe0c90a3ea47849e11cd4978",
+            "path": ".tmp/media/pe-comprehensive-management/persona-settei/work/cta-diagram.78e0e766.png",
+            "sha256": "78e0e766a28c5c0a20078c95a434c778fc84b33a8333ab9d95c49d25f74fe5e4",
             "width": 1920,
             "height": 1080
           },
           "normalization": {
             "mode": "full-frame-v1",
-            "sourceSha256": "c32f9b659ceed5cd89f3d6255d0f00f61c4b3befbe0c90a3ea47849e11cd4978"
+            "sourceSha256": "1f1c550c37f2cadad28d864c7b4717e008c305834f095857f9e6d74807ac9895"
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-05T10:51:14.243Z",
+            "checkedAt": "2026-11-05T12:03:42.858Z",
             "by": "ai-image-fidelity-auditor",
-            "reason": "文字: 自分の立場の型を最短で・総監記述式 完全パック（概要欄リンク）が指示と一字一致。本と箱とリンクの図は破綻なく、余計な文言なし、下端は無地",
+            "reason": "見出しと帯の文言（概要欄リンク含む）が指示と一致し、書類アイコンも内容に合い、崩れも無い",
             "userReview": "pending",
             "continuousListening": "not-performed"
           }
