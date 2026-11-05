@@ -2,6 +2,10 @@
   "schemaVersion": 1,
   "covers": {
     "longform": {
+      "character": {
+        "pose": "pop-explaining",
+        "frame": "waist"
+      },
       "format": "longform",
       "exam": "pe-comprehensive",
       "headline": [
@@ -10,19 +14,18 @@
       ],
       "accentLine": 1,
       "subtitle": "",
-      "character": {
-        "pose": "pop-explaining",
-        "frame": "waist"
-      },
-      "design": "pop-v2",
+      "design": "pop-poster-v3",
       "pop": {
         "variant": "listen",
         "authority": "総監が制作"
       },
+      "layout": "diagram-led",
       "approvedImage": {
-        "path": ".tmp/media/pe-comprehensive-management/kikinagashi-sokan-keyword/youtube.longform/cover.8afd6e60.png",
-        "sha256": "8afd6e60e6c5c951c8804bd255f1a153e0ae0dba9113723072e711c5b953f73e",
-        "specSha256": "5ef850bff2cb6226e7ceab798db4058e6a7176ad4273d1148e4e7891e21b1694"
+        "path": ".tmp/media/pe-comprehensive-management/kikinagashi-sokan-keyword/work/cover-pop.9250f392.png",
+        "sha256": "9250f392f2ef73b95a0e3c4dc552333fd0eb8c168d6f6b1dc98b52bc7c62fb05",
+        "width": 1920,
+        "height": 1080,
+        "specSha256": "53b2f78b60e0701861135c9d4f7754b977be19b594ab84a3190608b6e36c660f"
       }
     }
   }

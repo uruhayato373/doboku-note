@@ -63,5 +63,366 @@
       },
       "publication": "ローカル差し替え・外部未反映"
     }
-  }
+  },
+  "revisions": {
+    "cover-pop-20261105": {
+      "version": "pop-poster-v3",
+      "layout": {
+        "mode": "diagram-led"
+      },
+      "generation": {
+        "tool": "image_gen",
+        "prompt": "添付の1枚目はdoboku-noteで採用済みの全面POP動画表紙の意匠参照、2枚目は先生キャラクターの同一性参照です。 新規の16:9横長（1920×1080想定）日本語YouTube動画表紙を作る。深いインディゴ #33356B と明るい青紫、黄色と白の極太文字、明確な黒い輪郭、少量の赤、斜めの面と勢いのある背景、右側に先生キャラクターを大きく。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。 左〜中央に正確に『国土と地域』『整備の論点を整理』を大きく配置。上部の黄色帯に小さく『総監が制作』。 誤字・余計な文字・合格保証・URL・価格・不明な実績を足さない。文字ブロックの黒い縁取りまで含めて左右8%の内側へ収め（画面の左端から8%は背景だけ）、顔は左右5%・上下5%内、下端18%は字幕が重なるので重要な文字や顔を置かず背景が全面に続く。",
+        "references": [
+          {
+            "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/youtube.longform/cover.b87e20c1.png",
+            "sha256": "b87e20c19fda2123d3bac22950472ee7a7427dd2ab11a7cbf63807a6e83c33ad"
+          },
+          {
+            "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
+            "sha256": "1941cd22fa523fcb233e8ab7b8ad756ad7398be8755037b881d8380fb39398f9"
+          }
+        ],
+        "output": {
+          "path": ".tmp/media/pe-construction/hissu1-kokudo-chiiki/work/factory/raw-cover.d65d70f9.png",
+          "sha256": "d65d70f9eefce294f186b6cb5a0615ca8858f175df6a2762a8ae4981a6edce87"
+        },
+        "generatedAt": "2026-11-05T10:52:50.829Z"
+      },
+      "copy": {
+        "exam": "pe-construction",
+        "headline": [
+          "国土と地域",
+          "整備の論点を整理"
+        ],
+        "authority": "総監が制作"
+      },
+      "output": {
+        "path": ".tmp/media/pe-construction/hissu1-kokudo-chiiki/work/cover-pop.d8a86609.png",
+        "sha256": "d8a86609cb090ef99b2324b9e3256fbf580c823640fda75bc25b4eb5e874cbc0",
+        "width": 1920,
+        "height": 1080
+      },
+      "normalization": {
+        "mode": "full-frame-v1",
+        "sourceSha256": "d65d70f9eefce294f186b6cb5a0615ca8858f175df6a2762a8ae4981a6edce87"
+      },
+      "review": {
+        "status": "ai-reviewed",
+        "checkedAt": "2026-11-05T10:52:50.829Z",
+        "by": "ai-image-fidelity-auditor",
+        "reason": "指定文字『総監が制作』『国土と地域』『整備の論点を整理』が一字ずつ一致し、先生キャラは黒髪・黒縁眼鏡・ひげ・白ヘルメット・紺作業服・反射帯で手指も正常、余白も守る",
+        "userImageReview": "pending"
+      },
+      "storage": {
+        "group": "content-media",
+        "sync": "local"
+      }
+    },
+    "body-diagram-20261105": {
+      "layout": {
+        "mode": "diagram-led"
+      },
+      "images": [
+        {
+          "sceneId": "premise",
+          "inputSha256": "9732c94d7fa92949d8ec1696c92f19520dad31c0ad948e35db51d092f8eba895",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『誤解：スローガンを書き写せば安全』。 図に入れる文字: 『求められるのは方向性の翻訳』 『引用だけでは応用力が伝わらない』。 この場面の説明（文字にしない）: 計画のスローガンをそのまま書き写せば説得力が出る、という誤解があります。しかし技術士に求められるのは、計画が示す方向性を自分の課題設定に翻訳する力です。スローガンの引用だけでは、応用能力は伝わりません。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/hissu1-kokudo-chiiki/work/factory/raw-premise.a6438e59.png",
+              "sha256": "a6438e59433f4f9ea278fe27fc466f244e989fc4f95cba04af937cc27fdf689d"
+            },
+            "generatedAt": "2026-11-05T10:52:50.829Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/hissu1-kokudo-chiiki/work/premise-diagram.6cf14167.png",
+            "sha256": "6cf1416791a4b8f434976eba710816d252807ed6b83e9ac2ec8ac20441336aeb",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "a6438e59433f4f9ea278fe27fc466f244e989fc4f95cba04af937cc27fdf689d"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-05T10:52:50.829Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出しと図の二文が指示と一字ずつ一致し、書類から羅針盤への翻訳の図解も本文と矛盾しない（見出しに括弧が付くが誤読を生まない）",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "frequency",
+          "inputSha256": "7da4b9976e6f700ee1ad7224bd974ad73742fb26a454822e0e8714b2504252e9",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『なぜ地域づくりが頻出か』。 図に入れる文字: 『R06-I-1：国土形成計画』 『R07-I-2：第5次社会資本整備重点計画』 『防災・老朽化・脱炭素とも結びつく』。 この場面の説明（文字にしない）: 国土・地域づくりは、R06のI-1で国土形成計画、R07のI-2で第5次社会資本整備重点計画を題材に出題されました。人口減少という避けられない前提のもと、防災・老朽化・脱炭素とも結びつく中核的な系統です。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 58.1）",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/hissu1-kokudo-chiiki/work/factory/raw-frequency.11a4b580.png",
+              "sha256": "11a4b580a94c54cc3319ea8629e425357ba7028fa628432e71bc6059cca9c304"
+            },
+            "generatedAt": "2026-11-05T10:52:50.829Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/hissu1-kokudo-chiiki/work/frequency-diagram.86e34b25.png",
+            "sha256": "86e34b25e08c60f107f87beea998bf3eb13726af7ebae551782dbbd3e7c9308e",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "11a4b580a94c54cc3319ea8629e425357ba7028fa628432e71bc6059cca9c304"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-05T10:52:50.829Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字: 見出しと3つの図内文字が指示と一字一句一致し、誤字・余分な文言なし。構造: 二つの枠から結論枠へまとまる図で成立、字幕域も空白で破綻なし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "plans",
+          "inputSha256": "99e010c83f8bee515ab2a9a786c0849bc3d5b1ef0e429ba8c1d5b050eaa3b173",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『背景にある3つの計画』。 図に入れる文字: 『第三次国土形成計画：拠点連結型国土』 『第6次社会資本整備重点計画：令和8年1月決定・令和12年度まで』 『インフラ長寿命化・群マネ』。 この場面の説明（文字にしない）: 背景に置くのは三つの計画です。第三次国土形成計画は、シームレスな拠点連結型国土を掲げます。第6次社会資本整備重点計画は、令和8年1月に閣議決定された今の計画で、計画期間は令和12年度までです。インフラ長寿命化と群マネは、維持管理の文脈で地域づくりとつながります。この三つを課題設定の根拠として引きます。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/hissu1-kokudo-chiiki/work/factory/raw-plans.9af39985.png",
+              "sha256": "9af39985116f0dbc7ab18166282a69714a0e2c4305d86f3c359c225e77644862"
+            },
+            "generatedAt": "2026-11-05T10:52:50.829Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/hissu1-kokudo-chiiki/work/plans-diagram.c2b9d95a.png",
+            "sha256": "c2b9d95a4f5d01510ef03fe3a506f21c886ef1c01571d3f52221a02f7bb80824",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "9af39985116f0dbc7ab18166282a69714a0e2c4305d86f3c359c225e77644862"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-05T10:52:50.829Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "三つの円の文字（第三次国土形成計画・第6次社会資本整備重点計画・令和8年1月決定・令和12年度まで・インフラ長寿命化・群マネ）が指示と一致し崩れも読み取りに支障なし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "translate",
+          "inputSha256": "4794c5a7775ed55d3454a72ef93a346da0e49328a17fcddc02d52df193a3f50f",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『施策への翻訳』。 図に入れる文字: 『コンパクト＋ネットワーク・立地適正化計画』 『広域連携・地域インフラ群再生戦略マネジメント』 『デジタルとリアルが融合した地域生活圏』。 この場面の説明（文字にしない）: 計画を解決策へ翻訳するとき、三つの施策に整理できます。コンパクトとネットワークは、都市機能を拠点に集約し、立地適正化計画で受け皿を作る考え方。広域連携と群マネは、複数自治体・複数分野のインフラを群として維持する考え方。デジタルとリアルの融合は、DXや自動運転で人口の少ない地域でも生活機能を成立させる方向性です。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/hissu1-kokudo-chiiki/work/factory/raw-translate.4ec281aa.png",
+              "sha256": "4ec281aa1d39bd124446b79f0ca3b67708272be8ffe94af8af00efa89d5f41b3"
+            },
+            "generatedAt": "2026-11-05T10:52:50.829Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/hissu1-kokudo-chiiki/work/translate-diagram.67175b72.png",
+            "sha256": "67175b723552630b07f300e1a83c8daecb1609138ce284925efa54adc0dfb7cf",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "4ec281aa1d39bd124446b79f0ca3b67708272be8ffe94af8af00efa89d5f41b3"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-05T10:52:50.829Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出しと三つの施策名が指示と一字ずつ一致し、拠点集約・広域インフラ群・DX生活圏の図も本文どおり",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "risk",
+          "inputSha256": "be127c6fad223d66fc8a48b4536eb4000035e457870f921be36c5ceb33d9d928",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『設問(3)：施策が生むリスク』。 図に入れる文字: 『集約に伴う周辺部の生活サービス低下』 『広域連携での自治体間の合意形成コスト』。 この場面の説明（文字にしない）: 施策を並べるだけでは応用力を示せません。設問(3)では、集約に伴う周辺部の生活サービス低下や、広域連携での自治体間の合意形成コストといった、解決策が生むトレードオフまで書いて初めて評価されます。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/hissu1-kokudo-chiiki/work/factory/raw-risk.400a905a.png",
+              "sha256": "400a905a635e8408127e609e81ab1538be09c45732ba4ffcd21e45e9996cc193"
+            },
+            "generatedAt": "2026-11-05T10:52:50.829Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/hissu1-kokudo-chiiki/work/risk-diagram.400a905a.png",
+            "sha256": "400a905a635e8408127e609e81ab1538be09c45732ba4ffcd21e45e9996cc193",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "400a905a635e8408127e609e81ab1538be09c45732ba4ffcd21e45e9996cc193"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-05T10:52:50.829Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し『設問(3)：施策が生むリスク』と二つの文言が一致し、周辺部の低下と自治体間の合意形成の図も本文と合う",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "stance",
+          "inputSha256": "ecd169a7b60adcb707a14f30b1a8afcefcedbc0cca02b5264777ad45a8be982c",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『発注者視点という差別化』。 図に入れる文字: 『合意形成・費用負担の調整』 『調整プロセスまで含めて論じる』。 この場面の説明（文字にしない）: 地方自治体での現場感覚の有無で、このテーマの論述の深さは変わってきます。広域連携や群マネは、技術の選択である以上に、複数自治体の合意形成や費用負担の按分をどう進めるかという行政の調整課題です。そこまで踏み込んで論じられると、答案に厚みが出ます。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/hissu1-kokudo-chiiki/work/factory/raw-stance.7dda1afe.png",
+              "sha256": "7dda1afeabd149036c657360334fe6265fcc4a589e885b7adf2adaec64198c6a"
+            },
+            "generatedAt": "2026-11-05T10:52:50.829Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/hissu1-kokudo-chiiki/work/stance-diagram.17f97585.png",
+            "sha256": "17f975855295a59722bfb974caa7d6d4ecba1a0ffccf4720a1c5cfa4e183e5bb",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "7dda1afeabd149036c657360334fe6265fcc4a589e885b7adf2adaec64198c6a"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-05T10:52:50.829Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出しと『合意形成・費用負担の調整』『調整プロセスまで含めて論じる』が一致し、自治体から握手を経て文書へ至る図が本文と矛盾しない",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "summary",
+          "inputSha256": "16d4210bb9787b775ae18c22ba871b05b99d9ca3b9e9095c4e617a8e7af43f54",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『まとめ』。 図に入れる文字: 『① 背景に3つの計画を置く』 『② 施策へ翻訳して解決策にする』 『③ 集約・連携が生むリスクを書く』 『④ 合意形成という行政課題で締める』。 この場面の説明（文字にしない）: まとめます。背景に三つの計画を置く。コンパクト＋ネットワーク、広域連携・群マネ、デジタル融合のいずれかへ翻訳する。集約や連携が生むトレードオフを設問(3)で書く。最後に合意形成という行政課題で締める。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/hissu1-kokudo-chiiki/work/factory/raw-summary.ef1df82c.png",
+              "sha256": "ef1df82cf58ac82c3e3981587e6ab8d77e0875f19ef4cd327ac0f89cf9eacbd8"
+            },
+            "generatedAt": "2026-11-05T10:52:50.829Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/hissu1-kokudo-chiiki/work/summary-diagram.ef1df82c.png",
+            "sha256": "ef1df82cf58ac82c3e3981587e6ab8d77e0875f19ef4cd327ac0f89cf9eacbd8",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "ef1df82cf58ac82c3e3981587e6ab8d77e0875f19ef4cd327ac0f89cf9eacbd8"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-05T10:52:50.829Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "『まとめ』と①〜④の四文言が指示と一字ずつ一致し、図も各項目の内容に合う",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "cta",
+          "inputSha256": "32b85f3cc304ecd1b0517d4a459eea15302558750ef85d27e3aea57246c6b51d",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『答案の型で確認する』。 図に入れる文字: 『必須科目I マガジン（概要欄リンク）』。 この場面の説明（文字にしない）: 計画の使い方と答案の型をまとめて確認したい方は、概要欄のリンクから必須科目Iのマガジンをご覧ください。ご視聴ありがとうございました。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/hissu1-kokudo-chiiki/work/factory/raw-cta.e65b03b1.png",
+              "sha256": "e65b03b17dcb669f03b7bb36faeb90cdab2f04a49ead80f04cb1fb0d76e560a4"
+            },
+            "generatedAt": "2026-11-05T10:52:50.829Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/hissu1-kokudo-chiiki/work/cta-diagram.48ee8f7c.png",
+            "sha256": "48ee8f7cb96b09509cc359ef9fbee21a6920624cf151579425bf60d976a55b6a",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "e65b03b17dcb669f03b7bb36faeb90cdab2f04a49ead80f04cb1fb0d76e560a4"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-05T10:52:50.829Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し『答案の型で確認する』と『必須科目I マガジン（概要欄リンク）』が一致し、余計な文字や価格・URLもない",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        }
+      ]
+    }
+  },
+  "activeCoverRevision": "cover-pop-20261105",
+  "activeBodyRevision": "body-diagram-20261105"
 }

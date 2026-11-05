@@ -216,11 +216,15 @@ function audioCheck() {
   const { abs, video } = videoFile(pack, new Map(reg.media.map((m) => [m.id, m])), pub);
   const out = join(ROOT, '.tmp/media', pack, 'work/factory');
   mkdirSync(out, { recursive: true });
-  // 全編を 1 回で渡すと whisper が途中を飛ばす（2026-11-05 に場面単体では聞き取れた箇所が欠けた）。短く切って渡す
+  // 全編を 1 回で渡すと whisper が途中を飛ばす（2026-11-05 に場面単体では聞き取れた箇所が欠けた）。
+  // 一定秒数で切っても文の途中で飛ぶ（同日 takuitsu-keyword が 0.62、場面ごとなら 0.85）ので、文の間で 12 秒以上ごとに切る
   const chunks = join(out, 'audio-chunks');
   rmSync(chunks, { recursive: true, force: true });
   mkdirSync(chunks, { recursive: true });
-  execFileSync('ffmpeg', ['-y', '-v', 'error', '-i', abs, '-ar', '16000', '-ac', '1', '-f', 'segment', '-segment_time', '30', join(chunks, 'part-%03d.wav')]);
+  const pauses = spawnSync('ffmpeg', ['-hide_banner', '-i', abs, '-af', 'silencedetect=noise=-35dB:d=0.25', '-f', 'null', '-'], { encoding: 'utf8' }).stderr;
+  const cuts = [];
+  for (const [, end] of pauses.matchAll(/silence_end: ([\d.]+)/g)) if (Number(end) - (cuts.at(-1) ?? 0) >= 12) cuts.push(Number(end));
+  execFileSync('ffmpeg', ['-y', '-v', 'error', '-i', abs, '-ar', '16000', '-ac', '1', '-f', 'segment', '-segment_times', cuts.join(',') || '30', join(chunks, 'part-%03d.wav')]);
   const wavs = readdirSync(chunks).filter((f) => f.endsWith('.wav')).sort().map((f) => join(chunks, f));
   execFileSync('whisper-cli', ['-m', model, '-l', policy.audio.language, '-nt', '-otxt', ...wavs.flatMap((f) => ['-f', f])], { stdio: 'ignore' });
   const heard = wavs.map((f) => readFileSync(`${f}.txt`, 'utf8')).join('');
@@ -442,7 +446,14 @@ function cleanup() {
 const commands = {
   status,
   plan: () => { const p = buildPlan(ROOT, requirePack(), { scope: args.scope, date: args.date ?? today() }); console.log(JSON.stringify(summarize(p))); },
-  generate: async () => console.log(JSON.stringify(await generatePlan(ROOT, requirePack(), { concurrency: Number(args.concurrency ?? 3), log: console.log }))),
+  generate: async () => {
+    // 機械検査で落ちた分は上限まで作り直す。上限に達して残れば失敗で返す
+    let result;
+    do result = await generatePlan(ROOT, requirePack(), { concurrency: Number(args.concurrency ?? 3), log: console.log });
+    while (result.missing > result.exhausted.length);
+    console.log(JSON.stringify(result));
+    if (result.missing) process.exit(1);
+  },
   'audit-queue': () => console.log(JSON.stringify(auditQueue(ROOT, requirePack()), null, 2)),
   'record-audit': () => console.log(JSON.stringify(recordAudit(ROOT, requirePack(), JSON.parse(readFileSync(args.file, 'utf8')), { by: args.by }))),
   adopt: async () => console.log(JSON.stringify(await adoptPlan(ROOT, requirePack(), { now: new Date().toISOString() }))),

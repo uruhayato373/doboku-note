@@ -10,7 +10,9 @@
       "visual": {
         "kind": "cover",
         "heading": "脱炭素を三層で分解する",
-        "items": ["技術士 建設部門 必須科目I"]
+        "items": [
+          "技術士 建設部門 必須科目I"
+        ]
       }
     },
     {
@@ -21,7 +23,10 @@
       "caption": "誤解：数を書けば多面的",
       "visual": {
         "heading": "誤解：取組を数多く書けば多面的",
-        "items": ["層を分けないと課題が重複する", "三層のどこかを常に意識する"]
+        "items": [
+          "層を分けないと課題が重複する",
+          "三層のどこかを常に意識する"
+        ]
       },
       "sourceRef": "content/site/pe-construction/carbon-neutral-kensetsu/article.mdx"
     },
@@ -33,7 +38,11 @@
       "caption": "R04-I-2・R03-I-1で正面出題",
       "visual": {
         "heading": "なぜ脱炭素が頻出か",
-        "items": ["R04-I-2：CO2の削減と吸収", "R03-I-1：循環型社会（地続き）", "防災・老朽化と並ぶ主要テーマ"]
+        "items": [
+          "R04-I-2：CO2の削減と吸収",
+          "R03-I-1：循環型社会（地続き）",
+          "防災・老朽化と並ぶ主要テーマ"
+        ]
       },
       "sourceRef": "content/site/pe-construction/carbon-neutral-kensetsu/article.mdx"
     },
@@ -45,7 +54,11 @@
       "caption": "資材・施工供用・吸収源の三層",
       "visual": {
         "heading": "CO2を三層に分解する",
-        "items": ["資材由来：コンクリート・鋼材の製造排出", "施工・供用：建設機械・運用エネルギー", "吸収源：グリーンインフラ・ブルーカーボン"]
+        "items": [
+          "資材由来：コンクリート・鋼材の製造排出",
+          "施工・供用：建設機械・運用エネルギー",
+          "吸収源：グリーンインフラ・ブルーカーボン"
+        ]
       },
       "sourceRef": "content/site/pe-construction/carbon-neutral-kensetsu/article.mdx"
     },
@@ -57,7 +70,11 @@
       "caption": "施策名は年度まで正確に",
       "visual": {
         "heading": "押さえておきたい施策",
-        "items": ["GX実現に向けた基本方針・GX推進法（2023）", "グリーンインフラ推進戦略2030（2026年1月改訂）", "ブルーカーボン・Jブルークレジット（2020年度〜）"]
+        "items": [
+          "GX実現に向けた基本方針・GX推進法（2023）",
+          "グリーンインフラ推進戦略2030（2026年1月改訂）",
+          "ブルーカーボン・Jブルークレジット（2020年度〜）"
+        ]
       },
       "sourceRef": "content/site/pe-construction/carbon-neutral-kensetsu/article.mdx"
     },
@@ -69,7 +86,11 @@
       "caption": "コストとのトレードオフを正面に",
       "visual": {
         "heading": "設問(3)：脱炭素とコストの衝突",
-        "items": ["低炭素材料・電動化は初期費用が上がる", "緩和策①総合評価の環境加点", "緩和策②LCC評価・GX予算制度"]
+        "items": [
+          "低炭素材料・電動化は初期費用が上がる",
+          "緩和策①総合評価の環境加点",
+          "緩和策②LCC評価・GX予算制度"
+        ]
       },
       "sourceRef": "content/site/pe-construction/carbon-neutral-kensetsu/article.mdx"
     },
@@ -81,7 +102,10 @@
       "caption": "発注者側の制度面を一つ加える",
       "visual": {
         "heading": "発注者視点という差別化",
-        "items": ["発注仕様への脱炭素要件の書き込み", "総合評価の環境加点の設定"]
+        "items": [
+          "発注仕様への脱炭素要件の書き込み",
+          "総合評価の環境加点の設定"
+        ]
       },
       "sourceRef": "content/site/pe-construction/carbon-neutral-kensetsu/article.mdx"
     },
@@ -93,7 +117,12 @@
       "caption": "三層分解→施策名→トレードオフ→発注者視点",
       "visual": {
         "heading": "まとめ",
-        "items": ["① CO2を三層に分解する", "② 施策名を年度まで正確に使う", "③ コストとのトレードオフを正面に書く", "④ 発注者視点を一つ添える"]
+        "items": [
+          "① CO2を三層に分解する",
+          "② 施策名を年度まで正確に使う",
+          "③ コストとのトレードオフを正面に書く",
+          "④ 発注者視点を一つ添える"
+        ]
       }
     },
     {
@@ -105,8 +134,17 @@
       "visual": {
         "kind": "cover",
         "heading": "答案の型で確認する",
-        "items": ["必須科目I マガジン（概要欄リンク）"]
+        "items": [
+          "必須科目I マガジン（概要欄リンク）"
+        ]
       }
     }
-  ]
+  ],
+  "imageDesign": {
+    "mode": "codex-pop",
+    "scope": "all-body",
+    "revision": "body-diagram-20261105",
+    "coverRevision": "cover-pop-20261105",
+    "layout": "diagram-led"
+  }
 }

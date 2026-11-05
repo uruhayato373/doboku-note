@@ -2,6 +2,10 @@
   "schemaVersion": 1,
   "covers": {
     "longform": {
+      "character": {
+        "pose": "pop-pointing",
+        "frame": "waist"
+      },
       "format": "longform",
       "exam": "pe-comprehensive",
       "headline": [
@@ -10,19 +14,18 @@
       ],
       "accentLine": 1,
       "subtitle": "",
-      "character": {
-        "pose": "pop-pointing",
-        "frame": "waist"
-      },
-      "design": "pop-v2",
+      "design": "pop-poster-v3",
       "pop": {
         "variant": "question",
         "authority": "総監が制作"
       },
+      "layout": "diagram-led",
       "approvedImage": {
-        "path": ".tmp/media/pe-comprehensive-management/hakusho-map/youtube.longform/cover.30161054.png",
-        "sha256": "3016105400a0faa76c8b21c3b188a63cb1c22d783dc19072ea6543774d61d29b",
-        "specSha256": "0522b4e5851d248aedce9951fc1d4da8c58f48e63ea84559244253d360e4d309"
+        "path": ".tmp/media/pe-comprehensive-management/hakusho-map/work/cover-pop.4b9c9a84.png",
+        "sha256": "4b9c9a842057784a54da66688e98ceaa730e611d11e0b84c056b948237dd0949",
+        "width": 1920,
+        "height": 1080,
+        "specSha256": "2d189f2a7af3f1f9b1004b979593a688aaaa5943388f5332e69716923e15e110"
       }
     }
   }

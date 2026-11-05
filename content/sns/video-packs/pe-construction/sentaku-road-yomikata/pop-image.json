@@ -63,5 +63,329 @@
       },
       "publication": "ローカル差し替え・外部未反映"
     }
-  }
+  },
+  "revisions": {
+    "cover-pop-20261105": {
+      "version": "pop-poster-v3",
+      "layout": {
+        "mode": "diagram-led"
+      },
+      "generation": {
+        "tool": "image_gen",
+        "prompt": "添付の1枚目はdoboku-noteで採用済みの全面POP動画表紙の意匠参照、2枚目は先生キャラクターの同一性参照です。 新規の16:9横長（1920×1080想定）日本語YouTube動画表紙を作る。深いインディゴ #33356B と明るい青紫、黄色と白の極太文字、明確な黒い輪郭、少量の赤、斜めの面と勢いのある背景、右側に先生キャラクターを大きく。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。 左〜中央に正確に『道路』『テーマの読み方』を大きく配置。上部の黄色帯に小さく『総監が制作』。 誤字・余計な文字・合格保証・URL・価格・不明な実績を足さない。文字ブロックの黒い縁取りまで含めて左右8%の内側へ収め（画面の左端から8%は背景だけ）、顔は左右5%・上下5%内、下端18%は字幕が重なるので重要な文字や顔を置かず背景が全面に続く。",
+        "references": [
+          {
+            "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/youtube.longform/cover.b87e20c1.png",
+            "sha256": "b87e20c19fda2123d3bac22950472ee7a7427dd2ab11a7cbf63807a6e83c33ad"
+          },
+          {
+            "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
+            "sha256": "1941cd22fa523fcb233e8ab7b8ad756ad7398be8755037b881d8380fb39398f9"
+          }
+        ],
+        "output": {
+          "path": ".tmp/media/pe-construction/sentaku-road-yomikata/work/factory/raw-cover.a62ad089.png",
+          "sha256": "a62ad089066b5fcd86269bf56603599a1b99911be1ffe140188e7773bbc4b7ff"
+        },
+        "generatedAt": "2026-11-05T12:54:37.314Z"
+      },
+      "copy": {
+        "exam": "pe-construction",
+        "headline": [
+          "道路",
+          "テーマの読み方"
+        ],
+        "authority": "総監が制作"
+      },
+      "output": {
+        "path": ".tmp/media/pe-construction/sentaku-road-yomikata/work/cover-pop.65fa0180.png",
+        "sha256": "65fa0180227539ce34a21d98e5f88698a7f3ea9d3c265bca53571878b9f86183",
+        "width": 1920,
+        "height": 1080
+      },
+      "normalization": {
+        "mode": "full-frame-v1",
+        "sourceSha256": "a62ad089066b5fcd86269bf56603599a1b99911be1ffe140188e7773bbc4b7ff"
+      },
+      "review": {
+        "status": "ai-reviewed",
+        "checkedAt": "2026-11-05T12:54:37.314Z",
+        "by": "ai-image-fidelity-auditor",
+        "reason": "文字『総監が制作』『道路』『テーマの読み方』が指示と一字一致。先生は黒髪・黒縁眼鏡・ひげ・白ヘルメット・紺作業服とネクタイ・反射帯で、手指も破綻なし",
+        "userImageReview": "pending"
+      },
+      "storage": {
+        "group": "content-media",
+        "sync": "local"
+      }
+    },
+    "body-diagram-20261105": {
+      "layout": {
+        "mode": "diagram-led"
+      },
+      "images": [
+        {
+          "sceneId": "premise",
+          "inputSha256": "7353b4f498bf3ffd6a41b3c2baed0185da07184007487328e2f6d99a34f4ae1b",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『誤解：毎年ゼロから予想する』。 図に入れる文字: 『II-1は4枠：構造/法令制度/舗装/土工』 『舗装(3問目)・法令制度(2問目)は8年連続』。 この場面の説明（文字にしない）: 毎年ゼロから今年のテーマを予想していませんか。II-1は構造、法令・制度、舗装、土工の4枠があって、令和1年度から8年度まで、舗装は3問目、法令・制度は2問目に毎年出ています。年ごとに追うのをやめて、枠ごとに準備するという発想に切り替えましょう。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/sentaku-road-yomikata/work/factory/raw-premise.473e497f.png",
+              "sha256": "473e497f38112dcbc37930872373957b9031239ee38345959953551a329f59ea"
+            },
+            "generatedAt": "2026-11-05T12:54:37.314Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/sentaku-road-yomikata/work/premise-diagram.66a1b7a5.png",
+            "sha256": "66a1b7a5c77131b30aaccb13f518ca9508fbd637c956cc76df15768e877cdbc5",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "473e497f38112dcbc37930872373957b9031239ee38345959953551a329f59ea"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-05T12:54:37.314Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字: 見出しと2文を指示と1字ずつ照合し一致。4枠の図で舗装・法令制度の2枠を矢印で示し、8個の印で8年連続を表し、破綻なし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "block1",
+          "inputSha256": "bece63d68212fb6f198bb23085c043047b19053522dc75bbc49f22a49c0ebc46",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『道路科目の癖』。 図に入れる文字: 『II-1-1 道路構造 / II-1-2 法令・制度』 『II-1-3 舗装 / II-1-4 土工』 『基礎は4枠、厚みはこのあと決める』。 この場面の説明（文字にしない）: 枠の位置を知るだけで、対策が変わります。II-1-1は線形や交通量などの道路構造、II-1-2は法令・制度、II-1-3は舗装、II-1-4は切土や盛土などの土工です。まず4枠すべてに基礎を置く。そのうえで、厚く仕込む枠を決める。この順番で考えます。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 32.1）",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/sentaku-road-yomikata/work/factory/raw-block1.d0076c5d.png",
+              "sha256": "d0076c5dcf339425ddcaef8ba027552adcc1b25b5155518987faf8961b6a3ea9"
+            },
+            "generatedAt": "2026-11-05T12:54:37.314Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/sentaku-road-yomikata/work/block1-diagram.3773af0f.png",
+            "sha256": "3773af0f8d2ca3c47df2a83d4830a12bbb15cadd6a9a686eb5bcef6669331a50",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "d0076c5dcf339425ddcaef8ba027552adcc1b25b5155518987faf8961b6a3ea9"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-05T12:54:37.314Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字: 見出しと4枠のII-1-1〜4の名称、下の1文が指示と一致。道路・法令書類・舗装断面・切盛土の絵も各枠と合う。見出しに指示の括弧『』が付くが誤りではない",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "block2",
+          "inputSha256": "5a7bc4126d38aff1d1bc4922201cc9e8e6ce87f36af49059def149247e04e130",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『舗装（II-1-3・8年連続）』。 図に入れる文字: 『R03 点検・使用目標年数』 『R04 再生加熱As / R07 再生利用 / R08 CO2削減』 『軸：舗装アセットマネジメント』。 この場面の説明（文字にしない）: では舗装は何が出ているでしょう。令和3年度は点検要領と使用目標年数、令和4年度は再生加熱アスファルト混合物、令和7年度は既設舗装材の再生利用、令和8年度はCO2削減です。切り口は毎年変わりますが、枠は動きません。点検から措置、記録までを回すアセットマネジメントを軸にすれば、どの切り口にも対応しやすくなります。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 66.8）",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/sentaku-road-yomikata/work/factory/raw-block2.5e8b7f0d.png",
+              "sha256": "5e8b7f0da656a507d6618c35b575a786b1b97ed9353d8117caf1e9e058909752"
+            },
+            "generatedAt": "2026-11-05T12:54:37.314Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/sentaku-road-yomikata/work/block2-diagram.7ee287f7.png",
+            "sha256": "7ee287f7caadfa384dbf4adb2b17cb2ac68ce1450a4b1fcc6079d0cc35678e97",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "5e8b7f0da656a507d6618c35b575a786b1b97ed9353d8117caf1e9e058909752"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-05T12:54:37.314Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字: R03/R04/R07/R08の4項目と中央の軸の文字が指示と一致。点検・再生加熱As・再生・CO2の絵も合い、見出しの括弧『』のみ付加で教材上の誤りなし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "block3",
+          "inputSha256": "70ce23ac725ec641fe80ea64599b9a5f68596e29f94eec9fe1632da7834236e8",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『法令・制度（II-1-2・8年連続）』。 図に入れる文字: 『R2道路法改正：R02 / R03 / R06』 『R04 踏切道改良促進法』 『R05 災害対策基本法(車両移動措置)』。 この場面の説明（文字にしない）: 法令・制度は、一つの改正が複数年にまたがるのが特徴です。令和2年の道路法改正からは、令和2年に歩行者利便増進道路、令和3年に特定車両停留施設、令和6年に自動運行補助施設と、切り口を変えて3回出ています。道路法以外でも、令和4年は踏切道改良促進法、令和5年は災害対策基本法の車両移動措置が出ました。改正された法律は、複数の切り口で準備したほうが効率的です。 前回の不合格の理由を直す: 16:9 ではない（1717×916）",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/sentaku-road-yomikata/work/factory/raw-block3.3a32b9dc.png",
+              "sha256": "3a32b9dcbffbea4cc5f3ed118972e476f7bc22d2bb2d0928850be51e67d469a3"
+            },
+            "generatedAt": "2026-11-05T12:54:37.314Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/sentaku-road-yomikata/work/block3-diagram.3a32b9dc.png",
+            "sha256": "3a32b9dcbffbea4cc5f3ed118972e476f7bc22d2bb2d0928850be51e67d469a3",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "3a32b9dcbffbea4cc5f3ed118972e476f7bc22d2bb2d0928850be51e67d469a3"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-05T12:54:37.314Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字: 見出しと3項目（R2道路法改正:R02/R03/R06、R04踏切道改良促進法、R05災害対策基本法(車両移動措置)）が指示と一致。崩れなし。見出しに括弧『』が付く",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "block4",
+          "inputSha256": "9bc9e1838bcbe7c6aecca8de35ba5b0aa81fe51e72ef97cab9fd4a83007feb98",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『近年の出題（事実のみ）』。 図に入れる文字: 『R06 III-2 道路啓開(能登半島地震)』 『R07 II-1-4 盛土排水 / III-2 インフラDX』 『R08 II-2-1 駅周辺の道路空間再編』。 この場面の説明（文字にしない）: 次に、近年の出題を事実だけ見てみます。令和6年度のIII-2は能登半島地震を受けた道路啓開、令和7年度のII-1-4は能登半島地震と盛土の排水、III-2はインフラDXです。令和8年度は、II-2-1が駅周辺の道路空間の再編、III-1が自動物流道路、III-2が大規模災害時の道路機能確保でした。これらが次も出るかは分かりません。出題の軸を確認する材料として、施策の流れを追っておきましょう。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/sentaku-road-yomikata/work/factory/raw-block4.c3bc9c85.png",
+              "sha256": "c3bc9c85acc38e61959b8a93cba99dbc63b2843ecb7f5bfcdeea10e189c4ba57"
+            },
+            "generatedAt": "2026-11-05T12:54:37.314Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/sentaku-road-yomikata/work/block4-diagram.a1daec29.png",
+            "sha256": "a1daec290e33980de69071262a815162255bd2b342feb7d699791f9e5c88c30f",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "c3bc9c85acc38e61959b8a93cba99dbc63b2843ecb7f5bfcdeea10e189c4ba57"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-05T12:54:37.314Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字: 見出しと3列の年度・設問番号・テーマ語が指示と一致。落石の道路啓開の重機、排水管付き盛土とDX画面、駅前の道路空間の絵も内容に合い、崩れなし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "summary",
+          "inputSha256": "e983d60a9e470588e407287ff18a46faa76e90f9010ed76351d82f5997871297",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『まとめ』。 図に入れる文字: 『基礎：4枠すべて』 『厚み：舗装・法令制度』 『補強：災害・DX・空間再編は流れで』。 この場面の説明（文字にしない）: まとめです。4枠すべてに基礎を置き、厚みは舗装と法令・制度に置きます。この2枠は8年連続で出ているからです。災害やDX、道路空間の再編は、出題の事実を確認しながら施策の流れで補強します。あなたはまず、どの枠の基礎から固めますか。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/sentaku-road-yomikata/work/factory/raw-summary.b87cc2aa.png",
+              "sha256": "b87cc2aae3e4bf151fce5aaf1d039b519b95dfb08b2c761c22f70418d8c689cb"
+            },
+            "generatedAt": "2026-11-05T12:54:37.314Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/sentaku-road-yomikata/work/summary-diagram.891aed25.png",
+            "sha256": "891aed25e0ddb50a954b7c269e8345863b56370c7691a4d7eb73bdb2af6c408f",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "b87cc2aae3e4bf151fce5aaf1d039b519b95dfb08b2c761c22f70418d8c689cb"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-05T12:54:37.314Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字: まとめ、厚み、基礎、補強の3文が指示と一致。4枠のうち中央2枠を強調して基礎の帯が下にあり、説明と矛盾せず崩れなし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "cta",
+          "inputSha256": "df9d5269de9e7c106c82464d03151ca16ea8848f3a85fa089366f0f2a3dc5a37",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『道路科目マガジンで確認する』。 図に入れる文字: 『R03〜R07の模範解答（概要欄リンク）』。 この場面の説明（文字にしない）: 令和3年度から7年度の模範解答を収めた道路科目のマガジンを用意しています。年度別の出題テーマの一覧は、無料のサイト記事でも見られます。マガジンは概要欄のリンクからご覧ください。ご視聴ありがとうございました。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/sentaku-road-yomikata/work/factory/raw-cta.57aa9359.png",
+              "sha256": "57aa9359573069b7618e18572a36eccac9064445d13f6481ea5bfd3386a7c1a8"
+            },
+            "generatedAt": "2026-11-05T12:54:37.314Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/sentaku-road-yomikata/work/cta-diagram.5f0a4b5f.png",
+            "sha256": "5f0a4b5f23f9a46bbef3e811f6983f8659255eb35af69d23d506114e135c9b2b",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "57aa9359573069b7618e18572a36eccac9064445d13f6481ea5bfd3386a7c1a8"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-05T12:54:37.314Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出しと図中文字が指示と一字一句一致し、開いた本に道路と斜張橋の図解で内容に合い、崩れや余計な文字も無い",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        }
+      ]
+    }
+  },
+  "activeCoverRevision": "cover-pop-20261105",
+  "activeBodyRevision": "body-diagram-20261105"
 }

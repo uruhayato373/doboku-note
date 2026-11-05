@@ -2,6 +2,10 @@
   "schemaVersion": 1,
   "covers": {
     "longform": {
+      "character": {
+        "pose": "pop-explaining",
+        "frame": "waist"
+      },
       "format": "longform",
       "exam": "pe-construction",
       "headline": [
@@ -10,19 +14,18 @@
       ],
       "accentLine": 1,
       "subtitle": "",
-      "character": {
-        "pose": "pop-explaining",
-        "frame": "waist"
-      },
-      "design": "pop-v2",
+      "design": "pop-poster-v3",
       "pop": {
         "variant": "explain",
         "authority": "総監が制作"
       },
+      "layout": "diagram-led",
       "approvedImage": {
-        "path": ".tmp/media/pe-construction/hissu1-ninaite-seisansei/youtube.longform/cover.aa77c1ad.png",
-        "sha256": "aa77c1ade077afabbc98176a7a6982c1f5039a3b94f7db32c5dcbd53d5dc257c",
-        "specSha256": "ade85dc05c1fa193b806f72ec98d04ea9a0e860a34dcc465f1a2c6ca09458b51"
+        "path": ".tmp/media/pe-construction/hissu1-ninaite-seisansei/work/cover-pop.d5c75304.png",
+        "sha256": "d5c753041caa6aa5862b0ab8df1cd5068ed7ad4588f2b95864c1c055b037061d",
+        "width": 1920,
+        "height": 1080,
+        "specSha256": "d7a6d1a32d72a159f0cfc1300ab31c5f24528164533703877bce13230e7bafde"
       }
     }
   }

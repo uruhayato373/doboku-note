@@ -6749,6 +6749,19 @@
       "commit": "0b40b5c75559",
       "verification": null,
       "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-0997",
+      "at": "2026-11-05",
+      "task": "道路と河川の選択科目の動画で、出典のない断定を直して在庫へ入れる",
+      "tier": "mid",
+      "kind": "制作",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "ee1c34b57c2e",
+      "verification": "gate --stock 15 本 PASS / check-video-content 184 件 FAIL 0",
+      "note": "BLOCK の 9 本を修正し、全部 gate --stock PASS で在庫へ入れた"
     }
   ]
 }

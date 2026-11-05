@@ -2,6 +2,10 @@
   "schemaVersion": 1,
   "covers": {
     "longform": {
+      "character": {
+        "pose": "pop-explaining",
+        "frame": "waist"
+      },
       "format": "longform",
       "exam": "pe-construction",
       "headline": [
@@ -10,19 +14,18 @@
       ],
       "accentLine": 1,
       "subtitle": "",
-      "character": {
-        "pose": "pop-explaining",
-        "frame": "waist"
-      },
-      "design": "pop-v2",
+      "design": "pop-poster-v3",
       "pop": {
         "variant": "explain",
         "authority": "総監が制作"
       },
+      "layout": "diagram-led",
       "approvedImage": {
-        "path": ".tmp/media/pe-construction/sentaku-road-yomikata/youtube.longform/cover.4b50f020.png",
-        "sha256": "4b50f020433135550d86e400c8e271300fa93c4c411bc701ee09289bc40a198a",
-        "specSha256": "3a1dcbb93d2aa6130dc101a57cca2cc0745021ca1f21c8137e49a0979f1f6f5a"
+        "path": ".tmp/media/pe-construction/sentaku-road-yomikata/work/cover-pop.65fa0180.png",
+        "sha256": "65fa0180227539ce34a21d98e5f88698a7f3ea9d3c265bca53571878b9f86183",
+        "width": 1920,
+        "height": 1080,
+        "specSha256": "ae8d59be6217201565784a2013de651fc19f6cce85295d55344bf7514559ab36"
       }
     }
   }

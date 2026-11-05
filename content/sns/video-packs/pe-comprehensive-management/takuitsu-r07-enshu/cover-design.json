@@ -2,6 +2,10 @@
   "schemaVersion": 1,
   "covers": {
     "longform": {
+      "character": {
+        "pose": "pop-explaining",
+        "frame": "waist"
+      },
       "format": "longform",
       "exam": "pe-comprehensive",
       "headline": [
@@ -10,19 +14,18 @@
       ],
       "accentLine": 1,
       "subtitle": "",
-      "character": {
-        "pose": "pop-explaining",
-        "frame": "waist"
-      },
-      "design": "pop-v2",
+      "design": "pop-poster-v3",
       "pop": {
         "variant": "explain",
         "authority": "総監が制作"
       },
+      "layout": "diagram-led",
       "approvedImage": {
-        "path": ".tmp/media/pe-comprehensive-management/takuitsu-r07-enshu/youtube.longform/cover.5102749a.png",
-        "sha256": "5102749a7e28be7bcdab11f44f1193b9732bb6dd3205df3e7b2c7b223c9cedb4",
-        "specSha256": "551bb7fb8ee6c6f88cffdb8996f199423c4c73b5aa03c918ed0732cfae2edfa6"
+        "path": ".tmp/media/pe-comprehensive-management/takuitsu-r07-enshu/work/cover-pop.5af90389.png",
+        "sha256": "5af90389254d3e4c8e43dd4e92f1c1378a68b92d683a9fe991e1d27a0b02f67e",
+        "width": 1920,
+        "height": 1080,
+        "specSha256": "2893392f52f56b3ee7e6fdf67c38dd7b08e70595d99a32ccc058337e66b264e5"
       }
     }
   }

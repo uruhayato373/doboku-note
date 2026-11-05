@@ -63,5 +63,366 @@
       },
       "publication": "ローカル差し替え・外部未反映"
     }
-  }
+  },
+  "revisions": {
+    "cover-pop-20261105": {
+      "version": "pop-poster-v3",
+      "layout": {
+        "mode": "diagram-led"
+      },
+      "generation": {
+        "tool": "image_gen",
+        "prompt": "添付の1枚目はdoboku-noteで採用済みの全面POP動画表紙の意匠参照、2枚目は先生キャラクターの同一性参照です。 新規の16:9横長（1920×1080想定）日本語YouTube動画表紙を作る。鮮やかな青・シアン・ネイビー、黄色と白の極太文字、明確な黒い輪郭、少量の赤、斜めの面と勢いのある背景、右側に先生キャラクターを大きく。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。 左〜中央に正確に『キーワード集』『択一に活かす』を大きく配置。上部の黄色帯に小さく『総監が制作』。 誤字・余計な文字・合格保証・URL・価格・不明な実績を足さない。文字ブロックの黒い縁取りまで含めて左右8%の内側へ収め（画面の左端から8%は背景だけ）、顔は左右5%・上下5%内、下端18%は字幕が重なるので重要な文字や顔を置かず背景が全面に続く。",
+        "references": [
+          {
+            "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/youtube.longform/cover.b87e20c1.png",
+            "sha256": "b87e20c19fda2123d3bac22950472ee7a7427dd2ab11a7cbf63807a6e83c33ad"
+          },
+          {
+            "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
+            "sha256": "1941cd22fa523fcb233e8ab7b8ad756ad7398be8755037b881d8380fb39398f9"
+          }
+        ],
+        "output": {
+          "path": ".tmp/media/pe-comprehensive-management/takuitsu-keyword/work/factory/raw-cover.6704e3b2.png",
+          "sha256": "6704e3b29e9b21de12f684bd961e783ebe25ccbae2d5177f03203c36dc28e7b7"
+        },
+        "generatedAt": "2026-11-05T10:42:45.298Z"
+      },
+      "copy": {
+        "exam": "pe-comprehensive-management",
+        "headline": [
+          "キーワード集",
+          "択一に活かす"
+        ],
+        "authority": "総監が制作"
+      },
+      "output": {
+        "path": ".tmp/media/pe-comprehensive-management/takuitsu-keyword/work/cover-pop.286c9c9a.png",
+        "sha256": "286c9c9a1c654f7c985d06c95c538189e49396c1848883a1e1bd23be92f8d2de",
+        "width": 1920,
+        "height": 1080
+      },
+      "normalization": {
+        "mode": "full-frame-v1",
+        "sourceSha256": "6704e3b29e9b21de12f684bd961e783ebe25ccbae2d5177f03203c36dc28e7b7"
+      },
+      "review": {
+        "status": "ai-reviewed",
+        "checkedAt": "2026-11-05T10:42:45.298Z",
+        "by": "ai-image-fidelity-auditor",
+        "reason": "文字『総監が制作』『キーワード集』『択一に活かす』が指示と一字一致し、キャラクターも参照どおりで手指・装備に破綻なし",
+        "userImageReview": "pending"
+      },
+      "storage": {
+        "group": "content-media",
+        "sync": "local"
+      }
+    },
+    "body-diagram-20261105": {
+      "layout": {
+        "mode": "diagram-led"
+      },
+      "images": [
+        {
+          "sceneId": "premise",
+          "inputSha256": "ca9147e2f516a6a5fc8083c31d25a63fc0e61348c4929034c9030b757bbc391c",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、鮮やかな青・シアン・ネイビーの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『誤解：一語ずつ順に暗記する』。 図に入れる文字: 『キーワード集は暗記帳でなく事典』 『場面ごとに開き方を変える』。 この場面の説明（文字にしない）: 最初から一語ずつ暗記していく取り組み方は非効率です。キーワード集は事典に近く、使う場面ごとに開き方を変えるべき資料です。1つの読み方に固執すると、範囲の広さに時間を食われます。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/takuitsu-keyword/work/factory/raw-premise.32427d45.png",
+              "sha256": "32427d450f708ad5695f48d4e8d949efbfc39edc6f36da3437cf62d3c060ccb8"
+            },
+            "generatedAt": "2026-11-05T10:42:45.298Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/takuitsu-keyword/work/premise-diagram.4d028a6c.png",
+            "sha256": "4d028a6c1db07128af858d12f9fca0e708303ec59236ff1efc17fb1be6bbe0fe",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "32427d450f708ad5695f48d4e8d949efbfc39edc6f36da3437cf62d3c060ccb8"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-05T10:42:45.298Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出しと2つの吹き出し文字が指示と一字一致し、本文の事典の説明と図が矛盾しない",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "structure",
+          "inputSha256": "cde67b8f6aee3326b0bc92e6efa9cd44ac24c09f7908c2e57e917e3b856e6970",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、鮮やかな青・シアン・ネイビーの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『1. まず構造を知る』。 図に入れる文字: 『経済性7区分／人的資源4区分／情報5区分』 『安全6区分／社会環境4区分』 『合わせて600語超』。 この場面の説明（文字にしない）: キーワード集は経済性、人的資源、情報、安全、社会環境の5管理で章立てされます。経済性は7サブカテゴリ約130語、人的資源は4サブカテゴリ約130語、情報は5サブカテゴリ約140語、安全は6サブカテゴリ約150語、社会環境は4サブカテゴリ約130語です。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 31.7）",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/takuitsu-keyword/work/factory/raw-structure.b37bf44d.png",
+              "sha256": "b37bf44d64a0efae3a00c076a6678b625fa77f0800ff2da80e638b13305d7612"
+            },
+            "generatedAt": "2026-11-05T10:42:45.298Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/takuitsu-keyword/work/structure-diagram.03730ef5.png",
+            "sha256": "03730ef57e7d00a569f02918d25c8822a7f7e25bffb26c897ef7ab8c48ca1aaa",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "b37bf44d64a0efae3a00c076a6678b625fa77f0800ff2da80e638b13305d7612"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-05T10:42:45.298Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出しと5区分・600語超の文字が指示と一字一致し、本文の5管理構成と合っている",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "read-through",
+          "inputSha256": "b75ed4ecd3ea51d4acac5970ad680363381f8ac3c12f9043eb598f1b41ac82ef",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、鮮やかな青・シアン・ネイビーの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『2. 通読は60〜90分で1周』。 図に入れる文字: 『章番号順に通読し全体像をつかむ』 『章末の学習ガイドカードで深掘り』。 この場面の説明（文字にしない）: 章番号順に一度通読すると、5管理の範囲と相互関係がつかめます。目安は60分から90分。各管理の章末には学習ガイドへの誘導カードがあり、気になった管理はそこから深掘りできます。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 15.9）",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/takuitsu-keyword/work/factory/raw-read-through.e8ad959f.png",
+              "sha256": "e8ad959f3381c9322ef34f92b4abcd03a6c45bf8a0b50683a08c7c63ac96f589"
+            },
+            "generatedAt": "2026-11-05T10:42:45.298Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/takuitsu-keyword/work/read-through-diagram.d733d392.png",
+            "sha256": "d733d3923e48c3b81729d293c94e0d4691d1caf09f1361db178e1e5880294943",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "e8ad959f3381c9322ef34f92b4abcd03a6c45bf8a0b50683a08c7c63ac96f589"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-05T10:42:45.298Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出しと2つの図内文字が指示と一字一句一致し、崩れや余計な文字が無い。5冊の連続と章末カードから深掘りの図解も本文と矛盾しない",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "deepdive-links",
+          "inputSha256": "78ef0521c7f6e913dfb5ff1107a8752a95eb7f72791cc747be106ec88d2162ea",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、鮮やかな青・シアン・ネイビーの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『3. 個別キーワードはリンクで深掘り』。 図に入れる文字: 『通読中は立ち止まらない』 『曖昧な語は後でリンクをたどる』。 この場面の説明（文字にしない）: リンクの付いたキーワードは、クリックすると個別の解説ページに飛びます。通読中に意味が曖昧な語で立ち止まらず、先に進んでから後でリンクをたどる、この2段構えが効率的です。 前回の不合格の理由を直す: 文字: 見出しの両端に指示にない括弧『』が描かれている（指示の区切りが文字として混入）。他の文字は一致",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/takuitsu-keyword/work/factory/raw-deepdive-links.8db5e2de.png",
+              "sha256": "8db5e2defd43155f334e75bb46997b31dc9ef25ea0f46d5f1b2154195d549f9c"
+            },
+            "generatedAt": "2026-11-05T10:42:45.298Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/takuitsu-keyword/work/deepdive-links-diagram.c3853a35.png",
+            "sha256": "c3853a3560e2fa6520f5007f7d69a526321c48f700270dd86b3294e2be6e4982",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "8db5e2defd43155f334e75bb46997b31dc9ef25ea0f46d5f1b2154195d549f9c"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-05T10:42:45.298Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出しと2つの図内文字が指示と一字一句一致し、崩れや余計な文字が無い。リンク付き語から個別ページへ進む図解も本文と矛盾しない",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "search",
+          "inputSha256": "b20affcf85880330bfaddf5d16910ea1557d638137f97894a73399a0b8587309",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、鮮やかな青・シアン・ネイビーの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『4. 検索は虫食いチェックに使う』。 図に入れる文字: 『ブラウザ内検索（Ctrl／Cmd+F）で照合』 『都度どの管理の語か確認する』。 この場面の説明（文字にしない）: 過去問演習や記述の骨子作りで出てきた語がどこに位置づけられているか確認したいときは、ブラウザ内検索が最速です。5管理のどこに属する語かを都度確認する習慣が理解を育てます。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/takuitsu-keyword/work/factory/raw-search.0274b56b.png",
+              "sha256": "0274b56b16a2b99e43eb19a88bb261a15c3c0bded0d7db363c702ce593964a8d"
+            },
+            "generatedAt": "2026-11-05T10:42:45.298Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/takuitsu-keyword/work/search-diagram.9bc7af44.png",
+            "sha256": "9bc7af447ec29637194bffe25207af8320d930b48b6f271f929f2d8a156cab0a",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "0274b56b16a2b99e43eb19a88bb261a15c3c0bded0d7db363c702ce593964a8d"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-05T10:42:45.298Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出しと2つの説明文字が指示と一字一致し、検索から5管理の位置確認へ進む図が本文と整合",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "priority",
+          "inputSha256": "7ed14b4ef9a117692f8d122d9a3df90fa7179dd96465028898fe8af662b9638b",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、鮮やかな青・シアン・ネイビーの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『5. 優先順位は頻出論点ランキング』。 図に入れる文字: 『過去問18年分・720問から頻度順に把握』 『頻出語に深掘りを絞る』。 この場面の説明（文字にしない）: 600語すべてを均等に回す時間はまずありません。過去問18年分、720問の頻出論点ランキングを使い、5管理別に出現頻度の高い論点から優先して深掘りします。頻度の低い語は通読の一巡に留めます。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/takuitsu-keyword/work/factory/raw-priority.ffa896fd.png",
+              "sha256": "ffa896fdce834b1ec2f7041ffaedd427bdc61e295b980fcf725e8064ca614896"
+            },
+            "generatedAt": "2026-11-05T10:42:45.298Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/takuitsu-keyword/work/priority-diagram.ffa896fd.png",
+            "sha256": "ffa896fdce834b1ec2f7041ffaedd427bdc61e295b980fcf725e8064ca614896",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "ffa896fdce834b1ec2f7041ffaedd427bdc61e295b980fcf725e8064ca614896"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-05T10:42:45.298Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出しと頻出論点の文字が指示と一字一致し、過去問から頻度順の棒グラフへの図が本文と整合",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "summary",
+          "inputSha256": "215fd30b2ee4f608663e5700d7d6a2076779570e2fdc0e7f0a4330ea30993cf4",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、鮮やかな青・シアン・ネイビーの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『まとめ』。 図に入れる文字: 『① 60〜90分で通読し全体構造をつかむ』 『② リンクで深掘り・検索で虫食い確認』 『③ 頻出論点ランキングで優先順位を決める』。 この場面の説明（文字にしない）: まとめます。キーワード集は事典です。60から90分で通読して全体構造をつかみ、リンクで深掘り、検索で虫食いを確認し、優先順位は頻出論点ランキングで決める。これが回し方です。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/takuitsu-keyword/work/factory/raw-summary.1615c146.png",
+              "sha256": "1615c146b8f8d786d7a4ee58d463520dee91c25708efa4a1ca172f74ebc3a099"
+            },
+            "generatedAt": "2026-11-05T10:42:45.298Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/takuitsu-keyword/work/summary-diagram.01fe41ac.png",
+            "sha256": "01fe41ac3bda1cd2c1b05bb97a305c9db2a7c72f90504158d8fc289ff3a228f8",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "1615c146b8f8d786d7a4ee58d463520dee91c25708efa4a1ca172f74ebc3a099"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-05T10:42:45.298Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出しと3項目の文字が指示と一字一致し、本文のまとめと図が矛盾しない",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "cta",
+          "inputSha256": "6371b646c7dd4e117196f29170ac6216ddd548309dd9cdaabdf8c3891b9ca6e2",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、鮮やかな青・シアン・ネイビーの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『キーワード集を回し切る』。 図に入れる文字: 『択一キーワード攻略マガジン（概要欄リンク）』。 この場面の説明（文字にしない）: 5管理別の頻出論点ランキングと深掘りの回し方をまとめたマガジンを用意しています。概要欄のリンクからご覧ください。ご視聴ありがとうございました。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/takuitsu-keyword/work/factory/raw-cta.5a0c2d95.png",
+              "sha256": "5a0c2d9584c60e53035ce644d24669f09a745082265acb2caab489aaeabd07e0"
+            },
+            "generatedAt": "2026-11-05T10:42:45.298Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/takuitsu-keyword/work/cta-diagram.5a0c2d95.png",
+            "sha256": "5a0c2d9584c60e53035ce644d24669f09a745082265acb2caab489aaeabd07e0",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "5a0c2d9584c60e53035ce644d24669f09a745082265acb2caab489aaeabd07e0"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-05T10:42:45.298Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出しとマガジン名『択一キーワード攻略マガジン（概要欄リンク）』が指示と一字一致し、価格やURLなどの余計な文字なし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        }
+      ]
+    }
+  },
+  "activeCoverRevision": "cover-pop-20261105",
+  "activeBodyRevision": "body-diagram-20261105"
 }

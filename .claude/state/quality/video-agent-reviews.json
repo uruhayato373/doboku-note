@@ -45,31 +45,35 @@
     },
     "pe-comprehensive-management/hakusho-map/youtube.longform": {
       "verdict": "pass",
-      "note": "台本と表紙は題名・中身・出典と整合し、試験日の誤りや合格の約束は無い。描画に進んでよい。動画は未完成（音声は未確認）。",
-      "at": "2026-11-04T04:50:04.364Z",
-      "visualDigest": "7a5dcec7795c1f6d9fe404117301ff80e37c1e222065024d51e067b66cdbf777",
-      "finalDigest": "8ac405c8f72722e52c124980727e84e01636b46b3bf9b865b23d1d3e1108ce5b"
+      "note": "表紙・題名・全9場面の画像を確認。場面順は台本と一致、文字の切れ・誤字なし。台本の数値(27白書・概要版10-30頁・核の白書)は出典記事と一致、試験日の記述なし。説明文のCTAはnoteマガジン1つ(無料サイトリンクは参考)。音声は未確認。",
+      "at": "2026-11-05T11:17:32.296Z",
+      "visualDigest": "685a675b98eed670feebf8a565f9985bfc880d0ed0241727b54e0df4ed8fd7f3",
+      "finalDigest": "3bfca4340cf623b44d93693c60dd4ef590b583e442adf023c03da8c70dc0d964",
+      "contentDigest": "3bfca4340cf623b44d93693c60dd4ef590b583e442adf023c03da8c70dc0d964"
     },
     "pe-comprehensive-management/kata-oudan-ryuyo/youtube.longform": {
-      "verdict": "fail",
-      "note": "主CTAが「R5からR8予想まで」書き分けた商品を案内するが、令和8年度試験は2026-07-19/20に実施済みで（config/exam-calendar.json）、終わった年度の予想を売りにする表現が古い。CTA文面を直してから再確認。",
-      "at": "2026-11-04T04:50:04.453Z",
-      "visualDigest": "0eaec3c62f7065c2a16cbb1f5a9d0b3cb561c2d8b56faf9d50344eaf30a6e1ec",
-      "finalDigest": "46a711e6b4780590948c7223f80f2daa0d2abb861360eb09b155146dd39e73d5"
+      "verdict": "pass",
+      "note": "全8場面と表紙を目視確認。表紙・題名が内容と合致、文字の切れ・重なり・誤字なし、場面順は台本どおり、年度表記は出典記事(R5 SWOT/R6 CN/R7 少子高齢化)と一致、CTAは記述式コアパック1つ、サイトリンクは無料解説。試験日の記述なし、断定的な合格約束なし。音声は未確認。",
+      "at": "2026-11-05T12:58:45.887Z",
+      "visualDigest": "0f4150560a9e01de79e8c1181f686766d3fedce7337aad1831d02f60c471796d",
+      "finalDigest": "7e2d67cd7c8b571b9133ad850fdf2933353397976dfc512b88c3a6aa22fdc989",
+      "contentDigest": "7e2d67cd7c8b571b9133ad850fdf2933353397976dfc512b88c3a6aa22fdc989"
     },
     "pe-comprehensive-management/kikinagashi-sokan-keyword/youtube.longform": {
       "verdict": "pass",
-      "note": "台本・表紙とも題名と中身が一致し、用語の記述はサイト記事（パリ協定の1.5/2度、人事考課の三原則等）と整合。描画に進んでよい。動画は未完成（音声は未確認）。",
-      "at": "2026-11-04T04:50:04.541Z",
-      "visualDigest": "6ddfd3e7e66577515651057653941f9dc4513a15450aed3a9149b91f454126fd",
-      "finalDigest": "2cb44b4f2f800c2f396ab383ae55354e7c196a9e3e839ca1c9d8b44ed5fdfd3e"
+      "note": "全20場面と表紙を確認。場面順は台本の5管理順と一致し、文字の切れ・重なり・誤字なし。説明文のCTAはnote択一PDF1つで、商品名と問数はconfig/products.jsonと一致。試験日の記述なし。小さな補足文字（人的資源管理2など）は一部小さいが判読可。音声は未確認。",
+      "at": "2026-11-05T12:55:09.396Z",
+      "visualDigest": "791db7f36ee2486da92f59d9ebfdbf3f9bfdb5a36e45a99b10cdf09c98a48881",
+      "finalDigest": "b9cbbab9468995d5858ecb118d84f908d19659c34ff57b800d337d9577bf4b8f",
+      "contentDigest": "b9cbbab9468995d5858ecb118d84f908d19659c34ff57b800d337d9577bf4b8f"
     },
     "pe-comprehensive-management/persona-settei/youtube.longform": {
       "verdict": "pass",
-      "note": "台本と表紙は題名・中身・出典と整合し、試験日の誤りや合格の約束は無い。描画に進んでよい。動画は未完成（音声は未確認）。",
-      "at": "2026-11-04T04:50:04.625Z",
-      "visualDigest": "ac5e46cdd102f7cf0e8ecfffc182abb73204663e030de9aeec39ae50f7d68594",
-      "finalDigest": "241b1feffdff3d8cc958a7d2c8c360c8e5e77a102e748f09ac62f0db674e0c98"
+      "note": "表紙・題名・全8場面を確認。台本順序と一致、文字の切れ/重なり/誤字なし。主CTAは記述式完全パック1つ（関連無料解説リンクは別枠）。試験日・数値の記述なし。音声・動画本体は未確認。",
+      "at": "2026-11-05T12:05:33.366Z",
+      "visualDigest": "d32c782e884d55106d7b447271e91bdbef1cbc2b87a3b0fb18469585923b9e76",
+      "finalDigest": "a9f74bac94778abd2913853986294654983a6f7259e56138b41524d1fff2044a",
+      "contentDigest": "a9f74bac94778abd2913853986294654983a6f7259e56138b41524d1fff2044a"
     },
     "pe-comprehensive-management/r8-yosou-theme/youtube.longform": {
       "verdict": "fail",
@@ -80,10 +84,11 @@
     },
     "pe-comprehensive-management/setsumon3-shisaku/youtube.longform": {
       "verdict": "pass",
-      "note": "台本と表紙は題名・中身・出典と整合し、試験日の誤りや合格の約束は無い。描画に進んでよい。動画は未完成（音声は未確認）。",
-      "at": "2026-11-04T04:50:04.795Z",
-      "visualDigest": "ca5f2f2dc7d3af31f7677e9ef3750b5c6facf5e4edc343704314b8502c7c1ca9",
-      "finalDigest": "45360c35bfc2272733b7aea528091df9d35704c6731adecfca234ff3290d47d0"
+      "note": "表紙・題名・8場面の順序が台本と一致。文字の切れ・誤字なし。説明文のCTAは国家施策バンク1つ（無料サイトの解説リンクは補助）。日付・数値の断定なし、合格約束なし。音声は未確認。場面画像・表紙の確認であり音声と動画本体の再生は見ていない。",
+      "at": "2026-11-05T12:02:01.072Z",
+      "visualDigest": "424378805a8219bd43d12333dc8de60a17b48e0a534d8387122e763884d2b9a5",
+      "finalDigest": "9f154abb4afc18cf7c8a5f189af1aaa0202ef072c8f1d296a8e33d4e5a48f6cb",
+      "contentDigest": "9f154abb4afc18cf7c8a5f189af1aaa0202ef072c8f1d296a8e33d4e5a48f6cb"
     },
     "pe-comprehensive-management/sokan-goukaku-senryaku/youtube.longform": {
       "verdict": "pass",
@@ -94,17 +99,19 @@
     },
     "pe-comprehensive-management/takuitsu-keyword/youtube.longform": {
       "verdict": "pass",
-      "note": "台本と表紙は題名・中身・出典と整合し、試験日の誤りや合格の約束は無い。描画に進んでよい。動画は未完成（音声は未確認）。",
-      "at": "2026-11-04T04:50:04.964Z",
-      "visualDigest": "e5d257c58f65464551e224f782b95c6e6815ac2b4d843326c62ec20a76d7c5e1",
-      "finalDigest": "8e97fcca5a180b53be2caa659193f405dc000f967d5310811d8b3d23c0049b28"
+      "note": "表紙・全9場面シート確認。題名と中身が一致、文字の切れ・誤字なし、場面順は台本どおり。区分数・約130/130/140/150/130語・600語超・60〜90分・過去問18年720問は keyword-2026 記事と一致。試験日の記述なし。説明文の有料CTAは1つ(無料の関連解説リンクを併記)。場面の画像を確認した範囲で、音声は未確認。",
+      "at": "2026-11-05T10:44:29.696Z",
+      "visualDigest": "fb4fed1f871d34870946425da2e786261c298fed0cc89764fa49c29e55fbaff9",
+      "finalDigest": "93afd661488768107ee30ff345248d6ec451b1957ea756f803ef1e86644868e5",
+      "contentDigest": "93afd661488768107ee30ff345248d6ec451b1957ea756f803ef1e86644868e5"
     },
     "pe-comprehensive-management/takuitsu-r07-enshu/youtube.longform": {
       "verdict": "pass",
-      "note": "Ⅰ-1-3(損益分岐点)・Ⅰ-1-11(ストレスチェック)・Ⅰ-1-20(ISO/IEC15408)の正答と引っかけが r07-primary 記事と一致。全40問も一致。CTA は catalog 1つ。表紙OK。描画に進んでよいという意味の pass。音声は未確認。",
-      "at": "2026-11-04T05:28:02.501Z",
-      "visualDigest": "2b775f0bc78331b115488dfb8934274c50ecd1ae3de72cc6efa4f29c87129525",
-      "finalDigest": "5e01407277b2892cd5d9fdeff400b887b3e0cc82630522eedc7c8c6e351fdcfc"
+      "note": "表紙・題名と中身が一致。7場面の順序は台本どおり、切れ・重なり・誤字なし(小さめの文字はあるが判読可)。問1の計算(384,000/0.6=640,000)整合。説明文の主CTAはnote PDF1つ+無料サイト解説リンクで資格・内容に合う。音声・字幕は未確認。完成動画の確認ではなく場面画像と台本に基づく判定",
+      "at": "2026-11-05T13:01:26.043Z",
+      "visualDigest": "b3a5b8648d5cb439690c9c1ddade28b8fa1a315b3056ab0650c879a602b51cdb",
+      "finalDigest": "4289de90aefff5422ba54fd30b154a0c655244e5e26dd575e0583b4cf97a9734",
+      "contentDigest": "4289de90aefff5422ba54fd30b154a0c655244e5e26dd575e0583b4cf97a9734"
     },
     "pe-construction/competency-r8-taiou/youtube.longform": {
       "verdict": "pass",
@@ -122,24 +129,27 @@
     },
     "pe-construction/hissu1-bosai-kyoujinka/youtube.longform": {
       "verdict": "pass",
-      "note": "表紙と台本が一致。出題年の記述は出典記事に基づく。描画に進んでよい。動画は未完成（台本と表紙のみ確認、音声・場面は未確認）。",
-      "at": "2026-11-04T04:50:05.306Z",
-      "visualDigest": "72678390e349bb7632df54b1f221f9b2ef93141b933a3d8f250808c4246e807a",
-      "finalDigest": "75385a5c6b08dd37dc6dfd7a5104c6c4ad25ca6c9aebca0242a934bf6421df4c"
+      "note": "表紙と題名は中身と一致。全8場面の順序は台本どおり（誤解、問われ方、3軸、背景施策、4部構成、まとめ、CTA）。説明文のCTAは必須I模範解答マガジン1つで、無料サイト記事は補助リンク。試験日や合格の約束は無い。場面3の下部に灰色帯があり、場面4・5の図中ラベルは小さい（シート縮小時）が、読めないほどではないと判断。出題年(R01/R03/R05/R06)の問番号は一次資料と未照合。音声は未確認。",
+      "at": "2026-11-05T10:06:38.352Z",
+      "visualDigest": "f46d402339f012a07d0ad0f0670ae4272ebeae43ad3aaf3088552c77e2bae326",
+      "finalDigest": "1ad2b460eb4234520ca39ba26cd60a2dedd76059bb556fc2151f617a0b0eba30",
+      "contentDigest": "1ad2b460eb4234520ca39ba26cd60a2dedd76059bb556fc2151f617a0b0eba30"
     },
     "pe-construction/hissu1-carbon-neutral/youtube.longform": {
       "verdict": "pass",
-      "note": "表紙と台本が一致。施策の年次は出典記事と整合。描画に進んでよい。動画は未完成（台本と表紙のみ確認、音声・場面は未確認）。",
-      "at": "2026-11-04T04:50:05.394Z",
-      "visualDigest": "91bbee58380fcb3562b975d2d8019c82973b0b25cdc67be7788862eb2b7c32d6",
-      "finalDigest": "649a69db8c864067e8bc4e84f0209e119932e08a9317d19d6261a5afa60c5abd"
+      "note": "表紙・題名と中身が一致。9場面は台本順（誤解→頻出理由→三層→施策→設問3→発注者視点→まとめ→CTA）で文字切れ・重なり・誤字なし。説明文のCTAは必須Iマガジン1つ、無料サイトリンクは関連記事。断定的な合格約束なし。音声は未確認。",
+      "at": "2026-11-05T10:04:30.795Z",
+      "visualDigest": "f2169a8d4ea9b0ff144b3f3dd08f5f34fbdde9df0c2d1c23fedef068a9625e71",
+      "finalDigest": "3a4bb13ddaa576369000a43cfb465677c2945e9897c4e9fbfa42a3661d80fb32",
+      "contentDigest": "3a4bb13ddaa576369000a43cfb465677c2945e9897c4e9fbfa42a3661d80fb32"
     },
     "pe-construction/hissu1-infra-roukyuuka/youtube.longform": {
       "verdict": "pass",
-      "note": "表紙と台本が一致。第2次行動計画(R3-R7)は出典記事どおり。描画に進んでよい。動画は未完成（台本と表紙のみ確認、音声・場面は未確認）。",
-      "at": "2026-11-04T04:50:05.480Z",
-      "visualDigest": "1afdd12acf97a08aebac9ff2c728aa837ba58e97d2dd6874baf3f6877e399c40",
-      "finalDigest": "551dbb05f955a1d9bb7a947d546d336ac3985ecd95993f227ff62caa59dc695f"
+      "note": "表紙・題名は中身と一致、全9場面は台本順で文字の切れ・誤字なし(場面5は全画面でも可読)。CTAは必須科目Iマガジン1つ(無料サイトリンクは補助)。平成25年・令和3〜7年度・令和4年12月は台本と整合、合格の約束なし。試験日記述なし。音声・字幕は未確認。",
+      "at": "2026-11-05T09:59:46.094Z",
+      "visualDigest": "4b30786a1b11735f4f0a939294c21852fc8a9d2882d1f1d813ccaa72e17165b5",
+      "finalDigest": "f2155ef59dd4765ac3dc90ee881846fb3dffe420cfd50ab360d4e23f305e77ad",
+      "contentDigest": "f2155ef59dd4765ac3dc90ee881846fb3dffe420cfd50ab360d4e23f305e77ad"
     },
     "pe-construction/hissu1-kensetsu-dx/youtube.longform": {
       "verdict": "pass",
@@ -150,17 +160,19 @@
     },
     "pe-construction/hissu1-kokudo-chiiki/youtube.longform": {
       "verdict": "pass",
-      "note": "R06 I-1・R07 I-2・第6次社会資本整備重点計画(令和8年1月16日閣議決定・令和12年度まで)は content/site の iji-kanri 記事等で裏取り済み。CTA は1つ。表紙OK。注意: 出典一覧の kokudo-keisei-chiiki は第5次のみ記載で第6次の根拠記事が一覧に無い。描画に進んでよいという意味の pass。音声は未確認。",
-      "at": "2026-11-04T05:28:01.863Z",
-      "visualDigest": "7c80028e7d262db495b51c4db55d218991c1872492fd9033ec48501c5dbc8c81",
-      "finalDigest": "6b41493f08eb173295fb5749e271e1c63d547186d21c75f8742a7301ebc6d0cf"
+      "note": "表紙・題名と全9場面(欠け0)を画像で確認。順序は台本どおり、文字の切れ・重なり・誤字なし。第6次社会資本整備重点計画(令和8年1月16日閣議決定・令和12年度まで)は姉妹記事で裏取り、R06 I-1/R07 I-2の記述も整合。CTAは必須Iマガジン1つ+関連無料記事リンク、合格の約束なし。音声と動画本体は未確認(場面画像のみ確認)。",
+      "at": "2026-11-05T10:55:27.235Z",
+      "visualDigest": "0389d1a85f1a2d4b4ca8fdf679ead33f7a24c4c0127d819d93eeefa715696cc3",
+      "finalDigest": "8855a014f7d95a7625f60467a3c9d8f0ad85852b6487280b3a6708b5da16d50b",
+      "contentDigest": "8855a014f7d95a7625f60467a3c9d8f0ad85852b6487280b3a6708b5da16d50b"
     },
     "pe-construction/hissu1-ninaite-seisansei/youtube.longform": {
       "verdict": "pass",
-      "note": "表紙と台本が一致。数値(685万人/477万人、37%/12%、時間外上限)は妥当。描画に進んでよい。動画は未完成（台本と表紙のみ確認、音声・場面は未確認）。",
-      "at": "2026-11-04T04:50:05.737Z",
-      "visualDigest": "b5ad8eaeddfbf86626a21413dbf6112c713b8a7bb5b6df47eade78b914cd9cd3",
-      "finalDigest": "114ff74fe445b847e6ef8af6b42fa0a948357e36870d137574e3954b01b06b12"
+      "note": "表紙・題名は中身と一致。全8場面の順序は台本と一致し、文字の切れ・重なり・誤字なし(場面5の柱の小さな注記はやや小さいが判読可)。数値は台本と一致し試験日の記述なし。出典の無い合格の約束なし。説明文の有料CTAは1つ(無料解説リンクは関連記事)。音声と字幕は未確認。",
+      "at": "2026-11-05T12:57:37.859Z",
+      "visualDigest": "6869e1861c983051f5bfaa1665b461ad99d0247a6aa9ae5950a664ffb536eb28",
+      "finalDigest": "ccc8977208322c173478963d9228e38f6f3f2a965304d464bf1eab68d98c1c3c",
+      "contentDigest": "ccc8977208322c173478963d9228e38f6f3f2a965304d464bf1eab68d98c1c3c"
     },
     "pe-construction/hissu1-theme-map/youtube.longform": {
       "verdict": "fail",
@@ -213,10 +225,11 @@
     },
     "pe-construction/sentaku-construction-planning-yomikata/youtube.longform": {
       "verdict": "pass",
-      "note": "描画に進んでよい(完成動画の確認ではない・場面画像無し・音声未確認)。表紙・題名一致。II-1-4コンクリート8年連続はR01-R08表と一致、IIIの担い手確保・働き方改革と発注者視点(平準化)はkeyword記事で裏取り済み。8年表記に矛盾なし",
-      "at": "2026-11-04T05:40:00.278Z",
-      "visualDigest": "88adabbcd806ea628851833552eb41f3cbfe72153daa70e2cfc7bdec29eab855",
-      "finalDigest": "7959edebb4a7ee33d13ae37429276f99487a3fce2968072c0abd9fbd978b5701"
+      "note": "表紙・題名は中身と一致、場面8枚(欠け0)の順序は台本どおり(誤解→優先順位→コンクリ→契約・安全→III→まとめ→マガジン)、令和1〜8年度のテーマ記述は台本と整合、主CTAはマガジン1つ(無料サイト記事は関連リンク)、合格保証や出典なし数値なし。場面は小さなシートでの確認で細字の読みは限定的。音声・動画本体は未確認。",
+      "at": "2026-11-05T12:56:43.591Z",
+      "visualDigest": "4b9b68df68509d86a88af9efe2956737a3d257028cc6bf8c2ca32fb02c20b1dc",
+      "finalDigest": "572c290c02ac64328d3b856e0e5f28bb570bd8aa4e3aa5d4fef05bca3dc497db",
+      "contentDigest": "572c290c02ac64328d3b856e0e5f28bb570bd8aa4e3aa5d4fef05bca3dc497db"
     },
     "pe-construction/sentaku-environment-yomikata/youtube.longform": {
       "verdict": "pass",
@@ -262,17 +275,19 @@
     },
     "pe-construction/sentaku-river-coast-yomikata/youtube.longform": {
       "verdict": "pass",
-      "note": "描画に進んでよい(完成動画の確認ではない・場面画像無し・音声未確認)。表紙・題名一致。II-1の4分野固定は表R01-R08と一致、事前放流R06・津波防災地域づくり法R06・砂防堰堤R03も一致。IIIの流域治水・総合土砂管理はkeyword記事に頻出と明記",
-      "at": "2026-11-04T05:40:00.476Z",
-      "visualDigest": "3a250585b1f2b5e50784e80c4cac137a9071352c18ef886a67e03bfa6269e722",
-      "finalDigest": "aeff6caa642a5b7a82ee4c48a32e9e1fb1a746fb9111c0be691c3a01a4ce2e2e"
+      "note": "表紙・題名・8場面の順序が台本と一致。文字の切れ・重なり・誤字なし。CTAはnoteマガジン1つ(無料サイト記事は関連リンク)。年度記述は台本どおり。音声は未確認。",
+      "at": "2026-11-05T12:59:44.564Z",
+      "visualDigest": "39f24e2944f92d02999afd91266b3c644a07ee46bf1a427769d7bbda58529f82",
+      "finalDigest": "d312c23519180fb473d822db926285bdc5d8bc77e36febbb00f642935db00a80",
+      "contentDigest": "d312c23519180fb473d822db926285bdc5d8bc77e36febbb00f642935db00a80"
     },
     "pe-construction/sentaku-road-yomikata/youtube.longform": {
       "verdict": "pass",
-      "note": "再確認。場面画像なし、台本とstoryboardでの確認で、pass は描画に進んでよいの意味。II-1-2 は法令・制度の枠で R01 重要物流道路、R02 歩行者利便増進道路、R03 特定車両停留施設、R04 踏切道改良促進法、R05 災害対策基本法、R06 自動運行補助施設、R07 R7改正、R08 連携協力道路と、表の8年分が全て法令・制度。R2 道路法改正が R02・R03・R06 は表と一致。音声は未確認。表紙画像は未確認。",
-      "at": "2026-11-04T05:41:57.975Z",
-      "visualDigest": "8d2389a3e2292d7500a82a5fcdd8a177483c59c2d493a9452b3b0692ca46627f",
-      "finalDigest": "424330a5b3cd622367b9340e9b50dbbb2ba6f32a617ddf4cf0a9fa326fecc0ec"
+      "note": "表紙・題名と全8場面の画像を確認。場面順は台本と一致、誤字・切れ・重なり無し。R2〜R8の出題記述は台本と整合、CTAはnoteマガジン1つ（無料サイト記事は関連リンク）、合格の約束・断定数値無し。試験日の記述なし。音声・動画本体は未確認（画面のみの確認）。",
+      "at": "2026-11-05T12:55:51.110Z",
+      "visualDigest": "f49ce23219d3f17976e800f3ca1e5b2d88760fddd8f0bc7a01988eb49e8c96c5",
+      "finalDigest": "a46876e2e6ff7756af1f36c477edd75e251a06e8c81e53c97ae009bd36e9476c",
+      "contentDigest": "a46876e2e6ff7756af1f36c477edd75e251a06e8c81e53c97ae009bd36e9476c"
     },
     "pe-construction/sentaku-steel-concrete-yomikata/youtube.longform": {
       "verdict": "fail",
