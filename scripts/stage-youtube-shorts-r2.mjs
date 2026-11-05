@@ -25,7 +25,7 @@ const arg = (name, fallback = '') => {
   const i = argv.indexOf(name);
   return i >= 0 && argv[i + 1] ? argv[i + 1] : fallback;
 };
-const exams = new Set(arg('--exam', 'civil-construction-1,civil-construction-2,concrete-engineer,concrete-chief-engineer').split(',').filter(Boolean));
+const exams = new Set(arg('--exam', 'civil-construction-1,civil-construction-2,concrete-engineer,concrete-chief-engineer,pe-comprehensive-management,pe-construction').split(',').filter(Boolean));
 const onlyPack = arg('--pack-id');
 const onlyKey = arg('--key');
 const max = Math.max(1, Number(arg('--max', '999')) || 999);

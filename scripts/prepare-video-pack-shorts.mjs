@@ -24,7 +24,7 @@ const SLOT_TIMES = ['07:30:00', '12:30:00', '20:00:00'];
 const REGISTRY = loadRegistry(ROOT);
 const CALENDAR = readDataset(ROOT, 'config.exam-calendar');
 const lastExamDate = (id) => Object.values(CALENDAR.exams[id]?.events ?? {}).filter((e) => e.kind === 'exam').map((e) => e.date).sort().at(-1);
-const EXAMS = Object.fromEntries(['civil-construction-1', 'civil-construction-2', 'concrete-engineer', 'concrete-chief-engineer'].map((id) => {
+const EXAMS = Object.fromEntries(['civil-construction-1', 'civil-construction-2', 'concrete-engineer', 'concrete-chief-engineer', 'pe-comprehensive-management', 'pe-construction'].map((id) => {
   const title = qualificationShortLabel(REGISTRY, id);
   return [id, { title, tag: `#${title}`, examDate: lastExamDate(id) }];
 }));

@@ -6,7 +6,7 @@ import { loadRoadmap } from './annual-roadmap.mjs';
 import { ConfigYoutubeLongformPlan } from './dataset-schemas-content.mjs';
 import { jstDayOf, jstLabel, todayJst } from './jst-date.mjs';
 import { auditLongformPlan, summarizeInventory } from './youtube-longform-audit.mjs';
-import { existsSync, readFileSync } from 'node:fs';
+import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 
 export const PLAN_ACTIONS = { finish: '既存を仕上げる', revise: '年度・内容を更新', new: '新規制作', reuse: '既存を再案内', scheduled: '予約済み', library: '公開済み', unplanned: '日程未設定' };
@@ -78,6 +78,25 @@ function targetChecker(root) {
 }
 
 /** 年間の枠と台帳の照合。管理画面・check-youtube-plan・関門が読む */
+/** 全パックの shorts-design.json の台本を並べる。枠の数は台本の数で数える（公開の有無によらない） */
+export function listShortDesigns(root) {
+  const base = join(root, 'content/sns/video-packs');
+  const rows = [];
+  for (const exam of readdirSync(base, { withFileTypes: true })) {
+    if (!exam.isDirectory()) continue;
+    for (const work of readdirSync(join(base, exam.name), { withFileTypes: true })) {
+      const dir = join(base, exam.name, work.name);
+      if (!work.isDirectory() || !existsSync(join(dir, 'shorts-design.json'))) continue;
+      const pack = `${exam.name}/${work.name}`;
+      const pop = existsSync(join(dir, 'pop-image.json')) ? JSON.parse(readFileSync(join(dir, 'pop-image.json'), 'utf8')) : {};
+      for (const key of Object.keys(JSON.parse(readFileSync(join(dir, 'shorts-design.json'), 'utf8')).shorts ?? {})) {
+        rows.push({ pack, key, stocked: Boolean(pop.revisions?.[pop.activeShorts?.[key]]?.stock) });
+      }
+    }
+  }
+  return rows;
+}
+
 export function loadPlanAudit(root, today = todayJst()) {
   const plan = ConfigYoutubeLongformPlan.parse(readDataset(root, 'config.youtube-longform-plan'));
   const { publications, revisions } = loadPublications(root);
@@ -87,6 +106,7 @@ export function loadPlanAudit(root, today = todayJst()) {
     calendar: readDataset(root, 'config.exam-calendar'),
     exists: (path) => existsSync(join(root, path)),
     hasTarget: targetChecker(root),
+    shortDesigns: listShortDesigns(root),
   }, today);
   return { plan, audit, inventory: summarizeInventory(publications, plan.entries), publications, revisions };
 }

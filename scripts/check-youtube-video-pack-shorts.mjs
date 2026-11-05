@@ -14,6 +14,8 @@ const EXAMS = [
   'civil-construction-2',
   'concrete-engineer',
   'concrete-chief-engineer',
+  'pe-comprehensive-management',
+  'pe-construction',
 ];
 const errors = [];
 const warnings = [];
@@ -81,7 +83,8 @@ for (const exam of EXAMS) {
     const shorts = youtube.shorts ?? [];
     const expected = manifest.outputs?.shorts;
     if (!Number.isInteger(expected) || expected < 0) errors.push(`${packId}: outputs.shorts が非負の整数ではない (${expected})`);
-    if (shorts.length !== expected) errors.push(`${packId}: shorts=${shorts.length} (期待値${expected})`);
+    // ショートは年間の枠で選んで作る。未着手のパックは企画の希望本数があっても失敗にしない
+    if (shorts.length && shorts.length !== expected) errors.push(`${packId}: shorts=${shorts.length} (期待値${expected})`);
     if (!youtube.longform) errors.push(`${packId}: longform メタデータなし`);
     else publicationSlot(packId, 'longform', youtube.longform);
 

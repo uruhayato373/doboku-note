@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { fileURLToPath } from 'node:url';
 import { joinLongformPlan, loadLongformPlan, loadPlanAudit } from '../scripts/lib/youtube-longform-plan.mjs';
-import { auditLongformPlan, cycleCapacity, inventoryState, mondayOf, slotProblems, summarizeInventory, weekLimit } from '../scripts/lib/youtube-longform-audit.mjs';
+import { auditLongformPlan, cycleCapacity, inventoryState, mondayOf, slotProblems, summarizeInventory, weekLimit, shortsSlotFill } from '../scripts/lib/youtube-longform-audit.mjs';
 import { ConfigYoutubeLongformPlan } from '../scripts/lib/dataset-schemas-content.mjs';
 import { readDataset } from '../scripts/lib/dataset-io.mjs';
 const root = fileURLToPath(new URL('../', import.meta.url));
@@ -151,4 +151,21 @@ test('実際の計画と台帳で違反 0 件。成功指標に登録者数を�
   for (const s of plan.slots) for (const k of ['reader', 'harm', 'value', 'demand', 'next']) assert.ok(s.reason[k]);
   assert.doesNotMatch(JSON.stringify(plan.slots), /2027-\d{2}-\d{2}/);
   console.log(`年間の枠: 対象 ${r.targets} / 照合 ${r.checked} / 枠 ${r.slots} / 本数 ${r.planned} / 週の上限の合計 ${r.capacity}`);
+});
+
+test('ショートは親の枠の上限まで。枠の無い親からは作らない', () => {
+  const plan = {
+    slots: [{ id: 'a', shorts: { count: 1 } }, { id: 'b' }],
+    entries: [
+      { publicationId: 'x/one/youtube.longform', slot: 'a', action: 'finish' },
+      { publicationId: 'x/two/youtube.longform', slot: 'b', action: 'finish' },
+    ],
+  };
+  assert.deepEqual(shortsSlotFill(plan, [{ pack: 'x/one', key: 'k1' }]), { fill: { a: 1 }, errors: [], warnings: [] });
+  assert.match(shortsSlotFill(plan, [{ pack: 'x/one', key: 'k1' }, { pack: 'x/one', key: 'k2' }]).errors.join(), /枠の超過/);
+  assert.match(shortsSlotFill(plan, [{ pack: 'x/two', key: 'k1' }]).errors.join(), /割り当てが無い/);
+  assert.match(shortsSlotFill(plan, [{ pack: 'x/none', key: 'k1' }]).errors.join(), /割り当てが無い/);
+  const stocked = shortsSlotFill(plan, [{ pack: 'x/two', key: 'k1', stocked: true }]);
+  assert.deepEqual(stocked.errors, []);
+  assert.match(stocked.warnings.join(), /割り当てが無い/);
 });

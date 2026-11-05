@@ -72,12 +72,36 @@ export function slotProblems(plan, pub, day = null) {
 }
 
 /**
+ * ショートを親の通常動画の枠へ割り当てる。親の枠が無い台本と、枠の上限を超える台本を見つける。
+ * @param designs [{ pack, key, stocked }]。stocked は枠の導入より前に在庫へ入ったもので、警告に留める
+ */
+export function shortsSlotFill(plan, designs) {
+  const fill = new Map(plan.slots.filter((s) => s.shorts).map((s) => [s.id, 0]));
+  const errors = [], warnings = [];
+  for (const { pack, key, stocked } of designs) {
+    const entry = plan.entries.find((e) => e.publicationId === `${pack}/youtube.longform` && e.action !== 'reuse');
+    const slot = plan.slots.find((s) => s.id === entry?.slot);
+    if (!slot?.shorts) {
+      (stocked ? warnings : errors).push(`親の枠にショートの割り当てが無い: ${pack}/${key}`);
+      continue;
+    }
+    fill.set(slot.id, fill.get(slot.id) + 1);
+  }
+  for (const [id, n] of fill) {
+    const { count } = plan.slots.find((s) => s.id === id).shorts;
+    if (n > count) errors.push(`ショートの枠の超過: ${id} ${n} 本 / 上限 ${count} 本`);
+  }
+  return { fill: Object.fromEntries(fill), errors, warnings };
+}
+
+/**
  * 全件の照合。
- * @param input plan・publications（改訂を除く）・revisions・formats・calendar・exists・hasTarget
+ * @param input plan・publications（改訂を除く）・revisions・formats・calendar・exists・hasTarget・shortDesigns
  *   hasTarget(kind, id) は CTA の宛先が実在するか、exists(path) はファイルの実在
  */
-export function auditLongformPlan({ plan, publications, revisions = [], formats, calendar, exists, hasTarget }, today = todayJst()) {
-  const errors = [], warnings = [], pending = [];
+export function auditLongformPlan({ plan, publications, revisions = [], formats, calendar, exists, hasTarget, shortDesigns = [] }, today = todayJst()) {
+  const shorts = shortsSlotFill(plan, shortDesigns);
+  const errors = [...shorts.errors], warnings = [...shorts.warnings], pending = [];
   const { cycle } = plan;
   const cycleStart = cycle.enforceFrom;
   const byId = new Map(publications.map((p) => [p.id, p]));
@@ -172,5 +196,5 @@ export function auditLongformPlan({ plan, publications, revisions = [], formats,
     if (day && events.some((v) => v.kind === 'exam' && v.date === day)) errors.push(`試験日の公開: ${p.id} ${day}`);
   }
   if (today > cycle.reviewAt) warnings.push(`見直し日 ${cycle.reviewAt} を過ぎている。枠と目標を見直す`);
-  return { targets, checked, slots: plan.slots.length, planned, capacity, fill: Object.fromEntries(fill), errors, warnings, pending };
+  return { targets, checked, slots: plan.slots.length, planned, capacity, fill: Object.fromEntries(fill), shortsFill: shorts.fill, errors, warnings, pending };
 }
