@@ -1,5 +1,5 @@
 ---
-title: 通常動画の量産工程
+title: 動画の量産工程（通常動画・ショート）
 ---
 
 # 通常動画の量産工程
@@ -84,6 +84,27 @@ node --env-file=<.env.local> scripts/video-factory.mjs publish --packs <a,b>
 ```
 
 トークンの大半は代理エージェントの起動にかかる（2026-11-05 の実測: 13 体で約 100 万・1 体約 8 万）。機械の工程は `produce`・`finish` のようにコマンド 1 本へまとめ、代理を増やさない。判定の記録は監査役・QA 役が自分で行う。1 本で 12 枚前後を生成するので、Codex の利用枠も確かめる。
+
+## ショートの工程
+
+ショートは通常動画とは別に、`npm run shorts-factory` で作る。入口は `shorts-design.json`（論点の分割）で、`beats` の語りをつなぐと承認済みの台本の場面に一致しないと止まる。導入の `hook` だけが足せる語り。画面は表紙・論点ごとの図解・締めの全面画像で、尺は 20〜60 秒。
+
+```bash
+npm run shorts-factory -- plan --pack <資格>/<作品> --key <key>
+npm run shorts-factory -- generate --pack <資格>/<作品> --key <key>
+npm run shorts-factory -- audit-queue --pack <資格>/<作品> --key <key>   # ai-image-fidelity-auditor へ渡す
+npm run shorts-factory -- record-audit --pack <資格>/<作品> --key <key> --file <判定の JSON> --by ai-image-fidelity-auditor
+npm run shorts-factory -- adopt --pack <資格>/<作品> --key <key>
+npm run shorts-factory -- render --pack <資格>/<作品> --key <key>
+npm run shorts-factory -- record-review --pack <資格>/<作品> --key <key> --verdict pass --by yt-shorts-publisher-qa --reason "…"
+npm run media -- sync --work <資格>/<作品> --commit   # 採用画像を Drive へ保存する
+```
+
+- 下端の無地帯、9:16 以外、解像度不足は生成の時点で落ちる（`inspectShortImage`）。
+- 判定は通常動画と同じく画像の sha に付き、画面確認は動画の sha に付く。描き直すと両方やり直す。
+- 再開する公開行は `check-youtube-shorts` が `pop-poster-v3`・描画の記録・画面確認の pass を要求する。停止中の行は数えるだけで検査しない。
+- 投稿は既存の `youtube-shorts:stage` と `publish-video-pack`。方針の自動承認の対象は通常動画だけで、ショートは運営者が承認する。
+- 2級土木は `diagram-led` を優先するので対象外。Instagram リールの描画はまだこの工程に載っていない。
 
 ## 罠
 

@@ -43,12 +43,12 @@ const oneLine = (text) => String(text ?? '').replace(/\n/g, ' ');
 export const planPath = (pack) => `.tmp/media/${pack}/work/factory/plan.json`;
 export const packDirOf = (pack) => `content/sns/video-packs/${pack}`;
 
-export function readPlan(root, pack) {
-  return existsSync(join(root, planPath(pack))) ? readJson(root, planPath(pack)) : null;
+export function readPlan(root, pack, path = planPath(pack)) {
+  return existsSync(join(root, path)) ? readJson(root, path) : null;
 }
 
 /** 参照画像を手元へ揃える。.tmp/media に無ければ Drive から写す */
-function fileRef(root, rel) {
+export function fileRef(root, rel) {
   const abs = join(root, rel);
   if (!existsSync(abs) && rel.startsWith('.tmp/media/')) {
     const vault = resolveVaultRoot();
@@ -151,8 +151,8 @@ export async function inspectImage(bytes, kind) {
 }
 
 /** 未生成と不合格の項目だけを作る。回数の上限に達した項目は残す（勝手に通さない）。 */
-export async function generatePlan(root, pack, { concurrency = 3, generate = generateWithCodexAsync, log = () => {} } = {}) {
-  const plan = readPlan(root, pack);
+export async function generatePlan(root, pack, { concurrency = 3, generate = generateWithCodexAsync, log = () => {}, path: file = planPath(pack), inspect = inspectImage } = {}) {
+  const plan = readPlan(root, pack, file);
   if (!plan) throw new Error(`${pack}: 先に plan を作る`);
   const todo = plan.items.filter((i) => !i.raw && i.attempts < MAX_ATTEMPTS);
   let next = 0;
@@ -162,7 +162,7 @@ export async function generatePlan(root, pack, { concurrency = 3, generate = gen
     const out = await generate(prompt, null, { images: item.references.map((r) => join(root, r.path)) });
     if (!out) { item.lastError = '画像が出なかった'; log(`${item.id}: 画像が出なかった`); return; }
     const bytes = await sharp(readFileSync(out)).png().toBuffer();
-    const issues = await inspectImage(bytes, item.kind);
+    const issues = await inspect(bytes, item.kind);
     if (issues.length) { item.fix = issues.join('／'); item.lastError = item.fix; log(`${item.id}: ${item.fix}`); return; }
     const sha256 = hash(bytes);
     const path = `.tmp/media/${pack}/work/factory/raw-${item.id}.${sha256.slice(0, 8)}.png`;
@@ -174,7 +174,7 @@ export async function generatePlan(root, pack, { concurrency = 3, generate = gen
   await Promise.all(Array.from({ length: concurrency }, async () => {
     while (next < todo.length) await one(todo[next++]);
   }));
-  writeJson(root, planPath(pack), plan);
+  writeJson(root, file, plan);
   return summarize(plan);
 }
 
@@ -191,20 +191,20 @@ export function summarize(plan) {
 }
 
 /** 監査へ渡す項目。作った側の説明は渡さず、原稿と指示だけを渡す。 */
-export function auditQueue(root, pack) {
-  const plan = readPlan(root, pack);
+export function auditQueue(root, pack, { path = planPath(pack), label = (i) => `${pack} の通常動画の${i.kind === 'cover' ? '表紙' : `本文の場面 ${i.id}`}` } = {}) {
+  const plan = readPlan(root, pack, path);
   if (!plan) throw new Error(`${pack}: 先に plan を作る`);
   return plan.items.filter((i) => i.raw && i.audit?.sha !== i.raw.sha256).map((i) => ({
     figKey: i.id, kind: i.kind, img: join(root, i.raw.path), prompt: i.basePrompt,
-    用途の説明: `${pack} の通常動画の${i.kind === 'cover' ? '表紙' : `本文の場面 ${i.id}`}`,
-    references: i.kind === 'cover' ? i.references.map((r) => join(root, r.path)) : [],
+    用途の説明: label(i),
+    references: i.kind === 'body' ? [] : i.references.map((r) => join(root, r.path)),
   }));
 }
 
 /** 判定を記録する。fail は画像を外し、理由を次の生成へ渡す。 */
-export function recordAudit(root, pack, verdicts, { by }) {
+export function recordAudit(root, pack, verdicts, { by, path = planPath(pack) }) {
   if (!by) throw new Error('判定した担当の名前が要る');
-  const plan = readPlan(root, pack);
+  const plan = readPlan(root, pack, path);
   if (!plan) throw new Error(`${pack}: 先に plan を作る`);
   const byId = new Map(plan.items.map((i) => [i.id, i]));
   for (const v of verdicts) {
@@ -217,7 +217,7 @@ export function recordAudit(root, pack, verdicts, { by }) {
       Object.assign(item, { raw: null, audit: null, fix: v.reason });
     }
   }
-  writeJson(root, planPath(pack), plan);
+  writeJson(root, path, plan);
   return summarize(plan);
 }
 

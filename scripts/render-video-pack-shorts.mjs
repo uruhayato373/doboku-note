@@ -62,6 +62,8 @@ const storyboard = JSON.parse(readFileSync(join(packDir, 'storyboard.json'), 'ut
 const publish = JSON.parse(readFileSync(join(packDir, 'youtube.json'), 'utf8'));
 assertTemplateShortsAllowed(readJsonIf(packDir, 'pop-image.json'),
   (publish.shorts ?? []).filter(item => !args.key || item.key === args.key).map(item => item.key));
+// 2026-11-06: 標準は全面画像の shorts-factory。この定型カードの描画は preview と過去素材の確認にだけ使う
+if (!args['preview-only']) throw new Error('定型カードのショートは標準外です。npm run shorts-factory を使う（video-factory.md）');
 const coverDesignPath = join(packDir, 'cover-design.json');
 const coverDesign = existsSync(coverDesignPath)
   ? validateCoverDesign(JSON.parse(readFileSync(coverDesignPath, 'utf8')), { exam: EXAM_TO_PALETTE[manifest.exam] }) : null;
