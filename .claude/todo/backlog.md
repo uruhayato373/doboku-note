@@ -390,6 +390,20 @@
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-0991] gen-article-photo が Windows で codex を起動できず、失敗を握りつぶす
+タグ: [領域:管理] [時期:2026-11] [種類:不具合] [起票:2026-11-05]
+
+**起点**: 2026-11-05、DN-0990 の写真を `npm run gen-article-photo` で作ろうとして 2 回とも「画像が生成されなかった」で止まった。
+
+**原因**: `scripts/lib/codex-image.mjs` の `runCodex` は `execFileSync('codex', …)` を shell なしで呼ぶ。Windows では `codex` が `.cmd` のため ENOENT になり、catch が失敗を握りつぶす。別件で `~/.codex/config.toml` の既定モデル `gpt-6.1-sol` は ChatGPT アカウントで使えず、`-m gpt-6-astra` なら動く。
+
+**回避**: Bash から `codex exec -m gpt-6-astra` で生成し、`--from` で配置した。
+
+**やること**: Windows でも codex を起動できるようにし、起動の失敗を「画像が出なかった」と区別して出す。既定モデルの扱いを決める。`spawnCodex` も同じ形なので併せて直す。
+
+**完了条件**: Windows で `npm run gen-article-photo -- --fig <図キー> --prompt "…"` が生成まで通る。起動失敗の回帰テストがある。
+
+
 ### [DN-0990] 建設行政の体系の穴を埋める（新規 3 章・法令ページ 2 本・既存 5 章の補強）
 タグ: [領域:サイト] [時期:2026-11] [種類:制作] [起票:2026-11-05] [進行中]
 
