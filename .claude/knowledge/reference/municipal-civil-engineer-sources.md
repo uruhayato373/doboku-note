@@ -689,3 +689,7 @@ title: 自治体の土木担当シリーズで確かめた一次資料（骨子�
 - 地区計画は 828 都市・9,023 地区（令和7年3月31日現在）— https://www.mlit.go.jp/toshi/tosiko/toshi_tosiko_tk_000217.html
 - 都市計画運用指針の最新の改正は令和7年3月31日（第13版）— https://www.mlit.go.jp/toshi/city_plan/crd_city_plan_fr_000008.html
 - 令和2年法律第43号で居住誘導区域から災害レッドゾーンを原則除外し、防災指針を位置づけた — https://www.mlit.go.jp/toshi/city_plan/content/001348697.pdf
+- 高速道路会社6社と機構の発足は平成17年10月1日。報道発表は平成17年の同年10月の発足を示す — https://www.mlit.go.jp/kisha/kisha05/00/000526_3_.html
+- 第2次地方分権一括法は平成23年法律第105号。道路構造令の条例委任の関連は平成24年4月1日施行 — https://www.mlit.go.jp/road/sign/pdf/kouzourei_2.pdf p.12
+- 都市計画運用指針 第13版の頁は印刷頁で書く（PDF の通し頁は 9 頁後ろ）。地区施設と位置の指定は印刷 pp.187-188、防災指針と居住誘導区域の注意は印刷 p.41
+- 居住誘導区域に定めない区域は都市再生特別措置法施行令第30条
