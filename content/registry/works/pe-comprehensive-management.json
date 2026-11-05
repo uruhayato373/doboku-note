@@ -1149,10 +1149,10 @@
       "kind": "video-pack",
       "definition": "content/sns/video-packs/pe-comprehensive-management/persona-settei",
       "qa": {
-        "avg": 2.83,
-        "blocks": 0,
-        "at": "2026-09-01",
-        "by": "general-purpose (video-content-qa 代行・6軸)"
+        "avg": 1.7,
+        "blocks": 2,
+        "at": "2026-11-05",
+        "by": "Claude Code video-content-qa"
       }
     },
     {

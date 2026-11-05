@@ -2,6 +2,10 @@
   "schemaVersion": 1,
   "covers": {
     "longform": {
+      "character": {
+        "pose": "pop-red-pen",
+        "frame": "waist"
+      },
       "format": "longform",
       "exam": "pe-comprehensive",
       "headline": [
@@ -10,19 +14,18 @@
       ],
       "accentLine": 1,
       "subtitle": "",
-      "character": {
-        "pose": "pop-red-pen",
-        "frame": "waist"
-      },
-      "design": "pop-v2",
+      "design": "pop-poster-v3",
       "pop": {
         "variant": "write",
         "authority": "総監が制作"
       },
+      "layout": "diagram-led",
       "approvedImage": {
-        "path": ".tmp/media/pe-comprehensive-management/persona-settei/youtube.longform/cover.61ec583c.png",
-        "sha256": "61ec583cc31ce1ca7c57ba79279fa762803fc2ffbb43144a283f180eba8faf1f",
-        "specSha256": "a5c6c1e9d5a9995cdda77817b3dde339e70b8855509c2701e5c1806cf19cc1b3"
+        "path": ".tmp/media/pe-comprehensive-management/persona-settei/work/cover-pop.9d3c7c3a.png",
+        "sha256": "9d3c7c3a07d8970197dd34dc2a690e0005c6ce20fe0537643c8298701290d5e8",
+        "width": 1920,
+        "height": 1080,
+        "specSha256": "68f72479475dbdb6bc04475eee5b6f823a3e89b3f45df061a5c4386e63d78c05"
       }
     }
   }

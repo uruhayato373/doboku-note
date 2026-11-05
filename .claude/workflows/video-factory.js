@@ -42,7 +42,7 @@ const REVIEW = { type: 'object', properties: { verdict: { type: 'string', enum: 
 
 // モデルに判断させない段。コマンドを実行して結果を返すだけ
 const run = (label, phase, command) => agent(
-  `次のコマンドを実行し、結果を返す。Bash は timeout 600000 で実行し、run_in_background は使わない。timeout で止まったら同じコマンドをもう一度実行する（生成済みは飛ばされる）。ok は終了コードだけで決める（0 なら true）。出力の JSON の ok や unaudited は監査前の件数なので判定に使わない。コマンドを変えない・他の操作をしない・git を使わない。\n${command}`,
+  `次のコマンドを実行し、結果を返す。Bash は timeout 600000 で実行し、run_in_background は使わない。timeout で止まったら同じコマンドをもう一度実行する（生成済みは飛ばされる）。ok は最後の行の EXIT= の数字だけで決める（0 なら true、それ以外は false）。出力の JSON の ok や unaudited は監査前の件数なので判定に使わない。コマンドを変えない・他の操作をしない・git を使わない。\n( ${command} ); echo "EXIT=$?"`,
   { label, phase, schema: RUN, model: 'haiku', effort: 'low' })
 
 const auditPrompt = (pack, round) => `動画 ${pack} の AI 生成画像を判定する。\`${CLI} audit-queue --pack ${pack}\` の項目を 1 枚ずつ Read で見て、定義の軸で判定する（文字の軸を必ず見る）。指示にある文字と 1 字ずつ照合する。作り直しはしない。判定できない画像は unjudged に入れて記録しない。

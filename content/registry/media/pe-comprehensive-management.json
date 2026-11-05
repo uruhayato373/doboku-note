@@ -1620,21 +1620,224 @@
       "id": "pe-comprehensive-management/persona-settei/youtube.longform/cover",
       "role": "cover",
       "type": "image/png",
-      "sha256": "61ec583cc31ce1ca7c57ba79279fa762803fc2ffbb43144a283f180eba8faf1f",
-      "bytes": 912819,
-      "width": 1920,
-      "height": 1080,
+      "sha256": "9d3c7c3a07d8970197dd34dc2a690e0005c6ce20fe0537643c8298701290d5e8",
+      "bytes": 676740,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/pe-comprehensive-management/persona-settei/youtube.longform/cover.61ec583c.png"
+        "path": ".tmp/media/pe-comprehensive-management/persona-settei/youtube.longform/cover.9d3c7c3a.png"
       },
       "provenance": {
-        "kind": "template",
-        "by": "youtube-covers",
-        "spec": "content/sns/video-packs/pe-comprehensive-management/persona-settei/cover-design.json#covers/longform",
-        "specSha256": "a5c6c1e9d5a9995cdda77817b3dde339e70b8855509c2701e5c1806cf19cc1b3"
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "添付の1枚目はdoboku-noteで採用済みの全面POP動画表紙の意匠参照、2枚目は先生キャラクターの同一性参照です。 新規の16:9横長（1920×1080想定）日本語YouTube動画表紙を作る。鮮やかな青・シアン・ネイビー、黄色と白の極太文字、明確な黒い輪郭、少量の赤、斜めの面と勢いのある背景、右側に先生キャラクターを大きく。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。 左〜中央に正確に『論文の立場』『どう選ぶ？』を大きく配置。上部の黄色帯に小さく『総監が制作』。 誤字・余計な文字・合格保証・URL・価格・不明な実績を足さない。文字ブロックの黒い縁取りまで含めて左右8%の内側へ収め（画面の左端から8%は背景だけ）、顔は左右5%・上下5%内、下端18%は字幕が重なるので重要な文字や顔を置かず背景が全面に続く。",
+        "promptSha256": "899628523817d3c35f835c0b3424a5932cce5d6c7bb3947753082102aaea7454",
+        "generatedAt": "2026-11-05T10:51:14.243Z"
       },
-      "legacyPaths": []
+      "width": 1920,
+      "height": 1080,
+      "legacyPaths": [
+        ".tmp/media/pe-comprehensive-management/persona-settei/work/cover-pop.9d3c7c3a.png"
+      ]
+    },
+    {
+      "id": "pe-comprehensive-management/persona-settei/youtube.longform/scene-001",
+      "role": "scene-001",
+      "type": "image/png",
+      "sha256": "9d3c7c3a07d8970197dd34dc2a690e0005c6ce20fe0537643c8298701290d5e8",
+      "bytes": 676740,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/persona-settei/youtube.longform/scene-001.9d3c7c3a.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "添付の1枚目はdoboku-noteで採用済みの全面POP動画表紙の意匠参照、2枚目は先生キャラクターの同一性参照です。 新規の16:9横長（1920×1080想定）日本語YouTube動画表紙を作る。鮮やかな青・シアン・ネイビー、黄色と白の極太文字、明確な黒い輪郭、少量の赤、斜めの面と勢いのある背景、右側に先生キャラクターを大きく。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。 左〜中央に正確に『論文の立場』『どう選ぶ？』を大きく配置。上部の黄色帯に小さく『総監が制作』。 誤字・余計な文字・合格保証・URL・価格・不明な実績を足さない。文字ブロックの黒い縁取りまで含めて左右8%の内側へ収め（画面の左端から8%は背景だけ）、顔は左右5%・上下5%内、下端18%は字幕が重なるので重要な文字や顔を置かず背景が全面に続く。",
+        "promptSha256": "899628523817d3c35f835c0b3424a5932cce5d6c7bb3947753082102aaea7454",
+        "generatedAt": "2026-11-05T10:51:14.243Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-comprehensive-management/persona-settei/youtube.longform/scene-002",
+      "role": "scene-002",
+      "type": "image/png",
+      "sha256": "1d068e6fc825f03633a21fa2c183fc19857a28c578b148064bb949c2f908a4e5",
+      "bytes": 1473180,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/persona-settei/youtube.longform/scene-002.1d068e6f.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、鮮やかな青・シアン・ネイビーの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『誤解：分野が近ければどれでもいい』。 図に入れる文字: 『先に確定するのは発注者か受注者か』 『立場の違いが答案の骨格を左右する』。 この場面の説明（文字にしない）: 立場は分野が近ければどれでもいい、と思われがちです。実際には、まず発注者か受注者かという立場を確定させることが先で、分野選びはその後になります。 前回の不合格の理由を直す: 文字: 見出しに指示にない括弧『』が描かれ、さらに指示にない『発注者』『受注者』のラベルが加わっている（余計な文字を足さない指示に反する）。指定2文は一致",
+        "promptSha256": "d73895aaba5e22ded95b91cdb578cb92e06f6041a180819dbc3aaa47f45c5565",
+        "generatedAt": "2026-11-05T10:51:14.243Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-comprehensive-management/persona-settei/youtube.longform/scene-003",
+      "role": "scene-003",
+      "type": "image/png",
+      "sha256": "7049abd6e80d263c3ae40a2a46e183c3f1a60669f2a62d97b74cef2efc49d1a4",
+      "bytes": 1815157,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/persona-settei/youtube.longform/scene-003.7049abd6.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、鮮やかな青・シアン・ネイビーの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『まず立場を決める』。 図に入れる文字: 『発注者＝事業監理・予算執行・関係機関調整』 『受注者＝技術判断・成果品質・元請下請調整』。 この場面の説明（文字にしない）: 発注者、たとえば自治体は事業監理・予算執行・住民や関係機関との調整が中心です。受注者、コンサルやゼネコンは技術的判断・成果品質・元請けと下請けの調整が主戦場です。この違いが答案の骨格を決めます。",
+        "promptSha256": "0e88df725b5fd544cc64b88a6cdbb4b575b8f4f3df0e613aacc6bd9909d76c3e",
+        "generatedAt": "2026-11-05T10:51:14.243Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-comprehensive-management/persona-settei/youtube.longform/scene-004",
+      "role": "scene-004",
+      "type": "image/png",
+      "sha256": "4c9d20c525667222f00c335850e7a64482246b5da84067e17c3ddce29486993e",
+      "bytes": 1369664,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/persona-settei/youtube.longform/scene-004.4c9d20c5.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、鮮やかな青・シアン・ネイビーの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『経験座から選ぶ』。 図に入れる文字: 『誰から受け、誰に指示するかで判断』 『経験にない立場は前提条件から不自然に』。 この場面の説明（文字にしない）: 立場を選ぶ軸は、日常業務で誰から仕事を受け、誰に指示を出しているかです。経験にない立場を無理に選ぶと、Ⅰで置いた前提条件が不自然になり、そこから先の施策も経験から離れていきます。これが越権のリスクです。",
+        "promptSha256": "30ec1860c4aa13cda2092e729285d68c99aaafb78cfb1b4ab9933d311786c933",
+        "generatedAt": "2026-11-05T10:51:14.243Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-comprehensive-management/persona-settei/youtube.longform/scene-005",
+      "role": "scene-005",
+      "type": "image/png",
+      "sha256": "46bf3da58e46d89833c05ecf5044040e936d8f631b05f081144262b0ea90c759",
+      "bytes": 1577085,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/persona-settei/youtube.longform/scene-005.46bf3da5.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、鮮やかな青・シアン・ネイビーの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『分野が一致しなくても』。 図に入れる文字: 『立場優先→次に近い分野を選ぶ』 『管理対象と前提条件を入れ替えて応用』。 この場面の説明（文字にしない）: 総監は分野横断の試験です。自分の分野にぴったりの立場がなくても、まず発注者か受注者かを優先し、次に最も近い分野を選べば、管理対象と前提条件を入れ替えるだけで対応できます。",
+        "promptSha256": "ed1efefc03ecb599fe7883115e915911b7337606bdb0a9343ec6e682b80c354b",
+        "generatedAt": "2026-11-05T10:51:14.243Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-comprehensive-management/persona-settei/youtube.longform/scene-006",
+      "role": "scene-006",
+      "type": "image/png",
+      "sha256": "9b050c68991a48c0554455ab09a3f5b6a2ab78b2549d05d662beac4dfa5f416b",
+      "bytes": 1713068,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/persona-settei/youtube.longform/scene-006.9b050c68.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、鮮やかな青・シアン・ネイビーの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『立場の選択＝Ⅰの前提条件を決める』。 図に入れる文字: 『評価の大半は管理対象と前提条件の設定』 『立場が合うほど経験を反映しやすい』。 この場面の説明（文字にしない）: 総監記述式は、管理対象と前提条件の設定で評価の大半が決まり、それは発注者か受注者かで大きく変わります。立場に合った選び方をすれば、自分の経験を答案に反映しやすくなります。",
+        "promptSha256": "ec40bd5cd61d4bb6f257ac4ddeaf5694a8a918fca95ca5a4a3029873f4546cac",
+        "generatedAt": "2026-11-05T10:51:14.243Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-comprehensive-management/persona-settei/youtube.longform/scene-007",
+      "role": "scene-007",
+      "type": "image/png",
+      "sha256": "5a93174dd63f0a230183d5b96c1dd6953a5d8235490d1b3c44284d771562cf84",
+      "bytes": 1734174,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/persona-settei/youtube.longform/scene-007.5a93174d.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、鮮やかな青・シアン・ネイビーの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『まとめ　立場の選び方』。 図に入れる文字: 『① 発注者か受注者かを先に決める』 『② 経験座で選び越権を避ける』 『③ 分野は立場が合えば応用できる』。 この場面の説明（文字にしない）: まとめます。まず発注者か受注者かを決める。経験座から立場を選び、越権を避ける。分野が完全一致しなくても立場が合えば応用できます。",
+        "promptSha256": "99ff2bf8cb7e090bdb379cb3d895d9094593711ac4ad77b47ec94e1a0c00abca",
+        "generatedAt": "2026-11-05T10:51:14.243Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-comprehensive-management/persona-settei/youtube.longform/scene-008",
+      "role": "scene-008",
+      "type": "image/png",
+      "sha256": "c32f9b659ceed5cd89f3d6255d0f00f61c4b3befbe0c90a3ea47849e11cd4978",
+      "bytes": 1647756,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/persona-settei/youtube.longform/scene-008.c32f9b65.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、鮮やかな青・シアン・ネイビーの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『自分の立場の型を最短で』。 図に入れる文字: 『総監記述式 完全パック（概要欄リンク）』。 この場面の説明（文字にしない）: 立場ごとの管理対象パターンの型と、記述式の骨組みまでをまとめた記述式完全パックを用意しています。概要欄のリンクからご覧ください。ご視聴ありがとうございました。 前回の不合格の理由を直す: 文字: 見出しに指示にない括弧『』が描かれている（余計な文字）。ほかの『自分の立場の型を最短で』『総監記述式 完全パック（概要欄リンク）』は一致",
+        "promptSha256": "5443cb04ad4aace8dd139f5010831873f73733558c7ed8551f750a0728f2d21f",
+        "generatedAt": "2026-11-05T10:51:14.243Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-comprehensive-management/persona-settei/youtube.longform/subtitles",
+      "role": "subtitles",
+      "type": "text/x-ssa",
+      "sha256": "c7348905369180794dec107c8ddad21c496468e87ea26f4cb5f643a4038214db",
+      "bytes": 4189,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/persona-settei/youtube.longform/subtitles.c7348905.ass"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/pe-comprehensive-management/persona-settei/storyboard.json"
+      }
+    },
+    {
+      "id": "pe-comprehensive-management/persona-settei/youtube.longform/video",
+      "role": "video",
+      "type": "video/mp4",
+      "sha256": "5f85632c3f3e5c8d950f42ddb860425fdb14e7fe05d543ca782d4554b926cbc2",
+      "bytes": 14484077,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/persona-settei/youtube.longform/video.5f85632c.mp4"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/pe-comprehensive-management/persona-settei/storyboard.json",
+        "specSha256": "997ca595082f1779771769f11723944b9094df4a3cf35a13b48fe0577e14cb08",
+        "renderInputSha256": "f43be4d0289b9f1fa3f0ec92697d815631b7ae3e654c079e026075c076d51d3e",
+        "tts": {
+          "engine": "VOICEVOX",
+          "speaker": 13,
+          "credit": "VOICEVOX:青山龍星"
+        }
+      },
+      "durationSec": 108.6
     },
     {
       "id": "pe-comprehensive-management/r8-yosou-theme/youtube.longform/cover",

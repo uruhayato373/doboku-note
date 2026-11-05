@@ -10,7 +10,9 @@
       "visual": {
         "kind": "cover",
         "heading": "担い手確保と生産性向上",
-        "items": ["技術士 建設部門 二次・必須科目Ⅰ／2024年問題"]
+        "items": [
+          "技術士 建設部門 二次・必須科目Ⅰ／2024年問題"
+        ]
       }
     },
     {
@@ -21,7 +23,10 @@
       "caption": "触れるだけでなく数字で構造化",
       "visual": {
         "heading": "誤解：不足に触れれば十分",
-        "items": ["求められるのは多面的な課題抽出", "背景を数字で・施策を3つのねらいへ"]
+        "items": [
+          "求められるのは多面的な課題抽出",
+          "背景を数字で・施策を3つのねらいへ"
+        ]
       },
       "sourceRef": "content/site/pe-construction/ninaite-kakuho-seisansei/article.mdx"
     },
@@ -33,7 +38,11 @@
       "caption": "形を変えて繰り返し出るテーマ",
       "visual": {
         "heading": "過去の問われ方",
-        "items": ["R01：人口減少・働き手不足", "R04：技術革新・DXと働き方改革", "R07：持続可能な建設業・担い手"]
+        "items": [
+          "R01：人口減少・働き手不足",
+          "R04：技術革新・DXと働き方改革",
+          "R07：持続可能な建設業・担い手"
+        ]
       },
       "sourceRef": "content/site/pe-construction/ninaite-kakuho-seisansei/article.mdx"
     },
@@ -45,7 +54,11 @@
       "caption": "背景は数字で語る",
       "visual": {
         "heading": "構造的背景を数字で",
-        "items": ["就業者数：685万人→477万人（1997→2024）", "55歳以上37%・29歳以下12%", "2024年問題：月45時間・年360時間の上限規制"]
+        "items": [
+          "就業者数：685万人→477万人（1997→2024）",
+          "55歳以上37%・29歳以下12%",
+          "2024年問題：月45時間・年360時間の上限規制"
+        ]
       },
       "sourceRef": "content/site/pe-construction/ninaite-dx-ronbun-keyword/article.mdx"
     },
@@ -57,7 +70,11 @@
       "caption": "施策4本柱を3つのねらいへ対応",
       "visual": {
         "heading": "施策4本柱と3つのねらい",
-        "items": ["週休2日・適正工期／賃金処遇改善", "多様な担い手確保／i-Constructionで省人化", "第三次・担い手3法もこの3本柱に対応"]
+        "items": [
+          "週休2日・適正工期／賃金処遇改善",
+          "多様な担い手確保／i-Constructionで省人化",
+          "第三次・担い手3法もこの3本柱に対応"
+        ]
       },
       "sourceRef": "content/site/pe-construction/ninaite-kakuho-seisansei/article.mdx"
     },
@@ -69,7 +86,11 @@
       "caption": "発注者視点で答案の差をつける",
       "visual": {
         "heading": "発注者視点と4部構成",
-        "items": ["工期設定・積算は発注者の責任", "歩切り防止・適正な予定価格まで論じる", "課題→解決策→リスク→倫理の骨格へ"]
+        "items": [
+          "工期設定・積算は発注者の責任",
+          "歩切り防止・適正な予定価格まで論じる",
+          "課題→解決策→リスク→倫理の骨格へ"
+        ]
       },
       "sourceRef": "content/site/pe-construction/ninaite-kakuho-seisansei/article.mdx"
     },
@@ -81,7 +102,11 @@
       "caption": "数字→3つのねらい→発注者視点",
       "visual": {
         "heading": "まとめ",
-        "items": ["① 背景を数字で構造化する", "② 施策4本柱を3つのねらいへ対応づける", "③ 発注者視点の制度設計まで書く"]
+        "items": [
+          "① 背景を数字で構造化する",
+          "② 施策4本柱を3つのねらいへ対応づける",
+          "③ 発注者視点の制度設計まで書く"
+        ]
       }
     },
     {
@@ -93,8 +118,17 @@
       "visual": {
         "kind": "cover",
         "heading": "答案の形は概要欄へ",
-        "items": ["必須科目Ⅰ 模範解答マガジン（概要欄リンク）"]
+        "items": [
+          "必須科目Ⅰ 模範解答マガジン（概要欄リンク）"
+        ]
       }
     }
-  ]
+  ],
+  "imageDesign": {
+    "mode": "codex-pop",
+    "scope": "all-body",
+    "revision": "body-diagram-20261105",
+    "coverRevision": "cover-pop-20261105",
+    "layout": "diagram-led"
+  }
 }
