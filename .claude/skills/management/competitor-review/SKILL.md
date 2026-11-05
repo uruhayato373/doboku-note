@@ -10,7 +10,7 @@ domain: strategy
 
 競合の**公開データ（価格/品揃え/フォロワー/更新頻度/エンゲージ）を再取得**し、前回スナップショットからの変化を起点に差別化ポジションを再評価する。四半期サイクル。note / ココナラの機械取得は土曜の Mac の収集（weekly-collect の `competitors` 段・四半期の最初の土曜だけ）が行い（旧 `competitor-scan.yml` は 2026-10-26 に外した・Instagram は SNS 保留で取らない）、本スキルは取得済みデータの意味評価を担う。X と YouTube は `npm run check-competitor-scan-due` が DUE を返したとき、または重要な競合の動きを察知したときに手動取得から回す。
 
-`--platform note|x|ig|coconala|youtube|all`（既定 all）。**誰を追跡するか**の正本は `config/competitors.json`（取得元ごとの枠）（`exams` は `qualification-registry.json` の資格 id・`npm run check-qualification-market` が検査）、**資格ごとの混み具合**の正本は市場スキャン（`data/analysis/qualification-market/*.json`・検索語とタイトル条件は `market-scan.json`）で、並べて見るのは `npm run qualification-market`／管理画面 戦略＞資格と市場＞展開の判断。文章の真実源: 価格/品揃え軸=[09_販売チャネル競合分析.md](../../../../docs/strategy/09_販売チャネル競合分析.md)、コンテンツ型/エンゲージ軸=[競合調査（資格別）](../../../../docs/reviews/competitors/README.md) の SNS競合節。
+`--platform note|x|ig|coconala|youtube|all`（既定 all。講座の企業は手順の中の目視の項）。**誰を追跡するか**の正本は `config/competitors.json`（取得元ごとの枠）（`exams` は `qualification-registry.json` の資格 id・`npm run check-qualification-market` が検査）、**資格ごとの混み具合**の正本は市場スキャン（`data/analysis/qualification-market/*.json`・検索語とタイトル条件は `market-scan.json`）で、並べて見るのは `npm run qualification-market`／管理画面 戦略＞資格と市場＞展開の判断。文章の真実源: 価格/品揃え軸=[09_販売チャネル競合分析.md](../../../../docs/strategy/09_販売チャネル競合分析.md)、コンテンツ型/エンゲージ軸=[競合調査（資格別）](../../../../docs/reviews/competitors/README.md) の SNS競合節。
 
 ## 手順
 
@@ -42,6 +42,7 @@ npm run scan-qualification-market -- --channel youtube   # YouTube（追跡チ�
 npm run scout-youtube-competitors               # YouTube（追跡チャンネルの通常動画100本の再生・尺・題名の語ごとの中央値・yt-dlp の一覧・手動）
 ```
 
+- 講座の企業（`config/competitors.json` の `courses`）は取得スクリプトを持たない。四半期に公式ページを見て、観測日と出典 URL つきで `data/courses/competitors/YYYY-MM-DD.json`（台帳 `courses.competitors`）を足す。値は `/strategy/competitors?channel=courses` に出る。
 - 各 scout の共通 snapshot schema: `{ profile, counts, price(min/median/max/bands), cadence, drift[], platformExtra }`。出力は `data/{note,coconala,x,instagram,youtube}/competitors/YYYY-MM-DD.json`（台帳 `<取得元>.competitors`・時系列 SSOT。最新ポインタは持たず時系列の最新を読む。部分実行は `.tmp/` に置く）
 - コンソール末尾の**「前回比ドリフト」**を必ず読む（価格改定・新商品・休眠・新規参入）
 - note は `--exam <tag>` で試験別に切れる（部分実行=履歴を汚さない）

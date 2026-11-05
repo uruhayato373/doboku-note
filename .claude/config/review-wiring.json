@@ -32,6 +32,12 @@
           "role": "判断"
         },
         {
+          "command": "check-issue-map",
+          "label": "イシューマップの判定と主張の更新",
+          "stage": "計画・運用",
+          "role": "判断"
+        },
+        {
           "command": "sales-summary",
           "label": "note 売上の集計",
           "stage": "受取・販売",
@@ -374,6 +380,12 @@
           "command": "business-review",
           "label": "資格別 KPI・受取額と目標の差",
           "stage": "受取・販売",
+          "role": "判断"
+        },
+        {
+          "command": "check-issue-map",
+          "label": "イシューマップの判定と主張の更新",
+          "stage": "計画・運用",
           "role": "判断"
         },
         {

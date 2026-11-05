@@ -10,7 +10,7 @@ import { dueJudgments, issueMapProblems } from './lib/issue-map.mjs';
 import { todayJst } from './lib/jst-date.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const { due } = parseCliArgs(process.argv.slice(2), { due: { type: 'boolean' } });
+const { due } = parseCliArgs({ due: { type: 'boolean' } });
 const { doc, index, problems, checked } = issueMapProblems(ROOT);
 
 console.log(`[check-issue-map] マップ ${checked.maps} / サブイシュー ${checked.leaves} / 指標の参照 ${checked.metrics} / DN の参照 ${checked.dns} / 競合の参照 ${checked.competitors} を検査 / 不整合 ${problems.length} 件`);
