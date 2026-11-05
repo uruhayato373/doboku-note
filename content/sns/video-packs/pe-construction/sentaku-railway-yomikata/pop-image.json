@@ -87,7 +87,7 @@
           "path": ".tmp/media/pe-construction/sentaku-railway-yomikata/work/factory/raw-cover.b985bc29.png",
           "sha256": "b985bc29bfad941af762752b2244259a36b0d3433320fc13d28952e893dc5463"
         },
-        "generatedAt": "2026-11-05T21:20:17.617Z"
+        "generatedAt": "2026-11-05T21:38:01.855Z"
       },
       "copy": {
         "exam": "pe-construction",
@@ -109,7 +109,7 @@
       },
       "review": {
         "status": "ai-reviewed",
-        "checkedAt": "2026-11-05T21:20:17.617Z",
+        "checkedAt": "2026-11-05T21:38:01.855Z",
         "by": "ai-image-fidelity-auditor",
         "reason": "文字: 『総監が制作』『鉄道』『テーマの読み方』が指示どおり一字も違わず、先生は黒髪・黒縁眼鏡・ひげ・白ヘルメット・紺作業服とネクタイ・黄白反射帯で手指も破綻なし。鉄道高架橋の背景も成立",
         "userImageReview": "pending"
@@ -140,7 +140,7 @@
               "path": ".tmp/media/pe-construction/sentaku-railway-yomikata/work/factory/raw-premise.54839cac.png",
               "sha256": "54839cac6dd835663dd496a917e11edbd7ea336ec73b194e0ee51f7b510aeabb"
             },
-            "generatedAt": "2026-11-05T21:20:17.617Z"
+            "generatedAt": "2026-11-05T21:38:01.855Z"
           },
           "output": {
             "path": ".tmp/media/pe-construction/sentaku-railway-yomikata/work/premise-diagram.071df71f.png",
@@ -154,7 +154,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-05T21:20:17.617Z",
+            "checkedAt": "2026-11-05T21:38:01.855Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "文字: 見出しと『軌道：R01〜R08の8年すべて』『駅：R02・R04・R05・R06・R08』が指示と一字ずつ一致、軌道と駅の図も成立し余計な文字なし",
             "userReview": "pending",
@@ -177,7 +177,7 @@
               "path": ".tmp/media/pe-construction/sentaku-railway-yomikata/work/factory/raw-track.8428137c.png",
               "sha256": "8428137c0cf8640b4ff47b6a44ff6baeafa2625ddc8c8217d3e92b9b37d2ccb7"
             },
-            "generatedAt": "2026-11-05T21:20:17.617Z"
+            "generatedAt": "2026-11-05T21:38:01.855Z"
           },
           "output": {
             "path": ".tmp/media/pe-construction/sentaku-railway-yomikata/work/track-diagram.8428137c.png",
@@ -191,7 +191,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-05T21:20:17.617Z",
+            "checkedAt": "2026-11-05T21:38:01.855Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "文字: 見出しと3組の年度・テーマ文字が指示と一致、軌道変位・カント・継目の遊間・分岐器の図も内容に合い崩れなし",
             "userReview": "pending",
@@ -214,7 +214,7 @@
               "path": ".tmp/media/pe-construction/sentaku-railway-yomikata/work/factory/raw-maintenance.06162cd4.png",
               "sha256": "06162cd40c2f029e0d65eaa6e4b13146f72851523bd386d48361366a792923f0"
             },
-            "generatedAt": "2026-11-05T21:20:17.617Z"
+            "generatedAt": "2026-11-05T21:38:01.855Z"
           },
           "output": {
             "path": ".tmp/media/pe-construction/sentaku-railway-yomikata/work/maintenance-diagram.bbeef980.png",
@@ -228,7 +228,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-05T21:20:17.617Z",
+            "checkedAt": "2026-11-05T21:38:01.855Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "文字: 見出し、『Ⅲ：R06 140年のインフラ維持管理』『II-1：R02検査・R04健全度・R07検査』が指示と一致、トラス橋→点検→確認の図も成立",
             "userReview": "pending",
@@ -251,7 +251,7 @@
               "path": ".tmp/media/pe-construction/sentaku-railway-yomikata/work/factory/raw-society.5697e3a2.png",
               "sha256": "5697e3a220db41d652c185e1d1c2f78d175c5382bc4504313189d36d4c079408"
             },
-            "generatedAt": "2026-11-05T21:20:17.617Z"
+            "generatedAt": "2026-11-05T21:38:01.855Z"
           },
           "output": {
             "path": ".tmp/media/pe-construction/sentaku-railway-yomikata/work/society-diagram.797bc422.png",
@@ -265,7 +265,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-05T21:20:17.617Z",
+            "checkedAt": "2026-11-05T21:38:01.855Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "文字: 見出しと『防災系：R02・R04・R07・R08』『人口減少・担い手：R01・R03・R04・R07』が指示と一字ずつ一致、余計な文字なし",
             "userReview": "pending",
@@ -288,7 +288,7 @@
               "path": ".tmp/media/pe-construction/sentaku-railway-yomikata/work/factory/raw-owner-view.1dd9c448.png",
               "sha256": "1dd9c4488dbb1ce6d1e4930c5eda0dd18a31b944123890bc2f05ec86a6da250b"
             },
-            "generatedAt": "2026-11-05T21:20:17.617Z"
+            "generatedAt": "2026-11-05T21:38:01.855Z"
           },
           "output": {
             "path": ".tmp/media/pe-construction/sentaku-railway-yomikata/work/owner-view-diagram.97412b48.png",
@@ -302,7 +302,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-05T21:20:17.617Z",
+            "checkedAt": "2026-11-05T21:38:01.855Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "文字: 見出し、『自治体×鉄道事業者の連携事業』『R05 II-1-3／R04 II-2-1』が指示と一致、高架線路・庁舎・車両の図も実物として成立",
             "userReview": "pending",
@@ -325,7 +325,7 @@
               "path": ".tmp/media/pe-construction/sentaku-railway-yomikata/work/factory/raw-summary.425ed3eb.png",
               "sha256": "425ed3ebe932b280b03add39109d1ee7e3ebef0a596b9cf48b2def9df67b4612"
             },
-            "generatedAt": "2026-11-05T21:20:17.617Z"
+            "generatedAt": "2026-11-05T21:38:01.855Z"
           },
           "output": {
             "path": ".tmp/media/pe-construction/sentaku-railway-yomikata/work/summary-diagram.eaca2790.png",
@@ -339,7 +339,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-05T21:20:17.617Z",
+            "checkedAt": "2026-11-05T21:38:01.855Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "文字: 『まとめ：優先順位』と①〜④の4項目が指示と一字ずつ一致、階段状の優先順位図も本文の4段と矛盾なし",
             "userReview": "pending",
@@ -362,7 +362,7 @@
               "path": ".tmp/media/pe-construction/sentaku-railway-yomikata/work/factory/raw-cta.8cdff7c6.png",
               "sha256": "8cdff7c6f62a3c90c5058c38a4fd50b23470786420617b69e755f049e4356f02"
             },
-            "generatedAt": "2026-11-05T21:20:17.617Z"
+            "generatedAt": "2026-11-05T21:38:01.855Z"
           },
           "output": {
             "path": ".tmp/media/pe-construction/sentaku-railway-yomikata/work/cta-diagram.8cdff7c6.png",
@@ -376,7 +376,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-05T21:20:17.617Z",
+            "checkedAt": "2026-11-05T21:38:01.855Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "文字: 『続きは概要欄で』『鉄道マガジン：R03〜R07の模範解答』『年度別の出題テーマ：サイトの無料記事』が指示と一致、アイコンも崩れなし（円が左右端に寄る点は忠実性の範囲外）",
             "userReview": "pending",
