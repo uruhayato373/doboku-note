@@ -10,7 +10,9 @@
       "visual": {
         "kind": "cover",
         "heading": "模範解答の正しい使い方",
-        "items": ["技術士 建設部門・必須科目I"]
+        "items": [
+          "技術士 建設部門・必須科目I"
+        ]
       }
     },
     {
@@ -21,7 +23,10 @@
       "caption": "読める・書けるは別の能力",
       "visual": {
         "heading": "誤解：読んで理解すれば書ける",
-        "items": ["読解と再現は別の能力", "この距離が本番の白紙で手を止める"]
+        "items": [
+          "読解と再現は別の能力",
+          "この距離が本番の白紙で手を止める"
+        ]
       },
       "sourceRef": "content/site/pe-construction/hissu-kamoku-kaitourei/article.mdx"
     },
@@ -33,7 +38,11 @@
       "caption": "解答例を3層に分けて読む",
       "visual": {
         "heading": "解答例を読む3層",
-        "items": ["設問層：設問と段落の対応", "骨子層：論点の圧縮（最重要）", "展開層：字数内の肉付け"]
+        "items": [
+          "設問層：設問と段落の対応",
+          "骨子層：論点の圧縮（最重要）",
+          "展開層：字数内の肉付け"
+        ]
       },
       "sourceRef": "content/site/pe-construction/hissu-kamoku-kaitourei/article.mdx"
     },
@@ -45,7 +54,11 @@
       "caption": "骨子層は逆圧縮して取り出す",
       "visual": {
         "heading": "骨子層の逆圧縮",
-        "items": ["観点とキーワードだけに圧縮する", "例：ハード対策／ソフト対策／統合的視点", "見ながら自分の言葉で展開し直せるか"]
+        "items": [
+          "観点とキーワードだけに圧縮する",
+          "例：ハード対策／ソフト対策／統合的視点",
+          "見ながら自分の言葉で展開し直せるか"
+        ]
       },
       "sourceRef": "content/site/pe-construction/hissu-kamoku-kaitourei/article.mdx"
     },
@@ -57,7 +70,11 @@
       "caption": "骨子を評価項目に対応づける",
       "visual": {
         "heading": "骨子と評価項目を突き合わせる",
-        "items": ["各論点に対応する評価項目を書き添える", "1項目が複数の設問部にまたがることもある", "薄い項目＝本番で失点しやすい弱点"]
+        "items": [
+          "各論点に対応する評価項目を書き添える",
+          "1項目が複数の設問部にまたがることもある",
+          "薄い項目＝本番で失点しやすい弱点"
+        ]
       },
       "sourceRef": "content/site/pe-construction/hissu-kamoku-kaitourei/article.mdx"
     },
@@ -69,7 +86,11 @@
       "caption": "通読・逆圧縮・置換の順で読む",
       "visual": {
         "heading": "読む順序",
-        "items": ["1. 通読：型の共通性をつかむ", "2. 逆圧縮：骨子層を抜き出す", "3. 置換：自分の専門・経験に差し替える"]
+        "items": [
+          "1. 通読：型の共通性をつかむ",
+          "2. 逆圧縮：骨子層を抜き出す",
+          "3. 置換：自分の専門・経験に差し替える"
+        ]
       },
       "sourceRef": "content/site/pe-construction/hissu-kamoku-kaitourei/article.mdx"
     },
@@ -81,7 +102,11 @@
       "caption": "詰まったら論点の構造を借りる",
       "visual": {
         "heading": "置換に詰まったときの発想",
-        "items": ["表面の言葉でなく論点の構造に着目", "分類の軸・選定理由・リスクの方向性", "同じ骨格に自分の素材を載せる"]
+        "items": [
+          "表面の言葉でなく論点の構造に着目",
+          "分類の軸・選定理由・リスクの方向性",
+          "同じ骨格に自分の素材を載せる"
+        ]
       },
       "sourceRef": "content/site/pe-construction/hissu-kamoku-kaitourei/article.mdx"
     },
@@ -93,7 +118,12 @@
       "caption": "3層・逆圧縮・対応づけ・置換",
       "visual": {
         "heading": "まとめ",
-        "items": ["① 設問層・骨子層・展開層に分解", "② 骨子層を逆圧縮する", "③ 評価項目と対応づける", "④ 通読・逆圧縮・置換の順で読む"]
+        "items": [
+          "① 設問層・骨子層・展開層に分解",
+          "② 骨子層を逆圧縮する",
+          "③ 評価項目と対応づける",
+          "④ 通読・逆圧縮・置換の順で読む"
+        ]
       }
     },
     {
@@ -105,8 +135,17 @@
       "visual": {
         "kind": "cover",
         "heading": "骨子で確認する",
-        "items": ["必須科目I マガジン（概要欄リンク）"]
+        "items": [
+          "必須科目I マガジン（概要欄リンク）"
+        ]
       }
     }
-  ]
+  ],
+  "imageDesign": {
+    "mode": "codex-pop",
+    "scope": "all-body",
+    "revision": "body-diagram-20261105",
+    "coverRevision": "cover-pop-20261105",
+    "layout": "diagram-led"
+  }
 }

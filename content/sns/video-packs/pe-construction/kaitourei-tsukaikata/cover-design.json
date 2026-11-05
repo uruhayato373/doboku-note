@@ -2,6 +2,10 @@
   "schemaVersion": 1,
   "covers": {
     "longform": {
+      "character": {
+        "pose": "pop-pointing",
+        "frame": "waist"
+      },
       "format": "longform",
       "exam": "pe-construction",
       "headline": [
@@ -10,19 +14,18 @@
       ],
       "accentLine": 1,
       "subtitle": "",
-      "character": {
-        "pose": "pop-pointing",
-        "frame": "waist"
-      },
-      "design": "pop-v2",
+      "design": "pop-poster-v3",
       "pop": {
         "variant": "question",
         "authority": "総監が制作"
       },
+      "layout": "diagram-led",
       "approvedImage": {
-        "path": ".tmp/media/pe-construction/kaitourei-tsukaikata/youtube.longform/cover.b87692fc.png",
-        "sha256": "b87692fcfeebb3b5a5a3596b9d2a79831c53252af091fd056c0e10a7b7e28d1e",
-        "specSha256": "3892610dbddd4bebbd2452feb965c1d5b57fd05d04e7d9b7990b4460d2c64230"
+        "path": ".tmp/media/pe-construction/kaitourei-tsukaikata/work/cover-pop.e21827b0.png",
+        "sha256": "e21827b0834fad3c8e20cca2202d37a8aa93e9e9b502b52037f3981cc51a910c",
+        "width": 1920,
+        "height": 1080,
+        "specSha256": "eea9165f36ea3debec721de4d6613a3f50cac313ab988def8db9092253a1deea"
       }
     }
   }

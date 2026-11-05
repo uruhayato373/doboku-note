@@ -188,21 +188,244 @@
       "id": "pe-construction/kaitourei-tsukaikata/youtube.longform/cover",
       "role": "cover",
       "type": "image/png",
-      "sha256": "b87692fcfeebb3b5a5a3596b9d2a79831c53252af091fd056c0e10a7b7e28d1e",
-      "bytes": 841529,
-      "width": 1920,
-      "height": 1080,
+      "sha256": "e21827b0834fad3c8e20cca2202d37a8aa93e9e9b502b52037f3981cc51a910c",
+      "bytes": 703004,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/pe-construction/kaitourei-tsukaikata/youtube.longform/cover.b87692fc.png"
+        "path": ".tmp/media/pe-construction/kaitourei-tsukaikata/youtube.longform/cover.e21827b0.png"
       },
       "provenance": {
-        "kind": "template",
-        "by": "youtube-covers",
-        "spec": "content/sns/video-packs/pe-construction/kaitourei-tsukaikata/cover-design.json#covers/longform",
-        "specSha256": "3892610dbddd4bebbd2452feb965c1d5b57fd05d04e7d9b7990b4460d2c64230"
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "添付の1枚目はdoboku-noteで採用済みの全面POP動画表紙の意匠参照、2枚目は先生キャラクターの同一性参照です。 新規の16:9横長（1920×1080想定）日本語YouTube動画表紙を作る。深いインディゴ #33356B と明るい青紫、黄色と白の極太文字、明確な黒い輪郭、少量の赤、斜めの面と勢いのある背景、右側に先生キャラクターを大きく。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。 左〜中央に正確に『模範解答』『写すだけでOK？』を大きく配置。上部の黄色帯に小さく『総監が制作』。 誤字・余計な文字・合格保証・URL・価格・不明な実績を足さない。文字ブロックの黒い縁取りまで含めて左右8%の内側へ収め（画面の左端から8%は背景だけ）、顔は左右5%・上下5%内、下端18%は字幕が重なるので重要な文字や顔を置かず背景が全面に続く。",
+        "promptSha256": "e9fce0437adfc7eaee3831d95b03a3150967367734b4717f86460b857f829fc8",
+        "generatedAt": "2026-11-05T00:34:30.111Z"
       },
-      "legacyPaths": []
+      "width": 1920,
+      "height": 1080,
+      "legacyPaths": [
+        ".tmp/media/pe-construction/kaitourei-tsukaikata/work/cover-pop.e21827b0.png"
+      ]
+    },
+    {
+      "id": "pe-construction/kaitourei-tsukaikata/youtube.longform/scene-001",
+      "role": "scene-001",
+      "type": "image/png",
+      "sha256": "e21827b0834fad3c8e20cca2202d37a8aa93e9e9b502b52037f3981cc51a910c",
+      "bytes": 703004,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/kaitourei-tsukaikata/youtube.longform/scene-001.e21827b0.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "添付の1枚目はdoboku-noteで採用済みの全面POP動画表紙の意匠参照、2枚目は先生キャラクターの同一性参照です。 新規の16:9横長（1920×1080想定）日本語YouTube動画表紙を作る。深いインディゴ #33356B と明るい青紫、黄色と白の極太文字、明確な黒い輪郭、少量の赤、斜めの面と勢いのある背景、右側に先生キャラクターを大きく。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。 左〜中央に正確に『模範解答』『写すだけでOK？』を大きく配置。上部の黄色帯に小さく『総監が制作』。 誤字・余計な文字・合格保証・URL・価格・不明な実績を足さない。文字ブロックの黒い縁取りまで含めて左右8%の内側へ収め（画面の左端から8%は背景だけ）、顔は左右5%・上下5%内、下端18%は字幕が重なるので重要な文字や顔を置かず背景が全面に続く。",
+        "promptSha256": "e9fce0437adfc7eaee3831d95b03a3150967367734b4717f86460b857f829fc8",
+        "generatedAt": "2026-11-05T00:34:30.111Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-construction/kaitourei-tsukaikata/youtube.longform/scene-002",
+      "role": "scene-002",
+      "type": "image/png",
+      "sha256": "dba292eb1c23a217ced34a74d99134828300c09b3c0426103ce8f8f27ffc2c01",
+      "bytes": 1909735,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/kaitourei-tsukaikata/youtube.longform/scene-002.dba292eb.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『誤解：読んで理解すれば書ける』。 図に入れる文字: 『読解と再現は別の能力』 『この距離が本番の白紙で手を止める』。 この場面の説明（文字にしない）: 読んで理解できれば書けるようになる、と思われがちです。しかし読んで理解できることと、白紙の答案用紙に時間内で再現できることは、まったく別の能力です。",
+        "promptSha256": "6be4245abcf416f4ce0da149a2c942b8669b8afd06383fd82006884cf246fae4",
+        "generatedAt": "2026-11-05T00:34:30.111Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-construction/kaitourei-tsukaikata/youtube.longform/scene-003",
+      "role": "scene-003",
+      "type": "image/png",
+      "sha256": "a61d7329c732d9dbdc676ca1fbb1eeecf9b6bf4710f462ebecb4e40eb55f0d87",
+      "bytes": 1686712,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/kaitourei-tsukaikata/youtube.longform/scene-003.a61d7329.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『解答例を読む3層』。 図に入れる文字: 『設問層：設問と段落の対応』 『骨子層：論点の圧縮（最重要）』 『展開層：字数内の肉付け』。 この場面の説明（文字にしない）: 完成答案は3層に分けて読みます。設問層は段落の対応、骨子層は論点の圧縮、展開層は字数内の肉付けです。もっとも重要なのは真ん中の骨子層になります。",
+        "promptSha256": "64d66bb4a15a57adebfec72a5941d673c678f44ee5127b26f48cb083537b1719",
+        "generatedAt": "2026-11-05T00:34:30.111Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-construction/kaitourei-tsukaikata/youtube.longform/scene-004",
+      "role": "scene-004",
+      "type": "image/png",
+      "sha256": "cc22c5ebbffe1c056b77702602dffcb8bb888de29962eb9b7abd1a9d361c6600",
+      "bytes": 1410421,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/kaitourei-tsukaikata/youtube.longform/scene-004.cc22c5eb.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『骨子層の逆圧縮』。 図に入れる文字: 『観点とキーワードだけに圧縮する』 『例：ハード対策／ソフト対策／統合的視点』 『見ながら自分の言葉で展開し直せるか』。 この場面の説明（文字にしない）: 完成答案を、観点とキーワードだけの箇条書きに逆圧縮します。防災テーマなら、ハード対策・ソフト対策・統合的視点という論点の並びを取り出すイメージです。",
+        "promptSha256": "c9ed5480b469b54d113553d5ca473f32d9f51040aef0d5fe293cd330f9bfb92d",
+        "generatedAt": "2026-11-05T00:34:30.111Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-construction/kaitourei-tsukaikata/youtube.longform/scene-005",
+      "role": "scene-005",
+      "type": "image/png",
+      "sha256": "d3072db95dcbfaae37e436d364c4fa101c0861440b2d1f1db3b27d46097a6028",
+      "bytes": 988378,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/kaitourei-tsukaikata/youtube.longform/scene-005.d3072db9.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『骨子と評価項目を突き合わせる』。 図に入れる文字: 『各論点に対応する評価項目を書き添える』 『1項目が複数の設問部にまたがることもある』 『薄い項目＝本番で失点しやすい弱点』。 この場面の説明（文字にしない）: 抜き出した骨子は、課題遂行能力や問題解決、評価、技術者倫理といった評価項目と突き合わせます。各論点の横に対応する項目を書き添えると、弱い部分が見えてきます。",
+        "promptSha256": "bcf7b0c4412bf427a58e5fda419142aca5c024f7063231301876726e1cc9d8c2",
+        "generatedAt": "2026-11-05T00:34:30.111Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-construction/kaitourei-tsukaikata/youtube.longform/scene-006",
+      "role": "scene-006",
+      "type": "image/png",
+      "sha256": "bf82b866a5eb35cca31fcb5fda352524d68c541213b1f1a1d30396ee689c1539",
+      "bytes": 1478628,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/kaitourei-tsukaikata/youtube.longform/scene-006.bf82b866.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『読む順序』。 図に入れる文字: 『1. 通読：型の共通性をつかむ』 『2. 逆圧縮：骨子層を抜き出す』 『3. 置換：自分の専門・経験に差し替える』。 この場面の説明（文字にしない）: 解答例は複数年度をまとめて読む価値があります。通読で型の共通性をつかみ、骨子層へ逆圧縮し、最後に自分のネタへ置換する。この置換が本番力に直結します。",
+        "promptSha256": "2434876dbb390a4f62b891c1d4c3236682b01516abec8d610fcbc6d517517443",
+        "generatedAt": "2026-11-05T00:34:30.111Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-construction/kaitourei-tsukaikata/youtube.longform/scene-007",
+      "role": "scene-007",
+      "type": "image/png",
+      "sha256": "626f738a9d78965e4941220ccf3cd2bb49a470d4bd685c54a05884e03ad7e2d4",
+      "bytes": 1480054,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/kaitourei-tsukaikata/youtube.longform/scene-007.626f738a.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『置換に詰まったときの発想』。 図に入れる文字: 『表面の言葉でなく論点の構造に着目』 『分類の軸・選定理由・リスクの方向性』 『同じ骨格に自分の素材を載せる』。 この場面の説明（文字にしない）: 自分の経験がテーマに合わないと感じたら、論点の言葉でなく分類・選定理由・リスクの方向性という構造に着目します。同じ骨格に別の素材を載せる発想です。 前回の不合格の理由を直す: 文字: 見出しが『置換に詰まったときの発想』と鉤括弧つきで描かれ、指示にない文字（『』）が入っている。他の文言は一致し図の破綻は無い",
+        "promptSha256": "240ced8edbacf39682b7c01784a69eccc45b38756603ab534c9820b60385d0c0",
+        "generatedAt": "2026-11-05T00:34:30.111Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-construction/kaitourei-tsukaikata/youtube.longform/scene-008",
+      "role": "scene-008",
+      "type": "image/png",
+      "sha256": "77164b91d6d1136a1ec7d222648278a85664a04ed7493c0b2aceaca844a67e09",
+      "bytes": 1593442,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/kaitourei-tsukaikata/youtube.longform/scene-008.77164b91.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『まとめ』。 図に入れる文字: 『① 設問層・骨子層・展開層に分解』 『② 骨子層を逆圧縮する』 『③ 評価項目と対応づける』 『④ 通読・逆圧縮・置換の順で読む』。 この場面の説明（文字にしない）: まとめます。3層に分解し、骨子層を逆圧縮し、評価項目と対応づけ、通読・逆圧縮・置換の順で複数年度を読む。これが写経で終わらせない使い方です。",
+        "promptSha256": "f00ccda3c9a61b8a80b34710d4e46cd356a6dba9b71e2634ce6873dd2e45eb13",
+        "generatedAt": "2026-11-05T00:34:30.111Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-construction/kaitourei-tsukaikata/youtube.longform/scene-009",
+      "role": "scene-009",
+      "type": "image/png",
+      "sha256": "1548955827b904f190c89ddc2349d4574874ad5d9eab7c43996f0f6b5d3e061e",
+      "bytes": 1434824,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/kaitourei-tsukaikata/youtube.longform/scene-009.15489558.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『骨子で確認する』。 図に入れる文字: 『必須科目I マガジン（概要欄リンク）』。 この場面の説明（文字にしない）: 発注者視点のコメント付きで骨子を確認したい方は、必須科目Iのマガジンを概要欄からご覧ください。ご視聴ありがとうございました。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 15.6）",
+        "promptSha256": "c1b4259162d0408fd18ce3a110c8fb188b2fe136d326a2766df5f3097b1cc4f4",
+        "generatedAt": "2026-11-05T00:34:30.111Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-construction/kaitourei-tsukaikata/youtube.longform/subtitles",
+      "role": "subtitles",
+      "type": "text/x-ssa",
+      "sha256": "78f639dad4c5c2be363c6987a35781c561e41c03d9fdd18787e902bbce83945a",
+      "bytes": 4036,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/kaitourei-tsukaikata/youtube.longform/subtitles.78f639da.ass"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/pe-construction/kaitourei-tsukaikata/storyboard.json"
+      }
+    },
+    {
+      "id": "pe-construction/kaitourei-tsukaikata/youtube.longform/video",
+      "role": "video",
+      "type": "video/mp4",
+      "sha256": "6f9c5e74fc40fdc627e8730be29c00cdb323489a34614383d3f84031c8d10dbe",
+      "bytes": 13935074,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/kaitourei-tsukaikata/youtube.longform/video.6f9c5e74.mp4"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/pe-construction/kaitourei-tsukaikata/storyboard.json",
+        "specSha256": "9a3c3de5077a063552563b8ed85b62cd9d08d81fe8c0dd7f8ee4f9cf745c11f1",
+        "renderInputSha256": "51da8d2b2efbc0010515f593aba6b10ec23b1515534066119ecfc0985e00f51b",
+        "tts": {
+          "engine": "VOICEVOX",
+          "speaker": 13,
+          "credit": "VOICEVOX:青山龍星"
+        }
+      },
+      "durationSec": 106.9
     },
     {
       "id": "pe-construction/keirekihyo-kakikata/youtube.longform/cover",

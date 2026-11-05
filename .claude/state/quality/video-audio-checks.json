@@ -33,6 +33,17 @@
         "expected": 1211,
         "heard": 1094
       }
+    },
+    "pe-construction/kaitourei-tsukaikata/youtube.longform": {
+      "videoSha256": "6f9c5e74fc40fdc627e8730be29c00cdb323489a34614383d3f84031c8d10dbe",
+      "at": "2026-11-05T00:43:10.126Z",
+      "similarity": 0.764,
+      "maxVolumeDb": -1.5,
+      "durationGapSec": 0,
+      "chars": {
+        "expected": 630,
+        "heard": 497
+      }
     }
   }
 }

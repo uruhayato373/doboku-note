@@ -171,10 +171,10 @@
     },
     "pe-construction/kaitourei-tsukaikata/youtube.longform": {
       "verdict": "pass",
-      "note": "表紙と台本が一致、誤字・断定の問題なし。描画に進んでよい。動画は未完成（台本と表紙のみ確認、音声・場面は未確認）。",
-      "at": "2026-11-04T04:50:05.907Z",
-      "visualDigest": "ca6db5823ea45ba6e443b85a2721d483b1a748bddcc0987c4bd2abd7d3b156c2",
-      "finalDigest": "e281bc577129d3a4f3965f793832034343aa664756114229105690090cf911bc"
+      "note": "表紙・題名・全9場面を確認し、文字の切れ・重なり・誤字なし。場面順は台本と一致。CTAはnote1つ、無料サイトは関連リンク。日程の記述なし。場面5の枠内は空欄だが説明文は読める。音声は台本との機械照合のみで人は聞いていない。",
+      "at": "2026-11-05T00:42:50.076Z",
+      "visualDigest": "a6b27ff7e3c81bed7b44aea80647f8c2c80f221ba5e33c641fad4d2e569d7003",
+      "finalDigest": "8fab8d176d21f3ffe0b4abb05616061fa8128151ac3eb96de9d8740f6794c901"
     },
     "pe-construction/keirekihyo-kakikata/youtube.longform": {
       "verdict": "pass",
@@ -315,6 +315,13 @@
       "at": "2026-11-04T22:56:01.459Z",
       "visualDigest": "380838c94cdc073a49707aa7809f7904a251ce3a275ddf83ae4b1e2ca83af050",
       "finalDigest": "c02b418dd2d2b2aaf05940509a3fa62de4295ab9d3d36b3fd5bf15d4f784628d"
+    },
+    "civil-construction-2/keiken-daizai-erabi/youtube.longform.diagram-led": {
+      "verdict": "pass",
+      "note": "表紙・題名・全14場面を確認し、文字の切れ・重なり・誤字なし。場面順は台本と一致。CTAはnote1つ、無料サイトは関連リンク。仮の例と明記し、実績・数値・合格の約束なし。対象範囲は公式手引で確認と案内。音声は台本との機械照合のみで人は聞いていない。",
+      "at": "2026-11-05T00:42:50.329Z",
+      "visualDigest": "584aa2b1504135adb9ebb2e5b22dabb0035bc8dce9ebbee060e607968b1ef2dd",
+      "finalDigest": "b9d310c360f090de17a15849d8d0a92361fc044701cdddaf3ec14e0e1b8ba233"
     }
   }
 }

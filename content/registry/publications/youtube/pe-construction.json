@@ -98,9 +98,35 @@
       "work": "kaitourei-tsukaikata",
       "account": "youtube:main",
       "format": "longform",
-      "status": "qa_passed",
+      "status": "approved",
       "media": {
-        "cover": "pe-construction/kaitourei-tsukaikata/youtube.longform/cover"
+        "cover": "pe-construction/kaitourei-tsukaikata/youtube.longform/cover",
+        "scene-001": "pe-construction/kaitourei-tsukaikata/youtube.longform/scene-001",
+        "scene-002": "pe-construction/kaitourei-tsukaikata/youtube.longform/scene-002",
+        "scene-003": "pe-construction/kaitourei-tsukaikata/youtube.longform/scene-003",
+        "scene-004": "pe-construction/kaitourei-tsukaikata/youtube.longform/scene-004",
+        "scene-005": "pe-construction/kaitourei-tsukaikata/youtube.longform/scene-005",
+        "scene-006": "pe-construction/kaitourei-tsukaikata/youtube.longform/scene-006",
+        "scene-007": "pe-construction/kaitourei-tsukaikata/youtube.longform/scene-007",
+        "scene-008": "pe-construction/kaitourei-tsukaikata/youtube.longform/scene-008",
+        "scene-009": "pe-construction/kaitourei-tsukaikata/youtube.longform/scene-009",
+        "video": "pe-construction/kaitourei-tsukaikata/youtube.longform/video",
+        "subtitles": "pe-construction/kaitourei-tsukaikata/youtube.longform/subtitles"
+      },
+      "copy": "content/sns/video-packs/pe-construction/kaitourei-tsukaikata/youtube.json#longform",
+      "publishAt": "2026-11-09T11:30:00Z",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "policy",
+          "at": "2026-11-05T00:43:11.135Z",
+          "digest": "a6b27ff7e3c81bed7b44aea80647f8c2c80f221ba5e33c641fad4d2e569d7003"
+        }
+      },
+      "approval": {
+        "by": "policy",
+        "at": "2026-11-05T00:43:11.135Z",
+        "contentSha256": "8fab8d176d21f3ffe0b4abb05616061fa8128151ac3eb96de9d8740f6794c901"
       }
     },
     {
