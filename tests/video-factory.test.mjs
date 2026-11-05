@@ -6,7 +6,7 @@ import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import sharp from 'sharp';
 import { generateWithCodexAsync } from '../scripts/lib/codex-image.mjs';
-import { acceptedApproval, audioProblems, evaluateGate, nextSlot, speechSimilarity } from '../scripts/lib/video-publish-gate.mjs';
+import { acceptedApproval, audioProblems, evaluateGate, nextSlot, speechSimilarity, uploadsLeft } from '../scripts/lib/video-publish-gate.mjs';
 import {
   MAX_ATTEMPTS, adoptPlan, auditQueue, buildBodyPrompt, buildCoverPrompt, buildPlan, generatePlan, hydrateAdopted, inspectImage,
   ledgerVerdicts, nextStage, packDirOf, planPath, readPlan, recordAudit, summarize,
@@ -268,4 +268,11 @@ test('空き枠は猶予と 1 日の上限を守る', () => {
   const policy = { minLeadHours: 24, slot: { timeJst: '20:30', maxPerDay: 1 } };
   const now = Date.parse('2026-11-05T00:00:00Z');
   assert.equal(nextSlot(['2026-11-06T11:30:00Z'], policy, now), '2026-11-07T11:30:00Z');
+});
+
+test('投稿の残りは直近 24 時間の本数から決まる', () => {
+  const now = Date.parse('2026-11-05T12:00:00Z');
+  const pub = (uploaded) => ({ channel: 'youtube', times: { uploaded } });
+  assert.equal(uploadsLeft([pub('2026-11-05T01:00:00Z'), pub('2026-11-05T02:00:00Z'), pub('2026-11-03T02:00:00Z')], { maxUploadsPerDay: 4 }, now), 2);
+  assert.equal(uploadsLeft([], { maxUploadsPerDay: 4 }, now), 4);
 });

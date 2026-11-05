@@ -81,3 +81,9 @@ export function nextSlot(taken, policy, now = Date.now()) {
   }
   throw new Error('空き枠が見つからない');
 }
+
+/** 直近 24 時間に投稿した本数から、あと何本投稿できるかを返す。割当の超過は結果不明になり再送できない */
+export function uploadsLeft(publications, policy, now = Date.now()) {
+  const recent = publications.filter((p) => p.channel === 'youtube' && Date.parse(p.times?.uploaded) > now - 86_400_000).length;
+  return Math.max(0, policy.maxUploadsPerDay - recent);
+}

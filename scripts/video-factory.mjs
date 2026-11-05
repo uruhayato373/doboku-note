@@ -39,7 +39,7 @@ import { approvalState } from './lib/media-review.mjs';
 import { recordYoutubeRevisionQa } from './lib/registry-youtube-revision.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 import { todayJst } from './lib/jst-date.mjs';
-import { audioProblems, evaluateGate, nextSlot, readPolicy, speechSimilarity } from './lib/video-publish-gate.mjs';
+import { audioProblems, evaluateGate, nextSlot, readPolicy, speechSimilarity, uploadsLeft } from './lib/video-publish-gate.mjs';
 import { adoptPlan, auditQueue, buildPlan, generatePlan, hydrateAdopted, ledgerVerdicts, nextStage, packDirOf, readPlan, recordAudit, summarize } from './lib/video-factory.mjs';
 
 const { values: args, positionals } = parseArgs({
@@ -374,7 +374,10 @@ const lastJson = (text) => JSON.parse(text.slice(text.lastIndexOf('\n{') + 1));
 /** 承認済みを転送し、台帳を develop へ出してから予約のワークフローを流す */
 function publish() {
   const jobs = [];
-  for (const pack of requirePacks()) {
+  const packs = requirePacks();
+  const left = uploadsLeft(loadRegistry(ROOT).publications, readPolicy(ROOT));
+  if (packs.length > left) throw new Error(`今日の投稿の残りは ${left} 本。${packs.length} 本は割当を超える（超過は結果不明になり再送できない）`);
+  for (const pack of packs) {
     const [exam, work] = pack.split('/');
     const reg = loadRegistry(ROOT);
     const pub = targetPub(reg, exam, work);
@@ -397,7 +400,13 @@ function publish() {
   if (dirty) execFileSync('git', ['commit', '-m', 'content(video): 関門を通った動画を予約へ進める', '--', ...paths], { cwd: ROOT, stdio: 'inherit' });
   execFileSync('git', ['pull', '--rebase', 'origin', 'develop'], { cwd: ROOT, stdio: 'inherit' });
   execFileSync('git', ['push', 'origin', 'HEAD:develop'], { cwd: ROOT, stdio: 'inherit' });
-  for (const j of jobs) execFileSync('gh', ['workflow', 'run', 'youtube-single-publish.yml', '--ref', 'develop', '-f', 'mode=publish', '-f', `publication=${j.pub}`, '-f', `expect=${j.digest}`], { cwd: ROOT, stdio: 'inherit' });
+  // 同時実行のグループは待機を 1 本しか持たず、3 本目以降は取り消される。1 本ずつ完了を待つ
+  for (const j of jobs) {
+    execFileSync('gh', ['workflow', 'run', 'youtube-single-publish.yml', '--ref', 'develop', '-f', 'mode=publish', '-f', `publication=${j.pub}`, '-f', `expect=${j.digest}`], { cwd: ROOT, stdio: 'inherit' });
+    spawnSync('sleep', ['8']);
+    const run = execFileSync('gh', ['run', 'list', '--workflow', 'youtube-single-publish.yml', '--limit', '1', '--json', 'databaseId', '--jq', '.[0].databaseId'], { cwd: ROOT, encoding: 'utf8' }).trim();
+    execFileSync('gh', ['run', 'watch', run, '--exit-status', '--interval', '15'], { cwd: ROOT, stdio: 'ignore' });
+  }
   console.log(JSON.stringify(jobs, null, 2));
 }
 

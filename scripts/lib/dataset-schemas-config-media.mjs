@@ -1241,6 +1241,7 @@ export const ConfigVideoAutoPublish = z.object({
   minQaAvg: z.number(),
   maxBlocks: z.number().int(),
   minLeadHours: z.number(),
+  maxUploadsPerDay: z.number().int().positive().describe('YouTube Data API の日次割当の範囲（1 本 1,600 ユニット・10,000/日）'),
   slot: z.object({ timeJst: z.string().regex(/^\d{2}:\d{2}$/), maxPerDay: z.number().int().positive() }).strict(),
   audio: z.object({ model: z.string().min(1), language: z.string().min(1), minSimilarity: z.number(), minMaxVolumeDb: z.number(), maxMaxVolumeDb: z.number(), maxDurationGapSec: z.number() }).strict(),
 }).strict();
