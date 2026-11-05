@@ -71,7 +71,7 @@
       "work": "hissu1-infra-roukyuuka",
       "account": "youtube:main",
       "format": "longform",
-      "status": "scheduled",
+      "status": "uploaded_private",
       "media": {
         "cover": "pe-construction/hissu1-infra-roukyuuka/youtube.longform/cover",
         "scene-001": "pe-construction/hissu1-infra-roukyuuka/youtube.longform/scene-001",
@@ -87,7 +87,6 @@
         "subtitles": "pe-construction/hissu1-infra-roukyuuka/youtube.longform/subtitles"
       },
       "copy": "content/sns/video-packs/pe-construction/hissu1-infra-roukyuuka/youtube.json#longform",
-      "publishAt": "2026-11-13T11:30:00Z",
       "review": {
         "visual": {
           "status": "approved",
@@ -121,10 +120,7 @@
           "https://i9.ytimg.com/vi/1EAPnQVwARE/maxresdefault.jpg?sqp=CMzVs9cG&rs=AOn4CLCL6mjWJjgM0rWexoGvw_o9aYk82A",
           "https://i9.ytimg.com/vi/1EAPnQVwARE/fhddefault.jpg?sqp=CMzVs9cG&rs=AOn4CLAmSgOxKhj_afDcLhjg3cmoGnEjHw"
         ],
-        "thumbnailAcceptedAt": "2026-11-05T20:45:39.441Z",
-        "scheduleRequestedAt": "2026-11-05T20:45:40.525Z",
-        "scheduleAt": "2026-11-13T11:30:00Z",
-        "scheduledVerifiedAt": "2026-11-05T20:45:44.348Z"
+        "thumbnailAcceptedAt": "2026-11-05T20:45:39.441Z"
       },
       "platform": {
         "id": "1EAPnQVwARE",
@@ -138,7 +134,8 @@
       "thumbnail": {
         "status": "set",
         "setAt": "2026-11-05T20:45:39.441Z"
-      }
+      },
+      "reason": "読み上げを直した版へ差し替える（元の予約 2026-11-13T11:30:00Z）"
     },
     {
       "id": "pe-construction/hissu1-infra-roukyuuka/youtube.longform.reading-fix",
@@ -183,7 +180,7 @@
       "work": "hissu1-kensetsu-dx",
       "account": "youtube:main",
       "format": "longform",
-      "status": "scheduled",
+      "status": "uploaded_private",
       "media": {
         "cover": "pe-construction/hissu1-kensetsu-dx/youtube.longform/cover",
         "scene-001": "pe-construction/hissu1-kensetsu-dx/youtube.longform/scene-001",
@@ -198,7 +195,6 @@
         "subtitles": "pe-construction/hissu1-kensetsu-dx/youtube.longform/subtitles"
       },
       "copy": "content/sns/video-packs/pe-construction/hissu1-kensetsu-dx/youtube.json#longform",
-      "publishAt": "2026-11-11T11:30:00Z",
       "review": {
         "visual": {
           "status": "approved",
@@ -232,10 +228,7 @@
           "https://i9.ytimg.com/vi/SvV8zXamMvo/maxresdefault.jpg?sqp=COiur9cG&rs=AOn4CLBPBPt1JxgS67d_SkhU22x1XbSsfg",
           "https://i9.ytimg.com/vi/SvV8zXamMvo/fhddefault.jpg?sqp=COiur9cG&rs=AOn4CLAPu3-A2TGNHbyX_Xub-3_7EJesFg"
         ],
-        "thumbnailAcceptedAt": "2026-11-05T01:13:09.228Z",
-        "scheduleRequestedAt": "2026-11-05T01:13:10.292Z",
-        "scheduleAt": "2026-11-11T11:30:00Z",
-        "scheduledVerifiedAt": "2026-11-05T01:13:13.559Z"
+        "thumbnailAcceptedAt": "2026-11-05T01:13:09.228Z"
       },
       "platform": {
         "id": "SvV8zXamMvo",
@@ -249,7 +242,8 @@
       "thumbnail": {
         "status": "set",
         "setAt": "2026-11-05T01:13:09.228Z"
-      }
+      },
+      "reason": "読み上げを直した版へ差し替える（元の予約 2026-11-11T11:30:00Z）"
     },
     {
       "id": "pe-construction/hissu1-kensetsu-dx/youtube.longform.reading-fix",
@@ -346,7 +340,7 @@
       "work": "kaitourei-tsukaikata",
       "account": "youtube:main",
       "format": "longform",
-      "status": "scheduled",
+      "status": "uploaded_private",
       "media": {
         "cover": "pe-construction/kaitourei-tsukaikata/youtube.longform/cover",
         "scene-001": "pe-construction/kaitourei-tsukaikata/youtube.longform/scene-001",
@@ -362,7 +356,6 @@
         "subtitles": "pe-construction/kaitourei-tsukaikata/youtube.longform/subtitles"
       },
       "copy": "content/sns/video-packs/pe-construction/kaitourei-tsukaikata/youtube.json#longform",
-      "publishAt": "2026-11-09T11:30:00Z",
       "review": {
         "visual": {
           "status": "approved",
@@ -396,10 +389,7 @@
           "https://i9.ytimg.com/vi/Gdyygcq0mmY/maxresdefault.jpg?sqp=COiur9cG&rs=AOn4CLAQNF-k6K8l8r7lpI9PADXIhVzZTw",
           "https://i9.ytimg.com/vi/Gdyygcq0mmY/fhddefault.jpg?sqp=COiur9cG&rs=AOn4CLB-_Bg21nldv4aO6gRDS514em_1XQ"
         ],
-        "thumbnailAcceptedAt": "2026-11-05T01:10:47.054Z",
-        "scheduleRequestedAt": "2026-11-05T01:10:51.173Z",
-        "scheduleAt": "2026-11-09T11:30:00Z",
-        "scheduledVerifiedAt": "2026-11-05T01:10:54.653Z"
+        "thumbnailAcceptedAt": "2026-11-05T01:10:47.054Z"
       },
       "platform": {
         "id": "Gdyygcq0mmY",
@@ -413,7 +403,8 @@
       "thumbnail": {
         "status": "set",
         "setAt": "2026-11-05T01:10:47.054Z"
-      }
+      },
+      "reason": "読み上げを直した版へ差し替える（元の予約 2026-11-09T11:30:00Z）"
     },
     {
       "id": "pe-construction/kaitourei-tsukaikata/youtube.longform.reading-fix",
@@ -797,7 +788,7 @@
       "work": "toan-kousei-template",
       "account": "youtube:main",
       "format": "longform",
-      "status": "scheduled",
+      "status": "uploaded_private",
       "media": {
         "cover": "pe-construction/toan-kousei-template/youtube.longform/cover",
         "scene-001": "pe-construction/toan-kousei-template/youtube.longform/scene-001",
@@ -813,7 +804,6 @@
         "subtitles": "pe-construction/toan-kousei-template/youtube.longform/subtitles"
       },
       "copy": "content/sns/video-packs/pe-construction/toan-kousei-template/youtube.json#longform",
-      "publishAt": "2026-11-12T11:30:00Z",
       "review": {
         "visual": {
           "status": "approved",
@@ -847,10 +837,7 @@
           "https://i9.ytimg.com/vi/ywemm49EBPA/maxresdefault.jpg?sqp=CNz6sNcG&rs=AOn4CLDnOtia2XvOGOOYv2GvofPbJE9NbQ",
           "https://i9.ytimg.com/vi/ywemm49EBPA/fhddefault.jpg?sqp=CNz6sNcG&rs=AOn4CLBn2Na0yufmmcieubZxlXr81ebwoA"
         ],
-        "thumbnailAcceptedAt": "2026-11-05T08:27:17.250Z",
-        "scheduleRequestedAt": "2026-11-05T08:27:21.300Z",
-        "scheduleAt": "2026-11-12T11:30:00Z",
-        "scheduledVerifiedAt": "2026-11-05T08:27:24.966Z"
+        "thumbnailAcceptedAt": "2026-11-05T08:27:17.250Z"
       },
       "platform": {
         "id": "ywemm49EBPA",
@@ -864,7 +851,8 @@
       "thumbnail": {
         "status": "set",
         "setAt": "2026-11-05T08:27:17.250Z"
-      }
+      },
+      "reason": "読み上げを直した版へ差し替える（元の予約 2026-11-12T11:30:00Z）"
     },
     {
       "id": "pe-construction/toan-kousei-template/youtube.longform.reading-fix",

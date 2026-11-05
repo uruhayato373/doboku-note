@@ -417,6 +417,47 @@
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-1002] ショートの在庫運用を作る（台本QA・Drive 在庫・予約の分離）
+タグ: [領域:SNS] [時期:2026-11] [種類:改善] [起票:2026-11-06]
+
+**起点**: 2026-11-06 の運営者の検討依頼。ショートも「台本の監査 → 画像 → Drive に在庫 → 予約は別の判断」で回し、手元には残さない運用を比べた。通常動画は内容QA・`--stock`・`schedule`・`publish`・`cleanup` がある。
+
+**ショート側の不足**:
+1. `shorts-design.json` の監査の工程がなく、画像の生成より前に止められない
+2. `shorts-factory` に在庫の工程がない。見本の新しい mp4 は Drive に未保存で、台帳には同じパスの旧動画の sha が残る。手元を消すと `youtube-shorts:stage` が止まる
+3. 投稿は手元の `publish-video-pack.cjs` で、通常動画の `youtube-single-publish.yml` のような CI の経路がない
+4. 関連動画は Studio の手作業で API がない。通常動画が非公開や予約中のときに設定できるかは未確認
+5. 投稿の前に通常動画の videoId が要る
+
+**やること**: 運営者の判断（在庫の本数・予約の単位・承認の形）を受けて設計を確定し、台本QA → 在庫 → 予約の順で実装する。
+
+**完了条件**: 手元の画像と動画を消した状態で、Drive の在庫からショート 1 本を非公開でアップロードし、関連動画の設定と予約まで進み、`videos.list` で実体を確認できる。
+
+
+### [DN-1001] ショートの画像品質を通常動画と同じ検査に載せ、本文画面を図解中心へ直す
+タグ: [領域:SNS] [時期:2026-11] [種類:改善] [起票:2026-11-06]
+
+**起点**: 2026-11-06 にショートの画像品質を確認した。concrete-engineer/gishi-haigou-keisan の point-step1-1 を preview で目視（1 本・静止画 3 枚のみ。完成動画は未確認）。
+
+**分かったこと**:
+0. 表紙: `create-pop-image` は全面生成の `pop-poster-v3`（Codex ImageGen）を基準とし、`pop-v2` 組版での代用を禁じているが、Shorts 表紙 224 本中 222 本が `pop-v2`（2026-11-06 に cover-design.json を集計）。`pop-poster-v3` は gakka-2kyu-doko の 2 本だけ。見本の表紙は 10/10 の Codex 確認で `userImageReview: pending`
+1. `scripts/render-video-pack-shorts.mjs` は 表紙・本文・締めの静止画 3 枚で、本文は `buildExplanationNode` の定型カード。図がなく、通常動画の図解画像を使わない（gakka-2kyu-doko は 10/12・10/19 に Codex 製の全画面画像へ別途差し替えたため例外。この標準の生成経路には全面 POP の本文がない）
+2. 見本の締め画像は下約 1/4 が無地の紺帯。`sns-image-policy`・`yt-shorts-publisher-qa` の「下の巨大な無地領域」に当たる疑い
+3. `video-factory` の画像監査・内容QA・画面確認・関門は通常動画だけで、ショートは通らない
+4. `check-youtube-shorts` は 2026-10-25 に quality-audit から外れ、現在 exit 1（主任技士の 5 件: sceneId 不一致 4・タイトル 41 字 1）
+5. `yt-shorts-publisher-qa` の手順は旧 Instagram 派生のままで、現行ポリシー（字幕必須・動画パックのタイトル型）と食い違う。4 軸に画像の軸がない
+6. prepare・render・check は 4 資格（土木 2・コンクリート 2）だけ。pe-first-stage は outputs.shorts=0 で生成できない
+
+**やること**:
+- 表紙・本文・締めを gakka-2kyu-doko の実績（Codex 生成・全画面・字幕安全域）に揃えて標準の生成経路へ組み込み、代表 1 本を完成動画で確認してから展開する。pop-v2 のままでは公開工程へ進めない検査を足す
+- 表紙・本文・締めと字幕入りフレームを `ai-image-fidelity-auditor` と画面確認の対象へ足し、sha に結ぶ
+- `yt-shorts-publisher-qa` を現行の動画パック手順へ書き直し、画像の軸を足す
+- `check-youtube-shorts` の 5 件を直し、ショートを再開する時点で quality-audit へ戻す
+- 技術士一次のショートを作るなら、資格の対応を足す
+
+**完了条件**: 試行対象の全ショートで、原寸と幅 360px の画像・字幕入りフレームの判定が動画の sha に結ばれて記録され、`npm run check-youtube-shorts` が検査件数つきで exit 0。
+
+
 ### [DN-1000] コンクリート技士の試験後に出題を確かめ、2027 年度の予想問題へ改題する
 タグ: [領域:商品] [時期:2027-01..2027-09] [種類:制作] [起票:2026-11-05]
 
