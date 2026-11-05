@@ -583,6 +583,7 @@
     "check-content-expansion": "node scripts/check-content-expansion.mjs",
     "check-content-expansion:linked": "node scripts/check-content-expansion.mjs --linked",
     "check-domains": "node scripts/check-domains.mjs",
+    "check-issue-map": "node scripts/check-issue-map.mjs",
     "check-datasets": "node scripts/check-datasets.mjs",
     "check-agent-config": "node scripts/check-agent-config.mjs",
     "ci-data": "node scripts/ci-data.mjs",

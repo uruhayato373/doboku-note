@@ -107,6 +107,22 @@ test('ConfigCompetitors: 枠の欠け・handle の重複・資格 id の語彙�
   assertFails(schema, mutated(v, (x) => (x.tiktok = { _note: 'x', competitors: [] })), /tiktok|Unrecognized/);
 });
 
+test('ConfigIssueMap: 状態の語彙・判定の dns と window の排他・列の数・id の重複が落ちる', () => {
+  const { schema, v } = envelope('ConfigIssueMap', 'config.issue-map', { requiredKey: 'maps' });
+  const leaf = (x) => x.maps[0].branches[0].leaves[0];
+  assertFails(schema, mutated(v, (x) => (leaf(x).state = '良い')), /state/);
+  assertFails(schema, mutated(v, (x) => (leaf(x).dns = ['0368'])), /DN-####/);
+  assertFails(schema, mutated(v, (x) => (leaf(x).competitors = ['note:foo'])), /coconala/);
+  assertFails(schema, mutated(v, (x) => (leaf(x).proposedMetrics = ['nope'])), /承認待ちの指標 nope/);
+  assertFails(schema, mutated(v, (x) => (leaf(x).map = 'nope')), /マップ nope/);
+  assertFails(schema, mutated(v, (x) => (x.maps[0].judgments[0].window = '2026-11')), /どちらか一方/);
+  assertFails(schema, mutated(v, (x) => delete x.maps[0].judgments[0].dns), /どちらか一方/);
+  assertFails(schema, mutated(v, (x) => (x.maps[0].judgments[0].issues = ['ZZ'])), /サブイシュー ZZ/);
+  assertFails(schema, mutated(v, (x) => x.maps[0].calendar.rows[0].cells.pop()), /列の数/);
+  assertFails(schema, mutated(v, (x) => x.maps[0].storyline.pop()), /storyline/);
+  assertFails(schema, mutated(v, (x) => (x.maps[0].branches[1].leaves[0].id = leaf(x).id)), /重複/);
+});
+
 test('ConfigAnnualRoadmap: 期間の形式・前後と買い場の週数が落ちる', () => {
   const { schema, v } = envelope('ConfigAnnualRoadmap', 'config.annual-roadmap', { requiredKey: 'period' });
   assertFails(schema, mutated(v, (x) => (x.period.start = '2026-13')), /period\.start/);

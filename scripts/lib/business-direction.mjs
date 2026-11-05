@@ -459,6 +459,14 @@ export function sourceFacts(root, c, period) {
   }
   const cocoPath = datasetPath('coconala.analytics');
   if (existsSync(join(root, cocoPath))) facts.push(...coconalaViewFacts({ snapshot: readJson(root, cocoPath), path: cocoPath }));
+  // 評価の数はストック。期間末以前の最新の値を、期間内ならその期間の値として、前後なら観測日の値として出す（按分しない）
+  const profile = readDatasetIf(root, 'coconala.seller-profile');
+  if (profile) {
+    const rows = [...profile.rows].sort((a, b) => a.date.localeCompare(b.date));
+    const inPeriod = rows.filter((r) => r.date <= period.endDate).at(-1);
+    if (inPeriod && inPeriod.date >= period.startDate) put('coconalaReviews', inPeriod.ratingCount, period, datasetPath('coconala.seller-profile'), 'all', 'complete', `公開プロフィールの ${inPeriod.date} の値。`);
+    else if (rows.length) { const last = rows.at(-1); put('coconalaReviews', last.ratingCount, { startDate: last.date, endDate: last.date }, datasetPath('coconala.seller-profile'), 'all', 'complete', `公開プロフィールの ${last.date} の値。`); }
+  }
   if (existsSync(join(root, cocoOrdersPath))) facts.push(...coconalaInquiryFacts({ snapshot: readJson(root, cocoOrdersPath), period, qualifications: qualificationIds, path: cocoOrdersPath }));
   return facts;
 }

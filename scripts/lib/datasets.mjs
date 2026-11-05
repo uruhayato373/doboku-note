@@ -95,7 +95,8 @@ export const DATASETS = [
   d('config.exam-stats', 'config/exam-stats.json', 'config', 'strategy', '受験者数・合格率', { schema: 'ConfigExamStats' }),
   d('config.market-scan', 'config/market-scan.json', 'config', 'strategy', '資格ごとの市場（競合の混み具合）を取る検索語と閾値', { schema: 'ConfigMarketScan' }),
   d('config.demand-map', 'config/demand-map.json', 'config', 'strategy', '悩みと商品候補の地図（悩み → 立場 → 商品。類似／差別の軸と需要の証拠）', { schema: 'ConfigDemandMap', refs: [{ at: 'candidates[].qualification', to: 'qualification' }, { at: 'candidates[].productIds', to: 'product' }, { at: 'candidates[].experimentId', to: 'experiment' }] }),
-  d('config.competitors', 'config/competitors.json', 'config', 'strategy', '競合の追跡リスト（note・ココナラ・Instagram・X・YouTube の枠ごと）', { schema: 'ConfigCompetitors' }),
+  d('config.competitors', 'config/competitors.json', 'config', 'strategy', '競合の追跡リスト（note・ココナラ・Instagram・X・YouTube・講座の企業の枠ごと）', { schema: 'ConfigCompetitors' }),
+  d('config.issue-map', 'config/issue-map.json', 'config', 'strategy', '事業イシューマップ（全体・施工管理）。判定日は DN、現在値は指標 id で参照する', { schema: 'ConfigIssueMap', refs: [{ at: 'maps[].calendar.rows[].qualifications[]', to: 'qualification' }, { at: 'maps[].comparison.qualifications[]', to: 'qualification' }] }),
   // 計画
   d('config.youtube-longform-plan', 'config/youtube-longform-plan.json', 'config', 'plan', '通常動画の年間編集計画（制作期限・公開目標。実予約は公開台帳）', { schema: 'ConfigYoutubeLongformPlan', refs: [{ at: 'entries[].exam', to: 'qualification' }] }),
   d('config.annual-roadmap', 'config/annual-roadmap.json', 'config', 'plan', '年間ロードマップの期間と買い場の週数', { schema: 'ConfigAnnualRoadmap' }),
@@ -203,7 +204,8 @@ export const DATASETS = [
   d('coconala.thumb-approved', 'data/coconala/thumb-approved.json', 'ledger', 'product', '承認したココナラのサムネイル（承認日・画像ごとの承認）', { schema: 'CoconalaThumbApproved' }),
   d('coconala.resolved-inquiries', 'data/coconala/resolved-inquiries.json', 'ledger', 'product', '人が決着と判断した問い合わせ（受注の検査から外す）', { schema: 'CoconalaResolvedInquiries' }),
   d('coconala.competitors', 'data/coconala/competitors/{date}.json', 'series', 'strategy', 'ココナラの競合セラーの出品と価格（四半期・全社の通常実行だけ）', { retain: { family: 'competitors', keepAll: true }, freshness: { warnDays: 90 }, schema: 'CoconalaCompetitors' }),
-  d('coconala.blog-competitors', 'data/coconala/blog-competitors/{date}.json', 'series', 'strategy', 'ココナラブログの競合記事', { retain: { family: 'competitors', keepAll: true }, schema: 'CoconalaBlogCompetitors' }),
+  d('courses.competitors', 'data/courses/competitors/{date}.json', 'series', 'strategy', '講座の企業の価格・保証の観測（公式ページの目視・人が入れる）', { retain: { family: 'competitors', keepAll: true }, freshness: { warnDays: 180 }, schema: 'CoursesCompetitors' }),
+  d('coconala.blog-competitors','data/coconala/blog-competitors/{date}.json', 'series', 'strategy', 'ココナラブログの競合記事', { retain: { family: 'competitors', keepAll: true }, schema: 'CoconalaBlogCompetitors' }),
   d('coconala.market-research', 'data/coconala/market-research.json', 'state', 'strategy', 'ココナラの市場調査（検索結果の出品）', { schema: 'CoconalaMarketResearch' }),
   d('coconala.market-summary', 'data/coconala/market-summary.json', 'state', 'strategy', '同上の要約', { schema: 'CoconalaMarketSummary' }),
   // X

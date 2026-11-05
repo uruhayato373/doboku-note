@@ -18,7 +18,7 @@ const OBSERVATION = [
 ];
 
 test('競合リストの note に、価格・販売数・フォロワー数・日付などの観測値を書かない（検査対象 0 件を合格にしない）', () => {
-  const entries = ['note', 'coconala', 'instagram', 'x', 'youtube'].flatMap((ch) => (cfg[ch]?.competitors ?? []).map((c) => ({ ch, ...c })));
+  const entries = ['note', 'coconala', 'instagram', 'x', 'youtube', 'courses'].flatMap((ch) => (cfg[ch]?.competitors ?? []).map((c) => ({ ch, ...c })));
   assert.ok(entries.length >= 90, `競合の件数が少なすぎる（読み取りの破損を疑う）: ${entries.length}`);
   const bad = [];
   for (const c of entries) {

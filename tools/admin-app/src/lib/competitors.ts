@@ -1,5 +1,6 @@
 import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
+import { readLatest } from '../../../../scripts/lib/dataset-io.mjs';
 import { datasetFiles, datasetPath } from '../../../../scripts/lib/datasets.mjs';
 import { listedCoconalaServices } from '../../../../src/lib/coconala-services';
 import { findRepoRoot } from './repo-root';
@@ -190,4 +191,24 @@ function estimateRevenue(c: RawCompetitor): number | null {
   const priced = (c.services ?? []).filter((s) => typeof s.priceYen === 'number' && typeof s.reviews === 'number');
   if (priced.length === 0) return null;
   return priced.reduce((n, s) => n + s.priceYen! * s.reviews!, 0);
+}
+
+/** 講座の企業の観測（台帳 courses.competitors の最新）。公式ページの目視で人が入れる。自動取得はしていない。 */
+export type CourseOffer = { name: string; priceYen: number; orMore: boolean };
+export type CourseRow = {
+  handle: string;
+  label: string;
+  exams: string[];
+  sourceKind: 'official' | 'third-party';
+  sourceUrl: string;
+  offers: CourseOffer[];
+  scope: string;
+  onPass: string | null;
+  onFail: string | null;
+};
+export type CourseView = { observedDate: string | null; reading: string | null; rows: CourseRow[] };
+
+export function loadCourseView(): CourseView {
+  const latest = readLatest(findRepoRoot(), 'courses.competitors')?.data as { observedDate: string; reading: string; competitors: CourseRow[] } | undefined;
+  return { observedDate: latest?.observedDate ?? null, reading: latest?.reading ?? null, rows: latest?.competitors ?? [] };
 }
