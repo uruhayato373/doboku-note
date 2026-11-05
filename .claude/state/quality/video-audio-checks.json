@@ -176,6 +176,17 @@
         "expected": 1076,
         "heard": 1087
       }
+    },
+    "pe-construction/sentaku-river-coast-yomikata/youtube.longform": {
+      "videoSha256": "5ad5f7505f37add64d0b35ce8fc711b4e1813c1ff57b3d5486980bfdf43a831c",
+      "at": "2026-11-05T13:02:32.853Z",
+      "similarity": 0.779,
+      "maxVolumeDb": -1.4,
+      "durationGapSec": 0,
+      "chars": {
+        "expected": 1033,
+        "heard": 1005
+      }
     }
   }
 }
