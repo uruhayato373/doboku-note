@@ -132,6 +132,17 @@
         "expected": 970,
         "heard": 965
       }
+    },
+    "pe-comprehensive-management/hakusho-map/youtube.longform": {
+      "videoSha256": "ee71ecf6be3566355d421bccfebab62367c969d3840f17a3a75f4225ccde49b4",
+      "at": "2026-11-05T11:17:54.064Z",
+      "similarity": 0.862,
+      "maxVolumeDb": -1.4,
+      "durationGapSec": 0.1,
+      "chars": {
+        "expected": 796,
+        "heard": 784
+      }
     }
   }
 }

@@ -45,10 +45,11 @@
     },
     "pe-comprehensive-management/hakusho-map/youtube.longform": {
       "verdict": "pass",
-      "note": "台本と表紙は題名・中身・出典と整合し、試験日の誤りや合格の約束は無い。描画に進んでよい。動画は未完成（音声は未確認）。",
-      "at": "2026-11-04T04:50:04.364Z",
-      "visualDigest": "7a5dcec7795c1f6d9fe404117301ff80e37c1e222065024d51e067b66cdbf777",
-      "finalDigest": "8ac405c8f72722e52c124980727e84e01636b46b3bf9b865b23d1d3e1108ce5b"
+      "note": "表紙・題名・全9場面の画像を確認。場面順は台本と一致、文字の切れ・誤字なし。台本の数値(27白書・概要版10-30頁・核の白書)は出典記事と一致、試験日の記述なし。説明文のCTAはnoteマガジン1つ(無料サイトリンクは参考)。音声は未確認。",
+      "at": "2026-11-05T11:17:32.296Z",
+      "visualDigest": "685a675b98eed670feebf8a565f9985bfc880d0ed0241727b54e0df4ed8fd7f3",
+      "finalDigest": "3bfca4340cf623b44d93693c60dd4ef590b583e442adf023c03da8c70dc0d964",
+      "contentDigest": "3bfca4340cf623b44d93693c60dd4ef590b583e442adf023c03da8c70dc0d964"
     },
     "pe-comprehensive-management/kata-oudan-ryuyo/youtube.longform": {
       "verdict": "fail",

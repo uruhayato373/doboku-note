@@ -63,5 +63,366 @@
       },
       "publication": "ローカル差し替え・外部未反映"
     }
-  }
+  },
+  "revisions": {
+    "cover-pop-20261105": {
+      "version": "pop-poster-v3",
+      "layout": {
+        "mode": "diagram-led"
+      },
+      "generation": {
+        "tool": "image_gen",
+        "prompt": "添付の1枚目はdoboku-noteで採用済みの全面POP動画表紙の意匠参照、2枚目は先生キャラクターの同一性参照です。 新規の16:9横長（1920×1080想定）日本語YouTube動画表紙を作る。鮮やかな青・シアン・ネイビー、黄色と白の極太文字、明確な黒い輪郭、少量の赤、斜めの面と勢いのある背景、右側に先生キャラクターを大きく。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。 左〜中央に正確に『白書はどれ？』『5管理で選ぶ』を大きく配置。上部の黄色帯に小さく『総監が制作』。 誤字・余計な文字・合格保証・URL・価格・不明な実績を足さない。文字ブロックの黒い縁取りまで含めて左右8%の内側へ収め（画面の左端から8%は背景だけ）、顔は左右5%・上下5%内、下端18%は字幕が重なるので重要な文字や顔を置かず背景が全面に続く。",
+        "references": [
+          {
+            "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/youtube.longform/cover.b87e20c1.png",
+            "sha256": "b87e20c19fda2123d3bac22950472ee7a7427dd2ab11a7cbf63807a6e83c33ad"
+          },
+          {
+            "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
+            "sha256": "1941cd22fa523fcb233e8ab7b8ad756ad7398be8755037b881d8380fb39398f9"
+          }
+        ],
+        "output": {
+          "path": ".tmp/media/pe-comprehensive-management/hakusho-map/work/factory/raw-cover.9180a40a.png",
+          "sha256": "9180a40a270bc3c89cca55166d5d8d0974fcc61c6abf0f713657b92a082ee2a9"
+        },
+        "generatedAt": "2026-11-05T11:16:17.360Z"
+      },
+      "copy": {
+        "exam": "pe-comprehensive-management",
+        "headline": [
+          "白書はどれ？",
+          "5管理で選ぶ"
+        ],
+        "authority": "総監が制作"
+      },
+      "output": {
+        "path": ".tmp/media/pe-comprehensive-management/hakusho-map/work/cover-pop.4b9c9a84.png",
+        "sha256": "4b9c9a842057784a54da66688e98ceaa730e611d11e0b84c056b948237dd0949",
+        "width": 1920,
+        "height": 1080
+      },
+      "normalization": {
+        "mode": "full-frame-v1",
+        "sourceSha256": "9180a40a270bc3c89cca55166d5d8d0974fcc61c6abf0f713657b92a082ee2a9"
+      },
+      "review": {
+        "status": "ai-reviewed",
+        "checkedAt": "2026-11-05T11:16:17.360Z",
+        "by": "ai-image-fidelity-auditor",
+        "reason": "『白書はどれ？』『5管理で選ぶ』『総監が制作』が指示と一字一致。先生は黒髪・黒縁眼鏡・軽いひげ・白ヘルメット・紺作業服とネクタイ・反射帯で、手指の破綻なし",
+        "userImageReview": "pending"
+      },
+      "storage": {
+        "group": "content-media",
+        "sync": "local"
+      }
+    },
+    "body-diagram-20261105": {
+      "layout": {
+        "mode": "diagram-led"
+      },
+      "images": [
+        {
+          "sceneId": "premise",
+          "inputSha256": "ad74548ab875845c042dfb82c51f19198f20293c94c6f2511a61fe628060074d",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、鮮やかな青・シアン・ネイビーの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『誤解：白書は全冊通読が必要』。 図に入れる文字: 『27冊の全文通読は非現実的』 『必要なのは管理ごとの絞り込み』。 この場面の説明（文字にしない）: 白書は全冊を通読しなければならない、という思い込みがあります。実際には全冊通読は非現実的で、必要なのは自分の管理に近い白書だけを絞って深く読むことです。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/hakusho-map/work/factory/raw-premise.03cee809.png",
+              "sha256": "03cee80941b570d6a945da65c9cdcffe500f913171eb9eb5ccce0511041e6d1e"
+            },
+            "generatedAt": "2026-11-05T11:16:17.360Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/hakusho-map/work/premise-diagram.9bd1f065.png",
+            "sha256": "9bd1f0657c6298bf0eb25e899e9296740f0e1f79966171bd3a8f905dcea953eb",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "03cee80941b570d6a945da65c9cdcffe500f913171eb9eb5ccce0511041e6d1e"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-05T11:16:17.360Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出しと2つの吹き出しが指示と一字一致。本の山から虫眼鏡で絞る図で説明と矛盾せず、崩れなし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "role-diff",
+          "inputSha256": "ad90542d676b4fc79dfa2c420ca07ba25d719e5ead8bc1b2415a226487279a50",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、鮮やかな青・シアン・ネイビーの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『1. キーワード集と白書は役割が違う』。 図に入れる文字: 『キーワード集＝骨格の用語定義』 『白書＝最新動向・数値・特集の肉付け』。 この場面の説明（文字にしない）: キーワード集は出題範囲の骨格を示す用語の定義リストにすぎません。最新の政策動向や統計数値、特集テーマの肉付けを担うのが白書です。択一では白書の数字がそのまま選択肢に現れます。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/hakusho-map/work/factory/raw-role-diff.7b24948a.png",
+              "sha256": "7b24948a6c7552ddaa342472757bdd3ce15d83106f585a11de6a89ddd38e5932"
+            },
+            "generatedAt": "2026-11-05T11:16:17.360Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/hakusho-map/work/role-diff-diagram.f421faf5.png",
+            "sha256": "f421faf5216651c7fede2c8d500af8c9cd4f91bc071c7e687a1a170011ae0eab",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "7b24948a6c7552ddaa342472757bdd3ce15d83106f585a11de6a89ddd38e5932"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-05T11:16:17.360Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出しと2つの文言が指示と一字一致。骨格の図と、グラフ付きの肉付けの図で役割の違いと合う",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "summary-tokushu",
+          "inputSha256": "930285e5836450b3358cc5cbb8368f059c1e41f7207b0b6bcbda6f0e3b8e7748",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、鮮やかな青・シアン・ネイビーの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『2. 概要版と特集に絞って読む』。 図に入れる文字: 『概要版（10〜30ページ）で論点把握』 『本文は特集・第1部のみ深掘り』。 この場面の説明（文字にしない）: 27冊を全文通読する必要はありません。各白書の概要版は10から30ページ程度で、まずそこで論点を把握します。本文は関心を持ったテーマと「特集」「第1部」だけで十分です。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 38.4）",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/hakusho-map/work/factory/raw-summary-tokushu.66ffd9b9.png",
+              "sha256": "66ffd9b96c6bf380e9caf6a92c533973d93ef5d395378f1fe8741cd6386d7236"
+            },
+            "generatedAt": "2026-11-05T11:16:17.360Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/hakusho-map/work/summary-tokushu-diagram.05d7f15e.png",
+            "sha256": "05d7f15e66dbd57fbe9a1b33722f505d3ac0498884c4b8e3269d406680997502",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "66ffd9b96c6bf380e9caf6a92c533973d93ef5d395378f1fe8741cd6386d7236"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-05T11:16:17.360Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出しと2つの文言（10〜30ページ・第1部）が指示と一字一致。概要版から特集の見開きへの図で矛盾なし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "keyword-crossref",
+          "inputSha256": "274f8e5c3be0617f50a0caba1bfc1bfd32156598c48f3707a0f49614b777d3b2",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、鮮やかな青・シアン・ネイビーの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『3. キーワードから逆引きする』。 図に入れる文字: 『BCP→防災白書、カーボンニュートラル→環境・エネルギー白書』 『直近2〜3年分に絞る』。 この場面の説明（文字にしない）: 白書はキーワード集と紐づけて読むと効率が上がります。BCP（ビーシーピー）なら防災白書、カーボンニュートラルなら環境白書とエネルギー白書というように、覚えた語から該当の章を逆引きします。直近2〜3年分に絞ればさらに軽くなります。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/hakusho-map/work/factory/raw-keyword-crossref.cd38ee31.png",
+              "sha256": "cd38ee31e7cb86d33eb642bd8bbf6005cb5917f9931c44cd33c10b9de581f1fc"
+            },
+            "generatedAt": "2026-11-05T11:16:17.360Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/hakusho-map/work/keyword-crossref-diagram.54d25d48.png",
+            "sha256": "54d25d48cb3d4a2159aea14b9e57181274fa1fb939759cda6485157d64e79175",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "cd38ee31e7cb86d33eb642bd8bbf6005cb5917f9931c44cd33c10b9de581f1fc"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-05T11:16:17.360Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "BCP→防災白書、カーボンニュートラル→環境・エネルギー白書、直近2〜3年分に絞る、見出しとも指示と一致。余計な文字なし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "core-whitepapers",
+          "inputSha256": "2472541caa6c2ce9afdfba58eb8dead6186a6e5acf732240054c6335e66e967b",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、鮮やかな青・シアン・ネイビーの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『4. 5管理ごとの核となる白書』。 図に入れる文字: 『経済性：経済財政白書ほか』 『人的資源：厚生労働白書ほか』 『情報：情報通信白書』 『安全：防災白書ほか』 『社会環境：環境白書』。 この場面の説明（文字にしない）: 5管理には核となる白書があります。経済性は経済財政白書と中小企業白書、人的資源は厚生労働白書と労働経済の分析、情報は情報通信白書と情報セキュリティ白書、安全は防災白書と労働災害発生状況、社会環境は環境白書の合冊とエネルギー白書、国土交通白書です。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/hakusho-map/work/factory/raw-core-whitepapers.95312441.png",
+              "sha256": "95312441ba13bc3143cea5d909eee98547bab0f333ae60c564eba28c27d3d076"
+            },
+            "generatedAt": "2026-11-05T11:16:17.360Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/hakusho-map/work/core-whitepapers-diagram.c9f3ae01.png",
+            "sha256": "c9f3ae013c9eed78fce01ac5a80d8d248dd20cb0513b85f2222e1580869ae8d3",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "95312441ba13bc3143cea5d909eee98547bab0f333ae60c564eba28c27d3d076"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-05T11:16:17.360Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出しと5管理の語（経済性・人的資源・情報・安全・社会環境）と各白書名が指示と一字一致。余計な文字なし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "shakai-kankyo",
+          "inputSha256": "91c91e125d6d17a103fc440ade1a7b41c3deffc4a53ece559030e9379f13ca53",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、鮮やかな青・シアン・ネイビーの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『5. 社会環境管理は読み分けが要る』。 図に入れる文字: 『対応白書数が5管理中で最多』 『業務や興味に近いテーマから優先』。 この場面の説明（文字にしない）: 社会環境管理は対応する白書の数が5管理で最多で、複数の省庁にまたがります。すべて均等に扱おうとせず、自分の業務や興味に近いテーマから優先順位をつけて読み分けます。 前回の不合格の理由を直す: 文字: 見出しが指示にない鉤括弧『 』付きで「『5. 社会環境管理は読み分けが要る』」と描かれている。指示は括弧なしの見出しで、余計な文字が入っている（他の文言は一致）",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/hakusho-map/work/factory/raw-shakai-kankyo.9cece04b.png",
+              "sha256": "9cece04bbd19d89abcb622cd823a7e17c579da2e84c7939674b2afaafec0caba"
+            },
+            "generatedAt": "2026-11-05T11:16:17.360Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/hakusho-map/work/shakai-kankyo-diagram.a7db4632.png",
+            "sha256": "a7db46321856c5c4fd2679ef592f547b41783d6f8030f8adbdbf46f75fea2962",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "9cece04bbd19d89abcb622cd823a7e17c579da2e84c7939674b2afaafec0caba"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-05T11:16:17.360Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出しと吹き出し2つの文字が指示と一字ずつ一致し、崩れや余計な文字が無い。書類の束と優先順位の矢印・3段リストで説明と矛盾せず、下端は無地で文字は安全領域内",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "summary",
+          "inputSha256": "93693e44830a8dcfb84045ea960e25a3db100c000eb48e98ea9e4cd7bb19d462",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、鮮やかな青・シアン・ネイビーの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『まとめ』。 図に入れる文字: 『① 概要版と特集に絞って読む』 『② キーワードから逆引きする』 『③ 5管理ごとの核から押さえる』。 この場面の説明（文字にしない）: まとめます。キーワード集は骨格、白書は肉付けです。概要版と特集に絞り、キーワードから逆引きし、5管理ごとの核となる白書から押さえる。これが27冊を使い切る方法です。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/hakusho-map/work/factory/raw-summary.346c3b12.png",
+              "sha256": "346c3b12af2b3e6f0eac6b0415f4c698ce1cf60cb6717cf6c2e4855e51df84f7"
+            },
+            "generatedAt": "2026-11-05T11:16:17.360Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/hakusho-map/work/summary-diagram.346c3b12.png",
+            "sha256": "346c3b12af2b3e6f0eac6b0415f4c698ce1cf60cb6717cf6c2e4855e51df84f7",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "346c3b12af2b3e6f0eac6b0415f4c698ce1cf60cb6717cf6c2e4855e51df84f7"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-05T11:16:17.360Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "『まとめ』と①②③の3項目が指示と一字一致。3段の図に崩れなし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "cta",
+          "inputSha256": "51c1b74fb82e4c202e96b5723254077675fa47a444e2a48d95be1b681f5820b1",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、鮮やかな青・シアン・ネイビーの太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『白書を使い切る』。 図に入れる文字: 『白書×キーワード集 攻略マガジン（概要欄リンク）』。 この場面の説明（文字にしない）: 5管理ごとの白書の読みどころと、キーワード集との組み合わせ方をまとめたマガジンを用意しています。概要欄のリンクからご覧ください。ご視聴ありがとうございました。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/hakusho-map/work/factory/raw-cta.e4d9a674.png",
+              "sha256": "e4d9a674587dc2598e3e7cbff466d9cef8ed0a7b8b339b294ebdd5b967bd91f6"
+            },
+            "generatedAt": "2026-11-05T11:16:17.360Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/hakusho-map/work/cta-diagram.e4d9a674.png",
+            "sha256": "e4d9a674587dc2598e3e7cbff466d9cef8ed0a7b8b339b294ebdd5b967bd91f6",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "e4d9a674587dc2598e3e7cbff466d9cef8ed0a7b8b339b294ebdd5b967bd91f6"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-05T11:16:17.360Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "『白書を使い切る』『白書×キーワード集 攻略マガジン（概要欄リンク）』が指示と一字一致。URL・価格など余計な文字なし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        }
+      ]
+    }
+  },
+  "activeCoverRevision": "cover-pop-20261105",
+  "activeBodyRevision": "body-diagram-20261105"
 }
