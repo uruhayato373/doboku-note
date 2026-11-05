@@ -70748,6 +70748,32 @@
       "width": 1200,
       "height": 630,
       "srcHash": "06eeeee87ad0c682"
+    },
+    "content/site/laws/port-act/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/laws/port-act/ogp.png",
+      "sha256": "f5fc5e9acc1d04b11380173c5967629ff46e6a937abe270178330d7c8c0cf687",
+      "bytes": 56235,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-11-05T05:47:08.698Z",
+      "width": 1200,
+      "height": 630,
+      "srcHash": "00ac500c379118a9"
+    },
+    "content/site/laws/coast-act/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/laws/coast-act/ogp.png",
+      "sha256": "bdd1faa88b9dc912d110257884812fb722bfb12430627f9cbe7c4bdbab229938",
+      "bytes": 56202,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-11-05T05:47:09.027Z",
+      "width": 1200,
+      "height": 630,
+      "srcHash": "66070129700272b5"
     }
   },
   "note": "DN-0111 Phase 3。秘密値・署名 URL・絶対パスを書かないこと。",
