@@ -41,3 +41,10 @@ test('isUnscheduled: private で publishAt が無いときだけ真', () => {
   assert.equal(isUnscheduled({ status: { privacyStatus: 'private', publishAt: 'x' } }), false);
   assert.equal(isUnscheduled({ status: { privacyStatus: 'public' } }), false);
 });
+
+test('指定した公開だけを選ぶ', () => {
+  const row = (id) => ({ id, channel: 'youtube', status: 'scheduled', publishAt: '2026-11-09T11:30:00Z', platform: { id: 'x' } });
+  const now = Date.parse('2026-11-06T00:00:00Z');
+  assert.deepEqual(selectScheduled([row('a'), row('b')], now, ['b']).map((p) => p.id), ['b']);
+  assert.equal(selectScheduled([row('a'), row('b')], now).length, 2);
+});
