@@ -347,6 +347,33 @@
                 "road-sign-standard",
                 "guard-fence-standard"
               ]
+            },
+            {
+              "id": "A-48",
+              "title": "道路の構造の基準 — 道路構造令と市町村の条例の読み方",
+              "plan": "new",
+              "paths": [
+                "content/site/civil-practice/road-structure-standards/article.mdx"
+              ],
+              "sources": [
+                "road-act",
+                "road-structure-order"
+              ],
+              "note": "建設行政の体系の穴（DN-0990）。値の暗記でなく、政令と条例の見分けと区分から各値へ進む順を扱う"
+            },
+            {
+              "id": "A-49",
+              "title": "幹線道路網と有料道路の仕組み — 高規格道路・重要物流道路・高速道路会社・スマートIC",
+              "plan": "new",
+              "paths": [
+                "content/site/civil-practice/arterial-road-network-tolls/article.mdx"
+              ],
+              "sources": [
+                "road-act",
+                "expressway-act",
+                "road-special-measures-act"
+              ],
+              "note": "建設行政の体系の穴（DN-0990）。計画の呼び名と法律の種類の対応、市が連結と協議で果たす役割を扱う"
             }
           ]
         },
@@ -875,6 +902,20 @@
                   "figKey": "civil-practice/city-planning-act-framework/img/figure-building-check-order"
                 }
               ]
+            },
+            {
+              "id": "A-50",
+              "title": "地区計画と立地適正化計画 — 街区の決めごとと、まちの誘導を土木の仕事から読む",
+              "plan": "new",
+              "paths": [
+                "content/site/civil-practice/district-plan-location-optimization/article.mdx"
+              ],
+              "sources": [
+                "city-planning-act",
+                "urban-renaissance-act",
+                "mlit-city-planning-operation-guideline-13th"
+              ],
+              "note": "建設行政の体系の穴（DN-0990）。土木の担当が計画書の何を読み、どの場面で協議に入るかを扱う"
             },
             {
               "id": "A-33",
