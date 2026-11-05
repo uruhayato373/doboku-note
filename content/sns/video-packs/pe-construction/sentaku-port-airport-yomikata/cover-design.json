@@ -2,6 +2,10 @@
   "schemaVersion": 1,
   "covers": {
     "longform": {
+      "character": {
+        "pose": "pop-explaining",
+        "frame": "waist"
+      },
       "format": "longform",
       "exam": "pe-construction",
       "headline": [
@@ -10,19 +14,18 @@
       ],
       "accentLine": 1,
       "subtitle": "",
-      "character": {
-        "pose": "pop-explaining",
-        "frame": "waist"
-      },
-      "design": "pop-v2",
+      "design": "pop-poster-v3",
       "pop": {
         "variant": "explain",
         "authority": "総監が制作"
       },
+      "layout": "diagram-led",
       "approvedImage": {
-        "path": ".tmp/media/pe-construction/sentaku-port-airport-yomikata/youtube.longform/cover.db897571.png",
-        "sha256": "db897571563a9483d9ffe5ccfcfaebe851c92a15b194847cdc6e01efec3dfd77",
-        "specSha256": "baec3560a95dd9ad8a0ee71a3e49781fd6826fbbd3fb1d0442f41199d1d1b727"
+        "path": ".tmp/media/pe-construction/sentaku-port-airport-yomikata/work/cover-pop.66a185bb.png",
+        "sha256": "66a185bbb795b74118a9911209eec438dc7648dc0b316419d5854a20f77cb422",
+        "width": 1920,
+        "height": 1080,
+        "specSha256": "14cf0b7ab1f97d8719f489aa7128d773e213da5798b55e855c4253973d32856c"
       }
     }
   }
