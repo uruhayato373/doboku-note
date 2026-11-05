@@ -70709,6 +70709,45 @@
       "verifiedAt": "2026-11-05T00:40:59.691Z",
       "width": 1280,
       "height": 670
+    },
+    "content/site/civil-practice/road-structure-standards/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/civil-practice/road-structure-standards/ogp.png",
+      "sha256": "ea4c24d13d1243921deec2f12de1a91442a9511b57ec5f4f67da29056ac5c9e3",
+      "bytes": 62547,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-11-05T04:27:59.958Z",
+      "width": 1200,
+      "height": 630,
+      "srcHash": "a9bbeef5ee39c059"
+    },
+    "content/site/civil-practice/district-plan-location-optimization/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/civil-practice/district-plan-location-optimization/ogp.png",
+      "sha256": "7590d931bf3ed134af432d294517b20bb4f0247d47f7d5748fe3f0dda01fee90",
+      "bytes": 64327,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-11-05T04:27:59.989Z",
+      "width": 1200,
+      "height": 630,
+      "srcHash": "38176a83c7ce8da5"
+    },
+    "content/site/civil-practice/arterial-road-network-tolls/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/civil-practice/arterial-road-network-tolls/ogp.png",
+      "sha256": "fd00ff88dd247e7c846116e5b41d0a29b9e4d1035a053b2942bff967ec6045a9",
+      "bytes": 67601,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-11-05T04:28:00.418Z",
+      "width": 1200,
+      "height": 630,
+      "srcHash": "06eeeee87ad0c682"
     }
   },
   "note": "DN-0111 Phase 3。秘密値・署名 URL・絶対パスを書かないこと。",
