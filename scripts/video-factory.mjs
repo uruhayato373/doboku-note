@@ -36,7 +36,7 @@ import { readDataset } from './lib/dataset-io.mjs';
 import { datasetPath } from './lib/datasets.mjs';
 import { readJsonIf } from './lib/json-io.mjs';
 import { requirePopDiagramStandard } from './lib/longform-pop-images.mjs';
-import { ensureVoicevox } from './lib/voicevox-engine.mjs';
+import { ensureVoicevox, readingOf } from './lib/voicevox-engine.mjs';
 import { approvalState, reviewIsCurrent } from './lib/media-review.mjs';
 import { recordYoutubeRevisionQa } from './lib/registry-youtube-revision.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
@@ -190,17 +190,6 @@ function videoFile(pack, mediaById, pub) {
   if (!existsSync(abs)) execFileSync('npm', ['run', '-s', 'media', '--', 'pull', '--work', pack, '--commit'], { cwd: ROOT, stdio: 'inherit' });
   if (!existsSync(abs) || createSha(readFileSync(abs)) !== video.sha256) throw new Error(`${pub.id}: 完成動画の実体が台帳の sha と違う`);
   return { abs, video };
-}
-
-/** 文字起こしは同音の漢字を取り違える（圧密→厚密）ので、表記でなく VOICEVOX の読み仮名で比べる */
-async function readingOf(text) {
-  const kana = [];
-  for (const part of text.split(/(?<=[。？！])/).filter((s) => s.trim())) {
-    const query = await fetch(`http://127.0.0.1:50021/audio_query?speaker=13&text=${encodeURIComponent(part)}`, { method: 'POST' });
-    if (!query.ok) throw new Error(`読み仮名を取れない: ${query.status}`);
-    kana.push((await query.json()).kana.replace(/[/'、_]/g, ''));
-  }
-  return kana.join('');
 }
 
 /** 音声の機械検査。欠落・崩れ・音量・尺に加え、読み仮名の比較で台本と違う読みも見る */

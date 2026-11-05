@@ -245,7 +245,7 @@ npm run coconala-pause    # ココナラ出品の受付休止/再開/アーカ�
 ```bash
 npm run image-rules -- --exam <exam> --format shorts|longform # 手作業の Codex へ渡す生成指示の部品を出す
 npm run check-image-rules # AI 画像の経路の登録と共通ルールの一本化を検査
-npm run shorts-factory -- plan|generate|audit-queue|record-audit|adopt|render|record-review --pack <exam>/<work> --key <key> # ショートの標準工程（全面画像）
+npm run shorts-factory -- status|record-script-qa|plan|generate|audit-queue|record-audit|adopt|render|record-review|audio-check|stock|restore --pack <exam>/<work> --key <key> # ショートの標準工程（台本QA・全面画像・Drive 在庫）
 npm run video-factory -- status  # 全動画パックの次の工程を出す。制作の入口（手順 → video-factory.md。承認・公開はしない）
 npm run check-video-content    # 動画パック（DN-0110）の整合ゲート（manifest/sourceRef 漏洩/CTA・UTM/storyboard/逐語転用/status。契約 SSOT は config/video-content.json と video-content-policy.md。exit 2=検査不成立・quality:audit に同梱）
 npm run render-longform        # 本文POP指定(imageDesign)は全場面の生成記録・採用PNGのSHA/実寸を検査し欠落時停止。動画パックの 16:9 通常動画レンダラー（storyboard→1920×1080 PNG＋ASS 字幕＋VOICEVOX/ffmpeg mp4。出力は .tmp/video-render/・音声環境無しは --skip-tts で PNG/ASS まで。任意の --loudnorm で音量補正。VOICEVOXとffmpegがあればWindows/Macでmp4生成可・生成用Actionsは未設置）

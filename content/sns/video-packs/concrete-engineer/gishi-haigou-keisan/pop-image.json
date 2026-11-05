@@ -395,6 +395,54 @@
         "reason": "5軸平均4.2・全軸3以上。全5場面を確認。YouTube実画面の操作UIと関連動画の設定は未確認",
         "videoSha256": "6668f2988a9b4ec5f5257cabef50b34a0eb60fac4c4b936a346ad270b62741ad",
         "checkedAt": "2026-11-05T22:11:14.297Z"
+      },
+      "audio": {
+        "videoSha256": "6668f2988a9b4ec5f5257cabef50b34a0eb60fac4c4b936a346ad270b62741ad",
+        "similarity": 0.977,
+        "maxVolumeDb": -5.8,
+        "durationGapSec": 0
+      },
+      "stock": {
+        "video": {
+          "path": ".tmp/media/concrete-engineer/gishi-haigou-keisan/youtube.short.point-step1-1/video.6668f298.mp4",
+          "sha256": "6668f2988a9b4ec5f5257cabef50b34a0eb60fac4c4b936a346ad270b62741ad"
+        },
+        "frames": {
+          "path": ".tmp/media/concrete-engineer/gishi-haigou-keisan/youtube.short.point-step1-1/frames.24f43ac4.png",
+          "sha256": "24f43ac419e10defc363afbe2b4bfd327eb390180bb42e6c9ed0f2e2b6cdd075"
+        },
+        "subtitles": {
+          "path": ".tmp/media/concrete-engineer/gishi-haigou-keisan/youtube.short.point-step1-1/subtitles.353a4f48.ass",
+          "sha256": "353a4f48827b4796b057bf6979ba9a362dff5c19fe17b94416e5b6b6e82fe38c"
+        },
+        "originals": [
+          {
+            "path": ".tmp/media/concrete-engineer/gishi-haigou-keisan/youtube.short.point-step1-1/raw-cover.54a6eed6.png",
+            "sha256": "54a6eed6c8d8ac88eee1661f7106f9dfe22debe025269ab4a1c6567f7b51ca55"
+          },
+          {
+            "path": ".tmp/media/concrete-engineer/gishi-haigou-keisan/youtube.short.point-step1-1/raw-scene-001.062df6d0.png",
+            "sha256": "062df6d0bde28ee7c1e7c400e2394705982d39b80352e8d4f7fa83399feccd45"
+          },
+          {
+            "path": ".tmp/media/concrete-engineer/gishi-haigou-keisan/youtube.short.point-step1-1/raw-scene-002.4fa3efcb.png",
+            "sha256": "4fa3efcb20997c79c8b0394b1a62475e02ebb9013824556fc413982f7674a445"
+          },
+          {
+            "path": ".tmp/media/concrete-engineer/gishi-haigou-keisan/youtube.short.point-step1-1/raw-scene-003.20905ecd.png",
+            "sha256": "20905ecd3ca2ca3d8a32175ea89ecff781e117325a86c2796cbc3ce796c1f4a3"
+          },
+          {
+            "path": ".tmp/media/concrete-engineer/gishi-haigou-keisan/youtube.short.point-step1-1/raw-cta.eeaca71f.png",
+            "sha256": "eeaca71fe6c5621b8a099be2987d8c50290064cc4ba465eb4420d7d0991e3171"
+          }
+        ],
+        "thumbnail": {
+          "path": ".tmp/media/concrete-engineer/gishi-haigou-keisan/youtube.short.point-step1-1/cover.9f75a1c2.png",
+          "sha256": "9f75a1c2b4c4b0378ae80c450fc9d65ba153ae80b58008dcbe992cc367727fc9"
+        },
+        "savedAt": "2026-11-05T23:10:09.543Z",
+        "cloudVerified": true
       }
     }
   },
