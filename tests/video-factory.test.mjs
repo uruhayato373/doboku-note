@@ -271,10 +271,11 @@ test('空き枠は猶予と 1 日の上限を守る', () => {
   assert.equal(nextSlot(['2026-11-06T11:30:00Z'], policy, now), '2026-11-07T11:30:00Z');
 });
 
-test('投稿の残りは直近 24 時間の本数から決まる', () => {
-  const now = Date.parse('2026-11-05T12:00:00Z');
+test('投稿の残りは太平洋時間の 0 時からの本数で決まる', () => {
+  const now = Date.parse('2026-11-05T20:00:00Z');
   const pub = (uploaded) => ({ channel: 'youtube', times: { uploaded } });
-  assert.equal(uploadsLeft([pub('2026-11-05T01:00:00Z'), pub('2026-11-05T02:00:00Z'), pub('2026-11-03T02:00:00Z')], { maxUploadsPerDay: 4 }, now), 2);
+  // 11 月は太平洋標準時なので 08:00Z が境目。01:00Z は前の日の割当
+  assert.equal(uploadsLeft([pub('2026-11-05T01:00:00Z'), pub('2026-11-05T08:00:00Z'), pub('2026-11-05T09:00:00Z')], { maxUploadsPerDay: 4 }, now), 2);
   assert.equal(uploadsLeft([], { maxUploadsPerDay: 4 }, now), 4);
 });
 

@@ -84,6 +84,9 @@ export function nextSlot(taken, policy, now = Date.now()) {
 
 /** 直近 24 時間に投稿した本数から、あと何本投稿できるかを返す。割当の超過は結果不明になり再送できない */
 export function uploadsLeft(publications, policy, now = Date.now()) {
-  const recent = publications.filter((p) => p.channel === 'youtube' && Date.parse(p.times?.uploaded) > now - 86_400_000).length;
+  // YouTube API の割当は太平洋時間の 0 時に戻る。直近 24 時間で数えると前日分が残り、空きがあっても止まる
+  const pacific = new Date(new Date(now).toLocaleString('en-US', { timeZone: 'America/Los_Angeles' }));
+  const dayStart = now - (pacific.getHours() * 3_600_000 + pacific.getMinutes() * 60_000 + pacific.getSeconds() * 1000);
+  const recent = publications.filter((p) => p.channel === 'youtube' && Date.parse(p.times?.uploaded) >= dayStart).length;
   return Math.max(0, policy.maxUploadsPerDay - recent);
 }
