@@ -242,10 +242,10 @@
       "kind": "video-pack",
       "definition": "content/sns/video-packs/pe-construction/sentaku-environment-yomikata",
       "qa": {
-        "avg": 2.83,
+        "avg": 2.5,
         "blocks": 0,
-        "at": "2026-09-01",
-        "by": "general-purpose (video-content-qa 代行・6軸)"
+        "at": "2026-11-06",
+        "by": "Claude Code video-content-qa"
       }
     },
     {
@@ -253,10 +253,10 @@
       "kind": "video-pack",
       "definition": "content/sns/video-packs/pe-construction/sentaku-geotechnical-yomikata",
       "qa": {
-        "avg": 3,
+        "avg": 2.67,
         "blocks": 0,
-        "at": "2026-09-01",
-        "by": "general-purpose (video-content-qa 代行・6軸)"
+        "at": "2026-11-06",
+        "by": "Claude Code video-content-qa"
       }
     },
     {
@@ -275,10 +275,10 @@
       "kind": "video-pack",
       "definition": "content/sns/video-packs/pe-construction/sentaku-port-airport-yomikata",
       "qa": {
-        "avg": 2.83,
-        "blocks": 0,
-        "at": "2026-09-01",
-        "by": "general-purpose (video-content-qa 代行・6軸)"
+        "avg": 2.33,
+        "blocks": 1,
+        "at": "2026-11-06",
+        "by": "Claude Code video-content-qa"
       }
     },
     {
@@ -297,10 +297,10 @@
       "kind": "video-pack",
       "definition": "content/sns/video-packs/pe-construction/sentaku-railway-yomikata",
       "qa": {
-        "avg": 2.83,
+        "avg": 2.5,
         "blocks": 0,
-        "at": "2026-09-01",
-        "by": "general-purpose (video-content-qa 代行・6軸)"
+        "at": "2026-11-06",
+        "by": "Claude Code video-content-qa"
       }
     },
     {
@@ -341,10 +341,10 @@
       "kind": "video-pack",
       "definition": "content/sns/video-packs/pe-construction/sentaku-tunnel-yomikata",
       "qa": {
-        "avg": 2.83,
+        "avg": 2.17,
         "blocks": 0,
-        "at": "2026-09-01",
-        "by": "general-purpose (video-content-qa 代行・6軸)"
+        "at": "2026-11-06",
+        "by": "Claude Code video-content-qa"
       }
     },
     {

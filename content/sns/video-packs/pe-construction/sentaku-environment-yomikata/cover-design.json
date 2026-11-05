@@ -2,6 +2,10 @@
   "schemaVersion": 1,
   "covers": {
     "longform": {
+      "character": {
+        "pose": "pop-explaining",
+        "frame": "waist"
+      },
       "format": "longform",
       "exam": "pe-construction",
       "headline": [
@@ -10,19 +14,18 @@
       ],
       "accentLine": 1,
       "subtitle": "",
-      "character": {
-        "pose": "pop-explaining",
-        "frame": "waist"
-      },
-      "design": "pop-v2",
+      "design": "pop-poster-v3",
       "pop": {
         "variant": "explain",
         "authority": "総監が制作"
       },
+      "layout": "diagram-led",
       "approvedImage": {
-        "path": ".tmp/media/pe-construction/sentaku-environment-yomikata/youtube.longform/cover.bee42aed.png",
-        "sha256": "bee42aedbf92cd97cc4a3fe9e547bbd0eff5d1970cc82bb0abfee8e35e7de628",
-        "specSha256": "f04bbe9af93db0831fa1344a7a673cb2de4acbc2dc65ffd0de3cded43e5295ab"
+        "path": ".tmp/media/pe-construction/sentaku-environment-yomikata/work/cover-pop.00067f6a.png",
+        "sha256": "00067f6a5e75f3d829d9bf972a9ec7a1aef5819a3e3c3ddfb98b74e3649406de",
+        "width": 1920,
+        "height": 1080,
+        "specSha256": "8ea68959cdefbcac6bb35ba70657acf4f487967eb3a500937b0fe20295b3c1a8"
       }
     }
   }

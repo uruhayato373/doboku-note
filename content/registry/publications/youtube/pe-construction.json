@@ -499,8 +499,19 @@
       "format": "longform",
       "status": "qa_passed",
       "media": {
-        "cover": "pe-construction/sentaku-environment-yomikata/youtube.longform/cover"
-      }
+        "cover": "pe-construction/sentaku-environment-yomikata/youtube.longform/cover",
+        "scene-001": "pe-construction/sentaku-environment-yomikata/youtube.longform/scene-001",
+        "scene-002": "pe-construction/sentaku-environment-yomikata/youtube.longform/scene-002",
+        "scene-003": "pe-construction/sentaku-environment-yomikata/youtube.longform/scene-003",
+        "scene-004": "pe-construction/sentaku-environment-yomikata/youtube.longform/scene-004",
+        "scene-005": "pe-construction/sentaku-environment-yomikata/youtube.longform/scene-005",
+        "scene-006": "pe-construction/sentaku-environment-yomikata/youtube.longform/scene-006",
+        "scene-007": "pe-construction/sentaku-environment-yomikata/youtube.longform/scene-007",
+        "scene-008": "pe-construction/sentaku-environment-yomikata/youtube.longform/scene-008",
+        "video": "pe-construction/sentaku-environment-yomikata/youtube.longform/video",
+        "subtitles": "pe-construction/sentaku-environment-yomikata/youtube.longform/subtitles"
+      },
+      "copy": "content/sns/video-packs/pe-construction/sentaku-environment-yomikata/youtube.json#longform"
     },
     {
       "id": "pe-construction/sentaku-geotechnical-yomikata/youtube.longform",
@@ -509,8 +520,19 @@
       "format": "longform",
       "status": "qa_passed",
       "media": {
-        "cover": "pe-construction/sentaku-geotechnical-yomikata/youtube.longform/cover"
-      }
+        "cover": "pe-construction/sentaku-geotechnical-yomikata/youtube.longform/cover",
+        "scene-001": "pe-construction/sentaku-geotechnical-yomikata/youtube.longform/scene-001",
+        "scene-002": "pe-construction/sentaku-geotechnical-yomikata/youtube.longform/scene-002",
+        "scene-003": "pe-construction/sentaku-geotechnical-yomikata/youtube.longform/scene-003",
+        "scene-004": "pe-construction/sentaku-geotechnical-yomikata/youtube.longform/scene-004",
+        "scene-005": "pe-construction/sentaku-geotechnical-yomikata/youtube.longform/scene-005",
+        "scene-006": "pe-construction/sentaku-geotechnical-yomikata/youtube.longform/scene-006",
+        "scene-007": "pe-construction/sentaku-geotechnical-yomikata/youtube.longform/scene-007",
+        "scene-008": "pe-construction/sentaku-geotechnical-yomikata/youtube.longform/scene-008",
+        "video": "pe-construction/sentaku-geotechnical-yomikata/youtube.longform/video",
+        "subtitles": "pe-construction/sentaku-geotechnical-yomikata/youtube.longform/subtitles"
+      },
+      "copy": "content/sns/video-packs/pe-construction/sentaku-geotechnical-yomikata/youtube.json#longform"
     },
     {
       "id": "pe-construction/sentaku-kakiwake-3type/youtube.longform",
@@ -527,7 +549,7 @@
       "work": "sentaku-port-airport-yomikata",
       "account": "youtube:main",
       "format": "longform",
-      "status": "qa_passed",
+      "status": "qa_blocked",
       "media": {
         "cover": "pe-construction/sentaku-port-airport-yomikata/youtube.longform/cover"
       }
@@ -549,8 +571,19 @@
       "format": "longform",
       "status": "qa_passed",
       "media": {
-        "cover": "pe-construction/sentaku-railway-yomikata/youtube.longform/cover"
-      }
+        "cover": "pe-construction/sentaku-railway-yomikata/youtube.longform/cover",
+        "scene-001": "pe-construction/sentaku-railway-yomikata/youtube.longform/scene-001",
+        "scene-002": "pe-construction/sentaku-railway-yomikata/youtube.longform/scene-002",
+        "scene-003": "pe-construction/sentaku-railway-yomikata/youtube.longform/scene-003",
+        "scene-004": "pe-construction/sentaku-railway-yomikata/youtube.longform/scene-004",
+        "scene-005": "pe-construction/sentaku-railway-yomikata/youtube.longform/scene-005",
+        "scene-006": "pe-construction/sentaku-railway-yomikata/youtube.longform/scene-006",
+        "scene-007": "pe-construction/sentaku-railway-yomikata/youtube.longform/scene-007",
+        "scene-008": "pe-construction/sentaku-railway-yomikata/youtube.longform/scene-008",
+        "video": "pe-construction/sentaku-railway-yomikata/youtube.longform/video",
+        "subtitles": "pe-construction/sentaku-railway-yomikata/youtube.longform/subtitles"
+      },
+      "copy": "content/sns/video-packs/pe-construction/sentaku-railway-yomikata/youtube.json#longform"
     },
     {
       "id": "pe-construction/sentaku-river-coast-yomikata/youtube.longform",
@@ -611,8 +644,19 @@
       "format": "longform",
       "status": "qa_passed",
       "media": {
-        "cover": "pe-construction/sentaku-tunnel-yomikata/youtube.longform/cover"
-      }
+        "cover": "pe-construction/sentaku-tunnel-yomikata/youtube.longform/cover",
+        "scene-001": "pe-construction/sentaku-tunnel-yomikata/youtube.longform/scene-001",
+        "scene-002": "pe-construction/sentaku-tunnel-yomikata/youtube.longform/scene-002",
+        "scene-003": "pe-construction/sentaku-tunnel-yomikata/youtube.longform/scene-003",
+        "scene-004": "pe-construction/sentaku-tunnel-yomikata/youtube.longform/scene-004",
+        "scene-005": "pe-construction/sentaku-tunnel-yomikata/youtube.longform/scene-005",
+        "scene-006": "pe-construction/sentaku-tunnel-yomikata/youtube.longform/scene-006",
+        "scene-007": "pe-construction/sentaku-tunnel-yomikata/youtube.longform/scene-007",
+        "scene-008": "pe-construction/sentaku-tunnel-yomikata/youtube.longform/scene-008",
+        "video": "pe-construction/sentaku-tunnel-yomikata/youtube.longform/video",
+        "subtitles": "pe-construction/sentaku-tunnel-yomikata/youtube.longform/subtitles"
+      },
+      "copy": "content/sns/video-packs/pe-construction/sentaku-tunnel-yomikata/youtube.json#longform"
     },
     {
       "id": "pe-construction/sentaku-urban-planning-yomikata/youtube.longform",

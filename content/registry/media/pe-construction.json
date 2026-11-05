@@ -2404,41 +2404,447 @@
       "id": "pe-construction/sentaku-environment-yomikata/youtube.longform/cover",
       "role": "cover",
       "type": "image/png",
-      "sha256": "bee42aedbf92cd97cc4a3fe9e547bbd0eff5d1970cc82bb0abfee8e35e7de628",
-      "bytes": 686733,
-      "width": 1920,
-      "height": 1080,
+      "sha256": "00067f6a5e75f3d829d9bf972a9ec7a1aef5819a3e3c3ddfb98b74e3649406de",
+      "bytes": 679454,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/pe-construction/sentaku-environment-yomikata/youtube.longform/cover.bee42aed.png"
+        "path": ".tmp/media/pe-construction/sentaku-environment-yomikata/youtube.longform/cover.00067f6a.png"
       },
       "provenance": {
-        "kind": "template",
-        "by": "youtube-covers",
-        "spec": "content/sns/video-packs/pe-construction/sentaku-environment-yomikata/cover-design.json#covers/longform",
-        "specSha256": "f04bbe9af93db0831fa1344a7a673cb2de4acbc2dc65ffd0de3cded43e5295ab"
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "添付の1枚目はdoboku-noteで採用済みの全面POP動画表紙の意匠参照、2枚目は先生キャラクターの同一性参照です。 新規の16:9横長（1920×1080想定）日本語YouTube動画表紙を作る。深いインディゴ #33356B と明るい青紫、黄色と白の極太文字、明確な黒い輪郭、少量の赤、斜めの面と勢いのある背景、右側に先生キャラクターを大きく。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。 左〜中央に正確に『建設環境』『テーマの読み方』を大きく配置。上部の黄色帯に小さく『総監が制作』。 誤字・余計な文字・合格保証・URL・価格・不明な実績を足さない。文字ブロックの黒い縁取りまで含めて左右8%の内側へ収め（画面の左端から8%は背景だけ）、顔は左右5%・上下5%内、下端18%は字幕が重なるので重要な文字や顔を置かず背景が全面に続く。",
+        "promptSha256": "b57c3cc9fcc00f32e3f97cb4ce41fe58ab80536aef4c09f0b9c9916d5112e5b5",
+        "generatedAt": "2026-11-05T21:18:42.477Z"
       },
-      "legacyPaths": []
+      "width": 1920,
+      "height": 1080,
+      "legacyPaths": [
+        ".tmp/media/pe-construction/sentaku-environment-yomikata/work/cover-pop.00067f6a.png"
+      ]
+    },
+    {
+      "id": "pe-construction/sentaku-environment-yomikata/youtube.longform/scene-001",
+      "role": "scene-001",
+      "type": "image/png",
+      "sha256": "00067f6a5e75f3d829d9bf972a9ec7a1aef5819a3e3c3ddfb98b74e3649406de",
+      "bytes": 679454,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/sentaku-environment-yomikata/youtube.longform/scene-001.00067f6a.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "添付の1枚目はdoboku-noteで採用済みの全面POP動画表紙の意匠参照、2枚目は先生キャラクターの同一性参照です。 新規の16:9横長（1920×1080想定）日本語YouTube動画表紙を作る。深いインディゴ #33356B と明るい青紫、黄色と白の極太文字、明確な黒い輪郭、少量の赤、斜めの面と勢いのある背景、右側に先生キャラクターを大きく。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。 左〜中央に正確に『建設環境』『テーマの読み方』を大きく配置。上部の黄色帯に小さく『総監が制作』。 誤字・余計な文字・合格保証・URL・価格・不明な実績を足さない。文字ブロックの黒い縁取りまで含めて左右8%の内側へ収め（画面の左端から8%は背景だけ）、顔は左右5%・上下5%内、下端18%は字幕が重なるので重要な文字や顔を置かず背景が全面に続く。",
+        "promptSha256": "b57c3cc9fcc00f32e3f97cb4ce41fe58ab80536aef4c09f0b9c9916d5112e5b5",
+        "generatedAt": "2026-11-05T21:18:42.477Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-construction/sentaku-environment-yomikata/youtube.longform/scene-002",
+      "role": "scene-002",
+      "type": "image/png",
+      "sha256": "6c0e0cfc5f72c007f106e91c9eefc0adfce708500fe76476aa98b5be790ad5c0",
+      "bytes": 1044963,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/sentaku-environment-yomikata/youtube.longform/scene-002.6c0e0cfc.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『誤解：政策名を幅広く集めれば安心』。 図に入れる文字: 『II-2に環境影響評価の設問：8年中8年』 『R01 法・条例／R02〜R07 II-2-1／R08 II-2-2』。 この場面の説明（文字にしない）: 政策文書の名前を片っ端から集めれば安心、と考えていませんか。ところが年度別の表を見ると、II-2には8年すべてで、環境影響評価の設問が1問入っています。令和1年度は法と条例、2年度から7年度はII-2-1の第一種事業、令和8年度はII-2-2の地下鉄道事業です。変わるのは事業の種類で、軸そのものは動きません。まずここを固める順番で考えます。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 32.9）",
+        "promptSha256": "be55f378fc71f5d3f9ed688822718aef093276c5f73489a19b0b7fcdb5f24c1a",
+        "generatedAt": "2026-11-05T21:18:42.477Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-construction/sentaku-environment-yomikata/youtube.longform/scene-003",
+      "role": "scene-003",
+      "type": "image/png",
+      "sha256": "14bae967722f50fcd56e613cc1c01ef93466143ee072bd74ee4d5c602ec6bb73",
+      "bytes": 1521289,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/sentaku-environment-yomikata/youtube.longform/scene-003.14bae967.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『動かない軸：環境影響評価』。 図に入れる文字: 『II-2-1の第一種事業：R02〜R07の6年連続』 『R08はII-2-2（地下鉄道事業）へ移動』 『評価項目選定→保全措置→合意形成』。 この場面の説明（文字にしない）: もう少し具体的に見ます。II-2-1の第一種事業の環境影響評価は、令和2年度から7年度の6年連続です。令和8年度はII-2-1が都市の低炭素化と立地適正化計画になり、アセスはII-2-2の地下鉄道事業へ移りました。設問番号は動いても、環境影響評価そのものは8年とも出ています。事業の種類が変わっても、評価項目の選び方、調査・予測・評価、回避・低減・代償の保全措置、住民や行政との合意形成という流れは共通です。この流れを自分の言葉で書けるようにしておきます。",
+        "promptSha256": "d8ae253c7db7f45c0d5d64d6283c676249fa8592dbda263e661cc9d5ded6c55d",
+        "generatedAt": "2026-11-05T21:18:42.477Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-construction/sentaku-environment-yomikata/youtube.longform/scene-004",
+      "role": "scene-004",
+      "type": "image/png",
+      "sha256": "1c359ad389031fe14f8f8a6edea361342234c7a3567f80a3a52376ddb9f196b4",
+      "bytes": 2048836,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/sentaku-environment-yomikata/youtube.longform/scene-004.1c359ad3.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『政策更新①：生物多様性・グリーンインフラ』。 図に入れる文字: 『IIIの自然・生態系：R01・R02・R03・R04・R06・R08』 『R06：生物多様性国家戦略2023-2030』 『グリーンインフラ推進戦略：R02・R06』。 この場面の説明（文字にしない）: 次に選択科目IIIです。8年分16問を見ると、自然や生態系に関わる問題は、令和1、2、3、4、6、8年度の6年度にあります。令和1年度は水辺や藻場・干潟の自然再生、3年度は生物多様性が確保された国土、4年度と8年度は生態系ネットワーク、6年度は生物多様性国家戦略2023-2030とグリーンインフラ推進戦略2023です。グリーンインフラは令和2年度にも推進戦略が出ています。国家戦略がネイチャーポジティブと30by30を掲げていることと、政策名と問われ方をセットで覚えます。 前回の不合格の理由を直す: 文字: 見出しの前後に指示にない鉤括弧『』が描かれている（プロンプトの引用符の写り込み）。他の文字（R01・R02・R03・R04・R06・R08、国家戦略2023-2030、推進戦略R02・R06）は一致",
+        "promptSha256": "a26761d1370e142a36c6c1c95693e97161907e6eaf931f0a9bcd8fb5fb6d8f60",
+        "generatedAt": "2026-11-05T21:18:42.477Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-construction/sentaku-environment-yomikata/youtube.longform/scene-005",
+      "role": "scene-005",
+      "type": "image/png",
+      "sha256": "ca46ebafe3b413422c039cec4bc7b1e515f7cebdeb8cd43db4e68616bab42b59",
+      "bytes": 1861558,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/sentaku-environment-yomikata/youtube.longform/scene-005.ca46ebaf.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『政策更新②：再エネ・脱炭素』。 図に入れる文字: 『II-1の再エネ：R02〜R06の5年度』 『R03 カーボンニュートラル／R06 港湾の脱炭素化』 『R07・R08のII-1には再エネの設問なし』。 この場面の説明（文字にしない）: もうひとつ、再生可能エネルギーと脱炭素です。II-1で再エネが直接のテーマになったのは、令和2年度の再エネ事業、3年度の再エネの環境影響評価、4年度の早期導入、5年度の太陽光発電、6年度の洋上風力で、2年度から6年度の5年度です。令和3年度にはカーボンニュートラル、6年度には港湾の脱炭素化も出ています。ただし令和7年度と8年度のII-1には、再エネの設問は見当たりません。2年度から6年度に集まっていた、と数えて言えるのはそこまでです。",
+        "promptSha256": "fc5bfe3746745a03df6fc8eac4e7fa49a992892db5750373a90e65ce9c60a8a5",
+        "generatedAt": "2026-11-05T21:18:42.477Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-construction/sentaku-environment-yomikata/youtube.longform/scene-006",
+      "role": "scene-006",
+      "type": "image/png",
+      "sha256": "1f2cb8fac312db95a6cf170764694c5e509436e70d70c984ec0f1c3a692782e7",
+      "bytes": 1491074,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/sentaku-environment-yomikata/youtube.longform/scene-006.1f2cb8fa.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『対策の優先順位（過去の件数順）』。 図に入れる文字: 『① 環境影響評価：8年』 『② IIIの自然・生態系：6年度』 『③ II-1の再エネ：5年度』 『④ 建設リサイクル：4年度』。 この場面の説明（文字にしない）: では順位をつけます。表から数えた件数で並べると、II-2の環境影響評価が8年中8年、IIIの自然・生態系が6年度、II-1の再エネが5年度、建設リサイクルが令和1、2、4、7年度の4年度です。これは次の出題を当てる順番ではなく、過去の件数の順です。この順に、自分が書ける題材の厚みを見ながら仕込みます。",
+        "promptSha256": "8f7a34ce784227f9df4c0f17f7ca775c1806f1df5f82653ac07146a90001c8f9",
+        "generatedAt": "2026-11-05T21:18:42.477Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-construction/sentaku-environment-yomikata/youtube.longform/scene-007",
+      "role": "scene-007",
+      "type": "image/png",
+      "sha256": "167e6a6490aa82db81938667c4efd2d58c464b216a3e0b671746a026f96c81fa",
+      "bytes": 1756377,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/sentaku-environment-yomikata/youtube.longform/scene-007.167e6a64.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『まとめ』。 図に入れる文字: 『動かない軸：環境影響評価（8年）』 『次に：自然・生態系／再エネ／リサイクル』 『自分で年度別の表を数え直す』。 この場面の説明（文字にしない）: 整理します。II-2の環境影響評価は8年すべてに出ていて、最初に固める軸です。次にIIIの自然・生態系、II-1の再エネ、建設リサイクルの順で、件数の多い方から仕込みます。分け方によって件数は多少変わりますので、自分の選ぶ設問枠で、年度別の表を一度数え直してみてください。",
+        "promptSha256": "1f00060b12ea3c5fecdca98683927b91ede6812465468fbaef018da2e9cf0dcb",
+        "generatedAt": "2026-11-05T21:18:42.477Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-construction/sentaku-environment-yomikata/youtube.longform/scene-008",
+      "role": "scene-008",
+      "type": "image/png",
+      "sha256": "f2a304cfe70acfa1aa2aa996e77c3f7c4df711c3629fe45b63e1c215a327b9cb",
+      "bytes": 1125388,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/sentaku-environment-yomikata/youtube.longform/scene-008.f2a304cf.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『続きは建設環境マガジンで』。 図に入れる文字: 『R03〜R07の模範解答集（概要欄リンク）』 『年度別の出題一覧は無料のサイト記事』。 この場面の説明（文字にしない）: 令和3年度から7年度の模範解答を収めたマガジンが、概要欄にあります。II-1、II-2、IIIの全設問について、答案の構成と書き方を確認できます。年度別の出題テーマの一覧は、無料のサイト記事にあります。ご視聴ありがとうございました。",
+        "promptSha256": "8bd86423efd4404ed5207046224027345e89fdb821886c7c1f13ef7cb6575b8b",
+        "generatedAt": "2026-11-05T21:18:42.477Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-construction/sentaku-environment-yomikata/youtube.longform/subtitles",
+      "role": "subtitles",
+      "type": "text/x-ssa",
+      "sha256": "96af7d57ebf8b666d0415b4e2307ee9f9a3a8563be36fac33c6a78173c376521",
+      "bytes": 7384,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/sentaku-environment-yomikata/youtube.longform/subtitles.96af7d57.ass"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/pe-construction/sentaku-environment-yomikata/storyboard.json"
+      }
+    },
+    {
+      "id": "pe-construction/sentaku-environment-yomikata/youtube.longform/video",
+      "role": "video",
+      "type": "video/mp4",
+      "sha256": "81706f3f722b569b3dbf0bbe0781eb4973101fc1f1fe5011fdbcbd1dca3b208e",
+      "bytes": 23913367,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/sentaku-environment-yomikata/youtube.longform/video.81706f3f.mp4"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/pe-construction/sentaku-environment-yomikata/storyboard.json",
+        "specSha256": "2bafa75bf34647ec69959752963bf08d8fdef0089036cb12198f75e0c49f7c25",
+        "renderInputSha256": "6d92d8ba69605cf08968ec9f20e769056c29e7bb77a517e45a5e116472e0fdf7",
+        "tts": {
+          "engine": "VOICEVOX",
+          "speaker": 13,
+          "credit": "VOICEVOX:青山龍星"
+        }
+      },
+      "durationSec": 249.6
     },
     {
       "id": "pe-construction/sentaku-geotechnical-yomikata/youtube.longform/cover",
       "role": "cover",
       "type": "image/png",
-      "sha256": "8908d7ced7700903f9a2db7031c719c492532dec7128f88f9c8af5268cc02480",
-      "bytes": 684742,
-      "width": 1920,
-      "height": 1080,
+      "sha256": "abf99f93240e48db88a29cec83461b8576f5d4e0079992928e158b040096d82e",
+      "bytes": 649398,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/pe-construction/sentaku-geotechnical-yomikata/youtube.longform/cover.8908d7ce.png"
+        "path": ".tmp/media/pe-construction/sentaku-geotechnical-yomikata/youtube.longform/cover.abf99f93.png"
       },
       "provenance": {
-        "kind": "template",
-        "by": "youtube-covers",
-        "spec": "content/sns/video-packs/pe-construction/sentaku-geotechnical-yomikata/cover-design.json#covers/longform",
-        "specSha256": "aad55e085e509eafb4e2d6c184e6be7dc36d3d5be27c4f066830ac0b75519d9d"
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "添付の1枚目はdoboku-noteで採用済みの全面POP動画表紙の意匠参照、2枚目は先生キャラクターの同一性参照です。 新規の16:9横長（1920×1080想定）日本語YouTube動画表紙を作る。深いインディゴ #33356B と明るい青紫、黄色と白の極太文字、明確な黒い輪郭、少量の赤、斜めの面と勢いのある背景、右側に先生キャラクターを大きく。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。 左〜中央に正確に『土質・基礎』『テーマの読み方』を大きく配置。上部の黄色帯に小さく『総監が制作』。 誤字・余計な文字・合格保証・URL・価格・不明な実績を足さない。文字ブロックの黒い縁取りまで含めて左右8%の内側へ収め（画面の左端から8%は背景だけ）、顔は左右5%・上下5%内、下端18%は字幕が重なるので重要な文字や顔を置かず背景が全面に続く。",
+        "promptSha256": "ad4b8989328857d1320cd5da434ab74146990de11f6ad0bb6e2c32c134dc3a67",
+        "generatedAt": "2026-11-05T21:21:38.391Z"
       },
-      "legacyPaths": []
+      "width": 1920,
+      "height": 1080,
+      "legacyPaths": [
+        ".tmp/media/pe-construction/sentaku-geotechnical-yomikata/work/cover-pop.abf99f93.png"
+      ]
+    },
+    {
+      "id": "pe-construction/sentaku-geotechnical-yomikata/youtube.longform/scene-001",
+      "role": "scene-001",
+      "type": "image/png",
+      "sha256": "abf99f93240e48db88a29cec83461b8576f5d4e0079992928e158b040096d82e",
+      "bytes": 649398,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/sentaku-geotechnical-yomikata/youtube.longform/scene-001.abf99f93.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "添付の1枚目はdoboku-noteで採用済みの全面POP動画表紙の意匠参照、2枚目は先生キャラクターの同一性参照です。 新規の16:9横長（1920×1080想定）日本語YouTube動画表紙を作る。深いインディゴ #33356B と明るい青紫、黄色と白の極太文字、明確な黒い輪郭、少量の赤、斜めの面と勢いのある背景、右側に先生キャラクターを大きく。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。 左〜中央に正確に『土質・基礎』『テーマの読み方』を大きく配置。上部の黄色帯に小さく『総監が制作』。 誤字・余計な文字・合格保証・URL・価格・不明な実績を足さない。文字ブロックの黒い縁取りまで含めて左右8%の内側へ収め（画面の左端から8%は背景だけ）、顔は左右5%・上下5%内、下端18%は字幕が重なるので重要な文字や顔を置かず背景が全面に続く。",
+        "promptSha256": "ad4b8989328857d1320cd5da434ab74146990de11f6ad0bb6e2c32c134dc3a67",
+        "generatedAt": "2026-11-05T21:21:38.391Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-construction/sentaku-geotechnical-yomikata/youtube.longform/scene-002",
+      "role": "scene-002",
+      "type": "image/png",
+      "sha256": "eddd85011fb9355c012bf8d3d70a178b85ff1f4be75de1873c510f8ab9da01e2",
+      "bytes": 1350074,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/sentaku-geotechnical-yomikata/youtube.longform/scene-002.eddd8501.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『誤解：設問番号を覚える』。 図に入れる文字: 『液状化：R01 II-1-2／R02 II-1-3』 『R03 II-1-4／R05 II-1-2』 『番号ではなく系統で数える』。 この場面の説明（文字にしない）: II-1の設問番号を覚えようとしていませんか。表を見ると、液状化は令和1年度がII-1-2、2年度がII-1-3、3年度がII-1-4、5年度がII-1-2と、年ごとに違う枠で出ています。番号で守備範囲を決めることはできません。そこでこの動画では、8年分のII-1、32問の内容を系統に分けて、年度ごとに数えます。",
+        "promptSha256": "2e932c5aa095502d987a55dcb6ea86d400479a52c998e39879042e6ac8575119",
+        "generatedAt": "2026-11-05T21:21:38.391Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-construction/sentaku-geotechnical-yomikata/youtube.longform/scene-003",
+      "role": "scene-003",
+      "type": "image/png",
+      "sha256": "e1fc3b6dc97f20162d7fde9eb7ca8c953328a81dcdd3846c4020646b3ecdb053",
+      "bytes": 1873622,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/sentaku-geotechnical-yomikata/youtube.longform/scene-003.e1fc3b6d.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『II-1を系統別に数える』。 図に入れる文字: 『圧密・軟弱粘性土：5年度』 『杭・支持力／のり面・地すべり・斜面補強：各5年度』 『液状化・土質試験：各4年度／土留め：3年度』。 この場面の説明（文字にしない）: II-1の32問を、内容で系統に分けて数えます。圧密や軟弱粘性土は令和2、4、5、6、7年度の5年度、杭や支持力は令和3、4、5、6、8年度の5年度、のり面・地すべり・斜面補強は令和1、2、5、7、8年度の5年度です。液状化は令和1、2、3、5年度の4年度、土質試験は令和1、3、6、7年度の4年度、土留めは令和1、2、7年度の3年度でした。1問が複数の系統に当たることもあるので、あくまで目安の件数です。 前回の不合格の理由を直す: 文字: 『液状化・土質試験：各4年度／土留め：3年度』が改行で「各4年度／」と「／土留め：3年度」に割れ、指示にない「／」が重複して描かれている。他の文字は一致",
+        "promptSha256": "1496d51d66a2881ef791ea55a7cd418b6e0e25314f9c95b88841bfd27fcc73ac",
+        "generatedAt": "2026-11-05T21:21:38.391Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-construction/sentaku-geotechnical-yomikata/youtube.longform/scene-004",
+      "role": "scene-004",
+      "type": "image/png",
+      "sha256": "e4f4a85339ac18287efda2af1ef9b3dea2a9651c82e10b78bbdcff0408149ab7",
+      "bytes": 1395516,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/sentaku-geotechnical-yomikata/youtube.longform/scene-004.e4f4a853.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『圧密・軟弱地盤と液状化』。 図に入れる文字: 『圧密・軟弱粘性土：R02・R04・R05・R06・R07』 『液状化：R01・R02・R03・R05』 『II-2：R01・R02 軟弱地盤／R08 液状化』。 この場面の説明（文字にしない）: 件数の多い系統を見ます。圧密は、令和2年度が圧密沈下のメカニズム、4年度と5年度が軟弱粘性土地盤上の盛土、6年度が圧密促進と残留沈下の低減、7年度が厚さ約10メートルの軟弱粘性土地盤でした。II-2でも、令和1年度の道路盛土の拡幅と、2年度の軟弱地盤対策が出ています。液状化は、令和1年度が宅地の対策、2年度が液状化指標FL、3年度がメカニズムと対策、5年度が液状化が懸念される地形区分と、切り口を変えて4回出ました。令和8年度のII-2-2でも、住宅と道路の一体的な液状化対策が出ています。",
+        "promptSha256": "d67ad8ca7acb69aa4df68f0175444daa0adf1c1eaa3f0d16af0be6490584c916",
+        "generatedAt": "2026-11-05T21:21:38.391Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-construction/sentaku-geotechnical-yomikata/youtube.longform/scene-005",
+      "role": "scene-005",
+      "type": "image/png",
+      "sha256": "2332ced11b79a2ce15fa4f4e12a5c2cd2da70fbe07cc55c89a592fa12cde61ab",
+      "bytes": 1411509,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/sentaku-geotechnical-yomikata/youtube.longform/scene-005.2332ced1.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『杭基礎・のり面・土留め』。 図に入れる文字: 『杭・支持力：R03・R04・R05・R06・R08』 『のり面・地すべり：R01・R02・R05・R07・R08』 『土留め：II-1はR01・R02・R07』。 この場面の説明（文字にしない）: 杭と支持力は、令和3年度がテルツァギの支持力公式、5年度が杭の工法、6年度が鉛直載荷試験による極限支持力、8年度が押込み支持力と引抜き抵抗力でした。のり面・地すべりは、令和2年度が抑制工と抑止工、5年度が杭工やアンカーの抑止工、8年度が斜面補強工法の原理と適用です。土留めは3年度と少なめですが、令和1年度のヒービング・盤ぶくれ・ボイリング、7年度の山留めの安全が出ており、II-2でも令和3、5、6年度に掘削や山留めの設問があります。 前回の不合格の理由を直す: 文字: 見出しが指示の『杭基礎・のり面・土留め』ではなく、指示の鉤括弧『』まで字として描かれ「『杭基礎・のり面・土留め』」になっている（指示にない文字）。他の年度表記は一致",
+        "promptSha256": "3c1efedb7779c68cef504bc225cbe0d80d67657b2fa0291d957701cdd9f248d8",
+        "generatedAt": "2026-11-05T21:21:38.391Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-construction/sentaku-geotechnical-yomikata/youtube.longform/scene-006",
+      "role": "scene-006",
+      "type": "image/png",
+      "sha256": "aca9d7ad195effc01aa9bd3d921a75ea34bd22bfbf7a96138314d25c6b39d336",
+      "bytes": 1818589,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/sentaku-geotechnical-yomikata/youtube.longform/scene-006.aca9d7ad.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『IIIを数える：災害・維持管理・DX』。 図に入れる文字: 『地震・災害系：R02・R04・R06・R07・R08』 『維持管理：R01・R03・R08』 『ICT施工・建設DX：R02・R07』 『R06：熱海土石流（盛土規制）』。 この場面の説明（文字にしない）: IIIも数えます。地震や災害に関わる問題は、令和2、4、6、7、8年度の5年度にあります。令和4年度は南海トラフ等の巨大地震、7年度は大規模地震と過去の教訓、8年度は地震と豪雨の複合災害に備える盛土です。維持管理は令和1、3、8年度、ICT施工や建設DXは令和2年度と7年度です。令和6年度には熱海土石流を題材にした盛土規制も出ています。発注者として工事に関わった立場からは、対策工の技術に加えて、制度の運用まで書き足したい観点です。",
+        "promptSha256": "9099d78be3e7ec1e7779726da9f058f2b3611cee69381b179b35589804714363",
+        "generatedAt": "2026-11-05T21:21:38.391Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-construction/sentaku-geotechnical-yomikata/youtube.longform/scene-007",
+      "role": "scene-007",
+      "type": "image/png",
+      "sha256": "44b41d32a93037377987214a323024dbe181b0f03556314a57053fbb3118cdf3",
+      "bytes": 1728241,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/sentaku-geotechnical-yomikata/youtube.longform/scene-007.44b41d32.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『優先順位の決め方 3ステップ』。 図に入れる文字: 『① 年度別の表を系統に分けて数える』 『② 圧密・杭・のり面（各5年度）から固める』 『③ 同数なら実務で書ける系統を先に』。 この場面の説明（文字にしない）: 優先順位は3ステップです。1つ目は、年度別の表を自分で系統に分けて数えること。2つ目は、件数の多い圧密、杭・支持力、のり面・斜面から固めること。3つ目は、件数が同じなら、自分の実務で書ける系統を先にすることです。これは過去の件数であり、次の出題の予測ではありません。",
+        "promptSha256": "25b9573a2de3d3d7fdebef747142740fb6fe82190751f479b75929ecfaaae39c",
+        "generatedAt": "2026-11-05T21:21:38.391Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-construction/sentaku-geotechnical-yomikata/youtube.longform/scene-008",
+      "role": "scene-008",
+      "type": "image/png",
+      "sha256": "8990940a15527b2aebd3cc727df795194eede85341c52d903f6fdf64fb9197b7",
+      "bytes": 1359706,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/sentaku-geotechnical-yomikata/youtube.longform/scene-008.8990940a.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『土質・基礎マガジンで確認する』。 図に入れる文字: 『R03〜R07の模範解答集（概要欄リンク）』 『年度別の出題一覧は無料のサイト記事』。 この場面の説明（文字にしない）: 令和3年度から7年度の模範解答を収めたマガジンが、概要欄にあります。II-1、II-2、IIIの全設問について、答案の構成と書き方を確認できます。年度別の出題一覧は、無料のサイト記事で見られます。ご視聴ありがとうございました。",
+        "promptSha256": "c14db7d0906f8d1591fbb574f57f8d61fad2842ad407830c0459e6f21bece41f",
+        "generatedAt": "2026-11-05T21:21:38.391Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-construction/sentaku-geotechnical-yomikata/youtube.longform/subtitles",
+      "role": "subtitles",
+      "type": "text/x-ssa",
+      "sha256": "045523e72a4406501b061262c28872084977321dc0024dc4630563917441ead5",
+      "bytes": 7552,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/sentaku-geotechnical-yomikata/youtube.longform/subtitles.045523e7.ass"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/pe-construction/sentaku-geotechnical-yomikata/storyboard.json"
+      }
+    },
+    {
+      "id": "pe-construction/sentaku-geotechnical-yomikata/youtube.longform/video",
+      "role": "video",
+      "type": "video/mp4",
+      "sha256": "4b43cb24d9b050338ff54766d34ba6be83fe8148eb4c9bd467d9af8b6dbce898",
+      "bytes": 23886962,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/sentaku-geotechnical-yomikata/youtube.longform/video.4b43cb24.mp4"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/pe-construction/sentaku-geotechnical-yomikata/storyboard.json",
+        "specSha256": "0faec2ffc71173bc151a61364b06a17a684c85e741dc8ab88a53621e33262aa0",
+        "renderInputSha256": "a65e719c58acbbe3822d64c6910e37848aa45432bbc9aeefe3768843d360d981",
+        "tts": {
+          "engine": "VOICEVOX",
+          "speaker": 13,
+          "credit": "VOICEVOX:青山龍星"
+        }
+      },
+      "durationSec": 267.9
     },
     {
       "id": "pe-construction/sentaku-kakiwake-3type/youtube.longform/cover",
@@ -2506,21 +2912,224 @@
       "id": "pe-construction/sentaku-railway-yomikata/youtube.longform/cover",
       "role": "cover",
       "type": "image/png",
-      "sha256": "2f9898378d7697858c5332fc9cdd5495717203246d42f2443e1100a680527e1d",
-      "bytes": 679857,
-      "width": 1920,
-      "height": 1080,
+      "sha256": "aa97e7965aff267fd5383f7cc56973edc19254853b16c1f41f3305ee426d21aa",
+      "bytes": 644430,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/pe-construction/sentaku-railway-yomikata/youtube.longform/cover.2f989837.png"
+        "path": ".tmp/media/pe-construction/sentaku-railway-yomikata/youtube.longform/cover.aa97e796.png"
       },
       "provenance": {
-        "kind": "template",
-        "by": "youtube-covers",
-        "spec": "content/sns/video-packs/pe-construction/sentaku-railway-yomikata/cover-design.json#covers/longform",
-        "specSha256": "a2b0d12ab6e5ad84f4a5a7807f91bf389aa05cf7434ee123edd62c96587e37a6"
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "添付の1枚目はdoboku-noteで採用済みの全面POP動画表紙の意匠参照、2枚目は先生キャラクターの同一性参照です。 新規の16:9横長（1920×1080想定）日本語YouTube動画表紙を作る。深いインディゴ #33356B と明るい青紫、黄色と白の極太文字、明確な黒い輪郭、少量の赤、斜めの面と勢いのある背景、右側に先生キャラクターを大きく。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。 左〜中央に正確に『鉄道』『テーマの読み方』を大きく配置。上部の黄色帯に小さく『総監が制作』。 誤字・余計な文字・合格保証・URL・価格・不明な実績を足さない。文字ブロックの黒い縁取りまで含めて左右8%の内側へ収め（画面の左端から8%は背景だけ）、顔は左右5%・上下5%内、下端18%は字幕が重なるので重要な文字や顔を置かず背景が全面に続く。",
+        "promptSha256": "586deafed49b906e38412fc0509ba7dabdd7f62364b457310e571f80b71d2416",
+        "generatedAt": "2026-11-05T21:20:17.617Z"
       },
-      "legacyPaths": []
+      "width": 1920,
+      "height": 1080,
+      "legacyPaths": [
+        ".tmp/media/pe-construction/sentaku-railway-yomikata/work/cover-pop.aa97e796.png"
+      ]
+    },
+    {
+      "id": "pe-construction/sentaku-railway-yomikata/youtube.longform/scene-001",
+      "role": "scene-001",
+      "type": "image/png",
+      "sha256": "aa97e7965aff267fd5383f7cc56973edc19254853b16c1f41f3305ee426d21aa",
+      "bytes": 644430,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/sentaku-railway-yomikata/youtube.longform/scene-001.aa97e796.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "添付の1枚目はdoboku-noteで採用済みの全面POP動画表紙の意匠参照、2枚目は先生キャラクターの同一性参照です。 新規の16:9横長（1920×1080想定）日本語YouTube動画表紙を作る。深いインディゴ #33356B と明るい青紫、黄色と白の極太文字、明確な黒い輪郭、少量の赤、斜めの面と勢いのある背景、右側に先生キャラクターを大きく。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。 左〜中央に正確に『鉄道』『テーマの読み方』を大きく配置。上部の黄色帯に小さく『総監が制作』。 誤字・余計な文字・合格保証・URL・価格・不明な実績を足さない。文字ブロックの黒い縁取りまで含めて左右8%の内側へ収め（画面の左端から8%は背景だけ）、顔は左右5%・上下5%内、下端18%は字幕が重なるので重要な文字や顔を置かず背景が全面に続く。",
+        "promptSha256": "586deafed49b906e38412fc0509ba7dabdd7f62364b457310e571f80b71d2416",
+        "generatedAt": "2026-11-05T21:20:17.617Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-construction/sentaku-railway-yomikata/youtube.longform/scene-002",
+      "role": "scene-002",
+      "type": "image/png",
+      "sha256": "071df71f2c7547b2975486b4eed88acc3bc53967acb97d6269a6c20b6e19eec6",
+      "bytes": 1680838,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/sentaku-railway-yomikata/youtube.longform/scene-002.071df71f.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『誤解：工種が多く的が絞れない』。 図に入れる文字: 『軌道：R01〜R08の8年すべて』 『駅：R02・R04・R05・R06・R08』。 この場面の説明（文字にしない）: 工種が多いから、手広く準備するしかない。そう思っていませんか。ところが8年分のII-1を数えると、軌道に関わる設問は毎年ありました。令和1年度は軌道変位、2年度は分岐器、4年度はカント、6年度はレール継目の遊間、8年度は軌道変位。駅は令和2、4、5、6、8年度のII-1に出ています。順番は、軌道、維持管理、Ⅲの二つの流れ、駅や連続立体交差です。",
+        "promptSha256": "7f437e58d7614d1a04ea907613a515e1d1d18146935e7fe846f713799ac8b475",
+        "generatedAt": "2026-11-05T21:20:17.617Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-construction/sentaku-railway-yomikata/youtube.longform/scene-003",
+      "role": "scene-003",
+      "type": "image/png",
+      "sha256": "8428137c0cf8640b4ff47b6a44ff6baeafa2625ddc8c8217d3e92b9b37d2ccb7",
+      "bytes": 1381628,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/sentaku-railway-yomikata/youtube.longform/scene-003.8428137c.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『軌道：年度別の出題例』。 図に入れる文字: 『R01 軌道変位／R02 分岐器』 『R04 カント／R06 継目の遊間』 『R07 分岐器／R08 軌道変位』。 この場面の説明（文字にしない）: 数えた基準は、II-1の4設問を年度ごとに見て、軌道のテーマが1つでもあるかどうかです。令和3年度はレール溶接、5年度は省力化軌道、7年度は分岐器。8年とも軌道のテーマが入っていました。では、どの年に何が出たか、自分で言えますか。軌道変位、分岐器、カント、継目。この4つを、保守の視点で説明できる状態にします。",
+        "promptSha256": "de756e39b534accd2650ba79b7efa64ed3cf9157b0232ebf2321d0d23d2ceff8",
+        "generatedAt": "2026-11-05T21:20:17.617Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-construction/sentaku-railway-yomikata/youtube.longform/scene-004",
+      "role": "scene-004",
+      "type": "image/png",
+      "sha256": "bbeef9809d565673cbbe57fc950f16caadea5faf969e4099537c07a4f63a9e8c",
+      "bytes": 1251077,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/sentaku-railway-yomikata/youtube.longform/scene-004.bbeef980.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『構造物の維持管理』。 図に入れる文字: 『II-1：R02検査・R04健全度・R07検査』 『Ⅲ：R06 140年のインフラ維持管理』。 この場面の説明（文字にしない）: 維持管理は、II-1で令和2年度の構造物検査、4年度の健全度の判定、7年度の検査に出ています。Ⅲでは令和6年度に、140年に及ぶ鉄道インフラの維持管理が問われました。区分をまたいで出るので、検査と判定の流れを一度まとめておけば、複数の設問に使い回せます。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 39.9）",
+        "promptSha256": "1c0c678d92e6dce5ada182cf36827621cfb2fac58678bb96c62d311580e44bd4",
+        "generatedAt": "2026-11-05T21:20:17.617Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-construction/sentaku-railway-yomikata/youtube.longform/scene-005",
+      "role": "scene-005",
+      "type": "image/png",
+      "sha256": "797bc422df315fcc76c011b35b114f9d3f87fcf16b7935b7a521b9ead922da33",
+      "bytes": 1194640,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/sentaku-railway-yomikata/youtube.longform/scene-005.797bc422.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『Ⅲの出題を年度で数える』。 図に入れる文字: 『防災系：R02・R04・R07・R08』 『人口減少・担い手：R01・R03・R04・R07』。 この場面の説明（文字にしない）: Ⅲを年度別に見ると、防災系は令和2、4、7、8年度に、耐震の変遷は6年度にあります。人口減少や担い手に関わるテーマは、令和1、3、4、7年度です。ただし、令和2年度の都市鉄道の遅延、5年度の高架橋の剥落、8年度のコスト縮減もあり、二本立てとは言い切れません。防災と担い手を先に仕込み、残りは余力で広げる。これが無理のない順番です。なお洗掘は、令和1年度のII-1-2で出ています。盛土の変状も令和3、6年度のII-1にあります。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 36.2）",
+        "promptSha256": "53b0830caaf6ca9335b068a228e9fd09a3614151e8cc768db13909a7d55bfdd4",
+        "generatedAt": "2026-11-05T21:20:17.617Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-construction/sentaku-railway-yomikata/youtube.longform/scene-006",
+      "role": "scene-006",
+      "type": "image/png",
+      "sha256": "97412b4857c70663eec4edc4edfcf3f6aeb712f02c57b169fc15c0f1c8d71291",
+      "bytes": 2031311,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/sentaku-railway-yomikata/youtube.longform/scene-006.97412b48.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『発注者視点：連続立体交差』。 図に入れる文字: 『R05 II-1-3／R04 II-2-1』 『自治体×鉄道事業者の連携事業』。 この場面の説明（文字にしない）: 連続立体交差は、令和5年度のII-1-3と、令和4年度のII-2-1にあります。踏切を除却する事業で、自治体が事業主体となり、鉄道事業者と連携して進めます。まちづくりと一体で事業をどう組み立てるか。この視点を示せると、解決策に厚みが出ます。",
+        "promptSha256": "376e90a50e381fd173f61879d15e2045c63fc4b6a72241d33e4a10c1f846571c",
+        "generatedAt": "2026-11-05T21:20:17.617Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-construction/sentaku-railway-yomikata/youtube.longform/scene-007",
+      "role": "scene-007",
+      "type": "image/png",
+      "sha256": "eaca2790e6bbdb5fa520648504e09c4219f250474493f18e1eeb8c93de4261e1",
+      "bytes": 1241310,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/sentaku-railway-yomikata/youtube.longform/scene-007.eaca2790.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『まとめ：優先順位』。 図に入れる文字: 『① 軌道（8年すべて）』 『② 構造物の維持管理』 『③ Ⅲ：防災系・担い手系』 『④ 駅・連続立体交差』。 この場面の説明（文字にしない）: 優先順位は4段です。1番目は軌道で、8年とも出ています。2番目は構造物の維持管理。3番目はⅢの防災系と担い手系。4番目は駅と連続立体交差です。数えた範囲での順番なので、迷ったらまず軌道から始めてください。",
+        "promptSha256": "608c0cca3ac3d188b56e44f7d9178f55c4b2ab3cf50c287e7d9e750b9afe047f",
+        "generatedAt": "2026-11-05T21:20:17.617Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-construction/sentaku-railway-yomikata/youtube.longform/scene-008",
+      "role": "scene-008",
+      "type": "image/png",
+      "sha256": "8cdff7c6f62a3c90c5058c38a4fd50b23470786420617b69e755f049e4356f02",
+      "bytes": 1609813,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/sentaku-railway-yomikata/youtube.longform/scene-008.8cdff7c6.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『続きは概要欄で』。 図に入れる文字: 『鉄道マガジン：R03〜R07の模範解答』 『年度別の出題テーマ：サイトの無料記事』。 この場面の説明（文字にしない）: 令和3年度から7年度の模範解答を収めた鉄道マガジンは、概要欄にあります。年度別の出題テーマの一覧は、サイトの無料記事で確認できます。ご視聴ありがとうございました。",
+        "promptSha256": "b12361eda70b75762d23ce3af7af524c7ac088c1f3c6e58f7b5b50cb7a2a8659",
+        "generatedAt": "2026-11-05T21:20:17.617Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-construction/sentaku-railway-yomikata/youtube.longform/subtitles",
+      "role": "subtitles",
+      "type": "text/x-ssa",
+      "sha256": "a91df33365a02edbbbc11ece7e0568d05035b411ac2afb9e0524fc30f78e154c",
+      "bytes": 5882,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/sentaku-railway-yomikata/youtube.longform/subtitles.a91df333.ass"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/pe-construction/sentaku-railway-yomikata/storyboard.json"
+      }
+    },
+    {
+      "id": "pe-construction/sentaku-railway-yomikata/youtube.longform/video",
+      "role": "video",
+      "type": "video/mp4",
+      "sha256": "13fc2e819d84fbc799d8a2fc630264099bece59531cc4501784f7ad755731e2d",
+      "bytes": 19866017,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/sentaku-railway-yomikata/youtube.longform/video.13fc2e81.mp4"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/pe-construction/sentaku-railway-yomikata/storyboard.json",
+        "specSha256": "72ca1e7976d7257f706d61fdffc313ef2e163dc10222d623f01003f5daf47fc7",
+        "renderInputSha256": "0c17de12c2b24cf43a0184288993bf64eb87e24e28cbf08fbbe0cd9fd79f7d24",
+        "tts": {
+          "engine": "VOICEVOX",
+          "speaker": 13,
+          "credit": "VOICEVOX:青山龍星"
+        }
+      },
+      "durationSec": 196.1
     },
     {
       "id": "pe-construction/sentaku-river-coast-yomikata/youtube.longform/cover",
@@ -2992,21 +3601,224 @@
       "id": "pe-construction/sentaku-tunnel-yomikata/youtube.longform/cover",
       "role": "cover",
       "type": "image/png",
-      "sha256": "232cab59134a9242c9c1dd31fd4d28c0d1de14116a661c6788ebd09c1f7a25b7",
-      "bytes": 681316,
-      "width": 1920,
-      "height": 1080,
+      "sha256": "108db951d4677ea18ab2f5c0ad9e97034580ee7156c077bef6f513ddd61a5ded",
+      "bytes": 640818,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/pe-construction/sentaku-tunnel-yomikata/youtube.longform/cover.232cab59.png"
+        "path": ".tmp/media/pe-construction/sentaku-tunnel-yomikata/youtube.longform/cover.108db951.png"
       },
       "provenance": {
-        "kind": "template",
-        "by": "youtube-covers",
-        "spec": "content/sns/video-packs/pe-construction/sentaku-tunnel-yomikata/cover-design.json#covers/longform",
-        "specSha256": "57cf0eda76471bc4fd3e4381873cbc058f4ee75bb9009326c346d9255c702c0b"
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "添付の1枚目はdoboku-noteで採用済みの全面POP動画表紙の意匠参照、2枚目は先生キャラクターの同一性参照です。 新規の16:9横長（1920×1080想定）日本語YouTube動画表紙を作る。深いインディゴ #33356B と明るい青紫、黄色と白の極太文字、明確な黒い輪郭、少量の赤、斜めの面と勢いのある背景、右側に先生キャラクターを大きく。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。 左〜中央に正確に『トンネル』『テーマの読み方』を大きく配置。上部の黄色帯に小さく『総監が制作』。 誤字・余計な文字・合格保証・URL・価格・不明な実績を足さない。文字ブロックの黒い縁取りまで含めて左右8%の内側へ収め（画面の左端から8%は背景だけ）、顔は左右5%・上下5%内、下端18%は字幕が重なるので重要な文字や顔を置かず背景が全面に続く。",
+        "promptSha256": "51f3a9fdbedd1f6aa998922d02712e9f577b94b086e2f1716d944c8c438cdaa5",
+        "generatedAt": "2026-11-05T21:23:21.064Z"
       },
-      "legacyPaths": []
+      "width": 1920,
+      "height": 1080,
+      "legacyPaths": [
+        ".tmp/media/pe-construction/sentaku-tunnel-yomikata/work/cover-pop.108db951.png"
+      ]
+    },
+    {
+      "id": "pe-construction/sentaku-tunnel-yomikata/youtube.longform/scene-001",
+      "role": "scene-001",
+      "type": "image/png",
+      "sha256": "108db951d4677ea18ab2f5c0ad9e97034580ee7156c077bef6f513ddd61a5ded",
+      "bytes": 640818,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/sentaku-tunnel-yomikata/youtube.longform/scene-001.108db951.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "添付の1枚目はdoboku-noteで採用済みの全面POP動画表紙の意匠参照、2枚目は先生キャラクターの同一性参照です。 新規の16:9横長（1920×1080想定）日本語YouTube動画表紙を作る。深いインディゴ #33356B と明るい青紫、黄色と白の極太文字、明確な黒い輪郭、少量の赤、斜めの面と勢いのある背景、右側に先生キャラクターを大きく。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。 左〜中央に正確に『トンネル』『テーマの読み方』を大きく配置。上部の黄色帯に小さく『総監が制作』。 誤字・余計な文字・合格保証・URL・価格・不明な実績を足さない。文字ブロックの黒い縁取りまで含めて左右8%の内側へ収め（画面の左端から8%は背景だけ）、顔は左右5%・上下5%内、下端18%は字幕が重なるので重要な文字や顔を置かず背景が全面に続く。",
+        "promptSha256": "51f3a9fdbedd1f6aa998922d02712e9f577b94b086e2f1716d944c8c438cdaa5",
+        "generatedAt": "2026-11-05T21:23:21.064Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-construction/sentaku-tunnel-yomikata/youtube.longform/scene-002",
+      "role": "scene-002",
+      "type": "image/png",
+      "sha256": "328d745ba956f2809c097cc0fb42fab49db7aadf407c3e6f41357fe751eb77fc",
+      "bytes": 1681101,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/sentaku-tunnel-yomikata/youtube.longform/scene-002.328d745b.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『誤解：範囲が広くて絞れない』。 図に入れる文字: 『II-1-1/1-2：山岳（8年）』 『II-1-3：開削　II-1-4：シールド』。 この場面の説明（文字にしない）: 範囲が広いから絞れない、と思っていませんか。II-1の4設問は、令和1年度から8年度まで8年間、位置ごとの分野が変わっていません。1問目と2問目は山岳、3問目は開削、4問目はシールドです。位置ごとに出る分野が決まっているので、選ぶ手がかりになります。 前回の不合格の理由を直す: 文字: 見出しに指示にない鉤括弧『』がそのまま描かれている（指示の引用符であり描画文字ではない）。他の文字と図（山岳2坑口・開削・シールド）は一致",
+        "promptSha256": "a07e35da16dfe68314f76837a7f3abdf44a31443d625c03d5324171b8104c6b8",
+        "generatedAt": "2026-11-05T21:23:21.064Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-construction/sentaku-tunnel-yomikata/youtube.longform/scene-003",
+      "role": "scene-003",
+      "type": "image/png",
+      "sha256": "20f0b9d857b277b89e0430b7f07c088eed7442d6f04fbcd3e9a0703795ef22b8",
+      "bytes": 2129475,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/sentaku-tunnel-yomikata/youtube.longform/scene-003.20f0b9d8.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『II-1-1/1-2：山岳トンネル（NATM）』。 図に入れる文字: 『R01 吹付け／R03 ロックボルト』 『R04 鋼製支保工・切羽観察』 『R06 インバート・掘削工法』。 この場面の説明（文字にしない）: II-1-1とII-1-2は、8年とも山岳トンネルです。令和1年度は吹付けコンクリート、3年度はロックボルトの性能、4年度は鋼製支保工の効果と切羽観察項目、6年度はインバートと掘削工法でした。支保部材と、計測や切羽観察による情報化施工が柱です。II-1の4設問のうち2つを占めるので、まずここを固めます。",
+        "promptSha256": "4faee28beee83e765d1d3e341bb4bc79998e21d9c8be0efaa4d1b298d5d1790a",
+        "generatedAt": "2026-11-05T21:23:21.064Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-construction/sentaku-tunnel-yomikata/youtube.longform/scene-004",
+      "role": "scene-004",
+      "type": "image/png",
+      "sha256": "38ecde93c2a590a737073154e24efb1bb36679be2ec06da67e4e28a51a761355",
+      "bytes": 1564124,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/sentaku-tunnel-yomikata/youtube.longform/scene-004.38ecde93.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『II-1-3開削／II-1-4シールド』。 図に入れる文字: 『開削：R06 土留壁／R07 部分築造』 『シールド：R06 泥水式／R07 掘進停止』。 この場面の説明（文字にしない）: II-1-3は開削、II-1-4はシールドで、これも8年間固定です。開削は、令和6年度の土留壁の弾塑性法、7年度の部分築造工法が出ています。シールドは、令和6年度の泥水式の切羽安定、7年度の長時間掘進停止対策です。自分の実務に近いほうを選び、得点源にしてください。",
+        "promptSha256": "56391822778a992800aeb62fcc56f9dca319cf0dee2980fab81bfda548dd1fd0",
+        "generatedAt": "2026-11-05T21:23:21.064Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-construction/sentaku-tunnel-yomikata/youtube.longform/scene-005",
+      "role": "scene-005",
+      "type": "image/png",
+      "sha256": "4fb552c28d9924d644e7cecf496b188a168a9a8ec426ff653228b6146df31576",
+      "bytes": 1532625,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/sentaku-tunnel-yomikata/youtube.longform/scene-005.4fb552c2.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『Ⅲで繰り返し出る流れ』。 図に入れる文字: 『地質：R01 III-1／R03 III-1』 『都市部地下空間：R06 III-1／R07 III-2』。 この場面の説明（文字にしない）: Ⅲは、地質の不確定要素が令和1年度のIII-1に、我が国特有の地質が3年度のIII-1に出ています。都市部の地下空間は、令和6年度のIII-1と、7年度のIII-2です。ただし、令和4年度は坑口部、7年度のIII-1は安全衛生で、この二つの軸に収まらない年もあります。二大背景とは言い切れません。繰り返し出ている流れとして、地質と都市の二つを押さえてください。",
+        "promptSha256": "eae18ecf11c1a4e0d4cc30381b985869254be9d6bf26701996dafa44b4588d31",
+        "generatedAt": "2026-11-05T21:23:21.064Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-construction/sentaku-tunnel-yomikata/youtube.longform/scene-006",
+      "role": "scene-006",
+      "type": "image/png",
+      "sha256": "91045460a6234db04f2bb0dd100c150b2edccc57d37392b4c1fb7ba768d7c9a2",
+      "bytes": 1855609,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/sentaku-tunnel-yomikata/youtube.longform/scene-006.91045460.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『維持管理：覆工の剥落と定期点検』。 図に入れる文字: 『近接目視は5年に1回・健全性4区分』 『Ⅲ：R03 III-2／R06 III-2』。 この場面の説明（文字にしない）: 維持管理は、論文キーワードの記事が最頻出系統としています。覆工コンクリートのひび割れ、うき、剥落は、第三者被害に直結します。点検は近接目視で5年に1回が基本で、健全性はIからIVの4区分です。Ⅲでは令和3年度と6年度に、維持管理に関わる設問が出ています。発注者の立場で、点検結果から補修の優先順位をどうつけるかを書けると、解決策に厚みが出ます。",
+        "promptSha256": "8c1381cbbd1ca296ba413d8b226783d85350087a661cde4dd43ce496b05af1cc",
+        "generatedAt": "2026-11-05T21:23:21.064Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-construction/sentaku-tunnel-yomikata/youtube.longform/scene-007",
+      "role": "scene-007",
+      "type": "image/png",
+      "sha256": "6a295d0142d373151f5642180d9baf42b701068b08aa4b3b2323210251e0b2b2",
+      "bytes": 2505803,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/sentaku-tunnel-yomikata/youtube.longform/scene-007.6a295d01.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『まとめ：優先順位』。 図に入れる文字: 『① 山岳（NATM）：II-1の2設問』 『② 開削かシールド：実務に近いほう』 『③ Ⅲ：地質・都市部地下空間』 『④ 維持管理：点検制度と4区分』。 この場面の説明（文字にしない）: 仕込む順番は4段です。1番目は山岳で、II-1の2設問を占めます。2番目は開削かシールドの実務に近いほう。3番目はⅢの地質と都市部の地下空間。4番目は維持管理で、点検制度と4区分を添えます。表から数えた範囲の順番です。",
+        "promptSha256": "0cc6234654d2f3f1d9013fae9e4542241694d7309472b250adabb284347932cf",
+        "generatedAt": "2026-11-05T21:23:21.064Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-construction/sentaku-tunnel-yomikata/youtube.longform/scene-008",
+      "role": "scene-008",
+      "type": "image/png",
+      "sha256": "5ab616c994c968e056e30c4f41f4d1e6197adfbd5b721594e323b9cc80724043",
+      "bytes": 1441021,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/sentaku-tunnel-yomikata/youtube.longform/scene-008.5ab616c9.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『続きは概要欄で』。 図に入れる文字: 『トンネルマガジン：R03〜R07の模範解答』 『年度別の出題テーマ：サイトの無料記事』。 この場面の説明（文字にしない）: 令和3年度から7年度の模範解答を収めたトンネルマガジンは、概要欄にあります。年度別の出題テーマの一覧は、サイトの無料記事で確認できます。ご視聴ありがとうございました。",
+        "promptSha256": "af554865c60b72a2ed1ac80f704983488afdc5ee79e75ead72308df77da61102",
+        "generatedAt": "2026-11-05T21:23:21.064Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "pe-construction/sentaku-tunnel-yomikata/youtube.longform/subtitles",
+      "role": "subtitles",
+      "type": "text/x-ssa",
+      "sha256": "5f3b4cd45a7cd6baf639494df5e0d2a93e20670020a228b14e461343b31de41e",
+      "bytes": 6050,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/sentaku-tunnel-yomikata/youtube.longform/subtitles.5f3b4cd4.ass"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/pe-construction/sentaku-tunnel-yomikata/storyboard.json"
+      }
+    },
+    {
+      "id": "pe-construction/sentaku-tunnel-yomikata/youtube.longform/video",
+      "role": "video",
+      "type": "video/mp4",
+      "sha256": "b1d72cc2c8e9abbe098f541bd244d10567eceb2a7146d9bcb08de464f0e0f7f8",
+      "bytes": 22122271,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/sentaku-tunnel-yomikata/youtube.longform/video.b1d72cc2.mp4"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/pe-construction/sentaku-tunnel-yomikata/storyboard.json",
+        "specSha256": "7631257233314e4a86a920270a6db398532836e1f008edcaad5d38cecafeaa2d",
+        "renderInputSha256": "e14cc9dbd94ee3ae83164566b17386dee0e61661ed8cd06dbe13aade8cbf0315",
+        "tts": {
+          "engine": "VOICEVOX",
+          "speaker": 13,
+          "credit": "VOICEVOX:青山龍星"
+        }
+      },
+      "durationSec": 193.1
     },
     {
       "id": "pe-construction/sentaku-urban-planning-yomikata/youtube.longform/cover",
