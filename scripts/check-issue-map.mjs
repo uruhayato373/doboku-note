@@ -2,7 +2,8 @@
 /**
  * check-issue-map.mjs — 事業イシューマップ（config/issue-map.json）のファイルをまたぐ整合を見る。
  * 指標 id が business-direction.json に、DN が backlog か dispatch-log の完了に、競合が competitors.json にあること。
- * --due: 週次レビューが読む「更新の番の判定」（カードが閉じた・時期を過ぎた）を出す。
+ * --due: 週次レビューが読む「更新の番の判定」（カードが閉じた・時期を過ぎた）を出す。残すものはレポートの「## イシューマップ」に
+ * 同じ見出し（overall A1・A2 の形）と行き先を書く。放置は check-weekly-review が止める。
  * exit 0＝整合／1＝不整合か検査不成立（検査対象 0 件）
  */
 import { parseCliArgs } from './lib/cli-args.mjs';
@@ -19,7 +20,7 @@ for (const p of problems) console.log(`  ✗ ${p}`);
 if (due) {
   const rows = dueJudgments(doc, index, todayJst());
   console.log(`[check-issue-map] 更新の番の判定 ${rows.length} 件`);
-  for (const r of rows) console.log(`  - ${r.map} ${r.issues.join('・')}: ${r.reason} — ${r.picture}`);
+  for (const r of rows) console.log(`  - ${r.key}: ${r.reason} — ${r.picture}`);
 }
 
 if (checked.leaves === 0 || checked.metrics === 0 || checked.dns === 0) {

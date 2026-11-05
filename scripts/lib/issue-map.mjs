@@ -7,22 +7,29 @@ import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { parseBacklog, parseWhen, TODO_DIR } from './backlog-lib.mjs';
 import { readDataset, readDatasetIf, readLatest } from './dataset-io.mjs';
-import { lastDayOfMonth } from './dataset-schema-parts.mjs';
+import { extractWeeklyHandoffItems, parseRouting } from './handoff-extraction.mjs';
 
-/** DN → { id, title, when, due, wip, status: 'open'|'closed' }。閉じたカードは dispatch-log の outcome=done の行から作る */
-export function loadDnIndex(root) {
+/** 週次・月次のレポートの節の名前（review-wiring.json の procedure の sections と同じ） */
+export const ISSUE_MAP_SECTION = 'イシューマップ';
+
+/** DN → { id, title, when, due, wip, status: 'open'|'closed', closedAt }。閉じたカードは dispatch-log の outcome=done の行から作る */
+export function buildDnIndex(backlogText, dispatchEntries) {
   const index = new Map();
-  const log = readDatasetIf(root, 'state.dispatch-log')?.entries ?? [];
-  for (const e of log) if (e.id && e.outcome === 'done') index.set(e.id, { id: e.id, title: e.task, when: null, due: null, wip: false, status: 'closed' });
-  const cards = parseBacklog(readFileSync(join(root, TODO_DIR, 'backlog.md'), 'utf8'));
-  for (const c of cards) if (c.id) index.set(c.id, { id: c.id, title: c.title, when: c.when, due: c.due, wip: c.wip, status: 'open' });
+  for (const e of dispatchEntries ?? []) if (e.id && e.outcome === 'done') index.set(e.id, { id: e.id, title: e.task, when: null, due: null, wip: false, status: 'closed', closedAt: e.at ?? null });
+  for (const c of parseBacklog(backlogText)) if (c.id) index.set(c.id, { id: c.id, title: c.title, when: c.when, due: c.due, wip: c.wip, status: 'open', closedAt: null });
   return index;
+}
+
+export function loadDnIndex(root) {
+  return buildDnIndex(readFileSync(join(root, TODO_DIR, 'backlog.md'), 'utf8'), readDatasetIf(root, 'state.dispatch-log')?.entries);
 }
 
 /** 時期（YYYY-MM か YYYY-MM..YYYY-MM）の最終日 */
 function endOfWhen(raw) {
   const w = parseWhen(raw);
-  return w ? `${w.end}-${String(lastDayOfMonth(w.end)).padStart(2, '0')}` : null;
+  if (!w) return null;
+  const last = new Date(Date.UTC(Number(w.end.slice(0, 4)), Number(w.end.slice(5, 7)), 0)).getUTCDate();
+  return `${w.end}-${String(last).padStart(2, '0')}`;
 }
 
 /** カード 1 枚の判定の時期。label は画面に出す文字、end は過ぎたかを見る日（時期の無いカードは null） */
@@ -39,14 +46,14 @@ export function judgmentTiming(j, index) {
   if (j.window) return [{ id: null, title: null, status: 'window', label: j.window, end: endOfWhen(j.window) }];
   return (j.dns ?? []).map((id) => {
     const dn = index.get(id) ?? null;
-    return { id, title: dn?.title ?? null, status: dn?.status ?? 'missing', ...dnTiming(dn) };
+    return { id, title: dn?.title ?? null, status: dn?.status ?? 'missing', closedAt: dn?.closedAt ?? null, ...dnTiming(dn) };
   });
 }
 
-/** 判定 1 行が更新の番か。カードが閉じたか、時期を過ぎたカードがあれば理由を返す */
+/** 判定 1 行が today の時点で更新の番か。カードが閉じたか、時期を過ぎたカードがあれば理由を返す */
 export function judgmentDue(j, index, today) {
   const timing = judgmentTiming(j, index);
-  const closed = timing.filter((t) => t.status === 'closed');
+  const closed = timing.filter((t) => t.status === 'closed' && (t.closedAt ?? '') <= today);
   if (closed.length) return `カードが閉じた（${closed.map((t) => t.id).join('・')}）`;
   const past = timing.filter((t) => t.end && t.end < today);
   if (past.length) return `時期を過ぎた（${past.map((t) => `${t.id ?? '時期'} ${t.label}`).join('・')}）`;
@@ -58,9 +65,24 @@ export function dueJudgments(doc, index, today) {
   return doc.maps.flatMap((m) =>
     m.judgments.flatMap((j) => {
       const reason = judgmentDue(j, index, today);
-      return reason ? [{ map: m.id, issues: j.issues, picture: j.picture, reason }] : [];
+      return reason ? [{ key: `${m.id} ${j.issues.join('・')}`, map: m.id, issues: j.issues, picture: j.picture, reason }] : [];
     }),
   );
+}
+
+/**
+ * レポートの「## イシューマップ」節の検査。更新の番の判定は、マップを更新して消すか、節に行き先を書いて残す。
+ * 実測が無ければ状態を変えられないので、残すこと自体は認める（行き先の無い放置だけを止める）。
+ * @returns {{ hasSection: boolean, due: object[], unrouted: object[] }}
+ */
+export function issueMapRouting(doc, index, asOf, report) {
+  const due = dueJudgments(doc, index, asOf);
+  const { hasSection, items } = extractWeeklyHandoffItems(report ?? '', new RegExp(`^##\\s+${ISSUE_MAP_SECTION}\\s*$`));
+  const routed = (text) => {
+    const r = parseRouting(text);
+    return Boolean(r && (r.routine || r.dnIds.length || r.expIds.length));
+  };
+  return { hasSection, due, unrouted: due.filter((d) => !items.some((it) => it.text.includes(d.key) && routed(it.text))) };
 }
 
 /** ファイルをまたぐ整合。problems（直す）と checked（実検査数）を返す */

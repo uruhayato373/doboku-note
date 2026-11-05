@@ -320,6 +320,15 @@
           "evidence": "checks"
         },
         {
+          "label": "イシューマップの更新",
+          "does": "更新の番の判定を実測で更新するか、行き先を書いて残す",
+          "evidence": "sections",
+          "sections": [
+            "イシューマップ"
+          ],
+          "since": "2026-W46"
+        },
+        {
           "label": "レポートの保存",
           "does": "docs/reviews/weekly に週次レポートを書く",
           "evidence": "reportFile"
@@ -598,6 +607,15 @@
           "sections": [
             "時期付け"
           ]
+        },
+        {
+          "label": "イシューマップの見直し",
+          "does": "主イシュー・主張・今月の重点を見直し、変える・変えないの理由を書く",
+          "evidence": "sections",
+          "sections": [
+            "イシューマップ"
+          ],
+          "since": "2026-11"
         },
         {
           "label": "実験の判定",

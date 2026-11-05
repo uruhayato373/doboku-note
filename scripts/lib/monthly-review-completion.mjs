@@ -12,7 +12,7 @@ export function monthlyReviewCompletion(month, reader) {
   const config = json('.claude/config/review-wiring.json')?.cadences?.monthly;
   if (!config) throw new Error('月次レビューの配線を読めない');
   const report = reader.read(`docs/reviews/monthly/${month}-review.md`) ?? '';
-  const sections = [...new Set(config.procedure.flatMap((p) => p.sections ?? []))];
+  const sections = [...new Set(config.procedure.filter((p) => !p.since || month >= p.since).flatMap((p) => p.sections ?? []))];
   if (!report.startsWith(`# 月次レビュー ${month}`) || sections.some((s) => !report.split(/\r?\n/).includes(`## ${s}`))) missing.push('月次レポートの必須節');
   const record = reader.list(datasetDir('business.review')).filter((p) => /\/review-[^/]+\.json$/.test(p)).map(json)
     .filter((r) => r?.kind === 'review' && r.cadence === 'monthly' && r.qualification === 'all' && r.period?.startDate === startDate && r.period?.endDate === endDate)
