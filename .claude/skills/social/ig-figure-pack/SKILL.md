@@ -79,7 +79,7 @@ node scripts/check-ig-cta.mjs
 
 ## 単一図の派生画像
 
-図解パックのナレーション付きReelsは `node scripts/figure-reel-create.mjs --pack civil-1/keyword-packs/{slug}` を使う。`carousel/img` の4枚のPNGと `reels/script.txt`（1スライド1行）、VOICEVOX・ffmpegが必要。総監は `--pack cem/keyword-packs/{slug}`。`/ig-reel-create` の過去問quizスキーマとは入力が異なる。
+図解パックのナレーション付きReelsは `node scripts/figure-reel-create.mjs --pack civil-1/keyword-packs/{slug}` を使う。`carousel/img` の4枚のPNGと `reels/script.txt`（1スライド1行）、VOICEVOX・ffmpegが必要。総監は `--pack cem/keyword-packs/{slug}`。旧過去問パックのリール生成（削除済み）とは入力が異なる。
 
 カルーセルとは別に、図1枚をIG・動画サムネ・縦型へ書き出す場合は既存コマンドを使う。資格名は `src/config/categories.json` から自動取得し、`--mgmt` は任意の管理分野・テーマ（16文字以内）とする。総監キーワードの短いslug指定も利用できるが、管理分野は自動推測しない。
 

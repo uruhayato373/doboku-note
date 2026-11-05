@@ -44,9 +44,8 @@ title: .claude/knowledge/reference/ 索引
 | [.claude/knowledge/reference/links-hub.md](./links-hub.md) | `/links` SNS bio 用リンクハブの設計・UTM 設計・メンテ手順・KPI（Linktree 代替の自前実装） | `/links` 新 商品追加・Featured 切替・SNS bio リンク変更時 |
 | [.claude/shared-policy/REPURPOSE.md](../../shared-policy/REPURPOSE.md) | 全 SNS チャネル共通の6切り口リパーパス戦略（結論/理由/体験/反論/数字/ハウツー）。チャネル別適用方法・`angle` パラメータ仕様 | SNS 投稿のネタ展開・複数切り口生成時 |
 | [.claude/knowledge/reference/ig-carousel-skill.md](./ig-carousel-skill.md) | IG カルーセル 2 シリーズ運用（A: 択一クイズパック・運営者作問 / B: 過去問パック・H21-R7 全 640 問）・5 管理別色テーマ・slide-data.json スキーマ・配信ロードマップ | IG カルーセル投稿準備・パック編集・SoT 再生成時 |
-| [.claude/knowledge/reference/ig-reels-policy.md](./ig-reels-policy.md) | IG Reels の `reels/script.json` スキーマ・キャプション/ハッシュタグルール・5 軸ルーブリック・Reels モード分岐の禁忌（カルーセル流用 CTA 禁止）。戦略 v7 で新設 | IG Reels 台本作成・採点・YT 派生時 |
 | [.claude/knowledge/reference/character-asset-policy.md](./character-asset-policy.md) | ブランドマスコット「doboku-note 先生」素材ライブラリ運用 SSOT（アイデンティティ＝CHARACTER-SPEC.md／ポーズ機械可読＝`config/character-poses.json`／生成→抽出 `npm run character-extract`／チャネル別使用）。エージェントは作らず manifest＋スクリプトで管理 | キャラ素材を追加・抽出・SNS/リールで使うとき |
-| [.claude/knowledge/reference/yt-shorts-publisher-policy.md](./yt-shorts-publisher-policy.md) | YouTube Shorts（IG Reels 派生 mp4 + meta.json）の 4 軸ルーブリック・UTM 必須要素・タイトル/概要欄テンプレ。戦略 v7 で新設、yt-shorts-create --from-reels と対応 | YT Shorts 派生生成後の品質採点・概要欄テンプレ確認時 |
+| [.claude/knowledge/reference/yt-shorts-publisher-policy.md](./yt-shorts-publisher-policy.md) | YouTube Shorts の 4 軸ルーブリック・UTM 必須要素・タイトル/概要欄テンプレ。現行の工程は `npm run shorts-factory`（video-factory.md） | YT Shorts の品質採点・概要欄テンプレ確認時 |
 | [.claude/knowledge/reference/x-post-policy.md](./x-post-policy.md) | X(旧Twitter)投稿の多資格運用ポリシー（280 weighted 文字数・試験別ベースタグ/テンプレ・投稿型・5 軸ルーブリック・偽成功検証・X カードの試験別色）。`x-post-writer`/`x-post-qa` の真実源 | X 投稿執筆・採点・多資格展開・X カード（gen-x-card）改修時 |
 | [.claude/knowledge/reference/content-angle-policy.md](./content-angle-policy.md) | SNS コンテンツ角度の真実源（6 切り口=結論/理由/体験/反論/数字/ハウツー・既存 note/サイト資産マッピング・`angle` パラメータ分業設計・層別優先・Red Line・パイロット計画）。各 SNS Generator/Evaluator が共通参照 | 過去問以外の角度で SNS 投稿を企画・執筆・採点するとき／既存 note 記事を多媒体展開するとき |
 | [.claude/knowledge/reference/exam-content-policy.md](./exam-content-policy.md) | 試験別コンテンツ整備方針＋コンテンツ別レビュー視点＋新資格追加手順 | PDF→MDX 変換・品質レビュー時 |
@@ -94,7 +93,6 @@ title: .claude/knowledge/reference/ 索引
 - [textbook-pdf-archive.md](./textbook-pdf-archive.md) — textbook-pdf-archive.md
 - [todo-lifecycle.md](./todo-lifecycle.md) — todo-lifecycle.md
 - [todo-standards.md](./todo-standards.md) — todo-standards.md
-- [yt-shorts-script-policy.md](./yt-shorts-script-policy.md) — yt-shorts-script-policy.md
 
 ## reference 以外の入口
 
@@ -111,7 +109,7 @@ title: .claude/knowledge/reference/ 索引
 | `docs/strategy/01_プロダクト戦略.md` | 学習価値・重点資格・KPI解釈・継続改善の判断理由の正典 | 戦略の全体像を把握したいとき・意思決定の根拠を確認するとき |
 | `docs/strategy/01_プロダクト戦略.md` | v3 事業戦略 | 収益化・差別化戦略の確認時 |
 | `docs/strategy/04_収益化戦略.md` | 収益化戦略（v3＋v8 注記）。note 個別価格・リリース計画の真実源は各試験の noteコンテンツ計画.md へ移譲済み | note・YouTube・PWA/iOS アプリ戦略検討時 |
-| `docs/marketing/01_SNS集客戦略.md` | SNS 集客戦略 v7（Instagram を一次制作チャネルに格上げ・YouTube Shorts は IG Reels mp4 の二次展開に再定義、X＝合格者発信の信頼／note 誘導動線。X 凍結対応は x-post-policy §11、総監 YT は 05 が独立 SSOT。全体像は 00_SNS整理マップ.md） | SNS 投稿設計・YouTube/Instagram 自動化検討時 |
+| `docs/marketing/01_SNS集客戦略.md` | SNS 集客戦略 v7（Instagram を一次制作チャネルに格上げ・YouTube Shorts は IG Reels mp4 の二次展開に再定義、X＝合格者発信の信頼／note 誘導動線。X 凍結対応は x-post-policy §11、総監 YT は 05 が独立 SSOT。全体像は本書と 02_チャネル動線設計.md） | SNS 投稿設計・YouTube/Instagram 自動化検討時 |
 | `content/note/README.md` | note 記事 SSOT 索引（試験別構造・戦略 SSOT 体系）。戦略・Red Line・価格企画の真実源は各試験の noteコンテンツ計画.md（`技術士総監/`・`技術士建設部門/`・`1級・2級土木/`）、実価格・noteUrl は `src/lib/note-magazines.ts` | note コンテンツ発売・受験期コンテンツ設計時 |
 | `docs/marketing/02_チャネル動線設計.md` | 5 チャネル動線設計 v2（X / YouTube / Instagram / note / サイトの統合ファネル設計、UTM 統一フォーマット、季節 × チャネルマトリクス、4 Phase 実装ロードマップ） | チャネル間動線・UTM 設計・季節調整検討時、note ↔ サイト境界ルール確認時 |
 

@@ -92,7 +92,7 @@ title: スキル ガバナンス記録
 └── ui/              # 1 — UI/UX デザイン
 ```
 
-合計 **100 スキル**（10 カテゴリ・SKILL.md 実数・2026-10-25 に 11 本を退役）。Phase 2 待機 6 本（`skills-guide.md` 末尾）は**計画のみ＝ファイル未作成**なのでこの数に含めない。
+合計 **96 スキル**（10 カテゴリ・SKILL.md 実数・2026-10-25 に 11 本、2026-11-06 に 2 本を退役）。Phase 2 待機 6 本（`skills-guide.md` 末尾）は**計画のみ＝ファイル未作成**なのでこの数に含めない。
 
 > 2026-09-05 新設: `dev/asset-route`（Git の外に置くアセットの置き場を **誰が使うか** で決める決定木＋コマンド。サイトが配信→public R2 / GitHub Actions が読み書き→private R2 / 人か手元のスクリプトだけ→Google Drive vault）。背景＝同日、共通仕様書のページ画像 3.4GB を「教材ページ画像→private R2」の行に従って private R2 へ上げかけた。その行はスキャン書籍の著作権のために書かれたもので、資産の種類で列挙する旧ルールには判断軸が無かった。`asset-storage.json` の全 group に `audience` を必須化し（`loadConfig`・`tests/asset-storage.test.mjs`・新 `check-drive-vault` の 3 か所で止める）、Drive 側は独立した系 `drive-vault.json` / `drive-vault-sync` / `drive-manifest.json` にした（R2 の fail-closed なコードに第 3 バケットの分岐を足さない）。**新エージェントは作らない**（検査は決定的スクリプトで足りる・CLAUDE.md §9）。合計 `104→105`、dev `14→15`。
 
@@ -361,3 +361,4 @@ title: スキル ガバナンス記録
 | agent `pe-secondary-exam-writer` ＋ 字数ハード上限ゲート新設 | 出荷済 BK 模範解答200記事の字数監査で III の6ブロックがハード上限（答案枚数×600字＝III/必須I:1800・II-2:1200・II-1:600）超過＝手書き不可と判明（生成器の自己申告字数が実測と乖離する既知問題の取りこぼし）。**再発防止に常設チェック `scripts/check-note-charlimits.mjs`（`npm run check-note-charlimits`）を新設**し、`scripts/install-pre-commit.mjs` 経由で **pre-commit に staged BK `article*.md` の HARD 超過ブロックを追加**（`SKIP_NOTE_CHARLIMITS=1` で回避可・93%目標超過は警告のみ）。日本語は code point 実測（awk/wc 不使用）。`pe-secondary-exam-writer` Step 5 に本ゲートを明記。超過6件は論点保持で≤1770字に是正済 | 2026-06-14 |
 | agent `figure-crop-worker` 新設 ＋ `/figure-recrop` 並列モード | 図クロップ recrop-review の大量処理を並列 workflow 化（civil-1 94→0＋他資格48図＝計4本の workflow で確立）。**新規 Generator `figure-crop-worker`**（sonnet・tools=Read/Bash/Glob/Grep）＝埋め込み済み図(png/webp)を1枚受け取り目視分類（crop/ok/needs-source）→写り込み除去のタイト再クロップ（png=切って webp 再生成／webp=sharp extract 上書き）→自己検証して構造化返却。**MDX・台帳は触らせず親が直列適用**（共有台帳3種・同一記事MDXの競合回避）。`figure-recrop` SKILL.md に「大量処理（並列 workflow）モード」節＋再利用スクリプト `scripts/figure-crop-batch.workflow.mjs` を追加（`agentType: figure-crop-worker` を spawn）。**親の最終目視QAが worker の取りこぼしを捕捉**（写り込み残り／フォーム切り過ぎ→原画git復元→再クロップ／見切れ見落とし→crop=needs-source是正）。逐次型 `scripts/figure-recrop.mjs` は併存。agents-registry/skills-guide も同期（doc-coupling） | 2026-07-09 |
 | `ig-post-create` / `ig-reel-create` / `ig-carousel-restyle` / `yt-shorts-create` の旧IG派生経路 | 旧Instagram過去問パックの素材削除に伴い退役。旧一括生成・再登録スクリプトを停止し、現行Instagramは個別素材と台帳行から開始 | 2026-11-01 |
+| `ig-reel-create` / `yt-shorts-create`（`per-problem-shorts` を含む）・agent `ig-reels-writer` / `ig-reels-qa` の削除 | スキルとスクリプト・方針書（`ig-reels-policy.md`・`yt-shorts-script-policy.md`）を削除。共有の ffmpeg 合成器は `scripts/lib/ffmpeg-compose.mjs` へ移した。ショートは `npm run shorts-factory`、新しい Instagram リールは `instagram-reels:*` | 2026-11-06 |

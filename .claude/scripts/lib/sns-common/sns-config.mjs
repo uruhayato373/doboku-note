@@ -55,7 +55,7 @@ export const SNS_CONFIG = {
       note: '▼ 受験記・解答再現（note）',
     },
     // UTM は buildUtmUrl（#lib/utm-builder.mjs・真実源 utm-templates.json）へ集約済み（2026-07-04）。
-    // 旧 utmParams ハードコード文字列は撤去（yt-shorts-create / per-problem-shorts が buildUtmUrl を直接呼ぶ）。
+    // 旧 utmParams ハードコード文字列は撤去（呼び出し側が buildUtmUrl を直接呼ぶ）。
   },
 
   // コンテンツ生成パラメータ

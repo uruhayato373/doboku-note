@@ -14,7 +14,7 @@ import {
   composeStaticSlidesVideo,
   probeDuration,
   ffmpegAvailable,
-} from '../.claude/skills/social/yt-shorts-create/scripts/lib/ffmpeg-compose.mjs';
+} from '../scripts/lib/ffmpeg-compose.mjs';
 
 test('composeStaticSlidesVideo: 入力が空なら throw', async () => {
   await assert.rejects(

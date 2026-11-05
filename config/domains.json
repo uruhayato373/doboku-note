@@ -403,7 +403,6 @@
     ".claude/knowledge/reference/gsc-management.md": "site",
     ".claude/knowledge/reference/ig-carousel-policy.md": "sns",
     ".claude/knowledge/reference/ig-carousel-skill.md": "sns",
-    ".claude/knowledge/reference/ig-reels-policy.md": "sns",
     ".claude/knowledge/reference/image-policy.md": "site",
     ".claude/knowledge/reference/implementation-handoff.md": "ops",
     ".claude/knowledge/reference/information-architecture.md": "ops",
@@ -446,7 +445,6 @@
     ".claude/knowledge/reference/workflows.md": "plan",
     ".claude/knowledge/reference/x-post-policy.md": "sns",
     ".claude/knowledge/reference/yt-shorts-publisher-policy.md": "sns",
-    ".claude/knowledge/reference/yt-shorts-script-policy.md": "sns",
     "docs/README.md": "ops",
     "docs/design/": "site",
     "docs/editorial/": "site",
@@ -580,10 +578,8 @@
       "docs/operations/09_BuildJob収益最大化スプリント.md"
     ],
     "/sns": [
-      "docs/marketing/00_SNS整理マップ.md",
       "docs/marketing/01_SNS集客戦略.md",
       "docs/marketing/02_チャネル動線設計.md",
-      "docs/marketing/03_多資格SNS展開設計.md",
       "docs/strategy/10_リスト化・自社オーディエンス戦略.md"
     ],
     "/sns/youtube/longform": [

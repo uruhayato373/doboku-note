@@ -3,7 +3,7 @@
  *
  * 真実源: .claude/knowledge/design-system/note-cover-tokens.json の `exams`。
  * note カバー・IG・X・Shorts が同一 token を解決し、試験＝色相 をチャネル横断で統一する。
- * 設計: docs/marketing/03_多資格SNS展開設計.md ／ .claude/knowledge/reference/sns-image-policy.md §12
+ * 設計: .claude/knowledge/reference/sns-image-policy.md §12
  */
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';

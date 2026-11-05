@@ -386,7 +386,7 @@ PNGのコピーだけでは旧描画台帳の原稿hashが残り、`check-x-revi
 - 戦略: `docs/marketing/01_SNS集客戦略.md`（X 節）/ `02_チャネル動線設計.md`（UTM）
 - 連携スキル: `social-post`（X 投稿テキスト生成）/ `scripts/gen-x-card.mjs`（カード画像・create-x-card スキルは 2026-10-25 に外した）/ `publish-x`（予約投稿）
 - エージェント: `x-post-writer`（Generator）/ `x-post-qa`（Evaluator）
-- IG 対応物: `ig-carousel-policy.md`・`ig-reels-policy.md`（パラレル設計の参考）
+- IG 対応物: `ig-carousel-policy.md`（パラレル設計の参考）
 
 
 ### 実予約の定期監視（2026-09-14追加）

@@ -26,7 +26,7 @@ import { parseArgs } from 'node:util';
 import { spawnSync } from 'node:child_process';
 import { synthesize, listSpeakers } from '../.claude/scripts/lib/sns-common/tts-client.mjs';
 import { applyReadingDict } from '../.claude/scripts/lib/sns-common/reading-dict.mjs';
-import { composeShortsVideo } from '../.claude/skills/social/yt-shorts-create/scripts/lib/ffmpeg-compose.mjs';
+import { composeShortsVideo } from './lib/ffmpeg-compose.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
 const IG = join(ROOT, 'content/sns/instagram');
