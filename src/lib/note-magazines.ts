@@ -2623,6 +2623,34 @@ const MAGAZINES_RAW = {
     price: '¥3,480（9記事セット・単品¥780）',
     badge: 'note 限定',
   },
+  // 2026-11-05 公開（md2c27bf67e24）。DN-0350
+  'pe-water-sewerage-magazine': {
+    id: 'pe-water-sewerage-magazine',
+    published: true,
+    noteUrl: 'https://note.com/dobokunote/m/md2c27bf67e24',
+    qualification: 'pe-water-supply',
+    noteTitle: '技術士 上下水道部門 2次｜下水道 選択科目 模範解答集',
+    title: '技術士 上下水道部門 2次｜下水道 選択科目 模範解答集（R01-R08＋R9予想）',
+    description: '技術士第二次試験 上下水道部門「下水道」の選択科目を、令和元〜8年度の過去問8年分と令和9年度の予想問題で固める模範解答集。II-1 は 4 問、II-2 と III は 2 問すべての答案を収録し、II-2 には発注者の場合と受注者の場合の違いを添えた。下水道は筆者が受験した選択科目ではなく、法令と国の資料など一次情報と照合して作成した。予想は的中を保証しない（全27記事）。',
+    shortTitle: '上下水道2次｜下水道 模範解答集',
+    shortDescription: 'R01〜R08＋R9予想の II-1/II-2/III 全27記事。下水道の選択科目をフル解答。',
+    price: '¥2,980（27記事セット・単品¥780）',
+    badge: 'note 限定',
+  },
+  // 2026-11-05 公開（m3646734d1da0）。DN-0350
+  'pe-water-sewerage-pack': {
+    id: 'pe-water-sewerage-pack',
+    published: true,
+    noteUrl: 'https://note.com/dobokunote/m/m3646734d1da0',
+    qualification: 'pe-water-supply',
+    noteTitle: '上下水道部門2次｜下水道まるごと合格パック',
+    title: '技術士 上下水道部門 2次｜下水道 まるごと合格パック（必須科目I＋下水道 選択科目）',
+    description: '必須科目I 模範解答集（全9記事）と下水道 選択科目 模範解答集（全27記事）を束ねた合格パック。単品合計¥6,460が¥4,980。本番で解く「必須I＋下水道」の組み合わせをそのまま収録する。',
+    shortTitle: '上下水道2次｜下水道 合格パック',
+    shortDescription: '必須I＋下水道 全36記事。単品合計¥6,460が¥4,980（約23%OFF）。',
+    price: '¥4,980（必須I＋下水道 2マガジン・単品合計¥6,460、約23%OFF）',
+    badge: 'note 限定 合格パック',
+  },
   // 2026-11-05 作成（mefaf66e580d5）。DN-0350
   'pe-water-supply-magazine': {
     id: 'pe-water-supply-magazine',
