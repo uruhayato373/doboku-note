@@ -77,6 +77,17 @@
         "expected": 900,
         "heard": 728
       }
+    },
+    "pe-construction/hissu1-bosai-kyoujinka/youtube.longform": {
+      "videoSha256": "2f44b3a0e1e3886a1f378fd147dfc2657a6a9e442f8bbd0e4352c9ac8116b388",
+      "at": "2026-11-05T10:07:05.570Z",
+      "similarity": 0.851,
+      "maxVolumeDb": -1.4,
+      "durationGapSec": 0.1,
+      "chars": {
+        "expected": 957,
+        "heard": 928
+      }
     }
   }
 }

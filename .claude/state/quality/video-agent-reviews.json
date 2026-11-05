@@ -122,24 +122,27 @@
     },
     "pe-construction/hissu1-bosai-kyoujinka/youtube.longform": {
       "verdict": "pass",
-      "note": "表紙と台本が一致。出題年の記述は出典記事に基づく。描画に進んでよい。動画は未完成（台本と表紙のみ確認、音声・場面は未確認）。",
-      "at": "2026-11-04T04:50:05.306Z",
-      "visualDigest": "72678390e349bb7632df54b1f221f9b2ef93141b933a3d8f250808c4246e807a",
-      "finalDigest": "75385a5c6b08dd37dc6dfd7a5104c6c4ad25ca6c9aebca0242a934bf6421df4c"
+      "note": "表紙と題名は中身と一致。全8場面の順序は台本どおり（誤解、問われ方、3軸、背景施策、4部構成、まとめ、CTA）。説明文のCTAは必須I模範解答マガジン1つで、無料サイト記事は補助リンク。試験日や合格の約束は無い。場面3の下部に灰色帯があり、場面4・5の図中ラベルは小さい（シート縮小時）が、読めないほどではないと判断。出題年(R01/R03/R05/R06)の問番号は一次資料と未照合。音声は未確認。",
+      "at": "2026-11-05T10:06:38.352Z",
+      "visualDigest": "f46d402339f012a07d0ad0f0670ae4272ebeae43ad3aaf3088552c77e2bae326",
+      "finalDigest": "1ad2b460eb4234520ca39ba26cd60a2dedd76059bb556fc2151f617a0b0eba30",
+      "contentDigest": "1ad2b460eb4234520ca39ba26cd60a2dedd76059bb556fc2151f617a0b0eba30"
     },
     "pe-construction/hissu1-carbon-neutral/youtube.longform": {
       "verdict": "pass",
-      "note": "表紙と台本が一致。施策の年次は出典記事と整合。描画に進んでよい。動画は未完成（台本と表紙のみ確認、音声・場面は未確認）。",
-      "at": "2026-11-04T04:50:05.394Z",
-      "visualDigest": "91bbee58380fcb3562b975d2d8019c82973b0b25cdc67be7788862eb2b7c32d6",
-      "finalDigest": "649a69db8c864067e8bc4e84f0209e119932e08a9317d19d6261a5afa60c5abd"
+      "note": "表紙・題名と中身が一致。9場面は台本順（誤解→頻出理由→三層→施策→設問3→発注者視点→まとめ→CTA）で文字切れ・重なり・誤字なし。説明文のCTAは必須Iマガジン1つ、無料サイトリンクは関連記事。断定的な合格約束なし。音声は未確認。",
+      "at": "2026-11-05T10:04:30.795Z",
+      "visualDigest": "f2169a8d4ea9b0ff144b3f3dd08f5f34fbdde9df0c2d1c23fedef068a9625e71",
+      "finalDigest": "3a4bb13ddaa576369000a43cfb465677c2945e9897c4e9fbfa42a3661d80fb32",
+      "contentDigest": "3a4bb13ddaa576369000a43cfb465677c2945e9897c4e9fbfa42a3661d80fb32"
     },
     "pe-construction/hissu1-infra-roukyuuka/youtube.longform": {
       "verdict": "pass",
-      "note": "表紙と台本が一致。第2次行動計画(R3-R7)は出典記事どおり。描画に進んでよい。動画は未完成（台本と表紙のみ確認、音声・場面は未確認）。",
-      "at": "2026-11-04T04:50:05.480Z",
-      "visualDigest": "1afdd12acf97a08aebac9ff2c728aa837ba58e97d2dd6874baf3f6877e399c40",
-      "finalDigest": "551dbb05f955a1d9bb7a947d546d336ac3985ecd95993f227ff62caa59dc695f"
+      "note": "表紙・題名は中身と一致、全9場面は台本順で文字の切れ・誤字なし(場面5は全画面でも可読)。CTAは必須科目Iマガジン1つ(無料サイトリンクは補助)。平成25年・令和3〜7年度・令和4年12月は台本と整合、合格の約束なし。試験日記述なし。音声・字幕は未確認。",
+      "at": "2026-11-05T09:59:46.094Z",
+      "visualDigest": "4b30786a1b11735f4f0a939294c21852fc8a9d2882d1f1d813ccaa72e17165b5",
+      "finalDigest": "f2155ef59dd4765ac3dc90ee881846fb3dffe420cfd50ab360d4e23f305e77ad",
+      "contentDigest": "f2155ef59dd4765ac3dc90ee881846fb3dffe420cfd50ab360d4e23f305e77ad"
     },
     "pe-construction/hissu1-kensetsu-dx/youtube.longform": {
       "verdict": "pass",

@@ -10,7 +10,9 @@
       "visual": {
         "kind": "cover",
         "heading": "防災・国土強靱化の論点整理",
-        "items": ["技術士 建設部門 二次・必須科目Ⅰ最頻出"]
+        "items": [
+          "技術士 建設部門 二次・必須科目Ⅰ最頻出"
+        ]
       }
     },
     {
@@ -21,7 +23,10 @@
       "caption": "厚く書くより、構造化して書く",
       "visual": {
         "heading": "誤解：防災は厚く書けば安心",
-        "items": ["実際は6系統の1つで交互に出題", "問われているのは課題の構造化"]
+        "items": [
+          "実際は6系統の1つで交互に出題",
+          "問われているのは課題の構造化"
+        ]
       },
       "sourceRef": "content/site/pe-construction/bosai-kokudo-kyoujinka/article.mdx"
     },
@@ -33,7 +38,10 @@
       "caption": "風水害と大規模地震が交互に出る",
       "visual": {
         "heading": "過去の問われ方",
-        "items": ["R01・R03：風水害系", "R05・R06：大規模地震系（直近は能登半島地震）"]
+        "items": [
+          "R01・R03：風水害系",
+          "R05・R06：大規模地震系（直近は能登半島地震）"
+        ]
       },
       "sourceRef": "content/site/pe-construction/bousai-genseigai-ronbun-keyword/article.mdx"
     },
@@ -45,7 +53,11 @@
       "caption": "課題構造化の3軸",
       "visual": {
         "heading": "課題を組み立てる3軸",
-        "items": ["ハード／ソフトの両輪", "外力の変化（気候変動による激甚化）", "制約条件（財源・担い手不足）"]
+        "items": [
+          "ハード／ソフトの両輪",
+          "外力の変化（気候変動による激甚化）",
+          "制約条件（財源・担い手不足）"
+        ]
       },
       "sourceRef": "content/site/pe-construction/bosai-kokudo-kyoujinka/article.mdx"
     },
@@ -57,7 +69,11 @@
       "caption": "施策名は定義とセットで使う",
       "visual": {
         "heading": "背景施策を正確に",
-        "items": ["国土強靱化基本計画：4つの基本目標", "流域治水：流域全体の協働で水害を軽減", "事前防災：未然に防ぐ予防的な投資"]
+        "items": [
+          "国土強靱化基本計画：4つの基本目標",
+          "流域治水：流域全体の協働で水害を軽減",
+          "事前防災：未然に防ぐ予防的な投資"
+        ]
       },
       "sourceRef": "content/site/pe-construction/bosai-kokudo-kyoujinka/article.mdx"
     },
@@ -69,7 +85,11 @@
       "caption": "設問の動詞を読み違えない",
       "visual": {
         "heading": "4部構成と最大の注意点",
-        "items": ["課題→3軸／解決策→優先順位＋流域治水型", "リスク→取り残し・合意形成の難しさ", "設問の動詞（事前防災／大規模地震）を外さない"]
+        "items": [
+          "課題→3軸／解決策→優先順位＋流域治水型",
+          "リスク→取り残し・合意形成の難しさ",
+          "設問の動詞（事前防災／大規模地震）を外さない"
+        ]
       }
     },
     {
@@ -80,7 +100,11 @@
       "caption": "3軸で構造化し施策名を正確に",
       "visual": {
         "heading": "まとめ",
-        "items": ["① 風水害／大規模地震の交互パターンを把握", "② 3軸で課題を構造化する", "③ 施策名を定義とセットで正確に使う"]
+        "items": [
+          "① 風水害／大規模地震の交互パターンを把握",
+          "② 3軸で課題を構造化する",
+          "③ 施策名を定義とセットで正確に使う"
+        ]
       }
     },
     {
@@ -92,8 +116,17 @@
       "visual": {
         "kind": "cover",
         "heading": "答案の形は概要欄へ",
-        "items": ["必須科目Ⅰ 模範解答マガジン（概要欄リンク）"]
+        "items": [
+          "必須科目Ⅰ 模範解答マガジン（概要欄リンク）"
+        ]
       }
     }
-  ]
+  ],
+  "imageDesign": {
+    "mode": "codex-pop",
+    "scope": "all-body",
+    "revision": "body-diagram-20261105",
+    "coverRevision": "cover-pop-20261105",
+    "layout": "diagram-led"
+  }
 }

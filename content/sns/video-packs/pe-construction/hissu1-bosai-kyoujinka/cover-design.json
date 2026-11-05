@@ -2,6 +2,10 @@
   "schemaVersion": 1,
   "covers": {
     "longform": {
+      "character": {
+        "pose": "pop-red-pen",
+        "frame": "waist"
+      },
       "format": "longform",
       "exam": "pe-construction",
       "headline": [
@@ -10,19 +14,18 @@
       ],
       "accentLine": 1,
       "subtitle": "",
-      "character": {
-        "pose": "pop-red-pen",
-        "frame": "waist"
-      },
-      "design": "pop-v2",
+      "design": "pop-poster-v3",
       "pop": {
         "variant": "write",
         "authority": "総監が制作"
       },
+      "layout": "diagram-led",
       "approvedImage": {
-        "path": ".tmp/media/pe-construction/hissu1-bosai-kyoujinka/youtube.longform/cover.75085760.png",
-        "sha256": "75085760e73f45fcc7e613b46d4628bbef49aca04d854b392df69da492c6029a",
-        "specSha256": "99e6fb656f8c55364b6ee24c89a9fb81b8658711044989b10479361c24a5591b"
+        "path": ".tmp/media/pe-construction/hissu1-bosai-kyoujinka/work/cover-pop.f35c6347.png",
+        "sha256": "f35c6347d6f81bc8248e5b3f0dbe34002a129bcefae3dd71506f8a8bfe211472",
+        "width": 1920,
+        "height": 1080,
+        "specSha256": "7ea56132556656a6306183a770867ae4b76de83c79271b7cdb833a3ef052e6cf"
       }
     }
   }
