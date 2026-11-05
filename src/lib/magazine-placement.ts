@@ -948,10 +948,14 @@ function resolvePlacementRaw(
     };
   }
   // 10.7. コンクリート技士 その他の体系テキスト 4 章 → 直前暗記ノート、概要・学習計画 → 択一 直前パック（2026-09-17・wire-ahead）。
+  //       予想40問は令和8年度の試験日までの教材なので、試験の翌日からは暗記ノートへ戻す。
   if (/^concrete-engineer-(textbook|primary)-(materials|properties-testing|construction|environment)$/.test(slug)) {
-    return { top: slot('ce-anki-note', slug, 'top'), inline: [] };
+    return { top: slot(isAfterExamDay('concrete-engineer', 'exam') ? 'ce-anki-note' : 'ce-r8-mc-40', slug, 'top'), inline: [] };
   }
-  if (/^concrete-engineer-guide-(overview|study-plan|books|difference-chief|eligibility-2026)$/.test(slug)) {
+  if (/^concrete-engineer-guide-(overview|study-plan)$/.test(slug)) {
+    return { top: slot('ce-marugoto-pack', slug, 'top'), inline: [] };
+  }
+  if (/^concrete-engineer-guide-(books|difference-chief|eligibility-2026)$/.test(slug)) {
     return { top: slot('ce-chokuzen-pack', slug, 'top'), inline: [] };
   }
 
