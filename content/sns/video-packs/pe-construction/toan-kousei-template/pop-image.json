@@ -63,5 +63,366 @@
       },
       "publication": "ローカル差し替え・外部未反映"
     }
-  }
+  },
+  "revisions": {
+    "cover-pop-20261105": {
+      "version": "pop-poster-v3",
+      "layout": {
+        "mode": "diagram-led"
+      },
+      "generation": {
+        "tool": "image_gen",
+        "prompt": "添付の1枚目はdoboku-noteで採用済みの全面POP動画表紙の意匠参照、2枚目は先生キャラクターの同一性参照です。 新規の16:9横長（1920×1080想定）日本語YouTube動画表紙を作る。深いインディゴ #33356B と明るい青紫、黄色と白の極太文字、明確な黒い輪郭、少量の赤、斜めの面と勢いのある背景、右側に先生キャラクターを大きく。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。 左〜中央に正確に『答案の構成』『設問から逆算』を大きく配置。上部の黄色帯に小さく『総監が制作』。 誤字・余計な文字・合格保証・URL・価格・不明な実績を足さない。文字ブロックの黒い縁取りまで含めて左右8%の内側へ収め（画面の左端から8%は背景だけ）、顔は左右5%・上下5%内、下端18%は字幕が重なるので重要な文字や顔を置かず背景が全面に続く。",
+        "references": [
+          {
+            "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/youtube.longform/cover.b87e20c1.png",
+            "sha256": "b87e20c19fda2123d3bac22950472ee7a7427dd2ab11a7cbf63807a6e83c33ad"
+          },
+          {
+            "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
+            "sha256": "1941cd22fa523fcb233e8ab7b8ad756ad7398be8755037b881d8380fb39398f9"
+          }
+        ],
+        "output": {
+          "path": ".tmp/media/pe-construction/toan-kousei-template/work/factory/raw-cover.4aa75eb0.png",
+          "sha256": "4aa75eb053abff93fa31636d237a7e1e807fc082ff67deb44765398ff44838e5"
+        },
+        "generatedAt": "2026-11-05T00:51:11.409Z"
+      },
+      "copy": {
+        "exam": "pe-construction",
+        "headline": [
+          "答案の構成",
+          "設問から逆算"
+        ],
+        "authority": "総監が制作"
+      },
+      "output": {
+        "path": ".tmp/media/pe-construction/toan-kousei-template/work/cover-pop.f8fd72a9.png",
+        "sha256": "f8fd72a93a6ccd9b98395f5b182056a1e1b3724cd14174694187cdfabfc46aad",
+        "width": 1920,
+        "height": 1080
+      },
+      "normalization": {
+        "mode": "full-frame-v1",
+        "sourceSha256": "4aa75eb053abff93fa31636d237a7e1e807fc082ff67deb44765398ff44838e5"
+      },
+      "review": {
+        "status": "ai-reviewed",
+        "checkedAt": "2026-11-05T00:51:11.409Z",
+        "by": "ai-image-fidelity-auditor",
+        "reason": "文字: 総監が制作・答案の構成・設問から逆算が指示と一字一致。キャラは白ヘルメット・黒縁眼鏡・ひげ・紺作業服とネクタイ・黄白反射帯で、手指の破綻なし。左端8%と下端18%に文字や顔は無い",
+        "userImageReview": "pending"
+      },
+      "storage": {
+        "group": "content-media",
+        "sync": "local"
+      }
+    },
+    "body-diagram-20261105": {
+      "layout": {
+        "mode": "diagram-led"
+      },
+      "images": [
+        {
+          "sceneId": "premise",
+          "inputSha256": "19ab6abda63c1ffc06191f56d2216a1d2c3f52243c789ff97f7613769acb3044",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『誤解：型に当てはめれば合格答案』。 図に入れる文字: 『型は破綻を防ぐ骨格にすぎない』 『評価を決めるのは中身の具体性』。 この場面の説明（文字にしない）: テンプレートに当てはめれば合格答案になる、という誤解があります。型は破綻を防ぐ骨格であって、各ブロックに入れる中身の質が最終的な評価を決めます。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/toan-kousei-template/work/factory/raw-premise.6f78ec07.png",
+              "sha256": "6f78ec072f1877ff8e9faecd2c6af12a5946ab12c810f91c96ddfd7e9ecc5085"
+            },
+            "generatedAt": "2026-11-05T00:51:11.409Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/toan-kousei-template/work/premise-diagram.b558c9f8.png",
+            "sha256": "b558c9f84084697f5e41821050ea2166987c582d5295f7bda3928b2bcd7ce885",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "6f78ec072f1877ff8e9faecd2c6af12a5946ab12c810f91c96ddfd7e9ecc5085"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-05T00:51:11.409Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字: 型は破綻を防ぐ骨格にすぎない、評価を決めるのは中身の具体性、見出しが指示と一字一致。空の骨格から中身入りへの図は本文と整合。見出しに引用括弧が付くが内容を誤らせない",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "skeleton",
+          "inputSha256": "27b69ba2c07328767ab117fce7b8d9527e7138b1fddb7ce973ecc9c6b74ecb9a",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『答案の骨格＝4ブロック』。 図に入れる文字: 『(1)現状→課題　(2)最重要課題→解決策』 『(3)効果・リスク　(4)倫理・持続可能性』 『書く前に骨子メモを作る』。 この場面の説明（文字にしない）: 必須科目Ⅰの設問構成は、(1)多面的な課題抽出、(2)最重要課題の解決策、(3)新たなリスクと対策、(4)技術者倫理・持続可能性の4つ。答案の骨格を「現状→課題→解決策→効果・リスク」と対応させれば、テーマが変わっても同じ流れで書けます。書く前に骨子メモを作ると、途中で崩れても戻る場所が分かります。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/toan-kousei-template/work/factory/raw-skeleton.0bc19737.png",
+              "sha256": "0bc19737c7ef0cb231f58518069c348c9af9d1f29ea05e89136bbb253876e140"
+            },
+            "generatedAt": "2026-11-05T00:51:11.409Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/toan-kousei-template/work/skeleton-diagram.0bc19737.png",
+            "sha256": "0bc19737c7ef0cb231f58518069c348c9af9d1f29ea05e89136bbb253876e140",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "0bc19737c7ef0cb231f58518069c348c9af9d1f29ea05e89136bbb253876e140"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-05T00:51:11.409Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字: 答案の骨格＝4ブロック、(1)現状→課題、(2)最重要課題→解決策、(3)効果・リスク、(4)倫理・持続可能性、書く前に骨子メモを作る、すべて一致。図の流れも本文どおり",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "tahenteki",
+          "inputSha256": "d3ae74486a2ea1984a7424ef087bd9129823d46eedcc4dfebd23e1195a03eec1",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『多面的な観点で課題を抽出する』。 図に入れる文字: 『技術・経済・社会・環境・安全の5観点』 『同じ観点の言い換えはNG』 『発注者視点（住民対応・総合調整）で幅を作る』。 この場面の説明（文字にしない）: (1)で評価されるのは多面的に課題を抽出する力です。技術・経済・社会・環境・安全という5つの観点を引き出しに持ち、同じ観点の言い換えを並べないことが大切です。発注者視点を1つ混ぜると、受注者側が落としやすい観点の幅が広がります。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/toan-kousei-template/work/factory/raw-tahenteki.6ba927bb.png",
+              "sha256": "6ba927bbde2bc8d32aca16351ef9c774011f36414baf9d303f2bc1ec4240551a"
+            },
+            "generatedAt": "2026-11-05T00:51:11.409Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/toan-kousei-template/work/tahenteki-diagram.b2ace63d.png",
+            "sha256": "b2ace63dcbceb78e9d624457ea2a16e6257e957d8bec47f0f3d4cbe22d262089",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "6ba927bbde2bc8d32aca16351ef9c774011f36414baf9d303f2bc1ec4240551a"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-05T00:51:11.409Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字: 見出し、技術・経済・社会・環境・安全の5観点、同じ観点の言い換えはNG、発注者視点（住民対応・総合調整）で幅を作る、すべて一致。五つの円は空だが誤りではない",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "saijuuyou",
+          "inputSha256": "9b4e8623f87b9431d1b93f01b1cabc225ad4369f7278ae68ff2730b24c3cf71a",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『最重要課題の選び方』。 図に入れる文字: 『波及効果が大きい／本質に直結／具体的に書ける』 『選定理由を一文で明示する』 『解決策はハード×ソフトで2〜3本立て』。 この場面の説明（文字にしない）: (2)では、抽出した課題から最重要のものを選び、なぜ最重要かを一文で示します。波及効果が大きい、本質に直結する、自分が具体的に書ける。この3条件で選ぶと外しにくいです。解決策はハードとソフトで2〜3本立てにすると評価されやすくなります。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/toan-kousei-template/work/factory/raw-saijuuyou.12354c0a.png",
+              "sha256": "12354c0aaed11cd2684558cc03bed16684ee4c10f103a7327c9902d71c9e992e"
+            },
+            "generatedAt": "2026-11-05T00:51:11.409Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/toan-kousei-template/work/saijuuyou-diagram.12354c0a.png",
+            "sha256": "12354c0aaed11cd2684558cc03bed16684ee4c10f103a7327c9902d71c9e992e",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "12354c0aaed11cd2684558cc03bed16684ee4c10f103a7327c9902d71c9e992e"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-05T00:51:11.409Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字: 最重要課題の選び方、波及効果が大きい、本質に直結、具体的に書ける、選定理由を一文で明示する、解決策はハード×ソフトで2〜3本立て、すべて一致。三条件が一点に集まる図で本文と整合",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "koukarisk",
+          "inputSha256": "8d4f0a0be5cecfd3d8ac4f88e243165f4102cc8629308f6462c1fd3383293b80",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『効果とリスクは対で書く』。 図に入れる文字: 『効果は定量＋定性を併記』 『リスク＝一般論ではなく解決策の副作用』 『リスクごとに対策までセットで書く』。 この場面の説明（文字にしない）: 効果は、定量の見込みと定性の効果を併記すると説得力が増します。新たなリスクで多い失敗は、地震や豪雨といった一般論を書いてしまうこと。問われているのは、自分の解決策を実行したからこそ生じる副作用です。挙げたら対策までセットで書きます。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/toan-kousei-template/work/factory/raw-koukarisk.b7f92e3b.png",
+              "sha256": "b7f92e3bb8d0f5c776380edd47209bb1ffac51d008386d29b76acc3c4c723b9f"
+            },
+            "generatedAt": "2026-11-05T00:51:11.409Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/toan-kousei-template/work/koukarisk-diagram.c8419ad9.png",
+            "sha256": "c8419ad975b835c1c0b3e2ea9e6eab7cd11843ca32f79cf4eea7b983781629b7",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "b7f92e3bb8d0f5c776380edd47209bb1ffac51d008386d29b76acc3c4c723b9f"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-05T00:51:11.409Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字: 効果とリスクは対で書く、効果は定量＋定性を併記、リスク＝一般論ではなく解決策の副作用、リスクごとに対策までセットで書く、すべて一致。見出しに引用括弧が付くが内容は正しい",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "rinri",
+          "inputSha256": "c959d650d9c8a6e95c66b3d3d1e59b9f94bdedc370704925dba14b8e18c77f82",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『(4)技術者倫理・持続可能性』。 図に入れる文字: 『公益確保・安全最優先・法令遵守が原則』 『データ活用・合意形成・持続可能な成果を明文化』 『自分の解決策に引きつけて書く』。 この場面の説明（文字にしない）: (4)の技術者倫理・持続可能性は、公益確保、安全最優先、法令遵守の原則に、自分の解決策を引きつけて書きます。令和8年度の改訂では、データ活用や合意形成、持続可能な成果、文化的価値の尊重が明文化されています。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/toan-kousei-template/work/factory/raw-rinri.f772f3b1.png",
+              "sha256": "f772f3b1831e0f39427571e7582883b15c2cb6dc1457dc770377dcf2fce9100a"
+            },
+            "generatedAt": "2026-11-05T00:51:11.409Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/toan-kousei-template/work/rinri-diagram.633d22a7.png",
+            "sha256": "633d22a75f121434a48f14f8c501b7593d90d282ea6f802f859493d03b0cae76",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "f772f3b1831e0f39427571e7582883b15c2cb6dc1457dc770377dcf2fce9100a"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-05T00:51:11.409Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字: (4)技術者倫理・持続可能性、公益確保・安全最優先・法令遵守が原則、データ活用・合意形成・持続可能な成果を明文化、自分の解決策に引きつけて書く、すべて一致。崩れた字なし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "summary",
+          "inputSha256": "92fe5a426330a6bd1627c31baffd945e61f28050a980ef6421cc4b523206d6dd",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『まとめ』。 図に入れる文字: 『① 設問4つ＝答案4ブロック』 『② 多面的観点で課題抽出』 『③ 理由つきで最重要課題を選ぶ』 『④ 倫理・持続可能性で締める』。 この場面の説明（文字にしない）: まとめます。設問4つに答案4ブロックを対応させ、多面的な観点で課題を抽出し、理由つきで最重要課題を選び、効果とリスクを対で書き、倫理と持続可能性で締める。これが崩れない構成の型です。 前回の不合格の理由を直す: 字幕の帯に絵や文字がある（ばらつき 50.4）",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/toan-kousei-template/work/factory/raw-summary.2d1e74d0.png",
+              "sha256": "2d1e74d0321685e0ce398c1848f222dabde62d9185c73543aafb4b720a8be0da"
+            },
+            "generatedAt": "2026-11-05T00:51:11.409Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/toan-kousei-template/work/summary-diagram.2d1e74d0.png",
+            "sha256": "2d1e74d0321685e0ce398c1848f222dabde62d9185c73543aafb4b720a8be0da",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "2d1e74d0321685e0ce398c1848f222dabde62d9185c73543aafb4b720a8be0da"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-05T00:51:11.409Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字: まとめ、①設問4つ＝答案4ブロック、②多面的観点で課題抽出、③理由つきで最重要課題を選ぶ、④倫理・持続可能性で締める、すべて一致。見出しに引用括弧が付くが内容は正しい",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "cta",
+          "inputSha256": "f53e95e77fd8e9a491dc1e83be510298b3c65913c43c319f91edd0c62eeb722b",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『テンプレートに肉付けする』。 図に入れる文字: 『必須科目対策マガジン（概要欄リンク）』。 この場面の説明（文字にしない）: このテンプレートに専門知識を肉付けする演習は、必須科目対策マガジンにまとめています。概要欄のリンクからご覧ください。ご視聴ありがとうございました。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/toan-kousei-template/work/factory/raw-cta.b941ea5e.png",
+              "sha256": "b941ea5ea09c000e2b9fbd5927fc8b53682b1e6855a0b1ee6dd8bd5b7d325266"
+            },
+            "generatedAt": "2026-11-05T00:51:11.409Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/toan-kousei-template/work/cta-diagram.b941ea5e.png",
+            "sha256": "b941ea5ea09c000e2b9fbd5927fc8b53682b1e6855a0b1ee6dd8bd5b7d325266",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "b941ea5ea09c000e2b9fbd5927fc8b53682b1e6855a0b1ee6dd8bd5b7d325266"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-05T00:51:11.409Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "文字: テンプレートに肉付けする、必須科目対策マガジン（概要欄リンク）が一字一致。URL・価格など余計な文字なし。見開きの本は破綻なし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        }
+      ]
+    }
+  },
+  "activeCoverRevision": "cover-pop-20261105",
+  "activeBodyRevision": "body-diagram-20261105"
 }

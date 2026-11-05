@@ -25,7 +25,7 @@
  */
 import { execFileSync, spawn, spawnSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
-import { existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdirSync, readFileSync, readdirSync, rmSync, writeFileSync } from 'node:fs';
 import { homedir } from 'node:os';
 import { join } from 'node:path';
 import { parseArgs } from 'node:util';
@@ -214,10 +214,14 @@ function audioCheck() {
   const { abs, video } = videoFile(pack, new Map(reg.media.map((m) => [m.id, m])), pub);
   const out = join(ROOT, '.tmp/media', pack, 'work/factory');
   mkdirSync(out, { recursive: true });
-  const wav = join(out, 'audio-check.wav');
-  execFileSync('ffmpeg', ['-y', '-v', 'error', '-i', abs, '-ar', '16000', '-ac', '1', wav]);
-  execFileSync('whisper-cli', ['-m', model, '-l', policy.audio.language, '-nt', '-otxt', '-of', join(out, 'audio-check'), '-f', wav], { stdio: 'ignore' });
-  const heard = readFileSync(join(out, 'audio-check.txt'), 'utf8');
+  // 全編を 1 回で渡すと whisper が途中を飛ばす（2026-11-05 に場面単体では聞き取れた箇所が欠けた）。短く切って渡す
+  const chunks = join(out, 'audio-chunks');
+  rmSync(chunks, { recursive: true, force: true });
+  mkdirSync(chunks, { recursive: true });
+  execFileSync('ffmpeg', ['-y', '-v', 'error', '-i', abs, '-ar', '16000', '-ac', '1', '-f', 'segment', '-segment_time', '30', join(chunks, 'part-%03d.wav')]);
+  const wavs = readdirSync(chunks).filter((f) => f.endsWith('.wav')).sort().map((f) => join(chunks, f));
+  execFileSync('whisper-cli', ['-m', model, '-l', policy.audio.language, '-nt', '-otxt', ...wavs.flatMap((f) => ['-f', f])], { stdio: 'ignore' });
+  const heard = wavs.map((f) => readFileSync(`${f}.txt`, 'utf8')).join('');
   const board = JSON.parse(readFileSync(join(ROOT, packDirOf(pack), 'storyboard.json'), 'utf8'));
   const expected = board.scenes.map((s) => s.narration ?? '').join('');
   const volume = spawnSync('ffmpeg', ['-hide_banner', '-i', abs, '-af', 'volumedetect', '-f', 'null', '-'], { encoding: 'utf8' }).stderr;
@@ -269,6 +273,7 @@ function wire() {
 function wireRevision(reg, pub, publishAt) {
   if (!['draft', 'qa_passed'].includes(pub.status) || pub.approval) throw new Error(`${pub.id}: 未承認の改訂版だけ結線できる`);
   if (pub.publishAt === publishAt) { console.log(JSON.stringify({ pub: pub.id, publishAt })); return; }
+  execFileSync('npm', ['run', '-s', 'media', '--', 'pull', '--work', `${pub.exam}/${pub.work}`, '--commit'], { cwd: ROOT, stdio: 'inherit' });
   const prepare = (...extra) => execFileSync(process.execPath, [join(ROOT, 'scripts/registry.mjs'), 'prepare-youtube-revision', '--pub', pub.revisionOf, '--variant', pub.variant, '--refresh-draft', '--publish-at', publishAt, ...extra], { cwd: ROOT, encoding: 'utf8' });
   const { digest } = JSON.parse(prepare());
   prepare('--commit', '--expect', digest);
@@ -292,7 +297,10 @@ function gateFacts(pack) {
   const ledger = readJsonIf(ROOT, datasetPath('state.ai-image-review-ledger'));
   const aiBlocked = Object.values(pub.media ?? {}).map((id) => mediaById.get(id)).filter((m) => m?.provenance?.kind === 'ai-generated')
     .filter((m) => { const r = ledger?.figures?.[`media:${m.id}`]; return !(r?.verdict === 'ok' && String(m.sha256).startsWith(r.sha ?? '-')); }).map((m) => m.id);
-  const verify = spawnSync(process.execPath, [join(ROOT, 'scripts/media.mjs'), 'verify-render', '--work', pack], { cwd: ROOT, encoding: 'utf8' });
+  // 改訂版は描画の作業場を持たない。素材の sha と制作入力は投稿計画の検査が照合する
+  const verify = pub.revisionOf
+    ? spawnSync(process.execPath, [join(ROOT, 'scripts/registry.mjs'), 'publish-youtube-revision', '--pub', pub.id, '--phase', 'upload'], { cwd: ROOT, encoding: 'utf8' })
+    : spawnSync(process.execPath, [join(ROOT, 'scripts/media.mjs'), 'verify-render', '--work', pack], { cwd: ROOT, encoding: 'utf8' });
   const funnel = spawnSync(process.execPath, [join(ROOT, 'scripts/check-youtube-funnels.mjs'), '--pub', pub.id], { cwd: ROOT, encoding: 'utf8' });
   const video = mediaById.get(pub.media?.video);
   return {

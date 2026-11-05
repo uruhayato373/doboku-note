@@ -1312,7 +1312,7 @@
       "format": "longform",
       "variant": "diagram-led",
       "revisionOf": "civil-construction-2/keiken-daizai-erabi/youtube.longform",
-      "status": "qa_passed",
+      "status": "approved",
       "copy": "content/sns/video-packs/civil-construction-2/keiken-daizai-erabi/youtube.revision-diagram-led.json",
       "media": {
         "cover": "civil-construction-2/keiken-daizai-erabi/work/candidate-cover",
@@ -1334,7 +1334,20 @@
         "subtitles": "civil-construction-2/keiken-daizai-erabi/work/candidate-subtitles",
         "video": "civil-construction-2/keiken-daizai-erabi/work/candidate-video"
       },
-      "publishAt": "2026-10-25T20:00:00+09:00"
+      "publishAt": "2026-11-10T11:30:00Z",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "policy",
+          "at": "2026-11-05T00:44:19.143Z",
+          "digest": "584aa2b1504135adb9ebb2e5b22dabb0035bc8dce9ebbee060e607968b1ef2dd"
+        }
+      },
+      "approval": {
+        "by": "policy",
+        "at": "2026-11-05T00:44:19.143Z",
+        "contentSha256": "b9d310c360f090de17a15849d8d0a92361fc044701cdddaf3ec14e0e1b8ba233"
+      }
     },
     {
       "id": "civil-construction-2/keiken-gaiyo-2kyu/youtube.longform",

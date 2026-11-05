@@ -143,10 +143,10 @@
     },
     "pe-construction/hissu1-kensetsu-dx/youtube.longform": {
       "verdict": "pass",
-      "note": "表紙と台本が一致。コンピテンシー改訂の記述が将来形だがR8試験後でも致命的ではない。描画に進んでよい。動画は未完成（台本と表紙のみ確認、音声・場面は未確認）。",
-      "at": "2026-11-04T04:50:05.566Z",
-      "visualDigest": "136a7b38dc3bb90067953006b4e828f382907db57d0d576b2137c59e6ed238fe",
-      "finalDigest": "e164a3c5d2592844edecd059c6ea1c167758d9e8f2c1fed27c00e2fc1e5f111a"
+      "note": "表紙・全8場面(欠け0)を目視。題名と中身が一致、場面順は台本どおり(誤解→問われ方→目的4→手段3階層→リスク→まとめ→CTA)。CTAは必須I模範解答マガジン1つ、試験日記述なし、断定的な合格約束なし。軽微: 表紙の建・施の字に細かなにじみ、場面3の小さな補足文字は小さめだが判読可。音声・完成動画は未確認(描画に進んでよいという意味のpass)。",
+      "at": "2026-11-05T00:53:06.101Z",
+      "visualDigest": "d674e505b12addee293c1980a6194849d277c3f52e67db7d3222b5dc8c209f5f",
+      "finalDigest": "71890b9d44826fb9c611d8b3c48ad6871e3b276b153a15821070452eae90a647"
     },
     "pe-construction/hissu1-kokudo-chiiki/youtube.longform": {
       "verdict": "pass",
@@ -171,10 +171,10 @@
     },
     "pe-construction/kaitourei-tsukaikata/youtube.longform": {
       "verdict": "pass",
-      "note": "表紙と台本が一致、誤字・断定の問題なし。描画に進んでよい。動画は未完成（台本と表紙のみ確認、音声・場面は未確認）。",
-      "at": "2026-11-04T04:50:05.907Z",
-      "visualDigest": "ca6db5823ea45ba6e443b85a2721d483b1a748bddcc0987c4bd2abd7d3b156c2",
-      "finalDigest": "e281bc577129d3a4f3965f793832034343aa664756114229105690090cf911bc"
+      "note": "表紙・題名・全9場面を確認し、文字の切れ・重なり・誤字なし。場面順は台本と一致。CTAはnote1つ、無料サイトは関連リンク。日程の記述なし。場面5の枠内は空欄だが説明文は読める。音声は台本との機械照合のみで人は聞いていない。",
+      "at": "2026-11-05T00:42:50.076Z",
+      "visualDigest": "a6b27ff7e3c81bed7b44aea80647f8c2c80f221ba5e33c641fad4d2e569d7003",
+      "finalDigest": "8fab8d176d21f3ffe0b4abb05616061fa8128151ac3eb96de9d8740f6794c901"
     },
     "pe-construction/keirekihyo-kakikata/youtube.longform": {
       "verdict": "pass",
@@ -297,10 +297,10 @@
     },
     "pe-construction/toan-kousei-template/youtube.longform": {
       "verdict": "pass",
-      "note": "台本と表紙は題名と一致し、誤字・試験日の矛盾・合格の約束は見当たらない。描画に進んでよい。動画は未完成。",
-      "at": "2026-11-04T04:50:07.448Z",
-      "visualDigest": "6fe995c34a7ff58aa1a134e232294b38f38bf3271bf2e2226bf9588f817b2472",
-      "finalDigest": "3039d52c15d6da4e07c1b96ac613515ddeff580ff257d22f71a1a3699ae507df"
+      "note": "表紙・題名と中身が一致、場面9枚の順序は台本どおり、文字の切れ・誤字なし。CTAは必須科目マガジン1つ（無料サイトは関連リンク）。令和8年改訂の記述は試験日(2026-07-20)と矛盾せず、合格の約束・断定数値なし。音声は未確認。",
+      "at": "2026-11-05T00:53:37.764Z",
+      "visualDigest": "293a9252936ac0e8c059b81362902cfa9f641ceea132ad76c8862fab79093aa5",
+      "finalDigest": "f79ff0d179bc9a6ac3ab87b8155c7ce092b108e4df16c03bc4364439816d9bee"
     },
     "pe-comprehensive-management/sokan-kojutsu-kangaekata/youtube.longform.diagram-led": {
       "verdict": "pass",
@@ -315,6 +315,13 @@
       "at": "2026-11-04T22:56:01.459Z",
       "visualDigest": "380838c94cdc073a49707aa7809f7904a251ce3a275ddf83ae4b1e2ca83af050",
       "finalDigest": "c02b418dd2d2b2aaf05940509a3fa62de4295ab9d3d36b3fd5bf15d4f784628d"
+    },
+    "civil-construction-2/keiken-daizai-erabi/youtube.longform.diagram-led": {
+      "verdict": "pass",
+      "note": "表紙・題名・全14場面を確認し、文字の切れ・重なり・誤字なし。場面順は台本と一致。CTAはnote1つ、無料サイトは関連リンク。仮の例と明記し、実績・数値・合格の約束なし。対象範囲は公式手引で確認と案内。音声は台本との機械照合のみで人は聞いていない。",
+      "at": "2026-11-05T00:42:50.329Z",
+      "visualDigest": "584aa2b1504135adb9ebb2e5b22dabb0035bc8dce9ebbee060e607968b1ef2dd",
+      "finalDigest": "b9d310c360f090de17a15849d8d0a92361fc044701cdddaf3ec14e0e1b8ba233"
     }
   }
 }

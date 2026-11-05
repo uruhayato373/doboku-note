@@ -58,9 +58,34 @@
       "work": "hissu1-kensetsu-dx",
       "account": "youtube:main",
       "format": "longform",
-      "status": "qa_passed",
+      "status": "approved",
       "media": {
-        "cover": "pe-construction/hissu1-kensetsu-dx/youtube.longform/cover"
+        "cover": "pe-construction/hissu1-kensetsu-dx/youtube.longform/cover",
+        "scene-001": "pe-construction/hissu1-kensetsu-dx/youtube.longform/scene-001",
+        "scene-002": "pe-construction/hissu1-kensetsu-dx/youtube.longform/scene-002",
+        "scene-003": "pe-construction/hissu1-kensetsu-dx/youtube.longform/scene-003",
+        "scene-004": "pe-construction/hissu1-kensetsu-dx/youtube.longform/scene-004",
+        "scene-005": "pe-construction/hissu1-kensetsu-dx/youtube.longform/scene-005",
+        "scene-006": "pe-construction/hissu1-kensetsu-dx/youtube.longform/scene-006",
+        "scene-007": "pe-construction/hissu1-kensetsu-dx/youtube.longform/scene-007",
+        "scene-008": "pe-construction/hissu1-kensetsu-dx/youtube.longform/scene-008",
+        "video": "pe-construction/hissu1-kensetsu-dx/youtube.longform/video",
+        "subtitles": "pe-construction/hissu1-kensetsu-dx/youtube.longform/subtitles"
+      },
+      "copy": "content/sns/video-packs/pe-construction/hissu1-kensetsu-dx/youtube.json#longform",
+      "publishAt": "2026-11-11T11:30:00Z",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "policy",
+          "at": "2026-11-05T00:57:58.591Z",
+          "digest": "d674e505b12addee293c1980a6194849d277c3f52e67db7d3222b5dc8c209f5f"
+        }
+      },
+      "approval": {
+        "by": "policy",
+        "at": "2026-11-05T00:57:58.591Z",
+        "contentSha256": "71890b9d44826fb9c611d8b3c48ad6871e3b276b153a15821070452eae90a647"
       }
     },
     {
@@ -98,9 +123,35 @@
       "work": "kaitourei-tsukaikata",
       "account": "youtube:main",
       "format": "longform",
-      "status": "qa_passed",
+      "status": "approved",
       "media": {
-        "cover": "pe-construction/kaitourei-tsukaikata/youtube.longform/cover"
+        "cover": "pe-construction/kaitourei-tsukaikata/youtube.longform/cover",
+        "scene-001": "pe-construction/kaitourei-tsukaikata/youtube.longform/scene-001",
+        "scene-002": "pe-construction/kaitourei-tsukaikata/youtube.longform/scene-002",
+        "scene-003": "pe-construction/kaitourei-tsukaikata/youtube.longform/scene-003",
+        "scene-004": "pe-construction/kaitourei-tsukaikata/youtube.longform/scene-004",
+        "scene-005": "pe-construction/kaitourei-tsukaikata/youtube.longform/scene-005",
+        "scene-006": "pe-construction/kaitourei-tsukaikata/youtube.longform/scene-006",
+        "scene-007": "pe-construction/kaitourei-tsukaikata/youtube.longform/scene-007",
+        "scene-008": "pe-construction/kaitourei-tsukaikata/youtube.longform/scene-008",
+        "scene-009": "pe-construction/kaitourei-tsukaikata/youtube.longform/scene-009",
+        "video": "pe-construction/kaitourei-tsukaikata/youtube.longform/video",
+        "subtitles": "pe-construction/kaitourei-tsukaikata/youtube.longform/subtitles"
+      },
+      "copy": "content/sns/video-packs/pe-construction/kaitourei-tsukaikata/youtube.json#longform",
+      "publishAt": "2026-11-09T11:30:00Z",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "policy",
+          "at": "2026-11-05T00:43:11.135Z",
+          "digest": "a6b27ff7e3c81bed7b44aea80647f8c2c80f221ba5e33c641fad4d2e569d7003"
+        }
+      },
+      "approval": {
+        "by": "policy",
+        "at": "2026-11-05T00:43:11.135Z",
+        "contentSha256": "8fab8d176d21f3ffe0b4abb05616061fa8128151ac3eb96de9d8740f6794c901"
       }
     },
     {
@@ -359,9 +410,35 @@
       "work": "toan-kousei-template",
       "account": "youtube:main",
       "format": "longform",
-      "status": "qa_passed",
+      "status": "approved",
       "media": {
-        "cover": "pe-construction/toan-kousei-template/youtube.longform/cover"
+        "cover": "pe-construction/toan-kousei-template/youtube.longform/cover",
+        "scene-001": "pe-construction/toan-kousei-template/youtube.longform/scene-001",
+        "scene-002": "pe-construction/toan-kousei-template/youtube.longform/scene-002",
+        "scene-003": "pe-construction/toan-kousei-template/youtube.longform/scene-003",
+        "scene-004": "pe-construction/toan-kousei-template/youtube.longform/scene-004",
+        "scene-005": "pe-construction/toan-kousei-template/youtube.longform/scene-005",
+        "scene-006": "pe-construction/toan-kousei-template/youtube.longform/scene-006",
+        "scene-007": "pe-construction/toan-kousei-template/youtube.longform/scene-007",
+        "scene-008": "pe-construction/toan-kousei-template/youtube.longform/scene-008",
+        "scene-009": "pe-construction/toan-kousei-template/youtube.longform/scene-009",
+        "video": "pe-construction/toan-kousei-template/youtube.longform/video",
+        "subtitles": "pe-construction/toan-kousei-template/youtube.longform/subtitles"
+      },
+      "copy": "content/sns/video-packs/pe-construction/toan-kousei-template/youtube.json#longform",
+      "publishAt": "2026-11-12T11:30:00Z",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "policy",
+          "at": "2026-11-05T00:54:13.900Z",
+          "digest": "293a9252936ac0e8c059b81362902cfa9f641ceea132ad76c8862fab79093aa5"
+        }
+      },
+      "approval": {
+        "by": "policy",
+        "at": "2026-11-05T00:54:13.900Z",
+        "contentSha256": "f79ff0d179bc9a6ac3ab87b8155c7ce092b108e4df16c03bc4364439816d9bee"
       }
     }
   ]
