@@ -5,6 +5,9 @@ import { readJson } from './json-io.mjs';
 import { loadRoadmap } from './annual-roadmap.mjs';
 import { ConfigYoutubeLongformPlan } from './dataset-schemas-content.mjs';
 import { jstDayOf, jstLabel, todayJst } from './jst-date.mjs';
+import { auditLongformPlan, summarizeInventory } from './youtube-longform-audit.mjs';
+import { existsSync, readFileSync } from 'node:fs';
+import { join } from 'node:path';
 
 export const PLAN_ACTIONS = { finish: '既存を仕上げる', revise: '年度・内容を更新', new: '新規制作', reuse: '既存を再案内', scheduled: '予約済み', library: '公開済み', unplanned: '日程未設定' };
 
@@ -44,16 +47,46 @@ export function joinLongformPlan(plan, publications, period, today = todayJst())
   return { plan, period, rows, inventory: publications.length, scheduled: publications.filter((p) => p.status === 'scheduled').length, published: publications.filter((p) => p.status === 'published').length };
 }
 
-export function loadLongformPlan(root, today = todayJst()) {
-  const plan = ConfigYoutubeLongformPlan.parse(readDataset(root, 'config.youtube-longform-plan'));
+/** 動画パックの情報を足した通常動画の行。改訂版は同じ動画の差し替えなので別に返す */
+function loadPublications(root) {
   const registry = loadRegistry(root);
   const works = new Map(registry.works.map((w) => [`${w.exam}/${w.id}`, w]));
-  // 改訂行（revisionOf）は既存動画の差し替えで、制作計画の在庫には数えない。
-  const publications = registry.publications.filter((p) => p.channel === 'youtube' && p.format === 'longform' && !p.revisionOf).map((p) => {
+  const rows = registry.publications.filter((p) => p.channel === 'youtube' && p.format === 'longform').map((p) => {
     const work = works.get(`${p.exam}/${p.work}`);
     const manifest = work?.definition ? readJson(root, `${work.definition}/video-pack.json`) : null;
-    return { ...p, title: manifest?.title ?? resolveCopy(root, p.copy)?.title ?? p.work };
+    return { ...p, title: manifest?.title ?? resolveCopy(root, p.copy)?.title ?? p.work, intent: manifest?.intent ?? null, primaryCta: manifest?.primaryCta ?? null };
   });
-  if (!publications.length) throw new Error('通常動画の台帳を1件も読み取れていません');
+  if (!rows.length) throw new Error('通常動画の台帳を1件も読み取れていません');
+  return { publications: rows.filter((p) => !p.revisionOf), revisions: rows.filter((p) => p.revisionOf) };
+}
+
+export function loadLongformPlan(root, today = todayJst()) {
+  const plan = ConfigYoutubeLongformPlan.parse(readDataset(root, 'config.youtube-longform-plan'));
+  const { publications } = loadPublications(root);
   return joinLongformPlan(plan, publications, loadRoadmap(root).period, today);
+}
+
+/** 主 CTA の宛先の実在。動画パックの検査と同じくカタログの id を見る */
+function targetChecker(root) {
+  const { catalogs } = readDataset(root, 'config.video-content').cta;
+  const cache = new Map();
+  return (kind, id) => {
+    if (!catalogs[kind]) return kind === 'site-article' ? existsSync(join(root, id)) : false;
+    if (!cache.has(kind)) cache.set(kind, readFileSync(join(root, catalogs[kind]), 'utf8'));
+    return new RegExp(`id:\\s*['"]${id}['"]`).test(cache.get(kind));
+  };
+}
+
+/** 年間の枠と台帳の照合。管理画面・check-youtube-plan・関門が読む */
+export function loadPlanAudit(root, today = todayJst()) {
+  const plan = ConfigYoutubeLongformPlan.parse(readDataset(root, 'config.youtube-longform-plan'));
+  const { publications, revisions } = loadPublications(root);
+  const audit = auditLongformPlan({
+    plan, publications, revisions,
+    formats: readDataset(root, 'config.youtube-formats').formats,
+    calendar: readDataset(root, 'config.exam-calendar'),
+    exists: (path) => existsSync(join(root, path)),
+    hasTarget: targetChecker(root),
+  }, today);
+  return { plan, audit, inventory: summarizeInventory(publications, plan.entries), publications, revisions };
 }

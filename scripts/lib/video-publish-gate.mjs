@@ -4,8 +4,14 @@
  */
 import { readDataset } from './dataset-io.mjs';
 import { jstDayOf } from './jst-date.mjs';
+import { mondayOf, slotProblems } from './youtube-longform-audit.mjs';
 
 export const readPolicy = (root) => readDataset(root, 'config.video-auto-publish');
+
+/** 年間の枠に入っているか。これからの公開日時があればその日で、在庫なら計画の目標日で見る */
+export function planProblems(root, pub) {
+  return slotProblems(readDataset(root, 'config.youtube-longform-plan'), pub, Date.parse(pub.publishAt) > Date.now() ? jstDayOf(pub.publishAt) : null).problems;
+}
 
 /** 公開行の承認を今の予約経路が受け付けるか。方針の承認は YouTube の通常動画だけ */
 export function acceptedApproval(pub) {
@@ -55,6 +61,7 @@ export function evaluateGate(facts, policy, now = Date.now(), { stock = false } 
   const add = (name, ok, detail) => checks.push({ name, ok: Boolean(ok), ...(detail ? { detail } : {}) });
   add('方針が有効', policy.enabled === true);
   add('対象の形式', facts.pub?.channel === policy.scope.channel && facts.pub?.format === policy.scope.format);
+  add('年間の枠', facts.planProblems?.length === 0, facts.planProblems?.join(' / '));
   add('画像の基準', facts.standard);
   add('AI 画像の判定', facts.aiBlocked?.length === 0, facts.aiBlocked?.join(', '));
   add('完成動画の照合', facts.renderVerified);
@@ -67,16 +74,26 @@ export function evaluateGate(facts, policy, now = Date.now(), { stock = false } 
   return { ok: checks.every((c) => c.ok), checks };
 }
 
-/** 予約の空き枠。同じ日の上限を超えない、猶予を満たす最初の枠を JST で返す */
-export function nextSlot(taken, policy, now = Date.now()) {
+/**
+ * 予約の空き枠。同じ日の上限と週の上限を超えない、猶予を満たす最初の枠を JST で返す。
+ * weekLimit は月曜の日付から週の上限を返す関数。notBefore（JST の日付）は計画の目標日で、それより前に置かない
+ */
+export function nextSlot(taken, policy, now = Date.now(), { weekLimit = null, notBefore = null } = {}) {
   const [h, m] = policy.slot.timeJst.split(':').map(Number);
   const earliest = now + policy.minLeadHours * 3_600_000;
   const perDay = new Map();
+  const perWeek = new Map();
   const dayOf = (ms) => jstDayOf(new Date(ms));
-  for (const at of taken) { const d = dayOf(Date.parse(at)); perDay.set(d, (perDay.get(d) ?? 0) + 1); }
+  for (const at of taken) {
+    const d = dayOf(Date.parse(at));
+    perDay.set(d, (perDay.get(d) ?? 0) + 1);
+    perWeek.set(mondayOf(d), (perWeek.get(mondayOf(d)) ?? 0) + 1);
+  }
   for (let i = 0; i < 400; i += 1) {
     const day = dayOf(now + i * 86_400_000);
     const at = Date.parse(`${day}T${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}:00+09:00`);
+    if (notBefore && day < notBefore) continue;
+    if (weekLimit && (perWeek.get(mondayOf(day)) ?? 0) >= weekLimit(mondayOf(day))) continue;
     if (at >= earliest && (perDay.get(day) ?? 0) < policy.slot.maxPerDay) return new Date(at).toISOString().replace('.000Z', 'Z');
   }
   throw new Error('空き枠が見つからない');
