@@ -19,7 +19,7 @@ import { datasetPath } from './lib/datasets.mjs';
 import { readJsonIf } from './lib/json-io.mjs';
 import { resolveVaultRoot, vaultAbsFor } from './lib/drive-vault.mjs';
 import { MEDIA_ROOT } from './lib/media-paths.mjs';
-import { approvalState } from './lib/media-review.mjs';
+import { approvalState, reviewIsCurrent } from './lib/media-review.mjs';
 import { REPO_ROOT } from './lib/repository-paths.mjs';
 
 const ROOT = REPO_ROOT;
@@ -58,8 +58,7 @@ function queue(statuses = ['qa_passed']) {
 
 function current(row) {
   const r = load().reviews[row.pub.id];
-  const same = r && r.visualDigest === row.state.visual.current && r.finalDigest === row.state.final.current;
-  return same ? r : null;
+  return reviewIsCurrent(r, row.state) ? r : null;
 }
 
 function showQueue() {
@@ -114,6 +113,7 @@ function record() {
     at: new Date().toISOString(),
     visualDigest: row.state.visual.current,
     finalDigest: row.state.final.current,
+    contentDigest: row.state.content,
   };
   save(d);
   console.log(`${args.verdict}: ${args.pub}`);

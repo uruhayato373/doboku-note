@@ -1,7 +1,7 @@
 export const meta = {
   name: 'video-factory',
   description: '通常動画を、画像の生成・独立監査・採用・描画・内容QA・画面確認まで進め、最後に関門を通して承認と記録を書く。転送と予約は親が publish で行う',
-  whenToUse: '通常動画の量産。args は { root: リポジトリの絶対パス, packs: [{ pack: "<資格>/<作品>", scope?: "all"|"cover", rendered?: true }]（rendered は制作済みで画像と描画を飛ばす）, rounds?: 作り直しの回数（既定2） }。手順は video-factory.md',
+  whenToUse: '通常動画の量産。args は { root: リポジトリの絶対パス, packs: [{ pack: "<資格>/<作品>", scope?: "all"|"cover", rendered?: true }]（rendered は制作済みで画像と描画を飛ばす）, rounds?: 作り直しの回数（既定2）, stock?: true（承認せず在庫で止める） }。手順は video-factory.md',
   phases: [
     { title: 'Generate', detail: 'Codex で画像を作る（スクリプトが実行）' },
     { title: 'Audit', detail: 'ai-image-fidelity-auditor が判定して記録する' },
@@ -19,6 +19,7 @@ const packs = args.packs ?? []
 if (!packs.length) throw new Error('args.packs が空')
 const ROUNDS = args.rounds ?? 2
 const CLI = `node ${M}/scripts/video-factory.mjs`
+const STOCK = args.stock ? ' --stock' : ''
 
 function limiter(n) {
   let active = 0
@@ -76,7 +77,7 @@ const results = await pipeline(
   },
   (s, item) => {
     if (!s.ok) return s
-    const prompt = `動画パック ${M}/content/sns/video-packs/${item.pack} を定義どおり採点する。修正はしない。採点のあと、平均 2 以上かつ BLOCK 0 なら \`${CLI} record-qa --pack ${item.pack} --avg <平均> --blocks <件数> && ${CLI} wire --pack ${item.pack}\` を実行して wired=true を返す。不合格なら \`record-qa\` だけを実行して wired=false を返す。`
+    const prompt = `動画パック ${M}/content/sns/video-packs/${item.pack} を定義どおり採点する。修正はしない。採点のあと、平均 2 以上かつ BLOCK 0 なら \`${CLI} record-qa --pack ${item.pack} --avg <平均> --blocks <件数> && ${CLI} wire --pack ${item.pack}${STOCK}\` を実行して wired=true を返す。不合格なら \`record-qa\` だけを実行して wired=false を返す。`
     return serial(() => agent(prompt, { label: `qa:${item.pack}`, phase: 'Content QA', schema: QA, agentType: 'video-content-qa', model: 'sonnet' }))
       .then((qa) => (qa?.wired ? { ...s, qa } : { ok: false, reason: qa ? `内容QAが不合格（平均 ${qa.avg}・BLOCK ${qa.blocks}）` : '内容QAの段が失敗', qa }))
   },
@@ -91,7 +92,7 @@ const rows = results.map((r, i) => ({ pack: packs[i].pack, ...(r ?? { ok: false,
 const passed = rows.filter((r) => r.review?.verdict === 'pass').map((r) => r.pack)
 // 運営者が決めた自動予約の方針にもとづく工程。関門の判定はコマンド自身が行う
 const finish = passed.length
-  ? await agent(`運営者が決めた通常動画の自動予約の方針にもとづく工程として、次のコマンドを 1 回実行し、最後の JSON を output に返す。関門の判定はコマンド自身が行う。他の操作をしない。\n${CLI} finish --packs ${passed.join(',')}`, { label: 'finish', phase: 'Finish', schema: RUN, model: 'sonnet', effort: 'low' })
+  ? await agent(`運営者が決めた通常動画の自動予約の方針にもとづく工程として、次のコマンドを 1 回実行し、最後の JSON を output に返す。関門の判定はコマンド自身が行う。他の操作をしない。\n${CLI} finish --packs ${passed.join(',')}${STOCK}`, { label: 'finish', phase: 'Finish', schema: RUN, model: 'sonnet', effort: 'low' })
   : null
 return {
   finish: finish?.output ?? null,

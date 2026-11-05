@@ -6,7 +6,8 @@ import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import sharp from 'sharp';
 import { generateWithCodexAsync } from '../scripts/lib/codex-image.mjs';
-import { acceptedApproval, audioProblems, evaluateGate, nextSlot, speechSimilarity } from '../scripts/lib/video-publish-gate.mjs';
+import { reviewIsCurrent } from '../scripts/lib/media-review.mjs';
+import { acceptedApproval, audioProblems, evaluateGate, nextSlot, speechSimilarity, uploadsLeft } from '../scripts/lib/video-publish-gate.mjs';
 import {
   MAX_ATTEMPTS, adoptPlan, auditQueue, buildBodyPrompt, buildCoverPrompt, buildPlan, generatePlan, hydrateAdopted, inspectImage,
   ledgerVerdicts, nextStage, packDirOf, planPath, readPlan, recordAudit, summarize,
@@ -268,4 +269,27 @@ test('空き枠は猶予と 1 日の上限を守る', () => {
   const policy = { minLeadHours: 24, slot: { timeJst: '20:30', maxPerDay: 1 } };
   const now = Date.parse('2026-11-05T00:00:00Z');
   assert.equal(nextSlot(['2026-11-06T11:30:00Z'], policy, now), '2026-11-07T11:30:00Z');
+});
+
+test('投稿の残りは直近 24 時間の本数から決まる', () => {
+  const now = Date.parse('2026-11-05T12:00:00Z');
+  const pub = (uploaded) => ({ channel: 'youtube', times: { uploaded } });
+  assert.equal(uploadsLeft([pub('2026-11-05T01:00:00Z'), pub('2026-11-05T02:00:00Z'), pub('2026-11-03T02:00:00Z')], { maxUploadsPerDay: 4 }, now), 2);
+  assert.equal(uploadsLeft([], { maxUploadsPerDay: 4 }, now), 4);
+});
+
+test('在庫の関門は公開日時を見ず、他の項目は同じように止める', () => {
+  const policy = { enabled: true, scope: { channel: 'youtube', format: 'longform' }, minQaAvg: 2, maxBlocks: 0, minLeadHours: 24 };
+  const good = { pub: { channel: 'youtube', format: 'longform' }, standard: true, aiBlocked: [], renderVerified: true, qa: { avg: 2.5, blocks: 0 }, review: 'pass', funnelOk: true, audioProblems: [] };
+  assert.equal(evaluateGate(good, policy).ok, false);
+  assert.equal(evaluateGate(good, policy, Date.now(), { stock: true }).ok, true);
+  assert.equal(evaluateGate({ ...good, review: 'none' }, policy, Date.now(), { stock: true }).ok, false);
+});
+
+test('画面確認の判定は公開日時が変わっても有効で、中身が変わると無効になる', () => {
+  const state = { visual: { current: 'v' }, final: { current: 'f2' }, content: 'c' };
+  assert.equal(reviewIsCurrent({ visualDigest: 'v', finalDigest: 'f1', contentDigest: 'c' }, state), true);
+  assert.equal(reviewIsCurrent({ visualDigest: 'v', finalDigest: 'f1', contentDigest: 'x' }, state), false);
+  assert.equal(reviewIsCurrent({ visualDigest: 'x', contentDigest: 'c' }, state), false);
+  assert.equal(reviewIsCurrent({ visualDigest: 'v', finalDigest: 'f1' }, state), false);
 });

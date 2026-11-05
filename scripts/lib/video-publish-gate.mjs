@@ -50,7 +50,7 @@ export function audioProblems(check, videoSha, policy) {
  * 関門の判定。facts はこの順の事実を持つ。
  * @returns {{ ok: boolean, checks: { name: string, ok: boolean, detail?: string }[] }}
  */
-export function evaluateGate(facts, policy, now = Date.now()) {
+export function evaluateGate(facts, policy, now = Date.now(), { stock = false } = {}) {
   const checks = [];
   const add = (name, ok, detail) => checks.push({ name, ok: Boolean(ok), ...(detail ? { detail } : {}) });
   add('方針が有効', policy.enabled === true);
@@ -62,8 +62,8 @@ export function evaluateGate(facts, policy, now = Date.now()) {
   add('画面確認', facts.review === 'pass', facts.review);
   add('導線の検査', facts.funnelOk, facts.funnelDetail);
   add('音声', facts.audioProblems?.length === 0, facts.audioProblems?.join(' / '));
-  const at = Date.parse(facts.pub?.publishAt);
-  add('公開までの猶予', at > now + policy.minLeadHours * 3_600_000, facts.pub?.publishAt ?? '公開日時なし');
+  // 在庫は公開日時をまだ持たない。予約の直前にもう一度この関門を通す
+  if (!stock) add('公開までの猶予', Date.parse(facts.pub?.publishAt) > now + policy.minLeadHours * 3_600_000, facts.pub?.publishAt ?? '公開日時なし');
   return { ok: checks.every((c) => c.ok), checks };
 }
 
@@ -80,4 +80,10 @@ export function nextSlot(taken, policy, now = Date.now()) {
     if (at >= earliest && (perDay.get(day) ?? 0) < policy.slot.maxPerDay) return new Date(at).toISOString().replace('.000Z', 'Z');
   }
   throw new Error('空き枠が見つからない');
+}
+
+/** 直近 24 時間に投稿した本数から、あと何本投稿できるかを返す。割当の超過は結果不明になり再送できない */
+export function uploadsLeft(publications, policy, now = Date.now()) {
+  const recent = publications.filter((p) => p.channel === 'youtube' && Date.parse(p.times?.uploaded) > now - 86_400_000).length;
+  return Math.max(0, policy.maxUploadsPerDay - recent);
 }

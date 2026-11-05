@@ -76,6 +76,13 @@ node --env-file=<.env.local> scripts/video-factory.mjs publish --packs <a,b>
 node --env-file=<.env.local> scripts/video-factory.mjs cleanup --packs <a,b>  # audit-funnel で実体を確かめたあと
 ```
 
+在庫にするときは Workflow へ `stock: true` を渡す。関門を検査してコミットするところで止まり、承認も公開日時も書かない。予約するときに次を実行する。画面確認の判定は公開日時に左右されないので、やり直しは要らない。
+
+```bash
+node scripts/video-factory.mjs schedule --packs <a,b>
+node --env-file=<.env.local> scripts/video-factory.mjs publish --packs <a,b>
+```
+
 トークンの大半は代理エージェントの起動にかかる（2026-11-05 の実測: 13 体で約 100 万・1 体約 8 万）。機械の工程は `produce`・`finish` のようにコマンド 1 本へまとめ、代理を増やさない。判定の記録は監査役・QA 役が自分で行う。1 本で 12 枚前後を生成するので、Codex の利用枠も確かめる。
 
 ## 罠
@@ -83,6 +90,8 @@ node --env-file=<.env.local> scripts/video-factory.mjs cleanup --packs <a,b>  # 
 - 予約の検査に要る `channel`・`r2Key`・`thumbnailR2Key` は `wire` が入れる。手で足さない（2026-11-05）。
 - 予約後に概要欄を直すと digest が変わり、承認が無効になる。承認の前に関門で導線を見る（2026-11-05）。
 - `whisper-cli` に全編を渡すと途中を飛ばす。`-mc 0` でも安定しないので 30 秒ごとに切る。7 本の一致は 0.79〜0.91（2026-11-05）。
+- `youtube-single-publish.yml` の同時実行グループは待機を 1 本しか持たない。まとめて流すと途中が取り消されるので `publish` は 1 本ずつ待つ（2026-11-05）。
+- YouTube API は投稿 1 本 1,600 ユニット・日次 10,000。`publish` は直近 24 時間の投稿を数え、1 日 4 本までに止める。割当の超過は結果不明になり再送できない（2026-11-05）。
 - エージェントの `npm run` はセッションの場所で動く。worktree で回すときは `( cd <root> && … )` を指示しないと、判定がメインのチェックアウトへ書かれる（2026-11-05）。
 - 件数をモデルに申告させない。監査で 2 枚の不合格を 0 件と返した例がある。判定の中身から数える（2026-11-05）。
 - 改訂版の `wire` は `--refresh-draft` で日時を変え、文面と素材が同じなので同じ QA を記録し直す（2026-11-05）。
