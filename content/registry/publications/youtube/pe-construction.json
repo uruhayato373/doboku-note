@@ -245,7 +245,7 @@
       "format": "longform",
       "variant": "reading-fix",
       "revisionOf": "pe-construction/hissu1-kensetsu-dx/youtube.longform",
-      "status": "qa_passed",
+      "status": "approved",
       "copy": "content/sns/video-packs/pe-construction/hissu1-kensetsu-dx/youtube.revision-reading-fix.json",
       "media": {
         "cover": "pe-construction/hissu1-kensetsu-dx/work/candidate-cover",
@@ -260,7 +260,20 @@
         "subtitles": "pe-construction/hissu1-kensetsu-dx/work/candidate-subtitles",
         "video": "pe-construction/hissu1-kensetsu-dx/work/candidate-video"
       },
-      "publishAt": "2026-11-11T11:30:00Z"
+      "publishAt": "2026-11-11T11:30:00Z",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "policy",
+          "at": "2026-11-05T22:12:46.119Z",
+          "digest": "d674e505b12addee293c1980a6194849d277c3f52e67db7d3222b5dc8c209f5f"
+        }
+      },
+      "approval": {
+        "by": "policy",
+        "at": "2026-11-05T22:12:46.119Z",
+        "contentSha256": "0ab6b9470dd9edae11165c120af968f9e7f0cb2c05880af8a97204dedf1c46fd"
+      }
     },
     {
       "id": "pe-construction/hissu1-kokudo-chiiki/youtube.longform",
