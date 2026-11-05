@@ -12,6 +12,7 @@ import { spawnSync } from 'node:child_process';
 import { dirname, join } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import sharp from 'sharp';
+import { examPalette, loadImageRules, usesDiagramLed } from './image-rules.mjs';
 import { readJson, writeJson } from './json-io.mjs';
 import { mediaPath } from './media-paths.mjs';
 import { loadRegistry, qualificationShortLabel } from './qualification-registry.mjs';
@@ -23,27 +24,19 @@ import { fileRef, packDirOf, readPlan } from './video-factory.mjs';
 export const DESIGN_FILE = 'shorts-design.json';
 export const MIN_SECONDS = 20;
 export const MAX_SECONDS = 60;
-const W = 1080;
-const H = 1920;
-const BOTTOM_ZONE = 0.18;
+const rules = loadImageRules();
+const { width: W, height: H, minWidth: MIN_WIDTH, bottomZone: BOTTOM_ZONE, frame: FRAME } = rules.formats.shorts;
 const BOTTOM_STDEV_MIN = 3;
 const SUBTITLE_SIZE = 74;
 const SUBTITLE_CHARS = 14;
 const SUBTITLE_MARGIN = 420; // 操作ボタンと重ならない高さ（動画ポリシーの Shorts の字幕位置）
 const SPEAKER = 13;
-const CHARACTER = '.tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png';
-// 2級土木は図解主体の diagram-led を優先するので、この POP 工程の対象に含めない（create-pop-image）
-const PALETTES = {
-  'civil-construction-1': '鮮やかな青と深い紺', // qualification-ssot: allow 画像の配色の指示で資格名ではない
-  'concrete-engineer': '深いティール（青緑）', // qualification-ssot: allow 画像の配色の指示で資格名ではない
-  'concrete-chief-engineer': '深い紫', // qualification-ssot: allow 画像の配色の指示で資格名ではない
-};
-const FRAME = '縦9:16（1080×1920想定）で構図し直す。横長の参照を引き伸ばしたり切り取ったりしない。背景は上下左右の四辺まで連続させ、無地の帯や大きな空白を作らない。背景は1枚の連続した絵として描き、縦の境界線で途切れさせない。重要な文字・図・顔は左右とも6%以上内側、上は8%より下、下は端から32%より上に収める。画面の上から45%より下では、右端から18%の範囲（アプリの操作ボタンが載る）にも重要な文字・顔を置かない（下32%は字幕とボタンが載る。背景の模様だけは続ける）。';
-const BANS = '指定した日本語だけを正確に描く。誤字、余計な文字、英語の飾り文字、URL、価格、合格保証、ロゴは入れない。';
-const TEACHER = '先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。手は左右1本ずつだけで、指は5本、関節は自然に描き、指の形が崩れる構図を避ける。人物の身体を画面の途中で切らない。';
+const BANS = rules.textRule;
+const TEACHER = `${rules.teacher.identity}${rules.teacher.body}`;
+const CHARACTER = rules.references.character;
 
 const hash = (bytes) => createHash('sha256').update(bytes).digest('hex');
-const pop = (palette) => `親しみやすいPOPな教材デザイン。${palette}を主色に、黄色と白、少量の赤。太い黒の輪郭と斜めの面で勢いを出す。`;
+const pop = (palette) => `${rules.popStyle}資格の色は${palette}。`;
 const words = (text) => String(text ?? '').replace(/[\s、。,.]/g, '');
 const inputOf = (value) => hash(JSON.stringify(value));
 
@@ -100,8 +93,8 @@ const ctaPrompt = (label, palette) => [
 export function buildShortPlan(root, pack, key, { date, refs = fileRef } = {}) {
   if (!/^\d{8}$/.test(date ?? '')) throw new Error('date は YYYYMMDD');
   const { exam, design, scene, spec, cta } = packContext(root, pack, key);
-  const palette = PALETTES[exam];
-  if (!palette) throw new Error(`${exam}: POP のショート工程の対象外（2級土木は diagram-led の手順を使う）`);
+  if (usesDiagramLed(exam, root)) throw new Error(`${exam}: POP のショート工程の対象外（diagram-led の手順を使う）`);
+  const palette = examPalette(exam, root);
   const problems = narrationProblems(design, scene);
   if (problems.length) throw new Error(`${key}: ${problems.join('・')}`);
   const label = qualificationShortLabel(loadRegistry(root), exam);
@@ -123,7 +116,7 @@ export function buildShortPlan(root, pack, key, { date, refs = fileRef } = {}) {
 export async function inspectShortImage(bytes) {
   const meta = await sharp(bytes).metadata();
   const issues = [];
-  if (!meta.width || meta.width < 900) issues.push(`解像度が足りない（${meta.width}×${meta.height}）`);
+  if (!meta.width || meta.width < MIN_WIDTH) issues.push(`解像度が足りない（${meta.width}×${meta.height}）`);
   if (Math.abs(meta.width / meta.height / (9 / 16) - 1) > 0.005) issues.push(`9:16 ではない（${meta.width}×${meta.height}）`);
   if (issues.length) return issues;
   const stdev = async (image) => (await sharp(await image.greyscale().png().toBuffer()).stats()).channels[0].stdev;

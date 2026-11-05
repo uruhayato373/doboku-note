@@ -799,6 +799,32 @@ const videoAsset = z
   })
   .strict();
 
+const imageFormat = z.object({
+  width: z.number().int().positive(),
+  height: z.number().int().positive(),
+  minWidth: z.number().int().positive().optional().describe('生成の原本に許す最小の幅'),
+  bottomZone: z.number().min(0).max(1).describe('下端の字幕帯の高さの比率'),
+  frame: z.string().min(1).describe('構図と安全域の生成指示'),
+}).strict();
+
+export const ConfigImageGeneration = z
+  .object({
+    schemaVersion: schemaVersion1,
+    policy: z.string().min(1).describe('方針の文書'),
+    teacher: z.object({ identity: z.string().min(1), body: z.string().min(1) }).strict().describe('先生の同一性と身体の指示'),
+    popStyle: z.string().min(1).describe('POP の画風'),
+    textRule: z.string().min(1).describe('文字の禁止事項'),
+    diagramLedExams: z.array(z.string().min(1)).describe('POP ではなく図解主体にする資格'),
+    references: z.object({ coverStyle: z.string().min(1), character: z.string().min(1), bodyStyle: z.string().min(1) }).strict().describe('参照画像'),
+    formats: z.object({ longform: imageFormat, shorts: imageFormat }).strict().describe('媒体別の寸法と安全域'),
+    routes: z.array(z.object({
+      id: z.string().min(1), label: z.string().min(1), kind: z.enum(['script', 'manual']),
+      entry: z.string().min(1).describe('入口のファイル'), audit: z.string().min(1).describe('独立監査の担当。無ければ none'),
+    }).strict()).min(1).describe('AI 画像を作る経路の全一覧'),
+  })
+  .strict()
+  .describe('AI 画像の共通ルールと生成経路の正本');
+
 export const ConfigVideoBrand = z
   .object({
     schemaVersion: schemaVersion1,
