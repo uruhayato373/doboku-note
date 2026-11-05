@@ -269,6 +269,7 @@ function wire() {
 function wireRevision(reg, pub, publishAt) {
   if (!['draft', 'qa_passed'].includes(pub.status) || pub.approval) throw new Error(`${pub.id}: 未承認の改訂版だけ結線できる`);
   if (pub.publishAt === publishAt) { console.log(JSON.stringify({ pub: pub.id, publishAt })); return; }
+  execFileSync('npm', ['run', '-s', 'media', '--', 'pull', '--work', `${pub.exam}/${pub.work}`, '--commit'], { cwd: ROOT, stdio: 'inherit' });
   const prepare = (...extra) => execFileSync(process.execPath, [join(ROOT, 'scripts/registry.mjs'), 'prepare-youtube-revision', '--pub', pub.revisionOf, '--variant', pub.variant, '--refresh-draft', '--publish-at', publishAt, ...extra], { cwd: ROOT, encoding: 'utf8' });
   const { digest } = JSON.parse(prepare());
   prepare('--commit', '--expect', digest);
@@ -292,7 +293,10 @@ function gateFacts(pack) {
   const ledger = readJsonIf(ROOT, datasetPath('state.ai-image-review-ledger'));
   const aiBlocked = Object.values(pub.media ?? {}).map((id) => mediaById.get(id)).filter((m) => m?.provenance?.kind === 'ai-generated')
     .filter((m) => { const r = ledger?.figures?.[`media:${m.id}`]; return !(r?.verdict === 'ok' && String(m.sha256).startsWith(r.sha ?? '-')); }).map((m) => m.id);
-  const verify = spawnSync(process.execPath, [join(ROOT, 'scripts/media.mjs'), 'verify-render', '--work', pack], { cwd: ROOT, encoding: 'utf8' });
+  // 改訂版は描画の作業場を持たない。素材の sha と制作入力は投稿計画の検査が照合する
+  const verify = pub.revisionOf
+    ? spawnSync(process.execPath, [join(ROOT, 'scripts/registry.mjs'), 'publish-youtube-revision', '--pub', pub.id, '--phase', 'upload'], { cwd: ROOT, encoding: 'utf8' })
+    : spawnSync(process.execPath, [join(ROOT, 'scripts/media.mjs'), 'verify-render', '--work', pack], { cwd: ROOT, encoding: 'utf8' });
   const funnel = spawnSync(process.execPath, [join(ROOT, 'scripts/check-youtube-funnels.mjs'), '--pub', pub.id], { cwd: ROOT, encoding: 'utf8' });
   const video = mediaById.get(pub.media?.video);
   return {
