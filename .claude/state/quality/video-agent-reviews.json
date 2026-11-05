@@ -53,11 +53,11 @@
     },
     "pe-comprehensive-management/kata-oudan-ryuyo/youtube.longform": {
       "verdict": "pass",
-      "note": "全8場面と表紙を目視確認。表紙・題名が内容と合致、文字の切れ・重なり・誤字なし、場面順は台本どおり、年度表記は出典記事(R5 SWOT/R6 CN/R7 少子高齢化)と一致、CTAは記述式コアパック1つ、サイトリンクは無料解説。試験日の記述なし、断定的な合格約束なし。音声は未確認。",
-      "at": "2026-11-05T12:58:45.887Z",
-      "visualDigest": "0f4150560a9e01de79e8c1181f686766d3fedce7337aad1831d02f60c471796d",
-      "finalDigest": "7e2d67cd7c8b571b9133ad850fdf2933353397976dfc512b88c3a6aa22fdc989",
-      "contentDigest": "7e2d67cd7c8b571b9133ad850fdf2933353397976dfc512b88c3a6aa22fdc989"
+      "note": "表紙・全8場面シートを目視。題名と中身が一致、文字の切れ・重なり・誤字なし、場面順は台本どおり(誤解/3層/4点/年度別/本番/まとめ/CTA)。R5 SWOT・R6 CN・R7 少子高齢化は出典記事と一致。説明文の主CTAはコアパック1つ、無料記事リンクは関連として別枠。試験日の記述なし、数値・合格の約束なし。音声は未確認。10秒シートでの遷移は未確認。",
+      "at": "2026-11-05T21:03:49.660Z",
+      "visualDigest": "c231e7fe50b2c1bec60ec02ae2fcbdf088c068c100d96a720e436b166c1e5710",
+      "finalDigest": "52d47b74dcc2954dbf012aa33cd34bf936b8205fc545760ceabaacc9854f7bed",
+      "contentDigest": "52d47b74dcc2954dbf012aa33cd34bf936b8205fc545760ceabaacc9854f7bed"
     },
     "pe-comprehensive-management/kikinagashi-sokan-keyword/youtube.longform": {
       "verdict": "pass",
@@ -233,17 +233,19 @@
     },
     "pe-construction/sentaku-environment-yomikata/youtube.longform": {
       "verdict": "pass",
-      "note": "台本と表紙は題名と一致し、誤字・試験日の矛盾・合格の約束は見当たらない。描画に進んでよい。動画は未完成。",
-      "at": "2026-11-04T04:50:06.507Z",
-      "visualDigest": "1968544d7017ff4421380984fe6ed2edcd695adaa2068fdd7521385406fea7a7",
-      "finalDigest": "0bf9e01b8c7b2d01e35e5f749aa05d62422eaf09f0f9f480737ccf3fa3fb6033"
+      "note": "表紙・題名と全8場面が台本の順序と一致し、文字の切れ・重なり・誤字なし。年度別件数は台本内で整合し、試験日の記述なし。CTAはマガジン1つと無料サイト記事の関連リンク。音声は未確認。",
+      "at": "2026-11-05T21:20:28.599Z",
+      "visualDigest": "e609351fa0500c96f1cfe2098c9e62e1115d886586b08f9afbc8a56c7e4b5560",
+      "finalDigest": "aeee86cedbf10d836cb4d6ffe2f6d2ff0907a1d59ac81695450bb7cbdffd0927",
+      "contentDigest": "aeee86cedbf10d836cb4d6ffe2f6d2ff0907a1d59ac81695450bb7cbdffd0927"
     },
     "pe-construction/sentaku-geotechnical-yomikata/youtube.longform": {
       "verdict": "pass",
-      "note": "台本と表紙は題名と一致し、誤字・試験日の矛盾・合格の約束は見当たらない。描画に進んでよい。動画は未完成。",
-      "at": "2026-11-04T04:50:06.593Z",
-      "visualDigest": "e0b0016ec7a238d85a7de4fd47885a13c8e321c140eae88528436ce88c8f464f",
-      "finalDigest": "286dfc6cc5f360cef937dcb2198b17280ee37553e16fcf1171febb2e4065891c"
+      "note": "表紙・題名と中身が一致。全8場面を目視し、切れ・重なり・誤字なし。場面順は台本どおり。II-1の系統別年度（液状化 R01/R02/R03/R05 等）は geotechnical-exam-themes の表と一致。説明文の主CTAはマガジン1つ（無料サイト記事は関連リンク）、R3〜R7の模範解答集の案内と整合。合格の約束・次回出題の断定なし。音声・字幕の同期は未確認（聞けない）。",
+      "at": "2026-11-05T21:23:40.016Z",
+      "visualDigest": "2c102aa3d4f35330f7316f5af281dcdd609eacf626d239cacf86578bd3179a57",
+      "finalDigest": "93db6e6c0dada8f70102427ddbfdc4539acc739ef1972f0b20676d30f9a37625",
+      "contentDigest": "93db6e6c0dada8f70102427ddbfdc4539acc739ef1972f0b20676d30f9a37625"
     },
     "pe-construction/sentaku-kakiwake-3type/youtube.longform": {
       "verdict": "pass",
@@ -268,10 +270,11 @@
     },
     "pe-construction/sentaku-railway-yomikata/youtube.longform": {
       "verdict": "pass",
-      "note": "台本と表紙は題名と一致し、誤字・試験日の矛盾・合格の約束は見当たらない。描画に進んでよい。動画は未完成。",
-      "at": "2026-11-04T04:50:06.935Z",
-      "visualDigest": "0f5c1ae2ca167ac8fb84337c3a8629be25cf954a251e0b54f5521c0ea7310762",
-      "finalDigest": "a9e279e7d66f3f4d9931ae65f1abf623325fb72692e41f3f91aa697bda3507c8"
+      "note": "表紙・題名と中身が一致。全8場面の順序は台本どおり、年度表記は台本と一致、文字の切れ・重なり・誤字なし。説明文はnote有料マガジン1件が主CTA、無料記事リンクは関連扱いで資格に合う。日付の断定なし。音声は未確認。",
+      "at": "2026-11-05T21:21:57.978Z",
+      "visualDigest": "ad1298d59d8b3059f5d63b1aeddd334e3674ca0e3911a6247f45125bc75c8fc4",
+      "finalDigest": "7d6b410e6658dfcfb9a8f56779eb8616ea8c682713378834d44918aa5d0e3d9d",
+      "contentDigest": "7d6b410e6658dfcfb9a8f56779eb8616ea8c682713378834d44918aa5d0e3d9d"
     },
     "pe-construction/sentaku-river-coast-yomikata/youtube.longform": {
       "verdict": "pass",
@@ -298,10 +301,11 @@
     },
     "pe-construction/sentaku-tunnel-yomikata/youtube.longform": {
       "verdict": "pass",
-      "note": "台本と表紙は題名と一致し、誤字・試験日の矛盾・合格の約束は見当たらない。描画に進んでよい。動画は未完成。",
-      "at": "2026-11-04T04:50:07.278Z",
-      "visualDigest": "5738785a6c4caee228d238bb1925f314cc4091ed726a19a14d8ad49fbc51d6f3",
-      "finalDigest": "5cb31d635aa5d6e6b0649ad9832eb96336d34220cda14a10e797c1d23839adc1"
+      "note": "表紙・題名と中身が一致。全8場面は台本の順序どおりで文字の切れ・重なり・誤字なし。説明文のCTAは主1つ（トンネルマガジン）に無料記事リンクを併記、資格・時期に整合。年度表記は台本と一致。音声は未確認。字幕は未確認。",
+      "at": "2026-11-05T21:24:56.283Z",
+      "visualDigest": "32cbbe5fb65b318bc0fdd179b404969615eeb95d347c91d513d1dc11aa33deca",
+      "finalDigest": "6c20c773c4d459ba8bb65b49b14037429506edbb4794c6a51e44a4c0387711f0",
+      "contentDigest": "6c20c773c4d459ba8bb65b49b14037429506edbb4794c6a51e44a4c0387711f0"
     },
     "pe-construction/sentaku-urban-planning-yomikata/youtube.longform": {
       "verdict": "pass",

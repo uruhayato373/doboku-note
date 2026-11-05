@@ -3561,55 +3561,55 @@
       "sha": "128a4dfa7087abb2",
       "verdict": "ok",
       "reason": "指定の『論文パターン』『年度を越え活用』『総監が制作』が一字違わず、先生の黒縁眼鏡・ひげ・白ヘルメット・紺作業服とネクタイ・反射帯が揃い手指も崩れていない",
-      "reviewedAt": "2026-11-05T12:58:11.518Z"
+      "reviewedAt": "2026-11-05T21:00:49.773Z"
     },
     "media:pe-comprehensive-management/kata-oudan-ryuyo/youtube.longform/scene-001": {
       "sha": "128a4dfa7087abb2",
       "verdict": "ok",
       "reason": "指定の『論文パターン』『年度を越え活用』『総監が制作』が一字違わず、先生の黒縁眼鏡・ひげ・白ヘルメット・紺作業服とネクタイ・反射帯が揃い手指も崩れていない",
-      "reviewedAt": "2026-11-05T12:58:11.519Z"
+      "reviewedAt": "2026-11-05T21:00:49.773Z"
     },
     "media:pe-comprehensive-management/kata-oudan-ryuyo/youtube.longform/scene-002": {
       "sha": "2605b19cd9647a01",
       "verdict": "ok",
       "reason": "見出しと図中3文言が指示と一字一句一致、余計な文字なし、カレンダー×道路の図も意味に合う",
-      "reviewedAt": "2026-11-05T12:58:11.519Z"
+      "reviewedAt": "2026-11-05T21:00:49.773Z"
     },
     "media:pe-comprehensive-management/kata-oudan-ryuyo/youtube.longform/scene-003": {
       "sha": "733b3dc1e0ef3d79",
       "verdict": "ok",
       "reason": "見出しとⅠ・Ⅱ・Ⅲの2文言が指示どおりで、3層の図と対応し崩れなし",
-      "reviewedAt": "2026-11-05T12:58:11.519Z"
+      "reviewedAt": "2026-11-05T21:00:49.773Z"
     },
     "media:pe-comprehensive-management/kata-oudan-ryuyo/youtube.longform/scene-004": {
       "sha": "4bd9e127ce942d89",
       "verdict": "ok",
       "reason": "見出しと4項目の文言が指示と一致し、図記号も内容に合い破綻なし",
-      "reviewedAt": "2026-11-05T12:58:11.519Z"
+      "reviewedAt": "2026-11-05T21:00:49.773Z"
     },
     "media:pe-comprehensive-management/kata-oudan-ryuyo/youtube.longform/scene-005": {
       "sha": "07f9d58fe6683947",
       "verdict": "ok",
       "reason": "R5 SWOT・R6 CN・R7 少子高齢化の3文言と見出しが指示と一致、アイコンも内容に合い破綻なし",
-      "reviewedAt": "2026-11-05T12:58:11.519Z"
+      "reviewedAt": "2026-11-05T21:00:49.773Z"
     },
     "media:pe-comprehensive-management/kata-oudan-ryuyo/youtube.longform/scene-006": {
       "sha": "bda4ffbf2594a3e7",
       "verdict": "ok",
       "reason": "見出しと2つの判断文が指示と一字一句一致、橋とバイパスの絵も妥当",
-      "reviewedAt": "2026-11-05T12:58:11.519Z"
+      "reviewedAt": "2026-11-05T21:00:49.773Z"
     },
     "media:pe-comprehensive-management/kata-oudan-ryuyo/youtube.longform/scene-007": {
       "sha": "2d7654ae3029b256",
       "verdict": "ok",
       "reason": "まとめ見出しと①②③の文言が指示と一致、誤字なく図も崩れていない",
-      "reviewedAt": "2026-11-05T12:58:11.519Z"
+      "reviewedAt": "2026-11-05T21:00:49.773Z"
     },
     "media:pe-comprehensive-management/kata-oudan-ryuyo/youtube.longform/scene-008": {
-      "sha": "de03a9a3ddfe20f3",
+      "sha": "70f30214e7cc7100",
       "verdict": "ok",
-      "reason": "見出しとコアパックの文言が指示と一致、価格・URLなし、図も崩れなし",
-      "reviewedAt": "2026-11-05T12:58:11.519Z"
+      "reason": "文字: 見出しと帯の文字が指示と一字一致。図は型の流れ・国会議事堂と日本地図・答案と鉛筆で説明と合い、破綻なし",
+      "reviewedAt": "2026-11-05T21:00:49.773Z"
     },
     "media:pe-comprehensive-management/kikinagashi-sokan-keyword/youtube.longform/cover": {
       "sha": "9250f392f2ef73b9",
@@ -5015,6 +5015,168 @@
       "reason": "見出し「施工計画・積算マガジンで確認する」と図中「R03〜R07の模範解答（概要欄リンク）」が指示と一字一句一致。本・クレーン・電卓・リンクの図は破綻なく、下端は無地",
       "reviewedAt": "2026-11-05T12:55:59.157Z"
     },
+    "media:pe-construction/sentaku-environment-yomikata/youtube.longform/cover": {
+      "sha": "00067f6a5e75f3d8",
+      "verdict": "ok",
+      "reason": "『建設環境』『テーマの読み方』『総監が制作』を1字ずつ照合し誤字・余計な文字なし。キャラは眼鏡・ひげ・白ヘルメット・紺作業服・反射帯で、顔と文字は安全域内、下端は背景のみ",
+      "reviewedAt": "2026-11-05T21:20:10.420Z"
+    },
+    "media:pe-construction/sentaku-environment-yomikata/youtube.longform/scene-001": {
+      "sha": "00067f6a5e75f3d8",
+      "verdict": "ok",
+      "reason": "『建設環境』『テーマの読み方』『総監が制作』を1字ずつ照合し誤字・余計な文字なし。キャラは眼鏡・ひげ・白ヘルメット・紺作業服・反射帯で、顔と文字は安全域内、下端は背景のみ",
+      "reviewedAt": "2026-11-05T21:20:10.420Z"
+    },
+    "media:pe-construction/sentaku-environment-yomikata/youtube.longform/scene-002": {
+      "sha": "6c0e0cfc5f72c007",
+      "verdict": "ok",
+      "reason": "見出しと2つの図内文字（II-2に環境影響評価の設問：8年中8年／R01 法・条例／R02〜R07 II-2-1／R08 II-2-2）が指示と一致。年表の目盛は8本で8年と整合し、破綻なし",
+      "reviewedAt": "2026-11-05T21:20:10.420Z"
+    },
+    "media:pe-construction/sentaku-environment-yomikata/youtube.longform/scene-003": {
+      "sha": "14bae967722f50fc",
+      "verdict": "ok",
+      "reason": "見出しと3つの図内文字が指示と一字一致。丸は6個＋矢印＋1個で6年連続とR08移動に整合し、流れ図も指示どおり。見出しの左右余白がやや狭い(約3%)が内容の誤りはない",
+      "reviewedAt": "2026-11-05T21:20:10.420Z"
+    },
+    "media:pe-construction/sentaku-environment-yomikata/youtube.longform/scene-004": {
+      "sha": "1c359ad389031fe1",
+      "verdict": "ok",
+      "reason": "見出し・3つの図中文字が指示と一字一句一致し崩れなし。生態系の図解で破綻なく、下端は無地で安全域内に収まる",
+      "reviewedAt": "2026-11-05T21:20:10.420Z"
+    },
+    "media:pe-construction/sentaku-environment-yomikata/youtube.longform/scene-005": {
+      "sha": "ca46ebafe3b41342",
+      "verdict": "ok",
+      "reason": "見出しと4つの図内文字が指示と一字一致。太陽光・風車・蓄電・植物・港湾の5アイコンは年度数・内容と矛盾せず、文字の崩れなし",
+      "reviewedAt": "2026-11-05T21:20:10.420Z"
+    },
+    "media:pe-construction/sentaku-environment-yomikata/youtube.longform/scene-006": {
+      "sha": "1f2cb8fac312db95",
+      "verdict": "ok",
+      "reason": "見出しと①〜④の4行（環境影響評価：8年／IIIの自然・生態系：6年度／II-1の再エネ：5年度／建設リサイクル：4年度）が指示と一致し、棒の長さも件数順で整合",
+      "reviewedAt": "2026-11-05T21:20:10.420Z"
+    },
+    "media:pe-construction/sentaku-environment-yomikata/youtube.longform/scene-007": {
+      "sha": "167e6a6490aa82db",
+      "verdict": "ok",
+      "reason": "『まとめ』と3つの図内文字が指示と一字一致。山川・太陽光・リサイクルのアイコンと表のチェックは内容に合い、崩れなし",
+      "reviewedAt": "2026-11-05T21:20:10.420Z"
+    },
+    "media:pe-construction/sentaku-environment-yomikata/youtube.longform/scene-008": {
+      "sha": "f2a304cfe70acfa1",
+      "verdict": "ok",
+      "reason": "見出し『続きは建設環境マガジンで』と2つの注記が指示と一字一致。本と画面の図は内容に合い、余計な文言・価格・URLなし",
+      "reviewedAt": "2026-11-05T21:20:10.420Z"
+    },
+    "media:pe-construction/sentaku-geotechnical-yomikata/youtube.longform/cover": {
+      "sha": "abf99f93240e48db",
+      "verdict": "ok",
+      "reason": "文字『総監が制作』『土質・基礎』『テーマの読み方』が指示と一字一致。キャラクターの顔・眼鏡・ひげ・白ヘルメット・紺作業服・反射帯が揃い、手指の破綻なし、下端は背景のみ",
+      "reviewedAt": "2026-11-05T21:23:13.756Z"
+    },
+    "media:pe-construction/sentaku-geotechnical-yomikata/youtube.longform/scene-001": {
+      "sha": "abf99f93240e48db",
+      "verdict": "ok",
+      "reason": "文字『総監が制作』『土質・基礎』『テーマの読み方』が指示と一字一致。キャラクターの顔・眼鏡・ひげ・白ヘルメット・紺作業服・反射帯が揃い、手指の破綻なし、下端は背景のみ",
+      "reviewedAt": "2026-11-05T21:23:13.756Z"
+    },
+    "media:pe-construction/sentaku-geotechnical-yomikata/youtube.longform/scene-002": {
+      "sha": "eddd85011fb9355c",
+      "verdict": "ok",
+      "reason": "見出しと図中の R01 II-1-2／R02 II-1-3／R03 II-1-4／R05 II-1-2、番号ではなく系統で数える、が指示と一字一致。余計な文字なし",
+      "reviewedAt": "2026-11-05T21:23:13.756Z"
+    },
+    "media:pe-construction/sentaku-geotechnical-yomikata/youtube.longform/scene-003": {
+      "sha": "e1fc3b6dc97f2016",
+      "verdict": "ok",
+      "reason": "文字: 見出しと3行の文言が指示と一字ずつ一致し余計な文字なし。5・5・4本の印も件数と合い、安全域内に収まる",
+      "reviewedAt": "2026-11-05T21:23:13.756Z"
+    },
+    "media:pe-construction/sentaku-geotechnical-yomikata/youtube.longform/scene-004": {
+      "sha": "e4f4a85339ac1828",
+      "verdict": "ok",
+      "reason": "見出し、II-2：R01・R02 軟弱地盤／R08 液状化、圧密・軟弱粘性土：R02・R04・R05・R06・R07、液状化：R01・R02・R03・R05 が指示と一字一致。盛土と圧密・砂粒の図も本文と矛盾しない",
+      "reviewedAt": "2026-11-05T21:23:13.756Z"
+    },
+    "media:pe-construction/sentaku-geotechnical-yomikata/youtube.longform/scene-005": {
+      "sha": "2332ced11b79a2ce",
+      "verdict": "ok",
+      "reason": "文字: 見出しと3つのラベル(R03・R04・R05・R06・R08等)が指示と一致。杭基礎・アンカー付きのり面・土留めの模式図は破綻なく本文と矛盾しない",
+      "reviewedAt": "2026-11-05T21:23:13.756Z"
+    },
+    "media:pe-construction/sentaku-geotechnical-yomikata/youtube.longform/scene-006": {
+      "sha": "aca9d7ad195effc0",
+      "verdict": "ok",
+      "reason": "見出し IIIを数える：災害・維持管理・DX と各 R 番号、R06：熱海土石流（盛土規制）が指示と一字一致。住宅・橋・バックホウの図も内容に合い崩れなし",
+      "reviewedAt": "2026-11-05T21:23:13.756Z"
+    },
+    "media:pe-construction/sentaku-geotechnical-yomikata/youtube.longform/scene-007": {
+      "sha": "44b41d32a9303737",
+      "verdict": "ok",
+      "reason": "見出し『優先順位の決め方 3ステップ』と①②③の文言が指示と一字一致。表・3系統アイコン・天秤と答案の図に破綻なし",
+      "reviewedAt": "2026-11-05T21:23:13.756Z"
+    },
+    "media:pe-construction/sentaku-geotechnical-yomikata/youtube.longform/scene-008": {
+      "sha": "8990940a15527b2a",
+      "verdict": "ok",
+      "reason": "見出し『土質・基礎マガジンで確認する』、R03〜R07の模範解答集（概要欄リンク）、年度別の出題一覧は無料のサイト記事、が指示と一字一致。余計な文字なし",
+      "reviewedAt": "2026-11-05T21:23:13.756Z"
+    },
+    "media:pe-construction/sentaku-railway-yomikata/youtube.longform/cover": {
+      "sha": "aa97e7965aff267f",
+      "verdict": "ok",
+      "reason": "文字: 『総監が制作』『鉄道』『テーマの読み方』が指示どおり一字も違わず、先生は黒髪・黒縁眼鏡・ひげ・白ヘルメット・紺作業服とネクタイ・黄白反射帯で手指も破綻なし。鉄道高架橋の背景も成立",
+      "reviewedAt": "2026-11-05T21:21:30.543Z"
+    },
+    "media:pe-construction/sentaku-railway-yomikata/youtube.longform/scene-001": {
+      "sha": "aa97e7965aff267f",
+      "verdict": "ok",
+      "reason": "文字: 『総監が制作』『鉄道』『テーマの読み方』が指示どおり一字も違わず、先生は黒髪・黒縁眼鏡・ひげ・白ヘルメット・紺作業服とネクタイ・黄白反射帯で手指も破綻なし。鉄道高架橋の背景も成立",
+      "reviewedAt": "2026-11-05T21:21:30.543Z"
+    },
+    "media:pe-construction/sentaku-railway-yomikata/youtube.longform/scene-002": {
+      "sha": "071df71f2c7547b2",
+      "verdict": "ok",
+      "reason": "文字: 見出しと『軌道：R01〜R08の8年すべて』『駅：R02・R04・R05・R06・R08』が指示と一字ずつ一致、軌道と駅の図も成立し余計な文字なし",
+      "reviewedAt": "2026-11-05T21:21:30.543Z"
+    },
+    "media:pe-construction/sentaku-railway-yomikata/youtube.longform/scene-003": {
+      "sha": "8428137c0cf8640b",
+      "verdict": "ok",
+      "reason": "文字: 見出しと3組の年度・テーマ文字が指示と一致、軌道変位・カント・継目の遊間・分岐器の図も内容に合い崩れなし",
+      "reviewedAt": "2026-11-05T21:21:30.543Z"
+    },
+    "media:pe-construction/sentaku-railway-yomikata/youtube.longform/scene-004": {
+      "sha": "bbeef9809d565673",
+      "verdict": "ok",
+      "reason": "文字: 見出し、『Ⅲ：R06 140年のインフラ維持管理』『II-1：R02検査・R04健全度・R07検査』が指示と一致、トラス橋→点検→確認の図も成立",
+      "reviewedAt": "2026-11-05T21:21:30.543Z"
+    },
+    "media:pe-construction/sentaku-railway-yomikata/youtube.longform/scene-005": {
+      "sha": "797bc422df315fcc",
+      "verdict": "ok",
+      "reason": "文字: 見出しと『防災系：R02・R04・R07・R08』『人口減少・担い手：R01・R03・R04・R07』が指示と一字ずつ一致、余計な文字なし",
+      "reviewedAt": "2026-11-05T21:21:30.543Z"
+    },
+    "media:pe-construction/sentaku-railway-yomikata/youtube.longform/scene-006": {
+      "sha": "97412b4857c70663",
+      "verdict": "ok",
+      "reason": "文字: 見出し、『自治体×鉄道事業者の連携事業』『R05 II-1-3／R04 II-2-1』が指示と一致、高架線路・庁舎・車両の図も実物として成立",
+      "reviewedAt": "2026-11-05T21:21:30.543Z"
+    },
+    "media:pe-construction/sentaku-railway-yomikata/youtube.longform/scene-007": {
+      "sha": "eaca2790e6bbdb5f",
+      "verdict": "ok",
+      "reason": "文字: 『まとめ：優先順位』と①〜④の4項目が指示と一字ずつ一致、階段状の優先順位図も本文の4段と矛盾なし",
+      "reviewedAt": "2026-11-05T21:21:30.543Z"
+    },
+    "media:pe-construction/sentaku-railway-yomikata/youtube.longform/scene-008": {
+      "sha": "8cdff7c6f62a3c90",
+      "verdict": "ok",
+      "reason": "文字: 『続きは概要欄で』『鉄道マガジン：R03〜R07の模範解答』『年度別の出題テーマ：サイトの無料記事』が指示と一致、アイコンも崩れなし（円が左右端に寄る点は忠実性の範囲外）",
+      "reviewedAt": "2026-11-05T21:21:30.543Z"
+    },
     "media:pe-construction/sentaku-river-coast-yomikata/youtube.longform/cover": {
       "sha": "cb066baec8ab5ef8",
       "verdict": "ok",
@@ -5122,6 +5284,60 @@
       "verdict": "ok",
       "reason": "見出しと図中文字が指示と一字一句一致し、開いた本に道路と斜張橋の図解で内容に合い、崩れや余計な文字も無い",
       "reviewedAt": "2026-11-05T12:55:16.798Z"
+    },
+    "media:pe-construction/sentaku-tunnel-yomikata/youtube.longform/cover": {
+      "sha": "108db951d4677ea1",
+      "verdict": "ok",
+      "reason": "文字『総監が制作』『トンネル』『テーマの読み方』が指示と一字一致。先生は黒縁眼鏡・ひげ・無地白ヘルメット・紺作業服とネクタイ・反射帯で手指も破綻なし",
+      "reviewedAt": "2026-11-05T21:24:32.440Z"
+    },
+    "media:pe-construction/sentaku-tunnel-yomikata/youtube.longform/scene-001": {
+      "sha": "108db951d4677ea1",
+      "verdict": "ok",
+      "reason": "文字『総監が制作』『トンネル』『テーマの読み方』が指示と一字一致。先生は黒縁眼鏡・ひげ・無地白ヘルメット・紺作業服とネクタイ・反射帯で手指も破綻なし",
+      "reviewedAt": "2026-11-05T21:24:32.440Z"
+    },
+    "media:pe-construction/sentaku-tunnel-yomikata/youtube.longform/scene-002": {
+      "sha": "328d745ba956f280",
+      "verdict": "ok",
+      "reason": "文字: 見出しと図中2ラベルが指示と一字一致し崩れ無し。種別・構造: 山岳トンネル、開削の箱形、シールドの円形断面が各分野と合致し、下端は無地で安全域内",
+      "reviewedAt": "2026-11-05T21:24:32.440Z"
+    },
+    "media:pe-construction/sentaku-tunnel-yomikata/youtube.longform/scene-003": {
+      "sha": "20f0b9d857b277b8",
+      "verdict": "ok",
+      "reason": "見出しと3つの注記が指示と一字一致。吹付け・ロックボルト・鋼製支保工・インバート・切羽観察の図は成り立ち、文字の崩れなし",
+      "reviewedAt": "2026-11-05T21:24:32.440Z"
+    },
+    "media:pe-construction/sentaku-tunnel-yomikata/youtube.longform/scene-004": {
+      "sha": "38ecde93c2a590a7",
+      "verdict": "ok",
+      "reason": "見出しと2つの注記が指示と一致。土留壁と切梁、泥水式シールドのカッタと覆工の図は実物として成り立つ",
+      "reviewedAt": "2026-11-05T21:24:32.440Z"
+    },
+    "media:pe-construction/sentaku-tunnel-yomikata/youtube.longform/scene-005": {
+      "sha": "4fb552c28d9924d6",
+      "verdict": "ok",
+      "reason": "見出し『Ⅲで繰り返し出る流れ』と2つの注記が指示と一致。地質層と都市部地下空間の図に破綻なし",
+      "reviewedAt": "2026-11-05T21:24:32.440Z"
+    },
+    "media:pe-construction/sentaku-tunnel-yomikata/youtube.longform/scene-006": {
+      "sha": "91045460a6234db0",
+      "verdict": "ok",
+      "reason": "見出しと2行の文字が指示と一字一致。覆工のひび割れ・剥落・近接目視の図は本文と矛盾せず崩れなし",
+      "reviewedAt": "2026-11-05T21:24:32.440Z"
+    },
+    "media:pe-construction/sentaku-tunnel-yomikata/youtube.longform/scene-007": {
+      "sha": "6a295d0142d37315",
+      "verdict": "ok",
+      "reason": "見出しと4項目の文字が指示と一致。山岳・開削とシールド・地質と都市・点検の各図は内容に合い破綻なし",
+      "reviewedAt": "2026-11-05T21:24:32.440Z"
+    },
+    "media:pe-construction/sentaku-tunnel-yomikata/youtube.longform/scene-008": {
+      "sha": "5ab616c994c968e0",
+      "verdict": "ok",
+      "reason": "見出しと2つの文字が指示と一致（〜は波ダッシュ表記）。本とブラウザの図に崩れなし",
+      "reviewedAt": "2026-11-05T21:24:32.440Z"
     },
     "media:pe-construction/toan-kousei-template/youtube.longform/cover": {
       "sha": "f8fd72a93a6ccd9b",
