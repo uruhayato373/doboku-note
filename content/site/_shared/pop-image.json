@@ -1241,10 +1241,12 @@
       "qualification": "concrete-engineer",
       "material": "practice",
       "source": [
-        "ce-mix-jis-practice"
+        "ce-mix-jis-practice",
+        "ce-r8-mc-40"
       ],
       "evidence": [
-        "src/lib/note-magazines.ts#ce-mix-jis-practice"
+        "src/lib/note-magazines.ts#ce-mix-jis-practice",
+        "src/lib/note-magazines.ts#ce-r8-mc-40"
       ],
       "body": {
         "format": {
@@ -1335,10 +1337,12 @@
       "qualification": "concrete-engineer",
       "material": "pack",
       "source": [
-        "ce-chokuzen-pack"
+        "ce-chokuzen-pack",
+        "ce-marugoto-pack"
       ],
       "evidence": [
-        "src/lib/note-magazines.ts#ce-chokuzen-pack"
+        "src/lib/note-magazines.ts#ce-chokuzen-pack",
+        "src/lib/note-magazines.ts#ce-marugoto-pack"
       ],
       "body": {
         "format": {
