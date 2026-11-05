@@ -46,7 +46,7 @@ const { values: args, positionals } = parseArgs({
   allowPositionals: true,
   options: {
     channel: { type: 'string' }, exam: { type: 'string' }, status: { type: 'string' },
-    'pack-dir': { type: 'string' }, folder: { type: 'string' }, commit: { type: 'boolean' },
+    'pack-dir': { type: 'string' }, folder: { type: 'string' }, commit: { type: 'boolean' }, delete: { type: 'boolean' },
     pub: { type: 'string' }, stage: { type: 'string' }, expect: { type: 'string' }, reason: { type: 'string' },
     variant: { type: 'string' }, 'related-to': { type: 'string' }, 'publish-at': { type: 'string' },
     phase: { type: 'string' }, copy: { type: 'string' }, 'refresh-draft': { type: 'boolean' },
@@ -422,6 +422,11 @@ async function publishYoutubeRevision() {
 }
 
 async function stageYoutubeRevision() {
+  if (args.delete) {
+    const { unstageRevisionAssets } = await import('./lib/youtube-single-r2.mjs');
+    console.log(JSON.stringify(await unstageRevisionAssets(ROOT, args.pub), null, 2));
+    return;
+  }
   const { revisionPublishPlan } = await import('./lib/youtube-revision-publisher.mjs');
   const { stageRevisionAssets } = await import('./lib/youtube-single-r2.mjs');
   const plan = revisionPublishPlan(ROOT, args.pub);

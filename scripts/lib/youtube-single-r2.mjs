@@ -2,7 +2,7 @@
 import { createHash } from 'node:crypto';
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
-import { GetObjectCommand, PutObjectCommand, S3Client } from '@aws-sdk/client-s3';
+import { DeleteObjectCommand, GetObjectCommand, PutObjectCommand, S3Client } from '@aws-sdk/client-s3';
 import { loadRegistry } from './content-registry.mjs';
 import { readJson } from './json-io.mjs';
 
@@ -57,6 +57,15 @@ export async function stageRevisionAssets(root, pubId, { commit = false } = {}) 
 }
 
 /** CI checkoutには.tmp/mediaが無い。R2の転送実体を全件SHA照合して復元する。 */
+/** 予約を実体で確かめたあと、CI へ渡した一時ファイルを消す */
+export async function unstageRevisionAssets(root, pubId) {
+  const pub = loadRegistry(root).publications.find(p => p.id === pubId);
+  if (pub?.status !== 'scheduled' || !pub.platform?.id) throw new Error('予約済みの改訂行だけ一時ファイルを消せる');
+  const assets = revisionAssets(root, pubId).filter(a => ['video', 'cover'].includes(a.role)), s3 = client();
+  for (const a of assets) await s3.send(new DeleteObjectCommand({ Bucket: BUCKET, Key: a.key }));
+  return { publicationId: pubId, deleted: assets.length };
+}
+
 export async function hydrateRevisionPublish(root, pubId) {
   const assets = revisionAssets(root, pubId).filter(a => ['video', 'cover'].includes(a.role)), s3 = client();
   for (const a of assets) {
