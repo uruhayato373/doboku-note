@@ -231,6 +231,17 @@
         "expected": 1065,
         "heard": 1024
       }
+    },
+    "pe-comprehensive-management/kikinagashi-sokan-keyword/youtube.longform": {
+      "videoSha256": "ba74e427039cd229fa9f8de2f1aa081e7051fdf2a65db59e56bcd60296ba5fd6",
+      "at": "2026-11-05T13:06:56.694Z",
+      "similarity": 0.861,
+      "maxVolumeDb": -1.2,
+      "durationGapSec": 0,
+      "chars": {
+        "expected": 5932,
+        "heard": 5675
+      }
     }
   }
 }
