@@ -154,10 +154,11 @@
     },
     "pe-construction/hissu1-kokudo-chiiki/youtube.longform": {
       "verdict": "pass",
-      "note": "R06 I-1・R07 I-2・第6次社会資本整備重点計画(令和8年1月16日閣議決定・令和12年度まで)は content/site の iji-kanri 記事等で裏取り済み。CTA は1つ。表紙OK。注意: 出典一覧の kokudo-keisei-chiiki は第5次のみ記載で第6次の根拠記事が一覧に無い。描画に進んでよいという意味の pass。音声は未確認。",
-      "at": "2026-11-04T05:28:01.863Z",
-      "visualDigest": "7c80028e7d262db495b51c4db55d218991c1872492fd9033ec48501c5dbc8c81",
-      "finalDigest": "6b41493f08eb173295fb5749e271e1c63d547186d21c75f8742a7301ebc6d0cf"
+      "note": "表紙・題名と全9場面(欠け0)を画像で確認。順序は台本どおり、文字の切れ・重なり・誤字なし。第6次社会資本整備重点計画(令和8年1月16日閣議決定・令和12年度まで)は姉妹記事で裏取り、R06 I-1/R07 I-2の記述も整合。CTAは必須Iマガジン1つ+関連無料記事リンク、合格の約束なし。音声と動画本体は未確認(場面画像のみ確認)。",
+      "at": "2026-11-05T10:55:27.235Z",
+      "visualDigest": "0389d1a85f1a2d4b4ca8fdf679ead33f7a24c4c0127d819d93eeefa715696cc3",
+      "finalDigest": "8855a014f7d95a7625f60467a3c9d8f0ad85852b6487280b3a6708b5da16d50b",
+      "contentDigest": "8855a014f7d95a7625f60467a3c9d8f0ad85852b6487280b3a6708b5da16d50b"
     },
     "pe-construction/hissu1-ninaite-seisansei/youtube.longform": {
       "verdict": "pass",

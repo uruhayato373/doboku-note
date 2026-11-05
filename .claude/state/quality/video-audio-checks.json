@@ -121,6 +121,17 @@
         "expected": 786,
         "heard": 787
       }
+    },
+    "pe-construction/hissu1-kokudo-chiiki/youtube.longform": {
+      "videoSha256": "be33f9895a1516620456b101819f8d9ba32d2681098aa6ad3a05e44b8b121f22",
+      "at": "2026-11-05T10:55:54.225Z",
+      "similarity": 0.847,
+      "maxVolumeDb": -1.4,
+      "durationGapSec": 0,
+      "chars": {
+        "expected": 970,
+        "heard": 965
+      }
     }
   }
 }

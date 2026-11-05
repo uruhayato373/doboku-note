@@ -3785,6 +3785,60 @@
       "reason": "ai-image-fidelity-auditorが原寸1920x1080と幅360pxで指定文字・本文との意味・人物・図を確認済み。採用SHAに対応する監査結果をpop-image.jsonに保持。",
       "reviewedAt": "2026-10-18T00:24:11.422Z"
     },
+    "media:pe-comprehensive-management/persona-settei/youtube.longform/cover": {
+      "sha": "9d3c7c3a07d89701",
+      "verdict": "ok",
+      "reason": "指示の『総監が制作』『論文の立場』『どう選ぶ？』が一字ずつ一致し、キャラは黒髪・黒縁眼鏡・ひげ・白ヘルメット・紺作業服とネクタイ・反射帯で手指の崩れも無く、下端は背景のみ",
+      "reviewedAt": "2026-11-05T10:52:12.723Z"
+    },
+    "media:pe-comprehensive-management/persona-settei/youtube.longform/scene-001": {
+      "sha": "9d3c7c3a07d89701",
+      "verdict": "ok",
+      "reason": "指示の『総監が制作』『論文の立場』『どう選ぶ？』が一字ずつ一致し、キャラは黒髪・黒縁眼鏡・ひげ・白ヘルメット・紺作業服とネクタイ・反射帯で手指の崩れも無く、下端は背景のみ",
+      "reviewedAt": "2026-11-05T10:52:12.724Z"
+    },
+    "media:pe-comprehensive-management/persona-settei/youtube.longform/scene-002": {
+      "sha": "1d068e6fc825f036",
+      "verdict": "ok",
+      "reason": "文字: 見出し・先に確定するのは発注者か受注者か・立場の違いが答案の骨格を左右する、の3文が指示と一字一致。官庁と安全帽の分岐図で意味に矛盾なく、下端は無地で破綻なし",
+      "reviewedAt": "2026-11-05T10:52:12.724Z"
+    },
+    "media:pe-comprehensive-management/persona-settei/youtube.longform/scene-003": {
+      "sha": "7049abd6e80d263c",
+      "verdict": "ok",
+      "reason": "見出し『まず立場を決める』と2文『発注者＝事業監理・予算執行・関係機関調整』『受注者＝技術判断・成果品質・元請下請調整』が一字一致、余計な文字なし、図も発注者/受注者の内容と合う",
+      "reviewedAt": "2026-11-05T10:52:12.724Z"
+    },
+    "media:pe-comprehensive-management/persona-settei/youtube.longform/scene-004": {
+      "sha": "4c9d20c525667222",
+      "verdict": "ok",
+      "reason": "見出し『経験座から選ぶ』と2文『誰から受け、誰に指示するかで判断』『経験にない立場は前提条件から不自然に』が一字一致し、余計な文字や崩れた字は無い",
+      "reviewedAt": "2026-11-05T10:52:12.724Z"
+    },
+    "media:pe-comprehensive-management/persona-settei/youtube.longform/scene-005": {
+      "sha": "46bf3da58e46d898",
+      "verdict": "ok",
+      "reason": "見出し『分野が一致しなくても』と『立場優先→次に近い分野を選ぶ』『管理対象と前提条件を入れ替えて応用』が一字一致、余計な文字なし",
+      "reviewedAt": "2026-11-05T10:52:12.724Z"
+    },
+    "media:pe-comprehensive-management/persona-settei/youtube.longform/scene-006": {
+      "sha": "9b050c68991a48c0",
+      "verdict": "ok",
+      "reason": "見出し『立場の選択＝Ⅰの前提条件を決める』と『評価の大半は管理対象と前提条件の設定』『立場が合うほど経験を反映しやすい』が一字一致、余計な文字なし",
+      "reviewedAt": "2026-11-05T10:52:12.724Z"
+    },
+    "media:pe-comprehensive-management/persona-settei/youtube.longform/scene-007": {
+      "sha": "5a93174dd63f0a23",
+      "verdict": "ok",
+      "reason": "見出し『まとめ　立場の選び方』と①②③の3文が指示どおり一字一致、余計な文字や崩れは無い",
+      "reviewedAt": "2026-11-05T10:52:12.724Z"
+    },
+    "media:pe-comprehensive-management/persona-settei/youtube.longform/scene-008": {
+      "sha": "c32f9b659ceed5cd",
+      "verdict": "ok",
+      "reason": "文字: 自分の立場の型を最短で・総監記述式 完全パック（概要欄リンク）が指示と一字一致。本と箱とリンクの図は破綻なく、余計な文言なし、下端は無地",
+      "reviewedAt": "2026-11-05T10:52:12.724Z"
+    },
     "media:pe-comprehensive-management/sanso-kozo/youtube.longform/cover": {
       "sha": "19cfc376e60c3afc",
       "verdict": "ok",
@@ -4366,6 +4420,66 @@
       "verdict": "ok",
       "reason": "見出しと『必須科目Ⅰ 模範解答マガジン（概要欄リンク）』が指示と一致し誤字なし。見開きの本の絵に破綻なし",
       "reviewedAt": "2026-11-05T00:51:04.388Z"
+    },
+    "media:pe-construction/hissu1-kokudo-chiiki/youtube.longform/cover": {
+      "sha": "d8a86609cb090ef9",
+      "verdict": "ok",
+      "reason": "指定文字『総監が制作』『国土と地域』『整備の論点を整理』が一字ずつ一致し、先生キャラは黒髪・黒縁眼鏡・ひげ・白ヘルメット・紺作業服・反射帯で手指も正常、余白も守る",
+      "reviewedAt": "2026-11-05T10:54:07.613Z"
+    },
+    "media:pe-construction/hissu1-kokudo-chiiki/youtube.longform/scene-001": {
+      "sha": "d8a86609cb090ef9",
+      "verdict": "ok",
+      "reason": "指定文字『総監が制作』『国土と地域』『整備の論点を整理』が一字ずつ一致し、先生キャラは黒髪・黒縁眼鏡・ひげ・白ヘルメット・紺作業服・反射帯で手指も正常、余白も守る",
+      "reviewedAt": "2026-11-05T10:54:07.613Z"
+    },
+    "media:pe-construction/hissu1-kokudo-chiiki/youtube.longform/scene-002": {
+      "sha": "6cf1416791a4b8f4",
+      "verdict": "ok",
+      "reason": "見出しと図の二文が指示と一字ずつ一致し、書類から羅針盤への翻訳の図解も本文と矛盾しない（見出しに括弧が付くが誤読を生まない）",
+      "reviewedAt": "2026-11-05T10:54:07.613Z"
+    },
+    "media:pe-construction/hissu1-kokudo-chiiki/youtube.longform/scene-003": {
+      "sha": "86e34b25e08c60f1",
+      "verdict": "ok",
+      "reason": "文字: 見出しと3つの図内文字が指示と一字一句一致し、誤字・余分な文言なし。構造: 二つの枠から結論枠へまとまる図で成立、字幕域も空白で破綻なし",
+      "reviewedAt": "2026-11-05T10:54:07.613Z"
+    },
+    "media:pe-construction/hissu1-kokudo-chiiki/youtube.longform/scene-004": {
+      "sha": "c2b9d95a4f5d0151",
+      "verdict": "ok",
+      "reason": "三つの円の文字（第三次国土形成計画・第6次社会資本整備重点計画・令和8年1月決定・令和12年度まで・インフラ長寿命化・群マネ）が指示と一致し崩れも読み取りに支障なし",
+      "reviewedAt": "2026-11-05T10:54:07.613Z"
+    },
+    "media:pe-construction/hissu1-kokudo-chiiki/youtube.longform/scene-005": {
+      "sha": "67175b723552630b",
+      "verdict": "ok",
+      "reason": "見出しと三つの施策名が指示と一字ずつ一致し、拠点集約・広域インフラ群・DX生活圏の図も本文どおり",
+      "reviewedAt": "2026-11-05T10:54:07.613Z"
+    },
+    "media:pe-construction/hissu1-kokudo-chiiki/youtube.longform/scene-006": {
+      "sha": "400a905a635e8408",
+      "verdict": "ok",
+      "reason": "見出し『設問(3)：施策が生むリスク』と二つの文言が一致し、周辺部の低下と自治体間の合意形成の図も本文と合う",
+      "reviewedAt": "2026-11-05T10:54:07.613Z"
+    },
+    "media:pe-construction/hissu1-kokudo-chiiki/youtube.longform/scene-007": {
+      "sha": "17f975855295a597",
+      "verdict": "ok",
+      "reason": "見出しと『合意形成・費用負担の調整』『調整プロセスまで含めて論じる』が一致し、自治体から握手を経て文書へ至る図が本文と矛盾しない",
+      "reviewedAt": "2026-11-05T10:54:07.613Z"
+    },
+    "media:pe-construction/hissu1-kokudo-chiiki/youtube.longform/scene-008": {
+      "sha": "ef1df82cf58ac82c",
+      "verdict": "ok",
+      "reason": "『まとめ』と①〜④の四文言が指示と一字ずつ一致し、図も各項目の内容に合う",
+      "reviewedAt": "2026-11-05T10:54:07.613Z"
+    },
+    "media:pe-construction/hissu1-kokudo-chiiki/youtube.longform/scene-009": {
+      "sha": "48ee8f7cb96b0950",
+      "verdict": "ok",
+      "reason": "見出し『答案の型で確認する』と『必須科目I マガジン（概要欄リンク）』が一致し、余計な文字や価格・URLもない",
+      "reviewedAt": "2026-11-05T10:54:07.613Z"
     },
     "media:pe-construction/hissu1-ninaite-seisansei/youtube.longform/cover": {
       "sha": "d5c753041caa6aa5",
