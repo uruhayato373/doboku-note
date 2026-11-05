@@ -69,11 +69,11 @@
     },
     "pe-comprehensive-management/persona-settei/youtube.longform": {
       "verdict": "pass",
-      "note": "表紙・題名・全8場面を確認。台本順序と一致、文字の切れ/重なり/誤字なし。主CTAは記述式完全パック1つ（関連無料解説リンクは別枠）。試験日・数値の記述なし。音声・動画本体は未確認。",
-      "at": "2026-11-05T12:05:33.366Z",
-      "visualDigest": "d32c782e884d55106d7b447271e91bdbef1cbc2b87a3b0fb18469585923b9e76",
-      "finalDigest": "a9f74bac94778abd2913853986294654983a6f7259e56138b41524d1fff2044a",
-      "contentDigest": "a9f74bac94778abd2913853986294654983a6f7259e56138b41524d1fff2044a"
+      "note": "表紙・題名は中身と一致、全8場面は台本順（誤解→発注者/受注者→仕事の流れ→分野不一致→前提条件→まとめ→CTA）で文字の切れ・誤字なし。CTAは記述式完全パック1つ、日付や数値の断定なし。音声は未確認。完成動画本体(video.mp4)ではなく場面画像と表紙での確認",
+      "at": "2026-11-05T20:58:47.006Z",
+      "visualDigest": "9dce68dc80d3ba7113d73879b21cd71676bf3f4615c60c9431b6ad5e22919dfd",
+      "finalDigest": "332ef211fe08d8669d64d7b1707fd3001d2b546af28e3321c1b25908fd2aec8c",
+      "contentDigest": "332ef211fe08d8669d64d7b1707fd3001d2b546af28e3321c1b25908fd2aec8c"
     },
     "pe-comprehensive-management/r8-yosou-theme/youtube.longform": {
       "verdict": "fail",
