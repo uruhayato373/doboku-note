@@ -413,7 +413,7 @@
       "format": "longform",
       "variant": "reading-fix",
       "revisionOf": "pe-construction/kaitourei-tsukaikata/youtube.longform",
-      "status": "approved",
+      "status": "scheduled",
       "copy": "content/sns/video-packs/pe-construction/kaitourei-tsukaikata/youtube.revision-reading-fix.json",
       "media": {
         "cover": "pe-construction/kaitourei-tsukaikata/work/candidate-cover",
@@ -442,6 +442,43 @@
         "by": "policy",
         "at": "2026-11-05T22:12:02.732Z",
         "contentSha256": "42e50abd9ea059d15d08e7258eff094da8b400e1ac8368c75786a0dae50c3900"
+      },
+      "delivery": {
+        "inputSha256": "c34bf83752c58149c93b17a06abbcf99b7c28051155a44d2986233f743a3c02c",
+        "marker": "dn-revision-7883b72c96697508c2c1d841e409b68a379fa29f",
+        "uploadRequestedAt": "2026-11-05T22:33:19.070Z",
+        "videoId": "OWVe8ELcCHI",
+        "processedAt": "2026-11-05T22:33:59.334Z",
+        "thumbnailRequestedAt": "2026-11-05T22:33:59.381Z",
+        "thumbnailUrls": [
+          "https://i9.ytimg.com/vi/OWVe8ELcCHI/default.jpg?sqp=COiGtNcG&rs=AOn4CLB5HiUm8umVo_pZoUUA6sQFOMfz_Q",
+          "https://i9.ytimg.com/vi/OWVe8ELcCHI/mqdefault.jpg?sqp=COiGtNcG&rs=AOn4CLB2bzZ1s1ZDz3Yem0BPzNOHGP8kvQ",
+          "https://i9.ytimg.com/vi/OWVe8ELcCHI/hqdefault.jpg?sqp=COiGtNcG&rs=AOn4CLDp6GY1rRhnxyQXkEL46An59h5ssA",
+          "https://i9.ytimg.com/vi/OWVe8ELcCHI/sddefault.jpg?sqp=COiGtNcG&rs=AOn4CLBodPSzQqRwj1P_jZqUdkn69Wcz8A",
+          "https://i9.ytimg.com/vi/OWVe8ELcCHI/maxresdefault.jpg?sqp=COiGtNcG&rs=AOn4CLDHbk_oTZ_1FGrs3PxQITEpc4XCyw",
+          "https://i9.ytimg.com/vi/OWVe8ELcCHI/fhddefault.jpg?sqp=COiGtNcG&rs=AOn4CLDAj8q1oOkvCtxfIx5FZwO6rnEVXQ"
+        ],
+        "thumbnailAcceptedAt": "2026-11-05T22:34:05.101Z",
+        "scheduleRequestedAt": "2026-11-05T22:34:05.382Z",
+        "scheduleAt": "2026-11-09T11:30:00Z",
+        "scheduledVerifiedAt": "2026-11-05T22:34:07.908Z"
+      },
+      "platform": {
+        "id": "OWVe8ELcCHI",
+        "url": "https://www.youtube.com/watch?v=OWVe8ELcCHI",
+        "privacy": "private",
+        "evidence": {
+          "kind": "publisher-live-check",
+          "ref": "content/sns/video-packs/pe-construction/kaitourei-tsukaikata/youtube.revision-reading-fix.json"
+        }
+      },
+      "times": {
+        "uploaded": "2026-11-05T22:33:59.334Z",
+        "scheduled": "2026-11-05T22:34:07.908Z"
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-11-05T22:34:05.101Z"
       }
     },
     {
