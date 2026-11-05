@@ -6684,6 +6684,19 @@
       "commit": "ee433b721c2c",
       "verification": "guide/sentaku-kamoku に md2c27bf67e24・m3646734d1da0・mefaf66e580d5",
       "note": "上水道 27 本・下水道 27 本とパック 2 つを note で公開し、商品・サイトへ配線して本番で確認した。下水道は全 27 本の事実照合を通した"
+    },
+    {
+      "id": "DN-0993",
+      "at": "2026-11-05",
+      "task": "事業イシューマップ（全体・施工管理）を管理画面で管理し、KPI・バックログ・競合（講座の企業を含む）に配線して週次・月次で更新する",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "0c03c0c12543",
+      "verification": "check-issue-map・check-datasets・check-domains・check-doc-refs・type-check:admin 通過。CI unit-tests の失敗は admin-format の 1 件で修正。/strategy/issues を 1280px・375px で目視",
+      "note": "todo-complete.mjs 経由で完了処理"
     }
   ]
 }
