@@ -63,5 +63,366 @@
       },
       "publication": "ローカル差し替え・外部未反映"
     }
-  }
+  },
+  "revisions": {
+    "cover-pop-20261105": {
+      "version": "pop-poster-v3",
+      "layout": {
+        "mode": "diagram-led"
+      },
+      "generation": {
+        "tool": "image_gen",
+        "prompt": "添付の1枚目はdoboku-noteで採用済みの全面POP動画表紙の意匠参照、2枚目は先生キャラクターの同一性参照です。 新規の16:9横長（1920×1080想定）日本語YouTube動画表紙を作る。深いインディゴ #33356B と明るい青紫、黄色と白の極太文字、明確な黒い輪郭、少量の赤、斜めの面と勢いのある背景、右側に先生キャラクターを大きく。 先生は同じ顔、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯。 左〜中央に正確に『インフラ老朽化』『予防保全を論じる』を大きく配置。上部の黄色帯に小さく『総監が制作』。 誤字・余計な文字・合格保証・URL・価格・不明な実績を足さない。文字ブロックの黒い縁取りまで含めて左右8%の内側へ収め（画面の左端から8%は背景だけ）、顔は左右5%・上下5%内、下端18%は字幕が重なるので重要な文字や顔を置かず背景が全面に続く。",
+        "references": [
+          {
+            "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/youtube.longform/cover.b87e20c1.png",
+            "sha256": "b87e20c19fda2123d3bac22950472ee7a7427dd2ab11a7cbf63807a6e83c33ad"
+          },
+          {
+            "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png",
+            "sha256": "1941cd22fa523fcb233e8ab7b8ad756ad7398be8755037b881d8380fb39398f9"
+          }
+        ],
+        "output": {
+          "path": ".tmp/media/pe-construction/hissu1-infra-roukyuuka/work/factory/raw-cover.b56a0f1c.png",
+          "sha256": "b56a0f1c6a621fd358c316b39c79a7d2d64e61fe6bbd0142c4837f28d5615527"
+        },
+        "generatedAt": "2026-11-05T01:43:52.653Z"
+      },
+      "copy": {
+        "exam": "pe-construction",
+        "headline": [
+          "インフラ老朽化",
+          "予防保全を論じる"
+        ],
+        "authority": "総監が制作"
+      },
+      "output": {
+        "path": ".tmp/media/pe-construction/hissu1-infra-roukyuuka/work/cover-pop.33feb207.png",
+        "sha256": "33feb20745bc2bf30b56f8832e890d1396a2b386a7f5b577cdf799e79a1d1f4c",
+        "width": 1920,
+        "height": 1080
+      },
+      "normalization": {
+        "mode": "full-frame-v1",
+        "sourceSha256": "b56a0f1c6a621fd358c316b39c79a7d2d64e61fe6bbd0142c4837f28d5615527"
+      },
+      "review": {
+        "status": "ai-reviewed",
+        "checkedAt": "2026-11-05T01:43:52.653Z",
+        "by": "ai-image-fidelity-auditor",
+        "reason": "文字『総監が制作』『インフラ老朽化』『予防保全を論じる』が指示と1字一致。先生は黒髪・黒縁眼鏡・軽いひげ・無地白ヘルメット・紺作業服とネクタイ・黄白反射帯で、手指の破綻なし",
+        "userImageReview": "pending"
+      },
+      "storage": {
+        "group": "content-media",
+        "sync": "local"
+      }
+    },
+    "body-diagram-20261105": {
+      "layout": {
+        "mode": "diagram-led"
+      },
+      "images": [
+        {
+          "sceneId": "premise",
+          "inputSha256": "dd4dcfe77112c7873c331274a5159b5fa78e466b8776037cde603fb22168e912",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『誤解：広く浅く並べれば安全』。 図に入れる文字: 『求められるのは一つに絞る深掘り』 『羅列だけでは応用力が伝わらない』。 この場面の説明（文字にしない）: 点検・財源・データ、思いつく課題を並べて広く浅く書けば安心、という誤解があります。しかし必須科目Iが求めるのは、課題を洗い出したうえで一つに絞り込み深掘りする力です。並べただけでは応用能力は伝わりません。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/hissu1-infra-roukyuuka/work/factory/raw-premise.2cb9c6d6.png",
+              "sha256": "2cb9c6d6974bd414db266da40cc0ba4dbc406b0371a00f58c58a35078c2d6305"
+            },
+            "generatedAt": "2026-11-05T01:43:52.653Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/hissu1-infra-roukyuuka/work/premise-diagram.2cb9c6d6.png",
+            "sha256": "2cb9c6d6974bd414db266da40cc0ba4dbc406b0371a00f58c58a35078c2d6305",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "2cb9c6d6974bd414db266da40cc0ba4dbc406b0371a00f58c58a35078c2d6305"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-05T01:43:52.653Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出しと2つの図内文字が指示と1字一致。漏斗と3アイコンの図解で本文の絞り込み深掘りと整合、崩れなし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "frequency",
+          "inputSha256": "9448153af8d4b066747230e737b8ef5e910fdf138e6ec0cc3f54bae8344c04a0",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『なぜ老朽化が頻出か』。 図に入れる文字: 『R02-I-2・R05-I-2で正面出題』 『建設後50年問題という不可逆な事実』 『防災・担い手・DXの横串にもなる』。 この場面の説明（文字にしない）: 老朽化はR02のI-2、R05のI-2で正面から出題されてきました。高度経済成長期に集中整備された施設が建設後50年を迎える、という不可逆な事実が課題の根拠になります。防災や担い手不足、インフラDXとも横串で使える論点なので、学習効率の良いテーマです。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/hissu1-infra-roukyuuka/work/factory/raw-frequency.5ea901a7.png",
+              "sha256": "5ea901a7d0028021b3138e9e51dbf82e222ebc67f90bc151eb1295f73089c5ec"
+            },
+            "generatedAt": "2026-11-05T01:43:52.653Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/hissu1-infra-roukyuuka/work/frequency-diagram.5ea901a7.png",
+            "sha256": "5ea901a7d0028021b3138e9e51dbf82e222ebc67f90bc151eb1295f73089c5ec",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "5ea901a7d0028021b3138e9e51dbf82e222ebc67f90bc151eb1295f73089c5ec"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-05T01:43:52.653Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し・R02-I-2・R05-I-2・建設後50年問題・防災担い手DXの文字が指示と一致。橋の劣化図は本文と整合、崩れなし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "breakdown",
+          "inputSha256": "df54410c321f8517d91e06136e9706777c837feb61187348197b69c31130079c",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『課題を3つに分解する』。 図に入れる文字: 『点検・診断：精度と頻度の確保』 『財源・人員：職員減と財政制約の同時進行』 『データ蓄積・活用：分散して活かせない』。 この場面の説明（文字にしない）: 課題は三つに分けて洗い出します。点検・診断は、対象施設が膨大で精度と頻度の確保が難しいこと。財源・人員は、自治体の技術職員減少と財政制約が同時に進むこと。データ蓄積・活用は、点検結果が分散して予算計画に活かせていないことです。この三つから最重要課題を一つ選びます。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/hissu1-infra-roukyuuka/work/factory/raw-breakdown.745a027d.png",
+              "sha256": "745a027d7e6190ff5fb4db999efe8811db1f8cb8670bc71b2e11f7f96dfe0764"
+            },
+            "generatedAt": "2026-11-05T01:43:52.653Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/hissu1-infra-roukyuuka/work/breakdown-diagram.d3fdde2a.png",
+            "sha256": "d3fdde2a01e678764f9af6fe000a00d6ce5666c7eb0f6a2d6e6787c9306f3dd8",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "745a027d7e6190ff5fb4db999efe8811db1f8cb8670bc71b2e11f7f96dfe0764"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-05T01:43:52.653Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出しと3課題の文字が指示と1字一致。3分解の構図が本文と整合し、擬似文字や崩れなし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "prevention",
+          "inputSha256": "1fedfa20507e01cdeb02f8363e9a78d695916f75d297a9ea8c276843eeeb99ef",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『最重要課題：予防保全への転換』。 図に入れる文字: 『点検→健全度評価→優先度判断→予算平準化』 『インフラ長寿命化基本計画（平成25年）』 『国交省行動計画・第2次（令和3〜7年度）』。 この場面の説明（文字にしない）: 最重要課題として多くの答案が選ぶのが、事後保全から予防保全への転換です。壊れてから直すのではなく、傷みが軽いうちに手を打つ発想です。定期点検のデータを積み上げて健全度を数値で評価し、優先して直すべき箇所を絞り込み、修繕費用を年度間でならしていく。この流れで語れば、用語の羅列を避けられます。根拠にはインフラ長寿命化基本計画と、国土交通省インフラ長寿命化計画の第2次行動計画を、年度まで正確に添えます。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/hissu1-infra-roukyuuka/work/factory/raw-prevention.8fe00e51.png",
+              "sha256": "8fe00e5185c509709ff664bf4b5a84adbd24d0a452e5c353bed7bc838e918080"
+            },
+            "generatedAt": "2026-11-05T01:43:52.653Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/hissu1-infra-roukyuuka/work/prevention-diagram.47ff0530.png",
+            "sha256": "47ff0530ced12e28c871555fe9c6e46452d16eda06a4c3b97a086b146ecfd315",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "8fe00e5185c509709ff664bf4b5a84adbd24d0a452e5c353bed7bc838e918080"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-05T01:43:52.653Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し・点検→健全度評価→優先度判断→予算平準化・平成25年・第2次令和3〜7年度の文字が指示と一致。循環図は本文と整合",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "funding",
+          "inputSha256": "c758e8124201ad158df45ce3c283c8a4b5c08801550be0800a9b04d34b4ee378",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『財源・人員不足への解決策』。 図に入れる文字: 『地域インフラ群再生戦略マネジメント（群マネ）』 『令和4年12月の提言が起点』 『点検DX・ロボティクスで精度と頻度を補う』。 この場面の説明（文字にしない）: 財源と人員の不足には、地域インフラ群再生戦略マネジメントが効きます。行政区域にとらわれず、複数・多分野のインフラを群として捉えるマネジメントで、令和4年12月の提言で示されました。あわせて、ドローンやセンサーによる点検のDXで、人手不足を補いながら精度と頻度を高める方向も解決策になります。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/hissu1-infra-roukyuuka/work/factory/raw-funding.b0f6a0b4.png",
+              "sha256": "b0f6a0b4a9df60a6353ca1bc4f66f8334be0c002315b38eb68c9fc769e282ee8"
+            },
+            "generatedAt": "2026-11-05T01:43:52.653Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/hissu1-infra-roukyuuka/work/funding-diagram.b0f6a0b4.png",
+            "sha256": "b0f6a0b4a9df60a6353ca1bc4f66f8334be0c002315b38eb68c9fc769e282ee8",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "b0f6a0b4a9df60a6353ca1bc4f66f8334be0c002315b38eb68c9fc769e282ee8"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-05T01:43:52.653Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し・群マネ正式名・令和4年12月・点検DX・ロボティクスの文字が指示と一致。橋・管・建物の群とドローン・センサーも本文と整合",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "risk",
+          "inputSha256": "bb8be910aef4f5887fd1cb074c2ece2e0525420dd8bb5f220bea66eed98f23d8",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『リスクと発注者視点』。 図に入れる文字: 『予防保全移行期の予算膨張』 『発注者側の技術力空洞化』 『点検計画の標準化・予算平準化』。 この場面の説明（文字にしない）: 解決策を実行すると新たなリスクも生まれます。予防保全への移行期に短期の予算が膨らむこと、包括的民間委託で発注者側の技術力が空洞化すること。ここは段階的な移行と職員の技術継承で対策を書きます。発注者側の論点として、点検計画の標準化や修繕優先度の設定、複数年度の予算平準化まで触れると、答案に厚みが出ます。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/hissu1-infra-roukyuuka/work/factory/raw-risk.b2d9bc2b.png",
+              "sha256": "b2d9bc2b1a2fac23e6390ac0c581649ee6dee6105d58e0a72596131a54656979"
+            },
+            "generatedAt": "2026-11-05T01:43:52.653Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/hissu1-infra-roukyuuka/work/risk-diagram.d362b10a.png",
+            "sha256": "d362b10a28077422a076644867ea421c672d7b42179f83bd64e4d18536625e0b",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "b2d9bc2b1a2fac23e6390ac0c581649ee6dee6105d58e0a72596131a54656979"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-05T01:43:52.653Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出しと3項目の文字が指示と1字一致。予算膨張・技術力空洞化・標準化平準化の図が本文と整合、崩れなし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "summary",
+          "inputSha256": "61962621a7303b6762acdef4f88b77c846a2064918307327648d786ffef5927f",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『まとめ』。 図に入れる文字: 『① 課題を3つに分解する』 『② 予防保全への転換を最重要課題に』 『③ 群マネ・点検DXで財源人員を補う』 『④ リスクと発注者視点で締める』。 この場面の説明（文字にしない）: まとめます。課題を三つに分解し、予防保全への転換を最重要課題に選ぶ。点検から予算平準化までを一連の流れで書き、群マネと点検DXで財源・人員の解決策を補う。最後にリスクと発注者視点で厚みを出す。これが老朽化テーマを一本の軸で解く型です。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/hissu1-infra-roukyuuka/work/factory/raw-summary.d312e8e5.png",
+              "sha256": "d312e8e5488b17ededf399a1f46fe92e3e2249c94b8f18e532715df20673c8a7"
+            },
+            "generatedAt": "2026-11-05T01:43:52.653Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/hissu1-infra-roukyuuka/work/summary-diagram.d312e8e5.png",
+            "sha256": "d312e8e5488b17ededf399a1f46fe92e3e2249c94b8f18e532715df20673c8a7",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "d312e8e5488b17ededf399a1f46fe92e3e2249c94b8f18e532715df20673c8a7"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-05T01:43:52.653Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し『まとめ』と①〜④の文字が指示と1字一致。4段の流れが本文と整合、崩れなし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        },
+        {
+          "sceneId": "cta",
+          "inputSha256": "e7bca99ade45105e3a4f0b28bad7f5a9a81a00100aef0a071a24fadb48584acd",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照画像は学習図解の意匠参照のみ。新規の16:9横長（1920×1080想定）教育動画本文の1場面。白〜淡いグレー背景、深いインディゴ #33356B と明るい青紫の太い線、補助に小さな黄色。 シンプルで大きな図解を主役にする。広告風POPポスター、人物、白い箇条書きカード、細かい文字は禁止。 すべての意味ある文字・図は左右5%・上5%・下18%の内側に置く。下端は字幕用の無地の背景だけ。 文字は指定した日本語だけを大きく正確に描き、余計な文言・数字を足さない。 見出し『答案の型で確認する』。 図に入れる文字: 『必須科目I マガジン（概要欄リンク）』。 この場面の説明（文字にしない）: 答案の型そのもので確認したい方は、概要欄のリンクから必須科目Iのマガジンをご覧ください。ご視聴ありがとうございました。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-first-stage/pe1-kiso-newton-hou/work/answer-diagram.2d6c31ce.png",
+                "sha256": "2d6c31ce6d2c6a12161e8f745335446b5d356744b3f62dff74d98442c3439887"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-construction/hissu1-infra-roukyuuka/work/factory/raw-cta.26c71dc5.png",
+              "sha256": "26c71dc5a1a61d36993fd268f506332bd903de71ed5535df69a53d1194ee179e"
+            },
+            "generatedAt": "2026-11-05T01:43:52.653Z"
+          },
+          "output": {
+            "path": ".tmp/media/pe-construction/hissu1-infra-roukyuuka/work/cta-diagram.5386bbc8.png",
+            "sha256": "5386bbc808371e75d93bdf67ea2583045fbac8cef29cc8ab61b71a35e2b62b2d",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "26c71dc5a1a61d36993fd268f506332bd903de71ed5535df69a53d1194ee179e"
+          },
+          "review": {
+            "status": "ai-reviewed",
+            "checkedAt": "2026-11-05T01:43:52.653Z",
+            "by": "ai-image-fidelity-auditor",
+            "reason": "見出し『答案の型で確認する』と『必須科目I マガジン（概要欄リンク）』が指示と一致。URL・価格など余計な文字なし",
+            "userReview": "pending",
+            "continuousListening": "not-performed"
+          }
+        }
+      ]
+    }
+  },
+  "activeCoverRevision": "cover-pop-20261105",
+  "activeBodyRevision": "body-diagram-20261105"
 }

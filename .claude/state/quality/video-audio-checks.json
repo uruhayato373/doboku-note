@@ -99,6 +99,17 @@
         "expected": 993,
         "heard": 788
       }
+    },
+    "pe-construction/hissu1-infra-roukyuuka/youtube.longform": {
+      "videoSha256": "ed1e11bfcd54fd09d28b229f02c91c3060126be7b541cfbfc2bf126ab272c8bb",
+      "at": "2026-11-05T10:07:59.443Z",
+      "similarity": 0.847,
+      "maxVolumeDb": -1.4,
+      "durationGapSec": 0,
+      "chars": {
+        "expected": 1097,
+        "heard": 1114
+      }
     }
   }
 }
