@@ -180,6 +180,8 @@ productId は `article:<slug>` 形式。slug は商品名から推定:
 | `コンクリート主任技士｜四肢択一 直前暗記ノート`（¥980・2026-09-17） | `article:cce-anki-note` |
 | `コンクリート診断士｜四肢択一演習98問 PDF`（¥1,480・2026-09-20） | `article:cd-takuitsu-98-pdf` |
 | `コンクリート技士｜配合計算・JIS判断 実戦演習12問` | `article:ce-mix-jis-practice` |
+| `コンクリート技士｜令和8年度 四肢択一 予想40問`（¥1,480・2026-11-05） | `article:ce-r8-mc-40` |
+| `コンクリート技士 択一｜まるごとパック`（¥2,380・2026-11-05） | `ce-marugoto-pack` |
 | `コンクリート技士｜四肢択一 直前暗記ノート`（¥780・2026-09-17） | `article:ce-anki-note` |
 | `技術士 建設部門｜道路 R8予想 選択科目II-1` | `article:bk-01-road-r8-yosou-ii1` |
 | `技術士 建設部門｜道路 R8予想 選択科目II-2` | `article:bk-01-road-r8-yosou-ii2-*` |

@@ -1959,6 +1959,20 @@ const MAGAZINES_RAW = {
     ctaButton: '直前パックを見てみる',
     ctaPose: 'pointing',
   },
+  // 2026-11-05 作成（m348b2a4b8362）。DN-0964
+  'ce-marugoto-pack': {
+    id: 'ce-marugoto-pack',
+    published: true,
+    noteUrl: 'https://note.com/dobokunote/m/m348b2a4b8362',
+    qualification: 'concrete-engineer',
+    noteTitle: 'コンクリート技士 択一｜まるごとパック',
+    title: 'コンクリート技士 択一｜まるごとパック（予想40問＋配合計算12問＋直前暗記ノート）',
+    description: '令和8年度 予想40問、配合計算・JIS判断 実戦演習12問、直前暗記ノートを束ねたパック。単品合計¥3,540が¥2,380。全分野の演習から計算、暗記までを3点で仕上げられる。',
+    shortTitle: 'コンクリート技士 まるごとパック',
+    shortDescription: '予想40問＋計算12問＋暗記ノート。単品合計¥3,540が¥2,380（約33%OFF）。',
+    price: '¥2,380（予想40問＋配合計算12問＋暗記ノート・単品合計¥3,540、約33%OFF）',
+    badge: 'note 限定 合格パック',
+  },
   // 原稿配置: content/note/コンクリート技士/配合計算-JIS判断-実戦演習/article.md
   // 2026年度に新設した concrete-engineer vertical の入口商品。無料48問と重複しない
   // 複合計算6問＋品質・JIS判断6問を、途中式／全誤答肢解説つきで収録する。
@@ -1972,6 +1986,19 @@ const MAGAZINES_RAW = {
     shortTitle: 'コンクリート技士 計算・JIS判断12問',
     shortDescription: '複合計算6問＋品質・JIS判断6問。途中式と全誤答肢の理由まで解説。',
     price: '¥1,280',
+    badge: 'note 限定 教材',
+  },
+  // 2026-11-05 公開（n4563f6588ee0・¥1,480・境界=最初の問題）（DN-0964）。
+  'ce-r8-mc-40': {
+    id: 'ce-r8-mc-40',
+    published: true,
+    noteUrl: 'https://note.com/dobokunote/n/n4563f6588ee0',
+    qualification: 'concrete-engineer',
+    title: 'コンクリート技士｜令和8年度 四肢択一 予想40問（6分野・全選択肢解説）',
+    description: 'コンクリート技士試験の四肢択一について、6分野のオリジナル予想問題40問と全選択肢の解説をまとめた。計算問題は途中式つき。過去の出題傾向にもとづく演習で、的中を約束するものではない。',
+    shortTitle: 'コンクリート技士 予想40問',
+    shortDescription: '6分野のオリジナル予想40問。全選択肢の解説と計算の途中式つき。',
+    price: '¥1,480',
     badge: 'note 限定 教材',
   },
   // </generated:products concrete-engineer>

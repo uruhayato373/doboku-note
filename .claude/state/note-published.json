@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "updatedAt": "2026-11-05T10:27:39.142Z",
+  "updatedAt": "2026-11-05T11:37:58.441Z",
   "items": [
     {
       "slug": "1級・2級土木/1級土木/1級経験記述R6新形式と設問書き分け",
@@ -7195,6 +7195,23 @@
       "magazines": [],
       "utmCampaign": "ce-anki-note",
       "title": "コンクリート技士｜四肢択一 直前暗記ノート（一問一答139問・6分野の数値と定義）"
+    },
+    {
+      "slug": "コンクリート技士/四肢択一-R8予想40問",
+      "path": "content/note/コンクリート技士/四肢択一-R8予想40問/article.md",
+      "exam": "コンクリート技士",
+      "noteUrl": "https://note.com/dobokunote/n/n4563f6588ee0",
+      "noteId": "n4563f6588ee0",
+      "status": "published",
+      "publishedAt": "2026-11-05",
+      "pricing": "paid",
+      "price": 1480,
+      "contentType": "product",
+      "series": "コンクリート技士-四肢択一-R8予想",
+      "noteMagazine": null,
+      "magazines": [],
+      "utmCampaign": "ce-r8-mc-40",
+      "title": "コンクリート技士｜令和8年度 四肢択一 予想40問（6分野・全選択肢解説）"
     },
     {
       "slug": "コンクリート技士/配合計算-JIS判断-実戦演習",
@@ -20544,10 +20561,24 @@
       "published": true
     },
     {
+      "id": "ce-marugoto-pack",
+      "key": "m348b2a4b8362",
+      "title": "コンクリート技士 択一｜まるごとパック（予想40問＋配合計算12問＋直前暗記ノート）",
+      "price": "¥2,380（予想40問＋配合計算12問＋暗記ノート・単品合計¥3,540、約33%OFF）",
+      "published": true
+    },
+    {
       "id": "ce-mix-jis-practice",
       "key": null,
       "title": "コンクリート技士｜配合計算・JIS判断 実戦演習12問（途中式・全選択肢解説）",
       "price": "¥1,280",
+      "published": true
+    },
+    {
+      "id": "ce-r8-mc-40",
+      "key": null,
+      "title": "コンクリート技士｜令和8年度 四肢択一 予想40問（6分野・全選択肢解説）",
+      "price": "¥1,480",
       "published": true
     },
     {
