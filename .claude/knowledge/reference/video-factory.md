@@ -94,6 +94,8 @@ node --env-file=<.env.local> scripts/video-factory.mjs publish --packs <a,b>
 ショートは通常動画とは別に、`npm run shorts-factory` で作る。入口は `shorts-design.json`（論点の分割）で、`beats` の語りをつなぐと承認済みの台本の場面に一致しないと止まる。導入の `hook` だけが足せる語り。画面は表紙・論点ごとの図解・締めの全面画像で、尺は 20〜60 秒。
 
 ```bash
+npm run shorts-factory -- status --exam <資格>                         # 全本の工程の位置
+npm run shorts-factory -- record-script-qa --pack <資格>/<作品> --key <key> --verdict pass --by yt-shorts-publisher-qa --reason "…"
 npm run shorts-factory -- plan --pack <資格>/<作品> --key <key>
 npm run shorts-factory -- generate --pack <資格>/<作品> --key <key>
 npm run shorts-factory -- audit-queue --pack <資格>/<作品> --key <key>   # ai-image-fidelity-auditor へ渡す
@@ -101,13 +103,18 @@ npm run shorts-factory -- record-audit --pack <資格>/<作品> --key <key> --fi
 npm run shorts-factory -- adopt --pack <資格>/<作品> --key <key>
 npm run shorts-factory -- render --pack <資格>/<作品> --key <key>
 npm run shorts-factory -- record-review --pack <資格>/<作品> --key <key> --verdict pass --by yt-shorts-publisher-qa --reason "…"
-npm run media -- sync --work <資格>/<作品> --commit   # 採用画像を Drive へ保存する
+npm run shorts-factory -- audio-check --pack <資格>/<作品> --key <key>
+npm run shorts-factory -- stock --pack <資格>/<作品> --key <key>         # Drive へ入れ、クラウド照合の後に手元を消す
+npm run shorts-factory -- restore --pack <資格>/<作品> --key <key>       # 在庫を手元へ戻して sha を照合する
 ```
 
 - 下端の無地帯、9:16 以外、解像度不足は生成の時点で落ちる（`inspectShortImage`）。
-- 判定は通常動画と同じく画像の sha に付き、画面確認は動画の sha に付く。描き直すと両方やり直す。
+- 台本の監査は台本の中身の sha に付く。語りや図の指示を変えると `plan` が止まる。
+- 判定は通常動画と同じく画像の sha に付き、画面確認と音声の検査は動画の sha に付く。描き直すと全部やり直す。
+- `stock` はクラウドの照合が通ってから手元の画像と動画を消す。確認用の一覧は `.tmp/shorts-stock/` に残す。在庫の判断材料はこの一覧で見る。
+- 予約は別の判断。`restore` は `youtube-shorts:stage` が自動で行う分と同じで、手動の確認に使う。
 - 再開する公開行は `check-youtube-shorts` が `pop-poster-v3`・描画の記録・画面確認の pass を要求する。停止中の行は数えるだけで検査しない。
-- 投稿は既存の `youtube-shorts:stage` と `publish-video-pack`。方針の自動承認の対象は通常動画だけで、ショートは運営者が承認する。
+- 投稿は既存の `youtube-shorts:stage` と `publish-video-pack`。ショートの投稿の CI はまだ無く、手元に YouTube の認証情報も無い。方針の自動承認の対象は通常動画だけで、ショートは運営者が承認する。
 - 2級土木は `diagram-led` を優先するので対象外。Instagram リールの描画はまだこの工程に載っていない。
 
 ## 罠

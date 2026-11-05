@@ -6,10 +6,11 @@
  * 計画は shorts-design.json（論点の分割）と承認済みの台本から作り、語りは台本から変えない。
  * 承認・公開はここに無い。手順の正本: .claude/knowledge/reference/video-factory.md
  */
-import { copyFileSync, existsSync, mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
+import { copyFileSync, existsSync, mkdirSync, readFileSync, readdirSync, rmSync, writeFileSync } from 'node:fs';
 import { createHash } from 'node:crypto';
-import { spawnSync } from 'node:child_process';
+import { execFileSync, spawnSync } from 'node:child_process';
 import { dirname, join } from 'node:path';
+import { homedir } from 'node:os';
 import { pathToFileURL } from 'node:url';
 import sharp from 'sharp';
 import { examPalette, loadImageRules, usesDiagramLed } from './image-rules.mjs';
@@ -20,6 +21,10 @@ import { subtitleChunks } from './video-subtitles.mjs';
 import { narrationInput } from './video-narration-cache.mjs';
 import { coverInputDigest } from './youtube-approved-cover.mjs';
 import { fileRef, packDirOf, readPlan } from './video-factory.mjs';
+import { audioProblems, readPolicy, speechSimilarity } from './video-publish-gate.mjs';
+import { applyReadingDict } from '../../.claude/scripts/lib/sns-common/reading-dict.mjs';
+import { loadDriveManifest } from './drive-vault.mjs';
+import { ensureVoicevox, readingOf } from './voicevox-engine.mjs';
 
 export const DESIGN_FILE = 'shorts-design.json';
 export const MIN_SECONDS = 20;
@@ -62,6 +67,9 @@ function packContext(root, pack, key) {
   return { dir, exam, design, board, youtube, item, scene, covers, spec, cta };
 }
 
+/** 台本の版。監査の記録を除いた中身の sha で、書き換えると監査は無効になる */
+export const designDigest = ({ qa, ...design }) => inputOf(design);
+
 /** 語りの切り方の検査。論点ごとの語りをつなぐと承認済みの台本の場面に一致すること。 */
 export function narrationProblems(design, scene) {
   const issues = [];
@@ -69,6 +77,31 @@ export function narrationProblems(design, scene) {
   if (!Array.isArray(design.beats) || !design.beats.length) issues.push('beats が空');
   else if (words(design.beats.map((b) => b.narration).join('')) !== words(scene.narration)) issues.push('beats の語りが台本の場面と一致しない');
   return issues;
+}
+
+/** 画像の生成前に止める台本の機械検査。語りの一致に加え、1 本に載せられる形かを見る */
+export function designProblems(design, scene) {
+  const issues = narrationProblems(design, scene);
+  if ([...String(design.hook ?? '')].length > 40) issues.push('hook が 40 字を超える');
+  if (!String(design.pose ?? '').trim()) issues.push('pose が無い');
+  if (Array.isArray(design.beats) && (design.beats.length < 2 || design.beats.length > 4)) issues.push('beats は 2〜4 個');
+  for (const [i, beat] of (design.beats ?? []).entries()) {
+    if ([...String(beat.heading ?? '')].length < 2 || [...String(beat.heading ?? '')].length > 18) issues.push(`beats[${i}]: heading は 2〜18 字`);
+    if (!String(beat.diagram ?? '').trim()) issues.push(`beats[${i}]: diagram が無い`);
+  }
+  return issues;
+}
+
+/** 台本の監査の判定を、今の台本の中身に付ける */
+export function recordScriptQa(root, pack, key, { verdict, by, reason, now }) {
+  if (!['pass', 'fail'].includes(verdict) || !by || String(reason ?? '').length < 8) throw new Error('判定は pass/fail・担当・8 字以上の理由が要る');
+  const { dir, design, scene } = packContext(root, pack, key);
+  const problems = designProblems(design, scene);
+  if (verdict === 'pass' && problems.length) throw new Error(`${key}: 機械検査が先に通らない: ${problems.join('・')}`);
+  const file = readJson(root, `${dir}/${DESIGN_FILE}`);
+  file.shorts[key].qa = { verdict, by, reason, digest: designDigest(design), checkedAt: now };
+  writeJson(root, `${dir}/${DESIGN_FILE}`, file);
+  return file.shorts[key].qa;
 }
 
 const coverPrompt = (design, spec, label, palette) => [
@@ -95,8 +128,9 @@ export function buildShortPlan(root, pack, key, { date, refs = fileRef } = {}) {
   const { exam, design, scene, spec, cta } = packContext(root, pack, key);
   if (usesDiagramLed(exam, root)) throw new Error(`${exam}: POP のショート工程の対象外（diagram-led の手順を使う）`);
   const palette = examPalette(exam, root);
-  const problems = narrationProblems(design, scene);
+  const problems = designProblems(design, scene);
   if (problems.length) throw new Error(`${key}: ${problems.join('・')}`);
+  if (design.qa?.verdict !== 'pass' || design.qa.digest !== designDigest(design)) throw new Error(`${key}: 今の台本の監査 pass が無い。record-script-qa を先に行う`);
   const label = qualificationShortLabel(loadRegistry(root), exam);
   const prior = new Map((readPlan(root, pack, shortsPlanPath(pack, key))?.items ?? []).map((i) => [i.id, i]));
   const keep = (item) => (prior.get(item.id)?.inputSha256 === item.inputSha256 ? { ...item, ...prior.get(item.id) } : item);
@@ -253,7 +287,9 @@ export async function renderShort(root, pack, key, { refs = fileRef, log = () =>
   item.thumbnailSha256 = thumbnailSha;
   writeJson(root, `${dir}/youtube.json`, youtube);
   revision.render = { videoSha256: videoSha, durationSeconds, speaker: SPEAKER, sceneCount: segments.length };
-  delete revision.screenReview; // 動画が変わったら画面確認はやり直す
+  delete revision.screenReview; // 動画が変わったら画面確認・音声の検査・在庫はやり直す
+  delete revision.audio;
+  delete revision.stock;
   writeJson(root, popFile, record);
   log(`${key}: ${durationSeconds.toFixed(2)}s sha256=${videoSha}`);
   return { video, sheet, durationSeconds, videoSha, spoken: segments.map((s) => s.spoken) };
@@ -269,4 +305,164 @@ export function recordScreenReview(root, pack, key, { verdict, by, reason, now }
   revision.screenReview = { verdict, by, reason, videoSha256: item.sha256, checkedAt: now };
   writeJson(root, `${dir}/pop-image.json`, record);
   return revision.screenReview;
+}
+
+const activeRevision = (root, dir, key) => {
+  const record = readJson(root, `${dir}/pop-image.json`);
+  return { record, revision: record.revisions?.[record.activeShorts?.[key]] };
+};
+
+/** 音声の機械検査。場面ごとの音声を文字起こしし、読み仮名で台本と比べる（全編を一度に渡すと途中を飛ばす）。 */
+export async function checkShortAudio(root, pack, key) {
+  const { dir } = packContext(root, pack, key);
+  const { record, revision } = activeRevision(root, dir, key);
+  if (!revision?.render) throw new Error(`${key}: 描画の記録が無い`);
+  const policy = readPolicy(root);
+  const model = policy.audio.model.replace(/^~/, homedir());
+  if (!existsSync(model)) throw new Error(`検査不成立: 文字起こしのモデルが無い: ${model}`);
+  const out = renderDirOf(root, pack, key);
+  const wavs = revision.images.map((image) => join(out, 'work', `${image.role}.wav`));
+  const missing = wavs.filter((wav) => !existsSync(wav));
+  if (missing.length) throw new Error(`${key}: 場面の音声が無い。render をやり直す`);
+  const mono = wavs.map((wav) => {
+    const file = wav.replace(/\.wav$/, '.16k.wav');
+    execFileSync('ffmpeg', ['-y', '-v', 'error', '-i', wav, '-ar', '16000', '-ac', '1', file]);
+    return file;
+  });
+  execFileSync('whisper-cli', ['-m', model, '-l', policy.audio.language, '-nt', '-otxt', ...mono.flatMap((f) => ['-f', f])], { stdio: 'ignore' });
+  const heard = mono.map((f) => readFileSync(`${f}.txt`, 'utf8')).join('。').replace(/\s+/g, '、');
+  const expected = revision.images.map((image) => image.narration).join('');
+  const video = join(out, 'shorts.mp4');
+  const volume = spawnSync('ffmpeg', ['-hide_banner', '-i', video, '-af', 'volumedetect', '-f', 'null', '-'], { encoding: 'utf8' }).stderr;
+  const streams = JSON.parse(execFileSync('ffprobe', ['-v', 'error', '-show_entries', 'stream=codec_type,duration', '-of', 'json', video], { encoding: 'utf8' })).streams;
+  const seconds = (type) => Number(streams.find((x) => x.codec_type === type)?.duration);
+  const engine = await ensureVoicevox();
+  const similarity = await Promise.all([readingOf(applyReadingDict(expected)), readingOf(heard)])
+    .then(([a, b]) => Number(speechSimilarity(a, b).toFixed(3))).finally(() => engine?.kill());
+  revision.audio = {
+    videoSha256: revision.render.videoSha256, similarity, maxVolumeDb: Number(/max_volume: (-?[\d.]+) dB/.exec(volume)?.[1]),
+    durationGapSec: Number(Math.abs(seconds('video') - seconds('audio')).toFixed(1)),
+  };
+  writeJson(root, `${dir}/pop-image.json`, record);
+  return { ...revision.audio, problems: audioProblems(revision.audio, revision.render.videoSha256, policy) };
+}
+
+const pubDir = (pack, key) => `.tmp/media/${pack}/youtube.short.${key}`;
+const sheetPath = (pack, key) => `.tmp/shorts-stock/${pack.replace('/', '__')}__${key}.png`;
+
+function mediaVault(root, pack, extra) {
+  const run = spawnSync(process.execPath, ['scripts/drive-vault-sync.mjs', '--group', 'content-media', '--path', `.tmp/media/${pack}/`, ...extra], { cwd: root, encoding: 'utf8' });
+  if (run.status !== 0) throw new Error(`Drive の処理が失敗: ${(run.stderr || run.stdout).trim().split('\n').slice(-3).join(' / ')}`);
+}
+
+const VERIFY_ATTEMPTS = 8;
+const VERIFY_WAIT_MS = 30_000;
+const defaultWait = (ms) => new Promise((done) => { setTimeout(done, ms); });
+
+/** Drive のクラウド同期は保存の直後には終わらない。待って照合し直す。通らなければ手元を消さずに止める */
+export async function verifyInCloud(root, pack, { log = () => {}, wait = defaultWait, verify = () => mediaVault(root, pack, ['--verify', '--deep', '--cloud']) } = {}) {
+  for (let attempt = 1; ; attempt += 1) {
+    try { return verify(); } catch (error) {
+      if (attempt >= VERIFY_ATTEMPTS) throw new Error(`Drive の同期を待ちきれなかった。手元は消していない。もう一度 stock を実行する: ${error.message}`);
+      log(`クラウドの同期を待つ（${attempt}/${VERIFY_ATTEMPTS}）`);
+      await wait(VERIFY_WAIT_MS);
+    }
+  }
+}
+
+/** 完成物を Drive の在庫へ入れ、クラウドの照合が通ってから手元を消す。確認用の一覧だけ手元に残す。 */
+export async function stockShort(root, pack, key, { now, log = () => {}, wait = defaultWait } = {}) {
+  const { dir, item } = packContext(root, pack, key);
+  const { record, revision } = activeRevision(root, dir, key);
+  if (!revision?.render || revision.render.videoSha256 !== item.sha256) throw new Error(`${key}: 描画の記録が今の動画と合わない`);
+  if (revision.screenReview?.verdict !== 'pass' || revision.screenReview.videoSha256 !== item.sha256) throw new Error(`${key}: 今の動画の画面確認 pass が無い`);
+  const problems = audioProblems(revision.audio, item.sha256, readPolicy(root));
+  if (problems.length) throw new Error(`${key}: 音声の検査: ${problems.join('・')}`);
+  const pubId = `${pack}/youtube.short.${key}`;
+  const out = renderDirOf(root, pack, key);
+  const place = (from, role, ext) => {
+    const bytes = readFileSync(from);
+    const sha256 = hash(bytes);
+    const path = mediaPath({ pubId, role, sha256, ext });
+    mkdirSync(dirname(join(root, path)), { recursive: true });
+    writeFileSync(join(root, path), bytes);
+    return { path, sha256 };
+  };
+  const video = place(join(out, 'shorts.mp4'), 'video', 'mp4');
+  if (video.sha256 !== item.sha256) throw new Error(`${key}: 動画の実体が youtube.json の sha と違う`);
+  const frames = place(join(out, 'frames.png'), 'frames', 'png');
+  const subtitles = place(join(out, 'subtitles.ass'), 'subtitles', 'ass');
+  const originals = revision.images.flatMap((image) => {
+    const raw = image.generation?.output;
+    return raw && existsSync(join(root, raw.path)) ? [place(join(root, raw.path), `raw-${image.role}`, 'png')] : [];
+  });
+  mediaVault(root, pack, ['--commit']);
+  log('Drive へ保存した');
+  await verifyInCloud(root, pack, { log, wait });
+  log('クラウドの照合が通った');
+  revision.stock = {
+    video, frames, subtitles, originals, thumbnail: { path: revision.images[0].output.path, sha256: revision.images[0].output.sha256 },
+    savedAt: now, cloudVerified: true,
+  };
+  writeJson(root, `${dir}/pop-image.json`, record);
+
+  mkdirSync(join(root, '.tmp/shorts-stock'), { recursive: true });
+  copyFileSync(join(root, frames.path), join(root, sheetPath(pack, key)));
+  const { entries } = loadDriveManifest();
+  const media = join(root, pubDir(pack, key));
+  let removed = 0;
+  for (const name of readdirSync(media)) {
+    if (!entries[`${pubDir(pack, key)}/${name}`]) continue; // 台帳に無いものは消さない
+    rmSync(join(media, name));
+    removed += 1;
+  }
+  rmSync(out, { recursive: true, force: true });
+  for (const image of revision.images) if (image.generation?.output) rmSync(join(root, image.generation.output.path), { force: true });
+  return { pack, key, video: video.path, removed, sheet: sheetPath(pack, key) };
+}
+
+/** 在庫を Drive から手元へ戻し、sha を照合する。 */
+export function restoreShort(root, pack, key) {
+  const { dir } = packContext(root, pack, key);
+  const { revision } = activeRevision(root, dir, key);
+  if (!revision?.stock) throw new Error(`${key}: 在庫に入っていない`);
+  const run = spawnSync(process.execPath, ['scripts/drive-vault-sync.mjs', '--pull', '--path', `${pubDir(pack, key)}/`, '--commit'], { cwd: root, encoding: 'utf8' });
+  if (run.status !== 0) throw new Error(`Drive から戻せない: ${(run.stderr || run.stdout).trim().split('\n').slice(-3).join(' / ')}`);
+  for (const file of [revision.stock.video, revision.stock.thumbnail, revision.stock.frames]) {
+    if (!existsSync(join(root, file.path)) || hash(readFileSync(join(root, file.path))) !== file.sha256) throw new Error(`${file.path}: 戻した実体の sha が違う`);
+  }
+  return { pack, key, video: revision.stock.video.path, thumbnail: revision.stock.thumbnail.path };
+}
+
+/** 1 本の工程の位置。台帳を別に持たず、原稿と採用の記録から毎回作る */
+export function shortStage(root, pack, key) {
+  const dir = packDirOf(pack);
+  const designFile = join(root, dir, DESIGN_FILE);
+  const design = existsSync(designFile) ? readJson(root, `${dir}/${DESIGN_FILE}`).shorts?.[key] : null;
+  if (!design) return 'no-design';
+  if (design.qa?.verdict !== 'pass' || design.qa.digest !== designDigest(design)) return 'script-qa';
+  const { revision } = activeRevision(root, dir, key);
+  if (!revision) return 'images';
+  if (!revision.render) return 'render';
+  if (revision.screenReview?.verdict !== 'pass' || revision.screenReview.videoSha256 !== revision.render.videoSha256) return 'review';
+  if (revision.audio?.videoSha256 !== revision.render.videoSha256) return 'audio';
+  return revision.stock?.cloudVerified && revision.stock.video.sha256 === revision.render.videoSha256 ? 'stocked' : 'stock';
+}
+
+/** POP のショートの対象を資格ごとに並べる */
+export function shortsStatus(root, { exam } = {}) {
+  const base = join(root, 'content/sns/video-packs');
+  const rows = [];
+  for (const entry of readdirSync(base, { withFileTypes: true })) {
+    if (!entry.isDirectory() || (exam && entry.name !== exam) || usesDiagramLed(entry.name, root)) continue;
+    for (const work of readdirSync(join(base, entry.name), { withFileTypes: true })) {
+      const file = join(base, entry.name, work.name, 'youtube.json');
+      if (!work.isDirectory() || !existsSync(file)) continue;
+      for (const short of JSON.parse(readFileSync(file, 'utf8')).shorts ?? []) {
+        const pack = `${entry.name}/${work.name}`;
+        rows.push({ pack, key: short.key, stage: shortStage(root, pack, short.key) });
+      }
+    }
+  }
+  return rows;
 }

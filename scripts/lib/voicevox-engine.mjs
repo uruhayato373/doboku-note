@@ -17,3 +17,14 @@ export async function ensureVoicevox() {
   child.kill();
   throw new Error('VOICEVOX が起動しない');
 }
+
+/** 文字起こしは同音の漢字を取り違える（圧密→厚密）ので、表記でなく VOICEVOX の読み仮名で比べる */
+export async function readingOf(text) {
+  const kana = [];
+  for (const part of text.split(/(?<=[。？！])/).filter((s) => s.trim())) {
+    const query = await fetch(`http://127.0.0.1:50021/audio_query?speaker=13&text=${encodeURIComponent(part)}`, { method: 'POST' });
+    if (!query.ok) throw new Error(`読み仮名を取れない: ${query.status}`);
+    kana.push((await query.json()).kana.replace(/[/'、_]/g, ''));
+  }
+  return kana.join('');
+}

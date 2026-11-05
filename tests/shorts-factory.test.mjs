@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import sharp from 'sharp';
-import { buildAss, inspectShortImage, narrationProblems } from '../scripts/lib/shorts-factory.mjs';
+import { buildAss, designDigest, designProblems, inspectShortImage, narrationProblems, verifyInCloud } from '../scripts/lib/shorts-factory.mjs';
 
 const noisy = async (width, height, bottomFlat = false) => {
   const raw = Buffer.alloc(width * height * 3);
@@ -39,4 +39,27 @@ test('字幕は大きな文字で、切り分けても音声の時間を超え�
   const ends = [...ass.matchAll(/Dialogue: 0,[^,]+,0:00:(\d+\.\d+)/g)].map((m) => Number(m[1]));
   assert.ok(ends.length >= 2);
   assert.equal(ends.at(-1), 5);
+});
+
+test('台本の機械検査は画像の前に形を止める', () => {
+  const scene = { narration: 'あ。い。' };
+  const good = { hook: '導入', pose: '手を挙げる', beats: [{ narration: 'あ。', heading: '見出し', diagram: '図' }, { narration: 'い。', heading: '見出し', diagram: '図' }] };
+  assert.deepEqual(designProblems(good, scene), []);
+  assert.match(designProblems({ ...good, pose: '' }, scene).join(), /pose/);
+  assert.match(designProblems({ ...good, hook: 'あ'.repeat(41) }, scene).join(), /40 字/);
+  assert.match(designProblems({ ...good, beats: [{ narration: 'あ。い。', heading: '見出し', diagram: '図' }] }, scene).join(), /2〜4/);
+  assert.match(designProblems({ ...good, beats: [good.beats[0], { ...good.beats[1], diagram: '' }] }, scene).join(), /diagram/);
+});
+
+test('台本の版は監査の記録に左右されず、中身の変更で変わる', () => {
+  const design = { hook: 'a', beats: [] };
+  assert.equal(designDigest({ ...design, qa: { verdict: 'pass' } }), designDigest(design));
+  assert.notEqual(designDigest({ ...design, hook: 'b' }), designDigest(design));
+});
+
+test('クラウドの同期を待って照合し直し、通らなければ止める', async () => {
+  let calls = 0;
+  await verifyInCloud('.', 'a/b', { wait: async () => {}, verify: () => { calls += 1; if (calls < 3) throw new Error('未同期'); } });
+  assert.equal(calls, 3);
+  await assert.rejects(verifyInCloud('.', 'a/b', { wait: async () => {}, verify: () => { throw new Error('未同期'); } }), /手元は消していない/);
 });
