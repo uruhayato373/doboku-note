@@ -71,7 +71,7 @@
       "work": "hissu1-infra-roukyuuka",
       "account": "youtube:main",
       "format": "longform",
-      "status": "qa_passed",
+      "status": "rendered",
       "media": {
         "cover": "pe-construction/hissu1-infra-roukyuuka/youtube.longform/cover",
         "scene-001": "pe-construction/hissu1-infra-roukyuuka/youtube.longform/scene-001",
@@ -86,7 +86,24 @@
         "video": "pe-construction/hissu1-infra-roukyuuka/youtube.longform/video",
         "subtitles": "pe-construction/hissu1-infra-roukyuuka/youtube.longform/subtitles"
       },
-      "copy": "content/sns/video-packs/pe-construction/hissu1-infra-roukyuuka/youtube.json#longform"
+      "copy": "content/sns/video-packs/pe-construction/hissu1-infra-roukyuuka/youtube.json#longform",
+      "publishAt": "2026-11-13T11:30:00Z",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "policy",
+          "at": "2026-11-05T20:37:54.315Z",
+          "digest": "4b30786a1b11735f4f0a939294c21852fc8a9d2882d1f1d813ccaa72e17165b5"
+        }
+      },
+      "approval": {
+        "by": "policy",
+        "at": "2026-11-05T20:37:54.315Z",
+        "contentSha256": "4fbf0800289bddb947d497845d511bc779a523bf41ca2b2edd57c355e58762de"
+      },
+      "times": {
+        "rendered": "2026-11-05T20:43:15.586Z"
+      }
     },
     {
       "id": "pe-construction/hissu1-kensetsu-dx/youtube.longform",
