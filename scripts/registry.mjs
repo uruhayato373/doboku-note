@@ -261,7 +261,9 @@ function unschedule() {
   if (pub.status !== 'scheduled') throw new Error(`予約済みではない（${pub.status}）: ${pub.id}`);
   if (!canTransition(cfg, 'scheduled', 'uploaded_private', pub.channel)) throw new Error('scheduled → uploaded_private は遷移に無い');
   const reason = `${String(args.reason).trim()}（元の予約 ${pub.publishAt}）`;
-  writePublication(pub, { status: 'uploaded_private', publishAt: undefined, reason });
+  // 予約の実行記録は publishAt と対なので、予約を外したら一緒に消す。投稿と表紙の記録は残す
+  const delivery = Object.fromEntries(Object.entries(pub.delivery ?? {}).filter(([key]) => !['scheduleRequestedAt', 'scheduleAt', 'scheduledVerifiedAt'].includes(key)));
+  writePublication(pub, { status: 'uploaded_private', publishAt: undefined, reason, ...(pub.delivery ? { delivery } : {}) });
   console.log(`予約を外した: ${pub.id}（scheduled → uploaded_private・元の予約 ${pub.publishAt}）`);
 }
 
