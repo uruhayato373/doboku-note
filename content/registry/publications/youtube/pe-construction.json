@@ -58,7 +58,7 @@
       "work": "hissu1-kensetsu-dx",
       "account": "youtube:main",
       "format": "longform",
-      "status": "rendered",
+      "status": "scheduled",
       "media": {
         "cover": "pe-construction/hissu1-kensetsu-dx/youtube.longform/cover",
         "scene-001": "pe-construction/hissu1-kensetsu-dx/youtube.longform/scene-001",
@@ -88,7 +88,42 @@
         "contentSha256": "71890b9d44826fb9c611d8b3c48ad6871e3b276b153a15821070452eae90a647"
       },
       "times": {
-        "rendered": "2026-11-05T01:07:46.674Z"
+        "rendered": "2026-11-05T01:07:46.674Z",
+        "uploaded": "2026-11-05T01:13:05.629Z",
+        "scheduled": "2026-11-05T01:13:13.559Z"
+      },
+      "delivery": {
+        "inputSha256": "5928cbc016c3676f3ac7089e38916a055ebe2e8580339a158ded8ce4d12d56a4",
+        "marker": "dn-single-a640fe8dcf6a8a52888811bd7c95f448668a19bb",
+        "uploadRequestedAt": "2026-11-05T01:12:22.490Z",
+        "videoId": "SvV8zXamMvo",
+        "processedAt": "2026-11-05T01:13:04.964Z",
+        "thumbnailRequestedAt": "2026-11-05T01:13:05.654Z",
+        "thumbnailUrls": [
+          "https://i9.ytimg.com/vi/SvV8zXamMvo/default.jpg?sqp=COiur9cG&rs=AOn4CLD5FKOtUGJ8bJ8v-L8EXeQd1AGJVg",
+          "https://i9.ytimg.com/vi/SvV8zXamMvo/mqdefault.jpg?sqp=COiur9cG&rs=AOn4CLCumti6kY3g3NMELHItvd_ju5QJlg",
+          "https://i9.ytimg.com/vi/SvV8zXamMvo/hqdefault.jpg?sqp=COiur9cG&rs=AOn4CLAS2V62lXrB7em7P0Q43mTNFz2K5g",
+          "https://i9.ytimg.com/vi/SvV8zXamMvo/sddefault.jpg?sqp=COiur9cG&rs=AOn4CLA8bZbO8dKvOojUnM7uCXhRsE1x5Q",
+          "https://i9.ytimg.com/vi/SvV8zXamMvo/maxresdefault.jpg?sqp=COiur9cG&rs=AOn4CLBPBPt1JxgS67d_SkhU22x1XbSsfg",
+          "https://i9.ytimg.com/vi/SvV8zXamMvo/fhddefault.jpg?sqp=COiur9cG&rs=AOn4CLAPu3-A2TGNHbyX_Xub-3_7EJesFg"
+        ],
+        "thumbnailAcceptedAt": "2026-11-05T01:13:09.228Z",
+        "scheduleRequestedAt": "2026-11-05T01:13:10.292Z",
+        "scheduleAt": "2026-11-11T11:30:00Z",
+        "scheduledVerifiedAt": "2026-11-05T01:13:13.559Z"
+      },
+      "platform": {
+        "id": "SvV8zXamMvo",
+        "url": "https://www.youtube.com/watch?v=SvV8zXamMvo",
+        "privacy": "private",
+        "evidence": {
+          "kind": "publisher-live-check",
+          "ref": "content/sns/video-packs/pe-construction/hissu1-kensetsu-dx/youtube.json#longform"
+        }
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-11-05T01:13:09.228Z"
       }
     },
     {
