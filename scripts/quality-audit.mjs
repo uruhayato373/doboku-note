@@ -167,10 +167,12 @@ export const CHECKS = [
   { id: 'orphan-figures', npm: 'check-orphan-figures', timeout: 90_000, ci: true },
   { id: 'backlog-schema', npm: 'check-backlog-schema', timeout: 30_000, ci: true, note: 'backlog タグ行の語彙・[検証:]の実在・パーサ契約（admin と sweep が同じカードを見ているか）' },
   // SNS（X・Instagram・YouTube）と動画パック・コンテンツ台帳の検査は、SNS の保留に合わせて 2026-10-25 に CI から外した
-  //（video-content・content-registry・registry-due・instagram-reels・youtube-shorts・video-publication・x-length・x-utm・
+  //（video-content・content-registry・registry-due・instagram-reels・video-publication・x-length・x-utm・
   // x-campaign-plan・x-review・x-card-render・x-posted-live・youtube-cover-handoff・sns-landing-cta）。スクリプトは手元の道具として残す。
   // SNS を再開するときに必要なものを作り直す（運営者の判断）。
   // 2026-10-31: 予約済み動画の商品・無料記事への導線漏れを実際に起こしたため、この1ゲートだけ復帰。
+  // 2026-11-06: YouTube の再開と全面画像の標準化に合わせて復帰
+  { id: 'youtube-shorts', npm: 'check-youtube-shorts', timeout: 60_000, ci: true, note: 'ショートの本数・タイトル・UTM・公開枠、停止以外の表紙が全面生成の標準か、採用画像の描画と画面確認が今の動画に結ばれているか' },
   { id: 'youtube-funnels', npm: 'check-youtube-funnels', timeout: 60_000, ci: true, note: '公開・予約・private 通常動画の有料note商品・UTM・関連サイト経路と公開台帳の一致を全件確認する' },
   { id: 'instagram-profile-funnel', npm: 'check-instagram-profile-funnel', timeout: 30_000, ci: true, note: 'Instagram bio の着地・UTMと固定投稿3本の原稿・画像SHA・Drive保存を検査する' },
 

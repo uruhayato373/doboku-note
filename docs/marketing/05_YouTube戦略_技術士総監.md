@@ -127,7 +127,7 @@ YouTube は**検索面（総監系クエリ）の占有**という、IG（Explor
 
 ### 16:9 拡張（Tier 2 の前提作業）
 
-`render-longform` が1920×1080、`render-video-pack-shorts.mjs` が1080×1920を生成する。縦横レンダー基盤は実装済み。
+`render-longform` が1920×1080、`shorts-factory` が1080×1920を生成する。縦横レンダー基盤は実装済み。
 
 ### Generator/Evaluator 分業の拡張方針
 
