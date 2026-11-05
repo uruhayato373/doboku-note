@@ -1,0 +1,46 @@
+<!-- authored 2026-11-05 doboku-note 自作。論点は高速自動車国道法第3条・第4条・第5条・第7条の決定の順序。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="高速自動車国道が決まる順序の流れ図。1 予定路線を国土交通大臣が内閣の議を経て定める、2 予定路線のうちから政令で路線を指定する、3 指定された路線の新設について整備計画を定める、4 整備計画の決定後に区域を決めて公示する。整備計画では関係都道府県の意見を聴く。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 12px; fill: #222; }  /* ink-strong */
+      .h { font-size: 11px; fill: #8a8a8a; }  /* ink-muted */
+      .s { font-size: 11px; fill: #555; }  /* ink-body */
+      .n { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .b { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .c { text-anchor: middle; }
+      .tag { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }  /* surface */
+      .brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }  /* brand-fill / brand */
+      .warn { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }  /* warn-fill / warn */
+      .pos { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }  /* positive-fill / positive */
+      .ln { stroke: #2e6da4; stroke-width: 1.5; fill: none; }
+    </style>
+    <marker id="arrow" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0,0 8,3 0,6" fill="#2e6da4"/>
+    </marker>
+  </defs>
+  <rect class="brand" x="10" y="10" width="380" height="86" rx="8"/>
+  <text class="n" x="22" y="32">1　予定路線</text>
+  <text x="22" y="52">国土交通大臣が、内閣の議を経て定める</text>
+  <text class="s" x="22" y="70">国土開発幹線自動車道の予定路線は建設法の別表</text>
+  <text class="h" x="22" y="87">高速自動車国道法 第3条</text>
+  <line class="ln" x1="200" y1="98" x2="200" y2="118" marker-end="url(#arrow)"/>
+  <rect class="brand" x="10" y="120" width="380" height="86" rx="8"/>
+  <text class="n" x="22" y="142">2　路線の指定</text>
+  <text x="22" y="162">予定路線のうちから、政令で路線を指定する</text>
+  <text class="h" x="22" y="197">高速自動車国道法 第4条</text>
+  <line class="ln" x1="200" y1="208" x2="200" y2="228" marker-end="url(#arrow)"/>
+  <rect class="warn" x="10" y="230" width="380" height="86" rx="8"/>
+  <text class="n" x="22" y="252">3　整備計画</text>
+  <text x="22" y="272">指定された路線の新設について、国土交通大臣が定める</text>
+  <text class="s" x="22" y="290">聴く相手は関係都道府県（指定都市の区域内は指定都市）</text>
+  <text class="h" x="22" y="307">高速自動車国道法 第5条</text>
+  <line class="ln" x1="200" y1="318" x2="200" y2="338" marker-end="url(#arrow)"/>
+  <rect class="brand" x="10" y="340" width="380" height="86" rx="8"/>
+  <text class="n" x="22" y="362">4　区域の決定</text>
+  <text x="22" y="382">整備計画の決定後、遅滞なく区域を決めて公示する</text>
+  <text class="s" x="22" y="400">図面を縦覧に供する</text>
+  <text class="h" x="22" y="417">高速自動車国道法 第7条</text>
+  <rect class="tag" x="10" y="438" width="380" height="52" rx="8"/>
+  <text class="b" x="22" y="459">指定都市以外の市は、県を通じた調整と</text>
+  <text class="b" x="22" y="479">事業段階の地元説明で、意見を届ける</text>
+</svg>

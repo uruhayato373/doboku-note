@@ -893,6 +893,15 @@
       "reason": "黄色い角板が鋼製の2本支柱にボルト留めされ、基礎足元も成り立つ。絵は落石と流水を描いた赤枠の三角ピクトグラムで、読める文字や偽の銘板は無い。背後に岩の渓流と、水が越流するコンクリート砂防堰堤があり、道路脇のガードレールとも矛盾しない。日本の標準的な警戒標識（菱形）とは形が違うが、本文は区域を説明する雰囲気写真で、特定の標識種別は述べていない。誤解を招く崩れは無い。",
       "reviewedAt": "2026-10-09T10:53:26.823Z"
     },
+    "civil-practice/road-structure-standards/img/photo-single-lane-passing-place": {
+      "sha": "a326e2aab32e67cb",
+      "promptSha": "712c92d16feab678",
+      "tool": "Codex（gpt-6-astra）",
+      "generatedAt": "2026-11-05T04:44:25.877Z",
+      "verdict": "ok",
+      "reason": "種別: センターラインの無い山間部の舗装1車線道路で、本文と一致する。構造: 右の外側線の張り出しで待避所として幅が広がる形が成り立つ。本文と矛盾なし。破綻: 文字・標識・車両・人物なし。",
+      "reviewedAt": "2026-11-05T04:45:51.362Z"
+    },
     "civil-practice/safety-patrol-corrective-action/img/photo-patrol-instruments-workbench": {
       "sha": "4bc232c69cb21435",
       "promptSha": "eaa8f12059b37510",
