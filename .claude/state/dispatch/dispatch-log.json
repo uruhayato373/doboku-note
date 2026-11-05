@@ -6736,6 +6736,19 @@
       "commit": "a958c4d83b5d",
       "verification": null,
       "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-0964",
+      "at": "2026-11-05",
+      "task": "コンクリート技士の note 商品を主任技士の棚に合わせて展開する",
+      "tier": "mid",
+      "kind": "制作",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "0b40b5c75559",
+      "verification": null,
+      "note": "todo-complete.mjs 経由で完了処理"
     }
   ]
 }
