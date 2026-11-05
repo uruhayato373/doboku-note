@@ -87,7 +87,7 @@
           "path": ".tmp/media/pe-construction/sentaku-environment-yomikata/work/factory/raw-cover.fffb4163.png",
           "sha256": "fffb41636c92a7aae6ea66dbe79ab7ae9507f8462c56ba6c0ea4291f6c8c56d3"
         },
-        "generatedAt": "2026-11-05T21:18:42.477Z"
+        "generatedAt": "2026-11-05T21:36:14.343Z"
       },
       "copy": {
         "exam": "pe-construction",
@@ -109,7 +109,7 @@
       },
       "review": {
         "status": "ai-reviewed",
-        "checkedAt": "2026-11-05T21:18:42.477Z",
+        "checkedAt": "2026-11-05T21:36:14.343Z",
         "by": "ai-image-fidelity-auditor",
         "reason": "『建設環境』『テーマの読み方』『総監が制作』を1字ずつ照合し誤字・余計な文字なし。キャラは眼鏡・ひげ・白ヘルメット・紺作業服・反射帯で、顔と文字は安全域内、下端は背景のみ",
         "userImageReview": "pending"
@@ -140,7 +140,7 @@
               "path": ".tmp/media/pe-construction/sentaku-environment-yomikata/work/factory/raw-premise.6c0e0cfc.png",
               "sha256": "6c0e0cfc5f72c007f106e91c9eefc0adfce708500fe76476aa98b5be790ad5c0"
             },
-            "generatedAt": "2026-11-05T21:18:42.477Z"
+            "generatedAt": "2026-11-05T21:36:14.343Z"
           },
           "output": {
             "path": ".tmp/media/pe-construction/sentaku-environment-yomikata/work/premise-diagram.6c0e0cfc.png",
@@ -154,7 +154,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-05T21:18:42.477Z",
+            "checkedAt": "2026-11-05T21:36:14.343Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "見出しと2つの図内文字（II-2に環境影響評価の設問：8年中8年／R01 法・条例／R02〜R07 II-2-1／R08 II-2-2）が指示と一致。年表の目盛は8本で8年と整合し、破綻なし",
             "userReview": "pending",
@@ -177,7 +177,7 @@
               "path": ".tmp/media/pe-construction/sentaku-environment-yomikata/work/factory/raw-axis.14bae967.png",
               "sha256": "14bae967722f50fcd56e613cc1c01ef93466143ee072bd74ee4d5c602ec6bb73"
             },
-            "generatedAt": "2026-11-05T21:18:42.477Z"
+            "generatedAt": "2026-11-05T21:36:14.343Z"
           },
           "output": {
             "path": ".tmp/media/pe-construction/sentaku-environment-yomikata/work/axis-diagram.14bae967.png",
@@ -191,7 +191,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-05T21:18:42.477Z",
+            "checkedAt": "2026-11-05T21:36:14.343Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "見出しと3つの図内文字が指示と一字一致。丸は6個＋矢印＋1個で6年連続とR08移動に整合し、流れ図も指示どおり。見出しの左右余白がやや狭い(約3%)が内容の誤りはない",
             "userReview": "pending",
@@ -214,7 +214,7 @@
               "path": ".tmp/media/pe-construction/sentaku-environment-yomikata/work/factory/raw-policy1.5fc3a7da.png",
               "sha256": "5fc3a7dab6dbecabdf7464778c04acf8ccb907d8f9a10998071553492d2efba6"
             },
-            "generatedAt": "2026-11-05T21:18:42.477Z"
+            "generatedAt": "2026-11-05T21:36:14.343Z"
           },
           "output": {
             "path": ".tmp/media/pe-construction/sentaku-environment-yomikata/work/policy1-diagram.1c359ad3.png",
@@ -228,7 +228,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-05T21:18:42.477Z",
+            "checkedAt": "2026-11-05T21:36:14.343Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "見出し・3つの図中文字が指示と一字一句一致し崩れなし。生態系の図解で破綻なく、下端は無地で安全域内に収まる",
             "userReview": "pending",
@@ -251,7 +251,7 @@
               "path": ".tmp/media/pe-construction/sentaku-environment-yomikata/work/factory/raw-policy2.73936358.png",
               "sha256": "7393635801f081a5cbca6c14b95062aa3e224bf17c4b9133150bf0025a3c3e3c"
             },
-            "generatedAt": "2026-11-05T21:18:42.477Z"
+            "generatedAt": "2026-11-05T21:36:14.343Z"
           },
           "output": {
             "path": ".tmp/media/pe-construction/sentaku-environment-yomikata/work/policy2-diagram.ca46ebaf.png",
@@ -265,7 +265,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-05T21:18:42.477Z",
+            "checkedAt": "2026-11-05T21:36:14.343Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "見出しと4つの図内文字が指示と一字一致。太陽光・風車・蓄電・植物・港湾の5アイコンは年度数・内容と矛盾せず、文字の崩れなし",
             "userReview": "pending",
@@ -288,7 +288,7 @@
               "path": ".tmp/media/pe-construction/sentaku-environment-yomikata/work/factory/raw-priority.1f2cb8fa.png",
               "sha256": "1f2cb8fac312db95a6cf170764694c5e509436e70d70c984ec0f1c3a692782e7"
             },
-            "generatedAt": "2026-11-05T21:18:42.477Z"
+            "generatedAt": "2026-11-05T21:36:14.343Z"
           },
           "output": {
             "path": ".tmp/media/pe-construction/sentaku-environment-yomikata/work/priority-diagram.1f2cb8fa.png",
@@ -302,7 +302,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-05T21:18:42.477Z",
+            "checkedAt": "2026-11-05T21:36:14.343Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "見出しと①〜④の4行（環境影響評価：8年／IIIの自然・生態系：6年度／II-1の再エネ：5年度／建設リサイクル：4年度）が指示と一致し、棒の長さも件数順で整合",
             "userReview": "pending",
@@ -325,7 +325,7 @@
               "path": ".tmp/media/pe-construction/sentaku-environment-yomikata/work/factory/raw-summary.333f78ff.png",
               "sha256": "333f78ffca9e0be3927f73f43b08cfeaa5da039ca33d119a85bcd7291cd3a746"
             },
-            "generatedAt": "2026-11-05T21:18:42.477Z"
+            "generatedAt": "2026-11-05T21:36:14.343Z"
           },
           "output": {
             "path": ".tmp/media/pe-construction/sentaku-environment-yomikata/work/summary-diagram.167e6a64.png",
@@ -339,7 +339,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-05T21:18:42.477Z",
+            "checkedAt": "2026-11-05T21:36:14.343Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "『まとめ』と3つの図内文字が指示と一字一致。山川・太陽光・リサイクルのアイコンと表のチェックは内容に合い、崩れなし",
             "userReview": "pending",
@@ -362,7 +362,7 @@
               "path": ".tmp/media/pe-construction/sentaku-environment-yomikata/work/factory/raw-cta.f2a304cf.png",
               "sha256": "f2a304cfe70acfa1aa2aa996e77c3f7c4df711c3629fe45b63e1c215a327b9cb"
             },
-            "generatedAt": "2026-11-05T21:18:42.477Z"
+            "generatedAt": "2026-11-05T21:36:14.343Z"
           },
           "output": {
             "path": ".tmp/media/pe-construction/sentaku-environment-yomikata/work/cta-diagram.f2a304cf.png",
@@ -376,7 +376,7 @@
           },
           "review": {
             "status": "ai-reviewed",
-            "checkedAt": "2026-11-05T21:18:42.477Z",
+            "checkedAt": "2026-11-05T21:36:14.343Z",
             "by": "ai-image-fidelity-auditor",
             "reason": "見出し『続きは建設環境マガジンで』と2つの注記が指示と一字一致。本と画面の図は内容に合い、余計な文言・価格・URLなし",
             "userReview": "pending",
