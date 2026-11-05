@@ -1,0 +1,597 @@
+{
+  "schemaVersion": 1,
+  "_doc": "事業イシューマップの正本（DN-0993）。画面は管理画面 /strategy/issues、検査は npm run check-issue-map、更新の手順は weekly-review・monthly-review の SKILL.md。判定日と進み具合は backlog の DN、現在値は config/business-direction.json の指標 ID で参照し、ここへ日付・値を写さない（DN の無い判定だけ window に時期を書く）。evidence・facts の数字は asOf 時点の観測。state は実測なしに変えない。履歴は git に任せる。",
+  "proposedMetrics": [
+    {
+      "id": "coconalaReviews",
+      "label": "ココナラ評価件数",
+      "stage": "販売",
+      "unit": "件",
+      "channel": "coconala",
+      "definition": "期間末時点の自社の評価件数（ストック）。競合の評価数と同じ取り方で比べる。",
+      "why": "H1 は評価の数が買われる決め手という仮説で、今の指標は閲覧・相談・購入までしか測っていない。",
+      "dn": "DN-0995"
+    },
+    {
+      "id": "netReceiptsPerHour",
+      "label": "資格別の時間あたり受取",
+      "stage": "運営",
+      "unit": "円",
+      "channel": "operations",
+      "definition": "資格別の netReceipts ÷ 資格別の workMinutes × 60。workMinutes を資格別に記録する必要がある。",
+      "why": "主イシューの判定に使う数字そのもの。workMinutes は全体の合計しか定義がなく、資格別に比べられない。",
+      "dn": "DN-0995"
+    }
+  ],
+  "maps": [
+    {
+      "id": "overall",
+      "label": "全体",
+      "title": "doboku-note イシューマップ",
+      "asOf": "2026-11-05",
+      "question": "月 ¥10 万を年間を通して超えるために、限られた作業時間を、どの資格のどの時期に張るか。",
+      "stance": "全資格に広げて谷を埋めるより、技術士の筆記期（山）を太くし、谷は技術士の周辺（口頭・一次・再受験）と既存のパックの型で埋めるほうが、時間あたりの受取が大きい。ただしこれは 11-04 の方針 4「展開中の資格は展開できる商品をすべて展開する」とぶつかり、どちらが正しいかは作業時間を測るまで決められない。",
+      "criteria": ["答えで制作の順番が変わる", "受取 ÷ 作業時間で数字にできる", "時間の記録を始めれば数か月で答えが出る"],
+      "branches": [
+        {
+          "id": "0",
+          "tag": "0 前提",
+          "title": "白黒をつけられる状態か",
+          "lead": "「時間をどこに張るか」の問いなので、時間が測れないと答えが出ない",
+          "premise": true,
+          "leaves": [
+            {
+              "id": "0-1",
+              "question": "受取額を月ごとに測れているか",
+              "state": "seen",
+              "focusMonth": "2026-11",
+              "evidence": "8 月分から月次で記録。10 月は note が確定前の推計。販売明細と商品の分類の結びつきは完了（全件帰属）。",
+              "next": "確定した月の受取で ¥10 万との差を判定する",
+              "metrics": [{ "id": "netReceipts" }]
+            },
+            {
+              "id": "0-2",
+              "question": "作業時間と費用を測れているか",
+              "state": "unknown",
+              "evidence": "未計測。時間あたりの受取が出せず、「どの資格に張るか」も「全部展開か絞るか」も比べられない。",
+              "next": "記録の方法を決めて付け始める",
+              "dns": ["DN-0368"],
+              "metrics": [{ "id": "workMinutes" }, { "id": "costYen" }],
+              "proposedMetrics": ["netReceiptsPerHour"]
+            },
+            {
+              "id": "0-3",
+              "question": "note の閲覧数を信じられるか",
+              "state": "open",
+              "focusMonth": "2026-11",
+              "evidence": "9 月の 13,473 PV のうち参照元なしが 9,996。記事別の分布が平らで、機械の閲覧が大半の疑い。実の閲覧は 3,500 前後かもしれない。",
+              "next": "参照元なしの正体を数え、閲覧の指標を決める",
+              "dns": ["DN-0958"],
+              "metrics": [{ "id": "notePv" }, { "id": "noteImpressions" }]
+            }
+          ]
+        },
+        {
+          "id": "A",
+          "tag": "A 山を太くする",
+          "title": "技術士の筆記期（5〜7 月）",
+          "lead": "6〜7 月で note 販売額の 64%、技術士で受取の約 8 割",
+          "leaves": [
+            {
+              "id": "A1",
+              "question": "R9 の予想問題・パックを 4 月末までにそろえられるか",
+              "state": "open",
+              "evidence": "R9 の商品は 0 本（予定どおり）。制作は 2〜4 月。範囲に未決の点がある。",
+              "next": "制作計画を立てる",
+              "dns": ["DN-0932"],
+              "metrics": [{ "id": "noteRevenue", "qualification": "pe-comprehensive-management" }, { "id": "noteRevenue", "qualification": "pe-construction" }]
+            },
+            {
+              "id": "A2",
+              "question": "note の中で見つかるか",
+              "state": "seen",
+              "evidence": "7 月の note 閲覧 13,557 のうち、note 内 5,147・note への検索 4,785 で約 7 割。サイトからは 10 月でも 286。技術士の集客はサイトの SEO より note 記事の見つかりやすさ。",
+              "next": "売れ筋の題名・冒頭・タグ・もくじを整える",
+              "dns": ["DN-0960"],
+              "metrics": [{ "id": "notePv" }, { "id": "noteImpressions" }]
+            },
+            {
+              "id": "A3",
+              "question": "パックの単価を上げられるか",
+              "state": "open",
+              "evidence": "¥5,001 以上の商品は件数 7% で金額 27%。上位 3 商品は ¥7,000 以上のパック。競合 note の中央値は ¥10,450 から ¥15,140 に上がった。",
+              "next": "売れているパック 1 本で値上げを試す",
+              "dns": ["DN-0945"],
+              "metrics": [{ "id": "noteRevenue" }, { "id": "noteSales" }],
+              "competitors": ["courses:gachinko-construction", "courses:agaroot-pe"]
+            }
+          ]
+        },
+        {
+          "id": "B",
+          "tag": "B 谷を埋める",
+          "title": "8〜4 月",
+          "lead": "8 月 ¥7.4 万・10 月 ¥6.4 万で、土木二次では埋まっていない",
+          "leaves": [
+            {
+              "id": "B1",
+              "question": "技術士の口頭（11〜1 月）は売れるか",
+              "state": "open",
+              "focusMonth": "2026-11",
+              "evidence": "11/4 に無料 note と口頭の教材を公開。教材は 3 本（単品・マガジン）だけで、ココナラの想定問答は休止中。",
+              "next": "11〜1 月の販売を見る。ココナラを再開するかを決める",
+              "dns": ["DN-0955"],
+              "metrics": [{ "id": "noteSales", "qualification": "pe-comprehensive-management" }, { "id": "noteSales", "qualification": "pe-construction" }, { "id": "coconalaInquiries" }]
+            },
+            {
+              "id": "B2",
+              "question": "土木二次はなぜ市場の割に小さいか",
+              "state": "seen",
+              "evidence": "受験者 1 人あたりの売上は建設部門と 1 級土木で 1 桁違う（同じ式の値は施工管理のマップ）。2 級は 10 月に 417 クリックで 11 件、1 級は 9 月に 131 クリックで 20 件。2 級は押されるが買われない。",
+              "next": "原因を切り分けて来季の打ち手を決める",
+              "dns": ["DN-0343", "DN-0992"],
+              "metrics": [{ "id": "noteRevenue", "qualification": "civil-construction-1" }, { "id": "noteCtaClicks", "qualification": "civil-construction-1" }],
+              "competitors": ["coconala:2442601"],
+              "map": "construction"
+            },
+            {
+              "id": "B3",
+              "question": "一次・再受験・主任技士で埋まるか",
+              "state": "open",
+              "focusMonth": "2026-11",
+              "evidence": "主任技士は累計 ¥19,380。建設部門の再受験は無料記事だけ。土木一次は公開が今年の山の後で、0 件は不振ではなく未検証。",
+              "next": "再受験と土木一次の教材を出して販売を見る",
+              "dns": ["DN-0956", "DN-0957"],
+              "metrics": [{ "id": "noteSales" }, { "id": "noteCtaClicks" }]
+            },
+            {
+              "id": "B4",
+              "question": "新しく展開する資格は時間に見合うか",
+              "state": "open",
+              "evidence": "RCCM・診断士は売上に出ていない（RCCM は 10 月のクリック 31・CTR 17.6% で販売 0）。11-04 に舗装・測量士・上下水道・建築・管工事も含めて全部展開と決めた。",
+              "next": "時間の実測（0-2）が出たら、資格ごとの時間あたり受取で並べ直す",
+              "dns": ["DN-0944", "DN-0962", "DN-0963"],
+              "metrics": [{ "id": "noteRevenue", "qualification": "rccm" }, { "id": "workMinutes" }],
+              "proposedMetrics": ["netReceiptsPerHour"]
+            },
+            {
+              "id": "B5",
+              "question": "答案の痛みを別の資格へ広げるのか、試験の後へ伸ばすのか",
+              "state": "open",
+              "evidence": "売っているのは試験の知識ではなく、自力では書けない答案を仕上げることという仮説。口頭・再受験は未検証。",
+              "next": "パックを作る前に、購入者へ合格後・不合格後に何に困ったかを聞く",
+              "dns": ["DN-0989"],
+              "metrics": [{ "id": "noteSales" }]
+            }
+          ]
+        },
+        {
+          "id": "C",
+          "tag": "C 売り場",
+          "title": "どのチャネルに手をかけるか",
+          "lead": "note が本店、KDP が発見の場、ココナラが人手のサービス",
+          "leaves": [
+            {
+              "id": "C1",
+              "question": "note（受取の約 93%）",
+              "state": "seen",
+              "evidence": "1 件の手取りはパック 約 ¥6,700・マガジン 約 ¥2,500・単品 約 ¥760。売り場に出ていて販売 0 の有料商品が 66 本（目標 40 本）。",
+              "metrics": [{ "id": "noteRevenue" }, { "id": "noteSales" }]
+            },
+            {
+              "id": "C2",
+              "question": "KDP は note を食っていないか",
+              "state": "open",
+              "evidence": "月 ¥6,000〜10,000。80 冊で 1 冊あたり月 約 ¥100。新刊は作らず既刊を保つ方針。note の同じ商品との食い合いは確かめていない。",
+              "metrics": [{ "id": "kdpRoyalty" }]
+            },
+            {
+              "id": "C3",
+              "question": "ココナラで評価を集められるか",
+              "state": "open",
+              "evidence": "評価 4 件。直近 30 日は閲覧 781・受注 0。入口の添削 ¥2,000〜3,000 で評価 5 件を 2027-03 までに集める打ち手を承認済み。",
+              "metrics": [{ "id": "coconalaViews" }, { "id": "coconalaInquiries" }, { "id": "coconalaOrders" }, { "id": "coconalaRevenue" }],
+              "proposedMetrics": ["coconalaReviews"],
+              "competitors": ["coconala:2442601"]
+            }
+          ]
+        },
+        {
+          "id": "D",
+          "tag": "D 読者を残す",
+          "title": "山の読者を翌年へ持ち越せるか",
+          "lead": "検索に頼らない届け先",
+          "leaves": [
+            {
+              "id": "D1",
+              "question": "試験後の読者が翌年に戻るか",
+              "state": "open",
+              "focusMonth": "2026-11",
+              "evidence": "2 級 R8 解答例の読者 6,265 人に対し note の CTR 0.3%。Google のクリックの 66% がこの 1 ページ。メール登録の場所はまだ無い。",
+              "next": "結果別の次の行き先と、メール登録を置く",
+              "dns": ["DN-0959", "DN-0632"],
+              "metrics": [{ "id": "noteCtaClicks" }, { "id": "gscClicks" }, { "id": "youtubeUsers" }]
+            }
+          ]
+        }
+      ],
+      "calendar": {
+        "columns": [
+          { "id": "feb-apr", "label": "2〜4 月", "sub": "制作期。土木一次の準備" },
+          { "id": "may-jul", "label": "5〜7 月", "sub": "技術士の筆記・土木一次・舗装・測量士・診断士" },
+          { "id": "aug-oct", "label": "8〜10 月", "sub": "1 級二次（9 月）・2 級二次（10 月）・RCCM" },
+          { "id": "nov-jan", "label": "11〜1 月", "sub": "技術士の口頭・一次・主任技士" }
+        ],
+        "rows": [
+          {
+            "id": "pe-cem",
+            "qualifications": ["pe-comprehensive-management"],
+            "cells": [
+              { "mark": "prep", "head": "制作", "text": "R9 の予想問題・パック", "dns": ["DN-0932"] },
+              { "mark": "hot", "head": "◎ 主戦場", "text": "予想問題 → パック。受取の大半がここ" },
+              { "mark": "empty", "text": "買い場なし" },
+              { "mark": "open", "head": "？ 口頭", "text": "教材 3 本。再受験の単品は 7 月末に 2 件", "dns": ["DN-0955"] }
+            ]
+          },
+          {
+            "id": "pe-construction",
+            "qualifications": ["pe-construction"],
+            "cells": [
+              { "mark": "prep", "head": "制作", "text": "R9 の必須 I・選択科目のパック", "dns": ["DN-0932"] },
+              { "mark": "hot", "head": "◎ 主戦場", "text": "選択科目の模範解答・パック。買い手は note の中" },
+              { "mark": "empty", "text": "買い場なし" },
+              { "mark": "open", "head": "？ 口頭・再受験・一次", "text": "再受験は無料記事だけ。一次は過去問 PDF あり", "dns": ["DN-0956"] }
+            ]
+          },
+          {
+            "id": "civil-1",
+            "qualifications": ["civil-construction-1"],
+            "cells": [
+              { "mark": "prep", "head": "準備", "text": "一次の過去問に R8 を足す", "dns": ["DN-0957"] },
+              { "mark": "open", "head": "？ 一次", "text": "公開が今年の山の後。0 件は不振ではなく未検証" },
+              { "mark": "ok", "head": "○ 二次", "text": "9 月に 131 クリックで 20 件。少ないクリックで売れる" },
+              { "mark": "empty", "text": "買い場なし" }
+            ]
+          },
+          {
+            "id": "civil-2",
+            "qualifications": ["civil-construction-2"],
+            "cells": [
+              { "mark": "prep", "head": "準備", "text": "前期一次の過去問", "dns": ["DN-0957"] },
+              { "mark": "open", "head": "？ 前期一次", "text": "公開が山の後で未検証" },
+              { "mark": "weak", "head": "△ 二次", "text": "10 月に 417 クリックで 11 件。サイトの送客の 56% がここ", "dns": ["DN-0343"] },
+              { "mark": "open", "head": "？ 持ち越し", "text": "試験後の読者 6,265 人・note CTR 0.3%", "dns": ["DN-0959"] }
+            ]
+          },
+          {
+            "id": "concrete",
+            "qualifications": ["concrete-chief-engineer", "concrete-engineer"],
+            "cells": [
+              { "mark": "empty" },
+              { "mark": "empty" },
+              { "mark": "empty" },
+              { "mark": "ok", "head": "○ 主任技士", "text": "小論文の添削は競合がほぼいない。技士はパックなし" }
+            ]
+          },
+          {
+            "id": "rccm-diagnostician",
+            "qualifications": ["rccm", "concrete-diagnostician"],
+            "sub": "売上に出ていない",
+            "cells": [
+              { "mark": "empty" },
+              { "mark": "zero", "head": "✕ 診断士", "text": "売上に出ていない", "dns": ["DN-0329"] },
+              { "mark": "zero", "head": "✕ RCCM", "text": "10 月のクリック 31・CTR 17.6% で販売 0", "dns": ["DN-0944"] },
+              { "mark": "empty" }
+            ]
+          },
+          {
+            "id": "new",
+            "label": "新しく展開する資格",
+            "sub": "舗装・測量士・上下水道・建築・管工事（11-04 に全部展開と決定）",
+            "cells": [
+              { "mark": "prep", "head": "制作", "text": "舗装・測量士のパックと R8 の反映", "dns": ["DN-0962", "DN-0963"] },
+              { "mark": "open", "head": "？ 舗装・測量士", "text": "少数または販売 0、パックなし。時間あたりの受取は測れていない" },
+              { "mark": "empty", "text": "上下水道・建築・管工事は試験日ごとに配置が要る" },
+              { "mark": "empty" }
+            ]
+          }
+        ],
+        "notes": [
+          "2〜4 月の列は売上ではなく制作の予定（1〜4 月は記録が無い）。",
+          "◎ が 5〜7 月の技術士 2 マスに集まり、11〜1 月と 8〜10 月は未検証と △ が多い。一番下の行は、売上も時間も測れていないまま作業だけが入る予定になっている。"
+        ]
+      },
+      "judgments": [
+        { "issues": ["B1"], "dns": ["DN-0955"], "picture": "口頭の想定問答をココナラで再開するかの判断" },
+        { "issues": ["0-1"], "window": "2026-11", "metrics": [{ "id": "netReceipts" }], "picture": "確定した月の受取と ¥10 万の差" },
+        { "issues": ["0-2"], "dns": ["DN-0368"], "picture": "作業時間の記録の開始。以後は資格別の時間あたり受取の表" },
+        { "issues": ["0-3"], "dns": ["DN-0958"], "picture": "note の閲覧のうち人の閲覧の割合" },
+        { "issues": ["B1", "B3", "D1"], "dns": ["DN-0956", "DN-0959"], "picture": "口頭・再受験の販売件数、試験後の読者の次の行き先へのクリック" },
+        { "issues": ["B2"], "dns": ["DN-0343"], "picture": "2 級のクリックから購入までの、どこで落ちるかの分解" },
+        { "issues": ["A1"], "dns": ["DN-0932"], "picture": "R9 の制作範囲と日程の表" },
+        { "issues": ["A3"], "dns": ["DN-0945"], "picture": "値上げしたパック 1 本の販売件数の前後比較" },
+        { "issues": ["A1", "A2", "A3"], "window": "2027-05..2027-07", "metrics": [{ "id": "noteRevenue" }], "picture": "R9 の山の受取を前年同期と比べる" }
+      ],
+      "storyline": [
+        {
+          "title": "月 ¥10 万は、山の月にしか届いていない",
+          "lead": "目標の月 ¥10 万（手数料控除後・全チャネル）を超えたのは 6・7・9 月だけ。受取は技術士の筆記期に集まり、8〜10 月は目標を下回る月がある。作業は運営者 1 人の時間が上限なのに、その時間は記録していない。",
+          "facts": [
+            { "label": "6〜7 月の note 販売額の割合", "value": "64%" },
+            { "label": "受取に占める note", "value": "約 93%" },
+            { "label": "技術士（総監・建設部門）", "value": "約 8 割" },
+            { "label": "作業時間", "metric": "workMinutes" }
+          ]
+        },
+        {
+          "title": "限られた作業時間を、どの資格のどの時期に張るか",
+          "claim": "作業時間は「技術士の山」と「技術士の周辺の谷」に寄せ、ほかの資格の展開は時間あたりの受取で選ぶ。",
+          "subs": ["受取は技術士の筆記期で決まる", "技術士の山はまだ太くできる", "谷は技術士の周辺（口頭・一次・再受験）なら時間に見合い、土木二次や新しい資格は見合わない"]
+        },
+        {
+          "title": "サブイシューごとの検討",
+          "checks": [
+            {
+              "state": "seen",
+              "hypothesis": "受取は技術士の筆記期で決まる",
+              "evidence": "6〜7 月で note 販売額の 64%、総監・建設部門で約 8 割。",
+              "sketch": "資格で色分けした月の受取の積み上げ。資格 × 月の内訳はまだ並べていない。",
+              "judge": "6〜7 月の技術士が年間の受取の過半なら正しい。1〜4 月は記録が無いので、年間の形は来年の同じ時期まで確定しない。"
+            },
+            {
+              "state": "open",
+              "hypothesis": "技術士の山はまだ太くできる",
+              "evidence": "上位 3 商品は ¥7,000 以上のパックで、¥5,001 以上は件数 7%・金額 27%。競合 note の中央値は ¥10,450 → ¥15,140。技術士の閲覧の約 7 割は note の中と note への検索から来る。",
+              "sketch": "売れているパック 1 本の値上げ前後 4 週で受取を比べる。note の中の流入は前年同期と比べる。",
+              "judge": "値上げ後も受取が減らなければ正しい（DN-0945）。R9 の山を前年同期と比べて最終判定。"
+            },
+            {
+              "state": "unknown",
+              "hypothesis": "谷は技術士の周辺なら時間に見合い、土木二次や新しい資格は見合わない",
+              "evidence": "2 級二次は 10 月に 417 クリックで 11 件、RCCM は販売 0。口頭は 11/4 に公開したばかり。作業時間を測っていないので、時間あたりでは比べられない。",
+              "sketch": "資格ごとの「受取 ÷ 作業時間」の横棒。今は長さが分からない。時間単価の線を超える資格に時間を寄せる。",
+              "judge": "作業時間の記録（DN-0368）と、口頭・再受験の販売がそろった時点。"
+            }
+          ]
+        },
+        {
+          "title": "だから、最初の一手は作業時間を測ること",
+          "implications": [
+            "作業時間を付け、資格別の時間あたり受取を出す（3 の白黒の前提）",
+            "2〜4 月は R9 の予想問題・パックの制作と、パック 1 本の値上げに時間を使う（2）",
+            "11〜1 月の谷は口頭・再受験・一次だけで試し、判定日に続けるか止めるかを決める（3）",
+            "新しい資格の展開は、時間の実測が出た時点で時間あたり受取の順に並べ直す（3）"
+          ],
+          "forks": [
+            "3 が外れて技術士の周辺も時間に見合わなければ、谷は埋めずに山の制作へ時間を回す。",
+            "2 が外れて値上げで受取が減れば、単価ではなく note の中での見つかりやすさ（DN-0960）に寄せる。"
+          ]
+        }
+      ],
+      "notes": [
+        { "title": "作業時間の計測が最上位の前提", "body": "売上は取れていて、欠けているのは時間。主イシューが「時間をどこに張るか」なので、0-2 が答えの出る出ないを決める。" },
+        { "title": "11 月の重点は谷と計器に当たっている", "body": "口頭・一次・主任技士・持ち越し・閲覧の信頼性に重点がある。山（A）の準備は 12 月以降の予定で、時期としては合っている。B4（新しい資格）だけが判定の方法を持たない。" },
+        { "title": "集客の出どころと売上の出どころがずれている", "body": "技術士は note の中で売れ、サイトの送客は 2 級に向いている。サイトの SEO を伸ばしても、売上の中心には届きにくい形になっている。" }
+      ],
+      "asks": "運営者に決めてもらうこと：作業時間の記録の方法と時間単価（DN-0368）、方針 4（全部展開）を時間の実測でいつ見直すか。"
+    },
+    {
+      "id": "construction",
+      "label": "施工管理",
+      "title": "施工管理イシューマップ",
+      "asOf": "2026-11-05",
+      "parentIssue": "B2",
+      "question": "ココナラの大手が取っている施工管理の経験記述の市場を、取りに行く価値はあるか。行くなら、何を変えれば勝てるか。",
+      "stance": "施工管理の買い手が払うのは、模範解答の PDF ではなく「自分の工事を合格する文章にする人手」。その市場で勝つ前提は評価（信用）と、動画・リストからの動線で、doboku-note は今どちらも持っていない。正面から 1 シーズンでひっくり返すのは無理なので、評価を積みながら、技術士と元発注者の強みが効く 1 級二次で、定員を絞ったシーズン伴走を 1 回だけ試す。",
+      "criteria": ["答えで作るものが変わる（PDF か人手か）", "時間あたりの受取で数字にできる", "2027 年の 1 級二次で白黒がつく"],
+      "branches": [
+        {
+          "id": "W",
+          "tag": "誰に",
+          "title": "どの受験者を狙うか",
+          "leaves": [
+            {
+              "id": "W1",
+              "question": "2 級より 1 級を先に狙う",
+              "state": "seen",
+              "evidence": "1 級は 9 月に 131 クリックで 20 件、2 級は 10 月に 417 クリックで 11 件。1 級は監理技術者・経審に直結し、会社が費用を持つ需要がある。2 級は若手でスマホが多く、添削の相場は ¥5,000〜6,000。",
+              "metrics": [{ "id": "noteSales", "qualification": "civil-construction-1" }, { "id": "noteCtaClicks", "qualification": "civil-construction-1" }]
+            },
+            {
+              "id": "W2",
+              "question": "二次で一度落ちた人は、払う理由が強い",
+              "state": "open",
+              "evidence": "1 級二次は毎年 約 1.5 万人が不合格。経験記述が原因と分かっている人ほど人手に払う、という見立ては確かめていない。",
+              "metrics": [{ "id": "noteSales", "qualification": "civil-construction-1" }]
+            }
+          ]
+        },
+        {
+          "id": "X",
+          "tag": "何を",
+          "title": "何を売るか",
+          "leaves": [
+            {
+              "id": "X1",
+              "question": "PDF ではなく人手（添削・骨子づくり）に払われる",
+              "state": "seen",
+              "evidence": "経験記述は本人の工事でしか書けない。競合の売れ筋はすべて人手（ちゃんさとの添削 ¥12,000 がレビュー 320、セット作成代行 ¥32,000 が 174、セット添削 ¥24,000 が 162）。doboku の 1 級完全攻略パック ¥9,800 は当時実売 0。",
+              "metrics": [{ "id": "coconalaOrders", "qualification": "civil-construction-1" }, { "id": "noteSales", "qualification": "civil-construction-1" }],
+              "competitors": ["coconala:2442601", "coconala:1528311"]
+            },
+            {
+              "id": "X2",
+              "question": "月額ではなく、シーズン一括の伴走なら買われる",
+              "state": "open",
+              "evidence": "競合の大手は単発のセット添削で、伴走は少ない。doboku の月額の伴走（合格ラボ・添削つき ¥4,980／月）は 2026-09-30 に撤退。撤退は集客と信用が無い状態での結果で、伴走という形そのものが否定されたわけではない。",
+              "dns": ["DN-0992"],
+              "metrics": [{ "id": "coconalaRevenue", "qualification": "civil-construction-1" }],
+              "competitors": ["courses:agaroot-civil", "courses:gachinko-construction", "courses:cic"]
+            },
+            {
+              "id": "X3",
+              "question": "作成代行は売らず、「骨子から一緒に作る」までにする",
+              "state": "decided",
+              "evidence": "競合は代行で稼ぐが、doboku は「経験していない工事は創作しない。本人の工事をヒアリングして文章にするのは可」と線を引いている。信用を守るために、この線は動かさない。",
+              "competitors": ["coconala:2442601"]
+            }
+          ]
+        },
+        {
+          "id": "H",
+          "tag": "どう届けるか",
+          "title": "信用と動線",
+          "leaves": [
+            {
+              "id": "H1",
+              "question": "ココナラで買われる決め手は評価の数",
+              "state": "seen",
+              "evidence": "doboku の評価は 4 件、ちゃんさとは 824 件。直近 30 日は閲覧 781・受注 0。入口の添削（¥2,000〜3,000）で評価 5 件を 2027-03 までに集める打ち手は承認済み。",
+              "metrics": [{ "id": "coconalaViews", "qualification": "civil-construction-1" }, { "id": "coconalaOrders", "qualification": "civil-construction-1" }],
+              "proposedMetrics": ["coconalaReviews"],
+              "competitors": ["coconala:2442601"]
+            },
+            {
+              "id": "H2",
+              "question": "動画は「添削の見本」の長尺なら効く",
+              "state": "open",
+              "evidence": "競合で再生されるのは 15〜60 分の長尺（中央値 14,000〜21,000）と「聞き流し」「一問一答」。ちゃんさとの 2026 年の動画は 86% が販売先に触れる。doboku の動画は再生の中央値 4・尺 2.5 分で、サイトへの流入は 0。YouTube は 11-04 に再開。",
+              "metrics": [{ "id": "youtubeUsers" }]
+            },
+            {
+              "id": "H3",
+              "question": "検索の読者を、翌年の試験まで手元に残せていない",
+              "state": "seen",
+              "evidence": "ちゃんさとは公式 LINE（無料の穴埋めドリル）→ note → ココナラの順に送る。doboku はメール登録の場所が無く、2 級 R8 解答例の読者 6,265 人の note への CTR は 0.3%。X は フォロワー 100、SNS の新規展開は保留中。",
+              "dns": ["DN-0632", "DN-0959"],
+              "metrics": [{ "id": "noteCtaClicks" }, { "id": "gscClicks", "qualification": "civil-construction-1" }]
+            }
+          ]
+        },
+        {
+          "id": "E",
+          "tag": "なぜ勝てるか",
+          "title": "差別化",
+          "leaves": [
+            {
+              "id": "E1",
+              "question": "技術士＋1 級保有＋元発注者が効くのは 1 級の上位層",
+              "state": "open",
+              "evidence": "ちゃんさとの公開資格は 1 級土木などで、技術士は持たない。ただし「採点者」とは名乗れず、元発注者も独占ではない（元国交省・NEXCO のチャンネルがある）。総監の受験者の多くは 1 級の有資格者なので、1 級に受かった人を技術士へつなぐ橋渡しは doboku にしかできない。",
+              "metrics": [{ "id": "coconalaOrders", "qualification": "civil-construction-1" }],
+              "competitors": ["coconala:2442601"]
+            }
+          ]
+        },
+        {
+          "id": "T",
+          "tag": "時間に見合うか",
+          "title": "採算",
+          "leaves": [
+            {
+              "id": "T1",
+              "question": "定員を絞ったシーズン伴走なら、時間あたりの受取が成り立つ",
+              "state": "estimate",
+              "evidence": "添削 1 本は 30 分以内（2 本で実測）。月 2 回 × 人数 × 期間で時間の上限が決まる。下の試算では、シーズン一括なら 1 時間あたり ¥5,000 台、「合格するまで」は ¥3,000 台に下がる。",
+              "dns": ["DN-0992", "DN-0368"],
+              "metrics": [{ "id": "workMinutes" }, { "id": "coconalaRevenue", "qualification": "civil-construction-1" }],
+              "proposedMetrics": ["netReceiptsPerHour"],
+              "competitors": ["courses:gachinko-construction", "courses:agaroot-pe"]
+            }
+          ]
+        }
+      ],
+      "comparison": {
+        "title": "施工管理と技術士はどこが違うか",
+        "salesFrom": "2026-05-01",
+        "qualifications": ["civil-construction-1", "civil-construction-2", "pe-construction", "pe-comprehensive-management"],
+        "rows": [
+          { "label": "二次の受験者", "live": "examinees" },
+          { "label": "合格率", "live": "passRate" },
+          { "label": "書くもの", "cells": ["経験記述（自分の工事。各区画 約 200 字。テーマは出題側が指定し、5 管理を準備）＋記述", "経験記述（2 題・3 管理）＋記述・穴埋め", "論文（600 字の用紙で計 9 枚。必須 I・II・III）", "択一＋論文（5 管理）"] },
+          { "label": "模範解答の価値", "cells": ["低い。自分の工事でしか書けず、他人の工事を書けば捏造", "同じ", "高い。公表されず、論文の型が合否を分ける", "高い"] },
+          { "label": "売れている競合の型", "cells": ["ココナラの添削・作成支援", "同じ", "note の模範解答・パック。講座は A 判定まで添削", "note の連載・パック"] },
+          { "label": "doboku の売上", "live": "sales" },
+          { "label": "受験者 1 人あたりの売上", "live": "salesPerExaminee" }
+        ],
+        "note": "売上は salesFrom 以降の販売額の合計。受験者は最新年度の二次。"
+      },
+      "tables": [
+        {
+          "title": "「合格まで伴走・添削 月 2 回」の設計と採算（すべて仮の値の試算）",
+          "columns": ["形", "中身", "仮の価格・定員", "受取（手取り）", "作業時間", "1 時間あたり", "注意"],
+          "rows": [
+            ["A 月額", "添削 月 2 回（合格ラボと同じ型）", "¥4,980／月・10 名", "月 ¥41,800", "月 10 時間", "約 ¥4,200", "2026-09-30 に撤退した型。会員が集まる前提が崩れた"],
+            ["B シーズン一括", "1 級二次の 3 か月（8〜10 月）。題材の診断 1 回・添削 月 2 回・本試験 1 週間前の最終確認", "¥29,800・5 名", "¥125,000（note）／¥116,200（ココナラ）", "22.5 時間", "約 ¥5,200〜5,600", "回数・期限・定員を先に決める"],
+            ["C 合格するまで", "B に、不合格なら翌シーズンも続ける約束を足す", "¥29,800・5 名", "B と同じ", "期待値 約 36 時間", "約 ¥3,400", "二次の不合格は 61%。負担が 2 年に伸び、上限が読めない"],
+            ["D 大手型（採用した案・DN-0992）", "シーズン一括＋題数の上限＋各題 A 判定まで添削。不合格なら翌年の受講を割引", "未決（時間単価から逆算）", "―", "8 題 × 3〜4 回なら 1 人 12〜16 時間", "ガチンコ C で約 ¥10,000", "題数と年度で作業の上限が決まる。不合格者は翌年の割引で再び買う客になる"]
+          ],
+          "note": "仮定：添削 1 本 30 分（実測）、題材の診断 60 分・最終確認 30 分（仮定）。note は販売額の 83.9%、ココナラは 78% が残る。「合格するまで」は合格を約束する表現と受け取られないよう、回数と期限で書く。"
+        }
+      ],
+      "judgments": [
+        { "issues": ["H1"], "window": "2027-03", "metrics": [{ "id": "coconalaOrders", "qualification": "civil-construction-1" }], "picture": "評価 5 件が集まったか。集まらなければ施工管理は PDF と無料教材に留める" },
+        { "issues": ["H3"], "dns": ["DN-0632"], "picture": "メール登録が動き始めたか" },
+        { "issues": ["X2", "T1"], "dns": ["DN-0992"], "picture": "シーズン伴走を試すかの判断" },
+        { "issues": ["X1", "X2", "T1"], "window": "2027-08..2027-10", "metrics": [{ "id": "workMinutes" }], "picture": "1 級二次で 1 回だけ試し、実際の時間で計る。人手の受注が PDF の販売件数を上回るか" }
+      ],
+      "storyline": [
+        {
+          "title": "受験者は多いのに、施工管理では売れていない",
+          "lead": "施工管理の二次の受験者は技術士の約 2.7 倍いるのに、doboku の売上は技術士の約 5 分の 1。受験者 1 人あたりでは 1 桁以上違う。同じ受験者に、ココナラでは経験記述の添削が 1,000 件単位で売れている。",
+          "facts": [
+            { "label": "施工管理の二次の受験者", "value": "45,778" },
+            { "label": "doboku の施工管理の売上", "value": "¥131,940" },
+            { "label": "ちゃんさとの累計販売", "value": "1,028 件" },
+            { "label": "doboku のココナラ評価", "value": "4 件" }
+          ]
+        },
+        {
+          "title": "経験記述の市場を取りに行く価値はあるか。行くなら何を変えるか",
+          "claim": "行く価値はあるが、売るものを PDF から人手に変え、信用と動線を先に作る必要がある。最初の勝負は 2027 年の 1 級二次で、定員を絞ったシーズン伴走を 1 回だけ試す。",
+          "subs": ["施工管理で払われるのは、自分の工事を合格する文章にする人手で、PDF の模範解答ではない", "人手の市場で勝つ前提は評価と動線で、doboku は今どちらも持っていない", "定員を絞ったシーズン伴走なら、時間あたりの受取が成り立つ"]
+        },
+        {
+          "title": "サブイシューごとの検討",
+          "checks": [
+            {
+              "state": "seen",
+              "hypothesis": "払われるのは人手で、PDF ではない",
+              "evidence": "経験記述は本人の工事でしか書けず、模範解答の価値が低い。競合の売れ筋は 4 つとも人手のサービス。",
+              "sketch": "ちゃんさとのココナラ出品のレビュー数（添削 320・セット作成代行 174・セット添削 162・作成代行と提案 141）。",
+              "judge": "入口の添削と伴走の受注が、PDF の販売件数を上回るか。"
+            },
+            {
+              "state": "seen",
+              "hypothesis": "勝つ前提は評価と動線で、今はどちらも無い",
+              "evidence": "ココナラの評価は 4 件と 824 件。動画は再生の中央値 4 と登録 1.34 万。メール・LINE の登録先も無い。",
+              "sketch": "ココナラの評価数の比較。",
+              "judge": "評価 5 件、メール登録と添削の見本動画が動き始めたか。"
+            },
+            {
+              "state": "estimate",
+              "hypothesis": "シーズン伴走なら、時間あたりの受取が成り立つ",
+              "evidence": "試算では、シーズン一括が約 ¥5,200〜5,600、月額が約 ¥4,200、「合格するまで」が約 ¥3,400 / 時間。",
+              "sketch": "形ごとの 1 時間あたりの受取。価格・定員は仮の値。",
+              "judge": "2027 年の 1 級二次で 1 回だけ試し、実際の時間で計る。作業時間の記録（DN-0368）が前提。"
+            }
+          ]
+        },
+        {
+          "title": "だから、信用と動線を先に作り、2027 年の 1 級二次で伴走を 1 回試す",
+          "implications": [
+            "入口の添削（¥2,000〜3,000）で評価を 5 件集める（承認済みの打ち手）",
+            "添削の見本（赤入れの前後）の長尺動画と、メール登録（DN-0632）を作り、検索の読者を翌年まで残す",
+            "2027 年 8〜10 月の 1 級二次で、定員 5 名のシーズン伴走を 1 回だけ出す。回数・期限・価格を先に決め、作成代行はしない",
+            "2 級は単発の添削のままにして広げない"
+          ],
+          "forks": [
+            "1 で評価が集まらなければ、施工管理は note の PDF とサイトの無料教材に留め、時間を技術士へ戻す（全体のサブイシュー 3 と同じ判定）。",
+            "3 の実測が note のパックの時間あたりを下回れば、伴走はやめて単発の添削だけにする。"
+          ]
+        }
+      ],
+      "notes": []
+    }
+  ]
+}

@@ -914,5 +914,17 @@
         "note": "05a（総監特化）"
       }
     ]
+  },
+  "courses": {
+    "_note": "講座の企業（通信講座・スクール）。チャネルの取得元ではなく、観測は公式ページの目視で data/courses/competitors/{date}.json へ入れる。handle はここで付ける識別子（小文字の slug）で、イシューマップの competitors（courses:<handle>）が指す。exams は qualification-registry.json の資格 id。",
+    "competitors": [
+      { "handle": "agaroot-pe", "label": "アガルート 技術士", "exams": ["pe-construction", "pe-comprehensive-management"], "note": "オンライン講座の大手。合格時の返金で合格体験記を集める" },
+      { "handle": "agaroot-civil", "label": "アガルート 土木施工管理", "exams": ["civil-construction-1", "civil-construction-2"], "note": "提供は SAT 株式会社。不合格者は延長で引き留める" },
+      { "handle": "gachinko-construction", "label": "ガチンコ技術士学園", "exams": ["pe-construction"], "note": "論文の添削を題数で区切る。不合格者は翌年の割引で次の客にする" },
+      { "handle": "human-academy", "label": "ヒューマンアカデミー", "exams": ["civil-construction-1"], "note": "総合スクールの通信講座" },
+      { "handle": "nosen", "label": "能セン", "exams": ["civil-construction-1"], "note": "経験記述の添削だけを安く売る" },
+      { "handle": "cic", "label": "CIC", "exams": ["civil-construction-1"], "note": "施工管理の専門スクールの Web 講座" },
+      { "handle": "tac", "label": "TAC", "exams": ["civil-construction-1"], "note": "資格スクールの大手。高価格の総合コース" }
+    ]
   }
 }
