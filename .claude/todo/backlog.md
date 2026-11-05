@@ -390,18 +390,6 @@
 
 ## 🟡 中 — 重要度が中くらい
 
-### [DN-0995] 事業イシューマップの KPI 追加案（ココナラ評価件数・資格別の時間あたり受取）を決める
-タグ: [収益化] [領域:戦略] [時期:2026-11] [種類:意思決定] [起票:2026-11-05]
-
-**起点**: DN-0993 で事業イシューマップの各サブイシューを `config/business-direction.json` の指標に結んだところ、次の 2 つが足りなかった。承認前に足さない約束なので、`config/issue-map.json` の `proposedMetrics` に置いて止めている。
-
-**追加案**:
-- `coconalaReviews`（ココナラ評価件数・販売・件・coconala）: 期間末時点の自社の評価件数（ストック）。H1 の「買われる決め手は評価の数」を測る指標が無い。
-- `netReceiptsPerHour`（資格別の時間あたり受取・運営・円・operations）: 資格別の netReceipts ÷ 資格別の workMinutes × 60。主イシューの判定に使う数字そのもの。workMinutes を資格別に記録する必要があるので DN-0368 の記録の方法と一緒に決める。
-
-**決めること**: 2 つを足すか。足すなら business-direction.json に追加し、`issue-map.json` の `proposedMetrics` から消して、各サブイシューの `metrics` へ移す（`npm run check-issue-map` が取り残しを止める）。集計の実装（`sourceFacts`）も同じカードで足す。
-
-**完了条件**: 運営者が決め、足すものは /strategy/issues に現在値が出ている。足さないものは `proposedMetrics` から消えている。
 
 
 ### [DN-0994] 運営者の在職・退職の記述の食い違いと、禁止している「採点者視点」の残りを直す

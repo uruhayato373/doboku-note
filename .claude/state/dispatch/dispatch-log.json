@@ -6697,6 +6697,19 @@
       "commit": "0c03c0c12543",
       "verification": "check-issue-map・check-datasets・check-domains・check-doc-refs・type-check:admin 通過。CI unit-tests の失敗は admin-format の 1 件で修正。/strategy/issues を 1280px・375px で目視",
       "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-0995",
+      "at": "2026-11-05",
+      "task": "事業イシューマップの KPI 追加案（ココナラ評価件数・資格別の時間あたり受取）を決める",
+      "tier": "mid",
+      "kind": "意思決定",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "bc319c9897b9",
+      "verification": "coconalaReviews を business-direction へ追加し /strategy/issues に表示。netReceiptsPerHour は作業時間を記録しない判断で取り下げ、1 商品あたり受取で代替",
+      "note": "todo-complete.mjs 経由で完了処理"
     }
   ]
 }
