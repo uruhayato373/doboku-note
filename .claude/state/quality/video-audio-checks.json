@@ -253,6 +253,28 @@
         "expected": 1336,
         "heard": 1275
       }
+    },
+    "pe-construction/sentaku-geotechnical-yomikata/youtube.longform": {
+      "videoSha256": "4b43cb24d9b050338ff54766d34ba6be83fe8148eb4c9bd467d9af8b6dbce898",
+      "at": "2026-11-05T21:26:20.800Z",
+      "similarity": 0.645,
+      "maxVolumeDb": -1.4,
+      "durationGapSec": 0,
+      "chars": {
+        "expected": 1366,
+        "heard": 1367
+      }
+    },
+    "pe-construction/sentaku-railway-yomikata/youtube.longform": {
+      "videoSha256": "13fc2e819d84fbc799d8a2fc630264099bece59531cc4501784f7ad755731e2d",
+      "at": "2026-11-05T21:26:38.313Z",
+      "similarity": 0.752,
+      "maxVolumeDb": -1.4,
+      "durationGapSec": 0.1,
+      "chars": {
+        "expected": 1049,
+        "heard": 1002
+      }
     }
   }
 }
