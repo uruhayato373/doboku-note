@@ -147,7 +147,7 @@
       "format": "longform",
       "variant": "reading-fix",
       "revisionOf": "pe-construction/hissu1-infra-roukyuuka/youtube.longform",
-      "status": "qa_passed",
+      "status": "approved",
       "copy": "content/sns/video-packs/pe-construction/hissu1-infra-roukyuuka/youtube.revision-reading-fix.json",
       "media": {
         "cover": "pe-construction/hissu1-infra-roukyuuka/work/candidate-cover",
@@ -163,7 +163,20 @@
         "subtitles": "pe-construction/hissu1-infra-roukyuuka/work/candidate-subtitles",
         "video": "pe-construction/hissu1-infra-roukyuuka/work/candidate-video"
       },
-      "publishAt": "2026-11-13T11:30:00Z"
+      "publishAt": "2026-11-13T11:30:00Z",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "policy",
+          "at": "2026-11-05T22:14:09.946Z",
+          "digest": "4b30786a1b11735f4f0a939294c21852fc8a9d2882d1f1d813ccaa72e17165b5"
+        }
+      },
+      "approval": {
+        "by": "policy",
+        "at": "2026-11-05T22:14:09.946Z",
+        "contentSha256": "0bf3dfd2d2fe2f147896db112792f06eeeb30cfa36f63e6336eb5796c63390f9"
+      }
     },
     {
       "id": "pe-construction/hissu1-kensetsu-dx/youtube.longform",
