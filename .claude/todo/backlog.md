@@ -482,6 +482,16 @@
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-1014] AI 画像の生成指示の置き場を config.image-generation へ寄せる
+タグ: [エージェント・SSOT] [領域:SNS] [時期:2026-12] [種類:改善] [起票:2026-11-06]
+
+**起点**: 2026-11-06 の冗長コード監査（jscpd・Codex・実コードの照合）。生成指示が `config/image-generation.json`・`config/image-limits.json` の `aiPhoto`・コード内（`generate-guide-covers.mjs`・`generate-ogp-backgrounds.mjs`）の 3 か所にある。OGP 背景の `EXAMS` は 6 資格でトークンは 14 資格。背景がない資格の表示は未確認。
+
+**やること**: `aiPhoto` の指示と OGP の指示を `config.image-generation` へ寄せ、モチーフも設定へ移す。背景がない資格の表示を確かめる。
+
+**完了条件**: 共通の指示を 1 か所直すと全経路に届く。コード内に指示の文が残らない。
+
+
 ### [DN-1013] AI 画像の来歴と台帳の記録を image-origin に集める
 タグ: [エージェント・SSOT] [領域:SNS] [時期:2026-12] [種類:改善] [起票:2026-11-06]
 
