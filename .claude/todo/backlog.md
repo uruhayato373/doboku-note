@@ -482,6 +482,16 @@
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-1017] どこからも呼ばれない CLI を検出するレポートを足す
+タグ: [エージェント・SSOT] [領域:管理] [時期:2027-01] [種類:改善] [起票:2026-11-06]
+
+**起点**: 2026-11-06 の冗長コード監査（jscpd・Codex・実コードの照合）。`knip.json` は `scripts/**` を全部 entry にし、`tools/admin-app` を project に含めないので、使われなくなった CLI を検出できない。休止中の `generate-guide-covers.mjs` は `package.json:420` と routes に残るが `public/images/guide-covers` はない。knip の現状は exports 7・types 17・unlisted 4・unresolved 1。管理画面の孤立ファイルは import の簡易検査で 0 件。
+
+**やること**: npm script・workflow・skill・docs から到達しない CLI を一覧にするレポートを足し、週次で読む。`generate-guide-covers.mjs` を残すか消すかを決める。管理画面を knip の対象へ入れるかも決める。
+
+**完了条件**: 到達しない CLI の一覧が検査件数つきで出る。`generate-guide-covers.mjs` の扱いが決まっている。
+
+
 ### [DN-1016] scripts と src と .claude/scripts の依存の向きを整理する
 タグ: [エージェント・SSOT] [領域:管理] [時期:2027-01] [種類:改善] [起票:2026-11-06]
 
