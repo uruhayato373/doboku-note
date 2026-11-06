@@ -59,10 +59,8 @@ function publicationSlot(packId, kind, item) {
 
 for (const exam of EXAMS) {
   const examRoot = join(PACKS_ROOT, exam);
-  if (!existsSync(examRoot)) {
-    errors.push(`試験ディレクトリなし: ${exam}`);
-    continue;
-  }
+  // 動画が 1 本も無い資格はフォルダが無い。全資格で 0 本なら下の検査不成立で止まる
+  if (!existsSync(examRoot)) continue;
   for (const packId of readdirSync(examRoot).sort()) {
     const dir = join(examRoot, packId);
     const manifestPath = join(dir, 'video-pack.json');
