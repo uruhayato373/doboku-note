@@ -9,6 +9,8 @@ import { canTransition, loadRegistry, loadRegistryConfig, pubIdOf } from './cont
 import { classifyIgFolder, IG_ROOT } from './registry-ig-state.mjs';
 import { isAbsolute, relative, resolve } from 'node:path';
 import { approvalState } from './media-review.mjs';
+import { igSlotProblems } from './channel-plan-audit.mjs';
+import { loadChannelPlan } from './channel-plan.mjs';
 
 /** 作品フォルダ（content/sns/instagram の下の相対パス、または content/sns/instagram/… から始まるパス）と形式 → 公開 ID。対象外は null */
 export async function igPubId(root, folder, format) {
@@ -33,6 +35,8 @@ export async function readIgPublication(root, folder, format) {
 
 /** 予約前に、見た版のハッシュ付き承認と予定時刻が今の本文・素材に一致するかを調べる。 */
 export function assertIgScheduleApproval(root, row, publishAt) {
+  const outside = igSlotProblems(loadChannelPlan(root).channels.instagram, row, publishAt);
+  if (outside.length) throw new Error(outside.join(' / '));
   if (!row.legacyKey?.startsWith('profile-pinned/')) return;
   if (!['approved', 'rendered', 'scheduled'].includes(row.status)) throw new Error(`${row.id}: 投稿前の状態が ${row.status}（approved/rendered/scheduled が必要）`);
   if (!row.publishAt || Date.parse(row.publishAt) !== Date.parse(publishAt)) throw new Error(`${row.id}: 承認した予約日時と投稿日時が違う`);

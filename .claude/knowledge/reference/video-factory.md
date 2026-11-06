@@ -38,7 +38,7 @@ title: 動画の量産工程（通常動画・ショート）
 `gate` は次の全項目を機械で確かめる。1 つでも欠けると `auto-approve` は書かない。
 
 - 方針が有効で、YouTube の通常動画である
-- 年間の枠に入っている（`config/youtube-longform-plan.json`。計画にない動画は在庫にもしない）
+- 年間の枠に入っている（`config/channel-annual-plan.json`。計画にない動画は在庫にもしない）
 - 画像の基準、AI 画像の判定、完成動画の照合、内容QA（平均 2 以上・BLOCK 0）、今の digest の画面確認 pass
 - `check-youtube-funnels --pub`（商品リンクと関連サイト記事の導線）。予約後の監査で初めて落ちる事故を防ぐ
 - 音声の照合（文字起こしと台本の一致、音量、尺。動画の sha に結ぶ）

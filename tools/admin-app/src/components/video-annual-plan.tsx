@@ -4,13 +4,13 @@ import { DataTable, DetailList, DetailSheet, DetailText, StatusBadge, type DataT
 import { Button } from '@/components/ui/button';
 import { examLabel } from '@/lib/video-board';
 import { longformPlanHref } from '@/lib/content-plan-links';
-import type { ConfigYoutubeLongformPlan } from '../../../../scripts/lib/dataset-schemas-content.mjs';
+import type { ConfigChannelAnnualPlan } from '../../../../scripts/lib/dataset-schemas-content.mjs';
 import { PLAN_ACTIONS, type loadLongformPlan, type loadPlanAudit } from '../../../../scripts/lib/youtube-longform-plan.mjs';
 
 type Board = ReturnType<typeof loadLongformPlan>;
 type PlanRow = Board['rows'][number];
 type PlanAudit = ReturnType<typeof loadPlanAudit>['audit'];
-export type PlanConfig = z.infer<typeof ConfigYoutubeLongformPlan>;
+export type PlanConfig = z.infer<typeof ConfigChannelAnnualPlan>;
 type Slot = PlanConfig['slots'][number];
 type SlotInfo = Record<string, { format: string; formatStatus: string; anchors: string[] }>;
 const viewOptions = { active: '予定・制作中', scheduled: '予約済み', published: '公開済み', stopped: '停止中', all: 'すべて' };

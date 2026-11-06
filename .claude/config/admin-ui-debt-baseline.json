@@ -8,7 +8,7 @@
     "rawBadge": 4,
     "uiCard": 2,
     "uiBadge": 3,
-    "handTable": 14,
+    "handTable": 17,
     "handChip": 0
   },
   "files": {
@@ -100,6 +100,16 @@
       "uiCard": 0,
       "uiBadge": 0,
       "handTable": 1,
+      "handChip": 0
+    },
+    "tools/admin-app/src/components/channel-annual-board.tsx": {
+      "rawCard": 0,
+      "inlineStyle": 0,
+      "rawTable": 0,
+      "rawBadge": 0,
+      "uiCard": 0,
+      "uiBadge": 0,
+      "handTable": 3,
       "handChip": 0
     },
     "tools/admin-app/src/components/CharacterCatalog.tsx": {

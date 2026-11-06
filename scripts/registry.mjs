@@ -9,7 +9,7 @@
  *   npm run registry -- import-video-packs [--commit]   # 全動画パック。2 回目は書く行 0。公開中の一覧（own-videos）と件数を突き合わせる
  *   npm run registry -- prepare-youtube --pub <公開 ID> --publish-at <日時> [--commit] # 通常動画の文面・予定を登録（承認はしない）
  *   npm run registry -- mark-rendered --pub <公開 ID> [--commit] # 承認済み通常動画の完成レンダーを実検査して状態を進める
- *   npm run registry -- import-instagram --folder <相対フォルダ> [--commit] # 新しく投稿する IG 作品を個別に登録。照合 snapshot が要る
+ *   npm run registry -- import-instagram --folder <相対フォルダ> [--slot <年間の枠>] [--commit] # 新しく投稿する IG 作品を個別に登録し、年間の枠へ結ぶ。照合 snapshot が要る
  *   npm run registry -- prepare-instagram-pinned --pub <公開ID> --publish-at <ISO+09:00> [--commit]
  *   npm run registry -- mark-instagram-rendered --pub <公開ID> [--commit]
  *   npm run registry -- import-x [--commit]              # X の下書きフォルダ全部（自分の投稿の一覧 data/x/own-posts と本文で照合）
@@ -46,7 +46,7 @@ const { values: args, positionals } = parseArgs({
   allowPositionals: true,
   options: {
     channel: { type: 'string' }, exam: { type: 'string' }, status: { type: 'string' },
-    'pack-dir': { type: 'string' }, folder: { type: 'string' }, commit: { type: 'boolean' }, delete: { type: 'boolean' },
+    'pack-dir': { type: 'string' }, folder: { type: 'string' }, slot: { type: 'string' }, commit: { type: 'boolean' }, delete: { type: 'boolean' },
     pub: { type: 'string' }, stage: { type: 'string' }, expect: { type: 'string' }, reason: { type: 'string' },
     variant: { type: 'string' }, 'related-to': { type: 'string' }, 'publish-at': { type: 'string' },
     phase: { type: 'string' }, copy: { type: 'string' }, 'refresh-draft': { type: 'boolean' },
@@ -283,6 +283,13 @@ async function importInstagram() {
   }
   const strip = (r) => Object.fromEntries(Object.entries(r).filter(([k, v]) => !['file', 'exam', 'channel'].includes(k) && v !== undefined));
   const same = (a, b) => JSON.stringify(strip(a)) === JSON.stringify(strip(b));
+  if (args.slot) {
+    const { loadChannelPlan } = await import('./lib/channel-plan.mjs');
+    const slot = loadChannelPlan(ROOT).channels.instagram.slots.find((s) => s.id === args.slot);
+    if (!slot) throw new Error(`Instagram の年間の枠に無い: ${args.slot}`);
+    const wrong = rows.publications.find((p) => p.id.split('/')[0] !== slot.exam);
+    if (wrong) throw new Error(`枠と資格が違う: ${wrong.id}（${slot.id}）`);
+  }
   const worksByExam = new Map();
   for (const { exam, row } of rows.works) {
     const cur = reg.works.find((w) => w.id === row.id && w.exam === exam);
@@ -293,8 +300,9 @@ async function importInstagram() {
     const exam = p.id.split('/')[0];
     const cur = reg.publications.find((x) => x.id === p.id);
     // import は未登録の公開だけを追加する。既存行の状態は台帳が正本なので、古い
-    // posted.json・照合 snapshot で stopped(gone) や scheduled を巻き戻さない。
-    if (!cur) pubsByExam.set(exam, [...(pubsByExam.get(exam) ?? []), p]);
+    // posted.json・照合 snapshot で stopped(gone) や scheduled を巻き戻さない。枠の結びだけは足す。
+    const row = args.slot ? { ...(cur ? strip(cur) : p), planSlot: args.slot } : p;
+    if (!cur || (args.slot && cur.planSlot !== args.slot)) pubsByExam.set(exam, [...(pubsByExam.get(exam) ?? []), row]);
   }
   const n = (m) => [...m.values()].flat().length;
   console.log(`IG の作品フォルダ ${args.folder ?? rows.report.folders}（対象外 ${rows.report.skipped.length}）/ 照合の記録 ${snapshot?.at}（公開中 ${snapshot?.live?.posts} 件）`);

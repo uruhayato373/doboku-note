@@ -269,7 +269,8 @@ npm run media -- plate --pub <公開ID> --role <役割> --prompt-file <生成指
 npm run media -- verify-render --work <資格>/<作品> # 現行台本・採用指定・全場面PNG/音声入力/WAV・字幕・MP4を照合。旧レンダーは音声付き再生成が必要。promoteも通常動画には同じ検査を実行する。Shortsの改訂候補はpop-image.jsonのcandidateShortsRevisionを選び、再現レシピの素材SHA・寸法・場面・尺を照合する
 npm run check-content-registry # コンテンツ台帳の検査 R01〜R13（0 件・ID・予約以上の削除〔--base <ref>〕・参照・件数・Drive の sha・状態と承認ハッシュ・外部 ID・AI 素材の判定・別作品IDの通常動画の台本重複・完成動画/改訂入力の結線・YouTube の概要欄の VOICEVOX クレジット〔対象・照合・文面なしの行数を出す〕）。FAIL で exit 1
 npm run check-youtube-funnels # 現行通常動画の公開中note商品・動画別UTM・関連無料サイト記事を全件検査。FAIL で CI を止める。youtube-funnel-audit.yml（SNS 保留中は手動のみ）でも実行
-npm run check-youtube-plan    # 通常動画の年間の枠（config/youtube-longform-plan.json）と公開台帳を照合。計画にない動画・枠の超過・週の上限超えで exit 1、対象 0 件は exit 2。--inventory で資格×型×状態の棚卸しを出す。要対応と採否待ちは exit に効かない
+npm run check-channel-plan    # X・Instagram の年間の枠（config/channel-annual-plan.json の channels）と月次計画・公開台帳を照合。計画にない投稿・枠と販売の超過・週の上限超えで exit 1、枠 0 件は exit 2。判断待ちは exit に効かない
+npm run check-youtube-plan    # 通常動画の年間の枠（config/channel-annual-plan.json）と公開台帳を照合。計画にない動画・枠の超過・週の上限超えで exit 1、対象 0 件は exit 2。--inventory で資格×型×状態の棚卸しを出す。要対応と採否待ちは exit に効かない
 node scripts/youtube-sync-funnel.mjs --plan <content/sns/youtube/metadata-plans/計画.json> # 既存動画の概要欄同期のdry-run。--commit は運営者が変更版の最終承認を記録した後、youtube-single-publish.yml の mode=sync-funnel から実行。旧/新SHA・公開範囲・動画IDを照合し、API更新後に読み戻す
 node scripts/youtube-audit-live-funnels.mjs # YouTube API で現行通常動画の概要欄全文・自社リンク・公開範囲を読取照合。認証はCI供給。youtube-funnel-audit.yml（SNS 保留中は手動のみ）と手動 mode=audit-funnel から実行
 npm run youtube-unschedule        # 台帳で scheduled の YouTube の公開予約を外す（`--pub` で指定した公開だけ。CI は youtube-single-publish の mode=unschedule。private のまま・動画は消さない。既定は試運転・--apply で実行・認証は CI だけなので .github/workflows/youtube-unschedule.yml から動かしていたが、SNS の保留に合わせて 2026-10-25 に CI から外した。再開するときに作り直す）。台帳は registry -- unschedule で uploaded_private に戻す（2026-10-13・YouTube を一旦止めた）
