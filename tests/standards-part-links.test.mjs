@@ -46,7 +46,7 @@ test('全分冊の旧 URL が _redirects の静的ルールで 1 件ずつ転送
   assert.equal(rules.length, partCount);
   for (const rule of rules) assert.ok(lines.has(rule), `_redirects に無い: ${rule}`);
   // 動的ルール（splat・placeholder）でまとめない（書き漏らしが黙って文書ページへ流れる）
-  const dynamic = [...lines].filter((line) => line.startsWith('/standards/') && /[*:]/.test(line.split(/\s+/)[0] ?? ''));
+  const dynamic = [...lines].filter((line) => line.startsWith('/standards/') && !/\/chapters\/\* /.test(line) && /[*:]/.test(line.split(/\s+/)[0] ?? ''));
   assert.deepEqual(dynamic, []);
   assert.ok(isGeneratedPartRule('/standards/:agency/:document/part-* /standards/:agency/:document 301'));
 });

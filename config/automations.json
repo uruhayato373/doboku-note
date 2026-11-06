@@ -244,9 +244,10 @@
         "workflow_dispatch"
       ],
       "schedule": [
-        "0 18 * * *"
+        "0 18 * * 1-6",
+        "0 18 * * 0"
       ],
-      "scheduleJst": "毎日 03:00",
+      "scheduleJst": "毎日 03:00（月曜だけアクセシビリティも含む）",
       "login": [],
       "purpose": "UI 系の PR で主要導線、毎晩は全件の E2E をローカル配信へ回す（ログイン不要）",
       "readers": [

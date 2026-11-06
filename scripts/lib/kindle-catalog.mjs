@@ -2,7 +2,7 @@
  * kindle-catalog.mjs — Kindle 出版データ（catalog.json）を読んで集約・検証する pure module。
  * catalog.json は config/products.json（channel kindle）からの生成物で、書き換えは product-registry.mjs の updateKindleCatalog か npm run product -- set kindle-<書籍id> だけ。
  *
- * 主な利用者は admin `/content/kindle`（表示専用）。KDP 台帳の母数判定 `kdpLiveBookIdsAsOf` だけは
+ * 主な利用者は admin の販売状態（Kindle タブ）（表示専用）。KDP 台帳の母数判定 `kdpLiveBookIdsAsOf` だけは
  * check-kdp-report-freshness と business-direction も共有する。
  * 判定ロジックはここに 1 本化し、admin 側で重複実装しない。
  *

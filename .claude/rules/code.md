@@ -38,8 +38,9 @@ paths:
 
 ## 管理画面・データ・CI
 
-- `tools/admin-app/`（`npm run admin`・`http://127.0.0.1:3021`・RSC ファースト・ルート node_modules 再利用・dev 専用でビルド/デプロイなし・投稿は既存 CLI を child_process 実行しガードは CLI 側） → [tools/admin-app/README.md](../../tools/admin-app/README.md)。E2E は `npm run test:e2e:admin`（CI の e2e には載せない）。サイトの E2E は `npm run serve`（3025）を既定ターゲットにし、叩く URL は `npm run check-e2e-targets` で out/ に実在させる
+- `tools/admin-app/`（`npm run admin`・`http://127.0.0.1:3021`・RSC ファースト・ルート node_modules 再利用・dev 専用でビルド/デプロイなし・投稿は既存 CLI を child_process 実行しガードは CLI 側） → [tools/admin-app/README.md](../../tools/admin-app/README.md)。サイトの E2E は `npm run serve`（3025）を既定ターゲットにし、叩く URL は `npm run check-e2e-targets` で out/ に実在させる
 - 管理画面のページは `tools/admin-app/src/components/admin`（絞り込み・タブ＝`FilterBar`・`FilterChip`、表＝`DataTable`（shadcn の Data Table）・形の違う表だけ `TableFrame`・Card で囲まない／題名つき区画＝`PanelCard`／数字 1 つの区画＝`StatCard`／状態＝`StatusBadge`／絞り込み＝`FacetShell`）で組み、金額・数・日時は `tools/admin-app/src/lib/format.ts`（`yen`・`num`・`jstDateTime` など。記録は UTC なので文字列を切って出さない）で書く。生の `<table>`・`className="card"`・`className="badge …"`・shadcn の `<Card>`・`<Badge>` の直接利用・手で組んだ表を増やさない（`npm run check-admin-ui-debt` のラチェット）
+- 管理画面の画面は 1 問いにする。足す前に既存の画面で答えられないかを確かめ、`config/admin-pages.json` に問いを書く（`check-admin-pages` が台帳に無い画面・同じ問い・上限超えを止める）
 - 管理画面は読めないデータを 0 にしない。`loaded` などで欠測を分け、合計や金額は「—」か読めない旨を出す（2026-11-06・売上と GSC で実績 0 と誤読できた）
 - 管理画面の UI 部品は shadcn/ui 公式のまま使う（自作・「互換」の手書きをしない）。公式との差は `npm run check-shadcn-parity` が止め、意図した差だけ `.claude/config/shadcn-parity-allow.json` に理由付きで登録する。新しい部品は `npm run sync-shadcn-reference -- <name>` で参照を取ってから足す（DN-0432）
 - DB は導入しない（D1 不採用・frontmatter + build-time JSON 継続・再検討トリガー） → [data-storage-decision.md](../knowledge/reference/data-storage-decision.md)

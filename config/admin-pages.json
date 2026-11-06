@@ -1,0 +1,325 @@
+{
+  "schemaVersion": 1,
+  "_doc": "管理画面の全画面の台帳。1 画面 1 問いにする。新しい画面を足すときは、既存の画面で答えられないかを確かめ、問いをここへ書く。limit は画面の上限で、上げるなら理由を changes に残す。検査は npm run check-admin-pages",
+  "limit": 68,
+  "changes": [
+    {
+      "date": "2026-11-06",
+      "note": "棚卸し（docs/reviews/critical/2026-11-06-admin-screen-inventory.md）の結果で台帳を作った"
+    }
+  ],
+  "pages": {
+    "/": {
+      "kind": "page",
+      "question": "今月の受取と主要 KPI はどうか。"
+    },
+    "/affiliate": {
+      "kind": "page",
+      "question": "アフィリエイトの成果と要確認事項は何か。"
+    },
+    "/affiliate/layout": {
+      "kind": "page",
+      "question": "広告配置の案と記録は何か。"
+    },
+    "/affiliate/layout-shot/[ts]/[file]": {
+      "kind": "route",
+      "question": "配置記録の画像を取得できるか。"
+    },
+    "/affiliate/placements": {
+      "kind": "page",
+      "question": "広告はどこに掲載されているか。"
+    },
+    "/affiliate/preview": {
+      "kind": "page",
+      "question": "広告案は実ページでどう見えるか。"
+    },
+    "/affiliate/programs": {
+      "kind": "page",
+      "question": "提携・案件の状態は何か。"
+    },
+    "/agents": {
+      "kind": "page",
+      "question": "どのエージェントがあるか。"
+    },
+    "/api/character-frame/[pose]": {
+      "kind": "route",
+      "question": "指定したポーズの画像を生成できるか。"
+    },
+    "/content": {
+      "kind": "page",
+      "question": "制作物はどのチャネルに何件あるか。"
+    },
+    "/content/[...path]": {
+      "kind": "detail",
+      "question": "指定した制作物・ディレクトリの中身は何か。"
+    },
+    "/content/articles": {
+      "kind": "page",
+      "question": "サイト記事の公開・品質状態は何か。"
+    },
+    "/content/items": {
+      "kind": "page",
+      "question": "作品と公開行はどこまで進んだか。"
+    },
+    "/content/items/[exam]/[work]": {
+      "kind": "detail",
+      "question": "作品の素材と公開記録は何か。"
+    },
+    "/content/kindle": {
+      "kind": "redirect",
+      "question": "販売状態の Kindle タブへ転送する"
+    },
+    "/content/kindle/[id]": {
+      "kind": "detail",
+      "question": "その本のプレビューはどうか。"
+    },
+    "/content/ledger": {
+      "kind": "page",
+      "question": "商品・原稿・公開状態の横断台帳はどうか。"
+    },
+    "/content/ledger/coconala/[id]": {
+      "kind": "detail",
+      "question": "ココナラ商品の原稿・画像・差分は何か。"
+    },
+    "/content/lifecycle": {
+      "kind": "page",
+      "question": "チャネルごとの制作段階はどう分布するか。"
+    },
+    "/content/lineup": {
+      "kind": "page",
+      "question": "資格・区分・チャネルの販売中商品の空きはどこか。"
+    },
+    "/content/magazines": {
+      "kind": "redirect",
+      "question": "販売状態のマガジン一覧へ転送する"
+    },
+    "/content/note": {
+      "kind": "page",
+      "question": "note 記事の原稿・公開・反映状態は何か。"
+    },
+    "/content/note-status": {
+      "kind": "redirect",
+      "question": "販売状態の note タブへ転送する"
+    },
+    "/content/note-sync": {
+      "kind": "page",
+      "question": "note への反映待ち・停止理由は何か。"
+    },
+    "/content/series": {
+      "kind": "page",
+      "question": "シリーズ各章の記事・教材・画像は揃ったか。"
+    },
+    "/content/video": {
+      "kind": "page",
+      "question": "動画パックの企画・台本・QA はどうか。"
+    },
+    "/docs": {
+      "kind": "page",
+      "question": "恒久文書をどう探すか。"
+    },
+    "/docs/[...path]": {
+      "kind": "detail",
+      "question": "文書本文と関連タスクは何か。"
+    },
+    "/domains/[id]": {
+      "kind": "detail",
+      "question": "その領域の予定・人員・文書は何か。"
+    },
+    "/gallery/characters": {
+      "kind": "page",
+      "question": "キャラクター素材は何があるか。"
+    },
+    "/gallery/figures": {
+      "kind": "page",
+      "question": "サイトの記事図版は何があるか。"
+    },
+    "/gallery/note": {
+      "kind": "page",
+      "question": "note 用画像は何があるか。"
+    },
+    "/gallery/ogp": {
+      "kind": "page",
+      "question": "OGP 画像は何があるか。"
+    },
+    "/gallery/sns": {
+      "kind": "page",
+      "question": "SNS 用画像は何があるか。"
+    },
+    "/knowledge": {
+      "kind": "page",
+      "question": "エージェント向けナレッジをどう探すか。"
+    },
+    "/knowledge/[...path]": {
+      "kind": "detail",
+      "question": "ナレッジ本文は何か。"
+    },
+    "/materials": {
+      "kind": "page",
+      "question": "教材ごとの記事・図解・商品展開はどうか。"
+    },
+    "/media/[root]/[...path]": {
+      "kind": "route",
+      "question": "許可された素材を取得できるか。"
+    },
+    "/metrics": {
+      "kind": "redirect",
+      "question": "旧分析 URL の行き先はどこか。"
+    },
+    "/metrics/business": {
+      "kind": "redirect",
+      "question": "旧レビュー URL の行き先はどこか。"
+    },
+    "/metrics/business/monthly": {
+      "kind": "page",
+      "question": "選んだ月のレビューは実施され、何を決めたか。"
+    },
+    "/metrics/business/weekly": {
+      "kind": "page",
+      "question": "選んだ週のレビューは実施され、何を決めたか。"
+    },
+    "/metrics/ga4": {
+      "kind": "page",
+      "question": "GA4 の流入・ページ・参照元はどうか。"
+    },
+    "/metrics/gsc": {
+      "kind": "page",
+      "question": "GSC のクエリ・ページ実績はどうか。"
+    },
+    "/metrics/index": {
+      "kind": "page",
+      "question": "URL 検査の登録率はどう推移したか。"
+    },
+    "/metrics/kpi": {
+      "kind": "page",
+      "question": "KPI ツリーの全指標は資格別にどうか。"
+    },
+    "/metrics/psi": {
+      "kind": "page",
+      "question": "ページ別の表示速度・品質スコアはどうか。"
+    },
+    "/metrics/search-strategy": {
+      "kind": "page",
+      "question": "どの検索クラスター・ページを改善するか。"
+    },
+    "/metrics/traffic": {
+      "kind": "page",
+      "question": "集客の日次推移とデータの鮮度はどうか。"
+    },
+    "/metrics/video": {
+      "kind": "page",
+      "question": "公開動画は送客・視聴につながったか。"
+    },
+    "/ops/auth": {
+      "kind": "page",
+      "question": "ログインと資格情報の状態はどうか。"
+    },
+    "/ops/ci": {
+      "kind": "page",
+      "question": "GitHub Actions は動いているか。"
+    },
+    "/ops/mac": {
+      "kind": "page",
+      "question": "Mac の自動実行は動いているか。"
+    },
+    "/ops/store": {
+      "kind": "page",
+      "question": "設定・データ・作業状態の実体と型は何か。"
+    },
+    "/plan/roadmap": {
+      "kind": "page",
+      "question": "年間の試験・買い場・着手時期はいつか。"
+    },
+    "/plans": {
+      "kind": "page",
+      "question": "実装計画書は何があるか。"
+    },
+    "/plans/[...path]": {
+      "kind": "detail",
+      "question": "実装計画の本文は何か。"
+    },
+    "/product/design": {
+      "kind": "page",
+      "question": "資格別の商品構成と収録の意図・実態はどうか。"
+    },
+    "/product/status": {
+      "kind": "page",
+      "question": "note・ココナラ・Kindle の販売状態はどうか。"
+    },
+    "/project": {
+      "kind": "redirect",
+      "question": "旧文書一覧 URL の行き先はどこか。"
+    },
+    "/project/[...path]": {
+      "kind": "redirect",
+      "question": "旧文書詳細 URL の行き先はどこか。"
+    },
+    "/quality": {
+      "kind": "page",
+      "question": "品質違反と採点状況の概観はどうか。"
+    },
+    "/quality/progress": {
+      "kind": "page",
+      "question": "総監キーワードの採点・リライト進捗はどうか。"
+    },
+    "/sales": {
+      "kind": "page",
+      "question": "note の登録済み売上は月・商品別にどうか。"
+    },
+    "/schedule": {
+      "kind": "page",
+      "question": "日付別に何が予定されているか。"
+    },
+    "/skills": {
+      "kind": "page",
+      "question": "どのスキルがあるか。"
+    },
+    "/sns": {
+      "kind": "page",
+      "question": "SNS 素材・投稿・派生物の状態は何か。"
+    },
+    "/sns/youtube/longform": {
+      "kind": "page",
+      "question": "通常動画の制作・予約をいつ進めるか。"
+    },
+    "/strategy/channels": {
+      "kind": "page",
+      "question": "チャネルの採算・KPI・売り方はどうか。"
+    },
+    "/strategy/competitors": {
+      "kind": "page",
+      "question": "競合の観測と変化は何か。"
+    },
+    "/strategy/demand": {
+      "kind": "page",
+      "question": "どの悩みから商品候補を作るか。"
+    },
+    "/strategy/issues": {
+      "kind": "page",
+      "question": "事業上の問いはどこまで判定できたか。"
+    },
+    "/strategy/market": {
+      "kind": "page",
+      "question": "どの資格に展開する価値があるか。"
+    },
+    "/strategy/policy": {
+      "kind": "page",
+      "question": "判断の共通方針は何か。"
+    },
+    "/strategy/policy/[...path]": {
+      "kind": "detail",
+      "question": "方針の個別文書は何か。"
+    },
+    "/strategy/qualifications": {
+      "kind": "page",
+      "question": "資格の状態・試験日・受験者数は何か。"
+    },
+    "/strategy/taxonomy": {
+      "kind": "page",
+      "question": "事業の領域・分類はどう定義されるか。"
+    },
+    "/todo": {
+      "kind": "page",
+      "question": "月間・週間・バックログのカードは何か。"
+    }
+  }
+}

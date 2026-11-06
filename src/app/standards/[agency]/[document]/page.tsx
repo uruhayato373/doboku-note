@@ -19,6 +19,7 @@ import {
   getStandardChapters,
   groupChaptersByBook,
   standardChapterHeading,
+  isStandardChapterMerged,
   standardChapterPath,
 } from '@/lib/standards-articles';
 import { getTopicsForStandardDocument } from '@/lib/topics';
@@ -101,7 +102,9 @@ export default async function StandardDocumentPage({ params }: { params: Promise
           <section aria-labelledby="chapters" className="mb-8">
             <h2 id="chapters" className="text-2xl font-bold text-(--ink)">章から読む</h2>
             <p className="mt-2 text-[14px] leading-[1.8] text-(--ink-muted)">
-              読みたい編・章を選んでください。
+              {isStandardChapterMerged(agency, document)
+                ? '読みたい編・章を選んでください。この文書の本文は近畿地方整備局版と同じなので、章は近畿版のページで表示します。'
+                : '読みたい編・章を選んでください。'}
             </p>
             {books.map((book) => (
               <div key={book.bookNumber} className="mt-5">

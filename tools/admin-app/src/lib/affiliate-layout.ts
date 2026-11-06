@@ -50,7 +50,6 @@ export const CHECK_LABELS: Record<string, string> = {
 };
 
 export const SHOTS_COMMAND = 'npm run affiliate:shots';
-export const SHOTS_COMMAND_PROD = 'npm run affiliate:shots -- --base https://doboku-note.com';
 
 /** 最新の manifest（無ければ null）。撮影した時刻のディレクトリ名が ts */
 export function latestLayoutManifest(): LayoutManifest | null {

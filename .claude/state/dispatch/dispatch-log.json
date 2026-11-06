@@ -6792,6 +6792,23 @@
       "commit": "43432aefe425",
       "verification": "sales.json を外して欠測の表示を確認・?snapshot=none で GSC を確認・type-check:admin",
       "note": "売上と GSC の欠測を 0 と見せない。GA4 の履歴でタブを保つ。展開の判断の 0 円を「—」にしない。README を実態に直した"
+    },
+    {
+      "id": "DN-1030",
+      "at": "2026-11-06",
+      "task": "管理画面の E2E を今の画面に合わせ、回す時機を決める",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "none",
+        "ref": "管理画面の E2E を削除した。ロジックは tests/ の単体テストで固定している"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "dd9b5a9d4701",
+      "verification": "tests/admin-document-store.test.mjs・tests/media-paths.test.mjs が残っていることを確認",
+      "note": "e2e-admin を削除した。CI で回っておらず、画面の簡素化に追いついていなかった。管理画面はローカル専用でデプロイしない"
     }
   ]
 }

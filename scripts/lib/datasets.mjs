@@ -173,6 +173,7 @@ export const DATASETS = [
   d('config.content-series', 'config/content-series.json', 'config', 'site', 'サイト記事のシリーズ企画（目次・計画・根拠。状態は記事の実体から出す）', { schema: 'ConfigContentSeries' }),
   d('config.content-series-basis', 'config/content-series-basis.json', 'config', 'site', '書籍の全項目をシリーズの項目・記事に割り当てる（使わない項目は理由）。項目 id だけで見出しは持たない', { schema: 'ConfigContentSeriesBasis' }),
   // 管理
+  d('config.admin-pages', 'config/admin-pages.json', 'config', 'ops', '管理画面の全画面と答える問い・画面の上限', { schema: 'ConfigAdminPages' }),
   d('config.domains', 'config/domains.json', 'config', 'ops', '事業の領域・サイドバー・文書の割り当て', { schema: 'DomainsConfig' }),
   d('config.asset-storage', 'config/asset-storage.json', 'config', 'ops', 'R2 に置くアセットの置き場', { schema: 'ConfigAssetStorage' }),
   d('config.drive-vault', 'config/drive-vault.json', 'config', 'ops', 'Google Drive vault に置くアセットの置き場', { schema: 'ConfigDriveVault' }),

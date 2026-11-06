@@ -118,7 +118,7 @@ function ContentCell({ m }: { m: Summary }) {
  * 商品の列は、台帳に記録した商品原稿と、論点の記事へリンクしている note / Kindle（linkedProductsByUnit・派生）を合わせたもの。
  *
  * 台帳の正本は .claude/state/content-expansion.json、判定と集計は scripts/lib/content-expansion.mjs
- * （expansionReport・sourceSummary）が唯一の実装。旧 /content/expansion（確認待ち）はここへ転送する。
+ * （expansionReport・sourceSummary）が唯一の実装。旧 /content/expansion（確認待ち）はここへ統合した。
  * `&view=site` は教材の「サイトの配線先」＝論点の記事を資格 ＞ 区分ごとに、公開 URL・公開状態・GSC の表示/クリック・
  * 根拠の論点数・同じページを使う他の教材（逆引き）と並べる（siteWiring・派生情報で台帳には書かない）。
  * 教材の本文は出さない（論点と展開状況だけ）。

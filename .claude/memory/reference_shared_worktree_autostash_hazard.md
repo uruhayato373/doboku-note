@@ -127,7 +127,7 @@ Next 16 (Turbopack) は **同一プロジェクトディレクトリに対する
 
 **もう1つの罠**: `npm run admin` は先頭で `node scripts/kill-port.mjs 3021` を実行する。そのまま叩くと**別セッションの admin server を問答無用で殺す**。並行時は絶対に実行しない。
 
-admin が 3021 に縛られる理由は OAuth/webhook/CORS ではなく、`playwright.admin.config.ts` の baseURL と webServer、および手順書が 3021 前提であること。
+admin が 3021 に縛られる理由は OAuth/webhook/CORS ではなく、手順書が 3021 前提であること。
 
 関連: [[feedback_multi_session_concurrent_git]] / [[reference_shared_worktree_autostash_hazard]]
 

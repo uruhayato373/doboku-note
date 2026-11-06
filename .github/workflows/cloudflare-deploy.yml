@@ -38,6 +38,16 @@ jobs:
         env:
           NEXT_PUBLIC_GA_ID: G-8VXJ1RL1HG
 
+      # 章データは out/ から除いたので、Pages へ出す前に R2 へ送る
+      - name: Upload standards chapter data to R2
+        if: inputs.verify_only != true
+        run: node scripts/upload-standards-data-r2.mjs
+        env:
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_R2_ACCESS_KEY_ID: ${{ secrets.CLOUDFLARE_R2_ACCESS_KEY_ID }}
+          CLOUDFLARE_R2_SECRET_ACCESS_KEY: ${{ secrets.CLOUDFLARE_R2_SECRET_ACCESS_KEY }}
+          CLOUDFLARE_R2_BUCKET_NAME: doboku-note
+
       - name: Deploy to Cloudflare Pages
         if: inputs.verify_only != true
         run: npx wrangler@3 pages deploy out --project-name=doboku-note --commit-message="deploy ${{ github.sha }}"

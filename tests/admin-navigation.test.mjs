@@ -61,7 +61,7 @@ test('kindle channel は専用画面タブ + ファイルタブを持つ', () =>
     enabled: true,
     sourcePath: 'content/kindle',
     tabs: [
-      { href: '/content/kindle', match: '/content/kindle' },
+      { href: '/product/status?ch=kindle', match: '/product/status' },
       { href: '/content/content~kindle', match: '/content/content~kindle' },
     ],
   });

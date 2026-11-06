@@ -248,22 +248,7 @@ CI時間を抑えるため、E2E workflow内で全量の`npm run build`や既存
 
 テスト数をKPIにしない。過去に実際に壊れた、または壊れると収益・利用者影響が大きい経路を優先する。
 
-## 12. ビジュアルリグレッション（2026-09 実施）
+## 12. ビジュアルリグレッション（2026-11-06 に廃止）
 
-lint-ui も axe（`e2e/a11y.spec.ts`）も、CSS・Tailwind 変更によるレイアウト崩れは検出しない（Tailwind の transform 変種が本 build で無効だった件はこの種の見落とし）。`e2e/visual.spec.ts` が `e2e/routes.ts` の代表テンプレ（`a11y.spec.ts` と共有）+ `/links` を desktop・mobile（`playwright.config.ts` の 2 project）× light/dark で `toHaveScreenshot` に固定する。`maxDiffPixelRatio` は `playwright.config.ts` の `expect.toHaveScreenshot` に既定 0.01 を設定済み。
+画面を変えるたびに基準画像の更新が要り、開発の途中では負担のほうが大きいので `e2e/visual.spec.ts` と基準画像を消した。開発が落ち着いたら戻すかを判断する。夜間の E2E は毎日回し、`e2e/a11y.spec.ts` だけは週 1 回（月曜の JST 03:00）にした。
 
-### 基準画像の更新
-
-アフィリの意匠実験（EXP-043）の広告は`e2e/visual.spec.ts`で小型カードのB案に固定する。ランダム配信による差と、C案（バナー）の画像の読み込みによる揺れを退行と誤判定しないためで、C案は管理画面の広告の見本（`/affiliate/preview`）と案別の実画面確認で検証する。
-
-**基準画像は必ず CI（ubuntu-latest）で生成する。ローカル（Mac/Windows）で `--update-snapshots` を実行して commit しない**（フォントレンダリングが CI と異なり、コミットした瞬間から CI 側が常に赤くなる）。
-
-1. 意図した UI 変更を develop（コンテンツ）または feature ブランチ（コード）に反映する。
-2. `.github/workflows/e2e.yml` を `workflow_dispatch` で手動実行する（対象ブランチを指定）。差分のあるルートだけ「基準画像と一致しない」で失敗する（想定内）。
-3. 新規で基準が無い場合は artifact `visual-snapshots-<attempt>` の該当画像を取り込む。既存基準との不一致は基準ファイルを上書きしないので、artifact `playwright-e2e-<attempt>` 内の `test-results/**/**-actual.png` を、ログの `Expected:` に示された基準ファイル名で取り込む。
-4. 差分が意図した変更だけであることを diff（画像）で確認してから commit する。
-5. 同じブランチで `workflow_dispatch` をもう一度実行し、緑になることを確認する。
-
-新規ルート追加時も同じ手順（該当ルートの基準画像だけが「存在しない」で失敗し、1回目の run で artifact に書き出される）。
-
-R2画像を追加する変更は、目視確認後に画像を同期し、公開URLの読み戻しを確認してから基準画像を採用する。未同期の404画像を含む `actual.png` は採用せず、同期後に再実行する。

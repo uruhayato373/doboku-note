@@ -175,6 +175,7 @@ export const CHECKS = [
   { id: 'youtube-shorts', npm: 'check-youtube-shorts', timeout: 60_000, ci: true, note: 'ショートの本数・タイトル・UTM・公開枠、停止以外の表紙が全面生成の標準か、採用画像の描画と画面確認が今の動画に結ばれているか' },
   { id: 'youtube-funnels', npm: 'check-youtube-funnels', timeout: 60_000, ci: true, note: '公開・予約・private 通常動画の有料note商品・UTM・関連サイト経路と公開台帳の一致を全件確認する' },
   { id: 'youtube-plan', npm: 'check-youtube-plan', timeout: 60_000, ci: true, note: '通常動画の年間の枠と公開台帳を照合する。計画にない動画・枠の超過・週の上限超え・時期の外を止める（壁時計に依らない）' },
+  { id: 'admin-pages', npm: 'check-admin-pages', timeout: 30_000, ci: true, note: '管理画面の全ルートと台帳を照合する。台帳に無い画面・同じ問いの画面・上限超えを止める' },
   { id: 'channel-plan', npm: 'check-channel-plan', timeout: 60_000, ci: true, note: 'X・Instagram の年間の枠と計画・公開台帳を照合する。計画にない投稿・枠の超過・販売の超過・週の上限超えを止める' },
   { id: 'instagram-profile-funnel', npm: 'check-instagram-profile-funnel', timeout: 30_000, ci: true, note: 'Instagram bio の着地・UTMと固定投稿3本の原稿・画像SHA・Drive保存を検査する' },
 
