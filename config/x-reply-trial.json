@@ -3,11 +3,10 @@
   "experiment": "EXP-059",
   "backlog": "DN-1037",
   "trial": {
-    "from": "2026-11-08",
+    "from": "2026-11-07",
     "to": "2026-11-21"
   },
   "limits": {
-    "maxPerDay": 3,
     "minIntervalMinutes": 60,
     "candidatesPerRun": 8,
     "lookbackHours": 72

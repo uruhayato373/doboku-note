@@ -86,8 +86,6 @@ export function selectCandidates(posts, config, { now, repliedHashes = new Set()
 export function checkSendAllowed(log, { user, now, limits, trial, skips = [] }) {
   const day = jstDayOf(now);
   if (day < trial.from || day > trial.to) return `試行期間（${trial.from}〜${trial.to}）の外です`;
-  const sameDay = log.filter((r) => jstDayOf(Date.parse(r.at)) === day);
-  if (sameDay.length >= limits.maxPerDay) return `今日はすでに ${sameDay.length} 件送っています（上限 ${limits.maxPerDay} 件）`;
   const last = Math.max(0, ...log.map((r) => Date.parse(r.at)));
   const waited = (now - last) / 60_000;
   if (waited < limits.minIntervalMinutes) return `前の返信から ${Math.floor(waited)} 分です（${limits.minIntervalMinutes} 分あけます）`;

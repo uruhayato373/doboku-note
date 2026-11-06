@@ -80,15 +80,15 @@ test('上限で切る', () => {
   assert.equal(selectCandidates(posts, config, { now: NOW }).candidates.length, config.limits.candidatesPerRun);
 });
 
-test('送信の門番: 期間・1 日の上限・間隔・同じ相手を止める', () => {
+test('送信の門番: 期間・間隔・同じ相手を止める', () => {
   const base = { limits: config.limits, trial: config.trial };
   const at = (min) => new Date(NOW - min * 60_000).toISOString();
   const row = (min, user = 'x') => ({ at: at(min), userHash: hashUser(user) });
-  assert.match(checkSendAllowed([], { ...base, user: 'a', now: Date.parse('2026-11-07T03:00:00Z') }), /試行期間/);
+  assert.match(checkSendAllowed([], { ...base, user: 'a', now: Date.parse('2026-11-06T03:00:00Z') }), /試行期間/);
   assert.match(checkSendAllowed([], { ...base, user: 'a', now: Date.parse('2026-12-01T03:00:00Z') }), /試行期間/);
   assert.equal(checkSendAllowed([], { ...base, user: 'a', now: NOW }), null);
   assert.match(checkSendAllowed([row(10)], { ...base, user: 'a', now: NOW }), /分あけます/);
-  assert.match(checkSendAllowed([row(61), row(62), row(63)], { ...base, user: 'a', now: NOW }), /上限/);
+  assert.equal(checkSendAllowed([row(61), row(62), row(63), row(64)], { ...base, user: 'a', now: NOW }), null);
   assert.match(checkSendAllowed([row(90, 'a')], { ...base, user: 'A', now: NOW }), /すでに返信/);
   assert.equal(checkSendAllowed([row(90)], { ...base, user: 'a', now: NOW }), null);
 });

@@ -560,7 +560,6 @@ export const ConfigXReplyTrial = z
     trial: z.object({ from: z.string(), to: z.string() }).strict(),
     limits: z
       .object({
-        maxPerDay: z.number().int().positive(),
         minIntervalMinutes: z.number().int().positive(),
         candidatesPerRun: z.number().int().positive(),
         lookbackHours: z.number().int().positive(),
