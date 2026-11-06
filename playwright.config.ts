@@ -8,6 +8,8 @@ const port = useDevServer ? 3020 : 3025;
 
 export default defineConfig({
   testDir: './e2e',
+  // 夜間はアクセシビリティを週 1 回だけ回す（.github/workflows/e2e.yml）
+  testIgnore: process.env.E2E_SKIP_A11Y ? ['**/a11y.spec.ts'] : [],
   fullyParallel: true,
   forbidOnly: isCI,
   retries: isCI ? 1 : 0,
@@ -17,10 +19,6 @@ export default defineConfig({
   // ここは「温まったサーバーに対する妥当な待ち」に留める（伸ばしすぎると本物の遅延を見逃す）。
   expect: {
     timeout: 10_000,
-    // ビジュアルリグレッション（e2e/visual.spec.ts・DN-0238）。フォントの subpixel
-    // アンチエイリアシングの揺れを許容しつつ、意図しないレイアウト崩れは検出する値。
-    // 基準画像は CI（ubuntu-latest・同一フォント環境）で生成する（docs/operations/12 参照）。
-    toHaveScreenshot: { maxDiffPixelRatio: 0.01 },
   },
   globalSetup: './e2e/global-setup.ts',
   reporter: isCI
