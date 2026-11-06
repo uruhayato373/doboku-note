@@ -366,6 +366,7 @@ npm run exam-ssot-status # 資格の正本（日程・受験者数・出題形�
 npm run qualification-market # 資格ごとの展開の判断材料（自分で書く区分＝経験記述・論文とその受験者数・買われる時期・売上・YouTube/note/ココナラの混み具合・X/IG 追跡数）。管理画面 戦略＞資格と市場＞展開の判断と同じ実装（`-- --json`／`-- --check`）。要対応（市場スキャンの未取得・90日超・出題形式の未確認）があっても exit 0
 npm run competitor-position -- --exam rccm # 資格または枠（--slot）の競合の立ち位置を最新の実測つきで表示する。企画と分析の前に読む
 npm run check-competitor-positions # 立ち位置の台帳を市場の検索と取得物で照合する。目立つ相手の見落とし・空きの主張の崩れ・観測値の写し・年間の枠の参照切れを止める
+npm run check-media-references # content/sns の文書が指す素材が Drive の台帳にあるかを確かめる。素材を消す前に通す
 npm run check-past-exam-inventory # 過去問の年度在庫台帳（data/pastexams/inventory.json）と Drive 台帳の整合。FAIL＝台帳の不整合のみ（資格 id・textbook-source-pdf に当たらないパス・取得済みなのに実体無し）。WARN＝掲載中の未取得・最古年度の消失見込み（windowYears があるとき）・Drive 未退避・試験日＋publishLagDays 経過で今年度の行が無い。月次レビューが読む。罠: CI は手元の PDF を見ないので「Drive 台帳に未登録」は WARN 止まり
 npm run check-past-exam-ledger    # 過去問の問題台帳（data/pastexams/questions/{資格}.json）の配線（問題 ID の過不足・記事・原典の実在）と、演習データの正答と公式正答の一致を FAIL。転記の照合率は件数だけ出す（--json は管理画面向け）。罠: civil-1・civil-2 は src/config の JSON を読むので、記事の MDX だけ直しても演習データが古いと不一致が残る
 npm run check-answer-marks        # 過去問 MDX の正答と解説の ✅/❌ の整合（集合・問い方の向き・解説の文と印・記述（①〜）の解説の番号）を全記事で FAIL（引数に記事を渡すとその記事だけ）。✅＝記述が正しい・適当、否定の問いは正答だけ ❌。「該当しない」「許可を必要としない」「適用されない」「対象とならない」「含まれない」を選ぶ問いも否定として、問いに当てはまる選択肢＝正答だけ ❌（DN-0673）。罠: 「改善の必要がない」「どれにも当てはまらない」のように選ぶ対象が肯定の中身・語句の穴埋めになる問い、○×の組合せ・数を問う問いは向きを照合しない（集合だけ）。直した値を述べる「『3 cm以下』が正しい」は判定の語として読まない
