@@ -50,12 +50,15 @@ export function SnapshotPicker({
   current,
   paramKey = 'snapshot',
   limit = 6,
+  keep,
 }: {
   basePath: string;
   files: SnapshotFile[];
   current: string;
   paramKey?: string;
   limit?: number;
+  /** 履歴を選んでも保つクエリ（タブなど） */
+  keep?: Record<string, string>;
 }) {
   const byDay = files.filter((f, i) => files.findIndex((g) => g.stamp.slice(0, 10) === f.stamp.slice(0, 10)) === i);
   if (byDay.length <= 1) return null;
@@ -64,7 +67,7 @@ export function SnapshotPicker({
       {byDay.slice(0, limit).map((f) => (
         <FilterChip
           key={f.file}
-          href={`${basePath}?${paramKey}=${encodeURIComponent(f.file)}`} active={f.file === current}
+          href={`${basePath}?${new URLSearchParams({ ...keep, [paramKey]: f.file })}`} active={f.file === current}
         >
           {f.stamp.slice(5, 10).replace('-', '/')}
         </FilterChip>

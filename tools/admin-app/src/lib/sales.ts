@@ -25,6 +25,8 @@ export interface MonthAgg {
   products: ProductAgg[];
 }
 export interface SalesSummary {
+  /** 台帳を読めたか。false のとき total の 0 は実績ではない */
+  loaded: boolean;
   source: string | null;
   updatedAt: string | null;
   currency: string;
@@ -115,9 +117,11 @@ export function salesSummary(): SalesSummary {
   try {
     data = JSON.parse(readFileSync(repoPath(datasetPath('note.sales')), 'utf8'));
   } catch {
-    return { source: null, updatedAt: null, currency: 'JPY', months: [], total: { count: 0, revenue: 0, months: 0 } };
+    return { loaded: false, source: null, updatedAt: null, currency: 'JPY', months: [], total: { count: 0, revenue: 0, months: 0 } };
   }
-  const sales = data.sales ?? [];
+  // 配列が無いファイルは「売上 0」ではなく読めなかった扱いにする
+  if (!Array.isArray(data.sales)) return { loaded: false, source: null, updatedAt: null, currency: 'JPY', months: [], total: { count: 0, revenue: 0, months: 0 } };
+  const sales = data.sales;
 
   const byMonth: Record<string, { month: string; count: number; revenue: number; products: Record<string, ProductAgg> }> = {};
   for (const s of sales) {
@@ -149,6 +153,7 @@ export function salesSummary(): SalesSummary {
     months: months.length,
   };
   return {
+    loaded: true,
     source: data.source ?? null,
     updatedAt: data.updatedAt ?? null,
     currency: data.currency ?? 'JPY',

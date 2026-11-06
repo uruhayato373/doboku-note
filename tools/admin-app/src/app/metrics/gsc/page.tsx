@@ -53,6 +53,8 @@ export default async function GscPage({
 
   const totClicks = queryRows.reduce((s, r) => s + (r.clicks || 0), 0);
   const totImpr = queryRows.reduce((s, r) => s + (r.impressions || 0), 0);
+  // スナップショットが無いときは合計を 0 と見せない
+  const measured = queryRows.length > 0;
 
   return (
     <>
@@ -61,8 +63,8 @@ export default async function GscPage({
 
       <Stack>
       <Grid min="sm">
-        <StatCard label="総クリック（上位100クエリ）" value={fmt.int(totClicks)} />
-        <StatCard label="総表示" value={fmt.int(totImpr)} />
+        <StatCard label="総クリック（上位100クエリ）" value={measured ? fmt.int(totClicks) : '—'} sub={measured ? undefined : 'データなし'} />
+        <StatCard label="総表示" value={measured ? fmt.int(totImpr) : '—'} sub={measured ? undefined : 'データなし'} />
         <StatCard label="平均CTR" value={totImpr ? fmt.pct(totClicks / totImpr) : '—'} />
       </Grid>
 
