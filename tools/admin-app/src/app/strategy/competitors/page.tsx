@@ -1,5 +1,4 @@
-import Link from 'next/link';
-import { DataTable, DetailSheet, DetailText, type DataTableColumn, type DataTableRow } from '@/components/admin';
+import { DataTable, DetailSheet, DetailText, type DataTableColumn, type DataTableRow, FilterBar, FilterChip } from '@/components/admin';
 import { PageHead } from '@/components/ui';
 import SectionTabs from '@/components/SectionTabs';
 import { loadCompetitorView, loadCourseView, type CompetitorRow, type CourseRow } from '@/lib/competitors';
@@ -47,10 +46,10 @@ const COURSE_COLUMNS: DataTableColumn[] = [
 
 function ChannelNav({ current }: { current: 'coconala' | 'courses' }) {
   return (
-    <nav className="filterbar mb-2!">
-      <Link className={'chip' + (current === 'coconala' ? ' active' : '')} href="/strategy/competitors">ココナラ</Link>
-      <Link className={'chip' + (current === 'courses' ? ' active' : '')} href="/strategy/competitors?channel=courses">講座の企業</Link>
-    </nav>
+    <FilterBar className="mb-2!">
+      <FilterChip active={current === 'coconala'} href="/strategy/competitors">ココナラ</FilterChip>
+      <FilterChip active={current === 'courses'} href="/strategy/competitors?channel=courses">講座の企業</FilterChip>
+    </FilterBar>
   );
 }
 
@@ -62,7 +61,7 @@ function CoursesView({ handle, examLabels }: { handle?: string; examLabels: Reco
       <PageHead title="競合" sub={view.observedDate ? `観測 ${md(view.observedDate)}` : undefined} />
       <SectionTabs set="market" current="/strategy/competitors" />
       <ChannelNav current="courses" />
-      {handle && <nav className="filterbar mb-3!"><Link className="chip" href="/strategy/competitors?channel=courses">すべて {view.rows.length}</Link></nav>}
+      {handle && <FilterBar className="mb-3!"><FilterChip href="/strategy/competitors?channel=courses">すべて {view.rows.length}</FilterChip></FilterBar>}
       {view.reading && <p className="mb-3 text-sm">{view.reading}</p>}
       <DataTable columns={COURSE_COLUMNS} rows={rows.map((r) => courseRow(r, examLabels))} pageSize={50} />
     </>
@@ -111,20 +110,19 @@ export default async function CompetitorsPage({ searchParams }: { searchParams: 
       <PageHead title="競合" sub={view.fetchedDate ? `取得 ${md(view.fetchedDate)}` : undefined} />
       <SectionTabs set="market" current="/strategy/competitors" />
       <ChannelNav current="coconala" />
-      <nav className="filterbar mb-3!">
-        <Link className={'chip' + (!exam ? ' active' : '')} href="/strategy/competitors">
+      <FilterBar className="mb-3!">
+        <FilterChip active={!exam} href="/strategy/competitors">
           すべて {view.rows.length}
-        </Link>
+        </FilterChip>
         {exams.map((id) => (
-          <Link
-            key={id}
-            className={'chip' + (exam === id ? ' active' : '')}
+          <FilterChip
+            key={id} active={exam === id}
             href={`/strategy/competitors?exam=${encodeURIComponent(id)}`}
           >
             {view.examLabels[id] ?? id} {view.rows.filter((r) => r.exams.includes(id)).length}
-          </Link>
+          </FilterChip>
         ))}
-      </nav>
+      </FilterBar>
 
       {rows.length === 0 ? (
         <p className="text-sm text-muted-foreground">データなし</p>

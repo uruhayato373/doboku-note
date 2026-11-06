@@ -13,8 +13,7 @@ export default function CopyButton({ text, label = 'promptをコピー' }: { tex
   return (
     <button
       type="button"
-      className="badge neutral"
-      style={{ cursor: 'pointer' }}
+      className="badge neutral cursor-pointer"
       onClick={async () => {
         try {
           await navigator.clipboard.writeText(text);

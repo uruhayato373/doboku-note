@@ -9,8 +9,8 @@ export default async function UpcomingEvents({ domain, limit = 5 }: { domain: Sc
   const events = await upcomingEvents(domain, limit);
   const label = DOMAINS.find((d) => d.id === domain)?.label ?? domain;
   return (
-    <div className="small" style={{ marginBottom: 16 }}>
-      <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 4 }}>
+    <div className="small mb-4">
+      <div className="mb-1 flex justify-between">
         <strong>次の予定（{label}）</strong>
         <Link href={`/schedule?dom=${domain}`}>スケジュールで見る</Link>
       </div>

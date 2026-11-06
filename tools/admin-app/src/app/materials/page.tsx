@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { DataTable, DetailList, DetailSheet, DetailText, PanelCard, StatusBadge, type DataTableColumn, type DataTableRow } from '@/components/admin';
+import { DataTable, DetailList, DetailSheet, DetailText, PanelCard, StatusBadge, type DataTableColumn, type DataTableRow, FilterBar } from '@/components/admin';
 import { PageHead } from '@/components/ui';
 import { findRepoRoot } from '@/lib/repo-root';
 import { expansionReport, sourceSummary, linkedProductsByUnit, siteWiring, DECISION_LABELS } from '../../../../../scripts/lib/content-expansion.mjs';
@@ -280,11 +280,11 @@ function Detail({ source, products, onlyAttention, sitePages, book }: { source: 
           {m.contentPartial > 0 && ` · 一部対応 ${m.contentPartial}`} · 図解 {m.visual} · SNS {m.sns} · 商品 {pct(source.units.filter((u) => products(u).length > 0).length, m.units)}
         </span>
       </div>
-      <nav className="filterbar small mb-2!">
+      <FilterBar className="small mb-2!">
         {onlyAttention ? <Link href={base}>すべての論点（{source.units.length}）</Link> : <strong>すべての論点（{source.units.length}）</strong>}
         {onlyAttention ? <strong>要確認のみ（{units.length}）</strong> : <Link href={`${base}&only=attention`}>要確認のみ（{source.units.filter(needsAttention).length}）</Link>}
         <Link href={`${base}&view=site`}>サイトの配線先（{sitePages}）</Link>
-      </nav>
+      </FilterBar>
       {book && <BookCoverageLine book={book} />}
       <DataTable columns={UNIT_COLUMNS} rows={unitRows} filter="論点で絞り込む" />
     </>
@@ -316,11 +316,11 @@ function SiteView({ source, wiring, sources }: { source: Source; wiring: Wiring;
           {wiring.gsc.period && `（${wiring.gsc.period}）`}
         </span>
       </div>
-      <nav className="filterbar small mb-2!">
+      <FilterBar className="small mb-2!">
         <Link href={base}>すべての論点（{source.units.length}）</Link>
         <Link href={`${base}&only=attention`}>要確認のみ（{source.units.filter(needsAttention).length}）</Link>
         <strong>サイトの配線先（{pages.length}）</strong>
-      </nav>
+      </FilterBar>
       {!wiring.gsc.file && <p className="project-warning-text text-xs">表示・クリックは未取得（0 ではありません）</p>}
       {pages.length === 0 && <p className="text-sm">配線先のページはありません。</p>}
       {[...sections].map(([key, list]) => (

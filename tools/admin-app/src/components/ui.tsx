@@ -1,31 +1,8 @@
-import Link from 'next/link';
 import { Badge } from '@/components/ui/badge';
-import { Card } from '@/components/ui/card';
-import { DataTable as AdminDataTable } from '@/components/admin';
+import { FilterBar, FilterChip } from '@/components/admin';
 import type { SnapshotFile } from '@/lib/snapshots';
 import { ageInDays } from '@/lib/snapshots';
 import { num } from '@/lib/format';
-
-/** KPI カード。ラベルと値だけのシンプルな表示（アイコン・装飾線は持たない）。 */
-export function Kpi({
-  label,
-  value,
-  unit,
-}: {
-  label: string;
-  value: string | number;
-  unit?: string;
-}) {
-  return (
-    <Card className="kpi gap-0 py-0">
-      <div className="label">{label}</div>
-      <div className="value">
-        {typeof value === 'number' ? value.toLocaleString() : value}
-        {unit ? <span className="unit">{unit}</span> : null}
-      </div>
-    </Card>
-  );
-}
 
 /** ページ見出し。 */
 export function PageHead({ title, sub }: { title: string; sub?: string }) {
@@ -83,61 +60,16 @@ export function SnapshotPicker({
   const byDay = files.filter((f, i) => files.findIndex((g) => g.stamp.slice(0, 10) === f.stamp.slice(0, 10)) === i);
   if (byDay.length <= 1) return null;
   return (
-    <div className="filterbar" style={{ marginTop: 4 }}>
+    <FilterBar className="mt-1">
       {byDay.slice(0, limit).map((f) => (
-        <Link
+        <FilterChip
           key={f.file}
-          href={`${basePath}?${paramKey}=${encodeURIComponent(f.file)}`}
-          className={'chip' + (f.file === current ? ' active' : '')}
+          href={`${basePath}?${paramKey}=${encodeURIComponent(f.file)}`} active={f.file === current}
         >
           {f.stamp.slice(5, 10).replace('-', '/')}
-        </Link>
+        </FilterChip>
       ))}
-    </div>
-  );
-}
-
-export type Col<Row> = {
-  key: string;
-  label: string;
-  num?: boolean;
-  wrap?: boolean;
-  render?: (row: Row) => React.ReactNode;
-};
-
-/**
- * 汎用データテーブル（サーバー側の入口）。render 関数はここで描いて、
- * shadcn の Data Table（components/admin の DataTable・クライアント）へ直列化できる形で渡す。
- * 並べ替えは列の生の値（row[key] が数値・文字列のとき）で行う。
- */
-export function DataTable<Row>({
-  cols,
-  rows,
-  filter,
-  pageSize,
-}: {
-  cols: Col<Row>[];
-  rows: Row[];
-  filter?: string;
-  pageSize?: number;
-}) {
-  const raw = (row: Row, key: string) => {
-    const v = (row as Record<string, unknown>)[key];
-    return typeof v === 'number' || typeof v === 'string' ? v : null;
-  };
-  return (
-    <AdminDataTable
-      columns={cols.map((c) => ({ key: c.key, label: c.label, num: c.num, wrap: c.wrap }))}
-      rows={rows.map((row, i) => ({
-        id: String(i),
-        values: Object.fromEntries(cols.map((c) => [c.key, raw(row, c.key)])),
-        cells: Object.fromEntries(
-          cols.map((c) => [c.key, c.render ? c.render(row) : String((row as Record<string, unknown>)[c.key] ?? '')]),
-        ),
-      }))}
-      filter={filter}
-      pageSize={pageSize}
-    />
+    </FilterBar>
   );
 }
 
