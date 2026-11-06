@@ -59,7 +59,7 @@ function publicationSlot(packId, kind, item) {
 
 for (const exam of EXAMS) {
   const examRoot = join(PACKS_ROOT, exam);
-  // 動画が 1 本も無い資格はフォルダが無い。全資格で 0 本なら下の検査不成立で止まる
+  // 動画が 1 本も無い資格はフォルダが無い。全資格で 0 本のときは末尾で止める
   if (!existsSync(examRoot)) continue;
   for (const packId of readdirSync(examRoot).sort()) {
     const dir = join(examRoot, packId);
@@ -145,6 +145,7 @@ for (const [publishAt, label] of pendingSlots) {
 
 console.log(`YouTube Shorts gate: targets=${targetCount}, packs=${packCount}, shorts=${shortsCount}, stopped=${stoppedCount}, titles=${titles.size}, slots=${slots.size}`);
 for (const warning of warnings) console.warn(`WARN: ${warning}`);
+if (targetCount === 0) errors.push('対象の動画が 0 本で検査不成立');
 if (errors.length) {
   for (const error of errors) console.error(`FAIL: ${error}`);
   process.exit(1);
