@@ -1,0 +1,1648 @@
+{
+  "schemaVersion": 1,
+  "_doc": "資格ごとの競合の分析結果の正本。件数・金額・再生数は書かず、取得物から読む（npm run competitor-position）。空きの主張は probes で市場の検索に照らす。編集後は npm run check-competitor-positions を通す。年間の枠の stance がここの stances を指す。手順は /competitor-review。",
+  "self": {
+    "youtube": [
+      "UCHRnXPqoc0Hls8nXiK_ZYqA"
+    ],
+    "note": [
+      "dobokunote"
+    ]
+  },
+  "positions": [
+    {
+      "id": "civil",
+      "exams": [
+        "civil-construction-1",
+        "civil-construction-2"
+      ],
+      "reviewedOn": "2026-11-06",
+      "read": [
+        "docs/reviews/competitors/2026-05_1級土木.md",
+        "docs/reviews/competitors/2026-09_2級土木.md",
+        "docs/marketing/07a_YouTube競合分析_土木施工管理技士_2026-09.md",
+        "docs/marketing/07b_販売動線分析_ちゃんさと_2026-09.md",
+        "docs/marketing/07c_YouTube競合動画の画面分析_2026-10.md",
+        "docs/strategy/09_販売チャネル競合分析.md",
+        "docs/strategy/22_チャネル別商品設計2026-11.md"
+      ],
+      "summary": "YouTube は日建学院と雅の長尺、ひげごろーの二次と解答速報が厚く、note は経験記述の単品が多い。ココナラは添削と二次の模試の実績が大きい。集客は尺の違いを試し、販売は工種別の答案例と発注者の視点で差をつける。",
+      "rivals": [
+        {
+          "channel": "youtube",
+          "handle": "UCqEUavmgDZKL0MvJLmWTEsw",
+          "holds": "年度別の解説と一問一答の聞き流し"
+        },
+        {
+          "channel": "youtube",
+          "handle": "UCG8ueDd1v2gvwiu7GPLIp7w",
+          "holds": "年度別のスライド解説と総まとめ"
+        },
+        {
+          "channel": "youtube",
+          "handle": "UCuSGRLcIrq20nw9gyisjlRg",
+          "holds": "二次の経験記述と解答速報、ココナラの二次模試への導線"
+        },
+        {
+          "channel": "youtube",
+          "handle": "UCI0JdmXJgCXyshWAnBbSMBw",
+          "holds": "分野別の要点と長時間の講義"
+        },
+        {
+          "channel": "youtube",
+          "handle": "UCAr038HhwXFgPV-X9QqnsSA",
+          "holds": "過去問を解く配信と無料の模試"
+        },
+        {
+          "channel": "youtube",
+          "handle": "UCypWu8PM6lvPNWMC8l7_dhw",
+          "holds": "分野別のまとめと経験記述の長尺"
+        },
+        {
+          "channel": "youtube",
+          "handle": "UCybXPGCftgBmGaKKqwmD0lQ",
+          "holds": "専門土木の重要事項のまとめ"
+        },
+        {
+          "channel": "youtube",
+          "handle": "UCeiJ6mhuoPGvYqIUylSnkqw",
+          "holds": "一問一答の読み上げの長尺"
+        },
+        {
+          "channel": "youtube",
+          "handle": "UC_jcTda5TI8Ozczl4W3XbSA",
+          "holds": "読み上げで大量に出す出題分析"
+        },
+        {
+          "channel": "note",
+          "handle": "study_room358",
+          "holds": "多資格の問題集の量産。土木は年度の問題集"
+        },
+        {
+          "channel": "note",
+          "handle": "katokantoku_note",
+          "holds": "経験記述の教材の単品"
+        },
+        {
+          "channel": "note",
+          "handle": "chansato_st",
+          "holds": "一次と二次の模試と添削への導線"
+        },
+        {
+          "channel": "note",
+          "handle": "miyabi_labo",
+          "holds": "まとめノートと模擬試験"
+        },
+        {
+          "channel": "note",
+          "handle": "doboku1_ippatsu",
+          "holds": "経験記述の無料記事の連投"
+        },
+        {
+          "channel": "note",
+          "handle": "mintynatsu",
+          "holds": "経験記述と直前の予想の単品"
+        },
+        {
+          "channel": "note",
+          "handle": "polka04",
+          "holds": "実際に使った答案の低価格の単品"
+        },
+        {
+          "channel": "note",
+          "handle": "craftmall",
+          "holds": "過去問集と経験記述の単品"
+        },
+        {
+          "channel": "note",
+          "handle": "saitangoukakulab",
+          "holds": "資格ごとの勉強法の量産"
+        },
+        {
+          "channel": "coconala",
+          "handle": "1528311",
+          "holds": "二次の予想模試"
+        },
+        {
+          "channel": "coconala",
+          "handle": "2442601",
+          "holds": "経験記述の添削"
+        },
+        {
+          "channel": "coconala",
+          "handle": "804799",
+          "holds": "年度予想と解答例"
+        }
+      ],
+      "dismissed": [
+        {
+          "channel": "youtube",
+          "handle": "UC55tCoiZG_e5jlUrxR7bEKg",
+          "label": "誠文堂新光社",
+          "why": "書籍の見本の動画で、継続して出している相手ではない"
+        }
+      ],
+      "avoid": [
+        {
+          "id": "civil-yearly-walkthrough",
+          "text": "年度別の通し解説",
+          "why": "長尺の通し解説は日建学院と雅の本数と再生が先行している",
+          "rivals": [
+            {
+              "channel": "youtube",
+              "handle": "UCG8ueDd1v2gvwiu7GPLIp7w"
+            },
+            {
+              "channel": "youtube",
+              "handle": "UCqEUavmgDZKL0MvJLmWTEsw"
+            }
+          ],
+          "formats": []
+        },
+        {
+          "id": "civil-volume",
+          "text": "単品の物量",
+          "why": "単品の数では追いつけず、選びやすさで差をつける",
+          "rivals": [
+            {
+              "channel": "note",
+              "handle": "study_room358"
+            }
+          ],
+          "formats": []
+        },
+        {
+          "id": "civil-tensaku-race",
+          "text": "添削の実績の競争",
+          "why": "実績の差が大きい。自社の添削は答案例の延長に留める",
+          "rivals": [
+            {
+              "channel": "coconala",
+              "handle": "2442601"
+            }
+          ],
+          "formats": []
+        },
+        {
+          "id": "civil-premium-moshi",
+          "text": "二次の高額の予想模試",
+          "why": "レビューの蓄積で大きく離されている。自社は一次の無料の体験から教材へつなぐ",
+          "rivals": [
+            {
+              "channel": "coconala",
+              "handle": "1528311"
+            }
+          ],
+          "formats": []
+        }
+      ],
+      "stances": [
+        {
+          "id": "civil-start",
+          "stage": "学習開始",
+          "text": "来年度の受検の準備と、2級から1級・技術士への道筋",
+          "why": "制度と順序の案内はサイトの記事を転用でき、学習開始の検索に合う",
+          "state": "untested",
+          "channels": [
+            "youtube",
+            "site",
+            "x",
+            "instagram",
+            "email"
+          ],
+          "evidence": [
+            "docs/marketing/07c_YouTube競合動画の画面分析_2026-10.md"
+          ],
+          "probes": []
+        },
+        {
+          "id": "civil-listen",
+          "stage": "一次の学習",
+          "text": "分野別の 15〜30 分のまとめで入口を試す",
+          "why": "自社の短い動画は入口にならない。長尺は先行者がいるので、分野を絞った尺で試す",
+          "state": "untested",
+          "channels": [
+            "youtube"
+          ],
+          "evidence": [
+            "docs/marketing/07c_YouTube競合動画の画面分析_2026-10.md"
+          ],
+          "probes": []
+        },
+        {
+          "id": "civil-topic-drill",
+          "stage": "一次の学習",
+          "text": "論点別の過去問を、サイト・Kindle・note で引ける形にする",
+          "why": "動画の年度別と一問一答は先行者が厚い。文字の教材で論点から引ける形を作る",
+          "state": "untested",
+          "channels": [
+            "site",
+            "kindle",
+            "note",
+            "x",
+            "instagram"
+          ],
+          "evidence": [],
+          "probes": []
+        },
+        {
+          "id": "civil-quiz",
+          "stage": "一次の学習",
+          "text": "一問一答を読み上げで束ね、論点の教材へつなぐ",
+          "why": "日建学院の再生は大きいが、読み上げの新しいチャンネルでも伸びた例がある。試作で確かめる",
+          "state": "untested",
+          "channels": [
+            "youtube"
+          ],
+          "evidence": [
+            "docs/marketing/07c_YouTube競合動画の画面分析_2026-10.md"
+          ],
+          "probes": []
+        },
+        {
+          "id": "civil-moshi",
+          "stage": "一次の直前",
+          "text": "問題数を絞った無料模試から有料版へつなぐ",
+          "why": "同じ型の先行者はちゃんさとで、解説の深さで比べられる",
+          "state": "untested",
+          "channels": [
+            "youtube",
+            "note"
+          ],
+          "evidence": [
+            "docs/marketing/07b_販売動線分析_ちゃんさと_2026-09.md"
+          ],
+          "probes": []
+        },
+        {
+          "id": "civil-after-exam",
+          "stage": "試験直後",
+          "text": "試験直後の解答解説は記事を主にし、動画は次の検定への案内に絞る",
+          "why": "速報の動画は先行者の再生が大きく、記事は検索に集まった実績がある",
+          "state": "inferred",
+          "channels": [
+            "youtube",
+            "x",
+            "site"
+          ],
+          "evidence": [
+            "docs/marketing/07c_YouTube競合動画の画面分析_2026-10.md"
+          ],
+          "probes": []
+        },
+        {
+          "id": "civil-second-answer",
+          "stage": "二次",
+          "text": "工種別の答案例と、発注者の視点の答案の見方",
+          "why": "自社の売上の柱で、発注者の視点を題名に出す動画は検索にほぼ無い",
+          "state": "seen",
+          "channels": [
+            "youtube",
+            "note",
+            "x",
+            "instagram",
+            "coconala"
+          ],
+          "evidence": [
+            "docs/strategy/22_チャネル別商品設計2026-11.md"
+          ],
+          "probes": [
+            {
+              "claim": "発注者の視点を題名に出す動画が少ない",
+              "exam": "civil-construction-1",
+              "channel": "youtube",
+              "match": "発注者|監督員",
+              "max": 2
+            }
+          ]
+        }
+      ],
+      "limits": [
+        "市場の確認は検索語ごとの上位の結果だけで、全件ではない。題名に語が無い動画は拾えず、順位は日で変わる",
+        "有料の本文は読んでいない。中身の質は比べていない",
+        "X の取得物は古く、追跡の一部は取得に失敗している",
+        "ショートの再生と視聴維持率は比べていない",
+        "ココナラの出品は検索に出た分の一部で、取得は YouTube と note より古い",
+        "実測の全体の数字はチャンネルやアカウント全体のもので、その資格だけの数字ではない",
+        "スクールの講座は主要校だけ、無料の過去問サイトとアプリ、書籍は追跡していない",
+        "1級土木と2級土木の調査文書は関連する箇所だけを読んだ"
+      ]
+    },
+    {
+      "id": "pe-cm",
+      "exams": [
+        "pe-comprehensive-management"
+      ],
+      "reviewedOn": "2026-11-06",
+      "read": [
+        "docs/reviews/competitors/2026-04_技術士総監.md",
+        "docs/reviews/competitors/2026-07_SNS.md",
+        "docs/marketing/05a_YouTube競合分析_技術士総監_2026-06.md",
+        "docs/strategy/09_販売チャネル競合分析.md",
+        "docs/strategy/22_チャネル別商品設計2026-11.md"
+      ],
+      "summary": "note は小泉士郎の物量と高価格が突出し、口頭の想定問答や予想の単品も増えている。YouTube は再生の小さいチャンネルが並び、択一・口頭・トレードオフの動画はすでにある。白書と答案のつなぎ方で信頼を作り、販売は note に集める。",
+      "rivals": [
+        {
+          "channel": "note",
+          "handle": "sosou_nino",
+          "holds": "マガジン・模試・口頭の物量と高価格"
+        },
+        {
+          "channel": "note",
+          "handle": "gijyutsushi",
+          "holds": "問題別の模範解答と不合格の克服の記事"
+        },
+        {
+          "channel": "note",
+          "handle": "pe_geo",
+          "holds": "総監キーワードの連載と口頭の想定問答"
+        },
+        {
+          "channel": "note",
+          "handle": "eager_yarrow305",
+          "holds": "立場ごとの口頭の想定質問"
+        },
+        {
+          "channel": "note",
+          "handle": "chokuzen_note",
+          "holds": "記述の予想の単品"
+        },
+        {
+          "channel": "coconala",
+          "handle": "836463",
+          "holds": "記述の模範論文"
+        },
+        {
+          "channel": "coconala",
+          "handle": "681836",
+          "holds": "択一の過去問教材"
+        },
+        {
+          "channel": "coconala",
+          "handle": "4787672",
+          "holds": "筆記論文の添削"
+        },
+        {
+          "channel": "coconala",
+          "handle": "5271408",
+          "holds": "建設と総監の論文"
+        },
+        {
+          "channel": "coconala",
+          "handle": "5475567",
+          "holds": "キーワードと口頭"
+        },
+        {
+          "channel": "youtube",
+          "handle": "UCMY7e9Ri9Vh_syU8b7kuMdA",
+          "holds": "連番の短い解説と記述式の連番"
+        },
+        {
+          "channel": "youtube",
+          "handle": "UCmf_qjVwiThle-2MBhBXrNQ",
+          "holds": "合格論文の復元解説"
+        },
+        {
+          "channel": "youtube",
+          "handle": "UCZk6KCoGs-7OKrLvv6CG0dA",
+          "holds": "トレードオフと口頭の試問例"
+        },
+        {
+          "channel": "youtube",
+          "handle": "UCruon4odGsrT79rmuZGsTzw",
+          "holds": "勉強法と択一"
+        },
+        {
+          "channel": "youtube",
+          "handle": "UCbDBReL8ka0oCC04GUyyzug",
+          "holds": "口頭の解説と通信講座への導線"
+        },
+        {
+          "channel": "youtube",
+          "handle": "UCrbmFXXZvrb1a-nbQm-MOig",
+          "holds": "通信講座への導線"
+        },
+        {
+          "channel": "youtube",
+          "handle": "UC0wmtVAaSZKgnxwrzj9bttw",
+          "holds": "必須と選択の解答戦略"
+        },
+        {
+          "channel": "x",
+          "handle": "Civil10Engineer",
+          "holds": "建設と総監の発信"
+        },
+        {
+          "channel": "courses",
+          "handle": "agaroot-pe",
+          "holds": "合格時の返金つきの通信講座"
+        }
+      ],
+      "dismissed": [],
+      "avoid": [
+        {
+          "id": "cm-volume-premium",
+          "text": "小泉の物量と高価格",
+          "why": "蓄積の差は埋められず、同じ軸では比べられる",
+          "rivals": [
+            {
+              "channel": "note",
+              "handle": "sosou_nino"
+            }
+          ],
+          "formats": []
+        },
+        {
+          "id": "cm-course",
+          "text": "高額の通信講座",
+          "why": "運営の時間に合わず、買い切りの教材で答える",
+          "rivals": [
+            {
+              "channel": "courses",
+              "handle": "agaroot-pe"
+            }
+          ],
+          "formats": []
+        }
+      ],
+      "stances": [
+        {
+          "id": "cm-oral",
+          "stage": "口頭",
+          "text": "聞かれる構造を動画で示し、想定問答を note とココナラで売る",
+          "why": "筆記の発表の直後で需要が近い。口頭の売り手は多いので、立場別の想定問答で選ばれる形にする",
+          "state": "inferred",
+          "channels": [
+            "youtube",
+            "x",
+            "note",
+            "coconala"
+          ],
+          "evidence": [
+            "docs/strategy/22_チャネル別商品設計2026-11.md"
+          ],
+          "probes": []
+        },
+        {
+          "id": "cm-restart",
+          "stage": "再受験",
+          "text": "落ちた原因を体系で診断し、学習を始め直す",
+          "why": "不合格の記事と添削はあるが、原因の診断を商品の軸にした形は検索に見当たらない",
+          "state": "inferred",
+          "channels": [
+            "youtube",
+            "x",
+            "note",
+            "coconala",
+            "site"
+          ],
+          "evidence": [
+            "docs/marketing/05a_YouTube競合分析_技術士総監_2026-06.md"
+          ],
+          "probes": [
+            {
+              "claim": "有料の note に診断を題名に出す商品が少ない",
+              "exam": "pe-comprehensive-management",
+              "channel": "note",
+              "match": "診断",
+              "max": 2,
+              "paidOnly": true
+            }
+          ]
+        },
+        {
+          "id": "cm-essay",
+          "stage": "記述",
+          "text": "白書の論点を記述の答案へつなげる",
+          "why": "白書を題名に出す動画が検索に見当たらない。記述の連番はあるので、白書から答案へのつなぎ方に絞る",
+          "state": "inferred",
+          "channels": [
+            "youtube",
+            "x",
+            "instagram",
+            "note"
+          ],
+          "evidence": [
+            "docs/marketing/05a_YouTube競合分析_技術士総監_2026-06.md"
+          ],
+          "probes": [
+            {
+              "claim": "総監の動画に白書を題名に出すものが少ない",
+              "exam": "pe-comprehensive-management",
+              "channel": "youtube",
+              "match": "白書",
+              "max": 2
+            }
+          ]
+        },
+        {
+          "id": "cm-takuitsu",
+          "stage": "択一",
+          "text": "択一 1 問の解説と短い動画で毎日の接点を作る",
+          "why": "択一の動画はあるので、1 問で完結する短さが効くかを確かめる",
+          "state": "untested",
+          "channels": [
+            "youtube",
+            "x"
+          ],
+          "evidence": [],
+          "probes": []
+        },
+        {
+          "id": "cm-final",
+          "stage": "直前",
+          "text": "note の予想と完全パックへ集める",
+          "why": "受取は筆記の前に集中している",
+          "state": "seen",
+          "channels": [
+            "youtube",
+            "x",
+            "note"
+          ],
+          "evidence": [
+            "docs/strategy/22_チャネル別商品設計2026-11.md"
+          ],
+          "probes": []
+        }
+      ],
+      "limits": [
+        "市場の確認は検索語ごとの上位の結果だけで、全件ではない。題名に語が無い動画は拾えず、順位は日で変わる",
+        "有料の本文は読んでいない。中身の質は比べていない",
+        "X の取得物は古く、追跡の一部は取得に失敗している",
+        "ココナラの出品は検索に出た分の一部で、取得は YouTube と note より古い",
+        "実測の全体の数字はチャンネルやアカウント全体のもので、その資格だけの数字ではない",
+        "小泉士郎の X のハンドルは未確定",
+        "白書の動画の確認は題名だけで、本編で扱う動画は拾えない"
+      ]
+    },
+    {
+      "id": "pe-construction",
+      "exams": [
+        "pe-construction"
+      ],
+      "reviewedOn": "2026-11-06",
+      "read": [
+        "docs/reviews/competitors/2026-05_技術士建設.md",
+        "docs/reviews/competitors/2026-07_SNS.md",
+        "docs/marketing/08a_YouTube競合分析_技術士建設部門_2026-09.md",
+        "docs/strategy/09_販売チャネル競合分析.md",
+        "docs/strategy/22_チャネル別商品設計2026-11.md"
+      ],
+      "summary": "YouTube はぺんたの長い解説と BONTA の論文解説が伸び、技術士パパや横浜すばるが選択の解説を出している。note は小泉の科目別の部屋と問題別の回答例が並ぶ。書き分けと科目の深掘りを長い動画で試し、販売は note の必須と選択に集める。",
+      "rivals": [
+        {
+          "channel": "youtube",
+          "handle": "UCTUSxfs6ZpBTuDcf9gciglA",
+          "holds": "長い解説と合格の理論"
+        },
+        {
+          "channel": "youtube",
+          "handle": "UCaX_vHnFzw4iVOhTjvPtP5A",
+          "holds": "建設部門の論文と口頭の解説"
+        },
+        {
+          "channel": "youtube",
+          "handle": "UCZk6KCoGs-7OKrLvv6CG0dA",
+          "holds": "口頭と筆記の振り返り"
+        },
+        {
+          "channel": "youtube",
+          "handle": "UCrbmFXXZvrb1a-nbQm-MOig",
+          "holds": "通信講座への導線"
+        },
+        {
+          "channel": "youtube",
+          "handle": "UCL3G4QfUyLD7DKdLA6l6X_Q",
+          "holds": "必須と建設環境の対策と再現答案"
+        },
+        {
+          "channel": "youtube",
+          "handle": "UC0wmtVAaSZKgnxwrzj9bttw",
+          "holds": "必須と選択の解答戦略"
+        },
+        {
+          "channel": "youtube",
+          "handle": "UCruon4odGsrT79rmuZGsTzw",
+          "holds": "選択の解説と戦略"
+        },
+        {
+          "channel": "youtube",
+          "handle": "UCgCKh2Sv-8XNMnH26uywD9Q",
+          "holds": "鋼構造及びコンクリートのキーワードの連番"
+        },
+        {
+          "channel": "note",
+          "handle": "gijyutsushi",
+          "holds": "必須の問題別の模範解答"
+        },
+        {
+          "channel": "note",
+          "handle": "sosou_nino",
+          "holds": "模擬試験の連番と科目別の部屋"
+        },
+        {
+          "channel": "note",
+          "handle": "rccm",
+          "holds": "年度と問題ごとの回答例"
+        },
+        {
+          "channel": "note",
+          "handle": "kensetsu_dx_data",
+          "holds": "低価格の記事の物量"
+        },
+        {
+          "channel": "note",
+          "handle": "petenconsul",
+          "holds": "中価格の論文の記事"
+        },
+        {
+          "channel": "note",
+          "handle": "chokuzen_note",
+          "holds": "科目ごとの予想の単品"
+        },
+        {
+          "channel": "note",
+          "handle": "study_room358",
+          "holds": "科目ごとの論文対策の問題集"
+        },
+        {
+          "channel": "coconala",
+          "handle": "4787672",
+          "holds": "低価格の筆記論文の添削"
+        },
+        {
+          "channel": "coconala",
+          "handle": "3318018",
+          "holds": "筆記論文の添削"
+        },
+        {
+          "channel": "coconala",
+          "handle": "5271408",
+          "holds": "建設と総監の論文"
+        },
+        {
+          "channel": "coconala",
+          "handle": "2302173",
+          "holds": "勉強法の指導"
+        },
+        {
+          "channel": "x",
+          "handle": "gijutushiindex",
+          "holds": "予想問題の連番"
+        },
+        {
+          "channel": "x",
+          "handle": "Civil10Engineer",
+          "holds": "建設と総監の発信"
+        },
+        {
+          "channel": "x",
+          "handle": "tvxq_pelican29",
+          "holds": "多資格の発信"
+        }
+      ],
+      "dismissed": [
+        {
+          "channel": "coconala",
+          "handle": "578238",
+          "label": "梅村在虎 建設教育",
+          "why": "販売の中心は2級土木の添削で、技術士の相手としては小さい"
+        }
+      ],
+      "avoid": [
+        {
+          "id": "pc-cheap-tensaku",
+          "text": "低価格の添削",
+          "why": "実績のある売り手が多く、note の教材と役割を分ける",
+          "rivals": [
+            {
+              "channel": "coconala",
+              "handle": "4787672"
+            }
+          ],
+          "formats": []
+        },
+        {
+          "id": "pc-yosou-serial",
+          "text": "予想問題の連番",
+          "why": "連番の投稿は競合が続けている。自社は導き方を示す",
+          "rivals": [
+            {
+              "channel": "x",
+              "handle": "gijutushiindex"
+            }
+          ],
+          "formats": []
+        }
+      ],
+      "stances": [
+        {
+          "id": "pc-oral",
+          "stage": "口頭",
+          "text": "改訂コンピテンシーの想定問答を note で売り、動画は構造の案内に留める",
+          "why": "建設部門は自社の受取の最大で、口頭は発表の直後に需要が近い",
+          "state": "inferred",
+          "channels": [
+            "youtube",
+            "x",
+            "note"
+          ],
+          "evidence": [
+            "docs/strategy/22_チャネル別商品設計2026-11.md"
+          ],
+          "probes": []
+        },
+        {
+          "id": "pc-restart",
+          "stage": "再受験",
+          "text": "再挑戦の学習計画と業務経歴の見直し",
+          "why": "試験の結果の直後に学習を始める人に、順序を示す",
+          "state": "untested",
+          "channels": [
+            "youtube",
+            "x",
+            "site"
+          ],
+          "evidence": [],
+          "probes": []
+        },
+        {
+          "id": "pc-split",
+          "stage": "筆記",
+          "text": "Ⅱ-1・Ⅱ-2・Ⅲの書き分けを長い動画で見せる",
+          "why": "区分の違いの解説はあるが、書き分けを主題に通して見せる動画は検索の上位に少ない",
+          "state": "inferred",
+          "channels": [
+            "youtube",
+            "x",
+            "note"
+          ],
+          "evidence": [
+            "docs/marketing/08a_YouTube競合分析_技術士建設部門_2026-09.md"
+          ],
+          "probes": [
+            {
+              "claim": "書き分けを題名に出す動画が少ない",
+              "exam": "pe-construction",
+              "channel": "youtube",
+              "match": "書き分け|書きわけ",
+              "max": 2
+            }
+          ]
+        },
+        {
+          "id": "pc-subject",
+          "stage": "筆記",
+          "text": "11 科目の深掘りを動画の連載で揃える",
+          "why": "動画は一部の科目にとどまる。note は有料の部屋があるので、動画の入口で科目別の教材へつなぐ",
+          "state": "inferred",
+          "channels": [
+            "youtube",
+            "x",
+            "note"
+          ],
+          "evidence": [
+            "docs/marketing/08a_YouTube競合分析_技術士建設部門_2026-09.md"
+          ],
+          "probes": [
+            {
+              "claim": "科目を題名に出す動画が一部に限られる",
+              "exam": "pe-construction",
+              "channel": "youtube",
+              "match": "土質|鋼構造|都市|河川|港湾|電力|道路|鉄道|トンネル|施工計画|建設環境",
+              "max": 12
+            }
+          ]
+        },
+        {
+          "id": "pc-hissu",
+          "stage": "筆記",
+          "text": "必須Ⅰのテーマと出題予想の導き方",
+          "why": "販売の実績があり、連番の予想と違う根拠の見せ方ができる",
+          "state": "seen",
+          "channels": [
+            "youtube",
+            "x",
+            "note"
+          ],
+          "evidence": [
+            "docs/strategy/22_チャネル別商品設計2026-11.md"
+          ],
+          "probes": []
+        },
+        {
+          "id": "pc-final",
+          "stage": "直前",
+          "text": "答案の構成と時間配分を図で見せる",
+          "why": "予想の連番と違う軸で、直前の不安に答える",
+          "state": "untested",
+          "channels": [
+            "youtube",
+            "x",
+            "note"
+          ],
+          "evidence": [],
+          "probes": []
+        }
+      ],
+      "limits": [
+        "市場の確認は検索語ごとの上位の結果だけで、全件ではない。題名に語が無い動画は拾えず、順位は日で変わる",
+        "有料の本文は読んでいない。中身の質は比べていない",
+        "X の取得物は古く、追跡の一部は取得に失敗している",
+        "ココナラの出品は検索に出た分の一部で、取得は YouTube と note より古い",
+        "実測の全体の数字はチャンネルやアカウント全体のもので、その資格だけの数字ではない",
+        "書き分けの確認は題名だけで、違いや戦略と題した動画は拾えない"
+      ]
+    },
+    {
+      "id": "pe-first",
+      "exams": [
+        "pe-first-stage"
+      ],
+      "reviewedOn": "2026-11-06",
+      "read": [
+        "docs/marketing/08a_YouTube競合分析_技術士建設部門_2026-09.md",
+        "docs/strategy/09_販売チャネル競合分析.md",
+        "data/analysis/qualification-market/2026-11-06.json"
+      ],
+      "summary": "動画は受験案内と個別の解説が並び、note は問題集の単品と無料記事で集める売り手が多い。アプリと無料の過去問サイトもある。競合が薄いという以前の見立ては取り消す。自社の実売は少なく、まず無料の演習で需要を確かめる。",
+      "rivals": [
+        {
+          "channel": "youtube",
+          "handle": "UCc7akqTU6Jt79JctkeSorpA",
+          "holds": "電験のチャンネルの中の技術士一次の案内"
+        },
+        {
+          "channel": "youtube",
+          "handle": "UCTUSxfs6ZpBTuDcf9gciglA",
+          "holds": "効率の解説"
+        },
+        {
+          "channel": "youtube",
+          "handle": "UCCIRvndSLKweqluVG7IK4XQ",
+          "holds": "過去問の解説"
+        },
+        {
+          "channel": "youtube",
+          "handle": "UC_omC9GCqYMXm7uq37iI_fg",
+          "holds": "基本情報と問題解説"
+        },
+        {
+          "channel": "youtube",
+          "handle": "UCbDBReL8ka0oCC04GUyyzug",
+          "holds": "通信講座への導線"
+        },
+        {
+          "channel": "youtube",
+          "handle": "UC0wmtVAaSZKgnxwrzj9bttw",
+          "holds": "勉強の進め方"
+        },
+        {
+          "channel": "youtube",
+          "handle": "UC6tXKX1rjdIEu26sBWO9nEQ",
+          "holds": "勉強法と塾への導線"
+        },
+        {
+          "channel": "youtube",
+          "handle": "UC5txmjwYungBiA7ViBa2Tdw",
+          "holds": "一次の解説"
+        },
+        {
+          "channel": "note",
+          "handle": "gijutsushi_text",
+          "holds": "無料記事と有料のマガジン"
+        },
+        {
+          "channel": "note",
+          "handle": "20260729",
+          "holds": "ブラウザの問題集と適性のテーマ分析"
+        },
+        {
+          "channel": "note",
+          "handle": "chokuzen_note",
+          "holds": "予想の単品と模試"
+        }
+      ],
+      "dismissed": [],
+      "avoid": [],
+      "stances": [
+        {
+          "id": "pe1-practice",
+          "stage": "申込〜直前",
+          "text": "無料の演習と総まとめで集め、直前のパックへつなぐ",
+          "why": "サイトの問題演習が揃っている。売り手は多く、自社の需要は未検証",
+          "state": "untested",
+          "channels": [
+            "youtube",
+            "x",
+            "instagram",
+            "site",
+            "note"
+          ],
+          "evidence": [],
+          "probes": []
+        }
+      ],
+      "limits": [
+        "市場の確認は検索語ごとの上位の結果だけで、全件ではない。題名に語が無い動画は拾えず、順位は日で変わる",
+        "有料の本文は読んでいない。中身の質は比べていない",
+        "X の取得物は古く、追跡の一部は取得に失敗している",
+        "実測の全体の数字はチャンネルやアカウント全体のもので、その資格だけの数字ではない",
+        "ココナラの一次の出品は追跡していない",
+        "アプリと無料の過去問サイト、書籍は追跡していない",
+        "note の同価格帯の売り手は検索に多く、全員を追跡していない"
+      ]
+    },
+    {
+      "id": "concrete-chief",
+      "exams": [
+        "concrete-chief-engineer"
+      ],
+      "reviewedOn": "2026-11-06",
+      "read": [
+        "docs/reviews/competitors/2026-10_コンクリート技士・主任技士.md",
+        "docs/marketing/09a_YouTube競合分析_コンクリート技士・主任技士_2026-10.md",
+        "data/analysis/qualification-market/2026-11-06.json"
+      ],
+      "summary": "小論文を主題にした他社の動画は検索で見当たらない。note は小論文の問題集や答案の単品があり、空きではない。動画の空きで集め、note の立場別の答案で選ばれる形にする。",
+      "rivals": [
+        {
+          "channel": "youtube",
+          "handle": "UCcEHWJmPP1T70kjKQ_WVptw",
+          "holds": "一問一答の聞き流し"
+        },
+        {
+          "channel": "youtube",
+          "handle": "UCSyAuJvpCX8h-7NKKarGegQ",
+          "holds": "コンクリートの授業"
+        },
+        {
+          "channel": "note",
+          "handle": "study_room358",
+          "holds": "択一の問題集と小論文の問題集"
+        },
+        {
+          "channel": "note",
+          "handle": "shikaku_tokyo",
+          "holds": "問題集の単品"
+        },
+        {
+          "channel": "note",
+          "handle": "saitangoukakulab",
+          "holds": "勉強法の単品"
+        },
+        {
+          "channel": "note",
+          "handle": "gosharub",
+          "holds": "合格の再現論文。更新は止まっている"
+        },
+        {
+          "channel": "note",
+          "handle": "con_ymc",
+          "holds": "答案の倉庫。主題は技術士"
+        },
+        {
+          "channel": "coconala",
+          "handle": "5240267",
+          "holds": "解説集の単品"
+        }
+      ],
+      "dismissed": [],
+      "avoid": [
+        {
+          "id": "cc-mcq-volume",
+          "text": "一問一答の聞き流し",
+          "why": "本数と再生が先行している。自社は書く試験に絞る",
+          "rivals": [
+            {
+              "channel": "youtube",
+              "handle": "UCcEHWJmPP1T70kjKQ_WVptw"
+            }
+          ],
+          "formats": []
+        }
+      ],
+      "stances": [
+        {
+          "id": "cc-essay-video",
+          "stage": "学習",
+          "text": "小論文の型と立場別のテーマを動画と図解で見せる",
+          "why": "他社の動画に小論文を題名に出すものが検索で見当たらない",
+          "state": "seen",
+          "channels": [
+            "youtube",
+            "x",
+            "instagram",
+            "site"
+          ],
+          "evidence": [
+            "docs/marketing/09a_YouTube競合分析_コンクリート技士・主任技士_2026-10.md"
+          ],
+          "probes": [
+            {
+              "claim": "他社の主任技士の動画に小論文を題名に出すものが無い",
+              "exam": "concrete-chief-engineer",
+              "channel": "youtube",
+              "match": "小論文|論文",
+              "max": 0
+            }
+          ]
+        },
+        {
+          "id": "cc-essay-note",
+          "stage": "直前",
+          "text": "立場別の模範答案とまるごとパック、ココナラの診断と添削",
+          "why": "note の小論文は売り手がいるので、立場別の品揃えと診断で選ばれる形にする",
+          "state": "inferred",
+          "channels": [
+            "note",
+            "coconala",
+            "x"
+          ],
+          "evidence": [
+            "docs/strategy/22_チャネル別商品設計2026-11.md"
+          ],
+          "probes": []
+        }
+      ],
+      "limits": [
+        "市場の確認は検索語ごとの上位の結果だけで、全件ではない。題名に語が無い動画は拾えず、順位は日で変わる",
+        "有料の本文は読んでいない。中身の質は比べていない",
+        "X の取得物は古く、追跡の一部は取得に失敗している",
+        "実測の全体の数字はチャンネルやアカウント全体のもので、その資格だけの数字ではない",
+        "ブログ・書籍・スクールの講座は追跡していない",
+        "行ってクラブログと koneka1130 は調査文書で脅威とされるが、取得の対象に入っていない"
+      ]
+    },
+    {
+      "id": "concrete-engineer",
+      "exams": [
+        "concrete-engineer"
+      ],
+      "reviewedOn": "2026-11-06",
+      "read": [
+        "docs/reviews/competitors/2026-10_コンクリート技士・主任技士.md",
+        "docs/marketing/09a_YouTube競合分析_コンクリート技士・主任技士_2026-10.md",
+        "data/analysis/qualification-market/2026-11-06.json"
+      ],
+      "summary": "土木マンの総まとめ、MA の一問一答、ラジオ感覚で試験対策の連続の練習問題が再生を集め、無料の演習も厚い。配合計算は空きではない。受験資格の改定と令和形式の更新に絞り、直前はまとめ買いで差をつける。",
+      "rivals": [
+        {
+          "channel": "youtube",
+          "handle": "UCybXPGCftgBmGaKKqwmD0lQ",
+          "holds": "長い総まとめと計算の解説"
+        },
+        {
+          "channel": "youtube",
+          "handle": "UCcEHWJmPP1T70kjKQ_WVptw",
+          "holds": "一問一答の聞き流し"
+        },
+        {
+          "channel": "youtube",
+          "handle": "UCSBccXB4skV7xbARBwP_XGA",
+          "holds": "分野別の練習問題の読み上げ"
+        },
+        {
+          "channel": "youtube",
+          "handle": "UCSyAuJvpCX8h-7NKKarGegQ",
+          "holds": "コンクリートの授業と計算"
+        },
+        {
+          "channel": "youtube",
+          "handle": "UCGGdNWSWRHN91pOBcc5WLTg",
+          "holds": "資格の紹介"
+        },
+        {
+          "channel": "youtube",
+          "handle": "UC55tCoiZG_e5jlUrxR7bEKg",
+          "holds": "模擬試験の解説"
+        },
+        {
+          "channel": "youtube",
+          "handle": "UC-cWpVMYevgNN7sfubTLDfA",
+          "holds": "問題の連続解答"
+        },
+        {
+          "channel": "note",
+          "handle": "i_love_concrete",
+          "holds": "PDF と Excel の教材"
+        },
+        {
+          "channel": "note",
+          "handle": "goukaku_charge",
+          "holds": "択一の問題集"
+        },
+        {
+          "channel": "note",
+          "handle": "chokuzen_note",
+          "holds": "出るところの問題集"
+        },
+        {
+          "channel": "note",
+          "handle": "saitangoukakulab",
+          "holds": "勉強法の単品"
+        }
+      ],
+      "dismissed": [
+        {
+          "channel": "youtube",
+          "handle": "UCUT73nYP08_okKtCSVybAgA",
+          "label": "トライポイント",
+          "why": "転職支援の案内で、試験対策の競合ではない"
+        }
+      ],
+      "avoid": [
+        {
+          "id": "ce-free-volume",
+          "text": "無料の演習量と一問一答の聞き流し",
+          "why": "無料で本数のある相手に量では勝てない",
+          "rivals": [
+            {
+              "channel": "youtube",
+              "handle": "UCcEHWJmPP1T70kjKQ_WVptw"
+            },
+            {
+              "channel": "youtube",
+              "handle": "UCSBccXB4skV7xbARBwP_XGA"
+            }
+          ],
+          "formats": []
+        }
+      ],
+      "stances": [
+        {
+          "id": "ce-calc",
+          "stage": "学習",
+          "text": "令和形式に合わせた配合計算の解説",
+          "why": "配合計算の動画は先行者がいる。古い動画が多いので、形式の更新で差をつけられるかを確かめる",
+          "state": "untested",
+          "channels": [
+            "youtube",
+            "x",
+            "site"
+          ],
+          "evidence": [
+            "docs/marketing/09a_YouTube競合分析_コンクリート技士・主任技士_2026-10.md"
+          ],
+          "probes": []
+        },
+        {
+          "id": "ce-eligibility",
+          "stage": "申込",
+          "text": "2026 年度の受験資格の改定を踏まえたガイド",
+          "why": "情報系の語は大手が強いので、改定の反映が遅れた記事の置き換えに絞る",
+          "state": "inferred",
+          "channels": [
+            "site",
+            "x"
+          ],
+          "evidence": [
+            "docs/reviews/competitors/2026-10_コンクリート技士・主任技士.md"
+          ],
+          "probes": []
+        },
+        {
+          "id": "ce-final",
+          "stage": "直前",
+          "text": "直前パックのまとめ買い",
+          "why": "安い単品に対して、まとめて買える形で差をつける",
+          "state": "untested",
+          "channels": [
+            "note",
+            "x"
+          ],
+          "evidence": [],
+          "probes": []
+        }
+      ],
+      "limits": [
+        "市場の確認は検索語ごとの上位の結果だけで、全件ではない。題名に語が無い動画は拾えず、順位は日で変わる",
+        "有料の本文は読んでいない。中身の質は比べていない",
+        "X の取得物は古く、追跡の一部は取得に失敗している",
+        "実測の全体の数字はチャンネルやアカウント全体のもので、その資格だけの数字ではない",
+        "過去問ラボなどの無料サイトは取得物に入っていない",
+        "令和形式の配合計算が空きかは確かめていない"
+      ]
+    },
+    {
+      "id": "concrete-diagnostician",
+      "exams": [
+        "concrete-diagnostician"
+      ],
+      "reviewedOn": "2026-11-06",
+      "read": [
+        "docs/marketing/09a_YouTube競合分析_コンクリート技士・主任技士_2026-10.md",
+        "docs/reviews/competitors/2026-10_コンクリート技士・主任技士.md",
+        "data/analysis/qualification-market/2026-11-06.json"
+      ],
+      "summary": "一問一答の動画は MA がほぼ押さえ、記述式の教材は note で売り手がいる。記述の問題Bを note で揃え、動画は試行に留める。2027 年度の日程の発表後に見直す。",
+      "rivals": [
+        {
+          "channel": "youtube",
+          "handle": "UCcEHWJmPP1T70kjKQ_WVptw",
+          "holds": "一問一答のシリーズ"
+        },
+        {
+          "channel": "youtube",
+          "handle": "UCGGdNWSWRHN91pOBcc5WLTg",
+          "holds": "資格の紹介"
+        },
+        {
+          "channel": "note",
+          "handle": "ba_ya",
+          "holds": "記述式の予想の価格分け"
+        },
+        {
+          "channel": "note",
+          "handle": "con_ymc",
+          "holds": "答案の倉庫。主題は技術士"
+        },
+        {
+          "channel": "x",
+          "handle": "PockyDay2",
+          "holds": "記述式の自己採点の募集"
+        }
+      ],
+      "dismissed": [],
+      "avoid": [
+        {
+          "id": "cd-mcq-listen",
+          "text": "一問一答の聞き流し",
+          "why": "検索の上位をほぼ MA が占めている",
+          "rivals": [
+            {
+              "channel": "youtube",
+              "handle": "UCcEHWJmPP1T70kjKQ_WVptw"
+            }
+          ],
+          "formats": []
+        }
+      ],
+      "stances": [
+        {
+          "id": "cd-essay",
+          "stage": "申込〜直前",
+          "text": "記述式の問題Bの答案を note で揃え、動画は書き方の試行に留める",
+          "why": "記述を題名に出す動画は検索に見当たらないが、検索の件数が少なく、販売は note で確かめる",
+          "state": "inferred",
+          "channels": [
+            "youtube",
+            "x",
+            "note"
+          ],
+          "evidence": [
+            "docs/marketing/09a_YouTube競合分析_コンクリート技士・主任技士_2026-10.md"
+          ],
+          "probes": [
+            {
+              "claim": "診断士の動画に記述を題名に出すものが少ない",
+              "exam": "concrete-diagnostician",
+              "channel": "youtube",
+              "match": "記述|問題B|小論文",
+              "max": 1
+            }
+          ]
+        }
+      ],
+      "limits": [
+        "市場の確認は検索語ごとの上位の結果だけで、全件ではない。題名に語が無い動画は拾えず、順位は日で変わる",
+        "有料の本文は読んでいない。中身の質は比べていない",
+        "X の取得物は古く、追跡の一部は取得に失敗している",
+        "実測の全体の数字はチャンネルやアカウント全体のもので、その資格だけの数字ではない",
+        "売上の実績がまだ無い",
+        "記述の確認は検索の件数が少ない",
+        "行ってクラブログの有料テンプレと添削は取得の対象に入っていない"
+      ]
+    },
+    {
+      "id": "rccm",
+      "exams": [
+        "rccm"
+      ],
+      "reviewedOn": "2026-11-06",
+      "read": [
+        "docs/strategy/09_販売チャネル競合分析.md",
+        "data/analysis/qualification-market/2026-11-06.json"
+      ],
+      "summary": "響屋が問題番号ごとの過去問の動画を出し、note は rccm が回答例をセットで売り、ココナラは 303geos が解答例を持つ。自社は問題Ⅰ・Ⅲと択一の note を出している。2027 年の受験期に、書く問題の型から既存の教材へつなぐ。",
+      "rivals": [
+        {
+          "channel": "youtube",
+          "handle": "UCedwiCaFczyjO8kXa0TXJPA",
+          "holds": "問題番号ごとの過去問の解説"
+        },
+        {
+          "channel": "youtube",
+          "handle": "UCGoZZVoMIjFe_IAVVRSEzNw",
+          "holds": "問題解説と聞き流し"
+        },
+        {
+          "channel": "note",
+          "handle": "rccm",
+          "holds": "問題ごとの回答例とセット割"
+        },
+        {
+          "channel": "note",
+          "handle": "20260729",
+          "holds": "問題ごとの対策"
+        },
+        {
+          "channel": "note",
+          "handle": "hellohalo",
+          "holds": "問題Ⅲの論文の単品"
+        },
+        {
+          "channel": "note",
+          "handle": "303geos",
+          "holds": "予想問題の単品"
+        },
+        {
+          "channel": "coconala",
+          "handle": "804799",
+          "holds": "問題Ⅲの解答例と択一"
+        },
+        {
+          "channel": "coconala",
+          "handle": "2302173",
+          "holds": "勉強法の指導"
+        },
+        {
+          "channel": "coconala",
+          "handle": "1712958",
+          "holds": "論文の添削"
+        }
+      ],
+      "dismissed": [],
+      "avoid": [
+        {
+          "id": "rc-past-question",
+          "text": "問題番号ごとの過去問の解説",
+          "why": "本数で先行されている。相手は小さいので、数字を見て見直す",
+          "rivals": [
+            {
+              "channel": "youtube",
+              "handle": "UCedwiCaFczyjO8kXa0TXJPA"
+            }
+          ],
+          "formats": []
+        }
+      ],
+      "stances": [
+        {
+          "id": "rc-essay",
+          "stage": "2027 年の受験期",
+          "text": "問題Ⅰの業務経験と問題Ⅲの論文の型を見せ、既存の note へつなぐ",
+          "why": "過去問の解説に対し、書く問題の型で差をつける。動画の型が効くかは未検証",
+          "state": "untested",
+          "channels": [
+            "youtube",
+            "x",
+            "note",
+            "coconala"
+          ],
+          "evidence": [],
+          "probes": []
+        }
+      ],
+      "limits": [
+        "市場の確認は検索語ごとの上位の結果だけで、全件ではない。題名に語が無い動画は拾えず、順位は日で変わる",
+        "有料の本文は読んでいない。中身の質は比べていない",
+        "X の取得物は古く、追跡の一部は取得に失敗している",
+        "ココナラの出品は検索に出た分の一部で、取得は YouTube と note より古い",
+        "実測の全体の数字はチャンネルやアカウント全体のもので、その資格だけの数字ではない",
+        "YouTube と note は追跡を始めたばかりで推移を見ていない",
+        "自社の売上の実績がまだ無い"
+      ]
+    },
+    {
+      "id": "pe-water",
+      "exams": [
+        "pe-water-supply"
+      ],
+      "reviewedOn": "2026-11-06",
+      "read": [
+        "docs/marketing/08a_YouTube競合分析_技術士建設部門_2026-09.md",
+        "data/analysis/qualification-market/2026-11-06.json"
+      ],
+      "summary": "部門に絞った動画は少なく、note は小泉と study_room358 が部門別の問題を出し、ココナラの論文添削もある。動画は作らず、2027 年の筆記の前に X で既存の note へ案内する。",
+      "rivals": [
+        {
+          "channel": "youtube",
+          "handle": "UC_AkpBRMSKHEMGb7LQHHIvw",
+          "holds": "ゆっくり解説の合格論文"
+        },
+        {
+          "channel": "note",
+          "handle": "sosou_nino",
+          "holds": "部門別の模擬試験と必須の部屋"
+        },
+        {
+          "channel": "note",
+          "handle": "study_room358",
+          "holds": "必須の想定論文"
+        },
+        {
+          "channel": "note",
+          "handle": "eager_yarrow305",
+          "holds": "口頭の想定質問"
+        },
+        {
+          "channel": "coconala",
+          "handle": "2275259",
+          "holds": "論文の添削"
+        },
+        {
+          "channel": "coconala",
+          "handle": "3040228",
+          "holds": "論文の添削とキーワードの提供"
+        }
+      ],
+      "dismissed": [],
+      "avoid": [],
+      "stances": [
+        {
+          "id": "pw-essay",
+          "stage": "2027 年の筆記の前",
+          "text": "既存の note を X で案内する。動画は作らない",
+          "why": "受験者が限られ、既存の教材への案内で販売の有無を確かめる",
+          "state": "untested",
+          "channels": [
+            "x",
+            "note"
+          ],
+          "evidence": [],
+          "probes": []
+        }
+      ],
+      "limits": [
+        "市場の確認は検索語ごとの上位の結果だけで、全件ではない。題名に語が無い動画は拾えず、順位は日で変わる",
+        "有料の本文は読んでいない。中身の質は比べていない",
+        "X の取得物は古く、追跡の一部は取得に失敗している",
+        "実測の全体の数字はチャンネルやアカウント全体のもので、その資格だけの数字ではない",
+        "技術士になろうチャンネルは取得の対象に入っていない",
+        "自社の売上の実績がまだ無い"
+      ]
+    },
+    {
+      "id": "surveyor",
+      "exams": [
+        "surveyor"
+      ],
+      "reviewedOn": "2026-11-06",
+      "read": [
+        "data/analysis/qualification-market/2026-11-06.json"
+      ],
+      "summary": "動画はアガルートと個人の解説が並ぶが、大きな相手はいない。note は午前と午後の問題集の単品がある。次の試験は 2027 年 5 月で、午後の記述に絞って X で案内する。",
+      "rivals": [
+        {
+          "channel": "youtube",
+          "handle": "UCXG8Abi5IAfF-JQ8_NTNiPw",
+          "holds": "通信講座への導線と過去問の解説"
+        },
+        {
+          "channel": "youtube",
+          "handle": "UCMaa1ECv_E-56Hd1v0qrIUA",
+          "holds": "午後の選択問題と過去問の解説"
+        },
+        {
+          "channel": "note",
+          "handle": "study_room358",
+          "holds": "午後の計算問題の問題集"
+        },
+        {
+          "channel": "note",
+          "handle": "shikaku_tokyo",
+          "holds": "問題集の単品"
+        }
+      ],
+      "dismissed": [],
+      "avoid": [],
+      "stances": [
+        {
+          "id": "sv-pm",
+          "stage": "午後の準備",
+          "text": "午後の記述の論点を X で案内し、note へつなぐ",
+          "why": "自社の商品がある所に絞り、販売の有無を確かめる",
+          "state": "untested",
+          "channels": [
+            "x",
+            "note"
+          ],
+          "evidence": [],
+          "probes": []
+        }
+      ],
+      "limits": [
+        "市場の確認は検索語ごとの上位の結果だけで、全件ではない。題名に語が無い動画は拾えず、順位は日で変わる",
+        "有料の本文は読んでいない。中身の質は比べていない",
+        "実測の全体の数字はチャンネルやアカウント全体のもので、その資格だけの数字ではない",
+        "X の測量の競合は追跡していない",
+        "ココナラの測量の出品は追跡していない",
+        "自社の売上の実績がまだ無い",
+        "午後の動画は wowwowitsuma や柏谷周一郎もいるが、取得の対象に入っていない"
+      ]
+    },
+    {
+      "id": "pavement",
+      "exams": [
+        "pavement-1",
+        "pavement-2"
+      ],
+      "reviewedOn": "2026-11-06",
+      "read": [
+        "docs/marketing/07a_YouTube競合分析_土木施工管理技士_2026-09.md",
+        "data/analysis/qualification-market/2026-11-06.json"
+      ],
+      "summary": "GET研究所の講義が検索の上位を占め、応用試験の動画もある。note は経験記述と予想問題の単品が並ぶ。応用試験に絞って X で案内し、販売の有無を確かめる。",
+      "rivals": [
+        {
+          "channel": "youtube",
+          "handle": "UCI0JdmXJgCXyshWAnBbSMBw",
+          "holds": "一般試験と応用試験の講義"
+        },
+        {
+          "channel": "youtube",
+          "handle": "UC_jcTda5TI8Ozczl4W3XbSA",
+          "holds": "読み上げの出題分析"
+        },
+        {
+          "channel": "youtube",
+          "handle": "UCybXPGCftgBmGaKKqwmD0lQ",
+          "holds": "応用試験の解説"
+        },
+        {
+          "channel": "note",
+          "handle": "craftmall",
+          "holds": "経験記述と過去問集の単品"
+        },
+        {
+          "channel": "note",
+          "handle": "303geos",
+          "holds": "応用試験の解答例と予想問題の量産"
+        },
+        {
+          "channel": "note",
+          "handle": "great_stork8925",
+          "holds": "問題ドリル"
+        },
+        {
+          "channel": "note",
+          "handle": "saitangoukakulab",
+          "holds": "勉強法の単品"
+        }
+      ],
+      "dismissed": [
+        {
+          "channel": "youtube",
+          "handle": "UCGGdNWSWRHN91pOBcc5WLTg",
+          "label": "施工管理チャンネル by 株式会社ライズ",
+          "why": "資格の紹介だけで、舗装の相手ではない"
+        },
+        {
+          "channel": "youtube",
+          "handle": "UCwWrbjlvA5NvKNIYM9naMYQ",
+          "label": "山之内行政書士事務所",
+          "why": "2級土木の解説で、舗装の資格の相手ではない"
+        }
+      ],
+      "avoid": [
+        {
+          "id": "pv-keiken-volume",
+          "text": "応用試験の解答例の量産",
+          "why": "低価格の量産が先行している。自社の note の範囲に留める",
+          "rivals": [
+            {
+              "channel": "note",
+              "handle": "303geos"
+            }
+          ],
+          "formats": []
+        }
+      ],
+      "stances": [
+        {
+          "id": "pv-applied",
+          "stage": "応用試験の準備",
+          "text": "応用試験の論点を X で案内し、note へつなぐ",
+          "why": "自社の商品がある所に絞り、販売の有無を確かめる",
+          "state": "untested",
+          "channels": [
+            "x",
+            "note"
+          ],
+          "evidence": [],
+          "probes": []
+        }
+      ],
+      "limits": [
+        "市場の確認は検索語ごとの上位の結果だけで、全件ではない。題名に語が無い動画は拾えず、順位は日で変わる",
+        "有料の本文は読んでいない。中身の質は比べていない",
+        "実測の全体の数字はチャンネルやアカウント全体のもので、その資格だけの数字ではない",
+        "X の舗装の競合は追跡していない",
+        "ココナラの舗装の出品は追跡していない",
+        "自社の売上の実績がまだ無い"
+      ]
+    }
+  ]
+}

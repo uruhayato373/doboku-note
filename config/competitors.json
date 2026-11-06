@@ -9,7 +9,8 @@
         "label": "小泉士郎",
         "exams": [
           "pe-comprehensive-management",
-          "pe-construction"
+          "pe-construction",
+          "pe-water-supply"
         ],
         "note": "最大競合。総監のサブスクが主力・物量最大手（記事・マガジンの数で他を圧倒）"
       },
@@ -70,9 +71,13 @@
         "label": "study_room358",
         "exams": [
           "civil-construction-1",
-          "civil-construction-2"
+          "civil-construction-2",
+          "concrete-chief-engineer",
+          "pe-construction",
+          "pe-water-supply",
+          "surveyor"
         ],
-        "note": "PDF量産型だが低反応の傍証"
+        "note": "PDF量産型。コンクリート主任技士の択一と小論文も販売"
       },
       {
         "handle": "dobokujira",
@@ -185,7 +190,8 @@
         "handle": "20260729",
         "label": "技術者の教室",
         "exams": [
-          "pe-first-stage"
+          "pe-first-stage",
+          "rccm"
         ],
         "note": "技術士一次のブラウザ問題集（過去問＋自作問題）と適性科目テーマ分析を販売"
       },
@@ -199,6 +205,151 @@
           "building-construction-1"
         ],
         "note": "施工管理系の競合調査（WebSearch・公開ページ）で追加。管工事の暗記ノート（2級 二次）。X @shino40_kan と同一主体"
+      },
+      {
+        "handle": "katokantoku_note",
+        "label": "katokantoku_note",
+        "exams": [
+          "civil-construction-1",
+          "civil-construction-2"
+        ],
+        "note": "1級・2級土木の第二次検定の経験記述の教材を単品で販売"
+      },
+      {
+        "handle": "rccm",
+        "label": "rccm",
+        "exams": [
+          "pe-construction",
+          "rccm"
+        ],
+        "note": "RCCM と技術士の回答例を年度と問題ごとに販売し、フルセット割で束ねる"
+      },
+      {
+        "handle": "gijutsushi_text",
+        "label": "gijutsushi_text",
+        "exams": [
+          "pe-first-stage",
+          "pe-water-supply"
+        ],
+        "note": "技術士一次の無料記事で集め、スマホ向けの問題集を販売"
+      },
+      {
+        "handle": "craftmall",
+        "label": "craftmall",
+        "exams": [
+          "pavement-1",
+          "pavement-2",
+          "civil-construction-1"
+        ],
+        "note": "舗装施工管理技術者の経験記述と論文の単品"
+      },
+      {
+        "handle": "303geos",
+        "label": "303geos",
+        "exams": [
+          "pavement-1",
+          "pavement-2",
+          "rccm"
+        ],
+        "note": "舗装の応用試験の予想問題と解説。ココナラの 303geos と同一主体か要確認"
+      },
+      {
+        "handle": "great_stork8925",
+        "label": "great_stork8925",
+        "exams": [
+          "pavement-1"
+        ],
+        "note": "舗装の問題ドリルの単品"
+      },
+      {
+        "handle": "pe_geo",
+        "label": "pe_geo",
+        "exams": [
+          "pe-comprehensive-management"
+        ],
+        "note": "総監キーワードの連載と口頭の想定問答"
+      },
+      {
+        "handle": "eager_yarrow305",
+        "label": "eager_yarrow305",
+        "exams": [
+          "pe-comprehensive-management",
+          "pe-construction",
+          "pe-water-supply"
+        ],
+        "note": "口頭試験の想定質問を部門と立場ごとに販売"
+      },
+      {
+        "handle": "chokuzen_note",
+        "label": "chokuzen_note",
+        "exams": [
+          "pe-comprehensive-management",
+          "pe-construction",
+          "pe-first-stage",
+          "concrete-engineer"
+        ],
+        "note": "出るところだけの予想問題を資格ごとに量産"
+      },
+      {
+        "handle": "goukaku_charge",
+        "label": "goukaku_charge",
+        "exams": [
+          "concrete-engineer"
+        ],
+        "note": "コンクリート技士の択一の問題集"
+      },
+      {
+        "handle": "saitangoukakulab",
+        "label": "saitangoukakulab",
+        "exams": [
+          "civil-construction-2",
+          "concrete-engineer",
+          "concrete-chief-engineer",
+          "pavement-1"
+        ],
+        "note": "資格ごとの最短合格の勉強法を量産"
+      },
+      {
+        "handle": "doboku1_ippatsu",
+        "label": "doboku1_ippatsu",
+        "exams": [
+          "civil-construction-1"
+        ],
+        "note": "1級土木の経験記述の無料記事を連投し教材へつなぐ"
+      },
+      {
+        "handle": "mintynatsu",
+        "label": "mintynatsu",
+        "exams": [
+          "civil-construction-1",
+          "civil-construction-2"
+        ],
+        "note": "経験記述と直前の予想の単品"
+      },
+      {
+        "handle": "polka04",
+        "label": "polka04",
+        "exams": [
+          "civil-construction-1"
+        ],
+        "note": "実際に使った答案を低価格で販売"
+      },
+      {
+        "handle": "hellohalo",
+        "label": "hellohalo",
+        "exams": [
+          "rccm"
+        ],
+        "note": "RCCM 問題Ⅲの論文の単品"
+      },
+      {
+        "handle": "shikaku_tokyo",
+        "label": "shikaku_tokyo",
+        "exams": [
+          "concrete-chief-engineer",
+          "surveyor"
+        ],
+        "note": "資格ごとの問題集を量産"
       }
     ]
   },
@@ -218,7 +369,8 @@
         "handle": "804799",
         "label": "303geos",
         "exams": [
-          "civil-construction-2"
+          "civil-construction-2",
+          "rccm"
         ],
         "note": "2級土木 出題分析・経験記述解答例予想。年度予想型"
       },
@@ -739,7 +891,9 @@
         "handle": "UCybXPGCftgBmGaKKqwmD0lQ",
         "label": "土木マン チャンネル",
         "exams": [
-          "concrete-engineer"
+          "concrete-engineer",
+          "civil-construction-1",
+          "pavement-1"
         ],
         "note": "市場スキャン（npm run scan-qualification-market）で検出。対象資格はタイトル条件つき 1 万再生以上の動画がある資格"
       },
@@ -795,7 +949,9 @@
         "handle": "UCqEUavmgDZKL0MvJLmWTEsw",
         "label": "日建学院-Nikken Gakuin-",
         "exams": [
-          "landscape-2"
+          "landscape-2",
+          "civil-construction-1",
+          "civil-construction-2"
         ],
         "note": "市場スキャン（npm run scan-qualification-market）で検出。対象資格はタイトル条件つき 1 万再生以上の動画がある資格"
       },
@@ -859,7 +1015,8 @@
         "handle": "UCSyAuJvpCX8h-7NKKarGegQ",
         "label": "しのの土木・建築トピックス授業",
         "exams": [
-          "concrete-chief-engineer"
+          "concrete-chief-engineer",
+          "concrete-engineer"
         ],
         "note": "市場スキャン（npm run scan-qualification-market）で検出。対象資格はタイトル条件つき 1 万再生以上の動画がある資格"
       },
@@ -893,7 +1050,8 @@
         "handle": "UCZk6KCoGs-7OKrLvv6CG0dA",
         "label": "技術士ライトハウス",
         "exams": [
-          "pe-construction"
+          "pe-construction",
+          "pe-comprehensive-management"
         ],
         "note": "05a・08a"
       },
@@ -912,6 +1070,149 @@
           "pe-comprehensive-management"
         ],
         "note": "05a（総監特化）"
+      },
+      {
+        "handle": "UCmf_qjVwiThle-2MBhBXrNQ",
+        "label": "技術士Kay",
+        "exams": [
+          "pe-comprehensive-management"
+        ],
+        "note": "総監の合格論文の復元解説。技術士ライトハウスとの対談もある"
+      },
+      {
+        "handle": "UCbDBReL8ka0oCC04GUyyzug",
+        "label": "【技術士試験】アガルートの最短ルートTV",
+        "exams": [
+          "pe-comprehensive-management",
+          "pe-construction",
+          "pe-first-stage"
+        ],
+        "note": "通信講座アガルートの技術士の公式チャンネル。講座への導線"
+      },
+      {
+        "handle": "UC_omC9GCqYMXm7uq37iI_fg",
+        "label": "みーちゃんの技術塾",
+        "exams": [
+          "pe-first-stage"
+        ],
+        "note": "技術士一次の基本情報と問題解説"
+      },
+      {
+        "handle": "UC-cWpVMYevgNN7sfubTLDfA",
+        "label": "学びカフェ〜ペンは剣よりも強し〜",
+        "exams": [
+          "concrete-engineer"
+        ],
+        "note": "コンクリート技士の問題を連続で解く耐久型の動画"
+      },
+      {
+        "handle": "UCedwiCaFczyjO8kXa0TXJPA",
+        "label": "RCCMと技術士応援 イチから過去問題解説 響屋",
+        "exams": [
+          "rccm"
+        ],
+        "note": "RCCM の過去問を問題番号ごとに解説する"
+      },
+      {
+        "handle": "UCGoZZVoMIjFe_IAVVRSEzNw",
+        "label": "鈴木booksカルチャーセンター部",
+        "exams": [
+          "rccm"
+        ],
+        "note": "RCCM の問題解説と聞き流し"
+      },
+      {
+        "handle": "UC_AkpBRMSKHEMGb7LQHHIvw",
+        "label": "シャケ皮スジ子",
+        "exams": [
+          "pe-water-supply"
+        ],
+        "note": "ゆっくり解説で技術士第二次試験の上下水道を扱う"
+      },
+      {
+        "handle": "UCMaa1ECv_E-56Hd1v0qrIUA",
+        "label": "独学合格道場チャンネル",
+        "exams": [
+          "surveyor"
+        ],
+        "note": "測量士の午前の過去問を題材に独学の進め方を解説"
+      },
+      {
+        "handle": "UCXG8Abi5IAfF-JQ8_NTNiPw",
+        "label": "【測量士試験】アガルートの最短ルートTV",
+        "exams": [
+          "surveyor"
+        ],
+        "note": "通信講座アガルートの測量士の公式チャンネル。講座への導線"
+      },
+      {
+        "handle": "UC_jcTda5TI8Ozczl4W3XbSA",
+        "label": "建設トレンドAIリサーチ",
+        "exams": [
+          "civil-construction-1",
+          "pavement-1",
+          "pavement-2"
+        ],
+        "note": "試験の出題分析を AI の読み上げで大量に出す"
+      },
+      {
+        "handle": "UCeiJ6mhuoPGvYqIUylSnkqw",
+        "label": "建設資格データ研究所",
+        "exams": [
+          "civil-construction-1"
+        ],
+        "note": "一問一答を読み上げの長尺にまとめる"
+      },
+      {
+        "handle": "UCruon4odGsrT79rmuZGsTzw",
+        "label": "横浜すばる",
+        "exams": [
+          "pe-comprehensive-management",
+          "pe-construction"
+        ],
+        "note": "総監の勉強法と択一、建設の選択の解説"
+      },
+      {
+        "handle": "UC0wmtVAaSZKgnxwrzj9bttw",
+        "label": "技術士パパ |建設×総監",
+        "exams": [
+          "pe-comprehensive-management",
+          "pe-construction",
+          "pe-first-stage"
+        ],
+        "note": "建設と総監の必須・選択の解答戦略。note とココナラと同一主体"
+      },
+      {
+        "handle": "UCgCKh2Sv-8XNMnH26uywD9Q",
+        "label": "大監督になる",
+        "exams": [
+          "pe-construction"
+        ],
+        "note": "鋼構造及びコンクリートのキーワード学習の連番"
+      },
+      {
+        "handle": "UC6tXKX1rjdIEu26sBWO9nEQ",
+        "label": "三上系之の技術士合格塾",
+        "exams": [
+          "pe-first-stage"
+        ],
+        "note": "技術士一次の勉強法。塾への導線"
+      },
+      {
+        "handle": "UC5txmjwYungBiA7ViBa2Tdw",
+        "label": "技術者の教室",
+        "exams": [
+          "pe-first-stage"
+        ],
+        "note": "技術士一次の解説。note の 20260729 と同一主体か要確認"
+      },
+      {
+        "handle": "UCSBccXB4skV7xbARBwP_XGA",
+        "label": "ラジオ感覚で試験対策",
+        "exams": [
+          "concrete-engineer"
+        ],
+        "note": "分野別の練習問題と用語解説を読み上げで連続して出す"
       }
     ]
   },

@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-11-01T06:10:23.752Z",
-  "scanned": 913,
-  "skipped_photo": 175,
+  "generated_at": "2026-11-06T05:48:24.158Z",
+  "scanned": 924,
+  "skipped_photo": 185,
   "framed": 0,
   "errors": 0,
   "counts": {
-    "HIGH": 137,
+    "HIGH": 140,
     "MEDIUM": 0,
     "LOW": 201
   },
@@ -1561,6 +1561,30 @@
       "severity": "LOW",
       "side": "bottom",
       "detail": "bottom縁の分離島（高さ24px・全インクの3.4%・白ギャップ45px）＝小見出し/軸/写り込みのいずれか（要目視）"
+    },
+    {
+      "path": "content/site/pe-first-stage/_shared/img/cta-lead-chokuzen-tile-v1.webp",
+      "rule": "EDGE_CUT",
+      "severity": "HIGH",
+      "side": "bottom",
+      "edgeFrac": 0.303,
+      "detail": "bottom縁でストローク中割りの疑い（縁2行/内側4行の密度比 100%≥50%・縁幅 30%）"
+    },
+    {
+      "path": "content/site/pe-first-stage/_shared/img/cta-lead-chokuzen-tile-v1.webp",
+      "rule": "EDGE_CUT",
+      "severity": "HIGH",
+      "side": "left",
+      "edgeFrac": 0.457,
+      "detail": "left縁でストローク中割りの疑い（縁2行/内側4行の密度比 100%≥50%・縁幅 46%）"
+    },
+    {
+      "path": "content/site/pe-first-stage/_shared/img/cta-lead-chokuzen-tile-v1.webp",
+      "rule": "EDGE_CUT",
+      "severity": "HIGH",
+      "side": "right",
+      "edgeFrac": 0.597,
+      "detail": "right縁でストローク中割りの疑い（縁2行/内側4行の密度比 102%≥50%・縁幅 60%）"
     },
     {
       "path": "content/site/pe-first-stage/_shared/img/cta-pdf-sidebar-v2.webp",

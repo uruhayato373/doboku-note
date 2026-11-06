@@ -103,6 +103,11 @@ async function main() {
     console.error('[scout-youtube-competitors] 全件失敗（検査不成立）。保存しない');
     process.exit(1);
   }
+  // 再生数が全滅したら取得の失敗（yt-dlp が古いと一覧の再生数が欠ける）。空の中央値を最新にしない
+  if (rows.every((r) => !r.counts?.withViews)) {
+    console.error('[scout-youtube-competitors] 再生数を 1 本も読めない（検査不成立）。yt-dlp を更新する。保存しない');
+    process.exit(1);
+  }
   const stamp = todayJst();
   const partial = Boolean(HANDLE);
   const previous = partial ? null : loadPreviousSnapshot(ROOT, ID, stamp);

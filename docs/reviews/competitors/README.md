@@ -9,6 +9,7 @@
 
 - **ここが持つもの**: 市場規模（受験者数・合格率）・競合サイト・競合マトリクス・SEO 状況・doboku-note の隙間と参入の所見。
 - **ここが持たないもの**: 価格・note 有料・SNS アカウントの競合の画面の主は [09_販売チャネル競合分析.md](../../strategy/09_販売チャネル競合分析.md)。SNS ファイルは競合のコンテンツ型・エンゲージメント・チャネル密度の観測を持ち、価格・品揃えは 09 を正本にする（二重に書かない）。
+- **資格ごとの結論の正本**: 押さえられた所・取る立ち位置・勝負しない所は `config/competitor-positions.json`。このフォルダは調査の記録で、結論を更新する場所ではない。
 - **機械で測る値は写さない**: 資格ごとの競合の混み具合（YouTube・note・ココナラの強い売り手の数）と追跡アカウントは `config/market-scan.json`・`config/competitors.json` と市場スキャン（`data/analysis/qualification-market/`）が正本。`npm run qualification-market`（管理画面 戦略＞資格と市場＞展開の判断）が並べる。
 
 ## 更新の方針

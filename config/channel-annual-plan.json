@@ -248,6 +248,7 @@
             "x-sell"
           ],
           "title": "総監 口頭試験の準備",
+          "stance": "cm-oral",
           "role": "sell",
           "window": {
             "from": "2026-12",
@@ -278,6 +279,23 @@
               "docs/strategy/22_チャネル別商品設計2026-11.md:47"
             ],
             "next": "サイト利用者と口頭教材の販売の時期を見る"
+          },
+          "materials": {
+            "status": "proposed",
+            "packs": [
+              "pe-comprehensive-management/sokan-kojutsu-kangaekata",
+              "pe-comprehensive-management/gokanri-tradeoff"
+            ],
+            "products": [
+              "tankan-oral-complete",
+              "coconala-pe-oral-qa"
+            ],
+            "make": "想定質問を 1 問ずつ投稿にする",
+            "angles": [
+              "howto",
+              "counter",
+              "conclusion"
+            ]
           }
         },
         {
@@ -291,6 +309,7 @@
             "x-sell"
           ],
           "title": "建設部門 口頭試験の準備",
+          "stance": "pc-oral",
           "role": "sell",
           "window": {
             "from": "2026-12",
@@ -321,6 +340,22 @@
               "docs/strategy/22_チャネル別商品設計2026-11.md:47"
             ],
             "next": "サイト利用者と口頭教材の販売の時期を見る"
+          },
+          "materials": {
+            "status": "proposed",
+            "packs": [
+              "pe-construction/pe-kojutsu-keireki",
+              "pe-construction/competency-r8-taiou"
+            ],
+            "products": [
+              "pe-construction-oral-guide"
+            ],
+            "make": "コンピテンシーの変更点を投稿にする",
+            "angles": [
+              "number",
+              "howto",
+              "conclusion"
+            ]
           }
         },
         {
@@ -333,6 +368,7 @@
             "x-timing"
           ],
           "title": "1級 来年度の学習の開始",
+          "stance": "civil-start",
           "role": "attract",
           "window": {
             "from": "2027-01",
@@ -363,6 +399,22 @@
               "docs/reviews/competitors/2026-07_SNS.md:86"
             ],
             "next": "土木の投稿の型ごとの反応とサイト利用者を見る"
+          },
+          "materials": {
+            "status": "proposed",
+            "packs": [
+              "civil-construction-1/roadmap-juken-shikaku",
+              "civil-construction-1/roadmap-nanido-goukakuritsu",
+              "civil-construction-1/study-plan-1kyu",
+              "civil-construction-1/sekokan-shippaidan"
+            ],
+            "products": [],
+            "make": "過去問の 1 問は既存の記事から作る",
+            "angles": [
+              "conclusion",
+              "reason",
+              "experience"
+            ]
           }
         },
         {
@@ -375,6 +427,7 @@
             "x-timing"
           ],
           "title": "2級 来年度の学習の開始",
+          "stance": "civil-start",
           "role": "attract",
           "window": {
             "from": "2027-01",
@@ -404,6 +457,20 @@
               "docs/reviews/competitors/2026-07_SNS.md:86"
             ],
             "next": "土木の投稿の型ごとの反応とサイト利用者を見る"
+          },
+          "materials": {
+            "status": "proposed",
+            "packs": [
+              "civil-construction-2/nikyuu-gaiyo-roadmap",
+              "civil-construction-2/study-plan-2kyu"
+            ],
+            "products": [],
+            "make": "過去問の 1 問は既存の記事から作る",
+            "angles": [
+              "conclusion",
+              "reason",
+              "howto"
+            ]
           }
         },
         {
@@ -416,6 +483,7 @@
             "x-timing"
           ],
           "title": "総監 申込と学習の開始",
+          "stance": "cm-restart",
           "role": "attract",
           "window": {
             "from": "2027-02",
@@ -445,6 +513,21 @@
               "docs/strategy/22_チャネル別商品設計2026-11.md:47"
             ],
             "next": "サイト利用者を見て本数を見直す"
+          },
+          "materials": {
+            "status": "proposed",
+            "packs": [
+              "pe-comprehensive-management/sokan-goukaku-senryaku",
+              "pe-comprehensive-management/takuitsu-keyword",
+              "pe-comprehensive-management/gyoumu-keirekihyo"
+            ],
+            "products": [],
+            "make": "不合格の原因の点検表を投稿の連載にする",
+            "angles": [
+              "reason",
+              "counter",
+              "howto"
+            ]
           }
         },
         {
@@ -457,6 +540,7 @@
             "x-timing"
           ],
           "title": "建設部門 申込と学習の開始",
+          "stance": "pc-restart",
           "role": "attract",
           "window": {
             "from": "2027-02",
@@ -486,6 +570,21 @@
               "docs/strategy/22_チャネル別商品設計2026-11.md:47"
             ],
             "next": "サイト利用者を見て本数を見直す"
+          },
+          "materials": {
+            "status": "proposed",
+            "packs": [
+              "pe-construction/secondary-study-houhou",
+              "pe-construction/gakushuu-schedule-gyakusan",
+              "pe-construction/nanido-goukakuritsu-shindan"
+            ],
+            "products": [],
+            "make": "",
+            "angles": [
+              "conclusion",
+              "number",
+              "howto"
+            ]
           }
         },
         {
@@ -499,6 +598,7 @@
             "x-sell"
           ],
           "title": "1級 一次の直前まで",
+          "stance": "civil-topic-drill",
           "role": "sell",
           "window": {
             "from": "2027-04",
@@ -532,6 +632,28 @@
               ".claude/knowledge/reference/x-post-policy.md:163"
             ],
             "next": "販売の投稿の位置ごとのサイト利用者と販売の時期を見る"
+          },
+          "materials": {
+            "status": "proposed",
+            "packs": [
+              "civil-construction-1/gakka-doshitsu-chosa",
+              "civil-construction-1/gakka-network-koteihyo",
+              "civil-construction-1/gakka-anzen-taisei",
+              "civil-construction-1/gakka-kensetsugyoho",
+              "civil-construction-1/kikinagashi-anzen-suchi",
+              "civil-construction-1/kikinagashi-hoki-suchi"
+            ],
+            "products": [
+              "civil-1-ichiji-ronten",
+              "civil-1-takuitsu-pdf",
+              "civil-1-r8-mock3-pdf"
+            ],
+            "make": "分野ごとの引っかけと暗記の数字を過去問の記事から作る",
+            "angles": [
+              "number",
+              "counter",
+              "howto"
+            ]
           }
         },
         {
@@ -545,6 +667,7 @@
             "x-sell"
           ],
           "title": "2級 前期の直前まで",
+          "stance": "civil-topic-drill",
           "role": "sell",
           "window": {
             "from": "2027-04",
@@ -574,6 +697,25 @@
               ".claude/knowledge/reference/x-post-policy.md:163"
             ],
             "next": "販売の投稿の位置ごとのサイト利用者と販売の時期を見る"
+          },
+          "materials": {
+            "status": "proposed",
+            "packs": [
+              "civil-construction-2/gakka-2kyu-concrete",
+              "civil-construction-2/gakka-2kyu-kiso",
+              "civil-construction-2/gakka-2kyu-doko",
+              "civil-construction-2/gakka-2kyu-hoki"
+            ],
+            "products": [
+              "civil-2-takuitsu-pdf",
+              "civil-2-anki-note"
+            ],
+            "make": "",
+            "angles": [
+              "number",
+              "howto",
+              "conclusion"
+            ]
           }
         },
         {
@@ -587,6 +729,7 @@
             "x-sell"
           ],
           "title": "総監 筆記の直前まで",
+          "stance": "cm-essay",
           "role": "sell",
           "window": {
             "from": "2027-04",
@@ -619,6 +762,25 @@
               "docs/strategy/22_チャネル別商品設計2026-11.md:47"
             ],
             "next": "反応が 0 のままなら販売の時期だけに絞る"
+          },
+          "materials": {
+            "status": "proposed",
+            "packs": [
+              "pe-comprehensive-management/hakusho-map",
+              "pe-comprehensive-management/monbun-yomikata",
+              "pe-comprehensive-management/sanso-kozo",
+              "pe-comprehensive-management/kata-oudan-ryuyo"
+            ],
+            "products": [
+              "essay-core-pack",
+              "essay-complete-pack"
+            ],
+            "make": "白書の 1 テーマを答案の論点へ分解する連載",
+            "angles": [
+              "reason",
+              "number",
+              "counter"
+            ]
           }
         },
         {
@@ -632,6 +794,7 @@
             "x-sell"
           ],
           "title": "建設部門 筆記の直前まで",
+          "stance": "pc-split",
           "role": "sell",
           "window": {
             "from": "2027-04",
@@ -649,6 +812,7 @@
           "count": 24,
           "salesMax": 8,
           "parents": [
+            "pc-split-2027",
             "pc-hissu-2027",
             "pc-final-2027"
           ],
@@ -662,6 +826,23 @@
               "docs/strategy/22_チャネル別商品設計2026-11.md:47"
             ],
             "next": "反応が 0 のままなら販売の時期だけに絞る"
+          },
+          "materials": {
+            "status": "proposed",
+            "packs": [
+              "pe-construction/sentaku-kakiwake-3type",
+              "pe-construction/hissu1-theme-map",
+              "pe-construction/kaitourei-tsukaikata"
+            ],
+            "products": [
+              "pe-construction-required-magazine"
+            ],
+            "make": "答案の構成を図で見せるカードを作る",
+            "angles": [
+              "howto",
+              "counter",
+              "number"
+            ]
           }
         },
         {
@@ -671,6 +852,7 @@
             "x-instant"
           ],
           "title": "1級 試験直後の解答速報",
+          "stance": "civil-after-exam",
           "role": "attract",
           "window": {
             "from": "2027-07",
@@ -698,6 +880,15 @@
               "docs/reviews/competitors/2026-07_SNS.md:15"
             ],
             "next": "採否を決めたうえで、試験直後のサイト利用者を見る"
+          },
+          "materials": {
+            "status": "proposed",
+            "packs": [],
+            "products": [],
+            "make": "解答解説の記事へ案内する投稿だけを用意する。保留中の型は使わない",
+            "angles": [
+              "conclusion"
+            ]
           }
         },
         {
@@ -711,6 +902,7 @@
             "x-sell"
           ],
           "title": "1級 経験記述の直前まで",
+          "stance": "civil-second-answer",
           "role": "sell",
           "window": {
             "from": "2027-07",
@@ -744,6 +936,26 @@
               "docs/reviews/competitors/2026-07_SNS.md:15"
             ],
             "next": "販売の投稿の位置ごとのサイト利用者と販売の時期を見る"
+          },
+          "materials": {
+            "status": "proposed",
+            "packs": [
+              "civil-construction-1/keiken-kadai-kakikata",
+              "civil-construction-1/keiken-ochiru-toan-1kyu",
+              "civil-construction-1/keiken-anzen-1kyu",
+              "civil-construction-1/keiken-hinshitsu-1kyu",
+              "civil-construction-1/koji-gaiyo-7items"
+            ],
+            "products": [
+              "civil-1-keiken-complete-pack",
+              "civil-1-niji-marugoto-pack"
+            ],
+            "make": "発注者が読む順に答案を分解する連載",
+            "angles": [
+              "counter",
+              "experience",
+              "howto"
+            ]
           }
         },
         {
@@ -757,6 +969,7 @@
             "x-sell"
           ],
           "title": "2級 二次の直前まで",
+          "stance": "civil-second-answer",
           "role": "sell",
           "window": {
             "from": "2027-08",
@@ -788,6 +1001,24 @@
               ".claude/knowledge/reference/x-post-policy.md:163"
             ],
             "next": "販売の投稿の位置ごとのサイト利用者と販売の時期を見る"
+          },
+          "materials": {
+            "status": "proposed",
+            "packs": [
+              "civil-construction-2/keiken-genten-kyotsuten",
+              "civil-construction-2/keiken-koji-ga-nai",
+              "civil-construction-2/keiken-2kyu-level"
+            ],
+            "products": [
+              "civil-2-niji-marugoto-pack",
+              "civil-2-koji-bank"
+            ],
+            "make": "",
+            "angles": [
+              "howto",
+              "counter",
+              "conclusion"
+            ]
           }
         },
         {
@@ -801,6 +1032,7 @@
             "x-sell"
           ],
           "title": "RCCM の受験期",
+          "stance": "rc-essay",
           "role": "sell",
           "window": {
             "from": "2027-08",
@@ -829,6 +1061,19 @@
               "docs/strategy/22_チャネル別商品設計2026-11.md:47"
             ],
             "next": "本数は増やさず、販売の時期を見る"
+          },
+          "materials": {
+            "status": "proposed",
+            "packs": [],
+            "products": [
+              "rccm-mondai1-template",
+              "rccm-mondai3-magazine"
+            ],
+            "make": "問題Ⅲの論文の型を分解する投稿を作る",
+            "angles": [
+              "howto",
+              "number"
+            ]
           }
         },
         {
@@ -842,6 +1087,7 @@
             "x-sell"
           ],
           "title": "コンクリート主任技士の申込と準備",
+          "stance": "cc-essay-video",
           "role": "sell",
           "window": {
             "from": "2027-08",
@@ -871,6 +1117,25 @@
               "docs/reviews/competitors/2026-07_SNS.md:86"
             ],
             "next": "少数のまま、11 月の直前の枠は次の期で決める"
+          },
+          "materials": {
+            "status": "proposed",
+            "packs": [
+              "concrete-chief-engineer/shunin-shouronbun-theme",
+              "concrete-chief-engineer/shunin-shouronbun-kousei",
+              "concrete-chief-engineer/shunin-ochiru-shouronbun"
+            ],
+            "products": [
+              "cce-marugoto-pack",
+              "cce-essay-mokuji",
+              "coconala-cce-essay-shindan"
+            ],
+            "make": "立場別の小論文のテーマを 1 本ずつ投稿にする",
+            "angles": [
+              "howto",
+              "counter",
+              "conclusion"
+            ]
           }
         },
         {
@@ -883,6 +1148,7 @@
             "x-timing"
           ],
           "title": "技術士一次の準備",
+          "stance": "pe1-practice",
           "role": "attract",
           "window": {
             "from": "2027-08",
@@ -904,11 +1170,27 @@
             "reader": "過去問の回し方と基礎科目の範囲が分からない",
             "harm": "A（資格の取得）。合格という目標への近道を探している",
             "value": "無料の過去問演習へ案内する。販売は次の期の 11 月に置く",
-            "demand": "過去問を連載する X の競合は調査時点で確認できなかった。需要は未検証",
+            "demand": "未検証。X の一次の相手は追跡していない",
             "evidence": [
               "docs/reviews/competitors/2026-07_SNS.md:15"
             ],
             "next": "サイト利用者と演習の開始を見る"
+          },
+          "materials": {
+            "status": "proposed",
+            "packs": [
+              "pe-first-stage/pe1-zentaizou",
+              "pe-first-stage/pe1-tekisei-3shiten",
+              "pe-first-stage/pe1-kiso-senmon"
+            ],
+            "products": [
+              "pe1-chokuzen-pack"
+            ],
+            "make": "基礎と適性の 1 問を連載にする",
+            "angles": [
+              "number",
+              "howto"
+            ]
           }
         },
         {
@@ -922,6 +1204,7 @@
             "x-sell"
           ],
           "title": "測量士 午後の準備",
+          "stance": "sv-pm",
           "role": "sell",
           "window": {
             "from": "2027-01",
@@ -952,6 +1235,19 @@
               "content/note/測量士/午後記述-出題分析.md"
             ],
             "next": "本数は増やさず、サイト利用者と販売の時期を見て、YouTube へ広げるかを決める"
+          },
+          "materials": {
+            "status": "proposed",
+            "packs": [],
+            "products": [
+              "surveyor-gogo-pack",
+              "surveyor-keisan-20"
+            ],
+            "make": "午後の分野ごとの論点を投稿にする",
+            "angles": [
+              "howto",
+              "number"
+            ]
           }
         },
         {
@@ -965,6 +1261,7 @@
             "x-sell"
           ],
           "title": "1級舗装 応用試験の準備",
+          "stance": "pv-applied",
           "role": "sell",
           "window": {
             "from": "2027-02",
@@ -994,6 +1291,19 @@
               "content/note/舗装/応用試験-出題分析.md"
             ],
             "next": "本数は増やさず、サイト利用者と販売の時期を見て、YouTube へ広げるかを決める"
+          },
+          "materials": {
+            "status": "proposed",
+            "packs": [],
+            "products": [
+              "pavement-1-pack",
+              "pavement-1-sentaku-hinshutsu"
+            ],
+            "make": "応用試験の頻出の論点を投稿にする",
+            "angles": [
+              "number",
+              "howto"
+            ]
           }
         },
         {
@@ -1007,6 +1317,7 @@
             "x-sell"
           ],
           "title": "2級舗装 応用試験の準備",
+          "stance": "pv-applied",
           "role": "sell",
           "window": {
             "from": "2027-02",
@@ -1036,6 +1347,19 @@
               "content/note/舗装/応用試験-出題分析.md"
             ],
             "next": "本数は増やさず、サイト利用者と販売の時期を見て、YouTube へ広げるかを決める"
+          },
+          "materials": {
+            "status": "proposed",
+            "packs": [],
+            "products": [
+              "pavement-2-keiken",
+              "pavement-2-sentaku-hinshutsu"
+            ],
+            "make": "応用試験の頻出の論点を投稿にする",
+            "angles": [
+              "number",
+              "howto"
+            ]
           }
         },
         {
@@ -1049,6 +1373,7 @@
             "x-sell"
           ],
           "title": "上下水道 筆記の直前まで",
+          "stance": "pw-essay",
           "role": "sell",
           "window": {
             "from": "2027-04",
@@ -1076,6 +1401,20 @@
               "content/note/技術士上下水道部門/出題テーマ_R01-R08.md"
             ],
             "next": "本数は増やさず、サイト利用者と販売の時期を見て、YouTube へ広げるかを決める"
+          },
+          "materials": {
+            "status": "proposed",
+            "packs": [],
+            "products": [
+              "pe-water-required-magazine",
+              "pe-water-supply-pack",
+              "pe-water-sewerage-pack"
+            ],
+            "make": "必須と選択のテーマを投稿にする",
+            "angles": [
+              "number",
+              "howto"
+            ]
           }
         }
       ]
@@ -1161,6 +1500,7 @@
             "ig-carousel-zukai"
           ],
           "title": "1級 図解の試行",
+          "stance": "civil-start",
           "role": "attract",
           "window": {
             "from": "2026-12",
@@ -1187,6 +1527,19 @@
               "docs/reviews/competitors/2026-07_SNS.md:15"
             ],
             "next": "2027-02-05 の見直しまでに、サイト利用者と保存の取り方を確かめる"
+          },
+          "materials": {
+            "status": "proposed",
+            "packs": [
+              "civil-construction-1/roadmap-juken-shikaku",
+              "civil-construction-1/study-plan-1kyu"
+            ],
+            "products": [],
+            "make": "受検の順序の図解を 4 枚作る",
+            "angles": [
+              "howto",
+              "conclusion"
+            ]
           }
         },
         {
@@ -1197,6 +1550,7 @@
             "ig-reel-from-shorts"
           ],
           "title": "1級 一次の図解",
+          "stance": "civil-topic-drill",
           "role": "attract",
           "window": {
             "from": "2027-02",
@@ -1224,6 +1578,21 @@
               "docs/reviews/competitors/2026-07_SNS.md:15"
             ],
             "next": "型ごとの保存とサイト利用者を比べる"
+          },
+          "materials": {
+            "status": "proposed",
+            "packs": [
+              "civil-construction-1/gakka-network-koteihyo",
+              "civil-construction-1/gakka-histogram",
+              "civil-construction-1/gakka-kanrizu",
+              "civil-construction-1/gakka-dodome-kussaku"
+            ],
+            "products": [],
+            "make": "図解の動画の図をカルーセルへ転用する",
+            "angles": [
+              "howto",
+              "number"
+            ]
           }
         },
         {
@@ -1233,6 +1602,7 @@
             "ig-carousel-zukai"
           ],
           "title": "2級 前期の図解",
+          "stance": "civil-topic-drill",
           "role": "attract",
           "window": {
             "from": "2027-03",
@@ -1259,6 +1629,19 @@
               "docs/reviews/competitors/2026-07_SNS.md:15"
             ],
             "next": "1級との反応の差を見る"
+          },
+          "materials": {
+            "status": "proposed",
+            "packs": [
+              "civil-construction-2/gakka-2kyu-concrete",
+              "civil-construction-2/gakka-2kyu-kiso"
+            ],
+            "products": [],
+            "make": "図解の動画の図をカルーセルへ転用する",
+            "angles": [
+              "howto",
+              "number"
+            ]
           }
         },
         {
@@ -1268,6 +1651,7 @@
             "ig-reel-from-shorts"
           ],
           "title": "総監 記述の要点",
+          "stance": "cm-essay",
           "role": "attract",
           "window": {
             "from": "2027-04",
@@ -1295,6 +1679,20 @@
               "docs/strategy/22_チャネル別商品設計2026-11.md:47"
             ],
             "next": "転用の手間とサイト利用者を見る"
+          },
+          "materials": {
+            "status": "proposed",
+            "packs": [
+              "pe-comprehensive-management/hakusho-map",
+              "pe-comprehensive-management/sanso-kozo",
+              "pe-comprehensive-management/gokanri-tradeoff"
+            ],
+            "products": [],
+            "make": "ショートをリールへ転用する",
+            "angles": [
+              "reason",
+              "counter"
+            ]
           }
         },
         {
@@ -1305,6 +1703,7 @@
             "ig-reel-from-shorts"
           ],
           "title": "1級 経験記述の図解",
+          "stance": "civil-second-answer",
           "role": "attract",
           "window": {
             "from": "2027-07",
@@ -1331,6 +1730,19 @@
               "docs/reviews/competitors/2026-07_SNS.md:15"
             ],
             "next": "型ごとの保存とサイト利用者を比べる"
+          },
+          "materials": {
+            "status": "proposed",
+            "packs": [
+              "civil-construction-1/keiken-ochiru-toan-1kyu",
+              "civil-construction-1/koji-gaiyo-7items"
+            ],
+            "products": [],
+            "make": "答案の良い例と悪い例の図解を作る",
+            "angles": [
+              "counter",
+              "howto"
+            ]
           }
         },
         {
@@ -1340,6 +1752,7 @@
             "ig-carousel-zukai"
           ],
           "title": "2級 経験記述の図解",
+          "stance": "civil-second-answer",
           "role": "attract",
           "window": {
             "from": "2027-08",
@@ -1366,6 +1779,19 @@
               "docs/reviews/competitors/2026-07_SNS.md:15"
             ],
             "next": "1級との反応の差を見る"
+          },
+          "materials": {
+            "status": "proposed",
+            "packs": [
+              "civil-construction-2/keiken-genten-kyotsuten",
+              "civil-construction-2/koji-gaiyo-seigou"
+            ],
+            "products": [],
+            "make": "答案の良い例と悪い例の図解を作る",
+            "angles": [
+              "counter",
+              "howto"
+            ]
           }
         },
         {
@@ -1375,6 +1801,7 @@
             "ig-carousel-zukai"
           ],
           "title": "技術士一次の図解",
+          "stance": "pe1-practice",
           "role": "attract",
           "window": {
             "from": "2027-08",
@@ -1401,6 +1828,20 @@
               "docs/reviews/competitors/2026-07_SNS.md:15"
             ],
             "next": "サイト利用者と演習の開始を見る"
+          },
+          "materials": {
+            "status": "proposed",
+            "packs": [
+              "pe-first-stage/pe1-zentaizou",
+              "pe-first-stage/pe1-kiso-gyouretsu-vector",
+              "pe-first-stage/pe1-tekisei-3shiten"
+            ],
+            "products": [],
+            "make": "図解の動画の図をカルーセルへ転用する",
+            "angles": [
+              "howto",
+              "number"
+            ]
           }
         },
         {
@@ -1410,6 +1851,7 @@
             "ig-carousel-zukai"
           ],
           "title": "コンクリート主任技士の図解",
+          "stance": "cc-essay-video",
           "role": "attract",
           "window": {
             "from": "2027-08",
@@ -1436,6 +1878,19 @@
               "docs/reviews/competitors/2026-07_SNS.md:15"
             ],
             "next": "本数は増やさず、反応を見る"
+          },
+          "materials": {
+            "status": "proposed",
+            "packs": [
+              "concrete-chief-engineer/shunin-shouronbun-kousei",
+              "concrete-chief-engineer/shunin-shouronbun-theme"
+            ],
+            "products": [],
+            "make": "立場別のテーマの図解を作る",
+            "angles": [
+              "howto",
+              "conclusion"
+            ]
           }
         }
       ]
@@ -1447,6 +1902,7 @@
       "exam": "pe-comprehensive-management",
       "format": "single-topic-zukai",
       "title": "総監 口頭試験の準備",
+      "stance": "cm-oral",
       "role": "sell",
       "window": {
         "from": "2026-11",
@@ -1477,6 +1933,17 @@
           "docs/marketing/05_YouTube戦略_技術士総監.md:162"
         ],
         "next": "動画ごとの平均視聴率と、口頭教材の販売の時期を見る"
+      },
+      "materials": {
+        "status": "proposed",
+        "packs": [
+          "pe-comprehensive-management/sokan-kojutsu-kangaekata"
+        ],
+        "products": [
+          "tankan-oral-complete",
+          "coconala-pe-oral-qa"
+        ],
+        "make": "トレードオフの口頭 1 本は企画済み（cm-kojutsu-tradeoff）。経歴を 5 管理で語る動画を既存で足す"
       }
     },
     {
@@ -1484,6 +1951,7 @@
       "exam": "pe-comprehensive-management",
       "format": "single-topic-zukai",
       "title": "総監 再挑戦と学習開始",
+      "stance": "cm-restart",
       "role": "attract",
       "window": {
         "from": "2026-12",
@@ -1512,11 +1980,23 @@
         "reader": "来年度の総監をどこから始めるか決められない",
         "harm": "A（資格の取得）。合格という目標への近道を探している",
         "value": "択一と記述の配分を無料で示し、型は note で買う",
-        "demand": "総監特化の動画は空白が多い（2026-06 調査）。再生の需要は未検証",
+        "demand": "落ちた原因の診断を軸にした商品は検索に見当たらない（立ち位置 cm-restart）。再生の需要は未検証",
         "evidence": [
           "docs/marketing/05_YouTube戦略_技術士総監.md:52"
         ],
         "next": "3 か月後に総監の平均視聴率を他資格と比べる"
+      },
+      "materials": {
+        "status": "proposed",
+        "packs": [
+          "pe-comprehensive-management/sokan-goukaku-senryaku",
+          "pe-comprehensive-management/persona-settei",
+          "pe-comprehensive-management/takuitsu-keyword",
+          "pe-comprehensive-management/gokanri-tradeoff",
+          "pe-comprehensive-management/monbun-yomikata"
+        ],
+        "products": [],
+        "make": ""
       }
     },
     {
@@ -1524,6 +2004,7 @@
       "exam": "pe-comprehensive-management",
       "format": "single-topic-zukai",
       "title": "総監 申込と業務経歴票",
+      "stance": "cm-restart",
       "role": "attract",
       "window": {
         "from": "2027-02",
@@ -1549,6 +2030,14 @@
         "demand": "未検証。申込の時期に検索が増えるかを見る",
         "evidence": [],
         "next": "申込期の検索クリックと動画の再生を比べる"
+      },
+      "materials": {
+        "status": "proposed",
+        "packs": [
+          "pe-comprehensive-management/gyoumu-keirekihyo"
+        ],
+        "products": [],
+        "make": ""
       }
     },
     {
@@ -1556,6 +2045,7 @@
       "exam": "pe-comprehensive-management",
       "format": "single-topic-zukai",
       "title": "総監 記述式の型",
+      "stance": "cm-essay",
       "role": "sell",
       "window": {
         "from": "2027-03",
@@ -1589,6 +2079,19 @@
           "docs/strategy/22_チャネル別商品設計2026-11.md:27"
         ],
         "next": "動画の公開後に該当商品の販売が動くかを note の販売記録で見る"
+      },
+      "materials": {
+        "status": "proposed",
+        "packs": [
+          "pe-comprehensive-management/hakusho-map",
+          "pe-comprehensive-management/setsumon3-shisaku",
+          "pe-comprehensive-management/kata-oudan-ryuyo",
+          "pe-comprehensive-management/r8-yosou-theme"
+        ],
+        "products": [
+          "essay-core-pack"
+        ],
+        "make": "白書の 1 テーマを課題と解決策へつなぐ実演を 1 本作る"
       }
     },
     {
@@ -1596,6 +2099,7 @@
       "exam": "pe-comprehensive-management",
       "format": "compilation",
       "title": "総監 択一の聞き流し",
+      "stance": "cm-takuitsu",
       "role": "attract",
       "window": {
         "from": "2027-05",
@@ -1626,6 +2130,17 @@
           "docs/marketing/05_YouTube戦略_技術士総監.md:107"
         ],
         "next": "総監でも尺の長い動画の平均視聴時間が伸びるかを見る"
+      },
+      "materials": {
+        "status": "proposed",
+        "packs": [
+          "pe-comprehensive-management/takuitsu-r07-enshu",
+          "pe-comprehensive-management/kikinagashi-sokan-keyword"
+        ],
+        "products": [
+          "tankan-takuitsu-reiwa-pdf"
+        ],
+        "make": ""
       }
     },
     {
@@ -1633,6 +2148,7 @@
       "exam": "pe-comprehensive-management",
       "format": "single-topic-zukai",
       "title": "総監 直前の確認",
+      "stance": "cm-final",
       "role": "sell",
       "window": {
         "from": "2027-06",
@@ -1659,6 +2175,14 @@
           "docs/strategy/22_チャネル別商品設計2026-11.md:47"
         ],
         "next": "直前 4 週の視聴維持と販売を見る"
+      },
+      "materials": {
+        "status": "proposed",
+        "packs": [],
+        "products": [
+          "essay-complete-pack"
+        ],
+        "make": "記述の直前の確認は企画済み（cm-kijutsu-chokuzen）。白書の改訂の差分を 1 本足す"
       }
     },
     {
@@ -1666,6 +2190,7 @@
       "exam": "pe-construction",
       "format": "single-topic-zukai",
       "title": "建設部門 口頭試験の準備",
+      "stance": "pc-oral",
       "role": "sell",
       "window": {
         "from": "2026-11",
@@ -1696,6 +2221,18 @@
           "docs/strategy/22_チャネル別商品設計2026-11.md:27"
         ],
         "next": "口頭教材の販売の時期と動画の公開を比べる"
+      },
+      "materials": {
+        "status": "proposed",
+        "packs": [
+          "pe-construction/competency-r8-taiou",
+          "pe-construction/pe-kojutsu-keireki"
+        ],
+        "products": [
+          "pe-construction-oral-guide",
+          "pe-oral-general-guide"
+        ],
+        "make": "深掘りの答え方は企画済み（pe-kojutsu-fukabori）"
       }
     },
     {
@@ -1703,6 +2240,7 @@
       "exam": "pe-construction",
       "format": "single-topic-zukai",
       "title": "建設部門 再挑戦と学習開始",
+      "stance": "pc-restart",
       "role": "attract",
       "window": {
         "from": "2026-12",
@@ -1728,11 +2266,22 @@
         "reader": "来年度の二次をどの順で始めるか分からない",
         "harm": "A（資格の取得）。合格という目標への近道を探している",
         "value": "学習順序と答案の型を無料で示し、模範解答は note で買う",
-        "demand": "Ⅱ-1・Ⅱ-2・Ⅲの書き分けは競合の空白（12 クエリの検証）",
+        "demand": "未検証。再挑戦を始める時期に順序を示す",
         "evidence": [
           "docs/marketing/08_YouTube戦略_技術士建設部門.md:42"
         ],
         "next": "書き分けの動画が検索から再生されるかを見る"
+      },
+      "materials": {
+        "status": "proposed",
+        "packs": [
+          "pe-construction/secondary-study-houhou",
+          "pe-construction/gakushuu-schedule-gyakusan",
+          "pe-construction/nanido-goukakuritsu-shindan",
+          "pe-construction/sentaku-kakiwake-3type"
+        ],
+        "products": [],
+        "make": ""
       }
     },
     {
@@ -1740,6 +2289,7 @@
       "exam": "pe-construction",
       "format": "single-topic-zukai",
       "title": "建設部門 申込と業務経歴票",
+      "stance": "pc-restart",
       "role": "attract",
       "window": {
         "from": "2027-02",
@@ -1765,6 +2315,15 @@
         "demand": "未検証。申込の時期に検索が増えるかを見る",
         "evidence": [],
         "next": "申込期の検索クリックと動画の再生を比べる"
+      },
+      "materials": {
+        "status": "proposed",
+        "packs": [
+          "pe-construction/keirekihyo-kakikata",
+          "pe-construction/kensetsu-pe-career-kachi"
+        ],
+        "products": [],
+        "make": ""
       }
     },
     {
@@ -1772,6 +2331,7 @@
       "exam": "pe-construction",
       "format": "single-topic-zukai",
       "title": "建設部門 選択科目の読み方",
+      "stance": "pc-subject",
       "role": "sell",
       "window": {
         "from": "2027-03",
@@ -1806,11 +2366,87 @@
         "reader": "自分の科目で何が出るか、どこから手を付けるか分からない",
         "harm": "A（資格の取得）。合格という目標への近道を探している",
         "value": "出題テーマの読み方を無料で示し、科目別の模範解答は note で買う",
-        "demand": "11 科目の体系シリーズは競合の空白。科目別マガジンは商品が揃っている",
+        "demand": "動画で全科目を揃えた連載は検索に見当たらない（立ち位置 pc-subject）。note は小泉の科目別の部屋が先行する。自社の科目別マガジンも揃っている",
         "evidence": [
           "docs/marketing/08_YouTube戦略_技術士建設部門.md:42"
         ],
         "next": "科目ごとにマガジンの販売が動くかを note の販売記録で見る"
+      },
+      "materials": {
+        "status": "proposed",
+        "packs": [
+          "pe-construction/sentaku-construction-planning-yomikata",
+          "pe-construction/sentaku-road-yomikata",
+          "pe-construction/sentaku-river-coast-yomikata",
+          "pe-construction/sentaku-steel-concrete-yomikata",
+          "pe-construction/sentaku-geotechnical-yomikata",
+          "pe-construction/sentaku-tunnel-yomikata",
+          "pe-construction/sentaku-urban-planning-yomikata",
+          "pe-construction/sentaku-environment-yomikata",
+          "pe-construction/sentaku-port-airport-yomikata",
+          "pe-construction/sentaku-railway-yomikata",
+          "pe-construction/sentaku-power-civil-yomikata"
+        ],
+        "products": [],
+        "make": ""
+      }
+    },
+    {
+      "id": "pc-split-2027",
+      "exam": "pe-construction",
+      "format": "compilation",
+      "title": "建設部門 Ⅱ-1・Ⅱ-2・Ⅲの書き分け（長尺の試行）",
+      "stance": "pc-split",
+      "role": "sell",
+      "window": {
+        "from": "2027-04",
+        "to": "2027-05"
+      },
+      "anchors": [
+        "written"
+      ],
+      "primaryCta": {
+        "kind": "note-magazine",
+        "targets": [
+          "pe-construction-construction-planning-magazine",
+          "pe-construction-road-magazine",
+          "pe-construction-river-coast-magazine",
+          "pe-construction-steel-concrete-magazine",
+          "pe-construction-geotechnical-magazine",
+          "pe-construction-tunnel-magazine",
+          "pe-construction-urban-planning-magazine",
+          "pe-construction-environment-magazine",
+          "pe-construction-port-airport-magazine",
+          "pe-construction-railway-magazine",
+          "pe-construction-power-civil-magazine"
+        ]
+      },
+      "count": 2,
+      "reuse": "bundle",
+      "reuseNote": "書き分けの動画と科目の読み方の動画を 15〜30 分に束ねる。尺の違いを同じ資格で比べる",
+      "reason": {
+        "reader": "問題の区分ごとに何を書き分けるか分からない",
+        "harm": "A（資格の取得）。合格という目標への近道を探している",
+        "value": "書き分けを通して無料で示し、科目別の模範解答は note で買う",
+        "demand": "ぺんたは 15〜30 分の動画が最も伸びている。書き分けを主題にした長い動画は検索の上位に少ない（立ち位置 pc-split）",
+        "evidence": [
+          "docs/marketing/08a_YouTube競合分析_技術士建設部門_2026-09.md"
+        ],
+        "next": "単論点の動画と比べて、視聴維持と教材のクリックを見る"
+      },
+      "materials": {
+        "status": "proposed",
+        "packs": [
+          "pe-construction/sentaku-kakiwake-3type",
+          "pe-construction/sentaku-road-yomikata",
+          "pe-construction/sentaku-geotechnical-yomikata",
+          "pe-construction/sentaku-steel-concrete-yomikata",
+          "pe-construction/kaitourei-tsukaikata"
+        ],
+        "products": [
+          "pe-construction-road-magazine"
+        ],
+        "make": "書き分けの実演を長尺用に足し、科目の読み方と束ねる"
       }
     },
     {
@@ -1818,6 +2454,7 @@
       "exam": "pe-construction",
       "format": "single-topic-zukai",
       "title": "建設部門 必須Ⅰのテーマ",
+      "stance": "pc-hissu",
       "role": "sell",
       "window": {
         "from": "2027-04",
@@ -1848,6 +2485,20 @@
           "docs/strategy/22_チャネル別商品設計2026-11.md:27"
         ],
         "next": "必須マガジンの販売と動画の公開を比べる"
+      },
+      "materials": {
+        "status": "proposed",
+        "packs": [
+          "pe-construction/hissu1-theme-map",
+          "pe-construction/hissu1-bosai-kyoujinka",
+          "pe-construction/hissu1-carbon-neutral",
+          "pe-construction/hissu1-ninaite-seisansei",
+          "pe-construction/hissu1-kokudo-chiiki"
+        ],
+        "products": [
+          "pe-construction-required-magazine"
+        ],
+        "make": ""
       }
     },
     {
@@ -1855,6 +2506,7 @@
       "exam": "pe-construction",
       "format": "yosou-derivation",
       "title": "建設部門 R9 の出題予想の導き方",
+      "stance": "pc-hissu",
       "role": "sell",
       "window": {
         "from": "2027-05",
@@ -1882,6 +2534,14 @@
           "docs/marketing/08_YouTube戦略_技術士建設部門.md:90"
         ],
         "next": "予想の動画が検索から再生されるかを見る"
+      },
+      "materials": {
+        "status": "proposed",
+        "packs": [
+          "pe-construction/r8-yosou-dashikata"
+        ],
+        "products": [],
+        "make": ""
       }
     },
     {
@@ -1889,6 +2549,7 @@
       "exam": "pe-construction",
       "format": "single-topic-zukai",
       "title": "建設部門 直前の時間配分",
+      "stance": "pc-final",
       "role": "sell",
       "window": {
         "from": "2027-06",
@@ -1915,6 +2576,14 @@
           "docs/strategy/22_チャネル別商品設計2026-11.md:47"
         ],
         "next": "直前 4 週の視聴維持と販売を見る"
+      },
+      "materials": {
+        "status": "proposed",
+        "packs": [],
+        "products": [
+          "pe-construction-required-magazine"
+        ],
+        "make": "時間配分と答案のリスクの確認は企画済み（pe-hissu1-jikan・pe-toan-risk-check）"
       }
     },
     {
@@ -1922,6 +2591,7 @@
       "exam": "pe-first-stage",
       "format": "compilation",
       "title": "技術士一次 総まとめ",
+      "stance": "pe1-practice",
       "role": "attract",
       "window": {
         "from": "2027-08",
@@ -1949,6 +2619,22 @@
           "docs/marketing/07c_YouTube競合動画の画面分析_2026-10.md:37"
         ],
         "next": "2026 年の直前動画の結果を見て本数を決める"
+      },
+      "materials": {
+        "status": "proposed",
+        "packs": [
+          "pe-first-stage/pe1-kiso-gyouretsu-vector",
+          "pe-first-stage/pe1-kiso-xor-shingihyou",
+          "pe-first-stage/pe1-kiso-simpson-haba",
+          "pe-first-stage/pe1-kiso-senmon",
+          "pe-first-stage/pe1-tekisei-3shiten",
+          "pe-first-stage/pe1-senmon-kensetsu-25mon"
+        ],
+        "products": [
+          "pe1-chokuzen-pack",
+          "pe1-takuitsu-pdf"
+        ],
+        "make": "基礎・適性・専門・全体の 4 本に束ねる"
       }
     },
     {
@@ -1956,6 +2642,7 @@
       "exam": "civil-construction-1",
       "format": "single-topic-zukai",
       "title": "1級土木 来年度の受検準備",
+      "stance": "civil-start",
       "role": "attract",
       "window": {
         "from": "2027-01",
@@ -1983,6 +2670,17 @@
           ".claude/todo/backlog.md:420"
         ],
         "next": "1 本目の検索流入を見る"
+      },
+      "materials": {
+        "status": "proposed",
+        "packs": [
+          "civil-construction-1/roadmap-juken-shikaku",
+          "civil-construction-1/roadmap-nanido-goukakuritsu",
+          "civil-construction-1/roadmap-1kyu-vs-2kyu",
+          "civil-construction-1/study-plan-1kyu"
+        ],
+        "products": [],
+        "make": "2027 年度の違いは企画済み（c1-shiken-2027-difference）"
       }
     },
     {
@@ -1990,6 +2688,7 @@
       "exam": "civil-construction-1",
       "format": "compilation",
       "title": "1級一次 聞き流し（分野別）",
+      "stance": "civil-listen",
       "role": "attract",
       "window": {
         "from": "2027-02",
@@ -2021,6 +2720,43 @@
           "docs/marketing/07c_YouTube競合動画の画面分析_2026-10.md:37"
         ],
         "next": "最初の 1 本で平均視聴時間を見て残りを決める"
+      },
+      "materials": {
+        "status": "proposed",
+        "packs": [
+          "civil-construction-1/gakka-doshitsu-chosa",
+          "civil-construction-1/gakka-morido-shimekatame",
+          "civil-construction-1/gakka-nanjaku-jiban",
+          "civil-construction-1/gakka-nori-hogoko",
+          "civil-construction-1/gakka-dodome-kussaku",
+          "civil-construction-1/gakka-kotei-kanri-kiso",
+          "civil-construction-1/gakka-network-koteihyo",
+          "civil-construction-1/gakka-histogram",
+          "civil-construction-1/gakka-kanrizu",
+          "civil-construction-1/gakka-hinshitsu-kensa",
+          "civil-construction-1/gakka-anzen-taisei",
+          "civil-construction-1/gakka-ashiba-kijun",
+          "civil-construction-1/gakka-crane-sogo",
+          "civil-construction-1/gakka-risk-assessment",
+          "civil-construction-1/gakka-kensetsugyoho",
+          "civil-construction-1/gakka-roudou-kijun",
+          "civil-construction-1/gakka-hoki-kasen-doro",
+          "civil-construction-1/gakka-hoki-kenchiku-kayaku",
+          "civil-construction-1/gakka-kikai-kiso",
+          "civil-construction-1/gakka-kussaku-tsumikomi-kikai",
+          "civil-construction-1/gakka-unpan-shimekatame-kikai",
+          "civil-construction-1/gakka-kankyo-hozen",
+          "civil-construction-1/gakka-haikibutsu-recycle",
+          "civil-construction-1/kikinagashi-anzen-suchi",
+          "civil-construction-1/kikinagashi-doko-suchi",
+          "civil-construction-1/kikinagashi-hinshitsu-kikaku",
+          "civil-construction-1/kikinagashi-hoki-suchi"
+        ],
+        "products": [
+          "civil-1-ichiji-ronten",
+          "civil-1-anki-note"
+        ],
+        "make": "土工・施工管理・安全・法規・機械と環境の 5 分野に束ねる。停止中の図解は承認してから連結する"
       }
     },
     {
@@ -2028,6 +2764,7 @@
       "exam": "civil-construction-1",
       "format": "quiz-tts",
       "title": "1級一次 一問一答",
+      "stance": "civil-quiz",
       "role": "attract",
       "window": {
         "from": "2027-04",
@@ -2056,6 +2793,15 @@
           "docs/marketing/07b_販売動線分析_ちゃんさと_2026-09.md:77"
         ],
         "next": "20 問の試作を目視してから本数を決める"
+      },
+      "materials": {
+        "status": "proposed",
+        "packs": [],
+        "products": [
+          "civil-1-ichiji-ronten",
+          "civil-1-takuitsu-pdf"
+        ],
+        "make": "過去問の記事から論点の一問一答を作る（DN-0600）。問題文は写さない"
       }
     },
     {
@@ -2063,6 +2809,7 @@
       "exam": "civil-construction-1",
       "format": "moshi-free",
       "title": "1級一次 無料模試",
+      "stance": "civil-moshi",
       "role": "sell",
       "window": {
         "from": "2027-05",
@@ -2091,6 +2838,15 @@
           "docs/marketing/07b_販売動線分析_ちゃんさと_2026-09.md:11"
         ],
         "next": "無料版の視聴維持と模試の販売を見る"
+      },
+      "materials": {
+        "status": "proposed",
+        "packs": [],
+        "products": [
+          "civil-1-r8-mock3-pdf",
+          "civil-1-r8-bunseki"
+        ],
+        "make": "出題分析は企画済み（c1-ichiji-bunseki）。模試の無料版を 2027 年度用に 1 本作る"
       }
     },
     {
@@ -2098,6 +2854,7 @@
       "exam": "civil-construction-1",
       "format": "exam-sokuho",
       "title": "1級一次 試験直後の解答解説",
+      "stance": "civil-after-exam",
       "role": "attract",
       "window": {
         "from": "2027-07",
@@ -2125,6 +2882,12 @@
           ".claude/todo/backlog.md:939"
         ],
         "next": "再生が読者リストや二次の準備につながるかを見る"
+      },
+      "materials": {
+        "status": "proposed",
+        "packs": [],
+        "products": [],
+        "make": "試験当日の解答解説の記事を先に作り、動画は次の検定への案内に絞る"
       }
     },
     {
@@ -2132,6 +2895,7 @@
       "exam": "civil-construction-1",
       "format": "single-topic-zukai",
       "title": "1級 一次後の二次準備",
+      "stance": "civil-second-answer",
       "role": "sell",
       "window": {
         "from": "2027-07",
@@ -2159,6 +2923,17 @@
           "docs/marketing/07b_販売動線分析_ちゃんさと_2026-09.md:101"
         ],
         "next": "合格発表の週の販売を見る"
+      },
+      "materials": {
+        "status": "proposed",
+        "packs": [
+          "civil-construction-1/niji-junbi-roadmap",
+          "civil-construction-1/keiken-dokugaku-genkai"
+        ],
+        "products": [
+          "civil-1-keiken-complete-pack"
+        ],
+        "make": "二次までの逆算は企画済み（c1-niji-gyakusan-2027）"
       }
     },
     {
@@ -2166,6 +2941,7 @@
       "exam": "civil-construction-1",
       "format": "single-topic-zukai",
       "title": "1級二次 経験記述",
+      "stance": "civil-second-answer",
       "role": "sell",
       "window": {
         "from": "2027-08",
@@ -2197,6 +2973,20 @@
           "docs/marketing/07b_販売動線分析_ちゃんさと_2026-09.md:15"
         ],
         "next": "再生ではなくココナラと note への遷移で判断する"
+      },
+      "materials": {
+        "status": "proposed",
+        "packs": [
+          "civil-construction-1/koji-gaiyo-sheet-zukai",
+          "civil-construction-1/keiken-anzen-1kyu",
+          "civil-construction-1/keiken-hinshitsu-1kyu",
+          "civil-construction-1/keiken-ochiru-toan-1kyu"
+        ],
+        "products": [
+          "civil-1-keiken-complete-pack",
+          "civil-1-niji-marugoto-pack"
+        ],
+        "make": "発注者の視点の答案の見方は新規。自己点検は企画済み（c1-niji-jiko-tenken）"
       }
     },
     {
@@ -2204,6 +2994,7 @@
       "exam": "civil-construction-1",
       "format": "tensaku-demo",
       "title": "1級二次 添削の見本",
+      "stance": "civil-second-answer",
       "role": "sell",
       "window": {
         "from": "2027-08",
@@ -2219,9 +3010,9 @@
           "coconala-tensaku-set"
         ]
       },
-      "count": 2,
+      "count": 1,
       "reuse": "new",
-      "reuseNote": "新規。伏せ字の架空答案だけを使う",
+      "reuseNote": "新規。伏せ字の架空答案だけを使う。添削の実績では争わないので 1 本だけ試す",
       "reason": {
         "reader": "自分の答案で受かるか誰かに見てほしい",
         "harm": "A（資格の取得）。合格という目標への近道を探している",
@@ -2232,6 +3023,17 @@
           ".claude/todo/backlog.md:110"
         ],
         "next": "購入前相談の「何で知ったか」で動画起点を数える"
+      },
+      "materials": {
+        "status": "proposed",
+        "packs": [
+          "civil-construction-1/keiken-kadai-kakikata",
+          "civil-construction-1/keiken-kaizen-example"
+        ],
+        "products": [
+          "coconala-tensaku-4theme"
+        ],
+        "make": "架空の答案を発注者の視点で直す見本を 1 本作る"
       }
     },
     {
@@ -2239,6 +3041,7 @@
       "exam": "civil-construction-1",
       "format": "yosou-derivation",
       "title": "1級二次 出題予想",
+      "stance": "civil-second-answer",
       "role": "attract",
       "window": {
         "from": "2027-08",
@@ -2265,6 +3068,17 @@
           "docs/marketing/07b_販売動線分析_ちゃんさと_2026-09.md:78"
         ],
         "next": "予想の動画の検索流入を見る"
+      },
+      "materials": {
+        "status": "proposed",
+        "packs": [
+          "civil-construction-1/keiken-yosou-renshu",
+          "civil-construction-1/keiken-nendo-keiko-1kyu"
+        ],
+        "products": [
+          "civil-1-r8-bunseki"
+        ],
+        "make": "出題予想の導き方に作り直す。的中は断定しない"
       }
     },
     {
@@ -2272,6 +3086,7 @@
       "exam": "civil-construction-2",
       "format": "single-topic-zukai",
       "title": "2級 来年度の受検計画",
+      "stance": "civil-start",
       "role": "attract",
       "window": {
         "from": "2026-12",
@@ -2301,6 +3116,15 @@
           "docs/strategy/22_チャネル別商品設計2026-11.md:27"
         ],
         "next": "検索から動画へ人が来るかを見る"
+      },
+      "materials": {
+        "status": "proposed",
+        "packs": [
+          "civil-construction-2/nikyuu-gaiyo-roadmap",
+          "civil-construction-2/study-plan-2kyu"
+        ],
+        "products": [],
+        "make": "2027 年度の全体像は企画済み（c2-shiken-2027-roadmap）"
       }
     },
     {
@@ -2308,6 +3132,7 @@
       "exam": "civil-construction-2",
       "format": "compilation",
       "title": "2級 総まとめ（聞き流し）",
+      "stance": "civil-listen",
       "role": "attract",
       "window": {
         "from": "2027-03",
@@ -2335,6 +3160,20 @@
           "docs/marketing/07b_販売動線分析_ちゃんさと_2026-09.md:80"
         ],
         "next": "1級の聞き流しと平均視聴時間を比べる"
+      },
+      "materials": {
+        "status": "proposed",
+        "packs": [
+          "civil-construction-2/matome-2kyu-chokuzen",
+          "civil-construction-2/kikinagashi-2kyu-matome",
+          "civil-construction-2/gakka-2kyu-concrete",
+          "civil-construction-2/gakka-2kyu-kiso"
+        ],
+        "products": [
+          "civil-2-anki-note",
+          "civil-2-takuitsu-pdf"
+        ],
+        "make": "土工・コンクリート・施工管理の総まとめを束ねる"
       }
     },
     {
@@ -2342,6 +3181,7 @@
       "exam": "civil-construction-2",
       "format": "single-topic-zukai",
       "title": "2級二次 経験記述",
+      "stance": "civil-second-answer",
       "role": "sell",
       "window": {
         "from": "2027-08",
@@ -2374,6 +3214,24 @@
           ".claude/todo/backlog.md:939"
         ],
         "next": "試験前 8 週の販売が動くかを見る"
+      },
+      "materials": {
+        "status": "proposed",
+        "packs": [
+          "civil-construction-2/kotei-touan-gutaika",
+          "civil-construction-2/koji-gaiyo-seigou",
+          "civil-construction-2/kento-taio-kakiwake",
+          "civil-construction-2/touan-teishutsu-check",
+          "civil-construction-2/keiken-anzen-2kyu-kakikata",
+          "civil-construction-2/keiken-hinshitsu-kakikata",
+          "civil-construction-2/keiken-kotei-kakikata",
+          "civil-construction-2/keiken-gaiyo-2kyu"
+        ],
+        "products": [
+          "civil-2-niji-marugoto-pack",
+          "civil-2-koji-bank"
+        ],
+        "make": "2027 年度の書き出しとテーマは企画済み"
       }
     },
     {
@@ -2381,6 +3239,7 @@
       "exam": "civil-construction-2",
       "format": "exam-sokuho",
       "title": "2級二次 試験直後の解答解説",
+      "stance": "civil-after-exam",
       "role": "attract",
       "window": {
         "from": "2027-10",
@@ -2409,6 +3268,12 @@
           ".claude/todo/backlog.md:939"
         ],
         "next": "読者リストへの登録につながるかを見る（DN-0632 の後）"
+      },
+      "materials": {
+        "status": "proposed",
+        "packs": [],
+        "products": [],
+        "make": "試験当日の解答解説の記事を先に作り、動画は来年度の案内に絞る"
       }
     },
     {
@@ -2416,6 +3281,7 @@
       "exam": "concrete-chief-engineer",
       "format": "single-topic-zukai",
       "title": "主任技士 小論文と数値",
+      "stance": "cc-essay-video",
       "role": "sell",
       "window": {
         "from": "2027-08",
@@ -2431,19 +3297,35 @@
           "cce-marugoto-pack"
         ]
       },
-      "count": 2,
+      "count": 3,
       "shorts": {
         "count": 3
       },
       "reuse": "new",
-      "reuseNote": "新規。停止中の 16 本の台本を参考にできる",
+      "reuseNote": "新規 2 本に、停止中の小論文のテーマの動画を足す。停止中の 16 本の台本を参考にできる",
       "reason": {
         "reader": "立場別に小論文を書き分けられない",
         "harm": "A（資格の取得）。合格という目標への近道を探している",
         "value": "型を無料で示し、模範小論文は note で買う",
-        "demand": "未検証。2026 年の直前動画の結果を見て本数を決める",
-        "evidence": [],
+        "demand": "他社の動画に小論文を題名に出すものは検索で見当たらない（立ち位置 cc-essay-video）。視聴の需要は未検証",
+        "evidence": [
+          "docs/marketing/09a_YouTube競合分析_コンクリート技士・主任技士_2026-10.md"
+        ],
         "next": "2026 年の 28 日の視聴維持を見る"
+      },
+      "materials": {
+        "status": "proposed",
+        "packs": [
+          "concrete-chief-engineer/shunin-shouronbun-theme",
+          "concrete-chief-engineer/shunin-shouronbun-kousei",
+          "concrete-chief-engineer/shunin-ochiru-shouronbun"
+        ],
+        "products": [
+          "cce-marugoto-pack",
+          "cce-essay-persona-pack",
+          "cce-essay-mokuji"
+        ],
+        "make": "小論文の令和形式と数字は企画済み。停止中のテーマの動画を見直して足す"
       }
     },
     {
@@ -2451,6 +3333,7 @@
       "exam": "concrete-engineer",
       "format": "single-topic-zukai",
       "title": "コンクリート技士 計算",
+      "stance": "ce-calc",
       "role": "attract",
       "window": {
         "from": "2027-08",
@@ -2481,6 +3364,18 @@
           "data/gsc/reports/2026-11-05.json"
         ],
         "next": "検索からの再生を見る"
+      },
+      "materials": {
+        "status": "proposed",
+        "packs": [
+          "concrete-engineer/gishi-haigou-keisan",
+          "concrete-engineer/gishi-mix-design-ronten"
+        ],
+        "products": [
+          "ce-mix-jis-practice",
+          "ce-marugoto-pack"
+        ],
+        "make": "令和形式の計算の演習は企画済み（ce-gishi-keisan-enshu）"
       }
     },
     {
@@ -2488,6 +3383,7 @@
       "exam": "rccm",
       "format": "single-topic-zukai",
       "title": "RCCM 試験構成と論文",
+      "stance": "rc-essay",
       "role": "sell",
       "window": {
         "from": "2027-06",
@@ -2517,6 +3413,16 @@
           "data/gsc/reports/2026-11-05.json"
         ],
         "next": "1 本目の視聴維持を見て残りを決める"
+      },
+      "materials": {
+        "status": "proposed",
+        "packs": [],
+        "products": [
+          "rccm-mondai1-template",
+          "rccm-mondai3-magazine",
+          "rccm-marugoto-pack"
+        ],
+        "make": "学習・業務経験・管理技術の 3 本は企画済み。問題Ⅲの型を主題にする"
       }
     },
     {
@@ -2524,6 +3430,7 @@
       "exam": "concrete-diagnostician",
       "format": "single-topic-zukai",
       "title": "診断士 試行",
+      "stance": "cd-essay",
       "role": "sell",
       "window": {
         "from": "2027-05",
@@ -2551,6 +3458,15 @@
           "docs/marketing/09_YouTube戦略_コンクリート技士・主任技士.md:70"
         ],
         "next": "企画の判断のときに続けるかを決める"
+      },
+      "materials": {
+        "status": "proposed",
+        "packs": [],
+        "products": [
+          "cd-problem-b-pack",
+          "cd-essay-complete-pack"
+        ],
+        "make": "論点の地図と記述の答案の 2 本は企画済み"
       }
     }
   ],

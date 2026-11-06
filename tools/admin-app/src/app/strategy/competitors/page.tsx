@@ -1,7 +1,9 @@
 import { DataTable, DetailSheet, DetailText, type DataTableColumn, type DataTableRow, FilterBar, FilterChip } from '@/components/admin';
 import { PageHead } from '@/components/ui';
 import SectionTabs from '@/components/SectionTabs';
+import CompetitorPositionsPanel from '@/components/competitor-positions-panel';
 import { loadCompetitorView, loadCourseView, type CompetitorRow, type CourseRow } from '@/lib/competitors';
+import { loadPositionView } from '@/lib/competitor-positions';
 import { num, yen } from '@/lib/format';
 
 export const dynamic = 'force-dynamic';
@@ -44,9 +46,10 @@ const COURSE_COLUMNS: DataTableColumn[] = [
   { key: 'source', label: '出典', sortable: false },
 ];
 
-function ChannelNav({ current }: { current: 'coconala' | 'courses' }) {
+function ChannelNav({ current }: { current: 'coconala' | 'courses' | 'positions' }) {
   return (
     <FilterBar className="mb-2!">
+      <FilterChip active={current === 'positions'} href="/strategy/competitors?channel=positions">資格別の立ち位置</FilterChip>
       <FilterChip active={current === 'coconala'} href="/strategy/competitors">ココナラ</FilterChip>
       <FilterChip active={current === 'courses'} href="/strategy/competitors?channel=courses">講座の企業</FilterChip>
     </FilterBar>
@@ -94,8 +97,18 @@ function courseRow(r: CourseRow, examLabels: Record<string, string>): DataTableR
   };
 }
 
-export default async function CompetitorsPage({ searchParams }: { searchParams: Promise<{ exam?: string; channel?: string; handle?: string }> }) {
-  const { exam, channel, handle } = await searchParams;
+export default async function CompetitorsPage({ searchParams }: { searchParams: Promise<{ exam?: string; channel?: string; handle?: string; position?: string }> }) {
+  const { exam, channel, handle, position } = await searchParams;
+  if (channel === 'positions') {
+    return (
+      <>
+        <PageHead title="競合" sub="資格ごとの立ち位置" />
+        <SectionTabs set="market" current="/strategy/competitors" />
+        <ChannelNav current="positions" />
+        <CompetitorPositionsPanel view={loadPositionView()} current={position} />
+      </>
+    );
+  }
   const view = loadCompetitorView();
   if (channel === 'courses') return <CoursesView handle={handle} examLabels={view.examLabels} />;
   const exams = [...new Set(view.rows.flatMap((r) => r.exams))].sort((a, b) =>

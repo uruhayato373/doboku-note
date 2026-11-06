@@ -6,6 +6,7 @@ export type BoardSlot = {
   id: string; exam: string; title: string; role: 'attract' | 'sell'; window: { from: string; to: string };
   primaryCta: { kind: string; targets: string[] }; parents?: string[];
   reason: { reader: string; value: string; demand: string; next: string };
+  stance: string; materials: { status: string; packs: string[]; products: string[]; make: string; angles?: string[] };
 };
 export type BoardMark = { month: string; kind: string; tooltip: string };
 export type BoardChannel = {
@@ -46,6 +47,16 @@ function SlotReason({ slot }: { slot: BoardSlot }) {
   const r = slot.reason;
   return (
     <DetailSheet trigger={slot.title} title={slot.title}>
+      <DetailText
+        title={slot.materials.status === 'proposed' ? '材料（提案）' : '材料'}
+        items={[
+          `立ち位置: ${slot.stance}`,
+          ...(slot.materials.make ? [`作るもの: ${slot.materials.make}`] : []),
+          ...(slot.materials.packs.length ? [`動画パック: ${slot.materials.packs.map((pack) => pack.split('/')[1]).join('・')}`] : []),
+          ...(slot.materials.products.length ? [`商品: ${slot.materials.products.join('・')}`] : []),
+          ...(slot.materials.angles?.length ? [`切り口: ${slot.materials.angles.join('・')}`] : []),
+        ]}
+      />
       <DetailText title="判断理由" items={[`読者の課題: ${r.reader}`, `提供価値: ${r.value}`, `需要: ${r.demand}`, `次の検証: ${r.next}`]} />
     </DetailSheet>
   );
