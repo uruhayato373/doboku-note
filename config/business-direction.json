@@ -278,6 +278,28 @@
       ]
     },
     {
+      "id": "xUsers",
+      "stage": "集客",
+      "label": "X 経由のサイト利用者",
+      "unit": "人",
+      "definition": "GA4・日本・セッションの参照元が x（投稿のリンクの utm_source=x）のアクティブユーザー。期間全体を重複排除した値。目標は実測を見てから決める（2026-11-06・config/channel-annual-plan.json）。",
+      "channel": "GA4",
+      "appliesTo": [
+        "all"
+      ]
+    },
+    {
+      "id": "instagramUsers",
+      "stage": "集客",
+      "label": "Instagram 経由のサイト利用者",
+      "unit": "人",
+      "definition": "GA4・日本・セッションの参照元が instagram（プロフィールのリンクの utm_source=instagram）のアクティブユーザー。期間全体を重複排除した値。目標は実測を見てから決める（2026-11-06・config/channel-annual-plan.json）。",
+      "channel": "GA4",
+      "appliesTo": [
+        "all"
+      ]
+    },
+    {
       "id": "igFollowers",
       "stage": "集客",
       "label": "Instagram フォロワー",

@@ -49,6 +49,7 @@ X 投稿の下書き（`content/sns/x/draft/<NNN>-<exam>-<topic>/tweets.md`）�
 
 1. `.claude/knowledge/reference/x-post-policy.md` を読む（文字数・試験別タグ・投稿型・リパーパス戦略・偽成功検証）。
    - 試験日・残日数・「約N週」を書く場合は `config/exam-calendar.json` を参照し、記憶や既存原稿から転記しない。
+   - 2026-12-01 以降の計画の行は `slot` に年間の枠の id（`config/channel-annual-plan.json` の `channels.x.slots`）を持つ。枠の無い投稿は書かない
    - 対象月の `content/sns/x/campaigns/YYYY-MM-*.json` があれば、日付・試験軸・投稿型・着地先を変更せず原稿化する。
 2. `angle` の処理（`.claude/shared-policy/REPURPOSE.md` §3 参照）：
    - `angle=all` → 6切り口それぞれで1本ずつ、計6本生成する

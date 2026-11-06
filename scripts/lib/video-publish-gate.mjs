@@ -10,7 +10,7 @@ export const readPolicy = (root) => readDataset(root, 'config.video-auto-publish
 
 /** 年間の枠に入っているか。これからの公開日時があればその日で、在庫なら計画の目標日で見る */
 export function planProblems(root, pub) {
-  return slotProblems(readDataset(root, 'config.youtube-longform-plan'), pub, Date.parse(pub.publishAt) > Date.now() ? jstDayOf(pub.publishAt) : null).problems;
+  return slotProblems(readDataset(root, 'config.channel-annual-plan'), pub, Date.parse(pub.publishAt) > Date.now() ? jstDayOf(pub.publishAt) : null).problems;
 }
 
 /** 公開行の承認を今の予約経路が受け付けるか。方針の承認は YouTube の通常動画だけ */

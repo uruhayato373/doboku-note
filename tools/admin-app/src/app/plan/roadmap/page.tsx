@@ -4,6 +4,8 @@ import { longformPlanHref } from '@/lib/content-plan-links';
 import { readFileSync } from 'node:fs';
 import { PanelCard, TableBody, TableCell, TableFrame, TableHead, TableHeader, TableRow } from '@/components/admin';
 import { PageHead } from '@/components/ui';
+import { ChannelAnnualBoard, type BoardChannel } from '@/components/channel-annual-board';
+import { magazines } from '@/lib/content';
 import { findRepoRoot, repoPath } from '@/lib/repo-root';
 import { domainList } from '@/lib/domains';
 import { todoBoard } from '@/lib/todo';
@@ -14,6 +16,8 @@ import { loadMarketInputs } from '../../../../../../scripts/lib/market-inputs.mj
 import { salesByQualification } from '../../../../../../scripts/lib/qualification-market.mjs';
 import { parseBacklog, parseWhen } from '../../../../../../scripts/lib/backlog-lib.mjs';
 import { jstMonth } from '../../../../../../scripts/lib/jst-date.mjs';
+import { loadChannelPlanAudit } from '../../../../../../scripts/lib/channel-plan.mjs';
+import { loadPlanAudit } from '../../../../../../scripts/lib/youtube-longform-plan.mjs';
 import { yen } from '@/lib/format';
 
 export const dynamic = 'force-dynamic';
@@ -21,6 +25,30 @@ export const dynamic = 'force-dynamic';
 type Mark = { kind: string; label: string; date: string; estimated: boolean };
 type Buy = { estimated: boolean; fromDate: string; toDate: string; label: string };
 type Row = { id: string; label: string; marks: Mark[]; buys: Buy[] };
+
+/** 年間の枠の 1 枚に出す形へ。YouTube は枠の形が違うので、ここで揃える */
+function channelBoard(root: string): { channels: BoardChannel[]; months: string[] } {
+  const { plan, x, instagram } = loadChannelPlanAudit(root);
+  const youtube = loadPlanAudit(root).audit;
+  const social = (id: 'x' | 'instagram', a: typeof x): BoardChannel => {
+    const c = plan.channels[id];
+    return {
+      id, label: c.label, role: c.role, state: c.operation.status === 'hold' ? '保留' : '運用中', weekly: `平常 ${c.weeklyMax} 本・山場 ${c.peakWeeklyMax} 本`,
+      planned: a.planned, capacity: a.capacity, metrics: c.metrics.primary, fill: a.fill, slots: c.slots, pending: a.pending, errors: a.errors,
+    };
+  };
+  return {
+    months: monthsOf({ start: plan.cycle.window.from, end: plan.cycle.window.to }) as string[],
+    channels: [
+      {
+        id: 'youtube', label: 'YouTube', role: '検索と理解。通常動画で教材へ送り、ショートは通常動画へ案内する', state: '運用中',
+        weekly: `平常 ${plan.cycle.weeklyMax} 本・山場 ${plan.cycle.peakWeeklyMax} 本`, planned: youtube.planned, capacity: youtube.capacity,
+        metrics: plan.metrics.primary, fill: youtube.fill, slots: plan.slots, pending: youtube.pending, errors: youtube.errors,
+      },
+      social('x', x), social('instagram', instagram),
+    ],
+  };
+}
 
 const md = (d: string) => `${Number(d.slice(5, 7))}/${Number(d.slice(8, 10))}`;
 const mon = (ym: string) => `${Number(ym.slice(5))}月`;
@@ -35,7 +63,7 @@ const COLOR: Record<string, string> = { exam: 'text-[color:var(--accent)]', resu
  * 設定（期間・買い場の週数）は annual-roadmap.json。年間の方針（注力しない・四半期定例）は annual.md を下部に表示する
  * （年間の画面はここだけ。/todo?f=annual はここへ転送）。
  */
-export default async function RoadmapPage({ searchParams }: { searchParams: Promise<{ tab?: string; view?: string; m?: string; e?: string; library?: string }> }) {
+export default async function RoadmapPage({ searchParams }: { searchParams: Promise<{ tab?: string; view?: string; m?: string; e?: string; library?: string; ch?: string }> }) {
   const sp = await searchParams;
   if (sp.view === 'video') redirect(longformPlanHref(sp));
   const root = findRepoRoot();
@@ -54,6 +82,7 @@ export default async function RoadmapPage({ searchParams }: { searchParams: Prom
     return i < 0 ? 99 : i;
   };
   const thisMonth = jstMonth();
+  const magazineNames = new Map(magazines().map((m) => [m.id, m.shortTitle ?? m.title]));
   const lastYear = lastYearSalesByMonth(salesByQualification(loadMarketInputs(root)), months) as Record<
     string,
     { month: string; total: number; items: { id: string; yen: number }[] }
@@ -81,13 +110,14 @@ export default async function RoadmapPage({ searchParams }: { searchParams: Prom
   return (
     <>
       <PageHead title="年間ロードマップ" sub={`${cfg.period.start.replace('-', '/')}〜${cfg.period.end.replace('-', '/')}`} />
-      {annualNotes && (
-        <nav className="filterbar mb-3!">
-          <Link className={'chip' + (sp.tab !== 'policy' ? ' active' : '')} href="/plan/roadmap">ロードマップ</Link>
-          <Link className={'chip' + (sp.tab === 'policy' ? ' active' : '')} href="/plan/roadmap?tab=policy">年間の方針</Link>
-        </nav>
-      )}
-      {sp.tab === 'policy' && annualNotes ? (
+      <nav className="filterbar mb-3!">
+        <Link className={'chip' + (!sp.tab ? ' active' : '')} href="/plan/roadmap">ロードマップ</Link>
+        <Link className={'chip' + (sp.tab === 'channels' ? ' active' : '')} href="/plan/roadmap?tab=channels">チャネルの年間の枠</Link>
+        {annualNotes && <Link className={'chip' + (sp.tab === 'policy' ? ' active' : '')} href="/plan/roadmap?tab=policy">年間の方針</Link>}
+      </nav>
+      {sp.tab === 'channels' ? (
+        <ChannelAnnualBoard {...channelBoard(root)} nameOf={nameOf} targetLabel={(_kind, id) => magazineNames.get(id) ?? id} active={sp.ch} view={sp.view} />
+      ) : sp.tab === 'policy' && annualNotes ? (
         <PanelCard title="年間の方針">
           <div className="md-prose small" dangerouslySetInnerHTML={{ __html: renderMarkdown(annualNotes) }} />
         </PanelCard>
