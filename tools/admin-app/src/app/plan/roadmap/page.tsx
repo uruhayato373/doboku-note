@@ -5,6 +5,7 @@ import { readFileSync } from 'node:fs';
 import { PanelCard, TableBody, TableCell, TableFrame, TableHead, TableHeader, TableRow } from '@/components/admin';
 import { PageHead } from '@/components/ui';
 import { ChannelAnnualBoard, type BoardChannel } from '@/components/channel-annual-board';
+import { magazines } from '@/lib/content';
 import { findRepoRoot, repoPath } from '@/lib/repo-root';
 import { domainList } from '@/lib/domains';
 import { todoBoard } from '@/lib/todo';
@@ -81,6 +82,7 @@ export default async function RoadmapPage({ searchParams }: { searchParams: Prom
     return i < 0 ? 99 : i;
   };
   const thisMonth = jstMonth();
+  const magazineNames = new Map(magazines().map((m) => [m.id, m.shortTitle ?? m.title]));
   const lastYear = lastYearSalesByMonth(salesByQualification(loadMarketInputs(root)), months) as Record<
     string,
     { month: string; total: number; items: { id: string; yen: number }[] }
@@ -114,7 +116,7 @@ export default async function RoadmapPage({ searchParams }: { searchParams: Prom
         {annualNotes && <Link className={'chip' + (sp.tab === 'policy' ? ' active' : '')} href="/plan/roadmap?tab=policy">年間の方針</Link>}
       </nav>
       {sp.tab === 'channels' ? (
-        <ChannelAnnualBoard {...channelBoard(root)} nameOf={nameOf} active={sp.ch} />
+        <ChannelAnnualBoard {...channelBoard(root)} nameOf={nameOf} targetLabel={(_kind, id) => magazineNames.get(id) ?? id} active={sp.ch} view={sp.view} />
       ) : sp.tab === 'policy' && annualNotes ? (
         <PanelCard title="年間の方針">
           <div className="md-prose small" dangerouslySetInnerHTML={{ __html: renderMarkdown(annualNotes) }} />
