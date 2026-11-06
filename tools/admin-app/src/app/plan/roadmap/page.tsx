@@ -30,8 +30,8 @@ type Row = { id: string; label: string; marks: Mark[]; buys: Buy[] };
 const fiscalOrder = (ym: string) => (Number(ym.slice(5)) + 8) % 12;
 
 /** 年間の枠の 1 枚に出す形へ。YouTube は枠の形が違うので、ここで揃える */
-function channelBoard(root: string): { channels: BoardChannel[]; months: string[] } {
-  const { plan, x, instagram, statuses } = loadChannelPlanAudit(root);
+function channelBoard(root: string, calendar: Parameters<typeof examTimeline>[0], buyWindowWeeks: number) {
+  const { plan, x, instagram, statuses, youtubeMetrics } = loadChannelPlanAudit(root);
   const metricsOf = (ids: string[]) => ids.map((id) => {
     const s = statuses.get(id) as { label: string; state: string } | undefined;
     return { label: s?.label ?? id, state: s ? (metricStateLabel(s.state) as string) : '定義なし', ok: s?.state === 'measured' };
@@ -41,17 +41,24 @@ function channelBoard(root: string): { channels: BoardChannel[]; months: string[
     const c = plan.channels[id];
     return {
       id, label: c.label, role: c.role, state: c.operation.status === 'hold' ? '保留' : '運用中', weekly: `平常 ${c.weeklyMax} 本・山場 ${c.peakWeeklyMax} 本`,
-      planned: a.planned, capacity: a.capacity, metrics: metricsOf(c.metrics.primary), slots: c.slots, pending: a.pending, errors: a.errors,
+      planned: a.planned, capacity: a.capacity, metrics: metricsOf(c.metrics.primary), slots: c.slots, pending: a.pending, errors: [...a.errors, ...a.warnings],
     };
   };
+  const period = { start: plan.cycle.window.from, end: plan.cycle.window.to };
+  const ordered = (monthsOf(period) as string[]).sort((a, b) => fiscalOrder(a) - fiscalOrder(b));
+  const examIds = [...new Set([...plan.slots, ...plan.channels.x.slots, ...plan.channels.instagram.slots].map((s) => s.exam))];
+  const timeline = examTimeline(calendar, examIds, period, buyWindowWeeks) as Row[];
   return {
+    period,
+    notes: [plan.cycle.calendarBasis, plan.metrics.target],
+    marks: Object.fromEntries(timeline.map((r) => [r.id, r.marks.map((m) => ({ month: m.date.slice(0, 7), kind: m.kind, tooltip: `${m.date}${m.estimated ? '（推定）' : ''} ${m.label}` }))])),
     // 期は 12 か月なので月の数字は重ならない。4 月始まりに並べる（窓の判定は年つきの YYYY-MM のまま）
-    months: (monthsOf({ start: plan.cycle.window.from, end: plan.cycle.window.to }) as string[]).sort((a, b) => fiscalOrder(a) - fiscalOrder(b)),
+    months: ordered,
     channels: [
       {
         id: 'youtube', label: 'YouTube', role: '検索と理解。通常動画で教材へ送り、ショートは通常動画へ案内する', state: '運用中',
         weekly: `平常 ${plan.cycle.weeklyMax} 本・山場 ${plan.cycle.peakWeeklyMax} 本`, planned: youtube.planned, capacity: youtube.capacity,
-        metrics: metricsOf(plan.metrics.primary), slots: plan.slots, pending: youtube.pending, errors: youtube.errors,
+        metrics: metricsOf(plan.metrics.primary), slots: plan.slots, pending: [...youtube.pending, ...youtubeMetrics.pending], errors: [...youtube.errors, ...youtube.warnings, ...youtubeMetrics.errors, ...youtubeMetrics.warnings],
       },
       social('x', x), social('instagram', instagram),
     ],
@@ -90,6 +97,7 @@ export default async function RoadmapPage({ searchParams }: { searchParams: Prom
     return i < 0 ? 99 : i;
   };
   const thisMonth = jstMonth();
+  const board = sp.tab === 'channels' ? channelBoard(root, calendar, cfg.buyWindowWeeks) : null;
   const magazineNames = new Map(magazines().map((m) => [m.id, m.shortTitle ?? m.title]));
   const lastYear = lastYearSalesByMonth(salesByQualification(loadMarketInputs(root)), months) as Record<
     string,
@@ -117,14 +125,14 @@ export default async function RoadmapPage({ searchParams }: { searchParams: Prom
 
   return (
     <>
-      <PageHead title="年間ロードマップ" sub={`${cfg.period.start.replace('-', '/')}〜${cfg.period.end.replace('-', '/')}`} />
+      <PageHead title="年間ロードマップ" sub={board ? `計画の期間 ${board.period.start.replace('-', '/')}〜${board.period.end.replace('-', '/')}・4 月始まり` : `${cfg.period.start.replace('-', '/')}〜${cfg.period.end.replace('-', '/')}`} />
       <FilterBar className="mb-3!">
         <FilterChip active={!sp.tab} href="/plan/roadmap">ロードマップ</FilterChip>
         <FilterChip active={sp.tab === 'channels'} href="/plan/roadmap?tab=channels">チャネルの年間の枠</FilterChip>
         {annualNotes && <FilterChip active={sp.tab === 'policy'} href="/plan/roadmap?tab=policy">年間の方針</FilterChip>}
       </FilterBar>
       {sp.tab === 'channels' ? (
-        <ChannelAnnualBoard {...channelBoard(root)} nameOf={nameOf} targetLabel={(_kind, id) => magazineNames.get(id) ?? id} active={sp.ch} view={sp.view} />
+        <ChannelAnnualBoard {...board!} nameOf={nameOf} targetLabel={(_kind, id) => magazineNames.get(id) ?? id} active={sp.ch} view={sp.view} />
       ) : sp.tab === 'policy' && annualNotes ? (
         <PanelCard title="年間の方針">
           <div className="md-prose small" dangerouslySetInnerHTML={{ __html: renderMarkdown(annualNotes) }} />
@@ -141,7 +149,6 @@ export default async function RoadmapPage({ searchParams }: { searchParams: Prom
             <TableHead className="w-[34%]">資格の行事</TableHead>
             <TableHead className="w-[18%]">前年同月の売上</TableHead>
             <TableHead>やること（領域）</TableHead>
-            <TableHead>SNSの制作・投稿</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
@@ -187,14 +194,6 @@ export default async function RoadmapPage({ searchParams }: { searchParams: Prom
                     {c.wip && <span className="project-warning-text"> 進行中</span>}
                   </div>
                 ))}
-              </TableCell>
-              <TableCell className="align-top whitespace-normal text-xs">
-                <div className="flex flex-col gap-1">
-                  <Link href={longformPlanHref({ m })}>YouTube 通常動画</Link>
-                  <Link href={`/schedule?m=${m}&ch=instagram`}>Instagram</Link>
-                  <Link href={`/schedule?m=${m}&ch=x`}>X</Link>
-                  <Link href={`/schedule?m=${m}&dom=sns`}>SNS全体の予定</Link>
-                </div>
               </TableCell>
             </TableRow>
           ))}
