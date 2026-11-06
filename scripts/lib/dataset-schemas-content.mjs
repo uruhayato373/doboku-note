@@ -61,10 +61,7 @@ const channelPlan = z.object({
   peaks: z.array(z.object({ window: planWindow, why: z.string().min(1) }).strict()),
   planRule: z.string().min(1).describe('年間で決める範囲と、1 本ずつの管理の置き場'),
   metrics: z.object({
-    primary: z.array(z.object({
-      id: z.string().min(1), label: z.string().min(1), definition: z.string().min(1),
-      source: z.string().min(1), status: z.enum(['measured', 'unmeasured']),
-    }).strict()).length(2).describe('成功指標。フォロワー数・本数は入れない'),
+    primary: z.array(z.string().min(1)).length(2).describe('成功指標の id（config.business-direction）。定義と計測の状態はそちらから引き、ここに書かない'),
     support: z.array(z.string().min(1)).describe('補助に見る指標（business-direction の id）'),
     notSuccess: z.array(z.string().min(1)).min(1),
     target: z.string().min(1).describe('目標値の扱い。実測前は決めない'),
@@ -99,10 +96,7 @@ export const ConfigChannelAnnualPlan = z.object({
     calendarBasis: z.string().min(1).describe('2027 年度の月をどう置いたか。公式発表前は確定しない'),
   }).strict(),
   metrics: z.object({
-    primary: z.array(z.object({
-      id: z.enum(['youtubeCampaignClicks', 'averageViewPercentage']), label: z.string().min(1), definition: z.string().min(1),
-      source: z.string().min(1), status: z.enum(['measured', 'unmeasured']),
-    }).strict()).length(2).describe('成功指標。登録者数・再生数・本数は入れない'),
+    primary: z.array(z.string().min(1)).length(2).describe('成功指標の id（config.business-direction）。定義と計測の状態はそちらから引き、ここに書かない。登録者数・再生数・本数は入れない'),
     support: z.array(z.string().min(1)).describe('補助に見る指標（business-direction の id）'),
     notSuccess: z.array(z.string().min(1)).min(1),
     target: z.string().min(1).describe('目標値の扱い。実測前は決めない'),

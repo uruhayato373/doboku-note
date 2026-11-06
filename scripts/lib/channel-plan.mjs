@@ -7,6 +7,7 @@ import { readJson } from './json-io.mjs';
 import { ConfigChannelAnnualPlan } from './dataset-schemas-content.mjs';
 import { todayJst } from './jst-date.mjs';
 import { auditChannel, igPostsOf, xPostsOf } from './channel-plan-audit.mjs';
+import { auditPlanMetrics, loadMetricStatuses } from './metric-status.mjs';
 import { EXAM_ALIAS, X_ROOT } from './registry-x-state.mjs';
 import { targetChecker } from './youtube-longform-plan.mjs';
 
@@ -32,9 +33,16 @@ export function loadChannelPlanAudit(root, today = todayJst()) {
     hasTarget: targetChecker(root),
   };
   const igRows = loadRegistry(root).publications.filter((p) => p.channel === 'instagram');
+  const statuses = loadMetricStatuses(root, today);
+  const withMetrics = (audit, channel) => {
+    const m = auditPlanMetrics(channel.metrics.primary, statuses, channel.label);
+    return { ...audit, errors: [...audit.errors, ...m.errors], warnings: [...audit.warnings, ...m.warnings], pending: [...audit.pending, ...m.pending] };
+  };
   return {
     plan,
-    x: auditChannel(plan.channels.x, xPostsOf(plan.channels.x, loadXCampaigns(root)), context, examMatches),
-    instagram: auditChannel(plan.channels.instagram, igPostsOf(plan.channels.instagram, igRows), context, examMatches),
+    statuses,
+    youtubeMetrics: auditPlanMetrics(plan.metrics.primary, statuses, 'YouTube'),
+    x: withMetrics(auditChannel(plan.channels.x, xPostsOf(plan.channels.x, loadXCampaigns(root)), context, examMatches), plan.channels.x),
+    instagram: withMetrics(auditChannel(plan.channels.instagram, igPostsOf(plan.channels.instagram, igRows), context, examMatches), plan.channels.instagram),
   };
 }

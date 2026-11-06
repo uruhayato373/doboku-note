@@ -17,6 +17,7 @@ import { salesByQualification } from '../../../../../../scripts/lib/qualificatio
 import { parseBacklog, parseWhen } from '../../../../../../scripts/lib/backlog-lib.mjs';
 import { jstMonth } from '../../../../../../scripts/lib/jst-date.mjs';
 import { loadChannelPlanAudit } from '../../../../../../scripts/lib/channel-plan.mjs';
+import { metricStateLabel } from '../../../../../../scripts/lib/metric-status.mjs';
 import { loadPlanAudit } from '../../../../../../scripts/lib/youtube-longform-plan.mjs';
 import { yen } from '@/lib/format';
 
@@ -30,13 +31,17 @@ const fiscalOrder = (ym: string) => (Number(ym.slice(5)) + 8) % 12;
 
 /** 年間の枠の 1 枚に出す形へ。YouTube は枠の形が違うので、ここで揃える */
 function channelBoard(root: string): { channels: BoardChannel[]; months: string[] } {
-  const { plan, x, instagram } = loadChannelPlanAudit(root);
+  const { plan, x, instagram, statuses } = loadChannelPlanAudit(root);
+  const metricsOf = (ids: string[]) => ids.map((id) => {
+    const s = statuses.get(id) as { label: string; state: string } | undefined;
+    return { label: s?.label ?? id, state: s ? (metricStateLabel(s.state) as string) : '定義なし', ok: s?.state === 'measured' };
+  });
   const youtube = loadPlanAudit(root).audit;
   const social = (id: 'x' | 'instagram', a: typeof x): BoardChannel => {
     const c = plan.channels[id];
     return {
       id, label: c.label, role: c.role, state: c.operation.status === 'hold' ? '保留' : '運用中', weekly: `平常 ${c.weeklyMax} 本・山場 ${c.peakWeeklyMax} 本`,
-      planned: a.planned, capacity: a.capacity, metrics: c.metrics.primary, slots: c.slots, pending: a.pending, errors: a.errors,
+      planned: a.planned, capacity: a.capacity, metrics: metricsOf(c.metrics.primary), slots: c.slots, pending: a.pending, errors: a.errors,
     };
   };
   return {
@@ -46,7 +51,7 @@ function channelBoard(root: string): { channels: BoardChannel[]; months: string[
       {
         id: 'youtube', label: 'YouTube', role: '検索と理解。通常動画で教材へ送り、ショートは通常動画へ案内する', state: '運用中',
         weekly: `平常 ${plan.cycle.weeklyMax} 本・山場 ${plan.cycle.peakWeeklyMax} 本`, planned: youtube.planned, capacity: youtube.capacity,
-        metrics: plan.metrics.primary, slots: plan.slots, pending: youtube.pending, errors: youtube.errors,
+        metrics: metricsOf(plan.metrics.primary), slots: plan.slots, pending: youtube.pending, errors: youtube.errors,
       },
       social('x', x), social('instagram', instagram),
     ],

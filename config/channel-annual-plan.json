@@ -39,20 +39,8 @@
   },
   "metrics": {
     "primary": [
-      {
-        "id": "youtubeCampaignClicks",
-        "label": "動画からのサイト利用者と教材クリック",
-        "definition": "動画の概要欄 の UTM 付きリンクからサイトへ来た利用者と、そのセッションの教材クリック（note_cta_click）。utm_campaign ごとに見る。note へ直接行ったクリックは取れないので含まない。購入者とは結ばない",
-        "source": "data/ga4/reports の campaign・campaign-note-cta（fetch-metrics）",
-        "status": "measured"
-      },
-      {
-        "id": "averageViewPercentage",
-        "label": "視聴維持",
-        "definition": "公開後 28 日の平均視聴率（averageViewPercentage）。型ごとに中央値で比べる",
-        "source": "data/youtube/analytics（npm run check-youtube-analytics）",
-        "status": "measured"
-      }
+      "youtubeCampaignClicks",
+      "averageViewPercentage"
     ],
     "support": [
       "youtubeUsers",
@@ -99,20 +87,8 @@
       "planRule": "YouTube の枠と同じ時期に同じ商品へ送る。年間で決めるのは型・本数・販売の上限・時期まで。本文と日時は content/sns/x/campaigns の月次計画で決め、各投稿の slot に枠の id を書く。予約の上限（1 日の本数・間隔・重複）は x-post-policy §11 が優先する。本文は投稿の 2 週間前までに書く",
       "metrics": {
         "primary": [
-          {
-            "id": "xUsers",
-            "label": "X 経由のサイト利用者",
-            "definition": "GA4・日本・セッションの参照元が x（投稿の utm_source=x）のアクティブユーザー",
-            "source": "data/business/records（fetch-business-metrics。2026-11-06 に取得項目を足した）",
-            "status": "unmeasured"
-          },
-          {
-            "id": "xCampaignClicks",
-            "label": "X からのサイト利用者と教材クリック",
-            "definition": "X の投稿 の UTM 付きリンクからサイトへ来た利用者と、そのセッションの教材クリック（note_cta_click）。utm_campaign ごとに見る。note へ直接行ったクリックは取れないので含まない。購入者とは結ばない",
-            "source": "data/ga4/reports の campaign・campaign-note-cta（fetch-metrics）",
-            "status": "measured"
-          }
+          "xUsers",
+          "xCampaignClicks"
         ],
         "support": [
           "noteCtaClicks"
@@ -1134,20 +1110,8 @@
       "planRule": "11/1 の整理のあとなので小さく試す。年間で決めるのは型・本数・時期まで。作品は投稿すると決めた時点で import-instagram --slot で台帳へ登録し、枠に結ぶ。固定投稿（profile-pinned）は枠の外",
       "metrics": {
         "primary": [
-          {
-            "id": "instagramUsers",
-            "label": "Instagram 経由のサイト利用者",
-            "definition": "GA4・日本・セッションの参照元が instagram（プロフィールのリンクの utm_source=instagram）のアクティブユーザー",
-            "source": "data/business/records（fetch-business-metrics。2026-11-06 に取得項目を足した）",
-            "status": "unmeasured"
-          },
-          {
-            "id": "igSaves",
-            "label": "投稿の保存数",
-            "definition": "投稿ごとの保存数。型ごとに中央値で比べる",
-            "source": "未計測。Graph API は使わない判断のため、Business Suite の画面から取る方法を DN-1007 で決める",
-            "status": "unmeasured"
-          }
+          "instagramUsers",
+          "igSaves"
         ],
         "support": [
           "noteCtaClicks"
