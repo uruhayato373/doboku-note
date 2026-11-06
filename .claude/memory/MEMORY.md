@@ -28,6 +28,7 @@
 - [シェルの失敗で停止](feedback_shell_fail_fast.md) — assert失敗後のGit操作禁止・巨大JSONはparseで確認
 - [スクリプト編集安全](feedback_mdx_script_frontmatter_safety.md) — frontmatter分離・Python CR・引用符なしheredoc禁止
 - [計測はCI供給](feedback_metrics_cicd_supplied.md) — PSIはfield・GAはSSR
+- [計測の仕組みの前に](feedback_measure_before_building_tracking.md) — 既存データと規模を先に見る
 - [並行セッションgit](feedback_multi_session_concurrent_git.md) — pathspec commit・復元禁止
 - [worktreeの管理外データ](feedback_worktree_ignored_data.md) — 中身をコピー・tracked未コミットは脇へ
 - [成否は実体で確認](feedback_commit_result_check.md) — commit後HEAD・grepで隠さない・args実物
