@@ -2480,6 +2480,16 @@ Windows の PowerShell で repo 直下から順に:
 
 ## 🟢 低 — 重要度が低い（時期未定を含む）
 
+### [DN-1026] 冗長コード監査で見なかった範囲を確かめる
+タグ: [エージェント・SSOT] [領域:管理] [種類:改善] [起票:2026-11-06]
+
+**起点**: 2026-11-06 の冗長コード監査（jscpd・Codex・実コードの照合）。jscpd の対象は `src`・`scripts`・`tools`・`tests`・`e2e`・`e2e-admin` で、`.claude/scripts` と `.claude/skills` は対象外だった。`KakomonQuizClient.tsx`（817 行）などの大きなコンポーネントの中身は読まず、責務の混在は `fs` と `gtag` の検索だけで見た（どちらも問題なし）。`scout-*`・`check-bold-rendering` と `check-table-rendering`・launchd の install スクリプトの重複は検出したが評価していない。
+
+**やること**: jscpd を `.claude/scripts` と `.claude/skills` へ広げ、大きなコンポーネントの責務を読む。残った重複は共通化するかを判断する。
+
+**完了条件**: 未評価の範囲について、直すものが起票され、直さないものは理由が書かれている。
+
+
 ### [DN-1024] 管理画面が CLI の check スクリプトを import している箇所を確かめる
 タグ: [エージェント・SSOT] [領域:管理] [種類:改善] [起票:2026-11-06]
 
