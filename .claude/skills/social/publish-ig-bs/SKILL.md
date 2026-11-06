@@ -57,7 +57,7 @@ CI からの予約投稿（`ops-write.yml`）は廃止した。投稿は運営�
 
 ```bash
 # 1) 新規作品のフォルダと対応する台帳公開 ID を確認する
-npm run registry -- import-instagram --folder <新規パックの相対パス>
+npm run registry -- import-instagram --folder <新規パックの相対パス> --slot <年間の枠>
 
 # 2) dry-run（初回必須。予約確定の手前まで実行しスクショ）
 npx tsx .claude/skills/social/publish-ig-bs/publish-ig-bs.ts post \

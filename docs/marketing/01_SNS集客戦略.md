@@ -1,6 +1,8 @@
 # SNS集客戦略 v8
 
 > **Instagram・Shorts の運用変更（2026-11-01）**: 旧 Instagram 過去問・論点パックと IG Reels からの YouTube Shorts 派生は終了した。以下の v5〜v8 の一括制作・予約数値は履歴であり、再実行しない。現行の Instagram 台帳は予約済み固定投稿3件のみ。新規投稿は [Instagram 投稿素材 README](../../content/sns/instagram/README.md)、YouTube Shorts は [VIDEO-RENDER.md](../../content/sns/youtube/VIDEO-RENDER.md) の経路で扱う。
+>
+> **年間計画（2026-11-06）**: 各チャネルの現行の役割・型・時期・本数は `config/channel-annual-plan.json` が正本。本書の Instagram「一次制作」の記述は履歴で、現行は小さな試行とする。
 
 doboku-note（土木・建設系試験対策ハブ。Phase 1 で 1級土木施工管理技士 / 技術士総合技術監理部門 を整備中）への流入を SNS から獲得するための方針。X / YouTube / Instagram の 3 チャネルを統合管理する。
 

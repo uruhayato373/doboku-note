@@ -40,7 +40,7 @@ export default async function LongformPage({ searchParams }: { searchParams: Pro
   return <>
     <PageHead title="通常動画の制作・公開管理" />
     <nav className="project-crumbs" aria-label="関連する計画と台帳">
-      <Link href={roadmapHref(month)}>年間ロードマップ</Link> · <Link href={`/schedule?dom=sns${month ? `&m=${month}` : ''}`}>SNS全体の予定</Link> · <Link href="/content/video">動画パック</Link>
+      <Link href={roadmapHref(month)}>年間ロードマップ</Link> · <Link href="/plan/roadmap?tab=channels">チャネルの年間の枠</Link> · <Link href={`/schedule?dom=sns${month ? `&m=${month}` : ''}`}>SNS全体の予定</Link> · <Link href="/content/video">動画パック</Link>
     </nav>
     {board ? <VideoAnnualPlan board={board} planAudit={planAudit} slotInfo={slotInfo} months={months} exams={exams} periods={periods} month={month} exam={sp.e} library={sp.library === '1'} view={sp.s} tab={sp.tab} />
       : <p>動画計画を取得できません: {error}</p>}

@@ -246,7 +246,7 @@ function wire() {
   const pub = targetPub(reg, exam, work);
   const taken = reg.publications.filter((p) => p.channel === 'youtube' && p.publishAt && p.status !== 'stopped' && p.id !== pub?.id && Date.parse(p.publishAt) > Date.now()).map((p) => p.publishAt);
   // 空き枠は年間計画の週の上限を守り、計画の目標日より前に置かない
-  const plan = readDataset(ROOT, 'config.youtube-longform-plan');
+  const plan = readDataset(ROOT, 'config.channel-annual-plan');
   const publishAt = args['publish-at'] ?? (Date.parse(pub?.publishAt) > Date.now() ? pub.publishAt : nextSlot(taken, policy, Date.now(), {
     weekLimit: (monday) => weekLimit(plan.cycle, monday), notBefore: pub ? slotProblems(plan, pub).entry?.target ?? null : null,
   }));

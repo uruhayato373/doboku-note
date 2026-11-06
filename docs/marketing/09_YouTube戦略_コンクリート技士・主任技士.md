@@ -72,7 +72,7 @@
 
 ## 5. 季節カレンダー
 
-年間の時期・本数・週の上限の正本は `config/youtube-longform-plan.json` の `slots` と `cycle`、試験日は `config/exam-calendar.json`。本書には写さない。管理画面は `/sns/youtube/longform`。
+年間の時期・本数・週の上限の正本は `config/channel-annual-plan.json` の `slots` と `cycle`、試験日は `config/exam-calendar.json`。本書には写さない。管理画面は `/sns/youtube/longform`。
 
 ## 6. KPI・判定
 

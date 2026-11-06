@@ -12,3 +12,5 @@ develop へ直 push する変更でも、quality:audit の ci ゲートが読む
 **How to apply:** スキル本文・config・`data/`・`.gitignore`・`git rm --cached` を含む直 push の前に `npm run quality:audit:ci` を回す（重いので worktree で background）。push 後は develop 先端の Pre-merge check が success になるまで見届けてから完了と言う。関連 [[feedback_deploy_discipline]] [[feedback_gate_zero_coverage_false_pass]]
 
 **台帳だけの push は CI が走らない（2026-11-06）**: `.claude/todo/**` と `.claude/state/todo-claims.json` だけの push は `ci.yml` の `paths-ignore` で飛ばす。push の 37% がこれだった。ゲートは pre-commit と `todo:add`。文書だけの push のビルドは残した（300 回中 8 回で、ジョブの分岐を足すほどの効果が無い）。
+
+**PR に出す変更は手元で全件を回さない（2026-11-06）**: `quality:audit:ci` は `unit-tests`（`npm test`）を含み、PR の CI が同じものを回す。手元は変更に関係するテストと検査だけにして、全件は CI に任せる。上の手元の全件は develop へ直 push する変更と、他セッションの未コミット作業を拾うときだけ。**Why:** 同じ全件を手元と CI で二重に回し、手元の分は結果を待つ時間の分だけ作業が止まった。
