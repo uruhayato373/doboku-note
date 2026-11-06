@@ -125,4 +125,4 @@ findings: 0
 - **品質採点・偽成功検証** — `x-post-qa`
 - **カード画像生成** — `scripts/gen-x-card.mjs`（create-x-card スキルは 2026-10-25 に外した）
 - **予約投稿** — `publish-x`
-- **リプライ運用** — 人が担う（policy §10）
+- **リプライ運用** — `/x-reply`（人が 1 件ずつ承認して送る。policy §10）

@@ -552,6 +552,30 @@ const checkProfileLengths = (v, ctx) => {
   if ([...v.profile.bio].length > v.limits.bio) flag(ctx, ['profile', 'bio'], `自己紹介が ${v.limits.bio} 字を超える`);
 };
 
+export const ConfigXReplyTrial = z
+  .object({
+    schemaVersion: schemaVersion1,
+    experiment: z.string().regex(/^EXP-\d{3}$/),
+    backlog: z.string().regex(/^DN-\d{4}$/),
+    trial: z.object({ from: z.string(), to: z.string() }).strict(),
+    limits: z
+      .object({
+        maxPerDay: z.number().int().positive(),
+        minIntervalMinutes: z.number().int().positive(),
+        candidatesPerRun: z.number().int().positive(),
+        lookbackHours: z.number().int().positive(),
+      })
+      .strict(),
+    queries: z.array(z.string().min(1)).min(1),
+    askWords: z.array(z.string().min(1)),
+    passWords: z.array(z.string().min(1)),
+    failWords: z.array(z.string().min(1)),
+    careWords: z.array(z.string().min(1)).min(1),
+    supplierWords: z.array(z.string().min(1)),
+    excludeAccounts: z.array(z.string().min(1)),
+  })
+  .strict();
+
 export const ConfigXAccount = z
   .object({
     schemaVersion: schemaVersion1,
