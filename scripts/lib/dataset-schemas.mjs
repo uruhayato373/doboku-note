@@ -1328,6 +1328,20 @@ const navView = z
   .strict();
 
 /** 事業の領域・サイドバー・文書の割り当て（config/domains.json）。読み手 24。領域 id の照合は check-domains */
+/** 管理画面の全画面と答える問い。検査は check-admin-pages */
+export const ConfigAdminPages = z
+  .object({
+    schemaVersion: z.literal(1),
+    _doc: z.string().min(1),
+    limit: z.number().int().positive().describe('画面（page と detail）の上限。上げるなら changes に理由を残す'),
+    changes: z.array(z.object({ date: z.string().regex(/^\d{4}-\d{2}-\d{2}$/), note: z.string().min(1) }).strict()).min(1),
+    pages: z.record(
+      z.string().regex(/^\//),
+      z.object({ kind: z.enum(['page', 'detail', 'redirect', 'route']).describe('page 画面・detail 詳細・redirect 転送・route 配信'), question: z.string().min(1).describe('この画面が答える問い') }).strict(),
+    ),
+  })
+  .strict();
+
 export const DomainsConfig = z
   .object({
     version: z.literal(1),

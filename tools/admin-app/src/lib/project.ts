@@ -153,21 +153,6 @@ export function projectAnalysis(
   };
 }
 
-export function loadProjectDocument(slugParts: string[]): LoadedProjectDocument | null {
-  const document = loadDocument(PROJECT_SOURCE, slugParts);
-  if (!document) return null;
-  // section は **解決済みの file パス**から採る。slugParts は URL エンコードのまま届くことが
-  // あり、生のまま使うとパンくずが `04_%E9%81%8B%E5%96%B6` と出る（2026-08-18 実測）。
-  const section = sectionOf(document.file.slice(`${PROJECT_SOURCE.filePrefix}/`.length));
-  return {
-    ...document,
-    section,
-    sectionLabel: sectionLabel(section),
-    ...analyze(document.content),
-    ...taxonomyOf(section, document.frontmatter),
-  };
-}
-
 /**
  * backlog ID → その ID を参照している恒久文書。
  * TODO カードから「どの戦略文書がこのタスクを指しているか」へ戻るために使う（相互リンク）。

@@ -616,7 +616,3 @@ export function backlogIndex(): Map<string, BacklogRef> {
   return out;
 }
 
-/** 本文中の DN-#### を拾う（/docs の文書からの関連タスク表示にも使う）。 */
-export function extractBacklogIds(text: string): string[] {
-  return [...new Set(text.match(/DN-\d{4}/g) ?? [])].sort();
-}
