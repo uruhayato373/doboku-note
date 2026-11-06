@@ -1,4 +1,4 @@
-import { examPresence, loadCompetitorPositionsAudit, positionLabel, rivalFacts, runProbe } from '../../../../scripts/lib/competitor-positions.mjs';
+import { examPresence, loadCompetitorPositionsAudit, positionLabel, rivalFacts, runProbe, slotMaterials } from '../../../../scripts/lib/competitor-positions.mjs';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { readDataset } from '../../../../scripts/lib/dataset-io.mjs';
@@ -25,8 +25,10 @@ type LedgerPosition = Omit<PositionRow, 'label' | 'rivals' | 'stances'> & {
 
 const CHANNEL_LABEL: Record<string, string> = { youtube: 'YouTube', note: 'note', coconala: 'ココナラ', x: 'X', instagram: 'Instagram', courses: '講座' };
 
-/** 枠の立ち位置と材料の id を、人が読む題名へ置き換える */
-export function slotReader(root: string) {
+type ReadableSlot = { id: string; stance: string; reason: { demand: string }; primaryCta: { targets: string[] }; materials: { status: string; packs: string[]; products: string[]; make: string; angles?: string[] } };
+
+/** 枠の立ち位置と材料を人が読む題名へ置き換える。束ね方は slotMaterials が正本 */
+export function slotReader(root: string, plan: { entries: unknown[] }) {
   const ledger = readDataset(root, 'config.competitor-positions') as { positions: { stances: { id: string; text: string }[] }[] };
   const stances = new Map(ledger.positions.flatMap((p) => p.stances.map((s) => [s.id, s.text] as [string, string])));
   const catalog = readDataset(root, 'config.products') as { products: { id: string; catalog?: { title?: string; shortTitle?: string } }[] };
@@ -38,12 +40,22 @@ export function slotReader(root: string) {
       return pack;
     }
   };
-  return <T extends { stance: string; reason: { demand: string }; materials: { packs: string[]; products: string[] } }>(slot: T): T => ({
-    ...slot,
-    stance: stances.get(slot.stance) ?? slot.stance,
-    reason: { ...slot.reason, demand: slot.reason.demand.replace(/（立ち位置 [a-z0-9-]+）/, '') },
-    materials: { ...slot.materials, packs: slot.materials.packs.map(packTitle), products: slot.materials.products.map((id) => products.get(id) ?? id) },
-  });
+  return <T extends ReadableSlot>(slot: T) => {
+    const m = slotMaterials(slot, plan);
+    return {
+      ...slot,
+      stance: stances.get(slot.stance) ?? slot.stance,
+      reason: { ...slot.reason, demand: slot.reason.demand.replace(/（立ち位置 [a-z0-9-]+）/, '') },
+      readableMaterials: {
+        status: m.status,
+        planned: (m.planned as { id: string; pack: string | null }[]).map((e) => (e.pack ? packTitle(e.pack) : e.id)),
+        candidates: (m.candidates as string[]).map(packTitle),
+        products: (m.products as string[]).map((id) => products.get(id) ?? id),
+        make: m.make as string,
+        angles: m.angles as string[],
+      },
+    };
+  };
 }
 
 export function loadPositionView(): PositionView {

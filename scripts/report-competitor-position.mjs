@@ -5,7 +5,7 @@
  *   npm run competitor-position -- --slot cc-2027
  */
 import { parseCliArgs } from './lib/cli-args.mjs';
-import { examPresence, loadCompetitorPositions, positionLabel, prominentRivals, rivalFacts, runProbe } from './lib/competitor-positions.mjs';
+import { examPresence, loadCompetitorPositions, positionLabel, prominentRivals, rivalFacts, runProbe, slotMaterials } from './lib/competitor-positions.mjs';
 import { REPO_ROOT } from './lib/repository-paths.mjs';
 
 const args = parseCliArgs({ exam: { type: 'string' }, slot: { type: 'string' } });
@@ -21,6 +21,17 @@ const positions = exam ? ledger.positions.filter((p) => p.exams.includes(exam)) 
 if (positions.length === 0) {
   console.error(`立ち位置が無い: ${exam}`);
   process.exit(1);
+}
+if (slot) {
+  const m = slotMaterials(slot, plan);
+  console.log(`枠 ${slot.id}: ${slot.title}（立ち位置 ${slot.stance}・材料は ${m.status === 'accepted' ? '採用' : '提案'}）`);
+  for (const e of m.planned) console.log(`- 割り当て済み ${e.pack ?? e.id}（${e.action}）`);
+  for (const pack of m.candidates) console.log(`- 候補の動画パック ${pack}`);
+  for (const target of m.targets) console.log(`- 送り先 ${target}`);
+  for (const product of m.products) console.log(`- 使う商品 ${product}`);
+  if (m.make) console.log(`- 作るもの ${m.make}`);
+  if (m.angles.length) console.log(`- 切り口 ${m.angles.join('・')}（content-angle-policy）`);
+  console.log('');
 }
 const snapshotDates = Object.entries(snapshots).map(([ch, s]) => `${ch} ${s.date}`).join('・');
 console.log(`取得日: ${snapshotDates}`);

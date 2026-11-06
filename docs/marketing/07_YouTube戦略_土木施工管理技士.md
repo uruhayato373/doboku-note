@@ -3,6 +3,7 @@
 1級・2級土木施工管理技士に特化した YouTube チャネルの設計・運用・判定を定める SSOT。[05_YouTube戦略_技術士総監.md](./05_YouTube戦略_技術士総監.md)（総監の独立 SSOT）と対になる資格別差分文書であり、多資格共通の動画パック運用・KPI・段階実装は [06_動画コンテンツ運用設計.md](./06_動画コンテンツ運用設計.md) が真実源。
 
 **最終更新**: 2026-10-08（§5・§11 に図解版の試作と画面分析 07c を追記）／v1.1 は 2026-09-05（通常動画84本＋Shorts168本の公開承認）
+**競合の結論の正本**: `config/competitor-positions.json`（`npm run competitor-position -- --exam <資格 id>`）。この文書の競合の記述は作成時点の記録で、結論が食い違うときは台帳を優先する。
 **親 SSOT**: [01_SNS集客戦略.md](./01_SNS集客戦略.md)（チャネル配分）／[06_動画コンテンツ運用設計.md](./06_動画コンテンツ運用設計.md)（動画パック・役割・管理・KPI・段階実装）。本ファイルは 1級・2級土木固有のテーマ・競合方針・季節運用・Red Line だけを上書きする
 **作業契約**: [video-content-policy.md](../../.claude/knowledge/reference/video-content-policy.md)（schema・状態・ゲート）
 **商品・価格の真実源**: [noteコンテンツ計画.md](../../content/note/1級・2級土木/noteコンテンツ計画.md)（メンバーシップ「土木セコカン合格ラボ」は 2026-09-30 撤退・現行は買い切り）／[ココナラ展開キット.md](../../content/note/1級・2級土木/ココナラ展開キット.md)（S1 診断・S2 添削・S3 作成）／実価格は `src/lib/note-magazines.ts`・`src/lib/coconala-services.ts`

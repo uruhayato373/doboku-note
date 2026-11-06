@@ -11,4 +11,4 @@ metadata:
 
 **How to apply:** X・Instagram の投稿を企画するときは先に枠を確かめる。2026-12-01 以降は枠の無い投稿を `x-schedule-guard` と Instagram の予約の関門が止める。枠を作っただけで保留は解けていない（`channels.*.operation` と DN-1007）。[[feedback-sns-hold-check-before-proposing]] [[project_x_account_reboot_2026_06]] [[project-sns-v7-pivot]]
 
-2026-11-06: 枠に `stance`（立ち位置）と `materials`（材料・提案）を追加した。競合の結論の正本は `config/competitor-positions.json`。
+2026-11-06: 枠に `stance`（立ち位置）と `materials`（材料）を追加し、運営者が全枠の材料を採用した。`materials` は `entries` と `primaryCta` の写しを持たない。競合の結論の正本は `config/competitor-positions.json`。

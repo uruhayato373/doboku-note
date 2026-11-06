@@ -6,7 +6,7 @@ export type BoardSlot = {
   id: string; exam: string; title: string; role: 'attract' | 'sell'; window: { from: string; to: string };
   primaryCta: { kind: string; targets: string[] }; parents?: string[];
   reason: { reader: string; value: string; demand: string; next: string };
-  stance: string; materials: { status: string; packs: string[]; products: string[]; make: string; angles?: string[] };
+  stance: string; readableMaterials: { status: string; planned: string[]; candidates: string[]; products: string[]; make: string; angles: string[] };
 };
 export type BoardMark = { month: string; kind: string; tooltip: string };
 export type BoardChannel = {
@@ -46,16 +46,18 @@ function targetNames(s: BoardSlot, targetLabel: (kind: string, id: string) => st
 /** 枠の判断理由。一覧には出さず、名前を押すと開く */
 function SlotReason({ slot }: { slot: BoardSlot }) {
   const r = slot.reason;
+  const m = slot.readableMaterials;
   return (
     <DetailSheet trigger={slot.title} title={slot.title}>
       <DetailText
-        title={slot.materials.status === 'proposed' ? '材料（提案）' : '材料'}
+        title={m.status === 'proposed' ? '材料（提案）' : '材料'}
         items={[
           `立ち位置: ${slot.stance}`,
-          ...(slot.materials.make ? [`作るもの: ${slot.materials.make}`] : []),
-          ...slot.materials.packs.map((pack) => `動画パック: ${pack}`),
-          ...slot.materials.products.map((product) => `商品: ${product}`),
-          ...(slot.materials.angles?.length ? [`切り口: ${slot.materials.angles.map((angle) => ANGLE[angle] ?? angle).join('・')}`] : []),
+          ...m.planned.map((title) => `割り当て済み: ${title}`),
+          ...m.candidates.map((title) => `候補の動画: ${title}`),
+          ...m.products.map((title) => `使う商品: ${title}`),
+          ...(m.make ? [`作るもの: ${m.make}`] : []),
+          ...(m.angles.length ? [`切り口: ${m.angles.map((angle) => ANGLE[angle] ?? angle).join('・')}`] : []),
         ]}
       />
       <DetailText title="判断理由" items={[`読者の課題: ${r.reader}`, `提供価値: ${r.value}`, `需要: ${r.demand}`, `次の検証: ${r.next}`]} />
