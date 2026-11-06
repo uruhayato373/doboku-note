@@ -7,7 +7,7 @@ import { PageHead } from '@/components/ui';
 import { ChannelAnnualBoard, type BoardChannel } from '@/components/channel-annual-board';
 import { magazines } from '@/lib/content';
 import { findRepoRoot, repoPath } from '@/lib/repo-root';
-import { stanceLabels } from '@/lib/competitor-positions';
+import { slotReader } from '@/lib/competitor-positions';
 import { domainList } from '@/lib/domains';
 import { todoBoard } from '@/lib/todo';
 import { renderMarkdown } from '@/lib/markdown';
@@ -38,8 +38,7 @@ function channelBoard(root: string, calendar: Parameters<typeof examTimeline>[0]
     return { label: s?.label ?? id, state: s ? (metricStateLabel(s.state) as string) : '定義なし', ok: s?.state === 'measured' };
   });
   const youtube = loadPlanAudit(root).audit;
-  const stances = stanceLabels(root);
-  const readable = <T extends { stance: string }>(slot: T): T => ({ ...slot, stance: stances.get(slot.stance) ?? slot.stance });
+  const readable = slotReader(root);
   const social = (id: 'x' | 'instagram', a: typeof x): BoardChannel => {
     const c = plan.channels[id];
     return {
