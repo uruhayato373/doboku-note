@@ -15,7 +15,7 @@ function check(packs) {
     cpSync(join(REPO_ROOT, 'scripts/lib/repository-paths.mjs'), join(root, 'scripts/lib/repository-paths.mjs'));
     write('scripts/lib/utm-contract.mjs', 'export const utmChannel = () => ({});');
     write('scripts/lib/registry-video-state.mjs', `export const loadVideoState = () => (${JSON.stringify({ packs: Object.fromEntries(packs.map((p) => [p.id, { derivatives: { longform: p.row } }])) })});`);
-    for (const exam of ['civil-construction-1', 'civil-construction-2', 'concrete-engineer', 'concrete-chief-engineer']) mkdirSync(join(root, 'content/sns/video-packs', exam), { recursive: true });
+    for (const exam of ['civil-construction-1', 'civil-construction-2', 'concrete-engineer', 'concrete-chief-engineer', 'pe-comprehensive-management', 'pe-construction']) mkdirSync(join(root, 'content/sns/video-packs', exam), { recursive: true });
     for (const p of packs) {
       const dir = `content/sns/video-packs/civil-construction-2/${p.id}`;
       mkdirSync(join(root, dir));
@@ -49,10 +49,8 @@ test('1日4本の実予約は上限違反になる', () => {
   assert.equal(r.status, 1);
   assert.match(r.text, /1日上限3本/);
 });
-test('Shortsを作る契約なのに無い場合は失敗する', () => {
-  const r = check([{ id: 'a', shorts: 2, row: scheduled }]);
-  assert.equal(r.status, 1);
-  assert.match(r.text, /shorts=0 \(期待値2\)/);
+test('ショートは年間の枠で選んで作るので、未着手のパックは失敗にしない', () => {
+  assert.equal(check([{ id: 'a', shorts: 2, row: scheduled }]).status, 0);
 });
 test('予約済みパックのメタデータ欠落と予約日時欠落は失敗する', () => {
   for (const p of [{ id: 'a', row: scheduled, missing: true }, { id: 'a', row: { status: 'scheduled' }, plan: slot }]) assert.equal(check([p]).status, 1);

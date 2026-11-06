@@ -14,7 +14,10 @@ import { homedir } from 'node:os';
 import { pathToFileURL } from 'node:url';
 import sharp from 'sharp';
 import { examPalette, loadImageRules, usesDiagramLed } from './image-rules.mjs';
+import { readDataset } from './dataset-io.mjs';
 import { readJson, writeJson } from './json-io.mjs';
+import { shortsSlotFill } from './youtube-longform-audit.mjs';
+import { listShortDesigns } from './youtube-longform-plan.mjs';
 import { mediaPath } from './media-paths.mjs';
 import { loadRegistry, qualificationShortLabel } from './qualification-registry.mjs';
 import { subtitleChunks } from './video-subtitles.mjs';
@@ -122,6 +125,14 @@ const ctaPrompt = (label, palette) => [
   TEACHER, `資格名『${label}』は書かない。下端に無地帯を作らない。`, BANS,
 ].join(' ');
 
+/** 親の通常動画の枠にショートの空きがなければ止める。無駄な生成を計画の時点で防ぐ */
+export function assertInSlot(root, pack, key) {
+  const plan = readDataset(root, 'config.youtube-longform-plan');
+  const designs = listShortDesigns(root).filter((d) => !(d.pack === pack && d.key === key));
+  const { errors } = shortsSlotFill(plan, [...designs.map((d) => ({ ...d, stocked: true })), { pack, key }]);
+  if (errors.length) throw new Error(errors.join(' / '));
+}
+
 /** 作業の計画を作る。入力が同じ項目は生成済みの画像と判定を引き継ぐ。 */
 export function buildShortPlan(root, pack, key, { date, refs = fileRef } = {}) {
   if (!/^\d{8}$/.test(date ?? '')) throw new Error('date は YYYYMMDD');
@@ -131,6 +142,7 @@ export function buildShortPlan(root, pack, key, { date, refs = fileRef } = {}) {
   const problems = designProblems(design, scene);
   if (problems.length) throw new Error(`${key}: ${problems.join('・')}`);
   if (design.qa?.verdict !== 'pass' || design.qa.digest !== designDigest(design)) throw new Error(`${key}: 今の台本の監査 pass が無い。record-script-qa を先に行う`);
+  assertInSlot(root, pack, key);
   const label = qualificationShortLabel(loadRegistry(root), exam);
   const prior = new Map((readPlan(root, pack, shortsPlanPath(pack, key))?.items ?? []).map((i) => [i.id, i]));
   const keep = (item) => (prior.get(item.id)?.inputSha256 === item.inputSha256 ? { ...item, ...prior.get(item.id) } : item);
