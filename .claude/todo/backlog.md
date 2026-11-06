@@ -482,6 +482,16 @@
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-1019] scripts と管理画面の URL 組み立てを route-paths の共有関数へ移す
+タグ: [インフラ・計測] [領域:サイト] [時期:2027-01] [種類:改善] [起票:2026-11-06]
+
+**起点**: 2026-11-06 の冗長コード監査（jscpd・Codex・実コードの照合）。`tests/route-paths-ratchet.test.mjs` は `src` だけが対象で、scripts と admin に 10 か所の組み立てがある（`standards-render-targets.mjs:24`・`standards-part-targets.mjs:32`・`affiliate-layout-judge.mjs:92`・`build-llms-txt.mjs:41`・`fetch-business-metrics.mjs:39` など）。一部は組み立てではなく前方一致の判定に使う。
+
+**やること**: 純粋なパス関数を `.mjs` にして共有し、組み立ての箇所を移す。ラチェットの対象を scripts と admin へ広げる。
+
+**完了条件**: URL の形を変える修正が共有関数だけで済む。ラチェットが scripts と admin の直書きを止める。
+
+
 ### [DN-1018] 管理画面の台帳の型を Zod スキーマから導出する
 タグ: [エージェント・SSOT] [領域:管理] [時期:2027-01] [種類:改善] [起票:2026-11-06]
 
