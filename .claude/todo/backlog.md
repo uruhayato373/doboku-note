@@ -482,6 +482,16 @@
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-1016] scripts と src と .claude/scripts の依存の向きを整理する
+タグ: [エージェント・SSOT] [領域:管理] [時期:2027-01] [種類:改善] [起票:2026-11-06]
+
+**起点**: 2026-11-06 の冗長コード監査（jscpd・Codex・実コードの照合）。grep の概数で scripts→src 59 行、src→scripts 3 行、admin→scripts 191 行、scripts→`.claude/scripts` 41 行、`.claude/scripts`→scripts 193 行。向きが双方向で、層の区別がないので境界の検査を置けない。
+
+**やること**: まず `.claude/scripts/sns/lib/exam-palette.mjs` を `scripts/lib` へ移す（資格キーのカードと一緒に進めてよい）。その後、ブラウザと Node の両方で使う純粋な関数の置き場を決める。
+
+**完了条件**: scripts から `.claude/scripts` への import が 0 件。純粋な関数の置き場が決まり、向きの検査が入っている。
+
+
 ### [DN-1015] check-image-rules で codex の直接起動も検出する
 タグ: [エージェント・SSOT] [領域:管理] [時期:2026-12] [種類:改善] [起票:2026-11-06]
 
