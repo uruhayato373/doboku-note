@@ -19,7 +19,11 @@ import { ThemeProvider } from "@/components/providers/ThemeProvider";
 import { NOTE_BODY_VARIANT_SCRIPT } from "@/lib/note-body-experiment.mjs";
 import { PROGRAM_SPLIT_SCRIPT } from "@/lib/program-split-experiment.mjs";
 
-export const metadata: Metadata = getCommonSeoData();
+// AdSense の所有権確認はメタタグで行う。広告用スクリプトは承認後に入れる。
+export const metadata: Metadata = {
+  ...getCommonSeoData(),
+  other: { "google-adsense-account": "ca-pub-8504035087322664" },
+};
 
 export default function RootLayout({
   children,
@@ -41,12 +45,6 @@ export default function RootLayout({
         <script dangerouslySetInnerHTML={{ __html: PROGRAM_SPLIT_SCRIPT }} />
         <StructuredData type="website" />
         <StructuredData type="organization" />
-        {/* AdSense: 審査がサイトの所有権を確認できるよう、静的 HTML の head に出す（next/script の lazyOnload は HTML に残らない） */}
-        <script
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8504035087322664"
-          crossOrigin="anonymous"
-        />
       </head>
       <body className="font-sans">
         <GoogleAnalytics />
