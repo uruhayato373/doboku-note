@@ -608,8 +608,7 @@
             "kind": "note-magazine",
             "targets": [
               "civil-1-ichiji-ronten",
-              "civil-1-takuitsu-pdf",
-              "civil-1-r8-mock3-pdf"
+              "civil-1-takuitsu-pdf"
             ]
           },
           "count": 56,
@@ -2730,7 +2729,6 @@
       "primaryCta": {
         "kind": "note-magazine",
         "targets": [
-          "civil-1-r8-mock3-pdf",
           "civil-1-ichiji-ronten"
         ]
       },
@@ -2751,10 +2749,8 @@
       "materials": {
         "status": "accepted",
         "packs": [],
-        "products": [
-          "civil-1-r8-bunseki"
-        ],
-        "make": "模試の無料版を 2027 年度用に 1 本作る"
+        "products": [],
+        "make": "模試の無料版を 2027 年度用に 1 本作る。有料の一次の模試はまだ無いので、商品ができるまでは出る順ノートへ送る"
       }
     },
     {

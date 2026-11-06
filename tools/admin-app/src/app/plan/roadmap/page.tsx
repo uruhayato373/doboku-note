@@ -7,7 +7,7 @@ import { PageHead } from '@/components/ui';
 import { ChannelAnnualBoard, type BoardChannel } from '@/components/channel-annual-board';
 import { magazines } from '@/lib/content';
 import { findRepoRoot, repoPath } from '@/lib/repo-root';
-import { slotReader } from '@/lib/competitor-positions';
+import { slotReader, wiringPositions } from '@/lib/competitor-positions';
 import { domainList } from '@/lib/domains';
 import { todoBoard } from '@/lib/todo';
 import { renderMarkdown } from '@/lib/markdown';
@@ -80,7 +80,7 @@ const COLOR: Record<string, string> = { exam: 'text-[color:var(--accent)]', resu
  * 設定（期間・買い場の週数）は annual-roadmap.json。年間の方針（注力しない・四半期定例）は annual.md を下部に表示する
  * （年間の画面はここだけ。/todo?f=annual はここへ転送）。
  */
-export default async function RoadmapPage({ searchParams }: { searchParams: Promise<{ tab?: string; view?: string; m?: string; e?: string; library?: string; ch?: string }> }) {
+export default async function RoadmapPage({ searchParams }: { searchParams: Promise<{ tab?: string; view?: string; position?: string; m?: string; e?: string; library?: string; ch?: string }> }) {
   const sp = await searchParams;
   if (sp.view === 'video') redirect(longformPlanHref(sp));
   const root = findRepoRoot();
@@ -134,7 +134,7 @@ export default async function RoadmapPage({ searchParams }: { searchParams: Prom
         {annualNotes && <FilterChip active={sp.tab === 'policy'} href="/plan/roadmap?tab=policy">年間の方針</FilterChip>}
       </FilterBar>
       {sp.tab === 'channels' ? (
-        <ChannelAnnualBoard {...board!} nameOf={nameOf} targetLabel={(_kind, id) => magazineNames.get(id) ?? id} active={sp.ch} view={sp.view} />
+        <ChannelAnnualBoard {...board!} nameOf={nameOf} targetLabel={(_kind, id) => magazineNames.get(id) ?? id} active={sp.ch} view={sp.view} positions={wiringPositions(findRepoRoot())} position={sp.position} />
       ) : sp.tab === 'policy' && annualNotes ? (
         <PanelCard title="年間の方針">
           <div className="md-prose small" dangerouslySetInnerHTML={{ __html: renderMarkdown(annualNotes) }} />
