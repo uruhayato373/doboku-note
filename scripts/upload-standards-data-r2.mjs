@@ -18,6 +18,7 @@ import { REPO_ROOT } from './lib/repository-paths.mjs';
 const SOURCE = join(REPO_ROOT, 'public', 'standards-data');
 const BUCKET = 'doboku-note';
 const PREFIX = 'standards-data/';
+const CONCURRENCY = 16;
 const CONTENT_TYPES = { md: 'text/markdown; charset=utf-8', jsonld: 'application/ld+json; charset=utf-8' };
 
 function fail(code, message) {
@@ -55,16 +56,20 @@ async function main() {
   });
   console.log(`[standards-data-r2] ${files.length} 件を検査 / 送信 ${changed.length} 件${dryRun ? '（dry-run）' : ''}`);
   if (dryRun) return;
-  for (const path of changed) {
-    const key = `${PREFIX}${relative(SOURCE, path).split(sep).join('/')}`;
-    await client.send(new PutObjectCommand({
-      Bucket: BUCKET,
-      Key: key,
-      Body: readFileSync(path),
-      ContentType: CONTENT_TYPES[path.split('.').pop()],
-      CacheControl: 'public, max-age=86400',
-    }));
-  }
+  // 1 件ずつだと 1,674 件で 16 分を超え、デプロイのジョブの 20 分の上限で止まる
+  const queue = [...changed];
+  await Promise.all(Array.from({ length: CONCURRENCY }, async () => {
+    for (let path = queue.pop(); path; path = queue.pop()) {
+      const key = `${PREFIX}${relative(SOURCE, path).split(sep).join('/')}`;
+      await client.send(new PutObjectCommand({
+        Bucket: BUCKET,
+        Key: key,
+        Body: readFileSync(path),
+        ContentType: CONTENT_TYPES[path.split('.').pop()],
+        CacheControl: 'public, max-age=86400',
+      }));
+    }
+  }));
   console.log(`[standards-data-r2] 送信完了 ${changed.length} 件`);
 }
 
