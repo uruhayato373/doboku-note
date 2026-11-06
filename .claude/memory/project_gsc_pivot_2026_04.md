@@ -58,3 +58,8 @@ metadata:
 - 試験対策ハブの看板を薄めないため、設計便覧系5記事は独立カテゴリ `reference-materials`（`categories.json`・variant reference）に分離し **全て published:false**（旧 `civil-construction-1-reference-*` から 301）。実験 EXP-002 は paused（resume_criteria: 5記事の精度向上→再公開→新 baseline）。主戦場の civil-construction-1 / 総監の充実を優先。再公開は1記事で試験文脈最適化の雛形を作ってから展開。`ReferenceLinks`/`ExamContext` コンポーネントは 2026-06-25 に削除済み（再開時は git 履歴〜9b840f4e9 以前から再実装）。
 
 **2026-10-11 サイト全体の検索診断**: 28 日のクリック 922（前 28 日 180）・indexed 81.6%。**Bing のクリックが Google の約 10 倍**で、2級の試験概要ガイドは Google 未登録なのに Bing では最大級の入口。施策の効果は Google と Bing の両方で読む（data/bing/snapshots）。AI 検索（ChatGPT 検索・Perplexity・Claude）のロボットは同日に robots.txt で許可へ変更（ADR 案B・学習用は拒否のまま・scripts/lib/robots-txt.mjs）。AI 参照元の基準は GA4 bot-audit の copilot.com 28 人・chatgpt.com 6 人（09-26〜10-09）。CTR 実験は EXP-020（2級二次）・EXP-021（総監の題名の型）。
+
+## AdSense 再開（2026-11-06）
+- 2026-08-26 の撤退を運営者判断で取り消し、新規アカウント `pub-8504035087322664`（dobokunotecom 想定）で再申請中。旧 doboku-note 用は `pub-7995274743017484`、Stats47 は `pub-9055416085403520`。
+- タグは審査の所有権確認のため静的 HTML の head に直接出す（旧実装の next/script lazyOnload は HTML に残らない）。AdSlot は承認まで戻さない。
+- 重複アカウント規約のリスクは運営者へ説明済み（同一受取人名は重複扱いになりうる）。
