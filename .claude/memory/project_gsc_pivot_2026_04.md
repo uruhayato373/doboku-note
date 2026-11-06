@@ -61,5 +61,6 @@ metadata:
 
 ## AdSense 再開（2026-11-06）
 - 2026-08-26 の撤退を運営者判断で取り消し、新規アカウント `pub-8504035087322664`（dobokunotecom 想定）で再申請中。旧 doboku-note 用は `pub-7995274743017484`、Stats47 は `pub-9055416085403520`。
-- タグは審査の所有権確認のため静的 HTML の head に直接出す（旧実装の next/script lazyOnload は HTML に残らない）。AdSlot は承認まで戻さない。
+- 2026-11-06 に審査リクエスト済み（所有権はメタタグ `google-adsense-account` で確認）。AdSlot と広告スクリプトは承認まで入れない。
+- layout に `<script>` を直書きすると全ページに `__next._index.txt` が増え、Cloudflare Pages の 20,000 件上限を超える（20,778 件で実測）。広告スクリプトは Stats47 と同じく useEffect で読み込み、入れる前に out/ の件数を見る。
 - 重複アカウント規約のリスクは運営者へ説明済み（同一受取人名は重複扱いになりうる）。
