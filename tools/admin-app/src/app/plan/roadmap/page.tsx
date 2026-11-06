@@ -38,7 +38,7 @@ function channelBoard(root: string, calendar: Parameters<typeof examTimeline>[0]
     return { label: s?.label ?? id, state: s ? (metricStateLabel(s.state) as string) : '定義なし', ok: s?.state === 'measured' };
   });
   const youtube = loadPlanAudit(root).audit;
-  const readable = slotReader(root);
+  const readable = slotReader(root, plan);
   const social = (id: 'x' | 'instagram', a: typeof x): BoardChannel => {
     const c = plan.channels[id];
     return {

@@ -92,6 +92,23 @@ export function runProbe(probe, market, scan, self = {}) {
   return { checked: items.length, hits: hits.length, samples: hits.slice(0, 3).map((h) => h.title), ok: items.length > 0 && hits.length <= probe.max };
 }
 
+/**
+ * 枠の材料を読む形にまとめる。正本は 3 つに分かれている:
+ * 動画の割り当ては entries、送り先は primaryCta、それ以外の材料は materials。写しを持たず、ここで束ねる。
+ */
+export function slotMaterials(slot, plan) {
+  const planned = (plan.entries ?? []).filter((e) => e.slot === slot.id);
+  return {
+    status: slot.materials.status,
+    planned: planned.map((e) => ({ id: e.id, title: e.title ?? null, pack: e.publicationId?.split('/').slice(0, 2).join('/') ?? null, action: e.action })),
+    candidates: slot.materials.packs,
+    targets: slot.primaryCta.targets,
+    products: slot.materials.products,
+    make: slot.materials.make,
+    angles: slot.materials.angles ?? [],
+  };
+}
+
 /** 枠の理由に空きを断定で書かない。空きは立ち位置の台帳で確かめる */
 const GAP_CLAIM = /競合の空白|競合なし|競合がいない/;
 
@@ -216,6 +233,7 @@ export function auditPositions({ ledger, tracked, market, scan, snapshots, plan,
 
 /** 年間の枠が立ち位置を指しているか確かめる。勝負しないと決めた型の枠も止める */
 export function auditPlanStances(plan, ledger, { required = false, exists = null, products = null } = {}) {
+  const entries = plan.entries ?? [];
   const errors = [];
   const pending = [];
   const stances = new Map(ledger.positions.flatMap((p) => p.stances.map((a) => [a.id, { stance: a, position: p }])));
@@ -223,9 +241,17 @@ export function auditPlanStances(plan, ledger, { required = false, exists = null
     const where = `${channel} ${slot.id}`;
     const position = ledger.positions.find((p) => p.exams.includes(slot.exam));
     const formats = slot.formats ?? [slot.format];
-    for (const pack of slot.materials?.packs ?? []) if (exists && !exists(`content/sns/video-packs/${pack}/video-pack.json`)) errors.push(`${where}: 動画パックが無い ${pack}`);
-    for (const product of slot.materials?.products ?? []) if (products && !products.has(product)) errors.push(`${where}: 商品が無い ${product}`);
-    if (slot.materials && slot.materials.packs.length === 0 && !slot.materials.make) errors.push(`${where}: 材料が空`);
+    const planned = entries.filter((e) => e.slot === slot.id);
+    const plannedPacks = planned.map((e) => e.publicationId?.split('/').slice(0, 2).join('/')).filter(Boolean);
+    for (const pack of slot.materials?.packs ?? []) {
+      if (exists && !exists(`content/sns/video-packs/${pack}/video-pack.json`)) errors.push(`${where}: 動画パックが無い ${pack}`);
+      if (plannedPacks.includes(pack)) errors.push(`${where}: ${pack} は entries にある。materials に写さない`);
+    }
+    for (const product of slot.materials?.products ?? []) {
+      if (products && !products.has(product)) errors.push(`${where}: 商品が無い ${product}`);
+      if (slot.primaryCta?.targets?.includes(product)) errors.push(`${where}: ${product} は primaryCta にある。materials に写さない`);
+    }
+    if (slot.materials && planned.length === 0 && slot.materials.packs.length === 0 && !slot.materials.make) errors.push(`${where}: 材料が空`);
     if (GAP_CLAIM.test(slot.reason?.demand ?? '')) errors.push(`${where}: 空きの主張を枠に書いている。立ち位置の台帳で確かめて参照する`);
     for (const avoid of position?.avoid ?? []) {
       const hit = formats.find((f) => avoid.formats.includes(f));

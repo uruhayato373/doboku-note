@@ -157,7 +157,7 @@ content/sns/x/
 
 ## 5.4 販売投稿の時期・締切・段階告知（2026-09-30）
 
-> **年間の枠（2026-11-06）**: 型・本数・販売の上限・時期の正本は `config/channel-annual-plan.json` の `channels.x`。2026-12-01 以降の月次計画は、各投稿の `slot` に枠の id を書き、`type` は枠の型の `types` から選ぶ。`npm run check-channel-plan` と `x-schedule-guard` が計画にない投稿を止める。本文と日時は月次計画で決める。
+> **年間の枠（2026-11-06）**: 型・本数・販売の上限・時期の正本は `config/channel-annual-plan.json` の `channels.x`。枠の立ち位置と材料は `npm run competitor-position -- --slot <枠 id>` で読む。2026-12-01 以降の月次計画は、各投稿の `slot` に枠の id を書き、`type` は枠の型の `types` から選ぶ。`npm run check-channel-plan` と `x-schedule-guard` が計画にない投稿を止める。本文と日時は月次計画で決める。
 
 根拠は [07b_販売動線分析_ちゃんさと_2026-09.md](../../../docs/marketing/07b_販売動線分析_ちゃんさと_2026-09.md) §4。
 

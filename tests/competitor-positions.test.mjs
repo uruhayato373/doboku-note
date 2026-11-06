@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { auditPlanStances, auditPositions, loadCompetitorPositionsAudit, marketItems, prominentRivals, rivalFacts, runProbe } from '../scripts/lib/competitor-positions.mjs';
+import { auditPlanStances, auditPositions, loadCompetitorPositionsAudit, marketItems, prominentRivals, rivalFacts, runProbe, slotMaterials } from '../scripts/lib/competitor-positions.mjs';
 import { ConfigCompetitorPositions } from '../scripts/lib/dataset-schemas-config-business.mjs';
 import { REPO_ROOT as root } from '../scripts/lib/repository-paths.mjs';
 
@@ -92,6 +92,21 @@ test('枠の理由に空きを断定で書くと止める', () => {
   const ledger = { positions: [position()] };
   assert.match(auditPlanStances(plan([slot({ reason: { demand: '競合の空白がある' } })]), ledger).errors[0], /空きの主張/);
 });
+test('材料に entries と送り先の写しを持たせない', () => {
+  const ledger = { positions: [position()] };
+  const materials = { status: 'accepted', packs: ['rccm/a'], products: ['p1'], make: '' };
+  const base = plan([slot({ materials, primaryCta: { targets: ['p1'] } })]);
+  base.entries = [{ id: 'e', slot: 's', publicationId: 'rccm/a/youtube.longform', action: 'new' }];
+  const errors = auditPlanStances(base, ledger).errors;
+  assert.ok(errors.some((e) => /entries にある/.test(e)));
+  assert.ok(errors.some((e) => /primaryCta にある/.test(e)));
+});
+test('枠の材料は entries・送り先・materials から束ねる', () => {
+  const s = slot({ materials: { status: 'accepted', packs: ['rccm/b'], products: ['p2'], make: '作る' }, primaryCta: { targets: ['p1'] } });
+  const m = slotMaterials(s, { entries: [{ id: 'e', slot: 's', publicationId: 'rccm/a/youtube.longform', action: 'new' }] });
+  assert.deepEqual(m.planned, [{ id: 'e', title: null, pack: 'rccm/a', action: 'new' }]);
+  assert.deepEqual([m.candidates, m.targets, m.products, m.make], [['rccm/b'], ['p1'], ['p2'], '作る']);
+});
 test('実データの台帳は検査を通り、確認を 0 件で素通りしない', () => {
   const { ledger, audit: real, planAudit } = loadCompetitorPositionsAudit(root);
   ConfigCompetitorPositions.parse(ledger);
@@ -99,4 +114,7 @@ test('実データの台帳は検査を通り、確認を 0 件で素通りし�
   assert.deepEqual(planAudit.errors, []);
   assert.ok(real.probes.length >= 5, `確認 ${real.probes.length} 件`);
   assert.ok(real.probes.every((p) => p.checked > 0));
+  const { plan } = loadCompetitorPositionsAudit(root);
+  const slots = [...plan.slots, ...plan.channels.x.slots, ...plan.channels.instagram.slots];
+  assert.ok(slots.length >= 50 && slots.every((s) => s.materials.status === 'accepted'));
 });

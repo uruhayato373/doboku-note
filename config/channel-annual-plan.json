@@ -1,6 +1,6 @@
 {
   "schemaVersion": 3,
-  "_doc": "docs/marketing/02_チャネル動線設計.md（チャネル横断の役割）・docs/marketing/06_動画コンテンツ運用設計.md（動画）。チャネルの年間の枠と型の正本。slots・entries・cycle・metrics は YouTube、channels は X・Instagram の枠と型を持つ",
+  "_doc": "docs/marketing/02_チャネル動線設計.md（チャネル横断の役割）・docs/marketing/06_動画コンテンツ運用設計.md（動画）。チャネルの年間の枠と型の正本。slots・entries・cycle・metrics は YouTube、channels は X・Instagram の枠と型を持つ。枠の stance は config.competitor-positions の立ち位置を指す。materials は entries と primaryCta に無い材料だけを持ち、写さない。編集後は check-channel-plan・check-youtube-plan・check-competitor-positions を通す",
   "updatedAt": "2026-11-06",
   "cycle": {
     "id": "2026-11_2027-10",
@@ -281,13 +281,12 @@
             "next": "サイト利用者と口頭教材の販売の時期を見る"
           },
           "materials": {
-            "status": "proposed",
+            "status": "accepted",
             "packs": [
               "pe-comprehensive-management/sokan-kojutsu-kangaekata",
               "pe-comprehensive-management/gokanri-tradeoff"
             ],
             "products": [
-              "tankan-oral-complete",
               "coconala-pe-oral-qa"
             ],
             "make": "想定質問を 1 問ずつ投稿にする",
@@ -342,14 +341,12 @@
             "next": "サイト利用者と口頭教材の販売の時期を見る"
           },
           "materials": {
-            "status": "proposed",
+            "status": "accepted",
             "packs": [
               "pe-construction/pe-kojutsu-keireki",
               "pe-construction/competency-r8-taiou"
             ],
-            "products": [
-              "pe-construction-oral-guide"
-            ],
+            "products": [],
             "make": "コンピテンシーの変更点を投稿にする",
             "angles": [
               "number",
@@ -401,7 +398,7 @@
             "next": "土木の投稿の型ごとの反応とサイト利用者を見る"
           },
           "materials": {
-            "status": "proposed",
+            "status": "accepted",
             "packs": [
               "civil-construction-1/roadmap-juken-shikaku",
               "civil-construction-1/roadmap-nanido-goukakuritsu",
@@ -459,7 +456,7 @@
             "next": "土木の投稿の型ごとの反応とサイト利用者を見る"
           },
           "materials": {
-            "status": "proposed",
+            "status": "accepted",
             "packs": [
               "civil-construction-2/nikyuu-gaiyo-roadmap",
               "civil-construction-2/study-plan-2kyu"
@@ -515,7 +512,7 @@
             "next": "サイト利用者を見て本数を見直す"
           },
           "materials": {
-            "status": "proposed",
+            "status": "accepted",
             "packs": [
               "pe-comprehensive-management/sokan-goukaku-senryaku",
               "pe-comprehensive-management/takuitsu-keyword",
@@ -572,7 +569,7 @@
             "next": "サイト利用者を見て本数を見直す"
           },
           "materials": {
-            "status": "proposed",
+            "status": "accepted",
             "packs": [
               "pe-construction/secondary-study-houhou",
               "pe-construction/gakushuu-schedule-gyakusan",
@@ -634,7 +631,7 @@
             "next": "販売の投稿の位置ごとのサイト利用者と販売の時期を見る"
           },
           "materials": {
-            "status": "proposed",
+            "status": "accepted",
             "packs": [
               "civil-construction-1/gakka-doshitsu-chosa",
               "civil-construction-1/gakka-network-koteihyo",
@@ -643,11 +640,7 @@
               "civil-construction-1/kikinagashi-anzen-suchi",
               "civil-construction-1/kikinagashi-hoki-suchi"
             ],
-            "products": [
-              "civil-1-ichiji-ronten",
-              "civil-1-takuitsu-pdf",
-              "civil-1-r8-mock3-pdf"
-            ],
+            "products": [],
             "make": "分野ごとの引っかけと暗記の数字を過去問の記事から作る",
             "angles": [
               "number",
@@ -699,7 +692,7 @@
             "next": "販売の投稿の位置ごとのサイト利用者と販売の時期を見る"
           },
           "materials": {
-            "status": "proposed",
+            "status": "accepted",
             "packs": [
               "civil-construction-2/gakka-2kyu-concrete",
               "civil-construction-2/gakka-2kyu-kiso",
@@ -707,7 +700,6 @@
               "civil-construction-2/gakka-2kyu-hoki"
             ],
             "products": [
-              "civil-2-takuitsu-pdf",
               "civil-2-anki-note"
             ],
             "make": "",
@@ -764,7 +756,7 @@
             "next": "反応が 0 のままなら販売の時期だけに絞る"
           },
           "materials": {
-            "status": "proposed",
+            "status": "accepted",
             "packs": [
               "pe-comprehensive-management/hakusho-map",
               "pe-comprehensive-management/monbun-yomikata",
@@ -772,8 +764,7 @@
               "pe-comprehensive-management/kata-oudan-ryuyo"
             ],
             "products": [
-              "essay-core-pack",
-              "essay-complete-pack"
+              "essay-core-pack"
             ],
             "make": "白書の 1 テーマを答案の論点へ分解する連載",
             "angles": [
@@ -828,15 +819,13 @@
             "next": "反応が 0 のままなら販売の時期だけに絞る"
           },
           "materials": {
-            "status": "proposed",
+            "status": "accepted",
             "packs": [
               "pe-construction/sentaku-kakiwake-3type",
               "pe-construction/hissu1-theme-map",
               "pe-construction/kaitourei-tsukaikata"
             ],
-            "products": [
-              "pe-construction-required-magazine"
-            ],
+            "products": [],
             "make": "答案の構成を図で見せるカードを作る",
             "angles": [
               "howto",
@@ -882,7 +871,7 @@
             "next": "採否を決めたうえで、試験直後のサイト利用者を見る"
           },
           "materials": {
-            "status": "proposed",
+            "status": "accepted",
             "packs": [],
             "products": [],
             "make": "解答解説の記事へ案内する投稿だけを用意する。保留中の型は使わない",
@@ -938,7 +927,7 @@
             "next": "販売の投稿の位置ごとのサイト利用者と販売の時期を見る"
           },
           "materials": {
-            "status": "proposed",
+            "status": "accepted",
             "packs": [
               "civil-construction-1/keiken-kadai-kakikata",
               "civil-construction-1/keiken-ochiru-toan-1kyu",
@@ -947,7 +936,6 @@
               "civil-construction-1/koji-gaiyo-7items"
             ],
             "products": [
-              "civil-1-keiken-complete-pack",
               "civil-1-niji-marugoto-pack"
             ],
             "make": "発注者が読む順に答案を分解する連載",
@@ -1003,14 +991,13 @@
             "next": "販売の投稿の位置ごとのサイト利用者と販売の時期を見る"
           },
           "materials": {
-            "status": "proposed",
+            "status": "accepted",
             "packs": [
               "civil-construction-2/keiken-genten-kyotsuten",
               "civil-construction-2/keiken-koji-ga-nai",
               "civil-construction-2/keiken-2kyu-level"
             ],
             "products": [
-              "civil-2-niji-marugoto-pack",
               "civil-2-koji-bank"
             ],
             "make": "",
@@ -1063,7 +1050,7 @@
             "next": "本数は増やさず、販売の時期を見る"
           },
           "materials": {
-            "status": "proposed",
+            "status": "accepted",
             "packs": [],
             "products": [
               "rccm-mondai1-template",
@@ -1119,14 +1106,13 @@
             "next": "少数のまま、11 月の直前の枠は次の期で決める"
           },
           "materials": {
-            "status": "proposed",
+            "status": "accepted",
             "packs": [
               "concrete-chief-engineer/shunin-shouronbun-theme",
               "concrete-chief-engineer/shunin-shouronbun-kousei",
               "concrete-chief-engineer/shunin-ochiru-shouronbun"
             ],
             "products": [
-              "cce-marugoto-pack",
               "cce-essay-mokuji",
               "coconala-cce-essay-shindan"
             ],
@@ -1177,7 +1163,7 @@
             "next": "サイト利用者と演習の開始を見る"
           },
           "materials": {
-            "status": "proposed",
+            "status": "accepted",
             "packs": [
               "pe-first-stage/pe1-zentaizou",
               "pe-first-stage/pe1-tekisei-3shiten",
@@ -1237,12 +1223,9 @@
             "next": "本数は増やさず、サイト利用者と販売の時期を見て、YouTube へ広げるかを決める"
           },
           "materials": {
-            "status": "proposed",
+            "status": "accepted",
             "packs": [],
-            "products": [
-              "surveyor-gogo-pack",
-              "surveyor-keisan-20"
-            ],
+            "products": [],
             "make": "午後の分野ごとの論点を投稿にする",
             "angles": [
               "howto",
@@ -1293,10 +1276,9 @@
             "next": "本数は増やさず、サイト利用者と販売の時期を見て、YouTube へ広げるかを決める"
           },
           "materials": {
-            "status": "proposed",
+            "status": "accepted",
             "packs": [],
             "products": [
-              "pavement-1-pack",
               "pavement-1-sentaku-hinshutsu"
             ],
             "make": "応用試験の頻出の論点を投稿にする",
@@ -1349,12 +1331,9 @@
             "next": "本数は増やさず、サイト利用者と販売の時期を見て、YouTube へ広げるかを決める"
           },
           "materials": {
-            "status": "proposed",
+            "status": "accepted",
             "packs": [],
-            "products": [
-              "pavement-2-keiken",
-              "pavement-2-sentaku-hinshutsu"
-            ],
+            "products": [],
             "make": "応用試験の頻出の論点を投稿にする",
             "angles": [
               "number",
@@ -1403,12 +1382,10 @@
             "next": "本数は増やさず、サイト利用者と販売の時期を見て、YouTube へ広げるかを決める"
           },
           "materials": {
-            "status": "proposed",
+            "status": "accepted",
             "packs": [],
             "products": [
-              "pe-water-required-magazine",
-              "pe-water-supply-pack",
-              "pe-water-sewerage-pack"
+              "pe-water-required-magazine"
             ],
             "make": "必須と選択のテーマを投稿にする",
             "angles": [
@@ -1529,7 +1506,7 @@
             "next": "2027-02-05 の見直しまでに、サイト利用者と保存の取り方を確かめる"
           },
           "materials": {
-            "status": "proposed",
+            "status": "accepted",
             "packs": [
               "civil-construction-1/roadmap-juken-shikaku",
               "civil-construction-1/study-plan-1kyu"
@@ -1580,7 +1557,7 @@
             "next": "型ごとの保存とサイト利用者を比べる"
           },
           "materials": {
-            "status": "proposed",
+            "status": "accepted",
             "packs": [
               "civil-construction-1/gakka-network-koteihyo",
               "civil-construction-1/gakka-histogram",
@@ -1631,7 +1608,7 @@
             "next": "1級との反応の差を見る"
           },
           "materials": {
-            "status": "proposed",
+            "status": "accepted",
             "packs": [
               "civil-construction-2/gakka-2kyu-concrete",
               "civil-construction-2/gakka-2kyu-kiso"
@@ -1681,7 +1658,7 @@
             "next": "転用の手間とサイト利用者を見る"
           },
           "materials": {
-            "status": "proposed",
+            "status": "accepted",
             "packs": [
               "pe-comprehensive-management/hakusho-map",
               "pe-comprehensive-management/sanso-kozo",
@@ -1732,7 +1709,7 @@
             "next": "型ごとの保存とサイト利用者を比べる"
           },
           "materials": {
-            "status": "proposed",
+            "status": "accepted",
             "packs": [
               "civil-construction-1/keiken-ochiru-toan-1kyu",
               "civil-construction-1/koji-gaiyo-7items"
@@ -1781,7 +1758,7 @@
             "next": "1級との反応の差を見る"
           },
           "materials": {
-            "status": "proposed",
+            "status": "accepted",
             "packs": [
               "civil-construction-2/keiken-genten-kyotsuten",
               "civil-construction-2/koji-gaiyo-seigou"
@@ -1830,7 +1807,7 @@
             "next": "サイト利用者と演習の開始を見る"
           },
           "materials": {
-            "status": "proposed",
+            "status": "accepted",
             "packs": [
               "pe-first-stage/pe1-zentaizou",
               "pe-first-stage/pe1-kiso-gyouretsu-vector",
@@ -1880,7 +1857,7 @@
             "next": "本数は増やさず、反応を見る"
           },
           "materials": {
-            "status": "proposed",
+            "status": "accepted",
             "packs": [
               "concrete-chief-engineer/shunin-shouronbun-kousei",
               "concrete-chief-engineer/shunin-shouronbun-theme"
@@ -1935,15 +1912,14 @@
         "next": "動画ごとの平均視聴率と、口頭教材の販売の時期を見る"
       },
       "materials": {
-        "status": "proposed",
+        "status": "accepted",
         "packs": [
           "pe-comprehensive-management/sokan-kojutsu-kangaekata"
         ],
         "products": [
-          "tankan-oral-complete",
           "coconala-pe-oral-qa"
         ],
-        "make": "トレードオフの口頭 1 本は企画済み（cm-kojutsu-tradeoff）。経歴を 5 管理で語る動画を既存で足す"
+        "make": ""
       }
     },
     {
@@ -1987,14 +1963,8 @@
         "next": "3 か月後に総監の平均視聴率を他資格と比べる"
       },
       "materials": {
-        "status": "proposed",
-        "packs": [
-          "pe-comprehensive-management/sokan-goukaku-senryaku",
-          "pe-comprehensive-management/persona-settei",
-          "pe-comprehensive-management/takuitsu-keyword",
-          "pe-comprehensive-management/gokanri-tradeoff",
-          "pe-comprehensive-management/monbun-yomikata"
-        ],
+        "status": "accepted",
+        "packs": [],
         "products": [],
         "make": ""
       }
@@ -2032,10 +2002,8 @@
         "next": "申込期の検索クリックと動画の再生を比べる"
       },
       "materials": {
-        "status": "proposed",
-        "packs": [
-          "pe-comprehensive-management/gyoumu-keirekihyo"
-        ],
+        "status": "accepted",
+        "packs": [],
         "products": [],
         "make": ""
       }
@@ -2081,16 +2049,9 @@
         "next": "動画の公開後に該当商品の販売が動くかを note の販売記録で見る"
       },
       "materials": {
-        "status": "proposed",
-        "packs": [
-          "pe-comprehensive-management/hakusho-map",
-          "pe-comprehensive-management/setsumon3-shisaku",
-          "pe-comprehensive-management/kata-oudan-ryuyo",
-          "pe-comprehensive-management/r8-yosou-theme"
-        ],
-        "products": [
-          "essay-core-pack"
-        ],
+        "status": "accepted",
+        "packs": [],
+        "products": [],
         "make": "白書の 1 テーマを課題と解決策へつなぐ実演を 1 本作る"
       }
     },
@@ -2132,14 +2093,9 @@
         "next": "総監でも尺の長い動画の平均視聴時間が伸びるかを見る"
       },
       "materials": {
-        "status": "proposed",
-        "packs": [
-          "pe-comprehensive-management/takuitsu-r07-enshu",
-          "pe-comprehensive-management/kikinagashi-sokan-keyword"
-        ],
-        "products": [
-          "tankan-takuitsu-reiwa-pdf"
-        ],
+        "status": "accepted",
+        "packs": [],
+        "products": [],
         "make": ""
       }
     },
@@ -2177,12 +2133,10 @@
         "next": "直前 4 週の視聴維持と販売を見る"
       },
       "materials": {
-        "status": "proposed",
+        "status": "accepted",
         "packs": [],
-        "products": [
-          "essay-complete-pack"
-        ],
-        "make": "記述の直前の確認は企画済み（cm-kijutsu-chokuzen）。白書の改訂の差分を 1 本足す"
+        "products": [],
+        "make": "白書の改訂の差分を 1 本足す"
       }
     },
     {
@@ -2223,16 +2177,10 @@
         "next": "口頭教材の販売の時期と動画の公開を比べる"
       },
       "materials": {
-        "status": "proposed",
-        "packs": [
-          "pe-construction/competency-r8-taiou",
-          "pe-construction/pe-kojutsu-keireki"
-        ],
-        "products": [
-          "pe-construction-oral-guide",
-          "pe-oral-general-guide"
-        ],
-        "make": "深掘りの答え方は企画済み（pe-kojutsu-fukabori）"
+        "status": "accepted",
+        "packs": [],
+        "products": [],
+        "make": ""
       }
     },
     {
@@ -2273,13 +2221,8 @@
         "next": "書き分けの動画が検索から再生されるかを見る"
       },
       "materials": {
-        "status": "proposed",
-        "packs": [
-          "pe-construction/secondary-study-houhou",
-          "pe-construction/gakushuu-schedule-gyakusan",
-          "pe-construction/nanido-goukakuritsu-shindan",
-          "pe-construction/sentaku-kakiwake-3type"
-        ],
+        "status": "accepted",
+        "packs": [],
         "products": [],
         "make": ""
       }
@@ -2317,11 +2260,8 @@
         "next": "申込期の検索クリックと動画の再生を比べる"
       },
       "materials": {
-        "status": "proposed",
-        "packs": [
-          "pe-construction/keirekihyo-kakikata",
-          "pe-construction/kensetsu-pe-career-kachi"
-        ],
+        "status": "accepted",
+        "packs": [],
         "products": [],
         "make": ""
       }
@@ -2373,20 +2313,8 @@
         "next": "科目ごとにマガジンの販売が動くかを note の販売記録で見る"
       },
       "materials": {
-        "status": "proposed",
-        "packs": [
-          "pe-construction/sentaku-construction-planning-yomikata",
-          "pe-construction/sentaku-road-yomikata",
-          "pe-construction/sentaku-river-coast-yomikata",
-          "pe-construction/sentaku-steel-concrete-yomikata",
-          "pe-construction/sentaku-geotechnical-yomikata",
-          "pe-construction/sentaku-tunnel-yomikata",
-          "pe-construction/sentaku-urban-planning-yomikata",
-          "pe-construction/sentaku-environment-yomikata",
-          "pe-construction/sentaku-port-airport-yomikata",
-          "pe-construction/sentaku-railway-yomikata",
-          "pe-construction/sentaku-power-civil-yomikata"
-        ],
+        "status": "accepted",
+        "packs": [],
         "products": [],
         "make": ""
       }
@@ -2435,7 +2363,7 @@
         "next": "単論点の動画と比べて、視聴維持と教材のクリックを見る"
       },
       "materials": {
-        "status": "proposed",
+        "status": "accepted",
         "packs": [
           "pe-construction/sentaku-kakiwake-3type",
           "pe-construction/sentaku-road-yomikata",
@@ -2443,9 +2371,7 @@
           "pe-construction/sentaku-steel-concrete-yomikata",
           "pe-construction/kaitourei-tsukaikata"
         ],
-        "products": [
-          "pe-construction-road-magazine"
-        ],
+        "products": [],
         "make": "書き分けの実演を長尺用に足し、科目の読み方と束ねる"
       }
     },
@@ -2487,17 +2413,9 @@
         "next": "必須マガジンの販売と動画の公開を比べる"
       },
       "materials": {
-        "status": "proposed",
-        "packs": [
-          "pe-construction/hissu1-theme-map",
-          "pe-construction/hissu1-bosai-kyoujinka",
-          "pe-construction/hissu1-carbon-neutral",
-          "pe-construction/hissu1-ninaite-seisansei",
-          "pe-construction/hissu1-kokudo-chiiki"
-        ],
-        "products": [
-          "pe-construction-required-magazine"
-        ],
+        "status": "accepted",
+        "packs": [],
+        "products": [],
         "make": ""
       }
     },
@@ -2536,10 +2454,8 @@
         "next": "予想の動画が検索から再生されるかを見る"
       },
       "materials": {
-        "status": "proposed",
-        "packs": [
-          "pe-construction/r8-yosou-dashikata"
-        ],
+        "status": "accepted",
+        "packs": [],
         "products": [],
         "make": ""
       }
@@ -2578,12 +2494,10 @@
         "next": "直前 4 週の視聴維持と販売を見る"
       },
       "materials": {
-        "status": "proposed",
+        "status": "accepted",
         "packs": [],
-        "products": [
-          "pe-construction-required-magazine"
-        ],
-        "make": "時間配分と答案のリスクの確認は企画済み（pe-hissu1-jikan・pe-toan-risk-check）"
+        "products": [],
+        "make": ""
       }
     },
     {
@@ -2621,7 +2535,7 @@
         "next": "2026 年の直前動画の結果を見て本数を決める"
       },
       "materials": {
-        "status": "proposed",
+        "status": "accepted",
         "packs": [
           "pe-first-stage/pe1-kiso-gyouretsu-vector",
           "pe-first-stage/pe1-kiso-xor-shingihyou",
@@ -2631,8 +2545,7 @@
           "pe-first-stage/pe1-senmon-kensetsu-25mon"
         ],
         "products": [
-          "pe1-chokuzen-pack",
-          "pe1-takuitsu-pdf"
+          "pe1-chokuzen-pack"
         ],
         "make": "基礎・適性・専門・全体の 4 本に束ねる"
       }
@@ -2672,7 +2585,7 @@
         "next": "1 本目の検索流入を見る"
       },
       "materials": {
-        "status": "proposed",
+        "status": "accepted",
         "packs": [
           "civil-construction-1/roadmap-juken-shikaku",
           "civil-construction-1/roadmap-nanido-goukakuritsu",
@@ -2680,7 +2593,7 @@
           "civil-construction-1/study-plan-1kyu"
         ],
         "products": [],
-        "make": "2027 年度の違いは企画済み（c1-shiken-2027-difference）"
+        "make": ""
       }
     },
     {
@@ -2722,7 +2635,7 @@
         "next": "最初の 1 本で平均視聴時間を見て残りを決める"
       },
       "materials": {
-        "status": "proposed",
+        "status": "accepted",
         "packs": [
           "civil-construction-1/gakka-doshitsu-chosa",
           "civil-construction-1/gakka-morido-shimekatame",
@@ -2753,7 +2666,6 @@
           "civil-construction-1/kikinagashi-hoki-suchi"
         ],
         "products": [
-          "civil-1-ichiji-ronten",
           "civil-1-anki-note"
         ],
         "make": "土工・施工管理・安全・法規・機械と環境の 5 分野に束ねる。停止中の図解は承認してから連結する"
@@ -2795,12 +2707,9 @@
         "next": "20 問の試作を目視してから本数を決める"
       },
       "materials": {
-        "status": "proposed",
+        "status": "accepted",
         "packs": [],
-        "products": [
-          "civil-1-ichiji-ronten",
-          "civil-1-takuitsu-pdf"
-        ],
+        "products": [],
         "make": "過去問の記事から論点の一問一答を作る（DN-0600）。問題文は写さない"
       }
     },
@@ -2840,13 +2749,12 @@
         "next": "無料版の視聴維持と模試の販売を見る"
       },
       "materials": {
-        "status": "proposed",
+        "status": "accepted",
         "packs": [],
         "products": [
-          "civil-1-r8-mock3-pdf",
           "civil-1-r8-bunseki"
         ],
-        "make": "出題分析は企画済み（c1-ichiji-bunseki）。模試の無料版を 2027 年度用に 1 本作る"
+        "make": "模試の無料版を 2027 年度用に 1 本作る"
       }
     },
     {
@@ -2884,7 +2792,7 @@
         "next": "再生が読者リストや二次の準備につながるかを見る"
       },
       "materials": {
-        "status": "proposed",
+        "status": "accepted",
         "packs": [],
         "products": [],
         "make": "試験当日の解答解説の記事を先に作り、動画は次の検定への案内に絞る"
@@ -2925,7 +2833,7 @@
         "next": "合格発表の週の販売を見る"
       },
       "materials": {
-        "status": "proposed",
+        "status": "accepted",
         "packs": [
           "civil-construction-1/niji-junbi-roadmap",
           "civil-construction-1/keiken-dokugaku-genkai"
@@ -2933,7 +2841,7 @@
         "products": [
           "civil-1-keiken-complete-pack"
         ],
-        "make": "二次までの逆算は企画済み（c1-niji-gyakusan-2027）"
+        "make": ""
       }
     },
     {
@@ -2975,18 +2883,16 @@
         "next": "再生ではなくココナラと note への遷移で判断する"
       },
       "materials": {
-        "status": "proposed",
+        "status": "accepted",
         "packs": [
-          "civil-construction-1/koji-gaiyo-sheet-zukai",
           "civil-construction-1/keiken-anzen-1kyu",
           "civil-construction-1/keiken-hinshitsu-1kyu",
           "civil-construction-1/keiken-ochiru-toan-1kyu"
         ],
         "products": [
-          "civil-1-keiken-complete-pack",
           "civil-1-niji-marugoto-pack"
         ],
-        "make": "発注者の視点の答案の見方は新規。自己点検は企画済み（c1-niji-jiko-tenken）"
+        "make": "発注者の視点の答案の見方を 1 本作る"
       }
     },
     {
@@ -3025,7 +2931,7 @@
         "next": "購入前相談の「何で知ったか」で動画起点を数える"
       },
       "materials": {
-        "status": "proposed",
+        "status": "accepted",
         "packs": [
           "civil-construction-1/keiken-kadai-kakikata",
           "civil-construction-1/keiken-kaizen-example"
@@ -3070,7 +2976,7 @@
         "next": "予想の動画の検索流入を見る"
       },
       "materials": {
-        "status": "proposed",
+        "status": "accepted",
         "packs": [
           "civil-construction-1/keiken-yosou-renshu",
           "civil-construction-1/keiken-nendo-keiko-1kyu"
@@ -3118,13 +3024,10 @@
         "next": "検索から動画へ人が来るかを見る"
       },
       "materials": {
-        "status": "proposed",
-        "packs": [
-          "civil-construction-2/nikyuu-gaiyo-roadmap",
-          "civil-construction-2/study-plan-2kyu"
-        ],
+        "status": "accepted",
+        "packs": [],
         "products": [],
-        "make": "2027 年度の全体像は企画済み（c2-shiken-2027-roadmap）"
+        "make": ""
       }
     },
     {
@@ -3162,16 +3065,14 @@
         "next": "1級の聞き流しと平均視聴時間を比べる"
       },
       "materials": {
-        "status": "proposed",
+        "status": "accepted",
         "packs": [
-          "civil-construction-2/matome-2kyu-chokuzen",
           "civil-construction-2/kikinagashi-2kyu-matome",
           "civil-construction-2/gakka-2kyu-concrete",
           "civil-construction-2/gakka-2kyu-kiso"
         ],
         "products": [
-          "civil-2-anki-note",
-          "civil-2-takuitsu-pdf"
+          "civil-2-anki-note"
         ],
         "make": "土工・コンクリート・施工管理の総まとめを束ねる"
       }
@@ -3216,22 +3117,12 @@
         "next": "試験前 8 週の販売が動くかを見る"
       },
       "materials": {
-        "status": "proposed",
-        "packs": [
-          "civil-construction-2/kotei-touan-gutaika",
-          "civil-construction-2/koji-gaiyo-seigou",
-          "civil-construction-2/kento-taio-kakiwake",
-          "civil-construction-2/touan-teishutsu-check",
-          "civil-construction-2/keiken-anzen-2kyu-kakikata",
-          "civil-construction-2/keiken-hinshitsu-kakikata",
-          "civil-construction-2/keiken-kotei-kakikata",
-          "civil-construction-2/keiken-gaiyo-2kyu"
-        ],
+        "status": "accepted",
+        "packs": [],
         "products": [
-          "civil-2-niji-marugoto-pack",
           "civil-2-koji-bank"
         ],
-        "make": "2027 年度の書き出しとテーマは企画済み"
+        "make": ""
       }
     },
     {
@@ -3270,7 +3161,7 @@
         "next": "読者リストへの登録につながるかを見る（DN-0632 の後）"
       },
       "materials": {
-        "status": "proposed",
+        "status": "accepted",
         "packs": [],
         "products": [],
         "make": "試験当日の解答解説の記事を先に作り、動画は来年度の案内に絞る"
@@ -3314,18 +3205,17 @@
         "next": "2026 年の 28 日の視聴維持を見る"
       },
       "materials": {
-        "status": "proposed",
+        "status": "accepted",
         "packs": [
           "concrete-chief-engineer/shunin-shouronbun-theme",
           "concrete-chief-engineer/shunin-shouronbun-kousei",
           "concrete-chief-engineer/shunin-ochiru-shouronbun"
         ],
         "products": [
-          "cce-marugoto-pack",
           "cce-essay-persona-pack",
           "cce-essay-mokuji"
         ],
-        "make": "小論文の令和形式と数字は企画済み。停止中のテーマの動画を見直して足す"
+        "make": "停止中のテーマの動画を見直して足す"
       }
     },
     {
@@ -3366,16 +3256,12 @@
         "next": "検索からの再生を見る"
       },
       "materials": {
-        "status": "proposed",
-        "packs": [
-          "concrete-engineer/gishi-haigou-keisan",
-          "concrete-engineer/gishi-mix-design-ronten"
-        ],
+        "status": "accepted",
+        "packs": [],
         "products": [
-          "ce-mix-jis-practice",
           "ce-marugoto-pack"
         ],
-        "make": "令和形式の計算の演習は企画済み（ce-gishi-keisan-enshu）"
+        "make": ""
       }
     },
     {
@@ -3415,14 +3301,10 @@
         "next": "1 本目の視聴維持を見て残りを決める"
       },
       "materials": {
-        "status": "proposed",
+        "status": "accepted",
         "packs": [],
-        "products": [
-          "rccm-mondai1-template",
-          "rccm-mondai3-magazine",
-          "rccm-marugoto-pack"
-        ],
-        "make": "学習・業務経験・管理技術の 3 本は企画済み。問題Ⅲの型を主題にする"
+        "products": [],
+        "make": "3 本のうち 1 本は問題Ⅲの型を主題にする"
       }
     },
     {
@@ -3460,13 +3342,13 @@
         "next": "企画の判断のときに続けるかを決める"
       },
       "materials": {
-        "status": "proposed",
+        "status": "accepted",
         "packs": [],
         "products": [
           "cd-problem-b-pack",
           "cd-essay-complete-pack"
         ],
-        "make": "論点の地図と記述の答案の 2 本は企画済み"
+        "make": ""
       }
     }
   ],
