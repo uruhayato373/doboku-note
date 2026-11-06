@@ -163,6 +163,7 @@
       "group": "pr",
       "triggers": [
         "pull_request",
+        "workflow_dispatch",
         "push"
       ],
       "schedule": [],

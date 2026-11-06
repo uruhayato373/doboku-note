@@ -1,7 +1,7 @@
 // deploy-main の判定の意図: 検査を通った commit だけを昇格し、失敗を見逃さない。
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { blockingNightlyIssues, findDeployRun, pickGateTarget, pushRejectedAsStale } from '../scripts/lib/deploy-main.mjs';
+import { blockingNightlyIssues, findDeployRun, pickGateTarget, pushRejectedAsStale, unverifiedPrCommits } from '../scripts/lib/deploy-main.mjs';
 
 const run = (headSha, status, conclusion, databaseId = 1) => ({ headSha, status, conclusion, databaseId });
 
@@ -44,4 +44,9 @@ test('夜間の全件検査の未解決 Issue だけが昇格を止める', () =
   ];
   assert.deepEqual(blockingNightlyIssues(issues).map((issue) => issue.number), [1, 2]);
   assert.deepEqual(blockingNightlyIssues([]), []);
+});
+
+test('昇格先より新しい PR の commit を取り残さない（台帳と bot の commit は除く）', () => {
+  assert.deepEqual(unverifiedPrCommits(['feat(site): AdSense を戻す (#1426)', 'todo: DN-1 を起票する', 'chore(metrics): daily [skip ci]']), ['feat(site): AdSense を戻す (#1426)']);
+  assert.deepEqual(unverifiedPrCommits([]), []);
 });

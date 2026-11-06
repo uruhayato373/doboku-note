@@ -12,7 +12,7 @@
 
 import { spawnSync } from 'node:child_process';
 import process from 'node:process';
-import { blockingNightlyIssues, findDeployRun, pickGateTarget, pushRejectedAsStale } from './lib/deploy-main.mjs';
+import { blockingNightlyIssues, findDeployRun, pickGateTarget, pushRejectedAsStale, unverifiedPrCommits } from './lib/deploy-main.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
 const GATE = 'Pre-merge check (quality audit + build)';
@@ -46,6 +46,12 @@ function waitForGate() {
     console.log(`[deploy-main] 検査の完了を待つ（${pick.sha.slice(0, 9)}）`);
     if (run('gh', ['run', 'watch', String(pick.runId), '--exit-status'], { allowFail: true }).status !== 0) sleep(5000);
   }
+}
+
+function assertNothingLeftBehind(target) {
+  const subjects = out('git', ['log', '--format=%s', `${target}..origin/develop`]).split('\n').filter(Boolean);
+  const left = unverifiedPrCommits(subjects);
+  if (left.length) stop(2, `develop の検査が無い PR の commit が昇格先より新しい: ${left.join(' / ')}`);
 }
 
 function assertNightlyGreen() {
@@ -96,6 +102,7 @@ function waitForDeploy(commit) {
 }
 
 const target = waitForGate();
+assertNothingLeftBehind(target);
 assertNightlyGreen();
 console.log(`[deploy-main] 昇格先 ${target.slice(0, 9)}: ${out('git', ['log', '-1', '--format=%s', target]).slice(0, 70)}`);
 if (dryRun) {

@@ -15,6 +15,11 @@ export function pickGateTarget(commits, runs) {
   return { kind: 'none' };
 }
 
+/** 昇格先より新しい commit のうち、PR で入ったのに develop の検査が無いもの。件名の末尾の (#番号) で見分ける。 */
+export function unverifiedPrCommits(subjects) {
+  return subjects.filter((subject) => /\(#\d+\)$/.test(subject));
+}
+
 /** 夜間の全件検査の未解決 Issue。PR では全件を回さないので、昇格の前にここで止める。 */
 export function blockingNightlyIssues(issues) {
   return issues.filter((issue) => /^\[auto\] (e2e|lighthouse)-nightly:/.test(issue.title));
