@@ -10,3 +10,5 @@ develop へ直 push する変更でも、quality:audit の ci ゲートが読む
 **Why:** doc・todo・追跡解除は「コードではない」ので PR を通さず、CI の結果を見るのが push の後になる。赤の develop は他セッションの PR まで巻き込む。
 
 **How to apply:** スキル本文・config・`data/`・`.gitignore`・`git rm --cached` を含む直 push の前に `npm run quality:audit:ci` を回す（重いので worktree で background）。push 後は develop 先端の Pre-merge check が success になるまで見届けてから完了と言う。関連 [[feedback_deploy_discipline]] [[feedback_gate_zero_coverage_false_pass]]
+
+**台帳だけの push は CI が走らない（2026-11-06）**: `.claude/todo/**` と `.claude/state/todo-claims.json` だけの push は `ci.yml` の `paths-ignore` で飛ばす。push の 37% がこれだった。ゲートは pre-commit と `todo:add`。文書だけの push のビルドは残した（300 回中 8 回で、ジョブの分岐を足すほどの効果が無い）。
