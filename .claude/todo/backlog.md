@@ -482,6 +482,16 @@
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-1025] note スクリプトの起動と確認を note-browser へ移す
+タグ: [インフラ・計測] [領域:商品] [時期:2027-01] [種類:改善] [起票:2026-11-06]
+
+**起点**: 2026-11-06 の冗長コード監査（jscpd・Codex・実コードの照合）。`scripts/note-*.mjs` 26 本が `launchPersistentContext` を直接呼び、`launchNoteContext` を使うのは 3 本だけ。21 本が `settings/account` の確認を手書きし、`assertAccountGate` を使うのは 3 本だけ。note の画面や認証が変わると、操作ごとに成功と失敗が分かれる。
+
+**やること**: スクリプトを触るときに `launchNoteContext` と `assertAccountGate` へ移す。viewport と待機の実測値は引数で保つ。有料境界や更新の処理は共通化しない。
+
+**完了条件**: note スクリプトの起動と確認の手書きが 0 件。
+
+
 ### [DN-1020] YouTube の R2 配置スクリプトの共通処理を lib へ移す
 タグ: [インフラ・計測] [領域:SNS] [時期:2027-01] [種類:改善] [起票:2026-11-06]
 
