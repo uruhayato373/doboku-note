@@ -20,6 +20,7 @@
 - [過去問PDF突合](feedback_exam_pdf_cross_reference.md) — 全問を原典と視覚照合
 - [noteカタログ再生成](feedback_note_catalog_regen.md) — note原稿を変えたらbuild-note-catalog
 - [MDX整形の委任](feedback_subagent_mdx_acceptance.md) — textlint・lint・facts照合を受入れ条件に
+- [発表当日の再確認](feedback_recheck_official_on_result_day.md) — 発送日は発表ページで変わる
 - [事実の一次照合](feedback_factcheck_guide_facts.md) — 制度・白書・URL・科目外・条文は条の範囲だけ
 - [ゲート偽PASS](feedback_gate_zero_coverage_false_pass.md) — 検査0件の緑・否定の単発判定
 - [hub強化とSEO判断](feedback_hub_strengthening_approach.md) — クエリ整合・即noindex禁止
@@ -133,6 +134,7 @@
 - [スキャンOCR](reference_scanned_pdf_pipeline.md) — 市販書籍は機械OCRのみ・旧視覚OCR罠
 - [保存版の過去問](reference_wayback_past_exam_gotchas.md) — CDX・brotli・数字字形・正答HTML
 - [土木PDF所在](reference_civil_pdfs.md) — docs/textbook配下
+- [Xの読み取り](reference_x_read_without_account.md) — Yahoo検索が無認証・CLIは投稿用アカ
 - [競合調査](reference_competitors_civil.md) — 土木・総監・pejp・YT解析
 - [アフィリ/Gmail](reference_affiliate_status_mail_vs_playwright.md) — 二経路確認・Gmail MCP
 - [ココナラ価格](reference_coconala_price_edit_gotchas.md) — 500円刻み・偽成功
