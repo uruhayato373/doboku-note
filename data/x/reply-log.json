@@ -50,5 +50,107 @@
       "replyId": "2118822472753766621",
       "userHash": "866749ae787a"
     }
+  ],
+  "skips": [
+    {
+      "at": "2026-11-06T22:40:00Z",
+      "reason": "situation",
+      "userHash": "00d8c18a6227"
+    },
+    {
+      "at": "2026-11-06T22:40:00Z",
+      "reason": "situation",
+      "userHash": "c83e9e55dd52"
+    },
+    {
+      "at": "2026-11-06T22:40:00Z",
+      "reason": "situation",
+      "userHash": "9ec50d406d75"
+    },
+    {
+      "at": "2026-11-06T22:40:00Z",
+      "reason": "situation",
+      "userHash": "2b6b0a8ecfb2"
+    },
+    {
+      "at": "2026-11-06T22:40:00Z",
+      "reason": "situation",
+      "userHash": "efe39b4bb59e"
+    },
+    {
+      "at": "2026-11-06T22:40:00Z",
+      "reason": "situation",
+      "userHash": "bb995da41acb"
+    },
+    {
+      "at": "2026-11-06T22:40:00Z",
+      "reason": "situation",
+      "userHash": "7c2f1f1c7d91"
+    },
+    {
+      "at": "2026-11-06T22:40:00Z",
+      "reason": "situation",
+      "userHash": "729df61b0407"
+    },
+    {
+      "at": "2026-11-06T22:40:00Z",
+      "reason": "situation",
+      "userHash": "def2f3729e49"
+    },
+    {
+      "at": "2026-11-06T22:40:00Z",
+      "reason": "situation",
+      "userHash": "444f71e60c6f"
+    },
+    {
+      "at": "2026-11-06T22:40:00Z",
+      "reason": "situation",
+      "userHash": "1c82508ff6ab"
+    },
+    {
+      "at": "2026-11-06T22:40:00Z",
+      "reason": "situation",
+      "userHash": "07314978297a"
+    },
+    {
+      "at": "2026-11-06T22:40:00Z",
+      "reason": "situation",
+      "userHash": "7003aed6e790"
+    },
+    {
+      "at": "2026-11-06T22:40:00Z",
+      "reason": "situation",
+      "userHash": "e40b6f051d0f"
+    },
+    {
+      "at": "2026-11-06T22:40:00Z",
+      "reason": "offtopic",
+      "userHash": "26e0933d91f4"
+    },
+    {
+      "at": "2026-11-06T22:40:00Z",
+      "reason": "offtopic",
+      "userHash": "bd23a142fc1f"
+    },
+    {
+      "at": "2026-11-06T22:40:00Z",
+      "reason": "offtopic",
+      "userHash": "6a245a2be99d"
+    },
+    {
+      "at": "2026-11-06T22:40:00Z",
+      "reason": "supplier",
+      "userHash": "b57b132443bf"
+    },
+    {
+      "at": "2026-11-06T22:40:00Z",
+      "reason": "supplier",
+      "userHash": "ba532de9ed17"
+    },
+    {
+      "at": "2026-11-06T22:40:00Z",
+      "reason": "not-self",
+      "userHash": "283af7f17d11"
+    }
   ]
 }

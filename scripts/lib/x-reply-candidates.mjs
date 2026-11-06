@@ -56,9 +56,9 @@ export function classifyPost(post, config) {
 const ORDER = { ask: 0, pass: 1, fail: 2 };
 
 /** 1 アカウント 1 件。尋ねている投稿 → 合格 → 不合格 → 新しい順に並べて上限で切る。 */
-export function selectCandidates(posts, config, { now, repliedHashes = new Set() }) {
+export function selectCandidates(posts, config, { now, repliedHashes = new Set(), skippedHashes = new Set() }) {
   const since = now - config.limits.lookbackHours * 3600_000;
-  const counts = { total: 0, old: 0, replied: 0, care: 0, supplier: 0, reply: 0, other: 0 };
+  const counts = { total: 0, old: 0, replied: 0, skipped: 0, care: 0, supplier: 0, reply: 0, other: 0 };
   const seen = new Set();
   const byUser = new Map();
   for (const post of posts) {
@@ -66,7 +66,9 @@ export function selectCandidates(posts, config, { now, repliedHashes = new Set()
     seen.add(post.id);
     counts.total += 1;
     if (post.createdAt < since) { counts.old += 1; continue; }
-    if (repliedHashes.has(hashUser(post.user))) { counts.replied += 1; continue; }
+    const hash = hashUser(post.user);
+    if (repliedHashes.has(hash)) { counts.replied += 1; continue; }
+    if (skippedHashes.has(hash)) { counts.skipped += 1; continue; }
     const kind = classifyPost(post, config);
     if (!(kind in ORDER)) { counts[kind] += 1; continue; }
     const prev = byUser.get(post.user);
@@ -81,7 +83,7 @@ export function selectCandidates(posts, config, { now, repliedHashes = new Set()
 }
 
 /** 送信の前に通す門番。理由があれば文字列を返す。 */
-export function checkSendAllowed(log, { user, now, limits, trial }) {
+export function checkSendAllowed(log, { user, now, limits, trial, skips = [] }) {
   const day = jstDayOf(now);
   if (day < trial.from || day > trial.to) return `試行期間（${trial.from}〜${trial.to}）の外です`;
   const sameDay = log.filter((r) => jstDayOf(Date.parse(r.at)) === day);
@@ -90,5 +92,6 @@ export function checkSendAllowed(log, { user, now, limits, trial }) {
   const waited = (now - last) / 60_000;
   if (waited < limits.minIntervalMinutes) return `前の返信から ${Math.floor(waited)} 分です（${limits.minIntervalMinutes} 分あけます）`;
   if (log.some((r) => r.userHash === hashUser(user))) return 'この相手にはすでに返信しています';
+  if (skips.some((r) => r.userHash === hashUser(user))) return 'この相手は見送りにしています';
   return null;
 }
