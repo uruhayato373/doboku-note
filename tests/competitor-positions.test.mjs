@@ -104,7 +104,7 @@ test('材料に entries と送り先の写しを持たせない', () => {
 test('枠の材料は entries・送り先・materials から束ねる', () => {
   const s = slot({ materials: { status: 'accepted', packs: ['rccm/b'], products: ['p2'], make: '作る' }, primaryCta: { targets: ['p1'] } });
   const m = slotMaterials(s, { entries: [{ id: 'e', slot: 's', publicationId: 'rccm/a/youtube.longform', action: 'new' }] });
-  assert.deepEqual(m.planned, [{ id: 'e', pack: 'rccm/a', action: 'new' }]);
+  assert.deepEqual(m.planned, [{ id: 'e', title: null, pack: 'rccm/a', action: 'new' }]);
   assert.deepEqual([m.candidates, m.targets, m.products, m.make], [['rccm/b'], ['p1'], ['p2'], '作る']);
 });
 test('実データの台帳は検査を通り、確認を 0 件で素通りしない', () => {

@@ -100,7 +100,7 @@ export function slotMaterials(slot, plan) {
   const planned = (plan.entries ?? []).filter((e) => e.slot === slot.id);
   return {
     status: slot.materials.status,
-    planned: planned.map((e) => ({ id: e.id, pack: e.publicationId?.split('/').slice(0, 2).join('/') ?? null, action: e.action })),
+    planned: planned.map((e) => ({ id: e.id, title: e.title ?? null, pack: e.publicationId?.split('/').slice(0, 2).join('/') ?? null, action: e.action })),
     candidates: slot.materials.packs,
     targets: slot.primaryCta.targets,
     products: slot.materials.products,

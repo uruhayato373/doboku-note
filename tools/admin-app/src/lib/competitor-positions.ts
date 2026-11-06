@@ -48,7 +48,7 @@ export function slotReader(root: string, plan: { entries: unknown[] }) {
       reason: { ...slot.reason, demand: slot.reason.demand.replace(/（立ち位置 [a-z0-9-]+）/, '') },
       readableMaterials: {
         status: m.status,
-        planned: (m.planned as { id: string; pack: string | null }[]).map((e) => (e.pack ? packTitle(e.pack) : e.id)),
+        planned: (m.planned as { id: string; title: string | null; pack: string | null }[]).map((e) => e.title ?? (e.pack ? packTitle(e.pack) : e.id)),
         candidates: (m.candidates as string[]).map(packTitle),
         products: (m.products as string[]).map((id) => products.get(id) ?? id),
         make: m.make as string,

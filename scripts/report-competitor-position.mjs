@@ -25,7 +25,7 @@ if (positions.length === 0) {
 if (slot) {
   const m = slotMaterials(slot, plan);
   console.log(`枠 ${slot.id}: ${slot.title}（立ち位置 ${slot.stance}・材料は ${m.status === 'accepted' ? '採用' : '提案'}）`);
-  for (const e of m.planned) console.log(`- 割り当て済み ${e.pack ?? e.id}（${e.action}）`);
+  for (const e of m.planned) console.log(`- 割り当て済み ${e.title ?? e.pack ?? e.id}（${e.action}）`);
   for (const pack of m.candidates) console.log(`- 候補の動画パック ${pack}`);
   for (const target of m.targets) console.log(`- 送り先 ${target}`);
   for (const product of m.products) console.log(`- 使う商品 ${product}`);
