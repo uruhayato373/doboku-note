@@ -156,7 +156,8 @@ export const STEPS = [
   s('check-doc-refs'),
   // .claude/plans/ の実装計画とbacklogカードの結線（存在・相互参照・1task=1plan・ID重複・孤児plan）
   s('check-task-plan-links', []),
-  // backlog タグ行の語彙・[検証:] の実在・完了 prose の混入を検証（台帳が機械読取不能になるのを止める）
+  // backlog タグ行の語彙・[検証:] の実在・完了 prose の混入を検証（台帳が機械読取不能になるのを止める）。
+  // 台帳だけの push は CI を走らせない（ci.yml の paths-ignore）ので、手で直す台帳のゲートはここ
   s('check-backlog-schema'),
   // CLAUDE.md（毎ターン再送される核）が 150 行 / 20KB を超えて戻るのを止める。2026-09-13 のマージで 147→323 行に
   // 復活し develop の CI が 6 run 連続で赤のまま誰も読まなかった再発防止（CLAUDE.md か .claude/rules を stage したときだけ）

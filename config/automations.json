@@ -150,7 +150,7 @@
       ],
       "schedule": [],
       "login": [],
-      "purpose": "Pre-merge・E2E・Lighthouse が緑の automerge ラベル付き PR を squash する（必須チェックの代わり）",
+      "purpose": "Pre-merge・E2E が緑の automerge ラベル付き PR を squash する（必須チェックの代わり）",
       "readers": [
         "pr-gate"
       ]
@@ -163,6 +163,7 @@
       "group": "pr",
       "triggers": [
         "pull_request",
+        "workflow_dispatch",
         "push"
       ],
       "schedule": [],
@@ -247,7 +248,7 @@
       ],
       "scheduleJst": "毎日 03:00",
       "login": [],
-      "purpose": "UI 系の PR と毎晩、ローカル配信の E2E を回す（ログイン不要）",
+      "purpose": "UI 系の PR で主要導線、毎晩は全件の E2E をローカル配信へ回す（ログイン不要）",
       "readers": [
         "pr-gate",
         "issue:e2e-nightly"
@@ -304,13 +305,17 @@
       "title": "Lighthouse CI",
       "group": "pr",
       "triggers": [
-        "pull_request"
+        "schedule",
+        "workflow_dispatch"
       ],
-      "schedule": [],
+      "schedule": [
+        "30 18 * * *"
+      ],
+      "scheduleJst": "毎日 03:30",
       "login": [],
-      "purpose": "UI 系の PR で代表 4 ページを測る",
+      "purpose": "毎晩 develop の代表 4 ページを測る",
       "readers": [
-        "pr-gate"
+        "issue:lighthouse-nightly"
       ]
     },
     {

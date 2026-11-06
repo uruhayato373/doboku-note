@@ -1,5 +1,4 @@
-import Link from 'next/link';
-import { DataTable, DetailList, DetailSheet, DetailText, PanelCard, type DataTableColumn, type DataTableRow } from '@/components/admin';
+import { DataTable, DetailList, DetailSheet, DetailText, PanelCard, type DataTableColumn, type DataTableRow, FilterBar, FilterChip } from '@/components/admin';
 import { PageHead } from '@/components/ui';
 import { loadAgents, type AgentEntry } from '@/lib/registry';
 import { domainList } from '@/lib/domains';
@@ -61,19 +60,19 @@ export default async function AgentsPage({ searchParams }: { searchParams: Promi
         </PanelCard>
       ) : null}
 
-      <div className="filterbar">
-        <Link href="/agents" className={'chip' + (!dom ? ' active' : '')}>
+      <FilterBar>
+        <FilterChip href="/agents" active={!dom}>
           すべて
-        </Link>
+        </FilterChip>
         {domains.map((d) => {
           const n = items.filter((a) => a.domain === d.id).length;
           return n ? (
-            <Link key={d.id} href={`/agents?dom=${d.id}`} className={'chip' + (dom === d.id ? ' active' : '')}>
+            <FilterChip key={d.id} href={`/agents?dom=${d.id}`} active={dom === d.id}>
               {d.label} {n}
-            </Link>
+            </FilterChip>
           ) : null;
         })}
-      </div>
+      </FilterBar>
 
       <DataTable columns={AGENT_COLUMNS} rows={rows} pageSize={50} filter="名前・領域で絞り込む" />
     </>

@@ -31,7 +31,7 @@ export function buildChainFiles(scripts, entries = ['prebuild', 'build']) {
 /**
  * サイトの画面（src/）が src の外から import するファイル（DN-0808）。config/*.json・content/site の JSON・
  * scripts/lib の共有 .mjs など。src の外の .mjs/.js/.ts が import する先もたどる。
- * これらだけを変えた PR でも画面が変わるので、E2E と Lighthouse の起動条件に入っている必要がある。
+ * これらだけを変えた PR でも画面が変わるので、E2E の起動条件に入っている必要がある。
  *
  * @param {string} root リポジトリのルート
  * @returns {string[]} リポジトリ相対のパス（重複なし・名前順）

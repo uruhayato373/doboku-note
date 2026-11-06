@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { DataTable, DetailList, DetailSheet, DetailText, type DataTableColumn, type DataTableRow } from '@/components/admin';
+import { DataTable, DetailList, DetailSheet, DetailText, type DataTableColumn, type DataTableRow, FilterBar, FilterChip } from '@/components/admin';
 import { PageHead } from '@/components/ui';
 import SectionTabs from '@/components/SectionTabs';
 import { domainList, domainOverview } from '@/lib/domains';
@@ -76,13 +76,13 @@ export default async function TaxonomyPage({ searchParams }: { searchParams: Pro
     <>
       <PageHead title="事業の分類" />
       <SectionTabs set="policy" current="/strategy/taxonomy" />
-      <nav className="filterbar mb-3!">
+      <FilterBar className="mb-3!">
         {TABS.map((t) => (
-          <Link key={t.id} className={'chip' + (t.id === current ? ' active' : '')} href={t.id === 'domains' ? '/strategy/taxonomy' : `/strategy/taxonomy?tab=${t.id}`}>
+          <FilterChip key={t.id} active={t.id === current} href={t.id === 'domains' ? '/strategy/taxonomy' : `/strategy/taxonomy?tab=${t.id}`}>
             {t.label}
-          </Link>
+          </FilterChip>
         ))}
-      </nav>
+      </FilterBar>
       {current === 'domains' ? (
         <DataTable columns={DOMAIN_COLUMNS} rows={domainRows} pageSize={100} />
       ) : (

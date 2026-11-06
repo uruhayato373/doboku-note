@@ -1,3 +1,7 @@
+'use client';
+
+// SheetTrigger の asChild は子が 1 つの要素であることを求める。サーバーで描くと、大きな表では子が遅延の参照で届いて
+// Radix の Slot が落ちる（2026-11-06・/skills が 500）。トリガーの button をクライアントで作るためにここで宣言する
 import type { ReactNode } from 'react';
 import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
 

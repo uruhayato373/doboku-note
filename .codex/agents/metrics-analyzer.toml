@@ -40,6 +40,7 @@ GSC/GA4 の JSON データを読み込み、**改善候補のパターン検出*
 > `gsc.query` / `gsc.page` が `truncated:true` または0行なら、候補件数の前週比較やサイト全体の増減を断定しない。完全な `gsc.date` の合計と `gsc.page-query` は、各データの対象範囲を明示して別に利用できる。
 | `ga4.page`（最新） | GA4 page dimension |
 | `ga4.date`（最新） | GA4 date dimension（トレンド判定用） |
+| `npm run metric-status` | 指標が今計測できているか。手書きの「未計測」を信じず、ここで確かめる |
 | `ga4.source-medium-sns`（最新 2 件） | GA4 SNS 流入 source×medium（Pattern 6 用・`fetch-ga4-data --sns-only`） |
 
 オプション（前週比較用）:

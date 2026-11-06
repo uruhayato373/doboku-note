@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { DataTable, PanelCard, StatusBadge, type DataTableColumn, type DataTableRow } from '@/components/admin';
+import { DataTable, PanelCard, StatusBadge, type DataTableColumn, type DataTableRow, FilterBar, FilterChip } from '@/components/admin';
 import { Stack } from '@/components/layout';
 import { PageHead } from '@/components/ui';
 import LineChart from '@/components/charts/LineChart';
@@ -50,23 +50,23 @@ export default async function QualityPage({ searchParams }: { searchParams: Prom
   return (
     <>
       <PageHead title="品質概観" sub={`違反のある記事 ${articleCount} 件`} />
-      <nav className="filterbar mb-3!">
+      <FilterBar className="mb-3!">
         {TABS.map((x) => (
-          <Link key={x.id} className={'chip' + (x.id === current ? ' active' : '')} href={x.id === 'violations' ? '/quality' : `/quality?tab=${x.id}`}>
+          <FilterChip key={x.id} active={x.id === current} href={x.id === 'violations' ? '/quality' : `/quality?tab=${x.id}`}>
             {x.label}
-          </Link>
+          </FilterChip>
         ))}
-      </nav>
+      </FilterBar>
 
       <Stack>
         {current === 'profiles' && <PageProfilesPanel />}
         {current === 'violations' && (
           <>
-            <div className="filterbar">
+            <FilterBar>
               <StatusBadge tone="bad">HIGH {totals.HIGH ?? 0}</StatusBadge>
               <StatusBadge tone="warn">MEDIUM {totals.MEDIUM ?? 0}</StatusBadge>
               <StatusBadge tone="neutral">LOW {totals.LOW ?? 0}</StatusBadge>
-            </div>
+            </FilterBar>
             <PanelCard title="違反バーンダウン">
               {burndown.length >= 2 ? <LineChart points={burndown} color="var(--accent)" /> : <div className="text-sm">履歴 {burndown.length} 点</div>}
             </PanelCard>

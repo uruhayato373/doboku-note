@@ -30,6 +30,8 @@ import path from "path";
 import { readScheduledQueue } from "./lib/x-scheduled-queue.mjs";
 import { normalize, trigrams, jaccard } from "./lib/x-text-similarity.mjs";
 import { REPO_ROOT as ROOT } from "./lib/repository-paths.mjs";
+import { loadChannelPlan, loadXCampaigns } from "./lib/channel-plan.mjs";
+import { tweetsOutsidePlan } from "./lib/channel-plan-audit.mjs";
 
 const ARGV = process.argv.slice(2);
 const flag = (name, def) => {
@@ -64,7 +66,7 @@ function loadTweets() {
       try {
         const raw = JSON.parse(fs.readFileSync(f, "utf-8"));
         const list = raw.tweets
-          ? (Array.isArray(raw.tweets) ? raw.tweets : Object.values(raw.tweets))
+          ? (Array.isArray(raw.tweets) ? raw.tweets.map((t, i) => ({ n: String(i + 1), ...t })) : Object.entries(raw.tweets).map(([n, t]) => ({ n, ...t })))
           : [];
         list.forEach(t => out.push({ draft: name, ...t }));
       } catch { /* skip corrupt */ }
@@ -103,6 +105,12 @@ for (const [slot, items] of Object.entries(bySlot)) {
     blocks.push(`同時刻衝突 ${JST(items[0].scheduled_at)} に ${items.length}件: ` +
       items.map(t => `${t.draft}/${(t.title || t.text || "").slice(0, 20)}`).join(" | "));
   }
+}
+
+// 1.5 年間の枠 --------------------------------------------------------------
+// 枠の検査の対象の予約は、slot を持つ月次計画の行に結ばれていなければならない（config/channel-annual-plan.json）
+for (const line of tweetsOutsidePlan(loadChannelPlan(ROOT).channels.x, loadXCampaigns(ROOT), active)) {
+  blocks.push(`計画にない投稿 ${line}: 月次計画の行に slot を書く`);
 }
 
 // 2. near-duplicate ---------------------------------------------------------

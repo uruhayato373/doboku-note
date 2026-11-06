@@ -1,7 +1,7 @@
 import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import Link from 'next/link';
-import { DataTable, DetailList, DetailSheet, DetailText, type DataTableColumn, type DataTableRow, PanelCard, StatusBadge, TableBody, TableCell, TableFrame, TableHead, TableHeader, TableRow, type Tone } from '@/components/admin';
+import { DataTable, DetailList, DetailSheet, DetailText, type DataTableColumn, type DataTableRow, PanelCard, StatusBadge, TableBody, TableCell, TableFrame, TableHead, TableHeader, TableRow, type Tone, FilterBar, FilterChip } from '@/components/admin';
 import { Stack } from '@/components/layout';
 import { PageHead } from '@/components/ui';
 import { findRepoRoot } from '@/lib/repo-root';
@@ -110,12 +110,12 @@ export default async function SeriesPage({ searchParams }: { searchParams: Promi
   return (
     <>
       <PageHead title="シリーズ企画" />
-      <nav className="filterbar mb-3!">
+      <FilterBar className="mb-3!">
         {view.map((x) => (
-          <Link key={x.id} className={'chip' + (x.id === current ? ' active' : '')} href={`/content/series?s=${encodeURIComponent(x.id)}`}>{x.title}</Link>
+          <FilterChip key={x.id} active={x.id === current} href={`/content/series?s=${encodeURIComponent(x.id)}`}>{x.title}</FilterChip>
         ))}
-        <Link className={'chip' + (current === 'books' ? ' active' : '')} href="/content/series?s=books">書籍の割り当て</Link>
-      </nav>
+        <FilterChip active={current === 'books'} href="/content/series?s=books">書籍の割り当て</FilterChip>
+      </FilterBar>
       <Stack>
         {focus && outlineSet.outlines.get(focus) && (
           <ItemOutline itemKey={focus} title={pageList(focus).item?.title ?? focus} o={outlineSet.outlines.get(focus)!} />

@@ -1,14 +1,15 @@
 {
   "_comment": "check-admin-ui-debt のラチェット基準値。ページごとの生 card クラス・インライン style・生の <table>・生の badge クラス・shadcn の Card と Badge の直接利用・手で組んだ表の件数。増えたら CI が落ちる。shadcn 部品へ移して減らしたら `node scripts/check-admin-ui-debt.mjs --update` で下げる（DN-0432）。",
-  "_updatedAt": "2026-10-25",
+  "_updatedAt": "2026-11-06",
   "totals": {
     "rawCard": 0,
-    "inlineStyle": 0,
+    "inlineStyle": 2,
     "rawTable": 0,
-    "rawBadge": 0,
-    "uiCard": 1,
-    "uiBadge": 0,
-    "handTable": 14
+    "rawBadge": 4,
+    "uiCard": 2,
+    "uiBadge": 3,
+    "handTable": 16,
+    "handChip": 0
   },
   "files": {
     "tools/admin-app/src/app/content/items/[exam]/[work]/page.tsx": {
@@ -18,7 +19,8 @@
       "rawBadge": 0,
       "uiCard": 0,
       "uiBadge": 0,
-      "handTable": 5
+      "handTable": 5,
+      "handChip": 0
     },
     "tools/admin-app/src/app/content/ledger/coconala/[id]/page.tsx": {
       "rawCard": 0,
@@ -27,7 +29,8 @@
       "rawBadge": 0,
       "uiCard": 0,
       "uiBadge": 0,
-      "handTable": 1
+      "handTable": 1,
+      "handChip": 0
     },
     "tools/admin-app/src/app/content/lineup/page.tsx": {
       "rawCard": 0,
@@ -36,7 +39,8 @@
       "rawBadge": 0,
       "uiCard": 0,
       "uiBadge": 0,
-      "handTable": 1
+      "handTable": 1,
+      "handChip": 0
     },
     "tools/admin-app/src/app/content/series/page.tsx": {
       "rawCard": 0,
@@ -45,7 +49,8 @@
       "rawBadge": 0,
       "uiCard": 0,
       "uiBadge": 0,
-      "handTable": 1
+      "handTable": 1,
+      "handChip": 0
     },
     "tools/admin-app/src/app/metrics/kpi/page.tsx": {
       "rawCard": 0,
@@ -54,7 +59,8 @@
       "rawBadge": 0,
       "uiCard": 0,
       "uiBadge": 0,
-      "handTable": 1
+      "handTable": 1,
+      "handChip": 0
     },
     "tools/admin-app/src/app/metrics/search-strategy/page.tsx": {
       "rawCard": 0,
@@ -63,7 +69,8 @@
       "rawBadge": 0,
       "uiCard": 1,
       "uiBadge": 0,
-      "handTable": 0
+      "handTable": 0,
+      "handChip": 0
     },
     "tools/admin-app/src/app/plan/roadmap/page.tsx": {
       "rawCard": 0,
@@ -72,7 +79,8 @@
       "rawBadge": 0,
       "uiCard": 0,
       "uiBadge": 0,
-      "handTable": 1
+      "handTable": 1,
+      "handChip": 0
     },
     "tools/admin-app/src/app/schedule/page.tsx": {
       "rawCard": 0,
@@ -81,16 +89,8 @@
       "rawBadge": 0,
       "uiCard": 0,
       "uiBadge": 0,
-      "handTable": 2
-    },
-    "tools/admin-app/src/app/strategy/taxonomy/page.tsx": {
-      "rawCard": 0,
-      "inlineStyle": 0,
-      "rawTable": 0,
-      "rawBadge": 0,
-      "uiCard": 0,
-      "uiBadge": 0,
-      "handTable": 1
+      "handTable": 2,
+      "handChip": 0
     },
     "tools/admin-app/src/app/todo/page.tsx": {
       "rawCard": 0,
@@ -99,7 +99,88 @@
       "rawBadge": 0,
       "uiCard": 0,
       "uiBadge": 0,
-      "handTable": 1
+      "handTable": 1,
+      "handChip": 0
+    },
+    "tools/admin-app/src/components/channel-annual-board.tsx": {
+      "rawCard": 0,
+      "inlineStyle": 0,
+      "rawTable": 0,
+      "rawBadge": 0,
+      "uiCard": 0,
+      "uiBadge": 0,
+      "handTable": 2,
+      "handChip": 0
+    },
+    "tools/admin-app/src/components/CharacterCatalog.tsx": {
+      "rawCard": 0,
+      "inlineStyle": 1,
+      "rawTable": 0,
+      "rawBadge": 3,
+      "uiCard": 0,
+      "uiBadge": 0,
+      "handTable": 0,
+      "handChip": 0
+    },
+    "tools/admin-app/src/components/charts/BarChart.tsx": {
+      "rawCard": 0,
+      "inlineStyle": 1,
+      "rawTable": 0,
+      "rawBadge": 0,
+      "uiCard": 0,
+      "uiBadge": 0,
+      "handTable": 0,
+      "handChip": 0
+    },
+    "tools/admin-app/src/components/CopyButton.tsx": {
+      "rawCard": 0,
+      "inlineStyle": 0,
+      "rawTable": 0,
+      "rawBadge": 1,
+      "uiCard": 0,
+      "uiBadge": 0,
+      "handTable": 0,
+      "handChip": 0
+    },
+    "tools/admin-app/src/components/DocRootView.tsx": {
+      "rawCard": 0,
+      "inlineStyle": 0,
+      "rawTable": 0,
+      "rawBadge": 0,
+      "uiCard": 1,
+      "uiBadge": 0,
+      "handTable": 0,
+      "handChip": 0
+    },
+    "tools/admin-app/src/components/MetricsOverview.tsx": {
+      "rawCard": 0,
+      "inlineStyle": 0,
+      "rawTable": 0,
+      "rawBadge": 0,
+      "uiCard": 0,
+      "uiBadge": 0,
+      "handTable": 1,
+      "handChip": 0
+    },
+    "tools/admin-app/src/components/MonthlyReviewPlan.tsx": {
+      "rawCard": 0,
+      "inlineStyle": 0,
+      "rawTable": 0,
+      "rawBadge": 0,
+      "uiCard": 0,
+      "uiBadge": 1,
+      "handTable": 0,
+      "handChip": 0
+    },
+    "tools/admin-app/src/components/ui.tsx": {
+      "rawCard": 0,
+      "inlineStyle": 0,
+      "rawTable": 0,
+      "rawBadge": 0,
+      "uiCard": 0,
+      "uiBadge": 2,
+      "handTable": 0,
+      "handChip": 0
     }
   }
 }

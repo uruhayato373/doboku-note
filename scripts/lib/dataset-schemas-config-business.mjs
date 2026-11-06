@@ -19,7 +19,7 @@ const strList = z.array(text);
 
 const DIRECTION_STAGES = ['集客', '学習', '送客', '販売', '運営', '品質'];
 const DIRECTION_CHANNELS = BUSINESS_CHANNELS;
-const DIRECTION_UNITS = ['人', '回', '件', '円', '分', '人日'];
+const DIRECTION_UNITS = ['人', '回', '件', '円', '分', '人日', '%'];
 
 /** 事業方針（重点資格・北極星・指標の定義・レビュー周期）。判定（資格 id の重複・appliesTo の実在）は scripts/lib/business-direction.mjs の direction() が見る */
 export const ConfigBusinessDirection = z
@@ -66,6 +66,19 @@ export const ConfigBusinessDirection = z
             label: text,
             unit: z.enum(DIRECTION_UNITS),
             definition: text.describe('指標の定義（何を数え、何と区別するか）'),
+            dataSource: z
+              .object({
+                report: z.string().min(1).optional().describe('週次レポートの種類（metric-reports.mjs の REPORT_KINDS）'),
+                dataset: z.string().min(1).optional().describe('時系列の台帳 id（datasets.mjs）'),
+                rows: z.string().min(1).optional().describe('dataset の行の配列のキー'),
+                match: z.object({ key: z.string().min(1), value: z.string().min(1) }).strict().optional().describe('行を絞る列と値'),
+                campaigns: z.enum(['video-packs', 'x-campaigns']).optional().describe('utm_campaign の集合で行を絞る'),
+                field: z.string().min(1).describe('数える列'),
+              })
+              .strict()
+              .refine((s) => Boolean(s.report) !== Boolean(s.dataset), 'report か dataset のどちらか 1 つ')
+              .optional()
+              .describe('計測の取得元。状態はここから実データで判定する（scripts/lib/metric-status.mjs）。無ければ未計測'),
             channel: z.enum(DIRECTION_CHANNELS).describe('取得元'),
             appliesTo: z.array(z.string().min(1)).min(1).optional().describe('計測する範囲（all か資格 id）。無ければ全資格が対象'),
           })

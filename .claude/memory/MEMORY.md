@@ -28,6 +28,7 @@
 - [シェルの失敗で停止](feedback_shell_fail_fast.md) — assert失敗後のGit操作禁止・巨大JSONはparseで確認
 - [スクリプト編集安全](feedback_mdx_script_frontmatter_safety.md) — frontmatter分離・Python CR・引用符なしheredoc禁止
 - [計測はCI供給](feedback_metrics_cicd_supplied.md) — PSIはfield・GAはSSR
+- [計測の仕組みの前に](feedback_measure_before_building_tracking.md) — 既存データと規模を先に見る
 - [並行セッションgit](feedback_multi_session_concurrent_git.md) — pathspec commit・復元禁止
 - [worktreeの管理外データ](feedback_worktree_ignored_data.md) — 中身をコピー・tracked未コミットは脇へ
 - [成否は実体で確認](feedback_commit_result_check.md) — commit後HEAD・grepで隠さない・args実物
@@ -68,7 +69,7 @@
 - [NSM・領域・週次](project_nsm.md) — 月受取額NSM・8領域・週次
 - [モデル前提](project_model_assumptions.md) — Opus5.5前提・棚卸し済
 - [分類SSOT](project_content_taxonomy.md) — 領域×資格×型×タグ
-- [GSC/SEO方針](project_gsc_pivot_2026_04.md) — CTA最適化・AdSense・ピラー
+- [GSC/SEO方針](project_gsc_pivot_2026_04.md) — CTA最適化・AdSense再開2026-11・ピラー
 - [集客・誘導への重点移行](project_access_funnel_phase_2026_11.md) — 技術士はnote側・土木は持ち越し・棚の不足はDN台帳
 - [収益診断](project_revenue_diagnosis_2026_06.md) — 受取額・note流入元実測
 - [note収益戦略](project_note_revenue_strategy_2026.md) — 価格ラダー・競合・精読スコープ
@@ -82,6 +83,7 @@
 - [OGP・カバー](project_ogp_design_ssot.md) — OGP SSOT・G2色
 - [動画パック](project_video_content_pipeline.md) — YouTube基盤DN-0110
 - [SNS v7・IG](project_sns_v7_pivot.md) — BS投稿のみ・論点パック
+- [チャネル年間計画](project_channel_annual_plan.md) — 枠と型の台帳を一本化・保留の解除は別判断
 - [X運用](project_x_account_reboot_2026_06.md) — 凍結対策・偽成功確認
 - [iOSアプリ](project_ios_app_spec_v1_1.md) — 技術士・土木の2本・全年度¥1,480
 - [note書込自動化](project_note_write_automation.md) — Playwright・CTAインフラ

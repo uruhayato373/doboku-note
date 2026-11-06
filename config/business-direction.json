@@ -275,6 +275,111 @@
       "channel": "GA4",
       "appliesTo": [
         "all"
+      ],
+      "dataSource": {
+        "report": "ga4.source-medium-sns",
+        "match": {
+          "key": "sourceMedium",
+          "value": "youtube / video"
+        },
+        "field": "activeUsers"
+      }
+    },
+    {
+      "id": "xUsers",
+      "stage": "集客",
+      "label": "X 経由のサイト利用者",
+      "unit": "人",
+      "definition": "GA4・日本・セッションの参照元が x（投稿のリンクの utm_source=x）のアクティブユーザー。期間全体を重複排除した値。目標は実測を見てから決める（2026-11-06・config/channel-annual-plan.json）。",
+      "channel": "GA4",
+      "appliesTo": [
+        "all"
+      ],
+      "dataSource": {
+        "report": "ga4.source-medium-sns",
+        "match": {
+          "key": "sourceMedium",
+          "value": "x / social"
+        },
+        "field": "activeUsers"
+      }
+    },
+    {
+      "id": "instagramUsers",
+      "stage": "集客",
+      "label": "Instagram 経由のサイト利用者",
+      "unit": "人",
+      "definition": "GA4・日本・セッションの参照元が instagram（プロフィールのリンクの utm_source=instagram）のアクティブユーザー。期間全体を重複排除した値。目標は実測を見てから決める（2026-11-06・config/channel-annual-plan.json）。",
+      "channel": "GA4",
+      "appliesTo": [
+        "all"
+      ],
+      "dataSource": {
+        "report": "ga4.source-medium-sns",
+        "match": {
+          "key": "sourceMedium",
+          "value": "instagram / social"
+        },
+        "field": "activeUsers"
+      }
+    },
+    {
+      "id": "youtubeCampaignClicks",
+      "stage": "送客",
+      "label": "動画からの教材クリック",
+      "unit": "回",
+      "definition": "動画の概要欄の UTM 付きリンクからサイトへ来たセッションの教材クリック（note_cta_click）。utm_campaign が動画パックの id。概要欄から note へ直接行ったクリックは取れないので含まない。購入者とは結ばない。",
+      "channel": "GA4",
+      "appliesTo": [
+        "all"
+      ],
+      "dataSource": {
+        "report": "ga4.campaign-note-cta",
+        "campaigns": "video-packs",
+        "field": "eventCount"
+      }
+    },
+    {
+      "id": "xCampaignClicks",
+      "stage": "送客",
+      "label": "X からの教材クリック",
+      "unit": "回",
+      "definition": "X の投稿の UTM 付きリンクからサイトへ来たセッションの教材クリック（note_cta_click）。投稿から note へ直接行ったクリックは取れないので含まない。購入者とは結ばない。",
+      "channel": "GA4",
+      "appliesTo": [
+        "all"
+      ],
+      "dataSource": {
+        "report": "ga4.campaign-note-cta",
+        "campaigns": "x-campaigns",
+        "field": "eventCount"
+      }
+    },
+    {
+      "id": "averageViewPercentage",
+      "stage": "集客",
+      "label": "動画の視聴維持",
+      "unit": "%",
+      "definition": "公開後 28 日の平均視聴率（averageViewPercentage）。型ごとに中央値で比べる。",
+      "channel": "youtube",
+      "appliesTo": [
+        "all"
+      ],
+      "dataSource": {
+        "dataset": "youtube.analytics",
+        "rows": "videos",
+        "field": "averageViewPercentage"
+      }
+    },
+    {
+      "id": "igSaves",
+      "stage": "集客",
+      "label": "Instagram の保存数",
+      "unit": "回",
+      "definition": "投稿ごとの保存数。型ごとに中央値で比べる。Graph API は使わない判断（2026-09-23）のため取得元が無く、Business Suite の画面から取るかは DN-1007 で決める。",
+      "channel": "instagram",
+      "appliesTo": [
+        "all"
       ]
     },
     {

@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import { FilterBar, FilterChip } from '@/components/admin';
 
 /**
  * サイドバー 1 項目の中を画面内タブで切り替える（サイドバー側は domains.json の match＋matchAlso）。
@@ -25,12 +25,12 @@ export const TAB_SETS = {
 
 export default function SectionTabs({ set, current }: { set: keyof typeof TAB_SETS; current: string }) {
   return (
-    <nav className="filterbar" style={{ marginBottom: 12 }}>
+    <FilterBar>
       {TAB_SETS[set].map((t) => (
-        <Link key={t.href} href={t.href} className={'chip' + (t.href === current ? ' active' : '')}>
+        <FilterChip key={t.href} href={t.href} active={t.href === current}>
           {t.label}
-        </Link>
+        </FilterChip>
       ))}
-    </nav>
+    </FilterBar>
   );
 }

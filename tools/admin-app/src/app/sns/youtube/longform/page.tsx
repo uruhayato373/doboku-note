@@ -6,6 +6,7 @@ import { roadmapHref } from '@/lib/content-plan-links';
 import { loadLongformPlan, loadPlanAudit } from '../../../../../../../scripts/lib/youtube-longform-plan.mjs';
 import { loadRoadmap, monthsOf, examTimeline } from '../../../../../../../scripts/lib/annual-roadmap.mjs';
 import { readDataset } from '../../../../../../../scripts/lib/dataset-io.mjs';
+import { loadMetricStatuses, metricStateLabel } from '../../../../../../../scripts/lib/metric-status.mjs';
 
 export const dynamic = 'force-dynamic';
 
@@ -31,6 +32,11 @@ export default async function LongformPage({ searchParams }: { searchParams: Pro
     });
     return [s.id, { format: formats.get(s.format)?.label ?? s.format, formatStatus: formats.get(s.format)?.status ?? '不明', anchors }];
   }));
+  const statuses = loadMetricStatuses(root) as Map<string, { label: string; definition: string; state: string }>;
+  const metricLines = ((board?.plan.metrics.primary ?? []) as string[]).map((id) => {
+    const s = statuses.get(id);
+    return s ? `${s.label}（${metricStateLabel(s.state)}）: ${s.definition}` : id;
+  });
   const videoExams = new Set(board?.rows.map((r) => r.exam) ?? []);
   const exams = examTimeline(calendar, [...videoExams], cfg.period, cfg.buyWindowWeeks);
   const periods = Object.entries(calendar.exams as Record<string, { periods?: Record<string, { label: string; window: string }> }>)
@@ -40,9 +46,9 @@ export default async function LongformPage({ searchParams }: { searchParams: Pro
   return <>
     <PageHead title="通常動画の制作・公開管理" />
     <nav className="project-crumbs" aria-label="関連する計画と台帳">
-      <Link href={roadmapHref(month)}>年間ロードマップ</Link> · <Link href={`/schedule?dom=sns${month ? `&m=${month}` : ''}`}>SNS全体の予定</Link> · <Link href="/content/video">動画パック</Link>
+      <Link href={roadmapHref(month)}>年間ロードマップ</Link> · <Link href="/plan/roadmap?tab=channels">チャネルの年間の枠</Link> · <Link href={`/schedule?dom=sns${month ? `&m=${month}` : ''}`}>SNS全体の予定</Link> · <Link href="/content/video">動画パック</Link>
     </nav>
-    {board ? <VideoAnnualPlan board={board} planAudit={planAudit} slotInfo={slotInfo} months={months} exams={exams} periods={periods} month={month} exam={sp.e} library={sp.library === '1'} view={sp.s} tab={sp.tab} />
+    {board ? <VideoAnnualPlan board={board} planAudit={planAudit} metricLines={metricLines} slotInfo={slotInfo} months={months} exams={exams} periods={periods} month={month} exam={sp.e} library={sp.library === '1'} view={sp.s} tab={sp.tab} />
       : <p>動画計画を取得できません: {error}</p>}
   </>;
 }

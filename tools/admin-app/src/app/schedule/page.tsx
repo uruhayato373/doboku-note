@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { join } from 'node:path';
-import { DataTable, DetailList, DetailSheet, PanelCard, StatusBadge, type DataTableColumn, type DataTableRow, type Tone, TableBody, TableCell, TableFrame, TableHead, TableHeader, TableRow } from '@/components/admin';
+import { DataTable, DetailList, DetailSheet, PanelCard, StatusBadge, type DataTableColumn, type DataTableRow, type Tone, TableBody, TableCell, TableFrame, TableHead, TableHeader, TableRow, FilterBar, FilterChip } from '@/components/admin';
 import { PageHead } from '@/components/ui';
 import { findRepoRoot } from '@/lib/repo-root';
 import {
@@ -339,14 +339,14 @@ export default async function SchedulePage({ searchParams }: { searchParams: Pro
   return (
     <>
       <PageHead title="スケジュール" />
-      <div className="filterbar">
-        <Link href={href(query, { dom: undefined, ch: undefined })} className={'chip' + (!domain ? ' active' : '')}>すべて</Link>
+      <FilterBar>
+        <FilterChip href={href(query, { dom: undefined, ch: undefined })} active={!domain}>すべて</FilterChip>
         {DOMAINS.map((d) => (
-          <Link key={d.id} href={href(query, { dom: d.id, ch: undefined })} className={'chip' + (domain === d.id ? ' active' : '')}>
+          <FilterChip key={d.id} href={href(query, { dom: d.id, ch: undefined })} active={domain === d.id}>
             {d.label}
-          </Link>
+          </FilterChip>
         ))}
-      </div>
+      </FilterBar>
       <ChannelHealth board={board} />
       <MonthNav month={month} query={query} />
       <MonthGrid month={month} events={monthEvents} query={query} today={today} />

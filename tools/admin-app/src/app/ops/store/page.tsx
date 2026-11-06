@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { DataTable, DetailList, DetailSheet, DetailText, PanelCard, StatusBadge, type DataTableColumn } from '@/components/admin';
+import { DataTable, DetailList, DetailSheet, DetailText, PanelCard, StatusBadge, type DataTableColumn, FilterBar, FilterChip } from '@/components/admin';
 import { Stack } from '@/components/layout';
 import { PageHead } from '@/components/ui';
 import { isStoreArea, loadStoreView, type StoreView } from '@/lib/stores';
@@ -155,13 +155,13 @@ function Detail({ v, q, t }: { v: StoreView; q?: string; t?: string }) {
 
       {x.path === REGISTRY_PATH && <QualificationSsot />}
 
-      <nav className="filterbar mb-3!">
+      <FilterBar className="mb-3!">
         {tabs.map((tab) => (
-          <Link key={tab.id} className={'chip' + (tab.id === current ? ' active' : '')} href={tabHref(tab.id)}>
+          <FilterChip key={tab.id} active={tab.id === current} href={tabHref(tab.id)}>
             {tab.label}
-          </Link>
+          </FilterChip>
         ))}
-      </nav>
+      </FilterBar>
 
       {current === 'schema' && (x.schema ? (
         <PanelCard title={<>型 {fail ? <StatusBadge tone="bad">違反 {fail} 件</StatusBadge> : <StatusBadge tone="good">{x.schema.checked} ファイルが型に合う</StatusBadge>}</>}>

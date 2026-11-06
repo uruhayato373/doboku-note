@@ -21,20 +21,52 @@
 
 ## 🔴 高 — 重要度が高い
 
-### [DN-1005] 動画から note へのクリックを計測できるようにする
-タグ: [領域:SNS] [時期:2026-11..2026-12] [種類:改善] [起票:2026-11-06]
+### [DN-1012] 資格キーの変換を導出にして全資格をテストで固定する
+タグ: [エージェント・SSOT] [領域:SNS] [時期:2026-11] [種類:不具合] [起票:2026-11-06]
 
-**起点**: 2026-11-06 の決定で、YouTube の成功指標を動画からの note クリックと視聴維持にした。動画の概要欄から note へのクリックは今は取れない。YouTube Analytics の指標に概要欄のリンクのクリックは無く、note の流入元（`data/note/referrers/`）にも youtube の行が無い。`no referrer` に埋もれている可能性がある（2026-10 で 10,249）。
+**起点**: 2026-11-06 の冗長コード監査（jscpd・Codex・実コードの照合）。資格 id の別名を変換する表が `longform-render.mjs:25` の `EXAM_TO_PALETTE`、`registry-x-state.mjs:21` の `EXAM_ALIAS`、`exam-brand.ts` の `QUALIFICATION_TO_EXAM_KEY`、`hub-cta.ts` の `examKey`、`past-exam-ledger.mjs` の `quizExam` に分かれる。実測で rccm・pe-water-supply・civil-construction-1-2・surveying・pavement・pipe-work が `EXAM_TO_PALETTE` にない。`render-instagram-video-pack-*` は `resolveExam(undefined)` で落ちるコードで、`image-rules.mjs` は `?? exam` で通るので呼び出し元で結果が変わる。例外の実行は未確認。`check-qualification-ssot` は名前だけを見てキー変換を見ない。
 
-**やること**: 取り方を決めて実装する。案は、概要欄の主 CTA をサイトの短い転送ページ経由にし、GA4 にイベントを残して note へ送る形。静的サイトで転送できるか、YouTube の外部リンクの扱い、視聴者の離脱を確かめる。既に公開した動画の概要欄を変えると digest と承認に影響するので、新しい予約から適用する。
+**やること**: `note-cover-tokens.json` の `qualification` から変換を導出する。`exam-palette.mjs` を描画に依存しない場所へ置き、`image-rules.mjs` から `longform-render.mjs` への依存を外す。
 
-**完了条件**: 動画ごとの note クリックが取れ、`config/youtube-longform-plan.json` の `youtubeNoteClicks` の status が measured になっている。
+**完了条件**: registry の全資格について変換できるか、未対応と明示されているかをテストが確かめる。呼び出し元ごとの fallback の違いが無くなる。
+
+
+### [DN-1011] hub-cta とココナラの TS 文字列解析を商品の読み口へ移す
+タグ: [エージェント・SSOT] [領域:商品] [時期:2026-12] [種類:改善] [起票:2026-11-06]
+
+**起点**: 2026-11-06 の冗長コード監査（jscpd・Codex・実コードの照合）。`hub-cta.ts` は `site-to-sales.mjs` の `parseHubProducts` と `check-magazine-cta-reachability.ts:120` が文字列で読む。ココナラは `coconala-catalog.mjs:21`・`check-coconala-wiring.mjs:95`・`check-x-campaign-plan.mjs:65`・`schedule-events.mjs:806` が `coconala-services.ts` を読む。ココナラ側は関数の存在まで確認し、解析の中身の差は未確認。
+
+**やること**: ココナラ 4 か所の差を確かめ、商品の読み口へ載せる。`HUB` の商品指定はデータへ移す。
+
+**完了条件**: 新しいチャネルや商品を足しても TS を文字列で読むコードが増えない。ココナラの解析が 1 か所になっている。
+
+
+### [DN-1010] note 商品カタログの読み口を 1 つにして TS の正規表現解析をやめる
+タグ: [エージェント・SSOT] [領域:商品] [時期:2026-11..2026-12] [種類:改善] [起票:2026-11-06]
+
+**起点**: 2026-11-06 の冗長コード監査（jscpd・Codex・実コードの照合）。正本は `config/products.json` で `src/lib/note-magazines.ts` は生成物だが、7 か所が別々の正規表現で読む: `sales-mapping.mjs:35`・`site-to-sales.mjs:54`・`check-magazine-membership.mjs:101`・`check-note-vocabulary-boundary.mjs:61`・`check-x-review.mjs:18`・`note-article-price-sweep.mjs:100`・管理画面 `content.ts:86`。2026-09-13 に単品 10 件が unknown になった記録が `sales-mapping.mjs` にある。現時点では `catalogMagazines` と `parseNoteCatalog` が 175 件で一致する。
+
+**やること**: `product-registry.mjs` の `loadProducts()` の上に読み口を作り、売上系→検査系→管理画面の順に置き換える。生成物そのものの形を確かめる検査は残す。
+
+**完了条件**: `note-magazines.ts` を正規表現で読むコードが、生成物の形の検査を除いて 0 件。売上の対応付けの結果が移行の前後で変わらない。
+
+
+### [DN-1009] note スクリプト 5 本にアカウント確認を足す
+タグ: [インフラ・計測] [領域:商品] [時期:2026-11] [種類:不具合] [起票:2026-11-06]
+
+**起点**: 2026-11-06 の冗長コード監査（jscpd・Codex・実コードの照合）。`note-article-price-sweep`・`note-edit-session`・`note-edit-magazine`・`note-magazine-add-articles`・`note-magazine-remove-articles` にアカウント確認の処理が見当たらない（文字列検索で確認）。別アカウントのまま書き込む経路が残り、`note-article-price-sweep` は有料境界を壊し得ると `note-api-verification.md` に記録がある。書き込み経路を読んだのは price-sweep と edit-magazine だけで、残り 3 本は未確認。
+
+**やること**: 5 本の書き込み経路を確かめ、ブラウザ操作の前に `scripts/lib/note-browser.mjs` の `assertAccountGate` を通す。読み取りだけのものは理由を書いて対象から外す。
+
+**完了条件**: 書き込むスクリプトすべてが、確認に失敗すると何もせず止まる。26 本への全面移行は別カード。
+
+
 
 
 ### [DN-1004] YouTube 年間の枠の未決定の論点を運営者が決める
 タグ: [領域:SNS] [時期:2026-11] [種類:意思決定] [起票:2026-11-06]
 
-**起点**: 2026-11-06 に YouTube の年間の枠を `config/youtube-longform-plan.json` へ入れた。枠の案は作ったが、次は運営者が決める。一覧は `npm run check-youtube-plan` の「採否待ち」「要対応」。
+**起点**: 2026-11-06 に YouTube の年間の枠を `config/channel-annual-plan.json` へ入れた。枠の案は作ったが、次は運営者が決める。一覧は `npm run check-youtube-plan` の「採否待ち」「要対応」。
 
 **決めること**:
 1. 公開の頻度: 週 2 本・山場 3 本、年 89 本の枠でよいか
@@ -442,14 +474,140 @@
 
 ## 🟡 中 — 重要度が中くらい
 
-### [DN-1006] YouTube 年間計画を 3 か月の実測で見直す
+### [DN-1028] Instagram の投稿は増やさず、ハイライトの導線を作って流入を測る
+タグ: [領域:SNS] [時期:2026-12..2027-01] [種類:改善] [起票:2026-11-06]
+
+**起点**: 2026-11-06 に Instagram の流入を調べた。投稿の本文のリンクは押せず、プロフィールのリンクは 1 本で UTM が付いたのは 2026-10-31、ハイライトは公開画面で「技術士総監」の 1 つだけ、ストーリーズのリンクスタンプは作っていなかった。4 月以降の流入は `instagram / social` が 5 セッション、`l.instagram.com / referral` が 6 セッションで、UTM は GA4 に届いている。導線が無いまま投稿 160 件を出していたので、Instagram の効果はまだ判断できない。
+
+**やること**:
+
+1. 年間の投稿枠 8 枠・48 本は保留のまま増やさない
+2. Business Suite のストーリーズでリンクスタンプを付けられるかを確かめる（DN-0415 を統合した項目と同じ）
+3. リンクスタンプ付きのストーリーズを作り、ハイライトに固定する。まず総監と 1 級土木。ハイライトへの登録はスマホアプリだけなので運営者の手作業
+4. 4〜8 週間、`npm run metric-status` と GA4 の `instagram / social` で流入の変化を見て、続けるか凍結するかを決める
+5. あわせて直す: 週次の取得条件に `l.instagram.com` を足す。`config/ig-account.json` のハイライトの記載を実態に合わせる。DN-1027 の問いには上の実測で答えが出たので閉じる
+
+**完了条件**: ハイライトの導線が公開され、4 週間以上の流入の記録をもとに、継続か凍結かの判断が `data/business/records/` に残っている。
+
+
+### [DN-1027] Instagram のプロフィールのリンクの UTM が GA4 に届くかを実機で確かめる
+タグ: [領域:SNS] [時期:2026-11] [種類:改善] [起票:2026-11-06]
+
+**起点**: 2026-11-06 に `npm run metric-status` を作って確かめたところ、`instagramUsers` は「該当の行なし」だった。残っている GA4 レポート 21 回分のどれにも、Instagram の行と `bio-link` の行が 1 度も無い。取得の条件には instagram が入っているので、本当に流入が無いのか、プロフィールのリンクの UTM が GA4 に届いていないのかを切り分けられていない。
+
+**やること**: スマートフォンの Instagram アプリからプロフィールのリンクを開き、GA4 のリアルタイムで `utm_source=instagram` のセッションが出ることを確かめる。出なければアプリ内ブラウザの扱いと `/links` の計測を調べて直す。
+
+**完了条件**: 実機の 1 回が GA4 に出ることを確かめ、`instagramUsers` の「該当の行なし」が 0 に近い実績なのか不具合なのかを記録している。
+
+
+### [DN-1025] note スクリプトの起動と確認を note-browser へ移す
+タグ: [インフラ・計測] [領域:商品] [時期:2027-01] [種類:改善] [起票:2026-11-06]
+
+**起点**: 2026-11-06 の冗長コード監査（jscpd・Codex・実コードの照合）。`scripts/note-*.mjs` 26 本が `launchPersistentContext` を直接呼び、`launchNoteContext` を使うのは 3 本だけ。21 本が `settings/account` の確認を手書きし、`assertAccountGate` を使うのは 3 本だけ。note の画面や認証が変わると、操作ごとに成功と失敗が分かれる。
+
+**やること**: スクリプトを触るときに `launchNoteContext` と `assertAccountGate` へ移す。viewport と待機の実測値は引数で保つ。有料境界や更新の処理は共通化しない。
+
+**完了条件**: note スクリプトの起動と確認の手書きが 0 件。
+
+
+### [DN-1020] YouTube の R2 配置スクリプトの共通処理を lib へ移す
+タグ: [インフラ・計測] [領域:SNS] [時期:2027-01] [種類:改善] [起票:2026-11-06]
+
+**起点**: 2026-11-06 の冗長コード監査（jscpd・Codex・実コードの照合）。jscpd が `stage-youtube-renders-r2.mjs` と `stage-youtube-shorts-r2.mjs` の間に 5 ブロック 64 行の重複を検出した。内容は Shorts 側の冒頭まで確認し、重複部分は未読。読み戻し検証を片方だけ直す恐れがある。
+
+**やること**: 重複部分を読み、アップロードと sha256 の読み戻し検証を lib へ移す。
+
+**完了条件**: 2 本の差が対象の違いだけになる。dry-run の出力が移行の前後で変わらない。
+
+
+### [DN-1019] scripts と管理画面の URL 組み立てを route-paths の共有関数へ移す
+タグ: [インフラ・計測] [領域:サイト] [時期:2027-01] [種類:改善] [起票:2026-11-06]
+
+**起点**: 2026-11-06 の冗長コード監査（jscpd・Codex・実コードの照合）。`tests/route-paths-ratchet.test.mjs` は `src` だけが対象で、scripts と admin に 10 か所の組み立てがある（`standards-render-targets.mjs:24`・`standards-part-targets.mjs:32`・`affiliate-layout-judge.mjs:92`・`build-llms-txt.mjs:41`・`fetch-business-metrics.mjs:39` など）。一部は組み立てではなく前方一致の判定に使う。
+
+**やること**: 純粋なパス関数を `.mjs` にして共有し、組み立ての箇所を移す。ラチェットの対象を scripts と admin へ広げる。
+
+**完了条件**: URL の形を変える修正が共有関数だけで済む。ラチェットが scripts と admin の直書きを止める。
+
+
+### [DN-1018] 管理画面の台帳の型を Zod スキーマから導出する
+タグ: [エージェント・SSOT] [領域:管理] [時期:2027-01] [種類:改善] [起票:2026-11-06]
+
+**起点**: 2026-11-06 の冗長コード監査（jscpd・Codex・実コードの照合）。`dataset-schemas-config-ops.mjs:816` に Zod スキーマがあるが、`tools/admin-app/src/lib/automations.ts:15,65` は手書きの型へキャストして読む。管理画面の `JSON.parse(readFileSync` は 27 ファイル、データセット経由は 22 ファイル。automations 以外の中身は未確認で、件数まで。
+
+**やること**: よく変わる台帳から順に、スキーマから型を導出し、読み取り時に検証を通す。
+
+**完了条件**: automations で台帳に欄を足すと型検査が知らせる。残りの台帳の移行範囲が決まっている。
+
+
+### [DN-1017] どこからも呼ばれない CLI を検出するレポートを足す
+タグ: [エージェント・SSOT] [領域:管理] [時期:2027-01] [種類:改善] [起票:2026-11-06]
+
+**起点**: 2026-11-06 の冗長コード監査（jscpd・Codex・実コードの照合）。`knip.json` は `scripts/**` を全部 entry にし、`tools/admin-app` を project に含めないので、使われなくなった CLI を検出できない。休止中の `generate-guide-covers.mjs` は `package.json:420` と routes に残るが `public/images/guide-covers` はない。knip の現状は exports 7・types 17・unlisted 4・unresolved 1。管理画面の孤立ファイルは import の簡易検査で 0 件。
+
+**やること**: npm script・workflow・skill・docs から到達しない CLI を一覧にするレポートを足し、週次で読む。`generate-guide-covers.mjs` を残すか消すかを決める。管理画面を knip の対象へ入れるかも決める。
+
+**完了条件**: 到達しない CLI の一覧が検査件数つきで出る。`generate-guide-covers.mjs` の扱いが決まっている。
+
+
+### [DN-1016] scripts と src と .claude/scripts の依存の向きを整理する
+タグ: [エージェント・SSOT] [領域:管理] [時期:2027-01] [種類:改善] [起票:2026-11-06]
+
+**起点**: 2026-11-06 の冗長コード監査（jscpd・Codex・実コードの照合）。grep の概数で scripts→src 59 行、src→scripts 3 行、admin→scripts 191 行、scripts→`.claude/scripts` 41 行、`.claude/scripts`→scripts 193 行。向きが双方向で、層の区別がないので境界の検査を置けない。
+
+**やること**: まず `.claude/scripts/sns/lib/exam-palette.mjs` を `scripts/lib` へ移す（資格キーのカードと一緒に進めてよい）。その後、ブラウザと Node の両方で使う純粋な関数の置き場を決める。
+
+**完了条件**: scripts から `.claude/scripts` への import が 0 件。純粋な関数の置き場が決まり、向きの検査が入っている。
+
+
+### [DN-1015] check-image-rules で codex の直接起動も検出する
+タグ: [エージェント・SSOT] [領域:管理] [時期:2026-12] [種類:改善] [起票:2026-11-06]
+
+**起点**: 2026-11-06 の冗長コード監査（jscpd・Codex・実コードの照合）。`codex exec` の起動は `scripts/lib/codex-image.mjs` の 1 か所で、現在の迂回はない。ただし `image-rules.mjs:23` は import 文だけを見るので `spawn('codex', …)` を直接書いても検査を通る。`tools/admin-app` と `src` は走査の対象外。
+
+**やること**: `codex-image.mjs` 以外の `codex` の直接起動を検出し、走査の対象を広げる。回帰テストを足す。
+
+**完了条件**: 直接起動を書いた偽のファイルで検査が落ちるテストがある。実リポジトリでは通る。
+
+
+### [DN-1014] AI 画像の生成指示の置き場を config.image-generation へ寄せる
+タグ: [エージェント・SSOT] [領域:SNS] [時期:2026-12] [種類:改善] [起票:2026-11-06]
+
+**起点**: 2026-11-06 の冗長コード監査（jscpd・Codex・実コードの照合）。生成指示が `config/image-generation.json`・`config/image-limits.json` の `aiPhoto`・コード内（`generate-guide-covers.mjs`・`generate-ogp-backgrounds.mjs`）の 3 か所にある。OGP 背景の `EXAMS` は 6 資格でトークンは 14 資格。背景がない資格の表示は未確認。
+
+**やること**: `aiPhoto` の指示と OGP の指示を `config.image-generation` へ寄せ、モチーフも設定へ移す。背景がない資格の表示を確かめる。
+
+**完了条件**: 共通の指示を 1 か所直すと全経路に届く。コード内に指示の文が残らない。
+
+
+### [DN-1013] AI 画像の来歴と台帳の記録を image-origin に集める
+タグ: [エージェント・SSOT] [領域:SNS] [時期:2026-12] [種類:改善] [起票:2026-11-06]
+
+**起点**: 2026-11-06 の冗長コード監査（jscpd・Codex・実コードの照合）。来歴を `media.mjs:49`・`shorts-candidate-sources.mjs:18`・`media-plate.mjs:63,78`・`gen-article-photo.mjs:132` が別々に書く。`media-plate` は `image-origin.mjs:92` の `promptSha`（trim する）を使わず自前で hash を作る。hash の値が実際に食い違うかは未確認。`media-plate` は `codex-image` の一時フォルダ名も知っている。
+
+**やること**: `image-origin.mjs` に `aiProvenance()` と `recordAiImage()` を置き、4 か所から呼ぶ。一時フォルダの後始末は `codex-image` へ移す。hash の食い違いがあれば既存の記録の扱いも決める。
+
+**完了条件**: 来歴の行と台帳の hash を作るコードが 1 か所。既存の台帳の照合が通る。
+
+
+### [DN-1008] PR #1423 のマージ後に台帳だけの push で CI が走らないことを確かめる
+タグ: [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-11-06]
+
+**起点**: 2026-11-06 に PR #1423 で `ci.yml` の push の `paths-ignore` へ `.claude/todo/**` と `.claude/state/todo-claims.json` を足した。この設定は develop の push で初めて効くので、PR の CI では動きを確かめられない。
+
+**やること**: マージ後の最初の台帳だけの push について、`gh run list --workflow ci.yml --commit <sha>` で実行が無いことを確かめる。あわせて `npm run deploy:main -- --dry-run` が先端の台帳の commit で止まらないことを確かめ、`.claude/worktrees/ci-push-scope` を片付ける。
+
+**完了条件**: 台帳だけの push で Pre-merge check が 0 件で、台帳以外の push では今までどおり走っている。worktree が消えている。
+
+
+### [DN-1006] YouTube・X・Instagram の年間計画を 3 か月の実測で見直す
 タグ: [領域:SNS] [時期:2027-02] [種類:意思決定] [起票:2026-11-06] [期日:2027-02-05]
 
-**起点**: 2026-11-06 に決めた YouTube 年間計画の 3 か月後の見直し。
+**起点**: 2026-11-06 に決めた YouTube 年間計画の 3 か月後の見直し。同じ日に足した X・Instagram の枠（`channels`）も同じ日に見直す。X は `xUsers` と資格×型の反応、Instagram は `instagramUsers` と試行を続けるかを見る。
 
-**やること**: 2026-11-16 以降の公開について、型ごとの平均視聴率（28 日）、動画からの note クリック（取れていなければ補助の YouTube 経由のサイト利用者とサイトからの note クリック）、制作時間を見て、枠・本数・週の上限を見直す。目標値はこの実測から決める。欠測は 0 にしない。2027 年度の公式日程が出ていれば `config/exam-calendar.json` の更新に合わせて枠の月を直す。
+**やること**: 2026-11-16 以降の公開について、型ごとの平均視聴率（28 日）、動画ごとのサイト利用者と教材クリック（GA4 の `campaign`・`campaign-note-cta`）、制作時間を見て、枠・本数・週の上限を見直す。目標値はこの実測から決める。欠測は 0 にしない。2027 年度の公式日程が出ていれば `config/exam-calendar.json` の更新に合わせて枠の月を直す。
 
-**完了条件**: `config/youtube-longform-plan.json` の `cycle.reviewAt` と `metrics.target` が更新され、判断が `data/business/records/` に残っている。
+**完了条件**: `config/channel-annual-plan.json` の `cycle.reviewAt` と `metrics.target` が更新され、判断が `data/business/records/` に残っている。
 
 
 ### [DN-1003] YouTube 台帳の停止行の公開状態が実体とずれているのを直す
@@ -2340,6 +2498,56 @@ Windows の PowerShell で repo 直下から順に:
 
 ## 🟢 低 — 重要度が低い（時期未定を含む）
 
+### [DN-1026] 冗長コード監査で見なかった範囲を確かめる
+タグ: [エージェント・SSOT] [領域:管理] [種類:改善] [起票:2026-11-06]
+
+**起点**: 2026-11-06 の冗長コード監査（jscpd・Codex・実コードの照合）。jscpd の対象は `src`・`scripts`・`tools`・`tests`・`e2e`・`e2e-admin` で、`.claude/scripts` と `.claude/skills` は対象外だった。`KakomonQuizClient.tsx`（817 行）などの大きなコンポーネントの中身は読まず、責務の混在は `fs` と `gtag` の検索だけで見た（どちらも問題なし）。`scout-*`・`check-bold-rendering` と `check-table-rendering`・launchd の install スクリプトの重複は検出したが評価していない。
+
+**やること**: jscpd を `.claude/scripts` と `.claude/skills` へ広げ、大きなコンポーネントの責務を読む。残った重複は共通化するかを判断する。
+
+**完了条件**: 未評価の範囲について、直すものが起票され、直さないものは理由が書かれている。
+
+
+### [DN-1024] 管理画面が CLI の check スクリプトを import している箇所を確かめる
+タグ: [エージェント・SSOT] [領域:管理] [種類:改善] [起票:2026-11-06]
+
+**起点**: 2026-11-06 の冗長コード監査（jscpd・Codex・実コードの照合）。Codex の報告では `tools/admin-app/src/lib/automations.ts:5` と `video-outcomes.ts:10` が `check-*.mjs` や実行スクリプトの関数を import している。この報告は実コードで未確認。
+
+**やること**: 実際の import を確かめ、該当すれば判定を `scripts/lib` の副作用のない関数へ移す。
+
+**完了条件**: 管理画面が CLI の入口を import していないか、残す理由が書かれている。
+
+
+### [DN-1023] カテゴリと標準ページの重複部品を抽出する
+タグ: [UI・UX] [領域:サイト] [種類:改善] [起票:2026-11-06]
+
+**起点**: 2026-11-06 の冗長コード監査（jscpd・Codex・実コードの照合）。jscpd が `src/components/category/CategoryViews.tsx` の内部で 261 行、`chapters/[chapter]/page.tsx` と `sections/[section]/page.tsx` の間で 83 行の重複を検出した。資格を足すと View を写すことになる。CategoryViews の関数構成は確認済みで、標準ページの重複の中身は未読。
+
+**やること**: 共通の小部品だけを抽出する。資格別のレイアウトは試験構成の違いをそのまま表すので残す。
+
+**完了条件**: 新しい資格の View が小部品の組み合わせで書ける。表示が変わらない。
+
+
+### [DN-1022] sha256 の補助関数を scripts/lib に 1 つ置く
+タグ: [エージェント・SSOT] [領域:管理] [種類:改善] [起票:2026-11-06]
+
+**起点**: 2026-11-06 の冗長コード監査（jscpd・Codex・実コードの照合）。sha256 の補助関数らしき定義が scripts・src・`.claude/scripts`・管理画面に 39 件あり（検索の概数）、共通の関数がない。
+
+**やること**: `scripts/lib` に 1 つ置き、スクリプトを触るときに移す。一括で置き換えない。
+
+**完了条件**: 共通の関数があり、新しいコードはそれを使う。
+
+
+### [DN-1021] note の収録の追加と解除の共通処理を lib へ移す
+タグ: [インフラ・計測] [領域:商品] [種類:改善] [起票:2026-11-06]
+
+**起点**: 2026-11-06 の冗長コード監査（jscpd・Codex・実コードの照合）。jscpd が `note-magazine-add-articles.mjs` と `note-magazine-remove-articles.mjs` の間に 142 行の重複を検出した（全 260 行と 210 行）。内容の確認は remove 側の冒頭まで。
+
+**やること**: ダイアログ操作の共通部分を lib へ出す。実行スクリプトは 2 本のままにする。
+
+**完了条件**: note のダイアログが変わっても lib の 1 か所を直せば済む。
+
+
 ### [DN-0996] Windows の手元で落ちる npm run test の 48 件を直すか skip に分ける
 タグ: [インフラ・計測] [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-11-05]
 
@@ -2997,6 +3205,22 @@ Phase 3の評価を戦略SSOTへ反映し、資格拡張の可否を確定した
 
 ## 🟣 判断待ち — ユーザーの意思決定が必要
 
+### [DN-1007] X・Instagram の年間の枠の未決定の論点を運営者が決める
+タグ: [領域:SNS] [時期:2026-11] [種類:意思決定] [起票:2026-11-06]
+
+**起点**: 2026-11-06 に X・Instagram の年間の枠を `config/channel-annual-plan.json` の `channels` へ入れた。本数と型は案で、次は運営者が決める。一覧は `npm run check-channel-plan` の「判断待ち」と、管理画面 `/plan/roadmap?tab=channels`。
+
+**やること**: 次の 5 点を決める。
+
+1. 保留の解除: X・Instagram の新規の投稿を再開するか。再開するなら `operation.status` を `active` にする。10/27 に X の 11 月分を予約した記録と、W44 週次レビューの「追加投入なし」が食い違っているので、併せて確かめる
+2. X の本数: 平常 週 7 本・山場 週 14 本、年 354 本でよいか。今の上限（1 日 3 本）より少ない。フォロワーは 8/13 の 91 から 9/14 の 100 で、note の流入元の X の行は 16 と 0 だった
+3. X の技術士の配分: 反応の中央値は総監・建設部門とも 0 だが、受取は技術士の筆記期に集中する。今の案は 4〜7 月に 56 本
+4. Instagram の試行: 12〜1 月に 1級の図解 4 本から始めるか。保存数は Graph API を使わない判断のため取れない。Business Suite の画面から取るかも決める
+5. X の解答速報 `x-instant`: 採るか。YouTube の `exam-sokuho` と同じ判断でよいか
+
+**完了条件**: 上の 5 点が決まり、`channels` の `operation`・`weeklyMax`・`formats[].status` が判断どおりで、`check-channel-plan` の判断待ちが減っている。判断が `data/business/records/` に残っている。
+
+
 ### [DN-0992] 1 級二次の経験記述を、シーズン一括の伴走（題数の上限・各題 A 判定まで・不合格なら翌年割引）で試すか決める
 タグ: [収益化] [領域:商品] [時期:2027-04..2027-06] [種類:意思決定] [起票:2026-11-05]
 
@@ -3097,7 +3321,7 @@ Phase 3の評価を戦略SSOTへ反映し、資格拡張の可否を確定した
 ### [DN-0726] 通常動画 38 本の計画台帳への仮配分を YouTube 再開時に運営者が見直す
 タグ: [領域:SNS] [種類:意思決定] [起票:2026-10-13]
 
-**起点**: 2026-10-13、PR #967（YouTube POP サムネイル）を develop へ取り込む際、develop で増えた通常動画 38 本が `config/youtube-longform-plan.json` に無く検査が赤だったため、各資格の試験日の直前（2級土木 10/14・10/20・10/23、コンクリート 10/20・11/17・11/20 など）へ仮に配分した。運営者が見て決めた配分ではない。YouTube は一時停止中（#1044）。
+**起点**: 2026-10-13、PR #967（YouTube POP サムネイル）を develop へ取り込む際、develop で増えた通常動画 38 本が `config/channel-annual-plan.json` に無く検査が赤だったため、各資格の試験日の直前（2級土木 10/14・10/20・10/23、コンクリート 10/20・11/17・11/20 など）へ仮に配分した。運営者が見て決めた配分ではない。YouTube は一時停止中（#1044）。
 
 **やること**: 再開を決めるときに 38 本の `finish` 日を運営者が見直し、試験日を過ぎた枠は次の試験期へ送るか計画から外す。
 

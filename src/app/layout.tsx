@@ -41,6 +41,12 @@ export default function RootLayout({
         <script dangerouslySetInnerHTML={{ __html: PROGRAM_SPLIT_SCRIPT }} />
         <StructuredData type="website" />
         <StructuredData type="organization" />
+        {/* AdSense: 審査がサイトの所有権を確認できるよう、静的 HTML の head に出す（next/script の lazyOnload は HTML に残らない） */}
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8504035087322664"
+          crossOrigin="anonymous"
+        />
       </head>
       <body className="font-sans">
         <GoogleAnalytics />

@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import { fileURLToPath } from 'node:url';
 import { joinLongformPlan, loadLongformPlan, loadPlanAudit } from '../scripts/lib/youtube-longform-plan.mjs';
 import { auditLongformPlan, cycleCapacity, inventoryState, mondayOf, slotProblems, summarizeInventory, weekLimit, shortsSlotFill } from '../scripts/lib/youtube-longform-audit.mjs';
-import { ConfigYoutubeLongformPlan } from '../scripts/lib/dataset-schemas-content.mjs';
+import { ConfigChannelAnnualPlan } from '../scripts/lib/dataset-schemas-content.mjs';
 import { readDataset } from '../scripts/lib/dataset-io.mjs';
 const root = fileURLToPath(new URL('../', import.meta.url));
 const period = { start: '2026-10', end: '2027-09' };
@@ -39,11 +39,11 @@ test('停止・失敗を公開準備完了として扱わず、未配分の動�
   assert.equal(joinLongformPlan({ entries: [] }, [pub], period).rows[0].action, 'unplanned');
 });
 test('締切逆転・同じ企画ID・試験日の複製を型で拒否する', () => {
-  const p = readDataset(root, 'config.youtube-longform-plan');
-  assert.equal(ConfigYoutubeLongformPlan.safeParse(p).success, true);
-  assert.equal(ConfigYoutubeLongformPlan.safeParse({ ...p, entries: [{ ...p.entries[0], ready: p.entries[0].target }] }).success, false);
-  assert.equal(ConfigYoutubeLongformPlan.safeParse({ ...p, entries: [p.entries[0], p.entries[0]] }).success, false);
-  assert.equal(ConfigYoutubeLongformPlan.safeParse({ ...p, examDates: {} }).success, false);
+  const p = readDataset(root, 'config.channel-annual-plan');
+  assert.equal(ConfigChannelAnnualPlan.safeParse(p).success, true);
+  assert.equal(ConfigChannelAnnualPlan.safeParse({ ...p, entries: [{ ...p.entries[0], ready: p.entries[0].target }] }).success, false);
+  assert.equal(ConfigChannelAnnualPlan.safeParse({ ...p, entries: [p.entries[0], p.entries[0]] }).success, false);
+  assert.equal(ConfigChannelAnnualPlan.safeParse({ ...p, examDates: {} }).success, false);
 });
 test('実台帳の通常動画を全件表示し、活動中の動画に未配分を残さない。期間は年間台帳から取得', () => {
   const b = loadLongformPlan(root, '2026-10-11');
@@ -146,7 +146,7 @@ test('実際の計画と台帳で違反 0 件。成功指標に登録者数を�
   assert.deepEqual(r.errors, []);
   assert.ok(inventory.length > 0);
   assert.ok(plan.metrics.notSuccess.includes('登録者数'));
-  assert.deepEqual(plan.metrics.primary.map((m) => m.id), ['youtubeNoteClicks', 'averageViewPercentage']);
+  assert.deepEqual(plan.metrics.primary, ['youtubeCampaignClicks', 'averageViewPercentage']);
   assert.ok(plan.cycle.reviewAt > plan.updatedAt);
   for (const s of plan.slots) for (const k of ['reader', 'harm', 'value', 'demand', 'next']) assert.ok(s.reason[k]);
   assert.doesNotMatch(JSON.stringify(plan.slots), /2027-\d{2}-\d{2}/);

@@ -1,7 +1,7 @@
 // deploy-main の判定の意図: 検査を通った commit だけを昇格し、失敗を見逃さない。
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { findDeployRun, pickGateTarget, pushRejectedAsStale } from '../scripts/lib/deploy-main.mjs';
+import { blockingNightlyIssues, findDeployRun, pickGateTarget, pushRejectedAsStale, unverifiedPrCommits } from '../scripts/lib/deploy-main.mjs';
 
 const run = (headSha, status, conclusion, databaseId = 1) => ({ headSha, status, conclusion, databaseId });
 
@@ -34,4 +34,19 @@ test('pushRejectedAsStale: main が先に進んだ失敗だけを作り直しの
 test('findDeployRun: 今 push した commit の run だけを見る', () => {
   assert.equal(findDeployRun([{ headSha: 'old', databaseId: 1 }], 'new'), null);
   assert.equal(findDeployRun([{ headSha: 'new', databaseId: 2 }], 'new').databaseId, 2);
+});
+
+test('夜間の全件検査の未解決 Issue だけが昇格を止める', () => {
+  const issues = [
+    { number: 1, title: '[auto] e2e-nightly: develop 夜間 E2E 失敗' },
+    { number: 2, title: '[auto] lighthouse-nightly: develop 夜間 Lighthouse 失敗' },
+    { number: 3, title: '[auto] ops: 別の失敗' },
+  ];
+  assert.deepEqual(blockingNightlyIssues(issues).map((issue) => issue.number), [1, 2]);
+  assert.deepEqual(blockingNightlyIssues([]), []);
+});
+
+test('昇格先より新しい PR の commit を取り残さない（台帳と bot の commit は除く）', () => {
+  assert.deepEqual(unverifiedPrCommits(['feat(site): AdSense を戻す (#1426)', 'todo: DN-1 を起票する', 'chore(metrics): daily [skip ci]']), ['feat(site): AdSense を戻す (#1426)']);
+  assert.deepEqual(unverifiedPrCommits([]), []);
 });

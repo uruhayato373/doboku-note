@@ -3,11 +3,18 @@ name: Pre-merge check (quality audit + build)
 on:
   pull_request:
     branches: [main, develop]
+  # automerge のマージは GITHUB_TOKEN なので push の CI が起動しない。automerge がこの入口で develop の先頭を検査する
+  workflow_dispatch:
   push:
     branches: [develop]
-    # 記憶だけの push は CI を走らせない（ゲートは pre-commit の check-memory。PR は従来どおり全検査）
+    # 記憶と台帳だけの push は CI を走らせない（PR は従来どおり全検査）。
+    # 2026-11-01〜06 の push の実行 300 回のうち 112 回がこれで、この push に取り消された実行も 26 回あった。
+    # ゲートは pre-commit（check-memory・check-backlog-schema・check-task-plan-links・project-task-refs・
+    # search-improvements）と todo:add の addCard。ここに足すなら tests/ci-push-scope.test.mjs も直す。
     paths-ignore:
       - '.claude/memory/**'
+      - '.claude/todo/**'
+      - '.claude/state/todo-claims.json'
 
 # 同じブランチ／PR に新しい push が来たら、古い実行は結果を待つ意味が無いので止める。
 # develop への直 push が 1 日 50 回を超え、古い実行が最後まで走って後続を待たせていた（2026-09-30）。

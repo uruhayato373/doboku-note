@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { DataTable, PanelCard, StatusBadge, type DataTableColumn, type DataTableRow, type Tone } from '@/components/admin';
+import { DataTable, PanelCard, StatusBadge, type DataTableColumn, type DataTableRow, type Tone, FilterBar, FilterChip } from '@/components/admin';
 import { Grid, Section, Stack } from '@/components/layout';
 import { PageHead } from '@/components/ui';
 import { num, yen } from '@/lib/format';
@@ -233,13 +233,13 @@ export default async function IssuesPage({ searchParams }: { searchParams: Promi
   return (
     <>
       <PageHead title="イシューマップ" sub={`根拠の観測 ${m.asOf}・KPI ${v.period.startDate.slice(0, 7)}`} />
-      <nav className="filterbar mb-3!">
+      <FilterBar className="mb-3!">
         {v.maps.map((x) => (
-          <Link key={x.id} className={'chip' + (x.id === m.id ? ' active' : '')} href={x.id === v.maps[0]?.id ? '/strategy/issues' : `/strategy/issues?map=${x.id}`}>
+          <FilterChip key={x.id} active={x.id === m.id} href={x.id === v.maps[0]?.id ? '/strategy/issues' : `/strategy/issues?map=${x.id}`}>
             {x.label}
-          </Link>
+          </FilterChip>
         ))}
-      </nav>
+      </FilterBar>
 
       <Stack gap="lg">
         <PanelCard title={m.question} description={v.parent ? <Link href={`/strategy/issues?map=${v.parent.mapId}`}>全体の {v.parent.issue} を掘り下げたマップ</Link> : undefined}>

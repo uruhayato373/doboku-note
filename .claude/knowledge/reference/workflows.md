@@ -280,7 +280,7 @@ CLAUDE.md §1・§2・§5・§10 の根拠と経緯（ルール本文は CLAUDE.
 
 ### ブランチの使い分け（§2）
 
-doc・コンテンツは `develop` へ直 push で蓄積する（「1 修正 = 1 PR」禁止）。コード系のみ feature ブランチ + PR（base = `develop`）。`develop` → `main` は `/deploy` スキル経由でユーザーが判断する。
+doc・コンテンツは `develop` へ直 push で蓄積する（「1 修正 = 1 PR」禁止）。コード系のみ feature ブランチ + PR（base = `develop`）。`.claude/memory/**`・`.claude/todo/**`・`.claude/state/todo-claims.json` だけの push では Pre-merge check が走らない（ゲートは pre-commit と `todo:add`）。`deploy:main` は結果のある直近の commit を昇格する。`develop` → `main` は `/deploy` スキル経由でユーザーが判断する。
 
 ---
 

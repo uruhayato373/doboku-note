@@ -14,7 +14,7 @@ name: Auto-merge on green (automerge label)
 #   単一引用符で書く（YAML の二重引用符では `\+` が不正なエスケープになる）。tests/workflow-run-filters.test.mjs が止める
 on:
   workflow_run:
-    workflows: ['Pre-merge check (quality audit \+ build)', "Playwright E2E", "Lighthouse CI"]
+    workflows: ['Pre-merge check (quality audit \+ build)', "Playwright E2E"]
     types: [completed]
   pull_request:
     types: [labeled]
@@ -24,6 +24,7 @@ permissions:
   contents: write
   pull-requests: write
   checks: read
+  actions: write # マージ後に develop の CI を起動する
 
 concurrency:
   group: automerge
@@ -71,3 +72,5 @@ jobs:
           for pr in $prs; do
             gh pr merge "$pr" --repo "$REPO" --squash --match-head-commit "$SHA"
           done
+          # deploy:main は develop で検査済みの commit しか昇格しない
+          gh workflow run ci.yml --repo "$REPO" --ref develop

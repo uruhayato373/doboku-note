@@ -3,7 +3,7 @@ import { loadRegistry, resolveCopy } from './content-registry.mjs';
 import { readDataset } from './dataset-io.mjs';
 import { readJson } from './json-io.mjs';
 import { loadRoadmap } from './annual-roadmap.mjs';
-import { ConfigYoutubeLongformPlan } from './dataset-schemas-content.mjs';
+import { ConfigChannelAnnualPlan } from './dataset-schemas-content.mjs';
 import { jstDayOf, jstLabel, todayJst } from './jst-date.mjs';
 import { auditLongformPlan, summarizeInventory } from './youtube-longform-audit.mjs';
 import { existsSync, readFileSync, readdirSync } from 'node:fs';
@@ -61,13 +61,13 @@ function loadPublications(root) {
 }
 
 export function loadLongformPlan(root, today = todayJst()) {
-  const plan = ConfigYoutubeLongformPlan.parse(readDataset(root, 'config.youtube-longform-plan'));
+  const plan = ConfigChannelAnnualPlan.parse(readDataset(root, 'config.channel-annual-plan'));
   const { publications } = loadPublications(root);
   return joinLongformPlan(plan, publications, loadRoadmap(root).period, today);
 }
 
 /** 主 CTA の宛先の実在。動画パックの検査と同じくカタログの id を見る */
-function targetChecker(root) {
+export function targetChecker(root) {
   const { catalogs } = readDataset(root, 'config.video-content').cta;
   const cache = new Map();
   return (kind, id) => {
@@ -98,7 +98,7 @@ export function listShortDesigns(root) {
 }
 
 export function loadPlanAudit(root, today = todayJst()) {
-  const plan = ConfigYoutubeLongformPlan.parse(readDataset(root, 'config.youtube-longform-plan'));
+  const plan = ConfigChannelAnnualPlan.parse(readDataset(root, 'config.channel-annual-plan'));
   const { publications, revisions } = loadPublications(root);
   const audit = auditLongformPlan({
     plan, publications, revisions,
