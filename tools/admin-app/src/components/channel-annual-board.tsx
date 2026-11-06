@@ -14,6 +14,7 @@ export type BoardChannel = {
   metrics: { label: string; state: string; ok: boolean }[]; slots: BoardSlot[]; pending: string[]; errors: string[];
 };
 
+const ANGLE: Record<string, string> = { conclusion: '結論', reason: '理由', experience: '体験', counter: '反論', number: '数字', howto: 'ハウツー' };
 const KIND: Record<string, string> = { 'site-article': 'サイトの記事', 'links-hub': 'リンク集（/links）' };
 
 const MARK: Record<string, string> = { youtube: 'YT', x: 'X', instagram: 'IG' };
@@ -52,9 +53,9 @@ function SlotReason({ slot }: { slot: BoardSlot }) {
         items={[
           `立ち位置: ${slot.stance}`,
           ...(slot.materials.make ? [`作るもの: ${slot.materials.make}`] : []),
-          ...(slot.materials.packs.length ? [`動画パック: ${slot.materials.packs.map((pack) => pack.split('/')[1]).join('・')}`] : []),
-          ...(slot.materials.products.length ? [`商品: ${slot.materials.products.join('・')}`] : []),
-          ...(slot.materials.angles?.length ? [`切り口: ${slot.materials.angles.join('・')}`] : []),
+          ...slot.materials.packs.map((pack) => `動画パック: ${pack}`),
+          ...slot.materials.products.map((product) => `商品: ${product}`),
+          ...(slot.materials.angles?.length ? [`切り口: ${slot.materials.angles.map((angle) => ANGLE[angle] ?? angle).join('・')}`] : []),
         ]}
       />
       <DetailText title="判断理由" items={[`読者の課題: ${r.reader}`, `提供価値: ${r.value}`, `需要: ${r.demand}`, `次の検証: ${r.next}`]} />
