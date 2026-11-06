@@ -1,4 +1,4 @@
-// E2E と Lighthouse の起動条件（DN-0803）: サイトの画面とビルドの手順が変わる PR だけで回す。
+// E2E の起動条件（DN-0803）: サイトの画面とビルドの手順が変わる PR だけで回す。Lighthouse は夜間だけ。
 // 以前は scripts/** と content/** を丸ごと含み、検査や運用のスクリプトだけの PR でも 10 分の E2E が回っていた。
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -32,11 +32,9 @@ const triggers = (paths) => (f) => {
 };
 
 const E2E = prPaths('.github/workflows/e2e.yml');
-const LH = prPaths('.github/workflows/lighthouse.yml');
 
 test('E2E の起動条件を読めている（0 件を合格にしない）', () => {
   assert.ok(E2E.length > 15, `E2E の paths が ${E2E.length} 件`);
-  assert.ok(LH.length > 5, `Lighthouse の paths が ${LH.length} 件`);
 });
 
 test('ビルドの手順のスクリプトは全部 E2E を起動する（手順を変えたらここが落ちる）', () => {
@@ -46,23 +44,19 @@ test('ビルドの手順のスクリプトは全部 E2E を起動する（手順
   assert.deepEqual(chain.filter((f) => !e2e(f)), [], 'e2e.yml の paths に足す');
 });
 
-test('サイトの画面（src/）が src の外から import するファイルは全部 E2E と Lighthouse を起動する（DN-0808）', () => {
+test('サイトの画面（src/）が src の外から import するファイルは全部 E2E を起動する（DN-0808）', () => {
   // 2026-10-21: config/affiliate-placements.json だけの PR（#1173）は記事末のバナーとピクセルを変えたのに E2E が起動しなかった
   const imported = siteImportedFiles(ROOT);
   assert.ok(imported.length >= 10, `src の外から import するファイルが ${imported.length} 件しか取れない`);
   assert.deepEqual(imported.filter((f) => !triggers(E2E)(f)), [], 'e2e.yml の paths に足す');
-  assert.deepEqual(imported.filter((f) => !triggers(LH)(f)), [], 'lighthouse.yml の paths に足す');
 });
 
-test('サイトの画面の変更は E2E と Lighthouse を起動し、検査・運用・SNS・note だけの変更は起動しない', () => {
+test('サイトの画面の変更は E2E を起動し、検査・運用・SNS・note だけの変更は起動しない', () => {
   const e2e = triggers(E2E);
-  const lh = triggers(LH);
   for (const f of ['src/lib/toc.ts', 'content/site/a/b/article.mdx', 'public/images/x.webp', 'package-lock.json']) {
     assert.ok(e2e(f), `E2E: ${f}`);
-    assert.ok(lh(f), `Lighthouse: ${f}`);
   }
   for (const f of ['scripts/check-datasets.mjs', 'scripts/lib/qualification-ssot.mjs', 'tests/x.test.mjs', 'content/note/x/article.md', 'content/sns/x/tweets.md', 'package.json', '.claude/todo/backlog.md']) {
     assert.ok(!e2e(f), `E2E が起動する: ${f}`);
-    assert.ok(!lh(f), `Lighthouse が起動する: ${f}`);
   }
 });
