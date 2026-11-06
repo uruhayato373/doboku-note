@@ -74,13 +74,13 @@ test('文書ページの主導線が「章から読む」で、章記事へ移�
   await expect(page.getByRole('heading', { name: '原典PDFページで確認する' })).toHaveCount(0);
 
   await page.getByRole('link', { name: /第3章 無筋・鉄筋コンクリート/ }).first().click();
-  await expect(page).toHaveURL(/\/standards\/chubu\/common\/chapters\/1-3$/);
+  await expect(page).toHaveURL(/\/standards\/kinki\/common\/chapters\/1-3$/);
   await expect(page.locator('main h1')).toContainText('第3章 無筋・鉄筋コンクリート');
 });
 
 test('part-03 から part-04 をまたぐ章が、境界の前後とも 1 ページに収まっている', async ({ page }) => {
   // 1-3 は原本 p.133-161（part-03 の末尾から part-04 の PDF page 151 以降まで）
-  await page.goto('/standards/chubu/common/chapters/1-3');
+  await page.goto('/standards/kinki/common/chapters/1-3');
 
   const article = page.locator('[data-standards-chapter="1-3"]');
   // part-03 側（p.133 の第1節）と part-04 側（p.151 の第9節 暑中コンクリート）が同じ記事に並ぶ
@@ -92,7 +92,7 @@ test('part-03 から part-04 をまたぐ章が、境界の前後とも 1 ペー
 
 test('章記事に原本の逐語ページ（分冊）への導線が無い', async ({ page }) => {
   // 原本の逐語ページは 2026-10-26 に公開をやめた（旧 URL は _redirects で章・文書へ転送）。利用者向けの画面に出さない
-  await page.goto('/standards/chubu/common/chapters/1-3');
+  await page.goto('/standards/kinki/common/chapters/1-3');
   const hrefs = await page.locator('main a').evaluateAll((links) => links.map((link) => link.getAttribute('href') ?? ''));
   expect(hrefs.filter((href) => /part-\d+/.test(href))).toEqual([]);
   await expect(page.locator('main a[data-source-pages]')).toHaveCount(0);
@@ -102,19 +102,19 @@ test('章記事に原本の逐語ページ（分冊）への導線が無い', as
 
 test('第1編から第2編へ切り替わる箇所が別の章記事に分かれている', async ({ page }, testInfo) => {
   // 原本 p.161 が第1編の末尾、p.162 から第2編。柱（running header）で切っている。
-  await page.goto('/standards/chubu/common/chapters/1-3');
+  await page.goto('/standards/kinki/common/chapters/1-3');
 
   const nav = page.locator(testInfo.project.name === 'mobile-chromium' ? '[data-standards-mobile-nav]' : '[data-standards-sidebar]');
   if (testInfo.project.name === 'mobile-chromium') await nav.locator(':scope > summary').click();
   await nav.locator('[data-standards-nav="tree"] summary').filter({ hasText: '材料編' }).click();
-  await nav.locator('a[href="/standards/chubu/common/chapters/2-1"]').click();
-  await expect(page).toHaveURL(/\/standards\/chubu\/common\/chapters\/2-1$/);
+  await nav.locator('a[href="/standards/kinki/common/chapters/2-1"]').click();
+  await expect(page).toHaveURL(/\/standards\/kinki\/common\/chapters\/2-1$/);
   await expect(page.locator('main h1')).toContainText('第1章 一般事項');
   await expect(page.locator('main').first()).toContainText('第2編 材料編');
 });
 
 test('複雑な表が横スクロールでき、ページ全体は横に溢れない', async ({ page }) => {
-  await page.goto('/standards/chubu/common/chapters/1-3');
+  await page.goto('/standards/kinki/common/chapters/1-3');
 
   // 表は原本と照合して組み直した表（content/sources/standards/tables）で出る。版面のコードブロックは残らない
   await expect(page.locator('[data-standards-chapter="1-3"] pre')).toHaveCount(0);
@@ -131,7 +131,7 @@ test('複雑な表が横スクロールでき、ページ全体は横に溢れ�
 });
 
 test('章記事のナビが現在章を強調し、モバイルでは折りたたみになる', async ({ page }, testInfo) => {
-  await page.goto('/standards/chubu/common/chapters/1-3');
+  await page.goto('/standards/kinki/common/chapters/1-3');
 
   if (testInfo.project.name === 'mobile-chromium') {
     const mobileNav = page.locator('[data-standards-mobile-nav]');
@@ -157,7 +157,7 @@ test('章記事のナビが現在章を強調し、モバイルでは折りた�
 });
 
 test('章記事が light / dark どちらでも本文と罫線を判別できる', async ({ page }) => {
-  await page.goto('/standards/chubu/common/chapters/1-3');
+  await page.goto('/standards/kinki/common/chapters/1-3');
 
   const read = async (dark: boolean) => {
     await page.evaluate((on) => document.documentElement.classList.toggle('dark', on), dark);
@@ -193,7 +193,7 @@ test('章の途中で終わる part と、章の途中から始まる part の�
   // 1-3 は原本 p.133-161。part-03 は p.150 で終わり part-04 が p.151 から始まるので、
   // この章は「part の途中で始まり、次の part の途中で終わる」二重の境界を持つ。
   // 分冊をまたいで本文が落ちていないことを、境界の直前・直後の条で確認する。
-  await page.goto('/standards/chubu/common/chapters/1-3');
+  await page.goto('/standards/kinki/common/chapters/1-3');
   const article = page.locator('[data-standards-chapter="1-3"]');
 
   // 第8節 型枠・支保 は p.149-151 で、分冊境界（part-03 は p.150 で終わり part-04 が p.151）を
@@ -210,7 +210,7 @@ test('章の途中で終わる part と、章の途中から始まる part の�
 test('最大の章（167ページ）は節ページに分かれ、節目次から目的の節へ移れる', async ({ page }, testInfo) => {
   // 3-2 は 18 節 167 ページ（本文約 488KB）。章ページは節の一覧にし、本文は
   // /chapters/3-2/sections/{節} の節ページで出す（config/standards-structure.json の sectionPages）。
-  await page.goto('/standards/chubu/common/chapters/3-2');
+  await page.goto('/standards/kinki/common/chapters/3-2');
   await expect(page.locator('[data-standards-section-index="3-2"] > ol > li')).toHaveCount(18);
 
   const nav = page.locator(testInfo.project.name === 'mobile-chromium' ? '[data-standards-mobile-nav]' : '[data-standards-sidebar]');
@@ -223,7 +223,7 @@ test('最大の章（167ページ）は節ページに分かれ、節目次か�
   await links.nth(9).click();
 
   // 第10節の節ページへ移り、本文がそこにある（節目次は現在の節を強調する）
-  await expect(page).toHaveURL(/\/standards\/chubu\/common\/chapters\/3-2\/sections\/10$/);
+  await expect(page).toHaveURL(/\/standards\/kinki\/common\/chapters\/3-2\/sections\/10$/);
   await expect(page.locator('main article h1')).toContainText('第10節');
   await expect(page.locator('[data-standards-chapter="3-2"][data-standards-section="10"] h2').first()).toBeVisible();
 
@@ -236,12 +236,12 @@ test('最大の章（167ページ）は節ページに分かれ、節目次か�
 test('章記事の OGP がサイト既定ではなく章ごとの画像を指す', async ({ page }) => {
   // 344 章がすべて og-default.png だと SNS に貼っても中身が判別できない。
   // 章ごとの画像（機関名 + 第N編 + 第M章）を指していることを固定する。
-  await page.goto('/standards/chubu/common/chapters/1-3');
+  await page.goto('/standards/kinki/common/chapters/1-3');
 
   const image = page.locator('meta[property="og:image"]');
   await expect(image).toHaveAttribute(
     'content',
-    /\/posts\/standards-articles\/chubu\/common\/chapters\/1-3\/ogp\.png$/,
+    /\/posts\/standards-articles\/kinki\/common\/chapters\/1-3\/ogp\.png$/,
   );
   await expect(page.locator('meta[name="twitter:card"]')).toHaveAttribute('content', 'summary_large_image');
 });

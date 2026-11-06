@@ -11,6 +11,7 @@
  */
 import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
+import { CHAPTER_BASELINE, isMergedChapterDocument, mergedChapterDocuments } from '../../src/lib/standards-chapter-merge.mjs';
 import { SITE_CONTENT_ROOT } from './repository-paths.mjs';
 
 const CATALOG = join(SITE_CONTENT_ROOT, 'standards-library', 'catalog.json');
@@ -28,6 +29,13 @@ export function loadStandardsLibrary() {
   });
 }
 
+/** 近畿版へまとめた文書の章 URL の転送（_redirects の動的ルール） */
+export function mergedChapterRedirectRules(comparison) {
+  return mergedChapterDocuments(comparison).map(
+    (row) => `${documentPath(row)}/chapters/* ${documentPath(CHAPTER_BASELINE)}/chapters/:splat 301`,
+  );
+}
+
 function documentPath(document) {
   return `/standards/${document.agencyId}/${document.documentId}`;
 }
@@ -36,7 +44,9 @@ function documentPath(document) {
 export function standardPageTarget(document, page) {
   const chapter = document.chapters.find((entry) => entry.firstPage <= page && page <= entry.lastPage);
   if (!chapter) return documentPath(document);
-  const chapterPath = `${documentPath(document)}/chapters/${chapter.chapterId}`;
+  const comparison = JSON.parse(readFileSync(join(ARTICLES_ROOT, 'comparison.json'), 'utf8'));
+  const home = isMergedChapterDocument(comparison, document.agencyId, document.documentId) ? CHAPTER_BASELINE : document;
+  const chapterPath = `${documentPath(home)}/chapters/${chapter.chapterId}`;
   if (!chapter.splitBySection) return chapterPath;
   const section = chapter.sections.find((entry) => entry.firstPage <= page && page <= entry.lastPage);
   return section ? `${chapterPath}/sections/${section.number}` : chapterPath;
