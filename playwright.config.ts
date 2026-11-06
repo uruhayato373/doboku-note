@@ -5,6 +5,8 @@ const isCI = Boolean(process.env.CI);
 // ポートを分けているのは、dev が起動中でも reuseExistingServer が取り違えないようにするため。
 const useDevServer = Boolean(process.env.E2E_DEV);
 const port = useDevServer ? 3020 : 3025;
+// 夜間はアクセシビリティを週 1 回だけ回す（.github/workflows/e2e.yml）。project の testIgnore は上書きなので各 project に入れる
+const skipA11y = process.env.E2E_SKIP_A11Y ? ['**/a11y.spec.ts'] : [];
 
 export default defineConfig({
   testDir: './e2e',
@@ -17,10 +19,6 @@ export default defineConfig({
   // ここは「温まったサーバーに対する妥当な待ち」に留める（伸ばしすぎると本物の遅延を見逃す）。
   expect: {
     timeout: 10_000,
-    // ビジュアルリグレッション（e2e/visual.spec.ts・DN-0238）。フォントの subpixel
-    // アンチエイリアシングの揺れを許容しつつ、意図しないレイアウト崩れは検出する値。
-    // 基準画像は CI（ubuntu-latest・同一フォント環境）で生成する（docs/operations/12 参照）。
-    toHaveScreenshot: { maxDiffPixelRatio: 0.01 },
   },
   globalSetup: './e2e/global-setup.ts',
   reporter: isCI
@@ -40,11 +38,12 @@ export default defineConfig({
     {
       name: 'desktop-chromium',
       // 専用メニューなどの検査はモバイルだけで収集する。a11yは両projectで実行する。
-      testIgnore: ['**/mobile.spec.ts'],
+      testIgnore: ['**/mobile.spec.ts', ...skipA11y],
       use: { ...devices['Desktop Chrome'] },
     },
     {
       name: 'mobile-chromium',
+      testIgnore: skipA11y,
       use: { ...devices['iPhone 13'], browserName: 'chromium' },
     },
   ],
