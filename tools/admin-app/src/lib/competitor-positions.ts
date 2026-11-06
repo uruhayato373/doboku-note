@@ -25,6 +25,21 @@ type LedgerPosition = Omit<PositionRow, 'label' | 'rivals' | 'stances'> & {
 
 const CHANNEL_LABEL: Record<string, string> = { youtube: 'YouTube', note: 'note', coconala: 'ココナラ', x: 'X', instagram: 'Instagram', courses: '講座' };
 
+export const STANCE_STATE: Record<string, { label: string; tone: 'good' | 'neutral' | 'warn' }> = {
+  seen: { label: '確認済み', tone: 'good' },
+  inferred: { label: '推定', tone: 'neutral' },
+  untested: { label: '未検証', tone: 'warn' },
+};
+
+export type WiringPosition = { id: string; label: string; summary: string; stances: { id: string; stage: string; text: string; state: string }[] };
+
+/** 配線の画面が読む、資格ごとの立ち位置 */
+export function wiringPositions(root: string): WiringPosition[] {
+  const ledger = readDataset(root, 'config.competitor-positions') as { positions: (WiringPosition & { exams: string[] })[] };
+  const registry = readDataset(root, 'config.qualification-registry');
+  return ledger.positions.map((p) => ({ id: p.id, label: positionLabel(p, registry) as string, summary: p.summary, stances: p.stances.map(({ id, stage, text, state }) => ({ id, stage, text, state })) }));
+}
+
 type ReadableSlot = { id: string; stance: string; reason: { demand: string }; primaryCta: { targets: string[] }; materials: { status: string; packs: string[]; products: string[]; make: string; angles?: string[] } };
 
 /** 枠の立ち位置と材料を人が読む題名へ置き換える。束ね方は slotMaterials が正本 */
@@ -44,6 +59,7 @@ export function slotReader(root: string, plan: { entries: unknown[] }) {
     const m = slotMaterials(slot, plan);
     return {
       ...slot,
+      stanceId: slot.stance,
       stance: stances.get(slot.stance) ?? slot.stance,
       reason: { ...slot.reason, demand: slot.reason.demand.replace(/（立ち位置 [a-z0-9-]+）/, '') },
       readableMaterials: {

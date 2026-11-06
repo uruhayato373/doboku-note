@@ -1,7 +1,5 @@
 import { DataTable, DetailText, FilterBar, FilterChip, type DataTableCol, toDataTable } from '@/components/admin';
-import type { PositionRow, PositionView } from '@/lib/competitor-positions';
-
-const STATE_LABEL: Record<string, string> = { seen: '確認済み', inferred: '推定', untested: '未検証' };
+import { STANCE_STATE, type PositionRow, type PositionView } from '@/lib/competitor-positions';
 
 const RIVAL_COLUMNS: DataTableCol<PositionRow['rivals'][number]>[] = [
   { key: 'channel', label: 'チャネル' },
@@ -15,7 +13,7 @@ const STANCE_COLUMNS: DataTableCol<PositionRow['stances'][number]>[] = [
   { key: 'stage', label: '段階' },
   { key: 'text', label: '取る立ち位置', wrap: true, sortable: false },
   { key: 'why', label: '理由', wrap: true, sortable: false },
-  { key: 'state', label: '状態', render: (a) => STATE_LABEL[a.state] ?? a.state },
+  { key: 'state', label: '状態', render: (a) => STANCE_STATE[a.state]?.label ?? a.state },
   { key: 'probe', label: '検索の確認', wrap: true, sortable: false },
   { key: 'slots', label: '使う枠', num: true },
 ];
