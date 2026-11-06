@@ -12,7 +12,7 @@
 
 import { spawnSync } from 'node:child_process';
 import process from 'node:process';
-import { findDeployRun, pickGateTarget, pushRejectedAsStale } from './lib/deploy-main.mjs';
+import { blockingNightlyIssues, findDeployRun, pickGateTarget, pushRejectedAsStale } from './lib/deploy-main.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
 const GATE = 'Pre-merge check (quality audit + build)';
@@ -46,6 +46,11 @@ function waitForGate() {
     console.log(`[deploy-main] 検査の完了を待つ（${pick.sha.slice(0, 9)}）`);
     if (run('gh', ['run', 'watch', String(pick.runId), '--exit-status'], { allowFail: true }).status !== 0) sleep(5000);
   }
+}
+
+function assertNightlyGreen() {
+  const issues = blockingNightlyIssues(json('gh', ['issue', 'list', '--state', 'open', '--label', 'automation-failure', '--limit', '100', '--json', 'number,title']));
+  if (issues.length) stop(1, `夜間の全件検査が失敗中: ${issues.map((i) => `#${i.number} ${i.title}`).join(' / ')}`);
 }
 
 function buildMerge(target) {
@@ -91,6 +96,7 @@ function waitForDeploy(commit) {
 }
 
 const target = waitForGate();
+assertNightlyGreen();
 console.log(`[deploy-main] 昇格先 ${target.slice(0, 9)}: ${out('git', ['log', '-1', '--format=%s', target]).slice(0, 70)}`);
 if (dryRun) {
   console.log(out('git', ['log', '--oneline', '--max-count=30', `origin/main..${target}`]) || '（差分なし）');

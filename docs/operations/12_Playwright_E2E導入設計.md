@@ -202,9 +202,9 @@ CTA期待値をspecへ大量に直書きしない。既存の`src/lib/note-magaz
 
 推奨トリガー。
 
-- `pull_request`で`src/**`、`package.json`、`playwright.config.ts`、`e2e/**`変更時
+- `pull_request`で`src/**`、`package.json`、`playwright.config.ts`、`e2e/**`変更時。実行は desktop の `smoke`・`navigation`・`cta` だけ（待ち時間を約 5 分に抑える）
 - `workflow_dispatch`
-- `schedule`（毎日 JST 03:00・checkout は develop）。コンテンツは develop へ直 push され PR 経路を通らないため、MDX コンポーネント誤用による画面崩れを夜間に拾う。失敗は `automation-failure` Issue（channel `e2e-nightly`）。夜間と手動は `STANDARDS_RENDER_SCOPE=all` で公的基準の全文書を描画するので timeout を 60 分に取る（PR は共通仕様書の中身が異なるページだけ・30 分。DN-0853）
+- `schedule`（毎日 JST 03:00・checkout は develop）。コンテンツは develop へ直 push され PR 経路を通らないため、MDX コンポーネント誤用による画面崩れを夜間に拾う。失敗は `automation-failure` Issue（channel `e2e-nightly`）。全 spec は夜間と手動で回し、`deploy:main` は未解決の夜間 Issue があると止まる。夜間と手動は `STANDARDS_RENDER_SCOPE=all` で公的基準の全文書を描画するので timeout を 60 分に取る（DN-0853）
 
 実行順。
 

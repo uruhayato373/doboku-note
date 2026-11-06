@@ -15,6 +15,11 @@ export function pickGateTarget(commits, runs) {
   return { kind: 'none' };
 }
 
+/** 夜間の全件検査の未解決 Issue。PR では全件を回さないので、昇格の前にここで止める。 */
+export function blockingNightlyIssues(issues) {
+  return issues.filter((issue) => /^\[auto\] (e2e|lighthouse)-nightly:/.test(issue.title));
+}
+
 /** push の結果が「先に main が進んだ」なら作り直せる。それ以外の失敗は再試行しても直らないことが多い。 */
 export function pushRejectedAsStale(stderr) {
   return /non-fast-forward|fetch first|\[rejected\]|cannot lock ref/i.test(String(stderr ?? ''));

@@ -1,44 +1,22 @@
 name: Lighthouse CI
 
 # PSI（config/psi-config.json）は本番の事後計測（毎日22URL・CrUX field データ）で、
-# マージ前に LCP 画像肥大や a11y スコア低下を止める手段が無かった（DN-0240）。
+# 本番へ出す前に LCP 画像肥大や a11y スコア低下を止める手段が無かった（DN-0240）。
 # ここでは build 成果物（npm run serve・e2e.yml と同じ静的配信）に対し代表4ページで
 # lighthouserc.json の閾値を強制する。しきい値は lighthouserc.json が SSOT で、
 # psi-config.json（本番 field 監視・閾値は別の目的で別の値）とは二重管理しない。
 # 役割の違いは .claude/knowledge/reference/commands.md を参照。
 
+# 毎晩 develop を測る。PR ごとの 8 分の待ちをやめ、失敗は Issue にする。deploy:main は未解決の Issue があると止まる。
+# schedule はデフォルトブランチ（main）版の workflow で動くが、checkout は develop に向ける。
 on:
-  pull_request:
-    paths:
-      # サイトの画面が変わる PR だけ（DN-0803。note・SNS などの content と package.json の scripts だけの変更では回さない）
-      - "src/**"
-      - "public/**"
-      - "content/site/**"
-      # src/ が src の外から import するもの（DN-0808。tests/e2e-paths.test.mjs が siteImportedFiles で漏れを止める）
-      - "config/affiliate-placements.json"
-      - "config/cta-placements.json"
-      - "config/egov-laws.json"
-      - "config/policy-registry.json"
-      - "config/exam-calendar.json"
-      - "config/keiken-answer-sheet-limits.json"
-      - "config/note-funnel.json"
-      - "config/product-lineup.json"
-      - "config/qualification-registry.json"
-      - "config/seo-meta-config.json"
-      - "config/standards-structure.json"
-      - "config/utm-templates.json"
-      - "config/x-account.json"
-      - "scripts/lib/jst-date.mjs"
-      - "scripts/lib/qualification-names.mjs"
-      - "scripts/lib/repository-paths.mjs"
-      - "next.config.mjs"
-      - "lighthouserc.json"
-      - "scripts/static-server.mjs"
-      - ".github/workflows/lighthouse.yml"
-      - "package-lock.json"
+  schedule:
+    - cron: "30 18 * * *" # UTC 18:30 = JST 03:30
+  workflow_dispatch:
 
 permissions:
   contents: read
+  issues: write # 夜間 run の失敗を automation-failure Issue に記録する（限定例外）
 
 jobs:
   lighthouse:
@@ -48,6 +26,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ github.event_name == 'schedule' && 'develop' || github.ref }}
 
       - name: Setup Node.js
         uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
@@ -67,6 +47,33 @@ jobs:
 
       - name: Run Lighthouse CI
         run: npx lhci autorun --config=lighthouserc.json
+
+      # 夜間 run は PR に紐づかず誰も見ないので、失敗を Issue にする。
+      - name: Report - nightly Lighthouse failure
+        if: failure() && github.event_name == 'schedule'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          {
+            echo "develop の夜間 Lighthouse が閾値を割った。"
+            echo ""
+            echo "- run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+            echo "- 再現: \`npm run build && npx lhci autorun --config=lighthouserc.json\`"
+          } > /tmp/lighthouse-body.md
+          node scripts/report-automation-failure.mjs \
+            --channel lighthouse-nightly \
+            --title "develop 夜間 Lighthouse 失敗" \
+            --body-file /tmp/lighthouse-body.md
+
+      # 夜間 run が緑に戻ったら lighthouse-nightly channel の open Issue を自動クローズ（起票と対）。
+      - name: Resolve - nightly Lighthouse Issue (復旧)
+        if: success() && github.event_name == 'schedule'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          node scripts/report-automation-failure.mjs --resolve --channel lighthouse-nightly \
+            --body "復旧 run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
 
       - name: Upload Lighthouse reports
         if: always()

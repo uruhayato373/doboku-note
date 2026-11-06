@@ -57,8 +57,8 @@ test('workflow_run の workflows は、実在するワークフローの name: �
   assert.deepEqual(bad, []);
 });
 
-test('automerge は Pre-merge・E2E・Lighthouse の 3 本の完了で起動する', () => {
+test('automerge は Pre-merge・E2E の 2 本の完了で起動する', () => {
   const doc = yaml.load(readFileSync(join(WORKFLOW_DIR, 'automerge.yml'), 'utf8'));
   const literal = doc.on.workflow_run.workflows.map(literalWorkflowName);
-  assert.deepEqual(literal, ['Pre-merge check (quality audit + build)', 'Playwright E2E', 'Lighthouse CI']);
+  assert.deepEqual(literal, ['Pre-merge check (quality audit + build)', 'Playwright E2E']);
 });

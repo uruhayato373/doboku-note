@@ -4,6 +4,7 @@ on:
   pull_request:
     # サイトの画面とビルドの手順が変わる PR だけで回す（DN-0803）。検査・運用・SNS・note のスクリプトや package.json の
     # scripts だけの変更は ci.yml の build（実際にビルドする）と夜間の E2E に任せる。依存の変更は package-lock.json で拾う。
+    # PR は主要導線だけ（desktop の smoke・navigation・cta）を回して待ち時間を縮め、全 spec は夜間と手動で回す。
     # ビルドの手順（package.json の prebuild・build が npm run でたどるスクリプト）は下に全部書き、tests/e2e-paths.test.mjs が
     # scripts/lib/build-chain.mjs で手順をたどって漏れを止める（手順のスクリプトが読む lib の変更は夜間の E2E が見る）。
     paths:
@@ -126,9 +127,9 @@ jobs:
         env:
           PLAYWRIGHT_JSON_OUTPUT_NAME: .tmp/e2e-report.json
           PLAYWRIGHT_HTML_OPEN: never
-          # PR は共通仕様書の中身が異なるページだけ、夜間・手動は比較の外の文書（必携・マニュアル・特記など）も全ページ
-          STANDARDS_RENDER_SCOPE: ${{ github.event_name == 'pull_request' && 'distinct' || 'all' }}
-        run: npm run test:e2e -- --reporter=line,html,json
+          # 全 spec を回す夜間・手動は、比較の外の文書（必携・マニュアル・特記など）も全ページ描画する
+          STANDARDS_RENDER_SCOPE: all
+        run: npm run test:e2e -- --reporter=line,html,json ${{ github.event_name == 'pull_request' && '--project=desktop-chromium e2e/smoke.spec.ts e2e/navigation.spec.ts e2e/cta.spec.ts' || '' }}
 
       - name: Check E2E execution coverage
         if: always()

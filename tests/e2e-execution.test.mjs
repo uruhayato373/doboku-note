@@ -58,7 +58,7 @@ test('CIでstandards-dataの生成漏れをスキップせず、生成とE2E実�
   assert.ok(ci.indexOf('npm run build-standards-data') < ci.indexOf('run: npm run quality:audit:ci'));
   const e2e = readFileSync(join(ROOT, '.github/workflows/e2e.yml'), 'utf8');
   assert.match(e2e, /PLAYWRIGHT_JSON_OUTPUT_NAME: \.tmp\/e2e-report\.json/);
-  assert.match(e2e, /run: npm run test:e2e -- --reporter=line,html,json/);
+  assert.match(e2e, /run: npm run test:e2e -- --reporter=line,html,json \$\{\{ github\.event_name == 'pull_request' && '--project=desktop-chromium e2e\/smoke\.spec\.ts e2e\/navigation\.spec\.ts e2e\/cta\.spec\.ts' \|\| '' \}\}/);
   assert.match(e2e, /name: Check E2E execution coverage\n\s+if: always\(\)\n\s+run: npm run check-e2e-execution/);
 });
 
