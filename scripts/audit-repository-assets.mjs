@@ -233,7 +233,7 @@ const RULES = [
     reason: '動画・音声（reels の wav/mp4・YouTube Shorts mp4）。読むのは人の JIT 投稿だけなので Google Drive vault（制作物/SNS音声動画/・drive-vault.json sns-archived-media）。2026-09-05 DN-0170 で旧 upload-sns-r2 系統（public R2 sns/）から統合',
     regenFrom: 'script.json + wav（VOICEVOX 再合成）',
     usedBy: ['publish-ig-bs / yt upload'],
-    generator: 'ig-reel-create 系',
+    generator: '旧リール生成系',
     visibility: () => 'private',
   },
   {

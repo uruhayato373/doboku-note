@@ -237,7 +237,7 @@ export async function renderShort(root, pack, key, { refs = fileRef, log = () =>
   const record = readJson(root, popFile);
   const revision = record.revisions?.[record.activeShorts?.[key]];
   if (!revision) throw new Error(`${key}: 採用した画像が無い。adopt を先に行う`);
-  const { composeStaticSlidesVideo, probeDuration } = await import(pathToFileURL(join(root, '.claude/skills/social/yt-shorts-create/scripts/lib/ffmpeg-compose.mjs')).href);
+  const { composeStaticSlidesVideo, probeDuration } = await import(pathToFileURL(join(root, 'scripts/lib/ffmpeg-compose.mjs')).href);
   const { synthesize } = await import(pathToFileURL(join(root, '.claude/scripts/lib/sns-common/tts-client.mjs')).href);
   const out = renderDirOf(root, pack, key);
   const work = join(out, 'work');

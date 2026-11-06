@@ -6,8 +6,7 @@
 
 関連:
 - SNS 戦略 v7 → [`docs/marketing/01_SNS集客戦略.md`](../../../docs/marketing/01_SNS集客戦略.md)
-- 派生スキル → [`.claude/skills/social/yt-shorts-create/SKILL.md`](../../skills/social/yt-shorts-create/SKILL.md)
-- IG Reels 側真実源 → [`.claude/knowledge/reference/ig-reels-policy.md`](./ig-reels-policy.md)
+- 現行の工程 → [video-factory.md](./video-factory.md)「ショートの工程」
 
 最終更新: 2026-09-05（承認済み112動画パック×2本の生成・段階予約経路を追加）
 
@@ -17,15 +16,15 @@
 
 入力は次の2経路を区別する。
 
-- legacy: `yt-shorts-create --from-reels <pack-id>` または `per-problem-shorts.mjs` が出力した `content/sns/youtube/<date>-<pack-id>/`
+- legacy: 旧 IG 派生のスキル（2026-11 に削除）が出力した `content/sns/youtube/<date>-<pack-id>/`
 - 動画パック: `content/sns/video-packs/{exam}/{packId}/youtube.json.shorts[]`・`storyboard.json`・`shorts-design.json`。`shorts-factory` が `.tmp/video-render/{packId}/shorts/{key}/` へ出力
 
-現行の標準は `npm run shorts-factory`（[工程](./video-factory.md)）の全面画像。表紙・論点ごとの図解・締めを Codex で生成し、独立監査と字幕入りの画面確認を動画の sha に結ぶ。旧テンプレートの定型カード（`render-video-pack-shorts.mjs`）は preview だけに使い、`pop-poster-v3` でないショートは投稿と `check-youtube-shorts` が止める（2026-11-06）。2級土木は図解主体の `diagram-led` を優先する。
+現行の標準は `npm run shorts-factory`（[工程](./video-factory.md)）の全面画像。表紙・論点ごとの図解・締めを Codex で生成し、独立監査と字幕入りの画面確認を動画の sha に結ぶ。旧テンプレートの定型カードの描画スクリプトは削除した。`pop-poster-v3` でないショートは投稿と `check-youtube-shorts` が止める（2026-11-06）。2級土木は図解主体の `diagram-led` を優先する。
 
 | ファイル | 役割 |
 |---|---|
 | `shorts.mp4` | 20-60 秒の縦動画（legacy派生、または動画パックの全面画像＋関連動画への締め） |
-| `thumbnail.png` | 1080×1920 サムネ（`per-problem-shorts.mjs` は `renderExamCoverIg` で YT 専用生成、`yt-shorts-create` は IG cover を直コピー） |
+| `thumbnail.png` | 1080×1920 サムネ（現行は `shorts-factory` が生成） |
 | `meta.json` / `youtube.json.shorts[]` | YT Data API 投稿用メタ（タイトル・概要欄・タグ・公開日時・UTM付きURL） |
 
 動画パック派生は字幕焼き込み必須。字幕なし許容は既存legacy素材だけに限定する。
@@ -87,7 +86,7 @@ https://note.com/{author}?utm_source=youtube&utm_medium=video&utm_campaign=note&
 - 動画パックの型: `{資格名}｜{固有論点} #Shorts`。`prepare-video-pack-shorts.mjs` が一意な36字以内で生成する
 - **「一問一答」等の汎用語や、動画間で同一のテンプレタイトルは禁止**（スパム/シャドウバン判定の元 → §6）。問題ごとに論点を変える。
 - 40字以内。年度はlegacy総監では必須、動画パックでは不要。
-- **title は `yt-shorts-title-writer`（Generator）が論点ベースで自動生成**し、`yt-shorts-create` の既定タイトル（`技術士総監 …過去問（管理）`）を上書きする。`yt-shorts-publisher-qa`（Evaluator）が本規約への適合を採点する。
+- **title は `yt-shorts-title-writer`（Generator）が論点ベースで自動生成**し、旧スキルの既定タイトル（`技術士総監 …過去問（管理）`）に代わる。`yt-shorts-publisher-qa`（Evaluator）が本規約への適合を採点する。
 
 ---
 
@@ -115,11 +114,7 @@ https://note.com/{author}?utm_source=youtube&utm_medium=video&utm_campaign=note&
 
 | 工程 | 担当 |
 |---|---|
-| IG Reels mp4 / slide-NN.mp4 の生成 | `ig-reel-create.mjs`（上流・別工程） |
-| IG Reels script.json / caption.txt の執筆 | `ig-reels-writer`（上流） |
-| YT Shorts 派生 mp4 + meta.json 生成 | `yt-shorts-create --from-reels` または `per-problem-shorts.mjs`（機械処理） |
 | 動画パックShortsの計画・生成・R2受け渡し | `npm run youtube-shorts:prepare`（メタ）→ `shorts-factory`（画像・動画）→ `youtube-shorts:stage -- --commit` |
-| サムネイル（thumbnail.png）の生成・R2 アップ | `upload-shorts-to-r2.mjs`（mp4 と同時アップ） |
 | 4 軸採点 | `yt-shorts-publisher-qa` |
 | 旧 Shorts の台帳 | 旧 Shorts は台帳（`content/registry/`・kind `legacy-short`）。2026-10-09 に旧台帳 `youtube-schedule.json` と旧スクリプト（post-from-schedule 等）を消した |
 | 動画パックShortsの投稿 | `publish-video-pack.cjs`（private upload）→YouTube Studioで関連動画設定→`shorts-publish --related-confirmed`（API予約） |
@@ -134,7 +129,7 @@ https://note.com/{author}?utm_source=youtube&utm_medium=video&utm_campaign=note&
 
 ## 6. シャドウバン・低リーチ回避（2026-06-05 確定）
 
-1. **他社透かしの混入禁止**: IGアプリ書き出しの透かし入り動画は使わない。本パイプラインは `ig-reel-create` の自前レンダリング（slide-data → mp4）でロゴ無し。IG Reelsのフル動画を無編集で直投稿せず、`yt-shorts-create --from-reels` でShorts向けの尺・冒頭・CTA・メタへ再編集する。
+1. **他社透かしの混入禁止**: IGアプリ書き出しの透かし入り動画は使わない。本パイプラインは `shorts-factory` の自前レンダリングでロゴ無し。IG Reelsのフル動画を無編集で直投稿せず、Shorts向けの尺・冒頭・CTA・メタで作り直す。
 2. **再利用コンテンツ対策**: トリム＋概要欄 UTM 差替で IG 版と別物化。かつ運営者オリジナル。
 3. **タイトル/概要の使い回し禁止**: §2 タイトル規約に従い、動画ごとに論点を変える。
 4. **投稿速度**: §5 の 3 本/日を守り、一気の大量投下をしない。

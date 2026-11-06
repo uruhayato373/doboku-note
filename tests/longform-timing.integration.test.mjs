@@ -6,7 +6,7 @@ import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import sharp from 'sharp';
 import { buildLongformAss } from '../scripts/lib/longform-render.mjs';
-import { composeStaticSlidesVideo, probeDuration } from '../.claude/skills/social/yt-shorts-create/scripts/lib/ffmpeg-compose.mjs';
+import { composeStaticSlidesVideo, probeDuration } from '../scripts/lib/ffmpeg-compose.mjs';
 
 // Opt in on hosts with ffmpeg + libass. Real encoding catches image-loop rounding
 // that mocked command assertions cannot detect.

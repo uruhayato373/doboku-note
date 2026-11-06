@@ -214,22 +214,22 @@ content/sns/youtube/*
 !content/sns/youtube/legacy-refresh.json
 !content/sns/youtube/legacy-metadata.json
 
-# IG「1問1リール」(per-problem, --ig-mode) の動画は再生成可能な派生物（YT shorts と同様）。
-# mp4 は gitignore、caption.txt / status.json（予約記録）のみ追跡。再生成は per-problem-shorts.mjs --ig-mode。
+# IG「1問1リール」の動画は再生成可能な派生物（旧生成スクリプトは 2026-11 に削除）。
+# mp4 は gitignore、caption.txt / status.json（予約記録）のみ追跡。
 content/sns/instagram/_exam-packs/**/reels-pp/**/*.mp4
 
 # IG リールのフル動画（reels/video.mp4・_combined.mp4）も再生成可能な派生物（JIT 生成）。
-# SoT は slide-data.json + reels/wav。投稿時に生成→Business Suite 予約→削除する運用（scripts/publish-reel-jit.mjs）。
+# SoT は slide-data.json + reels/wav。投稿時に生成→Business Suite 予約→削除する運用だった（旧 JIT スクリプトは 2026-11 に削除）。
 content/sns/instagram/_exam-packs/**/reels/video.mp4
 content/sns/instagram/_exam-packs/**/reels/_combined.mp4
 
-# reels/img（PNG・中間生成物、ig-reel-create が毎回再生成）と slide-NN.mp4（legacy --from-reels の入力。
-# 現行 YT 経路は per-problem-shorts で wav 使用＝slide-NN.mp4 不要）も JIT/ephemeral 化。
-# SoT は slide-data.json + reels/wav。--from-reels を使う場合は ig-reel-create で先に reels/img・slide-NN.mp4 を再生成。
+# reels/img（PNG・中間生成物、旧リール生成が毎回再生成していた）と slide-NN.mp4（旧 IG 派生 Shorts の入力。
+# 現行 YT 経路は slide-NN.mp4 不要）も JIT/ephemeral 化。
+# SoT は slide-data.json + reels/wav。
 content/sns/instagram/_exam-packs/**/reels/img/
 content/sns/instagram/_exam-packs/**/reels/slide-*.mp4
 
-# IG「1問1リール」(reels-pp, JIT) の派生物。投稿後 publish-reel-jit が削除する運用だが
+# IG「1問1リール」(reels-pp, JIT) の派生物。投稿後に削除する運用だった（旧 JIT スクリプトは削除済み）が
 # 安全網として ignore（video.mp4＝動画 / cover.png＝サムネ用カバー。SoT は slide-data.json）。
 content/sns/instagram/**/reels-pp/**/video.mp4
 content/sns/instagram/**/reels-pp/**/cover.png

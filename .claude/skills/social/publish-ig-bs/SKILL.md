@@ -134,10 +134,10 @@ npx tsx .claude/skills/social/publish-ig-bs/publish-ig-bs.ts post \
 ```
 
 - 2 種の旧リール構造も読み取れるが、旧 `exam-packs` の素材は撤去済み。新規パックで実体と台帳公開IDがある場合だけ使う（どちらも `<dir>/video.mp4` + `<dir>/caption.txt` フォールバックで読む）:
-  - **フルリール**: `<pack>/reels/video.mp4`（4問・長尺）。生成は `ig-reel-create`。
-  - **1問1リール（推奨）**: `<pack>/reels-pp/q<N>/video.mp4`（36-45秒）。生成は `per-problem-shorts.mjs --ig-mode`。post の引数に q ディレクトリを渡す。
-- **カバー（サムネ）を明示設定**: パックに `cover.png`（reels-pp）または `reels/img/00-cover.png`（旧構造）があれば、**編集ステップでファイルアップロードしてサムネを確定**する（Meta 自動抽出任せにしない）。`per-problem-shorts.mjs --ig-mode` は `cover.png`（論点カバー＝先頭スライド）を出力する。カバーを指定したパックは、編集 UI やアップロードを確認できなければ停止する。未指定パックだけ Meta 自動サムネを使う。`reels/cover.png` にも対応。
-- **動画・音声・カバーは git に持たない（JIT）**: mp4・wav・cover.png は再生成可能な派生物で gitignore（コミットは slide-data + script.txt + caption.txt。wav は Drive vault 退避＝`drive-vault-sync --group sns-archived-media`／script.txt から再生成可）。**`video.mp4`・`wav` が無いのは正常** — 投稿時に生成し、予約後に削除する。`scripts/publish-reel-jit.mjs`（生成→予約→mp4/cover削除）が1コマンド化。
+  - **フルリール**: `<pack>/reels/video.mp4`（4問・長尺）。旧生成スキル（2026-11 に削除）の出力。新規は `instagram-reels:*`。
+  - **1問1リール（推奨）**: `<pack>/reels-pp/q<N>/video.mp4`（36-45秒）。旧生成スクリプト（2026-11 に削除）の出力。post の引数に q ディレクトリを渡す。
+- **カバー（サムネ）を明示設定**: パックに `cover.png`（reels-pp）または `reels/img/00-cover.png`（旧構造）があれば、**編集ステップでファイルアップロードしてサムネを確定**する（Meta 自動抽出任せにしない）。旧生成スクリプトは `cover.png`（論点カバー＝先頭スライド）を出力していた。カバーを指定したパックは、編集 UI やアップロードを確認できなければ停止する。未指定パックだけ Meta 自動サムネを使う。`reels/cover.png` にも対応。
+- **動画・音声・カバーは git に持たない（JIT）**: mp4・wav・cover.png は再生成可能な派生物で gitignore（コミットは slide-data + script.txt + caption.txt。wav は Drive vault 退避＝`drive-vault-sync --group sns-archived-media`／script.txt から再生成可）。**`video.mp4`・`wav` が無いのは正常** — 旧 JIT 生成スクリプトは 2026-11 に削除した。
 - 投稿後はBusiness Suiteの実体と台帳公開IDを照合する。`status.json` は写しであり、正本として旧パックを再登録しない。
 
 ### リールフローの実測（カルーセルとの差分）

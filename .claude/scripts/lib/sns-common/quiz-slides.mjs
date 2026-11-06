@@ -1175,7 +1175,7 @@ export function buildQuizCta({ width, height, data = {} }) {
   const theme = CTA_THEME[exam] || CTA_THEME['pe-comprehensive'];
   const stats = CTA_STATS[exam] || CTA_STATS['pe-comprehensive'];
   // Reels(height>=1920) は action カードを保存→フォロー誘導に分岐。Carousel は保存維持。
-  // 理由: Reels はリーチ獲得器のためリーチ→フォロワー転換を主にする（ig-reels-policy.md）。
+  // 理由: Reels はリーチ獲得器のためリーチ→フォロワー転換を主にする。
   const isReels = height >= 1920;
   const actionTitle = isReels ? (cfg.actionTitleReels ?? cfg.actionTitle) : cfg.actionTitle;
   const actionSubtitle = isReels ? (cfg.actionSubtitleReels ?? cfg.actionSubtitle) : cfg.actionSubtitle;

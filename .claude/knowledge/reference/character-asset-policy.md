@@ -88,7 +88,7 @@ AIは「透過」「同一人物9体」を守れないため、**1ポーズ=1画
 | **サイト note CTA** | 商品CTAの完成画像、未登録時はヒーロー CTA の円形アバター | 完成画像を選択する商品CTAは `NoteImageCta` を優先し、人物変更は完成画像を再制作する。未登録時のアバターは `npm run character-avatars` で `public/images/character/avatar-{pose}.webp` を派生し、商品台帳の `ctaPose` で選ぶ（[デザインシステム](../design-system/design-system.md)参照） |
 | YouTube | チャンネルアイコン・サムネ・解説ナビ・Shorts 立ち絵・冒頭/締め | サムネは指差し系＋文字スペース確保 |
 | Instagram | カルーセル・まとめ・過去問解説・暗記ポイント | カルーセルは管理別色テーマと併用 |
-| **IG/YT リール** | 角度駆動リールにキャラを合成（登場演出） | beat（hook/point/cta）に応じ pose を選ぶ。詳細 → [ig-reels-policy.md](ig-reels-policy.md) §7 |
+| **IG/YT リール** | 角度駆動リールにキャラを合成（登場演出） | beat（hook/point/cta）に応じ pose を選ぶ。角度リールの合成は `scripts/angle-reel-create.mjs` |
 | 音声/VOICEVOX | 先生・講師役のナレーション立ち絵 | speaker 13（低め男性）で統一 |
 
 リール合成では manifest の `beats` を目安に pose を選ぶ（hook=つかみ／point=解説／cta=締め）。pose 選択は manifest 引きの**決定的処理**で足りるため専用エージェントは設けない。
@@ -130,4 +130,4 @@ AIは「透過」「同一人物9体」を守れないため、**1ポーズ=1画
 
 ---
 
-関連: [CHARACTER-SPEC.md](../../../content/sns/_assets/character/CHARACTER-SPEC.md)（設定書）／[ig-reels-policy.md](ig-reels-policy.md)（リール合成）／[sns-image-policy.md](sns-image-policy.md)（SNS 画像）
+関連: [CHARACTER-SPEC.md](../../../content/sns/_assets/character/CHARACTER-SPEC.md)（設定書）／[sns-image-policy.md](sns-image-policy.md)（SNS 画像）

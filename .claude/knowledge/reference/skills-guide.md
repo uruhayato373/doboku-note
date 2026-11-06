@@ -101,7 +101,6 @@ SNSの人物・見出しを改修するときは [SNS画像ポリシー §0・§
 | `/note-attach-pdf` | note 記事の**本文末尾（有料記事は有料エリア内）に印刷用 PDF をダウンロードカードとして添付**（Playwright × システム Chrome）。`note-publish` が扱わない「ファイル添付」（従来半手動）を自動化。1記事=`note-attach-file.mjs`／1マガジン直列バッチ=`note-attach-magazine-pdfs.mjs`（noteId↔PDF 突合・done-log 再開・最大2回試行）。**既定 dry/probe、`--draft-only` は下書きへ実添付→下書き保存/一時保存→再読込で要求ファイル名の添付を検証、`--commit` は公開/更新→ライブ添付を実測**（両者は排他）。有料境界を**非破壊検証**（出典URLの `.pdf` は添付に数えない。既定=試験問題直前を維持・**別型は `--boundary-regex "<H2先頭一致>"` で上書き**、例 暗記ノート=`コンクリート工`／`2. コンクリート工`・崩れたら中断）。**PDF挿入は既定で本文末尾へJSで caret 移動**（旧 Control+End は Windows専用でMac無効→冒頭挿入=無料流出だった・2026-07-04是正）。**`note-attach-file --anchor "<段落テキスト>"` で指定段落の直後に挿入も可**（未検出は ABORT・複数は `--force` 併用）。Windows/Mac可 | `note記事にPDF添付`, `印刷用PDFを記事末尾に`, `下書きにPDF添付`, `/note-attach-pdf --dir {magazineDir} [--commit] [--boundary-regex "<H2>"]`, `note-attach-file --note {key} --file {pdf} [--commit\|--draft-only]` |
 | `/publish-ig-bs` | Playwright × Meta Business Suite で IG **カルーセル/リール**を**予約投稿**（`--reel` で reels/video.mp4・IG 単独化・spinbutton 時刻・dry-run 必須）。即時は `--now`（Graph API 経路は 2026-06-17 全廃＝IG 投稿は本スキルに一本化） | `IG予約投稿`, `インスタ予約`, `リール予約`, `Business Suite 投稿`, `/publish-ig-bs` |
 | `/x-repost` | 高エンゲージな技術士総監/1級・2級土木ツイートを検索 → `x-repost-curator` で選別＋引用コメント生成 → Playwright で引用RP（ローカル `/loop` 運用・dry-run 必須） | `Xリポスト`, `引用リポスト`, `/x-repost` |
-| `/yt-shorts-create` | **v7: IG Reels mp4 から YouTube Shorts を派生**（30〜60秒を推奨〔成立条件の検査は縦/正方形・180秒以内〕+ 概要欄差替、`--from-reels`。投稿は3本/日・JST07:30/12:30/20:00、真実源 policy §5-7。MDX 直結 `--slug` は廃止） | `YouTube Shorts`, `YT 派生`, `/yt-shorts-create --from-reels r03-pack-01` |
 | `/video-content` | 動画パック（悩み・出典付き台本・storyboard・CTA）の薄い入口。既存パック重複確認→`video-script-writer` 生成→`check-video-content`→`video-content-qa` 独立採点→承認待ちで停止（BLOCK は指摘だけ Generator へ返す・最大2回）。レンダリング・投稿・承認は担当外（初回通常動画の投稿は `registry -- publish-youtube`）。契約 `video-content-policy.md` §7 | `動画パックを作る`, `動画台本を作る`, `パックの台本をQA`, `/video-content <exam> <packId>` |
 
 ### 開発（dev）
@@ -182,11 +181,8 @@ SNSの人物・見出しを改修するときは [SNS画像ポリシー §0・§
 ### SNS 投稿を量産したい（v7: IG 一次 → YT 派生）
 
 1. `/ig-post-create --exam {pack-id}` — Instagram カルーセル/Reels PNG（一次制作）
-2. `/ig-reel-create --exam {pack-id}` — カルーセル PNG → 全4問フル Reels mp4（VOICEVOX + ffmpeg、≈90-145秒）
-   - **短い「1問1リール」が欲しいとき**: `node .claude/skills/social/yt-shorts-create/scripts/per-problem-shorts.mjs --ig-mode --year {r07} --pack {r07-pack-01} [--questions 1,2]` → `reels-pp/q<N>/{video.mp4,caption.txt}`（≈36-45秒・チャーム無し・論点 caption）
-3. `/publish-ig-bs post {pack|reels-pp/q<N>} [--reel] --schedule …` — IG カルーセル/リールを Business Suite で**予約投稿**（即時は `--now`。Graph API 経路は 2026-06-17 全廃）
-   - **リール JIT**（生成→予約→mp4削除で在庫を持たない）: `node scripts/publish-reel-jit.mjs --pack {r07-pack-01} --question 1 --schedule {YYYY-MM-DDTHH:MM}`。動画 mp4・wav は gitignore（コミットは slide-data + script.txt + caption.txt、wav は Drive vault 退避＝drive-vault-sync --group sns-archived-media／再生成可）
-4. `/yt-shorts-create --from-reels {pack-id}` — IG Reels mp4 → YouTube Shorts 派生
+2. `/publish-ig-bs post {pack|reels-pp/q<N>} [--reel] --schedule …` — IG カルーセル/リールを Business Suite で**予約投稿**（即時は `--now`。Graph API 経路は 2026-06-17 全廃）
+3. `npm run shorts-factory` — 動画パックから YouTube Shorts を作る（手順は video-factory.md「ショートの工程」）
    - 共有合成ライブラリの通常動画は、各静止画を音声の実尺へ揃えてから連結する。時刻同期の実機検査は `RUN_FFMPEG_INTEGRATION=1 node --test tests/longform-timing.integration.test.mjs`（ffmpeg＋libassが必要）。
 
 **IG ハイライト整備**（戦略 v7.1、`node` スクリプト）:
@@ -199,7 +195,7 @@ SNSの人物・見出しを改修するときは [SNS画像ポリシー §0・§
 - 週次レビュー: `/weekly-review` の **Agent F**（SNS 流入・投稿実績）＋ `metrics-analyzer` の **Pattern 6 SNS-Source-Shift**（急落/新規成長 source を surface）
 - X UTM ゲート: `npm run check-x-utm`（pre-commit・X 送客リンクに `utm_source=x`/`utm_medium=social` 必須）
 - YT 公開照合: 2026-10-25 に SNS の保留に合わせて CI の毎日の照合（`registry-reconcile.yml`）を外した。いまは手元の `npm run check-video-publication` だけ
-- IG 公開照合: 運営者が `verify-ig-status`（`/ig-reconcile` スキルは 2026-10-25 に外した）／型・雛形の索引: `docs/marketing/00_SNS整理マップ.md §型カタログ`
+- IG 公開照合: 運営者が `verify-ig-status`（`/ig-reconcile` スキルは 2026-10-25 に外した）
 
 ### PDF を MDX に変換したい
 

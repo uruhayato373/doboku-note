@@ -2,7 +2,7 @@
 /**
  * angle-reel-create.mjs — 角度駆動リール（discovery）レンダラ。
  *
- * ig-reels-policy §7（mode:"angle"）の script.json から、hook/point/cta の縦型スライドを
+ * 角度駆動（mode:"angle"）の script.json から、hook/point/cta の縦型スライドを
  * 自前 SVG→PNG で描画し、VOICEVOX TTS ＋ ffmpeg で 9:16 短尺リールに合成する。
  * figure-reel-create（カルーセル貼り＋読み上げ＝§7 で非推奨）とは別物＝1論点・フック先頭の
  * discovery リール専用。

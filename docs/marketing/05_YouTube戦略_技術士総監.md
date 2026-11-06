@@ -19,7 +19,7 @@
 | 論点 | v7（親 SSOT の現定義） | 本ドキュメント（総監の差分） |
 |---|---|---|
 | YouTube の位置づけ | IG Reels mp4 の二次展開のみ（Shorts 週 1〜2 本）。YT 単独パイプライン廃止 | Shorts は slide-data.json 共通一次ソースを維持しつつ**2 経路併存**（§3）。**通常動画を YouTube 固有の一次制作として新設**（v7 で Phase 4 補助だった標準動画を総監については本丸へ昇格） |
-| Shorts の生成経路 | IG Reels mp4 の ffmpeg トリム派生 | 総監は `per-problem-shorts.mjs` の **YT 専用再描画**（2026-06-06 新設）で稼働中。IG mp4 を経由しない |
+| Shorts の生成経路 | IG Reels mp4 の ffmpeg トリム派生 | 総監は旧 YT 専用再描画（2026-06-06 新設・2026-11 に削除）で稼働していた。現行は `shorts-factory`。IG mp4 を経由しない |
 | 投稿頻度 | 週 1〜2 本 | legacy総監Shortsは13本投稿済み・187本retiredで凍結。非総監video-packの日次cron承認は総監へ波及しない |
 
 ### 改訂トリガー
@@ -66,9 +66,9 @@
 | **Tier 1** | Shorts（9:16・30-60 秒） | slide-data.json 起点・2 経路併存（下記） | **legacy凍結**（uploaded 13・retired 187） | 再開しない。非総監video-pack cronとは別系統 |
 | **Tier 2** | 通常動画（16:9・5-60 分） | **YouTube 固有の一次制作**（5 ピラー、§4） | Phase B（試験後〜） | 戦略拡張の本丸。**台本+storyboard+QA 済みの在庫 14 本**（pilot 2＋2026-09-01 全量準備 12＝択一演習・聞き流し・口頭試験系の素案 1/3 対応を含む。実数 SSOT は[企画バンク](../../content/sns/video-packs/README.md)）。残るはレンダリング（16:9 実装済み `render-longform`）→承認→公開 |
 
-**Shorts の 2 経路併存（v7 原則の総監差分）**: v7 は「IG Reels mp4 のトリム派生」一本だったが、総監は `per-problem-shorts.mjs`（YT 専用再描画。ページ番号・スワイプ CTA を構造的に抑止、4 問全展開対応）で IG mp4 を経由せず生成・投稿している。両経路とも一次ソースは `slide-data.json` で共通のため、コンテンツの二重保守は発生しない。**IG Reels パイプライン障害時も YT 単独で台帳消化を継続できる**＝v7 が懸念した単一障害点は総監では構造的に緩和済み。
+**Shorts の 2 経路併存（v7 原則の総監差分）**: v7 は「IG Reels mp4 のトリム派生」一本だったが、総監は旧 YT 専用再描画（2026-11 に削除。ページ番号・スワイプ CTA を構造的に抑止、4 問全展開対応）で IG mp4 を経由せず生成・投稿している。両経路とも一次ソースは `slide-data.json` で共通のため、コンテンツの二重保守は発生しない。**IG Reels パイプライン障害時も YT 単独で台帳消化を継続できる**＝v7 が懸念した単一障害点は総監では構造的に緩和済み。
 
-> **どちらの経路を使うか（優先度・障害時の扱い）**: 総監legacy Shortsは **経路B＝`per-problem-shorts.mjs`（YT 専用再描画）が正**。**経路A＝`yt-shorts-create --from-reels` はIG Reelsを先に作ったパックの補助**。一方、2026-09-05承認済みの1級・2級土木・コンクリートは、この2経路ではなく通常動画へ1:1接続する動画パック直結経路を使う。
+> **どちらの経路を使うか（優先度・障害時の扱い）**: 旧2経路（IG Reels 派生・YT 専用再描画）のスキルとスクリプトは 2026-11 に削除した。現行は通常動画へ1:1接続する動画パック直結経路（`npm run shorts-factory`）。
 
 旧 Shorts は台帳（`content/registry/`・kind `legacy-short`・uploaded 13／retired 187）。2026-10-09 に旧台帳 `youtube-schedule.json` と旧スクリプトを消した。`post-youtube-scheduled.yml` の日次cron（2026-09-05に承認された1級・2級土木・コンクリートの動画パック専用で、総監legacyを対象にしない）は 2026-10-24 に廃止した。
 
@@ -116,7 +116,7 @@ YouTube は**検索面（総監系クエリ）の占有**という、IG（Explor
 |---|---|---|
 | スライド生成 | Satori + resvg（`.claude/scripts/lib/sns-common/slide-render.mjs`） | 9:16・16:9とも実装済み |
 | 音声 | VOICEVOX 四国めたん（Docker、`tts-client.mjs`） | 稼働中 |
-| Shorts 生成 | `yt-shorts-create --from-reels`／`per-problem-shorts.mjs`（YT 専用再描画・4 問全展開・`--ig-mode`） | 実装済 |
+| Shorts 生成 | `npm run shorts-factory`（動画パック直結） | 実装済 |
 | Shorts 投稿 | legacy=台帳（kind `legacy-short`）、動画パック=`youtube.json`（計画）＋`content/registry/`（状態） | legacy総監は13本で凍結。日次cronは承認済み非総監video-packのみ |
 | タイトル | `yt-shorts-title-writer`（Generator・論点ベース 40 字以内） | 実装済（200 本入力済み） |
 | 品質採点 | `yt-shorts-publisher-qa`（Evaluator・4 軸ルーブリック） | 実装済 |
