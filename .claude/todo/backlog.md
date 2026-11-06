@@ -444,6 +444,16 @@ X の投稿からの note クリックも同じ形で取れるかを確かめる
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-1008] PR #1423 のマージ後に台帳だけの push で CI が走らないことを確かめる
+タグ: [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-11-06]
+
+**起点**: 2026-11-06 に PR #1423 で `ci.yml` の push の `paths-ignore` へ `.claude/todo/**` と `.claude/state/todo-claims.json` を足した。この設定は develop の push で初めて効くので、PR の CI では動きを確かめられない。
+
+**やること**: マージ後の最初の台帳だけの push について、`gh run list --workflow ci.yml --commit <sha>` で実行が無いことを確かめる。あわせて `npm run deploy:main -- --dry-run` が先端の台帳の commit で止まらないことを確かめ、`.claude/worktrees/ci-push-scope` を片付ける。
+
+**完了条件**: 台帳だけの push で Pre-merge check が 0 件で、台帳以外の push では今までどおり走っている。worktree が消えている。
+
+
 ### [DN-1006] YouTube・X・Instagram の年間計画を 3 か月の実測で見直す
 タグ: [領域:SNS] [時期:2027-02] [種類:意思決定] [起票:2026-11-06] [期日:2027-02-05]
 
