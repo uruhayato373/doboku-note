@@ -1,0 +1,38 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>X 返信候補</title>
+<style>
+:root{--bg:#fff;--fg:#1a1f24;--mut:#5b6670;--line:#dfe3e7;--card:#f7f8f9;--acc:#0f5f8c;--ok:#1f7a46;--warn:#a15c00;--no:#a33;}
+@media (prefers-color-scheme:dark){:root{--bg:#14181c;--fg:#e8ecef;--mut:#9aa6b0;--line:#2c343b;--card:#1c2228;--acc:#6bb7e0;--ok:#62c08b;--warn:#e0a95a;--no:#e58a8a;}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.7 -apple-system,"Hiragino Sans","Noto Sans JP",sans-serif}
+header{position:sticky;top:0;background:var(--bg);border-bottom:1px solid var(--line);padding:10px 16px;z-index:2}
+h1{font-size:17px;margin:0 0 6px}h2{font-size:16px;margin:22px 0 8px}
+.tabs{display:flex;gap:6px;flex-wrap:wrap}.tabs button{border:1px solid var(--line);background:none;color:var(--fg);padding:5px 10px;border-radius:6px;font:inherit;font-size:13px;cursor:pointer}
+.tabs button.on{background:var(--acc);border-color:var(--acc);color:var(--bg);font-weight:600}
+main{max-width:760px;margin:auto;padding:12px 16px 60px}section{display:none}section.on{display:block}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px}.stat{border:1px solid var(--line);border-radius:8px;padding:10px 12px;background:var(--card)}.stat b{display:block;font-size:24px;line-height:1.3}.stat span{font-size:13px;color:var(--mut)}
+.c{border:1px solid var(--line);border-radius:8px;padding:12px;margin:10px 0;background:var(--card)}.c.採用{border-color:var(--ok)}.c.見送り{opacity:.55}
+.meta{display:flex;gap:8px;flex-wrap:wrap;align-items:center;font-size:13px;color:var(--mut);margin-bottom:6px}.tag{border:1px solid var(--line);border-radius:4px;padding:0 6px}.tag.A{color:var(--acc);border-color:var(--acc)}
+.why{font-size:14px;margin:0 0 8px}textarea{width:100%;min-height:96px;font:inherit;color:var(--fg);background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:8px;resize:vertical}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:6px;font-size:13px}.row label{display:inline-flex;gap:3px;align-items:center}.row button{font:inherit;font-size:13px;padding:2px 8px;border:1px solid var(--line);border-radius:5px;background:none;color:var(--fg);cursor:pointer}.n{margin-left:auto;color:var(--mut)}.n.over{color:var(--no);font-weight:700}
+a{color:var(--acc)}.note{border-left:3px solid var(--warn);padding:6px 10px;margin:10px 0;font-size:14px}.note.bad{border-color:var(--no)}table{border-collapse:collapse;width:100%;font-size:14px}th,td{border-bottom:1px solid var(--line);padding:6px 4px;text-align:left}td.r,th.r{text-align:right}ul{padding-left:20px}
+</style></head><body>
+<header><h1>X の返信候補</h1><div id="prog" style="font-size:13px;color:var(--mut)"></div></header>
+<main id="m"></main>
+<script>
+const D=__DATA__;
+const KEY='x-reply-'+D.collectedAt;let S={};try{S=JSON.parse(localStorage.getItem(KEY)||'{}')}catch(e){}
+const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}};
+const w=t=>[...t].reduce((a,c)=>a+(c.codePointAt(0)<0x1100?1:2),0);
+const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const LABEL={ask:'尋ねている',pass:'合格',fail:'不合格'};
+const m=document.getElementById('m');
+const c=D.counts||{};
+m.innerHTML=`<p style="font-size:14px;color:var(--mut)">投稿 ${c.total??'—'} 件を判定。配慮が必要で除いた投稿は ${c.care??'—'} 件。元の投稿を開いて、文脈を見てから判断してください。採用した案だけを送ります。</p>`+D.items.map(x=>{const st=S[x.id]||{};const v=st.v||'';return `<div class="c ${v}" data-id="${esc(x.id)}"><div class="meta"><span class="tag">${LABEL[x.kind]||esc(x.kind)}</span><span>${esc(x.dept)}</span><a href="${esc(x.url)}" target="_blank" rel="noopener">元の投稿を開く</a></div><p class="why">${esc(x.why)}</p>${x.check?`<p class="why" style="color:var(--warn)">確認：${esc(x.check)}</p>`:''}<textarea>${esc(st.text??x.text)}</textarea><div class="row">${['採用','修正','見送り'].map(o=>`<label><input type="radio" name="${esc(x.id)}" value="${o}" ${v===o?'checked':''}>${o}</label>`).join('')}<button data-copy>コピー</button><span class="n"></span></div></div>`}).join('');
+function prog(){const n={採用:0,修正:0,見送り:0};D.items.forEach(x=>{const v=(S[x.id]||{}).v;if(v)n[v]++});document.getElementById('prog').textContent=`全 ${D.items.length} 件・採用 ${n.採用}・修正 ${n.修正}・見送り ${n.見送り}`}
+function count(card){const n=w(card.querySelector('textarea').value);const e=card.querySelector('.n');e.textContent=n+' / 280';e.classList.toggle('over',n>280)}
+document.querySelectorAll('.c').forEach(el=>{const id=el.dataset.id;count(el);
+ el.querySelector('textarea').addEventListener('input',ev=>{S[id]=S[id]||{};S[id].text=ev.target.value;save();count(el)});
+ el.querySelectorAll('input[type=radio]').forEach(r=>r.addEventListener('change',()=>{S[id]=S[id]||{};S[id].v=r.value;save();el.className='c '+r.value;prog()}));
+ el.querySelector('[data-copy]').addEventListener('click',async ev=>{try{await navigator.clipboard.writeText(el.querySelector('textarea').value);ev.target.textContent='コピーした'}catch(e){el.querySelector('textarea').select();ev.target.textContent='選択した'}setTimeout(()=>ev.target.textContent='コピー',1200)})});
+prog();
+window.__state=()=>D.items.map(x=>({id:x.id,user:x.user,kind:x.kind,url:x.url,decision:(S[x.id]||{}).v||null,text:(S[x.id]||{}).text??x.text}));
+</script></body></html>

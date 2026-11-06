@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-11-04T04:00:00.000Z",
+  "updated_at": "2026-11-07T00:00:00.000Z",
   "experiments": [
     {
       "id": "EXP-002",
@@ -8837,6 +8837,33 @@
         "excavation-bottom-failure・service-commencement・textbook-distance-angle の seoTitle と冒頭を変更",
         "board-of-audit-inspection の seoTitle と冒頭を変更（「会計実地検査」206 表示 2 クリック 9.2 位）"
       ]
+    },
+    {
+      "id": "EXP-059",
+      "title": "X の返信候補を毎日用意し、人が 1 件ずつ承認して送る",
+      "hypothesis": "試験の結果や準備に迷う人へ、その人の投稿に合う返信を人の判断で送ると、doboku-note の名前を知ってもらえる",
+      "target_metric": "2 週間のプロフィールへのアクセス・フォロワーの増減・X 経由のサイト利用者（xUsers）",
+      "target_delta": "11/21 時点で約 30 件送り、xUsers と フォロワーが試行前の 2 週間より増える。X から警告が出たら止める",
+      "status": "running",
+      "created_at": "2026-11-07",
+      "next_check_date": "2026-11-22",
+      "updated_at": "2026-11-07T00:00:00.000Z",
+      "businessContext": {
+        "qualification": "pe-construction",
+        "readerNeed": "試験の結果や口頭の準備で、次に何をすればよいかわからない",
+        "verifiedGap": "11/4 以降の検索で不合格の本人 82・合格の本人 47 アカウントの投稿を確認。手動の 7 件で確認すると 6 人中 3 人は送らないほうがよい状況だった",
+        "metricId": "xUsers",
+        "reviewRecord": "data/business/records/review-2026-11-01T06-07-23-843Z-6abb9200-372f-4c28-9595-84f9ccde8750.json"
+      },
+      "actions": [],
+      "baseline": {
+        "measured_at": "2026-11-06",
+        "source": "X のプロフィールの表示と npm run metric-status（xUsers の 10 月末の記録）",
+        "followers": 112,
+        "posts": 328,
+        "xUsersRecord": 9,
+        "repliesSentBeforeTrial": 7
+      }
     }
   ]
 }

@@ -147,6 +147,7 @@ export const DATASETS = [
   d('config.ogp-backgrounds', 'config/ogp/backgrounds/{name}.png', 'config', 'site', 'OGP の資格別の背景画像（AI で作った一点物。実体は private R2・素材の group ogp-background。2026-10-10 に git から外した）', { local: true, regen: 'npm run asset-hydrate -- --group ogp-background（R2 から取り戻す。作り直しは scripts/generate-ogp-backgrounds.mjs だが同じ画素は再現しない）' }),
   // SNS
   d('config.x-account', 'config/x-account.json', 'config', 'sns', 'X のアカウントとプロフィール', { schema: 'ConfigXAccount' }),
+  d('config.x-reply-trial', 'config/x-reply-trial.json', 'config', 'sns', 'X の返信の試行（検索語・候補の判定語・1 日の上限）', { schema: 'ConfigXReplyTrial' }),
   d('config.x-repost', 'config/x-repost.json', 'config', 'sns', 'X の引用リポストの設定', { schema: 'ConfigXRepost' }),
   d('config.ig-account', 'config/ig-account.json', 'config', 'sns', 'Instagram のアカウントとプロフィール', { schema: 'ConfigIgAccount' }),
   d('config.instagram-pinned', 'config/instagram-pinned.json', 'config', 'sns', 'Instagramプロフィール固定投稿3本の原稿と図解データ', { schema: 'InstagramPinnedManifest' }),
@@ -214,6 +215,7 @@ export const DATASETS = [
   // X
   d('x.own-posts', 'data/x/own-posts/{date}.json', 'series', 'sns', '自分の X 投稿の反応', { retain: { family: 'x', keepAll: true }, schema: 'XOwnPosts' }),
   d('x.reposted', 'data/x/reposted.json', 'ledger', 'sns', 'X で引用リポストした投稿', { schema: 'XReposted' }),
+  d('x.reply-log', 'data/x/reply-log.json', 'ledger', 'sns', 'X の返信の送信記録（相手はハッシュのみ）', { schema: 'XReplyLog' }),
   d('x.competitors', 'data/x/competitors/{date}.json', 'series', 'strategy', 'X の競合アカウント（全社の通常実行だけ）', { retain: { family: 'competitors', keepAll: true }, freshness: { warnDays: 90 }, schema: 'XCompetitors' }),
   // Instagram・YouTube
   d('instagram.competitors', 'data/instagram/competitors/{date}.json', 'series', 'strategy', 'Instagram の競合アカウント（全社の通常実行だけ）', { retain: { family: 'competitors', keepAll: true }, freshness: { warnDays: 90 }, schema: 'InstagramCompetitors' }),
