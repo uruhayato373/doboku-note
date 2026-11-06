@@ -46,7 +46,7 @@ export default function LineChart({
   const step = Math.max(1, Math.ceil(points.length / 6));
 
   return (
-    <svg viewBox={`0 0 ${W} ${H}`} width="100%" style={{ display: 'block' }} role="img">
+    <svg viewBox={`0 0 ${W} ${H}`} width="100%" className="block" role="img">
       {ticks.map((t, i) => {
         const yy = y(t);
         return (

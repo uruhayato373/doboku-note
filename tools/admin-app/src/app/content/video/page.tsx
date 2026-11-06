@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { DataTable, DetailList, DetailSheet, type DataTableColumn, type DataTableRow, PanelCard, StatusBadge, type Tone } from '@/components/admin';
+import { DataTable, DetailList, DetailSheet, type DataTableColumn, type DataTableRow, PanelCard, StatusBadge, type Tone, FilterBar, FilterChip } from '@/components/admin';
 import { PageHead } from '@/components/ui';
 import { longformPlanHref } from '@/lib/content-plan-links';
 import { videoPackBoard, examLabel, stageClass } from '@/lib/video-board';
@@ -112,30 +112,30 @@ export default async function VideoPackBoard({
       </nav>
 
       {/* 段階（共通ライフサイクル ステージ）*/}
-      <div className="filterbar">
-        <Link href={link({ stage: 'all' })} className={'chip' + (activeStage === 'all' ? ' active' : '')}>
+      <FilterBar>
+        <FilterChip href={link({ stage: 'all' })} active={activeStage === 'all'}>
           全て {board.rows.length}
-        </Link>
+        </FilterChip>
         {[...STAGE_ORDER, 'unknown']
           .filter((s) => board.byStage[s])
           .map((s) => (
-            <Link key={s} href={link({ stage: s })} className={'chip' + (activeStage === s ? ' active' : '')}>
+            <FilterChip key={s} href={link({ stage: s })} active={activeStage === s}>
               {s === 'unknown' ? '不明' : LABELS[s]} {board.byStage[s]}
-            </Link>
+            </FilterChip>
           ))}
-      </div>
+      </FilterBar>
 
       {/* 資格 */}
-      <div className="filterbar">
-        <Link href={link({ exam: 'all' })} className={'chip' + (activeExam === 'all' ? ' active' : '')}>
+      <FilterBar>
+        <FilterChip href={link({ exam: 'all' })} active={activeExam === 'all'}>
           全資格
-        </Link>
+        </FilterChip>
         {exams.map((e) => (
-          <Link key={e} href={link({ exam: e })} className={'chip' + (activeExam === e ? ' active' : '')}>
+          <FilterChip key={e} href={link({ exam: e })} active={activeExam === e}>
             {examLabel(e)} {board.rows.filter((r) => r.exam === e).length}
-          </Link>
+          </FilterChip>
         ))}
-      </div>
+      </FilterBar>
 
       <PanelCard title="企画一覧">
         <DataTable columns={COLUMNS} rows={rows} filter="packId・タイトルで絞り込む" emptyText="該当なし" />

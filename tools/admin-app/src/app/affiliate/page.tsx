@@ -1,7 +1,6 @@
-import Link from 'next/link';
-import { DataTable, DetailList, DetailSheet, PanelCard, StatusBadge } from '@/components/admin';
+import { DataTable, DetailList, DetailSheet, PanelCard, StatCard, StatusBadge, FilterBar, FilterChip } from '@/components/admin';
 import { Grid, Stack } from '@/components/layout';
-import { PageHead, Kpi } from '@/components/ui';
+import { PageHead } from '@/components/ui';
 import { affiliateSummary, affiliatePlacements, affiliateExperiments, affiliateRules, affiliateClickLog, affiliateConversions } from '@/lib/affiliate';
 import { num, yen } from '@/lib/format';
 
@@ -47,19 +46,19 @@ export default async function AffiliatePage({ searchParams }: { searchParams: Pr
   return (
     <>
       <PageHead title="アフィリエイト" sub={nextChecks || undefined} />
-      <nav className="filterbar mb-3!">
+      <FilterBar className="mb-3!">
         {TABS.map((t) => (
-          <Link key={t.id} className={'chip' + (t.id === current ? ' active' : '')} href={t.id === 'placement' ? '/affiliate' : `/affiliate?tab=${t.id}`}>
+          <FilterChip key={t.id} active={t.id === current} href={t.id === 'placement' ? '/affiliate' : `/affiliate?tab=${t.id}`}>
             {t.label}
-          </Link>
+          </FilterChip>
         ))}
-      </nav>
+      </FilterBar>
       <Stack gap="lg">
         <Grid min="sm">
-          <Kpi label={win ? `サイト内クリック ${win}` : 'サイト内クリック'} value={placements.rows.length ? clicks : '—'} />
-          <Kpi label="クリック率（今の配置）" value={rate(clicks, imps)} />
-          <Kpi label={`A8 発生 ${month}`} value={collected ? num(sumOf('conversions')) : '—'} />
-          <Kpi label={`A8 確定額 ${month}`} value={collected ? yen(sumOf('revenueYen')) : '—'} />
+          <StatCard label={win ? `サイト内クリック ${win}` : 'サイト内クリック'} value={placements.rows.length ? clicks : '—'} />
+          <StatCard label="クリック率（今の配置）" value={rate(clicks, imps)} />
+          <StatCard label={`A8 発生 ${month}`} value={collected ? num(sumOf('conversions')) : '—'} />
+          <StatCard label={`A8 確定額 ${month}`} value={collected ? yen(sumOf('revenueYen')) : '—'} />
         </Grid>
 
         {current === 'placement' && (

@@ -18,6 +18,12 @@ test('style={{ の出現を数える', () => {
   assert.equal(countDebt('<a style={{ margin: 0 }} /><b style={{a:1}} /><c style={s} />').inlineStyle, 2);
 });
 
+test('手で組んだ絞り込みを数え、部品と文字のバッジは数えない', () => {
+  const hand = ['<nav className="filterbar mb-3!">', '<Link className={\'chip\' + (a ? \' active\' : \'\')} href="/a">', '<Link href="/b" className="chip">'].join('\n');
+  assert.equal(countDebt(hand).handChip, 3);
+  assert.equal(countDebt('<FilterBar><FilterChip href="/a" active>a</FilterChip></FilterBar><span className="chip">v1</span>').handChip, 0);
+});
+
 test('基準値より増えたページと、基準値に無い新規ページの 1 件以上を回帰にする', () => {
   const baseline = { 'a.tsx': { rawCard: 2, inlineStyle: 3 } };
   const current = { 'a.tsx': { rawCard: 3, inlineStyle: 1 }, 'new.tsx': { rawCard: 0, inlineStyle: 1 } };

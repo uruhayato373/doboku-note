@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import UpcomingEvents from '@/components/UpcomingEvents';
-import { DataTable, DetailList, DetailSheet, DetailText, PanelCard, StatusBadge, type DataTableColumn, type DataTableRow } from '@/components/admin';
+import { DataTable, DetailList, DetailSheet, DetailText, PanelCard, StatusBadge, type DataTableColumn, type DataTableRow, FilterBar, FilterChip } from '@/components/admin';
 import { PageHead } from '@/components/ui';
 import { snsBoard, figureBoard } from '@/lib/sns-board';
 import { videoSnsJoin } from '@/lib/video-sns-join';
@@ -167,11 +167,11 @@ export default async function SnsBoardPage({ searchParams }: { searchParams: Pro
   return (
     <>
       <PageHead title="投稿状況" />
-      <nav className="filterbar mb-3!">
+      <FilterBar className="mb-3!">
         {TABS.map((t) => (
-          <Link key={t.id} className={'chip' + (t.id === current ? ' active' : '')} href={t.id === 'figures' ? '/sns' : `/sns?tab=${t.id}`}>
+          <FilterChip key={t.id} active={t.id === current} href={t.id === 'figures' ? '/sns' : `/sns?tab=${t.id}`}>
             {t.label}
-          </Link>
+          </FilterChip>
         ))}
         <span className="small muted ml-auto">
           <Link href="/gallery/sns?ch=instagram">Instagram 画像・動画</Link>
@@ -181,7 +181,7 @@ export default async function SnsBoardPage({ searchParams }: { searchParams: Pro
           <Link href={longformPlanHref()} className="ml-3">通常動画</Link>
           <Link href="/schedule?dom=sns" className="ml-3">SNS予定</Link>
         </span>
-      </nav>
+      </FilterBar>
       <UpcomingEvents domain="sns" />
 
       {current === 'figures' && (

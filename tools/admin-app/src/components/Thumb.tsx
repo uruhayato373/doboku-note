@@ -42,14 +42,14 @@ export default function Thumb({
         {offloaded ? (
           // 実体が無いので <img> は出さない（壊れた画像アイコンにしない）。
           // private バケットのものを公開 URL へ変換しないため、リンクも張らない。
-          <div style={{ display: 'grid', placeItems: 'center', gap: 4, padding: 12, textAlign: 'center', fontSize: 12, opacity: 0.75 }}>
+          <div className="grid place-items-center gap-1 p-3 text-center text-xs opacity-75">
             <span>R2 にあり（要 hydrate）</span>
-            <span style={{ fontSize: 11, opacity: 0.7 }}>{bucket ?? 'r2'}</span>
-            <code style={{ fontSize: 10 }}>npm run asset-hydrate</code>
+            <span className="text-[11px] opacity-70">{bucket ?? 'r2'}</span>
+            <code className="text-[10px]">npm run asset-hydrate</code>
           </div>
         ) : video ? (
           // eslint-disable-next-line jsx-a11y/media-has-caption
-          <video src={url} controls preload="none" style={{ maxWidth: '100%', maxHeight: '100%' }} />
+          <video src={url} controls preload="none" className="max-h-full max-w-full" />
         ) : (
           <MaybeLink href={href}>
             {/* 大量画像のため next/image ではなく素の img + lazy を使う */}

@@ -1,7 +1,7 @@
 import Link from 'next/link';
-import { DataTable, DetailList, DetailSheet, type DataTableColumn, type DataTableRow, PanelCard, StatusBadge, type Tone } from '@/components/admin';
+import { DataTable, DetailList, DetailSheet, type DataTableColumn, type DataTableRow, PanelCard, StatCard, StatusBadge, type Tone, FilterBar, FilterChip } from '@/components/admin';
 import { Stack } from '@/components/layout';
-import { PageHead, Kpi } from '@/components/ui';
+import { PageHead } from '@/components/ui';
 import { loadKindleView, type KindleBookView } from '@/lib/kindle';
 import { yen } from '@/lib/format';
 
@@ -115,17 +115,17 @@ export default async function KindleContentPage({ searchParams }: { searchParams
 
       <Stack>
       <div className="grid cols-4">
-        <Kpi label="live" value={summary.byStatus.live ?? 0} />
-        <Kpi label="in_review" value={summary.byStatus.in_review ?? 0} />
-        <Kpi label="鮮度 stale" value={freshnessOk ? summary.staleCount : '検査不成立'} />
-        <Kpi label="直近月ロイヤリティ" value={royalties?.ok ? `${yen(royalties.total?.royalty)}${royalties.estimated ? '(推計)' : ''}` : '未取得'} />
+        <StatCard label="live" value={summary.byStatus.live ?? 0} />
+        <StatCard label="in_review" value={summary.byStatus.in_review ?? 0} />
+        <StatCard label="鮮度 stale" value={freshnessOk ? summary.staleCount : '検査不成立'} />
+        <StatCard label="直近月ロイヤリティ" value={royalties?.ok ? `${yen(royalties.total?.royalty)}${royalties.estimated ? '(推計)' : ''}` : '未取得'} />
       </div>
 
-      <nav className="filterbar mb-3!">
+      <FilterBar className="mb-3!">
         {TABS.filter((t) => t.id !== 'docs' || relatedDocs.length > 0).map((t) => (
-          <Link key={t.id} className={'chip' + (t.id === current ? ' active' : '')} href={t.id === 'books' ? '/content/kindle' : `/content/kindle?tab=${t.id}`}>{t.label}</Link>
+          <FilterChip key={t.id} active={t.id === current} href={t.id === 'books' ? '/content/kindle' : `/content/kindle?tab=${t.id}`}>{t.label}</FilterChip>
         ))}
-      </nav>
+      </FilterBar>
 
       {!freshnessOk && <p className="text-sm project-warning-text">鮮度検査が実行できなかった</p>}
 

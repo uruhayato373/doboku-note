@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { DataTable, DetailList, DetailSheet, PanelCard, StatusBadge, type DataTableColumn, type DataTableRow, type Tone } from '@/components/admin';
+import { DataTable, DetailList, DetailSheet, PanelCard, StatusBadge, type DataTableColumn, type DataTableRow, type Tone, FilterBar, FilterChip } from '@/components/admin';
 import { Stack } from '@/components/layout';
 import { PageHead } from '@/components/ui';
 import { videoOutcomes, derivativeLabel } from '@/lib/video-outcomes';
@@ -120,29 +120,29 @@ export default async function VideoOutcomesPage({ searchParams }: { searchParams
     <>
       <PageHead title="動画成果" />
 
-      <nav className="filterbar mb-3!">
+      <FilterBar className="mb-3!">
         {TABS.map((x) => (
-          <Link key={x.id} className={'chip' + (x.id === tab ? ' active' : '')} href={x.id === 'packs' ? '/metrics/video' : `/metrics/video?tab=${x.id}`}>
+          <FilterChip key={x.id} active={x.id === tab} href={x.id === 'packs' ? '/metrics/video' : `/metrics/video?tab=${x.id}`}>
             {x.label}
-          </Link>
+          </FilterChip>
         ))}
-      </nav>
+      </FilterBar>
 
       <Stack>
       {tab === 'packs' && (
         <>
-          <div className="filterbar">
+          <FilterBar>
             <StatusBadge tone="neutral">企画 {rows.length}</StatusBadge>
             <StatusBadge tone={published.length ? 'good' : 'neutral'}>公開済み {published.length}</StatusBadge>
             <StatusBadge tone="neutral">送客あり {measurable === null ? '未取得' : measurable}</StatusBadge>
-          </div>
+          </FilterBar>
           <DataTable columns={PACK_COLUMNS} rows={packRows} filter="packId で絞り込む" />
         </>
       )}
 
       {tab === 'youtube' && (
         <>
-          <div className="filterbar">
+          <FilterBar>
             {youtubeAnalytics.ok ? (
               <>
                 <StatusBadge tone="good">取得済み</StatusBadge>
@@ -154,7 +154,7 @@ export default async function VideoOutcomesPage({ searchParams }: { searchParams
                 <StatusBadge tone="neutral">未取得</StatusBadge> {youtubeAnalytics.reason}
               </>
             )}
-          </div>
+          </FilterBar>
           {youtubeAnalytics.ok && <DataTable columns={YOUTUBE_COLUMNS} rows={youtubeRows} filter="packId で絞り込む" />}
         </>
       )}
@@ -163,13 +163,13 @@ export default async function VideoOutcomesPage({ searchParams }: { searchParams
         <>
           <PanelCard title="GA4 の計測">
             {metrics.ok ? (
-              <div className="filterbar">
+              <FilterBar>
                 <StatusBadge tone="good">取得済み</StatusBadge>
                 <StatusBadge tone="neutral">期間 {metrics.startDate} 〜 {metrics.endDate}</StatusBadge>
                 <StatusBadge tone={(metrics.ageDays ?? 0) > 9 ? 'warn' : 'neutral'}>鮮度 {metrics.ageDays ?? '?'} 日</StatusBadge>
                 <StatusBadge tone="neutral">campaign {metrics.campaignRows} 件</StatusBadge>
                 <StatusBadge tone="neutral">サイト→note {noteClickMetrics.ok ? '取得済み' : '未取得'}</StatusBadge>
-              </div>
+              </FilterBar>
             ) : (
               <p><StatusBadge tone="bad">未取得</StatusBadge> {metrics.reason}</p>
             )}
@@ -180,7 +180,7 @@ export default async function VideoOutcomesPage({ searchParams }: { searchParams
               <StatusBadge tone="neutral">未実行</StatusBadge>
             ) : (
               <>
-                <div className="filterbar">
+                <FilterBar>
                   <StatusBadge tone={verification.findings.length ? 'bad' : 'good'}>
                     {verification.findings.length ? `ドリフト ${verification.findings.length} 件` : 'ドリフトなし'}
                   </StatusBadge>
@@ -188,7 +188,7 @@ export default async function VideoOutcomesPage({ searchParams }: { searchParams
                   <StatusBadge tone={(verification.ageDays ?? 0) > 14 ? 'warn' : 'neutral'}>
                     {verification.ageDays === null ? '日時不明' : `${verification.ageDays} 日前`}
                   </StatusBadge>
-                </div>
+                </FilterBar>
                 {verification.findings.length > 0 && (
                   <ul className="small">
                     {verification.findings.map((f, i) => (

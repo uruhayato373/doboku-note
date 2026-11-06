@@ -1,20 +1,42 @@
-import Link from 'next/link';
-import { PanelCard, TableBody, TableCell, TableFrame, TableHead, TableHeader, TableRow } from '@/components/admin';
+import { ChannelGantt, type GanttRow } from '@/components/channel-gantt';
+import { layoutLanes } from '../../../../scripts/lib/channel-gantt.mjs';
+import { FilterBar, FilterChip, PanelCard, TableBody, TableCell, TableFrame, TableHead, TableHeader, TableRow } from '@/components/admin';
 
 export type BoardSlot = {
-  id: string; exam: string; title: string; role: 'attract' | 'sell'; window: { from: string; to: string }; count: number; salesMax?: number;
+  id: string; exam: string; title: string; role: 'attract' | 'sell'; window: { from: string; to: string };
   primaryCta: { kind: string; targets: string[] }; parents?: string[];
 };
 export type BoardChannel = {
   id: string; label: string; role: string; state: string; weekly: string; planned: number; capacity: number;
-  metrics: { label: string; status: string }[]; fill: Record<string, number>; slots: BoardSlot[]; pending: string[]; errors: string[];
+  metrics: { label: string; status: string }[]; slots: BoardSlot[]; pending: string[]; errors: string[];
 };
 
-const mon = (ym: string) => `${Number(ym.slice(5))}`;
-const inWindow = (m: string, w: BoardSlot['window']) => m >= w.from && m <= w.to;
-const CELL: Record<BoardSlot['role'], string> = { attract: 'bg-[var(--accent-fill)]', sell: 'bg-[var(--accent)]' };
-
 const KIND: Record<string, string> = { 'site-article': 'サイトの記事', 'links-hub': 'リンク集（/links）' };
+
+const MARK: Record<string, string> = { youtube: 'YT', x: 'X', instagram: 'IG' };
+const CELL: Record<BoardSlot['role'], string> = { attract: 'border-[var(--accent)]/30 bg-[var(--accent-fill)]', sell: 'border-[var(--accent)] bg-[var(--accent)]' };
+
+/** 資格ごとの行へまとめる。行にある資格名は、バーの題名から外す */
+function ganttRows(channels: BoardChannel[], months: string[], nameOf: (id: string) => string): GanttRow[] {
+  const slots = channels.flatMap((c) => c.slots.map((s) => ({ ...s, channel: c })));
+  return [...new Set(slots.map((s) => s.exam))].map((exam) => ({
+    key: exam,
+    label: nameOf(exam),
+    lanes: (layoutLanes(slots.filter((s) => s.exam === exam), months) as { item: (typeof slots)[number]; start: number; span: number }[][]).map((lane) => lane.map(({ item, start, span }) => ({
+      key: `${item.channel.id}-${item.id}-${start}`,
+      mark: MARK[item.channel.id] ?? item.channel.label,
+      title: item.title.replace(/^(総監|建設部門|1級|2級)\s+/, ''),
+      tooltip: `${item.channel.label}: ${item.title}`,
+      role: item.role, start, span,
+    }))),
+  }));
+}
+
+/** 枠の送り先の名前 */
+function targetNames(s: BoardSlot, targetLabel: (kind: string, id: string) => string) {
+  return s.primaryCta.targets.length ? s.primaryCta.targets.map((t) => targetLabel(s.primaryCta.kind, t)) : [KIND[s.primaryCta.kind] ?? s.primaryCta.kind];
+}
+
 
 /** YouTube の枠を起点に、同じ時期に動く X・Instagram の枠と送り先を横に並べる。どの枠にも結ばれていない枠は末尾に出す */
 function WiringTable({ channels, nameOf, targetLabel }: { channels: BoardChannel[]; nameOf: (id: string) => string; targetLabel: (kind: string, id: string) => string }) {
@@ -22,7 +44,7 @@ function WiringTable({ channels, nameOf, targetLabel }: { channels: BoardChannel
   const linked = (id: string, c: BoardChannel) => c.slots.filter((s) => s.parents?.includes(id));
   const parents = new Set(youtube.slots.map((s) => s.id));
   const orphans = social.flatMap((c) => c.slots.filter((s) => !s.parents?.some((p) => parents.has(p))).map((s) => `${c.label}: ${s.title}`));
-  const target = (s: BoardSlot) => (s.primaryCta.targets.length ? s.primaryCta.targets.map((t) => targetLabel(s.primaryCta.kind, t)) : [KIND[s.primaryCta.kind] ?? s.primaryCta.kind]);
+  const target = (s: BoardSlot) => targetNames(s, targetLabel);
   const exams = [...new Set(youtube.slots.map((s) => s.exam))];
   return (
     <div className="mt-3">
@@ -67,11 +89,11 @@ export function ChannelAnnualBoard({ channels, months, nameOf, targetLabel, acti
   const notes = shown.flatMap((c) => [...c.errors.map((line) => ({ line, tone: 'project-warning-text' })), ...c.pending.map((line) => ({ line, tone: 'text-muted-foreground' }))].map((n) => ({ ...n, channel: c.label })));
   return (
     <>
-      <nav className="filterbar mb-3!">
-        <Link className={'chip' + (!active ? ' active' : '')} href="/plan/roadmap?tab=channels">すべて</Link>
-        {channels.map((c) => <Link key={c.id} className={'chip' + (active === c.id ? ' active' : '')} href={`/plan/roadmap?tab=channels&ch=${c.id}`}>{c.label}</Link>)}
-        <Link className={'chip' + (view === 'wiring' ? ' active' : '')} href="/plan/roadmap?tab=channels&view=wiring">配線</Link>
-      </nav>
+      <FilterBar className="mb-3!">
+        <FilterChip active={!active && view !== 'wiring'} href="/plan/roadmap?tab=channels">すべて</FilterChip>
+        {channels.map((c) => <FilterChip key={c.id} active={active === c.id} href={`/plan/roadmap?tab=channels&ch=${c.id}`}>{c.label}</FilterChip>)}
+        <FilterChip active={view === 'wiring'} href="/plan/roadmap?tab=channels&view=wiring">配線</FilterChip>
+      </FilterBar>
       {view !== 'wiring' && <TableFrame>
         <TableHeader>
           <TableRow>
@@ -99,33 +121,9 @@ export function ChannelAnnualBoard({ channels, months, nameOf, targetLabel, acti
         </TableBody>
       </TableFrame>}
       {view !== 'wiring' && <p className="small text-muted-foreground mt-3! mb-1!">
-        <span className={`inline-block h-3 w-3 align-middle ${CELL.attract}`} /> 集客　<span className={`inline-block h-3 w-3 align-middle ${CELL.sell}`} /> 販売　2027 年度の月は 2026 年度の実績を目安にした仮の月
+        <span className={`inline-block h-3 w-3 rounded-[3px] border align-middle ${CELL.attract}`} /> 集客　<span className={`inline-block h-3 w-3 rounded-[3px] border align-middle ${CELL.sell}`} /> 販売　YT・X・IG はチャネル。バーに乗ると項目の全文が出る。2027 年度の月は 2026 年度の実績を目安にした仮の月
       </p>}
-      {view === 'wiring' ? <WiringTable channels={channels} nameOf={nameOf} targetLabel={targetLabel} /> : <TableFrame>
-        <TableHeader>
-          <TableRow>
-            <TableHead>枠</TableHead>
-            <TableHead className="w-24">資格</TableHead>
-            <TableHead className="w-16">本数</TableHead>
-            {months.map((m) => <TableHead key={m} className="w-7 px-0! text-center text-xs">{mon(m)}</TableHead>)}
-          </TableRow>
-        </TableHeader>
-        {shown.map((c) => (
-          <TableBody key={c.id}>
-            <TableRow>
-              <TableCell colSpan={3 + months.length} className="bg-muted text-xs font-bold">{c.label}</TableCell>
-            </TableRow>
-            {c.slots.map((s) => (
-              <TableRow key={s.id}>
-                <TableCell className="whitespace-normal text-xs">{s.title}</TableCell>
-                <TableCell className="whitespace-normal text-xs text-muted-foreground">{nameOf(s.exam)}</TableCell>
-                <TableCell className="text-xs">{c.fill[s.id] ?? 0}/{s.count}{s.salesMax ? <span className="text-muted-foreground">（売{s.salesMax}）</span> : null}</TableCell>
-                {months.map((m) => <TableCell key={m} className={'px-0!' + (inWindow(m, s.window) ? ` ${CELL[s.role]}` : '')} />)}
-              </TableRow>
-            ))}
-          </TableBody>
-        ))}
-      </TableFrame>}
+      {view === 'wiring' ? <WiringTable channels={channels} nameOf={nameOf} targetLabel={targetLabel} /> : <ChannelGantt months={months} rows={ganttRows(shown, months, nameOf)} />}
       {notes.length > 0 && (
         <PanelCard title="確認すること">
           <ul className="small m-0 pl-4">

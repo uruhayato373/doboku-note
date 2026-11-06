@@ -12,7 +12,7 @@ import { todayJst } from '../../../../../../scripts/lib/jst-date.mjs';
 import { reviewWeekLabel } from '../../../../../../scripts/lib/review-week.mjs';
 import { readWeeklyDraft, reviewChecks, weeklyLaunchd } from '../../../../../../scripts/lib/review-automation.mjs';
 import { jstDateTime } from '@/lib/format';
-import { StatusBadge, type Tone, DataTable, DetailSheet, DetailText, PanelCard, StatCard, type DataTableColumn, type DataTableRow } from '@/components/admin';
+import { StatusBadge, type Tone, DataTable, DetailSheet, DetailText, PanelCard, StatCard, type DataTableColumn, type DataTableRow, FilterBar, FilterChip } from '@/components/admin';
 
 /**
  * 戦略 ＞ レビュー（週次・月次）の共通部品。画面には人が目で確かめる・決めることだけを出す
@@ -406,13 +406,13 @@ export function ReviewBody({ d, cadenceId, tab, base }: { d: ReviewData; cadence
   return (
     <Stack gap="lg">
       <RunPicker base={base} options={d.options} selected={d.selected.key} />
-      <nav className="filterbar mb-3!">
+      <FilterBar className="mb-3!">
         {REVIEW_TABS.map((x) => (
-          <Link key={x.id} className={'chip' + (x.id === current ? ' active' : '')} href={href(x.id)}>
+          <FilterChip key={x.id} active={x.id === current} href={href(x.id)}>
             {x.label}
-          </Link>
+          </FilterChip>
         ))}
-      </nav>
+      </FilterBar>
       {current === 'status' && (
         <>
           <Current sel={d.selected} cadenceId={cadenceId} />

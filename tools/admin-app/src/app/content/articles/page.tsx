@@ -1,5 +1,4 @@
-import Link from 'next/link';
-import { DataTable, DetailList, DetailSheet, type DataTableColumn, type DataTableRow, StatusBadge } from '@/components/admin';
+import { DataTable, DetailList, DetailSheet, type DataTableColumn, type DataTableRow, StatusBadge, FilterBar, FilterChip } from '@/components/admin';
 import { PageHead } from '@/components/ui';
 import { articlesIndex } from '@/lib/content';
 import { GROUP_LABEL } from '@/lib/gallery';
@@ -25,13 +24,13 @@ export default async function ContentArticlesPage({ searchParams }: { searchPara
   const { tab } = await searchParams;
   const current = tab === 'policies' ? 'policies' : 'articles';
   const nav = (
-    <nav className="filterbar mb-3!">
+    <FilterBar className="mb-3!">
       {TABS.map((t) => (
-        <Link key={t.id} className={'chip' + (t.id === current ? ' active' : '')} href={t.id === 'articles' ? '/content/articles' : `/content/articles?tab=${t.id}`}>
+        <FilterChip key={t.id} active={t.id === current} href={t.id === 'articles' ? '/content/articles' : `/content/articles?tab=${t.id}`}>
           {t.label}
-        </Link>
+        </FilterChip>
       ))}
-    </nav>
+    </FilterBar>
   );
   if (current === 'policies') {
     return (

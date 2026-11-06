@@ -127,6 +127,12 @@ export const GATES = [
     isolateGit: true,
   },
   {
+    id: 'agent-config',
+    // .claude/config/ の JSON の型。基準値に項目を足して型を直し忘れると CI で初めて落ちた（2026-11-06・PR #1424）。全量で 0.3 秒
+    match: (f) => /^\.claude\/config\/[^/]+\.json$/.test(f) || f === 'scripts/lib/dataset-schemas-agent-config.mjs',
+    cmd: () => ['node', 'scripts/check-agent-config.mjs'],
+  },
+  {
     id: 'knip-ratchet',
     // 使われていないファイル・export の増加。2026-10-10 に .claude/workflows/ の 2 本が CI で初めて落ちた（#953）。手元 4 秒
     match: (f) => CODE_FILE.test(f),

@@ -1,5 +1,4 @@
-import Link from 'next/link';
-import { DataTable, type DataTableColumn, type DataTableRow } from '@/components/admin';
+import { DataTable, type DataTableColumn, type DataTableRow, FilterBar, FilterChip } from '@/components/admin';
 import { Stack } from '@/components/layout';
 import { PageHead } from '@/components/ui';
 import { findRepoRoot } from '@/lib/repo-root';
@@ -69,18 +68,18 @@ export default async function QualityProgressPage({ searchParams }: { searchPara
     <>
       <PageHead title="品質サイクル進捗（総監キーワード）" />
       <Stack>
-      <nav className="filterbar">
-        <Link className="chip" href="/quality">← 品質概観</Link>
-        <Link className={'chip' + (!status && !below ? ' active' : '')} href={href({})}>すべて {v.summary.total}</Link>
+      <FilterBar>
+        <FilterChip href="/quality">← 品質概観</FilterChip>
+        <FilterChip active={!status && !below} href={href({})}>すべて {v.summary.total}</FilterChip>
         {Object.entries(v.summary.byStatus).map(([s, n]) => (
-          <Link key={s} className={'chip' + (status === s ? ' active' : '')} href={href({ status: s, below })}>
+          <FilterChip key={s} active={status === s} href={href({ status: s, below })}>
             {STATUS_JA[s] ?? s} {n}
-          </Link>
+          </FilterChip>
         ))}
-        <Link className={'chip' + (below === '2.5' ? ' active' : '')} href={href({ status, below: '2.5' })}>
+        <FilterChip active={below === '2.5'} href={href({ status, below: '2.5' })}>
           2.5 未満 {v.summary.lt25}
-        </Link>
-      </nav>
+        </FilterChip>
+      </FilterBar>
       <DataTable columns={PROGRESS_COLUMNS} rows={progressRows} filter="キーワードで絞り込む" />
       </Stack>
     </>

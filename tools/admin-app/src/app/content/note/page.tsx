@@ -1,8 +1,5 @@
 import Link from 'next/link';
-import {
-  DataTable, DetailList, DetailSheet, Facet, FacetHead, FacetShell, StatusBadge,
-  type DataTableColumn, type DataTableRow, type FacetItem,
-} from '@/components/admin';
+import { DataTable, DetailList, DetailSheet, Facet, FacetHead, FacetShell, StatusBadge, type DataTableColumn, type DataTableRow, type FacetItem, FilterBar, FilterChip } from '@/components/admin';
 import { Stack } from '@/components/layout';
 import { PageHead } from '@/components/ui';
 import FunnelPanel from './FunnelPanel';
@@ -135,10 +132,10 @@ export default async function ContentNotePage({
 }) {
   const sp = await searchParams;
   const viewTabs = (active: 'articles' | 'funnel') => (
-    <nav className="filterbar mb-3!">
-      <Link className={'chip' + (active === 'articles' ? ' active' : '')} href="/content/note">記事</Link>
-      <Link className={'chip' + (active === 'funnel' ? ' active' : '')} href="/content/note?view=funnel">導線</Link>
-    </nav>
+    <FilterBar className="mb-3!">
+      <FilterChip active={active === 'articles'} href="/content/note">記事</FilterChip>
+      <FilterChip active={active === 'funnel'} href="/content/note?view=funnel">導線</FilterChip>
+    </FilterBar>
   );
   if (sp.view === 'funnel') {
     return (
