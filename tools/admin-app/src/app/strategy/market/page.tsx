@@ -22,7 +22,7 @@ const md = (date: string) => {
   const [, m, d] = date.split('-').map(Number) as [number, number, number];
   return `${m}/${d}`;
 };
-const yen = (n: number) => (n > 0 ? `¥${Math.round(n / 1000).toLocaleString('ja-JP')}k` : '—');
+const yen = (n: number | null | undefined) => (n == null ? '—' : n === 0 ? '¥0' : `¥${Math.round(n / 1000).toLocaleString('ja-JP')}k`);
 /** 日付未発表の期間の文言を短くする（例: 2026年12月上旬〜2027年1月中旬の受験者に別途通知する日 → 12月上旬〜1月中旬）。 */
 const shortWindow = (w: string) => w.replace(/の受験者に.*$/, '').replace(/\d{4}年/g, '');
 

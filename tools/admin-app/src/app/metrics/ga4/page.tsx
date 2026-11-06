@@ -96,7 +96,7 @@ export default async function Ga4Page({
 
       {tab === 'page' && <PanelCard title="ページ別（上位20）" description={<Freshness snapshot={pageSnap} />}>
         <Stack gap="sm">
-        <SnapshotPicker basePath="/metrics/ga4" files={pageHistory} current={pageSnap?.file ?? ''} />
+        <SnapshotPicker basePath="/metrics/ga4" keep={{ tab: 'page' }} files={pageHistory} current={pageSnap?.file ?? ''} />
         <DataTable
           {...toDataTable(
             [{ key: 'page', label: 'ページ', wrap: true, render: (r) => String(r.page ?? '') }, ...metricCols()],

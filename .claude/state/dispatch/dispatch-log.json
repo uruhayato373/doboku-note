@@ -6775,6 +6775,23 @@
       "commit": "3489a6c972a1",
       "verification": "npm run check-channel-plan・tests/youtube-longform-plan.test.mjs",
       "note": "転送ページは作らない。UTM の utm_campaign で動画ごとのサイト利用者と教材クリックが GA4 に出るので、成功指標をそれに直した。note へ直接行ったクリックは取れないまま"
+    },
+    {
+      "id": "DN-1029",
+      "at": "2026-11-06",
+      "task": "管理画面の欠測を 0 と見せる表示とタブが外れる不具合を直す",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "doc",
+        "ref": ".claude/rules/code.md"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "43432aefe425",
+      "verification": "sales.json を外して欠測の表示を確認・?snapshot=none で GSC を確認・type-check:admin",
+      "note": "売上と GSC の欠測を 0 と見せない。GA4 の履歴でタブを保つ。展開の判断の 0 円を「—」にしない。README を実態に直した"
     }
   ]
 }
