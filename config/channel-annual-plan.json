@@ -40,11 +40,11 @@
   "metrics": {
     "primary": [
       {
-        "id": "youtubeNoteClicks",
-        "label": "動画からの note クリック",
-        "definition": "動画の概要欄から note の商品ページを開いた回数。購入者とは結ばない",
-        "source": "未計測。YouTube Analytics に概要欄のリンクのクリックは無く、note の流入元にも youtube の行が無い。計測の方法は DN-1005 で決める。それまでは補助の指標で見て、0 と書かない",
-        "status": "unmeasured"
+        "id": "youtubeCampaignClicks",
+        "label": "動画からのサイト利用者と教材クリック",
+        "definition": "動画の概要欄 の UTM 付きリンクからサイトへ来た利用者と、そのセッションの教材クリック（note_cta_click）。utm_campaign ごとに見る。note へ直接行ったクリックは取れないので含まない。購入者とは結ばない",
+        "source": "data/ga4/reports の campaign・campaign-note-cta（fetch-metrics）",
+        "status": "measured"
       },
       {
         "id": "averageViewPercentage",
@@ -107,11 +107,11 @@
             "status": "unmeasured"
           },
           {
-            "id": "xNoteClicks",
-            "label": "X からの note クリック",
-            "definition": "投稿から note の商品ページを開いた回数。購入者とは結ばない",
-            "source": "未計測。note の流入元の X の行は小さいが、no referrer に埋もれている可能性がある。計測の方法は DN-1005",
-            "status": "unmeasured"
+            "id": "xCampaignClicks",
+            "label": "X からのサイト利用者と教材クリック",
+            "definition": "X の投稿 の UTM 付きリンクからサイトへ来た利用者と、そのセッションの教材クリック（note_cta_click）。utm_campaign ごとに見る。note へ直接行ったクリックは取れないので含まない。購入者とは結ばない",
+            "source": "data/ga4/reports の campaign・campaign-note-cta（fetch-metrics）",
+            "status": "measured"
           }
         ],
         "support": [

@@ -146,7 +146,7 @@ test('実際の計画と台帳で違反 0 件。成功指標に登録者数を�
   assert.deepEqual(r.errors, []);
   assert.ok(inventory.length > 0);
   assert.ok(plan.metrics.notSuccess.includes('登録者数'));
-  assert.deepEqual(plan.metrics.primary.map((m) => m.id), ['youtubeNoteClicks', 'averageViewPercentage']);
+  assert.deepEqual(plan.metrics.primary.map((m) => m.id), ['youtubeCampaignClicks', 'averageViewPercentage']);
   assert.ok(plan.cycle.reviewAt > plan.updatedAt);
   for (const s of plan.slots) for (const k of ['reader', 'harm', 'value', 'demand', 'next']) assert.ok(s.reason[k]);
   assert.doesNotMatch(JSON.stringify(plan.slots), /2027-\d{2}-\d{2}/);

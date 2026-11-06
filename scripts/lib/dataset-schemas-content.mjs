@@ -100,7 +100,7 @@ export const ConfigChannelAnnualPlan = z.object({
   }).strict(),
   metrics: z.object({
     primary: z.array(z.object({
-      id: z.enum(['youtubeNoteClicks', 'averageViewPercentage']), label: z.string().min(1), definition: z.string().min(1),
+      id: z.enum(['youtubeCampaignClicks', 'averageViewPercentage']), label: z.string().min(1), definition: z.string().min(1),
       source: z.string().min(1), status: z.enum(['measured', 'unmeasured']),
     }).strict()).length(2).describe('成功指標。登録者数・再生数・本数は入れない'),
     support: z.array(z.string().min(1)).describe('補助に見る指標（business-direction の id）'),

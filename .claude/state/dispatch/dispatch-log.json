@@ -6762,6 +6762,19 @@
       "commit": "ee1c34b57c2e",
       "verification": "gate --stock 15 本 PASS / check-video-content 184 件 FAIL 0",
       "note": "BLOCK の 9 本を修正し、全部 gate --stock PASS で在庫へ入れた"
+    },
+    {
+      "id": "DN-1005",
+      "at": "2026-11-06",
+      "task": "動画から note へのクリックを計測できるようにする",
+      "tier": "high",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "3489a6c972a1",
+      "verification": "npm run check-channel-plan・tests/youtube-longform-plan.test.mjs",
+      "note": "転送ページは作らない。UTM の utm_campaign で動画ごとのサイト利用者と教材クリックが GA4 に出るので、成功指標をそれに直した。note へ直接行ったクリックは取れないまま"
     }
   ]
 }
