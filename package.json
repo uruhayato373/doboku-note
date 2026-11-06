@@ -114,6 +114,8 @@
     "check-tensaku-reply": "node scripts/check-tensaku-reply.mjs",
     "check-kosshi-sheet": "node scripts/check-kosshi-sheet.mjs",
     "check-competitor-scan-due": "node scripts/check-competitor-scan-due.mjs",
+    "check-competitor-positions": "node scripts/check-competitor-positions.mjs",
+    "competitor-position": "node scripts/report-competitor-position.mjs",
     "report-competitor-watch": "node scripts/report-competitor-watch.mjs",
     "check-dispatch-log": "node scripts/check-dispatch-log.mjs",
     "check-content-quality": "node .claude/scripts/lint-mdx-mobile.mjs --all --baseline --report",

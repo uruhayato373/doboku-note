@@ -40,6 +40,7 @@ export const UNIT_TEST_RULES = [
   { match: (f) => /^content\/site\/.+\.mdx$/.test(f), tests: ['tests/career-funnel-report.test.mjs', 'tests/career-pathways.test.mjs'] },
   // 展開の判断材料・シリーズ企画の実データ（8 回・8 回）
   { match: (f) => ['config.market-scan', 'config.competitors', 'config.product-lineup', 'config.qualification-registry', 'note.sales', 'coconala.orders'].map((id) => datasetPath(id)).includes(f), tests: ['tests/qualification-market.test.mjs'] },
+  { match: (f) => ['config.competitor-positions', 'config.competitors', 'config.market-scan'].map((id) => datasetPath(id)).includes(f), tests: ['tests/competitor-positions.test.mjs'] },
   { match: (f) => [datasetPath('config.content-series'), datasetPath('config.content-series-basis')].includes(f), tests: ['tests/content-series.test.mjs'] },
   // 通常動画の台本・メタデータ（8 回）
   { match: (f) => f.startsWith('content/sns/video-packs/') || f === datasetPath('config.youtube-production-disclosure'), tests: ['tests/youtube-authority-metadata.test.mjs'] },
@@ -151,6 +152,12 @@ export const GATES = [
     // シリーズ企画の台帳と骨子・記事の実在（8 回）
     match: (f) => [datasetPath('config.content-series'), datasetPath('config.content-series-basis')].includes(f) || f.startsWith('content/sources/series/') || /^content\/site\/.+\.mdx$/.test(f),
     cmd: () => ['node', 'scripts/check-content-series.mjs'],
+  },
+  {
+    id: 'competitor-positions',
+    // 資格ごとの競合の立ち位置（台帳と、その読み元）
+    match: (f) => ['config.competitor-positions', 'config.competitors', 'config.market-scan', 'config.channel-annual-plan'].map((id) => datasetPath(id)).includes(f),
+    cmd: () => ['node', 'scripts/check-competitor-positions.mjs'],
   },
   {
     id: 'qualification-market',

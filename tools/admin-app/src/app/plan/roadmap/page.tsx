@@ -7,6 +7,7 @@ import { PageHead } from '@/components/ui';
 import { ChannelAnnualBoard, type BoardChannel } from '@/components/channel-annual-board';
 import { magazines } from '@/lib/content';
 import { findRepoRoot, repoPath } from '@/lib/repo-root';
+import { stanceLabels } from '@/lib/competitor-positions';
 import { domainList } from '@/lib/domains';
 import { todoBoard } from '@/lib/todo';
 import { renderMarkdown } from '@/lib/markdown';
@@ -37,11 +38,13 @@ function channelBoard(root: string, calendar: Parameters<typeof examTimeline>[0]
     return { label: s?.label ?? id, state: s ? (metricStateLabel(s.state) as string) : '定義なし', ok: s?.state === 'measured' };
   });
   const youtube = loadPlanAudit(root).audit;
+  const stances = stanceLabels(root);
+  const readable = <T extends { stance: string }>(slot: T): T => ({ ...slot, stance: stances.get(slot.stance) ?? slot.stance });
   const social = (id: 'x' | 'instagram', a: typeof x): BoardChannel => {
     const c = plan.channels[id];
     return {
       id, label: c.label, role: c.role, state: c.operation.status === 'hold' ? '保留' : '運用中', weekly: `平常 ${c.weeklyMax} 本・山場 ${c.peakWeeklyMax} 本`,
-      planned: a.planned, capacity: a.capacity, metrics: metricsOf(c.metrics.primary), slots: c.slots, pending: a.pending, errors: [...a.errors, ...a.warnings],
+      planned: a.planned, capacity: a.capacity, metrics: metricsOf(c.metrics.primary), slots: c.slots.map(readable), pending: a.pending, errors: [...a.errors, ...a.warnings],
     };
   };
   const period = { start: plan.cycle.window.from, end: plan.cycle.window.to };
@@ -58,7 +61,7 @@ function channelBoard(root: string, calendar: Parameters<typeof examTimeline>[0]
       {
         id: 'youtube', label: 'YouTube', role: '検索と理解。通常動画で教材へ送り、ショートは通常動画へ案内する', state: '運用中',
         weekly: `平常 ${plan.cycle.weeklyMax} 本・山場 ${plan.cycle.peakWeeklyMax} 本`, planned: youtube.planned, capacity: youtube.capacity,
-        metrics: metricsOf(plan.metrics.primary), slots: plan.slots, pending: [...youtube.pending, ...youtubeMetrics.pending], errors: [...youtube.errors, ...youtube.warnings, ...youtubeMetrics.errors, ...youtubeMetrics.warnings],
+        metrics: metricsOf(plan.metrics.primary), slots: plan.slots.map(readable), pending: [...youtube.pending, ...youtubeMetrics.pending], errors: [...youtube.errors, ...youtube.warnings, ...youtubeMetrics.errors, ...youtubeMetrics.warnings],
       },
       social('x', x), social('instagram', instagram),
     ],

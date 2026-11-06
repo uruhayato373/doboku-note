@@ -31,6 +31,8 @@ domain: sns
 
 ## 進め方
 
+着手前に、年間の枠が決まっていれば `npm run competitor-position -- --slot <枠 id>` を読み、取る立ち位置と勝負しない所を台本の約束に反映する。枠の立ち位置と違う内容になるなら、書く前に親へ戻す。
+
 1. 既存パックとの重複を確認する（`content/sns/video-packs/README.md` の一覧と同じ悩み・同じ `promise` の有無）。重複があれば書かずに親へ報告する
 2. `sourceRefs`（サイト・note・図版）を **実際に Read** してから書く。URL・数値・制度・年度を推測しない。外部 URL は WebFetch で実在確認したものだけ
 3. `video-pack.json`: 悩み 1・約束 1・主 CTA 1。CTA は生 URL でなくカタログ ID（`primaryCta.targetId`）、`campaign` は `packId` と一致

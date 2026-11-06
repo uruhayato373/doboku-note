@@ -28,6 +28,18 @@ domain: strategy
   - **脅威**: 物量・頻度・実績で自社を上回る競合と、その土俵で戦わない代替軸
 - confidence（high/mid/low）付きで報告し、推定は「推定」と明示
 
+## 資格ごとの立ち位置（必須）
+
+分析の結論の置き場は台帳 `config/competitor-positions.json`。文書へ写さない。同じ誤りを繰り返さないため、次を守る。
+
+- **着手前**: `npm run competitor-position -- --exam <資格 id>` で現在の立ち位置・実測・調査の限界を読む。`npm run check-competitor-positions` で市場の検索で目立つ相手と崩れた主張を確かめる。
+- **競合を一部の相手で代表させない**: 資格ごとに追跡リストの全員と、市場の検索で目立つ相手（`prominentRivals`）を見る。1 社の分析を全体の結論にしない。
+- **読んだ文書だけを `read` に書く**: 依頼に挙がった文書を読めなかったら、読めなかったと報告する。
+- **数字は写さない**: 登録者・再生・価格・販売数は取得物から読む。報告の数字は、取得物のファイルと日付を添える。
+- **空き・不在は検索で確かめる**: 「いない」「薄い」「空き」は、追跡リストではなく市場の検索で確かめ、`probes` の案を出す。確かめられなければ `untested` にする。
+- **未取得と不在を分ける**: 取得に失敗した相手、追跡していないチャネルは「不在」ではなく調査の限界へ書く。
+- **反映案の形**: 文章の修正案ではなく、`positions[].rivals`・`avoid`・`stances`・`limits` の差分で返す。適用は親が行い、適用後に `check-competitor-positions` を通す。
+
 ## 担当外（audit-only）
 
 - **データ取得**: `npm run scout-note-competitors`（親が事前実行。JSON が無ければ親に実行を依頼）
@@ -35,6 +47,7 @@ domain: strategy
 - **記事・LP 執筆**: 各 note Generator
 - **確定価格の SoT 更新**: `src/lib/note-magazines.ts`（本エージェントは読むだけ）
 - 09_販売チャネル競合分析.md 本体の書き換えは提案のみ（適用は親/ユーザー）
+- `config/competitor-positions.json` の書き換えは提案のみ（適用は親）
 
 ## 入力
 
